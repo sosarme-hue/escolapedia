@@ -71,7 +71,7 @@ module.exports = {
     titulo: "Qué acelera una reacción",
     svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Cuatro factores que aumentan la velocidad de reacción con un ejemplo cotidiano">
       <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${[["Temperatura", "más calor →", "más choques", "cocinar en olla exprés", "var(--red)"], ["Concentración", "más partículas →", "más choques", "lejía más concentrada", "var(--pen)"], ["Superficie", "trocear →", "más contacto", "astillas arden antes", "var(--sun)"], ["Catalizador", "baja la energía", "de activación", "enzimas, catalizador del coche", "var(--leaf)"]]
+      ${[["Temperatura", "más calor →", "más choques", "cocinar en olla exprés", "var(--red)"], ["Concentración", "más partículas →", "más choques", "lejía más concentrada", "var(--pen)"], ["Superficie", "trocear →", "más contacto", "astillas arden antes", "var(--sun)"], ["Catalizador", "baja la energía", "de activación", "enzimas, tubo de escape", "var(--leaf)"]]
         .map(([n, a, b, ej, c], i) => `<rect x="${16 + i * 154}" y="20" width="146" height="180" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
           <text x="${89 + i * 154}" y="56" text-anchor="middle" font-size="17" font-weight="700" fill="${c}" ${D}>${n}</text>
           <text x="${89 + i * 154}" y="96" text-anchor="middle" font-size="13" fill="var(--ink)" ${F}>${a}</text>

@@ -38,9 +38,9 @@ module.exports = {
       html: `<h3>Archivos, carpetas y extensiones</h3><p>La información se guarda en <b>archivos</b> organizados en <b>carpetas</b> que forman un árbol. La <b>ruta</b> indica dónde está un archivo, por ejemplo <i>Documentos/Insti/Digitalizacion/redes.pdf</i>. La <b>extensión</b>, las letras tras el punto, dice el tipo: <b>.docx</b> u <b>.odt</b> (texto), <b>.pdf</b>, <b>.jpg</b> y <b>.png</b> (imagen), <b>.mp3</b> (audio), <b>.mp4</b> (vídeo), <b>.zip</b> (comprimido). Poner <mark>nombres claros</mark> sin espacios raros y una carpeta por materia te ahorra mucho tiempo.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Árbol de carpetas: Documentos, Insti, Digitalización con un archivo redes.pdf">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M34 42 V 150 M34 72 H 58 M34 150 H 58 M70 86 V 132 M70 104 H 94 M70 132 H 94 M106 118 V 140 M106 140 H 128" fill="none" stroke="var(--line)" stroke-width="2"/>
-        ${[[20, 30, "Documentos"], [58, 62, "Insti"], [94, 94, "Lengua"], [94, 122, "Digitalización"], [58, 140, "Fotos"]].map(([x, y, t]) => `<path d="M${x} ${y} h 10 l 3 3 h 13 v 13 h -26 z" fill="var(--sun)"/><text x="${x + 32}" y="${y + 13}" font-size="11" fill="var(--ink)" ${F}>${t}</text>`).join("")}
-        <rect x="130" y="132" width="14" height="18" rx="2" fill="var(--red)"/><text x="150" y="146" font-size="11" font-weight="700" fill="var(--red)" ${F}>redes.pdf</text>
+        <path d="M34 42 V 156 M34 58 H 58 M34 156 H 58 M70 66 V 110 M70 84 H 94 M70 110 H 94 M106 118 V 137 H 128" fill="none" stroke="var(--line)" stroke-width="2"/>
+        ${[[20, 26, "Documentos"], [58, 50, "Insti"], [94, 76, "Lengua"], [94, 102, "Digitalización"], [58, 148, "Fotos"]].map(([x, y, t]) => `<path d="M${x} ${y} h 10 l 3 3 h 13 v 13 h -26 z" fill="var(--sun)"/><text x="${x + 32}" y="${y + 13}" font-size="11" fill="var(--ink)" ${F}>${t}</text>`).join("")}
+        <rect x="130" y="128" width="14" height="18" rx="2" fill="var(--red)"/><text x="150" y="142" font-size="11" font-weight="700" fill="var(--red)" ${F}>redes.pdf</text>
         <text x="20" y="172" font-size="9" fill="var(--muted)" ${F}>ruta: Documentos/Insti/Digitalización/redes.pdf</text>
       </svg>`,
     },

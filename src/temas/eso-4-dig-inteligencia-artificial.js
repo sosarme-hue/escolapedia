@@ -61,7 +61,7 @@ module.exports = {
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Riesgos de la IA: sesgos, alucinaciones, deepfakes, privacidad y energía">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         <path d="M130 24 L 236 156 H 24 Z" fill="var(--sun)"/><text x="130" y="132" text-anchor="middle" font-size="64" font-weight="700" fill="var(--ink)" ${D}>!</text>
-        <g ${F} font-size="10" font-weight="700" fill="var(--ink)"><text x="16" y="34">sesgos</text><text x="186" y="34">deepfakes</text><text x="16" y="80">alucinaciones</text><text x="190" y="80">privacidad</text></g>
+        <g ${F} font-size="10" font-weight="700" fill="var(--ink)"><text x="16" y="34">sesgos</text><text x="186" y="34">deepfakes</text><text x="16" y="54">alucinaciones</text><text x="190" y="54">privacidad</text></g>
         <text x="130" y="172" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ink)" ${F}>energía · empleo · Reglamento europeo de IA</text>
       </svg>`,
     },

@@ -38,7 +38,7 @@ module.exports = {
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         <rect x="16" y="50" width="120" height="30" rx="6" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="26" y="70" font-size="12" fill="var(--pen)" ${F}>••••••••••••••</text>
         <text x="16" y="40" font-size="10" font-weight="700" fill="var(--ink)" ${F}>1. contraseña larga</text>
-        <rect x="176" y="32" width="54" height="94" rx="9" fill="var(--ink)"/><rect x="182" y="42" width="42" height="72" rx="3" fill="var(--paper)"/><text x="203" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="var(--leaf)" ${F}>482 913</text>
+        <rect x="176" y="32" width="54" height="94" rx="9" fill="var(--ink)"/><rect x="182" y="42" width="42" height="72" rx="3" fill="var(--paper)"/><text x="203" y="84" text-anchor="middle" font-size="10" font-weight="700" fill="var(--leaf)" ${F}>482913</text>
         <text x="203" y="144" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ink)" ${F}>2. código</text>
         <path d="M140 66 H 168" stroke="var(--ink)" stroke-width="2.5"/><path d="M164 61 L 170 66 L 164 71" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
         <rect x="20" y="110" width="110" height="44" rx="8" fill="var(--leaf)"/><text x="75" y="130" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" ${F}>larga · única</text><text x="75" y="145" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" ${F}>+ 2FA activado</text>

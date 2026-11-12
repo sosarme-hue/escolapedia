@@ -47,7 +47,7 @@ module.exports = {
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         <path d="M130 40 V 150 M96 150 H 164" stroke="var(--ink)" stroke-width="4"/><path d="M40 60 L 220 40" stroke="var(--ink)" stroke-width="4"/>
         <rect x="30" y="64" width="40" height="64" rx="6" fill="var(--ink)"/><rect x="35" y="72" width="30" height="46" rx="2" fill="var(--inf)"/>
-        ${[["sueño", "var(--pen)"], ["deporte", "var(--leaf)"], ["amigos", "var(--sun)"]].map(([t, c], i) => `<rect x="${172 + (i % 2) * 6}" y="${46 + i * 20}" width="58" height="18" rx="5" fill="${c}"/><text x="${201 + (i % 2) * 6}" y="${59 + i * 20}" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" ${F}>${t}</text>`).join("")}
+        ${[["sueño", "var(--pen)"], ["deporte", "var(--leaf)"], ["amigos", "var(--sun)"]].map(([t, c], i) => `<rect x="${172 + (i % 2) * 6}" y="${50 + i * 20}" width="58" height="18" rx="5" fill="${c}"/><text x="${201 + (i % 2) * 6}" y="${63 + i * 20}" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" ${F}>${t}</text>`).join("")}
         <text x="50" y="146" text-anchor="middle" font-size="10" font-weight="700" fill="var(--inf)" ${F}>pantalla</text>
         <text x="130" y="172" text-anchor="middle" font-size="10" fill="var(--muted)" ${F}>buscar el equilibrio</text>
       </svg>`,

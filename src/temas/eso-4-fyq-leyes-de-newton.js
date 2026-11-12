@@ -53,7 +53,7 @@ module.exports = {
         <circle cx="82" cy="146" r="6" fill="var(--ink)"/><circle cx="118" cy="146" r="6" fill="var(--ink)"/>
         <path d="M30 123 H 66" stroke="var(--red)" stroke-width="4" marker-end="url(#nf5)"/>
         <path d="M140 123 H 176" stroke="var(--leaf)" stroke-width="4" marker-end="url(#nf6)"/><text x="200" y="114" text-anchor="middle" font-size="12" font-weight="700" fill="var(--leaf)" ${F}>a pequeña</text>
-        <text x="40" y="172" font-size="12" fill="var(--muted)" ${F}>misma F, más masa → menos aceleración</text>
+        <text x="130" y="172" text-anchor="middle" font-size="11" fill="var(--muted)" ${F}>misma F, más masa → menos aceleración</text>
       </svg>`,
     },
     {

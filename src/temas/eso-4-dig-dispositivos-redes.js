@@ -34,7 +34,7 @@ module.exports = {
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         ${[["bit", "0 o 1", "var(--muted)"], ["byte", "8 bits · una letra", "var(--inf)"], ["KB", "un texto corto", "var(--leaf)"], ["MB", "una foto", "var(--sun)"], ["GB", "una película", "var(--red)"], ["TB", "un disco entero", "var(--pen)"]]
           .map(([u, d, c], i) => `<rect x="${20 + i * 18}" y="${18 + i * 25}" width="${60}" height="20" rx="5" fill="${c}"/><text x="${50 + i * 18}" y="${32 + i * 25}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" ${F}>${u}</text><text x="${88 + i * 18}" y="${32 + i * 25}" font-size="10" fill="var(--ink)" ${F}>${d}</text>`).join("")}
-        <text x="240" y="170" text-anchor="end" font-size="9" fill="var(--muted)" ${F}>cada escalón ≈ × 1000</text>
+        <text x="20" y="172" font-size="9" fill="var(--muted)" ${F}>cada escalón ≈ × 1000</text>
       </svg>`,
     },
     {
@@ -45,7 +45,7 @@ module.exports = {
         <ellipse cx="110" cy="100" rx="68" ry="48" fill="none" stroke="var(--leaf)" stroke-width="3"/>
         <ellipse cx="92" cy="108" rx="28" ry="20" fill="none" stroke="var(--sun)" stroke-width="3"/>
         <g ${F} font-size="11" font-weight="700"><text x="80" y="112" fill="var(--sun)">PAN</text><text x="140" y="96" fill="var(--leaf)">LAN</text><text x="196" y="60" fill="var(--pen)">WAN</text></g>
-        <g ${F} font-size="9" fill="var(--muted)"><text x="176" y="76">Internet</text><text x="132" y="110">casa · insti</text><text x="66" y="140">Bluetooth</text></g>
+        <g ${F} font-size="9" fill="var(--muted)"><text x="176" y="76">Internet</text><text x="150" y="112" text-anchor="middle">casa · insti</text><text x="92" y="123" text-anchor="middle" font-size="8">Bluetooth</text></g>
       </svg>`,
     },
     {
