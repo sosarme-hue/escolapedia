@@ -44,7 +44,7 @@ module.exports = {
   ],
   figura: {
     titulo: "Los grandes viajes de los siglos XV y XVI",
-    svg: figLinea("Cronología de los viajes de descubrimiento", [[40, "1488", "Dias: cabo de Buena Esperanza", 1], [160, "1492", "Colón llega a América", 0], [250, "1498", "Vasco da Gama: India", 1], [340, "1500", "Cabral: Brasil", 0], [430, "1513", "Núñez de Balboa: Pacífico", 1], [600, "1522", "Elcano: vuelta al mundo", 0]], [[40, 330, "Portugal: ruta africana", "var(--leaf)"], [330, 640, "Castilla: ruta occidental", "var(--red)"]]),
+    svg: figLinea("Cronología de los viajes de descubrimiento", [[40, "1488", "Dias: cabo de Buena Esperanza", 1], [160, "1492", "Colón llega a América", 0], [250, "1498", "Vasco da Gama: India", 1], [340, "1500", "Cabral: Brasil", 0], [430, "1513", "Núñez de Balboa: Pacífico", 1], [600, "1522", "Elcano: vuelta al mundo", 0]]),
   },
   video: { id: "Z5xd9y8BdmQ", titulo: "Los Reyes Católicos en 10 minutos: el reinado de Isabel y Fernando", canal: "HistoriaEn10'", vistas: 481838, megusta: 0, busqueda: "reyes católicos" },
   quiz: [
@@ -65,7 +65,7 @@ module.exports = {
     ["Técnica", "carabela · brújula · astrolabio", "var(--pen)"],
     ["Reyes Católicos", "unión dinástica · Granada", "var(--red)"],
     ["América", "Colón 1492 · Tordesillas", "var(--leaf)"],
-  ], 280),
+  ], 270),
   tarjetas: [
     ["Carabela", "Barco ligero y rápido de los viajes de descubrimiento."],
     ["Unión dinástica", "Unión de Castilla y Aragón por el matrimonio de sus reyes, sin unir sus leyes."],

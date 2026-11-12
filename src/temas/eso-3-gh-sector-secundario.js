@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       html: `<h3>Factores de localización</h3><p>Las fábricas se instalan donde les resulta más rentable. Los <b>factores de localización</b> son: la cercanía a las <b>materias primas</b> y la <b>energía</b>, la existencia de <b>mano de obra</b> (barata o cualificada), unas buenas <b>comunicaciones</b> (puertos, autopistas), un gran <b>mercado</b> para vender, el <b>capital</b> y las <b>ayudas</b> de los gobiernos. Antes pesaban las materias primas; hoy pesan más las comunicaciones, la tecnología y el conocimiento.</p>`,
-      svg: rueda("Factores de localización industrial", "FÁBRICA", [["materias primas", "var(--leaf)"], ["energía", "var(--sun)"], ["mano de obra", "var(--pen)"], ["transporte", "var(--ink)"], ["mercado", "var(--red)"], ["ayudas", "var(--muted)"]], "var(--pen)"),
+      svg: rueda("Factores de localización industrial", "FÁBRICA", [["materias primas", "var(--leaf)"], ["energía", "var(--sun)"], ["mercado", "var(--red)"], ["ayudas", "var(--muted)"], ["mano de obra", "var(--pen)"], ["transporte", "var(--ink)"]], "var(--pen)"),
     },
     {
       html: `<h3>Las grandes regiones industriales</h3><p>Durante el siglo XX, la industria se concentró en <b>Europa occidental</b>, <b>Estados Unidos</b> y <b>Japón</b>. Desde 1980, muchas fábricas se han <mark>deslocalizado</mark> hacia países con salarios más bajos, y hoy <b>China</b> es la primera potencia industrial del mundo, seguida de Estados Unidos. También crecen India, Corea del Sur, México, Brasil o Vietnam. Los países ricos se especializan en la industria de alta tecnología.</p>`,
@@ -62,7 +62,7 @@ module.exports = {
     ["Energía", "no renovable · renovable", "var(--sun)"],
     ["Industria", "base · equipo · consumo", "var(--pen)"],
     ["Localización", "factores · deslocalización", "var(--red)"],
-  ], 280),
+  ], 270),
   tarjetas: [
     ["Materia prima", "Recurso natural que la industria transforma: hierro, algodón, petróleo…"],
     ["Combustibles fósiles", "Petróleo, gas natural y carbón: no renovables y emiten CO₂."],

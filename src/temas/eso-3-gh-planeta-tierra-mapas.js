@@ -42,7 +42,7 @@ module.exports = {
     },
     {
       html: `<h3>Los mapas y la escala</h3><p>Un <b>mapa</b> es una representación reducida y plana de la superficie terrestre. La <mark>escala</mark> indica cuántas veces se ha reducido la realidad. En la escala numérica 1:50.000, 1 cm del mapa equivale a 50.000 cm (500 m) en la realidad. La escala gráfica es una regla dibujada. Cuanto <b>menor</b> es el denominador, mayor es la escala y más detalle se ve: un plano de ciudad (1:10.000) frente a un mapa de España (1:6.000.000).</p>`,
-      svg: dos("Escala grande frente a escala pequeña", ["Escala grande", ["1:10.000", "poco territorio", "mucho detalle", "planos de ciudad", "mapas de senderos"], "var(--leaf)"], ["Escala pequeña", ["1:6.000.000", "mucho territorio", "poco detalle", "mapas de países", "atlas del mundo"], "var(--pen)"]),
+      svg: dos("Escala grande frente a escala pequeña", ["Grande", ["1:10.000", "poco territorio", "mucho detalle", "planos de ciudad", "senderismo"], "var(--leaf)"], ["Pequeña", ["1:6.000.000", "mucho territorio", "poco detalle", "mapas de países", "atlas del mundo"], "var(--pen)"]),
     },
     {
       html: `<h3>Tipos de mapas</h3><p>Los <b>mapas topográficos</b> representan el relieve con <mark>curvas de nivel</mark>, líneas que unen puntos de la misma altitud; cuanto más juntas están, más pendiente tiene el terreno. Los <b>mapas temáticos</b> muestran un solo tema: clima, población, carreteras, votos. Todo mapa debe tener <b>título, orientación (norte), escala y leyenda</b>, que explica el significado de colores y símbolos.</p>`,

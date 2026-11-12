@@ -64,7 +64,7 @@ module.exports = {
     ["Poderes", "legislativo · ejecutivo · judicial", "var(--pen)"],
     ["Regímenes", "democracia · dictadura", "var(--red)"],
     ["España", "monarquía parlamentaria · CC. AA.", "var(--sun)"],
-  ], 280),
+  ], 270),
   tarjetas: [
     ["Soberanía", "Poder de un Estado para gobernarse sin depender de otro."],
     ["Poder ejecutivo", "Gobierna y aplica las leyes: el Gobierno."],

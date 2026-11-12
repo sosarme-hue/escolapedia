@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       html: `<h3>Los problemas ambientales</h3><p>El crecimiento económico ha traído graves problemas. El <mark>cambio climático</mark>, causado por los gases de efecto invernadero, eleva la temperatura, el nivel del mar y los fenómenos extremos. También preocupan la <b>deforestación</b> (sobre todo de las selvas tropicales), la <b>pérdida de biodiversidad</b>, la contaminación del aire, del agua y de los océanos por <b>plásticos</b>, y el <b>agotamiento de recursos</b> como el agua dulce o los suelos fértiles.</p>`,
-      svg: rueda("Grandes problemas ambientales", "PLANETA", [["cambio climático", "var(--red)"], ["deforestación", "var(--leaf)"], ["biodiversidad", "var(--sun)"], ["plásticos", "var(--inf)"], ["contaminación", "var(--ink)"], ["agua", "var(--pen)"]], "var(--leaf)"),
+      svg: rueda("Grandes problemas ambientales", "PLANETA", [["cambio climático", "var(--red)"], ["deforestación", "var(--leaf)"], ["agua", "var(--pen)"], ["plásticos", "var(--inf)"], ["biodiversidad", "var(--sun)"], ["contaminación", "var(--ink)"]], "var(--leaf)"),
     },
     {
       html: `<h3>El desarrollo sostenible</h3><p>El <b>desarrollo sostenible</b> es el que satisface las necesidades del presente <mark>sin comprometer las de las generaciones futuras</mark> (Informe Brundtland, 1987). Une tres dimensiones: <b>económica</b> (crear riqueza y empleo), <b>social</b> (reducir la pobreza y la desigualdad) y <b>ambiental</b> (cuidar el planeta). En 2015, la ONU aprobó la <b>Agenda 2030</b>, con 17 <b>Objetivos de Desarrollo Sostenible</b> (ODS), como acabar con el hambre, lograr la igualdad de género o actuar por el clima.</p>`,

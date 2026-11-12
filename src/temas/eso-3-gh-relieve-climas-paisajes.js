@@ -20,7 +20,7 @@ module.exports = {
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         <path d="M10 140 L 30 70 L 46 96 L 62 40 L 84 110 L 96 80 H 140 L 150 118 L 162 112 L 172 126 H 206 L 214 116 L 218 140 Z" fill="var(--leaf)" fill-opacity=".55" stroke="var(--ink)" stroke-width="2"/>
         <path d="M218 140 H 252" stroke="var(--inf)" stroke-width="6"/>
-        <g ${F} font-size="10.5" font-weight="700" text-anchor="middle"><text x="50" y="30" fill="var(--ink)">cordillera</text><text x="118" y="72" fill="var(--ink)">meseta</text><text x="158" y="104" fill="var(--ink)">valle</text><text x="190" y="118" fill="var(--ink)">llanura</text><text x="236" y="130" fill="var(--inf)">mar</text><text x="130" y="166" fill="var(--muted)">del interior a la costa</text></g></svg>`,
+        <g ${F} font-size="10.5" font-weight="700" text-anchor="middle"><text x="50" y="30" fill="var(--ink)">cordillera</text><text x="118" y="72" fill="var(--ink)">meseta</text><text x="154" y="134" fill="var(--ink)">valle</text><text x="190" y="118" fill="var(--ink)">llanura</text><text x="236" y="130" fill="var(--inf)">mar</text><text x="130" y="166" fill="var(--muted)">del interior a la costa</text></g></svg>`,
     },
     {
       html: `<h3>Tiempo y clima</h3><p>El <b>tiempo atmosférico</b> es el estado de la atmósfera en un lugar y un momento concretos: hoy llueve en Bilbao. El <mark>clima</mark> es el tiempo habitual de un lugar a lo largo de muchos años (al menos 30): en Bilbao llueve mucho y las temperaturas son suaves. Los <b>elementos del clima</b> son la temperatura, las precipitaciones, la presión atmosférica, el viento y la humedad.</p>`,
@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       html: `<h3>Los factores del clima</h3><p>Los <b>factores</b> explican por qué cada lugar tiene su clima. La <mark>latitud</mark>: cuanto más lejos del ecuador, menos calor. La <mark>altitud</mark>: la temperatura baja unos 6 °C cada 1.000 m. La <b>distancia al mar</b>: el mar suaviza las temperaturas, y el interior tiene veranos más calurosos e inviernos más fríos. También influyen las <b>corrientes marinas</b>, los vientos y la <b>orientación</b> del relieve.</p>`,
-      svg: rueda("Factores que influyen en el clima", "CLIMA", [["latitud", "var(--red)"], ["altitud", "var(--ink)"], ["distancia al mar", "var(--inf)"], ["corrientes", "var(--pen)"], ["vientos", "var(--muted)"], ["orientación", "var(--leaf)"]], "var(--sun)"),
+      svg: rueda("Factores que influyen en el clima", "CLIMA", [["latitud", "var(--red)"], ["altitud", "var(--ink)"], ["mar", "var(--inf)"], ["vientos", "var(--muted)"], ["corrientes", "var(--pen)"], ["orientación", "var(--leaf)"]], "var(--sun)"),
     },
     {
       html: `<h3>Los grandes climas de la Tierra</h3><p>Según las zonas de la Tierra hay tres grandes grupos. En la <b>zona cálida</b>: clima <mark>ecuatorial</mark> (calor y lluvia todo el año), tropical (estación seca y húmeda) y desértico (casi sin lluvia). En la <b>zona templada</b>: mediterráneo, oceánico y continental. En las <b>zonas frías</b>: polar y, en las montañas altas, el clima de alta montaña.</p>`,

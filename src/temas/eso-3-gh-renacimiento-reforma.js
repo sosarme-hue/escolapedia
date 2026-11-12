@@ -37,7 +37,7 @@ module.exports = {
   ],
   figura: {
     titulo: "Cronología del Renacimiento y la Reforma",
-    svg: figLinea("Línea del tiempo de 1450 a 1563", [[50, "1450", "imprenta de Gutenberg", 1], [140, "1492", "gramática de Nebrija", 0], [250, "1508", "Capilla Sixtina", 1], [330, "1517", "95 tesis de Lutero", 0], [430, "1534", "Iglesia anglicana", 1], [520, "1545", "Concilio de Trento", 0], [630, "1563", "fin de Trento", 1]], [[50, 330, "Humanismo y Renacimiento", "var(--sun)"], [330, 640, "Reforma y Contrarreforma", "var(--pen)"]]),
+    svg: figLinea("Línea del tiempo de 1450 a 1563", [[50, "1450", "imprenta de Gutenberg", 1], [140, "1492", "gramática de Nebrija", 0], [250, "1508", "Capilla Sixtina", 1], [330, "1517", "95 tesis de Lutero", 0], [430, "1534", "Iglesia anglicana", 1], [520, "1545", "Concilio de Trento", 0], [630, "1563", "fin de Trento", 1]], [[50, 330, "Renacimiento", "var(--sun)"], [330, 640, "Reforma", "var(--pen)"]]),
   },
   video: { id: "f-n0PGITuD0", titulo: "El Renacimiento en 10 minutos", canal: "HistoriaEn10'", vistas: 1266076, megusta: 0, busqueda: "el renacimiento y el humanismo" },
   quiz: [

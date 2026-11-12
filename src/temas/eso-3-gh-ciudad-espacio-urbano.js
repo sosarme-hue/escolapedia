@@ -40,7 +40,7 @@ module.exports = {
     },
     {
       html: `<h3>La jerarquía urbana</h3><p>Las ciudades se ordenan según su tamaño y su influencia. Arriba están las <mark>ciudades globales</mark> (Nueva York, Londres, Tokio), que dirigen la economía mundial. Siguen las metrópolis nacionales (Madrid), las regionales (Sevilla, Valencia), las ciudades medias y las pequeñas. Cuando una ciudad absorbe los municipios de alrededor forma un <b>área metropolitana</b>; si varias áreas se unen, surge una <b>megalópolis</b>.</p>`,
-      svg: piramide("Jerarquía urbana de mayor a menor influencia", [["global", "var(--red)"], ["metrópoli nacional", "var(--sun)"], ["metrópolis regionales", "var(--leaf)"], ["ciudades medias y pequeñas", "var(--pen)"]]),
+      svg: piramide("Jerarquía urbana de mayor a menor influencia", [["global", "var(--red)"], ["nacional", "var(--sun)"], ["regionales", "var(--leaf)"], ["medias y pequeñas", "var(--pen)"]]),
     },
   ],
   figura: {

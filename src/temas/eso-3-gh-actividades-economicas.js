@@ -63,7 +63,7 @@ module.exports = {
     ["Factores", "naturaleza · trabajo · capital", "var(--leaf)"],
     ["Sectores", "primario · secundario · terciario", "var(--pen)"],
     ["Sistemas", "mercado · planificada · mixta", "var(--red)"],
-  ], 280),
+  ], 270),
   tarjetas: [
     ["Bien económico", "Objeto material que satisface una necesidad."],
     ["Capital", "Dinero, máquinas y edificios usados para producir."],
