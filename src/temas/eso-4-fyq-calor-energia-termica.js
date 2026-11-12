@@ -32,7 +32,7 @@ module.exports = {
       <p><b>c</b> es el <b>calor específico</b>: la energía para subir 1 °C un kilo de sustancia. El agua tiene <mark>c = 4 180 J/(kg·°C)</mark>, de los más altos; el hierro, unos 450. Calentar 2 kg de agua de 20 a 70 °C cuesta 2 · 4 180 · 50 = <b>418 000 J</b>.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Con la misma energía, el hierro sube mucha temperatura y el agua muy poca">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[[60, "agua", 5, "var(--water)"], [190, "hierro", 50, "var(--muted)"]].map(([x, n, dt, c]) => `<rect x="${x - 30}" y="60" width="60" height="50" rx="8" fill="${c}" opacity=".6"/><text x="${x}" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)" ${F}>1 kg ${n}</text>
+        ${[[60, "agua", 5, "var(--water)"], [190, "hierro", 50, "var(--muted)"]].map(([x, n, dt, c]) => `<rect x="${x - 30}" y="60" width="60" height="50" rx="8" fill="${c}" opacity=".6"/><text x="${x}" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ink)" ${F}>1 kg ${n}</text>
           <rect x="${x + 36}" y="40" width="10" height="80" rx="5" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/><rect x="${x + 38}" y="${118 - dt * 1.4}" width="6" height="${dt * 1.4}" fill="var(--red)"/>
           <text x="${x}" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="var(--red)" ${F}>+${dt} °C</text>`).join("")}
         <text x="130" y="28" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>misma energía: 22 500 J</text>

@@ -46,7 +46,7 @@ module.exports = {
         <rect x="30" y="86" width="30" height="8" fill="var(--ink)"/><rect x="150" y="64" width="80" height="8" fill="var(--ink)"/>
         <rect x="160" y="40" width="60" height="18" rx="5" fill="var(--sun)"/><circle cx="172" cy="60" r="5" fill="var(--ink)"/><circle cx="208" cy="60" r="5" fill="var(--ink)"/>
         <path d="M45 40 V 80" stroke="var(--red)" stroke-width="3.5" marker-end="url(#pf1)"/><path d="M240 100 V 50" stroke="var(--leaf)" stroke-width="4" marker-end="url(#pf2)"/>
-        <g ${F} font-size="12" font-weight="700"><text x="54" y="40" fill="var(--red)">F₁ pequeña</text><text x="232" y="118" text-anchor="end" fill="var(--leaf)">F₂ grande</text></g>
+        <g ${F} font-size="12" font-weight="700"><text x="54" y="40" fill="var(--red)">F₁ pequeña</text><text x="226" y="112" text-anchor="end" fill="var(--leaf)">F₂ grande</text></g>
       </svg>`,
     },
     {

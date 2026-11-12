@@ -77,7 +77,7 @@ module.exports = {
     titulo: "Del fenómeno a la teoría",
     svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Hipótesis, ley y teoría, con un ejemplo cada uno">
       <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${[["HIPÓTESIS", "respuesta provisional", "que se puede comprobar", "«el péndulo largo tarda más»", "var(--red)"], ["LEY", "relación que se cumple", "siempre, a menudo con fórmula", "T = 2π √(L/g)", "var(--pen)"], ["TEORÍA", "explicación amplia que", "une muchas leyes", "la gravitación de Newton", "var(--leaf)"]]
+      ${[["HIPÓTESIS", "respuesta provisional", "que se puede comprobar", "«el péndulo largo tarda más»", "var(--red)"], ["LEY", "relación que se cumple", "siempre, a veces con fórmula", "T = 2π √(L/g)", "var(--pen)"], ["TEORÍA", "explicación amplia que", "une muchas leyes", "la gravitación de Newton", "var(--leaf)"]]
         .map(([n, l1, l2, ej, c], i) => `<rect x="${20 + i * 206}" y="20" width="190" height="180" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
           <text x="${115 + i * 206}" y="62" text-anchor="middle" font-size="24" font-weight="700" fill="${c}" ${D}>${n}</text>
           <text x="${115 + i * 206}" y="100" text-anchor="middle" font-size="14" fill="var(--ink)" ${F}>${l1}</text>

@@ -32,7 +32,7 @@ module.exports = {
         <rect x="98" y="72" width="40" height="14" rx="4" fill="var(--red)"/>
         <path d="M144 80 H 166" stroke="var(--muted)" stroke-width="2.5" marker-end="url(#bt1)"/>
         <circle cx="212" cy="80" r="30" fill="none" stroke="var(--pen)" stroke-width="6"/><path d="M236 62 A 30 30 0 0 1 238 96" fill="none" stroke="var(--red)" stroke-width="7"/>
-        <g ${F} font-size="11" font-weight="700" text-anchor="middle"><text x="52" y="132" fill="var(--pen)">plásmido cortado</text><text x="118" y="62" fill="var(--red)">gen</text><text x="212" y="132" fill="var(--ink)">ADN recombinante</text></g>
+        <g ${F} font-size="11" font-weight="700" text-anchor="middle"><text x="52" y="132" fill="var(--pen)">plásmido cortado</text><text x="118" y="62" fill="var(--red)">gen</text><text x="198" y="132" font-size="10" fill="var(--ink)">ADN recombinante</text></g>
       </svg>`,
     },
     {
@@ -72,7 +72,7 @@ module.exports = {
     svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Cuatro pasos: aislar el gen, insertarlo en un plásmido, introducirlo en bacterias y cultivarlas para obtener insulina">
       <defs>${flecha("bt3", "var(--muted)")}</defs>
       <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${[["1", "Cortar", "el gen humano", "con enzimas de restricción", "var(--red)"], ["2", "Pegar", "en un plásmido", "con ADN ligasa", "var(--pen)"], ["3", "Introducir", "en bacterias", "que lo aceptan", "var(--leaf)"], ["4", "Cultivar", "y purificar", "la insulina", "var(--sun)"]]
+      ${[["1", "Cortar", "el gen humano", "con enzimas", "var(--red)"], ["2", "Pegar", "en un plásmido", "con ADN ligasa", "var(--pen)"], ["3", "Introducir", "en bacterias", "que lo aceptan", "var(--leaf)"], ["4", "Cultivar", "y purificar", "la insulina", "var(--sun)"]]
         .map(([n, t, a, b, c], i) => `<rect x="${16 + i * 156}" y="30" width="138" height="160" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
           <circle cx="${85 + i * 156}" cy="62" r="18" fill="${c}"/><text x="${85 + i * 156}" y="69" text-anchor="middle" font-size="18" font-weight="700" fill="#fff" ${D}>${n}</text>
           <text x="${85 + i * 156}" y="112" text-anchor="middle" font-size="18" font-weight="700" fill="${c}" ${D}>${t}</text>
