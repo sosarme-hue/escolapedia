@@ -82,3 +82,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar las libertades del mercado único y el euro", "Conocer qué aporta la ciudadanía europea y los retos de la UE"],
+  bloques: [
+    { tras: "Las instituciones", html: `<h3>Quién hace qué</h3>${tabla(["Institución", "Sede", "Función"], [["Parlamento Europeo", "Estrasburgo y Bruselas", "elegido por los ciudadanos cada 5 años; aprueba leyes y presupuesto"], ["Consejo de la UE", "Bruselas", "ministros de cada país; aprueba leyes con el Parlamento"], ["Consejo Europeo", "Bruselas", "jefes de Estado o de Gobierno; marca las grandes orientaciones"], ["Comisión Europea", "Bruselas", "propone leyes y vigila que se cumplan"], ["Tribunal de Justicia", "Luxemburgo", "interpreta el Derecho de la UE"], ["Banco Central Europeo", "Fráncfort", "controla el euro y la inflación"]])}`, video: { id: "QaonMOWIW2w", titulo: "Guía básica para entender la Unión Europea", canal: "El Viejo Continente", vistas: 230204, megusta: 0 } },
+    { tras: "De la CEE a la Unión Europea", html: `<h3>El mercado único y sus cuatro libertades</h3><p>Desde 1993 la UE es un <b>mercado único</b> sin aranceles ni controles en sus fronteras interiores. Se basa en cuatro libertades de circulación: de <mark>personas</mark> (vivir, estudiar y trabajar en otro país), de <mark>mercancías</mark>, de <mark>servicios</mark> y de <mark>capitales</mark>. El <b>espacio Schengen</b> eliminó los controles de pasaporte entre la mayoría de los países. Para que el mercado funcione, la UE fija normas comunes de seguridad, de protección al consumidor y de competencia; por ejemplo, la garantía de dos años al comprar un producto o el fin del roaming en el móvil.</p>` },
+    { tras: "De la CEE a la Unión Europea", html: `<h3>El euro</h3><p>El <b>euro</b> se creó en 1999 como moneda de cuenta y llegó en monedas y billetes el <b>1 de enero de 2002</b>. Hoy lo usan 21 países (Bulgaria fue el último, en 2026), la llamada <mark>eurozona</mark>. Ventajas: se comparan precios fácilmente, desaparecen los gastos de cambio de moneda y hay más estabilidad. Inconveniente: cada país ya no puede cambiar el valor de su moneda ni fijar sus tipos de interés, que decide el <b>Banco Central Europeo</b>. Para entrar hay que cumplir requisitos de inflación, déficit y deuda (los criterios de Maastricht).</p>` },
+    { tras: "Qué supone para España", html: `<h3>Ser ciudadano europeo</h3><p>Todo español es también <mark>ciudadano de la UE</mark>. Eso significa poder vivir y trabajar en cualquier país miembro, votar en las elecciones municipales y europeas allí donde se resida, recibir protección consular de otro país de la UE fuera de Europa, y usar la <b>Tarjeta Sanitaria Europea</b>. Los jóvenes pueden estudiar con <b>Erasmus+</b>, del que España es uno de los países que más estudiantes envía y recibe, o participar en el Cuerpo Europeo de Solidaridad. La <b>Carta de los Derechos Fundamentales</b> recoge los derechos de todos.</p>` },
+    { tras: "Qué supone para España", html: `<h3>Los retos de la UE</h3><p>La UE afronta desafíos importantes: la salida del <b>Reino Unido</b> (<mark>Brexit</mark>, 2020), el auge de partidos euroescépticos, la gestión de la inmigración, la dependencia energética, la guerra en Ucrania y la competencia con EE. UU. y China. Tras la pandemia de 2020 se aprobó el fondo <b>Next Generation EU</b>, financiado con deuda común, para impulsar la transición verde y digital. El <b>Pacto Verde Europeo</b> fija el objetivo de que la UE sea climáticamente neutra en 2050.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Una estudiante española quiere hacer un curso en Italia y luego trabajar en Alemania. ¿Qué derechos de la UE usa?", pasos: ["Estudiar en Italia: libre circulación de personas y, quizá, una beca Erasmus+.", "Trabajar en Alemania: libre circulación de trabajadores, sin permiso de trabajo.", "Viajar sin pasaporte: espacio Schengen.", "Atención médica: Tarjeta Sanitaria Europea."], resultado: "Usa la ciudadanía europea y la libre circulación de personas." },
+    { enunciado: "Explica cómo se aprueba una ley europea (procedimiento legislativo ordinario).", pasos: ["La Comisión propone la ley.", "El Parlamento Europeo la debate y la enmienda.", "El Consejo de la UE también la estudia.", "Si Parlamento y Consejo se ponen de acuerdo, se aprueba."], resultado: "La Comisión propone; el Parlamento y el Consejo deciden juntos." },
+    { enunciado: "Calcula: si un producto cuesta 120 € en Francia y 110 € en España, ¿qué facilita el euro?", pasos: ["Ambos precios están en la misma moneda.", "No hay que calcular tipos de cambio ni pagar comisiones.", "La diferencia es de 10 €, fácil de ver."], resultado: "El euro permite comparar precios directamente y favorece la competencia." },
+  ],
+  errores: [
+    "Confundir el Consejo Europeo (jefes de Estado o de Gobierno) con el Consejo de Europa (otra organización, en Estrasburgo).",
+    "Pensar que todos los países de la UE usan el euro.",
+    "Creer que la Comisión Europea se elige directamente: los ciudadanos eligen el Parlamento.",
+    "Pensar que Schengen y la UE son lo mismo: algunos países están en uno y no en el otro.",
+    "Situar la entrada de España en 1992: fue el 1 de enero de 1986.",
+  ],
+  ejercicios: [
+    { q: "¿Qué propuso la Declaración Schuman (1950)?", sol: "Poner en común la producción de carbón y acero de Francia y Alemania para hacer imposible otra guerra entre ellas." },
+    { q: "¿Qué seis países fundaron la CEE en 1957?", sol: "Francia, Alemania Occidental, Italia, Bélgica, Países Bajos y Luxemburgo." },
+    { q: "¿Qué cambió el Tratado de Maastricht?", sol: "Creó la Unión Europea (1992), la ciudadanía europea y preparó el euro." },
+    { q: "Cita las cuatro libertades del mercado único.", sol: "Libre circulación de personas, mercancías, servicios y capitales." },
+    { q: "¿Qué institución representa directamente a los ciudadanos?", sol: "El Parlamento Europeo, elegido por sufragio universal cada cinco años." },
+    { q: "¿Qué hace el Banco Central Europeo?", sol: "Gestiona el euro y fija los tipos de interés para mantener la inflación baja (cerca del 2 %)." },
+    { q: "¿Qué es el espacio Schengen?", sol: "La zona sin controles de pasaporte entre los países que lo forman." },
+    { q: "¿Qué fondos europeos han ayudado a España?", sol: "Los fondos estructurales y de cohesión (carreteras, trenes, formación) y, recientemente, los fondos Next Generation EU." },
+    { q: "¿Qué fue el Brexit?", sol: "La salida del Reino Unido de la UE, efectiva en 2020." },
+    { q: "¿Qué objetivo tiene el Pacto Verde Europeo?", sol: "Que la UE sea climáticamente neutra en 2050." },
+  ],
+  quiz: [
+    { q: "El Parlamento Europeo se elige cada…", o: ["4 años", "5 años", "6 años"], a: 1, e: "Las últimas elecciones fueron en 2024." },
+    { q: "La Comisión Europea…", o: ["propone las leyes", "juzga los delitos", "elige al Parlamento"], a: 0, e: "Y vigila que se cumplan." },
+    { q: "El euro llegó a los bolsillos en…", o: ["1999", "2002", "1986"], a: 1, e: "El 1 de enero de 2002." },
+    { q: "El Banco Central Europeo está en…", o: ["Fráncfort", "Bruselas", "Madrid"], a: 0, e: "En Alemania." },
+    { q: "¿Cuál NO es una de las cuatro libertades?", o: ["libre circulación de capitales", "libre circulación de armas", "libre circulación de servicios"], a: 1, e: "Las cuatro son personas, mercancías, servicios y capitales." },
+  ],
+  tarjetas: [
+    ["Mercado único", "Espacio sin aranceles con cuatro libertades de circulación."],
+    ["Eurozona", "Países de la UE que usan el euro."],
+    ["Ciudadanía europea", "Derechos de todos los nacionales de un país de la UE."],
+  ],
+});

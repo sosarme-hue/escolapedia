@@ -112,4 +112,29 @@ function arbol(label, raices) {
   }).join("")}</g>`);
 }
 
-module.exports = { caja, linea, dos, rueda, filas, piramide, flujo, barras, figLinea, figCols, arbol, esc };
+
+// Tabla sencilla con el estilo de la web.
+const tabla = (cab, filas) => `<table class="tb"><thead><tr>${cab.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>${filas.map((f) => `<tr>${f.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+
+// Ampliación a nivel de libro de texto. a = { minutos, objetivos, bloques: [{ tras, html, svg, video }], ejemplos, errores, ejercicios, quiz, tarjetas }.
+// Cada bloque nuevo va detrás del bloque cuyo html contiene «tras» (y de los nuevos que ya se pusieron ahí); sin «tras», al final.
+function ampliar(T, a) {
+  if (a.minutos) T.minutos = a.minutos;
+  if (a.objetivos) T.objetivos.push(...a.objetivos);
+  const puestos = new Set();
+  for (const { tras, ...b } of a.bloques || []) {
+    let i = tras ? T.bloques.findIndex((x) => x.html.includes(tras)) : T.bloques.length - 1;
+    if (i < 0) throw new Error(`ampliar: no encuentro «${tras}» en ${T.titulo}`);
+    while (i + 1 < T.bloques.length && puestos.has(T.bloques[i + 1])) i++;
+    T.bloques.splice(i + 1, 0, b);
+    puestos.add(b);
+  }
+  if (a.ejemplos) T.ejemplos = a.ejemplos;
+  if (a.errores) T.errores = a.errores;
+  if (a.ejercicios) T.ejercicios = a.ejercicios;
+  if (a.quiz) T.quiz.push(...a.quiz);
+  if (a.tarjetas) T.tarjetas.push(...a.tarjetas);
+  return T;
+}
+
+module.exports = { tabla, ampliar, caja, linea, dos, rueda, filas, piramide, flujo, barras, figLinea, figCols, arbol, esc };

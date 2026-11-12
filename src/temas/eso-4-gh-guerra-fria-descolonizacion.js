@@ -87,3 +87,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Comparar el modelo capitalista y el comunista", "Explicar las vías y las consecuencias de la descolonización"],
+  bloques: [
+    { tras: "Un mundo bipolar", html: `<h3>Dos modelos enfrentados</h3>${tabla(["", "Bloque occidental", "Bloque comunista"], [["Líder", "Estados Unidos", "URSS"], ["Economía", "capitalismo: propiedad privada y mercado", "planificación estatal, sin propiedad privada de empresas"], ["Política", "democracias liberales con varios partidos", "partido comunista único"], ["Alianza militar", "OTAN (1949)", "Pacto de Varsovia (1955)"], ["Ayuda económica", "Plan Marshall (1947)", "COMECON (1949)"]])}<p>Europa quedó dividida por el <mark>telón de acero</mark>, como dijo Churchill en 1946.</p>` },
+    { tras: "Las crisis más peligrosas", html: `<h3>Alemania y el muro de Berlín</h3><p>En 1949 Alemania se dividió en dos Estados: la <b>República Federal</b> (RFA, occidental) y la <b>República Democrática</b> (RDA, comunista). Berlín, dentro de la RDA, también estaba partido. En 1948-1949 los soviéticos bloquearon los accesos a Berlín Oeste y los aliados lo abastecieron con un <b>puente aéreo</b>. Como miles de alemanes huían al oeste, en <mark>1961</mark> la RDA levantó el <b>muro de Berlín</b>, que se convirtió en el símbolo de la Guerra Fría. Murieron más de 100 personas intentando cruzarlo.</p>` },
+    { tras: "Las crisis más peligrosas", html: `<h3>Las guerras calientes: Corea y Vietnam</h3><p>Las superpotencias nunca se enfrentaron directamente, pero apoyaron a bandos opuestos en otros países. En la <b>guerra de Corea</b> (1950-1953) el norte comunista invadió el sur; tras tres años de lucha la frontera quedó casi igual, y Corea sigue dividida. En la <mark>guerra de Vietnam</mark> (1955-1975) EE. UU. llegó a enviar más de medio millón de soldados para frenar a los comunistas; las imágenes de la guerra provocaron grandes protestas, y en 1975 Vietnam se unificó bajo un gobierno comunista.</p>` },
+    { tras: "La descolonización", html: `<h3>Causas y vías de la descolonización</h3><p>Tras 1945 las metrópolis europeas estaban debilitadas, crecían los <b>movimientos nacionalistas</b> en las colonias, y tanto la ONU como EE. UU. y la URSS apoyaban la independencia. Hubo dos vías: la <b>pacífica</b>, negociada, como la de la <b>India</b> (1947), con <mark>Gandhi</mark> y su resistencia no violenta, y la <b>violenta</b>, con guerras largas, como la de Argelia contra Francia (1954-1962). África se independizó sobre todo en los años 60: en <b>1960</b>, el «año de África», nacieron 17 Estados. España concedió la independencia a Guinea Ecuatorial en 1968.</p>`, video: { id: "E8lN3zR1wm0", titulo: "La descolonización de África y Asia: resumen", canal: "Cuaderno de Historia", vistas: 390450, megusta: 0 } },
+    { tras: "La descolonización", html: `<h3>El Tercer Mundo y los No Alineados</h3><p>Muchos países nuevos heredaron fronteras artificiales, economías basadas en exportar materias primas y una gran deuda: es el <mark>neocolonialismo</mark>, la dependencia económica de las antiguas metrópolis. En la <b>Conferencia de Bandung</b> (1955) los países de Asia y África condenaron el colonialismo y nació el <b>Movimiento de Países No Alineados</b>, que no quería depender de ninguno de los dos bloques. La expresión <b>Tercer Mundo</b> designó a esos países pobres, distintos del primero (capitalista) y del segundo (comunista).</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Explica por qué la Guerra Fría se llama «fría».", pasos: ["EE. UU. y la URSS nunca lucharon directamente entre sí.", "Su enfrentamiento fue político, económico, ideológico y tecnológico.", "Las armas nucleares hacían que una guerra directa fuera suicida.", "Sí hubo guerras «calientes» en otros países, como Corea o Vietnam."], resultado: "Porque fue una tensión permanente sin guerra directa entre las superpotencias." },
+    { enunciado: "Compara la independencia de la India y la de Argelia.", pasos: ["India: negociación con Reino Unido y resistencia no violenta de Gandhi; independencia en 1947.", "Argelia: guerra de 1954 a 1962 contra Francia, con cientos de miles de muertos."], resultado: "India siguió la vía pacífica y Argelia, la violenta." },
+    { enunciado: "Lee esta frase de Kennedy en 1963: «Ich bin ein Berliner» («Soy berlinés»). ¿Qué quería decir?", pasos: ["La pronunció en Berlín Oeste, rodeado por el muro.", "Mostraba el apoyo de EE. UU. a los berlineses occidentales.", "Era un mensaje a la URSS: EE. UU. no abandonaría la ciudad."], resultado: "Era un gesto de solidaridad con Berlín Oeste frente al bloque soviético." },
+  ],
+  errores: [
+    "Pensar que EE. UU. y la URSS se enfrentaron en una guerra directa.",
+    "Confundir la OTAN con el Pacto de Varsovia.",
+    "Creer que el muro de Berlín se levantó en 1945: se construyó en 1961.",
+    "Pensar que toda descolonización fue pacífica.",
+    "Decir que la independencia acabó con la dependencia económica: surgió el neocolonialismo.",
+  ],
+  ejercicios: [
+    { q: "¿Qué era el telón de acero?", sol: "La frontera que separaba la Europa occidental de los países comunistas del este." },
+    { q: "¿Para qué sirvió el Plan Marshall?", sol: "Ayuda económica de EE. UU. para reconstruir Europa occidental y frenar el comunismo." },
+    { q: "¿Qué fue el puente aéreo de Berlín?", sol: "El abastecimiento por avión de Berlín Oeste durante el bloqueo soviético de 1948-1949." },
+    { q: "¿Por qué se construyó el muro de Berlín?", sol: "Para impedir que los alemanes del este huyeran al oeste." },
+    { q: "¿Cómo terminó la guerra de Corea?", sol: "Con un armisticio en 1953 que dejó la península dividida casi por la misma frontera." },
+    { q: "¿Qué fue la crisis de los misiles de 1962?", sol: "El enfrentamiento por los misiles soviéticos en Cuba, que puso al mundo al borde de una guerra nuclear." },
+    { q: "Cita tres causas de la descolonización.", sol: "Debilidad de las metrópolis tras la guerra, nacionalismo en las colonias y apoyo de la ONU y de las superpotencias." },
+    { q: "¿Qué es el neocolonialismo?", sol: "La dependencia económica que mantienen muchos países independizados respecto de sus antiguas metrópolis o de grandes empresas." },
+    { q: "¿Qué se decidió en Bandung?", sol: "Condenar el colonialismo y apostar por la no alineación con ningún bloque (1955)." },
+    { q: "¿Por qué cayó el muro de Berlín en 1989?", sol: "Por las reformas de Gorbachov, la crisis de los regímenes comunistas y las protestas masivas en la RDA." },
+  ],
+  quiz: [
+    { q: "La OTAN se fundó en…", o: ["1949", "1955", "1961"], a: 0, e: "El Pacto de Varsovia, en 1955." },
+    { q: "El muro de Berlín se construyó en…", o: ["1945", "1961", "1989"], a: 1, e: "Cayó en 1989." },
+    { q: "La India se independizó en…", o: ["1947", "1960", "1975"], a: 0, e: "De Reino Unido." },
+    { q: "El «año de África» fue…", o: ["1955", "1960", "1968"], a: 1, e: "Se independizaron 17 países." },
+    { q: "Vietnam se unificó en…", o: ["1953", "1975", "1991"], a: 1, e: "Con un gobierno comunista." },
+  ],
+  tarjetas: [
+    ["Plan Marshall", "Ayuda de EE. UU. para reconstruir Europa (1947)."],
+    ["Muro de Berlín", "Levantado en 1961, cayó en 1989."],
+    ["Neocolonialismo", "Dependencia económica tras la independencia política."],
+  ],
+});

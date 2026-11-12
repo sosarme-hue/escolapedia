@@ -84,3 +84,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar las fases de la Revolución francesa y sus logros", "Distinguir nacionalismo unificador y disgregador"],
+  bloques: [
+    { tras: "La independencia de Estados Unidos", html: `<h3>Las causas de la independencia</h3><p>Las <b>trece colonias</b> británicas de América del Norte pagaban nuevos impuestos (sobre el papel, el té…) sin tener representantes en el Parlamento de Londres: «<mark>no hay impuestos sin representación</mark>». Tras el <b>motín del té de Boston</b> (1773) estalló la guerra. La <b>Declaración de Independencia</b> (4 de julio de 1776), redactada por Thomas Jefferson, proclamó que todos los hombres nacen iguales y tienen derecho a la vida, la libertad y la búsqueda de la felicidad. Con ayuda de Francia y España, los colonos vencieron en 1783. La <b>Constitución de 1787</b> creó una república federal con división de poderes, la primera constitución escrita que sigue vigente.</p>`, video: { id: "nMA5ykesU0I", titulo: "La Independencia de Estados Unidos en 11 minutos", canal: "Academia Play", vistas: 5497087, megusta: 0 } },
+    { tras: "La Revolución francesa (1789", html: `<h3>Las causas de la Revolución francesa</h3><p>A finales del siglo XVIII Francia vivía una <b>crisis financiera</b> (la deuda por las guerras, incluida la ayuda a Estados Unidos), una <b>crisis de subsistencia</b> (malas cosechas y pan carísimo en 1788-1789) y una <b>crisis social y política</b>: la burguesía, influida por la Ilustración, no aceptaba los privilegios. Luis XVI convocó los <mark>Estados Generales</mark> para aprobar nuevos impuestos, pero el tercer estado exigió votar por persona y no por estamento. Al negarse el rey, sus diputados se proclamaron <b>Asamblea Nacional</b> y juraron dar una constitución a Francia (juramento del Juego de Pelota).</p>` },
+    { tras: "La Revolución francesa (1789", html: `<h3>Las fases de la Revolución</h3>${tabla(["Fase", "Fechas", "Hechos clave"], [["Monarquía constitucional", "1789-1792", "toma de la Bastilla, Declaración de Derechos del Hombre, Constitución de 1791"], ["República jacobina", "1792-1794", "ejecución de Luis XVI, Terror de Robespierre, sufragio universal masculino"], ["Directorio", "1795-1799", "vuelve la burguesía moderada; golpe de Napoleón"]])}<p>La Revolución acabó con el feudalismo y los privilegios, y proclamó la <mark>soberanía nacional</mark>, la igualdad ante la ley y los derechos individuales.</p>` },
+    { tras: "Napoleón: de cónsul", html: `<h3>La obra de Napoleón y la Restauración</h3><p>Napoleón extendió por Europa muchas ideas de la Revolución con el <mark>Código Civil</mark> (1804): igualdad ante la ley, propiedad privada, matrimonio civil. También creó los liceos y un Estado centralizado. Sus conquistas despertaron el <b>nacionalismo</b> de los pueblos ocupados, como en España (1808). Tras su derrota en <b>Waterloo</b> (1815), el <b>Congreso de Viena</b> restauró las monarquías absolutas y redibujó el mapa de Europa. La <b>Santa Alianza</b> (Rusia, Austria y Prusia) se comprometió a intervenir contra cualquier revolución liberal.</p>` },
+    { tras: "1820, 1830, 1848", html: `<h3>Las unificaciones de Italia y Alemania</h3><p>El <b>nacionalismo</b> defiende que cada nación (un pueblo con lengua, historia y cultura comunes) debe tener su propio Estado. Hubo nacionalismos <mark>disgregadores</mark>, que querían separarse de un imperio (Grecia frente al Imperio otomano, 1830), y <mark>unificadores</mark>, que querían reunir territorios divididos. Italia se unificó en torno al reino de Piamonte, con <b>Cavour</b> y <b>Garibaldi</b> (1861-1870). Alemania lo hizo bajo Prusia, guiada por <b>Bismarck</b>, tras ganar tres guerras: el <b>II Reich</b> se proclamó en 1871 en Versalles.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Analiza el lema «Libertad, igualdad, fraternidad» y relaciónalo con el Antiguo Régimen.", pasos: ["Libertad: frente al poder absoluto del rey, derechos individuales.", "Igualdad: frente a los privilegios de los estamentos, todos iguales ante la ley.", "Fraternidad: la nación como comunidad de ciudadanos y no de súbditos."], resultado: "Cada palabra niega un rasgo del Antiguo Régimen: absolutismo, privilegios y sociedad estamental." },
+    { enunciado: "Explica por qué el voto por estamento perjudicaba al tercer estado.", pasos: ["En los Estados Generales cada estamento tenía un voto.", "Nobleza y clero sumaban 2 votos frente a 1.", "Aunque el tercer estado representaba al 95 % de la población, perdía siempre."], resultado: "El voto por estamento daba la mayoría a los privilegiados; votar por cabeza daba ventaja al tercer estado, que tenía tantos diputados como los otros dos juntos." },
+    { enunciado: "Clasifica estos nacionalismos: Grecia (1830), Italia (1861), Bélgica (1830), Alemania (1871).", pasos: ["Grecia se separa del Imperio otomano: disgregador.", "Bélgica se separa de los Países Bajos: disgregador.", "Italia y Alemania reúnen estados pequeños: unificadores."], resultado: "Disgregadores: Grecia y Bélgica. Unificadores: Italia y Alemania." },
+  ],
+  errores: [
+    "Creer que la Revolución francesa empezó con la ejecución del rey: empezó en 1789; Luis XVI murió en 1793.",
+    "Confundir soberanía nacional (el poder reside en la nación) con sufragio universal (votan todos).",
+    "Pensar que el liberalismo del siglo XIX dejaba votar a todos: solía haber sufragio censitario.",
+    "Situar la independencia de EE. UU. después de la Revolución francesa: fue antes (1776).",
+    "Atribuir la unificación alemana a Garibaldi: fue Bismarck; Garibaldi participó en la italiana.",
+  ],
+  ejercicios: [
+    { q: "¿Qué significa «no hay impuestos sin representación»?", sol: "Que no es legítimo cobrar impuestos a quien no tiene representantes que los aprueben." },
+    { q: "Cita las tres crisis que llevaron a la Revolución francesa.", sol: "Financiera (deuda del Estado), de subsistencia (pan caro) y social y política (la burguesía rechaza los privilegios)." },
+    { q: "¿Qué fue el juramento del Juego de Pelota?", sol: "El compromiso de los diputados del tercer estado, en 1789, de no separarse hasta dar una constitución a Francia." },
+    { q: "¿Por qué la toma de la Bastilla es un símbolo?", sol: "Era una prisión que representaba el poder absoluto del rey; su asalto el 14 de julio de 1789 marcó el inicio de la revolución popular." },
+    { q: "Explica qué fue el Terror.", sol: "El periodo (1793-1794) en que los jacobinos de Robespierre persiguieron y ejecutaron a miles de sospechosos de ser enemigos de la Revolución." },
+    { q: "¿Qué recogía el Código Civil de Napoleón?", sol: "La igualdad ante la ley, la propiedad privada, la libertad de trabajo y el matrimonio civil." },
+    { q: "¿Qué decidió el Congreso de Viena?", sol: "Restaurar las monarquías absolutas, redibujar las fronteras de Europa y crear un sistema para frenar las revoluciones liberales." },
+    { q: "Define sufragio censitario.", sol: "Sistema en el que solo votan los hombres con cierto nivel de riqueza o de estudios." },
+    { q: "¿Qué papel tuvo Bismarck?", sol: "Canciller de Prusia que unificó Alemania tras tres guerras y proclamó el II Reich en 1871." },
+    { q: "¿Qué tienen en común la Declaración de Independencia de EE. UU. y la Declaración de Derechos del Hombre?", sol: "Ambas afirman que las personas nacen libres e iguales y tienen derechos naturales que el gobierno debe respetar." },
+  ],
+  quiz: [
+    { q: "La Declaración de Independencia de EE. UU. se firmó en…", o: ["1776", "1789", "1812"], a: 0, e: "El 4 de julio de 1776." },
+    { q: "En los Estados Generales el tercer estado exigía votar…", o: ["por estamento", "por persona", "a mano alzada del rey"], a: 1, e: "Así aprovechaba su mayor número de diputados." },
+    { q: "El Terror lo dirigió…", o: ["Napoleón", "Robespierre", "Luis XVI"], a: 1, e: "Desde el Comité de Salvación Pública." },
+    { q: "Napoleón fue derrotado definitivamente en…", o: ["Austerlitz", "Waterloo", "Trafalgar"], a: 1, e: "En 1815." },
+    { q: "El II Reich alemán se proclamó en…", o: ["Berlín, 1848", "Versalles, 1871", "Viena, 1815"], a: 1, e: "Tras vencer a Francia." },
+  ],
+  tarjetas: [
+    ["Estados Generales", "Asamblea de los tres estamentos convocada por el rey de Francia en 1789."],
+    ["Código Civil (1804)", "Ley de Napoleón que extendió la igualdad ante la ley."],
+    ["Congreso de Viena", "Reunión de 1815 que restauró el absolutismo en Europa."],
+  ],
+});

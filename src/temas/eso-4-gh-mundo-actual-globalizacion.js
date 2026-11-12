@@ -90,3 +90,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar el fin de la Guerra Fría y el nuevo orden mundial", "Analizar los efectos de la revolución digital y las migraciones"],
+  bloques: [
+    { tras: "Qué es la globalización", html: `<h3>Del mundo bipolar al multipolar</h3><p>La caída del <b>muro de Berlín</b> (1989) y la desaparición de la <b>URSS</b> (1991) acabaron con la Guerra Fría. Durante unos años, EE. UU. fue la única superpotencia. Hoy el mundo es <mark>multipolar</mark>: junto a EE. UU. ganan peso <b>China</b>, segunda economía del mundo, la <b>Unión Europea</b>, la <b>India</b> y otras potencias regionales como Brasil, Rusia o Turquía. Los atentados del <b>11 de septiembre de 2001</b> en Nueva York abrieron una etapa de guerras contra el terrorismo yihadista (Afganistán, Irak), y la invasión rusa de <b>Ucrania</b> en 2022 devolvió la guerra a gran escala a Europa.</p>` },
+    { tras: "Qué es la globalización", html: `<h3>La revolución digital</h3><p>Internet, los teléfonos inteligentes y las redes sociales han hecho que la información circule al instante por todo el planeta. Más de dos tercios de la población mundial usa internet. Esto facilita el comercio, el teletrabajo y el aprendizaje, pero también plantea problemas: la <mark>brecha digital</mark> entre quien tiene acceso y quien no, la desinformación y los bulos, la pérdida de privacidad y el poder de unas pocas grandes empresas tecnológicas. La <b>inteligencia artificial</b> está transformando muchos trabajos.</p>`, video: { id: "JJ0nFD19eT8", titulo: "La globalización explicada", canal: "explainitychannel", vistas: 5058568, megusta: 0 } },
+    { tras: "Un mundo desigual", html: `<h3>Indicadores de desarrollo</h3>${tabla(["Indicador", "Qué mide", "Ejemplo de contraste"], [["PIB por habitante", "riqueza media por persona", "más de 50.000 $ en los países más ricos; menos de 1.000 $ en los más pobres"], ["Esperanza de vida", "años que se espera vivir al nacer", "más de 80 en España; alrededor de 55-60 en algunos países del Sahel"], ["IDH", "combina salud, educación e ingresos (de 0 a 1)", "Noruega o Suiza ≈ 0,96; Sudán del Sur o Somalia por debajo de 0,4"]])}<p>El <mark>Índice de Desarrollo Humano</mark> (IDH) de la ONU es más completo que el PIB porque no solo mide el dinero.</p>` },
+    { tras: "Un mundo desigual", html: `<h3>Las migraciones</h3><p>Más de <b>280 millones de personas</b> viven fuera de su país de nacimiento. Las causas son económicas (buscar trabajo), políticas (guerras, persecución) y, cada vez más, ambientales. Los <mark>refugiados</mark> huyen de guerras o persecuciones y están protegidos por el derecho internacional. España pasó de ser un país de emigrantes a recibir millones de inmigrantes desde los años 90. Las migraciones rejuvenecen la población y aportan trabajadores, pero exigen políticas de integración y combatir el racismo y las mafias que trafican con personas.</p>` },
+    { tras: "Los grandes retos", html: `<h3>El cambio climático</h3><p>La quema de combustibles fósiles (carbón, petróleo y gas) emite <b>gases de efecto invernadero</b> que calientan el planeta: la temperatura media ya ha subido alrededor de <b>1,2 °C</b> desde la época preindustrial. Las consecuencias son olas de calor, sequías, subida del nivel del mar y fenómenos extremos más frecuentes. En el <mark>Acuerdo de París</mark> (2015) casi todos los países se comprometieron a limitar el calentamiento muy por debajo de 2 °C. Para lograrlo hacen falta energías renovables, eficiencia energética y cambios en el transporte y el consumo.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Pon un ejemplo de cómo la globalización afecta a un objeto de tu vida diaria.", pasos: ["Un móvil se diseña en EE. UU. o Corea.", "Sus minerales se extraen en África o Sudamérica.", "Se ensambla en China u otro país asiático.", "Se vende en todo el mundo y se usa con aplicaciones de empresas globales."], resultado: "Un solo producto depende de muchos países: eso es la globalización económica." },
+    { enunciado: "¿Por qué el IDH es mejor que el PIB por habitante para comparar países?", pasos: ["El PIB por habitante solo mide la riqueza media.", "Un país rico puede tener mala sanidad o educación.", "El IDH incluye esperanza de vida, años de estudio e ingresos."], resultado: "Porque mide el desarrollo de las personas y no solo el dinero." },
+    { enunciado: "Clasifica las causas de estas migraciones: huir de una guerra, buscar empleo, una sequía que arruina las cosechas.", pasos: ["Guerra: causa política; la persona puede ser refugiada.", "Empleo: causa económica.", "Sequía: causa ambiental (relacionada con el clima)."], resultado: "Política, económica y ambiental." },
+  ],
+  errores: [
+    "Pensar que la globalización es solo económica: también es cultural, política y tecnológica.",
+    "Confundir inmigrante y refugiado: el refugiado huye de guerras o persecución y tiene protección especial.",
+    "Creer que el PIB lo dice todo sobre el desarrollo de un país.",
+    "Decir que el cambio climático es solo un problema futuro: sus efectos ya se notan.",
+    "Pensar que el mundo actual sigue siendo bipolar.",
+  ],
+  ejercicios: [
+    { q: "¿Qué hechos marcan el fin de la Guerra Fría?", sol: "La caída del muro de Berlín (1989) y la disolución de la URSS (1991)." },
+    { q: "¿Qué significa que el mundo actual es multipolar?", sol: "Que hay varios centros de poder: EE. UU., China, la UE, la India y otras potencias regionales." },
+    { q: "¿Qué es una multinacional? Pon un ejemplo.", sol: "Una empresa con sede en un país y filiales en muchos otros; por ejemplo, una gran marca de ropa o de tecnología." },
+    { q: "¿Qué es la deslocalización?", sol: "Trasladar fábricas a países con salarios o impuestos más bajos." },
+    { q: "Explica qué es la brecha digital.", sol: "La diferencia entre quienes tienen acceso a internet y a la tecnología y quienes no." },
+    { q: "¿Qué mide el IDH?", sol: "La salud (esperanza de vida), la educación (años de estudio) y los ingresos por habitante." },
+    { q: "Cita dos consecuencias positivas y una negativa de la inmigración en España.", sol: "Positivas: rejuvenece la población y aporta trabajadores y cotizaciones. Negativa o reto: necesidad de integración y riesgo de discriminación." },
+    { q: "¿Qué se acordó en París en 2015?", sol: "Limitar el calentamiento global muy por debajo de 2 °C y reducir las emisiones." },
+    { q: "¿Qué es el comercio justo?", sol: "Un sistema que paga precios dignos a los productores de países pobres y respeta sus derechos." },
+    { q: "Cita tres ODS de la Agenda 2030.", sol: "Por ejemplo: fin de la pobreza, educación de calidad y acción por el clima." },
+  ],
+  quiz: [
+    { q: "La URSS desapareció en…", o: ["1989", "1991", "2001"], a: 1, e: "Se dividió en 15 repúblicas." },
+    { q: "El IDH va de…", o: ["0 a 1", "1 a 100", "0 a 10"], a: 0, e: "Cuanto más cerca de 1, más desarrollo." },
+    { q: "Un refugiado es alguien que…", o: ["huye de una guerra o persecución", "viaja de vacaciones", "cambia de ciudad por trabajo"], a: 0, e: "Tiene derecho a protección internacional." },
+    { q: "El Acuerdo de París trata sobre…", o: ["el cambio climático", "el comercio", "la OTAN"], a: 0, e: "Se firmó en 2015." },
+    { q: "La segunda economía del mundo es…", o: ["China", "Brasil", "Rusia"], a: 0, e: "Por detrás de EE. UU." },
+  ],
+  tarjetas: [
+    ["Mundo multipolar", "Orden con varios centros de poder."],
+    ["IDH", "Índice que combina salud, educación e ingresos."],
+    ["Acuerdo de París", "Compromiso de 2015 contra el cambio climático."],
+  ],
+});

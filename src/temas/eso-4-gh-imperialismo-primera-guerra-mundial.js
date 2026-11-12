@@ -86,3 +86,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Distinguir las formas de dominio colonial", "Explicar las consecuencias de la Primera Guerra Mundial y de la paz"],
+  bloques: [
+    { tras: "Por qué Europa se repartió", html: `<h3>Las formas de dominio</h3>${tabla(["Tipo", "Qué era", "Ejemplo"], [["Colonia", "territorio gobernado directamente por la metrópoli", "Congo belga, Argelia"], ["Protectorado", "se mantiene un gobierno local, pero la metrópoli controla la política exterior y la economía", "Marruecos (Francia y España)"], ["Dominio", "colonia de población europea con autogobierno", "Canadá, Australia"], ["Concesión", "puerto o zona cedida para comerciar", "Hong Kong"]])}<p>Las potencias justificaban su dominio con el <mark>racismo</mark> de la época («misión civilizadora», «la carga del hombre blanco») y el <b>darwinismo social</b>, que aplicaba falsamente la selección natural a los pueblos.</p>` },
+    { tras: "El reparto de África", html: `<h3>Consecuencias para los pueblos colonizados</h3><p>Las metrópolis trazaron fronteras con regla, sin tener en cuenta etnias ni lenguas, lo que causó conflictos que llegan hasta hoy. Impusieron el <b>monocultivo</b> (café, cacao, caucho) para exportar, arruinaron la artesanía local y explotaron a la población: en el <mark>Congo de Leopoldo II</mark> millones de personas murieron por el trabajo forzado del caucho. También llegaron infraestructuras (puertos, ferrocarriles), escuelas y hospitales, pero pensados sobre todo para los colonos y para sacar recursos.</p>`, video: { id: "WDc8z_k1hkE", titulo: "El imperialismo: factores y causas", canal: "Clases Particulares en Ávila", vistas: 689097, megusta: 0 } },
+    { tras: "Las causas de la Gran Guerra", html: `<h3>Los dos bloques y la chispa de Sarajevo</h3><p>Europa estaba dividida en dos alianzas: la <b>Triple Entente</b> (Francia, Reino Unido y Rusia) y la <b>Triple Alianza</b> (Alemania, Austria-Hungría e Italia). Los <b>Balcanes</b> eran un polvorín donde chocaban Austria-Hungría y Rusia. El <mark>28 de junio de 1914</mark>, un nacionalista serbio asesinó en Sarajevo al heredero austriaco, Francisco Fernando. Austria declaró la guerra a Serbia y, por el juego de alianzas, en pocos días entraron Rusia, Alemania, Francia y Reino Unido. Italia cambió de bando en 1915 y se unió a la Entente.</p>` },
+    { tras: "Una guerra nueva y total", html: `<h3>Las fases de la guerra</h3>${tabla(["Fase", "Años", "Qué pasó"], [["Guerra de movimientos", "1914", "Alemania invade Bélgica y Francia; se detiene en el Marne"], ["Guerra de trincheras", "1915-1917", "frentes inmóviles; batallas de Verdún y el Somme, con cientos de miles de muertos"], ["Final", "1917-1918", "Rusia sale de la guerra; entra EE. UU.; Alemania firma el armisticio (11-11-1918)"]])}<p>En la <mark>retaguardia</mark>, las mujeres ocuparon fábricas y servicios, y la propaganda y el racionamiento afectaron a toda la población.</p>` },
+    { tras: "1917, el final", html: `<h3>Las consecuencias de la guerra</h3><p>Murieron unos <b>10 millones de soldados</b> y millones de civiles. Desaparecieron cuatro imperios: <b>alemán, austrohúngaro, ruso y otomano</b>, y nacieron nuevos Estados como Polonia, Checoslovaquia o Yugoslavia. Europa quedó endeudada con Estados Unidos, que se convirtió en la primera potencia económica. El <mark>Tratado de Versalles</mark> declaró a Alemania culpable, le quitó territorio y colonias, limitó su ejército y le impuso enormes reparaciones: muchos alemanes lo vivieron como una humillación, un resentimiento que aprovecharía Hitler. Para mantener la paz se creó la <b>Sociedad de Naciones</b> (1920), sin fuerza real.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Explica cómo un asesinato en Sarajevo provocó una guerra mundial.", pasos: ["Austria-Hungría culpa a Serbia y le declara la guerra.", "Rusia, protectora de Serbia, moviliza su ejército.", "Alemania, aliada de Austria, declara la guerra a Rusia y a Francia.", "Al invadir Bélgica, Reino Unido entra en guerra."], resultado: "El sistema de alianzas convirtió un conflicto local en una guerra europea y, después, mundial." },
+    { enunciado: "Clasifica las causas del imperialismo: buscar materias primas, prestigio nacional, exceso de población, superioridad racial, nuevos mercados.", pasos: ["Económicas: materias primas y mercados.", "Demográficas: exceso de población.", "Políticas: prestigio nacional.", "Ideológicas: supuesta superioridad racial."], resultado: "Económicas (2), demográfica (1), política (1) e ideológica (1)." },
+    { enunciado: "¿Por qué se llama a la Primera Guerra Mundial «guerra total»?", pasos: ["Se movilizó a toda la población y a toda la economía.", "La industria se dedicó a la guerra.", "La propaganda y el racionamiento llegaron a toda la sociedad.", "Los civiles también sufrieron bombardeos y bloqueos."], resultado: "Porque implicó a toda la sociedad y no solo a los ejércitos." },
+  ],
+  errores: [
+    "Pensar que Italia luchó con Alemania en la Primera Guerra Mundial: en 1915 se pasó a la Entente.",
+    "Confundir colonia y protectorado.",
+    "Creer que Estados Unidos estuvo desde el principio: entró en 1917.",
+    "Decir que la Sociedad de Naciones evitó nuevas guerras: no tenía ejército ni la apoyaba EE. UU.",
+    "Situar la Conferencia de Berlín en 1914: fue en 1884-1885.",
+  ],
+  ejercicios: [
+    { q: "Define imperialismo.", sol: "Política de expansión de las potencias industriales, entre 1870 y 1914, para dominar otros territorios y pueblos." },
+    { q: "¿Qué se decidió en la Conferencia de Berlín?", sol: "Las reglas para repartirse África entre las potencias europeas (1884-1885)." },
+    { q: "¿Qué era el darwinismo social?", sol: "Una teoría falsa que aplicaba la selección natural a los pueblos para justificar que los «más fuertes» dominaran a los demás." },
+    { q: "Explica la paz armada.", sol: "El periodo anterior a 1914 en que las potencias no estaban en guerra pero se armaban sin parar y formaban alianzas." },
+    { q: "¿Qué países formaban la Triple Entente?", sol: "Francia, Reino Unido y Rusia." },
+    { q: "Describe la vida en las trincheras.", sol: "Barro, ratas, frío, enfermedades, miedo constante a los bombardeos y ataques que costaban miles de vidas para avanzar unos metros." },
+    { q: "Cita tres armas nuevas de la guerra.", sol: "Ametralladoras, gases tóxicos, tanques, aviones y submarinos." },
+    { q: "¿Por qué entró EE. UU. en la guerra en 1917?", sol: "Por los ataques de submarinos alemanes a sus barcos y por sus intereses económicos con la Entente." },
+    { q: "¿Qué imperios desaparecieron tras la guerra?", sol: "El alemán, el austrohúngaro, el ruso y el otomano." },
+    { q: "¿Por qué se dice que el Tratado de Versalles sembró la siguiente guerra?", sol: "Porque humilló a Alemania con pérdidas territoriales y reparaciones enormes, y alimentó el resentimiento que aprovechó el nazismo." },
+  ],
+  quiz: [
+    { q: "Un protectorado…", o: ["conserva un gobierno local bajo control extranjero", "es independiente", "es una colonia de población"], a: 0, e: "Como Marruecos con Francia y España." },
+    { q: "El atentado de Sarajevo fue el…", o: ["28 de junio de 1914", "11 de noviembre de 1918", "1 de septiembre de 1939"], a: 0, e: "Murió el archiduque Francisco Fernando." },
+    { q: "Verdún y el Somme son batallas de…", o: ["la guerra de trincheras", "la guerra de movimientos", "la guerra en el mar"], a: 0, e: "Fueron de las más sangrientas." },
+    { q: "El armisticio se firmó el…", o: ["11 de noviembre de 1918", "28 de junio de 1919", "1 de enero de 1918"], a: 0, e: "Hoy es día de recuerdo en muchos países." },
+    { q: "La Sociedad de Naciones se creó para…", o: ["mantener la paz", "repartir colonias", "castigar a Rusia"], a: 0, e: "Fue el precedente de la ONU." },
+  ],
+  tarjetas: [
+    ["Protectorado", "Territorio con gobierno local pero controlado por una potencia."],
+    ["Triple Entente", "Francia, Reino Unido y Rusia."],
+    ["Tratado de Versalles", "Paz de 1919 que castigó duramente a Alemania."],
+  ],
+});

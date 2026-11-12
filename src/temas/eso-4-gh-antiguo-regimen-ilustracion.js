@@ -87,3 +87,54 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Comparar la monarquía absoluta y la parlamentaria", "Relacionar las ideas ilustradas con los cambios políticos posteriores"],
+  bloques: [
+    { tras: "Una economía agraria", html: `<h3>La vida en el campo y el comercio</h3><p>Alrededor de <b>8 de cada 10 personas</b> eran campesinos. Cultivaban con técnicas antiguas (arado romano, barbecho) y obtenían poco: una mala cosecha traía hambre y epidemias, lo que se llama <mark>crisis de subsistencia</mark>. La tierra estaba sobre todo en manos de la nobleza y la Iglesia, a menudo en <b>señoríos</b> donde el señor cobraba rentas y tenía poder sobre los vecinos. La artesanía se organizaba en <b>gremios</b>, que controlaban precios y calidad y frenaban la competencia. Aun así, el <b>comercio colonial</b> con América y Asia enriqueció a los puertos y a una burguesía comercial cada vez más poderosa.</p>` },
+    { tras: "Una economía agraria", html: `<h3>Los tres estamentos</h3><p>La sociedad se dividía en <b>estamentos</b>, grupos a los que se pertenecía por nacimiento y de los que era casi imposible salir.</p>${tabla(["Estamento", "Quiénes", "Situación"], [["Nobleza", "≈ 2-3 %", "privilegiada: no pagaba impuestos directos, cargos y tierras"], ["Clero", "≈ 1-2 %", "privilegiado: diezmo, tierras, educación y asistencia"], ["Tercer estado", "≈ 95 %", "no privilegiado: campesinos, artesanos y burguesía; pagaba impuestos"]])}<p>La <mark>burguesía</mark> pertenecía al tercer estado aunque fuera rica, y por eso quería una sociedad basada en el mérito y no en el nacimiento.</p>` },
+    { tras: "La monarquía absoluta", html: `<h3>La alternativa parlamentaria: Inglaterra</h3><p>En Inglaterra el Parlamento se enfrentó a los reyes en el siglo XVII. Tras la <b>Revolución Gloriosa de 1688</b>, el rey aceptó la <mark>Declaración de Derechos</mark> (1689): no podía crear impuestos ni mantener un ejército sin permiso del Parlamento, y las elecciones y la libertad de expresión de los parlamentarios quedaban protegidas. Nacía la <b>monarquía parlamentaria</b>, que inspiró a los ilustrados. John <b>Locke</b> defendió que el poder viene de un pacto con los ciudadanos y que existen derechos naturales (vida, libertad, propiedad) que ningún gobierno puede quitar.</p>`, video: { id: "L-IjlWYMfMI", titulo: "El absolutismo: resumen. Las monarquías absolutas entre los siglos XVI y XVIII", canal: "Cuaderno de Historia", vistas: 370641, megusta: 0 } },
+    { tras: "La Ilustración: luz", html: `<h3>Los grandes pensadores</h3>${tabla(["Autor", "Idea principal"], [["Locke", "derechos naturales y gobierno por consentimiento"], ["Montesquieu", "división de poderes (<i>El espíritu de las leyes</i>, 1748)"], ["Voltaire", "tolerancia religiosa y libertad de expresión"], ["Rousseau", "soberanía nacional y voluntad general (<i>El contrato social</i>, 1762)"], ["Adam Smith", "libertad económica y mercado (<i>La riqueza de las naciones</i>, 1776)"]])}<p>Sus ideas se difundieron gracias a la <mark>Enciclopedia</mark> de Diderot y D'Alembert, que reunía todo el saber de la época, y a los salones, cafés, academias y periódicos.</p>` },
+    { tras: "La división de poderes", html: `<h3>La economía ilustrada</h3><p>Frente al <b>mercantilismo</b>, que buscaba acumular oro y plata y proteger la industria nacional con aranceles, surgieron dos ideas nuevas. Los <b>fisiócratas</b> franceses sostenían que la riqueza nace de la tierra y pedían libertad para cultivar y comerciar. <b>Adam Smith</b> fundó el <mark>liberalismo económico</mark>: el trabajo crea riqueza, la división del trabajo aumenta la productividad y el mercado se regula solo por la oferta y la demanda, la famosa «mano invisible». El Estado debía intervenir lo mínimo.</p>` },
+    { tras: "Despotismo ilustrado", html: `<h3>Carlos III y los ilustrados españoles</h3><p><b>Carlos III</b> (1759-1788) es el gran ejemplo de despotismo ilustrado en España. Con ministros como <b>Campomanes</b>, <b>Floridablanca</b> y, más tarde, el pensador <b>Jovellanos</b>, mejoró Madrid (alumbrado, limpieza, la Puerta de Alcalá), fundó las <mark>Sociedades Económicas de Amigos del País</mark>, liberalizó el comercio con América (1778) y repobló Sierra Morena con colonos. También expulsó a los jesuitas (1767). El <b>motín de Esquilache</b> (1766), por la subida del pan y una orden sobre capas y sombreros, mostró los límites de las reformas impuestas «desde arriba».</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Clasifica a estas personas en su estamento: un obispo, un rico comerciante de Cádiz, un duque y un campesino de Castilla.", pasos: ["El obispo es miembro del clero, estamento privilegiado.", "El duque es noble, estamento privilegiado.", "El comerciante es rico, pero no noble ni clérigo: pertenece al tercer estado.", "El campesino también es del tercer estado."], resultado: "Privilegiados: obispo y duque. Tercer estado: comerciante y campesino." },
+    { enunciado: "Explica qué falla en la frase de Luis XIV «El Estado soy yo» desde la teoría de Montesquieu.", pasos: ["Luis XIV concentra en su persona todo el poder: hace las leyes, las aplica y juzga.", "Montesquieu defiende separar el poder legislativo, el ejecutivo y el judicial.", "Si un solo órgano tiene los tres, nadie lo controla y puede abusar."], resultado: "La frase resume el absolutismo, justo lo que la división de poderes quiere evitar." },
+    { enunciado: "Ordena cronológicamente: Enciclopedia (1751), Revolución Gloriosa (1688), Carlos III llega al trono (1759), La riqueza de las naciones (1776).", pasos: ["El más antiguo es 1688.", "Siguen 1751 y 1759.", "El último es 1776."], resultado: "Revolución Gloriosa → Enciclopedia → Carlos III → La riqueza de las naciones." },
+  ],
+  errores: [
+    "Pensar que la burguesía era privilegiada por ser rica: pertenecía al tercer estado.",
+    "Confundir monarquía absoluta y despotismo ilustrado: el déspota ilustrado sigue teniendo todo el poder.",
+    "Atribuir la división de poderes a Rousseau: es de Montesquieu.",
+    "Creer que la Ilustración fue una revolución armada: fue un movimiento de ideas.",
+    "Decir que en Inglaterra había absolutismo en el siglo XVIII: desde 1689 era una monarquía parlamentaria.",
+  ],
+  ejercicios: [
+    { q: "Define estamento y di por qué no se podía cambiar de uno a otro con facilidad.", sol: "Grupo social al que se pertenece por nacimiento, con derechos y deberes distintos. La pertenencia la fijaba la ley y la sangre, no el dinero ni el mérito." },
+    { q: "Enumera tres privilegios de la nobleza.", sol: "No pagar impuestos directos, ocupar los altos cargos del Estado y del ejército, y tener tribunales propios y señoríos." },
+    { q: "¿Qué es una crisis de subsistencia?", sol: "Hambre provocada por una mala cosecha: sube el precio del pan, la gente come menos y aumentan las epidemias y las muertes." },
+    { q: "Explica qué cambió en Inglaterra en 1689.", sol: "La Declaración de Derechos limitó al rey: necesitaba al Parlamento para crear impuestos y mantener un ejército. Nació la monarquía parlamentaria." },
+    { q: "Relaciona cada autor con su idea: Voltaire, Rousseau, Montesquieu.", sol: "Voltaire: tolerancia y libertad de expresión. Rousseau: soberanía nacional. Montesquieu: división de poderes." },
+    { q: "¿Para qué sirvió la Enciclopedia?", sol: "Para reunir y difundir el conocimiento basado en la razón y la ciencia, y criticar la superstición y el absolutismo." },
+    { q: "Compara mercantilismo y liberalismo económico.", sol: "El mercantilismo acumula metales preciosos y protege la industria con aranceles; el liberalismo pide libertad de comercio y que el Estado intervenga poco." },
+    { q: "¿Qué significa «todo para el pueblo, pero sin el pueblo»?", sol: "Es el lema del despotismo ilustrado: el rey hace reformas para mejorar la vida del pueblo, pero sin darle participación política." },
+    { q: "Cita dos reformas de Carlos III.", sol: "Por ejemplo, la liberalización del comercio con América (1778) y la creación de las Sociedades Económicas de Amigos del País; también mejoró Madrid." },
+    { q: "¿Por qué los burgueses apoyaron las ideas ilustradas?", sol: "Porque defendían la igualdad ante la ley, el mérito y la libertad económica, que les permitían prosperar sin depender de los privilegios de nacimiento." },
+  ],
+  quiz: [
+    { q: "¿Qué porcentaje aproximado de la población formaba el tercer estado?", o: ["≈ 50 %", "≈ 95 %", "≈ 10 %"], a: 1, e: "Era la inmensa mayoría." },
+    { q: "La Revolución Gloriosa tuvo lugar en…", o: ["Francia, 1789", "Inglaterra, 1688", "España, 1766"], a: 1, e: "Dio paso a la monarquía parlamentaria inglesa." },
+    { q: "¿Quién escribió La riqueza de las naciones?", o: ["Adam Smith", "Locke", "Diderot"], a: 0, e: "Publicada en 1776, funda el liberalismo económico." },
+    { q: "El motín de Esquilache ocurrió durante el reinado de…", o: ["Felipe V", "Carlos III", "Fernando VII"], a: 1, e: "Fue en 1766, en Madrid." },
+    { q: "Los gremios eran…", o: ["asociaciones de artesanos de un oficio", "bancos", "partidos políticos"], a: 0, e: "Controlaban precios, calidad y acceso al oficio." },
+  ],
+  tarjetas: [
+    ["Crisis de subsistencia", "Hambre y mortalidad tras una mala cosecha."],
+    ["Declaración de Derechos (1689)", "Limita al rey inglés y crea la monarquía parlamentaria."],
+    ["Enciclopedia", "Obra de Diderot y D'Alembert que difundió el saber ilustrado."],
+  ],
+});

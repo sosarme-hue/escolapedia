@@ -86,3 +86,54 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar el funcionamiento del sistema de la Restauración", "Valorar los cambios sociales de la España del siglo XIX"],
+  bloques: [
+    { tras: "Guerra de la Independencia", html: `<h3>La Constitución de 1812, «la Pepa»</h3><p>Reunidas en Cádiz mientras el resto de España estaba ocupado por los franceses, las Cortes aprobaron el <b>19 de marzo de 1812</b> la primera constitución española. Establecía la <mark>soberanía nacional</mark>, la <b>división de poderes</b>, el <b>sufragio universal masculino indirecto</b>, la igualdad ante la ley y la libertad de imprenta. Las Cortes también abolieron los señoríos jurisdiccionales y la Inquisición. Aunque apenas se aplicó, se convirtió en un modelo para los liberales de Europa y América.</p>` },
+    { tras: "Fernando VII", html: `<h3>La independencia de la América española</h3><p>Aprovechando la guerra en la Península, los <b>criollos</b> (descendientes de españoles nacidos en América), influidos por la Ilustración y por la independencia de Estados Unidos, formaron juntas de gobierno. Entre 1810 y 1824, líderes como <b>Simón Bolívar</b> y <b>José de San Martín</b> derrotaron a las tropas realistas; la batalla de <mark>Ayacucho</mark> (1824) fue decisiva. España conservó solo <b>Cuba, Puerto Rico y Filipinas</b>, y perdió gran parte de sus ingresos coloniales.</p>` },
+    { tras: "Isabel II y el Sexenio", html: `<h3>Carlismo y desamortización</h3><p>A la muerte de Fernando VII, su hermano <b>Carlos María Isidro</b> no aceptó que reinara su hija Isabel. Sus partidarios, los <mark>carlistas</mark> («Dios, Patria, Rey» y defensa de los fueros), lucharon contra los liberales en tres guerras carlistas, sobre todo en el País Vasco, Navarra y Cataluña. Para pagar la guerra, el ministro <b>Mendizábal</b> aprobó en 1836 la <b>desamortización</b> de tierras de la Iglesia: el Estado las expropió y las vendió en subasta. Más tarde, <b>Madoz</b> (1855) vendió tierras de los ayuntamientos. Las compraron sobre todo burgueses y nobles ricos, no los campesinos.</p>` },
+    { tras: "Isabel II y el Sexenio", html: `<h3>Las constituciones del siglo XIX</h3>${tabla(["Constitución", "Soberanía", "Sufragio", "Tendencia"], [["1812", "nacional", "universal masculino indirecto", "liberal"], ["1837", "nacional (con el rey)", "censitario", "progresista"], ["1845", "compartida rey-Cortes", "censitario muy restringido", "moderada"], ["1869", "nacional", "universal masculino", "democrática"], ["1876", "compartida rey-Cortes", "censitario; universal masculino desde 1890", "conservadora"]])}` },
+    { tras: "La Restauración (1874", html: `<h3>El turno de partidos y el caciquismo</h3><p><b>Cánovas del Castillo</b> diseñó un sistema en el que dos partidos, el <b>Conservador</b> (Cánovas) y el <b>Liberal</b> (Sagasta), se alternaban pacíficamente en el gobierno: el <mark>turno pacífico</mark>. Las elecciones se amañaban: el Gobierno decidía antes quién ganaría y los <b>caciques</b>, personas poderosas de cada localidad, compraban votos, amenazaban o falsificaban las actas (el «pucherazo»). Así, el sistema era estable pero no democrático, y dejaba fuera a republicanos, obreros y nacionalistas.</p>`, video: { id: "izaZyEn2jLo", titulo: "La Restauración borbónica", canal: "Clases Particulares en Ávila", vistas: 381133, megusta: 0 } },
+    { tras: "Una industrialización tardía", html: `<h3>El Desastre del 98 y la sociedad</h3><p>En 1898 Estados Unidos intervino en la guerra de independencia de Cuba y hundió la flota española en Santiago de Cuba y Cavite. Por el <b>Tratado de París</b> España perdió <mark>Cuba, Puerto Rico y Filipinas</mark>. El «Desastre» provocó una crisis moral: los <b>regeneracionistas</b> (Joaquín Costa) y los escritores de la <b>Generación del 98</b> pidieron modernizar el país. Mientras, la sociedad cambiaba: crecía la burguesía en Barcelona, Bilbao y Madrid, nacía el movimiento obrero y surgían el <b>catalanismo</b> y el <b>nacionalismo vasco</b> (Sabino Arana, PNV, 1895).</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Explica cómo funcionaba un pucherazo en un pueblo durante la Restauración.", pasos: ["El Gobierno en Madrid decidía qué partido debía ganar (encasillado).", "El gobernador civil transmitía la orden al cacique local.", "El cacique conseguía los votos con favores, amenazas o alterando las actas.", "Las elecciones daban el resultado previsto."], resultado: "Las elecciones se falseaban para mantener el turno entre conservadores y liberales." },
+    { enunciado: "Compara la Constitución de 1812 y la de 1845 en soberanía y sufragio.", pasos: ["1812: soberanía nacional y sufragio universal masculino indirecto.", "1845: soberanía compartida entre el rey y las Cortes y sufragio censitario muy restringido."], resultado: "La de 1812 es más liberal y avanzada; la de 1845, moderada, reduce el poder del pueblo y refuerza al rey." },
+    { enunciado: "¿Por qué la desamortización no creó una clase de pequeños campesinos propietarios?", pasos: ["Las tierras se vendían en subasta al mejor postor.", "Los campesinos pobres no tenían dinero para pujar.", "Las compraron burgueses y nobles con dinero."], resultado: "Se concentró aún más la propiedad y los campesinos siguieron sin tierra." },
+  ],
+  errores: [
+    "Pensar que la Constitución de 1812 estuvo vigente mucho tiempo: Fernando VII la abolió en 1814.",
+    "Confundir carlistas con liberales: los carlistas defendían el absolutismo y los fueros.",
+    "Creer que la desamortización repartió tierras a los campesinos pobres.",
+    "Llamar democracia a la Restauración: las elecciones estaban amañadas.",
+    "Situar la pérdida de Cuba en 1824: se perdió en 1898; en 1824 se perdió la América continental.",
+  ],
+  ejercicios: [
+    { q: "Cita tres principios de la Constitución de 1812.", sol: "Soberanía nacional, división de poderes y sufragio universal masculino indirecto (también la igualdad ante la ley o la libertad de imprenta)." },
+    { q: "¿Quiénes eran los criollos y por qué querían la independencia?", sol: "Descendientes de españoles nacidos en América; querían gobernar ellos mismos y comerciar libremente." },
+    { q: "Explica qué pedía el carlismo.", sol: "Que reinara Carlos María Isidro, un rey absoluto, la defensa de la religión y de los fueros tradicionales." },
+    { q: "¿Qué fue la desamortización de Mendizábal?", sol: "La expropiación y venta en subasta de tierras de la Iglesia (1836) para pagar la deuda y la guerra carlista." },
+    { q: "¿Qué hecho inició el Sexenio Democrático?", sol: "La revolución de 1868, «La Gloriosa», que expulsó a Isabel II." },
+    { q: "¿Qué régimen hubo en España en 1873?", sol: "La Primera República, que duró menos de un año y tuvo cuatro presidentes." },
+    { q: "Define caciquismo.", sol: "El dominio político de personas poderosas en cada localidad que controlaban el voto mediante favores o presiones." },
+    { q: "¿Qué perdió España en 1898 y frente a quién?", sol: "Cuba, Puerto Rico y Filipinas, tras la guerra con Estados Unidos." },
+    { q: "¿Qué pedía el regeneracionismo?", sol: "Modernizar España: educación, obras públicas, acabar con el caciquismo («escuela y despensa», decía Costa)." },
+    { q: "¿Dónde se concentró la industria en el siglo XIX?", sol: "La textil del algodón en Cataluña y la siderurgia en el País Vasco; también la minería en Asturias y el sur." },
+  ],
+  quiz: [
+    { q: "La Constitución de 1812 se aprobó en…", o: ["Madrid", "Cádiz", "Sevilla"], a: 1, e: "Por eso se habla de las Cortes de Cádiz." },
+    { q: "La batalla decisiva de la independencia americana fue…", o: ["Ayacucho, 1824", "Bailén, 1808", "Trafalgar, 1805"], a: 0, e: "Puso fin al dominio español en América del Sur." },
+    { q: "La desamortización de 1836 la impulsó…", o: ["Madoz", "Mendizábal", "Cánovas"], a: 1, e: "Afectó a tierras de la Iglesia." },
+    { q: "El sistema del turno lo ideó…", o: ["Cánovas", "Prim", "Espartero"], a: 0, e: "Con Sagasta como líder liberal." },
+    { q: "El PNV lo fundó en 1895…", o: ["Joaquín Costa", "Sabino Arana", "Prat de la Riba"], a: 1, e: "Es el origen del nacionalismo vasco político." },
+  ],
+  tarjetas: [
+    ["La Pepa", "Nombre popular de la Constitución de 1812."],
+    ["Desamortización", "Expropiación y venta de tierras de la Iglesia y los ayuntamientos."],
+    ["Pucherazo", "Fraude electoral de la Restauración."],
+  ],
+});

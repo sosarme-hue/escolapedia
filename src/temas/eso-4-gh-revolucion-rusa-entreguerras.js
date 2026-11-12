@@ -77,3 +77,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar las causas y consecuencias de la Gran Depresión", "Comparar los regímenes totalitarios"],
+  bloques: [
+    { tras: "Las revoluciones de 1917", html: `<h3>La Rusia de los zares</h3><p>A comienzos del siglo XX Rusia era un imperio enorme gobernado por el <b>zar Nicolás II</b> como monarca absoluto (la <mark>autocracia</mark>). La mayoría de la población eran campesinos pobres que habían dejado de ser siervos hacía poco (1861) y la industria se concentraba en pocas ciudades. La derrota frente a Japón provocó la <b>revolución de 1905</b>: en el «Domingo Sangriento» la guardia disparó contra una manifestación pacífica. El zar creó un parlamento, la <b>Duma</b>, pero sin poder real. La Primera Guerra Mundial, con derrotas, hambre y millones de muertos, hundió definitivamente al zarismo.</p>` },
+    { tras: "Las revoluciones de 1917", html: `<h3>Guerra civil y nacimiento de la URSS</h3><p>Tras tomar el poder, <b>Lenin</b> firmó la paz con Alemania (Brest-Litovsk, 1918), repartió la tierra y nacionalizó la banca y la industria. Los contrarios a los bolcheviques, los <b>blancos</b>, con apoyo extranjero, se enfrentaron al <mark>Ejército Rojo</mark> de Trotski en una guerra civil (1918-1921) que ganaron los rojos. La familia del zar fue ejecutada. Para recuperar la economía, Lenin aplicó la <b>NEP</b> (Nueva Política Económica), que permitía algo de comercio privado. En 1922 nació la <b>URSS</b>, la Unión de Repúblicas Socialistas Soviéticas.</p>` },
+    { tras: "Los felices años 20", html: `<h3>La Gran Depresión</h3><p>En los años 20 la economía de EE. UU. creció mucho, pero se producía más de lo que se podía vender y muchos compraban acciones a crédito, esperando que subieran siempre: era una <mark>burbuja especulativa</mark>. El <b>jueves 24 de octubre de 1929</b> empezó el hundimiento de la Bolsa de Nueva York. Quebraron bancos y empresas, el paro llegó a una de cada cuatro personas en EE. UU. y la crisis se extendió al mundo porque los bancos estadounidenses retiraron sus préstamos a Europa. El presidente <b>Roosevelt</b> respondió con el <b>New Deal</b> (1933): obras públicas, ayudas a los parados y control de los bancos.</p>`, video: { id: "sxqzgjizzdo", titulo: "El crack del 29 y la Gran Depresión", canal: "Academia Play", vistas: 7263323, megusta: 0 } },
+    { tras: "Fascismo y nazismo", html: `<h3>Rasgos comunes de los totalitarismos</h3>${tabla(["Rasgo", "Fascismo italiano", "Nazismo alemán", "Estalinismo"], [["Líder", "Mussolini (Duce)", "Hitler (Führer)", "Stalin"], ["Llegada al poder", "Marcha sobre Roma, 1922", "elecciones y nombramiento, 1933", "lucha interna tras morir Lenin"], ["Partido único", "Partido Fascista", "Partido Nazi", "Partido Comunista"], ["Represión", "policía política, cárcel", "Gestapo, campos de concentración", "NKVD, gulag"], ["Economía", "capitalista con control estatal", "capitalista con control estatal", "planificada, sin propiedad privada"]])}<p>Todos usaron la <mark>propaganda</mark>, el culto al líder y el control de la educación y de los medios.</p>` },
+    { tras: "Fascismo y nazismo", html: `<h3>El ascenso de Hitler</h3><p>La <b>República de Weimar</b> sufría la humillación de Versalles, la hiperinflación de 1923 (el pan llegó a costar miles de millones de marcos) y, después, el paro masivo de la Gran Depresión. Hitler prometió orden, trabajo y venganza, y culpó a los judíos y a los comunistas. En 1932 el Partido Nazi fue el más votado y en <b>enero de 1933</b> Hitler fue nombrado canciller. En pocos meses prohibió los demás partidos y los sindicatos. Las <mark>Leyes de Núremberg</mark> (1935) quitaron la ciudadanía a los judíos, y en la <b>Noche de los Cristales Rotos</b> (1938) se atacaron sus sinagogas y comercios.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Explica la cadena que llevó del crac de la Bolsa al paro masivo.", pasos: ["Caen las acciones → muchos inversores se arruinan y no devuelven sus créditos.", "Los bancos quiebran → no hay préstamos para las empresas.", "Las empresas venden menos y cierran → despiden trabajadores.", "Con más paro, se consume aún menos."], resultado: "La crisis financiera se convirtió en una crisis económica general que se alimentaba a sí misma." },
+    { enunciado: "Compara las revoluciones de febrero y octubre de 1917.", pasos: ["Febrero: caída del zar; gobierno provisional liberal que sigue en la guerra.", "Octubre: los bolcheviques de Lenin toman el poder; paz y tierra para los campesinos."], resultado: "Febrero acabó con la monarquía; octubre instauró un Estado comunista." },
+    { enunciado: "¿Por qué los totalitarismos atraían a parte de la población en los años 30?", pasos: ["Había paro, miedo y crisis económica.", "Las democracias parecían débiles.", "Los líderes ofrecían orden, trabajo y un enemigo al que culpar.", "La propaganda era muy eficaz."], resultado: "La crisis y el miedo hicieron que muchos aceptaran perder libertades a cambio de seguridad." },
+  ],
+  errores: [
+    "Confundir la revolución de febrero (cae el zar) con la de octubre (toman el poder los bolcheviques).",
+    "Pensar que Hitler dio un golpe de Estado para llegar al poder en 1933: fue nombrado canciller tras ganar votos.",
+    "Creer que el crac del 29 solo afectó a EE. UU.",
+    "Llamar fascista al régimen de Stalin: era comunista, aunque también totalitario.",
+    "Situar el New Deal antes del crac: es de 1933.",
+  ],
+  ejercicios: [
+    { q: "¿Qué era la autocracia zarista?", sol: "El poder absoluto del zar, sin parlamento con poder real ni libertades." },
+    { q: "¿Qué pasó en el Domingo Sangriento?", sol: "En 1905 la guardia del zar disparó contra una manifestación pacífica en San Petersburgo; empezó la revolución de 1905." },
+    { q: "¿Qué prometían los bolcheviques con «paz, pan y tierra»?", sol: "Salir de la guerra, acabar con el hambre y repartir la tierra entre los campesinos." },
+    { q: "¿Qué fue la NEP?", sol: "La Nueva Política Económica de Lenin (1921), que permitió algo de comercio y propiedad privada para recuperar la economía." },
+    { q: "Explica qué eran los planes quinquenales de Stalin.", sol: "Planes de cinco años que fijaban la producción de toda la economía, dando prioridad a la industria pesada." },
+    { q: "¿Qué es una burbuja especulativa?", sol: "Una subida de precios de un bien o de acciones muy por encima de su valor real, porque se compra solo para vender más caro." },
+    { q: "Cita dos medidas del New Deal.", sol: "Obras públicas para dar empleo y subsidios a los parados; también más control de los bancos." },
+    { q: "¿Qué fue la Marcha sobre Roma?", sol: "La movilización fascista de 1922 que llevó al rey a nombrar a Mussolini jefe del Gobierno." },
+    { q: "¿Qué establecían las Leyes de Núremberg?", sol: "Quitaban la ciudadanía alemana a los judíos y prohibían los matrimonios entre judíos y no judíos (1935)." },
+    { q: "¿Qué rasgos comparten los regímenes totalitarios?", sol: "Partido único, culto al líder, represión, propaganda y control total de la sociedad." },
+  ],
+  quiz: [
+    { q: "La Duma era…", o: ["el parlamento ruso", "la policía del zar", "un partido"], a: 0, e: "Se creó tras la revolución de 1905." },
+    { q: "La URSS nació en…", o: ["1917", "1922", "1945"], a: 1, e: "Tras la guerra civil." },
+    { q: "El crac de la Bolsa de Nueva York empezó en…", o: ["octubre de 1929", "enero de 1933", "julio de 1914"], a: 0, e: "El llamado jueves negro." },
+    { q: "El New Deal lo impulsó…", o: ["Roosevelt", "Wilson", "Truman"], a: 0, e: "Desde 1933." },
+    { q: "Hitler fue nombrado canciller en…", o: ["1923", "1933", "1939"], a: 1, e: "En enero de 1933." },
+  ],
+  tarjetas: [
+    ["Domingo Sangriento", "Matanza de 1905 que inicia la primera revolución rusa."],
+    ["New Deal", "Plan de Roosevelt contra la Gran Depresión."],
+    ["Totalitarismo", "Régimen que controla toda la vida de las personas."],
+  ],
+});

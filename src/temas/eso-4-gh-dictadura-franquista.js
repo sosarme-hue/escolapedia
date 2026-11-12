@@ -88,3 +88,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar las etapas del franquismo y sus apoyos", "Describir la vida cotidiana y los cambios de los años 60"],
+  bloques: [
+    { tras: "Un régimen personal", html: `<h3>Los pilares del régimen</h3><p>Franco concentraba todos los poderes como <b>Caudillo</b> y jefe del Estado. Se apoyaba en las «familias» del régimen: el <b>ejército</b>, la <b>Iglesia católica</b> (el <mark>nacionalcatolicismo</mark>: la religión impregnaba la escuela, las leyes y la moral), <b>Falange</b>, que se convirtió en el partido único (Movimiento Nacional), y los <b>monárquicos</b> y grandes propietarios. No había Constitución, sino unas <b>Leyes Fundamentales</b>. Los trabajadores debían integrarse en el sindicato vertical, junto con los empresarios, y las huelgas estaban prohibidas.</p>` },
+    { tras: "Represión y exilio", html: `<h3>La posguerra: hambre y racionamiento</h3><p>Los años 40 fueron los «<mark>años del hambre</mark>». Las <b>cartillas de racionamiento</b> (vigentes hasta 1952) limitaban la compra de pan, aceite o azúcar, y floreció el <b>estraperlo</b>, el mercado negro, donde los productos costaban mucho más. Faltaban electricidad y medicinas, y enfermedades como la tuberculosis eran frecuentes. Las mujeres perdieron los derechos logrados en la República: necesitaban permiso del marido para trabajar o abrir una cuenta, y la <b>Sección Femenina</b> las educaba para ser esposas y madres.</p>` },
+    { tras: "De la autarquía al desarrollismo", html: `<h3>Del aislamiento a la aceptación internacional</h3><p>Al terminar la Segunda Guerra Mundial, el régimen, que había apoyado a Hitler y Mussolini, quedó aislado: la <b>ONU</b> recomendó retirar los embajadores en 1946. La <mark>Guerra Fría</mark> cambió la situación: para EE. UU., Franco era un aliado anticomunista. En <b>1953</b> se firmaron los <b>acuerdos con EE. UU.</b> (bases militares a cambio de ayuda) y el <b>Concordato</b> con el Vaticano. En <b>1955</b> España entró en la ONU, y en 1959 el presidente Eisenhower visitó Madrid.</p>` },
+    { tras: "De la autarquía al desarrollismo", html: `<h3>El «milagro económico» de los 60</h3>${tabla(["Motor del crecimiento", "Qué supuso"], [["Plan de Estabilización (1959)", "apertura al exterior, fin de la autarquía"], ["Turismo", "de unos 4 millones de visitantes en 1959 a más de 30 en 1973"], ["Emigración a Europa", "más de un millón de españoles trabajan en Alemania, Francia o Suiza y envían divisas"], ["Inversión extranjera", "fábricas de coches, química, electrodomésticos"], ["Planes de Desarrollo", "polos industriales en ciudades como Valladolid, Burgos o Huelva"]])}<p>La renta de los españoles creció muy deprisa, pero el campo se vació: millones de personas emigraron a Madrid, Barcelona y el País Vasco.</p>`, video: { id: "gVEtOUmgMGE", titulo: "El milagro económico español", canal: "Memorias de Tiburón", vistas: 124638, megusta: 0 } },
+    { tras: "Cambios sociales y oposición", html: `<h3>La vida cotidiana en los 60 y 70</h3><p>Con el desarrollo llegaron el <b>SEAT 600</b>, la televisión (TVE desde 1956), la nevera y la lavadora, y las vacaciones en la playa. Surgió una amplia <b>clase media</b>. Los turistas y los emigrantes trajeron costumbres más libres, y la juventud escuchaba música extranjera. Pero seguía la <mark>censura</mark> en la prensa, el cine y los libros, y no había libertad política. Las universidades y las fábricas se convirtieron en focos de protesta, y parte de la Iglesia, tras el Concilio Vaticano II, se distanció del régimen.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Explica por qué la Guerra Fría ayudó a Franco a sobrevivir.", pasos: ["Tras 1945 Franco estaba aislado por su apoyo al Eje.", "EE. UU. necesitaba aliados contra la URSS.", "España ofrecía una posición estratégica y un régimen anticomunista.", "En 1953 se firmaron los acuerdos de las bases."], resultado: "El anticomunismo convirtió a Franco en un aliado útil para EE. UU. y le permitió salir del aislamiento." },
+    { enunciado: "Compara la autarquía y el desarrollismo.", pasos: ["Autarquía (1939-1959): producir todo dentro, poco comercio, hambre y estancamiento.", "Desarrollismo (1959-1973): apertura, turismo, inversiones y fuerte crecimiento."], resultado: "La autarquía fracasó; la apertura de 1959 trajo el crecimiento de los años 60." },
+    { enunciado: "Analiza una cartilla de racionamiento de 1945 como fuente.", pasos: ["Tipo: documento oficial.", "Muestra que los alimentos básicos estaban limitados por persona.", "Refleja la escasez de la posguerra y la política autárquica.", "Explica la aparición del estraperlo."], resultado: "Es una prueba directa del hambre y del fracaso de la autarquía." },
+  ],
+  errores: [
+    "Pensar que el franquismo fue igual de principio a fin: pasó de la autarquía al desarrollismo.",
+    "Creer que hubo elecciones libres durante la dictadura.",
+    "Atribuir el crecimiento de los 60 solo al régimen: fueron claves el turismo, la emigración y la economía europea.",
+    "Decir que las mujeres tenían los mismos derechos que en la República: perdieron muchos.",
+    "Confundir el Plan de Estabilización (1959) con los Planes de Desarrollo (desde 1964).",
+  ],
+  ejercicios: [
+    { q: "¿Qué era el nacionalcatolicismo?", sol: "La unión entre el Estado franquista y la Iglesia católica, que controlaba la educación y la moral." },
+    { q: "¿Qué era el sindicato vertical?", sol: "El único sindicato permitido, que agrupaba a trabajadores y empresarios bajo el control del Estado." },
+    { q: "¿Qué fue el estraperlo?", sol: "El mercado negro de la posguerra, donde se vendían productos racionados a precios muy altos." },
+    { q: "¿Por qué la ONU aisló a España en 1946?", sol: "Por la relación del régimen con la Alemania nazi y la Italia fascista." },
+    { q: "Cita dos acuerdos de 1953.", sol: "Los pactos con EE. UU. (bases militares a cambio de ayuda) y el Concordato con el Vaticano." },
+    { q: "¿Qué cambió el Plan de Estabilización de 1959?", sol: "Acabó con la autarquía, abrió la economía al exterior y controló la inflación." },
+    { q: "¿Qué papel tuvieron los emigrantes españoles en Europa?", sol: "Enviaron dinero (divisas) a sus familias, que ayudó a financiar el crecimiento." },
+    { q: "Describe el éxodo rural de los años 60.", sol: "Millones de personas dejaron los pueblos para trabajar en la industria y los servicios de las grandes ciudades." },
+    { q: "¿Qué símbolos de consumo aparecen en los 60?", sol: "El SEAT 600, la televisión, la nevera, la lavadora y las vacaciones." },
+    { q: "Cita dos focos de oposición al franquismo.", sol: "El movimiento obrero (Comisiones Obreras) y el movimiento estudiantil en las universidades; también nacionalistas y parte de la Iglesia." },
+  ],
+  quiz: [
+    { q: "Las cartillas de racionamiento duraron hasta…", o: ["1945", "1952", "1975"], a: 1, e: "La posguerra fue muy larga." },
+    { q: "España entró en la ONU en…", o: ["1945", "1955", "1977"], a: 1, e: "Gracias al contexto de la Guerra Fría." },
+    { q: "TVE empezó a emitir en…", o: ["1956", "1939", "1975"], a: 0, e: "Al principio solo en Madrid." },
+    { q: "La Sección Femenina…", o: ["educaba a las mujeres en el papel de esposa y madre", "defendía el voto femenino", "era un sindicato"], a: 0, e: "Dependía de Falange." },
+    { q: "El turismo en España en 1973 superó los…", o: ["3 millones de visitantes", "30 millones de visitantes", "300 millones"], a: 1, e: "Fue un motor clave del crecimiento." },
+  ],
+  tarjetas: [
+    ["Nacionalcatolicismo", "Unión entre el régimen franquista y la Iglesia."],
+    ["Estraperlo", "Mercado negro de la posguerra."],
+    ["Plan de Estabilización", "Medidas de 1959 que acabaron con la autarquía."],
+  ],
+});

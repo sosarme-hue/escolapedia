@@ -81,3 +81,54 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Relacionar la crisis de 1917 y la guerra de Marruecos con el fin de la Restauración", "Explicar las reformas y los conflictos de la Segunda República"],
+  bloques: [
+    { tras: "Alfonso XIII y la crisis", html: `<h3>La guerra de Marruecos y la Semana Trágica</h3><p>Tras perder las últimas colonias, España obtuvo un <b>protectorado en el norte de Marruecos</b> (1912). La guerra contra las tribus del Rif fue impopular porque los ricos podían librarse del servicio militar pagando una cuota. En <b>1909</b>, el embarque de reservistas, muchos padres de familia, provocó en Barcelona la <mark>Semana Trágica</mark>: huelga, barricadas y quema de conventos, duramente reprimidas. En <b>1921</b>, en el <mark>desastre de Annual</mark>, murieron unos 10.000 soldados españoles. Las críticas al ejército y al rey fueron enormes.</p>` },
+    { tras: "Alfonso XIII y la crisis", html: `<h3>La crisis de 1917</h3><p>España fue neutral en la Primera Guerra Mundial y vendió mucho a los países en guerra, pero los precios subieron más que los salarios. En <b>1917</b> estalló una triple crisis: <b>militar</b> (las Juntas de Defensa de los oficiales protestaban por sueldos y ascensos), <b>política</b> (la Asamblea de Parlamentarios en Barcelona pedía cortes constituyentes) y <b>social</b> (huelga general de UGT y CNT). Después llegó el <mark>pistolerismo</mark> en Barcelona (1918-1923): pistoleros pagados por la patronal y por grupos anarquistas se mataban en la calle.</p>` },
+    { tras: "La dictadura de Primo de Rivera", html: `<h3>Qué hizo la dictadura</h3><p>Con el apoyo de Alfonso XIII, el general <b>Miguel Primo de Rivera</b> suspendió la Constitución, disolvió las Cortes y prohibió los partidos. Logró acabar con la guerra de Marruecos tras el <b>desembarco de Alhucemas</b> (1925), en colaboración con Francia. Impulsó grandes <b>obras públicas</b> (carreteras, pantanos, las Confederaciones Hidrográficas) y creó monopolios como CAMPSA y Telefónica. La crisis económica de 1929 y la oposición de estudiantes, intelectuales y republicanos le hicieron dimitir en <mark>1930</mark>. El rey quedó desprestigiado por haberle apoyado.</p>`, video: { id: "D21pudizOm0", titulo: "Dictadura de Primo de Rivera (1923-1930)", canal: "Probando probando", vistas: 303131, megusta: 0 } },
+    { tras: "La Segunda República y su Constitución", html: `<h3>La Constitución de 1931</h3>${tabla(["Aspecto", "Qué establecía"], [["Estado", "república democrática «de trabajadores de toda clase»"], ["Sufragio", "universal: por primera vez votan las mujeres (desde 1933)"], ["Religión", "Estado laico; separación Iglesia-Estado; matrimonio civil y divorcio"], ["Territorio", "Estado integral que permitía autonomías (Cataluña, 1932)"], ["Derechos", "amplios derechos y libertades; posibilidad de expropiar tierras con indemnización"]])}<p>El voto femenino se aprobó gracias a la defensa de la diputada <mark>Clara Campoamor</mark>.</p>` },
+    { tras: "Tres etapas de reformas", html: `<h3>Las grandes reformas</h3><p>El primer gobierno, de republicanos de izquierda y socialistas con <b>Manuel Azaña</b>, aprobó una <mark>reforma agraria</mark> (1932) para dar tierra a los jornaleros de los latifundios del sur, aunque avanzó muy despacio. La <b>reforma militar</b> redujo el número de oficiales. La <b>reforma educativa</b> construyó miles de escuelas y llevó la cultura a los pueblos con las Misiones Pedagógicas. El <b>Estatuto de Cataluña</b> (1932) dio autonomía a esa región. Estas reformas ilusionaron a muchos y enfadaron a terratenientes, militares y parte de la Iglesia.</p>` },
+    { tras: "Tres etapas de reformas", html: `<h3>Un país dividido</h3><p>Entre 1933 y 1935 gobernaron los partidos de centro y derecha (Partido Radical y <b>CEDA</b>), que frenaron las reformas. En <b>octubre de 1934</b> la entrada de la CEDA en el Gobierno provocó una huelga revolucionaria que en <mark>Asturias</mark> fue una insurrección obrera, aplastada por el ejército. En febrero de <b>1936</b> ganó el <b>Frente Popular</b>, una coalición de izquierdas. La violencia política creció en las calles, con asesinatos por ambos lados, y un grupo de militares preparó un golpe de Estado.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Explica por qué la dictadura de Primo de Rivera arrastró a la monarquía.", pasos: ["Alfonso XIII aceptó el golpe de 1923 y la dictadura.", "Cuando la dictadura fracasó, muchos culparon también al rey.", "En las elecciones municipales de abril de 1931 ganaron los republicanos en las ciudades.", "El rey se marchó y se proclamó la República el 14 de abril."], resultado: "Al apoyar una dictadura, el rey perdió la legitimidad de la monarquía constitucional." },
+    { enunciado: "Ordena: Annual, Semana Trágica, proclamación de la República, golpe de Primo de Rivera, revolución de Asturias.", pasos: ["Semana Trágica: 1909.", "Annual: 1921.", "Golpe de Primo de Rivera: 1923.", "República: 1931.", "Asturias: 1934."], resultado: "1909 → 1921 → 1923 → 1931 → 1934." },
+    { enunciado: "¿Por qué la reforma agraria creó tantos enemigos y tantas frustraciones?", pasos: ["Los terratenientes se oponían a perder tierras.", "Los jornaleros esperaban tierra rápido, pero el reparto fue lento y escaso.", "Había poco dinero para indemnizar."], resultado: "Molestó a los propietarios y decepcionó a los campesinos, lo que aumentó la tensión social." },
+  ],
+  errores: [
+    "Pensar que la Segunda República llegó por una revolución violenta: llegó tras unas elecciones municipales.",
+    "Creer que las mujeres votaron en España antes de 1933.",
+    "Confundir la Semana Trágica (1909) con el desastre de Annual (1921).",
+    "Pensar que Primo de Rivera gobernó contra el rey: Alfonso XIII lo apoyó.",
+    "Decir que la República solo tuvo gobiernos de izquierdas: entre 1933 y 1935 gobernó el centro-derecha.",
+  ],
+  ejercicios: [
+    { q: "¿Qué fue la Semana Trágica?", sol: "La revuelta de Barcelona en 1909 contra el embarque de reservistas a Marruecos, duramente reprimida." },
+    { q: "¿Qué ocurrió en Annual en 1921?", sol: "Una gran derrota del ejército español en Marruecos en la que murieron unos 10.000 soldados." },
+    { q: "Cita los tres aspectos de la crisis de 1917.", sol: "Militar (Juntas de Defensa), política (Asamblea de Parlamentarios) y social (huelga general)." },
+    { q: "¿Cómo terminó la guerra de Marruecos?", sol: "Con el desembarco de Alhucemas (1925), en colaboración con Francia, y la rendición de Abd el-Krim." },
+    { q: "¿Por qué cayó Primo de Rivera?", sol: "Por la crisis económica de 1929, la oposición de estudiantes, intelectuales y políticos, y la pérdida del apoyo del rey y del ejército." },
+    { q: "¿Cómo se proclamó la Segunda República?", sol: "Tras ganar los republicanos las elecciones municipales en las ciudades el 12 de abril de 1931; el 14 se proclamó la República y el rey se exilió." },
+    { q: "Cita tres novedades de la Constitución de 1931.", sol: "Voto de la mujer, Estado laico y posibilidad de autonomías regionales." },
+    { q: "¿Quién fue Clara Campoamor?", sol: "Diputada que defendió en las Cortes el voto femenino, aprobado en 1931." },
+    { q: "¿Qué fueron las Misiones Pedagógicas?", sol: "Un proyecto de la República que llevaba bibliotecas, cine, teatro y música a los pueblos." },
+    { q: "¿Qué era el Frente Popular?", sol: "La coalición de partidos de izquierda que ganó las elecciones de febrero de 1936." },
+  ],
+  quiz: [
+    { q: "La Semana Trágica ocurrió en…", o: ["Barcelona, 1909", "Madrid, 1917", "Asturias, 1934"], a: 0, e: "Por el embarque de reservistas a Marruecos." },
+    { q: "El desembarco de Alhucemas fue en…", o: ["1921", "1925", "1931"], a: 1, e: "Puso fin a la guerra del Rif." },
+    { q: "La Segunda República se proclamó el…", o: ["14 de abril de 1931", "18 de julio de 1936", "6 de diciembre de 1978"], a: 0, e: "Tras las elecciones municipales." },
+    { q: "La CEDA era un partido…", o: ["de derechas", "anarquista", "comunista"], a: 0, e: "Su líder era Gil Robles." },
+    { q: "La revolución de 1934 fue más fuerte en…", o: ["Asturias", "Valencia", "Galicia"], a: 0, e: "Los mineros se levantaron y el ejército la aplastó." },
+  ],
+  tarjetas: [
+    ["Annual (1921)", "Gran derrota española en Marruecos."],
+    ["Constitución de 1931", "Voto femenino, Estado laico y autonomías."],
+    ["Frente Popular", "Coalición de izquierdas ganadora en febrero de 1936."],
+  ],
+});

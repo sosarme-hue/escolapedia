@@ -78,3 +78,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar los pasos de la Transición y el papel de sus protagonistas", "Conocer la estructura y los principios de la Constitución de 1978"],
+  bloques: [
+    { tras: "De la ley a la ley", html: `<h3>Los protagonistas</h3>${tabla(["Protagonista", "Papel"], [["Juan Carlos I", "rey desde 1975; impulsó el cambio y frenó el golpe de 1981"], ["Adolfo Suárez", "presidente del Gobierno (1976-1981); Ley para la Reforma Política y primeras elecciones"], ["Torcuato Fernández-Miranda", "presidente de las Cortes; diseñó la reforma desde la legalidad franquista"], ["Santiago Carrillo", "líder del PCE, legalizado en 1977; aceptó la monarquía"], ["Felipe González", "líder del PSOE; presidente desde 1982"]])}` },
+    { tras: "De la ley a la ley", html: `<h3>Del referéndum a las primeras elecciones</h3><p>La <b>Ley para la Reforma Política</b> (1976) permitía elegir unas Cortes democráticas; las mismas Cortes franquistas la aprobaron y el pueblo la ratificó en referéndum con un 94 % de votos a favor. En 1977 se aprobó una <b>amnistía</b> para los presos políticos y se legalizaron los partidos, incluido el <b>Partido Comunista</b> (Sábado Santo de 1977). El <mark>15 de junio de 1977</mark> se celebraron las primeras elecciones libres desde 1936: ganó la UCD de Suárez, seguida del PSOE. Los <b>Pactos de la Moncloa</b> (1977) unieron a partidos, empresarios y sindicatos para afrontar la crisis económica.</p>` },
+    { tras: "El consenso y la Constitución", html: `<h3>Qué dice la Constitución de 1978</h3><p>La Constitución, aprobada en referéndum el <b>6 de diciembre de 1978</b>, define España como un <mark>Estado social y democrático de Derecho</mark> cuya forma política es la <b>monarquía parlamentaria</b>. La soberanía reside en el pueblo español. Reconoce derechos fundamentales (igualdad, libertad de expresión, de religión, educación), separa los poderes (las Cortes Generales hacen las leyes; el Gobierno las ejecuta; los jueces las aplican) y crea el <b>Estado de las autonomías</b>. Tiene un preámbulo, 169 artículos divididos en 10 títulos y varias disposiciones.</p>`, video: { id: "hwL6Hp3kk1g", titulo: "Aprende rápido los títulos de la Constitución Española", canal: "LANDL Formación", vistas: 426932, megusta: 0 } },
+    { tras: "El consenso y la Constitución", html: `<h3>El Estado de las autonomías</h3><p>La Constitución reconoce el derecho a la autonomía de las <b>nacionalidades y regiones</b>. Entre 1979 y 1983 se aprobaron los estatutos de las <b>17 comunidades autónomas</b>, y en 1995 los de <b>Ceuta y Melilla</b> como ciudades autónomas. Cada comunidad tiene su Parlamento, su Gobierno y competencias propias, como educación o sanidad. País Vasco, Cataluña y Galicia accedieron por la vía rápida, por haber aprobado estatuto en la República; <mark>Andalucía</mark> la logró con el referéndum de 1980.</p>` },
+    { tras: "La democracia consolidada", html: `<h3>España se moderniza y se abre al mundo</h3><p>Los gobiernos del PSOE (1982-1996) universalizaron la <b>sanidad pública</b> y la educación obligatoria hasta los 16 años, e hicieron una dura reconversión industrial. España entró en la <b>OTAN</b> (1982, confirmado en referéndum en 1986) y en la <mark>Comunidad Económica Europea</mark> (1 de enero de 1986). En 1992 los <b>Juegos Olímpicos de Barcelona</b> y la <b>Exposición Universal de Sevilla</b> mostraron al mundo un país moderno. Desde entonces se han alternado en el gobierno el PSOE y el Partido Popular, y después otras fuerzas han llegado al Parlamento.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Explica qué significa «de la ley a la ley».", pasos: ["La Transición no rompió de golpe con el franquismo.", "Usó las propias leyes franquistas para cambiarlas.", "Las Cortes franquistas aprobaron la Ley para la Reforma Política.", "Así se llegó a la democracia sin vacío legal."], resultado: "Se pasó de la dictadura a la democracia reformando la legalidad, no rompiéndola." },
+    { enunciado: "Clasifica estos poderes según la Constitución: Congreso y Senado, Gobierno, Tribunal Supremo.", pasos: ["Congreso y Senado (Cortes Generales): poder legislativo.", "Gobierno: poder ejecutivo.", "Tribunal Supremo y jueces: poder judicial."], resultado: "Legislativo, ejecutivo y judicial, separados." },
+    { enunciado: "¿Por qué fue clave la legalización del PCE?", pasos: ["Era el principal partido de la oposición clandestina.", "Dejarlo fuera habría restado legitimidad a las elecciones.", "Carrillo aceptó la monarquía y la bandera.", "El ejército se opuso, pero Suárez lo hizo."], resultado: "Permitió unas elecciones con todas las fuerzas políticas y reforzó el consenso." },
+  ],
+  errores: [
+    "Pensar que la Constitución es de 1975: se aprobó en 1978.",
+    "Creer que la Transición fue totalmente pacífica: hubo terrorismo y un intento de golpe.",
+    "Decir que el rey gobierna: en la monarquía parlamentaria gobierna el Gobierno elegido por las Cortes.",
+    "Confundir la entrada en la CEE (1986) con la creación del euro (2002).",
+    "Pensar que las comunidades autónomas son independientes: tienen autonomía dentro del Estado.",
+  ],
+  ejercicios: [
+    { q: "¿Qué fue la Ley para la Reforma Política?", sol: "La ley de 1976 que permitió elegir unas Cortes democráticas; la aprobaron las Cortes franquistas y el pueblo en referéndum." },
+    { q: "¿Cuándo fueron las primeras elecciones democráticas tras Franco y quién ganó?", sol: "El 15 de junio de 1977; ganó la UCD de Adolfo Suárez." },
+    { q: "¿Qué fueron los Pactos de la Moncloa?", sol: "Acuerdos de 1977 entre partidos, sindicatos y empresarios para afrontar la crisis económica y reforzar la democracia." },
+    { q: "¿Por qué la Constitución se llama «del consenso»?", sol: "Porque la redactaron ponentes de partidos muy distintos, de la derecha a los comunistas, buscando acuerdos." },
+    { q: "Explica «Estado social y democrático de Derecho».", sol: "Social: garantiza servicios y bienestar; democrático: el poder viene del pueblo; de Derecho: todos, también el Estado, cumplen la ley." },
+    { q: "¿Cuántas comunidades autónomas hay?", sol: "17 comunidades autónomas y 2 ciudades autónomas (Ceuta y Melilla)." },
+    { q: "¿Qué pasó el 23 de febrero de 1981?", sol: "Un intento de golpe de Estado: guardias civiles asaltaron el Congreso; fracasó, entre otras razones, por la intervención del rey." },
+    { q: "¿Qué daño hizo ETA a la democracia?", sol: "Asesinó a más de 800 personas y buscó desestabilizar la democracia; anunció su fin definitivo en 2011 y se disolvió en 2018." },
+    { q: "¿Cuándo entró España en la CEE?", sol: "El 1 de enero de 1986." },
+    { q: "¿Qué simbolizó el año 1992 para España?", sol: "Los Juegos de Barcelona y la Expo de Sevilla mostraron un país moderno y abierto al mundo." },
+  ],
+  quiz: [
+    { q: "La Ley para la Reforma Política se aprobó en referéndum en…", o: ["1976", "1978", "1982"], a: 0, e: "Con un 94 % de síes." },
+    { q: "El PCE se legalizó en…", o: ["1975", "1977", "1981"], a: 1, e: "En Semana Santa." },
+    { q: "La forma política de España según la Constitución es…", o: ["república federal", "monarquía parlamentaria", "monarquía absoluta"], a: 1, e: "Artículo 1.3." },
+    { q: "La Constitución tiene…", o: ["169 artículos", "500 artículos", "50 artículos"], a: 0, e: "Y 10 títulos." },
+    { q: "Andalucía logró la autonomía por la vía rápida tras…", o: ["el referéndum de 1980", "el golpe de 1981", "la Expo de 1992"], a: 0, e: "El 28 de febrero de 1980." },
+  ],
+  tarjetas: [
+    ["Pactos de la Moncloa", "Acuerdos de 1977 contra la crisis económica."],
+    ["Estado de las autonomías", "Organización territorial con 17 comunidades autónomas."],
+    ["Monarquía parlamentaria", "El rey es jefe del Estado, pero gobierna un Gobierno elegido."],
+  ],
+});

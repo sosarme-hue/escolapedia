@@ -84,3 +84,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar las principales batallas y la evolución de los frentes", "Valorar la memoria democrática y la cultura durante la guerra"],
+  bloques: [
+    { tras: "El golpe de Estado", html: `<h3>Por qué fracasó el golpe y empezó una guerra</h3><p>Los militares sublevados, dirigidos por el general <b>Mola</b> y con <b>Franco</b> al frente del ejército de África, esperaban controlar el país en pocos días. Triunfaron en Galicia, Castilla y León, Navarra, parte de Andalucía y Aragón, y en Canarias, Baleares (salvo Menorca) y el protectorado de Marruecos. Pero en <b>Madrid, Barcelona, Valencia, Bilbao</b> y la mayoría de las ciudades industriales, la resistencia de parte del ejército, de las fuerzas de orden y de las milicias obreras lo hizo fracasar. España quedó partida en dos y el golpe se convirtió en una <mark>guerra civil</mark> que duró casi tres años.</p>` },
+    { tras: "La dimensión internacional", html: `<h3>Ayuda exterior y Brigadas Internacionales</h3>${tabla(["Bando", "Recibió ayuda de", "En qué consistía"], [["Sublevado", "Alemania nazi e Italia fascista; Portugal", "Legión Cóndor, aviones, tanques, unos 80.000 soldados italianos"], ["Republicano", "URSS y México", "aviones, tanques y asesores pagados con el oro del Banco de España"], ["Republicano", "Brigadas Internacionales", "unos 35.000-40.000 voluntarios de decenas de países"]])}<p>Reino Unido y Francia crearon el <mark>Comité de No Intervención</mark>, que en la práctica perjudicó a la República, porque Alemania e Italia no lo respetaron.</p>` },
+    { tras: "Las fases de la guerra", html: `<h3>Las grandes batallas</h3><p>En 1936 los sublevados avanzaron desde el sur hacia Madrid, pero la capital resistió al grito de «<mark>¡No pasarán!</mark>». Tras fracasar en el Jarama y en Guadalajara (1937), Franco se dirigió al norte: el <b>bombardeo de Guernica</b> (26 de abril de 1937) por la Legión Cóndor destruyó la villa y conmovió al mundo. En 1938 los sublevados llegaron al Mediterráneo y partieron en dos la zona republicana. La <b>batalla del Ebro</b> (julio-noviembre de 1938), la más larga y sangrienta, agotó al ejército republicano. Cataluña cayó a comienzos de 1939 y Madrid, el 28 de marzo.</p>`, video: { id: "CESgr9hmh8I", titulo: "La Guerra Civil española: resumen fácil y breve", canal: "Haroo", vistas: 2315433, megusta: 0 } },
+    { tras: "Dos zonas muy diferentes", html: `<h3>La represión en las dos retaguardias</h3><p>En ambas zonas hubo violencia contra la población civil. En la republicana, sobre todo en los primeros meses, grupos incontrolados asesinaron a personas consideradas de derechas, a religiosos y a propietarios (las sacas, los «paseos»). En la sublevada, la represión fue <mark>sistemática y organizada</mark> desde arriba: fusilamientos de maestros, sindicalistas, políticos y autoridades republicanas, como el poeta <b>Federico García Lorca</b>, y continuó después de la guerra. Hoy las leyes de <b>memoria democrática</b> buscan localizar e identificar a los desaparecidos y reconocer a todas las víctimas.</p>` },
+    { tras: "Las consecuencias", html: `<h3>Cultura y arte en guerra</h3><p>Durante la guerra el arte se puso al servicio de cada bando con <b>carteles</b> de propaganda. En el pabellón de la República en la Exposición de París de 1937 se mostró el <mark>Guernica de Picasso</mark>, hoy en el Museo Reina Sofía, que denuncia el horror de los bombardeos. Muchos escritores se comprometieron: Antonio Machado murió en el exilio en 1939 y Miguel Hernández, en la cárcel en 1942. Se salvaron las obras del <b>Museo del Prado</b> llevándolas a Valencia, Cataluña y finalmente a Ginebra.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Explica por qué la ayuda exterior fue decisiva para el resultado de la guerra.", pasos: ["Los sublevados recibieron mucha ayuda de Alemania e Italia, constante y a crédito.", "Gracias a ella pasaron el ejército de África a la Península en 1936.", "La República solo tuvo la ayuda de la URSS y México, pagada y más irregular.", "Francia y Reino Unido no ayudaron a la República por la No Intervención."], resultado: "El desequilibrio de ayudas favoreció claramente a los sublevados." },
+    { enunciado: "Analiza el Guernica como fuente histórica.", pasos: ["Autor: Picasso, 1937, por encargo de la República.", "Contenido: figuras deformadas, madre con hijo muerto, caballo herido, toro: dolor y destrucción.", "Contexto: bombardeo de la villa vasca por la aviación alemana.", "Finalidad: denunciar ante el mundo la guerra y pedir apoyo."], resultado: "Es una fuente que muestra el sufrimiento civil y sirvió de propaganda contra el fascismo." },
+    { enunciado: "Ordena: caída de Madrid, Guernica, batalla del Ebro, golpe de Estado, caída de Cataluña.", pasos: ["Golpe: julio de 1936.", "Guernica: abril de 1937.", "Ebro: julio-noviembre de 1938.", "Cataluña: enero-febrero de 1939.", "Madrid: marzo de 1939."], resultado: "Golpe → Guernica → Ebro → Cataluña → Madrid." },
+  ],
+  errores: [
+    "Decir que la guerra empezó porque estalló una revolución: empezó con un golpe militar que fracasó en parte.",
+    "Pensar que la No Intervención fue neutral en la práctica: Alemania e Italia ayudaron a los sublevados.",
+    "Atribuir el bombardeo de Guernica a la aviación republicana: fue la Legión Cóndor alemana.",
+    "Creer que la represión terminó con la guerra: siguió en la posguerra.",
+    "Confundir la batalla del Ebro (1938) con la defensa de Madrid (1936).",
+  ],
+  ejercicios: [
+    { q: "¿Dónde triunfó y dónde fracasó el golpe de 1936?", sol: "Triunfó en Galicia, Castilla y León, Navarra, Canarias, parte de Andalucía y Marruecos; fracasó en Madrid, Barcelona, Valencia, Bilbao y las zonas industriales." },
+    { q: "¿Qué fue el Comité de No Intervención?", sol: "Un acuerdo de las potencias europeas para no ayudar a ningún bando, que Alemania e Italia incumplieron." },
+    { q: "¿Quiénes eran los brigadistas internacionales?", sol: "Voluntarios extranjeros, unos 35.000-40.000, que vinieron a luchar por la República." },
+    { q: "¿Qué ocurrió en Guernica en 1937?", sol: "La aviación alemana de la Legión Cóndor bombardeó la villa y causó muchos muertos civiles." },
+    { q: "¿Por qué fue importante la batalla del Ebro?", sol: "Fue la más larga y sangrienta; su derrota dejó a la República sin capacidad de resistir." },
+    { q: "¿Cuándo terminó la guerra?", sol: "El 1 de abril de 1939, con el último parte de guerra de Franco." },
+    { q: "Compara la represión en las dos zonas.", sol: "En la republicana hubo asesinatos sobre todo al principio y fuera de control; en la sublevada fue sistemática, organizada y continuó tras la guerra." },
+    { q: "¿Qué buscan las leyes de memoria democrática?", sol: "Reconocer a las víctimas, localizar e identificar a los desaparecidos y conocer la verdad de lo ocurrido." },
+    { q: "Cita dos escritores víctimas de la guerra.", sol: "Federico García Lorca, asesinado en 1936; Antonio Machado, muerto en el exilio en 1939; Miguel Hernández, muerto en prisión en 1942." },
+    { q: "¿Cuántas personas se exiliaron al terminar la guerra?", sol: "Alrededor de medio millón cruzaron la frontera francesa a comienzos de 1939; muchos no volvieron nunca." },
+  ],
+  quiz: [
+    { q: "El golpe de Estado fracasó en…", o: ["Madrid y Barcelona", "Pamplona y Burgos", "Sevilla y Cádiz"], a: 0, e: "Por eso empezó una guerra." },
+    { q: "El bombardeo de Guernica lo realizó…", o: ["la Legión Cóndor", "la aviación soviética", "la aviación francesa"], a: 0, e: "Era una unidad alemana." },
+    { q: "La batalla más larga de la guerra fue…", o: ["la del Ebro", "la del Jarama", "la de Brunete"], a: 0, e: "Duró de julio a noviembre de 1938." },
+    { q: "El Guernica de Picasso está hoy en…", o: ["el Museo Reina Sofía", "el Prado", "el Louvre"], a: 0, e: "En Madrid." },
+    { q: "La República recibió ayuda sobre todo de…", o: ["la URSS y México", "Alemania e Italia", "EE. UU."], a: 0, e: "Pagada con el oro del Banco de España en el caso soviético." },
+  ],
+  tarjetas: [
+    ["Brigadas Internacionales", "Voluntarios extranjeros que lucharon por la República."],
+    ["Batalla del Ebro", "La más larga de la guerra (1938)."],
+    ["Guernica", "Villa bombardeada en 1937 y cuadro de Picasso que lo denuncia."],
+  ],
+});

@@ -84,3 +84,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Situar en el tiempo las grandes batallas y su significado", "Explicar el nuevo orden mundial tras 1945"],
+  bloques: [
+    { tras: "Las causas", html: `<h3>El camino a la guerra (1935-1939)</h3>${tabla(["Año", "Hecho"], [["1935-1936", "Italia invade Etiopía; Alemania rearma y ocupa Renania"], ["1936-1939", "Alemania e Italia ayudan a Franco en España"], ["1938", "Alemania se anexiona Austria (Anschluss) y, en Múnich, los Sudetes checos"], ["1939", "Hitler ocupa el resto de Checoslovaquia; pacto germano-soviético; invasión de Polonia"]])}<p>Francia y Reino Unido practicaron la <mark>política de apaciguamiento</mark>: cedieron ante Hitler esperando evitar la guerra. Cuando Alemania invadió <b>Polonia</b> el 1 de septiembre de 1939, les declararon la guerra.</p>` },
+    { tras: "Las fases de la guerra", html: `<h3>La guerra relámpago y la batalla de Inglaterra</h3><p>Alemania usó la <mark>Blitzkrieg</mark>: ataques rápidos con tanques y aviones coordinados. En 1940 conquistó Dinamarca, Noruega, los Países Bajos, Bélgica y Francia, que firmó el armisticio en junio; el norte quedó ocupado y en el sur se creó el régimen colaboracionista de <b>Vichy</b>. Reino Unido, con <b>Churchill</b>, resistió solo: en la <b>batalla de Inglaterra</b> la aviación británica (RAF) impidió que Alemania lograra el dominio del aire, y Hitler renunció a invadir las islas.</p>` },
+    { tras: "Las fases de la guerra", html: `<h3>Los puntos de inflexión</h3><p>En <b>1941</b> la guerra se hizo mundial: en junio Alemania invadió la URSS (operación Barbarroja) y en diciembre Japón atacó la base estadounidense de <b>Pearl Harbor</b>, lo que llevó a EE. UU. a la guerra. Entre 1942 y 1943 el Eje sufrió sus primeras grandes derrotas: <b>Midway</b> en el Pacífico, <b>El Alamein</b> en el norte de África y, sobre todo, <mark>Stalingrado</mark> (1942-1943), donde se rindió un ejército alemán entero. Desde entonces los aliados avanzaron: desembarco de Italia (1943), de <b>Normandía</b> (6 de junio de 1944) y llegada de los soviéticos a Berlín (abril de 1945).</p>` },
+    { tras: "El Holocausto", html: `<h3>Los campos de exterminio</h3><p>Desde 1942, en la conferencia de <b>Wannsee</b>, los nazis organizaron la «solución final»: el asesinato de todos los judíos de Europa. Los deportaban en trenes de mercancías a campos de exterminio como <mark>Auschwitz-Birkenau</mark>, Treblinka o Sobibor, donde la mayoría morían en cámaras de gas al llegar. También fueron perseguidos y asesinados gitanos, personas con discapacidad, homosexuales y opositores. Murieron unos <b>6 millones de judíos</b>. Unos 9.000 republicanos españoles pasaron por el campo de <b>Mauthausen</b>, y más de la mitad murieron allí. El 27 de enero, día de la liberación de Auschwitz (1945), es el Día Internacional en Memoria de las Víctimas del Holocausto.</p>`, video: { id: "WGCBtPIdid4", titulo: "Cómo fue la liberación de Auschwitz, el campo de exterminio nazi símbolo del Holocausto", canal: "BBC News Mundo", vistas: 1028786, megusta: 0 } },
+    { tras: "Las consecuencias", html: `<h3>La bomba atómica y el nuevo orden</h3><p>Alemania se rindió el <b>8 de mayo de 1945</b>. Japón siguió luchando hasta que EE. UU. lanzó las <mark>bombas atómicas</mark> sobre <b>Hiroshima</b> (6 de agosto) y <b>Nagasaki</b> (9 de agosto): murieron más de 100.000 personas en el acto y muchas más después por la radiación. Japón se rindió el 2 de septiembre. En las conferencias de <b>Yalta</b> y <b>Potsdam</b> los vencedores dividieron Alemania en cuatro zonas de ocupación. En los <b>juicios de Núremberg</b> se juzgó por primera vez a dirigentes por crímenes contra la humanidad. En 1945 nació la <b>ONU</b> y en 1948 se aprobó la <b>Declaración Universal de Derechos Humanos</b>.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Explica por qué Stalingrado se considera el punto de inflexión de la guerra en Europa.", pasos: ["Alemania había avanzado sin freno hasta el Volga.", "En Stalingrado el ejército soviético cercó al VI Ejército alemán.", "En febrero de 1943 se rindieron unos 90.000 soldados alemanes.", "A partir de entonces la URSS pasó a la ofensiva hasta Berlín."], resultado: "Fue la primera gran derrota alemana y cambió el sentido de la guerra." },
+    { enunciado: "Compara la Primera y la Segunda Guerra Mundial en víctimas civiles.", pasos: ["En la Primera murieron sobre todo soldados en las trincheras.", "En la Segunda hubo bombardeos masivos de ciudades, genocidio y represión.", "Murieron entre 50 y 60 millones de personas, más de la mitad civiles."], resultado: "La Segunda fue mucho más mortífera y castigó sobre todo a la población civil." },
+    { enunciado: "Ordena: Pearl Harbor, invasión de Polonia, desembarco de Normandía, Hiroshima, Stalingrado.", pasos: ["Polonia: 1939.", "Pearl Harbor: 1941.", "Stalingrado: 1942-1943.", "Normandía: 1944.", "Hiroshima: 1945."], resultado: "Polonia → Pearl Harbor → Stalingrado → Normandía → Hiroshima." },
+  ],
+  errores: [
+    "Pensar que EE. UU. estuvo en la guerra desde 1939: entró en diciembre de 1941.",
+    "Creer que la URSS fue siempre aliada de Reino Unido: hasta 1941 tenía un pacto con Hitler.",
+    "Confundir campos de concentración con campos de exterminio: en estos últimos se asesinaba de forma masiva y planificada.",
+    "Decir que España participó oficialmente en la guerra: fue no beligerante, aunque envió la División Azul contra la URSS.",
+    "Situar el fin de la guerra en mayo de 1945 en todo el mundo: en el Pacífico terminó en septiembre.",
+  ],
+  ejercicios: [
+    { q: "¿Qué fue la política de apaciguamiento?", sol: "Ceder ante las exigencias de Hitler, como en Múnich en 1938, para intentar evitar la guerra." },
+    { q: "¿Qué era la Blitzkrieg?", sol: "La guerra relámpago: ataques rápidos y por sorpresa combinando tanques y aviación." },
+    { q: "¿Por qué fue importante la batalla de Inglaterra?", sol: "La RAF impidió que Alemania dominara el aire, y Hitler tuvo que renunciar a invadir Gran Bretaña." },
+    { q: "¿Qué provocó la entrada de EE. UU. en la guerra?", sol: "El ataque japonés a Pearl Harbor el 7 de diciembre de 1941." },
+    { q: "¿Qué ocurrió el 6 de junio de 1944?", sol: "El desembarco aliado de Normandía, que abrió un frente en el oeste de Europa." },
+    { q: "Explica qué fue la «solución final».", sol: "El plan nazi para asesinar a todos los judíos de Europa en campos de exterminio." },
+    { q: "¿Qué relación tienen los republicanos españoles con Mauthausen?", sol: "Miles de exiliados republicanos fueron deportados a ese campo nazi; más de la mitad murieron allí." },
+    { q: "¿Por qué se rindió Japón?", sol: "Tras las bombas atómicas de Hiroshima y Nagasaki y la entrada de la URSS en la guerra contra Japón." },
+    { q: "¿Qué novedad supusieron los juicios de Núremberg?", sol: "Por primera vez se juzgó a dirigentes de un Estado por crímenes de guerra y contra la humanidad." },
+    { q: "¿Qué se aprobó en 1948?", sol: "La Declaración Universal de Derechos Humanos de la ONU." },
+  ],
+  quiz: [
+    { q: "El Anschluss fue la anexión de…", o: ["Austria", "Polonia", "Francia"], a: 0, e: "En 1938." },
+    { q: "La batalla de Stalingrado terminó en…", o: ["1941", "1943", "1945"], a: 1, e: "Con la rendición alemana en febrero de 1943." },
+    { q: "El Día del Holocausto es el 27 de enero porque…", o: ["se liberó Auschwitz", "acabó la guerra", "se fundó la ONU"], a: 0, e: "En 1945." },
+    { q: "La primera bomba atómica cayó sobre…", o: ["Hiroshima", "Nagasaki", "Tokio"], a: 0, e: "El 6 de agosto de 1945." },
+    { q: "La ONU nació en…", o: ["1919", "1945", "1957"], a: 1, e: "Sustituyó a la Sociedad de Naciones." },
+  ],
+  tarjetas: [
+    ["Blitzkrieg", "Guerra relámpago con tanques y aviones."],
+    ["Stalingrado", "Batalla (1942-1943) que cambió el rumbo de la guerra."],
+    ["Juicios de Núremberg", "Juicios a los dirigentes nazis por crímenes contra la humanidad."],
+  ],
+});
