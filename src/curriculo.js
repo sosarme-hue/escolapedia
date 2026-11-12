@@ -83,6 +83,7 @@ const ESO_OPT = (n) => [
   s("Francés", "ing", [], O, n === 4 ? "Materia de opción: segunda lengua extranjera" : "Optativa: segunda lengua extranjera"),
   s("Religión", "val", [], O, "Voluntaria; alternativa: atención educativa"),
   ...(n <= 3 ? [s("Cultura Clásica", "cla", [], O, "Optativa"), s("Oratoria y debate", "len", [], O, "Optativa según la comunidad"), s("Programación y robótica", "tec", [], O, "Optativa según la comunidad")] : []),
+  ...(n === 4 ? [s("Filosofía", "fil", [], O, "Optativa según la comunidad"), s("Cultura Clásica", "cla", [], O, "Optativa según la comunidad"), s("Artes Escénicas y Danza", "mus", [], O, "Optativa según la comunidad")] : []),
 ];
 
 const CT = "Modalidad de Ciencias y Tecnología", HCS = "Modalidad de Humanidades y Ciencias Sociales", ART = "Modalidad de Artes", GEN = "Modalidad General";
