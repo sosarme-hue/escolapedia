@@ -116,7 +116,7 @@ const INFANTIL = () => [
   s("Religión", "val", [], O, "Voluntaria"),
 ];
 
-const LISTAS = { "4-eso": require("./listas-4eso"), "3-eso": require("./listas-3eso"), "2-eso": require("./listas-2eso"), "1-primaria": require("./listas-1primaria") };
+const LISTAS = { "4-eso": require("./listas-4eso"), "3-eso": require("./listas-3eso"), "2-eso": require("./listas-2eso"), "1-eso": require("./listas-1eso"), "1-primaria": require("./listas-1primaria") };
 function conListas(cursoSlug, materias) {
   const l = LISTAS[cursoSlug]; if (!l) return materias;
   return materias.map((m) => (l[m.nombre] && !m.temas.length ? { ...m, temas: l[m.nombre] } : m));
