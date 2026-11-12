@@ -41,7 +41,7 @@ module.exports = {
         ${txt(60, 150, "color · forma", { size: 12, color: "var(--muted)" })}</svg>`,
     },
     {
-      html: `<h3>El oído</h3><p>Con el <mark>oído</mark> escuchamos los sonidos. El órgano del oído son las <b>orejas</b>.</p><p>Oímos la música, la voz de mamá o un perro.</p><p>Hay sonidos <b>fuertes</b>, como un trueno. Hay sonidos <b>suaves</b>, como un susurro. También sabemos de dónde viene un sonido.</p>`,
+      html: `<h3>El oído</h3><p>Con el <mark>oído</mark> escuchamos los sonidos. El órgano del oído son las <b>orejas</b>.</p><p>Oímos la música, la voz de mamá o un perro.</p><p>Hay sonidos <b>fuertes</b>, como un trueno. Hay sonidos <b>suaves</b>, como un susurro. También sabemos de dónde viene un sonido. ¡Escucha bien!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una oreja escucha: un tambor suena fuerte y un pájaro canta suave">${BG}
         ${oreja(60, 92, 1.8)}
         <g transform="translate(180 64)"><ellipse rx="26" ry="9" fill="var(--red)"/><rect x="-26" y="0" width="52" height="24" fill="var(--red)"/><ellipse cy="24" rx="26" ry="9" fill="var(--red)"/><ellipse rx="26" ry="9" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/></g>
