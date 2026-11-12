@@ -1,0 +1,95 @@
+// Inglés 2º ESO. Explicaciones en español con ejemplos en inglés. Dibujos propios en SVG.
+const { tema, L, tabla } = require("./_eso2d");
+const V = require("./_eso2d-videos");
+
+module.exports = tema({
+  materia: "Inglés",
+  titulo: "Vocabulary: daily life and free time",
+  objetivos: ["Usar el vocabulario de la rutina diaria y las tareas de casa", "Decir la hora y hablar de horarios", "Hablar de aficiones y deportes con play, go y do", "Expresar gustos con like, love, hate + -ing y proponer planes"],
+  claves: ["daily routine", "phrasal verbs", "What time…?", "housework", "hobbies", "play / go / do", "like + -ing", "Let's…"],
+  pregunta: [
+    "En español decimos «jugar al fútbol», «hacer natación» y «hacer karate». En inglés: «play football», «go swimming» y «do karate». ¿Por qué cada deporte usa un verbo distinto?",
+    "Hay una regla: <mark>play</mark> con deportes de <b>pelota</b> y competición (football, tennis), <mark>go</mark> con actividades que terminan en <b>-ing</b> (swimming, cycling) y <mark>do</mark> con actividades <b>individuales</b> o artes marciales (karate, yoga, gymnastics). Aprender las palabras con su verbo es la clave del vocabulario.",
+  ],
+  bloques: [
+    ["La rutina diaria", `<p>Para hablar de tu día a día necesitas estas expresiones, muchas de ellas <b>phrasal verbs</b> (verbo + partícula): <i>wake up</i> (despertarse), <i>get up</i> (levantarse), <i>have a shower</i> (ducharse), <i>get dressed</i> (vestirse), <i>brush your teeth</i>, <i>have breakfast / lunch / dinner</i>, <i>go to school</i>, <i>get home</i> (llegar a casa), <i>do homework</i>, <i>go to bed</i>.</p><p>Fíjate en que en inglés se dice <b>have</b> breakfast (no «take»), <b>do</b> homework (no «make») y <b>go to bed</b> sin artículo. Se cuentan en present simple: «I <b>get up</b> at 7.30 and I <b>have</b> a shower».</p>`,
+      L.tabla("Rutina diaria", ["Inglés", "Español"], [["wake up", "despertarse"], ["get up", "levantarse"], ["get dressed", "vestirse"], ["get home", "llegar a casa"]], "var(--pen)")],
+    ["Decir la hora", `<p>Para preguntar la hora: <b>What time is it?</b> o <b>What's the time?</b> Para responder: <i>It's seven o'clock</i> (en punto), <i>It's half past seven</i> (y media), <i>It's quarter past seven</i> (y cuarto), <i>It's quarter to eight</i> (menos cuarto), <i>It's ten past seven</i> (y diez), <i>It's twenty to eight</i> (menos veinte).</p><p><b>Past</b> se usa de 1 a 30 minutos y <b>to</b> de 31 a 59. También se puede decir con números: «It's seven forty» (7.40). Para decir a qué hora haces algo se usa <mark>at</mark>: «I have lunch <b>at</b> two o'clock», «What time do you get up?» — «<b>At</b> half past seven».</p>`,
+      L.tabla("Decir la hora", ["Hora", "En inglés"], [["7.00", "seven o'clock"], ["7.15", "quarter past seven"], ["7.30", "half past seven"], ["7.45", "quarter to eight"]], "var(--red)")],
+    ["Las tareas de casa", `<p>Las tareas domésticas (<b>housework</b> o <b>chores</b>) se expresan con verbos muy concretos: <i>make your bed</i> (hacer la cama), <i>tidy your room</i> (ordenar tu cuarto), <i>do the washing-up</i> (fregar los platos), <i>lay / set the table</i> (poner la mesa), <i>clear the table</i> (quitar la mesa), <i>take out the rubbish</i> (sacar la basura), <i>do the shopping</i> (hacer la compra), <i>walk the dog</i> (pasear al perro), <i>do the ironing</i> (planchar), <i>hoover</i> (pasar la aspiradora).</p><p>Para hablar de quién hace cada tarea: «I <b>always</b> make my bed, but I <b>never</b> do the ironing», «My brother <b>has to</b> take out the rubbish».</p>`,
+      L.filas("Tareas de casa", [["make", "your bed", "var(--pen)"], ["do", "the washing-up, the shopping", "var(--red)"], ["lay / clear", "the table", "var(--leaf)"], ["take out", "the rubbish", "var(--sun)"]])],
+    ["Aficiones y tiempo libre", `<p>Para hablar de lo que haces en tu <b>tiempo libre</b> (free time): <i>listen to music</i>, <i>watch series / films</i>, <i>play video games</i>, <i>read comics</i>, <i>chat with friends</i>, <i>go shopping</i>, <i>go to the cinema</i>, <i>hang out with friends</i> (quedar), <i>play an instrument</i> (the guitar, the piano), <i>draw</i>, <i>take photos</i>, <i>bake cakes</i>.</p><p>Fíjate: <b>listen to</b> music (con to), <b>play the</b> guitar (con the delante del instrumento) y <b>go to the</b> cinema. Para preguntar: «What do you do in your free time?» — «I usually hang out with my friends».</p>`,
+      L.filas("Actividades de tiempo libre", [["listen to", "music, podcasts", "var(--pen)"], ["play the", "guitar, piano, drums", "var(--leaf)"], ["hang out", "with friends", "var(--sun)"], ["go to the", "cinema, park", "var(--red)"]]), V.in12b],
+    ["Deportes: play, go y do", `<p>Cada deporte va con un verbo. <mark>Play</mark> se usa con deportes de <b>pelota</b> o en equipo y con juegos: <i>play football, basketball, tennis, volleyball, chess</i>. <mark>Go</mark> se usa con actividades terminadas en <b>-ing</b>, que implican desplazarse: <i>go swimming, cycling, skating, running, hiking, skiing</i>.</p><p><mark>Do</mark> se usa con actividades <b>individuales</b> sin pelota y con artes marciales: <i>do karate, judo, yoga, gymnastics, athletics, exercise</i>. Y los lugares: <i>pitch</i> (campo de fútbol), <i>court</i> (pista de tenis o baloncesto), <i>swimming pool</i>, <i>track</i> (pista de atletismo).</p>`,
+      L.tabla("Play, go y do", ["Verbo", "Deportes"], [["play", "football, tennis"], ["go", "swimming, cycling"], ["do", "karate, yoga"]], "var(--leaf)")],
+    ["Expresar gustos", `<p>Para decir lo que te gusta y lo que no, de más a menos: <i>I <b>love</b>…</i> (me encanta), <i>I <b>really like</b>…</i>, <i>I <b>like</b>…</i>, <i>I <b>don't mind</b>…</i> (no me importa), <i>I <b>don't like</b>…</i>, <i>I <b>hate</b>…</i> (odio), <i>I <b>can't stand</b>…</i> (no soporto).</p><p>Si después va un verbo, se pone en <mark>-ing</mark>: «I love <b>dancing</b>», «She hates <b>getting up</b> early», «I don't mind <b>doing</b> the washing-up». También <i>I'm into…</i> (me flipa) e <i>I'm good at…</i> (se me da bien): «I'm <b>good at</b> drawing».</p>`,
+      `<svg viewBox="0 0 260 180" role="img" aria-label="Escala de gustos de love a hate">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="13" font-weight="700">
+        ${[["I love", "var(--leaf)", 150], ["I really like", "var(--leaf)", 125], ["I like", "var(--pen)", 100], ["I don't mind", "var(--muted)", 75], ["I don't like", "var(--sun)", 50], ["I hate", "var(--red)", 25]].map(([w, c, b], i) => `<text x="104" y="${32 + i * 24}" text-anchor="end" fill="var(--ink)">${w}</text><rect x="112" y="${21 + i * 24}" width="${b * 0.8}" height="14" rx="4" fill="${c}"/>`).join("")}
+        </g></svg>`],
+    ["Proponer planes", `<p>Para quedar con amigos se usan estas fórmulas. Proponer: <i><b>Let's</b> go to the park!</i> (¡vamos!), <i><b>Why don't we</b> watch a film?</i>, <i><b>Do you want to</b> come to my house?</i>, <i><b>How about</b> playing basketball?</i> (con -ing).</p><p>Aceptar: <i>Great idea! / Sure! / Why not? / Sounds good!</i> Rechazar con educación: <i>Sorry, I can't. I have to… / I'd love to, but… / Maybe another day</i>. Quedar: <i>What time shall we meet? — Let's meet at 5 outside the cinema</i>.</p>`,
+      L.dialogo("Quedar con amigos", [["Hugo", "Let's go to the skatepark!", "var(--pen)"], ["Elsa", "Sorry, I can't. I have to study.", "var(--red)"], ["Hugo", "How about tomorrow at 5?", "var(--pen)"]])],
+    ["Hablar de un día perfecto", `<p>Para practicar todo el vocabulario, describe tu <b>día perfecto</b> o tu <b>fin de semana</b> típico combinando rutina, horas, aficiones y gustos: «On Saturdays I wake up at ten. I have breakfast with my family and then I <b>go cycling</b> with my dad. In the afternoon I <b>hang out</b> with my friends in the park. I <b>love</b> watching series, so in the evening I watch two episodes. I go to bed at half past eleven».</p><p>Usa adverbios de frecuencia (<i>usually, sometimes</i>), conectores (<i>then, after that</i>) y expresiones de tiempo (<i>in the morning, at the weekend</i>).</p>`,
+      L.filas("Mi sábado perfecto", [["10.00", "I wake up and have breakfast.", "var(--pen)"], ["12.00", "I go cycling with my dad.", "var(--leaf)"], ["17.00", "I hang out with my friends.", "var(--sun)"], ["21.00", "I watch series.", "var(--red)"]])],
+  ],
+  ejemplos: [
+    ["Completa con play, go o do: ___ judo, ___ skiing, ___ chess, ___ athletics.", ["judo: arte marcial → do.", "skiing: termina en -ing → go.", "chess: juego → play.", "athletics: actividad individual → do."], "do judo, go skiing, play chess, do athletics."],
+    ["Escribe en palabras: 8.30, 9.15, 10.45, 6.05.", ["8.30: half past eight.", "9.15: quarter past nine.", "10.45: quarter to eleven.", "6.05: five past six."], "half past eight, quarter past nine, quarter to eleven, five past six."],
+    ["Corrige: «I hate do the washing-up and I love play the piano».", ["Después de love / hate, el verbo va en -ing.", "doing, playing."], "I hate doing the washing-up and I love playing the piano."],
+  ],
+  errores: [
+    "Decir «take breakfast» → «have breakfast».",
+    "Decir «make homework» → «do homework».",
+    "Usar play con todos los deportes: «play swimming», «play karate» → «go swimming», «do karate».",
+    "Olvidar el -ing tras love, like, hate: «I love dance» → «I love dancing».",
+    "Olvidar to en listen to: «I listen music» → «I listen to music».",
+  ],
+  ejercicios: [
+    ["Ordena tu mañana: have breakfast, get up, go to school, wake up, get dressed.", "wake up, get up, get dressed, have breakfast, go to school."],
+    ["Escribe en palabras: 7.30, 1.15, 4.45.", "half past seven, quarter past one, quarter to five."],
+    ["Pregunta a qué hora se levanta tu amigo.", "What time do you get up?"],
+    ["Completa: I ___ my bed and my brother ___ the washing-up.", "make; does."],
+    ["Completa con play, go o do: ___ basketball, ___ cycling, ___ yoga.", "play basketball, go cycling, do yoga."],
+    ["Completa: I can't stand ___ (wait) for the bus.", "I can't stand waiting for the bus."],
+    ["Propón ir al cine con Why don't we…?", "Why don't we go to the cinema?"],
+    ["Rechaza un plan con educación y da una razón.", "Respuesta libre. Ejemplo: Sorry, I can't. I have to visit my grandma."],
+    ["Traduce: «Se me da bien dibujar, pero no me gusta cocinar».", "I'm good at drawing, but I don't like cooking."],
+    ["Describe tu tarde típica en tres frases con hora, actividad y gusto.", "Respuesta libre. Ejemplo: I get home at three. At five I go swimming. I love it because it's relaxing."],
+  ],
+  figura: ["El vocabulario del día a día", L.columnas("Rutina, casa, ocio y deporte", [["rutina", "daily routine", ["get up, have lunch", "go to bed"], "var(--pen)"], ["casa", "chores", ["make the bed", "do the washing-up"], "var(--red)"], ["ocio", "free time", ["hang out", "listen to music"], "var(--sun)"], ["deporte", "play / go / do", ["play tennis", "go swimming"], "var(--leaf)"]])],
+  video: V.in12v,
+  quiz: [
+    ["«Levantarse» en inglés es…", ["get up", "wake up", "stand on"], "Wake up es despertarse."],
+    ["«Desayunar» es…", ["have breakfast", "take breakfast", "do breakfast"], "Con have."],
+    ["8.45 es…", ["quarter to nine", "quarter past eight", "half past eight"], "Faltan 15 para las 9."],
+    ["«I have lunch ___ two o'clock.»", ["at", "in", "on"], "At con horas."],
+    ["«Fregar los platos» es…", ["do the washing-up", "make the dishes", "clean the plates"], "Expresión fija."],
+    ["«___ swimming»", ["go", "play", "do"], "Actividad en -ing."],
+    ["«___ karate»", ["do", "play", "go"], "Arte marcial."],
+    ["«I love ___ photos.»", ["taking", "take", "to taking"], "Love + -ing."],
+    ["«I listen ___ music every day.»", ["to", "—", "at"], "Listen to."],
+    ["«___ we go to the beach?»", ["Why don't", "Let's", "How about"], "Why don't we…?"],
+  ],
+  examen: [
+    ["«Hang out with friends» significa…", ["quedar con amigos", "colgar la ropa", "salir corriendo"], "Pasar el rato juntos."],
+    ["«I don't mind» significa…", ["no me importa", "no me gusta nada", "no me acuerdo"], "Ni me gusta ni me disgusta."],
+    ["«How about ___ to the park?»", ["going", "go", "to go"], "How about + -ing."],
+  ],
+  feynman: ["Cómo describir la rutina diaria y decir la hora", "Qué verbos se usan para las tareas de casa", "Cuándo se usa play, go o do con los deportes", "Cómo expresar gustos y proponer planes"],
+  mapa: ["DAILY LIFE", "var(--eso)", [["Rutina", "get up · have lunch · at 7", "var(--pen)"], ["Casa", "make the bed · do the…", "var(--red)"], ["Ocio", "play · go · do", "var(--leaf)"], ["Gustos", "love · hate + -ing", "var(--sun)"]], 240],
+  tarjetas: [
+    ["Get up / wake up", "Levantarse / despertarse."],
+    ["Half past / quarter to", "Y media / menos cuarto."],
+    ["At + hora", "I have lunch at two."],
+    ["Do the washing-up", "Fregar los platos."],
+    ["Play", "Deportes de pelota y juegos: play football."],
+    ["Go", "Actividades en -ing: go swimming."],
+    ["Do", "Actividades individuales y artes marciales: do judo."],
+    ["Love / hate + -ing", "I love dancing. I hate getting up early."],
+  ],
+  familias: ["Repartid las tareas de casa de la semana en una tabla en inglés y colgadla en la nevera.", "Preguntadle la hora en inglés en distintos momentos del día durante una semana."],
+  saberes: "Léxico de uso común: rutina diaria, la hora, tareas domésticas, ocio y deportes; expresión de gustos y propuestas (RD 217/2022, Lengua Extranjera, primer ciclo; nivel A2 del MCER).",
+  ideas: ["Horario ilustrado de un día de la clase con horas en inglés.", "Encuesta de aficiones y gráfico de barras en inglés.", "Role-play para quedar el fin de semana."],
+  fuentes: [["British Council LearnEnglish Teens: vocabulary", "https://learnenglishteens.britishcouncil.org/vocabulary"], ["Cambridge English: A2 Key for Schools vocabulary list", "https://www.cambridgeenglish.org/images/506886-a2-key-2020-vocabulary-list.pdf"]],
+});
