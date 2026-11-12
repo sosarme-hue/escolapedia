@@ -101,3 +101,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Escribir bien el imparfait de los verbos en -ger y -cer", "Usar el imparfait en propuestas y deseos (si on…?)", "Conocer el plus-que-parfait"],
+  bloques: [
+    { tras: "Las terminaciones", html: `<h3>Ortografía: -ger, -cer y la doble i</h3><p>Como en el presente, los verbos en <b>-ger</b> y <b>-cer</b> cambian delante de <i>a</i> para conservar el sonido: <i>manger → je mang<b>e</b>ais, il mang<b>e</b>ait</i> (pero nous mangions); <i>commencer → je commen<b>ç</b>ais, ils commen<b>ç</b>aient</i> (pero nous commencions).</p><p>Los verbos cuyo radical termina en <b>-i</b> o <b>-y</b> producen dobles letras en <i>nous</i> y <i>vous</i>: <i>étudier → nous étud<b>ii</b>ons, vous étud<b>ii</b>ez</i>; <i>rire → nous r<b>ii</b>ons</i>; <i>voir → nous vo<b>yi</b>ons</i>. Parecen errores, pero son correctas. Y recuerda el truco de la pronunciación: <mark>je parlais, tu parlais, il parlait, ils parlaient</mark> suenan exactamente igual; solo cambia la escritura.</p>` },
+    { tras: "Para qué sirve", html: `<h3>El imparfait para describir</h3><p>Es el tiempo de las <b>descripciones en pasado</b>: el tiempo que hacía, el aspecto de las personas, cómo eran los lugares, lo que alguien sentía o pensaba.</p><ul><li>El tiempo: «Il <b>faisait</b> froid et il <b>neigeait</b>.»</li><li>Las personas: «Mon grand-père <b>était</b> grand et il <b>avait</b> une moustache.»</li><li>Los sentimientos: «J'<b>étais</b> nerveux parce que je ne <b>connaissais</b> personne.»</li><li>La hora y la edad: «Il <b>était</b> minuit», «J'<b>avais</b> dix ans.»</li></ul><p>Por eso los cuentos empiezan con imparfait: «Il <b>était</b> une fois une princesse qui <b>vivait</b> dans un château…» (Érase una vez…).</p>` },
+    { tras: "Imparfait y passé composé juntos", html: `<h3>Una historia con los dos tiempos</h3><p>Lee este relato y fíjate en cada verbo:</p><p><i>«C'<b>était</b> un samedi d'hiver. Il <b>pleuvait</b> et je <b>m'ennuyais</b> à la maison. Soudain, mon téléphone <b>a sonné</b>. C'<b>était</b> Léa : elle m'<b>a invité</b> au cinéma. J'<b>ai accepté</b> tout de suite. Le film <b>était</b> génial et nous <b>avons beaucoup ri</b>.»</i></p><p>Los verbos en <b>imparfait</b> (était, pleuvait, m'ennuyais) pintan el escenario y los estados. Los verbos en <b>passé composé</b> (a sonné, a invité, ai accepté, avons ri) son los hechos que avanzan uno tras otro. Una pregunta útil: <mark>¿podría hacer una foto de ello? → imparfait; ¿es un paso de la acción? → passé composé</mark>.</p>` },
+    { tras: "Palabras que ayudan", html: `<h3>Si on… ? Propuestas y deseos</h3><p>El imparfait tiene usos fuera del pasado:</p><ul><li><b>Si on + imparfait ?</b> para proponer algo: «<b>Si on allait</b> au cinéma ce soir ?» (¿Y si vamos…?) Es muy frecuente en la conversación.</li><li><b>Si + imparfait</b> en las condicionales imaginarias, con el condicional en la otra parte: «<b>Si j'avais</b> de l'argent, je <b>voyagerais</b>» (Si tuviera dinero, viajaría). Igual que el second conditional inglés.</li><li><b>Être en train de</b> + infinitivo en imparfait para algo que estaba ocurriendo: «J'<b>étais en train de</b> dormir quand tu as appelé».</li></ul>` },
+    { tras: "Palabras que ayudan", html: `<h3>El plus-que-parfait</h3><p>Es el «pasado del pasado» (como el pluscuamperfecto español o el past perfect inglés): una acción anterior a otra acción pasada. Se forma con <b>avoir o être en imparfait + participio</b>, con las mismas reglas de auxiliar y concordancia que el passé composé:</p><ul><li>«Quand je suis arrivé, le film <b>avait</b> déjà <b>commencé</b>.»</li><li>«Elle était triste parce que son chat <b>était parti</b>.»</li><li>«Ils <b>s'étaient</b> déjà <b>couchés</b> quand nous avons sonné.»</li></ul><p>Con los tres tiempos (imparfait, passé composé y plus-que-parfait) ya puedes contar cualquier historia en francés.</p>` },
+    { tras: "Para qué sirve", html: `<h3>Hábitos y recuerdos de la infancia</h3><p>El imparfait es el tiempo de los <b>recuerdos</b>: lo que hacíamos de forma habitual en una época del pasado. Corresponde al «solía», «iba», «jugaba» del español y al <i>used to</i> del inglés. Suele ir con marcadores de frecuencia o de época: <i>quand j'étais petit(e), à l'époque, autrefois, avant, tous les samedis, chaque été, d'habitude</i>.</p><p>«Quand j'<b>étais</b> petite, je <b>passais</b> les vacances chez mes grands-parents. Tous les matins, mon grand-père m'<b>emmenait</b> au marché et nous <b>achetions</b> des croissants. L'après-midi, je <b>jouais</b> avec mes cousins dans le jardin.» Fíjate en que no se cuenta un día concreto, sino lo que pasaba normalmente. Si quisieras contar un día especial («Un jour, nous sommes allés à la mer…»), cambiarías al passé composé.</p>` },
+  ],
+  videos: [
+    ["Cómo se forma", L.vid("VxMEt0ERmJI", "El imperfecto en francés (l'imparfait): el tiempo más fácil", "Pariseando", 183381)],
+    ["Imparfait y passé composé juntos", L.vid("4IexZtlIqF0", "¿Imperfecto o pasado compuesto? Diferencias", "Guillaume Posé", 756112)],
+  ],
+  ejemplos: [
+    ["Forma el imparfait de «prendre» con je y nous.", ["Presente con nous: nous prenons.", "Quita -ons: pren-.", "Añade las terminaciones: je prenais, nous prenions."], "je prenais, nous prenions."],
+    ["Completa con imparfait o passé composé: «Quand j'(être) ___ petit, j'(habiter) ___ à Lyon. Un jour, nous (déménager) ___ à Paris.»", ["«Quand j'étais petit»: estado en el pasado → imparfait.", "«J'habitais»: situación prolongada → imparfait.", "«Un jour» introduce un hecho puntual → passé composé: nous avons déménagé."], "Quand j'étais petit, j'habitais à Lyon. Un jour, nous avons déménagé à Paris."],
+    ["Propón un plan con si on: ir a la piscina el sábado.", ["Estructura: Si on + imparfait + ?", "Aller en imparfait con on: allait.", "Añade el complemento de lugar y tiempo."], "Si on allait à la piscine samedi ?"],
+  ],
+  errores: [
+    "Usar passé composé para descripciones: *il a fait beau et la mer a été calme → il faisait beau, la mer était calme.",
+    "Escribir *je mangais: los verbos en -ger necesitan la e: je mangeais.",
+    "Olvidar la doble i en nous étudiions.",
+    "Formar el imparfait de être con el presente de nous: es irregular, ét-.",
+    "Usar imparfait para una acción puntual que interrumpe: *le téléphone sonnait soudain → a sonné.",
+  ],
+  ejercicios: [
+    ["Forma el imparfait: tu (faire), elle (avoir), vous (aller).", "tu faisais, elle avait, vous alliez."],
+    ["Forma el imparfait: je (commencer), ils (manger), nous (étudier).", "je commençais, ils mangeaient, nous étudiions."],
+    ["Describe en imparfait: hacía sol, el cielo era azul y los niños jugaban.", "Il faisait beau (du soleil), le ciel était bleu et les enfants jouaient."],
+    ["Completa: «Je (regarder) ___ la télé quand ma mère (rentrer) ___.»", "Je regardais la télé quand ma mère est rentrée."],
+    ["Traduce: «Antes íbamos a la playa todos los veranos.»", "Avant, nous allions à la plage tous les étés."],
+    ["Propón con si on: ver una película.", "Si on regardait un film ?"],
+    ["Completa la condicional: «Si j'(avoir) ___ un chien, je (être) ___ heureux.»", "Si j'avais un chien, je serais heureux."],
+    ["Forma el plus-que-parfait: «Il (finir) ___ ses devoirs avant le dîner.»", "Il avait fini ses devoirs avant le dîner."],
+    ["Forma el plus-que-parfait: «Elles (partir) ___ quand je suis arrivé.»", "Elles étaient parties quand je suis arrivé."],
+    ["Escribe el comienzo de un cuento con dos verbos en imparfait.", "Por ejemplo: «Il était une fois un garçon qui vivait dans un petit village au bord de la mer.»"],
+  ],
+  quiz: [
+    ["«Je ___ (manger) à la cantine.»", ["mangeais", "mangais", "mangeait"], 0, "-ger + e ante a."],
+    ["«Si on ___ au parc ?»", ["allait", "va aller", "est allé"], 0, "Propuesta con imparfait."],
+    ["«Quand j'___ dix ans…»", ["avais", "ai eu", "étais"], 0, "La edad: avoir en imparfait."],
+    ["Plus-que-parfait de «arriver» con «il»:", ["il était arrivé", "il avait arrivé", "il est arrivé"], 0, "Verbo de être."],
+    ["«Il était une fois…» significa…", ["Érase una vez…", "Había una vez una fiesta", "Fue una vez"], 0, "Comienzo de cuento."],
+  ],
+  tarjetas: [
+    ["Si on + imparfait ?", "Propuesta: Si on allait au cinéma ? (¿Y si vamos…?)"],
+    ["Plus-que-parfait", "Avoir/être en imparfait + participio: il avait fini."],
+    ["Imparfait = foto", "Describe el escenario; el passé composé cuenta los hechos."],
+  ],
+});

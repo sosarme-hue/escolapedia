@@ -94,3 +94,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Colocar bien las preposiciones en las relativas", "Usar which para referirse a toda una oración", "Unir frases con relativos en un writing"],
+  bloques: [
+    { tras: "Los pronombres relativos", html: `<h3>Who, whom y which con preposición</h3><p><b>Whom</b> es la forma de objeto de <i>who</i>. Hoy solo se usa en inglés formal, sobre todo detrás de una preposición: «The person <b>to whom</b> I spoke…». En el habla normal se dice «The person (who) I spoke <b>to</b>».</p><p>La preposición puede ir en dos sitios:</p><ul><li><b>Al final</b> (informal, lo más habitual): «This is the house I grew up <b>in</b>», «the girl I was talking <b>to</b>».</li><li><b>Delante del relativo</b> (formal): «the house <b>in which</b> I grew up», «the girl <b>to whom</b> I was talking».</li></ul><p>Detrás de una preposición nunca va <i>that</i> ni <i>who</i>: <s>*in that</s>, <s>*to who</s>.</p>` },
+    { tras: "Non-defining relative clauses", html: `<h3>Which para toda una idea</h3><p>En las non-defining, <b>which</b> puede referirse no a una palabra, sino a <b>toda la oración anterior</b>: «He passed all his exams, <b>which</b> surprised everybody» (lo que sorprendió a todos). En español decimos «lo que» o «lo cual».</p><p>Aquí no se puede usar <i>what</i>: <s>*He passed, what surprised everybody</s>. <b>What</b> significa «lo que» pero <mark>sin antecedente</mark>: «<b>What</b> I need is a holiday», «I don't understand <b>what</b> you mean». Si hay algo delante a lo que se refiere, usa which o that.</p>` },
+    { tras: "Whose, where y when", html: `<h3>Where o which, when o that</h3><p><b>Where</b> equivale a <i>in / at which</i>, y <b>when</b> a <i>on / in which</i>. Pero solo se usan si en la relativa falta un complemento de lugar o de tiempo:</p><ul><li>«This is the hotel <b>where</b> we stayed.» (we stayed <i>there</i>)</li><li>«This is the hotel <b>which / that</b> we chose.» (we chose <i>it</i>: falta un objeto, no un lugar)</li><li>«I'll never forget the day <b>when</b> we met.»</li><li>«It's a day <b>that</b> I'll never forget.» (forget <i>it</i>)</li></ul><p>Truco: si después del relativo la frase ya está completa sin él, usa where / when; si le falta un sujeto u objeto, usa which / that / who.</p>` },
+    { tras: "Omitir el relativo", html: `<h3>Relativas reducidas</h3><p>En las defining se puede acortar aún más la relativa usando un <b>participio</b>:</p><ul><li>Con <b>-ing</b> (sentido activo): «The boy <b>who is sitting</b> next to me» → «The boy <b>sitting</b> next to me».</li><li>Con <b>participio pasado</b> (sentido pasivo): «The cars <b>which are made</b> in Spain» → «The cars <b>made</b> in Spain».</li></ul><p>Son muy comunes en los textos escritos y en las noticias: «Passengers <b>travelling</b> to Paris…», «a book <b>written</b> in 1950». Reconocerlas te ayudará a entender textos más difíciles.</p>` },
+    { tras: "Omitir el relativo", html: `<h3>Relativas en tus writings</h3><p>Las relativas sirven para unir frases cortas y dar más información sin repetir: es lo que hace que un texto parezca de B1 y no de A2.</p><ul><li>Frases sueltas: «I have a friend. She lives in Dublin. She is a vet.»</li><li>Con relativas: «I have a friend <b>who</b> lives in Dublin and <b>who</b> is a vet.» O mejor: «My friend Sara, <b>who</b> lives in Dublin, is a vet.»</li></ul><p>En descripciones de personas, lugares y objetos son imprescindibles: «Barcelona is a city <b>where</b> you can enjoy the beach and the mountains», «It's a phone <b>whose</b> battery lasts two days».</p>` },
+    { tras: "Los pronombres relativos", html: `<h3>¿Necesita comas? La prueba de quitarla</h3><p>Para saber si una relativa es defining o non-defining, quítala y mira si la frase sigue identificando a la misma persona o cosa. «The students <b>who failed the test</b> must repeat it»: si quitas la relativa, parece que todos los estudiantes deben repetir; la relativa es necesaria → defining, sin comas. «My English teacher, <b>who comes from Leeds</b>, is very funny»: sin la relativa seguimos sabiendo de quién hablamos → non-defining, con comas.</p><p>Con nombres propios (<i>Madrid, Shakespeare</i>), con posesivos que identifican a una sola persona (<i>my mother</i>) y con objetos únicos (<i>the Sun</i>), la relativa casi siempre es non-defining. Al hablar, las comas se notan como pequeñas pausas.</p>` },
+  ],
+  videos: [
+    ["Defining relative clauses", L.vid("ibmMybaXq4U", "Cláusulas relativas en inglés: cómo usar who, which, whom, whose", "Francisco Ochoa Inglés Fácil", 2024314)],
+    ["Non-defining relative clauses", L.vid("eFmfoeTkhH0", "Relative clauses (defining and non-defining)", "EasyTeaching", 1013715)],
+  ],
+  ejemplos: [
+    ["Une con un relativo: «That's the restaurant. We had dinner there on my birthday.»", ["El antecedente es un lugar (the restaurant).", "En la segunda frase hay «there»: falta un complemento de lugar.", "Usamos where (y quitamos there)."], "That's the restaurant where we had dinner on my birthday."],
+    ["Une con un relativo non-defining: «My grandfather is 90. He still drives.»", ["My grandfather es un antecedente único: la información es extra.", "Van comas y no se puede usar that.", "Es una persona → who."], "My grandfather, who is 90, still drives."],
+    ["Une y di si se puede omitir el relativo: «The book was boring. I borrowed it from the library.»", ["Antecedente: the book (cosa) → which / that.", "En la relativa ya hay sujeto (I); el relativo es objeto.", "Es una defining sin comas, con el relativo como objeto: se puede omitir."], "The book (which / that) I borrowed from the library was boring."],
+  ],
+  errores: [
+    "Usar that en las non-defining: *My mother, that is a nurse… → My mother, who is a nurse…",
+    "Repetir el pronombre: *the girl who I met her → the girl who I met.",
+    "Usar what con antecedente: *the thing what I need → the thing that I need.",
+    "Confundir whose (posesión) con who's (who is).",
+    "Usar where cuando falta un objeto: *the city where I visited → the city (that) I visited.",
+  ],
+  ejercicios: [
+    ["Completa: «The man ___ car was stolen called the police.»", "whose."],
+    ["Completa: «That's the shop ___ I bought my trainers.»", "where."],
+    ["Completa: «The film ___ we saw last night was brilliant.»", "which / that, o nada (se puede omitir)."],
+    ["Une: «Paris is the capital of France. It has over two million inhabitants.» (non-defining)", "Paris, which is the capital of France, has over two million inhabitants."],
+    ["Corrige: «My brother, that lives in Madrid, is a teacher.»", "My brother, who lives in Madrid, is a teacher."],
+    ["Escribe de forma formal: «the person I gave the keys to».", "the person to whom I gave the keys."],
+    ["Completa: «She didn't call me, ___ made me angry.»", "which: se refiere a toda la oración anterior."],
+    ["Reduce la relativa: «The woman who is wearing a red hat is my aunt.»", "The woman wearing a red hat is my aunt."],
+    ["Completa con which o where: «This is the town ___ my parents were born» / «This is the town ___ I like most».", "where / which (o that)."],
+    ["Describe un objeto con una relativa con whose.", "Por ejemplo: «It's a backpack whose pockets are waterproof.»"],
+  ],
+  quiz: [
+    ["«The house ___ I grew up in…»", ["that", "where in", "what"], 0, "Preposición al final con that / which o sin relativo."],
+    ["«She smiled, ___ made me happy.»", ["which", "what", "that"], 0, "Which se refiere a toda la oración."],
+    ["«___ I want is some peace.»", ["What", "Which", "That"], 0, "What = lo que, sin antecedente."],
+    ["«The cars ___ in this factory are electric.»", ["made", "making", "who made"], 0, "Relativa reducida pasiva."],
+    ["«The person to ___ I spoke…»", ["whom", "who", "that"], 0, "Tras preposición: whom."],
+  ],
+  tarjetas: [
+    ["Which = lo que", "Tras coma, se refiere a toda la oración: He won, which surprised us."],
+    ["What", "«Lo que» sin antecedente: What I need is sleep."],
+    ["Relativa reducida", "The boy sitting there / The cars made in Spain."],
+  ],
+});

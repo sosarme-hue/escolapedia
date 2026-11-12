@@ -100,3 +100,56 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliació: més teoria, exemples resolts, errors típics i exercicis amb solució.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Relacionar la literatura actual amb la memòria, el gènere i la diversitat", "Conèixer autors del segle XXI com Irene Solà, Albert Sánchez Piñol o Najat El Hachmi", "Comentar un conte breu i un text de literatura actual"],
+  bloques: [
+    { tras: "Llibertat i normalització", html: `<h3>Etapes des de 1975</h3>${L.tb(["Etapa", "Context", "Tendències"], [["1975-1985", "Transició i primers anys de democràcia", "experimentació, memòria de la guerra, primers autors joves"], ["1985-2000", "normalització, TV3, grans editorials", "novel·la de gènere (negra, històrica), conte breu"], ["2000-avui", "globalització, internet, Frankfurt 2007", "traduccions arreu, noves veus, autors d'origen divers"]])}<p>El 2007, la cultura catalana va ser la <b>convidada d'honor a la Fira del Llibre de Frankfurt</b>, la més important del món, i molts autors van començar a ser traduïts a altres llengües.</p>` },
+    { tras: "Narrativa: veus imprescindibles", html: `<h3>Memòria i veus de dones</h3><p>Un dels grans temes de la literatura catalana des de 1975 és la <b>memòria</b>: recuperar la història de la guerra i de la dictadura que s'havia silenciat. <b>Montserrat Roig</b>, a <i>Ramona, adéu</i> (1972) i <i>El temps de les cireres</i> (1977), explica la vida de tres generacions de dones de Barcelona; també va escriure el reportatge <i>Els catalans als camps nazis</i>. <b>Carme Riera</b>, mallorquina, va sorprendre amb els contes de <i>Te deix, amor, la mar com a penyora</i> (1975) i va recuperar la història dels xuetes a <i>Dins el darrer blau</i> (1994). <b>Maria Barbal</b>, a <i>Pedra de tartera</i> (1985), dona veu a la Conxa, una dona del Pallars que ho perd tot amb la guerra. <b>Jesús Moncada</b>, a <i>Camí de sirga</i> (1988), narra la desaparició de Mequinensa sota les aigües d'un embassament.</p>` },
+    { tras: "Narrativa: veus imprescindibles", html: `<h3>Noves veus del segle XXI</h3><p>La literatura catalana d'avui és molt diversa i s'ha obert al món:</p><ul><li><b>Albert Sánchez Piñol</b>: <i>La pell freda</i> (2002), una novel·la d'aventures i terror en una illa, traduïda a més de trenta llengües.</li><li><b>Najat El Hachmi</b>, nascuda al Marroc i criada a Vic: <i>L'últim patriarca</i> (2008, Premi Ramon Llull) parla de la identitat i de la llibertat de les dones.</li><li><b>Irene Solà</b>: <i>Canto jo i la muntanya balla</i> (2019, Premi de Literatura de la Unió Europea), en què parlen persones, animals, bolets i núvols del Pirineu.</li><li><b>Eva Baltasar</b>: <i>Permagel</i> (2018), una novel·la breu i intensa sobre el desig i la soledat.</li></ul><p>Totes aquestes obres mostren que el català és una llengua de literatura plenament contemporània.</p>` },
+    { tras: "Poesia i teatre", html: `<h3>Poesia: de Marçal a Margarit</h3><p><b>Maria Mercè Marçal</b> (1952-1998) va definir la seva identitat en un vers molt conegut: es considerava afortunada per haver nascut <i>dona</i>, de <i>classe baixa</i> i de <i>nació oprimida</i>, és a dir, «tres voltes rebel». Va escriure <i>Cau de llunes</i> (1977) i la novel·la <i>La passió segons Renée Vivien</i>. <b>Joan Margarit</b> (1938-2021), arquitecte i poeta, escriu versos clars sobre la pèrdua, la memòria i l'amor; el 2019 va rebre el <mark>Premi Cervantes</mark>. <b>Enric Casasses</b> barreja tradició i oralitat, i molts poetes joves combinen el llibre amb el recital, la música i les xarxes.</p>` },
+    { tras: "Poesia i teatre", html: `<h3>Teatre contemporani</h3><p>El teatre català viu un gran moment gràcies a institucions com el <b>Teatre Nacional de Catalunya</b> (1996) i el Teatre Lliure (1976), i a moltes sales petites. <b>Josep Maria Benet i Jornet</b> va crear el món de Drudània i obres com <i>Testament</i> (1996), sobre un professor malalt. <b>Sergi Belbel</b>, amb <i>Després de la pluja</i> (1993), presenta uns treballadors que pugen al terrat d'una oficina on no es pot fumar; l'obra s'ha representat en desenes de països. Autors més joves com <b>Pau Miró</b> o <b>Guillem Clua</b> parlen de temes d'avui. El teatre també arriba a la televisió: Benet i Jornet va escriure sèries com <i>Nissaga de poder</i>.</p>` },
+  ],
+  videos: [
+    ["Llibertat i normalització", L.vid("jI01L4nFyK8", "Literatura actual", "Adri SM", 2520)],
+  ],
+  ejemplos: [
+    ["Classifica per temes: Pedra de tartera, La pell freda, L'últim patriarca.", ["Pedra de tartera: memòria de la guerra i vida rural.", "La pell freda: aventures i terror.", "L'últim patriarca: identitat i llibertat de les dones."], "Memòria; gènere d'aventures; identitat i migració."],
+    ["Quins trets fan reconèixer un conte de Quim Monzó?", ["Brevetat i ritme ràpid.", "Ironia i humor, sovint negre.", "Situacions quotidianes que es tornen absurdes."], "Conte breu, irònic i absurd sobre la vida quotidiana."],
+    ["Comenta «tres voltes rebel» de Maria Mercè Marçal.", ["La poeta s'identifica com a dona, de classe treballadora i de nació oprimida.", "Converteix tres discriminacions en motius d'orgull.", "Uneix feminisme, consciència social i identitat nacional."], "És una afirmació de rebel·lia contra les tres opressions que patia."],
+  ],
+  errores: [
+    "Pensar que la literatura catalana actual només parla del passat: també tracta temes d'avui com la migració o el desig.",
+    "Confondre Montserrat Roig amb Mercè Rodoreda: Roig és posterior (1946-1991) i parla de la memòria.",
+    "Creure que Joan Margarit va guanyar el Cervantes per obra només en castellà: escrivia en català i castellà.",
+    "Situar Mecanoscrit del segon origen al segle XXI: és del 1974.",
+    "Oblidar els autors del País Valencià i de les Illes, com Carme Riera.",
+    "Pensar que la literatura juvenil és de segona categoria: autores com Maite Carranza han rebut premis importants i són traduïdes a moltes llengües.",
+  ],
+  ejercicios: [
+    ["Per què va ser important la Fira de Frankfurt del 2007?", "La cultura catalana hi va ser convidada d'honor i molts autors van començar a ser traduïts."],
+    ["Quin tema comparteixen Ramona, adéu i Pedra de tartera?", "La memòria i la vida de les dones."],
+    ["De què tracta Camí de sirga?", "De la desaparició de Mequinensa sota un embassament."],
+    ["Qui és Najat El Hachmi i quina obra va escriure el 2008?", "Escriptora nascuda al Marroc i criada a Vic; L'últim patriarca."],
+    ["Què té d'original Canto jo i la muntanya balla?", "Hi parlen persones, animals, plantes i núvols del Pirineu."],
+    ["Quin premi va rebre Joan Margarit el 2019?", "El Premi Cervantes."],
+    ["Explica l'argument de Després de la pluja.", "Treballadors d'una oficina on no es pot fumar pugen al terrat a fumar i parlar."],
+    ["Anomena dos teatres importants de Barcelona.", "El Teatre Nacional de Catalunya i el Teatre Lliure."],
+    ["Quan és Sant Jordi i què se celebra?", "El 23 d'abril: la festa del llibre i la rosa; Dia Mundial del Llibre."],
+    ["Escriu un microrelat de tres línies a l'estil de Monzó.", "Resposta oberta: una situació quotidiana amb un final irònic o absurd."],
+  ],
+  quiz: [
+    ["La pell freda és de…", ["Albert Sánchez Piñol", "Jaume Cabré", "Quim Monzó"], 0, "2002."],
+    ["Carme Riera és de…", ["Mallorca", "Lleida", "València"], 0, "Te deix, amor, la mar com a penyora."],
+    ["«Tres voltes rebel» és un vers de…", ["Maria Mercè Marçal", "Montserrat Roig", "Irene Solà"], 0, "Cau de llunes."],
+    ["Testament (1996) és de…", ["Benet i Jornet", "Belbel", "Pedrolo"], 0, "Teatre."],
+    ["Irene Solà va guanyar el…", ["Premi de Literatura de la UE", "Nobel", "Cervantes"], 0, "2020."],
+  ],
+  tarjetas: [
+    ["Frankfurt 2007", "La cultura catalana, convidada d'honor a la gran fira del llibre."],
+    ["Maria Mercè Marçal", "Poeta «tres voltes rebel»: dona, classe baixa, nació oprimida."],
+    ["Irene Solà", "Canto jo i la muntanya balla (2019)."],
+  ],
+});

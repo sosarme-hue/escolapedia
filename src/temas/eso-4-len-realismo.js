@@ -98,3 +98,56 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Situar el Realismo en la España de la Restauración", "Comentar un fragmento realista y reconocer sus técnicas", "Conocer el Realismo europeo: Balzac, Flaubert, Tolstói, Dickens"],
+  bloques: [
+    { tras: "Un espejo de la sociedad", html: `<h3>El contexto histórico</h3><p>En la segunda mitad del siglo XIX triunfa la <b>burguesía</b>: crecen las ciudades, llegan el ferrocarril, las fábricas y la prensa diaria. Aparece el <b>proletariado</b> obrero, que vive en malas condiciones. En la ciencia domina el <b>positivismo</b>: solo vale lo que se puede observar y comprobar. Darwin publica <i>El origen de las especies</i> (1859).</p><p>En España, la <b>Revolución de 1868</b> («la Gloriosa») expulsa a Isabel II, y en <b>1875</b> empieza la <b>Restauración</b> borbónica con Alfonso XII: una época de estabilidad política, pero también de caciquismo y de fuerte enfrentamiento entre los <i>tradicionalistas</i> católicos y los <i>progresistas</i> liberales. Ese choque de ideas aparece en muchas novelas, como <i>Doña Perfecta</i> de Galdós.</p>` },
+    { tras: "Rasgos de la novela realista", html: `<h3>El Realismo en Europa</h3><p>La gran novela realista nace en <b>Francia</b> con <b>Honoré de Balzac</b>, que quiso retratar toda la sociedad francesa en <i>La comedia humana</i>, y con <b>Gustave Flaubert</b>, cuya <i>Madame Bovary</i> (1857) cuenta la insatisfacción de una mujer de provincias que vive soñando con las novelas románticas. En <b>Rusia</b> destacan <b>León Tolstói</b> (<i>Guerra y paz</i>, <i>Ana Karénina</i>) y <b>Fiódor Dostoievski</b> (<i>Crimen y castigo</i>), que profundiza en la mente de los personajes. En <b>Inglaterra</b>, <b>Charles Dickens</b> denuncia la pobreza infantil en <i>Oliver Twist</i>.</p><p>El Realismo llega a España algo más tarde, hacia <mark>1870</mark>, y vive su mejor momento en la década de 1880.</p>` },
+    { tras: "Rasgos de la novela realista", html: `<h3>Las técnicas del narrador realista</h3><p>Para que el lector «vea» la realidad, los novelistas usan varias técnicas:</p><ul><li><b>Descripción minuciosa</b> de calles, casas, muebles y ropa: el ambiente explica a los personajes.</li><li><b>Estilo indirecto libre</b>: el narrador cuenta en tercera persona, pero con las palabras y los pensamientos del personaje, sin «dijo que». Ejemplo: «Ana miró la catedral. ¡Qué pequeña era Vetusta, qué aburrida su vida!»</li><li><b>Diálogos</b> que reproducen el habla de cada clase social, con sus giros populares o cultos.</li><li><b>Monólogo interior</b> en algunos pasajes (Clarín lo usa mucho en <i>La Regenta</i>).</li><li><b>Personajes redondos</b>: evolucionan y tienen contradicciones, no son buenos o malos sin más.</li></ul>` },
+    { tras: "Benito Pérez Galdós", html: `<h3>Galdós, más de cerca</h3><p>Benito Pérez Galdós (Las Palmas de Gran Canaria, 1843 - Madrid, 1920) es el novelista más importante del siglo XIX español después de Cervantes. Su obra se suele dividir en etapas:</p>${L.tb(["Etapa", "Obras", "Rasgos"], [["Novelas de tesis (1870-1878)", "Doña Perfecta, Gloria", "enfrentamiento entre tradición y progreso"], ["Novelas contemporáneas (desde 1881)", "La desheredada, Fortunata y Jacinta, Miau", "retrato de Madrid y de su clase media"], ["Etapa espiritualista (desde 1890)", "Nazarín, Misericordia", "bondad, caridad, personajes humildes"], ["Episodios nacionales (1873-1912)", "Trafalgar, Zaragoza…", "historia de España del XIX en 46 novelas"]])}<p>Fue candidato al Premio Nobel y, a su muerte, unas 30.000 personas acompañaron su entierro en Madrid.</p>` },
+    { tras: "Clarín, Pardo Bazán y Valera", html: `<h3>Emilia Pardo Bazán y la polémica naturalista</h3><p>La gallega Emilia Pardo Bazán (1851-1921) fue una mujer excepcional en su época: novelista, cuentista (escribió más de 500 cuentos), crítica literaria y la primera mujer catedrática de universidad en España. En 1883 publicó <i>La cuestión palpitante</i>, unos artículos en los que explicaba el Naturalismo de Zola; muchos se escandalizaron porque pensaban que una mujer católica no debía hablar de esos temas.</p><p>Ella aceptó las técnicas de Zola (la observación de ambientes duros) pero no su determinismo: creía en la libertad humana. En <i>Los pazos de Ulloa</i> (1886) muestra la decadencia de la nobleza rural gallega y la violencia del caciquismo.</p>` },
+  ],
+  videos: [
+    ["El Naturalismo", L.vid("Iwrq5WDiESw", "Naturalismo y Realismo: ¿en qué se diferencian?", "TICMAS Educación", 124809)],
+    ["Clarín, Pardo Bazán y Valera", L.vid("8MfDmKNfkb0", "La Regenta, Leopoldo Alas «Clarín»: resumen completo", "JavierRuescas", 139110)],
+  ],
+  ejemplos: [
+    ["Comenta el comienzo de La Regenta: «La heroica ciudad dormía la siesta. El viento Sur, caliente y perezoso, empujaba las nubes blanquecinas…»", ["Tema: presentación de Vetusta, la ciudad donde ocurre la novela.", "Técnica: descripción detallada y personificación («dormía la siesta», viento «perezoso»).", "Ironía: llamar «heroica» a una ciudad dormida anuncia la crítica a su inmovilidad.", "Rasgo realista: el ambiente ayuda a entender a los personajes que viven en él."], "descripción realista con personificación e ironía que presenta una ciudad aburrida y estancada."],
+    ["Explica qué técnica hay en: «Fortunata se sentó. ¿Por qué tenía que aguantar aquello? Ella valía tanto como cualquier señora.»", ["El narrador está en tercera persona («se sentó»).", "Pero la pregunta y la afirmación son pensamientos de Fortunata, sin «pensó que».", "Se mezcla la voz del narrador con la del personaje."], "estilo indirecto libre."],
+    ["Distingue Realismo y Naturalismo en esta trama: «Un niño nacido en una familia de alcohólicos acaba bebiendo y muere en la miseria, sin poder evitarlo.»", ["El personaje no puede escapar de su destino.", "La causa es la herencia (padres alcohólicos) y el ambiente (miseria).", "Se muestran los aspectos más duros de la sociedad."], "es naturalista, por el determinismo y los ambientes sórdidos."],
+  ],
+  errores: [
+    "Confundir objetividad con ausencia de opinión: los realistas también critican, pero a través de los hechos.",
+    "Decir que Pardo Bazán era naturalista como Zola: aceptó su técnica, no su determinismo.",
+    "Atribuir La Regenta a Galdós: es de Clarín.",
+    "Pensar que el narrador omnisciente es el protagonista: cuenta desde fuera, en tercera persona.",
+    "Olvidar el contexto: el Realismo refleja la sociedad burguesa del siglo XIX.",
+  ],
+  ejercicios: [
+    ["¿Por qué la novela es el género preferido del Realismo?", "Porque permite describir con detalle la sociedad, los ambientes y la evolución de muchos personajes a lo largo del tiempo."],
+    ["Explica qué es el positivismo y cómo influye en la novela.", "Es una corriente que solo acepta lo observable y comprobable. Influye en la documentación y la observación minuciosa de los novelistas."],
+    ["Nombra un novelista realista de Francia, Rusia e Inglaterra.", "Francia: Flaubert (o Balzac). Rusia: Tolstói (o Dostoievski). Inglaterra: Dickens."],
+    ["¿Qué son los Episodios nacionales?", "Una serie de 46 novelas de Galdós que narran la historia de España del siglo XIX, desde Trafalgar (1805) hasta la Restauración."],
+    ["¿Qué problema tiene Ana Ozores en La Regenta?", "Vive un matrimonio sin amor en una ciudad hipócrita y opresiva; busca una salida en la religión y en el amor, y acaba despreciada por todos."],
+    ["Escribe una frase en estilo indirecto libre.", "«Lucía miró el examen. ¡Otra vez la pregunta de las subordinadas! Esta vez sí que la iba a hacer bien.»"],
+    ["¿Qué es el determinismo naturalista?", "La idea de que la herencia y el ambiente deciden la conducta de las personas, que no son libres."],
+    ["¿Por qué causó polémica La cuestión palpitante?", "Porque explicaba el Naturalismo de Zola, considerado inmoral, y la autora era una mujer católica."],
+    ["Explica qué es un personaje redondo y pon un ejemplo.", "Un personaje complejo, que cambia y tiene contradicciones, como Fortunata o Ana Ozores."],
+    ["Relaciona: Pepita Jiménez, Los pazos de Ulloa, Misericordia, La Regenta.", "Pepita Jiménez: Valera. Los pazos de Ulloa: Pardo Bazán. Misericordia: Galdós. La Regenta: Clarín."],
+  ],
+  quiz: [
+    ["Madame Bovary es de…", ["Flaubert", "Zola", "Dickens"], 0, "Novela francesa de 1857."],
+    ["Contar en tercera persona con los pensamientos del personaje es…", ["estilo indirecto libre", "monólogo dramático", "estilo directo"], 0, "Mezcla las voces."],
+    ["La Restauración borbónica empieza en…", ["1875", "1808", "1931"], 0, "Con Alfonso XII."],
+    ["¿Quién fue la primera catedrática de universidad en España?", ["Emilia Pardo Bazán", "Rosalía de Castro", "Fernán Caballero"], 0, "Ocupó la cátedra en 1916."],
+    ["Doña Perfecta enfrenta…", ["tradición y progreso", "el cielo y el infierno", "Francia e Inglaterra"], 0, "Novela de tesis de Galdós."],
+  ],
+  tarjetas: [
+    ["Estilo indirecto libre", "El narrador cuenta en 3.ª persona con las palabras y pensamientos del personaje."],
+    ["Restauración", "Periodo político desde 1875 (Alfonso XII): estabilidad y caciquismo."],
+    ["Emilia Pardo Bazán", "Los pazos de Ulloa; explicó el Naturalismo en La cuestión palpitante."],
+  ],
+});

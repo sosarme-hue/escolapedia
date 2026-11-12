@@ -101,3 +101,56 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Preparar y dar una presentación de tres minutos", "Seguir las reglas de un debate formal", "Pedir aclaraciones y responder preguntas del público"],
+  bloques: [
+    { tras: "La estructura de una presentación", html: `<h3>Cómo empezar y cómo terminar</h3><p>El principio y el final son lo que más recuerda el público. Para <b>empezar</b>:</p><ul><li>Saluda y preséntate: «Good morning, everyone. My name is Laura and today I'm going to talk about…»</li><li>Engancha con una pregunta («Have you ever wondered…?»), un dato («Every minute, a truck of plastic ends up in the ocean») o una historia breve.</li><li>Anuncia las partes: «First, I'll explain…, then I'll show you… and finally…»</li></ul><p>Para <b>terminar</b>: resume («To sum up, …»), deja una idea final o una llamada a la acción («So next time you go shopping, take your own bag») y da las gracias: «Thank you for listening. Are there any questions?»</p>` },
+    { tras: "Signposting: las señales del discurso", html: `<h3>Hablar de imágenes y gráficos</h3><p>En muchas presentaciones apoyas tus ideas con diapositivas. Frases útiles:</p><ul><li>Presentar: «<b>As you can see</b> in this slide…», «<b>Let's have a look at</b> this graph.»</li><li>Describir tendencias: «The number of users <b>increased / rose</b> sharply», «Sales <b>decreased / fell</b> slightly», «It <b>remained stable</b>».</li><li>Destacar: «<b>The most striking thing</b> is…», «<b>What's interesting here</b> is…»</li><li>Comparar: «<b>Twice as many</b> girls as boys…», «<b>Half of</b> the students…»</li></ul><p>Regla para las diapositivas: <mark>pocas palabras e imágenes grandes</mark>. Si la diapositiva lo dice todo, el público lee y deja de escucharte.</p>` },
+    { tras: "Acuerdo y desacuerdo", html: `<h3>Las reglas de un debate formal</h3><p>En un debate de clase hay dos equipos: el que defiende la moción (<b>proposition</b>, a favor) y el que la ataca (<b>opposition</b>, en contra). La <b>moción</b> es una frase como «This house believes that homework should be banned». Un moderador da los turnos y controla el tiempo.</p><ol><li><b>Opening statements</b>: cada equipo presenta su postura y sus argumentos (2 min).</li><li><b>Rebuttals</b>: cada equipo responde a los argumentos del contrario (1-2 min).</li><li><b>Open floor</b>: preguntas del público.</li><li><b>Closing statements</b>: resumen final (1 min).</li><li><b>Votación</b> del público.</li></ol><p>Para rebatir: «<i>Our opponents claim that…, but…</i>», «<i>That argument doesn't take into account…</i>».</p>` },
+    { tras: "Interrumpir y ganar tiempo", html: `<h3>Pedir aclaraciones y responder preguntas</h3><p>No pasa nada si no entiendes algo: lo importante es saber pedirlo.</p>${L.tb(["Situación", "Frases"], [["no has oído", "Sorry, could you repeat that, please?"], ["no has entendido", "Sorry, I'm not sure I understand. Could you explain what you mean by…?"], ["comprobar", "So, what you're saying is… Is that right?"], ["buena pregunta", "That's a really good question."], ["no sabes la respuesta", "I'm afraid I don't know, but I'll find out."], ["volver al tema", "Anyway, as I was saying…"]])}<p>Repetir la idea del otro con tus palabras («So you mean that…») te da tiempo para pensar y demuestra que escuchas.</p>` },
+    { tras: "Voz y cuerpo", html: `<h3>Pronunciación que se nota</h3><p>Tres aspectos que mejoran mucho tu inglés hablado en una presentación:</p><ul><li><b>Acento de palabra</b>: «<i>PHOtograph</i>, <i>phoTOgrapher</i>, <i>photoGRAphic</i>». Comprueba las palabras clave de tu tema en el diccionario.</li><li><b>Acento de frase</b>: se marcan las palabras importantes (sustantivos, verbos, adjetivos) y las demás se dicen más deprisa: «I <b>THINK</b> we should <b>BAN</b> <b>PLASTIC</b> <b>BAGS</b>».</li><li><b>Terminaciones</b>: pronuncia la -s del plural y de la tercera persona y la -ed del pasado; los españoles tienden a comérselas.</li></ul><p>Ensaya en voz alta, grábate con el móvil y cronométrate: tres minutos son unas 350-400 palabras habladas.</p>` },
+  ],
+  videos: [
+    ["La estructura de una presentación", L.vid("LrjlW00kkws", "How to start a presentation", "Expert Academy", 8135213)],
+    ["Signposting: las señales del discurso", L.vid("fzIxD1jXn44", "Presentations in English: how to give a presentation", "Oxford Online English", 2881460)],
+  ],
+  ejemplos: [
+    ["Escribe la apertura de una presentación sobre el reciclaje.", ["Saludo y presentación: «Good morning, everyone. I'm Hugo.»", "Gancho con un dato: «Did you know that only 9% of plastic is recycled?»", "Tema y partes: «Today I'm going to talk about recycling. First…, then…, and finally…»"], "Good morning, everyone. I'm Hugo. Did you know that only 9% of all plastic ever made has been recycled? Today I'm going to talk about why recycling matters, what problems it has and what we can do at school."],
+    ["Rebate en un debate: tu oponente dice «Social media is a waste of time».", ["Reconoce en parte: «I see your point. Some people spend too long online.»", "Opón tu argumento: «However, social media also helps us learn and stay in touch.»", "Da un ejemplo: «For example, many students use YouTube to study.»"], "I see your point, and it's true that some people spend too long online. However, social media also helps us learn and stay in touch. For example, many students use YouTube to revise for exams."],
+    ["Describe un gráfico: el uso del móvil de los adolescentes pasó de 2 a 4 horas diarias entre 2015 y 2025.", ["Presenta el gráfico: «As you can see in this graph…»", "Describe la tendencia con un verbo: increased / doubled.", "Destaca el dato: «It doubled in ten years»."], "As you can see in this graph, the time teenagers spend on their phones increased from two to four hours a day between 2015 and 2025. In other words, it doubled in just ten years."],
+  ],
+  errores: [
+    "Leer el texto entero de un papel o de la diapositiva sin mirar al público.",
+    "Interrumpir sin fórmula de cortesía o hablar a la vez que otro.",
+    "Decir «I am agree»: se dice I agree.",
+    "Usar diapositivas llenas de texto.",
+    "Olvidar las terminaciones -s y -ed al hablar.",
+  ],
+  ejercicios: [
+    ["Escribe tres formas de enganchar al público al principio.", "Una pregunta («Have you ever…?»), un dato sorprendente y una historia o anécdota breve."],
+    ["¿Qué frase usas para pasar a la segunda parte de la presentación?", "Moving on to… / Let's now turn to… / Next, I'd like to talk about…"],
+    ["Corrige: «I am agree with you.»", "I agree with you. Agree es un verbo, no un adjetivo."],
+    ["Escribe una frase de acuerdo parcial.", "I see what you mean, but… / You have a point, but… / Up to a point, I agree."],
+    ["Pide que te repitan algo con educación.", "Sorry, could you repeat that, please?"],
+    ["¿Qué es la «proposition» en un debate?", "El equipo que defiende la moción, es decir, el que está a favor."],
+    ["Describe la tendencia: las ventas bajaron un poco.", "Sales decreased (fell) slightly."],
+    ["¿Qué dices si te hacen una pregunta y no sabes la respuesta?", "I'm afraid I don't know, but I'll find out and let you know."],
+    ["Marca las palabras acentuadas: «We need more green spaces in our city.»", "We NEED more GREEN SPACES in our CITY. Se acentúan las palabras con contenido."],
+    ["Escribe un cierre con llamada a la acción para una charla sobre el sueño.", "To sum up, sleep is essential for learning. So tonight, put your phone away an hour before bed. Thank you for listening. Any questions?"],
+  ],
+  quiz: [
+    ["En un debate, el equipo a favor es…", ["the proposition", "the opposition", "the floor"], 0, "Defiende la moción."],
+    ["«As you can see in this slide…» sirve para…", ["presentar una imagen", "despedirse", "interrumpir"], 0, "Señala la diapositiva."],
+    ["«Sales rose sharply» significa que…", ["subieron mucho", "bajaron un poco", "no cambiaron"], 0, "Rise sharply = subir mucho."],
+    ["Para comprobar que has entendido:", ["So, what you're saying is…?", "Shut up.", "Next slide."], 0, "Reformula la idea."],
+    ["Tres minutos hablando son unas…", ["350-400 palabras", "50 palabras", "2.000 palabras"], 0, "Unas 120-130 por minuto."],
+  ],
+  tarjetas: [
+    ["Proposition / opposition", "Equipo a favor / en contra de la moción."],
+    ["Rebuttal", "Respuesta a los argumentos del contrario: Our opponents claim that…, but…"],
+    ["Pedir aclaración", "Sorry, could you explain what you mean by…?"],
+  ],
+});

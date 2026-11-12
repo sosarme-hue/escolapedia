@@ -107,3 +107,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliació: més teoria, exemples resolts, errors típics i exercicis amb solució.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Situar les avantguardes catalanes en el seu context històric", "Analitzar un poema de Salvat-Papasseit", "Reconèixer els recursos del futurisme i del surrealisme"],
+  bloques: [
+    { tras: "Què van ser les avantguardes", html: `<h3>Els grans ismes</h3>${L.tb(["Moviment", "Any i país", "Idea clau", "Recursos"], [["Futurisme", "1909, Itàlia (Marinetti)", "velocitat, màquines, ciutat moderna", "onomatopeies, paraules en llibertat"], ["Cubisme", "1907-1914, França (Picasso, Braque)", "veure un objecte des de molts punts de vista", "fragments, cal·ligrames"], ["Dadaisme", "1916, Zuric (Tzara)", "l'absurd, rebuig de la lògica", "poemes fets a l'atzar"], ["Surrealisme", "1924, França (Breton)", "els somnis i l'inconscient", "escriptura automàtica, imatges oníriques"]])}<p>Tots aquests moviments comparteixen la idea que l'art ha de ser <b>nou</b>, provocador i lliure de les normes antigues.</p>` },
+    { tras: "Què van ser les avantguardes", html: `<h3>Barcelona, ciutat d'avantguarda</h3><p>Durant la Primera Guerra Mundial (1914-1918), l'estat espanyol va ser neutral i Barcelona es va convertir en refugi d'artistes estrangers, com el pintor <b>Francis Picabia</b>, que hi va publicar la revista dadaista <i>391</i> (1917). Les <b>Galeries Dalmau</b> havien fet el 1912 una de les primeres exposicions cubistes fora de París. Els escriptors catalans van fundar revistes per difondre les noves idees: <i>Troços</i>, de Junoy (1916), i <i>Un enemic del poble</i> (1917), on Salvat-Papasseit va publicar els seus primers manifestos. El 1928, Salvador Dalí, Sebastià Gasch i Lluís Montanyà van signar el <mark>Manifest groc</mark>, un atac directe a la cultura noucentista.</p>` },
+    { tras: "Joan Salvat-Papasseit", html: `<h3>Vida i obra de Salvat-Papasseit</h3><p>Va néixer a Barcelona el <b>1894</b>. Va perdre el pare de petit i va haver de treballar des de molt jove: va ser aprenent, vigilant nocturn al moll i dependent d'una llibreria. Era <b>autodidacte</b> i de pensament revolucionari. Va publicar <i>Poemes en ondes hertzianes</i> (1919) i <i>L'irradiador del port i les gavines</i> (1921), amb poemes visuals i futuristes, com «Les conquestes». Malalt de tuberculosi, va morir el <b>1924</b>, amb només trenta anys. La seva poesia amorosa i vitalista, sobretot <i>El poema de la rosa als llavis</i>, ha estat musicada per cantautors com Joan Manuel Serrat, i és una de les més llegides de la literatura catalana.</p>` },
+    { tras: "J. V. Foix i el surrealisme", html: `<h3>Llegir un poema surrealista</h3><p>Davant d'un poema de Foix no cal buscar una història lògica, sinó deixar-se portar per les <b>imatges</b>, com en un somni. Els seus textos de <i>Gertrudis</i> (1927) i <i>KRTU</i> (1932) són proses poètiques en què el jo poètic es passeja per paisatges familiars (Sarrià, Port de la Selva) que de cop es tornen estranys: apareixen personatges impossibles, objectes que canvien de forma, ciutats buides. El lector ha d'interpretar què <mark>simbolitzen</mark>: la por, el desig, la recerca de la persona estimada. Foix va escriure també un <i>Diari 1918</i> i va treballar tota la vida a la pastisseria familiar. El 1984 va rebre el Premi Nacional de les Lletres Espanyoles.</p>` },
+    { tras: "Altres noms", html: `<h3>Herència de les avantguardes</h3><p>Les avantguardes catalanes van ser breus, perquè el Noucentisme dominava les institucions i després la Guerra Civil (1936-1939) va tallar la vida cultural. Però la seva influència va ser enorme. Després de la guerra, el grup <b>Dau al Set</b> (1948), amb Joan Brossa i Antoni Tàpies, va recuperar l'esperit surrealista. <b>Joan Brossa</b> va fer <mark>poesia visual</mark> i poemes objecte durant dècades, i avui els poemes visuals, la poesia d'Instagram o la performance poètica continuen el camí obert per Salvat i Junoy. Les avantguardes van ensenyar que un poema també pot ser una imatge, un objecte o una acció.</p>` },
+    { tras: "Joan Salvat-Papasseit", html: `<h3>Comentari: «Res no és mesquí»</h3><p>Aquest poema de Salvat-Papasseit comença així: «Res no és mesquí, / ni cap hora és isarda, / ni és fosca la ventura de la nit». Per comentar-lo podem seguir tres passos:</p><ul><li><b>Tema</b>: una crida a viure amb intensitat, perquè tot el que ens envolta té valor.</li><li><b>Estructura</b>: una enumeració de negacions («res no», «ni cap», «ni») que el poeta transforma en una afirmació de la vida.</li><li><b>Recursos</b>: la repetició, la metàfora (la nit com a aventura) i un llenguatge proper i col·loquial.</li></ul><p>És un poema <mark>vitalista</mark>: malgrat la pobresa i la malaltia, el poeta celebra la vida. El cantautor Joan Manuel Serrat en va fer una cançó molt coneguda.</p>` },
+  ],
+  videos: [
+    ["Joan Salvat-Papasseit", L.vid("wm1GTEyW1I4", "Joan Salvat-Papasseit", "Santa Mònica", 11001)],
+    ["Què van ser les avantguardes", L.vid("PW4RfVNj2Pk", "Les Avantguardes", "Adri SM", 9117)],
+  ],
+  ejemplos: [
+    ["A quin isme pertany un poema ple de cotxes, avions i onomatopeies com «brrrr»?", ["La velocitat i les màquines són temes futuristes.", "Les onomatopeies i les «paraules en llibertat» són recursos de Marinetti.", "Salvat-Papasseit en va fer de semblants."], "Futurisme."],
+    ["Comenta «M'exalta el nou i m'enamora el vell» de Foix.", ["Contraposa dos termes: nou / vell.", "Expressa admiració per l'avantguarda i amor per la tradició.", "Resumeix la seva obra: sonets clàssics amb imatges surrealistes."], "Foix uneix avantguarda i tradició."],
+    ["Explica per què un cal·ligrama és avantguardista.", ["Trenca la disposició tradicional del vers.", "La forma visual forma part del significat.", "Fa que el lector miri el poema com una imatge."], "Perquè trenca les normes de la poesia tradicional i barreja text i imatge."],
+  ],
+  errores: [
+    "Pensar que les avantguardes van ser un sol moviment: van ser diversos ismes amb idees diferents.",
+    "Confondre futurisme (màquines, velocitat) amb surrealisme (somnis, inconscient).",
+    "Creure que Foix va abandonar la tradició: va escriure sonets clàssics.",
+    "Buscar una lògica narrativa en un poema surrealista en lloc d'interpretar-ne les imatges.",
+    "Atribuir els cal·ligrames només a Salvat: Junoy també en va fer, i el model és Apollinaire.",
+  ],
+  ejercicios: [
+    ["Relaciona: futurisme, dadaisme, surrealisme / somnis, absurd, màquines.", "Futurisme: màquines. Dadaisme: absurd. Surrealisme: somnis."],
+    ["Per què Barcelona va ser un refugi d'artistes entre 1914 i 1918?", "Perquè l'estat espanyol era neutral a la Primera Guerra Mundial."],
+    ["Què va ser el Manifest groc?", "Un manifest del 1928 de Dalí, Gasch i Montanyà contra la cultura noucentista."],
+    ["Escriu dos títols de Salvat-Papasseit.", "Poemes en ondes hertzianes; El poema de la rosa als llavis (o L'irradiador del port i les gavines)."],
+    ["Quina malaltia va causar la mort de Salvat-Papasseit i quan?", "La tuberculosi, el 1924."],
+    ["Què és l'escriptura automàtica?", "Escriure sense control racional, deixant sortir l'inconscient (surrealisme)."],
+    ["Quin grup va recuperar el surrealisme després de la guerra?", "Dau al Set (1948), amb Brossa i Tàpies."],
+    ["Per què les avantguardes catalanes van durar poc?", "Pel domini del Noucentisme i per la Guerra Civil."],
+    ["Escriu un cal·ligrama breu sobre la pluja (descriu-ne la forma).", "Resposta oberta: per exemple, les paraules «cau, cau, gota» disposades en línies verticals com gotes."],
+    ["Quina revista va fundar Junoy el 1916?", "Troços."],
+  ],
+  quiz: [
+    ["Qui va escriure el manifest futurista (1909)?", ["Marinetti", "Breton", "Apollinaire"], 0, "Futurisme italià."],
+    ["La revista 391 la va publicar a Barcelona…", ["Picabia", "Foix", "Dalí"], 0, "1917, dadaisme."],
+    ["KRTU (1932) és obra de…", ["J. V. Foix", "Salvat-Papasseit", "Junoy"], 0, "Prosa poètica surrealista."],
+    ["Joan Brossa és conegut per…", ["la poesia visual", "la novel·la realista", "la normativa"], 0, "Poemes objecte."],
+    ["El Manifest groc es va signar el…", ["1928", "1859", "1975"], 0, "Dalí, Gasch, Montanyà."],
+  ],
+  tarjetas: [
+    ["Manifest groc (1928)", "Dalí, Gasch i Montanyà contra el Noucentisme."],
+    ["Escriptura automàtica", "Tècnica surrealista per deixar parlar l'inconscient."],
+    ["Joan Brossa", "Poesia visual i poemes objecte; Dau al Set (1948)."],
+  ],
+});

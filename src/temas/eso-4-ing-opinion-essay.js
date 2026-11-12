@@ -98,3 +98,56 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Escribir introducciones y conclusiones eficaces", "Incluir y rebatir la opinión contraria", "Planificar un ensayo en diez minutos"],
+  bloques: [
+    { tras: "La estructura de cuatro párrafos", html: `<h3>Cómo escribir la introducción</h3><p>La introducción tiene dos o tres frases y una misión: <b>presentar el tema</b> y <b>dar tu opinión</b>. Hay varias formas de empezar para enganchar al lector:</p><ul><li>Con una <b>pregunta</b>: «Should mobile phones be banned in schools?»</li><li>Con un <b>dato</b>: «Nowadays, almost every teenager owns a smartphone.»</li><li>Con una <b>afirmación general</b>: «Technology has changed the way we learn.»</li></ul><p>Después, la <b>tesis</b>: «In my opinion, phones should be allowed in schools, but only for educational purposes.» Evita empezar con «In this essay I am going to talk about…»: es correcto pero muy pobre. Y no metas los argumentos en la introducción: van en el cuerpo.</p>` },
+    { tras: "Linking words", html: `<h3>Dar ejemplos, causas y consecuencias</h3><p>Además de los conectores de orden, adición y contraste, necesitas estos para desarrollar los argumentos:</p>${L.tb(["Función", "Conectores", "Ejemplo"], [["ejemplo", "for example, for instance, such as", "Many sports, <b>such as</b> swimming, are cheap."], ["causa", "because, because of, due to, since, as", "<b>Due to</b> the rain, the match was cancelled."], ["consecuencia", "so, therefore, as a result, consequently", "<b>As a result</b>, students sleep less."], ["concesión", "although, even though, despite + -ing / noun", "<b>Despite having</b> money, he wasn't happy."], ["conclusión", "to sum up, in conclusion, all in all, to conclude", "<b>All in all</b>, the advantages are clear."]])}<p>Fíjate en la puntuación: <i>However, Therefore, Moreover</i> van al principio de la frase seguidos de coma.</p>` },
+    { tras: "El párrafo perfecto", html: `<h3>El párrafo de la opinión contraria</h3><p>Un ensayo maduro reconoce que hay otra postura y la rebate. Es el párrafo que más impresiona a quien corrige:</p><ol><li><b>Presenta</b> la opinión contraria: «<i>Some people argue that</i> phones distract students in class.» / «<i>It is often said that</i>…» / «<i>Opponents claim that</i>…»</li><li><b>Reconócela</b> en parte: «<i>It is true that</i> some students use them to chat.»</li><li><b>Rebátela</b>: «<i>However</i>, teachers can set clear rules, and phones are useful tools for research.»</li></ol><p>Así demuestras que has pensado en el tema y no solo repites tu opinión.</p>` },
+    { tras: "El párrafo perfecto", html: `<h3>Registro y vocabulario</h3><p>El ensayo de opinión es un texto <b>formal</b>. Algunas sustituciones fáciles que suben el nivel:</p>${L.tb(["Informal", "Formal"], [["a lot of", "a great deal of / many / much"], ["get", "obtain / receive / become"], ["kids", "children / young people"], ["really good", "extremely beneficial"], ["think", "believe / consider"], ["don't", "do not"]])}<p>Evita también las preguntas al lector en el cuerpo del texto, el lenguaje de chat y los signos de exclamación. Usa <b>sujetos impersonales</b> para sonar objetivo: «<i>It is clear that…</i>», «<i>There is no doubt that…</i>», «<i>Many experts believe…</i>».</p>` },
+    { tras: "Antes de entregar: checklist", html: `<h3>Plan en diez minutos</h3><p>En el examen, dedica unos minutos a planificar antes de escribir:</p><ol><li><b>Lee bien la pregunta</b> y subraya las palabras clave (¿te piden opinión, ventajas y desventajas o una solución?).</li><li><b>Haz una lluvia de ideas</b> a favor y en contra (dos minutos).</li><li><b>Elige tu postura</b> y los dos argumentos más fuertes, con un ejemplo para cada uno.</li><li><b>Piensa una objeción</b> y su respuesta.</li><li><b>Escribe el esquema</b>: una línea por párrafo.</li><li>Al final, <b>reserva cinco minutos</b> para revisar errores de verbos, artículos y la -s de la tercera persona.</li></ol><p>Controla el número de palabras: si piden 120-150, no escribas 250.</p>` },
+  ],
+  videos: [
+    ["La estructura de cuatro párrafos", L.vid("DqwzYoThUpg", "Ensayo de opinión o ensayo persuasivo", "Smrt English", 735791)],
+    ["Expresar opinión", L.vid("SpAIW4p8wkw", "Cómo expresar tu opinión en un ensayo (IELTS, tarea 2)", "IELTS Liz", 1991080)],
+  ],
+  ejemplos: [
+    ["Escribe la introducción para: «Homework should be banned. Do you agree?»", ["Empieza con una idea general o una pregunta: «Homework has been part of school life for decades.»", "Plantea el debate: «However, many people now question whether it is really useful.»", "Da tu opinión clara: «In my view, homework should not be banned, but it should be reduced.»"], "Homework has been part of school life for decades. However, many people now question whether it is really useful. In my view, it should not be banned, but it should be reduced."],
+    ["Mejora este párrafo: «I think sport is good. It is good for health. And it is good for friends. And it is fun.»", ["Añade una topic sentence: «Firstly, doing sport has many benefits.»", "Sustituye los «and» por conectores variados: «Not only… but also», «Moreover».", "Añade un ejemplo concreto y evita repetir «good»."], "Firstly, doing sport has many benefits. Not only does it improve our health, but it also helps us make friends. Moreover, team sports such as football teach us to cooperate."],
+    ["Escribe la conclusión de un ensayo a favor de los uniformes escolares.", ["Empieza con un conector de conclusión: «To sum up».", "Resume los argumentos sin añadir ideas nuevas.", "Repite la opinión con otras palabras."], "To sum up, school uniforms reduce social differences and save families time and money. Therefore, I firmly believe that all schools should have one."],
+  ],
+  errores: [
+    "No dar la opinión en la introducción o cambiarla en la conclusión.",
+    "Escribir contracciones (don't, can't) y vocabulario informal (kids, stuff).",
+    "Meter argumentos nuevos en la conclusión.",
+    "Repetir «I think» y «and» en todo el texto.",
+    "Poner una coma entre dos oraciones completas sin conector: *It was late, we went home → It was late, so we went home.",
+  ],
+  ejercicios: [
+    ["Escribe tres formas de dar tu opinión sin usar «I think».", "In my opinion, … / I strongly believe that … / From my point of view, … (también: It seems to me that…, As far as I am concerned, …)."],
+    ["Une con un conector de contraste: «Electric cars are expensive. They save money in the long run.»", "Although electric cars are expensive, they save money in the long run. / Electric cars are expensive. However, they save money in the long run."],
+    ["Corrige: «Despite it was raining, we went out.»", "Despite the rain, we went out. / Although it was raining, we went out. Despite va con sustantivo o -ing."],
+    ["Escribe una topic sentence para un párrafo sobre las ventajas de aprender idiomas.", "«Firstly, learning languages opens up many job opportunities.»"],
+    ["Escribe la frase que presenta la opinión contraria sobre los videojuegos.", "«Some people argue that video games make young people violent and lazy.»"],
+    ["Rebate esa opinión en una frase.", "«However, many games develop problem-solving skills, and there is no clear evidence that they cause violence.»"],
+    ["Haz formal: «Lots of kids get really stressed with exams.»", "Many young people become extremely stressed because of exams."],
+    ["Completa con therefore o however: «Public transport is cheap. ___, it is not always reliable.»", "However."],
+    ["Ordena los párrafos: conclusión, argumento 1, introducción, opinión contraria, argumento 2.", "Introducción, argumento 1, argumento 2, opinión contraria, conclusión."],
+    ["Escribe un plan de cinco líneas para: «Should young people be allowed to vote at 16?»", "1. Intro + opinión (sí). 2. Arg. 1: pagan impuestos si trabajan y les afectan las leyes. 3. Arg. 2: se interesan por temas como el clima. 4. Contraria: no tienen madurez → respuesta: la escuela puede formar en educación cívica. 5. Conclusión: votar a los 16 refuerza la democracia."],
+  ],
+  quiz: [
+    ["«___ the bad weather, the trip went ahead.»", ["Despite", "Although", "However"], 0, "Despite + sustantivo."],
+    ["¿Qué frase introduce la opinión contraria?", ["Some people argue that…", "To sum up,…", "Firstly,…"], 0, "Presenta la otra postura."],
+    ["En un ensayo formal, «kids» se sustituye por…", ["children / young people", "guys", "babies"], 0, "Registro formal."],
+    ["«Such as» introduce…", ["un ejemplo", "una conclusión", "un contraste"], 0, "Sports such as tennis."],
+    ["En la conclusión es mejor…", ["no añadir argumentos nuevos", "contradecir la tesis", "contar una anécdota nueva"], 0, "Resume y reafirma."],
+  ],
+  tarjetas: [
+    ["Opinión contraria", "Some people argue that… It is true that… However, …"],
+    ["Despite / although", "Despite + sustantivo o -ing; although + oración."],
+    ["Conectores de conclusión", "To sum up, in conclusion, all in all, to conclude."],
+  ],
+});

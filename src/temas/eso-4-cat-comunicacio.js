@@ -106,3 +106,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliació: més teoria, exemples resolts, errors típics i exercicis amb solució.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Comentar l'adequació, la coherència i la cohesió d'un text", "Reconèixer les modalitats oracionals i les tipologies textuals"],
+  bloques: [
+    { tras: "Els elements de la comunicació", html: `<h3>Soroll, retroacció i comunicació no verbal</h3><p>La comunicació no sempre funciona. Anomenem <b>soroll</b> tot allò que dificulta el missatge: una mala connexió, una lletra il·legible, una paraula que el receptor no coneix o un comentari fora de lloc. Per comprovar que ens han entès fem servir la <mark>retroacció</mark>: la resposta del receptor, que en aquell moment passa a ser emissor. En una conversa els papers canvien contínuament; en un cartell o en un llibre, el receptor no pot respondre.</p><p>També comuniquem sense paraules: els gestos, el to de veu, la distància, la roba, els emojis o els colors formen la <b>comunicació no verbal</b>. Quan el que diem i el que mostrem no coincideixen («Estic bé», amb els ulls plorosos), solem creure el missatge no verbal.</p>` },
+    { tras: "Les funcions del llenguatge", html: `<h3>Funcions i modalitats oracionals</h3><p>Cada funció sol anar acompanyada d'unes marques gramaticals que t'ajuden a comentar un text:</p>${L.tb(["Funció", "Se centra en…", "Marques", "Exemple"], [["Referencial", "el context", "oracions enunciatives, 3a persona", "L'aigua bull a 100 °C."], ["Expressiva", "l'emissor", "exclamacions, interjeccions, 1a persona", "Quina por que he passat!"], ["Conativa", "el receptor", "imperatius, vocatius, preguntes", "Laura, tanca la porta."], ["Fàtica", "el canal", "fórmules de salutació i comprovació", "M'escoltes? D'acord, d'acord…"], ["Poètica", "el missatge", "rima, metàfores, jocs de paraules", "La lluna, la pruna…"], ["Metalingüística", "el codi", "cometes, definicions", "«Cançó» porta accent tancat."]])}<p>Un text pot tenir diverses funcions, però gairebé sempre <mark>n'hi ha una que predomina</mark>.</p>` },
+    { tras: "Les propietats del text", html: `<h3>L'adequació i la coherència</h3><p>Un text és <b>adequat</b> quan s'ajusta a la situació: a qui va dirigit, amb quina intenció, per quin canal i en quin context. Afecta el registre, el tractament (tu, vostè o vós) i el vocabulari. Per revisar-la, fes-te quatre preguntes: <i>qui ho llegirà?, per a què ho escric?, on es publicarà?, quin to espera el lector?</i></p><p>Un text és <b>coherent</b> quan té un <b>tema</b> clar i totes les idees s'hi relacionen de manera lògica i ordenada. Per aconseguir-ho, el text s'organitza en <b>paràgrafs</b>: cada paràgraf desenvolupa una idea, i l'ordre dels paràgrafs forma l'<b>estructura</b> (introducció, desenvolupament i conclusió). A més, no hi pot haver contradiccions ni dades falses.</p>` },
+    { tras: "Els mecanismes de cohesió", html: `<h3>Els mecanismes de cohesió, un per un</h3>${L.tb(["Mecanisme", "Què fa", "Exemple"], [["Repetició", "repeteix una paraula clau", "el <i>mòbil</i>… aquest <i>mòbil</i>"], ["Sinonímia", "fa servir una paraula equivalent", "el cotxe… el vehicle"], ["Hiperonímia", "fa servir una paraula més general", "les roses… les flors"], ["Pronoms (anàfora)", "remeten a una cosa dita abans", "Vaig veure l'Anna i <i>la</i> vaig saludar."], ["Pronoms febles en i ho", "substitueixen complements", "Vas a Girona? Sí, <i>hi</i> vaig."], ["El·lipsi", "omet el que ja se sap", "Jo porto el pa i tu, Ø l'aigua."], ["Connectors", "uneixen idees i en marquen la relació", "a més, tanmateix, per tant"]])}<p>Els <b>pronoms febles</b> són una eina de cohesió molt pròpia del català: «De pomes, <b>n'</b>he comprat tres».</p>` },
+    { tras: "El registre", html: `<h3>Les tipologies textuals i el comentari</h3><p>Segons la intenció, els textos poden ser <b>narratius</b> (expliquen fets), <b>descriptius</b> (com és una cosa), <b>dialogats</b> (converses), <b>expositius</b> (expliquen un tema), <b>argumentatius</b> (defensen una opinió) i <b>instructius</b> (diuen com fer una cosa).</p><p>Per comentar un text a 4t, segueix aquest ordre: 1) <b>localització</b> (autor, obra, tipus de text); 2) <b>tema</b>, en una sola frase amb un substantiu abstracte («La importància de…»); 3) <b>resum</b> objectiu amb les teves paraules; 4) <b>estructura</b> en parts; 5) <b>propietats</b>: adequació, coherència i cohesió amb exemples; 6) <b>valoració crítica</b> argumentada. L'error més freqüent és barrejar el resum amb l'opinió.</p>` },
+  ],
+  videos: [
+    ["Les propietats del text", L.vid("V3vq6NUTvZ0", "Com s'estructura un text perquè sigui coherent i fàcil de llegir", "Parlem d'escriure en català", 53380)],
+    ["L'adequació i la coherència", L.vid("1BRppDceR28", "Les 4 preguntes que has de fer-te abans de començar a escriure", "Parlem d'escriure en català", 37296)],
+  ],
+  ejemplos: [
+    ["Identifica els elements de la comunicació: la Marta envia un àudio al seu avi per felicitar-lo mentre va en autobús.", ["Emissor: la Marta. Receptor: el seu avi.", "Missatge: la felicitació. Codi: la llengua catalana oral.", "Canal: l'aire i la xarxa telefònica (àudio digital).", "Context: l'aniversari de l'avi; el soroll de l'autobús pot dificultar el missatge."], "emissor la Marta, receptor l'avi, missatge la felicitació, codi el català, canal l'àudio i context l'aniversari; el soroll de l'autobús és un possible soroll."],
+    ["Quina funció predomina a «Atenció! Si trobeu aquest gos, truqueu al 600 000 000»?", ["Hi ha un imperatiu («truqueu») i una crida d'atenció.", "El text vol que el receptor faci alguna cosa.", "Tot i que informa d'un gos perdut, la intenció principal és fer actuar el lector."], "predomina la funció conativa o apel·lativa."],
+    ["Millora la cohesió: «En Joan va comprar una bici. La bici era vermella. En Joan feia servir la bici per anar a l'institut.»", ["Detecta les repeticions: «en Joan» i «la bici».", "Substitueix amb pronoms febles i el·lipsi: «la feia servir».", "Uneix les idees amb connectors: «i», «per això»."], "«En Joan va comprar una bici vermella i la feia servir per anar a l'institut.»"],
+  ],
+  errores: [
+    "Confondre canal i codi: el canal és el mitjà físic; el codi, el sistema de signes.",
+    "Pensar que un text només té una funció: en sol tenir diverses, encara que una predomini.",
+    "Confondre coherència (sentit global) i cohesió (enllaços entre frases).",
+    "Fer servir el registre col·loquial en un text formal, com una sol·licitud.",
+    "Repetir «i» o «llavors» a cada frase en lloc de variar els connectors.",
+    "Ficar opinions personals al resum.",
+  ],
+  ejercicios: [
+    ["Identifica emissor, receptor, canal i codi en un cartell de «Prohibit fumar».", "Emissor: el responsable del lloc. Receptor: qualsevol persona que el llegeixi. Canal: el cartell (visual). Codi: la llengua escrita i sovint una icona."],
+    ["Quina funció predomina a «Hola, se'm sent?, hi sou?»?", "La fàtica: l'emissor comprova que el canal funciona."],
+    ["Quina funció predomina a «El substantiu és la paraula que anomena éssers i objectes»?", "La metalingüística: la llengua parla de la mateixa llengua."],
+    ["Escriu un exemple de funció expressiva i un de poètica.", "Expressiva: «Quina il·lusió em fa veure't!». Poètica: «Els teus ulls, dos estels en la nit» (metàfora)."],
+    ["Què falla en aquest text: «Demà anem d'excursió al museu. El meu gos es diu Rufo. El museu obre a les nou.»?", "Falla la coherència: la frase del gos no té relació amb el tema."],
+    ["Assenyala els mecanismes de cohesió: «L'Anna i en Lluís van anar al cine. Ella va triar la pel·lícula i ell, les crispetes.»", "«Ella» i «ell» són pronoms (anàfora); a «i ell, les crispetes» hi ha una el·lipsi del verb; «i» és un connector copulatiu."],
+    ["Reescriu de manera adequada per a un correu a la tutora: «Ei, demà no vinc, que estic fatal».", "«Bon dia, Marta: us escric per avisar-vos que demà no podré venir a classe perquè no em trobo bé. Una salutació, Hug.»"],
+    ["Substitueix per un pronom feble: «Vas a la biblioteca? Sí, vaig a la biblioteca.»", "Sí, hi vaig."],
+    ["Escriu el tema d'un text que explica per què dormir vuit hores millora les notes.", "«La influència del descans en el rendiment escolar.»"],
+    ["Classifica: una recepta, la crònica d'un partit, una carta de queixa i una entrevista.", "Recepta: instructiu. Crònica: narratiu (periodístic). Carta de queixa: argumentatiu. Entrevista: dialogat."],
+  ],
+  quiz: [
+    ["Una mala cobertura que talla una trucada és…", ["soroll", "codi", "retroacció"], 0, "Dificulta la comunicació."],
+    ["«“Casa” és un substantiu» té la funció…", ["metalingüística", "fàtica", "expressiva"], 0, "La llengua parla de si mateixa."],
+    ["A «les roses… les flors», «flors» és un…", ["hiperònim", "antònim", "connector"], 0, "Paraula més general."],
+    ["El resum d'un text ha de ser…", ["objectiu", "una opinió", "més llarg que el text"], 0, "Recull les idees principals."],
+    ["«Vas a Girona? Sí, hi vaig.» «Hi» és un mecanisme de…", ["cohesió", "adequació", "soroll"], 0, "Pronom feble que evita repetir."],
+  ],
+  tarjetas: [
+    ["Soroll", "Tot allò que dificulta la comunicació."],
+    ["Pronoms febles i cohesió", "Substitueixen complements: hi vaig, n'he comprat tres."],
+    ["Tema d'un text", "La idea central, en una frase breu amb un substantiu abstracte."],
+  ],
+});

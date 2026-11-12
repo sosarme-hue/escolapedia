@@ -94,3 +94,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Conocer todos los radicales irregulares del futur simple", "Usar el futuro detrás de quand y dès que", "Formar el conditionnel présent a partir del futuro"],
+  bloques: [
+    { tras: "Futur proche", html: `<h3>Futur proche, présent o futur simple</h3><p>Como en inglés con <i>going to</i> y <i>will</i>, en francés se elige la forma según la situación:</p>${L.tb(["Situación", "Forma", "Ejemplo"], [["algo inmediato o ya decidido", "futur proche", "Attention, tu vas tomber !"], ["plan muy cercano y seguro", "présent", "Demain, je pars à Lyon."], ["predicción, futuro lejano, promesa", "futur simple", "Un jour, j'irai au Japon."], ["horario o lenguaje formal", "futur simple", "Le train partira à 8 h."]])}<p>En la conversación diaria el <b>futur proche</b> es el más frecuente; en la escritura y en textos formales (previsiones del tiempo, discursos, horóscopos) domina el <b>futur simple</b>. La negación del futur proche rodea a <i>aller</i>: «Je <b>ne</b> vais <b>pas</b> sortir».</p>` },
+    { tras: "Radicales irregulares", html: `<h3>Todos los radicales irregulares</h3><p>Las terminaciones nunca cambian (-ai, -as, -a, -ons, -ez, -ont); solo cambia el radical, que <mark>siempre termina en -r</mark>:</p>${L.tb(["Verbo", "Radical", "Verbo", "Radical"], [["être", "ser-", "pouvoir", "pourr-"], ["avoir", "aur-", "vouloir", "voudr-"], ["aller", "ir-", "devoir", "devr-"], ["faire", "fer-", "savoir", "saur-"], ["venir / tenir", "viendr- / tiendr-", "voir", "verr-"], ["falloir", "faudr- (il faudra)", "envoyer", "enverr-"], ["courir", "courr-", "mourir", "mourr-"]])}<p>Los verbos con cambio ortográfico en presente lo mantienen: <i>acheter → j'achèterai, appeler → j'appellerai, payer → je paierai</i>.</p>` },
+    { tras: "Usos del futur simple", html: `<h3>Quand + futuro: diferente al español</h3><p>Aquí el francés se separa del español y del inglés. Después de <b>quand, lorsque, dès que, aussitôt que</b> (en cuanto) y <b>pendant que</b>, si la acción es futura, se usa el <b>futur simple</b>:</p><ul><li>«<b>Quand je serai</b> grand, je serai pilote.» (Cuando <i>sea</i> mayor…)</li><li>«Je t'appellerai <b>dès que j'arriverai</b>.» (en cuanto <i>llegue</i>)</li></ul><p>En cambio, después de <b>si</b> nunca va futuro, sino presente: «<b>Si</b> tu viens, on <b>ira</b> au parc». Resumen: <mark>quand + futur, si + présent</mark>. Es uno de los errores más típicos de los hispanohablantes, que tienden a usar el presente después de quand.</p>` },
+    { tras: "Usos del futur simple", html: `<h3>El conditionnel présent</h3><p>Una vez que sabes el futuro, el condicional es fácil: <b>mismo radical</b> que el futuro + <b>terminaciones del imparfait</b> (-ais, -ais, -ait, -ions, -iez, -aient).</p><ul><li><i>parler</i>: je parler<b>ais</b>, nous parler<b>ions</b>.</li><li><i>être</i>: je ser<b>ais</b>; <i>avoir</i>: j'aur<b>ais</b>; <i>aller</i>: j'ir<b>ais</b>; <i>pouvoir</i>: je pourr<b>ais</b>.</li></ul><p>Sirve para la <b>cortesía</b> («Je <b>voudrais</b> un café», «<b>Pourriez</b>-vous m'aider ?»), los <b>consejos</b> («Tu <b>devrais</b> dormir plus»), los <b>deseos</b> («J'<b>aimerais</b> voyager») y las condicionales imaginarias («Si j'avais le temps, je <b>lirais</b> plus»). Ojo con la pronunciación: <i>je parlerai</i> (futuro, [e]) y <i>je parlerais</i> (condicional, [ɛ]) casi suenan igual.</p>` },
+    { tras: "Hablar de proyectos", html: `<h3>Escribir sobre tu futuro</h3><p>Un texto tipo «Mon avenir» o «Ma vie dans dix ans» combina lo aprendido:</p><p><i>«L'année prochaine, je <b>vais commencer</b> le bac. Après, j'<b>aimerais</b> étudier la biologie à l'université. Quand j'<b>aurai</b> mon diplôme, je <b>travaillerai</b> dans un laboratoire ou je <b>ferai</b> de la recherche sur les océans. Je <b>voudrais</b> aussi vivre un an à l'étranger, peut-être au Canada. Si tout va bien, j'<b>aurai</b> une petite maison près de la mer et un chien.»</i></p><p>Fíjate en la mezcla: futur proche para lo cercano, condicional para los deseos, futur simple para las predicciones y <i>quand + futur</i>.</p>` },
+    { tras: "Futur simple: formación", html: `<h3>Pronunciar bien el futuro</h3><p>En el futuro de los verbos en <b>-er</b>, la <i>e</i> del infinitivo casi no se oye en el francés hablado: <i>je parlerai</i> suena «je parl'ré», <i>nous mangerons</i> suena «nous mang'rons». En cambio, la <b>r</b> se pronuncia siempre, y es la marca que distingue el futuro del presente: <i>je parle</i> / <i>je parlerai</i>.</p><p>Otro detalle: la terminación de <i>je</i> en el futuro (<b>-ai</b>) suena [e], cerrada, como la é; la del condicional (<b>-ais</b>) suena [ɛ], más abierta. Muchos francófonos ya no hacen esta diferencia al hablar, por eso al escribir hay que pensar en el sentido: si es una promesa o un hecho futuro, <i>-ai</i>; si es un deseo, un consejo o algo imaginario, <i>-ais</i>. Practica leyendo en voz alta pronósticos del tiempo: «Demain, il <b>fera</b> beau, mais il <b>pleuvra</b> dans le nord».</p>` },
+  ],
+  videos: [
+    ["Futur simple: formación", L.vid("M7rSRWnS04o", "Aprender francés: le futur simple (fácil y rápido)", "Francés y croissants", 159336)],
+    ["Radicales irregulares", L.vid("RR9cev0qIck", "Révise ta grammaire : le futur simple", "Tout en français", 264248)],
+  ],
+  ejemplos: [
+    ["Conjuga «finir» y «prendre» en futur simple con nous.", ["Finir: el infinitivo entero es el radical: finir-.", "Prendre: se quita la -e final: prendr-.", "Se añade la terminación de nous: -ons."], "nous finirons, nous prendrons."],
+    ["Traduce: «Cuando tenga dieciocho años, me sacaré el carné.»", ["Después de quand, con acción futura, va futur simple: quand j'aurai.", "La principal también en futuro: je passerai le permis.", "Avoir → aur-."], "Quand j'aurai dix-huit ans, je passerai le permis."],
+    ["Haz más cortés: «Je veux un renseignement. Vous pouvez m'aider ?»", ["Vouloir en condicional: je voudrais.", "Pouvoir en condicional con vous e inversión: pourriez-vous.", "Las terminaciones son las del imparfait."], "Je voudrais un renseignement. Pourriez-vous m'aider ?"],
+  ],
+  errores: [
+    "Usar presente después de quand para el futuro: *quand je suis grand → quand je serai grand.",
+    "Poner futuro después de si: *si tu viendras → si tu viens.",
+    "Olvidar quitar la -e de los verbos en -re: *je prendreai → je prendrai.",
+    "Inventar radicales: *je allerai → j'irai; *je pouvrai → je pourrai.",
+    "Confundir futur (je serai) y conditionnel (je serais).",
+  ],
+  ejercicios: [
+    ["Conjuga en futur simple: je (parler), tu (finir), il (vendre).", "je parlerai, tu finiras, il vendra."],
+    ["Conjuga en futur simple: nous (être), vous (faire), ils (aller).", "nous serons, vous ferez, ils iront."],
+    ["Conjuga en futur simple: je (voir), tu (venir), il (falloir).", "je verrai, tu viendras, il faudra."],
+    ["Pon en futur proche: «Nous prenons le train.»", "Nous allons prendre le train."],
+    ["Pon en negativa: «Je vais sortir ce soir.»", "Je ne vais pas sortir ce soir."],
+    ["Completa: «Dès que je (finir) ___ mes examens, je (partir) ___ en vacances.»", "Dès que je finirai mes examens, je partirai en vacances."],
+    ["Completa: «S'il (faire) ___ beau, nous (aller) ___ à la plage.»", "S'il fait beau, nous irons à la plage."],
+    ["Forma el condicional: je (vouloir), nous (pouvoir), ils (devoir).", "je voudrais, nous pourrions, ils devraient."],
+    ["Da un consejo con devoir en condicional: tu amigo no duerme bien.", "Tu devrais éteindre ton portable avant de dormir."],
+    ["Escribe tres frases sobre tu vida en diez años.", "Por ejemplo: «Dans dix ans, j'habiterai à Barcelone. Je travaillerai comme ingénieure. J'aurai peut-être des enfants.»"],
+  ],
+  quiz: [
+    ["Futur de «voir» con je:", ["verrai", "voirai", "voyerai"], 0, "Radical verr-."],
+    ["«Quand tu ___ grand…»", ["seras", "es", "serais"], 0, "Quand + futur."],
+    ["«Je ___ un thé, s'il vous plaît.»", ["voudrais", "voudrai", "veux"], 0, "Cortesía: condicional."],
+    ["Futur de «il faut»:", ["il faudra", "il fallera", "il faura"], 0, "Falloir → faudr-."],
+    ["El condicional usa el radical del futuro y las terminaciones del…", ["imparfait", "présent", "passé composé"], 0, "-ais, -ait, -ions…"],
+  ],
+  tarjetas: [
+    ["Quand + futur", "Quand je serai grand… (en español: cuando sea)."],
+    ["Conditionnel", "Radical del futuro + terminaciones del imparfait: je voudrais."],
+    ["Radicales en -r", "ser-, aur-, ir-, fer-, pourr-, voudr-, verr-, viendr-, faudr-."],
+  ],
+});

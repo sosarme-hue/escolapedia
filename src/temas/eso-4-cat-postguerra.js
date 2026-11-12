@@ -38,13 +38,13 @@ module.exports = {
       svg: L.dialogo("Versos de La pell de brau d'Espriu", [
         ["Espriu", "Diversos són els homes", "var(--red)"],
         ["", "i diverses les parles,", "var(--red)"],
-        ["", "i han convingut molts noms a un sol amor.", "var(--red)"],
+        ["", "i han convingut molts noms", "var(--red)"], ["", "a un sol amor.", "var(--red)"],
       ]),
     },
     {
       html: `<h3>Pere Calders i la narrativa</h3><p><b>Pere Calders</b>, exiliat a Mèxic, escriu contes on <mark>allò fantàstic irromp en la vida quotidiana</mark> amb ironia: <i>Cròniques de la veritat oculta</i>, <i>Invasió subtil</i>. <b>Llorenç Villalonga</b> (Mallorca) escriu <i>Bearn o la sala de les nines</i>, sobre la decadència de l'aristocràcia.</p>`,
       svg: L.tabla("Narradors de postguerra", ["Autor", "Obra"], [
-        ["Pere Calders", "Cròniques de la veritat oculta"], ["L. Villalonga", "Bearn"], ["M. Rodoreda", "Mirall trencat"],
+        ["Pere Calders", "Invasió subtil"], ["L. Villalonga", "Bearn"], ["M. Rodoreda", "Mirall trencat"],
       ], "var(--pen)"),
     },
     {
@@ -103,3 +103,55 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliació: més teoria, exemples resolts, errors típics i exercicis amb solució.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Distingir la literatura de l'exili i la de l'interior", "Analitzar La plaça del Diamant i un poema d'Espriu", "Conèixer el realisme històric i autors com Pedrolo, Martí i Pol i Fuster"],
+  bloques: [
+    { tras: "El context: prohibició i exili", html: `<h3>Exili i interior</h3><p>Després de 1939, la literatura catalana queda partida en dues:</p>${L.tb(["", "Exili", "Interior"], [["On", "França, Mèxic, Xile, Argentina", "Catalunya, València, Illes"], ["Situació", "llibertat, però sense lectors", "censura i clandestinitat"], ["Autors", "Rodoreda, Calders, Agustí Bartra, Pere Quart", "Espriu, Villalonga, Estellés, Ferrater"], ["Mitjans", "revistes i editorials de l'exili", "edicions clandestines, tertúlies, Jocs Florals a l'estranger"]])}<p>Carles Riba, que va tornar de l'exili el 1943, va escriure les <i>Elegies de Bierville</i> (1942), on reflexiona sobre la pàtria perduda.</p>` },
+    { tras: "El context: prohibició i exili", html: `<h3>La resistència cultural</h3><p>Els anys 40 van ser els més durs: no es podia publicar gairebé res en català i les classes es feien d'amagat, a casa. Als anys 50 i 60 la censura es va relaxar una mica i van començar a aparèixer iniciatives que van mantenir viva la llengua. El <b>1961</b> va néixer <b>Òmnium Cultural</b>, que organitzava classes de català; el <b>1962</b> es va fundar <b>Edicions 62</b>; i el <b>Premi Sant Jordi</b> de novel·la (1960) va animar els escriptors. Al País Valencià, <b>Joan Fuster</b> va publicar l'assaig <i>Nosaltres, els valencians</i> (1962), que va obrir un debat decisiu sobre la identitat i la llengua. La <mark>Nova Cançó</mark> va portar els poemes a l'escenari i a la ràdio.</p>` },
+    { tras: "Mercè Rodoreda", html: `<h3>La plaça del Diamant: lectura guiada</h3><p>La novel·la segueix la vida de la <b>Natàlia</b>, a qui el seu marit, el <b>Quimet</b>, rebateja com a <i>Colometa</i>. Té tres parts: el festeig i el casament; la República i la guerra, en què el Quimet mor al front; i la postguerra, quan la Natàlia, a punt de suïcidar-se per la fam, es casa amb l'<b>Antoni</b>, un adroguer bo. Els <mark>coloms</mark>, que el Quimet cria a casa i que l'ofeguen, simbolitzen la seva falta de llibertat. Al final, la Natàlia torna a la plaça del Diamant i fa un crit que l'allibera del passat. La narradora parla en primera persona, amb frases senzilles i molt orals, com si ens expliqués la seva vida a nosaltres.</p>` },
+    { tras: "Salvador Espriu", html: `<h3>Sinera i el món d'Espriu</h3><p>Espriu va crear un món literari propi: <b>Sinera</b>, que és el nom d'Arenys (el poble de la seva família) llegit a l'inrevés. A <i>Cementiri de Sinera</i> (1946) recorda amb dolor un món que la guerra ha destruït. Els seus temes són la <b>mort</b>, el pas del temps, la memòria i la responsabilitat col·lectiva. A <i>La pell de brau</i> (1960), Espanya és <b>Sepharad</b> (el nom hebreu de la península), i el poeta demana als seus habitants que convisquin en pau: «Que Sepharad visqui eternament en l'ordre i en la pau, en el treball, en la difícil i merescuda llibertat». Els seus versos van esdevenir un símbol de la convivència i van ser cantats per Raimon.</p>` },
+    { tras: "Pere Calders i la narrativa", html: `<h3>El realisme històric</h3><p>Als anys 60, molts autors defensen el <b>realisme històric</b>: una literatura que denuncia la realitat social i política de la dictadura amb un llenguatge clar. A poesia destaquen <b>Pere Quart</b> (Joan Oliver), amb <i>Vacances pagades</i> (1960), i <b>Miquel Martí i Pol</b>, obrer d'una fàbrica de Roda de Ter, amb <i>La fàbrica</i>. Més endavant, Martí i Pol escriu <i>Estimada Marta</i> (1978), un dels llibres de poesia més venuts en català. <b>Gabriel Ferrater</b> (<i>Les dones i els dies</i>, 1968) escriu una poesia de la vida quotidiana molt influent. En narrativa, <b>Manuel de Pedrolo</b> va escriure moltíssimes obres, com <i>Mecanoscrit del segon origen</i> (1974), una novel·la de ciència-ficció que encara llegeixen molts instituts.</p>` },
+  ],
+  videos: [
+    ["Mercè Rodoreda", L.vid("c-HERepWt9g", "Mercè Rodoreda, l'autora catalana més traduïda", "betevé", 10586)],
+  ],
+  ejemplos: [
+    ["Exili o interior? Pere Calders escriu Cròniques de la veritat oculta (1955).", ["Calders va marxar a Mèxic el 1939.", "Hi va viure fins al 1962.", "Va escriure el llibre fora de Catalunya."], "Literatura de l'exili."],
+    ["Explica el símbol dels coloms a La plaça del Diamant.", ["El Quimet els cria i omplen tota la casa.", "La Natàlia ha de netejar-los i se sent ofegada.", "Quan els fa morir, recupera una mica el control de la seva vida."], "Els coloms simbolitzen l'opressió que pateix la Natàlia i la seva falta de llibertat."],
+    ["Què vol dir que Espriu anomeni Espanya «Sepharad»?", ["Sepharad és el nom hebreu de la península.", "Recorda els jueus expulsats el 1492.", "Suggereix un país que ha expulsat i enfrontat els seus fills."], "És una crida a la convivència: el país ha d'acceptar tots els seus pobles i llengües."],
+  ],
+  errores: [
+    "Pensar que durant la dictadura no es va escriure res en català: es va escriure a l'exili i en la clandestinitat.",
+    "Confondre la Colometa amb una altra persona: és el nom que el Quimet posa a la Natàlia.",
+    "Creure que Sinera és un lloc inventat sense relació real: és Arenys llegit a l'inrevés.",
+    "Atribuir La pell de brau a Estellés: és de Salvador Espriu.",
+    "Pensar que el realisme històric era una novel·la històrica: era literatura de denúncia del present.",
+  ],
+  ejercicios: [
+    ["Anomena dos autors de l'exili i dos de l'interior.", "Exili: Rodoreda, Calders (Bartra, Pere Quart). Interior: Espriu, Villalonga (Estellés, Ferrater)."],
+    ["Què van ser Òmnium Cultural i Edicions 62?", "Una entitat (1961) que impulsava la llengua i la cultura i una editorial (1962) clau per publicar en català."],
+    ["Resumeix les tres parts de La plaça del Diamant.", "Festeig i casament amb el Quimet; guerra i mort del Quimet; postguerra i casament amb l'Antoni."],
+    ["Quin és el significat del crit final de la Natàlia?", "S'allibera del dolor i del passat."],
+    ["D'on ve el nom Sinera?", "És Arenys llegit a l'inrevés."],
+    ["Què demana el poeta a La pell de brau?", "Convivència, pau i llibertat entre els pobles de Sepharad (Espanya)."],
+    ["Què és el realisme històric?", "Literatura dels anys 60 que denuncia la realitat social i política amb un llenguatge clar."],
+    ["Qui va escriure Estimada Marta i on treballava?", "Miquel Martí i Pol, obrer d'una fàbrica de Roda de Ter."],
+    ["De quin gènere és Mecanoscrit del segon origen?", "Ciència-ficció; Manuel de Pedrolo, 1974."],
+    ["Quin assaig va publicar Joan Fuster el 1962?", "Nosaltres, els valencians."],
+  ],
+  quiz: [
+    ["El Quimet anomena la Natàlia…", ["Colometa", "Aloma", "Mila"], 0, "La plaça del Diamant."],
+    ["Sinera és…", ["Arenys a l'inrevés", "un nom hebreu", "una revista"], 0, "Món d'Espriu."],
+    ["Elegies de Bierville és de…", ["Carles Riba", "Espriu", "Calders"], 0, "1942, a l'exili."],
+    ["Òmnium Cultural va néixer el…", ["1961", "1939", "1975"], 0, "Resistència cultural."],
+    ["Vacances pagades (1960) és de…", ["Pere Quart", "Ferrater", "Villalonga"], 0, "Pseudònim de Joan Oliver."],
+  ],
+  tarjetas: [
+    ["Exili i interior", "Llibertat sense lectors / censura i clandestinitat."],
+    ["Sepharad", "Nom hebreu de la península; Espriu demana convivència."],
+    ["Realisme històric", "Literatura de denúncia dels anys 60: Pere Quart, Martí i Pol."],
+  ],
+});

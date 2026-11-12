@@ -5,7 +5,9 @@ const { F, D } = require("./_util");
 // Ancho aproximado de un texto en píxeles.
 const ancho = (s, fs, bold) => [...String(s).replace(/<[^>]+>/g, "")].reduce((a, ch) => a + (/[A-ZÁÉÍÓÚÑÇÀÈÒÜ0-9]/.test(ch) ? 0.66 : /[ .,;:'’·il]/.test(ch) ? 0.32 : 0.5), 0) * fs * (bold ? 1.12 : 1);
 function cabe(s, fs, max, bold, donde) {
-  if (ancho(s, fs, bold) > max * 1.3) console.warn(`[lenguas] texto largo (${Math.round(ancho(s, fs, bold))}>${max}) en ${donde}: «${s}»`);
+  // Avisa solo si, al reducir la letra para que quepa, quedaría por debajo de 10 px (difícil de leer).
+  const a = ancho(s, fs, bold);
+  if (a > max && fs * max / a < 10) console.warn(`[lenguas] texto largo (${Math.round(a)}>${max}, quedaría a ${(fs * max / a).toFixed(1)} px) en ${donde}: «${s}»`);
 }
 // Tamaño de letra que hace caber el texto en «max» píxeles (reduce la letra si hace falta).
 const fz = (s, fs, max, bold) => { const a = ancho(s, fs, bold); return a > max ? +(fs * max / a).toFixed(1) : fs; };
@@ -149,6 +151,43 @@ function pasos(label, items) {
       <rect width="640" height="220" rx="16" fill="var(--paper)"/>${out}</svg>`;
 }
 
+// Tabla HTML para los bloques ampliados.
+const tb = (cab, filas) => `<table class="tb"><thead><tr>${cab.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>${filas.map((f) => `<tr>${f.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+const vid = (id, titulo, canal, vistas) => ({ id, titulo, canal, vistas, megusta: 0 });
+
+// Amplía un tema al formato de libro de texto (README, «Tema ampliado»).
+// A.bloques: [{ tras: "texto de un bloque existente" (opcional), html, video?, svg? }]; sin «tras» va al final.
+// A.ejemplos: [enunciado, [pasos], resultado]; A.ejercicios: [q, sol]; A.quiz: [q, [opciones], a, e].
+function amplia(T, A) {
+  if (A.minutos) T.minutos = A.minutos;
+  if (A.objetivos) T.objetivos.push(...A.objetivos);
+  for (const b of A.bloques || []) {
+    const nuevo = { html: b.html };
+    if (b.svg) nuevo.svg = b.svg;
+    if (b.video) nuevo.video = b.video;
+    const i = b.tras ? T.bloques.findIndex((x) => x.html.includes(b.tras)) : -1;
+    if (b.tras && i < 0) throw new Error(`amplia: no encuentro «${b.tras}» en ${T.titulo}`);
+    if (i < 0) T.bloques.push(nuevo);
+    else {
+      let j = i + 1;
+      while (T.bloques[j] && T.bloques[j]._nuevo === b.tras) j++;
+      Object.defineProperty(nuevo, "_nuevo", { value: b.tras });
+      T.bloques.splice(j, 0, nuevo);
+    }
+  }
+  for (const [tras, video] of A.videos || []) {
+    const b = T.bloques.find((x) => x.html.includes(tras));
+    if (!b) throw new Error(`amplia: vídeo sin bloque «${tras}» en ${T.titulo}`);
+    b.video = video;
+  }
+  T.ejemplos = (A.ejemplos || []).map(([enunciado, pasos, resultado]) => ({ enunciado, pasos, resultado }));
+  T.errores = A.errores || [];
+  T.ejercicios = (A.ejercicios || []).map(([q, sol]) => ({ q, sol }));
+  for (const [q, o, a, e] of A.quiz || []) T.quiz.push({ q, o, a, e });
+  T.tarjetas.push(...(A.tarjetas || []));
+  return T;
+}
+
 const BOE = { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" };
 
-module.exports = { fz, marco, filas, frase, linea, dialogo, tabla, columnas, eje, pasos, BOE, cabe };
+module.exports = { fz, marco, filas, frase, linea, dialogo, tabla, columnas, eje, pasos, BOE, cabe, tb, vid, amplia };

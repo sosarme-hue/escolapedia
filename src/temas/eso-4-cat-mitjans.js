@@ -105,3 +105,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliació: més teoria, exemples resolts, errors típics i exercicis amb solució.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Redactar titulars i entradetes que responguin les sis preguntes", "Analitzar un anunci publicitari", "Conèixer l'espai comunicatiu en català"],
+  bloques: [
+    { tras: "Mitjans i funcions", html: `<h3>L'espai comunicatiu en català</h3><p>Durant la dictadura el català va quedar gairebé fora dels mitjans. Amb la democràcia van néixer mitjans públics que han estat claus per a la normalització de la llengua: <b>TV3 i Catalunya Ràdio</b> (nascudes el 1983 i avui agrupades sota la marca 3Cat), <b>IB3</b> a les Illes Balears (2005) i <b>À Punt</b> al País Valencià (2018), que va substituir l'antiga Canal 9, tancada el 2013. També hi ha diaris en paper i digitals (<i>Ara</i>, <i>El Punt Avui</i>, <i>VilaWeb</i>, <i>Diari de Balears</i>…) i molts creadors de continguts a YouTube, TikTok i pòdcasts.</p><p>Els <b>llibres d'estil</b> d'aquests mitjans fixen com s'ha d'escriure i pronunciar el català estàndard en la ràdio i la televisió, i tenen en compte les varietats de cada territori.</p>` },
+    { tras: "La notícia", html: `<h3>El titular i l'entradeta</h3><p>El <b>titular</b> ha d'atrapar el lector amb poques paraules: verbs en present encara que el fet sigui passat («El Govern aprova…»), sense articles innecessaris i amb les dades clau. De vegades l'acompanyen un <b>avantítol</b> (a sobre, context) i un <b>subtítol</b> (a sota, amplia). L'<b>entradeta</b> resumeix en un o dos paràgrafs les respostes a les sis preguntes: <mark>què, qui, quan, on, com i per què</mark>.</p><p>El <b>cos</b> de la notícia amplia les dades, afegeix declaracions entre cometes dels protagonistes i dona context. Per això la notícia es pot retallar de baix a dalt sense perdre l'essencial. Les notícies s'escriuen en tercera persona i amb un llenguatge clar, precís i objectiu.</p>` },
+    { tras: "L'entrevista i el reportatge", html: `<h3>La crònica i els gèneres d'opinió</h3><p>La <b>crònica</b> és un gènere mixt: el periodista narra un fet que ha viscut o seguit (un partit, un festival, un judici) en ordre cronològic, però hi afegeix valoracions i estil personal; va signada. Els gèneres d'<b>opinió</b> són l'<b>editorial</b> (l'opinió del diari, sense signatura), l'<b>article</b> (d'un col·laborador o expert), la <b>columna</b> (sempre del mateix autor, al mateix espai), la <b>carta al director</b> (dels lectors) i la <b>vinyeta</b> o acudit gràfic, que critica l'actualitat amb humor.</p><p>Un diari seriós separa la informació de l'opinió i les marca clarament: a la secció d'opinió, la valoració és legítima; en una notícia, no.</p>` },
+    { tras: "L'entrevista i el reportatge", html: `<h3>La publicitat</h3><p>La <b>publicitat comercial</b> vol que comprem un producte; la <b>propaganda</b> difon idees polítiques o socials; la <b>publicitat institucional</b> (campanyes de trànsit, de salut, d'igualtat) la paguen les administracions per al bé comú. Avui creix la <b>publicitat encoberta</b>: influenciadors que mostren un producte sense dir que els paguen; per llei l'han d'indicar amb etiquetes com «#publi».</p><p>Un anunci combina el <b>codi verbal</b> (eslògan, text) i l'<b>icònic</b> (imatge, color, música). Hi domina la funció <mark>conativa</mark>, amb recursos com l'imperatiu («Prova-ho!»), la rima, els superlatius, els jocs de paraules i l'associació del producte amb valors desitjables: èxit, joventut, llibertat, família.</p>` },
+    { tras: "Notícies falses", html: `<h3>Com analitzar un anunci</h3><ol><li><b>Producte i marca</b>: què s'anuncia?</li><li><b>Públic</b>: edat, gustos, situació a què es dirigeix.</li><li><b>Imatge</b>: persones, colors, ambient; quins valors transmet.</li><li><b>Text</b>: eslògan i recursos (imperatiu, rima, hipèrbole, anglicismes).</li><li><b>Estratègia</b>: dona raons o desperta emocions?</li><li><b>Valoració</b>: és honest?, transmet estereotips?</li></ol><p>Practicar aquesta anàlisi ens fa consumidors més crítics i ens ajuda a detectar quan ens volen vendre alguna cosa disfressada d'informació.</p>` },
+  ],
+  videos: [
+    ["Els gèneres periodístics", L.vid("zbDsyQG7jp8", "Qué son los géneros periodísticos: clasificación, características y ejemplos", "Clases Particulares en Ávila", 124559)],
+    ["La publicitat", L.vid("IHrfdAODfxg", "Texto publicitario: definición, funciones, estructura, tipos y elementos", "Estudiando con Jackeline", 90853)],
+  ],
+  ejemplos: [
+    ["Comprova si aquesta entradeta respon les sis preguntes: «Més de 2.000 veïns de Girona es van concentrar ahir a la tarda a la plaça del Vi per demanar més carrils bici, segons la Guàrdia Urbana.»", ["Què: una concentració. Qui: més de 2.000 veïns.", "Quan: ahir a la tarda. On: plaça del Vi, Girona.", "Per què: per demanar més carrils bici. Font: Guàrdia Urbana.", "Falta el com (de manera pacífica, amb pancartes…), que pot anar al cos."], "respon cinc de les sis preguntes; el com pot anar al cos."],
+    ["Escriu un titular per a: «Ahir l'equip femení de l'institut va guanyar la final comarcal de bàsquet per 54-40».", ["Verb en present: guanya.", "Sense detalls secundaris.", "Amb les dades clau: qui i què."], "«L'institut guanya la final comarcal femenina de bàsquet.»"],
+    ["Analitza l'eslògan «Fresc, fresquíssim: el teu estiu comença aquí!» d'un gelat.", ["Superlatiu «fresquíssim»: exagera la qualitat.", "Exclamació i possessiu «el teu»: tracte proper, apel·la al lector.", "Associa el producte a un valor desitjat: l'estiu, les vacances."], "eslògan conatiu amb superlatiu, tuteig i associació emocional a l'estiu."],
+  ],
+  errores: [
+    "Confondre l'editorial (opinió del diari, sense signatura) amb l'article (signat).",
+    "Escriure el titular en passat i amb detalls secundaris.",
+    "Creure que tot el que té forma de notícia és veritat.",
+    "Analitzar només el text d'un anunci i oblidar la imatge.",
+    "Confondre propaganda i publicitat comercial.",
+    "Barrejar opinió i informació en una notícia: els adjectius valoratius i la primera persona són propis dels gèneres d'opinió.",
+  ],
+  ejercicios: [
+    ["Ordena segons la piràmide invertida: cos, titular, entradeta.", "Titular, entradeta, cos."],
+    ["A quin gènere pertany una carta d'una lectora que es queixa del soroll del barri?", "Gènere d'opinió: carta al director."],
+    ["Quina diferència hi ha entre reportatge i notícia?", "La notícia explica un fet recent de manera breu; el reportatge investiga un tema a fons amb testimonis i dades, i no ha de ser d'actualitat immediata."],
+    ["Quin tipus de publicitat és una campanya del Servei Català de Trànsit?", "Publicitat institucional."],
+    ["Per què un influenciador ha de posar «#publi»?", "Perquè la llei obliga a identificar la publicitat; si no, seria publicitat encoberta i enganyaria els seguidors."],
+    ["Assenyala dos recursos a «Cansat? Prova Energix. Energia que es nota.»", "Pregunta retòrica («Cansat?») i imperatiu («Prova»); també el joc entre Energix i energia."],
+    ["Anomena tres mitjans públics en català.", "TV3 / Catalunya Ràdio (3Cat), IB3 i À Punt."],
+    ["Escriu tres preguntes per comprovar si una notícia és falsa.", "Qui la publica? Té data i fonts? La publiquen altres mitjans fiables o webs de verificació?"],
+    ["Què és una crònica? Posa'n un exemple.", "Gènere mixt en què el periodista narra un fet que ha seguit, amb valoracions i estil personal; per exemple, la crònica d'un partit de futbol."],
+    ["Analitza el públic i els valors d'un anunci de cotxe amb una família somrient a la muntanya.", "Públic: famílies amb fills. Valors: seguretat, llibertat, unió familiar i natura. Apel·la a les emocions més que a dades tècniques."],
+  ],
+  quiz: [
+    ["Les sis preguntes es responen sobretot a…", ["l'entradeta", "l'últim paràgraf", "la signatura"], 0, "Resumeix l'essencial."],
+    ["La vinyeta és un gènere…", ["d'opinió", "informatiu", "publicitari"], 0, "Critica l'actualitat amb humor."],
+    ["La publicitat que amaga que ho és s'anomena…", ["encoberta", "institucional", "propaganda"], 0, "Per això cal posar #publi."],
+    ["Quin mitjà públic emet a les Illes Balears?", ["IB3", "À Punt", "TV3"], 0, "Creat el 2005."],
+    ["En un anunci domina la funció…", ["conativa", "metalingüística", "fàtica"], 0, "Vol que el receptor actuï."],
+  ],
+  tarjetas: [
+    ["Mitjans públics en català", "3Cat (TV3, Catalunya Ràdio), IB3, À Punt."],
+    ["Crònica", "Gènere mixt: narra un fet viscut, amb valoracions i signatura."],
+    ["Publicitat institucional", "La paguen les administracions per al bé comú."],
+  ],
+});

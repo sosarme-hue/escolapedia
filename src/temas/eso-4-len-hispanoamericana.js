@@ -98,3 +98,56 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Comentar un poema de Neruda y un fragmento de realismo mágico", "Explicar las técnicas narrativas del boom", "Conocer el cuento hispanoamericano: Borges, Cortázar, Monterroso"],
+  bloques: [
+    { tras: "La gran poesía", html: `<h3>Neruda, Vallejo y Paz</h3><p><b>Pablo Neruda</b> pasó por muchas etapas: el amor juvenil de <i>Veinte poemas de amor y una canción desesperada</i> (1924) («Puedo escribir los versos más tristes esta noche»), el surrealismo angustiado de <i>Residencia en la tierra</i>, el compromiso político del <i>Canto general</i> (1950), una historia poética de América, y la sencillez de las <i>Odas elementales</i>, dedicadas a la cebolla, el tomate o los calcetines.</p><p>El peruano <b>César Vallejo</b> (<i>Trilce</i>, <i>Poemas humanos</i>) renovó el lenguaje poético con una sintaxis rota y un dolor profundo por el sufrimiento humano: «Hay golpes en la vida, tan fuertes… ¡Yo no sé!». El mexicano <b>Octavio Paz</b>, Nobel en 1990, unió poesía y ensayo (<i>El laberinto de la soledad</i>, sobre la identidad mexicana).</p>` },
+    { tras: "Borges y los precursores", html: `<h3>El cuento hispanoamericano</h3><p>Hispanoamérica es la gran tierra del cuento en español. Además de Borges, destacan:</p><ul><li><b>Julio Cortázar</b> (Argentina): lo fantástico irrumpe en la vida cotidiana. En «Casa tomada», algo invisible va ocupando una casa; en «La noche boca arriba», un motociclista herido sueña que es un indio perseguido… o al revés.</li><li><b>Juan Rulfo</b> (México): <i>El llano en llamas</i>, cuentos secos y duros del campo mexicano.</li><li><b>Horacio Quiroga</b> (Uruguay): la selva y la muerte; <i>Cuentos de la selva</i> para niños.</li><li><b>Augusto Monterroso</b> (Guatemala): maestro del microrrelato. «El dinosaurio» tiene una sola frase: <mark>«Cuando despertó, el dinosaurio todavía estaba allí»</mark>.</li></ul>` },
+    { tras: "El realismo mágico", html: `<h3>Cómo funciona el realismo mágico</h3><p>No es literatura fantástica, porque los hechos extraordinarios <b>no provocan miedo ni sorpresa</b>: forman parte de la vida normal. En <i>Cien años de soledad</i>, Remedios la bella sube al cielo mientras tiende las sábanas, y su familia solo lamenta haber perdido las sábanas; llueve durante cuatro años, once meses y dos días; una mujer come tierra y cal. El narrador lo cuenta con el mismo tono tranquilo con que describe una comida.</p><p>Sus rasgos son: <mark>tono neutro ante lo prodigioso</mark>, exageración (hipérbole), tiempo cíclico (la historia se repite en las generaciones), mezcla de mitos, historia de América y leyendas familiares, y un espacio inventado que resume un continente: Macondo, Comala, Santa María.</p>` },
+    { tras: "El boom de los años 60", html: `<h3>Las técnicas del boom</h3><p>Los autores del boom leyeron a Faulkner, Joyce y Kafka, y renovaron la novela en español con técnicas atrevidas:</p>${L.tb(["Técnica", "En qué consiste", "Ejemplo"], [["Ruptura del orden temporal", "saltos al pasado y al futuro", "comienzo de Cien años de soledad"], ["Varios narradores", "la historia se cuenta desde varios puntos de vista", "La ciudad y los perros"], ["Monólogo interior", "los pensamientos del personaje, sin orden lógico", "Pedro Páramo"], ["Lector activo", "el lector debe reconstruir o elegir el orden", "Rayuela"], ["Mezcla de registros", "lo culto y lo popular, lo real y lo mítico", "Cien años de soledad"]])}<p>El boom se benefició también de editoriales de Barcelona, como Seix Barral, y de la agente literaria Carmen Balcells, que llevaron a estos autores a todo el mundo.</p>` },
+    { tras: "Después del boom", html: `<h3>Dos comienzos para recordar</h3><p><i>Cien años de soledad</i> empieza con una de las frases más famosas de la literatura: «<i>Muchos años después, frente al pelotón de fusilamiento, el coronel Aureliano Buendía había de recordar aquella tarde remota en que su padre lo llevó a conocer el hielo</i>». En una sola oración salta al futuro (el fusilamiento) y al pasado (el hielo), y presenta la familia y su mundo, donde el hielo es un prodigio.</p><p><i>Pedro Páramo</i> también arranca con fuerza: «<i>Vine a Comala porque me dijeron que acá vivía mi padre, un tal Pedro Páramo</i>». Juan Preciado irá descubriendo poco a poco que todos los habitantes del pueblo están muertos y que las voces que oye son murmullos de ánimas.</p>` },
+  ],
+  videos: [
+    ["El realismo mágico", L.vid("LLjy4wF8wi4", "Isabel Allende: «El realismo mágico es una manera de entender el mundo»", "AprendemosJuntos", 527754)],
+    ["El boom de los años 60", L.vid("rgSAFOnuICM", "¿Por qué debería leer «Cien años de soledad»?", "Sé Curioso (TED-Ed)", 1187765)],
+  ],
+  ejemplos: [
+    ["Analiza el comienzo de Cien años de soledad.", ["«Muchos años después… frente al pelotón»: prolepsis o salto al futuro.", "«Había de recordar aquella tarde remota»: analepsis o salto al pasado.", "El hielo aparece como algo maravilloso: lo cotidiano se vuelve mágico.", "Presenta al protagonista (Aureliano) y a su padre: la saga familiar."], "en una frase rompe el orden temporal y presenta el tono mágico de la novela."],
+    ["¿Es realismo mágico o fantástico? «Un hombre ve que su casa se llena de mariposas amarillas que le siguen siempre; nadie en el pueblo se extraña.»", ["Hay un hecho extraordinario: las mariposas que le siguen.", "Los personajes no se asustan ni buscan explicación.", "El tono es natural, como si fuera normal."], "es realismo mágico (lo prodigioso se acepta con naturalidad). Si causara terror e intriga, sería literatura fantástica."],
+    ["Comenta el microrrelato «Cuando despertó, el dinosaurio todavía estaba allí».", ["Tiene solo siete palabras, pero sugiere una historia completa.", "«Cuando despertó» invita a pensar en un sueño; «todavía» indica que el dinosaurio ya estaba antes.", "El lector debe imaginar el resto: quién despertó, dónde, por qué hay un dinosaurio."], "microrrelato que obliga al lector a completar la historia; la brevedad intensifica la sorpresa."],
+  ],
+  errores: [
+    "Confundir el realismo mágico con la literatura fantástica: en el realismo mágico lo extraordinario no asusta.",
+    "Atribuir Rayuela a García Márquez: es de Cortázar.",
+    "Pensar que Macondo es un pueblo real: es inventado, aunque inspirado en Aracataca.",
+    "Decir que Borges escribió novelas largas: escribió cuentos, poemas y ensayos.",
+    "Creer que el boom es un movimiento con un manifiesto: fue un éxito editorial simultáneo de autores distintos.",
+  ],
+  ejercicios: [
+    ["¿Qué es el microrrelato? Pon un ejemplo.", "Un relato brevísimo que sugiere una historia completa, como «El dinosaurio» de Monterroso."],
+    ["Explica tres etapas de la poesía de Neruda.", "Amor juvenil (Veinte poemas de amor), surrealismo angustiado (Residencia en la tierra) y compromiso político (Canto general). También las Odas elementales."],
+    ["¿Qué significa que en Cien años de soledad el tiempo es cíclico?", "Que la historia se repite: los Buendía repiten nombres, caracteres y errores generación tras generación."],
+    ["¿Qué descubre Juan Preciado en Comala?", "Que todos los habitantes del pueblo están muertos y que las voces que oye son de ánimas."],
+    ["Nombra tres técnicas del boom.", "Ruptura del orden temporal, monólogo interior y varios narradores (o el lector activo de Rayuela)."],
+    ["¿Qué tienen en común los temas de Borges?", "Los laberintos, los espejos, el tiempo, el infinito y la identidad: reflexiones filosóficas en forma de cuento."],
+    ["¿Qué ocurre en «Casa tomada»?", "Dos hermanos viven en una casa grande que algo invisible y misterioso va ocupando poco a poco, hasta que tienen que abandonarla."],
+    ["Explica la frase de Carpentier «lo real maravilloso».", "Para Carpentier, la realidad americana (su naturaleza, su historia, sus mezclas culturales) ya es en sí misma prodigiosa y no hace falta inventar lo maravilloso."],
+    ["Relaciona: La casa de los espíritus, Ficciones, Pedro Páramo, La ciudad y los perros.", "Isabel Allende, Borges, Juan Rulfo, Vargas Llosa."],
+    ["Escribe un microrrelato de una o dos frases.", "Por ejemplo: «Al abrir la mochila encontró el examen aprobado. Lo malo es que todavía no lo había hecho.» Debe sugerir una historia y sorprender."],
+  ],
+  quiz: [
+    ["«El dinosaurio» es un microrrelato de…", ["Monterroso", "Cortázar", "Rulfo"], 0, "Una sola frase."],
+    ["Las Odas elementales son de…", ["Neruda", "Vallejo", "Paz"], 0, "Odas a la cebolla, al tomate…"],
+    ["Contar en el realismo mágico lo prodigioso con tono…", ["neutro, natural", "de terror", "de burla"], 0, "Nadie se asombra."],
+    ["Pedro Páramo transcurre en…", ["Comala", "Macondo", "Buenos Aires"], 0, "Un pueblo de muertos."],
+    ["«Casa tomada» es un cuento de…", ["Cortázar", "Borges", "Quiroga"], 0, "Lo fantástico en lo cotidiano."],
+  ],
+  tarjetas: [
+    ["Microrrelato", "Relato brevísimo que sugiere una historia: «El dinosaurio», de Monterroso."],
+    ["Julio Cortázar", "Rayuela y cuentos fantásticos («Casa tomada»)."],
+    ["Pablo Neruda", "Veinte poemas de amor, Canto general; Nobel en 1971."],
+  ],
+});

@@ -17,7 +17,7 @@ module.exports = {
     {
       html: `<h3>El domini lingüístic</h3><p>El català es parla en <mark>quatre estats</mark>: Espanya (Catalunya, Comunitat Valenciana, Illes Balears i la Franja d'Aragó, a més del Carxe, a Múrcia), Andorra (on és l'única llengua oficial), França (Catalunya del Nord) i Itàlia (l'Alguer, a Sardenya). Té uns <b>10 milions</b> de parlants.</p>`,
       svg: L.filas("Territoris on es parla català", [
-        ["Espanya", "Cat., País Valencià, Balears, Franja", "var(--pen)"],
+        ["Espanya", "Cat., P. Val., Balears, Franja", "var(--pen)"],
         ["Andorra", "única llengua oficial", "var(--red)"],
         ["França", "Catalunya del Nord", "var(--inf)"],
         ["Itàlia", "l'Alguer (Sardenya)", "var(--leaf)"],
@@ -106,3 +106,56 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliació: més teoria, exemples resolts, errors típics i exercicis amb solució.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Reconèixer trets de pronúncia, morfologia i lèxic de cada dialecte", "Distingir varietats geogràfiques, socials i de registre", "Valorar la diversitat dialectal sense prejudicis"],
+  bloques: [
+    { tras: "Dos grans blocs", html: `<h3>Trets de pronúncia</h3><p>A més de les vocals àtones, cada zona té trets fonètics propis que ajuden a reconèixer d'on és un parlant:</p>${L.tb(["Tret", "On", "Exemple"], [["a i e àtones sonen [ə]", "oriental", "«casa» i «pare» acaben igual"], ["o àtona sona [u]", "central i part del balear", "«cosí» sona «cusí»"], ["es distingeixen a/e i o/u àtones", "occidental", "«casa» [a], «pare» [e]"], ["la v sona diferent de la b", "balear, Camp de Tarragona, part del valencià", "«vi» amb [v]"], ["la -r final es pronuncia", "valencià", "«cantar» amb r"], ["la ll sona [j] (iodització)", "parlars de les Illes i algunes zones", "«palla» com «paia»"]])}<p>Cap d'aquestes pronúncies és «millor» que una altra: totes són maneres legítimes de parlar la mateixa llengua.</p>` },
+    { tras: "Els dialectes", html: `<h3>Trets de morfologia</h3><p>La gramàtica també varia. Els trets més coneguts són:</p><ul><li><b>Primera persona del present</b>: <i>canto</i> (central), <i>cante</i> (valencià), <i>cant</i> (balear), <i>canti</i> (rossellonès).</li><li><b>Article salat</b> a les Balears: <i>es cotxe, sa mare, ses cases</i>, en lloc de <i>el, la, les</i>.</li><li><b>Possessius</b>: <i>la meva</i> (central) i <i>la meua</i> (valencià), totes dues normatives.</li><li><b>Present de subjuntiu</b>: <i>que canti</i> (central), <i>que cante</i> (valencià), <i>que cant</i> (balear).</li><li><b>Demostratius</b>: el valencià conserva tres graus (<i>este, eixe, aquell</i>), mentre que el central en fa servir dos (<i>aquest, aquell</i>).</li></ul><p>L'estàndard accepta moltes d'aquestes formes, sobretot en els textos d'àmbit territorial.</p>` },
+    { tras: "Lèxic de cada zona", html: `<h3>Mapa de mots: cada zona, la seva paraula</h3><p>Els dialectòlegs dibuixen <b>isoglosses</b>, línies que separen les zones on es fa servir una forma o una altra. Les isoglosses lèxiques no sempre coincideixen amb les fonètiques: per exemple, <i>espill</i> es diu tant a València com a les Illes, mentre que <i>mirall</i> és propi del Principat. Altres parelles conegudes: <i>xiquet / nen / al·lot</i>, <i>sortir / eixir</i>, <i>bressol / bres</i>, <i>moix / gat</i>, <i>granera / escombra</i>. L'<b>Atles lingüístic del domini català</b> (ALDC) recull milers d'aquestes variants. Conèixer-les ajuda a entendre parlants d'altres zones i enriqueix el vocabulari propi.</p>` },
+    { tras: "Estàndard i registres", html: `<h3>Varietats socials i funcionals</h3><p>Una llengua no varia només segons el territori. Els lingüistes distingeixen quatre tipus de varietats:</p>${L.tb(["Tipus", "Depèn de…", "Exemple"], [["geogràfica (dialecte)", "el lloc d'origen", "xiquet / nen / al·lot"], ["històrica", "l'època", "català medieval: «lo rei»"], ["social (sociolecte)", "l'edat, la professió, el grup", "argot juvenil: «flipar»"], ["funcional (registre)", "la situació comunicativa", "«Benvolguda senyora» / «Ei, què tal?»"]])}<p>Un mateix parlant fa servir diverses varietats al llarg del dia: parla amb els amics en registre col·loquial i el seu dialecte, i escriu un treball de classe en registre formal i en estàndard.</p>` },
+    { tras: "Estàndard i registres", html: `<h3>Prejudicis lingüístics</h3><p>Un <b>prejudici lingüístic</b> és una opinió sense fonament científic sobre una manera de parlar. Alguns de molt estesos són creure que el català de la pròpia zona és «el més pur», que el valencià és una llengua diferent del català o que els parlars d'una comarca són «mal parlats». La lingüística mostra que <mark>tots els dialectes són sistemes complets i coherents</mark>, amb regles pròpies. La unitat de la llengua està reconeguda per les universitats i per les institucions normatives: l'AVL mateixa defineix el valencià com la llengua compartida amb Catalunya i les Illes. Respectar la variació és també una manera de cuidar la llengua.</p>` },
+    { tras: "El domini lingüístic", html: `<h3>Situació sociolingüística</h3><p>El català és llengua <b>oficial</b> a Catalunya, les Illes Balears i la Comunitat Valenciana (on rep el nom de valencià), juntament amb el castellà, i a Andorra, on és l'única oficial. A la Franja, a la Catalunya del Nord i a l'Alguer té un reconeixement més limitat. Per això el seu ús social varia molt: és molt present a l'escola i als mitjans en uns territoris i molt minoritzat en altres. Fenòmens com la <b>interferència</b> (castellanismes com <s>*bueno</s> o <s>*vale</s>) i la <b>substitució lingüística</b> preocupen els sociolingüistes.</p>` },
+  ],
+  videos: [
+    ["Els dialectes", L.vid("gzdws0gZW4o", "Capítol 11. Els dialectes del català", "La Filòloga de Guàrdia", 102193)],
+  ],
+  ejemplos: [
+    ["Identifica el dialecte: «Hui he anat a vore el xiquet i li he comprat una joguina».", ["«Hui» és la forma valenciana d'«avui».", "«Vore» és un verb propi del valencià col·loquial (estàndard: veure).", "«Xiquet» és el mot valencià per a «nen»."], "Valencià (bloc occidental)."],
+    ["Identifica el dialecte: «Ses al·lotes han anat a sa platja».", ["«Ses» i «sa» són formes de l'article salat.", "«Al·lotes» és el mot balear per a «noies».", "L'article salat és un tret clar de les Illes."], "Balear (bloc oriental)."],
+    ["Classifica la varietat: un metge diu «el pacient presenta una cefalea».", ["No depèn del lloc: no és un dialecte.", "És una manera de parlar pròpia d'un àmbit professional i d'una situació formal.", "Fa servir lèxic especialitzat (cefalea = mal de cap)."], "Varietat funcional: registre formal i llenguatge d'especialitat."],
+  ],
+  errores: [
+    "Pensar que el valencià i el balear són llengües diferents del català: són dialectes d'una mateixa llengua.",
+    "Creure que un dialecte és «més correcte» que un altre: l'estàndard és una varietat formal, no un dialecte superior.",
+    "Confondre dialecte (lloc) amb registre (situació).",
+    "Corregir formes dialectals normatives, com «meua» o «cante», com si fossin errors.",
+    "Fer servir castellanismes com *bueno o *vale pensant que són trets dialectals.",
+  ],
+  ejercicios: [
+    ["Digues a quin bloc pertanyen: central, valencià, balear, nord-occidental, rossellonès, alguerès.", "Oriental: central, balear, rossellonès, alguerès. Occidental: valencià, nord-occidental."],
+    ["Escriu la forma central de: xiquet, espill, hui, eixir.", "nen (noi), mirall, avui, sortir."],
+    ["Conjuga «jo parlar» en central, valencià i balear.", "parlo, parle, parl."],
+    ["Escriu amb l'article estàndard: «es ca», «sa casa», «ses portes».", "el gos, la casa, les portes."],
+    ["Quin tipus de varietat és «tio, això està flipant»?", "Social i funcional: argot juvenil en registre col·loquial."],
+    ["Què és una isoglossa?", "Una línia imaginària que separa zones on es fa servir una forma lingüística o una altra."],
+    ["Quins dos possessius femenins són correctes per a «mi casa»?", "la meva casa i la meua casa."],
+    ["Corregeix: «Bueno, vale, ja vinc».", "Bé (doncs), d'acord, ja vinc."],
+    ["Explica per què «tots els dialectes són igual de vàlids».", "Perquè tots són sistemes complets amb regles pròpies; cap no és superior lingüísticament."],
+    ["Quines institucions fixen la norma del català?", "L'Institut d'Estudis Catalans (IEC) i l'Acadèmia Valenciana de la Llengua (AVL)."],
+  ],
+  quiz: [
+    ["«Espill» es diu a…", ["València i les Illes", "només Barcelona", "només l'Alguer"], 0, "Mirall és la forma central."],
+    ["Un registre depèn de…", ["la situació comunicativa", "el lloc d'origen", "l'època"], 0, "Formal o col·loquial."],
+    ["«Jo canti» és propi del…", ["rossellonès", "valencià", "balear"], 0, "Catalunya del Nord."],
+    ["Un prejudici lingüístic és…", ["una opinió sense base científica sobre una manera de parlar", "una regla de l'IEC", "un dialecte"], 0, "Tots els dialectes són vàlids."],
+    ["El valencià conserva tres graus de demostratius:", ["este, eixe, aquell", "aquest, aquell, allò", "es, sa, ses"], 0, "El central en fa servir dos."],
+  ],
+  tarjetas: [
+    ["Isoglossa", "Línia que separa zones amb formes lingüístiques diferents."],
+    ["Tipus de varietats", "Geogràfica, històrica, social i funcional (registre)."],
+    ["Prejudici lingüístic", "Creença sense base científica que una manera de parlar és millor."],
+  ],
+});

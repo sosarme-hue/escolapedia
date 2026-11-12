@@ -95,3 +95,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Memorizar los verbos más frecuentes seguidos de -ing o de to", "Usar -ing después de preposiciones y expresiones fijas", "Distinguir los verbos que cambian de significado"],
+  bloques: [
+    { tras: "El gerundio (-ing)", html: `<h3>Verbos + -ing</h3><p>Estos verbos van siempre seguidos de <b>-ing</b>. Muchos expresan gustos o actividades:</p>${L.tb(["Grupo", "Verbos", "Ejemplo"], [["gustos", "enjoy, like*, love*, hate*, don't mind, can't stand", "I <b>can't stand waiting</b>."], ["empezar y acabar", "finish, give up, keep (on), carry on", "<b>Keep trying</b>!"], ["evitar y negar", "avoid, deny, risk, miss", "She <b>avoided answering</b>."], ["pensar y sugerir", "suggest, consider, imagine, practise, recommend", "<b>Imagine living</b> on Mars."]])}<p>* <i>like, love, hate</i> admiten también <i>to</i> sin apenas cambio de significado. Pero <b>would like / would love / would prefer</b> van siempre con <b>to</b>: «I'<b>d like to go</b>».</p>` },
+    { tras: "El gerundio (-ing)", html: `<h3>Preposición + -ing</h3><p>Detrás de <b>cualquier preposición</b> el verbo va en <b>-ing</b>. Es una regla sin excepciones y muy productiva:</p><ul><li>Adjetivo + preposición: <i>good at, interested in, afraid of, tired of, keen on, fond of, proud of</i>. «I'm <b>tired of studying</b>.»</li><li>Verbo + preposición: <i>think about, look forward to, succeed in, insist on, apologise for</i>. «I'm <b>looking forward to seeing</b> you.»</li><li>Conectores: <i>before, after, without, instead of, by</i>. «He left <b>without saying</b> goodbye», «You learn <b>by practising</b>.»</li></ul><p>Cuidado con <i>look forward to</i> y <i>be used to</i>: el <i>to</i> es preposición, así que va <mark>-ing</mark>, no infinitivo.</p>` },
+    { tras: "El infinitivo con to", html: `<h3>Verbos + to + infinitivo</h3>${L.tb(["Grupo", "Verbos", "Ejemplo"], [["deseos y planes", "want, hope, plan, intend, would like, expect", "I <b>hope to see</b> you soon."], ["decisiones y esfuerzos", "decide, choose, try, manage, fail, learn", "She <b>managed to finish</b>."], ["promesas y rechazos", "promise, agree, offer, refuse, threaten", "He <b>refused to help</b>."], ["apariencia", "seem, appear, pretend, tend", "You <b>seem to be</b> tired."], ["verbo + persona + to", "ask, tell, want, advise, allow, remind", "My parents <b>allowed me to go</b>."]])}<p>Con <b>too</b> y <b>enough</b> también va <i>to</i>: «It's <b>too</b> cold <b>to swim</b>», «She's old <b>enough to drive</b>».</p>` },
+    { tras: "Cambian de significado", html: `<h3>Más verbos que cambian de significado</h3>${L.tb(["Verbo", "+ -ing", "+ to"], [["try", "probar algo para ver qué pasa: <i>Try drinking</i> water.", "intentar algo difícil: I <i>tried to open</i> it."], ["forget", "olvidar algo que pasó: I'll never <i>forget seeing</i> the sea.", "olvidar hacer algo: I <i>forgot to buy</i> milk."], ["regret", "lamentar lo hecho: I <i>regret telling</i> him.", "lamentar comunicar algo: We <i>regret to inform</i> you…"], ["go on", "seguir haciendo lo mismo: She <i>went on talking</i>.", "pasar a hacer otra cosa: Then he <i>went on to explain</i>…"], ["mean", "implicar: It <i>means getting</i> up early.", "tener la intención: I didn't <i>mean to hurt</i> you."]])}<p>Truco general: con <b>-ing</b> la acción suele ser <b>anterior</b> o ya conocida; con <b>to</b>, la acción es <b>posterior</b> o pendiente.</p>` },
+    { tras: "Infinitivo sin to", html: `<h3>Verbos de percepción</h3><p>Los verbos <i>see, hear, watch, notice, feel</i> admiten dos estructuras con un objeto:</p><ul><li>Objeto + <b>infinitivo sin to</b>: percibimos la acción <b>completa</b>. «I <b>saw him cross</b> the street» (de un lado al otro).</li><li>Objeto + <b>-ing</b>: percibimos solo una <b>parte</b> de la acción, en progreso. «I <b>saw him crossing</b> the street» (mientras cruzaba).</li></ul><p>Y recuerda que <b>make</b> y <b>let</b> van con infinitivo sin to en activa («They <b>made me wait</b>»), pero en pasiva <i>make</i> recupera el <i>to</i>: «I <b>was made to wait</b>». En lugar de <i>let</i> en pasiva se usa <i>be allowed to</i>: «I <b>was allowed to</b> stay up late».</p>` },
+    { tras: "Listas para memorizar", html: `<h3>El gerundio como sujeto: la gran diferencia con el español</h3><p>Cuando una acción es el <b>sujeto</b> de la oración, el inglés usa <b>-ing</b> donde el español usa el infinitivo: «<b>Fumar</b> es malo» → «<b>Smoking</b> is bad»; «<b>Leer</b> te abre la mente» → «<b>Reading</b> opens your mind». Traducir palabra por palabra lleva al error <s>*To smoke is bad</s>, que es posible pero suena muy anticuado y poco natural.</p><p>Por eso los carteles de normas usan -ing: <i>No smoking</i>, <i>No parking</i>, <i>No swimming</i>. También se usa -ing en las actividades de ocio con <b>go</b> (<i>go swimming, go shopping, go skiing</i>) y después de expresiones como <i>it's worth</i> («It's worth <b>visiting</b>»), <i>it's no use</i> y <i>there's no point (in)</i>: «There's no point <b>arguing</b>».</p>` },
+  ],
+  videos: [
+    ["El gerundio (-ing)", L.vid("l0sK51yvaGM", "Gerundio vs infinitivo en inglés: diferencias clave y ejemplos", "Francisco Ochoa Inglés Fácil", 1284517)],
+    ["Cambian de significado", L.vid("_0onvUH6z98", "Gerund or infinitive en inglés: repaso de gramática", "Inglés Para Perezosos", 798934)],
+  ],
+  ejemplos: [
+    ["Completa: «I'm thinking about (buy) ___ a new laptop, but I can't afford (spend) ___ much.»", ["«About» es una preposición → -ing: buying.", "«Afford» va seguido de to + infinitivo: to spend."], "I'm thinking about buying a new laptop, but I can't afford to spend much."],
+    ["Elige y explica: «I stopped (to buy / buying) a coffee on the way to work.»", ["Stop + -ing = dejar de hacer algo.", "Stop + to = pararse para hacer algo.", "Aquí la persona se para en el camino para comprar un café."], "I stopped to buy a coffee (me paré para comprar un café)."],
+    ["Completa: «My parents let me (go) ___ to the concert, but they made me (come) ___ home by 11.»", ["Let + objeto + infinitivo sin to: go.", "Make + objeto + infinitivo sin to (en activa): come."], "My parents let me go to the concert, but they made me come home by 11."],
+  ],
+  errores: [
+    "Usar infinitivo después de preposición: *interested in learn → interested in learning.",
+    "*I look forward to see you → I look forward to seeing you.",
+    "*I'd like going → I'd like to go.",
+    "*She suggested to go → She suggested going.",
+    "Poner to después de make o let en activa: *let me to go → let me go.",
+    "Confundir remember / forget / stop + -ing con + to.",
+  ],
+  ejercicios: [
+    ["Completa: «Do you mind (open) ___ the window?»", "opening: mind + -ing."],
+    ["Completa: «We decided (stay) ___ at home.»", "to stay: decide + to."],
+    ["Completa: «She's afraid of (fly) ___.»", "flying: preposición + -ing."],
+    ["Completa: «He left without (say) ___ goodbye.»", "saying: without + -ing."],
+    ["Completa: «It's too hot (go) ___ for a run.»", "to go: too + adjetivo + to."],
+    ["Explica: «I remember locking the door» / «Remember to lock the door».", "La primera: recuerdo haber cerrado (antes). La segunda: acuérdate de cerrar (después)."],
+    ["Completa: «If you can't sleep, try (drink) ___ a glass of warm milk.»", "drinking: try + -ing = probar a ver si funciona."],
+    ["Corrige: «I'm looking forward to meet your family.»", "I'm looking forward to meeting your family."],
+    ["Pasa a pasiva: «They made us wear a uniform.»", "We were made to wear a uniform."],
+    ["Escribe dos frases sobre tus gustos con can't stand y would love.", "Por ejemplo: «I can't stand getting up early.» «I would love to visit Japan.»"],
+  ],
+  quiz: [
+    ["«I'm good at ___.»", ["drawing", "draw", "to draw"], 0, "Preposición + -ing."],
+    ["«She refused ___ the truth.»", ["to tell", "telling", "tell"], 0, "Refuse + to."],
+    ["«I'll never forget ___ the Eiffel Tower.»", ["seeing", "to see", "see"], 0, "Recuerdo de algo pasado."],
+    ["«I saw her ___ the road.» (la acción completa)", ["cross", "to cross", "crossed"], 0, "Percepción + infinitivo sin to."],
+    ["«I was ___ to stay up late.»", ["allowed", "let", "made"], 0, "Let en pasiva → be allowed to."],
+  ],
+  tarjetas: [
+    ["Preposición + -ing", "Siempre: interested in learning, without saying, look forward to seeing."],
+    ["Too / enough + to", "It's too cold to swim; old enough to drive."],
+    ["Try + -ing / to", "Try doing: probar. Try to do: intentar algo difícil."],
+  ],
+});

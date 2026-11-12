@@ -103,3 +103,56 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Relacionar la literatura del XVIII con las reformas de Carlos III", "Comentar un fragmento de El sí de las niñas", "Reconocer los rasgos prerrománticos de finales de siglo"],
+  bloques: [
+    { tras: "El Siglo de las Luces", html: `<h3>La Ilustración en España</h3><p>En 1700 llega al trono la dinastía de los <b>Borbones</b> con Felipe V, que imita el modelo francés. Se crean instituciones para ordenar el saber: la <b>Real Academia Española</b> (1713), cuyo lema es «Limpia, fija y da esplendor», la Biblioteca Real (hoy Biblioteca Nacional, 1712) y la Real Academia de la Historia (1738). Con <b>Carlos III</b> (1759-1788), el «rey ilustrado», se impulsan reformas: caminos, canales, nuevas industrias, jardines botánicos y la mejora de la enseñanza. Es el <b>despotismo ilustrado</b>: <mark>«todo para el pueblo, pero sin el pueblo»</mark>.</p><p>Los ilustrados españoles fueron pocos, pero muy activos. Se reunían en tertulias y en las <b>Sociedades Económicas de Amigos del País</b>, que difundían técnicas agrícolas y escuelas. Su gran obstáculo fue la oposición de los sectores más tradicionales y, desde 1789, el miedo a la Revolución francesa.</p>` },
+    { tras: "La prosa: el ensayo", html: `<h3>Feijoo y Jovellanos</h3><p>El monje benedictino <b>Benito Jerónimo Feijoo</b> escribió el <i>Teatro crítico universal</i> y las <i>Cartas eruditas</i>: cientos de ensayos breves en los que desmonta supersticiones (duendes, milagros falsos, remedios absurdos) con la observación y la razón. Fue un gran divulgador, uno de los primeros en escribir sobre ciencia para el público general.</p><p><b>Gaspar Melchor de Jovellanos</b>, político y escritor asturiano, representa al ilustrado completo. En el <i>Informe sobre la Ley Agraria</i> propuso modernizar el campo, y en sus memorias defendió la educación como base del progreso: «Las fuentes de la prosperidad social son muchas, pero todas nacen de un mismo origen, y este origen es la instrucción pública».</p>` },
+    { tras: "La prosa: el ensayo", html: `<h3>Cartas marruecas, más de cerca</h3><p><b>José Cadalso</b> publicó las <i>Cartas marruecas</i> en 1789. Son 90 cartas entre tres personajes: <b>Gazel</b>, un joven marroquí que viaja por España; <b>Ben-Beley</b>, su viejo maestro en Marruecos, y <b>Nuño</b>, un español sensato que le hace de guía. La mirada del extranjero permite criticar con ironía lo que los españoles no ven: la nobleza ociosa, la mala educación, la manía de imitar a Francia o el desprecio por las ciencias. Cadalso no odia España: quiere mejorarla. Su método, el <mark>punto de vista del forastero</mark>, lo tomó de las <i>Cartas persas</i> de Montesquieu.</p>` },
+    { tras: "El teatro: Moratín", html: `<h3>El sí de las niñas: personajes y tema</h3>${L.tb(["Personaje", "Quién es"], [["Doña Paquita", "joven de 16 años educada en un convento; obediente, pero enamorada"], ["Don Diego", "rico de 59 años, sensato; quiere casarse con ella"], ["Doña Irene", "madre de Paquita; quiere casarla por interés"], ["Don Carlos", "joven militar, sobrino de don Diego y amado de Paquita"], ["Rita y Calamocha", "criados que ayudan a los enamorados"]])}<p>Toda la acción ocurre en <b>una posada de Alcalá de Henares</b>, en <b>una noche</b> y con <b>una sola acción</b>: respeta las tres unidades. Al descubrir que Paquita ama a Carlos, don Diego renuncia y bendice la boda. El mensaje: la educación que obliga a las chicas a fingir y a obedecer produce matrimonios infelices; los hijos deben poder elegir. Don Diego lo resume: <i>«Esto se llama criar bien a una niña: enseñarla a que desmienta y oculte las pasiones más inocentes con una pérfida disimulación».</i></p>` },
+    { tras: "El teatro: Moratín", html: `<h3>Hacia el Romanticismo</h3><p>A finales de siglo aparece una sensibilidad nueva que anticipa el Romanticismo: el <b>Prerromanticismo</b>. Se valora el sentimiento, la melancolía, la noche y la naturaleza salvaje. El mismo Cadalso escribió <i>Noches lúgubres</i>, donde el protagonista, Tediato, intenta desenterrar a su amada muerta en un cementerio. Poetas como <b>Juan Meléndez Valdés</b> pasan de los poemas ligeros y amorosos a temas más sombríos. Así, el siglo de la razón termina dando paso al siglo del sentimiento.</p>` },
+  ],
+  videos: [
+    ["El Siglo de las Luces", L.vid("TpuZUQYeB-g", "La Ilustración del siglo XVIII en 5 minutos", "Clases Particulares en Ávila", 891075)],
+    ["El teatro: Moratín", L.vid("2tbDpfoauzg", "El sí de las niñas: resumen", "Resumen Club", 162087)],
+  ],
+  ejemplos: [
+    ["Explica por qué El sí de las niñas es una obra neoclásica.", ["Respeta las tres unidades: una acción (la boda), un lugar (la posada de Alcalá) y un tiempo (una noche).", "Tiene finalidad didáctica: critica los matrimonios concertados y la mala educación de las jóvenes.", "Usa prosa clara y personajes de clase media, verosímiles.", "El final es razonable: don Diego actúa con sensatez."], "es neoclásica por las tres unidades, la intención didáctica, la verosimilitud y la claridad."],
+    ["Analiza la fábula de Samaniego «La lechera»: una joven va al mercado soñando con lo que comprará al vender la leche; salta de alegría, el cántaro se rompe y pierde todo.", ["Protagonista y acción: la lechera hace planes antes de tener el dinero.", "Desenlace: la caída del cántaro destruye todos sus sueños.", "Moraleja: no hay que hacer castillos en el aire ni contar con lo que aún no se tiene.", "Rasgos neoclásicos: brevedad, verso, enseñanza moral explícita."], "fábula didáctica cuya moraleja aconseja prudencia y no anticipar ganancias."],
+    ["Explica qué técnica usa Cadalso en las Cartas marruecas y para qué sirve.", ["Las cartas las escribe sobre todo un viajero extranjero, Gazel.", "Lo que para un español es normal, a él le parece extraño y lo comenta.", "Eso permite criticar costumbres sin que parezca un ataque directo."], "el punto de vista del forastero: una mirada externa que facilita la crítica social con ironía."],
+  ],
+  errores: [
+    "Pensar que la Ilustración fue un movimiento solo literario: fue científico, político y educativo.",
+    "Creer que en El sí de las niñas Paquita se rebela abiertamente: obedece y sufre en silencio hasta el final.",
+    "Confundir a Moratín (teatro) con Cadalso (Cartas marruecas) o con Feijoo (ensayo).",
+    "Decir que la literatura neoclásica busca sobre todo emocionar: busca enseñar.",
+    "Olvidar que el Prerromanticismo aparece ya a finales del XVIII.",
+  ],
+  ejercicios: [
+    ["¿Qué significa «despotismo ilustrado»?", "Una forma de gobierno en la que el rey hace reformas para mejorar la vida del pueblo, pero sin dejar que el pueblo participe: «todo para el pueblo, pero sin el pueblo»."],
+    ["Nombra dos instituciones creadas en el siglo XVIII y su función.", "La Real Academia Española (1713), para fijar y cuidar la lengua, y la Biblioteca Real (1712), para guardar y difundir los libros. También la Real Academia de la Historia."],
+    ["¿Qué combatía Feijoo en sus ensayos?", "Las supersticiones y los errores comunes, con argumentos racionales y observaciones."],
+    ["Explica la regla de las tres unidades.", "Una obra de teatro debe tener una sola acción principal, transcurrir en un solo lugar y durar como máximo un día."],
+    ["¿Por qué don Diego renuncia a casarse con Paquita?", "Porque descubre que ella ama a su sobrino don Carlos y comprende que un matrimonio sin amor sería injusto e infeliz."],
+    ["Escribe una moraleja para una fábula sobre una cigarra que no trabaja en verano.", "«Quien no trabaja a tiempo, pasa hambre después.» (Es la idea de «La cigarra y la hormiga».)"],
+    ["¿Quiénes son Gazel, Ben-Beley y Nuño?", "Los tres corresponsales de las Cartas marruecas: un joven marroquí que viaja por España, su maestro y un amigo español."],
+    ["Relaciona: Jovellanos, Iriarte, Moratín, Feijoo — teatro, fábulas, ensayo crítico, informe político.", "Jovellanos: informe político (Ley Agraria). Iriarte: fábulas. Moratín: teatro. Feijoo: ensayo crítico."],
+    ["¿Qué rasgos prerrománticos tiene Noches lúgubres?", "La noche, el cementerio, la muerte de la amada, la desesperación y el sentimiento por encima de la razón."],
+    ["Explica la frase de Jovellanos sobre la «instrucción pública».", "Dice que la educación es la fuente de toda prosperidad: un país solo progresa si educa a sus ciudadanos. Resume el ideal ilustrado."],
+  ],
+  quiz: [
+    ["El lema de la Real Academia Española es…", ["Limpia, fija y da esplendor", "Todo para el pueblo", "Ciencia y virtud"], 0, "La RAE se fundó en 1713."],
+    ["¿Dónde transcurre El sí de las niñas?", ["En una posada de Alcalá de Henares", "En un convento de Toledo", "En la corte de Madrid"], 0, "Respeta la unidad de lugar."],
+    ["El «rey ilustrado» fue…", ["Carlos III", "Felipe II", "Fernando VII"], 0, "Reinó de 1759 a 1788."],
+    ["Noches lúgubres es una obra…", ["prerromántica", "barroca", "realista"], 0, "Cadalso anticipa el Romanticismo."],
+    ["Jovellanos defendía sobre todo…", ["la educación", "la Inquisición", "las supersticiones"], 0, "La instrucción pública como fuente de progreso."],
+  ],
+  tarjetas: [
+    ["Despotismo ilustrado", "Reformas desde el poder: «todo para el pueblo, pero sin el pueblo»."],
+    ["Jovellanos", "Ilustrado asturiano: la educación es la base del progreso."],
+    ["Prerromanticismo", "Finales del XVIII: sentimiento, noche y melancolía (Noches lúgubres, de Cadalso)."],
+  ],
+});
