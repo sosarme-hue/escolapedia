@@ -20,7 +20,7 @@ module.exports = {
     },
     {
       html: `<h3>El consenso y la Constitución de 1978</h3><p>Partidos muy distintos negociaron juntos: es el <mark>consenso</mark>. Los <b>Pactos de la Moncloa</b> (1977) afrontaron la crisis económica. Siete diputados, los «padres de la Constitución», redactaron el texto, aprobado en referéndum el <b>6 de diciembre de 1978</b>. Define España como una <b>monarquía parlamentaria</b>, con soberanía nacional, división de poderes, derechos fundamentales, Estado social y un <b>Estado de las autonomías</b>.</p>`,
-      svg: filas("Rasgos de la Constitución de 1978", [["Forma", "monarquía parlamentaria", "var(--pen)"], ["Soberanía", "reside en el pueblo español", "var(--red)"], ["Derechos", "igualdad, libertades, voto", "var(--leaf)"], ["Territorio", "17 autonomías + Ceuta, Melilla", "var(--sun)"]]),
+      svg: filas("Rasgos de la Constitución de 1978", [["Forma", "monarquía parlamentaria", "var(--pen)"], ["Soberanía", "reside en el pueblo español", "var(--red)"], ["Derechos", "igualdad, libertades, voto", "var(--leaf)"], ["Territorio", "17 comunidades autónomas", "var(--sun)"]]),
     },
     {
       html: `<h3>Amenazas: terrorismo y golpe de Estado</h3><p>La Transición no fue fácil. El terrorismo de <b>ETA</b> asesinó a cientos de personas, y también actuaron grupos de extrema derecha y extrema izquierda. Al dimitir Suárez, el <mark>23 de febrero de 1981</mark> un grupo de guardias civiles dirigido por Tejero asaltó el Congreso: era un golpe de Estado. Fracasó en pocas horas, y el rey defendió la Constitución en un mensaje televisado.</p>`,

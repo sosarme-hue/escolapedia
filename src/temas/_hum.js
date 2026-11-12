@@ -33,7 +33,7 @@ function dos(label, a, b) {
 
 // Centro con satélites: items [[texto, color], ...] (máx. 6).
 function rueda(label, centro, items, colorCentro = "var(--pen)") {
-  const pos = [[56, 30], [204, 30], [54, 96], [206, 96], [56, 160], [204, 160]];
+  const pos = items.length === 4 ? [[56, 34], [204, 34], [56, 156], [204, 156]] : [[56, 30], [204, 30], [54, 96], [206, 96], [56, 160], [204, 160]];
   const c = String(centro).split("|");
   return caja(label, `<g ${F} font-size="11.5" font-weight="700" text-anchor="middle">
     ${items.map(([t, col], i) => { const [x, y] = pos[i]; return `<path d="M${x} ${y} L 130 96" stroke="var(--line)" stroke-width="2.5"/><rect x="${x - 44}" y="${y - 13}" width="88" height="24" rx="12" fill="var(--card)" stroke="${col}" stroke-width="2"/><text x="${x}" y="${y + 4}" fill="var(--ink)">${esc(t)}</text>`; }).join("")}
@@ -47,7 +47,7 @@ function filas(label, rows) {
   const h = Math.min(30, Math.floor(150 / rows.length) - 4);
   return caja(label, `<g ${F}>${rows.map(([k, t, c], i) => {
     const y = 14 + i * (h + 4) + (150 - rows.length * (h + 4)) / 2;
-    return `<rect x="14" y="${y}" width="232" height="${h}" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/><rect x="14" y="${y}" width="80" height="${h}" rx="8" fill="${c}"/><text x="54" y="${y + h / 2 + 4}" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">${esc(k)}</text><text x="102" y="${y + h / 2 + 4}" font-size="11.5" fill="var(--ink)">${esc(t)}</text>`;
+    return `<rect x="14" y="${y}" width="232" height="${h}" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/><rect x="14" y="${y}" width="80" height="${h}" rx="8" fill="${c}"/><text x="54" y="${y + h / 2 + 4}" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">${esc(k)}</text><text x="102" y="${y + h / 2 + 4}" font-size="${t.length > 26 ? 9.5 : t.length > 22 ? 10.5 : 11.5}" fill="var(--ink)">${esc(t)}</text>`;
   }).join("")}</g>`);
 }
 

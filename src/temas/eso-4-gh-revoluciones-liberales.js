@@ -16,7 +16,7 @@ module.exports = {
   bloques: [
     {
       html: `<h3>Qué es el liberalismo</h3><p>El <mark>liberalismo</mark> recoge las ideas ilustradas y las convierte en un sistema político. Defiende una <b>constitución</b> que limite el poder, la <b>división de poderes</b>, la <b>soberanía nacional</b> (el poder reside en el pueblo, que elige representantes), la <b>igualdad ante la ley</b> y derechos como la libertad de expresión y la propiedad. Al principio el voto era <b>censitario</b>: solo votaban los hombres con cierta riqueza.</p>`,
-      svg: filas("Principios del liberalismo", [["Constitución", "ley que limita el poder", "var(--pen)"], ["Poderes", "legislativo · ejecutivo · judicial", "var(--leaf)"], ["Soberanía", "el poder reside en la nación", "var(--red)"], ["Derechos", "libertad, igualdad, propiedad", "var(--sun)"]]),
+      svg: filas("Principios del liberalismo", [["Constitución", "ley que limita el poder", "var(--pen)"], ["Poderes", "tres poderes separados", "var(--leaf)"], ["Soberanía", "el poder reside en la nación", "var(--red)"], ["Derechos", "libertad, igualdad, propiedad", "var(--sun)"]]),
     },
     {
       html: `<h3>La independencia de Estados Unidos (1776)</h3><p>Las trece colonias británicas de América protestaron por los impuestos decididos en Londres sin su participación («no hay impuestos sin representación»). El 4 de julio de 1776 proclamaron la <mark>Declaración de Independencia</mark> y, tras la guerra, aprobaron la <b>Constitución de 1787</b>: la primera constitución escrita, con república federal, división de poderes y un presidente elegido.</p>`,
