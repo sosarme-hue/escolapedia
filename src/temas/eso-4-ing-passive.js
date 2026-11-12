@@ -1,0 +1,109 @@
+// Inglés 4º ESO. Explicaciones en español con ejemplos en inglés. Dibujos propios en SVG.
+const { F, D, mapa } = require("./_util");
+const L = require("./_lenguas");
+
+module.exports = {
+  materia: "Inglés",
+  curso: "4-eso",
+  titulo: "The passive voice",
+  minutos: 35,
+  objetivos: ["Formar la pasiva con be + participio en distintos tiempos", "Pasar oraciones de activa a pasiva", "Saber cuándo es mejor usar la pasiva"],
+  claves: ["active voice", "passive voice", "be + past participle", "by + agent", "have something done"],
+  pregunta: {
+    texto: "«Somebody stole my bike» y «My bike was stolen». Si no sabes quién la robó, ¿qué frase te sale más natural?",
+    respuesta: "La segunda. La <mark>voz pasiva</mark> pone en primer plano <b>lo que le pasa a algo</b> (mi bici) y permite no decir quién lo hizo cuando no se sabe o no importa. Por eso es tan común en noticias, ciencia e instrucciones.",
+  },
+  bloques: [
+    {
+      html: `<h3>Activa y pasiva</h3><p>En la <b>activa</b>, el sujeto hace la acción: «Shakespeare <i>wrote</i> Hamlet». En la <b>pasiva</b>, el objeto pasa a ser sujeto y el que hace la acción (el <mark>agente</mark>) va con <b>by</b> o desaparece: «Hamlet <i>was written</i> by Shakespeare».</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Paso de activa a pasiva: el objeto Hamlet pasa a sujeto y Shakespeare pasa a agente con by">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <g ${F} font-weight="700" text-anchor="middle" font-size="13">
+          <text x="130" y="22" fill="var(--muted)">ACTIVE</text>
+          <rect x="8" y="30" width="94" height="28" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="55" y="49" font-size="12" fill="var(--pen)">Shakespeare</text>
+          <rect x="104" y="30" width="56" height="28" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/><text x="132" y="49" fill="var(--ink)">wrote</text>
+          <rect x="166" y="30" width="80" height="28" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="206" y="49" fill="var(--red)">Hamlet.</text>
+          <path d="M206 62 C 206 90, 60 80, 50 108" fill="none" stroke="var(--red)" stroke-width="2" stroke-dasharray="5 4"/>
+          <path d="M55 62 C 60 100, 200 90, 206 108" fill="none" stroke="var(--pen)" stroke-width="2" stroke-dasharray="5 4"/>
+          
+          <rect x="12" y="112" width="70" height="28" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="47" y="131" fill="var(--red)">Hamlet</text>
+          <rect x="88" y="112" width="86" height="28" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="131" y="131" fill="var(--leaf)">was written</text>
+          <rect x="180" y="112" width="68" height="28" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="214" y="131" fill="var(--pen)">by Sh.</text>
+          <text x="130" y="164" font-size="12" fill="var(--muted)">PASSIVE: be + participio</text>
+        </g></svg>`,
+    },
+    {
+      html: `<h3>La fórmula: be + participio</h3><p>La pasiva siempre se forma con el verbo <mark>be</mark> en el tiempo de la activa + el <mark>participio</mark> del verbo principal. Solo cambia <i>be</i>; el participio queda igual.</p>`,
+      svg: L.tabla("La pasiva en distintos tiempos", ["Tense", "Passive"], [
+        ["present", "is made"], ["past", "was made"], ["pres. perfect", "has been made"], ["future", "will be made"],
+      ], "var(--pen)"),
+    },
+    {
+      html: `<h3>Pasar de activa a pasiva</h3><p>1) El <b>objeto</b> de la activa pasa a ser <b>sujeto</b>. 2) Pon <b>be</b> en el mismo tiempo que el verbo activo. 3) Añade el <b>participio</b>. 4) Si importa, añade el agente con <b>by</b>. «They <i>are building</i> a new school» → «A new school <i>is being built</i>».</p>`,
+      svg: L.filas("Cuatro pasos para pasar a pasiva", [
+        ["1", "objeto → sujeto", "var(--red)"], ["2", "be en el mismo tiempo", "var(--pen)"],
+        ["3", "+ participio", "var(--leaf)"], ["4", "by + agente (opcional)", "var(--inf)"],
+      ]),
+    },
+    {
+      html: `<h3>¿Cuándo usar la pasiva?</h3><p>Cuando <mark>no sabemos</mark> quién hizo la acción («My phone has been stolen»), cuando <mark>no importa</mark> o es obvio («Rice is grown in Asia») o cuando el foco está en el resultado: noticias, textos científicos, procesos («The mixture is heated to 80 °C»).</p>`,
+      svg: L.filas("Contextos típicos de la pasiva", [
+        ["Noticias", "Two men were arrested.", "var(--red)"], ["Ciencia", "Water is heated.", "var(--inf)"],
+        ["Historia", "It was built in 1889.", "var(--pen)"],
+      ]),
+    },
+    {
+      html: `<h3>Have something done</h3><p>Para decir que <b>otra persona</b> hace algo por nosotros (normalmente un servicio): <mark>have + objeto + participio</mark>. «I <b>had my hair cut</b> yesterday» (me corté el pelo en la peluquería, no yo mismo). «We're having the kitchen painted».</p>`,
+      svg: L.frase("Have something done: I had my hair cut", [
+        ["I", "", "var(--line)"], ["had", "have", "var(--pen)"], ["my hair", "objeto", "var(--red)"], ["cut.", "participio", "var(--leaf)"],
+      ], "lo hizo otra persona por mí"),
+    },
+  ],
+  figura: {
+    titulo: "De activa a pasiva en un vistazo",
+    svg: L.pasos("Pasos para pasar de activa a pasiva con un ejemplo", [
+      ["Activa", ["They make cars", "in Valencia."], "var(--muted)"],
+      ["Objeto → sujeto", ["Cars…"], "var(--red)"],
+      ["be + participio", ["…are made…"], "var(--pen)"],
+      ["Pasiva", ["Cars are made", "in Valencia."], "var(--leaf)"],
+    ]),
+  },
+  video: { id: "r3mBFztJCeU", titulo: "Cómo pasar a pasiva en inglés: tutorial fácil con ejercicios", canal: "Inglés Para Perezosos", vistas: 2670106, megusta: 112385, busqueda: "voz pasiva en inglés passive voice" },
+  quiz: [
+    { q: "La pasiva se forma con…", o: ["have + participio", "be + participio", "do + infinitivo"], a: 1, e: "Be en el tiempo correspondiente + participio." },
+    { q: "«The Mona Lisa ___ by Leonardo da Vinci.»", o: ["painted", "was painted", "is painting"], a: 1, e: "Pasiva en pasado: was + painted." },
+    { q: "Pasa a pasiva: «They speak English here.»", o: ["English is spoken here.", "English was spoken here.", "English speaks here."], a: 0, e: "Presente: is + spoken." },
+    { q: "«The new bridge ___ next year.»", o: ["will be built", "will build", "is built"], a: 0, e: "Pasiva en futuro: will be + participio." },
+    { q: "«I ___ my car repaired last week.» (lo hizo el taller)", o: ["had", "was", "did"], a: 0, e: "Have something done: had my car repaired." },
+  ],
+  examen: [
+    { q: "«My wallet ___!» (acaban de robarlo)", o: ["has been stolen", "has stolen", "is stealing"], a: 0, e: "Present perfect pasivo: has been + participio." },
+    { q: "¿Cuándo omitimos el agente (by…)?", o: ["Cuando no se sabe o no importa", "Siempre", "Nunca"], a: 0, e: "«Rice is grown in Asia»: no importa quién." },
+    { q: "«Dinner ___ when we arrived.» (en progreso)", o: ["was being cooked", "was cooking", "is cooked"], a: 0, e: "Past continuous pasivo: was being + participio." },
+  ],
+  feynman: ["Qué cambia entre activa y pasiva", "La fórmula de la pasiva en cuatro tiempos", "Cuándo es mejor usar la pasiva", "Qué significa have something done"],
+  mapa: mapa("PASSIVE VOICE", "var(--eso)", [
+    ["Form", "be + past participle", "var(--pen)"],
+    ["Agent", "by + who did it", "var(--red)"],
+    ["Use", "news · science · history", "var(--leaf)"],
+    ["Causative", "have something done", "var(--inf)"],
+  ], 240),
+  tarjetas: [
+    ["Fórmula de la pasiva", "be (en el tiempo que toque) + participio."],
+    ["El agente", "Quien hace la acción; va con by y se omite si no importa."],
+    ["Pasiva en present perfect", "has / have been + participio: «It has been sold»."],
+    ["¿Cuándo usar la pasiva?", "Cuando no sabemos quién lo hizo, no importa o interesa el resultado."],
+    ["Have something done", "have + objeto + participio: otra persona lo hace por nosotros."],
+  ],
+  familias: ["Mirad etiquetas de productos («Made in…», «Designed in…») y explicad por qué usan pasiva.", "Pedidle que cuente tres cosas que «have done» la familia (cortarse el pelo, revisar el coche…).", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
+  profesores: {
+    saberes: "Reflexión sobre la lengua: voz pasiva y construcción causativa; textos informativos y científicos (RD 217/2022, Lengua Extranjera 4º; nivel B1 del MCER).",
+    ideas: ["Quiz cultural en pasiva («Who was the Guernica painted by?»).", "Describir un proceso (fabricar chocolate, reciclar) en pasiva.", "Titulares de prensa: localizar pasivas y reescribirlas en activa."],
+  },
+  fuentes: [
+    L.BOE,
+    { t: "British Council LearnEnglish Teens: passive forms", url: "https://learnenglishteens.britishcouncil.org/grammar" },
+    { t: "Cambridge Dictionary: passive", url: "https://dictionary.cambridge.org/grammar/british-grammar/passive" },
+  ],
+  revisado: "2026-11-12",
+};
