@@ -42,7 +42,7 @@ module.exports = {
       video: { id: "aR6NfRBz7ME", titulo: "Las máquinas para niños - Máquinas simples y compuestas", canal: "Smile and Learn - Español", vistas: 1138879, megusta: 0 },
     },
     {
-      html: `<h3>Máquinas con muchas piezas</h3><p>Otras máquinas tienen <mark>muchas piezas</mark> que trabajan juntas.</p><p>La <b>bicicleta</b> tiene ruedas, pedales, cadena, manillar y frenos. Si falta una pieza, no funciona bien.</p><p>El coche, el ascensor y la grúa también tienen muchísimas piezas. Los mecánicos saben arreglarlas.</p>`,
+      html: `<h3>Máquinas con muchas piezas</h3><p>Otras máquinas tienen <mark>muchas piezas</mark> que trabajan juntas.</p><p>La <b>bicicleta</b> tiene ruedas, pedales, cadena, manillar y frenos. Si falta una pieza, no funciona bien.</p><p>El coche, el ascensor y la grúa también tienen muchísimas piezas. Los mecánicos saben arreglarlas. Usan muchas herramientas.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Bicicleta grande con las ruedas, el pedal, el manillar y el sillín señalados">${BG}
         ${bici(120, 120, 2)}
         <g font-size="12" font-weight="700" ${F}>
@@ -52,7 +52,7 @@ module.exports = {
           <path d="M162 48 L 196 34" stroke="var(--inf)" stroke-width="2"/><text x="198" y="38" fill="var(--inf)">manillar</text></g></svg>`,
     },
     {
-      html: `<h3>Máquinas en casa</h3><p>En casa usamos muchas máquinas. Muchas se llaman <mark>electrodomésticos</mark>.</p><p>La <b>nevera</b> mantiene fría la comida. La <b>lavadora</b> lava la ropa. El <b>horno</b> cocina. La <b>aspiradora</b> limpia el suelo.</p><p>También hay máquinas sencillas: el abrelatas, el exprimidor o la escoba. ¡Cuántas máquinas!</p>`,
+      html: `<h3>Máquinas en casa</h3><p>En casa usamos muchas máquinas. Muchas se llaman <mark>electrodomésticos</mark>.</p><p>La <b>nevera</b> mantiene fría la comida. La <b>lavadora</b> lava la ropa. El <b>horno</b> cocina. La <b>aspiradora</b> limpia el suelo.</p><p>También hay máquinas sencillas: el abrelatas, el exprimidor o la escoba. ¡Cuántas máquinas hay en casa!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una cocina con nevera, lavadora y horno">${BG}
         ${nevera(50, 104, 1.3)}${lavadora(130, 112, 1.1)}
         <g transform="translate(206 112)"><rect x="-28" y="-30" width="56" height="60" rx="5" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><rect x="-22" y="-10" width="44" height="32" rx="3" fill="var(--inf)" fill-opacity=".35" stroke="var(--ink)" stroke-width="1.5"/><circle cx="-12" cy="-20" r="3" fill="var(--ink)"/><circle cx="0" cy="-20" r="3" fill="var(--ink)"/></g>
@@ -68,7 +68,7 @@ module.exports = {
         ${txt(194, 140, "ordenador", { size: 12 })}${txt(80, 168, "sacapuntas", { size: 12 })}</svg>`,
     },
     {
-      html: `<h3>¿Cómo funcionan?</h3><p>Las máquinas necesitan <mark>energía</mark> para funcionar.</p><p>Algunas funcionan con nuestra <b>fuerza</b>: la bici, las tijeras o el balancín.</p><p>Otras funcionan con <b>electricidad</b>. Se enchufan, como la nevera. Otras llevan <b>pilas</b> o batería. Así funcionan el móvil o un coche de juguete.</p>`,
+      html: `<h3>¿Cómo funcionan?</h3><p>Las máquinas necesitan <mark>energía</mark> para funcionar.</p><p>Algunas funcionan con nuestra <b>fuerza</b>: la bici, las tijeras o el balancín.</p><p>Otras funcionan con <b>electricidad</b>. Se enchufan, como la nevera. Otras llevan <b>pilas</b> o batería. Así funcionan el móvil o un coche de juguete. ¡Cuidado con los enchufes!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Energía de nuestra fuerza, de un enchufe y de una pila">${BG}
         ${persona(46, 130, 80, "var(--red)")}
         ${enchufe(130, 100, 1.4)}${rayo(158, 70, 1)}

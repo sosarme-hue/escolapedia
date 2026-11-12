@@ -31,7 +31,7 @@ module.exports = {
   },
   bloques: [
     {
-      html: `<h3>Hay animales en todas partes</h3><p>Los animales son <mark>seres vivos</mark>. Nacen, crecen, comen, respiran y mueren.</p><p>Hay animales muy grandes, como el elefante. Hay animales muy pequeños, como la hormiga.</p><p>Viven en casas, granjas, bosques, mares o selvas. Hay millones de animales distintos.</p>`,
+      html: `<h3>Hay animales en todas partes</h3><p>Los animales son <mark>seres vivos</mark>. Nacen, crecen, comen, respiran y mueren.</p><p>Hay animales muy grandes, como el elefante. Hay animales muy pequeños, como la hormiga.</p><p>Viven en casas, granjas, bosques, mares o selvas. Hay millones de animales distintos. ¡Ninguno es igual a otro!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un elefante grande, un perro, un pájaro y un pez pequeño">${BG}
         ${elefante(66, 146, 1.6)}${perro(170, 146, 1)}${pajaro(210, 70, 1.1)}${pez(230, 146, 0.8)}
         <path d="M14 148 H 246" stroke="var(--leaf)" stroke-width="3"/>
@@ -55,7 +55,7 @@ module.exports = {
         ${txt(110, 34, "libres en la naturaleza", { size: 13, color: "var(--inf)" })}</svg>`,
     },
     {
-      html: `<h3>¿Cómo nacen?</h3><p>Algunos animales nacen de la <mark>tripa de su madre</mark>. Así nacen el perro, la vaca y el elefante. De pequeños toman leche de su madre.</p><p>Otros animales nacen de un <mark>huevo</mark>. Así nacen las gallinas, los peces, las ranas y las tortugas.</p>`,
+      html: `<h3>¿Cómo nacen?</h3><p>Algunos animales nacen de la <mark>tripa de su madre</mark>. Así nacen el perro, la vaca y el elefante. De pequeños toman leche de su madre.</p><p>Otros animales nacen de un <mark>huevo</mark>. Así nacen las gallinas, los peces, las ranas y las tortugas. La mamá cuida los huevos.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una perra con su cachorro y una gallina con un huevo y un pollito">${BG}
         ${perro(54, 140, 1.1)}${perro(100, 140, 0.55)}
         <path d="M130 30 V 160" stroke="var(--line)" stroke-width="2" stroke-dasharray="5 5"/>
