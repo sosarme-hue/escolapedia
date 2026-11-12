@@ -18,7 +18,7 @@ module.exports = {
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cinco factores que confluyen en la industrialización británica">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         <g ${F} font-size="12" font-weight="700" text-anchor="middle">
-          ${[["agricultura", 50, 34, "var(--leaf)"], ["población", 210, 34, "var(--pen)"], ["carbón y hierro", 40, 150, "var(--ink)"], ["capital", 220, 150, "var(--sun)"], ["burguesía", 130, 24, "var(--inf)"]]
+          ${[["agricultura", 50, 34, "var(--leaf)"], ["población", 210, 34, "var(--pen)"], ["carbón y hierro", 54, 150, "var(--ink)"], ["capital", 206, 150, "var(--sun)"], ["burguesía", 130, 24, "var(--inf)"]]
             .map(([t, x, y, c]) => `<path d="M${x} ${y} L 130 98" stroke="var(--line)" stroke-width="2.5"/><rect x="${x - 46}" y="${y - 14}" width="92" height="26" rx="13" fill="var(--card)" stroke="${c}" stroke-width="2"/><text x="${x}" y="${y + 4}" fill="var(--ink)">${t}</text>`).join("")}
           <circle cx="130" cy="98" r="30" fill="var(--soc, #c2410c)"/>
           <text x="130" y="96" fill="#fff" font-size="11">Revolución</text><text x="130" y="110" fill="#fff" font-size="11">Industrial</text>
@@ -80,7 +80,7 @@ module.exports = {
       <rect x="400" y="92" width="240" height="16" rx="8" fill="var(--sun)" opacity=".8"/>
       <g ${F} font-size="13" font-weight="700" fill="var(--ink)"><text x="40" y="136">1ª Revolución Industrial</text><text x="400" y="136">2ª Revolución Industrial</text></g>
       ${[[40, "1760", "inicio en Gran Bretaña", 0], [120, "1769", "máquina de Watt", 1], [225, "1830", "tren Liverpool-Manchester", 0], [300, "1848", "España: Barcelona-Mataró", 1], [400, "1870", "petróleo y electricidad", 0], [500, "1879", "bombilla de Edison", 1], [610, "1913", "cadena de montaje", 0]]
-        .map(([x, y, t, up]) => `<path d="M${x} 100 V ${up ? 62 : 150}" stroke="var(--ink)" stroke-width="1.5"/><text x="${x}" y="${up ? 40 : 170}" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" ${D}>${y}</text><text x="${x}" y="${up ? 56 : 186}" text-anchor="middle" font-size="11" fill="var(--muted)" ${F}>${t}</text>`).join("")}
+        .map(([x, y, t, up]) => `<path d="M${x} 100 V ${up ? 62 : 150}" stroke="var(--ink)" stroke-width="1.5"/><text x="${x}" y="${up ? 40 : 170}" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" ${D}>${y}</text><text x="${x < 90 ? x - 20 : x > 590 ? x + 20 : x}" y="${up ? 56 : 186}" text-anchor="${x < 90 ? "start" : x > 590 ? "end" : "middle"}" font-size="11" fill="var(--muted)" ${F}>${t}</text>`).join("")}
     </svg>`,
   },
   video: { id: "3LQAnFEADl4", titulo: "La Revolución Industrial en 7 minutos", canal: "Academia Play", vistas: 6367302, megusta: 0, busqueda: "revolución industrial resumen" },
