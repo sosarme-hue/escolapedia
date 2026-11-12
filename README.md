@@ -20,6 +20,18 @@ Modelo: `src/temas/eso-4-mata-estadistica.js` (ver la parte «Ampliación» al f
 - `quiz`: 10 preguntas; `tarjetas`: 8.
 - Después: `node build.js && node tools/desbordes.js <filtro>` (0 desbordes) y `node tools/pdfs.js`.
 
+## Tema de 1º de Primaria
+
+Modelo: `src/temas/pri-1-mat-numeros-10.js`. Son niños de 6 años que empiezan a leer, así que el texto es corto y lo leen con un adulto:
+
+- `bloques`: 4 a 6, cada uno con frases cortas (máx. 12 palabras), 60 a 120 palabras, y **siempre** con `svg` (dibujo propio grande y claro).
+- `figura`: un dibujo resumen; `video`: vídeo infantil en castellano (Smile and Learn, Happy Learning, etc.) y, si hay, 1 vídeo de bloque.
+- `ejemplosTitulo: "Lo hacemos juntos"` con 2 ejemplos guiados; `errores`: 3; `ejercicios`: 6 actividades sencillas (contar, rodear, dibujar, decir en voz alta).
+- `quiz`: 6 preguntas con 3 opciones; `examen`: 3; `tarjetas`: 6.
+- `familias` (cómo practicar en casa) y `profesores` (RD 157/2022, BOE-A-2022-3296).
+- Las páginas de 1º y 2º de Primaria usan letra grande (clase `peque`).
+- Después: `node build.js && node tools/desbordes.js 1-primaria` (0 desbordes).
+
 ## Publicación
 
 escolapedia.com se publica desde la rama `claude/project-thread-d876yp` con `hosting_git_deploy-website-repository` (sin despliegue automático: solo cambia cuando se vuelve a lanzar). El `.htaccess` de la raíz sirve la carpeta `dist/`. Solo se publica lo que hay en `dist/` cuando se sube: generar con `node build.js && node tools/pdfs.js` y subir `dist/` únicamente cuando Alex haya dado el visto bueno.

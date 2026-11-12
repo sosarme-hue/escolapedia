@@ -27,10 +27,10 @@ const I18N = {
 };
 
 // Partes opcionales de un tema ampliado: ejemplos resueltos, errores típicos y ejercicios con solución.
-const ejemplosHTML = (T) => (T.ejemplos || []).length ? `<div class="ejemplos"><h3>Ejemplos resueltos</h3>${T.ejemplos.map((x, i) => `<div class="ej"><p><b>Ejemplo ${i + 1}.</b> ${x.enunciado}</p><ol>${x.pasos.map((p) => `<li>${p}</li>`).join("")}</ol><p class="res"><b>Resultado:</b> ${x.resultado}</p></div>`).join("")}</div>` : "";
+const ejemplosHTML = (T) => (T.ejemplos || []).length ? `<div class="ejemplos"><h3>${T.ejemplosTitulo || "Ejemplos resueltos"}</h3>${T.ejemplos.map((x, i) => `<div class="ej"><p><b>${T.ejemplosTitulo ? "" : `Ejemplo ${i + 1}.`}</b> ${x.enunciado}</p><ol>${x.pasos.map((p) => `<li>${p}</li>`).join("")}</ol><p class="res"><b>Resultado:</b> ${x.resultado}</p></div>`).join("")}</div>` : "";
 const erroresHTML = (T) => (T.errores || []).length ? `<div class="errores"><h3>Errores típicos</h3><ul>${T.errores.map((x) => `<li>${x}</li>`).join("")}</ul></div>` : "";
 const ejerciciosHTML = (T) => (T.ejercicios || []).length ? `<div class="ejercicios"><h3>Ejercicios</h3><p class="caption">Hazlos en tu cuaderno y después abre la solución.</p><ol>${T.ejercicios.map((x) => `<li><p>${x.q}</p><details><summary>Ver solución</summary><div>${x.sol}</div></details></li>`).join("")}</ol></div>` : "";
-function page({ title, desc, depth, body, lang = "es", nav = "", extraHead = "", scripts = "" }) {
+function page({ title, desc, depth, body, lang = "es", nav = "", extraHead = "", scripts = "", bodyClass = "" }) {
   const r = depth ? "../".repeat(depth) : "./";
   const t = I18N[lang];
   const esUrl = lang === "ca" ? r.replace(/^\.\.\//, "") || "./" : r;
@@ -47,7 +47,7 @@ function page({ title, desc, depth, body, lang = "es", nav = "", extraHead = "",
 <link rel="stylesheet" href="${r}assets/extra.css">
 ${extraHead}
 </head>
-<body>
+<body${bodyClass ? ` class="${bodyClass}"` : ""}>
 <header class="bar"><div class="wrap">
   <a class="logo" href="${lang === "ca" ? r + "ca/" : r}" aria-label="${SITE}, ${t.inicio}">
     <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
@@ -312,7 +312,7 @@ function topicPage(e, c, m, T, n) {
   </aside></div>
 </div></main>`;
   const data = { id, quiz: T.quiz, tarjetas: T.tarjetas };
-  return page({ title: `${T.titulo} · ${m.nombre} ${cursoNombre(e, c)} · ${SITE}`, desc: `${T.titulo}: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. ${cursoNombre(e, c)}.`, depth: 4, body, scripts: `<script>window.TEMA=${JSON.stringify(data)};</script>` });
+  return page({ bodyClass: /^[12]-primaria$/.test(c.slug) ? "peque" : "", title: `${T.titulo} · ${m.nombre} ${cursoNombre(e, c)} · ${SITE}`, desc: `${T.titulo}: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. ${cursoNombre(e, c)}.`, depth: 4, body, scripts: `<script>window.TEMA=${JSON.stringify(data)};</script>` });
 }
 
 // ---------- familias y profesores ----------
