@@ -110,3 +110,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliació: més teoria, exemples resolts, errors típics i exercicis amb solució.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Escriure bé s, ss, c, ç i z, i g, j, tg i tj", "Fer servir correctament l'ela geminada i el guionet", "Combinar els pronoms febles amb apòstrof i guionet"],
+  bloques: [
+    { tras: "Apòstrof i contracció", html: `<h3>S sorda i s sonora</h3><p>El català distingeix dos sons: la <b>s sorda</b> [s] (com a <i>sol</i>) i la <b>s sonora</b> [z] (com a <i>casa</i>). Cada so s'escriu de diverses maneres:</p>${L.tb(["So", "Grafia", "Quan", "Exemples"], [["sorda [s]", "s", "a principi de paraula o després de consonant", "sol, pensar"], ["sorda [s]", "ss", "entre vocals", "massa, passeig, grossa"], ["sorda [s]", "c / ç", "c davant de e, i; ç davant de a, o, u i a final", "cel, plaça, dolç, braç"], ["sonora [z]", "s", "entre vocals", "casa, rosa, cosí"], ["sonora [z]", "z", "a principi de paraula o després de consonant", "zero, onze, dotze"]])}<p>Fixa't en parelles com <i>cosí</i> (familiar) i <i>cossi</i> (recipient), o <i>casa</i> i <i>cassa</i>: la grafia canvia el so i el significat.</p>` },
+    { tras: "Apòstrof i contracció", html: `<h3>G, J, TG i TJ</h3><p>El so de <i>gent</i> i de <i>menjar</i> és el mateix, però s'escriu de dues maneres segons la vocal que ve darrere:</p><ul><li><b>j</b> davant de <b>a, o, u</b>: <i>menjar, jove, juny</i>.</li><li><b>g</b> davant de <b>e, i</b>: <i>gent, girar</i>. Per això en un mateix verb alternen: <i>menjar → mengem, mengi</i>; <i>pujar → pugem</i>.</li><li>Entre vocals el so sovint és més fort i s'escriu <b>tj</b> (davant de a, o, u) o <b>tg</b> (davant de e, i): <i>platja, mitjó, viatge, metge, fetge</i>. Per això: <i>platja → platges</i>.</li></ul><p>A final de paraula s'escriu <b>-ig</b> (<i>passeig, raig, mig</i>) i en plural canvia: <i>passeigs</i> o <i>passejos</i>, <i>migs</i>.</p>` },
+    { tras: "La dièresi", html: `<h3>L'ela geminada</h3><p>L'<b>ela geminada</b> (<b>l·l</b>) representa una ela llarga, pronunciada com si fossin dues: <i>col·legi, il·lusió, novel·la, intel·ligent, al·lèrgia, tranquil·litat, pel·lícula, sol·licitud</i>. S'escriu amb un <b>punt volat</b> entre les dues eles (no un punt baix ni un guionet: <s>*col.legi</s>, <s>*col-legi</s>).</p><p>No hi ha una regla senzilla per saber quines paraules la porten, però ajuda pensar en les famílies: si <i>il·lusió</i> la porta, també <i>il·lusionar</i> i <i>il·lusionat</i>. En canvi, paraules molt semblants no la porten: <i>coloma, escola, gola</i>. En cas de dubte, consulta el diccionari de l'IEC (DIEC2) o l'Optimot.</p>` },
+    { tras: "La dièresi", html: `<h3>El guionet</h3><p>El <b>guionet</b> (-) uneix elements que formen una sola paraula. Es fa servir sobretot:</p><ul><li>En els <b>numerals</b>, entre desenes i unitats i entre unitats i centenes: <i>vint-i-u, trenta-dos, dos-cents, tres-centes</i>.</li><li>En compostos amb <b>punts cardinals</b>: <i>nord-est, sud-oest</i>.</li><li>En compostos en què el primer element acaba en vocal i el segon comença per <b>r, s, x</b>, perquè no canviï el so: <i>penja-robes, para-sol, gira-sol</i>.</li><li>En compostos formats per la repetició d'una paraula: <i>corre-cuita, xino-xano</i>.</li><li>Per unir els <b>pronoms febles</b> darrere del verb (bloc següent).</li></ul>` },
+    { tras: "Apòstrof i contracció", html: `<h3>Pronoms febles: apòstrof i guionet</h3><p>Els pronoms febles (<i>em, et, es, el, la, ens, us, els, li, en, hi, ho</i>) canvien de forma segons on van:</p>${L.tb(["Posició", "Forma", "Exemples"], [["davant de verb que comença en consonant", "plena", "<b>em</b> diu, <b>el</b> veig, <b>en</b> vull"], ["davant de verb que comença en vocal o h", "elidida (apòstrof)", "<b>m'</b>agrada, <b>l'</b>he vist, <b>n'</b>hi ha"], ["darrere de verb acabat en consonant o diftong", "plena amb guionet", "menjar<b>-se</b>, donar<b>-me</b>, compreu<b>-lo</b>"], ["darrere de verb acabat en vocal", "reduïda (apòstrof)", "compra<b>'l</b>, mira<b>'m</b>, porta<b>'ns</b>"]])}<p>Quan n'hi ha dos darrere del verb, van amb guionet entre ells: <i>dona-m'ho</i>, <i>porta-li-ho</i>, <i>anar-se'n</i>.</p>` },
+    { tras: "La dièresi", html: `<h3>B o V?</h3><p>En gran part del domini (central, nord-occidental, gran part del valencià) <b>b</b> i <b>v</b> sonen igual, i per això cal fixar-se en la grafia. Algunes pistes útils:</p><ul><li>Després de <b>m</b> sempre <b>b</b>: <i>ambició, tomba, embolic, cambra</i>.</li><li>Després de <b>n</b> sempre <b>v</b>: <i>canviar, enviar, invent, convidar</i>.</li><li>Les terminacions de l'imperfet d'indicatiu dels verbs en -ar s'escriuen amb <b>v</b>: <i>cantava, parlàvem, estudiaven</i>.</li><li>Moltes paraules es diferencien del castellà: <i>advocat</i> (abogado), <i>avorrir</i> (aburrir), <i>gravar</i> (grabar), <i>Esteve</i>, <i>rebentar</i>; en canvi, <i>biga</i> o <i>berruga</i> porten b.</li></ul><p>Compte, doncs, amb la interferència del castellà: no és una bona guia per a la b i la v catalanes. Quan dubtis, busca la paraula al diccionari.</p>` },
+  ],
+  videos: [
+    ["Obert o tancat?", L.vid("HzB7SWUFd_A", "L'accentuació de la e: accent obert o tancat?", "OK CATALÀ", 150254)],
+    ["Els accents diacrítics", L.vid("di2wiYc23qg", "Els 15 accents diacrítics", "OK CATALÀ", 116564)],
+  ],
+  ejemplos: [
+    ["Accentua si cal: «cami», «examen», «facil», «cancons», «musica».", ["Camí: aguda acabada en vocal → accent; la i sempre tancada.", "Examen: plana acabada en -en → no porta accent.", "Fàcil: plana acabada en -l → accent; la a sempre oberta.", "Cançons: aguda acabada en -ons → no porta accent (només -as, -es, -is, -os, -us i -en, -in).", "Música: esdrúixola → sempre accent."], "camí, examen, fàcil, cançons, música."],
+    ["Escriu amb lletres: 21, 35 i 300.", ["Desenes i unitats amb guionet; entre vint i u s'hi posa -i-: vint-i-u.", "Trenta-cinc: guionet entre desenes i unitats.", "Unitats i centenes amb guionet; en masculí: tres-cents."], "vint-i-u, trenta-cinc, tres-cents."],
+    ["Substitueix el complement per un pronom feble: «Vull comprar el llibre», «Agafa la jaqueta», «He vist l'Anna».", ["«Comprar el llibre»: darrere d'infinitiu acabat en -r: comprar-lo.", "«Agafa la jaqueta»: imperatiu acabat en vocal: agafa-la.", "«He vist l'Anna»: davant de verb que comença amb h: l'he vista (el participi concorda amb la)."], "Vull comprar-lo. Agafa-la. L'he vista."],
+  ],
+  errores: [
+    "Escriure l'ela geminada amb punt baix o guionet: *col.legi, *col-legi → col·legi.",
+    "Confondre s i ss entre vocals: escriure *cassa en lloc de casa, o *rosa en lloc de rossa (cabells rossos).",
+    "Escriure *menjem: davant de e es fa servir g: mengem.",
+    "Accentuar agudes acabades en -ons: *cançóns → cançons.",
+    "Oblidar el guionet als numerals: *vint i u → vint-i-u.",
+    "Posar el pronom darrere del verb sense guionet: *menjarse → menjar-se.",
+  ],
+  ejercicios: [
+    ["Completa amb s o ss: «ca_a», «ma_a», «co_í», «gro_a».", "casa, massa, cosí, grossa."],
+    ["Completa amb c o ç: «pla_a», «_el», «dol_», «bra_os».", "plaça, cel, dolç, braços."],
+    ["Escriu el plural: platja, viatge, passeig.", "platges, viatges, passeigs (o passejos)."],
+    ["Completa amb g o j: «men_ar», «nosaltres men_em», «_ove».", "menjar, mengem, jove."],
+    ["Escriu amb ela geminada les que la portin: colegi, escola, ilusió, novela, gola.", "col·legi, il·lusió, novel·la; escola i gola no en porten."],
+    ["Escriu amb lletres: 42, 99, 200.", "quaranta-dos, noranta-nou, dos-cents."],
+    ["Posa guionet si cal: «para sol», «nord est», «escura dents».", "para-sol, nord-est, escuradents (sense guionet: el segon element no comença per r, s, x)."],
+    ["Escriu amb pronom: «Dona el llapis a mi».", "Dona-me'l."],
+    ["Escriu amb pronom: «Hem d'anar-nos d'aquí».", "Ens n'hem d'anar (o hem d'anar-nos-en)."],
+    ["Accentua: «també», «perque», «historia», «telefon», «jove».", "també, perquè, història, telèfon, jove (no porta accent: plana acabada en vocal)."],
+  ],
+  quiz: [
+    ["Quina forma és correcta?", ["col·legi", "col.legi", "colegi"], 0, "Ela geminada amb punt volat."],
+    ["Entre vocals, la s sorda s'escriu…", ["ss", "s", "z"], 0, "massa, passeig."],
+    ["«Nosaltres ___ (menjar)»", ["mengem", "menjem", "mengim"], 0, "G davant de e."],
+    ["21 s'escriu…", ["vint-i-u", "vint i u", "vintiu"], 0, "Amb guionets i -i-."],
+    ["«Compra el pa» amb pronom:", ["Compra'l", "Compra-el", "Compral"], 0, "Verb acabat en vocal: forma reduïda."],
+  ],
+  tarjetas: [
+    ["S sonora / s sorda", "casa (s, [z]) / massa (ss, [s]) entre vocals."],
+    ["Ela geminada", "l·l amb punt volat: col·legi, il·lusió, novel·la."],
+    ["Pronoms darrere del verb", "menjar-se, compra'l, dona-m'ho."],
+  ],
+});

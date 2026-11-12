@@ -101,3 +101,55 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliació: més teoria, exemples resolts, errors típics i exercicis amb solució.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Relacionar la Renaixença amb el context històric del segle XIX", "Comentar un fragment de Verdaguer o de Guimerà", "Reconèixer els trets del Realisme i del Naturalisme en Narcís Oller"],
+  bloques: [
+    { tras: "La Decadència i el renaixement", html: `<h3>El context històric</h3><p>El segle XIX va transformar Catalunya. La <b>industrialització</b>, sobretot del tèxtil, va fer créixer ciutats com Barcelona, Sabadell o Terrassa i va crear una burgesia rica i una classe obrera nombrosa. El 1854 es van començar a enderrocar les muralles de Barcelona i el 1859 es va aprovar el <b>Pla Cerdà</b> de l'Eixample. Aquesta burgesia volia una cultura pròpia que mostrés la seva força. Al mateix temps, el <b>Romanticisme</b> europeu valorava el passat medieval, les tradicions populars i la llengua de cada poble com a expressió de la seva ànima. La suma d'aquests factors va fer possible la Renaixença, que més endavant va conduir al <b>catalanisme polític</b>.</p>` },
+    { tras: "Els Jocs Florals", html: `<h3>Prosa, premsa i institucions</h3><p>La Renaixença no va ser només poesia. Es van fundar revistes i diaris en català, com <i>La Renaixensa</i> (1871) o el <i>Diari Català</i> (1879) de Valentí Almirall, el primer diari en català. Es van crear entitats excursionistes (la primera, el 1876) que recorrien el país per conèixer-ne el paisatge i la història, i es van recollir rondalles i cançons populars. Al País Valencià, <b>Teodor Llorente</b> i Lo Rat Penat (1878) van impulsar un moviment paral·lel, i a Mallorca ho van fer autors com <b>Marià Aguiló</b> i Josep Lluís Pons i Gallarza. Tot plegat va crear un públic lector en català.</p>` },
+    { tras: "Jacint Verdaguer", html: `<h3>Canigó: llegenda i paisatge</h3><p><i>Canigó</i> (1886) és un poema èpic en dotze cants ambientat al Pirineu al segle XI, en temps de la Reconquesta. Explica l'amor entre <b>Gentil</b>, fill del comte Tallaferro, i <b>Flordeneu</b>, la reina de les fades. Gentil abandona el seu deure de cavaller per l'encís de les fades i el seu pare el mata. Al final, el monestir de Sant Martí del Canigó simbolitza el triomf del cristianisme i el naixement de Catalunya. L'obra destaca per les descripcions del paisatge pirinenc i per la riquesa del vocabulari: Verdaguer coneixia la llengua popular i va crear un model de català literari ric i modern.</p>` },
+    { tras: "Teatre i novel·la: Guimerà i Oller", html: `<h3>Terra baixa: personatges i símbols</h3>${L.tb(["Personatge", "Representa", "Trets"], [["Manelic", "la muntanya (Terra alta)", "pastor ingenu, pur, fort i noble"], ["Marta", "la víctima que es redimeix", "dominada per Sebastià, s'enamora de Manelic"], ["Sebastià", "la plana (Terra baixa)", "amo ric, cruel i egoista"]])}<p>Sebastià casa Marta amb Manelic per continuar amb ella i tapar la relació. Quan Manelic descobreix la veritat, mata Sebastià («He mort el llop!») i fuig amb Marta cap a la muntanya. L'obra oposa la natura pura a la societat corrompuda, una idea romàntica que el públic europeu va entendre fàcilment.</p>` },
+    { tras: "Teatre i novel·la: Guimerà i Oller", html: `<h3>Realisme i Naturalisme</h3><p>A la segona meitat del segle, la novel·la europea es torna <b>realista</b>: vol retratar la societat contemporània amb objectivitat, amb un narrador que ho sap tot i descripcions detallades. El <b>Naturalisme</b>, inspirat per Émile Zola, va més enllà i mostra com l'herència i l'ambient determinen la vida de les persones. <b>Narcís Oller</b>, admirat per Zola i per Galdós, n'és el gran representant català. A <i>La febre d'or</i> (1890-1892) retrata la Barcelona de l'especulació borsària a través de Gil Foix, que s'enriqueix i s'arruïna. A <i>La papallona</i> (1882) explica una història d'amor i d'engany. També cal esmentar <b>Marià Vayreda</b> (<i>La punyalada</i>) i les novel·les rurals.</p>` },
+  ],
+  videos: [
+    ["Els Jocs Florals", L.vid("dM5SI7Mq8-U", "El Romanticisme i la Renaixença", "Draw my studies", 22698)],
+  ],
+  ejemplos: [
+    ["Comenta el vers d'Aribau «En llemosí sonà lo meu primer vagit».", ["«Llemosí» era el nom que es donava llavors al català culte.", "El «primer vagit» és el primer plor del nadó: el poeta diu que el català és la seva llengua materna.", "Expressa l'enyorança romàntica de la llengua i de la terra."], "El poeta reivindica el català com a llengua pròpia i afectiva: idea central de la Renaixença."],
+    ["Per què Terra baixa té trets romàntics si és del 1897?", ["Oposa natura (muntanya) i societat (plana).", "Presenta un heroi pur i un malvat clar.", "La passió i la violència final són molt intenses."], "Perquè manté la visió idealitzada de la natura i el conflicte entre passió i societat típics del Romanticisme."],
+    ["Classifica: L'Atlàntida, La febre d'or, Oda a la pàtria, Terra baixa.", ["L'Atlàntida: poesia èpica (Verdaguer).", "La febre d'or: novel·la realista (Oller).", "Oda a la pàtria: poesia lírica (Aribau).", "Terra baixa: teatre (Guimerà)."], "Poesia: L'Atlàntida, Oda. Novel·la: La febre d'or. Teatre: Terra baixa."],
+  ],
+  errores: [
+    "Dir que a la Decadència no s'escrivia gens en català: va minvar la literatura culta, però la popular i l'ús social van continuar.",
+    "Confondre Romanticisme i Realisme: el primer idealitza, el segon observa la societat amb objectivitat.",
+    "Atribuir Terra baixa a Verdaguer: és d'Àngel Guimerà.",
+    "Pensar que la Renaixença va ser només a Catalunya: també hi va haver moviment al País Valencià i a les Illes.",
+    "Creure que els Jocs Florals eren un invent del segle XIX: es van restaurar, ja existien a l'Edat Mitjana.",
+  ],
+  ejercicios: [
+    ["Quins dos factors van fer possible la Renaixença?", "La burgesia industrial que volia una cultura pròpia i el Romanticisme europeu que valorava les llengües i el passat."],
+    ["Quin poema obre simbòlicament la Renaixença i qui el va escriure?", "La pàtria (Oda a la pàtria), de Bonaventura Carles Aribau, 1833."],
+    ["Quins premis tenien els Jocs Florals?", "Englantina d'or (Pàtria), viola d'or i argent (Fe) i flor natural (Amor)."],
+    ["Resumeix l'argument de Canigó en dues frases.", "Gentil s'enamora de la fada Flordeneu i abandona el seu deure; el seu pare el mata. El monestir de Sant Martí simbolitza el triomf de la fe i el naixement de Catalunya."],
+    ["Qui són Manelic i Sebastià i què representen?", "Manelic és el pastor pur de la muntanya; Sebastià, l'amo cruel de la plana. Representen la natura i la societat corrompuda."],
+    ["Què vol retratar La febre d'or?", "L'especulació borsària de la Barcelona de finals del XIX."],
+    ["Defineix Naturalisme.", "Corrent que mostra com l'herència i l'ambient determinen la vida de les persones (Zola)."],
+    ["Anomena un autor valencià i un de mallorquí de la Renaixença.", "Teodor Llorente; Marià Aguiló."],
+    ["Què va ser el Diari Català?", "El primer diari en català (1879), fundat per Valentí Almirall."],
+    ["Explica la frase «He mort el llop!».", "La diu Manelic en matar Sebastià: el llop simbolitza el mal que l'oprimia a ell i a Marta."],
+  ],
+  quiz: [
+    ["El primer diari en català va ser…", ["el Diari Català (1879)", "La Vanguardia", "L'Avenç"], 0, "Fundat per Valentí Almirall."],
+    ["Flordeneu és…", ["la reina de les fades a Canigó", "la protagonista de Terra baixa", "una revista"], 0, "Verdaguer, Canigó."],
+    ["Narcís Oller va ser admirat per…", ["Zola", "Shakespeare", "Dante"], 0, "El pare del Naturalisme."],
+    ["Lo Rat Penat (1878) es va fundar a…", ["València", "Palma", "Girona"], 0, "Renaixença valenciana."],
+    ["Qui mata Sebastià a Terra baixa?", ["Manelic", "Marta", "Gentil"], 0, "«He mort el llop!»"],
+  ],
+  tarjetas: [
+    ["Canigó (1886)", "Gentil i la fada Flordeneu al Pirineu del segle XI."],
+    ["Realisme i Naturalisme", "Retrat objectiu de la societat; l'herència i l'ambient determinen la vida (Oller)."],
+    ["Renaixença valenciana i balear", "Teodor Llorente i Lo Rat Penat; Marià Aguiló."],
+  ],
+});
