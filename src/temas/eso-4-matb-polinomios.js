@@ -119,3 +119,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Sumar, multiplicar y dividir polinomios", "Calcular el MCD y el mcm de polinomios y operar con fracciones algebraicas"],
+  tras: {
+    "Qué es un polinomio": [
+      { html: `<h3>Sumar, restar y multiplicar</h3><p>Para <b>sumar</b> polinomios se suman los <b>términos semejantes</b>, los que tienen la misma parte literal: (3x² + 2x − 1) + (x² − 5x + 4) = 4x² − 3x + 3. Para <b>restar</b> se suma el opuesto, cambiando el signo de todos los términos del segundo. Para <b>multiplicar</b> se multiplica cada término del primero por cada término del segundo y se reducen los semejantes, recordando que <mark>xᵃ · xᵇ = xᵃ⁺ᵇ</mark>. El grado del producto es la suma de los grados. Para no olvidar ningún término conviene colocarlos ordenados, como en una multiplicación de números.</p><div class="formula"><span>(2x − 3)(x + 4) = 2x² + 8x − 3x − 12 = 2x² + 5x − 12</span></div>` },
+    ],
+    "Identidades notables": [
+      { html: `<h3>La división de polinomios</h3><p>Para dividir P(x) entre Q(x) se ordenan los dos de mayor a menor grado, <b>dejando huecos</b> para los términos que faltan. Se divide el primer término del dividendo entre el primero del divisor, se multiplica el resultado por todo el divisor y se resta. Se repite con lo que queda hasta que el resto tenga <b>menor grado que el divisor</b>. Como con los números, se cumple que <mark>D = d · c + r</mark>. Cuando el divisor es de la forma x − a, la división se abrevia con la regla de Ruffini.</p>`, video: { id: "gpBEUnFBhGc", titulo: "División de polinomios, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 9331815 } },
+    ],
+    "Factorizar y simplificar fracciones algebraicas": [
+      { html: `<h3>MCD y mcm de polinomios</h3><p>Igual que con los números, primero se <b>factorizan</b> los polinomios. El <b>máximo común divisor</b> es el producto de los factores comunes con el menor exponente, y el <b>mínimo común múltiplo</b> es el producto de los factores comunes y no comunes con el mayor exponente. Si P = x²(x − 1) y Q = x(x − 1)²(x + 2), entonces MCD = x(x − 1) y mcm = x²(x − 1)²(x + 2). El mcm sirve, como en las fracciones numéricas, para encontrar el <mark>denominador común</mark>.</p>` },
+      { html: `<h3>Operar con fracciones algebraicas</h3><p>Para <b>sumar o restar</b> fracciones algebraicas se reducen a común denominador con el mcm de los denominadores, se ajustan los numeradores y se suman. Para <b>multiplicar</b>, se multiplican numeradores y denominadores, y para <b>dividir</b>, se multiplica en cruz. En todos los casos conviene <mark>factorizar antes</mark> y simplificar al final. Hay que recordar que solo se pueden simplificar <b>factores</b>, nunca sumandos: en (x + 3)/3 no se puede tachar el 3.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Divide P(x) = 2x³ − 3x² + 4 entre Q(x) = x² − 1.", pasos: ["2x³ / x² = 2x. Se resta 2x(x² − 1) = 2x³ − 2x: queda −3x² + 2x + 4.", "−3x² / x² = −3. Se resta −3(x² − 1) = −3x² + 3: queda 2x + 1.", "El resto 2x + 1 tiene grado menor que el divisor."], resultado: "Cociente 2x − 3; resto 2x + 1." },
+    { enunciado: "Calcula 2/(x − 1) + 3/(x + 1).", pasos: ["mcm = (x − 1)(x + 1) = x² − 1.", "Numeradores: 2(x + 1) + 3(x − 1) = 5x − 1.", "Resultado: (5x − 1)/(x² − 1)."], resultado: "(5x − 1)/(x² − 1)." },
+    { enunciado: "Simplifica (x² − 9)/(x² + 6x + 9).", pasos: ["Numerador: diferencia de cuadrados (x + 3)(x − 3).", "Denominador: cuadrado de una suma (x + 3)².", "Se simplifica el factor común (x + 3)."], resultado: "(x − 3)/(x + 3)." },
+  ],
+  errores: [
+    "Olvidar dejar el hueco de los términos que faltan al dividir.",
+    "No cambiar el signo de todos los términos al restar polinomios.",
+    "Escribir (a + b)² = a² + b², olvidando el doble producto.",
+    "Simplificar sumandos en vez de factores en una fracción algebraica.",
+    "Multiplicar exponentes en lugar de sumarlos: x² · x³ = x⁵, no x⁶.",
+  ],
+  ejercicios: [
+    { q: "Calcula (4x³ − 2x + 5) − (x³ + 3x² − 2x).", sol: "3x³ − 3x² + 5." },
+    { q: "Multiplica (x² − 2)(3x + 1).", sol: "3x³ + x² − 6x − 2." },
+    { q: "Desarrolla (2x + 5)² y (3x − 1)(3x + 1).", sol: "4x² + 20x + 25 y 9x² − 1." },
+    { q: "Divide x³ − 2x² + x − 5 entre x − 2 con Ruffini.", sol: "Cociente x² + 1; resto −3." },
+    { q: "Calcula el valor de P(x) = x³ − 4x + 1 en x = −2 con el teorema del resto.", sol: "−8 + 8 + 1 = 1." },
+    { q: "Factoriza x³ − x² − 6x.", sol: "x(x − 3)(x + 2)." },
+    { q: "Halla el MCD y el mcm de x² − 4 y x² + 4x + 4.", sol: "(x − 2)(x + 2) y (x + 2)²: MCD = x + 2; mcm = (x − 2)(x + 2)²." },
+    { q: "Simplifica (x² − 5x)/(x² − 25).", sol: "x(x − 5)/((x + 5)(x − 5)) = x/(x + 5)." },
+    { q: "Calcula x/(x + 2) − 1/x.", sol: "(x² − x − 2)/(x(x + 2)) = (x − 2)(x + 1)/(x(x + 2))." },
+    { q: "Calcula (x² − 1)/x · 3x/(x + 1).", sol: "3(x − 1)." },
+  ],
+  quiz: [
+    { q: "El grado de (x³ + 1)(x² − 4) es…", o: ["5", "6", "3"], a: 0, e: "Se suman los grados." },
+    { q: "En una división de polinomios, el resto debe tener…", o: ["mayor grado que el divisor", "menor grado que el divisor", "el mismo grado"], a: 1, e: "Si no, se sigue dividiendo." },
+    { q: "D = d · c + r se llama…", o: ["prueba de la división", "teorema del resto", "regla de Ruffini"], a: 0, e: "Como con los números." },
+    { q: "El mcm de x(x − 1) y (x − 1)² es…", o: ["x(x − 1)²", "x − 1", "x(x − 1)"], a: 0, e: "Comunes y no comunes, mayor exponente." },
+    { q: "En (x + 3)/3, ¿se puede tachar el 3?", o: ["Sí", "No, es un sumando", "Solo si x = 0"], a: 1, e: "Solo se simplifican factores." },
+  ],
+  tarjetas: [
+    ["Prueba de la división", "D = d · c + r, con el grado de r menor que el de d."],
+    ["mcm de polinomios", "Factores comunes y no comunes con el mayor exponente."],
+    ["Simplificar fracciones", "Factorizar primero y tachar solo factores comunes."],
+  ],
+});

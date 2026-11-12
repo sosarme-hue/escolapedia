@@ -116,3 +116,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Operar con radicales: extraer factores, sumar y multiplicar", "Usar el cambio de base y aplicar los logaritmos a escalas reales"],
+  tras: {
+    "Radicales: potencias de exponente fraccionario": [
+      { html: `<h3>Operaciones con radicales</h3><p>Para <b>extraer factores</b> de una raíz se descompone el radicando y se saca cada factor cuyo exponente sea mayor o igual que el índice: √72 = √(2³ · 3²) = 2 · 3 · √2 = 6√2. Solo se pueden <b>sumar</b> radicales <b>semejantes</b>, con el mismo índice y el mismo radicando: 3√2 + 5√2 = 8√2, pero √2 + √3 no se puede simplificar. Por eso a menudo hay que extraer factores antes de sumar. Para <b>multiplicar</b> radicales del mismo índice se multiplican los radicandos: <mark>√a · √b = √(a · b)</mark>. Si tienen distinto índice, se pasan antes a índice común.</p><div class="formula"><span>√50 + √18 = 5√2 + 3√2 = 8√2</span></div>` },
+    ],
+    "Propiedades de los logaritmos": [
+      { html: `<h3>Logaritmos decimales, neperianos y cambio de base</h3><p>Las calculadoras tienen dos teclas de logaritmos: <b>log</b>, el logaritmo <b>decimal</b> (base 10), y <b>ln</b>, el <b>neperiano</b> (base e ≈ 2,718). Para calcular un logaritmo en otra base se usa la fórmula del <b>cambio de base</b>: <mark>logₐ x = log x / log a</mark>. Así, log₂ 50 = log 50 / log 2 ≈ 1,699 / 0,301 ≈ 5,64. Esto permite resolver ecuaciones exponenciales en las que no se pueden igualar las bases: de 2ˣ = 50 se obtiene x = log₂ 50 ≈ 5,64.</p>`, video: { id: "0bq7zE3yq4s", titulo: "Cambio de base en logaritmos", canal: "Susi Profe", vistas: 245575 } },
+      { html: `<h3>Logaritmos en la vida real</h3><p>Los logaritmos convierten números enormes en escalas manejables. La <b>escala de Richter</b> de los terremotos es logarítmica: un terremoto de magnitud 7 libera unas 32 veces más energía que uno de 6, y su amplitud es 10 veces mayor. El <b>pH</b> de una disolución es pH = −log [H⁺]: el zumo de limón (pH 2) es cien mil veces más ácido que el agua pura (pH 7), porque la diferencia es de 5 unidades y 10⁵ = 100.000. Los <b>decibelios</b> del sonido también: cada 10 dB más supone una intensidad <mark>10 veces mayor</mark>. Por eso pasar de 60 dB a 90 dB no es «un poco más de ruido», sino mil veces más intensidad.</p>` },
+    ],
+  },
+  final: [
+    { html: `<h3>Ecuaciones logarítmicas</h3><p>En una <b>ecuación logarítmica</b> la incógnita está dentro de un logaritmo. La estrategia es usar las propiedades para dejar un <b>único logaritmo</b> a cada lado, log A = log B, y entonces igualar A = B. Otra opción es pasar a forma exponencial: log₃ x = 4 significa x = 3⁴ = 81. Al terminar es obligatorio <mark>comprobar las soluciones</mark>, porque el logaritmo solo existe para números positivos y alguna solución puede no ser válida.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Simplifica √12 + √75 − √27.", pasos: ["√12 = 2√3; √75 = 5√3; √27 = 3√3.", "Son semejantes: 2√3 + 5√3 − 3√3.", "Se suman los coeficientes: 4√3."], resultado: "4√3." },
+    { enunciado: "Resuelve 3ˣ = 20.", pasos: ["No se puede escribir 20 como potencia exacta de 3.", "Se toman logaritmos: x = log 20 / log 3.", "x ≈ 1,301 / 0,477 ≈ 2,73."], resultado: "x ≈ 2,73." },
+    { enunciado: "Resuelve log x + log (x − 3) = 1.", pasos: ["Producto: log [x(x − 3)] = log 10.", "x² − 3x − 10 = 0, con soluciones x = 5 y x = −2.", "x = −2 no vale: el logaritmo de un negativo no existe."], resultado: "x = 5." },
+  ],
+  errores: [
+    "Sumar radicales no semejantes: √2 + √3 no es √5.",
+    "Escribir log (a + b) = log a + log b: la propiedad es para productos.",
+    "Olvidar comprobar las soluciones de las ecuaciones logarítmicas.",
+    "Pensar que una diferencia de 1 en la escala de Richter o en el pH es un cambio pequeño.",
+    "Racionalizar multiplicando solo el denominador por la raíz, sin multiplicar también el numerador.",
+  ],
+  ejercicios: [
+    { q: "Calcula 2⁻³ y (2/3)⁻².", sol: "1/8 y 9/4." },
+    { q: "Escribe como potencia: ∛(x²) y 1/√x.", sol: "x^(2/3) y x^(−1/2)." },
+    { q: "Extrae factores: √48 y ∛54.", sol: "4√3 y 3∛2." },
+    { q: "Calcula 2√8 − √32 + √50.", sol: "4√2 − 4√2 + 5√2 = 5√2." },
+    { q: "Racionaliza 6/√3 y 2/(√5 − 1).", sol: "2√3 y (√5 + 1)/2." },
+    { q: "Calcula log₂ 64, log 0,001 y ln e³.", sol: "6, −3 y 3." },
+    { q: "Si log 2 ≈ 0,301, calcula log 8 y log 5.", sol: "log 8 = 3 log 2 ≈ 0,903; log 5 = log 10 − log 2 ≈ 0,699." },
+    { q: "Calcula log₅ 40 con el cambio de base.", sol: "log 40 / log 5 ≈ 1,602 / 0,699 ≈ 2,29." },
+    { q: "Resuelve log₂ (x + 1) = 3.", sol: "x + 1 = 8, x = 7." },
+    { q: "Un sonido de 80 dB, ¿cuántas veces más intenso es que uno de 50 dB?", sol: "30 dB más: 10³ = 1.000 veces." },
+  ],
+  quiz: [
+    { q: "√2 + √8 es igual a…", o: ["√10", "3√2", "4"], a: 1, e: "√8 = 2√2." },
+    { q: "logₐ x = log x / log a se llama…", o: ["cambio de base", "regla del producto", "racionalización"], a: 0, e: "Para usar la calculadora." },
+    { q: "La tecla ln calcula el logaritmo en base…", o: ["10", "2", "e"], a: 2, e: "Logaritmo neperiano." },
+    { q: "Un pH de 3 frente a uno de 5 es…", o: ["2 veces más ácido", "100 veces más ácido", "igual"], a: 1, e: "10² = 100." },
+    { q: "En una ecuación logarítmica hay que…", o: ["comprobar las soluciones", "redondear siempre", "multiplicar por 10"], a: 0, e: "Solo hay logaritmos de positivos." },
+  ],
+  tarjetas: [
+    ["Radicales semejantes", "Mismo índice y mismo radicando; solo estos se suman."],
+    ["Cambio de base", "logₐ x = log x / log a."],
+    ["Escala logarítmica", "Cada unidad más multiplica la magnitud (pH, Richter, decibelios)."],
+  ],
+});

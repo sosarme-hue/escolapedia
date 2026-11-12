@@ -106,3 +106,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Obtener gráficas nuevas trasladando y reflejando gráficas conocidas", "Modelizar situaciones reales con funciones exponenciales y de valor absoluto"],
+  tras: {
+    "Funciones cuadráticas: la parábola": [
+      { html: `<h3>Representar una parábola paso a paso</h3><p>Para dibujar y = ax² + bx + c con precisión se siguen cuatro pasos. 1) El signo de <b>a</b> indica la forma: si a &gt; 0 abre hacia arriba (∪) y tiene un mínimo; si a &lt; 0, hacia abajo (∩) y tiene un máximo. 2) El <b>vértice</b> está en <mark>x = −b / 2a</mark>; su y se obtiene sustituyendo. 3) Los <b>cortes con el eje X</b> se hallan resolviendo ax² + bx + c = 0, y el corte con el eje Y es el punto (0, c). 4) Se completan unos cuantos puntos <b>simétricos</b> respecto al eje vertical que pasa por el vértice. Las parábolas describen la trayectoria de un balón, la forma de las antenas o el beneficio de una empresa.</p>` },
+    ],
+    "Proporcionalidad inversa y funciones racionales": [
+      { html: `<h3>Traslaciones y reflexiones</h3><p>Conociendo la gráfica de una función f(x) se obtienen muchas otras sin hacer tablas. f(x) + k desplaza la gráfica <b>k unidades hacia arriba</b> (o hacia abajo si k es negativo). f(x − k) la desplaza <b>k unidades a la derecha</b>: ¡al revés de lo que parece! −f(x) la refleja respecto al eje X, como en un espejo. Así, y = (x − 3)² + 1 es la parábola y = x² con el vértice llevado al punto (3, 1), e y = 1/(x + 2) es la hipérbola 1/x desplazada 2 unidades a la izquierda, con su asíntota vertical en <mark>x = −2</mark>.</p>${AMP.tabla(["Fórmula", "Efecto sobre y = f(x)"], [["f(x) + k", "Sube k unidades"], ["f(x) − k", "Baja k unidades"], ["f(x − k)", "Se mueve k a la derecha"], ["f(x + k)", "Se mueve k a la izquierda"], ["−f(x)", "Se refleja en el eje X"]])}`, video: { id: "yLQKUfxXDjg", titulo: "Transformaciones de funciones: traslaciones y reflexiones", canal: "ferchomat", vistas: 582731 } },
+    ],
+    "Funciones exponenciales": [
+      { html: `<h3>Crecimiento y decrecimiento exponencial</h3><p>Muchos fenómenos crecen o decrecen en un <b>porcentaje fijo</b> por unidad de tiempo, y eso da una función exponencial: <mark>C(t) = C₀ · (1 + r)ᵗ</mark>. Un capital de 1.000 € al 4 % anual compuesto se convierte en 1.000 · 1,04ᵗ. Una población de bacterias que se duplica cada hora sigue N = N₀ · 2ᵗ. Y cuando algo pierde un porcentaje, el factor es menor que 1: un coche que se devalúa un 15 % al año vale V₀ · 0,85ᵗ. La desintegración radiactiva también: el <b>periodo de semidesintegración</b> es el tiempo en que la cantidad se reduce a la mitad, y permite datar fósiles con el carbono-14.</p>` },
+    ],
+    "Funciones logarítmicas": [
+      { html: `<h3>La función valor absoluto</h3><p>La función <b>valor absoluto</b> y = |x| devuelve la distancia al cero: deja igual los positivos y cambia de signo los negativos. Su gráfica tiene forma de <b>V</b> con el vértice en el origen. En realidad es una función a trozos: |x| = x si x ≥ 0 y |x| = −x si x &lt; 0. Para dibujar y = |f(x)| se dibuja f(x) y se <mark>refleja hacia arriba</mark> la parte que queda por debajo del eje X. Por ejemplo, y = |x² − 4| es la parábola con el tramo entre −2 y 2 dado la vuelta.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Representa y = x² − 4x + 3: vértice, cortes y forma.", pasos: ["a = 1 > 0: abre hacia arriba.", "Vértice: x = 4/2 = 2; y = 4 − 8 + 3 = −1. V(2, −1).", "Cortes con X: x² − 4x + 3 = 0, x = 1 y x = 3. Corte con Y: (0, 3)."], resultado: "Parábola ∪ con vértice (2, −1), cortes (1, 0), (3, 0) y (0, 3)." },
+    { enunciado: "Describe cómo se obtiene la gráfica de y = (x + 1)² − 4 a partir de y = x².", pasos: ["(x + 1)²: se desplaza 1 unidad a la izquierda.", "− 4: se desplaza 4 unidades hacia abajo.", "El vértice pasa de (0, 0) a (−1, −4)."], resultado: "Traslación 1 a la izquierda y 4 abajo; vértice (−1, −4)." },
+    { enunciado: "Un coche de 20.000 € pierde un 15 % de su valor cada año. ¿Cuánto vale a los 4 años?", pasos: ["Factor anual: 1 − 0,15 = 0,85.", "V(t) = 20.000 · 0,85ᵗ.", "V(4) = 20.000 · 0,522 ≈ 10.440 €."], resultado: "Unos 10.440 €." },
+  ],
+  errores: [
+    "Pensar que f(x − 3) desplaza la gráfica a la izquierda: va a la derecha.",
+    "Calcular el vértice con x = b / 2a, olvidando el signo menos.",
+    "Usar 0,15 como factor en lugar de 0,85 cuando algo disminuye un 15 %.",
+    "Creer que el crecimiento exponencial es como el lineal: al principio parece lento, pero se dispara.",
+    "Dibujar la función logarítmica con valores para x ≤ 0, donde no existe.",
+  ],
+  ejercicios: [
+    { q: "Escribe la recta de pendiente −2 que pasa por (1, 5).", sol: "y = −2x + 7." },
+    { q: "Halla el vértice de y = −x² + 6x − 5 e indica si es máximo o mínimo.", sol: "x = 3, y = 4. V(3, 4), máximo (a < 0)." },
+    { q: "Halla los cortes con los ejes de y = x² − x − 6.", sol: "Eje X: (3, 0) y (−2, 0). Eje Y: (0, −6)." },
+    { q: "¿Qué traslación lleva y = x² a y = (x − 2)² + 5?", sol: "2 unidades a la derecha y 5 hacia arriba; vértice (2, 5)." },
+    { q: "Indica las asíntotas de y = 3/(x − 1) + 2.", sol: "Vertical x = 1; horizontal y = 2." },
+    { q: "Una colonia de 500 bacterias se duplica cada hora. ¿Cuántas hay a las 6 horas?", sol: "500 · 2⁶ = 32.000." },
+    { q: "Calcula el capital final de 2.000 € al 3 % anual compuesto durante 5 años.", sol: "2.000 · 1,03⁵ ≈ 2.318,55 €." },
+    { q: "Una sustancia tiene un periodo de semidesintegración de 10 años. ¿Qué queda de 80 g a los 30 años?", sol: "80 → 40 → 20 → 10 g." },
+    { q: "Calcula log₂ 8 y log₂ (1/4) y di qué puntos de y = log₂ x representan.", sol: "3 y −2: puntos (8, 3) y (1/4, −2)." },
+    { q: "Escribe y = |x − 3| como función a trozos.", sol: "y = x − 3 si x ≥ 3; y = 3 − x si x < 3." },
+  ],
+  quiz: [
+    { q: "y = f(x) + 3 desplaza la gráfica…", o: ["3 hacia arriba", "3 a la derecha", "3 hacia abajo"], a: 0, e: "Suma fuera: vertical." },
+    { q: "y = f(x + 2) desplaza la gráfica…", o: ["2 a la derecha", "2 a la izquierda", "2 hacia arriba"], a: 1, e: "Al revés de lo que parece." },
+    { q: "El vértice de y = ax² + bx + c está en x =…", o: ["−b / 2a", "b / 2a", "−c / a"], a: 0, e: "Eje de simetría." },
+    { q: "Un 4 % de crecimiento anual da el factor…", o: ["0,04", "1,04", "0,96"], a: 1, e: "1 + 0,04." },
+    { q: "La gráfica de y = |x| tiene forma de…", o: ["U", "V", "S"], a: 1, e: "Vértice en el origen." },
+  ],
+  tarjetas: [
+    ["Vértice de la parábola", "x = −b / 2a; es el máximo o el mínimo."],
+    ["Traslaciones", "f(x) + k sube; f(x − k) se mueve a la derecha."],
+    ["Crecimiento exponencial", "C(t) = C₀ · (1 + r)ᵗ, con un porcentaje fijo por periodo."],
+  ],
+});

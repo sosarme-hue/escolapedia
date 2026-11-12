@@ -110,3 +110,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Resolver sistemas por el método gráfico y elegir el método más cómodo", "Plantear problemas con sistemas y resolver sistemas de tres ecuaciones"],
+  tras: {
+    "Qué es un sistema": [
+      { html: `<h3>El método gráfico</h3><p>Cada ecuación lineal con dos incógnitas es una <b>recta</b> en el plano. Para resolver un sistema gráficamente se despeja y en las dos ecuaciones, se hace una tabla de valores de cada una y se dibujan las dos rectas en los mismos ejes. La solución es el <mark>punto de corte</mark>: sus coordenadas (x, y) cumplen las dos ecuaciones a la vez. El método gráfico es muy visual y permite ver de un golpe si el sistema tiene solución, pero es poco preciso cuando la solución no es entera, así que conviene comprobarla con un método algebraico.</p>`, video: { id: "lJ2yfxzmAkc", titulo: "Sistemas de ecuaciones: método gráfico, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 5114797 } },
+    ],
+    "Igualación y reducción": [
+      { html: `<h3>¿Qué método elijo?</h3><p>Los tres métodos algebraicos dan la misma solución, pero no siempre con el mismo esfuerzo. <b>Sustitución</b>: cuando una incógnita ya está despejada o tiene coeficiente 1 o −1. <b>Igualación</b>: cuando la misma incógnita es fácil de despejar en las dos ecuaciones. <b>Reducción</b>: cuando los coeficientes de una incógnita son iguales u opuestos, o es fácil conseguirlo multiplicando. Si el sistema tiene <b>fracciones o paréntesis</b>, lo primero es <mark>quitar denominadores y paréntesis</mark> hasta dejar cada ecuación en la forma ax + by = c.</p>` },
+    ],
+    "Sistemas no lineales": [
+      { html: `<h3>Plantear problemas con sistemas</h3><p>Muchos problemas tienen <b>dos datos desconocidos</b> y dos informaciones sobre ellos. Los pasos son: 1) llamar x e y a las incógnitas, indicando qué representa cada una; 2) escribir una ecuación por cada información; 3) resolver el sistema; 4) <b>comprobar</b> la solución en el enunciado, no solo en las ecuaciones. Problemas típicos: de edades, de mezclas (café de dos precios), de monedas y billetes, de cifras de un número, de móviles que se encuentran o de entradas de cine de dos precios. Escribir los datos en una <mark>tabla</mark> ayuda a plantear las ecuaciones.</p>` },
+      { html: `<h3>Sistemas de tres ecuaciones</h3><p>Con tres incógnitas hacen falta tres ecuaciones. El método de <b>Gauss</b> generaliza la reducción: se usa una ecuación para eliminar la x de las otras dos, con lo que queda un sistema de dos ecuaciones y dos incógnitas; se elimina después la y de la última, y se resuelve <mark>de abajo arriba</mark>. El resultado es un sistema «escalonado», con una incógnita en la última ecuación, dos en la penúltima y tres en la primera. Este método es la base de cómo los ordenadores resuelven sistemas con miles de ecuaciones.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "En un cine, 3 entradas de adulto y 2 infantiles cuestan 38 €, y 2 de adulto y 4 infantiles, 36 €. ¿Cuánto cuesta cada una?", pasos: ["Adulto x, infantil y: 3x + 2y = 38; 2x + 4y = 36.", "Reducción: multiplica la primera por 2: 6x + 4y = 76. Resta la segunda: 4x = 40, x = 10.", "Sustituye: 30 + 2y = 38, y = 4."], resultado: "Adulto 10 €, infantil 4 €." },
+    { enunciado: "Resuelve el sistema x + y + z = 6; 2x − y + z = 3; x + 2y − z = 2.", pasos: ["Eliminar x: E2 − 2E1 da −3y − z = −9; E3 − E1 da y − 2z = −4.", "De la segunda, y = 2z − 4. Sustituye: −3(2z − 4) − z = −9, −7z = −21, z = 3.", "y = 2; x = 6 − 2 − 3 = 1."], resultado: "x = 1, y = 2, z = 3." },
+    { enunciado: "Resuelve x/2 + y/3 = 4; x − y = 3.", pasos: ["Quita denominadores en la primera (mcm 6): 3x + 2y = 24.", "De la segunda, x = y + 3. Sustituye: 3y + 9 + 2y = 24, y = 3.", "x = 6."], resultado: "x = 6, y = 3." },
+  ],
+  errores: [
+    "Olvidar multiplicar todos los términos (también el independiente) al usar reducción.",
+    "Dar solo el valor de una incógnita y olvidar calcular la otra.",
+    "No quitar denominadores antes de aplicar un método.",
+    "Comprobar la solución solo en una ecuación.",
+    "En los no lineales, no emparejar bien cada x con su y.",
+  ],
+  ejercicios: [
+    { q: "Resuelve por sustitución: y = 2x − 1; 3x + y = 9.", sol: "3x + 2x − 1 = 9, x = 2, y = 3." },
+    { q: "Resuelve por igualación: x = 5 − y; x = 2y − 1.", sol: "5 − y = 2y − 1, y = 2, x = 3." },
+    { q: "Resuelve por reducción: 2x + 3y = 12; 5x − 3y = 9.", sol: "7x = 21, x = 3, y = 2." },
+    { q: "Clasifica el sistema x + 2y = 4; 2x + 4y = 8.", sol: "Compatible indeterminado: la segunda es el doble de la primera (infinitas soluciones)." },
+    { q: "Clasifica el sistema x − y = 1; 2x − 2y = 5.", sol: "Incompatible: rectas paralelas, no tiene solución." },
+    { q: "Resuelve gráficamente y = x + 1; y = −x + 5.", sol: "Las rectas se cortan en (2, 3)." },
+    { q: "Resuelve x + y = 7; x · y = 12.", sol: "x = 3, y = 4 o x = 4, y = 3." },
+    { q: "Ana tiene el triple de la edad de su hijo; dentro de 12 años tendrá el doble. ¿Qué edades tienen?", sol: "x = 3y; x + 12 = 2(y + 12): y = 12, x = 36." },
+    { q: "Se mezcla café de 8 €/kg con café de 12 €/kg para obtener 20 kg a 9 €/kg. ¿Cuántos kg de cada?", sol: "x + y = 20; 8x + 12y = 180: x = 15 kg, y = 5 kg." },
+    { q: "Resuelve x + y + z = 3; y + z = 1; z = −1.", sol: "z = −1, y = 2, x = 2." },
+  ],
+  quiz: [
+    { q: "En el método gráfico, la solución es…", o: ["el punto de corte", "la pendiente", "el origen"], a: 0, e: "Cumple las dos ecuaciones." },
+    { q: "Dos rectas paralelas dan un sistema…", o: ["compatible determinado", "incompatible", "indeterminado"], a: 1, e: "No se cortan." },
+    { q: "Si una incógnita tiene coeficiente 1, conviene…", o: ["sustitución", "Gauss", "el método gráfico"], a: 0, e: "Se despeja fácil." },
+    { q: "Para un sistema de 3 incógnitas hacen falta…", o: ["2 ecuaciones", "3 ecuaciones", "1 ecuación"], a: 1, e: "Tantas como incógnitas." },
+    { q: "El método de Gauss resuelve el sistema escalonado…", o: ["de abajo arriba", "de arriba abajo", "al azar"], a: 0, e: "Primero la última ecuación." },
+  ],
+  tarjetas: [
+    ["Método gráfico", "La solución es el punto de corte de las dos rectas."],
+    ["Método de Gauss", "Elimina incógnitas hasta un sistema escalonado y se resuelve de abajo arriba."],
+    ["Comprobar", "La solución debe cumplir todas las ecuaciones y tener sentido en el problema."],
+  ],
+});

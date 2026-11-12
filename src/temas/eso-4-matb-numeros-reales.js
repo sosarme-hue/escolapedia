@@ -127,3 +127,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Reconocer irracionales famosos y representar raíces en la recta", "Operar con intervalos y con números en notación científica"],
+  tras: {
+    "Los conjuntos de números": [
+      { html: `<h3>Irracionales famosos</h3><p>Un número <b>irracional</b> tiene infinitas cifras decimales que no se repiten periódicamente, por lo que no se puede escribir como fracción. Los más conocidos son <b>π</b> ≈ 3,14159…, la razón entre la longitud de una circunferencia y su diámetro; <b>√2</b> ≈ 1,41421…, la diagonal de un cuadrado de lado 1, que ya los pitagóricos demostraron que no era una fracción; el número <b>e</b> ≈ 2,71828…, que aparece en el crecimiento de poblaciones y en el interés continuo; y el <b>número de oro</b> <mark>φ = (1 + √5)/2 ≈ 1,618</mark>, la proporción que se encuentra en la espiral de algunas conchas, en las pipas de girasol y en la sucesión de Fibonacci.</p>`, video: { id: "yDyMSliKsxI", titulo: "La sucesión de Fibonacci y la razón áurea", canal: "Derivando", vistas: 1901058 } },
+    ],
+    "La recta real": [
+      { html: `<h3>Representar raíces con Pitágoras</h3><p>Aunque √2 tenga infinitas cifras, se puede situar <b>exactamente</b> en la recta con regla y compás. Se dibuja un cuadrado de lado 1 sobre la recta, desde 0 hasta 1. Su diagonal mide √(1² + 1²) = √2. Con el compás pinchado en 0 y abierto hasta el extremo de la diagonal, se traza un arco que corta la recta en el punto √2. Del mismo modo, con un triángulo rectángulo de catetos 1 y 2 se obtiene √5, y con catetos 2 y 3, √13. Este método muestra que la recta real está <mark>completa</mark>: cada punto corresponde a un número real.</p>` },
+    ],
+    "Intervalos": [
+      { html: `<h3>Unión e intersección de intervalos</h3><p>Con los intervalos se pueden hacer operaciones de conjuntos. La <b>unión</b> A ∪ B está formada por los números que están en A <b>o</b> en B (o en ambos). La <b>intersección</b> A ∩ B la forman los que están en A <b>y</b> en B a la vez. Para calcularlas es muy útil <mark>dibujar los dos intervalos</mark> sobre la misma recta, uno encima del otro. Si A = [−2, 3) y B = (1, 5], entonces A ∪ B = [−2, 5] y A ∩ B = (1, 3). Si no se solapan, la intersección es el conjunto vacío, ∅.</p>` },
+    ],
+    "Aproximar y medir el error": [
+      { html: `<h3>La notación científica</h3><p>Para escribir números muy grandes o muy pequeños se usa la <b>notación científica</b>: un número entre 1 y 10 multiplicado por una potencia de 10, <mark>a · 10ⁿ</mark> con 1 ≤ a &lt; 10. La distancia de la Tierra al Sol es 1,5 · 10⁸ km y el tamaño de un virus, 1 · 10⁻⁷ m. Para <b>multiplicar</b> se multiplican las mantisas y se suman los exponentes; para <b>dividir</b>, se dividen y se restan. Para <b>sumar</b> o restar hay que igualar antes los exponentes. Al final se ajusta el resultado para que la mantisa quede entre 1 y 10.</p><div class="formula"><span>(3 · 10⁵) · (4 · 10³) = 12 · 10⁸ = 1,2 · 10⁹</span></div>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Halla A ∪ B y A ∩ B con A = (−∞, 2] y B = (−1, 6).", pasos: ["Dibuja los dos intervalos en la misma recta.", "Unión: desde −∞ hasta 6 sin incluirlo.", "Intersección: la parte común, de −1 (sin incluir) a 2 (incluido)."], resultado: "A ∪ B = (−∞, 6); A ∩ B = (−1, 2]." },
+    { enunciado: "Calcula (6 · 10⁻⁴) · (5 · 10⁷) / (2 · 10²).", pasos: ["Mantisas: 6 · 5 / 2 = 15.", "Exponentes: −4 + 7 − 2 = 1.", "15 · 10¹ = 1,5 · 10²."], resultado: "1,5 · 10² = 150." },
+    { enunciado: "Aproxima π ≈ 3,1416 a las centésimas y calcula el error absoluto y el relativo.", pasos: ["Aproximación: 3,14.", "Error absoluto: |3,1416 − 3,14| = 0,0016.", "Error relativo: 0,0016 / 3,1416 ≈ 0,0005 = 0,05 %."], resultado: "Ea = 0,0016; Er ≈ 0,05 %." },
+  ],
+  errores: [
+    "Pensar que 22/7 es igual a π: es solo una aproximación racional.",
+    "Considerar irracional un decimal periódico como 0,333…, que es 1/3.",
+    "Confundir la unión (o) con la intersección (y).",
+    "Escribir en notación científica una mantisa mayor que 10, como 25 · 10⁴.",
+    "Sumar números en notación científica sin igualar antes los exponentes.",
+  ],
+  ejercicios: [
+    { q: "Clasifica: −5, 3/4, √9, √7, 0,121212…, π.", sol: "−5 entero; 3/4 racional; √9 = 3 natural; √7 irracional; 0,1212… racional (12/99); π irracional." },
+    { q: "Explica cómo representarías √10 en la recta.", sol: "Con un triángulo rectángulo de catetos 1 y 3, cuya hipotenusa mide √10, y trasladándola con el compás." },
+    { q: "Escribe como intervalo: −2 < x ≤ 5 y x ≥ 3.", sol: "(−2, 5] y [3, +∞)." },
+    { q: "Calcula [−3, 4) ∪ [1, 7] y [−3, 4) ∩ [1, 7].", sol: "[−3, 7] y [1, 4)." },
+    { q: "Escribe con valor absoluto los números que están a menos de 2 unidades de 5.", sol: "|x − 5| < 2, es decir, (3, 7)." },
+    { q: "Escribe en notación científica 34.500.000 y 0,00072.", sol: "3,45 · 10⁷ y 7,2 · 10⁻⁴." },
+    { q: "Calcula (2,5 · 10⁶) · (4 · 10⁻²).", sol: "10 · 10⁴ = 1 · 10⁵." },
+    { q: "Calcula 3 · 10⁵ + 4 · 10⁴.", sol: "30 · 10⁴ + 4 · 10⁴ = 34 · 10⁴ = 3,4 · 10⁵." },
+    { q: "Redondea √2 = 1,41421… a las milésimas y calcula el error absoluto aproximado.", sol: "1,414; Ea ≈ 0,0002." },
+    { q: "Calcula φ = (1 + √5)/2 con 3 decimales y comprueba que φ² ≈ φ + 1.", sol: "φ ≈ 1,618; φ² ≈ 2,618 = 1,618 + 1." },
+  ],
+  quiz: [
+    { q: "El número de oro vale aproximadamente…", o: ["1,618", "3,14", "2,718"], a: 0, e: "φ = (1 + √5)/2." },
+    { q: "La diagonal de un cuadrado de lado 1 mide…", o: ["2", "√2", "1,5"], a: 1, e: "Por Pitágoras." },
+    { q: "[0, 5] ∩ [3, 8] es…", o: ["[0, 8]", "[3, 5]", "∅"], a: 1, e: "La parte común." },
+    { q: "En notación científica, 0,0045 es…", o: ["4,5 · 10⁻³", "45 · 10⁻⁴", "4,5 · 10³"], a: 0, e: "Mantisa entre 1 y 10." },
+    { q: "Al multiplicar en notación científica, los exponentes…", o: ["se suman", "se multiplican", "se restan"], a: 0, e: "10ᵃ · 10ᵇ = 10ᵃ⁺ᵇ." },
+  ],
+  tarjetas: [
+    ["Número de oro", "φ = (1 + √5)/2 ≈ 1,618."],
+    ["Intersección de intervalos", "Números que están en los dos intervalos a la vez."],
+    ["Notación científica", "a · 10ⁿ con 1 ≤ a < 10."],
+  ],
+});

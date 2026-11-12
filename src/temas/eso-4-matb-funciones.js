@@ -113,3 +113,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular la tasa de variación media e interpretarla", "Trabajar con funciones definidas a trozos y estudiar las tendencias de una función"],
+  tras: {
+    "Qué es una función": [
+      { html: `<h3>Cuatro formas de expresar una función</h3><p>Una misma función se puede dar de cuatro maneras. Con un <b>enunciado</b>: «el taxi cobra 3 € de bajada de bandera y 1,20 € por kilómetro». Con una <b>tabla</b> de valores, útil para datos medidos. Con una <b>gráfica</b>, que muestra de un vistazo cómo se comporta. Y con una <b>fórmula</b> o expresión algebraica, y = 1,2x + 3, que permite calcular cualquier valor exacto. Saber <mark>pasar de una forma a otra</mark> es una de las destrezas clave del tema: de la fórmula se obtiene la tabla dando valores, y de la tabla, la gráfica.</p>` },
+    ],
+    "Crecimiento, máximos y mínimos": [
+      { html: `<h3>La tasa de variación media</h3><p>La <b>tasa de variación media</b> (TVM) de una función en un intervalo [a, b] mide cuánto cambia, por término medio, la y por cada unidad que avanza la x: <mark>TVM = (f(b) − f(a)) / (b − a)</mark>. Geométricamente es la <b>pendiente</b> del segmento que une los dos puntos de la gráfica. Si es positiva, la función ha crecido en ese intervalo; si es negativa, ha decrecido. En la vida real es una velocidad media: si un coche recorre 180 km entre las 2 h y las 4 h, su TVM es 90 km/h. Es la base de lo que en Bachillerato será la derivada.</p><div class="formula"><span>f(x) = x² en [1, 3]: TVM = (9 − 1) / (3 − 1) = 4</span></div>`, video: { id: "2RBCifEcV7w", titulo: "Tasa de variación media", canal: "unicoos", vistas: 360060 } },
+    ],
+    "Continuidad": [
+      { html: `<h3>Funciones definidas a trozos</h3><p>Algunas funciones tienen una fórmula distinta según el tramo de x. Por ejemplo, una tarifa de móvil cuesta 10 € fijos hasta 5 GB y, a partir de ahí, 2 € más por cada GB: f(x) = 10 si 0 ≤ x ≤ 5, y f(x) = 10 + 2(x − 5) si x &gt; 5. Para representarlas se dibuja <b>cada trozo solo en su intervalo</b> y se marcan los extremos con un punto <b>relleno</b> si el valor está incluido o <b>hueco</b> si no lo está. En los puntos donde cambia la fórmula hay que estudiar si la función es <mark>continua</mark> o da un salto.</p>` },
+    ],
+    "Simetrías y periodicidad": [
+      { html: `<h3>Tendencias y asíntotas</h3><p>La <b>tendencia</b> de una función es lo que le ocurre cuando x se hace muy grande o muy pequeña, o cuando se acerca a un valor concreto. Si la gráfica se acerca cada vez más a una recta sin llegar a tocarla, esa recta es una <b>asíntota</b>. La función y = 1/x tiene una asíntota <b>horizontal</b>, y = 0, porque al crecer x el valor se acerca a 0; y una <b>vertical</b>, x = 0, porque cerca de 0 los valores se disparan. Muchos fenómenos reales tienen tendencias: la temperatura de un café que se enfría tiende a la <mark>temperatura ambiente</mark>.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Calcula la TVM de f(x) = x² − 4x en [0, 2] y en [2, 5] e interpreta.", pasos: ["f(0) = 0, f(2) = −4, f(5) = 5.", "En [0, 2]: (−4 − 0) / 2 = −2, la función decrece.", "En [2, 5]: (5 − (−4)) / 3 = 3, la función crece."], resultado: "TVM = −2 y TVM = 3: decrece y luego crece (mínimo en x = 2)." },
+    { enunciado: "Halla el dominio de f(x) = √(x − 3) y de g(x) = 5 / (x² − 4).", pasos: ["Una raíz cuadrada exige radicando ≥ 0: x − 3 ≥ 0, x ≥ 3.", "Un cociente no existe donde el denominador es 0: x² − 4 = 0 en x = ±2.", "Dom g = ℝ − {−2, 2}."], resultado: "Dom f = [3, +∞); Dom g = ℝ − {−2, 2}." },
+    { enunciado: "Un taxi cobra 3 € más 1,20 € por km. Escribe la función, haz una tabla y calcula el precio de 12 km.", pasos: ["Fórmula: P(x) = 1,2x + 3.", "Tabla: x = 0 → 3; x = 5 → 9; x = 10 → 15.", "P(12) = 14,4 + 3 = 17,4."], resultado: "P(x) = 1,2x + 3; 12 km cuestan 17,40 €." },
+  ],
+  errores: [
+    "Confundir dominio (valores de x) con recorrido (valores de y).",
+    "Restar en distinto orden arriba y abajo al calcular la TVM.",
+    "Unir con una línea los dos trozos de una función definida a trozos aunque haya un salto.",
+    "Olvidar que un denominador no puede ser 0 ni una raíz par puede tener radicando negativo.",
+    "Pensar que una función nunca puede cortar a su asíntota horizontal.",
+  ],
+  ejercicios: [
+    { q: "¿Es función la relación que asocia a cada número su raíz cuadrada (con las dos raíces)? ¿Por qué?", sol: "No: a cada x positivo le corresponderían dos valores de y." },
+    { q: "Halla el dominio de f(x) = 1 / (x − 7).", sol: "ℝ − {7}." },
+    { q: "Halla el dominio de f(x) = √(6 − 2x).", sol: "6 − 2x ≥ 0: x ≤ 3, es decir, (−∞, 3]." },
+    { q: "Calcula la TVM de f(x) = 3x − 1 en [2, 6]. ¿Qué observas?", sol: "(17 − 5) / 4 = 3: coincide con la pendiente, porque es una recta." },
+    { q: "Un ciclista está en el km 12 a las 10:00 y en el km 48 a las 11:30. ¿Cuál es su velocidad media?", sol: "36 km / 1,5 h = 24 km/h." },
+    { q: "Estudia si f(x) = x² es par, impar o ninguna.", sol: "f(−x) = x² = f(x): es par, simétrica respecto al eje Y." },
+    { q: "Representa f(x) = 2 si x < 1 y f(x) = x + 1 si x ≥ 1. ¿Es continua en x = 1?", sol: "Por la izquierda vale 2 y en x = 1 vale 2: no hay salto, es continua." },
+    { q: "Indica las asíntotas de y = 1/(x − 2).", sol: "Vertical x = 2 y horizontal y = 0." },
+    { q: "Indica el periodo de una función que repite sus valores cada 24 horas, como la temperatura diaria.", sol: "24 horas." },
+    { q: "Una función crece en (−∞, 1) y decrece en (1, +∞). ¿Qué ocurre en x = 1?", sol: "Tiene un máximo relativo." },
+  ],
+  quiz: [
+    { q: "La TVM en [a, b] es…", o: ["(f(b) − f(a)) / (b − a)", "f(b) − f(a)", "(b − a) / (f(b) − f(a))"], a: 0, e: "La pendiente media." },
+    { q: "Si la TVM es negativa, en ese intervalo la función…", o: ["crece", "decrece", "es constante"], a: 1, e: "Ha bajado por término medio." },
+    { q: "En una función a trozos, un punto hueco indica que el valor…", o: ["está incluido", "no está incluido", "es 0"], a: 1, e: "Relleno: incluido." },
+    { q: "y = 1/x tiene asíntota horizontal en…", o: ["y = 1", "y = 0", "x = 1"], a: 1, e: "Los valores se acercan a 0." },
+    { q: "La fórmula de una función permite…", o: ["calcular cualquier valor exacto", "solo dibujar", "solo hacer tablas"], a: 0, e: "Es la forma más precisa." },
+  ],
+  tarjetas: [
+    ["Tasa de variación media", "TVM = (f(b) − f(a)) / (b − a): pendiente media en [a, b]."],
+    ["Función a trozos", "Función con una fórmula distinta en cada intervalo."],
+    ["Asíntota", "Recta a la que se acerca la gráfica cada vez más."],
+  ],
+});

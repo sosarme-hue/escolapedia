@@ -105,3 +105,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular medias, desviaciones típicas y covarianza de una variable bidimensional", "Interpretar la correlación sin confundirla con la causalidad"],
+  tras: {
+    "Variables bidimensionales y nube de puntos": [
+      { html: `<h3>Repaso: media y desviación típica</h3><p>Antes de estudiar dos variables a la vez conviene recordar cómo se resume una. La <b>media</b> x̄ es la suma de los datos dividida entre su número. La <b>varianza</b> mide cuánto se separan los datos de la media: es la media de los cuadrados menos el cuadrado de la media, <mark>σ² = Σx²/N − x̄²</mark>. Su raíz es la <b>desviación típica</b> σ, que se mide en las mismas unidades que los datos. Para comparar la dispersión de variables con distintas unidades se usa el <b>coeficiente de variación</b>, CV = σ / x̄, que suele darse en porcentaje.</p>` },
+    ],
+    "Tipos de correlación": [
+      { html: `<h3>La covarianza</h3><p>La <b>covarianza</b> mide si las dos variables varían juntas. Se calcula como la media de los productos menos el producto de las medias: <mark>σₓᵧ = Σxy/N − x̄ · ȳ</mark>. Si es <b>positiva</b>, cuando una variable crece la otra tiende a crecer; si es <b>negativa</b>, cuando una crece la otra tiende a bajar; si es cercana a cero, no hay relación lineal. Su inconveniente es que depende de las unidades: no es lo mismo medir en metros que en centímetros. Por eso se divide entre las desviaciones típicas y se obtiene el coeficiente de correlación.</p>`, video: { id: "r_ITkER_bh8", titulo: "Covarianza (tabla de datos sin agrupar)", canal: "Ruben Sebastian", vistas: 204314 } },
+    ],
+    "El coeficiente de correlación r": [
+      { html: `<h3>Calcular r paso a paso</h3><p>Para hallar r con pocos datos se organiza una <b>tabla</b> con las columnas x, y, x², y² y x·y, y se suman. Con esas sumas se calculan las medias, las desviaciones típicas y la covarianza, y por último <mark>r = σₓᵧ / (σₓ · σᵧ)</mark>. El resultado siempre está entre −1 y 1. La calculadora científica en modo estadístico (REG o STAT) da r directamente, igual que las hojas de cálculo con la función COEF.DE.CORREL. Conviene igualmente hacer la nube de puntos: un r bajo puede esconder una relación curva, no lineal.</p>${AMP.tabla(["x", "y", "x²", "y²", "xy"], [["1", "2", "1", "4", "2"], ["2", "3", "4", "9", "6"], ["3", "5", "9", "25", "15"], ["4", "6", "16", "36", "24"], ["<b>10</b>", "<b>16</b>", "<b>30</b>", "<b>74</b>", "<b>47</b>"]])}` },
+    ],
+    "Predecir con cuidado": [
+      { html: `<h3>Correlación no es causalidad</h3><p>Que dos variables estén muy correlacionadas no significa que una cause la otra. Las ventas de helados y los ahogamientos están correlacionados, pero no porque los helados ahoguen: ambos aumentan en verano por el calor, que es una <b>variable oculta</b>. Otras veces la correlación es pura <b>casualidad</b>, sobre todo con pocos datos. Para afirmar que algo causa otra cosa hace falta un <mark>experimento controlado</mark>, como los ensayos clínicos de los medicamentos, en los que se compara un grupo tratado con otro que no lo está. Desconfía de los titulares que concluyen causas a partir de una simple correlación.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Con la tabla de la teoría (x: 1, 2, 3, 4; y: 2, 3, 5, 6), calcula r.", pasos: ["Medias: x̄ = 10/4 = 2,5; ȳ = 16/4 = 4.", "σₓ² = 30/4 − 2,5² = 1,25, σₓ ≈ 1,118. σᵧ² = 74/4 − 4² = 2,5, σᵧ ≈ 1,581.", "σₓᵧ = 47/4 − 2,5 · 4 = 1,75.", "r = 1,75 / (1,118 · 1,581) ≈ 0,99."], resultado: "r ≈ 0,99: correlación positiva muy fuerte." },
+    { enunciado: "Con los datos anteriores, halla la recta de regresión de y sobre x y estima y para x = 5.", pasos: ["Pendiente: m = σₓᵧ / σₓ² = 1,75 / 1,25 = 1,4.", "Recta: y − 4 = 1,4(x − 2,5), es decir, y = 1,4x + 0,5.", "Para x = 5: y = 7,5."], resultado: "y = 1,4x + 0,5; estimación 7,5." },
+    { enunciado: "Las notas de Lengua tienen x̄ = 6 y σ = 1,2; las de Matemáticas, x̄ = 5 y σ = 1,5. ¿Cuál es más dispersa?", pasos: ["CV de Lengua: 1,2 / 6 = 0,20 (20 %).", "CV de Matemáticas: 1,5 / 5 = 0,30 (30 %).", "Se compara el CV, no la desviación típica sola."], resultado: "Matemáticas es más dispersa." },
+  ],
+  errores: [
+    "Concluir que una variable causa la otra solo porque r es alto.",
+    "Pensar que r = 0 significa que no hay ninguna relación: puede haber una relación curva.",
+    "Olvidar restar el producto de las medias al calcular la covarianza.",
+    "Hacer predicciones muy lejos del rango de los datos (extrapolar).",
+    "Comparar dispersiones con la desviación típica cuando las medias o las unidades son distintas.",
+  ],
+  ejercicios: [
+    { q: "Calcula la media y la desviación típica de 2, 4, 4, 6, 9.", sol: "x̄ = 5; σ² = 153/5 − 25 = 5,6; σ ≈ 2,37." },
+    { q: "¿Qué significa una covarianza negativa?", sol: "Que cuando una variable aumenta, la otra tiende a disminuir." },
+    { q: "Clasifica la correlación: horas de estudio y nota; edad de un coche y su precio; número de calzado y nota de Historia.", sol: "Positiva, negativa y nula." },
+    { q: "Si σₓᵧ = 12, σₓ = 4 y σᵧ = 5, calcula r e interprétalo.", sol: "r = 12 / 20 = 0,6: correlación positiva moderada." },
+    { q: "¿Puede ser r = 1,3? ¿Por qué?", sol: "No: r siempre está entre −1 y 1." },
+    { q: "Calcula la covarianza de x: 1, 2, 3; y: 6, 4, 2.", sol: "Σxy/3 = 20/3 ≈ 6,67; x̄ · ȳ = 2 · 4 = 8; σₓᵧ ≈ −1,33." },
+    { q: "La recta de regresión del peso (kg) sobre la altura (cm) es y = 0,9x − 90. Estima el peso de alguien de 170 cm.", sol: "0,9 · 170 − 90 = 63 kg." },
+    { q: "¿Es fiable usar la recta anterior para estimar el peso de un bebé de 50 cm? ¿Por qué?", sol: "No: daría −45 kg. Es una extrapolación fuera del rango de los datos." },
+    { q: "Pon un ejemplo de correlación causada por una variable oculta.", sol: "Uso de crema solar y quemaduras: ambas crecen con los días de sol (también helados y ahogamientos)." },
+    { q: "Un conjunto tiene x̄ = 50 y σ = 5, y otro x̄ = 10 y σ = 2. ¿Cuál es más homogéneo?", sol: "CV: 10 % frente a 20 %; el primero es más homogéneo." },
+  ],
+  quiz: [
+    { q: "La covarianza se calcula como…", o: ["Σxy/N − x̄ȳ", "Σx/N", "σₓ · σᵧ"], a: 0, e: "Media de productos menos producto de medias." },
+    { q: "Un r alto entre dos variables demuestra que…", o: ["una causa la otra", "están relacionadas linealmente", "son iguales"], a: 1, e: "Correlación no es causalidad." },
+    { q: "El coeficiente de variación sirve para…", o: ["comparar dispersiones", "calcular la media", "dibujar la recta"], a: 0, e: "CV = σ / x̄." },
+    { q: "Si r = 0, puede haber…", o: ["una relación curva", "una relación lineal perfecta", "covarianza positiva grande"], a: 0, e: "r solo mide relación lineal." },
+    { q: "La desviación típica es…", o: ["la raíz de la varianza", "el cuadrado de la varianza", "la media de los datos"], a: 0, e: "Mismas unidades que los datos." },
+  ],
+  tarjetas: [
+    ["Covarianza", "σₓᵧ = Σxy/N − x̄ȳ; su signo indica si las variables crecen juntas."],
+    ["Coeficiente de variación", "CV = σ / x̄; compara dispersiones de distintos conjuntos."],
+    ["Variable oculta", "Tercera variable que explica la correlación entre otras dos."],
+  ],
+});

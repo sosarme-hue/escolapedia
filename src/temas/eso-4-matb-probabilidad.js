@@ -105,3 +105,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular probabilidades con tablas de contingencia y con la probabilidad total", "Usar la combinatoria y la frecuencia relativa para estimar probabilidades"],
+  tras: {
+    "Experimentos aleatorios y regla de Laplace": [
+      { html: `<h3>Frecuencia relativa y ley de los grandes números</h3><p>No todos los experimentos tienen resultados igual de probables: una chincheta puede caer de punta o de lado, y no sabemos de antemano con qué probabilidad. En esos casos se repite el experimento muchas veces y se calcula la <b>frecuencia relativa</b>: veces que ocurre el suceso dividido entre el número de pruebas. La <b>ley de los grandes números</b> dice que, al aumentar las repeticiones, la frecuencia relativa <mark>se estabiliza</mark> alrededor de la probabilidad. Así se calculan las probabilidades de los seguros, las predicciones del tiempo o la eficacia de un medicamento.</p>` },
+      { html: `<h3>Probabilidad y combinatoria</h3><p>Cuando los casos son muchos, la regla de Laplace necesita la <b>combinatoria</b> para contarlos. Por ejemplo, la probabilidad de acertar los 6 números de la lotería primitiva (de 49) es 1 entre C(49, 6) = 13.983.816 combinaciones posibles, es decir, <mark>menos de una entre trece millones</mark>. Y la probabilidad de que al repartir 5 cartas de una baraja española salgan los 4 ases se calcula dividiendo las manos favorables entre el total de manos posibles, C(40, 5). Contar bien los casos posibles y los favorables es la clave.</p>` },
+    ],
+    "Probabilidad condicionada": [
+      { html: `<h3>Tablas de contingencia</h3><p>Una <b>tabla de contingencia</b> organiza los datos de una población según dos características, con los totales en la última fila y columna. Es la herramienta más cómoda para calcular probabilidades de intersecciones y condicionadas. Por ejemplo, en un instituto se clasifica a 200 alumnos según si practican deporte y si son de ESO o de Bachillerato. La probabilidad de que un alumno practique deporte <b>sabiendo</b> que es de Bachillerato se calcula dentro de la columna de Bachillerato: <mark>casos de la casilla entre el total de esa columna</mark>.</p>${AMP.tabla(["", "ESO", "Bachillerato", "Total"], [["Deporte", "90", "30", "120"], ["No deporte", "50", "30", "80"], ["Total", "140", "60", "200"]])}`, video: { id: "swOYG7bg3Lk", titulo: "Probabilidad: tablas de contingencia, ejercicios resueltos", canal: "profesor10demates", vistas: 257278 } },
+    ],
+    "Sucesos independientes": [
+      { html: `<h3>Probabilidad total</h3><p>A veces un suceso puede ocurrir por varios caminos. Si una fábrica tiene dos máquinas, A produce el 60 % de las piezas con un 2 % de defectuosas y B el 40 % con un 5 %, la probabilidad de que una pieza cualquiera sea defectuosa se calcula sumando los caminos del diagrama de árbol: <mark>P(D) = P(A) · P(D|A) + P(B) · P(D|B)</mark> = 0,6 · 0,02 + 0,4 · 0,05 = 0,032. Es el <b>teorema de la probabilidad total</b>: se multiplican las probabilidades a lo largo de cada rama y se suman las ramas que llevan al suceso.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Con la tabla de contingencia de la teoría, calcula P(deporte), P(deporte y Bachillerato) y P(deporte | Bachillerato).", pasos: ["P(deporte) = 120/200 = 0,6.", "P(deporte ∩ Bach.) = 30/200 = 0,15.", "P(deporte | Bach.) = 30/60 = 0,5, mirando solo la columna de Bachillerato."], resultado: "0,6; 0,15 y 0,5." },
+    { enunciado: "Una urna tiene 3 bolas rojas y 2 azules. Se sacan dos sin devolución. ¿Probabilidad de que sean de distinto color?", pasos: ["Roja y luego azul: 3/5 · 2/4 = 6/20.", "Azul y luego roja: 2/5 · 3/4 = 6/20.", "Se suman las dos ramas: 12/20."], resultado: "P = 3/5 = 0,6." },
+    { enunciado: "En un grupo de 10 alumnos (6 chicas y 4 chicos) se eligen 3 al azar. ¿Probabilidad de que sean todas chicas?", pasos: ["Casos posibles: C(10, 3) = 120.", "Casos favorables: C(6, 3) = 20.", "Laplace: 20/120."], resultado: "P = 1/6 ≈ 0,17." },
+  ],
+  errores: [
+    "Aplicar la regla de Laplace cuando los resultados no son equiprobables.",
+    "Confundir P(A|B) con P(B|A): no son iguales.",
+    "Dividir entre el total general en vez del total de la fila o columna en una probabilidad condicionada.",
+    "Olvidar que sin devolución cambian las probabilidades de la segunda extracción.",
+    "Pensar que tras varias caras seguidas es más probable que salga cruz (falacia del jugador).",
+  ],
+  ejercicios: [
+    { q: "Se lanza un dado. Calcula P(par), P(mayor que 4) y P(par o mayor que 4).", sol: "3/6, 2/6 y 4/6 (los resultados 2, 4, 5 y 6)." },
+    { q: "Si P(A) = 0,3, ¿cuánto vale P(no A)?", sol: "0,7." },
+    { q: "Se lanzan dos monedas. Calcula P(dos caras) y P(al menos una cara).", sol: "1/4 y 3/4." },
+    { q: "Una chincheta cae de punta 312 veces en 800 lanzamientos. Estima su probabilidad.", sol: "312/800 = 0,39." },
+    { q: "Se extraen dos cartas de una baraja de 40 sin devolución. ¿Probabilidad de dos oros?", sol: "10/40 · 9/39 = 90/1.560 ≈ 0,058." },
+    { q: "Con la tabla de la teoría, calcula P(ESO | no deporte).", sol: "50/80 = 0,625." },
+    { q: "¿Son independientes «deporte» y «Bachillerato» en la tabla de la teoría?", sol: "P(deporte | Bach.) = 0,5 ≠ P(deporte) = 0,6: no son independientes." },
+    { q: "El 70 % de los días hace sol; si hay sol, llego tarde con probabilidad 0,1, y si no, 0,3. ¿Probabilidad de llegar tarde?", sol: "0,7 · 0,1 + 0,3 · 0,3 = 0,16." },
+    { q: "¿Qué probabilidad hay de acertar un PIN de 4 cifras al primer intento?", sol: "1/10.000." },
+    { q: "Se lanza un dado 3 veces. ¿Probabilidad de que no salga ningún 6?", sol: "(5/6)³ = 125/216 ≈ 0,58." },
+  ],
+  quiz: [
+    { q: "La ley de los grandes números dice que la frecuencia relativa…", o: ["se acerca a la probabilidad", "siempre vale 0,5", "crece sin límite"], a: 0, e: "Con muchas repeticiones." },
+    { q: "En una tabla de contingencia, P(A|B) se calcula dividiendo entre…", o: ["el total general", "el total de B", "el total de A"], a: 1, e: "Solo se mira el grupo B." },
+    { q: "La probabilidad total suma…", o: ["las ramas que llevan al suceso", "todas las ramas", "solo la rama mayor"], a: 0, e: "Cada rama es un producto." },
+    { q: "Tras 5 caras seguidas, la probabilidad de cara es…", o: ["mayor", "menor", "la misma, 1/2"], a: 2, e: "La moneda no tiene memoria." },
+    { q: "Para contar casos en la primitiva se usan…", o: ["combinaciones", "permutaciones", "variaciones con repetición"], a: 0, e: "El orden no importa." },
+  ],
+  tarjetas: [
+    ["Ley de los grandes números", "Al repetir mucho un experimento, la frecuencia relativa se acerca a la probabilidad."],
+    ["Tabla de contingencia", "Tabla de doble entrada para calcular probabilidades de intersecciones y condicionadas."],
+    ["Probabilidad total", "Suma de los productos de las ramas que llevan al suceso."],
+  ],
+});

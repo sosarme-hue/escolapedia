@@ -103,3 +103,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Contar con permutaciones con repetición y variaciones con repetición", "Usar el triángulo de Tartaglia y el binomio de Newton"],
+  tras: {
+    "Variaciones y permutaciones: el orden importa": [
+      { html: `<h3>Con repetición: cuando los elementos se pueden repetir</h3><p>Si cada posición puede ocupar cualquiera de los m elementos, aunque ya haya salido, se trata de <b>variaciones con repetición</b>: <mark>VR(m, n) = mⁿ</mark>. Es el caso de las matrículas, los PIN o las quinielas: una quiniela de 15 partidos con 3 resultados posibles tiene 3¹⁵ = 14.348.907 columnas. Las <b>permutaciones con repetición</b> aparecen cuando ordenamos elementos que no son todos distintos, como las letras de una palabra con letras repetidas. Se divide entre los factoriales de las repeticiones, porque intercambiar dos letras iguales no da una palabra nueva.</p><div class="formula"><span>Letras de CASA: 4! / 2! = 24 / 2 = 12 palabras</span></div>` },
+    ],
+    "Combinaciones: el orden no importa": [
+      { html: `<h3>Los números combinatorios</h3><p>El número de combinaciones C(m, n) se escribe también como el <b>número combinatorio</b> «m sobre n» y se calcula con <mark>C(m, n) = m! / (n! · (m − n)!)</mark>. Tiene propiedades útiles: C(m, 0) = C(m, m) = 1, porque solo hay una forma de no elegir nada o de elegirlo todo; y C(m, n) = C(m, m − n), porque elegir los 3 que van de excursión es lo mismo que elegir los 7 que se quedan. Así, C(10, 8) = C(10, 2) = 45, mucho más rápido de calcular.</p>` },
+      { html: `<h3>El triángulo de Tartaglia y el binomio de Newton</h3><p>Si colocamos los números combinatorios en filas, cada uno es la <b>suma de los dos que tiene encima</b>: es el <b>triángulo de Tartaglia</b> o de Pascal. Sus filas dan los coeficientes para desarrollar potencias de un binomio, el <b>binomio de Newton</b>: (a + b)³ = a³ + 3a²b + 3ab² + b³, con los coeficientes 1, 3, 3, 1 de la cuarta fila. Los exponentes de a bajan de uno en uno y los de b suben. Si el binomio es una resta, los signos se alternan.</p>${AMP.tabla(["Fila", "Coeficientes"], [["n = 0", "1"], ["n = 1", "1 1"], ["n = 2", "1 2 1"], ["n = 3", "1 3 3 1"], ["n = 4", "1 4 6 4 1"], ["n = 5", "1 5 10 10 5 1"]])}`, video: { id: "9ri5dwV2K6E", titulo: "Binomio de Newton, triángulo de Pascal y potencias de un binomio", canal: "Matemáticas profe Alex", vistas: 1846279 } },
+    ],
+    "¿Qué fórmula uso?": [
+      { html: `<h3>Estrategia para problemas de recuento</h3><p>Ante un problema de contar, hazte tres preguntas. <b>¿Intervienen todos los elementos?</b> Si es así, son permutaciones. <b>¿Influye el orden?</b> Si cambiar el orden da un resultado distinto (podio, contraseña, cargos de delegado y subdelegado), son variaciones; si no (equipo, comisión, mano de cartas), combinaciones. <b>¿Se pueden repetir?</b> Si sí, se usa la versión con repetición. Cuando el problema tiene condiciones («empieza por vocal», «A y B juntos»), lo más fácil suele ser <mark>colocar primero lo obligado</mark> y contar después el resto con el principio de multiplicación. Y si la cuenta es pequeña, un diagrama de árbol confirma el resultado.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "¿Cuántas palabras distintas, con o sin sentido, se pueden formar con las letras de MATEMÁTICA (sin tilde)?", pasos: ["Hay 10 letras: M ×2, A ×3, T ×2, E, I, C.", "Permutaciones con repetición: 10! / (2! · 3! · 2!).", "10! = 3.628.800; 2! · 3! · 2! = 24.", "3.628.800 / 24 = 151.200."], resultado: "151.200 palabras." },
+    { enunciado: "Desarrolla (x − 2)⁴ con el binomio de Newton.", pasos: ["Coeficientes de la fila 4: 1, 4, 6, 4, 1.", "Términos: x⁴, 4x³(−2), 6x²(−2)², 4x(−2)³, (−2)⁴.", "Calcula: x⁴ − 8x³ + 24x² − 32x + 16."], resultado: "(x − 2)⁴ = x⁴ − 8x³ + 24x² − 32x + 16." },
+    { enunciado: "En una clase de 25 alumnos se elige un delegado, un subdelegado y una comisión de 3 personas entre los restantes. ¿De cuántas formas?", pasos: ["Delegado y subdelegado: el orden importa, V(25, 2) = 25 · 24 = 600.", "Comisión entre los 23 restantes: el orden no importa, C(23, 3) = 23 · 22 · 21 / 6 = 1.771.", "Principio de multiplicación: 600 · 1.771."], resultado: "1.062.600 formas." },
+  ],
+  errores: [
+    "Usar combinaciones cuando el orden sí importa (podios, contraseñas, cargos).",
+    "Olvidar dividir entre los factoriales de las repeticiones en palabras con letras repetidas.",
+    "Pensar que 0! = 0: por convenio 0! = 1.",
+    "Calcular factoriales enormes en vez de simplificar: 10! / 8! = 10 · 9 = 90.",
+    "Olvidar alternar los signos al desarrollar (a − b)ⁿ.",
+  ],
+  ejercicios: [
+    { q: "Calcula 6!, 8! / 6! y 0!.", sol: "720, 56 y 1." },
+    { q: "¿Cuántos números de 3 cifras distintas se pueden formar con 1, 2, 3, 4 y 5?", sol: "V(5, 3) = 5 · 4 · 3 = 60." },
+    { q: "¿Cuántos PIN de 4 cifras existen?", sol: "VR(10, 4) = 10⁴ = 10.000." },
+    { q: "¿De cuántas formas se pueden sentar 6 amigos en 6 butacas seguidas?", sol: "P₆ = 6! = 720." },
+    { q: "¿Cuántos equipos de 5 jugadores se pueden formar con 12?", sol: "C(12, 5) = 792." },
+    { q: "Comprueba que C(9, 7) = C(9, 2) y calcula su valor.", sol: "Ambos valen 9 · 8 / 2 = 36." },
+    { q: "¿Cuántas palabras se forman con las letras de PAPEL? ¿Y de BANANA?", sol: "PAPEL: 5! / 2! = 60. BANANA: 6! / (3! · 2!) = 60." },
+    { q: "Escribe la sexta fila del triángulo de Tartaglia (n = 6).", sol: "1, 6, 15, 20, 15, 6, 1." },
+    { q: "Desarrolla (a + 3)³.", sol: "a³ + 9a² + 27a + 27." },
+    { q: "Con 7 libros, ¿de cuántas formas se pueden colocar en una estantería si dos de ellos deben ir juntos?", sol: "Se tratan los dos como un bloque: 6! · 2! = 1.440." },
+  ],
+  quiz: [
+    { q: "Las matrículas y los PIN son ejemplos de…", o: ["combinaciones", "variaciones con repetición", "permutaciones"], a: 1, e: "El orden importa y se repiten cifras." },
+    { q: "C(10, 9) vale…", o: ["10", "90", "1"], a: 0, e: "C(10, 9) = C(10, 1) = 10." },
+    { q: "En el triángulo de Tartaglia, cada número es…", o: ["el producto de los de arriba", "la suma de los dos de arriba", "el doble del anterior"], a: 1, e: "1 3 3 1 → 1 4 6 4 1." },
+    { q: "Los coeficientes de (a + b)⁴ son…", o: ["1 4 6 4 1", "1 3 3 1", "1 4 4 1"], a: 0, e: "Quinta fila del triángulo." },
+    { q: "Las palabras con las letras de OSO son…", o: ["6", "3", "9"], a: 1, e: "3! / 2! = 3." },
+  ],
+  tarjetas: [
+    ["Variación con repetición", "VR(m, n) = mⁿ: el orden importa y los elementos se repiten."],
+    ["Número combinatorio", "C(m, n) = m! / (n! · (m − n)!)."],
+    ["Binomio de Newton", "Desarrollo de (a + b)ⁿ con los coeficientes del triángulo de Tartaglia."],
+  ],
+});

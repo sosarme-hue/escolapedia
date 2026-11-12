@@ -110,3 +110,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Aplicar los teoremas de la altura y del cateto", "Medir distancias inaccesibles con semejanza y reconocer las homotecias"],
+  tras: {
+    "Teorema de Tales": [
+      { html: `<h3>Medir lo que no se puede alcanzar</h3><p>Cuenta la tradición que Tales de Mileto midió la altura de la Gran Pirámide comparando su sombra con la de un bastón. Los rayos del Sol llegan paralelos, así que el triángulo que forman la pirámide y su sombra es <b>semejante</b> al del bastón y la suya: <mark>altura / sombra</mark> es la misma razón en los dos. Con este método se puede medir la altura de un árbol, un edificio o una farola. Otra técnica usa un <b>espejo</b> en el suelo: por la ley de la reflexión, los triángulos a ambos lados del espejo son semejantes.</p><div class="formula"><span>Bastón 1,5 m, sombra 2 m; árbol con sombra 12 m → h = 1,5 · 12 / 2 = 9 m</span></div>` },
+    ],
+    "Criterios de semejanza de triángulos": [
+      { html: `<h3>Teoremas de la altura y del cateto</h3><p>Si en un triángulo rectángulo se traza la <b>altura</b> sobre la hipotenusa, esta queda dividida en dos <b>proyecciones</b>, m y n, y aparecen dos triángulos semejantes al grande. De esa semejanza salen dos teoremas. El <b>teorema de la altura</b>: la altura al cuadrado es igual al producto de las proyecciones, <mark>h² = m · n</mark>. El <b>teorema del cateto</b>: cada cateto al cuadrado es igual a la hipotenusa por su proyección, <mark>b² = a · m</mark> y c² = a · n. Sumando los dos teoremas del cateto se obtiene, de nuevo, el teorema de Pitágoras.</p>`, video: { id: "4d3L9GrLGJ4", titulo: "Teorema de Euclides del cateto y la altura", canal: "Susi Profe", vistas: 537833 } },
+    ],
+    "Escalas: mapas y planos": [
+      { html: `<h3>Homotecias</h3><p>Una <b>homotecia</b> es una transformación que amplía o reduce una figura desde un punto fijo, el <b>centro</b> O. Cada punto P se transforma en un punto P′ de la recta OP tal que OP′ = k · OP, donde k es la <b>razón</b>. Si k &gt; 1, la figura se amplía; si 0 &lt; k &lt; 1, se reduce; y si k es negativo, la figura queda al otro lado del centro, invertida. Las figuras homotéticas son <mark>semejantes</mark> y tienen sus lados paralelos. Es lo que hace un proyector de cine o la función de zoom de una fotocopiadora.</p>` },
+      { html: `<h3>Semejanza en el mundo real</h3><p>La semejanza está detrás de las <b>maquetas</b> de arquitectura, los modelos a escala de coches y aviones, los mapas y la fotografía. Pero hay un detalle importante: si un objeto se amplía k veces, su superficie crece k² veces y su volumen k³ veces. Por eso una hormiga gigante no podría existir: su peso (volumen) crecería mucho más que la sección de sus patas (superficie). Y por eso una pizza de 40 cm de diámetro tiene <mark>cuatro veces más</mark> superficie que una de 20 cm, no el doble.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "En un triángulo rectángulo, las proyecciones de los catetos sobre la hipotenusa miden 4 cm y 9 cm. Calcula la altura y los catetos.", pasos: ["Altura: h² = 4 · 9 = 36, h = 6 cm.", "Hipotenusa: a = 4 + 9 = 13 cm.", "Catetos: b² = 13 · 9 = 117, b ≈ 10,82 cm; c² = 13 · 4 = 52, c ≈ 7,21 cm."], resultado: "h = 6 cm; catetos ≈ 10,82 cm y 7,21 cm." },
+    { enunciado: "Una persona de 1,70 m ve reflejada la punta de un edificio en un espejo en el suelo. Está a 2 m del espejo y el espejo está a 30 m del edificio. ¿Cuánto mide el edificio?", pasos: ["Los dos triángulos son semejantes por la ley de la reflexión.", "h / 30 = 1,70 / 2.", "h = 30 · 0,85 = 25,5 m."], resultado: "25,5 m." },
+    { enunciado: "Una maqueta a escala 1:50 de una casa tiene un volumen de 2 dm³. ¿Qué volumen tiene la casa real?", pasos: ["Razón de semejanza k = 50.", "El volumen se multiplica por k³ = 125.000.", "2 dm³ · 125.000 = 250.000 dm³ = 250 m³."], resultado: "250 m³." },
+  ],
+  errores: [
+    "Multiplicar áreas o volúmenes por k en lugar de por k² o k³.",
+    "Usar el teorema de la altura en triángulos que no son rectángulos.",
+    "Confundir la proyección de un cateto con el otro cateto.",
+    "Mezclar unidades (cm y m) al plantear una proporción.",
+    "Pensar que dos rectángulos cualesquiera son semejantes: sus lados deben ser proporcionales.",
+  ],
+  ejercicios: [
+    { q: "Dos triángulos semejantes tienen razón 3. Si el pequeño tiene 12 cm de perímetro y 6 cm² de área, ¿qué perímetro y área tiene el grande?", sol: "36 cm y 54 cm²." },
+    { q: "Un poste de 2 m da una sombra de 1,6 m. A la misma hora, una torre da una sombra de 24 m. ¿Cuánto mide la torre?", sol: "2 · 24 / 1,6 = 30 m." },
+    { q: "¿Son semejantes dos triángulos con lados 4, 6, 8 y 6, 9, 12?", sol: "Sí: razón 1,5 en todos los lados." },
+    { q: "Las proyecciones de los catetos miden 2 y 8 cm. Calcula la altura sobre la hipotenusa.", sol: "h² = 16, h = 4 cm." },
+    { q: "La hipotenusa mide 10 cm y la proyección de un cateto, 3,6 cm. Calcula ese cateto.", sol: "b² = 10 · 3,6 = 36, b = 6 cm." },
+    { q: "En un mapa 1:25.000, dos pueblos están a 8 cm. ¿Qué distancia real los separa?", sol: "200.000 cm = 2 km." },
+    { q: "Aplica una homotecia de centro O(0, 0) y razón 2 al punto A(3, −1).", sol: "A′(6, −2)." },
+    { q: "Una pizza de 30 cm de diámetro cuesta 9 €. ¿Cuál debería ser el precio justo de una de 45 cm?", sol: "k = 1,5, área · 2,25: 20,25 €." },
+    { q: "Un cubo de 2 cm de arista se amplía con razón 3. ¿Cuánto mide su volumen nuevo?", sol: "8 cm³ · 27 = 216 cm³ (arista 6 cm)." },
+    { q: "Indica la razón de una homotecia que reduce una figura a la mitad sin invertirla.", sol: "k = 1/2." },
+  ],
+  quiz: [
+    { q: "El teorema de la altura dice que…", o: ["h² = m · n", "h = m + n", "h² = m² + n²"], a: 0, e: "Producto de las proyecciones." },
+    { q: "Si la razón de semejanza es 2, el volumen se multiplica por…", o: ["2", "4", "8"], a: 2, e: "k³ = 8." },
+    { q: "Una homotecia de razón negativa…", o: ["amplía siempre", "invierte la figura al otro lado del centro", "no cambia nada"], a: 1, e: "Queda al otro lado de O." },
+    { q: "Tales midió la pirámide usando…", o: ["sombras", "un metro", "un satélite"], a: 0, e: "Triángulos semejantes." },
+    { q: "El teorema del cateto: b² =…", o: ["a · m", "m · n", "a + m"], a: 0, e: "Hipotenusa por su proyección." },
+  ],
+  tarjetas: [
+    ["Teorema de la altura", "En un triángulo rectángulo, h² = m · n."],
+    ["Teorema del cateto", "b² = a · m: hipotenusa por la proyección del cateto."],
+    ["Homotecia", "Ampliación o reducción desde un centro con razón k."],
+  ],
+});

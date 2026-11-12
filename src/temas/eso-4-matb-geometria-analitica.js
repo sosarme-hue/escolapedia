@@ -114,3 +114,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Relacionar pendiente, vector director y ángulo de una recta", "Hallar rectas paralelas y perpendiculares y la ecuación de una circunferencia"],
+  tras: {
+    "Operaciones con vectores": [
+      { html: `<h3>Módulo y vectores unitarios</h3><p>El <b>módulo</b> de un vector v = (a, b) es su longitud y se calcula con el teorema de Pitágoras: <mark>|v| = √(a² + b²)</mark>. El vector (3, 4) mide √25 = 5. Un <b>vector unitario</b> es el que mide 1; para obtener uno con la dirección de v se divide v entre su módulo: (3/5, 4/5). Dos vectores son <b>paralelos</b> si sus coordenadas son proporcionales, como (2, 3) y (6, 9). Y son <b>perpendiculares</b> si el producto de primeras coordenadas más el de segundas es 0: (2, 3) y (−3, 2) lo son, porque 2·(−3) + 3·2 = 0.</p>` },
+    ],
+    "Ecuaciones de la recta": [
+      { html: `<h3>Pendiente, vector director y ángulo</h3><p>La <b>pendiente</b> m de una recta indica cuánto sube por cada unidad que avanza hacia la derecha. Si se conocen dos puntos, <mark>m = (y₂ − y₁) / (x₂ − x₁)</mark>. Si el vector director es (v₁, v₂), la pendiente es v₂/v₁. Además, la pendiente es la <b>tangente del ángulo</b> que forma la recta con el eje X: m = tg α. Una recta con m = 1 forma 45°. Las rectas horizontales tienen m = 0 y las verticales no tienen pendiente: su ecuación es x = k. Con un punto y la pendiente se escribe la forma <b>punto-pendiente</b>: y − y₁ = m(x − x₁).</p>${AMP.tabla(["Forma", "Ecuación", "Qué se ve"], [["Explícita", "y = mx + n", "Pendiente y ordenada"], ["Punto-pendiente", "y − y₁ = m(x − x₁)", "Un punto y la pendiente"], ["General", "Ax + By + C = 0", "Vector director (−B, A)"]])}` },
+    ],
+    "Posición de dos rectas": [
+      { html: `<h3>Rectas paralelas y perpendiculares</h3><p>Dos rectas son <b>paralelas</b> si tienen la <mark>misma pendiente</mark>: y = 2x + 1 e y = 2x − 5. Son <b>perpendiculares</b> si el producto de sus pendientes es −1, es decir, si una es la <mark>inversa cambiada de signo</mark> de la otra: m₂ = −1/m₁. La perpendicular a y = 2x + 1 tiene pendiente −1/2. Con esto se resuelven problemas como hallar la recta que pasa por un punto y es paralela o perpendicular a otra: se toma la pendiente adecuada y se usa la forma punto-pendiente.</p>`, video: { id: "OxBg_0di558", titulo: "Ecuación de la recta que pasa por un punto y es paralela a otra", canal: "Matemáticas profe Alex", vistas: 1819745 } },
+      { html: `<h3>La ecuación de la circunferencia</h3><p>Una <b>circunferencia</b> es el conjunto de puntos que están a la misma distancia r (el radio) de un punto C(a, b), el centro. Aplicando la fórmula de la distancia se obtiene su ecuación: <mark>(x − a)² + (y − b)² = r²</mark>. La circunferencia de centro (2, −1) y radio 3 es (x − 2)² + (y + 1)² = 9. Para saber si un punto está dentro, fuera o sobre ella, se sustituye y se compara con r². Así es como los GPS localizan una posición: cada satélite define una «circunferencia» (en realidad, una esfera) y el receptor está en su intersección.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Halla la recta que pasa por P(1, 4) y es perpendicular a y = 3x − 2.", pasos: ["Pendiente de la dada: 3. Perpendicular: m = −1/3.", "Punto-pendiente: y − 4 = −1/3 (x − 1).", "Despejando: y = −x/3 + 13/3, o en general x + 3y − 13 = 0."], resultado: "x + 3y − 13 = 0." },
+    { enunciado: "Halla la pendiente y el ángulo con el eje X de la recta que pasa por A(−1, 2) y B(3, 6).", pasos: ["m = (6 − 2) / (3 − (−1)) = 4/4 = 1.", "tg α = 1.", "α = 45°."], resultado: "m = 1 y 45°." },
+    { enunciado: "Escribe la circunferencia de centro C(1, 2) que pasa por P(4, 6).", pasos: ["El radio es la distancia CP: √(3² + 4²) = 5.", "Ecuación: (x − 1)² + (y − 2)² = 25."], resultado: "(x − 1)² + (y − 2)² = 25." },
+  ],
+  errores: [
+    "Restar las coordenadas en distinto orden arriba y abajo al calcular la pendiente.",
+    "Pensar que la perpendicular tiene la pendiente cambiada de signo, sin invertirla.",
+    "Escribir el centro con el signo equivocado: (x + 3)² corresponde a a = −3.",
+    "Calcular el módulo sumando las coordenadas sin elevarlas al cuadrado.",
+    "Confundir el vector director (−B, A) de Ax + By + C = 0 con el vector (A, B).",
+  ],
+  ejercicios: [
+    { q: "Calcula el vector AB y su módulo con A(2, −1) y B(5, 3).", sol: "AB = (3, 4); |AB| = 5." },
+    { q: "Halla el punto medio de A(−2, 5) y B(6, 1).", sol: "M(2, 3)." },
+    { q: "¿Son perpendiculares u = (4, −2) y v = (1, 2)?", sol: "Sí: 4 · 1 + (−2) · 2 = 0." },
+    { q: "Halla la pendiente de la recta 2x − 4y + 7 = 0.", sol: "y = x/2 + 7/4: m = 1/2." },
+    { q: "Escribe la recta que pasa por (0, 3) y (2, 7) en forma explícita.", sol: "m = 2; y = 2x + 3." },
+    { q: "Halla la recta paralela a y = −x + 4 que pasa por (2, 5).", sol: "y − 5 = −(x − 2): y = −x + 7." },
+    { q: "Halla la recta perpendicular a y = 2x que pasa por el origen.", sol: "y = −x/2." },
+    { q: "Estudia la posición de y = 3x + 1 e y = 3x − 2.", sol: "Paralelas: misma pendiente y distinta ordenada." },
+    { q: "Indica el centro y el radio de (x + 2)² + (y − 3)² = 16.", sol: "C(−2, 3), r = 4." },
+    { q: "¿El punto (3, 1) está dentro, fuera o sobre x² + y² = 9?", sol: "9 + 1 = 10 > 9: está fuera." },
+  ],
+  quiz: [
+    { q: "Dos rectas paralelas tienen…", o: ["la misma pendiente", "pendientes opuestas", "producto de pendientes −1"], a: 0, e: "Mismo ángulo con el eje X." },
+    { q: "Si m₁ = 2, la perpendicular tiene m₂ =…", o: ["−2", "1/2", "−1/2"], a: 2, e: "Inversa cambiada de signo." },
+    { q: "El módulo de (6, 8) es…", o: ["14", "10", "48"], a: 1, e: "√(36 + 64) = 10." },
+    { q: "La pendiente es la tangente de…", o: ["el ángulo con el eje X", "el ángulo con el eje Y", "90°"], a: 0, e: "m = tg α." },
+    { q: "La circunferencia x² + y² = 25 tiene radio…", o: ["25", "5", "12,5"], a: 1, e: "r² = 25." },
+  ],
+  tarjetas: [
+    ["Pendiente", "m = (y₂ − y₁) / (x₂ − x₁) = tg α."],
+    ["Rectas perpendiculares", "m₁ · m₂ = −1."],
+    ["Circunferencia", "(x − a)² + (y − b)² = r², con centro (a, b) y radio r."],
+  ],
+});

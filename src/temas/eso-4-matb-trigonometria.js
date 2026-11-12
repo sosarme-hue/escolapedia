@@ -128,3 +128,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Usar la circunferencia goniométrica para ángulos de cualquier cuadrante", "Resolver problemas de doble observación y trabajar en radianes"],
+  tras: {
+    "Ángulos que conviene saber": [
+      { html: `<h3>Grados y radianes</h3><p>Además del <b>grado</b> sexagesimal, los ángulos se miden en <b>radianes</b>. Un radián es el ángulo cuyo arco mide lo mismo que el radio. Como la circunferencia completa mide 2πr, una vuelta son <mark>360° = 2π rad</mark>, y media vuelta, 180° = π rad. Para pasar de grados a radianes se multiplica por π/180, y al revés, por 180/π. Así, 90° = π/2 rad, 60° = π/3 rad y 1 rad ≈ 57,3°. Los radianes se usan en física y en Bachillerato porque simplifican muchas fórmulas. Ojo con la <b>calculadora</b>: debe estar en modo DEG para grados y RAD para radianes.</p>` },
+    ],
+    "La relación fundamental": [
+      { html: `<h3>La circunferencia goniométrica</h3><p>Para definir el seno y el coseno de ángulos mayores de 90° se usa la <b>circunferencia goniométrica</b>: una circunferencia de radio 1 centrada en el origen. Un ángulo α se dibuja desde el semieje X positivo en sentido antihorario, y el punto donde corta a la circunferencia tiene coordenadas <mark>(cos α, sen α)</mark>. Así se ve que el seno y el coseno siempre están entre −1 y 1, y que sus signos dependen del <b>cuadrante</b>: en el primero ambos son positivos; en el segundo, solo el seno; en el tercero, solo la tangente; y en el cuarto, solo el coseno.</p>${AMP.tabla(["Cuadrante", "sen", "cos", "tg"], [["I (0°-90°)", "+", "+", "+"], ["II (90°-180°)", "+", "−", "−"], ["III (180°-270°)", "−", "−", "+"], ["IV (270°-360°)", "−", "+", "−"]])}`, video: { id: "rldGZ2jgr5A", titulo: "Cómo recordar el círculo unitario en trigonometría", canal: "Khan Academy en Español", vistas: 499216 } },
+      { html: `<h3>Reducir al primer cuadrante</h3><p>Las razones de cualquier ángulo se pueden expresar con las de un ángulo agudo. Para un ángulo del <b>segundo cuadrante</b>, 180° − α: sen(180° − α) = sen α y cos(180° − α) = −cos α. Así, sen 150° = sen 30° = 1/2 y cos 150° = −cos 30°. En el <b>tercero</b>, 180° + α, el seno y el coseno cambian de signo. En el <b>cuarto</b>, 360° − α, solo cambia el seno. La idea clave es: <mark>el valor lo da el ángulo agudo y el signo lo da el cuadrante</mark>. Las razones de ángulos opuestos cumplen sen(−α) = −sen α y cos(−α) = cos α.</p>` },
+    ],
+    "Resolver problemas": [
+      { html: `<h3>Problemas de doble observación</h3><p>Para medir la altura de algo cuyo pie no se puede alcanzar, como una montaña al otro lado de un río, se mide el ángulo de elevación desde dos puntos alineados con ella y separados una distancia conocida. Se forman <b>dos triángulos rectángulos</b> que comparten la altura h. En cada uno se escribe la tangente: <mark>tg α = h / x</mark> y tg β = h / (x + d), donde x es la distancia desconocida al pie. Así se obtiene un sistema de dos ecuaciones con dos incógnitas, h y x. Es la técnica que usaban los topógrafos antes del GPS.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Calcula sen 120°, cos 120° y tg 120°.", pasos: ["120° está en el segundo cuadrante: 120° = 180° − 60°.", "sen 120° = sen 60° = √3/2; cos 120° = −cos 60° = −1/2.", "tg 120° = sen / cos = −√3."], resultado: "√3/2, −1/2 y −√3." },
+    { enunciado: "Desde un punto se ve la cima de una torre con un ángulo de 45°; al alejarse 20 m, con 30°. Halla la altura.", pasos: ["tg 45° = h/x, luego h = x.", "tg 30° = h/(x + 20): 0,577(x + 20) = x.", "0,423x = 11,55, x ≈ 27,3 m."], resultado: "h ≈ 27,3 m." },
+    { enunciado: "Sabiendo que sen α = 3/5 y que α está en el segundo cuadrante, halla cos α y tg α.", pasos: ["sen² α + cos² α = 1: cos² α = 1 − 9/25 = 16/25.", "En el segundo cuadrante el coseno es negativo: cos α = −4/5.", "tg α = (3/5)/(−4/5) = −3/4."], resultado: "cos α = −4/5; tg α = −3/4." },
+  ],
+  errores: [
+    "Usar la calculadora en modo RAD cuando los ángulos están en grados (o al revés).",
+    "Olvidar el signo del cuadrante al dar el coseno o la tangente.",
+    "Usar el seno cuando los datos son los dos catetos (corresponde la tangente).",
+    "Pensar que el seno de un ángulo puede valer más de 1.",
+    "Confundir ángulo de elevación (se mira hacia arriba) con ángulo de depresión (hacia abajo).",
+  ],
+  ejercicios: [
+    { q: "En un triángulo rectángulo los catetos miden 6 y 8 cm. Calcula las razones del ángulo opuesto al cateto de 6.", sol: "Hipotenusa 10: sen = 0,6; cos = 0,8; tg = 0,75." },
+    { q: "Pasa a radianes 45° y 270°.", sol: "π/4 y 3π/2 rad." },
+    { q: "Pasa a grados 5π/6 rad.", sol: "150°." },
+    { q: "Indica el signo de sen 200°, cos 300° y tg 100°.", sol: "Negativo, positivo y negativo." },
+    { q: "Calcula sen 210° y cos 315° sin calculadora.", sol: "sen 210° = −sen 30° = −1/2; cos 315° = cos 45° = √2/2." },
+    { q: "Si cos α = 0,6 y α está en el cuarto cuadrante, halla sen α.", sol: "sen α = −0,8." },
+    { q: "Una escalera de 5 m apoyada en una pared forma 60° con el suelo. ¿A qué altura llega?", sol: "5 · sen 60° ≈ 4,33 m." },
+    { q: "Desde lo alto de un faro de 40 m se ve un barco con un ángulo de depresión de 25°. ¿A qué distancia está?", sol: "d = 40 / tg 25° ≈ 85,8 m." },
+    { q: "Comprueba que tg α = sen α / cos α para α = 45°.", sol: "(√2/2)/(√2/2) = 1 = tg 45°." },
+    { q: "Una cometa tiene 30 m de hilo y forma 50° con el suelo. ¿A qué altura vuela?", sol: "30 · sen 50° ≈ 23 m." },
+  ],
+  quiz: [
+    { q: "360° equivalen a…", o: ["π rad", "2π rad", "180 rad"], a: 1, e: "Una vuelta completa." },
+    { q: "En la circunferencia goniométrica, el punto del ángulo α es…", o: ["(sen α, cos α)", "(cos α, sen α)", "(tg α, 1)"], a: 1, e: "Radio 1." },
+    { q: "En el segundo cuadrante es positivo…", o: ["el seno", "el coseno", "la tangente"], a: 0, e: "Solo el seno." },
+    { q: "sen 150° es igual a…", o: ["sen 30°", "−sen 30°", "cos 30°"], a: 0, e: "180° − 30°." },
+    { q: "En un problema de doble observación se plantea…", o: ["un sistema de dos ecuaciones", "una sola ecuación", "el teorema de Tales"], a: 0, e: "Incógnitas h y x." },
+  ],
+  tarjetas: [
+    ["Radián", "Ángulo cuyo arco mide igual que el radio; 180° = π rad."],
+    ["Circunferencia goniométrica", "Radio 1; cada ángulo da el punto (cos α, sen α)."],
+    ["Reducción al primer cuadrante", "El valor lo da el ángulo agudo; el signo, el cuadrante."],
+  ],
+});

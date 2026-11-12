@@ -119,3 +119,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Resolver inecuaciones racionales con la tabla de signos", "Plantear y resolver problemas con inecuaciones y regiones del plano"],
+  tras: {
+    "Inecuaciones de primer grado": [
+      { html: `<h3>Desigualdades y sus propiedades</h3><p>Una inecuación se resuelve casi como una ecuación, pero con una regla especial. Se puede <b>sumar o restar</b> el mismo número a los dos miembros sin que cambie el sentido de la desigualdad. Se puede <b>multiplicar o dividir</b> por un número positivo sin que cambie. Pero si se multiplica o divide por un número <b>negativo</b>, <mark>el sentido de la desigualdad se invierte</mark>: de −2x &gt; 6 se pasa a x &lt; −3. Es lógico: 2 &lt; 5, pero −2 &gt; −5. La solución se escribe como intervalo, con corchete si el extremo está incluido (≤, ≥) y paréntesis si no (&lt;, &gt;).</p>` },
+    ],
+    "La tabla de signos": [
+      { html: `<h3>Inecuaciones racionales</h3><p>Una inecuación <b>racional</b> tiene la incógnita en el denominador, como (x − 1) / (x + 3) ≥ 0. No se puede multiplicar por el denominador sin más, porque no sabemos si es positivo o negativo. El método es: 1) pasar todo a un miembro y dejar <b>cero en el otro</b>; 2) hallar las raíces del numerador y del denominador; 3) hacer la <b>tabla de signos</b> en los intervalos que determinan; 4) elegir los intervalos con el signo pedido. Las raíces del numerador se incluyen si la desigualdad es ≤ o ≥, pero las del denominador <mark>nunca se incluyen</mark>, porque allí la fracción no existe.</p>`, video: { id: "QLf7vVb6Wao", titulo: "Inecuaciones racionales: solución, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 2017292 } },
+    ],
+    "Inecuaciones con dos incógnitas": [
+      { html: `<h3>Problemas con inecuaciones</h3><p>Muchas situaciones de la vida real no piden un valor exacto sino un <b>límite</b>: «como mucho», «al menos», «no más de», «superar». Se traducen así: «al menos» es ≥; «como mucho» o «no más de» es ≤; «más que» es &gt;. Por ejemplo, para comparar dos tarifas se plantea cuándo una es más barata que la otra, y la solución es un intervalo de valores. Al final hay que <b>interpretar</b>: si la incógnita es un número de personas o de entradas, solo valen los <mark>números naturales</mark> del intervalo.</p>` },
+      { html: `<h3>Regiones factibles</h3><p>Cuando hay varias condiciones con dos incógnitas, cada inecuación determina un semiplano y la solución del sistema es la <b>región factible</b>: la zona común a todos. Por ejemplo, una empresa fabrica x mesas e y sillas con condiciones de tiempo y material. Los <b>vértices</b> de la región son importantes porque, como se estudia en Bachillerato en la <b>programación lineal</b>, el máximo beneficio o el mínimo coste siempre se alcanza en uno de ellos. Para dibujarla se representa cada recta frontera y se comprueba con un punto, como el (0, 0), <mark>qué lado cumple</mark> la desigualdad.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Resuelve (x − 1) / (x + 3) ≥ 0.", pasos: ["Raíces: numerador x = 1; denominador x = −3.", "Signos: en (−∞, −3) es +; en (−3, 1) es −; en (1, +∞) es +.", "Se incluye x = 1 (vale 0), pero no x = −3."], resultado: "(−∞, −3) ∪ [1, +∞)." },
+    { enunciado: "La tarifa A cuesta 20 € al mes más 0,05 € por minuto; la B, 0,15 € por minuto. ¿A partir de cuántos minutos es más barata la A?", pasos: ["A más barata: 20 + 0,05x < 0,15x.", "20 < 0,10x, luego x > 200.", "Para 200 min cuestan lo mismo (30 €)."], resultado: "A partir de 201 minutos." },
+    { enunciado: "Resuelve x² − 5x + 4 < 0.", pasos: ["Raíces de x² − 5x + 4 = 0: x = 1 y x = 4.", "La parábola abre hacia arriba: es negativa entre las raíces.", "Sin incluir los extremos."], resultado: "(1, 4)." },
+  ],
+  errores: [
+    "No invertir el sentido de la desigualdad al multiplicar o dividir por un negativo.",
+    "Multiplicar por el denominador en una inecuación racional sin conocer su signo.",
+    "Incluir en la solución las raíces del denominador.",
+    "Usar corchetes con < o > y paréntesis con ≤ o ≥.",
+    "Dar como solución de un problema valores decimales cuando la incógnita es un número de personas.",
+  ],
+  ejercicios: [
+    { q: "Resuelve 3x − 5 ≤ 7.", sol: "x ≤ 4: (−∞, 4]." },
+    { q: "Resuelve 4 − 2x > 10.", sol: "−2x > 6, x < −3: (−∞, −3)." },
+    { q: "Resuelve (x + 1)/2 − x/3 ≥ 1.", sol: "3(x + 1) − 2x ≥ 6, x ≥ 3: [3, +∞)." },
+    { q: "Resuelve x² − 9 > 0.", sol: "(−∞, −3) ∪ (3, +∞)." },
+    { q: "Resuelve x² + 2x ≤ 0.", sol: "x(x + 2) ≤ 0: [−2, 0]." },
+    { q: "Resuelve (x − 2)/(x − 5) < 0.", sol: "(2, 5)." },
+    { q: "Resuelve el sistema 2x − 1 > 3 y x + 4 ≤ 10.", sol: "x > 2 y x ≤ 6: (2, 6]." },
+    { q: "Un examen tiene 20 preguntas: +0,5 por acierto. ¿Cuántos aciertos hacen falta para sacar al menos un 7 si no restan los fallos?", sol: "0,5x ≥ 7, x ≥ 14: al menos 14 aciertos." },
+    { q: "Un gimnasio cobra 30 € de matrícula y 25 € al mes. ¿Cuántos meses puedes pagar con 200 €?", sol: "30 + 25x ≤ 200, x ≤ 6,8: como mucho 6 meses." },
+    { q: "¿El punto (1, 1) cumple x + 2y < 4? ¿Y (2, 2)?", sol: "(1, 1): 3 < 4, sí. (2, 2): 6 < 4, no." },
+  ],
+  quiz: [
+    { q: "Al dividir por −3 los dos miembros de una inecuación…", o: ["no cambia nada", "se invierte la desigualdad", "se cambia a igualdad"], a: 1, e: "Ocurre con cualquier negativo." },
+    { q: "«Como mucho 50» se escribe…", o: ["x ≥ 50", "x ≤ 50", "x > 50"], a: 1, e: "No puede superarlo." },
+    { q: "En una inecuación racional, las raíces del denominador…", o: ["se incluyen siempre", "no se incluyen nunca", "depende"], a: 1, e: "La fracción no existe." },
+    { q: "La solución de x² < 4 es…", o: ["(−2, 2)", "x < 2", "(−∞, −2) ∪ (2, +∞)"], a: 0, e: "Entre las raíces." },
+    { q: "La región factible es…", o: ["la zona común a todas las inecuaciones", "una recta", "un punto"], a: 0, e: "Intersección de semiplanos." },
+  ],
+  tarjetas: [
+    ["Regla del negativo", "Al multiplicar o dividir por un negativo, la desigualdad cambia de sentido."],
+    ["Inecuación racional", "Se resuelve con cero en un miembro y tabla de signos; el denominador nunca se incluye."],
+    ["Región factible", "Zona del plano que cumple todas las inecuaciones de un sistema."],
+  ],
+});

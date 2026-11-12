@@ -115,3 +115,59 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Resolver ecuaciones de grado mayor que dos por factorización", "Resolver ecuaciones exponenciales y plantear problemas con ecuaciones"],
+  tras: {
+    "El discriminante": [
+      { html: `<h3>Suma y producto de las soluciones</h3><p>En una ecuación ax² + bx + c = 0 con soluciones x₁ y x₂ se cumple que <mark>x₁ + x₂ = −b/a</mark> y <mark>x₁ · x₂ = c/a</mark>. Esto sirve para comprobar rápidamente las soluciones y para construir una ecuación a partir de ellas: si las soluciones son 2 y 5, la ecuación es x² − 7x + 10 = 0, porque la suma es 7 y el producto 10. También permite factorizar: ax² + bx + c = a(x − x₁)(x − x₂).</p><div class="formula"><span>x² − 7x + 10 = (x − 2)(x − 5)</span></div>` },
+    ],
+    "Ecuaciones bicuadradas": [
+      { html: `<h3>Ecuaciones de grado superior: factorizar</h3><p>Para resolver una ecuación como x³ − 2x² − 5x + 6 = 0 se <b>factoriza</b> el polinomio. Primero se saca factor común si se puede. Después se buscan raíces enteras entre los <b>divisores del término independiente</b> y se aplica la regla de Ruffini; el cociente es un polinomio de un grado menos. Cuando queda una ecuación de segundo grado, se usa la fórmula. Al final se aplica que <mark>un producto es cero si alguno de sus factores es cero</mark>. Una ecuación de grado n tiene como mucho n soluciones.</p>` },
+    ],
+    "Racionales e irracionales: ¡comprueba!": [
+      { html: `<h3>Ecuaciones exponenciales</h3><p>En las <b>ecuaciones exponenciales</b> la incógnita está en el exponente, como 2ˣ = 32. Si se pueden escribir los dos miembros como potencias de la <b>misma base</b>, se igualan los exponentes: 2ˣ = 2⁵, luego x = 5. Si aparecen sumas, como 2ˣ + 2ˣ⁺¹ = 12, se saca factor común 2ˣ(1 + 2) = 12, de donde 2ˣ = 4 y x = 2. A veces hay que hacer un <b>cambio de variable</b> (t = 2ˣ) que lleva a una ecuación de segundo grado. Cuando las bases no se pueden igualar, se toman <mark>logaritmos</mark> en los dos miembros.</p>`, video: { id: "XdaB464Gt4M", titulo: "Ecuaciones exponenciales: introducción", canal: "Matemáticas profe Alex", vistas: 2496710 } },
+      { html: `<h3>Plantear problemas</h3><p>Para resolver un problema con ecuaciones: 1) lee y decide qué es la <b>incógnita</b>; 2) traduce el enunciado a una <b>ecuación</b>; 3) resuélvela; 4) <b>interpreta</b> las soluciones y descarta las que no tienen sentido, como una longitud negativa o un número de personas decimal; 5) comprueba en el enunciado. Muchos problemas de áreas, de números consecutivos o de movimiento llevan a ecuaciones de segundo grado, y es frecuente que <mark>solo una de las dos soluciones</mark> sea válida.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Resuelve x³ − 2x² − 5x + 6 = 0.", pasos: ["Divisores de 6: ±1, ±2, ±3, ±6. Para x = 1: 1 − 2 − 5 + 6 = 0, es raíz.", "Ruffini con 1: cociente x² − x − 6.", "x² − x − 6 = 0 da x = 3 y x = −2."], resultado: "x = 1, x = 3 y x = −2." },
+    { enunciado: "Resuelve 3ˣ⁺¹ = 81.", pasos: ["81 = 3⁴.", "3ˣ⁺¹ = 3⁴, igualamos exponentes: x + 1 = 4.", "x = 3. Comprobación: 3⁴ = 81."], resultado: "x = 3." },
+    { enunciado: "Un rectángulo tiene 3 cm más de largo que de ancho y su área es 40 cm². Halla sus lados.", pasos: ["Ancho x, largo x + 3: x(x + 3) = 40.", "x² + 3x − 40 = 0, con soluciones x = 5 y x = −8.", "Una longitud no puede ser negativa: se descarta −8."], resultado: "5 cm de ancho y 8 cm de largo." },
+  ],
+  errores: [
+    "Dividir los dos miembros entre x y perder la solución x = 0 (en x² = 5x hay que sacar factor común).",
+    "Olvidar el ± al despejar x² = 9, que tiene dos soluciones: 3 y −3.",
+    "En las bicuadradas, no deshacer el cambio t = x² o aceptar valores de t negativos.",
+    "No comprobar las soluciones de las ecuaciones con radicales o con x en el denominador.",
+    "Igualar exponentes cuando las bases no son iguales.",
+    "Dar como válidas soluciones sin sentido en el problema (longitudes negativas).",
+  ],
+  ejercicios: [
+    { q: "Resuelve x² − 5x + 6 = 0.", sol: "x = 2 y x = 3." },
+    { q: "Sin resolver, ¿cuántas soluciones tiene 2x² + 3x + 5 = 0?", sol: "Δ = 9 − 40 = −31 < 0: ninguna solución real." },
+    { q: "Resuelve 4x² − 9 = 0 y 3x² + 12x = 0.", sol: "x = ±3/2; x = 0 y x = −4." },
+    { q: "Escribe una ecuación de segundo grado cuyas soluciones sean −1 y 4.", sol: "x² − 3x − 4 = 0." },
+    { q: "Resuelve x⁴ − 10x² + 9 = 0.", sol: "t = x²: t = 1 y t = 9; x = ±1 y x = ±3." },
+    { q: "Resuelve x³ − 4x = 0.", sol: "x(x² − 4) = 0: x = 0, x = 2 y x = −2." },
+    { q: "Resuelve √(x + 7) = x + 1.", sol: "x + 7 = x² + 2x + 1, x² + x − 6 = 0: x = 2 o x = −3. Al comprobar, solo vale x = 2." },
+    { q: "Resuelve 5²ˣ⁻¹ = 125.", sol: "2x − 1 = 3, x = 2." },
+    { q: "Resuelve 2ˣ + 2ˣ⁺² = 40.", sol: "2ˣ(1 + 4) = 40, 2ˣ = 8, x = 3." },
+    { q: "La suma de los cuadrados de dos números consecutivos es 145. ¿Cuáles son?", sol: "x² + (x + 1)² = 145, x² + x − 72 = 0: x = 8 o x = −9. Son 8 y 9, o −9 y −8." },
+  ],
+  quiz: [
+    { q: "En ax² + bx + c = 0, la suma de las soluciones es…", o: ["−b/a", "c/a", "b/a"], a: 0, e: "Y el producto, c/a." },
+    { q: "Las posibles raíces enteras de un polinomio son divisores de…", o: ["el coeficiente principal", "el término independiente", "el grado"], a: 1, e: "Se prueban con Ruffini." },
+    { q: "La solución de 2ˣ = 16 es…", o: ["8", "4", "2"], a: 1, e: "2⁴ = 16." },
+    { q: "Una ecuación de grado 3 tiene como mucho…", o: ["2 soluciones", "3 soluciones", "infinitas"], a: 1, e: "Tantas como su grado." },
+    { q: "En un problema, una solución x = −4 cm se…", o: ["acepta", "descarta", "redondea"], a: 1, e: "Una longitud no es negativa." },
+  ],
+  tarjetas: [
+    ["Suma y producto de raíces", "x₁ + x₂ = −b/a; x₁ · x₂ = c/a."],
+    ["Ecuación exponencial", "La incógnita está en el exponente; se igualan bases o se usan logaritmos."],
+    ["Producto nulo", "Si A · B = 0, entonces A = 0 o B = 0."],
+  ],
+});
