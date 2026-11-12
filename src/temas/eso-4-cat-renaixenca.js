@@ -27,7 +27,7 @@ module.exports = {
       html: `<h3>L'inici: la «Oda a la pàtria»</h3><p>El 1833, <b>Bonaventura Carles Aribau</b> va publicar el poema <i>La pàtria</i>, conegut com a <mark>«Oda a la pàtria»</mark>, on expressa l'enyorança de la terra i de la llengua. Es considera el punt de partida simbòlic de la Renaixença.</p>`,
       svg: L.dialogo("Versos de la Oda a la pàtria d'Aribau", [
         ["Aribau (1833)", "En llemosí sonà lo meu primer vagit,", "var(--red)"],
-        ["", "quan del mugró matern la dolça llet bevia;", "var(--red)"],
+        ["", "quan del mugró matern", "var(--red)"], ["", "la dolça llet bevia;", "var(--red)"],
       ]),
     },
     {
@@ -41,7 +41,7 @@ module.exports = {
     {
       html: `<h3>Jacint Verdaguer</h3><p>És el gran poeta de la Renaixença. Va escriure els poemes èpics <mark><i>L'Atlàntida</i></mark> (1877), sobre el mite del continent enfonsat i l'origen de la península, i <mark><i>Canigó</i></mark> (1886), una llegenda pirinenca. També va escriure poesia religiosa i <i>Montserrat</i>. El seu català va modernitzar la llengua literària.</p>`,
       svg: L.tabla("Obres de Jacint Verdaguer", ["Obra", "Any"], [
-        ["L'Atlàntida", "1877"], ["Canigó", "1886"], ["Idil·lis i cants místics", "1879"],
+        ["L'Atlàntida", "1877"], ["Canigó", "1886"], ["Pàtria", "1888"],
       ], "var(--pen)"),
     },
     {

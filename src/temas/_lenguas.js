@@ -5,7 +5,9 @@ const { F, D } = require("./_util");
 // Ancho aproximado de un texto en píxeles.
 const ancho = (s, fs, bold) => [...String(s).replace(/<[^>]+>/g, "")].reduce((a, ch) => a + (/[A-ZÁÉÍÓÚÑÇÀÈÒÜ0-9]/.test(ch) ? 0.66 : /[ .,;:'’·il]/.test(ch) ? 0.32 : 0.5), 0) * fs * (bold ? 1.12 : 1);
 function cabe(s, fs, max, bold, donde) {
-  if (ancho(s, fs, bold) > max * 1.3) console.warn(`[lenguas] texto largo (${Math.round(ancho(s, fs, bold))}>${max}) en ${donde}: «${s}»`);
+  // Avisa solo si, al reducir la letra para que quepa, quedaría por debajo de 10 px (difícil de leer).
+  const a = ancho(s, fs, bold);
+  if (a > max && fs * max / a < 10) console.warn(`[lenguas] texto largo (${Math.round(a)}>${max}, quedaría a ${(fs * max / a).toFixed(1)} px) en ${donde}: «${s}»`);
 }
 // Tamaño de letra que hace caber el texto en «max» píxeles (reduce la letra si hace falta).
 const fz = (s, fs, max, bold) => { const a = ancho(s, fs, bold); return a > max ? +(fs * max / a).toFixed(1) : fs; };

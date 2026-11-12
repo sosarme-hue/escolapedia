@@ -25,13 +25,13 @@ module.exports = {
       html: `<h3>La poesia: Joan Maragall</h3><p>Va defensar la teoria de la <mark>paraula viva</mark>: el poema neix d'una inspiració espontània i no s'ha de corregir gaire. Obres: <i>La vaca cega</i>, <i>El comte Arnau</i>, el <i>Cant espiritual</i> («Si el món ja és tan formós, Senyor…»).</p>`,
       svg: L.dialogo("Versos del Cant espiritual de Maragall", [
         ["Maragall", "Si el món ja és tan formós, Senyor,", "var(--pen)"],
-        ["", "si es mira amb la pau vostra a dintre l'ull…", "var(--pen)"],
+        ["", "si es mira amb la pau vostra", "var(--pen)"], ["", "a dintre l'ull…", "var(--pen)"],
       ]),
     },
     {
       html: `<h3>La narrativa: Víctor Català</h3><p><b>Víctor Català</b> era el pseudònim de <b>Caterina Albert</b>, que va haver d'amagar que era dona per publicar. La seva novel·la <mark><i>Solitud</i></mark> (1905) explica com la Mila, casada amb un home apàtic, s'enfronta sola a la duresa de la muntanya i troba la llibertat. També destaquen <b>Raimon Casellas</b> (<i>Els sots feréstecs</i>) i <b>Santiago Rusiñol</b> (<i>L'auca del senyor Esteve</i>).</p>`,
       svg: L.tabla("Narrativa modernista", ["Autor", "Obra"], [
-        ["Víctor Català", "Solitud"], ["R. Casellas", "Els sots feréstecs"], ["S. Rusiñol", "L'auca del senyor Esteve"],
+        ["Víctor Català", "Solitud"], ["R. Casellas", "Els sots feréstecs"], ["S. Rusiñol", "L'auca del sr. Esteve"],
       ], "var(--red)"),
     },
     {

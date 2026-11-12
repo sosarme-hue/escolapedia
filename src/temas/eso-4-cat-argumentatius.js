@@ -98,3 +98,55 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliació: més teoria, exemples resolts, errors típics i exercicis amb solució.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Detectar fal·làcies en debats i a les xarxes", "Reconèixer els trets lingüístics de l'argumentació", "Escriure un article d'opinió de cinc paràgrafs"],
+  bloques: [
+    { tras: "Què és argumentar?", html: `<h3>Tema, tesi i arguments</h3><p>Per entendre un text argumentatiu cal distingir tres conceptes. El <b>tema</b> és de què parla («els deures»). La <b>tesi</b> és què en pensa l'autor, la idea que defensa («els deures s'haurien de reduir a la meitat»). Els <b>arguments</b> són les raons que fa servir per convèncer («els alumnes dormen poc», «un estudi finlandès mostra…»).</p><p>Sovint també hi ha <b>contraarguments</b>, és a dir, les raons de l'opinió contrària, que l'autor recull per rebatre-les. Una bona manera de trobar la tesi és preguntar-se: <mark>de què em vol convèncer aquest text?</mark> La resposta ha de ser una frase que es pugui discutir; si tothom hi està d'acord, no és una tesi.</p>` },
+    { tras: "Tipus d'arguments", html: `<h3>Fal·làcies: arguments trampa</h3><p>Una <b>fal·làcia</b> sembla un argument, però no demostra res. Saber-les detectar et protegeix en els debats i a les xarxes socials:</p><ul><li><b>Atac personal</b> (<i>ad hominem</i>): «No li facis cas, que va suspendre física». S'ataca la persona, no la idea.</li><li><b>Generalització precipitada</b>: «El meu cosí va tenir una moto i va caure; les motos són un perill».</li><li><b>Fals dilema</b>: «O estàs amb mi o contra mi». Hi ha més opcions.</li><li><b>Pendent relliscós</b>: «Si avui et deixo sortir, demà voldràs sortir cada dia».</li><li><b>Falsa autoritat</b>: un futbolista opinant de vacunes com si fos metge.</li></ul><p>Un bon argument ha de ser <mark>pertinent, suficient i verificable</mark>.</p>` },
+    { tras: "L'estructura", html: `<h3>Trets lingüístics de l'argumentació</h3><p>El text argumentatiu deixa empremtes de l'emissor:</p><ul><li><b>Primera persona</b> i verbs d'opinió: <i>crec, considero, opino, ens sembla</i>.</li><li><b>Adjectius valoratius</b>: <i>inacceptable, imprescindible, injust</i>.</li><li><b>Preguntes retòriques</b>: «De debò volem un planeta sense boscos?»</li><li><b>Modalitzadors</b> que mostren seguretat (<i>sens dubte, és evident que</i>) o prudència (<i>potser, probablement, sembla que</i>).</li><li><b>Connectors</b> de causa, conseqüència i oposició.</li></ul><p>En canvi, el text <b>expositiu</b> evita la primera persona i prefereix les formes impersonals: «es considera», «els científics han demostrat». Comparar aquests trets és una manera ràpida de distingir-los.</p>` },
+    { tras: "Els connectors", html: `<h3>Connectors: pronoms i ús correcte</h3>${L.tb(["Funció", "Connectors correctes", "Evita"], [["oposició", "però, tanmateix, no obstant això, en canvi", "*sin embargo"], ["causa", "perquè, ja que, atès que, com que", "*ja que + infinitiu"], ["conseqüència", "per tant, doncs, així doncs, en conseqüència", "*por lo tant"], ["afegir", "a més (a més), així mateix, també", "*ademés"], ["concloure", "en definitiva, en resum, en conclusió", "*en resumides comptes (col·loquial)"], ["exemple", "per exemple, com ara, és a dir", "*o sigui (col·loquial)"]])}<p>Atenció a les <b>interferències</b> del castellà, que en català són incorrectes. A més, el connector <i>no obstant</i> sol és incomplet: cal dir <b>no obstant això</b>. I recorda que <i>ja que</i> va seguit d'un verb conjugat: «ja que <b>plou</b>», no «*ja que ploure».</p>` },
+    { tras: "Escriure un article d'opinió", html: `<h3>Model d'article d'opinió</h3><p><i>«<b>Els mòbils, fora de les aules?</b> Cada vegada més instituts prohibeixen el mòbil. Al meu parer, la prohibició total no és la millor solució. En primer lloc, el mòbil és una eina d'aprenentatge: permet buscar informació, fer vídeos o fer servir aplicacions de llengües. A més, segons un informe de la UNESCO, el que importa és com es fa servir la tecnologia, no la tecnologia en si. És cert que distreu i que alguns alumnes en fan un mal ús; tanmateix, això es pot resoldre amb normes clares i acordades. En definitiva, cal educar en l'ús responsable del mòbil, no amagar-lo en un calaix.»</i></p><p>Fixa't en l'estructura: títol, introducció amb tesi, dos arguments, contraargument rebatut i conclusió.</p>` },
+  ],
+  videos: [
+    ["Escriure un article d'opinió", L.vid("3QYq5otisCQ", "Com s'escriu un article d'opinió en català", "Parlem d'escriure en català", 8168)],
+  ],
+  ejemplos: [
+    ["Localitza la tesi i l'estructura: «Segons l'OMS, els adolescents necessiten entre 8 i 10 hores de son. Molts alumnes arriben esgotats a primera hora. Per tant, els instituts haurien de començar més tard.»", ["Busca l'opinió defensada: «els instituts haurien de començar més tard».", "És a l'última frase, introduïda per «per tant».", "El que hi ha abans són arguments: d'autoritat (OMS) i d'experiència."], "tesi al final: estructura inductiva amb arguments d'autoritat i d'experiència."],
+    ["Identifica la fal·làcia: «Si deixem que els alumnes triïn una optativa, després voldran triar tots els professors».", ["S'anuncia una cadena de conseqüències cada cop més exagerades.", "No es demostra que una cosa porti a l'altra.", "És una manera de fer por per rebutjar la proposta."], "és una fal·làcia del pendent relliscós."],
+    ["Construeix un contraargument rebatut per a la tesi «Cal reciclar a l'institut».", ["Pensa què diria algú en contra: «Reciclar és pesat i ocupa temps».", "Reconeix-ho amb un connector concessiu: «És cert que…».", "Rebat-ho amb un connector d'oposició i una raó."], "«És cert que separar els residus requereix una mica d'esforç; tanmateix, només cal posar tres papereres a cada aula.»"],
+  ],
+  errores: [
+    "Confondre el tema (de què parla) amb la tesi (què en pensa l'autor).",
+    "Donar com a argument una opinió sense raons.",
+    "Fer servir castellanismes com *sin embargo, *ademés o *por lo tant.",
+    "Escriure un text expositiu ple d'opinions personals.",
+    "Oblidar la conclusió o fer que contradigui la tesi.",
+  ],
+  ejercicios: [
+    ["Escriu la tesi d'un text que defensa que llegir en paper és millor que en pantalla.", "«Llegir en paper afavoreix més la comprensió que llegir en pantalla.»"],
+    ["Quin tipus d'argument és «El 70 % dels joves fa servir xarxes cada dia»?", "Argument de dades (estadístic)."],
+    ["Quin tipus d'argument és «La meva germana va començar a fer esport i ara dorm millor»?", "Argument d'experiència personal o d'exemple."],
+    ["Identifica la fal·làcia: «No pots parlar del canvi climàtic perquè vas amb avió».", "Atac personal (ad hominem)."],
+    ["Corregeix: «Feia fred; sin embargo, vam sortir.»", "«Feia fred; tanmateix (no obstant això), vam sortir.»"],
+    ["Completa amb connectors: «Plou; ___, anirem al parc. ___, portarem paraigua.»", "tanmateix / per tant (per això)."],
+    ["Escriu tres trets lingüístics del text argumentatiu.", "Primera persona i verbs d'opinió, adjectius valoratius i preguntes retòriques (també modalitzadors i connectors)."],
+    ["Quina estructura té un text amb la tesi al començament i repetida al final?", "Enquadrada."],
+    ["Transforma en un argument vàlid: «Tots els meus amics fan servir aquesta aplicació, així que és la millor».", "«Aquesta aplicació gasta menys bateria i no guarda dades personals, segons l'anàlisi d'una associació de consumidors.» (Argument de dades i d'autoritat.)"],
+    ["Escriu la conclusió d'un text que defensa més zones verdes al barri.", "«En definitiva, més zones verdes milloren la salut, redueixen la calor i ens fan conviure millor; per això, l'ajuntament hauria de convertir el solar en un parc.»"],
+  ],
+  quiz: [
+    ["«O apruves tot o no serveixes per estudiar» és un…", ["fals dilema", "argument d'autoritat", "argument de dades"], 0, "Presenta només dues opcions."],
+    ["Quin connector és correcte en català?", ["tanmateix", "sin embargo", "ademés"], 0, "Els altres són castellanismes."],
+    ["La tesi és…", ["l'opinió que es defensa", "el tema", "el títol"], 0, "La idea que es vol demostrar."],
+    ["«És cert que…; tanmateix…» serveix per…", ["rebatre un contraargument", "obrir una notícia", "definir"], 0, "Concedeix i refuta."],
+    ["El text expositiu prefereix…", ["formes impersonals", "moltes exclamacions", "insults"], 0, "Busca objectivitat."],
+  ],
+  tarjetas: [
+    ["Fal·làcia", "Raonament trampa: atac personal, fals dilema, generalització."],
+    ["Contraargument", "Opinió contrària que es recull per rebatre-la: És cert que…; tanmateix…"],
+    ["Connectors correctes", "tanmateix, no obstant això, a més, per tant (no *sin embargo, *ademés)."],
+  ],
+});

@@ -38,13 +38,13 @@ module.exports = {
       svg: L.dialogo("Versos de La pell de brau d'Espriu", [
         ["Espriu", "Diversos són els homes", "var(--red)"],
         ["", "i diverses les parles,", "var(--red)"],
-        ["", "i han convingut molts noms a un sol amor.", "var(--red)"],
+        ["", "i han convingut molts noms", "var(--red)"], ["", "a un sol amor.", "var(--red)"],
       ]),
     },
     {
       html: `<h3>Pere Calders i la narrativa</h3><p><b>Pere Calders</b>, exiliat a Mèxic, escriu contes on <mark>allò fantàstic irromp en la vida quotidiana</mark> amb ironia: <i>Cròniques de la veritat oculta</i>, <i>Invasió subtil</i>. <b>Llorenç Villalonga</b> (Mallorca) escriu <i>Bearn o la sala de les nines</i>, sobre la decadència de l'aristocràcia.</p>`,
       svg: L.tabla("Narradors de postguerra", ["Autor", "Obra"], [
-        ["Pere Calders", "Cròniques de la veritat oculta"], ["L. Villalonga", "Bearn"], ["M. Rodoreda", "Mirall trencat"],
+        ["Pere Calders", "Invasió subtil"], ["L. Villalonga", "Bearn"], ["M. Rodoreda", "Mirall trencat"],
       ], "var(--pen)"),
     },
     {

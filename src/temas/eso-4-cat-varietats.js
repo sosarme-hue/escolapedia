@@ -17,7 +17,7 @@ module.exports = {
     {
       html: `<h3>El domini lingüístic</h3><p>El català es parla en <mark>quatre estats</mark>: Espanya (Catalunya, Comunitat Valenciana, Illes Balears i la Franja d'Aragó, a més del Carxe, a Múrcia), Andorra (on és l'única llengua oficial), França (Catalunya del Nord) i Itàlia (l'Alguer, a Sardenya). Té uns <b>10 milions</b> de parlants.</p>`,
       svg: L.filas("Territoris on es parla català", [
-        ["Espanya", "Cat., País Valencià, Balears, Franja", "var(--pen)"],
+        ["Espanya", "Cat., P. Val., Balears, Franja", "var(--pen)"],
         ["Andorra", "única llengua oficial", "var(--red)"],
         ["França", "Catalunya del Nord", "var(--inf)"],
         ["Itàlia", "l'Alguer (Sardenya)", "var(--leaf)"],

@@ -98,3 +98,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliació: més teoria, exemples resolts, errors típics i exercicis amb solució.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Aplicar el canvi i la caiguda de preposicions davant de «que»", "Triar el relatiu correcte darrere de preposició (què, qui, el qual)", "Evitar castellanismes com *lo que o *cuyo"],
+  bloques: [
+    { tras: "Les substantives", html: `<h3>Les funcions de les substantives</h3><p>Com un nom, una substantiva pot ser:</p><ul><li><b>Subjecte</b>: «M'agrada <i>que vinguis</i>.» (M'agrada això; si passa a plural, concorda: m'agraden aquestes coses.)</li><li><b>Complement directe</b>: «Crec <i>que tens raó</i>.» (Ho crec.)</li><li><b>Complement de règim verbal</b>: «M'alegro <i>que hagis vingut</i>», «M'adono <i>que és tard</i>» (m'adono d'això). Fixa't que la preposició del verb (alegrar-se de, adonar-se de) desapareix davant de «que».</li><li><b>Atribut</b>: «El meu desig és <i>que aprovis</i>.»</li><li><b>Complement del nom o de l'adjectiu</b>: «Tinc ganes <i>que arribi l'estiu</i>», «Estic segura <i>que vindrà</i>».</li></ul><p>També hi ha substantives d'infinitiu, sense nexe: «Prefereixo <i>quedar-me a casa</i>», «És important <i>dormir bé</i>».</p>` },
+    { tras: "Les substantives", html: `<h3>La caiguda de preposicions davant de «que»</h3><p>Aquesta és una diferència clau amb el castellà. En català, les preposicions <b>a, de, en, amb</b> <mark>cauen davant de la conjunció «que»</mark> (i davant d'infinitiu, en molts casos):</p>${L.tb(["Amb nom", "Amb «que»"], [["M'adono <b>de</b> l'error.", "M'adono <b>que</b> m'he equivocat."], ["Estic segur <b>de</b> la resposta.", "Estic segur <b>que</b> ho sé."], ["Confio <b>en</b> tu.", "Confio <b>que</b> vindràs."], ["Insisteix <b>en</b> això.", "Insisteix <b>que</b> hi anem."]])}<p>Per això en català no existeix el dequeisme del castellà: <s>*m'adono de que</s>, <s>*estic segur de que</s> són incorrectes. En canvi, les preposicions es mantenen davant de «què» interrogatiu o relatiu: «De què parles?», «el tema de què parlàvem».</p>` },
+    { tras: "Les adjectives o de relatiu", html: `<h3>Quin relatiu poso?</h3>${L.tb(["Situació", "Relatiu", "Exemple"], [["subjecte o CD, sense preposició", "que", "el noi <b>que</b> canta; el llibre <b>que</b> llegeixo"], ["darrere de preposició, cosa", "què (àton: amb accent!) o el qual", "el tema <b>de què</b> / <b>del qual</b> parlàvem"], ["darrere de preposició, persona", "qui o el qual", "la noia <b>amb qui</b> / <b>amb la qual</b> parlaves"], ["lloc", "on", "el poble <b>on</b> vaig néixer"], ["possessió", "del qual, de qui", "l'autor <b>la novel·la del qual</b> vam llegir"], ["sense antecedent (= allò que)", "el que, allò que, qui", "<b>El que</b> dius és veritat; <b>Qui</b> matina fa farina."]])}<p>En català <b>no s'usa</b> <s>*lo que</s> (cal dir <b>el que</b>, <b>allò que</b> o <b>la qual cosa</b>) ni <s>*cuyo</s> (cal <b>del qual / de qui</b>).</p>` },
+    { tras: "Les adverbials", html: `<h3>Perquè: causa o finalitat</h3><p>En català, <b>perquè</b> té dos valors i és el mode verbal el que els distingeix:</p><ul><li><b>Causa</b> + indicatiu: «No va venir <b>perquè estava</b> malalt» (per quina raó?).</li><li><b>Finalitat</b> + subjuntiu: «T'ho explico <b>perquè ho entenguis</b>» (amb quina finalitat?).</li></ul><p>Altres nexes de finalitat: <i>per tal que, a fi que</i> + subjuntiu, i <b>per + infinitiu</b> quan el subjecte és el mateix: «Estudio <b>per</b> aprovar». No s'ha de fer servir <s>*per a</s> davant d'infinitiu amb valor final: «Estalvio <b>per</b> comprar-me una bici».</p><p>Recorda també que darrere de <b>si</b> condicional mai no hi va el condicional (<s>*si tindria</s> → <b>si tingués</b>). No confonguis <b>perquè</b> (conjunció, junt) amb <b>per què</b> (preposició + pronom interrogatiu o relatiu): «<b>Per què</b> no vens?», «la raó <b>per què</b> ho va fer».</p>` },
+    { tras: "Les adverbials", html: `<h3>Condicionals, concessives i consecutives</h3><ul><li><b>Condicionals</b>: «<b>Si</b> plou, no hi anirem» (real); «<b>Si</b> tingués diners, viatjaria» (imaginària: imperfet de subjuntiu + condicional). Altres nexes: <i>en cas que, sempre que, només que</i>. Mai condicional darrere de «si»: <s>*si tindria</s> → <b>si tingués</b>.</li><li><b>Concessives</b>: un obstacle que no impedeix l'acció: «<b>Encara que</b> plogui, sortirem», «<b>Tot i que</b> estava cansada, va acabar la cursa», «<b>Malgrat que</b>…». També <i>tot</i> + gerundi: «Tot i ser tard, va trucar».</li><li><b>Consecutives</b>: «Feia <b>tanta</b> calor <b>que</b> no podíem dormir»; «És tard, <b>així que</b> marxem».</li><li><b>Comparatives</b>: «És <b>més</b> alt <b>que</b> el seu pare», «Corre <b>tant com</b> tu».</li></ul>` },
+  ],
+  videos: [
+    ["Les substantives", L.vid("PTdaFw6euc8", "Pràctica: les oracions subordinades substantives", "Aprèn català amb en Jordi", 80725)],
+    ["Les adverbials", L.vid("yDxkkuL29-Q", "Oracions compostes II: les oracions subordinades adverbials", "Aprèn català amb en Jordi", 39479)],
+  ],
+  ejemplos: [
+    ["Analitza: «Em sorprèn que no hagis vingut.»", ["Verbs: sorprèn, hagis vingut. Dues proposicions.", "Subordinada: «que no hagis vingut». Prova: «Em sorprèn això».", "Funció: si passa a plural, el verb concorda («Em sorprenen aquestes coses»): és el subjecte."], "subordinada substantiva de subjecte."],
+    ["Corregeix i analitza: «Aquesta és la noia de la qual et vaig parlar, lo que em fa vergonya.»", ["«De la qual» és correcte: relatiu darrere de preposició, amb antecedent «la noia».", "«Lo que» és un castellanisme: si es refereix a tota l'oració anterior, cal «la qual cosa» o «cosa que».", "La primera relativa és especificativa; la segona, explicativa."], "«Aquesta és la noia de la qual et vaig parlar, la qual cosa em fa vergonya.»"],
+    ["Distingeix: «Estudio perquè vull aprovar» / «T'ajudo perquè aprovis».", ["Primera: perquè + indicatiu (vull): expressa la causa.", "Segona: perquè + subjuntiu (aprovis): expressa la finalitat.", "Pregunta: per quina raó? / amb quina finalitat?"], "la primera és causal; la segona, final."],
+  ],
+  errores: [
+    "Mantenir la preposició davant de «que»: *m'adono de que → m'adono que.",
+    "Fer servir *lo que en lloc de el que, allò que o la qual cosa.",
+    "Fer servir *cuyo: cal del qual / de qui.",
+    "Escriure que sense accent darrere de preposició: *el tema de que parlem → de què parlem.",
+    "Escriure *per a + infinitiu amb valor final: estudio per aprovar.",
+    "Confondre perquè (conjunció) i per què (preposició + interrogatiu o relatiu): «Per què no vens?».",
+  ],
+  ejercicios: [
+    ["Subratlla la substantiva i digues la funció: «Cal que estudiïs.»", "«que estudiïs»: subjecte."],
+    ["Corregeix: «Estic segura de que vindrà.»", "Estic segura que vindrà (la preposició cau davant de que)."],
+    ["Completa amb el relatiu: «L'amic amb ___ vaig viatjar viu a Reus.»", "amb qui (o amb el qual)."],
+    ["Completa amb el relatiu: «L'eina amb ___ treballo és nova.»", "amb què (o amb la qual)."],
+    ["Corregeix: «L'escriptor cuyos llibres hem llegit vindrà.»", "L'escriptor els llibres del qual hem llegit vindrà."],
+    ["Corregeix: «No ha vingut, lo que és estrany.»", "No ha vingut, cosa que (la qual cosa) és estranya."],
+    ["Classifica: «Encara que faci fred, sortirem.»", "Adverbial concessiva (encara que + subjuntiu)."],
+    ["Completa: «Si (tenir, jo) ___ temps, aprendria a tocar la guitarra.»", "tingués."],
+    ["Causa o finalitat? «Parla fluix perquè el nadó no es desperti.»", "Finalitat: perquè + subjuntiu."],
+    ["Classifica: «Va córrer tant que es va marejar.»", "Adverbial consecutiva (tant… que)."],
+  ],
+  quiz: [
+    ["Quina forma és correcta?", ["M'adono que és tard.", "M'adono de que és tard.", "M'adono de què és tard."], 0, "La preposició cau davant de que."],
+    ["«El tema de ___ parlàvem»", ["què", "que", "qui"], 0, "Darrere de preposició i cosa: què."],
+    ["«Lo que» en català correcte és…", ["el que / allò que", "lo que", "el cual"], 0, "*Lo que és castellanisme."],
+    ["«Perquè ho entenguis» expressa…", ["finalitat", "causa", "temps"], 0, "Perquè + subjuntiu."],
+    ["«Si ___ temps, vindria.»", ["tingués", "tindria", "tinc"], 0, "Si + imperfet de subjuntiu."],
+  ],
+  tarjetas: [
+    ["Caiguda de preposicions", "M'adono que…, estic segur que… (mai *de que)."],
+    ["Relatiu amb preposició", "Cosa: de què / del qual. Persona: amb qui / amb la qual."],
+    ["Perquè causal o final", "+ indicatiu: causa. + subjuntiu: finalitat."],
+  ],
+});
