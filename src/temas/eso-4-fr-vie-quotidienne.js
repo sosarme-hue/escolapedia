@@ -24,15 +24,15 @@ module.exports = {
       html: `<h3>Decir la hora</h3><p><i>Quelle heure est-il ?</i> — <b>Il est</b> sept heures. 7 h 15 = sept heures <b>et quart</b>. 7 h 30 = sept heures <b>et demie</b>. 7 h 45 = huit heures <b>moins le quart</b>. Para una actividad: <mark>«à</mark> huit heures». Mediodía: <i>midi</i>; medianoche: <i>minuit</i>.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Reloj: en punto arriba, et quart a la derecha, et demie abajo, moins le quart a la izquierda">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <circle cx="150" cy="92" r="50" fill="var(--card)" stroke="var(--ink)" stroke-width="3"/>
-        <path d="M150 92 V 56" stroke="var(--ink)" stroke-width="3"/><path d="M150 92 L 176 92" stroke="var(--red)" stroke-width="3"/>
-        <circle cx="150" cy="42" r="6" fill="var(--muted)"/><circle cx="200" cy="92" r="6" fill="var(--leaf)"/>
-        <circle cx="150" cy="142" r="6" fill="var(--pen)"/><circle cx="100" cy="92" r="6" fill="var(--red)"/>
+        <circle cx="138" cy="92" r="50" fill="var(--card)" stroke="var(--ink)" stroke-width="3"/>
+        <path d="M138 92 V 56" stroke="var(--ink)" stroke-width="3"/><path d="M138 92 L 164 92" stroke="var(--red)" stroke-width="3"/>
+        <circle cx="138" cy="42" r="6" fill="var(--muted)"/><circle cx="188" cy="92" r="6" fill="var(--leaf)"/>
+        <circle cx="138" cy="142" r="6" fill="var(--pen)"/><circle cx="88" cy="92" r="6" fill="var(--red)"/>
         <g ${F} font-size="13" font-weight="700">
-          <text x="150" y="28" text-anchor="middle" fill="var(--muted)">heure pile (:00)</text>
-          <text x="210" y="88" fill="var(--leaf)">et quart</text><text x="210" y="104" font-size="11" fill="var(--leaf)">(:15)</text>
-          <text x="150" y="166" text-anchor="middle" fill="var(--pen)">et demie (:30)</text>
-          <text x="90" y="88" text-anchor="end" fill="var(--red)">moins le</text><text x="90" y="104" text-anchor="end" fill="var(--red)">quart (:45)</text>
+          <text x="138" y="28" text-anchor="middle" fill="var(--muted)">heure pile (:00)</text>
+          <text x="198" y="88" fill="var(--leaf)">et quart</text><text x="198" y="104" font-size="11" fill="var(--leaf)">(:15)</text>
+          <text x="138" y="166" text-anchor="middle" fill="var(--pen)">et demie (:30)</text>
+          <text x="78" y="88" text-anchor="end" fill="var(--red)">moins le</text><text x="78" y="104" text-anchor="end" fill="var(--red)">quart (:45)</text>
         </g></svg>`,
     },
     {

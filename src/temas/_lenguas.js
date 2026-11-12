@@ -79,7 +79,7 @@ function dialogo(label, turnos) {
     const y = 10 + i * step, h = step - 8, w = Math.min(212, ancho(t, 13, false) + 24), x = i % 2 ? 246 - w : 14;
     cabe(t, 13, 188, false, label);
     out += `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" fill="var(--card)" stroke="${c}" stroke-width="2"/>
-        <text x="${x + 12}" y="${y + 15}" font-size="11" font-weight="700" fill="${c}">${q}</text>
+        ${q ? `<text x="${x + 12}" y="${y + 15}" font-size="11" font-weight="700" fill="${c}">${q}</text>` : ""}
         <text x="${x + 12}" y="${y + h - 9}" font-size="${fz(t, 13, w - 20)}" fill="var(--ink)">${t}</text>`;
   });
   return marco(label, out);
