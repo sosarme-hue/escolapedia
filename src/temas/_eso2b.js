@@ -75,4 +75,7 @@ function tema(o) {
 // Colores de las figuras.
 const AZ = "var(--pen)", RO = "var(--red)", VE = "var(--leaf)", NA = "var(--inf)", AG = "var(--water)", SO = "var(--sun)", MO = "var(--bac)";
 
-module.exports = { ...L, tema, V, AZ, RO, VE, NA, AG, SO, MO };
+// Con cuatro turnos o más, los bocadillos son bajos y el nombre pisa el texto: el nombre pasa delante del texto.
+const dialogo = (label, turnos) => L.dialogo(label, turnos.length >= 4 ? turnos.map(([q, t, c]) => ["", q ? `${q}: ${t}` : t, c]) : turnos);
+
+module.exports = { ...L, dialogo, tema, V, AZ, RO, VE, NA, AG, SO, MO };
