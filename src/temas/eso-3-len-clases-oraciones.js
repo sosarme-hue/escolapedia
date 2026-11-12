@@ -45,10 +45,11 @@ module.exports = {
     },
     {
       html: `<h3>Activas y pasivas</h3><p>En la <b>activa</b>, el sujeto realiza la acción: «<i>Los romanos</i> construyeron el acueducto». En la <b>pasiva</b>, el sujeto la recibe y el verbo va en forma de <mark>ser + participio</mark>: «<i>El acueducto</i> fue construido por los romanos». Quien realiza la acción aparece como <b>complemento agente</b>, con «por», o se omite.</p>`,
-      svg: L.frase("Paso de activa a pasiva", [
-        ["Los romanos", "sujeto", "var(--pen)"], ["construyeron", "", "var(--ink)"], ["el acueducto", "CD", "var(--leaf)"],
-        ["El acueducto", "sujeto", "var(--leaf)"], ["fue construido", "ser + part.", "var(--ink)"], ["por los romanos", "agente", "var(--pen)"],
-      ]),
+      svg: L.filas("Paso de activa a pasiva", [
+        ["Activa", "Los romanos construyeron…", "var(--pen)"],
+        ["Pasiva", "El acueducto fue construido…", "var(--leaf)"],
+        ["Agente", "…por los romanos", "var(--red)"],
+      ], "el CD pasa a sujeto"),
     },
   ],
   figura: {
