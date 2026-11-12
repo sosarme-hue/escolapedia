@@ -96,3 +96,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Usar los pronombres tónicos (moi, toi, lui…)", "Combinar dos pronombres en el orden correcto", "Aplicar la concordancia del participio con el COD"],
+  bloques: [
+    { tras: "Pronombres COI", html: `<h3>¿COD o COI? Depende del verbo</h3><p>Algunos verbos cambian respecto al español, así que hay que aprenderlos:</p>${L.tb(["Verbo", "Construcción", "Pronombre", "Ejemplo"], [["aider", "aider quelqu'un (COD)", "le / la / les", "Je <b>l'</b>aide. (le ayudo)"], ["écouter, regarder, attendre", "sin preposición (COD)", "le / la / les", "Je <b>les</b> attends."], ["téléphoner à", "à quelqu'un (COI)", "lui / leur", "Je <b>lui</b> téléphone. (la llamo)"], ["parler, répondre, écrire, dire, demander à", "à quelqu'un (COI)", "lui / leur", "Je <b>leur</b> réponds."], ["penser à, s'intéresser à", "à + persona: pronombre tónico", "à lui / à elle", "Je pense <b>à elle</b>."]])}<p>Fíjate en que <i>lui</i> sirve para masculino y femenino: «Je parle à Marie» → «Je <b>lui</b> parle».</p>` },
+    { tras: "Los pronombres y y en", html: `<h3>Los pronombres tónicos</h3><p>Son <b>moi, toi, lui, elle, nous, vous, eux, elles</b>. Se usan cuando el pronombre va solo o separado del verbo:</p><ul><li>Para dar énfasis: «<b>Moi</b>, j'adore le chocolat», «<b>Lui</b>, il ne vient jamais».</li><li>Después de preposición: «avec <b>moi</b>», «chez <b>eux</b>», «pour <b>toi</b>», «à côté d'<b>elle</b>».</li><li>Sin verbo: «Qui veut un gâteau ? — <b>Moi</b> !», «Moi aussi / Moi non plus».</li><li>Después de <i>c'est</i>: «C'est <b>toi</b> ?», «C'est <b>lui</b> qui a gagné».</li><li>En comparaciones: «Il est plus grand que <b>moi</b>».</li></ul><p>Ojo: «Moi aussi» responde a una afirmación (me too); «<b>Moi non plus</b>» a una negación (yo tampoco).</p>` },
+    { tras: "Dónde se colocan", html: `<h3>Dos pronombres juntos</h3><p>Cuando hay dos pronombres, se colocan en este orden fijo, delante del verbo:</p><p style="text-align:center"><b>me / te / se / nous / vous</b> → <b>le / la / les</b> → <b>lui / leur</b> → <b>y</b> → <b>en</b></p><ul><li>«Il me donne le livre» → «Il <b>me le</b> donne».</li><li>«Je donne les clés à Paul» → «Je <b>les lui</b> donne».</li><li>«Elle nous parle de ses vacances» → «Elle <b>nous en</b> parle».</li><li>«Il y a du pain ?» → «Oui, il <b>y en</b> a».</li></ul><p>Truco: <mark>le, la, les van delante de lui, leur</mark>, pero detrás de me, te, nous, vous. Y <i>y</i> y <i>en</i> siempre al final, con <i>en</i> en última posición.</p>` },
+    { tras: "Dónde se colocan", html: `<h3>Concordancia del participio con el COD</h3><p>Con el auxiliar <b>avoir</b>, el participio normalmente no concuerda. Pero hay una excepción famosa: si el <b>COD va delante</b> del verbo (por ejemplo, como pronombre), el participio concuerda con él en género y número:</p><ul><li>«J'ai vu <b>la</b> série.» → «Je <b>l'</b>ai vu<b>e</b>.» (la = la série, femenino)</li><li>«J'ai acheté <b>les chaussures</b>.» → «Je <b>les</b> ai acheté<b>es</b>.»</li><li>«Les photos <b>que</b> j'ai pris<b>es</b>…» (que = les photos)</li></ul><p>No concuerda con los pronombres <b>COI</b> (lui, leur) ni con <b>en</b>: «Je <b>leur</b> ai parlé», «Des pommes ? J'<b>en</b> ai mangé». En la mayoría de verbos la concordancia no se oye, pero sí se escribe, y en los exámenes se tiene en cuenta.</p>` },
+    { tras: "Con el imperativo afirmativo", html: `<h3>El imperativo negativo y con dos pronombres</h3><p>En el imperativo <b>negativo</b>, los pronombres vuelven a su sitio normal, delante del verbo y sin guion: «Regarde-le !» → «<b>Ne le</b> regarde <b>pas</b> !»; «Donne-moi ton numéro» → «<b>Ne me</b> donne <b>pas</b> ton numéro».</p><p>En el imperativo <b>afirmativo</b> con dos pronombres, el orden es <b>verbo – COD – COI</b>, con guiones: «Donne-<b>le-moi</b> !» (dámelo), «Envoie-<b>la-leur</b> !». Con <i>en</i>: «Donne-<b>m'en</b> !» (dame un poco). Y con los verbos en -er, la <i>s</i> del tú reaparece delante de <i>y</i> y <i>en</i> para que suene bien: «Va<b>s</b>-y !», «Mange<b>s</b>-en !».</p>` },
+    { tras: "Los pronombres y y en", html: `<h3>En con cantidades</h3><p>El pronombre <b>en</b> es muy útil para no repetir un nombre cuando hablamos de cantidades. Sustituye al nombre, pero la <b>cantidad se mantiene</b> detrás del verbo:</p><ul><li>«Tu as combien de frères ? — J'<b>en</b> ai <b>deux</b>.» (tengo dos)</li><li>«Tu veux des fraises ? — Oui, j'<b>en</b> veux <b>un kilo</b>.»</li><li>«Il y a beaucoup d'élèves ? — Oui, il y <b>en</b> a <b>beaucoup</b>.»</li><li>«Tu as un stylo ? — Oui, j'<b>en</b> ai <b>un</b>.» / «Non, je n'<b>en</b> ai <b>pas</b>.»</li></ul><p>En español a menudo no decimos nada («Tengo dos»), por eso los hispanohablantes olvidan el <i>en</i>. En francés es obligatorio: «*J'ai deux» suena incompleto. Piensa en <i>en</i> como «de eso, de ellos».</p>` },
+  ],
+  videos: [
+    ["Pronombres COD", L.vid("ias_lZDHeCg", "Les pronoms COD et COI en français : le / lui – les / leur", "Français avec Pierre", 324546)],
+    ["Los pronombres tónicos", L.vid("DZ04XAbgPtE", "Pronombres franceses: pronombre tónico vs pronombre átono", "Guillaume Posé", 517758)],
+  ],
+  ejemplos: [
+    ["Sustituye los complementos: «Je prête mon vélo à ma sœur.»", ["«Mon vélo» es COD masculino → le.", "«À ma sœur» es COI de persona → lui.", "Orden: le delante de lui."], "Je le lui prête."],
+    ["Sustituye y pon en passé composé: «J'ai écrit la lettre.»", ["«La lettre» es COD femenino → la, que se apostrofa ante ai: l'.", "El COD va delante con avoir → el participio concuerda: écrite."], "Je l'ai écrite."],
+    ["Pasa a imperativo afirmativo y negativo: «Tu donnes les photos à moi.»", ["Afirmativo: verbo – COD – COI con guiones; me → moi.", "Les photos → les; à moi → moi: Donne-les-moi !", "Negativo: pronombres delante en orden normal: Ne me les donne pas !"], "Donne-les-moi ! / Ne me les donne pas !"],
+  ],
+  errores: [
+    "Usar le / la con los verbos de COI: *je la téléphone → je lui téléphone.",
+    "Usar lui con aider: *je lui aide → je l'aide, porque aider lleva COD (al revés que «ayudarle» en español).",
+    "Desordenar dos pronombres: *je lui le donne → je le lui donne.",
+    "Usar un pronombre átono tras preposición: *avec me → avec moi.",
+    "Olvidar la concordancia: *la série, je l'ai vu → je l'ai vue.",
+    "Responder *Moi aussi a una negación: se dice Moi non plus.",
+  ],
+  ejercicios: [
+    ["Sustituye: «Je cherche mes clés.»", "Je les cherche."],
+    ["Sustituye: «Tu réponds à tes parents ?»", "Tu leur réponds ?"],
+    ["Sustituye: «Nous aidons notre voisine.»", "Nous l'aidons."],
+    ["Completa con un pronombre tónico: «Tu viens avec ___ ?» (nosotros)", "avec nous."],
+    ["Responde: «Je n'aime pas les maths.» — (yo tampoco)", "Moi non plus."],
+    ["Sustituye los dos complementos: «Elle raconte l'histoire aux enfants.»", "Elle la leur raconte."],
+    ["Sustituye: «Il y a des chaises dans la salle ?» — «Oui, ___ a.»", "il y en a."],
+    ["Pon en passé composé con concordancia: «Je mets la robe.» → «Je ___ (l' / mettre).»", "Je l'ai mise."],
+    ["Pon en negativo: «Dis-le-lui !»", "Ne le lui dis pas !"],
+    ["Traduce: «¡Dámelo!» (el libro)", "Donne-le-moi !"],
+  ],
+  quiz: [
+    ["«Je ___ téléphone ce soir.» (a ella)", ["lui", "la", "elle"], 0, "Téléphoner à: COI."],
+    ["«Il vient avec ___.» (yo)", ["moi", "me", "je"], 0, "Tónico tras preposición."],
+    ["«Je ___ donne.» (el libro a Paul)", ["le lui", "lui le", "le leur"], 0, "Le delante de lui."],
+    ["«Ces photos, je les ai ___.»", ["prises", "pris", "prise"], 0, "COD femenino plural delante."],
+    ["«Je n'aime pas le thé.» «___»", ["Moi non plus.", "Moi aussi.", "Moi non."], 0, "Respuesta a una negación."],
+  ],
+  tarjetas: [
+    ["Pronombres tónicos", "moi, toi, lui, elle, nous, vous, eux, elles: tras preposición o para enfatizar."],
+    ["Orden de dos pronombres", "me/te/nous/vous → le/la/les → lui/leur → y → en."],
+    ["Concordancia con COD delante", "Je l'ai vue (la série); les photos que j'ai prises."],
+  ],
+});

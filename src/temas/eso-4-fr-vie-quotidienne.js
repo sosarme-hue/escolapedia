@@ -109,3 +109,56 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Usar los pronominales en negativa, en passé composé y con infinitivo", "Decir la hora oficial de 24 horas", "Hablar de comidas y de obligaciones con il faut y devoir"],
+  bloques: [
+    { tras: "Los verbos pronominales", html: `<h3>Pronominales en negativa, pasado e infinitivo</h3><ul><li><b>Negativa</b>: <i>ne</i> va antes del pronombre: «Je <b>ne me</b> lève <b>pas</b> tôt».</li><li><b>Passé composé</b>: siempre con <b>être</b> y concordancia con el sujeto: «Je me suis levé(e)», «Elles se sont douchées».</li><li><b>Con infinitivo</b>: el pronombre concuerda con el sujeto: «Je vais <b>me</b> coucher», «Nous devons <b>nous</b> dépêcher» (no *se dépêcher).</li><li><b>Imperativo</b>: afirmativo con <i>toi / nous / vous</i> detrás: «Lève-<b>toi</b> !», «Dépêchez-<b>vous</b> !»; negativo: «Ne <b>te</b> lève pas !».</li></ul><p>Algunos pronominales no tienen equivalente reflexivo en español: <i>se dépêcher</i> (darse prisa), <i>s'ennuyer</i> (aburrirse), <i>se promener</i> (pasear), <i>se reposer</i> (descansar).</p>` },
+    { tras: "Decir la hora", html: `<h3>La hora oficial y las partes del día</h3><p>En horarios de trenes, cines, televisión o colegios se usa la hora de <b>24 horas</b>, y se dicen los minutos tal cual, sin <i>quart</i> ni <i>demie</i>: 14 h 30 = «<b>quatorze heures trente</b>», 20 h 45 = «<b>vingt heures quarante-cinq</b>».</p><p>Las partes del día: <i>le matin</i> (la mañana), <i>l'après-midi</i> (la tarde, hasta las 18 h aprox.), <i>le soir</i> (la tarde-noche), <i>la nuit</i> (la noche). «À sept heures <b>du matin</b>», «à cinq heures <b>de l'après-midi</b>», «à neuf heures <b>du soir</b>». Sin artículo y con un día, se indica costumbre: «<b>le lundi</b>, j'ai piscine» (todos los lunes) frente a «<b>lundi</b>, j'ai un examen» (este lunes).</p>` },
+    { tras: "Ordenar la rutina", html: `<h3>Las comidas en Francia</h3><p>El horario francés es más temprano que el español: <b>le petit-déjeuner</b> (desayuno) hacia las 7, <b>le déjeuner</b> (comida) entre las 12 y las 13 h, <b>le goûter</b> (merienda de los niños) a las 16 h 30 y <b>le dîner</b> (cena) hacia las 19 h 30 o 20 h. Una comida completa tiene <i>une entrée</i> (entrante), <i>un plat principal</i>, <i>du fromage</i> y <i>un dessert</i>.</p><p>Para hablar de comida se usan los <b>partitivos</b>: <i>du</i> pain, <i>de la</i> confiture, <i>de l'</i>eau, <i>des</i> céréales. «Au petit-déjeuner, je prends <b>du</b> pain avec <b>de la</b> confiture et je bois <b>du</b> lait». En negativa pasan a <b>de</b>: «Je ne bois pas <b>de</b> café».</p>` },
+    { tras: "Las tareas de casa", html: `<h3>Obligaciones: il faut y devoir</h3><p>Para hablar de lo que hay que hacer en casa o en clase:</p><ul><li><b>Il faut</b> + infinitivo: obligación general, impersonal. «<b>Il faut</b> ranger sa chambre.» (Hay que…)</li><li><b>Devoir</b> + infinitivo: obligación personal. Je dois, tu dois, il doit, nous devons, vous devez, ils doivent. «Je <b>dois</b> sortir le chien tous les soirs.»</li><li><b>Avoir à</b> + infinitivo: «J'<b>ai</b> des devoirs <b>à</b> faire.»</li></ul><p>Para lo que no es necesario: «<b>Il ne faut pas</b>» significa «no se debe» (prohibición), mientras que «<b>Ce n'est pas la peine de</b>» o «<b>Tu n'es pas obligé de</b>» significan «no hace falta». Es la misma diferencia que en inglés entre <i>mustn't</i> y <i>don't have to</i>.</p>` },
+    { tras: "En el instituto", html: `<h3>Contar tu día: un modelo</h3><p><i>«En semaine, je <b>me réveille</b> à sept heures moins le quart. D'abord, je <b>me douche</b> et je <b>m'habille</b>. Ensuite, je prends mon petit-déjeuner : du pain grillé et du jus d'orange. Je pars au lycée à huit heures. Les cours commencent à huit heures et demie et finissent à trois heures. L'après-midi, je fais mes devoirs et, le mardi et le jeudi, je joue au handball. Le soir, je dois mettre la table. Après le dîner, je regarde une série ou je lis un peu. Enfin, je <b>me couche</b> vers onze heures. Le week-end, c'est différent : je ne me lève jamais avant dix heures !»</i></p><p>Fíjate en los pronominales, los conectores de orden, las horas y las expresiones de frecuencia.</p>` },
+  ],
+  videos: [
+    ["Los verbos pronominales", L.vid("UUGCTBa6esA", "Les habitudes quotidiennes avec les verbes pronominaux en français", "La prof Elisabeth", 141708)],
+    ["Contar tu día: un modelo", L.vid("Hl769Wo_uPs", "La routine quotidienne", "Ma cousine française", 134408)],
+  ],
+  ejemplos: [
+    ["Pon en passé composé: «Le matin, elle se lève, elle se douche et elle part au lycée.»", ["Los pronominales llevan être: elle s'est levée, elle s'est douchée.", "El participio concuerda con elle: -e.", "Partir también lleva être: elle est partie."], "Ce matin, elle s'est levée, elle s'est douchée et elle est partie au lycée."],
+    ["Di estas horas de forma oficial y coloquial: 13 h 45 y 18 h 30.", ["Oficial: los minutos tal cual: treize heures quarante-cinq; dix-huit heures trente.", "Coloquial: con 12 horas y quart / demie: deux heures moins le quart; six heures et demie.", "Para aclarar: de l'après-midi, du soir."], "13 h 45: treize heures quarante-cinq / deux heures moins le quart de l'après-midi. 18 h 30: dix-huit heures trente / six heures et demie du soir."],
+    ["Completa: «Nous devons ___ (se dépêcher) parce que le bus part dans cinq minutes.»", ["Después de devoir va infinitivo.", "El pronombre del infinitivo concuerda con el sujeto nous.", "Por tanto: nous dépêcher."], "Nous devons nous dépêcher parce que le bus part dans cinq minutes."],
+  ],
+  errores: [
+    "Usar avoir con los pronominales en passé composé: *je m'ai levé → je me suis levé.",
+    "Dejar se con infinitivo y otro sujeto: *je vais se coucher → je vais me coucher.",
+    "Olvidar el pronombre: *je lève à 7 h → je me lève à 7 h.",
+    "Usar quart y demie en la hora de 24 horas: *quatorze heures et demie (mejor: quatorze heures trente).",
+    "Confundir il ne faut pas (no se debe) con no hace falta.",
+  ],
+  ejercicios: [
+    ["Conjuga se coucher en presente: je, nous, ils.", "je me couche, nous nous couchons, ils se couchent."],
+    ["Pon en negativa: «Tu te réveilles tôt.»", "Tu ne te réveilles pas tôt."],
+    ["Pon en passé composé: «Nous nous habillons.»", "Nous nous sommes habillés."],
+    ["Escribe el imperativo afirmativo de «se dépêcher» con tú y vosotros.", "Dépêche-toi ! Dépêchez-vous !"],
+    ["Escribe en letras la hora oficial: 21 h 15.", "vingt et une heures quinze."],
+    ["Completa con partitivos: «Je mange ___ pain, ___ salade et ___ œufs.»", "du pain, de la salade et des œufs."],
+    ["Pon en negativa: «Je bois du café.»", "Je ne bois pas de café."],
+    ["Traduce: «Hay que sacar la basura.»", "Il faut sortir la poubelle."],
+    ["Traduce: «Tengo que hacer los deberes.»", "Je dois faire mes devoirs. (También: J'ai des devoirs à faire.)"],
+    ["Escribe tres frases sobre tu sábado con conectores y horas.", "Por ejemplo: «Le samedi, d'abord je me lève à dix heures. Ensuite, je fais du sport. Enfin, le soir, je sors avec mes amis.»"],
+  ],
+  quiz: [
+    ["«Hier, je ___ couché tard.»", ["me suis", "m'ai", "suis"], 0, "Pronominal con être."],
+    ["«Nous allons ___ promener.»", ["nous", "se", "vous"], 0, "Concuerda con el sujeto."],
+    ["«Le goûter» es…", ["la merienda", "la cena", "el desayuno"], 0, "Hacia las 16 h 30."],
+    ["«Il ne faut pas courir» significa…", ["no se debe correr", "no hace falta correr", "hay que correr"], 0, "Prohibición."],
+    ["«Le lundi, j'ai piscine» significa…", ["todos los lunes", "este lunes", "el lunes pasado"], 0, "Artículo = costumbre."],
+  ],
+  tarjetas: [
+    ["Pronominales en pasado", "Siempre con être: je me suis levé(e)."],
+    ["Il faut / devoir", "Il faut ranger (hay que); je dois ranger (tengo que)."],
+    ["Partitivos", "du pain, de la confiture, de l'eau, des céréales; negativa: pas de."],
+  ],
+});

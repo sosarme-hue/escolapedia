@@ -106,3 +106,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Usar las preposiciones de origen (de, du, des)", "Desenvolverse en el aeropuerto, el restaurante y ante un problema", "Escribir una postal y un relato de viaje"],
+  bloques: [
+    { tras: "Preposiciones con lugares", html: `<h3>Ir a y venir de</h3><p>Igual que hay preposiciones para ir a un lugar, las hay para decir de dónde vienes:</p>${L.tb(["Lugar", "Ir / estar", "Venir de"], [["ciudad", "à Paris", "de Paris, d'Amsterdam"], ["país femenino", "en France", "de France"], ["país masculino", "au Maroc", "du Maroc"], ["país plural", "aux États-Unis", "des États-Unis"], ["región femenina", "en Bretagne", "de Bretagne"], ["isla pequeña", "à Cuba, à Malte", "de Cuba"]])}<p>Los países que empiezan por vocal usan <b>en</b> aunque sean masculinos: <i>en Iran, en Irak</i>. Y México es masculino: <i>au Mexique</i> (aunque acaba en -e). «Je viens <b>du</b> Portugal mais j'habite <b>en</b> Espagne.»</p>` },
+    { tras: "En la estación y en el hotel", html: `<h3>En el aeropuerto</h3><p>Vocabulario esencial: <i>l'aéroport, le vol</i> (vuelo), <i>la carte d'embarquement</i> (tarjeta de embarque), <i>la porte</i> (puerta), <i>l'enregistrement</i> (facturación), <i>les bagages</i>, <i>la valise</i>, <i>le bagage à main</i>, <i>le contrôle de sécurité</i>, <i>le passeport</i>, <i>en retard / à l'heure / annulé</i>.</p><p>Frases útiles: «Où est l'enregistrement pour le vol AF 1234 ?», «Je voudrais un siège côté fenêtre / côté couloir», «Le vol a combien de retard ?», «J'ai perdu ma valise. Où est le service des bagages ?». Y lo que oirás por megafonía: «<b>Embarquement immédiat</b> porte 12» (embarque inmediato) o «Dernier appel pour les passagers…».</p>` },
+    { tras: "En la estación y en el hotel", html: `<h3>En el restaurante</h3><ul><li>Llegar: «Bonsoir, une table pour quatre, s'il vous plaît.»</li><li>Pedir: «<b>Je voudrais</b> le menu à 18 euros.» / «<b>Pour moi</b>, le poulet avec des frites.» / «<b>Comme</b> boisson, une carafe d'eau.»</li><li>Preguntar: «Qu'est-ce que vous nous conseillez ?» / «Il y a des plats végétariens ?»</li><li>Pagar: «<b>L'addition</b>, s'il vous plaît.» / «Je peux payer par carte ?»</li></ul><p>En Francia, el <b>menu</b> es un conjunto cerrado a precio fijo (entrée + plat + dessert), y <b>la carte</b> es la lista completa de platos. El agua del grifo en jarra (<i>une carafe d'eau</i>) es gratuita, y la propina no es obligatoria porque el servicio está incluido.</p>` },
+    { tras: "Pedir y dar direcciones", html: `<h3>Cuando algo sale mal</h3><p>En los viajes surgen problemas. Para explicarlos con educación:</p><ul><li>Avisar: «Excusez-moi, il y a un problème avec ma chambre : la douche <b>ne marche pas</b>.»</li><li>Quejarse: «Le chauffage est en panne», «Il y a trop de bruit», «La chambre n'est pas propre».</li><li>Pedir ayuda: «<b>Pourriez-vous</b> m'aider ?», «<b>Est-ce que je pourrais</b> changer de chambre ?»</li><li>Emergencias: «<b>Au secours !</b>», «J'ai perdu mon passeport», «On m'a volé mon portefeuille», «Appelez une ambulance !». El número de emergencias europeo es el <b>112</b>.</li></ul><p>El condicional (<i>pourriez, voudrais</i>) hace que cualquier petición suene más cortés.</p>` },
+    { tras: "Contar un viaje", html: `<h3>Escribir una postal</h3><p>Una postal es breve, informal y en presente o passé composé. Modelo:</p><p><i>«Chère Marta,<br>Je t'écris de Marseille ! Nous sommes arrivés lundi et le temps est magnifique. Hier, nous avons visité le Vieux-Port et nous avons mangé une bouillabaisse délicieuse. Aujourd'hui, nous allons faire une excursion en bateau aux calanques. Demain, on part pour Nice. Tu me manques !<br>Grosses bises,<br>Pablo»</i></p><p>Estructura: saludo (<i>Cher / Chère</i>), dónde estás, qué tiempo hace, qué has hecho, qué vas a hacer y despedida informal (<i>Bises, Grosses bises, À bientôt</i>). Ojo: «Tu me manques» = te echo de menos.</p>` },
+    { tras: "Medios de transporte", html: `<h3>Tipos de alojamiento y reservas</h3><p>Al planificar un viaje hay que elegir dónde dormir: <i>un hôtel</i> (con estrellas), <i>une auberge de jeunesse</i> (albergue juvenil, barato y con habitaciones compartidas), <i>un camping</i>, <i>une chambre d'hôtes</i> (casa rural con desayuno) o <i>un gîte</i> (casa rural que se alquila entera).</p><p>Para reservar por teléfono o por correo: «Je voudrais réserver <b>une chambre double</b> / <b>simple</b> pour trois nuits, du 5 au 8 août», «Le petit-déjeuner est compris ?», «Il y a le wifi ?», «C'est combien par nuit ?». Y al llegar: «Bonjour, j'ai une réservation au nom de García». Las palabras <i>la clé</i> (llave), <i>l'ascenseur</i> (ascensor), <i>le rez-de-chaussée</i> (planta baja) y <i>le premier étage</i> (primer piso) te sacarán de muchos apuros.</p>` },
+  ],
+  videos: [
+    ["En la estación y en el hotel", L.vid("0qIJ5dQ-LYI", "Top French phrases for travel you need to know", "The Intrepid Guide", 488975)],
+    ["Contar un viaje", L.vid("RnIz7y2htvQ", "Français B1 : expressions et lexique pour parler des vacances", "French School TV", 239355)],
+  ],
+  ejemplos: [
+    ["Completa: «Mon père vient ___ Maroc, ma mère ___ Italie et nous habitons ___ Lyon.»", ["Maroc es masculino: de + le = du.", "Italie es femenino: de (sin artículo).", "Lyon es una ciudad: à."], "Mon père vient du Maroc, ma mère d'Italie et nous habitons à Lyon."],
+    ["Pide en un restaurante: menú del día, un filete poco hecho y agua del grifo.", ["Fórmula cortés: Je voudrais…", "«Poco hecho» se dice saignant (à point = en su punto, bien cuit = muy hecho).", "Agua del grifo: une carafe d'eau."], "Je voudrais le menu du jour, avec un steak saignant, et une carafe d'eau, s'il vous plaît."],
+    ["Cuenta en pasado: «llegamos el sábado, hacía calor, visitamos el castillo y comimos crepes».", ["Acciones: passé composé (nous sommes arrivés, nous avons visité, nous avons mangé).", "Descripción: imparfait (il faisait chaud).", "Arriver lleva être y concuerda con nous."], "Nous sommes arrivés samedi. Il faisait chaud. Nous avons visité le château et nous avons mangé des crêpes."],
+  ],
+  errores: [
+    "Decir *je viens de le Portugal: de + le = du Portugal.",
+    "Usar en con países masculinos: *en Canada → au Canada.",
+    "Confundir le menu (precio fijo) con la carte (lista de platos).",
+    "Pedir con «je veux»: suena brusco; mejor «je voudrais».",
+    "Contar todo un viaje en imparfait: las acciones concretas van en passé composé (nous avons visité) y el imparfait queda para describir (il faisait beau).",
+  ],
+  ejercicios: [
+    ["Completa: «Je pars ___ Suisse et ensuite ___ Pays-Bas.»", "en Suisse, aux Pays-Bas."],
+    ["Completa: «Il revient ___ États-Unis.»", "des États-Unis."],
+    ["¿Cómo pides un asiento de ventanilla?", "Je voudrais un siège côté fenêtre, s'il vous plaît."],
+    ["¿Qué significa «embarquement immédiat»?", "Embarque inmediato: hay que ir ya a la puerta."],
+    ["Pide la cuenta.", "L'addition, s'il vous plaît."],
+    ["Explica un problema: el aire acondicionado no funciona.", "Excusez-moi, la climatisation ne marche pas (est en panne)."],
+    ["Pide cambiar de habitación con cortesía.", "Est-ce que je pourrais changer de chambre, s'il vous plaît ?"],
+    ["Traduce: «Te echo de menos.»", "Tu me manques."],
+    ["Corrige: «Je voudrais aller en Mexique.»", "Je voudrais aller au Mexique (Mexique es masculino)."],
+    ["Escribe una postal de tres frases desde París.", "Por ejemplo: «Chère Ana, je suis à Paris ! Hier, j'ai visité la tour Eiffel. Demain, on va au Louvre. Bises, Leo.»"],
+  ],
+  quiz: [
+    ["«Je viens ___ Japon.»", ["du", "de", "au"], 0, "Japon es masculino."],
+    ["«Une carafe d'eau» es…", ["agua del grifo en jarra", "agua con gas", "un café"], 0, "Gratis en Francia."],
+    ["«Au secours !» significa…", ["¡Socorro!", "¡Salud!", "¡Adiós!"], 0, "Para emergencias."],
+    ["Despedida informal en una postal:", ["Grosses bises", "Veuillez agréer…", "Cordialement"], 0, "Muchos besos."],
+    ["«Le vol est annulé» significa que…", ["se ha cancelado", "llega a tiempo", "va con retraso"], 0, "Annulé = cancelado."],
+  ],
+  tarjetas: [
+    ["Venir de", "de Paris, de France, du Maroc, des États-Unis."],
+    ["Menu / carte", "Menu: precio fijo. Carte: lista de platos."],
+    ["Tu me manques", "Te echo de menos."],
+  ],
+});

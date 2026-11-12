@@ -106,3 +106,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Situar los principales países y regiones francófonas por continentes", "Reconocer rasgos del francés de Quebec, Bélgica, Suiza y África", "Presentar un país francófono en francés"],
+  bloques: [
+    { tras: "¿Por qué se habla en tantos sitios?", html: `<h3>La francofonía por continentes</h3>${L.tb(["Continente", "Países y regiones"], [["Europa", "Francia, Bélgica (Valonia y Bruselas), Suiza (oeste), Luxemburgo, Mónaco"], ["América", "Quebec y Nuevo Brunswick (Canadá), Haití, Guayana Francesa, Martinica, Guadalupe"], ["África", "Senegal, Costa de Marfil, Malí, Camerún, R. D. del Congo, Madagascar; Marruecos, Argelia y Túnez como lengua muy usada"], ["Asia", "Vietnam, Camboya y Laos (historia), Líbano"], ["Oceanía e Índico", "Nueva Caledonia, Polinesia Francesa, Reunión, Mauricio, Seychelles"]])}<p>La <b>República Democrática del Congo</b> es el país francófono más poblado del mundo, por delante de Francia, y <b>Kinshasa</b> es la mayor ciudad francófona.</p>` },
+    { tras: "Muchas formas de hablar francés", html: `<h3>El francés de Quebec</h3><p>En Quebec viven unos ocho millones de francófonos rodeados de inglés, y defienden su lengua con leyes estrictas: los carteles y los comercios deben estar en francés. Curiosamente, son más «puristas» que en Francia con los anglicismos:</p>${L.tb(["Quebec", "Francia", "Significado"], [["un courriel", "un e-mail, un mail", "correo electrónico"], ["magasiner", "faire du shopping", "ir de compras"], ["une fin de semaine", "un week-end", "fin de semana"], ["un char", "une voiture", "coche"], ["le déjeuner / le dîner / le souper", "le petit-déjeuner / le déjeuner / le dîner", "desayuno / comida / cena"], ["bienvenue", "de rien", "de nada"]])}<p>También tiene un acento muy reconocible y expresiones propias como «C'est <b>plate</b>» (es aburrido) o «<b>Tiguidou</b> !» (¡perfecto!).</p>` },
+    { tras: "Muchas formas de hablar francés", html: `<h3>El francés en África</h3><p>Hoy más de la mitad de los francófonos del mundo vive en <b>África</b>, y se calcula que en 2050 serán una gran mayoría. En muchos países el francés convive con lenguas africanas (el wólof en Senegal, el lingala en el Congo, el bambara en Malí) y se usa en la escuela, la administración y los medios.</p><p>El francés africano ha creado palabras propias que han llegado al diccionario: <i>une <b>essencerie</b></i> (gasolinera, en Senegal), <i><b>enceinter</b></i> (dejar embarazada), <i><b>grotto</b></i> (persona rica), <i><b>go</b></i> (chica, en Costa de Marfil). Además, la música urbana francesa debe mucho a artistas de origen africano. El francés ya no «pertenece» a Francia: es una <mark>lengua compartida</mark> por cinco continentes.</p>` },
+    { tras: "Cultura francófona", html: `<h3>Comidas y tradiciones francófonas</h3><ul><li><b>Bélgica</b>: las <i>moules-frites</i> (mejillones con patatas fritas), los gofres y el chocolate; la tradición del cómic (Tintín, los Pitufos, Lucky Luke).</li><li><b>Suiza</b>: la <i>fondue</i> y la <i>raclette</i> de queso, los relojes y el chocolate.</li><li><b>Quebec</b>: la <i>poutine</i> (patatas fritas con queso y salsa) y el sirope de arce (<i>sirop d'érable</i>) de las <i>cabanes à sucre</i>.</li><li><b>Senegal</b>: el <i>thiéboudienne</i>, arroz con pescado, plato nacional.</li><li><b>Marruecos</b>: el cuscús y el <i>tajine</i>.</li><li><b>Antillas</b>: la música zouk y el carnaval de Martinica.</li></ul><p>El 20 de marzo, Día de la Francofonía, muchos institutos organizan degustaciones y concursos con estas tradiciones.</p>` },
+    { tras: "Cultura francófona", html: `<h3>Presentar un país francófono</h3><p>Una presentación oral de dos minutos puede seguir este guion, con frases hechas:</p><ol><li><b>Situación</b>: «Le Sénégal <b>se trouve</b> en Afrique de l'Ouest. <b>Sa capitale est</b> Dakar.»</li><li><b>Datos</b>: «Il y a environ 18 millions d'habitants. <b>On y parle</b> français et wolof.»</li><li><b>Historia</b>: «C'était une colonie française jusqu'en 1960.»</li><li><b>Cultura</b>: «<b>Il est célèbre pour</b> sa musique et son plat national, le thiéboudienne.»</li><li><b>Opinión</b>: «<b>J'aimerais</b> visiter Dakar parce que…»</li></ol><p>Fíjate en el pronombre <b>y</b> (allí): «on <b>y</b> parle français». Apoya la presentación con un mapa y fotos.</p>` },
+  ],
+  videos: [
+    ["¿Qué es la francofonía?", L.vid("MIvbHbn-tQk", "La francophonie, qu'est-ce que c'est ?", "BONBON – Apprendre le français", 238008)],
+    ["Cultura francófona", L.vid("c1vuo1TgqkY", "Chanson francophonie : hymne et ode à la francophonie", "Philippe", 1905021)],
+  ],
+  ejemplos: [
+    ["Escribe tres frases sobre Quebec con los datos: Canadá, capital Quebec, 8 millones, sirope de arce.", ["Situación con se trouver: Le Québec se trouve au Canada.", "Capital y población: Sa capitale est Québec. Il y a environ huit millions d'habitants.", "Cultura con être célèbre pour: Il est célèbre pour son sirop d'érable."], "Le Québec se trouve au Canada. Sa capitale est Québec et il y a environ huit millions d'habitants. Il est célèbre pour son sirop d'érable."],
+    ["«Traduce» al francés de Francia: «Cette fin de semaine, je vais magasiner et je t'envoie un courriel.»", ["fin de semaine → week-end.", "magasiner → faire du shopping.", "courriel → e-mail o mail."], "Ce week-end, je vais faire du shopping et je t'envoie un e-mail."],
+    ["Explica por qué el francés se habla en Senegal.", ["Senegal fue colonia francesa hasta 1960.", "Tras la independencia, el francés siguió como lengua oficial, de la escuela y de la administración.", "Convive con lenguas africanas como el wólof, la más hablada en la calle."], "por la colonización francesa: tras la independencia se mantuvo como lengua oficial junto a las lenguas africanas."],
+  ],
+  errores: [
+    "Pensar que la mayoría de francófonos vive en Francia: la mayoría vive en África.",
+    "Creer que en toda Bélgica o Suiza se habla francés: en Bélgica también neerlandés y alemán; en Suiza, alemán, italiano y romanche.",
+    "Considerar «incorrecto» el francés de Quebec o de África: son variedades legítimas.",
+    "Decir *en Canada: se dice au Canada (masculino).",
+    "Confundir la OIF (organización política) con la francofonía (el conjunto de hablantes).",
+    "Pensar que las palabras propias de Quebec o de África son errores: muchas ya aparecen en los diccionarios franceses.",
+  ],
+  ejercicios: [
+    ["Nombra un país francófono en cada continente.", "Europa: Bélgica. América: Haití (o Canadá/Quebec). África: Senegal. Asia: Líbano. Oceanía: Nueva Caledonia (Polinesia Francesa)."],
+    ["¿Cuál es el país francófono más poblado?", "La República Democrática del Congo."],
+    ["¿Qué significa «magasiner» en Quebec?", "Ir de compras (faire du shopping)."],
+    ["En Quebec, ¿qué comida es «le dîner»?", "La comida del mediodía (en Francia, le déjeuner)."],
+    ["Nombra dos lenguas africanas que conviven con el francés.", "El wólof (Senegal) y el lingala (Congo). También el bambara (Malí)."],
+    ["¿Qué es la poutine?", "Un plato de Quebec: patatas fritas con queso en grano y salsa caliente."],
+    ["Completa: «Au Sénégal, on ___ parle français et wolof.»", "y: on y parle (allí)."],
+    ["¿Qué tres lenguas oficiales tiene Bélgica?", "Francés, neerlandés y alemán."],
+    ["Escribe la frase de introducción para presentar Marruecos.", "Le Maroc se trouve en Afrique du Nord. Sa capitale est Rabat."],
+    ["Explica qué quiere decir que el francés es una «lengua compartida».", "Que no pertenece solo a Francia: lo hablan y lo enriquecen personas de cinco continentes, cada una con su variedad."],
+  ],
+  quiz: [
+    ["La mayor ciudad francófona del mundo es…", ["Kinshasa", "Lyon", "Montreal"], 0, "Capital de la R. D. del Congo."],
+    ["«Un courriel» (Quebec) es…", ["un e-mail", "un coche", "una tienda"], 0, "Correo electrónico."],
+    ["Las moules-frites son típicas de…", ["Bélgica", "Senegal", "Quebec"], 0, "Mejillones con patatas."],
+    ["El sirope de arce es típico de…", ["Quebec", "Suiza", "Marruecos"], 0, "Cabanes à sucre."],
+    ["¿Dónde vive hoy la mayoría de francófonos?", ["en África", "en Francia", "en América"], 0, "Más de la mitad."],
+  ],
+  tarjetas: [
+    ["R. D. del Congo", "País francófono más poblado; Kinshasa, mayor ciudad francófona."],
+    ["Francés de Quebec", "courriel, magasiner, fin de semaine; defiende el francés frente al inglés."],
+    ["Se trouver / on y parle", "Para presentar un país: Le Sénégal se trouve…; on y parle wolof."],
+  ],
+});

@@ -103,3 +103,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Conjugar los verbos en -ir y -re y los cambios ortográficos de -er", "Memorizar los participios irregulares", "Colocar la negación y los adverbios en el passé composé"],
+  bloques: [
+    { tras: "El presente de los verbos en -er", html: `<h3>Verbos en -er con cambios ortográficos</h3><p>Algunos verbos en -er son regulares en las terminaciones, pero cambian la escritura para conservar el sonido:</p>${L.tb(["Tipo", "Cambio", "Ejemplo"], [["-ger", "nous + e", "manger → nous mang<b>e</b>ons"], ["-cer", "nous: c → ç", "commencer → nous commen<b>ç</b>ons"], ["-eler / -eter", "doblan la consonante (salvo nous, vous)", "s'appeler → je m'appe<b>ll</b>e, jeter → je je<b>tt</b>e"], ["e + consonante + er", "e → è (salvo nous, vous)", "acheter → j'ach<b>è</b>te, se lever → je me l<b>è</b>ve"], ["é + consonante + er", "é → è (salvo nous, vous)", "préférer → je préf<b>è</b>re"], ["-yer", "y → i (salvo nous, vous)", "payer → je pa<b>i</b>e, envoyer → j'envo<b>i</b>e"]])}<p>Recuerda que las formas <i>nous</i> y <i>vous</i> casi nunca cambian, porque en ellas la sílaba que se acentúa es la terminación y no la raíz. Esto ayuda a pronunciar bien y a no equivocarse por escrito.</p>` },
+    { tras: "Irregulares imprescindibles", html: `<h3>Verbos en -ir y en -re</h3><p>Los verbos regulares en <b>-ir</b> (como <i>finir, choisir, réussir</i>) añaden <b>-iss-</b> en el plural: je fin<b>is</b>, tu fin<b>is</b>, il fin<b>it</b>, nous fin<b>issons</b>, vous fin<b>issez</b>, ils fin<b>issent</b>. Otros en -ir no siguen este modelo y funcionan con dos raíces: <i>partir</i> (je pars, nous partons), <i>sortir</i> (je sors), <i>dormir</i> (je dors).</p><p>Los verbos en <b>-re</b> regulares (<i>attendre, vendre, répondre, entendre</i>) toman -s, -s, nada, -ons, -ez, -ent: j'attends, tu attends, il attend, nous attendons, vous attendez, ils attendent. Y no olvides los irregulares muy frecuentes <b>pouvoir</b> (je peux), <b>vouloir</b> (je veux), <b>devoir</b> (je dois), <b>savoir</b> (je sais) y <b>mettre</b> (je mets).</p>` },
+    { tras: "El passé composé con avoir", html: `<h3>Participios irregulares</h3><p>Los participios irregulares más usados se agrupan por su terminación:</p>${L.tb(["Terminación", "Verbos"], [["-u", "avoir → eu, boire → bu, lire → lu, voir → vu, pouvoir → pu, vouloir → voulu, devoir → dû, savoir → su, venir → venu"], ["-is", "prendre → pris, mettre → mis, apprendre → appris, comprendre → compris"], ["-it", "dire → dit, écrire → écrit, faire → fait, conduire → conduit"], ["-ert", "ouvrir → ouvert, offrir → offert, découvrir → découvert"], ["otros", "être → été, naître → né, mourir → mort"]])}<p>Fíjate en que <i>avoir</i> y <i>être</i> forman su passé composé con <b>avoir</b>: «J'<b>ai eu</b> peur», «J'<b>ai été</b> malade».</p>` },
+    { tras: "La concordancia con être", html: `<h3>Negación y adverbios en el passé composé</h3><p>En los tiempos compuestos, la negación rodea al <b>auxiliar</b>, no al participio: «Je <b>n'</b>ai <b>pas</b> mangé», «Elle <b>n'</b>est <b>pas</b> venue», «Nous <b>ne</b> sommes <b>jamais</b> allés à Rome». Con los pronominales, el <i>ne</i> va antes del pronombre: «Je <b>ne</b> me suis <b>pas</b> levé tôt».</p><p>Los adverbios cortos (<i>bien, mal, déjà, encore, toujours, beaucoup, trop, vite</i>) se colocan entre el auxiliar y el participio: «J'ai <b>bien</b> dormi», «Tu as <b>déjà</b> fini ?», «Il a <b>beaucoup</b> travaillé». Los adverbios de tiempo concretos (<i>hier, ce matin, la semaine dernière</i>) van al principio o al final de la frase.</p>` },
+    { tras: "La concordancia con être", html: `<h3>Verbos que llevan avoir o être</h3><p>Algunos verbos de la «maison d'être» (<i>monter, descendre, sortir, passer, rentrer, retourner</i>) pueden llevar también <b>avoir</b> cuando tienen complemento directo, y entonces cambian de significado:</p><ul><li>«Je <b>suis</b> sorti à huit heures» (salí) / «J'<b>ai</b> sorti la poubelle» (saqué la basura).</li><li>«Elle <b>est</b> montée au 3<sup>e</sup> étage» (subió) / «Elle <b>a</b> monté les valises» (subió las maletas).</li><li>«Nous <b>sommes</b> passés par Lyon» (pasamos por) / «Nous <b>avons</b> passé une semaine à Lyon» (pasamos una semana).</li></ul><p>Truco: si después del verbo hay un <mark>objeto directo</mark>, el auxiliar es avoir y no hay concordancia con el sujeto.</p>` },
+  ],
+  videos: [
+    ["El passé composé con avoir", L.vid("DffQo6ThZQ4", "Passé composé: explicación sobre el pasado compuesto", "onparle", 400122)],
+    ["El passé composé con être", L.vid("R7CMGVsanu8", "Être or avoir in the passé composé", "Learn French With Alexa", 585094)],
+  ],
+  ejemplos: [
+    ["Pon en passé composé: «Le week-end, je vais à la plage, je lis un livre et je bois un jus.»", ["Aller es de la maison d'être: je suis allé(e).", "Lire y boire llevan avoir con participio irregular: j'ai lu, j'ai bu.", "Cambia «le week-end» por «le week-end dernier» para marcar el pasado."], "Le week-end dernier, je suis allé(e) à la plage, j'ai lu un livre et j'ai bu un jus."],
+    ["Pon en negativa: «Elles se sont couchées tard.»", ["Es pronominal: auxiliar être y concordancia en femenino plural (-es).", "La negación rodea al bloque pronombre + auxiliar: ne se sont pas.", "El participio no cambia de lugar."], "Elles ne se sont pas couchées tard."],
+    ["Elige el auxiliar: «Il (est / a) descendu les escaliers en courant.»", ["Descendre es verbo de movimiento de la maison d'être.", "Pero aquí tiene complemento directo: les escaliers.", "Con complemento directo se usa avoir y no hay concordancia."], "Il a descendu les escaliers en courant."],
+  ],
+  errores: [
+    "Usar avoir con los verbos de la maison d'être: *j'ai allé → je suis allé.",
+    "Olvidar la concordancia con être: *elle est parti → elle est partie.",
+    "Colocar la negación alrededor del participio: *j'ai ne pas mangé → je n'ai pas mangé.",
+    "Inventar participios regulares: *prendu, *faisé → pris, fait.",
+    "Escribir *nous mangons: los verbos en -ger conservan la e: nous mangeons.",
+    "Olvidar que avoir y être forman su passé composé con avoir: *je suis été → j'ai été.",
+  ],
+  ejercicios: [
+    ["Conjuga en presente: nous (commencer), j' (acheter), ils (payer).", "nous commençons, j'achète, ils paient."],
+    ["Conjuga finir en presente: je, nous, ils.", "je finis, nous finissons, ils finissent."],
+    ["Escribe el participio de: voir, mettre, écrire, ouvrir, boire.", "vu, mis, écrit, ouvert, bu."],
+    ["Pon en passé composé: «Nous faisons nos devoirs.»", "Nous avons fait nos devoirs."],
+    ["Pon en passé composé: «Elle vient avec sa sœur.»", "Elle est venue avec sa sœur."],
+    ["Pon en passé composé: «Ils se lèvent à 7 h.»", "Ils se sont levés à 7 h."],
+    ["Pon en negativa: «J'ai compris la question.»", "Je n'ai pas compris la question."],
+    ["Coloca el adverbio: «J'ai mangé (bien).»", "J'ai bien mangé."],
+    ["Elige: «J'(ai / suis) sorti le chien.»", "J'ai sorti le chien: tiene complemento directo."],
+    ["Escribe tres frases sobre lo que hiciste ayer.", "Por ejemplo: «Hier, je suis allé au lycée. J'ai déjeuné à la cantine. Le soir, j'ai regardé une série.»"],
+  ],
+  quiz: [
+    ["Participio de «prendre»:", ["pris", "prendu", "prenu"], 0, "Grupo -is."],
+    ["«Nous ___ (manger) à midi.»", ["mangeons", "mangons", "mangions"], 0, "-ger: nous + e."],
+    ["«Je ___ pas allé au cinéma.»", ["ne suis", "suis ne", "n'ai"], 0, "Negación alrededor del auxiliar."],
+    ["«Ils ___ (finir) à 5 h.»", ["finissent", "finent", "finissons"], 0, "-ir regular: -issent."],
+    ["«Elle a ___ les valises.»", ["monté", "montée", "montés"], 0, "Con avoir no concuerda con el sujeto."],
+  ],
+  tarjetas: [
+    ["Verbos -ir regulares", "finir: je finis, nous finissons, ils finissent."],
+    ["Participios irregulares", "vu, lu, bu, pris, mis, dit, écrit, fait, ouvert, été, eu."],
+    ["Negación en passé composé", "Ne + auxiliar + pas + participio: je n'ai pas vu."],
+  ],
+});
