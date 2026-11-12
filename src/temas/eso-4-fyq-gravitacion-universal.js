@@ -115,3 +115,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular la velocidad orbital de un satélite", "Explicar el peso aparente y la ingravidez de los astronautas"],
+  tras: {
+    "La ley de la gravitación universal": [
+      { html: `<h3>Usar la ley de la gravitación</h3><p>La fuerza gravitatoria es <b>siempre atractiva</b>, actúa a distancia y es mutua: la Tierra te atrae con la misma fuerza con que tú atraes a la Tierra (tercera ley de Newton), aunque a ti te mueve mucho y a ella nada, porque su masa es enorme. La constante G = 6,67 · 10⁻¹¹ N·m²/kg² es tan pequeña que entre dos personas la atracción es de millonésimas de newton: solo se nota cuando al menos una masa es gigantesca. La dependencia con la distancia es muy fuerte: si la distancia se duplica, la fuerza se divide entre <mark>cuatro</mark>; si se triplica, entre nueve. La distancia se mide siempre entre los centros de los cuerpos.</p>`, video: { id: "_sbc_9FDRCM", titulo: "Ley de gravitación universal: calcular la masa", canal: "Vitual", vistas: 372861 } },
+    ],
+    "El peso y la gravedad de cada planeta": [
+      { html: `<h3>Cómo cambia g con la altura</h3><p>La gravedad en la superficie de un planeta vale <mark>g = G · M / R²</mark>, donde M es su masa y R su radio. Si nos alejamos de la superficie, la distancia al centro aumenta y g disminuye: a una altura h, g = G · M / (R + h)². A la altura de la Estación Espacial Internacional, unos 400 km, g todavía vale unos 8,7 m/s², casi un 90 % del valor en el suelo. Por tanto, los astronautas <b>no flotan porque allí no haya gravedad</b>, sino porque la estación y ellos están cayendo continuamente alrededor de la Tierra a la vez: es la <b>ingravidez</b> o caída libre, en la que el peso aparente es cero.</p>` },
+    ],
+    "Órbitas, satélites y mareas": [
+      { html: `<h3>Velocidad orbital y satélites</h3><p>Un satélite está en órbita porque la gravedad le proporciona justo la fuerza centrípeta que necesita para girar. Igualando las dos fuerzas sale la <b>velocidad orbital</b>: <mark>v = √(G · M / r)</mark>, donde r es la distancia al centro de la Tierra. Cuanto más lejos, más despacio gira y más tarda en dar una vuelta. Los satélites de órbita baja (300-2.000 km) dan una vuelta en hora y media; los <b>geoestacionarios</b>, a 36.000 km sobre el ecuador, tardan exactamente un día y parecen quietos en el cielo, por eso se usan para la televisión y la meteorología. Los GPS orbitan a unos 20.000 km. Para escapar de la Tierra sin volver hay que superar la <b>velocidad de escape</b>, 11,2 km/s.</p>`, video: { id: "FOYfxBjT5wQ", titulo: "Velocidad de escape: órbitas y trayectorias", canal: "Cienciabit", vistas: 189261 } },
+      { html: `<h3>La gravitación y el universo</h3><p>La misma ley que hace caer una manzana mantiene la Luna alrededor de la Tierra, los planetas alrededor del Sol y el Sol alrededor del centro de la Vía Láctea: fue la primera vez que se demostró que <mark>las leyes de la física son las mismas en la Tierra y en el cielo</mark>. Con ella se descubrió Neptuno en 1846, antes de verlo, por las alteraciones que causaba en la órbita de Urano. También se usa para «pesar» astros: midiendo el periodo de la Luna se calcula la masa de la Tierra. Hoy sabemos que la teoría de Einstein mejora la de Newton cuando las masas o las velocidades son enormes, pero para las misiones espaciales la ley de Newton sigue siendo suficiente.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Calcula la fuerza entre la Tierra (6 · 10²⁴ kg) y la Luna (7,3 · 10²² kg), separadas 3,84 · 10⁸ m.", pasos: ["F = G · M · m / d².", "Numerador: 6,67 · 10⁻¹¹ · 6 · 10²⁴ · 7,3 · 10²² ≈ 2,92 · 10³⁷.", "d² = (3,84 · 10⁸)² ≈ 1,47 · 10¹⁷.", "F = 2,92 · 10³⁷ / 1,47 · 10¹⁷ ≈ 1,99 · 10²⁰ N."], resultado: "F ≈ 2 · 10²⁰ N." },
+    { enunciado: "Un planeta tiene el doble de masa que la Tierra y el mismo radio. ¿Cuánto vale g en su superficie? ¿Cuánto pesaría allí una persona de 50 kg?", pasos: ["g = G·M / R²: si M se duplica y R no cambia, g se duplica.", "g = 2 · 9,8 = 19,6 m/s².", "P = m · g = 50 · 19,6 = 980 N."], resultado: "g = 19,6 m/s²; pesaría 980 N (su masa seguiría siendo 50 kg)." },
+    { enunciado: "Calcula la velocidad orbital de un satélite a 7.000 km del centro de la Tierra (M = 6 · 10²⁴ kg).", pasos: ["v = √(G·M / r), con r = 7 · 10⁶ m.", "G·M = 6,67 · 10⁻¹¹ · 6 · 10²⁴ = 4 · 10¹⁴.", "G·M / r = 4 · 10¹⁴ / 7 · 10⁶ ≈ 5,7 · 10⁷ → v ≈ 7.560 m/s."], resultado: "v ≈ 7,6 km/s (unos 27.000 km/h)." },
+  ],
+  errores: [
+    "Pensar que en el espacio no hay gravedad: los astronautas están en caída libre.",
+    "Confundir masa (kg, no cambia) y peso (N, depende de g).",
+    "Medir la distancia desde la superficie en vez de desde el centro del planeta.",
+    "Olvidar elevar la distancia al cuadrado: al doble de distancia, la fuerza es la cuarta parte, no la mitad.",
+    "Creer que la Tierra atrae a la Luna con más fuerza que la Luna a la Tierra: las dos fuerzas son iguales.",
+  ],
+  ejercicios: [
+    { q: "Enuncia las tres leyes de Kepler con tus palabras.", sol: "1) Los planetas giran en elipses con el Sol en un foco. 2) Barren áreas iguales en tiempos iguales: van más rápido cerca del Sol. 3) Cuanto más lejos está un planeta, más tarda en dar una vuelta (T² proporcional a r³)." },
+    { q: "Calcula la fuerza entre dos personas de 70 kg separadas 1 m.", sol: "F = 6,67 · 10⁻¹¹ · 70 · 70 / 1 ≈ 3,3 · 10⁻⁷ N, prácticamente nada." },
+    { q: "Si la distancia entre dos cuerpos se triplica, ¿cómo cambia la fuerza?", sol: "Se divide entre 3² = 9." },
+    { q: "Calcula el peso de un astronauta de 80 kg en la Tierra (9,8 m/s²), en la Luna (1,62 m/s²) y en Marte (3,7 m/s²).", sol: "Tierra 784 N, Luna 129,6 N, Marte 296 N. Su masa es 80 kg en los tres." },
+    { q: "Calcula g en la superficie de la Tierra (M = 6 · 10²⁴ kg, R = 6,37 · 10⁶ m).", sol: "g = 6,67 · 10⁻¹¹ · 6 · 10²⁴ / (6,37 · 10⁶)² ≈ 4 · 10¹⁴ / 4,06 · 10¹³ ≈ 9,86 m/s²." },
+    { q: "¿A qué distancia del centro de la Tierra g vale la cuarta parte que en la superficie?", sol: "A doble distancia: 2R ≈ 12.740 km del centro (6.370 km de altura)." },
+    { q: "¿Por qué un satélite geoestacionario debe estar sobre el ecuador y tardar 24 h en dar una vuelta?", sol: "Para girar a la vez que la Tierra y en el mismo plano, y así estar siempre sobre el mismo punto: las antenas no tienen que moverse." },
+    { q: "Explica por qué los astronautas de la Estación Espacial flotan si allí g ≈ 8,7 m/s².", sol: "Porque la estación y ellos caen juntos alrededor de la Tierra con la misma aceleración: no se apoyan en nada y su peso aparente es cero (ingravidez)." },
+    { q: "¿Por qué hay dos mareas altas al día?", sol: "La Luna atrae más el agua del lado más cercano y menos la del lado opuesto, que «se queda atrás»; se forman dos abultamientos y la Tierra gira bajo ellos en un día." },
+    { q: "Compara el modelo de Ptolomeo con el de Copérnico.", sol: "Ptolomeo: geocéntrico, la Tierra inmóvil en el centro. Copérnico: heliocéntrico, el Sol en el centro y la Tierra gira a su alrededor y sobre sí misma. Galileo aportó pruebas con el telescopio a favor de Copérnico." },
+  ],
+  quiz: [
+    { q: "Si la distancia entre dos masas se duplica, la fuerza gravitatoria…", o: ["se reduce a la mitad", "se reduce a la cuarta parte", "se duplica"], a: 1, e: "Depende de 1/d²." },
+    { q: "Los astronautas de la Estación Espacial flotan porque…", o: ["allí no hay gravedad", "están en caída libre alrededor de la Tierra", "están muy lejos del Sol"], a: 1, e: "g allí es casi el 90 % de la del suelo." },
+    { q: "Cuanto más lejos está un satélite de la Tierra, su velocidad orbital es…", o: ["mayor", "menor", "igual"], a: 1, e: "v = √(G·M/r)." },
+    { q: "Un satélite geoestacionario tarda en dar una vuelta…", o: ["90 minutos", "24 horas", "un mes"], a: 1, e: "Gira al ritmo de la Tierra." },
+    { q: "La velocidad de escape de la Tierra es de unos…", o: ["11,2 km/s", "300.000 km/s", "1 km/s"], a: 0, e: "Para no volver a caer." },
+  ],
+  tarjetas: [
+    ["g en la superficie de un planeta", "g = G · M / R²."],
+    ["Velocidad orbital", "v = √(G · M / r); disminuye al alejarse."],
+    ["Ingravidez", "Estado de caída libre en el que el peso aparente es cero."],
+  ],
+});

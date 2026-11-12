@@ -126,3 +126,61 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular la temperatura de equilibrio al mezclar dos cuerpos", "Calcular el calor necesario para calentar y cambiar de estado una sustancia"],
+  tras: {
+    "Temperatura y calor no son lo mismo": [
+      { html: `<h3>Escalas de temperatura y energía interna</h3><p>La temperatura mide la <b>agitación media</b> de las partículas de un cuerpo. Se usan tres escalas: la <b>Celsius</b> (0 °C funde el hielo y 100 °C hierve el agua), la <b>Fahrenheit</b>, habitual en Estados Unidos, y la <b>Kelvin</b>, la del SI, que empieza en el <mark>cero absoluto</mark> (0 K = −273 °C), la temperatura más baja posible, en la que las partículas casi no se mueven. La conversión es T (K) = t (°C) + 273 y t (°F) = 1,8 · t (°C) + 32. La suma de las energías de todas las partículas de un cuerpo es su <b>energía interna</b>: una bañera de agua tibia tiene más energía interna que una taza de café hirviendo, aunque esté a menor temperatura, porque tiene muchísimas más partículas.</p>` },
+    ],
+    "Calor y cambio de temperatura": [
+      { html: `<h3>Equilibrio térmico y calorímetros</h3><p>Cuando dos cuerpos a distinta temperatura se ponen en contacto, el calor pasa del caliente al frío hasta que los dos alcanzan la misma temperatura: el <b>equilibrio térmico</b>. Si no se pierde calor hacia fuera, <mark>el calor que cede el cuerpo caliente es igual al que absorbe el frío</mark>: Q cedido + Q absorbido = 0, o bien m₁·c₁·(Tₑ − T₁) + m₂·c₂·(Tₑ − T₂) = 0. Para medirlo se usa un <b>calorímetro</b>, un recipiente aislado (como un termo) con termómetro y agitador. Así se puede calcular la temperatura final de una mezcla o el calor específico de un material desconocido.</p>`, video: { id: "uZdE2TOvQUc", titulo: "Equilibrio térmico", canal: "El Profe Rafa", vistas: 276976 } },
+    ],
+    "Cambios de estado": [
+      { html: `<h3>Calor latente y curva de calentamiento</h3><p>Mientras una sustancia cambia de estado, su temperatura <b>no cambia</b>: toda la energía que recibe se usa para separar las partículas. Esa energía por kilogramo es el <b>calor latente</b> L, y el calor necesario es <mark>Q = m · L</mark>. Para el agua, el calor latente de fusión es 334.000 J/kg y el de vaporización, 2.260.000 J/kg: cuesta casi siete veces más hervir un kilo de agua que fundir un kilo de hielo. En la <b>curva de calentamiento</b> (temperatura frente a tiempo) se ven tramos inclinados, donde sube la temperatura (Q = m·c·ΔT), y <b>tramos horizontales</b>, los cambios de estado (Q = m·L).</p>`, video: { id: "44aKjY5Apnw", titulo: "Gráficas de calentamiento: cambios de estado", canal: "Susi Profe", vistas: 227313 } },
+    ],
+    "Dilatación y máquinas térmicas": [
+      { html: `<h3>El rendimiento de las máquinas térmicas</h3><p>Una <b>máquina térmica</b> (motor de coche, central térmica, máquina de vapor) transforma calor en trabajo. Toma calor de un foco caliente, convierte una parte en trabajo y cede el resto a un foco frío, normalmente el ambiente. Es imposible convertir todo el calor en trabajo: siempre se pierde una parte. El <b>rendimiento</b> es <mark>η = trabajo útil / calor absorbido · 100</mark>. Un motor de gasolina ronda el 25-30 % y uno diésel, el 35-40 %: la mayor parte de la energía del combustible acaba calentando el motor y el aire. Por eso mejorar la eficiencia de las máquinas ahorra combustible y emisiones de CO₂.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Se mezclan 200 g de agua a 80 °C con 300 g de agua a 20 °C. ¿Cuál es la temperatura final?", pasos: ["El calor cedido por el agua caliente es igual al absorbido por la fría (el c es el mismo y se simplifica).", "0,2 · (80 − Tₑ) = 0,3 · (Tₑ − 20).", "16 − 0,2Tₑ = 0,3Tₑ − 6 → 22 = 0,5Tₑ → Tₑ = 44 °C."], resultado: "Tₑ = 44 °C." },
+    { enunciado: "¿Cuánto calor hace falta para convertir 0,5 kg de hielo a 0 °C en agua a 20 °C? (Lf = 334.000 J/kg; c agua = 4.180 J/(kg·°C).)", pasos: ["Fundir el hielo: Q₁ = m·Lf = 0,5 · 334.000 = 167.000 J.", "Calentar el agua de 0 a 20 °C: Q₂ = 0,5 · 4.180 · 20 = 41.800 J.", "Total: 167.000 + 41.800 = 208.800 J."], resultado: "Q ≈ 2,09 · 10⁵ J." },
+    { enunciado: "Un motor absorbe 50.000 J de calor y realiza 15.000 J de trabajo. Calcula su rendimiento y el calor cedido al ambiente.", pasos: ["η = 15.000 / 50.000 · 100 = 30 %.", "El resto se cede al foco frío: 50.000 − 15.000 = 35.000 J."], resultado: "Rendimiento 30 %; cede 35.000 J." },
+  ],
+  errores: [
+    "Confundir calor (energía que se transfiere) con temperatura (agitación media de las partículas).",
+    "Decir que un abrigo «da calor»: solo aísla y evita que perdamos el nuestro.",
+    "Pensar que durante la ebullición sube la temperatura del agua.",
+    "Usar el calor específico cuando hay un cambio de estado: entonces se usa el calor latente.",
+    "Olvidar pasar los gramos a kilogramos cuando c está en J/(kg·°C).",
+    "Creer que el frío «entra»: es el calor el que sale del cuerpo caliente.",
+  ],
+  ejercicios: [
+    { q: "Pasa 25 °C a kelvin y a grados Fahrenheit.", sol: "25 + 273 = 298 K. 1,8 · 25 + 32 = 77 °F." },
+    { q: "¿Cuánto calor hace falta para calentar 2 kg de agua de 15 a 65 °C?", sol: "Q = 2 · 4.180 · 50 = 418.000 J." },
+    { q: "Un bloque de 500 g de aluminio (c = 900 J/(kg·°C)) absorbe 9.000 J. ¿Cuánto sube su temperatura?", sol: "ΔT = Q / (m·c) = 9.000 / (0,5 · 900) = 20 °C." },
+    { q: "Se mezclan 1 kg de agua a 60 °C y 1 kg de agua a 10 °C. ¿Temperatura final?", sol: "Masas iguales del mismo líquido: la media, (60 + 10) / 2 = 35 °C." },
+    { q: "¿Cuánto calor se necesita para evaporar 0,2 kg de agua a 100 °C? (Lv = 2.260.000 J/kg.)", sol: "Q = 0,2 · 2.260.000 = 452.000 J." },
+    { q: "Explica por qué el sudor nos refresca.", sol: "Para evaporarse, el sudor absorbe calor latente de la piel; así la piel pierde energía y baja su temperatura." },
+    { q: "Indica cómo se propaga el calor: en una cuchara metida en la sopa, en el aire de una habitación con radiador y desde el Sol a la Tierra.", sol: "Cuchara: conducción. Habitación: convección. Sol: radiación." },
+    { q: "Un trozo de metal de 0,2 kg a 100 °C se mete en 0,5 kg de agua a 20 °C y la mezcla queda a 24 °C. Calcula el calor específico del metal.", sol: "Calor absorbido por el agua: 0,5 · 4.180 · 4 = 8.360 J. Lo cede el metal: 0,2 · c · 76 = 8.360 → c = 550 J/(kg·°C)." },
+    { q: "¿Por qué las vías del tren y los puentes tienen juntas de dilatación?", sol: "Porque con el calor los materiales se dilatan; las juntas dejan espacio para que el metal o el hormigón se alarguen sin deformarse ni romperse." },
+    { q: "Un motor tiene un rendimiento del 35 % y absorbe 80.000 J. ¿Qué trabajo útil realiza?", sol: "W = 0,35 · 80.000 = 28.000 J." },
+  ],
+  quiz: [
+    { q: "El cero absoluto es…", o: ["0 °C", "−273 °C", "−100 °C"], a: 1, e: "0 K, la temperatura más baja posible." },
+    { q: "Durante un cambio de estado, la temperatura…", o: ["sube", "baja", "no cambia"], a: 2, e: "La energía se usa en separar partículas." },
+    { q: "El calor necesario para fundir una masa m es…", o: ["m · c · ΔT", "m · L", "m · g · h"], a: 1, e: "L es el calor latente de fusión." },
+    { q: "Al mezclar agua caliente y fría sin pérdidas…", o: ["el calor cedido es igual al absorbido", "se pierde todo el calor", "la temperatura final es siempre 50 °C"], a: 0, e: "Es el principio del calorímetro." },
+    { q: "El rendimiento de un motor de gasolina es aproximadamente…", o: ["100 %", "25-30 %", "90 %"], a: 1, e: "La mayor parte se pierde como calor." },
+  ],
+  tarjetas: [
+    ["Equilibrio térmico", "Estado final en que dos cuerpos en contacto tienen la misma temperatura."],
+    ["Calor latente", "Energía por kilogramo para cambiar de estado: Q = m · L."],
+    ["Rendimiento de una máquina térmica", "Trabajo útil / calor absorbido · 100; nunca llega al 100 %."],
+  ],
+});

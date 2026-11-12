@@ -126,3 +126,59 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Aplicar la ecuación de los gases ideales y el volumen molar", "Resolver problemas con reactivo limitante, pureza y rendimiento"],
+  tras: {
+    "Masa molar": [
+      { html: `<h3>El número de Avogadro en la práctica</h3><p>Un mol de cualquier sustancia contiene <mark>6,022 · 10²³ partículas</mark> (átomos, moléculas o iones): es el <b>número de Avogadro</b>, Nₐ. Con él se pasa de moles a partículas y al revés: N = n · Nₐ. Para hacerte una idea de su tamaño: si cada partícula fuera un grano de arena, un mol de granos cubriría toda España con una capa de varios kilómetros. Por eso los químicos cuentan en moles y no en partículas sueltas. Fíjate en qué partícula cuentas: un mol de moléculas de agua (H₂O) contiene 2 moles de átomos de hidrógeno y 1 mol de átomos de oxígeno.</p>` },
+    ],
+    "Disoluciones y concentración": [
+      { html: `<h3>Gases: volumen molar y ecuación de los gases ideales</h3><p>Los gases cumplen una ley muy sencilla que relaciona presión (p), volumen (V), cantidad de sustancia (n) y temperatura absoluta (T): la <b>ecuación de los gases ideales</b>, con R = 0,082 atm·L/(mol·K). La temperatura siempre en kelvin: T (K) = t (°C) + 273. Una consecuencia importante es que, en las mismas condiciones, <mark>un mol de cualquier gas ocupa el mismo volumen</mark>: en condiciones normales (0 °C y 1 atm), 22,4 L. Así, 2 moles de O₂ o 2 moles de CO₂ ocupan 44,8 L en esas condiciones, aunque su masa sea diferente.</p><div class="formula"><span>p · V = n · R · T</span></div>`, video: { id: "7uWK3GmeGzY", titulo: "Ley de los gases ideales: fórmula y problema", canal: "Susi Profe", vistas: 1094665 } },
+    ],
+    "Problemas paso a paso": [
+      { html: `<h3>Reactivo limitante y en exceso</h3><p>En la vida real los reactivos rara vez están en la proporción exacta de la ecuación. El <b>reactivo limitante</b> es el que <mark>se acaba primero</mark> y por tanto decide cuánto producto se forma; el otro es el <b>reactivo en exceso</b> y sobra una parte. Piensa en hacer bocadillos: con 10 panes y 6 lonchas de queso (una por bocadillo) solo puedes hacer 6; el queso es el limitante y sobran 4 panes. Para encontrarlo: pasa los datos a moles, divide cada cantidad entre su coeficiente de la ecuación y el que dé el número más pequeño es el limitante. Todos los cálculos de productos se hacen a partir de él.</p>`, video: { id: "olgYihEe6B8", titulo: "Estequiometría: reactivo limitante y en exceso", canal: "Amigos de la Química", vistas: 2973889 } },
+      { html: `<h3>Pureza y rendimiento</h3><p>Los reactivos industriales no son puros: una caliza del 80 % de riqueza contiene 80 g de carbonato de calcio por cada 100 g de piedra; el resto son impurezas que no reaccionan. Antes de calcular hay que quedarse solo con la parte pura: masa pura = masa total · riqueza / 100. Además, casi nunca se obtiene todo el producto que predice la ecuación (hay pérdidas, reacciones secundarias…). El <b>rendimiento</b> compara lo que se obtiene de verdad con lo que se esperaba: <mark>rendimiento (%) = masa real / masa teórica · 100</mark>. Un rendimiento del 75 % significa que se obtuvo tres cuartas partes de lo calculado.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "¿Cuántas moléculas hay en 9 g de agua? (Masas: H = 1, O = 16.)", pasos: ["Masa molar del H₂O = 2 · 1 + 16 = 18 g/mol.", "Moles: n = 9 / 18 = 0,5 mol.", "Moléculas: 0,5 · 6,022 · 10²³ = 3,011 · 10²³."], resultado: "3,01 · 10²³ moléculas de agua." },
+    { enunciado: "¿Qué volumen ocupan 3 moles de N₂ a 27 °C y 2 atm?", pasos: ["Temperatura en kelvin: T = 27 + 273 = 300 K.", "Despeja V de pV = nRT: V = nRT / p.", "V = 3 · 0,082 · 300 / 2 = 36,9 L."], resultado: "V ≈ 36,9 L." },
+    { enunciado: "Reaccionan 4 g de H₂ con 64 g de O₂: 2 H₂ + O₂ → 2 H₂O. ¿Cuál es el limitante y cuánta agua se forma? (H = 1, O = 16.)", pasos: ["Moles: H₂ = 4 / 2 = 2 mol; O₂ = 64 / 32 = 2 mol.", "Divide entre los coeficientes: H₂ → 2 / 2 = 1; O₂ → 2 / 1 = 2. El menor es el del H₂: es el limitante.", "2 mol de H₂ dan 2 mol de H₂O (proporción 2:2). Masa = 2 · 18 = 36 g.", "Sobra O₂: se gasta 1 mol (32 g) y quedan 32 g."], resultado: "Limitante: H₂. Se forman 36 g de agua y sobran 32 g de O₂." },
+  ],
+  errores: [
+    "Usar la temperatura en grados Celsius en pV = nRT: siempre en kelvin.",
+    "Hacer las proporciones con gramos en vez de con moles: los coeficientes de la ecuación son proporciones de moles.",
+    "Olvidar ajustar la ecuación antes de hacer cálculos.",
+    "Calcular el producto a partir del reactivo en exceso en vez del limitante.",
+    "Aplicar 22,4 L/mol a líquidos o sólidos, o a gases que no están a 0 °C y 1 atm.",
+    "Confundir la masa molar del oxígeno atómico (16 g/mol) con la del O₂ (32 g/mol).",
+  ],
+  ejercicios: [
+    { q: "Calcula la masa molar del CaCO₃ (Ca = 40, C = 12, O = 16).", sol: "40 + 12 + 3 · 16 = 100 g/mol." },
+    { q: "¿Cuántos moles hay en 88 g de CO₂? ¿Y cuántas moléculas?", sol: "M(CO₂) = 44 g/mol. n = 88 / 44 = 2 mol. Moléculas: 2 · 6,022 · 10²³ = 1,2 · 10²⁴." },
+    { q: "Se disuelven 20 g de NaOH (M = 40 g/mol) en agua hasta tener 500 mL de disolución. Calcula la molaridad.", sol: "n = 20 / 40 = 0,5 mol. V = 0,5 L. M = 0,5 / 0,5 = 1 mol/L." },
+    { q: "¿Qué volumen ocupan 0,25 mol de un gas en condiciones normales?", sol: "0,25 · 22,4 = 5,6 L." },
+    { q: "Un gas ocupa 10 L a 2 atm y 300 K. ¿Cuántos moles hay?", sol: "n = pV / RT = 2 · 10 / (0,082 · 300) = 20 / 24,6 ≈ 0,81 mol." },
+    { q: "En la reacción N₂ + 3 H₂ → 2 NH₃, ¿cuántos gramos de amoniaco se forman con 6 g de H₂ si hay N₂ de sobra? (N = 14, H = 1.)", sol: "n(H₂) = 6 / 2 = 3 mol. Por cada 3 mol de H₂ se forman 2 mol de NH₃. M(NH₃) = 17 g/mol: 2 · 17 = 34 g." },
+    { q: "CaCO₃ → CaO + CO₂. ¿Cuánto CaO se obtiene de 200 g de CaCO₃? (Ca = 40, C = 12, O = 16.)", sol: "n(CaCO₃) = 200 / 100 = 2 mol. Proporción 1:1: 2 mol de CaO. M(CaO) = 56: 2 · 56 = 112 g." },
+    { q: "En el ejercicio anterior, la caliza tiene un 80 % de riqueza. ¿Cuánto CaO se obtiene de 200 g de caliza?", sol: "Masa pura = 200 · 0,80 = 160 g de CaCO₃ = 1,6 mol. Se obtienen 1,6 · 56 = 89,6 g de CaO." },
+    { q: "Se esperaban 50 g de producto y se obtuvieron 42 g. Calcula el rendimiento.", sol: "42 / 50 · 100 = 84 %." },
+    { q: "Zn + 2 HCl → ZnCl₂ + H₂. Reaccionan 0,5 mol de Zn con 0,6 mol de HCl. ¿Cuál es el limitante? ¿Cuántos moles de H₂ se forman?", sol: "Zn: 0,5 / 1 = 0,5. HCl: 0,6 / 2 = 0,3. Limitante: HCl. 0,6 mol de HCl dan 0,3 mol de H₂." },
+  ],
+  quiz: [
+    { q: "Un mol de cualquier sustancia contiene…", o: ["6,022 · 10²³ partículas", "22,4 partículas", "1 g de sustancia"], a: 0, e: "Es el número de Avogadro." },
+    { q: "En condiciones normales, un mol de gas ocupa…", o: ["1 L", "22,4 L", "6,022 L"], a: 1, e: "Para cualquier gas ideal a 0 °C y 1 atm." },
+    { q: "En pV = nRT, la temperatura se expresa en…", o: ["°C", "K", "°F"], a: 1, e: "T (K) = t (°C) + 273." },
+    { q: "El reactivo limitante es el que…", o: ["sobra", "se acaba primero", "pesa más"], a: 1, e: "Determina cuánto producto se forma." },
+    { q: "Si se esperaban 20 g y se obtienen 15 g, el rendimiento es…", o: ["75 %", "133 %", "25 %"], a: 0, e: "15 / 20 · 100." },
+  ],
+  tarjetas: [
+    ["Ecuación de los gases ideales", "p · V = n · R · T, con R = 0,082 atm·L/(mol·K) y T en kelvin."],
+    ["Reactivo limitante", "El que se agota primero y fija la cantidad de producto."],
+    ["Rendimiento", "masa real / masa teórica · 100."],
+  ],
+});

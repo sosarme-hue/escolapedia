@@ -128,3 +128,59 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular el trabajo de una fuerza que forma un ángulo con el desplazamiento", "Aplicar la conservación de la energía con y sin rozamiento"],
+  tras: {
+    "La energía": [
+      { html: `<h3>Fuentes de energía</h3><p>Las <b>fuentes de energía</b> son los recursos de los que obtenemos energía útil. Las <b>no renovables</b> se agotan porque se consumen mucho más deprisa de lo que se forman: carbón, petróleo, gas natural (combustibles fósiles) y uranio (energía nuclear). Las <b>renovables</b> se regeneran de forma natural: solar, eólica, hidráulica, geotérmica, mareomotriz y biomasa. Los combustibles fósiles emiten CO₂ al quemarse y contribuyen al <mark>cambio climático</mark>; la nuclear no emite CO₂ pero genera residuos radiactivos. Las renovables son más limpias, aunque dependen del tiempo atmosférico y necesitan sistemas para almacenar la energía. El <b>ahorro y la eficiencia</b> energética son la «fuente» más barata.</p>` },
+    ],
+    "El trabajo": [
+      { html: `<h3>Trabajo cuando la fuerza está inclinada</h3><p>Si la fuerza forma un ángulo α con el desplazamiento, solo trabaja la parte de la fuerza que va en la dirección del movimiento: <mark>W = F · d · cos α</mark>. Si la fuerza va a favor (α = 0°, cos 0° = 1) el trabajo es máximo y positivo. Si es perpendicular (α = 90°, cos 90° = 0) el trabajo es <b>nulo</b>: al llevar una mochila caminando en horizontal, la fuerza que haces hacia arriba no realiza trabajo, aunque te canses. Si va en contra (α = 180°, cos 180° = −1) el trabajo es <b>negativo</b>, como el del rozamiento, que siempre quita energía al cuerpo. El trabajo total sobre un cuerpo es igual a la variación de su energía cinética.</p>`, video: { id: "Xptwydr5jXc", titulo: "Trabajo sin rozamiento: concepto, fórmula y problemas", canal: "Susi Profe", vistas: 392315 } },
+    ],
+    "Conservación de la energía mecánica": [
+      { html: `<h3>Energía mecánica con rozamiento</h3><p>Cuando hay rozamiento, la energía mecánica <b>no se conserva</b>: una parte se transforma en energía térmica (calor) en las superficies que rozan. Pero la energía total sí se conserva, así que podemos escribir un balance: <mark>Em inicial = Em final + energía perdida por rozamiento</mark>. El trabajo del rozamiento es W = −Fr · d, y la fuerza de rozamiento sobre una superficie horizontal vale Fr = μ · m · g, donde μ es el coeficiente de rozamiento (sin unidades). Por eso un péndulo real va oscilando cada vez menos hasta pararse y una bici que deja de pedalear acaba deteniéndose.</p>`, video: { id: "f4IWnif1wjs", titulo: "Energía mecánica: principio de conservación de la energía", canal: "Susi Profe", vistas: 755446 } },
+      { html: `<h3>Las máquinas simples</h3><p>Una <b>máquina simple</b> no crea energía, pero permite hacer el mismo trabajo con <mark>menos fuerza a cambio de más recorrido</mark>. En la <b>palanca</b> se cumple la ley F · bF = R · bR (fuerza por su brazo igual a resistencia por su brazo): con un brazo largo levantas una piedra pesada. El <b>plano inclinado</b> permite subir una carga empujándola con una fuerza menor que su peso, aunque hay que recorrer más distancia. La <b>polea</b> fija cambia la dirección de la fuerza y el polipasto la reduce. En todos los casos, sin rozamiento, el trabajo que hacemos es igual al trabajo útil: la «ventaja» está en la fuerza, nunca en la energía.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Arrastras una maleta 20 m tirando del asa con 50 N y un ángulo de 60° con el suelo. ¿Qué trabajo haces?", pasos: ["W = F · d · cos α.", "cos 60° = 0,5.", "W = 50 · 20 · 0,5 = 500 J."], resultado: "W = 500 J." },
+    { enunciado: "Una pelota de 0,5 kg cae desde 20 m. Sin rozamiento, ¿con qué velocidad llega al suelo? (g = 9,8 m/s².)", pasos: ["Arriba: Ep = m·g·h = 0,5 · 9,8 · 20 = 98 J; Ec = 0.", "Abajo: toda la Ep se ha convertido en Ec: ½·m·v² = 98 J.", "v² = 2 · 98 / 0,5 = 392 → v = √392 ≈ 19,8 m/s."], resultado: "v ≈ 19,8 m/s (no depende de la masa)." },
+    { enunciado: "Un trineo de 40 kg llega a 10 m/s a una zona horizontal con μ = 0,2. ¿Qué distancia recorre hasta pararse?", pasos: ["Ec inicial = ½ · 40 · 100 = 2.000 J. Toda se pierde por rozamiento.", "Fr = μ·m·g = 0,2 · 40 · 9,8 = 78,4 N.", "Fr · d = 2.000 → d = 2.000 / 78,4 ≈ 25,5 m."], resultado: "Recorre unos 25,5 m." },
+  ],
+  errores: [
+    "Pensar que hay trabajo siempre que nos cansamos: sujetar un peso quieto no realiza trabajo físico.",
+    "Olvidar el coseno cuando la fuerza está inclinada.",
+    "Usar la masa en gramos o la altura en centímetros en Ep = m·g·h.",
+    "Creer que una máquina simple ahorra energía: ahorra fuerza, no trabajo.",
+    "Confundir potencia (rapidez con que se hace un trabajo, en W) con energía (en J o kWh).",
+    "Pensar que la energía «se pierde» por rozamiento: se transforma en energía térmica.",
+  ],
+  ejercicios: [
+    { q: "Empujas un carro 15 m con una fuerza horizontal de 80 N. Calcula el trabajo.", sol: "W = 80 · 15 · cos 0° = 1.200 J." },
+    { q: "¿Qué trabajo hace el peso de una caja de 10 kg que llevas en brazos por un pasillo horizontal de 5 m?", sol: "Cero: el peso es vertical y el desplazamiento horizontal (α = 90°)." },
+    { q: "Calcula la energía cinética de un coche de 1.200 kg a 90 km/h.", sol: "90 km/h = 25 m/s. Ec = ½ · 1.200 · 625 = 375.000 J." },
+    { q: "Calcula la energía potencial de una persona de 60 kg en lo alto de un edificio de 30 m.", sol: "Ep = 60 · 9,8 · 30 = 17.640 J." },
+    { q: "Desde qué altura hay que dejar caer un objeto para que llegue al suelo a 14 m/s (sin rozamiento)?", sol: "m·g·h = ½·m·v² → h = v² / (2g) = 196 / 19,6 = 10 m." },
+    { q: "Un montacargas sube 500 kg a 12 m en 20 s. Calcula su potencia útil.", sol: "W = 500 · 9,8 · 12 = 58.800 J. P = 58.800 / 20 = 2.940 W." },
+    { q: "Un motor consume 2.000 J y realiza un trabajo útil de 1.500 J. Calcula su rendimiento.", sol: "1.500 / 2.000 · 100 = 75 %." },
+    { q: "Una vagoneta de montaña rusa pasa por lo alto (h = 25 m) a 5 m/s. ¿A qué velocidad pasa por el punto más bajo (h = 0)? Sin rozamiento.", sol: "½v₁² + g·h = ½v₂² → 12,5 + 245 = ½v₂² → v₂² = 515 → v₂ ≈ 22,7 m/s." },
+    { q: "Con una palanca, el brazo de la fuerza mide 2 m y el de la resistencia 0,4 m. ¿Qué fuerza necesitas para levantar 500 N?", sol: "F · 2 = 500 · 0,4 → F = 100 N." },
+    { q: "Clasifica en renovables o no renovables: gas natural, biomasa, uranio, mareomotriz, geotérmica.", sol: "Renovables: biomasa, mareomotriz y geotérmica. No renovables: gas natural y uranio." },
+  ],
+  quiz: [
+    { q: "Si la fuerza es perpendicular al desplazamiento, el trabajo es…", o: ["máximo", "cero", "negativo"], a: 1, e: "cos 90° = 0." },
+    { q: "El trabajo del rozamiento es…", o: ["positivo", "negativo", "nulo"], a: 1, e: "Va en contra del movimiento." },
+    { q: "Una palanca permite…", o: ["ahorrar energía", "hacer menos fuerza recorriendo más distancia", "crear trabajo"], a: 1, e: "El trabajo es el mismo." },
+    { q: "¿Cuál es una fuente renovable?", o: ["El carbón", "La eólica", "El uranio"], a: 1, e: "El viento se regenera." },
+    { q: "Con rozamiento, la energía mecánica…", o: ["aumenta", "se conserva", "disminuye y aparece energía térmica"], a: 2, e: "La energía total se conserva." },
+  ],
+  tarjetas: [
+    ["Trabajo con ángulo", "W = F · d · cos α."],
+    ["Ley de la palanca", "F · bF = R · bR."],
+    ["Fuentes renovables", "Solar, eólica, hidráulica, geotérmica, mareomotriz y biomasa."],
+  ],
+});

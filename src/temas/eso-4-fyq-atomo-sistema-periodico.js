@@ -128,3 +128,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular la masa atómica media a partir de los isótopos", "Predecir el ion que forma un elemento a partir de su configuración electrónica"],
+  tras: {
+    "Partículas y números": [
+      { html: `<h3>Isótopos y masa atómica</h3><p>Los <b>isótopos</b> son átomos del mismo elemento (mismo número atómico Z, mismos protones) con <mark>distinto número de neutrones</mark>, y por tanto distinto número másico A. El carbono-12 tiene 6 neutrones y el carbono-14, 8. Se escriben con A arriba a la izquierda del símbolo: ¹²C, ¹⁴C. Todos se comportan igual químicamente, pero algunos son radiactivos y se usan en medicina o para datar fósiles. La <b>masa atómica</b> de la tabla periódica es la <b>media ponderada</b> de las masas de los isótopos según su abundancia en la naturaleza; por eso no es un número entero. Se mide en <b>unidades de masa atómica</b> (u), la doceava parte de la masa del carbono-12.</p>`, video: { id: "kvhqUBZjEnY", titulo: "Isótopos: qué son, tipos y ejemplos", canal: "Susi Profe", vistas: 816401 } },
+      { html: `<h3>Los iones</h3><p>Un átomo es neutro porque tiene tantos electrones como protones. Si <b>gana o pierde electrones</b> se convierte en un <b>ion</b>: si pierde electrones queda con carga positiva y se llama <mark>catión</mark> (Na⁺, Ca²⁺); si gana electrones queda con carga negativa y se llama <mark>anión</mark> (Cl⁻, O²⁻). El número de protones nunca cambia en una reacción química: cambiar los protones sería cambiar de elemento. Para un ion: electrones = Z − carga. Por ejemplo, el Mg²⁺ (Z = 12) tiene 12 protones y 12 − 2 = 10 electrones.</p>`, video: { id: "dLq5HktWK5g", titulo: "Iones: aniones y cationes", canal: "Susi Profe", vistas: 1039910 } },
+    ],
+    "La configuración electrónica": [
+      { html: `<h3>Electrones de valencia y estabilidad</h3><p>Los electrones del último nivel, los <b>electrones de valencia</b>, deciden cómo se comporta un elemento. Los <b>gases nobles</b> tienen su última capa completa (ns² np⁶, ocho electrones; el helio, dos) y casi no reaccionan. Los demás átomos tienden a ganar, perder o compartir electrones para <mark>parecerse al gas noble más cercano</mark>. El sodio (1s² 2s² 2p⁶ 3s¹) pierde su único electrón de valencia y queda como el neón: Na⁺. El cloro (…3s² 3p⁵) gana uno y queda como el argón: Cl⁻. Así, la configuración electrónica permite predecir el ion de cada elemento.</p>${AMP.tabla(["Grupo", "e⁻ de valencia", "Tendencia", "Ion típico"], [["1 (alcalinos)", "1", "pierde 1", "Na⁺, K⁺"], ["2 (alcalinotérreos)", "2", "pierde 2", "Mg²⁺, Ca²⁺"], ["16 (anfígenos)", "6", "gana 2", "O²⁻, S²⁻"], ["17 (halógenos)", "7", "gana 1", "F⁻, Cl⁻"], ["18 (gases nobles)", "8", "estable", "—"]])}` },
+    ],
+    "La tabla periódica": [
+      { html: `<h3>Metales, no metales y semimetales</h3><p>La tabla se divide en tres grandes zonas. Los <b>metales</b>, a la izquierda y en el centro, son la mayoría: brillan, conducen el calor y la electricidad, son dúctiles y maleables y tienden a <mark>perder electrones</mark> y formar cationes. Los <b>no metales</b>, arriba a la derecha (C, N, O, F, P, S, Cl…), no conducen bien, muchos son gases a temperatura ambiente y tienden a <b>ganar electrones</b>. Entre ambos, en escalera, están los <b>semimetales</b> (B, Si, Ge, As…), con propiedades intermedias: el silicio es un semiconductor y es la base de los chips. El hidrógeno es un caso especial: está en el grupo 1 pero es un no metal.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Indica protones, neutrones y electrones del ⁵⁶Fe³⁺ (Z = 26).", pasos: ["Protones = Z = 26.", "Neutrones = A − Z = 56 − 26 = 30.", "Electrones: el ion tiene carga +3, ha perdido 3 electrones: 26 − 3 = 23."], resultado: "26 protones, 30 neutrones y 23 electrones." },
+    { enunciado: "El cloro tiene dos isótopos: cloro-35 (75,8 %) y cloro-37 (24,2 %). Calcula su masa atómica media.", pasos: ["La media ponderada multiplica cada masa por su abundancia en tanto por uno.", "35 · 0,758 = 26,53 y 37 · 0,242 = 8,95.", "Se suman: 26,53 + 8,95 = 35,48."], resultado: "Masa atómica del cloro ≈ 35,5 u." },
+    { enunciado: "Escribe la configuración electrónica del azufre (Z = 16), indica su grupo y periodo y el ion que forma.", pasos: ["Se llenan los niveles en el orden del diagrama de Moeller: 1s² 2s² 2p⁶ 3s² 3p⁴ (2 + 2 + 6 + 2 + 4 = 16).", "El último nivel es el 3: periodo 3. Tiene 6 electrones de valencia (3s² 3p⁴): grupo 16.", "Le faltan 2 electrones para tener 8: gana 2."], resultado: "1s² 2s² 2p⁶ 3s² 3p⁴; periodo 3, grupo 16; forma S²⁻." },
+  ],
+  errores: [
+    "Pensar que un ion positivo ha ganado protones: lo que cambia son los electrones.",
+    "Confundir número atómico (Z, protones) con número másico (A, protones + neutrones).",
+    "Creer que los isótopos son elementos distintos: tienen el mismo Z y son el mismo elemento.",
+    "Llenar los orbitales en orden 3d antes que 4s: el 4s se llena primero.",
+    "Decir que la masa atómica de la tabla es el número másico de un átomo: es una media de isótopos.",
+  ],
+  ejercicios: [
+    { q: "Completa: el ¹⁹F (Z = 9) tiene … protones, … neutrones y … electrones.", sol: "9 protones, 19 − 9 = 10 neutrones y 9 electrones (es neutro)." },
+    { q: "¿Cuántos electrones tienen el O²⁻ (Z = 8) y el Al³⁺ (Z = 13)?", sol: "O²⁻: 8 + 2 = 10 electrones. Al³⁺: 13 − 3 = 10 electrones. Los dos tienen la configuración del neón." },
+    { q: "¿Son isótopos ¹⁴C y ¹⁴N? ¿Por qué?", sol: "No. Tienen el mismo número másico (14) pero distinto Z (6 y 7): son elementos distintos." },
+    { q: "El boro tiene un 20 % de boro-10 y un 80 % de boro-11. Calcula su masa atómica.", sol: "10 · 0,20 + 11 · 0,80 = 2 + 8,8 = 10,8 u." },
+    { q: "Escribe la configuración electrónica del potasio (Z = 19).", sol: "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹. El 4s se llena antes que el 3d." },
+    { q: "Un elemento tiene la configuración 1s² 2s² 2p⁶ 3s² 3p⁵. Indica Z, periodo, grupo y si es metal o no metal.", sol: "Z = 17 (cloro). Periodo 3, grupo 17 (halógenos). Es un no metal; tiende a ganar 1 electrón." },
+    { q: "Ordena de menor a mayor radio atómico: Na, Cl, K.", sol: "Cl < Na < K. En un periodo el radio disminuye hacia la derecha (Cl < Na) y en un grupo aumenta hacia abajo (Na < K)." },
+    { q: "¿Qué tienen en común el Li, el Na y el K? Explícalo con su configuración.", sol: "Están en el grupo 1: todos acaban en ns¹, con 1 electrón de valencia. Por eso reaccionan de forma parecida y forman iones +1." },
+    { q: "¿Qué ventaja tuvo el modelo de Rutherford sobre el de Thomson? ¿Qué problema dejó sin resolver?", sol: "Explicó que la mayor parte del átomo está vacía y que la carga positiva está concentrada en un núcleo pequeño. No explicaba por qué los electrones no caen al núcleo; Bohr lo resolvió con órbitas de energía fija." },
+    { q: "Clasifica como metal, no metal o semimetal: Fe, S, Si, Ca, Br.", sol: "Metales: Fe y Ca. No metales: S y Br. Semimetal: Si." },
+  ],
+  quiz: [
+    { q: "Dos isótopos de un elemento se diferencian en el número de…", o: ["protones", "neutrones", "electrones de valencia"], a: 1, e: "Mismo Z, distinto A." },
+    { q: "Un anión es un átomo que…", o: ["ha ganado electrones", "ha perdido electrones", "ha ganado protones"], a: 0, e: "Queda con carga negativa." },
+    { q: "¿Cuántos electrones de valencia tienen los halógenos?", o: ["1", "7", "8"], a: 1, e: "Acaban en ns² np⁵." },
+    { q: "¿Qué ion forma el calcio (grupo 2)?", o: ["Ca²⁺", "Ca²⁻", "Ca⁺"], a: 0, e: "Pierde sus 2 electrones de valencia." },
+    { q: "El silicio es un…", o: ["metal", "no metal", "semimetal"], a: 2, e: "Semiconductor, base de los chips." },
+  ],
+  tarjetas: [
+    ["¿Qué son los isótopos?", "Átomos del mismo elemento con distinto número de neutrones."],
+    ["Catión y anión", "Catión: ion positivo (ha perdido e⁻). Anión: ion negativo (ha ganado e⁻)."],
+    ["Electrones de valencia", "Los del último nivel; deciden cómo reacciona un elemento."],
+  ],
+});

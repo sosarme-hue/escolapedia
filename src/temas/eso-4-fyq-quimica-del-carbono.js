@@ -115,3 +115,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Nombrar y formular hidrocarburos sencillos, también ramificados", "Reconocer isómeros y relacionar los polímeros con su impacto ambiental"],
+  tras: {
+    "Hidrocarburos": [
+      { html: `<h3>Nombrar hidrocarburos</h3><p>El nombre de un hidrocarburo tiene un <b>prefijo</b> que dice cuántos carbonos tiene la cadena (met- 1, et- 2, prop- 3, but- 4, pent- 5, hex- 6, hept- 7, oct- 8) y un <b>sufijo</b> que dice el tipo de enlace: <mark>-ano</mark> si todos son sencillos, <mark>-eno</mark> si hay un doble y <mark>-ino</mark> si hay un triple. Los pasos son: elegir la cadena más larga que contenga el enlace múltiple; numerarla para que el doble o triple enlace tenga el número más bajo; indicar su posición delante del sufijo. Así, CH₂=CH–CH₂–CH₃ es <b>but-1-eno</b>. Las ramificaciones se nombran como <b>radicales</b> terminados en -il (metil, etil) delante del nombre de la cadena, con el número del carbono al que se unen: CH₃–CH(CH₃)–CH₃ es <b>metilpropano</b>.</p>`, video: { id: "RmLf2gU5tIQ", titulo: "Alcanos, alquenos y alquinos (y radicales)", canal: "Amigos de la Química", vistas: 3165762 } },
+      { html: `<h3>Hidrocarburos cíclicos y aromáticos</h3><p>Las cadenas pueden cerrarse en un anillo: son los <b>cicloalcanos</b>, que se nombran con el prefijo ciclo-, como el ciclohexano (C₆H₁₂). Un caso especial es el <b>benceno</b>, C₆H₆: un anillo de seis carbonos con enlaces que se reparten por todo el anillo, lo que le da una gran estabilidad. Se dibuja como un hexágono con un círculo dentro. Los compuestos que contienen este anillo se llaman <mark>aromáticos</mark>, porque los primeros que se conocieron tenían olor intenso. Muchos medicamentos, colorantes y plásticos tienen anillos de benceno, aunque el benceno puro es tóxico.</p>` },
+    ],
+    "Grupos funcionales": [
+      { html: `<h3>Isomería</h3><p>Los <b>isómeros</b> son compuestos con la <mark>misma fórmula molecular pero distinta estructura</mark>, y por eso tienen propiedades diferentes. Hay varios tipos: de <b>cadena</b> (butano, con la cadena recta, y metilpropano, ramificado, son los dos C₄H₁₀); de <b>posición</b> (but-1-eno y but-2-eno, con el doble enlace en sitios distintos); y de <b>función</b> (el etanol, CH₃–CH₂OH, un alcohol, y el dimetil éter, CH₃–O–CH₃, tienen la misma fórmula C₂H₆O pero el primero es líquido y se bebe en las bebidas alcohólicas, y el segundo es un gas). La isomería explica en parte la enorme variedad de compuestos del carbono.</p>`, video: { id: "fMllRfO7eII", titulo: "Tipos de isómeros. Química orgánica", canal: "Breaking Vlad", vistas: 643087 } },
+    ],
+    "Compuestos de interés": [
+      { html: `<h3>Polímeros y plásticos</h3><p>Los <b>polímeros</b> son moléculas gigantes formadas por la unión de miles de moléculas pequeñas llamadas <b>monómeros</b>. Hay polímeros naturales (almidón, celulosa, proteínas, ADN) y sintéticos, los <b>plásticos</b>: el polietileno (bolsas) se obtiene uniendo moléculas de eteno; el PVC, el PET de las botellas o el nailon son otros ejemplos. Son ligeros, baratos y duraderos, pero esa misma durabilidad es un problema: tardan cientos de años en degradarse y se fragmentan en <mark>microplásticos</mark> que llegan al mar y a la cadena alimentaria. Reducir su uso, reutilizarlos, reciclarlos y desarrollar <b>bioplásticos</b> biodegradables son parte de la solución.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Nombra CH₃–CH₂–CH=CH–CH₃.", pasos: ["La cadena tiene 5 carbonos: prefijo pent-.", "Hay un doble enlace: sufijo -eno.", "Numerando desde la derecha, el doble enlace empieza en el carbono 2 (desde la izquierda sería el 3)."], resultado: "Pent-2-eno." },
+    { enunciado: "Formula el hex-1-ino y escribe su fórmula molecular.", pasos: ["Hex-: 6 carbonos. -ino: un triple enlace entre los carbonos 1 y 2.", "Fórmula: CH≡C–CH₂–CH₂–CH₂–CH₃.", "Cuenta los hidrógenos: 1 + 2 + 2 + 2 + 3 = 10."], resultado: "CH≡C–CH₂–CH₂–CH₂–CH₃, C₆H₁₀." },
+    { enunciado: "Escribe la reacción ajustada de combustión completa del propano, C₃H₈.", pasos: ["Combustión completa: el hidrocarburo reacciona con O₂ y da CO₂ y H₂O.", "Ajusta C: 3 CO₂. Ajusta H: 8 hidrógenos dan 4 H₂O.", "Cuenta los O de la derecha: 3·2 + 4 = 10, es decir, 5 O₂."], resultado: "C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O." },
+  ],
+  errores: [
+    "Elegir una cadena que no es la más larga o que no contiene el doble enlace.",
+    "Numerar la cadena desde el extremo equivocado y dar al doble enlace un número más alto del necesario.",
+    "Dibujar un carbono con 5 enlaces: el carbono siempre forma 4.",
+    "Confundir los sufijos -ol (alcohol), -al (aldehído) y -ona (cetona).",
+    "Pensar que todos los compuestos con la misma fórmula molecular son la misma sustancia (olvidar los isómeros).",
+  ],
+  ejercicios: [
+    { q: "Escribe la fórmula semidesarrollada del butano y del propeno.", sol: "Butano: CH₃–CH₂–CH₂–CH₃. Propeno: CH₂=CH–CH₃." },
+    { q: "Nombra: CH₃–CH₂–CH₂–CH₂–CH₃ y CH≡C–CH₃.", sol: "Pentano y propino." },
+    { q: "Nombra CH₃–CH(CH₃)–CH₂–CH₃.", sol: "Cadena más larga: 4 carbonos (butano). Un metil en el carbono 2: 2-metilbutano (o metilbutano)." },
+    { q: "Calcula la fórmula molecular de un alcano de 7 carbonos usando CₙH₂ₙ₊₂.", sol: "n = 7: C₇H₁₆ (heptano)." },
+    { q: "Identifica el grupo funcional: CH₃–CH₂OH, CH₃–COOH, CH₃–CO–CH₃, CH₃–NH₂.", sol: "Alcohol (etanol), ácido carboxílico (ácido etanoico o acético), cetona (propanona o acetona) y amina (metilamina)." },
+    { q: "¿Son isómeros el pentano y el 2-metilbutano? ¿De qué tipo?", sol: "Sí: los dos son C₅H₁₂. Son isómeros de cadena (uno lineal y otro ramificado)." },
+    { q: "Escribe dos isómeros de posición de fórmula C₄H₈ con un doble enlace en cadena lineal.", sol: "But-1-eno (CH₂=CH–CH₂–CH₃) y but-2-eno (CH₃–CH=CH–CH₃)." },
+    { q: "Ajusta la combustión del metano.", sol: "CH₄ + 2 O₂ → CO₂ + 2 H₂O." },
+    { q: "¿Qué es un monómero? Pon un ejemplo de polímero natural y otro sintético.", sol: "La molécula pequeña que se repite en un polímero. Natural: almidón (monómero glucosa). Sintético: polietileno (monómero eteno)." },
+    { q: "Explica dos problemas ambientales de los plásticos y dos soluciones.", sol: "Problemas: tardan siglos en degradarse y forman microplásticos que contaminan mares y seres vivos; se fabrican a partir del petróleo. Soluciones: reducir los de un solo uso y reciclar; usar bioplásticos biodegradables." },
+  ],
+  quiz: [
+    { q: "El sufijo -ino indica…", o: ["un doble enlace", "un triple enlace", "solo enlaces sencillos"], a: 1, e: "Alquinos: C≡C." },
+    { q: "¿Cuántos carbonos indica el prefijo hex-?", o: ["5", "6", "8"], a: 1, e: "Met 1, et 2, prop 3, but 4, pent 5, hex 6." },
+    { q: "Los isómeros tienen…", o: ["la misma fórmula molecular y distinta estructura", "distinta fórmula y la misma estructura", "las mismas propiedades"], a: 0, e: "Por eso son sustancias distintas." },
+    { q: "El benceno es un hidrocarburo…", o: ["aromático", "lineal", "gaseoso de cadena larga"], a: 0, e: "Anillo de 6 carbonos muy estable." },
+    { q: "El polietileno se obtiene uniendo moléculas de…", o: ["metano", "eteno", "benceno"], a: 1, e: "El eteno es su monómero." },
+  ],
+  tarjetas: [
+    ["Sufijos -ano, -eno, -ino", "Enlaces sencillos, doble y triple."],
+    ["Isómeros", "Misma fórmula molecular, distinta estructura."],
+    ["Polímero", "Molécula gigante formada por la unión de muchos monómeros."],
+  ],
+});
