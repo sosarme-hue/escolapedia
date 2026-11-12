@@ -51,7 +51,7 @@ module.exports = {
       svg: charla("En la panadería, una niña pide dos panes y el panadero se los da", [["nina", "Quiero dos panes, por favor.", R], ["papa", "Aquí tienes los dos panes.", A]]),
     },
     {
-      html: `<h3>Jugamos a la palabra mágica</h3><p>Un jugador dice una palabra en singular: «<b>oso</b>».</p><p>El otro dice «¡abracadabra!» y la <mark>multiplica</mark>: «¡osos!».</p><p>Luego cambiamos los papeles. Probad con palabras difíciles: <i>ratón</i>, <i>lápiz</i>, <i>camión</i>. El que acierta más plurales gana una estrella. ¡Con magia se aprende mejor!</p>`,
+      html: `<h3>Jugamos a la palabra mágica</h3><p>Un jugador dice una palabra en singular: «<b>oso</b>».</p><p>El otro dice «¡abracadabra!» y la <mark>multiplica</mark>: «¡osos!».</p><p>Luego cambiamos los papeles. Probad con palabras difíciles: <i>ratón</i>, <i>lápiz</i>, <i>camión</i>. El que acierta más plurales gana una estrella. ¡Con magia se aprende mejor! ¿Quién empieza?</p>`,
       svg: charla("Juego de la palabra mágica: oso se convierte en osos", [["nino", "Oso…", A], ["nina", "¡Abracadabra! ¡Osos!", R], ["nino", "¡Muy bien! Ahora tú.", A]]),
     },
   ],

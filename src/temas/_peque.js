@@ -93,6 +93,9 @@ const I = {
   cara_e: cara(`<path d="M-15 -4 Q-14 -18 0 -17 Q14 -18 15 -4 Q8 -12 -15 -4z" fill="${MARRON}"/>`).replace(/<path d="M-5 6[^>]*>/, `<ellipse cy="8" rx="7" ry="3.5" fill="#9c1f18"/>`),
   cara_i: cara(`<path d="M-15 -4 Q-14 -18 0 -17 Q14 -18 15 -4 Q8 -12 -15 -4z" fill="${MARRON}"/>`).replace(/<path d="M-5 6[^>]*>/, `<path d="M-8 5 Q0 12 8 5z" fill="#9c1f18" stroke="#9c1f18" stroke-width="1.5"/>`),
   cara_o: cara(`<path d="M-15 -4 Q-14 -18 0 -17 Q14 -18 15 -4 Q8 -12 -15 -4z" fill="${MARRON}"/>`).replace(/<path d="M-5 6[^>]*>/, `<circle cy="8" r="4.5" fill="#9c1f18"/>`),
+  feliz: cara(`<path d="M-15 -4 Q-14 -18 0 -17 Q14 -18 15 -4 Q8 -12 -15 -4z" fill="${MARRON}"/>`).replace(/<path d="M-5 6[^>]*>/, `<path d="M-8 4 Q0 14 8 4z" fill="#9c1f18"/>`),
+  triste: cara(`<path d="M-15 -4 Q-14 -18 0 -17 Q14 -18 15 -4 Q8 -12 -15 -4z" fill="${MARRON}"/>`).replace(/<path d="M-5 6[^>]*>/, `<path d="M-6 10 q6 -6 12 0" stroke="${NEGRO}" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M6 3 q2 4 0 6 q-2 -2 0 -6z" fill="var(--water)"/>`),
+  cansado: cara(`<path d="M-15 -4 Q-14 -18 0 -17 Q14 -18 15 -4 Q8 -12 -15 -4z" fill="${MARRON}"/>`).replace(/<circle cx="-5" cy="-1" r="2"[^>]*><circle cx="5" cy="-1" r="2"[^>]*>/, `<path d="M-8 -1 h5 M3 -1 h5" stroke="${NEGRO}" stroke-width="2" stroke-linecap="round"/>`).replace(/<path d="M-5 6[^>]*>/, `<path d="M-4 8 h8" stroke="${NEGRO}" stroke-width="2" stroke-linecap="round"/>`),
   cara_u: cara(`<path d="M-15 -4 Q-14 -18 0 -17 Q14 -18 15 -4 Q8 -12 -15 -4z" fill="${MARRON}"/>`).replace(/<path d="M-5 6[^>]*>/, `<circle cy="8" r="2.5" fill="#9c1f18" stroke="#d6332a" stroke-width="2"/>`),
   lobo: `<path d="M-14 -4 L-11 -20 L-3 -12z M14 -4 L11 -20 L3 -12z" fill="#6b7383"/><path d="M-15 -8 Q0 -16 15 -8 L8 10 Q0 18 -8 10z" fill="#6b7383"/><ellipse cy="8" rx="6" ry="5" fill="#c9ced8"/><circle cy="5" r="2.5" fill="${NEGRO}"/><circle cx="-6" cy="-4" r="2" fill="var(--sun)"/><circle cx="6" cy="-4" r="2" fill="var(--sun)"/>`,
   sopa: `<path d="M-19 -2 H19 Q18 16 0 16 Q-18 16 -19 -2z" fill="var(--red)"/><ellipse cy="-2" rx="19" ry="4" fill="var(--inf)"/><g stroke="var(--muted)" stroke-width="2" fill="none"><path d="M-6 -8 q-3 -5 0 -10 M2 -8 q-3 -5 0 -10"/></g>`,
@@ -256,6 +259,41 @@ function mural(label, items, cabecera) {
   return `<svg viewBox="0 0 640 300" role="img" aria-label="${label}"><rect width="640" height="300" rx="16" fill="var(--paper)"/>${out}</svg>`;
 }
 
+// Vocabulario de inglés: [dibujo, palabra en inglés, traducción, color]. Hasta 4 por fila y 2 filas.
+function vocab(label, items, { titulo: t } = {}) {
+  const porFila = items.length <= 4 ? items.length : Math.ceil(items.length / 2);
+  const filas = Math.ceil(items.length / porFila), w = 248 / porFila;
+  let out = titulo(t);
+  items.forEach(([d, en, es, c, cuantos = 1], i) => {
+    const f = Math.floor(i / porFila), k = i % porFila, enFila = Math.min(porFila, items.length - f * porFila);
+    const x = 130 + (k - (enFila - 1) / 2) * w;
+    const yi = filas === 1 ? (t ? 74 : 64) : (t ? 50 : 36) + f * 74, s = filas === 1 ? (porFila <= 3 ? 1.3 : 1.15) : 0.85;
+    const y1 = yi + (filas === 1 ? 50 : 32), y2 = y1 + (filas === 1 ? 20 : 16);
+    const f1 = fz(en, filas === 1 ? 20 : 16, w - 8, true), f2 = fz(es, filas === 1 ? 13 : 11.5, w - 14);
+    const sc = cuantos > 1 ? Math.min(s, (w - 10) / (cuantos * 38)) : s;
+    out += `${d ? [...Array(cuantos)].map((_, j) => ic(d, x + (j - (cuantos - 1) / 2) * 38 * sc, yi, sc)).join("") : ""}<text x="${x}" y="${y1}" text-anchor="middle" font-size="${f1}" font-weight="800" fill="${c || "var(--pen)"}" ${D}>${en}</text>
+      <text x="${x}" y="${y2}" text-anchor="middle" font-size="${f2}" fill="var(--muted)">${es}</text>`;
+  });
+  return marco(label, out);
+}
+
+// Muestras: [texto grande o "", palabra, traducción, color]. Un círculo de color con la palabra debajo. Hasta 4 por fila y 2 filas.
+function muestras(label, items, { titulo: t } = {}) {
+  const porFila = items.length <= 4 ? items.length : Math.ceil(items.length / 2);
+  const filas = Math.ceil(items.length / porFila), w = 248 / porFila;
+  let out = titulo(t);
+  items.forEach(([g, en, es, c], i) => {
+    const f = Math.floor(i / porFila), k = i % porFila, enFila = Math.min(porFila, items.length - f * porFila);
+    const x = 130 + (k - (enFila - 1) / 2) * w, uno = filas === 1;
+    const r = uno ? 26 : 17, cy = uno ? (t ? 74 : 64) : (t ? 52 : 38) + f * 72;
+    const y1 = cy + r + (uno ? 24 : 17), y2 = y1 + (uno ? 18 : 14);
+    out += `<circle cx="${x}" cy="${cy}" r="${r}" fill="${c}" stroke="var(--line)" stroke-width="2"/>${g ? `<text x="${x}" y="${cy + r * 0.38}" text-anchor="middle" font-size="${r * 1.1}" font-weight="800" fill="#fff">${g}</text>` : ""}
+      <text x="${x}" y="${y1}" text-anchor="middle" font-size="${fz(en, uno ? 20 : 16, w - 8, true)}" font-weight="800" fill="var(--ink)" ${D}>${en}</text>
+      <text x="${x}" y="${y2}" text-anchor="middle" font-size="${fz(es, uno ? 13 : 11.5, w - 14)}" fill="var(--muted)">${es}</text>`;
+  });
+  return marco(label, out);
+}
+
 // Uno y muchos: [dibujo, singular, plural, n]. Izquierda un dibujo; derecha «n» dibujos (por defecto 3).
 function cuantos(label, items, { izq = "uno", der = "muchos", color = "var(--pen)", color2 = "var(--leaf)" } = {}) {
   const n = items.length, top = 30, hh = (178 - top) / n, s = n === 1 ? 1.1 : n === 2 ? 0.85 : 0.62;
@@ -306,4 +344,4 @@ const silabas = (palabra, color = "var(--red)", marca = 0) => palabra.split("|")
 const BOE = { t: "Real Decreto 157/2022, enseñanzas mínimas de la Educación Primaria (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-3296" };
 const vid = (id, titulo, canal, vistas, megusta = 0) => ({ id, titulo, canal, vistas, megusta });
 
-module.exports = { I, ic, marco, dibujos, fichas, parejas, frase, charla, mural, cuantos, lista, trozos, silabas, BOE, vid, D, F };
+module.exports = { I, ic, marco, dibujos, fichas, parejas, frase, charla, mural, cuantos, lista, trozos, vocab, muestras, silabas, BOE, vid, D, F };

@@ -47,11 +47,11 @@ module.exports = {
       svg: frase("Palabras para preguntar: qué, quién, dónde, cuándo y por qué", [["¿Qué?", A], ["¿Quién?", R], ["/"], ["¿Dónde?", V], ["¿Cuándo?", N], ["/"], ["¿Por qué?", A]], { titulo: "Palabras para preguntar", fs: 22 }),
     },
     {
-      html: `<h3>¿Para qué sirve?</h3><p>Hablar y escuchar bien nos ayuda a <mark>hacer amigos</mark> y a <b>aprender</b>.</p><p>También sirve para resolver problemas sin enfadarnos. Si alguien tiene la pelota, se la pedimos con amabilidad.</p><p>Cuando hablamos con respeto y escuchamos, todos estamos mejor. La clase es un sitio más feliz para todos.</p>`,
+      html: `<h3>¿Para qué sirve?</h3><p>Hablar y escuchar bien nos ayuda a <mark>hacer amigos</mark> y a <b>aprender</b>.</p><p>También sirve para resolver problemas sin enfadarnos. Si alguien tiene la pelota, se la pedimos con amabilidad.</p><p>Cuando hablamos con respeto y escuchamos, todos estamos mejor. La clase es un sitio más feliz para todos. ¡Y en casa también!</p>`,
       svg: charla("Una niña pide la pelota por favor; el niño se la da y ella da las gracias", [["nina", "¿Me dejas la pelota?", R], ["nino", "¡Claro! Toma.", A], ["nina", "¡Muchas gracias!", R]]),
     },
     {
-      html: `<h3>Jugamos al teléfono</h3><p>Os sentáis en fila o en círculo. El primero dice una frase <mark>al oído</mark> del segundo, muy bajito.</p><p>Cada uno la pasa al siguiente. El último la dice en voz alta.</p><p>¿Ha llegado igual? Muchas veces cambia y nos reímos mucho. Este juego nos enseña lo importante que es escuchar con atención.</p>`,
+      html: `<h3>Jugamos al teléfono</h3><p>Os sentáis en fila o en círculo. El primero dice una frase <mark>al oído</mark> del segundo, muy bajito.</p><p>Cada uno la pasa al siguiente. El último la dice en voz alta.</p><p>¿Ha llegado igual? Muchas veces cambia y nos reímos mucho. Este juego nos enseña lo importante que es escuchar con atención. ¿Jugamos otra vez?</p>`,
       svg: dibujos("Juego del teléfono: una frase pasa de oreja en oreja", [["nino", "1", A], ["nina", "2", R], ["abuelo", "3", V], ["mama", "4", N]], { titulo: "La frase pasa de oreja en oreja", nota: "¿Llega igual al final?" }),
     },
   ],
