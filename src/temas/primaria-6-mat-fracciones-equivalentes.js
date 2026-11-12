@@ -31,7 +31,7 @@ module.exports = {
         ${barra(30, 30, 200, 44, 4, 3, "var(--pen)")}
         <text x="80" y="140" text-anchor="middle" font-size="40" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">3</text>
         <line x1="60" y1="150" x2="100" y2="150" stroke="var(--ink)" stroke-width="3"/>
-        <text x="80" y="176" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">4</text>
+        <text x="80" y="171" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">4</text>
         <text x="116" y="118" font-size="14" font-weight="700" fill="var(--pen)" ${F}>numerador</text>
         <text x="116" y="134" font-size="13" fill="var(--muted)" ${F}>partes que tomo</text>
         <text x="116" y="160" font-size="14" font-weight="700" fill="var(--ink)" ${F}>denominador</text>
@@ -112,7 +112,7 @@ module.exports = {
   mapa: `<svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental de las fracciones equivalentes">
     <g ${F} font-size="15">
       <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 60"/><path d="M350 150 L 560 240"/></g>
-      <rect x="230" y="122" width="240" height="56" rx="28" fill="var(--mat, #7b3fc4)"/>
+      <rect x="200" y="122" width="300" height="56" rx="28" fill="var(--mat, #7b3fc4)"/>
       <text x="350" y="157" text-anchor="middle" font-size="19" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">FRACCIONES EQUIVALENTES</text>
       <rect x="40" y="34" width="200" height="52" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
       <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--ink)">Qué son</text>

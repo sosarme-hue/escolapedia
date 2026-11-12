@@ -1,0 +1,101 @@
+// Matemáticas 6º de Primaria: números grandes y operaciones. Dibujos propios en SVG.
+const P = require("./_pri6a");
+const { svg, t, AZ, RO, VE, NA, SO, MO } = P;
+
+// Casillas de órdenes con un número dentro.
+const casillas = (cifras, etiquetas, y = 40, colores = []) => {
+  const n = etiquetas.length, w = 232 / n;
+  return etiquetas.map((e, i) => `<rect x="${(14 + i * w).toFixed(1)}" y="${y}" width="${w.toFixed(1)}" height="54" fill="var(--card)" stroke="${colores[i] || "var(--line)"}" stroke-width="2"/>${t(14 + i * w + w / 2, y - 8, e, { s: 10, c: colores[i] || "var(--muted)" })}${t(14 + i * w + w / 2, y + 37, cifras[i], { s: 24, d: true, c: colores[i] || "var(--ink)" })}`).join("");
+};
+
+module.exports = P.tema({
+  materia: "Matemáticas",
+  titulo: "Números grandes y operaciones",
+  minutos: 50,
+  objetivos: ["Leer, escribir y descomponer números de hasta nueve cifras", "Comparar, ordenar y redondear números grandes", "Sumar, restar, multiplicar y dividir con números grandes y hacer la prueba", "Resolver operaciones combinadas respetando la jerarquía"],
+  claves: ["orden de unidades", "millón", "valor posicional", "descomposición", "redondear", "dividendo", "divisor", "cociente", "resto", "jerarquía de las operaciones"],
+  pregunta: ["En España viven unos 48 600 000 habitantes. ¿Cómo se lee ese número y cuántos millones son?", "Se lee <b>cuarenta y ocho millones seiscientos mil</b>. Si lo redondeamos a los millones, son unos <mark>49 millones de personas</mark>. Para leerlo sin perderte, separa las cifras de tres en tres empezando por la derecha: 48 | 600 | 000."],
+  bloques: [
+    ["Los órdenes de unidades", `<p>Nuestro sistema de numeración es <b>decimal</b>: cada 10 unidades de un orden forman 1 unidad del orden siguiente. 10 unidades son 1 decena, 10 decenas son 1 centena, y así sucesivamente.</p><p>Después de las centenas vienen los <b>millares</b> (unidades, decenas y centenas de millar) y después los <b>millones</b> (unidades, decenas y centenas de millón). Un millón es <mark>1 000 000 = mil millares</mark>.</p><p>Con nueve casillas puedes escribir cualquier número hasta 999 999 999, casi mil millones.</p>`,
+      svg("Tabla de órdenes de unidades con el número 345 120 678 repartido en nueve casillas: centenas, decenas y unidades de millón, de millar y unidades", `${t(130, 20, "millones · millares · unidades", { s: 12, c: "var(--muted)" })}${casillas(["3", "4", "5", "1", "2", "0", "6", "7", "8"], ["CMi", "DMi", "UMi", "CM", "DM", "UM", "C", "D", "U"], 56, [RO, RO, RO, AZ, AZ, AZ, VE, VE, VE])}${t(130, 140, "345 120 678", { s: 22, d: true })}${t(130, 164, "10 de un orden = 1 del orden siguiente", { s: 11, c: "var(--muted)" })}`)],
+    ["Leer y escribir números grandes", `<p>Para leer un número grande, <b>separa las cifras de tres en tres</b> empezando por la derecha. Cada grupo tiene su apellido: el primero por la derecha son las <b>unidades</b>, el segundo los <b>miles</b> y el tercero los <b>millones</b>.</p><p>Ejemplo: 23 405 018 → 23 | 405 | 018 → «veintitrés <b>millones</b> cuatrocientos cinco <b>mil</b> dieciocho».</p><p>Al escribirlo en cifras, cuidado con los <mark>ceros</mark>: «dos millones treinta mil siete» es 2 030 007. Cada grupo debe tener tres cifras, aunque haya que rellenar con ceros.</p>`,
+      P.frase("El número 23 405 018 separado en grupos de tres: millones, miles y unidades", [["23", "millones", RO], ["405", "mil", AZ], ["018", "unidades", VE]], "23 millones · 405 mil · 18 unidades"),
+      P.V("numB")],
+    ["El valor posicional", `<p>Una misma cifra <b>vale distinto según el lugar</b> que ocupa. En 7 070 700, hay tres sietes, y ninguno vale lo mismo: uno vale 7 000 000, otro 70 000 y otro 700.</p><p>Por eso podemos <b>descomponer</b> un número sumando el valor de cada cifra:</p><p style="text-align:center">5 206 300 = 5 000 000 + 200 000 + 6 000 + 300</p><p>También se puede escribir con los órdenes: 5 UMi + 2 CM + 6 UM + 3 C. El cero no suma nada, pero es importantísimo: <mark>guarda el sitio</mark> para que las demás cifras no cambien de valor.</p>`,
+      svg("En el número 7 070 700 cada siete vale distinto: siete millones, setenta mil y setecientos", `${t(130, 40, "7 070 700", { s: 30, d: true })}${[[60, "7 000 000", RO], [130, "70 000", AZ], [200, "700", VE]].map(([x, v, c], i) => `<path d="M${[84, 128, 160][i]} 48 L ${x} 96" stroke="${c}" stroke-width="2.5"/><rect x="${x - 34}" y="98" width="68" height="30" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/>${t(x, 118, v, { s: 11, c })}`).join("")}${t(130, 160, "mismo dígito, distinto valor", { s: 12, c: "var(--muted)" })}`)],
+    ["Comparar y ordenar", `<p>Para saber qué número es mayor:</p><ol><li>Si tienen <b>distinto número de cifras</b>, es mayor el que tiene más cifras. 1 000 000 &gt; 999 999.</li><li>Si tienen las <b>mismas cifras</b>, se comparan de izquierda a derecha hasta encontrar una distinta. 4 523 000 &gt; 4 518 999, porque en las decenas de millar 2 &gt; 1.</li></ol><p>Usamos los signos <b>&gt;</b> (mayor que) y <b>&lt;</b> (menor que). Truco: la boca abierta del signo siempre mira al número <mark>más grande</mark>.</p>`,
+      P.filas("Comparar números grandes: primero el número de cifras, después cifra a cifra de izquierda a derecha", [["1 000 000 > 999 999", "más cifras, mayor", AZ], ["4 523 000 > 4 518 999", "2 decenas de millar > 1", VE], ["Boca abierta", "mira al número mayor", SO]])],
+    ["Redondear números", `<p>A veces no necesitamos el número exacto: basta con uno <b>aproximado</b>. Redondear es cambiar un número por el más cercano de un orden: a las decenas, a los millares, a los millones…</p><p>Regla: mira la cifra <b>de la derecha</b> del orden al que redondeas.</p><ul><li>Si es <b>0, 1, 2, 3 o 4</b>, la cifra se queda igual y lo de detrás pasa a ceros.</li><li>Si es <b>5, 6, 7, 8 o 9</b>, la cifra <b>sube uno</b> y lo de detrás pasa a ceros.</li></ul><p>4 380 000 redondeado a los millones es <mark>4 000 000</mark> (mira el 3). 4 620 000 es 5 000 000 (mira el 6).</p>`,
+      svg("Recta del 4 al 5 millones: 4 380 000 queda más cerca de 4 millones y 4 620 000 más cerca de 5 millones", `<path d="M24 96 H 236" stroke="var(--muted)" stroke-width="2.5"/>${[[30, "4 M"], [130, "4,5 M"], [230, "5 M"]].map(([x, e]) => `<path d="M${x} 88 V 104" stroke="var(--muted)" stroke-width="2"/>${t(x, 124, e, { s: 11, c: "var(--muted)" })}`).join("")}<circle cx="106" cy="96" r="6" fill="${AZ}"/>${t(106, 70, "4 380 000", { s: 11, c: AZ })}<circle cx="154" cy="96" r="6" fill="${RO}"/>${t(160, 50, "4 620 000", { s: 11, c: RO })}${P.flecha(100, 78, 40, 84, AZ, 2)}${P.flecha(166, 58, 222, 84, RO, 2)}${t(130, 160, "mira la cifra de la derecha: 0-4 baja, 5-9 sube", { s: 11 })}`)],
+    ["Sumar y restar", `<p>Para sumar o restar números grandes, colócalos en columna con las <b>unidades debajo de las unidades</b>, las decenas debajo de las decenas, etc. Empieza siempre por la derecha y no olvides <b>las que te llevas</b>.</p><p>La suma tiene dos propiedades útiles: la <b>conmutativa</b> (el orden de los sumandos no cambia el resultado) y la <b>asociativa</b> (puedes agrupar los sumandos como quieras).</p><p>La resta se comprueba con la <b>prueba</b>: <mark>diferencia + sustraendo = minuendo</mark>. Si 52 300 − 18 750 = 33 550, entonces 33 550 + 18 750 debe dar 52 300.</p>`,
+      svg("Resta en columna 52 300 menos 18 750 igual a 33 550 y su prueba sumando", `${[["52 300", 40, "var(--ink)"], ["− 18 750", 68, "var(--ink)"], ["33 550", 106, AZ]].map(([v, y, c]) => t(110, y, v, { s: 20, d: true, a: "end", c })).join("")}<path d="M30 80 H 116" stroke="var(--ink)" stroke-width="2"/>${t(128, 40, "minuendo", { s: 11, a: "start", c: "var(--muted)" })}${t(128, 68, "sustraendo", { s: 11, a: "start", c: "var(--muted)" })}${t(128, 106, "diferencia", { s: 11, a: "start", c: AZ })}<rect x="20" y="128" width="220" height="36" rx="10" fill="var(--card)" stroke="${VE}" stroke-width="2"/>${t(130, 151, "prueba: 33 550 + 18 750 = 52 300 ✓", { s: 12, c: VE })}`)],
+    ["Multiplicar", `<p>Multiplicar es sumar el mismo número varias veces de forma rápida. Los números que se multiplican se llaman <b>factores</b> y el resultado, <b>producto</b>.</p><p>Trucos para calcular deprisa:</p><ul><li>Por <b>10, 100 o 1 000</b>: se añaden uno, dos o tres ceros. 3 450 × 100 = 345 000.</li><li><b>Conmutativa</b>: 25 × 36 = 36 × 25.</li><li><b>Asociativa</b>: 4 × 7 × 25 = 7 × (4 × 25) = 7 × 100 = 700.</li><li><b>Distributiva</b>: 6 × (10 + 3) = 6 × 10 + 6 × 3 = 78. Sirve para multiplicar de cabeza: 6 × 13 = 60 + 18.</li></ul>`,
+      P.filas("Trucos para multiplicar: por la unidad seguida de ceros, conmutativa, asociativa y distributiva", [["× 10, 100, 1 000", "añade 1, 2 o 3 ceros", AZ], ["Conmutativa", "a × b = b × a", VE], ["Asociativa", "agrupa como quieras", SO], ["Distributiva", "a × (b + c) = a × b + a × c", RO]])],
+    ["Dividir", `<p>Dividir es repartir en partes iguales. Los términos son: <b>dividendo</b> (lo que se reparte), <b>divisor</b> (entre cuántos), <b>cociente</b> (lo que toca a cada uno) y <b>resto</b> (lo que sobra).</p><p>Si el resto es 0, la división es <b>exacta</b>; si no, es <b>entera</b>. El resto siempre tiene que ser <mark>menor que el divisor</mark>.</p><p>Se comprueba con la <b>prueba de la división</b>: dividendo = divisor × cociente + resto. Por ejemplo, 1 250 : 12 da cociente 104 y resto 2, porque 12 × 104 + 2 = 1 250.</p>`,
+      svg("Esquema de la división 1 250 entre 12: cociente 104 y resto 2, con la prueba", `${t(70, 52, "1 250", { s: 22, d: true })}<path d="M116 30 V 62 H 196" stroke="var(--ink)" stroke-width="2.5" fill="none"/>${t(150, 52, "12", { s: 22, d: true, c: AZ })}${t(156, 88, "104", { s: 22, d: true, c: VE })}${t(70, 94, "2", { s: 22, d: true, c: RO })}${t(70, 116, "resto", { s: 10, c: RO })}${t(156, 110, "cociente", { s: 10, c: VE })}${t(220, 52, "divisor", { s: 10, c: AZ })}${t(130, 150, "12 × 104 + 2 = 1 250", { s: 14 })}${t(130, 170, "el resto (2) es menor que el divisor (12)", { s: 10, c: "var(--muted)" })}`)],
+    ["Operaciones combinadas", `<p>Cuando en una expresión hay varias operaciones, hay que seguir un <b>orden</b> fijo, llamado <b>jerarquía de las operaciones</b>:</p><ol><li>Primero, lo que hay dentro de los <b>paréntesis</b>.</li><li>Después, las <b>multiplicaciones y divisiones</b>, de izquierda a derecha.</li><li>Por último, las <b>sumas y restas</b>, de izquierda a derecha.</li></ol><p>Mira la diferencia: 20 − 4 × 3 = 20 − 12 = <b>8</b>, pero (20 − 4) × 3 = 16 × 3 = <b>48</b>. ¡Los paréntesis lo cambian todo!</p>`,
+      P.filas("Jerarquía de las operaciones: primero paréntesis, después multiplicaciones y divisiones, al final sumas y restas", [["1.º ( )", "paréntesis", RO], ["2.º × y :", "de izquierda a derecha", AZ], ["3.º + y −", "de izquierda a derecha", VE]], "¿Qué hago primero?"),
+      P.V("numB2")],
+    ["Resolver problemas en cuatro pasos", `<p>Los números grandes aparecen en noticias, en datos de población o en precios de casas y coches. Para resolver un problema sin perderte, sigue cuatro pasos:</p><ol><li><b>Comprende</b>: lee despacio, subraya los datos y la pregunta.</li><li><b>Planea</b>: decide qué operaciones necesitas y en qué orden.</li><li><b>Calcula</b>: haz las operaciones con cuidado.</li><li><b>Comprueba</b>: ¿la respuesta tiene sentido? Estima con números redondeados para ver si te acercas.</li></ol><p>Por ejemplo, si un estadio tiene 81 044 asientos y se venden 76 500 entradas, quedan libres 4 544. Estimando: 81 000 − 77 000 = 4 000, así que <mark>el resultado es razonable</mark>.</p>`,
+      P.filas("Cuatro pasos para resolver problemas: comprender, planear, calcular y comprobar", [["1 Comprende", "datos y pregunta", AZ], ["2 Planea", "qué operaciones", SO], ["3 Calcula", "con cuidado", VE], ["4 Comprueba", "¿tiene sentido?", RO]])],
+  ],
+  figura: ["Números grandes en un vistazo", P.filasG("Resumen: órdenes de unidades, lectura en grupos de tres, valor posicional, redondeo, prueba de la división y jerarquía", [["Órdenes", "10 de un orden = 1 del siguiente · 1 millón = 1 000 000", AZ], ["Leer", "grupos de tres: millones | miles | unidades", RO], ["Valor posicional", "cada cifra vale según su lugar", VE], ["Redondear", "mira la cifra de la derecha: 0-4 baja, 5-9 sube", SO], ["Dividir", "dividendo = divisor × cociente + resto", NA], ["Jerarquía", "( )  →  × :  →  + −", MO]], 220)],
+  video: P.V("numV", true),
+  ejemplos: [
+    ["Escribe con cifras: «siete millones cuarenta mil trescientos dos».", ["Millones: 7.", "Miles: cuarenta → 040 (tres cifras).", "Unidades: trescientos dos → 302."], "7 040 302"],
+    ["Redondea 6 549 800 a los millares y a los millones.", ["A los millares: miro la cifra de las centenas, 8 → sube: 6 550 000.", "A los millones: miro la cifra de las centenas de millar, 5 → sube: 7 000 000."], "6 550 000 y 7 000 000"],
+    ["Calcula: 150 − (30 + 20) × 2 + 100 : 4.", ["Paréntesis: 30 + 20 = 50.", "Multiplicaciones y divisiones: 50 × 2 = 100 y 100 : 4 = 25.", "Sumas y restas de izquierda a derecha: 150 − 100 + 25 = 75."], "75"],
+  ],
+  errores: [
+    "Olvidar los ceros al escribir un número: «dos millones cinco mil» es 2 005 000, no 25 000.",
+    "Separar las cifras en grupos de tres empezando por la izquierda en lugar de por la derecha.",
+    "Redondear mirando la última cifra del número en vez de la cifra de la derecha del orden pedido.",
+    "Hacer las operaciones combinadas de izquierda a derecha sin respetar la jerarquía: 20 − 4 × 3 no es 48.",
+    "Dar un resto mayor que el divisor: entonces el cociente puede ser mayor.",
+  ],
+  ejercicios: [
+    ["Escribe cómo se lee: 309 008 450.", "Trescientos nueve millones ocho mil cuatrocientos cincuenta."],
+    ["Escribe con cifras: doce millones setecientos mil noventa.", "12 700 090."],
+    ["¿Cuánto vale la cifra 6 en 4 862 100?", "Vale 60 000 (6 decenas de millar)."],
+    ["Descompón 8 030 405.", "8 000 000 + 30 000 + 400 + 5."],
+    ["Ordena de menor a mayor: 2 099 000, 2 909 000, 2 090 900.", "2 090 900 < 2 099 000 < 2 909 000."],
+    ["Redondea 3 471 600 a los millones y a las centenas de millar.", "3 000 000 y 3 500 000."],
+    ["Calcula y haz la prueba: 75 040 − 28 395.", "46 645; prueba: 46 645 + 28 395 = 75 040."],
+    ["Divide 9 875 : 25 y haz la prueba.", "Cociente 395, resto 0 (exacta): 25 × 395 = 9 875."],
+    ["Calcula: 6 × (12 − 7) + 40 : 8.", "6 × 5 + 5 = 30 + 5 = 35."],
+    ["Un concierto vende 45 600 entradas el lunes y 38 750 el martes. Si el estadio tiene 90 000 asientos, ¿cuántos quedan libres?", "45 600 + 38 750 = 84 350; 90 000 − 84 350 = 5 650 asientos libres."],
+  ],
+  quiz: [
+    ["¿Cuántos millares tiene un millón?", ["1 000", "100", "10"], "1 000 × 1 000 = 1 000 000."],
+    ["¿Cómo se escribe «cuatro millones seis mil»?", ["4 006 000", "4 600 000", "4 060 000"], "Grupo de miles: 006."],
+    ["En 5 300 000, el 3 vale…", ["300 000", "3 000", "30 000"], "Está en las centenas de millar."],
+    ["¿Qué número es mayor?", ["1 000 001", "999 999", "990 999"], "Tiene más cifras."],
+    ["2 650 000 redondeado a los millones es…", ["3 000 000", "2 000 000", "2 700 000"], "La cifra de la derecha es 6: sube."],
+    ["En una resta, la prueba es…", ["diferencia + sustraendo = minuendo", "minuendo + sustraendo", "diferencia − minuendo"], "Se suma para comprobar."],
+    ["430 × 100 =", ["43 000", "4 300", "430 000"], "Se añaden dos ceros."],
+    ["En una división entera, el resto debe ser…", ["menor que el divisor", "mayor que el divisor", "igual al cociente"], "Si no, se podría repartir más."],
+    ["8 + 2 × 5 =", ["18", "50", "15"], "Primero la multiplicación: 8 + 10."],
+    ["(8 + 2) × 5 =", ["50", "18", "20"], "Primero el paréntesis: 10 × 5."],
+  ],
+  examen: [
+    ["El número 70 070 tiene…", ["7 decenas de millar y 7 decenas", "7 millares y 7 unidades", "77 centenas"], "70 000 + 70."],
+    ["1 245 : 6 da cociente 207 y resto…", ["3", "5", "1"], "6 × 207 = 1 242; 1 245 − 1 242 = 3."],
+    ["100 − 60 : 3 × 2 =", ["60", "80", "20"], "60 : 3 = 20; 20 × 2 = 40; 100 − 40."],
+    ["Redondeado a los millares, 18 499 es…", ["18 000", "19 000", "18 500"], "Cifra de las centenas: 4, baja."],
+  ],
+  feynman: ["Por qué 10 de un orden forman 1 del siguiente", "Cómo se lee un número separándolo en grupos de tres", "Qué es el valor posicional y para qué sirve el cero", "Cómo se redondea un número", "En qué orden se hacen las operaciones combinadas"],
+  mapa: ["NÚMEROS GRANDES", [["Leer y escribir", "grupos de tres cifras", AZ], ["Valor posicional", "descomponer · el cero", VE], ["Redondear", "0-4 baja · 5-9 sube", SO], ["Operaciones", "prueba · jerarquía", RO]]],
+  tarjetas: [
+    ["¿Cuántas cifras tiene un millón?", "Siete: 1 000 000."],
+    ["¿Cómo se lee un número grande?", "Separando las cifras de tres en tres desde la derecha."],
+    ["¿Qué es el valor posicional?", "El valor de una cifra según el lugar que ocupa."],
+    ["¿Cómo se redondea?", "Se mira la cifra de la derecha: si es 5 o más, se sube uno."],
+    ["Prueba de la resta", "Diferencia + sustraendo = minuendo."],
+    ["Prueba de la división", "Dividendo = divisor × cociente + resto."],
+    ["Propiedad distributiva", "a × (b + c) = a × b + a × c."],
+    ["Jerarquía de las operaciones", "Paréntesis, después × y :, al final + y −."],
+  ],
+  familias: ["Buscad números grandes en noticias (población, kilómetros, precios) y leedlos en voz alta separándolos de tres en tres.", "Al ir a la compra, estimad el total redondeando los precios antes de pagar.", "Inventad operaciones combinadas en una servilleta y comprobad quién respeta la jerarquía.", "Repasad las tarjetas dos minutos al día durante la semana."],
+  saberes: "Sentido numérico: números naturales de más de seis cifras, valor posicional, redondeo y estimación; operaciones, propiedades y jerarquía",
+  ideas: ["Tabla de valor posicional gigante en el suelo con tarjetas de cifras.", "Bingo de números grandes dictados en voz alta.", "Noticias del periódico: subrayar números y redondearlos a los millones."],
+});
