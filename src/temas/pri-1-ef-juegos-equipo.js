@@ -62,7 +62,7 @@ module.exports = {
       <rect width="640" height="300" rx="16" fill="var(--paper)"/>
       ${[["Reglas", "iguales para todos", "var(--leaf)", `${tick(-20, -40)}${equis(20, -38)}`], ["Equipo", "pasamos y ayudamos", "var(--pen)", pelota(0, -40, 16, "var(--sun)")], ["Turnos", "sin empujar", "var(--inf)", `${big(-24, -30, "1", "var(--inf)", 26)}${big(0, -30, "2", "var(--inf)", 26)}${big(24, -30, "3", "var(--inf)", 26)}`], ["Juego limpio", "¡buen partido!", "var(--red)", corazon(0, -40, 2.4)]].map(([t, d, c, dib], i) => {
         const x = 85 + i * 157;
-        return `<rect x="${x - 75}" y="30" width="150" height="240" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/><g transform="translate(${x} 150) scale(1.8)">${dib}</g>${big(x, 190, t, c, 19)}${rot(x, 222, d, { size: 13 })}`;
+        return `<rect x="${x - 75}" y="30" width="150" height="240" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/><g transform="translate(${x} 140) scale(1.3)">${dib}</g>${big(x, 190, t, c, 19)}${rot(x, 222, d, { size: 13 })}`;
       }).join("")}
     </svg>`,
   },
