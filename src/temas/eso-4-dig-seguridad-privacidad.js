@@ -112,3 +112,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Navegar con seguridad en redes públicas y entender el cifrado", "Saber cómo actuar ante un ciberataque o un ciberdelito"],
+  tras: {
+    "El engaño: phishing e ingeniería social": [
+      { html: `<h3>Las técnicas de la ingeniería social</h3><p>La <b>ingeniería social</b> ataca a las personas en vez de a las máquinas: busca que la víctima entregue sus datos o instale algo por confianza, miedo o prisa. Además del phishing por correo, existen el <b>smishing</b> (por SMS, como el falso aviso de un paquete), el <b>vishing</b> (por llamada, alguien que dice ser del banco o del soporte técnico) y la <b>suplantación</b> de amigos o familiares por WhatsApp («Mamá, se me ha roto el móvil, hazme un bizum»). Las señales de alarma se repiten: <mark>urgencia, petición de datos o dinero</mark>, enlaces raros y un remitente que no encaja. Ante la duda, se corta y se contacta por otra vía con la persona o la empresa.</p>`, video: { id: "PN0j35dbG-8", titulo: "¿Sabes qué es ingeniería social?", canal: "Computer Hoy", vistas: 52917 } },
+    ],
+    "Proteger los dispositivos": [
+      { html: `<h3>Cifrado, HTTPS y redes públicas</h3><p><b>Cifrar</b> es transformar la información para que solo pueda leerla quien tiene la clave. Las webs con <b>HTTPS</b> (el candado del navegador) cifran los datos entre tu equipo y el servidor, y las aplicaciones de mensajería con <b>cifrado de extremo a extremo</b> hacen que ni la propia empresa pueda leer los mensajes. Las <b>wifi públicas</b> abiertas de cafeterías o aeropuertos son arriesgadas: otra persona conectada podría espiar el tráfico no cifrado o crear una red falsa con el mismo nombre. En ellas conviene <mark>no hacer gestiones bancarias</mark>, usar los datos móviles para lo importante o una <b>VPN</b>, que crea un túnel cifrado.</p>`, video: { id: "8EQKaVCuGaY", titulo: "Qué es una VPN y cómo funciona", canal: "VPNpro en Español", vistas: 565138 } },
+      { html: `<h3>Ransomware y recuperación</h3><p>El <b>ransomware</b> cifra los archivos de la víctima y pide un rescate, normalmente en criptomonedas, para devolverlos. Ha paralizado hospitales, ayuntamientos y empresas. Pagar no garantiza recuperar los datos y financia a los delincuentes. La mejor defensa es tener <mark>copias de seguridad desconectadas</mark> del equipo, mantener el sistema actualizado y no abrir adjuntos sospechosos. Si un equipo se infecta: desconectarlo de la red, no pagar, avisar al responsable o a un adulto, y restaurar desde la copia tras limpiar o reinstalar el sistema.</p>` },
+    ],
+    "Datos personales y privacidad": [
+      { html: `<h3>Ciberdelitos: cómo actuar y denunciar</h3><p>Muchas conductas en Internet son <b>delitos</b>: acceder a la cuenta de otra persona, suplantar su identidad, difundir fotos íntimas sin permiso, estafar o amenazar. Si eres víctima: <b>no borres nada</b> y guarda pruebas (capturas con fecha, enlaces, nombres de usuario); cambia las contraseñas y activa el doble factor; cuéntaselo a un adulto de confianza; y <b>denuncia</b> ante la Policía Nacional, la Guardia Civil o la policía autonómica. En España, el <b>INCIBE</b> atiende gratis el teléfono <mark>017</mark> para dudas de ciberseguridad, y la Agencia de Protección de Datos tiene un canal prioritario para retirar contenidos sensibles.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Recibes un SMS: «Su paquete está retenido. Pague 1,99 € de tasas aquí: bit.ly/…». ¿Qué haces?", pasos: ["Señales: urgencia, pago pequeño y enlace acortado que oculta el destino.", "No pulses el enlace: el objetivo es robar los datos de la tarjeta.", "Si esperas un paquete, consulta en la web oficial de la empresa escribiendo tú la dirección. Borra el SMS."], resultado: "Es smishing: no abrir el enlace y comprobar por la vía oficial." },
+    { enunciado: "Estás en la wifi abierta de un aeropuerto y necesitas mirar tu banco. ¿Cómo lo haces con seguridad?", pasos: ["Una red abierta puede estar espiada o ser falsa.", "Desactiva la wifi y usa los datos móviles.", "Si no tienes datos, usa una VPN y comprueba que la web tiene HTTPS."], resultado: "Datos móviles, o VPN y HTTPS si no hay otra opción." },
+    { enunciado: "Alguien ha entrado en tu cuenta de Instagram y publica en tu nombre. Ordena los pasos.", pasos: ["Recupera la cuenta con la opción oficial y cambia la contraseña.", "Activa la verificación en dos pasos y cierra las sesiones abiertas.", "Guarda capturas de lo publicado, avisa a tus contactos y denuncia si hay suplantación o daños."], resultado: "Recuperar, proteger, guardar pruebas, avisar y denunciar." },
+  ],
+  errores: [
+    "Pensar que el candado de HTTPS garantiza que la web es honrada: solo indica que la conexión está cifrada.",
+    "Hacer compras o gestiones bancarias en una wifi pública abierta.",
+    "Pagar el rescate de un ransomware confiando en recuperar los archivos.",
+    "Borrar los mensajes de un acoso o una estafa antes de guardar pruebas.",
+    "Fiarse de un mensaje porque parece venir de un amigo o de un familiar.",
+  ],
+  ejercicios: [
+    { q: "Explica la diferencia entre virus, troyano y ransomware.", sol: "El virus se copia en otros archivos; el troyano se disfraza de programa útil para abrir la puerta al atacante; el ransomware cifra los archivos y pide un rescate." },
+    { q: "Define phishing, smishing y vishing.", sol: "Engaños para robar datos por correo electrónico, por SMS y por llamada telefónica, respectivamente." },
+    { q: "Indica cuatro señales de que un mensaje puede ser un fraude.", sol: "Urgencia o amenazas, petición de datos o dinero, enlaces o remitente extraños y faltas de ortografía o un saludo genérico." },
+    { q: "¿Es segura la contraseña «Laura2009»? Propón una mejor.", sol: "No: usa un nombre y un año fáciles de adivinar. Mejor una frase larga con símbolos, como «Mi-gato-come-3-pizzas!»." },
+    { q: "¿Qué es la autenticación en dos factores y por qué protege?", sol: "Pide, además de la contraseña, un segundo elemento (código en el móvil, huella). Aunque roben la contraseña, no pueden entrar sin él." },
+    { q: "¿Qué indica el candado y el HTTPS en el navegador?", sol: "Que la comunicación con la web va cifrada; no garantiza que la web sea fiable." },
+    { q: "Indica tres precauciones al usar una wifi pública.", sol: "No hacer gestiones bancarias ni compras, usar VPN o datos móviles y comprobar que la red es la oficial (y desactivar el uso compartido)." },
+    { q: "¿Qué harías si un ransomware cifra el ordenador de casa?", sol: "Desconectarlo de la red, no pagar, avisar, y restaurar los archivos desde una copia de seguridad tras limpiar el sistema." },
+    { q: "¿Qué es el 017 y quién lo atiende?", sol: "La línea gratuita de ayuda en ciberseguridad del INCIBE." },
+    { q: "Indica tres datos personales que no deberías publicar en un perfil abierto.", sol: "Dirección, teléfono y centro de estudios (también DNI, ubicación en tiempo real o datos bancarios)." },
+  ],
+  quiz: [
+    { q: "Un SMS falso de una empresa de paquetería es un caso de…", o: ["smishing", "spam legal", "cookie"], a: 0, e: "Phishing por SMS." },
+    { q: "Una VPN…", o: ["crea un túnel cifrado", "acelera siempre la conexión", "elimina los virus"], a: 0, e: "Útil en redes públicas." },
+    { q: "El ransomware…", o: ["muestra publicidad", "cifra los archivos y pide un rescate", "acelera el ordenador"], a: 1, e: "La defensa: copias desconectadas." },
+    { q: "Si sufres un ciberdelito, lo primero es…", o: ["borrarlo todo", "guardar pruebas", "responder al agresor"], a: 1, e: "Capturas con fecha y enlaces." },
+    { q: "El teléfono 017 es de…", o: ["el INCIBE", "Hacienda", "la DGT"], a: 0, e: "Ayuda gratuita en ciberseguridad." },
+  ],
+  tarjetas: [
+    ["Ingeniería social", "Engaño que manipula a las personas para que entreguen datos o accesos."],
+    ["VPN", "Conexión cifrada que protege el tráfico, útil en redes públicas."],
+    ["Ransomware", "Malware que cifra los archivos y pide un rescate."],
+  ],
+});

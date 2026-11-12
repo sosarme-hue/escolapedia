@@ -109,3 +109,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Entender cómo los algoritmos y el diseño de las apps influyen en lo que vemos", "Reconocer los riesgos de las apuestas y actuar ante el ciberacoso"],
+  tras: {
+    "Pensar antes de publicar": [
+      { html: `<h3>Reputación digital y futuro profesional</h3><p>La <b>reputación digital</b> es la opinión que otros se forman de ti a partir de lo que encuentran en Internet. Muchas empresas y universidades buscan el nombre de los candidatos antes de una entrevista. Un comentario ofensivo de hace años puede pesar, pero un perfil cuidado también puede <mark>jugar a tu favor</mark>: un blog con tus proyectos, un portafolio de dibujos, un canal de divulgación o tu participación en voluntariados. Conviene buscar tu nombre de vez en cuando, revisar la privacidad de tus perfiles y separar lo personal de lo público.</p>` },
+    ],
+    "Riesgos en las relaciones digitales": [
+      { html: `<h3>Ciberacoso: el papel de los testigos</h3><p>En el <b>ciberacoso</b> no solo están la víctima y el agresor: hay muchos <b>testigos</b> que ven los mensajes, los comparten, ríen o callan. Los acosadores buscan público, así que los testigos tienen un poder enorme. Un testigo activo <b>no reenvía</b> ni da «me gusta», <b>apoya</b> a la víctima en privado, <b>reporta</b> el contenido a la plataforma y <mark>avisa a un adulto</mark> o al centro. Si eres la víctima: no respondas, guarda capturas, bloquea y cuéntalo. En España, la línea gratuita y confidencial de la Fundación ANAR (900 20 20 10) y el 017 del INCIBE ofrecen ayuda.</p>` },
+    ],
+    "Bienestar digital": [
+      { html: `<h3>Algoritmos y diseño persuasivo</h3><p>Las redes sociales muestran a cada persona un contenido distinto elegido por un <b>algoritmo</b> de recomendación, que aprende de lo que miras, cuánto tiempo y a qué das «me gusta». Su objetivo es que pases <b>el máximo tiempo posible</b>, porque así ven más anuncios. Por eso usan técnicas de <b>diseño persuasivo</b>: el scroll infinito, la reproducción automática, las notificaciones, las rachas y las recompensas variables, como una tragaperras. El algoritmo también puede encerrarte en una <mark>burbuja de filtro</mark>, en la que solo ves opiniones que confirman las tuyas. Conocer estos trucos ayuda a decidir tú cuándo parar.</p>`, video: { id: "RSJrBEhdZxw", titulo: "Qué son los algoritmos y cómo aprenden de nosotros", canal: "BBC News Mundo", vistas: 609749 } },
+      { html: `<h3>Apuestas en línea y videojuegos</h3><p>Las <b>apuestas deportivas</b> y los casinos en línea están prohibidos para menores, pero su publicidad llega a muchos adolescentes. Funcionan con <b>refuerzo intermitente</b>: ganar de vez en cuando engancha más que ganar siempre. A largo plazo <mark>la banca siempre gana</mark>, porque las cuotas están calculadas para ello. En los videojuegos aparecen mecánicas parecidas, como las <b>cajas de botín</b> (loot boxes) con premios al azar que se compran con dinero real. Señales de alerta: pensar a menudo en apostar, gastar más de lo previsto, mentir o intentar recuperar lo perdido. La ludopatía es una adicción y tiene tratamiento.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "En el grupo de clase circula un meme que se ríe de un compañero. ¿Qué puedes hacer como testigo?", pasos: ["No reenviarlo ni reaccionar con risas: el acoso se alimenta del público.", "Escribir en privado al compañero para apoyarle.", "Reportar la imagen y contárselo a un tutor o a un adulto de confianza."], resultado: "Ser un testigo activo: no difundir, apoyar y avisar." },
+    { enunciado: "Una app de apuestas ofrece «10 € gratis al registrarte». Analiza la oferta.", pasos: ["Es ilegal para menores de 18 años.", "El regalo suele exigir apostar varias veces la cantidad antes de poder retirarla.", "Busca enganchar: las cuotas están diseñadas para que la casa gane a la larga."], resultado: "Es un gancho comercial, no un regalo." },
+    { enunciado: "Pasas 4 h al día en redes y quieres bajar a 2 h. Diseña un plan.", pasos: ["Mide el tiempo real con el bienestar digital del móvil.", "Pon un límite diario a las apps y desactiva las notificaciones que no son de personas.", "Deja el móvil fuera de la habitación por la noche y sustituye ese tiempo por otra actividad."], resultado: "Medir, limitar, quitar estímulos y sustituir hábitos." },
+  ],
+  errores: [
+    "Creer que todos ven lo mismo en las redes: cada perfil recibe un contenido elegido por el algoritmo.",
+    "Pensar que reenviar un contenido ofensivo «para que lo vean» no es participar en el acoso.",
+    "Creer que con un buen método se puede ganar a las apuestas a largo plazo.",
+    "Pensar que las cajas de botín no tienen nada que ver con el juego de azar.",
+    "Borrar los mensajes del acoso antes de guardar pruebas.",
+  ],
+  ejercicios: [
+    { q: "Diferencia entre huella digital activa y pasiva, con un ejemplo de cada una.", sol: "Activa: lo que publicas tú, como una foto. Pasiva: lo que se registra sin que lo publiques, como tu ubicación o tu historial." },
+    { q: "Indica cuatro preguntas que hacerte antes de publicar algo.", sol: "¿Me importaría que lo viera mi familia o un futuro jefe? ¿Hiere a alguien? ¿Aparecen otras personas sin permiso? ¿Revela datos personales?" },
+    { q: "¿Qué es el grooming y qué señales lo delatan?", sol: "El acoso de un adulto que se gana la confianza de un menor con fines sexuales. Señales: halagos, regalos, petición de secreto, de fotos o de quedar." },
+    { q: "Explica qué es una burbuja de filtro.", sol: "La situación en la que el algoritmo solo te muestra contenidos que confirman tus gustos y opiniones." },
+    { q: "Nombra tres técnicas de diseño persuasivo de las apps.", sol: "Scroll infinito, reproducción automática y notificaciones (también rachas y recompensas variables)." },
+    { q: "¿Qué puede hacer un testigo de ciberacoso?", sol: "No difundir, apoyar a la víctima, reportar el contenido y avisar a un adulto." },
+    { q: "¿Por qué «la banca siempre gana» en las apuestas?", sol: "Porque las cuotas se calculan para que, sumando todas las apuestas, la casa obtenga beneficio." },
+    { q: "Indica tres señales de una posible adicción a las apuestas o a las pantallas.", sol: "Pensar en ello constantemente, perder el control del tiempo o el dinero y mentir u ocultarlo (también dejar otras actividades)." },
+    { q: "Indica tres hábitos saludables con el móvil.", sol: "No usarlo una hora antes de dormir, desactivar notificaciones innecesarias y dejarlo fuera durante el estudio y las comidas." },
+    { q: "¿Cómo puedes mejorar tu reputación digital?", sol: "Revisando la privacidad, eliminando contenidos inadecuados y creando contenidos positivos como proyectos o un portafolio." },
+  ],
+  quiz: [
+    { q: "El objetivo principal del algoritmo de una red social es…", o: ["informarte", "que pases el máximo tiempo", "ahorrarte datos"], a: 1, e: "Más tiempo, más anuncios." },
+    { q: "El scroll infinito es un ejemplo de…", o: ["diseño persuasivo", "cifrado", "copia de seguridad"], a: 0, e: "Elimina el punto de parada." },
+    { q: "Un testigo de ciberacoso debe…", o: ["reenviar para avisar", "callar", "apoyar a la víctima y avisar"], a: 2, e: "El acoso necesita público." },
+    { q: "Las apuestas en línea para menores…", o: ["están permitidas con permiso", "están prohibidas", "son legales si son pequeñas"], a: 1, e: "Solo mayores de 18." },
+    { q: "Las cajas de botín de los videojuegos se parecen a…", o: ["los juegos de azar", "las copias de seguridad", "los antivirus"], a: 0, e: "Premios al azar por dinero." },
+  ],
+  tarjetas: [
+    ["Burbuja de filtro", "Situación en que el algoritmo solo te muestra lo que confirma tus gustos."],
+    ["Diseño persuasivo", "Técnicas que buscan que pases más tiempo en una app."],
+    ["Testigo activo", "Quien, ante un acoso, no difunde, apoya a la víctima y avisa."],
+  ],
+});

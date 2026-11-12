@@ -118,3 +118,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Usar variables, funciones y listas para escribir programas ordenados", "Comparar algoritmos de búsqueda y ordenación"],
+  tras: {
+    "Las estructuras básicas": [
+      { html: `<h3>Variables y tipos de datos</h3><p>Una <b>variable</b> es un espacio de memoria con nombre donde el programa guarda un dato que puede cambiar: los puntos de un juego, la edad de un usuario, un nombre. Los datos tienen un <b>tipo</b>: <b>enteros</b> (7), <b>decimales</b> (3.5), <b>textos</b> o cadenas ("Hola"), <b>booleanos</b> (verdadero o falso) y <b>listas</b> que agrupan varios valores ([4, 8, 15]). Con ellos se hacen operaciones aritméticas (+, −, *, /), comparaciones (==, &lt;, &gt;) y operaciones lógicas (y, o, no). Elegir <mark>nombres claros</mark> para las variables, como <code>puntos</code> en vez de <code>x</code>, hace el programa mucho más fácil de entender.</p>${AMP.tabla(["Tipo", "Ejemplo", "Uso"], [["Entero", "15", "Contar"], ["Decimal", "9.75", "Medir"], ["Texto", "\"Ana\"", "Nombres, mensajes"], ["Booleano", "True / False", "Condiciones"], ["Lista", "[3, 7, 2]", "Grupos de datos"]])}` },
+    ],
+    "De los bloques al código": [
+      { html: `<h3>Programar con Scratch</h3><p><b>Scratch</b>, creado en el MIT, permite programar encajando bloques de colores, sin errores de escritura. Cada <b>objeto</b> (sprite) tiene sus programas, que empiezan con un <b>evento</b> («al hacer clic en la bandera»). Los bloques se agrupan por categorías: movimiento, apariencia, sonido, control (bucles y condiciones), sensores, operadores y variables. Con ellos se crean juegos, animaciones e historias interactivas. Los objetos pueden comunicarse enviando <b>mensajes</b>. Es ideal para aprender la lógica, porque las estructuras son las mismas que en cualquier lenguaje: <mark>secuencia, condición y bucle</mark>.</p>`, video: { id: "D-nW4jvzRr8", titulo: "Guía para principiantes de Scratch", canal: "ZonxScratch", vistas: 1701459 } },
+      { html: `<h3>Primeros pasos en Python</h3><p><b>Python</b> es uno de los lenguajes más usados del mundo, en ciencia, inteligencia artificial o páginas web, y su sintaxis es muy legible. <code>print("Hola")</code> muestra un texto; <code>nombre = input("¿Cómo te llamas? ")</code> pide un dato; <code>if nota &gt;= 5:</code> abre una condición, y <code>for i in range(10):</code> repite diez veces. En Python la <mark>sangría</mark> (los espacios al principio de la línea) indica qué instrucciones están dentro de un bloque, así que es obligatoria. Los textos que llegan con <code>input</code> hay que convertirlos con <code>int()</code> si se quiere operar con ellos.</p>`, video: { id: "_6N18g3ewnw", titulo: "Aprende Python en 10 minutos", canal: "Programador X", vistas: 1063099 } },
+      { html: `<h3>Funciones y modularidad</h3><p>Una <b>función</b> es un trozo de programa con nombre que realiza una tarea concreta y se puede usar muchas veces. Recibe datos de entrada (<b>parámetros</b>) y puede devolver un resultado. Por ejemplo, una función <code>area_rectangulo(base, altura)</code> devuelve base · altura. Dividir un programa en funciones es aplicar la <b>descomposición</b>: cada parte es más fácil de escribir, probar y corregir, y se puede <mark>reutilizar</mark> en otros programas. En Scratch, las funciones se crean con «Mis bloques».</p>` },
+    ],
+    "Probar y depurar": [
+      { html: `<h3>Buscar y ordenar</h3><p>Dos problemas clásicos muestran que hay algoritmos mejores que otros. Para <b>buscar</b> un dato en una lista desordenada solo cabe mirar uno por uno (<b>búsqueda lineal</b>). Pero si la lista está ordenada, la <b>búsqueda binaria</b> mira el elemento central y descarta la mitad en cada paso: en una lista de 1.000 elementos encuentra el dato en <mark>unos 10 pasos</mark> en vez de hasta 1.000. Para <b>ordenar</b>, el método de la burbuja compara parejas vecinas y las intercambia si están desordenadas; es sencillo pero lento, y por eso se usan métodos más eficientes con muchos datos.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Escribe en Python un programa que pida una nota y diga si está aprobada.", pasos: ["Pide el dato y conviértelo en número: nota = int(input(\"Nota: \")).", "Condición: if nota >= 5: print(\"Aprobado\").", "Si no: else: print(\"Suspenso\"). Las líneas de print van sangradas."], resultado: "Un programa de cuatro líneas con if y else." },
+    { enunciado: "Sigue este programa y di qué muestra: total = 0; for i in range(1, 5): total = total + i; print(total).", pasos: ["range(1, 5) da los valores 1, 2, 3 y 4.", "total va valiendo 1, 3, 6 y 10.", "Al terminar el bucle se muestra total."], resultado: "Muestra 10." },
+    { enunciado: "¿Cuántos pasos necesita, como máximo, la búsqueda binaria en una lista ordenada de 64 elementos?", pasos: ["Cada paso divide la lista a la mitad: 64, 32, 16, 8, 4, 2, 1.", "Son 6 divisiones hasta quedar un elemento (2⁶ = 64).", "Con una búsqueda más de comprobación, unos 7 pasos."], resultado: "Unos 6 o 7 pasos, frente a 64 de la búsqueda lineal." },
+  ],
+  errores: [
+    "Olvidar la sangría en Python, o mezclar espacios y tabuladores.",
+    "Operar con el resultado de input() sin convertirlo con int().",
+    "Confundir = (asignar un valor) con == (comparar).",
+    "Escribir un bucle que nunca termina porque la condición no cambia.",
+    "Usar nombres de variables como x o a, que no explican qué guardan.",
+    "Aplicar la búsqueda binaria a una lista que no está ordenada.",
+  ],
+  ejercicios: [
+    { q: "Indica el tipo de dato: 42, \"42\", 3.14, True, [1, 2, 3].", sol: "Entero, texto, decimal, booleano y lista." },
+    { q: "¿Qué muestra este programa? a = 5; b = 3; a = a + b; print(a * 2).", sol: "a vale 8, así que muestra 16." },
+    { q: "Escribe un bucle en Python que muestre los números del 1 al 10.", sol: "for i in range(1, 11): print(i)." },
+    { q: "Escribe un programa que pida la edad y diga «Puedes votar» si es 18 o más.", sol: "edad = int(input(\"Edad: \")); if edad >= 18: print(\"Puedes votar\")." },
+    { q: "Escribe una función que reciba un número y devuelva su doble.", sol: "def doble(n): return n * 2." },
+    { q: "Describe un algoritmo para encontrar el número mayor de una lista.", sol: "Guarda el primero como mayor; recorre la lista y, si un número es mayor que el guardado, sustitúyelo; al final, el guardado es el mayor." },
+    { q: "En Scratch, ¿qué bloque usarías para que un objeto se mueva sin parar?", sol: "Un bloque «por siempre» con «mover 10 pasos» y «rebotar si toca un borde» dentro." },
+    { q: "Encuentra el error: if nota > 5: print(\"Aprobado\") (un alumno con un 5 aparece como suspenso).", sol: "La condición debe ser nota >= 5, para incluir el 5." },
+    { q: "Ordena con el método de la burbuja la lista [5, 2, 4, 1] e indica la primera pasada.", sol: "Primera pasada: [2, 5, 4, 1] → [2, 4, 5, 1] → [2, 4, 1, 5]. Al final: [1, 2, 4, 5]." },
+    { q: "¿Por qué conviene dividir un programa en funciones?", sol: "Porque cada parte es más fácil de escribir, probar y corregir, y se puede reutilizar." },
+  ],
+  quiz: [
+    { q: "En Python, la sangría…", o: ["es opcional", "indica los bloques de código", "solo sirve para que quede bonito"], a: 1, e: "Es obligatoria." },
+    { q: "True y False son datos de tipo…", o: ["texto", "booleano", "entero"], a: 1, e: "Verdadero o falso." },
+    { q: "== sirve para…", o: ["asignar", "comparar", "sumar"], a: 1, e: "= asigna; == compara." },
+    { q: "La búsqueda binaria necesita que la lista esté…", o: ["ordenada", "vacía", "en mayúsculas"], a: 0, e: "Descarta la mitad en cada paso." },
+    { q: "Una función que recibe datos los recibe como…", o: ["parámetros", "eventos", "sprites"], a: 0, e: "Por ejemplo, base y altura." },
+  ],
+  tarjetas: [
+    ["Variable", "Espacio de memoria con nombre que guarda un dato que puede cambiar."],
+    ["Función", "Trozo de programa con nombre que hace una tarea y se puede reutilizar."],
+    ["Búsqueda binaria", "Busca en una lista ordenada descartando la mitad en cada paso."],
+  ],
+});

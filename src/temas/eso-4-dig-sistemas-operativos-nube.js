@@ -114,3 +114,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Gestionar usuarios, permisos y software de un equipo", "Trabajar en la nube con documentos compartidos y control de versiones"],
+  tras: {
+    "Qué es un sistema operativo": [
+      { html: `<h3>Usuarios, cuentas y permisos</h3><p>Un sistema operativo permite que varias personas usen el mismo equipo con su propia <b>cuenta de usuario</b>, cada una con sus archivos, su escritorio y sus ajustes. Hay cuentas de <b>administrador</b>, que pueden instalar programas y cambiar la configuración, y cuentas <b>estándar</b>, más limitadas. Por seguridad, lo recomendable es usar a diario una cuenta estándar: si entra un programa malicioso, <mark>tendrá menos permisos</mark> para hacer daño. Los archivos y carpetas también tienen <b>permisos</b> que indican quién puede leerlos, modificarlos o ejecutarlos. En los móviles, cada aplicación pide permisos para acceder a la cámara, la ubicación o los contactos, y se pueden revisar y quitar en los ajustes.</p>` },
+    ],
+    "Archivos, carpetas y extensiones": [
+      { html: `<h3>Instalar, actualizar y desinstalar programas</h3><p>Los programas se instalan desde fuentes de confianza: la <b>tienda oficial</b> del sistema (Microsoft Store, App Store, Google Play), los repositorios de Linux o la web oficial del fabricante. Descargar programas «crackeados» o de webs desconocidas es una de las vías más comunes de entrada de malware. Cada programa tiene una <b>licencia</b> que dice cómo se puede usar: hay software <b>libre</b> (LibreOffice, GIMP, VLC), <b>gratuito</b> pero cerrado (freeware), de prueba (shareware) o de pago. Conviene mantenerlos <mark>actualizados</mark> y desinstalar los que no se usan, porque ocupan espacio, consumen recursos al arrancar y pueden tener fallos de seguridad. Para desinstalar se usa la opción del sistema, no basta con borrar el icono.</p>` },
+      { html: `<h3>Comprimir archivos</h3><p><b>Comprimir</b> es reducir el tamaño de un archivo para que ocupe menos o se envíe más rápido. La compresión <b>sin pérdida</b> (formatos ZIP, 7Z, PNG) busca patrones repetidos y los escribe de forma más corta; al descomprimir se recupera el archivo exacto. Se usa para documentos y programas, donde no puede cambiar ni un bit. La compresión <b>con pérdida</b> (JPG, MP3, MP4) elimina información que apenas se percibe: consigue archivos mucho más pequeños, pero <mark>no se puede recuperar el original</mark>. Un archivo ZIP también sirve para juntar muchos archivos y carpetas en uno solo, cómodo de enviar por correo.</p>` },
+    ],
+    "Qué es la nube": [
+      { html: `<h3>Trabajar en la nube</h3><p>Las <b>suites ofimáticas en línea</b> (Google Docs, Microsoft 365, OnlyOffice) permiten crear documentos, hojas de cálculo y presentaciones desde el navegador y <b>compartirlos</b> con otras personas. Al compartir se eligen los permisos: <b>ver</b>, <b>comentar</b> o <b>editar</b>. Varias personas pueden escribir a la vez en el mismo documento y ver los cambios en tiempo real, dejar <b>comentarios</b> y sugerencias, y consultar el <mark>historial de versiones</mark> para recuperar una versión anterior si alguien borra algo. También existen los servicios de nube de pago por uso (Amazon, Google, Microsoft) que alquilan servidores a empresas: así funcionan Netflix o muchos videojuegos en línea.</p>`, video: { id: "xT75e-G1eak", titulo: "Qué es la nube, para qué sirve y cuáles son sus funciones", canal: "LearnFree en Español", vistas: 240779 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Un grupo de cuatro alumnos hace un trabajo en un documento en la nube. ¿Qué permisos darías al profesor y a los compañeros?", pasos: ["Los cuatro compañeros necesitan escribir: permiso de edición.", "El profesor debe poder revisar y dejar notas sin cambiar el texto: permiso de comentar.", "Si alguien borra algo por error, se recupera con el historial de versiones."], resultado: "Compañeros: editar. Profesor: comentar." },
+    { enunciado: "Tienes 120 fotos de 4 MB cada una. ¿Caben en una memoria USB de 512 MB? ¿Y si las comprimes en ZIP?", pasos: ["Tamaño total: 120 · 4 = 480 MB.", "480 < 512: caben, aunque justas.", "Las fotos JPG ya están comprimidas con pérdida, así que en ZIP apenas reducen su tamaño."], resultado: "Caben (480 MB), pero el ZIP casi no ahorra espacio con fotos JPG." },
+    { enunciado: "Un programa gratuito pide al instalarse permisos de administrador y añadir una barra al navegador. ¿Qué haces?", pasos: ["Comprueba que lo descargas de la web oficial o de la tienda.", "Lee cada pantalla del instalador y desmarca los programas adicionales.", "Si no es de confianza, no lo instales: los extras suelen ser publicidad o espías."], resultado: "Instalar solo desde fuentes oficiales y rechazar los complementos no deseados." },
+  ],
+  errores: [
+    "Usar siempre una cuenta de administrador para el día a día.",
+    "Borrar el icono del escritorio pensando que así se desinstala el programa.",
+    "Compartir un documento con permiso de edición a cualquiera que tenga el enlace.",
+    "Pensar que comprimir un JPG o un MP4 en ZIP reduce mucho su tamaño.",
+    "Confundir software gratuito con software libre.",
+  ],
+  ejercicios: [
+    { q: "Indica cuatro funciones de un sistema operativo.", sol: "Gestionar el procesador y la memoria, gestionar los archivos, controlar los periféricos y ofrecer la interfaz al usuario (también gestionar usuarios y seguridad)." },
+    { q: "¿Qué diferencia hay entre una cuenta de administrador y una estándar?", sol: "La de administrador puede instalar programas y cambiar la configuración del sistema; la estándar no, lo que la hace más segura para el uso diario." },
+    { q: "Clasifica: LibreOffice, Photoshop, WinRAR (de prueba), VLC.", sol: "Libre: LibreOffice y VLC. De pago: Photoshop. Shareware (de prueba): WinRAR." },
+    { q: "Escribe la ruta de un archivo «examen.pdf» guardado en la carpeta «Mates» dentro de «Documentos».", sol: "Documentos/Mates/examen.pdf." },
+    { q: "Indica el tipo de archivo: .xlsx, .png, .mp3, .zip, .odp.", sol: "Hoja de cálculo, imagen, audio, archivo comprimido y presentación (LibreOffice)." },
+    { q: "¿Qué diferencia hay entre compresión con pérdida y sin pérdida? Pon un formato de cada una.", sol: "Sin pérdida recupera el archivo exacto (ZIP, PNG); con pérdida elimina información poco perceptible y no se recupera el original (JPG, MP3)." },
+    { q: "Indica tres ventajas de trabajar en un documento compartido en la nube.", sol: "Trabajar a la vez con otras personas, acceder desde cualquier dispositivo y recuperar versiones anteriores." },
+    { q: "Diseña un plan de copias de seguridad 3-2-1 para tus trabajos del instituto.", sol: "Original en el ordenador, copia en un disco o USB externo y otra copia en la nube (tres copias, dos soportes, una fuera de casa)." },
+    { q: "¿Por qué hay que revisar los permisos de las aplicaciones del móvil?", sol: "Porque algunas piden acceso a datos que no necesitan (contactos, ubicación, micrófono) y pueden recogerlos o venderlos." },
+    { q: "Indica dos inconvenientes de guardarlo todo solo en la nube.", sol: "Sin conexión no se puede acceder y dependemos de la empresa (puede cerrar, cambiar sus condiciones o sufrir un ataque)." },
+  ],
+  quiz: [
+    { q: "Para el uso diario es más seguro usar una cuenta…", o: ["de administrador", "estándar", "de invitado siempre"], a: 1, e: "Limita lo que puede hacer el malware." },
+    { q: "Un archivo ZIP usa compresión…", o: ["sin pérdida", "con pérdida", "ninguna"], a: 0, e: "Se recupera el original exacto." },
+    { q: "Para que alguien pueda dejar notas sin cambiar el texto se le da permiso de…", o: ["editar", "comentar", "eliminar"], a: 1, e: "Puede sugerir, no modificar." },
+    { q: "El historial de versiones sirve para…", o: ["recuperar una versión anterior", "comprimir el documento", "cambiar el idioma"], a: 0, e: "Muy útil si alguien borra algo." },
+    { q: "Los programas se deben descargar de…", o: ["cualquier web", "tiendas y webs oficiales", "enlaces que te mandan por chat"], a: 1, e: "Evita el malware." },
+  ],
+  tarjetas: [
+    ["Cuenta estándar", "Cuenta con permisos limitados, más segura para el día a día."],
+    ["Compresión sin pérdida", "Reduce el tamaño y permite recuperar el archivo exacto (ZIP, PNG)."],
+    ["Historial de versiones", "Registro de cambios de un documento en la nube para recuperar versiones anteriores."],
+  ],
+});

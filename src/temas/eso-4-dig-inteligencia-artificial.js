@@ -115,3 +115,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Distinguir los tipos de aprendizaje automático", "Usar la IA generativa con buenas instrucciones y sentido crítico"],
+  tras: {
+    "Cómo aprende una máquina": [
+      { html: `<h3>Tipos de aprendizaje automático</h3><p>En el <b>aprendizaje supervisado</b> la máquina aprende con ejemplos etiquetados: miles de fotos marcadas como «gato» o «perro», o correos marcados como «spam» o «no spam». Luego predice la etiqueta de datos nuevos. En el <b>no supervisado</b> recibe datos sin etiquetar y busca grupos o patrones por sí misma: por ejemplo, agrupar clientes con gustos parecidos. En el <b>aprendizaje por refuerzo</b> aprende por ensayo y error, recibiendo premios o castigos: así aprenden a jugar al ajedrez o a mover un robot. En todos los casos la clave son los <mark>datos</mark>: si son escasos o están sesgados, el modelo aprenderá mal.</p>${AMP.tabla(["Tipo", "Datos", "Ejemplo"], [["Supervisado", "Etiquetados", "Filtro de spam"], ["No supervisado", "Sin etiquetar", "Agrupar clientes"], ["Por refuerzo", "Premios y castigos", "Jugar al ajedrez"]])}`, video: { id: "oT3arRRB2Cw", titulo: "¿Qué es el aprendizaje supervisado y no supervisado?", canal: "Dot CSV", vistas: 302877 } },
+    ],
+    "Redes neuronales e IA generativa": [
+      { html: `<h3>Cómo dar buenas instrucciones</h3><p>Una <b>instrucción</b> o <b>prompt</b> es lo que escribimos a una IA generativa. Cuanto más clara, mejor respuesta. Un buen prompt indica el <b>contexto</b> (soy alumno de 4.º de ESO), la <b>tarea</b> (explícame la fotosíntesis), el <b>formato</b> (en cinco puntos, con un ejemplo) y las <b>restricciones</b> (sin tecnicismos, en 150 palabras). Se puede pedir que haga preguntas, que corrija un texto o que proponga ejercicios. Pero hay que <mark>revisar siempre</mark> lo que responde, porque puede inventar datos con total seguridad (las «alucinaciones»), y no se deben introducir datos personales ni confidenciales.</p>`, video: { id: "UpDx8oNy3g4", titulo: "Domina la fórmula para crear prompts de experto en ChatGPT", canal: "Innovate AI", vistas: 470797 } },
+    ],
+    "La IA en tu día a día": [
+      { html: `<h3>La IA y el trabajo</h3><p>La IA ya automatiza tareas repetitivas: clasificar documentos, atender consultas sencillas, traducir o revisar imágenes médicas. Algunos empleos cambiarán mucho y otros surgirán, como especialistas en datos, en ética de la IA o en entrenar y supervisar modelos. Lo más probable es que la IA <b>transforme tareas</b> más que eliminar profesiones completas, y que las personas que sepan <mark>trabajar con ella</mark> tengan ventaja. Por eso ganan valor las capacidades humanas que la máquina no tiene: el pensamiento crítico, la creatividad, la empatía, la comunicación y la capacidad de seguir aprendiendo.</p>` },
+    ],
+    "Riesgos y ética": [
+      { html: `<h3>Cómo reconocer contenido generado por IA</h3><p>Las imágenes, voces y vídeos generados por IA son cada vez más realistas. Los <b>deepfakes</b> pueden poner en boca de alguien palabras que nunca dijo. Algunas pistas: manos con dedos de más, textos ilegibles en carteles, sombras o reflejos imposibles, piel demasiado perfecta, parpadeos raros o voz sin respiraciones. Pero la mejor herramienta es <mark>verificar la fuente</mark>: quién lo publica, si aparece en medios fiables y si hay una búsqueda inversa de la imagen. El <b>Reglamento europeo de IA</b> obliga a etiquetar los contenidos generados artificialmente y prohíbe usos de alto riesgo como la puntuación social de los ciudadanos.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Mejora este prompt: «Háblame de la Segunda Guerra Mundial».", pasos: ["Añade contexto: «Soy alumno de 4.º de ESO y tengo examen».", "Concreta la tarea y el formato: «Resume las causas en cinco puntos y haz una cronología con diez fechas clave».", "Añade restricciones y una petición final: «Lenguaje sencillo; al final, hazme tres preguntas para repasar»."], resultado: "Un prompt con contexto, tarea, formato y restricciones." },
+    { enunciado: "Un banco entrena una IA para conceder préstamos con datos de los últimos 30 años, en los que se concedieron pocos préstamos a mujeres. ¿Qué problema puede haber?", pasos: ["Los datos reflejan una discriminación del pasado.", "La IA aprende ese patrón y lo repite: es un sesgo algorítmico.", "Solución: revisar los datos, auditar las decisiones y mantener la supervisión humana."], resultado: "La IA puede discriminar a las mujeres; hay que corregir el sesgo." },
+    { enunciado: "Clasifica: un filtro de spam, una IA que agrupa canciones parecidas y un robot que aprende a andar cayéndose.", pasos: ["Filtro de spam: aprende de correos etiquetados, supervisado.", "Agrupar canciones sin etiquetas: no supervisado.", "Robot que mejora con premios por no caerse: por refuerzo."], resultado: "Supervisado, no supervisado y por refuerzo." },
+  ],
+  errores: [
+    "Creer que la IA «entiende» o «piensa» como una persona.",
+    "Copiar la respuesta de una IA sin comprobar los datos ni las fuentes.",
+    "Introducir datos personales o de otras personas en un chatbot.",
+    "Pensar que una IA es neutral: aprende los sesgos de sus datos.",
+    "Fiarse de un vídeo o un audio por su realismo sin verificar la fuente.",
+  ],
+  ejercicios: [
+    { q: "Define inteligencia artificial y aprendizaje automático.", sol: "La IA es la rama de la informática que crea sistemas capaces de hacer tareas propias de la inteligencia humana; el aprendizaje automático es la técnica por la que aprenden a partir de datos sin programar cada regla." },
+    { q: "Explica la diferencia entre aprendizaje supervisado y no supervisado.", sol: "En el supervisado los datos están etiquetados con la respuesta correcta; en el no supervisado no, y la máquina busca patrones o grupos por sí misma." },
+    { q: "Pon un ejemplo de aprendizaje por refuerzo.", sol: "Una IA que aprende a jugar a un videojuego recibiendo puntos cuando avanza y perdiéndolos cuando falla." },
+    { q: "¿Qué es una alucinación de una IA generativa?", sol: "Una respuesta inventada o falsa que la IA presenta con total seguridad." },
+    { q: "Escribe un buen prompt para que una IA te ayude a repasar las leyes de Newton.", sol: "Por ejemplo: «Soy alumno de 4.º de ESO. Explica las tres leyes de Newton con un ejemplo cotidiano cada una y luego hazme cinco preguntas tipo test»." },
+    { q: "Indica cuatro usos de la IA en la vida diaria.", sol: "Recomendaciones de series, asistentes de voz, traductores automáticos y desbloqueo facial (también mapas o filtros de spam)." },
+    { q: "¿Qué es un sesgo algorítmico? Pon un ejemplo.", sol: "Un trato injusto que la IA aprende de datos desequilibrados; por ejemplo, un reconocimiento facial que falla más con personas de piel oscura." },
+    { q: "Indica tres pistas para detectar una imagen generada por IA.", sol: "Manos o dedos raros, textos ilegibles y sombras o reflejos incoherentes; además, verificar la fuente." },
+    { q: "¿Qué capacidades humanas serán más valiosas con la IA?", sol: "Pensamiento crítico, creatividad, empatía, comunicación y aprender continuamente." },
+    { q: "¿Qué establece el Reglamento europeo de IA sobre los contenidos generados?", sol: "Que deben etiquetarse como generados artificialmente; además, prohíbe algunos usos de riesgo inaceptable." },
+  ],
+  quiz: [
+    { q: "Un filtro de spam entrenado con correos etiquetados usa aprendizaje…", o: ["supervisado", "no supervisado", "por refuerzo"], a: 0, e: "Datos con la respuesta correcta." },
+    { q: "Aprender por ensayo y error con premios es aprendizaje…", o: ["supervisado", "por refuerzo", "no supervisado"], a: 1, e: "Como entrenar a un perro." },
+    { q: "Un buen prompt incluye…", o: ["solo una palabra", "contexto, tarea y formato", "datos personales"], a: 1, e: "Cuanto más claro, mejor." },
+    { q: "Un deepfake es…", o: ["un vídeo o audio falso hecho con IA", "un antivirus", "una red social"], a: 0, e: "Hay que verificar la fuente." },
+    { q: "Lo más probable es que la IA…", o: ["elimine todos los trabajos", "transforme muchas tareas", "no afecte al empleo"], a: 1, e: "Cambian las tareas." },
+  ],
+  tarjetas: [
+    ["Aprendizaje supervisado", "La máquina aprende con ejemplos etiquetados con la respuesta correcta."],
+    ["Prompt", "Instrucción que se da a una IA generativa."],
+    ["Deepfake", "Vídeo, imagen o audio falso hecho con IA que imita a una persona real."],
+  ],
+});

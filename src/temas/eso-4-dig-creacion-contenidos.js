@@ -112,3 +112,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Diseñar presentaciones e infografías claras y eficaces", "Usar hojas de cálculo con fórmulas y gráficos para tratar datos"],
+  tras: {
+    "Imagen digital: píxeles y vectores": [
+      { html: `<h3>Infografías y diseño visual</h3><p>Una <b>infografía</b> combina datos, iconos, gráficos y textos breves para explicar un tema de un vistazo. Para que funcione hay que aplicar unas reglas básicas de diseño. <b>Jerarquía</b>: lo más importante, más grande y arriba. <b>Contraste</b>: texto oscuro sobre fondo claro o al revés, nunca gris claro sobre blanco. <b>Paleta limitada</b>: dos o tres colores y una o dos tipografías. <b>Alineación</b> y <b>espacio en blanco</b>: los elementos ordenados y con aire respiran mejor. Y sobre todo, <mark>citar las fuentes</mark> de los datos. Herramientas como Canva, Genially o Inkscape facilitan el trabajo con plantillas.</p>` },
+    ],
+    "Audio y vídeo": [
+      { html: `<h3>Presentaciones eficaces</h3><p>Una presentación apoya lo que dices, no lo sustituye. Las claves: <b>una idea por diapositiva</b>; <b>poco texto</b> (la regla 6×6: no más de seis líneas de seis palabras); imágenes de calidad y con licencia libre; letra grande y legible desde el fondo del aula; y un <b>diseño coherente</b> en todas las diapositivas. Al exponer, conviene ensayar en voz alta y cronometrarse, mirar al público y no leer la pantalla, y usar las <mark>notas del orador</mark> para recordar lo que quieres decir. Una buena estructura tiene inicio (lo que vas a contar), desarrollo y cierre (las ideas clave).</p>`, video: { id: "dhQHPjmk0-k", titulo: "10 consejos para mejorar tu oratoria al hablar en público", canal: "Fernando Miralles", vistas: 1194508 } },
+      { html: `<h3>Hojas de cálculo</h3><p>Una <b>hoja de cálculo</b> (Excel, LibreOffice Calc, Google Sheets) es una cuadrícula de <b>celdas</b> identificadas por columna y fila: A1, B3… En ellas se escriben datos y <b>fórmulas</b>, que siempre empiezan por «=». Por ejemplo, <code>=B2*C2</code> multiplica dos celdas y <code>=SUMA(D2:D10)</code> suma un rango. Otras funciones útiles son PROMEDIO, MAX, MIN, CONTAR y SI (<code>=SI(E2&gt;=5;"Aprobado";"Suspenso")</code>). Lo mejor es que, si cambias un dato, <mark>todo se recalcula solo</mark>. Con los datos se crean <b>gráficos</b>: de barras para comparar, de sectores para proporciones y de líneas para la evolución en el tiempo.</p>`, video: { id: "vPq9p7nHhL0", titulo: "Domina Microsoft Excel: 17 fórmulas esenciales", canal: "Xataka", vistas: 683731 } },
+    ],
+    "Licencias Creative Commons": [
+      { html: `<h3>Publicar en la web</h3><p>Hoy cualquiera puede publicar: un <b>blog</b>, una web hecha con un editor sencillo (Google Sites, WordPress), un canal de vídeo o un pódcast. Una web se escribe en <b>HTML</b>, que marca la estructura (títulos, párrafos, enlaces, imágenes), y <b>CSS</b>, que define el aspecto. Antes de publicar conviene revisar: la ortografía; que las imágenes tengan licencia y un <b>texto alternativo</b> que las describa para personas ciegas; que no aparezcan datos personales propios ni ajenos; y que la página se vea bien en el móvil. Y recuerda que lo que publicas <mark>queda asociado a tu nombre</mark> y puede copiarse.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "En una hoja de cálculo, B2 = 3 (unidades) y C2 = 4,50 € (precio). Escribe la fórmula del total en D2 y la suma de D2 a D6 en D7.", pasos: ["Total de una fila: =B2*C2, que da 13,50 €.", "Se copia la fórmula hacia abajo y se ajusta sola: =B3*C3, =B4*C4…", "Suma final en D7: =SUMA(D2:D6)."], resultado: "D2: =B2*C2. D7: =SUMA(D2:D6)." },
+    { enunciado: "Quieres representar el porcentaje de alumnos que usa cada red social. ¿Qué gráfico eliges? ¿Y para la evolución de usuarios desde 2015?", pasos: ["Partes de un total que suma 100 %: gráfico de sectores.", "Evolución en el tiempo: gráfico de líneas.", "Para comparar valores sueltos entre categorías, barras."], resultado: "Sectores para el reparto; líneas para la evolución." },
+    { enunciado: "Una diapositiva tiene 14 líneas de texto en letra pequeña. ¿Cómo la mejoras?", pasos: ["Deja una sola idea principal como título.", "Reduce el texto a 3-5 puntos clave de pocas palabras.", "Añade una imagen o un gráfico que la ilustre y lleva el resto a las notas del orador."], resultado: "Una idea, pocos puntos, una imagen y el detalle en las notas." },
+  ],
+  errores: [
+    "Llenar las diapositivas de texto y leerlas en voz alta.",
+    "Escribir una fórmula sin el signo «=» delante, con lo que la hoja la trata como texto.",
+    "Usar un gráfico de sectores para datos que no son partes de un total.",
+    "Poner texto de color claro sobre fondo claro, con poco contraste.",
+    "Publicar imágenes sin comprobar su licencia ni añadir texto alternativo.",
+  ],
+  ejercicios: [
+    { q: "¿Qué diferencia hay entre una imagen de mapa de bits y una vectorial? Pon un formato de cada una.", sol: "La de mapa de bits está formada por píxeles y se pixela al ampliarla (JPG, PNG); la vectorial usa fórmulas geométricas y se amplía sin perder calidad (SVG)." },
+    { q: "Calcula cuántos píxeles tiene una imagen de 1.920 × 1.080.", sol: "2.073.600 píxeles, unos 2 megapíxeles." },
+    { q: "Escribe la fórmula para calcular la media de las notas de C2 a C25.", sol: "=PROMEDIO(C2:C25)." },
+    { q: "Escribe una fórmula que muestre «Aprobado» si la nota de B2 es mayor o igual que 5 y «Suspenso» si no.", sol: "=SI(B2>=5;\"Aprobado\";\"Suspenso\")." },
+    { q: "¿Qué gráfico usarías para mostrar la temperatura de cada mes del año?", sol: "Un gráfico de líneas (evolución en el tiempo); también valdría uno de barras." },
+    { q: "Indica cuatro consejos para una buena presentación.", sol: "Una idea por diapositiva, poco texto, letra grande e imágenes de calidad; además, ensayar y mirar al público." },
+    { q: "¿Qué significa una licencia CC BY-NC-SA?", sol: "Se puede usar citando al autor (BY), sin fines comerciales (NC) y compartiendo las obras derivadas con la misma licencia (SA)." },
+    { q: "Encuentras una foto en un buscador sin indicación de licencia. ¿Puedes usarla en tu blog?", sol: "No: por defecto tiene todos los derechos reservados. Hay que buscar imágenes con licencia libre o dominio público." },
+    { q: "¿Para qué sirve el texto alternativo de una imagen en la web?", sol: "Describe la imagen para las personas que usan lectores de pantalla y aparece si la imagen no carga." },
+    { q: "Indica tres reglas de diseño para una infografía.", sol: "Jerarquía visual, buen contraste y paleta limitada de colores (también alineación, espacio en blanco y citar las fuentes)." },
+  ],
+  quiz: [
+    { q: "En una hoja de cálculo, una fórmula empieza por…", o: ["#", "=", "@"], a: 1, e: "Por ejemplo, =SUMA(A1:A5)." },
+    { q: "Para mostrar partes de un total se usa un gráfico de…", o: ["líneas", "sectores", "dispersión"], a: 1, e: "El total suma el 100 %." },
+    { q: "La regla 6×6 de las presentaciones limita…", o: ["las diapositivas", "el texto por diapositiva", "los colores"], a: 1, e: "Seis líneas de seis palabras como máximo." },
+    { q: "HTML sirve para definir…", o: ["la estructura de una web", "los colores de una web", "la velocidad de una web"], a: 0, e: "El aspecto lo da CSS." },
+    { q: "Una infografía debe usar…", o: ["muchos colores y tipografías", "pocos colores y jerarquía clara", "solo texto"], a: 1, e: "Menos es más." },
+  ],
+  tarjetas: [
+    ["Fórmula", "Operación de una hoja de cálculo que empieza por «=» y se recalcula sola."],
+    ["Infografía", "Combinación de datos, iconos y textos breves que explica un tema de un vistazo."],
+    ["Texto alternativo", "Descripción de una imagen para lectores de pantalla."],
+  ],
+});
