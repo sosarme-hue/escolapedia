@@ -296,3 +296,215 @@ module.exports = [
     revisado: "2026-11-12",
   },
 ];
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const L = require("./_lenguas");
+
+L.amplia(module.exports[0], {
+  minutos: 55,
+  objetivos: ["Conocer los materiales de cada técnica y su comportamiento", "Planificar una obra eligiendo técnica, soporte y procedimiento"],
+  bloques: [
+    { tras: "Técnicas secas", html: `<h3>El grafito y el carboncillo a fondo</h3><p>El <b>lápiz de grafito</b> mezcla grafito y arcilla: cuanta más arcilla, más duro y claro es (serie <b>H</b>, de <i>hard</i>); cuanto más grafito, más blando y oscuro (serie <b>B</b>, de <i>black</i>). El <b>HB</b> está en el medio y sirve para escribir y encajar. Para un dibujo con muchos valores conviene usar al menos tres: un 2H para las líneas de construcción, un HB para los tonos medios y un 4B o 6B para las sombras más oscuras. El <b>carboncillo</b> es madera carbonizada: mancha mucho, se borra con facilidad con la <mark>goma moldeable</mark> y permite trabajar grandes formatos con rapidez. Como el polvo se desprende, al terminar se protege con un <b>fijador</b> en spray. El <b>pastel</b> es pigmento casi puro prensado en barras; da colores muy intensos y también necesita fijador.</p>` },
+    { tras: "Técnicas húmedas", html: `<h3>Pigmento, aglutinante y disolvente</h3><p>Todas las pinturas tienen tres componentes: el <b>pigmento</b> (el polvo de color), el <b>aglutinante</b> (lo que lo une y lo pega al soporte) y el <b>disolvente</b> (lo que la hace más líquida). Lo que cambia de una pintura a otra es el aglutinante:</p>${L.tb(["Técnica", "Aglutinante", "Disolvente", "Rasgo principal"], [["Acuarela", "goma arábiga", "agua", "transparente, el blanco es el papel"], ["Témpera / gouache", "goma arábiga + carga blanca", "agua", "opaca y mate"], ["Acrílico", "resina acrílica", "agua (seco, resiste al agua)", "seca rápido, muy versátil"], ["Óleo", "aceite de linaza", "aguarrás o esencia de trementina", "seca lento, colores brillantes"]])}<p>Por eso la acuarela se puede volver a disolver cuando se seca, y el acrílico no.</p>` },
+    { tras: "Técnicas húmedas", html: `<h3>Recursos de la acuarela</h3><p>La acuarela tiene sus propios procedimientos. En la técnica de <b>húmedo sobre húmedo</b> se moja primero el papel y después se aplica el color, que se expande y crea fondos suaves, cielos o efectos de niebla. En <b>húmedo sobre seco</b> se pinta sobre papel seco y se obtienen bordes nítidos y detalles. La <b>veladura</b> consiste en superponer capas transparentes, esperando a que cada una se seque, para oscurecer o mezclar colores ópticamente. Como no se usa pintura blanca, las zonas más claras se <mark>reservan</mark>: se deja el papel sin pintar o se protege con <b>líquido de enmascarar</b>. También se puede levantar color con un pincel limpio o un papel absorbente, o añadir sal sobre la pintura húmeda para conseguir texturas.</p>` },
+    { tras: "Técnicas mixtas y collage", html: `<h3>Ensamblaje, fotomontaje y técnicas de reserva</h3><p>Las técnicas mixtas combinan materiales para conseguir efectos que ninguno logra solo. La <b>reserva con cera</b> es un ejemplo sencillo: se dibuja con cera blanca o de colores y después se pinta encima con acuarela; la cera repele el agua y el dibujo aparece. El <b>esgrafiado</b> consiste en cubrir un fondo de colores con una capa oscura y rascarla con un punzón. El <b>fotomontaje</b>, usado por los dadaístas como Hannah Höch y por los carteles políticos de John Heartfield, combina fragmentos de fotografías para crear imágenes nuevas, a menudo críticas. El <b>ensamblaje</b> lleva el collage a las tres dimensiones con objetos reales pegados o unidos. Hoy muchos artistas usan <mark>materiales reciclados</mark> para hablar del consumo y del medio ambiente.</p>` },
+    { tras: "Estampación y grabado", html: `<h3>Tipos de grabado</h3><p>El grabado permite obtener muchas copias iguales de una imagen a partir de una <b>matriz</b>. Según cómo se trabaja la matriz, hay varios tipos:</p>${L.tb(["Tipo", "Matriz", "Cómo se entinta", "Ejemplo"], [["En relieve", "madera (xilografía) o linóleo", "se tinta lo que sobresale", "estampas japonesas de Hokusai"], ["En hueco", "plancha de metal (aguafuerte, punta seca)", "la tinta queda en los surcos", "Los Caprichos de Goya"], ["Plano", "piedra o plancha (litografía)", "la tinta se adhiere por la grasa", "carteles de Toulouse-Lautrec"], ["Permeográfico", "tela con plantilla (serigrafía)", "la tinta pasa por la malla", "Marilyn de Andy Warhol"]])}<p>Cada copia se numera a lápiz (por ejemplo, 3/20) y la firma el artista.</p>` },
+  ],
+  videos: [
+    ["Técnicas húmedas", L.vid("lIGwYBOyLgQ", "Acuarela para principiantes: básico", "Catalina Novelli Ilustración", 2353672)],
+    ["Estampación y grabado", L.vid("ryRNyMZlRak", "Técnicas de grabado", "Biblioteca Nacional de España", 558835)],
+  ],
+  ejemplos: [
+    ["Quieres pintar un cielo de atardecer suave, con colores que se funden. ¿Qué técnica y procedimiento eliges?", ["Necesitas transiciones suaves y transparencia.", "La acuarela es transparente y se funde bien.", "El procedimiento húmedo sobre húmedo hace que los colores se expandan."], "Acuarela, húmedo sobre húmedo, sobre papel de acuarela grueso."],
+    ["Debes hacer 30 felicitaciones iguales para el centro. ¿Qué técnica usarías?", ["Necesitas copias idénticas.", "El grabado permite repetir la imagen desde una matriz.", "El linóleo es blando y fácil de tallar con gubias en el aula."], "Linograbado (grabado en relieve) estampado con tinta y rodillo."],
+    ["Un alumno pinta con témpera sobre folio fino y el papel se arruga y se rompe. ¿Qué ha fallado?", ["La témpera lleva agua y mucha carga.", "El folio de 80 g no aguanta la humedad.", "El soporte debe adecuarse a la técnica."], "Ha elegido mal el soporte: necesita cartulina o papel de más de 200 g."],
+  ],
+  errores: [
+    "Usar pintura blanca en la acuarela en lugar de reservar el blanco del papel.",
+    "Elegir un soporte inadecuado: folio fino para técnicas húmedas.",
+    "Borrar el carboncillo con una goma normal, que ensucia: se usa goma moldeable.",
+    "Olvidar que en el grabado la imagen se estampa invertida, como en un espejo.",
+    "Confundir opaco y transparente: la témpera tapa, la acuarela deja ver lo de debajo.",
+  ],
+  ejercicios: [
+    ["Ordena de más claro a más oscuro: 6B, 2H, HB, 2B.", "2H, HB, 2B, 6B."],
+    ["¿Cuáles son los tres componentes de una pintura?", "Pigmento, aglutinante y disolvente."],
+    ["¿Qué aglutinante tiene el óleo y con qué se limpia?", "Aceite de linaza; se limpia con aguarrás o esencia de trementina."],
+    ["Explica la diferencia entre húmedo sobre húmedo y húmedo sobre seco.", "En el primero el color se expande y da fondos suaves; en el segundo da bordes nítidos."],
+    ["¿Qué es una veladura?", "Una capa transparente de color sobre otra ya seca."],
+    ["¿Por qué la cera repele la acuarela?", "Porque la cera es grasa y el agua no se mezcla con ella."],
+    ["¿Qué tipo de grabado es la xilografía?", "Grabado en relieve sobre madera."],
+    ["¿Qué significa 3/20 escrito bajo una estampa?", "Que es la copia número 3 de una tirada de 20."],
+    ["Nombra un artista de fotomontaje.", "Hannah Höch o John Heartfield."],
+    ["Planifica un collage sobre el consumo: materiales y técnica.", "Respuesta abierta: por ejemplo, envases y revistas recortadas pegados sobre cartón con cola blanca."],
+  ],
+  quiz: [
+    ["El lápiz más blando y oscuro es…", ["6B", "HB", "4H"], 0, "La serie B es blanda."],
+    ["El aglutinante del acrílico es…", ["resina acrílica", "aceite de linaza", "cera"], 0, "Seca rápido y resiste al agua."],
+    ["En acuarela, el blanco se consigue…", ["reservando el papel", "con témpera blanca", "con lejía"], 0, "Es transparente."],
+    ["Los Caprichos de Goya son grabados…", ["en hueco (aguafuerte)", "en relieve", "en serigrafía"], 0, "Plancha de metal."],
+    ["La serigrafía usa…", ["una malla de tela", "una piedra", "madera"], 0, "Warhol la popularizó."],
+  ],
+  tarjetas: [
+    ["Pigmento, aglutinante y disolvente", "Color, lo que lo une y lo que lo diluye."],
+    ["Veladura", "Capa transparente sobre otra seca."],
+    ["Tipos de grabado", "Relieve, hueco, plano y permeográfico."],
+  ],
+});
+
+L.amplia(module.exports[1], {
+  minutos: 55,
+  objetivos: ["Aplicar el encaje y la medición para dibujar con proporción", "Representar el volumen y la profundidad con luz, sombra y perspectiva"],
+  bloques: [
+    { tras: "Del apunte al dibujo final", html: `<h3>Tipos de dibujo según su finalidad</h3><p>No todos los dibujos persiguen lo mismo. El <b>apunte</b> o <i>sketch</i> es rápido y capta la idea esencial de algo que se mueve o que cambia: una persona en el autobús, un gesto, una escena de la calle. El <b>boceto</b> sirve para pensar una obra: probar composiciones, encuadres o colores antes de empezar la definitiva. El <b>estudio</b> analiza a fondo un detalle, como unas manos o unos pliegues de tela. El <b>dibujo técnico</b> usa normas precisas (escalas, acotaciones, vistas) para que otra persona pueda fabricar el objeto. Finalmente, la <b>ilustración</b> acompaña un texto, un libro o un cartel. Saber qué tipo de dibujo estás haciendo te ayuda a decidir cuánto tiempo dedicarle y qué nivel de detalle necesitas: un apunte no debe ser perfecto, sino <mark>expresivo</mark>.</p>` },
+    { tras: "Encajar y medir proporciones", html: `<h3>Cómo medir con el lápiz</h3><p>El método más usado para tomar medidas del natural es el de <b>la unidad de medida</b>. Se hace así:</p><ul><li>Estira el brazo del todo y cierra un ojo. El brazo siempre debe estar igual de estirado.</li><li>Sujeta el lápiz en vertical y haz coincidir la punta con un extremo del objeto; marca con el pulgar el otro extremo. Esa es tu <b>unidad</b> (por ejemplo, la altura de la cabeza).</li><li>Compara las demás medidas con esa unidad: «el cuerpo mide siete cabezas y media», «la jarra es el doble de alta que de ancha».</li><li>Usa el lápiz también para ver las <b>inclinaciones</b>: ponlo paralelo a una línea del modelo y llévalo al papel.</li></ul><p>En la figura humana adulta se suele tomar como canon unas <mark>7,5 cabezas</mark> de altura; en los niños, menos.</p>` },
+    { tras: "Luz, sombra y volumen", html: `<h3>La escala de valores</h3><p>Un <b>valor</b> es el grado de claridad u oscuridad de una zona. Para dar volumen hay que observar cinco zonas en un objeto iluminado: la <b>luz</b> (la zona más clara), el <b>brillo</b> (un punto muy blanco en superficies lisas), la <b>penumbra</b> o tono medio, la <b>sombra propia</b> (la parte del objeto que no recibe luz) y la <b>sombra proyectada</b> (la que el objeto lanza sobre otra superficie). Entre la sombra propia y el borde suele aparecer una <b>luz reflejada</b>, más clara, que rebota del suelo. Practicar una escala de valores de nueve pasos, del blanco al negro, ayuda a controlar la presión del lápiz. Un truco útil es <mark>entornar los ojos</mark>: los detalles desaparecen y se ven mejor las grandes masas de luz y sombra.</p>` },
+    { tras: "La perspectiva", html: `<h3>Perspectiva cónica con uno y dos puntos de fuga</h3><p>La <b>perspectiva cónica</b> imita cómo vemos: las cosas lejanas parecen más pequeñas y las líneas paralelas se juntan en un punto. Sus elementos son la <b>línea de horizonte</b> (a la altura de nuestros ojos) y los <b>puntos de fuga</b>, situados sobre ella.</p>${L.tb(["Tipo", "Puntos de fuga", "Cuándo se usa"], [["Frontal (paralela)", "uno, en el centro", "una calle o un pasillo vistos de frente"], ["Oblicua (angular)", "dos, a los lados", "un edificio visto desde una esquina"], ["Aérea o de tres puntos", "tres", "rascacielos vistos desde abajo o desde arriba"]])}<p>Las líneas verticales siguen siendo verticales en las dos primeras. Brunelleschi y los pintores del Renacimiento, como Piero della Francesca, la sistematizaron en el siglo XV.</p>` },
+    { tras: "El cuaderno de bocetos", html: `<h3>Hábitos para dibujar mejor</h3><p>Dibujar es una habilidad que mejora con la práctica constante, igual que tocar un instrumento. Algunos hábitos que usan los ilustradores profesionales:</p><ul><li><b>Dibujar un poco cada día</b>: diez minutos diarios valen más que dos horas un domingo.</li><li><b>Dibujar del natural</b>: la observación directa entrena más que copiar fotografías.</li><li><b>Hacer dibujos rápidos</b> de uno o dos minutos para soltar la mano y captar el gesto.</li><li><b>Mirar más que dibujar</b>: el ojo debe estar más tiempo en el modelo que en el papel.</li><li><b>No borrar demasiado</b>: las líneas de construcción forman parte del dibujo y enseñan el proceso.</li></ul><p>Revisar los cuadernos antiguos permite ver cuánto has avanzado y recuperar ideas olvidadas.</p>` },
+  ],
+  videos: [
+    ["Encajar y medir proporciones", L.vid("8wm4YXIvGO0", "Cómo dibujar bien: secretos de las proporciones y medidas", "Dibujar Bien", 290796)],
+    ["La perspectiva", L.vid("nxc-Dz8tzt4", "Tutorial de perspectiva con un punto de fuga", "Leomeza", 1038171)],
+  ],
+  ejemplos: [
+    ["Vas a dibujar una botella. ¿Cómo empiezas el encaje?", ["Traza un eje vertical de simetría.", "Mide la altura total y la anchura con el lápiz y compáralas.", "Encaja la forma con figuras simples: un rectángulo para el cuerpo y otro estrecho para el cuello."], "Eje, medidas relativas y formas geométricas simples antes de cualquier detalle."],
+    ["Una esfera está iluminada desde la izquierda. ¿Dónde van las sombras?", ["La luz y el brillo, en la parte superior izquierda.", "La sombra propia, en la parte derecha de la esfera.", "La sombra proyectada, en el suelo, hacia la derecha."], "Sombra propia a la derecha y sombra proyectada en el suelo hacia la derecha."],
+    ["Quieres dibujar la esquina de un edificio. ¿Qué perspectiva usas?", ["Ves dos fachadas que se alejan hacia los lados.", "Cada fachada tiene su propio punto de fuga.", "Los dos puntos van sobre la línea de horizonte."], "Perspectiva cónica oblicua, con dos puntos de fuga."],
+  ],
+  errores: [
+    "Empezar por los detalles (ojos, botones) antes de encajar la forma general.",
+    "Medir con el brazo doblado: las medidas cambian cada vez.",
+    "Confundir sombra propia y sombra proyectada.",
+    "Situar los puntos de fuga fuera de la línea de horizonte.",
+    "Apretar mucho el lápiz desde el principio, lo que impide corregir.",
+  ],
+  ejercicios: [
+    ["¿Qué diferencia hay entre un apunte y un boceto?", "El apunte capta algo rápido del natural; el boceto prepara una obra."],
+    ["¿Cuántas cabezas mide aproximadamente una persona adulta?", "Unas 7,5 cabezas."],
+    ["Nombra las cinco zonas de luz de un objeto.", "Luz, brillo, penumbra, sombra propia y sombra proyectada (más la luz reflejada)."],
+    ["¿Qué es la luz reflejada?", "Una zona algo más clara dentro de la sombra propia, por la luz que rebota del suelo."],
+    ["¿Dónde se sitúa la línea de horizonte?", "A la altura de los ojos del observador."],
+    ["¿Cuántos puntos de fuga tiene la perspectiva frontal?", "Uno."],
+    ["¿Para qué sirve entornar los ojos al sombrear?", "Para ver las grandes masas de luz y sombra sin detalles."],
+    ["¿Quién sistematizó la perspectiva en el Renacimiento?", "Brunelleschi (y pintores como Piero della Francesca)."],
+    ["Haz una escala de valores de cinco pasos y describe cómo cambias la presión.", "Respuesta abierta: de blanco (sin presión) a negro (máxima presión con lápiz blando)."],
+    ["Propón un ejercicio de apunte de dos minutos.", "Respuesta abierta: dibujar a un compañero en distintas posturas, un minuto cada una."],
+  ],
+  quiz: [
+    ["El boceto sirve para…", ["preparar una obra", "terminar una obra", "copiar una foto"], 0, "Probar ideas."],
+    ["La sombra que un objeto lanza sobre el suelo es…", ["proyectada", "propia", "reflejada"], 0, "Sale del objeto."],
+    ["La perspectiva oblicua tiene…", ["dos puntos de fuga", "uno", "ninguno"], 0, "Esquina de un edificio."],
+    ["Para medir del natural, el brazo debe estar…", ["estirado siempre igual", "doblado", "apoyado"], 0, "Así las medidas son constantes."],
+    ["El canon adulto es de unas…", ["7,5 cabezas", "4 cabezas", "12 cabezas"], 0, "Proporción humana."],
+  ],
+  tarjetas: [
+    ["Unidad de medida", "Una parte del modelo con la que se comparan las demás."],
+    ["Escala de valores", "Gradación de tonos del blanco al negro."],
+    ["Perspectiva cónica", "Horizonte y puntos de fuga: frontal (1), oblicua (2), aérea (3)."],
+  ],
+});
+
+L.amplia(module.exports[2], {
+  minutos: 55,
+  objetivos: ["Mezclar colores pigmento de forma intencionada", "Usar armonías, contrastes y simbolismo del color en una obra propia"],
+  bloques: [
+    { tras: "Color luz y color pigmento", html: `<h3>Síntesis aditiva y sustractiva</h3><p>El color luz y el color pigmento se mezclan de manera opuesta. En la <b>síntesis aditiva</b> (pantallas, focos de teatro) se suman luces: rojo + verde = amarillo; verde + azul = cian; azul + rojo = magenta; y las tres juntas dan <mark>blanco</mark>. Cada píxel de un móvil tiene tres pequeñas luces RGB que, combinadas, crean millones de colores. En la <b>síntesis sustractiva</b> (pinturas, tintas, impresoras) cada pigmento absorbe parte de la luz y refleja el resto: cian + magenta = azul; magenta + amarillo = rojo; amarillo + cian = verde; y los tres juntos dan un color muy oscuro, casi negro. Por eso las impresoras usan el sistema <b>CMYK</b>: añaden un cartucho de negro (K, de <i>key</i>) para que el negro sea intenso y se ahorre tinta de color. Si diseñas algo en pantalla para imprimirlo, conviene revisar los colores en CMYK, porque algunos tonos muy luminosos de la pantalla no se pueden reproducir con tinta.</p>` },
+    { tras: "El círculo cromático", html: `<h3>Primarios, secundarios y terciarios</h3>${L.tb(["Tipo", "Cómo se obtienen", "Ejemplos (pigmento)"], [["Primarios", "no se obtienen mezclando", "cian, magenta, amarillo"], ["Secundarios", "mezclando dos primarios a partes iguales", "rojo, verde, azul violáceo"], ["Terciarios", "mezclando un primario y un secundario vecino", "amarillo verdoso, rojo anaranjado…"], ["Complementarios", "opuestos en el círculo", "amarillo y azul violáceo, cian y rojo, magenta y verde"]])}<p>En la escuela tradicional se enseñaban como primarios el <b>rojo, amarillo y azul</b>; hoy se prefieren cian, magenta y amarillo porque con ellos se consigue una gama de mezclas mucho más amplia y limpia. Al mezclar dos complementarios se obtiene un gris o marrón neutro, útil para <mark>apagar</mark> un color sin usar negro.</p>` },
+    { tras: "Las cualidades del color", html: `<h3>Cómo modificar un color</h3><p>Cada cualidad del color se puede cambiar con una mezcla concreta. Para variar la <b>luminosidad</b>, se añade blanco (se obtiene un <i>tinte</i> o color más claro) o negro (una <i>sombra</i>, más oscura). Para bajar la <b>saturación</b> sin cambiar el tono, se añade gris o una pequeña cantidad del complementario; el color queda más apagado, «sucio» o elegante, según cómo se use. Para cambiar el <b>tono</b> se mezcla con un color vecino del círculo: un poco de amarillo hace el rojo más anaranjado. Ten en cuenta que el negro tiende a ensuciar mucho los amarillos, que se vuelven verdosos: para oscurecer un amarillo es mejor añadir un ocre o un poco de su complementario. Una buena práctica es hacer <mark>cartas de color</mark>: tablas con todas las mezclas probadas, para tenerlas siempre a mano.</p>` },
+    { tras: "Armonías y contrastes", html: `<h3>Gamas cálidas y frías</h3><p>Los colores se dividen en <b>cálidos</b> (rojos, naranjas, amarillos) y <b>fríos</b> (azules, verdes azulados, violetas). Los cálidos parecen <mark>acercarse</mark> al espectador y transmiten energía, calor o pasión; los fríos parecen alejarse y transmiten calma, distancia o tristeza. Por eso en los paisajes las montañas lejanas se ven azuladas: es la <b>perspectiva atmosférica</b>, que Leonardo da Vinci ya estudió. Una obra puede usar una <b>gama cálida</b>, una <b>gama fría</b> o combinarlas para crear contraste. Además del contraste de complementarios, existen el contraste de <b>luminosidad</b> (claro-oscuro), el de <b>saturación</b> (vivo-apagado) y el de <b>cantidad</b>: una pequeña mancha de rojo en un cuadro casi todo verde llama muchísimo la atención.</p>` },
+    { tras: "El color expresa", html: `<h3>El color en la historia del arte</h3><p>Muchos artistas han hecho del color el protagonista de su obra. Los <b>impresionistas</b>, como Monet, pintaban al aire libre para captar cómo la luz cambia los colores a cada hora, y ponían colores puros uno al lado del otro para que se mezclaran en el ojo. <b>Van Gogh</b> usaba complementarios intensos para expresar emociones, como los amarillos y azules de <i>La noche estrellada</i>. Los <b>fauvistas</b>, con Matisse, pintaban caras verdes o árboles rojos: el color ya no tenía que ser real. <b>Picasso</b> tuvo una <i>época azul</i>, triste y fría, y una <i>época rosa</i>, más alegre. Más tarde, <b>Mark Rothko</b> pintó grandes rectángulos de color para provocar emociones intensas en quien los mira. En España, <b>Sorolla</b> fue un maestro de la luz mediterránea.</p>` },
+  ],
+  videos: [
+    ["Las cualidades del color", L.vid("MNKRUoKcWb0", "Teoría del color: todo lo que necesitas saber", "Agata del Barco", 589526)],
+    ["El color expresa", L.vid("3RRuIxZX8ZU", "¿Psicología del color? Aprende el significado de los colores", "Mr. Rayden", 736163)],
+  ],
+  ejemplos: [
+    ["Necesitas un verde apagado para un bosque en sombra. ¿Cómo lo consigues?", ["Mezcla amarillo y cian para obtener verde.", "Añade una pequeña cantidad de su complementario, el magenta.", "El verde pierde saturación sin volverse negro."], "Verde (amarillo + cian) con un toque de magenta."],
+    ["Diseñas un cartel para un festival de verano. ¿Qué gama usas?", ["El verano se asocia al calor y la energía.", "La gama cálida transmite esas sensaciones.", "Un toque frío (azul) puede servir de contraste para el texto."], "Gama cálida (naranjas, amarillos, rojos) con un acento frío."],
+    ["¿Por qué en una pantalla rojo + verde da amarillo, y en pintura da marrón?", ["La pantalla suma luces: síntesis aditiva.", "La pintura resta luz: cada pigmento absorbe parte.", "Rojo y verde pigmento son casi complementarios y se neutralizan."], "Porque la luz se suma y el pigmento resta."],
+  ],
+  errores: [
+    "Confundir los primarios luz (RGB) con los primarios pigmento (CMY).",
+    "Oscurecer siempre con negro: ensucia los colores, sobre todo el amarillo.",
+    "Pensar que saturación y luminosidad son lo mismo.",
+    "Creer que el significado del color es universal: cambia según la cultura (el blanco es luto en partes de Asia).",
+    "Usar demasiados colores saturados a la vez, sin una armonía clara.",
+    "Pintar las sombras siempre con gris o negro: en la naturaleza las sombras tienen color, a menudo azulado o del complementario de la luz.",
+  ],
+  ejercicios: [
+    ["¿Qué da la suma de las tres luces primarias?", "Blanco."],
+    ["¿Qué significa CMYK?", "Cian, magenta, amarillo y negro (key): las tintas de impresión."],
+    ["¿Cuál es el complementario del amarillo en pigmento?", "El azul violáceo."],
+    ["¿Cómo se obtiene un color terciario?", "Mezclando un primario y un secundario vecino."],
+    ["¿Qué se obtiene al mezclar dos complementarios?", "Un gris o marrón neutro."],
+    ["Explica la perspectiva atmosférica.", "Lo lejano se ve más azulado, claro y desaturado por el aire que hay entre medias."],
+    ["Clasifica: naranja, azul, violeta, amarillo.", "Cálidos: naranja, amarillo. Fríos: azul, violeta."],
+    ["¿Qué hacían los fauvistas con el color?", "Lo usaban de forma expresiva y no realista."],
+    ["Nombra las dos épocas de Picasso relacionadas con el color.", "La época azul y la época rosa."],
+    ["Diseña una paleta de tres colores para expresar calma.", "Respuesta abierta: por ejemplo, azul claro, verde agua y blanco."],
+  ],
+  quiz: [
+    ["Las pantallas usan síntesis…", ["aditiva", "sustractiva", "mixta"], 0, "Suman luces RGB."],
+    ["Para bajar la saturación se añade…", ["gris o el complementario", "más pigmento puro", "agua"], 0, "Se apaga el color."],
+    ["Los colores fríos parecen…", ["alejarse", "acercarse", "brillar más"], 0, "Perspectiva atmosférica."],
+    ["Los fauvistas pintaban…", ["con colores no realistas", "en blanco y negro", "solo paisajes"], 0, "Matisse."],
+    ["Los primarios pigmento actuales son…", ["cian, magenta y amarillo", "rojo, verde y azul", "blanco y negro"], 0, "CMY."],
+  ],
+  tarjetas: [
+    ["Síntesis aditiva / sustractiva", "Luz que se suma (blanco) / pigmento que resta (negro)."],
+    ["Cálidos y fríos", "Cálidos se acercan y dan energía; fríos se alejan y dan calma."],
+    ["Mezclar complementarios", "Da un neutro: sirve para apagar un color."],
+  ],
+});
+
+L.amplia(module.exports[3], {
+  minutos: 55,
+  objetivos: ["Controlar la exposición en modo manual o semiautomático", "Componer y editar fotografías con intención expresiva y respetando derechos"],
+  bloques: [
+    { tras: "Cómo funciona una cámara", html: `<h3>Una breve historia de la fotografía</h3><p>La <b>cámara oscura</b>, una caja con un agujero que proyecta la imagen del exterior, ya se conocía desde la Antigüedad y la usaban los pintores como ayuda. La primera fotografía conservada es de <b>Nicéphore Niépce</b> (hacia 1826) y necesitó horas de exposición. En 1839 se presentó el <b>daguerrotipo</b>, de Daguerre, que daba una imagen única muy nítida. Poco después llegó el negativo de papel, que permitía hacer copias. En 1888, Kodak lanzó una cámara sencilla con el lema «Usted apriete el botón, nosotros hacemos el resto», y la fotografía se hizo popular. La película en color se extendió en el siglo XX, y desde los años 2000 la <mark>fotografía digital</mark> y los móviles han convertido a casi todo el mundo en fotógrafo.</p>` },
+    { tras: "El triángulo de la exposición", html: `<h3>Los modos de la cámara</h3><p>Las cámaras y muchos móviles permiten elegir cuánto control quieres tener:</p>${L.tb(["Modo", "Qué eliges tú", "Qué decide la cámara", "Cuándo usarlo"], [["Automático", "nada", "todo", "fotos rápidas"], ["Prioridad a la apertura (A o Av)", "diafragma", "velocidad", "retratos con fondo desenfocado o paisajes nítidos"], ["Prioridad a la velocidad (S o Tv)", "velocidad", "diafragma", "deportes o agua en movimiento"], ["Manual (M)", "diafragma, velocidad e ISO", "nada", "control total, noche, estudio"]])}<p>Recuerda que un número f pequeño (f/1,8) significa un diafragma <b>muy abierto</b>, y uno grande (f/16), muy cerrado: es una de las confusiones más frecuentes al empezar.</p>` },
+    { tras: "Composición: la regla de los tercios", html: `<h3>Más recursos de composición</h3><p>La regla de los tercios es solo una de muchas herramientas. Las <b>líneas guía</b> (un camino, una barandilla, un río) conducen la mirada hacia el motivo principal. El <b>encuadre natural</b> usa una ventana, un arco o unas ramas para «enmarcar» lo importante. La <b>simetría</b> transmite orden y calma, y es muy eficaz con reflejos en el agua. El <b>espacio negativo</b>, una gran zona vacía alrededor del motivo, da sensación de soledad o de calma. Los <b>patrones</b> repetidos llaman la atención, sobre todo si algo los rompe. Por último, la <b>luz</b> lo cambia todo: la <mark>hora dorada</mark>, justo después del amanecer y antes del atardecer, da una luz cálida y suave, mientras que el mediodía produce sombras duras. Conocer las reglas permite también romperlas con intención.</p>` },
+    { tras: "Tipos de plano y ángulo", html: `<h3>Géneros fotográficos</h3><p>La fotografía tiene muchos <b>géneros</b>, cada uno con sus recursos. El <b>retrato</b> busca mostrar la personalidad: se suele enfocar a los ojos y desenfocar el fondo. El <b>paisaje</b> usa diafragmas cerrados para que todo esté nítido y a menudo un trípode. La <b>fotografía documental y el fotoperiodismo</b> cuentan hechos reales: <b>Robert Capa</b> fotografió la Guerra Civil española y <b>Gerda Taro</b>, su compañera, fue una de las primeras fotoperiodistas de guerra. La <b>fotografía de calle</b> capta momentos espontáneos; <b>Henri Cartier-Bresson</b> hablaba del «instante decisivo». En España destacan <b>Cristina García Rodero</b>, que retrató fiestas y ritos tradicionales, y <b>Chema Madoz</b>, con fotografías poéticas de objetos. La <b>fotografía artística</b> usa la imagen para expresar ideas, sin necesidad de documentar.</p>` },
+    { tras: "Fotografía, ética y derechos", html: `<h3>Editar la fotografía</h3><p>Hoy casi todas las fotos se <b>editan</b>. Los ajustes básicos son la exposición (más clara o más oscura), el <b>contraste</b>, el <b>balance de blancos</b> (que corrige si la foto sale demasiado azul o anaranjada), la saturación y el <b>recorte</b>, que permite mejorar la composición o enderezar el horizonte. Programas gratuitos como GIMP o Darktable, y las propias aplicaciones del móvil, lo permiten. Si la cámara lo permite, disparar en <b>RAW</b> guarda toda la información del sensor y da más margen para editar que el JPG. Ahora bien, editar no es lo mismo que <mark>manipular</mark>: en el periodismo está prohibido añadir o quitar elementos de una foto, y en publicidad muchos países obligan a avisar cuando un cuerpo ha sido retocado. Las imágenes generadas por inteligencia artificial también deben indicarse como tales.</p>` },
+  ],
+  videos: [
+    ["El triángulo de la exposición", L.vid("o-dj6qprNoM", "El triángulo de exposición", "Joan Vendrell", 1785885)],
+    ["Tipos de plano y ángulo", L.vid("vqxgn8IbNa4", "13 planos de la fotografía que debes conocer", "Hanns", 396342)],
+  ],
+  ejemplos: [
+    ["Quieres un retrato con el fondo muy desenfocado. ¿Qué ajustes usas?", ["El desenfoque depende de la profundidad de campo.", "Un diafragma muy abierto (f/1,8 o f/2,8) la reduce.", "Usa prioridad a la apertura y aléjate del fondo."], "Diafragma muy abierto (número f pequeño), modo A/Av."],
+    ["Fotografías una carrera y las fotos salen movidas. ¿Qué cambias?", ["El movimiento se congela con una velocidad rápida.", "Sube a 1/1000 s o más en modo S/Tv.", "Si falta luz, sube el ISO o abre el diafragma."], "Velocidad de obturación más rápida (y más ISO si hace falta)."],
+    ["Una foto de interior sale demasiado anaranjada. ¿Cómo se corrige?", ["La luz de las bombillas es cálida.", "El balance de blancos compensa el color de la luz.", "Se ajusta hacia el azul hasta que el blanco parezca blanco."], "Corrigiendo el balance de blancos, en la cámara o al editar."],
+  ],
+  errores: [
+    "Pensar que f/16 es un diafragma más abierto que f/2: es al revés.",
+    "Subir mucho el ISO sin necesidad: aparece ruido.",
+    "Colocar siempre el motivo en el centro, sin pensar en la composición.",
+    "Publicar fotos de otras personas sin su permiso.",
+    "Confundir editar (ajustar luz y color) con manipular (cambiar lo que ocurrió).",
+  ],
+  ejercicios: [
+    ["¿Quién hizo la primera fotografía conservada y cuándo?", "Nicéphore Niépce, hacia 1826."],
+    ["¿Qué ventaja tenía el negativo frente al daguerrotipo?", "Permitía hacer muchas copias."],
+    ["En modo A/Av, ¿qué decides tú y qué decide la cámara?", "Tú el diafragma; la cámara, la velocidad."],
+    ["¿Qué es la hora dorada?", "El rato tras el amanecer y antes del atardecer, con luz cálida y suave."],
+    ["Nombra tres recursos de composición además de la regla de los tercios.", "Líneas guía, encuadre natural, simetría (o espacio negativo, patrones)."],
+    ["¿Qué es el «instante decisivo»?", "La idea de Cartier-Bresson de captar el momento exacto que resume una escena."],
+    ["¿Qué fotografió Robert Capa en España?", "La Guerra Civil."],
+    ["¿Para qué sirve el balance de blancos?", "Para corregir el color de la luz y que los blancos salgan blancos."],
+    ["¿Qué ventaja tiene disparar en RAW?", "Guarda toda la información y da más margen al editar."],
+    ["Propón una serie de tres fotos sobre tu barrio usando tres recursos distintos.", "Respuesta abierta: por ejemplo, líneas guía en una calle, encuadre natural en una ventana y simetría en un reflejo."],
+  ],
+  quiz: [
+    ["El modo S o Tv da prioridad a…", ["la velocidad", "el diafragma", "el ISO"], 0, "Útil en deportes."],
+    ["El daguerrotipo se presentó en…", ["1839", "1888", "1950"], 0, "Daguerre."],
+    ["Las líneas guía sirven para…", ["llevar la mirada al motivo", "aumentar el ISO", "corregir el color"], 0, "Composición."],
+    ["Chema Madoz es conocido por…", ["fotografías poéticas de objetos", "fotoperiodismo de guerra", "retratos de famosos"], 0, "Fotografía artística."],
+    ["En fotoperiodismo, quitar un elemento de la foto es…", ["manipular y no está permitido", "un ajuste normal", "obligatorio"], 0, "Ética."],
+  ],
+  tarjetas: [
+    ["Modos A/Av, S/Tv y M", "Prioridad a la apertura, a la velocidad o control manual."],
+    ["Hora dorada", "Luz cálida y suave al amanecer y al atardecer."],
+    ["Editar o manipular", "Ajustar luz y color frente a cambiar lo que ocurrió."],
+  ],
+});

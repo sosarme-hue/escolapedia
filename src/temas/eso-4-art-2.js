@@ -296,3 +296,215 @@ module.exports = [
     revisado: "2026-11-12",
   },
 ];
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const L = require("./_lenguas");
+
+L.amplia(module.exports[0], {
+  minutos: 55,
+  objetivos: ["Calcular el tamaño de impresión y el peso de una imagen", "Elegir el formato, el modo de color y el programa adecuados a cada uso"],
+  bloques: [
+    { tras: "Mapa de bits y vectorial", html: `<h3>Comparar mapa de bits y vectorial</h3>${L.tb(["", "Mapa de bits", "Vectorial"], [["Se forma con", "píxeles", "puntos, líneas y curvas (nodos)"], ["Al ampliar", "se pixela y pierde calidad", "mantiene la nitidez"], ["Ideal para", "fotografía, pintura digital", "logotipos, iconos, letras, planos"], ["Programas libres", "GIMP, Krita, Photopea", "Inkscape"], ["Formatos", "JPG, PNG, GIF, WebP", "SVG, PDF, AI, EPS"]])}<p>Un mismo proyecto suele combinar los dos: en un cartel, la fotografía es un mapa de bits y el logotipo y el texto, vectoriales. Convertir un mapa de bits en vectorial se llama <b>vectorizar</b> o <i>trazar</i>, y funciona bien con imágenes sencillas de pocos colores.</p>` },
+    { tras: "Resolución y tamaño", html: `<h3>Calcular el tamaño de impresión</h3><p>Para saber a qué tamaño se puede imprimir una imagen con calidad se divide el número de píxeles entre la resolución. Una pulgada mide <b>2,54 cm</b>. Por ejemplo, una foto de 3.000 × 2.000 píxeles impresa a 300 ppp mide 10 × 6,67 pulgadas, es decir, unos <mark>25,4 × 16,9 cm</mark>. Si la imprimes más grande, cada píxel ocupa más papel y la imagen se ve borrosa. Ampliar una imagen con un programa (<b>interpolar</b>) inventa píxeles nuevos a partir de los vecinos, pero no añade detalle real. En cambio, reducir el tamaño sí funciona bien. Por eso conviene trabajar siempre con el archivo original a la máxima resolución y guardar copias reducidas solo para la web o para enviar por mensajería, donde una imagen de 1.000 o 2.000 píxeles de ancho es suficiente.</p>` },
+    { tras: "Formatos de archivo", html: `<h3>Compresión y modos de color</h3><p>La <b>compresión</b> reduce el peso de un archivo. La compresión <b>con pérdida</b> (JPG, WebP) elimina información que el ojo casi no nota; si se exagera, aparecen bloques y manchas llamados <i>artefactos</i>. La compresión <b>sin pérdida</b> (PNG) reduce el peso sin borrar nada, pero los archivos son más grandes. Además, una imagen tiene un <b>modo de color</b>: <mark>RGB</mark> para pantallas, <b>CMYK</b> para imprenta y <b>escala de grises</b> para blanco y negro. La <b>profundidad de color</b> indica cuántos colores puede tener cada píxel: con 8 bits por canal hay 256 niveles de rojo, verde y azul, unos 16,7 millones de colores. Un GIF, en cambio, solo admite 256 colores en total, por eso no sirve para fotos.</p>` },
+    { tras: "Editar con capas", html: `<h3>Herramientas de selección y retoque</h3><p>Para editar una parte de la imagen hay que <b>seleccionarla</b>. Las herramientas más usadas son la selección rectangular y elíptica, el <b>lazo</b> (a mano alzada), la <b>varita mágica</b> (selecciona zonas de color parecido) y la selección por color. Las <b>máscaras de capa</b> permiten ocultar partes de una capa sin borrarlas: lo pintado en negro se oculta y lo pintado en blanco se ve, así que siempre se puede rectificar. Esto se llama <mark>edición no destructiva</mark>. Para retocar se usan el <b>tampón de clonar</b>, que copia una zona sobre otra, y el <b>pincel corrector</b>, que además mezcla la textura y la luz. Los <b>modos de fusión</b> (multiplicar, trama, superponer) cambian cómo se combina una capa con las de debajo y sirven para fotomontajes o efectos de luz.</p>` },
+    { tras: "Derechos y licencias", html: `<h3>Crear con IA y con responsabilidad</h3><p>Las herramientas de <b>inteligencia artificial generativa</b> crean imágenes a partir de una descripción escrita (un <i>prompt</i>). Pueden ser útiles para generar ideas o bocetos rápidos, pero plantean preguntas importantes. Se han entrenado con millones de imágenes, muchas de artistas que no dieron permiso. Pueden reproducir <b>estereotipos</b> y generar imágenes falsas muy realistas, los <b>deepfakes</b>, que pueden dañar a personas reales. Por eso conviene seguir unas normas: no crear imágenes de personas reales sin su permiso, <mark>indicar siempre</mark> que una imagen se ha hecho con IA, no presentar como propio lo que ha hecho una máquina y comprobar las condiciones de uso de cada herramienta. La creatividad, el criterio y la mirada personal siguen siendo del artista.</p>` },
+  ],
+  videos: [
+    ["Mapa de bits y vectorial", L.vid("9i_0cLdJE-s", "Mapas de bits e imágenes vectoriales: conoce bien las diferencias", "Hey Jaime", 67369)],
+    ["Resolución y tamaño", L.vid("cRDbPzQlO0o", "¿Qué son los PPP, PPI y DPI? Resolución de imágenes", "Alex DM Estudio", 131686)],
+  ],
+  ejemplos: [
+    ["¿A qué tamaño puedes imprimir con calidad una foto de 2.400 × 3.600 píxeles?", ["Para buena calidad se necesitan 300 ppp.", "2.400 / 300 = 8 pulgadas; 3.600 / 300 = 12 pulgadas.", "8 × 2,54 = 20,3 cm; 12 × 2,54 = 30,5 cm."], "Unos 20 × 30 cm."],
+    ["Diseñas el logotipo de un club que irá en una camiseta y en una lona enorme. ¿Qué tipo de imagen y formato usas?", ["Debe ampliarse mucho sin perder calidad.", "Los vectores escalan sin pixelarse.", "SVG o PDF guardan la información vectorial."], "Imagen vectorial, en SVG o PDF."],
+    ["Necesitas un icono con fondo transparente para una web. ¿JPG o PNG?", ["JPG no admite transparencia.", "PNG sí la admite y no pierde calidad.", "Si el icono es sencillo, también sirve SVG."], "PNG (o SVG si es vectorial)."],
+  ],
+  errores: [
+    "Ampliar una imagen pequeña esperando que gane detalle: solo se inventan píxeles.",
+    "Guardar un logotipo en JPG: aparecen artefactos y no hay transparencia.",
+    "Volver a guardar un JPG muchas veces: pierde calidad en cada guardado.",
+    "Trabajar sin capas y borrar en lugar de usar máscaras.",
+    "Usar imágenes de internet sin comprobar la licencia.",
+  ],
+  ejercicios: [
+    ["¿Cuántos megapíxeles tiene una imagen de 4.000 × 3.000 píxeles?", "12 megapíxeles."],
+    ["¿Cuánto mide una pulgada?", "2,54 cm."],
+    ["¿A qué tamaño se imprime a 300 ppp una imagen de 1.500 × 1.500 píxeles?", "5 × 5 pulgadas, unos 12,7 × 12,7 cm."],
+    ["¿Qué es vectorizar?", "Convertir un mapa de bits en una imagen vectorial."],
+    ["Diferencia entre compresión con pérdida y sin pérdida.", "Con pérdida elimina información (JPG); sin pérdida la conserva (PNG)."],
+    ["¿Qué modo de color se usa para imprenta?", "CMYK."],
+    ["¿Por qué un GIF no sirve para fotografías?", "Porque solo admite 256 colores."],
+    ["¿Qué ocurre al pintar de negro en una máscara de capa?", "Se oculta esa parte de la capa, sin borrarla."],
+    ["¿Qué hace el tampón de clonar?", "Copia una zona de la imagen sobre otra."],
+    ["Escribe dos normas para usar IA generativa de forma responsable.", "Indicar que la imagen es de IA y no crear imágenes de personas reales sin su permiso."],
+  ],
+  quiz: [
+    ["Inkscape es un programa de…", ["dibujo vectorial", "edición de vídeo", "maquetación de texto"], 0, "Libre y gratuito."],
+    ["Interpolar una imagen es…", ["inventar píxeles al ampliarla", "comprimirla", "vectorizarla"], 0, "No añade detalle real."],
+    ["Con 8 bits por canal hay…", ["unos 16,7 millones de colores", "256 colores", "2 colores"], 0, "256 × 256 × 256."],
+    ["La edición no destructiva usa…", ["máscaras y capas", "la goma de borrar", "el recorte"], 0, "Se puede rectificar."],
+    ["Un deepfake es…", ["una imagen o vídeo falso muy realista", "un formato de archivo", "un filtro de color"], 0, "IA generativa."],
+  ],
+  tarjetas: [
+    ["Tamaño de impresión", "píxeles ÷ ppp = pulgadas; × 2,54 = cm."],
+    ["Compresión", "Con pérdida (JPG) o sin pérdida (PNG)."],
+    ["Máscara de capa", "Negro oculta, blanco muestra: edición no destructiva."],
+  ],
+});
+
+L.amplia(module.exports[1], {
+  minutos: 55,
+  objetivos: ["Usar escalas de plano, ángulos y movimientos con intención narrativa", "Planificar y montar un cortometraje en grupo"],
+  bloques: [
+    { tras: "De la imagen fija a la imagen en movimiento", html: `<h3>Breve historia del cine</h3><p>El 28 de diciembre de 1895 los hermanos <b>Lumière</b> hicieron en París la primera proyección pública de pago con su cinematógrafo; películas como <i>La llegada de un tren</i> duraban menos de un minuto. <b>Georges Méliès</b> descubrió los trucos y la fantasía (<i>Viaje a la Luna</i>, 1902). En el cine mudo destacaron <b>Charles Chaplin</b> y <b>Buster Keaton</b>, y el cineasta soviético <b>Serguéi Eisenstein</b> desarrolló el montaje como arte. En 1927 llegó el <b>cine sonoro</b>, y después el color y la televisión. En España, <b>Luis Buñuel</b> rodó con Dalí <i>Un perro andaluz</i> (1929), una película surrealista. Hoy el cine convive con las series, las plataformas y los vídeos cortos de las redes, pero el lenguaje audiovisual básico sigue siendo el mismo.</p>` },
+    { tras: "De la imagen fija a la imagen en movimiento", html: `<h3>Escalas de plano y ángulos</h3>${L.tb(["Plano", "Qué muestra", "Para qué sirve"], [["Gran plano general", "un paisaje enorme con personas diminutas", "situar, mostrar soledad o grandeza"], ["Plano general", "a la persona entera y su entorno", "presentar el espacio"], ["Plano americano", "de las rodillas hacia arriba", "acción y diálogo (wésterns)"], ["Plano medio", "de la cintura hacia arriba", "conversaciones"], ["Primer plano", "el rostro", "mostrar emociones"], ["Plano detalle", "un objeto o una parte pequeña", "destacar algo importante"]])}<p>El <b>ángulo</b> también cuenta: el <b>picado</b> (desde arriba) empequeñece al personaje; el <b>contrapicado</b> (desde abajo) lo engrandece; el <b>cenital</b> mira desde justo encima, y el <b>plano holandés</b>, inclinado, transmite inquietud.</p>` },
+    { tras: "Guion y storyboard", html: `<h3>Cómo se escribe un guion</h3><p>Un guion literario se divide en <b>escenas</b>. Cada una empieza con un <b>encabezado</b> que indica si es interior o exterior, el lugar y si es de día o de noche: «INT. COCINA – NOCHE». Después viene la <b>acción</b>, en presente y describiendo solo lo que se ve y se oye, y los <b>diálogos</b>, con el nombre del personaje en mayúsculas. Una regla útil es que <mark>una página de guion equivale a un minuto</mark> de película. Muchas historias siguen la estructura en <b>tres actos</b>: planteamiento (conocemos al personaje y su deseo), nudo (aparecen obstáculos) y desenlace (el conflicto se resuelve). En un cortometraje conviene tener pocos personajes, pocas localizaciones y una idea clara. Mostrar es mejor que contar: en lugar de que un personaje diga «estoy triste», es mejor verlo.</p>` },
+    { tras: "El montaje y el sonido", html: `<h3>Recursos del montaje</h3><p>El montaje tiene sus propias herramientas. El <b>corte directo</b> pasa de un plano a otro sin transición y es el más usado. El <b>fundido</b> a negro indica un final o un salto de tiempo, y el <b>encadenado</b> mezcla dos planos durante un instante. El <b>plano-contraplano</b> alterna los rostros de dos personas que hablan. El <b>montaje paralelo</b> alterna dos acciones que ocurren a la vez en lugares distintos, por ejemplo una persecución y alguien que espera. El <b>flashback</b> salta al pasado. Para que los cortes no molesten, se respeta la <b>regla de los 180 grados</b>: la cámara se queda siempre en el mismo lado de una línea imaginaria entre los personajes, para que no parezca que cambian de sitio. Programas gratuitos como DaVinci Resolve, Shotcut o CapCut permiten montar en el ordenador o el móvil.</p>` },
+    { tras: "El montaje y el sonido", html: `<h3>Del corto a las redes</h3><p>Hoy el lenguaje audiovisual está en todas partes: anuncios, videoclips, tráileres, documentales, <i>streamings</i> y vídeos verticales de las redes. Cada formato tiene sus reglas. Los <b>vídeos cortos</b> deben captar la atención en los primeros segundos y se ven a menudo sin sonido, por eso llevan subtítulos. El formato <b>vertical</b> (9:16) se piensa para el móvil, mientras que el cine usa formatos horizontales anchos (16:9 o más). Analizar estos vídeos con espíritu crítico ayuda a descubrir cómo nos <mark>persuaden</mark>: qué planos usan, qué música, qué ritmo de montaje y qué se deja fuera de cuadro. Grabar con el móvil también requiere técnica: estabilizar la imagen, cuidar la luz, grabar el sonido cerca de quien habla y respetar el derecho a la propia imagen de las personas que aparecen.</p>` },
+  ],
+  videos: [
+    ["Movimientos de cámara", L.vid("iN0rf5vUfxc", "Más de 15 movimientos de cámara cinematográficos: guía completa", "Aprendercine.com", 1051106)],
+    ["Guion y storyboard", L.vid("8_N3-gap2Sc", "Storyboard: ¿qué es y cómo se hace?", "Soy de cine", 478720)],
+  ],
+  ejemplos: [
+    ["Quieres que el público sienta que un personaje es poderoso y amenazante. ¿Qué plano y ángulo usas?", ["El contrapicado engrandece al personaje.", "Un plano medio o primer plano muestra su gesto.", "Una música grave puede reforzar la sensación."], "Contrapicado en plano medio o primer plano."],
+    ["Escribe el encabezado de una escena en el patio del instituto por la mañana.", ["Indica si es interior o exterior.", "Indica el lugar.", "Indica el momento del día."], "EXT. PATIO DEL INSTITUTO – DÍA."],
+    ["Dos personas hablan sentadas a una mesa. ¿Cómo lo rodarías?", ["Un plano general para situar el espacio.", "Plano-contraplano de cada uno al hablar.", "Respetar la regla de los 180 grados."], "Plano general de situación y plano-contraplano sin cruzar el eje."],
+  ],
+  errores: [
+    "Confundir zoom con travelling: el zoom no mueve la cámara.",
+    "Cruzar el eje de 180 grados y desorientar al espectador.",
+    "Escribir en el guion pensamientos que no se ven ni se oyen.",
+    "Empezar a grabar sin storyboard ni plan de rodaje.",
+    "Olvidar el sonido: un audio malo estropea una buena imagen.",
+  ],
+  ejercicios: [
+    ["¿Cuántos fotogramas por segundo tiene el cine?", "24."],
+    ["¿Quiénes hicieron la primera proyección pública y cuándo?", "Los hermanos Lumière, el 28 de diciembre de 1895."],
+    ["¿Qué aportó Méliès al cine?", "Los trucos, los efectos y la fantasía."],
+    ["Ordena de más abierto a más cerrado: primer plano, plano general, plano medio, plano detalle.", "Plano general, plano medio, primer plano, plano detalle."],
+    ["¿Qué transmite el picado?", "Que el personaje es pequeño, débil o vulnerable."],
+    ["¿Cuánto dura una página de guion aproximadamente?", "Un minuto."],
+    ["¿Cuáles son los tres actos de una historia?", "Planteamiento, nudo y desenlace."],
+    ["¿Qué es el montaje paralelo?", "Alternar dos acciones simultáneas en lugares distintos."],
+    ["¿Qué indica un fundido a negro?", "Un final o un salto de tiempo."],
+    ["Diseña un storyboard de cuatro viñetas para un anuncio de 15 segundos.", "Respuesta abierta: cada viñeta con el plano, la acción, el sonido y la duración."],
+  ],
+  quiz: [
+    ["El plano americano corta a la altura de…", ["las rodillas", "la cintura", "los ojos"], 0, "Típico de los wésterns."],
+    ["Un perro andaluz (1929) es de…", ["Buñuel y Dalí", "Chaplin", "Méliès"], 0, "Cine surrealista."],
+    ["«INT.» en un guion significa…", ["interior", "intermedio", "introducción"], 0, "Encabezado de escena."],
+    ["El encadenado…", ["mezcla dos planos un instante", "corta de golpe", "congela la imagen"], 0, "Transición suave."],
+    ["El formato vertical de las redes es…", ["9:16", "16:9", "4:3"], 0, "Pensado para el móvil."],
+  ],
+  tarjetas: [
+    ["Escalas de plano", "General, americano, medio, primer plano, detalle."],
+    ["Regla de los 180 grados", "La cámara no cruza el eje entre los personajes."],
+    ["Estructura en tres actos", "Planteamiento, nudo y desenlace."],
+  ],
+});
+
+L.amplia(module.exports[2], {
+  minutos: 55,
+  objetivos: ["Reconocer obras y escultores clave de la historia", "Planificar una pieza tridimensional con boceto, maqueta y elección de material"],
+  bloques: [
+    { tras: "Bulto redondo y relieve", html: `<h3>La escultura en la historia</h3><p>La escultura acompaña al ser humano desde la Prehistoria: la <b>Venus de Willendorf</b>, una pequeña figura de piedra, tiene unos 30.000 años. Los <b>griegos</b> buscaron la belleza ideal y la proporción; Policleto fijó un canon del cuerpo humano. En la Edad Media la escultura decoraba las iglesias con relieves en las portadas. En el <b>Renacimiento</b>, Miguel Ángel talló el <i>David</i> en un solo bloque de mármol. En el <b>Barroco</b>, Bernini consiguió que el mármol pareciera piel y movimiento, y en España los imagineros como Gregorio Fernández tallaron figuras de madera policromada. En el siglo XIX, <b>Auguste Rodin</b> (<i>El pensador</i>) abrió el camino a la escultura moderna, con superficies rugosas que captan la luz y figuras llenas de emoción.</p>` },
+    { tras: "Procedimientos: sumar o quitar", html: `<h3>Materiales y herramientas</h3>${L.tb(["Material", "Procedimiento", "Herramientas", "Cuidados"], [["Barro o arcilla", "modelado", "manos, palillos de modelar, vaciadores", "secado lento; cocción en horno"], ["Pasta de secado al aire", "modelado", "palillos, agua", "no necesita horno; frágil"], ["Madera", "talla", "gubias, formones, mazo", "seguir la veta; cuidado con los cortes"], ["Piedra", "talla", "cinceles, punteros, martillo", "gafas de protección"], ["Escayola", "vaciado", "molde, recipiente, espátula", "fragua en minutos; no tirar por el desagüe"], ["Alambre y cartón", "construcción", "alicates, cúter, cola", "usar guantes y base de corte"]])}<p>El <b>bronce</b> se trabaja con la técnica de la <b>cera perdida</b>: se modela en cera, se cubre con un molde refractario, se calienta para que la cera salga y se vierte el metal fundido en el hueco.</p>` },
+    { tras: "Elementos de la obra en volumen", html: `<h3>Escultura en el espacio público</h3><p>Muchas esculturas no están en los museos, sino en la calle, y transforman cómo vivimos la ciudad o el paisaje. <b>Eduardo Chillida</b> instaló en 1977 el <i>Peine del viento</i> en las rocas de la bahía de San Sebastián: tres piezas de acero que dialogan con el mar y el viento. En Gijón, su <i>Elogio del horizonte</i> enmarca el cielo y suena con el viento. <b>Jaume Plensa</b> crea grandes cabezas de mujeres jóvenes con los ojos cerrados que invitan al silencio, y en Chicago diseñó una fuente con rostros proyectados. Ante el Guggenheim de Bilbao están <i>Puppy</i>, un perro cubierto de flores de <b>Jeff Koons</b>, y <i>Mamá</i>, una enorme araña de <b>Louise Bourgeois</b>. Estas obras se piensan para el <mark>lugar concreto</mark> donde se colocan y para la gente que pasa junto a ellas.</p>` },
+    { tras: "Escultura contemporánea", html: `<h3>Movimiento, luz y naturaleza</h3><p>Algunos escultores han querido que sus obras se muevan. <b>Alexander Calder</b> inventó los <b>móviles</b>: piezas de metal colgadas en equilibrio que giran con el aire. El <b>arte cinético</b> usa motores, luz o el movimiento del espectador para cambiar la obra. Otros trabajan directamente en la naturaleza: el <b>land art</b> nació en los años 60 en Estados Unidos; Robert Smithson construyó <i>Spiral Jetty</i> (1970), una espiral de rocas en un lago salado. La pareja <b>Christo y Jeanne-Claude</b> envolvió con tela edificios enteros, como el Reichstag de Berlín en 1995, durante pocos días. Estas obras <mark>efímeras</mark> plantean una pregunta interesante: ¿una obra de arte tiene que durar para siempre? A menudo solo quedan fotos, vídeos y los bocetos del proyecto.</p>` },
+    { tras: "Tu obra tridimensional", html: `<h3>Paso a paso: modelar una cabeza en barro</h3><ul><li><b>Estructura</b>: haz una bola de papel de periódico sobre un palo fijado a una base; servirá de núcleo y ahorrará barro.</li><li><b>Volumen general</b>: cubre el núcleo con placas de barro de un centímetro y forma un huevo. Marca un eje vertical y una línea horizontal a media altura para los ojos.</li><li><b>Grandes planos</b>: añade la nariz y el mentón, y hunde las cuencas de los ojos. Gira la pieza a menudo para verla desde todos los lados.</li><li><b>Detalles</b>: modela labios, párpados y orejas con los palillos. Une siempre las piezas nuevas rayando las dos superficies y usando barbotina (barro líquido).</li><li><b>Secado</b>: cubre con plástico para que seque despacio y, si vas a cocerla, retira el núcleo de papel.</li></ul>` },
+  ],
+  videos: [
+    ["Bulto redondo y relieve", L.vid("F4JtAW_P4Wg", "¿Qué es la escultura? Tipos de escultura y materiales", "Maxi Danza", 220258)],
+    ["Procedimientos: sumar o quitar", L.vid("2lVgfqqmFws", "La técnica del vaciado en la escultura", "MemorANDA", 206378)],
+  ],
+  ejemplos: [
+    ["Clasifica el David de Miguel Ángel: tipo de obra y procedimiento.", ["Se puede rodear: es de bulto redondo.", "Es de mármol, un material duro.", "Se obtuvo quitando material del bloque."], "Bulto redondo, tallado en mármol (procedimiento sustractivo)."],
+    ["Quieres hacer diez copias iguales de una pequeña figura. ¿Qué procedimiento eliges?", ["Modelas el original en barro o plastilina.", "Haces un molde de silicona o escayola.", "Lo rellenas varias veces con escayola o resina."], "Vaciado a partir de un molde."],
+    ["Una figura de barro se ha agrietado al secarse. ¿Qué ha podido pasar?", ["Era demasiado gruesa y no se vació por dentro.", "Se secó demasiado deprisa, cerca de un radiador.", "Las piezas se unieron sin rayar ni barbotina."], "Grosor excesivo, secado rápido o uniones mal hechas."],
+  ],
+  errores: [
+    "Confundir modelado (añadir material blando) con talla (quitar material duro).",
+    "Mirar la escultura solo de frente al trabajarla: hay que girarla.",
+    "Unir piezas de barro sin rayar ni usar barbotina.",
+    "Pensar que el hueco no forma parte de la obra: en Moore y Chillida es esencial.",
+    "Tirar restos de escayola por el desagüe: se endurece y lo atasca.",
+  ],
+  ejercicios: [
+    ["¿Qué diferencia hay entre bulto redondo y relieve?", "El bulto redondo se puede rodear; el relieve está unido a un fondo."],
+    ["¿Qué tipo de relieve tiene una moneda?", "Bajo relieve."],
+    ["Explica la técnica de la cera perdida.", "Se modela en cera, se hace un molde, la cera se derrite y se vierte bronce en el hueco."],
+    ["¿Con qué herramientas se talla la madera?", "Con gubias, formones y mazo."],
+    ["¿Qué es la barbotina?", "Barro líquido que sirve para pegar piezas de barro."],
+    ["¿Quién inventó los móviles?", "Alexander Calder."],
+    ["Cita una obra de Chillida en el espacio público.", "El Peine del viento (San Sebastián) o el Elogio del horizonte (Gijón)."],
+    ["¿Qué es el land art?", "Arte que interviene en la naturaleza, a menudo de forma efímera."],
+    ["¿Qué escultor del siglo XIX hizo El pensador?", "Auguste Rodin."],
+    ["Diseña una escultura con material reciclado: material, procedimiento y tema.", "Respuesta abierta: por ejemplo, un pez de latas unidas con alambre (construcción) sobre la contaminación del mar."],
+  ],
+  quiz: [
+    ["La Venus de Willendorf es de la…", ["Prehistoria", "Grecia", "Edad Media"], 0, "Unos 30.000 años."],
+    ["El Peine del viento es de…", ["Chillida", "Plensa", "Rodin"], 0, "San Sebastián, 1977."],
+    ["La araña Mamá es de…", ["Louise Bourgeois", "Jeff Koons", "Calder"], 0, "Guggenheim de Bilbao."],
+    ["Spiral Jetty es un ejemplo de…", ["land art", "arte cinético", "imaginería"], 0, "Robert Smithson, 1970."],
+    ["La gubia se usa para…", ["tallar madera", "modelar barro", "soldar hierro"], 0, "Herramienta de talla."],
+  ],
+  tarjetas: [
+    ["Cera perdida", "Técnica para fundir esculturas de bronce."],
+    ["Móvil", "Escultura colgante en equilibrio que se mueve con el aire (Calder)."],
+    ["Land art", "Intervención artística en la naturaleza, a menudo efímera."],
+  ],
+});
+
+L.amplia(module.exports[3], {
+  minutos: 55,
+  objetivos: ["Aplicar un método de diseño para resolver un encargo", "Documentar, difundir y evaluar un proyecto con criterios claros"],
+  bloques: [
+    { tras: "Las fases de un proyecto", html: `<h3>El encargo: definir bien el problema</h3><p>Un buen proyecto empieza con un buen <b>encargo</b>. Antes de dibujar nada, hay que responder a unas preguntas: <b>¿qué</b> hay que hacer (un mural, un cartel, una escultura, un vídeo)?, <b>¿para quién</b> (el público: niños, vecinos, compañeros)?, <b>¿para qué</b> (informar, decorar, emocionar, denunciar)?, <b>¿dónde</b> se va a mostrar?, <b>¿con qué</b> materiales y presupuesto?, y <b>¿cuándo</b> hay que entregarlo? Escribir las respuestas en un <mark>documento de encargo</mark> de media página evita malentendidos y sirve para evaluar al final si se ha cumplido. Si el encargo lo hace otra persona, como un departamento del centro o una asociación del barrio, conviene hacerle una pequeña entrevista y enseñarle bocetos antes de producir la obra final.</p>` },
+    { tras: "Investigar y buscar referentes", html: `<h3>Cómo analizar un referente</h3><p>Mirar obras de otros artistas es útil si se hace con método. Para cada referente, apunta en tu cuaderno:</p>${L.tb(["Pregunta", "Ejemplo con un cartel de Toulouse-Lautrec"], [["¿Quién, cuándo y dónde?", "Toulouse-Lautrec, París, años 1890"], ["¿Qué técnica y materiales?", "litografía en color"], ["¿Cómo está compuesto?", "grandes manchas planas, diagonales, figura recortada"], ["¿Qué colores usa?", "pocos colores, planos y contrastados"], ["¿Qué quiere comunicar?", "anunciar un espectáculo y atraer público"], ["¿Qué me llevo a mi proyecto?", "simplificar las formas y usar pocas tintas"]])}<p>La última pregunta es la más importante: así la inspiración se convierte en aprendizaje y no en copia.</p>` },
+    { tras: "Generar y elegir ideas", html: `<h3>El pensamiento de diseño</h3><p>El <b>design thinking</b> o pensamiento de diseño es un método muy usado por diseñadores y empresas para resolver problemas de forma creativa. Tiene cinco fases: <b>empatizar</b> (entender a las personas para las que se diseña, observándolas y hablando con ellas), <b>definir</b> el problema real, <b>idear</b> muchas soluciones posibles, <b>prototipar</b> (hacer una versión rápida y barata, como una maqueta o un boceto) y <b>testear</b> (probarla con usuarios y mejorarla). Es un proceso <mark>iterativo</mark>: después de probar, a menudo se vuelve a idear o incluso a definir. Por ejemplo, si el encargo es mejorar la señalización del instituto, primero hay que observar dónde se pierden los alumnos nuevos, y no empezar directamente a dibujar flechas bonitas.</p>` },
+    { tras: "Trabajar en equipo", html: `<h3>Planificar el tiempo y los materiales</h3><p>Muchos proyectos fracasan no por falta de ideas, sino por falta de <b>planificación</b>. Un <b>cronograma</b> sencillo, una tabla con las semanas en columnas y las tareas en filas, permite ver de un vistazo qué hay que hacer y quién lo hace. Conviene dejar siempre un margen para imprevistos: si crees que algo durará una semana, calcula una y media. También es necesario un <b>presupuesto</b> y una lista de materiales: qué hay en el aula, qué hay que comprar y qué se puede reciclar. Fijad <mark>hitos</mark>, fechas en las que algo debe estar terminado (los bocetos elegidos, la maqueta, la obra final), y revisad el plan en cada hito. Herramientas digitales como los tableros de tareas o un documento compartido ayudan a que todo el equipo sepa en qué punto está el proyecto.</p>` },
+    { tras: "Presentar, exponer y evaluar", html: `<h3>Evaluar con una rúbrica</h3><p>Una <b>rúbrica</b> es una tabla que describe qué se espera en cada criterio y en cada nivel. Sirve para que todos sepan desde el principio cómo se va a valorar el trabajo, y para la autoevaluación y la coevaluación entre compañeros.</p>${L.tb(["Criterio", "Inicial", "Adecuado", "Excelente"], [["Respuesta al encargo", "cumple en parte", "cumple el encargo", "lo cumple y aporta algo inesperado"], ["Proceso documentado", "pocos bocetos", "bocetos y fotos del proceso", "portafolio completo y reflexionado"], ["Técnica", "con errores visibles", "bien resuelta", "dominio y cuidado de los detalles"], ["Trabajo en equipo", "participa poco", "cumple su rol", "ayuda y coordina"], ["Presentación", "lee sin explicar", "explica la obra", "explica el proceso y responde preguntas"]])}` },
+  ],
+  videos: [
+    ["Las fases de un proyecto", L.vid("ex6jYUVTb7o", "Cómo crear un proyecto artístico", "Melany Martín", 94890)],
+    ["Generar y elegir ideas", L.vid("LeoEnRjAYM0", "Qué es el design thinking y para qué sirve: fases y ejemplos", "IEBS Business School", 227109)],
+  ],
+  ejemplos: [
+    ["La biblioteca del centro pide un cartel para animar a leer. Redacta el encargo.", ["Qué: un cartel A3 para imprimir.", "Para quién: alumnado de 12 a 16 años; para qué: animar a ir a la biblioteca.", "Dónde y cuándo: pasillos del centro, entrega en tres semanas, con impresión en color."], "Cartel A3 para alumnado de ESO, que anime a usar la biblioteca, para los pasillos, en tres semanas."],
+    ["Aplica SCAMPER a una silla para crear una escultura.", ["Sustituir: patas de libros.", "Combinar: silla y árbol.", "Poner otro uso: silla como maceta; Eliminar: quitar el asiento."], "Ideas como una silla de libros o una silla-árbol: SCAMPER multiplica las ideas."],
+    ["Vuestro grupo va retrasado a dos semanas de la entrega. ¿Qué hacéis?", ["Revisar el cronograma y ver qué falta.", "Priorizar lo imprescindible y simplificar lo demás.", "Repartir de nuevo las tareas según el tiempo de cada uno."], "Replanificar, priorizar y redistribuir tareas."],
+  ],
+  errores: [
+    "Empezar la obra final sin bocetos ni investigación.",
+    "Copiar un referente en lugar de analizarlo y aprender de él.",
+    "Quedarse con la primera idea sin generar alternativas.",
+    "No planificar el tiempo y dejarlo todo para el final.",
+    "Presentar la obra sin explicar el proceso ni reflexionar sobre él.",
+    "Discutir sobre las personas en lugar de sobre la obra cuando hay desacuerdos en el equipo.",
+  ],
+  ejercicios: [
+    ["Nombra las seis fases de un proyecto artístico.", "Encargo, investigación, ideas y bocetos, producción, presentación y evaluación."],
+    ["¿Qué preguntas definen un encargo?", "Qué, para quién, para qué, dónde, con qué y cuándo."],
+    ["¿Qué es un moodboard?", "Un panel de inspiración con imágenes, colores, texturas y palabras."],
+    ["¿Qué significa cada letra de SCAMPER?", "Sustituir, combinar, adaptar, modificar, poner otro uso, eliminar, reordenar."],
+    ["¿Cuáles son las cinco fases del design thinking?", "Empatizar, definir, idear, prototipar y testear."],
+    ["¿Qué es un prototipo?", "Una versión rápida y barata de la idea para probarla."],
+    ["¿Para qué sirve un cronograma?", "Para ver qué tareas hay, quién las hace y cuándo."],
+    ["¿Qué es un hito?", "Una fecha en la que una parte del proyecto debe estar terminada."],
+    ["¿Qué datos lleva una cartela?", "Título, autor, técnica y año."],
+    ["Escribe tres preguntas de autoevaluación.", "¿Qué ha funcionado? ¿Qué cambiaría? ¿Qué he aprendido?"],
+  ],
+  quiz: [
+    ["La primera fase del design thinking es…", ["empatizar", "prototipar", "testear"], 0, "Entender a las personas."],
+    ["Un proceso iterativo…", ["vuelve atrás para mejorar", "va en línea recta", "no tiene fases"], 0, "Probar y corregir."],
+    ["Una rúbrica sirve para…", ["evaluar con criterios claros", "dibujar", "comprar material"], 0, "Niveles y criterios."],
+    ["Al analizar un referente, lo más importante es…", ["qué me llevo a mi proyecto", "copiarlo exacto", "su precio"], 0, "Aprender, no copiar."],
+    ["Las miniaturas son…", ["bocetos muy pequeños y rápidos", "esculturas", "fotos"], 0, "Generar ideas."],
+  ],
+  tarjetas: [
+    ["Design thinking", "Empatizar, definir, idear, prototipar y testear."],
+    ["Cronograma e hitos", "Tareas en el tiempo y fechas clave."],
+    ["Rúbrica", "Tabla de criterios y niveles para evaluar."],
+  ],
+});
