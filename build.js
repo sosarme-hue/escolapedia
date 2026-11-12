@@ -228,6 +228,8 @@ function examPage(e, c, m, tr, n) {
 
 function fmtN(n) { return n >= 1e6 ? `${(n / 1e6).toLocaleString("es-ES", { maximumFractionDigits: 1 })} millones de` : n >= 1e3 ? `${Math.round(n / 1e3).toLocaleString("es-ES")} mil` : String(n); }
 function videoHTML(v) {
+  // En la vista previa de Claude los iframes de YouTube están bloqueados: se muestra una tarjeta que abre el vídeo.
+  if (v.id && process.env.PREVIEW) return `<a class="video" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><div class="thumb"><span></span></div><div><b>▶ ${esc(v.titulo)}</b><small>${esc(v.canal)} (YouTube)${v.vistas ? ` · ${fmtN(v.vistas)} visualizaciones` : ""}. En la web el vídeo se ve aquí mismo; en la vista previa se abre en YouTube.</small></div></a>`;
   if (v.id) return `<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${v.id}" title="${esc(v.titulo)}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: ${esc(v.titulo)} · ${esc(v.canal)} (YouTube)${v.vistas ? ` · ${fmtN(v.vistas)} visualizaciones` : ""}${v.megusta ? ` · ${fmtN(v.megusta)} «me gusta»` : ""}</p>`;
   return `<a class="video" href="https://www.youtube.com/results?search_query=${encodeURIComponent(v.busqueda)}" target="_blank" rel="noopener"><div class="thumb"><span></span></div><div><b>Vídeos sobre este tema</b><small>Abre una búsqueda en YouTube mientras seleccionamos el mejor vídeo.</small></div></a>`;
 }
