@@ -20,17 +20,18 @@ Modelo: `src/temas/eso-4-mata-estadistica.js` (ver la parte «Ampliación» al f
 - `quiz`: 10 preguntas; `tarjetas`: 8.
 - Después: `node build.js && node tools/desbordes.js <filtro>` (0 desbordes) y `node tools/pdfs.js`.
 
-## Tema de 1º de Primaria
+## Tema de 1º de Primaria (ampliado desde el inicio)
 
-Modelo: `src/temas/pri-1-mat-numeros-10.js`. Son niños de 6 años que empiezan a leer, así que el texto es corto y lo leen con un adulto:
+Modelo: `src/temas/pri-1-mat-unidades-decenas.js` (ayudas de dibujo en `src/temas/_pri1.js`). Son niños de 6 años que empiezan a leer: frases cortas (máx. 12 palabras), pero el tema va **completo y ampliado desde el principio**, como un libro de texto de 1º:
 
-- `bloques`: 4 a 6, cada uno con frases cortas (máx. 12 palabras), 60 a 120 palabras, y **siempre** con `svg` (dibujo propio grande y claro).
-- `figura`: un dibujo resumen; `video`: vídeo infantil en castellano (Smile and Learn, Happy Learning, etc.) y, si hay, 1 vídeo de bloque.
-- `ejemplosTitulo: "Lo hacemos juntos"` con 2 ejemplos guiados; `errores`: 3; `ejercicios`: 6 actividades sencillas (contar, rodear, dibujar, decir en voz alta).
-- `quiz`: 6 preguntas con 3 opciones; `examen`: 3; `tarjetas`: 6.
-- `familias` (cómo practicar en casa) y `profesores` (RD 157/2022, BOE-A-2022-3296).
+- `bloques`: 8 a 10, cada uno de 45 a 80 palabras (dos párrafos cortos) y **siempre** con `svg` propio (grande y claro). Unas 450 a 650 palabras en total. Incluir un bloque de «¿Para qué sirve?» (vida diaria) y uno de repaso o juego.
+- `figura`: un dibujo resumen; `video`: vídeo infantil en castellano (Smile and Learn, Happy Learning, etc.) y 1 o 2 vídeos de bloque más (`python3 -I tools/videos.py "búsqueda" 4`; nunca inventar ids).
+- `ejemplosTitulo: "Lo hacemos juntos"` con 3 ejemplos guiados; `errores`: 4.
+- `ejercicios`: 10 actividades sencillas (contar, rodear, dibujar, decir en voz alta) con solución para las familias.
+- `quiz`: 10 preguntas con 3 opciones; `examen`: 4; `tarjetas`: 8.
+- `familias` (4 ideas para practicar en casa) y `profesores` (RD 157/2022, BOE-A-2022-3296).
 - Las páginas de 1º y 2º de Primaria usan letra grande (clase `peque`).
-- Después: `node build.js && node tools/desbordes.js 1-primaria` (0 desbordes).
+- Después: `node build.js && node tools/desbordes.js 1-primaria` (0 desbordes) y `node tools/pdfs.js`.
 
 ## Publicación
 
