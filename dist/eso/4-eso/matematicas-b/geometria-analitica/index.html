@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Geometría analítica · Matemáticas B 4º de ESO · Escolapedia</title>
+<meta name="description" content="Geometría analítica: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. 4º de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../familias/">Familias</a>
+    <a href="../../../../profesores/">Profesores</a>
+  </nav>
+  <div class="lang" aria-label="Idioma"><a href="../../../../" aria-current="page" lang="es">ES</a><a href="../../../../ca/" lang="ca">CA</a></div>
+</div></header>
+<main><div class="wrap">
+  <div class="crumbs"><a href="../../../../">Inicio</a> › <a href="../../../">ESO</a> › <a href="../../">4º</a> › <a href="../">Matemáticas B</a> › Tema 11</div>
+  <div class="topic-head">
+    <div><span class="badge" style="background:#7b3fc4">4º de ESO · Matemáticas B</span><h1>Geometría analítica</h1>
+      <div class="tools"><button type="button" id="t-proj" aria-pressed="false">Modo proyector</button><a class="toolbtn" href="ficha/">Ficha para imprimir</a></div></div>
+    <nav class="steps" aria-label="Pasos del tema"><a href="#p1" data-go="p1">1</a><a href="#p2" data-go="p2">2</a><a href="#p3" data-go="p3">3</a><a href="#p4" data-go="p4">4</a><a href="#p5" data-go="p5">5</a><a href="#p6" data-go="p6">6</a></nav>
+  </div>
+  <div class="layout"><div>
+    <section class="sec" id="p1"><div class="sec-h"><span class="n">1</span><h2>Pregunta de arranque<small>Piensa 30 segundos antes de seguir</small></h2></div>
+      <p class="question">En un videojuego, tu personaje está en (1, 2) y el tesoro en (7, 5). ¿Qué distancia hay en línea recta y qué dirección debes tomar?</p>
+      <div class="reveal"><p style="margin:0">Escribe o di en voz alta tu respuesta. Después <button type="button" id="rv">mira la solución</button>.</p><p id="rv-text" hidden style="margin:10px 0 0">La dirección es el <mark>vector</mark> (7 − 1, 5 − 2) = (6, 3) y la distancia, su módulo: √(6² + 3²) = √45 ≈ <b>6,7 unidades</b>. La geometría analítica convierte los dibujos en números, y así es como los ordenadores mueven todo lo que ves en pantalla.</p></div>
+    </section>
+    <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>5 bloques cortos</small></h2></div>
+      <div class="chunk"><div><h3>Vectores</h3><p>Un <b>vector</b> es una flecha con <mark>módulo</mark> (longitud), <mark>dirección</mark> y <mark>sentido</mark>. El vector de A a B se calcula <b>restando coordenadas</b>: AB = (x₂ − x₁, y₂ − y₁). Su módulo es:</p><div class="formula"><span>|v| = √(v₁² + v₂²)</span></div></div><svg viewBox="0 0 260 180" role="img" aria-label="Vector desde A (1, 2) hasta B (7, 5) con componentes 6 y 3">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/><defs><marker id="fv" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--red)"/></marker></defs><g stroke="var(--line)" stroke-width="1"><path d="M30 8 V 172"/><path d="M52 8 V 172"/><path d="M74 8 V 172"/><path d="M96 8 V 172"/><path d="M118 8 V 172"/><path d="M140 8 V 172"/><path d="M162 8 V 172"/><path d="M184 8 V 172"/><path d="M206 8 V 172"/><path d="M228 8 V 172"/><path d="M8 150 H 252"/><path d="M8 128 H 252"/><path d="M8 106 H 252"/><path d="M8 84 H 252"/><path d="M8 62 H 252"/><path d="M8 40 H 252"/><path d="M8 18 H 252"/></g><path d="M8 150 H 252 M30 8 V 172" stroke="var(--muted)" stroke-width="2"/>
+        <path d="M52,106 H 184 V 40" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 4"/>
+        <path d="M52,106 L 184,40" stroke="var(--red)" stroke-width="3.5" marker-end="url(#fv)"/>
+        <circle cx="52" cy="106" r="5" fill="var(--ink)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="12" font-weight="700"><text x="40" y="124" fill="var(--ink)">A(1, 2)</text><text x="174" y="32" fill="var(--ink)">B(7, 5)</text>
+        <text x="118" y="122" text-anchor="middle" fill="var(--pen)">6</text><text x="192" y="73" fill="var(--pen)">3</text></g></svg></div><div class="chunk"><div><h3>Operaciones con vectores</h3><p>Para <b>sumar</b> vectores se suman coordenadas: (2, 1) + (1, 3) = (3, 4). Gráficamente se pone <mark>uno a continuación del otro</mark>. Para <b>multiplicar por un número</b>, se multiplican las dos coordenadas: 2 · (1, 3) = (2, 6). Si el número es negativo, el vector cambia de sentido.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Suma de vectores: u igual a (2, 1) seguido de v igual a (1, 3) da u más v igual a (3, 4)">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/><defs><marker id="fa" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--pen)"/></marker><marker id="fb" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--leaf)"/></marker><marker id="fc" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--red)"/></marker></defs><g stroke="var(--line)" stroke-width="1"><path d="M30 8 V 172"/><path d="M52 8 V 172"/><path d="M74 8 V 172"/><path d="M96 8 V 172"/><path d="M118 8 V 172"/><path d="M140 8 V 172"/><path d="M162 8 V 172"/><path d="M184 8 V 172"/><path d="M206 8 V 172"/><path d="M228 8 V 172"/><path d="M8 150 H 252"/><path d="M8 128 H 252"/><path d="M8 106 H 252"/><path d="M8 84 H 252"/><path d="M8 62 H 252"/><path d="M8 40 H 252"/><path d="M8 18 H 252"/></g><path d="M8 150 H 252 M30 8 V 172" stroke="var(--muted)" stroke-width="2"/>
+        <path d="M52,128 L 96,106" stroke="var(--pen)" stroke-width="3.5" marker-end="url(#fa)"/>
+        <path d="M96,106 L 118,40" stroke="var(--leaf)" stroke-width="3.5" marker-end="url(#fb)"/>
+        <path d="M52,128 L 118,40" stroke="var(--red)" stroke-width="3.5" marker-end="url(#fc)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="13" font-weight="700"><text x="78.4" y="140" fill="var(--pen)">u</text><text x="117.4" y="79.6" fill="var(--leaf)">v</text><text x="55.2" y="75.2" fill="var(--red)">u + v</text></g></svg></div><div class="chunk"><div><h3>Punto medio y distancia</h3><p>El <b>punto medio</b> de un segmento es la media de las coordenadas, y la <b>distancia</b> entre dos puntos es el módulo del vector que los une (es el teorema de Pitágoras):</p>
+      <div class="formula"><span>M = ((x₁ + x₂)/2, (y₁ + y₂)/2)</span></div><div class="formula"><span>d(A, B) = √((x₂ − x₁)² + (y₂ − y₁)²)</span></div></div><svg viewBox="0 0 260 180" role="img" aria-label="Segmento de A (1, 1) a B (7, 5) con punto medio M (4, 3)">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/><g stroke="var(--line)" stroke-width="1"><path d="M30 8 V 172"/><path d="M52 8 V 172"/><path d="M74 8 V 172"/><path d="M96 8 V 172"/><path d="M118 8 V 172"/><path d="M140 8 V 172"/><path d="M162 8 V 172"/><path d="M184 8 V 172"/><path d="M206 8 V 172"/><path d="M228 8 V 172"/><path d="M8 150 H 252"/><path d="M8 128 H 252"/><path d="M8 106 H 252"/><path d="M8 84 H 252"/><path d="M8 62 H 252"/><path d="M8 40 H 252"/><path d="M8 18 H 252"/></g><path d="M8 150 H 252 M30 8 V 172" stroke="var(--muted)" stroke-width="2"/>
+        <path d="M52,128 L 184,40" stroke="var(--pen)" stroke-width="3"/>
+        <circle cx="52" cy="128" r="5" fill="var(--ink)"/><text x="60" y="142" font-size="13" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">A</text><circle cx="184" cy="40" r="5" fill="var(--ink)"/><text x="192" y="54" font-size="13" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">B</text>
+        <circle cx="118" cy="84" r="7" fill="var(--hl)" stroke="var(--ink)" stroke-width="2"/><text x="114" y="72" text-anchor="end" font-size="13" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">M(4, 3)</text></svg></div><div class="chunk"><div><h3>Ecuaciones de la recta</h3><p>Una recta queda fijada por un punto y una dirección (o por dos puntos). Las formas más usadas:</p>
+      <div class="formula"><span>Punto-pendiente: y − y₁ = m(x − x₁)</span></div><div class="formula"><span>Explícita: y = mx + n</span></div><div class="formula"><span>General: Ax + By + C = 0</span></div>
+      <p>Con dos puntos, la <mark>pendiente</mark> es m = (y₂ − y₁) / (x₂ − x₁). Por A(1, 1) y B(7, 5): m = 4/6 = 2/3.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Recta que pasa por A (1, 1) y B (7, 5) con pendiente dos tercios">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/><g stroke="var(--line)" stroke-width="1"><path d="M30 8 V 172"/><path d="M52 8 V 172"/><path d="M74 8 V 172"/><path d="M96 8 V 172"/><path d="M118 8 V 172"/><path d="M140 8 V 172"/><path d="M162 8 V 172"/><path d="M184 8 V 172"/><path d="M206 8 V 172"/><path d="M228 8 V 172"/><path d="M8 150 H 252"/><path d="M8 128 H 252"/><path d="M8 106 H 252"/><path d="M8 84 H 252"/><path d="M8 62 H 252"/><path d="M8 40 H 252"/><path d="M8 18 H 252"/></g><path d="M8 150 H 252 M30 8 V 172" stroke="var(--muted)" stroke-width="2"/>
+        <path d="M8,157.33333333333334 L 239,3.259999999999991" stroke="var(--pen)" stroke-width="3"/>
+        <path d="M52,128 H 184 V 40" fill="none" stroke="var(--red)" stroke-width="2" stroke-dasharray="5 4"/>
+        <circle cx="52" cy="128" r="5" fill="var(--ink)"/><circle cx="184" cy="40" r="5" fill="var(--ink)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="12" font-weight="700"><text x="118" y="144" text-anchor="middle" fill="var(--red)">Δx = 6</text><text x="190" y="84" fill="var(--red)">Δy = 4</text><text x="40" y="24" fill="var(--pen)">m = 4/6 = 2/3</text></g></svg></div><div class="chunk"><div><h3>Posición de dos rectas</h3><p>Comparando pendientes: si son <b>iguales</b>, las rectas son <mark>paralelas</mark> (o la misma recta, si además comparten un punto). Si son <b>distintas</b>, <mark>se cortan</mark>, y el punto de corte se halla resolviendo el sistema. Si m₁ · m₂ = −1, además son <b>perpendiculares</b>.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Dos rectas paralelas con la misma pendiente y una tercera perpendicular que las corta">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/><g stroke="var(--line)" stroke-width="1"><path d="M30 8 V 172"/><path d="M52 8 V 172"/><path d="M74 8 V 172"/><path d="M96 8 V 172"/><path d="M118 8 V 172"/><path d="M140 8 V 172"/><path d="M162 8 V 172"/><path d="M184 8 V 172"/><path d="M206 8 V 172"/><path d="M228 8 V 172"/><path d="M8 150 H 252"/><path d="M8 128 H 252"/><path d="M8 106 H 252"/><path d="M8 84 H 252"/><path d="M8 62 H 252"/><path d="M8 40 H 252"/><path d="M8 18 H 252"/></g><path d="M8 150 H 252 M30 8 V 172" stroke="var(--muted)" stroke-width="2"/>
+        <path d="M8,150 L 239,34.5" stroke="var(--pen)" stroke-width="3"/><path d="M8,106 L 195,12.5" stroke="var(--pen)" stroke-width="3"/>
+        <path d="M74,7 L 151,161" stroke="var(--red)" stroke-width="3"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="12" font-weight="700"><text x="248" y="143" text-anchor="end" fill="var(--pen)">paralelas: m = 1/2</text><text x="248" y="20" text-anchor="end" fill="var(--red)">perpendicular: m = −2</text></g></svg></div>
+      
+      <h3 style="font-size:21px;margin-top:10px">Fórmulas de la geometría analítica en una ficha</h3>
+      <div class="figure"><svg viewBox="0 0 640 230" role="img" aria-label="Resumen de fórmulas: vector, módulo, punto medio, distancia, pendiente y ecuación punto-pendiente">
+      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
+      <rect x="20" y="20" width="294" height="56" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/><text x="36" y="54" font-size="15" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">Vector AB</text><text x="150" y="54" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">(x₂ − x₁, y₂ − y₁)</text><rect x="326" y="20" width="294" height="56" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/><text x="342" y="54" font-size="15" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">Módulo</text><text x="456" y="54" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">√(v₁² + v₂²)</text><rect x="20" y="86" width="294" height="56" rx="12" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.5"/><text x="36" y="120" font-size="15" font-weight="700" fill="var(--leaf)" font-family="Baloo 2, sans-serif">Punto medio</text><text x="150" y="120" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">((x₁+x₂)/2, (y₁+y₂)/2)</text><rect x="326" y="86" width="294" height="56" rx="12" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.5"/><text x="342" y="120" font-size="15" font-weight="700" fill="var(--leaf)" font-family="Baloo 2, sans-serif">Distancia</text><text x="456" y="120" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">√((x₂−x₁)² + (y₂−y₁)²)</text><rect x="20" y="152" width="294" height="56" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/><text x="36" y="186" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">Pendiente</text><text x="150" y="186" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">m = (y₂ − y₁)/(x₂ − x₁)</text><rect x="326" y="152" width="294" height="56" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/><text x="342" y="186" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">Recta</text><text x="456" y="186" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">y − y₁ = m(x − x₁)</text>
+    </svg></div><p class="caption">Esquema dibujado para Escolapedia. En el móvil, desliza a los lados.</p>
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/bo3JsAc9CbE" title="Ecuación de la recta conociendo dos puntos" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: Ecuación de la recta conociendo dos puntos · Matemáticas profe Alex (YouTube) · 6 millones de visualizaciones · 109 mil «me gusta»</p>
+    </section>
+    <section class="sec" id="p3"><div class="sec-h"><span class="n">3</span><h2>Practica<small>Responde sin mirar arriba. Equivocarse aquí también enseña.</small></h2></div>
+      <div class="quiz" id="quiz"></div><p class="score" id="score" aria-live="polite"></p>
+      
+    </section>
+    <section class="sec" id="p4"><div class="sec-h"><span class="n">4</span><h2>Explícalo con tus palabras<small>Como si se lo contaras a alguien de un curso menor</small></h2></div>
+      <label for="feyn" class="caption">Escribe aquí tu explicación. Se guarda en este navegador.</label>
+      <textarea id="feyn" placeholder="Con mis palabras…"></textarea>
+      <div class="check"><span class="caption">¿Has nombrado estas ideas?</span><label><input type="checkbox" id="c0"> Qué es un vector y cómo se calculan sus coordenadas</label><label><input type="checkbox" id="c1"> Por qué la distancia entre dos puntos es el teorema de Pitágoras</label><label><input type="checkbox" id="c2"> Cómo se halla la ecuación de la recta que pasa por dos puntos</label><label><input type="checkbox" id="c3"> Cómo saber si dos rectas son paralelas o se cortan</label></div>
+    </section>
+    <section class="sec" id="p5"><div class="sec-h"><span class="n">5</span><h2>Resumen visual<small>Todo el tema en una pantalla</small></h2></div><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: GEOMETRÍA ANALÍTICA">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="209.25" y="122" width="281.5" height="56" rx="28" fill="var(--bac)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">GEOMETRÍA ANALÍTICA</text>
+      <rect x="10" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--red)">Vectores</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">AB = B − A · |v|</text><rect x="430" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--leaf)">Puntos</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">punto medio · distancia</text><rect x="10" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--pen)">Rectas</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">y = mx + n · m = Δy/Δx</text><rect x="430" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--inf)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--inf)">Posiciones</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">paralelas · secantes · ⊥</text>
+    </g></svg></div></section>
+    <section class="sec" id="p6"><div class="sec-h"><span class="n">6</span><h2>Tarjetas de repaso<small>Toca la tarjeta para darle la vuelta</small></h2></div>
+      <div class="cards">
+        <button class="flash" id="flash" type="button" aria-live="polite"><div class="in"><div class="face front"><small id="fc-count"></small><span id="fc-q"></span></div><div class="face back"><small>Respuesta</small><span id="fc-a"></span></div></div></button>
+        <div class="grade"><button type="button" data-g="0" disabled>No me acordaba</button><button type="button" data-g="1" disabled>Me costó</button><button type="button" data-g="2" disabled>¡Fácil!</button></div>
+        <p class="next" id="fc-next">Según cómo respondas, la tarjeta vuelve mañana, en 3, en 7 o en 21 días.</p>
+      </div>
+    </section>
+    <section class="sec who" aria-label="Familias y profesores">
+      <div class="box"><h3>Para familias</h3><ul><li>Jugad a hundir la flota y calculad distancias entre barcos con la fórmula.</li><li>Pedidle que explique cómo un GPS calcula una distancia en línea recta.</li><li>Repasad las tarjetas del paso 6 dos minutos al día.</li></ul></div>
+      <div class="box"><h3>Para profesores</h3><p style="margin:0 0 6px"><b>Saberes:</b> Sentido espacial: vectores, distancia, punto medio, ecuaciones de la recta y posiciones relativas (RD 217/2022, Matemáticas B 4º).</p><ul><li>Programar en Scratch un personaje que se mueve con vectores.</li><li>GeoGebra: arrastrar puntos y ver cómo cambia la ecuación de la recta.</li><li>Búsqueda del tesoro en el patio con coordenadas y vectores de desplazamiento.</li></ul></div>
+    </section>
+    <section class="sec"><h2 style="font-size:20px;margin-bottom:8px">Fuentes y revisión</h2>
+      <ul class="src"><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" target="_blank" rel="noopener">Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)</a></li><li><a href="https://es.wikipedia.org/wiki/Geometr%C3%ADa_anal%C3%ADtica" target="_blank" rel="noopener">Geometría analítica, Wikipedia en español</a></li></ul>
+      <p class="caption">Revisado el 12 de noviembre de 2026.</p>
+    </section>
+  </div>
+  <aside class="side">
+    <div class="box"><h3>Qué vas a aprender</h3><ul><li>Operar con vectores: coordenadas, módulo, suma y producto por un número</li><li>Calcular el punto medio y la distancia entre dos puntos</li><li>Escribir la ecuación de una recta y estudiar si dos rectas son paralelas o se cortan</li></ul></div>
+    <div class="box"><h3>Palabras clave</h3>vector · módulo · punto medio · pendiente · ecuación de la recta · paralelas</div>
+    <div class="box"><h3>Tiempo</h3>45 minutos hoy + 2 minutos en cada repaso</div>
+  </aside></div>
+</div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<script>window.BASE="../../../../";window.IDX="";</script>
+<script>window.TEMA={"id":"4-eso-matematicas-b-geometria-analitica","quiz":[{"q":"El vector de A(2, 3) a B(5, 7) es…","o":["(3, 4)","(7, 10)","(−3, −4)"],"a":0,"e":"Final menos origen: (5 − 2, 7 − 3) = (3, 4)."},{"q":"¿Cuál es el módulo de (3, 4)?","o":["7","5","25"],"a":1,"e":"√(9 + 16) = √25 = 5."},{"q":"El punto medio de A(−2, 4) y B(6, 0) es…","o":["(2, 2)","(4, 4)","(8, −4)"],"a":0,"e":"((−2 + 6)/2, (4 + 0)/2) = (2, 2)."},{"q":"La pendiente de la recta que pasa por (1, 2) y (3, 8) es…","o":["3","1/3","6"],"a":0,"e":"m = (8 − 2)/(3 − 1) = 6/2 = 3."},{"q":"Las rectas y = 2x + 1 e y = 2x − 5 son…","o":["Secantes","Paralelas","Perpendiculares"],"a":1,"e":"Misma pendiente y distinta ordenada en el origen."}],"tarjetas":[["Coordenadas del vector AB","(x_B − x_A, y_B − y_A)"],["Módulo de v = (a, b)","√(a² + b²)"],["Punto medio de AB","((x_A + x_B)/2, (y_A + y_B)/2)"],["Pendiente por dos puntos","m = (y₂ − y₁) / (x₂ − x₁)"],["Condición de paralelismo","Misma pendiente."]]};</script>
+<script src="../../../../assets/app.js"></script>
+</body></html>

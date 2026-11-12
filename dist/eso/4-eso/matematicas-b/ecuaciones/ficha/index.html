@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ficha: Ecuaciones · Escolapedia</title>
+<meta name="description" content="Ficha imprimible de Ecuaciones, 4º de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../../familias/">Familias</a>
+    <a href="../../../../../profesores/">Profesores</a>
+  </nav>
+  <div class="lang" aria-label="Idioma"><a href="../../../../../" aria-current="page" lang="es">ES</a><a href="../../../../../ca/" lang="ca">CA</a></div>
+</div></header>
+<main class="ficha"><div class="wrap">
+  <div class="crumbs noprint"><a href="../">← Volver al tema</a></div>
+  <div class="ficha-tools noprint"><a class="dl" href="ficha.pdf" download>Descargar PDF</a><button type="button" id="t-print">Imprimir</button><span class="caption">También puedes usar Ctrl + P (Cmd + P en Mac).</span></div>
+  <header class="ficha-h"><div><span class="badge" style="background:#7b3fc4">4º de ESO · Matemáticas B · Tema 4</span><h1>Ecuaciones</h1></div>
+    <div class="ficha-name">Nombre: ______________________ &nbsp; Fecha: ___________</div></header>
+  <section><h2>Qué vas a aprender</h2><ul><li>Resolver ecuaciones de segundo grado completas e incompletas</li><li>Saber cuántas soluciones tiene una ecuación con el discriminante</li><li>Resolver ecuaciones bicuadradas, racionales e irracionales y comprobar las soluciones</li></ul></section>
+  <section><h2>Para pensar</h2><p class="question">Un rectángulo mide 3 cm más de largo que de ancho y su área es 40 cm². ¿Cuánto mide el ancho?</p><div class="lines"></div></section>
+  <section><h2>Explicación</h2><div class="chunk"><div><h3>La fórmula de segundo grado</h3><p>Toda ecuación ax² + bx + c = 0 se resuelve con:</p><div class="formula"><span>x = (−b ± √(b² − 4ac)) / 2a</span></div>
+      <p>En el rectángulo: a = 1, b = 3, c = −40 → x = (−3 ± √169) / 2 = (−3 ± 13) / 2 → <mark>x = 5 o x = −8</mark>.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Rectángulo de ancho x y largo x más 3 con área 40">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="50" y="40" width="160" height="100" rx="6" fill="var(--pen)" opacity=".18" stroke="var(--pen)" stroke-width="3"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" text-anchor="middle"><text x="130" y="98" font-size="20" fill="var(--pen)">A = 40 cm²</text><text x="130" y="30" font-size="15" fill="var(--red)">x + 3</text><text x="34" y="96" font-size="15" fill="var(--leaf)">x</text>
+        <text x="130" y="166" font-size="13" fill="var(--ink)">x(x + 3) = 40</text></g></svg></div><div class="chunk"><div><h3>El discriminante</h3><p>El número de dentro de la raíz, <b>Δ = b² − 4ac</b>, dice cuántas soluciones hay sin resolver:</p>
+      <ul><li>Δ &gt; 0 → <mark>dos soluciones</mark> (la parábola corta dos veces el eje)</li><li>Δ = 0 → una solución doble (lo toca)</li><li>Δ &lt; 0 → ninguna solución real (no lo toca)</li></ul></div><svg viewBox="0 0 260 180" role="img" aria-label="Tres parábolas: una corta el eje en dos puntos, otra lo toca en uno y otra no lo toca">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M10 120 H 250" stroke="var(--ink)" stroke-width="2"/>
+        <path d="M14 40 Q 50 224 86 40" fill="none" stroke="var(--leaf)" stroke-width="3"/><path d="M94 40 Q 130 200 166 40" fill="none" stroke="var(--pen)" stroke-width="3"/><path d="M174 30 Q 210 150 246 30" fill="none" stroke="var(--red)" stroke-width="3"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="12" font-weight="700" text-anchor="middle"><text x="50" y="150" fill="var(--leaf)">Δ &gt; 0</text><text x="50" y="166" fill="var(--leaf)">2 soluciones</text><text x="130" y="150" fill="var(--pen)">Δ = 0</text><text x="130" y="166" fill="var(--pen)">1 doble</text><text x="210" y="150" fill="var(--red)">Δ &lt; 0</text><text x="210" y="166" fill="var(--red)">sin solución</text></g></svg></div><div class="chunk"><div><h3>Ecuaciones incompletas: sin fórmula</h3><p>Si falta un término, hay atajos:</p>
+      <div class="formula"><span>ax² + bx = 0 → x(ax + b) = 0 → x = 0 o x = −b/a</span></div>
+      <div class="formula"><span>ax² + c = 0 → x² = −c/a → x = ±√(−c/a)</span></div>
+      <p>Ejemplo: 3x² − 12x = 0 → 3x(x − 4) = 0 → <mark>x = 0 o x = 4</mark>. Nunca dividas entre x: perderías la solución x = 0.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Si un producto vale cero, uno de los factores es cero: 3x por x menos 4 igual a cero da x igual 0 o x igual 4">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" text-anchor="middle"><text x="130" y="44" font-size="20" fill="var(--ink)"><tspan fill="var(--pen)">3x</tspan> · <tspan fill="var(--red)">(x − 4)</tspan> = 0</text>
+        <path d="M100 56 L 66 100 M160 56 L 194 100" stroke="var(--muted)" stroke-width="2.5"/>
+        <rect x="24" y="104" width="90" height="44" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/><text x="69" y="132" font-size="17" fill="var(--pen)">x = 0</text>
+        <rect x="146" y="104" width="90" height="44" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/><text x="191" y="132" font-size="17" fill="var(--red)">x = 4</text>
+        <text x="130" y="172" font-size="12" fill="var(--muted)">si a · b = 0, entonces a = 0 o b = 0</text></g></svg></div><div class="chunk"><div><h3>Ecuaciones bicuadradas</h3><p>Tienen la forma ax⁴ + bx² + c = 0. Se hace un <b>cambio de variable</b> <mark>x² = t</mark>, se resuelve la de segundo grado en t y se deshace: x = ±√t.</p><p>x⁴ − 13x² + 36 = 0 → t² − 13t + 36 = 0 → t = 9 o t = 4 → <b>x = ±3, ±2</b>. Hasta cuatro soluciones.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Esquema del cambio de variable: x a la cuarta menos 13 x al cuadrado más 36 pasa a t al cuadrado menos 13t más 36, da t igual 9 y 4, y x igual más menos 3 y más menos 2">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" text-anchor="middle">
+          <text x="130" y="34" font-size="15" fill="var(--ink)">x⁴ − 13x² + 36 = 0</text><path d="M130 44 V 60" stroke="var(--leaf)" stroke-width="2.5"/><text x="180" y="57" font-size="12" fill="var(--leaf)">x² = t</text>
+          <text x="130" y="80" font-size="15" fill="var(--leaf)">t² − 13t + 36 = 0</text><path d="M130 90 V 106" stroke="var(--muted)" stroke-width="2.5"/>
+          <text x="130" y="124" font-size="15" fill="var(--pen)">t = 9 · t = 4</text><path d="M130 134 V 148" stroke="var(--red)" stroke-width="2.5"/>
+          <text x="130" y="168" font-size="16" fill="var(--red)">x = ±3 · x = ±2</text></g></svg></div><div class="chunk"><div><h3>Racionales e irracionales: ¡comprueba!</h3><p>En las <b>racionales</b> (x en el denominador) se multiplica todo por el mínimo común múltiplo. En las <b>irracionales</b> (x dentro de una raíz) se <mark>aísla la raíz y se eleva al cuadrado</mark>. Ambos pasos pueden crear soluciones falsas, así que <b>siempre hay que comprobar</b> en la ecuación original.</p>
+      <div class="formula"><span>√(x + 7) = x + 1 → x + 7 = x² + 2x + 1 → x = 2 ✓ · x = −3 ✗</span></div></div><svg viewBox="0 0 260 180" role="img" aria-label="Comprobación: x igual 2 cumple la ecuación y x igual menos 3 no, porque la raíz da 2 y el otro lado da menos 2">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="16" y="30" width="108" height="120" rx="12" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/><rect x="136" y="30" width="108" height="120" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" text-anchor="middle"><text x="70" y="60" font-size="16" fill="var(--leaf)">x = 2</text><text x="70" y="88" font-size="13" fill="var(--ink)">√9 = 3</text><text x="70" y="108" font-size="13" fill="var(--ink)">2 + 1 = 3</text><text x="70" y="136" font-size="22" fill="var(--leaf)">✓</text>
+        <text x="190" y="60" font-size="16" fill="var(--red)">x = −3</text><text x="190" y="88" font-size="13" fill="var(--ink)">√4 = 2</text><text x="190" y="108" font-size="13" fill="var(--ink)">−3 + 1 = −2</text><text x="190" y="136" font-size="22" fill="var(--red)">✗</text></g></svg></div></section>
+  <section><h2>¿Qué tipo de ecuación es? Elige el método</h2><div class="figure"><svg viewBox="0 0 640 230" role="img" aria-label="Guía de métodos: segundo grado completa con fórmula, incompleta sacando factor común o despejando, bicuadrada con cambio de variable, racional con mínimo común múltiplo e irracional elevando al cuadrado y comprobando">
+      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
+      <rect x="20" y="16" width="600" height="34" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+        <text x="40" y="38" font-size="16" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">ax² + bx + c = 0</text><text x="330" y="38" font-size="15" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">→</text><text x="360" y="38" font-size="16" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">fórmula</text><rect x="20" y="57" width="600" height="34" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+        <text x="40" y="79" font-size="16" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">ax² + bx = 0</text><text x="330" y="79" font-size="15" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">→</text><text x="360" y="79" font-size="16" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">factor común</text><rect x="20" y="98" width="600" height="34" rx="10" fill="var(--card)" stroke="var(--inf)" stroke-width="2"/>
+        <text x="40" y="120" font-size="16" font-weight="700" fill="var(--inf)" font-family="Atkinson Hyperlegible, sans-serif">ax⁴ + bx² + c = 0</text><text x="330" y="120" font-size="15" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">→</text><text x="360" y="120" font-size="16" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">x² = t</text><rect x="20" y="139" width="600" height="34" rx="10" fill="var(--card)" stroke="var(--bac)" stroke-width="2"/>
+        <text x="40" y="161" font-size="16" font-weight="700" fill="var(--bac)" font-family="Atkinson Hyperlegible, sans-serif">x en el denominador</text><text x="330" y="161" font-size="15" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">→</text><text x="360" y="161" font-size="16" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">m.c.m. y comprobar</text><rect x="20" y="180" width="600" height="34" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+        <text x="40" y="202" font-size="16" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">x dentro de √</text><text x="330" y="202" font-size="15" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">→</text><text x="360" y="202" font-size="16" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">aislar, elevar y comprobar</text>
+    </svg></div></section>
+  
+  <section class="brk"><h2>Practica</h2><ol class="fq"><li><p>¿Cuántas soluciones tiene x² − 6x + 9 = 0?</p><ol class="abc"><li><span>A)</span> Dos</li><li><span>B)</span> Una doble</li><li><span>C)</span> Ninguna</li></ol></li><li><p>Resuelve x² − 5x = 0.</p><ol class="abc"><li><span>A)</span> x = 5</li><li><span>B)</span> x = 0 y x = 5</li><li><span>C)</span> x = ±√5</li></ol></li><li><p>Resuelve 2x² − 18 = 0.</p><ol class="abc"><li><span>A)</span> x = ±3</li><li><span>B)</span> x = 9</li><li><span>C)</span> x = ±9</li></ol></li><li><p>En x⁴ − 5x² + 4 = 0, con t = x² salen t = 4 y t = 1. Las soluciones son…</p><ol class="abc"><li><span>A)</span> x = 4 y x = 1</li><li><span>B)</span> x = ±2 y x = ±1</li><li><span>C)</span> x = 2 y x = 1</li></ol></li><li><p>¿Por qué hay que comprobar las soluciones de una ecuación irracional?</p><ol class="abc"><li><span>A)</span> Porque la fórmula falla</li><li><span>B)</span> Porque al elevar al cuadrado pueden aparecer soluciones falsas</li><li><span>C)</span> No hace falta</li></ol></li></ol></section>
+  <section><h2>Explícalo con tus palabras</h2><p class="caption">Incluye: Cómo se usa la fórmula de segundo grado; Qué dice el discriminante sobre el número de soluciones; Cómo se resuelve una bicuadrada con cambio de variable; Por qué hay que comprobar en las irracionales.</p><div class="lines tall"></div></section>
+  <section><h2>Resumen</h2><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: ECUACIONES">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="225" y="122" width="250" height="56" rx="28" fill="var(--bac)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">ECUACIONES</text>
+      <rect x="5" y="34" width="270" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--pen)">2º grado</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">x = (−b ± √Δ) / 2a</text><rect x="425" y="34" width="270" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--leaf)">Discriminante</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">Δ > 0 · Δ = 0 · Δ < 0</text><rect x="5" y="214" width="270" height="56" rx="10" fill="var(--card)" stroke="var(--inf)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--inf)">Bicuadradas</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">x² = t · hasta 4 soluciones</text><rect x="425" y="214" width="270" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--red)">Racionales e irracionales</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">m.c.m. o elevar · ¡comprobar!</text>
+    </g></svg></div></section>
+  <section><h2>Tarjetas de repaso</h2><p class="caption">Recórtalas: pregunta delante, respuesta detrás.</p><div class="cut"><div><b>Fórmula de segundo grado</b><span>x = (−b ± √(b² − 4ac)) / 2a</span></div><div><b>Si Δ < 0…</b><span>la ecuación no tiene soluciones reales.</span></div><div><b>¿Cómo se resuelve ax² + bx = 0?</b><span>Sacando factor común: x = 0 o x = −b/a.</span></div><div><b>Cambio de variable en bicuadradas</b><span>x² = t; al final x = ±√t.</span></div><div><b>¿Qué hacer siempre en una ecuación irracional?</b><span>Comprobar las soluciones en la ecuación original.</span></div></div></section>
+  <section class="sol"><h2>Soluciones</h2><ol><li><b>B)</b> Δ = 36 − 36 = 0: una solución doble, x = 3.</li><li><b>B)</b> x(x − 5) = 0 → x = 0 o x = 5.</li><li><b>A)</b> x² = 9 → x = ±3.</li><li><b>B)</b> Se deshace el cambio: x = ±√4 = ±2 y x = ±√1 = ±1.</li><li><b>B)</b> Elevar al cuadrado convierte −2 = 2 en 4 = 4: aparecen soluciones que no valen.</li></ol></section>
+  
+  </div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<script>window.BASE="../../../../../";window.IDX="";</script>
+<script>document.getElementById("t-print").addEventListener("click",()=>window.print());</script>
+<script src="../../../../../assets/app.js"></script>
+</body></html>

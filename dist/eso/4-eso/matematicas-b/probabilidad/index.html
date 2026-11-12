@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Probabilidad · Matemáticas B 4º de ESO · Escolapedia</title>
+<meta name="description" content="Probabilidad: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. 4º de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../familias/">Familias</a>
+    <a href="../../../../profesores/">Profesores</a>
+  </nav>
+  <div class="lang" aria-label="Idioma"><a href="../../../../" aria-current="page" lang="es">ES</a><a href="../../../../ca/" lang="ca">CA</a></div>
+</div></header>
+<main><div class="wrap">
+  <div class="crumbs"><a href="../../../../">Inicio</a> › <a href="../../../">ESO</a> › <a href="../../">4º</a> › <a href="../">Matemáticas B</a> › Tema 14</div>
+  <div class="topic-head">
+    <div><span class="badge" style="background:#7b3fc4">4º de ESO · Matemáticas B</span><h1>Probabilidad</h1>
+      <div class="tools"><button type="button" id="t-proj" aria-pressed="false">Modo proyector</button><a class="toolbtn" href="ficha/">Ficha para imprimir</a></div></div>
+    <nav class="steps" aria-label="Pasos del tema"><a href="#p1" data-go="p1">1</a><a href="#p2" data-go="p2">2</a><a href="#p3" data-go="p3">3</a><a href="#p4" data-go="p4">4</a><a href="#p5" data-go="p5">5</a><a href="#p6" data-go="p6">6</a></nav>
+  </div>
+  <div class="layout"><div>
+    <section class="sec" id="p1"><div class="sec-h"><span class="n">1</span><h2>Pregunta de arranque<small>Piensa 30 segundos antes de seguir</small></h2></div>
+      <p class="question">En una clase de 23 alumnos, ¿qué es más probable: que dos cumplan años el mismo día o que no?</p>
+      <div class="reveal"><p style="margin:0">Escribe o di en voz alta tu respuesta. Después <button type="button" id="rv">mira la solución</button>.</p><p id="rv-text" hidden style="margin:10px 0 0">¡Que sí coincidan! La probabilidad es de un <mark>50,7 %</mark>. Se calcula con el <b>suceso contrario</b>: la probabilidad de que nadie coincida es 365/365 · 364/365 · … · 343/365 ≈ 0,493, así que la de coincidir es 1 − 0,493.</p></div>
+    </section>
+    <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>5 bloques cortos</small></h2></div>
+      <div class="chunk"><div><h3>Experimentos aleatorios y regla de Laplace</h3><p>Un experimento es <b>aleatorio</b> si no se puede predecir el resultado. El conjunto de resultados es el <b>espacio muestral</b> E. Si todos los resultados son <mark>igual de probables</mark>:</p><div class="formula"><span>P(A) = casos favorables / casos posibles</span></div><p>Sacar un número par en un dado: P = 3/6 = 0,5.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Seis caras de un dado; las caras pares 2, 4 y 6 están resaltadas: probabilidad 3 de 6">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="22" y="22" width="56" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><circle cx="50" cy="50" r="4.5" fill="var(--ink)"/><rect x="98" y="22" width="56" height="56" rx="10" fill="var(--hl)" stroke="var(--ink)" stroke-width="2"/><circle cx="112" cy="36" r="4.5" fill="var(--ink)"/><circle cx="140" cy="64" r="4.5" fill="var(--ink)"/><rect x="174" y="22" width="56" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><circle cx="188" cy="36" r="4.5" fill="var(--ink)"/><circle cx="202" cy="50" r="4.5" fill="var(--ink)"/><circle cx="216" cy="64" r="4.5" fill="var(--ink)"/><rect x="22" y="92" width="56" height="56" rx="10" fill="var(--hl)" stroke="var(--ink)" stroke-width="2"/><circle cx="36" cy="106" r="4.5" fill="var(--ink)"/><circle cx="64" cy="106" r="4.5" fill="var(--ink)"/><circle cx="36" cy="134" r="4.5" fill="var(--ink)"/><circle cx="64" cy="134" r="4.5" fill="var(--ink)"/><rect x="98" y="92" width="56" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><circle cx="112" cy="106" r="4.5" fill="var(--ink)"/><circle cx="140" cy="106" r="4.5" fill="var(--ink)"/><circle cx="126" cy="120" r="4.5" fill="var(--ink)"/><circle cx="112" cy="134" r="4.5" fill="var(--ink)"/><circle cx="140" cy="134" r="4.5" fill="var(--ink)"/><rect x="174" y="92" width="56" height="56" rx="10" fill="var(--hl)" stroke="var(--ink)" stroke-width="2"/><circle cx="188" cy="106" r="4.5" fill="var(--ink)"/><circle cx="216" cy="106" r="4.5" fill="var(--ink)"/><circle cx="188" cy="120" r="4.5" fill="var(--ink)"/><circle cx="216" cy="120" r="4.5" fill="var(--ink)"/><circle cx="188" cy="134" r="4.5" fill="var(--ink)"/><circle cx="216" cy="134" r="4.5" fill="var(--ink)"/>
+        <text x="130" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">P(par) = 3/6 = 1/2</text></svg></div><div class="chunk"><div><h3>Propiedades básicas</h3><p>La probabilidad está <b>entre 0 y 1</b> (0 = imposible, 1 = seguro). El <b>suceso contrario</b> Ā ocurre cuando no ocurre A: <mark>P(Ā) = 1 − P(A)</mark>. Para la unión de dos sucesos:</p><div class="formula"><span>P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</span></div><p>Se resta la intersección para no contarla dos veces.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de Venn con dos sucesos A y B que se solapan; la zona común es la intersección">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="14" y="14" width="232" height="140" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="100" cy="84" r="50" fill="var(--pen)" fill-opacity=".25" stroke="var(--pen)" stroke-width="2.5"/><circle cx="160" cy="84" r="50" fill="var(--red)" fill-opacity=".25" stroke="var(--red)" stroke-width="2.5"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="14" font-weight="700"><text x="74" y="88" fill="var(--pen)">A</text><text x="178" y="88" fill="var(--red)">B</text><text x="130" y="88" text-anchor="middle" font-size="12" fill="var(--ink)">A∩B</text><text x="24" y="32" font-size="12" fill="var(--muted)">E</text>
+        <text x="130" y="172" text-anchor="middle" font-size="12" fill="var(--ink)">P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</text></g></svg></div><div class="chunk"><div><h3>Experimentos compuestos: el diagrama de árbol</h3><p>Cuando el experimento tiene varias etapas, se dibuja un árbol con la probabilidad en cada rama. La probabilidad de un camino es el <mark>producto</mark> de sus ramas, y si varios caminos dan el mismo resultado, se <mark>suman</mark>.</p><p>Sacar dos bolas rojas sin devolución de una urna con 3 rojas y 2 azules: 3/5 · 2/4 = <b>3/10</b>.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Árbol de dos extracciones sin devolución de una urna con 3 rojas y 2 azules; el camino rojo-rojo tiene probabilidad 3/5 por 2/4">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <circle cx="20" cy="90" r="5" fill="var(--ink)"/>
+        <path d="M20 90 L 100 46 M20 90 L 100 134" stroke="var(--muted)" stroke-width="2"/><path d="M20 90 L 100 46" stroke="var(--red)" stroke-width="3.5"/>
+        <circle cx="108" cy="46" r="9" fill="var(--red)"/><circle cx="108" cy="134" r="9" fill="var(--pen)"/>
+        <path d="M117 46 L 196 26" stroke="var(--red)" stroke-width="3.5"/><circle cx="204" cy="26" r="8" fill="var(--red)"/><text x="150" y="24" font-size="11" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">2/4</text><path d="M117 46 L 196 66" stroke="var(--muted)" stroke-width="2"/><circle cx="204" cy="66" r="8" fill="var(--pen)"/><text x="150" y="80" font-size="11" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">2/4</text><path d="M117 134 L 196 114" stroke="var(--muted)" stroke-width="2"/><circle cx="204" cy="114" r="8" fill="var(--red)"/><text x="150" y="112" font-size="11" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">3/4</text><path d="M117 134 L 196 154" stroke="var(--muted)" stroke-width="2"/><circle cx="204" cy="154" r="8" fill="var(--pen)"/><text x="150" y="168" font-size="11" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">1/4</text>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="12" font-weight="700"><text x="40" y="58" fill="var(--red)">3/5</text><text x="40" y="132" fill="var(--pen)">2/5</text><text x="216" y="30" fill="var(--red)">3/10</text></g></svg></div><div class="chunk"><div><h3>Probabilidad condicionada</h3><p>P(A | B) es la probabilidad de A <mark>sabiendo que ha ocurrido B</mark>. Restringe el espacio muestral a B:</p><div class="formula"><span>P(A | B) = P(A ∩ B) / P(B)</span></div><p>Las <b>tablas de contingencia</b> ayudan mucho: si de 30 alumnos, 12 son chicas y 8 de ellas llevan gafas, P(gafas | chica) = 8/12.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Tabla de contingencia de 30 alumnos por sexo y gafas; la fila de chicas está resaltada: 8 de 12 llevan gafas">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="16" y="76" width="228" height="34" fill="var(--hl)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="13" text-anchor="middle"><g font-weight="700" fill="var(--muted)"><text x="120" y="56">gafas</text><text x="180" y="56">sin gafas</text><text x="228" y="56">total</text></g>
+          <text x="52" y="98" font-weight="700" fill="var(--ink)">chicas</text><text x="120" y="98" font-weight="700" fill="var(--red)">8</text><text x="180" y="98" fill="var(--ink)">4</text><text x="228" y="98" font-weight="700" fill="var(--red)">12</text>
+          <text x="52" y="134" font-weight="700" fill="var(--ink)">chicos</text><text x="120" y="134" fill="var(--ink)">5</text><text x="180" y="134" fill="var(--ink)">13</text><text x="228" y="134" fill="var(--ink)">18</text>
+          <text x="130" y="170" font-weight="700" fill="var(--ink)">P(gafas | chica) = 8/12 = 2/3</text></g>
+        <path d="M16 66 H 244 M16 146 H 244" stroke="var(--line)" stroke-width="2"/></svg></div><div class="chunk"><div><h3>Sucesos independientes</h3><p>A y B son <b>independientes</b> si que ocurra uno <mark>no cambia</mark> la probabilidad del otro: P(A | B) = P(A). Entonces:</p><div class="formula"><span>P(A ∩ B) = P(A) · P(B)</span></div><p>Lanzar dos monedas es independiente; sacar cartas sin devolverlas, no. Error típico: tras 5 caras seguidas, la probabilidad de cara sigue siendo 1/2 (la moneda no tiene memoria).</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Cinco caras seguidas y la sexta tirada sigue teniendo probabilidad un medio: la moneda no tiene memoria">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <circle cx="30" cy="70" r="16" fill="var(--hl)" stroke="var(--hl-ink)" stroke-width="2"/><text x="30" y="75" text-anchor="middle" font-size="13" font-weight="700" fill="var(--hl-ink)" font-family="Atkinson Hyperlegible, sans-serif">C</text><circle cx="70" cy="70" r="16" fill="var(--hl)" stroke="var(--hl-ink)" stroke-width="2"/><text x="70" y="75" text-anchor="middle" font-size="13" font-weight="700" fill="var(--hl-ink)" font-family="Atkinson Hyperlegible, sans-serif">C</text><circle cx="110" cy="70" r="16" fill="var(--hl)" stroke="var(--hl-ink)" stroke-width="2"/><text x="110" y="75" text-anchor="middle" font-size="13" font-weight="700" fill="var(--hl-ink)" font-family="Atkinson Hyperlegible, sans-serif">C</text><circle cx="150" cy="70" r="16" fill="var(--hl)" stroke="var(--hl-ink)" stroke-width="2"/><text x="150" y="75" text-anchor="middle" font-size="13" font-weight="700" fill="var(--hl-ink)" font-family="Atkinson Hyperlegible, sans-serif">C</text><circle cx="190" cy="70" r="16" fill="var(--hl)" stroke="var(--hl-ink)" stroke-width="2"/><text x="190" y="75" text-anchor="middle" font-size="13" font-weight="700" fill="var(--hl-ink)" font-family="Atkinson Hyperlegible, sans-serif">C</text>
+        <circle cx="230" cy="70" r="16" fill="var(--card)" stroke="var(--ink)" stroke-width="2" stroke-dasharray="4 3"/><text x="230" y="76" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">?</text>
+        <text x="130" y="124" text-anchor="middle" font-size="16" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">P(cara) = 1/2</text><text x="130" y="150" text-anchor="middle" font-size="12" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">la moneda no tiene memoria</text></svg></div>
+      
+      <h3 style="font-size:21px;margin-top:10px">Caja de herramientas de la probabilidad</h3>
+      <div class="figure"><svg viewBox="0 0 640 230" role="img" aria-label="Resumen de fórmulas: Laplace, contrario, unión, intersección de independientes y condicionada">
+      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
+      <rect x="20" y="14" width="600" height="36" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/><text x="36" y="38" font-size="16" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">Laplace</text><text x="220" y="38" font-size="16" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">P(A) = favorables / posibles</text><rect x="20" y="56" width="600" height="36" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.5"/><text x="36" y="80" font-size="16" font-weight="700" fill="var(--leaf)" font-family="Baloo 2, sans-serif">Contrario</text><text x="220" y="80" font-size="16" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">P(Ā) = 1 − P(A)</text><rect x="20" y="98" width="600" height="36" rx="10" fill="var(--card)" stroke="var(--inf)" stroke-width="2.5"/><text x="36" y="122" font-size="16" font-weight="700" fill="var(--inf)" font-family="Baloo 2, sans-serif">Unión</text><text x="220" y="122" font-size="16" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">P(A∪B) = P(A) + P(B) − P(A∩B)</text><rect x="20" y="140" width="600" height="36" rx="10" fill="var(--card)" stroke="var(--bac)" stroke-width="2.5"/><text x="36" y="164" font-size="16" font-weight="700" fill="var(--bac)" font-family="Baloo 2, sans-serif">Independientes</text><text x="220" y="164" font-size="16" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">P(A∩B) = P(A) · P(B)</text><rect x="20" y="182" width="600" height="36" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/><text x="36" y="206" font-size="16" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">Condicionada</text><text x="220" y="206" font-size="16" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">P(A|B) = P(A∩B) / P(B)</text>
+    </svg></div><p class="caption">Esquema dibujado para Escolapedia. En el móvil, desliza a los lados.</p>
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/AjDK3NQZdPc" title="Diagrama de árbol de probabilidad, súper fácil" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: Diagrama de árbol de probabilidad, súper fácil · Daniel Carreón (YouTube) · 1,8 millones de visualizaciones</p>
+    </section>
+    <section class="sec" id="p3"><div class="sec-h"><span class="n">3</span><h2>Practica<small>Responde sin mirar arriba. Equivocarse aquí también enseña.</small></h2></div>
+      <div class="quiz" id="quiz"></div><p class="score" id="score" aria-live="polite"></p>
+      
+    </section>
+    <section class="sec" id="p4"><div class="sec-h"><span class="n">4</span><h2>Explícalo con tus palabras<small>Como si se lo contaras a alguien de un curso menor</small></h2></div>
+      <label for="feyn" class="caption">Escribe aquí tu explicación. Se guarda en este navegador.</label>
+      <textarea id="feyn" placeholder="Con mis palabras…"></textarea>
+      <div class="check"><span class="caption">¿Has nombrado estas ideas?</span><label><input type="checkbox" id="c0"> Cuándo se puede usar la regla de Laplace</label><label><input type="checkbox" id="c1"> Por qué se resta la intersección en la probabilidad de la unión</label><label><input type="checkbox" id="c2"> Cómo se usa un diagrama de árbol en un experimento sin devolución</label><label><input type="checkbox" id="c3"> Qué significa que dos sucesos sean independientes</label></div>
+    </section>
+    <section class="sec" id="p5"><div class="sec-h"><span class="n">5</span><h2>Resumen visual<small>Todo el tema en una pantalla</small></h2></div><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: PROBABILIDAD">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="225" y="122" width="250" height="56" rx="28" fill="var(--bac)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">PROBABILIDAD</text>
+      <rect x="10" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--pen)">Laplace</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">favorables / posibles</text><rect x="430" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--leaf)">Propiedades</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">contrario · unión</text><rect x="10" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--inf)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--inf)">Compuestos</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">árbol: × por ramas, + caminos</text><rect x="430" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--red)">Condicionada</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">P(A|B) · independencia</text>
+    </g></svg></div></section>
+    <section class="sec" id="p6"><div class="sec-h"><span class="n">6</span><h2>Tarjetas de repaso<small>Toca la tarjeta para darle la vuelta</small></h2></div>
+      <div class="cards">
+        <button class="flash" id="flash" type="button" aria-live="polite"><div class="in"><div class="face front"><small id="fc-count"></small><span id="fc-q"></span></div><div class="face back"><small>Respuesta</small><span id="fc-a"></span></div></div></button>
+        <div class="grade"><button type="button" data-g="0" disabled>No me acordaba</button><button type="button" data-g="1" disabled>Me costó</button><button type="button" data-g="2" disabled>¡Fácil!</button></div>
+        <p class="next" id="fc-next">Según cómo respondas, la tarjeta vuelve mañana, en 3, en 7 o en 21 días.</p>
+      </div>
+    </section>
+    <section class="sec who" aria-label="Familias y profesores">
+      <div class="box"><h3>Para familias</h3><ul><li>Haced la prueba de los cumpleaños con familiares y amigos (en grupos de 23 o más).</li><li>Calculad juntos la probabilidad de acertar una quiniela o un sorteo y hablad de por qué el juego no es buena inversión.</li><li>Repasad las tarjetas del paso 6 dos minutos al día.</li></ul></div>
+      <div class="box"><h3>Para profesores</h3><p style="margin:0 0 6px"><b>Saberes:</b> Sentido estocástico: probabilidad de Laplace, experimentos compuestos, diagramas de árbol, tablas de contingencia y probabilidad condicionada (RD 217/2022, Matemáticas B 4º).</p><ul><li>Simular 1.000 lanzamientos con hoja de cálculo y comparar frecuencia y probabilidad.</li><li>Tabla de contingencia con datos reales de la clase.</li><li>Debate sobre la falacia del jugador y la publicidad de apuestas.</li></ul></div>
+    </section>
+    <section class="sec"><h2 style="font-size:20px;margin-bottom:8px">Fuentes y revisión</h2>
+      <ul class="src"><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" target="_blank" rel="noopener">Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)</a></li><li><a href="https://es.wikipedia.org/wiki/Paradoja_del_cumplea%C3%B1os" target="_blank" rel="noopener">Paradoja del cumpleaños, Wikipedia en español</a></li></ul>
+      <p class="caption">Revisado el 12 de noviembre de 2026.</p>
+    </section>
+  </div>
+  <aside class="side">
+    <div class="box"><h3>Qué vas a aprender</h3><ul><li>Aplicar la regla de Laplace y las propiedades de la probabilidad</li><li>Calcular probabilidades de experimentos compuestos con diagramas de árbol y tablas de contingencia</li><li>Distinguir sucesos dependientes e independientes y usar la probabilidad condicionada</li></ul></div>
+    <div class="box"><h3>Palabras clave</h3>suceso · regla de Laplace · suceso contrario · diagrama de árbol · probabilidad condicionada · independencia</div>
+    <div class="box"><h3>Tiempo</h3>45 minutos hoy + 2 minutos en cada repaso</div>
+  </aside></div>
+</div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<script>window.BASE="../../../../";window.IDX="";</script>
+<script>window.TEMA={"id":"4-eso-matematicas-b-probabilidad","quiz":[{"q":"En una baraja española de 40 cartas, P(sacar un oro) =","o":["1/4","1/10","4/40"],"a":0,"e":"Hay 10 oros: 10/40 = 1/4."},{"q":"Si P(llueva) = 0,3, P(no llueva) =","o":["0,3","0,7","1,3"],"a":1,"e":"Suceso contrario: 1 − 0,3."},{"q":"P(dos seises al lanzar dos dados) =","o":["1/6","1/12","1/36"],"a":2,"e":"Independientes: 1/6 · 1/6."},{"q":"Una urna tiene 4 bolas blancas y 6 negras. Sacas dos sin devolver. P(dos blancas) =","o":["4/10 · 3/9 = 2/15","4/10 · 4/10","4/10 + 3/9"],"a":0,"e":"Sin devolución cambia la segunda: 4/10 · 3/9 = 12/90 = 2/15."},{"q":"Has sacado cruz 4 veces seguidas. La probabilidad de cara en la siguiente es…","o":["Mayor de 1/2","1/2","Menor de 1/2"],"a":1,"e":"Las tiradas son independientes."}],"tarjetas":[["Regla de Laplace","P(A) = casos favorables / casos posibles (si son equiprobables)."],["Probabilidad del suceso contrario","P(Ā) = 1 − P(A)"],["En un diagrama de árbol…","se multiplican las probabilidades de cada rama del camino y se suman los caminos."],["Probabilidad condicionada","P(A | B) = P(A ∩ B) / P(B)"],["Sucesos independientes","P(A ∩ B) = P(A) · P(B)"]]};</script>
+<script src="../../../../assets/app.js"></script>
+</body></html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Combinatoria · Matemáticas B 4º de ESO · Escolapedia</title>
+<meta name="description" content="Combinatoria: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. 4º de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../familias/">Familias</a>
+    <a href="../../../../profesores/">Profesores</a>
+  </nav>
+  <div class="lang" aria-label="Idioma"><a href="../../../../" aria-current="page" lang="es">ES</a><a href="../../../../ca/" lang="ca">CA</a></div>
+</div></header>
+<main><div class="wrap">
+  <div class="crumbs"><a href="../../../../">Inicio</a> › <a href="../../../">ESO</a> › <a href="../../">4º</a> › <a href="../">Matemáticas B</a> › Tema 13</div>
+  <div class="topic-head">
+    <div><span class="badge" style="background:#7b3fc4">4º de ESO · Matemáticas B</span><h1>Combinatoria</h1>
+      <div class="tools"><button type="button" id="t-proj" aria-pressed="false">Modo proyector</button><a class="toolbtn" href="ficha/">Ficha para imprimir</a></div></div>
+    <nav class="steps" aria-label="Pasos del tema"><a href="#p1" data-go="p1">1</a><a href="#p2" data-go="p2">2</a><a href="#p3" data-go="p3">3</a><a href="#p4" data-go="p4">4</a><a href="#p5" data-go="p5">5</a><a href="#p6" data-go="p6">6</a></nav>
+  </div>
+  <div class="layout"><div>
+    <section class="sec" id="p1"><div class="sec-h"><span class="n">1</span><h2>Pregunta de arranque<small>Piensa 30 segundos antes de seguir</small></h2></div>
+      <p class="question">Un candado tiene 4 ruedas con las cifras del 0 al 9. ¿Cuántas combinaciones tendría que probar un ladrón, como mucho, para abrirlo?</p>
+      <div class="reveal"><p style="margin:0">Escribe o di en voz alta tu respuesta. Después <button type="button" id="rv">mira la solución</button>.</p><p id="rv-text" hidden style="margin:10px 0 0">En cada rueda hay 10 opciones y se pueden repetir: 10 · 10 · 10 · 10 = <mark>10.000</mark>. Curiosamente, en matemáticas esto no es una «combinación» sino una <b>variación con repetición</b>, porque el orden importa: 1234 no abre lo mismo que 4321.</p></div>
+    </section>
+    <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>5 bloques cortos</small></h2></div>
+      <div class="chunk"><div><h3>El principio de multiplicación</h3><p>Si una elección se hace en varias etapas, el número total de posibilidades es el <mark>producto</mark> de las opciones de cada etapa. Con 3 camisetas y 2 pantalones puedes vestirte de 3 · 2 = 6 formas. El <b>diagrama de árbol</b> permite verlo.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de árbol: tres camisetas, cada una con dos pantalones, dan seis conjuntos">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <circle cx="24" cy="90" r="6" fill="var(--ink)"/>
+        <path d="M24 90 L 100 34" stroke="var(--muted)" stroke-width="2"/><rect x="92" y="24" width="20" height="20" rx="4" fill="var(--red)"/>
+          <path d="M112 34 L 180 20" stroke="var(--muted)" stroke-width="2"/><rect x="182" y="12" width="12" height="16" rx="2" fill="var(--ink)"/><path d="M112 34 L 180 48" stroke="var(--muted)" stroke-width="2"/><rect x="182" y="40" width="12" height="16" rx="2" fill="var(--inf)"/><path d="M24 90 L 100 90" stroke="var(--muted)" stroke-width="2"/><rect x="92" y="80" width="20" height="20" rx="4" fill="var(--pen)"/>
+          <path d="M112 90 L 180 76" stroke="var(--muted)" stroke-width="2"/><rect x="182" y="68" width="12" height="16" rx="2" fill="var(--ink)"/><path d="M112 90 L 180 104" stroke="var(--muted)" stroke-width="2"/><rect x="182" y="96" width="12" height="16" rx="2" fill="var(--inf)"/><path d="M24 90 L 100 146" stroke="var(--muted)" stroke-width="2"/><rect x="92" y="136" width="20" height="20" rx="4" fill="var(--leaf)"/>
+          <path d="M112 146 L 180 132" stroke="var(--muted)" stroke-width="2"/><rect x="182" y="124" width="12" height="16" rx="2" fill="var(--ink)"/><path d="M112 146 L 180 160" stroke="var(--muted)" stroke-width="2"/><rect x="182" y="152" width="12" height="16" rx="2" fill="var(--inf)"/>
+        <text x="226" y="94" text-anchor="middle" font-size="18" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">3·2</text><text x="226" y="116" text-anchor="middle" font-size="18" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">= 6</text></svg></div><div class="chunk"><div><h3>El factorial</h3><p>El <b>factorial</b> de n, n!, es el producto de todos los números de n hasta 1: <mark>5! = 5 · 4 · 3 · 2 · 1 = 120</mark>. Por convenio, 0! = 1. Crece muy deprisa: 10! ya es más de 3,6 millones.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Barras con los factoriales de 1 a 5: 1, 2, 6, 24 y 120, que crecen muy rápido">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/><path d="M20 150 H 246" stroke="var(--muted)" stroke-width="2"/>
+        <rect x="30" y="149" width="30" height="2" rx="4" fill="var(--pen)"/><text x="45" y="143" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">1</text><text x="45" y="168" text-anchor="middle" font-size="12" font-weight="700" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">1!</text><rect x="74" y="148" width="30" height="2" rx="4" fill="var(--pen)"/><text x="89" y="142" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">2</text><text x="89" y="168" text-anchor="middle" font-size="12" font-weight="700" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">2!</text><rect x="118" y="144" width="30" height="6" rx="4" fill="var(--pen)"/><text x="133" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">6</text><text x="133" y="168" text-anchor="middle" font-size="12" font-weight="700" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">3!</text><rect x="162" y="126" width="30" height="24" rx="4" fill="var(--pen)"/><text x="177" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">24</text><text x="177" y="168" text-anchor="middle" font-size="12" font-weight="700" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">4!</text><rect x="206" y="30" width="30" height="120" rx="4" fill="var(--pen)"/><text x="221" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">120</text><text x="221" y="168" text-anchor="middle" font-size="12" font-weight="700" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">5!</text></svg></div><div class="chunk"><div><h3>Variaciones y permutaciones: el orden importa</h3><p>Las <b>variaciones</b> V(m, n) cuentan cuántas filas ordenadas de n elementos puedes formar con m: <mark>V(m, n) = m · (m − 1) · … (n factores)</mark>. Si usas todos los elementos (n = m) son <b>permutaciones</b>: Pₘ = m!. Si se pueden repetir, son variaciones con repetición: mⁿ.</p>
+      <div class="formula"><span>Podio de 8 corredores: V(8, 3) = 8 · 7 · 6 = 336</span></div></div><svg viewBox="0 0 260 180" role="img" aria-label="Podio con 8 opciones para oro, 7 para plata y 6 para bronce: 336 podios posibles">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="100" y="70" width="60" height="90" fill="var(--hl)"/><rect x="40" y="100" width="60" height="60" fill="var(--line)"/><rect x="160" y="120" width="60" height="40" fill="var(--inf)" fill-opacity=".5"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" text-anchor="middle"><text x="130" y="110" font-size="22" fill="var(--hl-ink)">8</text><text x="70" y="136" font-size="20" fill="var(--ink)">7</text><text x="190" y="146" font-size="18" fill="var(--ink)">6</text>
+        <text x="130" y="40" font-size="16" fill="var(--red)">8 · 7 · 6 = 336</text></g></svg></div><div class="chunk"><div><h3>Combinaciones: el orden no importa</h3><p>Las <b>combinaciones</b> C(m, n) cuentan <mark>grupos</mark> de n elementos elegidos entre m, sin importar el orden. Se calculan con el número combinatorio:</p><div class="formula"><span>C(m, n) = (m sobre n) = m! / (n! · (m − n)!)</span></div><p>Elegir 2 delegados entre 5: C(5, 2) = 10 parejas (Ana-Luis es la misma pareja que Luis-Ana).</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Con 5 personas se forman 10 parejas distintas si el orden no importa; si importara, serían 20">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M80.0 38.0 L 129.5 73.9" stroke="var(--leaf)" stroke-width="2"/><path d="M80.0 38.0 L 110.6 132.1" stroke="var(--leaf)" stroke-width="2"/><path d="M80.0 38.0 L 49.4 132.1" stroke="var(--leaf)" stroke-width="2"/><path d="M80.0 38.0 L 30.5 73.9" stroke="var(--leaf)" stroke-width="2"/><circle cx="80.0" cy="38.0" r="10" fill="var(--pen)"/><text x="80.0" y="42.0" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">A</text><path d="M129.5 73.9 L 110.6 132.1" stroke="var(--leaf)" stroke-width="2"/><path d="M129.5 73.9 L 49.4 132.1" stroke="var(--leaf)" stroke-width="2"/><path d="M129.5 73.9 L 30.5 73.9" stroke="var(--leaf)" stroke-width="2"/><circle cx="129.5" cy="73.9" r="10" fill="var(--pen)"/><text x="129.5" y="77.9" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">B</text><path d="M110.6 132.1 L 49.4 132.1" stroke="var(--leaf)" stroke-width="2"/><path d="M110.6 132.1 L 30.5 73.9" stroke="var(--leaf)" stroke-width="2"/><circle cx="110.6" cy="132.1" r="10" fill="var(--pen)"/><text x="110.6" y="136.1" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">C</text><path d="M49.4 132.1 L 30.5 73.9" stroke="var(--leaf)" stroke-width="2"/><circle cx="49.4" cy="132.1" r="10" fill="var(--pen)"/><text x="49.4" y="136.1" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">D</text><circle cx="30.5" cy="73.9" r="10" fill="var(--pen)"/><text x="30.5" y="77.9" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">E</text>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-weight="700"><text x="150" y="80" font-size="15" fill="var(--leaf)">10 líneas</text><text x="150" y="100" font-size="13" fill="var(--ink)">= 10 parejas</text><text x="150" y="130" font-size="12" fill="var(--muted)">C(5, 2) = 10</text></g></svg></div><div class="chunk"><div><h3>¿Qué fórmula uso?</h3><p>Hazte tres preguntas: <mark>¿entran todos los elementos?</mark> (permutación), <mark>¿importa el orden?</mark> (variación) o no (combinación), y <mark>¿se pueden repetir?</mark>. Ejemplos: un número de teléfono (variación con repetición), ordenar libros en una estantería (permutación), una mano de cartas (combinación).</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de decisión: si entran todos es permutación; si no, si importa el orden es variación y si no, combinación">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="70" y="14" width="120" height="32" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><text x="130" y="35" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">¿entran todos?</text>
+        <path d="M100 46 L 54 70 M160 46 L 196 70" stroke="var(--muted)" stroke-width="2"/>
+        <rect x="10" y="72" width="88" height="30" rx="10" fill="var(--inf)"/><text x="54" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">sí → P = m!</text>
+        <rect x="140" y="72" width="112" height="30" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><text x="196" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">¿importa orden?</text>
+        <path d="M170 102 L 140 128 M222 102 L 226 128" stroke="var(--muted)" stroke-width="2"/>
+        <rect x="88" y="130" width="96" height="30" rx="10" fill="var(--pen)"/><text x="136" y="150" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">sí → variación</text>
+        <rect x="188" y="130" width="64" height="30" rx="10" fill="var(--leaf)"/><text x="220" y="150" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">no → C</text></svg></div>
+      
+      <h3 style="font-size:21px;margin-top:10px">Las fórmulas de contar, con un ejemplo cada una</h3>
+      <div class="figure"><svg viewBox="0 0 640 230" role="img" aria-label="Tabla con permutaciones, variaciones, variaciones con repetición y combinaciones, su fórmula y un ejemplo">
+      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
+      <rect x="20" y="18" width="600" height="42" rx="10" fill="var(--card)" stroke="var(--inf)" stroke-width="2.5"/>
+        <text x="36" y="45" font-size="16" font-weight="700" fill="var(--inf)" font-family="Baloo 2, sans-serif">Permutaciones</text><text x="222" y="45" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Pₘ = m!</text><text x="440" y="45" font-size="14" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">ordenar 6 libros: 720</text><rect x="20" y="68" width="600" height="42" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+        <text x="36" y="95" font-size="16" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">Variaciones</text><text x="222" y="95" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">V(m, n) = m!/(m − n)!</text><text x="440" y="95" font-size="14" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">podio de 8: 336</text><rect x="20" y="118" width="600" height="42" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
+        <text x="36" y="145" font-size="16" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">Var. con repetición</text><text x="222" y="145" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">VR(m, n) = mⁿ</text><text x="440" y="145" font-size="14" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">candado de 4 cifras: 10.000</text><rect x="20" y="168" width="600" height="42" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.5"/>
+        <text x="36" y="195" font-size="16" font-weight="700" fill="var(--leaf)" font-family="Baloo 2, sans-serif">Combinaciones</text><text x="222" y="195" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">C(m, n) = m!/(n!(m − n)!)</text><text x="440" y="195" font-size="14" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">2 delegados de 5: 10</text>
+    </svg></div><p class="caption">Esquema dibujado para Escolapedia. En el móvil, desliza a los lados.</p>
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/h4IfRXoVcpo" title="Combinaciones, permutaciones y variaciones" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: Combinaciones, permutaciones y variaciones · Matemáticas profe Alex (YouTube) · 1,7 millones de visualizaciones · 50 mil «me gusta»</p>
+    </section>
+    <section class="sec" id="p3"><div class="sec-h"><span class="n">3</span><h2>Practica<small>Responde sin mirar arriba. Equivocarse aquí también enseña.</small></h2></div>
+      <div class="quiz" id="quiz"></div><p class="score" id="score" aria-live="polite"></p>
+      
+    </section>
+    <section class="sec" id="p4"><div class="sec-h"><span class="n">4</span><h2>Explícalo con tus palabras<small>Como si se lo contaras a alguien de un curso menor</small></h2></div>
+      <label for="feyn" class="caption">Escribe aquí tu explicación. Se guarda en este navegador.</label>
+      <textarea id="feyn" placeholder="Con mis palabras…"></textarea>
+      <div class="check"><span class="caption">¿Has nombrado estas ideas?</span><label><input type="checkbox" id="c0"> Qué dice el principio de multiplicación con un ejemplo de ropa</label><label><input type="checkbox" id="c1"> Qué es el factorial y por qué 0! = 1 por convenio</label><label><input type="checkbox" id="c2"> Qué diferencia hay entre una variación y una combinación</label><label><input type="checkbox" id="c3"> Cómo decido qué fórmula usar</label></div>
+    </section>
+    <section class="sec" id="p5"><div class="sec-h"><span class="n">5</span><h2>Resumen visual<small>Todo el tema en una pantalla</small></h2></div><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: COMBINATORIA">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="225" y="122" width="250" height="56" rx="28" fill="var(--bac)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">COMBINATORIA</text>
+      <rect x="5" y="34" width="270" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--ink)">Contar</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">árbol · producto de opciones</text><rect x="425" y="34" width="270" height="56" rx="10" fill="var(--card)" stroke="var(--inf)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--inf)">Permutaciones</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">todos · Pₘ = m!</text><rect x="5" y="214" width="270" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--pen)">Variaciones</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">orden importa · mⁿ si se repite</text><rect x="425" y="214" width="270" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--leaf)">Combinaciones</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">orden no importa · C(m, n)</text>
+    </g></svg></div></section>
+    <section class="sec" id="p6"><div class="sec-h"><span class="n">6</span><h2>Tarjetas de repaso<small>Toca la tarjeta para darle la vuelta</small></h2></div>
+      <div class="cards">
+        <button class="flash" id="flash" type="button" aria-live="polite"><div class="in"><div class="face front"><small id="fc-count"></small><span id="fc-q"></span></div><div class="face back"><small>Respuesta</small><span id="fc-a"></span></div></div></button>
+        <div class="grade"><button type="button" data-g="0" disabled>No me acordaba</button><button type="button" data-g="1" disabled>Me costó</button><button type="button" data-g="2" disabled>¡Fácil!</button></div>
+        <p class="next" id="fc-next">Según cómo respondas, la tarjeta vuelve mañana, en 3, en 7 o en 21 días.</p>
+      </div>
+    </section>
+    <section class="sec who" aria-label="Familias y profesores">
+      <div class="box"><h3>Para familias</h3><ul><li>Contad juntos de cuántas formas podéis sentaros a la mesa los de casa.</li><li>Preguntadle cuántas apuestas distintas hay en una quiniela o una primitiva y por qué es tan difícil ganar.</li><li>Repasad las tarjetas del paso 6 dos minutos al día.</li></ul></div>
+      <div class="box"><h3>Para profesores</h3><p style="margin:0 0 6px"><b>Saberes:</b> Sentido estocástico: técnicas de recuento, diagramas de árbol, variaciones, permutaciones y combinaciones (RD 217/2022, Matemáticas B 4º).</p><ul><li>Contar a mano todas las parejas de un grupo pequeño y descubrir la fórmula.</li><li>Calcular la probabilidad de acertar la lotería primitiva con números combinatorios.</li><li>Construir el triángulo de Pascal y relacionarlo con C(m, n).</li></ul></div>
+    </section>
+    <section class="sec"><h2 style="font-size:20px;margin-bottom:8px">Fuentes y revisión</h2>
+      <ul class="src"><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" target="_blank" rel="noopener">Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)</a></li><li><a href="https://es.wikipedia.org/wiki/Combinatoria" target="_blank" rel="noopener">Combinatoria, Wikipedia en español</a></li></ul>
+      <p class="caption">Revisado el 12 de noviembre de 2026.</p>
+    </section>
+  </div>
+  <aside class="side">
+    <div class="box"><h3>Qué vas a aprender</h3><ul><li>Contar posibilidades con diagramas de árbol y el principio de multiplicación</li><li>Distinguir variaciones, permutaciones y combinaciones</li><li>Calcular factoriales y números combinatorios y aplicarlos a problemas</li></ul></div>
+    <div class="box"><h3>Palabras clave</h3>diagrama de árbol · factorial · variación · permutación · combinación · orden</div>
+    <div class="box"><h3>Tiempo</h3>40 minutos hoy + 2 minutos en cada repaso</div>
+  </aside></div>
+</div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<script>window.BASE="../../../../";window.IDX="";</script>
+<script>window.TEMA={"id":"4-eso-matematicas-b-combinatoria","quiz":[{"q":"¿Cuánto vale 4!?","o":["16","24","10"],"a":1,"e":"4 · 3 · 2 · 1 = 24."},{"q":"¿De cuántas formas se pueden sentar 5 amigos en 5 sillas en fila?","o":["25","120","10"],"a":1,"e":"Permutaciones de 5: 5! = 120."},{"q":"¿Cuántas matrículas de 3 letras (de 26) se pueden formar si se pueden repetir?","o":["26³ = 17.576","26 · 25 · 24","C(26, 3)"],"a":0,"e":"Importa el orden y se repiten: 26³."},{"q":"¿Cuántos equipos de 3 se pueden elegir entre 6 personas?","o":["120","20","18"],"a":1,"e":"No importa el orden: C(6, 3) = 720 / (6 · 6) = 20."},{"q":"Elegir presidente y secretario entre 10 personas es…","o":["Combinación","Variación","Permutación"],"a":1,"e":"Importa el orden (cargos distintos) y no entran todos: V(10, 2) = 90."}],"tarjetas":[["n! =","n · (n − 1) · … · 2 · 1; y 0! = 1."],["¿Cuándo es permutación?","Cuando se ordenan todos los elementos: m!."],["¿Cuándo es combinación?","Cuando se eligen grupos y el orden no importa."],["Fórmula de C(m, n)","m! / (n! · (m − n)!)"],["Candado de 4 ruedas del 0 al 9","Variación con repetición: 10⁴ = 10.000."]]};</script>
+<script src="../../../../assets/app.js"></script>
+</body></html>

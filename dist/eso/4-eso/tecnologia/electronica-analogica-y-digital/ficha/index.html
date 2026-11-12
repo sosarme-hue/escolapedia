@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ficha: Electrónica analógica y digital · Escolapedia</title>
+<meta name="description" content="Ficha imprimible de Electrónica analógica y digital, 4º de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../../familias/">Familias</a>
+    <a href="../../../../../profesores/">Profesores</a>
+  </nav>
+  <div class="lang" aria-label="Idioma"><a href="../../../../../" aria-current="page" lang="es">ES</a><a href="../../../../../ca/" lang="ca">CA</a></div>
+</div></header>
+<main class="ficha"><div class="wrap">
+  <div class="crumbs noprint"><a href="../">← Volver al tema</a></div>
+  <div class="ficha-tools noprint"><a class="dl" href="ficha.pdf" download>Descargar PDF</a><button type="button" id="t-print">Imprimir</button><span class="caption">También puedes usar Ctrl + P (Cmd + P en Mac).</span></div>
+  <header class="ficha-h"><div><span class="badge" style="background:#475569">4º de ESO · Tecnología · Tema 2</span><h1>Electrónica analógica y digital</h1></div>
+    <div class="ficha-name">Nombre: ______________________ &nbsp; Fecha: ___________</div></header>
+  <section><h2>Qué vas a aprender</h2><ul><li>Reconocer los componentes electrónicos básicos y su símbolo</li><li>Calcular circuitos sencillos con la ley de Ohm</li><li>Diferenciar señales analógicas y digitales y usar puertas lógicas</li></ul></section>
+  <section><h2>Para pensar</h2><p class="question">Un móvil tiene más de 10 000 millones de transistores. ¿Qué hace un componente tan pequeño para que haga falta tantos?</p><div class="lines"></div></section>
+  <section><h2>Explicación</h2><div class="chunk"><div><h3>Magnitudes y ley de Ohm</h3><p>En un circuito, la <b>tensión</b> o voltaje (V, en voltios) es el «empuje» que da la pila; la <b>intensidad</b> (I, en amperios) es la cantidad de corriente que circula; y la <b>resistencia</b> (R, en ohmios, Ω) es la oposición al paso de la corriente. Se relacionan con la <mark>ley de Ohm</mark>:</p>
+      <div class="formula"><span>V = I · R</span></div>
+      <p>Con una pila de 9 V y una resistencia de 450 Ω circulan I = 9 / 450 = <b>0,02 A = 20 mA</b>.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Triángulo de la ley de Ohm con V arriba e I por R abajo">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M130 24 L 214 152 H 46 Z" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/><path d="M84 100 H 176 M130 100 V 152" stroke="var(--pen)" stroke-width="2.5"/>
+        <g font-family="Baloo 2, sans-serif" font-weight="700" text-anchor="middle"><text x="130" y="84" font-size="28" fill="var(--red)">V</text><text x="100" y="138" font-size="26" fill="var(--leaf)">I</text><text x="160" y="138" font-size="26" fill="var(--sun)">R</text></g>
+        <text x="130" y="172" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">tapa la que buscas</text>
+      </svg></div><div class="chunk"><div><h3>Componentes pasivos</h3><p>Las <b>resistencias</b> limitan la corriente; su valor se lee con un <b>código de colores</b>. Hay resistencias variables: el <b>potenciómetro</b> (se gira a mano), la <b>LDR</b> (cambia con la luz) y el <b>termistor</b> (cambia con la temperatura). Los <b>condensadores</b> <mark>almacenan carga</mark> y la sueltan después, útiles para temporizar. Se pueden conectar en <b>serie</b> (se suman: R = R₁ + R₂) o en <b>paralelo</b>.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Símbolos de resistencia, potenciómetro, LDR y condensador">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <g stroke="var(--ink)" stroke-width="2.5" fill="none">
+          <path d="M20 50 H 44 M84 50 H 108"/><rect x="44" y="40" width="40" height="20" fill="var(--card)"/>
+          <path d="M150 50 H 174 M214 50 H 238"/><rect x="174" y="40" width="40" height="20" fill="var(--card)"/><path d="M180 70 L 210 28"/><path d="M204 28 H 210 V 34"/>
+          <path d="M20 128 H 44 M84 128 H 108"/><rect x="44" y="118" width="40" height="20" fill="var(--card)"/><circle cx="64" cy="128" r="22"/><path d="M40 96 L 50 106 M50 92 L 60 102" stroke="var(--sun)"/>
+          <path d="M150 128 H 190 M198 128 H 238 M190 112 V 144 M198 112 V 144" stroke-width="3"/>
+        </g>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="var(--ink)"><text x="64" y="80">resistencia</text><text x="194" y="84">potenciómetro</text><text x="64" y="168">LDR</text><text x="194" y="168">condensador</text></g>
+      </svg></div><div class="chunk"><div><h3>Diodos y transistores</h3><p>El <b>diodo</b> solo deja pasar la corriente <mark>en un sentido</mark>, como una válvula. El <b>LED</b> es un diodo que emite luz: necesita una resistencia en serie para no quemarse. El <b>transistor</b> tiene tres patas: base, colector y emisor. Una corriente pequeña en la base controla una corriente grande entre colector y emisor: funciona como <mark>amplificador</mark> o como <mark>interruptor</mark>. Con él, un sensor débil puede encender un motor.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Símbolo del diodo LED con flechas de luz y símbolo del transistor con base, colector y emisor">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <g stroke="var(--ink)" stroke-width="2.5" fill="none"><path d="M14 90 H 50 M80 90 H 110"/><path d="M50 72 V 108 L 80 90 Z" fill="var(--red)" fill-opacity=".3"/><path d="M80 72 V 108"/><path d="M70 64 L 84 50 M80 68 L 94 54" stroke="var(--red)"/></g>
+        <g stroke="var(--ink)" stroke-width="2.5" fill="none"><circle cx="190" cy="90" r="34"/><path d="M150 90 H 180 M180 70 V 110 M180 80 L 206 62 V 40 M180 100 L 206 118 V 140"/><path d="M196 112 L 206 118 L 200 108" fill="var(--ink)"/></g>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11" font-weight="700"><text x="44" y="134" fill="var(--red)">LED</text><text x="144" y="84" fill="var(--ink)">B</text><text x="212" y="44" fill="var(--ink)">C</text><text x="212" y="142" fill="var(--ink)">E</text><text x="166" y="170" fill="var(--pen)">transistor NPN</text></g>
+      </svg></div><div class="chunk"><div><h3>Señales analógicas y digitales</h3><p>Una señal <b>analógica</b> puede tomar <mark>infinitos valores</mark> de forma continua, como la temperatura o el volumen de un vinilo. Una señal <b>digital</b> solo toma <mark>dos valores</mark>: 0 (apagado, 0 V) y 1 (encendido, 5 V). Las señales digitales son más fáciles de guardar, copiar y transmitir sin errores. Un <b>conversor</b> transforma una en otra: el micrófono del móvil capta sonido analógico y lo digitaliza.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Señal analógica ondulada continua y señal digital cuadrada de ceros y unos">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M14 60 L 14 60.0 L 16 57.4 L 18 54.8 L 20 52.3 L 22 49.9 L 24 47.6 L 26 45.5 L 28 43.7 L 30 42.0 L 32 40.7 L 34 39.6 L 36 38.8 L 38 38.2 L 40 38.0 L 42 38.1 L 44 38.5 L 46 39.1 L 48 40.0 L 50 41.1 L 52 42.5 L 54 44.0 L 56 45.7 L 58 47.5 L 60 49.4 L 62 51.3 L 64 53.3 L 66 55.3 L 68 57.2 L 70 59.0 L 72 60.7 L 74 62.4 L 76 63.8 L 78 65.1 L 80 66.2 L 82 67.1 L 84 67.8 L 86 68.3 L 88 68.5 L 90 68.6 L 92 68.5 L 94 68.3 L 96 67.9 L 98 67.3 L 100 66.6 L 102 65.9 L 104 65.1 L 106 64.3 L 108 63.4 L 110 62.6 L 112 61.9 L 114 61.2 L 116 60.6 L 118 60.1 L 120 59.8 L 122 59.6 L 124 59.6 L 126 59.7 L 128 60.0 L 130 60.4 L 132 61.0 L 134 61.7 L 136 62.5 L 138 63.5 L 140 64.5 L 142 65.6 L 144 66.8 L 146 67.9 L 148 69.0 L 150 70.1 L 152 71.1 L 154 72.0 L 156 72.7 L 158 73.3 L 160 73.7 L 162 73.9 L 164 73.9 L 166 73.7 L 168 73.2 L 170 72.5 L 172 71.5 L 174 70.4 L 176 68.9 L 178 67.3 L 180 65.5 L 182 63.6 L 184 61.5 L 186 59.3 L 188 57.0 L 190 54.7 L 192 52.4 L 194 50.1 L 196 47.8 L 198 45.7 L 200 43.8 L 202 42.0 L 204 40.4 L 206 39.0 L 208 37.9 L 210 37.0 L 212 36.5 L 214 36.2 L 216 36.3 L 218 36.7 L 220 37.4 L 222 38.3 L 224 39.6 L 226 41.1 L 228 42.9 L 230 44.9 L 232 47.0 L 234 49.3 L 236 51.8 L 238 54.3 L 240 56.8 L 242 59.4 L 244 61.9" fill="none" stroke="var(--pen)" stroke-width="3"/>
+        <path d="M14 150 H 44 V 116 H 84 V 150 H 104 V 116 H 164 V 150 H 194 V 116 H 246" fill="none" stroke="var(--red)" stroke-width="3"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11" font-weight="700"><text x="14" y="100" fill="var(--pen)">analógica: valores continuos</text><text x="14" y="172" fill="var(--red)">digital: solo 0 y 1</text></g>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="10" fill="var(--muted)"><text x="24" y="146">0</text><text x="60" y="112">1</text><text x="90" y="146">0</text><text x="130" y="112">1</text></g>
+      </svg></div><div class="chunk"><div><h3>Puertas lógicas</h3><p>Los circuitos digitales usan el <b>álgebra de Boole</b> y se construyen con <b>puertas lógicas</b>. La puerta <b>NOT</b> invierte: si entra 1, sale 0. La <b>AND</b> (Y) da 1 solo si <mark>todas</mark> las entradas son 1, como dos interruptores en serie. La <b>OR</b> (O) da 1 si <mark>alguna</mark> entrada es 1, como dos interruptores en paralelo. Su comportamiento se resume en una <b>tabla de verdad</b>.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Tablas de verdad de las puertas AND y OR">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <text x="70" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">AND</text>
+  <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11" text-anchor="middle"><text x="44" y="48" fill="var(--muted)">A</text><text x="70" y="48" fill="var(--muted)">B</text><text x="96" y="48" font-weight="700" fill="var(--pen)">S</text>
+  <text x="44" y="64" fill="var(--ink)">0</text><text x="70" y="64" fill="var(--ink)">0</text><text x="96" y="64" font-weight="700" fill="var(--pen)">0</text><text x="44" y="79" fill="var(--ink)">0</text><text x="70" y="79" fill="var(--ink)">1</text><text x="96" y="79" font-weight="700" fill="var(--pen)">0</text><text x="44" y="94" fill="var(--ink)">1</text><text x="70" y="94" fill="var(--ink)">0</text><text x="96" y="94" font-weight="700" fill="var(--pen)">0</text><text x="44" y="109" fill="var(--ink)">1</text><text x="70" y="109" fill="var(--ink)">1</text><text x="96" y="109" font-weight="700" fill="var(--pen)">1</text></g>
+        <text x="190" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">OR</text>
+  <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11" text-anchor="middle"><text x="164" y="48" fill="var(--muted)">A</text><text x="190" y="48" fill="var(--muted)">B</text><text x="216" y="48" font-weight="700" fill="var(--leaf)">S</text>
+  <text x="164" y="64" fill="var(--ink)">0</text><text x="190" y="64" fill="var(--ink)">0</text><text x="216" y="64" font-weight="700" fill="var(--leaf)">0</text><text x="164" y="79" fill="var(--ink)">0</text><text x="190" y="79" fill="var(--ink)">1</text><text x="216" y="79" font-weight="700" fill="var(--leaf)">1</text><text x="164" y="94" fill="var(--ink)">1</text><text x="190" y="94" fill="var(--ink)">0</text><text x="216" y="94" font-weight="700" fill="var(--leaf)">1</text><text x="164" y="109" fill="var(--ink)">1</text><text x="190" y="109" fill="var(--ink)">1</text><text x="216" y="109" font-weight="700" fill="var(--leaf)">1</text></g>
+        <text x="130" y="160" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">AND = serie · OR = paralelo</text>
+      </svg></div></section>
+  <section><h2>Componentes básicos y su función</h2><div class="figure"><svg viewBox="0 0 640 220" role="img" aria-label="Resistencia, condensador, diodo LED y transistor con su función">
+      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
+      <rect x="16" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--sun)" stroke-width="3"/>
+          <text x="89" y="62" text-anchor="middle" font-size="17" font-weight="700" fill="var(--sun)" font-family="Baloo 2, sans-serif">Resistencia</text>
+          <text x="89" y="108" text-anchor="middle" font-size="24" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Ω</text>
+          <text x="89" y="146" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">limita la</text>
+          <text x="89" y="166" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">corriente</text><rect x="170" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--inf)" stroke-width="3"/>
+          <text x="243" y="62" text-anchor="middle" font-size="17" font-weight="700" fill="var(--inf)" font-family="Baloo 2, sans-serif">Condensador</text>
+          <text x="243" y="108" text-anchor="middle" font-size="24" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">µF</text>
+          <text x="243" y="146" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">almacena carga</text>
+          <text x="243" y="166" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">y temporiza</text><rect x="324" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
+          <text x="397" y="62" text-anchor="middle" font-size="17" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">Diodo / LED</text>
+          <text x="397" y="108" text-anchor="middle" font-size="24" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">→|</text>
+          <text x="397" y="146" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">paso en un</text>
+          <text x="397" y="166" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">solo sentido · luz</text><rect x="478" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/>
+          <text x="551" y="62" text-anchor="middle" font-size="17" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">Transistor</text>
+          <text x="551" y="108" text-anchor="middle" font-size="24" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">B C E</text>
+          <text x="551" y="146" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">amplifica o</text>
+          <text x="551" y="166" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">conmuta</text>
+    </svg></div></section>
+  
+  <section class="brk"><h2>Practica</h2><ol class="fq"><li><p>Una pila de 6 V alimenta una resistencia de 300 Ω. ¿Qué intensidad circula?</p><ol class="abc"><li><span>A)</span> 0,02 A</li><li><span>B)</span> 1 800 A</li><li><span>C)</span> 50 A</li></ol></li><li><p>¿Qué componente cambia su resistencia con la luz?</p><ol class="abc"><li><span>A)</span> El termistor</li><li><span>B)</span> La LDR</li><li><span>C)</span> El condensador</li></ol></li><li><p>¿Por qué un LED necesita una resistencia en serie?</p><ol class="abc"><li><span>A)</span> Para que brille de colores</li><li><span>B)</span> Para limitar la corriente y que no se queme</li><li><span>C)</span> Para que funcione al revés</li></ol></li><li><p>Una señal que solo toma los valores 0 y 1 es…</p><ol class="abc"><li><span>A)</span> analógica</li><li><span>B)</span> digital</li><li><span>C)</span> alterna</li></ol></li><li><p>La puerta AND da 1 cuando…</p><ol class="abc"><li><span>A)</span> alguna entrada es 1</li><li><span>B)</span> todas las entradas son 1</li><li><span>C)</span> todas las entradas son 0</li></ol></li></ol></section>
+  <section><h2>Explícalo con tus palabras</h2><p class="caption">Incluye: Qué son tensión, intensidad y resistencia y cómo las une la ley de Ohm; Para qué sirven la LDR y el condensador; Cómo funciona un transistor como interruptor; La diferencia entre señal analógica y digital; Las tablas de verdad de AND, OR y NOT.</p><div class="lines tall"></div></section>
+  <section><h2>Resumen</h2><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: ELECTRÓNICA">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="225" y="122" width="250" height="56" rx="28" fill="var(--eso)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">ELECTRÓNICA</text>
+      <rect x="15" y="34" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--red)">Ley de Ohm</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">V = I · R</text><rect x="435" y="34" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--sun)">Pasivos</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">resistencias · condensadores</text><rect x="15" y="214" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--pen)">Activos</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">diodo · LED · transistor</text><rect x="435" y="214" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--leaf)">Digital</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">0 y 1 · AND · OR · NOT</text>
+    </g></svg></div></section>
+  <section><h2>Tarjetas de repaso</h2><p class="caption">Recórtalas: pregunta delante, respuesta detrás.</p><div class="cut"><div><b>Ley de Ohm</b><span>V = I · R (voltios = amperios · ohmios).</span></div><div><b>¿Qué es un diodo?</b><span>Un componente que solo deja pasar la corriente en un sentido.</span></div><div><b>Patas de un transistor</b><span>Base, colector y emisor.</span></div><div><b>Diferencia entre señal analógica y digital</b><span>La analógica toma valores continuos; la digital solo dos (0 y 1).</span></div><div><b>Tabla de la puerta OR</b><span>Da 1 si al menos una entrada es 1; solo da 0 si todas son 0.</span></div></div></section>
+  <section class="sol"><h2>Soluciones</h2><ol><li><b>A)</b> I = V / R = 6 / 300 = 0,02 A (20 mA).</li><li><b>B)</b> LDR: Light Dependent Resistor.</li><li><b>B)</b> Sin resistencia pasaría demasiada corriente.</li><li><b>B)</b> Digital: dos estados, encendido y apagado.</li><li><b>B)</b> Equivale a interruptores en serie: deben estar todos cerrados.</li></ol></section>
+  
+  </div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<script>window.BASE="../../../../../";window.IDX="";</script>
+<script>document.getElementById("t-print").addEventListener("click",()=>window.print());</script>
+<script src="../../../../../assets/app.js"></script>
+</body></html>

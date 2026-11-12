@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trigonometría · Matemáticas B 4º de ESO · Escolapedia</title>
+<meta name="description" content="Trigonometría: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. 4º de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../familias/">Familias</a>
+    <a href="../../../../profesores/">Profesores</a>
+  </nav>
+  <div class="lang" aria-label="Idioma"><a href="../../../../" aria-current="page" lang="es">ES</a><a href="../../../../ca/" lang="ca">CA</a></div>
+</div></header>
+<main><div class="wrap">
+  <div class="crumbs"><a href="../../../../">Inicio</a> › <a href="../../../">ESO</a> › <a href="../../">4º</a> › <a href="../">Matemáticas B</a> › Tema 10</div>
+  <div class="topic-head">
+    <div><span class="badge" style="background:#7b3fc4">4º de ESO · Matemáticas B</span><h1>Trigonometría</h1>
+      <div class="tools"><button type="button" id="t-proj" aria-pressed="false">Modo proyector</button><a class="toolbtn" href="ficha/">Ficha para imprimir</a></div></div>
+    <nav class="steps" aria-label="Pasos del tema"><a href="#p1" data-go="p1">1</a><a href="#p2" data-go="p2">2</a><a href="#p3" data-go="p3">3</a><a href="#p4" data-go="p4">4</a><a href="#p5" data-go="p5">5</a><a href="#p6" data-go="p6">6</a></nav>
+  </div>
+  <div class="layout"><div>
+    <section class="sec" id="p1"><div class="sec-h"><span class="n">1</span><h2>Pregunta de arranque<small>Piensa 30 segundos antes de seguir</small></h2></div>
+      <p class="question">Desde 20 metros de distancia ves la punta de un árbol con un ángulo de 35° sobre el suelo. ¿Puedes saber su altura sin subirte?</p>
+      <div class="reveal"><p style="margin:0">Escribe o di en voz alta tu respuesta. Después <button type="button" id="rv">mira la solución</button>.</p><p id="rv-text" hidden style="margin:10px 0 0">Sí. La trigonometría relaciona <mark>ángulos y lados</mark>: altura = 20 · tan 35° ≈ 20 · 0,70 = <b>14 metros</b>. Así midieron los griegos la altura de las pirámides y hoy se calculan distancias con GPS.</p></div>
+    </section>
+    <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>5 bloques cortos</small></h2></div>
+      <div class="chunk"><div><h3>Los lados del triángulo rectángulo</h3><p>En un triángulo rectángulo, el lado más largo, opuesto al ángulo recto, es la <b>hipotenusa</b>. Los otros dos son los <b>catetos</b>. Respecto a un ángulo agudo α, uno es el <mark>cateto opuesto</mark> (enfrente de α) y el otro el <mark>cateto contiguo</mark> (al lado de α).</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Triángulo rectángulo con el ángulo alfa, la hipotenusa, el cateto opuesto y el cateto contiguo">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/><path d="M24 142 L 184 142 L 184 32 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/>
+    <path d="M170 142 V 128 H 184" fill="none" stroke="var(--ink)" stroke-width="2"/>
+    <path d="M58 142 A 34 34 0 0 0 52.0174254227785 122.73802002183979" fill="none" stroke="var(--red)" stroke-width="2.5"/>
+    <text x="66" y="134" font-size="16" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">α</text>
+    <text x="104" y="162" text-anchor="middle" font-size="13" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">cateto contiguo</text>
+    <text x="192" y="87" font-size="13" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">cateto</text>
+    <text x="192" y="102" font-size="13" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">opuesto</text>
+    <text x="82" y="79" text-anchor="middle" font-size="13" font-weight="700" fill="var(--inf)" font-family="Atkinson Hyperlegible, sans-serif" transform="rotate(-34.5085229876684 82 79)">hipotenusa</text></svg></div><div class="chunk"><div><h3>Seno, coseno y tangente</h3><p>Son <mark>cocientes entre lados</mark> que solo dependen del ángulo, no del tamaño del triángulo. Truco para recordarlos: <b>SOH-CAH-TOA</b>.</p>
+      <div class="formula"><span>sen α = <span style="color:var(--pen)">opuesto</span> / <span style="color:var(--inf)">hipotenusa</span></span></div>
+      <div class="formula"><span>cos α = <span style="color:var(--leaf)">contiguo</span> / <span style="color:var(--inf)">hipotenusa</span></span></div>
+      <div class="formula"><span>tan α = <span style="color:var(--pen)">opuesto</span> / <span style="color:var(--leaf)">contiguo</span></span></div></div><svg viewBox="0 0 260 180" role="img" aria-label="Dos triángulos semejantes de distinto tamaño con el mismo ángulo: mismas razones">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/><path d="M20 150 L 116 150 L 116 84 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/>
+    <path d="M102 150 V 136 H 116" fill="none" stroke="var(--ink)" stroke-width="2"/>
+    <path d="M54 150 A 34 34 0 0 0 48.0174254227785 130.7380200218398" fill="none" stroke="var(--red)" stroke-width="2.5"/>
+    <text x="62" y="142" font-size="16" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">α</text>
+    <path d="M124 150 L 244 150 L 244 68 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/>
+    <path d="M230 150 V 136 H 244" fill="none" stroke="var(--ink)" stroke-width="2"/>
+    <path d="M158 150 A 34 34 0 0 0 152.07191781102767 130.8175228291311" fill="none" stroke="var(--red)" stroke-width="2.5"/>
+    <text x="166" y="142" font-size="16" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">α</text>
+    
+        <text x="130" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">mismo α → mismas razones</text>
+      </svg></div><div class="chunk"><div><h3>Ángulos que conviene saber</h3><p>Algunos ángulos tienen valores exactos que se usan mucho. Con la calculadora en modo <b>DEG</b> (grados) puedes comprobarlos.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Tabla de valores de seno, coseno y tangente para 30, 45 y 60 grados">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="14" text-anchor="middle">
+          <g font-weight="700" fill="var(--muted)"><text x="40" y="34">α</text><text x="100" y="34">30°</text><text x="160" y="34">45°</text><text x="220" y="34">60°</text></g>
+          <path d="M14 44 H 246" stroke="var(--line)" stroke-width="2"/>
+          <g fill="var(--ink)">
+            <text x="40" y="76" font-weight="700" fill="var(--pen)">sen</text><text x="100" y="76">1/2</text><text x="160" y="76">√2/2</text><text x="220" y="76">√3/2</text>
+            <text x="40" y="116" font-weight="700" fill="var(--leaf)">cos</text><text x="100" y="116">√3/2</text><text x="160" y="116">√2/2</text><text x="220" y="116">1/2</text>
+            <text x="40" y="156" font-weight="700" fill="var(--red)">tan</text><text x="100" y="156">√3/3</text><text x="160" y="156">1</text><text x="220" y="156">√3</text>
+          </g>
+        </g>
+      </svg></div><div class="chunk"><div><h3>La relación fundamental</h3><p>Por el teorema de Pitágoras, para cualquier ángulo se cumple:</p><div class="formula"><span>sen² α + cos² α = 1</span><span class="op">y</span><span>tan α = sen α / cos α</span></div><p>Si conoces una razón, puedes calcular las otras dos. Ejemplo: si sen α = 0,6 y α es agudo, cos α = √(1 − 0,36) = <b>0,8</b> y tan α = 0,6 / 0,8 = <b>0,75</b>.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Circunferencia de radio 1 con un punto de coordenadas coseno y seno">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M40 140 H 230 M70 170 V 14" stroke="var(--line)" stroke-width="2"/>
+        <path d="M70 140 m -0 0" />
+        <path d="M190 140 A 120 120 0 0 0 70 20" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 5"/>
+        <path d="M70 140 L 166 68" stroke="var(--inf)" stroke-width="3"/>
+        <path d="M166 68 V 140" stroke="var(--pen)" stroke-width="3"/><path d="M70 140 H 166" stroke="var(--leaf)" stroke-width="3"/>
+        <circle cx="166" cy="68" r="5" fill="var(--red)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="13" font-weight="700"><text x="104" y="96" fill="var(--inf)">1</text><text x="192" y="104" fill="var(--pen)">sen α</text><text x="100" y="158" fill="var(--leaf)">cos α</text><text x="96" y="132" fill="var(--red)">α</text></g>
+      </svg></div><div class="chunk"><div><h3>Resolver problemas</h3><p>Para calcular alturas y distancias: <mark>dibuja el triángulo, marca el ángulo y elige la razón</mark> que relaciona el dato que tienes con el que buscas. En el árbol de la pregunta, conocemos el contiguo (20 m) y buscamos el opuesto (altura): la razón que los une es la tangente.</p>
+      <div class="formula"><span>tan 35° = h / 20</span><span class="op">→</span><span>h = 20 · 0,70 ≈ 14 m</span></div></div><svg viewBox="0 0 260 180" role="img" aria-label="Árbol de altura h visto desde 20 metros con un ángulo de 35 grados">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M20 150 H 240" stroke="var(--muted)" stroke-width="2"/>
+        <rect x="196" y="96" width="10" height="54" fill="var(--inf)"/>
+        <circle cx="201" cy="74" r="30" fill="var(--leaf)"/>
+        <path d="M30 150 L 201 44" stroke="var(--red)" stroke-width="2" stroke-dasharray="6 5"/>
+        <path d="M62 150 A 32 32 0 0 0 57 133" fill="none" stroke="var(--red)" stroke-width="2.5"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="13" font-weight="700"><text x="68" y="143" fill="var(--red)">35°</text><text x="110" y="168" fill="var(--leaf)">20 m</text><text x="150" y="110" fill="var(--pen)">h ?</text></g>
+        <circle cx="30" cy="146" r="5" fill="var(--ink)"/>
+      </svg></div>
+      
+      <h3 style="font-size:21px;margin-top:10px">Qué razón uso: guía rápida</h3>
+      <div class="figure"><svg viewBox="0 0 640 220" role="img" aria-label="Guía: si conozco hipotenusa y busco opuesto uso seno; hipotenusa y contiguo, coseno; opuesto y contiguo, tangente">
+      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
+      <rect x="20" y="20" width="190" height="180" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/>
+          <text x="115" y="56" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">si el problema une</text>
+          <text x="115" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">opuesto ↔ hipotenusa</text>
+          <text x="115" y="130" text-anchor="middle" font-size="26" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">SENO</text>
+          <text x="115" y="170" text-anchor="middle" font-size="16" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">sen α = O / H</text><rect x="226" y="20" width="190" height="180" rx="14" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/>
+          <text x="321" y="56" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">si el problema une</text>
+          <text x="321" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">contiguo ↔ hipotenusa</text>
+          <text x="321" y="130" text-anchor="middle" font-size="26" font-weight="700" fill="var(--leaf)" font-family="Baloo 2, sans-serif">COSENO</text>
+          <text x="321" y="170" text-anchor="middle" font-size="16" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">cos α = C / H</text><rect x="432" y="20" width="190" height="180" rx="14" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
+          <text x="527" y="56" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">si el problema une</text>
+          <text x="527" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">opuesto ↔ contiguo</text>
+          <text x="527" y="130" text-anchor="middle" font-size="26" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">TANGENTE</text>
+          <text x="527" y="170" text-anchor="middle" font-size="16" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">tan α = O / C</text>
+    </svg></div><p class="caption">Esquema dibujado para Escolapedia. En el móvil, desliza a los lados.</p>
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/7pUi5lvLf7c" title="¿Qué son las razones trigonométricas?" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: ¿Qué son las razones trigonométricas? · Matemáticas profe Alex (YouTube) · 2,2 millones de visualizaciones · 49 mil «me gusta»</p>
+    </section>
+    <section class="sec" id="p3"><div class="sec-h"><span class="n">3</span><h2>Practica<small>Responde sin mirar arriba. Equivocarse aquí también enseña.</small></h2></div>
+      <div class="quiz" id="quiz"></div><p class="score" id="score" aria-live="polite"></p>
+      
+    </section>
+    <section class="sec" id="p4"><div class="sec-h"><span class="n">4</span><h2>Explícalo con tus palabras<small>Como si se lo contaras a alguien de un curso menor</small></h2></div>
+      <label for="feyn" class="caption">Escribe aquí tu explicación. Se guarda en este navegador.</label>
+      <textarea id="feyn" placeholder="Con mis palabras…"></textarea>
+      <div class="check"><span class="caption">¿Has nombrado estas ideas?</span><label><input type="checkbox" id="c0"> Qué son la hipotenusa, el cateto opuesto y el contiguo</label><label><input type="checkbox" id="c1"> Las definiciones de seno, coseno y tangente</label><label><input type="checkbox" id="c2"> La relación fundamental y para qué sirve</label><label><input type="checkbox" id="c3"> Cómo elegir la razón en un problema de alturas</label></div>
+    </section>
+    <section class="sec" id="p5"><div class="sec-h"><span class="n">5</span><h2>Resumen visual<small>Todo el tema en una pantalla</small></h2></div><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: TRIGONOMETRÍA">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="225" y="122" width="250" height="56" rx="28" fill="var(--bac)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">TRIGONOMETRÍA</text>
+      <rect x="10" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--ink)">Triángulo rectángulo</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">hipotenusa · opuesto · contiguo</text><rect x="430" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--pen)">Razones</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">sen = O/H · cos = C/H · tan = O/C</text><rect x="10" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--leaf)">Relación fundamental</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">sen² α + cos² α = 1</text><rect x="430" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--red)">Problemas</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">dibuja, marca α, elige razón</text>
+    </g></svg></div></section>
+    <section class="sec" id="p6"><div class="sec-h"><span class="n">6</span><h2>Tarjetas de repaso<small>Toca la tarjeta para darle la vuelta</small></h2></div>
+      <div class="cards">
+        <button class="flash" id="flash" type="button" aria-live="polite"><div class="in"><div class="face front"><small id="fc-count"></small><span id="fc-q"></span></div><div class="face back"><small>Respuesta</small><span id="fc-a"></span></div></div></button>
+        <div class="grade"><button type="button" data-g="0" disabled>No me acordaba</button><button type="button" data-g="1" disabled>Me costó</button><button type="button" data-g="2" disabled>¡Fácil!</button></div>
+        <p class="next" id="fc-next">Según cómo respondas, la tarjeta vuelve mañana, en 3, en 7 o en 21 días.</p>
+      </div>
+    </section>
+    <section class="sec who" aria-label="Familias y profesores">
+      <div class="box"><h3>Para familias</h3><ul><li>En un paseo, pedidle que calcule la altura de una farola con el ángulo de una app de nivel del móvil.</li><li>Preguntadle por qué el seno no depende del tamaño del triángulo.</li><li>Repasad las tarjetas del paso 6 dos minutos al día durante la semana.</li></ul></div>
+      <div class="box"><h3>Para profesores</h3><p style="margin:0 0 6px"><b>Saberes:</b> Sentido de la medida y sentido espacial: razones trigonométricas y resolución de triángulos (RD 217/2022, Matemáticas B 4º).</p><ul><li>Construir un clinómetro con transportador, pajita y plomada y medir alturas del patio.</li><li>GeoGebra: mover el vértice y comprobar que las razones solo dependen del ángulo.</li><li>Problemas de doble observación (dos ángulos desde dos puntos).</li></ul></div>
+    </section>
+    <section class="sec"><h2 style="font-size:20px;margin-bottom:8px">Fuentes y revisión</h2>
+      <ul class="src"><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" target="_blank" rel="noopener">Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)</a></li><li><a href="https://es.wikipedia.org/wiki/Trigonometr%C3%ADa" target="_blank" rel="noopener">Trigonometría, Wikipedia en español</a></li></ul>
+      <p class="caption">Revisado el 12 de noviembre de 2026.</p>
+    </section>
+  </div>
+  <aside class="side">
+    <div class="box"><h3>Qué vas a aprender</h3><ul><li>Definir seno, coseno y tangente en un triángulo rectángulo</li><li>Usar la relación fundamental sen² α + cos² α = 1</li><li>Resolver triángulos y problemas de alturas y distancias</li></ul></div>
+    <div class="box"><h3>Palabras clave</h3>seno · coseno · tangente · hipotenusa · cateto · radián</div>
+    <div class="box"><h3>Tiempo</h3>40 minutos hoy + 2 minutos en cada repaso</div>
+  </aside></div>
+</div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<script>window.BASE="../../../../";window.IDX="";</script>
+<script>window.TEMA={"id":"4-eso-matematicas-b-trigonometria","quiz":[{"q":"En un triángulo rectángulo, el seno de un ángulo es…","o":["contiguo / hipotenusa","opuesto / hipotenusa","opuesto / contiguo"],"a":1,"e":"SOH: Seno = Opuesto / Hipotenusa."},{"q":"Si la hipotenusa mide 10 cm y el ángulo es de 30°, ¿cuánto mide el cateto opuesto?","o":["5 cm","8,66 cm","20 cm"],"a":0,"e":"opuesto = 10 · sen 30° = 10 · 0,5 = 5 cm."},{"q":"Si sen α = 0,8 y α es agudo, ¿cuánto vale cos α?","o":["0,2","0,6","1,25"],"a":1,"e":"cos α = √(1 − 0,64) = √0,36 = 0,6."},{"q":"¿Cuánto vale tan 45°?","o":["0","1","√2/2"],"a":1,"e":"En 45° los dos catetos son iguales, así que opuesto / contiguo = 1."},{"q":"Una escalera de 5 m apoyada en la pared forma 60° con el suelo. ¿A qué altura llega?","o":["2,5 m","4,33 m","8,66 m"],"a":1,"e":"La escalera es la hipotenusa y la altura el cateto opuesto: 5 · sen 60° ≈ 5 · 0,866 = 4,33 m."}],"tarjetas":[["Definición de seno","sen α = cateto opuesto / hipotenusa."],["Definición de coseno","cos α = cateto contiguo / hipotenusa."],["Definición de tangente","tan α = cateto opuesto / cateto contiguo = sen α / cos α."],["Relación fundamental de la trigonometría","sen² α + cos² α = 1."],["Valores de 30°","sen 30° = 1/2 · cos 30° = √3/2 · tan 30° = √3/3."]]};</script>
+<script src="../../../../assets/app.js"></script>
+</body></html>

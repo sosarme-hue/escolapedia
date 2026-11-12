@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Funciones · Matemáticas A 4º de ESO · Escolapedia</title>
+<meta name="description" content="Funciones: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. 4º de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../familias/">Familias</a>
+    <a href="../../../../profesores/">Profesores</a>
+  </nav>
+  <div class="lang" aria-label="Idioma"><a href="../../../../" aria-current="page" lang="es">ES</a><a href="../../../../ca/" lang="ca">CA</a></div>
+</div></header>
+<main><div class="wrap">
+  <div class="crumbs"><a href="../../../../">Inicio</a> › <a href="../../../">ESO</a> › <a href="../../">4º</a> › <a href="../">Matemáticas A</a> › Tema 8</div>
+  <div class="topic-head">
+    <div><span class="badge" style="background:#7b3fc4">4º de ESO · Matemáticas A</span><h1>Funciones</h1>
+      <div class="tools"><button type="button" id="t-proj" aria-pressed="false">Modo proyector</button><a class="toolbtn" href="ficha/">Ficha para imprimir</a></div></div>
+    <nav class="steps" aria-label="Pasos del tema"><a href="#p1" data-go="p1">1</a><a href="#p2" data-go="p2">2</a><a href="#p3" data-go="p3">3</a><a href="#p4" data-go="p4">4</a><a href="#p5" data-go="p5">5</a><a href="#p6" data-go="p6">6</a></nav>
+  </div>
+  <div class="layout"><div>
+    <section class="sec" id="p1"><div class="sec-h"><span class="n">1</span><h2>Pregunta de arranque<small>Piensa 30 segundos antes de seguir</small></h2></div>
+      <p class="question">La temperatura de un día empieza en 8 °C, sube hasta 22 °C a las 15 h y baja a 12 °C por la noche. ¿Cómo lo contarías con un solo dibujo?</p>
+      <div class="reveal"><p style="margin:0">Escribe o di en voz alta tu respuesta. Después <button type="button" id="rv">mira la solución</button>.</p><p id="rv-text" hidden style="margin:10px 0 0">Con la <mark>gráfica de una función</mark>: a cada hora (x) le corresponde una única temperatura (y). En ella se ve de un vistazo dónde <b>crece</b>, dónde <b>decrece</b> y cuál es el <b>máximo</b> (22 °C a las 15 h).</p></div>
+    </section>
+    <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>3 bloques cortos</small></h2></div>
+      <div class="chunk"><div><h3>Qué es una función</h3><p>Es una relación que asigna a cada valor de x (<b>variable independiente</b>) <mark>un único valor</mark> de y (<b>variable dependiente</b>). Se puede dar con una fórmula, una tabla, una gráfica o un enunciado. Truco gráfico: si una recta vertical corta a la curva en más de un punto, no es función.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Prueba de la recta vertical: una curva que la recta corta una vez es función; una circunferencia, que corta dos veces, no">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M14 140 L 40 110 L 70 60 L 100 80 L 120 40" fill="none" stroke="var(--leaf)" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="190" cy="90" r="46" fill="none" stroke="var(--red)" stroke-width="3"/>
+        <path d="M70 20 V 160 M190 20 V 160" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 5"/>
+        <circle cx="70" cy="60" r="5" fill="var(--leaf)"/><circle cx="190" cy="44" r="5" fill="var(--red)"/><circle cx="190" cy="136" r="5" fill="var(--red)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="12" font-weight="700" text-anchor="middle"><text x="70" y="174" fill="var(--leaf)">sí es función</text><text x="190" y="174" fill="var(--red)">no es función</text></g></svg></div><div class="chunk"><div><h3>Crecimiento, máximos y mínimos</h3><p>Una función es <b>creciente</b> donde, al avanzar x, <mark>sube</mark>, y <b>decreciente</b> donde baja. Donde pasa de crecer a decrecer hay un <b>máximo relativo</b>; donde pasa de decrecer a crecer, un <b>mínimo relativo</b>. Se escriben con intervalos de x.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Gráfica de la temperatura de un día: crece hasta un máximo a las 15 horas y luego decrece; tiene un mínimo de madrugada">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M24 150 H 250 M24 10 V 150" stroke="var(--line)" stroke-width="2"/>
+        <path d="M24 110 C 40 120 50 130 66 128 C 110 124 140 30 170 30 C 200 30 220 80 248 92" fill="none" stroke="var(--pen)" stroke-width="3"/>
+        <circle cx="170" cy="30" r="6" fill="var(--red)"/><circle cx="62" cy="128" r="6" fill="var(--leaf)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="12" font-weight="700"><text x="112" y="24" fill="var(--red)">máximo: 22 °C a las 15 h</text><text x="70" y="146" fill="var(--leaf)">mínimo</text>
+        <text x="96" y="70" fill="var(--pen)">↗ crece</text><text x="200" y="110" fill="var(--pen)">↘ decrece</text><text x="236" y="166" fill="var(--muted)">h</text></g></svg></div><div class="chunk"><div><h3>Continuidad</h3><p>Una función es <b>continua</b> si se puede dibujar <mark>sin levantar el lápiz</mark>. Si hay un salto, un agujero o la función se dispara hacia el infinito (asíntota), es <b>discontinua</b> en ese punto. Las tarifas por tramos (aparcamientos, envíos) suelen tener saltos.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Gráfica escalonada del precio de un aparcamiento: tiene saltos en cada hora, así que es discontinua">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M24 150 H 250 M24 10 V 150" stroke="var(--line)" stroke-width="2"/>
+        <path d="M24 126 H 79" stroke="var(--pen)" stroke-width="4"/><circle cx="24" cy="126" r="5" fill="var(--pen)"/><circle cx="79" cy="126" r="5" fill="var(--paper)" stroke="var(--pen)" stroke-width="2.5"/><path d="M79 96 H 134" stroke="var(--pen)" stroke-width="4"/><circle cx="79" cy="96" r="5" fill="var(--pen)"/><circle cx="134" cy="96" r="5" fill="var(--paper)" stroke="var(--pen)" stroke-width="2.5"/><path d="M134 66 H 189" stroke="var(--pen)" stroke-width="4"/><circle cx="134" cy="66" r="5" fill="var(--pen)"/><circle cx="189" cy="66" r="5" fill="var(--paper)" stroke="var(--pen)" stroke-width="2.5"/><path d="M189 36 H 244" stroke="var(--pen)" stroke-width="4"/><circle cx="189" cy="36" r="5" fill="var(--pen)"/><circle cx="244" cy="36" r="5" fill="var(--paper)" stroke="var(--pen)" stroke-width="2.5"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="12" font-weight="700"><text x="34" y="30" fill="var(--red)">saltos → discontinua</text><text x="79" y="166" text-anchor="middle" fill="var(--muted)">1 h</text><text x="134" y="166" text-anchor="middle" fill="var(--muted)">2 h</text><text x="189" y="166" text-anchor="middle" fill="var(--muted)">3 h</text><text x="244" y="166" text-anchor="middle" fill="var(--muted)">4 h</text></g></svg></div>
+      
+      <h3 style="font-size:21px;margin-top:10px">Lo que hay que mirar en cualquier gráfica</h3>
+      <div class="figure"><svg viewBox="0 0 640 240" role="img" aria-label="Gráfica comentada con dominio, recorrido, cortes con los ejes, crecimiento, máximo, mínimo y continuidad">
+      <rect width="640" height="240" rx="16" fill="var(--paper)"/>
+      <path d="M30 170 H 400 M120 20 V 220" stroke="var(--line)" stroke-width="2"/>
+      <path d="M40 210 C 80 120 120 40 170 40 C 220 40 250 180 300 180 C 340 180 360 120 390 70" fill="none" stroke="var(--pen)" stroke-width="3.5"/>
+      <circle cx="170" cy="40" r="7" fill="var(--red)"/><circle cx="300" cy="180" r="7" fill="var(--leaf)"/><circle cx="120" cy="58" r="6" fill="var(--inf)"/><circle cx="66" cy="170" r="6" fill="var(--inf)"/><circle cx="243" cy="170" r="6" fill="var(--inf)"/><circle cx="356" cy="170" r="6" fill="var(--inf)"/>
+      <circle cx="432" cy="36" r="13" fill="var(--ink)"/><text x="432" y="41" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Baloo 2, sans-serif">1</text><text x="454" y="34" font-size="14" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Dominio y recorrido</text><text x="454" y="50" font-size="12" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">qué x e y aparecen</text><circle cx="432" cy="78" r="13" fill="var(--inf)"/><text x="432" y="83" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Baloo 2, sans-serif">2</text><text x="454" y="76" font-size="14" font-weight="700" fill="var(--inf)" font-family="Atkinson Hyperlegible, sans-serif">Cortes con los ejes</text><text x="454" y="92" font-size="12" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">x = 0 · y = 0</text><circle cx="432" cy="120" r="13" fill="var(--pen)"/><text x="432" y="125" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Baloo 2, sans-serif">3</text><text x="454" y="118" font-size="14" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">Crece / decrece</text><text x="454" y="134" font-size="12" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">intervalos de x</text><circle cx="432" cy="162" r="13" fill="var(--red)"/><text x="432" y="167" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Baloo 2, sans-serif">4</text><text x="454" y="160" font-size="14" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">Máximos y mínimos</text><text x="454" y="176" font-size="12" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">cambios de tendencia</text><circle cx="432" cy="204" r="13" fill="var(--leaf)"/><text x="432" y="209" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Baloo 2, sans-serif">5</text><text x="454" y="202" font-size="14" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">Continuidad y simetría</text><text x="454" y="218" font-size="12" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">saltos · par · impar</text>
+    </svg></div><p class="caption">Esquema dibujado para Escolapedia. En el móvil, desliza a los lados.</p>
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/H40lcwlgPMk" title="Dominio y rango de una función" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: Dominio y rango de una función · Matemáticas profe Alex (YouTube) · 6,8 millones de visualizaciones · 141 mil «me gusta»</p>
+    </section>
+    <section class="sec" id="p3"><div class="sec-h"><span class="n">3</span><h2>Practica<small>Responde sin mirar arriba. Equivocarse aquí también enseña.</small></h2></div>
+      <div class="quiz" id="quiz"></div><p class="score" id="score" aria-live="polite"></p>
+      
+    </section>
+    <section class="sec" id="p4"><div class="sec-h"><span class="n">4</span><h2>Explícalo con tus palabras<small>Como si se lo contaras a alguien de un curso menor</small></h2></div>
+      <label for="feyn" class="caption">Escribe aquí tu explicación. Se guarda en este navegador.</label>
+      <textarea id="feyn" placeholder="Con mis palabras…"></textarea>
+      <div class="check"><span class="caption">¿Has nombrado estas ideas?</span><label><input type="checkbox" id="c0"> Qué es una función y cómo se reconoce en una gráfica</label><label><input type="checkbox" id="c1"> Qué es el dominio</label><label><input type="checkbox" id="c2"> Cómo se ven el crecimiento y los máximos</label><label><input type="checkbox" id="c3"> Qué significa que una función sea continua</label></div>
+    </section>
+    <section class="sec" id="p5"><div class="sec-h"><span class="n">5</span><h2>Resumen visual<small>Todo el tema en una pantalla</small></h2></div><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: FUNCIONES">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="225" y="122" width="250" height="56" rx="28" fill="var(--bac)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">FUNCIONES</text>
+      <rect x="10" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--ink)">Qué es</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">a cada x, una sola y</text><rect x="430" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--pen)">Formas de darla</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">tabla · gráfica · fórmula</text><rect x="10" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--leaf)">Crecimiento</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">crece · decrece · máx · mín</text><rect x="430" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--red)">Continuidad</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">sin levantar el lápiz</text>
+    </g></svg></div></section>
+    <section class="sec" id="p6"><div class="sec-h"><span class="n">6</span><h2>Tarjetas de repaso<small>Toca la tarjeta para darle la vuelta</small></h2></div>
+      <div class="cards">
+        <button class="flash" id="flash" type="button" aria-live="polite"><div class="in"><div class="face front"><small id="fc-count"></small><span id="fc-q"></span></div><div class="face back"><small>Respuesta</small><span id="fc-a"></span></div></div></button>
+        <div class="grade"><button type="button" data-g="0" disabled>No me acordaba</button><button type="button" data-g="1" disabled>Me costó</button><button type="button" data-g="2" disabled>¡Fácil!</button></div>
+        <p class="next" id="fc-next">Según cómo respondas, la tarjeta vuelve mañana, en 3, en 7 o en 21 días.</p>
+      </div>
+    </section>
+    <section class="sec who" aria-label="Familias y profesores">
+      <div class="box"><h3>Para familias</h3><ul><li>Buscad gráficas en el periódico o en una app del tiempo y pedidle que las describa con estas palabras.</li><li>Dibujad juntos la gráfica de un trayecto (distancia a casa según la hora).</li><li>Repasad las tarjetas del paso 6 dos minutos al día.</li></ul></div>
+      <div class="box"><h3>Para profesores</h3><p style="margin:0 0 6px"><b>Saberes:</b> Sentido algebraico y relaciones funcionales: dominio, recorrido, continuidad, monotonía, extremos y simetrías (RD 217/2022, Matemáticas A 4º).</p><ul><li>Relatos gráficos: un alumno cuenta una historia y otro dibuja la gráfica.</li><li>Analizar datos reales (temperatura, consumo eléctrico) en hoja de cálculo.</li><li>Dominó de fórmulas y dominios.</li></ul></div>
+    </section>
+    <section class="sec"><h2 style="font-size:20px;margin-bottom:8px">Fuentes y revisión</h2>
+      <ul class="src"><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" target="_blank" rel="noopener">Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)</a></li><li><a href="https://es.wikipedia.org/wiki/Funci%C3%B3n_(matem%C3%A1tica)" target="_blank" rel="noopener">Función matemática, Wikipedia en español</a></li></ul>
+      <p class="caption">Revisado el 12 de noviembre de 2026.</p>
+    </section>
+  </div>
+  <aside class="side">
+    <div class="box"><h3>Qué vas a aprender</h3><ul><li>Reconocer una función a partir de tablas, gráficas, fórmulas y enunciados</li><li>Leer en una gráfica dominio, crecimiento, máximos y mínimos</li><li>Interpretar gráficas de situaciones reales</li></ul></div>
+    <div class="box"><h3>Palabras clave</h3>dominio · recorrido · continuidad · creciente · máximo relativo · simetría</div>
+    <div class="box"><h3>Tiempo</h3>35 minutos hoy + 2 minutos en cada repaso</div>
+  </aside></div>
+</div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<script>window.BASE="../../../../";window.IDX="";</script>
+<script>window.TEMA={"id":"4-eso-matematicas-a-funciones","quiz":[{"q":"¿Qué gráfica NO es una función?","o":["Una recta inclinada","Una circunferencia","Una parábola"],"a":1,"e":"Una recta vertical corta a la circunferencia en dos puntos."},{"q":"En la gráfica de la temperatura de un día, el punto más alto es…","o":["un mínimo","un máximo","un corte con el eje"],"a":1,"e":"Ahí pasa de subir a bajar."},{"q":"Si la gráfica tiene un salto, la función es…","o":["continua","discontinua","creciente"],"a":1,"e":"No se puede dibujar sin levantar el lápiz."},{"q":"Si f(x) = 2x + 1, f(3) =","o":["7","6","5"],"a":0,"e":"2 · 3 + 1 = 7."},{"q":"Una función es creciente cuando…","o":["al aumentar x, y disminuye","al aumentar x, y aumenta","y no cambia"],"a":1,"e":"La gráfica sube de izquierda a derecha."}],"tarjetas":[["¿Qué es el dominio de una función?","El conjunto de valores de x para los que existe f(x)."],["¿Qué valores quitan del dominio un denominador y una raíz?","Los que anulan el denominador y los que dejan negativo el radicando."],["Máximo relativo","Punto donde la función pasa de crecer a decrecer."],["Función par","f(−x) = f(x); simétrica respecto al eje Y."],["Función periódica","Se repite cada cierto intervalo, llamado periodo."]]};</script>
+<script src="../../../../assets/app.js"></script>
+</body></html>

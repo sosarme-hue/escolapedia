@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Programación · Tecnología 4º de ESO · Escolapedia</title>
+<meta name="description" content="Programación: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. 4º de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../familias/">Familias</a>
+    <a href="../../../../profesores/">Profesores</a>
+  </nav>
+  <div class="lang" aria-label="Idioma"><a href="../../../../" aria-current="page" lang="es">ES</a><a href="../../../../ca/" lang="ca">CA</a></div>
+</div></header>
+<main><div class="wrap">
+  <div class="crumbs"><a href="../../../../">Inicio</a> › <a href="../../../">ESO</a> › <a href="../../">4º</a> › <a href="../">Tecnología</a> › Tema 4</div>
+  <div class="topic-head">
+    <div><span class="badge" style="background:#475569">4º de ESO · Tecnología</span><h1>Programación</h1>
+      <div class="tools"><button type="button" id="t-proj" aria-pressed="false">Modo proyector</button><a class="toolbtn" href="ficha/">Ficha para imprimir</a></div></div>
+    <nav class="steps" aria-label="Pasos del tema"><a href="#p1" data-go="p1">1</a><a href="#p2" data-go="p2">2</a><a href="#p3" data-go="p3">3</a><a href="#p4" data-go="p4">4</a><a href="#p5" data-go="p5">5</a><a href="#p6" data-go="p6">6</a></nav>
+  </div>
+  <div class="layout"><div>
+    <section class="sec" id="p1"><div class="sec-h"><span class="n">1</span><h2>Pregunta de arranque<small>Piensa 30 segundos antes de seguir</small></h2></div>
+      <p class="question">Las farolas de tu calle se encienden solas al anochecer. Si tuvieras que darles las instrucciones, ¿qué les dirías?</p>
+      <div class="reveal"><p style="margin:0">Escribe o di en voz alta tu respuesta. Después <button type="button" id="rv">mira la solución</button>.</p><p id="rv-text" hidden style="margin:10px 0 0">Algo así: <mark>repite siempre: mide la luz; si es menor que un umbral, enciende; si no, apaga</mark>. Acabas de escribir un <b>algoritmo</b> con un <b>bucle</b> y un <b>condicional</b>. Pasarlo a un lenguaje que entienda una placa como Arduino es <b>programar</b>.</p></div>
+    </section>
+    <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>5 bloques cortos</small></h2></div>
+      <div class="chunk"><div><h3>Algoritmos y diagramas de flujo</h3><p>Un <b>algoritmo</b> es una secuencia ordenada y finita de pasos para resolver un problema. Antes de programar conviene dibujarlo con un <b>diagrama de flujo</b>: óvalos para el <b>inicio</b> y el <b>fin</b>, rectángulos para las <b>acciones</b>, rombos para las <mark>decisiones</mark> (sí/no) y paralelogramos para la <b>entrada y salida</b> de datos. Las flechas indican el orden.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de flujo de la farola: leer luz, decidir si es menor que 300, encender o apagar y repetir">
+        <defs><marker id="pg1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker></defs>
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="95" y="10" width="70" height="22" rx="11" fill="var(--leaf)"/><text x="130" y="25" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">inicio</text>
+        <path d="M100 44 H 170 L 160 64 H 90 Z" fill="var(--sun)"/><text x="130" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">leer luz</text>
+        <path d="M130 76 L 170 98 L 130 120 L 90 98 Z" fill="var(--pen)"/><text x="130" y="102" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">luz &lt; 300</text>
+        <rect x="16" y="132" width="70" height="24" rx="3" fill="var(--red)"/><text x="51" y="148" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">encender</text>
+        <rect x="174" y="132" width="70" height="24" rx="3" fill="var(--muted)"/><text x="209" y="148" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">apagar</text>
+        <g stroke="var(--muted)" stroke-width="2" fill="none" marker-end="url(#pg1)"><path d="M130 32 V 42"/><path d="M130 64 V 74"/><path d="M90 98 H 51 V 128"/><path d="M170 98 H 209 V 128"/><path d="M51 156 V 170 H 250 V 54 H 172"/></g>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="10" font-weight="700"><text x="66" y="92" fill="var(--leaf)">sí</text><text x="182" y="92" fill="var(--red)">no</text></g>
+      </svg></div><div class="chunk"><div><h3>Variables y tipos de datos</h3><p>Una <b>variable</b> es una «caja» con nombre donde el programa <mark>guarda un dato</mark> que puede cambiar: la lectura de un sensor, un contador, una puntuación. Cada variable tiene un <b>tipo</b>: número entero (<code>int</code>), decimal (<code>float</code>), verdadero/falso (<code>bool</code>) o texto (<code>String</code>). Con ellas se hacen <b>operaciones</b> aritméticas (+, −, *, /) y <b>comparaciones</b> (&lt;, &gt;, ==, !=).</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Tres cajas con nombre y valor: luz 512, on verdadero, temperatura 21,5">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="14" y="56" width="70" height="56" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/><text x="49" y="92" text-anchor="middle" font-size="16" font-weight="700" fill="var(--pen)" font-family="ui-monospace, Menlo, Consolas, monospace">512</text><text x="49" y="134" text-anchor="middle" font-size="10" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace">int luz</text><rect x="96" y="56" width="70" height="56" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/><text x="131" y="92" text-anchor="middle" font-size="16" font-weight="700" fill="var(--leaf)" font-family="ui-monospace, Menlo, Consolas, monospace">true</text><text x="131" y="134" text-anchor="middle" font-size="10" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace">bool on</text><rect x="178" y="56" width="70" height="56" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="3"/><text x="213" y="92" text-anchor="middle" font-size="16" font-weight="700" fill="var(--red)" font-family="ui-monospace, Menlo, Consolas, monospace">21.5</text><text x="213" y="134" text-anchor="middle" font-size="10" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace">float temp</text>
+        <text x="130" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">tipo + nombre = valor</text>
+      </svg></div><div class="chunk"><div><h3>Estructuras de control</h3><p>Los programas no siempre van en línea recta. El <b>condicional</b> <code>if … else</code> ejecuta unas instrucciones <mark>solo si se cumple una condición</mark>. Los <b>bucles</b> <mark>repiten</mark> instrucciones: <code>for</code> un número fijo de veces (parpadear 10 veces) y <code>while</code> mientras se cumpla una condición (esperar a que se pulse un botón). En Arduino, la función <code>loop()</code> ya es un bucle infinito.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Código con un bucle for que hace parpadear un LED diez veces">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="14" y="22" width="232" height="116" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/><text x="24" y="44" font-size="12" fill="var(--pen)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">for (int i = 0; i &lt; 10; i++) {</text><text x="24" y="61" font-size="12" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">  digitalWrite(13, HIGH);</text><text x="24" y="78" font-size="12" fill="var(--muted)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">  delay(500);</text><text x="24" y="95" font-size="12" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">  digitalWrite(13, LOW);</text><text x="24" y="112" font-size="12" fill="var(--muted)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">  delay(500);</text><text x="24" y="129" font-size="12" fill="var(--pen)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">}</text>
+        <text x="130" y="164" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">repite 10 veces: enciende, espera, apaga</text>
+      </svg></div><div class="chunk"><div><h3>Funciones</h3><p>Una <b>función</b> es un bloque de código con nombre que <mark>hace una tarea concreta</mark> y se puede llamar muchas veces. Así el programa queda más corto, ordenado y fácil de corregir. Pueden recibir <b>parámetros</b> (datos de entrada) y devolver un resultado. Por ejemplo, <code>parpadear(3)</code> podría encender y apagar un LED tres veces. Todo programa de Arduino tiene dos funciones obligatorias: <code>setup()</code>, que se ejecuta una vez al empezar, y <code>loop()</code>, que se repite sin fin.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Estructura de un programa de Arduino con setup y loop">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="14" y="14" width="232" height="133" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/><text x="24" y="36" font-size="12" fill="var(--leaf)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">void setup() {</text><text x="24" y="53" font-size="12" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">  pinMode(13, OUTPUT);</text><text x="24" y="70" font-size="12" fill="var(--leaf)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">}</text><text x="24" y="87" font-size="12" fill="var(--red)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">void loop() {</text><text x="24" y="104" font-size="12" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">  parpadear(3);</text><text x="24" y="121" font-size="12" fill="var(--muted)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">  delay(2000);</text><text x="24" y="138" font-size="12" fill="var(--red)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">}</text>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="10" font-weight="700" text-anchor="end"><text x="240" y="36" fill="var(--leaf)">1 vez</text><text x="240" y="87" fill="var(--red)">siempre</text></g>
+      </svg></div><div class="chunk"><div><h3>Programar una placa: entradas y salidas</h3><p>Una placa como <b>Arduino</b> o <b>micro:bit</b> tiene <b>pines</b> para conectar sensores y actuadores. Con <code>digitalRead()</code> se lee un pulsador (0 o 1) y con <code>analogRead()</code> un sensor analógico, que da un valor <mark>entre 0 y 1023</mark>. Con <code>digitalWrite()</code> se enciende o apaga un LED y con <code>analogWrite()</code> se regula su brillo o la velocidad de un motor. Se puede programar con <b>bloques</b> (mBlock, MakeCode) o con <b>texto</b> (lenguaje C++ de Arduino, Python).</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Código de la farola automática que lee una LDR y enciende un LED si hay poca luz">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="14" y="14" width="232" height="116" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/><text x="24" y="36" font-size="12" fill="var(--pen)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">int luz = analogRead(A0);</text><text x="24" y="53" font-size="12" fill="var(--red)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">if (luz &lt; 300) {</text><text x="24" y="70" font-size="12" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">  digitalWrite(13, HIGH);</text><text x="24" y="87" font-size="12" fill="var(--red)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">} else {</text><text x="24" y="104" font-size="12" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">  digitalWrite(13, LOW);</text><text x="24" y="121" font-size="12" fill="var(--red)" font-family="ui-monospace, Menlo, Consolas, monospace" xml:space="preserve">}</text>
+        <text x="130" y="148" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">LDR en A0 · LED en el pin 13</text>
+        <text x="130" y="166" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">la farola automática en 6 líneas</text>
+      </svg></div>
+      
+      <h3 style="font-size:21px;margin-top:10px">Las piezas de cualquier programa</h3>
+      <div class="figure"><svg viewBox="0 0 640 220" role="img" aria-label="Variables, condicionales, bucles y funciones con un ejemplo cada uno">
+      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
+      <rect x="16" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/>
+          <text x="89" y="64" text-anchor="middle" font-size="19" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">Variables</text>
+          <text x="89" y="104" text-anchor="middle" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">guardan datos</text>
+          <text x="89" y="152" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace">int luz = 512;</text><rect x="170" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
+          <text x="243" y="64" text-anchor="middle" font-size="19" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">Condicional</text>
+          <text x="243" y="104" text-anchor="middle" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">decide</text>
+          <text x="243" y="152" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace">if (luz &lt; 300)</text><rect x="324" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/>
+          <text x="397" y="64" text-anchor="middle" font-size="19" font-weight="700" fill="var(--leaf)" font-family="Baloo 2, sans-serif">Bucle</text>
+          <text x="397" y="104" text-anchor="middle" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">repite</text>
+          <text x="397" y="152" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace">for · while · loop</text><rect x="478" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--sun)" stroke-width="3"/>
+          <text x="551" y="64" text-anchor="middle" font-size="19" font-weight="700" fill="var(--sun)" font-family="Baloo 2, sans-serif">Función</text>
+          <text x="551" y="104" text-anchor="middle" font-size="15" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">agrupa tareas</text>
+          <text x="551" y="152" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="ui-monospace, Menlo, Consolas, monospace">parpadear(3);</text>
+    </svg></div><p class="caption">Esquema dibujado para Escolapedia. En el móvil, desliza a los lados.</p>
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/EEKMPT_YcTI" title="Cómo programar Arduino UNO desde cero" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: Cómo programar Arduino UNO desde cero · Johann Perez E (YouTube) · 849 mil visualizaciones</p>
+    </section>
+    <section class="sec" id="p3"><div class="sec-h"><span class="n">3</span><h2>Practica<small>Responde sin mirar arriba. Equivocarse aquí también enseña.</small></h2></div>
+      <div class="quiz" id="quiz"></div><p class="score" id="score" aria-live="polite"></p>
+      
+    </section>
+    <section class="sec" id="p4"><div class="sec-h"><span class="n">4</span><h2>Explícalo con tus palabras<small>Como si se lo contaras a alguien de un curso menor</small></h2></div>
+      <label for="feyn" class="caption">Escribe aquí tu explicación. Se guarda en este navegador.</label>
+      <textarea id="feyn" placeholder="Con mis palabras…"></textarea>
+      <div class="check"><span class="caption">¿Has nombrado estas ideas?</span><label><input type="checkbox" id="c0"> Qué es un algoritmo, con un ejemplo de la vida diaria</label><label><input type="checkbox" id="c1"> Los símbolos de un diagrama de flujo</label><label><input type="checkbox" id="c2"> Para qué sirven las variables y sus tipos</label><label><input type="checkbox" id="c3"> La diferencia entre un condicional y un bucle</label><label><input type="checkbox" id="c4"> Cómo lee un sensor y controla un LED una placa Arduino</label></div>
+    </section>
+    <section class="sec" id="p5"><div class="sec-h"><span class="n">5</span><h2>Resumen visual<small>Todo el tema en una pantalla</small></h2></div><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: PROGRAMACIÓN">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="225" y="122" width="250" height="56" rx="28" fill="var(--eso)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">PROGRAMACIÓN</text>
+      <rect x="10" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--ink)">Algoritmo</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">pasos · diagrama de flujo</text><rect x="430" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--pen)">Datos</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">variables · int · float · bool</text><rect x="10" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--red)">Control</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">if · for · while · funciones</text><rect x="430" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--leaf)">Placa</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">setup · loop · leer · escribir</text>
+    </g></svg></div></section>
+    <section class="sec" id="p6"><div class="sec-h"><span class="n">6</span><h2>Tarjetas de repaso<small>Toca la tarjeta para darle la vuelta</small></h2></div>
+      <div class="cards">
+        <button class="flash" id="flash" type="button" aria-live="polite"><div class="in"><div class="face front"><small id="fc-count"></small><span id="fc-q"></span></div><div class="face back"><small>Respuesta</small><span id="fc-a"></span></div></div></button>
+        <div class="grade"><button type="button" data-g="0" disabled>No me acordaba</button><button type="button" data-g="1" disabled>Me costó</button><button type="button" data-g="2" disabled>¡Fácil!</button></div>
+        <p class="next" id="fc-next">Según cómo respondas, la tarjeta vuelve mañana, en 3, en 7 o en 21 días.</p>
+      </div>
+    </section>
+    <section class="sec who" aria-label="Familias y profesores">
+      <div class="box"><h3>Para familias</h3><ul><li>Escribid juntos el «algoritmo» de una receta sencilla con condicionales («si la masa está seca, añade agua»).</li><li>Probad un editor de bloques online (MakeCode) y programad un LED que parpadee.</li><li>Repasad las tarjetas del paso 6 dos minutos al día durante la semana.</li></ul></div>
+      <div class="box"><h3>Para profesores</h3><p style="margin:0 0 6px"><b>Saberes:</b> Pensamiento computacional, programación y robótica: algoritmos, diagramas de flujo, estructuras de control y programación de sistemas microcontroladores (RD 217/2022, Tecnología 4º).</p><ul><li>Programar un semáforo con Arduino primero por bloques y después en texto.</li><li>Simular placas en Tinkercad Circuits o Wokwi sin necesidad de material.</li><li>Reto: cada equipo diseña el diagrama de flujo de otro y lo programa.</li></ul></div>
+    </section>
+    <section class="sec"><h2 style="font-size:20px;margin-bottom:8px">Fuentes y revisión</h2>
+      <ul class="src"><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" target="_blank" rel="noopener">Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)</a></li><li><a href="https://docs.arduino.cc/language-reference/" target="_blank" rel="noopener">Referencia del lenguaje Arduino (en inglés)</a></li></ul>
+      <p class="caption">Revisado el 12 de noviembre de 2026.</p>
+    </section>
+  </div>
+  <aside class="side">
+    <div class="box"><h3>Qué vas a aprender</h3><ul><li>Representar un algoritmo con un diagrama de flujo</li><li>Usar variables, condicionales, bucles y funciones</li><li>Programar una placa microcontroladora para leer sensores y controlar actuadores</li></ul></div>
+    <div class="box"><h3>Palabras clave</h3>algoritmo · diagrama de flujo · variable · condicional · bucle · función</div>
+    <div class="box"><h3>Tiempo</h3>40 minutos hoy + 2 minutos en cada repaso</div>
+  </aside></div>
+</div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<script>window.BASE="../../../../";window.IDX="";</script>
+<script>window.TEMA={"id":"4-eso-tecnologia-programacion","quiz":[{"q":"En un diagrama de flujo, ¿qué figura representa una decisión?","o":["Rectángulo","Rombo","Óvalo"],"a":1,"e":"El rombo tiene dos salidas: sí y no."},{"q":"¿Qué es una variable?","o":["Un error del programa","Un espacio con nombre donde se guarda un dato","Un tipo de sensor"],"a":1,"e":"Su valor puede cambiar mientras el programa se ejecuta."},{"q":"¿Qué estructura usarías para repetir algo 20 veces?","o":["if","for","else"],"a":1,"e":"El bucle for repite un número fijo de veces."},{"q":"En Arduino, ¿qué función se ejecuta una sola vez al encender la placa?","o":["loop()","setup()","delay()"],"a":1,"e":"setup() configura los pines; loop() se repite sin fin."},{"q":"¿Entre qué valores da la lectura analogRead() en Arduino UNO?","o":["0 y 1","0 y 1023","0 y 100"],"a":1,"e":"El conversor de 10 bits da 1024 valores posibles."}],"tarjetas":[["¿Qué es un algoritmo?","Una secuencia ordenada y finita de pasos para resolver un problema."],["Símbolo de decisión en un diagrama de flujo","El rombo, con salidas sí y no."],["Diferencia entre for y while","for repite un número fijo de veces; while repite mientras se cumpla una condición."],["Funciones obligatorias en Arduino","setup() (una vez) y loop() (se repite siempre)."],["¿Qué hace analogRead()?","Lee un sensor analógico y devuelve un valor entre 0 y 1023."]]};</script>
+<script src="../../../../assets/app.js"></script>
+</body></html>

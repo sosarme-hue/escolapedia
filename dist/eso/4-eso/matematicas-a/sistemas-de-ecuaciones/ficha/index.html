@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ficha: Sistemas de ecuaciones · Escolapedia</title>
+<meta name="description" content="Ficha imprimible de Sistemas de ecuaciones, 4º de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../../familias/">Familias</a>
+    <a href="../../../../../profesores/">Profesores</a>
+  </nav>
+  <div class="lang" aria-label="Idioma"><a href="../../../../../" aria-current="page" lang="es">ES</a><a href="../../../../../ca/" lang="ca">CA</a></div>
+</div></header>
+<main class="ficha"><div class="wrap">
+  <div class="crumbs noprint"><a href="../">← Volver al tema</a></div>
+  <div class="ficha-tools noprint"><a class="dl" href="ficha.pdf" download>Descargar PDF</a><button type="button" id="t-print">Imprimir</button><span class="caption">También puedes usar Ctrl + P (Cmd + P en Mac).</span></div>
+  <header class="ficha-h"><div><span class="badge" style="background:#7b3fc4">4º de ESO · Matemáticas A · Tema 6</span><h1>Sistemas de ecuaciones</h1></div>
+    <div class="ficha-name">Nombre: ______________________ &nbsp; Fecha: ___________</div></header>
+  <section><h2>Qué vas a aprender</h2><ul><li>Resolver sistemas lineales por sustitución, igualación y reducción</li><li>Interpretar la solución como el punto de corte de dos rectas</li><li>Plantear problemas cotidianos con dos incógnitas</li></ul></section>
+  <section><h2>Para pensar</h2><p class="question">En una granja hay gallinas y conejos: en total 20 cabezas y 56 patas. ¿Cuántos animales hay de cada tipo?</p><div class="lines"></div></section>
+  <section><h2>Explicación</h2><div class="chunk"><div><h3>Qué es un sistema</h3><p>Es un grupo de ecuaciones que se cumplen <b>a la vez</b>. La solución es el par (x, y) que satisface todas. Cada ecuación lineal es una recta, y la solución es <mark>el punto donde se cortan</mark>.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Dos rectas que se cortan en el punto (2, 3), la solución del sistema">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/><path d="M10 140 H 250 M80 10 V 172" stroke="var(--line)" stroke-width="2"/><path d="M10 190 L 250 -50" stroke="var(--pen)" stroke-width="3"/><path d="M10 25 L 250 145" stroke="var(--red)" stroke-width="3"/>
+        <circle cx="120" cy="80" r="7" fill="var(--hl)" stroke="var(--ink)" stroke-width="2"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="13" font-weight="700"><text x="130" y="104" fill="var(--ink)">(2, 3)</text><text x="200" y="30" fill="var(--pen)">y = x + 1</text><text x="150" y="165" fill="var(--red)">x + 2y = 8</text></g></svg></div><div class="chunk"><div><h3>Sustitución</h3><p><b>Despeja</b> una incógnita en una ecuación y <mark>sustitúyela</mark> en la otra. Es el método más cómodo cuando alguna incógnita tiene coeficiente 1.</p>
+      <div class="formula"><span>x + y = 20 → x = 20 − y</span></div><div class="formula"><span>2(20 − y) + 4y = 56 → 2y = 16 → y = 8, x = 12</span></div></div><svg viewBox="0 0 260 180" role="img" aria-label="Sustitución: se despeja x en la primera ecuación y se mete en la segunda">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" text-anchor="middle"><text x="130" y="40" font-size="17" fill="var(--ink)"><tspan fill="var(--pen)">x</tspan> + y = 20</text><text x="130" y="68" font-size="15" fill="var(--pen)">x = 20 − y</text>
+        <path d="M130 78 C 130 100 90 100 90 118" fill="none" stroke="var(--pen)" stroke-width="2.5" marker-end="url(#fs)"/><defs><marker id="fs" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--pen)"/></marker></defs>
+        <text x="130" y="140" font-size="17" fill="var(--ink)">2·<tspan fill="var(--pen)">(20 − y)</tspan> + 4y = 56</text><text x="130" y="168" font-size="14" fill="var(--leaf)">una ecuación con una incógnita</text></g></svg></div><div class="chunk"><div><h3>Igualación y reducción</h3><p><b>Igualación</b>: despeja la misma incógnita en las dos y <mark>iguala</mark> los resultados. <b>Reducción</b>: multiplica las ecuaciones para que una incógnita tenga coeficientes opuestos y <mark>súmalas</mark> para que desaparezca.</p>
+      <div class="formula"><span>(−2)·(x + y = 20) → −2x − 2y = −40</span><span class="op">+</span><span>2x + 4y = 56</span><span class="op">→</span><span>2y = 16</span></div></div><svg viewBox="0 0 260 180" role="img" aria-label="Reducción: al sumar las dos ecuaciones, los términos en x se anulan">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" font-size="17" text-anchor="end"><text x="200" y="50" fill="var(--ink)"><tspan fill="var(--red)">−2x</tspan> − 2y = −40</text><text x="200" y="84" fill="var(--ink)"><tspan fill="var(--red)">2x</tspan> + 4y = 56</text>
+        <text x="40" y="84" text-anchor="middle" fill="var(--muted)">+</text><path d="M50 98 H 210" stroke="var(--ink)" stroke-width="2.5"/><text x="200" y="128" fill="var(--leaf)">2y = 16</text></g>
+        <path d="M66 44 L 106 54 M66 78 L 96 88" stroke="var(--red)" stroke-width="2.5"/><text x="130" y="164" text-anchor="middle" font-size="12" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">los términos opuestos se anulan</text></svg></div><div class="chunk"><div><h3>Tipos de sistemas</h3><p>Según cómo sean las rectas:</p><ul><li><b>Compatible determinado</b>: se cortan en un punto, <mark>una solución</mark>.</li><li><b>Compatible indeterminado</b>: son la misma recta, infinitas soluciones.</li><li><b>Incompatible</b>: son paralelas, ninguna solución.</li></ul></div><svg viewBox="0 0 260 180" role="img" aria-label="Tres casos: rectas que se cortan, rectas coincidentes y rectas paralelas">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M14 120 L 76 40 M14 50 L 76 120" stroke="var(--leaf)" stroke-width="3"/>
+        <path d="M98 120 L 160 40" stroke="var(--pen)" stroke-width="6"/><path d="M98 120 L 160 40" stroke="var(--hl)" stroke-width="2" stroke-dasharray="6 6"/>
+        <path d="M182 120 L 228 40 M200 120 L 246 40" stroke="var(--red)" stroke-width="3"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11" font-weight="700" text-anchor="middle"><text x="45" y="146" fill="var(--leaf)">se cortan</text><text x="45" y="162" fill="var(--leaf)">1 solución</text><text x="129" y="146" fill="var(--pen)">coinciden</text><text x="129" y="162" fill="var(--pen)">infinitas</text><text x="214" y="146" fill="var(--red)">paralelas</text><text x="214" y="162" fill="var(--red)">ninguna</text></g></svg></div></section>
+  <section><h2>Tres métodos, la misma solución</h2><div class="figure"><svg viewBox="0 0 640 220" role="img" aria-label="Comparación de los métodos de sustitución, igualación y reducción con cuándo conviene cada uno">
+      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
+      <rect x="20" y="24" width="190" height="172" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/>
+        <text x="115" y="66" text-anchor="middle" font-size="20" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">SUSTITUCIÓN</text><text x="115" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">despeja y mete</text>
+        <foreignObject x="32" y="120" width="166" height="70"><p xmlns="http://www.w3.org/1999/xhtml" style="margin:0;font:14px Atkinson Hyperlegible,sans-serif;text-align:center;color:var(--muted)">Conviene si una incógnita lleva coeficiente 1.</p></foreignObject><rect x="226" y="24" width="190" height="172" rx="14" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/>
+        <text x="321" y="66" text-anchor="middle" font-size="20" font-weight="700" fill="var(--leaf)" font-family="Baloo 2, sans-serif">IGUALACIÓN</text><text x="321" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">despeja la misma letra</text>
+        <foreignObject x="238" y="120" width="166" height="70"><p xmlns="http://www.w3.org/1999/xhtml" style="margin:0;font:14px Atkinson Hyperlegible,sans-serif;text-align:center;color:var(--muted)">Conviene si es fácil despejar la misma incógnita en las dos.</p></foreignObject><rect x="432" y="24" width="190" height="172" rx="14" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
+        <text x="527" y="66" text-anchor="middle" font-size="20" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">REDUCCIÓN</text><text x="527" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">multiplica y suma</text>
+        <foreignObject x="444" y="120" width="166" height="70"><p xmlns="http://www.w3.org/1999/xhtml" style="margin:0;font:14px Atkinson Hyperlegible,sans-serif;text-align:center;color:var(--muted)">Conviene si los coeficientes son múltiplos.</p></foreignObject>
+    </svg></div></section>
+  
+  <section class="brk"><h2>Practica</h2><ol class="fq"><li><p>La solución de x + y = 10, x − y = 2 es…</p><ol class="abc"><li><span>A)</span> (6, 4)</li><li><span>B)</span> (4, 6)</li><li><span>C)</span> (8, 2)</li></ol></li><li><p>En el sistema y = 3x, x + y = 8, ¿cuánto vale x?</p><ol class="abc"><li><span>A)</span> 2</li><li><span>B)</span> 6</li><li><span>C)</span> 8/3</li></ol></li><li><p>Dos rectas paralelas forman un sistema…</p><ol class="abc"><li><span>A)</span> con una solución</li><li><span>B)</span> sin solución</li><li><span>C)</span> con infinitas</li></ol></li><li><p>2 bocadillos y 1 refresco cuestan 7 €; 1 bocadillo y 1 refresco, 4,5 €. ¿Cuánto cuesta un bocadillo?</p><ol class="abc"><li><span>A)</span> 2,5 €</li><li><span>B)</span> 2 €</li><li><span>C)</span> 3 €</li></ol></li><li><p>¿Qué método despeja la misma incógnita en las dos ecuaciones?</p><ol class="abc"><li><span>A)</span> Sustitución</li><li><span>B)</span> Igualación</li><li><span>C)</span> Reducción</li></ol></li></ol></section>
+  <section><h2>Explícalo con tus palabras</h2><p class="caption">Incluye: Qué es la solución de un sistema; Cómo funcionan los tres métodos; Cuándo un sistema no tiene solución; Cómo plantear un problema con dos incógnitas.</p><div class="lines tall"></div></section>
+  <section><h2>Resumen</h2><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: SISTEMAS">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="225" y="122" width="250" height="56" rx="28" fill="var(--bac)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">SISTEMAS</text>
+      <rect x="0" y="34" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--ink)">Solución</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">el punto de corte</text><rect x="420" y="34" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--pen)">Métodos</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">sustitución · igualación · reducción</text><rect x="0" y="214" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--red)">Tipos</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">una · infinitas · ninguna</text><rect x="420" y="214" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--leaf)">Problemas</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">dos datos → dos ecuaciones</text>
+    </g></svg></div></section>
+  <section><h2>Tarjetas de repaso</h2><p class="caption">Recórtalas: pregunta delante, respuesta detrás.</p><div class="cut"><div><b>¿Qué es la solución de un sistema de dos ecuaciones lineales?</b><span>El punto donde se cortan las dos rectas.</span></div><div><b>Método de reducción</b><span>Multiplicar para que una incógnita tenga coeficientes opuestos y sumar.</span></div><div><b>Sistema incompatible</b><span>No tiene solución: rectas paralelas.</span></div><div><b>Sistema compatible indeterminado</b><span>Infinitas soluciones: rectas coincidentes.</span></div><div><b>¿Qué método suele usarse en los no lineales?</b><span>Sustitución.</span></div></div></section>
+  <section class="sol"><h2>Soluciones</h2><ol><li><b>A)</b> Sumando: 2x = 12 → x = 6, y = 4.</li><li><b>A)</b> x + 3x = 8 → x = 2.</li><li><b>B)</b> No se cortan.</li><li><b>A)</b> Restando ecuaciones: 1 bocadillo = 2,5 €.</li><li><b>B)</b> Igualación: se despeja la misma letra y se igualan.</li></ol></section>
+  
+  </div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<script>window.BASE="../../../../../";window.IDX="";</script>
+<script>document.getElementById("t-print").addEventListener("click",()=>window.print());</script>
+<script src="../../../../../assets/app.js"></script>
+</body></html>

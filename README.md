@@ -19,3 +19,7 @@ Modelo: `src/temas/eso-4-mata-estadistica.js` (ver la parte «Ampliación» al f
 - `ejercicios`: 10 `{ q, sol }`, con la solución explicada.
 - `quiz`: 10 preguntas; `tarjetas`: 8.
 - Después: `node build.js && node tools/desbordes.js <filtro>` (0 desbordes) y `node tools/pdfs.js`.
+
+## Publicación
+
+escolapedia.com se publica desde la rama `claude/project-thread-d876yp` (despliegue automático de Hostinger). El `.htaccess` de la raíz sirve la carpeta `dist/`. Solo se publica lo que hay en `dist/` cuando se sube: generar con `node build.js && node tools/pdfs.js` y subir `dist/` únicamente cuando Alex haya dado el visto bueno.

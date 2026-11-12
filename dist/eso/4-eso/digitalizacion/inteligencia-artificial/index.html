@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inteligencia artificial · Digitalización 4º de ESO · Escolapedia</title>
+<meta name="description" content="Inteligencia artificial: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. 4º de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../familias/">Familias</a>
+    <a href="../../../../profesores/">Profesores</a>
+  </nav>
+  <div class="lang" aria-label="Idioma"><a href="../../../../" aria-current="page" lang="es">ES</a><a href="../../../../ca/" lang="ca">CA</a></div>
+</div></header>
+<main><div class="wrap">
+  <div class="crumbs"><a href="../../../../">Inicio</a> › <a href="../../../">ESO</a> › <a href="../../">4º</a> › <a href="../">Digitalización</a> › Tema 7</div>
+  <div class="topic-head">
+    <div><span class="badge" style="background:#475569">4º de ESO · Digitalización</span><h1>Inteligencia artificial</h1>
+      <div class="tools"><button type="button" id="t-proj" aria-pressed="false">Modo proyector</button><a class="toolbtn" href="ficha/">Ficha para imprimir</a></div></div>
+    <nav class="steps" aria-label="Pasos del tema"><a href="#p1" data-go="p1">1</a><a href="#p2" data-go="p2">2</a><a href="#p3" data-go="p3">3</a><a href="#p4" data-go="p4">4</a><a href="#p5" data-go="p5">5</a><a href="#p6" data-go="p6">6</a></nav>
+  </div>
+  <div class="layout"><div>
+    <section class="sec" id="p1"><div class="sec-h"><span class="n">1</span><h2>Pregunta de arranque<small>Piensa 30 segundos antes de seguir</small></h2></div>
+      <p class="question">Un chatbot te responde con mucha seguridad que Cervantes escribió «La Celestina». ¿Cómo puede equivocarse algo que parece saberlo todo?</p>
+      <div class="reveal"><p style="margin:0">Escribe o di en voz alta tu respuesta. Después <button type="button" id="rv">mira la solución</button>.</p><p id="rv-text" hidden style="margin:10px 0 0">Porque un modelo de lenguaje no «sabe» como una persona: ha aprendido <mark>qué palabras suelen ir detrás de otras</mark> en millones de textos y genera la respuesta más probable. A veces lo probable no es lo cierto, y la IA <b>inventa</b> datos con total seguridad. Por eso hay que <b>contrastar</b> lo que dice con fuentes fiables.</p></div>
+    </section>
+    <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>5 bloques cortos</small></h2></div>
+      <div class="chunk"><div><h3>Qué es la inteligencia artificial</h3><p>La <b>inteligencia artificial</b> (IA) es la rama de la informática que crea sistemas capaces de hacer tareas que asociamos a la inteligencia humana: reconocer imágenes y voz, traducir, recomendar, conducir o escribir textos. La IA que existe hoy es <mark>específica</mark>: cada sistema es bueno en tareas concretas. Antes, los programas seguían reglas escritas a mano («si pasa esto, haz aquello»); la mayoría de la IA actual, en cambio, <b>aprende de ejemplos</b>.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Programa clásico con reglas frente a IA que aprende de ejemplos">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="14" y="30" width="110" height="110" rx="10" fill="var(--card)" stroke="var(--muted)" stroke-width="2"/><rect x="136" y="30" width="110" height="110" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11" font-weight="700" text-anchor="middle"><text x="69" y="52" fill="var(--muted)">programa clásico</text><text x="191" y="52" fill="var(--pen)">IA que aprende</text></g>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="9" fill="var(--ink)" text-anchor="middle"><text x="69" y="76">reglas a mano</text><text x="69" y="92">+ datos</text><text x="69" y="108">↓</text><text x="69" y="124">respuestas</text>
+        <text x="191" y="76">ejemplos</text><text x="191" y="92">+ respuestas</text><text x="191" y="108">↓</text><text x="191" y="124" font-weight="700" fill="var(--pen)">aprende las reglas</text></g>
+        <text x="130" y="164" text-anchor="middle" font-size="10" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">la IA saca el patrón de los datos</text>
+      </svg></div><div class="chunk"><div><h3>Cómo aprende una máquina</h3><p>El <b>aprendizaje automático</b> (machine learning) funciona así: se reúnen muchos <b>datos de entrenamiento</b> (por ejemplo, miles de fotos de gatos y perros con su etiqueta), el sistema busca <b>patrones</b> que los distinguen y ajusta su modelo cada vez que falla. Después se <b>prueba</b> con datos nuevos que no ha visto. Si aprende bien, podrá clasificar fotos que nunca vio. La calidad depende de los datos: <mark>datos pobres o injustos dan resultados pobres o injustos</mark>.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Ciclo de aprendizaje: datos etiquetados, entrenamiento, modelo y predicción con datos nuevos">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="16" y="34" width="18" height="18" rx="3" fill="var(--inf)"/><rect x="38" y="34" width="18" height="18" rx="3" fill="var(--sun)"/><rect x="60" y="34" width="18" height="18" rx="3" fill="var(--inf)"/><rect x="16" y="58" width="18" height="18" rx="3" fill="var(--sun)"/><rect x="38" y="58" width="18" height="18" rx="3" fill="var(--inf)"/><rect x="60" y="58" width="18" height="18" rx="3" fill="var(--sun)"/>
+        <text x="48" y="96" text-anchor="middle" font-size="9" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">fotos etiquetadas</text>
+        <path d="M86 56 H 108" stroke="var(--ink)" stroke-width="2.5"/><path d="M104 51 L 110 56 L 104 61" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
+        <rect x="112" y="34" width="62" height="44" rx="8" fill="var(--pen)"/><text x="143" y="60" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">entrenar</text>
+        <path d="M178 56 H 196" stroke="var(--ink)" stroke-width="2.5"/><path d="M192 51 L 198 56 L 192 61" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
+        <rect x="200" y="34" width="46" height="44" rx="8" fill="var(--leaf)"/><text x="223" y="60" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">modelo</text>
+        <rect x="30" y="122" width="22" height="22" rx="3" fill="var(--muted)"/><text x="41" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">?</text>
+        <path d="M58 133 H 196" stroke="var(--ink)" stroke-width="2" stroke-dasharray="4 3"/><path d="M223 82 V 118" stroke="var(--ink)" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="223" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">«gato»</text>
+        <text x="120" y="160" text-anchor="middle" font-size="9" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">prueba con una foto nueva</text>
+      </svg></div><div class="chunk"><div><h3>Redes neuronales e IA generativa</h3><p>Muchos sistemas usan <b>redes neuronales artificiales</b>: capas de unidades conectadas, inspiradas de forma muy simplificada en las neuronas, que ajustan la fuerza de sus conexiones al entrenar. Con muchas capas se habla de <b>aprendizaje profundo</b>. La <mark>IA generativa</mark> crea contenido nuevo: los <b>modelos de lenguaje</b> (chatbots) generan texto prediciendo la palabra siguiente, y otros modelos generan imágenes, música o vídeo a partir de una descripción, llamada <b>prompt</b>.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Red neuronal con capa de entrada, dos capas ocultas y capa de salida">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M40 58 L 100 42" stroke="var(--line)" stroke-width="1.5"/><path d="M40 58 L 100 74" stroke="var(--line)" stroke-width="1.5"/><path d="M40 58 L 100 106" stroke="var(--line)" stroke-width="1.5"/><path d="M40 58 L 100 138" stroke="var(--line)" stroke-width="1.5"/><path d="M40 90 L 100 42" stroke="var(--line)" stroke-width="1.5"/><path d="M40 90 L 100 74" stroke="var(--line)" stroke-width="1.5"/><path d="M40 90 L 100 106" stroke="var(--line)" stroke-width="1.5"/><path d="M40 90 L 100 138" stroke="var(--line)" stroke-width="1.5"/><path d="M40 122 L 100 42" stroke="var(--line)" stroke-width="1.5"/><path d="M40 122 L 100 74" stroke="var(--line)" stroke-width="1.5"/><path d="M40 122 L 100 106" stroke="var(--line)" stroke-width="1.5"/><path d="M40 122 L 100 138" stroke="var(--line)" stroke-width="1.5"/><path d="M100 42 L 160 42" stroke="var(--line)" stroke-width="1.5"/><path d="M100 42 L 160 74" stroke="var(--line)" stroke-width="1.5"/><path d="M100 42 L 160 106" stroke="var(--line)" stroke-width="1.5"/><path d="M100 42 L 160 138" stroke="var(--line)" stroke-width="1.5"/><path d="M100 74 L 160 42" stroke="var(--line)" stroke-width="1.5"/><path d="M100 74 L 160 74" stroke="var(--line)" stroke-width="1.5"/><path d="M100 74 L 160 106" stroke="var(--line)" stroke-width="1.5"/><path d="M100 74 L 160 138" stroke="var(--line)" stroke-width="1.5"/><path d="M100 106 L 160 42" stroke="var(--line)" stroke-width="1.5"/><path d="M100 106 L 160 74" stroke="var(--line)" stroke-width="1.5"/><path d="M100 106 L 160 106" stroke="var(--line)" stroke-width="1.5"/><path d="M100 106 L 160 138" stroke="var(--line)" stroke-width="1.5"/><path d="M100 138 L 160 42" stroke="var(--line)" stroke-width="1.5"/><path d="M100 138 L 160 74" stroke="var(--line)" stroke-width="1.5"/><path d="M100 138 L 160 106" stroke="var(--line)" stroke-width="1.5"/><path d="M100 138 L 160 138" stroke="var(--line)" stroke-width="1.5"/><path d="M160 42 L 220 74" stroke="var(--line)" stroke-width="1.5"/><path d="M160 42 L 220 106" stroke="var(--line)" stroke-width="1.5"/><path d="M160 74 L 220 74" stroke="var(--line)" stroke-width="1.5"/><path d="M160 74 L 220 106" stroke="var(--line)" stroke-width="1.5"/><path d="M160 106 L 220 74" stroke="var(--line)" stroke-width="1.5"/><path d="M160 106 L 220 106" stroke="var(--line)" stroke-width="1.5"/><path d="M160 138 L 220 74" stroke="var(--line)" stroke-width="1.5"/><path d="M160 138 L 220 106" stroke="var(--line)" stroke-width="1.5"/><circle cx="40" cy="58" r="10" fill="var(--inf)"/><circle cx="40" cy="90" r="10" fill="var(--inf)"/><circle cx="40" cy="122" r="10" fill="var(--inf)"/><circle cx="100" cy="42" r="10" fill="var(--pen)"/><circle cx="100" cy="74" r="10" fill="var(--pen)"/><circle cx="100" cy="106" r="10" fill="var(--pen)"/><circle cx="100" cy="138" r="10" fill="var(--pen)"/><circle cx="160" cy="42" r="10" fill="var(--pen)"/><circle cx="160" cy="74" r="10" fill="var(--pen)"/><circle cx="160" cy="106" r="10" fill="var(--pen)"/><circle cx="160" cy="138" r="10" fill="var(--pen)"/><circle cx="220" cy="74" r="10" fill="var(--leaf)"/><circle cx="220" cy="106" r="10" fill="var(--leaf)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="10" font-weight="700" text-anchor="middle"><text x="40" y="164" fill="var(--inf)">entrada</text><text x="130" y="164" fill="var(--pen)">capas ocultas</text><text x="220" y="164" fill="var(--leaf)">salida</text></g>
+      </svg></div><div class="chunk"><div><h3>La IA en tu día a día</h3><p>Usas IA más de lo que crees: las <b>recomendaciones</b> de vídeos, series y música; el <b>reconocimiento facial</b> que desbloquea el móvil; los <b>asistentes de voz</b>; los traductores automáticos; los filtros de las fotos; el filtro de correo basura; los mapas que calculan el tráfico. En medicina ayuda a detectar enfermedades en radiografías, y en ciencia a predecir la forma de las proteínas. Para estudiar puede explicarte un tema de otra forma, pero <mark>no debe hacer el trabajo por ti</mark>: si no lo piensas tú, no lo aprendes.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Usos cotidianos de la IA: recomendaciones, reconocimiento facial, asistente de voz, traductor, mapas y medicina">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="16" y="22" width="108" height="38" rx="10" fill="var(--red)"/><text x="70" y="45" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">recomendaciones</text><rect x="136" y="22" width="108" height="38" rx="10" fill="var(--pen)"/><text x="190" y="45" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">desbloqueo facial</text><rect x="16" y="72" width="108" height="38" rx="10" fill="var(--sun)"/><text x="70" y="95" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">asistente de voz</text><rect x="136" y="72" width="108" height="38" rx="10" fill="var(--leaf)"/><text x="190" y="95" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">traductor</text><rect x="16" y="122" width="108" height="38" rx="10" fill="var(--inf)"/><text x="70" y="145" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">mapas y tráfico</text><rect x="136" y="122" width="108" height="38" rx="10" fill="var(--muted)"/><text x="190" y="145" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">medicina</text>
+      </svg></div><div class="chunk"><div><h3>Riesgos y ética</h3><p>La IA plantea retos importantes. Puede tener <b>sesgos</b>: si aprende de datos donde un grupo está poco representado, funcionará peor con él o lo discriminará. Puede <b>inventar información</b> (lo que se llama «alucinar»). Permite crear <mark>deepfakes</mark>, vídeos o audios falsos muy realistas. Usa enormes cantidades de <b>datos personales</b> y de <b>energía</b>. Y cambia muchos empleos. Por eso la Unión Europea aprobó el <b>Reglamento de IA</b>, que prohíbe algunos usos y exige transparencia, por ejemplo avisar cuando un contenido está generado por IA.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Riesgos de la IA: sesgos, alucinaciones, deepfakes, privacidad y energía">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <path d="M130 24 L 236 156 H 24 Z" fill="var(--sun)"/><text x="130" y="132" text-anchor="middle" font-size="64" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">!</text>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="10" font-weight="700" fill="var(--ink)"><text x="16" y="34">sesgos</text><text x="186" y="34">deepfakes</text><text x="16" y="54">alucinaciones</text><text x="190" y="54">privacidad</text></g>
+        <text x="130" y="172" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">energía · empleo · Reglamento europeo de IA</text>
+      </svg></div>
+      
+      <h3 style="font-size:21px;margin-top:10px">Cómo usar un chatbot con cabeza</h3>
+      <div class="figure"><svg viewBox="0 0 640 220" role="img" aria-label="Cuatro pasos para usar un chatbot: pregunta clara, revisa, contrasta y di que lo usaste">
+      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
+      <rect x="16" y="30" width="146" height="160" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/>
+          <text x="89" y="74" text-anchor="middle" font-size="16" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1. Pregunta bien</text>
+          <text x="89" y="120" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">da contexto y</text>
+          <text x="89" y="140" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">pide lo concreto</text><rect x="170" y="30" width="146" height="160" rx="14" fill="var(--card)" stroke="var(--sun)" stroke-width="3"/>
+          <text x="243" y="74" text-anchor="middle" font-size="16" font-weight="700" fill="var(--sun)" font-family="Baloo 2, sans-serif">2. Revisa</text>
+          <text x="243" y="120" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">¿tiene sentido?</text>
+          <text x="243" y="140" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">¿lo entiendo?</text><rect x="324" y="30" width="146" height="160" rx="14" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/>
+          <text x="397" y="74" text-anchor="middle" font-size="16" font-weight="700" fill="var(--leaf)" font-family="Baloo 2, sans-serif">3. Contrasta</text>
+          <text x="397" y="120" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">con el libro o</text>
+          <text x="397" y="140" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">fuentes fiables</text><rect x="478" y="30" width="146" height="160" rx="14" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
+          <text x="551" y="74" text-anchor="middle" font-size="16" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">4. Sé honesto</text>
+          <text x="551" y="120" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">di que usaste IA</text>
+          <text x="551" y="140" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">y haz tu parte</text>
+    </svg></div><p class="caption">Esquema dibujado para Escolapedia. En el móvil, desliza a los lados.</p>
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/_tA5cinv0U8" title="¿Qué es y cómo funciona la inteligencia artificial?" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: ¿Qué es y cómo funciona la inteligencia artificial? · Derivando (YouTube) · 2,6 millones de visualizaciones</p>
+    </section>
+    <section class="sec" id="p3"><div class="sec-h"><span class="n">3</span><h2>Practica<small>Responde sin mirar arriba. Equivocarse aquí también enseña.</small></h2></div>
+      <div class="quiz" id="quiz"></div><p class="score" id="score" aria-live="polite"></p>
+      
+    </section>
+    <section class="sec" id="p4"><div class="sec-h"><span class="n">4</span><h2>Explícalo con tus palabras<small>Como si se lo contaras a alguien de un curso menor</small></h2></div>
+      <label for="feyn" class="caption">Escribe aquí tu explicación. Se guarda en este navegador.</label>
+      <textarea id="feyn" placeholder="Con mis palabras…"></textarea>
+      <div class="check"><span class="caption">¿Has nombrado estas ideas?</span><label><input type="checkbox" id="c0"> Qué diferencia hay entre un programa con reglas y una IA que aprende</label><label><input type="checkbox" id="c1"> Los pasos del aprendizaje automático</label><label><input type="checkbox" id="c2"> Qué es una red neuronal y qué hace la IA generativa</label><label><input type="checkbox" id="c3"> Cinco usos de la IA en tu vida diaria</label><label><input type="checkbox" id="c4"> Los riesgos éticos: sesgos, alucinaciones y deepfakes</label></div>
+    </section>
+    <section class="sec" id="p5"><div class="sec-h"><span class="n">5</span><h2>Resumen visual<small>Todo el tema en una pantalla</small></h2></div><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: INTELIGENCIA ARTIFICIAL">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="185" y="122" width="330" height="56" rx="28" fill="var(--eso)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">INTELIGENCIA ARTIFICIAL</text>
+      <rect x="10" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--pen)">Aprender</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">datos · patrones · modelo</text><rect x="430" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--leaf)">Técnicas</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">redes neuronales · generativa</text><rect x="10" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--sun)">Usos</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">recomendar · traducir · salud</text><rect x="430" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--red)">Ética</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">sesgos · deepfakes · ley</text>
+    </g></svg></div></section>
+    <section class="sec" id="p6"><div class="sec-h"><span class="n">6</span><h2>Tarjetas de repaso<small>Toca la tarjeta para darle la vuelta</small></h2></div>
+      <div class="cards">
+        <button class="flash" id="flash" type="button" aria-live="polite"><div class="in"><div class="face front"><small id="fc-count"></small><span id="fc-q"></span></div><div class="face back"><small>Respuesta</small><span id="fc-a"></span></div></div></button>
+        <div class="grade"><button type="button" data-g="0" disabled>No me acordaba</button><button type="button" data-g="1" disabled>Me costó</button><button type="button" data-g="2" disabled>¡Fácil!</button></div>
+        <p class="next" id="fc-next">Según cómo respondas, la tarjeta vuelve mañana, en 3, en 7 o en 21 días.</p>
+      </div>
+    </section>
+    <section class="sec who" aria-label="Familias y profesores">
+      <div class="box"><h3>Para familias</h3><ul><li>Pedid a un chatbot un dato que conozcáis bien y comprobad si acierta.</li><li>Buscad en el móvil tres funciones que usen IA (fotos, teclado, recomendaciones).</li><li>Repasad las tarjetas del paso 6 dos minutos al día durante la semana.</li></ul></div>
+      <div class="box"><h3>Para profesores</h3><p style="margin:0 0 6px"><b>Saberes:</b> Inteligencia artificial: fundamentos, aprendizaje automático, aplicaciones y uso crítico y ético de herramientas de IA (RD 217/2022, Digitalización 4º).</p><ul><li>Entrenar un clasificador de imágenes con Teachable Machine y probar qué pasa con datos desequilibrados.</li><li>Comparar respuestas de un chatbot con el libro de texto y buscar errores.</li><li>Debate sobre deepfakes y el Reglamento europeo de IA.</li></ul></div>
+    </section>
+    <section class="sec"><h2 style="font-size:20px;margin-bottom:8px">Fuentes y revisión</h2>
+      <ul class="src"><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" target="_blank" rel="noopener">Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)</a></li><li><a href="https://es.wikipedia.org/wiki/Inteligencia_artificial" target="_blank" rel="noopener">Inteligencia artificial, Wikipedia en español</a></li></ul>
+      <p class="caption">Revisado el 12 de noviembre de 2026.</p>
+    </section>
+  </div>
+  <aside class="side">
+    <div class="box"><h3>Qué vas a aprender</h3><ul><li>Explicar qué es la inteligencia artificial y cómo aprende una máquina</li><li>Reconocer aplicaciones de la IA en la vida diaria</li><li>Usar la IA generativa con espíritu crítico y conocer sus riesgos éticos</li></ul></div>
+    <div class="box"><h3>Palabras clave</h3>inteligencia artificial · aprendizaje automático · datos de entrenamiento · red neuronal · IA generativa · sesgo</div>
+    <div class="box"><h3>Tiempo</h3>40 minutos hoy + 2 minutos en cada repaso</div>
+  </aside></div>
+</div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<script>window.BASE="../../../../";window.IDX="";</script>
+<script>window.TEMA={"id":"4-eso-digitalizacion-inteligencia-artificial","quiz":[{"q":"La mayoría de la IA actual…","o":["sigue solo reglas escritas a mano","aprende patrones a partir de ejemplos","piensa igual que una persona"],"a":1,"e":"Es el aprendizaje automático."},{"q":"¿Para qué se usan datos de prueba que el modelo no ha visto?","o":["Para comprobar si ha aprendido de verdad","Para que pese menos","Para borrar los de entrenamiento"],"a":0,"e":"Si solo acierta con lo que ya vio, no ha aprendido a generalizar."},{"q":"Un chatbot genera texto…","o":["copiando siempre una web","prediciendo las palabras más probables","buscando en una enciclopedia exacta"],"a":1,"e":"Por eso puede sonar bien y estar mal."},{"q":"Un vídeo falso muy realista de un famoso diciendo algo que no dijo es un…","o":["deepfake","prompt","algoritmo"],"a":0,"e":"Se crea con IA generativa."},{"q":"Si un sistema aprende con fotos casi solo de un tipo de personas, puede tener…","o":["más velocidad","sesgos","menos datos personales"],"a":1,"e":"Funcionará peor con los grupos poco representados."}],"tarjetas":[["¿Qué es el aprendizaje automático?","Que el sistema aprenda patrones a partir de ejemplos en vez de reglas escritas."],["¿Qué son los datos de entrenamiento?","Los ejemplos con los que aprende el modelo."],["¿Qué es un prompt?","La instrucción o descripción que se le da a una IA generativa."],["¿Qué es una «alucinación» de la IA?","Una respuesta inventada que parece segura pero es falsa."],["¿Qué es un sesgo?","Un error sistemático que trata peor a un grupo, a menudo por datos desequilibrados."]]};</script>
+<script src="../../../../assets/app.js"></script>
+</body></html>

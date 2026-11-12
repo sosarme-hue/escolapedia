@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Control y robótica · Tecnología 4º de ESO · Escolapedia</title>
+<meta name="description" content="Control y robótica: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. 4º de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../familias/">Familias</a>
+    <a href="../../../../profesores/">Profesores</a>
+  </nav>
+  <div class="lang" aria-label="Idioma"><a href="../../../../" aria-current="page" lang="es">ES</a><a href="../../../../ca/" lang="ca">CA</a></div>
+</div></header>
+<main><div class="wrap">
+  <div class="crumbs"><a href="../../../../">Inicio</a> › <a href="../../../">ESO</a> › <a href="../../">4º</a> › <a href="../">Tecnología</a> › Tema 3</div>
+  <div class="topic-head">
+    <div><span class="badge" style="background:#475569">4º de ESO · Tecnología</span><h1>Control y robótica</h1>
+      <div class="tools"><button type="button" id="t-proj" aria-pressed="false">Modo proyector</button><a class="toolbtn" href="ficha/">Ficha para imprimir</a></div></div>
+    <nav class="steps" aria-label="Pasos del tema"><a href="#p1" data-go="p1">1</a><a href="#p2" data-go="p2">2</a><a href="#p3" data-go="p3">3</a><a href="#p4" data-go="p4">4</a><a href="#p5" data-go="p5">5</a><a href="#p6" data-go="p6">6</a></nav>
+  </div>
+  <div class="layout"><div>
+    <section class="sec" id="p1"><div class="sec-h"><span class="n">1</span><h2>Pregunta de arranque<small>Piensa 30 segundos antes de seguir</small></h2></div>
+      <p class="question">Un robot aspirador limpia toda la casa sin caerse por las escaleras ni chocar con los muebles. ¿Cómo «sabe» por dónde ir?</p>
+      <div class="reveal"><p style="margin:0">Escribe o di en voz alta tu respuesta. Después <button type="button" id="rv">mira la solución</button>.</p><p id="rv-text" hidden style="margin:10px 0 0">Tiene <mark>sensores</mark> (de choque, de distancia, de caída) que le informan de lo que pasa, un <b>microcontrolador</b> que decide según un programa y <b>actuadores</b> (motores) que lo mueven. Mide, decide y actúa una y otra vez: es un <b>sistema de control en lazo cerrado</b>.</p></div>
+    </section>
+    <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>5 bloques cortos</small></h2></div>
+      <div class="chunk"><div><h3>Qué es un sistema de control</h3><p>Un <b>sistema de control</b> gobierna una máquina o un proceso para que haga lo que queremos sin que una persona esté pendiente todo el tiempo. Tiene una <b>entrada</b> (la orden o lo que se mide), un <b>controlador</b> que decide y una <b>salida</b> (lo que se hace). Están en todas partes: la cisterna del váter, el termostato de la calefacción, los semáforos o el piloto automático de un avión.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Diagrama: entrada, controlador y salida">
+        <defs><marker id="cr1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker></defs>
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="14" y="72" width="64" height="34" rx="8" fill="var(--leaf)"/><text x="46" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">entrada</text><rect x="98" y="72" width="70" height="34" rx="8" fill="var(--pen)"/><text x="133" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">controlador</text><rect x="188" y="72" width="58" height="34" rx="8" fill="var(--red)"/><text x="217" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">salida</text>
+        <g stroke="var(--muted)" stroke-width="2.5" marker-end="url(#cr1)"><path d="M78 89 H 94"/><path d="M168 89 H 184"/></g>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="10" fill="var(--muted)" text-anchor="middle"><text x="46" y="130">orden o medida</text><text x="133" y="130">decide</text><text x="217" y="130">acción</text></g>
+      </svg></div><div class="chunk"><div><h3>Lazo abierto y lazo cerrado</h3><p>En <b>lazo abierto</b> el sistema actúa <mark>sin comprobar el resultado</mark>: una tostadora con temporizador tuesta 2 minutos aunque el pan ya esté quemado. En <b>lazo cerrado</b> hay <mark>realimentación</mark>: un sensor mide la salida y el controlador corrige. El termostato mide la temperatura y apaga la calefacción al llegar a 21 °C. Son más precisos pero más caros y complejos.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Lazo cerrado: la salida se mide con un sensor y vuelve al controlador">
+        <defs><marker id="cr2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker><marker id="cr3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--sun)"/></marker></defs>
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="14" y="40" width="60" height="34" rx="8" fill="var(--leaf)"/><text x="44" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">consigna</text><rect x="98" y="40" width="70" height="34" rx="8" fill="var(--pen)"/><text x="133" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">controlador</text><rect x="188" y="40" width="58" height="34" rx="8" fill="var(--red)"/><text x="217" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">proceso</text><rect x="120" y="112" width="60" height="34" rx="8" fill="var(--sun)"/><text x="150" y="134" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">sensor</text>
+        <g stroke="var(--muted)" stroke-width="2.5" fill="none" marker-end="url(#cr2)"><path d="M74 57 H 94"/><path d="M168 57 H 184"/></g>
+        <path d="M217 74 V 129 H 184" fill="none" stroke="var(--sun)" stroke-width="2.5" marker-end="url(#cr3)"/><path d="M120 129 H 84 V 76 L 94 70" fill="none" stroke="var(--sun)" stroke-width="2.5" marker-end="url(#cr3)"/>
+        <text x="130" y="168" text-anchor="middle" font-size="11" font-weight="700" fill="var(--sun)" font-family="Atkinson Hyperlegible, sans-serif">realimentación</text>
+      </svg></div><div class="chunk"><div><h3>Sensores: los sentidos</h3><p>Un <b>sensor</b> convierte una magnitud física en una <mark>señal eléctrica</mark>. Pueden ser <b>digitales</b> (sí/no: pulsador, final de carrera, sensor de infrarrojos de presencia) o <b>analógicos</b> (dan un valor: LDR para la luz, termistor o sensor de temperatura, <b>ultrasonidos</b> para medir distancias, potenciómetro para la posición). El robot aspirador usa infrarrojos para no caerse y un sensor de choque en el parachoques.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Sensor de ultrasonidos midiendo la distancia a una pared con el eco">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="20" y="70" width="60" height="36" rx="4" fill="var(--pen)"/><circle cx="36" cy="88" r="11" fill="var(--card)"/><circle cx="64" cy="88" r="11" fill="var(--card)"/>
+        <rect x="220" y="30" width="20" height="120" fill="var(--muted)"/>
+        <path d="M100 70 Q 110 88 100 106" fill="none" stroke="var(--leaf)" stroke-width="2.5"/><path d="M130 70 Q 140 88 130 106" fill="none" stroke="var(--leaf)" stroke-width="2.5"/><path d="M160 70 Q 170 88 160 106" fill="none" stroke="var(--leaf)" stroke-width="2.5"/>
+        <path d="M200 116 Q 190 132 200 148" fill="none" stroke="var(--red)" stroke-width="2.5" stroke-dasharray="4 3"/><path d="M170 116 Q 160 132 170 148" fill="none" stroke="var(--red)" stroke-width="2.5" stroke-dasharray="4 3"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11" font-weight="700"><text x="20" y="130" fill="var(--pen)">ultrasonidos</text><text x="110" y="60" fill="var(--leaf)">emite</text><text x="150" y="168" fill="var(--red)">eco</text></g>
+      </svg></div><div class="chunk"><div><h3>Actuadores: los músculos</h3><p>Un <b>actuador</b> transforma la señal del controlador en una <mark>acción</mark>. Los más usados en robótica educativa son los <b>motores de corriente continua</b> (giran sin parar, para ruedas), los <b>servomotores</b> (giran a un ángulo exacto, para brazos y pinzas), los <b>motores paso a paso</b> (giran en pasos precisos, como en las impresoras 3D), los <b>LED</b> y los <b>zumbadores</b>. Un <b>relé</b> permite que el circuito de control encienda aparatos de más potencia.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Motor de corriente continua con rueda y servomotor con brazo a 90 grados">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="24" y="60" width="60" height="40" rx="8" fill="var(--sun)"/><path d="M84 80 H 104" stroke="var(--ink)" stroke-width="4"/><circle cx="114" cy="80" r="22" fill="none" stroke="var(--ink)" stroke-width="5"/><path d="M100 64 A 22 22 0 0 1 132 70" fill="none" stroke="var(--red)" stroke-width="2.5"/>
+        <rect x="160" y="70" width="70" height="36" rx="4" fill="var(--pen)"/><circle cx="182" cy="70" r="8" fill="var(--card)"/><path d="M182 70 V 30" stroke="var(--ink)" stroke-width="6" stroke-linecap="round"/><path d="M182 70 L 216 70" stroke="var(--ink)" stroke-width="2" stroke-dasharray="3 3"/><path d="M196 70 A 14 14 0 0 0 182 56" fill="none" stroke="var(--red)" stroke-width="2"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11" font-weight="700" text-anchor="middle"><text x="70" y="130" fill="var(--sun)">motor CC: gira continuo</text><text x="196" y="130" fill="var(--pen)">servo: va a 90°</text></g>
+      </svg></div><div class="chunk"><div><h3>Los robots</h3><p>Un <b>robot</b> es una máquina programable que percibe su entorno y actúa sobre él. Sus partes: <b>estructura</b> (chasis o brazo articulado), <b>sensores</b>, <b>actuadores</b>, <b>sistema de control</b> (un <mark>microcontrolador</mark> como la placa Arduino) y <b>fuente de energía</b>. Hay robots <b>industriales</b> (brazos que sueldan o pintan coches), <b>móviles</b> (aspiradores, rovers de Marte), <b>médicos</b> (cirugía) y <b>humanoides</b>. La robótica crea empleos nuevos y cambia otros.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Robot móvil con sus partes: sensores, placa controladora, motores y batería">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <rect x="60" y="70" width="140" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>
+        <rect x="96" y="82" width="56" height="30" rx="3" fill="var(--leaf)"/><rect x="164" y="84" width="26" height="28" rx="3" fill="var(--sun)"/>
+        <circle cx="86" cy="130" r="16" fill="var(--ink)"/><circle cx="174" cy="130" r="16" fill="var(--ink)"/>
+        <rect x="200" y="80" width="18" height="34" rx="4" fill="var(--pen)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11" font-weight="700"><text x="96" y="58" fill="var(--leaf)">microcontrolador</text><text x="196" y="68" fill="var(--pen)">sensor</text><text x="150" y="166" fill="var(--ink)">motores</text><text x="166" y="140" fill="var(--sun)"> </text><text x="10" y="100" fill="var(--sun)">batería →</text></g>
+      </svg></div>
+      
+      <h3 style="font-size:21px;margin-top:10px">Percibir, decidir y actuar</h3>
+      <div class="figure"><svg viewBox="0 0 640 220" role="img" aria-label="Sensores, controlador y actuadores con ejemplos de cada uno">
+      <defs><marker id="cr4" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker></defs>
+      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
+      <rect x="20" y="24" width="180" height="172" rx="14" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/>
+          <text x="110" y="62" text-anchor="middle" font-size="19" font-weight="700" fill="var(--leaf)" font-family="Baloo 2, sans-serif">SENSORES</text>
+          <text x="110" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">perciben</text>
+          <text x="110" y="140" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">LDR · ultrasonidos</text>
+          <text x="110" y="160" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">pulsador · temperatura</text>
+          <path d="M202 110 H 226" stroke="var(--muted)" stroke-width="3" marker-end="url(#cr4)"/><rect x="230" y="24" width="180" height="172" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/>
+          <text x="320" y="62" text-anchor="middle" font-size="19" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">CONTROLADOR</text>
+          <text x="320" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">decide</text>
+          <text x="320" y="140" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Arduino · micro:bit</text>
+          <text x="320" y="160" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">con un programa</text>
+          <path d="M412 110 H 436" stroke="var(--muted)" stroke-width="3" marker-end="url(#cr4)"/><rect x="440" y="24" width="180" height="172" rx="14" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
+          <text x="530" y="62" text-anchor="middle" font-size="19" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">ACTUADORES</text>
+          <text x="530" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">actúan</text>
+          <text x="530" y="140" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">motores · servos</text>
+          <text x="530" y="160" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">LED · zumbador</text>
+          
+    </svg></div><p class="caption">Esquema dibujado para Escolapedia. En el móvil, desliza a los lados.</p>
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/Zs9MZosVuqo" title="Arduino: qué es, cómo funciona y para qué se puede utilizar" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: Arduino: qué es, cómo funciona y para qué se puede utilizar · Xataka (YouTube) · 825 mil visualizaciones</p>
+    </section>
+    <section class="sec" id="p3"><div class="sec-h"><span class="n">3</span><h2>Practica<small>Responde sin mirar arriba. Equivocarse aquí también enseña.</small></h2></div>
+      <div class="quiz" id="quiz"></div><p class="score" id="score" aria-live="polite"></p>
+      
+    </section>
+    <section class="sec" id="p4"><div class="sec-h"><span class="n">4</span><h2>Explícalo con tus palabras<small>Como si se lo contaras a alguien de un curso menor</small></h2></div>
+      <label for="feyn" class="caption">Escribe aquí tu explicación. Se guarda en este navegador.</label>
+      <textarea id="feyn" placeholder="Con mis palabras…"></textarea>
+      <div class="check"><span class="caption">¿Has nombrado estas ideas?</span><label><input type="checkbox" id="c0"> Qué es un sistema de control con un ejemplo de casa</label><label><input type="checkbox" id="c1"> La diferencia entre lazo abierto y lazo cerrado</label><label><input type="checkbox" id="c2"> Tres sensores y qué miden</label><label><input type="checkbox" id="c3"> Tres actuadores y qué hacen</label><label><input type="checkbox" id="c4"> Las partes de un robot móvil</label></div>
+    </section>
+    <section class="sec" id="p5"><div class="sec-h"><span class="n">5</span><h2>Resumen visual<small>Todo el tema en una pantalla</small></h2></div><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: CONTROL Y ROBÓTICA">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="215.5" y="122" width="269" height="56" rx="28" fill="var(--eso)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">CONTROL Y ROBÓTICA</text>
+      <rect x="10" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--ink)">Control</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">entrada → controlador → salida</text><rect x="430" y="34" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--sun)">Lazo cerrado</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">realimentación con sensor</text><rect x="10" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--leaf)">Sensores</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">LDR · ultrasonidos · pulsador</text><rect x="430" y="214" width="260" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--red)">Actuadores</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">motor · servo · LED</text>
+    </g></svg></div></section>
+    <section class="sec" id="p6"><div class="sec-h"><span class="n">6</span><h2>Tarjetas de repaso<small>Toca la tarjeta para darle la vuelta</small></h2></div>
+      <div class="cards">
+        <button class="flash" id="flash" type="button" aria-live="polite"><div class="in"><div class="face front"><small id="fc-count"></small><span id="fc-q"></span></div><div class="face back"><small>Respuesta</small><span id="fc-a"></span></div></div></button>
+        <div class="grade"><button type="button" data-g="0" disabled>No me acordaba</button><button type="button" data-g="1" disabled>Me costó</button><button type="button" data-g="2" disabled>¡Fácil!</button></div>
+        <p class="next" id="fc-next">Según cómo respondas, la tarjeta vuelve mañana, en 3, en 7 o en 21 días.</p>
+      </div>
+    </section>
+    <section class="sec who" aria-label="Familias y profesores">
+      <div class="box"><h3>Para familias</h3><ul><li>Buscad en casa sistemas de control (cisterna, nevera, lavadora) y decid si son de lazo abierto o cerrado.</li><li>Si tenéis robot aspirador, observad cómo reacciona al chocar o al acercarse a una escalera.</li><li>Repasad las tarjetas del paso 6 dos minutos al día durante la semana.</li></ul></div>
+      <div class="box"><h3>Para profesores</h3><p style="margin:0 0 6px"><b>Saberes:</b> Sistemas de control y robótica: lazo abierto y cerrado, sensores, actuadores, microcontroladores y montaje de robots (RD 217/2022, Tecnología 4º).</p><ul><li>Robot siguelíneas con dos sensores infrarrojos y dos motores.</li><li>Semáforo inteligente con Arduino y pulsador para peatones.</li><li>Debate sobre robots y empleo con noticias actuales.</li></ul></div>
+    </section>
+    <section class="sec"><h2 style="font-size:20px;margin-bottom:8px">Fuentes y revisión</h2>
+      <ul class="src"><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" target="_blank" rel="noopener">Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)</a></li><li><a href="https://es.wikipedia.org/wiki/Sistema_de_control" target="_blank" rel="noopener">Sistema de control, Wikipedia en español</a></li></ul>
+      <p class="caption">Revisado el 12 de noviembre de 2026.</p>
+    </section>
+  </div>
+  <aside class="side">
+    <div class="box"><h3>Qué vas a aprender</h3><ul><li>Distinguir sistemas de control en lazo abierto y en lazo cerrado</li><li>Clasificar sensores y actuadores y explicar su función</li><li>Describir las partes de un robot y sus aplicaciones</li></ul></div>
+    <div class="box"><h3>Palabras clave</h3>sistema de control · lazo cerrado · realimentación · sensor · actuador · microcontrolador</div>
+    <div class="box"><h3>Tiempo</h3>40 minutos hoy + 2 minutos en cada repaso</div>
+  </aside></div>
+</div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<script>window.BASE="../../../../";window.IDX="";</script>
+<script>window.TEMA={"id":"4-eso-tecnologia-control-y-robotica","quiz":[{"q":"Una tostadora que tuesta un tiempo fijo sin mirar el pan es un sistema de control…","o":["en lazo abierto","en lazo cerrado","realimentado"],"a":0,"e":"No comprueba el resultado: actúa según una orden fija."},{"q":"¿Qué es la realimentación?","o":["Recargar la batería","Medir la salida y usarla para corregir la acción","Repetir el programa"],"a":1,"e":"Es lo que caracteriza a los sistemas en lazo cerrado."},{"q":"¿Qué sensor usarías para medir la distancia a un obstáculo?","o":["LDR","Ultrasonidos","Termistor"],"a":1,"e":"Emite un sonido inaudible y mide el tiempo que tarda el eco."},{"q":"¿Qué actuador gira hasta un ángulo exacto?","o":["Motor de corriente continua","Servomotor","Zumbador"],"a":1,"e":"El servomotor tiene control de posición interno."},{"q":"¿Qué parte de un robot ejecuta el programa?","o":["Los sensores","El microcontrolador","El chasis"],"a":1,"e":"Es el «cerebro»: lee sensores, decide y manda órdenes a los actuadores."}],"tarjetas":[["Sistema de control en lazo cerrado","El que mide la salida con un sensor y corrige la acción (realimentación)."],["¿Qué es un sensor?","Un dispositivo que convierte una magnitud física en una señal eléctrica."],["¿Qué es un actuador?","Un dispositivo que convierte una señal eléctrica en una acción (movimiento, luz, sonido)."],["Diferencia entre motor CC y servomotor","El motor CC gira de forma continua; el servo se coloca en un ángulo concreto."],["Partes de un robot","Estructura, sensores, actuadores, sistema de control y fuente de energía."]]};</script>
+<script src="../../../../assets/app.js"></script>
+</body></html>

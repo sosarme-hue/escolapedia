@@ -1,0 +1,9 @@
+# Escolapedia: la web publicada es la carpeta dist/ (generada con build.js).
+DirectoryIndex index.html
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+RewriteCond %{DOCUMENT_ROOT}/dist/$1 -d
+RewriteRule ^(.*[^/])$ /$1/ [R=301,L]
+RewriteCond %{REQUEST_URI} !^/dist/
+RewriteRule ^(.*)$ dist/$1 [L]
