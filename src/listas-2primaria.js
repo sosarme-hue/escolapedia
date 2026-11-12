@@ -1,0 +1,13 @@
+// Listas de temas de 2º de Primaria (LOMLOE, RD 157/2022). Orden habitual de los libros de texto.
+module.exports = {
+  "Ciencias de la Naturaleza": ["Los seres vivos", "El cuerpo humano: huesos y músculos", "Los sentidos", "La alimentación saludable", "Los animales: cómo son y cómo viven", "Las plantas: cómo nacen y crecen", "El agua y sus estados", "El aire", "Materiales y objetos", "Máquinas sencillas"],
+  "Ciencias Sociales": ["La familia y la casa", "La localidad: pueblos y ciudades", "Los servicios públicos", "Los trabajos y oficios", "Los medios de transporte", "Educación vial", "El paisaje de montaña y de costa", "El tiempo atmosférico", "El paso del tiempo: la historia de mi familia", "El Sol, la Luna y las estaciones"],
+  "Lengua Castellana y Literatura": ["El abecedario y el orden alfabético", "Vocales y consonantes", "La sílaba", "El sustantivo: nombres comunes y propios", "El adjetivo", "El verbo: acciones", "Masculino y femenino, singular y plural", "Sinónimos y antónimos", "La c y la qu, la g y la gu", "La r y la rr, mp y mb", "Cuentos y fábulas", "Poemas, retahílas y adivinanzas"],
+  "Matemáticas": ["Los números hasta el 999", "Unidades, decenas y centenas", "Comparar y ordenar números", "La suma llevando", "La resta llevando", "Problemas de suma y resta", "Iniciación a la multiplicación", "Las tablas de multiplicar", "Medidas de longitud: el metro", "Medidas de peso y capacidad", "El reloj: horas y medias horas", "Euros y céntimos", "Figuras planas y cuerpos geométricos", "Gráficos sencillos"],
+  "Inglés": ["Hello again! My name is", "School things and colours", "My toys", "My house", "Food I like", "Animals at the farm", "My body and my face", "Clothes", "The weather and seasons", "Days of the week"],
+  "Educación Plástica": ["Colores primarios y secundarios", "Líneas y formas", "Dibujar la figura humana", "Texturas", "Modelado con plastilina y arcilla", "Collage y reciclaje", "Retratos y paisajes", "Obras de arte famosas"],
+  "Música": ["Sonidos del entorno", "Sonidos agudos y graves", "El pulso y el ritmo", "Canciones y juegos de manos", "Instrumentos de percusión", "Escuchar música: lento y rápido", "Danzas sencillas", "Mi primera partitura"],
+  "Educación Física": ["Mi cuerpo en movimiento", "Correr, saltar y girar", "Lanzar y atrapar", "El equilibrio", "Juegos de persecución", "Juegos populares", "Expresión corporal y mímica", "Higiene y descanso"],
+  "Lengua Catalana y Literatura": ["L'abecedari", "Vocals i consonants", "La síl·laba", "El nom", "L'adjectiu", "El verb", "Masculí i femení, singular i plural", "Contes i poemes"],
+  "Religión": ["Dios crea el mundo con amor", "Noé y el arca", "María, la madre de Jesús", "Jesús nace en Belén", "Jesús ayuda a los demás", "La Pascua y la alegría"],
+};
