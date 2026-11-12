@@ -18,6 +18,9 @@ function filas(label, items, titulo) {
   const top = titulo ? 34 : 14, n = items.length, gap = 8;
   const h = (166 - top - (n - 1) * gap) / n;
   let out = titulo ? `<text x="130" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="var(--muted)">${titulo}</text>` : "";
+  // En filas de una línea, el texto se alinea en columna tras el título más largo si cabe.
+  const colX = 26 + Math.max(...items.map(([t]) => ancho(t, 14, true))) + 14;
+  const enColumna = items.every(([, d]) => colX + ancho(d, 13, false) <= 238);
   items.forEach(([t, d, c], i) => {
     const y = top + i * (h + gap);
     out += `<rect x="14" y="${y}" width="232" height="${h}" rx="10" fill="var(--card)" stroke="${c}" stroke-width="2"/>`;
@@ -27,7 +30,7 @@ function filas(label, items, titulo) {
     } else {
       const k = Math.min(1, 204 / (ancho(t, 14, true) + ancho(d, 13, false)));
       if (k < 0.77) console.warn(`[lenguas] fila larga en ${label}: «${t} ${d}»`);
-      out += `<text x="26" y="${y + h / 2 + 5}" font-size="${+(14 * k).toFixed(1)}" font-weight="700" fill="${c}">${t}</text><text x="236" y="${y + h / 2 + 5}" text-anchor="end" font-size="${+(13 * k).toFixed(1)}" fill="var(--ink)">${d}</text>`;
+      out += `<text x="26" y="${y + h / 2 + 5}" font-size="${+(14 * k).toFixed(1)}" font-weight="700" fill="${c}">${t}</text>${enColumna ? `<text x="${colX}" y="${y + h / 2 + 5}" font-size="13" fill="var(--ink)">${d}</text>` : `<text x="236" y="${y + h / 2 + 5}" text-anchor="end" font-size="${+(13 * k).toFixed(1)}" fill="var(--ink)">${d}</text>`}`;
     }
   });
   return marco(label, out);
@@ -35,15 +38,21 @@ function filas(label, items, titulo) {
 
 // Frase troceada: [texto, etiqueta, color]. Cada trozo en una caja con su función debajo.
 function frase(label, partes, nota) {
-  let out = "", x = 14, y = 16;
+  // Primero se colocan las cajas en filas; después se centra el bloque en vertical.
+  let x = 14, fila = 0; const pos = [];
   partes.forEach(([t, e, c]) => {
     const w = Math.max(ancho(t, 14, true), ancho(e || "", 11, true)) + 16;
-    if (x + w > 246) { x = 14; y += 56; }
-    cabe(t, 14, 220, true, label);
-    out += `<rect x="${x}" y="${y}" width="${w}" height="30" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/>
-        <text x="${x + w / 2}" y="${y + 20}" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">${t}</text>
-        ${e ? `<text x="${x + w / 2}" y="${y + 45}" text-anchor="middle" font-size="11" font-weight="700" fill="${c}">${e}</text>` : ""}`;
+    if (x + w > 246 && x > 14) { x = 14; fila++; }
+    pos.push({ t, e, c, x, fila, w: Math.min(w, 232) });
     x += w + 6;
+  });
+  const alto = (fila + 1) * 56 - 6, y0 = Math.max(12, ((nota ? 146 : 170) - alto) / 2);
+  let out = "";
+  pos.forEach(({ t, e, c, x, fila, w }) => {
+    const y = y0 + fila * 56;
+    out += `<rect x="${x}" y="${y}" width="${w}" height="30" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/>
+        <text x="${x + w / 2}" y="${y + 20}" text-anchor="middle" font-size="${fz(t, 14, w - 8, true)}" font-weight="700" fill="var(--ink)">${t}</text>
+        ${e ? `<text x="${x + w / 2}" y="${y + 45}" text-anchor="middle" font-size="11" font-weight="700" fill="${c}">${e}</text>` : ""}`;
   });
   if (nota) { cabe(nota, 13, 236, false, label); out += `<text x="130" y="166" text-anchor="middle" font-size="${fz(nota, 13, 236)}" fill="var(--muted)">${nota}</text>`; }
   return marco(label, out);
@@ -134,7 +143,7 @@ function pasos(label, items) {
       <circle cx="${cx}" cy="40" r="15" fill="${c}"/><text x="${cx}" y="46" text-anchor="middle" font-size="15" font-weight="700" fill="#fff" ${D}>${i + 1}</text>
       <text x="${cx}" y="88" text-anchor="middle" font-size="${fz(t, 16, w - 10, true)}" font-weight="700" fill="${c}" ${F}>${t}</text>
       ${ls.map((l, k) => `<text x="${cx}" y="${120 + k * 20}" text-anchor="middle" font-size="${fz(l, 13, w - 12)}" fill="var(--ink)" ${F}>${l}</text>`).join("")}
-      ${i < n - 1 ? `<path d="M${x + w + 5} 110 h ${gap - 12}" stroke="var(--muted)" stroke-width="3"/><path d="M${x + w + gap - 7} 104 l 6 6 l -6 6" fill="none" stroke="var(--muted)" stroke-width="3"/>` : ""}`;
+      ${i < n - 1 ? `<path d="M${x + w + 5} 110 h ${gap - 13}" stroke="var(--muted)" stroke-width="3"/><path d="M${x + w + gap - 12} 105 l 5 5 l -5 5" fill="none" stroke="var(--muted)" stroke-width="3"/>` : ""}`;
   }).join("");
   return `<svg viewBox="0 0 640 220" role="img" aria-label="${label}">
       <rect width="640" height="220" rx="16" fill="var(--paper)"/>${out}</svg>`;
