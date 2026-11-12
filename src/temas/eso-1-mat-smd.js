@@ -21,7 +21,7 @@ module.exports = {
     },
     {
       html: `<h3>Unidades de longitud</h3><p>La unidad principal es el <b>metro</b>. Los <b>múltiplos</b> (más grandes) y <b>submúltiplos</b> (más pequeños) van de <mark>10 en 10</mark>:</p><p style="text-align:center"><b>km · hm · dam · m · dm · cm · mm</b></p><ul><li>Para pasar a una unidad <b>menor</b> (bajar) se <b>multiplica</b> por 10 en cada escalón.</li><li>Para pasar a una unidad <b>mayor</b> (subir) se <b>divide</b> entre 10 en cada escalón.</li></ul><p>3,5 km → m: tres escalones → · 1 000 = 3 500 m. 47 cm → m: dos escalones → : 100 = 0,47 m.</p><p>Los prefijos se repiten en todas las magnitudes: kilo = 1 000, hecto = 100, deca = 10, deci = 0,1, centi = 0,01, mili = 0,001.</p>`,
-      svg: svg("Escalera de unidades de longitud: de kilómetro a milímetro, multiplicando por 10 al bajar y dividiendo al subir", `${escalera(["mm", "cm", "dm", "m", "dam", "hm", "km"], "m", "var(--pen)")}${t(194, 30, "subir: : 10", { c: "var(--red)", s: 11 })}${t(70, 34, "bajar: · 10", { c: "var(--leaf)", s: 11 })}${t(130, 166, "cada escalón, × 10", { c: "var(--muted)", s: 10 })}`),
+      svg: svg("Escalera de unidades de longitud: de kilómetro a milímetro, multiplicando por 10 al bajar y dividiendo al subir", `${escalera(["mm", "cm", "dm", "m", "dam", "hm", "km"], "m", "var(--pen)")}${t(194, 30, "subir: ÷ 10", { c: "var(--red)", s: 11 })}${t(70, 34, "bajar: × 10", { c: "var(--leaf)", s: 11 })}${t(130, 166, "cada escalón, × 10", { c: "var(--muted)", s: 10 })}`),
       video: vb("smdB"),
     },
     {
