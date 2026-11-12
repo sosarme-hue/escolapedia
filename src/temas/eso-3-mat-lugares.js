@@ -32,7 +32,7 @@ module.exports = {
       svg: svg("Triángulo con sus tres mediatrices cortándose en el circuncentro y la circunferencia circunscrita que pasa por los tres vértices", `<circle cx="130" cy="95" r="70" fill="none" stroke="var(--leaf)" stroke-width="2" stroke-dasharray="6 4"/>
         <path d="M60 95 L 179.5 45.5 L 165 155.6 Z" fill="var(--pen)" fill-opacity=".1" stroke="var(--ink)" stroke-width="2.5"/>
         ${[[60, 95, 179.5, 45.5], [179.5, 45.5, 165, 155.6], [165, 155.6, 60, 95]].map(([x1, y1, x2, y2]) => { const mx = (x1 + x2) / 2, my = (y1 + y2) / 2; return `<path d="M130 95 L ${mx + (mx - 130) * 0.5} ${my + (my - 95) * 0.5}" stroke="var(--pen)" stroke-width="1.8"/>`; }).join("")}
-        <circle cx="130" cy="95" r="5" fill="var(--red)"/>${t(122, 88, "circuncentro", { c: "var(--red)", s: 11, a: "end" })}${t(236, 20, "R", { c: "var(--leaf)", s: 12 })}`),
+        <circle cx="130" cy="95" r="5" fill="var(--red)"/>${t(130, 114, "circuncentro", { c: "var(--red)", s: 11 })}${t(206, 176, "circunscrita", { c: "var(--leaf)", s: 10 })}`),
     },
     {
       html: `<h3>El teorema de Pitágoras</h3><p>En todo triángulo <b>rectángulo</b>, el cuadrado de la hipotenusa (el lado opuesto al ángulo recto) es igual a la suma de los cuadrados de los catetos:</p><p><mark>a² = b² + c²</mark></p><p>Si los catetos miden 6 y 8, la hipotenusa es √(36 + 64) = √100 = 10. Para hallar un cateto se resta: c = √(a² − b²). El teorema también sirve al revés: si a² = b² + c², el triángulo es rectángulo. Los albañiles lo usan con la «regla 3-4-5» para comprobar ángulos rectos.</p>`,
