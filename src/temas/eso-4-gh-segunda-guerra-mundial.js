@@ -60,7 +60,7 @@ module.exports = {
     { q: "¿Qué se juzgó en Núremberg?", o: ["A los líderes nazis por crímenes contra la humanidad", "A Franco", "A los soldados aliados"], a: 0, e: "Fue el primer gran tribunal internacional por crímenes de guerra y genocidio." },
   ],
   feynman: ["Las causas de la guerra y la política de apaciguamiento", "Quién formaba el Eje y quién los Aliados", "Las dos fases y las batallas clave", "Qué fue el Holocausto y qué consecuencias dejó la guerra"],
-  mapa: mapa("SEGUNDA GUERRA MUNDIAL", "var(--soc, #c2410c)", [
+  mapa: mapa("II GUERRA MUNDIAL", "var(--soc, #c2410c)", [
     ["Causas", "Versalles · crisis · apaciguamiento", "var(--muted)"],
     ["Bandos", "Eje vs. Aliados", "var(--ink)"],
     ["Fases", "Blitzkrieg · Stalingrado · Normandía", "var(--pen)"],

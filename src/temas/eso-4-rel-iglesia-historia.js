@@ -49,7 +49,7 @@ module.exports = {
     { q: "El ecumenismo busca…", o: ["la unidad de los cristianos", "convertir por la fuerza", "separar Iglesia y Estado"], a: 0, e: "Fue impulsado especialmente desde el Vaticano II." },
   ],
   feynman: ["Cómo eran las primeras comunidades cristianas", "Qué cambió con Constantino y Teodosio", "Aportaciones y sombras de la Iglesia medieval", "Por qué hay católicos, ortodoxos y protestantes"],
-  mapa: mapa("IGLESIA EN LA HISTORIA", "var(--bac)", [
+  mapa: mapa("LA IGLESIA", "var(--bac)", [
     ["Orígenes", "Pentecostés · Pedro · Pablo", "var(--leaf)"],
     ["Imperio", "mártires · 313 · 380", "var(--red)"],
     ["Edad Media", "monasterios · 1054", "var(--sun)"],

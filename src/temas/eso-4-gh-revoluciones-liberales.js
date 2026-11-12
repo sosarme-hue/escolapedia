@@ -60,7 +60,7 @@ module.exports = {
     { q: "La fase más radical de la Revolución francesa fue…", o: ["la monarquía constitucional", "la Convención y el Terror (1792-1794)", "el Directorio"], a: 1, e: "Con Robespierre se ejecutó al rey y a miles de opositores." },
   ],
   feynman: ["Los principios del liberalismo y en qué se oponen al Antiguo Régimen", "Las tres fases de la Revolución francesa", "Qué conservó Napoleón de la Revolución y qué no", "Qué pedían las revoluciones de 1820, 1830 y 1848 y qué es el nacionalismo"],
-  mapa: mapa("REVOLUCIONES LIBERALES", "var(--soc, #c2410c)", [
+  mapa: mapa("REVOL. LIBERALES", "var(--soc, #c2410c)", [
     ["Liberalismo", "constitución · soberanía · derechos", "var(--pen)"],
     ["EE. UU. 1776", "independencia · Constitución 1787", "var(--leaf)"],
     ["Francia 1789", "Bastilla · Derechos · Napoleón", "var(--red)"],
