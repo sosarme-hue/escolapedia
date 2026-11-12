@@ -92,6 +92,8 @@ for (const e of ETAPAS) for (const c of e.cursos) for (const m of c.materias) {
 
 const GRUPOS = [["comun", "Materias comunes"], ["lengua", "Lenguas"], ["modalidad", "Materias de modalidad"], ["opcion", "Optativas, opciones y Religión"]];
 const famColor = (m) => (FAM[m.fam] || FAM.len).c;
+// Un curso se marca en la portada cuando tiene al menos la mitad de sus temas listos.
+const cursoListo = (c) => { let t = 0, l = 0; for (const m of c.materias) { t += m.temasObj.length; l += m.temasObj.filter((x) => x.obj).length; } return t > 0 && l * 2 >= t; };
 const cursoNombre = (e, c) => c.largo || `Infantil, ${c.nombre}`;
 
 // ---------- portada ----------
@@ -100,7 +102,7 @@ function stagesHTML(depth, lang) {
   return ETAPAS.map((e) => `
     <div class="stage" style="--c:${e.color}">
       <div><h3><a href="${r}${e.slug}/" style="color:inherit;text-decoration:none">${e.nombre}</a></h3><small>${e.edad}</small></div>
-      <div class="chips">${e.cursos.map((c) => `<a class="chip${c.slug === "4-eso" ? " live" : ""}" href="${r}${e.slug}/${c.slug}/">${c.nombre}</a>`).join("")}${e.slug === "bachillerato" ? `<span class="chip" title="Próximamente">PAU</span>` : ""}</div>
+      <div class="chips">${e.cursos.map((c) => `<a class="chip${cursoListo(c) ? " live" : ""}" href="${r}${e.slug}/${c.slug}/">${c.nombre}</a>`).join("")}${e.slug === "bachillerato" ? `<span class="chip" title="Próximamente">PAU</span>` : ""}</div>
     </div>`).join("");
 }
 
@@ -132,7 +134,7 @@ function home(lang) {
   <section class="stages" aria-label="${ca ? "Etapes i cursos" : "Etapas y cursos"}">
     <h2>${ca ? "Tria el teu curs" : "Elige tu curso"}</h2>
     ${stagesHTML(depth, lang)}
-    <p class="caption">${nMaterias} ${ca ? "matèries" : "materias"} · ${nListos} ${ca ? "temes complets" : "temas completos"} ${ca ? "i creixent" : "y creciendo"}.</p>
+    <p class="caption">${nMaterias} ${ca ? "matèries" : "materias"} · ${nListos} ${ca ? "temes complets" : "temas completos"} ${ca ? "i creixent" : "y creciendo"}. ${ca ? "Els cursos en color ja tenen els temes complets." : "Los cursos en color ya tienen sus temas completos; el resto, en preparación."}</p>
   </section>
 </div></main>`;
   return page({ title: ca ? "Escolapedia: totes les matèries d'Infantil a Batxillerat" : "Escolapedia: todas las materias de Infantil a Bachillerato", desc: "Todas las materias de Infantil, Primaria, ESO y Bachillerato explicadas fácil, con vídeos, dibujos y un método de estudio eficaz.", depth, body, lang, scripts: `<script src="${r}assets/indice.js"></script>` });
