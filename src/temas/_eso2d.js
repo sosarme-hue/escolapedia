@@ -19,7 +19,11 @@ const preg = (lista, desfase = 0) => lista.map(([q, o, e], i) => {
 const vid = (v) => (v ? { id: v[0], titulo: v[1], canal: v[2], vistas: v[3], megusta: 0, ...(v[4] ? { busqueda: v[4] } : {}) } : undefined);
 
 // Bloque: [título, cuerpo html, svg?, vídeo?]
-const bloque = ([t, html, svg, v]) => ({ html: `<h3>${t}</h3>${html}`, ...(svg ? { svg } : {}), ...(v ? { video: vid(v) } : {}) });
+// Si en el sitio del dibujo va una tabla, se pone dentro del texto (a todo el ancho), como en 3º y 4º.
+const bloque = ([t, html, svg, v]) => {
+  const esTabla = svg && !svg.trim().startsWith("<svg");
+  return { html: `<h3>${t}</h3>${html}${esTabla ? svg : ""}`, ...(svg && !esTabla ? { svg } : {}), ...(v ? { video: vid(v) } : {}) };
+};
 
 // Constructor de tema con formas cortas.
 function tema(o) {
