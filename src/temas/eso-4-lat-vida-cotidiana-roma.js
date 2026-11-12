@@ -77,3 +77,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Describir la alimentación, el vestido y el ocio de los romanos", "Explicar los nombres romanos y el calendario"],
+  bloques: [
+    { tras: "La familia romana", html: `<h3>El nombre romano</h3><p>Un ciudadano varón tenía tres nombres, los <mark>tria nomina</mark>: el <b>praenomen</b> (nombre propio: Marcus, Gaius, Lucius), el <b>nomen</b> (la gens o familia amplia: Tullius, Iulius, Cornelius) y el <b>cognomen</b> (rama de la familia o apodo: Cicero, Caesar, Scipio). Así, <i>Marcus Tullius Cicero</i>. Las mujeres solían llevar solo el nomen en femenino: la hija de un Tullius se llamaba <b>Tullia</b>, y si había varias, se distinguían con <i>Maior, Minor</i> o números (<i>Tertia</i>). Los esclavos tenían un solo nombre, y al ser liberados tomaban el praenomen y el nomen de su antiguo amo.</p>` },
+    { tras: "La casa: domus e insula", html: `<h3>Las partes de la domus</h3>${tabla(["Parte", "Qué era"], [["vestibulum y fauces", "entrada y pasillo desde la calle"], ["atrium", "patio central con un hueco en el techo (compluvium) y un estanque (impluvium) que recogía la lluvia"], ["tablinum", "despacho del pater familias"], ["triclinium", "comedor, con lechos para comer recostados"], ["cubicula", "dormitorios pequeños"], ["culina", "cocina"], ["peristylum", "jardín con columnas en la parte trasera"], ["lararium", "altar de los dioses del hogar (lares)"]])}`, video: { id: "O4_2-qiWosE", titulo: "¿Cómo vivían los romanos adinerados?", canal: "Academia Play", vistas: 222821, megusta: 0 } },
+    { tras: "La casa: domus e insula", html: `<h3>Comida y vestido</h3><p>Los romanos hacían un desayuno ligero (<i>ientaculum</i>), un almuerzo frío (<i>prandium</i>) y la comida principal por la tarde, la <mark>cena</mark>. Los pobres comían sobre todo <b>puls</b> (gachas de cereal), pan, legumbres, aceite y vino aguado; los ricos celebraban banquetes con varios platos, recostados en el triclinio, y usaban mucho el <b>garum</b>, una salsa de pescado fermentado (Hispania la exportaba). En el vestido, la prenda básica era la <b>túnica</b>. La <b>toga</b> blanca de lana era el traje oficial del ciudadano; los niños y los magistrados la llevaban con una franja púrpura (<i>toga praetexta</i>). Las mujeres casadas vestían la <b>stola</b> y, para salir, un manto, la <i>palla</i>.</p>` },
+    { tras: "Educación y ocio", html: `<h3>Las termas y los espectáculos</h3><p>Las <mark>termas</mark> eran baños públicos muy baratos, y además lugar de reunión: tenían vestuario (<i>apodyterium</i>), sala fría (<i>frigidarium</i>), templada (<i>tepidarium</i>) y caliente (<i>caldarium</i>), calentadas con un sistema de suelos huecos, el <b>hipocausto</b>. Los espectáculos (<i>ludi</i>) eran gratuitos, pagados por magistrados y emperadores: <b>teatro</b> (comedias y tragedias), <b>carreras de carros</b> en el circo (el Circo Máximo de Roma acogía a unos 150.000 espectadores) y <b>luchas de gladiadores</b> y cacerías de fieras en el anfiteatro, como el Coliseo. El poeta Juvenal criticó que el pueblo solo quería «<i>panem et circenses</i>», pan y juegos.</p>` },
+    { tras: "Educación y ocio", html: `<h3>El calendario romano</h3><p>Nuestro calendario es romano. Julio César impuso en el 46 a. C. el <b>calendario juliano</b>, de 365 días con un año bisiesto cada cuatro; en 1582 el papa Gregorio XIII lo corrigió (calendario gregoriano). Muchos meses tienen nombre latino: <b>enero</b> (Jano, dios de las puertas), <b>marzo</b> (Marte), <b>julio</b> (Julio César), <b>agosto</b> (Augusto). Septiembre, octubre, noviembre y diciembre significan «séptimo, octavo, noveno y décimo», porque el año empezaba antes en marzo. Los días de cada mes se contaban desde tres fechas fijas: <mark>calendas</mark> (día 1), nonas (día 5 o 7) e idus (13 o 15). César fue asesinado en los idus de marzo.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Identifica los tria nomina de «Gaius Iulius Caesar».", pasos: ["Gaius: praenomen, nombre propio.", "Iulius: nomen, la gens Julia.", "Caesar: cognomen, rama de la familia."], resultado: "Praenomen Gaius, nomen Iulius, cognomen Caesar. Su hija se llamó Iulia." },
+    { enunciado: "Explica por qué «diciembre» es el mes 12 pero significa «décimo».", pasos: ["Decem en latín es diez.", "El año romano empezaba en marzo.", "Contando desde marzo, diciembre era el décimo mes.", "Cuando el año pasó a empezar en enero, el nombre se mantuvo."], resultado: "Porque conserva la numeración del antiguo calendario que empezaba en marzo." },
+    { enunciado: "Describe el recorrido de un romano por las termas.", pasos: ["Se desnuda en el apodyterium.", "Pasa al tepidarium para aclimatarse.", "Suda en el caldarium.", "Termina con un baño frío en el frigidarium."], resultado: "Vestuario → templado → caliente → frío." },
+  ],
+  errores: [
+    "Pensar que todos los romanos vivían en domus: la mayoría vivía en insulae de alquiler.",
+    "Creer que las mujeres tenían tres nombres como los hombres.",
+    "Confundir el circo (carreras de carros) con el anfiteatro (gladiadores).",
+    "Pensar que los espectáculos se pagaban con entrada: eran gratuitos.",
+    "Creer que la toga la llevaba todo el mundo: era el traje oficial de los ciudadanos varones.",
+  ],
+  ejercicios: [
+    { q: "¿Qué son los tria nomina?", sol: "Los tres nombres del ciudadano romano: praenomen, nomen y cognomen." },
+    { q: "¿Cómo se llamaba la hija de Marcus Tullius Cicero?", sol: "Tullia." },
+    { q: "¿Para qué servía el impluvium?", sol: "Para recoger el agua de lluvia que entraba por el compluvium del atrio." },
+    { q: "¿Qué era el triclinium?", sol: "El comedor, donde se comía recostado en lechos." },
+    { q: "¿Qué era el garum?", sol: "Una salsa de pescado fermentado muy apreciada; Hispania la exportaba." },
+    { q: "Diferencia túnica, toga y stola.", sol: "Túnica: prenda básica de todos. Toga: traje oficial del ciudadano. Stola: vestido de la mujer casada." },
+    { q: "Cita las salas de las termas.", sol: "Apodyterium, frigidarium, tepidarium y caldarium." },
+    { q: "¿Qué espectáculos se veían en el circo, el teatro y el anfiteatro?", sol: "Circo: carreras de carros. Teatro: comedias y tragedias. Anfiteatro: gladiadores y fieras." },
+    { q: "¿Qué quería decir Juvenal con «panem et circenses»?", sol: "Que el pueblo se conformaba con comida y diversión gratis, y así se le mantenía tranquilo." },
+    { q: "¿De qué personajes vienen los nombres de julio y agosto?", sol: "De Julio César y del emperador Augusto." },
+  ],
+  quiz: [
+    { q: "En «Marcus Tullius Cicero», el nomen es…", o: ["Tullius", "Marcus", "Cicero"], a: 0, e: "Indica la gens." },
+    { q: "El tablinum era…", o: ["el despacho del pater familias", "la cocina", "el jardín"], a: 0, e: "Junto al atrio." },
+    { q: "La comida principal de los romanos era la…", o: ["cena", "prandium", "ientaculum"], a: 0, e: "Por la tarde." },
+    { q: "El caldarium era la sala…", o: ["caliente", "fría", "templada"], a: 0, e: "Calentada por el hipocausto." },
+    { q: "Los idus de marzo caían el día…", o: ["15", "1", "5"], a: 0, e: "En marzo, mayo, julio y octubre, el 15." },
+  ],
+  tarjetas: [
+    ["Tria nomina", "Praenomen, nomen y cognomen."],
+    ["Termas", "Baños públicos con salas fría, templada y caliente."],
+    ["Calendas", "Primer día de cada mes romano."],
+  ],
+});

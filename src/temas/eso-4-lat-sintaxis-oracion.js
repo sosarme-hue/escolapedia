@@ -79,3 +79,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Analizar y traducir oraciones simples copulativas y transitivas", "Reconocer los complementos circunstanciales con preposición"],
+  bloques: [
+    { tras: "Cada caso, una función", html: `<h3>Oraciones copulativas y predicativas</h3><p>En las <b>oraciones copulativas</b> el verbo es <i>sum</i> (ser, estar) y lleva un <mark>atributo</mark> que va en <b>nominativo</b>, igual que el sujeto: <i>Roma magna est</i> («Roma es grande»); <i>Marcus agricola est</i> («Marco es campesino»). Si el verbo <i>sum</i> no lleva atributo, significa «haber» o «existir»: <i>in silva lupi sunt</i> («en el bosque hay lobos»). En las <b>predicativas</b> el verbo tiene significado pleno; si es <b>transitivo</b> lleva complemento directo en <b>acusativo</b>: <i>puella rosam amat</i>.</p>` },
+    { tras: "Las preposiciones", html: `<h3>Los complementos de lugar</h3>${tabla(["Pregunta", "Construcción", "Ejemplo", "Traducción"], [["¿Dónde? (ubi)", "in + ablativo", "in villa", "en la granja"], ["¿Adónde? (quo)", "in / ad + acusativo", "in villam, ad forum", "a la granja, al foro"], ["¿De dónde? (unde)", "a(b) / e(x) / de + ablativo", "ex urbe", "desde la ciudad"], ["¿Por dónde? (qua)", "per + acusativo", "per vias", "por los caminos"]])}<p>Fíjate en que <mark>in</mark> cambia de significado según el caso: con ablativo indica dónde se está; con acusativo, adónde se va. Con nombres de ciudad no se usa preposición: <i>Romam</i> («a Roma»), <i>Romā</i> («desde Roma»).</p>`, video: { id: "HgtfsfmqHm4", titulo: "Análisis morfológico y sintáctico de una oración simple en latín", canal: "Sara Roberto López", vistas: 28033, megusta: 0 } },
+    { tras: "Un método para traducir", html: `<h3>Una traducción paso a paso</h3><p>Traducimos: <i>Agricolae filiae in villa rosas dant.</i></p>${tabla(["Paso", "Qué hacemos", "Resultado"], [["1", "buscar el verbo", "dant: 3.ª pl. presente de do (dar) → «dan»"], ["2", "buscar el sujeto en nominativo plural", "agricolae (los campesinos)"], ["3", "buscar el CD en acusativo", "rosas (rosas)"], ["4", "buscar el CI en dativo", "filiae: «a la hija» (dativo singular)"], ["5", "complementos circunstanciales", "in villa: «en la granja»"], ["6", "ordenar en español", "«Los campesinos dan rosas a la hija en la granja»"]])}<p>Ojo: <i>agricolae</i> y <i>filiae</i> podrían ser genitivo o dativo singular, o nominativo plural. El verbo en plural nos dice que el sujeto es plural, y el sentido decide el resto. Traducir es <mark>razonar</mark>, no adivinar.</p>` },
+    { tras: "Un método para traducir", html: `<h3>Errores frecuentes al traducir</h3><p>Muchos errores nacen de traducir palabra por palabra en el orden latino. El latín coloca el verbo al final y el sujeto puede ir en cualquier lugar, porque la función la marca el <b>caso</b>, no la posición. Conviene: 1) leer toda la oración; 2) analizar cada palabra (caso, número, persona) antes de traducir; 3) buscar en el diccionario por el <b>enunciado</b> (el nominativo o la 1.ª persona del presente), no por la forma que aparece; y 4) revisar que la traducción tenga sentido en español. Si te sobra o te falta una palabra, algo está mal analizado.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Analiza y traduce: «Insula magna est».", pasos: ["Est: verbo sum, 3.ª sg. presente → copulativa.", "Insula: nominativo singular, sujeto.", "Magna: nominativo singular femenino, atributo."], resultado: "«La isla es grande»." },
+    { enunciado: "Analiza y traduce: «Servi ex agris ad villam aquam portant».", pasos: ["Portant: 3.ª pl. presente → «llevan».", "Servi: nominativo plural, sujeto → «los esclavos».", "Aquam: acusativo, CD → «agua».", "Ex agris: ablativo con ex, CC de lugar de donde → «desde los campos».", "Ad villam: acusativo con ad, CC de lugar adonde → «a la granja»."], resultado: "«Los esclavos llevan agua desde los campos a la granja»." },
+    { enunciado: "Analiza y traduce: «Marcus Romam venit».", pasos: ["Venit: 3.ª sg. → «llega / viene».", "Marcus: nominativo, sujeto.", "Romam: acusativo de nombre de ciudad sin preposición: lugar adonde."], resultado: "«Marco llega a Roma»." },
+  ],
+  errores: [
+    "Poner el atributo en acusativo: con sum va en nominativo.",
+    "Traducir siempre «in» como «en»: con acusativo significa «a, hacia».",
+    "Buscar en el diccionario la forma declinada en lugar del enunciado.",
+    "Traducir en el orden latino sin reorganizar la oración.",
+    "Elegir el sujeto por su posición: el sujeto es el nominativo que concuerda con el verbo.",
+  ],
+  ejercicios: [
+    { q: "Traduce: «Rosa pulchra est».", sol: "«La rosa es hermosa»." },
+    { q: "Traduce: «Dominus servos vocat».", sol: "«El señor llama a los esclavos»." },
+    { q: "Traduce: «Puellae in silva ambulant».", sol: "«Las niñas pasean por el bosque / en el bosque»." },
+    { q: "Traduce: «Nautae ad insulam navigant».", sol: "«Los marineros navegan hacia la isla»." },
+    { q: "Traduce: «Poeta reginae fabulam narrat».", sol: "«El poeta cuenta una historia a la reina»." },
+    { q: "¿Qué diferencia hay entre «in villa» e «in villam»?", sol: "In villa (ablativo): en la granja. In villam (acusativo): a la granja." },
+    { q: "Analiza «per vias».", sol: "Per + acusativo plural: CC de lugar por donde, «por los caminos»." },
+    { q: "Traduce: «In horto multae rosae sunt».", sol: "«En el huerto hay muchas rosas»." },
+    { q: "Traduce: «Agricola filiis viam monstrat».", sol: "«El campesino muestra el camino a sus hijos»." },
+    { q: "Traduce: «Romani ex Italia in Hispaniam veniunt».", sol: "«Los romanos vienen de Italia a Hispania»." },
+  ],
+  quiz: [
+    { q: "El atributo va en…", o: ["nominativo", "acusativo", "dativo"], a: 0, e: "Como el sujeto." },
+    { q: "«in villam» significa…", o: ["en la granja", "a la granja", "desde la granja"], a: 1, e: "In + acusativo: adónde." },
+    { q: "«ex urbe» es un CC de lugar…", o: ["de donde", "adonde", "por donde"], a: 0, e: "Ex + ablativo." },
+    { q: "«In silva lupi sunt» se traduce…", o: ["En el bosque hay lobos", "Los lobos son el bosque", "Los lobos van al bosque"], a: 0, e: "Sum sin atributo = haber." },
+    { q: "En latín, la función de una palabra la marca…", o: ["su caso", "su posición", "su longitud"], a: 0, e: "El orden es libre." },
+  ],
+  tarjetas: [
+    ["Oración copulativa", "Verbo sum + atributo en nominativo."],
+    ["In + ablativo / in + acusativo", "Dónde / adónde."],
+    ["Nombres de ciudad", "Sin preposición: Romam (a Roma), Romā (desde Roma)."],
+  ],
+});

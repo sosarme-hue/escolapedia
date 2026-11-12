@@ -79,3 +79,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar las fases de la conquista romana de Hispania", "Identificar restos romanos en España y su función"],
+  bloques: [
+    { tras: "La conquista (218", html: `<h3>Las fases de la conquista</h3>${tabla(["Fase", "Fechas", "Hechos"], [["Contra Cartago", "218-206 a. C.", "los romanos desembarcan en Ampurias durante la segunda guerra púnica y expulsan a los cartagineses"], ["Celtíberos y lusitanos", "155-133 a. C.", "resistencia de Viriato (lusitano) y de Numancia, que cayó tras un largo asedio en 133 a. C."], ["Guerras cántabras", "29-19 a. C.", "Augusto completa la conquista del norte"]])}<p>La conquista duró unos <mark>dos siglos</mark>, mucho más que la de la Galia, por la resistencia de los pueblos indígenas y la geografía montañosa.</p>`, video: { id: "QKPp7OpP6o0", titulo: "Hispania romana: la romanización", canal: "History of Spain", vistas: 177741, megusta: 0 } },
+    { tras: "La organización del territorio", html: `<h3>Las ciudades romanas de Hispania</h3><p>Roma organizó el territorio a partir de <b>ciudades</b>, unidas por calzadas. Muchas actuales tienen origen romano: <b>Emerita Augusta</b> (Mérida), fundada para soldados veteranos; <b>Caesaraugusta</b> (Zaragoza), <b>Tarraco</b> (Tarragona), <b>Corduba</b> (Córdoba), <b>Hispalis</b> (Sevilla), <b>Legio</b> (León), que era un campamento de una legión, <b>Lucus Augusti</b> (Lugo) o <b>Barcino</b> (Barcelona). La <mark>Vía Augusta</mark> recorría la costa mediterránea desde los Pirineos hasta Cádiz, y la <b>Vía de la Plata</b> unía Mérida con Astorga.</p>` },
+    { tras: "La romanización", html: `<h3>Economía de la Hispania romana</h3><p>Hispania fue una de las provincias más ricas del Imperio. Exportaba <b>aceite de oliva</b> de la Bética (en el monte Testaccio de Roma se acumulan millones de ánforas rotas, muchas hispanas), <b>vino</b>, <b>trigo</b> y el apreciado <b>garum</b>. Era también una gran zona <mark>minera</mark>: oro de <b>Las Médulas</b> (León), donde los romanos derrumbaban montañas con agua (<i>ruina montium</i>), plata de Cartago Nova (Cartagena) y Sierra Morena, cobre de Río Tinto y mercurio de Almadén.</p>` },
+    { tras: "Hispanos ilustres", html: `<h3>Las obras públicas que siguen en pie</h3>${tabla(["Obra", "Dónde", "Para qué servía"], [["Acueducto", "Segovia", "llevar agua a la ciudad (más de 160 arcos sin argamasa)"], ["Puente", "Alcántara (Cáceres)", "cruzar el Tajo"], ["Teatro", "Mérida", "representaciones; hoy acoge un festival de teatro clásico"], ["Faro (Torre de Hércules)", "La Coruña", "guiar a los barcos; el faro romano más antiguo en uso"], ["Murallas", "Lugo", "defensa; rodean todo el casco antiguo"], ["Anfiteatro", "Tarragona e Itálica", "gladiadores y fieras"]])}<p>Varios de estos monumentos son <b>Patrimonio de la Humanidad</b> de la UNESCO.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "¿Por qué se fundó Emerita Augusta y qué significa su nombre?", pasos: ["Emeritus significa «licenciado, retirado» del ejército.", "Augusta hace referencia al emperador Augusto.", "Se fundó en el 25 a. C. para soldados veteranos de las guerras cántabras."], resultado: "Ciudad de los veteranos de Augusto, hoy Mérida." },
+    { enunciado: "Explica la evolución del nombre «Caesaraugusta» a «Zaragoza».", pasos: ["Caesaraugusta se abrevió en el habla popular.", "Los árabes la llamaron Saraqusta.", "De ahí, Zaragoza."], resultado: "Caesaraugusta > Saraqusta > Zaragoza." },
+    { enunciado: "Explica por qué Numancia es un símbolo.", pasos: ["Era una ciudad celtíbera en Soria.", "Resistió durante años a los ejércitos romanos.", "En 133 a. C., tras un largo asedio de Escipión Emiliano, sus habitantes prefirieron morir antes que rendirse."], resultado: "Es un símbolo de resistencia frente a un poder mucho mayor." },
+  ],
+  errores: [
+    "Pensar que la conquista fue rápida: duró casi dos siglos.",
+    "Creer que los romanos llegaron para conquistar a los íberos: llegaron para luchar contra Cartago.",
+    "Confundir el acueducto de Segovia con una muralla.",
+    "Pensar que la romanización borró todo lo indígena: hubo mezcla cultural.",
+    "Situar la Vía de la Plata en la costa mediterránea: unía Mérida y Astorga por el oeste.",
+  ],
+  ejercicios: [
+    { q: "¿Por qué desembarcaron los romanos en Ampurias en 218 a. C.?", sol: "Para luchar contra Cartago en la segunda guerra púnica." },
+    { q: "¿Quién fue Viriato?", sol: "Un caudillo lusitano que resistió a Roma en el siglo II a. C." },
+    { q: "¿Qué emperador completó la conquista y en qué guerras?", sol: "Augusto, en las guerras cántabras (29-19 a. C.)." },
+    { q: "Escribe el nombre actual de: Tarraco, Hispalis, Legio, Barcino.", sol: "Tarragona, Sevilla, León, Barcelona." },
+    { q: "¿Qué productos exportaba Hispania?", sol: "Aceite, vino, trigo, garum y metales." },
+    { q: "¿Qué son Las Médulas?", sol: "Antiguas minas de oro romanas en León, explotadas derrumbando montañas con agua." },
+    { q: "¿Para qué servía el acueducto de Segovia?", sol: "Para llevar agua a la ciudad." },
+    { q: "¿Qué tiene de especial la Torre de Hércules?", sol: "Es un faro romano que sigue funcionando." },
+    { q: "Cita dos emperadores y dos escritores hispanos.", sol: "Trajano y Adriano; Séneca y Marcial (también Quintiliano o Lucano)." },
+    { q: "¿Qué aportó la romanización a Hispania?", sol: "El latín, el derecho, las ciudades, las calzadas, el cristianismo y la integración en el mundo mediterráneo." },
+  ],
+  quiz: [
+    { q: "Los romanos entraron en Hispania por…", o: ["Ampurias", "Cádiz", "Sagunto"], a: 0, e: "En el 218 a. C." },
+    { q: "Numancia cayó en…", o: ["133 a. C.", "19 a. C.", "218 a. C."], a: 0, e: "Tras un largo asedio." },
+    { q: "Emerita Augusta es hoy…", o: ["Mérida", "Zaragoza", "Lugo"], a: 0, e: "Fundada para veteranos." },
+    { q: "El oro de Las Médulas está en…", o: ["León", "Cádiz", "Murcia"], a: 0, e: "En el Bierzo." },
+    { q: "La Torre de Hércules está en…", o: ["La Coruña", "Tarragona", "Segovia"], a: 0, e: "Es un faro." },
+  ],
+  tarjetas: [
+    ["Numancia", "Ciudad celtíbera símbolo de resistencia (133 a. C.)."],
+    ["Las Médulas", "Minas de oro romanas en León."],
+    ["Vía Augusta", "Calzada de la costa mediterránea hasta Cádiz."],
+  ],
+});

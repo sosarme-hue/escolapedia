@@ -81,3 +81,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Relacionar los dioses romanos con sus equivalentes griegos y sus atributos", "Reconocer mitos en el arte, la lengua y la cultura actual"],
+  bloques: [
+    { tras: "Una religión politeísta", html: `<h3>La religión doméstica y pública</h3><p>Cada casa romana tenía sus propios protectores: los <mark>lares</mark>, espíritus de los antepasados, honrados en el lararium; los <b>penates</b>, guardianes de la despensa; y el <b>genius</b> del pater familias. Además existía una <b>religión pública</b> a cargo del Estado: los sacerdotes (<b>pontífices</b>, con el <i>Pontifex Maximus</i> al frente), las <b>vestales</b>, seis sacerdotisas que mantenían siempre encendido el fuego sagrado de Vesta, y los <b>augures</b>, que interpretaban la voluntad de los dioses observando el vuelo de las aves. La religión era un pacto: <i>do ut des</i>, «doy para que des».</p>` },
+    { tras: "Los dioses principales", html: `<h3>Dioses, equivalentes y atributos</h3>${tabla(["Romano", "Griego", "Ámbito", "Atributo"], [["Júpiter", "Zeus", "rey de los dioses, cielo", "rayo, águila"], ["Juno", "Hera", "matrimonio", "pavo real"], ["Neptuno", "Poseidón", "mar", "tridente"], ["Plutón", "Hades", "inframundo", "can Cerbero"], ["Minerva", "Atenea", "sabiduría, guerra estratégica", "lechuza, casco"], ["Marte", "Ares", "guerra", "lanza, casco"], ["Venus", "Afrodita", "amor, belleza", "paloma, concha"], ["Apolo", "Apolo", "sol, artes, música", "lira, laurel"], ["Diana", "Ártemis", "caza, luna", "arco, ciervo"], ["Mercurio", "Hermes", "mensajero, comercio", "sandalias aladas, caduceo"], ["Vulcano", "Hefesto", "fuego, herreros", "martillo, yunque"], ["Ceres", "Deméter", "agricultura", "espigas"]])}`, video: { id: "senVNG_hy3M", titulo: "Mitología romana: dioses romanos, rituales y el calendario romano", canal: "Pero eso es otra Historia", vistas: 413301, megusta: 0 } },
+    { tras: "Mitos y héroes", html: `<h3>Eneas, el héroe de Roma</h3><p>El gran poema de Roma es la <mark>Eneida</mark> de <b>Virgilio</b>, escrita en tiempos de Augusto. Cuenta cómo <b>Eneas</b>, un príncipe troyano hijo de Venus, huye de Troya en llamas llevando a hombros a su padre Anquises y de la mano a su hijo Ascanio. Tras años de viaje, en Cartago se enamora de la reina <b>Dido</b>, pero los dioses le ordenan seguir; Dido, abandonada, se quita la vida y maldice a los troyanos, lo que explicaba míticamente la enemistad entre Roma y Cartago. Eneas llega al Lacio y sus descendientes fundarán Roma. La familia de Julio César decía descender de Ascanio, también llamado Iulo.</p>` },
+    { tras: "La pervivencia de los mitos", html: `<h3>Mitos en la lengua de cada día</h3>${tabla(["Expresión o palabra", "Origen mitológico"], [["talón de Aquiles", "el único punto vulnerable del héroe Aquiles"], ["caja de Pandora", "la caja que, al abrirse, liberó todos los males"], ["ser un narciso", "Narciso se enamoró de su propio reflejo"], ["trabajo de Sísifo", "condenado a subir una roca que siempre volvía a caer"], ["eco", "la ninfa Eco solo podía repetir las últimas palabras"], ["pánico", "el miedo que provocaba el dios Pan"], ["volcán, cereal, jovial, marcial", "Vulcano, Ceres, Júpiter (Iovis), Marte"]])}<p>Los días de la semana también son mitológicos: <b>lunes</b> (Luna), <b>martes</b> (Marte), <b>miércoles</b> (Mercurio), <b>jueves</b> (Júpiter) y <b>viernes</b> (Venus).</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "En un cuadro aparece una diosa con casco, lanza y una lechuza. ¿Quién es?", pasos: ["El casco y la lanza indican guerra.", "La lechuza es símbolo de la sabiduría.", "La diosa de la sabiduría y la guerra estratégica es Minerva (Atenea)."], resultado: "Minerva." },
+    { enunciado: "Explica el origen de la palabra «miércoles».", pasos: ["Viene del latín dies Mercurii.", "Significa «día de Mercurio».", "Mercurio era el mensajero de los dioses y protector del comercio."], resultado: "Miércoles = día de Mercurio." },
+    { enunciado: "Relaciona la Eneida con la propaganda de Augusto.", pasos: ["Augusto era hijo adoptivo de César, de la gens Iulia.", "La Eneida hace descender a los Julios de Iulo, hijo de Eneas y nieto de Venus.", "Así la familia de Augusto aparecía como elegida por los dioses."], resultado: "La Eneida legitimaba el poder de Augusto vinculándolo a Venus y a Troya." },
+  ],
+  errores: [
+    "Pensar que los dioses romanos son totalmente distintos de los griegos: muchos se identificaron con ellos.",
+    "Confundir Minerva (sabiduría) con Venus (amor).",
+    "Creer que Plutón es el dios del mar: es el del inframundo; el del mar es Neptuno.",
+    "Atribuir la Eneida a Homero: es de Virgilio; Homero escribió la Ilíada y la Odisea.",
+    "Pensar que la religión romana se basaba en la fe interior: era sobre todo cumplir ritos.",
+  ],
+  ejercicios: [
+    { q: "¿Qué eran los lares y los penates?", sol: "Los lares, espíritus protectores de la familia; los penates, protectores de la despensa." },
+    { q: "¿Qué hacían las vestales?", sol: "Mantener siempre encendido el fuego sagrado de Vesta." },
+    { q: "Explica «do ut des».", sol: "«Doy para que des»: el fiel ofrecía sacrificios esperando el favor de los dioses." },
+    { q: "Escribe el nombre griego de Júpiter, Juno y Neptuno.", sol: "Zeus, Hera y Poseidón." },
+    { q: "¿Qué atributo tiene Mercurio?", sol: "Sandalias aladas, casco con alas y el caduceo." },
+    { q: "Resume el argumento de la Eneida.", sol: "El troyano Eneas huye de Troya, vive un amor trágico con Dido en Cartago y llega al Lacio, donde sus descendientes fundarán Roma." },
+    { q: "¿Qué significa «talón de Aquiles»?", sol: "El punto débil de alguien." },
+    { q: "¿De qué dios viene la palabra «volcán»?", sol: "De Vulcano, dios del fuego." },
+    { q: "¿Qué días de la semana vienen de dioses romanos?", sol: "Martes (Marte), miércoles (Mercurio), jueves (Júpiter) y viernes (Venus); el lunes, de la Luna." },
+    { q: "Busca un ejemplo actual de mitología en la publicidad o las marcas.", sol: "Por ejemplo, marcas con nombres como Nike (diosa de la victoria) o Pandora; o la sonda espacial Juno." },
+  ],
+  quiz: [
+    { q: "El equivalente griego de Venus es…", o: ["Afrodita", "Atenea", "Hera"], a: 0, e: "Diosa del amor." },
+    { q: "El rayo es atributo de…", o: ["Júpiter", "Marte", "Apolo"], a: 0, e: "Rey de los dioses." },
+    { q: "La Eneida la escribió…", o: ["Virgilio", "Homero", "Ovidio"], a: 0, e: "En época de Augusto." },
+    { q: "«Jueves» viene de…", o: ["Júpiter", "Juno", "Jano"], a: 0, e: "Iovis dies." },
+    { q: "La caja de Pandora contenía…", o: ["todos los males", "oro", "la esperanza solo"], a: 0, e: "En el fondo quedó la esperanza." },
+  ],
+  tarjetas: [
+    ["Lares", "Dioses protectores del hogar."],
+    ["Eneida", "Poema de Virgilio sobre el troyano Eneas."],
+    ["Do ut des", "«Doy para que des»: el pacto con los dioses."],
+  ],
+});

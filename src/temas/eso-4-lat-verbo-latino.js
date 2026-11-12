@@ -89,3 +89,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Conjugar el presente, el imperfecto y el futuro de indicativo", "Formar el perfecto a partir del enunciado"],
+  bloques: [
+    { tras: "Las cuatro conjugaciones", html: `<h3>Presente de indicativo de las cuatro conjugaciones</h3>${tabla(["Persona", "1.ª amo", "2.ª moneo", "3.ª lego", "4.ª audio"], [["1.ª sg.", "amo", "moneo", "lego", "audio"], ["2.ª sg.", "amas", "mones", "legis", "audis"], ["3.ª sg.", "amat", "monet", "legit", "audit"], ["1.ª pl.", "amamus", "monemus", "legimus", "audimus"], ["2.ª pl.", "amatis", "monetis", "legitis", "auditis"], ["3.ª pl.", "amant", "monent", "legunt", "audiunt"]])}<p>En la 3.ª conjugación aparece una <mark>vocal de unión</mark> (i, u) entre la raíz y la desinencia: <i>leg-i-t</i>, <i>leg-u-nt</i>.</p>`, video: { id: "8FboNFb4HZc", titulo: "El presente de indicativo del verbo sum", canal: "Un Profe de Latín", vistas: 8793, megusta: 0 } },
+    { tras: "Presente, imperfecto", html: `<h3>El futuro imperfecto</h3><p>El futuro se forma de dos maneras. En la <b>1.ª y 2.ª conjugación</b> se añade <b>-b-</b> + vocal: <i>ama-b-o, ama-bi-s, ama-bi-t, ama-bi-mus, ama-bi-tis, ama-bu-nt</i> (amaré, amarás…). En la <b>3.ª y 4.ª</b> se usa <b>-a-</b> en la 1.ª persona y <b>-e-</b> en las demás: <i>leg-a-m, leg-e-s, leg-e-t, leg-e-mus, leg-e-tis, leg-e-nt</i> (leeré, leerás…); <i>audi-a-m, audi-e-s</i>… El verbo <b>sum</b> hace <i>ero, eris, erit, erimus, eritis, erunt</i>. Cuidado: <mark>leges</mark> puede ser futuro de <i>lego</i> («leerás») o acusativo plural de <i>lex</i> («leyes»).</p>` },
+    { tras: "Presente, imperfecto", html: `<h3>El tema de perfecto</h3><p>El enunciado de un verbo tiene cuatro formas: <i>amo, amas, amare, amavi</i>. La cuarta, la 1.ª persona del <b>pretérito perfecto</b>, da el <mark>tema de perfecto</mark>: quitando la -i final (<i>amav-</i>). A él se añaden unas desinencias propias:</p>${tabla(["Persona", "Desinencia", "amo → amav-", "sum → fu-"], [["1.ª sg.", "-i", "amavi (amé)", "fui"], ["2.ª sg.", "-isti", "amavisti", "fuisti"], ["3.ª sg.", "-it", "amavit", "fuit"], ["1.ª pl.", "-imus", "amavimus", "fuimus"], ["2.ª pl.", "-istis", "amavistis", "fuistis"], ["3.ª pl.", "-erunt", "amaverunt", "fuerunt"]])}<p>Por eso es imprescindible aprender el enunciado completo: <i>lego, -is, -ere, legi</i>; <i>video, -es, -ere, vidi</i>; <i>venio, -is, -ire, veni</i>.</p>` },
+    { tras: "Presente, imperfecto", html: `<h3>Del latín al español</h3><p>Muchas formas verbales españolas vienen casi directamente del latín: <i>amo</i> > amo, <i>amas</i> > amas, <i>amat</i> > ama, <i>amabam</i> > amaba, <i>amavi</i> > amé. Otras se crearon nuevas: el <b>futuro</b> español nace de una perífrasis del latín vulgar, <i>amare habeo</i> («tengo que amar») > amaré, y los <b>tiempos compuestos</b> (he amado) proceden de <i>habeo amatum</i>. La famosa frase de César, <mark>«Veni, vidi, vici»</mark> («llegué, vi, vencí»), son tres perfectos de 1.ª persona: <i>venio</i>, <i>video</i> y <i>vinco</i>.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Analiza «audiebant».", pasos: ["Raíz: audi- (audio, 4.ª conjugación).", "-eba-: marca de imperfecto en la 3.ª y 4.ª.", "-nt: 3.ª persona del plural."], resultado: "3.ª pl. del pretérito imperfecto de indicativo: «oían»." },
+    { enunciado: "Conjuga el futuro de «laudo, -as, -are» (alabar).", pasos: ["Es de la 1.ª conjugación: futuro con -b-.", "lauda-bo, lauda-bis, lauda-bit, lauda-bimus, lauda-bitis, lauda-bunt."], resultado: "laudabo, laudabis, laudabit, laudabimus, laudabitis, laudabunt (alabaré…)." },
+    { enunciado: "Traduce y analiza «Romani vicerunt».", pasos: ["Romani: nominativo plural, sujeto (los romanos).", "Vicerunt: tema de perfecto vic- (de vinco, vincis, vincere, vici) + -erunt.", "3.ª persona del plural del perfecto."], resultado: "«Los romanos vencieron»." },
+  ],
+  errores: [
+    "Formar el perfecto desde el presente: hay que usar el cuarto término del enunciado.",
+    "Usar -b- en el futuro de la 3.ª conjugación: legam, leges, no *legebo.",
+    "Confundir legit (presente, «lee») con lēgit (perfecto, «leyó»): solo cambia la cantidad de la e.",
+    "Confundir amabit (futuro) con amabat (imperfecto).",
+    "Olvidar la vocal de unión de la 3.ª conjugación: legimus, no *legmus.",
+  ],
+  ejercicios: [
+    { q: "Escribe el enunciado de «amar» y explica qué indica cada forma.", sol: "amo, amas, amare, amavi: 1.ª sg. presente, 2.ª sg. presente, infinitivo y 1.ª sg. perfecto." },
+    { q: "Conjuga el presente de «moneo».", sol: "moneo, mones, monet, monemus, monetis, monent." },
+    { q: "Conjuga el imperfecto de «lego».", sol: "legebam, legebas, legebat, legebamus, legebatis, legebant." },
+    { q: "Analiza «amabimus».", sol: "1.ª pl. del futuro imperfecto de indicativo de amo: «amaremos»." },
+    { q: "Analiza «audiam».", sol: "1.ª sg. del futuro de audio: «oiré»." },
+    { q: "Conjuga el futuro de «sum».", sol: "ero, eris, erit, erimus, eritis, erunt." },
+    { q: "Forma el perfecto de «video, -es, -ere, vidi» en todas las personas.", sol: "vidi, vidisti, vidit, vidimus, vidistis, viderunt." },
+    { q: "Traduce: «puellae cantabant».", sol: "«Las niñas cantaban»." },
+    { q: "Traduce: «Caesar Galliam vicit».", sol: "«César venció a la Galia»." },
+    { q: "¿De dónde viene el futuro español «cantaré»?", sol: "De la perífrasis del latín vulgar cantare habeo («tengo que cantar»)." },
+  ],
+  quiz: [
+    { q: "«legunt» es…", o: ["presente, 3.ª pl.", "futuro, 3.ª pl.", "perfecto, 3.ª pl."], a: 0, e: "Leen." },
+    { q: "El futuro de la 1.ª conjugación lleva…", o: ["-b-", "-a-/-e-", "-ba-"], a: 0, e: "Amabo." },
+    { q: "«fuerunt» es…", o: ["perfecto de sum", "futuro de sum", "imperfecto de sum"], a: 0, e: "Fueron / estuvieron." },
+    { q: "El tema de perfecto se toma de…", o: ["la cuarta forma del enunciado", "el infinitivo", "la 2.ª persona"], a: 0, e: "Amavi → amav-." },
+    { q: "«Veni, vidi, vici» está en…", o: ["pretérito perfecto", "presente", "futuro"], a: 0, e: "Llegué, vi, vencí." },
+  ],
+  tarjetas: [
+    ["Vocal de unión", "Vocal entre raíz y desinencia en la 3.ª conjugación: leg-i-t."],
+    ["Futuro de la 3.ª y 4.ª", "-am, -es, -et, -emus, -etis, -ent."],
+    ["Desinencias de perfecto", "-i, -isti, -it, -imus, -istis, -erunt."],
+  ],
+});

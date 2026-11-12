@@ -80,3 +80,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar las instituciones de la República romana", "Relacionar las causas de la caída del Imperio de Occidente"],
+  bloques: [
+    { tras: "La Monarquía", html: `<h3>La leyenda de la fundación</h3><p>Según la leyenda, <b>Rómulo y Remo</b>, hijos del dios Marte y de Rea Silvia, fueron abandonados en el río Tíber y amamantados por una <mark>loba</mark>. Ya adultos, fundaron una ciudad en el monte Palatino el <b>21 de abril del 753 a. C.</b>; tras una disputa, Rómulo mató a Remo y dio su nombre a Roma. La arqueología muestra que hacia el siglo VIII a. C. existían aldeas de latinos y sabinos en las colinas junto al Tíber, que se unieron y, bajo influencia de los <b>etruscos</b>, se convirtieron en ciudad. Hubo siete reyes, los tres últimos etruscos.</p>` },
+    { tras: "La República (509", html: `<h3>Las instituciones de la República</h3>${tabla(["Institución", "Composición", "Funciones"], [["Magistraturas", "cargos elegidos por un año, colegiados (de dos en dos o más)", "gobernar: cónsules (ejército y gobierno), pretores (justicia), cuestores (finanzas), ediles, censores"], ["Senado", "unos 300 senadores vitalicios, antiguos magistrados", "política exterior, finanzas, aconsejar a los magistrados"], ["Comicios", "asambleas de ciudadanos", "elegir magistrados y votar leyes"]])}<p>En caso de grave peligro se nombraba un <b>dictador</b> por un máximo de seis meses. El lema <mark>SPQR</mark> (<i>Senatus Populusque Romanus</i>, «el Senado y el pueblo romano») resumía este sistema.</p>`, video: { id: "tVhHHx-pQxE", titulo: "La República romana", canal: "Infonimados", vistas: 902496, megusta: 0 } },
+    { tras: "La República (509", html: `<h3>Patricios y plebeyos</h3><p>Al principio solo los <b>patricios</b>, familias aristocráticas, podían ser magistrados. Los <b>plebeyos</b>, la mayoría, luchaban en el ejército pero no tenían derechos políticos. Tras siglos de luchas (incluida la retirada en masa de los plebeyos al monte Sacro), consiguieron los <mark>tribunos de la plebe</mark>, con derecho a vetar decisiones; las <b>Leyes de las XII Tablas</b> (hacia 450 a. C.), primeras leyes escritas; el acceso al consulado (367 a. C.) y que los acuerdos de la asamblea de la plebe fueran obligatorios para todos (287 a. C.).</p>` },
+    { tras: "El Imperio (27", html: `<h3>Las dinastías del Alto Imperio</h3>${tabla(["Dinastía", "Fechas", "Emperadores destacados"], [["Julio-Claudia", "27 a. C. - 68 d. C.", "Augusto, Tiberio, Calígula, Claudio, Nerón"], ["Flavia", "69-96", "Vespasiano (Coliseo), Tito, Domiciano"], ["Antonina", "96-192", "Trajano y Adriano (de familias de Itálica, en Hispania), Marco Aurelio"], ["Severa", "193-235", "Septimio Severo, Caracalla (ciudadanía para todos los libres, 212)"]])}<p>Fue la época de la <mark>pax romana</mark>: dos siglos de relativa paz y prosperidad en todo el Mediterráneo.</p>` },
+    { tras: "El Imperio (27", html: `<h3>La crisis y la caída de Occidente</h3><p>En el siglo III hubo una gran crisis: los emperadores se sucedían por golpes militares, las invasiones aumentaron, el comercio cayó y la moneda perdió valor. <b>Diocleciano</b> (284-305) reorganizó el Imperio y <b>Constantino</b> legalizó el cristianismo (<mark>Edicto de Milán, 313</mark>) y fundó Constantinopla. <b>Teodosio</b> lo hizo religión oficial (380) y, a su muerte (395), el Imperio se dividió en Occidente y Oriente. En 476 el jefe germano Odoacro depuso al último emperador de Occidente, Rómulo Augústulo. El de Oriente, el <b>Imperio bizantino</b>, duró hasta 1453.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Explica por qué los romanos crearon magistraturas colegiadas y anuales.", pasos: ["Tras expulsar al último rey, temían que una persona acumulara poder.", "Anuales: nadie mandaba más de un año.", "Colegiadas: cada magistrado podía vetar a su colega."], resultado: "Para evitar volver a la monarquía y controlar el poder." },
+    { enunciado: "Ordena: Edicto de Milán, fundación de Roma, asesinato de César, caída de Occidente, Augusto emperador.", pasos: ["Fundación: 753 a. C.", "Asesinato de César: 44 a. C.", "Augusto: 27 a. C.", "Edicto de Milán: 313 d. C.", "Caída: 476 d. C."], resultado: "753 a. C. → 44 a. C. → 27 a. C. → 313 → 476." },
+    { enunciado: "Traduce SPQR y explica su significado.", pasos: ["Senatus: el Senado.", "Populus: el pueblo; -que: «y».", "Romanus: romano."], resultado: "«El Senado y el pueblo romano»: el poder residía en ambos." },
+  ],
+  errores: [
+    "Confundir la República romana con una democracia moderna: el poder estaba en manos de unos pocos.",
+    "Pensar que Julio César fue emperador: fue dictador; el primer emperador fue Augusto.",
+    "Creer que todo el Imperio cayó en 476: el de Oriente siguió hasta 1453.",
+    "Confundir patricios y plebeyos con ricos y pobres: había plebeyos ricos.",
+    "Pensar que el cristianismo fue religión oficial desde Constantino: él lo legalizó; Teodosio lo hizo oficial.",
+  ],
+  ejercicios: [
+    { q: "Resume la leyenda de Rómulo y Remo.", sol: "Gemelos hijos de Marte, abandonados en el Tíber y criados por una loba; fundaron Roma en el 753 a. C. y Rómulo mató a Remo." },
+    { q: "¿Qué pueblo influyó en la Roma monárquica?", sol: "Los etruscos." },
+    { q: "Cita tres magistraturas y su función.", sol: "Cónsules: gobierno y ejército. Pretores: justicia. Cuestores: finanzas." },
+    { q: "¿Qué hacía el Senado?", sol: "Dirigía la política exterior y las finanzas y aconsejaba a los magistrados." },
+    { q: "¿Qué lograron los plebeyos?", sol: "Los tribunos de la plebe, leyes escritas (XII Tablas) y el acceso a las magistraturas." },
+    { q: "¿Qué fueron las guerras púnicas?", sol: "Tres guerras entre Roma y Cartago (264-146 a. C.) por el dominio del Mediterráneo, que ganó Roma." },
+    { q: "¿Por qué fue asesinado Julio César?", sol: "Porque un grupo de senadores temía que quisiera ser rey y acabar con la República (44 a. C.)." },
+    { q: "¿Qué fue la pax romana?", sol: "Un largo periodo de paz y prosperidad durante el Alto Imperio." },
+    { q: "¿Qué decidió Caracalla en el 212?", sol: "Conceder la ciudadanía romana a todos los hombres libres del Imperio." },
+    { q: "Cita tres causas de la caída del Imperio de Occidente.", sol: "Crisis económica, inestabilidad política y presión de los pueblos germanos." },
+  ],
+  quiz: [
+    { q: "Según la tradición, Roma se fundó en…", o: ["753 a. C.", "509 a. C.", "27 a. C."], a: 0, e: "El 21 de abril." },
+    { q: "Los cónsules eran…", o: ["dos", "uno", "diez"], a: 0, e: "Magistratura colegiada." },
+    { q: "Los tribunos de la plebe podían…", o: ["vetar decisiones", "nombrar al rey", "declarar la guerra solos"], a: 0, e: "Defendían a los plebeyos." },
+    { q: "Trajano y Adriano eran de origen…", o: ["hispano", "galo", "egipcio"], a: 0, e: "Sus familias eran de Itálica, cerca de Sevilla." },
+    { q: "El Edicto de Milán (313)…", o: ["legalizó el cristianismo", "dividió el Imperio", "fundó Roma"], a: 0, e: "Lo promulgó Constantino." },
+  ],
+  tarjetas: [
+    ["SPQR", "Senatus Populusque Romanus: el Senado y el pueblo romano."],
+    ["Tribuno de la plebe", "Magistrado que defendía a los plebeyos con derecho de veto."],
+    ["Pax romana", "Dos siglos de paz durante el Alto Imperio."],
+  ],
+});

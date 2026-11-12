@@ -94,3 +94,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Declinar sustantivos y adjetivos de la 1.ª y 2.ª declinación", "Reconocer la tercera declinación y concertar adjetivos con sustantivos"],
+  bloques: [
+    { tras: "Primera y segunda declinación", html: `<h3>Los paradigmas completos: rosa, dominus y templum</h3>${tabla(["Caso", "rosa, -ae (f.)", "dominus, -i (m.)", "templum, -i (n.)"], [["Nom. sg.", "rosa", "dominus", "templum"], ["Voc. sg.", "rosa", "domine", "templum"], ["Ac. sg.", "rosam", "dominum", "templum"], ["Gen. sg.", "rosae", "domini", "templi"], ["Dat. sg.", "rosae", "domino", "templo"], ["Abl. sg.", "rosā", "domino", "templo"], ["Nom./Voc. pl.", "rosae", "domini", "templa"], ["Ac. pl.", "rosas", "dominos", "templa"], ["Gen. pl.", "rosarum", "dominorum", "templorum"], ["Dat./Abl. pl.", "rosis", "dominis", "templis"]])}<p>Fíjate en la <mark>regla del neutro</mark>: el nominativo, el vocativo y el acusativo son siempre iguales, y en plural terminan en <b>-a</b>.</p>`, video: { id: "vkxHZmNqjio", titulo: "Latín: primera declinación. Tabla y explicación teórica", canal: "Paco Álvarez philologus", vistas: 122915, megusta: 0 } },
+    { tras: "Primera y segunda declinación", html: `<h3>Casos especiales de la segunda declinación</h3><p>Algunos sustantivos de la 2.ª declinación terminan en <b>-er</b> en nominativo: <i>puer, pueri</i> (niño), que conserva la e, y <i>ager, agri</i> (campo), que la pierde. El enunciado (el genitivo) indica el tema: por eso es importante aprenderlo. También hay palabras de la 1.ª declinación que son <b>masculinas</b> porque designan hombres: <i>poeta, nauta</i> (marinero), <i>agricola</i> (campesino). Los <b>nombres de árboles</b> de la 2.ª son femeninos (<i>pinus, fagus</i>).</p>` },
+    { tras: "Primera y segunda declinación", html: `<h3>Adjetivos de la 1.ª y 2.ª declinación</h3><p>Los adjetivos como <i>bonus, bona, bonum</i> (bueno) se declinan como <i>dominus</i> en masculino, como <i>rosa</i> en femenino y como <i>templum</i> en neutro. El adjetivo <mark>concierta</mark> con el sustantivo en <b>género, número y caso</b>, pero no tiene por qué tener la misma terminación: <i>agricola bonus</i> (un buen campesino) es masculino aunque <i>agricola</i> acabe en -a. Otros adjetivos: <i>magnus, -a, -um</i> (grande), <i>parvus</i> (pequeño), <i>longus</i> (largo), <i>liber, libera, liberum</i> (libre), <i>pulcher, pulchra, pulchrum</i> (hermoso).</p>` },
+    { tras: "Primera y segunda declinación", html: `<h3>Una mirada a la tercera declinación</h3><p>La 3.ª declinación es la más numerosa y variada: su genitivo singular acaba en <b>-is</b>. El nominativo puede ser muy distinto del resto de la palabra, por eso el tema se saca del genitivo: <i>rex, regis</i> (rey) → tema <i>reg-</i>; <i>miles, militis</i> (soldado) → <i>milit-</i>; <i>corpus, corporis</i> (cuerpo, neutro) → <i>corpor-</i>.</p>${tabla(["Caso", "Singular", "Plural"], [["Nom.", "rex", "reges"], ["Ac.", "regem", "reges"], ["Gen.", "regis", "regum"], ["Dat.", "regi", "regibus"], ["Abl.", "rege", "regibus"]])}<p>Muchas palabras españolas vienen del acusativo de la 3.ª: <i>regem</i> > rey, <i>militem</i> > «militar», <i>lucem</i> > luz.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Analiza y traduce «rosas».", pasos: ["Rosa, -ae: 1.ª declinación, femenino.", "-as: acusativo plural.", "Función habitual: complemento directo."], resultado: "Acusativo plural: «las rosas» (CD)." },
+    { enunciado: "Declina en singular «magnum templum».", pasos: ["Ambos son neutros de la 2.ª.", "Nom., voc. y ac. iguales: magnum templum.", "Gen.: magni templi. Dat. y abl.: magno templo."], resultado: "N/V/Ac. magnum templum; G. magni templi; D/Abl. magno templo." },
+    { enunciado: "Concierta «bonus» con «nauta» en acusativo singular.", pasos: ["Nauta es masculino aunque sea de la 1.ª.", "El adjetivo va en masculino: bonus.", "Acusativo singular de nauta: nautam; de bonus: bonum."], resultado: "nautam bonum (al buen marinero)." },
+  ],
+  errores: [
+    "Sacar el tema del nominativo en la 3.ª declinación: se saca del genitivo (rex → reg-is).",
+    "Pensar que el adjetivo debe acabar igual que el sustantivo: concierta en género, número y caso.",
+    "Olvidar la regla del neutro: nominativo, vocativo y acusativo iguales.",
+    "Confundir el genitivo singular y el nominativo plural en -ae o -i: hay que mirar el contexto.",
+    "Creer que todos los sustantivos en -a son femeninos: poeta, nauta y agricola son masculinos.",
+  ],
+  ejercicios: [
+    { q: "Declina «puella, -ae» en plural.", sol: "Nom./Voc. puellae; Ac. puellas; Gen. puellarum; Dat./Abl. puellis." },
+    { q: "Declina «servus, -i» en singular.", sol: "Nom. servus; Voc. serve; Ac. servum; Gen. servi; Dat./Abl. servo." },
+    { q: "Analiza «templa».", sol: "Nominativo, vocativo o acusativo plural de templum, neutro de la 2.ª." },
+    { q: "¿En qué casos puede estar «dominis»?", sol: "Dativo o ablativo plural." },
+    { q: "Analiza «agri» y di de qué palabra viene.", sol: "Genitivo singular o nominativo/vocativo plural de ager, agri (campo)." },
+    { q: "Concierta «magnus» con «insula» en nominativo singular.", sol: "insula magna (la isla grande)." },
+    { q: "¿Por qué decimos «poeta clarus» y no «poeta clara»?", sol: "Porque poeta es masculino y el adjetivo concierta en género." },
+    { q: "¿Cuál es el tema de «miles, militis»?", sol: "milit-." },
+    { q: "Declina «rex» en acusativo y genitivo singular.", sol: "Ac. regem; Gen. regis." },
+    { q: "Traduce: «templum magnum», «servi boni», «rosae pulchrae» (nominativo plural).", sol: "El gran templo; los buenos esclavos; las rosas hermosas." },
+  ],
+  quiz: [
+    { q: "El genitivo singular de la 3.ª declinación acaba en…", o: ["-is", "-ae", "-i"], a: 0, e: "Rex, regis." },
+    { q: "En los neutros, el nominativo y el acusativo…", o: ["son iguales", "son distintos", "no existen"], a: 0, e: "Regla del neutro." },
+    { q: "«Agricola» es…", o: ["masculino", "femenino", "neutro"], a: 0, e: "Designa a un hombre." },
+    { q: "«Dominorum» es…", o: ["genitivo plural", "dativo plural", "acusativo singular"], a: 0, e: "De los señores." },
+    { q: "El tema de «corpus, corporis» es…", o: ["corpor-", "corp-", "corpus-"], a: 0, e: "Se toma del genitivo." },
+  ],
+  tarjetas: [
+    ["Regla del neutro", "Nom., voc. y ac. iguales; en plural, -a."],
+    ["Concordancia", "Adjetivo y sustantivo coinciden en género, número y caso."],
+    ["3.ª declinación", "Genitivo singular en -is; tema sacado del genitivo."],
+  ],
+});

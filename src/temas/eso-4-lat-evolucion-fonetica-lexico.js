@@ -78,3 +78,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Aplicar reglas de evolución fonética a palabras latinas", "Distinguir palabras patrimoniales, cultismos y dobletes"],
+  bloques: [
+    { tras: "Cambios en las vocales", html: `<h3>Las vocales tónicas: diptongación</h3><p>En castellano, la <b>e</b> y la <b>o</b> breves tónicas latinas se convirtieron en diptongos: <mark>ĕ > ie</mark> y <mark>ŏ > ue</mark>. Así, <i>pĕtra</i> > piedra, <i>tĕrra</i> > tierra, <i>fĕsta</i> > fiesta; <i>pŏrta</i> > puerta, <i>fŏcum</i> > fuego, <i>nŏvem</i> > nueve. Si la vocal no es tónica, no diptonga: por eso decimos <b>puerta</b> pero <b>portero</b>, <b>tierra</b> pero <b>terreno</b>. Las vocales finales también cambian: <b>-um > -o</b> (<i>lupum</i> > lobo) y la <b>-e</b> final se pierde a veces tras ciertas consonantes (<i>panem</i> > pan, <i>solem</i> > sol).</p>` },
+    { tras: "Cambios en las consonantes", html: `<h3>Las reglas más importantes</h3>${tabla(["Regla", "Ejemplos"], [["f- inicial > h- (hoy muda)", "facere > hacer, filium > hijo, ferrum > hierro"], ["sonorización: p, t, k entre vocales > b, d, g", "lupum > lobo, vitam > vida, focum > fuego"], ["pl-, cl-, fl- iniciales > ll-", "plorare > llorar, clamare > llamar, flammam > llama"], ["-ct- > -ch-", "noctem > noche, lactem > leche, octo > ocho"], ["-li-, -c'l- > j", "filium > hijo, oculum > ojo, speculum > espejo"], ["-nn- y -ni- > ñ", "annum > año, Hispaniam > España"], ["e- protética ante s + consonante", "scholam > escuela, stellam > estrella"]])}<p>Estas reglas explican por qué palabras muy distintas en apariencia tienen el mismo origen.</p>`, video: { id: "5AqETZHpITE", titulo: "Diferencia entre las palabras patrimoniales, los cultismos y semicultismos", canal: "unProfesor", vistas: 63156, megusta: 0 } },
+    { tras: "Cambios en las consonantes", html: `<h3>Dobletes: dos palabras de una misma raíz</h3><p>Un <mark>doblete</mark> se forma cuando una palabra latina entra dos veces en español: una por vía popular (palabra <b>patrimonial</b>, que sufrió todos los cambios) y otra por vía culta (<b>cultismo</b>, tomado de los libros, casi sin cambios).</p>${tabla(["Latín", "Patrimonial", "Cultismo"], [["fabulam", "habla", "fábula"], ["oculum", "ojo", "óculo (oculista)"], ["clavem", "llave", "clave"], ["directum", "derecho", "directo"], ["integrum", "entero", "íntegro"], ["rapidum", "raudo", "rápido"]])}<p>Los <b>semicultismos</b> se quedan a medio camino: <i>saeculum</i> > siglo.</p>` },
+    { tras: "Prefijos y raíces", html: `<h3>Familias de palabras latinas</h3><p>Conocer una raíz latina permite entender decenas de palabras españolas. De <i>aqua</i> (agua): acuático, acueducto, acuario. De <i>manus</i> (mano): manual, manuscrito, manicura, emancipar. De <i>portare</i> (llevar): transportar, importar, exportar, portátil. De <i>scribere</i> (escribir): describir, inscripción, manuscrito. De <i>videre</i> (ver): visión, evidente, previsto. Los <mark>sufijos</mark> latinos también son productivos: <b>-tor</b> indica quien hace algo (lector, conductor), <b>-bilis</b> > -ble indica posibilidad (amable, legible) y <b>-tio</b> > -ción indica acción o efecto (lección, canción).</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Explica la evolución de «lupum» a «lobo».", pasos: ["Partimos del acusativo lupum.", "-um final > -o: lupo.", "La -p- entre vocales sonoriza a -b-: lobo.", "La u breve tónica pasa a o."], resultado: "lupum > lupo > lobo." },
+    { enunciado: "Explica la evolución de «noctem» a «noche».", pasos: ["Acusativo noctem.", "El grupo -ct- da -ch-: noche(m).", "Se pierde la -m final.", "La -e final se mantiene detrás de ch."], resultado: "noctem > noche." },
+    { enunciado: "¿Por qué «fábula» y «habla» vienen de la misma palabra?", pasos: ["Ambas vienen de fabulam.", "Habla es patrimonial: f- > h-, -b'l- > -bl-, pierde la vocal átona.", "Fábula es un cultismo, tomado del latín escrito casi sin cambios."], resultado: "Forman un doblete." },
+  ],
+  errores: [
+    "Partir del nominativo: las palabras españolas suelen venir del acusativo.",
+    "Diptongar vocales átonas: solo diptongan la e y la o breves tónicas.",
+    "Pensar que los cultismos son palabras «más antiguas»: entraron más tarde, por vía escrita.",
+    "Confundir la h- que viene de f- con la h etimológica latina (hominem > hombre).",
+    "Creer que todas las palabras de una familia se escriben igual: puerta y portero comparten raíz.",
+  ],
+  ejercicios: [
+    { q: "Explica la evolución de «terram» a «tierra».", sol: "ĕ tónica > ie y pérdida de -m: terram > tierra." },
+    { q: "Explica la evolución de «filium» a «hijo».", sol: "f- > h-; -li- > j; -um > -o: filium > hijo." },
+    { q: "Explica la evolución de «vitam» a «vida».", sol: "-t- intervocálica sonoriza a -d- y se pierde la -m: vida." },
+    { q: "¿Qué palabra española viene de «plorare»?", sol: "Llorar (pl- > ll-)." },
+    { q: "¿Qué palabra española viene de «scholam»?", sol: "Escuela (e- protética y ŏ > ue)." },
+    { q: "Escribe el doblete de «clavem».", sol: "Llave (patrimonial) y clave (cultismo)." },
+    { q: "Distingue patrimonial y cultismo.", sol: "La patrimonial evolucionó por vía oral con todos los cambios; el cultismo se tomó del latín escrito con pocos cambios." },
+    { q: "Escribe tres palabras de la familia de «portare».", sol: "Transportar, exportar, portátil." },
+    { q: "¿Qué significa el sufijo -bilis? Pon dos ejemplos.", sol: "Que se puede hacer: legible, amable." },
+    { q: "¿Por qué decimos «nuevo» y «novedad»?", sol: "Porque la o solo diptonga cuando es tónica: en «novedad» el acento cae en otra sílaba." },
+  ],
+  quiz: [
+    { q: "«focum» da en español…", o: ["fuego", "foco", "fuga"], a: 0, e: "ŏ > ue y -c- > -g-." },
+    { q: "«annum» da…", o: ["año", "ano", "anual"], a: 0, e: "-nn- > ñ." },
+    { q: "«flammam» da…", o: ["llama", "flama", "fama"], a: 0, e: "fl- > ll-." },
+    { q: "«oculum» da…", o: ["ojo", "óculo", "ocio"], a: 0, e: "-c'l- > j." },
+    { q: "El cultismo de «derecho» es…", o: ["directo", "diestro", "derecha"], a: 0, e: "Ambos de directum." },
+  ],
+  tarjetas: [
+    ["Diptongación", "ĕ > ie y ŏ > ue cuando son tónicas."],
+    ["Sonorización", "p, t, k entre vocales > b, d, g."],
+    ["Doblete", "Palabra patrimonial y cultismo de un mismo origen."],
+  ],
+});

@@ -81,3 +81,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Leer en voz alta textos latinos con la pronunciación clásica", "Aplicar las reglas de acentuación latina"],
+  bloques: [
+    { tras: "Origen del alfabeto", html: `<h3>Las letras del alfabeto latino</h3><p>El alfabeto latino clásico tenía <b>23 letras</b>: A B C D E F G H I K L M N O P Q R S T V X Y Z. No existían la <b>J</b>, la <b>U</b> ni la <b>W</b>, que se añadieron en la Edad Media y el Renacimiento: la I servía para el sonido vocálico [i] y el consonántico [y] (IVLIVS = Iulius), y la V para [u] y [w] (VENI = ueni). La <b>K</b> casi no se usaba (Kalendae) y la <b>Y</b> y la <b>Z</b> se tomaron del griego para escribir palabras griegas. Los romanos escribían en <mark>mayúsculas</mark>; las minúsculas aparecieron después.</p>` },
+    { tras: "La pronunciación clásica", html: `<h3>Cómo suenan las letras</h3>${tabla(["Letra o grupo", "Se pronuncia", "Ejemplo"], [["c", "siempre [k]", "Cicero → [kíkero]"], ["g", "siempre como en «gato»", "gens → [guens]"], ["v consonante", "[w], como en inglés «water»", "vinum → [wínum]"], ["i consonante", "[y], como en «yo»", "iam → [yam]"], ["qu", "[kw]", "quis → [kwis]"], ["h", "aspirada suave o muda", "homo"], ["ae / oe", "[ai] / [oi]", "Caesar → [káisar]"], ["ph, th, ch", "[p], [t], [k] aspiradas", "philosophia"], ["ll", "dos eles [l-l]", "puella → [puel-la]"]])}<p>Esta es la <mark>pronunciación clásica</mark> o restituida. En la Iglesia se usa la <b>pronunciación eclesiástica</b> (italiana), en la que <i>Caesar</i> suena [chésar].</p>`, video: { id: "PSasr81sbg8", titulo: "El alfabeto latino y la pronunciación del latín clásico", canal: "LatínOnline.es", vistas: 331808, megusta: 0 } },
+    { tras: "Diptongos y cantidad", html: `<h3>Sílabas largas y breves</h3><p>Una sílaba es <b>larga</b> si tiene una vocal larga, un diptongo o una vocal seguida de dos consonantes (o de x o z). Es <b>breve</b> si tiene una vocal breve seguida de otra vocal o de una sola consonante. Los diccionarios marcan las vocales largas con una rayita (macrón: ā) y las breves con una media luna (breve: ă). La <mark>cantidad</mark> podía cambiar el significado: <i>mālum</i> (manzana) frente a <i>mălum</i> (mal), o <i>lĕvis</i> (ligero) frente a <i>lēvis</i> (liso). Además, el latín <b>no tenía palabras agudas</b> de más de una sílaba.</p>` },
+    { tras: "La acentuación latina", html: `<h3>Practicamos el acento</h3>${tabla(["Palabra", "Penúltima sílaba", "Acento"], [["ro-sa", "solo dos sílabas", "<b>ró</b>sa"], ["a-mi-cus", "-mi- larga (ī)", "a<b>mí</b>cus"], ["do-mi-nus", "-mi- breve", "<b>dó</b>minus"], ["pu-el-la", "-el- larga por dos consonantes", "pu<b>él</b>la"], ["fe-nes-tra", "-nes- larga por dos consonantes", "fe<b>nés</b>tra"], ["te-ne-brae", "-ne- breve (muta + líquida)", "<b>té</b>nebrae"]])}<p>La regla: las palabras de <b>dos sílabas</b> se acentúan en la primera; las de <b>tres o más</b>, en la penúltima si es larga y en la antepenúltima si es breve. Por eso el español <i>dominus</i> > «dueño» y <i>amicus</i> > «amigo» conservan el acento en la sílaba latina.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Lee en voz alta con pronunciación clásica: «Veni, vidi, vici».", pasos: ["La v consonante suena [w].", "La c suena siempre [k].", "Acento en la primera de las palabras de dos sílabas."], resultado: "[wéni, wídi, wíki]." },
+    { enunciado: "Divide en sílabas y acentúa «templum».", pasos: ["Sílabas: tem-plum.", "Tiene dos sílabas.", "Las de dos sílabas se acentúan en la primera."], resultado: "<b>tém</b>plum." },
+    { enunciado: "Acentúa «populus» sabiendo que la o de -pu- es breve.", pasos: ["Sílabas: po-pu-lus (tres).", "Miramos la penúltima, -pu-: es breve.", "Si es breve, el acento va en la antepenúltima."], resultado: "<b>pó</b>pulus (de ahí el español «pueblo»)." },
+  ],
+  errores: [
+    "Pronunciar la c como [z] ante e o i: en latín clásico siempre suena [k].",
+    "Pronunciar la v como [b]: sonaba [w].",
+    "Acentuar las palabras latinas en la última sílaba: no hay agudas de varias sílabas.",
+    "Leer ae como dos sílabas separadas: es el diptongo [ai].",
+    "Pensar que la J y la U son letras del latín clásico.",
+  ],
+  ejercicios: [
+    { q: "¿Cuántas letras tenía el alfabeto latino clásico y cuáles faltaban respecto al español?", sol: "23. Faltaban la J, la U, la W y la Ñ." },
+    { q: "Pronuncia: Caesar, cena, gens.", sol: "[káisar], [kéna], [guens]." },
+    { q: "¿Cómo se pronuncia «quinque»?", sol: "[kwínkwe]." },
+    { q: "¿Cuándo es larga una sílaba?", sol: "Si tiene vocal larga, diptongo o vocal seguida de dos consonantes (o de x, z)." },
+    { q: "¿Qué significan mālum y mălum?", sol: "Mālum: manzana. Mălum: mal." },
+    { q: "Acentúa «rosa», «puella» y «filius» (i breve en -li-).", sol: "Rósa, puélla, fílius." },
+    { q: "Acentúa «Roma» y «senatus» (a larga).", sol: "Róma, senátus." },
+    { q: "¿Por qué en latín no hay palabras agudas de varias sílabas?", sol: "Porque el acento nunca recae en la última sílaba: va en la penúltima o en la antepenúltima." },
+    { q: "Lee con pronunciación clásica: «Gallia est omnis divisa in partes tres».", sol: "[gál-lia est ómnis diwísa in pártes tres]." },
+    { q: "Explica la diferencia entre pronunciación clásica y eclesiástica.", sol: "La clásica intenta reproducir cómo hablaban los romanos ([k] siempre); la eclesiástica es la italiana que usa la Iglesia (c ante e, i como [ch])." },
+  ],
+  quiz: [
+    { q: "En latín clásico, «Cicero» se pronunciaba…", o: ["[kíkero]", "[zízero]", "[chíchero]"], a: 0, e: "La c siempre [k]." },
+    { q: "La letra J…", o: ["no existía en latín clásico", "era muy frecuente", "sonaba [j]"], a: 0, e: "Se usaba I." },
+    { q: "La vocal larga se marca con…", o: ["un macrón (ā)", "una tilde", "una diéresis"], a: 0, e: "Una rayita encima." },
+    { q: "«Dominus» se acentúa…", o: ["dóminus", "domínus", "dominús"], a: 0, e: "La penúltima es breve." },
+    { q: "«ae» se pronuncia…", o: ["[ai]", "[e]", "[a-e]"], a: 0, e: "Es un diptongo." },
+  ],
+  tarjetas: [
+    ["Macrón", "Rayita que marca una vocal larga: ā."],
+    ["Sílaba larga", "Con vocal larga, diptongo o vocal + dos consonantes."],
+    ["Pronunciación clásica", "C y G siempre duras; V como [w]."],
+  ],
+});
