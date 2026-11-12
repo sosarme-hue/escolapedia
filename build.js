@@ -96,7 +96,7 @@ function stagesHTML(depth, lang) {
   return ETAPAS.map((e) => `
     <div class="stage" style="--c:${e.color}">
       <div><h3><a href="${r}${e.slug}/" style="color:inherit;text-decoration:none">${e.nombre}</a></h3><small>${e.edad}</small></div>
-      <div class="chips">${e.cursos.map((c) => `<a class="chip${c.slug === "6-primaria" ? " live" : ""}" href="${r}${e.slug}/${c.slug}/">${c.nombre}</a>`).join("")}${e.slug === "bachillerato" ? `<span class="chip" title="Próximamente">PAU</span>` : ""}</div>
+      <div class="chips">${e.cursos.map((c) => `<a class="chip${c.slug === "4-eso" ? " live" : ""}" href="${r}${e.slug}/${c.slug}/">${c.nombre}</a>`).join("")}${e.slug === "bachillerato" ? `<span class="chip" title="Próximamente">PAU</span>` : ""}</div>
     </div>`).join("");
 }
 
@@ -121,7 +121,7 @@ function home(lang) {
     </aside>
   </section>
   <section class="audiences" aria-label="${ca ? "Per a qui" : "Para quién"}">
-    <a class="aud" style="--c:var(--pri)" href="${r}primaria/6-primaria/"><h3>${ca ? "Alumnes" : "Alumnos"}</h3><p>${ca ? "Tria el teu curs i estudia cada tema en 6 passos, amb jocs de preguntes i targetes de repàs." : "Elige tu curso y estudia cada tema en 6 pasos, con juegos de preguntas y tarjetas de repaso."}</p><span>${ca ? "Començar →" : "Empezar →"}</span></a>
+    <a class="aud" style="--c:var(--pri)" href="${r}eso/4-eso/"><h3>${ca ? "Alumnes" : "Alumnos"}</h3><p>${ca ? "Tria el teu curs i estudia cada tema en 6 passos, amb jocs de preguntes i targetes de repàs." : "Elige tu curso y estudia cada tema en 6 pasos, con juegos de preguntas y tarjetas de repaso."}</p><span>${ca ? "Començar →" : "Empezar →"}</span></a>
     <a class="aud" style="--c:var(--inf)" href="${r}familias/"><h3>${t.familias}</h3><p>${ca ? "Com ajudar a casa amb cada tema i com veure el progrés del vostre fill o filla." : "Cómo ayudar en casa con cada tema y cómo ver el progreso de vuestro hijo o hija."}</p><span>${ca ? "Guia per a famílies →" : "Guía para familias →"}</span></a>
     <a class="aud" style="--c:var(--bac)" href="${r}profesores/"><h3>${t.profesores}</h3><p>${ca ? "Sabers del currículum, idees per a classe, fitxes per imprimir i mode projector." : "Saberes del currículo, ideas para clase, fichas para imprimir y modo proyector."}</p><span>${ca ? "Recursos per a docents →" : "Recursos para docentes →"}</span></a>
   </section>
