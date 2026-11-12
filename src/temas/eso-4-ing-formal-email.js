@@ -106,3 +106,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Escribir emails formales completos de petición, reclamación y solicitud", "Usar preguntas indirectas y fórmulas de cortesía", "Distinguir el email formal del semiformal y del informal"],
+  bloques: [
+    { tras: "Formal o informal", html: `<h3>Tres registros, tres emails</h3>${L.tb(["", "Informal", "Semiformal", "Formal"], [["a quién", "amigos, familia", "un profesor, un conocido", "una empresa, una institución"], ["saludo", "Hi Tom! / Hey,", "Dear Mr Brown,", "Dear Sir or Madam,"], ["inicio", "How are you?", "I hope you are well.", "I am writing to…"], ["despedida", "Love, / See you soon,", "Best wishes, / Kind regards,", "Yours faithfully,"], ["estilo", "contracciones, emojis", "pocas contracciones", "sin contracciones, frases completas"]])}<p>En un examen, lee bien a quién va dirigido el email: el registro equivocado es uno de los fallos que más puntos resta.</p>` },
+    { tras: "Fórmulas útiles", html: `<h3>Preguntas indirectas: la clave de la cortesía</h3><p>En un email formal casi nunca se hacen preguntas directas («When does the course start?»). Se usan fórmulas que suavizan la pregunta, con el orden <b>sujeto + verbo</b>:</p><ul><li>«<b>Could you tell me when</b> the course starts?»</li><li>«<b>I would like to know whether</b> accommodation is included.»</li><li>«<b>I would be grateful if you could</b> send me a brochure.»</li><li>«<b>I was wondering if</b> there are any discounts for students.»</li></ul><p>Fíjate en que después de estas fórmulas desaparecen <i>do / does / did</i>: «I would like to know when the course <b>starts</b>» (no *when does the course start).</p>` },
+    { tras: "Tipos de email formal", html: `<h3>Un email de reclamación, paso a paso</h3><ol><li><b>Motivo</b>: «I am writing to complain about a pair of headphones I bought from your website on 3 March (order number 4521).»</li><li><b>El problema</b>, con datos: «When they arrived, the left speaker did not work. Moreover, the box was damaged.»</li><li><b>Lo que ya has hecho</b>: «I tried to contact your customer service by phone, but nobody answered.»</li><li><b>Lo que pides</b>: «I would therefore like a full refund or a replacement as soon as possible.»</li><li><b>Cierre</b>: «I look forward to hearing from you. Yours faithfully, Lucía Gómez».</li></ol><p>El tono debe ser <b>firme pero educado</b>: nada de insultos ni mayúsculas.</p>` },
+    { tras: "Tipos de email formal", html: `<h3>La carta de solicitud (application)</h3><p>Sirve para pedir un trabajo de verano, una beca o una plaza de voluntariado. Estructura:</p><ul><li><b>Párrafo 1</b>: qué solicitas y dónde viste el anuncio. «I am writing to apply for the position of summer camp monitor advertised on your website.»</li><li><b>Párrafo 2</b>: quién eres y tu experiencia. «I am sixteen and I have been a volunteer at a children's club for two years.»</li><li><b>Párrafo 3</b>: tus cualidades y por qué eres adecuado. «I am patient, responsible and I speak English and French.»</li><li><b>Párrafo 4</b>: disponibilidad y cierre. «I am available from 1 July. Please find attached my CV. I look forward to hearing from you.»</li></ul>` },
+    { tras: "Tipos de email formal", html: `<h3>Revisa antes de enviar</h3><ul><li>¿El <b>asunto</b> (subject) resume el motivo? «Enquiry about summer courses», «Complaint – order 4521».</li><li>¿El <b>saludo y la despedida</b> encajan? (Sir or Madam → faithfully; nombre → sincerely).</li><li>¿Hay una <b>coma</b> después del saludo y la despedida, y empieza el texto con mayúscula en la línea siguiente?</li><li>¿Has evitado las <b>contracciones</b> y las expresiones coloquiales?</li><li>¿Cada párrafo tiene <b>una sola función</b>?</li><li>¿Has firmado con <b>nombre y apellido</b>?</li></ul><p>En inglés británico se escribe <i>Ms</i> (para cualquier mujer), <i>Mr</i>, <i>Mrs</i> y <i>Dr</i> sin punto.</p>` },
+  ],
+  videos: [
+    ["Las partes del email formal", L.vid("fSHQ-oi3pDc", "How to write an email", "English Units", 1559707)],
+    ["Tipos de email formal", L.vid("3Tu1jN65slw", "How to write professional emails in English", "English with Alex (engVid)", 3252038)],
+  ],
+  ejemplos: [
+    ["Escribe el primer párrafo de un email para pedir información sobre un curso de inglés en Dublín.", ["Saludo formal sin nombre: Dear Sir or Madam,", "Motivo con fórmula: I am writing to enquire about…", "Datos del curso y de dónde lo viste."], "Dear Sir or Madam, I am writing to enquire about the two-week summer English course in Dublin which I saw advertised on your website."],
+    ["Convierte en preguntas indirectas: «How much is it? Is lunch included?»", ["Usa fórmulas de cortesía: Could you tell me… / I would like to know…", "Orden sujeto + verbo: how much it costs.", "Para sí/no, usa if / whether."], "Could you tell me how much the course costs? I would also like to know whether lunch is included."],
+    ["Corrige el registro: «Hi! I'm writing coz the hotel was awful!!! Give me my money back. Bye.»", ["Saludo y despedida formales: Dear Sir or Madam, … Yours faithfully,", "Sin contracciones ni coloquialismos (coz → because).", "Sin exclamaciones; petición cortés con would like."], "Dear Sir or Madam, I am writing to complain about my recent stay at your hotel… I would therefore like a refund. Yours faithfully, …"],
+  ],
+  errores: [
+    "Mezclar saludo y despedida: Dear Sir or Madam… Yours sincerely (debe ser faithfully).",
+    "Usar contracciones (I'm, don't) en un email formal.",
+    "Hacer preguntas directas con do / does en lugar de indirectas.",
+    "Olvidar el motivo del email en el primer párrafo.",
+    "Escribir *I look forward to hear from you → hearing.",
+    "Escribir párrafos larguísimos: en un email formal cada párrafo debe ser breve y tener una sola idea, para que se lea rápido.",
+  ],
+  ejercicios: [
+    ["¿Qué despedida va con «Dear Mrs Taylor»?", "Yours sincerely."],
+    ["Escribe un asunto para un email de reclamación por un pedido que no ha llegado.", "Complaint – order not received (order no. 3367). También: Missing order 3367."],
+    ["Haz indirecta: «Where can I park?»", "Could you tell me where I can park?"],
+    ["Haz indirecta: «Do you have rooms for four people?»", "I would like to know whether (if) you have rooms for four people."],
+    ["Escribe la frase para adjuntar un documento.", "Please find attached my CV. / I have attached the receipt."],
+    ["Completa: «I would be grateful if you ___ (send) me more information.»", "could send."],
+    ["Haz formal: «I wanna know about the prices.»", "I would like to receive information about the prices."],
+    ["Escribe el párrafo final de un email de solicitud.", "I am available for an interview at any time. Thank you for considering my application. I look forward to hearing from you."],
+    ["¿Qué tres datos debe tener el párrafo del problema en una reclamación?", "Qué compraste o qué servicio usaste, cuándo y qué falló exactamente (con número de pedido si lo hay)."],
+    ["Escribe una frase de un email semiformal a tu profesora para pedir una tutoría.", "Dear Ms Smith, I hope you are well. Would it be possible to meet on Thursday to talk about my project? Best wishes, Pablo."],
+  ],
+  quiz: [
+    ["«Dear Mr Jones» → despedida:", ["Yours sincerely", "Yours faithfully", "Love"], 0, "Con nombre: sincerely."],
+    ["¿Qué pregunta es formal?", ["Could you tell me when it opens?", "When does it open?", "When's it open?"], 0, "Pregunta indirecta."],
+    ["«I look forward to ___ from you.»", ["hearing", "hear", "heard"], 0, "To es preposición: -ing."],
+    ["En un email semiformal se puede terminar con…", ["Kind regards,", "Hugs!", "Bye bye"], 0, "Neutro y educado."],
+    ["El tono de una reclamación debe ser…", ["firme pero educado", "agresivo", "muy informal"], 0, "Sin insultos ni mayúsculas."],
+  ],
+  tarjetas: [
+    ["Pregunta indirecta formal", "Could you tell me when the course starts? (sin does)"],
+    ["I would be grateful if…", "Fórmula cortés para pedir: …if you could send me…"],
+    ["Registro semiformal", "Dear Mr Brown, … Best wishes / Kind regards,"],
+  ],
+});

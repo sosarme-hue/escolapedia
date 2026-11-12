@@ -98,3 +98,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Elegir la forma de futuro según la situación", "Usar el presente detrás de when, as soon as, before y until", "Expresar probabilidad en el futuro"],
+  bloques: [
+    { tras: "Will", html: `<h3>Más usos de will</h3><p>Además de predicciones y decisiones espontáneas, <b>will</b> sirve para:</p><ul><li><b>Promesas</b>: «I <b>will</b> always love you», «I <b>won't</b> tell anyone».</li><li><b>Ofrecimientos</b>: «I'<b>ll</b> help you with those bags».</li><li><b>Amenazas y advertencias</b>: «Be careful or you'<b>ll</b> fall».</li><li><b>Peticiones</b>: «<b>Will</b> you open the window, please?»</li><li>Con <b>shall</b> (solo con I / we, en preguntas) se hacen ofrecimientos y sugerencias: «<b>Shall</b> I carry it?», «<b>Shall</b> we dance?»</li></ul><p>Las predicciones con will suelen ir con expresiones de opinión o probabilidad: <i>I think, I'm sure, I hope, probably, perhaps</i>. Ojo con el orden: «He'll <b>probably</b> come» pero «He <b>probably won't</b> come».</p>` },
+    { tras: "Be going to", html: `<h3>Will o going to: la prueba</h3>${L.tb(["Situación", "Forma", "Ejemplo"], [["decido ahora mismo", "will", "«The phone! I'll get it.»"], ["ya lo había decidido", "going to", "«I'm going to buy a bike next month.»"], ["opino o imagino", "will", "«I think robots will do our homework.»"], ["lo veo venir (prueba)", "going to", "«Watch out! You're going to fall!»"], ["plan con hora y lugar", "present continuous", "«I'm meeting Sara at 6.»"], ["horario fijo", "present simple", "«The train leaves at 7.»"]])}<p>A menudo, en predicciones, will y going to son posibles; lo importante es si hay <mark>una prueba en el presente</mark> (going to) o solo una opinión (will).</p>` },
+    { tras: "Present continuous y present simple", html: `<h3>Oraciones temporales: presente, no will</h3><p>Después de <b>when, as soon as, before, after, until, once</b> y también después de <b>if</b>, el inglés no usa will aunque hable del futuro: usa el <b>present simple</b> (o el present perfect).</p><ul><li>«I'll call you <b>when</b> I <b>get</b> home.» (no *when I will get)</li><li>«We'll wait <b>until</b> the rain <b>stops</b>.»</li><li>«<b>As soon as</b> I <b>have finished</b>, I'll send it.»</li></ul><p>En español pasa algo parecido, pero con subjuntivo: «cuando <i>llegue</i>». Por eso este error es tan frecuente: los estudiantes traducen «cuando llegue» con will.</p>` },
+    { tras: "Future perfect", html: `<h3>Otras formas de hablar del futuro</h3><ul><li><b>Be about to</b> + infinitivo: algo inminente. «Hurry up! The film <b>is about to</b> start.»</li><li><b>Be likely to / be unlikely to</b>: probabilidad. «It <b>is likely to</b> rain this afternoon.»</li><li><b>Be bound to</b>: certeza. «She studies so hard. She<b>'s bound to</b> pass.»</li><li><b>Might / may</b> + infinitivo: posibilidad. «I <b>might</b> go to the party, but I'm not sure.»</li></ul><p>Estas expresiones enriquecen un <i>writing</i> sobre el futuro (por ejemplo, «How will we live in 2050?») y evitan repetir will en cada frase.</p>` },
+    { tras: "Future perfect", html: `<h3>Future continuous y future perfect, en contraste</h3><p>Imagina tu horario de mañana. A las 10 estarás en mitad de un examen: «At 10 o'clock I <b>will be doing</b> an exam» (future continuous, acción en progreso). A las 12 ya lo habrás terminado: «By 12 o'clock I <b>will have finished</b> the exam» (future perfect, acción terminada antes de ese momento).</p><p>El future continuous también se usa para preguntar por los planes de alguien con cortesía: «<b>Will</b> you <b>be using</b> the car tonight?» (suena menos directo que «Will you use…?»). El future perfect va casi siempre con <b>by</b>: <i>by then, by the time, by next year</i>.</p>` },
+    { tras: "Future perfect", html: `<h3>Escribir sobre el futuro: planes y predicciones</h3><p>En los exámenes de 4.º es frecuente un <i>writing</i> como «My plans for next summer» o «Life in 2050». Organízalo así:</p><ol><li><b>Introducción</b>: presenta el tema. «Nobody knows exactly what the future holds, but…»</li><li><b>Planes y decisiones</b> (going to y present continuous): «This summer I'm going to work in a café. I'm starting on 1 July.»</li><li><b>Predicciones</b> (will, might, be likely to): «I think I'll learn a lot. I might even save some money.»</li><li><b>Futuro más lejano</b> (future continuous y future perfect): «By the time I'm 25, I'll have finished my degree and I'll be working abroad.»</li><li><b>Conclusión</b>: «All in all, I'm sure it will be an unforgettable experience.»</li></ol><p>Mezclar varias formas de futuro demuestra un nivel B1 y sube la nota de gramática y de riqueza de vocabulario.</p>` },
+  ],
+  videos: [
+    ["Be going to", L.vid("UISiuiPd_FY", "Will vs be going to vs presente continuo: hablando del futuro en inglés", "To Fluency", 403485)],
+    ["Present continuous y present simple", L.vid("XACvspcClW0", "Los futuros en inglés: will, be going to, presente continuo, presente simple", "The English Spotlight", 474753)],
+  ],
+  ejemplos: [
+    ["Elige la forma: «A: I've got a terrible headache. B: Wait, I (get) ___ you an aspirin.»", ["B decide en el momento de hablar, como reacción.", "Es también un ofrecimiento.", "Decisión espontánea → will."], "I'll get you an aspirin."],
+    ["Corrige: «I will phone you when I will arrive at the airport.»", ["La segunda parte va detrás de «when».", "Después de when se usa presente aunque se hable de futuro.", "La parte principal sí lleva will."], "I will phone you when I arrive at the airport."],
+    ["Completa con future continuous o future perfect: «Don't call me at 9. I (have) ___ dinner. Call me at 10: by then I (finish) ___.»", ["A las 9 estaré en mitad de la cena: acción en progreso → will be having.", "«By then» indica algo terminado antes de ese momento → will have finished."], "I'll be having dinner… by then I'll have finished."],
+  ],
+  errores: [
+    "Usar will después de when, if, as soon as, until: *when I will arrive → when I arrive.",
+    "Usar will para planes ya decididos: *I will visit my aunt tomorrow, we booked it → I'm visiting / I'm going to visit.",
+    "Olvidar to en going to: *I'm going study → I'm going to study.",
+    "Usar shall con he, she o they: shall solo va con I y we.",
+    "Confundir future perfect (terminado) con future continuous (en progreso).",
+  ],
+  ejercicios: [
+    ["Completa: «Look at the sky! It ___ (snow).»", "It's going to snow. Hay una prueba visible."],
+    ["Completa: «I'm sure you ___ (love) the film.»", "You'll love the film: predicción con opinión (I'm sure)."],
+    ["Completa: «The concert ___ (start) at 9 pm, according to the programme.»", "starts: horario fijo, present simple."],
+    ["Completa: «We ___ (have) a barbecue on Sunday. We've invited everyone.»", "We're having (o we're going to have): plan organizado."],
+    ["Haz un ofrecimiento con shall para llevar una mochila pesada.", "Shall I carry your backpack?"],
+    ["Corrige: «If it will rain, we won't go.»", "If it rains, we won't go."],
+    ["Completa: «By the end of the year, I ___ (read) ten books.»", "will have read: future perfect con by."],
+    ["Traduce: «La película está a punto de empezar.»", "The film is about to start."],
+    ["Completa: «This time next week we ___ (lie) on the beach.»", "will be lying: future continuous (lie → lying)."],
+    ["Escribe dos predicciones sobre 2050, una con will y otra con might.", "Por ejemplo: «People will travel in electric planes.» «We might live on Mars.» Will expresa más seguridad que might."],
+  ],
+  quiz: [
+    ["«I'll text you as soon as I ___.»", ["arrive", "will arrive", "arrived"], 0, "Presente tras as soon as."],
+    ["«___ I open the window?» (ofrecimiento)", ["Shall", "Will", "Am"], 0, "Shall con I en preguntas."],
+    ["«Hurry! The bus is about ___.»", ["to leave", "leaving", "leave"], 0, "Be about to + infinitivo."],
+    ["«She's bound to win» significa que…", ["es casi seguro que gane", "quizá gane", "no ganará"], 0, "Bound to = certeza."],
+    ["«By 2030 I ___ university.»", ["will have finished", "will be finishing", "finish"], 0, "Future perfect con by."],
+  ],
+  tarjetas: [
+    ["When + presente", "I'll call you when I get home (no *when I will get)."],
+    ["Be about to", "A punto de: The film is about to start."],
+    ["Shall I / Shall we", "Ofrecimientos y sugerencias: Shall we go?"],
+  ],
+});

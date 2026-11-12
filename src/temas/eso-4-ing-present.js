@@ -103,3 +103,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Escribir bien la tercera persona y la forma -ing", "Elegir entre present perfect y past simple", "Usar for, since, already, yet, just y ever"],
+  bloques: [
+    { tras: "Present simple", html: `<h3>La ortografía de la tercera persona</h3><p>En el present simple, la tercera persona del singular (<i>he, she, it</i>) añade <b>-s</b>, pero hay reglas:</p>${L.tb(["Regla", "Ejemplo"], [["la mayoría: + s", "play → plays, read → reads"], ["-s, -sh, -ch, -x, -o: + es", "watch → watches, go → goes, fix → fixes"], ["consonante + y: -y → -ies", "study → studies, fly → flies"], ["vocal + y: + s", "play → plays, buy → buys"], ["irregular", "have → has"]])}<p>En negativa e interrogativa la -s desaparece del verbo porque la lleva el auxiliar: <mark>She doesn't play / Does she play?</mark> (nunca *doesn't plays). Los adverbios de frecuencia (<i>always, usually, often, sometimes, never</i>) van delante del verbo, pero detrás de <i>be</i>: «I <b>always</b> walk to school», «She <b>is always</b> late».</p>` },
+    { tras: "Present continuous", html: `<h3>La forma -ing</h3><ul><li>Regla general: + ing (<i>read → reading</i>).</li><li>Verbos acabados en <b>-e</b> muda: se quita la e (<i>write → writing, make → making</i>).</li><li>Una sílaba (o tónica final) con <b>consonante + vocal + consonante</b>: se dobla la consonante (<i>swim → swimming, run → running, begin → beginning</i>).</li><li>Acabados en <b>-ie</b>: -ie → -ying (<i>lie → lying, die → dying</i>).</li></ul><p>El present continuous también sirve para quejarse de una costumbre molesta con <i>always</i>: «You're <b>always</b> losing your keys!» Y para cambios en progreso: «The climate is getting warmer».</p>` },
+    { tras: "Present perfect simple", html: `<h3>Present perfect o past simple</h3><p>Es la gran dificultad para un hispanohablante, porque en español usamos «he comido» y «comí» de otra manera.</p>${L.tb(["Present perfect", "Past simple"], [["tiempo sin terminar o sin especificar", "tiempo terminado y concreto"], ["I've seen that film. (alguna vez)", "I saw that film last week."], ["She has lived here since 2019. (y sigue)", "She lived here for two years. (ya no)"], ["ever, never, already, yet, just, so far, this week", "yesterday, last…, … ago, in 2010, when…"]])}<p>Regla de oro: <mark>si dices cuándo (yesterday, ago, last…), usa past simple</mark>. Por eso es incorrecto *I have visited Paris last year.</p>` },
+    { tras: "Present perfect simple", html: `<h3>For, since, already, yet, just, ever</h3><ul><li><b>for</b> + periodo: <i>for three years, for a long time</i>.</li><li><b>since</b> + punto de inicio: <i>since 2019, since Monday, since I was a child</i>.</li><li><b>already</b> (ya), en afirmativas, entre have y el participio: «I've <b>already</b> finished».</li><li><b>yet</b> (ya / todavía), en preguntas y negativas, al final: «Have you finished <b>yet</b>?», «I haven't finished <b>yet</b>».</li><li><b>just</b> (acabar de): «She's <b>just</b> left».</li><li><b>ever / never</b> (alguna vez / nunca): «Have you <b>ever</b> been to Ireland?» «No, I've <b>never</b> been there».</li></ul><p>Fíjate en <i>been</i> y <i>gone</i>: «He's <b>been</b> to Paris» (fue y volvió) / «He's <b>gone</b> to Paris» (está allí ahora).</p>` },
+    { tras: "Present perfect continuous", html: `<h3>Simple o continuous en el present perfect</h3><p>El <b>simple</b> se fija en el <b>resultado</b> o en la cantidad: «I've read three books this month», «I've painted the kitchen» (ya está pintada). El <b>continuous</b> se fija en la <b>actividad y su duración</b>: «I've been reading all afternoon», «I've been painting the kitchen» (estoy manchado; quizá no he terminado). Con <i>how many / how much</i> se usa el simple; con <i>how long</i> se suelen usar los dos: «How long have you been learning English?» Los stative verbs no admiten continuous: «I've <b>known</b> her for years» (nunca *I've been knowing).</p>` },
+  ],
+  videos: [
+    ["Present continuous", L.vid("3B_6pS8a0jk", "Present simple vs present continuous", "Clases de inglés en español", 1644756)],
+    ["Present perfect continuous", L.vid("TcN7ynsdHyA", "Present perfect vs present perfect continuous", "Clases de inglés en español", 717209)],
+  ],
+  ejemplos: [
+    ["Completa: «My brother (study) ___ Medicine. This week he (prepare) ___ an important exam.»", ["«Study Medicine» es una situación permanente o habitual: present simple, 3.ª persona: studies (consonante + y → -ies).", "«This week» indica algo temporal: present continuous: is preparing (prepare → preparing, se quita la e)."], "My brother studies Medicine. This week he is preparing an important exam."],
+    ["Elige: «I (lose / have lost) my keys. I can't open the door.»", ["La pérdida tiene un resultado en el presente: no puedo abrir.", "No se dice cuándo se perdieron.", "Por tanto, present perfect."], "I have lost my keys."],
+    ["Completa con for o since y el tiempo correcto: «We (know) ___ each other ___ primary school.»", ["Know es un stative verb: no va en continuous.", "La acción empezó en el pasado y sigue: present perfect simple → have known.", "«Primary school» es el punto de inicio: since."], "We have known each other since primary school."],
+  ],
+  errores: [
+    "Olvidar la -s de la tercera persona: *she play → she plays.",
+    "Poner la -s también con el auxiliar: *does she plays → does she play.",
+    "Usar present perfect con un tiempo terminado: *I have seen him yesterday → I saw him yesterday.",
+    "Confundir for (duración) y since (punto de inicio).",
+    "Usar continuous con stative verbs: *I'm knowing → I know.",
+    "Traducir «llevo dos años aquí» como *I am here for two years → I have been here for two years.",
+  ],
+  ejercicios: [
+    ["Escribe la tercera persona: watch, carry, play, go, have.", "watches, carries, plays, goes, has."],
+    ["Escribe la forma -ing: write, swim, lie, study, begin.", "writing, swimming, lying, studying, beginning."],
+    ["Completa: «___ your sister (like) ___ horror films?»", "Does your sister like horror films? (Present simple: auxiliar does y verbo sin -s.)"],
+    ["Corrige: «I am wanting a new phone.»", "I want a new phone. Want es un stative verb."],
+    ["Completa con for o since: «I've had this bike ___ 2022» / «___ six months».", "since 2022 / for six months."],
+    ["Elige: «Have you finished your homework (already / yet)?»", "yet: en preguntas va al final."],
+    ["Corrige: «She has gone to London last summer.»", "She went to London last summer. Last summer es un tiempo terminado: past simple."],
+    ["Explica la diferencia: «He's been to Rome» / «He's gone to Rome».", "Been: fue y ya ha vuelto. Gone: se ha ido y todavía está allí."],
+    ["Completa: «I'm exhausted. I (run) ___ for an hour.»", "I've been running for an hour. Se destaca la actividad y su duración, con un resultado visible (estoy agotado)."],
+    ["Traduce: «Llevo tres años estudiando francés.»", "I have been studying French for three years. (También: I have studied French for three years.)"],
+  ],
+  quiz: [
+    ["«He ___ to school every day.»", ["walks", "walk", "is walk"], 0, "3.ª persona: -s."],
+    ["«I saw her ___.»", ["yesterday", "since Monday", "yet"], 0, "Past simple con tiempo terminado."],
+    ["«She has worked here ___ ten years.»", ["for", "since", "ago"], 0, "For + periodo."],
+    ["Forma -ing de «run»:", ["running", "runing", "runnning"], 0, "Se dobla la consonante."],
+    ["«I've ___ finished.» (acabo de)", ["just", "yet", "ever"], 0, "Just = acabar de."],
+  ],
+  tarjetas: [
+    ["Present perfect vs past simple", "Si dices cuándo (yesterday, ago, last…), past simple."],
+    ["For / since", "For + periodo (for 2 years); since + inicio (since 2020)."],
+    ["Been / gone", "Been: fue y volvió. Gone: se fue y sigue allí."],
+  ],
+});
