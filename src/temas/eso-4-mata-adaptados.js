@@ -303,3 +303,18 @@ module.exports = [
     ],
   }),
 ];
+
+// Ampliación de cada tema en su propio fichero: src/temas/_mata-<slug del título>.js,
+// que exporta una función (T) => { ... } que añade bloques, ejemplos, errores, ejercicios, quiz y tarjetas.
+{
+  const fs = require("fs");
+  const path = require("path");
+  const slug = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  for (const T of module.exports) {
+    const f = path.join(__dirname, `_mata-${slug(T.titulo)}.js`);
+    if (fs.existsSync(f)) {
+      T.bloques = [...T.bloques]; T.quiz = [...T.quiz]; T.tarjetas = [...T.tarjetas]; T.objetivos = [...T.objetivos];
+      require(f)(T);
+    }
+  }
+}
