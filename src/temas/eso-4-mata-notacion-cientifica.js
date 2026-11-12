@@ -99,3 +99,65 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+{
+  const T = module.exports;
+  T.minutos = 60;
+  T.objetivos.push("Trabajar con exponentes cero, negativos y fraccionarios", "Simplificar radicales y sumar radicales semejantes", "Comparar órdenes de magnitud");
+  const nuevos = {
+    negativos: { html: `<h3>Exponente cero y exponentes negativos</h3><p>Al dividir potencias de la misma base se restan los exponentes: 2⁵ / 2⁵ = 2⁰, pero también es 32 / 32 = 1. Por eso <mark>a⁰ = 1</mark> (con a ≠ 0). Del mismo modo, 2³ / 2⁵ = 2⁻², que es 8 / 32 = 1/4: un exponente negativo significa <mark>«uno partido por»</mark>: a⁻ⁿ = 1 / aⁿ. Con fracciones se da la vuelta: (2/3)⁻² = (3/2)² = 9/4.</p>` },
+    radicales: { html: `<h3>Simplificar y sumar radicales</h3><p>Para <b>extraer factores</b> de una raíz cuadrada, se descompone el radicando buscando cuadrados: √12 = √(4 · 3) = 2√3; √50 = √(25 · 2) = 5√2. Se usa que <mark>√(a · b) = √a · √b</mark>. Solo se pueden <b>sumar</b> radicales <b>semejantes</b> (con la misma raíz): 5√3 + 2√3 = 7√3, igual que 5x + 2x = 7x. En cambio, √(a + b) no es √a + √b: √(9 + 16) = 5, no 7.</p>` },
+    fraccionarios: { html: `<h3>Potencias de exponente fraccionario</h3><p>Una raíz se puede escribir como potencia: <mark>ⁿ√(aᵐ) = a^(m/n)</mark>. Así, √5 = 5^(1/2) y ∛8 = 8^(1/3) = 2. Para calcular 8^(2/3) se hace primero la raíz y luego la potencia: (∛8)² = 2² = 4. Escribir las raíces como potencias permite usar las mismas propiedades: √2 · ∛2 = 2^(1/2 + 1/3) = 2^(5/6).</p>` },
+    magnitud: { html: `<h3>Órdenes de magnitud</h3><p>El <b>exponente</b> de la notación científica dice el orden de magnitud: lo grande o pequeño que es un número. Para comparar dos números en notación científica, primero se miran los exponentes y, si coinciden, los coeficientes: 3 · 10⁸ &gt; 9 · 10⁷. Algunas referencias: una célula mide unos 10⁻⁵ m; una persona, 10⁰ m; la Tierra, 10⁷ m; la distancia al Sol, 10¹¹ m. Pasar de un orden al siguiente es multiplicar por 10.</p>` },
+  };
+  const pos = (t) => T.bloques.findIndex((b) => b.html.includes(t));
+  T.bloques[pos("Potencias y sus propiedades")].video = { id: "a_8MdRema-k", titulo: "Potencia de potencias, súper fácil", canal: "Daniel Carreón", vistas: 4807703, megusta: 0 };
+  T.bloques[pos("Notación científica")].video = { id: "fYBFpz3ly28", titulo: "Notación científica, súper fácil", canal: "Daniel Carreón", vistas: 4989066, megusta: 0 };
+  T.bloques.splice(pos("Con la calculadora"), 0, nuevos.magnitud);
+  T.bloques.splice(pos("Raíces") + 1, 0, nuevos.radicales, nuevos.fraccionarios);
+  T.bloques.splice(pos("Potencias y sus propiedades") + 1, 0, nuevos.negativos);
+
+  T.ejemplos = [
+    { enunciado: "Simplifica (2³ · 2⁵) / 2⁶.",
+      pasos: ["Producto de potencias de la misma base: se suman los exponentes, 2³ · 2⁵ = 2⁸.", "Cociente: se restan, 2⁸ / 2⁶ = 2²."],
+      resultado: "2² = 4." },
+    { enunciado: "Calcula (3 · 10⁸) · (2 · 10⁻³) y después divide el resultado entre 4 · 10².",
+      pasos: ["Se multiplican los coeficientes y se suman los exponentes: 6 · 10⁸⁻³ = 6 · 10⁵.", "Se dividen los coeficientes y se restan los exponentes: (6 / 4) · 10⁵⁻² = 1,5 · 10³."],
+      resultado: "6 · 10⁵ y 1,5 · 10³ = 1.500." },
+    { enunciado: "Calcula √75 + √12.",
+      pasos: ["√75 = √(25 · 3) = 5√3.", "√12 = √(4 · 3) = 2√3.", "Son semejantes: 5√3 + 2√3 = 7√3."],
+      resultado: "7√3 ≈ 12,12." },
+  ];
+  T.errores = [
+    "Multiplicar los exponentes al multiplicar potencias: 2³ · 2⁴ = 2⁷, no 2¹².",
+    "Pensar que un exponente negativo da un número negativo: 2⁻² = 1/4, no −4.",
+    "Repartir la raíz en una suma: √(a + b) no es √a + √b.",
+    "Dejar el coeficiente fuera del intervalo [1, 10): 25 · 10³ debe escribirse 2,5 · 10⁴.",
+    "Sumar números en notación científica sin igualar antes los exponentes.",
+  ];
+  T.ejercicios = [
+    { q: "Calcula 5³ · 5⁻¹.", sol: "5³⁻¹ = 5² = 25." },
+    { q: "Calcula (2²)³.", sol: "Potencia de potencia: se multiplican los exponentes, 2⁶ = 64." },
+    { q: "Calcula 3⁰ + 2⁻¹.", sol: "1 + 1/2 = 1,5." },
+    { q: "Calcula (2/5)⁻².", sol: "(5/2)² = 25/4 = 6,25." },
+    { q: "Simplifica √48.", sol: "√(16 · 3) = 4√3." },
+    { q: "Calcula √18 + √8.", sol: "3√2 + 2√2 = 5√2." },
+    { q: "Calcula 27^(2/3).", sol: "(∛27)² = 3² = 9." },
+    { q: "Escribe en notación científica 0,000045 y 3.200.000.000.", sol: "4,5 · 10⁻⁵ y 3,2 · 10⁹." },
+    { q: "Calcula (4 · 10⁶) · (5 · 10⁻²) y exprésalo en notación científica.", sol: "20 · 10⁴ = 2 · 10⁵." },
+    { q: "La luz recorre 3 · 10⁵ km cada segundo y un año tiene unos 3,15 · 10⁷ s. ¿Cuántos kilómetros mide un año luz?", sol: "3 · 3,15 · 10⁵⁺⁷ = 9,45 · 10¹² km, casi diez billones de kilómetros." },
+  ];
+  T.quiz.push(
+    { q: "2⁻³ es igual a…", o: ["−8", "1/8", "−6"], a: 1, e: "1 / 2³ = 1/8." },
+    { q: "√50 simplificado es…", o: ["5√2", "25√2", "2√5"], a: 0, e: "√(25 · 2) = 5√2." },
+    { q: "8^(1/3) es igual a…", o: ["2", "8/3", "24"], a: 0, e: "Es la raíz cúbica de 8." },
+    { q: "En notación científica, 0,0007 se escribe…", o: ["7 · 10⁻⁴", "7 · 10⁴", "0,7 · 10⁻³"], a: 0, e: "La coma se mueve 4 lugares a la derecha." },
+    { q: "(a³)² es igual a…", o: ["a⁵", "a⁶", "a⁹"], a: 1, e: "Potencia de potencia: 3 · 2 = 6." },
+  );
+  T.tarjetas.push(
+    ["a⁻ⁿ", "1 / aⁿ"],
+    ["ⁿ√(aᵐ) como potencia", "a^(m/n)"],
+    ["¿Cuándo se pueden sumar radicales?", "Solo si son semejantes: misma raíz y mismo radicando."],
+  );
+}
