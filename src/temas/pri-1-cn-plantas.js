@@ -125,6 +125,7 @@ module.exports = {
       <rect width="640" height="300" rx="16" fill="var(--paper)"/>
       <rect x="16" y="210" width="608" height="74" rx="10" fill="#c98a4a" opacity=".35"/>
       ${planta(320, 210, 2.2)}
+      ${semilla(510, 156, 2)}
       ${[["FLOR", "atrae a las abejas", 70, "var(--red)", "M300 34 L 230 70"], ["HOJAS", "toman luz y aire", 140, "var(--leaf)", "M250 150 L 230 140"], ["RAÍZ", "toma agua y sujeta", 250, "#8a5a2b", "M300 260 L 230 250"]].map(([t, d, y, c, p]) => `<path d="${p}" stroke="${c}" stroke-width="2"/>${txt(140, y, t, { size: 18, color: c, font: D, weight: 800 })}${txt(140, y + 22, d, { size: 13 })}`).join("")}
       ${[["TALLO", "sostiene y lleva el agua", 110, "var(--leaf)", "M326 120 L 410 110"], ["SEMILLA", "de ella nace la planta", 180, "#8a5a2b", "M410 180 L 410 180"]].map(([t, d, y, c, p]) => `<path d="${p}" stroke="${c}" stroke-width="2"/>${txt(510, y, t, { size: 18, color: c, font: D, weight: 800 })}${txt(510, y + 22, d, { size: 13 })}`).join("")}
     </svg>`,
