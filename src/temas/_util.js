@@ -11,11 +11,14 @@ function mapa(centro, color, ramas, ancho = 220) {
       <text x="${x}" y="${y - 4}" text-anchor="middle" font-weight="700" fill="${c}">${t}</text>
       <text x="${x}" y="${y + 16}" text-anchor="middle" fill="var(--ink)" font-size="13">${d}</text>`;
   }).join("");
+  // El óvalo central crece con el título; si aun así no cabe, la letra se reduce.
+  const wc = Math.min(330, Math.max(250, centro.length * 12.5 + 44));
+  const fc = Math.min(19, ((wc - 36) / centro.length) * 1.55).toFixed(1);
   return `<svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: ${centro}">
     <g ${F} font-size="15">
       <g stroke="var(--line)" stroke-width="3">${pos.map(([x, y]) => `<path d="M350 150 L ${x} ${y}"/>`).join("")}</g>
-      <rect x="225" y="122" width="250" height="56" rx="28" fill="${color}"/>
-      <text x="350" y="157" text-anchor="middle" font-size="19" font-weight="700" fill="#fff" ${D}>${centro}</text>
+      <rect x="${350 - wc / 2}" y="122" width="${wc}" height="56" rx="28" fill="${color}"/>
+      <text x="350" y="157" text-anchor="middle" font-size="${fc}" font-weight="700" fill="#fff" ${D}>${centro}</text>
       ${cajas}
     </g></svg>`;
 }
