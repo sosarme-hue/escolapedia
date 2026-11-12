@@ -285,3 +285,191 @@ module.exports = [
     revisado: "2026-11-12",
   },
 ];
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+const T = (t) => module.exports.find((x) => x.titulo === t);
+
+ampliar(T("Deportes de raqueta"), {
+  minutos: 60,
+  objetivos: ["Comparar el reglamento del bádminton, el tenis de mesa, el tenis y el pádel", "Llevar la puntuación de un partido de bádminton"],
+  bloques: [
+    { tras: "Reglamento básico del bádminton", html: `<h3>La puntuación paso a paso</h3><p>En bádminton se juega al mejor de <b>tres sets de 21 puntos</b>, y cada jugada da un punto a quien la gana, saque quien saque (<mark>puntuación directa</mark>). Si se llega a 20-20, hay que ganar por dos puntos de diferencia, con un tope de 30. El saque se hace <b>en diagonal</b>, por debajo de la cintura: si el que saca tiene una puntuación par, saca desde la derecha; si es impar, desde la izquierda. En dobles, el campo de saque es más corto y más ancho que en individuales.</p>` },
+    { tras: "Otros deportes de raqueta", html: `<h3>Comparar deportes de raqueta</h3>${tabla(["Deporte", "Móvil", "Puntuación", "Rasgo clave"], [["Bádminton", "volante", "sets a 21 puntos", "el volante no puede botar"], ["Tenis de mesa", "pelota de celuloide o plástico", "sets a 11 puntos", "un bote en cada campo; se saca cada 2 puntos"], ["Tenis", "pelota de fieltro", "15, 30, 40, juego; sets a 6 juegos", "se permite un bote"], ["Pádel", "pelota de tenis con menos presión", "como el tenis", "pista cerrada: se juega con las paredes"]])}`, video: { id: "B5uIBSTf7Rc", titulo: "Aprende pádel con MD: normas básicas", canal: "Mundo Deportivo", vistas: 1311217, megusta: 0 } },
+    { tras: "Táctica: mover al rival", html: `<h3>Juego de dobles</h3><p>En dobles la clave es la <mark>coordinación con la pareja</mark>. En <b>ataque</b> se colocan uno delante y otro detrás (formación en línea): el de atrás remata y el de delante cierra la red. En <b>defensa</b> se colocan uno al lado del otro, cada uno cubriendo su mitad. Hay que hablar («¡mía!», «¡tuya!») para no chocar ni dejar el volante sin devolver, y buscar el hueco entre los dos rivales, donde ninguno sabe a quién le toca.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "En bádminton vas ganando 7-4 y te toca sacar. ¿Desde qué lado?", pasos: ["Tu puntuación es 7.", "7 es impar.", "Con puntuación impar se saca desde la izquierda."], resultado: "Desde el lado izquierdo, en diagonal." },
+    { enunciado: "El marcador está 29-29 en bádminton. ¿Qué pasa con el siguiente punto?", pasos: ["Normalmente se gana por dos de diferencia.", "Hay un tope de 30 puntos.", "Quien llegue a 30 gana el set."], resultado: "El siguiente punto decide el set (30-29)." },
+    { enunciado: "Tu rival está pegado a la red. ¿Qué golpe eliges?", pasos: ["Hay mucho espacio libre al fondo.", "Un clear profundo lo obliga a retroceder.", "Luego puedes jugar una dejada cuando esté atrás."], resultado: "Un clear al fondo de la pista para moverlo." },
+  ],
+  errores: [
+    "Sacar por encima de la cintura en bádminton.",
+    "Quedarse quieto después de golpear en vez de volver al centro.",
+    "Jugar siempre al mismo sitio, lo que facilita al rival.",
+    "No comunicarse con la pareja en dobles.",
+    "Confundir la puntuación del tenis con la del bádminton.",
+  ],
+  ejercicios: [
+    { q: "¿A cuántos puntos es un set de bádminton?", sol: "A 21, ganando por dos y con un tope de 30." },
+    { q: "¿Desde qué lado saca un jugador con 12 puntos?", sol: "Desde la derecha, porque 12 es par." },
+    { q: "Cita los golpes básicos del bádminton.", sol: "Saque, clear, dejada, drive y remate (smash)." },
+    { q: "¿Qué es el clear?", sol: "Un golpe alto y profundo que manda el volante al fondo de la pista rival." },
+    { q: "¿Para qué sirve volver al centro tras cada golpe?", sol: "Para llegar a cualquier zona de la pista con la misma distancia." },
+    { q: "¿A cuántos puntos es un set de tenis de mesa?", sol: "A 11 puntos, ganando por dos." },
+    { q: "¿Cómo se cuenta en tenis?", sol: "15, 30, 40 y juego; el set se gana con 6 juegos y dos de ventaja." },
+    { q: "¿Qué diferencia al pádel del tenis?", sol: "Se juega en pista cerrada, en parejas, y se pueden usar las paredes." },
+    { q: "¿Cómo se colocan en dobles al atacar y al defender?", sol: "Atacar: uno delante y otro detrás. Defender: uno al lado del otro." },
+    { q: "Cita dos normas de juego limpio en los deportes de raqueta.", sol: "Cantar honestamente si la pelota fue fuera y saludar al rival al acabar." },
+  ],
+  quiz: [
+    { q: "Un set de bádminton se gana a…", o: ["21 puntos", "11 puntos", "6 juegos"], a: 0, e: "Ganando por dos." },
+    { q: "En tenis de mesa los sets son a…", o: ["11 puntos", "21 puntos", "15 puntos"], a: 0, e: "Ganando por dos." },
+    { q: "En pádel se pueden usar…", o: ["las paredes", "las manos", "dos botes"], a: 0, e: "Pista cerrada." },
+    { q: "En dobles, para atacar se colocan…", o: ["uno delante y otro detrás", "los dos al fondo", "los dos en la red"], a: 0, e: "Formación en línea." },
+    { q: "Con puntuación par en bádminton se saca desde…", o: ["la derecha", "la izquierda", "el centro"], a: 0, e: "Impar, desde la izquierda." },
+  ],
+  tarjetas: [
+    ["Puntuación directa", "Cada jugada da un punto, saque quien saque."],
+    ["Pádel", "Deporte de raqueta en pista cerrada, en parejas."],
+    ["Dobles", "Ataque en línea, defensa en paralelo."],
+  ],
+});
+
+ampliar(T("Actividades en el medio natural"), {
+  minutos: 60,
+  objetivos: ["Preparar el material para una salida de senderismo", "Interpretar las señales de los senderos y las curvas de nivel"],
+  bloques: [
+    { tras: "El mapa de orientación", html: `<h3>Las curvas de nivel</h3><p>Los mapas topográficos representan el relieve con <mark>curvas de nivel</mark>: líneas que unen puntos a la misma altitud. La diferencia de altura entre dos curvas seguidas es la <b>equidistancia</b> (por ejemplo, 10 m). Cuanto más <b>juntas</b> están las curvas, más <b>empinado</b> es el terreno; si están separadas, es casi llano. Una cima aparece como curvas cerradas y concéntricas. La <b>escala</b> indica cuánto se ha reducido la realidad: en 1:25.000, 1 cm del mapa son 250 m sobre el terreno.</p>` },
+    { tras: "Planificar una salida segura", html: `<h3>El material y la mochila</h3><p>Para una salida de un día se necesita: <b>calzado</b> de montaña ya usado, ropa en <mark>capas</mark> (camiseta transpirable, forro polar y chaqueta impermeable), gorra y crema solar, agua (al menos 1,5 L), comida energética, mapa, brújula o GPS, móvil cargado, silbato, linterna y un pequeño botiquín. En la mochila lo más <b>pesado</b> va pegado a la espalda y a la altura de los hombros, y lo que se usa a menudo, en los bolsillos de fácil acceso.</p>`, video: { id: "KYfQCCaruPQ", titulo: "¿Qué se necesita para empezar a hacer senderismo? Nivel básico", canal: "Nerva", vistas: 96803, megusta: 0 } },
+    { tras: "Planificar una salida segura", html: `<h3>Las señales de los senderos</h3>${tabla(["Tipo de sendero", "Colores", "Longitud"], [["GR (Gran Recorrido)", "blanco y rojo", "más de 50 km, varias etapas"], ["PR (Pequeño Recorrido)", "blanco y amarillo", "entre 10 y 50 km, una jornada"], ["SL (Sendero Local)", "blanco y verde", "menos de 10 km"]])}<p>Dos rayas paralelas indican <b>continuidad</b>; una señal en ángulo indica un <b>cambio de dirección</b>; y una <mark>X</mark> significa «dirección equivocada».</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "En un mapa 1:25.000, dos puntos están a 6 cm. ¿Qué distancia real los separa?", pasos: ["1 cm = 25.000 cm = 250 m.", "6 · 250 m = 1.500 m."], resultado: "1,5 km en línea recta (por el camino será algo más)." },
+    { enunciado: "Calcula el desnivel entre la curva de 600 m y una cima 7 curvas más arriba (equidistancia 10 m).", pasos: ["7 curvas · 10 m = 70 m.", "600 + 70 = 670 m."], resultado: "Desnivel de 70 m; la cima está a unos 670 m." },
+    { enunciado: "Planifica una excursión de 12 km con 400 m de desnivel.", pasos: ["A pie se avanza unos 4 km/h en llano: 12 km → 3 h.", "Se suma 1 h por cada 400 m de subida: +1 h.", "Se añaden paradas: unos 30 min."], resultado: "Unas 4 h 30 min; salir temprano y avisar del recorrido." },
+  ],
+  errores: [
+    "Salir sin consultar la previsión del tiempo.",
+    "Estrenar las botas el día de la excursión.",
+    "No decir a nadie la ruta prevista y la hora de vuelta.",
+    "Seguir adelante cuando cambia el tiempo en vez de dar la vuelta.",
+    "Dejar basura o restos de comida «porque son orgánicos».",
+  ],
+  ejercicios: [
+    { q: "¿Qué son las curvas de nivel?", sol: "Líneas que unen puntos de igual altitud en un mapa." },
+    { q: "¿Qué indica que las curvas estén muy juntas?", sol: "Que el terreno es muy empinado." },
+    { q: "En escala 1:50.000, ¿cuánto son 3 cm?", sol: "3 · 500 m = 1,5 km." },
+    { q: "¿Para qué sirve la brújula?", sol: "Para saber dónde está el norte y orientar el mapa o seguir un rumbo." },
+    { q: "Cita dos formas de orientarse sin brújula.", sol: "Por el Sol (sale por el este y se pone por el oeste) y por la estrella Polar." },
+    { q: "¿Qué colores tienen las marcas de un GR?", sol: "Blanco y rojo." },
+    { q: "¿Qué significa una X en las marcas de un sendero?", sol: "Que ese no es el camino." },
+    { q: "¿Qué es la ropa en capas?", sol: "Varias prendas superpuestas que se quitan o ponen según el calor o el frío." },
+    { q: "¿Dónde va el peso en la mochila?", sol: "Pegado a la espalda y a la altura de los hombros." },
+    { q: "Explica tres normas de «no dejar rastro».", sol: "Llevarse la basura, ir por los senderos marcados y no hacer fuego ni molestar a los animales." },
+  ],
+  quiz: [
+    { q: "Las curvas de nivel muy juntas indican…", o: ["pendiente fuerte", "terreno llano", "un río"], a: 0, e: "Mucho desnivel en poca distancia." },
+    { q: "En 1:25.000, 1 cm son…", o: ["250 m", "25 m", "2,5 km"], a: 0, e: "25.000 cm." },
+    { q: "Las marcas de un PR son…", o: ["blanco y amarillo", "blanco y rojo", "blanco y verde"], a: 0, e: "Pequeño Recorrido." },
+    { q: "En la mochila, lo más pesado va…", o: ["pegado a la espalda", "en el fondo, lejos", "colgando"], a: 0, e: "Para no perder el equilibrio." },
+    { q: "Una X en un sendero significa…", o: ["dirección equivocada", "fuente", "fin del camino"], a: 0, e: "No sigas por ahí." },
+  ],
+  tarjetas: [
+    ["Curva de nivel", "Línea que une puntos de igual altitud."],
+    ["GR", "Sendero de Gran Recorrido: blanco y rojo."],
+    ["Ropa en capas", "Transpirable, abrigo e impermeable."],
+  ],
+});
+
+ampliar(T("Expresión corporal y danza"), {
+  minutos: 60,
+  objetivos: ["Conocer la evolución histórica de la danza", "Contar tiempos y frases musicales para coreografiar"],
+  bloques: [
+    { tras: "Espacio, tiempo e intensidad", html: `<h3>Contar la música</h3><p>Para bailar hay que encontrar el <mark>pulso</mark> de la música, el latido regular que marcamos con el pie. Los pulsos se agrupan en <b>compases</b> y, en casi toda la música de baile, en <b>frases de 8 tiempos</b> («5, 6, 7, 8» es la cuenta clásica antes de empezar). Una coreografía se construye por bloques de 8 tiempos: cada bloque es un paso o una combinación. Así todo el grupo empieza y termina a la vez, y es más fácil memorizar y ensayar.</p>` },
+    { tras: "Danzas del mundo", html: `<h3>Breve historia de la danza</h3>${tabla(["Época", "Danza", "Rasgos"], [["Prehistoria y Antigüedad", "danzas rituales", "ligadas a la caza, la fertilidad y la religión"], ["Renacimiento y Barroco", "danzas cortesanas", "pavana, minué: pasos medidos y elegantes"], ["Siglo XIX", "ballet clásico", "puntas, tutú, historias (El lago de los cisnes)"], ["Siglo XX", "danza moderna y contemporánea", "libertad de movimiento, contacto con el suelo"], ["Hoy", "danzas urbanas", "hip hop, breaking (olímpico en París 2024), dancehall"]])}`, video: { id: "1saGBuRJqd4", titulo: "Historia de la danza", canal: "TeleUV", vistas: 189994, megusta: 0 } },
+    { tras: "Danzas del mundo", html: `<h3>Danzas tradicionales de España</h3><p>Cada región tiene sus danzas: la <b>jota</b> (Aragón, Navarra, Castilla y otras), con saltos y castañuelas; la <b>sardana</b> catalana, en círculo y con las manos unidas; la <b>muñeira</b> gallega, al son de la gaita; las <b>sevillanas</b>, en parejas y en cuatro partes; y el <b>aurresku</b> vasco, una danza de honor. Son <mark>patrimonio cultural</mark>: se transmiten de generación en generación y se bailan en fiestas populares.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Una canción tiene 120 pulsaciones por minuto. ¿Cuánto dura una frase de 8 tiempos?", pasos: ["120 tiempos en 60 s → 1 tiempo = 0,5 s.", "8 · 0,5 s = 4 s."], resultado: "Cada bloque de 8 tiempos dura 4 segundos." },
+    { enunciado: "Diseña una coreografía de 32 tiempos para un grupo.", pasos: ["Tiempos 1-8: entrada caminando en línea.", "9-16: paso lateral a derecha e izquierda con brazos.", "17-24: giro y cambio de formación a círculo.", "25-32: paso por parejas y pose final."], resultado: "Cuatro bloques de 8 con cambios de nivel y formación." },
+    { enunciado: "Expresa la emoción «miedo» solo con el cuerpo.", pasos: ["Postura: hombros encogidos, cuerpo cerrado.", "Espacio: retroceder, nivel bajo.", "Tiempo: movimientos rápidos y entrecortados.", "Mirada: buscar alrededor."], resultado: "El público reconoce el miedo sin palabras." },
+  ],
+  errores: [
+    "Empezar a bailar sin contar ni escuchar el pulso.",
+    "Mirar al suelo durante toda la actuación.",
+    "Burlarse de los compañeros cuando expresan con el cuerpo.",
+    "Pensar que la danza no es actividad física.",
+    "Usar solo un nivel y una dirección en una coreografía.",
+  ],
+  ejercicios: [
+    { q: "¿Qué es la expresión corporal?", sol: "Comunicar ideas, emociones y sentimientos usando el cuerpo." },
+    { q: "Cita tres niveles espaciales.", sol: "Bajo (suelo), medio y alto (saltos, puntillas)." },
+    { q: "¿Qué es el mimo?", sol: "Representar acciones y situaciones solo con gestos, sin palabras." },
+    { q: "¿Qué es el pulso de la música?", sol: "El latido regular que se marca con el pie." },
+    { q: "¿Por qué se cuenta por bloques de 8?", sol: "Porque la música de baile se organiza en frases de 8 tiempos y ayuda a sincronizar al grupo." },
+    { q: "Cita las partes de una coreografía.", sol: "Inicio (posición de salida), desarrollo con varios bloques y final con pose." },
+    { q: "¿Qué rasgos tiene el ballet clásico?", sol: "Técnica rigurosa, puntas, tutú y relatos como El lago de los cisnes." },
+    { q: "¿Qué danza urbana fue olímpica en París 2024?", sol: "El breaking." },
+    { q: "Cita tres danzas tradicionales españolas y su región.", sol: "Jota (Aragón), sardana (Cataluña) y muñeira (Galicia)." },
+    { q: "Calcula cuánto dura un bloque de 8 tiempos a 96 pulsos por minuto.", sol: "1 tiempo = 60/96 = 0,625 s; 8 · 0,625 = 5 s." },
+  ],
+  quiz: [
+    { q: "La cuenta clásica antes de empezar es…", o: ["5, 6, 7, 8", "1, 2, 3", "10, 9, 8"], a: 0, e: "Bloques de 8." },
+    { q: "La sardana es típica de…", o: ["Cataluña", "Galicia", "Andalucía"], a: 0, e: "En círculo." },
+    { q: "El tutú y las puntas son del…", o: ["ballet clásico", "hip hop", "flamenco"], a: 0, e: "Siglo XIX." },
+    { q: "El breaking fue olímpico en…", o: ["París 2024", "Barcelona 1992", "nunca"], a: 0, e: "Danza urbana." },
+    { q: "El pulso es…", o: ["el latido regular de la música", "el volumen", "la letra"], a: 0, e: "Lo que marca el pie." },
+  ],
+  tarjetas: [
+    ["Pulso", "Latido regular de la música."],
+    ["Frase de 8 tiempos", "Unidad básica para coreografiar."],
+    ["Jota", "Danza tradicional con saltos y castañuelas."],
+  ],
+});
+
+ampliar(T("Alimentación y hábitos saludables"), {
+  minutos: 60,
+  objetivos: ["Interpretar el etiquetado nutricional de un alimento", "Calcular el gasto energético aproximado de una actividad"],
+  bloques: [
+    { tras: "El plato saludable", html: `<h3>Leer la etiqueta de un alimento</h3><p>La <mark>etiqueta nutricional</mark> indica la energía (kcal) y los nutrientes por <b>100 g</b> y, a veces, por ración. Fíjate en los <b>ingredientes</b>: aparecen ordenados de más a menos cantidad, así que si el azúcar va el primero, es el ingrediente principal. Revisa los azúcares, las grasas saturadas y la sal. Los <b>alérgenos</b> (gluten, leche, frutos secos…) se destacan en negrita. El <b>Nutri-Score</b> resume la calidad del alimento con letras de la A (verde) a la E (rojo), pero solo compara productos parecidos entre sí.</p>`, video: { id: "DDnETndcY2A", titulo: "10 reglas para leer la etiqueta de un alimento", canal: "Doctablet", vistas: 295541, megusta: 0 } },
+    { tras: "Hidratación y deporte", html: `<h3>Energía que entra y energía que sale</h3>${tabla(["Actividad (30 min, persona de 60 kg)", "Gasto aproximado"], [["Ver la tele", "35 kcal"], ["Caminar a buen ritmo", "120 kcal"], ["Montar en bici suave", "180 kcal"], ["Jugar al fútbol o baloncesto", "240 kcal"], ["Correr a 10 km/h", "300 kcal"]])}<p>Un adolescente activo necesita unas <b>2.200-2.800 kcal</b> al día según la edad, el sexo y la actividad. Si se come más energía de la que se gasta, el sobrante se guarda como <mark>grasa</mark>; si se come menos, se pierde peso y puede faltar energía para crecer.</p>` },
+    { tras: "Descanso y postura", html: `<h3>Las cinco comidas y el desayuno</h3><p>Repartir la comida en <b>cuatro o cinco tomas</b> (desayuno, media mañana, comida, merienda y cena) mantiene estable la energía y evita llegar con mucha hambre. El <mark>desayuno</mark> debería incluir un lácteo, un cereal (mejor integral) y una fruta. Antes de hacer deporte conviene comer algo ligero rico en hidratos (1-2 horas antes), y después, reponer con agua, hidratos y proteínas. Las <b>bebidas energéticas</b> tienen mucha cafeína y azúcar y no son adecuadas para menores.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Un cereal tiene 30 g de azúcar por 100 g. ¿Cuánto azúcar tomas en un bol de 40 g?", pasos: ["30 g en 100 g → 0,3 g por gramo.", "40 · 0,3 = 12 g."], resultado: "12 g de azúcar, unos 3 terrones." },
+    { enunciado: "¿Cuánto tiempo hay que correr para gastar un bollo de 450 kcal?", pasos: ["Correr 30 min ≈ 300 kcal.", "450 / 300 = 1,5.", "1,5 · 30 min = 45 min."], resultado: "Unos 45 minutos de carrera." },
+    { enunciado: "Diseña un desayuno saludable.", pasos: ["Lácteo: un vaso de leche o un yogur natural.", "Cereal: pan integral con aceite de oliva y tomate.", "Fruta: una naranja o un plátano."], resultado: "Lácteo + cereal integral + fruta, sin bollería." },
+  ],
+  errores: [
+    "Saltarse el desayuno y llegar sin energía a clase.",
+    "Creer que un producto «light» o «natural» es siempre sano.",
+    "Tomar bebidas energéticas para rendir en el deporte o los estudios.",
+    "Beber solo cuando ya hay mucha sed.",
+    "Hacer dietas sin control médico para adelgazar rápido.",
+  ],
+  ejercicios: [
+    { q: "Cita los seis tipos de nutrientes.", sol: "Hidratos de carbono, proteínas, grasas, vitaminas, minerales y agua." },
+    { q: "Describe el plato saludable.", sol: "Medio plato de verduras y frutas, un cuarto de cereales integrales y un cuarto de proteína; agua para beber." },
+    { q: "¿En qué orden aparecen los ingredientes?", sol: "De mayor a menor cantidad." },
+    { q: "¿Qué es el Nutri-Score?", sol: "Un sistema de letras de la A a la E que resume la calidad nutricional de un producto." },
+    { q: "Un yogur tiene 12 g de azúcar por 100 g. ¿Cuánto hay en uno de 125 g?", sol: "12 · 1,25 = 15 g." },
+    { q: "¿Cuánta agua hay que beber al día?", sol: "Unos 1,5-2 litros, más si se hace deporte o hace calor." },
+    { q: "¿Qué pasa si comes más energía de la que gastas?", sol: "El exceso se acumula como grasa." },
+    { q: "¿Por qué no son adecuadas las bebidas energéticas para menores?", sol: "Por su alto contenido en cafeína y azúcar." },
+    { q: "¿Qué son los alimentos ultraprocesados?", sol: "Productos industriales con muchos aditivos, azúcares, sal o grasas, como bollería y snacks." },
+    { q: "Cita tres consejos para una buena postura al estudiar.", sol: "Espalda apoyada, pies en el suelo y pantalla a la altura de los ojos." },
+  ],
+  quiz: [
+    { q: "Los ingredientes se ordenan…", o: ["de más a menos cantidad", "alfabéticamente", "al azar"], a: 0, e: "El primero es el principal." },
+    { q: "Correr 30 min gasta unas…", o: ["300 kcal", "30 kcal", "3.000 kcal"], a: 0, e: "Para 60 kg." },
+    { q: "La A del Nutri-Score es…", o: ["la mejor", "la peor", "un alérgeno"], a: 0, e: "Verde." },
+    { q: "Un desayuno completo incluye…", o: ["lácteo, cereal y fruta", "solo un zumo", "bollería"], a: 0, e: "Energía para la mañana." },
+    { q: "Las bebidas energéticas tienen mucha…", o: ["cafeína y azúcar", "proteína", "fibra"], a: 0, e: "No aptas para menores." },
+  ],
+  tarjetas: [
+    ["Etiqueta nutricional", "Energía y nutrientes por 100 g."],
+    ["Nutri-Score", "Calidad del producto de la A a la E."],
+    ["Balance energético", "Energía que entra frente a la que se gasta."],
+  ],
+});

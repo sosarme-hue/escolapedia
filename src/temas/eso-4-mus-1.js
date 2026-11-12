@@ -271,3 +271,191 @@ module.exports = [
     revisado: "2026-11-12",
   },
 ];
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+const T = (t) => module.exports.find((x) => x.titulo === t);
+
+ampliar(T("La música en los medios de comunicación"), {
+  minutos: 60,
+  objetivos: ["Comparar los soportes de grabación a lo largo de la historia", "Explicar cómo influyen los algoritmos en lo que escuchamos"],
+  bloques: [
+    { tras: "De la grabación al bolsillo", html: `<h3>Los soportes del sonido</h3>${tabla(["Soporte", "Época", "Tipo", "Rasgo"], [["Fonógrafo (cilindro)", "1877", "analógico", "Edison graba por primera vez la voz"], ["Disco de vinilo", "1948-hoy", "analógico", "LP de 33 rpm y single de 45 rpm"], ["Casete", "1963-años 90", "analógico (cinta)", "portátil: el walkman (1979)"], ["CD", "1982", "digital", "74-80 minutos sin desgaste"], ["MP3", "años 90", "digital comprimido", "archivos pequeños, reproductores portátiles"], ["Streaming", "2008-hoy", "digital en la nube", "se escucha sin descargar"]])}<p>Curiosamente, el <mark>vinilo</mark> vuelve a venderse más cada año como objeto de colección.</p>` },
+    { tras: "Streaming, redes y algoritmos", html: `<h3>Cómo funcionan las recomendaciones</h3><p>Las plataformas de streaming usan <mark>algoritmos</mark> que analizan lo que escuchas, lo que saltas, lo que guardas y lo que escuchan personas con gustos parecidos. Con eso crean listas personalizadas. Ventaja: descubrir música que te puede gustar. Riesgo: la <b>burbuja de filtro</b>, escuchar siempre lo mismo. Además, las canciones se adaptan al formato: introducciones más cortas y estribillos antes, para que no las saltemos en los primeros 30 segundos, que es lo que la plataforma cuenta como una reproducción.</p>`, video: { id: "GCKFO6IjPEI", titulo: "Cómo funciona el algoritmo de Spotify", canal: "Mi Disquera", vistas: 16854, megusta: 0 } },
+    { tras: "Derechos de autor", html: `<h3>Cuánto cobra un artista</h3><p>En el streaming, el dinero de las suscripciones y la publicidad se reparte según las reproducciones. Cada reproducción paga a los titulares (discográfica, autores y artistas) una cantidad muy pequeña, del orden de <b>0,003 €</b>. Por eso muchos músicos ganan más con los <mark>conciertos</mark>, el merchandising o la sincronización (que su música suene en series o anuncios) que con las escuchas. Comprar discos o entradas es una forma directa de apoyar a los artistas.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Una canción tiene 1.000.000 de reproducciones a 0,003 € cada una. ¿Cuánto genera?", pasos: ["1.000.000 · 0,003 = 3.000 €.", "Ese dinero se reparte entre discográfica, autores y artistas."], resultado: "Unos 3.000 € en total, no solo para el artista." },
+    { enunciado: "Clasifica: vinilo, CD, casete, MP3.", pasos: ["Analógicos: vinilo y casete (graban la onda de forma continua).", "Digitales: CD y MP3 (guardan números)."], resultado: "Dos analógicos y dos digitales; el MP3 además está comprimido." },
+    { enunciado: "Analiza un videoclip de una canción actual.", pasos: ["¿Cuenta una historia o muestra al artista actuando?", "¿Cómo se relaciona el montaje con el ritmo?", "¿Qué imagen quiere transmitir del artista?"], resultado: "Narrativo, performativo o conceptual, siempre al servicio de la promoción." },
+  ],
+  errores: [
+    "Pensar que todo lo que está en internet se puede usar libremente.",
+    "Creer que el algoritmo es neutral y solo muestra «lo mejor».",
+    "Confundir analógico con antiguo y digital con mejor.",
+    "Escuchar con auriculares a todo volumen durante horas.",
+    "Pensar que los artistas se hacen ricos solo con el streaming.",
+  ],
+  ejercicios: [
+    { q: "¿Quién inventó el fonógrafo y cuándo?", sol: "Thomas Edison, en 1877." },
+    { q: "Diferencia sonido analógico y digital.", sol: "Analógico: se graba la onda de forma continua. Digital: se convierte en números." },
+    { q: "¿Qué es el MP3?", sol: "Un formato digital comprimido que reduce el tamaño del archivo eliminando información poco audible." },
+    { q: "¿Qué funciones tiene la música en la radio?", sol: "Sintonías, cuñas publicitarias, fondos, cortinillas y programas musicales." },
+    { q: "¿Qué es un videoclip?", sol: "Un vídeo corto que acompaña a una canción para promocionarla." },
+    { q: "¿Qué es un algoritmo de recomendación?", sol: "Un programa que analiza tus escuchas para proponerte música parecida." },
+    { q: "¿Qué es la burbuja de filtro?", sol: "Escuchar siempre lo mismo porque el algoritmo solo te propone lo parecido." },
+    { q: "¿Qué son los derechos de autor?", sol: "Los derechos de quien crea una obra a decidir su uso y cobrar por él." },
+    { q: "¿Qué es una licencia Creative Commons?", sol: "Una licencia que permite usar una obra con ciertas condiciones, como citar al autor." },
+    { q: "Cita tres fuentes de ingresos de un músico.", sol: "Conciertos, merchandising y sincronización (además del streaming)." },
+  ],
+  quiz: [
+    { q: "El primer aparato que grabó sonido fue…", o: ["el fonógrafo", "el CD", "la radio"], a: 0, e: "Edison, 1877." },
+    { q: "El CD es un soporte…", o: ["digital", "analógico", "de cinta"], a: 0, e: "1982." },
+    { q: "Una reproducción en streaming paga…", o: ["fracciones de céntimo", "1 euro", "10 euros"], a: 0, e: "Unos 0,003 €." },
+    { q: "La burbuja de filtro consiste en…", o: ["escuchar siempre lo parecido", "un efecto de sonido", "un micrófono"], a: 0, e: "Por el algoritmo." },
+    { q: "El walkman hizo portátil…", o: ["el casete", "el vinilo", "el streaming"], a: 0, e: "1979." },
+  ],
+  tarjetas: [
+    ["Vinilo", "Disco analógico: LP de 33 rpm y single de 45."],
+    ["Algoritmo", "Programa que recomienda música según tus escuchas."],
+    ["Sincronización", "Uso de una canción en cine, series o anuncios."],
+  ],
+});
+
+ampliar(T("La música en el cine y la publicidad"), {
+  minutos: 60,
+  objetivos: ["Reconocer leitmotivs en bandas sonoras famosas", "Conocer la evolución de la música de cine desde el cine mudo"],
+  bloques: [
+    { tras: "Las funciones de la música en el cine", html: `<h3>Del cine mudo al cine sonoro</h3><p>El cine nació <b>mudo</b> (1895), pero nunca fue silencioso: en las salas un <mark>pianista</mark> o una pequeña orquesta tocaba en directo, improvisando o con partituras de repertorio. En 1927, <i>El cantor de jazz</i> fue la primera película con diálogos y canciones sincronizados. Desde los años 30, los estudios de Hollywood contrataron compositores con formación clásica (Max Steiner, Erich Korngold) que crearon la <b>banda sonora sinfónica</b>, con grandes orquestas al estilo de Wagner.</p>` },
+    { tras: "El leitmotiv y los grandes compositores", html: `<h3>Compositores y bandas sonoras</h3>${tabla(["Compositor", "País", "Bandas sonoras"], [["John Williams", "EE. UU.", "Star Wars, Tiburón, Harry Potter"], ["Ennio Morricone", "Italia", "El bueno, el feo y el malo; Cinema Paradiso"], ["Hans Zimmer", "Alemania", "El rey león, Interstellar, Dune"], ["Alberto Iglesias", "España", "Hable con ella, Dolor y gloria"], ["Fernando Velázquez", "España", "El orfanato, Lo imposible"]])}`, video: { id: "jXnLXLQ47ZY", titulo: "Leitmotifs: cuando la banda sonora revela la trama de la película", canal: "Jaime Altozano", vistas: 678405, megusta: 0 } },
+    { tras: "Música y publicidad", html: `<h3>Los recursos musicales de la publicidad</h3><p>La publicidad usa varios tipos de música: el <mark>jingle</mark>, una melodía corta y pegadiza creada para la marca, a menudo con su nombre; la <b>sintonía</b> o logo sonoro, unas pocas notas que identifican la marca (como el sonido al encender un ordenador); y las <b>canciones conocidas</b>, que asocian el producto a las emociones que ya despierta la canción. La música elegida define el público: rock para lo rebelde, música clásica para el lujo, pop alegre para los jóvenes.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "En una escena de suspense la música se hace aguda y repetitiva. ¿Qué función cumple?", pasos: ["Crea tensión y anticipa un peligro.", "Dirige las emociones del espectador.", "Es extradiegética: los personajes no la oyen."], resultado: "Función expresiva: genera tensión." },
+    { enunciado: "Un personaje enciende la radio y suena una canción. ¿Es diegética?", pasos: ["La fuente está dentro de la escena (la radio).", "Los personajes la oyen."], resultado: "Sí, es música diegética." },
+    { enunciado: "Analiza el tema de Tiburón.", pasos: ["Son dos notas graves alternadas (mi-fa).", "Se aceleran cuando el tiburón se acerca.", "Aparece cada vez que el tiburón está presente."], resultado: "Es un leitmotiv que anuncia al tiburón aunque no se vea." },
+  ],
+  errores: [
+    "Pensar que el cine mudo no tenía música.",
+    "Confundir la música diegética con la extradiegética.",
+    "Creer que un jingle es cualquier canción de un anuncio.",
+    "No darse cuenta de cómo la música manipula las emociones.",
+    "Pensar que la banda sonora es solo «música de fondo».",
+  ],
+  ejercicios: [
+    { q: "Cita tres funciones de la música en el cine.", sol: "Crear ambiente, expresar emociones y dar continuidad (también situar en época y lugar)." },
+    { q: "Diferencia música diegética y extradiegética.", sol: "Diegética: suena dentro de la historia y los personajes la oyen. Extradiegética: solo la oye el espectador." },
+    { q: "¿Qué es un leitmotiv?", sol: "Un tema musical asociado a un personaje, lugar o idea que se repite." },
+    { q: "¿Qué música había en el cine mudo?", sol: "Un pianista o una orquesta que tocaba en directo en la sala." },
+    { q: "¿Cuál fue la primera película con diálogos sincronizados?", sol: "El cantor de jazz (1927)." },
+    { q: "Cita dos bandas sonoras de John Williams.", sol: "Star Wars y Harry Potter (también Tiburón)." },
+    { q: "Cita un compositor de cine español.", sol: "Alberto Iglesias (o Roque Baños, Lucas Vidal)." },
+    { q: "¿Qué es un jingle?", sol: "Una melodía corta y pegadiza creada para una marca." },
+    { q: "¿Qué es un logo sonoro?", sol: "Unas pocas notas que identifican una marca." },
+    { q: "¿Por qué la publicidad usa canciones conocidas?", sol: "Para asociar el producto a las emociones que ya despierta esa canción." },
+  ],
+  quiz: [
+    { q: "El tema de Tiburón es un…", o: ["leitmotiv", "jingle", "videoclip"], a: 0, e: "Anuncia al tiburón." },
+    { q: "El cine mudo tenía…", o: ["música en directo", "silencio total", "diálogos"], a: 0, e: "Pianista u orquesta." },
+    { q: "Hans Zimmer compuso…", o: ["El rey león", "Star Wars", "Cinema Paradiso"], a: 0, e: "También Interstellar." },
+    { q: "Un jingle es…", o: ["una melodía para una marca", "un instrumento", "un plano de cine"], a: 0, e: "Corto y pegadizo." },
+    { q: "El cantor de jazz (1927) fue…", o: ["la primera película sonora con diálogos", "un videoclip", "una zarzuela"], a: 0, e: "Fin del cine mudo." },
+  ],
+  tarjetas: [
+    ["Cine mudo", "Con música en directo en la sala."],
+    ["Jingle", "Melodía pegadiza creada para una marca."],
+    ["Logo sonoro", "Pocas notas que identifican una marca."],
+  ],
+});
+
+ampliar(T("Música popular urbana"), {
+  minutos: 60,
+  objetivos: ["Situar en una línea temporal los principales estilos de la música popular", "Relacionar estilos musicales con movimientos sociales"],
+  bloques: [
+    { tras: "Del punk a la electrónica", html: `<h3>Línea del tiempo de la música popular</h3>${tabla(["Década", "Estilos", "Nombres clave"], [["1920-40", "blues, jazz, swing", "Bessie Smith, Louis Armstrong"], ["1950", "rock and roll", "Elvis Presley, Chuck Berry"], ["1960", "pop, rock, soul", "The Beatles, Rolling Stones, Aretha Franklin"], ["1970", "hard rock, punk, disco, reggae", "Led Zeppelin, Sex Pistols, Bob Marley"], ["1980", "pop, heavy, hip hop", "Michael Jackson, Madonna, Run-DMC"], ["1990", "grunge, electrónica, rap", "Nirvana, Daft Punk, Tupac"], ["2000-hoy", "reguetón, trap, K-pop", "Daddy Yankee, Bad Bunny, BTS"]])}` },
+    { tras: "Hip hop, rap", html: `<h3>Los cuatro elementos del hip hop</h3><p>El hip hop nació en el <b>Bronx</b> (Nueva York) a principios de los años 70, en fiestas de barrio. Tiene cuatro elementos: el <mark>DJ</mark>, que mezcla discos y alarga los fragmentos instrumentales (breaks); el <b>MC</b> o rapero, que recita rimas sobre la base; el <b>breakdance</b> o breaking, el baile; y el <b>grafiti</b>, el arte visual. El rap se basa en el <b>flow</b> (cómo encaja la voz con el ritmo) y las <b>rimas</b>. En España destacan grupos como Violadores del Verso y, más recientemente, artistas de trap y música urbana.</p>`, video: { id: "pLduhIE0Ldc", titulo: "El Chombo presenta: la historia de la música rap", canal: "El Chombo", vistas: 2497931, megusta: 0 } },
+    { tras: "Música y sociedad", html: `<h3>Música y protesta</h3><p>La música popular ha acompañado muchos cambios sociales. En los años 60, la <b>canción protesta</b> de Bob Dylan o Joan Baez apoyó el movimiento por los derechos civiles y contra la guerra de Vietnam. El <b>soul</b> fue la voz del orgullo afroamericano. El <b>punk</b> expresó el rechazo de los jóvenes al paro y al sistema. En España, la <mark>canción de autor</mark> (Raimon, Paco Ibáñez) se opuso a la dictadura, y la <b>Movida madrileña</b> de los 80 simbolizó la libertad de la Transición.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Escuchas una canción con estructura de 12 compases, escala con «blue notes» y letra sobre penas. ¿Qué estilo es?", pasos: ["12 compases: forma típica del blues.", "Blue notes: notas «tristes» características.", "Letra melancólica."], resultado: "Es un blues." },
+    { enunciado: "Relaciona estilo y contexto: punk británico de 1977.", pasos: ["Crisis económica y paro juvenil en Reino Unido.", "Canciones cortas, rápidas y con pocos acordes.", "Actitud de rechazo y estética de «hazlo tú mismo»."], resultado: "El punk expresa la rabia de una juventud sin futuro." },
+    { enunciado: "Escribe cuatro versos de rap con rima consonante.", pasos: ["Elegir un tema: el instituto.", "Rima en -ar: «Me levanto pronto para estudiar / con la mochila llena voy a llegar».", "Rima en -ción: «Abro el cuaderno, empieza la lección / y escribo mis rimas con mucha atención»."], resultado: "Pareados con rima consonante y un ritmo regular." },
+  ],
+  errores: [
+    "Pensar que el rock nació de la nada, sin el blues.",
+    "Confundir rap (la forma de cantar) con hip hop (la cultura completa).",
+    "Juzgar un estilo solo por sus prejuicios sin escucharlo.",
+    "Creer que la música urbana actual no tiene raíces.",
+    "Olvidar el papel de la música afroamericana en casi toda la música popular.",
+  ],
+  ejercicios: [
+    { q: "¿Dónde nacieron el blues y el jazz?", sol: "En el sur de Estados Unidos, entre la población afroamericana." },
+    { q: "¿Qué es la forma de 12 compases?", sol: "La estructura típica del blues, con tres frases de cuatro compases." },
+    { q: "¿Quién fue el «rey del rock and roll»?", sol: "Elvis Presley." },
+    { q: "Cita dos grupos de los años 60.", sol: "The Beatles y The Rolling Stones." },
+    { q: "¿Qué rasgos tiene el punk?", sol: "Canciones cortas, rápidas, pocos acordes y actitud rebelde." },
+    { q: "¿Dónde y cuándo nació el hip hop?", sol: "En el Bronx, Nueva York, a principios de los años 70." },
+    { q: "Cita los cuatro elementos del hip hop.", sol: "DJ, MC, breaking y grafiti." },
+    { q: "¿Qué es el flow?", sol: "La forma en que la voz del rapero encaja con el ritmo." },
+    { q: "¿Qué fue la Movida madrileña?", sol: "Un movimiento cultural de los años 80 en Madrid ligado a la libertad tras la dictadura." },
+    { q: "Cita dos estilos actuales de música urbana en español.", sol: "El reguetón y el trap." },
+  ],
+  quiz: [
+    { q: "El hip hop nació en…", o: ["el Bronx", "Londres", "Madrid"], a: 0, e: "Años 70." },
+    { q: "Bob Dylan es un referente de la…", o: ["canción protesta", "zarzuela", "música disco"], a: 0, e: "Años 60." },
+    { q: "Nirvana es un grupo de…", o: ["grunge", "reguetón", "jazz"], a: 0, e: "Años 90." },
+    { q: "El MC en el hip hop es…", o: ["el rapero", "el bailarín", "el grafitero"], a: 0, e: "Maestro de ceremonias." },
+    { q: "La Movida madrileña fue en los…", o: ["años 80", "años 50", "años 2000"], a: 0, e: "Transición." },
+  ],
+  tarjetas: [
+    ["Blues", "Estilo afroamericano de 12 compases y blue notes."],
+    ["Hip hop", "Cultura del Bronx: DJ, MC, breaking y grafiti."],
+    ["Canción protesta", "Música comprometida con causas sociales."],
+  ],
+});
+
+ampliar(T("La música española"), {
+  minutos: 60,
+  objetivos: ["Reconocer los palos principales del flamenco", "Conocer compositores españoles de distintas épocas"],
+  bloques: [
+    { tras: "De la Edad Media al Barroco", html: `<h3>Compositores españoles por épocas</h3>${tabla(["Época", "Compositor", "Obra o rasgo"], [["Edad Media", "Alfonso X el Sabio", "Cantigas de Santa María"], ["Renacimiento", "Tomás Luis de Victoria", "polifonía religiosa"], ["Renacimiento", "Juan del Encina", "villancicos del Cancionero de Palacio"], ["Barroco", "Gaspar Sanz", "música para guitarra barroca"], ["Clasicismo", "Antonio Soler", "sonatas para clave"], ["Siglo XX", "Joaquín Rodrigo", "Concierto de Aranjuez (1939)"]])}` },
+    { tras: "El flamenco", html: `<h3>Los palos del flamenco</h3><p>Los estilos del flamenco se llaman <mark>palos</mark>. Cada uno tiene su compás, su tono y su carácter. La <b>soleá</b> y la <b>seguiriya</b> son solemnes y profundas (cante jondo); las <b>alegrías</b> y las <b>bulerías</b>, festivas; los <b>fandangos</b> y las <b>malagueñas</b> derivan del folclore andaluz; y los <b>tangos</b> tienen un compás binario. Muchos palos usan un compás de <b>12 tiempos</b> con acentos en el 3, 6, 8, 10 y 12. El flamenco es Patrimonio Cultural Inmaterial de la Humanidad (UNESCO, 2010).</p>`, video: { id: "a4ojjoMF-B4", titulo: "Rosalía - Caminos del Flamenco", canal: "La 2", vistas: 367158, megusta: 0 } },
+    { tras: "Tradición y música actual", html: `<h3>Los instrumentos de la tradición</h3><p>Cada región conserva instrumentos propios: la <b>gaita</b> en Galicia y Asturias; la <b>dulzaina</b> y el tamboril en Castilla y Valencia; la <b>txalaparta</b> y el <b>txistu</b> en el País Vasco; la <b>tenora</b> de la cobla catalana; el <b>timple</b> en Canarias; y la <b>guitarra española</b>, presente en todo el país y reina del flamenco. Muchos artistas actuales mezclan estos sonidos con el pop o la electrónica, como <mark>Rosalía</mark>, C. Tangana o Tanxugueiras.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Marca el compás de 12 tiempos de la soleá con palmas.", pasos: ["Contar del 1 al 12.", "Acentuar 3, 6, 8, 10 y 12.", "«1 2 TRES 4 5 SEIS 7 OCHO 9 DIEZ 11 DOCE»."], resultado: "El compás de amalgama característico del flamenco." },
+    { enunciado: "Clasifica la zarzuela La verbena de la Paloma.", pasos: ["Alterna partes cantadas y habladas.", "Ambiente popular madrileño.", "Es de 1894, una obra corta en un acto."], resultado: "Es una zarzuela del género chico." },
+    { enunciado: "Identifica el nacionalismo en El amor brujo de Falla.", pasos: ["Usa ritmos y escalas del flamenco andaluz.", "Lo integra en una orquesta clásica.", "Busca una música con identidad española."], resultado: "Nacionalismo musical: folclore dentro de la música culta." },
+  ],
+  errores: [
+    "Pensar que el flamenco es solo baile.",
+    "Confundir la zarzuela con la ópera: la zarzuela tiene partes habladas.",
+    "Creer que la música española empieza en el siglo XX.",
+    "Pensar que todas las regiones tienen la misma música tradicional.",
+    "Llamar «flamenco» a cualquier canción con guitarra española.",
+  ],
+  ejercicios: [
+    { q: "¿Qué son las Cantigas de Santa María?", sol: "Canciones medievales a la Virgen recopiladas por Alfonso X el Sabio." },
+    { q: "Cita un compositor del Renacimiento español.", sol: "Tomás Luis de Victoria (o Juan del Encina)." },
+    { q: "¿Qué es la zarzuela?", sol: "Un género teatral español que alterna partes cantadas y habladas." },
+    { q: "Diferencia género grande y género chico.", sol: "Género grande: obras largas en varios actos. Género chico: obras cortas de un acto." },
+    { q: "Cita dos compositores del nacionalismo español.", sol: "Isaac Albéniz y Manuel de Falla (también Granados)." },
+    { q: "¿Qué es un palo flamenco?", sol: "Cada uno de los estilos del flamenco, con su compás y carácter." },
+    { q: "Cita tres elementos del flamenco.", sol: "Cante, toque y baile (y el jaleo y las palmas)." },
+    { q: "¿Cuándo fue declarado el flamenco Patrimonio de la Humanidad?", sol: "En 2010, por la UNESCO." },
+    { q: "¿Quién compuso el Concierto de Aranjuez?", sol: "Joaquín Rodrigo." },
+    { q: "Relaciona instrumento y región: txalaparta, timple, gaita.", sol: "Txalaparta: País Vasco. Timple: Canarias. Gaita: Galicia y Asturias." },
+  ],
+  quiz: [
+    { q: "El Concierto de Aranjuez es de…", o: ["Joaquín Rodrigo", "Manuel de Falla", "Alfonso X"], a: 0, e: "1939." },
+    { q: "Los estilos del flamenco se llaman…", o: ["palos", "cantigas", "jotas"], a: 0, e: "Soleá, bulerías…" },
+    { q: "El timple es típico de…", o: ["Canarias", "Galicia", "Cataluña"], a: 0, e: "Pequeña guitarra." },
+    { q: "La soleá tiene un compás de…", o: ["12 tiempos", "3 tiempos", "2 tiempos"], a: 0, e: "Acentos en 3, 6, 8, 10 y 12." },
+    { q: "La zarzuela se diferencia de la ópera por…", o: ["tener partes habladas", "no tener orquesta", "ser en inglés"], a: 0, e: "Alterna habla y canto." },
+  ],
+  tarjetas: [
+    ["Palo", "Estilo del flamenco con su compás y carácter."],
+    ["Joaquín Rodrigo", "Compositor del Concierto de Aranjuez."],
+    ["Txalaparta", "Instrumento de percusión vasco de tablas."],
+  ],
+});

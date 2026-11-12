@@ -272,3 +272,191 @@ module.exports = [
     revisado: "2026-11-12",
   },
 ];
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+const T = (t) => module.exports.find((x) => x.titulo === t);
+
+ampliar(T("La música en el mundo"), {
+  minutos: 60,
+  objetivos: ["Relacionar instrumentos y estilos con su continente de origen", "Explicar la escala pentatónica y la polirritmia"],
+  bloques: [
+    { tras: "Clasificar los instrumentos del mundo", html: `<h3>Instrumentos del mundo</h3>${tabla(["Instrumento", "Origen", "Familia (Hornbostel-Sachs)"], [["Djembé", "África occidental", "membranófono"], ["Kora", "África occidental", "cordófono (arpa-laúd)"], ["Sitar", "India", "cordófono"], ["Gamelán", "Indonesia", "idiófonos (metalófonos y gongs)"], ["Shamisen", "Japón", "cordófono"], ["Quena", "Andes", "aerófono"], ["Didgeridoo", "Australia", "aerófono"], ["Órgano", "Europa", "aerófono de teclado"]])}`, video: { id: "jbCDgoZ8_p8", titulo: "Entro en el instrumento más grande del mundo", canal: "Jaime Altozano", vistas: 1443202, megusta: 0 } },
+    { tras: "Asia", html: `<h3>La escala pentatónica</h3><p>Mucha música tradicional de <b>China</b>, <b>Japón</b>, África, los pueblos andinos o el blues usa la <mark>escala pentatónica</mark>, de solo cinco notas (por ejemplo, do, re, mi, sol, la). Al no tener semitonos, todas sus notas suenan bien juntas, y por eso es muy fácil improvisar con ella: si tocas solo las teclas negras de un piano, estás tocando una pentatónica. En cambio, la música clásica de la <b>India</b> usa los <b>ragas</b>, escalas con reglas propias asociadas a momentos del día y estados de ánimo.</p>` },
+    { tras: "África", html: `<h3>La polirritmia africana</h3><p>Una de las grandes aportaciones de África es la <mark>polirritmia</mark>: varios ritmos distintos que suenan a la vez y encajan entre sí. Por ejemplo, un tambor toca en grupos de 3 mientras otro toca en grupos de 2. También es típica la estructura de <b>llamada y respuesta</b>: un solista canta una frase y el grupo responde. Estas formas viajaron a América con la esclavitud y están en la base del blues, el jazz, la salsa, la samba y el rap.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Clasifica el didgeridoo según Hornbostel-Sachs.", pasos: ["El sonido lo produce el aire que vibra en un tubo.", "Lo hace vibrar el soplo del intérprete."], resultado: "Es un aerófono." },
+    { enunciado: "Toca una polirritmia de 3 contra 2 con palmas.", pasos: ["Contar 6 pulsos: 1 2 3 4 5 6.", "Grupo A da palmas en 1, 3 y 5 (tres golpes).", "Grupo B da palmas en 1 y 4 (dos golpes).", "Repetir a la vez."], resultado: "Suena el 3 contra 2, base de mucha música africana y latina." },
+    { enunciado: "Improvisa una melodía pentatónica.", pasos: ["Usar solo do, re, mi, sol y la.", "Empezar y acabar en do.", "Combinar notas largas y cortas."], resultado: "Una melodía de sonido «oriental» o folk sin notas que choquen." },
+  ],
+  errores: [
+    "Llamar «música étnica» solo a la música no europea.",
+    "Pensar que toda la música africana es igual.",
+    "Clasificar los instrumentos por su forma en lugar de por lo que vibra.",
+    "Creer que la música de otras culturas «desafina» porque usa otras escalas.",
+    "Olvidar el origen africano de muchos estilos actuales.",
+  ],
+  ejercicios: [
+    { q: "Cita las cuatro familias de instrumentos de Hornbostel-Sachs.", sol: "Idiófonos, membranófonos, cordófonos y aerófonos (y electrófonos)." },
+    { q: "¿Qué es la kora?", sol: "Un instrumento de cuerda de África occidental, mezcla de arpa y laúd." },
+    { q: "¿Qué es el gamelán?", sol: "Una orquesta indonesia formada sobre todo por metalófonos y gongs." },
+    { q: "¿Qué es una escala pentatónica?", sol: "Una escala de cinco notas, sin semitonos." },
+    { q: "¿Qué son los ragas?", sol: "Las escalas de la música clásica de la India, con reglas y estados de ánimo propios." },
+    { q: "¿Qué es la polirritmia?", sol: "La superposición de varios ritmos diferentes a la vez." },
+    { q: "¿Qué es la llamada y respuesta?", sol: "Un solista canta una frase y el grupo le responde." },
+    { q: "Cita un instrumento andino y su familia.", sol: "La quena, un aerófono." },
+    { q: "¿Qué estilos americanos tienen raíces africanas?", sol: "Blues, jazz, samba, salsa y rap, entre otros." },
+    { q: "¿Qué es la world music o fusión?", sol: "La mezcla de músicas tradicionales de distintas culturas con estilos actuales." },
+  ],
+  quiz: [
+    { q: "El sitar es de…", o: ["la India", "Japón", "Perú"], a: 0, e: "Cordófono." },
+    { q: "La escala pentatónica tiene…", o: ["5 notas", "7 notas", "12 notas"], a: 0, e: "Sin semitonos." },
+    { q: "El didgeridoo es un…", o: ["aerófono", "membranófono", "idiófono"], a: 0, e: "Australia." },
+    { q: "Las teclas negras del piano forman una escala…", o: ["pentatónica", "cromática", "mayor"], a: 0, e: "Cinco notas." },
+    { q: "La polirritmia es típica de…", o: ["África", "el canto gregoriano", "la ópera"], a: 0, e: "Varios ritmos a la vez." },
+  ],
+  tarjetas: [
+    ["Pentatónica", "Escala de cinco notas sin semitonos."],
+    ["Polirritmia", "Varios ritmos distintos a la vez."],
+    ["Raga", "Escala de la música clásica india."],
+  ],
+});
+
+ampliar(T("Tecnología musical"), {
+  minutos: 60,
+  objetivos: ["Explicar la frecuencia de muestreo y la profundidad de bits", "Distinguir los tipos de micrófonos y sus usos"],
+  bloques: [
+    { tras: "Del sonido al archivo digital", html: `<h3>Muestreo y calidad de audio</h3><p>Para digitalizar el sonido, el ordenador mide la onda muchas veces por segundo: es la <mark>frecuencia de muestreo</mark>. El CD usa <b>44.100 muestras por segundo</b> (44,1 kHz), suficiente para captar los sonidos que oímos (hasta 20 kHz). Cada muestra se guarda con una <b>profundidad de bits</b>: el CD usa 16 bits (65.536 niveles posibles). Un minuto de audio de CD estéreo ocupa unos <b>10 MB</b>; en MP3 a 128 kbps, menos de 1 MB, porque se eliminan datos poco audibles.</p>` },
+    { tras: "El estudio de grabación", html: `<h3>Tipos de micrófonos</h3>${tabla(["Tipo", "Cómo es", "Uso típico"], [["Dinámico", "resistente, no necesita alimentación", "voces en directo, batería, amplificadores"], ["De condensador", "muy sensible, necesita alimentación phantom (48 V)", "voces e instrumentos acústicos en estudio"], ["De cinta", "suave y cálido, delicado", "voces y metales en estudio"]])}<p>Según hacia dónde captan, pueden ser <b>cardioides</b> (captan por delante, los más usados), <b>omnidireccionales</b> (en todas las direcciones) o <mark>bidireccionales</mark> (por delante y por detrás).</p>` },
+    { tras: "MIDI e instrumentos virtuales", html: `<h3>Qué es MIDI y qué no es</h3><p>Un archivo <mark>MIDI</mark> no contiene sonido, sino <b>instrucciones</b>: qué nota se toca, con qué fuerza (velocity, de 0 a 127), cuándo empieza y cuándo acaba. Esas instrucciones se envían a un instrumento virtual, que produce el sonido. Por eso la misma melodía MIDI puede sonar como un piano, unas cuerdas o un sintetizador, y se puede corregir una nota sin volver a grabar. Un archivo MIDI ocupa solo unos <b>kilobytes</b>.</p>`, video: { id: "-nkYPhurjUI", titulo: "Qué es MIDI y cómo funciona", canal: "El Capitán estudio", vistas: 105341, megusta: 0 } },
+  ],
+  ejemplos: [
+    { enunciado: "¿Cuántas muestras tiene 1 minuto de audio mono a 44,1 kHz?", pasos: ["44.100 muestras por segundo.", "60 s · 44.100 = 2.646.000."], resultado: "Más de 2,6 millones de muestras." },
+    { enunciado: "Elige micrófono para grabar una voz en casa y otro para un concierto.", pasos: ["Estudio: condensador, por su sensibilidad y detalle.", "Directo: dinámico, resistente y menos sensible al ruido de fondo."], resultado: "Condensador para el estudio; dinámico para el directo." },
+    { enunciado: "Graba una melodía MIDI y cambia el instrumento.", pasos: ["Grabar las notas con un teclado MIDI en el DAW.", "Corregir en el piano roll una nota equivocada.", "Cambiar el instrumento virtual de piano a violín."], resultado: "Misma melodía, otro timbre, sin volver a grabar." },
+  ],
+  errores: [
+    "Pensar que un archivo MIDI contiene sonido grabado.",
+    "Usar un micrófono de condensador sin alimentación phantom.",
+    "Subir el volumen de todo en la mezcla en vez de equilibrar.",
+    "Creer que más bits y más kHz siempre se notan al oír.",
+    "Escuchar a mucho volumen durante horas en el estudio.",
+  ],
+  ejercicios: [
+    { q: "¿Qué es la frecuencia de muestreo?", sol: "Las veces por segundo que se mide la onda al digitalizar." },
+    { q: "¿Qué frecuencia de muestreo usa el CD?", sol: "44,1 kHz (44.100 muestras por segundo)." },
+    { q: "¿Qué es la profundidad de bits?", sol: "La precisión con que se guarda cada muestra; el CD usa 16 bits." },
+    { q: "¿Qué es un DAW?", sol: "Una estación de trabajo de audio digital: el programa para grabar, editar y mezclar." },
+    { q: "Diferencia micrófono dinámico y de condensador.", sol: "Dinámico: resistente, para directo. Condensador: sensible, para estudio, y necesita phantom." },
+    { q: "¿Qué es un micrófono cardioide?", sol: "Uno que capta sobre todo el sonido que le llega por delante." },
+    { q: "¿Qué información guarda un mensaje MIDI?", sol: "La nota, la fuerza (velocity), el inicio y el final." },
+    { q: "¿Qué es el piano roll?", sol: "La ventana del DAW donde se ven y editan las notas MIDI como barras." },
+    { q: "Cita tres efectos de sonido.", sol: "Reverberación, eco (delay) y ecualización (también compresión)." },
+    { q: "¿Qué es la regla 60/60 para cuidar el oído?", sol: "No pasar del 60 % del volumen ni de 60 minutos seguidos con auriculares." },
+  ],
+  quiz: [
+    { q: "El CD usa una frecuencia de muestreo de…", o: ["44,1 kHz", "1 kHz", "1 MHz"], a: 0, e: "44.100 muestras por segundo." },
+    { q: "Un archivo MIDI contiene…", o: ["instrucciones", "sonido grabado", "vídeo"], a: 0, e: "Notas, fuerza, tiempos." },
+    { q: "Para el directo se suele usar un micrófono…", o: ["dinámico", "de cinta", "de juguete"], a: 0, e: "Resistente." },
+    { q: "La alimentación phantom la necesitan los micrófonos…", o: ["de condensador", "dinámicos", "todos"], a: 0, e: "48 V." },
+    { q: "La velocity MIDI va de…", o: ["0 a 127", "0 a 10", "1 a 1.000"], a: 0, e: "La fuerza de la nota." },
+  ],
+  tarjetas: [
+    ["Frecuencia de muestreo", "Mediciones por segundo de la onda (44,1 kHz en CD)."],
+    ["Micrófono de condensador", "Muy sensible; necesita phantom."],
+    ["Velocity", "Fuerza de una nota MIDI, de 0 a 127."],
+  ],
+});
+
+ampliar(T("Interpretación y creación"), {
+  minutos: 60,
+  objetivos: ["Construir acordes mayores y menores sobre la escala", "Leer y tocar a partir de un cifrado americano"],
+  bloques: [
+    { tras: "Los acordes y la armonía", html: `<h3>El cifrado americano</h3><p>En la música popular los acordes se escriben con <mark>letras</mark>: A = la, B = si, C = do, D = re, E = mi, F = fa, G = sol. Una letra sola indica acorde <b>mayor</b> (C = do mayor); con «m», <b>menor</b> (Am = la menor); con «7», acorde de séptima (G7). Un acorde mayor se construye con la nota base, la tercera mayor (4 semitonos) y la quinta (7 semitonos): do-mi-sol. En el menor, la tercera es menor (3 semitonos): la-do-mi. El mayor suena «alegre» y el menor, «triste».</p>`, video: { id: "UFAUnsFBawc", titulo: "Así se aprenden todos los acordes lo más rápido posible", canal: "Jorge Aguilera", vistas: 7614477, megusta: 0 } },
+    { tras: "Los acordes y la armonía", html: `<h3>Los acordes de la escala de do</h3>${tabla(["Grado", "I", "II", "III", "IV", "V", "VI", "VII"], [["Acorde", "C", "Dm", "Em", "F", "G", "Am", "B°"], ["Notas", "do-mi-sol", "re-fa-la", "mi-sol-si", "fa-la-do", "sol-si-re", "la-do-mi", "si-re-fa"]])}<p>Los grados <b>I, IV y V</b> son los más importantes (tónica, subdominante y dominante): con ellos se acompañan miles de canciones. La progresión <mark>I-V-VI-IV</mark> (C-G-Am-F) es la base de muchísimos éxitos del pop.</p>` },
+    { tras: "Componer melodía y letra", html: `<h3>Ensayar y actuar</h3><p>Una buena interpretación necesita un <b>ensayo</b> organizado: calentar la voz o el instrumento, practicar primero los fragmentos difíciles despacio, luego a tempo, y por último tocar la obra completa. En grupo hay que <mark>escuchar a los demás</mark>, seguir al director o a quien marca la entrada y respetar las dinámicas. El miedo escénico es normal: respirar hondo, prepararse bien y concentrarse en la música ayuda a controlarlo. Grabarse permite descubrir los fallos y mejorar.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Construye el acorde de sol mayor (G).", pasos: ["Nota base: sol.", "Tercera mayor (4 semitonos): si.", "Quinta (7 semitonos): re."], resultado: "G = sol-si-re." },
+    { enunciado: "Acompaña una canción con la progresión C-G-Am-F, 4 tiempos por acorde.", pasos: ["Compás 1: do mayor.", "Compás 2: sol mayor.", "Compás 3: la menor.", "Compás 4: fa mayor; repetir."], resultado: "La progresión I-V-VI-IV del pop." },
+    { enunciado: "Transporta la progresión C-F-G a la tonalidad de sol.", pasos: ["En do: I = C, IV = F, V = G.", "En sol: I = G, IV = C, V = D."], resultado: "G-C-D." },
+  ],
+  errores: [
+    "Confundir C (do mayor) con Cm (do menor).",
+    "Empezar a ensayar la obra entera a tempo desde el principio.",
+    "Tocar fuerte sin escuchar al resto del grupo.",
+    "Pensar que para componer hay que saber muchísima teoría.",
+    "No respetar los silencios de la partitura.",
+  ],
+  ejercicios: [
+    { q: "¿Qué nota es la letra E en cifrado americano?", sol: "Mi." },
+    { q: "¿Qué significa Am?", sol: "La menor." },
+    { q: "Escribe las notas del acorde de F.", sol: "Fa-la-do." },
+    { q: "¿Qué diferencia un acorde mayor de uno menor?", sol: "La tercera: mayor (4 semitonos) o menor (3 semitonos)." },
+    { q: "¿Qué grados son la tónica, la subdominante y la dominante?", sol: "I, IV y V." },
+    { q: "Escribe la progresión I-V-VI-IV en do mayor.", sol: "C-G-Am-F." },
+    { q: "Cita las partes de la estructura de una canción.", sol: "Introducción, estrofa, estribillo, puente y final (coda)." },
+    { q: "¿Cómo se organiza un buen ensayo?", sol: "Calentar, practicar despacio los pasajes difíciles, subir a tempo y tocar la obra completa." },
+    { q: "Da dos consejos contra el miedo escénico.", sol: "Respirar hondo y prepararse bien (y centrarse en la música)." },
+    { q: "¿Qué es improvisar?", sol: "Crear música en el momento, a partir de una base, una escala o un esquema." },
+  ],
+  quiz: [
+    { q: "En cifrado americano, G es…", o: ["sol", "la", "re"], a: 0, e: "A = la, B = si, C = do…" },
+    { q: "Am significa…", o: ["la menor", "la mayor", "la séptima"], a: 0, e: "La «m» es menor." },
+    { q: "El acorde de do mayor es…", o: ["do-mi-sol", "do-re-mi", "do-fa-la"], a: 0, e: "Fundamental, tercera y quinta." },
+    { q: "La dominante es el grado…", o: ["V", "I", "IV"], a: 0, e: "Sol en do mayor." },
+    { q: "Los pasajes difíciles se ensayan primero…", o: ["despacio", "a toda velocidad", "nunca"], a: 0, e: "Luego a tempo." },
+  ],
+  tarjetas: [
+    ["Cifrado americano", "Letras para los acordes: C = do, A = la…"],
+    ["I-IV-V", "Tónica, subdominante y dominante."],
+    ["I-V-VI-IV", "Progresión típica del pop (C-G-Am-F)."],
+  ],
+});
+
+ampliar(T("Profesiones de la música"), {
+  minutos: 60,
+  objetivos: ["Describir el trabajo del técnico de sonido y del productor", "Conocer los derechos y entidades de gestión de la música"],
+  bloques: [
+    { tras: "Detrás del escenario", html: `<h3>El técnico de sonido</h3><p>El <mark>técnico o ingeniero de sonido</mark> se encarga de que la música suene bien. En el <b>estudio</b>, coloca los micrófonos, graba, edita y mezcla. En el <b>directo</b> hay dos puestos: el técnico de <b>sala (FOH)</b>, que controla lo que oye el público desde la mesa de mezclas, y el de <b>monitores</b>, que controla lo que oyen los músicos en el escenario. Necesita conocer la acústica, la electrónica y los programas de audio, y tener un oído muy entrenado.</p>`, video: { id: "g8_rX5iPaMk", titulo: "¿Qué es y qué hace un ingeniero en sonido?", canal: "En el Home Studio", vistas: 63538, megusta: 0 } },
+    { tras: "Qué estudiar", html: `<h3>Caminos formativos</h3>${tabla(["Estudios", "Duración", "Salidas"], [["Enseñanzas elementales y profesionales de Música (conservatorio)", "4 + 6 años", "base para estudios superiores"], ["Grado en Enseñanzas Artísticas Superiores de Música", "4 años", "intérprete, compositor, director, pedagogo"], ["Grado universitario en Musicología", "4 años", "investigación, crítica, gestión cultural"], ["Grado en Educación (mención Música)", "4 años", "maestro de música en Primaria"], ["FP de Sonido para Audiovisuales y Espectáculos", "2 años", "técnico de sonido en estudios y directos"]])}` },
+    { tras: "La música como sector", html: `<h3>Los derechos de la música</h3><p>Una canción genera dos tipos de derechos. Los <b>derechos de autor</b> son de quien compone la música y escribe la letra; en España los gestiona sobre todo la <mark>SGAE</mark>. Los <b>derechos conexos</b> son de los intérpretes (gestionados por AIE) y de los productores de la grabación (AGEDI). Cada vez que una canción suena en la radio, en un bar, en un concierto o en streaming, estas entidades cobran y reparten el dinero entre sus socios.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "¿Qué estudiarías para ser técnico de sonido en conciertos?", pasos: ["FP de grado superior en Sonido para Audiovisuales y Espectáculos.", "Prácticas en salas y estudios.", "Formación continua en mesas digitales y software."], resultado: "Un ciclo de FP de 2 años más experiencia práctica." },
+    { enunciado: "Una canción suena en la radio. ¿Quién cobra?", pasos: ["El autor de la música y la letra: derechos de autor (SGAE).", "El cantante y los músicos: derechos conexos de intérpretes (AIE).", "La discográfica que produjo la grabación (AGEDI)."], resultado: "Cobran autores, intérpretes y productores." },
+    { enunciado: "Organiza el equipo de un concierto pequeño.", pasos: ["Músicos y mánager.", "Técnico de sala y técnico de monitores.", "Técnico de luces, roadies y producción del evento."], resultado: "Decenas de profesionales detrás de unos pocos músicos." },
+  ],
+  errores: [
+    "Pensar que en la música solo trabajan los cantantes famosos.",
+    "Confundir al autor de una canción con su intérprete.",
+    "Creer que estudiar música solo lleva a ser profesor.",
+    "Pensar que el técnico de sonido «solo sube y baja volúmenes».",
+    "Olvidar que la música es un sector económico que genera empleo.",
+  ],
+  ejercicios: [
+    { q: "Cita tres profesiones del escenario.", sol: "Instrumentista, cantante y director de orquesta." },
+    { q: "Cita tres profesiones detrás del escenario.", sol: "Técnico de sonido, productor musical y mánager (también roadie o luthier)." },
+    { q: "Diferencia técnico de sala y técnico de monitores.", sol: "Sala: controla lo que oye el público. Monitores: lo que oyen los músicos." },
+    { q: "¿Qué hace un productor musical?", sol: "Dirige la grabación: decide arreglos, sonido y cómo se graba cada parte." },
+    { q: "¿Qué es un luthier?", sol: "Quien construye y repara instrumentos de cuerda." },
+    { q: "¿Qué estudios hay en el conservatorio?", sol: "Elementales (4 años), profesionales (6 años) y superiores (4 años)." },
+    { q: "¿Qué ciclo de FP forma técnicos de sonido?", sol: "Sonido para Audiovisuales y Espectáculos." },
+    { q: "Diferencia derechos de autor y derechos conexos.", sol: "Autor: de quien compone. Conexos: de intérpretes y productores." },
+    { q: "¿Qué es la SGAE?", sol: "La entidad que gestiona en España los derechos de autor de la música." },
+    { q: "¿Por qué la música es un sector económico?", sol: "Porque genera empleo e ingresos con conciertos, grabaciones, derechos, festivales e instrumentos." },
+  ],
+  quiz: [
+    { q: "El técnico FOH controla el sonido…", o: ["del público", "de los músicos", "del camerino"], a: 0, e: "Front of house." },
+    { q: "La SGAE gestiona…", o: ["derechos de autor", "conciertos de rock", "conservatorios"], a: 0, e: "En España." },
+    { q: "Un luthier…", o: ["construye instrumentos", "canta ópera", "dirige orquestas"], a: 0, e: "Sobre todo de cuerda." },
+    { q: "El conservatorio superior dura…", o: ["4 años", "1 año", "10 años"], a: 0, e: "Como un grado." },
+    { q: "Los derechos de los intérpretes son…", o: ["conexos", "de autor", "inexistentes"], a: 0, e: "Gestionados por AIE." },
+  ],
+  tarjetas: [
+    ["Técnico de sonido", "Graba, mezcla y controla el sonido en estudio o directo."],
+    ["SGAE", "Entidad de gestión de derechos de autor."],
+    ["Derechos conexos", "De intérpretes y productores de grabaciones."],
+  ],
+});

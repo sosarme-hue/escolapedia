@@ -288,3 +288,191 @@ module.exports = [
     revisado: "2026-11-12",
   },
 ];
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+const T = (t) => module.exports.find((x) => x.titulo === t);
+
+ampliar(T("Condición física y salud"), {
+  minutos: 60,
+  objetivos: ["Diseñar un calentamiento general completo", "Aplicar e interpretar pruebas de condición física"],
+  bloques: [
+    { tras: "Las capacidades físicas básicas", html: `<h3>El calentamiento</h3><p>El <mark>calentamiento</mark> prepara el cuerpo para el esfuerzo: sube la temperatura de los músculos, acelera el corazón y la respiración, y mejora la coordinación, lo que reduce el riesgo de lesión. Un calentamiento general dura unos <b>10-15 minutos</b> y sigue un orden: 1) <b>activación</b> con carrera suave; 2) <b>movilidad articular</b> de arriba abajo (cuello, hombros, cadera, rodillas, tobillos); 3) <b>estiramientos dinámicos</b> (zancadas, balanceos); 4) <b>ejercicios específicos</b> y progresivos del deporte que se va a practicar (pases, cambios de ritmo).</p>`, video: { id: "MPzfQMxrjdQ", titulo: "Calentamiento para hacer ejercicio en 5 minutos", canal: "Viviendo Fit", vistas: 11877104, megusta: 0 } },
+    { tras: "Cómo se mide la condición física", html: `<h3>Pruebas de condición física</h3>${tabla(["Capacidad", "Prueba", "Cómo se hace"], [["Resistencia aeróbica", "Course Navette", "carreras de ida y vuelta de 20 m a un ritmo que se acelera con pitidos"], ["Fuerza del tren inferior", "salto horizontal", "saltar con los pies juntos lo más lejos posible"], ["Fuerza del tren superior", "lanzamiento de balón medicinal", "lanzar con las dos manos desde detrás de la cabeza"], ["Velocidad", "carrera de 4 × 10 m o 30 m", "recorrer la distancia en el menor tiempo"], ["Flexibilidad", "flexión de tronco sentado (sit and reach)", "llegar lo más lejos posible con las manos"]])}<p>Lo importante no es compararse con los demás, sino con <mark>uno mismo</mark>: repetir las pruebas al principio y al final del curso muestra tu progreso.</p>` },
+    { tras: "Actividad física y salud", html: `<h3>El índice de masa corporal y sus límites</h3><p>El <b>IMC</b> relaciona el peso y la altura: IMC = peso (kg) / altura² (m). En adultos, entre 18,5 y 25 se considera normopeso. En adolescentes se usan <mark>tablas por edad y sexo</mark> (percentiles), porque el cuerpo está creciendo. El IMC es solo una orientación: no distingue entre músculo y grasa, así que un deportista musculoso puede tener un IMC alto y estar sano. Más importante que el número son los hábitos: moverse cada día, comer bien y dormir lo suficiente.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Calcula la frecuencia cardiaca máxima y la zona aeróbica (60-80 %) de una alumna de 15 años.", pasos: ["FC máx ≈ 220 − 15 = 205 ppm.", "60 %: 205 · 0,6 = 123 ppm.", "80 %: 205 · 0,8 = 164 ppm."], resultado: "Zona aeróbica: entre 123 y 164 pulsaciones por minuto." },
+    { enunciado: "Calcula el IMC de un adulto de 70 kg y 1,75 m.", pasos: ["Altura al cuadrado: 1,75² = 3,0625.", "IMC = 70 / 3,0625 ≈ 22,9."], resultado: "IMC ≈ 22,9: normopeso (en un adulto)." },
+    { enunciado: "Diseña un calentamiento de 12 minutos antes de un partido de fútbol.", pasos: ["3 min de carrera suave.", "3 min de movilidad articular de arriba abajo.", "3 min de estiramientos dinámicos y skipping.", "3 min con balón: pases y sprints cortos."], resultado: "Calentamiento progresivo de general a específico." },
+  ],
+  errores: [
+    "Hacer estiramientos estáticos largos antes de un esfuerzo explosivo: mejor los dinámicos.",
+    "Saltarse el calentamiento por falta de tiempo.",
+    "Usar el IMC de adultos para adolescentes.",
+    "Compararse con los compañeros en vez de con uno mismo.",
+    "Pensar que solo sirve el ejercicio intenso: caminar a buen ritmo también cuenta.",
+  ],
+  ejercicios: [
+    { q: "Cita las cuatro capacidades físicas básicas.", sol: "Resistencia, fuerza, velocidad y flexibilidad." },
+    { q: "¿Cuánta actividad física recomienda la OMS a los adolescentes?", sol: "Al menos 60 minutos al día de actividad moderada o vigorosa." },
+    { q: "Explica las cuatro partes de un calentamiento general.", sol: "Activación, movilidad articular, estiramientos dinámicos y ejercicios específicos." },
+    { q: "Calcula tu FC máxima teórica si tienes 16 años.", sol: "220 − 16 = 204 ppm." },
+    { q: "¿Qué capacidad mide la Course Navette?", sol: "La resistencia aeróbica." },
+    { q: "¿Qué prueba usarías para medir la flexibilidad?", sol: "La flexión de tronco sentado (sit and reach)." },
+    { q: "Calcula el IMC de un adulto de 60 kg y 1,60 m.", sol: "60 / 2,56 ≈ 23,4." },
+    { q: "¿Por qué el IMC no sirve igual para un deportista musculoso?", sol: "Porque no distingue músculo de grasa y el músculo pesa mucho." },
+    { q: "Cita tres beneficios de la actividad física para la salud mental.", sol: "Reduce el estrés y la ansiedad, mejora el ánimo y ayuda a dormir mejor." },
+    { q: "¿Qué es el sedentarismo y cómo combatirlo?", sol: "Pasar mucho tiempo sentado sin moverse; se combate con desplazamientos activos, pausas activas y deporte." },
+  ],
+  quiz: [
+    { q: "El calentamiento general dura unos…", o: ["10-15 minutos", "1 minuto", "1 hora"], a: 0, e: "Y va de lo general a lo específico." },
+    { q: "La Course Navette mide…", o: ["la resistencia", "la flexibilidad", "la fuerza"], a: 0, e: "Ida y vuelta de 20 m." },
+    { q: "IMC = …", o: ["peso / altura²", "altura / peso", "peso × altura"], a: 0, e: "En kg y metros." },
+    { q: "Antes de un sprint conviene estirar de forma…", o: ["dinámica", "estática muy larga", "no moverse"], a: 0, e: "Movimientos controlados." },
+    { q: "Para ver tu progreso, compárate con…", o: ["tus propios resultados", "el mejor de la clase", "los deportistas profesionales"], a: 0, e: "Al principio y al final del curso." },
+  ],
+  tarjetas: [
+    ["Calentamiento", "Preparación progresiva del cuerpo para el esfuerzo."],
+    ["Course Navette", "Prueba de resistencia aeróbica con pitidos."],
+    ["IMC", "Peso / altura²; en adolescentes se usan percentiles."],
+  ],
+});
+
+ampliar(T("Planificación del entrenamiento"), {
+  minutos: 60,
+  objetivos: ["Distinguir los métodos de entrenamiento continuos y fraccionados", "Elaborar un plan semanal con objetivos SMART"],
+  bloques: [
+    { tras: "Principios del entrenamiento", html: `<h3>Métodos de entrenamiento de la resistencia</h3>${tabla(["Método", "Cómo es", "Ejemplo"], [["Carrera continua", "esfuerzo largo sin pausas a ritmo constante", "30 min de carrera suave"], ["Fartlek", "carrera continua con cambios de ritmo libres", "30 min alternando trote y aceleraciones"], ["Interválico", "esfuerzos intensos con pausas de recuperación incompleta", "6 × 200 m rápidos con 1 min de descanso"], ["Circuito", "estaciones de ejercicios seguidas", "8 ejercicios de 30 s con 30 s de pausa"]])}<p>Los métodos <b>continuos</b> mejoran sobre todo la resistencia <b>aeróbica</b>; los <b>fraccionados</b> (interválico, series), también la <mark>anaeróbica</mark>.</p>`, video: { id: "GVn9mbv_4aA", titulo: "Diferencias entre series, intervalos y fartleks", canal: "Runnea.com", vistas: 88895, megusta: 0 } },
+    { tras: "Volumen e intensidad", html: `<h3>Entrenar la fuerza con seguridad</h3><p>A tu edad la fuerza se entrena sobre todo con <b>autocargas</b> (el propio peso: sentadillas, flexiones, planchas, zancadas), gomas elásticas y cargas ligeras bien controladas. Lo primero es la <mark>técnica</mark>: espalda neutra, movimientos controlados y respiración (soltar el aire en el esfuerzo). Se trabaja en <b>series</b> y <b>repeticiones</b>: por ejemplo, 3 series de 12 repeticiones con 1 minuto de descanso. Hay que trabajar el cuerpo de forma equilibrada (piernas, tronco y brazos) y reforzar el <b>core</b>, la musculatura del abdomen y la espalda que protege la columna.</p>` },
+    { tras: "Tu plan personal", html: `<h3>Objetivos SMART y el descanso</h3><p>Un buen objetivo es <mark>SMART</mark>: e<b>S</b>pecífico, <b>M</b>edible, <b>A</b>lcanzable, <b>R</b>elevante y con un <b>T</b>iempo. «Ponerme en forma» es vago; «correr 30 minutos seguidos antes de las vacaciones de Navidad» es SMART. El <b>descanso</b> forma parte del entrenamiento: durante la recuperación el cuerpo se adapta y se hace más fuerte (supercompensación). Sin descanso aparece el <b>sobreentrenamiento</b>: cansancio continuo, peor rendimiento, lesiones y mal humor. Dormir 8-10 horas es clave a tu edad.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Convierte en SMART el objetivo «mejorar mi resistencia».", pasos: ["Específico: correr de forma continua.", "Medible: 30 minutos.", "Alcanzable: ahora aguanta 15 minutos.", "Tiempo: en 8 semanas."], resultado: "«Correr 30 minutos seguidos dentro de 8 semanas, entrenando 3 días por semana»." },
+    { enunciado: "Diseña una semana para mejorar la resistencia y la fuerza.", pasos: ["Lunes: 25 min de carrera continua + estiramientos.", "Miércoles: circuito de fuerza con autocargas (3 vueltas).", "Viernes: fartlek de 25 min.", "Sábado: deporte o paseo en bici; resto de días, descanso activo."], resultado: "Tres o cuatro sesiones alternando cargas y descansos." },
+    { enunciado: "Calcula el volumen de una sesión de fuerza: 3 series de 12 sentadillas y 3 de 10 flexiones.", pasos: ["Sentadillas: 3 · 12 = 36.", "Flexiones: 3 · 10 = 30."], resultado: "66 repeticiones en total; se progresará aumentando poco a poco." },
+  ],
+  errores: [
+    "Aumentar la carga demasiado deprisa.",
+    "Entrenar siempre lo mismo y a la misma intensidad.",
+    "Priorizar el peso sobre la técnica en los ejercicios de fuerza.",
+    "Pensar que descansar es perder el tiempo.",
+    "Ponerse objetivos vagos o imposibles.",
+  ],
+  ejercicios: [
+    { q: "Cita cuatro principios del entrenamiento.", sol: "Sobrecarga, progresión, continuidad e individualidad (también alternancia)." },
+    { q: "Diferencia volumen e intensidad.", sol: "Volumen: cantidad de trabajo (tiempo, repeticiones). Intensidad: lo duro que es (velocidad, carga, pulsaciones)." },
+    { q: "¿Qué es el fartlek?", sol: "Una carrera continua con cambios de ritmo libres." },
+    { q: "¿Qué método mejora más la resistencia anaeróbica?", sol: "El interválico o las series." },
+    { q: "Escribe un circuito de 6 estaciones con autocargas.", sol: "Por ejemplo: sentadillas, flexiones, plancha, zancadas, abdominales, saltos a la comba." },
+    { q: "¿Qué es el core?", sol: "La musculatura del abdomen, la zona lumbar y la cadera, que estabiliza y protege la columna." },
+    { q: "Explica el acrónimo SMART.", sol: "Específico, Medible, Alcanzable, Relevante y con un Tiempo." },
+    { q: "¿Qué es la supercompensación?", sol: "La mejora que se produce durante el descanso tras un entrenamiento." },
+    { q: "Cita tres síntomas de sobreentrenamiento.", sol: "Cansancio continuo, peor rendimiento y lesiones (también irritabilidad o mal sueño)." },
+    { q: "¿Cuántas horas de sueño necesita un adolescente?", sol: "Entre 8 y 10 horas." },
+  ],
+  quiz: [
+    { q: "El fartlek es un método…", o: ["continuo con cambios de ritmo", "de flexibilidad", "de fuerza máxima"], a: 0, e: "Juego de velocidades." },
+    { q: "Las autocargas usan…", o: ["el peso del propio cuerpo", "máquinas pesadas", "nada"], a: 0, e: "Sentadillas, flexiones…" },
+    { q: "La «M» de SMART significa…", o: ["medible", "máximo", "mañana"], a: 0, e: "Se puede comprobar." },
+    { q: "Sin descanso suficiente aparece…", o: ["el sobreentrenamiento", "la supercompensación", "la velocidad"], a: 0, e: "Rinde peor y se lesiona." },
+    { q: "En los ejercicios de fuerza, lo primero es…", o: ["la técnica", "el peso", "la velocidad"], a: 0, e: "Para evitar lesiones." },
+  ],
+  tarjetas: [
+    ["Fartlek", "Carrera continua con cambios de ritmo."],
+    ["Objetivo SMART", "Específico, medible, alcanzable, relevante y con tiempo."],
+    ["Sobreentrenamiento", "Fatiga por entrenar sin descansar lo suficiente."],
+  ],
+});
+
+ampliar(T("Primeros auxilios"), {
+  minutos: 60,
+  objetivos: ["Actuar ante heridas, hemorragias, quemaduras y golpes de calor", "Conocer el botiquín y cómo llamar al 112"],
+  bloques: [
+    { tras: "La conducta PAS", html: `<h3>Cómo llamar al 112</h3><p>El <mark>112</mark> es el teléfono único de emergencias en toda la Unión Europea, gratuito y disponible aunque el móvil no tenga saldo. Al llamar, mantén la calma y explica: <b>dónde</b> estás (dirección, punto de referencia), <b>qué</b> ha pasado, <b>cuántas</b> personas están afectadas y en qué <b>estado</b> (¿responden?, ¿respiran?, ¿sangran?). Responde a lo que te pregunten y <b>no cuelgues</b> hasta que te lo indiquen: el operador puede guiarte en la reanimación. Si es posible, que otra persona llame mientras tú atiendes a la víctima.</p>` },
+    { tras: "Atragantamiento y lesiones", html: `<h3>Heridas, hemorragias y quemaduras</h3>${tabla(["Situación", "Qué hacer", "Qué NO hacer"], [["Herida leve", "lavarse las manos, limpiar con agua y jabón, desinfectar y tapar", "usar algodón o alcohol directamente en la herida"], ["Hemorragia", "presionar fuerte con una gasa o tela limpia y elevar la zona", "quitar la gasa empapada: se añade otra encima"], ["Hemorragia nasal", "inclinar la cabeza hacia delante y presionar la nariz 10 min", "echar la cabeza hacia atrás"], ["Quemadura", "enfriar con agua a temperatura ambiente 10-20 min y cubrir", "poner hielo, pasta de dientes o reventar ampollas"]])}`, video: { id: "vBvMbXjCA14", titulo: "Enfermeras explican cómo realizar la maniobra de Heimlich", canal: "CODEM Madrid", vistas: 1458404, megusta: 0 } },
+    { tras: "Atragantamiento y lesiones", html: `<h3>Golpe de calor y el botiquín</h3><p>El <mark>golpe de calor</mark> aparece al hacer esfuerzo con mucho calor: piel muy caliente, mareo, dolor de cabeza, confusión. Hay que llevar a la persona a la sombra, aflojar la ropa, refrescarla con agua y, si está consciente, darle de beber poco a poco; si empeora, llamar al 112. Un <b>botiquín</b> básico contiene guantes desechables, gasas estériles, vendas, esparadrapo, tiritas, suero fisiológico, antiséptico (clorhexidina o povidona yodada), tijeras de punta redonda, manta térmica y un listado de teléfonos de emergencia. Los medicamentos solo deben darse con indicación médica.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Un compañero se corta en la mano y sangra mucho. ¿Qué haces?", pasos: ["Protegerte: guantes si los hay.", "Presionar la herida con una gasa o tela limpia.", "Elevar la mano por encima del corazón.", "Si la gasa se empapa, poner otra encima sin quitar la primera.", "Avisar a un adulto y, si no para, llamar al 112."], resultado: "Presión directa y elevación hasta que llegue ayuda." },
+    { enunciado: "Simula la llamada al 112 por un desmayo en el patio.", pasos: ["«Estoy en el IES …, calle …, en el patio.»", "«Un chico de 15 años se ha desmayado jugando.»", "«No responde, pero respira.»", "«Lo hemos puesto en posición lateral de seguridad.» No colgar."], resultado: "Dónde, qué, cuántos y cómo están, y seguir las instrucciones." },
+    { enunciado: "Una niña se quema la mano con agua hirviendo. ¿Qué haces?", pasos: ["Retirarla de la fuente de calor.", "Poner la zona bajo agua del grifo 10-20 minutos.", "Quitar anillos o pulseras antes de que se hinche.", "Cubrir con una gasa limpia y acudir al médico si es extensa o tiene ampollas."], resultado: "Enfriar con agua, nunca hielo ni remedios caseros." },
+  ],
+  errores: [
+    "Mover a un herido con posible lesión de columna sin necesidad.",
+    "Echar la cabeza hacia atrás cuando sangra la nariz.",
+    "Poner hielo o pasta de dientes en una quemadura.",
+    "Colgar la llamada al 112 antes de tiempo.",
+    "Dar medicamentos sin indicación médica.",
+  ],
+  ejercicios: [
+    { q: "¿Qué significa la conducta PAS?", sol: "Proteger, Avisar y Socorrer." },
+    { q: "¿Qué información das al llamar al 112?", sol: "Dónde estás, qué ha pasado, cuántas víctimas hay y en qué estado." },
+    { q: "¿Cuál es el ritmo de las compresiones en la RCP?", sol: "Entre 100 y 120 por minuto, hundiendo el pecho unos 5-6 cm." },
+    { q: "¿Qué es un DEA?", sol: "Un desfibrilador externo automático, que analiza el ritmo del corazón y da una descarga si hace falta." },
+    { q: "¿Cuándo se usa la posición lateral de seguridad?", sol: "Cuando la víctima no responde pero respira con normalidad." },
+    { q: "Explica la maniobra de Heimlich.", sol: "Desde detrás, con el puño entre el ombligo y el esternón, se hacen compresiones hacia dentro y hacia arriba para expulsar el objeto." },
+    { q: "¿Cómo se trata una hemorragia nasal?", sol: "Cabeza hacia delante y presionar la nariz durante unos 10 minutos." },
+    { q: "¿Cuánto tiempo hay que enfriar una quemadura?", sol: "Entre 10 y 20 minutos con agua a temperatura ambiente." },
+    { q: "Cita cinco elementos de un botiquín.", sol: "Guantes, gasas estériles, vendas, suero fisiológico y antiséptico." },
+    { q: "¿Qué harías ante un golpe de calor?", sol: "Llevar a la sombra, aflojar la ropa, refrescar, dar agua si está consciente y llamar al 112 si empeora." },
+  ],
+  quiz: [
+    { q: "El 112 funciona…", o: ["en toda la UE y sin saldo", "solo en Madrid", "solo con internet"], a: 0, e: "Gratuito." },
+    { q: "Si la gasa se empapa de sangre…", o: ["se pone otra encima", "se quita y se lava", "se deja de presionar"], a: 0, e: "Para no arrancar el coágulo." },
+    { q: "Para una quemadura se usa…", o: ["agua del grifo", "hielo", "aceite"], a: 0, e: "10-20 minutos." },
+    { q: "Ante una hemorragia nasal, la cabeza va…", o: ["hacia delante", "hacia atrás", "de lado"], a: 0, e: "Para no tragar sangre." },
+    { q: "Un antiséptico sirve para…", o: ["desinfectar heridas", "bajar la fiebre", "enfriar quemaduras"], a: 0, e: "Clorhexidina, por ejemplo." },
+  ],
+  tarjetas: [
+    ["112", "Teléfono europeo de emergencias."],
+    ["Hemorragia", "Presión directa y elevar la zona."],
+    ["Golpe de calor", "Sombra, refrescar e hidratar; 112 si empeora."],
+  ],
+});
+
+ampliar(T("Deportes colectivos"), {
+  minutos: 60,
+  objetivos: ["Aplicar sistemas de juego básicos en ataque y defensa", "Analizar el reglamento y el arbitraje de un deporte colectivo"],
+  bloques: [
+    { tras: "Principios de la defensa", html: `<h3>Sistemas de defensa</h3><p>En la <b>defensa individual</b> cada jugador marca a un rival concreto y lo sigue: exige buena condición física y facilita presionar. En la <b>defensa en zona</b> cada jugador cubre un espacio del campo y defiende a quien entra en él: ahorra energía y protege el área cercana a la portería o la canasta. La <mark>defensa mixta</mark> combina ambas, por ejemplo marcando individualmente al mejor rival y el resto en zona. En baloncesto se habla de defensa «2-3» o «3-2» según cómo se colocan los cinco jugadores.</p>`, video: { id: "nUyocLPwT-Q", titulo: "Tácticas en baloncesto: ofensivas y defensivas", canal: "DeportesUncomo", vistas: 430416, megusta: 0 } },
+    { tras: "Roles y comunicación", html: `<h3>Comparar deportes colectivos</h3>${tabla(["Deporte", "Jugadores en campo", "Puntuar", "Rasgo clave"], [["Fútbol", "11", "gol", "no se puede tocar con las manos (salvo el portero)"], ["Baloncesto", "5", "canasta de 1, 2 o 3 puntos", "no se puede correr con el balón sin botar"], ["Balonmano", "7", "gol", "máximo 3 pasos o 3 segundos con el balón"], ["Voleibol", "6", "punto en cada jugada", "máximo 3 toques por equipo; sin contacto con el rival"]])}<p>Se clasifican en deportes de <b>invasión</b> (fútbol, baloncesto, balonmano, rugby), donde se entra en el campo del rival, y de <mark>red</mark> (voleibol), con campos separados.</p>` },
+    { tras: "Juego limpio", html: `<h3>El arbitraje y el reglamento</h3><p>El <b>reglamento</b> garantiza la igualdad de oportunidades y la seguridad de los jugadores. El árbitro aplica las reglas y su decisión se respeta aunque no se comparta. Arbitrar un partido en clase ayuda a entender el juego: hay que conocer las reglas, colocarse bien para ver la jugada, señalar con gestos claros y mantener la <mark>imparcialidad</mark>. Hoy la tecnología (el VAR, el ojo de halcón) ayuda a los árbitros en las competiciones profesionales, pero en el deporte escolar la deportividad de los jugadores es la mejor ayuda.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Tu equipo de baloncesto es más bajo pero más rápido. ¿Qué defensa elegirías?", pasos: ["La defensa individual permite presionar y robar balones gracias a la velocidad.", "La zona protege mejor la canasta frente a jugadores altos.", "Opción: defensa individual presionante, con ayudas cerca de la canasta."], resultado: "Individual presionante, aprovechando la velocidad." },
+    { enunciado: "Analiza una jugada: el atacante pasa y corre al hueco libre para recibir otra vez.", pasos: ["Pasa el balón: conserva la posesión.", "Se desmarca hacia un espacio libre: ofrece una línea de pase.", "Recibe más cerca de la meta: avanza."], resultado: "Es un «pasa y va», que aplica los principios de conservar, avanzar y desmarcarse." },
+    { enunciado: "En voleibol, tu equipo toca el balón cuatro veces antes de pasarlo. ¿Qué pasa?", pasos: ["El máximo son tres toques por equipo.", "El cuarto es falta.", "El punto es para el rival."], resultado: "Punto y saque para el equipo contrario." },
+  ],
+  errores: [
+    "Ir todos detrás del balón y dejar espacios vacíos.",
+    "No comunicarse con los compañeros.",
+    "Discutir las decisiones del árbitro.",
+    "Pensar que solo cuenta quien marca: el pase y la defensa son igual de importantes.",
+    "Confundir la defensa en zona con quedarse quieto.",
+  ],
+  ejercicios: [
+    { q: "Cita los tres principios del ataque.", sol: "Conservar el balón, avanzar y marcar." },
+    { q: "Cita los tres principios de la defensa.", sol: "Recuperar el balón, impedir el avance y proteger la meta." },
+    { q: "¿Qué es el desmarque?", sol: "Moverse para librarse del defensor y ofrecer una línea de pase." },
+    { q: "Diferencia defensa individual y en zona.", sol: "Individual: cada uno marca a un rival. Zona: cada uno cubre un espacio." },
+    { q: "¿Cuántos jugadores hay en el campo en balonmano?", sol: "Siete por equipo." },
+    { q: "¿Cuántos toques puede dar un equipo de voleibol?", sol: "Tres." },
+    { q: "¿Qué diferencia hay entre deportes de invasión y de red?", sol: "En los de invasión se entra en el campo rival; en los de red los campos están separados." },
+    { q: "¿Qué debe hacer un buen árbitro?", sol: "Conocer las reglas, colocarse bien, señalar con claridad y ser imparcial." },
+    { q: "Pon un ejemplo de juego limpio.", sol: "Ayudar a levantarse a un rival caído o reconocer una falta propia." },
+    { q: "¿Para qué sirve el reglamento?", sol: "Para garantizar la igualdad de oportunidades y la seguridad." },
+  ],
+  quiz: [
+    { q: "En baloncesto juegan en el campo…", o: ["5 por equipo", "7", "11"], a: 0, e: "Cinco contra cinco." },
+    { q: "En balonmano se pueden dar como máximo…", o: ["3 pasos con el balón", "10 pasos", "1 paso"], a: 0, e: "O 3 segundos." },
+    { q: "El voleibol es un deporte de…", o: ["red", "invasión", "lucha"], a: 0, e: "Campos separados." },
+    { q: "En la defensa en zona cada jugador…", o: ["cubre un espacio", "sigue a un rival", "ataca"], a: 0, e: "Defiende a quien entra en su zona." },
+    { q: "La decisión del árbitro…", o: ["se respeta", "se discute siempre", "no cuenta"], a: 0, e: "Juego limpio." },
+  ],
+  tarjetas: [
+    ["Defensa individual", "Cada jugador marca a un rival."],
+    ["Defensa en zona", "Cada jugador cubre un espacio."],
+    ["Deporte de invasión", "Se entra en el campo del rival para marcar."],
+  ],
+});
