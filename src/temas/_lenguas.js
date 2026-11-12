@@ -3,7 +3,7 @@
 const { F, D } = require("./_util");
 
 // Ancho aproximado de un texto en píxeles.
-const ancho = (s, fs, bold) => String(s).replace(/<[^>]+>/g, "").length * fs * (bold ? 0.56 : 0.5);
+const ancho = (s, fs, bold) => [...String(s).replace(/<[^>]+>/g, "")].reduce((a, ch) => a + (/[A-ZÁÉÍÓÚÑÇÀÈÒÜ0-9]/.test(ch) ? 0.66 : /[ .,;:'’·il]/.test(ch) ? 0.32 : 0.5), 0) * fs * (bold ? 1.12 : 1);
 function cabe(s, fs, max, bold, donde) {
   if (ancho(s, fs, bold) > max * 1.3) console.warn(`[lenguas] texto largo (${Math.round(ancho(s, fs, bold))}>${max}) en ${donde}: «${s}»`);
 }
@@ -52,12 +52,12 @@ function frase(label, partes, nota) {
 // Línea del tiempo vertical: [fecha, texto, color].
 function linea(label, eventos) {
   const n = eventos.length, step = 152 / n;
-  let out = `<path d="M44 ${14 + step / 2} V ${14 + step * (n - 0.5)}" stroke="var(--line)" stroke-width="3"/>`;
+  let out = `<path d="M50 ${14 + step / 2} V ${14 + step * (n - 0.5)}" stroke="var(--line)" stroke-width="3"/>`;
   eventos.forEach(([f, t, c], i) => {
     const y = 14 + step * (i + 0.5);
-    cabe(f, 12, 30, true, label); cabe(t, 13, 180, false, label);
-    out += `<circle cx="44" cy="${y}" r="7" fill="${c}"/><text x="30" y="${y + 4}" text-anchor="end" font-size="12" font-weight="700" fill="${c}">${f}</text>
-        <text x="60" y="${y + 5}" font-size="${fz(t, 13, 188)}" fill="var(--ink)">${t}</text>`;
+    cabe(t, 13, 180, false, label);
+    out += `<circle cx="50" cy="${y}" r="7" fill="${c}"/><text x="38" y="${y + 4}" text-anchor="end" font-size="${fz(f, 12, 26, true)}" font-weight="700" fill="${c}">${f}</text>
+        <text x="64" y="${y + 5}" font-size="${fz(t, 13, 182)}" fill="var(--ink)">${t}</text>`;
   });
   return marco(label, out);
 }
