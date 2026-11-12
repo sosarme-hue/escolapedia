@@ -98,3 +98,69 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+{
+  const T = module.exports;
+  T.minutos = 60;
+  T.objetivos.push("Despejar el capital, el tipo o el tiempo en la fórmula del interés", "Pasar de un tipo nominal (TIN) a la TAE", "Entender una nómina y hacer un presupuesto personal");
+  const tabla = (cab, filas) => `<table class="tb"><thead><tr>${cab.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>${filas.map((f) => `<tr>${f.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  const nuevos = {
+    despejar: { html: `<h3>Despejar en la fórmula del interés simple</h3><p>En I = C · r · t hay cuatro datos. Si conocemos tres, despejamos el cuarto (con r en tanto por uno):</p><ul><li>Capital: <mark>C = I / (r · t)</mark>.</li><li>Tipo: <mark>r = I / (C · t)</mark>.</li><li>Tiempo: <mark>t = I / (C · r)</mark>.</li></ul><p>Si el tiempo viene en meses, se divide entre 12; si viene en días, entre 360 (año comercial) o 365.</p>` },
+    tabla: { html: `<h3>Simple frente a compuesto, año a año</h3><p>Con 1.000 € al 10 % (un tipo alto para que se vea bien la diferencia):</p>${tabla(["Año", "Simple", "Compuesto"], [["0", "1.000 €", "1.000 €"], ["1", "1.100 €", "1.100 €"], ["2", "1.200 €", "1.210 €"], ["5", "1.500 €", "1.610,51 €"], ["10", "2.000 €", "2.593,74 €"], ["20", "3.000 €", "6.727,50 €"]])}<p>El interés simple crece en línea recta; el compuesto, cada vez más deprisa: es un crecimiento <b>exponencial</b>.</p>` },
+    regla72: { html: `<h3>La regla del 72</h3><p>¿Cuánto tarda un capital en <b>duplicarse</b> con interés compuesto? Una aproximación muy útil: divide <mark>72 entre el tipo de interés</mark>. Al 6 %, unos 72 / 6 = 12 años (1,06¹² = 2,01). Al 3 %, unos 24 años. La misma regla sirve para la inflación: con precios que suben un 4 % al año, se duplican en unos 18 años.</p>` },
+    tin: { html: `<h3>Capitalización en periodos más cortos: TIN y TAE</h3><p>Muchos productos dan un <b>TIN</b> (tipo de interés nominal) anual, pero pagan los intereses cada mes. Entonces se usa el tipo mensual TIN / 12 y el número de meses: C_final = C · (1 + TIN/12)ⁿ. La <b>TAE</b> es lo que de verdad se gana en un año: <mark>TAE = (1 + TIN/12)¹² − 1</mark>. Con un TIN del 6 % mensual, TAE = 1,005¹² − 1 = 0,0617, es decir, un 6,17 %. En los préstamos, la TAE incluye además las comisiones, por eso sirve para comparar ofertas.</p>`, video: { id: "Dp-_Bx-33f8", titulo: "TAE o tasa anual equivalente", canal: "Ruben Sebastian", vistas: 213201, megusta: 0 } },
+    nomina: { html: `<h3>La nómina: sueldo bruto y neto</h3><p>El <b>sueldo bruto</b> es lo que la empresa paga por tu trabajo. De él se descuentan la <b>cotización a la Seguridad Social</b> (que paga las pensiones, el paro y la sanidad) y la <b>retención del IRPF</b> (un adelanto del impuesto sobre la renta, mayor cuanto más se gana). Lo que llega a tu cuenta es el <mark>sueldo neto</mark>. Por ejemplo, con un bruto de 1.500 € al mes, una cotización del 6,5 % (97,50 €) y una retención del 10 % (150 €), el neto sería 1.500 − 97,50 − 150 = 1.252,50 €. Los porcentajes reales cambian según el año y la situación de cada persona.</p>` },
+    presupuesto: { html: `<h3>Hacer un presupuesto personal</h3><p>Un <b>presupuesto</b> compara ingresos y gastos de un mes. Una guía sencilla es la regla <mark>50/30/20</mark>: el 50 % para necesidades (vivienda, comida, transporte), el 30 % para deseos (ocio, ropa, caprichos) y el 20 % para ahorro. Con 1.250 € netos: 625 € de necesidades, 375 € de deseos y 250 € de ahorro. Apuntar los gastos durante un mes ayuda a descubrir en qué se va el dinero.</p>` },
+  };
+  const pos = (t) => T.bloques.findIndex((b) => b.html.includes(t));
+  T.bloques[pos("Interés compuesto")].video = { id: "lEGk3ILeLuQ", titulo: "¿Qué es el interés compuesto?", canal: "Matemáticas profe Alex", vistas: 874492, megusta: 0 };
+  T.bloques.push(nuevos.presupuesto);
+  T.bloques.splice(pos("Préstamos y compras a plazos") + 1, 0, nuevos.nomina);
+  T.bloques.splice(pos("La TAE: comparar ofertas") + 1, 0, nuevos.tin);
+  T.bloques.splice(pos("Interés compuesto") + 1, 0, nuevos.tabla, nuevos.regla72);
+  T.bloques.splice(pos("Interés simple") + 1, 0, nuevos.despejar);
+
+  T.ejemplos = [
+    { enunciado: "Lucía deja 5.000 € en un depósito al 3 % anual con interés compuesto durante 10 años. ¿Cuánto tendrá? ¿Y si fuera interés simple?",
+      pasos: ["Compuesto: C_final = 5.000 · 1,03¹⁰. Con la calculadora, 1,03¹⁰ ≈ 1,3439.", "5.000 · 1,3439 ≈ 6.719,58 €.", "Simple: I = 5.000 · 0,03 · 10 = 1.500 €, así que tendría 6.500 €."],
+      resultado: "6.719,58 € con interés compuesto, 219,58 € más que con interés simple (6.500 €)." },
+    { enunciado: "¿Durante cuánto tiempo hay que dejar 5.000 € al 2 % de interés simple para ganar 400 €?",
+      pasos: ["Despejamos t = I / (C · r).", "t = 400 / (5.000 · 0,02) = 400 / 100 = 4."],
+      resultado: "4 años." },
+    { enunciado: "Una tele cuesta 450 € al contado o 10 cuotas mensuales de 49 €. ¿Cuánto cuesta pagar a plazos?",
+      pasos: ["Total a plazos: 10 · 49 = 490 €.", "Sobrecoste: 490 − 450 = 40 €.", "En porcentaje: 40 / 450 · 100 ≈ 8,9 % más, en menos de un año."],
+      resultado: "40 € más, casi un 9 % sobre el precio al contado." },
+  ];
+  T.errores = [
+    "Usar el tipo en porcentaje en la fórmula: el 4 % se escribe 0,04, no 4.",
+    "Aplicar la fórmula del interés simple cuando los intereses se acumulan (compuesto), o al revés.",
+    "Olvidar pasar los meses a años: 6 meses son 0,5 años.",
+    "Comparar préstamos por la cuota mensual en lugar de por la TAE y el total pagado.",
+    "Pensar que el dinero guardado en casa «no pierde»: con inflación, cada año compra menos.",
+  ];
+  T.ejercicios = [
+    { q: "Calcula el interés que producen 3.000 € al 2,5 % de interés simple durante 4 años, y el capital final.", sol: "I = 3.000 · 0,025 · 4 = 300 €. Capital final: 3.300 €." },
+    { q: "¿En cuánto se convierten 2.000 € al 5 % de interés compuesto en 2 años?", sol: "2.000 · 1,05² = 2.000 · 1,1025 = 2.205 €." },
+    { q: "Compara el interés simple y el compuesto de 10.000 € al 3 % durante 5 años.", sol: "Simple: 10.000 · 0,03 · 5 = 1.500 €. Compuesto: 10.000 · 1,03⁵ − 10.000 ≈ 11.592,74 − 10.000 = 1.592,74 €. El compuesto da 92,74 € más." },
+    { q: "¿Qué capital hay que invertir al 4 % de interés simple para ganar 240 € en 3 años?", sol: "C = I / (r · t) = 240 / (0,04 · 3) = 240 / 0,12 = 2.000 €." },
+    { q: "¿A qué tipo de interés simple 1.500 € generan 90 € en 2 años?", sol: "r = I / (C · t) = 90 / (1.500 · 2) = 0,03, es decir, un 3 %." },
+    { q: "Un depósito ofrece un TIN del 6 % con pago mensual de intereses. ¿Cuál es su TAE?", sol: "TAE = (1 + 0,06/12)¹² − 1 = 1,005¹² − 1 ≈ 0,0617, un 6,17 %." },
+    { q: "Con la regla del 72, ¿en cuántos años se duplica un capital al 8 % compuesto? Compruébalo.", sol: "72 / 8 = 9 años. Comprobación: 1,08⁹ ≈ 1,999, prácticamente el doble." },
+    { q: "Una bici cuesta 25 € más un 4 % de inflación al año. ¿Cuánto costará dentro de 2 años?", sol: "25 · 1,04² = 25 · 1,0816 = 27,04 €." },
+    { q: "Una consola cuesta 300 € al contado o 12 cuotas de 28 €. ¿Cuánto se paga de más?", sol: "12 · 28 = 336 €; se pagan 36 € más, un 12 % del precio." },
+    { q: "Con un sueldo neto de 1.400 € y la regla 50/30/20, ¿cuánto se dedica a cada parte?", sol: "Necesidades: 700 €. Deseos: 420 €. Ahorro: 280 €." },
+  ];
+  T.quiz.push(
+    { q: "1.000 € al 10 % de interés compuesto durante 2 años se convierten en…", o: ["1.200 €", "1.210 €", "1.100 €"], a: 1, e: "1.000 · 1,1² = 1.210 €." },
+    { q: "Según la regla del 72, al 6 % un capital se duplica en unos…", o: ["12 años", "6 años", "72 años"], a: 0, e: "72 / 6 = 12." },
+    { q: "Para comparar dos préstamos lo mejor es mirar…", o: ["el TIN", "la TAE", "la cuota"], a: 1, e: "La TAE incluye la frecuencia de pago y las comisiones." },
+    { q: "Si la inflación es mayor que el interés de tu cuenta, tu poder de compra…", o: ["sube", "baja", "no cambia"], a: 1, e: "Los precios suben más deprisa que tu dinero." },
+    { q: "En el interés simple, los intereses de cada año…", o: ["son siempre iguales", "crecen cada año", "bajan cada año"], a: 0, e: "Se calculan siempre sobre el capital inicial." },
+  );
+  T.tarjetas.push(
+    ["Regla del 72", "72 / tipo de interés ≈ años que tarda un capital en duplicarse."],
+    ["TIN y TAE", "TIN: tipo nominal. TAE: lo que de verdad se gana o se paga en un año."],
+    ["Sueldo neto", "El bruto menos la Seguridad Social y la retención del IRPF."],
+  );
+}
