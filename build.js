@@ -26,6 +26,10 @@ const I18N = {
   ca: { inicio: "Inici", familias: "Famílies", profesores: "Professorat", buscar: "Cercar", buscarPh: "Cerca un tema: fotosíntesi, fraccions…" },
 };
 
+// Partes opcionales de un tema ampliado: ejemplos resueltos, errores típicos y ejercicios con solución.
+const ejemplosHTML = (T) => (T.ejemplos || []).length ? `<div class="ejemplos"><h3>Ejemplos resueltos</h3>${T.ejemplos.map((x, i) => `<div class="ej"><p><b>Ejemplo ${i + 1}.</b> ${x.enunciado}</p><ol>${x.pasos.map((p) => `<li>${p}</li>`).join("")}</ol><p class="res"><b>Resultado:</b> ${x.resultado}</p></div>`).join("")}</div>` : "";
+const erroresHTML = (T) => (T.errores || []).length ? `<div class="errores"><h3>Errores típicos</h3><ul>${T.errores.map((x) => `<li>${x}</li>`).join("")}</ul></div>` : "";
+const ejerciciosHTML = (T) => (T.ejercicios || []).length ? `<div class="ejercicios"><h3>Ejercicios</h3><p class="caption">Hazlos en tu cuaderno y después abre la solución.</p><ol>${T.ejercicios.map((x) => `<li><p>${x.q}</p><details><summary>Ver solución</summary><div>${x.sol}</div></details></li>`).join("")}</ol></div>` : "";
 function page({ title, desc, depth, body, lang = "es", nav = "", extraHead = "", scripts = "" }) {
   const r = depth ? "../".repeat(depth) : "./";
   const t = I18N[lang];
@@ -240,11 +244,13 @@ function fichaPage(e, c, m, T, n) {
   <section><h2>Para pensar</h2><p class="question">${T.pregunta.texto}</p><div class="lines"></div></section>
   <section><h2>Explicación</h2>${T.bloques.map((b) => `<div class="chunk">${`<div>${b.html}</div>`}${b.svg}</div>`).join("")}</section>
   <section><h2>${T.figura.titulo}</h2><div class="figure">${T.figura.svg}</div></section>
+  ${(T.ejercicios || []).length ? `<section class="brk"><h2>Ejercicios</h2><ol class="fq">${T.ejercicios.map((x) => `<li><p>${x.q}</p><div class="lines"></div></li>`).join("")}</ol></section>` : ""}
   <section class="brk"><h2>Practica</h2><ol class="fq">${T.quiz.map((q) => `<li><p>${q.q}</p><ol class="abc">${q.o.map((o, j) => `<li><span>${L[j]})</span> ${o}</li>`).join("")}</ol></li>`).join("")}</ol></section>
   <section><h2>Explícalo con tus palabras</h2><p class="caption">Incluye: ${T.feynman.join("; ")}.</p><div class="lines tall"></div></section>
   <section><h2>Resumen</h2><div class="map">${T.mapa}</div></section>
   <section><h2>Tarjetas de repaso</h2><p class="caption">Recórtalas: pregunta delante, respuesta detrás.</p><div class="cut">${T.tarjetas.map(([q, a]) => `<div><b>${q}</b><span>${a}</span></div>`).join("")}</div></section>
   <section class="sol"><h2>Soluciones</h2><ol>${T.quiz.map((q) => `<li><b>${L[q.a]})</b> ${q.e}</li>`).join("")}</ol></section>
+  ${(T.ejercicios || []).length ? `<section class="sol"><h2>Soluciones de los ejercicios</h2><ol>${T.ejercicios.map((x) => `<li>${x.sol}</li>`).join("")}</ol></section>` : ""}
   </div></main>`;
   return page({ title: `Ficha: ${T.titulo} · ${SITE}`, desc: `Ficha imprimible de ${T.titulo}, ${cursoNombre(e, c)}.`, depth: 5, body, scripts: `<script>document.getElementById("t-print").addEventListener("click",()=>window.print());</script>` });
 }
@@ -265,13 +271,15 @@ function topicPage(e, c, m, T, n) {
       <div class="reveal"><p style="margin:0">Escribe o di en voz alta tu respuesta. Después <button type="button" id="rv">mira la solución</button>.</p><p id="rv-text" hidden style="margin:10px 0 0">${T.pregunta.respuesta}</p></div>
     </section>
     <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>${T.bloques.length} bloques cortos</small></h2></div>
-      ${T.bloques.map((b) => `<div class="chunk"><div>${b.html}</div>${b.svg}</div>`).join("")}
+      ${T.bloques.map((b) => `<div class="chunk">${b.svg ? `<div>${b.html}</div>${b.svg}` : `<div class="solo">${b.html}</div>`}</div>${b.video ? videoHTML(b.video) : ""}`).join("")}
+      ${ejemplosHTML(T)}${erroresHTML(T)}
       <h3 style="font-size:21px;margin-top:10px">${T.figura.titulo}</h3>
       <div class="figure">${T.figura.svg}</div><p class="caption">Esquema dibujado para Escolapedia. En el móvil, desliza a los lados.</p>
       ${videoHTML(T.video)}
     </section>
     <section class="sec" id="p3"><div class="sec-h"><span class="n">3</span><h2>Practica<small>Responde sin mirar arriba. Equivocarse aquí también enseña.</small></h2></div>
       <div class="quiz" id="quiz"></div><p class="score" id="score" aria-live="polite"></p>
+      ${ejerciciosHTML(T)}
     </section>
     <section class="sec" id="p4"><div class="sec-h"><span class="n">4</span><h2>Explícalo con tus palabras<small>Como si se lo contaras a alguien de un curso menor</small></h2></div>
       <label for="feyn" class="caption">Escribe aquí tu explicación. Se guarda en este navegador.</label>
