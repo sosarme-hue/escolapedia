@@ -5,14 +5,22 @@
 const B = (f) => require(`./eso-4-matb-${f}`);
 const { mapa, F } = require("./_util");
 
+// Los bloques de B se eligen por el título de su <h3> (no por posición), para que ampliar B no los cambie.
+// De B no se heredan los ejemplos, errores ni ejercicios: Matemáticas A tiene los suyos.
+const deB = (base, t) => {
+  const b = base.bloques.find((x) => x.html.includes(`<h3>${t}</h3>`));
+  if (!b) throw new Error(`Matemáticas A: no encuentro el bloque «${t}» en ${base.titulo}`);
+  return b;
+};
 function adapta(base, cambios) {
   const { bloques, ...resto } = cambios;
+  const { ejemplos, errores, ejercicios, ...baseLimpia } = base;
   return {
-    ...base,
+    ...baseLimpia,
     materia: "Matemáticas A",
     revisado: "2026-11-12",
     ...resto,
-    bloques: bloques ? bloques.map((b) => (typeof b === "number" ? base.bloques[b] : b)) : base.bloques,
+    bloques: bloques ? bloques.map((b) => (typeof b === "string" ? deB(base, b) : b)) : base.bloques,
     profesores: { ...base.profesores, saberes: base.profesores.saberes.replace("Matemáticas B 4º", "Matemáticas A 4º"), ...(cambios.profesores || {}) },
   };
 }
@@ -22,7 +30,7 @@ module.exports = [
     titulo: "Números reales",
     minutos: 30,
     objetivos: ["Clasificar números en naturales, enteros, racionales e irracionales", "Representar números en la recta y escribir intervalos sencillos", "Redondear y valorar el error en situaciones cotidianas"],
-    bloques: [0, 1, 2, 4],
+    bloques: ["Los conjuntos de números", "La recta real", "Intervalos", "Aproximar y medir el error"],
     video: { id: "G-yn4gjjn60", titulo: "Clasificación de los números (naturales, enteros, racionales…)", canal: "Estudia Con Marisol", vistas: 484383, megusta: 16464, busqueda: "clasificación de los números reales" },
     quiz: [
       { q: "¿A qué conjunto pertenece −7?", o: ["Naturales", "Enteros", "Irracionales"], a: 1, e: "Es un número negativo sin decimales: entero." },
@@ -42,16 +50,14 @@ module.exports = [
     titulo: "Polinomios",
     minutos: 35,
     objetivos: ["Reconocer los elementos de un polinomio y calcular su valor numérico", "Sumar, restar y multiplicar polinomios", "Usar las identidades notables y sacar factor común"],
-    bloques: [0, 1, {
-      html: `<h3>Sacar factor común</h3><p>Si todos los términos tienen algo en común, se puede <mark>sacar fuera</mark> multiplicando: 6x² + 9x = <b>3x(2x + 3)</b>. Es la operación contraria a multiplicar y simplifica mucho las expresiones.</p><div class="formula"><span>4a + 8 = 4(a + 2)</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Sacar factor común: 6x al cuadrado más 9x es 3x por 2x más 3x por 3, así que queda 3x por (2x más 3)">
+    bloques: ["Qué es un polinomio", "Identidades notables", {
+      html: `<h3>Sacar factor común</h3><p>Si todos los términos tienen algo en común, se puede <mark>sacar fuera</mark> multiplicando: 6x² + 9x = <b>3x(2x + 3)</b>. Es la operación contraria a multiplicar y simplifica mucho las expresiones.</p><div class="formula"><span>4a + 8 = 4(a + 2)</span></div>`, svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Sacar factor común: 6x al cuadrado más 9x es 3x por 2x más 3x por 3, así que queda 3x por (2x más 3)">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         <g ${F} font-weight="700" text-anchor="middle"><text x="130" y="44" font-size="20" fill="var(--ink)">6x² + 9x</text>
         <text x="130" y="86" font-size="18" fill="var(--ink)"><tspan fill="var(--red)">3x</tspan>·2x + <tspan fill="var(--red)">3x</tspan>·3</text>
         <path d="M130 100 V 116" stroke="var(--muted)" stroke-width="2.5"/>
         <text x="130" y="144" font-size="22" fill="var(--ink)"><tspan fill="var(--red)">3x</tspan>(2x + 3)</text>
-        <text x="130" y="170" font-size="12" fill="var(--muted)">lo que se repite sale fuera</text></g></svg>`,
-    }],
+        <text x="130" y="170" font-size="12" fill="var(--muted)">lo que se repite sale fuera</text></g></svg>`, }],
     video: { id: "bU9m3PF71Oo", titulo: "División de polinomios, súper fácil", canal: "Daniel Carreón", vistas: 2389977, megusta: 45138, busqueda: "operaciones con polinomios" },
     quiz: [
       { q: "¿Cuál es el grado de 5x³ + 2x − 1?", o: ["1", "3", "5"], a: 1, e: "El mayor exponente de x es 3." },
@@ -80,15 +86,13 @@ module.exports = [
     objetivos: ["Resolver ecuaciones de primer grado con paréntesis y denominadores", "Resolver ecuaciones de segundo grado completas e incompletas", "Plantear y resolver problemas de la vida diaria con ecuaciones"],
     pregunta: { texto: "Si al doble de tu edad le sumas 8 años, obtienes 40. ¿Cuántos años tienes?", respuesta: "Llamando x a la edad: <mark>2x + 8 = 40</mark> → 2x = 32 → <b>x = 16 años</b>. Plantear la ecuación es traducir el enunciado al idioma de las matemáticas." },
     bloques: [{
-      html: `<h3>Ecuaciones de primer grado</h3><p>Se resuelven <mark>aislando la x</mark>: primero se quitan paréntesis, luego denominadores (multiplicando por el m.c.m.), se agrupan las x a un lado y los números al otro, y se despeja.</p><div class="formula"><span>x/2 + 3 = x/3 + 5 → 3x + 18 = 2x + 30 → x = 12</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Balanza en equilibrio: lo que se hace en un lado se hace en el otro; 2x más 8 igual a 40 lleva a x igual 16">
+      html: `<h3>Ecuaciones de primer grado</h3><p>Se resuelven <mark>aislando la x</mark>: primero se quitan paréntesis, luego denominadores (multiplicando por el m.c.m.), se agrupan las x a un lado y los números al otro, y se despeja.</p><div class="formula"><span>x/2 + 3 = x/3 + 5 → 3x + 18 = 2x + 30 → x = 12</span></div>`, svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Balanza en equilibrio: lo que se hace en un lado se hace en el otro; 2x más 8 igual a 40 lleva a x igual 16">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         <path d="M130 40 V 130 M100 150 H 160 M130 130 L 110 150 M130 130 L 150 150" stroke="var(--ink)" stroke-width="3"/>
         <path d="M30 60 H 230" stroke="var(--ink)" stroke-width="3"/>
         <path d="M30 60 L 14 100 H 86 L 70 60 M190 60 L 174 100 H 246 L 230 60" fill="none" stroke="var(--muted)" stroke-width="2"/>
         <g ${F} font-weight="700" text-anchor="middle"><text x="50" y="94" font-size="16" fill="var(--pen)">2x + 8</text><text x="210" y="94" font-size="16" fill="var(--red)">40</text>
-        <text x="130" y="30" font-size="12" fill="var(--muted)">igual en los dos lados</text><text x="130" y="172" font-size="14" fill="var(--leaf)">2x = 32 → x = 16</text></g></svg>`,
-    }, 0, 1, 2],
+        <text x="130" y="30" font-size="12" fill="var(--muted)">igual en los dos lados</text><text x="130" y="172" font-size="14" fill="var(--leaf)">2x = 32 → x = 16</text></g></svg>`, }, "La fórmula de segundo grado", "El discriminante", "Ecuaciones incompletas: sin fórmula"],
     figura: {
       titulo: "¿Qué tipo de ecuación es? Elige el método",
       svg: `<svg viewBox="0 0 640 190" role="img" aria-label="Guía de métodos: primer grado despejando, segundo grado completa con fórmula, incompleta sin término independiente con factor común e incompleta sin término en x despejando x al cuadrado">
@@ -123,7 +127,7 @@ module.exports = [
     titulo: "Sistemas de ecuaciones",
     minutos: 35,
     objetivos: ["Resolver sistemas lineales por sustitución, igualación y reducción", "Interpretar la solución como el punto de corte de dos rectas", "Plantear problemas cotidianos con dos incógnitas"],
-    bloques: [0, 1, 2, 3],
+    bloques: ["Qué es un sistema", "Sustitución", "Igualación y reducción", "Tipos de sistemas"],
     quiz: [
       { q: "La solución de x + y = 10, x − y = 2 es…", o: ["(6, 4)", "(4, 6)", "(8, 2)"], a: 0, e: "Sumando: 2x = 12 → x = 6, y = 4." },
       { q: "En el sistema y = 3x, x + y = 8, ¿cuánto vale x?", o: ["2", "6", "8/3"], a: 0, e: "x + 3x = 8 → x = 2." },
@@ -149,7 +153,7 @@ module.exports = [
     titulo: "Inecuaciones",
     minutos: 30,
     objetivos: ["Resolver inecuaciones de primer grado y dar la solución como intervalo", "Saber cuándo cambia el sentido de la desigualdad", "Resolver sistemas sencillos de inecuaciones con una incógnita"],
-    bloques: [0, 3],
+    bloques: ["Inecuaciones de primer grado", "Sistemas de inecuaciones"],
     quiz: [
       { q: "Resuelve 2x + 1 < 9.", o: ["x < 4", "x > 4", "x < 5"], a: 0, e: "2x < 8 → x < 4." },
       { q: "Resuelve −3x ≥ 12.", o: ["x ≥ −4", "x ≤ −4", "x ≤ 4"], a: 1, e: "Al dividir entre −3 gira el signo." },
@@ -182,7 +186,7 @@ module.exports = [
     titulo: "Funciones",
     minutos: 35,
     objetivos: ["Reconocer una función a partir de tablas, gráficas, fórmulas y enunciados", "Leer en una gráfica dominio, crecimiento, máximos y mínimos", "Interpretar gráficas de situaciones reales"],
-    bloques: [0, 2, 3],
+    bloques: ["Qué es una función", "Crecimiento, máximos y mínimos", "Continuidad"],
     quiz: [
       { q: "¿Qué gráfica NO es una función?", o: ["Una recta inclinada", "Una circunferencia", "Una parábola"], a: 1, e: "Una recta vertical corta a la circunferencia en dos puntos." },
       { q: "En la gráfica de la temperatura de un día, el punto más alto es…", o: ["un mínimo", "un máximo", "un corte con el eje"], a: 1, e: "Ahí pasa de subir a bajar." },
@@ -209,7 +213,7 @@ module.exports = [
     minutos: 35,
     objetivos: ["Representar funciones lineales y afines e interpretar la pendiente", "Representar parábolas calculando el vértice y los cortes con los ejes", "Usar estas funciones para modelizar situaciones reales"],
     pregunta: { texto: "Un taxi cobra 3 € de bajada de bandera y 1,2 € por kilómetro. ¿Cómo sería la gráfica del precio?", respuesta: "Una <mark>recta</mark>: precio = 3 + 1,2 · km. Empieza en 3 € (ordenada en el origen) y sube 1,2 € por cada km (pendiente). Es una <b>función afín</b>." },
-    bloques: [0, 1],
+    bloques: ["Funciones lineales y afines", "Funciones cuadráticas: la parábola"],
     video: { id: "AoZpzAoC1Qg", titulo: "Gráfica de la función lineal, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 13775423, megusta: 0, busqueda: "función lineal pendiente" },
     figura: { titulo: "Recta y parábola: cómo dibujarlas rápido", svg: B("tipos-funciones").figura.svg },
     quiz: [
@@ -244,7 +248,7 @@ module.exports = [
     titulo: "Semejanza y teorema de Tales",
     minutos: 35,
     objetivos: ["Reconocer figuras semejantes y su razón de semejanza", "Usar el teorema de Tales para calcular medidas", "Trabajar con escalas en mapas, planos y maquetas"],
-    bloques: [0, 1, 2, 4],
+    bloques: ["Figuras semejantes", "Teorema de Tales", "Criterios de semejanza de triángulos", "Escalas: mapas y planos"],
     quiz: [
       { q: "Un triángulo de lados 3, 4, 5 y otro de 6, 8, 10 son…", o: ["iguales", "semejantes con razón 2", "no semejantes"], a: 1, e: "Cada lado es el doble." },
       { q: "En un plano a escala 1 : 100, una pared mide 5 cm. ¿Cuánto mide en realidad?", o: ["5 m", "50 m", "0,5 m"], a: 0, e: "5 · 100 = 500 cm = 5 m." },
@@ -269,7 +273,7 @@ module.exports = [
     titulo: "Probabilidad",
     minutos: 35,
     objetivos: ["Aplicar la regla de Laplace en juegos y situaciones cotidianas", "Usar el suceso contrario", "Calcular probabilidades de experimentos compuestos con diagramas de árbol"],
-    bloques: [0, 1, 2, 4],
+    bloques: ["Experimentos aleatorios y regla de Laplace", "Propiedades básicas", "Experimentos compuestos: el diagrama de árbol", "Sucesos independientes"],
     video: { id: "WeeEE8o1aqM", titulo: "Probabilidad, súper fácil", canal: "Daniel Carreón", vistas: 6897585, megusta: 190526, busqueda: "probabilidad regla de laplace" },
     quiz: [
       { q: "P(sacar un 5 en un dado) =", o: ["1/6", "5/6", "1/5"], a: 0, e: "Un caso favorable entre seis." },
