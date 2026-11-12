@@ -77,3 +77,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Aplicar los principios de la Doctrina Social a casos actuales", "Conocer organizaciones y testigos del compromiso social"],
+  bloques: [
+    { tras: "La dignidad de la persona", html: `<h3>Dignidad y derechos humanos</h3><p>La <b>Declaración Universal de los Derechos Humanos</b> (ONU, 1948) afirma en su artículo 1 que «todos los seres humanos nacen libres e iguales en <mark>dignidad</mark> y derechos». Para la fe cristiana, esa dignidad tiene una raíz más profunda: cada persona es <b>imagen de Dios</b> (Gn 1, 27) y amada por Él. Por eso nadie puede ser tratado como un objeto o un medio, ni por su origen, ni por su salud, ni por su edad. De ahí nacen exigencias concretas: rechazar la violencia, el racismo, el acoso escolar o cualquier forma de discriminación.</p>` },
+    { tras: "La Doctrina Social de la Iglesia", html: `<h3>Las grandes encíclicas sociales</h3>${tabla(["Encíclica", "Papa y año", "Tema"], [["Rerum novarum", "León XIII, 1891", "condiciones de los obreros, salario justo, sindicatos"], ["Pacem in terris", "Juan XXIII, 1963", "paz y derechos humanos"], ["Populorum progressio", "Pablo VI, 1967", "desarrollo de los pueblos: «el desarrollo es el nuevo nombre de la paz»"], ["Laudato si'", "Francisco, 2015", "ecología integral y cuidado de la casa común"], ["Fratelli tutti", "Francisco, 2020", "fraternidad y amistad social"]])}`, video: { id: "HB7nsT0dOwk", titulo: "Doctrina Social de la Iglesia (DSI), introducción", canal: "José Antonio Cinco Panes", vistas: 171756, megusta: 0 } },
+    { tras: "La Doctrina Social de la Iglesia", html: `<h3>Los principios aplicados</h3><p>La Doctrina Social se apoya en varios principios. El <b>bien común</b>: las condiciones que permiten a todos desarrollarse (sanidad, educación, paz). El <b>destino universal de los bienes</b>: la tierra es para todos y la propiedad privada tiene una función social. La <mark>subsidiariedad</mark>: lo que pueden hacer las personas y los grupos pequeños no debe quitárselo el Estado, pero este debe ayudar cuando no pueden. La <b>solidaridad</b>: sentirse responsables unos de otros. Y la <b>opción preferencial por los pobres</b>: empezar mirando a quienes más sufren.</p>` },
+    { tras: "Cuidar la casa común", html: `<h3>Ecología integral</h3><p>En <i>Laudato si'</i> el papa Francisco explica que «<mark>todo está conectado</mark>»: la crisis ambiental y la social son una sola. Los más pobres son los que más sufren la contaminación, las sequías o las inundaciones, aunque son los que menos contaminan. Por eso propone una <b>ecología integral</b>, que une el cuidado de la naturaleza, la justicia con los pobres y un estilo de vida más sobrio. Gestos concretos: reducir el consumo y los residuos, ahorrar agua y energía, preferir el transporte público, y también comprometerse en política y en asociaciones.</p>` },
+    { tras: "Del dicho al hecho", html: `<h3>Organizaciones y testigos</h3><p>Muchas organizaciones, religiosas y no religiosas, trabajan por los demás: <b>Cáritas</b> (atención a personas sin hogar, empleo, ayuda a familias), <b>Manos Unidas</b> (proyectos de desarrollo contra el hambre), <b>Cruz Roja</b>, los <b>bancos de alimentos</b>, Médicos Sin Fronteras o Entreculturas. Hay también <mark>testigos</mark> que inspiran: Teresa de Calcuta, Óscar Romero, Martin Luther King, el padre Ángel o Vicente Ferrer en la India. A partir de 14 años se puede colaborar como voluntario en muchas entidades, con permiso de la familia.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Aplica el principio del destino universal de los bienes al desperdicio de comida.", pasos: ["Los bienes de la tierra son para todos.", "Cada año se desperdicia en el mundo alrededor de un tercio de los alimentos.", "Mientras tanto, cientos de millones de personas pasan hambre.", "Propuesta: comprar lo justo, aprovechar las sobras, donar a bancos de alimentos."], resultado: "Desperdiciar comida va contra el destino universal de los bienes." },
+    { enunciado: "Aplica la subsidiariedad a una asociación de vecinos que quiere arreglar un parque.", pasos: ["Los vecinos pueden organizarse para limpiarlo y cuidarlo.", "El ayuntamiento no debería impedir esa iniciativa.", "Pero si hace falta una obra grande, el ayuntamiento debe ayudar."], resultado: "Primero actúa el grupo cercano; la autoridad superior apoya cuando hace falta." },
+    { enunciado: "Analiza un caso de acoso escolar desde la dignidad de la persona.", pasos: ["La víctima es humillada y tratada como un objeto de burla.", "Eso niega su igual dignidad.", "Quien lo ve y calla también participa.", "Respuesta: apoyar a la víctima y avisar a un adulto."], resultado: "El acoso vulnera la dignidad y exige actuar." },
+  ],
+  errores: [
+    "Pensar que la dignidad depende de lo que una persona tiene o hace.",
+    "Confundir solidaridad con dar limosna de vez en cuando.",
+    "Creer que la subsidiariedad significa que el Estado no debe ayudar nunca.",
+    "Pensar que el cuidado del planeta no tiene que ver con la justicia social.",
+    "Creer que el compromiso social es solo cosa de adultos o de creyentes.",
+  ],
+  ejercicios: [
+    { q: "¿Qué dice el artículo 1 de la Declaración Universal de los Derechos Humanos?", sol: "Que todos los seres humanos nacen libres e iguales en dignidad y derechos." },
+    { q: "¿En qué fundamenta la fe cristiana la dignidad humana?", sol: "En que cada persona es imagen de Dios y es amada por Él." },
+    { q: "¿Qué encíclica inicia la Doctrina Social y de qué trata?", sol: "Rerum novarum (1891), de León XIII, sobre la situación de los obreros." },
+    { q: "Explica el principio del bien común.", sol: "Las condiciones sociales que permiten a todas las personas desarrollarse plenamente." },
+    { q: "¿Qué es la opción preferencial por los pobres?", sol: "Mirar primero a quienes más sufren y actuar en su favor." },
+    { q: "Explica «todo está conectado» en Laudato si'.", sol: "Que la crisis ambiental y la social están unidas y deben afrontarse juntas." },
+    { q: "Propón tres gestos de ecología integral.", sol: "Reducir residuos, ahorrar energía y usar transporte público." },
+    { q: "¿A qué se dedica Manos Unidas?", sol: "A financiar proyectos de desarrollo en países pobres para luchar contra el hambre." },
+    { q: "¿Quién fue Óscar Romero?", sol: "Arzobispo de San Salvador asesinado en 1980 por defender a los pobres; canonizado en 2018." },
+    { q: "Diseña una acción solidaria para tu clase.", sol: "Por ejemplo, una recogida de alimentos para el banco de alimentos o un servicio de ayuda con los deberes a alumnos más pequeños." },
+  ],
+  quiz: [
+    { q: "La Declaración Universal de los Derechos Humanos es de…", o: ["1948", "1891", "2015"], a: 0, e: "Aprobada por la ONU." },
+    { q: "Rerum novarum trata de…", o: ["los obreros", "la ecología", "la paz nuclear"], a: 0, e: "León XIII, 1891." },
+    { q: "Laudato si' es una encíclica sobre…", o: ["la ecología integral", "los sacramentos", "la Biblia"], a: 0, e: "Francisco, 2015." },
+    { q: "Fratelli tutti habla de…", o: ["la fraternidad", "la economía de mercado", "el Concilio"], a: 0, e: "2020." },
+    { q: "La subsidiariedad pide que…", o: ["los grupos cercanos actúen y la autoridad ayude cuando haga falta", "el Estado lo haga todo", "nadie ayude"], a: 0, e: "Respeta la iniciativa de las personas." },
+  ],
+  tarjetas: [
+    ["Rerum novarum", "Primera encíclica social (1891)."],
+    ["Subsidiariedad", "Lo cercano primero; la autoridad ayuda cuando hace falta."],
+    ["Ecología integral", "Cuidar la naturaleza y a los pobres a la vez."],
+  ],
+});

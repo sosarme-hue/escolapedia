@@ -73,3 +73,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Situar en el tiempo los grandes momentos de la historia de la Iglesia", "Valorar la aportación de la Iglesia a la cultura y a la sociedad"],
+  bloques: [
+    { tras: "Las primeras comunidades", html: `<h3>Pablo y la expansión del cristianismo</h3><p>Pablo de Tarso, un fariseo que perseguía a los cristianos, se convirtió tras una experiencia en el camino de Damasco. Hizo <b>tres grandes viajes</b> por Asia Menor y Grecia fundando comunidades, y escribió cartas para animarlas. Defendió que los no judíos podían ser cristianos sin cumplir toda la Ley judía, lo que se acordó en el <mark>Concilio de Jerusalén</mark> (hacia el año 49). Murió mártir en Roma, como Pedro, hacia el año 64-67. Gracias a las calzadas romanas y al griego como lengua común, el cristianismo se extendió con rapidez por el Imperio.</p>` },
+    { tras: "De perseguidos a religión oficial", html: `<h3>Los Padres de la Iglesia y los monjes</h3><p>Entre los siglos II y VIII, los <mark>Padres de la Iglesia</mark> explicaron la fe con ayuda de la filosofía griega: Agustín de Hipona, Jerónimo (que tradujo la Biblia al latín), Ambrosio o Isidoro de Sevilla, autor de las <i>Etimologías</i>. Los primeros <b>concilios</b> (Nicea, 325) fijaron el Credo. Nació también el <b>monacato</b>: hombres y mujeres que dejaban todo para vivir en oración. San <b>Benito</b> (siglo VI) escribió una regla con el lema <i>ora et labora</i> (reza y trabaja), y los monasterios copiaron y salvaron los libros de la Antigüedad.</p>` },
+    { tras: "La Iglesia medieval", html: `<h3>Etapas de la historia de la Iglesia</h3>${tabla(["Época", "Hechos destacados"], [["Antigua (s. I-V)", "persecuciones, Edicto de Milán (313), concilio de Nicea (325)"], ["Medieval (s. V-XV)", "monasterios, Cisma de Oriente (1054), catedrales, universidades, órdenes mendicantes"], ["Moderna (s. XVI-XVIII)", "Reforma protestante (1517), Concilio de Trento, misiones en América y Asia"], ["Contemporánea (s. XIX-XXI)", "doctrina social (1891), Concilio Vaticano II (1962-1965), ecumenismo"]])}<p>En 1054 se separaron la Iglesia de Roma (católica) y la de Constantinopla (<mark>ortodoxa</mark>), sobre todo por la autoridad del papa.</p>` },
+    { tras: "Reforma, Trento", html: `<h3>El Concilio Vaticano II</h3><p>Convocado por <b>Juan XXIII</b> y concluido por Pablo VI (1962-1965), el <mark>Concilio Vaticano II</mark> quiso poner al día la Iglesia (<i>aggiornamento</i>). Permitió celebrar la misa en las lenguas de cada pueblo en lugar del latín, impulsó la lectura de la Biblia, defendió la <b>libertad religiosa</b>, abrió el diálogo con otras confesiones cristianas (<b>ecumenismo</b>) y con otras religiones, y presentó a la Iglesia como «pueblo de Dios» en el que los laicos tienen un papel activo. Sus documentos siguen guiando a la Iglesia hoy.</p>`, video: { id: "n20ahoB8G1c", titulo: "¿Qué fue el Concilio Vaticano II? La reunión católica en la que nació el ecumenismo", canal: "BITE", vistas: 175894, megusta: 0 } },
+    { tras: "Reforma, Trento", html: `<h3>Luces y sombras</h3><p>La historia de la Iglesia tiene <b>luces</b>: hospitales, escuelas y universidades; la conservación de la cultura; la atención a pobres y enfermos; defensores de los indígenas como <b>Bartolomé de las Casas</b>; santos y santas como Francisco de Asís o Teresa de Jesús. Y también <b>sombras</b>: las cruzadas, la Inquisición, la intolerancia religiosa o, en tiempos recientes, los abusos a menores. La Iglesia ha pedido perdón por muchos de estos hechos; Juan Pablo II lo hizo de forma solemne en el año 2000. Conocer la historia completa ayuda a <mark>juzgar con equilibrio</mark>.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Ordena: Concilio de Trento, Edicto de Milán, Cisma de Oriente, Vaticano II, Reforma de Lutero.", pasos: ["Edicto de Milán: 313.", "Cisma de Oriente: 1054.", "Reforma de Lutero: 1517.", "Trento: 1545-1563.", "Vaticano II: 1962-1965."], resultado: "313 → 1054 → 1517 → 1545 → 1962." },
+    { enunciado: "Explica por qué fue importante el Concilio de Jerusalén.", pasos: ["Se discutía si los no judíos debían cumplir toda la Ley judía.", "Se decidió que no era necesario.", "Así el cristianismo pudo abrirse a todos los pueblos."], resultado: "Hizo del cristianismo una religión universal." },
+    { enunciado: "Compara católicos, ortodoxos y protestantes.", pasos: ["Católicos: reconocen la autoridad del papa.", "Ortodoxos: separados desde 1054; patriarcas y gran importancia de la liturgia y los iconos.", "Protestantes: desde 1517; la Biblia como única autoridad, sin papa."], resultado: "Comparten la fe en Cristo, pero difieren en la autoridad y en algunas prácticas." },
+  ],
+  errores: [
+    "Pensar que el cristianismo fue religión oficial desde el principio.",
+    "Confundir el Cisma de Oriente (1054) con la Reforma protestante (1517).",
+    "Creer que los monasterios solo servían para rezar: también conservaron la cultura.",
+    "Juzgar la historia de la Iglesia solo por sus luces o solo por sus sombras.",
+    "Pensar que el Vaticano II es del siglo XIX: fue entre 1962 y 1965.",
+  ],
+  ejercicios: [
+    { q: "¿Quién fue Pablo de Tarso?", sol: "Un fariseo perseguidor de cristianos que se convirtió y fue el gran misionero del cristianismo entre los no judíos." },
+    { q: "¿Qué se decidió en el Concilio de Jerusalén?", sol: "Que los no judíos podían ser cristianos sin cumplir toda la Ley judía." },
+    { q: "¿Qué son los Padres de la Iglesia? Cita dos.", sol: "Escritores cristianos de los primeros siglos que explicaron la fe; por ejemplo, Agustín e Isidoro de Sevilla." },
+    { q: "¿Qué significa «ora et labora»?", sol: "«Reza y trabaja», lema de la regla de san Benito." },
+    { q: "¿Qué ocurrió en 1054?", sol: "El Cisma de Oriente: se separaron la Iglesia católica y la ortodoxa." },
+    { q: "¿Qué decidió el Concilio de Trento?", sol: "Reformar la Iglesia católica y reafirmar su doctrina frente al protestantismo." },
+    { q: "Cita tres cambios del Vaticano II.", sol: "Misa en lengua de cada pueblo, libertad religiosa y diálogo ecuménico." },
+    { q: "¿Qué es el ecumenismo?", sol: "El esfuerzo por la unidad y el diálogo entre las distintas confesiones cristianas." },
+    { q: "¿Quién fue Bartolomé de las Casas?", sol: "Un fraile dominico que defendió los derechos de los indígenas americanos en el siglo XVI." },
+    { q: "Cita una luz y una sombra de la historia de la Iglesia.", sol: "Luz: hospitales y escuelas. Sombra: la Inquisición." },
+  ],
+  quiz: [
+    { q: "El Credo se fijó en el Concilio de…", o: ["Nicea (325)", "Trento", "Vaticano II"], a: 0, e: "Y se completó en Constantinopla (381)." },
+    { q: "La Iglesia ortodoxa se separó en…", o: ["1054", "1517", "313"], a: 0, e: "Cisma de Oriente." },
+    { q: "El Vaticano II lo convocó…", o: ["Juan XXIII", "Pío XII", "Francisco"], a: 0, e: "En 1962." },
+    { q: "«Ora et labora» es el lema de…", o: ["los benedictinos", "los jesuitas", "los franciscanos"], a: 0, e: "Regla de san Benito." },
+    { q: "Las Etimologías las escribió…", o: ["Isidoro de Sevilla", "Agustín", "Pablo"], a: 0, e: "Una enciclopedia del siglo VII." },
+  ],
+  tarjetas: [
+    ["Concilio de Jerusalén", "Abrió el cristianismo a los no judíos (hacia el año 49)."],
+    ["Cisma de Oriente", "Separación de católicos y ortodoxos en 1054."],
+    ["Ecumenismo", "Diálogo por la unidad de los cristianos."],
+  ],
+});

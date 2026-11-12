@@ -82,3 +82,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Conocer los grupos de libros del Antiguo y del Nuevo Testamento", "Interpretar un texto bíblico teniendo en cuenta su contexto y género"],
+  bloques: [
+    { tras: "Dos grandes partes", html: `<h3>Los libros del Antiguo Testamento</h3>${tabla(["Grupo", "Libros", "Contenido"], [["Pentateuco (Torá)", "Génesis, Éxodo, Levítico, Números, Deuteronomio", "creación, patriarcas, salida de Egipto y la Ley"], ["Históricos", "Josué, Jueces, Samuel, Reyes…", "historia del pueblo de Israel"], ["Sapienciales y poéticos", "Job, Salmos, Proverbios, Eclesiastés, Cantar de los Cantares…", "sabiduría, oración y poesía"], ["Proféticos", "Isaías, Jeremías, Ezequiel, Daniel y doce menores", "mensajes de Dios por medio de los profetas"]])}<p>La Biblia católica tiene <b>46 libros</b> en el Antiguo Testamento y <b>27</b> en el Nuevo: <mark>73 en total</mark>. Las Biblias protestantes tienen 66, porque no incluyen siete libros del AT (Tobías, Judit, Sabiduría…).</p>`, video: { id: "VL8YhTkuiv0", titulo: "Resumen del Antiguo Testamento: un panorama completo animado", canal: "Proyecto Biblia", vistas: 1475803, megusta: 0 } },
+    { tras: "Dos grandes partes", html: `<h3>Los libros del Nuevo Testamento</h3><p>El Nuevo Testamento se escribió en <b>griego</b> en la segunda mitad del siglo I. Contiene los cuatro <mark>Evangelios</mark> (Mateo, Marcos, Lucas y Juan), que cuentan la vida y el mensaje de Jesús; los <b>Hechos de los Apóstoles</b>, sobre las primeras comunidades; las <b>Cartas</b> (13 atribuidas a Pablo y otras de Santiago, Pedro, Juan y Judas), escritas a comunidades concretas; y el <b>Apocalipsis</b>, un libro simbólico de esperanza para cristianos perseguidos. Las cartas de Pablo son los escritos más antiguos del Nuevo Testamento (hacia el año 50).</p>` },
+    { tras: "Cómo se formó", html: `<h3>Lenguas, manuscritos y traducciones</h3><p>El Antiguo Testamento se escribió casi todo en <b>hebreo</b>, con algunas partes en arameo y otras en griego. Hacia el siglo III a. C. se tradujo al griego en Alejandría: la <b>Septuaginta</b>. San <b>Jerónimo</b> lo tradujo todo al latín hacia el año 400: la <mark>Vulgata</mark>. En 1947 se encontraron en Qumrán, junto al mar Muerto, los <b>manuscritos del mar Muerto</b>, con copias de libros bíblicos de hace más de 2.000 años. Hoy la Biblia está traducida, completa o en parte, a más de 3.500 lenguas, y es el libro más traducido de la historia.</p>` },
+    { tras: "Géneros literarios", html: `<h3>Cómo leer un texto bíblico</h3><p>Para entender un pasaje hay que preguntarse: <b>¿qué género es?</b> (relato, poema, ley, parábola, carta), <b>¿cuándo y para quién se escribió?</b> y <b>¿qué quiso decir su autor?</b> No se lee igual un salmo que una carta. Por ejemplo, los relatos de la <b>creación</b> del Génesis no son un libro de ciencia: con un lenguaje simbólico enseñan que el mundo es bueno, que viene de Dios y que el ser humano tiene una dignidad especial. Para los creyentes, la Biblia es <mark>Palabra de Dios en palabras humanas</mark>: inspirada por Dios y escrita por personas con su cultura y su estilo.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Busca e interpreta la cita Mt 5, 9.", pasos: ["Mt = Evangelio de Mateo.", "5 = capítulo 5; 9 = versículo 9.", "Dice: «Bienaventurados los que trabajan por la paz, porque ellos serán llamados hijos de Dios».", "Pertenece a las Bienaventuranzas del Sermón del Monte."], resultado: "Jesús declara dichosos a quienes construyen la paz." },
+    { enunciado: "Clasifica estos libros: Génesis, Salmos, Isaías, Hechos, Romanos.", pasos: ["Génesis: Pentateuco (AT).", "Salmos: sapienciales y poéticos (AT).", "Isaías: proféticos (AT).", "Hechos: libro histórico del NT.", "Romanos: carta de Pablo (NT)."], resultado: "AT: Génesis, Salmos, Isaías. NT: Hechos y Romanos." },
+    { enunciado: "Explica por qué el relato de los siete días de la creación no contradice la ciencia.", pasos: ["Su género es simbólico y poético, no científico.", "Su objetivo es religioso: todo procede de Dios y es bueno.", "La ciencia explica cómo se formó el universo; el texto, su sentido."], resultado: "Responden a preguntas distintas y no compiten." },
+  ],
+  errores: [
+    "Pensar que la Biblia es un solo libro escrito de una vez: es una biblioteca escrita durante siglos.",
+    "Leer todos los textos al pie de la letra, sin tener en cuenta el género literario.",
+    "Creer que el Nuevo Testamento se escribió en latín: se escribió en griego.",
+    "Confundir los Evangelios (vida de Jesús) con las Cartas (dirigidas a comunidades).",
+    "Pensar que todas las Biblias cristianas tienen los mismos libros: la protestante tiene 66 y la católica 73.",
+  ],
+  ejercicios: [
+    { q: "¿Qué libros forman el Pentateuco?", sol: "Génesis, Éxodo, Levítico, Números y Deuteronomio." },
+    { q: "¿Cuántos libros tiene la Biblia católica?", sol: "73: 46 del Antiguo Testamento y 27 del Nuevo." },
+    { q: "¿Qué son los libros sapienciales? Pon un ejemplo.", sol: "Libros de sabiduría, poesía y oración, como los Salmos o los Proverbios." },
+    { q: "Cita las cuatro partes del Nuevo Testamento.", sol: "Evangelios, Hechos de los Apóstoles, Cartas y Apocalipsis." },
+    { q: "¿Cuáles son los escritos más antiguos del Nuevo Testamento?", sol: "Las cartas de Pablo, de hacia el año 50." },
+    { q: "¿Qué es la Vulgata?", sol: "La traducción de la Biblia al latín hecha por san Jerónimo hacia el año 400." },
+    { q: "¿Qué se descubrió en Qumrán en 1947?", sol: "Los manuscritos del mar Muerto, copias muy antiguas de libros bíblicos." },
+    { q: "¿Qué tres preguntas ayudan a interpretar un texto bíblico?", sol: "¿Qué género es?, ¿cuándo y para quién se escribió? y ¿qué quiso decir su autor?" },
+    { q: "Explica «Palabra de Dios en palabras humanas».", sol: "Los creyentes piensan que Dios inspiró la Biblia, pero la escribieron personas con su lengua, su cultura y su estilo." },
+    { q: "Busca la cita Jn 3, 16 y resume su idea.", sol: "«Tanto amó Dios al mundo que entregó a su Hijo único…»: el amor de Dios a la humanidad." },
+  ],
+  quiz: [
+    { q: "La Torá corresponde al…", o: ["Pentateuco", "Apocalipsis", "Evangelio"], a: 0, e: "Los cinco primeros libros." },
+    { q: "El Nuevo Testamento se escribió en…", o: ["griego", "latín", "hebreo"], a: 0, e: "En el siglo I." },
+    { q: "Los Salmos son un libro…", o: ["poético", "profético", "histórico"], a: 0, e: "Oraciones y cantos." },
+    { q: "La Vulgata es una traducción al…", o: ["latín", "griego", "castellano"], a: 0, e: "De san Jerónimo." },
+    { q: "¿Cuántos libros tiene el Nuevo Testamento?", o: ["27", "46", "73"], a: 0, e: "En todas las Biblias cristianas." },
+  ],
+  tarjetas: [
+    ["Pentateuco", "Los cinco primeros libros de la Biblia."],
+    ["Vulgata", "Traducción latina de san Jerónimo."],
+    ["Manuscritos del mar Muerto", "Copias bíblicas antiquísimas halladas en Qumrán en 1947."],
+  ],
+});

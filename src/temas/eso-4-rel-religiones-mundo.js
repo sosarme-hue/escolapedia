@@ -92,3 +92,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Comparar las creencias, textos, lugares y fiestas de las grandes religiones", "Valorar la libertad religiosa y el diálogo interreligioso"],
+  bloques: [
+    { tras: "Las tres religiones abrahámicas", html: `<h3>Judaísmo, cristianismo e islam</h3>${tabla(["", "Judaísmo", "Cristianismo", "Islam"], [["Fundador o figura central", "Abraham y Moisés", "Jesucristo", "Mahoma (s. VII)"], ["Libro sagrado", "Tanaj (Torá)", "Biblia", "Corán"], ["Lugar de culto", "sinagoga", "iglesia", "mezquita"], ["Día sagrado", "sábado (shabat)", "domingo", "viernes"], ["Fiestas", "Pésaj, Yom Kipur, Janucá", "Navidad, Pascua", "fin del Ramadán, Fiesta del Sacrificio"], ["Seguidores aprox.", "≈ 15 millones", "≈ 2.400 millones", "≈ 2.000 millones"]])}<p>Las tres creen en <mark>un solo Dios</mark> y se consideran herederas de la fe de Abraham.</p>` },
+    { tras: "Las tres religiones abrahámicas", html: `<h3>Los cinco pilares del islam</h3><p>El islam («sumisión a Dios») se basa en cinco obligaciones: la <b>profesión de fe</b> (<i>shahada</i>: «no hay más dios que Dios y Mahoma es su profeta»), la <b>oración</b> cinco veces al día mirando hacia La Meca, la <b>limosna</b> obligatoria para los pobres, el <b>ayuno</b> del mes de <mark>Ramadán</mark> desde el amanecer hasta la puesta del sol y la <b>peregrinación</b> a La Meca al menos una vez en la vida, si se puede. Sus dos grandes ramas son los <b>suníes</b> (la gran mayoría) y los <b>chiíes</b>, que se separaron por la sucesión de Mahoma.</p>`, video: { id: "nRy4AbwPmsY", titulo: "La historia del islam y sus ramas en 13 minutos", canal: "Memorias de Pez", vistas: 4087132, megusta: 0 } },
+    { tras: "Religiones de la India", html: `<h3>Hinduismo y budismo</h3><p>El <b>hinduismo</b>, la religión mayoritaria de la India (≈ 1.200 millones de fieles), no tiene un fundador. Cree en muchos dioses, que muchos entienden como manifestaciones de un único principio, <b>Brahman</b>; en la <mark>reencarnación</mark> (<i>samsara</i>) y en el <b>karma</b>: las acciones determinan la vida siguiente. Sus libros son los Vedas y la Bhagavad Gita, y el Ganges es su río sagrado. El <b>budismo</b> lo fundó Siddharta Gautama, <b>Buda</b> («el iluminado», s. VI-V a. C.). Enseña que el sufrimiento nace del deseo y que se supera con el <b>Óctuple Sendero</b>, hasta alcanzar el <mark>nirvana</mark>. No cree en un Dios creador.</p>` },
+    { tras: "Religiones de la India", html: `<h3>Otras tradiciones de Asia</h3><p>En China, el <b>confucianismo</b> (Confucio, s. VI-V a. C.) es más una ética que una religión: valora el respeto a los mayores, la familia, el estudio y el buen gobierno. El <b>taoísmo</b> (Lao Tse) busca vivir en armonía con el <i>Tao</i>, el orden de la naturaleza, representado por el <mark>yin y el yang</mark>. En Japón está el <b>sintoísmo</b>, que venera a los <i>kami</i>, espíritus de la naturaleza y de los antepasados. En la India nació también el <b>sijismo</b> (s. XV), que cree en un solo Dios y en la igualdad de todas las personas.</p>` },
+    { tras: "Diálogo y libertad religiosa", html: `<h3>Religiones en España</h3><p>La Constitución de 1978 declara que <b>ninguna confesión tendrá carácter estatal</b> (art. 16): España es un Estado <mark>aconfesional</mark>, que garantiza la libertad religiosa y coopera con las confesiones. Además de la Iglesia católica, mayoritaria, el Estado tiene acuerdos de cooperación desde 1992 con las comunidades <b>evangélicas</b>, <b>judías</b> y <b>musulmanas</b>. En España hay también ortodoxos, budistas, testigos de Jehová, Iglesia de Jesucristo de los Santos de los Últimos Días y un número creciente de personas sin religión. El diálogo se basa en conocerse, respetarse y colaborar por el bien común.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Identifica la religión: oran en la sinagoga, guardan el sábado y celebran Pésaj.", pasos: ["La sinagoga es el lugar de culto judío.", "El sábado (shabat) es su día sagrado.", "Pésaj es la Pascua judía, que recuerda la salida de Egipto."], resultado: "Judaísmo." },
+    { enunciado: "Compara la idea de lo que ocurre tras la muerte en el cristianismo y en el hinduismo.", pasos: ["Cristianismo: una sola vida; resurrección y vida eterna con Dios.", "Hinduismo: reencarnación según el karma, hasta liberarse del ciclo (moksha)."], resultado: "Una vida y resurrección frente a muchas vidas y liberación del ciclo." },
+    { enunciado: "Explica qué significa que España es un Estado aconfesional.", pasos: ["No hay religión oficial (art. 16 de la Constitución).", "Se garantiza la libertad religiosa de todos.", "El Estado coopera con las confesiones, en especial con la católica, y con acuerdos con evangélicos, judíos y musulmanes."], resultado: "Neutral ante las religiones, pero no hostil: protege la libertad y coopera." },
+  ],
+  errores: [
+    "Confundir musulmán (fiel del islam) con árabe (pueblo y lengua): la mayoría de los musulmanes no son árabes.",
+    "Pensar que el budismo cree en un Dios creador.",
+    "Creer que todas las religiones son iguales o que son totalmente opuestas: tienen semejanzas y diferencias.",
+    "Confundir Estado aconfesional con Estado ateo.",
+    "Pensar que el Ramadán es una fiesta de un día: es un mes de ayuno.",
+  ],
+  ejercicios: [
+    { q: "¿Por qué judaísmo, cristianismo e islam se llaman religiones abrahámicas?", sol: "Porque las tres se consideran herederas de la fe de Abraham en un único Dios." },
+    { q: "Escribe el libro sagrado y el lugar de culto de cada religión abrahámica.", sol: "Judaísmo: Tanaj, sinagoga. Cristianismo: Biblia, iglesia. Islam: Corán, mezquita." },
+    { q: "Cita los cinco pilares del islam.", sol: "Profesión de fe, oración, limosna, ayuno en Ramadán y peregrinación a La Meca." },
+    { q: "Diferencia suníes y chiíes.", sol: "Son las dos grandes ramas del islam, separadas por quién debía suceder a Mahoma; los suníes son la gran mayoría." },
+    { q: "¿Qué son el karma y la reencarnación?", sol: "La reencarnación es renacer en otra vida; el karma, la ley por la que las acciones determinan esa vida." },
+    { q: "¿Qué enseña el budismo sobre el sufrimiento?", sol: "Que nace del deseo y se supera siguiendo el Óctuple Sendero hasta el nirvana." },
+    { q: "¿Qué representa el yin y el yang?", sol: "Las fuerzas opuestas y complementarias que mantienen el equilibrio del universo en el taoísmo." },
+    { q: "¿Qué es el sintoísmo?", sol: "La religión tradicional de Japón, que venera a los kami, espíritus de la naturaleza y los antepasados." },
+    { q: "¿Qué dice el artículo 16 de la Constitución?", sol: "Garantiza la libertad religiosa y establece que ninguna confesión tendrá carácter estatal." },
+    { q: "Propón dos acciones para el diálogo interreligioso en tu centro.", sol: "Por ejemplo: invitar a personas de distintas religiones a explicar sus fiestas y organizar un proyecto solidario conjunto." },
+  ],
+  quiz: [
+    { q: "El día sagrado del islam es el…", o: ["viernes", "sábado", "domingo"], a: 0, e: "Oración comunitaria en la mezquita." },
+    { q: "El Ramadán es un mes de…", o: ["ayuno", "peregrinación", "vacaciones"], a: 0, e: "Desde el amanecer hasta la puesta del sol." },
+    { q: "Buda significa…", o: ["el iluminado", "el profeta", "el rey"], a: 0, e: "Siddharta Gautama." },
+    { q: "El confucianismo nació en…", o: ["China", "India", "Japón"], a: 0, e: "Siglos VI-V a. C." },
+    { q: "España es un Estado…", o: ["aconfesional", "confesional católico", "ateo"], a: 0, e: "Art. 16 de la Constitución." },
+  ],
+  tarjetas: [
+    ["Cinco pilares", "Fe, oración, limosna, ayuno y peregrinación (islam)."],
+    ["Nirvana", "Estado de liberación del sufrimiento en el budismo."],
+    ["Estado aconfesional", "Sin religión oficial y con libertad religiosa."],
+  ],
+});

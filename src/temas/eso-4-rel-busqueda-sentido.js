@@ -77,3 +77,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Reconocer la dimensión trascendente del ser humano", "Comparar respuestas filosóficas y religiosas sobre el sentido"],
+  bloques: [
+    { tras: "Las grandes preguntas", html: `<h3>El ser humano, un ser que se pregunta</h3><p>Los animales satisfacen sus necesidades; el ser humano, además, se pregunta <b>por qué</b> y <b>para qué</b>. Esta capacidad se llama <mark>dimensión trascendente</mark>: ir más allá de lo inmediato y buscar un sentido. Las grandes preguntas suelen aparecer en las <b>situaciones límite</b>: la muerte de un ser querido, una enfermedad, un fracaso, pero también ante experiencias de gran belleza, de amor o de gratitud. Filósofos como Kant resumieron estas preguntas en cuatro: ¿qué puedo saber?, ¿qué debo hacer?, ¿qué me cabe esperar? y ¿qué es el ser humano?</p>` },
+    { tras: "Distintas formas de responder", html: `<h3>Respuestas ante el sentido de la vida</h3>${tabla(["Postura", "Qué sostiene", "Ejemplo"], [["Religiosa", "el sentido viene de Dios o de una realidad trascendente", "cristianismo, judaísmo, islam"], ["Humanista", "el sentido lo construye la persona con sus valores y sus relaciones", "compromiso con los demás, la ciencia o el arte"], ["Agnóstica", "no se puede saber si Dios existe", "Protágoras, Huxley"], ["Atea", "Dios no existe; el sentido es humano", "Feuerbach, Sartre"], ["Nihilista", "nada tiene sentido último", "Nietzsche lo analizó como crisis de valores"]])}<p>Todas merecen respeto. Lo importante es buscar con <mark>honestidad</mark> y no vivir sin hacerse preguntas.</p>` },
+    { tras: "Viktor Frankl", html: `<h3>Los tres caminos de Frankl</h3><p>Viktor Frankl sobrevivió a Auschwitz y fundó la <mark>logoterapia</mark>, una psicología centrada en el sentido. Según él, encontramos sentido de tres maneras: <b>creando</b> algo valioso (un trabajo, una obra, un proyecto), <b>amando</b> o viviendo algo valioso (una persona, la naturaleza, el arte) y, cuando el sufrimiento es inevitable, con la <b>actitud</b> que tomamos ante él. Frankl citaba a Nietzsche: «quien tiene un <i>porqué</i> para vivir puede soportar casi cualquier <i>cómo</i>». Su libro <i>El hombre en busca de sentido</i> (1946) ha ayudado a millones de personas.</p>`, video: { id: "TXZGZ_0TP7w", titulo: "Entrevista al Dr. Viktor Frankl: el sentido de la vida", canal: "Clínica Cattell Psicólogos en Murcia", vistas: 290652, megusta: 0 } },
+    { tras: "La respuesta cristiana", html: `<h3>Fe y razón</h3><p>Para la tradición cristiana, la fe no está reñida con la razón. Agustín de Hipona decía «<i>cree para entender y entiende para creer</i>», y Tomás de Aquino propuso cinco vías para razonar sobre la existencia de Dios a partir del mundo (el movimiento, las causas, el orden…). La <b>fe</b> es confianza en Dios que se revela y en la persona de Jesús, y no una creencia sin pensar. Muchos científicos han sido creyentes, como <mark>Georges Lemaître</mark>, sacerdote y físico que propuso la teoría del origen del universo conocida después como Big Bang. Ciencia y religión responden a preguntas distintas: <b>cómo</b> funciona el mundo y <b>por qué</b> o <b>para qué</b> existe.</p>` },
+    { tras: "La respuesta cristiana", html: `<h3>El sentido en la vida diaria</h3><p>El sentido no se encuentra solo en grandes momentos, sino también en lo cotidiano: estudiar algo que te apasiona, cuidar de un hermano, ser fiel a un amigo, ayudar como voluntario, disfrutar de un paisaje. Algunas pistas: conocerte (qué te hace vibrar, qué te preocupa), elegir valores que guíen tus decisiones, cultivar relaciones verdaderas y dedicar tiempo al <mark>silencio y la reflexión</mark>, lejos del ruido de las pantallas. Para muchos creyentes, la oración es una forma de vivir ese encuentro con Dios.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Aplica los tres caminos de Frankl a una deportista que sufre una lesión grave.", pasos: ["Crear: dedicar su tiempo a entrenar a niños o a estudiar fisioterapia.", "Amar: apoyarse en su familia y su equipo.", "Actitud: aceptar la lesión y convertirla en una lección de superación."], resultado: "Aunque no pueda competir, puede encontrar sentido por los tres caminos." },
+    { enunciado: "Distingue la pregunta científica y la religiosa sobre el universo.", pasos: ["Ciencia: ¿cómo se formó el universo? (Big Bang, hace unos 13.800 millones de años).", "Religión y filosofía: ¿por qué existe algo en lugar de nada? ¿Tiene un propósito?"], resultado: "Son preguntas distintas que pueden ser complementarias." },
+    { enunciado: "Clasifica: «Dios no existe», «no se puede saber si Dios existe», «Dios existe y da sentido a la vida».", pasos: ["Negar la existencia de Dios: ateísmo.", "Suspender el juicio: agnosticismo.", "Afirmar a Dios como fuente de sentido: postura religiosa (teísmo)."], resultado: "Ateísmo, agnosticismo y teísmo." },
+  ],
+  errores: [
+    "Pensar que solo las personas religiosas se preguntan por el sentido.",
+    "Confundir agnosticismo (no se puede saber) con ateísmo (Dios no existe).",
+    "Creer que ciencia y fe son siempre enemigas.",
+    "Pensar que el sentido se encuentra de una vez para siempre: se construye a lo largo de la vida.",
+    "Reducir la logoterapia de Frankl a «pensar en positivo»: habla también de asumir el sufrimiento con responsabilidad.",
+  ],
+  ejercicios: [
+    { q: "¿Qué es la dimensión trascendente?", sol: "La capacidad humana de ir más allá de lo inmediato y preguntarse por el sentido de la vida." },
+    { q: "Pon dos ejemplos de situaciones límite.", sol: "La muerte de un ser querido y una enfermedad grave." },
+    { q: "Escribe las cuatro preguntas de Kant.", sol: "¿Qué puedo saber?, ¿qué debo hacer?, ¿qué me cabe esperar? y ¿qué es el ser humano?" },
+    { q: "Diferencia humanismo y postura religiosa.", sol: "El humanismo sitúa el sentido en la persona y sus valores; la postura religiosa lo sitúa en Dios o lo trascendente." },
+    { q: "¿Qué es la logoterapia?", sol: "La psicoterapia creada por Viktor Frankl, centrada en ayudar a la persona a encontrar sentido." },
+    { q: "Explica la frase «quien tiene un porqué para vivir puede soportar casi cualquier cómo».", sol: "Si una persona tiene una razón para vivir, encuentra fuerzas para superar circunstancias muy difíciles." },
+    { q: "¿Qué decía Agustín de Hipona sobre fe y razón?", sol: "«Cree para entender y entiende para creer»: se ayudan mutuamente." },
+    { q: "¿Quién fue Georges Lemaître?", sol: "Un sacerdote y físico belga que propuso la teoría del origen del universo conocida como Big Bang." },
+    { q: "Escribe tres actividades cotidianas que pueden dar sentido.", sol: "Por ejemplo: ayudar a un compañero, cuidar de un familiar, aprender algo que te apasiona." },
+    { q: "¿Por qué el silencio ayuda a buscar el sentido?", sol: "Porque permite pensar, conocerse y escuchar lo importante sin distracciones." },
+  ],
+  quiz: [
+    { q: "La logoterapia la fundó…", o: ["Viktor Frankl", "Sigmund Freud", "Kant"], a: 0, e: "Psiquiatra superviviente de Auschwitz." },
+    { q: "El agnóstico piensa que…", o: ["no se puede saber si Dios existe", "Dios existe", "Dios no existe"], a: 0, e: "Suspende el juicio." },
+    { q: "El Big Bang lo propuso…", o: ["Georges Lemaître", "Darwin", "Galileo"], a: 0, e: "Sacerdote y físico." },
+    { q: "Las situaciones límite…", o: ["despiertan las grandes preguntas", "son siempre alegres", "solo afectan a los adultos"], a: 0, e: "Como la muerte o la enfermedad." },
+    { q: "Ciencia y religión responden sobre todo a…", o: ["el cómo y el porqué", "lo mismo", "nada"], a: 0, e: "Son preguntas complementarias." },
+  ],
+  tarjetas: [
+    ["Dimensión trascendente", "Capacidad de buscar un sentido más allá de lo inmediato."],
+    ["Logoterapia", "Psicología del sentido de Viktor Frankl."],
+    ["Agnosticismo", "Postura que dice que no se puede saber si Dios existe."],
+  ],
+});
