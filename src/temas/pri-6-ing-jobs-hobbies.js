@@ -1,0 +1,98 @@
+// Inglés 6º de Primaria: jobs, hobbies and free time. En inglés con apoyo en castellano. Dibujos propios en SVG.
+const { tema, L, svg, tx, AZ, RO, VE, NA, AM } = require("./_pri6d");
+
+// Gráfico de barras de aficiones de una clase.
+const barras = svg("Gráfico: aficiones favoritas de la clase", `
+  ${[["football", 9, AZ], ["reading", 6, VE], ["gaming", 8, RO], ["dancing", 5, NA], ["drawing", 4, AM]].map(([n, v, c], i) => `<rect x="${92}" y="${18 + i * 30}" width="${v * 15}" height="20" rx="4" fill="${c}" fill-opacity=".8"/>${tx(86, 33 + i * 30, n, { s: 11, a: "end" })}${tx(98 + v * 15, 33 + i * 30, String(v), { s: 11, a: "start", c })}`).join("")}
+  <path d="M92 14 V 170" stroke="var(--ink)" stroke-width="1.5"/>${tx(160, 174, "students", { s: 10, c: "var(--muted)" })}`);
+
+module.exports = tema({
+  materia: "Inglés",
+  titulo: "Jobs, hobbies and free time",
+  objetivos: ["Learn vocabulary for jobs and workplaces", "Talk about hobbies with like / love / enjoy + -ing", "Ask and answer about free time and how often", "Talk about what you want to be in the future"],
+  claves: ["jobs", "What does she do?", "works in / at", "hobbies", "free time", "like / love / hate + -ing", "be good at", "How often…?", "want to be"],
+  pregunta: [
+    "Si alguien te pregunta «What do you do in your free time?», ¿te está preguntando por tu trabajo o por tus aficiones?",
+    "Por tus <mark>aficiones</mark>: «in your free time» significa «en tu tiempo libre». Contestarías «I play the drums» o «I love reading». Para preguntar por el trabajo se dice <mark>What do you do?</mark> o <b>What's your job?</b>: «I'm a nurse».",
+  ],
+  bloques: [
+    ["Jobs", `<p>Here are some common <mark>jobs</mark>: a <b>doctor</b>, a <b>nurse</b> (enfermero/a), a <b>teacher</b>, a <b>firefighter</b> (bombero/a), a <b>police officer</b>, a <b>vet</b> (veterinario/a), a <b>farmer</b>, a <b>chef</b> (cocinero/a), a <b>mechanic</b>, an <b>engineer</b>, a <b>journalist</b>, a <b>pilot</b>, a <b>shop assistant</b> (dependiente) and a <b>scientist</b>.</p><p>In English we use <b>a / an</b> before a job: «She's <b>a</b> pilot», «He's <b>an</b> engineer». <b>En castellano:</b> decimos «es piloto» sin artículo, pero en inglés el <i>a</i> es obligatorio. Muchos trabajos sirven para hombres y mujeres: <i>firefighter</i>, <i>police officer</i>.</p>`,
+      L.tabla("Trabajos en inglés", ["Job", "Spanish"], [["a nurse", "enfermero/a"], ["a firefighter", "bombero/a"], ["a vet", "veterinario/a"], ["an engineer", "ingeniero/a"]], AZ)],
+    ["Where do they work? What do they do?", `<p>To ask about a job: «<b>What does</b> your mum <b>do</b>?» – «She's a vet». To say where: «She <b>works in</b> an animal hospital». We say <mark>works in</mark> a hospital / an office / a shop / a school, <mark>works on</mark> a farm and <mark>works at</mark> home / the airport.</p><p>To explain the job, use the present simple: «A firefighter <b>puts out</b> fires and <b>rescues</b> people», «A chef <b>cooks</b> food in a restaurant», «A journalist <b>writes</b> news». <b>En castellano:</b> recuerda la -s de la tercera persona.</p>`,
+      L.filas("Trabajos y lugares de trabajo", [["a vet", "works in an animal hospital", VE], ["a farmer", "works on a farm", NA], ["a pilot", "works on a plane", AZ], ["a writer", "works at home", RO]])],
+    ["Hobbies and free time", `<p><mark>Hobbies</mark> are activities we do for fun in our <b>free time</b>. Some go with <b>play</b>: play football, play chess, play the guitar, play video games. Some go with <b>go</b> + -ing: go swimming, go skating, go cycling, go hiking, go shopping. Some go with <b>do</b>: do karate, do gymnastics, do yoga, do puzzles.</p><p>Others: read comics, draw, paint, dance, sing in a choir, cook, take photos, collect stickers. <b>En castellano:</b> fíjate en que con los instrumentos se dice <i>play the</i>: «play <b>the</b> piano».</p>`,
+      L.filas("Play, go y do con aficiones", [["play", "football · chess · the guitar", AZ], ["go + -ing", "swimming · skating · hiking", VE], ["do", "karate · gymnastics · yoga", RO]], "play · go · do")],
+    ["Likes and dislikes + -ing", `<p>After <b>like, love, enjoy, don't mind</b> and <b>hate</b> we use the verb with <mark>-ing</mark>: «I <b>love dancing</b>», «She <b>enjoys reading</b>», «I <b>don't mind</b> cleaning my room», «He <b>hates getting up</b> early».</p><p>From most to least: <b>love</b> → <b>really like</b> → <b>like</b> → <b>don't mind</b> (no me importa) → <b>don't like</b> → <b>hate</b>. Questions: «<b>Do you like</b> cooking?» – «Yes, I do!». <b>En castellano:</b> «me gusta bailar» se dice «I like dancing», con -ing, no «I like dance».</p>`,
+      L.filas("De love a hate", [["love", "♥♥♥ I love dancing.", RO], ["like", "♥♥ I like reading.", NA], ["don't mind", "♥ I don't mind cooking.", AM], ["don't like", "I don't like running.", AZ], ["hate", "I hate getting up early.", "var(--muted)"]]), "in10b"],
+    ["Good at, interested in", `<p>To talk about skills we say <mark>be good at</mark> + noun or -ing: «I'm <b>good at</b> drawing», «She's <b>good at</b> Maths», «I'm <b>not very good at</b> singing». To talk about interests: <mark>be interested in</mark>: «He's <b>interested in</b> space and planets».</p><p>Other useful expressions: <b>be into</b> (estar enganchado a): «I'm really <b>into</b> manga», and <b>be a fan of</b>: «I'm <b>a</b> big <b>fan of</b> basketball». <b>En castellano:</b> «se me da bien dibujar» = «I'm good at drawing».</p>`,
+      L.filas("Habilidades e intereses", [["good at", "I'm good at drawing.", VE], ["not good at", "I'm not good at singing.", RO], ["interested in", "He's interested in space.", AZ], ["a fan of", "I'm a fan of basketball.", NA]])],
+    ["How often?", `<p>To ask how often (con qué frecuencia) we say <mark>How often do you…?</mark> «<b>How often do you</b> go swimming?» – «<b>Twice a week</b>». Answers: <b>every day</b>, <b>once a week</b> (una vez a la semana), <b>twice a month</b>, <b>three times a year</b>, <b>at the weekend</b>, <b>on Mondays</b>.</p><p>Or use frequency adverbs: always, usually, often, sometimes, hardly ever, never. «I <b>usually</b> play tennis on Saturdays», «I <b>hardly ever</b> watch TV» (casi nunca).</p>`,
+      L.dialogo("¿Con qué frecuencia?", [["Lía", "How often do you play chess?", AZ], ["Teo", "Once a week, on Fridays.", RO], ["Lía", "Do you ever go skating?", AZ], ["Teo", "Hardly ever!", RO]])],
+    ["When I grow up…", `<p>To talk about the future job we say <mark>I want to be…</mark> or <mark>I'd like to be…</mark> + a / an: «I <b>want to be a</b> marine biologist», «I'<b>d like to be an</b> architect». Give a reason with <b>because</b>: «...<b>because</b> I love animals and the sea».</p><p>Connect hobbies and jobs: «I'm good at drawing, so I'd like to be a <b>designer</b>». «I enjoy helping people, so I want to be a <b>nurse</b>». <b>En castellano:</b> «When I grow up» significa «cuando sea mayor».</p>`,
+      L.filas("Aficiones y trabajos del futuro", [["good at drawing", "→ designer", NA], ["love animals", "→ vet", VE], ["enjoy helping", "→ nurse", RO], ["love computers", "→ programmer", AZ]], "Hobbies → jobs")],
+    ["Reading: a survey", `<p>Read the results of a class survey (encuesta): «In our class, 25 students answered. <b>Football</b> is the most popular hobby: nine students play it every week. <b>Video games</b> are second: eight students play them, but most only at the weekend. Six students <b>love reading</b> and five <b>do dance</b> classes. Four students are <b>really good at drawing</b>. When they grow up, three students <b>want to be</b> vets, two want to be teachers and one wants to be an astronaut!»</p>`,
+      barras],
+    ["Let's practise: find someone who…", `<p>Walk around the class and ask questions. Find someone who: <b>can</b> play an instrument, <b>is good at</b> cooking, <b>goes</b> hiking at the weekend, <b>hates</b> getting up early, <b>wants to be</b> a scientist. Ask: «<b>Do you</b> go hiking?», «<b>Are you</b> good at cooking?».</p><p>Then write a short profile of a classmate: «Marta is eleven. In her free time she <b>loves</b> skating and she <b>goes</b> swimming twice a week. She's <b>good at</b> Science and she <b>wants to be</b> an engineer».</p>`,
+      L.tabla("Busca a alguien que…", ["Find someone who…", "Name"], [["plays an instrument", "Iker"], ["is good at cooking", "Sara"], ["hates mornings", "Pau"], ["wants to be a vet", "Noa"]], VE)],
+  ],
+  ejemplos: [
+    ["Answer: «What does a vet do?»", ["Presente simple, tercera persona con -s.", "Explica la tarea principal."], "A vet looks after sick animals."],
+    ["Complete: «I love (play) ___ the drums.»", ["Después de love → -ing.", "play the + instrumento."], "I love playing the drums."],
+    ["Choose play, go or do: «___ karate», «___ skating», «___ chess».", ["Artes marciales → do.", "Actividad en -ing → go.", "Juego de reglas → play."], "do karate, go skating, play chess."],
+  ],
+  errores: [
+    "Olvidar el artículo: «She's teacher» → «She's a teacher».",
+    "Usar el infinitivo tras like: «I like swim» → «I like swimming».",
+    "Olvidar the con instrumentos: «I play guitar» → «I play the guitar».",
+    "Confundir play y go: «play swimming» → «go swimming».",
+    "Preposición incorrecta: «good in Maths» → «good at Maths».",
+  ],
+  ejercicios: [
+    ["Write the job: «This person helps sick animals.»", "a vet."],
+    ["Write the job: «This person puts out fires.»", "a firefighter."],
+    ["Complete with in, on or at: «A farmer works ___ a farm.»", "on."],
+    ["Complete with play, go or do: «___ yoga», «___ hiking», «___ the piano».", "do yoga, go hiking, play the piano."],
+    ["Complete: «She enjoys (read) ___ comics.»", "reading."],
+    ["Correct: «I'm good in drawing.»", "I'm good at drawing."],
+    ["Answer: «How often do you brush your teeth?»", "Model answer: Three times a day."],
+    ["Translate: «Cuando sea mayor quiero ser arquitecta.»", "When I grow up I want to be an architect."],
+    ["Write two hobbies you like and one you don't like.", "Model answer: I love dancing and I like cooking. I don't like running."],
+    ["Write a short profile of a family member (job and hobbies).", "Model answer: My uncle is a mechanic. He works in a garage. In his free time he goes cycling."],
+  ],
+  figura: ["Jobs, hobbies and free time", L.columnas("Trabajos y aficiones", [["What does she do?", "JOBS", ["She's a vet.", "works in / on / at"], AZ], ["free time", "HOBBIES", ["play · go · do", "the guitar"], VE], ["likes", "LOVE + -ING", ["I love dancing.", "I hate running."], RO], ["future", "WANT TO BE", ["I want to be", "an engineer."], AM]])],
+  video: "in10v",
+  quiz: [
+    ["«She's ___ engineer.»", ["an", "a", "-"], "Sonido vocálico: an."],
+    ["A person who cooks in a restaurant is a…", ["chef", "farmer", "pilot"], "Cocinero."],
+    ["«What does your dad ___?»", ["do", "does", "doing"], "Tras does, forma normal."],
+    ["«I like ___.»", ["swimming", "swim", "to swimming"], "like + -ing."],
+    ["«___ skating»", ["go", "play", "do"], "go + -ing."],
+    ["«___ the violin»", ["play", "go", "do"], "Instrumentos: play the."],
+    ["«I'm good ___ Maths.»", ["at", "in", "on"], "good at."],
+    ["«How often do you go to the cinema?» – «___»", ["Once a month.", "Yes, I do.", "At the cinema."], "Frecuencia."],
+    ["«don't mind» means…", ["no me importa", "me encanta", "lo odio"], "Neutro."],
+    ["«When I grow up I want ___ a pilot.»", ["to be", "be", "being"], "want to be."],
+  ],
+  examen: [
+    ["A farmer works ___ a farm.", ["on", "in", "at"], "on a farm."],
+    ["«He's interested ___ dinosaurs.»", ["in", "at", "on"], "interested in."],
+    ["«twice a week» means…", ["dos veces por semana", "dos semanas", "cada dos días"], "Frecuencia."],
+    ["«___ karate»", ["do", "play", "go"], "Artes marciales: do."],
+  ],
+  feynman: ["Cómo se pregunta y se dice el trabajo de alguien", "Cuándo se usa play, go y do con las aficiones", "Por qué detrás de like, love y hate va -ing", "Cómo se habla de lo que quieres ser de mayor"],
+  mapa: ["JOBS AND HOBBIES", AZ, [["Jobs", "She's a vet · works in", AZ], ["Hobbies", "play · go · do", VE], ["Likes", "love / hate + -ing", RO], ["Future", "I want to be a…", AM]], 240],
+  tarjetas: [
+    ["What does she do?", "¿A qué se dedica?"],
+    ["She's a nurse.", "Es enfermera (con a)."],
+    ["works on a farm", "Trabaja en una granja."],
+    ["play / go / do", "play chess · go swimming · do karate."],
+    ["love + -ing", "I love dancing."],
+    ["good at", "Se me da bien: good at drawing."],
+    ["How often…?", "¿Con qué frecuencia…?"],
+    ["I want to be…", "Quiero ser… de mayor."],
+  ],
+  familias: ["Entrevistad en inglés a un familiar sobre su trabajo: «What do you do? Where do you work?».", "Haced juntos una lista de aficiones de la familia con play, go y do."],
+  saberes: "Profesiones, aficiones y tiempo libre; gustos con verbos + -ing; frecuencia; planes de futuro (Lengua Extranjera)",
+  ideas: ["Encuesta de aficiones de la clase con gráfico de barras.", "Juego «Find someone who…».", "Juego de mímica de profesiones con What do I do?"],
+  fuentes: [["British Council LearnEnglish Kids: jobs", "https://learnenglishkids.britishcouncil.org/word-games/jobs"], ["Cambridge Dictionary: like, love, hate + -ing", "https://dictionary.cambridge.org/grammar/british-grammar/like-love-hate-etc"]],
+});

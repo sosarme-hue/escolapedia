@@ -1,0 +1,98 @@
+// Inglés 6º de Primaria: going to and will. En inglés con apoyo en castellano. Dibujos propios en SVG.
+const { tema, L, svg, tx, AZ, RO, VE, NA, AM } = require("./_pri6d");
+
+// Nube que amenaza lluvia: «It's going to rain».
+const nube = svg("Nubes negras: It's going to rain", `<g fill="var(--muted)" fill-opacity=".7"><circle cx="100" cy="64" r="26"/><circle cx="132" cy="54" r="32"/><circle cx="166" cy="66" r="24"/><rect x="80" y="62" width="104" height="28" rx="14"/></g>
+  ${[90, 115, 140, 165].map((x) => `<path d="M${x} 100 l -6 14" stroke="${"var(--water)"}" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"/>`).join("")}
+  ${tx(130, 150, "Look at the clouds!", { s: 13, c: AZ })}${tx(130, 168, "It's going to rain.", { s: 13 })}`);
+
+module.exports = tema({
+  materia: "Inglés",
+  titulo: "Going to and will",
+  objetivos: ["Talk about plans with going to (planes)", "Make predictions with will and with going to (predicciones)", "Use will for quick decisions and promises", "Make negatives and questions with both forms"],
+  claves: ["future", "be going to", "plans", "will / 'll", "won't", "predictions", "promises", "tomorrow", "next week"],
+  pregunta: [
+    "Si dices «el sábado <b>voy a ir</b> al cine» y «creo que mañana <b>lloverá</b>», ¿hablas del futuro de la misma manera?",
+    "No exactamente. «Voy a ir» es un <mark>plan</mark> que ya has decidido: en inglés, <b>I'm going to go</b>. «Lloverá» es una <mark>predicción</mark>, lo que crees que pasará: <b>I think it will rain</b>. El inglés tiene dos formas principales para el futuro: <i>going to</i> y <i>will</i>.",
+  ],
+  bloques: [
+    ["Two ways to talk about the future", `<p>In English we often use <mark>be going to</mark> for <b>plans and intentions</b> (things we decided before): «I'<b>m going to visit</b> my grandparents this weekend». We use <mark>will</mark> for <b>predictions</b>, <b>quick decisions</b> and <b>promises</b>: «I think it <b>will be</b> sunny», «I'<b>ll help</b> you!».</p><p><b>En castellano:</b> <i>going to</i> se parece a «ir a + infinitivo» («voy a visitar»), y <i>will</i> se parece al futuro («visitaré», «ayudaré»). No es una traducción exacta, pero ayuda mucho a recordarlo.</p>`,
+      L.filas("Dos futuros: going to para planes y will para predicciones y promesas", [["be going to", "plans: I'm going to visit Paris.", AZ], ["will", "predictions, promises: I'll help you.", RO]], "Two futures")],
+    ["Going to: form", `<p>The form is: <mark>am / is / are + going to + verb</mark>. «I'<b>m going to</b> learn the guitar», «She'<b>s going to</b> be a vet», «We'<b>re going to</b> play a match on Sunday».</p><p>Negative: «I'<b>m not going to</b> watch TV tonight», «He <b>isn't going to</b> come». Question: «<b>Are</b> you <b>going to</b> buy a present?» – «Yes, I am. / No, I'm not». «<b>What are</b> you <b>going to</b> do at the weekend?». <b>En castellano:</b> fíjate en que el verbo <i>to be</i> cambia con la persona, igual que en el presente continuo.</p>`,
+      L.frase("Going to: We are going to play a match", [["We", "sujeto", AZ], ["are", "to be", RO], ["going to", "", NA], ["play", "verbo", VE], ["a match.", "", "var(--line)"]], "am / is / are + going to + verb")],
+    ["Plans and evidence", `<p>We use <i>going to</i> for <b>plans</b>: «Next summer we'<b>re going to</b> travel to Italy. We've got the tickets!». We also use it for <b>predictions with evidence</b> (cuando vemos una prueba ahora): «Look at those black clouds! It'<b>s going to rain</b>», «Be careful! You'<b>re going to fall</b>!».</p><p><b>En castellano:</b> si ves algo que te hace estar casi seguro de lo que va a pasar (nubes negras, alguien que tropieza), usa <i>going to</i>.</p>`,
+      nube],
+    ["Will: form", `<p>The form of <mark>will</mark> is the same for <b>all persons</b>: <b>will + verb</b>. «I <b>will</b> go», «she <b>will</b> go», «they <b>will</b> go». The short form is <b>'ll</b>: I'll, you'll, she'll, we'll.</p><p>Negative: <mark>won't</mark> (will not): «It <b>won't</b> snow tomorrow». Question: «<b>Will</b> you <b>come</b> to my party?» – «Yes, I will. / No, I won't». <b>Careful:</b> after <i>will</i> the verb has no -s and no <i>to</i>: «she will play», not «she will plays» or «will to play».</p>`,
+      L.tabla("Will: afirmativa, negativa y pregunta", ["Form", "Example"], [["+", "I'll call you."], ["−", "It won't rain."], ["?", "Will you come?"]], RO), "in4b"],
+    ["Will for predictions", `<p>We use <i>will</i> to say what we <b>think</b> or <b>believe</b> about the future, often with <mark>I think, I'm sure, probably, maybe</mark>: «I think Spain <b>will win</b> the match», «In 2050 people <b>will</b> probably <b>travel</b> in flying cars», «Maybe robots <b>will</b> do our homework!».</p><p><b>En castellano:</b> son opiniones o adivinanzas, sin una prueba que estemos viendo. «I think…» = «creo que…». «I don't think it will rain» = «no creo que llueva».</p>`,
+      L.filas("Predicciones sobre el año 2050", [["I think", "cars will fly.", AZ], ["I'm sure", "we will use robots.", VE], ["Maybe", "people will live on Mars.", NA], ["I don't think", "schools will close.", RO]])],
+    ["Will for decisions and promises", `<p>We use <i>will</i> when we decide something <mark>at the moment of speaking</mark> (en el momento): «It's cold in here.» – «I'<b>ll close</b> the window». «What would you like?» – «I'<b>ll have</b> a sandwich, please».</p><p>We also use it for <b>promises</b> and <b>offers</b> (promesas y ofrecimientos): «I'<b>ll</b> always <b>be</b> your friend», «Don't worry, I <b>won't tell</b> anyone», «<b>Shall I</b> help you?» – «Thank you!».</p>`,
+      L.dialogo("Decisión en el momento: I'll close the window", [["Mum", "It's very cold in here!", AZ], ["Leo", "I'll close the window.", RO], ["Mum", "Thanks, darling.", AZ], ["Leo", "And I'll make some tea!", RO]])],
+    ["Going to or will?", `<p>Compare: «I'<b>m going to</b> study Medicine» (a plan, I decided it before) and «Oh, the phone! I'<b>ll</b> answer it» (a decision now). «Look at the sky! It'<b>s going to</b> snow» (evidence) and «I think it <b>will</b> snow at Christmas» (opinion).</p><p>Time words for the future: <mark>tomorrow, tonight, next week, next year, this weekend, in the future, soon, one day</mark>. <b>En castellano:</b> la palabra de tiempo no decide la forma; lo que decide es si es un plan, una prueba o una opinión.</p>`,
+      L.tabla("Going to o will", ["Going to", "Will"], [["plans", "predictions"], ["evidence now", "opinions"], ["decided before", "decided now"], ["", "promises"]], AZ)],
+    ["Reading: my plans for the future", `<p>Read Lucía's text: «Next year I'<b>m going to start</b> secondary school. I'm a bit nervous, but I think it <b>will be</b> fun. I'<b>m going to join</b> the school choir because I love singing. When I grow up, I'<b>m going to be</b> a marine biologist. I'<b>ll study</b> dolphins and whales. I'm sure the oceans <b>will need</b> our help, so I <b>won't stop</b> fighting for them. Maybe one day I'<b>ll live</b> on a boat!»</p>`,
+      L.filas("Los planes y predicciones de Lucía", [["plan", "I'm going to start secondary.", AZ], ["plan", "I'm going to join the choir.", AZ], ["prediction", "It will be fun.", RO], ["promise", "I won't stop fighting.", VE]])],
+    ["Let's practise: my future box", `<p>Write a «future box» (una caja del futuro) to open at the end of secondary school. Write three <b>plans</b> with going to and three <b>predictions</b> with will: «Next summer I'm going to learn to surf», «I think I'll be taller than my dad».</p><p>Then interview a partner: «What are you going to do this weekend?», «Do you think you'll live in another country?». <b>Consejo:</b> pregunta con <i>Are you going to…?</i> para planes y con <i>Will you…?</i> o <i>Do you think you'll…?</i> para predicciones.</p>`,
+      L.dialogo("Entrevista sobre el futuro", [["Iván", "Plans for the weekend?", AZ], ["Sofía", "I'm going to visit my aunt.", RO], ["Iván", "Do you think you'll live abroad?", AZ], ["Sofía", "Maybe! I'll travel a lot.", RO]])],
+  ],
+  ejemplos: [
+    ["Complete with going to: «We (paint) ___ my bedroom tomorrow. We've bought the paint.»", ["Es un plan decidido antes (ya hay pintura).", "We + are + going to + paint."], "We're going to paint my bedroom tomorrow."],
+    ["Choose: «The phone is ringing!» «I (answer / 'm going to answer) it.»", ["Decisión en el momento → will.", "I'll answer it."], "I'll answer it."],
+    ["Make it negative: «It will snow tonight.»", ["Negativa de will: won't + verbo."], "It won't snow tonight."],
+  ],
+  errores: [
+    "Olvidar el verbo to be: «I going to play» → «I'm going to play».",
+    "Poner -s o to tras will: «she will plays», «will to go» → «she will play», «will go».",
+    "Decir «willn't» → «won't».",
+    "Usar will para un plan ya decidido: «I will visit Rome next week, I have the tickets» → «I'm going to visit».",
+    "Confundir going to (futuro) con going (ir): «I'm going to the cinema» es «voy al cine».",
+  ],
+  ejercicios: [
+    ["Complete: «She ___ (be) a doctor when she grows up.» (going to)", "is going to be."],
+    ["Make it negative: «They are going to play tennis.»", "They aren't going to play tennis."],
+    ["Make a question: «You are going to buy a new bike.»", "Are you going to buy a new bike?"],
+    ["Complete with will or won't: «Don't worry, I ___ tell your secret.»", "won't."],
+    ["What's the short form of «I will»?", "I'll."],
+    ["Choose: «Look! That boy (will fall / is going to fall)!»", "is going to fall (hay una prueba)."],
+    ["Choose: «I'm thirsty.» «I (will get / am going to get) you some water.»", "will get (decisión en el momento)."],
+    ["Correct: «I think it will raining tomorrow.»", "I think it will rain tomorrow."],
+    ["Translate: «El año que viene voy a aprender a nadar.»", "Next year I'm going to learn to swim."],
+    ["Write one plan and one prediction about next summer.", "Model answer: I'm going to go camping. I think it will be very hot."],
+  ],
+  figura: ["Going to and will", L.columnas("El futuro: going to y will", [["plans", "GOING TO", ["I'm going to visit", "my grandma."], AZ], ["evidence", "GOING TO", ["Look! It's going", "to rain."], VE], ["predictions", "WILL", ["I think it", "will be sunny."], NA], ["decisions, promises", "I'LL", ["I'll help you.", "I won't tell."], RO]])],
+  video: "in4v",
+  quiz: [
+    ["«I ___ going to visit Rome next week.»", ["am", "will", "is"], "I + am + going to."],
+    ["«She ___ going to buy a dog.»", ["is", "are", "am"], "She + is."],
+    ["The negative of «will» is…", ["won't", "willn't", "don't will"], "will not = won't."],
+    ["«I think it ___ cold tomorrow.»", ["will be", "will is", "is going be"], "Predicción: will + verbo."],
+    ["«Look at the clouds! It ___ rain.»", ["is going to", "will", "goes to"], "Hay una prueba: going to."],
+    ["«It's hot in here.» «I ___ open the window.»", ["'ll", "'m going to", "will to"], "Decisión en el momento."],
+    ["«___ you come to my party?»", ["Will", "Are", "Do"], "Pregunta con will."],
+    ["Which is a future time expression?", ["next week", "last week", "yesterday"], "Next = próximo."],
+    ["«What are you going to ___ this weekend?»", ["do", "doing", "did"], "going to + verbo normal."],
+    ["Which is a promise?", ["I'll always help you.", "It's going to rain.", "I'm going to study."], "Promesa: will."],
+  ],
+  examen: [
+    ["«We aren't going ___ play today.»", ["to", "for", "-"], "going to."],
+    ["«Maybe robots ___ do the housework.»", ["will", "are going", "won't to"], "Predicción con maybe."],
+    ["Short form of «they will»:", ["they'll", "they'ill", "theyll'"], "'ll."],
+    ["«He's going to be a vet» expresses…", ["a plan", "a quick decision", "a promise"], "Going to: planes."],
+  ],
+  feynman: ["Cuándo se usa going to", "Cuándo se usa will", "Cómo se forman la negativa y la pregunta de cada uno", "Qué diferencia hay entre una predicción con prueba y una opinión"],
+  mapa: ["THE FUTURE", AZ, [["Going to: plans", "I'm going to visit Rome.", AZ], ["Going to: evidence", "Look! It's going to rain.", VE], ["Will: predictions", "I think it will be sunny.", NA], ["Will: now, promises", "I'll help you. I won't tell.", RO]], 250],
+  tarjetas: [
+    ["be going to", "Planes e intenciones: I'm going to study."],
+    ["Evidence", "Look! It's going to rain."],
+    ["will + verbo", "Predicciones: I think it will rain."],
+    ["'ll", "Forma corta de will."],
+    ["won't", "Negativa de will."],
+    ["I'll…", "Decisión en el momento u ofrecimiento."],
+    ["Promise", "I'll always be your friend."],
+    ["next week", "La semana que viene."],
+  ],
+  familias: ["El domingo, contad en inglés los planes de la semana: «On Monday I'm going to…».", "Jugad a adivinar el futuro de la familia en 2050 con frases con will."],
+  saberes: "Expresión de planes, intenciones, predicciones y promesas; futuro con be going to y will (Lengua Extranjera)",
+  ideas: ["Cápsula del tiempo con planes y predicciones para abrir en 4º de ESO.", "Previsión del tiempo de la semana presentada como en la tele.", "Juego de rol en una cafetería: I'll have…"],
+  fuentes: [["British Council LearnEnglish Kids: going to", "https://learnenglishkids.britishcouncil.org/grammar-practice/going"], ["Cambridge Dictionary: future, will and be going to", "https://dictionary.cambridge.org/grammar/british-grammar/future-be-going-to-i-am-going-to-work"]],
+});
