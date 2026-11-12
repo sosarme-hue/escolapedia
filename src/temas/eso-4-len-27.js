@@ -99,3 +99,56 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Explicar las etapas de la Generación del 27", "Comentar un poema de Lorca y una greguería", "Conocer el teatro de Lorca y la figura de Miguel Hernández"],
+  bloques: [
+    { tras: "El Novecentismo", html: `<h3>Juan Ramón Jiménez y la poesía pura</h3><p>Juan Ramón Jiménez (Moguer, 1881 - Puerto Rico, 1958), premio Nobel en 1956, es el maestro de los poetas del 27. Su obra pasa por tres etapas: una <b>sensitiva</b>, de influencia modernista y melancólica; una <b>intelectual</b>, desde <i>Diario de un poeta recién casado</i> (1916), en la que busca la <mark>poesía pura</mark>, desnuda de adornos («¡Intelijencia, dame / el nombre exacto de las cosas!»), y una <b>suficiente o verdadera</b> en el exilio americano. Escribía la <i>j</i> en lugar de la <i>g</i> como rasgo personal.</p><p>Su obra en prosa más conocida es <b><i>Platero y yo</i></b> (1914), elegía andaluza sobre un burrito «pequeño, peludo, suave», que muchos niños han leído en el colegio.</p>` },
+    { tras: "Las vanguardias", html: `<h3>Ramón Gómez de la Serna y las greguerías</h3><p>Ramón Gómez de la Serna (Madrid, 1888-1963) fue el gran introductor de las vanguardias en España desde su tertulia del café Pombo. Inventó la <b>greguería</b>, que definió con una fórmula: <mark>humorismo + metáfora = greguería</mark>. Es una frase breve que mira las cosas de una manera nueva y sorprendente:</p><ul><li>«El arco iris es la bufanda del cielo».</li><li>«El tornillo es un clavo peinado con raya al medio».</li><li>«El agua se suelta el pelo en las cascadas».</li><li>«La luna es el ojo de buey del barco de la noche».</li></ul><p>Escribió miles. Son un buen modelo para entender la imagen vanguardista: unir dos realidades que nadie había relacionado.</p>` },
+    { tras: "La Generación del 27", html: `<h3>Las etapas del grupo</h3>${L.tb(["Etapa", "Años", "Rasgos", "Ejemplos"], [["Poesía pura y vanguardias", "hasta 1927", "influencia de Juan Ramón y del ultraísmo; también poesía popular", "Marinero en tierra (Alberti)"], ["Surrealismo y compromiso", "1927-1936", "crisis personal, imágenes oníricas, preocupación social", "Poeta en Nueva York (Lorca), Sobre los ángeles (Alberti)"], ["Después de la guerra", "desde 1939", "exilio y nostalgia, o poesía existencial en España", "Hijos de la ira (Dámaso Alonso)"]])}<p>La Guerra Civil rompió el grupo: Lorca fue asesinado en 1936; Alberti, Cernuda, Salinas y Guillén se exiliaron; Aleixandre y Dámaso Alonso se quedaron en España.</p>` },
+    { tras: "Los poetas del 27", html: `<h3>Lorca: poesía y teatro</h3><p>Federico García Lorca (Fuente Vaqueros, 1898 - Víznar, 1936) unió como nadie lo popular y lo vanguardista. En el <i>Romancero gitano</i> (1928) usa el romance tradicional con metáforas sorprendentes («Verde que te quiero verde. / Verde viento. Verdes ramas»). Su gran tema es el <b>destino trágico</b> y la frustración, a menudo simbolizados por la luna, la sangre, el caballo o el agua estancada.</p><p>En el teatro escribió tragedias rurales protagonizadas por mujeres que chocan contra las normas sociales: <i>Bodas de sangre</i>, <i>Yerma</i> y <b><i>La casa de Bernarda Alba</i></b> (1936), donde una madre autoritaria encierra a sus cinco hijas tras la muerte de su marido. Lorca dirigió además La Barraca, un teatro universitario que llevó los clásicos a los pueblos.</p>` },
+    { tras: "Las Sinsombrero", html: `<h3>Miguel Hernández, entre el 27 y la guerra</h3><p>Miguel Hernández (Orihuela, 1910 - Alicante, 1942) fue pastor de cabras en su infancia y se formó leyendo por su cuenta. Su primer gran libro, <i>El rayo que no cesa</i> (1936), son sonetos de amor y dolor. Durante la Guerra Civil escribió poesía comprometida con la República (<i>Viento del pueblo</i>). Encarcelado al terminar la guerra, compuso en prisión el <i>Cancionero y romancero de ausencias</i>, con poemas tan conmovedores como las «Nanas de la cebolla», para su hijo, que pasaba hambre. Murió de tuberculosis en la cárcel a los 31 años. Se le considera el <mark>«genial epígono»</mark> del 27, según Dámaso Alonso.</p>` },
+  ],
+  videos: [
+    ["Las vanguardias", L.vid("qKqUkrdKJpE", "El Novecentismo y las vanguardias: resumen", "Clases Particulares en Ávila", 124925)],
+    ["Los poetas del 27", L.vid("of9aOwwNTac", "Breve biografía de Federico García Lorca", "JessieOrtiz87", 254701)],
+  ],
+  ejemplos: [
+    ["Explica la greguería «El arco iris es la bufanda del cielo».", ["Identifica las dos realidades: el arco iris y una bufanda.", "Busca la semejanza: los dos son franjas alargadas de colores que «envuelven».", "Fíjate en el humor: el cielo se convierte en alguien que se abriga."], "es una metáfora humorística: humorismo + metáfora = greguería."],
+    ["Comenta estos versos de Lorca: «Verde que te quiero verde. / Verde viento. Verdes ramas. / El barco sobre la mar / y el caballo en la montaña.»", ["Métrica: octosílabos con rima asonante en los pares: es un romance.", "Repetición obsesiva de «verde» (anáfora) que crea un ambiente misterioso.", "El verde simboliza la muerte y el deseo frustrado en el poema.", "Mezcla de tradición (romance) y vanguardia (imágenes irracionales)."], "romance tradicional con simbolismo y repeticiones de influencia vanguardista: síntesis típica del 27."],
+    ["Explica por qué La casa de Bernarda Alba es una tragedia.", ["Hay un conflicto entre el deseo de libertad (Adela) y la autoridad (Bernarda).", "El destino parece inevitable: las hijas no pueden escapar del encierro.", "El final es la muerte: Adela se suicida al creer muerto a Pepe el Romano."], "es una tragedia porque el choque entre libertad y autoridad lleva a un final de muerte inevitable."],
+  ],
+  errores: [
+    "Pensar que todos los del 27 escribieron igual: cada uno tiene su estilo, aunque compartan rasgos.",
+    "Olvidar a las mujeres del 27: Concha Méndez, Ernestina de Champourcín, María Teresa León, Rosa Chacel…",
+    "Confundir la greguería con un chiste: es una metáfora con humor.",
+    "Atribuir Platero y yo a Lorca: es de Juan Ramón Jiménez.",
+    "Creer que la Generación del 27 rechaza la tradición: la une con la vanguardia.",
+  ],
+  ejercicios: [
+    ["¿Qué es la poesía pura?", "Una poesía desnuda de adornos y de anécdota, que busca la esencia de las cosas con palabras exactas. La defendió Juan Ramón Jiménez."],
+    ["Inventa una greguería.", "Por ejemplo: «Los paraguas son murciélagos que se abren cuando llueve». Debe unir humor y metáfora."],
+    ["¿Por qué se toma 1927 como fecha del grupo?", "Porque en 1927 se celebró en Sevilla un homenaje a Góngora en el tercer centenario de su muerte, en el que participaron varios de estos poetas."],
+    ["Nombra tres poetas del 27 que se exiliaron.", "Rafael Alberti, Luis Cernuda y Pedro Salinas (también Jorge Guillén y Emilio Prados)."],
+    ["¿Qué símbolos usa Lorca y qué significan?", "La luna (muerte), la sangre (vida, pasión y violencia), el caballo (pasión, vitalidad) y el agua estancada (frustración)."],
+    ["Resume La casa de Bernarda Alba en dos líneas.", "Tras enviudar, Bernarda impone ocho años de luto y encierro a sus cinco hijas. La rebeldía de la menor, Adela, termina en tragedia."],
+    ["¿Qué fue La Barraca?", "Un grupo de teatro universitario dirigido por Lorca que llevaba obras clásicas del Siglo de Oro a los pueblos de España."],
+    ["¿Por qué se llama Sinsombrero a las mujeres del 27?", "Porque se quitaron el sombrero en público en la Puerta del Sol como gesto de libertad y rebeldía frente a las normas sociales."],
+    ["¿Qué escribió Miguel Hernández en la cárcel?", "El Cancionero y romancero de ausencias, con poemas como las «Nanas de la cebolla»."],
+    ["Explica la frase «unir tradición y vanguardia» con un ejemplo.", "Usar formas antiguas como el romance o la canción popular con imágenes nuevas y sorprendentes, como hace Lorca en el Romancero gitano."],
+  ],
+  quiz: [
+    ["Platero y yo es de…", ["Juan Ramón Jiménez", "Lorca", "Alberti"], 0, "Prosa poética de 1914."],
+    ["«Humorismo + metáfora» define…", ["la greguería", "el soneto", "el esperpento"], 0, "Fórmula de Ramón Gómez de la Serna."],
+    ["El Romancero gitano usa sobre todo…", ["el romance", "el soneto", "el verso libre"], 0, "Octosílabos con rima asonante en los pares."],
+    ["¿Quién escribió las «Nanas de la cebolla»?", ["Miguel Hernández", "Luis Cernuda", "Dámaso Alonso"], 0, "Desde la cárcel, para su hijo."],
+    ["Poeta en Nueva York pertenece a la etapa…", ["surrealista", "de poesía pura", "romántica"], 0, "Imágenes oníricas y crítica social."],
+  ],
+  tarjetas: [
+    ["Poesía pura", "Poesía esencial, sin adornos: Juan Ramón Jiménez."],
+    ["La casa de Bernarda Alba", "Tragedia de Lorca (1936): autoridad frente a libertad."],
+    ["Miguel Hernández", "El rayo que no cesa; murió en la cárcel en 1942."],
+  ],
+});

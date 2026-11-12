@@ -97,3 +97,57 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Reconocer las sustantivas de infinitivo y las interrogativas indirectas", "Evitar el dequeísmo y el queísmo"],
+  bloques: [
+    { tras: "Qué es la subordinación", html: `<h3>Proposición principal y subordinada</h3><p>En «Creo que lloverá» hay dos verbos y, por tanto, dos proposiciones. Pero no están al mismo nivel: «que lloverá» es una pieza de la otra, porque funciona como complemento directo de «creo». La proposición que contiene a la otra se llama <b>principal</b> (o, mejor dicho, oración principal con la subordinada dentro), y la que funciona como una pieza se llama <b>subordinada</b>.</p><p>Esta es la gran diferencia con la coordinación: en «Llueve y hace frío» ninguna depende de la otra; en «Creo que lloverá», si quitas la subordinada, la principal queda incompleta («Creo…» ¿qué?). <mark>La subordinada siempre cumple una función dentro de la principal.</mark></p>` },
+    { tras: "Los nexos", html: `<h3>Sustantivas de infinitivo</h3><p>Muchas sustantivas no llevan nexo y tienen el verbo en <b>infinitivo</b>: «Me encanta <i>bailar salsa</i>», «Prefiero <i>quedarme en casa</i>», «Es importante <i>dormir bien</i>». Siguen siendo proposiciones porque el infinitivo puede llevar sus propios complementos (salsa, en casa, bien).</p><p>Se reconocen con la misma prueba: «Me encanta <b>eso</b>», «Prefiero <b>eso</b>». Ten cuidado: si el infinitivo forma parte de una perífrasis («Tengo que <i>salir</i>», «Voy a <i>bailar</i>»), no es subordinada, sino parte del mismo verbo.</p>` },
+    { tras: "Los nexos", html: `<h3>Estilo directo e indirecto</h3><p>Las sustantivas aparecen siempre que contamos lo que otra persona ha dicho o preguntado. En el <b>estilo directo</b> se reproducen las palabras exactas, con comillas o raya: Ana dijo: «Estoy cansada». En el <b>estilo indirecto</b> se integran en una sustantiva de CD: <mark>Ana dijo que estaba cansada</mark>.</p>${L.tb(["Directo", "Indirecto"], [["Me preguntó: «¿Vienes?»", "Me preguntó <b>si</b> iba."], ["Me preguntó: «¿Dónde vives?»", "Me preguntó <b>dónde</b> vivía."], ["Dijo: «Mañana lo haré».", "Dijo <b>que</b> al día siguiente lo haría."]])}<p>Al pasar a indirecto cambian las personas, los tiempos verbales y los adverbios de tiempo y lugar.</p>` },
+    { tras: "Sus funciones", html: `<h3>Dequeísmo y queísmo</h3><p>El <b>dequeísmo</b> es poner «de» donde no va: <s>*Pienso de que</s> → «Pienso que». El <b>queísmo</b> es quitar el «de» cuando el verbo lo exige: <s>*Me acuerdo que</s> → «Me acuerdo de que».</p><p>Truco: <mark>convierte la sustantiva en «eso»</mark> y mira si necesitas la preposición. «Pienso eso» (sin de) → <i>pienso que</i>. «Me acuerdo de eso» (con de) → <i>me acuerdo de que</i>. «Estoy seguro de eso» → <i>estoy seguro de que</i>. «Me alegro de eso» → <i>me alegro de que</i>. Otra prueba es convertirlo en pregunta: «¿Qué piensas?» (sin de) frente a «¿De qué te acuerdas?» (con de).</p>` },
+    { tras: "Truco para la función", html: `<h3>Sustantivas que complementan a un nombre o a un adjetivo</h3><p>Además de sujeto, CD o complemento de régimen, una sustantiva puede ir detrás de una preposición que depende de un <b>sustantivo</b> o de un <b>adjetivo</b>:</p><ul><li>Complemento del nombre: «Tengo <i>ganas</i> <b>de que llegue el verano</b>».</li><li>Complemento del adjetivo: «Estoy <i>harta</i> <b>de que me interrumpan</b>».</li><li>Atributo: «Mi deseo es <b>que apruebes</b>».</li></ul><p>En todos estos casos la prueba de «eso» sigue funcionando: «ganas de eso», «harta de eso», «Mi deseo es eso». Lo que cambia es la palabra de la que depende: un verbo, un nombre o un adjetivo.</p>` },
+    { tras: "Truco para la función", html: `<h3>Análisis paso a paso</h3><ol><li><b>Cuenta los verbos</b> en forma personal (y los infinitivos que formen proposición) y sepáralos.</li><li><b>Busca el nexo</b>: que, si o un interrogativo (qué, quién, cómo, dónde, cuándo, cuánto). Con infinitivo puede no haberlo.</li><li><b>Aplica la prueba de «eso»</b> para confirmar que es sustantiva.</li><li><b>Busca su función</b> en la principal: sujeto (concuerda), CD (se cambia por «lo»), término de preposición (va detrás de de, en, con…), atributo (con ser o estar).</li><li><b>Analiza por dentro</b> la subordinada como si fuera una oración simple: su sujeto, su verbo y sus complementos.</li></ol><p>En el esquema final, la subordinada aparece dentro de la principal, en el lugar de la función que cumple.</p>` },
+  ],
+  videos: [
+    ["Qué es la subordinación", L.vid("fqt3z4pZvF8", "Cómo diferenciar oraciones subordinadas: sustantivas, adjetivas y adverbiales", "Clases Particulares en Ávila", 775793)],
+    ["Sus funciones", L.vid("Y0RKtGii678", "Cómo analizar una oración subordinada sustantiva", "unProfesor", 536604)],
+  ],
+  ejemplos: [
+    ["Analiza: «Me molesta que hables tan alto.»", ["Verbos: molesta, hables. Dos proposiciones.", "Subordinada: «que hables tan alto». Prueba: «Me molesta eso».", "Función: pasa a plural, «Me molestan esas cosas»; el verbo concuerda, así que es el sujeto.", "Dentro: nexo «que»; sujeto elíptico tú; CCM «tan alto»."], "subordinada sustantiva de sujeto."],
+    ["Analiza: «No sé si iremos al cine.»", ["Verbos: sé, iremos. Dos proposiciones.", "Subordinada: «si iremos al cine». Prueba: «No sé eso» → «No lo sé».", "Se sustituye por «lo»: complemento directo.", "Nexo «si»: es una interrogativa indirecta total (la respuesta sería sí o no)."], "subordinada sustantiva de complemento directo, interrogativa indirecta."],
+    ["Analiza: «Confío en que todo saldrá bien.»", ["Verbos: confío, saldrá. Dos proposiciones.", "Subordinada: «que todo saldrá bien», precedida de la preposición «en».", "Prueba: «Confío en eso». El verbo «confiar» exige «en».", "Dentro: nexo «que»; sujeto «todo»; CCM «bien»."], "subordinada sustantiva de término de preposición en un complemento de régimen."],
+  ],
+  errores: [
+    "Pensar que todo «que» introduce una sustantiva: si tiene antecedente, es un relativo.",
+    "Dequeísmo: «pienso de que», «me dijo de que».",
+    "Queísmo: «me acuerdo que», «estoy seguro que».",
+    "Olvidar la preposición en el complemento de régimen: en «Me acuerdo de que…», la sustantiva es término de «de».",
+    "Tratar como subordinada el infinitivo de una perífrasis («tengo que salir»).",
+  ],
+  ejercicios: [
+    ["Subraya la sustantiva y di su función: «Es necesario que estudies.»", "«que estudies»: sujeto (Es necesario eso; Son necesarias esas cosas)."],
+    ["Subraya la sustantiva y di su función: «Prefiero quedarme en casa.»", "«quedarme en casa»: CD de infinitivo (Lo prefiero)."],
+    ["Subraya la sustantiva y di su función: «Me alegro de que hayas venido.»", "«de que hayas venido»: complemento de régimen (Me alegro de eso)."],
+    ["Corrige: «Me di cuenta que era tarde» y «Creo de que tienes razón».", "«Me di cuenta de que era tarde» (darse cuenta de algo). «Creo que tienes razón» (creo eso)."],
+    ["Pasa a estilo indirecto: Luis preguntó: «¿Cuándo empieza la película?»", "Luis preguntó cuándo empezaba la película."],
+    ["Pasa a estilo indirecto: Mi madre dijo: «Hoy cenaremos pizza».", "Mi madre dijo que ese día cenaríamos pizza."],
+    ["¿Qué función tiene la sustantiva en «Tengo miedo de que se rompa»?", "Complemento del nombre «miedo» (miedo de eso)."],
+    ["¿Qué función tiene en «Mi sueño es que viajemos juntos»?", "Atributo del verbo copulativo «es»."],
+    ["Escribe una sustantiva de CD introducida por un interrogativo.", "«Dime cómo te llamas.» (Dímelo: CD; nexo interrogativo «cómo»)."],
+    ["¿Es sustantiva «que» en «El libro que leí era largo»? Justifica.", "No. «Que» tiene antecedente (el libro) y no se puede cambiar por «eso»: es una subordinada de relativo."],
+  ],
+  quiz: [
+    ["«Me acuerdo ___ tu cumpleaños.»", ["de que es", "que es", "de que de es"], 0, "Me acuerdo de eso."],
+    ["En «Me encanta nadar», «nadar» es…", ["sujeto", "CD", "CCM"], 0, "Me encanta eso / Me encantan esas cosas."],
+    ["«Pienso de que…» es un caso de…", ["dequeísmo", "queísmo", "leísmo"], 0, "Sobra «de»."],
+    ["En «Estoy harto de que grites», la subordinada complementa a…", ["un adjetivo", "un sustantivo", "un adverbio"], 0, "Harto es adjetivo."],
+    ["El estilo indirecto de «¿Vienes?», preguntó, es…", ["Preguntó si venía.", "Preguntó que vienes.", "Preguntó ¿vienes?"], 0, "Interrogativa indirecta con «si»."],
+  ],
+  tarjetas: [
+    ["Dequeísmo", "Poner «de» que sobra: *pienso de que → pienso que."],
+    ["Queísmo", "Quitar un «de» necesario: *me acuerdo que → me acuerdo de que."],
+    ["Interrogativa indirecta", "Pregunta dentro de una sustantiva: No sé si vendrá / Dime dónde vives."],
+  ],
+});

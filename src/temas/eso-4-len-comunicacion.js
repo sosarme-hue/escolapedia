@@ -107,3 +107,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 55,
+  objetivos: ["Comentar la adecuación, la coherencia y la cohesión de un texto real", "Reconocer la modalidad oracional y su relación con la intención del emisor"],
+  bloques: [
+    { tras: "Los elementos de la comunicación", html: `<h3>Ruido y retroalimentación</h3><p>La comunicación no siempre sale bien. Llamamos <b>ruido</b> a todo lo que estorba el mensaje: una mala conexión en una videollamada, una letra ilegible, una palabra que el receptor no conoce o un comentario fuera de lugar que provoca un malentendido. Para comprobar que nos han entendido usamos la <mark>retroalimentación</mark> (o <i>feedback</i>): la respuesta del receptor, que en ese momento se convierte en emisor. En una conversación los papeles cambian continuamente; en un libro o en un cartel, en cambio, el receptor no puede responder.</p><p>También importa la diferencia entre comunicación <b>verbal</b> (con palabras, orales o escritas) y <b>no verbal</b>: gestos, tono de voz, distancia, ropa, emojis o colores. Cuando lo verbal y lo no verbal se contradicen («Estoy bien», dicho con los ojos llorosos), solemos creer a lo no verbal.</p>` },
+    { tras: "Las funciones del lenguaje", html: `<h3>Funciones y modalidad oracional</h3><p>Cada función del lenguaje suele ir acompañada de unas marcas gramaticales. Reconocerlas te ayuda a comentar un texto.</p>${L.tb(["Función", "Se centra en…", "Marcas típicas", "Ejemplo"], [["Representativa", "el contexto", "oraciones enunciativas, 3.ª persona", "El agua hierve a 100 °C."], ["Expresiva", "el emisor", "exclamaciones, interjecciones, 1.ª persona", "¡Qué miedo he pasado!"], ["Apelativa", "el receptor", "imperativos, vocativos, preguntas", "Laura, apaga la luz."], ["Fática", "el canal", "fórmulas de saludo y comprobación", "¿Me oyes?, Vale, vale…"], ["Poética", "el mensaje", "rima, metáforas, juegos de palabras", "Verde que te quiero verde."], ["Metalingüística", "el código", "comillas, definiciones", "¿«Casa» lleva tilde? No."]])}<p>Un mismo texto puede tener varias funciones, pero casi siempre <mark>una predomina</mark>. Un anuncio es apelativo, aunque use rimas (poética).</p>` },
+    { tras: "Qué es un texto", html: `<h3>La adecuación</h3><p>Un texto es <b>adecuado</b> cuando se ajusta a la situación: a quién va dirigido, con qué intención, por qué canal y en qué contexto. Eso afecta al <b>registro</b> (formal o coloquial), al tratamiento (tú o usted), al vocabulario y hasta a la extensión. Un mensaje de voz a un amigo puede empezar con «¡Ey!»; un correo a la dirección del instituto, con «Estimada directora:». Ninguno de los dos es «mejor»: cada uno es adecuado en su sitio.</p><p>Para revisar la adecuación hazte cuatro preguntas: <mark>¿quién lo leerá?, ¿para qué lo escribo?, ¿dónde se publicará?, ¿qué tono espera el lector?</mark></p>` },
+    { tras: "Qué es un texto", html: `<h3>La coherencia</h3><p>Un texto es <b>coherente</b> cuando tiene un <b>tema</b> claro y todas sus ideas se relacionan con él de forma lógica y ordenada. Para lograrlo, el texto se organiza en <b>párrafos</b>: cada párrafo desarrolla una idea, y el orden de los párrafos forma la <b>estructura</b> (por ejemplo, introducción, desarrollo y conclusión). Además, no puede haber contradicciones ni datos falsos: si al principio dices que la excursión es el martes, no puede ser el jueves al final.</p><p>Cuando comentes un texto, la coherencia se trabaja con dos preguntas: <mark>¿cuál es el tema? (una frase breve)</mark> y <mark>¿cómo se organizan las ideas?</mark></p>` },
+    { tras: "La cohesión: cómo se enlaza un texto", html: `<h3>Mecanismos de cohesión, uno a uno</h3>${L.tb(["Mecanismo", "Qué hace", "Ejemplo"], [["Repetición", "repite una palabra clave", "El <i>móvil</i>… este <i>móvil</i>…"], ["Sinonimia", "usa una palabra equivalente", "el coche… el vehículo"], ["Hiperonimia", "usa una palabra más general", "las rosas… las flores"], ["Pronombres (anáfora)", "remite a algo dicho antes", "Vi a Ana y <i>la</i> saludé."], ["Catáfora", "anuncia algo que se dirá después", "Te diré <i>esto</i>: no vuelvas tarde."], ["Elipsis", "omite lo que ya se sabe", "Yo traigo el pan y tú, Ø el agua."], ["Conectores", "unen ideas y señalan su relación", "además, sin embargo, por tanto"]])}<p>Un texto sin cohesión parece una lista de frases sueltas; un texto con exceso de repeticiones resulta pesado. El equilibrio se consigue alternando los mecanismos.</p>` },
+    { tras: "Clases de textos", html: `<h3>Cómo comentar un texto</h3><p>En 4.º de ESO se pide un <b>comentario</b> que reúne todo lo anterior. Un orden práctico es este:</p><ol><li><b>Localiza</b> el texto: autor, obra, fecha, tipo de texto y ámbito.</li><li><b>Tema</b>: una sola frase, con un sustantivo abstracto («La importancia de…»).</li><li><b>Resumen</b>: las ideas principales con tus palabras, sin opinar.</li><li><b>Estructura</b>: partes y líneas que ocupan cada una.</li><li><b>Propiedades</b>: adecuación (registro, receptor), coherencia y cohesión (cita ejemplos).</li><li><b>Valoración crítica</b>: tu opinión, argumentada.</li></ol><p>El error más frecuente es mezclar el resumen con la opinión. <mark>El resumen es objetivo; la valoración, personal.</mark></p>` },
+  ],
+  videos: [
+    ["Las funciones del lenguaje", L.vid("_7sIvY80YPM", "Las funciones del lenguaje de Jakobson", "Blog de Lengua", 646146)],
+    ["La coherencia", L.vid("1b4zfLc5M54", "Coherencia y cohesión", "Aprende con TALÍA LUND", 551422)],
+  ],
+  ejemplos: [
+    ["Identifica los elementos de la comunicación en este caso: Marta envía un audio de WhatsApp a su abuelo para felicitarle el cumpleaños mientras va en el autobús.", ["Emisor: Marta. Receptor: su abuelo.", "Mensaje: la felicitación. Código: la lengua española (oral).", "Canal: el aire y después la red telefónica (audio digital).", "Contexto: el cumpleaños del abuelo; Marta va en el autobús, que puede provocar ruido de fondo."], "emisor Marta, receptor el abuelo, mensaje la felicitación, código el español, canal el audio, contexto el cumpleaños; el ruido del autobús es un posible ruido."],
+    ["Di qué función predomina en: «¡Atención! Si encuentras este perro, llama al 600 000 000.»", ["Hay un imperativo («llama») y una llamada de atención («¡Atención!»).", "El texto quiere que el receptor haga algo: buscar o avisar.", "Aunque informa (hay un perro perdido), la intención principal es mover al lector a actuar."], "predomina la función apelativa."],
+    ["Mejora la cohesión: «Juan compró una bici. La bici era roja. Juan usaba la bici para ir al instituto. Juan estaba contento con la bici.»", ["Detecta las repeticiones: «Juan» y «la bici» aparecen tres y cuatro veces.", "Sustituye con pronombres y elipsis: «la usaba», «estaba contento».", "Usa un sinónimo o hiperónimo: «el vehículo», «su nueva compañera de viaje».", "Añade conectores: «y», «por eso»."], "«Juan compró una bici roja y la usaba para ir al instituto; por eso estaba tan contento con ella.»"],
+  ],
+  errores: [
+    "Confundir canal y código: el canal es el medio físico (aire, papel, pantalla); el código es el sistema de signos (la lengua).",
+    "Pensar que un texto tiene una sola función: suele tener varias, aunque una predomine.",
+    "Llamar «coherencia» a lo que es cohesión: la coherencia es el sentido global; la cohesión, los enlaces entre frases.",
+    "Usar el mismo registro siempre: un texto puede estar bien escrito y ser inadecuado.",
+    "Repetir el conector «y» o «entonces» en cada frase en lugar de variar los conectores.",
+    "En el comentario, meter opiniones personales en el resumen.",
+  ],
+  ejercicios: [
+    ["Identifica emisor, receptor, canal y código en un cartel de «Prohibido fumar».", "Emisor: el responsable del lugar. Receptor: cualquier persona que lo lea. Canal: el papel o el metal del cartel (visual). Código: la lengua escrita y, a menudo, un icono (cigarrillo tachado)."],
+    ["¿Qué función predomina en «Hola, ¿se me oye?, ¿estáis ahí?»?", "La fática: el emisor comprueba que el canal funciona."],
+    ["¿Qué función predomina en «El sustantivo es la palabra que nombra seres y objetos»?", "La metalingüística, porque usa la lengua para hablar de la propia lengua."],
+    ["Escribe un ejemplo de la función expresiva y otro de la poética.", "Expresiva: «¡Qué ilusión me hace verte!». Poética: «Tus ojos, dos luceros en la noche» (metáfora). Valen otros ejemplos con exclamaciones o recursos literarios."],
+    ["Explica qué falla en este texto: «Mañana hay excursión al museo. Mi perro se llama Rufo. El museo abre a las nueve.»", "Falla la coherencia: la frase del perro no tiene relación con el tema (la excursión)."],
+    ["Señala los mecanismos de cohesión: «Ana y Luis fueron al cine. Ella eligió la película y él, las palomitas.»", "«Ella» y «él» son pronombres que remiten a Ana y a Luis (anáfora). En «y él, las palomitas» hay una elipsis del verbo «eligió». «Y» es un conector copulativo."],
+    ["Reescribe de forma adecuada para un correo a tu tutora: «Ey, mañana no voy, que estoy chungo».", "«Buenos días, Marta: le escribo para avisarle de que mañana no podré asistir a clase porque no me encuentro bien. Un saludo, Hugo.»"],
+    ["Distingue anáfora y catáfora en: «Lo dijo claro: nadie sale» / «Compré flores y las puse en agua».", "En la primera, «lo» anuncia algo que viene después («nadie sale»): catáfora. En la segunda, «las» remite a «flores», que ya se ha dicho: anáfora."],
+    ["Escribe el tema de un texto que explica por qué dormir ocho horas mejora las notas.", "«La influencia del descanso en el rendimiento escolar.» Una sola frase, con un sustantivo abstracto."],
+    ["Clasifica: una receta de cocina, una crónica de un partido, una carta de reclamación y una entrevista.", "Receta: instructivo-expositivo (ámbito personal o social). Crónica: narrativo y periodístico (medios de comunicación). Carta de reclamación: argumentativo (ámbito social o administrativo). Entrevista: dialogado (medios de comunicación)."],
+  ],
+  quiz: [
+    ["Una mala cobertura que corta una llamada es un ejemplo de…", ["ruido", "código", "retroalimentación"], 0, "El ruido es todo lo que dificulta la comunicación."],
+    ["«“Casa” es un sustantivo» cumple la función…", ["metalingüística", "fática", "expresiva"], 0, "La lengua habla de sí misma."],
+    ["En «Las rosas… las flores», «flores» es un…", ["hiperónimo", "antónimo", "conector"], 0, "Flores es la palabra general que incluye a las rosas."],
+    ["El resumen de un texto debe ser…", ["objetivo", "una opinión", "más largo que el texto"], 0, "Recoge las ideas principales sin valorar."],
+    ["«Yo pongo la mesa y tú, los vasos» tiene…", ["una elipsis", "una catáfora", "un hiperónimo"], 0, "Se omite el verbo «pones»."],
+  ],
+  tarjetas: [
+    ["Ruido", "Todo lo que dificulta la comunicación: mala conexión, letra ilegible, palabra desconocida."],
+    ["Anáfora y catáfora", "Anáfora: remite a algo dicho antes. Catáfora: anuncia algo que se dirá después."],
+    ["Tema de un texto", "La idea central, en una frase breve con un sustantivo abstracto."],
+  ],
+});
