@@ -16,8 +16,8 @@ const initials = (n) => n.replace(/^(Lengua|Educación|Ciencias)\s+/i, (m) => m)
 const TEMAS = {};
 for (const f of fs.readdirSync(path.join(__dirname, "src/temas"))) {
   if (!f.endsWith(".js") || f.startsWith("_")) continue;
-  const t = require(`./src/temas/${f}`);
-  TEMAS[`${t.curso}|${t.materia}|${t.titulo}`] = t;
+  // Un archivo puede exportar un tema o una lista de temas (p. ej. adaptaciones de otra materia).
+  for (const t of [].concat(require(`./src/temas/${f}`))) TEMAS[`${t.curso}|${t.materia}|${t.titulo}`] = t;
 }
 
 // ---------- plantilla ----------
