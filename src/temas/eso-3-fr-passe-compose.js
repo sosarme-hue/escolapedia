@@ -1,0 +1,159 @@
+// Francés 3º ESO. Explicaciones en español con ejemplos en francés. Dibujos propios en SVG.
+const { mapa } = require("./_util");
+const L = require("./_lenguas");
+
+module.exports = {
+  materia: "Francés",
+  curso: "3-eso",
+  titulo: "Le passé composé",
+  minutos: 55,
+  objetivos: ["Formar el passé composé con avoir y con être", "Formar los participios regulares y los irregulares más frecuentes", "Contar lo que hiciste con marcadores temporales y conectores"],
+  claves: ["passé composé", "auxiliaire avoir", "auxiliaire être", "participe passé", "-é / -i / -u", "accord", "hier", "le week-end dernier", "d'abord", "ensuite"],
+  pregunta: {
+    texto: "El lunes, tu compañera francesa te pregunta: «Qu'est-ce que tu as fait ce week-end ?». ¿Qué tiempo verbal necesitas para responder?",
+    respuesta: "El <mark>passé composé</mark>, el pasado más usado en francés hablado. Sirve para acciones terminadas: <i>J'ai joué au foot et je suis allé au cinéma</i>. Se parece al pretérito perfecto español («he jugado»), pero en francés se usa también donde nosotros usamos el indefinido («jugué»).",
+  },
+  bloques: [
+    {
+      html: `<h3>Cómo se forma</h3><p>El passé composé tiene dos partes: un <b>auxiliar</b> en presente (<i>avoir</i> o <i>être</i>) y el <b>participio pasado</b> del verbo. La mayoría de verbos usan <mark>avoir</mark>: <i>j'ai mangé</i>, <i>tu as regardé</i>, <i>il a fini</i>, <i>nous avons parlé</i>, <i>vous avez dansé</i>, <i>ils ont joué</i>. Equivale tanto a «he comido» como a «comí».</p>`,
+      svg: L.frase("Estructura del passé composé", [
+        ["J'", "sujeto", "var(--inf)"], ["ai", "auxiliar", "var(--red)"],
+        ["mangé", "participio", "var(--pen)"], ["une pizza.", "", "var(--line)"],
+      ], "avoir + participio"),
+    },
+    {
+      html: `<h3>Los participios regulares</h3><p>Los verbos en <b>-er</b> hacen el participio en <b>-é</b>: <i>parler → parlé</i>, <i>aller → allé</i>. Los verbos en <b>-ir</b> como <i>finir</i>, en <b>-i</b>: <i>finir → fini</i>, <i>choisir → choisi</i>, <i>dormir → dormi</i>. Muchos verbos en <b>-re</b>, en <b>-u</b>: <i>vendre → vendu</i>, <i>attendre → attendu</i>, <i>répondre → répondu</i>. Ojo: <mark>parlé</mark> y <i>parler</i> suenan igual, pero se escriben distinto.</p>`,
+      svg: L.filas("Participios regulares", [
+        ["-er → -é", "parler → parlé", "var(--pen)"],
+        ["-ir → -i", "finir → fini", "var(--leaf)"],
+        ["-re → -u", "vendre → vendu", "var(--red)"],
+      ]),
+    },
+    {
+      html: `<h3>Los participios irregulares</h3><p>Algunos verbos muy frecuentes tienen participios irregulares que hay que memorizar: <b>faire → fait</b>, <b>prendre → pris</b>, <b>mettre → mis</b>, <b>voir → vu</b>, <b>boire → bu</b>, <b>lire → lu</b>, <b>avoir → eu</b>, <b>être → été</b>, <b>dire → dit</b>, <b>écrire → écrit</b>. Fíjate en que <i>être</i> y <i>avoir</i> forman su passé composé con <mark>avoir</mark>: <i>j'ai été</i>, <i>j'ai eu</i>.</p>`,
+      svg: L.filas("Participios irregulares frecuentes", [
+        ["faire", "fait", "var(--pen)"],
+        ["prendre", "pris", "var(--leaf)"],
+        ["voir / boire", "vu / bu", "var(--red)"],
+        ["avoir / être", "eu / été", "var(--inf)"],
+      ]),
+    },
+    {
+      html: `<h3>Los verbos con être</h3><p>Un grupo de verbos de <b>movimiento</b> o <b>cambio de estado</b> forman el passé composé con <mark>être</mark>: <i>aller, venir, arriver, partir, entrer, sortir, monter, descendre, tomber, rester, naître, mourir</i> (y sus derivados, como <i>revenir</i> o <i>devenir</i>). Con être, el participio <b>concuerda</b> con el sujeto: <i>il est allé</i>, <i>elle est allé<b>e</b></i>, <i>ils sont allé<b>s</b></i>, <i>elles sont allé<b>es</b></i>.</p>`,
+      svg: L.filas("Concordancia con être", [
+        ["il", "est parti", "var(--pen)"],
+        ["elle", "est partie", "var(--red)"],
+        ["ils", "sont partis", "var(--leaf)"],
+        ["elles", "sont parties", "var(--inf)"],
+      ]),
+    },
+    {
+      html: `<h3>Situar en el pasado</h3><p>El passé composé suele ir con marcadores de tiempo: <i>hier</i> (ayer), <i>avant-hier</i> (anteayer), <i>hier soir</i> (anoche), <i>samedi dernier</i>, <i>la semaine dernière</i>, <i>l'année dernière</i>, <i>il y a deux jours</i> (hace dos días). Para ordenar las acciones, usa <mark>conectores</mark>: <i>d'abord</i> (primero), <i>ensuite</i> / <i>puis</i> (luego), <i>après</i> (después) y <i>enfin</i> (por último).</p>`,
+      svg: L.linea("Contar un sábado en orden", [
+        ["1", "D'abord, j'ai pris le petit-déj.", "var(--pen)"],
+        ["2", "Ensuite, j'ai joué au foot.", "var(--leaf)"],
+        ["3", "Puis, je suis allé au ciné.", "var(--red)"],
+        ["4", "Enfin, j'ai dormi !", "var(--inf)"],
+      ]),
+    },
+  ],
+  figura: {
+    titulo: "Tres piezas del passé composé",
+    svg: L.pasos("Cómo construir el passé composé", [
+      ["Auxiliar", ["avoir casi siempre;", "être: movimiento"], "var(--red)"],
+      ["Participio", ["-é, -i, -u o", "irregular"], "var(--pen)"],
+      ["Concordancia", ["solo con être:", "+e, +s, +es"], "var(--leaf)"],
+    ]),
+  },
+  video: { id: "mpeHI3zbPWk", titulo: "El passé composé en francés: conjugación francesa", canal: "Français avec Pierre", vistas: 543266, megusta: 0, busqueda: "passé composé francés" },
+  quiz: [
+    { q: "«He comido»:", o: ["J'ai mangé.", "Je suis mangé.", "J'ai manger."], a: 0, e: "Avoir + participio." },
+    { q: "Participio de «finir»:", o: ["fini", "finé", "finu"], a: 0, e: "-ir → -i." },
+    { q: "Participio de «faire»:", o: ["fait", "faisé", "fais"], a: 0, e: "Irregular." },
+    { q: "«Ella fue al cine»:", o: ["Elle est allée au cinéma.", "Elle a allé au cinéma.", "Elle est allé au cinéma."], a: 0, e: "Être + concordancia." },
+    { q: "«La semaine dernière» significa…", o: ["la semana pasada", "la próxima semana", "el último día"], a: 0, e: "Marcador de pasado." },
+  ],
+  examen: [
+    { q: "Participio de «attendre»:", o: ["attendu", "attendi", "attendé"], a: 0, e: "-re → -u." },
+    { q: "«Ils ___ arrivés hier.»", o: ["sont", "ont", "est"], a: 0, e: "Arriver usa être." },
+    { q: "«He tenido suerte»:", o: ["J'ai eu de la chance.", "Je suis eu de la chance.", "J'ai été de la chance."], a: 0, e: "Avoir → eu." },
+  ],
+  feynman: ["Las dos piezas del passé composé", "Los participios en -é, -i y -u", "Diez participios irregulares", "Qué verbos usan être y qué pasa con el participio"],
+  mapa: mapa("PASSÉ COMPOSÉ", "var(--eso)", [
+    ["Avoir +", "j'ai mangé", "var(--pen)"],
+    ["Être +", "je suis allé(e)", "var(--red)"],
+    ["Participios", "-é · -i · -u · fait, pris", "var(--leaf)"],
+    ["Marcadores", "hier · d'abord · ensuite", "var(--inf)"],
+  ]),
+  tarjetas: [
+    ["Passé composé", "Auxiliar (avoir o être) en presente + participio pasado."],
+    ["Participios regulares", "-er → -é; -ir → -i; -re → -u."],
+    ["Irregulares", "fait, pris, mis, vu, bu, lu, eu, été, dit, écrit."],
+    ["Verbos con être", "aller, venir, arriver, partir, entrer, sortir, monter, descendre, tomber, rester, naître, mourir."],
+    ["Conectores", "d'abord, ensuite, puis, après, enfin."],
+  ],
+  familias: ["Cada noche, pedidle que os cuente en francés tres cosas que hizo durante el día.", "Haced juntos una lista de los verbos con être y pegadla en la nevera.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
+  profesores: {
+    saberes: "Comunicación: narrar hechos pasados; passé composé con avoir y être, participios regulares e irregulares, concordancia, marcadores temporales y conectores (RD 217/2022, Segunda Lengua Extranjera 3º; nivel A2 del MCER).",
+    ideas: ["Diario del fin de semana en cinco frases.", "Cadena de historias: cada alumno añade una acción en passé composé.", "Dibujar la «maison d'être» con un verbo en cada parte de la casa."],
+  },
+  fuentes: [
+    L.BOE,
+    { t: "TV5MONDE Apprendre le français", url: "https://apprendre.tv5monde.com/" },
+    { t: "Le Conjugueur (Le Figaro)", url: "https://leconjugueur.lefigaro.fr/" },
+  ],
+  revisado: "2026-11-12",
+};
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+L.amplia(module.exports, {
+  minutos: 70,
+  objetivos: ["Poner el passé composé en negativa y en pregunta", "Escribir un relato breve en pasado"],
+  bloques: [
+    { tras: "Cómo se forma", html: `<h3>El presente de avoir y être, de nuevo</h3><p>Como el passé composé se construye con el presente de los auxiliares, conviene tenerlos muy claros:</p>${L.tb(["Persona", "avoir", "être", "Ejemplos"], [["je", "ai", "suis", "j'ai joué · je suis venu(e)"], ["tu", "as", "es", "tu as joué · tu es venu(e)"], ["il / elle / on", "a", "est", "il a joué · elle est venue"], ["nous", "avons", "sommes", "nous avons joué · nous sommes venu(e)s"], ["vous", "avez", "êtes", "vous avez joué · vous êtes venu(e)(s)"], ["ils / elles", "ont", "sont", "ils ont joué · elles sont venues"]])}<p>Cuidado con <i>ils ont</i> [ilzɔ̃] (de avoir) e <i>ils sont</i> [ilsɔ̃] (de être): la <mark>liaison</mark> en [z] es la única diferencia en la pronunciación.</p>` },
+    { tras: "Los participios irregulares", html: `<h3>Más participios irregulares</h3><p>Los participios irregulares se pueden aprender por grupos según su terminación:</p>${L.tb(["Terminación", "Verbos"], [["-u", "voir → vu, boire → bu, lire → lu, avoir → eu, pouvoir → pu, vouloir → voulu, devoir → dû, savoir → su, venir → venu, courir → couru"], ["-is", "prendre → pris, apprendre → appris, comprendre → compris, mettre → mis"], ["-it", "faire → fait, dire → dit, écrire → écrit"], ["-ert", "ouvrir → ouvert, offrir → offert, découvrir → découvert"], ["otros", "être → été, naître → né, mourir → mort"]])}<p>Un truco: si conoces el participio de un verbo, conoces el de toda su familia: <i>prendre → pris</i>, así que <i>comprendre → compris</i> y <i>apprendre → appris</i>. Lo mismo pasa con <mark>venir → venu</mark> y <i>revenir → revenu</i>, <i>devenir → devenu</i>.</p>` },
+    { tras: "Los verbos con être", html: `<h3>La «maison d'être» y los verbos pronominales</h3><p>Para recordar los verbos con être, imagina una casa: alguien <i>naît</i> (nace), <i>arrive</i>, <i>entre</i>, <i>monte</i> las escaleras, <i>reste</i> un rato, <i>descend</i>, <i>tombe</i>, <i>sort</i>, <i>part</i>, <i>va</i>, <i>vient</i>… y al final <i>meurt</i> (muere). Todos expresan un <mark>movimiento o un cambio</mark> de lugar o de estado.</p><p>Además, todos los <b>verbos pronominales</b> (los que llevan <i>me, te, se…</i>) usan être: <i>je me suis levé(e)</i> (me levanté), <i>elle s'est couchée</i> (se acostó), <i>nous nous sommes amusés</i> (nos divertimos). El pronombre va delante del auxiliar y el participio concuerda con el sujeto.</p>` },
+    { tras: "Situar en el pasado", html: `<h3>Negación y preguntas en passé composé</h3><p>En la <b>negación</b>, <i>ne… pas</i> rodea al <mark>auxiliar</mark>, no al participio: <i>Je <b>n'</b>ai <b>pas</b> fini</i>, <i>Elle <b>n'</b>est <b>pas</b> venue</i>, <i>Ils <b>n'</b>ont <b>jamais</b> vu la mer</i>. Lo mismo ocurre con <i>ne… jamais</i> (nunca) y <i>ne… rien</i> (nada): <i>Je n'ai rien mangé</i>.</p><p>Para hacer <b>preguntas</b>, las fórmulas más útiles son: <i>Qu'est-ce que tu as fait hier ?</i> (¿qué hiciste ayer?), <i>Où est-ce que tu es allé(e) ?</i> (¿dónde fuiste?), <i>Tu as vu le match ?</i> (con entonación) y, en registro formal, con inversión: <i>As-tu vu le match ?</i></p>` },
+    { tras: "Situar en el pasado", html: `<h3>Escribir un relato en pasado</h3><p>Para contar una experiencia, sitúa primero la acción en el tiempo y en el espacio, después cuenta los hechos en orden con conectores y termina con una valoración. Modelo:</p><p><i>Samedi dernier, je suis allée à Toulouse avec ma classe. D'abord, nous avons visité la Cité de l'espace. Ensuite, nous avons mangé des sandwichs dans un parc. L'après-midi, nous sommes allés au centre-ville et j'ai acheté des cadeaux pour ma famille. Enfin, nous sommes rentrés en bus à huit heures. C'était génial !</i></p><p>Fíjate en la <mark>concordancia</mark> (<i>je suis allée</i>, porque la que escribe es una chica) y en la expresión <i>C'était…</i> (fue…), muy útil para valorar, aunque está en otro tiempo, el <i>imparfait</i>.</p>` },
+  ],
+  videos: [
+    ["Los participios irregulares", L.vid("C9vhZ2jZJcs", "Participio pasado del francés", "ProfeOriZulu", 67164)],
+    ["Los verbos con être", L.vid("p7iiqxYB2JI", "Know the passé composé with être under 5 minutes", "Learn French With Alexa", 173264)],
+  ],
+  ejemplos: [
+    ["Pon en passé composé: «Je regarde un film et je bois un coca.»", ["Regarder: verbo en -er con avoir → j'ai regardé.", "Boire: participio irregular → j'ai bu.", "Se puede añadir un marcador: hier soir."], "Hier soir, j'ai regardé un film et j'ai bu un coca."],
+    ["Pon en passé composé: «Marie part à 8 h et arrive à Lyon à midi.»", ["Partir y arriver son verbos de movimiento → être.", "Marie es femenino → concordancia en -e.", "est partie, est arrivée."], "Marie est partie à 8 h et elle est arrivée à Lyon à midi."],
+    ["Pon en negativa: «Nous avons compris l'exercice.»", ["La negación rodea al auxiliar avons.", "Nous → n' delante de vocal.", "El participio queda detrás."], "Nous n'avons pas compris l'exercice."],
+  ],
+  errores: [
+    "Usar avoir con los verbos de movimiento: *j'ai allé → je suis allé(e).",
+    "Olvidar la concordancia con être: *elle est arrivé → elle est arrivée.",
+    "Escribir el infinitivo en lugar del participio: *j'ai manger → j'ai mangé.",
+    "Inventar participios: *prendu, *faisé → pris, fait.",
+    "Poner la negación alrededor del participio: *j'ai ne pas fini → je n'ai pas fini.",
+  ],
+  ejercicios: [
+    ["Escribe el participio de: jouer, choisir, répondre.", "joué, choisi, répondu."],
+    ["Escribe el participio de: faire, voir, prendre, écrire.", "fait, vu, pris, écrit."],
+    ["Conjuga en passé composé: «nous (danser)».", "nous avons dansé."],
+    ["Conjuga en passé composé: «elles (venir)».", "elles sont venues."],
+    ["Completa con avoir o être: «Tu ___ sorti hier soir ?»", "Tu es sorti hier soir ?"],
+    ["Traduce: «Ayer leí un libro».", "Hier, j'ai lu un livre."],
+    ["Traduce: «Mi hermana nació en 2012».", "Ma sœur est née en 2012."],
+    ["Pon en negativa: «Il a vu le match.»", "Il n'a pas vu le match."],
+    ["Pregunta a un amigo qué hizo el fin de semana.", "Qu'est-ce que tu as fait ce week-end ?"],
+    ["Escribe cuatro frases sobre tu último cumpleaños con conectores.", "Respuesta abierta. Ejemplo: D'abord, j'ai ouvert mes cadeaux. Ensuite, j'ai invité mes amis. Puis, nous avons mangé un gâteau. Enfin, nous avons dansé."],
+  ],
+  quiz: [
+    ["«Je me suis ___ à 7 h.» (lever, chica)", ["levée", "levé", "levés"], 0, "Pronominal: être + concordancia."],
+    ["«Nous n'avons ___ mangé.»", ["rien", "pas rien", "ne rien"], 0, "No comimos nada."],
+    ["Participio de «ouvrir»:", ["ouvert", "ouvri", "ouvru"], 0, "-ert."],
+    ["«¿Dónde fuiste?»:", ["Où est-ce que tu es allé ?", "Où tu as allé ?", "Où es-tu allant ?"], 0, "Aller con être."],
+    ["«C'était génial» sirve para…", ["valorar", "negar", "ordenar"], 0, "Fue genial."],
+  ],
+  tarjetas: [
+    ["Pronominales", "Siempre con être: je me suis levé(e)."],
+    ["Negación", "Ne + auxiliar + pas + participio: je n'ai pas fini."],
+    ["Familias de participios", "prendre → pris; comprendre → compris; apprendre → appris."],
+  ],
+});
