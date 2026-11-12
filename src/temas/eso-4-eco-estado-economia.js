@@ -77,3 +77,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Distinguir impuestos directos e indirectos, progresivos y proporcionales", "Explicar las políticas fiscal y monetaria y el estado del bienestar"],
+  bloques: [
+    { tras: "Las funciones del Estado", html: `<h3>El estado del bienestar</h3><p>El <mark>estado del bienestar</mark> es el conjunto de servicios y prestaciones con los que el Estado garantiza un nivel de vida digno a todos. En España incluye la <b>sanidad pública</b> universal, la <b>educación</b> gratuita y obligatoria hasta los 16 años, las <b>pensiones</b> de jubilación, viudedad e incapacidad, el <b>subsidio por desempleo</b>, la atención a la dependencia y el ingreso mínimo vital. Se financia con impuestos y cotizaciones sociales. Su gran reto es el <b>envejecimiento</b>: cada vez hay más pensionistas por cada trabajador que cotiza.</p>` },
+    { tras: "Los impuestos", html: `<h3>Tipos de impuestos</h3>${tabla(["Clasificación", "Tipo", "Ejemplo"], [["Según lo que gravan", "directos: sobre la renta o el patrimonio", "IRPF, Impuesto sobre Sociedades, IBI"], ["", "indirectos: sobre el consumo", "IVA, impuestos especiales (gasolina, tabaco, alcohol)"], ["Según cómo crece el tipo", "progresivos: quien más gana paga un porcentaje mayor", "IRPF"], ["", "proporcionales: mismo porcentaje para todos", "IVA, Impuesto sobre Sociedades"]])}<p>En España el IVA general es del <b>21 %</b>; hay un tipo reducido del 10 % (hostelería, transporte) y un superreducido del 4 % (pan, leche, libros, medicinas).</p>` },
+    { tras: "Los impuestos", html: `<h3>Fraude fiscal y economía sumergida</h3><p>El <mark>fraude fiscal</mark> consiste en no pagar los impuestos que corresponden: no declarar ingresos, pagar «en negro» sin factura o desviar dinero a paraísos fiscales. La <b>economía sumergida</b> es la actividad que no se declara a Hacienda ni a la Seguridad Social. Perjudica a todos: el Estado recauda menos para hospitales y escuelas, los trabajadores en negro no tienen derecho a paro ni a pensión, y las empresas que cumplen sufren una competencia desleal. La <b>Agencia Tributaria</b> se encarga de recaudar y de perseguir el fraude.</p>` },
+    { tras: "Inflación, crecimiento y paro", html: `<h3>Las políticas económicas</h3><p>Para reducir el paro y la inflación y favorecer el crecimiento, los gobiernos usan la <mark>política fiscal</mark>: cambiar el gasto público y los impuestos. En una crisis se puede aumentar el gasto o bajar impuestos para animar la economía (política expansiva); si la economía se recalienta, se hace lo contrario. La <b>política monetaria</b>, que en la eurozona decide el <b>Banco Central Europeo</b>, sube o baja los tipos de interés: subirlos encarece los préstamos y frena la inflación; bajarlos los abarata y estimula el consumo y la inversión.</p>`, video: { id: "TOVvFXR3jA8", titulo: "¿Qué es la inflación? ¿Cómo se crea?", canal: "Memorias de Tiburón", vistas: 2378880, megusta: 0 } },
+    { tras: "Inflación, crecimiento y paro", html: `<h3>Cómo se mide la inflación: el IPC</h3><p>El <mark>Índice de Precios de Consumo</mark> (IPC), que calcula el INE cada mes, sigue el precio de una «cesta» de productos que compran los hogares: alimentos, vivienda, transporte, ocio… Si el IPC sube un 3 % en un año, con el mismo dinero se compra un 3 % menos: se pierde <b>poder adquisitivo</b>. La inflación perjudica más a quien tiene ingresos fijos o ahorros sin rentabilidad. El BCE intenta que la inflación esté cerca del <b>2 %</b>, porque una inflación demasiado alta o negativa (deflación) daña la economía.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Compras unas zapatillas de 60 € más IVA al 21 %. ¿Cuánto pagas y cuánto es IVA?", pasos: ["IVA = 60 · 0,21 = 12,60 €.", "Total = 60 + 12,60 = 72,60 €."], resultado: "Pagas 72,60 €, de los que 12,60 € son IVA." },
+    { enunciado: "Un producto costaba 50 € y la inflación anual ha sido del 4 %. ¿Cuánto cuesta ahora? Si tu sueldo subió un 2 %, ¿qué ha pasado con tu poder adquisitivo?", pasos: ["Nuevo precio = 50 · 1,04 = 52 €.", "Los precios suben más que el sueldo (4 % frente a 2 %).", "Con el mismo sueldo compras menos."], resultado: "Cuesta 52 €; has perdido poder adquisitivo (≈ 2 %)." },
+    { enunciado: "Explica por qué el IRPF es progresivo con un ejemplo sencillo.", pasos: ["Imagina: hasta 12.000 € se paga un 19 %; de 12.000 a 20.000 €, un 24 %.", "Quien gana 10.000 € paga 1.900 € (19 %).", "Quien gana 20.000 € paga 12.000 · 0,19 + 8.000 · 0,24 = 2.280 + 1.920 = 4.200 € (21 %)."], resultado: "Quien más gana paga un porcentaje mayor de su renta." },
+  ],
+  errores: [
+    "Pensar que el IVA lo paga la empresa: lo paga el consumidor final al comprar.",
+    "Creer que en un impuesto progresivo todo el sueldo paga el tipo más alto: cada tramo paga su tipo.",
+    "Confundir inflación (suben los precios) con crecimiento económico.",
+    "Pensar que bajar impuestos sale gratis: reduce los ingresos para servicios públicos.",
+    "Creer que el Gobierno de España fija los tipos de interés: en la eurozona los decide el BCE.",
+  ],
+  ejercicios: [
+    { q: "Cita cuatro servicios del estado del bienestar.", sol: "Sanidad, educación, pensiones y subsidio por desempleo." },
+    { q: "Clasifica en directo o indirecto: IVA, IRPF, impuesto de la gasolina, IBI.", sol: "Directos: IRPF e IBI. Indirectos: IVA e impuesto de la gasolina." },
+    { q: "¿Qué tipo de IVA tiene el pan?", sol: "El superreducido del 4 %." },
+    { q: "Calcula el precio final de un menú de 15 € más IVA del 10 %.", sol: "15 · 1,10 = 16,50 €." },
+    { q: "¿Qué es la economía sumergida y a quién perjudica?", sol: "La actividad no declarada; perjudica al Estado, a los trabajadores sin derechos y a las empresas que cumplen." },
+    { q: "¿Qué hace la Agencia Tributaria?", sol: "Recauda los impuestos estatales y persigue el fraude fiscal." },
+    { q: "¿Qué es una política fiscal expansiva?", sol: "Aumentar el gasto público o bajar impuestos para estimular la economía." },
+    { q: "¿Qué ocurre si el BCE sube los tipos de interés?", sol: "Los préstamos se encarecen, se consume e invierte menos y la inflación tiende a bajar." },
+    { q: "¿Qué mide el IPC?", sol: "La evolución de los precios de una cesta de bienes y servicios que consumen los hogares." },
+    { q: "¿Por qué el envejecimiento es un reto para las pensiones?", sol: "Porque hay más pensionistas y relativamente menos trabajadores cotizando para pagarlas." },
+  ],
+  quiz: [
+    { q: "El IVA general en España es del…", o: ["10 %", "16 %", "21 %"], a: 2, e: "Hay tipos reducidos del 10 % y 4 %." },
+    { q: "El IRPF es un impuesto…", o: ["directo y progresivo", "indirecto", "proporcional"], a: 0, e: "Grava la renta según tramos." },
+    { q: "Los tipos de interés del euro los fija…", o: ["el Banco de España", "el BCE", "Hacienda"], a: 1, e: "Banco Central Europeo." },
+    { q: "La inflación objetivo del BCE es cercana al…", o: ["0 %", "2 %", "10 %"], a: 1, e: "Ni demasiado alta ni negativa." },
+    { q: "Trabajar «en negro» significa…", o: ["sin contrato ni cotizar", "de noche", "en la construcción"], a: 0, e: "Sin derechos ni protección." },
+  ],
+  tarjetas: [
+    ["Estado del bienestar", "Servicios públicos que garantizan un nivel de vida digno."],
+    ["Impuesto progresivo", "El porcentaje aumenta con la renta."],
+    ["IPC", "Índice que mide la inflación."],
+  ],
+});

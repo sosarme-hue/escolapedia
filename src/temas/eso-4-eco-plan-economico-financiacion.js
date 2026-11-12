@@ -90,3 +90,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Elaborar un plan de inversión inicial y una previsión de tesorería", "Calcular el umbral de rentabilidad y la cuota de un préstamo sencillo"],
+  bloques: [
+    { tras: "Inversión, gastos e ingresos", html: `<h3>El plan de inversión inicial</h3><p>Antes de abrir hay que calcular cuánto dinero hace falta para empezar. La <b>inversión inicial</b> incluye bienes que durarán años, el <mark>activo no corriente</mark> (local, reformas, maquinaria, ordenadores, furgoneta), y lo necesario para funcionar los primeros meses, el <b>activo corriente</b> (existencias de mercancía y un colchón de dinero en caja). Ejemplo para una pequeña cafetería:</p>${tabla(["Concepto", "Importe"], [["Reforma del local", "12.000 €"], ["Cafetera, nevera y mobiliario", "9.000 €"], ["Ordenador y caja registradora", "1.500 €"], ["Primeras existencias", "2.500 €"], ["Fondo para los 3 primeros meses", "5.000 €"], ["<b>Total</b>", "<b>30.000 €</b>"]])}` },
+    { tras: "Inversión, gastos e ingresos", html: `<h3>La previsión de tesorería</h3><p>Una empresa puede tener beneficios y, aun así, quedarse sin dinero si cobra tarde y paga pronto. La <mark>previsión de tesorería</mark> anota, mes a mes, los <b>cobros</b> y los <b>pagos</b> esperados y el saldo que queda. Si algún mes sale negativo, hay que prever una solución (una póliza de crédito, retrasar una compra, negociar con proveedores). No es lo mismo un <b>ingreso</b> (una venta) que un <b>cobro</b> (cuando el dinero entra de verdad); ni un <b>gasto</b> que un <b>pago</b>.</p>` },
+    { tras: "El umbral de rentabilidad", html: `<h3>Calcular el umbral paso a paso</h3><p>El <mark>umbral de rentabilidad</mark> o punto muerto es la cantidad que hay que vender para cubrir todos los costes: ni se gana ni se pierde. Se calcula así: <b>Q* = costes fijos / (precio − coste variable unitario)</b>. La diferencia precio − coste variable se llama <b>margen de contribución</b>: lo que deja cada unidad para pagar los costes fijos. Por encima de Q* hay beneficio; por debajo, pérdidas. Si suben los costes fijos o baja el margen, hay que vender más para cubrir costes.</p>`, video: { id: "TwgbEkyf9yQ", titulo: "Cálculo del punto muerto o punto de equilibrio", canal: "ECONOSUBLIME", vistas: 437499, megusta: 0 } },
+    { tras: "Financiación propia y ajena", html: `<h3>Préstamo, crédito y leasing</h3>${tabla(["Producto", "Cómo funciona", "Cuándo conviene"], [["Préstamo", "el banco da una cantidad y se devuelve en cuotas con intereses", "comprar maquinaria o un local"], ["Póliza de crédito", "el banco deja un límite disponible; se pagan intereses solo por lo usado", "desfases de tesorería"], ["Leasing", "se alquila un bien con opción de compra al final", "vehículos, maquinaria"], ["Renting", "alquiler con mantenimiento incluido, sin opción de compra", "ordenadores, coches"]])}<p>Antes de endeudarse hay que comparar la <b>TAE</b> y asegurarse de que la empresa podrá pagar las cuotas.</p>` },
+    { tras: "Nuevas formas de financiación", html: `<h3>Ayudas públicas y business angels</h3><p>Además de bancos y crowdfunding, existen <b>subvenciones</b> y préstamos públicos para emprendedores, por ejemplo de la Empresa Nacional de Innovación (ENISA), de las comunidades autónomas o para jóvenes a través de la Garantía Juvenil. Los <mark>business angels</mark> son personas con experiencia que invierten su dinero en empresas que empiezan a cambio de una parte de ellas y además las aconsejan. Las <b>aceleradoras</b> e incubadoras ofrecen formación, oficinas y contactos.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Una tienda de camisetas tiene 6.000 € de costes fijos al mes. Vende cada camiseta a 20 € y le cuesta 8 €. Calcula el umbral de rentabilidad.", pasos: ["Margen de contribución = 20 − 8 = 12 € por camiseta.", "Q* = 6.000 / 12 = 500 camisetas.", "Comprobación: ingresos 500 · 20 = 10.000 €; costes 6.000 + 500 · 8 = 10.000 €."], resultado: "Debe vender 500 camisetas al mes para no perder." },
+    { enunciado: "Con esos datos, ¿qué beneficio obtiene si vende 700 camisetas?", pasos: ["Unidades por encima del umbral: 700 − 500 = 200.", "Cada una deja 12 € de margen.", "Beneficio = 200 · 12 = 2.400 €."], resultado: "2.400 € de beneficio." },
+    { enunciado: "Pides un préstamo de 6.000 € a devolver en 1 año en 12 cuotas iguales, con un interés total de 300 €. ¿Cuánto pagas al mes?", pasos: ["Total a devolver = 6.000 + 300 = 6.300 €.", "Cuota = 6.300 / 12 = 525 €."], resultado: "525 € al mes (cálculo simplificado; los bancos usan el sistema francés)." },
+  ],
+  errores: [
+    "Confundir inversión inicial con gastos mensuales.",
+    "Pensar que tener beneficios garantiza tener dinero en caja.",
+    "Restar el precio menos los costes fijos al calcular el margen de contribución: se resta el coste variable unitario.",
+    "Pedir un préstamo sin calcular si se pueden pagar las cuotas.",
+    "Confundir leasing (opción de compra) y renting (solo alquiler).",
+  ],
+  ejercicios: [
+    { q: "Clasifica en activo no corriente o corriente: furgoneta, mercancía, dinero en caja, local.", sol: "No corriente: furgoneta y local. Corriente: mercancía y dinero en caja." },
+    { q: "Diferencia ingreso y cobro.", sol: "El ingreso es la venta; el cobro, el momento en que entra el dinero." },
+    { q: "¿Para qué sirve una previsión de tesorería?", sol: "Para saber si cada mes habrá dinero suficiente para pagar y anticipar soluciones." },
+    { q: "Una pizzería tiene 4.500 € de costes fijos, vende cada pizza a 12 € y le cuesta 3 €. ¿Cuál es su umbral?", sol: "4.500 / (12 − 3) = 500 pizzas." },
+    { q: "Si la pizzería vende 600 pizzas, ¿cuánto gana?", sol: "(600 − 500) · 9 = 900 €." },
+    { q: "Si el alquiler sube y los costes fijos pasan a 5.400 €, ¿cuál es el nuevo umbral?", sol: "5.400 / 9 = 600 pizzas." },
+    { q: "¿Qué diferencia hay entre préstamo y póliza de crédito?", sol: "En el préstamo recibes todo el dinero y pagas intereses por todo; en la póliza dispones de un límite y pagas intereses solo por lo usado." },
+    { q: "¿Qué es un business angel?", sol: "Un inversor particular que aporta dinero y experiencia a empresas nuevas a cambio de una participación." },
+    { q: "Cita dos fuentes de financiación propia.", sol: "Aportaciones de los socios y beneficios reinvertidos (autofinanciación)." },
+    { q: "¿Por qué conviene tener un fondo para los primeros meses?", sol: "Porque al principio las ventas suelen ser bajas y hay que seguir pagando alquiler, sueldos y proveedores." },
+  ],
+  quiz: [
+    { q: "El umbral de rentabilidad es el punto en que…", o: ["beneficio = 0", "ventas = 0", "costes = 0"], a: 0, e: "Los ingresos igualan a los costes." },
+    { q: "El margen de contribución es…", o: ["precio − coste variable unitario", "precio − costes fijos", "ingresos − impuestos"], a: 0, e: "Lo que deja cada unidad." },
+    { q: "Una furgoneta de reparto es activo…", o: ["no corriente", "corriente", "pasivo"], a: 0, e: "Se usa durante varios años." },
+    { q: "El leasing incluye…", o: ["opción de compra", "un regalo", "subvención"], a: 0, e: "Al final se puede comprar el bien." },
+    { q: "Si suben los costes fijos, el umbral…", o: ["sube", "baja", "no cambia"], a: 0, e: "Hay que vender más para cubrirlos." },
+  ],
+  tarjetas: [
+    ["Activo no corriente", "Bienes que la empresa usa durante varios años."],
+    ["Previsión de tesorería", "Cobros y pagos previstos mes a mes."],
+    ["Margen de contribución", "Precio − coste variable unitario."],
+  ],
+});

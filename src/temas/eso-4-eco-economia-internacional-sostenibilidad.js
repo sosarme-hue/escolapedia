@@ -84,3 +84,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar la ventaja comparativa y la balanza comercial", "Relacionar economía circular, huella ecológica y consumo responsable"],
+  bloques: [
+    { tras: "Por qué comercian los países", html: `<h3>La ventaja comparativa</h3><p>David Ricardo explicó en el siglo XIX que a un país le conviene especializarse en lo que produce con <mark>menor coste de oportunidad</mark>, aunque otro país lo haga todo mejor, y comprar el resto. Así ambos consiguen más. España, por ejemplo, exporta sobre todo <b>automóviles</b>, alimentos (aceite, frutas, hortalizas, vino), productos químicos y farmacéuticos, y <b>servicios turísticos</b>; importa petróleo, gas, tecnología y bienes de equipo. Su principal socio comercial es la <b>Unión Europea</b>: Francia, Alemania, Italia y Portugal.</p>` },
+    { tras: "Por qué comercian los países", html: `<h3>La balanza comercial y de pagos</h3><p>La <mark>balanza comercial</mark> compara exportaciones e importaciones de bienes: si se exporta más de lo que se importa, hay <b>superávit</b>; si ocurre lo contrario, <b>déficit</b>. España suele tener déficit comercial, sobre todo por la energía que importa, pero lo compensa con el <b>superávit de servicios</b> gracias al turismo. La <b>balanza de pagos</b> recoge todos los intercambios de un país con el exterior: bienes, servicios, rentas y movimientos de capital.</p>` },
+    { tras: "Libre comercio o proteccionismo", html: `<h3>Las organizaciones del comercio mundial</h3>${tabla(["Organización", "Qué hace"], [["OMC (Organización Mundial del Comercio)", "fija normas del comercio entre países y resuelve disputas"], ["FMI (Fondo Monetario Internacional)", "vigila la estabilidad financiera y presta a países en crisis"], ["Banco Mundial", "financia proyectos de desarrollo en países pobres"], ["Unión Europea", "mercado único y política comercial común con el resto del mundo"]])}<p>Hay también otros bloques comerciales, como el <b>Mercosur</b> en América del Sur o el T-MEC en América del Norte.</p>` },
+    { tras: "Economía y sostenibilidad", html: `<h3>La economía circular</h3><p>La economía tradicional es <b>lineal</b>: extraer, fabricar, usar y tirar. La <mark>economía circular</mark> intenta cerrar el ciclo para que los materiales se aprovechen el mayor tiempo posible. Se resume en las reglas de las «erres»: <b>reducir</b> el consumo, <b>reutilizar</b>, <b>reparar</b>, <b>reciclar</b> y <b>recuperar</b>. Las empresas pueden diseñar productos que duren más y se reparen con facilidad (ecodiseño), y la UE ha aprobado el <b>derecho a reparar</b> y limita los plásticos de un solo uso.</p>`, video: { id: "MCKH5xk8X-g", titulo: "Los Objetivos de Desarrollo Sostenible: qué son y cómo alcanzarlos", canal: "UNESCO en español", vistas: 6359378, megusta: 0 } },
+    { tras: "Economía y sostenibilidad", html: `<h3>Huella ecológica y consumo responsable</h3><p>La <mark>huella ecológica</mark> mide la superficie de tierra y mar necesaria para producir lo que consumimos y absorber nuestros residuos. Si toda la humanidad consumiera como un español medio, harían falta más de dos planetas. El <b>consumo responsable</b> consiste en preguntarse si de verdad necesitamos algo, elegir productos duraderos, locales y de temporada, reducir el desperdicio de comida, preferir el transporte público o la bici y apoyar el <b>comercio justo</b>, que paga precios dignos a los productores de países pobres.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "En un día, Portugal produce 10 kg de queso o 5 l de vino; España, 6 kg de queso o 6 l de vino. ¿En qué debe especializarse cada uno?", pasos: ["Coste de oportunidad de 1 l de vino en Portugal: 10 / 5 = 2 kg de queso.", "En España: 6 / 6 = 1 kg de queso.", "España produce vino con menor coste de oportunidad.", "Portugal produce queso con menor coste de oportunidad (0,5 l de vino por kg frente a 1 l en España)."], resultado: "España se especializa en vino y Portugal en queso, y ambos ganan intercambiando." },
+    { enunciado: "Un país exporta bienes por 380.000 millones de € e importa por 420.000 millones. Calcula su saldo comercial.", pasos: ["Saldo = exportaciones − importaciones.", "380.000 − 420.000 = −40.000 millones."], resultado: "Déficit comercial de 40.000 millones de €." },
+    { enunciado: "Propón tres acciones de economía circular para un instituto.", pasos: ["Reducir: imprimir menos y usar documentos digitales.", "Reutilizar: banco de libros de texto usados.", "Reciclar: contenedores separados en cada aula."], resultado: "Reducir, reutilizar y reciclar aplicados al día a día del centro." },
+  ],
+  errores: [
+    "Pensar que solo comercia quien lo produce todo mejor: importa el coste de oportunidad.",
+    "Confundir balanza comercial (bienes) con balanza de pagos (todo).",
+    "Creer que el déficit comercial siempre es malo: puede compensarse con servicios o reflejar inversión.",
+    "Pensar que reciclar es lo más importante: antes van reducir y reutilizar.",
+    "Confundir el FMI con el Banco Mundial.",
+  ],
+  ejercicios: [
+    { q: "¿Qué es la ventaja comparativa?", sol: "Producir un bien con menor coste de oportunidad que otro país." },
+    { q: "Cita tres productos que exporta España.", sol: "Automóviles, aceite de oliva y frutas (también medicamentos o servicios turísticos)." },
+    { q: "¿Por qué España suele tener déficit comercial de bienes?", sol: "Principalmente por las importaciones de petróleo y gas." },
+    { q: "¿Qué compensa ese déficit?", sol: "El superávit en servicios, sobre todo el turismo." },
+    { q: "¿Qué es un arancel?", sol: "Un impuesto sobre los productos importados." },
+    { q: "¿Qué hace la OMC?", sol: "Establece normas del comercio internacional y resuelve conflictos comerciales." },
+    { q: "Si el euro se aprecia frente al dólar, ¿qué pasa con las exportaciones europeas a EE. UU.?", sol: "Se encarecen para los compradores estadounidenses y tienden a bajar." },
+    { q: "Explica la diferencia entre economía lineal y circular.", sol: "La lineal extrae, usa y tira; la circular mantiene los materiales en uso reparando, reutilizando y reciclando." },
+    { q: "¿Qué mide la huella ecológica?", sol: "La superficie necesaria para producir lo que consumimos y absorber nuestros residuos." },
+    { q: "Cita cuatro hábitos de consumo responsable.", sol: "Comprar solo lo necesario, elegir productos duraderos y locales, no desperdiciar comida y usar transporte sostenible." },
+  ],
+  quiz: [
+    { q: "La teoría de la ventaja comparativa es de…", o: ["David Ricardo", "Karl Marx", "Keynes"], a: 0, e: "Economista británico del siglo XIX." },
+    { q: "Si las importaciones superan a las exportaciones hay…", o: ["superávit", "déficit", "equilibrio"], a: 1, e: "Saldo negativo." },
+    { q: "El principal socio comercial de España es…", o: ["la UE", "China", "EE. UU."], a: 0, e: "Sobre todo Francia y Alemania." },
+    { q: "El FMI…", o: ["presta a países en crisis", "organiza los Juegos Olímpicos", "fija el IVA"], a: 0, e: "Y vigila la estabilidad financiera." },
+    { q: "La primera «erre» de la economía circular es…", o: ["reciclar", "reducir", "recuperar"], a: 1, e: "Lo mejor es no generar el residuo." },
+  ],
+  tarjetas: [
+    ["Ventaja comparativa", "Especializarse en lo que se produce con menor coste de oportunidad."],
+    ["Balanza comercial", "Exportaciones menos importaciones de bienes."],
+    ["Economía circular", "Modelo que mantiene los materiales en uso el mayor tiempo posible."],
+  ],
+});

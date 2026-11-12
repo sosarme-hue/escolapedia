@@ -90,3 +90,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Comparar formas jurídicas según responsabilidad, capital y socios", "Calcular el beneficio y la productividad de una empresa"],
+  bloques: [
+    { tras: "Qué es una empresa", html: `<h3>Las funciones y áreas de la empresa</h3><p>Una empresa combina factores de producción para ofrecer bienes o servicios y obtener un beneficio. Para ello se organiza en <b>áreas</b> o departamentos: <b>dirección</b> (planifica, organiza y controla), <b>producción</b> (fabrica o presta el servicio), <b>comercial o marketing</b> (vende), <b>financiera</b> (consigue y gestiona el dinero) y <b>recursos humanos</b> (selecciona, forma y paga al personal). El <mark>organigrama</mark> es el dibujo que muestra esas áreas y quién depende de quién.</p>` },
+    { tras: "Formas jurídicas", html: `<h3>Comparar formas jurídicas</h3>${tabla(["Forma", "Socios", "Capital mínimo", "Responsabilidad"], [["Autónomo", "1", "no hay", "ilimitada: responde con sus bienes personales"], ["Sociedad limitada (SL)", "1 o más", "1 € (desde 2022)", "limitada al capital aportado"], ["Sociedad anónima (SA)", "1 o más", "60.000 €", "limitada; capital en acciones"], ["Cooperativa", "normalmente 3 o más", "lo fijan los estatutos", "limitada; un socio, un voto"]])}<p>Elegir la forma depende del <mark>riesgo</mark> que se quiere asumir, del número de socios, del dinero disponible y de los impuestos: los autónomos pagan IRPF y las sociedades, el <b>Impuesto sobre Sociedades</b>.</p>`, video: { id: "WHPuqucLN-g", titulo: "La sociedad limitada (características, ventajas e inconvenientes)", canal: "ECONOSUBLIME", vistas: 185868, megusta: 0 } },
+    { tras: "Formas jurídicas", html: `<h3>Los trámites para crear una empresa</h3><p>Crear una sociedad limitada exige varios pasos: pedir la <b>certificación negativa del nombre</b> (que no lo use otra empresa), abrir una cuenta y depositar el capital, firmar la <b>escritura</b> ante notario con los estatutos, obtener el <b>NIF</b> en Hacienda, inscribirla en el <b>Registro Mercantil</b> y darse de alta en Hacienda y en la Seguridad Social. Hoy muchos de estos trámites pueden hacerse en línea a través del <mark>Punto de Atención al Emprendedor</mark> (PAE). Además, hay que pedir la licencia de actividad en el ayuntamiento.</p>` },
+    { tras: "Ingresos, costes y beneficio", html: `<h3>Costes fijos y costes variables</h3><p>Los <b>costes fijos</b> no cambian aunque se produzca más o menos: alquiler del local, seguros, sueldo del encargado. Los <b>costes variables</b> crecen con la producción: materias primas, envases, transporte. El <mark>coste total</mark> es la suma de ambos, y el <b>coste medio</b> es el coste total dividido entre las unidades producidas. Producir más suele bajar el coste medio, porque los costes fijos se reparten entre más unidades: son las <b>economías de escala</b>.</p>` },
+    { tras: "Responsabilidad social corporativa", html: `<h3>Empresa y entorno</h3><p>La empresa no vive aislada. Le afecta el <b>entorno general</b> (economía, leyes, tecnología, cultura, medio ambiente) y el <b>entorno específico</b>: clientes, proveedores, competidores y administraciones. El <mark>análisis DAFO</mark> ayuda a pensar su situación: <b>debilidades</b> y <b>fortalezas</b> (internas) y <b>amenazas</b> y <b>oportunidades</b> (externas). Una empresa responsable cuida también a sus <b>grupos de interés</b>: trabajadores, clientes, vecinos y el planeta.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Una heladería vende 4.000 helados a 3 € en un mes. Tiene 2.500 € de costes fijos y un coste variable de 1 € por helado. Calcula el beneficio.", pasos: ["Ingresos = 4.000 · 3 = 12.000 €.", "Costes variables = 4.000 · 1 = 4.000 €.", "Coste total = 2.500 + 4.000 = 6.500 €.", "Beneficio = 12.000 − 6.500 = 5.500 €."], resultado: "5.500 € de beneficio." },
+    { enunciado: "Con los mismos datos, calcula el coste medio si vende 1.000 o 4.000 helados.", pasos: ["Con 1.000: (2.500 + 1.000) / 1.000 = 3,50 € por helado.", "Con 4.000: 6.500 / 4.000 = 1,625 € por helado."], resultado: "El coste medio baja de 3,50 € a 1,63 €: economías de escala." },
+    { enunciado: "Ana y Luis quieren abrir una tienda online con 3.000 € y no quieren arriesgar su casa. ¿Qué forma jurídica les conviene?", pasos: ["Son dos socios.", "No llegan a los 60.000 € de una SA.", "Quieren responsabilidad limitada, así que descartan ser autónomos."], resultado: "Una sociedad limitada." },
+  ],
+  errores: [
+    "Confundir ingresos con beneficio: el beneficio es ingresos menos costes.",
+    "Pensar que el autónomo solo arriesga lo que invierte: responde con todos sus bienes.",
+    "Creer que los costes fijos son cero si no se produce nada.",
+    "Mezclar factores internos (fortalezas y debilidades) y externos (oportunidades y amenazas) en el DAFO.",
+    "Pensar que solo las grandes empresas tienen responsabilidad social.",
+  ],
+  ejercicios: [
+    { q: "Cita las principales áreas de una empresa.", sol: "Dirección, producción, comercial, financiera y recursos humanos." },
+    { q: "¿Qué es un organigrama?", sol: "Un esquema que representa la estructura de la empresa y las relaciones de dependencia." },
+    { q: "¿Qué significa responsabilidad ilimitada?", sol: "Que, si la empresa debe dinero, el empresario responde también con sus bienes personales." },
+    { q: "¿Qué capital mínimo exige una sociedad anónima?", sol: "60.000 €." },
+    { q: "¿Qué tiene de especial una cooperativa?", sol: "Los socios trabajan y deciden juntos, con un voto por persona, sin importar cuánto capital aporte cada uno." },
+    { q: "Clasifica como fijo o variable: alquiler, harina de una panadería, seguro, electricidad del horno.", sol: "Alquiler: fijo. Harina: variable. Seguro: fijo. Electricidad del horno: variable." },
+    { q: "Una empresa ingresa 50.000 € y sus costes suman 42.000 €. ¿Cuál es su beneficio?", sol: "8.000 €." },
+    { q: "¿Qué son las economías de escala?", sol: "La reducción del coste medio al aumentar la producción, porque los costes fijos se reparten entre más unidades." },
+    { q: "Pon un ejemplo de oportunidad y de amenaza para una tienda de bicis.", sol: "Oportunidad: más carriles bici en la ciudad. Amenaza: una gran cadena abre al lado." },
+    { q: "¿Qué es el Registro Mercantil?", sol: "El registro público donde se inscriben las sociedades para que tengan personalidad jurídica." },
+  ],
+  quiz: [
+    { q: "El capital mínimo de una SL desde 2022 es…", o: ["1 €", "3.000 €", "60.000 €"], a: 0, e: "Aunque hay reglas especiales mientras no llegue a 3.000 €." },
+    { q: "La materia prima es un coste…", o: ["fijo", "variable", "de oportunidad"], a: 1, e: "Aumenta con la producción." },
+    { q: "En el DAFO, las fortalezas son…", o: ["externas", "internas", "amenazas"], a: 1, e: "Dependen de la propia empresa." },
+    { q: "Las sociedades pagan…", o: ["el Impuesto sobre Sociedades", "el IBI de los vecinos", "nada"], a: 0, e: "Los autónomos, en cambio, tributan en el IRPF." },
+    { q: "El área que busca y gestiona el dinero es la…", o: ["comercial", "financiera", "de producción"], a: 1, e: "Se ocupa de inversiones y financiación." },
+  ],
+  tarjetas: [
+    ["Organigrama", "Esquema de la estructura de la empresa."],
+    ["Coste medio", "Coste total / unidades producidas."],
+    ["DAFO", "Debilidades, amenazas, fortalezas y oportunidades."],
+  ],
+});

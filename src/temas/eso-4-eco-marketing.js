@@ -78,3 +78,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Segmentar un mercado y definir el público objetivo", "Diseñar acciones de comunicación y analizar publicidad engañosa"],
+  bloques: [
+    { tras: "Qué es el marketing", html: `<h3>El estudio de mercado</h3><p>Antes de lanzar un producto hay que conocer el <b>mercado</b>: cuántos clientes hay, qué necesitan, cuánto pagarían y qué hace la competencia. La información puede ser <b>secundaria</b> (datos que ya existen: estadísticas del INE, informes, webs) o <b>primaria</b> (la que obtiene la empresa: <mark>encuestas</mark>, entrevistas, observación, grupos de discusión). Una buena encuesta tiene preguntas claras, cortas y sin influir en la respuesta, y se hace a una <b>muestra</b> representativa de los posibles clientes.</p>` },
+    { tras: "Qué es el marketing", html: `<h3>Segmentar y posicionar</h3><p>No se puede vender a todo el mundo a la vez. <mark>Segmentar</mark> es dividir el mercado en grupos con necesidades parecidas, según criterios como la edad, el lugar, los ingresos, el estilo de vida o los hábitos de compra. Después se elige el <b>público objetivo</b> (target). El <b>posicionamiento</b> es el lugar que queremos ocupar en la mente del cliente frente a la competencia: «la más barata», «la más ecológica», «la de más calidad». Se suele representar en un <b>mapa de posicionamiento</b> con dos ejes, por ejemplo, precio y calidad.</p>` },
+    { tras: "El marketing mix", html: `<h3>El producto y su ciclo de vida</h3><p>Un producto no es solo el objeto: incluye la <b>marca</b>, el <b>envase</b>, el diseño, la garantía y el servicio posventa. Todo producto pasa por un <mark>ciclo de vida</mark>:</p>${tabla(["Fase", "Ventas", "Qué hace la empresa"], [["Introducción", "bajas", "dar a conocer el producto; mucha publicidad"], ["Crecimiento", "suben rápido", "ampliar la distribución; aparecen competidores"], ["Madurez", "estables y altas", "diferenciarse, bajar precios, renovar"], ["Declive", "bajan", "retirar el producto o reinventarlo"]])}`, video: { id: "Mco8vBAwOmA", titulo: "Las 4 P del marketing mix simplificadas", canal: "College & Career Ready Labs", vistas: 1683031, megusta: 0 } },
+    { tras: "Estrategias de precio", html: `<h3>Distribución y comunicación</h3><p>La <b>distribución</b> lleva el producto al cliente: de forma <b>directa</b> (la empresa vende sin intermediarios, como en su tienda online) o <b>indirecta</b> (a través de mayoristas y minoristas). La <mark>comunicación</mark> o promoción incluye la <b>publicidad</b> (anuncios pagados), la <b>promoción de ventas</b> (descuentos, 2x1, muestras), las <b>relaciones públicas</b> (eventos, patrocinios, notas de prensa) y la <b>venta personal</b>. Hoy se combina todo con el marketing digital: redes sociales, buscadores, correo y colaboraciones con creadores de contenido.</p>` },
+    { tras: "Marketing digital y consumo responsable", html: `<h3>Publicidad engañosa y derechos del consumidor</h3><p>La ley prohíbe la <mark>publicidad engañosa</mark> (la que da información falsa o esconde datos importantes, como el precio final) y la publicidad dirigida a menores que aproveche su inexperiencia. Los <b>influencers</b> deben indicar claramente cuándo un contenido es publicidad (#publi). Los consumidores tienen derecho a la información, a la garantía (3 años en productos nuevos comprados desde 2022), a desistir de una compra online en <b>14 días</b> y a reclamar mediante las hojas de reclamaciones o las oficinas de consumo.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Segmenta el mercado de unas zapatillas deportivas.", pasos: ["Por edad: niños, jóvenes, adultos, mayores.", "Por uso: running, baloncesto, moda urbana.", "Por ingresos: gama básica, media y alta.", "Elegimos un target: jóvenes de 15 a 25 años que corren por la ciudad, gama media."], resultado: "Público objetivo: jóvenes corredores urbanos con presupuesto medio." },
+    { enunciado: "Un refresco lleva 40 años en el mercado con ventas estables. ¿En qué fase está y qué puede hacer?", pasos: ["Ventas altas y estables: madurez.", "Para alargarla: nuevos sabores, versión sin azúcar, envase nuevo, campañas que lo renueven."], resultado: "Madurez; debe renovarse para no entrar en declive." },
+    { enunciado: "Un anuncio dice «vuelo a Roma desde 9 €» pero al pagar cuesta 79 € por tasas obligatorias. ¿Es legal?", pasos: ["El precio anunciado no incluye costes obligatorios.", "La ley exige mostrar el precio final.", "Esconde información relevante para decidir."], resultado: "Es publicidad engañosa; se puede reclamar." },
+  ],
+  errores: [
+    "Pensar que el marketing es solo publicidad.",
+    "Intentar vender a todos a la vez sin segmentar.",
+    "Confundir distribución directa con indirecta.",
+    "Creer que un influencer no tiene que avisar cuando cobra por anunciar algo.",
+    "Pensar que las tiendas físicas deben aceptar siempre devoluciones: el derecho de 14 días es para compras a distancia; en tienda depende de su política.",
+  ],
+  ejercicios: [
+    { q: "Diferencia información primaria y secundaria.", sol: "La primaria la obtiene la empresa para su estudio (encuestas); la secundaria ya existe (estadísticas, informes)." },
+    { q: "Escribe dos preguntas para una encuesta sobre una nueva cafetería.", sol: "Por ejemplo: «¿Cuántas veces a la semana tomas algo fuera?» y «¿Cuánto pagarías por un café?»." },
+    { q: "¿Qué es el público objetivo?", sol: "El grupo de clientes al que se dirige un producto." },
+    { q: "Define posicionamiento.", sol: "La imagen que quiere ocupar un producto en la mente del cliente frente a la competencia." },
+    { q: "Cita las fases del ciclo de vida de un producto.", sol: "Introducción, crecimiento, madurez y declive." },
+    { q: "Pon un ejemplo de distribución directa e indirecta.", sol: "Directa: una marca que vende en su web. Indirecta: un fabricante que vende a un supermercado." },
+    { q: "Clasifica: un 2x1, un anuncio en TV, patrocinar un equipo local.", sol: "2x1: promoción de ventas. Anuncio: publicidad. Patrocinio: relaciones públicas." },
+    { q: "¿Qué es la publicidad engañosa?", sol: "La que da información falsa o esconde datos importantes y puede llevar al consumidor a error." },
+    { q: "¿Cuántos días tienes para devolver una compra online?", sol: "14 días naturales desde que la recibes (derecho de desistimiento)." },
+    { q: "¿Qué debe indicar un influencer en un contenido pagado?", sol: "Que es publicidad, con etiquetas claras como #publi o «colaboración pagada»." },
+  ],
+  quiz: [
+    { q: "Una encuesta propia es información…", o: ["primaria", "secundaria", "terciaria"], a: 0, e: "La obtiene la empresa." },
+    { q: "Segmentar es…", o: ["dividir el mercado en grupos", "bajar precios", "fabricar más"], a: 0, e: "Para elegir a qué grupo dirigirse." },
+    { q: "En la fase de introducción, las ventas son…", o: ["bajas", "máximas", "en declive"], a: 0, e: "El producto aún no se conoce." },
+    { q: "Un patrocinio es…", o: ["relaciones públicas", "distribución", "precio"], a: 0, e: "Mejora la imagen de la marca." },
+    { q: "La garantía legal de un producto nuevo comprado hoy es de…", o: ["6 meses", "2 años", "3 años"], a: 2, e: "Desde 2022." },
+  ],
+  tarjetas: [
+    ["Público objetivo", "Grupo de clientes al que se dirige un producto."],
+    ["Ciclo de vida", "Introducción, crecimiento, madurez y declive."],
+    ["Derecho de desistimiento", "14 días para devolver una compra a distancia."],
+  ],
+});

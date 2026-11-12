@@ -92,3 +92,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Rellenar un lienzo Canvas completo para una idea propia", "Diseñar un producto mínimo viable y analizar la competencia"],
+  bloques: [
+    { tras: "El espíritu emprendedor", html: `<h3>Tipos de emprendimiento</h3><p>Emprender no es solo montar una empresa. El <b>emprendimiento empresarial</b> crea negocios con ánimo de lucro; el <mark>emprendimiento social</mark> busca resolver un problema de la sociedad (por ejemplo, dar empleo a personas con discapacidad o reducir el desperdicio de comida) y reinvierte los beneficios; y el <b>intraemprendimiento</b> consiste en innovar dentro de una empresa u organización en la que ya trabajas. Todos comparten actitudes: iniciativa, creatividad, tolerancia al fracaso, trabajo en equipo y saber aprender de los errores.</p>` },
+    { tras: "De dónde salen las ideas", html: `<h3>Técnicas de creatividad</h3><p>Las ideas no aparecen por casualidad: se pueden provocar. En la <b>lluvia de ideas</b> (brainstorming) un grupo propone muchas ideas sin juzgarlas y después las filtra. La técnica <mark>SCAMPER</mark> pregunta qué se puede <b>S</b>ustituir, <b>C</b>ombinar, <b>A</b>daptar, <b>M</b>odificar, <b>P</b>oner en otro uso, <b>E</b>liminar o <b>R</b>eordenar en un producto que ya existe. El <b>design thinking</b> empieza por <b>empatizar</b> con las personas que tienen el problema, definirlo bien, idear soluciones, hacer un prototipo y probarlo.</p>` },
+    { tras: "El lienzo Canvas", html: `<h3>Un Canvas de ejemplo: «BiciFix», reparación de bicis a domicilio</h3>${tabla(["Bloque", "Contenido"], [["Segmento de clientes", "estudiantes y trabajadores que van en bici a diario"], ["Propuesta de valor", "reparamos tu bici en tu portal en menos de 24 h"], ["Canales", "app, Instagram, carteles en institutos y facultades"], ["Relación con clientes", "reserva online, recordatorio de revisiones"], ["Fuentes de ingresos", "pago por reparación y bono anual de mantenimiento"], ["Recursos clave", "furgoneta, herramientas, mecánicos"], ["Actividades clave", "reparar, comprar recambios, gestionar citas"], ["Socios clave", "tiendas de recambios, ayuntamiento"], ["Estructura de costes", "salarios, combustible, recambios, publicidad"]])}`, video: { id: "i1Le5GYkBT8", titulo: "Modelo Canvas: cómo aplicar el modelo Canvas en el lienzo. Ejemplo práctico", canal: "Trabajar Desde Casa", vistas: 5841473, megusta: 0 } },
+    { tras: "Validar antes de invertir", html: `<h3>El producto mínimo viable</h3><p>Un <mark>producto mínimo viable</mark> (PMV o MVP) es la versión más sencilla del producto que permite comprobar si a los clientes les interesa, gastando poco. Puede ser una web con un botón de «reservar», un prototipo hecho a mano o un servicio que al principio se presta de forma manual. Se sigue un ciclo de <b>crear → medir → aprender</b>: se lanza, se recogen datos (cuántos lo prueban, qué opinan) y se mejora. Si la idea no funciona, se <b>pivota</b>: se cambia una parte del modelo de negocio sin empezar de cero.</p>` },
+    { tras: "Validar antes de invertir", html: `<h3>Analizar la competencia</h3><p>Antes de lanzar un negocio conviene saber quién ofrece algo parecido. Los <b>competidores directos</b> venden lo mismo al mismo cliente; los <b>indirectos</b> satisfacen la misma necesidad de otra forma (para «moverse por la ciudad», una bici compite con el bus o el patinete). Hay que comparar precio, calidad, ubicación y servicio, y buscar la <mark>ventaja competitiva</mark>: lo que hace a tu negocio diferente y mejor a ojos del cliente, como el precio más bajo, la rapidez o un trato más personal.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Aplica SCAMPER a una mochila escolar.", pasos: ["Sustituir: tela reciclada en lugar de nailon.", "Combinar: mochila con cargador solar.", "Adaptar: correas acolchadas de las mochilas de montaña.", "Eliminar: quitar bolsillos que nadie usa para que pese menos."], resultado: "Surge, por ejemplo, una mochila ligera de tela reciclada con cargador solar." },
+    { enunciado: "Diseña un PMV para una app que conecta a estudiantes que se ayudan con los deberes.", pasos: ["Sin programar nada, crear un formulario online y un grupo de mensajería.", "Ofrecerlo en el instituto durante dos semanas.", "Medir cuántos se apuntan y cuántos repiten.", "Preguntar qué echan en falta."], resultado: "Con muy poco dinero se comprueba si hay interés antes de pagar una app." },
+    { enunciado: "Para «BiciFix», identifica un competidor directo y uno indirecto.", pasos: ["Directo: el taller de bicis del barrio.", "Indirecto: un vídeo de YouTube para arreglar la bici uno mismo."], resultado: "Su ventaja competitiva frente a ambos es la comodidad: reparan en tu portal." },
+  ],
+  errores: [
+    "Enamorarse de la idea sin preguntar a los clientes.",
+    "Confundir la propuesta de valor con el producto: es el problema que resuelves y por qué te eligen.",
+    "Pensar que no tienes competencia porque nadie hace exactamente lo mismo.",
+    "Gastar mucho dinero antes de validar la idea.",
+    "Creer que pivotar es fracasar: es aprender y ajustar.",
+  ],
+  ejercicios: [
+    { q: "Explica la diferencia entre emprendimiento empresarial y social.", sol: "El empresarial busca beneficio; el social busca resolver un problema de la sociedad y reinvierte los beneficios en ese fin." },
+    { q: "Cita tres actitudes emprendedoras.", sol: "Iniciativa, creatividad y tolerancia al fracaso (también trabajo en equipo y perseverancia)." },
+    { q: "¿Cuáles son las reglas de una lluvia de ideas?", sol: "Proponer muchas ideas, no criticarlas al principio, construir sobre las de otros y filtrarlas después." },
+    { q: "¿Qué significa cada letra de SCAMPER?", sol: "Sustituir, Combinar, Adaptar, Modificar, Poner en otro uso, Eliminar y Reordenar." },
+    { q: "Nombra los nueve bloques del Canvas.", sol: "Segmentos de clientes, propuesta de valor, canales, relación con clientes, fuentes de ingresos, recursos clave, actividades clave, socios clave y estructura de costes." },
+    { q: "¿En qué bloque del Canvas pondrías «Instagram»?", sol: "En canales." },
+    { q: "¿Qué es un producto mínimo viable?", sol: "La versión más simple de un producto que permite comprobar si interesa a los clientes con poca inversión." },
+    { q: "¿Qué significa pivotar?", sol: "Cambiar una parte del modelo de negocio tras comprobar que algo no funciona." },
+    { q: "Define ventaja competitiva.", sol: "Lo que hace que los clientes prefieran tu negocio frente a la competencia." },
+    { q: "Rellena la propuesta de valor de una cafetería para estudiantes.", sol: "Por ejemplo: «Un sitio tranquilo para estudiar, con wifi y café barato, abierto hasta tarde»." },
+  ],
+  quiz: [
+    { q: "El intraemprendimiento es…", o: ["innovar dentro de una organización", "montar una empresa en el extranjero", "trabajar desde casa"], a: 0, e: "Emprender sin dejar tu empleo." },
+    { q: "En design thinking, el primer paso es…", o: ["empatizar", "vender", "patentar"], a: 0, e: "Entender a quien tiene el problema." },
+    { q: "Un PMV sirve para…", o: ["validar con poco gasto", "conseguir un préstamo", "pagar menos impuestos"], a: 0, e: "Crear, medir, aprender." },
+    { q: "El bus es para una empresa de alquiler de bicis un competidor…", o: ["directo", "indirecto", "socio"], a: 1, e: "Cubre la misma necesidad de otra manera." },
+    { q: "Los proveedores de recambios en el Canvas son…", o: ["socios clave", "canales", "clientes"], a: 0, e: "Son alianzas necesarias." },
+  ],
+  tarjetas: [
+    ["Emprendimiento social", "Negocio que busca resolver un problema social."],
+    ["SCAMPER", "Técnica de creatividad para mejorar productos existentes."],
+    ["Pivotar", "Cambiar parte del modelo de negocio tras aprender del mercado."],
+  ],
+});

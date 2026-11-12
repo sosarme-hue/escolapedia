@@ -97,3 +97,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Representar e interpretar la frontera de posibilidades de producción", "Distinguir economía positiva y normativa, y microeconomía y macroeconomía"],
+  bloques: [
+    { tras: "La escasez, el problema", html: `<h3>Necesidades y bienes</h3><p>Una <b>necesidad</b> es la sensación de carencia de algo, unida al deseo de satisfacerla. Las hay <b>primarias</b> (alimento, vivienda, salud) y <b>secundarias</b> (ocio, viajes, un móvil nuevo), y crecen con el nivel de vida. Para satisfacerlas usamos <mark>bienes</mark> (objetos: una manzana, una bici) y <mark>servicios</mark> (actividades: una clase, un corte de pelo). Los <b>bienes libres</b>, como el aire, son abundantes y no tienen precio; los <b>bienes económicos</b> son escasos y cuestan dinero. Los bienes pueden ser <b>de consumo</b> (los usa el consumidor) o <b>de capital</b> (sirven para producir otros, como una máquina).</p>`, video: { id: "IUGotDZIb40", titulo: "Concepto de escasez | Economía", canal: "Flex Flix Teens en Español", vistas: 421689, megusta: 0 } },
+    { tras: "La escasez, el problema", html: `<h3>Las tres preguntas básicas</h3><p>Como los recursos son escasos, toda sociedad debe responder a tres preguntas: <b>¿qué producir?</b> (y cuánto), <b>¿cómo producir?</b> (con qué técnicas y recursos) y <b>¿para quién producir?</b> (cómo se reparte lo producido). Cada <mark>sistema económico</mark> las responde de forma distinta: en la <b>economía de mercado</b> deciden la oferta y la demanda; en la <b>economía planificada</b> decide el Estado; y en la <b>economía mixta</b>, la de España y casi todos los países, el mercado decide la mayor parte, pero el Estado interviene con impuestos, servicios públicos y leyes.</p>` },
+    { tras: "El coste de oportunidad", html: `<h3>La frontera de posibilidades de producción</h3><p>La <mark>frontera de posibilidades de producción</mark> (FPP) muestra las combinaciones máximas de dos bienes que puede producir una economía con sus recursos y su tecnología.</p>${tabla(["Opción", "Ordenadores", "Bicicletas"], [["A", "0", "100"], ["B", "10", "90"], ["C", "20", "70"], ["D", "30", "40"], ["E", "40", "0"]])}<p>Los puntos de la frontera son <b>eficientes</b>; los de dentro, <b>ineficientes</b> (hay recursos sin usar, como trabajadores en paro); los de fuera, <b>inalcanzables</b> por ahora. Si mejora la tecnología o aumentan los recursos, la frontera se desplaza hacia fuera: hay <b>crecimiento económico</b>.</p>` },
+    { tras: "Los factores de producción", html: `<h3>Las rentas de los factores</h3><p>Cada factor de producción recibe un pago, llamado <b>renta</b>, por participar en la producción.</p>${tabla(["Factor", "Ejemplo", "Renta que recibe"], [["Tierra (recursos naturales)", "un terreno, un pozo de agua", "alquiler o renta"], ["Trabajo", "el esfuerzo de un cocinero", "salario"], ["Capital", "un horno, un ordenador", "interés"], ["Iniciativa empresarial", "quien organiza el restaurante y asume el riesgo", "beneficio"]])}<p>La <mark>productividad</mark> mide cuánto se produce con cada unidad de factor, por ejemplo, unidades por trabajador y hora.</p>` },
+    { tras: "Los agentes económicos", html: `<h3>Cómo estudia la economía el mundo</h3><p>La <b>microeconomía</b> estudia las decisiones de las familias y las empresas: por qué sube el precio de un producto o cuántos trabajadores contrata una empresa. La <b>macroeconomía</b> estudia el conjunto: el crecimiento del país, la inflación, el paro. Además, la <mark>economía positiva</mark> describe lo que es («si sube el precio del tabaco, se fuma menos») y se puede comprobar con datos, mientras que la <mark>economía normativa</mark> opina sobre lo que debería ser («habría que subir el impuesto del tabaco»), y depende de valores.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Con la tabla de la FPP, ¿cuál es el coste de oportunidad de pasar de 20 a 30 ordenadores?", pasos: ["Con 20 ordenadores se producen 70 bicicletas (opción C).", "Con 30 ordenadores se producen 40 bicicletas (opción D).", "Se renuncia a 70 − 40 = 30 bicicletas.", "Por cada ordenador extra se pierden 30 / 10 = 3 bicicletas."], resultado: "El coste de oportunidad es de 30 bicicletas (3 por ordenador)." },
+    { enunciado: "Lucía tiene la tarde libre: puede trabajar de canguro (ganaría 25 €), estudiar o ir al cine (8 €). Elige el cine. ¿Cuál es su coste de oportunidad?", pasos: ["El coste de oportunidad es la mejor alternativa a la que se renuncia.", "Si valora más ganar dinero que estudiar, la mejor alternativa es el trabajo.", "Además paga 8 € de entrada."], resultado: "Renuncia a 25 € (y a la tarde de estudio), y gasta 8 €: el cine le cuesta en realidad 33 €." },
+    { enunciado: "Clasifica: «El paro juvenil en España es más alto que la media europea» y «El Gobierno debería bajar las cotizaciones a los jóvenes».", pasos: ["La primera describe un hecho que se puede comprobar con estadísticas: positiva.", "La segunda propone lo que habría que hacer: normativa."], resultado: "La primera es economía positiva; la segunda, normativa." },
+  ],
+  errores: [
+    "Pensar que el coste de oportunidad es el dinero que pagas: es la mejor alternativa a la que renuncias.",
+    "Sumar todas las alternativas perdidas: solo cuenta la mejor.",
+    "Confundir escasez con pobreza: hasta el país más rico tiene recursos limitados.",
+    "Creer que un punto dentro de la FPP es imposible: es posible, pero ineficiente.",
+    "Confundir el dinero con el capital como factor de producción: el capital son máquinas, herramientas y edificios.",
+  ],
+  ejercicios: [
+    { q: "Pon un ejemplo de necesidad primaria y otro de secundaria.", sol: "Primaria: alimentarse. Secundaria: ir a un concierto." },
+    { q: "¿Por qué el agua del mar es un bien libre y el agua embotellada, un bien económico?", sol: "La del mar es abundante y nadie cobra por ella; la embotellada requiere recursos para producirla y tiene precio." },
+    { q: "¿Qué tres preguntas debe responder todo sistema económico?", sol: "Qué producir, cómo producir y para quién producir." },
+    { q: "Describe una economía mixta.", sol: "El mercado decide la mayoría de las cosas, pero el Estado interviene con servicios públicos, impuestos y leyes." },
+    { q: "En la tabla de la FPP, ¿qué ocurre si la economía produce 20 ordenadores y 50 bicicletas?", sol: "Está dentro de la frontera: es ineficiente, porque podría producir 70 bicicletas con 20 ordenadores." },
+    { q: "¿Qué desplaza la FPP hacia fuera?", sol: "Más recursos (más población activa, más capital) o mejor tecnología." },
+    { q: "Asocia cada factor con su renta.", sol: "Tierra: alquiler. Trabajo: salario. Capital: interés. Iniciativa empresarial: beneficio." },
+    { q: "Un taller produce 120 piezas al día con 4 trabajadores. ¿Cuál es la productividad por trabajador?", sol: "120 / 4 = 30 piezas por trabajador y día." },
+    { q: "¿Estudia la microeconomía o la macroeconomía el paro de España?", sol: "La macroeconomía, porque estudia el conjunto de la economía." },
+    { q: "Escribe una frase de economía positiva y otra de normativa sobre el precio de la vivienda.", sol: "Positiva: «El precio del alquiler ha subido en las grandes ciudades». Normativa: «Debería limitarse el precio del alquiler»." },
+  ],
+  quiz: [
+    { q: "Un corte de pelo es…", o: ["un bien", "un servicio", "un factor"], a: 1, e: "Es una actividad, no un objeto." },
+    { q: "Un punto fuera de la FPP es…", o: ["eficiente", "ineficiente", "inalcanzable"], a: 2, e: "No hay recursos suficientes para producirlo." },
+    { q: "La renta del trabajo es…", o: ["el interés", "el salario", "el beneficio"], a: 1, e: "Lo que se cobra por trabajar." },
+    { q: "«Habría que subir el salario mínimo» es economía…", o: ["positiva", "normativa", "planificada"], a: 1, e: "Expresa una opinión sobre lo que debería ser." },
+    { q: "En una economía planificada decide…", o: ["el mercado", "el Estado", "cada familia"], a: 1, e: "El Estado fija qué, cómo y para quién." },
+  ],
+  tarjetas: [
+    ["Bien económico", "Bien escaso que tiene precio."],
+    ["Frontera de posibilidades de producción", "Combinaciones máximas de dos bienes que puede producir una economía."],
+    ["Economía normativa", "Opina sobre lo que debería hacerse."],
+  ],
+});
