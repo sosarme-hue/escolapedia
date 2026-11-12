@@ -62,7 +62,7 @@ module.exports = {
     { q: "¿Qué justificación ideológica usó el imperialismo?", o: ["La igualdad de los pueblos", "La supuesta superioridad europea y la «misión civilizadora»", "La democracia"], a: 1, e: "El racismo de la época sirvió para justificar la dominación colonial." },
   ],
   feynman: ["Las cuatro causas del imperialismo", "Cómo se repartió África y qué consecuencias tuvo", "Las causas profundas y la chispa de la Primera Guerra Mundial", "Qué impuso el Tratado de Versalles y por qué fue polémico"],
-  mapa: mapa("IMPERIALISMO Y GRAN GUERRA", "var(--soc, #c2410c)", [
+  mapa: mapa("IMPERIALISMO Y IGM", "var(--soc, #c2410c)", [
     ["Imperialismo", "materias primas · mercados · racismo", "var(--sun)"],
     ["Bloques", "Alianza vs. Entente", "var(--ink)"],
     ["Guerra", "trincheras · guerra total · 1917", "var(--red)"],
