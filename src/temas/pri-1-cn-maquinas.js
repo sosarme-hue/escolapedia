@@ -1,0 +1,207 @@
+// Ciencias de la Naturaleza 1º de Primaria. Formato ampliado de 1º: frases cortas y un dibujo propio en cada bloque.
+const { mapa } = require("./_util");
+const { F, D, BG, txt, persona, check, RD } = require("./_peques");
+
+// Máquinas y aparatos sencillos. (x, y) = centro.
+const rueda = (x, y, r = 16) => `<g><circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="var(--ink)" stroke-width="4"/><circle cx="${x}" cy="${y}" r="3" fill="var(--ink)"/>${[0, 60, 120].map((a) => { const c = Math.cos((a * Math.PI) / 180) * r, s = Math.sin((a * Math.PI) / 180) * r; return `<path d="M${(x - c).toFixed(1)} ${(y - s).toFixed(1)} L ${(x + c).toFixed(1)} ${(y + s).toFixed(1)}" stroke="var(--ink)" stroke-width="1.5"/>`; }).join("")}</g>`;
+const bici = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})">${rueda(-26, 0, 16)}${rueda(26, 0, 16)}<path d="M-26 0 L -6 -24 L 18 -24 L 26 0 M-6 -24 L 0 0 L 18 -24 M-10 -30 H 0 M18 -24 L 14 -36 H 24" stroke="var(--red)" stroke-width="3.5" fill="none" stroke-linejoin="round"/><circle cy="0" r="4" fill="var(--ink)"/></g>`;
+const lavadora = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-26" y="-30" width="52" height="60" rx="5" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><path d="M-26 -18 H 26" stroke="var(--ink)" stroke-width="1.5"/><circle cx="16" cy="-24" r="3" fill="var(--pen)"/><circle cy="6" r="15" fill="var(--water)" fill-opacity=".4" stroke="var(--ink)" stroke-width="2"/></g>`;
+const nevera = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-20" y="-38" width="40" height="76" rx="5" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><path d="M-20 -10 H 20 M12 -30 V -18 M12 -2 V 14" stroke="var(--ink)" stroke-width="2"/></g>`;
+const ordenador = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-30" y="-26" width="60" height="40" rx="4" fill="var(--ink)"/><rect x="-26" y="-22" width="52" height="32" fill="var(--water)" fill-opacity=".5"/><path d="M-36 18 H 36 L 30 24 H -30 Z" fill="var(--muted)"/></g>`;
+const enchufe = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-16" y="-16" width="32" height="32" rx="6" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><circle cx="-6" r="3" fill="var(--ink)"/><circle cx="6" r="3" fill="var(--ink)"/></g>`;
+const rayo = (x, y, s = 1) => `<path transform="translate(${x} ${y}) scale(${s})" d="M4 -18 L -8 2 H 2 L -4 18 L 10 -4 H 0 Z" fill="var(--sun)" stroke="#c99a10" stroke-width="1"/>`;
+const pila = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-8" y="-18" width="16" height="36" rx="3" fill="var(--leaf)"/><rect x="-3" y="-22" width="6" height="4" fill="var(--muted)"/><path d="M-4 -6 H 4 M0 -10 V -2" stroke="#fff" stroke-width="2"/></g>`;
+const tijeras = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-2 -2 L 24 -16 M-2 2 L 24 16" stroke="#6b7385" stroke-width="4" stroke-linecap="round"/><circle cx="-10" cy="-8" r="7" fill="none" stroke="var(--red)" stroke-width="3.5"/><circle cx="-10" cy="8" r="7" fill="none" stroke="var(--red)" stroke-width="3.5"/></g>`;
+
+module.exports = {
+  materia: "Ciencias de la Naturaleza",
+  curso: "1-primaria",
+  titulo: "Las máquinas y la tecnología",
+  minutos: 25,
+  objetivos: ["Saber que las máquinas nos ayudan a hacer trabajos con menos esfuerzo", "Distinguir máquinas sencillas y máquinas con muchas piezas", "Reconocer máquinas de casa y del colegio y qué energía usan", "Usar las máquinas y los aparatos eléctricos con seguridad"],
+  claves: ["máquina", "rueda", "rampa", "electricidad", "pila", "tecnología"],
+  pregunta: {
+    texto: "Tienes que llevar una caja muy pesada hasta el final del pasillo. ¿Cómo lo harías con menos esfuerzo?",
+    respuesta: "Puedes ponerla en un <mark>carrito con ruedas</mark>. La rueda es una <b>máquina</b>: nos ayuda a mover cosas pesadas con menos esfuerzo.",
+  },
+  bloques: [
+    {
+      html: `<h3>¿Qué es una máquina?</h3><p>Una <mark>máquina</mark> es un objeto que nos ayuda a hacer un trabajo. Con ella cuesta menos esfuerzo o se hace más deprisa.</p><p>Las tijeras nos ayudan a cortar. La bicicleta nos ayuda a ir lejos. La lavadora lava la ropa.</p><p>Las personas inventan máquinas para vivir mejor.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Unas tijeras, una bicicleta y una lavadora">${BG}
+        ${tijeras(40, 96, 1.1)}${bici(134, 112, 1)}${lavadora(216, 100, 1)}
+        ${txt(44, 150, "cortar", { size: 12 })}${txt(134, 150, "moverse", { size: 12 })}${txt(216, 150, "lavar", { size: 12 })}
+        ${txt(130, 32, "Nos ayudan", { size: 16, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
+    },
+    {
+      html: `<h3>Máquinas sencillas</h3><p>Algunas máquinas tienen <mark>muy pocas piezas</mark>. Son máquinas sencillas.</p><p>La <b>rueda</b> ayuda a mover cosas: carritos, coches, patinetes. La <b>rampa</b> ayuda a subir cosas sin levantarlas. El <b>balancín</b> del parque es una palanca: ayuda a levantar peso.</p><p>Las máquinas sencillas se usan desde hace miles de años.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una rueda, una rampa con una caja y un balancín">${BG}
+        ${rueda(44, 100, 24)}
+        <path d="M86 130 L 160 130 L 160 92 Z" fill="var(--sun)"/><rect x="118" y="96" width="18" height="18" fill="#c98a4a" transform="rotate(-27 127 105)"/>
+        <g transform="translate(214 120)"><path d="M-4 10 L 0 0 L 4 10 Z" fill="var(--ink)"/><path d="M-36 -10 L 36 10" stroke="var(--red)" stroke-width="5" stroke-linecap="round"/><rect x="-36" y="-28" width="16" height="16" fill="var(--pen)"/></g>
+        ${txt(44, 152, "rueda", { size: 12 })}${txt(124, 152, "rampa", { size: 12 })}${txt(214, 152, "balancín", { size: 12 })}</svg>`,
+      video: { id: "aR6NfRBz7ME", titulo: "Las máquinas para niños - Máquinas simples y compuestas", canal: "Smile and Learn - Español", vistas: 1138879, megusta: 0 },
+    },
+    {
+      html: `<h3>Máquinas con muchas piezas</h3><p>Otras máquinas tienen <mark>muchas piezas</mark> que trabajan juntas.</p><p>La <b>bicicleta</b> tiene ruedas, pedales, cadena, manillar y frenos. Si falta una pieza, no funciona bien.</p><p>El coche, el ascensor y la grúa también tienen muchísimas piezas. Los mecánicos saben arreglarlas.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Bicicleta grande con las ruedas, el pedal, el manillar y el sillín señalados">${BG}
+        ${bici(120, 120, 2)}
+        <g font-size="12" font-weight="700" ${F}>
+          <path d="M80 140 L 54 162" stroke="var(--pen)" stroke-width="2"/><text x="20" y="172" fill="var(--pen)">rueda</text>
+          <path d="M120 128 L 128 160" stroke="var(--red)" stroke-width="2"/><text x="112" y="172" fill="var(--red)">pedal</text>
+          <path d="M100 60 L 70 40" stroke="var(--leaf)" stroke-width="2"/><text x="26" y="38" fill="var(--leaf)">sillín</text>
+          <path d="M162 48 L 196 34" stroke="var(--inf)" stroke-width="2"/><text x="198" y="38" fill="var(--inf)">manillar</text></g></svg>`,
+    },
+    {
+      html: `<h3>Máquinas en casa</h3><p>En casa usamos muchas máquinas. Muchas se llaman <mark>electrodomésticos</mark>.</p><p>La <b>nevera</b> mantiene fría la comida. La <b>lavadora</b> lava la ropa. El <b>horno</b> cocina. La <b>aspiradora</b> limpia el suelo.</p><p>También hay máquinas sencillas: el abrelatas, el exprimidor o la escoba. ¡Cuántas máquinas!</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una cocina con nevera, lavadora y horno">${BG}
+        ${nevera(50, 104, 1.3)}${lavadora(130, 112, 1.1)}
+        <g transform="translate(206 112)"><rect x="-28" y="-30" width="56" height="60" rx="5" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><rect x="-22" y="-10" width="44" height="32" rx="3" fill="var(--inf)" fill-opacity=".35" stroke="var(--ink)" stroke-width="1.5"/><circle cx="-12" cy="-20" r="3" fill="var(--ink)"/><circle cx="0" cy="-20" r="3" fill="var(--ink)"/></g>
+        ${txt(50, 166, "nevera", { size: 12 })}${txt(130, 166, "lavadora", { size: 12 })}${txt(206, 166, "horno", { size: 12 })}
+        ${txt(130, 30, "Electrodomésticos", { size: 15, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
+    },
+    {
+      html: `<h3>La tecnología en el cole</h3><p>La <mark>tecnología</mark> son las máquinas y los inventos que usamos cada día.</p><p>En el cole hay <b>ordenadores</b>, tabletas y pizarras digitales. Sirven para buscar información, escribir, dibujar y jugar a aprender.</p><p>También usamos máquinas sencillas: el sacapuntas y la grapadora.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una pizarra digital, un ordenador y un sacapuntas">${BG}
+        <rect x="20" y="40" width="110" height="70" rx="6" fill="var(--ink)"/><rect x="26" y="46" width="98" height="58" fill="var(--leaf)" fill-opacity=".6"/>${txt(75, 82, "A B C", { size: 16, color: "#fff", font: D, weight: 800 })}
+        ${ordenador(194, 84, 1.3)}
+        <g transform="translate(80 140)"><rect x="-14" y="-10" width="28" height="20" rx="4" fill="var(--pen)"/><path d="M-26 0 H -14" stroke="var(--sun)" stroke-width="6"/></g>
+        ${txt(194, 140, "ordenador", { size: 12 })}${txt(80, 168, "sacapuntas", { size: 12 })}</svg>`,
+    },
+    {
+      html: `<h3>¿Cómo funcionan?</h3><p>Las máquinas necesitan <mark>energía</mark> para funcionar.</p><p>Algunas funcionan con nuestra <b>fuerza</b>: la bici, las tijeras o el balancín.</p><p>Otras funcionan con <b>electricidad</b>. Se enchufan, como la nevera. Otras llevan <b>pilas</b> o batería. Así funcionan el móvil o un coche de juguete.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Energía de nuestra fuerza, de un enchufe y de una pila">${BG}
+        ${persona(46, 130, 80, "var(--red)")}
+        ${enchufe(130, 100, 1.4)}${rayo(158, 70, 1)}
+        ${pila(214, 100, 1.4)}
+        ${txt(46, 148, "fuerza", { size: 13 })}${txt(130, 148, "electricidad", { size: 13 })}${txt(214, 148, "pilas", { size: 13 })}
+        ${txt(130, 32, "Energía", { size: 16, color: "#b8860b", font: D, weight: 800 })}</svg>`,
+    },
+    {
+      html: `<h3>Con mucho cuidado</h3><p>Las máquinas pueden ser <mark>peligrosas</mark> si no las usamos bien.</p><p>Nunca metemos los dedos ni objetos en los <b>enchufes</b>. No tocamos aparatos eléctricos con las manos mojadas. No tocamos el horno ni la plancha calientes.</p><p>Usamos las tijeras de punta redonda. Si una máquina se rompe, avisamos a un adulto.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un enchufe tachado con una mano mojada y unas tijeras de punta redonda con un visto bueno">${BG}
+        ${enchufe(70, 92, 2)}${rayo(110, 60, 1.3)}
+        <g fill="var(--water)"><path d="M34 52 q 5 8 0 12 q -5 -4 0 -12"/><path d="M46 44 q 5 8 0 12 q -5 -4 0 -12"/></g>
+        ${check(70, 146, false)}
+        ${tijeras(190, 92, 1.6)}${check(190, 146, true)}
+        ${txt(130, 28, "¡Cuidado!", { size: 16, color: "var(--red)", font: D, weight: 800 })}</svg>`,
+    },
+    {
+      html: `<h3>Antes y ahora</h3><p>Hace muchos años no había tantas máquinas. La gente lavaba la ropa <mark>a mano</mark>, en el río.</p><p>Para ir lejos, se viajaba a caballo o andando. Para escribir una carta, se usaba pluma y papel.</p><p>Hoy tenemos lavadoras, coches y ordenadores. Los inventos <b>cambian</b> nuestra forma de vivir.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Antes: lavar la ropa a mano en un barreño. Ahora: una lavadora">${BG}
+        <rect x="14" y="40" width="112" height="126" rx="10" fill="#f3e6c8"/><rect x="134" y="40" width="112" height="126" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+        <g transform="translate(70 130)"><path d="M-34 -14 H 34 L 26 14 H -26 Z" fill="#a8702e"/><ellipse cy="-14" rx="34" ry="7" fill="var(--water)" fill-opacity=".6"/><rect x="-10" y="-30" width="20" height="16" fill="var(--red)" transform="rotate(-15)"/></g>
+        ${lavadora(190, 112, 1.2)}
+        ${txt(70, 30, "antes", { size: 14, color: "#a8702e" })}${txt(190, 30, "ahora", { size: 14, color: "var(--pen)" })}</svg>`,
+    },
+    {
+      html: `<h3>¿Para qué sirve?</h3><p>Las máquinas nos ahorran <mark>tiempo y esfuerzo</mark>. Nos dejan más tiempo para jugar, leer y estar en familia.</p><p>Algunas máquinas cuidan de nuestra salud, como las de los hospitales.</p><p>Pero también gastan energía. Por eso <b>apagamos</b> la luz y la tele cuando no las usamos.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un niño apaga la luz de una habitación vacía">${BG}
+        ${persona(80, 160, 120, "var(--leaf)")}
+        <rect x="120" y="70" width="22" height="32" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><rect x="126" y="80" width="10" height="12" rx="2" fill="var(--muted)"/>
+        <path d="M100 98 L 122 88" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+        <g transform="translate(200 50)"><path d="M0 -18 Q 16 -18 16 -2 Q 16 8 6 14 V 22 H -6 V 14 Q -16 8 -16 -2 Q -16 -18 0 -18 Z" fill="var(--line)" stroke="var(--ink)" stroke-width="2"/></g>
+        ${txt(200, 100, "apagada", { size: 12, color: "var(--muted)" })}
+        ${txt(190, 150, "¡Ahorro energía!", { size: 13, color: "var(--leaf)" })}</svg>`,
+    },
+    {
+      html: `<h3>Juego: ¿fuerza o electricidad?</h3><p>Un adulto dice el nombre de una <mark>máquina</mark>. Tú dices cómo funciona.</p><p>Si funciona con tu fuerza, mueve los brazos. Si necesita electricidad o pilas, haz un rayo con los dedos.</p><p>Prueba: tijeras, nevera, patinete, tableta, escoba, televisión.</p><p>Fuerza: tijeras, patinete y escoba. Electricidad: las otras tres.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos grupos: tijeras y patinete con la fuerza; nevera y tableta con electricidad">${BG}
+        <rect x="14" y="40" width="112" height="110" rx="10" fill="var(--ok-bg)"/><rect x="134" y="40" width="112" height="110" rx="10" fill="#fff6c2"/>
+        ${tijeras(48, 90, 1)}<g transform="translate(96 110)"><path d="M-12 0 H 12 M8 0 L 4 -40 H 12" stroke="var(--pen)" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="-12" cy="4" r="5" fill="var(--ink)"/><circle cx="12" cy="4" r="5" fill="var(--ink)"/></g>
+        ${nevera(166, 98, 0.8)}<rect x="196" y="78" width="36" height="48" rx="5" fill="var(--ink)"/><rect x="200" y="82" width="28" height="38" fill="var(--water)" fill-opacity=".6"/>
+        ${txt(70, 30, "fuerza", { size: 14, color: "var(--leaf)" })}${txt(190, 30, "electricidad", { size: 14, color: "#b8860b" })}${rayo(244, 30, 0.7)}</svg>`,
+    },
+  ],
+  figura: {
+    titulo: "Las máquinas que nos ayudan",
+    svg: `<svg viewBox="0 0 640 300" role="img" aria-label="Máquinas sencillas, máquinas con muchas piezas, en casa y en el cole, con su energía">
+      <rect width="640" height="300" rx="16" fill="var(--paper)"/>
+      ${[["SENCILLAS", "rueda · rampa · tijeras", "var(--pen)", rueda(0, 0, 30)],
+         ["MUCHAS PIEZAS", "bici · coche · grúa", "var(--red)", bici(0, 14, 1.4)],
+         ["EN CASA", "nevera · lavadora", "var(--water)", lavadora(0, 0, 1.3)],
+         ["EN EL COLE", "ordenador · tableta", "var(--leaf)", ordenador(0, 0, 1.3)]].map(([t, d, c, dib], i) => {
+        const x = 90 + i * 153;
+        return `<rect x="${x - 70}" y="30" width="140" height="200" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/><g transform="translate(${x} 100)">${dib}</g>${txt(x, 180, t, { size: 15, color: c, font: D, weight: 800 })}${txt(x, 204, d, { size: 12 })}`;
+      }).join("")}
+      ${txt(320, 268, "Funcionan con nuestra fuerza, con electricidad o con pilas", { size: 15, color: "var(--ink)" })}
+    </svg>`,
+  },
+  video: { id: "Ak3M5tFro_I", titulo: "Máquinas simples y compuestas", canal: "Happy Learning Español", vistas: 2810562, megusta: 0, busqueda: "las máquinas para niños" },
+  ejemplosTitulo: "Lo hacemos juntos",
+  ejemplos: [
+    { enunciado: "¿El patinete es una máquina?",
+      pasos: ["¿Nos ayuda a hacer un trabajo? Sí, a movernos más deprisa.", "Tiene ruedas, manillar y una tabla.", "Funciona con la fuerza de nuestra pierna."],
+      resultado: "sí, el patinete es una máquina que funciona con nuestra fuerza." },
+    { enunciado: "¿Qué energía usa una linterna?",
+      pasos: ["La linterna no se enchufa.", "Si la abrimos, dentro hay pilas.", "Cuando se gastan, deja de alumbrar."],
+      resultado: "la linterna funciona con pilas." },
+    { enunciado: "Tu hermano quiere enchufar la tableta con las manos mojadas. ¿Qué le dices?",
+      pasos: ["El agua y la electricidad juntas son peligrosas.", "Primero hay que secarse bien las manos.", "Mejor que lo haga un adulto."],
+      resultado: "que se seque las manos y pida ayuda a un adulto." },
+  ],
+  errores: [
+    "Pensar que solo son máquinas las que llevan motor: las tijeras y la rueda también lo son.",
+    "Meter objetos en los enchufes: es muy peligroso.",
+    "Dejar luces y aparatos encendidos sin usarlos: gastan energía.",
+    "Creer que las máquinas lo hacen todo solas: alguien tiene que manejarlas con cuidado.",
+  ],
+  ejercicios: [
+    { q: "Di tres máquinas que haya en tu casa.", sol: "Por ejemplo: la nevera, la lavadora y la tele." },
+    { q: "Di una máquina que funcione con tu fuerza.", sol: "Por ejemplo: la bici o las tijeras." },
+    { q: "Di una máquina que use pilas.", sol: "Por ejemplo: un mando a distancia o un coche de juguete." },
+    { q: "Dibuja una bicicleta y señala las ruedas y los pedales.", sol: "Deben verse dos ruedas y los pedales en el centro." },
+    { q: "¿Qué hace la nevera?", sol: "Mantiene fría la comida." },
+    { q: "Busca tres cosas con ruedas en la calle.", sol: "Por ejemplo: un coche, un carrito y una bici." },
+    { q: "¿Por qué no se tocan los enchufes con las manos mojadas?", sol: "Porque la electricidad y el agua juntas son peligrosas." },
+    { q: "Di una máquina que haya en el cole.", sol: "Por ejemplo: el ordenador o el sacapuntas." },
+    { q: "¿Cómo lavaba la gente la ropa antes de la lavadora?", sol: "A mano, en el río o en un barreño." },
+    { q: "Di algo que puedes hacer para ahorrar energía.", sol: "Apagar la luz al salir de una habitación." },
+  ],
+  quiz: [
+    { q: "Una máquina sirve para…", o: ["hacer trabajos con menos esfuerzo", "comer", "dormir"], a: 0, e: "Nos ayuda a trabajar." },
+    { q: "¿Cuál es una máquina sencilla?", o: ["La rueda", "El coche", "El ordenador"], a: 0, e: "Tiene muy pocas piezas." },
+    { q: "La bicicleta funciona con…", o: ["electricidad", "nuestra fuerza", "pilas"], a: 1, e: "Pedaleamos con las piernas." },
+    { q: "¿Qué máquina enfría la comida?", o: ["El horno", "La nevera", "La lavadora"], a: 1, e: "La nevera." },
+    { q: "Un mando a distancia funciona con…", o: ["pilas", "agua", "fuerza"], a: 0, e: "Lleva pilas." },
+    { q: "La rampa sirve para…", o: ["subir cosas sin levantarlas", "cortar papel", "lavar"], a: 0, e: "Es una máquina sencilla." },
+    { q: "Con las manos mojadas…", o: ["tocamos los enchufes", "no tocamos aparatos eléctricos", "encendemos la tele"], a: 1, e: "Es peligroso." },
+    { q: "La lavadora, la nevera y el horno son…", o: ["electrodomésticos", "animales", "juguetes"], a: 0, e: "Máquinas de casa con electricidad." },
+    { q: "Antes de la lavadora, la ropa se lavaba…", o: ["a mano", "con el ordenador", "en el horno"], a: 0, e: "A mano, en el río." },
+    { q: "Para ahorrar energía…", o: ["dejamos la luz encendida", "apagamos la luz", "abrimos la nevera"], a: 1, e: "Apagamos lo que no usamos." },
+  ],
+  examen: [
+    { q: "¿Qué máquina tiene muchas piezas?", o: ["La rueda", "La bicicleta", "La rampa"], a: 1, e: "Ruedas, pedales, cadena…" },
+    { q: "El ordenador funciona con…", o: ["electricidad", "nuestra fuerza", "agua"], a: 0, e: "Se enchufa o lleva batería." },
+    { q: "El balancín del parque es una…", o: ["palanca", "nevera", "pila"], a: 0, e: "Es una máquina sencilla." },
+    { q: "Si una máquina se rompe…", o: ["la arreglo solo", "aviso a un adulto", "la enchufo"], a: 1, e: "Siempre avisamos a un adulto." },
+  ],
+  feynman: ["Qué es una máquina", "Máquinas sencillas y con muchas piezas", "Cómo usamos las máquinas con seguridad"],
+  mapa: mapa("LAS MÁQUINAS", "var(--pri)", [
+    ["Sencillas", "rueda · rampa · palanca", "var(--pen)"],
+    ["Muchas piezas", "bici · coche · lavadora", "var(--red)"],
+    ["Energía", "fuerza · electricidad · pilas", "#b8860b"],
+    ["Seguridad", "enchufes · calor · avisar", "var(--leaf)"],
+  ], 230),
+  tarjetas: [
+    ["¿Qué es una máquina?", "Un objeto que nos ayuda a trabajar con menos esfuerzo"],
+    ["Di tres máquinas sencillas", "Rueda, rampa y palanca"],
+    ["¿Qué máquina tiene pedales y cadena?", "La bicicleta"],
+    ["¿Qué es un electrodoméstico?", "Una máquina de casa que usa electricidad"],
+    ["¿Con qué funcionan las máquinas?", "Con fuerza, electricidad o pilas"],
+    ["¿Qué hay en el cole?", "Ordenadores, tabletas y pizarras digitales"],
+    ["¿Se tocan los enchufes?", "Nunca, y menos con las manos mojadas"],
+    ["¿Cómo ahorramos energía?", "Apagando lo que no usamos"],
+  ],
+  familias: [
+    "Haced una «caza de máquinas» en casa y clasificadlas: fuerza, enchufe o pilas.",
+    "Preguntad a los abuelos cómo se lavaba la ropa o se escuchaba música cuando eran pequeños.",
+    "Revisad juntos las normas de seguridad con enchufes, horno y plancha.",
+    "Encargadle apagar las luces de las habitaciones vacías.",
+  ],
+  profesores: {
+    saberes: "Ciencias, Geografía e Historia: máquinas y aparatos del entorno, su función, la energía que usan y su uso seguro y responsable (RD 157/2022, Conocimiento del Medio Natural, Social y Cultural, primer ciclo).",
+    ideas: ["Construcción de un coche con tapones, pajitas y cartón.", "Rampa con libros para comparar el esfuerzo de subir una caja con y sin rampa.", "Línea del tiempo de inventos con objetos de casa de los abuelos."],
+  },
+  fuentes: [RD],
+  revisado: "2026-11-12",
+};
