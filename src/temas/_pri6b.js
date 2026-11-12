@@ -88,6 +88,8 @@ function fichas(items, cols = 2, y0 = 34, alto = 0) {
 
 // Vídeos elegidos con tools/videos.py (ids reales, sin repetir con otros cursos).
 const VIDEOS = {
+  "J0iQZ9MXnOE": ["AUSTRIAS: DINASTÍA DE LOS AUSTRIAS", "History of Spain", 251587],
+  "K1hL5eeTBM0": ["Transición, Europa y Actualidad [1975-2020] HISTORIA de ESPAÑA", "A toda leche", 330850],
   "lXoLoeSwivI": ["El Sistema Nervioso | Videos Educativos para Niños", "Happy Learning Español", 1499194],
   "5SytABu6lKY": ["EL APARATO LOCOMOTOR | Vídeos Educativos para Niños", "Happy Learning Español", 4010823],
   "X4rsSlMcjXY": ["El cerebro para niños - ¿Qué es y cómo funciona?", "Smile and Learn - Español", 4427189],
