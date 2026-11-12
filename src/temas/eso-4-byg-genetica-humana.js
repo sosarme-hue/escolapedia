@@ -116,3 +116,61 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Resolver problemas de grupos sanguíneos y de herencia ligada al sexo", "Explicar las alteraciones cromosómicas y el valor del diagnóstico genético"],
+  tras: {
+    "El cariotipo humano": [
+      { html: `<h3>Caracteres humanos y herencia</h3><p>Algunos caracteres humanos dependen de un solo gen y siguen las leyes de Mendel: la capacidad de enrollar la lengua, el lóbulo de la oreja suelto o pegado, los hoyuelos o la sensibilidad a ciertos sabores amargos. Pero la mayoría de rasgos, como la <b>altura</b>, el <b>color de la piel</b> o el de los ojos, dependen de <mark>muchos genes a la vez</mark> (herencia poligénica) y además del <b>ambiente</b>: la alimentación influye en la altura y el sol en el color de la piel. Por eso no hay solo «altos» y «bajos», sino una gama continua. El fenotipo es siempre el resultado del genotipo y del ambiente.</p>` },
+    ],
+    "Herencia ligada al sexo": [
+      { html: `<h3>Daltonismo y hemofilia</h3><p>El <b>daltonismo</b> (dificultad para distinguir el rojo del verde) y la <b>hemofilia</b> (la sangre no coagula bien) se deben a alelos recesivos situados en el cromosoma X. Se escriben así: Xᴰ (visión normal) y Xᵈ (daltonismo). Una mujer necesita <b>dos alelos</b> recesivos para padecerlo (XᵈXᵈ); si tiene uno (XᴰXᵈ), ve bien pero es <mark>portadora</mark> y puede transmitirlo. Un hombre solo tiene un X, así que con un alelo recesivo (XᵈY) ya lo padece. Por eso estas enfermedades son mucho más frecuentes en los hombres. Además, un padre nunca transmite su X a sus hijos varones (les da el Y): los hijos varones heredan el X de la madre.</p>` },
+    ],
+    "Los grupos sanguíneos": [
+      { html: `<h3>Problemas de grupos sanguíneos</h3><p>El sistema ABO depende de un gen con <b>tres alelos</b>: Iᴬ, Iᴮ e i. Iᴬ e Iᴮ son <b>codominantes</b> entre sí y los dos dominan sobre i. Así, el grupo A puede ser IᴬIᴬ o Iᴬi; el B, IᴮIᴮ o Iᴮi; el AB es IᴬIᴮ; y el O solo puede ser <mark>ii</mark>. Aparte está el <b>factor Rh</b>: Rh+ es dominante sobre Rh−. Para resolver un problema, deduce primero los genotipos: si unos padres A y B tienen un hijo O, los dos deben llevar el alelo i (Iᴬi × Iᴮi). En las transfusiones importa la compatibilidad: el grupo O− es donante universal y el AB+ es receptor universal.</p>`, video: { id: "HqwsNO2dwak", titulo: "Cómo se heredan los grupos sanguíneos. Factor Rh", canal: "Arriba la Ciencia", vistas: 654699 } },
+    ],
+    "Mutaciones y enfermedades genéticas": [
+      { html: `<h3>Alteraciones en el número de cromosomas</h3><p>A veces, durante la meiosis, una pareja de cromosomas no se separa bien y se forma un gameto con un cromosoma de más o de menos. El embrión resultante tendrá 47 o 45 cromosomas. La más conocida es el <b>síndrome de Down</b> o <mark>trisomía 21</mark>: hay tres copias del cromosoma 21. Produce discapacidad intelectual variable, rasgos físicos característicos y a veces problemas de corazón; con apoyo, muchas personas con síndrome de Down estudian, trabajan y viven con autonomía. Su probabilidad aumenta con la edad de la madre. Otras alteraciones afectan a los cromosomas sexuales: el <b>síndrome de Turner</b> (mujeres X0) y el de <b>Klinefelter</b> (hombres XXY).</p>`, video: { id: "TEXcnUF3qZY", titulo: "¿Qué es el síndrome de Down?", canal: "TEDI1419", vistas: 1058155 } },
+      { html: `<h3>Diagnóstico y consejo genético</h3><p>Hoy se pueden detectar muchas enfermedades genéticas. Durante el embarazo, el <b>diagnóstico prenatal</b> usa análisis de sangre de la madre, ecografías y, si hace falta, el estudio del líquido amniótico o de la placenta para ver el cariotipo del feto. A los recién nacidos se les hace la <b>prueba del talón</b>, que detecta enfermedades metabólicas tratables. El <b>consejo genético</b> lo ofrecen especialistas a familias con antecedentes de una enfermedad: estudian su árbol genealógico, calculan la probabilidad de transmitirla y explican las opciones. Estas técnicas plantean cuestiones éticas, como la <mark>privacidad de los datos genéticos</mark>, que la ley protege.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Un hombre de grupo A cuyo padre era O tiene hijos con una mujer de grupo B cuya madre era O. ¿Qué grupos pueden tener sus hijos?", pasos: ["El hombre es A y recibió i de su padre O: es Iᴬi. La mujer es B y recibió i de su madre: es Iᴮi.", "Gametos: él da Iᴬ o i; ella, Iᴮ o i.", "Punnett: IᴬIᴮ (AB), Iᴬi (A), Iᴮi (B), ii (O)."], resultado: "Los cuatro grupos, A, B, AB y O, con un 25 % de probabilidad cada uno." },
+    { enunciado: "Una mujer portadora de daltonismo (XᴰXᵈ) tiene hijos con un hombre de visión normal (XᴰY). ¿Qué probabilidades hay?", pasos: ["Gametos de la madre: Xᴰ y Xᵈ. Del padre: Xᴰ e Y.", "Hijas: XᴰXᴰ (normal) y XᴰXᵈ (portadora). Ninguna daltónica.", "Hijos: XᴰY (normal) y XᵈY (daltónico)."], resultado: "Las hijas, 50 % normales y 50 % portadoras; los hijos, 50 % normales y 50 % daltónicos." },
+    { enunciado: "Un cariotipo muestra 47 cromosomas con tres cromosomas 21 y cromosomas sexuales XY. Interprétalo.", pasos: ["Hay un cromosoma de más (47 en vez de 46).", "Está en la pareja 21: es una trisomía 21.", "Los cromosomas sexuales son XY: es un varón."], resultado: "Varón con síndrome de Down (47, XY, +21)." },
+  ],
+  errores: [
+    "Pensar que una persona de grupo A siempre es IᴬIᴬ: también puede ser Iᴬi.",
+    "Creer que el padre transmite el cromosoma X a sus hijos varones: les transmite el Y.",
+    "Decir que las mujeres no pueden ser daltónicas: pueden, si son XᵈXᵈ, aunque es raro.",
+    "Pensar que todos los caracteres dependen de un solo gen: la mayoría son poligénicos y dependen del ambiente.",
+    "Creer que el síndrome de Down se hereda siempre de los padres: casi siempre es un error al formarse el gameto.",
+  ],
+  ejercicios: [
+    { q: "¿Cuántos autosomas y cuántos cromosomas sexuales tiene una célula humana?", sol: "44 autosomas (22 parejas) y 2 cromosomas sexuales (XX o XY)." },
+    { q: "¿Qué genotipos puede tener una persona del grupo B? ¿Y una del grupo O?", sol: "B: IᴮIᴮ o Iᴮi. O: solo ii." },
+    { q: "Una madre AB y un padre O, ¿qué grupos pueden tener sus hijos?", sol: "IᴬIᴮ × ii → Iᴬi (A) o Iᴮi (B). Nunca AB ni O." },
+    { q: "Unos padres A y B tienen un hijo O. ¿Es posible? Explícalo.", sol: "Sí, si los dos son heterocigotos (Iᴬi × Iᴮi): cada uno aporta un alelo i." },
+    { q: "Un hombre hemofílico (XʰY) tiene hijos con una mujer sana no portadora (XᴴXᴴ). ¿Cómo serán?", sol: "Todas las hijas portadoras (XᴴXʰ) y todos los hijos sanos (XᴴY)." },
+    { q: "¿Puede un hombre daltónico tener un hijo varón daltónico con una mujer no portadora?", sol: "No: el hijo varón recibe el X de la madre, que solo tiene alelos normales." },
+    { q: "¿Por qué el daltonismo es más frecuente en hombres?", sol: "Porque tienen un solo cromosoma X: basta un alelo recesivo para padecerlo, mientras que las mujeres necesitan dos." },
+    { q: "¿Qué es una trisomía? Pon un ejemplo.", sol: "Tener tres copias de un cromosoma en lugar de dos. Ejemplo: la trisomía 21 o síndrome de Down." },
+    { q: "¿Qué grupo sanguíneo es donante universal y cuál receptor universal?", sol: "Donante universal: O−. Receptor universal: AB+." },
+    { q: "Explica por qué la altura no sigue una herencia mendeliana sencilla.", sol: "Porque depende de muchos genes a la vez y de factores ambientales como la alimentación, el sueño o el deporte; por eso varía de forma continua." },
+  ],
+  quiz: [
+    { q: "El grupo O tiene genotipo…", o: ["IᴬIᴮ", "ii", "Iᴬi"], a: 1, e: "Es recesivo para los dos alelos." },
+    { q: "Una mujer XᴰXᵈ es…", o: ["daltónica", "portadora", "hemofílica"], a: 1, e: "Ve bien pero puede transmitirlo." },
+    { q: "El síndrome de Down se debe a…", o: ["una trisomía del cromosoma 21", "una mutación en el cromosoma X", "falta de un cromosoma Y"], a: 0, e: "47 cromosomas." },
+    { q: "Un hijo varón recibe el cromosoma X de…", o: ["su padre", "su madre", "cualquiera de los dos"], a: 1, e: "Del padre recibe el Y." },
+    { q: "La altura es un carácter…", o: ["de un solo gen", "poligénico e influido por el ambiente", "ligado al sexo"], a: 1, e: "Varía de forma continua." },
+  ],
+  tarjetas: [
+    ["Mujer portadora", "Tiene un alelo recesivo ligado al X; no padece la enfermedad pero puede transmitirla."],
+    ["Alelos del sistema ABO", "Iᴬ e Iᴮ codominantes; los dos dominan sobre i."],
+    ["Trisomía 21", "Tres copias del cromosoma 21: síndrome de Down."],
+  ],
+});

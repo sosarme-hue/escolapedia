@@ -115,3 +115,56 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar con la selección natural casos actuales como la resistencia a los antibióticos", "Describir las etapas principales de la evolución humana"],
+  tras: {
+    "Darwin y la selección natural": [
+      { html: `<h3>El viaje del Beagle</h3><p>Charles Darwin (1809-1882) viajó durante cinco años, de 1831 a 1836, a bordo del barco <b>HMS Beagle</b>, que dio la vuelta al mundo. Recogió fósiles, plantas y animales, y observó algo que le intrigó en las <b>islas Galápagos</b>: cada isla tenía sus propias tortugas y sus propios <mark>pinzones</mark>, con picos distintos según el alimento disponible (semillas duras, insectos, cactus). Durante más de veinte años reunió pruebas. En 1858, Alfred Russel Wallace llegó a la misma idea por su cuenta, y al año siguiente Darwin publicó <b>El origen de las especies</b>. También se inspiró en los criadores de palomas y en el economista Malthus, que explicaba que las poblaciones crecen más deprisa que los recursos.</p>` },
+      { html: `<h3>La selección natural hoy: bacterias e insectos</h3><p>La selección natural no es cosa del pasado: ocurre ante nuestros ojos. Cuando se usa un <b>antibiótico</b>, mueren casi todas las bacterias, pero si alguna tiene por azar una mutación que la hace resistente, sobrevive y se multiplica. Al cabo de un tiempo, <mark>toda la población es resistente</mark>. Por eso hay que tomar los antibióticos solo cuando los receta el médico y terminar el tratamiento: su mal uso está creando «superbacterias» contra las que casi no hay medicamentos. Lo mismo pasa con los <b>insectos resistentes</b> a los insecticidas o con las malas hierbas resistentes a los herbicidas. Fíjate en que el antibiótico no crea la resistencia: solo selecciona a las que ya la tenían.</p>`, video: { id: "3JnSS5AvUbM", titulo: "¿Qué causa la resistencia a los antibióticos?", canal: "Sé Curioso (TED-Ed)", vistas: 679297 } },
+    ],
+    "La teoría sintética y la especiación": [
+      { html: `<h3>Cómo se forman especies nuevas</h3><p>Una <b>especie</b> es un grupo de individuos que pueden reproducirse entre sí y tener <b>descendencia fértil</b>. El caballo y el burro pueden tener mulas, pero las mulas son estériles: son especies distintas. Una especie nueva suele aparecer cuando una población queda <b>aislada</b>, por ejemplo por un río, una cordillera o el mar. Cada grupo acumula mutaciones diferentes y la selección natural los adapta a su ambiente. Con el tiempo, aunque vuelvan a encontrarse, <mark>ya no pueden reproducirse entre sí</mark>: se ha producido la especiación. Así surgieron las distintas especies de pinzones de las Galápagos a partir de un antepasado común llegado del continente.</p>` },
+      { html: `<h3>La evolución humana</h3><p>Los humanos y los chimpancés compartimos un <b>antepasado común</b> que vivió en África hace unos 6-7 millones de años; no descendemos del chimpancé, sino que somos «primos». Los <b>homínidos</b> fueron adquiriendo rasgos clave: el <b>bipedismo</b> (andar sobre dos pies), presente ya en los australopitecos como Lucy (3,2 millones de años); el aumento del cerebro y la fabricación de herramientas de piedra con <i>Homo habilis</i>; el dominio del fuego y la salida de África con <i>Homo erectus</i>. Nuestra especie, <i>Homo sapiens</i>, surgió en África hace unos 300.000 años y convivió con los neandertales. En <b>Atapuerca</b> (Burgos) se han hallado fósiles humanos de casi un millón de años, de los más antiguos de Europa.</p>`, video: { id: "Ot4ihHDvLCc", titulo: "La evolución del ser humano en 15 minutos", canal: "Qué pasaría si", vistas: 3081550 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Explica la evolución del cuello de la jirafa según Lamarck y según Darwin.", pasos: ["Lamarck: las jirafas estiraban el cuello para llegar a las hojas altas; el cuello se alargaba por el uso y ese cambio se heredaba.", "Darwin: en la población había jirafas con cuellos de distintas longitudes por variación natural.", "Las de cuello más largo comían mejor, sobrevivían más y tenían más crías, que heredaban el cuello largo.", "Generación tras generación, el cuello largo se hizo más frecuente."], resultado: "Lamarck: herencia de caracteres adquiridos (incorrecta). Darwin: variación + selección natural (aceptada)." },
+    { enunciado: "Antes de la Revolución Industrial, casi todas las polillas del abedul de Inglaterra eran claras. Con el hollín de las fábricas, se volvieron mayoritarias las oscuras. Explícalo.", pasos: ["Había polillas claras y oscuras por variación genética.", "Sobre los troncos ennegrecidos por el hollín, las claras se veían más y los pájaros se las comían.", "Las oscuras sobrevivían y se reproducían más.", "Al limpiarse el aire, volvieron a predominar las claras."], resultado: "Es un ejemplo de selección natural: el ambiente favorece a los individuos mejor camuflados." },
+    { enunciado: "El ala de un murciélago, la aleta de un delfín y tu brazo tienen los mismos huesos, aunque sirven para cosas distintas. ¿Qué indica?", pasos: ["Son órganos homólogos: misma estructura interna y distinta función.", "La explicación más sencilla es que proceden de un antepasado común.", "Cada linaje modificó la extremidad para su forma de vida."], resultado: "Es una prueba anatómica de la evolución: mamíferos con un antepasado común." },
+  ],
+  errores: [
+    "Decir que «el hombre viene del mono»: humanos y chimpancés tienen un antepasado común.",
+    "Pensar que los individuos evolucionan durante su vida: evolucionan las poblaciones a lo largo de generaciones.",
+    "Creer que los organismos cambian «porque lo necesitan»: las variaciones aparecen al azar y la selección las filtra.",
+    "Pensar que el antibiótico crea las bacterias resistentes: solo selecciona las que ya lo eran.",
+    "Confundir órganos homólogos (mismo origen) con análogos (misma función, distinto origen).",
+  ],
+  ejercicios: [
+    { q: "Resume la hipótesis de Oparin sobre el origen de la vida.", sol: "En la Tierra primitiva, sin oxígeno, la energía de rayos y radiación hizo que gases simples formaran moléculas orgánicas, que se acumularon en los océanos (la «sopa primitiva») y se fueron organizando hasta formar las primeras células." },
+    { q: "¿Qué demostró el experimento de Miller y Urey?", sol: "Que a partir de gases como metano, amoniaco, hidrógeno y agua, con descargas eléctricas, se forman aminoácidos, moléculas de los seres vivos." },
+    { q: "Explica las diferencias entre fijismo y evolucionismo.", sol: "El fijismo dice que las especies no cambian desde su creación. El evolucionismo dice que cambian con el tiempo y que unas proceden de otras." },
+    { q: "Enumera los pasos de la selección natural.", sol: "Hay variación entre los individuos; nacen más de los que pueden sobrevivir; los mejor adaptados sobreviven y se reproducen más; transmiten sus caracteres, que se van haciendo más frecuentes." },
+    { q: "¿Qué aportó la teoría sintética a las ideas de Darwin?", sol: "Explicó el origen de la variación (mutaciones y recombinación en la reproducción sexual) y cómo se heredan los caracteres (genética de Mendel)." },
+    { q: "Indica cuatro tipos de pruebas de la evolución.", sol: "Fósiles (paleontológicas), anatómicas (órganos homólogos y vestigiales), embriológicas (embriones parecidos) y moleculares (semejanza del ADN)." },
+    { q: "¿Por qué no hay que tomar antibióticos para un resfriado?", sol: "Porque los resfriados los causan virus y los antibióticos no les afectan; además, su mal uso selecciona bacterias resistentes." },
+    { q: "Una población de ratones queda dividida por un río durante miles de años. ¿Qué puede ocurrir?", sol: "Cada grupo acumula mutaciones distintas y se adapta a su orilla; con el tiempo pueden dejar de poder reproducirse entre sí y formar dos especies (especiación por aislamiento geográfico)." },
+    { q: "¿Por qué son importantes los yacimientos de Atapuerca?", sol: "Porque contienen fósiles humanos muy antiguos (de hasta casi un millón de años), entre los más antiguos de Europa, y han permitido describir especies como Homo antecessor." },
+    { q: "Ordena: Homo erectus, australopitecos, Homo sapiens, Homo habilis.", sol: "Australopitecos, Homo habilis, Homo erectus y Homo sapiens." },
+  ],
+  quiz: [
+    { q: "Darwin observó pinzones con picos distintos en…", o: ["las islas Canarias", "las islas Galápagos", "Islandia"], a: 1, e: "Viaje del Beagle." },
+    { q: "La resistencia de las bacterias a los antibióticos es un ejemplo de…", o: ["selección natural", "herencia de caracteres adquiridos", "creación espontánea"], a: 0, e: "Sobreviven las que ya eran resistentes." },
+    { q: "Dos animales son de la misma especie si…", o: ["se parecen mucho", "pueden tener descendencia fértil", "viven en el mismo lugar"], a: 1, e: "El caballo y el burro no lo son." },
+    { q: "Lucy era un…", o: ["australopiteco", "neandertal", "Homo sapiens"], a: 0, e: "Vivió hace 3,2 millones de años y ya era bípeda." },
+    { q: "Homo sapiens surgió en…", o: ["Europa", "África", "Asia"], a: 1, e: "Hace unos 300.000 años." },
+  ],
+  tarjetas: [
+    ["Especie", "Individuos que pueden reproducirse entre sí y tener descendencia fértil."],
+    ["Especiación", "Formación de una especie nueva, a menudo por aislamiento de una población."],
+    ["Bipedismo", "Andar sobre dos pies; uno de los primeros rasgos de los homínidos."],
+  ],
+});

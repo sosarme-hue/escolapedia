@@ -128,3 +128,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Comparar el ADN y el ARN y conocer los tipos de ARN", "Pasar de una secuencia de ADN a ARNm y a proteína con el código genético"],
+  tras: {
+    "La estructura del ADN": [
+      { html: `<h3>Los ácidos nucleicos: ADN y ARN</h3><p>Los <b>ácidos nucleicos</b> son largas cadenas de unidades llamadas <b>nucleótidos</b>. Cada nucleótido tiene tres partes: un azúcar, un grupo fosfato y una <b>base nitrogenada</b>. Hay dos tipos. El <b>ADN</b> (ácido desoxirribonucleico) tiene el azúcar desoxirribosa, las bases A, T, C y G, y forma una <mark>doble hélice</mark>; está en el núcleo y guarda la información genética. El <b>ARN</b> (ácido ribonucleico) tiene ribosa, cambia la timina por <b>uracilo (U)</b> y suele ser una sola cadena. Hay tres tipos principales de ARN: el <b>mensajero</b> (ARNm), que lleva la copia de un gen al ribosoma; el <b>de transferencia</b> (ARNt), que trae los aminoácidos; y el <b>ribosómico</b> (ARNr), que forma los ribosomas.</p>${AMP.tabla(["", "ADN", "ARN"], [["Azúcar", "desoxirribosa", "ribosa"], ["Bases", "A, T, C, G", "A, U, C, G"], ["Cadenas", "dos (doble hélice)", "una"], ["Dónde", "núcleo (y mitocondrias)", "núcleo y citoplasma"], ["Función", "guardar la información", "usarla para fabricar proteínas"]])}`, video: { id: "DSUguxKON3U", titulo: "Ácidos nucleicos ADN y ARN", canal: "Es Ciencia", vistas: 1071793 } },
+      { html: `<h3>Del ADN al cromosoma: genes y genoma</h3><p>Un <b>gen</b> es un fragmento de ADN que contiene la información para fabricar una proteína (o un ARN). El conjunto de todo el ADN de un organismo es su <b>genoma</b>: el humano tiene unos 3.000 millones de pares de bases y unos <mark>20.000 genes</mark>, que ocupan solo un 2 % del total; el resto regula los genes o tiene funciones que aún se estudian. Para caber en un núcleo de unas pocas micras, los casi dos metros de ADN de cada célula se enrollan alrededor de proteínas llamadas <b>histonas</b>, formando la <b>cromatina</b>. Antes de dividirse, la cromatina se compacta todavía más y aparecen los cromosomas visibles al microscopio.</p>` },
+    ],
+    "Del gen a la proteína": [
+      { html: `<h3>Transcripción y traducción, paso a paso</h3><p>La síntesis de proteínas tiene dos etapas. En la <b>transcripción</b>, que ocurre en el núcleo, se separan las dos hebras del ADN en la zona de un gen y una enzima (la ARN polimerasa) fabrica una molécula de <b>ARN mensajero</b> complementaria a una de ellas: frente a A pone U, frente a T pone A, frente a C pone G y frente a G pone C. El ARNm sale del núcleo al citoplasma. En la <b>traducción</b>, un <b>ribosoma</b> lee el ARNm de tres en tres bases (cada trío es un <b>codón</b>). Los ARN de transferencia traen el aminoácido que corresponde a cada codón y el ribosoma los <mark>va uniendo en cadena</mark> hasta encontrar un codón de parada. La cadena de aminoácidos se pliega y forma la proteína.</p>`, video: { id: "uiCrjZ-0eQk", titulo: "Transcripción de ADN y traducción de ARN: síntesis de proteínas", canal: "RaCology", vistas: 2554015 } },
+    ],
+    "El código genético": [
+      { html: `<h3>Mutaciones: cuando cambia el mensaje</h3><p>Una <b>mutación</b> es un cambio en la secuencia del ADN. Puede ocurrir por errores al copiarlo o por <b>agentes mutágenos</b>: radiaciones (rayos UV, rayos X), algunas sustancias químicas (las del humo del tabaco) y ciertos virus. Las <b>mutaciones génicas</b> afectan a un gen: una base se cambia por otra, se pierde o se añade. Como el código se lee de tres en tres, perder o añadir una base <mark>desplaza toda la lectura</mark> y suele estropear la proteína. Muchas mutaciones no tienen efecto, otras son perjudiciales (causan enfermedades) y unas pocas son beneficiosas. Las que ocurren en los gametos se heredan y son la materia prima de la evolución.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Escribe la hebra complementaria del fragmento de ADN 5'-ATGCCGTA-3'.", pasos: ["Aplica la complementariedad: A con T y C con G.", "A→T, T→A, G→C, C→G, C→G, G→C, T→A, A→T.", "La hebra complementaria va en sentido opuesto."], resultado: "3'-TACGGCAT-5'." },
+    { enunciado: "Transcribe a ARNm la hebra molde de ADN TACAAAGCT y tradúcela (AUG = Met, UUU = Phe, CGA = Arg).", pasos: ["Transcripción: frente a T pon A, frente a A pon U, frente a C pon G y frente a G pon C.", "TAC AAA GCT → AUG UUU CGA.", "Traducción por codones: AUG = metionina, UUU = fenilalanina, CGA = arginina."], resultado: "ARNm AUG-UUU-CGA; péptido Met-Phe-Arg." },
+    { enunciado: "Un fragmento de ADN tiene un 30 % de adenina. ¿Qué porcentaje tiene de cada una de las otras bases?", pasos: ["A se empareja con T: T = 30 %.", "A + T = 60 %, así que C + G = 40 %.", "C y G están en la misma proporción: 20 % cada una."], resultado: "A 30 %, T 30 %, C 20 %, G 20 %." },
+  ],
+  errores: [
+    "Poner timina (T) en el ARN: en el ARN va uracilo (U).",
+    "Pensar que cada gen es un cromosoma: un cromosoma contiene cientos o miles de genes.",
+    "Confundir replicación (copiar el ADN entero antes de dividirse) con transcripción (copiar un gen a ARNm).",
+    "Creer que la traducción ocurre en el núcleo: ocurre en los ribosomas del citoplasma.",
+    "Pensar que todas las mutaciones son malas: muchas son neutras y algunas, beneficiosas.",
+  ],
+  ejercicios: [
+    { q: "Nombra las tres partes de un nucleótido.", sol: "Un azúcar (desoxirribosa o ribosa), un grupo fosfato y una base nitrogenada." },
+    { q: "Escribe la hebra complementaria de ADN de GGATCCTA.", sol: "CCTAGGAT." },
+    { q: "Transcribe a ARNm la hebra molde de ADN TTAGCC.", sol: "AAUCGG." },
+    { q: "¿Cuántos aminoácidos codifica un ARNm de 300 bases (sin contar el codón de parada)?", sol: "300 / 3 = 100 codones; si uno es de parada, 99 aminoácidos." },
+    { q: "¿Qué función tiene cada tipo de ARN?", sol: "ARNm: lleva la información del gen al ribosoma. ARNt: transporta los aminoácidos. ARNr: forma parte de los ribosomas." },
+    { q: "¿Por qué se dice que la replicación del ADN es semiconservativa?", sol: "Porque cada nueva molécula de ADN conserva una hebra de la original y tiene otra recién fabricada." },
+    { q: "¿Qué significa que el código genético es universal?", sol: "Que casi todos los seres vivos usan los mismos codones para los mismos aminoácidos; por eso una bacteria puede fabricar insulina humana." },
+    { q: "Explica por qué perder una sola base en un gen puede cambiar toda la proteína.", sol: "Porque el ARNm se lee de tres en tres: al perder una base, todos los codones siguientes se desplazan y cambian los aminoácidos." },
+    { q: "Indica tres agentes mutágenos.", sol: "Los rayos ultravioleta, los rayos X y sustancias del humo del tabaco (también algunos virus)." },
+    { q: "¿Dónde se encuentra el ADN en una célula eucariota y en una procariota?", sol: "En la eucariota, en el núcleo (y algo en mitocondrias y cloroplastos). En la procariota, libre en el citoplasma, en una región llamada nucleoide, y en plásmidos." },
+  ],
+  quiz: [
+    { q: "En el ARN, la timina se sustituye por…", o: ["uracilo", "adenina", "citosina"], a: 0, e: "Bases del ARN: A, U, C, G." },
+    { q: "La transcripción ocurre en…", o: ["el núcleo", "el ribosoma", "la mitocondria"], a: 0, e: "Se fabrica el ARNm a partir del ADN." },
+    { q: "El ARN que transporta aminoácidos al ribosoma es el…", o: ["mensajero", "de transferencia", "ribosómico"], a: 1, e: "ARNt." },
+    { q: "El genoma humano tiene unos…", o: ["200 genes", "20.000 genes", "20 millones de genes"], a: 1, e: "Ocupan un 2 % del ADN." },
+    { q: "Una mutación en un gameto…", o: ["no se hereda nunca", "puede pasar a los hijos", "solo afecta a la piel"], a: 1, e: "Por eso son la base de la evolución." },
+  ],
+  tarjetas: [
+    ["Diferencias ADN-ARN", "ADN: desoxirribosa, T, doble hélice. ARN: ribosa, U, una cadena."],
+    ["Codón", "Grupo de tres bases del ARNm que corresponde a un aminoácido."],
+    ["Agente mutágeno", "Factor que provoca mutaciones: radiaciones, ciertas sustancias químicas o virus."],
+  ],
+});

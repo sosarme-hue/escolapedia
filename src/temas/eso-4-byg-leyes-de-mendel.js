@@ -141,3 +141,59 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Resolver problemas de herencia con un método ordenado, incluido el cruzamiento prueba", "Reconocer la herencia intermedia y la codominancia"],
+  tras: {
+    "El vocabulario de la herencia": [
+      { html: `<h3>Mendel y su método</h3><p>Gregor Mendel (1822-1884) era un monje agustino de Brno, en la actual República Checa, que durante ocho años cruzó unas <b>28.000 plantas de guisante</b> en el huerto de su monasterio. Su éxito se debió a un buen método: eligió una planta fácil de cultivar, que se autopoliniza y tiene muchas generaciones; estudió caracteres con <b>solo dos formas</b> muy claras (semilla amarilla o verde, lisa o rugosa, planta alta o baja); partió de <b>líneas puras</b>, que siempre daban hijos iguales a ellas; y, sobre todo, <mark>contó los resultados y usó las matemáticas</mark> para analizarlos. Publicó sus conclusiones en 1866, pero nadie les hizo caso hasta 1900, cuando otros científicos las redescubrieron. Hoy se le considera el padre de la genética.</p>` },
+    ],
+    "Segunda ley: segregación": [
+      { html: `<h3>El cruzamiento prueba</h3><p>Una planta de semilla amarilla puede ser AA o Aa: las dos tienen el mismo fenotipo. ¿Cómo saber su genotipo? Con el <b>cruzamiento prueba</b> o retrocruzamiento: se cruza con un individuo <b>homocigoto recesivo</b> (aa), que solo puede dar gametos a. Si <mark>todos los hijos salen amarillos</mark>, la planta era AA, porque solo aporta A. Si aparecen hijos verdes, aproximadamente la mitad, la planta era Aa, porque la mitad de sus gametos llevan a. Los ganaderos y agricultores lo usan para saber si un animal o una planta es de «raza pura» antes de usarlo para criar.</p>`, video: { id: "U2F1NTV0jC4", titulo: "Cruzamiento prueba o retrocruzamiento", canal: "unProfesor", vistas: 103025 } },
+    ],
+    "Tercera ley: transmisión independiente": [
+      { html: `<h3>Herencia intermedia y codominancia</h3><p>No siempre un alelo domina por completo sobre otro. En la <b>herencia intermedia</b>, el heterocigoto tiene un fenotipo <mark>a medio camino</mark> entre los dos homocigotos: al cruzar dondiegos de noche rojos (RR) con blancos (BB), la F1 sale rosa (RB). En la F2 las proporciones cambian: 1 roja : 2 rosas : 1 blanca, porque ahora cada genotipo tiene su propio fenotipo. En la <b>codominancia</b>, el heterocigoto muestra <b>los dos caracteres a la vez</b>, sin mezclarse: en algunas vacas, el cruce de pelo rojo y blanco da animales con pelos rojos y blancos (ruano). Los grupos sanguíneos humanos son otro ejemplo: una persona con alelos A y B es del grupo AB.</p>`, video: { id: "-G_tkEmWnBg", titulo: "Problemas de codominancia y herencia intermedia", canal: "unProfesor", vistas: 252613 } },
+      { html: `<h3>Cómo resolver un problema de genética</h3><p>Casi todos los problemas se resuelven con los mismos pasos: 1) <b>elige las letras</b> y anota qué alelo es dominante (A: amarillo, a: verde); 2) escribe el <b>genotipo de los padres</b> deduciéndolo del enunciado (un recesivo siempre es aa; si un dominante tiene algún hijo recesivo, tiene que ser Aa); 3) escribe los <b>gametos</b> que puede dar cada uno; 4) haz el <b>cuadro de Punnett</b> combinando los gametos; 5) cuenta las <mark>proporciones de genotipos y de fenotipos</mark> y responde exactamente a lo que te preguntan, en fracción o en porcentaje. Recuerda que las proporciones son probabilidades: un 1/4 no significa que de cuatro hijos uno sea recesivo seguro.</p>` },
+      { html: `<h3>La teoría cromosómica de la herencia</h3><p>Mendel hablaba de «factores» sin saber qué eran. A principios del siglo XX, Walter Sutton y Theodor Boveri se dieron cuenta de que los cromosomas se comportan durante la meiosis igual que los factores de Mendel: van en parejas y se separan al formar los gametos. Thomas Morgan, trabajando con la mosca de la fruta, demostró que <mark>los genes están en los cromosomas</mark>, colocados uno detrás de otro. Así se explica también una excepción a la tercera ley: los genes que están <b>muy juntos en el mismo cromosoma</b> (genes ligados) tienden a heredarse juntos, y no se cumple la proporción 9 : 3 : 3 : 1.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "En el guisante, liso (L) domina sobre rugoso (l). Se cruzan dos plantas lisas heterocigotas. ¿Qué proporciones de genotipos y fenotipos se esperan?", pasos: ["Padres: Ll × Ll. Gametos de cada uno: L y l.", "Cuadro de Punnett: LL, Ll, Ll, ll.", "Genotipos: 1 LL : 2 Ll : 1 ll.", "Fenotipos: LL y Ll son lisos; ll, rugoso."], resultado: "1 LL : 2 Ll : 1 ll; 3 lisas : 1 rugosa (75 % y 25 %)." },
+    { enunciado: "Un perro de pelo negro (N, dominante sobre marrón n) se cruza con una perra marrón y tienen 3 cachorros negros y 3 marrones. ¿Cuál es el genotipo del padre?", pasos: ["La madre es marrón: tiene que ser nn y solo da gametos n.", "Han salido cachorros marrones (nn): cada uno recibió una n del padre.", "El padre es negro, así que tiene una N: su genotipo es Nn.", "Comprobación: Nn × nn da 1/2 Nn (negros) y 1/2 nn (marrones)."], resultado: "El padre es Nn (heterocigoto). Es un cruzamiento prueba." },
+    { enunciado: "En el dondiego de noche (herencia intermedia), se cruzan dos plantas rosas (RB). ¿Qué flores saldrán?", pasos: ["Gametos de cada planta: R y B.", "Punnett: RR, RB, RB, BB.", "Cada genotipo tiene su fenotipo: RR rojo, RB rosa, BB blanco."], resultado: "1 roja : 2 rosas : 1 blanca (25 %, 50 %, 25 %)." },
+  ],
+  errores: [
+    "Escribir los gametos con dos letras del mismo gen (Aa): cada gameto lleva un solo alelo de cada gen.",
+    "Deducir que un individuo dominante es AA sin comprobarlo: puede ser Aa.",
+    "Confundir proporción de genotipos (1 : 2 : 1) con proporción de fenotipos (3 : 1).",
+    "Pensar que si salen 3 hijos dominantes, el cuarto será recesivo seguro: las proporciones son probabilidades.",
+    "Aplicar 3 : 1 a la herencia intermedia: en ella la F2 es 1 : 2 : 1 también en los fenotipos.",
+  ],
+  ejercicios: [
+    { q: "Define: gen, alelo, homocigoto y heterocigoto.", sol: "Gen: fragmento de ADN con la información de un carácter. Alelo: cada versión de un gen. Homocigoto: tiene dos alelos iguales (AA o aa). Heterocigoto: tiene dos alelos distintos (Aa)." },
+    { q: "¿Qué gametos produce un individuo AA? ¿Y uno Aa? ¿Y uno AaBb?", sol: "AA: solo A. Aa: A y a (50 % cada uno). AaBb: AB, Ab, aB y ab (25 % cada uno)." },
+    { q: "Cruza AA × aa e indica la F1. Después cruza dos individuos de la F1 e indica la F2.", sol: "F1: todos Aa (fenotipo dominante). F2: 1 AA : 2 Aa : 1 aa; 3 dominantes : 1 recesivo." },
+    { q: "En los humanos, el lóbulo de la oreja suelto (S) domina sobre el pegado (s). Una pareja Ss × Ss, ¿qué probabilidad tiene de tener un hijo con el lóbulo pegado?", sol: "1/4 (25 %)." },
+    { q: "Una planta alta (A) tiene la mitad de sus hijos bajos al cruzarla con una planta baja. ¿Cuál es su genotipo?", sol: "Aa. Si fuera AA, todos los hijos serían altos." },
+    { q: "Dos ratones negros tienen una cría blanca. Si el negro domina, ¿qué genotipo tienen los padres? ¿Qué probabilidad hay de que la siguiente cría sea negra?", sol: "Los dos son Nn (cada uno aportó una n a la cría blanca). Probabilidad de cría negra: 3/4." },
+    { q: "En una flor con herencia intermedia, ¿qué sale al cruzar una roja (RR) con una rosa (RB)?", sol: "1/2 RR (rojas) y 1/2 RB (rosas)." },
+    { q: "¿Qué proporción fenotípica sale en AaBb × AaBb si los genes se transmiten de forma independiente?", sol: "9 : 3 : 3 : 1 (9 con los dos dominantes, 3 con el primero dominante y el segundo recesivo, 3 al revés y 1 con los dos recesivos)." },
+    { q: "¿Qué probabilidad hay de obtener aabb en el cruce AaBb × AaBb?", sol: "Probabilidad de aa = 1/4 y de bb = 1/4; como son independientes, 1/4 · 1/4 = 1/16." },
+    { q: "¿Por qué Mendel eligió el guisante? Indica tres razones.", sol: "Es fácil de cultivar, tiene muchas generaciones en poco tiempo y muchas semillas, se puede autopolinizar o cruzar a voluntad y tiene caracteres con dos formas muy claras." },
+  ],
+  quiz: [
+    { q: "El cruzamiento prueba se hace con un individuo…", o: ["homocigoto dominante", "homocigoto recesivo", "heterocigoto"], a: 1, e: "Solo aporta alelos recesivos." },
+    { q: "En la herencia intermedia, el heterocigoto…", o: ["se parece a uno de los padres", "tiene un fenotipo intermedio", "muestra los dos fenotipos a la vez"], a: 1, e: "Rojo × blanco → rosa." },
+    { q: "El grupo sanguíneo AB es un ejemplo de…", o: ["codominancia", "herencia ligada al sexo", "mutación"], a: 0, e: "Se expresan los dos alelos." },
+    { q: "Un individuo AaBb produce … tipos de gametos.", o: ["2", "4", "8"], a: 1, e: "AB, Ab, aB, ab." },
+    { q: "Los genes están situados en…", o: ["los ribosomas", "los cromosomas", "la membrana"], a: 1, e: "Teoría cromosómica de la herencia." },
+  ],
+  tarjetas: [
+    ["Herencia intermedia", "El heterocigoto tiene un fenotipo intermedio (rojo × blanco → rosa)."],
+    ["Codominancia", "El heterocigoto muestra los dos fenotipos a la vez (grupo AB)."],
+    ["Genes ligados", "Genes muy próximos en el mismo cromosoma que tienden a heredarse juntos."],
+  ],
+});

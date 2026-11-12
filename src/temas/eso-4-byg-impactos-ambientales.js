@@ -111,3 +111,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar la contaminación atmosférica: lluvia ácida y capa de ozono", "Calcular y reducir la huella ecológica y aplicar la economía circular"],
+  tras: {
+    "El cambio climático": [
+      { html: `<h3>Contaminación atmosférica: lluvia ácida y capa de ozono</h3><p>Además del CO₂, la actividad humana emite otros contaminantes. Los <b>óxidos de azufre y de nitrógeno</b> de las centrales térmicas, las industrias y los coches reaccionan con el agua de la atmósfera y forman ácidos que caen con la lluvia: es la <b>lluvia ácida</b>, que daña bosques, acidifica lagos y corroe monumentos. En las ciudades, estos gases y las partículas forman la <b>boina de contaminación</b>, que causa enfermedades respiratorias. Otro problema fue el <b>agujero de la capa de ozono</b>, causado por los CFC de aerosoles y frigoríficos: el ozono de la estratosfera nos protege de los rayos ultravioleta. Gracias al <mark>Protocolo de Montreal</mark> (1987), que prohibió los CFC, la capa se está recuperando: es el mejor ejemplo de que la cooperación internacional funciona.</p>` },
+    ],
+    "La pérdida de biodiversidad": [
+      { html: `<h3>Espacios protegidos y especies invasoras</h3><p>Para conservar la biodiversidad se crean <b>espacios naturales protegidos</b>, con distintos niveles de protección: en España hay 16 <b>parques nacionales</b>, como Doñana, el Teide o Picos de Europa, además de parques naturales, reservas y la red europea <b>Natura 2000</b>. También se elaboran planes de recuperación de especies amenazadas, como el del lince ibérico, que ha pasado de menos de 100 ejemplares en 2002 a más de 2.000. Una amenaza creciente son las <b>especies invasoras</b>: animales o plantas que llegan de otros lugares, normalmente por culpa humana, y <mark>desplazan a las especies autóctonas</mark>. Ejemplos en España son el mejillón cebra, el cangrejo rojo americano, la cotorra argentina o el camalote.</p>` },
+    ],
+    "Residuos, agua y energía": [
+      { html: `<h3>La huella ecológica</h3><p>La <b>huella ecológica</b> mide la superficie de tierra y mar productiva que hace falta para producir todo lo que consume una persona (alimentos, energía, materiales) y absorber sus residuos. Se expresa en <b>hectáreas globales</b> por persona. La Tierra tiene unas 1,6 hectáreas disponibles por habitante, pero la huella media mundial es de unas 2,6: estamos consumiendo como si tuviéramos <mark>más de un planeta y medio</mark>. Si todos viviéramos como un español medio necesitaríamos más de dos planetas. La huella se reduce consumiendo menos energía, usando transporte público o la bici, comiendo menos carne y más productos locales y de temporada, y evitando el desperdicio de comida.</p>`, video: { id: "TM2Be7MqykY", titulo: "¿Qué es la huella ecológica? Calcular huella ecológica", canal: "EcologíaVerde", vistas: 360483 } },
+    ],
+    "El desarrollo sostenible": [
+      { html: `<h3>Economía circular</h3><p>La economía tradicional es <b>lineal</b>: extraer materias primas, fabricar, usar y tirar. La <b>economía circular</b> propone que los productos y materiales <mark>se mantengan en uso el mayor tiempo posible</mark> y que los residuos se conviertan en recursos. Se basa en las «erres»: <b>reducir</b> lo que consumimos, <b>reutilizar</b>, <b>reparar</b>, <b>reacondicionar</b> y, en último lugar, <b>reciclar</b>. También exige diseñar los productos desde el principio para que duren, se puedan arreglar y se desmonten fácilmente. Por ejemplo, alquilar en vez de comprar, comprar ropa de segunda mano, hacer compost con los restos orgánicos o devolver los envases. La Unión Europea ha aprobado leyes como el derecho a la reparación de los aparatos.</p>`, video: { id: "Lc4-2cVKxp0", titulo: "Economía circular: descubre lo que es", canal: "COTEC", vistas: 3154048 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Un país tiene una huella ecológica de 4 hectáreas globales por persona y la biocapacidad del planeta es de 1,6 por persona. ¿Cuántos planetas harían falta si todos vivieran así?", pasos: ["Se divide la huella entre la biocapacidad disponible por persona.", "4 / 1,6 = 2,5."], resultado: "Harían falta 2,5 planetas." },
+    { enunciado: "Explica cómo se forma la lluvia ácida y propón dos soluciones.", pasos: ["Al quemar carbón y derivados del petróleo se emiten óxidos de azufre y de nitrógeno.", "En la atmósfera reaccionan con el agua y forman ácido sulfúrico y ácido nítrico.", "Caen con la lluvia y dañan bosques, lagos y edificios.", "Soluciones: filtros en las chimeneas y sustituir los combustibles fósiles por renovables."], resultado: "La causan los óxidos de S y N; se reduce con filtros y energías limpias." },
+    { enunciado: "Clasifica estas acciones según las «erres»: arreglar una bici, llevar botellas al contenedor verde, comprar a granel, usar un tarro de mermelada para guardar botones.", pasos: ["Arreglar la bici: reparar.", "Contenedor verde: reciclar.", "Comprar a granel: reducir envases.", "Usar el tarro para otra cosa: reutilizar."], resultado: "Reparar, reciclar, reducir y reutilizar." },
+  ],
+  errores: [
+    "Confundir el agujero de la capa de ozono con el cambio climático: son problemas distintos con causas distintas.",
+    "Pensar que el efecto invernadero es malo en sí: sin él la Tierra estaría a −18 °C; el problema es su aumento.",
+    "Creer que reciclar es lo más importante: reducir y reutilizar ahorran más recursos.",
+    "Confundir tiempo meteorológico (lo que pasa hoy) con clima (la media de muchos años).",
+    "Pensar que una especie invasora es cualquier especie exótica: es la que se expande y daña a las autóctonas.",
+  ],
+  ejercicios: [
+    { q: "Indica tres gases de efecto invernadero y su origen.", sol: "CO₂ (combustibles fósiles y deforestación), metano (ganadería, arrozales, vertederos) y óxido nitroso (fertilizantes)." },
+    { q: "Indica cuatro consecuencias del cambio climático.", sol: "Subida del nivel del mar, olas de calor y sequías más frecuentes, deshielo de glaciares y polos, y desplazamiento o extinción de especies." },
+    { q: "¿Qué diferencia hay entre mitigar y adaptarse al cambio climático?", sol: "Mitigar es reducir sus causas (emitir menos gases); adaptarse es prepararse para sus efectos (proteger costas, ahorrar agua)." },
+    { q: "Indica tres causas de pérdida de biodiversidad.", sol: "La destrucción de hábitats, la contaminación y las especies invasoras (también la sobreexplotación y el cambio climático)." },
+    { q: "¿Por qué se considera un éxito el Protocolo de Montreal?", sol: "Porque casi todos los países prohibieron los CFC y la capa de ozono se está recuperando: demuestra que la cooperación internacional puede resolver un problema global." },
+    { q: "Calcula cuántos planetas harían falta si la huella media fuera de 2,6 hectáreas globales y la biocapacidad de 1,6.", sol: "2,6 / 1,6 ≈ 1,6 planetas." },
+    { q: "Propón cinco acciones para reducir tu huella ecológica.", sol: "Ir andando, en bici o en transporte público; ahorrar luz y calefacción; comer más vegetales y productos de temporada; no desperdiciar comida; comprar menos y reutilizar o reparar." },
+    { q: "Explica la diferencia entre economía lineal y circular.", sol: "La lineal extrae, fabrica, usa y tira. La circular mantiene los materiales en uso el mayor tiempo posible y convierte los residuos en recursos." },
+    { q: "¿Qué es una especie invasora? Pon dos ejemplos de España.", sol: "Una especie introducida que se expande y desplaza a las autóctonas. Ejemplos: el mejillón cebra y el cangrejo rojo americano (también la cotorra argentina)." },
+    { q: "Explica qué son los Objetivos de Desarrollo Sostenible.", sol: "17 metas aprobadas por la ONU para 2030 que buscan acabar con la pobreza, proteger el planeta y asegurar la prosperidad de todos, como la acción por el clima o el agua limpia." },
+  ],
+  quiz: [
+    { q: "La lluvia ácida la causan sobre todo…", o: ["los óxidos de azufre y nitrógeno", "el oxígeno", "el vapor de agua"], a: 0, e: "Forman ácidos con el agua." },
+    { q: "Los CFC dañaban…", o: ["la capa de ozono", "los océanos", "el suelo"], a: 0, e: "Prohibidos por el Protocolo de Montreal." },
+    { q: "La huella ecológica mide…", o: ["la superficie necesaria para mantener nuestro consumo", "el número de pasos al día", "la contaminación del agua"], a: 0, e: "En hectáreas globales." },
+    { q: "La primera «erre» y la más eficaz es…", o: ["reciclar", "reducir", "reparar"], a: 1, e: "Lo que no se consume no hay que tratarlo." },
+    { q: "El cangrejo rojo americano en España es…", o: ["una especie autóctona", "una especie invasora", "una especie extinguida"], a: 1, e: "Desplaza al cangrejo autóctono." },
+  ],
+  tarjetas: [
+    ["Lluvia ácida", "Lluvia con ácidos formados a partir de óxidos de azufre y nitrógeno."],
+    ["Huella ecológica", "Superficie productiva necesaria para mantener el consumo de una persona."],
+    ["Economía circular", "Mantener productos y materiales en uso y convertir los residuos en recursos."],
+  ],
+});

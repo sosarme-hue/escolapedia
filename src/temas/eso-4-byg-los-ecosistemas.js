@@ -120,3 +120,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Relacionar los factores abióticos con las adaptaciones y los biomas", "Calcular la eficiencia ecológica y explicar el ciclo del carbono"],
+  tras: {
+    "Qué es un ecosistema": [
+      { html: `<h3>Factores abióticos y adaptaciones</h3><p>Los <b>factores abióticos</b> son las condiciones físicas y químicas del medio: temperatura, luz, agua, humedad, tipo de suelo, salinidad o presión. Cada especie solo puede vivir entre unos valores mínimos y máximos de cada factor: es su <b>rango de tolerancia</b>. El factor que se acerca más a ese límite es el <b>factor limitante</b>: en un desierto, el agua; en el fondo del mar, la luz. Los seres vivos tienen <mark>adaptaciones</mark> a su medio: el cactus guarda agua en el tallo y tiene espinas en vez de hojas; el zorro ártico tiene orejas pequeñas para perder menos calor y el zorro del desierto, orejas enormes para disiparlo; los peces de las profundidades producen su propia luz.</p>` },
+    ],
+    "El flujo de energía y las pirámides": [
+      { html: `<h3>La regla del 10 %</h3><p>De la energía que un nivel trófico obtiene de su alimento, la mayor parte se gasta en respirar, moverse y mantener el calor del cuerpo, o se pierde en lo que no se come o no se digiere. Solo pasa al siguiente nivel, como término medio, alrededor del <mark>10 %</mark>: es la <b>eficiencia ecológica</b>. Por eso las cadenas tróficas raramente tienen más de cuatro o cinco eslabones: la energía se agota. También explica que los grandes depredadores sean escasos y que haga falta mucha más superficie de cultivo para producir carne que para producir vegetales: alimentarse de los niveles bajos de la cadena aprovecha mejor la energía. La <b>productividad</b> mide la biomasa que se produce por unidad de superficie y tiempo.</p>` },
+    ],
+    "Los ciclos de la materia": [
+      { html: `<h3>El ciclo del carbono</h3><p>El carbono pasa continuamente entre la atmósfera, los seres vivos, los océanos y las rocas. Las plantas y algas lo toman de la atmósfera como CO₂ en la <b>fotosíntesis</b> y lo convierten en materia orgánica, que pasa a los consumidores al comer. Todos los seres vivos lo devuelven a la atmósfera con la <b>respiración</b>, y los descomponedores, al degradar los restos. Una parte queda guardada durante millones de años en las rocas calizas y en los <b>combustibles fósiles</b> (carbón, petróleo, gas). Al quemarlos, los humanos devolvemos a la atmósfera en pocos años el carbono acumulado durante millones, lo que <mark>aumenta el CO₂ y el efecto invernadero</mark>. Los bosques y los océanos son los grandes sumideros que lo absorben.</p>`, video: { id: "u6dhBw_f7Oc", titulo: "Ciclo del carbono", canal: "TriviasGo", vistas: 1288924 } },
+    ],
+    "Relaciones y sucesión ecológica": [
+      { html: `<h3>Los biomas</h3><p>Un <b>bioma</b> es un gran ecosistema terrestre definido por su clima y su vegetación. Los principales son: la <b>selva tropical</b>, cálida y lluviosa todo el año, con la mayor biodiversidad; la <b>sabana</b>, con hierba y árboles dispersos y una estación seca; el <b>desierto</b>, con muy poca lluvia; el <b>bosque mediterráneo</b>, de encinas y alcornoques con hojas duras adaptadas a veranos secos, como gran parte de España; el <b>bosque caducifolio</b> templado, de robles y hayas que pierden la hoja en otoño; la <b>taiga</b>, de coníferas en zonas frías; y la <b>tundra</b>, cerca del polo, con musgos y líquenes sobre suelo helado. La <mark>temperatura y las precipitaciones</mark> son los factores que más determinan el bioma.</p>`, video: { id: "JGRECgg02Qs", titulo: "Biomas: clasificación y principales características", canal: "Temas de GEO", vistas: 178266 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Los productores de un ecosistema fijan 100.000 kJ de energía. Con la regla del 10 %, ¿cuánta llega a los consumidores terciarios?", pasos: ["Consumidores primarios: 10 % de 100.000 = 10.000 kJ.", "Secundarios: 10 % de 10.000 = 1.000 kJ.", "Terciarios: 10 % de 1.000 = 100 kJ."], resultado: "100 kJ, solo el 0,1 % de la energía inicial." },
+    { enunciado: "En una cadena trigo → ratón → serpiente → águila, desaparecen las serpientes. ¿Qué puede pasar?", pasos: ["Los ratones pierden a su depredador y su población aumenta.", "Al haber más ratones, se come más trigo y este disminuye.", "Las águilas pierden alimento y su población baja, salvo que coman otras presas."], resultado: "Aumentan los ratones, disminuyen el trigo y las águilas: todo el ecosistema se desequilibra." },
+    { enunciado: "Clasifica estas relaciones: el pez payaso y la anémona; el piojo y la persona; dos ciervos machos por una hembra; el lobo y el conejo.", pasos: ["Pez payaso y anémona: los dos se benefician → mutualismo.", "Piojo y persona: uno se beneficia y perjudica al otro → parasitismo.", "Dos ciervos de la misma especie compitiendo → competencia intraespecífica.", "Lobo y conejo → depredación."], resultado: "Mutualismo, parasitismo, competencia intraespecífica y depredación." },
+  ],
+  errores: [
+    "Pensar que la energía se recicla en el ecosistema como la materia: la energía fluye y se pierde como calor; la materia sí se recicla.",
+    "Olvidar a los descomponedores en las cadenas y ciclos.",
+    "Dibujar las flechas de una cadena al revés: van del que es comido al que come (sentido de la energía).",
+    "Confundir hábitat (lugar donde vive) con nicho ecológico (papel que desempeña).",
+    "Pensar que las pirámides de energía pueden estar invertidas: siempre se estrechan hacia arriba.",
+  ],
+  ejercicios: [
+    { q: "Distingue entre biotopo y biocenosis con un ejemplo.", sol: "Biotopo: el medio físico (el agua, las piedras y la temperatura de un río). Biocenosis: los seres vivos que viven en él (truchas, algas, insectos)." },
+    { q: "Escribe una cadena alimentaria de cuatro eslabones de un bosque mediterráneo e indica el nivel trófico de cada uno.", sol: "Bellota (productor) → ratón de campo (consumidor primario) → culebra (secundario) → águila culebrera (terciario)." },
+    { q: "¿Por qué no hay cadenas tróficas de 10 eslabones?", sol: "Porque en cada paso solo pasa un 10 % de la energía; tras pocos niveles no queda energía suficiente para mantener otro nivel." },
+    { q: "Si los productores de un lago fijan 50.000 kJ, ¿cuánta energía llega a los consumidores secundarios?", sol: "Primarios: 5.000 kJ. Secundarios: 500 kJ." },
+    { q: "Explica el papel de los descomponedores.", sol: "Transforman los restos orgánicos en sustancias minerales que vuelven al suelo y pueden usar de nuevo los productores. Cierran el ciclo de la materia." },
+    { q: "Indica dos procesos que devuelven CO₂ a la atmósfera y dos que lo retiran.", sol: "Lo devuelven: la respiración y la quema de combustibles fósiles. Lo retiran: la fotosíntesis y su disolución en los océanos." },
+    { q: "¿Qué es una sucesión ecológica? Pon un ejemplo.", sol: "El cambio gradual de las comunidades de un lugar a lo largo del tiempo. Ejemplo: tras un incendio, aparecen hierbas, después matorrales y, con los años, de nuevo el bosque (comunidad clímax)." },
+    { q: "Indica dos adaptaciones de los seres vivos a la falta de agua.", sol: "Los cactus acumulan agua en el tallo y tienen espinas en lugar de hojas; muchos animales del desierto son nocturnos y producen orina muy concentrada." },
+    { q: "Asocia cada bioma con su vegetación: taiga, sabana, bosque mediterráneo, tundra.", sol: "Taiga: coníferas. Sabana: hierbas y árboles dispersos (acacias). Bosque mediterráneo: encinas y alcornoques. Tundra: musgos y líquenes." },
+    { q: "¿Qué es un factor limitante? Da un ejemplo en el mar y otro en el desierto.", sol: "El factor que más restringe la vida de una especie. En el fondo del mar, la luz; en el desierto, el agua." },
+  ],
+  quiz: [
+    { q: "A cada nivel trófico pasa aproximadamente…", o: ["el 10 % de la energía", "el 50 % de la energía", "toda la energía"], a: 0, e: "El resto se pierde como calor." },
+    { q: "El factor limitante en un desierto suele ser…", o: ["la luz", "el agua", "el oxígeno"], a: 1, e: "Escasea más que el resto." },
+    { q: "Los combustibles fósiles almacenan…", o: ["carbono", "nitrógeno líquido", "agua"], a: 0, e: "Al quemarse liberan CO₂." },
+    { q: "El bosque mediterráneo tiene árboles como…", o: ["encinas y alcornoques", "abetos", "palmeras de selva"], a: 0, e: "Hojas duras para el verano seco." },
+    { q: "La relación entre el pez payaso y la anémona es…", o: ["parasitismo", "mutualismo", "depredación"], a: 1, e: "Los dos salen ganando." },
+  ],
+  tarjetas: [
+    ["Factor limitante", "El factor ambiental que más restringe el desarrollo de una especie."],
+    ["Regla del 10 %", "Solo una décima parte de la energía pasa de un nivel trófico al siguiente."],
+    ["Bioma", "Gran ecosistema terrestre definido por su clima y su vegetación."],
+  ],
+});

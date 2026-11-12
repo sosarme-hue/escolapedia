@@ -122,3 +122,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar cómo entran y salen las sustancias de la célula", "Comparar la respiración celular y la fotosíntesis"],
+  tras: {
+    "La teoría celular": [
+      { html: `<h3>El microscopio y el tamaño de las células</h3><p>La mayoría de las células miden entre 10 y 100 <b>micrómetros</b> (µm; 1 µm es la milésima parte de un milímetro), así que no se ven a simple vista. Robert Hooke las observó por primera vez en 1665 en un trozo de corcho, y Anton van Leeuwenhoek vio microbios vivos con lentes que él mismo pulía. El <b>microscopio óptico</b> usa luz y lentes y aumenta hasta unas 1.000 veces: basta para ver células y su núcleo. El <b>microscopio electrónico</b> usa electrones y aumenta cientos de miles de veces: permite ver los orgánulos por dentro y los virus. Los aumentos totales de un microscopio óptico se calculan <mark>multiplicando los del ocular por los del objetivo</mark>: 10 × 40 = 400 aumentos.</p>` },
+    ],
+    "Los orgánulos y sus funciones": [
+      { html: `<h3>La membrana plasmática y el transporte</h3><p>La <b>membrana plasmática</b> es una doble capa de lípidos con proteínas incrustadas que rodea la célula y <mark>decide qué entra y qué sale</mark>: es semipermeable. En el <b>transporte pasivo</b> las sustancias pasan sin gasto de energía, desde donde hay más concentración hacia donde hay menos: así entran el oxígeno y el agua (la difusión del agua se llama <b>ósmosis</b>). En el <b>transporte activo</b>, unas proteínas «bomba» mueven sustancias en contra de su concentración, gastando energía (ATP). Las partículas grandes entran envueltas en un trozo de membrana (<b>endocitosis</b>) o salen así (<b>exocitosis</b>). La ósmosis explica que una lechuga aliñada con sal se arrugue: pierde agua.</p>`, video: { id: "yzkohlVwaB8", titulo: "Transporte activo y pasivo en la membrana plasmática", canal: "Random HD", vistas: 1517103 } },
+    ],
+    "Nutrición celular": [
+      { html: `<h3>Respiración celular y fotosíntesis</h3><p>Las células obtienen la energía que necesitan con la <b>respiración celular</b>, que ocurre en las <b>mitocondrias</b>: la glucosa se combina con oxígeno y se transforma en CO₂ y agua, liberando energía que se guarda en moléculas de <b>ATP</b>, la «moneda energética» de la célula. Las células vegetales, además, hacen la <b>fotosíntesis</b> en los <b>cloroplastos</b>: con la energía de la luz fabrican glucosa a partir de CO₂ y agua, y liberan oxígeno. Son procesos <mark>opuestos y complementarios</mark>: lo que produce uno lo usa el otro. Las plantas también respiran, de día y de noche, pero de día hacen más fotosíntesis que respiración.</p>${AMP.tabla(["", "Fotosíntesis", "Respiración celular"], [["Dónde", "cloroplastos", "mitocondrias"], ["Quién", "plantas, algas, cianobacterias", "casi todos los seres vivos"], ["Toma", "CO₂ + agua + luz", "glucosa + O₂"], ["Produce", "glucosa + O₂", "CO₂ + agua + energía (ATP)"]])}`, video: { id: "eJ9Zjc-jdys", titulo: "Respiración celular", canal: "Amoeba Sisters", vistas: 8094159 } },
+      { html: `<h3>Organismos unicelulares y pluricelulares</h3><p>Algunos seres vivos son una sola célula que hace todas las funciones: bacterias, muchas algas, protozoos como el paramecio o levaduras. Los <b>pluricelulares</b>, como nosotros, están formados por billones de células que se <b>especializan</b>: se reparten el trabajo y dependen unas de otras. Las células del mismo tipo forman <b>tejidos</b> (muscular, nervioso, epitelial), varios tejidos forman <b>órganos</b> (corazón, hoja) y varios órganos, <b>sistemas</b> o aparatos. Todas nuestras células tienen el mismo ADN, pero cada tipo <mark>usa solo una parte de sus genes</mark>: por eso una neurona y un glóbulo rojo son tan distintos.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Observas una célula con un ocular de 10× y un objetivo de 40×. En la imagen mide 4 mm. ¿Cuál es su tamaño real?", pasos: ["Aumentos totales = 10 · 40 = 400.", "Tamaño real = tamaño en la imagen / aumentos = 4 mm / 400 = 0,01 mm.", "0,01 mm = 10 µm."], resultado: "La célula mide 10 µm." },
+    { enunciado: "Una célula tiene núcleo, mitocondrias, pared celular, cloroplastos y una gran vacuola. ¿Qué tipo de célula es?", pasos: ["Tiene núcleo: es eucariota.", "Tiene pared celular, cloroplastos y una vacuola grande: rasgos de las células vegetales.", "Las animales no tienen pared ni cloroplastos."], resultado: "Es una célula eucariota vegetal." },
+    { enunciado: "Se ponen glóbulos rojos en agua destilada y en agua muy salada. Predice qué pasa.", pasos: ["En agua destilada hay más agua fuera que dentro: el agua entra por ósmosis y la célula se hincha hasta poder romperse.", "En agua muy salada hay menos agua fuera: el agua sale y la célula se arruga.", "Por eso los sueros médicos tienen la misma concentración de sales que la sangre."], resultado: "En agua destilada se hinchan; en agua salada se arrugan." },
+  ],
+  errores: [
+    "Pensar que las plantas no respiran: respiran siempre, de día y de noche.",
+    "Decir que las bacterias tienen núcleo: son procariotas y su ADN está libre en el citoplasma.",
+    "Confundir pared celular (solo vegetales, hongos y bacterias) con membrana plasmática (todas las células).",
+    "Creer que los virus son células: no tienen metabolismo propio y necesitan una célula para reproducirse.",
+    "Pensar que la fotosíntesis produce energía de la nada: transforma la energía de la luz en energía química.",
+  ],
+  ejercicios: [
+    { q: "Enuncia los tres puntos principales de la teoría celular.", sol: "Todos los seres vivos están formados por células; la célula es la unidad de estructura y función de los seres vivos; toda célula procede de otra célula." },
+    { q: "Indica tres diferencias entre una célula procariota y una eucariota.", sol: "La procariota no tiene núcleo (el ADN está libre), no tiene orgánulos con membrana y es más pequeña. La eucariota tiene núcleo, orgánulos como mitocondrias y suele ser mayor." },
+    { q: "¿Qué orgánulo esperas encontrar en abundancia en una célula muscular? ¿Por qué?", sol: "Mitocondrias, porque el músculo necesita mucha energía y la obtiene con la respiración celular." },
+    { q: "Calcula los aumentos de un microscopio con ocular 15× y objetivo 100×.", sol: "15 · 100 = 1.500 aumentos." },
+    { q: "Escribe la ecuación general de la respiración celular.", sol: "Glucosa + oxígeno → dióxido de carbono + agua + energía (ATP)." },
+    { q: "¿Por qué las fresas con azúcar sueltan jugo?", sol: "El azúcar crea fuera de las células una concentración mayor y el agua sale de ellas por ósmosis." },
+    { q: "¿En qué se diferencian el transporte activo y el pasivo?", sol: "El pasivo va a favor de la concentración y no gasta energía; el activo va en contra y gasta ATP." },
+    { q: "Ordena de menor a mayor complejidad: órgano, célula, sistema, tejido.", sol: "Célula < tejido < órgano < sistema." },
+    { q: "Si todas nuestras células tienen el mismo ADN, ¿por qué una neurona es distinta de una célula de la piel?", sol: "Porque cada tipo celular activa solo una parte de sus genes; esa expresión diferente da lugar a células especializadas." },
+    { q: "Explica la relación entre fotosíntesis y respiración en un ecosistema.", sol: "La fotosíntesis produce glucosa y oxígeno, que usan los seres vivos para respirar; la respiración devuelve CO₂ y agua, que usan las plantas para la fotosíntesis. Forman un ciclo de materia." },
+  ],
+  quiz: [
+    { q: "Con un ocular de 10× y un objetivo de 40× se obtienen…", o: ["50 aumentos", "400 aumentos", "4.000 aumentos"], a: 1, e: "Se multiplican." },
+    { q: "La ósmosis es el paso de… a través de la membrana.", o: ["agua", "glucosa", "proteínas"], a: 0, e: "Del lado con más agua al que tiene menos." },
+    { q: "La respiración celular ocurre en…", o: ["los cloroplastos", "las mitocondrias", "el núcleo"], a: 1, e: "Allí se produce el ATP." },
+    { q: "Las plantas respiran…", o: ["solo de noche", "de día y de noche", "nunca"], a: 1, e: "Necesitan energía siempre." },
+    { q: "Un conjunto de células del mismo tipo que hacen la misma función es…", o: ["un órgano", "un tejido", "un sistema"], a: 1, e: "Por ejemplo, el tejido muscular." },
+  ],
+  tarjetas: [
+    ["Ósmosis", "Paso de agua a través de una membrana semipermeable hacia donde hay más solutos."],
+    ["ATP", "Molécula que almacena y transporta la energía en la célula."],
+    ["Niveles de organización", "Célula, tejido, órgano, sistema y organismo."],
+  ],
+});
