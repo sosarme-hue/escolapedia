@@ -105,3 +105,67 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+{
+  const T = module.exports;
+  T.minutos = 60;
+  T.objetivos.push("Usar la propiedad fundamental de las proporciones", "Hacer repartos directa e inversamente proporcionales", "Resolver problemas de IVA e interés simple");
+  const tabla = (cab, filas) => `<table class="tb"><thead><tr>${cab.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>${filas.map((f) => `<tr>${f.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  const nuevos = {
+    razon: { html: `<h3>Razón y proporción</h3><p>Una <b>razón</b> es el cociente entre dos cantidades: si en una clase hay 12 chicas y 18 chicos, la razón chicas/chicos es 12/18 = 2/3. Una <b>proporción</b> es una igualdad entre dos razones: 2/3 = 12/18. Su <mark>propiedad fundamental</mark> es que el producto de los extremos es igual al producto de los medios: si a/b = c/d, entonces a · d = b · c. Gracias a ella podemos calcular un término desconocido: en 3/5 = x/20, x = 3 · 20 / 5 = 12.</p>` },
+    repartos: { html: `<h3>Repartos proporcionales</h3><p>En un <b>reparto directamente proporcional</b>, a quien más aporta (más horas, más dinero) le toca más. Se suman las partes y se calcula cuánto vale cada unidad. Para repartir 900 € entre tres personas en proporción a 2, 3 y 4: 2 + 3 + 4 = 9 partes; cada parte vale 900 / 9 = 100 €, así que reciben 200, 300 y 400 €.</p><p>En un <b>reparto inversamente proporcional</b>, a quien más tiene (más faltas, más distancia) le toca menos. Se reparte de forma directa a los <mark>inversos</mark>: 1/2, 1/3 y 1/4.</p>${tabla(["Persona", "Número", "Inverso", "Con denominador 12", "Recibe (1.300 €)"], [["A", "2", "1/2", "6/12", "600 €"], ["B", "3", "1/3", "4/12", "400 €"], ["C", "4", "1/4", "3/12", "300 €"]])}<p>Sumamos 6 + 4 + 3 = 13 partes; cada parte vale 1.300 / 13 = 100 €.</p>` },
+    totalYPorcentaje: { html: `<h3>Las tres preguntas de los porcentajes</h3><p>Todo problema de porcentajes relaciona tres datos: el <b>total</b>, el <b>tanto por ciento</b> y la <b>parte</b>. Con dos de ellos se calcula el tercero:</p><ul><li><b>Parte</b> = total · r / 100. El 30 % de 40 es 40 · 0,30 = 12.</li><li><b>Tanto por ciento</b> = parte / total · 100. 18 de 72 es 18 / 72 · 100 = 25 %.</li><li><b>Total</b> = parte / (r / 100). Si el 30 % de un número es 12, el número es 12 / 0,30 = 40.</li></ul>` },
+    aplicaciones: { html: `<h3>IVA e interés simple</h3><p>El <b>IVA</b> general en España es del 21 %: un producto de 200 € sin IVA cuesta 200 · 1,21 = 242 €. Para <mark>quitar el IVA</mark> se divide: 242 / 1,21 = 200 € (no se resta el 21 % de 242).</p><p>El <b>interés simple</b> es lo que produce un capital C prestado o ahorrado al r % anual durante t años, sin que los intereses generen a su vez intereses: <mark>I = C · r · t / 100</mark>. Con 2.000 € al 3 % durante 2 años: I = 2.000 · 3 · 2 / 100 = 120 €.</p>` },
+  };
+  const pos = (t) => T.bloques.findIndex((b) => b.html.includes(t));
+  T.bloques[pos("Proporcionalidad directa e inversa")].video = { id: "nP9SwAqhVTI", titulo: "Proporcionalidad directa, súper fácil", canal: "Daniel Carreón", vistas: 6895477, megusta: 0 };
+  T.bloques[pos("Regla de tres compuesta")].video = { id: "oWDzbIp7x_M", titulo: "Regla de tres compuesta | Ejemplo 1", canal: "Matemáticas profe Alex", vistas: 5505177, megusta: 0 };
+  T.bloques.splice(pos("Porcentajes encadenados") + 1, 0, nuevos.aplicaciones);
+  T.bloques.splice(pos("Porcentajes, aumentos y descuentos"), 0, nuevos.totalYPorcentaje);
+  T.bloques.splice(pos("Regla de tres compuesta") + 1, 0, nuevos.repartos);
+  T.bloques.splice(pos("Proporcionalidad directa e inversa"), 0, nuevos.razon);
+
+  T.ejemplos = [
+    { enunciado: "Cinco grifos iguales llenan un depósito de 12.000 litros en 6 horas. ¿Cuánto tardarán 3 grifos en llenar 9.000 litros?",
+      pasos: ["Grifos y tiempo: con menos grifos se tarda más, es proporcionalidad <b>inversa</b>; multiplicamos por 5/3.", "Litros y tiempo: con menos litros se tarda menos, es proporcionalidad <b>directa</b>; multiplicamos por 9.000/12.000 = 3/4.", "t = 6 · 5/3 · 3/4 = 6 · 1,25 = 7,5 horas."],
+      resultado: "7,5 horas, es decir, 7 horas y 30 minutos." },
+    { enunciado: "Un patinete cuesta 80 €. Sube un 25 % y, en rebajas, baja un 20 %. ¿Cuánto cuesta al final?",
+      pasos: ["Índice de la subida: 1 + 0,25 = 1,25.", "Índice de la bajada: 1 − 0,20 = 0,80.", "Índice total: 1,25 · 0,80 = 1. Precio final: 80 · 1 = 80 €."],
+      resultado: "80 €: la subida y la bajada se compensan exactamente, aunque los porcentajes son distintos." },
+    { enunciado: "Un premio de 1.300 € se reparte entre tres equipos de forma inversamente proporcional a las faltas que han cometido: 2, 3 y 4.",
+      pasos: ["Inversos: 1/2, 1/3 y 1/4. Con denominador común 12: 6/12, 4/12 y 3/12.", "Repartimos directamente a 6, 4 y 3: en total 13 partes.", "Cada parte: 1.300 / 13 = 100 €. Reciben 600, 400 y 300 €."],
+      resultado: "600 €, 400 € y 300 €; el equipo con menos faltas recibe más." },
+  ];
+  T.errores = [
+    "Pensar que todo es proporcionalidad directa: más obreros significa menos días (inversa).",
+    "Sumar porcentajes encadenados: subir un 10 % y luego otro 10 % no es subir un 20 %, sino un 21 %.",
+    "Deshacer un aumento restando el mismo porcentaje: si tras subir un 20 % algo vale 60 €, antes valía 60 / 1,2 = 50 €, no 48 €.",
+    "Confundir puntos porcentuales con porcentaje: pasar del 10 % al 12 % es subir 2 puntos, que es un aumento del 20 %.",
+    "En un reparto inverso, repartir directamente a los números en lugar de a sus inversos.",
+  ];
+  T.ejercicios = [
+    { q: "3 kg de manzanas cuestan 4,50 €; 5 kg cuestan 7,50 € y 8 kg cuestan 12 €. ¿Son magnitudes proporcionales?", sol: "Sí, directamente proporcionales: 4,50 / 3 = 7,50 / 5 = 12 / 8 = 1,50 €/kg, que es la constante de proporcionalidad." },
+    { q: "Si 4 cuadernos cuestan 6 €, ¿cuánto cuestan 10 cuadernos?", sol: "Cada cuaderno cuesta 6 / 4 = 1,50 €. 10 cuadernos: 15 €." },
+    { q: "6 pintores tardan 8 días en pintar un edificio. ¿Cuánto tardarían 4 pintores?", sol: "Proporcionalidad inversa: 6 · 8 = 48 «días-pintor». 48 / 4 = 12 días." },
+    { q: "8 máquinas fabrican 1.200 piezas en 5 horas. ¿Cuántas piezas fabrican 6 máquinas en 8 horas?", sol: "Máquinas y piezas: directa (× 6/8). Horas y piezas: directa (× 8/5). 1.200 · 6/8 · 8/5 = 1.200 · 0,75 · 1,6 = 1.440 piezas." },
+    { q: "Reparte 1.500 € de forma directamente proporcional a 2, 3 y 5.", sol: "2 + 3 + 5 = 10 partes; cada parte vale 150 €. Reciben 300 €, 450 € y 750 €." },
+    { q: "¿Qué porcentaje es 45 de 180?", sol: "45 / 180 · 100 = 25 %." },
+    { q: "El 15 % de un número es 27. ¿Qué número es?", sol: "27 / 0,15 = 180." },
+    { q: "Un abrigo de 120 € tiene un descuento del 35 %. ¿Cuánto se paga?", sol: "Índice de variación 0,65. 120 · 0,65 = 78 €." },
+    { q: "Un móvil de 250 € sube un 10 % y después baja un 10 %. ¿Cuál es el precio final? ¿Cuál es la variación total?", sol: "250 · 1,10 · 0,90 = 247,50 €. Índice total 0,99: ha bajado un 1 %." },
+    { q: "Una factura con el 21 % de IVA incluido es de 96,80 €. ¿Cuál era el precio sin IVA?", sol: "96,80 / 1,21 = 80 €. (El IVA son 16,80 €.)" },
+  ];
+  T.quiz.push(
+    { q: "El índice de variación de un descuento del 15 % es…", o: ["0,85", "1,15", "0,15"], a: 0, e: "1 − 0,15 = 0,85." },
+    { q: "Si 3 obreros tardan 12 días, 6 obreros iguales tardan…", o: ["6 días", "24 días", "9 días"], a: 0, e: "Proporcionalidad inversa: el doble de obreros, la mitad de días." },
+    { q: "Subir un 10 % y después otro 10 % equivale a subir…", o: ["20 %", "21 %", "19 %"], a: 1, e: "1,1 · 1,1 = 1,21." },
+    { q: "Tras subir un 25 %, un precio es de 100 €. Antes era de…", o: ["75 €", "80 €", "125 €"], a: 1, e: "100 / 1,25 = 80 €." },
+    { q: "En una proporción a/b = c/d siempre se cumple que…", o: ["a · d = b · c", "a · b = c · d", "a + d = b + c"], a: 0, e: "Producto de extremos = producto de medios." },
+  );
+  T.tarjetas.push(
+    ["Propiedad fundamental de las proporciones", "Si a/b = c/d, entonces a · d = b · c."],
+    ["Reparto inversamente proporcional", "Se reparte de forma directa a los inversos de los números."],
+    ["¿Cómo se deshace un aumento del r %?", "Dividiendo entre el índice 1 + r/100."],
+  );
+}
