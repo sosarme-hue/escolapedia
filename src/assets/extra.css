@@ -130,3 +130,26 @@ body.proyectar .side{display:none}
 body.peque .sec p,body.peque .sec li{font-size:21px;line-height:1.6}
 body.peque .chunk h3{font-size:25px}
 body.peque .chunk svg{max-width:300px}
+
+/* Familias, profesores y páginas legales */
+.legal .box,.rec>.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.rec-toc{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.rec-toc a{border:2px solid var(--line);background:var(--card);border-radius:999px;padding:5px 14px;font-weight:700;font-size:14px;text-decoration:none;color:var(--ink)}
+.rec-sec{margin-block:28px}
+.rec-sec>h2{font-size:24px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.rec-sec .dot{width:14px;height:14px;border-radius:50%;display:inline-block}
+.rec-cal{list-style:none;padding:0;margin:0;display:grid;gap:8px;max-width:860px}
+.rec-cal li{display:grid;grid-template-columns:200px 1fr;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.rec-faq{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:8px;max-width:860px}
+.rec-faq summary{font-weight:700;cursor:pointer}
+.rec-faq p{margin:8px 0 0}
+.tscroll{overflow-x:auto}
+.rec-t{width:100%;border-collapse:collapse;background:var(--card);font-size:15px}
+.rec-t th,.rec-t td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.rec-t th{background:var(--paper)}
+.rec-t td small{display:block;color:var(--muted);font-size:12px}
+.rec-t td.tri{font-weight:800;text-align:center;background:var(--paper)}
+.rub td:first-child{width:16%}
+.sda p{margin:6px 0}
+@media (max-width:820px){.rec-cal li{grid-template-columns:1fr;gap:2px}.prog .rec-t{display:block;overflow-x:auto}}
+@media print{.rec-toc,.noprint{display:none}.rec-t{font-size:11px}}

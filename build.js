@@ -316,25 +316,7 @@ function topicPage(e, c, m, T, n) {
 }
 
 // ---------- familias y profesores ----------
-write("familias", page({ title: `Familias · ${SITE}`, desc: "Cómo ayudar a estudiar en casa con Escolapedia.", depth: 1, nav: "familias", body: `<main><div class="wrap" style="padding-bottom:48px">
-  <div class="crumbs"><a href="../">Inicio</a> › Familias</div>
-  <div class="page-h"><h1>Cómo ayudar en casa</h1><p>No hace falta saberse el temario. Lo que más ayuda es acompañar el método y dejar que vuestro hijo o hija explique lo que aprende.</p></div>
-  <div class="who">
-    <div class="box"><h3>Una rutina de 25 minutos</h3><ul><li>Leed juntos la pregunta de arranque y dejad que intente responder.</li><li>Que haga los pasos 2 y 3 solo; si falla una pregunta, que lea la explicación.</li><li>Pedidle que os explique el tema con sus palabras (paso 4). Si se atasca, ahí está lo que falta repasar.</li></ul></div>
-    <div class="box"><h3>Dos minutos al día</h3><ul><li>Las tarjetas del paso 6 vuelven solas al día siguiente, a los 3, 7 y 21 días.</li><li>Repasar poco y a menudo fija mucho más que estudiar todo la víspera del examen.</li><li>El progreso se guarda en el navegador del dispositivo que use.</li></ul></div>
-    <div class="box"><h3>En cada tema</h3><ul><li>Encontraréis un recuadro «Para familias» con ideas para practicar en la vida diaria.</li><li>Todos los temas indican sus fuentes y la fecha de revisión.</li></ul></div>
-    <div class="box"><h3>Por qué funciona</h3><ul><li>Recuperar lo aprendido (preguntas y tarjetas) y espaciar los repasos son las dos técnicas de estudio con más evidencia científica (Dunlosky y otros, 2013).</li><li>Combinar texto corto y dibujo ayuda a entender y recordar.</li></ul></div>
-  </div></div></main>` }));
-
-write("profesores", page({ title: `Profesores · ${SITE}`, desc: "Recursos de Escolapedia para docentes.", depth: 1, nav: "profesores", body: `<main><div class="wrap" style="padding-bottom:48px">
-  <div class="crumbs"><a href="../">Inicio</a> › Profesores</div>
-  <div class="page-h"><h1>Para usar en clase</h1><p>Escolapedia es gratuita y sigue las enseñanzas mínimas de la LOMLOE. Podéis usarla para presentar un tema, para repasar o como tarea.</p></div>
-  <div class="who">
-    <div class="box"><h3>En cada tema</h3><ul><li><b>Modo proyector:</b> letra grande y sin columna lateral, para la pizarra digital.</li><li><b>Imprimir ficha:</b> explicación, preguntas y esquema en papel.</li><li><b>Para profesores:</b> saberes básicos del currículo e ideas de actividades.</li></ul></div>
-    <div class="box"><h3>Currículo</h3><ul><li>Estructura según RD 95/2022, RD 157/2022, RD 217/2022 y RD 243/2022.</li><li>Incluye lenguas cooficiales, segunda lengua extranjera, optativas y Religión.</li><li>El reparto de materias por curso puede variar según la comunidad autónoma.</li></ul></div>
-    <div class="box"><h3>Método</h3><ul><li>Seis pasos por tema: activación, explicación con doble codificación, recuperación, elaboración, síntesis y repaso espaciado.</li></ul></div>
-    <div class="box"><h3>¿Ves un error?</h3><ul><li>Cada tema muestra sus fuentes y la fecha de revisión. Pronto habrá un formulario para proponer correcciones.</li></ul></div>
-  </div></div></main>` }));
+require("./src/recursos")({ ETAPAS, page, write, SITE, CURSO_ESCOLAR, cursoNombre, famColor, trimestres });
 
 // ---------- quién está detrás, aviso legal y privacidad ----------
 const TITULAR = "Alejandro Rosàs Navarro · NIF 35056148P · Calle Blaumar 19, bajos 1.ª, Sant Pere de Ribes (Barcelona) · partenopides@gmail.com";
