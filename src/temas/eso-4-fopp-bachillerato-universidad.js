@@ -86,3 +86,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular la nota de acceso y la de admisión a la universidad", "Conocer la organización de los estudios universitarios y las becas"],
+  bloques: [
+    { tras: "Las modalidades de Bachillerato", html: `<h3>Cómo es el Bachillerato</h3><p>El Bachillerato dura <b>dos cursos</b> y tiene <b>materias comunes</b> (Lengua y Literatura, Inglés, Filosofía, Educación Física en 1.º, Historia de España en 2.º…), <b>materias específicas de modalidad</b> (por ejemplo, Matemáticas, Física o Biología en Ciencias) y <b>optativas</b>. Se puede permanecer un máximo de <mark>cuatro años</mark>. Para obtener el título hay que aprobar todas las materias; excepcionalmente, el equipo docente puede conceder el título con una materia suspensa si se cumplen ciertas condiciones. Exige más estudio autónomo que la ESO: conviene organizarse desde el principio.</p>` },
+    { tras: "La nota de admisión", html: `<h3>Calcular la nota paso a paso</h3><p>La <b>nota de acceso</b> (sobre 10) = 0,6 × nota media de Bachillerato + 0,4 × nota de la fase obligatoria de la PAU. Hay que sacar al menos un <b>4</b> en la PAU y un <b>5</b> en la nota de acceso. La <mark>nota de admisión</mark> (sobre 14) suma hasta dos materias de la fase voluntaria, multiplicadas por su ponderación (0,1 o 0,2) si están relacionadas con el grado.</p>${tabla(["Dato", "Valor"], [["Media de Bachillerato", "8"], ["PAU obligatoria", "7"], ["Nota de acceso", "0,6 · 8 + 0,4 · 7 = 7,6"], ["Biología (0,2)", "9 → 1,8"], ["Química (0,2)", "8 → 1,6"], ["<b>Nota de admisión</b>", "<b>7,6 + 1,8 + 1,6 = 11,0</b>"]])}`, video: { id: "dOotwiujhyI", titulo: "EBAU: ¿cómo se calcula la nota de selectividad?", canal: "EL PAÍS", vistas: 54759, megusta: 0 } },
+    { tras: "Los estudios universitarios", html: `<h3>Grado, máster y doctorado</h3>${tabla(["Nivel", "Duración", "Créditos ECTS"], [["Grado", "4 años (5-6 en Medicina, Arquitectura…)", "240 (hasta 360)"], ["Máster", "1-2 años", "60-120"], ["Doctorado", "3-4 años", "tesis doctoral"]])}<p>Un crédito <mark>ECTS</mark> equivale a unas 25-30 horas de trabajo del estudiante (clases, prácticas y estudio). Gracias al Espacio Europeo de Educación Superior, los créditos se reconocen en toda Europa, lo que facilita el <b>Erasmus+</b>. Algunas profesiones, como la abogacía o la profesión de profesor de secundaria, exigen un máster habilitante.</p>` },
+    { tras: "Los estudios universitarios", html: `<h3>Becas y otras vías de acceso</h3><p>Las <mark>becas del Ministerio de Educación</mark> ayudan a pagar la matrícula, el transporte o la residencia, según la renta familiar y las notas; también hay becas de comunidades autónomas, universidades y fundaciones. Las matrículas en universidades públicas cuestan mucho menos que en las privadas. Además del Bachillerato, se puede entrar en la universidad con un título de <b>Técnico Superior</b> de FP (y presentarse a la fase voluntaria para subir nota), con la <b>prueba para mayores de 25 años</b> o por <b>experiencia profesional</b> para mayores de 40.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Calcula la nota de acceso de Iván: media de Bachillerato 6,5 y PAU 6.", pasos: ["0,6 · 6,5 = 3,9.", "0,4 · 6 = 2,4.", "3,9 + 2,4 = 6,3.", "Tiene más de 4 en la PAU y más de 5 en total."], resultado: "Nota de acceso 6,3: accede a la universidad." },
+    { enunciado: "Para Fisioterapia la nota de corte es 11,5. Iván saca en la fase voluntaria Biología 8 (ponderación 0,2) y Física 7 (0,2). ¿Llega?", pasos: ["Biología: 8 · 0,2 = 1,6.", "Física: 7 · 0,2 = 1,4.", "Nota de admisión = 6,3 + 1,6 + 1,4 = 9,3."], resultado: "9,3 < 11,5: no llega; debe buscar otra universidad, otro grado o un plan B como un ciclo de grado superior." },
+    { enunciado: "Lucía tiene un título de Técnico Superior en Laboratorio Clínico con media 8,4. ¿Cómo accede a Biología?", pasos: ["Su nota de acceso es la media del ciclo: 8,4.", "Puede presentarse a la fase voluntaria de la PAU para sumar hasta 4 puntos.", "Con la nota de admisión pide plaza como cualquier otro estudiante."], resultado: "Accede con la media del ciclo y puede subir nota en la fase voluntaria." },
+  ],
+  errores: [
+    "Confundir nota de acceso (sobre 10) con nota de admisión (sobre 14).",
+    "Pensar que la nota de corte es un requisito fijo: depende de la demanda de cada año.",
+    "Creer que solo se puede entrar en la universidad con Bachillerato.",
+    "Presentarse a materias de la fase voluntaria que no ponderan para el grado elegido.",
+    "Pensar que las becas son solo para quien saca sobresaliente: dependen sobre todo de la renta.",
+  ],
+  ejercicios: [
+    { q: "¿Cuántos cursos tiene el Bachillerato y cuántos años se puede estar como máximo?", sol: "Dos cursos; un máximo de cuatro años." },
+    { q: "Cita dos materias comunes del Bachillerato.", sol: "Lengua Castellana y Literatura e Inglés (también Filosofía o Historia de España)." },
+    { q: "Escribe la fórmula de la nota de acceso.", sol: "0,6 · media de Bachillerato + 0,4 · nota de la PAU obligatoria." },
+    { q: "Calcula la nota de acceso con media 9 y PAU 8.", sol: "0,6 · 9 + 0,4 · 8 = 5,4 + 3,2 = 8,6." },
+    { q: "¿Cuál es la nota máxima de admisión?", sol: "14." },
+    { q: "¿Qué es una ponderación?", sol: "El valor (0,1 o 0,2) por el que se multiplica la nota de una materia de la fase voluntaria según el grado." },
+    { q: "¿Qué es la nota de corte?", sol: "La nota del último estudiante admitido en un grado y universidad el año anterior." },
+    { q: "¿Cuántos créditos tiene un grado de cuatro años?", sol: "240 créditos ECTS." },
+    { q: "¿Qué es un máster habilitante? Pon un ejemplo.", sol: "Un máster obligatorio para ejercer una profesión, como el de profesorado de secundaria o el de abogacía." },
+    { q: "Cita dos vías de acceso a la universidad distintas del Bachillerato.", sol: "El título de Técnico Superior de FP y la prueba para mayores de 25 años." },
+  ],
+  quiz: [
+    { q: "La nota de admisión es sobre…", o: ["14", "10", "20"], a: 0, e: "Suma la fase voluntaria." },
+    { q: "En la PAU obligatoria hay que sacar al menos…", o: ["un 4", "un 5", "un 7"], a: 0, e: "Y un 5 en la nota de acceso." },
+    { q: "Un crédito ECTS equivale a unas…", o: ["25-30 horas de trabajo", "2 horas", "100 horas"], a: 0, e: "Incluye estudio personal." },
+    { q: "La nota de corte…", o: ["cambia cada año", "es siempre 5", "la fija el alumno"], a: 0, e: "Depende de la demanda." },
+    { q: "Las becas del Ministerio dependen sobre todo de…", o: ["la renta familiar y las notas", "el apellido", "la altura"], a: 0, e: "Hay umbrales de renta." },
+  ],
+  tarjetas: [
+    ["Nota de acceso", "60 % Bachillerato + 40 % PAU (sobre 10)."],
+    ["Crédito ECTS", "Unas 25-30 horas de trabajo del estudiante."],
+    ["Nota de corte", "Nota del último admitido en un grado."],
+  ],
+});

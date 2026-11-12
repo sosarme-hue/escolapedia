@@ -85,3 +85,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Redactar un perfil profesional y adaptar el currículum a una oferta", "Preparar respuestas a preguntas de entrevista con el método STAR"],
+  bloques: [
+    { tras: "Dónde buscar", html: `<h3>Cómo leer una oferta de empleo</h3><p>Una oferta suele indicar el <b>puesto</b>, las <b>funciones</b>, los <b>requisitos</b> (formación, experiencia, idiomas, carné de conducir), lo que se <b>valora</b> (no imprescindible), las <b>condiciones</b> (tipo de contrato, jornada, salario) y cómo inscribirse. Léela con calma y subraya las <mark>palabras clave</mark>: te dicen qué destacar en tu CV y en la carta. Desconfía de ofertas que piden dinero por adelantado, prometen sueldos muy altos por poco trabajo o no identifican a la empresa: pueden ser <b>fraudes</b>.</p>` },
+    { tras: "El currículum", html: `<h3>Tipos de currículum y perfil profesional</h3>${tabla(["Tipo", "Cómo se ordena", "Cuándo conviene"], [["Cronológico inverso", "lo más reciente primero", "el más habitual"], ["Funcional", "por competencias, no por fechas", "si tienes poca experiencia o huecos"], ["Creativo", "diseño visual, vídeo o web", "diseño, comunicación, publicidad"]])}<p>El <mark>perfil profesional</mark> es un párrafo de 2-3 líneas al principio del CV que resume quién eres y qué aportas. Ejemplo: «Estudiante de 4.º de ESO, responsable y con buen trato con niños. Monitora voluntaria de campamentos (2 veranos). Busco trabajo de verano como auxiliar de ocio infantil». Los sistemas automáticos de selección filtran CV por palabras clave, así que conviene usar las de la oferta.</p>` },
+    { tras: "La entrevista y tu huella", html: `<h3>El método STAR para responder</h3><p>Muchas entrevistas incluyen preguntas sobre situaciones pasadas: «cuéntame una vez que resolviste un problema». El <mark>método STAR</mark> ayuda a responder con orden: <b>S</b>ituación (contexto), <b>T</b>area (qué tenías que hacer), <b>A</b>cción (qué hiciste tú) y <b>R</b>esultado (qué pasó y qué aprendiste). Ejemplo: «En un trabajo de grupo (S) teníamos que presentar en una semana (T). Un compañero se puso enfermo, así que repartí sus partes y organicé un calendario (A). Lo entregamos a tiempo y sacamos un 9 (R)».</p>`, video: { id: "tYwtvtaxtmM", titulo: "Cómo responder a la pregunta «Háblame de ti»", canal: "Virna Vitteri - Coach de Carrera", vistas: 2717028, megusta: 0 } },
+    { tras: "La entrevista y tu huella", html: `<h3>Tipos de entrevista y tu primer empleo</h3><p>Las entrevistas pueden ser <b>individuales</b>, <b>de grupo</b> (varias personas resuelven un caso mientras observan cómo colaboran), <b>por teléfono o videollamada</b> (cuida la luz, el fondo y la conexión) o con <b>pruebas</b> técnicas o psicotécnicas. Tras la entrevista, un breve correo de agradecimiento causa buena impresión. Para un primer empleo con 16 o 17 años, las opciones más habituales son <mark>trabajos de temporada</mark> (hostelería, ocio infantil, campañas de comercio), dar clases particulares o colaborar en el negocio familiar, siempre con contrato y respetando los límites para menores.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Oferta: «Auxiliar de tienda. Valoramos inglés, atención al cliente y disponibilidad en julio». Adapta el perfil de Hugo, que juega al baloncesto, tiene un B1 de inglés y ayuda en la tienda de sus tíos.", pasos: ["Palabras clave: inglés, atención al cliente, julio.", "Relacionar la experiencia: ayuda en la tienda familiar.", "Escribir un perfil breve con esas palabras."], resultado: "«Estudiante con nivel B1 de inglés y experiencia en atención al cliente en un comercio familiar. Trabajo en equipo (baloncesto federado). Disponible todo julio»." },
+    { enunciado: "Responde con STAR: «Dime una vez que te equivocaste».", pasos: ["S: en el instituto organizaba la venta de camisetas del viaje.", "T: había que encargar las tallas correctas.", "A: me equivoqué al pedir; avisé enseguida, pedí perdón y negocié el cambio con la tienda.", "R: llegaron a tiempo y desde entonces reviso dos veces los pedidos."], resultado: "Una respuesta honesta que muestra responsabilidad y aprendizaje." },
+    { enunciado: "Detecta las señales de fraude: «Gana 3.000 € al mes desde casa. Solo tienes que pagar 50 € de inscripción».", pasos: ["Sueldo muy alto para un trabajo sin requisitos.", "Piden dinero por adelantado.", "No dice qué empresa es ni qué trabajo hay que hacer."], resultado: "Es casi seguro un fraude: no hay que pagar ni dar datos bancarios." },
+  ],
+  errores: [
+    "Enviar el mismo CV a todas las ofertas sin adaptarlo.",
+    "Usar un correo poco profesional (por ejemplo, «princesita2009@…»).",
+    "Inventar datos en el CV: se descubren en la entrevista o al comprobar referencias.",
+    "Responder en la entrevista con un «sí» o «no» sin dar ejemplos.",
+    "Pagar por conseguir un empleo: las empresas serias no cobran a los candidatos.",
+  ],
+  ejercicios: [
+    { q: "¿Qué partes tiene una oferta de empleo?", sol: "Puesto, funciones, requisitos, lo que se valora, condiciones y forma de inscribirse." },
+    { q: "Cita tres señales de una oferta fraudulenta.", sol: "Piden dinero por adelantado, prometen sueldos muy altos sin requisitos y no identifican a la empresa." },
+    { q: "¿Cuándo conviene un CV funcional?", sol: "Cuando se tiene poca experiencia o huecos, porque organiza por competencias." },
+    { q: "Escribe tu perfil profesional en tres líneas.", sol: "Respuesta personal: quién eres, qué sabes hacer y qué buscas." },
+    { q: "¿Qué significa STAR?", sol: "Situación, Tarea, Acción y Resultado." },
+    { q: "Responde con STAR a «cuéntame un logro del que estés orgulloso».", sol: "Respuesta personal con situación, tarea, acción y resultado concretos." },
+    { q: "Da tres consejos para una entrevista por videollamada.", sol: "Buena luz de frente, fondo ordenado y probar antes la conexión y el micrófono." },
+    { q: "¿Qué es una entrevista de grupo?", sol: "Varios candidatos resuelven juntos un caso mientras los seleccionadores observan cómo se comunican y colaboran." },
+    { q: "Cita dos empleos habituales para jóvenes de 16-17 años.", sol: "Trabajos de verano en hostelería y monitor de ocio infantil." },
+    { q: "¿Por qué enviar un correo de agradecimiento tras la entrevista?", sol: "Porque muestra interés y educación y te recuerda ante la empresa." },
+  ],
+  quiz: [
+    { q: "El CV más habitual es el…", o: ["cronológico inverso", "funcional", "creativo"], a: 0, e: "Lo más reciente primero." },
+    { q: "El perfil profesional ocupa…", o: ["2-3 líneas", "dos páginas", "una palabra"], a: 0, e: "Resume quién eres y qué aportas." },
+    { q: "En STAR, la «A» significa…", o: ["Acción", "Actitud", "Ayuda"], a: 0, e: "Qué hiciste tú." },
+    { q: "Si una oferta pide dinero para inscribirse…", o: ["desconfía", "paga enseguida", "es normal"], a: 0, e: "Es una señal de fraude." },
+    { q: "Las palabras clave de la oferta sirven para…", o: ["adaptar el CV", "nada", "rellenar el DNI"], a: 0, e: "Muchos filtros son automáticos." },
+  ],
+  tarjetas: [
+    ["Perfil profesional", "Resumen de 2-3 líneas al principio del CV."],
+    ["Método STAR", "Situación, Tarea, Acción y Resultado."],
+    ["CV funcional", "Organizado por competencias en vez de por fechas."],
+  ],
+});

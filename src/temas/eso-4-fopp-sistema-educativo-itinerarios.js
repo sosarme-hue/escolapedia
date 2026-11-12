@@ -85,3 +85,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Describir todas las enseñanzas posobligatorias, incluidas las artísticas, deportivas y de idiomas", "Planificar tu propio itinerario con fechas y requisitos"],
+  bloques: [
+    { tras: "La estructura del sistema", html: `<h3>El sistema educativo de un vistazo</h3>${tabla(["Etapa", "Edades", "¿Obligatoria?", "Título"], [["Educación Infantil", "0-6", "no (gratuita de 3 a 6)", "—"], ["Educación Primaria", "6-12", "sí", "—"], ["ESO", "12-16", "sí", "Graduado en ESO"], ["Bachillerato", "16-18", "no", "Bachiller"], ["FP de grado medio", "desde 16", "no", "Técnico"], ["FP de grado superior", "desde 18", "no", "Técnico Superior"], ["Universidad", "desde 18", "no", "Grado, Máster, Doctorado"]])}<p>La enseñanza es <mark>obligatoria y gratuita</mark> de los 6 a los 16 años. La ley educativa vigente es la <b>LOMLOE</b> (2020).</p>` },
+    { tras: "Con el título de Graduado", html: `<h3>Otras enseñanzas tras la ESO</h3><p>Además de Bachillerato y FP, con el título de ESO hay otras opciones. Las <b>enseñanzas artísticas profesionales</b> de <b>música y danza</b> (se suelen empezar antes, en conservatorios) y las de <b>Artes Plásticas y Diseño</b> (ciclos de grado medio y superior: cerámica, joyería, ilustración, gráfica publicitaria…), con una prueba de acceso específica. Las <mark>enseñanzas deportivas</mark> forman técnicos de fútbol, baloncesto, deportes de montaña o salvamento. Las <b>Escuelas Oficiales de Idiomas</b> permiten obtener certificados de nivel (A2, B1, B2, C1) desde los 16 años, o desde los 14 para un idioma distinto del estudiado en la ESO.</p>`, video: { id: "AreYouNmPrI", titulo: "¿FP o bachillerato? Mi experiencia", canal: "Koi", vistas: 32455, megusta: 0 } },
+    { tras: "Sin el título", html: `<h3>La educación de personas adultas</h3><p>Quien no termina la ESO a tiempo no pierde la oportunidad. En los <mark>centros de educación de personas adultas</mark> (CEPA o EPA) se puede obtener el título de ESO desde los 18 años (o desde los 16 con contrato de trabajo o si se es deportista de alto rendimiento), en modalidad presencial o a distancia. También existen <b>pruebas libres</b> para el título de ESO y de Bachillerato para mayores de 18 y 20 años respectivamente, y el <b>Bachillerato para adultos</b> nocturno o a distancia. Aprender no tiene edad: es el principio del <b>aprendizaje a lo largo de la vida</b>.</p>` },
+    { tras: "Las pasarelas", html: `<h3>Calendario de tu decisión en 4.º</h3>${tabla(["Cuándo", "Qué hacer"], [["1.er trimestre", "conocerte: tests de intereses, hablar con el orientador"], ["2.º trimestre", "informarte: jornadas de puertas abiertas, webs de FP y universidades, hablar con estudiantes mayores"], ["Febrero-abril", "consejo orientador del centro; decidir con tu familia"], ["Mayo-julio", "solicitar plaza en Bachillerato o FP (plazos de cada comunidad)"], ["Junio-septiembre", "matrícula; tener un plan B por si no hay plaza"]])}<p>El <mark>consejo orientador</mark> que entrega el centro al final de 4.º recomienda un itinerario, pero no es obligatorio seguirlo.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Andrea tiene 16 años, el título de ESO y le encanta dibujar. ¿Qué opciones tiene?", pasos: ["Bachillerato de Artes, vía de Artes Plásticas, Imagen y Diseño.", "Ciclo de grado medio de Artes Plásticas y Diseño (prueba de acceso específica).", "FP de grado medio relacionada, como Preimpresión digital."], resultado: "Tiene al menos tres caminos; después podrá seguir a estudios superiores de diseño o Bellas Artes." },
+    { enunciado: "Javier, de 19 años, dejó la ESO en 3.º. ¿Cómo puede obtener el título?", pasos: ["Matricularse en un CEPA (presencial o a distancia).", "O presentarse a las pruebas libres para mayores de 18.", "Con el título podrá acceder a FP de grado medio o Bachillerato."], resultado: "Por la educación de adultos o las pruebas libres." },
+    { enunciado: "Ordena el calendario de decisiones de 4.º: matrícula, conocerte, solicitar plaza, informarte.", pasos: ["Primero conocerte.", "Después informarte.", "Luego solicitar plaza.", "Por último, matricularte."], resultado: "Conocerte → informarte → solicitar plaza → matrícula." },
+  ],
+  errores: [
+    "Pensar que la ESO es gratuita pero el Bachillerato público no: el Bachillerato en centros públicos también es gratuito, aunque no obligatorio.",
+    "Creer que sin el título de ESO a los 16 ya no hay opciones.",
+    "Pensar que el consejo orientador es obligatorio.",
+    "Olvidar los plazos de solicitud de plaza, que varían en cada comunidad.",
+    "Desconocer las enseñanzas artísticas, deportivas y de idiomas.",
+  ],
+  ejercicios: [
+    { q: "¿Entre qué edades es obligatoria la enseñanza en España?", sol: "Entre los 6 y los 16 años." },
+    { q: "¿Qué título da la FP de grado medio y cuál la de grado superior?", sol: "Técnico y Técnico Superior." },
+    { q: "¿Qué ley educativa está vigente?", sol: "La LOMLOE, de 2020." },
+    { q: "Cita tres enseñanzas posobligatorias distintas de Bachillerato y FP.", sol: "Enseñanzas artísticas, enseñanzas deportivas y Escuelas Oficiales de Idiomas." },
+    { q: "¿Desde qué edad se puede estudiar en una Escuela Oficial de Idiomas?", sol: "Desde los 16, o desde los 14 para un idioma distinto del cursado en la ESO." },
+    { q: "¿Qué es un CEPA?", sol: "Un centro de educación de personas adultas donde se puede obtener el título de ESO y otras titulaciones." },
+    { q: "¿Qué es el consejo orientador?", sol: "Una recomendación del centro sobre el itinerario más adecuado para cada alumno al final de la etapa." },
+    { q: "¿Qué hacer en el segundo trimestre de 4.º?", sol: "Informarse: puertas abiertas, webs, charlas con estudiantes y con el orientador." },
+    { q: "¿Por qué conviene tener un plan B al solicitar plaza?", sol: "Porque en algunos centros o ciclos hay más solicitudes que plazas." },
+    { q: "Dibuja tu itinerario ideal desde 4.º hasta tu primer trabajo.", sol: "Respuesta personal. Ejemplo: 4.º ESO → Bachillerato de Ciencias → Grado en Enfermería → trabajo en un hospital." },
+  ],
+  quiz: [
+    { q: "La ESO va de los…", o: ["12 a los 16 años", "6 a los 12", "16 a los 18"], a: 0, e: "Cuatro cursos." },
+    { q: "El título de la FP de grado superior es…", o: ["Técnico Superior", "Bachiller", "Graduado"], a: 0, e: "Permite acceder a la universidad." },
+    { q: "En un CEPA se puede…", o: ["obtener el título de ESO siendo adulto", "hacer el doctorado", "sacar el carné de conducir"], a: 0, e: "Educación de adultos." },
+    { q: "Las enseñanzas deportivas forman…", o: ["técnicos deportivos", "médicos", "periodistas"], a: 0, e: "De fútbol, montaña, etc." },
+    { q: "El consejo orientador es…", o: ["una recomendación", "obligatorio", "un examen"], a: 0, e: "La familia y el alumno deciden." },
+  ],
+  tarjetas: [
+    ["LOMLOE", "Ley educativa vigente desde 2020."],
+    ["CEPA", "Centro de educación de personas adultas."],
+    ["Consejo orientador", "Recomendación de itinerario al final de la ESO."],
+  ],
+});

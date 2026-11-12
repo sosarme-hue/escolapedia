@@ -80,3 +80,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Aplicar técnicas de decisión a elecciones académicas reales", "Reconocer las emociones y los estilos de decisión propios"],
+  bloques: [
+    { tras: "Un proceso en seis pasos", html: `<h3>Estilos de decisión</h3>${tabla(["Estilo", "Cómo decide", "Riesgo"], [["Impulsivo", "lo primero que se le ocurre", "arrepentirse"], ["Dependiente", "lo que dicen otros (familia, amigos)", "vivir una elección ajena"], ["Evitador", "deja pasar el tiempo hasta que otros o las circunstancias deciden", "perder oportunidades"], ["Intuitivo", "por lo que «siente»", "dejar fuera información importante"], ["Planificado", "se informa, compara y decide", "bloquearse si analiza demasiado"]])}<p>El objetivo es acercarse al estilo <mark>planificado</mark> sin perder de vista lo que sientes: la intuición también es información.</p>` },
+    { tras: "Comparar con una matriz", html: `<h3>Otras herramientas</h3><p>Además de la matriz ponderada, hay técnicas sencillas. La <b>lista de pros y contras</b> ayuda a ver la decisión de un vistazo. La <mark>regla 10-10-10</mark> pregunta cómo te sentirás con la decisión dentro de 10 minutos, 10 meses y 10 años, para no dejarse llevar solo por el momento. El <b>árbol de decisiones</b> dibuja cada opción y sus consecuencias posibles, como ramas. Y la técnica del <b>«consejo a un amigo»</b>: ¿qué le recomendarías a un amigo en tu misma situación? Suele dar una respuesta más serena.</p>` },
+    { tras: "Sesgos y presiones", html: `<h3>Las emociones al decidir</h3><p>Las emociones no son el enemigo: el <b>miedo</b> avisa de riesgos, la <b>ilusión</b> indica lo que te motiva. El problema llega cuando una emoción intensa decide por ti. Para gestionar la <mark>ansiedad</mark> ante decisiones importantes ayuda dividir la decisión en pasos pequeños, informarse (la incertidumbre alimenta el miedo), hablar con alguien de confianza, dormir bien y darse un plazo razonable. Una regla útil: no tomes decisiones importantes en caliente, cuando estás muy enfadado, triste o eufórico.</p>` },
+    { tras: "Equivocarse también enseña", html: `<h3>El plan B y la reversibilidad</h3><p>Pocas decisiones académicas son definitivas. El sistema educativo tiene muchas <b>pasarelas</b>: se puede cambiar de modalidad de Bachillerato, pasar de FP de grado medio a superior, o de un grado superior a la universidad. Antes de decidir, pregúntate: ¿es una decisión <mark>reversible</mark>? Si lo es, no hace falta tanto miedo; si no, merece más tiempo. Tener un <b>plan B</b> (qué haré si no consigo la nota o si no me gusta) da tranquilidad y permite arriesgarse con la primera opción.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Aplica la regla 10-10-10 a «dejar las clases de música porque este mes estoy cansado».", pasos: ["En 10 minutos: alivio.", "En 10 meses: quizá eche de menos tocar y a los compañeros.", "En 10 años: podría lamentar haber dejado algo que me gustaba por un cansancio pasajero."], resultado: "Mejor buscar una solución intermedia (menos horas) que abandonar en caliente." },
+    { enunciado: "Daniel duda entre Bachillerato de Ciencias y FP de grado medio de Electromecánica. Dibuja un árbol de decisión sencillo.", pasos: ["Rama 1, Bachillerato: PAU → Ingeniería (4 años) o FP de grado superior.", "Rama 2, FP grado medio: trabajar como técnico a los 18 o seguir a grado superior y luego, si quiere, universidad.", "Ambas ramas pueden llegar a estudios superiores."], resultado: "La decisión es menos definitiva de lo que parece; puede elegir según sus intereses actuales." },
+    { enunciado: "Identifica el estilo: «Elegí Humanidades porque mi madre dice que es lo mejor para mí».", pasos: ["La decisión la toma otra persona.", "No se mencionan intereses propios ni información."], resultado: "Estilo dependiente: conviene escuchar a la familia, pero decidir uno mismo." },
+  ],
+  errores: [
+    "Dejar que pase el plazo de matrícula sin decidir.",
+    "Decidir en un momento de emoción intensa.",
+    "Pensar que una decisión académica es irreversible.",
+    "Copiar la elección de los amigos.",
+    "Analizar tanto que nunca se decide (parálisis por análisis).",
+  ],
+  ejercicios: [
+    { q: "Cita los cinco estilos de decisión.", sol: "Impulsivo, dependiente, evitador, intuitivo y planificado." },
+    { q: "¿Qué riesgo tiene el estilo evitador?", sol: "Que otros o las circunstancias decidan por ti y pierdas oportunidades." },
+    { q: "Explica la regla 10-10-10.", sol: "Pensar cómo te sentirás con la decisión en 10 minutos, 10 meses y 10 años." },
+    { q: "¿Para qué sirve un árbol de decisiones?", sol: "Para visualizar las opciones y sus posibles consecuencias como ramas." },
+    { q: "¿Qué es el sesgo de confirmación?", sol: "Buscar solo la información que confirma lo que ya pensabas." },
+    { q: "Da tres consejos para gestionar la ansiedad ante una decisión.", sol: "Informarse, dividir la decisión en pasos y hablar con alguien de confianza." },
+    { q: "¿Qué es una pasarela educativa?", sol: "Un camino que permite pasar de un tipo de estudios a otro." },
+    { q: "¿Para qué sirve un plan B?", sol: "Para tener una alternativa si la primera opción no sale, lo que da tranquilidad." },
+    { q: "Haz una lista de dos pros y dos contras de elegir una FP de grado medio.", sol: "Pros: práctica y empleo antes; acceso a grado superior. Contras: menos opciones de acceso directo a la universidad; especialización temprana." },
+    { q: "¿Qué le dirías a un amigo que quiere dejar los estudios por una mala nota?", sol: "Que no decida en caliente, que analice las causas, pida ayuda y valore las alternativas." },
+  ],
+  quiz: [
+    { q: "El estilo planificado…", o: ["se informa y compara", "decide al azar", "deja que otros decidan"], a: 0, e: "Es el más recomendable." },
+    { q: "La regla 10-10-10 sirve para…", o: ["ver la decisión a corto y largo plazo", "contar hasta diez", "elegir en diez segundos"], a: 0, e: "Evita decidir solo por el momento." },
+    { q: "Decidir muy enfadado es…", o: ["mala idea", "lo mejor", "obligatorio"], a: 0, e: "Mejor esperar a calmarse." },
+    { q: "Una decisión reversible…", o: ["se puede cambiar después", "es para siempre", "no existe"], a: 0, e: "Muchas académicas lo son." },
+    { q: "La parálisis por análisis es…", o: ["no decidir nunca por pensar demasiado", "decidir rápido", "un examen"], a: 0, e: "Hay que ponerse un plazo." },
+  ],
+  tarjetas: [
+    ["Estilo dependiente", "Decidir según lo que dicen otros."],
+    ["Regla 10-10-10", "¿Cómo me sentiré en 10 minutos, 10 meses y 10 años?"],
+    ["Plan B", "Alternativa si la primera opción no sale."],
+  ],
+});
+module.exports.bloques.find((b) => b.html.includes("<h3>Sesgos y presiones")).video = { id: "3hG4gwIPwDs", titulo: "¿Cómo nos engañan? Pt1: los sesgos cognitivos", canal: "CuriosaMente", vistas: 775884, megusta: 0 };

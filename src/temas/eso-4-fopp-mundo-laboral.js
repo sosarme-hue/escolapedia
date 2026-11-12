@@ -77,3 +77,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Conocer tiempos de trabajo, vacaciones, permisos y fin del contrato", "Identificar riesgos laborales y las profesiones con futuro"],
+  bloques: [
+    { tras: "Derechos y deberes", html: `<h3>Tiempo de trabajo y descanso</h3>${tabla(["Aspecto", "Qué dice la ley"], [["Jornada máxima", "40 horas semanales de media"], ["Jornada diaria", "máximo 9 horas ordinarias (8 para menores de 18)"], ["Descanso entre jornadas", "al menos 12 horas"], ["Descanso semanal", "día y medio seguido (dos días para menores)"], ["Pausa", "15 minutos si la jornada supera 6 horas (30 minutos para menores, si supera 4,5 horas)"], ["Vacaciones", "30 días naturales al año, pagados"], ["Horas extra", "voluntarias y con límite; prohibidas a menores"]])}<p>El registro diario de la jornada es <mark>obligatorio</mark> para las empresas desde 2019.</p>`, video: { id: "ulJRmbFy0j0", titulo: "Derechos laborales que todos tenemos y podemos exigir desde el primer día", canal: "Rafa Hurtado - Seguridad Social e Impuestos", vistas: 379230, megusta: 0 } },
+    { tras: "Contratos, convenios", html: `<h3>Permisos y fin del contrato</h3><p>Los trabajadores tienen <b>permisos retribuidos</b>: por ejemplo, 15 días por matrimonio, 5 días por accidente o enfermedad grave de un familiar cercano o el tiempo necesario para exámenes oficiales. El <mark>permiso por nacimiento</mark> es igual para ambos progenitores: 19 semanas desde 2025. Un contrato puede terminar por fin del plazo, por <b>dimisión</b> del trabajador (con preaviso), por <b>despido</b> (disciplinario, si hay una falta grave; u objetivo, por causas económicas o técnicas, con indemnización) o por jubilación. Al terminar se recibe el <b>finiquito</b>: lo que se debe hasta ese día, como vacaciones no disfrutadas.</p>` },
+    { tras: "Prevención y trabajo del futuro", html: `<h3>Riesgos laborales y cómo prevenirlos</h3><p>La <b>Ley de Prevención de Riesgos Laborales</b> (1995) obliga a la empresa a evaluar los riesgos y protegerlos, y al trabajador a cumplir las medidas. Los riesgos pueden ser de <b>seguridad</b> (caídas, cortes), <b>físicos</b> (ruido, temperatura), <b>químicos</b>, <b>biológicos</b>, <b>ergonómicos</b> (malas posturas, cargas) y <b>psicosociales</b> (estrés, acoso). Se combaten con medidas colectivas (barandillas, ventilación) y con <mark>equipos de protección individual</mark> (EPI): casco, guantes, gafas, calzado de seguridad. Un accidente de trabajo debe comunicarse siempre.</p>` },
+    { tras: "Prevención y trabajo del futuro", html: `<h3>Las nuevas formas de trabajar</h3><p>El mercado laboral está cambiando. Crece el <b>teletrabajo</b>, regulado por la ley de trabajo a distancia (2021), que exige un acuerdo escrito y que la empresa pague los medios. Aumentan los <b>autónomos</b> y los trabajos en <b>plataformas digitales</b>; la «ley rider» (2021) considera trabajadores asalariados a los repartidores. La <b>inteligencia artificial</b> y la automatización eliminan unas tareas y crean otras. Por eso son clave la <mark>formación continua</mark>, la competencia digital y las habilidades que las máquinas hacen peor: creatividad, empatía, pensamiento crítico.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Marta, de 17 años, trabaja en verano en una heladería de 10:00 a 15:00. ¿Debe tener una pausa?", pasos: ["Es menor de 18.", "Su jornada es de 5 horas, más de 4,5.", "Los menores tienen derecho a 30 minutos de pausa si superan 4,5 horas seguidas."], resultado: "Sí: 30 minutos de descanso." },
+    { enunciado: "Identifica riesgos y EPI en un taller mecánico.", pasos: ["Riesgos: cortes, golpes, ruido, productos químicos (aceites), cargas pesadas.", "EPI: guantes, gafas, calzado de seguridad, protectores auditivos.", "Medidas colectivas: elevadores seguros, ventilación, señalización."], resultado: "Combinar medidas colectivas y EPI." },
+    { enunciado: "Pedro trabajó hasta el 20 de junio y le quedaban 6 días de vacaciones sin disfrutar. ¿Qué incluye su finiquito?", pasos: ["El salario de los días trabajados de junio.", "La parte proporcional de las pagas extra.", "Los 6 días de vacaciones no disfrutadas."], resultado: "Salario pendiente, pagas extra proporcionales y vacaciones no disfrutadas." },
+  ],
+  errores: [
+    "Pensar que las vacaciones se pueden cambiar por dinero sin terminar el contrato: solo se pagan si no se disfrutaron al finalizar.",
+    "Creer que un menor puede hacer horas extra si quiere: está prohibido.",
+    "Confundir dimisión (la decide el trabajador) con despido (lo decide la empresa).",
+    "Pensar que la prevención es solo responsabilidad de la empresa: el trabajador también debe cumplirla.",
+    "Creer que el teletrabajo puede imponerse sin acuerdo: debe ser voluntario y por escrito.",
+  ],
+  ejercicios: [
+    { q: "¿Cuántos días de vacaciones pagadas hay al año?", sol: "30 días naturales." },
+    { q: "¿Cuál es la jornada diaria máxima de un menor de 18?", sol: "8 horas, incluido el tiempo de formación." },
+    { q: "¿Qué descanso mínimo debe haber entre dos jornadas?", sol: "12 horas." },
+    { q: "Cita dos permisos retribuidos.", sol: "Por matrimonio (15 días) y por enfermedad grave de un familiar (5 días)." },
+    { q: "¿Cuánto dura el permiso por nacimiento desde 2025?", sol: "19 semanas para cada progenitor." },
+    { q: "Diferencia despido disciplinario y objetivo.", sol: "El disciplinario se debe a una falta grave del trabajador; el objetivo, a causas económicas, técnicas u organizativas, con indemnización." },
+    { q: "¿Qué es el finiquito?", sol: "El documento con las cantidades que se deben al trabajador al terminar el contrato." },
+    { q: "Clasifica: estrés, ruido, cortes, malas posturas.", sol: "Estrés: psicosocial. Ruido: físico. Cortes: de seguridad. Malas posturas: ergonómico." },
+    { q: "¿Qué son los EPI? Pon tres ejemplos.", sol: "Equipos de protección individual: casco, guantes y gafas." },
+    { q: "¿Qué habilidades serán más valiosas ante la inteligencia artificial?", sol: "Creatividad, empatía, pensamiento crítico, competencia digital y aprender continuamente." },
+  ],
+  quiz: [
+    { q: "Las vacaciones anuales son de…", o: ["30 días naturales", "15 días", "60 días"], a: 0, e: "Pagadas." },
+    { q: "Las horas extra para menores…", o: ["están prohibidas", "son obligatorias", "se pagan doble"], a: 0, e: "Protección del menor." },
+    { q: "El registro de jornada es obligatorio desde…", o: ["2019", "1980", "2030"], a: 0, e: "Para controlar las horas." },
+    { q: "Un casco es un…", o: ["EPI", "permiso", "contrato"], a: 0, e: "Equipo de protección individual." },
+    { q: "La «ley rider» trata de…", o: ["los repartidores de plataformas", "los ciclistas profesionales", "los conductores de autobús"], a: 0, e: "Son trabajadores asalariados." },
+  ],
+  tarjetas: [
+    ["Finiquito", "Liquidación de lo que se debe al terminar el contrato."],
+    ["EPI", "Equipo de protección individual."],
+    ["Teletrabajo", "Trabajo a distancia, voluntario y con acuerdo escrito."],
+  ],
+});

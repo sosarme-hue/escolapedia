@@ -86,3 +86,53 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Identificar tus intereses, valores y competencias con herramientas concretas", "Relacionar tu perfil con familias de estudios y profesiones"],
+  bloques: [
+    { tras: "Las cuatro piezas", html: `<h3>Intereses profesionales: el modelo RIASEC</h3><p>El psicólogo John Holland propuso que hay seis grandes tipos de intereses, el <mark>modelo RIASEC</mark>. Casi todo el mundo combina dos o tres.</p>${tabla(["Tipo", "Le gusta…", "Profesiones afines"], [["Realista", "trabajar con las manos, máquinas, aire libre", "mecánica, agricultura, electricidad"], ["Investigador", "analizar, investigar, resolver problemas", "ciencias, medicina, ingeniería"], ["Artístico", "crear, expresarse, imaginar", "diseño, música, comunicación"], ["Social", "ayudar, enseñar, cuidar", "educación, enfermería, trabajo social"], ["Emprendedor", "liderar, convencer, organizar", "comercio, empresa, derecho"], ["Convencional", "ordenar, planificar, datos precisos", "administración, contabilidad"]])}` },
+    { tras: "Cómo conocerte mejor", html: `<h3>Valores y competencias</h3><p>Los <b>valores</b> son lo que consideras importante en la vida y en el trabajo: estabilidad, creatividad, ayudar a los demás, ganar dinero, tener tiempo libre, aprender siempre. Las <mark>competencias</mark> combinan conocimientos, habilidades y actitudes. Hay <b>competencias técnicas</b> (saber programar, cocinar, hablar inglés) y <b>competencias transversales</b> o <i>soft skills</i>, útiles en cualquier trabajo: comunicación, trabajo en equipo, responsabilidad, adaptabilidad, pensamiento crítico. Muchas se desarrollan fuera de clase: en el deporte, la música, el voluntariado o cuidando de la familia.</p>` },
+    { tras: "El DAFO personal", html: `<h3>La ventana de Johari</h3><p>Lo que sabemos de nosotros mismos no siempre coincide con lo que ven los demás. La <mark>ventana de Johari</mark> distingue cuatro zonas: el <b>área abierta</b> (lo que sabes de ti y también saben los demás), el <b>área ciega</b> (lo que los demás ven y tú no), el <b>área oculta</b> (lo que sabes y no muestras) y el <b>área desconocida</b> (lo que nadie sabe todavía). Pedir opinión sincera a personas de confianza reduce el área ciega, y probar actividades nuevas te ayuda a descubrir el área desconocida.</p>` },
+    { tras: "Autoestima e inteligencias", html: `<h3>Las inteligencias múltiples</h3><p>Howard Gardner defendió que no hay una sola inteligencia, sino varias: <b>lingüística</b>, <b>lógico-matemática</b>, <b>espacial</b>, <b>musical</b>, <b>corporal-cinestésica</b>, <b>interpersonal</b> (entender a los demás), <b>intrapersonal</b> (entenderse a uno mismo) y <b>naturalista</b>. Todos tenemos todas, en distinta medida, y se pueden entrenar. Por eso, sacar peores notas en una materia no significa «no ser listo»: quizá tus <mark>puntos fuertes</mark> están en otra parte.</p>`, video: { id: "jjotIhtn1AU", titulo: "Inteligencias múltiples (Howard Gardner): resumen animado", canal: "Visual Ananda", vistas: 545404, megusta: 0 } },
+    { tras: "Autoestima e inteligencias", html: `<h3>Mentalidad de crecimiento</h3><p>La psicóloga Carol Dweck distingue dos formas de ver las propias capacidades. Con <b>mentalidad fija</b> se cree que el talento es innato e inmutable: «soy malo en mates». Con <mark>mentalidad de crecimiento</mark> se cree que las capacidades mejoran con esfuerzo, estrategias y ayuda: «aún no domino las ecuaciones». Esta segunda mentalidad lleva a aceptar retos, aprender de los errores y no rendirse ante el primer fracaso. Una pequeña palabra ayuda mucho: «<b>todavía</b>».</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Lucía disfruta en el laboratorio, le encanta resolver acertijos y es ordenada. ¿Qué tipos RIASEC predominan?", pasos: ["Laboratorio y acertijos: Investigador.", "Orden y precisión: Convencional.", "Combinación I + C."], resultado: "Perfil Investigador-Convencional: puede encajar en análisis clínicos, química, programación o farmacia." },
+    { enunciado: "Haz un DAFO de Marcos, que quiere estudiar un grado de Animación 3D.", pasos: ["Fortalezas: dibuja muy bien y es constante.", "Debilidades: le cuesta el inglés.", "Oportunidades: el sector de videojuegos crece; hay FP de Animaciones 3D, Juegos y Entornos Interactivos.", "Amenazas: mucha competencia."], resultado: "Plan: reforzar el inglés y crear un portfolio de trabajos." },
+    { enunciado: "Transforma en mentalidad de crecimiento: «No sirvo para hablar en público».", pasos: ["Cambiar el «no sirvo» por «todavía no».", "Añadir una estrategia concreta.", "Pedir ayuda o practicar."], resultado: "«Todavía me pongo nervioso al hablar en público; voy a ensayar en casa y pedir consejos a mi profesora»." },
+  ],
+  errores: [
+    "Elegir estudios solo por lo que hacen tus amigos.",
+    "Confundir intereses (lo que te gusta) con aptitudes (lo que se te da bien): conviene mirar ambos.",
+    "Pensar que la inteligencia es solo la que miden los exámenes de matemáticas o lengua.",
+    "Creer que la personalidad y las capacidades no cambian nunca.",
+    "Hacer un test vocacional y tomarlo como una sentencia: es una pista, no un destino.",
+  ],
+  ejercicios: [
+    { q: "¿Qué cuatro piezas te ayudan a conocerte?", sol: "Intereses, aptitudes, valores y personalidad." },
+    { q: "¿Qué significan las letras RIASEC?", sol: "Realista, Investigador, Artístico, Social, Emprendedor y Convencional." },
+    { q: "Pon tres ejemplos de competencias transversales.", sol: "Comunicación, trabajo en equipo y responsabilidad." },
+    { q: "¿Dónde puedes desarrollar competencias fuera del instituto?", sol: "En el deporte, la música, el voluntariado, cuidando de la familia o en un trabajo de verano." },
+    { q: "Explica el área ciega de la ventana de Johari.", sol: "Lo que los demás ven de ti y tú no ves." },
+    { q: "Cita las ocho inteligencias de Gardner.", sol: "Lingüística, lógico-matemática, espacial, musical, corporal-cinestésica, interpersonal, intrapersonal y naturalista." },
+    { q: "¿Qué es la mentalidad de crecimiento?", sol: "Creer que las capacidades se pueden desarrollar con esfuerzo, estrategias y ayuda." },
+    { q: "Haz tu propio DAFO con un elemento en cada casilla.", sol: "Respuesta personal. Ejemplo: F: creativa; D: impaciente; O: curso gratis de diseño; A: poco tiempo libre." },
+    { q: "¿Qué valores son importantes para ti en un trabajo? Ordena tres.", sol: "Respuesta personal; por ejemplo: ayudar a los demás, estabilidad y tiempo libre." },
+    { q: "¿Por qué conviene preguntar a otros cómo te ven?", sol: "Porque reduce el área ciega y descubres fortalezas o debilidades que no percibías." },
+  ],
+  quiz: [
+    { q: "Al tipo «Social» le gusta…", o: ["ayudar y enseñar", "reparar motores", "ordenar datos"], a: 0, e: "Educación, sanidad, trabajo social." },
+    { q: "Las soft skills son competencias…", o: ["transversales", "técnicas", "deportivas"], a: 0, e: "Útiles en cualquier trabajo." },
+    { q: "La ventana de Johari tiene…", o: ["cuatro áreas", "dos áreas", "ocho áreas"], a: 0, e: "Abierta, ciega, oculta y desconocida." },
+    { q: "La teoría de las inteligencias múltiples es de…", o: ["Howard Gardner", "Viktor Frankl", "John Holland"], a: 0, e: "1983." },
+    { q: "La palabra clave de la mentalidad de crecimiento es…", o: ["todavía", "nunca", "imposible"], a: 0, e: "«Aún no lo sé hacer»." },
+  ],
+  tarjetas: [
+    ["RIASEC", "Seis tipos de intereses profesionales de Holland."],
+    ["Ventana de Johari", "Lo que sabes de ti frente a lo que ven los demás."],
+    ["Mentalidad de crecimiento", "Las capacidades mejoran con esfuerzo y estrategia."],
+  ],
+});

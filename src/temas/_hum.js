@@ -114,7 +114,7 @@ function arbol(label, raices) {
 
 
 // Tabla sencilla con el estilo de la web.
-const tabla = (cab, filas) => `<table class="tb"><thead><tr>${cab.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>${filas.map((f) => `<tr>${f.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+const tabla = (cab, filas) => `<div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table class="tb"><thead><tr>${cab.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>${filas.map((f) => `<tr>${f.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
 
 // Ampliación a nivel de libro de texto. a = { minutos, objetivos, bloques: [{ tras, html, svg, video }], ejemplos, errores, ejercicios, quiz, tarjetas }.
 // Cada bloque nuevo va detrás del bloque cuyo html contiene «tras» (y de los nuevos que ya se pusieron ahí); sin «tras», al final.

@@ -77,3 +77,52 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: nivel de libro de texto.
+const { ampliar, tabla } = require("./_hum");
+ampliar(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar la organización de un ciclo formativo y las prácticas en empresa", "Buscar ciclos en una familia profesional y sus salidas"],
+  bloques: [
+    { tras: "Los grados de la FP", html: `<h3>Cómo se accede</h3>${tabla(["Grado", "Requisitos de acceso"], [["Grado Básico", "15 a 17 años, haber cursado 3.º de ESO (o 2.º excepcionalmente) y propuesta del equipo docente"], ["Grado Medio", "título de ESO, de Grado Básico, o prueba de acceso (17 años)"], ["Grado Superior", "título de Bachiller, de Técnico (grado medio) o prueba de acceso (19 años, o 18 con título de Técnico relacionado)"], ["Curso de especialización", "título de Técnico o de Técnico Superior según el curso"]])}<p>Cuando hay más solicitudes que plazas, se ordenan por la <mark>nota media</mark> del título con el que se accede, por eso los resultados de 4.º importan.</p>` },
+    { tras: "Una FP dual", html: `<h3>Cómo es un ciclo por dentro</h3><p>Un ciclo de grado medio o superior dura normalmente <b>2 cursos</b> (unas 2.000 horas). Se organiza en <mark>módulos profesionales</mark>, como asignaturas muy prácticas: por ejemplo, en Cuidados Auxiliares de Enfermería hay módulos de higiene, primeros auxilios o técnicas de ayuda psicológica. Todos los ciclos incluyen <b>inglés profesional</b>, itinerario para la empleabilidad, digitalización y un <b>proyecto intermodular</b>. Las clases se dan en talleres y laboratorios que imitan el entorno de trabajo, y la formación en la empresa es parte obligatoria del ciclo.</p>`, video: { id: "wBccGch5zS4", titulo: "¿Qué es la FP Dual?", canal: "Fundación Bertelsmann", vistas: 53643, megusta: 0 } },
+    { tras: "Las familias profesionales", html: `<h3>Ejemplos de ciclos y salidas</h3>${tabla(["Familia", "Grado medio", "Grado superior"], [["Sanidad", "Cuidados Auxiliares de Enfermería; Emergencias Sanitarias", "Laboratorio Clínico; Higiene Bucodental; Imagen para el Diagnóstico"], ["Informática y Comunicaciones", "Sistemas Microinformáticos y Redes", "Desarrollo de Aplicaciones Web (DAW) y Multiplataforma (DAM); Administración de Sistemas"], ["Electricidad y Electrónica", "Instalaciones Eléctricas y Automáticas", "Automatización y Robótica Industrial"], ["Hostelería y Turismo", "Cocina y Gastronomía", "Dirección de Cocina; Gestión de Alojamientos Turísticos"], ["Servicios Socioculturales", "Atención a Personas en Situación de Dependencia", "Educación Infantil; Integración Social"], ["Imagen y Sonido", "Vídeo Disc-jockey y Sonido", "Animaciones 3D, Juegos y Entornos Interactivos"]])}` },
+    { tras: "Ventajas y cómo informarse", html: `<h3>FP, empleo y acreditación de competencias</h3><p>La FP tiene altas tasas de inserción laboral, sobre todo en sectores como la industria, la informática, la electricidad o la sanidad, donde las empresas buscan técnicos que no encuentran. Además, la nueva ley de FP (2022) permite que quien ya tiene experiencia laboral sin titulación consiga un <mark>reconocimiento oficial de sus competencias</mark>, y organiza la oferta en grados (A, B, C, D y E) para que cualquier persona pueda formarse a lo largo de su vida, desde una microformación hasta un ciclo completo. Las webs oficiales <b>TodoFP</b> y las de cada comunidad recogen todos los ciclos y centros.</p>` },
+  ],
+  ejemplos: [
+    { enunciado: "Pablo, de 16 años, tiene el título de ESO y quiere trabajar con ordenadores. Diseña su itinerario por FP.", pasos: ["Grado medio: Sistemas Microinformáticos y Redes (2 cursos).", "Con el título de Técnico puede acceder a un grado superior: Desarrollo de Aplicaciones Web.", "Después puede trabajar o seguir a un grado universitario de Ingeniería Informática."], resultado: "ESO → SMR → DAW → trabajo o universidad." },
+    { enunciado: "Sara no tiene el título de ESO y tiene 17 años. ¿Puede estudiar un grado medio?", pasos: ["Sin título de ESO no puede acceder directamente.", "Con 17 años puede presentarse a la prueba de acceso a grado medio.", "También podría hacer un Grado Básico si cumple los requisitos de edad."], resultado: "Sí, mediante la prueba de acceso a grado medio." },
+    { enunciado: "Compara un ciclo de grado superior y un grado universitario para trabajar en un laboratorio.", pasos: ["Grado superior de Laboratorio Clínico: 2 años, muy práctico, técnico de laboratorio.", "Grado universitario (Biología, Bioquímica): 4 años, más teórico, investigación y dirección."], resultado: "Ambos llevan al laboratorio, con papeles y duración distintos." },
+  ],
+  errores: [
+    "Pensar que la FP es para quien «no vale para estudiar».",
+    "Creer que la FP de grado medio no permite seguir estudiando.",
+    "Olvidar que la nota media influye en la admisión cuando hay muchas solicitudes.",
+    "Pensar que la formación en empresa es opcional: forma parte de todos los ciclos.",
+    "Desconocer los cursos de especialización tras el ciclo.",
+  ],
+  ejercicios: [
+    { q: "¿Qué requisitos tiene el Grado Básico?", sol: "Tener entre 15 y 17 años, haber cursado 3.º de ESO (o 2.º excepcionalmente) y la propuesta del equipo docente." },
+    { q: "¿Cómo se accede a un grado superior?", sol: "Con el título de Bachiller, el de Técnico o una prueba de acceso." },
+    { q: "¿Cuánto dura normalmente un ciclo de grado medio?", sol: "Dos cursos, unas 2.000 horas." },
+    { q: "¿Qué son los módulos profesionales?", sol: "Las asignaturas prácticas en que se organiza un ciclo." },
+    { q: "Cita tres módulos comunes a todos los ciclos.", sol: "Inglés profesional, itinerario para la empleabilidad y digitalización (también el proyecto intermodular)." },
+    { q: "Nombra un ciclo de grado superior de la familia de Sanidad.", sol: "Laboratorio Clínico y Biomédico, Higiene Bucodental o Imagen para el Diagnóstico." },
+    { q: "Nombra dos ciclos de Informática.", sol: "Sistemas Microinformáticos y Redes (medio) y Desarrollo de Aplicaciones Web (superior)." },
+    { q: "¿Qué es la acreditación de competencias?", sol: "El reconocimiento oficial de lo aprendido con la experiencia laboral, sin haber estudiado un ciclo." },
+    { q: "¿Dónde puedes consultar la oferta de FP?", sol: "En la web TodoFP del Ministerio y en las de cada comunidad autónoma." },
+    { q: "Elige una familia profesional que te interese y busca un ciclo y una salida.", sol: "Respuesta personal. Ejemplo: Hostelería → Cocina y Gastronomía → cocinero en un restaurante." },
+  ],
+  quiz: [
+    { q: "Con el título de Técnico de grado medio se puede acceder…", o: ["a grado superior", "solo a trabajar", "a la ESO"], a: 0, e: "Es una pasarela directa." },
+    { q: "La prueba de acceso a grado medio se puede hacer desde los…", o: ["17 años", "14 años", "21 años"], a: 0, e: "Sin título de ESO." },
+    { q: "DAW significa…", o: ["Desarrollo de Aplicaciones Web", "Diseño Artístico Web", "Datos y Archivos Web"], a: 0, e: "Ciclo de grado superior." },
+    { q: "La formación en empresa en la FP actual es…", o: ["obligatoria", "opcional", "inexistente"], a: 0, e: "Toda la FP es dual." },
+    { q: "Si hay más solicitudes que plazas, cuenta…", o: ["la nota media", "el orden de llegada", "un sorteo siempre"], a: 0, e: "Del título de acceso." },
+  ],
+  tarjetas: [
+    ["Módulo profesional", "Asignatura práctica de un ciclo formativo."],
+    ["Prueba de acceso", "Examen para entrar en FP sin el título requerido."],
+    ["TodoFP", "Web oficial con toda la oferta de FP."],
+  ],
+});
