@@ -24,8 +24,10 @@ module.exports = {
     },
     {
       html: `<h3>Los tres grandes géneros</h3><p>Las obras literarias se agrupan en géneros según cómo presentan su contenido. La <b>lírica</b> expresa los sentimientos y el mundo interior del poeta, normalmente en verso. La <b>narrativa</b> cuenta una historia a través de un narrador, normalmente en prosa. La <b>dramática</b> o teatro presenta una historia mediante el diálogo de los personajes para ser representada ante un público.</p>`,
-      svg: L.tabla("Los tres géneros literarios", ["Género", "Qué hace", "Forma"], [
-        ["Lírica", "expresa sentimientos", "verso"], ["Narrativa", "cuenta una historia", "prosa"], ["Dramática", "representa", "diálogo"],
+      svg: L.filas("Los tres géneros literarios", [
+        ["Lírica", "expresa sentimientos (verso)", "var(--pen)"],
+        ["Narrativa", "cuenta una historia (prosa)", "var(--leaf)"],
+        ["Dramática", "se representa (diálogo)", "var(--red)"],
       ]),
     },
     {

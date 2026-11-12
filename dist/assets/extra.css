@@ -125,3 +125,8 @@ body.proyectar .side{display:none}
 .tb{border-collapse:collapse;margin:10px 0;font-size:15px;width:100%;max-width:520px}
 .tb th,.tb td{border:1px solid var(--line);padding:5px 10px;text-align:center}
 .tb th{background:var(--paper)}
+
+/* 1º y 2º de Primaria: letra más grande y renglones más amplios */
+body.peque .sec p,body.peque .sec li{font-size:21px;line-height:1.6}
+body.peque .chunk h3{font-size:25px}
+body.peque .chunk svg{max-width:300px}
