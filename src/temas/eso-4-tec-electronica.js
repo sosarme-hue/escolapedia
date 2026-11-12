@@ -121,3 +121,59 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular resistencias equivalentes en serie, en paralelo y mixtas", "Leer el código de colores y calcular la resistencia de protección de un LED"],
+  tras: {
+    "Magnitudes y ley de Ohm": [
+      { html: `<h3>Circuitos en serie, en paralelo y mixtos</h3><p>En un circuito <b>en serie</b>, los componentes van uno detrás de otro: la corriente es la misma en todos y la tensión de la pila se reparte; la resistencia equivalente es la suma, <mark>Rₜ = R₁ + R₂ + …</mark>. Si se funde una bombilla, se apagan todas. En un circuito <b>en paralelo</b>, los componentes están en ramas distintas conectadas a los mismos puntos: todos reciben la misma tensión y la corriente se reparte; la resistencia equivalente es menor que la menor de ellas: <mark>1/Rₜ = 1/R₁ + 1/R₂ + …</mark>. Así se conectan los aparatos de una casa, para que funcionen de forma independiente. Un circuito <b>mixto</b> combina los dos: se resuelve por partes, empezando por los grupos más sencillos.</p>`, video: { id: "ehxkIVbTXfU", titulo: "Circuito mixto en serie y paralelo", canal: "Profesor Sergio Llanos", vistas: 2339798 } },
+      { html: `<h3>Potencia y energía eléctrica</h3><p>La <b>potencia</b> de un aparato indica la energía que consume cada segundo: <mark>P = V · I</mark>, en vatios (W). Usando la ley de Ohm también se puede escribir P = I² · R o P = V² / R. Una resistencia transforma la energía eléctrica en calor (efecto Joule): así funcionan los radiadores, las tostadoras y los fusibles. La <b>energía</b> consumida es la potencia por el tiempo: E = P · t. En las facturas se mide en <b>kilovatios hora</b> (kWh): un aparato de 1.000 W funcionando una hora consume 1 kWh. En electrónica, cada componente tiene una potencia máxima: una resistencia de ¼ W se quema si disipa más.</p>` },
+    ],
+    "Componentes pasivos": [
+      { html: `<h3>El código de colores de las resistencias</h3><p>El valor de una resistencia se indica con <b>bandas de colores</b>. En las de cuatro bandas, las dos primeras son las <b>cifras</b>, la tercera es el <b>multiplicador</b> (cuántos ceros añadir) y la cuarta, la <b>tolerancia</b> (dorado ±5 %, plateado ±10 %). Cada color vale un número: negro 0, marrón 1, rojo 2, naranja 3, amarillo 4, verde 5, azul 6, violeta 7, gris 8 y blanco 9. Por ejemplo, <mark>marrón-negro-rojo-dorado</mark> es 1, 0 y dos ceros: 1.000 Ω = 1 kΩ, con un ±5 %. Una regla para recordarlo es que los colores siguen, más o menos, el orden del arcoíris desde el rojo al violeta.</p>`, video: { id: "YdaiLW4WOWo", titulo: "Cómo calcular el valor de una resistencia con el código de colores", canal: "SterenMedia", vistas: 1622479 } },
+    ],
+    "Diodos y transistores": [
+      { html: `<h3>Calcular la resistencia de un LED</h3><p>Un LED necesita una tensión concreta para encenderse (unos 2 V los rojos y 3 V los blancos o azules) y una corriente pequeña, unos <b>20 mA</b>. Si se conecta directamente a una pila de 9 V, la corriente sería enorme y se quemaría. Por eso se pone una <b>resistencia en serie</b> que «se queda» con la tensión que sobra. Se calcula así: <mark>R = (V pila − V LED) / I</mark>. Con una pila de 9 V y un LED rojo: R = (9 − 2) / 0,02 = 350 Ω. Como las resistencias se fabrican con valores fijos, se elige el valor comercial superior más cercano (por ejemplo, 390 Ω), para que la corriente quede un poco por debajo del máximo.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Tres resistencias de 100 Ω, 200 Ω y 300 Ω en serie se conectan a 12 V. Calcula la resistencia total, la corriente y la tensión en la de 300 Ω.", pasos: ["En serie: Rₜ = 100 + 200 + 300 = 600 Ω.", "I = V / R = 12 / 600 = 0,02 A (20 mA), la misma en todas.", "V₃ = I · R₃ = 0,02 · 300 = 6 V."], resultado: "Rₜ = 600 Ω; I = 20 mA; V₃ = 6 V." },
+    { enunciado: "Dos resistencias de 60 Ω y 30 Ω en paralelo se conectan a 6 V. Calcula la resistencia equivalente y la corriente total.", pasos: ["1/Rₜ = 1/60 + 1/30 = 1/60 + 2/60 = 3/60.", "Rₜ = 60 / 3 = 20 Ω.", "I = 6 / 20 = 0,3 A. (Por la de 60 Ω pasan 0,1 A y por la de 30 Ω, 0,2 A.)"], resultado: "Rₜ = 20 Ω; I = 0,3 A." },
+    { enunciado: "Una resistencia tiene las bandas amarillo, violeta, naranja y dorado. ¿Cuál es su valor?", pasos: ["Amarillo = 4, violeta = 7: cifras 47.", "Naranja = 3: se añaden tres ceros, 47.000 Ω.", "Dorado: tolerancia ±5 %."], resultado: "47 kΩ ± 5 %." },
+  ],
+  errores: [
+    "Sumar directamente las resistencias en paralelo: hay que sumar sus inversas.",
+    "Olvidar dar la vuelta al resultado de 1/Rₜ.",
+    "Conectar un LED al revés: solo deja pasar la corriente en un sentido.",
+    "Conectar un LED sin resistencia de protección.",
+    "Usar miliamperios en la ley de Ohm sin pasarlos a amperios.",
+    "Pensar que en paralelo la resistencia total es mayor: siempre es menor que la menor de las ramas.",
+  ],
+  ejercicios: [
+    { q: "¿Qué corriente pasa por una resistencia de 2 kΩ conectada a 10 V?", sol: "I = 10 / 2.000 = 0,005 A = 5 mA." },
+    { q: "Calcula la resistencia equivalente de 47 Ω, 33 Ω y 20 Ω en serie.", sol: "47 + 33 + 20 = 100 Ω." },
+    { q: "Calcula la resistencia equivalente de dos resistencias de 100 Ω en paralelo.", sol: "1/Rₜ = 1/100 + 1/100 = 2/100 → Rₜ = 50 Ω (dos iguales en paralelo dan la mitad)." },
+    { q: "Una resistencia de 10 Ω está en serie con un grupo de dos resistencias de 40 Ω en paralelo. Calcula la resistencia total.", sol: "Las dos de 40 Ω en paralelo dan 20 Ω. En serie con la de 10 Ω: 10 + 20 = 30 Ω." },
+    { q: "Escribe el valor de: rojo-rojo-marrón-dorado y marrón-negro-naranja-plateado.", sol: "22 · 10 = 220 Ω ±5 % y 10 · 1.000 = 10 kΩ ±10 %." },
+    { q: "¿Qué colores tiene una resistencia de 4,7 kΩ?", sol: "4.700 = 47 y dos ceros: amarillo, violeta, rojo (y la tolerancia, por ejemplo dorado)." },
+    { q: "Calcula la resistencia para un LED azul (3 V, 20 mA) con una fuente de 5 V.", sol: "R = (5 − 3) / 0,02 = 100 Ω." },
+    { q: "Calcula la potencia de una bombilla por la que pasan 0,5 A a 230 V.", sol: "P = 230 · 0,5 = 115 W." },
+    { q: "Un radiador de 2.000 W funciona 3 horas. ¿Cuánta energía consume? ¿Cuánto cuesta a 0,15 €/kWh?", sol: "E = 2 kW · 3 h = 6 kWh. Coste = 6 · 0,15 = 0,90 €." },
+    { q: "¿Por qué los enchufes de una casa están en paralelo y no en serie?", sol: "Para que todos reciban 230 V y cada aparato funcione de forma independiente; en serie, al desconectar uno se apagarían todos y la tensión se repartiría." },
+  ],
+  quiz: [
+    { q: "Dos resistencias de 50 Ω en serie equivalen a…", o: ["25 Ω", "50 Ω", "100 Ω"], a: 2, e: "En serie se suman." },
+    { q: "Dos resistencias de 50 Ω en paralelo equivalen a…", o: ["25 Ω", "50 Ω", "100 Ω"], a: 0, e: "Dos iguales en paralelo dan la mitad." },
+    { q: "En el código de colores, el rojo vale…", o: ["1", "2", "3"], a: 1, e: "Negro 0, marrón 1, rojo 2…" },
+    { q: "La potencia eléctrica se calcula con…", o: ["P = V · I", "P = V / I", "P = I / R"], a: 0, e: "En vatios." },
+    { q: "La resistencia en serie con un LED sirve para…", o: ["limitar la corriente", "aumentar el brillo", "cambiar el color"], a: 0, e: "R = (V pila − V LED) / I." },
+  ],
+  tarjetas: [
+    ["Resistencias en paralelo", "1/Rₜ = 1/R₁ + 1/R₂; la total es menor que la menor."],
+    ["Código de colores", "Negro 0, marrón 1, rojo 2, naranja 3, amarillo 4, verde 5, azul 6, violeta 7, gris 8, blanco 9."],
+    ["Potencia eléctrica", "P = V · I, en vatios; la energía se paga en kWh."],
+  ],
+});

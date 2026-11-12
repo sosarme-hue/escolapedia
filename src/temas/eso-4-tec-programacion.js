@@ -115,3 +115,59 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Usar bucles, condiciones compuestas y operadores en programas", "Probar y depurar programas que controlan una placa con sensores y actuadores"],
+  tras: {
+    "Variables y tipos de datos": [
+      { html: `<h3>Operadores</h3><p>Los programas calculan y comparan con <b>operadores</b>. Los <b>aritméticos</b> hacen cuentas: + (suma), − (resta), * (multiplicación), / (división) y % (resto de la división; 7 % 3 da 1, útil para saber si un número es par). Los de <b>comparación</b> dan verdadero o falso: == (igual), != (distinto), &lt;, &gt;, &lt;= y &gt;=. Ojo: un solo = <mark>asigna</mark> un valor a una variable (x = 5), y dos == <mark>comparan</mark> (¿x == 5?). Los <b>lógicos</b> combinan condiciones: <b>Y</b> (&amp;&amp;, las dos deben cumplirse), <b>O</b> (||, basta una) y <b>NO</b> (!, invierte). Por ejemplo: «si hay poca luz Y hay alguien en la sala, enciende la lámpara».</p>${AMP.tabla(["Operador", "Significado", "Ejemplo", "Resultado"], [["%", "resto", "10 % 4", "2"], ["==", "igual a", "3 == 3", "verdadero"], ["!=", "distinto de", "3 != 5", "verdadero"], ["&amp;&amp;", "y", "(5 > 3) &amp;&amp; (2 > 4)", "falso"], ["||", "o", "(5 > 3) || (2 > 4)", "verdadero"]])}` },
+    ],
+    "Estructuras de control": [
+      { html: `<h3>Los bucles en detalle</h3><p>Un bucle <b>for</b> se usa cuando sabemos cuántas veces repetir. Tiene tres partes: un valor inicial del contador, una condición para seguir y un incremento. <code>for (int i = 0; i &lt; 5; i++)</code> repite 5 veces, con i valiendo 0, 1, 2, 3 y 4. Un bucle <b>while</b> («mientras») repite <mark>mientras se cumpla una condición</mark>, sin saber de antemano cuántas veces: «mientras no se pulse el botón, haz parpadear el LED». Hay que asegurarse de que la condición acabe siendo falsa; si no, el programa queda atrapado en un <b>bucle infinito</b>. En Arduino, la función loop() es en sí misma un bucle infinito que repite el programa principal sin parar.</p>`, video: { id: "yBjaS-REYUc", titulo: "El bucle FOR (estructura repetitiva)", canal: "Eliezer De León", vistas: 228065 } },
+    ],
+    "Programar una placa: entradas y salidas": [
+      { html: `<h3>Del programa a la placa</h3><p>Para programar una placa como Arduino se escribe el código en un entorno de programación (el <b>IDE</b> de Arduino) o con bloques (mBlock, Arduinoblocks, Tinkercad). El programa se <b>compila</b>, es decir, se traduce al lenguaje que entiende el microcontrolador, y se <b>sube</b> a la placa por el cable USB. Todo programa tiene dos partes: <b>setup()</b>, que se ejecuta una vez al principio para configurar los pines como entradas o salidas, y <b>loop()</b>, que se repite sin fin. Para ver qué está pasando dentro se usa el <mark>monitor serie</mark>: con <code>Serial.println(valor)</code> la placa envía al ordenador el valor de una variable, lo que ayuda mucho a encontrar errores. Antes de montar, conviene simular el circuito en Tinkercad Circuits.</p>`, video: { id: "L18nta4pRv8", titulo: "Curso Arduino #3: cómo subir un programa a la placa", canal: "WinterElectro", vistas: 176773 } },
+      { html: `<h3>Probar y depurar</h3><p>Un programa casi nunca funciona a la primera. Los errores de <b>sintaxis</b> (un punto y coma olvidado, una llave sin cerrar, una mayúscula mal puesta: <code>digitalwrite</code> en vez de <code>digitalWrite</code>) los detecta el compilador y no deja subir el programa. Los errores de <b>lógica</b> son más difíciles: el programa funciona pero hace otra cosa, por ejemplo porque usamos &gt; en vez de &lt; o el pin equivocado. Para encontrarlos: probar con casos sencillos, mostrar las variables en el monitor serie, <mark>comprobar el circuito</mark> (muchos fallos son cables mal conectados o un LED al revés) y cambiar una sola cosa cada vez. Escribir <b>comentarios</b> (// así) en el código ayuda a entenderlo después.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "¿Qué valores muestra este bucle? for (int i = 2; i <= 10; i = i + 2) Serial.println(i);", pasos: ["Empieza en i = 2.", "Mientras i <= 10, muestra i y le suma 2.", "Valores: 2, 4, 6, 8, 10. Con i = 12 la condición es falsa y para."], resultado: "Muestra 2, 4, 6, 8 y 10 (cinco valores)." },
+    { enunciado: "Escribe la condición para encender un ventilador si la temperatura supera 28 °C o si se pulsa un botón.", pasos: ["Condición 1: temperatura > 28.", "Condición 2: botón == HIGH (pulsado).", "Basta una de las dos: operador O (||)."], resultado: "if (temperatura > 28 || boton == HIGH) { encender ventilador }" },
+    { enunciado: "Un programa debe hacer parpadear un LED 3 veces cada vez que se pulsa un botón. Escríbelo en pseudocódigo.", pasos: ["En setup: pin del LED como salida y pin del botón como entrada.", "En loop: leer el botón.", "Si está pulsado: repetir 3 veces (encender, esperar 300 ms, apagar, esperar 300 ms)."], resultado: "loop: si botón pulsado → para i de 1 a 3: LED on, espera, LED off, espera." },
+  ],
+  errores: [
+    "Usar = (asignar) en vez de == (comparar) dentro de un if.",
+    "Olvidar el punto y coma al final de una instrucción o una llave de cierre.",
+    "Escribir mal las mayúsculas: el lenguaje distingue digitalWrite de digitalwrite.",
+    "Crear un bucle while cuya condición nunca deja de cumplirse (bucle infinito).",
+    "Olvidar configurar el pin con pinMode en setup().",
+    "Usar una variable entera (int) para guardar un número con decimales.",
+  ],
+  ejercicios: [
+    { q: "¿Qué tipo de dato usarías para guardar: el número de vidas, la temperatura con decimales, si la puerta está abierta y el nombre del jugador?", sol: "int, float, bool (boolean) y String." },
+    { q: "Calcula: 17 % 5, 20 % 4 y 9 / 2 con enteros.", sol: "17 % 5 = 2; 20 % 4 = 0; 9 / 2 con enteros = 4 (se pierde la parte decimal)." },
+    { q: "¿Es verdadera o falsa (x > 3) && (x < 10) si x = 12?", sol: "Falsa: la primera es verdadera pero la segunda no, y && exige las dos." },
+    { q: "¿Cuántas veces se repite for (int i = 0; i < 8; i++)?", sol: "8 veces (i = 0 a 7)." },
+    { q: "Escribe un bucle for que muestre los números del 10 al 1 hacia atrás.", sol: "for (int i = 10; i >= 1; i--) { Serial.println(i); }" },
+    { q: "¿Qué diferencia hay entre for y while?", sol: "for se usa cuando se sabe cuántas veces repetir; while repite mientras se cumpla una condición, sin saber de antemano cuántas veces." },
+    { q: "Explica qué hacen setup() y loop() en Arduino.", sol: "setup() se ejecuta una vez al principio para configurar; loop() se repite indefinidamente con el programa principal." },
+    { q: "Escribe una función que reciba un número y devuelva su doble.", sol: "int doble(int n) { return n * 2; }" },
+    { q: "Un LED no se enciende aunque el programa compila. Indica tres posibles causas.", sol: "El LED está conectado al revés, el número de pin del programa no coincide con el del circuito o falta configurar el pin como salida (también un cable suelto)." },
+    { q: "Escribe en pseudocódigo un programa que encienda un LED si la lectura de una LDR es menor que 300 y lo apague si no.", sol: "loop: luz = leer A0; si luz < 300 → LED encendido; si no → LED apagado." },
+  ],
+  quiz: [
+    { q: "En programación, == significa…", o: ["asignar", "comparar si son iguales", "sumar"], a: 1, e: "Un solo = asigna." },
+    { q: "10 % 3 vale…", o: ["1", "3", "3,33"], a: 0, e: "Es el resto de 10 / 3." },
+    { q: "El operador && es verdadero si…", o: ["se cumple al menos una condición", "se cumplen las dos", "no se cumple ninguna"], a: 1, e: "Es el Y lógico." },
+    { q: "Un bucle que nunca termina se llama…", o: ["bucle infinito", "función", "variable"], a: 0, e: "Su condición nunca es falsa." },
+    { q: "Para ver el valor de una variable desde la placa se usa…", o: ["el monitor serie", "un servomotor", "un relé"], a: 0, e: "Serial.println(valor)." },
+  ],
+  tarjetas: [
+    ["Diferencia entre = y ==", "= asigna un valor; == compara."],
+    ["Bucle while", "Repite mientras se cumpla una condición."],
+    ["Monitor serie", "Ventana donde la placa envía datos al ordenador; útil para depurar."],
+  ],
+});

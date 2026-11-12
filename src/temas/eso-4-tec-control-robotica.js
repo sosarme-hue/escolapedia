@@ -121,3 +121,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Distinguir sensores digitales y analógicos y conectarlos a una placa", "Describir las partes de un robot y sus aplicaciones industriales"],
+  tras: {
+    "Sensores: los sentidos": [
+      { html: `<h3>Sensores digitales y analógicos</h3><p>Un <b>sensor digital</b> solo da dos valores: activado o no (1 o 0). Ejemplos: un pulsador, un final de carrera, un sensor de infrarrojos que detecta si hay un obstáculo o un sensor de movimiento PIR. Un <b>sensor analógico</b> da un valor que varía de forma continua según la magnitud medida: una LDR (luz), un termistor o un sensor de temperatura, un potenciómetro (posición) o un sensor de humedad. En una placa como Arduino, los digitales se leen con <mark>digitalRead</mark> en los pines digitales y los analógicos con <mark>analogRead</mark> en los pines A0-A5, que devuelven un número de 0 a 1023. El <b>sensor de ultrasonidos</b> mide distancias: envía un pitido inaudible y calcula cuánto tarda en volver el eco, como los murciélagos.</p>`, video: { id: "V0jOKsjeBWQ", titulo: "Sensores: ejemplos con Arduino", canal: "ELECTRONOOBS en Español", vistas: 569693 } },
+    ],
+    "Actuadores: los músculos": [
+      { html: `<h3>Motores para robots</h3><p>Los robots usan tres tipos principales de motores. El <b>motor de corriente continua</b> (CC) gira rápido mientras recibe corriente; para invertir el sentido hay que cambiar la polaridad, y suele llevar una <b>reductora</b> de engranajes para ganar fuerza y perder velocidad. El <b>servomotor</b> gira a un <mark>ángulo exacto</mark> (normalmente entre 0° y 180°) que le indicamos por programa: es ideal para brazos, pinzas o la dirección de un coche. El <b>motor paso a paso</b> avanza en pequeños pasos iguales, con mucha precisión: lo usan las impresoras 3D y las máquinas CNC. Como las placas de control dan muy poca corriente, los motores se conectan a través de un <b>driver</b> o de un transistor, con su propia alimentación.</p>` },
+    ],
+    "Los robots": [
+      { html: `<h3>Partes de un robot y grados de libertad</h3><p>Un robot tiene una <b>estructura</b> mecánica (el chasis o el brazo), <b>sensores</b> para percibir el entorno, <b>actuadores</b> para moverse, un <b>sistema de control</b> (el «cerebro», una placa programable) y una <b>fuente de energía</b>. Los brazos robóticos se describen por sus <b>grados de libertad</b>: cada articulación que puede moverse de forma independiente añade uno. El brazo humano, sin contar la mano, tiene 7; los robots industriales suelen tener 6, suficientes para colocar su herramienta en cualquier posición y orientación. En el extremo llevan el <b>efector final</b>: una pinza, una ventosa, un soldador o una pistola de pintura.</p>`, video: { id: "eR3JTR5nCjo", titulo: "Robótica industrial", canal: "Automatización Industrial", vistas: 100589 } },
+      { html: `<h3>Robots en la industria y en la vida diaria</h3><p>Los robots <b>industriales</b> sueldan, pintan, montan y empaquetan en las fábricas de coches o de alimentos: trabajan sin descanso, con precisión y en tareas peligrosas o repetitivas. Los <b>robots de servicio</b> salen de las fábricas: aspiradoras autónomas, robots que reparten en almacenes y hospitales, robots quirúrgicos que el cirujano maneja con gran precisión, drones o vehículos autónomos. Los <b>robots móviles</b> educativos siguen líneas o esquivan obstáculos. Esta automatización aumenta la productividad, pero también plantea retos: <mark>cambia muchos empleos</mark>, exige nuevas habilidades y obliga a pensar en la seguridad y la responsabilidad cuando un robot toma decisiones.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Diseña el sistema de control de una farola que se enciende sola de noche. ¿Es de lazo abierto o cerrado?", pasos: ["Entrada: una LDR mide la luz ambiental.", "Control: si la luz baja de un valor, la placa ordena encender.", "Salida: el actuador es la lámpara (a través de un relé).", "El sistema mide la luz y actúa según lo que mide: hay realimentación."], resultado: "Sensor LDR → controlador → relé y lámpara. Es de lazo cerrado." },
+    { enunciado: "Un sensor analógico en Arduino lee 512. ¿Qué tensión hay en el pin si la placa trabaja a 5 V?", pasos: ["analogRead convierte 0-5 V en 0-1023.", "Tensión = lectura · 5 / 1023.", "512 · 5 / 1023 ≈ 2,5 V."], resultado: "Unos 2,5 V, la mitad del rango." },
+    { enunciado: "Un sensor de ultrasonidos recibe el eco 2 ms después de enviar el pulso. ¿A qué distancia está el obstáculo? (Sonido: 340 m/s.)", pasos: ["2 ms = 0,002 s, tiempo de ida y vuelta.", "Distancia total = 340 · 0,002 = 0,68 m.", "El obstáculo está a la mitad: 0,34 m."], resultado: "A 34 cm." },
+  ],
+  errores: [
+    "Pensar que un sistema automático siempre es de lazo cerrado: una tostadora con temporizador es de lazo abierto.",
+    "Conectar un motor directamente a un pin de la placa: necesita un driver o un transistor.",
+    "Confundir sensor (capta información) con actuador (actúa sobre el entorno).",
+    "Leer un sensor analógico con digitalRead: solo daría 0 o 1.",
+    "Pensar que cualquier máquina automática es un robot: un robot es programable y puede hacer tareas distintas.",
+  ],
+  ejercicios: [
+    { q: "Clasifica como sensor o actuador: LDR, motor, zumbador, pulsador, servomotor, termistor, LED.", sol: "Sensores: LDR, pulsador y termistor. Actuadores: motor, zumbador, servomotor y LED." },
+    { q: "Explica la diferencia entre lazo abierto y lazo cerrado con un ejemplo de cada uno.", sol: "Lazo abierto: actúa sin comprobar el resultado (lavadora con programa fijo). Lazo cerrado: mide el resultado y corrige (calefacción con termostato)." },
+    { q: "Identifica entrada, control y salida en un termostato de calefacción.", sol: "Entrada: sensor de temperatura. Control: el termostato compara con la temperatura deseada. Salida: la caldera que se enciende o apaga." },
+    { q: "¿Qué diferencia hay entre un sensor digital y uno analógico? Pon un ejemplo de cada uno.", sol: "El digital da solo dos valores (pulsador); el analógico da valores continuos (LDR)." },
+    { q: "¿Qué motor elegirías para mover la pinza de un brazo robótico a un ángulo exacto? ¿Y para las ruedas de un coche?", sol: "Para la pinza, un servomotor. Para las ruedas, motores de corriente continua con reductora." },
+    { q: "¿Cuántos grados de libertad tiene un brazo con hombro (giro y elevación), codo y muñeca (giro)?", sol: "4: dos en el hombro, uno en el codo y uno en la muñeca." },
+    { q: "¿Qué valor devolverá analogRead si en el pin hay 0 V? ¿Y 5 V?", sol: "0 y 1023." },
+    { q: "Un robot móvil debe parar a 20 cm de una pared. Describe en pseudocódigo su programa con un sensor de ultrasonidos.", sol: "Repetir siempre: medir distancia; si distancia > 20 cm, motores hacia delante; si no, parar motores." },
+    { q: "Indica tres ventajas y una desventaja de usar robots en una fábrica.", sol: "Ventajas: trabajan sin descanso, con precisión y en tareas peligrosas. Desventaja: alto coste inicial y pérdida de algunos empleos (también necesitan mantenimiento)." },
+    { q: "Pon tres ejemplos de robots de servicio.", sol: "Aspiradoras autónomas, robots quirúrgicos y robots de reparto en almacenes u hospitales (también drones)." },
+  ],
+  quiz: [
+    { q: "Un pulsador es un sensor…", o: ["analógico", "digital", "actuador"], a: 1, e: "Solo da pulsado o no." },
+    { q: "analogRead en Arduino devuelve valores entre…", o: ["0 y 1", "0 y 1023", "0 y 255"], a: 1, e: "Convierte 0-5 V en 0-1023." },
+    { q: "El motor que gira a un ángulo exacto es el…", o: ["servomotor", "motor de CC", "zumbador"], a: 0, e: "Normalmente de 0° a 180°." },
+    { q: "Los robots industriales suelen tener…", o: ["1 grado de libertad", "6 grados de libertad", "20 grados de libertad"], a: 1, e: "Suficientes para cualquier posición y orientación." },
+    { q: "El sensor de ultrasonidos mide…", o: ["la luz", "la distancia", "la temperatura"], a: 1, e: "Por el tiempo del eco." },
+  ],
+  tarjetas: [
+    ["Sensor analógico", "Da valores continuos; en Arduino se lee con analogRead (0-1023)."],
+    ["Servomotor", "Motor que gira a un ángulo exacto indicado por programa."],
+    ["Grados de libertad", "Número de movimientos independientes de un robot."],
+  ],
+});
