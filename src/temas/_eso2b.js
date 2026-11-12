@@ -41,7 +41,8 @@ const preguntas = (qs, desde = 0) => qs.map(([q, o, e], i) => {
 const V = (id, titulo, canal, vistas, megusta = 0, busqueda) => ({ id, titulo, canal, vistas, megusta, ...(busqueda ? { busqueda } : {}) });
 
 // Bloque: [título, html del cuerpo, svg?, vídeo?].
-const bloque = ([h, cuerpo, svg, video]) => ({ html: `<h3>${h}</h3>${cuerpo}`, ...(svg ? { svg } : {}), ...(video ? { video } : {}) });
+// Si el tercer elemento es un vídeo (objeto) y no un SVG (texto), se toma como vídeo.
+const bloque = ([h, cuerpo, svg, video]) => (typeof svg === "object" && svg ? ([svg, video] = [video, svg]) : 0, { html: `<h3>${h}</h3>${cuerpo}`, ...(svg ? { svg } : {}), ...(video ? { video } : {}) });
 
 function tema(o) {
   return {
