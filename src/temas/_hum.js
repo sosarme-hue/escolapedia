@@ -27,7 +27,7 @@ function linea(label, items, color = "var(--red)") {
 function dos(label, a, b) {
   const col = ([t, ls, c], x) => `<rect x="${x}" y="16" width="110" height="148" rx="12" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>
     <text x="${x + 55}" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="${c}" ${D}>${esc(t)}</text>
-    ${ls.map((l, i) => `<text x="${x + 55}" y="${68 + i * 22}" text-anchor="middle" font-size="12" fill="var(--ink)" ${F}>${esc(l)}</text>`).join("")}`;
+    ${ls.map((l, i) => `<text x="${x + 55}" y="${68 + i * 22}" text-anchor="middle" font-size="${l.length > 17 ? 11 : 12}" fill="var(--ink)" ${F}>${esc(l)}</text>`).join("")}`;
   return caja(label, col(a, 14) + col(b, 136));
 }
 
@@ -36,7 +36,7 @@ function rueda(label, centro, items, colorCentro = "var(--pen)") {
   const pos = items.length === 4 ? [[56, 34], [204, 34], [56, 156], [204, 156]] : items.length === 5 ? [[56, 30], [204, 30], [54, 110], [206, 110], [130, 162]] : [[56, 30], [204, 30], [54, 96], [206, 96], [56, 160], [204, 160]];
   const c = String(centro).split("|");
   return caja(label, `<g ${F} font-size="11.5" font-weight="700" text-anchor="middle">
-    ${items.map(([t, col], i) => { const [x, y] = pos[i]; return `<path d="M${x} ${y} L 130 96" stroke="var(--line)" stroke-width="2.5"/><rect x="${x - 44}" y="${y - 13}" width="88" height="24" rx="12" fill="var(--card)" stroke="${col}" stroke-width="2"/><text x="${x}" y="${y + 4}" fill="var(--ink)">${esc(t)}</text>`; }).join("")}
+    ${items.map(([t, col], i) => { const [x, y] = pos[i]; return `<path d="M${x} ${y} L 130 96" stroke="var(--line)" stroke-width="2.5"/><rect x="${x - 48}" y="${y - 13}" width="96" height="24" rx="12" fill="var(--card)" stroke="${col}" stroke-width="2"/><text x="${x}" y="${y + 4}" fill="var(--ink)"${t.length > 12 ? ' font-size="10.5"' : ""}>${esc(t)}</text>`; }).join("")}
     <circle cx="130" cy="96" r="34" fill="${colorCentro}"/>
     ${c.map((l, i) => `<text x="130" y="${100 - (c.length - 1) * 7 + i * 14}" fill="#fff" font-size="${Math.max(...c.map((x) => x.length)) > 8 ? 9.5 : 11}">${esc(l)}</text>`).join("")}
   </g>`);
@@ -47,7 +47,7 @@ function filas(label, rows) {
   const h = Math.min(30, Math.floor(150 / rows.length) - 4);
   return caja(label, `<g ${F}>${rows.map(([k, t, c], i) => {
     const y = 14 + i * (h + 4) + (150 - rows.length * (h + 4)) / 2;
-    return `<rect x="14" y="${y}" width="232" height="${h}" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/><rect x="14" y="${y}" width="80" height="${h}" rx="8" fill="${c}"/><text x="54" y="${y + h / 2 + 4}" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">${esc(k)}</text><text x="102" y="${y + h / 2 + 4}" font-size="${t.length > 26 ? 9.5 : t.length > 22 ? 10.5 : 11.5}" fill="var(--ink)">${esc(t)}</text>`;
+    return `<rect x="14" y="${y}" width="232" height="${h}" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/><rect x="14" y="${y}" width="80" height="${h}" rx="8" fill="${c}"/><text x="54" y="${y + h / 2 + 4}" text-anchor="middle" font-size="${k.length > 11 ? 10.5 : 11.5}" font-weight="700" fill="#fff">${esc(k)}</text><text x="102" y="${y + h / 2 + 4}" font-size="${t.length > 26 ? 9.5 : t.length > 22 ? 10.5 : 11.5}" fill="var(--ink)">${esc(t)}</text>`;
   }).join("")}</g>`);
 }
 
@@ -66,7 +66,7 @@ function flujo(label, pasos, color = "var(--pen)") {
   return caja(label, `<defs><marker id="fl-${label.length}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink)"/></marker></defs>
     <g ${F} text-anchor="middle" font-size="11" font-weight="700">
     ${pos.slice(1).map(([x, y], i) => { const [px, py] = pos[i]; return py === y ? `<path d="M${px + 36} ${y} H ${x - 38}" stroke="var(--ink)" stroke-width="2" marker-end="url(#fl-${label.length})"/>` : `<path d="M${px} ${py + 20} C ${px} ${py + 46}, ${x} ${y - 46}, ${x} ${y - 22}" fill="none" stroke="var(--ink)" stroke-width="2" marker-end="url(#fl-${label.length})"/>`; }).join("")}
-    ${pasos.map((p, i) => { const [x, y] = pos[i]; const ls = String(p).split("|"); return `<rect x="${x - 36}" y="${y - 18}" width="72" height="36" rx="10" fill="var(--card)" stroke="${color}" stroke-width="2"/><circle cx="${x - 36}" cy="${y - 18}" r="8" fill="${color}"/><text x="${x - 36}" y="${y - 14}" fill="#fff" font-size="10">${i + 1}</text>${ls.map((l, j) => `<text x="${x}" y="${y + 4 - (ls.length - 1) * 6 + j * 12}" fill="var(--ink)">${esc(l)}</text>`).join("")}`; }).join("")}
+    ${pasos.map((p, i) => { const [x, y] = pos[i]; const ls = String(p).split("|"); return `<rect x="${x - 36}" y="${y - 18}" width="72" height="36" rx="10" fill="var(--card)" stroke="${color}" stroke-width="2"/><circle cx="${x - 36}" cy="${y - 18}" r="10" fill="${color}"/><text x="${x - 36}" y="${y - 14.5}" fill="#fff" font-size="10">${i + 1}</text>${ls.map((l, j) => `<text x="${x}" y="${y + 4 - (ls.length - 1) * 6 + j * 12}" fill="var(--ink)">${esc(l)}</text>`).join("")}`; }).join("")}
   </g>`);
 }
 

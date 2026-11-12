@@ -16,7 +16,7 @@ module.exports = {
   bloques: [
     {
       html: `<h3>La dignidad de la persona</h3><p>La ética cristiana parte de que toda persona tiene una <mark>dignidad</mark> que no depende de su raza, sexo, riqueza, origen o capacidades. Jesús resumió la moral en el <b>mandamiento del amor</b>: «Ama a Dios y al prójimo como a ti mismo», y lo amplió hasta los enemigos. En la parábola del juicio final (Mt 25) dice: «Lo que hicisteis a uno de estos más pequeños, a mí me lo hicisteis».</p>`,
-      svg: dos("Dignidad: la misma para todas las personas", ["Nunca depende de", ["origen", "sexo", "dinero", "salud", "religión"], "var(--muted)"], ["Exige", ["respeto", "justicia", "cuidado", "igualdad", "libertad"], "var(--bac)"]),
+      svg: dos("Dignidad: la misma para todas las personas", ["No depende de", ["origen", "sexo", "dinero", "salud", "religión"], "var(--muted)"], ["Exige", ["respeto", "justicia", "cuidado", "igualdad", "libertad"], "var(--bac)"]),
     },
     {
       html: `<h3>La Doctrina Social de la Iglesia</h3><p>Ante la explotación obrera de la Revolución Industrial, el papa León XIII publicó la encíclica <i>Rerum novarum</i> (1891), inicio de la <mark>Doctrina Social de la Iglesia</mark>. Sus principios: <b>dignidad</b> de la persona, <b>bien común</b> (condiciones para que todos puedan desarrollarse), <b>destino universal de los bienes</b>, <b>subsidiariedad</b> (que decidan quienes están más cerca) y <b>solidaridad</b>.</p>`,
