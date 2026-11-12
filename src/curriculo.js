@@ -115,7 +115,7 @@ const INFANTIL = () => [
   s("Religión", "val", [], O, "Voluntaria"),
 ];
 
-const LISTAS = { "4-eso": require("./listas-4eso") };
+const LISTAS = { "4-eso": require("./listas-4eso"), "1-primaria": require("./listas-1primaria") };
 function conListas(cursoSlug, materias) {
   const l = LISTAS[cursoSlug]; if (!l) return materias;
   return materias.map((m) => (l[m.nombre] && !m.temas.length ? { ...m, temas: l[m.nombre] } : m));
@@ -127,7 +127,7 @@ module.exports = {
     { slug: "infantil", nombre: "Infantil", edad: "3 a 5 años", color: "#f08a24", decreto: "RD 95/2022",
       cursos: [3, 4, 5].map((n) => ({ slug: `${n}-anos`, nombre: `${n} años`, materias: INFANTIL() })) },
     { slug: "primaria", nombre: "Primaria", edad: "6 a 12 años", color: "#1f9d55", decreto: "RD 157/2022",
-      cursos: [1, 2, 3, 4, 5, 6].map((n) => ({ slug: `${n}-primaria`, nombre: `${n}º`, largo: `${n}º de Primaria`, materias: n === 6 ? SEXTO : PRIMARIA_BASE(n) })) },
+      cursos: [1, 2, 3, 4, 5, 6].map((n) => ({ slug: `${n}-primaria`, nombre: `${n}º`, largo: `${n}º de Primaria`, materias: n === 6 ? SEXTO : conListas(`${n}-primaria`, PRIMARIA_BASE(n)) })) },
     { slug: "eso", nombre: "ESO", edad: "12 a 16 años", color: "#1f4fd1", decreto: "RD 217/2022",
       cursos: [1, 2, 3, 4].map((n) => ({ slug: `${n}-eso`, nombre: `${n}º`, largo: `${n}º de ESO`, materias: conListas(`${n}-eso`, [...parse(CURSOS_ESO[n]), ...ESO_OPT(n)]) })) },
     { slug: "bachillerato", nombre: "Bachillerato", edad: "16 a 18 años", color: "#7b3fc4", decreto: "RD 243/2022",
