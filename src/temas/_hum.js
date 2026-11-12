@@ -33,12 +33,12 @@ function dos(label, a, b) {
 
 // Centro con satélites: items [[texto, color], ...] (máx. 6).
 function rueda(label, centro, items, colorCentro = "var(--pen)") {
-  const pos = items.length === 4 ? [[56, 34], [204, 34], [56, 156], [204, 156]] : [[56, 30], [204, 30], [54, 96], [206, 96], [56, 160], [204, 160]];
+  const pos = items.length === 4 ? [[56, 34], [204, 34], [56, 156], [204, 156]] : items.length === 5 ? [[56, 30], [204, 30], [54, 110], [206, 110], [130, 162]] : [[56, 30], [204, 30], [54, 96], [206, 96], [56, 160], [204, 160]];
   const c = String(centro).split("|");
   return caja(label, `<g ${F} font-size="11.5" font-weight="700" text-anchor="middle">
     ${items.map(([t, col], i) => { const [x, y] = pos[i]; return `<path d="M${x} ${y} L 130 96" stroke="var(--line)" stroke-width="2.5"/><rect x="${x - 44}" y="${y - 13}" width="88" height="24" rx="12" fill="var(--card)" stroke="${col}" stroke-width="2"/><text x="${x}" y="${y + 4}" fill="var(--ink)">${esc(t)}</text>`; }).join("")}
-    <circle cx="130" cy="96" r="32" fill="${colorCentro}"/>
-    ${c.map((l, i) => `<text x="130" y="${100 - (c.length - 1) * 7 + i * 14}" fill="#fff" font-size="11">${esc(l)}</text>`).join("")}
+    <circle cx="130" cy="96" r="34" fill="${colorCentro}"/>
+    ${c.map((l, i) => `<text x="130" y="${100 - (c.length - 1) * 7 + i * 14}" fill="#fff" font-size="${Math.max(...c.map((x) => x.length)) > 8 ? 9.5 : 11}">${esc(l)}</text>`).join("")}
   </g>`);
 }
 
@@ -101,4 +101,15 @@ function figCols(label, cols) {
   </svg>`;
 }
 
-module.exports = { caja, linea, dos, rueda, filas, piramide, flujo, barras, figLinea, figCols, esc };
+// Árbol: raíces con dos ramas cada una: [[raíz, [rama A, rama B], color, [etiqueta A, etiqueta B]], ...] (1 o 2 raíces).
+function arbol(label, raices) {
+  const n = raices.length, ancho = 260 / n;
+  return caja(label, `<g ${F} text-anchor="middle">${raices.map(([r, [a, b], c, et = []], i) => {
+    const cx = ancho * i + ancho / 2, xa = cx - ancho / 4, xb = cx + ancho / 4, w = Math.min(ancho / 2 - 4, 104);
+    return `<path d="M${cx} 52 L ${xa} 112 M${cx} 52 L ${xb} 112" stroke="var(--line)" stroke-width="2.5"/>
+      <rect x="${cx - 48}" y="24" width="96" height="30" rx="15" fill="${c}"/><text x="${cx}" y="44" font-size="13" font-weight="700" fill="#fff">${esc(r)}</text>
+      ${[[xa, a, et[0]], [xb, b, et[1]]].map(([x, t, e]) => `<rect x="${x - w / 2}" y="112" width="${w}" height="30" rx="10" fill="var(--card)" stroke="${c}" stroke-width="2"/><text x="${x}" y="132" font-size="${String(t).length * 7.4 > w ? 10.5 : 12.5}" font-weight="700" fill="var(--ink)">${esc(t)}</text>${e ? `<text x="${x}" y="160" font-size="10.5" fill="var(--muted)">${esc(e)}</text>` : ""}`).join("")}`;
+  }).join("")}</g>`);
+}
+
+module.exports = { caja, linea, dos, rueda, filas, piramide, flujo, barras, figLinea, figCols, arbol, esc };
