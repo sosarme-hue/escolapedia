@@ -76,7 +76,7 @@ module.exports = {
       video: { id: "m0ppScatiyA", titulo: "Necesitamos Aire Limpio | Contaminación Ambiental", canal: "JunyTony en Español", vistas: 473698, megusta: 1562 },
     },
     {
-      html: `<h3>El suelo</h3><p>El <mark>suelo</mark> es la tierra que pisamos. Está formado por tierra, arena, piedras y rocas.</p><p>En el suelo crecen las <b>plantas</b>. Sus raíces toman el agua de la tierra.</p><p>Muchos animales viven bajo el suelo: lombrices, hormigas y topos.</p>`,
+      html: `<h3>El suelo</h3><p>El <mark>suelo</mark> es la tierra que pisamos. Está formado por tierra, arena, piedras y rocas.</p><p>En el suelo crecen las <b>plantas</b>. Sus raíces toman el agua de la tierra.</p><p>Muchos animales viven bajo el suelo: lombrices, hormigas y topos. Hacen túneles y galerías. ¡Debemos cuidar el suelo!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Corte del suelo con una planta arriba, raíces, una lombriz, hormigas y piedras">${BG}
         <rect x="14" y="60" width="232" height="106" rx="6" fill="#c98a4a" fill-opacity=".45"/><rect x="14" y="120" width="232" height="46" fill="#a8702e" fill-opacity=".45"/>
         <path d="M14 60 H 246" stroke="var(--leaf)" stroke-width="5"/>

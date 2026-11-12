@@ -19,7 +19,7 @@ module.exports = {
   },
   bloques: [
     {
-      html: `<h3>Vivimos juntos</h3><p>Vivimos con otras personas: la familia, los compañeros y los vecinos. Vivir juntos se llama <mark>convivir</mark>.</p><p>Para convivir bien, nos tratamos con <b>respeto</b>. Escuchamos a los demás y compartimos.</p><p>Nadie es más que nadie. Todos somos importantes.</p><p>Así todos estamos más contentos.</p>`,
+      html: `<h3>Vivimos juntos</h3><p>Vivimos con otras personas: la familia, los compañeros y los vecinos. Vivir juntos se llama <mark>convivir</mark>.</p><p>Para convivir bien, nos tratamos con <b>respeto</b>. Escuchamos a los demás y compartimos.</p><p>Nadie es más que nadie. Todos somos importantes.</p><p>Así todos estamos más contentos y tranquilos.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Niños distintos dados de la mano bajo un corazón">${BG}
         ${[["var(--red)", "#6b3f1f"], ["var(--pen)", "var(--ink)"], ["var(--leaf)", "#e3b04b"], ["var(--sun)", "#6b3f1f"], ["var(--inf)", "var(--ink)"]].map(([c, p], i) => persona(34 + i * 48, 160, 92, c, p)).join("")}
         <path d="M52 112 H 64 M100 112 H 112 M148 112 H 160 M196 112 H 208" stroke="#f2c9a0" stroke-width="6" stroke-linecap="round"/>

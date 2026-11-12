@@ -53,7 +53,7 @@ module.exports = {
         ${txt(50, 162, "flor", { size: 13 })}${txt(140, 162, "fruto", { size: 13 })}${txt(220, 162, "semillas", { size: 13 })}</svg>`,
     },
     {
-      html: `<h3>¿Qué necesitan?</h3><p>Para vivir, las plantas necesitan <mark>cuatro cosas</mark>.</p><p><b>Agua</b>: sin agua se secan. <b>Luz</b>: sin sol se ponen pálidas y débiles. <b>Aire</b>: lo toman por las hojas. <b>Tierra</b>: allí crecen sus raíces.</p><p>Por eso las macetas se ponen cerca de la ventana.</p>`,
+      html: `<h3>¿Qué necesitan?</h3><p>Para vivir, las plantas necesitan <mark>cuatro cosas</mark>.</p><p><b>Agua</b>: sin agua se secan. <b>Luz</b>: sin sol se ponen pálidas y débiles. <b>Aire</b>: lo toman por las hojas. <b>Tierra</b>: allí crecen sus raíces.</p><p>Por eso las macetas se ponen cerca de la ventana. Allí reciben más luz.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una planta recibe sol, agua, aire y tierra">${BG}
         ${suelo(138)}${planta(130, 138, 1.05)}
         ${sol(40, 40, 14)}${gota(214, 40, 1.4)}${gota(230, 58, 1)}
