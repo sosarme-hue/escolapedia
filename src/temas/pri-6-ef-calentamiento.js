@@ -33,7 +33,7 @@ module.exports = {
     {
       html: `<h3>La condición física</h3><p>La <mark>condición física</mark> es el conjunto de capacidades que tiene una persona para realizar actividades físicas con eficacia y sin cansarse demasiado. Depende de cuatro <b>capacidades físicas básicas</b>:</p><p>• <b>Resistencia</b>: capacidad de mantener un esfuerzo durante mucho tiempo. Por ejemplo, correr 10 minutos seguidos o nadar varios largos.</p><p>• <b>Fuerza</b>: capacidad de vencer o soportar una resistencia con los músculos. Por ejemplo, empujar, levantar, trepar o lanzar lejos.</p><p>• <b>Velocidad</b>: capacidad de hacer movimientos o recorrer una distancia en el menor tiempo posible. Incluye la velocidad de reacción, como salir rápido al oír un silbato.</p><p>• <b>Flexibilidad</b>: capacidad de mover las articulaciones con mucha amplitud, gracias a la elasticidad de los músculos. Por ejemplo, tocar el suelo con las manos sin doblar las rodillas.</p><p>Todas las personas tienen las cuatro, pero cada una en un nivel distinto. Lo importante no es compararte con los demás, sino <b>mejorar respecto a ti mismo</b>.</p><p>Además, para moverse bien también se necesitan las <b>capacidades coordinativas</b>: coordinación, equilibrio y agilidad.</p>`,
       svg: svg("Las cuatro capacidades físicas básicas: resistencia, fuerza, velocidad y flexibilidad", `${tit("Capacidades físicas básicas")}${fichas([["Resistencia", "aguantar mucho rato", COL.azul], ["Fuerza", "empujar, levantar", COL.rojo], ["Velocidad", "lo más rápido posible", COL.naranja], ["Flexibilidad", "moverse con amplitud", COL.verde]])}`),
-      video: vid("EjRb_hT9BWE"),
+      video: vid("duAgaeqzpAY"),
     },
     {
       html: `<h3>Cómo mejorar cada capacidad</h3><p>A tu edad, la mejor forma de mejorar la condición física es <b>jugar y moverse mucho</b>, de forma variada. Algunas ideas:</p><p>• <b>Resistencia</b>: carrera continua a ritmo suave (que te permita hablar), montar en bici, nadar, saltar a la comba, bailar, juegos de persecución largos. Es la capacidad más importante para la salud del corazón.</p><p>• <b>Fuerza</b>: ejercicios con el <b>propio peso del cuerpo</b>: trepar, saltar, hacer la carretilla, abdominales y flexiones adaptados, juegos de empujar y tirar (como la soga). A esta edad no se deben levantar pesos grandes.</p><p>• <b>Velocidad</b>: carreras cortas de relevos, juegos de reacción (salir a una señal), cambios de dirección. Siempre después de un buen calentamiento y con descansos entre repeticiones.</p><p>• <b>Flexibilidad</b>: estiramientos suaves frecuentes, yoga, gimnasia. Es la única capacidad que, sin entrenarla, <b>disminuye</b> con la edad desde la infancia, por eso conviene cuidarla.</p><p>Para que haya mejora hay que ser <b>constante</b>: es mejor un poco de ejercicio cada día que mucho un solo día. Y siempre respetando los <b>descansos</b>: el cuerpo mejora mientras se recupera.</p>`,
@@ -65,7 +65,7 @@ module.exports = {
       ["Pulso", "15 s × 4", COL.marron],
     ], 4, 86, "Resumen del calentamiento y la condición física"),
   },
-  video: vgen("RqMQDPzgriY", "calentamiento para niños educación física"),
+  video: vgen("OKCqiTL7qx0", "qué es el calentamiento educación física"),
   ejemplos: [
     { enunciado: "Después de correr cuentas 36 latidos en 15 segundos. ¿Cuál es tu frecuencia cardiaca?",
       pasos: ["Se multiplica por 4 para pasar a un minuto.", "36 × 4 = 144."],

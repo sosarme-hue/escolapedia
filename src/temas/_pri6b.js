@@ -88,6 +88,7 @@ function fichas(items, cols = 2, y0 = 34, alto = 0) {
 
 // Vídeos elegidos con tools/videos.py (ids reales, sin repetir con otros cursos).
 const VIDEOS = {
+  "D1oxOSWvzGE": ["Educación Física Coordinación Fácil", "Educación Física Para Todos", 986009],
   "J0iQZ9MXnOE": ["AUSTRIAS: DINASTÍA DE LOS AUSTRIAS", "History of Spain", 251587],
   "K1hL5eeTBM0": ["Transición, Europa y Actualidad [1975-2020] HISTORIA de ESPAÑA", "A toda leche", 330850],
   "lXoLoeSwivI": ["El Sistema Nervioso | Videos Educativos para Niños", "Happy Learning Español", 1499194],
@@ -147,10 +148,10 @@ const VIDEOS = {
   "gAS8KRiQvGg": ["ESPAÑA siglo XX para niños. GUERRA CIVIL y FRANQUISMO PRIMARIA", "La BiBlioTHeKa", 14771],
   "Ck5-OXF34Fw": ["La Transición Española en 6 Minutos", "Alejandro Díaz de Losada", 122202],
   "WYts75ZEsIE": ["Cómo España se convirtió (por poco) en una democracia", "SideQuest - Animated History", 749456],
-  "RqMQDPzgriY": ["CALENTAMIENTO FÍSICO [antes de hacer ejercicio]", "Pino Profesor", 289998],
-  "EjRb_hT9BWE": ["Que son las Capacidades Físicas", "Educación y Deporte", 280206],
-  "u9-mrzrNHNo": ["¿Qué son las HABILIDADES MOTRICES BÁSICAS? Tipos y características", "Astraway", 90466],
-  "1TcMR-lNkN0": ["Habilidades Motrices Básicas-Desplazamientos,Giros y Manipulación/ Primaria/Educación Física/Parte 2", "Lezama Sports TV", 163517],
+  "OKCqiTL7qx0": ["QUÉ es el CALENTAMIENTO y CUÁL es su IMPORTANCIA en EDUCACIÓN FÍSICA", "Educación Física Internacional", 180862],
+  "duAgaeqzpAY": ["Test de capacidades: Fuerza, Resistencia, Flexibilidad y velocidad.", "Gerson Muñoz", 272068],
+  "9VmSIPD-awE": ["¿Qué es ESQUEMA CORPORAL en EDUCACIÓN FÍSICA? Explicación para Niños", "Educación Física y SALUD", 79827],
+  "B4enImGi2B8": ["Habilidades Motrices Básicas / Juego Creativo + Variantes / Primaria / Educación Física / Parte 3", "Lezama Sports TV", 61892],
   "VMJyS4XNqXI": ["Aprende todos los DEPORTES - Educación física - Vocabulario para niños - Recopilación", "Smile and Learn - Español", 249042],
   "7WoC5ku5Z9E": ["JUEGOS COOPERATIVOS. Antología. ¡FELIZ Y SALUDABLE 2026!", "Antonio Méndez-Giménez", 116695],
   "j_fKjJUnv-Q": ["Los puntos cardinales - Usando una brújula o la posición del sol", "Profe Marilin", 938154],
@@ -175,7 +176,7 @@ const VIDEOS = {
   "RKGi8bdf2Zs": ["Embarazo mes a mes para niños: desarrollo embrionario y fetal", "Smile and Learn - Español", 1533602],
   "HVLEzWmnD48": ["Las energías no renovables - Tipos de energía para niños", "Smile and Learn - Español", 584775],
   "uvCZMWt1m0U": ["El ojo y sus partes - La vista - Los sentidos para niños", "Smile and Learn - Español", 7995308],
-  "Pl8U7TYyvt0": ["Semana 6. Tema: pasos básicos del mimo", "Educador Fusalmo-Mineducyt", 300216],
+  "3RWuJeUInhk": ["TUTORIAL COMO hacer PARED INVISIBLE (mimo) paso a paso para principiantes", "Javi9509 [2.0]", 82341],
   "nrhV6EwwC-g": ["Lenguaje corporal y gestual", "Manuela Galindo Diviértete y aprende", 128450],
   "95cKCwMGrmg": ["Yoga suave para niños | Flexibilidad, equilibrio y relajación | El Yoga de María", "el yoga de maria", 4297526],
   "wEOE530UIwM": ["Canción de los ríos", "Canta y Aprende", 2016542],
