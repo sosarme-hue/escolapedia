@@ -108,3 +108,67 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+{
+  const T = module.exports;
+  T.minutos = 60;
+  T.objetivos.push("Aplicar Pitágoras en el espacio", "Calcular áreas de polígonos regulares y partes del círculo", "Pasar entre unidades de área, volumen y capacidad", "Saber cómo cambian áreas y volúmenes al ampliar una figura");
+  const tabla = (cab, filas) => `<table class="tb"><thead><tr>${cab.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>${filas.map((f) => `<tr>${f.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  const nuevos = {
+    espacio: { html: `<h3>Pitágoras en el espacio</h3><p>La <b>diagonal de un ortoedro</b> (una caja) de aristas a, b y c se calcula aplicando Pitágoras dos veces: primero la diagonal de la base, √(a² + b²), y después con la altura. El resultado es <mark>d = √(a² + b² + c²)</mark>. En una caja de 3 × 4 × 12 cm: d = √(9 + 16 + 144) = √169 = 13 cm. Así se sabe si una varilla larga cabe dentro de una caja.</p>` },
+    regulares: { html: `<h3>Polígonos regulares y partes del círculo</h3><p>Un polígono regular se divide en triángulos iguales desde el centro. Su área es <mark>A = perímetro · apotema / 2</mark>, donde la apotema es la distancia del centro al punto medio de un lado. Un hexágono de 6 cm de lado tiene apotema √(6² − 3²) ≈ 5,20 cm y área 36 · 5,20 / 2 ≈ 93,5 cm².</p><ul><li><b>Círculo</b>: A = π · r²; longitud de la circunferencia L = 2 · π · r.</li><li><b>Corona circular</b> (entre dos circunferencias): A = π · (R² − r²).</li><li><b>Sector circular</b> de n grados: A = π · r² · n / 360.</li></ul>` },
+    unidades: { html: `<h3>Unidades de área, volumen y capacidad</h3><p>En las unidades de <b>área</b>, cada escalón multiplica o divide por <mark>100</mark> (1 m² = 100 dm² = 10.000 cm²). En las de <b>volumen</b>, por <mark>1.000</mark> (1 m³ = 1.000 dm³ = 1.000.000 cm³). Y la clave para pasar a capacidad: <mark>1 dm³ = 1 litro</mark> y 1 cm³ = 1 mL.</p>${tabla(["Volumen", "Capacidad"], [["1 m³", "1.000 L"], ["1 dm³", "1 L"], ["1 cm³", "1 mL"]])}`, video: { id: "_zbeX42GCac", titulo: "Conversión de unidades de volumen | Unidades cúbicas", canal: "Matemáticas profe Alex", vistas: 1629072, megusta: 0 } },
+    compuestos: { html: `<h3>Cuerpos compuestos y troncos</h3><p>Muchos objetos reales son <b>combinaciones</b> de cuerpos sencillos: un silo es un cilindro con un cono encima; una pieza con un agujero es un prisma menos un cilindro. Su volumen se calcula <mark>sumando o restando</mark> los volúmenes de las partes. Un <b>tronco de cono</b> (como un vaso) es un cono grande al que se le quita un cono pequeño de la punta.</p>` },
+    escala: { html: `<h3>Ampliar y reducir: áreas y volúmenes a escala</h3><p>Si todas las longitudes de una figura se multiplican por una razón k, su <b>área</b> se multiplica por <mark>k²</mark> y su <b>volumen</b> por <mark>k³</mark>. Si una maqueta tiene medidas el doble de grandes que otra, necesita 4 veces más pintura y 8 veces más material. Por eso un gigante de verdad no podría sostenerse: su peso crecería mucho más deprisa que la sección de sus huesos.</p>` },
+  };
+  const pos = (t) => T.bloques.findIndex((b) => b.html.includes(t));
+  T.bloques[pos("Pirámides, conos y esferas")].video = { id: "Cal94N065cA", titulo: "Volumen del cono, súper fácil", canal: "Daniel Carreón", vistas: 2069531, megusta: 0 };
+  T.bloques.push(nuevos.compuestos, nuevos.escala);
+  T.bloques.splice(pos("Volúmenes de prismas y cilindros"), 0, nuevos.unidades);
+  T.bloques.splice(pos("Áreas de figuras planas") + 1, 0, nuevos.regulares);
+  T.bloques.splice(pos("El teorema de Pitágoras") + 1, 0, nuevos.espacio);
+
+  T.ejemplos = [
+    { enunciado: "Una lata cilíndrica tiene 4 cm de radio y 10 cm de altura. ¿Cuánta chapa hace falta y cuánto refresco cabe?",
+      pasos: ["Área de las dos bases: 2 · π · 4² = 32π cm².", "Área lateral (un rectángulo de 2πr por h): 2 · π · 4 · 10 = 80π cm².", "Área total: 112π ≈ 351,9 cm².", "Volumen: π · 4² · 10 = 160π ≈ 502,7 cm³, es decir, unos 0,5 L."],
+      resultado: "unos 352 cm² de chapa y medio litro de capacidad." },
+    { enunciado: "¿Cabe una varilla de 12,5 cm dentro de una caja de 3 × 4 × 12 cm?",
+      pasos: ["Diagonal de la base: √(3² + 4²) = √25 = 5 cm.", "Diagonal de la caja: √(5² + 12²) = √169 = 13 cm.", "13 cm es mayor que 12,5 cm."],
+      resultado: "sí cabe, colocada en diagonal." },
+    { enunciado: "Un cono tiene 3 cm de radio y 4 cm de altura. Calcula su área total y su volumen.",
+      pasos: ["Generatriz por Pitágoras: g = √(3² + 4²) = 5 cm.", "Área lateral: π · r · g = π · 3 · 5 = 15π cm²; base: π · 3² = 9π cm².", "Área total: 24π ≈ 75,4 cm².", "Volumen: π · r² · h / 3 = π · 9 · 4 / 3 = 12π ≈ 37,7 cm³."],
+      resultado: "área ≈ 75,4 cm², volumen ≈ 37,7 cm³." },
+  ];
+  T.errores = [
+    "Olvidar dividir entre 3 en el volumen de pirámides y conos.",
+    "Confundir la altura con la generatriz (en el cono) o con la apotema (en la pirámide).",
+    "Mezclar unidades: pasarlo todo a la misma unidad antes de operar.",
+    "Pasar de m² a cm² multiplicando por 100: es por 10.000.",
+    "Usar el diámetro en lugar del radio en las fórmulas del círculo, el cilindro y la esfera.",
+  ];
+  T.ejercicios = [
+    { q: "Los catetos de un triángulo rectángulo miden 9 y 12 cm. ¿Cuánto mide la hipotenusa?", sol: "√(81 + 144) = √225 = 15 cm." },
+    { q: "La hipotenusa mide 13 cm y un cateto 5 cm. ¿Cuánto mide el otro cateto?", sol: "√(169 − 25) = √144 = 12 cm." },
+    { q: "Calcula el área de un trapecio de bases 10 y 6 cm y altura 4 cm.", sol: "A = (10 + 6) · 4 / 2 = 32 cm²." },
+    { q: "Calcula el área y la longitud de un círculo de 5 cm de radio.", sol: "A = 25π ≈ 78,54 cm². L = 10π ≈ 31,42 cm." },
+    { q: "Un cubo tiene 4 cm de arista. Calcula su área total y su volumen.", sol: "Área: 6 · 4² = 96 cm². Volumen: 4³ = 64 cm³." },
+    { q: "Una piscina mide 10 m × 5 m × 1,6 m. ¿Cuántos litros de agua caben?", sol: "V = 80 m³ = 80.000 dm³ = 80.000 L." },
+    { q: "Una pirámide de base cuadrada de 6 cm de lado tiene 4 cm de altura. Calcula su volumen y su área total.", sol: "V = 36 · 4 / 3 = 48 cm³. Apotema de las caras: √(4² + 3²) = 5 cm. Área lateral: 4 · (6 · 5 / 2) = 60 cm²; con la base, 60 + 36 = 96 cm²." },
+    { q: "Calcula el área y el volumen de una esfera de 3 cm de radio.", sol: "A = 4π · 9 = 36π ≈ 113,1 cm². V = 4/3 · π · 27 = 36π ≈ 113,1 cm³ (con este radio coinciden los números, no las unidades)." },
+    { q: "Pasa 2,5 m² a cm² y 3.500 cm³ a litros.", sol: "2,5 · 10.000 = 25.000 cm². 3.500 cm³ = 3,5 dm³ = 3,5 L." },
+    { q: "Un cubo de 2 cm de arista se amplía con razón 3. ¿Cuáles son su nueva área y su nuevo volumen?", sol: "Original: A = 24 cm², V = 8 cm³. Con razón 3: A = 24 · 9 = 216 cm² y V = 8 · 27 = 216 cm³ (arista 6 cm)." },
+  ];
+  T.quiz.push(
+    { q: "1 dm³ equivale a…", o: ["1 L", "1 mL", "10 L"], a: 0, e: "Un decímetro cúbico es exactamente un litro." },
+    { q: "El volumen de un cono es … el de un cilindro con la misma base y altura.", o: ["la mitad", "un tercio", "el doble"], a: 1, e: "V = π · r² · h / 3." },
+    { q: "Si duplicas todas las medidas de un cuerpo, su volumen se multiplica por…", o: ["2", "4", "8"], a: 2, e: "k³ = 2³ = 8." },
+    { q: "La diagonal de una caja de 3 × 4 × 12 cm mide…", o: ["13 cm", "19 cm", "12 cm"], a: 0, e: "√(9 + 16 + 144) = 13." },
+    { q: "1 m² son…", o: ["100 cm²", "1.000 cm²", "10.000 cm²"], a: 2, e: "100 · 100 = 10.000." },
+  );
+  T.tarjetas.push(
+    ["Diagonal de un ortoedro", "d = √(a² + b² + c²)"],
+    ["1 dm³", "1 litro"],
+    ["Si las longitudes se multiplican por k…", "las áreas por k² y los volúmenes por k³."],
+  );
+}
