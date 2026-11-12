@@ -1,0 +1,97 @@
+// Inglés 2º ESO. Explicaciones en español con ejemplos en inglés. Dibujos propios en SVG.
+const { tema, L, tabla } = require("./_eso2d");
+const V = require("./_eso2d-videos");
+
+module.exports = tema({
+  materia: "Inglés",
+  titulo: "Present simple and adverbs of frequency",
+  objetivos: ["Formar el present simple en afirmativa, negativa e interrogativa", "Aplicar las reglas de la tercera persona (-s, -es, -ies)", "Usar los adverbios de frecuencia y colocarlos bien en la frase", "Hablar de rutinas, gustos y hechos generales"],
+  claves: ["present simple", "-s / -es", "do / does", "don't / doesn't", "always", "usually", "never", "How often…?"],
+  pregunta: [
+    "«My brother play football every Saturday.» Esta frase tiene un error que cometen casi todos los estudiantes de inglés. ¿Lo encuentras? ¿Por qué pasa?",
+    "Falta la <mark>-s</mark>: «My brother <b>plays</b> football». En present simple, la tercera persona del singular (he, she, it) añade -s al verbo. En español cada persona tiene su terminación, pero en inglés solo cambia esta, y por eso se nos olvida.",
+  ],
+  bloques: [
+    ["¿Para qué sirve el present simple?", `<p>El <mark>present simple</mark> se usa para hablar de <b>rutinas y costumbres</b> («I get up at 7»), de <b>hechos generales</b> o verdades que siempre se cumplen («Water boils at 100 °C»), de <b>gustos y opiniones</b> («She loves pizza») y de <b>horarios</b> fijos («The bus leaves at 8.15»).</p><p>Suele ir con expresiones de tiempo como <i>every day, every week, on Mondays, at the weekend, in the morning</i> y con los <b>adverbios de frecuencia</b> (always, usually, never…). Equivale casi siempre al presente español: «I play» = «juego».</p>`,
+      L.filas("Usos del present simple", [["Rutinas", "I get up at 7 every day.", "var(--pen)"], ["Hechos", "Water boils at 100 °C.", "var(--leaf)"], ["Gustos", "She loves pizza.", "var(--red)"], ["Horarios", "The bus leaves at 8.15.", "var(--sun)"]])],
+    ["La forma afirmativa", `<p>En afirmativa se usa la <b>forma base</b> del verbo (la del diccionario) para <i>I, you, we, they</i>: «I <b>play</b>», «They <b>live</b> in Bilbao». Para <i>he, she, it</i> se añade <mark>-s</mark>: «He <b>plays</b>», «It <b>rains</b> a lot».</p><p>Recuerda que <i>it</i> se usa para cosas y animales, y que un sujeto como «my mother», «the dog» o «Tom» equivale a he, she o it, así que también lleva -s: «My mother <b>works</b> in a hospital».</p>`,
+      L.tabla("Present simple afirmativo del verbo play", ["Sujeto", "Verbo"], [["I / you", "play"], ["we / they", "play"], ["he / she / it", "plays"]], "var(--pen)")],
+    ["Reglas de ortografía de la tercera persona", `<p>La mayoría de verbos añaden solo <b>-s</b> (eat → eats). Pero hay reglas. Los verbos que terminan en <b>-s, -ss, -sh, -ch, -x, -o</b> añaden <mark>-es</mark>: watch → watch<b>es</b>, wash → wash<b>es</b>, go → go<b>es</b>, do → do<b>es</b>, fix → fix<b>es</b>.</p><p>Los que terminan en <b>consonante + y</b> cambian la y por <mark>-ies</mark>: study → stud<b>ies</b>, fly → fl<b>ies</b>. Pero si la y va detrás de una vocal, solo -s: play → play<b>s</b>, buy → buy<b>s</b>. El verbo <i>have</i> es irregular: he <b>has</b>.</p>`,
+      L.tabla("Reglas de la tercera persona", ["Termina en", "Ejemplo"], [["general", "eats"], ["-ch, -sh, -o", "watches"], ["cons. + y", "studies"], ["have", "has"]], "var(--red)")],
+    ["La forma negativa", `<p>Para negar se usa el auxiliar <mark>do not (don't)</mark> o, en tercera persona, <mark>does not (doesn't)</mark>, y el verbo principal vuelve a la <b>forma base</b>, sin -s: «I <b>don't like</b> horror films», «She <b>doesn't eat</b> meat».</p><p>Ojo: la -s «pasa» al auxiliar (does), así que el verbo ya no la lleva. Es un error frecuente decir «She doesn't eats». Con el verbo <i>be</i> no se usa do: «I'm not tired», «He isn't at home».</p>`,
+      L.frase("Negativa en present simple: She doesn't eat meat", [["She", "sujeto", "var(--ink)"], ["doesn't", "auxiliar", "var(--red)"], ["eat", "forma base", "var(--pen)"], ["meat.", "", "var(--line)"]], "la -s pasa al auxiliar")],
+    ["Preguntas y respuestas cortas", `<p>Las preguntas se forman con <mark>Do / Does</mark> + sujeto + forma base: «<b>Do</b> you <b>speak</b> French?», «<b>Does</b> he <b>play</b> the guitar?». Se contesta con <b>respuestas cortas</b> que repiten el auxiliar: «Yes, I do / No, I don't», «Yes, he does / No, he doesn't».</p><p>Para pedir información, delante se pone una <b>partícula interrogativa</b>: <i>What, Where, When, Who, Why, How</i>: «<b>Where</b> do you live?», «<b>What time</b> does the film start?».</p>`,
+      L.filas("Preguntas en present simple", [["Yes/No", "Do you like rap? Yes, I do.", "var(--pen)"], ["Yes/No", "Does she walk? No, she doesn't.", "var(--red)"], ["Wh-", "Where do they live?", "var(--leaf)"]]), V.in1b],
+    ["Los adverbios de frecuencia", `<p>Los <mark>adverbios de frecuencia</mark> dicen <b>cuántas veces</b> hacemos algo. De más a menos: <b>always</b> (siempre, 100 %), <b>usually</b> (normalmente, 80 %), <b>often</b> (a menudo, 60 %), <b>sometimes</b> (a veces, 40 %), <b>hardly ever</b> (casi nunca, 10 %) y <b>never</b> (nunca, 0 %).</p><p>Como <i>never</i> ya es negativo, el verbo va en afirmativa: «I <b>never</b> drink coffee» (no «I don't never drink»). Para preguntar por la frecuencia se usa <b>How often…?</b>: «How often do you go to the cinema?».</p>`,
+      `<svg viewBox="0 0 260 180" role="img" aria-label="Escala de los adverbios de frecuencia de always, 100 por ciento, a never, 0 por ciento">
+        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="12.5" font-weight="700">
+        ${[["always", 100, "var(--leaf)"], ["usually", 80, "var(--leaf)"], ["often", 60, "var(--pen)"], ["sometimes", 40, "var(--pen)"], ["hardly ever", 10, "var(--sun)"], ["never", 0, "var(--red)"]].map(([w, p, c], i) => `<text x="90" y="${30 + i * 25}" text-anchor="end" fill="var(--ink)">${w}</text><rect x="98" y="${19 + i * 25}" width="${Math.max(p * 1.1, 3)}" height="14" rx="4" fill="${c}"/><text x="${104 + p * 1.1}" y="${30 + i * 25}" fill="var(--muted)" font-size="11">${p} %</text>`).join("")}
+        </g></svg>`],
+    ["Dónde va el adverbio de frecuencia", `<p>La regla es sencilla: el adverbio va <mark>delante del verbo principal</mark>: «She <b>usually</b> walks to school», «We <b>often</b> play tennis». Pero va <mark>detrás del verbo be</mark>: «He <b>is always</b> late», «They <b>are never</b> bored».</p><p>En negativas e interrogativas va después del auxiliar o del sujeto: «I don't <b>usually</b> watch TV», «Do you <b>often</b> read?». <i>Sometimes</i> y <i>usually</i> también pueden ir al principio de la frase: «<b>Sometimes</b> I cook dinner».</p>`,
+      L.filas("Posición del adverbio de frecuencia", [["Verbo normal", "She usually walks to school.", "var(--pen)"], ["Verbo be", "He is always late.", "var(--red)"], ["Negativa", "I don't usually watch TV.", "var(--leaf)"]])],
+    ["Expresiones de frecuencia", `<p>Además de los adverbios, hay <b>expresiones de frecuencia</b> más precisas. Van normalmente <mark>al final de la frase</mark>: «I go swimming <b>twice a week</b>», «We visit my grandparents <b>every Sunday</b>».</p><p>Se forman con <i>once</i> (una vez), <i>twice</i> (dos veces), <i>three times</i> (tres veces)… + <i>a day / a week / a month / a year</i>; o con <i>every</i> + día, semana, mes, año, mañana… («every morning»). También <i>on Mondays</i> (los lunes) o <i>at the weekend</i> (el fin de semana).</p>`,
+      L.filas("Expresiones de frecuencia al final", [["once a week", "una vez a la semana", "var(--pen)"], ["twice a day", "dos veces al día", "var(--leaf)"], ["every Sunday", "todos los domingos", "var(--sun)"], ["on Mondays", "los lunes", "var(--red)"]])],
+    ["Hablar de tu rutina", `<p>Para describir tu rutina diaria combina el present simple con <b>conectores de secuencia</b>: <i>first, then, after that, finally</i>; con horas: <i>at seven o'clock, at half past eight</i>; y con partes del día: <i>in the morning, in the afternoon, in the evening, at night</i>.</p><p>Por ejemplo: «I <b>usually</b> get up at seven. <b>First</b>, I have a shower. <b>Then</b> I have breakfast and I go to school by bus. I <b>never</b> walk because it's far. In the afternoon I do my homework and I <b>sometimes</b> play basketball».</p>`,
+      L.dialogo("Conversación sobre rutinas", [["Ana", "How often do you play basketball?", "var(--pen)"], ["Leo", "Twice a week. I never play on Sundays.", "var(--red)"], ["Ana", "Me too! I usually play on Fridays.", "var(--pen)"]])],
+  ],
+  ejemplos: [
+    ["Escribe en tercera persona: «I watch TV and I study English» (sujeto: Laura).", ["watch termina en -ch → watches.", "study termina en consonante + y → studies."], "Laura watches TV and she studies English."],
+    ["Pon en negativa e interrogativa: «Tom goes to the gym».", ["Negativa: doesn't + forma base (go, sin -es).", "Interrogativa: Does + sujeto + forma base."], "Tom doesn't go to the gym. / Does Tom go to the gym?"],
+    ["Coloca el adverbio: «She is late (never)» y «We eat fish (sometimes)».", ["Con be, el adverbio va detrás: She is never late.", "Con un verbo normal, va delante: We sometimes eat fish."], "She is never late. / We sometimes eat fish."],
+  ],
+  errores: [
+    "Olvidar la -s de la tercera persona: «He play» → «He plays».",
+    "Poner la -s también con doesn't: «She doesn't likes» → «She doesn't like».",
+    "Usar doble negación con never: «I don't never eat» → «I never eat».",
+    "Colocar el adverbio detrás del verbo normal: «I play always» → «I always play».",
+    "Escribir «studys» o «watchs»: son studies y watches.",
+  ],
+  ejercicios: [
+    ["Escribe la tercera persona de: go, fly, catch, say, have.", "goes, flies, catches, says, has."],
+    ["Completa: My cat ___ (sleep) all day.", "My cat sleeps all day."],
+    ["Haz negativa: They live in Madrid.", "They don't live in Madrid."],
+    ["Haz negativa: She speaks German.", "She doesn't speak German."],
+    ["Haz la pregunta y la respuesta corta afirmativa: you / like / chocolate.", "Do you like chocolate? Yes, I do."],
+    ["Haz la pregunta: where / your father / work?", "Where does your father work?"],
+    ["Ordena: always / breakfast / I / have.", "I always have breakfast."],
+    ["Ordena: is / my teacher / never / angry.", "My teacher is never angry."],
+    ["Traduce: «Casi nunca voy al cine».", "I hardly ever go to the cinema."],
+    ["Pregunta por la frecuencia: you / go swimming. Responde: dos veces por semana.", "How often do you go swimming? Twice a week."],
+  ],
+  figura: ["El present simple de un vistazo", L.pasos("Resumen del present simple", [["Afirmativa", ["I play", "He plays"], "var(--leaf)"], ["Negativa", ["I don't play", "He doesn't play"], "var(--red)"], ["Pregunta", ["Do you play?", "Does he play?"], "var(--pen)"], ["Frecuencia", ["always … never", "How often…?"], "var(--sun)"]])],
+  video: V.in1v,
+  quiz: [
+    ["«She ___ in a bank.»", ["works", "work", "working"], "Tercera persona: -s."],
+    ["La tercera persona de «watch» es…", ["watches", "watchs", "watchies"], "Termina en -ch: -es."],
+    ["La tercera persona de «study» es…", ["studies", "studys", "studyes"], "Consonante + y → -ies."],
+    ["«He ___ like vegetables.»", ["doesn't", "don't", "isn't"], "Tercera persona: doesn't."],
+    ["«___ your sister play the piano?»", ["Does", "Do", "Is"], "Sujeto en tercera persona."],
+    ["«Do you live here?» — «Yes, I ___.»", ["do", "live", "am"], "Respuesta corta con el auxiliar."],
+    ["«Hardly ever» significa…", ["casi nunca", "a menudo", "siempre"], "Unos 10 %."],
+    ["¿Qué frase es correcta?", ["I usually walk to school.", "I walk usually to school.", "Usually I walks to school."], "Adverbio delante del verbo."],
+    ["¿Qué frase es correcta?", ["They are always happy.", "They always are happy.", "Always they are happy."], "Con be, el adverbio va detrás."],
+    ["Para preguntar por la frecuencia se dice…", ["How often…?", "How much…?", "How many…?"], "How often do you…?"],
+  ],
+  examen: [
+    ["«I ___ eat meat. I'm vegetarian.»", ["never", "don't never", "always"], "Never ya es negativo."],
+    ["«We go to the gym ___.»", ["twice a week", "twice week", "two times week"], "Expresión al final."],
+    ["La tercera persona de «go» es…", ["goes", "gos", "goies"], "Termina en -o: -es."],
+  ],
+  feynman: ["Cuándo se usa el present simple", "Cómo se forma la tercera persona y sus reglas", "Cómo se hacen negativas y preguntas con do y does", "Dónde se colocan los adverbios de frecuencia"],
+  mapa: ["PRESENT SIMPLE", "var(--eso)", [["Afirmativa", "I play · he plays", "var(--leaf)"], ["Negativa", "don't · doesn't + base", "var(--red)"], ["Pregunta", "Do / Does…? Yes, I do.", "var(--pen)"], ["Frecuencia", "always · usually · never", "var(--sun)"]], 240],
+  tarjetas: [
+    ["Present simple", "Rutinas, hechos generales, gustos y horarios."],
+    ["Tercera persona", "He / she / it añaden -s: he plays."],
+    ["-es", "Verbos en -ch, -sh, -s, -x, -o: watches, goes."],
+    ["-ies", "Consonante + y: study → studies."],
+    ["Negativa", "don't / doesn't + forma base: She doesn't eat."],
+    ["Pregunta", "Do / Does + sujeto + forma base: Does he play?"],
+    ["Adverbio con verbo normal", "Delante: I always walk."],
+    ["Adverbio con be", "Detrás: He is always late."],
+  ],
+  familias: ["Pedidle que os cuente en inglés su rutina de un día de colegio con cinco frases y tres adverbios de frecuencia.", "Jugad a «How often do you…?» durante la cena: cada uno pregunta algo y contesta con un adverbio."],
+  saberes: "Comunicación y reflexión sobre la lengua: el present simple, la tercera persona, los adverbios y expresiones de frecuencia para hablar de rutinas (RD 217/2022, Lengua Extranjera, primer ciclo; nivel A2 del MCER).",
+  ideas: ["Encuesta en clase con «How often do you…?» y gráfico de resultados.", "Escribir la rutina de un personaje famoso o de una mascota.", "Juego de las -s: dictado de verbos que hay que pasar a tercera persona."],
+  fuentes: [["British Council LearnEnglish Teens: present simple", "https://learnenglishteens.britishcouncil.org/grammar/a1-a2-grammar/present-simple"], ["Cambridge Dictionary: present simple", "https://dictionary.cambridge.org/grammar/british-grammar/present-simple-i-work"]],
+});
