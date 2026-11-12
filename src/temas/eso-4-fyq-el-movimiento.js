@@ -121,3 +121,59 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Interpretar y dibujar gráficas posición-tiempo y velocidad-tiempo", "Resolver problemas de encuentros y de movimiento circular uniforme"],
+  tras: {
+    "Posición, trayectoria y desplazamiento": [
+      { html: `<h3>Sistema de referencia</h3><p>Para describir un movimiento hay que elegir un <b>sistema de referencia</b>: un punto fijo (el origen) y unos ejes desde donde medimos la posición. El movimiento es <mark>relativo</mark>: si viajas en un tren, estás quieto respecto a tu asiento pero te mueves a 200 km/h respecto a las vías. En una dimensión, la posición se indica con un número con signo: x = +30 m está 30 m a la derecha del origen y x = −10 m, 10 m a la izquierda. El <b>desplazamiento</b> es la diferencia entre la posición final y la inicial, Δx = x − x₀, y puede ser negativo; la <b>distancia recorrida</b> se mide sobre la trayectoria y siempre es positiva.</p>` },
+    ],
+    "Movimiento rectilíneo uniformemente acelerado (MRUA)": [
+      { html: `<h3>Leer las gráficas del movimiento</h3><p>Las gráficas cuentan cómo es un movimiento. En la gráfica <b>posición-tiempo</b> (x-t), un MRU es una recta: cuanto más inclinada, más rápido; si es horizontal, el móvil está parado; si baja, va hacia atrás. La <mark>pendiente de la gráfica x-t es la velocidad</mark>. En un MRUA, la gráfica x-t es una parábola. En la gráfica <b>velocidad-tiempo</b> (v-t), un MRU es una recta horizontal y un MRUA es una recta inclinada cuya <mark>pendiente es la aceleración</mark>. Además, el <b>área bajo la gráfica v-t</b> es el desplazamiento: para un coche que va a 20 m/s durante 10 s, el rectángulo mide 20 · 10 = 200 m.</p>`, video: { id: "3ZVFdmEL-tg", titulo: "Velocidad a tramos (interpretación gráfica del movimiento)", canal: "Ruben Sebastian", vistas: 892746 } },
+      { html: `<h3>Problemas de encuentro</h3><p>Muchos problemas preguntan cuándo y dónde se cruzan dos móviles. El método es siempre el mismo: elegir un único origen y un sentido positivo para los dos; escribir la ecuación de la posición de cada uno; e <mark>igualar las posiciones</mark>, porque en el encuentro los dos están en el mismo sitio: x₁ = x₂. Se despeja el tiempo y se sustituye en cualquiera de las ecuaciones para saber el lugar. Cuidado con los signos: si un móvil va hacia el origen, su velocidad es negativa; y si uno sale más tarde, en su ecuación se usa (t − retraso).</p>` },
+    ],
+    "Caída libre": [
+      { html: `<h3>Movimiento circular uniforme (MCU)</h3><p>En un <b>MCU</b> el móvil recorre una circunferencia con rapidez constante, como un punto de una noria o del disco duro de un ordenador. Se describe con la <b>velocidad angular</b> ω, el ángulo recorrido por unidad de tiempo, que se mide en radianes por segundo (rad/s); una vuelta completa son 2π rad. El <b>periodo</b> T es el tiempo de una vuelta y la <b>frecuencia</b> f, las vueltas por segundo (f = 1/T, en hercios). La velocidad lineal es v = ω · R. Aunque la rapidez no cambie, la dirección de la velocidad cambia a cada instante, así que <mark>sí hay aceleración</mark>: la aceleración centrípeta, aₙ = v² / R, dirigida hacia el centro.</p><div class="formula"><span>ω = 2π / T · v = ω · R</span></div>`, video: { id: "JVGvzWgO5i4", titulo: "MCU: explicación, fórmulas y ejercicios", canal: "Susi Profe", vistas: 1305489 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Un coche sale de A a 72 km/h hacia B, que está a 3 km. A la vez, una moto sale de B hacia A a 36 km/h. ¿Cuándo y dónde se cruzan?", pasos: ["Pasa a m/s: 72 km/h = 20 m/s; 36 km/h = 10 m/s. Origen en A, sentido positivo hacia B.", "Coche: x₁ = 20t. Moto: x₂ = 3.000 − 10t (va hacia el origen).", "Iguala: 20t = 3.000 − 10t → 30t = 3.000 → t = 100 s.", "Posición: x₁ = 20 · 100 = 2.000 m."], resultado: "Se cruzan a los 100 s, a 2 km de A." },
+    { enunciado: "Un coche a 25 m/s frena con a = −5 m/s². ¿Cuánto tarda en pararse y qué distancia recorre?", pasos: ["v = v₀ + a·t → 0 = 25 − 5t → t = 5 s.", "x = v₀·t + ½·a·t² = 25 · 5 + ½ · (−5) · 25 = 125 − 62,5.", "x = 62,5 m."], resultado: "Tarda 5 s y recorre 62,5 m." },
+    { enunciado: "Una noria de 20 m de radio da una vuelta cada 40 s. Calcula ω, la frecuencia y la velocidad lineal de una cabina.", pasos: ["ω = 2π / T = 2π / 40 ≈ 0,157 rad/s.", "f = 1 / T = 1 / 40 = 0,025 Hz.", "v = ω · R = 0,157 · 20 ≈ 3,14 m/s."], resultado: "ω ≈ 0,157 rad/s; f = 0,025 Hz; v ≈ 3,1 m/s." },
+  ],
+  errores: [
+    "Mezclar unidades: usar km/h con segundos sin convertir.",
+    "Confundir distancia recorrida (siempre positiva) con desplazamiento (puede ser negativo o cero).",
+    "Pensar que una aceleración negativa siempre significa frenar: depende del sentido de la velocidad.",
+    "Leer la gráfica x-t como si fuera el dibujo de la trayectoria.",
+    "Creer que en el MCU no hay aceleración porque la rapidez es constante.",
+    "En caída libre, olvidar que la aceleración vale g también en el punto más alto del lanzamiento.",
+  ],
+  ejercicios: [
+    { q: "Un ciclista recorre 18 km en 45 min. Calcula su velocidad media en m/s.", sol: "18.000 m / 2.700 s = 6,67 m/s." },
+    { q: "Escribe la ecuación de un móvil que parte de x₀ = −50 m con v = 5 m/s. ¿Cuándo pasa por el origen?", sol: "x = −50 + 5t. En el origen x = 0: t = 10 s." },
+    { q: "Un coche pasa de 0 a 100 km/h en 8 s. Calcula su aceleración.", sol: "100 km/h = 27,8 m/s. a = 27,8 / 8 ≈ 3,5 m/s²." },
+    { q: "Una moto parte del reposo con a = 2 m/s². ¿Qué velocidad lleva y qué distancia ha recorrido a los 10 s?", sol: "v = 2 · 10 = 20 m/s. x = ½ · 2 · 100 = 100 m." },
+    { q: "Se deja caer una piedra desde un puente y tarda 3 s en llegar al agua. Halla la altura y la velocidad de llegada (g = 9,8 m/s²).", sol: "h = ½ · 9,8 · 9 = 44,1 m. v = 9,8 · 3 = 29,4 m/s." },
+    { q: "Se lanza una pelota hacia arriba a 19,6 m/s. ¿Cuánto tarda en llegar al punto más alto y qué altura alcanza?", sol: "En lo más alto v = 0: 0 = 19,6 − 9,8t → t = 2 s. h = 19,6 · 2 − ½ · 9,8 · 4 = 39,2 − 19,6 = 19,6 m." },
+    { q: "En una gráfica v-t, la velocidad sube de 0 a 30 m/s en 6 s y luego se mantiene 4 s. Calcula la aceleración del primer tramo y el desplazamiento total.", sol: "a = 30 / 6 = 5 m/s². Área: triángulo ½ · 6 · 30 = 90 m más rectángulo 4 · 30 = 120 m: total 210 m." },
+    { q: "Dos amigos están a 600 m y caminan uno hacia el otro a 1,5 m/s y 2,5 m/s. ¿Cuándo se encuentran?", sol: "x₁ = 1,5t; x₂ = 600 − 2,5t. 1,5t = 600 − 2,5t → 4t = 600 → t = 150 s (2,5 min), a 225 m del primero." },
+    { q: "Un disco gira a 33 vueltas por minuto. Calcula su periodo y su velocidad angular.", sol: "f = 33 / 60 = 0,55 Hz. T = 1 / 0,55 ≈ 1,82 s. ω = 2π · 0,55 ≈ 3,46 rad/s." },
+    { q: "¿Qué tipo de movimiento representa una gráfica x-t horizontal? ¿Y una gráfica v-t horizontal por encima del eje?", sol: "x-t horizontal: el móvil está en reposo. v-t horizontal positiva: MRU, velocidad constante." },
+  ],
+  quiz: [
+    { q: "La pendiente de la gráfica posición-tiempo es…", o: ["la velocidad", "la aceleración", "la distancia"], a: 0, e: "Δx / Δt." },
+    { q: "El área bajo la gráfica velocidad-tiempo es…", o: ["la aceleración", "el desplazamiento", "el tiempo"], a: 1, e: "v · t = x." },
+    { q: "Para calcular cuándo se encuentran dos móviles se igualan sus…", o: ["velocidades", "posiciones", "aceleraciones"], a: 1, e: "En el encuentro están en el mismo punto." },
+    { q: "Una vuelta completa equivale a…", o: ["π rad", "2π rad", "360 rad"], a: 1, e: "2π rad = 360°." },
+    { q: "En un MCU, la aceleración centrípeta apunta…", o: ["hacia el centro", "hacia fuera", "en la dirección de la velocidad"], a: 0, e: "Cambia la dirección de la velocidad." },
+  ],
+  tarjetas: [
+    ["Sistema de referencia", "Origen y ejes desde los que se mide la posición; el movimiento es relativo."],
+    ["Pendiente de la gráfica v-t", "La aceleración."],
+    ["Velocidad lineal en el MCU", "v = ω · R."],
+  ],
+});

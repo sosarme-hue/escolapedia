@@ -124,3 +124,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Convertir números entre decimal y binario y entender cómo se codifica la información", "Comparar medios de transmisión y reconocer los dispositivos del Internet de las cosas"],
+  tras: {
+    "Qué tiene dentro un dispositivo": [
+      { html: `<h3>El sistema binario</h3><p>Los circuitos de un ordenador solo distinguen dos estados: hay corriente o no la hay. Por eso toda la información se representa con dos cifras, 0 y 1: es el <b>sistema binario</b>. Igual que en decimal cada posición vale 10 veces más que la anterior (unidades, decenas, centenas), en binario cada posición vale <mark>el doble</mark>: 1, 2, 4, 8, 16, 32, 64, 128… Así, 1011 en binario es 8 + 0 + 2 + 1 = 11. Para pasar de decimal a binario se divide entre 2 sucesivamente y se leen los restos de abajo arriba. Las letras también se codifican con números: en el código <b>ASCII</b>, la «A» es el 65 (01000001), y el estándar <b>Unicode</b> incluye letras de todos los idiomas y emojis.</p>`, video: { id: "f9b0wwhTmeU", titulo: "Todo lo que tienes que saber del código binario", canal: "Derivando", vistas: 2139793 } },
+      { html: `<h3>Cómo elegir un dispositivo</h3><p>Al comparar ordenadores o móviles conviene fijarse en: el <b>procesador</b> (número de núcleos y velocidad en GHz), la <b>RAM</b> (8 GB permiten trabajar con soltura con varias aplicaciones), el <b>almacenamiento</b> (un SSD es mucho más rápido que un disco duro mecánico), la <b>pantalla</b> (tamaño y resolución), la <b>batería</b> y la <b>conectividad</b> (wifi, Bluetooth, puertos USB-C). También importa el uso que le vamos a dar: para estudiar y navegar no hace falta el más potente. Y antes de comprar uno nuevo, vale la pena pensar si se puede <mark>ampliar o reparar</mark> el que ya tenemos, por ejemplo añadiendo RAM o cambiando el disco por un SSD.</p>` },
+    ],
+    "Tipos de redes": [
+      { html: `<h3>Medios de transmisión</h3><p>Los datos viajan por distintos medios. El <b>cable de par trenzado</b> (Ethernet) lleva señales eléctricas y se usa en las redes locales. La <b>fibra óptica</b> transporta pulsos de luz por hilos de vidrio finísimos: es la más rápida, alcanza grandes distancias y no le afectan las interferencias; los cables submarinos que unen continentes son de fibra. Entre los <b>inalámbricos</b>, el <b>wifi</b> cubre una casa o un edificio; el <b>Bluetooth</b>, unos pocos metros; las redes <b>móviles</b> (4G, 5G) cubren un país con antenas; y los <b>satélites</b> llevan Internet a zonas remotas. El 5G ofrece más velocidad y menos retraso (<mark>latencia</mark>), lo que permite, por ejemplo, controlar máquinas a distancia.</p>` },
+    ],
+    "La red de casa y su mantenimiento": [
+      { html: `<h3>El Internet de las cosas</h3><p>El <b>Internet de las cosas</b> (IoT) es la red de objetos cotidianos que llevan sensores y conexión a Internet: relojes inteligentes que miden el pulso, termostatos que se controlan desde el móvil, altavoces con asistente de voz, cámaras de vigilancia, enchufes inteligentes, coches conectados o sensores que miden la humedad de un campo de cultivo y riegan solo cuando hace falta. Ya hay más objetos conectados que personas. Ofrecen comodidad y ahorro, pero también riesgos: muchos tienen <mark>contraseñas de fábrica</mark> que nadie cambia y casi nunca se actualizan, y recogen datos sobre nuestra vida. Conviene cambiar sus claves, actualizarlos y conectarlos, si se puede, a una red wifi separada.</p>`, video: { id: "fWrY571yHYI", titulo: "Qué es el internet de las cosas", canal: "DW Español", vistas: 444509 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Pasa el número binario 110101 a decimal.", pasos: ["Valores de las posiciones de derecha a izquierda: 1, 2, 4, 8, 16, 32.", "Suma las posiciones con 1: 32 + 16 + 0 + 4 + 0 + 1.", "32 + 16 + 4 + 1 = 53."], resultado: "110101₂ = 53." },
+    { enunciado: "Pasa el número 25 a binario.", pasos: ["25 / 2 = 12, resto 1. 12 / 2 = 6, resto 0. 6 / 2 = 3, resto 0.", "3 / 2 = 1, resto 1. 1 / 2 = 0, resto 1.", "Se leen los restos de abajo arriba: 11001.", "Comprobación: 16 + 8 + 1 = 25."], resultado: "25 = 11001₂." },
+    { enunciado: "¿Cuánto se tarda en descargar una película de 3 GB con una conexión de 300 Mbps?", pasos: ["Pasa a bits: 3 GB = 3.000 MB = 24.000 Mb (multiplicando por 8).", "Tiempo = 24.000 Mb / 300 Mb/s = 80 s.", "En la práctica tarda algo más por la sobrecarga de los protocolos."], resultado: "Unos 80 segundos (algo más de un minuto)." },
+  ],
+  errores: [
+    "Confundir megabits (Mb, velocidad de conexión) con megabytes (MB, tamaño de archivos).",
+    "Leer al revés los restos al pasar de decimal a binario.",
+    "Pensar que más GHz siempre significa un ordenador más rápido: influyen también los núcleos, la RAM y el disco.",
+    "Creer que wifi e Internet son lo mismo: el wifi solo conecta con el router.",
+    "Dejar las contraseñas de fábrica en cámaras, routers y otros dispositivos conectados.",
+  ],
+  ejercicios: [
+    { q: "Pasa a decimal: 1010, 1111 y 10000000.", sol: "10, 15 y 128." },
+    { q: "Pasa a binario: 6, 13 y 100.", sol: "110, 1101 y 1100100." },
+    { q: "¿Cuál es el número más alto que se puede escribir con 8 bits?", sol: "11111111 = 255 (en total, 256 valores, del 0 al 255)." },
+    { q: "Un archivo ocupa 2.048 KB. ¿Cuántos MB son aproximadamente?", sol: "2.048 / 1.024 = 2 MB." },
+    { q: "Ordena de menor a mayor alcance: wifi, Bluetooth, 5G, fibra submarina.", sol: "Bluetooth < wifi < 5G < fibra submarina." },
+    { q: "¿Qué ventajas tiene la fibra óptica frente al cable de cobre?", sol: "Más velocidad, más distancia sin pérdidas y no le afectan las interferencias eléctricas." },
+    { q: "Indica tres periféricos de entrada, dos de salida y uno de entrada y salida.", sol: "Entrada: teclado, ratón y micrófono. Salida: pantalla y altavoces. Entrada y salida: pantalla táctil (o una impresora multifunción)." },
+    { q: "Un móvil tiene 6 GB de RAM y 128 GB de almacenamiento. Explica para qué sirve cada uno.", sol: "La RAM guarda temporalmente las aplicaciones abiertas mientras se usan; el almacenamiento guarda de forma permanente fotos, aplicaciones y archivos." },
+    { q: "Pon cuatro ejemplos de dispositivos del Internet de las cosas.", sol: "Reloj inteligente, termostato conectado, altavoz con asistente de voz y bombillas o enchufes inteligentes." },
+    { q: "Indica tres medidas de seguridad para los dispositivos IoT de casa.", sol: "Cambiar las contraseñas de fábrica, actualizar su software y conectarlos a una red wifi separada (o desactivar funciones que no se usan)." },
+  ],
+  quiz: [
+    { q: "En binario, 101 equivale a…", o: ["5", "101", "3"], a: 0, e: "4 + 0 + 1." },
+    { q: "Cada posición en binario vale…", o: ["10 veces la anterior", "el doble de la anterior", "lo mismo"], a: 1, e: "1, 2, 4, 8, 16…" },
+    { q: "El medio de transmisión más rápido para largas distancias es…", o: ["el Bluetooth", "la fibra óptica", "el cable de cobre"], a: 1, e: "Usa pulsos de luz." },
+    { q: "La latencia es…", o: ["el retraso en la transmisión", "el tamaño de un archivo", "la potencia del router"], a: 0, e: "El 5G la reduce mucho." },
+    { q: "Un termostato que se controla desde el móvil es un ejemplo de…", o: ["Internet de las cosas", "red PAN", "sistema operativo"], a: 0, e: "Objeto cotidiano conectado." },
+  ],
+  tarjetas: [
+    ["Sistema binario", "Representa todo con 0 y 1; cada posición vale el doble que la anterior."],
+    ["Fibra óptica", "Transmite datos con pulsos de luz por hilos de vidrio."],
+    ["Internet de las cosas", "Objetos cotidianos con sensores y conexión a Internet."],
+  ],
+});

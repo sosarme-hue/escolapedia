@@ -123,3 +123,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Aplicar el principio de los vasos comunicantes y el experimento de Torricelli", "Decidir si un cuerpo flota y qué parte queda sumergida"],
+  tras: {
+    "Qué es la presión": [
+      { html: `<h3>Densidad y unidades de presión</h3><p>Para estudiar los fluidos necesitamos la <b>densidad</b>, la masa por unidad de volumen: d = m / V. El agua tiene 1.000 kg/m³ (1 g/cm³), el aceite unos 920 kg/m³ y el mercurio 13.600 kg/m³. La presión se mide en el SI en <b>pascales</b> (1 Pa = 1 N/m²), una unidad muy pequeña: una hoja de papel sobre la mesa ejerce alrededor de 1 Pa. Por eso se usan también otras unidades: la <b>atmósfera</b> (1 atm = 101.300 Pa), el <b>milímetro de mercurio</b> (1 atm = 760 mmHg), el <b>bar</b> (100.000 Pa) y el <mark>hectopascal</mark> (hPa), que usan los mapas del tiempo: la presión normal al nivel del mar es 1.013 hPa.</p>` },
+    ],
+    "Presión en los líquidos": [
+      { html: `<h3>Vasos comunicantes</h3><p>Si varios recipientes están unidos por la base y se llenan con el mismo líquido, este alcanza <mark>la misma altura en todos</mark>, sea cual sea su forma. La razón es que, en el equilibrio, la presión en el fondo debe ser igual en todos los puntos que están a la misma profundidad. Este principio explica por qué el agua de un depósito situado en lo alto de un pueblo sube por las tuberías hasta los pisos de las casas, cómo funcionan los niveles de agua de los albañiles y por qué los sifones de los fregaderos siempre conservan agua. Si los líquidos son distintos y no se mezclan, el más denso queda a menos altura.</p>`, video: { id: "wUKZk0WWZzQ", titulo: "Vasos comunicantes: interpretación de su funcionamiento", canal: "Julio Germán Rodríguez", vistas: 108014 } },
+    ],
+    "El principio de Arquímedes": [
+      { html: `<h3>Flotar o hundirse</h3><p>Sobre un cuerpo sumergido actúan dos fuerzas: su <b>peso</b> hacia abajo y el <b>empuje</b> hacia arriba. Si el empuje es mayor que el peso, el cuerpo sube y <b>flota</b>; si es menor, se <b>hunde</b>; si son iguales, queda en equilibrio dentro del líquido, como un submarino. Comparando densidades es más rápido: un cuerpo flota si su densidad media es <mark>menor que la del líquido</mark>. Un barco de acero flota porque su casco está lleno de aire y su densidad media es menor que la del agua. Cuando un cuerpo flota, se hunde justo lo necesario para que el empuje iguale su peso: la fracción sumergida es d cuerpo / d líquido. Un iceberg (920 kg/m³) en agua de mar (1.025 kg/m³) tiene sumergido casi el 90 %.</p>`, video: { id: "XoF9s5ODsHI", titulo: "El principio de Arquímedes o ¿por qué flotan los barcos?", canal: "CuriosaMente", vistas: 2915121 } },
+    ],
+    "La presión atmosférica": [
+      { html: `<h3>El experimento de Torricelli y los fluidos en movimiento</h3><p>En 1643, Evangelista Torricelli llenó de mercurio un tubo de un metro, lo tapó y lo volcó en una cubeta también con mercurio. El mercurio bajó hasta quedar a <mark>76 cm</mark> de altura: la presión del aire sobre la cubeta sostenía esa columna. Así se midió por primera vez la presión atmosférica, y nació el <b>barómetro</b>. La presión atmosférica disminuye con la altitud, porque hay menos aire encima: en la cima del Everest es un tercio de la del nivel del mar. Los fluidos en movimiento también producen efectos curiosos: donde el aire va más rápido, la presión es menor. Esto ayuda a explicar la fuerza que sostiene el ala de un avión o por qué se abomba hacia fuera una cortina con corriente.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Calcula la presión del agua sobre un buceador a 15 m de profundidad y la presión total si en la superficie hay 101.300 Pa. (d = 1.000 kg/m³, g = 9,8 m/s².)", pasos: ["Presión hidrostática: p = d·g·h = 1.000 · 9,8 · 15 = 147.000 Pa.", "Presión total = atmosférica + hidrostática = 101.300 + 147.000 = 248.300 Pa.", "En atmósferas: 248.300 / 101.300 ≈ 2,45 atm."], resultado: "147.000 Pa del agua; unos 248.300 Pa (≈ 2,5 atm) en total." },
+    { enunciado: "En una prensa hidráulica el émbolo pequeño tiene 10 cm² y el grande 500 cm². ¿Qué fuerza hay que hacer para levantar un coche de 1.200 kg?", pasos: ["Peso del coche: 1.200 · 9,8 = 11.760 N.", "Pascal: F₁ / S₁ = F₂ / S₂ → F₁ = F₂ · S₁ / S₂.", "F₁ = 11.760 · 10 / 500 = 235,2 N."], resultado: "Basta una fuerza de unos 235 N." },
+    { enunciado: "Un cubo de madera de 0,001 m³ y densidad 600 kg/m³ se pone en agua. ¿Flota? ¿Qué volumen queda sumergido?", pasos: ["600 < 1.000: la madera es menos densa que el agua y flota.", "Al flotar, empuje = peso: d agua · V sumergido · g = d madera · V · g.", "V sumergido = 600 / 1.000 · 0,001 = 0,0006 m³ (el 60 %)."], resultado: "Flota con el 60 % sumergido: 0,0006 m³." },
+  ],
+  errores: [
+    "Pensar que la presión de un líquido depende de la forma del recipiente o de la cantidad de líquido: solo depende de la densidad y la profundidad.",
+    "Confundir peso y empuje, o creer que el empuje depende de la masa del cuerpo: depende del volumen sumergido y de la densidad del líquido.",
+    "Usar la profundidad en centímetros en p = d·g·h.",
+    "Creer que los objetos pesados siempre se hunden: depende de su densidad media.",
+    "Olvidar sumar la presión atmosférica cuando se pide la presión total.",
+  ],
+  ejercicios: [
+    { q: "Una persona de 60 kg está de pie con una superficie de apoyo de 0,04 m². ¿Qué presión ejerce? ¿Y si lleva esquís de 0,4 m²?", sol: "Peso = 588 N. Sin esquís: 588 / 0,04 = 14.700 Pa. Con esquís: 588 / 0,4 = 1.470 Pa, diez veces menos: por eso no se hunde en la nieve." },
+    { q: "Pasa 750 mmHg a atmósferas y a pascales.", sol: "750 / 760 ≈ 0,987 atm ≈ 0,987 · 101.300 ≈ 100.000 Pa." },
+    { q: "¿Qué presión soporta el fondo de una piscina de 2,5 m (solo la del agua)?", sol: "p = 1.000 · 9,8 · 2,5 = 24.500 Pa." },
+    { q: "¿A qué profundidad la presión del agua del mar (1.025 kg/m³) vale 1 atm?", sol: "h = 101.300 / (1.025 · 9,8) ≈ 10,1 m. Cada 10 m de agua la presión aumenta aproximadamente 1 atm." },
+    { q: "En una prensa hidráulica, S₂ = 40 · S₁. Si haces 50 N, ¿qué fuerza se obtiene?", sol: "F₂ = 50 · 40 = 2.000 N." },
+    { q: "Un objeto de 2 dm³ se sumerge entero en agua. Calcula el empuje.", sol: "V = 0,002 m³. E = 1.000 · 0,002 · 9,8 = 19,6 N." },
+    { q: "Un objeto pesa 30 N en el aire y 22 N sumergido en agua. Calcula el empuje y su volumen.", sol: "E = 30 − 22 = 8 N. V = E / (d·g) = 8 / 9.800 ≈ 0,00082 m³ (0,82 L)." },
+    { q: "¿Flota un trozo de hielo (920 kg/m³) en aceite (920 kg/m³)? ¿Y en agua?", sol: "En aceite queda en equilibrio, ni sube ni baja (densidades iguales). En agua flota, con el 92 % sumergido." },
+    { q: "¿Por qué se taponan los oídos al subir en avión o en coche a un puerto de montaña?", sol: "Porque la presión atmosférica disminuye con la altitud; el aire dentro del oído queda a más presión que el de fuera y empuja el tímpano hasta que las presiones se igualan." },
+    { q: "Explica por qué el agua de un depósito en lo alto de una colina llega a las casas del pueblo sin bombas.", sol: "Por el principio de los vasos comunicantes: el agua tiende a alcanzar la misma altura en todos los tubos conectados, así que sube hasta las casas que están más bajas que el depósito." },
+  ],
+  quiz: [
+    { q: "La presión normal al nivel del mar es…", o: ["1.013 hPa", "1.013 Pa", "13 atm"], a: 0, e: "1 atm = 1.013 hPa = 760 mmHg." },
+    { q: "En unos vasos comunicantes con el mismo líquido, el nivel…", o: ["es más alto en el vaso más ancho", "es el mismo en todos", "depende de la forma"], a: 1, e: "La presión se iguala a la misma profundidad." },
+    { q: "Un cuerpo flota si su densidad es…", o: ["mayor que la del líquido", "menor que la del líquido", "cualquiera"], a: 1, e: "Entonces el empuje supera al peso." },
+    { q: "Torricelli comprobó que la presión atmosférica sostiene una columna de mercurio de…", o: ["76 cm", "10 m", "1 m"], a: 0, e: "De ahí, 760 mmHg." },
+    { q: "Al subir una montaña, la presión atmosférica…", o: ["aumenta", "disminuye", "no cambia"], a: 1, e: "Hay menos aire encima." },
+  ],
+  tarjetas: [
+    ["Vasos comunicantes", "El mismo líquido alcanza la misma altura en recipientes unidos por la base."],
+    ["Condición de flotación", "Flota si su densidad media es menor que la del líquido."],
+    ["1 atm equivale a…", "101.300 Pa = 1.013 hPa = 760 mmHg."],
+  ],
+});

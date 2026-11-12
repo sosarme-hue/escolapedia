@@ -119,3 +119,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar la PCR y sus usos en medicina y criminología", "Valorar las aplicaciones de la biotecnología en salud, agricultura y medio ambiente"],
+  tras: {
+    "Qué es la biotecnología": [
+      { html: `<h3>Biotecnología tradicional y moderna</h3><p>Los seres humanos usamos seres vivos para obtener productos desde hace miles de años, aunque sin saberlo. Es la <b>biotecnología tradicional</b>: las <b>levaduras</b> fermentan los azúcares para hacer pan, vino y cerveza; ciertas <b>bacterias</b> convierten la leche en yogur y queso; y la selección artificial de plantas y animales dio el trigo o las razas de perro actuales. La <b>biotecnología moderna</b> nació en los años 70, cuando se aprendió a <mark>modificar directamente el ADN</mark>: cortar un gen de un organismo y meterlo en otro. Desde entonces se fabrican medicamentos, se mejoran cultivos y se diagnostican enfermedades con técnicas genéticas.</p>` },
+    ],
+    "Las herramientas: cortar y pegar ADN": [
+      { html: `<h3>La PCR: fotocopiar el ADN</h3><p>La <b>reacción en cadena de la polimerasa</b> (PCR), inventada por Kary Mullis en 1983, permite obtener <mark>millones de copias</mark> de un fragmento de ADN a partir de una cantidad mínima, como la de un pelo o una gota de sangre. Se repite muchas veces un ciclo de tres pasos: se calienta la muestra para separar las dos hebras del ADN; se enfría para que se unan unos pequeños fragmentos que marcan el trozo que queremos copiar; y una enzima resistente al calor, la ADN polimerasa, fabrica las hebras nuevas. En cada ciclo se duplica la cantidad: tras 30 ciclos hay más de mil millones de copias. Se usa para diagnosticar infecciones (las famosas pruebas PCR de la COVID-19), en criminología y en pruebas de paternidad.</p>`, video: { id: "TalHTjA5gKU", titulo: "PCR: reacción en cadena de la polimerasa", canal: "CanalDivulgación", vistas: 1147974 } },
+      { html: `<h3>La huella genética</h3><p>Salvo los gemelos idénticos, cada persona tiene un ADN único. Algunas zonas del ADN, que no contienen genes, tienen secuencias que se repiten un número de veces distinto en cada persona. Comparando esas zonas se obtiene la <b>huella genética</b>, un patrón de bandas característico. Se usa en <b>criminología</b> para comparar el ADN encontrado en el lugar de un delito con el de los sospechosos, en <b>pruebas de paternidad</b> (la mitad de las bandas de un hijo coinciden con las del padre y la otra mitad con las de la madre) y para <mark>identificar víctimas</mark> de catástrofes o personas desaparecidas.</p>` },
+    ],
+    "Aplicaciones y bioética": [
+      { html: `<h3>Terapia génica y edición genética</h3><p>La <b>terapia génica</b> trata de curar enfermedades genéticas introduciendo en las células del paciente una <mark>copia correcta del gen</mark> que falla. Para meterla se usan virus modificados que han perdido su capacidad de causar enfermedades. Ya se han aprobado tratamientos para algunas formas de ceguera hereditaria, la atrofia muscular espinal y ciertos cánceres de la sangre. La herramienta <b>CRISPR-Cas9</b>, desarrollada por Emmanuelle Charpentier y Jennifer Doudna (Premio Nobel de Química en 2020) a partir de los trabajos del español Francis Mojica, funciona como unas «tijeras» que cortan el ADN en el punto exacto. Permite corregir genes de forma mucho más precisa, barata y rápida que antes.</p>`, video: { id: "ZoE-G7YPvZQ", titulo: "CRISPR: así se editan los genes", canal: "EL PAÍS", vistas: 153941 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Partes de 1 molécula de ADN y haces 10 ciclos de PCR. ¿Cuántas copias tendrás?", pasos: ["En cada ciclo se duplica la cantidad.", "Tras n ciclos hay 2ⁿ copias.", "2¹⁰ = 1.024."], resultado: "1.024 copias (tras 30 ciclos serían más de mil millones)." },
+    { enunciado: "Explica los pasos para que una bacteria fabrique insulina humana.", pasos: ["Se corta el gen de la insulina del ADN humano con enzimas de restricción.", "Se corta un plásmido bacteriano con la misma enzima y se pega el gen con ADN ligasa: se obtiene ADN recombinante.", "Se introduce el plásmido en bacterias, que se multiplican y fabrican insulina.", "Se cultivan en grandes tanques y se purifica la insulina."], resultado: "Bacteria transgénica que produce insulina para personas con diabetes." },
+    { enunciado: "En un caso de paternidad, el hijo tiene bandas 1, 2, 3 y 4. La madre tiene 1 y 3. El posible padre A tiene 2 y 4, y el B, 2 y 5. ¿Quién es el padre?", pasos: ["Las bandas que no vienen de la madre son la 2 y la 4: tienen que venir del padre.", "El candidato A tiene la 2 y la 4.", "El candidato B no tiene la 4."], resultado: "El padre es A." },
+  ],
+  errores: [
+    "Pensar que la biotecnología es solo cosa de laboratorios modernos: el pan y el yogur son biotecnología tradicional.",
+    "Confundir un organismo transgénico (lleva un gen de otra especie) con un clon (copia genética de otro individuo).",
+    "Creer que la PCR crea ADN nuevo de la nada: copia un fragmento que ya existe.",
+    "Pensar que la terapia génica modifica a los descendientes del paciente: la mayoría actúa en células del cuerpo, no en los gametos.",
+    "Ver solo ventajas o solo riesgos: la bioética pide valorar los dos.",
+  ],
+  ejercicios: [
+    { q: "Pon tres ejemplos de biotecnología tradicional.", sol: "La fabricación de pan y de vino con levaduras, el yogur y el queso con bacterias, y la selección de razas de animales y variedades de plantas." },
+    { q: "¿Qué son las enzimas de restricción y para qué se usan?", sol: "Enzimas de bacterias que cortan el ADN en secuencias concretas. Se usan como «tijeras» para cortar genes y plásmidos." },
+    { q: "¿Qué es un plásmido y por qué es útil en ingeniería genética?", sol: "Un pequeño ADN circular de las bacterias, aparte de su cromosoma. Sirve como vehículo para introducir genes en ellas." },
+    { q: "¿Cuántas copias hay tras 20 ciclos de PCR partiendo de una molécula?", sol: "2²⁰ = 1.048.576, más de un millón." },
+    { q: "Indica tres usos de la PCR.", sol: "Diagnóstico de infecciones (como la COVID-19), criminología (identificar a sospechosos) y pruebas de paternidad." },
+    { q: "¿Qué es un organismo transgénico? Pon un ejemplo agrícola.", sol: "Un organismo al que se le ha introducido un gen de otra especie. Ejemplo: maíz Bt, resistente a una plaga de insectos." },
+    { q: "¿Cómo se obtuvo la oveja Dolly?", sol: "Se tomó el núcleo de una célula de la mama de una oveja adulta y se introdujo en un óvulo de otra oveja al que se le había quitado el núcleo; el embrión se implantó en una tercera oveja." },
+    { q: "Explica en qué consiste la terapia génica y una de sus dificultades.", sol: "Introducir una copia correcta de un gen en las células del paciente. Dificultad: llevar el gen a las células adecuadas de forma segura, sin causar reacciones." },
+    { q: "Indica dos aplicaciones de la biotecnología en el medio ambiente.", sol: "Bacterias que descomponen el petróleo de las mareas negras (biorremediación) y la depuración biológica de aguas residuales." },
+    { q: "Plantea un argumento a favor y otro en contra de los cultivos transgénicos.", sol: "A favor: pueden dar más cosecha, resistir plagas y reducir el uso de insecticidas. En contra: pueden afectar a otras especies, reducir la biodiversidad y concentrar las semillas en pocas empresas." },
+  ],
+  quiz: [
+    { q: "El yogur se fabrica gracias a…", o: ["levaduras", "bacterias", "virus"], a: 1, e: "Bacterias lácticas." },
+    { q: "La PCR sirve para…", o: ["cortar ADN", "obtener millones de copias de un fragmento de ADN", "clonar ovejas"], a: 1, e: "Se duplica en cada ciclo." },
+    { q: "La huella genética se usa en…", o: ["pruebas de paternidad y criminología", "fabricar pan", "regar cultivos"], a: 0, e: "Cada persona tiene un patrón único." },
+    { q: "CRISPR-Cas9 es una herramienta para…", o: ["editar genes", "ver células", "medir el pH"], a: 0, e: "Corta el ADN en un punto exacto." },
+    { q: "La terapia génica intenta…", o: ["introducir un gen correcto en las células", "cambiar el grupo sanguíneo", "eliminar los cromosomas"], a: 0, e: "Para curar enfermedades genéticas." },
+  ],
+  tarjetas: [
+    ["PCR", "Técnica que copia millones de veces un fragmento de ADN."],
+    ["Huella genética", "Patrón de ADN único de cada persona; se usa en criminología y paternidad."],
+    ["Terapia génica", "Introducir un gen correcto en las células de un paciente."],
+  ],
+});

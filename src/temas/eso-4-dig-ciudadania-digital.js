@@ -116,3 +116,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Hacer trámites y compras en línea con seguridad", "Conocer la accesibilidad digital y el trabajo colaborativo en red"],
+  tras: {
+    "Los derechos digitales": [
+      { html: `<h3>La administración electrónica</h3><p>Hoy muchos trámites se hacen por Internet: pedir cita médica, consultar las notas, solicitar una beca, presentar la declaración de la renta o pedir un certificado. Para ello hay que <b>identificarse</b> de forma segura. En España existen el <b>certificado digital</b> (un archivo instalado en el ordenador), el <b>DNI electrónico</b> (con chip) y el sistema <b>Cl@ve</b>, que permite entrar con un código o una app en el móvil. Todos se apoyan en la <b>firma electrónica</b>, que tiene <mark>la misma validez que una firma a mano</mark>. Las sedes electrónicas oficiales acaban en «.gob.es» y siempre usan HTTPS.</p>`, video: { id: "lUlvRNRMWBk", titulo: "Qué es y cómo funciona Cl@ve", canal: "Agencia Tributaria", vistas: 89241 } },
+      { html: `<h3>Comprar en línea con seguridad</h3><p>Antes de comprar en una tienda en línea conviene comprobar: que la web usa <b>HTTPS</b>; que tiene un <b>aviso legal</b> con nombre de la empresa, dirección y NIF; las <b>opiniones</b> en sitios independientes; y que los precios no son increíblemente bajos, señal típica de tienda falsa. Es mejor pagar con métodos que permiten reclamar, como tarjeta, tarjetas virtuales o plataformas de pago, y nunca por transferencia a un desconocido. En la Unión Europea hay un <b>derecho de desistimiento</b>: se puede devolver lo comprado a distancia en un plazo de <mark>14 días</mark> sin dar explicaciones. Los menores necesitan el permiso de sus padres para comprar.</p>`, video: { id: "zoKLrQYow3s", titulo: "Guía para comprar online como un experto", canal: "Trending Tony", vistas: 293361 } },
+    ],
+    "Netiqueta y participación": [
+      { html: `<h3>Trabajo colaborativo en red</h3><p>Las herramientas digitales permiten trabajar en equipo sin estar en el mismo sitio: documentos compartidos, videollamadas, tableros de tareas (como Trello) y plataformas educativas como Classroom o Moodle. Para que funcione, el grupo debe <b>repartir tareas</b> con responsables y plazos, usar <b>un solo canal</b> de comunicación, respetar los horarios de los demás (el <b>derecho a la desconexión digital</b> también protege a los trabajadores) y dejar constancia de los acuerdos. En las videollamadas: micrófono silenciado si no hablas, cámara si es posible y <mark>turnos de palabra</mark>.</p>` },
+    ],
+    "Brecha digital y sostenibilidad": [
+      { html: `<h3>Accesibilidad digital</h3><p>La <b>accesibilidad</b> busca que cualquier persona pueda usar la tecnología, tenga o no una discapacidad. Las personas ciegas usan <b>lectores de pantalla</b> que leen en voz alta el contenido; las sordas necesitan <b>subtítulos</b>; otras navegan solo con el teclado o con la voz. Para que una web sea accesible debe tener texto alternativo en las imágenes, buen contraste de colores, textos claros, vídeos subtitulados y poder manejarse sin ratón. En la Unión Europea, las webs de las administraciones <mark>están obligadas</mark> a ser accesibles. La accesibilidad beneficia a todos: los subtítulos ayudan también en un tren con ruido.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Una web vende zapatillas de marca a 19 € (en otras, 120 €). No tiene aviso legal y solo admite transferencia. ¿Comprarías?", pasos: ["Precio increíblemente bajo: señal de tienda falsa.", "Sin aviso legal ni datos de la empresa: no hay a quién reclamar.", "Pago solo por transferencia: no se puede recuperar el dinero."], resultado: "No: tiene tres señales claras de fraude." },
+    { enunciado: "Compraste una sudadera en línea el día 3 y te llegó el día 6. ¿Hasta cuándo puedes devolverla sin dar explicaciones?", pasos: ["El derecho de desistimiento es de 14 días naturales.", "Se cuenta desde que recibes el producto: el día 6.", "6 + 14 = día 20."], resultado: "Hasta el día 20 de ese mes." },
+    { enunciado: "Tu grupo debe hacer una presentación en dos semanas sin coincidir por las tardes. Organiza el trabajo.", pasos: ["Crea un documento compartido con el índice y asigna un apartado a cada persona con fecha.", "Usa un solo canal para comunicaros y una videollamada corta de seguimiento.", "Deja el último día para unir, revisar el estilo y ensayar."], resultado: "Tareas asignadas, un canal, un seguimiento y una revisión final." },
+  ],
+  errores: [
+    "Confundir una sede electrónica oficial con una web que cobra por hacer trámites gratuitos.",
+    "Comprar en tiendas sin aviso legal o pagar por transferencia a desconocidos.",
+    "Pensar que la accesibilidad solo interesa a las personas con discapacidad.",
+    "Escribir en el grupo de trabajo a cualquier hora esperando respuesta inmediata.",
+    "Compartir un bulo sin comprobarlo porque lo envía alguien de confianza.",
+  ],
+  ejercicios: [
+    { q: "¿Qué es la ciudadanía digital?", sol: "Participar en la sociedad a través de la tecnología de forma responsable, segura, crítica y respetuosa, conociendo los propios derechos y deberes." },
+    { q: "Nombra cuatro derechos digitales reconocidos en España.", sol: "Derecho a la protección de datos, al olvido, a la desconexión digital y a la neutralidad de la red (también al acceso universal o a la educación digital)." },
+    { q: "Indica tres formas de identificarse ante la administración por Internet.", sol: "Certificado digital, DNI electrónico y Cl@ve." },
+    { q: "Indica cuatro comprobaciones antes de comprar en una tienda en línea.", sol: "HTTPS, aviso legal con datos de la empresa, opiniones independientes y precios razonables (además de un método de pago seguro)." },
+    { q: "¿Qué es el derecho de desistimiento y cuál es su plazo?", sol: "El derecho a devolver una compra a distancia sin dar explicaciones; el plazo es de 14 días desde que se recibe." },
+    { q: "Indica cinco pasos para comprobar si una noticia es un bulo.", sol: "Leer más allá del titular, mirar la fuente y la fecha, buscarla en otros medios, consultar verificadores (Maldita, Newtral) y hacer una búsqueda inversa de las imágenes." },
+    { q: "Indica tres normas de netiqueta en una videollamada de clase.", sol: "Silenciar el micrófono si no se habla, pedir turno de palabra y mantener una actitud respetuosa (y la cámara si es posible)." },
+    { q: "Indica cuatro requisitos de una web accesible.", sol: "Texto alternativo en imágenes, buen contraste, vídeos subtitulados y manejo con teclado." },
+    { q: "¿Qué es la brecha digital? Indica dos causas.", sol: "La desigualdad en el acceso y el uso de la tecnología; causas: falta de recursos económicos, zona rural sin cobertura, edad o falta de formación." },
+    { q: "Indica tres acciones para reducir el impacto ambiental de la tecnología.", sol: "Alargar la vida de los dispositivos, reciclarlos en puntos limpios y reducir el almacenamiento y el streaming innecesarios." },
+  ],
+  quiz: [
+    { q: "Cl@ve sirve para…", o: ["identificarse ante la administración", "comprimir archivos", "jugar en línea"], a: 0, e: "Con un código o una app." },
+    { q: "El derecho de desistimiento en compras en línea es de…", o: ["7 días", "14 días", "30 días"], a: 1, e: "Desde que recibes el producto." },
+    { q: "Una señal de tienda falsa es…", o: ["tener aviso legal", "precios increíblemente bajos", "usar HTTPS"], a: 1, e: "Demasiado bueno para ser verdad." },
+    { q: "Un lector de pantalla ayuda a…", o: ["personas ciegas", "comprimir vídeos", "mejorar el wifi"], a: 0, e: "Lee el contenido en voz alta." },
+    { q: "Las sedes electrónicas oficiales españolas acaban en…", o: [".com", ".gob.es", ".net"], a: 1, e: "Y siempre usan HTTPS." },
+  ],
+  tarjetas: [
+    ["Firma electrónica", "Identificación digital con la misma validez legal que una firma a mano."],
+    ["Derecho de desistimiento", "Devolver una compra a distancia en 14 días sin explicaciones."],
+    ["Accesibilidad digital", "Que cualquier persona, con o sin discapacidad, pueda usar la tecnología."],
+  ],
+});

@@ -127,3 +127,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular fuerzas de rozamiento, normales y elásticas", "Resolver problemas de dinámica con varias fuerzas siguiendo un método"],
+  tras: {
+    "Qué es una fuerza": [
+      { html: `<h3>Sumar fuerzas: la resultante</h3><p>Como las fuerzas son vectores, no basta con sumar sus números: hay que tener en cuenta su dirección y sentido. Si dos fuerzas tienen la <b>misma dirección y sentido</b>, se suman (30 N + 20 N = 50 N). Si tienen la <b>misma dirección y sentido contrario</b>, se restan y la resultante va hacia la mayor (30 N − 20 N = 10 N hacia la de 30). Si son <b>perpendiculares</b>, la resultante es la hipotenusa del triángulo que forman: <mark>R = √(F₁² + F₂²)</mark>. Por ejemplo, 30 N hacia el este y 40 N hacia el norte dan 50 N. Con más fuerzas en otras direcciones, se descompone cada una en sus componentes x e y, se suman por separado y al final se aplica Pitágoras.</p>`, video: { id: "m0_gQ9RBUZc", titulo: "Calcular fuerza resultante", canal: "Susi Profe", vistas: 931414 } },
+      { html: `<h3>Fuerzas elásticas: la ley de Hooke</h3><p>Al tirar de un muelle se alarga, y al soltarlo recupera su forma: es un cuerpo <b>elástico</b>. Robert Hooke descubrió que, mientras no se pase de su límite, el alargamiento es <mark>directamente proporcional a la fuerza</mark>: F = k · Δx, donde Δx es el alargamiento (en m) y k la constante elástica del muelle (en N/m), que indica lo duro que es. Un muelle con k = 200 N/m se alarga 0,1 m con 20 N y 0,2 m con 40 N. En esta ley se basan los <b>dinamómetros</b>, que miden fuerzas con un muelle y una escala. Si se supera el <b>límite de elasticidad</b>, el muelle queda deformado para siempre.</p>` },
+    ],
+    "Segunda ley: fuerza, masa y aceleración": [
+      { html: `<h3>La fuerza de rozamiento</h3><p>Cuando un cuerpo se desliza o intenta deslizarse sobre otro, aparece una fuerza que se opone al movimiento: el <b>rozamiento</b>. Se debe a las pequeñas irregularidades de las superficies y depende de dos cosas: del tipo de superficies, expresado por el <b>coeficiente de rozamiento</b> μ (sin unidades), y de lo fuerte que se aprietan una contra otra, la <b>fuerza normal</b> N. En una superficie horizontal, N es igual al peso, así que <mark>Fr = μ · N = μ · m · g</mark>. Hielo y acero tienen μ ≈ 0,02; goma sobre asfalto seco, μ ≈ 0,8. El rozamiento a veces molesta (desgasta piezas y gasta energía), pero sin él no podríamos andar, frenar ni sujetar un lápiz.</p>`, video: { id: "xzBAbMd9Ze8", titulo: "Fuerza de rozamiento: ejercicios resueltos", canal: "Matemóvil", vistas: 1240856 } },
+      { html: `<h3>Resolver un problema de dinámica</h3><p>Los problemas de fuerzas se resuelven siempre con el mismo método: 1) dibuja el cuerpo y <b>todas las fuerzas</b> que actúan sobre él (peso, normal, rozamiento, tensión de una cuerda, la fuerza que aplicamos); 2) elige como sentido positivo el del movimiento; 3) calcula la <b>fuerza resultante</b> sumando las que van a favor y restando las que van en contra; 4) aplica <mark>ΣF = m · a</mark> y despeja lo que te pidan; 5) si te preguntan por velocidades o distancias, usa la aceleración en las ecuaciones del MRUA. Las fuerzas verticales (peso y normal) se anulan en una superficie horizontal y no aceleran el cuerpo hacia los lados.</p>` },
+    ],
+    "El peso es una fuerza": [
+      { html: `<h3>Fuerza centrípeta</h3><p>Para que un cuerpo describa una curva hace falta una fuerza que tire de él hacia el centro: la <b>fuerza centrípeta</b>. No es una fuerza nueva, sino el papel que hace otra fuerza: en un coche que toma una curva, es el rozamiento de las ruedas con el suelo; en una piedra atada a una cuerda, la tensión de la cuerda; en la Luna, la gravedad de la Tierra. Su valor es <mark>Fc = m · v² / R</mark>. Si desaparece (la cuerda se rompe o el suelo está helado), el cuerpo sigue en línea recta por inercia, tangente a la curva. Por eso las curvas de las carreteras tienen límites de velocidad y a veces están peraltadas, inclinadas hacia dentro.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Sobre una caja actúan 60 N hacia la derecha y 40 N hacia arriba (perpendiculares). Calcula la resultante.", pasos: ["Como son perpendiculares, se usa Pitágoras.", "R = √(60² + 40²) = √(3.600 + 1.600) = √5.200.", "R ≈ 72,1 N."], resultado: "R ≈ 72 N, inclinada hacia arriba a la derecha." },
+    { enunciado: "Empujas una caja de 20 kg con 100 N sobre un suelo con μ = 0,3. Calcula su aceleración.", pasos: ["Fuerzas horizontales: 100 N a favor y el rozamiento en contra.", "Fr = μ·m·g = 0,3 · 20 · 9,8 = 58,8 N.", "ΣF = 100 − 58,8 = 41,2 N.", "a = ΣF / m = 41,2 / 20 = 2,06 m/s²."], resultado: "a ≈ 2,1 m/s²." },
+    { enunciado: "Un muelle de constante k = 250 N/m se alarga 8 cm al colgarle una pesa. ¿Cuál es la masa de la pesa?", pasos: ["Δx = 8 cm = 0,08 m.", "F = k · Δx = 250 · 0,08 = 20 N. Esa fuerza es el peso de la pesa.", "m = P / g = 20 / 9,8 ≈ 2,04 kg."], resultado: "m ≈ 2 kg." },
+  ],
+  errores: [
+    "Sumar fuerzas como números sin tener en cuenta su dirección y sentido.",
+    "Pensar que si un cuerpo se mueve, tiene que haber una fuerza en el sentido del movimiento (si va a velocidad constante, la resultante es cero).",
+    "Creer que la acción y la reacción se anulan: actúan sobre cuerpos distintos.",
+    "Confundir masa (kg) con peso (N).",
+    "Poner el rozamiento a favor del movimiento: siempre se opone.",
+    "Usar el alargamiento en centímetros en la ley de Hooke cuando k está en N/m.",
+  ],
+  ejercicios: [
+    { q: "Dos personas tiran de un carro en el mismo sentido con 120 N y 80 N, y una tercera en sentido contrario con 150 N. Calcula la resultante.", sol: "120 + 80 − 150 = 50 N en el sentido de las dos primeras." },
+    { q: "Calcula la resultante de dos fuerzas perpendiculares de 9 N y 12 N.", sol: "R = √(81 + 144) = √225 = 15 N." },
+    { q: "Un coche de 1.000 kg acelera a 2 m/s². ¿Qué fuerza neta actúa sobre él?", sol: "F = m · a = 1.000 · 2 = 2.000 N." },
+    { q: "Una fuerza de 50 N actúa sobre un cuerpo de 10 kg en reposo durante 4 s, sin rozamiento. ¿Qué velocidad alcanza?", sol: "a = 50 / 10 = 5 m/s². v = a · t = 5 · 4 = 20 m/s." },
+    { q: "Calcula el rozamiento sobre un trineo de 30 kg si μ = 0,1.", sol: "Fr = 0,1 · 30 · 9,8 = 29,4 N." },
+    { q: "¿Qué fuerza hay que hacer para mover a velocidad constante una caja de 50 kg con μ = 0,4?", sol: "A velocidad constante ΣF = 0: hay que igualar el rozamiento, F = 0,4 · 50 · 9,8 = 196 N." },
+    { q: "Un muelle se alarga 5 cm con 10 N. ¿Cuál es su constante? ¿Cuánto se alargará con 30 N?", sol: "k = 10 / 0,05 = 200 N/m. Con 30 N: Δx = 30 / 200 = 0,15 m = 15 cm." },
+    { q: "Explica con la tercera ley cómo andamos.", sol: "Al andar empujamos el suelo hacia atrás con el pie; el suelo nos empuja hacia delante con una fuerza igual y opuesta. Sin rozamiento (en hielo) no podríamos empujar el suelo." },
+    { q: "Un coche de 1.200 kg toma una curva de 50 m de radio a 15 m/s. ¿Qué fuerza centrípeta necesita? ¿Quién la proporciona?", sol: "Fc = 1.200 · 225 / 50 = 5.400 N. La proporciona el rozamiento entre los neumáticos y el asfalto." },
+    { q: "Si en un autobús que arranca de golpe te vas hacia atrás, ¿qué ley lo explica? ¿Te empuja alguna fuerza?", sol: "La primera ley (inercia): tu cuerpo tiende a seguir en reposo mientras el autobús acelera. No hay ninguna fuerza que te empuje hacia atrás; es el autobús el que avanza bajo tus pies." },
+  ],
+  quiz: [
+    { q: "La resultante de 6 N y 8 N perpendiculares es…", o: ["14 N", "10 N", "2 N"], a: 1, e: "√(36 + 64) = 10." },
+    { q: "La fuerza de rozamiento depende de…", o: ["la velocidad del cuerpo", "el coeficiente μ y la fuerza normal", "el color de la superficie"], a: 1, e: "Fr = μ · N." },
+    { q: "En la ley de Hooke, si la fuerza se duplica, el alargamiento…", o: ["se duplica", "se reduce a la mitad", "no cambia"], a: 0, e: "Son directamente proporcionales." },
+    { q: "Si un cuerpo se mueve a velocidad constante en línea recta, la fuerza resultante es…", o: ["cero", "igual al peso", "en el sentido del movimiento"], a: 0, e: "Primera ley de Newton." },
+    { q: "En un coche que toma una curva, la fuerza centrípeta la proporciona…", o: ["el motor", "el rozamiento de las ruedas", "el peso"], a: 1, e: "Sin rozamiento, el coche seguiría recto." },
+  ],
+  tarjetas: [
+    ["Resultante de fuerzas perpendiculares", "R = √(F₁² + F₂²)."],
+    ["Ley de Hooke", "F = k · Δx: el alargamiento es proporcional a la fuerza."],
+    ["Fuerza de rozamiento", "Fr = μ · m · g en una superficie horizontal; se opone al movimiento."],
+  ],
+});

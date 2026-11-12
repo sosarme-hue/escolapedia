@@ -120,3 +120,61 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Formular y nombrar peróxidos y combinaciones binarias del hidrógeno", "Aplicar las nomenclaturas de composición y de Stock según la IUPAC"],
+  tras: {
+    "Números de oxidación": [
+      { html: `<h3>Las nomenclaturas de la IUPAC</h3><p>La IUPAC, el organismo que fija las normas de la química, recomienda dos formas principales de nombrar los compuestos binarios. La <b>nomenclatura de composición</b> indica cuántos átomos hay de cada elemento con <b>prefijos multiplicadores</b>: mono-, di-, tri-, tetra-, penta-… Así, Fe₂O₃ es <mark>trióxido de dihierro</mark> (el prefijo mono- se suele omitir delante del primer elemento). La <b>nomenclatura de Stock</b> pone el número de oxidación del metal en números romanos y entre paréntesis cuando tiene más de uno: Fe₂O₃ es <mark>óxido de hierro(III)</mark>. Si el elemento solo tiene un número de oxidación, como el Na (+1) o el Ca (+2), no se pone: CaO es óxido de calcio. Algunos compuestos conservan nombres comunes aceptados: H₂O (agua), NH₃ (amoniaco), CH₄ (metano).</p>${AMP.tabla(["Fórmula", "Composición", "Stock"], [["FeO", "monóxido de hierro", "óxido de hierro(II)"], ["Fe₂O₃", "trióxido de dihierro", "óxido de hierro(III)"], ["CuCl₂", "dicloruro de cobre", "cloruro de cobre(II)"], ["SO₃", "trióxido de azufre", "óxido de azufre(VI)"]])}` },
+    ],
+    "Óxidos": [
+      { html: `<h3>Peróxidos</h3><p>Los <b>peróxidos</b> son combinaciones de un metal (o del hidrógeno) con el grupo <mark>O₂²⁻</mark>, en el que cada oxígeno actúa con número de oxidación −1. El grupo O₂ <b>no se simplifica</b>: el peróxido de hidrógeno es H₂O₂ (el agua oxigenada del botiquín), no HO. Para formularlos se combina el metal con el ion peróxido como si fuera un único ion de carga −2: Na₂O₂ (peróxido de sodio), CaO₂ (peróxido de calcio), BaO₂ (peróxido de bario). Para distinguirlo de un óxido, comprueba si con el número de oxidación normal del metal sobran oxígenos: en Na₂O₂, si el O fuera −2 el sodio debería ser +2, y eso es imposible.</p>`, video: { id: "t_tSXV8E2ug", titulo: "Formulación inorgánica: peróxidos", canal: "Amigos de la Química", vistas: 1737975 } },
+    ],
+    "Hidruros y sales binarias": [
+      { html: `<h3>Hidrácidos: el hidrógeno con los no metales</h3><p>Cuando el hidrógeno (+1) se combina con los halógenos (F, Cl, Br, I con −1) o con el azufre, el selenio o el teluro (−2), se forman los <b>haluros de hidrógeno</b>: HF, HCl, HBr, HI y H₂S. Se escribe primero el hidrógeno y se nombran con el sufijo -uro: HCl es <mark>cloruro de hidrógeno</mark> y H₂S es sulfuro de hidrógeno (o sulfuro de dihidrógeno). Cuando están disueltos en agua se comportan como ácidos y se llaman <b>hidrácidos</b>: ácido clorhídrico (HCl en agua, el salfumán), ácido fluorhídrico, ácido sulfhídrico. El ácido clorhídrico también está en el jugo gástrico del estómago.</p>` },
+    ],
+    "Oxoácidos y oxisales": [
+      { html: `<h3>Oxisales paso a paso</h3><p>Una <b>oxisal</b> resulta de sustituir los hidrógenos de un oxoácido por un metal. Primero se quita el hidrógeno al ácido y se obtiene el anión: H₂SO₄ → <b>SO₄²⁻</b> (sulfato, con tantas cargas negativas como hidrógenos se quitaron). Después se combina con el catión del metal hasta que la carga total sea cero. En la nomenclatura tradicional, la terminación del ácido cambia: <mark>-ico pasa a -ato</mark> y <mark>-oso pasa a -ito</mark>. Así, del ácido sulfúrico sale el sulfato; del nítrico, el nitrato; del carbónico, el carbonato; y del nitroso, el nitrito. Ejemplos: CaCO₃ (carbonato de calcio, la caliza), KNO₃ (nitrato de potasio, un abono), Na₂SO₄ (sulfato de sodio).</p>`, video: { id: "wrlw3qKpj2Y", titulo: "Formulación inorgánica: oxisales neutras", canal: "Amigos de la Química", vistas: 1858855 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Formula el óxido de cobalto(III) y nómbralo también por composición.", pasos: ["Co actúa con +3 y el O con −2.", "Se intercambian los números (sin signo) como subíndices: Co₂O₃.", "Se cuenta: 2 cobaltos y 3 oxígenos."], resultado: "Co₂O₃, trióxido de dicobalto." },
+    { enunciado: "Nombra Fe(OH)₂ y formula el hidróxido de aluminio.", pasos: ["En Fe(OH)₂ hay 2 grupos OH⁻ (−1 cada uno): el hierro actúa con +2.", "Su nombre de Stock es hidróxido de hierro(II).", "El aluminio actúa siempre con +3: necesita 3 grupos OH⁻."], resultado: "Fe(OH)₂ es hidróxido de hierro(II); el hidróxido de aluminio es Al(OH)₃." },
+    { enunciado: "Formula el sulfato de cobre(II) y el nitrato de calcio.", pasos: ["Sulfato viene del H₂SO₄: el anión es SO₄²⁻. El cobre(II) es Cu²⁺. Cargas +2 y −2: uno a uno, CuSO₄.", "Nitrato viene del HNO₃: el anión es NO₃⁻. El calcio es Ca²⁺.", "Hacen falta dos nitratos para compensar el +2, y el grupo va entre paréntesis: Ca(NO₃)₂."], resultado: "CuSO₄ y Ca(NO₃)₂." },
+  ],
+  errores: [
+    "Simplificar el grupo peróxido: el agua oxigenada es H₂O₂, no HO.",
+    "Olvidar el paréntesis en grupos repetidos: Ca(NO₃)₂, no CaNO₃₂.",
+    "Poner el número romano a un metal con un único número de oxidación: «óxido de sodio(I)» no se usa.",
+    "Escribir primero el no metal: es NaCl, no ClNa.",
+    "Confundir sulfuro (S²⁻, sin oxígeno), sulfito (SO₃²⁻) y sulfato (SO₄²⁻).",
+    "No comprobar que la suma de números de oxidación de un compuesto sea cero.",
+  ],
+  ejercicios: [
+    { q: "Formula: óxido de plomo(IV), dióxido de carbono, óxido de potasio.", sol: "PbO₂, CO₂ y K₂O." },
+    { q: "Nombra por Stock: CuO, Cu₂O, SnCl₄.", sol: "Óxido de cobre(II), óxido de cobre(I) y cloruro de estaño(IV)." },
+    { q: "Formula: peróxido de litio, peróxido de bario, peróxido de hidrógeno.", sol: "Li₂O₂, BaO₂ y H₂O₂." },
+    { q: "Nombra: NaH, CaH₂, NH₃.", sol: "Hidruro de sodio, dihidruro de calcio (hidruro de calcio) y amoniaco (trihidruro de nitrógeno, azano)." },
+    { q: "Formula: bromuro de hidrógeno, sulfuro de hidrógeno, cloruro de amonio.", sol: "HBr, H₂S y NH₄Cl." },
+    { q: "Formula: hidróxido de sodio, hidróxido de hierro(III), hidróxido de magnesio.", sol: "NaOH, Fe(OH)₃ y Mg(OH)₂." },
+    { q: "Calcula el número de oxidación del cromo en K₂Cr₂O₇.", sol: "K: +1 · 2 = +2. O: −2 · 7 = −14. La suma debe ser 0: 2 + 2·x − 14 = 0, x = +6." },
+    { q: "Formula los ácidos: sulfúrico, nítrico y carbónico.", sol: "H₂SO₄, HNO₃ y H₂CO₃." },
+    { q: "Formula: carbonato de sodio, sulfato de hierro(III), nitrito de potasio.", sol: "Na₂CO₃, Fe₂(SO₄)₃ y KNO₂." },
+    { q: "Nombra: CaCO₃, KNO₃, Na₂SO₄, NaClO.", sol: "Carbonato de calcio, nitrato de potasio, sulfato de sodio e hipoclorito de sodio (la lejía)." },
+  ],
+  quiz: [
+    { q: "En los peróxidos, el oxígeno tiene número de oxidación…", o: ["−2", "−1", "+2"], a: 1, e: "Forma el grupo O₂²⁻." },
+    { q: "El nombre de composición de Fe₂O₃ es…", o: ["óxido de hierro(II)", "trióxido de dihierro", "dióxido de trihierro"], a: 1, e: "Prefijos que cuentan átomos." },
+    { q: "HCl disuelto en agua se llama…", o: ["ácido clorhídrico", "ácido clórico", "cloruro de agua"], a: 0, e: "Es un hidrácido." },
+    { q: "Del ácido nítrico deriva el anión…", o: ["nitrito", "nitrato", "nitruro"], a: 1, e: "-ico pasa a -ato." },
+    { q: "La fórmula del sulfato de sodio es…", o: ["NaSO₄", "Na₂SO₄", "Na₂S"], a: 1, e: "Dos Na⁺ para un SO₄²⁻." },
+  ],
+  tarjetas: [
+    ["Nomenclatura de Stock", "Número de oxidación del metal en romanos: óxido de hierro(III)."],
+    ["Peróxido de hidrógeno", "H₂O₂, el agua oxigenada; el grupo O₂ no se simplifica."],
+    ["De ácido a oxisal", "-ico pasa a -ato y -oso pasa a -ito."],
+  ],
+});

@@ -117,3 +117,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Aplicar los principios de la estratigrafía para ordenar acontecimientos geológicos", "Explicar cómo se forman los fósiles y qué son las extinciones masivas"],
+  tras: {
+    "El tiempo geológico": [
+      { html: `<h3>Catastrofismo y uniformismo</h3><p>Durante siglos se pensó que la Tierra tenía unos pocos miles de años y que su relieve se había formado por grandes <b>catástrofes</b> repentinas, como diluvios: era el <b>catastrofismo</b>. En el siglo XVIII, James Hutton propuso el <b>uniformismo</b>, que Charles Lyell difundió después: <mark>los procesos que vemos hoy</mark> (la erosión de un río, la sedimentación en el mar, los volcanes) son los mismos que actuaron en el pasado, y actuando muy despacio durante muchísimo tiempo pueden levantar montañas o excavar valles. Hoy se acepta el uniformismo como regla general, aunque también se reconocen algunos sucesos catastróficos, como el impacto del meteorito que acabó con los dinosaurios.</p>` },
+    ],
+    "Leer las rocas: los estratos": [
+      { html: `<h3>Los principios de la estratigrafía</h3><p>Para reconstruir la historia de una zona, los geólogos aplican unos principios sencillos. <b>Superposición</b>: en una serie de estratos sin alterar, los de abajo son más antiguos que los de arriba. <b>Horizontalidad original</b>: los sedimentos se depositan en capas horizontales; si están inclinados o plegados, se deformaron después. <b>Continuidad lateral</b>: un estrato tiene la misma edad en toda su extensión. <b>Relaciones de corte</b>: <mark>una falla o un dique de roca que corta unos estratos es más moderno que ellos</mark>. <b>Sucesión faunística</b>: cada época tiene sus propios fósiles. Una <b>discordancia</b> es una superficie de erosión que indica que durante un tiempo no hubo sedimentación.</p>`, video: { id: "3cdrFI86WbI", titulo: "Principios fundamentales de la geología y la estratigrafía", canal: "Geología activa", vistas: 58463 } },
+    ],
+    "Datar las rocas": [
+      { html: `<h3>Los fósiles y cómo se forman</h3><p>Un <b>fósil</b> es un resto de un ser vivo o una señal de su actividad (huellas, huevos, excrementos) conservado en las rocas. La <b>fosilización</b> es rara: el organismo debe quedar <mark>enterrado rápidamente</mark> por sedimentos, lejos del oxígeno y de los carroñeros. Las partes blandas se descomponen y las duras (huesos, conchas, dientes) se van sustituyendo poco a poco por minerales hasta convertirse en piedra. Otras veces solo queda el <b>molde</b> del organismo. Hay fósiles excepcionales, como los insectos en ámbar o los mamuts congelados. Los <b>fósiles guía</b> vivieron poco tiempo y en zonas muy extensas, por eso sirven para datar los estratos: los trilobites indican el Paleozoico y los ammonites, el Mesozoico.</p>`, video: { id: "87E8bQrX4Wg", titulo: "¿Cómo se forman los fósiles de dinosaurios?", canal: "Natural History Museum", vistas: 5235582 } },
+    ],
+    "Mesozoico y Cenozoico": [
+      { html: `<h3>Las extinciones masivas</h3><p>En la historia de la Tierra ha habido al menos <b>cinco grandes extinciones</b>, en las que desapareció una gran parte de las especies en poco tiempo geológico. La mayor fue la del final del <b>Pérmico</b>, hace 252 millones de años: desapareció cerca del 90 % de las especies marinas, probablemente por enormes erupciones volcánicas que cambiaron el clima. La más famosa es la del final del <b>Cretácico</b>, hace 66 millones de años: el impacto de un meteorito de unos 10 km en Chicxulub (México) acabó con los dinosaurios no avianos. Tras cada extinción, los supervivientes ocuparon los huecos libres: <mark>sin la desaparición de los dinosaurios, los mamíferos no se habrían diversificado</mark>. Muchos científicos creen que hoy estamos causando una sexta extinción.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "En un corte hay, de abajo arriba, los estratos A, B y C. Una falla corta A y B pero no C. Ordena los acontecimientos.", pasos: ["Por superposición: A es el más antiguo, después B y después C.", "La falla corta A y B, así que es posterior a ellos.", "C no está cortado: se depositó después de la falla."], resultado: "A → B → falla → C." },
+    { enunciado: "Un estrato contiene trilobites y el de encima, ammonites. ¿A qué eras pertenecen y qué ocurrió entre ellos?", pasos: ["Los trilobites son fósiles guía del Paleozoico.", "Los ammonites lo son del Mesozoico.", "Entre las dos eras está la gran extinción del final del Pérmico, en la que desaparecieron los trilobites."], resultado: "El inferior es paleozoico y el superior mesozoico; entre ellos hubo la extinción del Pérmico." },
+    { enunciado: "Si toda la historia de la Tierra (4.600 millones de años) se comprimiera en un día de 24 horas, ¿a qué hora aparecería Homo sapiens (hace 300.000 años)?", pasos: ["Un día tiene 86.400 segundos para 4.600 millones de años.", "Cada segundo equivale a unos 53.000 años.", "300.000 años / 53.000 ≈ 5,6 segundos antes de medianoche."], resultado: "A las 23:59:54, unos 6 segundos antes del final del día." },
+  ],
+  errores: [
+    "Pensar que los humanos convivieron con los dinosaurios: los separan más de 60 millones de años.",
+    "Creer que todos los seres vivos fosilizan: la fosilización es excepcional.",
+    "Aplicar la superposición a estratos dados la vuelta por un pliegue sin tenerlo en cuenta.",
+    "Confundir datación relativa (qué es más antiguo) con absoluta (cuántos años tiene).",
+    "Decir que el Cenozoico es la era de los dinosaurios: es la de los mamíferos.",
+  ],
+  ejercicios: [
+    { q: "¿Qué diferencia hay entre datación relativa y absoluta? Pon un método de cada una.", sol: "La relativa ordena los acontecimientos (qué ocurrió antes); por ejemplo, la superposición de estratos. La absoluta da la edad en años; por ejemplo, la desintegración de isótopos radiactivos." },
+    { q: "Enuncia el principio de superposición.", sol: "En una serie de estratos no alterada, cada estrato es más moderno que el que tiene debajo y más antiguo que el que tiene encima." },
+    { q: "Un dique de roca volcánica atraviesa tres estratos. ¿Es más antiguo o más moderno que ellos?", sol: "Más moderno: para cortarlos, los estratos ya tenían que existir (principio de relaciones de corte)." },
+    { q: "¿Qué condiciones favorecen la fosilización?", sol: "Un enterramiento rápido en sedimentos finos, la ausencia de oxígeno y de carroñeros, y tener partes duras." },
+    { q: "¿Qué es un fósil guía? Pon dos ejemplos.", sol: "Un fósil de una especie que vivió poco tiempo y en zonas amplias, útil para datar estratos. Ejemplos: trilobites (Paleozoico) y ammonites (Mesozoico)." },
+    { q: "Ordena las eras: Mesozoico, Precámbrico, Cenozoico, Paleozoico.", sol: "Precámbrico, Paleozoico, Mesozoico y Cenozoico." },
+    { q: "¿Qué acontecimiento marca el final del Mesozoico y qué pruebas hay?", sol: "El impacto de un gran meteorito hace 66 millones de años. Pruebas: el cráter de Chicxulub y una capa rica en iridio (raro en la Tierra, común en meteoritos) en rocas de esa edad en todo el mundo." },
+    { q: "Explica la diferencia entre catastrofismo y uniformismo.", sol: "El catastrofismo atribuía el relieve a catástrofes repentinas. El uniformismo dice que los procesos actuales, lentos, actuaron igual en el pasado durante mucho tiempo." },
+    { q: "¿Por qué la aparición del oxígeno en la atmósfera fue tan importante?", sol: "Lo produjeron las cianobacterias por fotosíntesis; permitió la respiración aerobia, más eficaz, y la formación de la capa de ozono, que protegió la vida y le permitió salir a tierra firme." },
+    { q: "¿Qué es una discordancia y qué indica?", sol: "Una superficie de erosión entre dos grupos de estratos. Indica que durante un tiempo no hubo sedimentación o que se erosionaron capas antes de depositarse las nuevas." },
+  ],
+  quiz: [
+    { q: "Según el principio de superposición, los estratos de abajo son…", o: ["más modernos", "más antiguos", "de la misma edad"], a: 1, e: "Si no se han dado la vuelta." },
+    { q: "Una falla que corta unos estratos es…", o: ["más antigua que ellos", "más moderna que ellos", "de la misma edad"], a: 1, e: "Relaciones de corte." },
+    { q: "Para fosilizar, un organismo necesita sobre todo…", o: ["un enterramiento rápido", "mucho oxígeno", "estar en la superficie"], a: 0, e: "Así se protege de la descomposición." },
+    { q: "Los dinosaurios no avianos se extinguieron hace unos…", o: ["66 millones de años", "6.000 años", "500 millones de años"], a: 0, e: "Final del Cretácico." },
+    { q: "La mayor extinción masiva fue la del final del…", o: ["Pérmico", "Cretácico", "Cuaternario"], a: 0, e: "Desapareció cerca del 90 % de las especies marinas." },
+  ],
+  tarjetas: [
+    ["Uniformismo", "Los procesos geológicos actuales son los mismos que actuaron en el pasado."],
+    ["Principio de relaciones de corte", "Lo que corta (falla, dique) es más moderno que lo cortado."],
+    ["Extinción masiva", "Desaparición de una gran parte de las especies en poco tiempo geológico."],
+  ],
+});

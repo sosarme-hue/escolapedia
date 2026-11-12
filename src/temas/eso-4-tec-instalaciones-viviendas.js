@@ -116,3 +116,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular el consumo y el coste de la energía de una vivienda", "Interpretar la factura eléctrica y la etiqueta de eficiencia energética de un edificio"],
+  tras: {
+    "La instalación eléctrica": [
+      { html: `<h3>Circuitos de una vivienda y potencia contratada</h3><p>La instalación de una casa se divide en <b>circuitos independientes</b>, cada uno con su interruptor magnetotérmico (PIA) y un cable de grosor adecuado: el de alumbrado usa cable de 1,5 mm² y un PIA de 10 A; el de enchufes de uso general, 2,5 mm² y 16 A; y los de cocina-horno y lavadora-lavavajillas, cables más gruesos (4-6 mm²) porque consumen mucho. Cuanta más corriente, <mark>más grueso debe ser el cable</mark>, para que no se caliente. La <b>potencia contratada</b> (por ejemplo, 4,6 kW) es la máxima que podemos usar a la vez: si encendemos horno, lavadora y secador juntos y la superamos, salta el <b>ICP</b> o el limitador del contador. Para elegirla, se suman las potencias de los aparatos que solemos usar a la vez.</p>` },
+    ],
+    "Seguridad eléctrica": [
+      { html: `<h3>Qué hacer ante un accidente eléctrico</h3><p>La corriente es peligrosa a partir de unos 30 mA que atraviesen el cuerpo: puede provocar quemaduras, contracciones musculares que impiden soltar el cable y paradas cardiacas. Por eso el interruptor diferencial corta en cuanto detecta una fuga de esa magnitud. Normas básicas: no manipular aparatos con las manos mojadas ni en el baño; no sobrecargar enchufes con ladrones; desenchufar tirando de la clavija, no del cable; tapar los enchufes si hay niños. Si alguien se queda pegado a un cable, <mark>no hay que tocarle</mark>: primero se corta la corriente en el cuadro general o se le separa con un objeto aislante seco (madera, plástico), y después se llama al 112.</p>` },
+    ],
+    "Agua, saneamiento, calefacción y gas": [
+      { html: `<h3>Telecomunicaciones y gas</h3><p>Los edificios tienen una <b>infraestructura común de telecomunicaciones</b> (ICT) que lleva a cada vivienda la televisión (antena terrestre y parabólica), el teléfono y la <b>fibra óptica</b>, a través de un armario de registro en la entrada. Dentro de casa, la red de datos se distribuye por cable o por wifi. La instalación de <b>gas</b> (natural, por tubería, o butano y propano, en bombonas) tiene sus propias normas: llave de paso general y en cada aparato, rejillas de ventilación que <mark>nunca deben taparse</mark> y revisiones periódicas obligatorias por un técnico autorizado. Si huele a gas no hay que encender luces ni interruptores (una chispa podría provocar una explosión): se cierra la llave, se abren ventanas y se sale de casa para llamar a emergencias.</p>` },
+    ],
+    "Ahorro energético y domótica": [
+      { html: `<h3>La factura y la certificación energética</h3><p>La factura de la luz tiene dos partes principales: el <b>término de potencia</b>, que se paga por los kW contratados aunque no se use nada, y el <b>término de energía</b>, que se paga por los kWh consumidos. Además se añaden el impuesto eléctrico, el alquiler del contador y el IVA. En muchas tarifas el precio cambia según la hora: es más barato usar la lavadora por la noche o el fin de semana. Los edificios tienen un <b>certificado de eficiencia energética</b>, obligatorio para vender o alquilar, con una letra de la <mark>A (más eficiente) a la G</mark> según la energía que necesitan y el CO₂ que emiten. El aislamiento de paredes y ventanas, la orientación y el tipo de calefacción son los factores que más influyen.</p>`, video: { id: "dLIXiTW1BaM", titulo: "¿En qué consiste el certificado de eficiencia energética?", canal: "laSexta Noticias", vistas: 109658 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Una familia quiere usar a la vez el horno (2.200 W), la lavadora (2.000 W), la nevera (200 W) y luces (300 W). ¿Les basta con 3,45 kW contratados?", pasos: ["Suma de potencias: 2.200 + 2.000 + 200 + 300 = 4.700 W = 4,7 kW.", "Potencia contratada: 3,45 kW.", "4,7 > 3,45: el limitador cortará."], resultado: "No; necesitan al menos 4,7 kW o no usar horno y lavadora a la vez." },
+    { enunciado: "Calcula el consumo mensual de un televisor de 100 W encendido 4 horas al día y su coste a 0,15 €/kWh.", pasos: ["Energía diaria: 0,1 kW · 4 h = 0,4 kWh.", "En 30 días: 0,4 · 30 = 12 kWh.", "Coste: 12 · 0,15 = 1,80 €."], resultado: "12 kWh y 1,80 € al mes." },
+    { enunciado: "Se cambian 10 bombillas incandescentes de 60 W por LED de 8 W. Si están encendidas 5 h al día, ¿cuánto se ahorra en un año a 0,15 €/kWh?", pasos: ["Ahorro de potencia: 10 · (60 − 8) = 520 W = 0,52 kW.", "Energía ahorrada al año: 0,52 · 5 · 365 = 949 kWh.", "Dinero: 949 · 0,15 ≈ 142 €."], resultado: "Unos 949 kWh y 142 € al año." },
+  ],
+  errores: [
+    "Confundir potencia (kW, lo que consume un aparato en cada momento) con energía (kWh, lo que consume en un tiempo).",
+    "Pensar que el diferencial protege de las sobrecargas: eso lo hace el magnetotérmico; el diferencial protege a las personas de las fugas.",
+    "Tocar a una persona electrocutada antes de cortar la corriente.",
+    "Encender la luz para buscar una fuga de gas.",
+    "Tapar las rejillas de ventilación de la cocina o del calentador para que no entre frío.",
+  ],
+  ejercicios: [
+    { q: "Nombra las partes de la instalación eléctrica desde la calle hasta un enchufe.", sol: "Acometida, caja general de protección, contador, derivación individual, cuadro general de mando y protección (ICP, IGA, diferencial y PIA) y circuitos interiores hasta el enchufe." },
+    { q: "¿Qué función tienen el IGA, el diferencial y los PIA?", sol: "IGA: protege toda la instalación de sobrecargas y cortocircuitos. Diferencial: detecta fugas a tierra y protege a las personas. PIA: protege cada circuito por separado." },
+    { q: "¿Por qué el cable del horno es más grueso que el de las luces?", sol: "Porque el horno consume más corriente, y un cable fino se calentaría demasiado y podría provocar un incendio." },
+    { q: "Calcula la intensidad que consume un horno de 2.300 W a 230 V.", sol: "I = P / V = 2.300 / 230 = 10 A." },
+    { q: "Una vitrocerámica de 1.500 W funciona 1,5 horas al día. ¿Cuántos kWh consume en un mes de 30 días?", sol: "1,5 kW · 1,5 h · 30 = 67,5 kWh." },
+    { q: "¿Qué es el término de potencia de la factura?", sol: "La parte que se paga por la potencia contratada, se consuma o no." },
+    { q: "Indica cuatro elementos de la instalación de agua de una vivienda.", sol: "Acometida, contador, llave de paso general, tuberías de agua fría y caliente, calentador o caldera y grifos (con los desagües y sifones)." },
+    { q: "¿Qué harías si al llegar a casa huele a gas?", sol: "No encender luces ni aparatos, cerrar la llave del gas, abrir ventanas, salir de la vivienda y llamar a emergencias desde fuera." },
+    { q: "Indica cinco medidas de ahorro energético en casa.", sol: "Bombillas LED, electrodomésticos de clase A, aislar ventanas, apagar aparatos en lugar de dejarlos en espera y poner la calefacción a 19-21 °C." },
+    { q: "¿Qué puede hacer una casa domótica? Pon tres ejemplos.", sol: "Encender luces al detectar presencia, regular la calefacción desde el móvil y bajar las persianas según la luz o la hora (también alarmas y avisos de fugas de agua)." },
+  ],
+  quiz: [
+    { q: "El cable del circuito de alumbrado suele ser de…", o: ["1,5 mm²", "6 mm²", "10 mm²"], a: 0, e: "Las luces consumen poca corriente." },
+    { q: "Si alguien se electrocuta, lo primero es…", o: ["tirar de su brazo", "cortar la corriente", "echarle agua"], a: 1, e: "O separarle con un objeto aislante seco." },
+    { q: "Si huele a gas, no debes…", o: ["abrir las ventanas", "encender la luz", "cerrar la llave"], a: 1, e: "Una chispa podría provocar una explosión." },
+    { q: "El término de energía de la factura se paga por…", o: ["los kW contratados", "los kWh consumidos", "el número de enchufes"], a: 1, e: "El de potencia, por los kW." },
+    { q: "En el certificado energético, la letra más eficiente es la…", o: ["A", "D", "G"], a: 0, e: "De la A a la G." },
+  ],
+  tarjetas: [
+    ["Potencia contratada", "Máxima potencia que se puede usar a la vez en una vivienda."],
+    ["Término de energía", "Parte de la factura que paga los kWh consumidos."],
+    ["Certificado energético", "Calificación de la A a la G de la eficiencia de un edificio."],
+  ],
+});

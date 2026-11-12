@@ -122,3 +122,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Dibujar estructuras de Lewis de moléculas sencillas", "Relacionar el tipo de enlace con las propiedades de las sustancias"],
+  tras: {
+    "Por qué se unen los átomos": [
+      { html: `<h3>La regla del octeto y los diagramas de Lewis</h3><p>Los átomos se unen para conseguir una configuración más estable, normalmente con <b>ocho electrones</b> en la última capa, como los gases nobles: es la <mark>regla del octeto</mark> (el hidrógeno se conforma con dos). En los <b>diagramas de Lewis</b> se escribe el símbolo del elemento rodeado de puntos que representan sus electrones de valencia: el cloro lleva 7 y el oxígeno 6. En una molécula, cada par de electrones compartido se dibuja como una raya, y los pares que no se comparten se llaman <b>pares solitarios</b>. Si los átomos comparten dos pares hay un <b>enlace doble</b> (O=O) y si comparten tres, un <b>enlace triple</b> (N≡N).</p>`, video: { id: "dWh4wf5VgMs", titulo: "Estructuras de Lewis (teoría + ejercicios)", canal: "Amigos de la Química", vistas: 5388650 } },
+    ],
+    "Enlace iónico": [
+      { html: `<h3>Cómo se forma un compuesto iónico</h3><p>El enlace iónico une un <b>metal</b> que pierde electrones con un <b>no metal</b> que los gana. Los iones de carga contraria se atraen y se colocan ordenadamente formando una <b>red cristalina</b>: no hay moléculas sueltas. Por eso la fórmula del cloruro de sodio, NaCl, solo indica la <mark>proporción</mark> de iones (uno a uno). La carga total debe ser cero: el magnesio da 2 electrones (Mg²⁺) y cada cloro acepta uno (Cl⁻), así que hacen falta dos cloros: <b>MgCl₂</b>. Con el oxígeno (O²⁻) basta uno: MgO.</p>` },
+    ],
+    "Enlace covalente": [
+      { html: `<h3>Moléculas y cristales covalentes. Polaridad</h3><p>Las sustancias covalentes pueden ser de dos tipos. Las <b>moleculares</b> (H₂O, CO₂, O₂, CH₄) están formadas por moléculas independientes; tienen puntos de fusión bajos y muchas son gases o líquidos. Los <b>cristales covalentes</b> (diamante, cuarzo SiO₂) son redes gigantes de átomos unidos por enlaces covalentes: son durísimos y funden a temperaturas altísimas. Además, si los dos átomos tienen distinta <b>electronegatividad</b> (tendencia a atraer los electrones), el par compartido se desplaza hacia uno de ellos y el enlace es <mark>polar</mark>: en el agua, el oxígeno queda algo negativo y los hidrógenos algo positivos.</p>` },
+    ],
+    "Fuerzas entre moléculas": [
+      { html: `<h3>Propiedades según el tipo de enlace</h3><p>El tipo de enlace explica las propiedades de cada sustancia, y al revés: midiendo propiedades podemos saber qué enlace tiene. La tabla resume las diferencias. Fíjate en la conductividad: los compuestos iónicos <mark>solo conducen fundidos o disueltos</mark>, cuando sus iones pueden moverse; los metales conducen siempre gracias a sus electrones libres.</p>${AMP.tabla(["Propiedad", "Iónico (NaCl)", "Covalente molecular (H₂O)", "Cristal covalente (diamante)", "Metálico (Cu)"], [["Estado a 25 °C", "sólido", "gas o líquido, a veces sólido", "sólido", "sólido (salvo Hg)"], ["Punto de fusión", "alto", "bajo", "muy alto", "variable, a menudo alto"], ["Conduce", "fundido o disuelto", "no", "no (salvo grafito)", "sí, siempre"], ["Se disuelve en agua", "muchos sí", "algunos", "no", "no"], ["Otras", "duro y frágil", "blando", "durísimo", "dúctil y maleable"]])}` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Dibuja el diagrama de Lewis del agua, H₂O.", pasos: ["Electrones de valencia: O tiene 6 y cada H tiene 1: 6 + 2 = 8 electrones.", "El oxígeno va en el centro y se une a cada H con un enlace sencillo (2 rayas = 4 electrones).", "Los 4 electrones restantes quedan como 2 pares solitarios sobre el oxígeno, que así completa su octeto."], resultado: "H–O–H con dos pares solitarios en el oxígeno." },
+    { enunciado: "Escribe la fórmula del compuesto iónico formado por aluminio (Al³⁺) y oxígeno (O²⁻).", pasos: ["La carga total debe ser cero.", "El mínimo común múltiplo de 3 y 2 es 6: hacen falta 2 Al³⁺ (+6) y 3 O²⁻ (−6).", "Se escribe primero el metal."], resultado: "Al₂O₃ (óxido de aluminio)." },
+    { enunciado: "Una sustancia funde a 801 °C, es frágil, no conduce en estado sólido pero sí disuelta en agua. ¿Qué tipo de enlace tiene?", pasos: ["Punto de fusión alto: no es molecular.", "No conduce sólida pero sí disuelta: tiene iones que solo se mueven al disolverse.", "Frágil: típico de los cristales iónicos."], resultado: "Es un compuesto iónico (de hecho, son los datos del NaCl)." },
+  ],
+  errores: [
+    "Hablar de «moléculas de NaCl»: los compuestos iónicos forman redes, no moléculas.",
+    "Decir que la sal sólida conduce la electricidad: solo conduce fundida o disuelta.",
+    "Olvidar los pares solitarios en los diagramas de Lewis.",
+    "Confundir enlaces covalentes (dentro de la molécula) con fuerzas intermoleculares (entre moléculas): al hervir el agua se rompen las segundas, no las primeras.",
+    "Pensar que todas las sustancias covalentes funden a baja temperatura: el diamante funde a más de 3.500 °C.",
+  ],
+  ejercicios: [
+    { q: "Indica qué tipo de enlace hay en: KBr, Cl₂, Fe, CO₂, CaO.", sol: "KBr: iónico (metal + no metal). Cl₂: covalente. Fe: metálico. CO₂: covalente. CaO: iónico." },
+    { q: "Dibuja el diagrama de Lewis del metano, CH₄.", sol: "El C (4 e⁻) va en el centro y comparte un par con cada H: cuatro enlaces sencillos C–H. El carbono completa 8 electrones y cada H, 2. No hay pares solitarios." },
+    { q: "¿Por qué la molécula de N₂ tiene un enlace triple?", sol: "Cada N tiene 5 electrones de valencia y le faltan 3 para el octeto. Al compartir 3 pares (N≡N), cada uno queda con 8 contando un par solitario." },
+    { q: "Escribe la fórmula del compuesto formado por calcio (Ca²⁺) y cloro (Cl⁻) y por sodio (Na⁺) y azufre (S²⁻).", sol: "CaCl₂ y Na₂S." },
+    { q: "¿Por qué los metales conducen la electricidad?", sol: "Porque sus electrones de valencia forman una «nube» de electrones libres que se mueven por toda la red." },
+    { q: "Explica por qué el agua hierve a 100 °C y el metano a −162 °C si los dos son moléculas pequeñas.", sol: "Entre moléculas de agua hay puentes de hidrógeno, fuerzas intermoleculares fuertes; entre moléculas de metano solo hay fuerzas muy débiles. Separar las de agua cuesta más energía." },
+    { q: "¿Es polar el enlace H–Cl? ¿Hacia dónde se desplazan los electrones?", sol: "Sí, porque el cloro es mucho más electronegativo que el hidrógeno. Los electrones se desplazan hacia el cloro, que queda con carga parcial negativa." },
+    { q: "Un sólido es muy duro, no conduce y funde a más de 1.600 °C. No se disuelve en agua. ¿Qué tipo de sustancia es?", sol: "Un cristal covalente, como el cuarzo (SiO₂)." },
+    { q: "¿Por qué se puede hacer un hilo de cobre pero no uno de sal?", sol: "En el metal, las capas de átomos pueden deslizarse sin romperse gracias a la nube de electrones (dúctil). En la sal, al desplazar una capa se enfrentan iones del mismo signo, se repelen y el cristal se rompe (frágil)." },
+    { q: "Dibuja el diagrama de Lewis del CO₂.", sol: "O=C=O: el carbono comparte dos pares con cada oxígeno (dos enlaces dobles). Cada oxígeno conserva dos pares solitarios. Todos completan el octeto." },
+  ],
+  quiz: [
+    { q: "Según la regla del octeto, los átomos tienden a tener en su última capa…", o: ["2 electrones", "8 electrones", "18 electrones"], a: 1, e: "Como los gases nobles (el H, 2)." },
+    { q: "La fórmula del cloruro de magnesio es…", o: ["MgCl", "MgCl₂", "Mg₂Cl"], a: 1, e: "Mg²⁺ necesita dos Cl⁻." },
+    { q: "Un cristal covalente como el diamante es…", o: ["blando y conductor", "durísimo y de punto de fusión muy alto", "un gas"], a: 1, e: "Es una red gigante de enlaces covalentes." },
+    { q: "En el agua, el oxígeno queda con carga parcial…", o: ["positiva", "negativa", "nula"], a: 1, e: "Es más electronegativo que el hidrógeno." },
+    { q: "Un compuesto iónico conduce la corriente…", o: ["siempre", "fundido o disuelto", "nunca"], a: 1, e: "Necesita que los iones puedan moverse." },
+  ],
+  tarjetas: [
+    ["Regla del octeto", "Los átomos tienden a tener 8 electrones en su última capa."],
+    ["Par solitario", "Par de electrones de valencia que no forma enlace."],
+    ["Enlace polar", "Covalente entre átomos de distinta electronegatividad: los electrones se acercan a uno."],
+  ],
+});

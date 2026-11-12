@@ -125,3 +125,61 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Comparar mitosis y meiosis en una tabla", "Relacionar los fallos del ciclo celular con el cáncer"],
+  tras: {
+    "Los cromosomas": [
+      { html: `<h3>Células diploides y haploides</h3><p>Las células del cuerpo (<b>somáticas</b>) son <b>diploides</b> (2n): tienen los cromosomas en parejas, uno de cada pareja procedente del padre y otro de la madre. Los dos cromosomas de una pareja se llaman <b>homólogos</b>: tienen los mismos genes en el mismo orden, aunque pueden llevar versiones distintas. En los humanos, 2n = 46, es decir, 23 parejas. Los <b>gametos</b> (óvulos y espermatozoides) son <b>haploides</b> (n): solo llevan un cromosoma de cada pareja, 23 en total. Así, al unirse en la fecundación, se recupera el número normal: <mark>n + n = 2n</mark>. Cada especie tiene su número: el perro tiene 78 cromosomas, la mosca de la fruta 8 y el maíz 20.</p>` },
+    ],
+    "Las fases de la mitosis": [
+      { html: `<h3>La citocinesis: dividir el citoplasma</h3><p>Tras la mitosis, que reparte el núcleo, la célula divide su citoplasma en dos: es la <b>citocinesis</b>. En las <b>células animales</b>, se forma un anillo de proteínas en el ecuador de la célula que se va cerrando, como si se apretara un cinturón, hasta <mark>estrangularla</mark> en dos. En las <b>células vegetales</b>, la pared rígida lo impide, así que se construye en el centro una nueva pared, el <b>fragmoplasto</b>, que crece hacia los lados hasta separar las dos células hijas. La mitosis sirve para crecer, para reponer células gastadas (cada día renovamos miles de millones de células de la piel y la sangre) y para la reproducción asexual de muchos organismos.</p>` },
+    ],
+    "Meiosis y variabilidad": [
+      { html: `<h3>Mitosis frente a meiosis</h3><p>Las dos divisiones reparten el material genético, pero tienen objetivos muy distintos. La mitosis produce copias idénticas para crecer y reparar; la meiosis produce gametos distintos para la reproducción sexual. La tabla resume sus diferencias más importantes.</p>${AMP.tabla(["", "Mitosis", "Meiosis"], [["Dónde", "células somáticas", "células que forman gametos (gónadas)"], ["Divisiones", "1", "2 seguidas"], ["Células hijas", "2", "4"], ["Cromosomas", "2n → 2n", "2n → n"], ["Hijas iguales a la madre", "sí", "no, todas distintas"], ["Sobrecruzamiento", "no", "sí"], ["Función", "crecer, reparar, reproducción asexual", "formar gametos, variabilidad"]])}` },
+      { html: `<h3>La formación de los gametos</h3><p>La meiosis ocurre en las <b>gónadas</b>: los testículos y los ovarios. En la <b>espermatogénesis</b>, cada célula madre produce <mark>cuatro espermatozoides</mark>, pequeños y con flagelo, y el proceso continúa toda la vida desde la pubertad. En la <b>ovogénesis</b>, el citoplasma se reparte de forma desigual: se forma <b>un solo óvulo</b> grande, con reservas para el embrión, y tres células pequeñas, los corpúsculos polares, que degeneran. La ovogénesis empieza antes de nacer y se detiene hasta la pubertad; después, normalmente, madura un óvulo cada mes.</p>`, video: { id: "QsVq-HIgWDg", titulo: "Gametogénesis: ovogénesis y espermatogénesis paso a paso", canal: "Bio en Casa", vistas: 510166 } },
+    ],
+    "El ciclo celular": [
+      { html: `<h3>Cuando el ciclo falla: el cáncer</h3><p>El ciclo celular tiene <b>puntos de control</b> que comprueban que todo va bien antes de seguir: que el ADN está bien copiado y que la célula debe dividirse. Si una célula acumula <b>mutaciones</b> en los genes que controlan esos frenos, puede empezar a dividirse <mark>sin control</mark> y formar un <b>tumor</b>. Si el tumor queda localizado es benigno; si sus células invaden otros tejidos y viajan por la sangre a otros órganos (<b>metástasis</b>), es maligno: un cáncer. El tabaco, el exceso de sol, el alcohol y algunas infecciones aumentan el riesgo. Muchos tratamientos, como la quimioterapia y la radioterapia, atacan a las células que se dividen muy deprisa.</p>`, video: { id: "Y0BPGlqwI-E", titulo: "3 claves para entender el cáncer", canal: "La Hiperactina", vistas: 1392450 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Una célula de perro tiene 78 cromosomas. ¿Cuántos tendrán las células hijas tras una mitosis? ¿Y tras una meiosis?", pasos: ["La mitosis mantiene el número: 2n → 2n.", "La meiosis lo reduce a la mitad: 2n → n.", "78 / 2 = 39."], resultado: "Mitosis: 2 células con 78. Meiosis: 4 células con 39." },
+    { enunciado: "Describe qué ocurre con los cromosomas en cada fase de la mitosis.", pasos: ["Profase: los cromosomas se condensan y la membrana del núcleo desaparece.", "Metafase: los cromosomas se colocan en el ecuador de la célula.", "Anafase: las cromátidas hermanas se separan hacia polos opuestos.", "Telofase: se forman dos núcleos nuevos y los cromosomas se descondensan."], resultado: "Profase, metafase, anafase y telofase, seguidas de la citocinesis." },
+    { enunciado: "Una mujer forma óvulos y un hombre, espermatozoides. ¿Cuántos gametos maduros salen de una célula madre en cada caso?", pasos: ["Las dos pasan por meiosis y producen 4 células haploides.", "En el hombre, las 4 son espermatozoides.", "En la mujer, el citoplasma se reparte de forma desigual: 1 óvulo y 3 corpúsculos polares que degeneran."], resultado: "4 espermatozoides frente a 1 óvulo." },
+  ],
+  errores: [
+    "Pensar que la mitosis produce gametos: los gametos se forman por meiosis.",
+    "Confundir cromosomas homólogos (uno del padre y otro de la madre) con cromátidas hermanas (las dos copias idénticas de un cromosoma).",
+    "Decir que la meiosis da 2 células: da 4.",
+    "Creer que en la interfase la célula está «descansando»: en ella crece y copia su ADN.",
+    "Pensar que todo tumor es un cáncer: los benignos no invaden otros tejidos.",
+  ],
+  ejercicios: [
+    { q: "¿Qué ocurre en la fase S de la interfase? ¿Por qué es imprescindible antes de dividirse?", sol: "Se replica el ADN. Sin esa copia, las células hijas no recibirían la información genética completa." },
+    { q: "Si 2n = 20 en el maíz, ¿cuántos cromosomas tiene un grano de polen (gameto)?", sol: "n = 10." },
+    { q: "Ordena las fases: anafase, profase, telofase, metafase.", sol: "Profase, metafase, anafase y telofase." },
+    { q: "¿En qué se diferencia la citocinesis animal de la vegetal?", sol: "En la animal la célula se estrangula con un anillo de proteínas; en la vegetal se forma una pared nueva en el centro (fragmoplasto)." },
+    { q: "Indica dos procesos del cuerpo en los que sea importante la mitosis.", sol: "El crecimiento (por ejemplo, de los huesos en la adolescencia) y la reparación de tejidos (cicatrización de una herida)." },
+    { q: "Explica dos mecanismos de la meiosis que generan variabilidad.", sol: "El sobrecruzamiento, que intercambia trozos entre cromosomas homólogos, y el reparto al azar de cada pareja de homólogos a una u otra célula hija." },
+    { q: "¿Por qué los hermanos, salvo los gemelos idénticos, no son genéticamente iguales?", sol: "Porque cada uno procede de un óvulo y un espermatozoide distintos, y la meiosis hace que cada gameto lleve una combinación diferente de genes." },
+    { q: "Completa la tabla mental: mitosis → … células, 2n → …; meiosis → … células, 2n → …", sol: "Mitosis: 2 células, 2n → 2n. Meiosis: 4 células, 2n → n." },
+    { q: "¿Qué es la metástasis?", sol: "La propagación de células cancerosas desde el tumor original a otros órganos a través de la sangre o la linfa." },
+    { q: "Indica tres hábitos que reducen el riesgo de cáncer.", sol: "No fumar, protegerse del sol y llevar una alimentación sana con ejercicio físico (también evitar el alcohol)." },
+  ],
+  quiz: [
+    { q: "Las células somáticas humanas son…", o: ["haploides, 23 cromosomas", "diploides, 46 cromosomas", "triploides"], a: 1, e: "23 parejas." },
+    { q: "La citocinesis es la división…", o: ["del núcleo", "del citoplasma", "del ADN"], a: 1, e: "Ocurre tras la mitosis." },
+    { q: "¿Cuántas células da la meiosis?", o: ["2", "4", "8"], a: 1, e: "Tras dos divisiones seguidas." },
+    { q: "De una célula madre de la ovogénesis sale…", o: ["1 óvulo", "4 óvulos", "2 óvulos"], a: 0, e: "Y tres corpúsculos polares." },
+    { q: "Un cáncer se produce cuando una célula…", o: ["se divide sin control", "deja de dividirse", "pierde el núcleo"], a: 0, e: "Por mutaciones en los genes que controlan el ciclo." },
+  ],
+  tarjetas: [
+    ["Diploide y haploide", "2n: cromosomas en parejas (células del cuerpo). n: uno de cada pareja (gametos)."],
+    ["Citocinesis", "División del citoplasma tras la mitosis."],
+    ["Metástasis", "Extensión de un cáncer a otros órganos."],
+  ],
+});

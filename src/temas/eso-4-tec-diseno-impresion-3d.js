@@ -118,3 +118,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Modelar piezas con operaciones de sólidos y huecos en un programa de diseño 3D", "Calcular el tiempo, el material y el coste aproximado de una impresión"],
+  tras: {
+    "Diseñar en 3D": [
+      { html: `<h3>Modelar con Tinkercad paso a paso</h3><p><b>Tinkercad</b> es un programa gratuito que funciona en el navegador y es ideal para empezar. Se trabaja sobre un <b>plano de trabajo</b> cuadriculado en milímetros. Se arrastran <b>formas básicas</b> (caja, cilindro, esfera, cono, texto) y se ajusta su tamaño con los tiradores o escribiendo las medidas exactas. Cada forma puede ser <b>sólida</b> o <b>hueco</b>. Al <mark>agrupar</mark> un sólido con un hueco, el hueco «resta» su volumen: así se hacen agujeros, ranuras o letras grabadas. La herramienta <b>alinear</b> centra piezas entre sí y la de <b>copiar y duplicar</b> repite elementos a la misma distancia. Al terminar se exporta el modelo en formato <b>STL</b>. Programas más avanzados son FreeCAD, Fusion 360 u OnShape.</p>`, video: { id: "gOs6Mdj7y_4", titulo: "TinkerCAD: tutorial para principiantes en 9 minutos", canal: "Skills Factory", vistas: 1805833 } },
+      { html: `<h3>Diseñar para imprimir</h3><p>No todo lo que se modela se puede imprimir bien. Unas reglas prácticas: apoyar la pieza sobre su <b>cara más grande y plana</b>; evitar <b>voladizos</b> de más de 45° o añadir soportes; dejar paredes de al menos <b>1-2 mm</b> de grosor; y, si dos piezas deben encajar, dejar una <mark>holgura</mark> de unos 0,2-0,3 mm, porque el plástico se dilata un poco. Los textos y detalles muy finos (de menos de 1 mm) se pierden. Las piezas grandes o con formas complicadas se pueden dividir en partes que se imprimen por separado y se pegan después. Un buen diseño ahorra material, tiempo y fallos.</p>` },
+    ],
+    "Cómo funciona una impresora FDM": [
+      { html: `<h3>Otras tecnologías de fabricación aditiva</h3><p>Además de la FDM, hay otras técnicas. La <b>estereolitografía</b> (SLA) y sus variantes usan una <b>resina líquida</b> que se endurece con luz ultravioleta capa a capa: consiguen detalles finísimos y se usan en joyería, odontología y miniaturas, aunque la resina es tóxica antes de curarse y hay que manejarla con guantes. El <b>sinterizado selectivo por láser</b> (SLS) funde con un láser un <b>polvo</b> de plástico o de metal: fabrica piezas resistentes sin necesidad de soportes y se usa en la industria aeronáutica y en prótesis médicas. También existen impresoras de <mark>hormigón</mark>, que ya construyen casas, y bioimpresoras que depositan células para crear tejidos.</p>`, video: { id: "f6KzjUcSPBI", titulo: "¿Qué es la impresión 3D? Tipos de impresoras, técnicas y materiales", canal: "Arrowti3D", vistas: 37767 } },
+    ],
+    "Materiales y buenas prácticas": [
+      { html: `<h3>Aplicaciones y propiedad intelectual</h3><p>La impresión 3D sirve para hacer <b>prototipos</b> rápidos antes de fabricar en serie, <b>piezas de repuesto</b> que ya no se venden, <b>prótesis</b> y férulas a medida, herramientas y utillajes para las fábricas, y piezas personalizadas. En repositorios como Thingiverse o Printables hay millones de modelos compartidos. Muchos tienen licencias <b>Creative Commons</b>, pero hay que <mark>respetar sus condiciones</mark>: citar al autor, no venderlos si la licencia es no comercial, etc. Imprimir copias de objetos protegidos por patentes o marcas registradas, o piezas peligrosas, puede ser ilegal. Compartir tus propios diseños con una licencia libre ayuda a otros a aprender y mejorar.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Una pieza necesita 40 g de PLA. Una bobina de 1 kg cuesta 20 €. ¿Cuánto cuesta el material de la pieza?", pasos: ["Precio por gramo: 20 € / 1.000 g = 0,02 €/g.", "Coste: 40 · 0,02 = 0,80 €."], resultado: "0,80 € de material." },
+    { enunciado: "Una impresora de 120 W tarda 3 horas en imprimir una pieza. ¿Cuánta energía consume y cuánto cuesta a 0,15 €/kWh?", pasos: ["Energía: 0,12 kW · 3 h = 0,36 kWh.", "Coste: 0,36 · 0,15 = 0,054 €."], resultado: "0,36 kWh, unos 5 céntimos." },
+    { enunciado: "Diseña en Tinkercad un llavero rectangular de 50 × 25 × 3 mm con un agujero de 5 mm de diámetro en una esquina.", pasos: ["Arrastra una caja sólida y ponle 50 × 25 × 3 mm.", "Arrastra un cilindro, conviértelo en hueco y ponle 5 × 5 mm de base y más de 3 mm de alto para que atraviese.", "Colócalo a unos 5 mm de los bordes de una esquina.", "Selecciona los dos objetos y agrúpalos: el hueco perfora la caja.", "Exporta en STL."], resultado: "Un llavero con su agujero, listo para laminar." },
+  ],
+  errores: [
+    "Diseñar paredes demasiado finas, que se rompen o no se imprimen.",
+    "Olvidar la holgura en piezas que deben encajar: salen demasiado apretadas.",
+    "Imprimir una pieza apoyada sobre su lado más pequeño, con voladizos sin soporte.",
+    "Mandar a imprimir el archivo STL directamente: primero hay que laminarlo para obtener el G-code.",
+    "Descargar y vender un modelo con licencia no comercial.",
+  ],
+  ejercicios: [
+    { q: "Explica la diferencia entre fabricación aditiva y sustractiva con un ejemplo de cada una.", sol: "La aditiva construye la pieza añadiendo capas (impresión 3D); la sustractiva la obtiene quitando material de un bloque (torno o fresadora)." },
+    { q: "¿Qué hace el extrusor de una impresora FDM?", sol: "Empuja el filamento hacia una boquilla caliente que lo funde y lo deposita en hilos finos." },
+    { q: "¿Qué formatos de archivo intervienen desde el diseño hasta la impresora?", sol: "El diseño se exporta en STL (malla de triángulos); el laminador lo convierte en G-code, las instrucciones de movimiento para la impresora." },
+    { q: "¿Qué es el relleno y por qué no se imprime macizo?", sol: "La estructura interior de la pieza (en rejilla, panal…). Con un 15-20 % suele bastar: ahorra material y tiempo sin perder mucha resistencia." },
+    { q: "¿Cuándo hacen falta soportes?", sol: "Cuando hay partes en voladizo con más de unos 45° de inclinación, que quedarían en el aire." },
+    { q: "Compara PLA y PETG.", sol: "El PLA es fácil de imprimir y de origen vegetal, pero se ablanda con el calor. El PETG es más resistente y aguanta mejor el calor, aunque es algo más difícil de imprimir." },
+    { q: "Una pieza usa 120 g de filamento a 25 €/kg. ¿Cuánto cuesta el material?", sol: "120 · 0,025 = 3 €." },
+    { q: "¿Qué tecnología elegirías para unas figuras con detalles muy finos? ¿Y para piezas de metal?", sol: "Para detalles finos, resina (SLA). Para metal, sinterizado o fusión por láser de polvo metálico (SLS/SLM)." },
+    { q: "Indica tres aplicaciones médicas de la impresión 3D.", sol: "Prótesis a medida, férulas y modelos de órganos para planificar operaciones (también implantes dentales)." },
+    { q: "Descargas un modelo con licencia CC BY-NC. ¿Qué puedes y qué no puedes hacer?", sol: "Puedes imprimirlo, modificarlo y compartirlo citando al autor; no puedes venderlo ni usarlo con fines comerciales." },
+  ],
+  quiz: [
+    { q: "En Tinkercad, para hacer un agujero se agrupa un sólido con…", o: ["otro sólido", "un hueco", "un texto"], a: 1, e: "El hueco resta volumen." },
+    { q: "Para que dos piezas impresas encajen se deja una holgura de unos…", o: ["0,2-0,3 mm", "5 mm", "2 cm"], a: 0, e: "El plástico se dilata un poco." },
+    { q: "La tecnología SLA usa…", o: ["filamento", "resina y luz ultravioleta", "polvo metálico"], a: 1, e: "Detalles muy finos." },
+    { q: "El archivo que entiende la impresora es el…", o: ["STL", "G-code", "PDF"], a: 1, e: "Lo genera el laminador." },
+    { q: "Un modelo con licencia no comercial…", o: ["se puede vender", "no se puede vender", "no se puede imprimir"], a: 1, e: "Hay que respetar sus condiciones." },
+  ],
+  tarjetas: [
+    ["Sólido y hueco", "En Tinkercad, el hueco agrupado con un sólido resta su volumen."],
+    ["Holgura", "Pequeño espacio (0,2-0,3 mm) para que dos piezas encajen."],
+    ["SLA y SLS", "SLA: resina con luz UV. SLS: polvo fundido con láser."],
+  ],
+});

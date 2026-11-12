@@ -124,3 +124,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Aplicar la ecuación v = λ · f a ondas de sonido y de luz", "Explicar la reflexión, la refracción y la formación de imágenes en espejos y lentes"],
+  tras: {
+    "Magnitudes de una onda": [
+      { html: `<h3>La ecuación fundamental de las ondas</h3><p>En un periodo T, la onda avanza exactamente una longitud de onda λ. Por eso su velocidad es <mark>v = λ / T = λ · f</mark>. La velocidad depende del <b>medio</b> por el que viaja la onda, no de cómo la produzcamos: si un músico toca una nota más aguda (más frecuencia), la longitud de onda se acorta para que la velocidad siga siendo la misma. Cuando una onda pasa de un medio a otro, su <b>frecuencia no cambia</b> (la fija la fuente), pero sí cambian la velocidad y la longitud de onda. La <b>amplitud</b> está relacionada con la energía que transporta: una ola más alta lleva más energía, y un sonido de más amplitud suena más fuerte.</p><div class="formula"><span>v = λ · f</span></div>`, video: { id: "rKf92Vgx2ag", titulo: "Lo que necesitas saber sobre ondas", canal: "QuantumFracture", vistas: 2056633 } },
+    ],
+    "El sonido": [
+      { html: `<h3>Cualidades del sonido y contaminación acústica</h3><p>El oído distingue tres <b>cualidades</b> del sonido. La <b>intensidad</b> (fuerte o débil) depende de la amplitud y se mide en <b>decibelios</b> (dB): una conversación tiene unos 60 dB y un concierto, 110 dB. El <b>tono</b> (agudo o grave) depende de la frecuencia: las personas oímos de 20 a 20.000 Hz; por debajo están los <b>infrasonidos</b> y por encima los <b>ultrasonidos</b>, que usan los murciélagos y las ecografías. El <b>timbre</b> permite distinguir un violín de una flauta que tocan la misma nota, y depende de la forma de la onda. Los ruidos por encima de 85 dB durante mucho tiempo dañan el oído: es la <mark>contaminación acústica</mark>. El <b>eco</b> se produce cuando el sonido rebota en un obstáculo a más de 17 m y oímos el reflejo separado del original.</p>` },
+    ],
+    "Fenómenos ondulatorios": [
+      { html: `<h3>Reflexión y refracción de la luz</h3><p>En la <b>reflexión</b>, la luz rebota en una superficie: el rayo reflejado sale con el <mark>mismo ángulo</mark> con que llegó el incidente (medido desde la normal, la perpendicular a la superficie). Así funcionan los espejos. En la <b>refracción</b>, la luz cambia de medio y de velocidad, y por eso se <b>desvía</b>: al pasar del aire al agua se acerca a la normal porque va más lenta. El <b>índice de refracción</b> n = c / v indica cuánto más lenta va la luz en un medio que en el vacío: el agua tiene n = 1,33 y el vidrio, unos 1,5. La refracción explica que un lápiz parezca roto dentro de un vaso de agua, que una piscina parezca menos profunda y la formación del arcoíris.</p>`, video: { id: "zC3B9yL9R4U", titulo: "Reflexión y refracción de la luz", canal: "Profesor Particular Puebla", vistas: 628479 } },
+    ],
+    "La luz y el espectro electromagnético": [
+      { html: `<h3>Espejos y lentes</h3><p>Los <b>espejos planos</b> forman una imagen del mismo tamaño, derecha y simétrica (con la izquierda y la derecha invertidas). Los espejos <b>curvos</b> pueden aumentar o reducir la imagen: los cóncavos se usan para maquillarse y en los faros; los convexos, en los retrovisores, porque abarcan más campo. Las <b>lentes</b> aprovechan la refracción. Las <b>convergentes</b>, más gruesas en el centro, concentran los rayos en un punto, el foco: forman las lupas y corrigen la <b>hipermetropía</b>. Las <b>divergentes</b>, más finas en el centro, separan los rayos y corrigen la <b>miopía</b>. El ojo humano tiene su propia lente, el cristalino, que enfoca la imagen sobre la retina.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "La nota la de un diapasón tiene una frecuencia de 440 Hz. Si el sonido viaja a 340 m/s, ¿cuál es su longitud de onda?", pasos: ["v = λ · f → λ = v / f.", "λ = 340 / 440.", "λ ≈ 0,77 m."], resultado: "λ ≈ 0,77 m." },
+    { enunciado: "Ves un relámpago y oyes el trueno 6 s después. ¿A qué distancia está la tormenta? (Sonido: 340 m/s.)", pasos: ["La luz llega prácticamente al instante (300.000 km/s).", "El sonido tarda 6 s: d = v · t = 340 · 6.", "d = 2.040 m."], resultado: "La tormenta está a unos 2 km." },
+    { enunciado: "Una emisora de radio emite en 100 MHz. Calcula la longitud de onda de sus ondas (c = 3 · 10⁸ m/s).", pasos: ["f = 100 MHz = 10⁸ Hz.", "λ = c / f = 3 · 10⁸ / 10⁸.", "λ = 3 m."], resultado: "λ = 3 m." },
+  ],
+  errores: [
+    "Pensar que el sonido se propaga en el vacío: necesita un medio material.",
+    "Creer que la onda transporta materia: transporta energía; las partículas solo oscilan.",
+    "Confundir la frecuencia (tono) con la amplitud (intensidad).",
+    "Pensar que la frecuencia cambia al pasar de un medio a otro: cambian la velocidad y la longitud de onda.",
+    "Medir los ángulos de reflexión y refracción desde la superficie y no desde la normal.",
+  ],
+  ejercicios: [
+    { q: "Una onda tiene un periodo de 0,02 s. ¿Cuál es su frecuencia?", sol: "f = 1 / T = 1 / 0,02 = 50 Hz." },
+    { q: "Una ola tiene λ = 4 m y f = 0,5 Hz. Calcula su velocidad.", sol: "v = λ · f = 4 · 0,5 = 2 m/s." },
+    { q: "Clasifica como mecánica o electromagnética y como transversal o longitudinal: el sonido, la luz, una ola en una cuerda.", sol: "Sonido: mecánica y longitudinal. Luz: electromagnética y transversal. Cuerda: mecánica y transversal." },
+    { q: "Un barco envía un ultrasonido al fondo y recibe el eco a los 0,4 s. Si en el agua el sonido va a 1.500 m/s, ¿qué profundidad hay?", sol: "Ida y vuelta: d total = 1.500 · 0,4 = 600 m. Profundidad = 300 m." },
+    { q: "¿Por qué en la Luna los astronautas se comunican por radio aunque estén al lado?", sol: "Porque en la Luna no hay aire y el sonido no se propaga en el vacío; las ondas de radio son electromagnéticas y sí lo hacen." },
+    { q: "Calcula la longitud de onda de un sonido de 20 Hz y de uno de 20.000 Hz en el aire (340 m/s).", sol: "20 Hz: λ = 17 m. 20.000 Hz: λ = 0,017 m = 1,7 cm." },
+    { q: "Un rayo de luz llega a un espejo con 35° respecto a la normal. ¿Con qué ángulo se refleja?", sol: "También con 35° respecto a la normal (ley de la reflexión)." },
+    { q: "Calcula la velocidad de la luz en el agua (n = 1,33).", sol: "v = c / n = 300.000 / 1,33 ≈ 225.600 km/s." },
+    { q: "Ordena de menor a mayor frecuencia: rayos X, ondas de radio, luz visible, microondas, ultravioleta.", sol: "Radio < microondas < luz visible < ultravioleta < rayos X." },
+    { q: "¿Qué lente necesita una persona miope? ¿Por qué?", sol: "Una lente divergente: en el ojo miope la imagen se forma delante de la retina, y la lente divergente separa los rayos para que enfoquen más atrás, sobre ella." },
+  ],
+  quiz: [
+    { q: "Si la frecuencia de un sonido aumenta en el mismo medio, su longitud de onda…", o: ["aumenta", "disminuye", "no cambia"], a: 1, e: "v = λ·f es constante en el medio." },
+    { q: "El tono de un sonido depende de su…", o: ["amplitud", "frecuencia", "timbre"], a: 1, e: "Más frecuencia, más agudo." },
+    { q: "En la reflexión, el ángulo de reflexión es…", o: ["igual al de incidencia", "el doble", "siempre 90°"], a: 0, e: "Ley de la reflexión." },
+    { q: "La luz, al pasar del aire al agua…", o: ["va más rápido", "va más despacio y se desvía", "no cambia"], a: 1, e: "Es la refracción." },
+    { q: "Las lentes convergentes corrigen…", o: ["la miopía", "la hipermetropía", "el daltonismo"], a: 1, e: "Concentran los rayos." },
+  ],
+  tarjetas: [
+    ["Ecuación fundamental de las ondas", "v = λ · f."],
+    ["Cualidades del sonido", "Intensidad (amplitud), tono (frecuencia) y timbre (forma de la onda)."],
+    ["Índice de refracción", "n = c / v: cuánto más lenta va la luz en ese medio."],
+  ],
+});

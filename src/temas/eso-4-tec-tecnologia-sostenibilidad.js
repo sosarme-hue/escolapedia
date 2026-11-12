@@ -110,3 +110,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Comparar las centrales eléctricas y sus impactos", "Analizar el ciclo de vida de un aparato y la gestión de los residuos electrónicos"],
+  tras: {
+    "Fuentes de energía": [
+      { html: `<h3>Cómo se genera la electricidad</h3><p>Casi todas las centrales eléctricas funcionan igual: algo hace girar una <b>turbina</b>, que mueve un <b>alternador</b> donde, al girar imanes junto a bobinas, se produce corriente eléctrica. Lo que cambia es qué mueve la turbina. En las <b>térmicas</b> y las <b>nucleares</b>, vapor de agua calentado quemando combustible o con la fisión del uranio. En las <b>hidroeléctricas</b>, el agua que cae de un embalse. En los <b>aerogeneradores</b>, el viento. La excepción son las <b>placas fotovoltaicas</b>, que convierten directamente la luz en electricidad sin piezas móviles. Desde la central, la electricidad se eleva a alta tensión en <mark>transformadores</mark> para transportarla con menos pérdidas, y se baja a 230 V cerca de las casas.</p>${AMP.tabla(["Central", "Ventaja", "Inconveniente"], [["Térmica (carbón, gas)", "produce cuando se necesita", "emite CO₂ y contaminantes"], ["Nuclear", "mucha energía sin CO₂", "residuos radiactivos, riesgo de accidente"], ["Hidroeléctrica", "renovable y regulable", "embalses que inundan valles"], ["Eólica", "renovable, sin emisiones", "depende del viento, impacto visual y en aves"], ["Solar fotovoltaica", "renovable, en tejados", "solo de día, ocupa terreno"]])}` },
+    ],
+    "Eficiencia y ahorro energético": [
+      { html: `<h3>Almacenar la energía</h3><p>El sol y el viento no producen cuando queremos, sino cuando hay sol y viento. Para aprovechar mejor las renovables hace falta <b>almacenar la energía</b>. Las <b>baterías</b> de litio guardan la energía de las placas solares de una casa o estabilizan la red; son las mismas que llevan los coches eléctricos. Las <b>centrales hidroeléctricas de bombeo</b> suben agua a un embalse superior cuando sobra electricidad y la dejan caer cuando falta: funcionan como una gran pila. También se investiga el <mark>hidrógeno verde</mark>, que se obtiene separando el agua con electricidad renovable y se puede quemar o usar en pilas de combustible sin emitir CO₂. Una red eléctrica inteligente combina todas estas fuentes y ajusta el consumo a la producción.</p>` },
+    ],
+    "El ciclo de vida de un producto": [
+      { html: `<h3>Análisis del ciclo de vida</h3><p>Para saber de verdad cuánto impacto ambiental tiene un producto hay que estudiar todas sus etapas, «de la cuna a la tumba»: <b>extracción</b> de materias primas, <b>fabricación</b>, <b>transporte</b>, <b>uso</b> y <b>fin de vida</b>. En cada etapa se mide la energía, el agua, los materiales y las emisiones. Los resultados a veces sorprenden: en un móvil, cerca del <mark>80 % de su huella de carbono</mark> se produce al fabricarlo, no al cargarlo; por eso alargar su vida útil es lo que más reduce su impacto. En cambio, en una nevera o un coche de gasolina, la mayor parte del impacto está en la etapa de uso, y lo que más ayuda es que sean eficientes.</p>`, video: { id: "MyDHWRwvSzo", titulo: "Análisis de ciclo de vida", canal: "Biblioteca del Plástico", vistas: 73406 } },
+    ],
+    "Economía circular": [
+      { html: `<h3>Residuos electrónicos y obsolescencia</h3><p>Cada año se generan en el mundo más de <b>60 millones de toneladas</b> de residuos electrónicos, y menos de una cuarta parte se recicla correctamente. Contienen metales valiosos (oro, cobre, cobalto, tierras raras) y sustancias tóxicas (plomo, mercurio, retardantes de llama). Muchos acaban en vertederos de países pobres, donde se queman al aire libre para sacar el metal, con graves daños para la salud. Por eso los aparatos viejos deben llevarse a un <b>punto limpio</b> o devolverse en la tienda. La <b>obsolescencia programada</b> consiste en diseñar productos para que duren poco o no se puedan reparar; la <mark>obsolescencia percibida</mark> nos empuja a cambiarlos por moda. La UE impulsa el derecho a reparar y el cargador universal USB-C.</p>`, video: { id: "_Ai78EvNQII", titulo: "Cómo extraer oro de desechos electrónicos", canal: "Insider Español", vistas: 635884 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Una placa solar de 400 W produce, de media, durante 5 horas de sol al día. ¿Cuánta energía da al año? Si una casa consume 3.500 kWh al año, ¿cuántas placas necesita?", pasos: ["Al día: 0,4 kW · 5 h = 2 kWh.", "Al año: 2 · 365 = 730 kWh por placa.", "3.500 / 730 ≈ 4,8 → 5 placas."], resultado: "730 kWh por placa al año; hacen falta unas 5 placas." },
+    { enunciado: "Un frigorífico de clase A consume 150 kWh al año y uno de clase E, 400 kWh. A 0,15 €/kWh, ¿cuánto se ahorra en 10 años con el de clase A?", pasos: ["Diferencia anual: 400 − 150 = 250 kWh.", "En 10 años: 2.500 kWh.", "Ahorro: 2.500 · 0,15 = 375 €."], resultado: "Unos 375 € (y menos emisiones de CO₂)." },
+    { enunciado: "Si el 80 % de la huella de un móvil está en su fabricación, ¿cuánto se reduce su impacto anual si lo usas 4 años en vez de 2?", pasos: ["El impacto de fabricación se reparte entre los años de uso.", "En 2 años: 80 % / 2 = 40 % por año. En 4 años: 80 % / 4 = 20 % por año.", "El impacto de fabricación por año se reduce a la mitad."], resultado: "El impacto de fabricación por año baja a la mitad." },
+  ],
+  errores: [
+    "Pensar que las energías renovables no tienen ningún impacto: también ocupan terreno, usan materiales y afectan al paisaje.",
+    "Creer que el coche eléctrico no contamina nada: depende de cómo se genera la electricidad y de la fabricación de su batería.",
+    "Confundir eficiencia (hacer lo mismo gastando menos) con ahorro (consumir menos).",
+    "Tirar aparatos o pilas a la basura normal en lugar de llevarlos al punto limpio.",
+    "Pensar que reciclar compensa cualquier consumo: reducir y reutilizar tienen más efecto.",
+  ],
+  ejercicios: [
+    { q: "Explica cómo funciona una central térmica.", sol: "Se quema un combustible para calentar agua; el vapor mueve una turbina, que hace girar un alternador que produce electricidad. El vapor se enfría y vuelve a empezar." },
+    { q: "¿Qué tienen en común casi todas las centrales y cuál es la excepción?", sol: "Una turbina mueve un alternador. La excepción es la solar fotovoltaica, que transforma directamente la luz en electricidad." },
+    { q: "¿Por qué la electricidad se transporta a alta tensión?", sol: "Porque así circula menos corriente para la misma potencia y se pierde menos energía en forma de calor en los cables." },
+    { q: "Indica dos formas de almacenar energía eléctrica a gran escala.", sol: "Centrales hidroeléctricas de bombeo y grandes baterías (también hidrógeno verde)." },
+    { q: "Ordena las etapas del ciclo de vida de una camiseta.", sol: "Cultivo del algodón (extracción), fabricación del tejido y confección, transporte, uso (lavados) y fin de vida (reutilización, reciclaje o vertedero)." },
+    { q: "¿Qué es la obsolescencia programada? Pon un ejemplo.", sol: "Diseñar un producto para que deje de funcionar o quede anticuado pronto. Ejemplo: una batería pegada que no se puede cambiar o un aparato sin piezas de repuesto." },
+    { q: "Indica tres metales valiosos y dos sustancias tóxicas de los residuos electrónicos.", sol: "Valiosos: oro, cobre y cobalto. Tóxicas: plomo y mercurio." },
+    { q: "Calcula la energía anual de un aerogenerador de 2 MW que funciona al máximo un 30 % del tiempo.", sol: "Horas equivalentes: 0,30 · 8.760 = 2.628 h. Energía: 2 MW · 2.628 h = 5.256 MWh al año." },
+    { q: "Propón cuatro acciones para alargar la vida de tu móvil.", sol: "Usar funda y protector, no dejar la batería al 0 % ni al calor, actualizar el sistema y repararlo en vez de cambiarlo (o venderlo o donarlo cuando ya no lo uses)." },
+    { q: "Indica dos impactos positivos y dos negativos de la tecnología en la sociedad.", sol: "Positivos: avances en medicina y facilidad para comunicarse y aprender. Negativos: residuos y consumo de recursos, y brecha digital o pérdida de privacidad." },
+  ],
+  quiz: [
+    { q: "En casi todas las centrales eléctricas, la electricidad se produce en…", o: ["el alternador", "el embalse", "el transformador"], a: 0, e: "Movido por una turbina." },
+    { q: "La central que convierte la luz directamente en electricidad es la…", o: ["térmica", "fotovoltaica", "nuclear"], a: 1, e: "Sin turbina ni piezas móviles." },
+    { q: "Una central de bombeo sirve para…", o: ["almacenar energía", "producir petróleo", "potabilizar agua"], a: 0, e: "Sube agua cuando sobra electricidad." },
+    { q: "En un móvil, la mayor parte de su huella de carbono está en…", o: ["la carga", "la fabricación", "el transporte"], a: 1, e: "Por eso conviene alargar su vida." },
+    { q: "Los aparatos electrónicos viejos se deben llevar a…", o: ["la basura orgánica", "un punto limpio", "el contenedor amarillo"], a: 1, e: "Para reciclarlos sin contaminar." },
+  ],
+  tarjetas: [
+    ["Turbina y alternador", "La turbina gira; el alternador transforma ese giro en electricidad."],
+    ["Análisis del ciclo de vida", "Estudio del impacto de un producto desde la extracción hasta su fin de vida."],
+    ["Obsolescencia programada", "Diseñar productos para que duren poco o no se puedan reparar."],
+  ],
+});

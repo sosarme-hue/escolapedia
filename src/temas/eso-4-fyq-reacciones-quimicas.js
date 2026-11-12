@@ -117,3 +117,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar las reacciones con la teoría de colisiones", "Reconocer reacciones ácido-base y de combustión y su importancia"],
+  tras: {
+    "Qué es una reacción química": [
+      { html: `<h3>La teoría de colisiones</h3><p>¿Qué ocurre a escala de partículas en una reacción? Según la <b>teoría de colisiones</b>, para que los reactivos se transformen sus partículas deben <b>chocar</b>. Pero no basta cualquier choque: tiene que ser <mark>eficaz</mark>, es decir, con energía suficiente para romper los enlaces de los reactivos (la <b>energía de activación</b>) y con la orientación adecuada. Al romperse los enlaces, los átomos se reorganizan y forman enlaces nuevos: así aparecen los productos. Los átomos no se crean ni se destruyen, solo cambian de compañeros. Esta idea explica por qué una cerilla necesita un roce para encenderse y por qué la temperatura acelera las reacciones.</p>` },
+    ],
+    "Ajustar una ecuación": [
+      { html: `<h3>Ajustar paso a paso</h3><p>Para ajustar una ecuación por tanteo conviene seguir un orden: primero los <b>metales</b>, después los <b>no metales</b> distintos de H y O, luego el <b>hidrógeno</b> y por último el <b>oxígeno</b>. Solo se cambian los <mark>coeficientes</mark> (los números delante de las fórmulas), nunca los subíndices, porque cambiarlos cambiaría la sustancia: H₂O es agua y H₂O₂ es agua oxigenada. Al terminar, se comprueba que hay el mismo número de átomos de cada elemento a los dos lados. Si sale un coeficiente fraccionario, como ½ O₂, se multiplica toda la ecuación por 2.</p>`, video: { id: "OqHos1JVGXA", titulo: "Balanceo de ecuaciones: combustión del metano", canal: "Química y Física", vistas: 629541 } },
+    ],
+    "Energía y tipos de reacciones": [
+      { html: `<h3>Ácidos, bases y pH</h3><p>Los <b>ácidos</b> tienen sabor agrio, reaccionan con los metales y ponen rojo el papel indicador: el vinagre, el limón, el ácido clorhídrico del estómago. Las <b>bases</b> o álcalis tienen sabor amargo, tacto jabonoso y ponen azul el indicador: la lejía, el amoniaco, el bicarbonato. El <b>pH</b> mide la acidez en una escala de 0 a 14: por debajo de 7 es ácido, 7 es neutro (agua pura) y por encima de 7 es básico. Un ácido y una base reaccionan entre sí en una <mark>neutralización</mark>, que produce una sal y agua: HCl + NaOH → NaCl + H₂O. Por eso un antiácido (una base) alivia el ardor de estómago.</p>`, video: { id: "E_xcacKMzyQ", titulo: "Características de los ácidos y las bases", canal: "Amigos de la Química", vistas: 1151998 } },
+      { html: `<h3>Combustión y química en la sociedad</h3><p>La <b>combustión</b> es la reacción de una sustancia (el combustible) con el oxígeno, que desprende mucha energía en forma de calor y luz. Cuando un hidrocarburo arde con oxígeno suficiente se forman CO₂ y agua; con poco oxígeno se produce además <mark>monóxido de carbono</mark> (CO), un gas tóxico e inodoro: por eso los calentadores y estufas necesitan ventilación. La química industrial fabrica fertilizantes, medicamentos, plásticos o materiales de construcción, pero también genera problemas: el CO₂ de las combustiones aumenta el efecto invernadero y los óxidos de azufre y nitrógeno causan la <b>lluvia ácida</b>. La química verde busca procesos que generen menos residuos y usen menos energía.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Ajusta: Fe + O₂ → Fe₂O₃.", pasos: ["Hierro: a la derecha hay 2, así que pon 2 Fe a la izquierda.", "Oxígeno: hay 2 a la izquierda y 3 a la derecha. El mínimo común múltiplo es 6: 3 O₂ y 2 Fe₂O₃.", "Ahora hay 4 Fe a la derecha: corrige a 4 Fe a la izquierda y comprueba: 4 Fe y 6 O a cada lado."], resultado: "4 Fe + 3 O₂ → 2 Fe₂O₃." },
+    { enunciado: "Al quemar 16 g de metano con 64 g de oxígeno se forman 36 g de agua. ¿Cuánto CO₂ se forma?", pasos: ["Ley de Lavoisier: la masa de los reactivos es igual a la de los productos.", "Reactivos: 16 + 64 = 80 g.", "CO₂ = 80 − 36 = 44 g."], resultado: "Se forman 44 g de CO₂." },
+    { enunciado: "Explica con la teoría de colisiones por qué la leche se conserva más tiempo en la nevera.", pasos: ["Las reacciones que estropean la leche necesitan choques eficaces entre partículas.", "A menor temperatura, las partículas se mueven más despacio: chocan menos veces y con menos energía.", "Hay menos choques eficaces por segundo, así que la reacción es más lenta."], resultado: "El frío reduce la velocidad de reacción y retrasa que la leche se estropee." },
+  ],
+  errores: [
+    "Cambiar los subíndices al ajustar (convertir H₂O en H₂O₂) en vez de los coeficientes.",
+    "Pensar que en una reacción desaparecen átomos: solo se reorganizan.",
+    "Confundir un cambio físico (fundir hielo, disolver azúcar) con uno químico (quemar papel).",
+    "Creer que un catalizador se gasta o cambia el resultado: solo acelera la reacción y se recupera.",
+    "Pensar que pH 2 es menos ácido que pH 5: cuanto más bajo, más ácido.",
+  ],
+  ejercicios: [
+    { q: "Indica si son cambios físicos o químicos: oxidarse un clavo, evaporarse el alcohol, digerir un bocadillo, romper un vaso.", sol: "Químicos: oxidarse el clavo y digerir el bocadillo. Físicos: evaporarse el alcohol y romper el vaso." },
+    { q: "Ajusta: H₂ + O₂ → H₂O.", sol: "2 H₂ + O₂ → 2 H₂O." },
+    { q: "Ajusta: N₂ + H₂ → NH₃.", sol: "N₂ + 3 H₂ → 2 NH₃." },
+    { q: "Ajusta: C₂H₆ + O₂ → CO₂ + H₂O.", sol: "C: 2 CO₂. H: 6 → 3 H₂O. O a la derecha: 4 + 3 = 7 → 7/2 O₂. Multiplicando por 2: 2 C₂H₆ + 7 O₂ → 4 CO₂ + 6 H₂O." },
+    { q: "Si 10 g de A reaccionan con 25 g de B y se forman 5 g de C y un producto D, ¿cuánto D se forma?", sol: "Por conservación de la masa: 10 + 25 = 5 + D, D = 30 g." },
+    { q: "Explica dos formas de acelerar la reacción de una pastilla efervescente en agua.", sol: "Usar agua caliente (más temperatura, más choques eficaces) y triturar la pastilla (más superficie de contacto)." },
+    { q: "¿Qué diferencia hay entre una reacción exotérmica y una endotérmica? Pon un ejemplo de cada una.", sol: "La exotérmica desprende energía (combustión de la madera); la endotérmica la absorbe (la de las bolsas de frío instantáneo o la fotosíntesis)." },
+    { q: "Ordena de más ácida a más básica: lejía (pH 12), zumo de limón (pH 2), agua pura (pH 7), leche (pH 6,5).", sol: "Limón (2) > leche (6,5) > agua (7) > lejía (12)." },
+    { q: "Completa y ajusta la neutralización: HCl + Ca(OH)₂ → … + H₂O.", sol: "2 HCl + Ca(OH)₂ → CaCl₂ + 2 H₂O." },
+    { q: "¿Por qué es peligroso usar una estufa de gas en una habitación cerrada?", sol: "Con poco oxígeno, la combustión es incompleta y produce monóxido de carbono, un gas tóxico sin olor que puede causar intoxicaciones graves." },
+  ],
+  quiz: [
+    { q: "Según la teoría de colisiones, para que haya reacción el choque debe…", o: ["tener energía suficiente y buena orientación", "ser muy lento", "darse entre partículas iguales"], a: 0, e: "Es un choque eficaz." },
+    { q: "Al ajustar una ecuación solo se pueden cambiar…", o: ["los subíndices", "los coeficientes", "las fórmulas"], a: 1, e: "Cambiar subíndices cambia la sustancia." },
+    { q: "Una disolución con pH 3 es…", o: ["ácida", "neutra", "básica"], a: 0, e: "Por debajo de 7 es ácida." },
+    { q: "Un ácido más una base producen…", o: ["sal y agua", "CO₂ y agua", "solo agua"], a: 0, e: "Es la neutralización." },
+    { q: "La combustión incompleta produce un gas tóxico llamado…", o: ["monóxido de carbono", "oxígeno", "nitrógeno"], a: 0, e: "CO, inodoro y peligroso." },
+  ],
+  tarjetas: [
+    ["Teoría de colisiones", "Hay reacción si las partículas chocan con energía suficiente y buena orientación."],
+    ["Escala de pH", "0 a 14: < 7 ácido, 7 neutro, > 7 básico."],
+    ["Neutralización", "Ácido + base → sal + agua."],
+  ],
+});

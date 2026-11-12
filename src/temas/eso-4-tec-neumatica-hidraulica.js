@@ -126,3 +126,58 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Calcular fuerzas en cilindros y en la prensa hidráulica", "Diseñar circuitos neumáticos con control directo, indirecto y lógico"],
+  tras: {
+    "Fluidos que hacen fuerza": [
+      { html: `<h3>Presión, fuerza y superficie en los cilindros</h3><p>La fuerza que hace un cilindro depende de la <b>presión</b> del fluido y de la <b>superficie del émbolo</b>: <mark>F = p · S</mark>. La presión se mide en pascales (Pa), pero en neumática se usa el <b>bar</b> (1 bar = 100.000 Pa, más o menos la presión atmosférica); las instalaciones industriales trabajan a unos 6 bar. La superficie de un émbolo circular es S = π · r². Así, un cilindro con un émbolo de 4 cm de diámetro (r = 0,02 m; S ≈ 0,00126 m²) alimentado a 6 bar empuja con unos 754 N. En un cilindro de doble efecto, la fuerza de retroceso es algo menor que la de avance porque el vástago ocupa parte de la superficie del émbolo por ese lado.</p>` },
+    ],
+    "Neumática frente a hidráulica": [
+      { html: `<h3>La prensa hidráulica</h3><p>Los sistemas hidráulicos se basan en el <b>principio de Pascal</b>: la presión que se aplica a un líquido encerrado se transmite igual a todos sus puntos. En una prensa hidráulica, un émbolo pequeño empuja el aceite, y la misma presión actúa sobre un émbolo grande, que hace una fuerza mucho mayor: <mark>F₁ / S₁ = F₂ / S₂</mark>. Si el émbolo grande tiene 50 veces más superficie, la fuerza se multiplica por 50. A cambio, el émbolo pequeño debe recorrer 50 veces más distancia: como en las máquinas simples, se gana fuerza pero no energía. Con este principio funcionan los gatos hidráulicos, los frenos de los coches, las excavadoras y los elevadores de los talleres.</p>` },
+    ],
+    "Cilindros y válvulas": [
+      { html: `<h3>Control directo e indirecto</h3><p>En un <b>control directo</b>, la válvula que acciona el operario (con un pulsador o una palanca) envía el aire directamente al cilindro. Es sencillo, pero solo sirve para cilindros pequeños: los grandes necesitan mucho caudal y el pulsador sería enorme. En un <b>control indirecto</b>, el pulsador gobierna una válvula pequeña que envía una señal de aire a una <b>válvula principal</b> más grande, accionada por aire (pilotada), y es esta la que mueve el cilindro. Así se maneja una gran fuerza con un esfuerzo mínimo, igual que un relé en electricidad. En la industria se usan <mark>electroválvulas</mark>, que cambian de posición con un electroimán y se pueden controlar desde un autómata o una placa programable.</p>`, video: { id: "Wee85cI6wwQ", titulo: "Neumática industrial: ¿cómo trabaja un sistema neumático?", canal: "Parker Hannifin", vistas: 1510445 } },
+      { html: `<h3>Válvulas lógicas y reguladoras</h3><p>Algunas válvulas combinan señales como las puertas lógicas. La <b>válvula de simultaneidad</b> (función Y) solo deja salir aire si llega por sus dos entradas a la vez: se usa en las prensas con <mark>mando a dos manos</mark>, para que el operario no pueda tener una mano dentro de la máquina al accionarla. La <b>válvula selectora</b> (función O) deja salir aire si llega por cualquiera de sus entradas: permite accionar un cilindro desde dos puntos distintos. La <b>válvula reguladora de caudal</b> estrangula el paso del aire para controlar la velocidad del cilindro, y la <b>antirretorno</b> solo deja pasar el aire en un sentido.</p>` },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Un cilindro tiene un émbolo de 5 cm de diámetro y trabaja a 6 bar. ¿Qué fuerza de avance hace?", pasos: ["Radio: 2,5 cm = 0,025 m. S = π · 0,025² ≈ 0,00196 m².", "Presión: 6 bar = 600.000 Pa.", "F = p · S = 600.000 · 0,00196 ≈ 1.178 N."], resultado: "Unos 1.180 N (como levantar unos 120 kg)." },
+    { enunciado: "En un gato hidráulico, el émbolo pequeño tiene 2 cm² y el grande 100 cm². ¿Qué fuerza hay que hacer para levantar 10.000 N?", pasos: ["Pascal: F₁ / S₁ = F₂ / S₂.", "F₁ = F₂ · S₁ / S₂ = 10.000 · 2 / 100.", "F₁ = 200 N."], resultado: "200 N, cincuenta veces menos." },
+    { enunciado: "Diseña el control de una prensa que solo baje si el operario pulsa dos botones a la vez.", pasos: ["Cada botón es una válvula 3/2 con pulsador.", "Las dos salidas van a una válvula de simultaneidad (Y).", "La salida de la válvula Y pilota la válvula principal 5/2, que hace avanzar el cilindro de doble efecto."], resultado: "Dos pulsadores → válvula Y → válvula 5/2 pilotada → cilindro: mando a dos manos." },
+  ],
+  errores: [
+    "Olvidar pasar los bares a pascales o los cm² a m² en F = p · S.",
+    "Usar el diámetro en lugar del radio para calcular la superficie del émbolo.",
+    "Creer que la prensa hidráulica crea energía: gana fuerza a cambio de recorrido.",
+    "Confundir una válvula 3/2 (3 vías, 2 posiciones) con una 5/2.",
+    "Pensar que el aire comprimido no es peligroso: puede proyectar partículas y causar lesiones graves.",
+  ],
+  ejercicios: [
+    { q: "Indica dos ventajas de la neumática y dos de la hidráulica.", sol: "Neumática: el aire es limpio, gratis y rápido. Hidráulica: hace fuerzas muy grandes y movimientos precisos, porque el aceite no se comprime." },
+    { q: "Pasa 6 bar a pascales y 300.000 Pa a bar.", sol: "600.000 Pa y 3 bar." },
+    { q: "Calcula la superficie de un émbolo de 10 cm de diámetro en m².", sol: "r = 0,05 m; S = π · 0,05² ≈ 0,00785 m²." },
+    { q: "¿Qué fuerza hace ese émbolo a 5 bar?", sol: "F = 500.000 · 0,00785 ≈ 3.925 N." },
+    { q: "En una prensa, S₁ = 5 cm² y S₂ = 500 cm². Si haces 100 N, ¿qué fuerza obtienes?", sol: "F₂ = 100 · 500 / 5 = 10.000 N." },
+    { q: "Explica qué significa «válvula 5/2».", sol: "Que tiene 5 vías (orificios) y 2 posiciones; sirve para gobernar cilindros de doble efecto." },
+    { q: "¿Qué diferencia hay entre un cilindro de simple efecto y uno de doble efecto?", sol: "El de simple efecto avanza con aire y vuelve por un muelle; el de doble efecto avanza y retrocede con aire." },
+    { q: "¿Por qué se usa el control indirecto con cilindros grandes?", sol: "Porque necesitan mucho caudal de aire; el pulsador manda una pequeña señal a una válvula principal grande que mueve el cilindro." },
+    { q: "¿Qué válvula usarías para que un cilindro se pueda accionar desde la puerta o desde el interior de un garaje?", sol: "Una válvula selectora (función O), que recibe las señales de los dos pulsadores." },
+    { q: "Indica tres aplicaciones de la hidráulica.", sol: "Los frenos de los coches, las excavadoras y los elevadores de los talleres (también gatos y prensas)." },
+  ],
+  quiz: [
+    { q: "1 bar equivale aproximadamente a…", o: ["100.000 Pa", "1 Pa", "1.000 Pa"], a: 0, e: "Como la presión atmosférica." },
+    { q: "La fuerza de un cilindro es…", o: ["F = p · S", "F = p / S", "F = S / p"], a: 0, e: "Presión por superficie del émbolo." },
+    { q: "La prensa hidráulica se basa en el principio de…", o: ["Arquímedes", "Pascal", "Newton"], a: 1, e: "La presión se transmite igual." },
+    { q: "El mando a dos manos usa una válvula…", o: ["selectora (O)", "de simultaneidad (Y)", "antirretorno"], a: 1, e: "Exige las dos señales a la vez." },
+    { q: "Para regular la velocidad de un cilindro se usa una válvula…", o: ["reguladora de caudal", "5/2", "de simultaneidad"], a: 0, e: "Estrangula el paso del aire." },
+  ],
+  tarjetas: [
+    ["Fuerza de un cilindro", "F = p · S; S = π · r²."],
+    ["Control indirecto", "El pulsador pilota una válvula principal que mueve el cilindro."],
+    ["Válvula de simultaneidad", "Función Y: necesita aire en sus dos entradas."],
+  ],
+});

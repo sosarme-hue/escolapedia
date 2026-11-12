@@ -121,3 +121,60 @@ module.exports = {
   ],
   revisado: "2026-11-12",
 };
+
+// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
+const AMP = require("./_amplia");
+AMP.amplia(module.exports, {
+  minutos: 60,
+  objetivos: ["Explicar cómo las ondas sísmicas revelan el interior de la Tierra", "Relacionar los riesgos sísmicos y volcánicos con los bordes de placa y con su prevención"],
+  tras: {
+    "El interior de la Tierra": [
+      { html: `<h3>Cómo conocemos el interior: las ondas sísmicas</h3><p>El sondeo más profundo jamás perforado apenas llega a 12 km, menos del 0,2 % del radio terrestre. Casi todo lo que sabemos del interior procede de las <b>ondas sísmicas</b> que producen los terremotos. Las ondas <b>P</b> (primarias) son las más rápidas y atraviesan sólidos y líquidos; las ondas <b>S</b> (secundarias) son más lentas y <mark>no atraviesan los líquidos</mark>. Cuando las ondas pasan de un material a otro cambian de velocidad y de dirección. Esos cambios bruscos, llamados <b>discontinuidades</b>, marcan los límites entre capas: la de Mohorovičić separa corteza y manto, y la de Gutenberg, manto y núcleo. Como las ondas S no atraviesan el núcleo externo, sabemos que es líquido.</p>`, video: { id: "liDnlvkr_k4", titulo: "Tipos de ondas sísmicas", canal: "Cerebralia", vistas: 291301 } },
+    ],
+    "La deriva continental": [
+      { html: `<h3>Las pruebas de Wegener</h3><p>En 1912, Alfred Wegener propuso que todos los continentes estuvieron unidos en un supercontinente, <b>Pangea</b>, que se fragmentó hace unos 200 millones de años. Aportó cuatro tipos de pruebas. <b>Geográficas</b>: las costas de Sudamérica y África encajan como piezas de un puzle. <b>Paleontológicas</b>: se encuentran los mismos fósiles (el reptil <i>Mesosaurus</i>, la planta <i>Glossopteris</i>) en continentes separados por océanos. <b>Geológicas</b>: hay cordilleras y tipos de rocas que continúan de un continente a otro. <b>Paleoclimáticas</b>: hay restos de antiguos glaciares en zonas hoy tropicales, como la India. Su teoría fue rechazada porque <mark>no sabía explicar qué movía los continentes</mark>.</p>` },
+    ],
+    "La tectónica de placas": [
+      { html: `<h3>El motor de las placas y el ciclo de Wilson</h3><p>Las placas se mueven unos pocos centímetros al año, más o menos lo que crecen las uñas. El motor es el <b>calor interno</b> de la Tierra: en el manto se producen lentas <b>corrientes de convección</b>, y además la placa que se hunde en una zona de subducción, al ser más densa, <mark>tira del resto de la placa</mark>. Los océanos nacen y mueren en un proceso que se repite llamado <b>ciclo de Wilson</b>: un continente se agrieta formando un rift (como el valle del Rift africano), se abre un mar estrecho (como el mar Rojo), crece un océano con su dorsal (como el Atlántico), empieza a destruirse por subducción en sus bordes (como el Pacífico) y finalmente los continentes chocan y forman una cordillera (como el Himalaya).</p>` },
+    ],
+    "Volcanes, terremotos y cordilleras": [
+      { html: `<h3>Riesgos sísmicos y volcánicos</h3><p>La mayoría de volcanes y terremotos se concentran en los bordes de placa: el <b>Cinturón de Fuego del Pacífico</b> reúne el 75 % de los volcanes activos y el 90 % de los terremotos. La <b>magnitud</b> de un terremoto mide la energía liberada (escala de Richter o de magnitud de momento); la <b>intensidad</b> mide los daños que causa en un lugar. Los terremotos no se pueden predecir, pero sí reducir sus daños con <mark>prevención</mark>: construir edificios sismorresistentes, hacer mapas de riesgo, enseñar a la población qué hacer y tener planes de emergencia. Los volcanes se vigilan midiendo pequeños terremotos, gases y la deformación del terreno, lo que permite evacuar a tiempo, como se hizo en la erupción de La Palma de 2021.</p>`, video: { id: "YyZIRGRQ_1w", titulo: "Anillo de Fuego, la gran zona de terremotos y volcanes", canal: "Un Mundo Inmenso", vistas: 1825375 } },
+    ],
+  },
+  ejemplos: [
+    { enunciado: "Un terremoto se registra en una estación, pero en una zona del otro lado de la Tierra no llegan ondas S. ¿Qué deduces?", pasos: ["Las ondas S no atraviesan los líquidos.", "Si no llegan al otro lado, algo líquido las bloquea en el centro de la Tierra.", "Esa «zona de sombra» de las ondas S se explica por el núcleo externo."], resultado: "El núcleo externo de la Tierra es líquido." },
+    { enunciado: "El Atlántico se ensancha unos 2,5 cm al año. ¿Cuánto se habrá abierto en un millón de años?", pasos: ["2,5 cm/año · 1.000.000 años = 2.500.000 cm.", "2.500.000 cm = 25.000 m.", "25.000 m = 25 km."], resultado: "Unos 25 km (en 200 millones de años, unos 5.000 km: el ancho del océano)." },
+    { enunciado: "Explica por qué en Japón hay volcanes y terremotos frecuentes.", pasos: ["Japón está sobre un borde convergente donde la placa del Pacífico, oceánica, se hunde bajo otras placas (subducción).", "La fricción entre las placas acumula tensiones que se liberan en terremotos.", "La placa que se hunde se funde parcialmente y el magma asciende formando volcanes."], resultado: "Por la subducción en un borde convergente del Cinturón de Fuego." },
+  ],
+  errores: [
+    "Pensar que el manto es líquido: es sólido, aunque se deforma muy lentamente.",
+    "Confundir la corteza con la litosfera: la litosfera incluye la corteza y la parte superior del manto.",
+    "Creer que los continentes «flotan» sobre un mar de lava.",
+    "Confundir magnitud (energía del terremoto) con intensidad (daños en un lugar).",
+    "Pensar que los terremotos se pueden predecir con exactitud: solo se pueden prevenir sus daños.",
+  ],
+  ejercicios: [
+    { q: "Nombra las capas de la Tierra según su composición y según su comportamiento.", sol: "Composición: corteza, manto y núcleo. Comportamiento: litosfera, astenosfera (zona más plástica del manto superior), mesosfera, núcleo externo (líquido) y núcleo interno (sólido)." },
+    { q: "¿Qué diferencia hay entre ondas P y S?", sol: "Las P son más rápidas y atraviesan sólidos y líquidos. Las S son más lentas y solo atraviesan sólidos." },
+    { q: "Indica dos pruebas de la deriva continental y explícalas.", sol: "El encaje de las costas de Sudamérica y África, y la presencia de los mismos fósiles (Mesosaurus) en continentes separados por el océano, que no podría haber cruzado." },
+    { q: "¿Por qué la teoría de Wegener no se aceptó al principio?", sol: "Porque no explicaba qué fuerza podía mover los continentes." },
+    { q: "Explica qué ocurre en una dorsal oceánica.", sol: "Dos placas se separan; el magma del manto asciende, se enfría y forma nueva corteza oceánica. Es un borde constructivo." },
+    { q: "¿Qué tipo de borde forma el Himalaya? ¿Y los Andes?", sol: "El Himalaya, un borde convergente de dos placas continentales (colisión). Los Andes, un borde convergente donde una placa oceánica se hunde bajo una continental (subducción)." },
+    { q: "¿Qué es una falla transformante? Pon un ejemplo.", sol: "Un borde donde dos placas se deslizan lateralmente una junto a otra sin crear ni destruir litosfera. Ejemplo: la falla de San Andrés (California)." },
+    { q: "Describe las etapas del ciclo de Wilson con un ejemplo de cada una.", sol: "Rift (valle del Rift africano), mar estrecho (mar Rojo), océano en expansión (Atlántico), océano en cierre por subducción (Pacífico) y colisión continental (Himalaya)." },
+    { q: "Indica cuatro medidas para reducir los daños de un terremoto.", sol: "Construir edificios sismorresistentes, no edificar en zonas de mayor riesgo, enseñar a la población cómo actuar y tener planes de emergencia y simulacros." },
+    { q: "¿Cómo se vigila un volcán activo?", sol: "Con sismógrafos que registran pequeños terremotos, midiendo los gases que emite y con GPS y satélites que detectan si el terreno se hincha." },
+  ],
+  quiz: [
+    { q: "Las ondas S no atraviesan…", o: ["los sólidos", "los líquidos", "la corteza"], a: 1, e: "Por eso sabemos que el núcleo externo es líquido." },
+    { q: "Pangea era…", o: ["un océano", "un supercontinente", "una placa oceánica"], a: 1, e: "Se fragmentó hace unos 200 millones de años." },
+    { q: "Las placas se mueven unos…", o: ["centímetros al año", "metros al día", "kilómetros al año"], a: 0, e: "Como crecen las uñas." },
+    { q: "El mar Rojo es un ejemplo de…", o: ["océano que se cierra", "océano que empieza a abrirse", "cordillera"], a: 1, e: "Etapa temprana del ciclo de Wilson." },
+    { q: "La magnitud de un terremoto mide…", o: ["los daños", "la energía liberada", "la duración"], a: 1, e: "La intensidad mide los daños." },
+  ],
+  tarjetas: [
+    ["Discontinuidad sísmica", "Límite entre capas donde las ondas cambian bruscamente de velocidad."],
+    ["Ciclo de Wilson", "Apertura y cierre de océanos: rift, mar, océano, subducción, colisión."],
+    ["Cinturón de Fuego", "Borde del Pacífico con la mayoría de volcanes y terremotos."],
+  ],
+});
