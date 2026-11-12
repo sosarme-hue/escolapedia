@@ -22,52 +22,8 @@ const PRIMARIA_BASE = (n) => [
   s("Ciencias de la Naturaleza", "natu"), s("Ciencias Sociales", "soc"),
   s("Lengua Castellana y Literatura", "len"), s("Matemáticas", "mat"), s("Inglés", "ing"),
   s("Educación Plástica", "art"), s("Música", "mus"), s("Educación Física", "ef"),
-  ...(n === 5 ? [s("Valores Cívicos y Éticos", "val", [], "comun", "En 5º o 6º según la comunidad")] : []),
+  ...(n >= 5 ? [s("Valores Cívicos y Éticos", "val", [], "comun", "En 5º o 6º según la comunidad")] : []),
   CAT(), ...(n >= 3 ? [FRA("", n >= 5 ? "Segunda lengua extranjera (tercer ciclo)" : "Segunda lengua extranjera, según la comunidad")] : []), REL(),
-];
-
-const SEXTO = [
-  s("Ciencias de la Naturaleza", "natu", [
-    "La célula y los niveles de organización", "La función de nutrición", "La función de relación: sistema nervioso y sentidos",
-    "La reproducción humana", "La salud y los hábitos saludables", "La clasificación de los seres vivos",
-    "La fotosíntesis: cómo comen las plantas", "Los ecosistemas y la biodiversidad", "La materia y sus cambios",
-    "La energía y sus fuentes", "La electricidad y el magnetismo", "Máquinas, robots y programación",
-  ]),
-  s("Ciencias Sociales", "soc", [
-    "El relieve de España y de Europa", "Los climas de España y de Europa", "La población de España y de Europa",
-    "Los sectores económicos", "La organización política de España", "La Unión Europea",
-    "La Edad Moderna en España", "El siglo XIX en España", "El siglo XX en España", "La Transición y la democracia",
-  ]),
-  s("Lengua Castellana y Literatura", "len", [
-    "La comunicación y sus elementos", "El sustantivo y el adjetivo", "Determinantes y pronombres", "El verbo",
-    "Adverbios, preposiciones y conjunciones", "La oración: sujeto y predicado", "Reglas de acentuación",
-    "Ortografía: b/v, g/j, h y ll/y", "Textos narrativos, descriptivos y expositivos", "Los géneros literarios",
-    "Las figuras literarias", "La poesía: métrica y rima",
-  ]),
-  s("Matemáticas", "mat", [
-    "Números grandes y operaciones", "Potencias y raíz cuadrada", "Múltiplos, divisores y números primos",
-    "Fracciones equivalentes", "Operaciones con fracciones", "Números decimales", "Porcentajes y proporcionalidad",
-    "Medidas de longitud, masa y capacidad", "Ángulos y su medida", "Polígonos y circunferencia",
-    "Áreas de figuras planas", "Cuerpos geométricos y volumen", "Estadística y probabilidad", "Pensamiento computacional",
-  ]),
-  s("Inglés", "ing", [
-    "Present simple and continuous", "Past simple: regular and irregular verbs", "Comparatives and superlatives",
-    "Going to and will", "There was / there were", "Countable and uncountable nouns", "Describing people and places",
-    "Reading and writing an email",
-  ], "lengua"),
-  s("Educación Plástica", "art", [
-    "El color: primarios, secundarios y complementarios", "La línea, la forma y la textura", "La perspectiva",
-    "El cómic y la ilustración", "Fotografía y cine", "Grandes artistas españoles",
-  ]),
-  s("Música", "mus", [
-    "Las cualidades del sonido", "Lenguaje musical: notas, figuras y compás", "Los instrumentos y la orquesta",
-    "La voz y el canto", "Formas musicales", "Música en la historia",
-  ]),
-  s("Educación Física", "ef", [
-    "Calentamiento y condición física", "El cuerpo en movimiento", "Juegos y deportes colectivos",
-    "Actividades en la naturaleza", "Expresión corporal y danza", "Salud, alimentación y descanso",
-  ]),
-  CAT(), FRA("", "Segunda lengua extranjera (tercer ciclo)"), REL(),
 ];
 
 const L = "lengua", O = "opcion", M = "modalidad";
@@ -116,7 +72,7 @@ const INFANTIL = () => [
   s("Religión", "val", [], O, "Voluntaria"),
 ];
 
-const LISTAS = { "4-eso": require("./listas-4eso"), "3-eso": require("./listas-3eso"), "2-eso": require("./listas-2eso"), "1-eso": require("./listas-1eso"), "1-primaria": require("./listas-1primaria") };
+const LISTAS = { "4-eso": require("./listas-4eso"), "3-eso": require("./listas-3eso"), "2-eso": require("./listas-2eso"), "1-eso": require("./listas-1eso"), "1-primaria": require("./listas-1primaria"), "6-primaria": require("./listas-6primaria") };
 function conListas(cursoSlug, materias) {
   const l = LISTAS[cursoSlug]; if (!l) return materias;
   return materias.map((m) => (l[m.nombre] && !m.temas.length ? { ...m, temas: l[m.nombre] } : m));
@@ -128,7 +84,7 @@ module.exports = {
     { slug: "infantil", nombre: "Infantil", edad: "3 a 5 años", color: "#f08a24", decreto: "RD 95/2022",
       cursos: [3, 4, 5].map((n) => ({ slug: `${n}-anos`, nombre: `${n} años`, materias: INFANTIL() })) },
     { slug: "primaria", nombre: "Primaria", edad: "6 a 12 años", color: "#1f9d55", decreto: "RD 157/2022",
-      cursos: [1, 2, 3, 4, 5, 6].map((n) => ({ slug: `${n}-primaria`, nombre: `${n}º`, largo: `${n}º de Primaria`, materias: n === 6 ? SEXTO : conListas(`${n}-primaria`, PRIMARIA_BASE(n)) })) },
+      cursos: [1, 2, 3, 4, 5, 6].map((n) => ({ slug: `${n}-primaria`, nombre: `${n}º`, largo: `${n}º de Primaria`, materias: conListas(`${n}-primaria`, PRIMARIA_BASE(n)) })) },
     { slug: "eso", nombre: "ESO", edad: "12 a 16 años", color: "#1f4fd1", decreto: "RD 217/2022",
       cursos: [1, 2, 3, 4].map((n) => ({ slug: `${n}-eso`, nombre: `${n}º`, largo: `${n}º de ESO`, materias: conListas(`${n}-eso`, [...parse(CURSOS_ESO[n]), ...ESO_OPT(n)]) })) },
     { slug: "bachillerato", nombre: "Bachillerato", edad: "16 a 18 años", color: "#7b3fc4", decreto: "RD 243/2022",
