@@ -115,6 +115,12 @@ const INFANTIL = () => [
   s("Religión", "val", [], O, "Voluntaria"),
 ];
 
+const LISTAS = { "4-eso": require("./listas-4eso") };
+function conListas(cursoSlug, materias) {
+  const l = LISTAS[cursoSlug]; if (!l) return materias;
+  return materias.map((m) => (l[m.nombre] && !m.temas.length ? { ...m, temas: l[m.nombre] } : m));
+}
+
 module.exports = {
   FAM,
   ETAPAS: [
@@ -123,7 +129,7 @@ module.exports = {
     { slug: "primaria", nombre: "Primaria", edad: "6 a 12 años", color: "#1f9d55", decreto: "RD 157/2022",
       cursos: [1, 2, 3, 4, 5, 6].map((n) => ({ slug: `${n}-primaria`, nombre: `${n}º`, largo: `${n}º de Primaria`, materias: n === 6 ? SEXTO : PRIMARIA_BASE(n) })) },
     { slug: "eso", nombre: "ESO", edad: "12 a 16 años", color: "#1f4fd1", decreto: "RD 217/2022",
-      cursos: [1, 2, 3, 4].map((n) => ({ slug: `${n}-eso`, nombre: `${n}º`, largo: `${n}º de ESO`, materias: [...parse(CURSOS_ESO[n]), ...ESO_OPT(n)] })) },
+      cursos: [1, 2, 3, 4].map((n) => ({ slug: `${n}-eso`, nombre: `${n}º`, largo: `${n}º de ESO`, materias: conListas(`${n}-eso`, [...parse(CURSOS_ESO[n]), ...ESO_OPT(n)]) })) },
     { slug: "bachillerato", nombre: "Bachillerato", edad: "16 a 18 años", color: "#7b3fc4", decreto: "RD 243/2022",
       cursos: [1, 2].map((n) => ({ slug: `${n}-bachillerato`, nombre: `${n}º`, largo: `${n}º de Bachillerato`, materias: [...parse(BACH[n]), ...BACH_OPT(n)] })) },
   ],

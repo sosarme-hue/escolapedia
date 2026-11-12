@@ -100,7 +100,7 @@ module.exports = {
       <line x1="350" y1="14" x2="350" y2="288" stroke="var(--red)" stroke-width="3" stroke-dasharray="8 6"/>
     </svg>`,
   },
-  video: { titulo: "Fracciones equivalentes explicadas para Primaria", canal: "Selección pendiente", busqueda: "fracciones equivalentes primaria explicación" },
+  video: { id: "osePKL39EBo", titulo: "Fracciones equivalentes súper fácil", canal: "Daniel Carreón", vistas: 10380320, megusta: 260262, busqueda: "fracciones equivalentes" },
   quiz: [
     { q: "¿Cuál de estas fracciones es equivalente a 1/3?", o: ["2/3", "3/9", "1/6"], a: 1, e: "3/9 sale de multiplicar 1/3 por 3 arriba y abajo: 1×3 = 3 y 3×3 = 9." },
     { q: "Si amplificamos 2/5 por 4, ¿qué obtenemos?", o: ["8/20", "6/9", "8/5"], a: 0, e: "Se multiplican los dos términos: 2×4 = 8 y 5×4 = 20." },

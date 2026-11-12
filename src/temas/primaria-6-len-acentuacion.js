@@ -92,7 +92,7 @@ module.exports = {
       </g>
     </svg>`,
   },
-  video: { id: "3Qzip92Rrpg", titulo: "Reglas de acentuación: agudas, llanas, esdrújulas y sobresdrújulas", canal: "Susi Profe", busqueda: "reglas de acentuación primaria" },
+  video: { id: "dfzlBAMVrBI", titulo: "¿Cómo acentuar? Agudas, graves (llanas), esdrújulas y sobresdrújulas", canal: "Rocío Carreón y Daniel Carreón", vistas: 2555827, megusta: 0, busqueda: "reglas de acentuación" },
   quiz: [
     { q: "¿Cuál es la sílaba tónica de «ventana»?", o: ["ven", "ta", "na"], a: 1, e: "Se dice «ven-TA-na»: la tónica es la penúltima, así que es llana." },
     { q: "¿Por qué lleva tilde «canción»?", o: ["Porque es llana y acaba en n", "Porque es aguda y acaba en n", "Porque todas las palabras con «ción» la llevan siempre"], a: 1, e: "Es aguda (can-CIÓN) y termina en -n, así que lleva tilde." },

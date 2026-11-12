@@ -14,7 +14,7 @@ const initials = (n) => n.replace(/^(Lengua|Educación|Ciencias)\s+/i, (m) => m)
 // ---------- temas escritos ----------
 const TEMAS = {};
 for (const f of fs.readdirSync(path.join(__dirname, "src/temas"))) {
-  if (!f.endsWith(".js")) continue;
+  if (!f.endsWith(".js") || f.startsWith("_")) continue;
   const t = require(`./src/temas/${f}`);
   TEMAS[`${t.curso}|${t.materia}|${t.titulo}`] = t;
 }
@@ -184,8 +184,9 @@ for (const e of ETAPAS) {
   }
 }
 
+function fmtN(n) { return n >= 1e6 ? `${(n / 1e6).toLocaleString("es-ES", { maximumFractionDigits: 1 })} millones de` : n >= 1e3 ? `${Math.round(n / 1e3).toLocaleString("es-ES")} mil` : String(n); }
 function videoHTML(v) {
-  if (v.id) return `<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${v.id}" title="${esc(v.titulo)}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: ${esc(v.titulo)} · ${esc(v.canal)} (YouTube)</p>`;
+  if (v.id) return `<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${v.id}" title="${esc(v.titulo)}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: ${esc(v.titulo)} · ${esc(v.canal)} (YouTube)${v.vistas ? ` · ${fmtN(v.vistas)} visualizaciones` : ""}${v.megusta ? ` · ${fmtN(v.megusta)} «me gusta»` : ""}</p>`;
   return `<a class="video" href="https://www.youtube.com/results?search_query=${encodeURIComponent(v.busqueda)}" target="_blank" rel="noopener"><div class="thumb"><span></span></div><div><b>Vídeos sobre este tema</b><small>Abre una búsqueda en YouTube mientras seleccionamos el mejor vídeo.</small></div></a>`;
 }
 
