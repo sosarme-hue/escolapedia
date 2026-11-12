@@ -13,7 +13,7 @@ const chips = (rows) => rows.map(([n, d, c], i) => `<rect x="14" y="${16 + i * 5
 // Línea de tiempo: [año, etiqueta, color]
 const linea = (aria, hitos, desde, hasta) => `<svg viewBox="0 0 260 180" role="img" aria-label="${aria}">${BG}
   <path d="M16 96 H 244" stroke="var(--muted)" stroke-width="3"/>
-  ${hitos.map(([a, t, c], i) => { const x = 20 + ((a - desde) / (hasta - desde)) * 220; const arriba = i % 2 === 0; return `<circle cx="${x.toFixed(1)}" cy="96" r="6" fill="${c}"/><path d="M${x.toFixed(1)} ${arriba ? 90 : 102} V ${arriba ? 62 : 130}" stroke="${c}" stroke-width="1.5"/><text x="${x.toFixed(1)}" y="${arriba ? 40 : 146}" text-anchor="middle" font-size="12" font-weight="700" fill="${c}" ${F}>${a}</text><text x="${x.toFixed(1)}" y="${arriba ? 56 : 162}" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ink)" ${F}>${t}</text>`; }).join("")}
+  ${hitos.map(([a, t, c], i) => { const x = 30 + (i * 200) / (hitos.length - 1); const arriba = i % 2 === 0; return `<circle cx="${x.toFixed(1)}" cy="96" r="6" fill="${c}"/><path d="M${x.toFixed(1)} ${arriba ? 90 : 102} V ${arriba ? 62 : 130}" stroke="${c}" stroke-width="1.5"/><text x="${x.toFixed(1)}" y="${arriba ? 40 : 146}" text-anchor="middle" font-size="12" font-weight="700" fill="${c}" ${F}>${a}</text><text x="${x.toFixed(1)}" y="${arriba ? 56 : 162}" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ink)" ${F}>${t}</text>`; }).join("")}
 </svg>`;
 
 module.exports = [
