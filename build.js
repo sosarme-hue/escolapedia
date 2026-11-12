@@ -179,7 +179,7 @@ for (const e of ETAPAS) {
       write(m.url, page({ title: `${m.nombre} · ${cursoNombre(e, c)} · ${SITE}`, desc: `Temas de ${m.nombre} de ${cursoNombre(e, c)}.`, depth: 3, body }));
 
       // ---------- tema ----------
-      m.temasObj.forEach((t, idx) => { if (t.obj) write(t.url, topicPage(e, c, m, t.obj, idx + 1)); });
+      m.temasObj.forEach((t, idx) => { if (t.obj) { write(t.url, topicPage(e, c, m, t.obj, idx + 1)); write(t.url + "ficha", fichaPage(e, c, m, t.obj, idx + 1)); } });
     }
   }
 }
@@ -190,6 +190,27 @@ function videoHTML(v) {
   return `<a class="video" href="https://www.youtube.com/results?search_query=${encodeURIComponent(v.busqueda)}" target="_blank" rel="noopener"><div class="thumb"><span></span></div><div><b>Vídeos sobre este tema</b><small>Abre una búsqueda en YouTube mientras seleccionamos el mejor vídeo.</small></div></a>`;
 }
 
+// Ficha imprimible: explicación, esquema, preguntas sin respuesta y soluciones al final.
+function fichaPage(e, c, m, T, n) {
+  const L = "ABCDEFG";
+  const body = `<main class="ficha"><div class="wrap">
+  <div class="crumbs noprint"><a href="../">← Volver al tema</a></div>
+  <div class="ficha-tools noprint"><button type="button" id="t-print">Imprimir o guardar en PDF</button><span class="caption">También puedes usar Ctrl + P (Cmd + P en Mac).</span></div>
+  <header class="ficha-h"><div><span class="badge" style="background:${famColor(m)}">${cursoNombre(e, c)} · ${m.nombre} · Tema ${n}</span><h1>${T.titulo}</h1></div>
+    <div class="ficha-name">Nombre: ______________________ &nbsp; Fecha: ___________</div></header>
+  <section><h2>Qué vas a aprender</h2><ul>${T.objetivos.map((o) => `<li>${o}</li>`).join("")}</ul></section>
+  <section><h2>Para pensar</h2><p class="question">${T.pregunta.texto}</p><div class="lines"></div></section>
+  <section><h2>Explicación</h2>${T.bloques.map((b) => `<div class="chunk">${`<div>${b.html}</div>`}${b.svg}</div>`).join("")}</section>
+  <section><h2>${T.figura.titulo}</h2><div class="figure">${T.figura.svg}</div></section>
+  <section class="brk"><h2>Practica</h2><ol class="fq">${T.quiz.map((q) => `<li><p>${q.q}</p><ol class="abc">${q.o.map((o, j) => `<li><span>${L[j]})</span> ${o}</li>`).join("")}</ol></li>`).join("")}</ol></section>
+  <section><h2>Explícalo con tus palabras</h2><p class="caption">Incluye: ${T.feynman.join("; ")}.</p><div class="lines tall"></div></section>
+  <section><h2>Resumen</h2><div class="map">${T.mapa}</div></section>
+  <section><h2>Tarjetas de repaso</h2><p class="caption">Recórtalas: pregunta delante, respuesta detrás.</p><div class="cut">${T.tarjetas.map(([q, a]) => `<div><b>${q}</b><span>${a}</span></div>`).join("")}</div></section>
+  <section class="sol"><h2>Soluciones</h2><ol>${T.quiz.map((q) => `<li><b>${L[q.a]})</b> ${q.e}</li>`).join("")}</ol></section>
+  </div></main>`;
+  return page({ title: `Ficha: ${T.titulo} · ${SITE}`, desc: `Ficha imprimible de ${T.titulo}, ${cursoNombre(e, c)}.`, depth: 5, body, scripts: `<script>document.getElementById("t-print").addEventListener("click",()=>window.print());</script>` });
+}
+
 function topicPage(e, c, m, T, n) {
   const id = `${c.slug}-${m.slug}-${slug(T.titulo)}`;
   const color = famColor(m);
@@ -197,7 +218,7 @@ function topicPage(e, c, m, T, n) {
   <div class="crumbs"><a href="../../../../">Inicio</a> › <a href="../../../">${e.nombre}</a> › <a href="../../">${c.nombre}</a> › <a href="../">${m.nombre}</a> › Tema ${n}</div>
   <div class="topic-head">
     <div><span class="badge" style="background:${color}">${cursoNombre(e, c)} · ${m.nombre}</span><h1>${T.titulo}</h1>
-      <div class="tools"><button type="button" id="t-proj" aria-pressed="false">Modo proyector</button><button type="button" id="t-print">Imprimir ficha</button></div></div>
+      <div class="tools"><button type="button" id="t-proj" aria-pressed="false">Modo proyector</button><a class="toolbtn" href="ficha/">Ficha para imprimir</a></div></div>
     <nav class="steps" aria-label="Pasos del tema">${[1, 2, 3, 4, 5, 6].map((i) => `<a href="#p${i}" data-go="p${i}">${i}</a>`).join("")}</nav>
   </div>
   <div class="layout"><div>

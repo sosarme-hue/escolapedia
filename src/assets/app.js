@@ -36,7 +36,6 @@
   if (rv) rv.addEventListener("click", () => { $("rv-text").hidden = false; });
 
   // Herramientas: imprimir ficha y modo proyectar (para profesores).
-  const pr = $("t-print"); if (pr) pr.addEventListener("click", () => window.print());
   const pj = $("t-proj");
   if (pj) pj.addEventListener("click", () => {
     const on = document.body.classList.toggle("proyectar");
