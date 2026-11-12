@@ -105,3 +105,45 @@
   }));
   show();
 })();
+
+/* ---------- examen de prueba por trimestre ---------- */
+(function () {
+  const X = window.EXAMEN;
+  if (!X) return;
+  const $ = (id) => document.getElementById(id);
+  const K = "ep:examen:" + X.id;
+  let t0 = 0, iv = 0;
+  const fmt = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+  $("ex-start").addEventListener("click", () => {
+    if (iv) return;
+    t0 = Date.now(); const tm = $("ex-timer"); tm.hidden = false;
+    iv = setInterval(() => {
+      const left = X.min * 60 - Math.floor((Date.now() - t0) / 1000);
+      tm.textContent = left > 0 ? `Tiempo: ${fmt(left)}` : "Tiempo terminado";
+      tm.classList.toggle("late", left <= 60);
+    }, 1000);
+    $("ex-start").textContent = "Examen en marcha";
+    $("ex-list").scrollIntoView({ behavior: "smooth" });
+  });
+  $("ex-check").addEventListener("click", () => {
+    clearInterval(iv);
+    let ok = 0; const fallos = {};
+    document.querySelectorAll("#ex-list > li").forEach((li) => {
+      const i = +li.dataset.i, q = X.p[i], sel = li.querySelector("input:checked"), fb = li.querySelector(".fb");
+      li.querySelectorAll("input").forEach((r) => (r.disabled = true));
+      li.querySelectorAll(".abc > li")[q.a].classList.add("right");
+      if (sel && +sel.value === q.a) { ok++; fb.className = "fb good"; fb.textContent = "Correcto. " + q.e; }
+      else { if (sel) sel.closest("li").classList.add("wrong"); fb.className = "fb bad"; fb.textContent = (sel ? "Incorrecto. " : "Sin responder. ") + q.e; fallos[q.tema] = q.u; }
+    });
+    const nota = Math.round((ok / X.p.length) * 100) / 10;
+    let prev = null; try { prev = JSON.parse(localStorage.getItem(K)); } catch (e) {}
+    try { localStorage.setItem(K, JSON.stringify({ nota: Math.max(nota, (prev && prev.nota) || 0), ultima: nota, fecha: Date.now() })); } catch (e) {}
+    const r = $("ex-result"); r.hidden = false;
+    const t = Object.keys(fallos);
+    r.innerHTML = `<h2>Tu nota: ${nota.toLocaleString("es-ES")} / 10</h2><p>${ok} de ${X.p.length} correctas${t0 ? ` en ${fmt(Math.floor((Date.now() - t0) / 1000))}` : ""}.${prev ? ` Tu mejor nota anterior: ${prev.nota.toLocaleString("es-ES")}.` : ""}</p>` +
+      (t.length ? `<p><b>Repasa estos temas</b> y vuelve a intentarlo dentro de unos días:</p><ul>${t.map((n) => `<li><a href="${fallos[n]}${window.IDX || ""}">${n}</a></li>`).join("")}</ul>` : "<p><b>¡Trimestre dominado!</b></p>") +
+      `<button type="button" class="big" onclick="location.reload()">Repetir examen</button>`;
+    $("ex-check").hidden = true; document.querySelector(".examen").classList.add("corregido");
+    r.scrollIntoView({ behavior: "smooth" });
+  });
+})();

@@ -7,6 +7,7 @@ const OUT = path.join(__dirname, process.env.PREVIEW ? "preview" : "dist");
 const SITE = "Escolapedia";
 const CURSO_ESCOLAR = "2026-27";
 
+const ORD = ["1er", "2º", "3er"];
 const slug = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const initials = (n) => n.replace(/^(Lengua|Educación|Ciencias)\s+/i, (m) => m).split(/\s+/).filter((w) => w.length > 3 || /^[A-ZÁÉÍÓÚ]/.test(w)).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
@@ -174,14 +175,51 @@ for (const e of ETAPAS) {
       const body = `<main><div class="wrap">
         <div class="crumbs"><a href="../../../">Inicio</a> › <a href="../../">${e.nombre}</a> › <a href="../">${c.nombre}</a> › ${m.nombre}</div>
         <div class="page-h"><span class="badge" style="background:${famColor(m)}">${cursoNombre(e, c)}</span><h1>${m.nombre}</h1>${m.nota ? `<p>${m.nota}</p>` : ""}</div>
-        ${list}<div style="height:48px"></div>
+        ${examLinks(m)}${list}<div style="height:48px"></div>
       </div></main>`;
       write(m.url, page({ title: `${m.nombre} · ${cursoNombre(e, c)} · ${SITE}`, desc: `Temas de ${m.nombre} de ${cursoNombre(e, c)}.`, depth: 3, body }));
 
       // ---------- tema ----------
+      trimestres(m).forEach((tr, i) => { if (tr.some((t) => t.obj)) write(`${m.url}examen-${i + 1}-trimestre`, examPage(e, c, m, tr, i + 1)); });
       m.temasObj.forEach((t, idx) => { if (t.obj) { write(t.url, topicPage(e, c, m, t.obj, idx + 1)); write(t.url + "ficha", fichaPage(e, c, m, t.obj, idx + 1)); } });
     }
   }
+}
+
+// ---------- exámenes por trimestre ----------
+// Los temas se reparten en tres trimestres en el orden del currículo (un tercio cada uno).
+function trimestres(m) {
+  const n = m.temasObj.length, a = Math.ceil(n / 3), b = Math.ceil((n - a) / 2);
+  return [m.temasObj.slice(0, a), m.temasObj.slice(a, a + b), m.temasObj.slice(a + b)];
+}
+
+function examLinks(m) {
+  if (!m.temasObj.length) return "";
+  return `<section class="exams"><h2>Exámenes de prueba</h2><div class="exam-row">${trimestres(m).map((tr, i) => {
+    const ok = tr.filter((t) => t.obj).length;
+    return ok ? `<a class="exam-card" href="examen-${i + 1}-trimestre/"><b>${ORD[i]} trimestre</b><small>${ok} de ${tr.length} temas · ${tr.filter((t) => t.obj).reduce((a, t) => a + t.obj.quiz.length + (t.obj.examen || []).length, 0)} preguntas</small></a>`
+      : `<span class="exam-card soon"><b>${ORD[i]} trimestre</b><small>${tr.length} temas · próximamente</small></span>`;
+  }).join("")}</div></section>`;
+}
+function examPage(e, c, m, tr, n) {
+  const L = "ABCDEFG";
+  const listos = tr.filter((t) => t.obj);
+  const preg = listos.flatMap((t) => [...t.obj.quiz, ...(t.obj.examen || [])].map((q) => ({ ...q, tema: t.titulo, u: "../" + slug(t.titulo) + "/" })));
+  const falta = tr.length - listos.length;
+  const body = `<main class="ficha examen"><div class="wrap">
+  <div class="crumbs noprint"><a href="../">← ${m.nombre}</a></div>
+  <header class="ficha-h"><div><span class="badge" style="background:${famColor(m)}">${cursoNombre(e, c)} · ${m.nombre}</span><h1>Examen de prueba del ${ORD[n - 1]} trimestre</h1>
+    <p class="caption">Temas: ${listos.map((t) => t.titulo).join(" · ")}.${falta ? ` Se añadirán ${falta} temas más cuando estén listos.` : ""}</p></div>
+    <div class="ficha-name">Nombre: ______________________ &nbsp; Fecha: ___________ &nbsp; Nota: ______</div></header>
+  <div class="ficha-tools noprint"><button type="button" id="ex-start" class="dl">Empezar (${preg.length} preguntas, ${Math.max(10, Math.round(preg.length * 1.5))} min)</button><button type="button" id="t-print">Imprimir o guardar en PDF</button><span class="timer" id="ex-timer" hidden></span></div>
+  <section><ol class="fq" id="ex-list">${preg.map((q, i) => `<li data-i="${i}"><p>${q.q}</p><ol class="abc">${q.o.map((o, j) => `<li><label><input type="radio" name="p${i}" value="${j}"> <span>${L[j]})</span> ${o}</label></li>`).join("")}</ol><div class="fb" aria-live="polite"></div></li>`).join("")}</ol>
+  <div class="noprint"><button type="button" id="ex-check" class="big">Corregir examen</button></div></section>
+  <section id="ex-result" class="noprint" hidden></section>
+  <section class="sol"><h2>Soluciones</h2><ol>${preg.map((q) => `<li><b>${L[q.a]})</b> ${q.e}</li>`).join("")}</ol></section>
+  </div></main>`;
+  const data = { id: `${c.slug}/${m.slug}/t${n}`, min: Math.max(10, Math.round(preg.length * 1.5)), p: preg.map(({ a, e, tema, u }) => ({ a, e, tema, u })) };
+  return page({ title: `Examen ${ORD[n - 1]} trimestre · ${m.nombre} · ${cursoNombre(e, c)} · ${SITE}`, desc: `Examen de prueba de ${m.nombre}, ${cursoNombre(e, c)}, ${ORD[n - 1]} trimestre, con corrección y nota.`, depth: 4, body,
+    scripts: `<script>window.EXAMEN=${JSON.stringify(data)};document.getElementById("t-print").addEventListener("click",()=>window.print());</script>` });
 }
 
 function fmtN(n) { return n >= 1e6 ? `${(n / 1e6).toLocaleString("es-ES", { maximumFractionDigits: 1 })} millones de` : n >= 1e3 ? `${Math.round(n / 1e3).toLocaleString("es-ES")} mil` : String(n); }
