@@ -59,7 +59,7 @@ ${extraHead}
   <div class="lang" aria-label="Idioma"><a href="${lang === "ca" ? esUrl : r}"${lang === "es" ? ' aria-current="page"' : ""} lang="es">ES</a><a href="${r}ca/"${lang === "ca" ? ' aria-current="page"' : ""} lang="ca">CA</a></div>
 </div></header>
 ${body}
-<footer class="foot"><div class="wrap">${SITE} · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso ${CURSO_ESCOLAR}. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.</div></footer>
+<footer class="foot"><div class="wrap">${SITE} · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso ${CURSO_ESCOLAR}. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.<br><small>Escolapedia es un refuerzo: no sustituye al profesorado ni a los centros. <a href="${r}quien-esta-detras/">Quién está detrás</a> · <a href="${r}aviso-legal/">Aviso legal</a> · <a href="${r}privacidad/">Privacidad</a></small></div></footer>
 <script>window.BASE=${JSON.stringify(r)};window.IDX=${JSON.stringify(process.env.PREVIEW ? "index.html" : "")};</script>
 ${scripts}
 <script src="${r}assets/app.js"></script>
@@ -335,6 +335,44 @@ write("profesores", page({ title: `Profesores · ${SITE}`, desc: "Recursos de Es
     <div class="box"><h3>Método</h3><ul><li>Seis pasos por tema: activación, explicación con doble codificación, recuperación, elaboración, síntesis y repaso espaciado.</li></ul></div>
     <div class="box"><h3>¿Ves un error?</h3><ul><li>Cada tema muestra sus fuentes y la fecha de revisión. Pronto habrá un formulario para proponer correcciones.</li></ul></div>
   </div></div></main>` }));
+
+// ---------- quién está detrás, aviso legal y privacidad ----------
+const TITULAR = "Alejandro Rosàs Navarro · NIF 35056148P · Calle Blaumar 19, bajos 1.ª, Sant Pere de Ribes (Barcelona) · partenopides@gmail.com";
+const legalPage = (slugP, titulo, intro, html, desc) => write(slugP, page({ title: `${titulo} · ${SITE}`, desc, depth: 1, body: `<main><div class="wrap legal" style="padding-bottom:48px;max-width:820px">
+  <div class="crumbs"><a href="../">Inicio</a> › ${titulo}</div>
+  <div class="page-h"><h1>${titulo}</h1><p>${intro}</p></div>
+  ${html}
+</div></main>` }));
+
+legalPage("quien-esta-detras", "Quién está detrás", "Escolapedia nace en casa, de muchos años acompañando a hijos e hijas en sus estudios.", `
+  <div class="box"><h3>Alejandro Rosàs Navarro</h3>
+  <p>Soy <b>médico de familia</b>, especialista en <b>Medicina Preventiva y Salud Pública</b>, con <b>más de 38 años de ejercicio profesional</b>. La prevención me ha enseñado que lo que más protege es llegar a tiempo: con la salud y también con los estudios.</p>
+  <p>Soy <b>padre de cinco hijos</b> que han pasado por todas las etapas educativas, de Infantil a Bachillerato y la universidad, tanto en <b>colegios públicos como privados</b>. Cuatro de ellos son licenciados: <b>dos matemáticos, una bióloga y una biotecnóloga</b>. La pequeña tiene 15 años y cursa actualmente <b>4.º de ESO</b> en un instituto.</p>
+  <p>Durante todos estos años he vivido de cerca lo que necesita un alumno cuando se pierde unas clases: alguien que le explique el tema con calma, ejemplos resueltos, ejercicios con solución y una forma sencilla de repasar. Escolapedia es eso, puesto a disposición de cualquier familia, gratis.</p></div>
+
+  <div class="box aviso-fin"><h3>Qué es y qué no es Escolapedia</h3>
+  <p><b>Escolapedia no pretende sustituir la labor del profesorado</b> ni la dinámica propia de cada colegio e instituto. Los docentes conocen a su alumnado, adaptan el ritmo y evalúan; eso no lo reemplaza ninguna web.</p>
+  <p>Su objetivo es <b>reforzar y facilitar el acceso a los contenidos</b>, sobre todo cuando hay circunstancias que impiden o dificultan temporalmente la asistencia a clase: una enfermedad, una lesión, un ingreso hospitalario, un traslado, una situación familiar o cualquier otra ausencia. También sirve para repasar o para que las familias puedan acompañar el estudio en casa.</p>
+  <p>Los temas siguen las enseñanzas mínimas de la LOMLOE (curso ${CURSO_ESCOLAR}). Cada centro y cada comunidad autónoma concreta su propio currículo, así que lo que diga el profesor o la profesora de tu clase es siempre la referencia.</p></div>
+
+  <div class="box"><h3>Contacto</h3><p>Si ves un error o quieres proponer una mejora, escribe a <a href="mailto:partenopides@gmail.com">partenopides@gmail.com</a>.</p></div>`,
+  "Quién hace Escolapedia y para qué sirve: un refuerzo gratuito que no sustituye al profesorado.");
+
+legalPage("aviso-legal", "Aviso legal", "Información del titular y condiciones de uso.", `
+  <div class="box"><h3>Titular</h3><p>${TITULAR}</p><p>Médico de familia, especialista en Medicina Preventiva y Salud Pública. Más información en <a href="../quien-esta-detras/">Quién está detrás</a>.</p></div>
+  <div class="box"><h3>Qué es Escolapedia</h3><p>Escolapedia es una web educativa gratuita con contenidos de Infantil a Bachillerato organizados según la LOMLOE. Es un <b>material de refuerzo</b>: <b>no sustituye la labor del profesorado</b> ni la dinámica de los centros educativos, y no es un centro de enseñanza ni expide títulos o certificados. Su finalidad es facilitar el acceso a los contenidos cuando hay circunstancias que impiden o dificultan temporalmente la asistencia a clase, y servir de apoyo para repasar en casa.</p></div>
+  <div class="box"><h3>Fuentes y contenidos</h3><p>Los temas se basan en los reales decretos de enseñanzas mínimas (RD 95/2022, RD 157/2022, RD 217/2022 y RD 243/2022) y en fuentes divulgativas indicadas en cada tema, con su fecha de revisión. Los textos, ejercicios y dibujos son de elaboración propia. Los vídeos se muestran incrustados desde YouTube y pertenecen a sus autores.</p></div>
+  <div class="box"><h3>Responsabilidad</h3><p>Escolapedia revisa su contenido con regularidad, pero no garantiza que esté libre de errores ni que coincida con la programación concreta de cada centro. Ante cualquier duda, la referencia es siempre el profesorado de cada alumno.</p></div>
+  <div class="box"><h3>Propiedad intelectual</h3><p>Puedes usar los materiales en casa y en el aula, imprimirlos y compartir los enlaces, siempre sin fines comerciales y citando la fuente.</p></div>`,
+  "Aviso legal de Escolapedia: titular, finalidad y condiciones de uso.");
+
+legalPage("privacidad", "Privacidad", "Escolapedia no te pide datos personales ni los guarda en ningún servidor.", `
+  <div class="box"><h3>Responsable</h3><p>${TITULAR}</p></div>
+  <div class="box"><h3>Qué datos tratamos</h3><p>Ninguno que tú nos des: no hay registro, formularios ni boletines. El progreso de los temas y las tarjetas de repaso se guardan solo en tu navegador (almacenamiento local) y no se envían a ningún sitio. Puedes borrarlos limpiando los datos del sitio en tu navegador.</p></div>
+  <div class="box"><h3>Vídeos</h3><p>Los vídeos se cargan desde youtube-nocookie.com, el modo de privacidad mejorada de YouTube. Al reproducir un vídeo, YouTube puede tratar datos técnicos según su propia política.</p></div>
+  <div class="box"><h3>Registros del servidor</h3><p>Como cualquier web, el servidor de alojamiento (Hostinger) registra datos técnicos de acceso, como la dirección IP, por seguridad. Hostinger actúa como encargado del tratamiento.</p></div>
+  <div class="box"><h3>Tus derechos</h3><p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo al email del responsable, y reclamar ante la Agencia Española de Protección de Datos.</p></div>`,
+  "Política de privacidad de Escolapedia.");
 
 // ---------- recursos ----------
 fs.mkdirSync(path.join(OUT, "assets"), { recursive: true });
