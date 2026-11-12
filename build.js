@@ -195,7 +195,7 @@ function fichaPage(e, c, m, T, n) {
   const L = "ABCDEFG";
   const body = `<main class="ficha"><div class="wrap">
   <div class="crumbs noprint"><a href="../">← Volver al tema</a></div>
-  <div class="ficha-tools noprint"><button type="button" id="t-print">Imprimir o guardar en PDF</button><span class="caption">También puedes usar Ctrl + P (Cmd + P en Mac).</span></div>
+  <div class="ficha-tools noprint"><a class="dl" href="ficha.pdf" download>Descargar PDF</a><button type="button" id="t-print">Imprimir</button><span class="caption">También puedes usar Ctrl + P (Cmd + P en Mac).</span></div>
   <header class="ficha-h"><div><span class="badge" style="background:${famColor(m)}">${cursoNombre(e, c)} · ${m.nombre} · Tema ${n}</span><h1>${T.titulo}</h1></div>
     <div class="ficha-name">Nombre: ______________________ &nbsp; Fecha: ___________</div></header>
   <section><h2>Qué vas a aprender</h2><ul>${T.objetivos.map((o) => `<li>${o}</li>`).join("")}</ul></section>
