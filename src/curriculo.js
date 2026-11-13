@@ -72,7 +72,7 @@ const INFANTIL = () => [
   s("Religión", "val", [], O, "Voluntaria"),
 ];
 
-const LISTAS = { "4-eso": require("./listas-4eso"), "3-eso": require("./listas-3eso"), "2-eso": require("./listas-2eso"), "1-eso": require("./listas-1eso"), "1-primaria": require("./listas-1primaria"), "6-primaria": require("./listas-6primaria"), "4-primaria": require("./listas-4primaria"), "5-primaria": require("./listas-5primaria"), "2-primaria": require("./listas-2primaria"), "3-primaria": require("./listas-3primaria"), ...require("./listas-infantil") };
+const LISTAS = { "4-eso": require("./listas-4eso"), "3-eso": require("./listas-3eso"), "2-eso": require("./listas-2eso"), "1-eso": require("./listas-1eso"), "1-primaria": require("./listas-1primaria"), "6-primaria": require("./listas-6primaria"), "4-primaria": require("./listas-4primaria"), "5-primaria": require("./listas-5primaria"), "2-primaria": require("./listas-2primaria"), "3-primaria": require("./listas-3primaria"), ...require("./listas-infantil"), "1-bachillerato": require("./listas-1bach") };
 function conListas(cursoSlug, materias) {
   const l = LISTAS[cursoSlug]; if (!l) return materias;
   return materias.map((m) => (l[m.nombre] && !m.temas.length ? { ...m, temas: l[m.nombre] } : m));
@@ -88,6 +88,6 @@ module.exports = {
     { slug: "eso", nombre: "ESO", edad: "12 a 16 años", color: "#1f4fd1", decreto: "RD 217/2022",
       cursos: [1, 2, 3, 4].map((n) => ({ slug: `${n}-eso`, nombre: `${n}º`, largo: `${n}º de ESO`, materias: conListas(`${n}-eso`, [...parse(CURSOS_ESO[n]), ...ESO_OPT(n)]) })) },
     { slug: "bachillerato", nombre: "Bachillerato", edad: "16 a 18 años", color: "#7b3fc4", decreto: "RD 243/2022",
-      cursos: [1, 2].map((n) => ({ slug: `${n}-bachillerato`, nombre: `${n}º`, largo: `${n}º de Bachillerato`, materias: [...parse(BACH[n]), ...BACH_OPT(n)] })) },
+      cursos: [1, 2].map((n) => ({ slug: `${n}-bachillerato`, nombre: `${n}º`, largo: `${n}º de Bachillerato`, materias: conListas(`${n}-bachillerato`, [...parse(BACH[n]), ...BACH_OPT(n)]) })) },
   ],
 };
