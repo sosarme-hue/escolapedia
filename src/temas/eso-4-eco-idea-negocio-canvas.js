@@ -1,144 +1,247 @@
-// Economía y Emprendimiento 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-const { flujo, filas, dos, rueda } = require("./_hum");
+// Economía y Emprendimiento 4º ESO. Tema nivel libro. Dibujos propios en SVG.
+const { F, D, mapa, B, ejs, qz, caja, dos, rueda, filas, flujo, figCols, formula, balanza, cuadro4, ciclo, escalera, tabla, piramide } = require("./_eso4L10");
 
-const CANVAS = [
-  [20, 16, 120, 168, "Socios clave", "var(--muted)"], [140, 16, 120, 84, "Actividades", "var(--muted)"], [140, 100, 120, 84, "Recursos", "var(--muted)"],
-  [260, 16, 160, 168, "Propuesta de valor", "var(--red)"], [420, 16, 120, 84, "Relación", "var(--pen)"], [420, 100, 120, 84, "Canales", "var(--pen)"],
-  [540, 16, 120, 168, "Segmentos", "var(--pen)"], [20, 184, 320, 0, "", ""],
-];
+const lienzo = caja("Lienzo Canvas: nueve bloques; a la izquierda socios, actividades y recursos; en el centro la propuesta de valor; a la derecha relaciones, canales y clientes; abajo costes e ingresos", `
+  <g ${F} text-anchor="middle" font-size="8.5" font-weight="700">
+    ${[[8, 8, 48, 120, "var(--muted)", ["8 Socios", "clave"]], [56, 8, 48, 60, "var(--inf)", ["7 Activid.", "clave"]], [56, 68, 48, 60, "var(--inf)", ["6 Recursos", "clave"]], [104, 8, 52, 120, "var(--red)", ["2 Propuesta", "de valor"]], [156, 8, 48, 60, "var(--sun)", ["4 Relación", "clientes"]], [156, 68, 48, 60, "var(--sun)", ["3 Canales"]], [204, 8, 48, 120, "var(--pen)", ["1 Segmentos", "clientes"]], [8, 128, 122, 44, "var(--muted)", ["9 Estructura de costes"]], [130, 128, 122, 44, "var(--leaf)", ["5 Fuentes de ingresos"]]].map(([x, y, w, h, c, ls]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="var(--card)" stroke="${c}" stroke-width="2"/>${ls.map((l, j) => `<text x="${x + w / 2}" y="${y + h / 2 - (ls.length - 1) * 5 + j * 11 + 3}" fill="${c === "var(--muted)" ? "var(--ink)" : c}" font-size="${l.length > 10 ? 7.5 : 8.5}">${l}</text>`).join("")}`).join("")}
+  </g>`);
 
 module.exports = {
   materia: "Economía y Emprendimiento",
   curso: "4-eso",
   titulo: "Idea de negocio y modelo Canvas",
-  minutos: 40,
-  objetivos: ["Generar y evaluar ideas de negocio a partir de problemas reales", "Describir un modelo de negocio con los nueve bloques del lienzo Canvas", "Validar una idea con clientes antes de invertir"],
-  claves: ["emprendimiento", "idea de negocio", "propuesta de valor", "segmento de clientes", "modelo Canvas", "prototipo"],
+  minutos: 100,
+  objetivos: [
+    "Reconocer las cualidades emprendedoras y los tipos de emprendimiento",
+    "Generar ideas con técnicas de creatividad y design thinking",
+    "Formular una propuesta de valor a partir de las necesidades del cliente",
+    "Describir un modelo de negocio con los nueve bloques del lienzo Canvas",
+    "Validar una idea con clientes reales y un producto mínimo viable",
+    "Analizar la competencia y proteger una idea",
+  ],
+  claves: ["emprendimiento", "iniciativa", "creatividad", "SCAMPER", "design thinking", "propuesta de valor", "segmento de clientes", "lienzo Canvas", "validación", "producto mínimo viable", "competencia", "marca"],
   pregunta: {
-    texto: "Muchos negocios de éxito nacieron de una molestia cotidiana: no encontrar taxi, perder las llaves, no saber qué cocinar. ¿Cómo se convierte un problema en una empresa?",
-    respuesta: "Detectando una <b>necesidad</b> que nadie resuelve bien, pensando una solución que la gente esté dispuesta a pagar y ordenando todas las piezas del negocio. Para eso los emprendedores usan el <mark>modelo Canvas</mark>, un lienzo de nueve bloques en una sola hoja.",
+    texto: "Muchas personas tienen ideas geniales en la ducha, pero muy pocas acaban en un negocio que funciona. ¿Qué crees que falta entre una buena idea y una empresa?",
+    respuesta: "Una idea solo se convierte en negocio si <b>resuelve un problema real</b> de unos clientes concretos, que están dispuestos a <b>pagar</b> por la solución, y si se puede producir y vender con <b>costes menores que los ingresos</b>. Para comprobarlo se usan herramientas como el <mark>lienzo Canvas</mark> y la <mark>validación</mark> con clientes antes de invertir mucho dinero.",
+  },
+  lectura: {
+    titulo: "El problema de las fiambreras",
+    html: `<p>En un instituto de Valencia, un grupo de 4.º se dio cuenta de algo en el comedor: decenas de compañeros tiraban la mitad de la comida porque les servían raciones iguales para todos, y muchos traían fiambreras de casa que no podían calentar. Tenían un problema delante de los ojos.</p><p>En la asignatura de Economía y Emprendimiento decidieron investigarlo. Hicieron cuarenta entrevistas, contaron los microondas (había dos para trescientas personas) y pesaron durante una semana la comida desperdiciada: 38 kilos. Con esos datos imaginaron varias soluciones: una app para elegir ración, un horario de turnos para los microondas, un acuerdo con la empresa del comedor para ofrecer dos tamaños de plato… Hicieron un prototipo con un formulario en línea y lo probaron dos semanas.</p><p>La idea ganadora no fue la más espectacular, sino la que <b>más gente usó</b>: elegir ración pequeña o grande el día anterior. El desperdicio bajó a la mitad. Sin saberlo, habían recorrido el camino de cualquier emprendedor: <mark>detectar un problema, entender a las personas, idear, probar barato y mejorar</mark>. En este tema aprenderás ese camino y a resumirlo en una sola hoja: el lienzo Canvas.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>El espíritu emprendedor</h3><p><mark>Emprender</mark> es convertir una idea en un proyecto, asumiendo riesgos. Las personas emprendedoras suelen tener <b>creatividad</b>, <b>iniciativa</b>, <b>perseverancia</b>, capacidad de trabajo en equipo y tolerancia al fracaso. No solo se emprende creando empresas: también hay emprendimiento <b>social</b> (resolver un problema de la comunidad) e <b>intraemprendimiento</b> (innovar dentro de una organización).</p>`,
-      svg: rueda("Cualidades de una persona emprendedora", "EMPREN-|DER", [["creatividad", "var(--sun)"], ["iniciativa", "var(--red)"], ["constancia", "var(--pen)"], ["equipo", "var(--leaf)"], ["riesgo", "var(--muted)"], ["aprender", "var(--inf)"]], "var(--leaf)"),
-    },
-    {
-      html: `<h3>De dónde salen las ideas</h3><p>Las buenas ideas nacen de <b>observar problemas</b> y necesidades, de tendencias (envejecimiento, sostenibilidad, digitalización), de mejorar algo que ya existe o de combinar dos ideas. Técnicas como la <b>lluvia de ideas</b> o el <mark>design thinking</mark> ayudan: empatizar con el usuario, definir el problema, idear, hacer un <b>prototipo</b> barato y probarlo.</p>`,
-      svg: flujo("Pasos del design thinking", ["empatizar", "definir", "idear", "prototipo", "probar"], "var(--sun)"),
-    },
-    {
-      html: `<h3>El lienzo Canvas</h3><p>Alexander Osterwalder creó el <mark>modelo Canvas</mark> para describir un negocio en nueve bloques. En el centro, la <b>propuesta de valor</b>: qué problema resuelves y por qué te elegirán. A la derecha, el cliente: <b>segmentos</b>, <b>canales</b> (cómo llegas) y <b>relación</b>. A la izquierda, cómo funciona: <b>actividades</b>, <b>recursos</b> y <b>socios clave</b>. Abajo, el dinero: <b>fuentes de ingresos</b> y <b>estructura de costes</b>.</p>`,
-      svg: filas("Las cuatro grandes áreas del Canvas", [["Cliente", "segmentos, canales, relación", "var(--pen)"], ["Oferta", "propuesta de valor", "var(--red)"], ["Operación", "actividades, recursos, socios", "var(--muted)"], ["Dinero", "ingresos y costes", "var(--leaf)"]]),
-    },
-    {
-      html: `<h3>Validar antes de invertir</h3><p>Una idea solo es buena si alguien la necesita. Antes de gastar mucho dinero hay que <b>validarla</b>: hablar con posibles clientes, hacer encuestas, lanzar un <mark>producto mínimo viable</mark> (la versión más simple que se pueda probar) y medir la respuesta. Si no funciona, se <b>pivota</b>: se cambia una parte del modelo y se vuelve a probar.</p>`,
-      svg: dos("Idea validada frente a idea sin validar", ["Sin validar", ["«a todos les", "encantará»", "gasto alto", "riesgo alto", "sorpresas"], "var(--red)"], ["Validada", ["clientes reales", "opinan", "prototipo barato", "datos y ajustes", "menos riesgo"], "var(--leaf)"]),
-    },
+    B("5.1", "El espíritu emprendedor", `<p><mark>Emprender</mark> es poner en marcha un proyecto nuevo asumiendo un riesgo: puede ser una empresa, pero también una asociación, un proyecto cultural, una mejora en el lugar donde trabajas o una iniciativa en tu instituto. La persona emprendedora detecta una <b>oportunidad</b> y moviliza recursos para aprovecharla.</p><p>No hay un «gen emprendedor»: las capacidades emprendedoras se pueden aprender y entrenar. Las más importantes son:</p><ul><li><b>Iniciativa</b> y proactividad: actuar sin esperar a que te lo pidan.</li><li><b>Creatividad</b>: ver soluciones nuevas a problemas conocidos.</li><li><b>Tolerancia al riesgo y a la incertidumbre</b>: decidir sin tenerlo todo claro.</li><li><b>Resiliencia</b>: recuperarse de los fracasos y aprender de ellos.</li><li><b>Trabajo en equipo</b> y <b>liderazgo</b>: ningún proyecto grande sale adelante en solitario.</li><li><b>Planificación</b> y <b>comunicación</b>: organizar los pasos y saber explicar la idea.</li></ul><p>La Unión Europea recoge estas capacidades en el marco <b>EntreComp</b>, y el currículo de la ESO las incluye en la competencia emprendedora. También se habla de <b>intraemprendimiento</b>: emprender dentro de una empresa u organización, proponiendo mejoras desde dentro.</p>`,
+      rueda("Capacidades emprendedoras", "EMPRENDER", [["iniciativa", "var(--pen)"], ["creatividad", "var(--sun)"], ["asumir riesgos", "var(--red)"], ["resiliencia", "var(--leaf)"], ["equipo", "var(--inf)"], ["planificación", "var(--muted)"]], "var(--ink)")),
+    B("5.2", "Tipos de emprendimiento", `<p>Hay muchas formas de emprender:</p><ul><li><b>Emprendimiento por cuenta propia</b>: un negocio tradicional (una tienda, un taller, una academia) que busca un beneficio estable.</li><li><b>Startup</b>: empresa de base tecnológica pensada para crecer muy deprisa y a gran escala, con mucho riesgo. Suele necesitar inversores.</li><li><b>Emprendimiento social</b>: su objetivo principal es resolver un problema social o ambiental (insertar a personas con dificultades, reducir residuos), aunque necesita ser económicamente sostenible.</li><li><b>Emprendimiento verde</b>: negocios ligados a la sostenibilidad, como la economía circular o las energías renovables.</li><li><b>Emprendimiento cultural y creativo</b>: música, videojuegos, diseño, audiovisual.</li><li><b>Intraemprendimiento</b>: proyectos nuevos dentro de una organización existente.</li><li><b>Emprendimiento público y colectivo</b>: iniciativas de ayuntamientos, cooperativas o asociaciones vecinales.</li></ul><p>También se distingue el emprendimiento <b>por oportunidad</b>, cuando alguien detecta una necesidad no cubierta, del emprendimiento <b>por necesidad</b>, cuando una persona crea su propio empleo porque no encuentra otro. Ambos son valiosos, pero el primero suele tener más probabilidades de crecer.</p>`,
+      cuadro4("Tipos de emprendimiento", [["Negocio", "por cuenta|propia", "var(--pen)"], ["Startup", "tecnología|crecer rápido", "var(--red)"], ["Social", "resolver un|problema social", "var(--leaf)"], ["Intra", "dentro de una|organización", "var(--sun)"]])),
+    B("5.3", "De dónde salen las ideas", `<p>Las buenas ideas de negocio casi nunca aparecen de la nada. Suelen nacer de:</p><ul><li><b>Problemas y frustraciones</b>: algo que te molesta a ti o a otras personas («nunca encuentro aparcamiento para la bici»). Cada queja es una pista.</li><li><b>Necesidades no cubiertas</b> de un grupo concreto: personas mayores que viven solas, familias con alergias alimentarias, turistas en un pueblo sin servicios.</li><li><b>Tendencias</b>: cambios en la sociedad, la tecnología o las leyes (envejecimiento, teletrabajo, comida vegetal, inteligencia artificial, prohibición de plásticos).</li><li><b>Tus aficiones y habilidades</b>: lo que sabes hacer bien y te gusta.</li><li><b>Mejorar lo que ya existe</b>: hacerlo más barato, más rápido, más cómodo, más sostenible o para otro público.</li><li><b>Copiar con adaptación</b>: llevar a tu ciudad algo que funciona en otra.</li></ul><p>Un buen hábito es llevar un <b>cuaderno de ideas</b> y anotar problemas durante una semana. No hace falta inventar algo totalmente nuevo: la mayoría de los negocios de éxito <b>mejoran</b> algo que ya existía. Lo importante es que la idea responda a un <mark>problema real</mark> que alguien quiere resolver.</p>`,
+      rueda("Fuentes de ideas de negocio", "IDEAS", [["problemas", "var(--red)"], ["necesidades", "var(--pen)"], ["tendencias", "var(--sun)"], ["aficiones", "var(--leaf)"], ["mejorar algo", "var(--inf)"], ["adaptar", "var(--muted)"]], "var(--ink)")),
+    B("5.4", "Técnicas de creatividad", `<p>La <mark>creatividad</mark> se puede entrenar con técnicas sencillas:</p><ul><li><b>Lluvia de ideas</b> (<i>brainstorming</i>): un grupo propone el máximo de ideas en poco tiempo, sin criticarlas. La cantidad trae la calidad. Después se agrupan y se eligen.</li><li><b>SCAMPER</b>: se toma un producto existente y se le aplican siete preguntas: ¿qué puedo <b>S</b>ustituir?, ¿<b>C</b>ombinar?, ¿<b>A</b>daptar?, ¿<b>M</b>odificar o magnificar?, ¿darle <b>P</b>ara otros usos?, ¿<b>E</b>liminar?, ¿<b>R</b>eordenar o invertir? Por ejemplo, una mochila que se convierte en silla (combinar).</li><li><b>Mapa mental</b>: se escribe el problema en el centro y se ramifican asociaciones.</li><li><b>Los seis sombreros para pensar</b> (Edward de Bono): mirar la idea desde seis puntos de vista: datos, emociones, riesgos, ventajas, creatividad y control del proceso.</li><li><b>Pensamiento lateral</b>: buscar caminos inesperados, por ejemplo pensar «¿cómo lo haría al revés?» o «¿cómo empeoraría el problema?».</li></ul><p>Para que funcionen, conviene trabajar en grupos diversos, separar la fase de <b>generar</b> ideas de la de <b>evaluarlas</b>, y no tener miedo a las ideas raras: a veces una idea absurda lleva a otra brillante.</p>`,
+      filas("Técnicas de creatividad", [["Lluvia", "muchas ideas sin juzgar", "var(--pen)"], ["SCAMPER", "7 preguntas a un producto", "var(--red)"], ["Mapa mental", "ramas desde el problema", "var(--leaf)"], ["6 sombreros", "seis puntos de vista", "var(--sun)"], ["Lateral", "caminos inesperados", "var(--inf)"]])),
+    B("5.5", "Design thinking: diseñar pensando en las personas", `<p>El <mark>design thinking</mark> o pensamiento de diseño es un método para crear soluciones poniendo en el centro a las personas que las van a usar. Tiene cinco fases, que se repiten las veces necesarias:</p><ol><li><b>Empatizar</b>: observar y entrevistar a los usuarios para entender cómo viven el problema, qué sienten y qué necesitan de verdad.</li><li><b>Definir</b>: resumir el reto en una frase concreta. Por ejemplo: «¿Cómo podríamos ayudar a los alumnos que traen comida de casa a calentarla sin hacer colas?».</li><li><b>Idear</b>: generar muchas soluciones con técnicas creativas.</li><li><b>Prototipar</b>: construir versiones rápidas y baratas de la solución (un dibujo, una maqueta de cartón, una web sencilla, un vídeo).</li><li><b>Testear</b>: probar el prototipo con usuarios reales, observar qué funciona y qué no, y volver a fases anteriores para mejorar.</li></ol><p>La clave es <b>equivocarse pronto y barato</b>: es mucho mejor descubrir en una semana, con un prototipo de cartón, que a nadie le interesa una idea, que descubrirlo después de gastar miles de euros. El design thinking se usa en empresas, hospitales, ayuntamientos y escuelas.</p>`,
+      flujo("Fases del design thinking", ["empatizar", "definir", "idear", "prototipar", "testear", "mejorar"], "var(--red)"),
+      { id: "_ul3wfKss58", titulo: "Metodología Design Thinking en español: aprende a aplicar sus fases con ejemplos", canal: "Design Thinking España", vistas: 347303, megusta: 0 }),
+    B("5.6", "Evaluar y elegir la mejor idea", `<p>Después de generar muchas ideas hay que elegir. Una forma objetiva es la <mark>matriz de evaluación</mark>: se ponen las ideas en filas y unos criterios en columnas, se puntúa cada idea de 1 a 5 en cada criterio y se suma. Criterios útiles:</p><ul><li><b>Necesidad real</b>: ¿cuántas personas tienen el problema y cuánto les importa?</li><li><b>Disposición a pagar</b>: ¿pagarían por la solución? ¿Cuánto?</li><li><b>Viabilidad técnica</b>: ¿podemos hacerlo con nuestros conocimientos y recursos?</li><li><b>Inversión necesaria</b>: ¿cuánto dinero hace falta para empezar?</li><li><b>Competencia</b>: ¿hay ya muchas soluciones parecidas?</li><li><b>Motivación</b> del equipo e <b>impacto</b> social o ambiental.</li></ul><p>A veces se da más peso a unos criterios que a otros (por ejemplo, multiplicar por 2 la necesidad real). La matriz no decide por ti, pero ayuda a evitar elegir por impulso o porque la idea es la de quien habla más alto.</p><p>Otra herramienta es el <b>test de la idea</b> en una frase: «Ayudamos a [cliente] a resolver [problema] mediante [solución], a diferencia de [alternativa]». Si no puedes completarla, la idea aún no está madura.</p>`,
+      tablaSvg()),
+    B("5.7", "La propuesta de valor", `<p>La <mark>propuesta de valor</mark> es la razón por la que un cliente te elegirá a ti y no a otro: el conjunto de beneficios que tu producto o servicio le ofrece. Para diseñarla se usa el <b>lienzo de la propuesta de valor</b>, que tiene dos partes que deben encajar:</p><ul><li><b>Perfil del cliente</b>: sus <b>tareas</b> (lo que intenta conseguir), sus <b>frustraciones</b> (lo que le molesta, le preocupa o le cuesta) y sus <b>alegrías</b> (lo que le gustaría obtener).</li><li><b>Mapa de valor</b>: tus <b>productos y servicios</b>, los <b>aliviadores de frustraciones</b> (cómo eliminas sus molestias) y los <b>creadores de alegrías</b> (cómo le das lo que desea).</li></ul><p>Cuando lo que ofreces responde a lo que el cliente necesita, hay <b>encaje</b> problema-solución. Una buena propuesta de valor es concreta («tu bici reparada en tu casa en menos de 24 horas»), no genérica («calidad y buen servicio»).</p><p>El valor puede venir de muchas fuentes: precio más bajo, novedad, rapidez, comodidad, personalización, diseño, marca, accesibilidad, sostenibilidad o reducción de riesgos.</p>`,
+      balanza("Encaje entre el cliente y la propuesta de valor", ["Cliente", "tareas|frustraciones|alegrías", "var(--pen)"], ["Tu oferta", "productos|aliviadores|creadores", "var(--red)"], 0, "encaje problema-solución")),
+    B("5.8", "El lienzo Canvas", `<p>El <mark>lienzo de modelo de negocio</mark> o <b>Business Model Canvas</b>, creado por Alexander Osterwalder e Yves Pigneur en 2010, es una plantilla de una sola hoja que describe <b>cómo una empresa crea, entrega y captura valor</b>. Se usa en todo el mundo porque es visual, rápido y fácil de cambiar con notas adhesivas.</p><p>Tiene <b>nueve bloques</b> organizados en cuatro grandes áreas:</p><ul><li><b>Clientes</b> (a la derecha): segmentos de clientes, canales y relaciones con los clientes.</li><li><b>Oferta</b> (en el centro): la propuesta de valor.</li><li><b>Infraestructura</b> (a la izquierda): actividades clave, recursos clave y socios clave.</li><li><b>Viabilidad económica</b> (abajo): fuentes de ingresos y estructura de costes.</li></ul><p>Se suele rellenar <b>de derecha a izquierda</b>: primero a quién te diriges y qué les ofreces; después cómo llegas a ellos y cuánto pagan; luego qué necesitas para hacerlo; y por último cuánto cuesta. El lado derecho tiene que ver con el <b>valor</b> y las emociones del cliente; el izquierdo, con la <b>eficiencia</b>. Un Canvas no es un documento definitivo: se corrige cada vez que aprendes algo nuevo de tus clientes.</p>`,
+      lienzo, { id: "i1Le5GYkBT8", titulo: "Modelo Canvas: cómo aplicarlo en el lienzo. Ejemplo práctico", canal: "Trabajar Desde Casa", vistas: 5841473, megusta: 0 }),
+    B("5.9", "Los bloques del lado del cliente", `<p>Empezamos por la derecha del lienzo:</p><ol><li><b>Segmentos de clientes</b>: ¿para quién creamos valor? Grupos de personas o empresas con necesidades comunes. Hay que describirlos con detalle (edad, lugar, hábitos, problemas). Un error típico es decir «para todo el mundo».</li><li><b>Propuesta de valor</b>: ¿qué problema resolvemos y qué beneficios ofrecemos a cada segmento?</li><li><b>Canales</b>: ¿cómo llegamos a los clientes? Cómo nos conocen (redes, boca a boca, publicidad), cómo compran (tienda física, web, app, marketplace), cómo reciben el producto (envío, recogida) y cómo les atendemos después.</li><li><b>Relaciones con los clientes</b>: ¿qué trato tenemos con ellos? Personal, autoservicio, automatizado, comunidad de usuarios, suscripción. ¿Cómo conseguimos, mantenemos y hacemos crecer a los clientes?</li><li><b>Fuentes de ingresos</b>: ¿por qué y cómo pagan? Venta de productos, cuota de uso, suscripción, alquiler, licencias, comisiones, publicidad o modelo <i>freemium</i> (básico gratis y versión de pago). Hay que pensar también el <b>precio</b>.</li></ol><p>Estos cinco bloques responden a una pregunta clave: <mark>¿alguien quiere esto y pagará por ello?</mark></p>`,
+      filas("Bloques del lado del cliente", [["Segmentos", "¿para quién?", "var(--pen)"], ["Propuesta", "¿qué problema resuelvo?", "var(--red)"], ["Canales", "¿cómo llego y vendo?", "var(--sun)"], ["Relación", "¿qué trato les doy?", "var(--inf)"], ["Ingresos", "¿cómo y cuánto pagan?", "var(--leaf)"]])),
+    B("5.10", "Los bloques de la infraestructura y los costes", `<p>Seguimos por la izquierda del lienzo:</p><ol start="6"><li><b>Recursos clave</b>: los activos imprescindibles para que el negocio funcione. Pueden ser <b>físicos</b> (local, maquinaria, furgoneta), <b>intelectuales</b> (marca, patentes, software, base de datos de clientes), <b>humanos</b> (personas con conocimientos especiales) o <b>económicos</b> (dinero inicial).</li><li><b>Actividades clave</b>: lo más importante que hay que hacer bien: producir, diseñar, programar, resolver problemas, gestionar la plataforma, hacer marketing.</li><li><b>Socios clave</b>: proveedores y aliados que nos ayudan: fabricantes, transportistas, otras empresas con las que colaboramos, administraciones. Sirven para reducir costes y riesgos o conseguir recursos que no tenemos.</li><li><b>Estructura de costes</b>: los principales costes del modelo, fijos y variables. Algunos modelos se centran en tener costes muy bajos (aerolíneas de bajo coste); otros en crear mucho valor aunque cuesten más (marcas de lujo).</li></ol><p>Estos cuatro bloques responden a otra pregunta: <mark>¿podemos hacerlo y es rentable?</mark> El modelo es viable si las fuentes de ingresos superan a la estructura de costes de forma sostenida.</p>`,
+      filas("Bloques de infraestructura y costes", [["Recursos", "qué necesito tener", "var(--inf)"], ["Actividades", "qué tengo que hacer bien", "var(--inf)"], ["Socios", "quién me ayuda", "var(--muted)"], ["Costes", "cuánto cuesta todo", "var(--red)"]])),
+    B("5.11", "Un Canvas de ejemplo: «BiciFix»", `<p>Imaginemos un servicio de reparación de bicicletas a domicilio en una ciudad mediana:</p>${tabla(["Bloque", "BiciFix"], [["Segmentos", "trabajadores que van en bici al trabajo; familias con varias bicis; empresas con flota"], ["Propuesta de valor", "reparamos tu bici en tu portal en menos de 24 h, sin que pierdas tiempo"], ["Canales", "web con reservas, Instagram, carteles en aparcabicis, acuerdos con empresas"], ["Relación", "trato personal, recordatorio de revisión cada seis meses, bono anual"], ["Ingresos", "precio por reparación, bono de mantenimiento anual, contratos con empresas"], ["Recursos clave", "furgoneta-taller, herramientas, mecánico experto, app de citas"], ["Actividades clave", "reparar, gestionar rutas, atención al cliente"], ["Socios clave", "proveedor de recambios, ayuntamiento (plan de movilidad), tiendas de bicis"], ["Costes", "furgoneta, recambios, salario, seguro, publicidad, combustible o carga"]])}<p>Con el Canvas a la vista se detectan riesgos: ¿hay suficientes ciclistas en la ciudad? ¿Cuántas reparaciones al día hacen falta para cubrir los costes? Esas preguntas se convierten en <b>hipótesis</b> que hay que comprobar.</p>`,
+      ciclo("De la idea a la mejora continua", ["idea", "Canvas", "hipótesis", "probar", "aprender"], "MEJORAR", "var(--pen)")),
+    B("5.12", "Validar antes de invertir: el producto mínimo viable", `<p>Cada bloque del Canvas es, al principio, una <b>hipótesis</b>: una suposición que puede ser falsa. <mark>Validar</mark> es comprobarla con clientes reales <b>antes</b> de invertir mucho tiempo y dinero. Es la idea central del método <b>Lean Startup</b> de Eric Ries: construir, medir y aprender.</p><p>Formas de validar:</p><ul><li><b>Entrevistas</b> con posibles clientes: preguntar por sus problemas y lo que hacen hoy, no si les gusta tu idea (por cortesía, casi todos dirán que sí).</li><li><b>Encuestas</b> breves para medir cuánta gente tiene el problema.</li><li>Una <b>página web sencilla</b> que presenta el producto y recoge reservas o correos: si nadie se apunta, hay un aviso.</li><li><b>Preventa</b> o financiación colectiva: la mejor prueba es que alguien pague antes de que exista.</li></ul><p>El <mark>producto mínimo viable</mark> (PMV o MVP) es la versión más sencilla del producto que permite aprender de los clientes con el mínimo esfuerzo: una sola función, un servicio hecho a mano, un prototipo. Según lo que se aprende, se <b>persevera</b> (seguir), se <b>pivota</b> (cambiar algo importante del modelo) o se abandona la idea a tiempo.</p>`,
+      escalera("Del menor al mayor compromiso del cliente", [["entrevista", "var(--muted)"], ["encuesta", "var(--inf)"], ["se apunta", "var(--sun)"], ["reserva", "var(--pen)"], ["paga", "var(--leaf)"]]),
+      { id: "LCrMWe09EQY", titulo: "¿Qué es un Producto Mínimo Viable y cómo te ayuda a emprender? El método Lean Startup", canal: "Emprende Aprendiendo", vistas: 108588, megusta: 0 }),
+    B("5.13", "La competencia y la protección de la idea", `<p>Ninguna idea está sola en el mercado. Hay que estudiar la <mark>competencia</mark>:</p><ul><li><b>Competidores directos</b>: ofrecen lo mismo al mismo público (otro taller de bicis).</li><li><b>Competidores indirectos</b> o sustitutivos: resuelven el mismo problema de otra forma (la tienda donde compras una bici nueva, o arreglarla tú con un tutorial).</li></ul><p>Un <b>cuadro comparativo</b> con precio, calidad, rapidez, ubicación y opiniones de clientes ayuda a encontrar huecos y a definir la <b>ventaja competitiva</b>: aquello que hacemos mejor o de forma diferente y que es difícil de copiar.</p><p>Por último, conviene <b>proteger</b> lo que creamos. En España, la <b>Oficina Española de Patentes y Marcas</b> (OEPM) registra:</p><ul><li><b>Marcas</b> y nombres comerciales: el nombre y el logotipo.</li><li><b>Patentes</b> y modelos de utilidad: invenciones técnicas nuevas.</li><li><b>Diseños industriales</b>: la forma o apariencia de un producto.</li></ul><p>Las obras creativas (textos, música, software) están protegidas por los <b>derechos de autor</b> desde que se crean. Las ideas en sí no se pueden registrar: lo que se protege es su forma concreta. Por eso la mejor protección suele ser ejecutar la idea bien y deprisa.</p>`,
+      dos("Competencia directa e indirecta", ["Directa", ["mismo producto", "mismo público", "otro taller", "de bicis", "compite en precio"], "var(--red)"], ["Indirecta", ["mismo problema", "otra solución", "bici nueva", "tutorial", "hazlo tú mismo"], "var(--sun)"])),
+  ],
+  ejemplos: [
+    { enunciado: "Aplica SCAMPER a una mochila escolar y obtén al menos cuatro ideas.", pasos: ["Sustituir: tela por plástico reciclado de botellas.", "Combinar: mochila con taburete plegable.", "Adaptar: correas acolchadas de mochila de montaña.", "Eliminar: sin cremalleras, con imanes para alumnado con dificultades motrices.", "Poner otros usos: que se transforme en funda de portátil."], resultado: "Cinco ideas nuevas a partir de un producto conocido." },
+    { enunciado: "Puntúa de 1 a 5 tres ideas con la matriz: A) app de apuntes compartidos (necesidad 4, pago 2, viabilidad 3, inversión 3, competencia 2); B) taller de reparación de móviles (4, 4, 3, 3, 3); C) huerto escolar con venta de verduras (3, 3, 5, 4, 5).", pasos: ["A: 4 + 2 + 3 + 3 + 2 = 14.", "B: 4 + 4 + 3 + 3 + 3 = 17.", "C: 3 + 3 + 5 + 4 + 5 = 20 (en inversión y competencia, más puntos significa más favorable)."], resultado: "Gana C (20), seguida de B (17)." },
+    { enunciado: "Completa la frase de la idea para un servicio de paseo de perros por estudiantes.", pasos: ["Cliente: personas que trabajan muchas horas y tienen perro.", "Problema: el perro pasa solo todo el día.", "Solución: paseos de una hora a mediodía por estudiantes de confianza.", "Diferencia: más barato que una empresa y con fotos en directo."], resultado: "«Ayudamos a quienes trabajan muchas horas a que su perro no pase el día solo mediante paseos a mediodía, a diferencia de las empresas caras, con fotos en directo»." },
+    { enunciado: "Describe el perfil del cliente de una cafetería de estudio para universitarios.", pasos: ["Tareas: estudiar varias horas, trabajar en grupo, comer algo.", "Frustraciones: bibliotecas llenas, wifi lento, no poder hablar, enchufes ocupados.", "Alegrías: sitio tranquilo, café bueno y barato, ambiente agradable."], resultado: "Propuesta: mesas con enchufe y wifi rápido, zona de silencio y zona de grupos, tarifa plana de café." },
+    { enunciado: "Una alumna quiere vender pulseras hechas a mano. ¿Cómo validaría la idea con poco dinero?", pasos: ["Hacer 10 entrevistas para saber dónde compran pulseras y cuánto pagan.", "Crear una cuenta en redes con fotos de 5 modelos y un formulario de reserva.", "Hacer 20 pulseras (PMV) y venderlas en el mercadillo del instituto.", "Medir cuántas vende, a qué precio y qué modelos gustan más."], resultado: "Decide con datos si sigue, cambia de modelo (pivota) o lo deja." },
+    { enunciado: "Para BiciFix, ¿cuántas reparaciones al mes necesita si sus costes fijos son 2.400 € y gana 20 € netos por reparación (precio menos recambios)?", pasos: ["Cada reparación aporta 20 € para cubrir los costes fijos.", "Reparaciones = 2.400 / 20 = 120 al mes.", "Con 22 días laborables: 120 / 22 ≈ 5,5 al día."], resultado: "Necesita unas 120 reparaciones al mes (unas 6 al día) solo para no perder dinero." },
+  ],
+  errores: [
+    "Pensar que hace falta una idea totalmente nueva: la mayoría de los negocios mejoran algo que existe.",
+    "Enamorarse de la solución sin comprobar que el problema es real para los clientes.",
+    "Definir el segmento de clientes como «todo el mundo».",
+    "Preguntar «¿te gusta mi idea?» en lugar de preguntar por los problemas y hábitos del cliente.",
+    "Gastar mucho dinero antes de validar con un producto mínimo viable.",
+    "Creer que una idea se puede registrar: se protege la marca, el diseño o la invención concreta.",
   ],
   figura: {
-    titulo: "Los nueve bloques del lienzo Canvas",
-    svg: `<svg viewBox="0 0 680 260" role="img" aria-label="Lienzo Canvas con nueve bloques: socios, actividades, recursos, propuesta de valor, relación, canales, segmentos, costes e ingresos">
-      <rect width="680" height="260" rx="16" fill="var(--paper)"/>
-      <g ${F} font-size="13" font-weight="700" text-anchor="middle">
-        ${CANVAS.slice(0, 7).map(([x, y, w, h, t, c]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="var(--card)" stroke="${c}" stroke-width="2"/><text x="${x + w / 2}" y="${y + 24}" fill="${c}">${t}</text>`).join("")}
-        <rect x="20" y="184" width="320" height="60" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="180" y="208" fill="var(--red)">Estructura de costes</text>
-        <rect x="340" y="184" width="320" height="60" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="500" y="208" fill="var(--leaf)">Fuentes de ingresos</text>
-        <g font-weight="400" font-size="11" fill="var(--muted)">
-          <text x="80" y="100">¿quién me ayuda?</text><text x="200" y="62">¿qué hago?</text><text x="200" y="146">¿qué necesito?</text>
-          <text x="340" y="100">¿qué problema</text><text x="340" y="116">resuelvo?</text>
-          <text x="480" y="62">¿cómo los trato?</text><text x="480" y="146">¿cómo llego?</text><text x="600" y="100">¿para quién?</text>
-          <text x="180" y="228">alquiler, sueldos, materiales…</text><text x="500" y="228">ventas, cuotas, publicidad…</text>
-        </g>
-      </g>
-    </svg>`,
+    titulo: "De la idea al modelo de negocio",
+    svg: figCols("Esquema: emprender, idear, modelar y validar", [
+      ["Emprender", ["iniciativa", "creatividad", "riesgo", "resiliencia", "equipo"], "var(--pen)"],
+      ["Idear", ["problemas reales", "lluvia de ideas", "SCAMPER", "design thinking", "matriz"], "var(--sun)"],
+      ["Modelar", ["propuesta de valor", "lienzo Canvas", "9 bloques", "clientes", "costes e ingresos"], "var(--red)"],
+      ["Validar", ["hipótesis", "entrevistas", "PMV", "pivotar", "competencia"], "var(--leaf)"],
+    ]),
   },
   video: { id: "ZQgXyiozmYY", titulo: "Modelo de negocio Canvas explicado paso a paso en 6 minutos", canal: "Aprendiz Financiero", vistas: 1428886, megusta: 27089, busqueda: "modelo canvas explicación" },
-  quiz: [
-    { q: "¿Qué bloque ocupa el centro del lienzo Canvas?", o: ["Segmentos de clientes", "Propuesta de valor", "Estructura de costes"], a: 1, e: "La propuesta de valor explica qué problema resuelves y por qué te elegirán." },
-    { q: "¿Cuántos bloques tiene el modelo Canvas?", o: ["4", "9", "12"], a: 1, e: "Nueve bloques: segmentos, propuesta, canales, relación, ingresos, recursos, actividades, socios y costes." },
-    { q: "Un producto mínimo viable es…", o: ["el producto más caro", "la versión más sencilla que permite probar la idea con clientes", "un producto defectuoso"], a: 1, e: "Sirve para aprender rápido y con poco gasto." },
-    { q: "Los «canales» del Canvas indican…", o: ["cómo llega el producto al cliente", "cuánto cuesta producir", "quiénes son los socios"], a: 0, e: "Tienda física, web, redes sociales, distribuidores…" },
-    { q: "Pivotar significa…", o: ["abandonar para siempre", "cambiar una parte del modelo tras aprender de los clientes", "copiar a la competencia"], a: 1, e: "Es ajustar el rumbo con lo aprendido." },
+  quiz: qz([
+    ["Emprender es…", ["solo crear una gran empresa", "poner en marcha un proyecto nuevo asumiendo un riesgo", "trabajar para otros", "invertir en bolsa"], 1, "Puede ser una empresa, una asociación o un proyecto dentro de una organización."],
+    ["Recuperarse de los fracasos y aprender de ellos es…", ["iniciativa", "resiliencia", "liderazgo", "planificación"], 1, "Es una capacidad emprendedora clave."],
+    ["Una empresa tecnológica pensada para crecer muy rápido es una…", ["cooperativa", "startup", "franquicia", "ONG"], 1, "Asume mucho riesgo y suele buscar inversores."],
+    ["Emprender dentro de una empresa existente se llama…", ["intraemprendimiento", "autoempleo", "franquicia", "subcontratación"], 0, "Proponer y liderar mejoras desde dentro."],
+    ["En la lluvia de ideas, al principio…", ["se critican las ideas", "no se juzga ninguna idea", "solo habla el líder", "se vota enseguida"], 1, "Primero se generan muchas; después se evalúan."],
+    ["En SCAMPER, la «C» significa…", ["copiar", "combinar", "cobrar", "cortar"], 1, "Unir dos productos o funciones."],
+    ["La primera fase del design thinking es…", ["prototipar", "empatizar", "testear", "vender"], 1, "Entender a las personas usuarias."],
+    ["Un prototipo debe ser…", ["perfecto y caro", "rápido y barato para aprender", "secreto", "definitivo"], 1, "Sirve para equivocarse pronto y barato."],
+    ["La propuesta de valor es…", ["el precio", "la razón por la que el cliente te elige", "el logotipo", "el beneficio"], 1, "Los beneficios que ofreces al cliente."],
+    ["En el perfil del cliente, lo que le molesta o preocupa son sus…", ["tareas", "frustraciones", "alegrías", "canales"], 1, "Tu oferta debe aliviarlas."],
+    ["El lienzo Canvas tiene…", ["5 bloques", "7 bloques", "9 bloques", "12 bloques"], 2, "Organizados en clientes, oferta, infraestructura y viabilidad."],
+    ["El Canvas se suele rellenar empezando por…", ["los costes", "los socios", "los segmentos de clientes", "los recursos"], 2, "De derecha a izquierda."],
+    ["Cómo conocen, compran y reciben el producto los clientes es el bloque de…", ["relaciones", "canales", "recursos", "actividades"], 1, "Comunicación, venta, entrega y posventa."],
+    ["Una furgoneta-taller en BiciFix es un…", ["socio clave", "recurso clave", "canal", "segmento"], 1, "Recurso físico imprescindible."],
+    ["El proveedor de recambios es un…", ["socio clave", "recurso clave", "cliente", "competidor"], 0, "Aliado externo que ayuda al negocio."],
+    ["Básico gratis y versión de pago es el modelo…", ["low cost", "freemium", "franquicia", "alquiler"], 1, "Es una fuente de ingresos frecuente en apps."],
+    ["Validar una idea es…", ["registrarla", "comprobar las hipótesis con clientes reales", "pedir un préstamo", "copiarla"], 1, "Antes de invertir mucho."],
+    ["El producto mínimo viable sirve para…", ["vender el producto final perfecto", "aprender de los clientes con el mínimo esfuerzo", "patentar", "hacer publicidad cara"], 1, "Es la versión más sencilla que permite aprender."],
+    ["Pivotar es…", ["abandonar", "cambiar algo importante del modelo según lo aprendido", "subir el precio", "contratar"], 1, "Se mantiene lo que funciona y se cambia lo que no."],
+    ["En España, las marcas y patentes se registran en…", ["el Registro Mercantil", "la OEPM", "Hacienda", "el ayuntamiento"], 1, "Oficina Española de Patentes y Marcas."],
+  ]),
+  examen: qz([
+    ["Emprender porque no se encuentra empleo es emprendimiento…", ["por oportunidad", "por necesidad", "social", "intra"], 1, "Se crea el propio empleo."],
+    ["Mirar una idea desde seis puntos de vista es la técnica de…", ["SCAMPER", "los seis sombreros", "la lluvia de ideas", "el mapa mental"], 1, "Propuesta por Edward de Bono."],
+    ["Probar el prototipo con usuarios es la fase de…", ["empatizar", "definir", "testear", "idear"], 2, "Después se vuelve a mejorar."],
+    ["Los bloques del lado derecho del Canvas tratan sobre…", ["la eficiencia", "el cliente y el valor", "los costes", "los socios"], 1, "Segmentos, canales, relaciones."],
+    ["Una tienda donde compras una bici nueva, para un taller de bicis, es…", ["socio", "competidor directo", "competidor indirecto", "cliente"], 2, "Resuelve el problema de otra manera."],
+    ["Lo que hacemos mejor y es difícil de copiar es la…", ["propuesta de costes", "ventaja competitiva", "segmentación", "hipótesis"], 1, "Nos diferencia de la competencia."],
+    ["Los textos, la música y el software se protegen con…", ["patentes", "derechos de autor", "marcas", "licencias municipales"], 1, "Desde su creación."],
+    ["El método «construir, medir, aprender» es…", ["Lean Startup", "DAFO", "SCAMPER", "PESTEL"], 0, "Lo popularizó Eric Ries."],
+  ]),
+  ejercicios: ejs([
+    ["b", "Define emprender y explica por qué no solo se emprende creando empresas.", "Es poner en marcha un proyecto nuevo asumiendo un riesgo. También se emprende al crear una asociación, un proyecto cultural o una mejora dentro de una organización (intraemprendimiento)."],
+    ["b", "Cita cinco capacidades emprendedoras y pon un ejemplo de cuándo las has usado.", "Iniciativa (organizar una salida de clase), creatividad (decorar el aula), resiliencia (volver a intentar un examen suspendido), trabajo en equipo (un proyecto de grupo), planificación (preparar el estudio con calendario)."],
+    ["b", "Explica la diferencia entre una startup y un emprendimiento social.", "La startup es tecnológica y busca crecer muy rápido y a gran escala; el emprendimiento social busca sobre todo resolver un problema social o ambiental, aunque debe ser sostenible."],
+    ["b", "Escribe tres fuentes de ideas de negocio con un ejemplo cada una.", "Problemas (no hay dónde aparcar la bici → aparcabicis seguro). Tendencias (comida vegetal → bocadillos veganos). Aficiones (me gusta dibujar → camisetas personalizadas)."],
+    ["b", "¿Qué significan las letras de SCAMPER?", "Sustituir, Combinar, Adaptar, Modificar, Poner otros usos, Eliminar y Reordenar."],
+    ["b", "Ordena las fases del design thinking.", "Empatizar, definir, idear, prototipar y testear."],
+    ["b", "¿Qué es la propuesta de valor?", "La razón por la que un cliente elige tu producto: los beneficios que le ofreces y cómo resuelves su problema."],
+    ["b", "Nombra los nueve bloques del Canvas.", "Segmentos de clientes, propuesta de valor, canales, relaciones con clientes, fuentes de ingresos, recursos clave, actividades clave, socios clave y estructura de costes."],
+    ["b", "Indica a qué bloque del Canvas corresponde: un local, Instagram, «familias con niños pequeños», el alquiler, un proveedor de café.", "Local: recurso clave. Instagram: canal. Familias con niños: segmento. Alquiler: estructura de costes. Proveedor de café: socio clave."],
+    ["b", "¿Qué es un producto mínimo viable?", "La versión más sencilla de un producto que permite aprender de los clientes con el mínimo esfuerzo y dinero."],
+    ["b", "Diferencia competidor directo e indirecto con un ejemplo de una pizzería.", "Directo: otra pizzería del barrio. Indirecto: una hamburguesería o las pizzas congeladas del supermercado."],
+    ["b", "¿Qué se registra en la OEPM?", "Marcas y nombres comerciales, patentes y modelos de utilidad, y diseños industriales."],
+    ["m", "Haz una lluvia de ideas individual de 10 minutos sobre el problema «los alumnos olvidan los deberes» y elige las tres mejores ideas razonando por qué.", "Respuesta abierta. Ejemplo: agenda compartida en el móvil, recordatorio por altavoz al final de la clase, pizarra con deberes de la semana en el pasillo, compañero recordador… Mejores: pizarra semanal (barata y visible), agenda compartida (ya existe el móvil), compañero recordador (crea responsabilidad)."],
+    ["m", "Aplica SCAMPER a una botella de agua reutilizable.", "Sustituir: acero por bambú. Combinar: con filtro de agua. Adaptar: asa de taza de café. Modificar: que se pliegue. Otros usos: como altavoz. Eliminar: el tapón, con boquilla integrada. Reordenar: el compartimento para frutas abajo."],
+    ["m", "Define un reto con la fórmula «¿Cómo podríamos…?» para el problema de las colas en la cafetería del instituto.", "«¿Cómo podríamos lograr que el alumnado compre el almuerzo en el recreo sin perder más de cinco minutos en la cola?»."],
+    ["m", "Describe el perfil del cliente (tareas, frustraciones, alegrías) de una persona mayor que vive sola y quiere usar el móvil.", "Tareas: hablar con su familia, pedir cita médica, ver fotos. Frustraciones: letra pequeña, menús complicados, miedo a estafas, no tener a quién preguntar. Alegrías: videollamadas con sus nietos, autonomía, sentirse segura."],
+    ["m", "Diseña una propuesta de valor concreta para el cliente del ejercicio anterior.", "«Clases de móvil a domicilio con estudiantes del barrio: en cuatro sesiones aprendes a hacer videollamadas, pedir cita y evitar estafas, a tu ritmo y con una guía en letra grande»."],
+    ["m", "Explica por qué el Canvas se rellena de derecha a izquierda.", "Porque primero hay que saber a quién nos dirigimos y qué valor le damos (clientes y propuesta); solo después tiene sentido decidir los recursos, actividades, socios y costes necesarios para ofrecerlo."],
+    ["m", "Para un negocio de clases particulares online, completa cinco bloques del Canvas: segmento, propuesta, canales, ingresos y costes.", "Segmento: alumnado de ESO con dificultades en Matemáticas. Propuesta: clases en grupos de 3 con ejercicios adaptados y seguimiento semanal a las familias. Canales: web, grupos de familias, redes. Ingresos: cuota mensual de 40 €. Costes: plataforma de videollamadas, horas del profesorado, publicidad."],
+    ["m", "Clasifica las fuentes de ingresos de: Spotify, un parking, una academia, Netflix, una app de juegos gratuita con anuncios.", "Spotify: freemium y suscripción. Parking: cuota de uso. Academia: cuota mensual. Netflix: suscripción. App de juegos: publicidad y compras dentro de la app."],
+    ["m", "¿Por qué no es buena idea preguntar a tus amigos si les gusta tu idea? ¿Qué preguntarías en su lugar?", "Porque por cortesía dirán que sí aunque no la usarían ni pagarían. Es mejor preguntar por sus problemas y hábitos: «¿Cuándo fue la última vez que te pasó…?», «¿Qué hiciste?», «¿Cuánto gastaste?»."],
+    ["m", "Diseña un PMV para una app que recomienda rutas en bici seguras por tu ciudad.", "Ejemplo: un mapa compartido en Google My Maps con cinco rutas marcadas a mano y un formulario para que los usuarios voten y propongan otras. Medir: visitas, votos y propuestas en dos semanas."],
+    ["m", "Haz un cuadro comparativo de tres competidores para una heladería artesanal (precio, calidad, sabores, ubicación, opiniones) y deduce una ventaja competitiva.", "Ejemplo: Competidor A (cadena: barato, poca calidad, céntrico, 3,5 estrellas), B (artesana: caro, gran calidad, lejos, 4,6), C (supermercado: muy barato, sin servicio). Ventaja: helado artesano de sabores locales a precio medio en la zona del instituto, con tarjeta de fidelidad."],
+    ["m", "¿Qué diferencia hay entre una marca y una patente? Pon un ejemplo de cada una.", "La marca protege el nombre o logotipo que distingue productos (el nombre de una bebida). La patente protege una invención técnica nueva (un tipo de batería). La marca se puede renovar indefinidamente; la patente dura 20 años."],
+    ["m", "Explica con un ejemplo qué es pivotar.", "Cambiar algo importante del modelo tras aprender de los clientes. Ejemplo: una app pensada para que estudiantes compartan apuntes descubre que lo que más se usa es el chat para organizar grupos de estudio, y cambia su propuesta a una app de grupos de estudio."],
+    ["m", "Construye una matriz de evaluación con cuatro criterios para dos ideas propias y decide cuál desarrollar.", "Respuesta abierta. Debe incluir criterios como necesidad, disposición a pagar, viabilidad y coste, puntuaciones de 1 a 5, la suma y una decisión razonada."],
+    ["a", "Elabora un Canvas completo para un servicio de alquiler de material escolar (calculadoras científicas, flautas, compases) en tu instituto.", "Ejemplo. Segmentos: familias con varios hijos o pocos recursos. Propuesta: material de calidad por 5 € al curso, sin tener que comprarlo. Canales: AMPA, web del centro, día de presentación. Relación: personal, recogida en conserjería. Ingresos: cuota anual y fianza. Recursos: stock de material, armario, hoja de control. Actividades: comprar, revisar, prestar, recuperar. Socios: AMPA, dirección, papelería. Costes: compra inicial, reparaciones, etiquetas."],
+    ["a", "Con el Canvas anterior, identifica las tres hipótesis más arriesgadas y diseña una forma de validar cada una.", "1) Las familias pagarían 5 € → encuesta con precio y reserva previa. 2) El material vuelve en buen estado → piloto con una clase durante un trimestre. 3) El AMPA colaboraría → reunión y acuerdo por escrito. Medir porcentaje de reservas, estado del material y compromiso real."],
+    ["a", "Una idea de app tiene costes fijos de 1.500 € al mes y cobra 3 € al mes por usuario. Si el 4 % de quienes la descargan se suscriben, ¿cuántas descargas mensuales hacen falta para no perder dinero?", "Suscriptores necesarios = 1.500 / 3 = 500. Descargas = 500 / 0,04 = 12.500 descargas al mes."],
+    ["a", "Compara el modelo de negocio de una aerolínea de bajo coste y una aerolínea tradicional usando cuatro bloques del Canvas.", "Propuesta: bajo coste (precio mínimo) frente a tradicional (comodidad, conexiones, servicio). Segmentos: viajeros sensibles al precio frente a viajes de negocios y largo radio. Ingresos: billete barato más extras (maletas, asientos) frente a billete con servicios incluidos. Costes: una sola flota, aeropuertos secundarios, venta online frente a flotas variadas, aeropuertos principales y más personal."],
+    ["a", "Aplica las cinco fases del design thinking a un problema real de tu barrio y describe qué harías en cada una.", "Respuesta abierta. Ejemplo: poca iluminación en un parque. Empatizar: entrevistar a vecinos que pasan de noche. Definir: «¿Cómo podríamos hacer que las personas se sientan seguras al cruzar el parque al anochecer?». Idear: farolas solares, ruta alternativa iluminada, grupo de acompañamiento. Prototipar: linternas en un tramo un fin de semana. Testear: encuesta a quienes pasan y propuesta al ayuntamiento."],
+    ["a", "Analiza por qué muchas startups fracasan aunque su producto sea bueno, relacionándolo con el Canvas y la validación.", "Porque no hay mercado suficiente (segmento mal definido), no encaja la propuesta de valor con un problema importante, los canales son caros, los ingresos no cubren los costes o se quedan sin dinero antes de encontrar el modelo. Validar pronto las hipótesis de cada bloque reduce estos riesgos."],
+    ["a", "Diseña un emprendimiento social para reducir la soledad no deseada de las personas mayores e indica cómo sería sostenible económicamente.", "Ejemplo: «Vecinos conectados», una cooperativa de jóvenes que hacen visitas y llamadas y enseñan tecnología. Ingresos: contratos con el ayuntamiento y residencias, cuotas pequeñas de familias, patrocinio de empresas locales. Impacto medido en número de personas atendidas y en su sensación de soledad."],
+    ["a", "Redacta un guion de entrevista de seis preguntas para validar una idea de negocio propia, evitando preguntas que induzcan la respuesta.", "Ejemplo para un servicio de tuppers saludables: 1) ¿Dónde comes entre semana? 2) Cuéntame qué comiste ayer a mediodía. 3) ¿Qué es lo más difícil de comer sano para ti? 4) ¿Qué has probado para resolverlo? 5) ¿Cuánto gastas a la semana en comidas fuera de casa? 6) Si pudieras cambiar una cosa, ¿cuál sería?"],
+    ["a", "Explica la diferencia entre proteger una idea y ejecutarla, y por qué los emprendedores dicen que «las ideas valen poco».", "Una idea en sí no se puede registrar: solo se protege su forma concreta (marca, diseño, patente). Muchas personas tienen ideas parecidas, pero pocas las convierten en negocio. Lo que da valor es la ejecución: validar, construir, vender y mejorar más rápido y mejor que otros."],
+  ]),
+  glosario: [
+    ["Emprender", "Poner en marcha un proyecto nuevo asumiendo un riesgo."],
+    ["Intraemprendimiento", "Emprender dentro de una organización existente."],
+    ["Startup", "Empresa tecnológica pensada para crecer muy deprisa."],
+    ["Emprendimiento social", "Proyecto cuyo fin principal es resolver un problema social o ambiental."],
+    ["Lluvia de ideas", "Técnica de grupo para generar muchas ideas sin juzgarlas."],
+    ["SCAMPER", "Siete preguntas para transformar un producto existente."],
+    ["Design thinking", "Método de diseño centrado en las personas: empatizar, definir, idear, prototipar, testear."],
+    ["Prototipo", "Versión rápida y barata de una solución para probarla."],
+    ["Propuesta de valor", "Beneficios que ofreces y razón por la que te eligen."],
+    ["Segmento de clientes", "Grupo de clientes con necesidades comunes."],
+    ["Lienzo Canvas", "Plantilla de nueve bloques que describe un modelo de negocio."],
+    ["Canal", "Forma de comunicar, vender y entregar al cliente."],
+    ["Freemium", "Modelo con versión básica gratis y versión de pago."],
+    ["Hipótesis", "Suposición del modelo que hay que comprobar."],
+    ["Validar", "Comprobar las hipótesis con clientes reales."],
+    ["Producto mínimo viable", "Versión más sencilla que permite aprender de los clientes."],
+    ["Pivotar", "Cambiar algo importante del modelo tras aprender."],
+    ["Ventaja competitiva", "Lo que haces mejor que la competencia y es difícil de copiar."],
   ],
-  examen: [
-    { q: "El emprendimiento social busca sobre todo…", o: ["el máximo beneficio", "resolver un problema de la comunidad", "evitar impuestos"], a: 1, e: "Puede ser rentable, pero su objetivo principal es el impacto social." },
-    { q: "¿Cuál es el primer paso del design thinking?", o: ["Prototipar", "Empatizar con el usuario", "Vender"], a: 1, e: "Primero hay que entender bien a quién quieres ayudar." },
-    { q: "En el bloque «estructura de costes» se incluye…", o: ["el alquiler del local", "los clientes", "las ventas"], a: 0, e: "Recoge los gastos necesarios para que el negocio funcione." },
-  ],
-  feynman: ["Qué cualidades ayudan a emprender", "Los pasos del design thinking", "Los nueve bloques del Canvas agrupados en cuatro áreas", "Por qué hay que validar una idea antes de invertir"],
-  mapa: mapa("MODELO CANVAS", "var(--leaf)", [
-    ["Idea", "problema real · design thinking", "var(--sun)"],
-    ["Cliente", "segmentos · canales · relación", "var(--pen)"],
-    ["Operación", "actividades · recursos · socios", "var(--muted)"],
-    ["Dinero", "ingresos − costes · validar", "var(--red)"],
+  situacion: {
+    titulo: "Reto emprendedor: un problema de mi instituto",
+    reto: "Vuestro equipo debe detectar un problema real del instituto o del barrio, diseñar una solución con design thinking, describirla en un lienzo Canvas y validarla con un producto mínimo viable durante dos semanas.",
+    pasos: [
+      "Observad y entrevistad a al menos diez personas afectadas por un problema del centro o del barrio.",
+      "Definid el reto con la fórmula «¿Cómo podríamos…?» y generad veinte ideas con lluvia de ideas y SCAMPER.",
+      "Elegid una idea con una matriz de evaluación y completad su lienzo Canvas.",
+      "Construid un producto mínimo viable y probadlo con usuarios reales; recoged datos.",
+      "Decidid si perseveráis, pivotáis o abandonáis, y presentadlo en un minuto (pitch).",
+    ],
+    producto: "Un lienzo Canvas en formato póster, el prototipo y un pitch de un minuto ante un jurado.",
+    evaluacion: [
+      "El problema está documentado con entrevistas y datos.",
+      "El Canvas es coherente: la propuesta de valor responde al segmento elegido.",
+      "El PMV se ha probado de verdad y las conclusiones se basan en datos.",
+      "El pitch es claro, breve y convincente.",
+    ],
+  },
+  feynman: ["Qué capacidades tiene una persona emprendedora", "Las cinco fases del design thinking", "Los nueve bloques del lienzo Canvas", "Por qué hay que validar una idea con un producto mínimo viable"],
+  mapa: mapa("IDEA DE NEGOCIO Y CANVAS", "var(--red)", [
+    ["Emprender", "capacidades · tipos · EntreComp", "var(--pen)"],
+    ["Idear", "problemas · creatividad · design", "var(--sun)"],
+    ["Modelar", "propuesta de valor · 9 bloques", "var(--leaf)"],
+    ["Validar", "hipótesis · PMV · competencia", "var(--inf)"],
   ], 270),
   tarjetas: [
-    ["Propuesta de valor", "Qué problema resuelves y por qué te elegirán a ti."],
-    ["Segmento de clientes", "El grupo de personas al que se dirige el negocio."],
-    ["Producto mínimo viable", "La versión más sencilla del producto para probar la idea."],
-    ["Design thinking", "Empatizar, definir, idear, prototipar y probar."],
-    ["Pivotar", "Cambiar parte del modelo de negocio tras aprender de los clientes."],
+    ["Emprender", "Poner en marcha un proyecto nuevo asumiendo un riesgo."],
+    ["Resiliencia", "Recuperarse de los fracasos y aprender de ellos."],
+    ["SCAMPER", "Sustituir, combinar, adaptar, modificar, poner otros usos, eliminar, reordenar."],
+    ["Fases del design thinking", "Empatizar, definir, idear, prototipar, testear."],
+    ["Propuesta de valor", "Por qué el cliente te elige a ti."],
+    ["Perfil del cliente", "Tareas, frustraciones y alegrías."],
+    ["Canvas: lado derecho", "Segmentos, propuesta, canales, relaciones, ingresos."],
+    ["Canvas: lado izquierdo", "Recursos, actividades, socios y costes."],
+    ["Freemium", "Gratis lo básico, de pago lo avanzado."],
+    ["PMV", "Producto mínimo viable: aprender barato."],
+    ["Pivotar", "Cambiar parte del modelo tras aprender."],
+    ["OEPM", "Registra marcas, patentes y diseños."],
   ],
-  familias: ["Pensad juntos tres molestias de vuestro día a día y una posible solución para cada una.", "Elegid un negocio que conozcáis y rellenad entre todos su lienzo Canvas en una hoja.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
+  familias: [
+    "Durante una semana, anotad juntos los problemas o molestias del día a día: son posibles ideas de negocio.",
+    "Elegid un negocio que conozcáis y tratad de rellenar su lienzo Canvas en una hoja.",
+    "Si conocéis a alguien que haya emprendido, pedidle que cuente qué le salió mal al principio y qué aprendió.",
+    "Repasad las tarjetas del paso 6 dos minutos al día durante la semana.",
+  ],
   profesores: {
-    saberes: "Emprendimiento: generación de ideas, modelo de negocio y validación; creatividad e iniciativa (RD 217/2022, Economía y Emprendimiento 4º).",
-    ideas: ["Reto por equipos: un Canvas para resolver un problema del centro educativo.", "Analizar el Canvas de una empresa conocida (una plataforma de música, una cadena de ropa).", "Entrevistas a cinco posibles clientes y presentación de lo aprendido."],
+    saberes: "Bloque C del RD 217/2022 (Economía y Emprendimiento 4.º): la persona emprendedora y la competencia emprendedora (EntreComp), generación de ideas, creatividad y design thinking, propuesta de valor, modelo de negocio Canvas, validación (Lean Startup) y protección de la propiedad industrial e intelectual.",
+    ideas: [
+      "Taller de design thinking de dos sesiones con un problema real del centro.",
+      "Canvas gigante en la pared del aula con notas adhesivas, que se actualiza durante el trimestre.",
+      "Analizar el Canvas de empresas conocidas por grupos y presentarlo.",
+      "Concurso de pitch con un jurado de profesorado y familias emprendedoras.",
+    ],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
+    { t: "EntreComp: marco europeo de la competencia emprendedora", url: "https://joint-research-centre.ec.europa.eu/entrecomp-entrepreneurship-competence-framework_en" },
     { t: "Lienzo de modelo de negocio, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Lienzo_de_modelo_de_negocio" },
+    { t: "Oficina Española de Patentes y Marcas (OEPM)", url: "https://www.oepm.es/" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
 
-// Ampliación: nivel de libro de texto.
-const { ampliar, tabla } = require("./_hum");
-ampliar(module.exports, {
-  minutos: 60,
-  objetivos: ["Rellenar un lienzo Canvas completo para una idea propia", "Diseñar un producto mínimo viable y analizar la competencia"],
-  bloques: [
-    { tras: "El espíritu emprendedor", html: `<h3>Tipos de emprendimiento</h3><p>Emprender no es solo montar una empresa. El <b>emprendimiento empresarial</b> crea negocios con ánimo de lucro; el <mark>emprendimiento social</mark> busca resolver un problema de la sociedad (por ejemplo, dar empleo a personas con discapacidad o reducir el desperdicio de comida) y reinvierte los beneficios; y el <b>intraemprendimiento</b> consiste en innovar dentro de una empresa u organización en la que ya trabajas. Todos comparten actitudes: iniciativa, creatividad, tolerancia al fracaso, trabajo en equipo y saber aprender de los errores.</p>` },
-    { tras: "De dónde salen las ideas", html: `<h3>Técnicas de creatividad</h3><p>Las ideas no aparecen por casualidad: se pueden provocar. En la <b>lluvia de ideas</b> (brainstorming) un grupo propone muchas ideas sin juzgarlas y después las filtra. La técnica <mark>SCAMPER</mark> pregunta qué se puede <b>S</b>ustituir, <b>C</b>ombinar, <b>A</b>daptar, <b>M</b>odificar, <b>P</b>oner en otro uso, <b>E</b>liminar o <b>R</b>eordenar en un producto que ya existe. El <b>design thinking</b> empieza por <b>empatizar</b> con las personas que tienen el problema, definirlo bien, idear soluciones, hacer un prototipo y probarlo.</p>` },
-    { tras: "El lienzo Canvas", html: `<h3>Un Canvas de ejemplo: «BiciFix», reparación de bicis a domicilio</h3>${tabla(["Bloque", "Contenido"], [["Segmento de clientes", "estudiantes y trabajadores que van en bici a diario"], ["Propuesta de valor", "reparamos tu bici en tu portal en menos de 24 h"], ["Canales", "app, Instagram, carteles en institutos y facultades"], ["Relación con clientes", "reserva online, recordatorio de revisiones"], ["Fuentes de ingresos", "pago por reparación y bono anual de mantenimiento"], ["Recursos clave", "furgoneta, herramientas, mecánicos"], ["Actividades clave", "reparar, comprar recambios, gestionar citas"], ["Socios clave", "tiendas de recambios, ayuntamiento"], ["Estructura de costes", "salarios, combustible, recambios, publicidad"]])}`, video: { id: "i1Le5GYkBT8", titulo: "Modelo Canvas: cómo aplicar el modelo Canvas en el lienzo. Ejemplo práctico", canal: "Trabajar Desde Casa", vistas: 5841473, megusta: 0 } },
-    { tras: "Validar antes de invertir", html: `<h3>El producto mínimo viable</h3><p>Un <mark>producto mínimo viable</mark> (PMV o MVP) es la versión más sencilla del producto que permite comprobar si a los clientes les interesa, gastando poco. Puede ser una web con un botón de «reservar», un prototipo hecho a mano o un servicio que al principio se presta de forma manual. Se sigue un ciclo de <b>crear → medir → aprender</b>: se lanza, se recogen datos (cuántos lo prueban, qué opinan) y se mejora. Si la idea no funciona, se <b>pivota</b>: se cambia una parte del modelo de negocio sin empezar de cero.</p>` },
-    { tras: "Validar antes de invertir", html: `<h3>Analizar la competencia</h3><p>Antes de lanzar un negocio conviene saber quién ofrece algo parecido. Los <b>competidores directos</b> venden lo mismo al mismo cliente; los <b>indirectos</b> satisfacen la misma necesidad de otra forma (para «moverse por la ciudad», una bici compite con el bus o el patinete). Hay que comparar precio, calidad, ubicación y servicio, y buscar la <mark>ventaja competitiva</mark>: lo que hace a tu negocio diferente y mejor a ojos del cliente, como el precio más bajo, la rapidez o un trato más personal.</p>` },
-  ],
-  ejemplos: [
-    { enunciado: "Aplica SCAMPER a una mochila escolar.", pasos: ["Sustituir: tela reciclada en lugar de nailon.", "Combinar: mochila con cargador solar.", "Adaptar: correas acolchadas de las mochilas de montaña.", "Eliminar: quitar bolsillos que nadie usa para que pese menos."], resultado: "Surge, por ejemplo, una mochila ligera de tela reciclada con cargador solar." },
-    { enunciado: "Diseña un PMV para una app que conecta a estudiantes que se ayudan con los deberes.", pasos: ["Sin programar nada, crear un formulario online y un grupo de mensajería.", "Ofrecerlo en el instituto durante dos semanas.", "Medir cuántos se apuntan y cuántos repiten.", "Preguntar qué echan en falta."], resultado: "Con muy poco dinero se comprueba si hay interés antes de pagar una app." },
-    { enunciado: "Para «BiciFix», identifica un competidor directo y uno indirecto.", pasos: ["Directo: el taller de bicis del barrio.", "Indirecto: un vídeo de YouTube para arreglar la bici uno mismo."], resultado: "Su ventaja competitiva frente a ambos es la comodidad: reparan en tu portal." },
-  ],
-  errores: [
-    "Enamorarse de la idea sin preguntar a los clientes.",
-    "Confundir la propuesta de valor con el producto: es el problema que resuelves y por qué te eligen.",
-    "Pensar que no tienes competencia porque nadie hace exactamente lo mismo.",
-    "Gastar mucho dinero antes de validar la idea.",
-    "Creer que pivotar es fracasar: es aprender y ajustar.",
-  ],
-  ejercicios: [
-    { q: "Explica la diferencia entre emprendimiento empresarial y social.", sol: "El empresarial busca beneficio; el social busca resolver un problema de la sociedad y reinvierte los beneficios en ese fin." },
-    { q: "Cita tres actitudes emprendedoras.", sol: "Iniciativa, creatividad y tolerancia al fracaso (también trabajo en equipo y perseverancia)." },
-    { q: "¿Cuáles son las reglas de una lluvia de ideas?", sol: "Proponer muchas ideas, no criticarlas al principio, construir sobre las de otros y filtrarlas después." },
-    { q: "¿Qué significa cada letra de SCAMPER?", sol: "Sustituir, Combinar, Adaptar, Modificar, Poner en otro uso, Eliminar y Reordenar." },
-    { q: "Nombra los nueve bloques del Canvas.", sol: "Segmentos de clientes, propuesta de valor, canales, relación con clientes, fuentes de ingresos, recursos clave, actividades clave, socios clave y estructura de costes." },
-    { q: "¿En qué bloque del Canvas pondrías «Instagram»?", sol: "En canales." },
-    { q: "¿Qué es un producto mínimo viable?", sol: "La versión más simple de un producto que permite comprobar si interesa a los clientes con poca inversión." },
-    { q: "¿Qué significa pivotar?", sol: "Cambiar una parte del modelo de negocio tras comprobar que algo no funciona." },
-    { q: "Define ventaja competitiva.", sol: "Lo que hace que los clientes prefieran tu negocio frente a la competencia." },
-    { q: "Rellena la propuesta de valor de una cafetería para estudiantes.", sol: "Por ejemplo: «Un sitio tranquilo para estudiar, con wifi y café barato, abierto hasta tarde»." },
-  ],
-  quiz: [
-    { q: "El intraemprendimiento es…", o: ["innovar dentro de una organización", "montar una empresa en el extranjero", "trabajar desde casa"], a: 0, e: "Emprender sin dejar tu empleo." },
-    { q: "En design thinking, el primer paso es…", o: ["empatizar", "vender", "patentar"], a: 0, e: "Entender a quien tiene el problema." },
-    { q: "Un PMV sirve para…", o: ["validar con poco gasto", "conseguir un préstamo", "pagar menos impuestos"], a: 0, e: "Crear, medir, aprender." },
-    { q: "El bus es para una empresa de alquiler de bicis un competidor…", o: ["directo", "indirecto", "socio"], a: 1, e: "Cubre la misma necesidad de otra manera." },
-    { q: "Los proveedores de recambios en el Canvas son…", o: ["socios clave", "canales", "clientes"], a: 0, e: "Son alianzas necesarias." },
-  ],
-  tarjetas: [
-    ["Emprendimiento social", "Negocio que busca resolver un problema social."],
-    ["SCAMPER", "Técnica de creatividad para mejorar productos existentes."],
-    ["Pivotar", "Cambiar parte del modelo de negocio tras aprender del mercado."],
-  ],
-});
+// Matriz de evaluación dibujada (función para no repetir el lienzo arriba).
+function tablaSvg() {
+  const filasM = [["Idea A", [4, 2, 3], 9], ["Idea B", [4, 4, 3], 11], ["Idea C", [3, 3, 5], 11]];
+  return caja("Matriz de evaluación: tres ideas puntuadas de 1 a 5 en necesidad, pago y viabilidad, con su total", `<g ${F} text-anchor="middle" font-size="11">
+    ${["", "necesidad", "pago", "viable", "total"].map((t, i) => `<text x="${[40, 92, 142, 186, 228][i]}" y="34" font-weight="700" fill="var(--ink)" font-size="10.5">${t}</text>`).join("")}
+    ${filasM.map(([n, ps, tot], j) => { const y = 50 + j * 36; return `<rect x="10" y="${y}" width="240" height="30" rx="8" fill="var(--card)" stroke="${tot === 11 ? "var(--leaf)" : "var(--line)"}" stroke-width="2"/><text x="40" y="${y + 20}" font-weight="700" fill="var(--ink)">${n}</text>${ps.map((p, k) => `<text x="${[92, 142, 186][k]}" y="${y + 20}" fill="var(--ink)">${p}</text>`).join("")}<text x="228" y="${y + 20}" font-weight="700" fill="${tot === 11 ? "var(--leaf)" : "var(--ink)"}">${tot}</text>`; }).join("")}
+    <text x="130" y="168" font-size="10" fill="var(--muted)">empate: decide otro criterio (inversión, motivación)</text>
+  </g>`);
+}
