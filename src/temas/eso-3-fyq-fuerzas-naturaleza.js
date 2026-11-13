@@ -1,159 +1,232 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
+// Física y Química 3º ESO · Fuerzas de la naturaleza (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, barras, rejilla, fuerzas, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["fuerzas-naturaleza"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "Fuerzas de la naturaleza: gravedad, electricidad y magnetismo",
-  minutos: 60,
-  objetivos: ["Explicar la fuerza gravitatoria y diferenciar masa y peso", "Relacionar la gravedad con el movimiento de planetas, satélites y mareas", "Describir la carga eléctrica, la electrización y la ley de Coulomb de forma cualitativa", "Conocer el magnetismo, los imanes, la brújula y la relación entre electricidad y magnetismo"],
-  claves: ["gravitación universal", "peso", "carga eléctrica", "electrización", "ley de Coulomb", "imán", "campo magnético", "electroimán"],
+  minutos: 110,
+  objetivos: [
+    "Conocer las fuerzas fundamentales de la naturaleza y comparar su intensidad y alcance",
+    "Aplicar la ley de la gravitación universal y distinguir masa y peso",
+    "Explicar los movimientos de planetas, satélites y mareas a partir de la gravedad",
+    "Describir la carga eléctrica, los métodos de electrización y la ley de Coulomb",
+    "Reconocer las propiedades de los imanes y del campo magnético terrestre",
+    "Relacionar electricidad y magnetismo y conocer sus aplicaciones tecnológicas",
+  ],
+  claves: ["fuerza a distancia", "gravitación universal", "masa", "peso", "satélite", "marea", "carga eléctrica", "electrización", "ley de Coulomb", "imán", "polo magnético", "electroimán"],
   pregunta: {
-    texto: "La misma fuerza que hace caer una manzana mantiene a la Luna girando alrededor de la Tierra. Y la fuerza que te pega el pelo al globo tras frotarlo es la misma que mantiene unidos los átomos de tu cuerpo. ¿Cuántas fuerzas hay en la naturaleza?",
-    respuesta: "Los físicos han encontrado que todas las fuerzas se reducen a solo <mark>cuatro interacciones fundamentales</mark>: la <b>gravitatoria</b>, la <b>electromagnética</b> y dos que solo actúan dentro del núcleo atómico, la <b>nuclear fuerte</b> y la <b>nuclear débil</b>. Casi todo lo que vemos a diario se explica con las dos primeras.",
+    texto: "La Luna está a 384.000 km y no la sujeta ninguna cuerda. ¿Por qué no se escapa ni se cae sobre la Tierra?",
+    respuesta: "La sujeta la <mark>gravedad</mark>, una fuerza que actúa a distancia. La Luna está «cayendo» continuamente hacia la Tierra, pero como también avanza muy deprisa de lado, nunca llega a caer: describe una órbita. Es la misma fuerza que hace caer una manzana, como comprendió Newton.",
+  },
+  lectura: {
+    titulo: "La manzana, la Luna y la brújula",
+    html: `<p>Cuenta la tradición que en 1666, durante una epidemia de peste que cerró la Universidad de Cambridge, el joven Isaac Newton se refugió en la granja familiar. Allí, viendo caer una manzana, se preguntó si la fuerza que la atraía hacia el suelo podría llegar hasta la Luna. Calculó que, si la atracción disminuía con el cuadrado de la distancia, explicaría a la vez la caída de la manzana y la órbita lunar. Veinte años después publicó la ley de la gravitación universal: por primera vez, las mismas leyes valían en la Tierra y en el cielo.</p><p>Otras fuerzas a distancia eran conocidas desde la Antigüedad. Los griegos sabían que el ámbar frotado atraía briznas de paja (ámbar se dice <i>élektron</i> en griego) y que ciertas piedras de Magnesia atraían el hierro. Los chinos usaban brújulas para orientarse hace casi mil años. En 1600, el médico inglés William Gilbert explicó que la brújula funciona porque la propia Tierra es un gigantesco imán.</p><p>Durante siglos, electricidad y magnetismo parecieron fenómenos distintos. En 1820, el danés Hans Christian Ørsted observó en una clase que una brújula se movía al acercarla a un cable con corriente. Fue el principio del electromagnetismo, la base de los motores, los altavoces y la electricidad que llega a nuestras casas.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Las fuerzas a distancia</h3><p>Algunas fuerzas actúan sin que los cuerpos se toquen: son las <mark>fuerzas a distancia</mark>. La <b>gravedad</b> atrae los objetos hacia la Tierra; la <b>fuerza eléctrica</b> hace que un globo frotado atraiga trocitos de papel; la <b>fuerza magnética</b> permite que un imán atraiga un clip a través de una mesa. Para explicar cómo actúan sin contacto, los físicos usan la idea de <b>campo</b>: cada masa, cada carga o cada imán modifica el espacio que lo rodea, y cualquier otro cuerpo situado en ese espacio nota una fuerza. Aunque todas las fuerzas cotidianas, como empujar o el rozamiento, son en el fondo eléctricas, entre los átomos de las superficies que se tocan.</p>`,
-    },
-    {
-      html: `<h3>La ley de la gravitación universal</h3><p>En 1687, <b>Isaac Newton</b> explicó que la fuerza que hace caer una manzana es la misma que mantiene a la Luna en su órbita. Su <mark>ley de la gravitación universal</mark> dice que <b>todos los cuerpos se atraen</b> con una fuerza que es <b>directamente proporcional al producto de sus masas</b> e <b>inversamente proporcional al cuadrado de la distancia</b> que los separa: <b>F = G · m₁ · m₂ / d²</b>. G es una constante muy pequeña (6,67 · 10⁻¹¹ N·m²/kg²), por eso la atracción entre dos personas es imperceptible y solo se nota cuando uno de los cuerpos es enorme, como un planeta. Si la distancia se duplica, la fuerza se reduce a la cuarta parte. La gravedad siempre <b>atrae</b>, nunca repele.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos masas se atraen con fuerzas iguales y opuestas; al doblar la distancia, la fuerza se divide entre cuatro">${BG}
-        <circle cx="50" cy="60" r="20" fill="var(--pen)"/><circle cx="200" cy="60" r="14" fill="var(--leaf)"/>${fl(72, 60, 112, 60, "var(--red)", 3)}${fl(184, 60, 146, 60, "var(--red)", 3)}
-        ${t(50, 98, "m₁", { size: 12 })}${t(200, 98, "m₂", { size: 12 })}${t(128, 40, "F", { size: 13, color: "var(--red)" })}
-        ${t(130, 128, "F = G · m₁ · m₂ / d²", { size: 14, color: "var(--pen)" })}${t(130, 160, "doble distancia → F / 4", { size: 11, color: "var(--muted)" })}</svg>`,
-      video: { id: "Un-AbQe1rsg", titulo: "¿Qué es la gravedad y cómo funciona? Newton VS Einstein", canal: "Astronomiaweb", vistas: 2560898 },
-    },
-    {
-      html: `<h3>Masa y peso</h3><p>En la vida diaria confundimos masa y peso, pero en física son cosas distintas. La <mark>masa</mark> es la cantidad de materia de un cuerpo; se mide en kilogramos y es la misma en cualquier lugar. El <mark>peso</mark> es la <b>fuerza</b> con la que un planeta atrae a un cuerpo; se mide en newtons con un dinamómetro y depende del lugar. Se calcula con <b>P = m · g</b>, donde g es la <b>intensidad de la gravedad</b>: 9,8 N/kg en la Tierra, 1,6 N/kg en la Luna y 24,8 N/kg en Júpiter. Una persona de 50 kg pesa 490 N en la Tierra, solo 80 N en la Luna y 1240 N en Júpiter, aunque su masa sea siempre 50 kg. La g también disminuye un poco con la altura.</p>${tabla(["Lugar", "g (N/kg)", "Peso de 50 kg"], [["Luna", "1,6", "80 N"], ["Marte", "3,7", "185 N"], ["Tierra", "9,8", "490 N"], ["Júpiter", "24,8", "1240 N"]])}`,
-    },
-    {
-      html: `<h3>La gravedad en el universo</h3><p>La gravedad gobierna el movimiento de los astros. Los <b>planetas</b> giran alrededor del Sol, y la <b>Luna</b> y los <b>satélites artificiales</b> alrededor de la Tierra, porque la atracción gravitatoria curva continuamente su trayectoria: en realidad están «cayendo» todo el tiempo, pero como se mueven muy rápido hacia un lado, nunca llegan a chocar. Las <mark>mareas</mark> se deben a la atracción de la Luna (y en menor medida del Sol) sobre el agua de los océanos: el agua del lado más cercano a la Luna es atraída con más fuerza y se forma un abultamiento. Por eso hay dos mareas altas y dos bajas cada día, aproximadamente. La gravedad también reúne el gas para formar estrellas y galaxias.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="La Luna en órbita alrededor de la Tierra: su velocidad es tangente y la fuerza de la gravedad apunta hacia la Tierra, curvando su trayectoria">${BG}
-        <circle cx="100" cy="88" r="26" fill="var(--pen)" fill-opacity=".7"/><ellipse cx="100" cy="88" rx="36" ry="28" fill="var(--water)" fill-opacity=".3"/>
-        <circle cx="100" cy="88" r="64" fill="none" stroke="var(--muted)" stroke-dasharray="5 4"/>
-        <circle cx="164" cy="88" r="10" fill="#bbb"/>${fl(164, 78, 164, 24, "var(--leaf)", 2.5)}${fl(152, 88, 140, 88, "var(--red)", 2.5)}
-        ${t(100, 92, "Tierra", { size: 10, color: "#fff" })}${t(176, 30, "velocidad", { size: 10, anchor: "start", color: "var(--leaf)" })}${t(180, 92, "Luna", { size: 11, anchor: "start" })}
-        ${t(190, 120, "gravedad", { size: 10, color: "var(--red)" })}${fl(176, 112, 148, 92, "var(--red)", 1)}${t(130, 172, "cae sin parar, pero nunca choca", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>La carga eléctrica</h3><p>Si frotas un globo con tu pelo, el globo atrae el pelo y luego se queda pegado a la pared. Lo explica la <mark>carga eléctrica</mark>, una propiedad de la materia que tienen los <b>protones</b> (carga positiva) y los <b>electrones</b> (carga negativa). Normalmente los cuerpos son <b>neutros</b>, con tantos protones como electrones. Pero al frotar dos materiales, algunos <b>electrones pasan de uno a otro</b>: el que gana electrones queda cargado negativamente y el que los pierde, positivamente. La carga se mide en <b>culombios (C)</b>, una unidad muy grande: un electrón tiene −1,6 · 10⁻¹⁹ C. Lo más importante: <mark>las cargas del mismo signo se repelen y las de signo contrario se atraen</mark>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cargas iguales se repelen: dos positivas o dos negativas se alejan; cargas opuestas, una positiva y una negativa, se atraen">${BG}
-        ${[[40, "+", "+", -1], [92, "−", "−", -1], [144, "+", "−", 1]].map(([y, a, b, s]) => `<circle cx="${s > 0 ? 96 : 76}" cy="${y}" r="14" fill="${a === "+" ? "var(--red)" : "var(--pen)"}"/>${t(s > 0 ? 96 : 76, y + 5, a, { size: 16, color: "#fff" })}<circle cx="${s > 0 ? 164 : 184}" cy="${y}" r="14" fill="${b === "+" ? "var(--red)" : "var(--pen)"}"/>${t(s > 0 ? 164 : 184, y + 5, b, { size: 16, color: "#fff" })}${s > 0 ? fl(112, y, 128, y, "var(--ink)", 2) + fl(148, y, 132, y, "var(--ink)", 2) : fl(60, y, 32, y, "var(--ink)", 2) + fl(200, y, 228, y, "var(--ink)", 2)}`).join("")}
-        ${t(130, 70, "se repelen", { size: 10, color: "var(--muted)" })}${t(130, 122, "se repelen", { size: 10, color: "var(--muted)" })}${t(130, 172, "se atraen", { size: 10, color: "var(--leaf)" })}</svg>`,
-      video: { id: "l_cuSr5ZhCI", titulo: "¿Cómo funciona la electricidad estática?", canal: "Date un Voltio", vistas: 797925 },
-    },
-    {
-      html: `<h3>Formas de electrizar un cuerpo</h3><p>Un cuerpo se puede electrizar de tres formas. Por <mark>frotamiento</mark>, al frotar dos materiales distintos, como un globo con lana o un bolígrafo de plástico con el pelo. Por <mark>contacto</mark>, al tocar un cuerpo cargado: parte de su carga pasa al otro; por eso a veces nos da un pequeño calambre al tocar el coche o el pomo de una puerta, si nos hemos cargado al caminar sobre una alfombra. Por <mark>inducción</mark>, al acercar un cuerpo cargado sin tocar: las cargas del otro cuerpo se reorganizan y el lado más cercano queda con carga contraria; así el globo atrae papelitos neutros. Los materiales que dejan moverse las cargas, como los metales, son <b>conductores</b>; los que no, como el plástico, son <b>aislantes</b>.</p>`,
-    },
-    {
-      html: `<h3>La ley de Coulomb y los rayos</h3><p>En 1785, Charles-Augustin de <b>Coulomb</b> midió la fuerza entre cargas y descubrió que es <b>directamente proporcional al producto de las cargas</b> e <b>inversamente proporcional al cuadrado de la distancia</b>, una ley muy parecida a la de la gravitación: <mark>F = k · q₁ · q₂ / d²</mark>. Pero la fuerza eléctrica es muchísimo más intensa que la gravitatoria y puede ser de atracción o de repulsión. Los <b>rayos</b> son descargas eléctricas gigantes: en una tormenta, el roce entre gotas y cristales de hielo carga las nubes, y cuando la diferencia de carga con el suelo es enorme, salta una chispa de kilómetros. El <b>pararrayos</b>, inventado por Benjamin Franklin, ofrece un camino seguro para que la descarga llegue a tierra.</p>`,
-    },
-    {
-      html: `<h3>El magnetismo y los imanes</h3><p>Los <mark>imanes</mark> atraen el hierro, el níquel y el cobalto. Ya en la Antigua Grecia se conocía la <b>magnetita</b>, un mineral que es un imán natural. Hoy usamos sobre todo imanes artificiales. Todo imán tiene dos <b>polos</b>, el <b>norte</b> y el <b>sur</b>, donde la fuerza es más intensa. <mark>Los polos iguales se repelen y los distintos se atraen</mark>. Si partimos un imán por la mitad, no obtenemos un polo norte y uno sur separados, sino dos imanes más pequeños, cada uno con sus dos polos. Alrededor de un imán hay un <b>campo magnético</b>, que se representa con <b>líneas de campo</b> que salen del polo norte y entran en el sur; se pueden ver echando limaduras de hierro sobre un papel encima de un imán.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Imán de barra con polo norte rojo y sur azul y líneas de campo que salen del norte y entran en el sur">${BG}
-        <rect x="90" y="78" width="40" height="24" fill="var(--red)"/><rect x="130" y="78" width="40" height="24" fill="var(--pen)"/>${t(110, 95, "N", { size: 14, color: "#fff" })}${t(150, 95, "S", { size: 14, color: "#fff" })}
-        ${[0, 10, 20].map(h => `<path d="M90 86 A ${42 + h} ${12 + h} 0 1 1 170 86" fill="none" stroke="var(--muted)" stroke-width="1.5"/><path d="M90 94 A ${42 + h} ${12 + h} 0 1 0 170 94" fill="none" stroke="var(--muted)" stroke-width="1.5"/>`).join("")}
-        ${fl(126, 22, 136, 22, "var(--muted)", 1.5)}${fl(126, 158, 136, 158, "var(--muted)", 1.5)}
-        ${t(130, 174, "de N a S por fuera", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>La Tierra es un imán: la brújula</h3><p>La Tierra se comporta como un <mark>gran imán</mark>, debido a los movimientos del hierro fundido de su núcleo externo. Por eso tiene un campo magnético que la rodea, la <b>magnetosfera</b>, que nos protege del viento solar; cuando las partículas del Sol chocan con ella cerca de los polos, se forman las <b>auroras boreales</b>. La <b>brújula</b>, inventada en China, es una aguja imantada que puede girar libremente y se orienta siempre en la dirección norte-sur. Curiosamente, el polo norte de la aguja apunta al norte geográfico porque allí está el <b>polo sur magnético</b> de la Tierra, ya que los polos opuestos se atraen. Muchas aves migratorias y tortugas se orientan con el campo magnético terrestre.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Brújula: círculo con los puntos cardinales y una aguja imantada roja que apunta al norte">${BG}
-        <circle cx="130" cy="92" r="66" fill="var(--card)" stroke="var(--ink)" stroke-width="3"/>
-        ${[["N", 130, 40], ["S", 130, 152], ["E", 184, 97], ["O", 76, 97]].map(([n, x, y]) => t(x, y, n, { size: 14 })).join("")}
-        <path d="M130 50 L 140 92 L 120 92 Z" fill="var(--red)"/><path d="M130 134 L 140 92 L 120 92 Z" fill="var(--muted)"/><circle cx="130" cy="92" r="5" fill="var(--ink)"/>
-        ${t(130, 174, "la aguja se orienta norte-sur", { size: 10, color: "var(--muted)" })}</svg>`,
-      video: { id: "vf657n_akeg", titulo: "MAGNETISMO: ¿Qué son los imanes?", canal: "Smile and Learn - Español", vistas: 700835 },
-    },
-    {
-      html: `<h3>Electricidad y magnetismo: el electromagnetismo</h3><p>En 1820, el danés <b>Hans Christian Ørsted</b> observó por casualidad que una corriente eléctrica desviaba una brújula cercana: <mark>la corriente eléctrica crea un campo magnético</mark>. Así nació el <b>electromagnetismo</b>. Si se enrolla un cable alrededor de un clavo de hierro y se hace pasar corriente, se obtiene un <b>electroimán</b>, un imán que se puede encender y apagar; se usa en grúas de chatarrerías, timbres, cerraduras y trenes de levitación magnética. Años después, <b>Michael Faraday</b> descubrió lo contrario: <mark>un imán en movimiento genera corriente eléctrica</mark> en una bobina. Es la <b>inducción electromagnética</b>, el principio de los generadores de las centrales eléctricas, las dinamos y los motores eléctricos.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Electroimán: un cable enrollado en un clavo conectado a una pila atrae clips cuando pasa la corriente">${BG}
-        <rect x="70" y="80" width="130" height="12" fill="var(--muted)"/><path d="M200 80 l 12 6 l -12 6 Z" fill="var(--muted)"/>
-        ${Array.from({ length: 8 }, (_, i) => `<ellipse cx="${84 + i * 14}" cy="86" rx="5" ry="14" fill="none" stroke="#c87533" stroke-width="2.5"/>`).join("")}
-        <rect x="30" y="130" width="50" height="24" rx="4" fill="var(--ink)"/><rect x="80" y="137" width="6" height="10" fill="var(--ink)"/>${t(55, 147, "pila", { size: 10, color: "#fff" })}
-        <path d="M84 100 V 128 M182 100 V 142 H 88" stroke="#c87533" stroke-width="2" fill="none"/>
-        ${[[216, 92], [230, 100]].map(([x, y]) => `<rect x="${x}" y="${y}" width="8" height="22" rx="4" fill="none" stroke="var(--muted)" stroke-width="2"/><rect x="${x + 2}" y="${y + 4}" width="4" height="14" rx="2" fill="none" stroke="var(--muted)" stroke-width="1.5"/>`).join("")}
-        ${t(130, 50, "corriente → imán", { size: 12, color: "var(--red)" })}${t(240, 150, "clips", { size: 10, anchor: "end" })}</svg>`,
-    },
+    bloque({ h: "1.1 Las fuerzas fundamentales", p: [
+      "Algunas fuerzas actúan por <b>contacto</b>, como un empujón o el rozamiento. Otras actúan <mark>a distancia</mark>, sin que los cuerpos se toquen: la gravedad, la fuerza eléctrica y la magnética. Para explicar cómo puede un cuerpo actuar sobre otro lejano se usa la idea de <b>campo</b>: cada masa, carga o imán modifica el espacio que lo rodea, y cualquier otro cuerpo situado allí nota una fuerza.",
+      "Los físicos han comprobado que todas las fuerzas de la naturaleza se reducen a cuatro <mark>interacciones fundamentales</mark>. La <b>gravitatoria</b>, entre todos los cuerpos con masa: es la más débil, pero domina en el universo a gran escala porque siempre es atractiva y tiene alcance infinito. La <b>electromagnética</b>, entre cargas eléctricas: es responsable de la electricidad, el magnetismo, la luz, las reacciones químicas e incluso de las fuerzas de contacto, que en el fondo son repulsiones entre electrones de los átomos. La <b>nuclear fuerte</b>, que mantiene unidos protones y neutrones en el núcleo: es la más intensa, pero solo actúa a distancias diminutas. Y la <b>nuclear débil</b>, responsable de algunas desintegraciones radiactivas y de las reacciones que hacen brillar al Sol.",
+    ], svg: rejilla("Las cuatro interacciones fundamentales", ["Interacción", "Actúa sobre", "Alcance"], [["Gravitatoria", "masas", "infinito"], ["Electromagnética", "cargas", "infinito"], ["Nuclear fuerte", "núcleo", "muy corto"], ["Nuclear débil", "partículas", "muy corto"]], "var(--pen)") }),
+    bloque({ h: "1.2 La ley de la gravitación universal", p: [
+      "En 1687, Isaac Newton enunció la <mark>ley de la gravitación universal</mark>: dos cuerpos cualesquiera se atraen con una fuerza directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia entre sus centros. Se escribe F = G · M · m / d², donde G es la <b>constante de gravitación universal</b>, G = 6,67 · 10⁻¹¹ N·m²/kg². Su valor es tan pequeño que la atracción entre objetos cotidianos es imperceptible: dos personas de 70 kg separadas 1 m se atraen con menos de una millonésima de newton.",
+      "Solo cuando una de las masas es enorme, como un planeta o una estrella, la fuerza gravitatoria es apreciable. La ley tiene dos consecuencias importantes. Si se <b>duplica una masa</b>, la fuerza se duplica. Si se <b>duplica la distancia</b>, la fuerza se divide entre cuatro; si se triplica, entre nueve. Además, la fuerza es <b>mutua</b>: la Tierra atrae a la manzana con la misma fuerza con que la manzana atrae a la Tierra, pero como la masa de la Tierra es gigantesca, apenas se mueve. La gravedad mantiene unidos los planetas al Sol, las estrellas en las galaxias y es la responsable de que la materia se agrupara para formar estrellas y planetas.",
+    ], extra: formula("F = G · M · m / d²"), svg: S.svg[0] }),
+    bloque({ h: "1.3 Masa y peso", p: [
+      "En el lenguaje diario se confunden, pero son magnitudes distintas. La <mark>masa</mark> es la cantidad de materia de un cuerpo; se mide en kilogramos con una balanza y es la misma en cualquier lugar del universo. El <mark>peso</mark> es la fuerza con que un planeta atrae a ese cuerpo; se mide en newtons con un dinamómetro y depende de dónde esté. Se calcula con P = m · g, donde g es la intensidad de la gravedad del lugar: en la superficie terrestre, g = 9,8 N/kg, que coincide con la aceleración de caída, 9,8 m/s².",
+      "Una persona de 60 kg pesa en la Tierra 60 · 9,8 = 588 N. En la Luna, donde g = 1,6 N/kg, pesaría solo 96 N, unas seis veces menos, y podría saltar mucho más alto; pero su masa seguiría siendo 60 kg. En Júpiter, con g = 24,8 N/kg, pesaría 1.488 N. El valor de g depende de la masa y del radio del planeta, y disminuye al alejarse de él: en la Estación Espacial Internacional, a 400 km de altura, g sigue siendo casi un 90 % del valor en el suelo. Los astronautas flotan no porque allí no haya gravedad, sino porque la nave y ellos están cayendo juntos alrededor de la Tierra.",
+    ], extra: formula("P = m · g"), svg: barras("Intensidad de la gravedad en la superficie de la Luna, Marte, la Tierra y Júpiter", "Gravedad en superficie (N/kg)", [["Luna", 1.6, "var(--muted)", "1,6"], ["Marte", 3.7, "var(--red)", "3,7"], ["Tierra", 9.8, "var(--pen)", "9,8"], ["Júpiter", 24.8, "#b45309", "24,8"]]) }),
+    bloque({ h: "1.4 La gravedad en el universo: órbitas y satélites", p: [
+      "¿Por qué la Luna no cae sobre la Tierra? Newton lo explicó con un experimento mental: si desde una montaña altísima se lanza una bala de cañón, cae describiendo una curva. Cuanto más deprisa se lance, más lejos llega. Si fuera lo bastante rápida, unos 8 km/s cerca de la superficie, la curvatura de su caída coincidiría con la de la Tierra y nunca llegaría al suelo: estaría en <mark>órbita</mark>. Un satélite está cayendo continuamente hacia la Tierra, pero su velocidad lateral hace que la vaya «esquivando».",
+      "Así se mueven los planetas alrededor del Sol, la Luna alrededor de la Tierra y los <b>satélites artificiales</b>. Hoy hay miles en órbita, con usos muy variados: comunicaciones, televisión, previsión meteorológica, observación de la Tierra y posicionamiento, como el sistema europeo Galileo o el GPS. Los satélites geoestacionarios, a 36.000 km de altura, tardan exactamente un día en dar una vuelta y parecen inmóviles en el cielo. Cuanto más lejos está un cuerpo, más despacio se mueve y más tarda en completar su órbita: Mercurio da la vuelta al Sol en 88 días y Neptuno en 165 años. La gravedad también explica la caída de meteoritos y las trayectorias de los cometas.",
+    ], svg: S.svg[1], video: S.bvideos[0] }),
+    bloque({ h: "1.5 Las mareas", p: [
+      "Dos veces al día, el nivel del mar sube y baja en las costas: son las <mark>mareas</mark>. Las produce sobre todo la atracción gravitatoria de la <b>Luna</b>. Como la fuerza disminuye con la distancia, la Luna atrae más al agua del lado de la Tierra que mira hacia ella que al centro del planeta, y más al centro que al agua del lado opuesto. El resultado son dos abultamientos de agua: uno hacia la Luna y otro en el lado contrario. Al girar la Tierra cada día, cada costa pasa por los dos abultamientos (pleamares) y por las dos zonas intermedias (bajamares).",
+      "El <b>Sol</b> también influye, aunque menos de la mitad que la Luna, porque está mucho más lejos. Cuando el Sol, la Tierra y la Luna están alineados, en luna nueva y luna llena, sus efectos se suman y se producen las <b>mareas vivas</b>, con mayor diferencia entre pleamar y bajamar. En cuarto creciente y menguante, el Sol y la Luna tiran en direcciones perpendiculares y se producen las <b>mareas muertas</b>. En el Mediterráneo las mareas apenas se notan, pero en el Cantábrico la diferencia puede superar los 4 m, y en la bahía de Fundy, en Canadá, llega a 16 m. Las mareas se aprovechan para producir electricidad en centrales mareomotrices.",
+    ], svg: compara("Mareas vivas y mareas muertas", ["Mareas vivas", ["Sol, Tierra y Luna alineados", "Luna nueva y llena", "Mayor diferencia de nivel"]], ["Mareas muertas", ["Sol y Luna en ángulo recto", "Cuartos creciente y menguante", "Menor diferencia de nivel"]], "var(--pen)", "var(--leaf)") }),
+    bloque({ h: "2.1 La carga eléctrica", p: [
+      "La materia está formada por átomos, y estos contienen partículas con <mark>carga eléctrica</mark>: los <b>protones</b>, con carga positiva, en el núcleo, y los <b>electrones</b>, con carga negativa, en la corteza. Normalmente un átomo tiene tantos protones como electrones y es <b>neutro</b>. Un cuerpo se carga cuando gana o pierde electrones: si gana electrones queda cargado <b>negativamente</b>, y si los pierde, <b>positivamente</b>. Los protones no se mueven de un cuerpo a otro, porque están fijos en el núcleo.",
+      "La carga eléctrica se mide en <b>culombios</b> (C). Es una unidad muy grande: la carga de un electrón es −1,6 · 10⁻¹⁹ C, de modo que hacen falta más de seis trillones de electrones para formar un culombio. Por eso en electrostática se usan el microculombio (µC) y el nanoculombio (nC). La carga cumple dos principios: está <b>cuantizada</b>, porque siempre es un múltiplo de la del electrón, y se <b>conserva</b>, porque no se crea ni se destruye: si un cuerpo gana electrones, otro los ha perdido. La propiedad fundamental es que <b>cargas del mismo signo se repelen y cargas de signo contrario se atraen</b>.",
+    ], svg: S.svg[2] }),
+    bloque({ h: "2.2 Formas de electrizar un cuerpo", p: [
+      "Hay tres maneras de cargar eléctricamente un cuerpo. Por <mark>frotamiento</mark>: al frotar dos materiales distintos, uno arranca electrones al otro. Si frotas un globo con el pelo, el globo gana electrones y queda negativo, y tu pelo queda positivo; por eso los pelos se levantan hacia el globo. Por <mark>contacto</mark>: un cuerpo cargado toca a otro neutro y le cede parte de su carga, de modo que ambos quedan con carga del mismo signo. Por <mark>inducción</mark>: al acercar un cuerpo cargado a otro neutro, sin tocarlo, las cargas de este se redistribuyen; la parte más cercana adquiere carga de signo contrario y es atraída. Así un globo cargado se queda pegado a la pared o un peine atrae trocitos de papel.",
+      "Los materiales se clasifican según cómo dejan moverse las cargas. En los <b>conductores</b>, como los metales, los electrones se mueven con facilidad, y la carga se reparte por todo el cuerpo. En los <b>aislantes</b>, como el plástico, el vidrio, la madera seca o la goma, las cargas quedan fijas donde se depositan. Para saber si un cuerpo está cargado se usa el <b>electroscopio</b>: dos láminas metálicas finas que se separan al recibir carga, porque se repelen. Las descargas eléctricas, como la chispa al tocar el pomo de un coche o los <b>rayos</b>, se producen cuando la carga acumulada salta por el aire. Los pararrayos ofrecen al rayo un camino seguro hacia el suelo.",
+    ], svg: pasos("Tres formas de electrizar un cuerpo", ["Frotamiento: se arrancan electrones", "Contacto: se cede carga del mismo signo", "Inducción: se separan cargas sin tocar"], "var(--red)") }),
+    bloque({ h: "2.3 La ley de Coulomb", p: [
+      "En 1785, el francés Charles-Augustin de Coulomb midió con una balanza de torsión la fuerza entre cargas y enunció la <mark>ley de Coulomb</mark>: la fuerza entre dos cargas puntuales es directamente proporcional al producto de las cargas e inversamente proporcional al cuadrado de la distancia que las separa: F = K · q₁ · q₂ / d². La constante K vale 9 · 10⁹ N·m²/C² en el vacío o en el aire.",
+      "La ley de Coulomb se parece mucho a la de la gravitación, pero hay diferencias clave. La fuerza eléctrica puede ser <b>atractiva o repulsiva</b>, mientras que la gravitatoria siempre atrae. Y es muchísimo <b>más intensa</b>: entre un protón y un electrón, la fuerza eléctrica es unas 10³⁹ veces mayor que la gravitatoria. Si la gravedad domina en el universo es porque los cuerpos grandes son casi siempre neutros: sus cargas positivas y negativas se compensan. Por ejemplo, dos cargas de 1 µC separadas 10 cm se repelen con F = 9 · 10⁹ · 10⁻⁶ · 10⁻⁶ / 0,01 = 0,9 N, y si la distancia se reduce a la mitad, la fuerza se multiplica por cuatro. La fuerza eléctrica mantiene unidos los electrones al núcleo y los átomos entre sí en las moléculas.",
+    ], extra: formula("F = K · q₁ · q₂ / d²"), svg: fuerzas("Dos cargas del mismo signo se repelen con fuerzas iguales y opuestas", "q", [[0, 70, "F", "var(--red)"], [180, 70, "F", "var(--pen)"]]), video: S.bvideos[1] }),
+    bloque({ h: "3.1 Los imanes", p: [
+      "Un <mark>imán</mark> es un cuerpo capaz de atraer el hierro, el níquel, el cobalto y sus aleaciones, como el acero; estos materiales se llaman <b>ferromagnéticos</b>. Hay imanes naturales, como la magnetita, un mineral de hierro, y artificiales, que se fabrican imantando aleaciones. Los imanes de neodimio son tan potentes que pueden levantar mil veces su propio peso. Otros materiales, como el aluminio, el cobre, el plástico o la madera, no son atraídos por los imanes.",
+      "Todo imán tiene dos zonas donde la atracción es más intensa, llamadas <mark>polos</mark>: el <b>polo norte</b> y el <b>polo sur</b>. Los polos del mismo nombre se repelen y los de distinto nombre se atraen. Una propiedad sorprendente es que los polos son <b>inseparables</b>: si se parte un imán por la mitad, no se obtiene un polo norte y uno sur aislados, sino dos imanes más pequeños, cada uno con sus dos polos. Alrededor de un imán hay un <b>campo magnético</b>, que se representa con <b>líneas de campo</b> que salen del polo norte y entran por el sur; pueden verse espolvoreando limaduras de hierro sobre un papel colocado encima. Los imanes están en puertas de neveras, cierres de bolsos, altavoces, discos duros y trenes de levitación magnética.",
+    ], svg: S.svg[3] }),
+    bloque({ h: "3.2 La Tierra, un gran imán", p: [
+      "La <mark>brújula</mark> es una aguja imantada que puede girar libremente y siempre se orienta en la dirección norte-sur. Lo hace porque la <b>Tierra se comporta como un enorme imán</b>, debido a las corrientes de hierro fundido de su núcleo externo. El polo norte de la aguja apunta hacia el norte geográfico; como los polos opuestos se atraen, eso significa que cerca del polo norte geográfico se encuentra el <b>polo sur magnético</b> de la Tierra.",
+      "Los polos magnéticos no coinciden exactamente con los geográficos y además se desplazan lentamente: el polo magnético del hemisferio norte se mueve decenas de kilómetros al año. Las rocas volcánicas muestran que el campo magnético terrestre se ha invertido muchas veces a lo largo de la historia del planeta. El <b>campo magnético terrestre</b> es esencial para la vida: forma la <b>magnetosfera</b>, un escudo que desvía las partículas cargadas del viento solar. Cuando algunas de esas partículas entran por las zonas polares y chocan con el aire, producen las <b>auroras</b> boreales y australes. Muchos animales, como las aves migratorias, las tortugas marinas o las abejas, se orientan usando el campo magnético de la Tierra.",
+    ], svg: S.svg[4] }),
+    bloque({ h: "3.3 Electricidad y magnetismo: el electromagnetismo", p: [
+      "En 1820, Hans Christian Ørsted descubrió que una <b>corriente eléctrica crea un campo magnético</b>: una brújula se desvía al acercarla a un cable por el que circula corriente. Si el cable se enrolla formando una bobina alrededor de un núcleo de hierro, se obtiene un <mark>electroimán</mark>, un imán que funciona solo mientras pasa corriente y cuya fuerza se puede regular. Los electroimanes se usan en grúas de chatarrerías, timbres, cerraduras eléctricas, relés y en las máquinas de resonancia magnética de los hospitales.",
+      "Poco después, en 1831, Michael Faraday descubrió el efecto inverso: un <b>imán en movimiento</b> cerca de una bobina produce corriente eléctrica. Es la <mark>inducción electromagnética</mark>, el principio de los <b>generadores</b> o alternadores de las centrales eléctricas, de las dinamos de bicicleta y de las placas de inducción de las cocinas. Combinando los dos fenómenos funcionan los <b>motores eléctricos</b>, que transforman energía eléctrica en movimiento, presentes en ventiladores, lavadoras, patinetes y coches eléctricos. James Clerk Maxwell unificó en 1865 electricidad y magnetismo en una sola teoría y demostró que la <b>luz</b> es una onda electromagnética, igual que las ondas de radio, las microondas o los rayos X.",
+    ], svg: S.svg[5], video: S.bvideos[2] }),
+    bloque({ h: "3.4 Comparar las fuerzas a distancia", p: [
+      "Las tres fuerzas a distancia de este tema tienen mucho en común: actúan sin contacto, crean un campo a su alrededor y disminuyen al aumentar la distancia. La gravitatoria y la eléctrica siguen además la misma forma matemática, con el cuadrado de la distancia en el denominador. Pero tienen diferencias importantes. La <b>gravitatoria</b> actúa entre todas las masas, siempre es <b>atractiva</b> y es muy débil. La <b>eléctrica</b> actúa entre cargas, puede ser <b>atractiva o repulsiva</b> y es muchísimo más intensa. La <b>magnética</b> actúa entre imanes y corrientes, también puede atraer o repeler, y sus polos siempre van en parejas.",
+      "Estas diferencias explican quién manda a cada escala. En los átomos, las moléculas y los objetos cotidianos dominan las fuerzas <b>eléctricas</b>: mantienen la forma de los sólidos, la tensión de una cuerda o el agarre de un pegamento. En los planetas, las estrellas y las galaxias domina la <b>gravedad</b>, porque los cuerpos grandes son neutros y la gravedad nunca se cancela. Comprender estas fuerzas ha permitido a la humanidad desarrollar tecnologías que hoy parecen normales: los satélites que guían los móviles, la electricidad de las casas, los motores eléctricos o la resonancia magnética en medicina.",
+    ], svg: rejilla("Comparación de las fuerzas a distancia", ["Fuerza", "Actúa entre", "Sentido"], [["Gravitatoria", "masas", "solo atrae"], ["Eléctrica", "cargas", "atrae o repele"], ["Magnética", "imanes y corrientes", "atrae o repele"]], "var(--leaf)") }),
   ],
-  figura: {
-    titulo: "Gravedad, electricidad y magnetismo",
-    svg: `<svg viewBox="0 0 640 240" role="img" aria-label="Comparación de tres fuerzas a distancia: la gravitatoria actúa entre masas y solo atrae; la eléctrica actúa entre cargas, iguales se repelen y opuestas se atraen; la magnética actúa entre polos, iguales se repelen y opuestos se atraen">
-      <rect width="640" height="240" rx="16" fill="var(--paper)"/>
-      ${[["GRAVITATORIA", "entre masas", "solo atrae", "F = G·m₁·m₂/d²", "var(--pen)"], ["ELÉCTRICA", "entre cargas + y −", "atrae o repele", "F = k·q₁·q₂/d²", "var(--red)"], ["MAGNÉTICA", "entre polos N y S", "atrae o repele", "electroimán", "var(--leaf)"]].map(([n, a, b, f, c], i) => { const x = 20 + i * 206; return `<rect x="${x}" y="20" width="190" height="200" rx="14" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>${t(x + 95, 56, n, { size: 16, color: c, font: D })}${t(x + 95, 100, a, { size: 14, weight: 400 })}${t(x + 95, 136, b, { size: 15 })}${t(x + 95, 184, f, { size: 14, color: "var(--muted)" })}`; }).join("")}
-    </svg>`,
-  },
-  video: { id: "_lrWIogPNFo", titulo: "HOY SÍ que vas a entender el ELECTROMAGNETISMO", canal: "Date un Vlog", vistas: 2090047, megusta: 0, busqueda: "magnetismo imanes campo magnético" },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "¿Cuánto pesa en la Tierra y en la Luna un astronauta de 80 kg (g Tierra = 9,8 N/kg; g Luna = 1,6 N/kg)?",
-      pasos: ["P = m · g.", "Tierra: 80 · 9,8 = 784 N.", "Luna: 80 · 1,6 = 128 N."],
-      resultado: "784 N en la Tierra y 128 N en la Luna; su masa sigue siendo 80 kg." },
-    { enunciado: "Dos cuerpos se atraen con 36 N. ¿Qué fuerza habrá si la distancia se triplica?",
-      pasos: ["La fuerza es inversamente proporcional al cuadrado de la distancia.", "Al triplicar d, d² se multiplica por 9.", "F = 36 / 9."],
-      resultado: "4 N." },
-    { enunciado: "Frotas un globo con tu pelo y el globo queda cargado negativamente. ¿Qué carga tiene tu pelo y por qué se atraen?",
-      pasos: ["El globo ha ganado electrones.", "Esos electrones los ha perdido el pelo.", "Cargas de signo contrario se atraen."],
-      resultado: "el pelo queda con carga positiva y se atrae con el globo." },
+    { enunciado: "Calcula el peso de una mochila de 8 kg en la Tierra y en la Luna (g = 9,8 y 1,6 N/kg).", pasos: ["P = m · g.", "Tierra: 8 · 9,8 = 78,4 N.", "Luna: 8 · 1,6 = 12,8 N."], resultado: "78,4 N en la Tierra y 12,8 N en la Luna; la masa sigue siendo 8 kg." },
+    { enunciado: "Dos cuerpos se atraen con 12 N. ¿Cuál será la fuerza si la distancia se triplica?", pasos: ["F es inversamente proporcional a d².", "Al triplicar d, d² se multiplica por 9.", "F = 12 / 9."], resultado: "≈ 1,33 N." },
+    { enunciado: "Calcula la fuerza gravitatoria entre dos personas de 70 kg separadas 1 m (G = 6,67 · 10⁻¹¹ N·m²/kg²).", pasos: ["F = G · m₁ · m₂ / d².", "F = 6,67 · 10⁻¹¹ · 70 · 70 / 1.", "F = 6,67 · 10⁻¹¹ · 4.900."], resultado: "F ≈ 3,3 · 10⁻⁷ N, imperceptible." },
+    { enunciado: "Un globo frotado con lana gana 5 · 10¹² electrones. ¿Qué carga adquiere?", pasos: ["Cada electrón: −1,6 · 10⁻¹⁹ C.", "q = 5 · 10¹² · (−1,6 · 10⁻¹⁹)."], resultado: "q = −8 · 10⁻⁷ C = −0,8 µC." },
+    { enunciado: "Calcula la fuerza entre dos cargas de +2 µC y −3 µC separadas 30 cm (K = 9 · 10⁹ N·m²/C²).", pasos: ["F = K · q₁ · q₂ / d².", "F = 9 · 10⁹ · 2 · 10⁻⁶ · 3 · 10⁻⁶ / 0,09.", "F = 0,054 / 0,09."], resultado: "F = 0,6 N, atractiva (signos opuestos)." },
+    { enunciado: "Se parte un imán en tres trozos. ¿Cuántos polos hay en total?", pasos: ["Cada trozo es un imán completo.", "Cada imán tiene un polo norte y uno sur.", "3 · 2."], resultado: "6 polos: 3 norte y 3 sur." },
   ],
   errores: [
-    "Confundir masa (kg, constante) y peso (N, depende del lugar).",
+    "Confundir masa (kg) y peso (N): la masa no cambia al ir a la Luna; el peso sí.",
     "Pensar que en el espacio no hay gravedad: los astronautas flotan porque caen junto con la nave.",
-    "Creer que al frotar se crean cargas: solo pasan electrones de un cuerpo a otro.",
-    "Pensar que al partir un imán se separan el polo norte y el sur.",
-    "Decir que la brújula apunta al polo norte magnético: apunta al norte geográfico, donde está el polo sur magnético.",
+    "Creer que al duplicar la distancia la fuerza se reduce a la mitad: se reduce a la cuarta parte.",
+    "Pensar que al cargar un cuerpo se mueven los protones: solo se transfieren electrones.",
+    "Creer que los imanes atraen todos los metales: el aluminio o el cobre no son atraídos.",
+    "Pensar que la aguja de la brújula apunta al polo norte magnético: allí está el polo sur magnético.",
   ],
   ejercicios: [
-    { q: "Pon dos ejemplos de fuerzas a distancia y dos de contacto.", sol: "A distancia: gravedad, fuerza de un imán. De contacto: empujar un carro, rozamiento." },
-    { q: "Enuncia la ley de la gravitación universal.", sol: "Todos los cuerpos se atraen con una fuerza proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia: F = G·m₁·m₂/d²." },
-    { q: "¿Por qué no notamos la atracción gravitatoria entre dos personas?", sol: "Porque G es muy pequeña y sus masas también; la fuerza es diminuta. Solo se nota si una masa es enorme, como la Tierra." },
-    { q: "Calcula el peso de una mochila de 6 kg en la Tierra y en Marte (g = 3,7 N/kg).", sol: "Tierra: 58,8 N. Marte: 22,2 N." },
-    { q: "¿Qué provoca las mareas?", sol: "La atracción gravitatoria de la Luna, y en menor medida del Sol, sobre el agua de los océanos." },
-    { q: "Explica qué ocurre cuando frotamos un bolígrafo de plástico con lana.", sol: "Pasan electrones de un material al otro; el que gana electrones queda negativo y el que los pierde, positivo." },
-    { q: "Nombra las tres formas de electrizar un cuerpo.", sol: "Frotamiento, contacto e inducción." },
-    { q: "¿En qué se parecen y en qué se diferencian la ley de Coulomb y la de gravitación?", sol: "Se parecen en que la fuerza depende del producto de las cargas o masas y del inverso del cuadrado de la distancia. Se diferencian en que la eléctrica es mucho más intensa y puede atraer o repeler." },
-    { q: "¿Qué ocurre si acercamos el polo norte de dos imanes? ¿Y el norte de uno al sur de otro?", sol: "Norte con norte se repelen; norte con sur se atraen." },
-    { q: "¿Qué descubrió Ørsted y qué aplicación tiene?", sol: "Que una corriente eléctrica crea un campo magnético. Permite fabricar electroimanes, usados en grúas, timbres y motores." },
+    B("Nombra las cuatro interacciones fundamentales.", "Gravitatoria, electromagnética, nuclear fuerte y nuclear débil."),
+    B("Pon dos ejemplos de fuerzas a distancia y dos de contacto.", "A distancia: gravedad, atracción de un imán. Contacto: empujar una puerta, rozamiento."),
+    B("¿Qué diferencia hay entre masa y peso? ¿En qué unidades se miden?", "Masa: cantidad de materia, kg, no cambia. Peso: fuerza de atracción del planeta, N, depende del lugar."),
+    B("Calcula el peso de una persona de 50 kg en la Tierra.", "P = 50 · 9,8 = 490 N."),
+    B("¿Qué provoca las mareas?", "La atracción gravitatoria de la Luna y, en menor medida, del Sol sobre el agua de los océanos."),
+    B("¿Qué partículas tienen carga positiva y cuáles negativa?", "Positiva: protones. Negativa: electrones."),
+    B("Si un cuerpo pierde electrones, ¿qué carga adquiere?", "Positiva."),
+    B("Nombra las tres formas de electrizar un cuerpo.", "Frotamiento, contacto e inducción."),
+    B("Clasifica como conductor o aislante: cobre, plástico, aluminio, vidrio, goma.", "Conductores: cobre, aluminio. Aislantes: plástico, vidrio, goma."),
+    B("¿Qué ocurre al acercar dos polos norte de dos imanes? ¿Y un norte y un sur?", "Norte-norte se repelen; norte-sur se atraen."),
+    B("¿Qué materiales atrae un imán?", "Los ferromagnéticos: hierro, níquel, cobalto y aleaciones como el acero."),
+    B("¿Qué es un electroimán?", "Una bobina con núcleo de hierro que actúa como imán solo mientras circula corriente."),
+    M("¿Cuánto pesa en Marte (g = 3,7 N/kg) un robot de 900 kg? ¿Y en la Tierra?", "Marte: 3.330 N. Tierra: 8.820 N."),
+    M("Un astronauta pesa en la Tierra 784 N. ¿Cuál es su masa? ¿Cuánto pesaría en la Luna?", "m = 784 / 9,8 = 80 kg. Luna: 80 · 1,6 = 128 N."),
+    M("Dos masas se atraen con 20 N. ¿Cuál será la fuerza si se duplica una de las masas? ¿Y si se duplica la distancia?", "Duplicar una masa: 40 N. Duplicar la distancia: 5 N."),
+    M("Explica por qué la Luna no cae sobre la Tierra.", "Sí cae continuamente, pero como avanza muy deprisa de lado, su caída sigue la curvatura y describe una órbita."),
+    M("¿Por qué las mareas vivas se producen en luna llena y luna nueva?", "Porque Sol, Tierra y Luna están alineados y sus atracciones se suman."),
+    M("Explica por qué un globo frotado se queda pegado a la pared, que es neutra.", "Por inducción: el globo negativo repele los electrones de la superficie de la pared, que queda positiva cerca del globo y lo atrae."),
+    M("Calcula la fuerza entre dos cargas de 4 µC separadas 20 cm. ¿Es atractiva o repulsiva?", "F = 9 · 10⁹ · 16 · 10⁻¹² / 0,04 = 3,6 N, repulsiva."),
+    M("¿Qué ocurre con la fuerza entre dos cargas si la distancia se reduce a la tercera parte?", "Se multiplica por 9."),
+    M("¿Por qué el polo norte de una brújula apunta al norte geográfico?", "Porque cerca del polo norte geográfico está el polo sur magnético terrestre, que atrae al polo norte de la aguja."),
+    M("Describe el experimento de Ørsted y qué demostró.", "Una brújula se desvía junto a un cable con corriente: la corriente eléctrica crea un campo magnético."),
+    M("¿Qué es la inducción electromagnética y dónde se aplica?", "La producción de corriente al mover un imán cerca de una bobina. Generadores de centrales, dinamos, cocinas de inducción."),
+    M("Cuenta cuántos electrones hacen falta para una carga de −1 µC.", "10⁻⁶ / 1,6 · 10⁻¹⁹ = 6,25 · 10¹² electrones."),
+    A("Calcula la fuerza gravitatoria entre la Tierra (6 · 10²⁴ kg) y la Luna (7,4 · 10²² kg), separadas 3,84 · 10⁸ m.", "F = 6,67 · 10⁻¹¹ · 6 · 10²⁴ · 7,4 · 10²² / (3,84 · 10⁸)² ≈ 2 · 10²⁰ N."),
+    A("Calcula el peso de una persona de 70 kg a una altura igual al radio terrestre sobre la superficie.", "La distancia al centro se duplica, g se divide entre 4: 9,8 / 4 = 2,45 N/kg. P = 70 · 2,45 ≈ 172 N."),
+    A("Compara la fuerza eléctrica y la gravitatoria entre un protón y un electrón separados 5,3 · 10⁻¹¹ m (mp = 1,67 · 10⁻²⁷ kg; me = 9,1 · 10⁻³¹ kg).", "Eléctrica: 9 · 10⁹ · (1,6 · 10⁻¹⁹)² / (5,3 · 10⁻¹¹)² ≈ 8,2 · 10⁻⁸ N. Gravitatoria: 6,67 · 10⁻¹¹ · 1,67 · 10⁻²⁷ · 9,1 · 10⁻³¹ / (5,3 · 10⁻¹¹)² ≈ 3,6 · 10⁻⁴⁷ N. La eléctrica es unas 10³⁹ veces mayor."),
+    A("Dos cargas iguales separadas 30 cm se repelen con 0,4 N. Calcula el valor de cada carga.", "q² = F · d² / K = 0,4 · 0,09 / 9 · 10⁹ = 4 · 10⁻¹² → q = 2 · 10⁻⁶ C = 2 µC."),
+    A("¿Por qué la gravedad domina en el universo si es la fuerza más débil?", "Porque siempre atrae y se acumula con la masa, mientras que los cuerpos grandes son casi neutros y sus fuerzas eléctricas se cancelan."),
+    A("Diseña un experimento para comprobar qué factores influyen en la fuerza de un electroimán.", "Variar el número de espiras, la intensidad de corriente (pilas) y el núcleo (hierro o sin núcleo), contando cuántos clips levanta en cada caso y manteniendo el resto constante."),
+    A("Un satélite geoestacionario tarda 24 h en dar una vuelta a 42.000 km del centro de la Tierra. Calcula su velocidad en km/h.", "v = 2π · 42.000 / 24 ≈ 11.000 km/h (≈ 3 km/s)."),
+    A("Explica por qué un astronauta en la Estación Espacial flota aunque allí g sea casi el 90 % del valor en la superficie.", "Porque la estación y el astronauta caen juntos alrededor de la Tierra en órbita; al caer a la vez, no hay nada que lo empuje contra el suelo de la nave (ingravidez aparente)."),
   ],
   quiz: [
-    { q: "La gravedad entre dos cuerpos…", o: ["solo atrae", "solo repele", "atrae o repele"], a: 0, e: "Siempre atrae." },
-    { q: "Si la distancia se duplica, la fuerza gravitatoria…", o: ["se duplica", "se divide entre 2", "se divide entre 4"], a: 2, e: "Entre 4." },
-    { q: "El peso se mide en…", o: ["kilogramos", "newtons", "culombios"], a: 1, e: "Newtons." },
-    { q: "En la Luna tu masa es…", o: ["la misma", "seis veces menor", "cero"], a: 0, e: "La misma." },
-    { q: "Las mareas las causa sobre todo…", o: ["el viento", "la Luna", "la rotación terrestre sola"], a: 1, e: "La Luna." },
-    { q: "Dos cargas negativas…", o: ["se atraen", "se repelen", "no interactúan"], a: 1, e: "Se repelen." },
-    { q: "Al frotar, pasan de un cuerpo a otro…", o: ["protones", "electrones", "neutrones"], a: 1, e: "Electrones." },
-    { q: "La unidad de carga eléctrica es…", o: ["el culombio", "el amperio", "el voltio"], a: 0, e: "El culombio." },
-    { q: "Si partes un imán por la mitad obtienes…", o: ["un polo N y uno S", "dos imanes completos", "nada magnético"], a: 1, e: "Dos imanes." },
-    { q: "Un electroimán funciona gracias a…", o: ["la gravedad", "la corriente eléctrica", "el rozamiento"], a: 1, e: "La corriente crea magnetismo." },
+    q4("¿Cuál es la interacción fundamental más débil?", ["Electromagnética", "Gravitatoria", "Nuclear fuerte", "Nuclear débil"], 1, "Pero de alcance infinito."),
+    q4("La ley de la gravitación universal la enunció…", ["Galileo", "Newton", "Coulomb", "Ørsted"], 1, "En 1687."),
+    q4("Si la distancia entre dos masas se duplica, la fuerza…", ["se duplica", "se reduce a la mitad", "se reduce a la cuarta parte", "no cambia"], 2, "Depende de 1/d²."),
+    q4("El peso se mide en…", ["kilogramos", "newtons", "metros", "culombios"], 1, "Es una fuerza."),
+    q4("En la Luna, tu masa…", ["es menor", "es la misma", "es mayor", "es cero"], 1, "Cambia el peso."),
+    q4("El peso de 10 kg en la Tierra es…", ["10 N", "98 N", "9,8 N", "980 N"], 1, "m · g."),
+    q4("Las mareas se deben sobre todo a…", ["el viento", "la Luna", "la rotación", "los volcanes"], 1, "Atracción gravitatoria."),
+    q4("Las mareas vivas se dan en…", ["cuarto creciente", "luna llena y nueva", "cuarto menguante", "solo en verano"], 1, "Alineación."),
+    q4("Un cuerpo que gana electrones queda cargado…", ["positivamente", "negativamente", "neutro", "magnéticamente"], 1, "Exceso de electrones."),
+    q4("La unidad de carga eléctrica es el…", ["amperio", "voltio", "culombio", "newton"], 2, "C."),
+    q4("Dos cargas negativas…", ["se atraen", "se repelen", "no interactúan", "se neutralizan"], 1, "Mismo signo."),
+    q4("Un globo frotado atrae papelitos neutros por…", ["contacto", "inducción", "gravedad", "magnetismo"], 1, "Redistribuye cargas."),
+    q4("Un material que deja moverse las cargas es un…", ["aislante", "conductor", "imán", "dieléctrico"], 1, "Metales."),
+    q4("La ley de Coulomb describe la fuerza entre…", ["masas", "cargas", "imanes", "planetas"], 1, "F = K q₁ q₂ / d²."),
+    q4("¿Cuál de estos materiales NO atrae un imán?", ["Hierro", "Níquel", "Aluminio", "Acero"], 2, "No es ferromagnético."),
+    q4("Si partes un imán por la mitad obtienes…", ["un polo norte y un polo sur sueltos", "dos imanes con dos polos cada uno", "dos trozos sin magnetismo", "un solo polo"], 1, "Polos inseparables."),
+    q4("Cerca del polo norte geográfico hay un polo magnético…", ["norte", "sur", "este", "ninguno"], 1, "Atrae al norte de la brújula."),
+    q4("Las auroras se producen por…", ["la Luna", "partículas del Sol y el campo magnético", "los volcanes", "las mareas"], 1, "Magnetosfera."),
+    q4("Ørsted descubrió que una corriente eléctrica…", ["produce luz", "crea un campo magnético", "calienta el agua", "atrae masas"], 1, "La brújula se desvía."),
+    q4("Un generador eléctrico se basa en…", ["la gravitación", "la inducción electromagnética", "la electrización por frotamiento", "las mareas"], 1, "Faraday."),
   ],
   examen: [
-    { q: "El peso de 10 kg en la Tierra es…", o: ["10 N", "98 N", "980 N"], a: 1, e: "10 · 9,8 = 98 N." },
-    { q: "Un globo cargado atrae papelitos neutros por…", o: ["inducción", "gravedad", "magnetismo"], a: 0, e: "Inducción." },
-    { q: "La inducción electromagnética la descubrió…", o: ["Faraday", "Newton", "Coulomb"], a: 0, e: "Faraday." },
+    q4("Una persona de 60 kg pesa en la Tierra…", ["60 N", "588 N", "6 N", "96 N"], 1, "60 · 9,8."),
+    q4("Dos masas se atraen con 36 N. Si la distancia se triplica, la fuerza es…", ["12 N", "4 N", "108 N", "324 N"], 1, "36 / 9."),
+    q4("Un astronauta de 80 kg en la Luna (g = 1,6 N/kg) pesa…", ["80 N", "128 N", "784 N", "50 N"], 1, "80 · 1,6."),
+    q4("La fuerza entre dos cargas de 1 µC a 1 m es…", ["9 · 10⁹ N", "9 · 10⁻³ N", "1 N", "9 N"], 1, "9 · 10⁹ · 10⁻¹²."),
+    q4("Un objeto cargado toca otro neutro y lo carga por…", ["inducción", "contacto", "frotamiento", "gravedad"], 1, "Le cede carga."),
+    q4("¿Qué diferencia a la gravedad de la fuerza eléctrica?", ["La gravedad solo atrae", "La gravedad es más intensa", "La eléctrica solo atrae", "No hay diferencias"], 0, "Siempre atractiva."),
+    q4("Un electroimán deja de funcionar cuando…", ["se calienta", "se corta la corriente", "se le acerca hierro", "se gira"], 1, "Necesita corriente."),
+    q4("Los astronautas flotan en la Estación Espacial porque…", ["no hay gravedad", "caen junto con la nave", "el aire los sostiene", "están muy lejos"], 1, "Ingravidez aparente."),
   ],
-  feynman: ["Por qué la masa no cambia y el peso sí de un planeta a otro", "Cómo se carga un cuerpo y por qué se atraen o repelen las cargas", "Qué relación hay entre la electricidad y el magnetismo"],
-  mapa: mapa("FUERZAS A DISTANCIA", "var(--eso)", [
-    ["Gravedad", "F = G·m₁·m₂/d² · P = m·g", "var(--pen)"],
-    ["Electricidad", "cargas · electrización · Coulomb", "var(--red)"],
-    ["Magnetismo", "imanes · polos · brújula", "var(--leaf)"],
-    ["Electromagnetismo", "Ørsted · Faraday · electroimán", "#b8860b"],
-  ], 300),
+  feynman: ["Qué son las fuerzas a distancia y cuáles son las cuatro interacciones fundamentales", "Qué dice la ley de la gravitación universal y cómo cambia con la distancia", "Por qué masa y peso no son lo mismo", "Cómo se producen las órbitas y las mareas", "Cómo se electriza un cuerpo y qué dice la ley de Coulomb", "Cómo funcionan los imanes, la brújula y los electroimanes"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Gravitación universal", "Todos los cuerpos se atraen: F = G·m₁·m₂/d²."],
-    ["Peso", "Fuerza con la que un planeta atrae un cuerpo: P = m·g."],
+    ["Interacciones fundamentales", "Gravitatoria, electromagnética, nuclear fuerte y débil."],
+    ["Gravitación universal", "F = G · M · m / d²."],
+    ["G", "6,67 · 10⁻¹¹ N·m²/kg²."],
+    ["Peso", "P = m · g; en newtons."],
     ["g en la Tierra", "9,8 N/kg."],
-    ["Carga eléctrica", "Positiva (protones) o negativa (electrones); se mide en C."],
-    ["Electrización", "Por frotamiento, contacto o inducción."],
-    ["Ley de Coulomb", "F = k·q₁·q₂/d²; iguales se repelen, opuestas se atraen."],
-    ["Imán", "Dos polos, N y S; iguales se repelen."],
-    ["Electroimán", "Bobina con corriente que actúa como un imán."],
+    ["Órbita", "Caída continua compensada por la velocidad lateral."],
+    ["Mareas", "Atracción de la Luna y el Sol sobre los océanos."],
+    ["Carga eléctrica", "Protones +, electrones −; se mide en culombios."],
+    ["Electrización", "Frotamiento, contacto e inducción."],
+    ["Ley de Coulomb", "F = K · q₁ · q₂ / d²; K = 9 · 10⁹."],
+    ["Imán", "Dos polos inseparables; polos iguales se repelen."],
+    ["Electromagnetismo", "Corriente → campo magnético; imán en movimiento → corriente."],
   ],
-  familias: ["Frotad un globo con el pelo y probad a qué objetos atrae: papelitos, un chorrito fino de agua, una lata vacía.", "Fabricad un electroimán con un clavo, cable de cobre esmaltado y una pila, y contad cuántos clips levanta.", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "La interacción: fuerzas fundamentales, gravitación universal, masa y peso, fenómenos eléctricos y magnéticos y relación entre electricidad y magnetismo (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Visualizar líneas de campo con limaduras de hierro e imanes.", "Péndulo electrostático con bolita de papel de aluminio y globo frotado.", "Reproducir el experimento de Ørsted con una pila, un cable y una brújula."],
+  glosario: [
+    ["Fuerza a distancia", "Fuerza que actúa sin contacto entre los cuerpos."],
+    ["Campo", "Zona del espacio en la que un cuerpo nota una fuerza."],
+    ["Gravitación universal", "Atracción entre todos los cuerpos con masa."],
+    ["Masa", "Cantidad de materia de un cuerpo; se mide en kg."],
+    ["Peso", "Fuerza con que un planeta atrae a un cuerpo; se mide en N."],
+    ["Órbita", "Trayectoria de un cuerpo que gira alrededor de otro por la gravedad."],
+    ["Satélite", "Cuerpo que gira en órbita alrededor de un planeta."],
+    ["Marea", "Subida y bajada periódica del nivel del mar."],
+    ["Carga eléctrica", "Propiedad de protones y electrones que produce fuerzas eléctricas."],
+    ["Culombio", "Unidad de carga eléctrica en el SI."],
+    ["Electrización", "Proceso por el que un cuerpo adquiere carga eléctrica."],
+    ["Conductor", "Material que permite el movimiento de las cargas."],
+    ["Aislante", "Material que no deja moverse las cargas."],
+    ["Electroscopio", "Instrumento que detecta si un cuerpo está cargado."],
+    ["Imán", "Cuerpo que atrae el hierro y otros materiales ferromagnéticos."],
+    ["Polo magnético", "Zona de un imán donde la atracción es más intensa."],
+    ["Brújula", "Aguja imantada que se orienta según el campo magnético terrestre."],
+    ["Electroimán", "Bobina con núcleo de hierro que se imanta al pasar corriente."],
+  ],
+  situacion: {
+    titulo: "Exposición: las fuerzas invisibles",
+    reto: "El instituto organiza una jornada de puertas abiertas. Vuestro equipo debe montar un stand interactivo que muestre a los visitantes las fuerzas a distancia con experimentos sencillos y explicaciones claras.",
+    pasos: [
+      "Elegid tres experimentos: uno de gravedad, uno de electricidad estática y uno de magnetismo.",
+      "Preparad los materiales (globos, peines, papelitos, imanes, limaduras, brújula, pila, cable y clavo para el electroimán).",
+      "Ensayad cada experimento, anotad lo que ocurre y redactad la explicación científica.",
+      "Diseñad carteles con dibujos, fórmulas sencillas y datos curiosos (peso en otros planetas, auroras, mareas).",
+      "Presentad el stand a otra clase y recoged sus preguntas para mejorarlo.",
+    ],
+    producto: "Un stand con tres experimentos y sus carteles explicativos.",
+    evaluacion: ["Los experimentos funcionan y son seguros.", "Las explicaciones científicas son correctas.", "Los carteles son claros y atractivos.", "La presentación se adapta al público y responde a sus preguntas."],
   },
-  fuentes: [RD, wiki("Ley de gravitación universal", "Ley_de_gravitaci%C3%B3n_universal"), wiki("Electromagnetismo", "Electromagnetismo")],
-  revisado: "2026-11-12",
+  familias: [
+    "Frotad un globo con el pelo y probad a pegarlo en la pared o a atraer un chorro fino de agua del grifo.",
+    "Buscad por casa objetos con imanes (nevera, cierres, altavoces) y probad qué materiales atraen.",
+    "Construid un electroimán con un clavo, cable fino y una pila, y contad cuántos clips levanta.",
+    "Consultad la tabla de mareas de una playa y relacionadla con las fases de la Luna.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La interacción»: fuerzas de la naturaleza, ley de la gravitación universal, masa y peso, movimientos de los astros y mareas, carga eléctrica y ley de Coulomb, fenómenos magnéticos y relación entre electricidad y magnetismo.`,
+    ideas: [
+      "Experimentos de electrostática con globos, peines, electroscopio casero y péndulo eléctrico.",
+      "Líneas de campo magnético con limaduras de hierro y brújulas.",
+      "Construcción de un electroimán variando espiras y pilas.",
+      "Reproducción del experimento de Ørsted con una brújula y una pila.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Ley de gravitación universal", "Ley_de_gravitaci%C3%B3n_universal"),
+    wiki("Ley de Coulomb", "Ley_de_Coulomb"),
+    wiki("Campo magnético terrestre", "Campo_magn%C3%A9tico_terrestre"),
+  ],
+  revisado: "2026-11-13",
 };
