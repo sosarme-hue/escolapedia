@@ -126,7 +126,7 @@ module.exports = {
           <text x="${89 + i * 154}" y="146" text-anchor="middle" font-size="14" fill="var(--muted)" ${F}>${b}</text>`).join("")}
     </svg>`,
   },
-  video: { id: "Ehsclk52JXw", titulo: "Dinámica externa de la Tierra: meteorización, erosión, transporte y sedimentación", canal: "larrambla", vistas: 139550, megusta: 0, busqueda: "agentes geológicos externos erosión" },
+  video: { id: "iauTV6OmIns", titulo: "Procesos externos que modifican el relieve", canal: "MARIO CARREÓN", vistas: 102606, megusta: 0, busqueda: "agentes geológicos externos erosión" },
   ejemplos: [
     { enunciado: "Explica por qué en las montañas abundan los canchales (acumulaciones de piedras angulosas) al pie de las paredes rocosas.", pasos: ["En la alta montaña la temperatura oscila alrededor de 0 °C muchos días.", "El agua de las grietas se congela, aumenta su volumen y abre la grieta (gelifracción).", "Los fragmentos sueltos caen y se acumulan al pie de la pared."], resultado: "Son producto de la meteorización física por gelifracción." },
     { enunciado: "¿Por qué se forma una estalactita?", pasos: ["El agua de lluvia, con CO₂, disuelve la caliza al atravesar el terreno.", "Al gotear en el techo de la cueva, el agua pierde CO₂.", "La caliza disuelta precipita y se deposita en capas alrededor de la gota."], resultado: "Por precipitación de caliza en el techo de una cueva kárstica." },
