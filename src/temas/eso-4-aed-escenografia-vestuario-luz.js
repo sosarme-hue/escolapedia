@@ -1,138 +1,233 @@
-// Artes Escénicas y Danza 4º ESO (optativa). Dibujos propios en SVG.
+// Artes Escénicas y Danza 4º ESO (optativa). Tema nivel libro. Dibujos propios en SVG.
 const { F, D, mapa } = require("./_util");
-const { tabla, dos, filas, rueda } = require("./_hum");
+const { tabla, dos, filas, rueda, flujo, figCols, piramide, linea } = require("./_hum");
+const { B, QS, EJ, EX, poses, escenario, rejilla, curva, zonas, RD } = require("./_eso4L13");
 
 module.exports = {
   materia: "Artes Escénicas y Danza",
   curso: "4-eso",
   titulo: "Escenografía, vestuario y luz",
-  minutos: 60,
-  objetivos: ["Conocer las partes del escenario y la maquinaria teatral", "Explicar las funciones de la escenografía, el vestuario, el maquillaje y el atrezo", "Comprender las funciones y tipos de luz y sonido en escena", "Diseñar de forma sencilla los elementos visuales de una escena"],
-  claves: ["escenografía", "atrezo", "figurín", "iluminación", "foco", "espacio sonoro"],
+  minutos: 110,
+  objetivos: [
+    "Conocer las partes del edificio teatral y del escenario y su vocabulario técnico",
+    "Explicar las funciones de la escenografía y distinguir sus tipos",
+    "Analizar el vestuario, el maquillaje y el atrezo como signos que caracterizan",
+    "Comprender las funciones de la iluminación y el uso de focos, direcciones y color",
+    "Diseñar con pocos medios y con criterios de seguridad y sostenibilidad",
+  ],
+  claves: ["escenografía", "telar", "bambalinas", "atrezo", "figurín", "vestuario", "iluminación", "espacio sonoro"],
   pregunta: {
-    texto: "Un escenario vacío. Se enciende una luz azul y fría desde un lado y suena un viento lejano. Sin decir una palabra, ¿dónde crees que estamos y qué sientes?",
-    respuesta: "Probablemente en un lugar abierto, de noche, quizá solitario o inquietante. La <mark>escenografía, el vestuario, la luz y el sonido</mark> también cuentan la historia: crean el lugar, la época, el ambiente y las emociones antes de que hable ningún actor.",
+    texto: "Una obra transcurre en un palacio, en un bosque y en el fondo del mar. La compañía tiene muy poco dinero y debe viajar en una furgoneta. ¿Cómo lo resolverías?",
+    respuesta: "Con imaginación y <mark>lenguajes escénicos</mark>: una misma tela puede ser cortina de palacio, copa de árbol y ola si cambian la <b>luz</b>, el <b>sonido</b> y la forma de moverla. La escenografía no tiene que copiar la realidad: basta con sugerirla para que el público la complete.",
+  },
+  lectura: {
+    titulo: "El día que la luz contó la historia",
+    html: `<p>En 1999, el director británico Peter Brook presentó en París un montaje casi vacío: una alfombra roja en el suelo, unos cojines, unos palos de bambú y dos músicos. Nada más. Sin embargo, los espectadores salían contando que habían visto desiertos, palacios y batallas. ¿Cómo? Los actores convertían un palo en una espada, en un remo o en el umbral de una casa; la luz pasaba del naranja del mediodía al azul de la noche; la percusión hacía galopar caballos invisibles. Brook defendía el «espacio vacío»: basta un hombre que cruza un espacio mientras otro le mira para que exista el teatro.</p><p>En el extremo contrario, musicales como <i>El fantasma de la ópera</i> hacen caer una lámpara de araña sobre el público y transforman el escenario en un lago subterráneo lleno de velas y niebla. Dos filosofías opuestas, y ambas funcionan. Lo que las une es que cada elemento visual y sonoro está al servicio de la historia. En este tema aprenderás cómo es un escenario por dentro, cómo se diseñan decorados, trajes y luces y cómo puedes conseguir mucho con muy poco en vuestros montajes del instituto.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Las partes del escenario</h3><p>El escenario a la italiana tiene un vocabulario propio. La <b>embocadura</b> es el marco que separa escena y sala; delante está el <b>proscenio</b> y, a veces, el <b>foso</b> de la orquesta. Las <b>bambalinas</b> (telas horizontales arriba) y las <b>patas</b> (telas verticales a los lados) ocultan lo que no debe verse; los <b>hombros</b> o laterales son las zonas ocultas a los lados. Al fondo está el <b>foro</b> o ciclorama. Encima, el <mark>peine</mark> y las <b>varas</b> permiten subir y bajar decorados y focos. El <b>telón</b> abre y cierra la escena.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Escenario visto de frente: embocadura, bambalina arriba, patas a los lados, telón recogido, foro al fondo y proscenio delante">
+    B("1.1 Las partes del edificio teatral", `<p>Un teatro a la italiana se divide en dos grandes zonas separadas por la <mark>embocadura</mark>, el gran marco donde cuelga el telón de boca. Del lado del público está la <b>sala</b>: el <b>patio de butacas</b> o platea, los <b>palcos</b>, los anfiteatros o pisos superiores y, en lo más alto, el gallinero o paraíso, con las entradas más baratas. Delante del escenario puede haber un <b>foso de orquesta</b> para los músicos de ópera y danza. También forman parte del edificio el vestíbulo, la taquilla y la cabina de control, desde donde se manejan luz y sonido.</p><p>Del otro lado está la <b>caja escénica</b>, mucho más grande de lo que el público ve. Incluye el <b>escenario</b> propiamente dicho, los espacios laterales o <b>hombros</b>, donde se guardan decorados y esperan los actores, el <b>telar</b> (el gran espacio sobre el escenario donde se suben los decorados colgados) y el <b>foso</b> (debajo del escenario, con trampillas y elevadores). Detrás están los camerinos, los almacenes, los talleres y la <b>chácena</b>, el espacio al fondo del escenario. Conocer este vocabulario es imprescindible para trabajar con los técnicos y entender las posibilidades y los límites de cada teatro.</p>`,
+      `<svg viewBox="0 0 260 180" role="img" aria-label="Sección de un teatro: sala con butacas, embocadura, escenario, telar arriba y foso abajo">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="20" y="14" width="220" height="140" fill="var(--red)" opacity=".25"/>
-        <rect x="40" y="30" width="180" height="110" fill="var(--card)"/>
-        <rect x="70" y="50" width="120" height="70" fill="var(--water)" opacity=".35"/>
-        <rect x="40" y="30" width="180" height="16" fill="var(--ink)" opacity=".8"/>
-        <rect x="40" y="46" width="18" height="94" fill="var(--ink)" opacity=".6"/><rect x="202" y="46" width="18" height="94" fill="var(--ink)" opacity=".6"/>
-        <path d="M40 30 Q 54 80 40 140" fill="var(--red)" opacity=".8"/><path d="M220 30 Q 206 80 220 140" fill="var(--red)" opacity=".8"/>
-        <path d="M20 140 H 240 L 250 156 H 10 Z" fill="var(--sun)"/>
-        <g ${F} font-size="10.5" font-weight="700" text-anchor="middle"><text x="130" y="42" fill="#fff">bambalina</text><text x="130" y="90" fill="var(--pen)">foro</text><text x="130" y="152" fill="var(--ink)">proscenio</text><text x="130" y="26" fill="var(--red)">embocadura</text><text x="74" y="134" fill="var(--ink)">pata</text><text x="186" y="134" fill="var(--ink)">pata</text><text x="130" y="172" fill="var(--muted)" font-weight="400">el telón se recoge a los lados</text></g></svg>`,
-    },
-    {
-      html: `<h3>La escenografía</h3><p>La <b>escenografía</b> es el diseño del espacio donde ocurre la acción. Sus funciones: <mark>situar</mark> la acción en un lugar y una época, crear un <b>ambiente</b>, transmitir ideas mediante <b>símbolos</b> y facilitar el movimiento de los actores. Hay escenografías <b>realistas</b> (un salón con todos sus muebles), <b>sintéticas</b> (unos pocos elementos que sugieren el lugar: un banco y una farola ya son un parque), <b>simbólicas</b> (una escalera infinita que representa la ambición) y <b>espacios vacíos</b>, donde todo lo crean los actores y la luz. Hoy se usan mucho las <b>proyecciones</b> y pantallas.</p>`,
-      svg: filas("Tipos de escenografía", [["Realista", "reproduce el lugar con detalle", "var(--sun)"], ["Sintética", "pocos elementos que sugieren", "var(--leaf)"], ["Simbólica", "objetos con significado", "var(--bac)"], ["Vacía", "actor y luz crean el espacio", "var(--muted)"], ["Audiovisual", "proyecciones y pantallas", "var(--pen)"]]),
-    },
-    {
-      html: `<h3>Atrezo y utilería</h3><p>El <b>atrezo</b> (o utilería) son los <mark>objetos</mark> que aparecen en escena. Se distingue entre el atrezo de <b>decorado</b> (cuadros, lámparas, libros de la estantería) y el atrezo de <b>mano</b>, los objetos que usan los actores (una carta, una espada, un vaso). Deben ser resistentes, seguros (las armas nunca son reales) y visibles desde lejos. A menudo los objetos tienen una gran fuerza simbólica: el bastón de Bernarda Alba representa su autoridad, y la calavera de Hamlet, la muerte.</p>`,
-    },
-    {
-      html: `<h3>Vestuario, maquillaje y peluquería</h3><p>El <b>vestuario</b> lo diseña el <b>figurinista</b> mediante dibujos llamados <mark>figurines</mark>. Informa sobre la <b>época</b>, la <b>clase social</b>, la <b>profesión</b>, la edad y el <b>carácter</b> del personaje, y su evolución (un personaje que se arruina va perdiendo elegancia). El color tiene significado: negro para el luto o la autoridad, blanco para la pureza, rojo para la pasión. Debe permitir moverse y cambiarse rápido entre escenas. El <b>maquillaje</b> sirve para que el rostro se vea bajo los focos y para caracterizar (envejecer, heridas, máscaras), y la <b>peluquería</b> completa el personaje.</p>`,
-      svg: dos("Qué dice el vestuario de un personaje", ["Información", ["época", "clase social", "profesión", "edad", "carácter"], "var(--sun)"], ["Recursos", ["forma y tejido", "color", "accesorios", "desgaste", "cambios"], "var(--red)"]),
-    },
-    {
-      html: `<h3>La iluminación: funciones</h3><p>La <b>luz</b> no solo sirve para ver. Sus funciones son: <b>iluminar</b> a los actores para que el público los vea; <mark>dirigir la mirada</mark> del público hacia lo importante; crear el <b>ambiente</b> y la emoción (cálida, fría, inquietante); indicar el <b>tiempo</b> (amanecer, mediodía, noche) y el <b>lugar</b>; separar escenas con <b>oscuros</b> o transiciones; y crear efectos (tormenta, fuego, sombras). El <b>diseñador de iluminación</b> prepara un plano de focos y una lista de cambios de luz, que el técnico ejecuta desde la mesa de luces.</p>`,
-      video: { id: "7QH21_86QNU", titulo: "Iluminación básica", canal: "Eima", vistas: 1207763, megusta: 0 },
-    },
-    {
-      html: `<h3>Focos, direcciones y color</h3><p>Hay distintos tipos de focos: el <b>PC</b> o fresnel da una luz suave y amplia; el <b>recorte</b> da un haz nítido que puede recortarse; el <b>cañón de seguimiento</b> sigue a un actor; los <b>panoramas</b> iluminan el fondo; y los focos <b>LED</b> y <b>robotizados</b> cambian de color y dirección. La <mark>dirección</mark> de la luz cambia el efecto:</p>${tabla(["Dirección", "Efecto"], [["Frontal", "ilumina bien la cara, pero aplana"], ["Lateral", "esculpe el cuerpo, ideal para danza"], ["Contraluz (desde atrás)", "silueta, separa al actor del fondo"], ["Cenital (desde arriba)", "aislamiento, dramatismo"], ["Desde abajo (contrapicado)", "efecto inquietante o terrorífico"]])}<p>Los <b>colores</b> (filtros o LED) crean ambiente: ámbar cálido para el hogar, azul para la noche, rojo para la tensión o el peligro.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Actor visto de lado con tres direcciones de luz: frontal, cenital y contraluz">
+        <rect x="140" y="16" width="100" height="44" fill="var(--bac)" fill-opacity=".2" stroke="var(--bac)" stroke-width="2"/>
+        <rect x="140" y="60" width="100" height="56" fill="var(--sun)" fill-opacity=".25" stroke="var(--inf)" stroke-width="2"/>
+        <rect x="140" y="116" width="100" height="40" fill="var(--muted)" fill-opacity=".2" stroke="var(--muted)" stroke-width="2"/>
+        <path d="M138 60 V 116" stroke="var(--red)" stroke-width="5"/>
+        <path d="M20 156 L 20 120 L 130 104 L 130 116" fill="var(--pen)" fill-opacity=".18" stroke="var(--pen)" stroke-width="2"/>
+        <g ${F} font-size="11" font-weight="700" text-anchor="middle"><text x="190" y="42" fill="var(--bac)">telar</text><text x="190" y="92" fill="var(--inf)">escenario</text><text x="190" y="140" fill="var(--muted)">foso</text><text x="74" y="146" fill="var(--pen)">sala</text><text x="110" y="52" fill="var(--red)">embocadura</text></g>
+      </svg>`),
+    B("1.2 Las partes del escenario", `<p>El escenario tiene su propio mapa. La parte más cercana al público, por delante del telón, es el <mark>proscenio</mark>. El fondo se llama <b>foro</b>, y los laterales, <b>derecha e izquierda del actor</b> (que mira hacia la sala), aunque en algunos teatros se usan los términos «lado par» e «impar». Para delimitar el espacio y ocultar lo que no debe verse se usan telas negras: las <b>patas</b> o piernas (telas verticales en los laterales) y las <b>bambalinas</b> (telas horizontales arriba que tapan los focos y el telar). Al conjunto de patas y bambalinas negras se le llama <b>cámara negra</b>.</p><p>Encima del escenario está la <b>parrilla</b>, una estructura de la que cuelgan las <b>varas</b>: barras horizontales que suben y bajan con cuerdas y contrapesos o con motores, y de las que se cuelgan focos, telones y decorados. El <b>ciclorama</b> es una tela clara al fondo que, iluminada, puede ser cielo, amanecer o un color plano. Las <b>trampillas</b> del suelo permiten apariciones y desapariciones, y el <b>hombro</b> o lateral, que el público no ve, se llama coloquialmente «entre cajas». La persona que trabaja todos estos mecanismos es el <b>maquinista</b> o tramoyista; de ahí la palabra <i>tramoya</i>, que designa la maquinaria escénica.</p>`,
+      escenario("Zonas del escenario y cámara negra", { "proscenio-derecha": "var(--inf)", "proscenio-centro": "var(--inf)", "proscenio-izquierda": "var(--inf)", "foro-derecha": "var(--bac)", "foro-centro": "var(--bac)", "foro-izquierda": "var(--bac)" }, "proscenio delante (naranja), foro al fondo (morado)")),
+    B("1.3 La escenografía y sus funciones", `<p>La <b>escenografía</b> es el arte de <mark>organizar y decorar el espacio escénico</mark> para la representación. Su responsable es el <b>escenógrafo</b> o escenógrafa, que trabaja con la dirección para traducir el concepto del montaje en un espacio. Su trabajo empieza con bocetos y una <b>maqueta</b> a escala (normalmente 1:25 o 1:50), y se completa con los planos que usarán los talleres de construcción.</p><p>La escenografía cumple varias funciones. <b>Situar</b> la acción en un lugar y una época (un salón burgués de 1900, una nave espacial). <b>Crear atmósfera</b>: una habitación con paredes inclinadas transmite angustia. <b>Simbolizar</b>: una escalera enorme puede representar la ambición, una jaula, la falta de libertad. <b>Organizar el movimiento</b> de los actores, con niveles, puertas y obstáculos. Y <b>permitir los cambios</b> de una escena a otra con agilidad. Una buena escenografía no es la más cara ni la más grande, sino la que mejor sirve a la historia. Muchas veces menos es más: un único objeto potente, bien iluminado, puede decir más que un decorado lleno de muebles. Además, el escenógrafo debe pensar en lo práctico: el peso, el transporte en gira, el montaje rápido y la seguridad de los actores que se mueven entre los elementos.</p>`,
+      rueda("Funciones de la escenografía", "ESCENO-|GRAFÍA", [["situar", "var(--pen)"], ["atmósfera", "var(--bac)"], ["simbolizar", "var(--red)"], ["movimiento", "var(--leaf)"], ["cambios", "var(--sun)"], ["practicidad", "var(--inf)"]], "var(--ink)"),
+      { id: "ONov4wmyRP4", titulo: "¿Qué es la escenografía?", canal: "explicamos", vistas: 97105, megusta: 0 }),
+    B("1.4 Tipos de escenografía", `<p>Según su relación con la realidad, distinguimos varios tipos. La <b>escenografía realista o naturalista</b> intenta reproducir fielmente un lugar, con muebles y objetos auténticos; fue la gran apuesta del teatro de finales del XIX. La <b>escenografía simbólica o sintética</b> selecciona pocos elementos con mucho significado: el suizo Adolphe Appia y el británico Edward Gordon Craig defendieron, a principios del siglo XX, espacios hechos de escaleras, planos y volúmenes que la luz transformaba. La <b>escenografía abstracta</b> no representa ningún lugar concreto, solo formas, colores y texturas. Y la <b>escenografía funcional o desnuda</b>, como el «espacio vacío» de Peter Brook, reduce todo al mínimo y deja el peso en los actores.</p><p>Según su construcción, hay <b>decorados corpóreos</b> (volúmenes que se pueden pisar: plataformas, escaleras, muebles), <b>telones pintados</b> (el gran recurso del teatro clásico, con paisajes en perspectiva), <b>decorados móviles</b> (carras con ruedas, plataformas giratorias) y <b>proyecciones</b> de vídeo o <i>mapping</i>, cada vez más frecuentes. También es importante el <b>suelo</b>: el linóleo de danza, la arena, el agua o la tierra cambian el modo de moverse y suenan. En el instituto se suelen combinar unos pocos elementos corpóreos versátiles (cubos, cajas, sillas) con telas y luz.</p>`,
+      figCols("Tipos de escenografía", [["Realista", ["copia un lugar", "muebles reales", "s. XIX"], "var(--pen)"], ["Simbólica", ["pocos elementos", "gran significado", "Appia, Craig"], "var(--red)"], ["Abstracta", ["formas y color", "sin lugar concreto", "atmósfera"], "var(--bac)"], ["Desnuda", ["espacio vacío", "todo en el actor", "Brook"], "var(--leaf)"]])),
+    B("1.5 Atrezo y utilería", `<p>Llamamos <mark>atrezo</mark> al conjunto de objetos que aparecen en escena y que no forman parte del decorado fijo ni del vestuario. Se suele distinguir entre la <b>utilería</b> (objetos que los actores manipulan: una carta, un vaso, una espada, un teléfono) y el <b>atrezo de decorado</b> (objetos que visten el espacio: cuadros, lámparas, libros en una estantería). La persona encargada de buscarlos, fabricarlos y cuidarlos es el <b>utilero</b> o la utilera.</p><p>El atrezo es un signo muy potente porque el público lo ve de cerca y en manos de los personajes. Un abanico puede indicar la época, la clase social y el estado de ánimo de un personaje según cómo se abre o se cierra. Hay reglas prácticas importantes: los objetos deben ser <b>seguros</b> (armas de mentira, vidrio irrompible, comida que se pueda masticar rápido), <b>resistentes</b> (se usarán en todas las funciones) y <b>visibles</b> desde la sala (a veces se fabrican más grandes de lo normal). Cada objeto tiene un lugar fijo en una <b>mesa de utilería</b> entre cajas, y los actores deben dejarlo siempre allí. También existe la «utilería imaginaria»: en teatro físico o mimo, el objeto no existe y el actor lo hace visible con el cuerpo, como vimos en la improvisación.</p>`,
+      dos("Atrezo", ["Utilería", ["se manipula", "carta, vaso", "espada, móvil", "debe ser segura", "mesa de utilería"], "var(--red)"], ["De decorado", ["viste el espacio", "cuadros, lámparas", "libros, jarrones", "fijo en escena", "ambienta"], "var(--pen)"])),
+    B("1.6 El vestuario", `<p>El <b>vestuario</b> es todo lo que viste el intérprete en escena. Su diseñador o diseñadora (figurinista) dibuja los <mark>figurines</mark>, ilustraciones de cada traje con indicaciones de tejidos, colores y detalles, y después los talleres de <b>sastrería</b> los confeccionan o adaptan ropa ya existente. El vestuario cumple muchas funciones: <b>caracteriza</b> al personaje (edad, profesión, clase social, personalidad), lo <b>sitúa</b> en una época y un lugar, muestra su <b>evolución</b> (un personaje que se arruina va perdiendo elegancia), establece <b>relaciones</b> (dos familias enfrentadas vestidas de colores opuestos) y crea una <b>estética</b> de conjunto.</p><p>Además, el vestuario escénico tiene necesidades técnicas. Debe permitir <b>moverse</b> (bailar, caer, correr), aguantar el <b>sudor</b> y los lavados, y a veces cambiarse en segundos entre escenas (los llamados <b>cambios rápidos</b>, con velcros e imanes en lugar de botones). El color debe pensarse junto con la luz: un rojo puede verse marrón con un filtro azul. El negro absorbe la luz y desaparece sobre un fondo negro; el blanco puro deslumbra. En las obras actualizadas, el vestuario es quizá la decisión más visible: vestir a los personajes de un clásico con ropa de hoy cambia por completo la lectura de la obra.</p>`,
+      rejilla("Funciones del vestuario", [["Caracterizar", "edad, oficio, clase"], ["Situar", "época y lugar"], ["Evolucionar", "cambios del personaje"], ["Relacionar", "bandos y familias"], ["Estética", "unidad visual"], ["Práctico", "moverse, cambiarse"]]),
+      { id: "kfFCRcsBKlQ", titulo: "Vestuario en el teatro", canal: "Fundación Arteficial", vistas: 14987, megusta: 0 }),
+    B("1.7 Maquillaje, peluquería y máscaras", `<p>El <b>maquillaje escénico</b> tiene dos objetivos. El primero es <b>corregir</b>: bajo los focos potentes, la cara pierde relieve y parece plana o pálida, así que se usa una base, se marcan ojos, cejas y labios y se trabajan luces y sombras para que la expresión se vea desde lejos. El segundo es <mark>caracterizar</mark>: envejecer con arrugas y canas, crear heridas, transformar en animal o en criatura fantástica. Se distinguen el maquillaje de <b>corrección</b>, el de <b>caracterización</b> y el <b>fantasía</b>, muy usado en danza y musicales. Para efectos complejos se emplean prótesis de látex y postizos.</p><p>La <b>peluquería</b> (pelucas, barbas, bigotes y peinados) completa la transformación; una peluca empolvada nos lleva al siglo XVIII en un instante. La <b>máscara</b> es el recurso más antiguo de todos: desde el teatro griego y la commedia dell'arte hasta el teatro <i>nō</i> japonés, permite al actor convertirse en otro y obliga a expresarlo todo con el cuerpo. En cuanto a la higiene y la seguridad, cada intérprete debe usar sus propias esponjas y pinceles, desmaquillarse bien al terminar, comprobar posibles alergias y evitar productos no cosméticos, como pinturas de manualidades, sobre la piel.</p>`,
+      poses("Caracterización con maquillaje y máscara", [["de pie", "corrección", "var(--pen)"], ["inclinado", "envejecer", "var(--muted)"], ["giro", "máscara", "var(--red)"]])),
+    B("1.8 La iluminación: funciones", `<p>Durante siglos, el teatro se iluminó con el sol, antorchas, velas o lámparas de aceite y de gas. La llegada de la <b>electricidad</b> hacia 1880 lo cambió todo: por primera vez se pudo apagar la sala, controlar la intensidad y dirigir la luz. Hoy la <mark>iluminación escénica</mark> es un lenguaje artístico fundamental, a cargo del <b>diseñador o diseñadora de iluminación</b>, y se maneja desde una <b>mesa de luces</b> digital que guarda cada estado de luz o <b>memoria</b>.</p><p>Sus funciones son: <b>visibilidad</b>, la más básica: que el público vea lo que debe ver; <b>selección</b> o foco: dirigir la mirada hacia un actor o una zona y ocultar lo demás; <b>modelado</b>: dar volumen a cuerpos y objetos con la dirección de la luz; <b>ambientación</b>: indicar la hora, la estación o el lugar (luz cálida de atardecer, fría de luna, verde de bosque); <b>atmósfera y emoción</b>: crear tensión, intimidad o alegría; <b>ritmo</b> y <b>transición</b>: los cambios de luz marcan el paso del tiempo y separan escenas, por ejemplo con un <b>oscuro</b> o un <b>fundido</b>. Una regla de oro: la luz debe notarse cuando la historia lo necesita y pasar desapercibida el resto del tiempo.</p>`,
+      zonas("Funciones de la iluminación", [["visibilidad", "var(--muted)"], ["selección del foco", "var(--pen)"], ["modelado del volumen", "var(--leaf)"], ["ambiente y hora", "var(--inf)"], ["emoción y ritmo", "var(--red)"]], "de lo básico (abajo) a lo expresivo (arriba)"),
+      { id: "7QH21_86QNU", titulo: "Iluminación básica", canal: "Eima", vistas: 1207763, megusta: 0 }),
+    B("1.9 Focos, direcciones y color", `<p>Cada tipo de <b>foco</b> o proyector produce una luz distinta:</p>${tabla(["Foco", "Luz que da", "Uso típico"], [["PC y Fresnel", "haz de borde suave, regulable", "bañar zonas del escenario"], ["Recorte (elipsoidal)", "haz de borde nítido que se puede recortar", "zonas precisas, formas con gobos"], ["PAR", "haz intenso y ovalado", "contraluces y color fuerte"], ["Panorama o cicloramas", "luz amplia y uniforme", "iluminar el fondo"], ["Cañón de seguimiento", "círculo que sigue al actor", "solistas en musicales"], ["Cabezas móviles y LED", "cambian color, forma y posición", "conciertos y espectáculos"]])}<p>La <mark>dirección</mark> de la luz cambia por completo la imagen. La <b>frontal</b> ilumina la cara pero aplana; la <b>lateral</b> modela el cuerpo y es la preferida en danza; el <b>contraluz</b>, desde detrás, separa al actor del fondo con un halo; la <b>cenital</b>, desde arriba, aísla y dramatiza; y la <b>luz desde abajo</b> (contrapicada) resulta inquietante. El <b>color</b> se consigue con filtros o LED: los cálidos (ámbar, naranja) sugieren calor, intimidad o atardecer; los fríos (azul, lavanda) noche, tristeza o distancia. Los <b>gobos</b> son plantillas que proyectan formas: hojas, ventanas, estrellas.</p>`,
+      `<svg viewBox="0 0 260 180" role="img" aria-label="Direcciones de la luz sobre un actor: frontal, lateral, contraluz y cenital">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M30 150 H 230" stroke="var(--muted)" stroke-width="3"/>
-        <circle cx="130" cy="78" r="12" fill="var(--ink)"/><rect x="120" y="92" width="20" height="44" rx="6" fill="var(--ink)"/><path d="M124 136 V 150 M136 136 V 150" stroke="var(--ink)" stroke-width="5"/>
-        ${[[30, 70, "frontal", "var(--sun)"], [130, 16, "cenital", "var(--pen)"], [230, 60, "contraluz", "var(--red)"]].map(([x, y, t, c]) => `<path d="M${x} ${y} L ${x === 130 ? 116 : x < 130 ? 116 : 144} ${x === 130 ? 70 : 90} L ${x === 130 ? 144 : x < 130 ? 116 : 144} ${x === 130 ? 70 : 120} Z" fill="${c}" opacity=".25"/><circle cx="${x}" cy="${y}" r="8" fill="${c}"/><text x="${x === 30 ? 16 : x === 230 ? 244 : x}" y="${y === 16 ? 40 : y - 14}" text-anchor="${x === 30 ? "start" : x === 230 ? "end" : "middle"}" font-size="11" font-weight="700" fill="${c}" ${F}>${t}</text>`).join("")}
-        <text x="130" y="170" text-anchor="middle" font-size="11" fill="var(--muted)" ${F}>público ← · → fondo</text></svg>`,
-    },
-    {
-      html: `<h3>El espacio sonoro</h3><p>El <b>sonido</b> completa el ambiente. Incluye la <b>música</b> (en directo o grabada), los <b>efectos sonoros</b> (lluvia, timbre, pasos, tráfico) y la <b>amplificación</b> de las voces con micrófonos. La música puede ser <mark>diegética</mark>, si los personajes la oyen (una radio que suena en la escena), o <b>extradiegética</b>, si solo la oye el público para crear emoción. El técnico de sonido lanza cada efecto en el momento exacto (el <i>cue</i>). Un silencio total, bien usado, puede ser el efecto más potente.</p>`,
-      svg: rueda("Elementos del espacio sonoro", "SONIDO", [["música", "var(--pen)"], ["efectos", "var(--sun)"], ["voces", "var(--red)"], ["silencio", "var(--muted)"]], "var(--ink)"),
-    },
-    {
-      html: `<h3>Diseñar con pocos medios</h3><p>En el teatro escolar no hace falta mucho dinero: lo importante es que cada elemento tenga <mark>intención</mark>. Algunas ideas: cajas o cubos que se convierten en sillas, muros o un barco; telas de colores que son un río, una capa o una tienda; una linterna o un flexo como único foco; sombras chinescas con una sábana; vestuario con una pieza clave por personaje (un sombrero, una bufanda); sonidos hechos en directo con objetos. La pregunta del diseñador es siempre: ¿qué necesita contar esta escena y cuál es la forma más sencilla de contarlo?</p>`,
-    },
+        <circle cx="130" cy="70" r="10" fill="var(--ink)"/><path d="M130 80 V 120 M130 90 L 116 108 M130 90 L 144 108 M130 120 L 120 146 M130 120 L 140 146" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+        ${[[30, 96, "frontal", "var(--sun)"], [230, 96, "lateral", "var(--leaf)"], [130, 16, "cenital", "var(--bac)"], [214, 30, "contraluz", "var(--red)"]].map(([x, y, t, c]) => `<path d="M${x} ${y} L 130 92" stroke="${c}" stroke-width="2" stroke-dasharray="5 4"/><rect x="${x - 9}" y="${y - 7}" width="18" height="14" rx="3" fill="${c}"/><text x="${x}" y="${y + 24}" text-anchor="middle" font-size="11" font-weight="700" fill="${c}" ${F}>${t}</text>`).join("")}
+        <path d="M40 160 H 220" stroke="var(--line)" stroke-width="2"/>
+      </svg>`),
+    B("1.10 El espacio sonoro", `<p>Lo que el público oye también construye el espacio. El <b>espacio sonoro</b> o diseño de sonido incluye todo lo que suena en la función además de las voces: la <b>música</b> (en directo o grabada), los <b>efectos sonoros</b> (un trueno, un timbre, pasos, un coche que llega), los <b>ambientes</b> (pájaros en un parque, murmullo de un bar) y también el <mark>silencio</mark>, que es un recurso expresivo de primer orden. Lo diseña el <b>técnico o diseñador de sonido</b> y se lanza desde la cabina con una mesa de mezclas y un ordenador.</p><p>El sonido cumple funciones parecidas a la luz. <b>Sitúa</b> la acción (el ruido del mar nos lleva a la playa sin decorado), <b>ambienta</b> la época, <b>crea emoción</b> (una música de tensión), <b>marca transiciones</b> entre escenas y puede <b>anticipar</b> lo que va a pasar. Puede ser <b>diegético</b>, cuando forma parte del mundo de la ficción y los personajes lo oyen (una radio encendida en escena), o <b>extradiegético</b>, cuando solo lo oye el público (la banda sonora). Antes de la grabación, los efectos se hacían en directo con máquinas: una chapa metálica sacudida para el trueno o un tambor con arena para la lluvia, técnicas que aún usan muchas compañías por su encanto artesanal.</p>`,
+      dos("Tipos de sonido escénico", ["Diegético", ["lo oyen los personajes", "radio en escena", "timbre, teléfono", "música de una fiesta", "dentro de la ficción"], "var(--leaf)"], ["Extradiegético", ["solo lo oye el público", "banda sonora", "música de tensión", "transiciones", "fuera de la ficción"], "var(--bac)"])),
+    B("1.11 Diseñar con pocos medios", `<p>Los grandes teatros tienen presupuestos enormes, pero el ingenio es el mejor recurso del diseño escénico. Algunas estrategias para montajes escolares o compañías pequeñas: usar una <mark>escenografía modular</mark> con cubos o cajas de madera que se convierten en mesa, trono, muro o barco; trabajar con <b>telas</b> grandes que pueden ser río, cielo, capa o tienda de campaña; apostar por un <b>objeto simbólico</b> central en lugar de muchos muebles; vestir a todo el reparto con una <b>base neutra</b> (por ejemplo, ropa negra) y caracterizar a cada personaje con un solo elemento: un sombrero, un pañuelo, unas gafas.</p><p>La luz también se puede resolver con poco: unos focos LED baratos con colores, linternas manejadas por los propios actores, lámparas de casa en escena o incluso la luz de las pantallas de los móviles. Las <b>sombras chinescas</b>, con una sábana y una lámpara, crean escenas mágicas. Para el sonido, un altavoz y una lista de reproducción ordenada bastan, aunque la percusión en directo o los efectos hechos por el grupo dan mucho juego. Y es buena idea <b>reutilizar y reciclar</b>: cartón, palés, ropa de segunda mano y objetos que se puedan devolver o donar después, en línea con una producción escénica <b>sostenible</b>.</p>`,
+      rejilla("Recursos con poco presupuesto", [["Cubos", "mil usos"], ["Telas", "río, cielo, capa"], ["Un objeto", "símbolo central"], ["Base negra", "+ un detalle"], ["Linternas", "luz de los actores"], ["Sombras", "sábana y lámpara"]])),
+    B("1.12 Seguridad y coordinación técnica", `<p>Un escenario es un lugar de trabajo con riesgos: alturas, cables, objetos colgados, oscuridad, aparatos eléctricos que se calientan. Por eso existen normas estrictas de <mark>seguridad escénica</mark>. Los decorados y telas deben ser <b>ignífugos</b>, es decir, tratados para no arder; los cables, fijados con cinta al suelo; los focos colgados, asegurados con una <b>cadena o cable de seguridad</b>; las salidas de emergencia, siempre libres y señalizadas; y durante los cambios a oscuras se usan marcas fluorescentes en el suelo y luces azules tenues entre cajas. Nunca se toca un foco encendido (puede quemar) ni se manipula la instalación eléctrica sin un adulto responsable.</p><p>Todo esto se coordina en los <b>ensayos técnicos</b>, en los que se fijan los cambios de luz y sonido y los movimientos de decorado, y en el <b>ensayo general</b>, una función completa sin público. El <b>regidor</b> o regidora usa un libro con todos los «pies» (las frases o acciones que dan paso a cada efecto) y da las órdenes por intercomunicador: «Atención luz 12… ¡va!». Así, decenas de personas trabajan sincronizadas para que el público vea un espectáculo fluido, sin notar el enorme esfuerzo técnico que hay detrás.</p>`,
+      filas("Normas de seguridad escénica", [["Ignífugo", "telas y decorados que no arden", "var(--red)"], ["Cables", "fijados con cinta al suelo", "var(--pen)"], ["Focos", "con cadena de seguridad", "var(--sun)"], ["Salidas", "libres y señalizadas", "var(--leaf)"], ["Oscuro", "marcas fluorescentes", "var(--bac)"]])),
   ],
   figura: {
-    titulo: "Los lenguajes visuales y sonoros de un espectáculo",
-    svg: `<svg viewBox="0 0 680 200" role="img" aria-label="Escenografía, vestuario, iluminación y sonido con sus responsables y funciones">
-      <rect width="680" height="200" rx="16" fill="var(--paper)"/>
-      ${[["Escenografía", "escenógrafo", "lugar · época", "var(--sun)"], ["Vestuario", "figurinista", "personaje · época", "var(--red)"], ["Iluminación", "iluminador", "mirada · ambiente", "var(--pen)"], ["Sonido", "técnico de sonido", "música · efectos", "var(--leaf)"]].map(([t, r, f, c], i) => `<rect x="${20 + i * 162}" y="20" width="150" height="160" rx="14" fill="var(--card)" stroke="${c}" stroke-width="2.5"/><rect x="${20 + i * 162}" y="20" width="150" height="40" rx="14" fill="${c}"/><text x="${95 + i * 162}" y="46" text-anchor="middle" font-size="15" font-weight="700" fill="#fff" ${D}>${t}</text><text x="${95 + i * 162}" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)" ${F}>${r}</text><text x="${95 + i * 162}" y="140" text-anchor="middle" font-size="12.5" fill="var(--muted)" ${F}>${f}</text>`).join("")}
-    </svg>`,
+    titulo: "Los lenguajes visuales y sonoros de la escena",
+    svg: figCols("Escenografía, vestuario, luz y sonido", [["Escenografía", ["espacio y época", "atmósfera", "símbolo"], "var(--pen)"], ["Vestuario", ["personaje", "figurines", "maquillaje"], "var(--red)"], ["Luz", ["foco y color", "dirección", "emoción"], "var(--sun)"], ["Sonido", ["música y efectos", "ambiente", "silencio"], "var(--bac)"]]),
   },
-  video: { id: "ONov4wmyRP4", titulo: "¿Qué es la escenografía?", canal: "explicamos", vistas: 97105, megusta: 0, busqueda: "escenografía teatral qué es" },
+  video: { id: "2X2p18uCBDk", titulo: "Maquillaje escénico básico", canal: "Danspiral", vistas: 19033, megusta: 0, busqueda: "escenografía vestuario iluminación teatro" },
   ejemplos: [
-    { enunciado: "Diseña con pocos medios la escena «dos amigos perdidos en un bosque de noche».", pasos: ["Escenografía: espacio vacío y tres percheros con telas verdes como árboles.", "Luz: azul desde un lateral y un contraluz suave; una linterna en mano como único foco cálido.", "Sonido: grillos y un búho grabados; un crujido de ramas hecho en directo.", "Vestuario: abrigos y mochilas; uno lleva un gorro llamativo para identificarlo."], resultado: "Ambiente nocturno e inquietante con recursos sencillos." },
-    { enunciado: "Explica qué cuenta este vestuario: un traje gris impecable que, escena a escena, aparece arrugado, sin corbata y manchado.", pasos: ["El traje inicial indica un hombre de negocios ordenado y con estatus.", "El deterioro progresivo muestra que su vida se desmorona.", "El público entiende la evolución sin necesidad de palabras."], resultado: "El vestuario narra la decadencia del personaje." },
-    { enunciado: "¿Qué dirección de luz elegirías para: a) una confesión íntima; b) un fantasma; c) un dúo de danza?", pasos: ["a) Cenital estrecha: aísla al personaje en la oscuridad.", "b) Desde abajo o contraluz frío: efecto inquietante.", "c) Lateral: esculpe los cuerpos y el movimiento."], resultado: "a) Cenital; b) contrapicado o contraluz; c) lateral." },
+    EX("Propón una escenografía para una escena que ocurre en una cárcel con solo tres elementos.", ["Un banco de madera en el centro.", "Barras verticales de luz proyectadas con gobo sobre el suelo.", "Un sonido de llaves y puertas metálicas."], "El público «ve» la celda gracias a la luz y el sonido."),
+    EX("Diseña el vestuario de dos familias enfrentadas en una versión actual de <i>Romeo y Julieta</i>.", ["Montescos: tonos azules, ropa deportiva.", "Capuletos: tonos rojos, ropa formal.", "Romeo y Julieta incorporan poco a poco una prenda del color del otro."], "El color muestra los bandos y la evolución de la relación."),
+    EX("Elige la dirección de luz adecuada para un monólogo de una persona que se siente sola.", ["Frontal: demasiado plana.", "Lateral: modela, pero no aísla.", "Cenital estrecha: un círculo de luz en un escenario oscuro."], "La luz cenital aísla al personaje y refuerza la soledad."),
+    EX("Explica cómo se vería un vestido rojo bajo un filtro azul intenso.", ["El rojo refleja sobre todo luz roja.", "El filtro azul apenas contiene luz roja.", "El vestido refleja muy poca luz."], "Se verá oscuro, casi negro o marrón."),
+    EX("Organiza la mesa de utilería para una escena con carta, taza y paraguas.", ["Dibujar en la mesa la silueta de cada objeto con cinta.", "Colocarla entre cajas en el lado por donde entra el actor.", "Revisar antes de cada función que todo está en su sitio."], "Cada objeto tiene un lugar fijo y nada se pierde."),
+    EX("Clasifica estos sonidos como diegéticos o extradiegéticos: el teléfono que suena y contesta un personaje; una música de violines cuando dos personajes se besan.", ["Teléfono: lo oye el personaje, forma parte de la ficción.", "Violines: solo lo oye el público."], "El primero es diegético; el segundo, extradiegético."),
   ],
   errores: [
-    "Pensar que la escenografía tiene que ser realista y cara: a veces menos es más.",
-    "Usar armas u objetos peligrosos reales como atrezo.",
-    "Diseñar un vestuario bonito que impide moverse o cambiarse a tiempo.",
-    "Iluminar solo de frente: la cara queda plana y sin volumen.",
-    "Poner música de fondo todo el tiempo: el silencio también es un recurso.",
+    "Confundir foro (fondo) con proscenio (delante).",
+    "Llenar el escenario de muebles que estorban el movimiento y no cuentan nada.",
+    "Diseñar el vestuario sin pensar en la luz: algunos colores cambian o desaparecen.",
+    "Usar pinturas de manualidades como maquillaje sobre la piel.",
+    "Iluminar solo de frente: la imagen queda plana y sin volumen.",
+    "Dejar cables sueltos u objetos colgados sin cadena de seguridad.",
   ],
-  ejercicios: [
-    { q: "Nombra y explica cinco partes del escenario.", sol: "Embocadura (marco), proscenio (parte delantera), bambalinas (telas de arriba), patas (telas laterales), foro (fondo); también peine, varas y foso." },
-    { q: "¿Qué funciones tiene la escenografía?", sol: "Situar la acción en un lugar y época, crear ambiente, transmitir ideas con símbolos y facilitar el movimiento de los actores." },
-    { q: "Diferencia escenografía realista, sintética y simbólica.", sol: "Realista: reproduce el lugar con detalle. Sintética: pocos elementos que lo sugieren. Simbólica: elementos con un significado más allá del lugar." },
-    { q: "¿Qué es el atrezo y qué tipos hay?", sol: "Los objetos de escena: atrezo de decorado y atrezo de mano (el que usan los actores)." },
-    { q: "¿Qué es un figurín y quién lo hace?", sol: "El dibujo del diseño de un vestuario; lo hace el figurinista." },
-    { q: "Escribe cuatro informaciones que da el vestuario.", sol: "Época, clase social, profesión y carácter del personaje (también edad y evolución)." },
-    { q: "Escribe cinco funciones de la iluminación.", sol: "Iluminar, dirigir la mirada, crear ambiente, indicar tiempo y lugar, separar escenas y crear efectos." },
-    { q: "¿Qué efecto produce el contraluz?", sol: "Dibuja la silueta del actor y lo separa del fondo." },
-    { q: "Diferencia música diegética y extradiegética con un ejemplo.", sol: "Diegética: la oyen los personajes (una radio en escena). Extradiegética: solo la oye el público para crear emoción (música de suspense)." },
-    { q: "Propón cómo convertir cuatro cajas y una tela azul en tres lugares distintos.", sol: "Respuesta abierta. Ejemplo: cajas en fila con la tela delante = barco en el mar; cajas apiladas = muralla; tela sobre dos cajas = cama." },
-  ],
-  quiz: [
-    { q: "El marco que separa escena y sala es la…", o: ["embocadura", "bambalina", "pata"], a: 0, e: "Como un marco de cuadro." },
-    { q: "Las telas verticales de los lados son las…", o: ["patas", "bambalinas", "varas"], a: 0, e: "Ocultan los laterales." },
-    { q: "Los objetos que usan los actores son el atrezo de…", o: ["mano", "decorado", "luz"], a: 0, e: "Una carta, una espada…" },
-    { q: "El figurinista diseña…", o: ["el vestuario", "los focos", "la música"], a: 0, e: "Mediante figurines." },
-    { q: "Un banco y una farola que sugieren un parque son una escenografía…", o: ["sintética", "realista", "audiovisual"], a: 0, e: "Pocos elementos." },
-    { q: "La luz desde arriba se llama…", o: ["cenital", "frontal", "contraluz"], a: 0, e: "Aísla y dramatiza." },
-    { q: "La luz lateral es ideal para…", o: ["la danza", "leer", "el público"], a: 0, e: "Esculpe el cuerpo." },
-    { q: "El foco que sigue a un actor es el…", o: ["cañón de seguimiento", "panorama", "PC"], a: 0, e: "Se maneja a mano." },
-    { q: "Una radio que suena y oyen los personajes es música…", o: ["diegética", "extradiegética", "ambiental"], a: 0, e: "Está dentro de la historia." },
-    { q: "El color azul en la luz suele sugerir…", o: ["noche o frío", "fuego", "hogar"], a: 0, e: "Ambiente frío." },
-  ],
-  examen: [
-    { q: "La luz desde abajo produce un efecto…", o: ["inquietante", "natural", "alegre"], a: 0, e: "Contrapicado." },
-    { q: "El peine sirve para…", o: ["subir y bajar decorados y focos", "peinar a los actores", "guardar vestuario"], a: 0, e: "Parte superior del escenario." },
-    { q: "Un cue es…", o: ["el momento de lanzar un efecto", "un tipo de foco", "un figurín"], a: 0, e: "Pie para luz o sonido." },
-  ],
-  feynman: ["Las partes del escenario", "Funciones y tipos de escenografía, atrezo y vestuario", "Funciones, tipos y direcciones de la luz", "El espacio sonoro y cómo diseñar con pocos medios"],
-  mapa: mapa("PLÁSTICA ESCÉNICA", "var(--sun)", [
-    ["Espacio", "escenario · escenografía", "var(--sun)"],
+  ejercicios: EJ([
+    ["¿Qué es la embocadura?", "El gran marco que separa la sala del escenario en el teatro a la italiana, donde cuelga el telón de boca."],
+    ["Nombra tres partes de la sala.", "Patio de butacas, palcos, anfiteatro (también gallinero y foso de orquesta)."],
+    ["¿Qué es el telar?", "El espacio sobre el escenario donde se suben los decorados colgados de las varas."],
+    ["Define patas y bambalinas.", "Patas: telas verticales negras en los laterales. Bambalinas: telas horizontales arriba que tapan focos y telar."],
+    ["¿Qué es el ciclorama?", "Una tela clara al fondo del escenario que, iluminada, puede representar el cielo o un color."],
+    ["Escribe tres funciones de la escenografía.", "Situar la acción, crear atmósfera y simbolizar (también organizar el movimiento y permitir cambios)."],
+    ["¿Qué diferencia hay entre utilería y atrezo de decorado?", "La utilería se manipula (una carta, un vaso); el atrezo de decorado viste el espacio (cuadros, lámparas)."],
+    ["¿Qué es un figurín?", "Un dibujo de diseño de vestuario con indicaciones de tejidos, colores y detalles."],
+    ["Escribe dos objetivos del maquillaje escénico.", "Corregir los efectos de la luz para que la cara se vea y caracterizar al personaje."],
+    ["¿Hacia qué año llegó la electricidad a los teatros?", "Hacia 1880."],
+    ["Nombra cuatro direcciones de la luz.", "Frontal, lateral, contraluz y cenital (también contrapicada)."],
+    ["¿Qué es un gobo?", "Una plantilla que se coloca en un foco para proyectar una forma (hojas, ventana, estrellas)."],
+  ], [
+    ["Explica qué son la parrilla y las varas y para qué sirven.", "La parrilla es la estructura sobre el escenario de la que cuelgan las varas, barras que suben y bajan para colgar focos, telones y decorados."],
+    ["Compara la escenografía realista y la simbólica.", "La realista reproduce fielmente un lugar con objetos auténticos; la simbólica selecciona pocos elementos con mucho significado y deja que la luz los transforme."],
+    ["¿Qué defendían Appia y Craig?", "Una escenografía de volúmenes, escaleras y planos que la luz transformara, frente al decorado pintado y realista."],
+    ["Explica qué es el «espacio vacío» de Peter Brook.", "La idea de que basta un espacio desnudo, un actor que lo cruza y alguien que mira para que haya teatro; el peso recae en el actor y la imaginación del público."],
+    ["Explica tres requisitos prácticos de la utilería.", "Seguridad (armas falsas, vidrio irrompible), resistencia (aguantar todas las funciones) y visibilidad desde la sala."],
+    ["¿Qué son los cambios rápidos de vestuario y cómo se facilitan?", "Cambios de traje en pocos segundos entre escenas; se usan velcros, imanes, cremalleras y ayudantes de vestuario."],
+    ["Explica por qué el vestuario debe diseñarse junto con la iluminación.", "Porque el color de la luz modifica el color aparente de la tela: un rojo bajo luz azul se ve oscuro; el negro desaparece sobre fondo negro."],
+    ["Diferencia maquillaje de corrección, de caracterización y de fantasía.", "Corrección: devolver relieve y expresión bajo los focos. Caracterización: transformar (envejecer, heridas). Fantasía: diseños libres y llamativos (animales, criaturas)."],
+    ["Explica cuatro funciones de la iluminación con un ejemplo cada una.", "Visibilidad (ver al actor), selección (un círculo de luz sobre el protagonista), ambientación (luz ámbar de atardecer), emoción (luz roja en una escena de ira)."],
+    ["Compara un foco PC con un recorte.", "El PC da un haz de borde suave para bañar zonas; el recorte, un haz de borde nítido que se puede recortar con cuchillas o gobos."],
+    ["¿Qué efecto tiene el contraluz?", "Separa al actor del fondo con un halo luminoso y crea profundidad; si es la única luz, deja la figura en silueta."],
+    ["Diferencia sonido diegético y extradiegético.", "Diegético: forma parte de la ficción y lo oyen los personajes. Extradiegético: solo lo oye el público, como la banda sonora."],
+    ["Escribe tres funciones del espacio sonoro.", "Situar la acción, crear emoción y marcar transiciones (también ambientar y anticipar)."],
+    ["Explica qué significa que un decorado sea ignífugo y por qué es obligatorio.", "Que está tratado para no arder; es obligatorio porque los focos se calientan y un incendio en un teatro lleno sería gravísimo."],
+  ], [
+    ["Diseña la escenografía, el vestuario y la luz de una escena que ocurre en una playa de noche, con presupuesto de 30 euros. Justifica cada decisión.", "Respuesta abierta: por ejemplo, una tela azul movida por dos actores (mar), suelo con arena en una bandeja, vestuario de verano en tonos claros, luz azul fría lateral y una linterna como faro; sonido de olas."],
+    ["Dibuja la planta de luces básica para un escenario pequeño con 6 focos: indica posición, tipo, dirección y color.", "Respuesta abierta: por ejemplo, dos PC frontales cálidos, dos laterales neutros, un contraluz PAR azul y un recorte cenital en el centro; justificar su función."],
+    ["Analiza las fotos de dos montajes distintos de una misma obra y compara sus escenografías, vestuario y luz.", "Respuesta abierta. Debe identificar el tipo de escenografía, la época del vestuario, la dirección y el color de la luz y explicar qué lectura de la obra propone cada montaje."],
+    ["Escribe el «libro de regiduría» de un minuto de escena con cinco efectos (luz, sonido y cambio de decorado), con sus pies.", "Respuesta abierta: cada efecto con número, pie (frase o acción que lo activa) y orden («Atención L3… va»)."],
+    ["Explica cómo podrías representar un bosque, un palacio y el fondo del mar con una sola tela y la luz.", "Bosque: tela colgada en vertical con gobo de hojas y luz verde. Palacio: tela recogida como cortinaje con luz ámbar cálida. Fondo del mar: tela ondulada por actores con luz azul y efectos de agua."],
+    ["Propón un vestuario sostenible para un montaje escolar de 15 personajes.", "Base común de ropa propia en un color, prendas de segunda mano o prestadas, accesorios fabricados con materiales reciclados, y devolución o donación al terminar."],
+    ["Argumenta qué ventajas e inconvenientes tienen las proyecciones de vídeo frente a los decorados físicos.", "Ventajas: cambios inmediatos, poco peso, imágenes imposibles. Inconvenientes: dependen de la técnica, pueden eclipsar al actor, necesitan oscuridad y superficies adecuadas."],
+    ["Diseña la caracterización (maquillaje, peluquería y vestuario) de un personaje que envejece 40 años a lo largo de la obra.", "Respuesta abierta: progresión de canas y arrugas en tres fases, cambio de postura y ritmo, ropa que pasa de colores vivos a apagados y una prenda que se mantiene como hilo conductor."],
+    ["¿Por qué Appia decía que la luz es el elemento que más une al actor y al espacio? Razona.", "Porque la luz da volumen al cuerpo, define el espacio y cambia en el tiempo como la música; une lo vivo (actor) y lo inmóvil (decorado) en una misma imagen."],
+    ["Elabora un protocolo de seguridad de diez normas para el salón de actos del instituto durante los ensayos.", "Respuesta abierta: salidas libres, cables fijados, focos con cadena, no tocar focos encendidos, adulto responsable de la electricidad, marcas fluorescentes, calzado adecuado, no subir a escaleras sin ayuda, botiquín, extintor localizado."],
+  ]),
+  quiz: QS([
+    ["El marco que separa sala y escenario es la…", ["embocadura", "bambalina", "parrilla", "chácena"], "Teatro a la italiana."],
+    ["El espacio sobre el escenario donde se suben los decorados es el…", ["telar", "foso", "proscenio", "palco"], "Con varas y parrilla."],
+    ["El espacio bajo el escenario es el…", ["foso", "telar", "hombro", "gallinero"], "Trampillas y elevadores."],
+    ["Las telas negras horizontales que tapan los focos son las…", ["bambalinas", "patas", "varas", "gobos"], "Cámara negra."],
+    ["La parte delantera del escenario es el…", ["proscenio", "foro", "telar", "ciclorama"], "Junto al público."],
+    ["El ciclorama sirve para…", ["iluminar un fondo como cielo o color", "guardar trajes", "colgar focos", "sentar al público"], "Tela clara al fondo."],
+    ["La maqueta de escenografía se hace…", ["a escala", "a tamaño real", "sin medidas", "solo en vídeo"], "1:25 o 1:50."],
+    ["Defendió el «espacio vacío»…", ["Peter Brook", "Luis XIV", "Stanislavski", "Petipa"], "Teatro desnudo."],
+    ["Los objetos que manipulan los actores son la…", ["utilería", "tramoya", "bambalina", "parrilla"], "Atrezo de mano."],
+    ["El dibujo de un traje con sus detalles es el…", ["figurín", "gobo", "plano de luces", "libreto"], "Diseño de vestuario."],
+    ["Bajo luz azul, un vestido rojo se ve…", ["oscuro", "más rojo", "blanco", "amarillo"], "Refleja poca luz."],
+    ["El maquillaje de corrección sirve para…", ["devolver relieve a la cara bajo los focos", "envejecer", "crear animales", "ocultar al actor"], "Expresión visible."],
+    ["La electricidad llegó al teatro hacia…", ["1880", "1600", "1950", "1400"], "Iluminación moderna."],
+    ["Dirigir la mirada del público es la función de…", ["selección o foco", "visibilidad", "ruido", "vestuario"], "Iluminación."],
+    ["El foco de borde nítido que se puede recortar es el…", ["recorte o elipsoidal", "PC", "panorama", "PAR"], "Para gobos."],
+    ["La luz desde detrás del actor es el…", ["contraluz", "frontal", "cenital", "lateral"], "Crea un halo."],
+    ["Los colores cálidos suelen sugerir…", ["calor e intimidad", "noche y frío", "miedo siempre", "agua"], "Ámbar, naranja."],
+    ["Una radio que suena en escena y los personajes oyen es sonido…", ["diegético", "extradiegético", "ambiente falso", "silencio"], "Dentro de la ficción."],
+    ["Un decorado ignífugo es aquel que…", ["no arde", "pesa poco", "se pliega", "brilla"], "Seguridad."],
+    ["Quien da las órdenes de luz y sonido en la función es…", ["el regidor", "el figurinista", "el utilero", "el acomodador"], "Con el libro de regiduría."],
+  ]),
+  examen: QS([
+    ["La tramoya es…", ["la maquinaria escénica", "un tipo de foco", "un traje", "una máscara"], "Maquinistas o tramoyistas."],
+    ["Appia y Craig defendieron una escenografía…", ["simbólica de volúmenes y luz", "realista con muebles", "solo pintada", "de vídeo"], "Principios del XX."],
+    ["La luz cenital viene…", ["desde arriba", "desde el suelo", "de frente", "de un lado"], "Aísla y dramatiza."],
+    ["La luz preferida en danza para modelar el cuerpo es la…", ["lateral", "frontal", "contrapicada", "de sala"], "Da volumen."],
+    ["Cada estado de luz guardado en la mesa se llama…", ["memoria", "vara", "pata", "pie"], "Mesa de luces."],
+    ["Las sombras chinescas se hacen con…", ["una sábana y una lámpara", "focos móviles", "un ciclorama de vídeo", "maquillaje"], "Recurso barato."],
+    ["Antes de la grabación, el trueno se imitaba con…", ["una chapa metálica sacudida", "un violín", "un megáfono", "un gong pequeño"], "Efectos en directo."],
+    ["El ensayo completo sin público antes del estreno es el…", ["ensayo general", "ensayo de mesa", "casting", "preestreno"], "Con todo lo técnico."],
+  ]),
+  feynman: ["Cuáles son las partes del edificio teatral y del escenario", "Qué funciones cumple la escenografía y qué tipos hay", "Cómo caracterizan el vestuario, el maquillaje y el atrezo", "Qué funciones tiene la luz y cómo cambian la dirección y el color", "Cómo diseñar con pocos medios y con seguridad"],
+  mapa: mapa("ESPACIO, VESTUARIO Y LUZ", "var(--inf)", [
+    ["Escenario", "telar · foso · bambalinas", "var(--pen)"],
+    ["Escenografía", "realista · simbólica · vacía", "var(--leaf)"],
     ["Personaje", "vestuario · maquillaje · atrezo", "var(--red)"],
-    ["Luz", "funciones · focos · color", "var(--pen)"],
-    ["Sonido", "música · efectos · silencio", "var(--leaf)"],
+    ["Luz y sonido", "foco · color · silencio", "var(--bac)"],
   ], 270),
   tarjetas: [
-    ["Embocadura", "Marco que separa el escenario de la sala."],
-    ["Bambalinas y patas", "Telas de arriba y de los lados que ocultan lo que no se ve."],
-    ["Escenografía sintética", "Pocos elementos que sugieren el lugar."],
-    ["Atrezo", "Objetos de escena: de decorado y de mano."],
-    ["Figurín", "Dibujo con el diseño de un vestuario."],
-    ["Contraluz", "Luz desde atrás que dibuja la silueta."],
-    ["Luz cenital", "Luz desde arriba que aísla al actor."],
-    ["Música diegética", "La que oyen los propios personajes."],
+    ["Embocadura", "Marco entre sala y escenario."],
+    ["Telar", "Espacio sobre el escenario para subir decorados."],
+    ["Bambalinas y patas", "Telas negras que forman la cámara negra."],
+    ["Ciclorama", "Tela clara del fondo que se ilumina."],
+    ["Escenografía simbólica", "Pocos elementos con mucho significado."],
+    ["Utilería", "Objetos que manipulan los actores."],
+    ["Figurín", "Dibujo del diseño de un traje."],
+    ["Maquillaje de corrección", "Devuelve relieve a la cara bajo los focos."],
+    ["Recorte", "Foco de borde nítido; admite gobos."],
+    ["Contraluz", "Luz desde detrás que separa del fondo."],
+    ["Diegético", "Sonido que oyen los personajes."],
+    ["Ignífugo", "Material que no arde."],
   ],
-  familias: ["Con una linterna, probad en una habitación oscura cómo cambia una cara con luz frontal, lateral y desde abajo.", "Elegid un personaje de una película y analizad qué cuenta su vestuario.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  glosario: [
+    ["Caja escénica", "Conjunto del escenario con telar, foso y hombros."],
+    ["Embocadura", "Marco de la boca del escenario."],
+    ["Telar", "Espacio superior del escenario donde suben los decorados."],
+    ["Parrilla", "Estructura de la que cuelgan las varas."],
+    ["Vara", "Barra que sube y baja para colgar focos y decorados."],
+    ["Bambalina", "Tela horizontal que oculta el telar y los focos."],
+    ["Pata", "Tela vertical lateral que oculta los hombros."],
+    ["Tramoya", "Maquinaria escénica."],
+    ["Escenografía", "Organización y decoración del espacio escénico."],
+    ["Maqueta", "Modelo a escala de la escenografía."],
+    ["Atrezo", "Objetos que aparecen en escena."],
+    ["Figurín", "Dibujo del diseño de vestuario."],
+    ["Caracterización", "Transformación física del actor en su personaje."],
+    ["Gobo", "Plantilla que proyecta formas con un foco."],
+    ["Memoria de luz", "Estado de iluminación guardado en la mesa."],
+    ["Espacio sonoro", "Conjunto de música, efectos, ambientes y silencios de la función."],
+    ["Ignífugo", "Tratado para no arder."],
+  ],
+  situacion: {
+    titulo: "Maqueta para una obra en gira",
+    reto: "Una compañía joven va a girar por pueblos con una adaptación de un cuento tradicional y solo dispone de una furgoneta. Os encarga el diseño de escenografía, vestuario y luz: debe caber en la furgoneta, montarse en 30 minutos y funcionar tanto en un teatro como en una plaza.",
+    pasos: [
+      "Leed el cuento y definid, con la dirección (el profesor), el concepto del montaje.",
+      "Haced bocetos de la escenografía modular y construid una maqueta a escala 1:25 con cartón reciclado.",
+      "Dibujad los figurines de tres personajes con base común y un elemento distintivo.",
+      "Diseñad una planta de luces sencilla (máximo 8 focos) y un guion de tres estados de luz.",
+      "Proponed el espacio sonoro: música, dos efectos y un momento de silencio.",
+      "Presentad el proyecto a la «compañía» y justificad las decisiones de seguridad y sostenibilidad.",
+    ],
+    producto: "Maqueta a escala, figurines, planta de luces y presentación oral del diseño.",
+    evaluacion: [
+      "El diseño es coherente con el concepto y sirve a la historia.",
+      "Las soluciones son prácticas: transporte, montaje rápido y adaptación a dos espacios.",
+      "Vestuario, luz y sonido se piensan de forma conjunta.",
+      "Se aplican criterios de seguridad y de reutilización de materiales.",
+    ],
+  },
+  familias: ["Si vais al teatro, llegad antes y observad la sala, la embocadura y los focos colgados.", "Haced en casa sombras chinescas con una sábana y una lámpara.", "Buscad en el armario prendas que podrían servir para caracterizar a un personaje.", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Artes Escénicas y Danza 4º ESO (optativa autonómica; marco del RD 217/2022): espacio escénico, escenografía, vestuario, caracterización, iluminación y sonido.",
-    ideas: ["Maqueta de escenografía en una caja de zapatos.", "Laboratorio de luz con linternas y papeles de colores.", "Diseño de figurines para un personaje de una obra leída en clase."],
+    saberes: "Artes Escénicas y Danza 4º ESO (optativa autonómica en el marco del RD 217/2022): el espacio escénico y sus partes; escenografía, atrezo, vestuario, maquillaje, iluminación y sonido; diseño y producción técnica; seguridad y sostenibilidad.",
+    ideas: ["Visita técnica a un teatro municipal con el personal de escena.", "Taller de iluminación con tres focos y filtros en el salón de actos.", "Construcción de maquetas en coordinación con Expresión Artística o Tecnología.", "Reto «una tela, tres lugares» con luz y sonido."],
   },
   fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Museo Nacional del Teatro (Almagro)", url: "https://museoteatro.mcu.es/" },
+    RD,
+    { t: "Centro de Tecnología del Espectáculo (INAEM)", url: "https://www.culturaydeporte.gob.es/cultura/areas/artes-escenicas/formacion/cte.html" },
+    { t: "Diccionario de términos teatrales y escenotécnicos (Teatro.es)", url: "https://www.teatro.es/" },
+    { t: "Adolphe Appia (Wikipedia)", url: "https://es.wikipedia.org/wiki/Adolphe_Appia" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
