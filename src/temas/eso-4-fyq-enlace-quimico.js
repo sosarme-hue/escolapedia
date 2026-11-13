@@ -1,181 +1,238 @@
-// Física y Química 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa, flecha } = require("./_util");
-
-// Átomo con símbolo y electrones de valencia en puntos (estructura de Lewis).
-function lewis(x, y, sim, n, color, extra = "") {
-  const pos = [[0, -22], [22, 0], [0, 22], [-22, 0]];
-  let dots = "";
-  for (let k = 0; k < n; k++) { const [dx, dy] = pos[k % 4]; const off = k >= 4 ? 6 : -6 * (n > 4 ? 1 : 0); const o = dx === 0 ? [off, 0] : [0, off]; dots += `<circle cx="${x + dx + o[0]}" cy="${y + dy + o[1]}" r="3.2" fill="${color}"/>`; }
-  return `<text x="${x}" y="${y + 7}" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)" ${D}>${sim}</text>${dots}${extra}`;
-}
+// Física y Química 4º ESO · El enlace químico (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, escala, rejilla, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD } = require("./_eso4L5");
+const S = BASE["enlace-quimico"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "4-eso",
   titulo: "El enlace químico",
-  minutos: 40,
-  objetivos: ["Explicar por qué se unen los átomos con la regla del octeto", "Distinguir el enlace iónico, el covalente y el metálico", "Relacionar el tipo de enlace con las propiedades de las sustancias"],
-  claves: ["regla del octeto", "ion", "enlace iónico", "enlace covalente", "enlace metálico", "fuerzas intermoleculares"],
+  minutos: 110,
+  objetivos: [
+    "Explicar por qué se unen los átomos a partir de la estabilidad y la regla del octeto",
+    "Representar átomos, iones y moléculas sencillas con estructuras de Lewis",
+    "Distinguir el enlace iónico, el covalente y el metálico y predecir cuál se forma entre dos elementos",
+    "Reconocer las fuerzas intermoleculares, en especial los puentes de hidrógeno",
+    "Relacionar el tipo de enlace con las propiedades de las sustancias y comprobarlo en el laboratorio",
+  ],
+  claves: ["regla del octeto", "estructura de Lewis", "enlace iónico", "red cristalina", "enlace covalente", "molécula", "polaridad", "enlace metálico", "fuerzas intermoleculares", "puente de hidrógeno"],
   pregunta: {
     texto: "La sal se disuelve en agua y conduce la electricidad disuelta; el azúcar también se disuelve, pero no conduce. ¿Qué las hace distintas?",
-    respuesta: "El <mark>tipo de enlace</mark>. La sal es un compuesto <b>iónico</b>: al disolverse libera iones con carga que transportan la corriente. El azúcar es <b>covalente</b>: se separa en moléculas neutras, sin carga, que no conducen.",
+    respuesta: "El <mark>tipo de enlace</mark>. La sal es un compuesto <b>iónico</b>: al disolverse libera iones con carga que transportan la corriente. El azúcar es <b>covalente</b>: se separa en moléculas neutras, sin carga, que no conducen. Saber cómo se unen los átomos permite predecir cómo se comportará una sustancia.",
+  },
+  lectura: {
+    titulo: "El lápiz y el diamante",
+    html: `<p>La mina de tu lápiz y el diamante de un anillo están hechos exactamente de lo mismo: átomos de carbono y nada más. Sin embargo, el grafito es blando, gris, deja marcas en el papel y conduce la electricidad, mientras que el diamante es transparente, brillante, el material natural más duro que existe y un excelente aislante. Uno cuesta céntimos y el otro, miles de euros.</p><p>La diferencia está en cómo se unen los átomos. En el diamante, cada carbono se enlaza con otros cuatro formando una red tridimensional rígida, en la que todos los electrones están atrapados en enlaces muy fuertes. En el grafito, los carbonos se unen a otros tres formando láminas planas de hexágonos, como un panal de abejas. Las láminas se apilan unidas por fuerzas muy débiles, por eso se deslizan unas sobre otras y se quedan pegadas al papel cuando escribes; y como a cada carbono le sobra un electrón, este puede moverse y conducir la corriente. Si consigues separar una sola de esas láminas obtienes el grafeno, un material cien veces más resistente que el acero, flexible y casi transparente, cuyo descubrimiento ganó el Premio Nobel en 2010. Mismos átomos, distinto enlace, propiedades completamente diferentes: esa es la idea central de este tema.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Por qué se unen los átomos</h3><p>Los átomos se unen para ser <mark>más estables</mark>, con menos energía. Los gases nobles ya lo son porque tienen 8 electrones en la última capa. La <b>regla del octeto</b> dice que los demás átomos tienden a <b>ganar, perder o compartir electrones</b> hasta quedarse con 8 en la capa externa (2 en el caso del hidrógeno). Los electrones externos se dibujan como puntos: es la <b>estructura de Lewis</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Estructuras de Lewis del sodio con un electrón, del cloro con siete y del neón con ocho">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${lewis(46, 80, "Na", 1, "var(--red)")}${lewis(130, 80, "Cl", 7, "var(--leaf)")}${lewis(214, 80, "Ne", 8, "var(--inf)")}
-        <g ${F} font-size="12" font-weight="700" text-anchor="middle"><text x="46" y="140" fill="var(--red)">1 e⁻ de valencia</text><text x="130" y="140" fill="var(--leaf)">7 e⁻</text><text x="214" y="140" fill="var(--inf)">8 e⁻: estable</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Enlace iónico</h3><p>Se da entre un <b>metal</b> y un <b>no metal</b>. El metal <mark>cede electrones</mark> y queda como ion positivo (<b>catión</b>); el no metal los <mark>capta</mark> y queda como ion negativo (<b>anión</b>). Los iones de signo contrario se atraen y forman una <b>red cristalina</b> enorme. Ejemplo: Na → Na⁺ + e⁻ y Cl + e⁻ → Cl⁻, que se unen en NaCl, la sal común.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Red cristalina de cloruro de sodio con iones positivos y negativos alternados">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g stroke="var(--line)" stroke-width="2">${[0, 1, 2, 3].map((i) => `<path d="M60 ${40 + i * 34} H 200"/><path d="M${60 + i * 46.6} 40 V 142"/>`).join("")}</g>
-        ${[0, 1, 2, 3].map((i) => [0, 1, 2, 3].map((j) => { const na = (i + j) % 2 === 0; return `<circle cx="${60 + j * 46.6}" cy="${40 + i * 34}" r="${na ? 9 : 14}" fill="${na ? "var(--red)" : "var(--leaf)"}"/><text x="${60 + j * 46.6}" y="${44 + i * 34}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" ${F}>${na ? "+" : "−"}</text>`; }).join("")).join("")}
-        <g ${F} font-size="12" font-weight="700"><text x="50" y="168" fill="var(--red)">Na⁺ catión</text><text x="150" y="168" fill="var(--leaf)">Cl⁻ anión</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Enlace covalente</h3><p>Se da entre <b>no metales</b>. Ninguno quiere soltar electrones, así que los <mark>comparten</mark> por parejas. Cada par compartido es un enlace: simple (H–H), doble (O=O) o triple (N≡N). Se forman <b>moléculas</b> (agua, CO₂, oxígeno) o, a veces, <b>redes covalentes</b> gigantes muy duras como el diamante.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Molécula de agua: el oxígeno comparte un par de electrones con cada hidrógeno">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <circle cx="130" cy="78" r="38" fill="var(--red)" opacity=".18"/><circle cx="74" cy="120" r="26" fill="var(--pen)" opacity=".18"/><circle cx="186" cy="120" r="26" fill="var(--pen)" opacity=".18"/>
-        <text x="130" y="86" text-anchor="middle" font-size="24" font-weight="700" fill="var(--ink)" ${D}>O</text>
-        <text x="74" y="128" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink)" ${D}>H</text><text x="186" y="128" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink)" ${D}>H</text>
-        <circle cx="98" cy="100" r="3.5" fill="var(--leaf)"/><circle cx="106" cy="106" r="3.5" fill="var(--leaf)"/><circle cx="162" cy="100" r="3.5" fill="var(--leaf)"/><circle cx="154" cy="106" r="3.5" fill="var(--leaf)"/>
-        <circle cx="114" cy="50" r="3.5" fill="var(--red)"/><circle cx="124" cy="45" r="3.5" fill="var(--red)"/><circle cx="136" cy="45" r="3.5" fill="var(--red)"/><circle cx="146" cy="50" r="3.5" fill="var(--red)"/>
-        <text x="130" y="168" text-anchor="middle" font-size="12" font-weight="700" fill="var(--leaf)" ${F}>pares compartidos (verde)</text>
-      </svg>`,
-    },
-    {
-      html: `<h3>Enlace metálico</h3><p>Se da entre átomos de un <b>metal</b>. Cada átomo suelta sus electrones de valencia, que forman una <mark>«nube» o mar de electrones</mark> que se mueve libremente entre los iones positivos. Por eso los metales <b>conducen</b> la electricidad y el calor, tienen brillo y se pueden doblar y estirar en hilos o láminas.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Iones metálicos positivos ordenados rodeados de un mar de electrones">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="30" y="26" width="200" height="120" rx="14" fill="var(--sun)" opacity=".25"/>
-        ${[0, 1, 2].map((i) => [0, 1, 2, 3].map((j) => `<circle cx="${60 + j * 46}" cy="${50 + i * 36}" r="13" fill="var(--pen)"/><text x="${60 + j * 46}" y="${55 + i * 36}" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" ${F}>+</text>`).join("")).join("")}
-        ${[[82, 40], [130, 70], [176, 44], [104, 92], [152, 102], [40, 92], [208, 82], [84, 130], [196, 128], [124, 34]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3.5" fill="var(--red)"/>`).join("")}
-        <text x="130" y="166" text-anchor="middle" font-size="12" font-weight="700" fill="var(--red)" ${F}>electrones libres: conducen</text>
-      </svg>`,
-    },
-    {
-      html: `<h3>Fuerzas entre moléculas</h3><p>Las moléculas covalentes se atraen entre sí con <b>fuerzas intermoleculares</b>, mucho más débiles que un enlace. Por eso muchas sustancias covalentes son gases o líquidos a temperatura ambiente. La más fuerte es el <mark>puente de hidrógeno</mark>: explica que el agua sea líquida a 20 °C y que el hielo flote.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres moléculas de agua unidas por puentes de hidrógeno discontinuos">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[[70, 70, 0], [180, 60, 40], [130, 130, -30]].map(([x, y, r]) => `<g transform="rotate(${r} ${x} ${y})"><circle cx="${x}" cy="${y}" r="16" fill="var(--red)"/><circle cx="${x - 16}" cy="${y + 14}" r="9" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/><circle cx="${x + 16}" cy="${y + 14}" r="9" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/></g>`).join("")}
-        <path d="M90 86 L 118 118" stroke="var(--pen)" stroke-width="2.5" stroke-dasharray="4 4"/><path d="M164 70 L 88 66" stroke="var(--pen)" stroke-width="2.5" stroke-dasharray="4 4"/>
-        <text x="130" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="var(--pen)" ${F}>- - - puente de hidrógeno</text>
-      </svg>`,
-    },
+    bloque({ h: "1.1 Por qué se unen los átomos", p: [
+      "En la naturaleza casi no encontramos átomos sueltos. El oxígeno del aire forma moléculas de O₂, el agua es H₂O y la sal es un cristal de sodio y cloro. Los átomos se unen porque así consiguen una situación de <mark>menor energía</mark>, más estable, que cuando están separados. Lo mismo que una pelota tiende a caer al suelo, los sistemas químicos tienden a los estados de menor energía. La unión entre átomos se llama <b>enlace químico</b>, y para romperla hay que aportar energía.",
+      "Las únicas sustancias formadas por átomos sueltos son los <b>gases nobles</b>, que casi no reaccionan. Ya sabes por qué: tienen su capa de valencia completa con 8 electrones (2 el helio). La <mark>regla del octeto</mark>, propuesta por Gilbert Lewis en 1916, afirma que los átomos tienden a <b>ganar, perder o compartir electrones</b> hasta tener 8 en la última capa, como el gas noble más cercano. El hidrógeno es una excepción: le basta con 2, como el helio. Hay otras excepciones, pero la regla funciona muy bien con los elementos de los primeros periodos.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.2 Las estructuras de Lewis", p: [
+      "Para representar los enlaces se usan las <mark>estructuras de Lewis</mark>: se escribe el símbolo del elemento y, alrededor, un punto por cada electrón de valencia. El número de puntos coincide con el de electrones de valencia, que se deduce del grupo: el sodio (grupo 1) tiene 1; el carbono (grupo 14), 4; el nitrógeno (grupo 15), 5; el oxígeno (grupo 16), 6; y el cloro (grupo 17), 7. Los puntos se reparten por los cuatro lados del símbolo, primero de uno en uno y luego emparejándolos.",
+      "En una molécula, cada par de electrones compartido se dibuja como una raya entre los dos átomos, y los pares que no participan en el enlace, llamados <b>pares solitarios</b>, se dibujan como dos puntos. Para dibujar una molécula se suman los electrones de valencia de todos los átomos, se coloca en el centro el átomo que forma más enlaces (normalmente el menos abundante, nunca el hidrógeno), se unen con rayas y se reparten los electrones restantes hasta que cada átomo tenga su octeto. Si faltan electrones, se forman enlaces dobles o triples.",
+    ], svg: pasos("Pasos para dibujar una estructura de Lewis", ["Contar los e⁻ de valencia", "Átomo central y rayas", "Completar octetos", "Si faltan: enlace doble"], "var(--pen)"), video: S.bvideos[0] }),
+    bloque({ h: "2.1 El enlace iónico", p: [
+      "El <mark>enlace iónico</mark> se forma entre un <b>metal</b> y un <b>no metal</b>, es decir, entre elementos de electronegatividad muy diferente. El metal, que tiene pocos electrones de valencia y baja energía de ionización, los <b>cede</b> y se convierte en un catión. El no metal, muy electronegativo, los <b>capta</b> y se convierte en un anión. Los dos quedan con configuración de gas noble.",
+      "Por ejemplo, el sodio (2, 8, 1) pierde su electrón de valencia: Na → Na⁺ + e⁻. El cloro (2, 8, 7) lo capta: Cl + e⁻ → Cl⁻. El catión y el anión, de carga opuesta, se atraen con una fuerza electrostática muy intensa. Esta atracción es el enlace iónico. No se forma solo una pareja, sino que cada ion atrae a muchos de signo contrario a su alrededor y se forma una enorme <b>red cristalina</b> ordenada en tres dimensiones. En la sal, cada Na⁺ está rodeado de seis Cl⁻ y cada Cl⁻ de seis Na⁺. Por eso los cristales de sal tienen forma de cubitos, como puedes ver con una lupa.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "2.2 Fórmulas de los compuestos iónicos", p: [
+      "Un compuesto iónico no está formado por moléculas, sino por una red con millones de iones. Su fórmula indica la <mark>proporción</mark> en que están los iones, de forma que el conjunto sea <b>eléctricamente neutro</b>. Para escribirla se deduce la carga de cada ion con la regla del octeto y se buscan los números más pequeños que hagan que las cargas positivas y negativas se compensen.",
+      "En el cloruro de sodio, Na⁺ y Cl⁻ tienen la misma carga, así que la proporción es 1:1 y la fórmula es NaCl. En el cloruro de magnesio, el magnesio forma Mg²⁺ y el cloro, Cl⁻: hacen falta dos cloruros por cada magnesio, MgCl₂. En el óxido de aluminio, Al³⁺ y O²⁻ se combinan dos a tres para que las cargas sumen cero (2 · 3 = 3 · 2): Al₂O₃. Un truco útil es el «aspa»: la carga de cada ion, sin signo, pasa a ser el subíndice del otro, simplificando si se puede. En la fórmula siempre se escribe primero el catión.",
+    ], extra: formula("Mg²⁺ + 2 Cl⁻ → MgCl₂"), svg: ficha("Fórmulas de compuestos iónicos a partir de las cargas", "Cargas que se compensan", ["Na⁺ + Cl⁻ → NaCl", "Mg²⁺ + 2 Cl⁻ → MgCl₂", "Ca²⁺ + O²⁻ → CaO", "2 Al³⁺ + 3 O²⁻ → Al₂O₃"], "var(--red)") }),
+    bloque({ h: "2.3 Propiedades de los compuestos iónicos", p: [
+      "Las propiedades de los compuestos iónicos se explican por su estructura: una red de iones fuertemente unidos. Son <mark>sólidos a temperatura ambiente</mark> y tienen <b>puntos de fusión altos</b>, porque hay que aportar mucha energía para separar los iones: la sal funde a 801 °C. Son <b>duros</b>, pero <b>frágiles</b>: si un golpe desplaza una capa de iones, quedan enfrentados iones del mismo signo, que se repelen, y el cristal se rompe.",
+      "Muchos son <b>solubles en agua</b>: las moléculas de agua rodean a los iones y los separan de la red. En estado sólido <b>no conducen</b> la electricidad, porque los iones están fijos en sus posiciones; pero <mark>sí conducen fundidos o disueltos</mark>, porque entonces los iones pueden moverse y transportar la carga. Por eso el agua del grifo, con sales disueltas, conduce la electricidad y es peligroso usar aparatos eléctricos en la bañera. Ejemplos de compuestos iónicos son la sal común, el carbonato de calcio de la caliza y el mármol, el fluoruro de sodio de las pastas de dientes y el yeso.",
+    ], svg: rejilla("Propiedades de los compuestos iónicos", ["Propiedad", "Iónicos"], [["Estado", "sólidos"], ["Punto de fusión", "alto"], ["Dureza", "duros y frágiles"], ["En agua", "solubles"], ["Conducen", "fundidos o disueltos"]], "var(--red)") }),
+    bloque({ h: "3.1 El enlace covalente", p: [
+      "El <mark>enlace covalente</mark> se forma entre átomos de <b>no metales</b>. Todos tienen tendencia a ganar electrones, así que ninguno los cede: en su lugar, <b>comparten</b> pares de electrones. Cada par compartido pertenece a la vez a los dos átomos y cuenta para el octeto de ambos. Así, dos átomos de hidrógeno comparten sus electrones y forman la molécula H₂, en la que cada uno tiene 2 electrones, como el helio.",
+      "Si se comparte un par, el enlace es <b>simple</b> (H–H, Cl–Cl). Si se comparten dos pares, es <b>doble</b>, como en el oxígeno, O=O, o en el dióxido de carbono, O=C=O. Si se comparten tres, es <b>triple</b>, como en el nitrógeno, N≡N, uno de los enlaces más fuertes que existen: por eso el nitrógeno del aire es tan poco reactivo. En la molécula de agua, el oxígeno, con 6 electrones de valencia, forma un enlace simple con cada hidrógeno y conserva dos pares solitarios. El número de enlaces que suele formar un átomo es el número de electrones que le faltan para el octeto: H, 1; O, 2; N, 3; C, 4.",
+    ], svg: S.svg[2] }),
+    bloque({ h: "3.2 Moléculas y redes covalentes", p: [
+      "La mayoría de las sustancias covalentes están formadas por <mark>moléculas</mark>: grupos de un número definido de átomos unidos por enlaces covalentes, como H₂O, CO₂, O₂, CH₄ o la glucosa, C₆H₁₂O₆. Dentro de la molécula los enlaces son muy fuertes, pero las moléculas se atraen entre sí con fuerzas débiles. Por eso muchas sustancias moleculares son <b>gases o líquidos</b> a temperatura ambiente, o sólidos con puntos de fusión bajos, como el azúcar, la cera o el yodo. No conducen la electricidad porque no tienen cargas libres.",
+      "Otras sustancias covalentes no forman moléculas, sino <mark>redes covalentes</mark> o cristales covalentes: millones de átomos unidos por enlaces covalentes en todas las direcciones, formando una estructura gigante. Es el caso del <b>diamante</b> (carbono), el <b>cuarzo</b> de la arena (SiO₂) y el carburo de silicio de las lijas. Para fundirlas hay que romper enlaces covalentes, así que tienen <b>puntos de fusión altísimos</b> (el diamante, más de 3.500 °C), son muy duras e insolubles en agua. El grafito es una red especial en láminas que, como has leído, sí conduce.",
+    ], svg: compara("Diferencias entre sustancias moleculares y redes covalentes", ["Moleculares", ["H₂O, CO₂, O₂", "gases o líquidos", "fusión baja", "blandas"]], ["Redes covalentes", ["diamante, cuarzo", "sólidos", "fusión altísima", "muy duras"]], "var(--pen)", "var(--leaf)") }),
+    bloque({ h: "3.3 Enlaces polares y apolares", p: [
+      "Cuando dos átomos iguales se unen, como en H₂ o Cl₂, comparten los electrones a partes iguales: el enlace es <mark>covalente apolar</mark>. Pero si los átomos son distintos, el más electronegativo atrae con más fuerza los electrones compartidos, que pasan más tiempo cerca de él. Ese átomo adquiere una pequeña carga parcial negativa (δ−) y el otro, una carga parcial positiva (δ+): el enlace es <mark>covalente polar</mark>. Es lo que ocurre en el enlace O–H del agua o en el H–Cl.",
+      "La diferencia de electronegatividad marca una escala continua: si es nula, el enlace es apolar; si es moderada, polar; y si es muy grande, como entre el sodio y el cloro, un átomo se queda los electrones y el enlace es iónico. Una molécula con enlaces polares puede ser polar o no según su forma. El agua es angular y sus cargas no se compensan, así que es una <b>molécula polar</b>, con un lado positivo y otro negativo. El CO₂ es lineal y simétrico, y las dos polaridades se anulan: es <b>apolar</b>. Por eso un chorro fino de agua se desvía al acercarle un globo frotado.",
+    ], svg: escala("Tipo de enlace según la diferencia de electronegatividad", "Diferencia de electronegatividad", [["Apolar", "H₂, Cl₂", "var(--leaf)"], ["Polar", "H₂O, HCl", "var(--pen)"], ["Iónico", "NaCl", "var(--red)"]], "se comparten igual", "se ceden"), video: { id: "ign6-bbOqF4", titulo: "Química: Enlaces covalentes polares y no polares", canal: "Socratica Español", vistas: 1511696 } }),
+    bloque({ h: "4.1 El enlace metálico", p: [
+      "El <mark>enlace metálico</mark> une a los átomos de los metales entre sí. Los metales tienen pocos electrones de valencia y los pierden con facilidad, pero en un trozo de metal no hay ningún no metal que los capte. La solución es que cada átomo libera sus electrones de valencia, que quedan compartidos por todo el metal. El resultado es una red ordenada de <b>cationes</b> sumergida en un <mark>«mar» o nube de electrones</mark> que se mueven libremente entre ellos. La atracción entre los cationes y la nube de electrones mantiene unido el conjunto.",
+      "Este modelo explica las propiedades de los metales. <b>Conducen la electricidad</b> muy bien, porque los electrones libres se mueven al aplicar un voltaje, y también el <b>calor</b>. Tienen <b>brillo</b>, porque los electrones reflejan la luz. Son <b>dúctiles y maleables</b>: si se golpean, las capas de cationes se deslizan, pero la nube de electrones las mantiene unidas, así que el metal se deforma sin romperse. La mayoría tienen puntos de fusión altos, aunque varían mucho: el mercurio es líquido y el wolframio de las bombillas antiguas funde a 3.422 °C.",
+    ], svg: S.svg[3] }),
+    bloque({ h: "4.2 Las aleaciones", p: [
+      "Una <mark>aleación</mark> es una mezcla homogénea de un metal con otros elementos, metálicos o no, que se obtiene fundiéndolos juntos y dejándolos solidificar. Como los átomos añadidos tienen otro tamaño, dificultan que las capas de cationes se deslicen, y por eso las aleaciones suelen ser <b>más duras y resistentes</b> que los metales puros. Además se pueden diseñar para tener propiedades concretas.",
+      "El <b>acero</b> es hierro con menos de un 2 % de carbono; es mucho más resistente que el hierro y se usa en estructuras, coches y herramientas. Si se le añade cromo y níquel se obtiene el <b>acero inoxidable</b>, que no se oxida, ideal para cubiertos y fregaderos. El <b>bronce</b> (cobre y estaño) fue tan importante que dio nombre a una época de la prehistoria. El <b>latón</b> (cobre y cinc) se usa en grifos e instrumentos musicales. El <b>oro de joyería</b> de 18 quilates tiene un 75 % de oro mezclado con cobre y plata, porque el oro puro es demasiado blando. Y las aleaciones de aluminio, ligeras y resistentes, se usan en aviones y bicicletas.",
+    ], svg: rejilla("Composición de algunas aleaciones", ["Aleación", "Composición"], [["Acero", "hierro + carbono"], ["Inoxidable", "acero + cromo, níquel"], ["Bronce", "cobre + estaño"], ["Latón", "cobre + cinc"], ["Oro 18 k", "oro + cobre, plata"]], "var(--pen)") }),
+    bloque({ h: "5.1 Fuerzas intermoleculares", p: [
+      "Los enlaces iónicos, covalentes y metálicos son fuerzas <b>dentro</b> de las sustancias. Pero entre las moléculas de una sustancia covalente también hay atracciones, mucho más débiles: las <mark>fuerzas intermoleculares</mark>. Son las que mantienen unidas las moléculas en los líquidos y sólidos moleculares, y determinan sus puntos de fusión y ebullición. Cuando hierve el agua, no se rompen las moléculas de H₂O, sino las fuerzas que las mantienen juntas.",
+      "Las más débiles son las <b>fuerzas de dispersión</b> o de London, que aparecen entre todas las moléculas, incluso las apolares, y aumentan con el tamaño: por eso el flúor y el cloro son gases, el bromo es líquido y el yodo, sólido. Entre moléculas polares hay además <b>fuerzas dipolo-dipolo</b>, porque el extremo positivo de una atrae al negativo de otra. Las más intensas son los <mark>puentes de hidrógeno</mark>, que se forman cuando el hidrógeno está unido a un átomo muy electronegativo y pequeño (flúor, oxígeno o nitrógeno) y es atraído por otro de esos átomos de una molécula vecina.",
+    ], svg: S.svg[4] }),
+    bloque({ h: "5.2 El agua, una sustancia excepcional", p: [
+      "Por el tamaño de su molécula, el agua debería ser un gas a temperatura ambiente, como el sulfuro de hidrógeno (H₂S), que hierve a −60 °C. Sin embargo, hierve a 100 °C. La causa son los <mark>puentes de hidrógeno</mark>: cada molécula de agua puede formar hasta cuatro con sus vecinas, y hace falta mucha energía para separarlas. Gracias a ello existe agua líquida en la Tierra y es posible la vida.",
+      "Los puentes de hidrógeno explican otras propiedades sorprendentes. El agua tiene un <b>calor específico</b> muy alto, por lo que los mares regulan el clima. Tiene una gran <b>tensión superficial</b>, que permite a algunos insectos caminar sobre ella. Y el hielo es <b>menos denso</b> que el agua líquida, porque al congelarse los puentes de hidrógeno ordenan las moléculas en una red hexagonal con huecos. Por eso el hielo flota y los lagos se congelan solo por arriba, protegiendo la vida de debajo. Además, al ser polar, el agua es un excelente <b>disolvente</b> de sustancias iónicas y polares: se la llama el disolvente universal. Los puentes de hidrógeno también mantienen unidas las dos hebras del ADN.",
+    ], svg: ficha("Propiedades del agua debidas a los puentes de hidrógeno", "Gracias a los puentes de H", ["Hierve a 100 °C (no es gas)", "Alto calor específico", "El hielo flota", "Disuelve muchas sustancias"], "var(--pen)") }),
+    bloque({ h: "6.1 Identificar el tipo de sustancia", p: [
+      "Con lo aprendido puedes predecir el tipo de enlace de una sustancia mirando la tabla periódica. Si la forman un <b>metal y un no metal</b>, será iónica (NaCl, CaO, KBr). Si solo hay <b>no metales</b>, será covalente: molecular en la mayoría de los casos (H₂O, CO₂, NH₃) o red covalente en unos pocos (diamante, SiO₂). Si solo hay <b>metales</b>, será metálica (hierro, cobre, latón).",
+      "En el laboratorio se puede comprobar con tres pruebas sencillas: observar si se funde fácilmente al calentarla, si se disuelve en agua y si conduce la electricidad sólida o disuelta, usando un circuito con una pila y un LED. Una sustancia que funde con facilidad y no conduce de ninguna forma será molecular. Una que no funde, no se disuelve y conduce en estado sólido será un metal. Y una que no funde, se disuelve y conduce solo disuelta será iónica. Este razonamiento, que relaciona la estructura invisible con las propiedades que observamos, es una de las herramientas más potentes de la química y sirve para diseñar materiales nuevos.",
+    ], svg: rejilla("Tabla resumen de propiedades según el tipo de sustancia", ["", "Fusión", "Conduce"], [["Iónica", "alta", "disuelta"], ["Molecular", "baja", "no"], ["Red covalente", "altísima", "no"], ["Metálica", "variable", "sí, sólida"]], "var(--leaf)") }),
   ],
-  figura: {
-    titulo: "Tres enlaces, tres comportamientos",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Tabla comparativa del enlace iónico, covalente y metálico con ejemplo y propiedades">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["IÓNICO", "metal + no metal", "ceden y captan e⁻", "sólidos duros, frágiles", "conducen disueltos", "NaCl", "var(--red)"], ["COVALENTE", "no metal + no metal", "comparten e⁻", "moléculas: puntos de", "fusión bajos, no conducen", "H₂O, CO₂", "var(--leaf)"], ["METÁLICO", "metal + metal", "mar de electrones", "brillantes, dúctiles", "conducen siempre", "Cu, Fe", "var(--pen)"]]
-        .map(([n, a, b, c1, c2, ej, c], i) => `<rect x="${20 + i * 206}" y="20" width="190" height="190" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
-          <text x="${115 + i * 206}" y="54" text-anchor="middle" font-size="22" font-weight="700" fill="${c}" ${D}>${n}</text>
-          <text x="${115 + i * 206}" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" ${F}>${a}</text>
-          <text x="${115 + i * 206}" y="106" text-anchor="middle" font-size="14" fill="var(--ink)" ${F}>${b}</text>
-          <text x="${115 + i * 206}" y="138" text-anchor="middle" font-size="13" fill="var(--muted)" ${F}>${c1}</text>
-          <text x="${115 + i * 206}" y="156" text-anchor="middle" font-size="13" fill="var(--muted)" ${F}>${c2}</text>
-          <text x="${115 + i * 206}" y="192" text-anchor="middle" font-size="16" font-weight="700" fill="${c}" ${F}>${ej}</text>`).join("")}
-    </svg>`,
-  },
-  video: { id: "WnVFcnGvJ-Y", titulo: "Tipos de enlaces químicos: iónico, covalente y metálico", canal: "Amigos de la Química", vistas: 5417094, megusta: 0, busqueda: "enlace químico iónico covalente metálico" },
-  quiz: [
-    { q: "¿Qué dice la regla del octeto?", o: ["Que los átomos tienen 8 protones", "Que los átomos tienden a tener 8 electrones en la última capa", "Que solo hay 8 tipos de enlace"], a: 1, e: "Ganando, perdiendo o compartiendo electrones, los átomos buscan la configuración estable de un gas noble." },
-    { q: "¿Qué enlace tiene el cloruro de potasio (KCl)?", o: ["Iónico", "Covalente", "Metálico"], a: 0, e: "El potasio es un metal y el cloro un no metal: el K cede un electrón al Cl." },
-    { q: "En la molécula de oxígeno O₂, los átomos…", o: ["se ceden electrones", "comparten dos pares de electrones (enlace doble)", "forman un mar de electrones"], a: 1, e: "Son dos no metales iguales: comparten electrones. A cada O le faltan 2, así que comparten dos pares." },
-    { q: "¿Por qué un cable de cobre conduce la electricidad?", o: ["Porque tiene iones negativos", "Porque sus electrones se mueven libremente", "Porque es una molécula"], a: 1, e: "En el enlace metálico los electrones de valencia forman una nube móvil." },
-    { q: "¿Cuál de estas sustancias se espera que tenga un punto de fusión más alto?", o: ["Cloruro de sodio", "Agua", "Dióxido de carbono"], a: 0, e: "La sal forma una red iónica con atracciones muy fuertes. El agua y el CO₂ son moléculas unidas por fuerzas débiles." },
-  ],
-  examen: [
-    { q: "Un catión es…", o: ["un ion positivo que ha perdido electrones", "un ion negativo que ha ganado electrones", "un átomo neutro"], a: 0, e: "Al perder electrones queda más carga positiva (protones) que negativa." },
-    { q: "El diamante es durísimo porque es…", o: ["un compuesto iónico", "una red covalente", "un metal"], a: 1, e: "Cada carbono está unido por enlaces covalentes a otros cuatro en una red gigante." },
-    { q: "¿Qué explica que el hielo flote en el agua?", o: ["El enlace metálico", "Los puentes de hidrógeno", "El enlace iónico"], a: 1, e: "En el hielo, los puentes de hidrógeno ordenan las moléculas dejando huecos: es menos denso que el agua líquida." },
-  ],
-  feynman: ["Qué es la regla del octeto y por qué se unen los átomos", "Cómo se forman los iones en el enlace iónico", "Qué significa compartir electrones en el enlace covalente", "Por qué los metales conducen la electricidad", "Qué son los puentes de hidrógeno"],
-  mapa: mapa("ENLACE QUÍMICO", "var(--eso)", [
-    ["Octeto", "8 e⁻ en la última capa", "var(--ink)"],
-    ["Iónico", "metal + no metal · iones", "var(--red)"],
-    ["Covalente", "no metales · comparten e⁻", "var(--leaf)"],
-    ["Metálico", "mar de electrones", "var(--pen)"],
-  ], 240),
-  tarjetas: [
-    ["¿Qué es un anión?", "Un ion negativo: un átomo que ha ganado electrones (Cl⁻, O²⁻)."],
-    ["¿Entre qué elementos se forma el enlace iónico?", "Entre un metal (cede electrones) y un no metal (los capta)."],
-    ["¿Qué es un enlace covalente doble?", "Dos pares de electrones compartidos entre dos átomos, como en O=O."],
-    ["Propiedades de los compuestos iónicos", "Sólidos, duros y frágiles, alto punto de fusión, conducen fundidos o disueltos."],
-    ["¿Qué es un puente de hidrógeno?", "Una fuerza intermolecular fuerte entre un H unido a F, O o N y otro átomo de F, O o N cercano."],
-  ],
-  familias: ["Probad a disolver sal y azúcar en agua y comentad qué tipo de enlace tiene cada una.", "Buscad en casa objetos metálicos y otros que no lo sean, y pensad cuáles conducirían la electricidad.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "La materia: enlace químico iónico, covalente y metálico, fuerzas intermoleculares y propiedades de las sustancias (RD 217/2022, Física y Química 4º).",
-    ideas: ["Medir la conductividad de disoluciones de sal, azúcar y agua destilada con un circuito con LED.", "Construir modelos moleculares con plastilina y palillos.", "Clasificar sustancias desconocidas por sus propiedades (dureza, solubilidad, conductividad)."],
-  },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Enlace químico, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Enlace_qu%C3%ADmico" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Dibujar estructuras de Lewis de moléculas sencillas", "Relacionar el tipo de enlace con las propiedades de las sustancias"],
-  tras: {
-    "Por qué se unen los átomos": [
-      { html: `<h3>La regla del octeto y los diagramas de Lewis</h3><p>Los átomos se unen para conseguir una configuración más estable, normalmente con <b>ocho electrones</b> en la última capa, como los gases nobles: es la <mark>regla del octeto</mark> (el hidrógeno se conforma con dos). En los <b>diagramas de Lewis</b> se escribe el símbolo del elemento rodeado de puntos que representan sus electrones de valencia: el cloro lleva 7 y el oxígeno 6. En una molécula, cada par de electrones compartido se dibuja como una raya, y los pares que no se comparten se llaman <b>pares solitarios</b>. Si los átomos comparten dos pares hay un <b>enlace doble</b> (O=O) y si comparten tres, un <b>enlace triple</b> (N≡N).</p>`, video: { id: "dWh4wf5VgMs", titulo: "Estructuras de Lewis (teoría + ejercicios)", canal: "Amigos de la Química", vistas: 5388650 } },
-    ],
-    "Enlace iónico": [
-      { html: `<h3>Cómo se forma un compuesto iónico</h3><p>El enlace iónico une un <b>metal</b> que pierde electrones con un <b>no metal</b> que los gana. Los iones de carga contraria se atraen y se colocan ordenadamente formando una <b>red cristalina</b>: no hay moléculas sueltas. Por eso la fórmula del cloruro de sodio, NaCl, solo indica la <mark>proporción</mark> de iones (uno a uno). La carga total debe ser cero: el magnesio da 2 electrones (Mg²⁺) y cada cloro acepta uno (Cl⁻), así que hacen falta dos cloros: <b>MgCl₂</b>. Con el oxígeno (O²⁻) basta uno: MgO.</p>` },
-    ],
-    "Enlace covalente": [
-      { html: `<h3>Moléculas y cristales covalentes. Polaridad</h3><p>Las sustancias covalentes pueden ser de dos tipos. Las <b>moleculares</b> (H₂O, CO₂, O₂, CH₄) están formadas por moléculas independientes; tienen puntos de fusión bajos y muchas son gases o líquidos. Los <b>cristales covalentes</b> (diamante, cuarzo SiO₂) son redes gigantes de átomos unidos por enlaces covalentes: son durísimos y funden a temperaturas altísimas. Además, si los dos átomos tienen distinta <b>electronegatividad</b> (tendencia a atraer los electrones), el par compartido se desplaza hacia uno de ellos y el enlace es <mark>polar</mark>: en el agua, el oxígeno queda algo negativo y los hidrógenos algo positivos.</p>` },
-    ],
-    "Fuerzas entre moléculas": [
-      { html: `<h3>Propiedades según el tipo de enlace</h3><p>El tipo de enlace explica las propiedades de cada sustancia, y al revés: midiendo propiedades podemos saber qué enlace tiene. La tabla resume las diferencias. Fíjate en la conductividad: los compuestos iónicos <mark>solo conducen fundidos o disueltos</mark>, cuando sus iones pueden moverse; los metales conducen siempre gracias a sus electrones libres.</p>${AMP.tabla(["Propiedad", "Iónico (NaCl)", "Covalente molecular (H₂O)", "Cristal covalente (diamante)", "Metálico (Cu)"], [["Estado a 25 °C", "sólido", "gas o líquido, a veces sólido", "sólido", "sólido (salvo Hg)"], ["Punto de fusión", "alto", "bajo", "muy alto", "variable, a menudo alto"], ["Conduce", "fundido o disuelto", "no", "no (salvo grafito)", "sí, siempre"], ["Se disuelve en agua", "muchos sí", "algunos", "no", "no"], ["Otras", "duro y frágil", "blando", "durísimo", "dúctil y maleable"]])}` },
-    ],
-  },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Dibuja el diagrama de Lewis del agua, H₂O.", pasos: ["Electrones de valencia: O tiene 6 y cada H tiene 1: 6 + 2 = 8 electrones.", "El oxígeno va en el centro y se une a cada H con un enlace sencillo (2 rayas = 4 electrones).", "Los 4 electrones restantes quedan como 2 pares solitarios sobre el oxígeno, que así completa su octeto."], resultado: "H–O–H con dos pares solitarios en el oxígeno." },
-    { enunciado: "Escribe la fórmula del compuesto iónico formado por aluminio (Al³⁺) y oxígeno (O²⁻).", pasos: ["La carga total debe ser cero.", "El mínimo común múltiplo de 3 y 2 es 6: hacen falta 2 Al³⁺ (+6) y 3 O²⁻ (−6).", "Se escribe primero el metal."], resultado: "Al₂O₃ (óxido de aluminio)." },
-    { enunciado: "Una sustancia funde a 801 °C, es frágil, no conduce en estado sólido pero sí disuelta en agua. ¿Qué tipo de enlace tiene?", pasos: ["Punto de fusión alto: no es molecular.", "No conduce sólida pero sí disuelta: tiene iones que solo se mueven al disolverse.", "Frágil: típico de los cristales iónicos."], resultado: "Es un compuesto iónico (de hecho, son los datos del NaCl)." },
+    { enunciado: "Explica cómo se forma el enlace entre el potasio (Z = 19) y el bromo (Z = 35) y escribe la fórmula del compuesto.", pasos: ["K: …4s¹, metal con 1 electrón de valencia: lo cede y forma K⁺.", "Br: …4s² 4p⁵, no metal con 7: capta uno y forma Br⁻.", "Metal + no metal: enlace iónico.", "Cargas iguales y opuestas: proporción 1:1."], resultado: "Enlace iónico; fórmula KBr (bromuro de potasio)." },
+    { enunciado: "Escribe la fórmula del compuesto iónico formado por calcio (grupo 2) y nitrógeno (grupo 15).", pasos: ["Ca pierde 2 electrones: Ca²⁺.", "N gana 3 electrones: N³⁻.", "Para compensar: 3 · (+2) = 2 · (−3) = 6.", "3 Ca²⁺ y 2 N³⁻."], resultado: "Ca₃N₂ (nitruro de calcio)." },
+    { enunciado: "Dibuja la estructura de Lewis del amoníaco, NH₃.", pasos: ["Electrones de valencia: N = 5, H = 3 · 1 = 3; total 8.", "N en el centro, unido a cada H con una raya (3 pares, 6 electrones).", "Quedan 2 electrones: un par solitario sobre el N.", "N: 3 pares compartidos + 1 solitario = 8; cada H: 2."], resultado: "N central con tres enlaces simples N–H y un par solitario." },
+    { enunciado: "Dibuja la estructura de Lewis del CO₂.", pasos: ["Electrones de valencia: C = 4, O = 2 · 6 = 12; total 16.", "C en el centro: O–C–O usa 4 electrones; quedan 12.", "Si se reparten en los O, el C se queda con solo 4: no cumple el octeto.", "Se forman dos enlaces dobles: O=C=O, con dos pares solitarios en cada O."], resultado: "O=C=O; el carbono forma 4 enlaces y todos tienen octeto." },
+    { enunciado: "Predice el tipo de enlace de: a) CaCl₂; b) CH₄; c) cobre; d) Cl₂; e) SiO₂.", pasos: ["a) Metal (Ca) y no metal (Cl): iónico.", "b) No metales: covalente molecular (polar).", "c) Metal: metálico.", "d) Dos átomos iguales: covalente apolar.", "e) No metales en red gigante: red covalente."], resultado: "Iónico, covalente molecular, metálico, covalente apolar y red covalente." },
+    { enunciado: "Una sustancia blanca funde a 770 °C, se disuelve en agua y su disolución conduce, pero el sólido no. ¿Qué tipo de sustancia es?", pasos: ["Punto de fusión alto: no es molecular.", "Conduce disuelta pero no sólida: tiene iones que se liberan al disolverse.", "Un metal conduciría sólido; una red covalente no se disolvería."], resultado: "Es un compuesto iónico (por ejemplo, KCl, que funde a 770 °C)." },
   ],
   errores: [
-    "Hablar de «moléculas de NaCl»: los compuestos iónicos forman redes, no moléculas.",
-    "Decir que la sal sólida conduce la electricidad: solo conduce fundida o disuelta.",
-    "Olvidar los pares solitarios en los diagramas de Lewis.",
-    "Confundir enlaces covalentes (dentro de la molécula) con fuerzas intermoleculares (entre moléculas): al hervir el agua se rompen las segundas, no las primeras.",
-    "Pensar que todas las sustancias covalentes funden a baja temperatura: el diamante funde a más de 3.500 °C.",
+    "Pensar que el NaCl está formado por moléculas: es una red cristalina de iones.",
+    "Creer que en el enlace iónico se comparten electrones: se transfieren de un átomo a otro.",
+    "Olvidar que la fórmula de un compuesto iónico debe ser neutra: Mg²⁺ y Cl⁻ forman MgCl₂, no MgCl.",
+    "Pensar que al hervir el agua se rompen las moléculas: solo se rompen las fuerzas entre ellas.",
+    "Creer que los compuestos iónicos conducen en estado sólido: solo fundidos o disueltos.",
+    "Confundir enlaces con fuerzas intermoleculares: los enlaces unen átomos; las fuerzas intermoleculares, moléculas.",
   ],
   ejercicios: [
-    { q: "Indica qué tipo de enlace hay en: KBr, Cl₂, Fe, CO₂, CaO.", sol: "KBr: iónico (metal + no metal). Cl₂: covalente. Fe: metálico. CO₂: covalente. CaO: iónico." },
-    { q: "Dibuja el diagrama de Lewis del metano, CH₄.", sol: "El C (4 e⁻) va en el centro y comparte un par con cada H: cuatro enlaces sencillos C–H. El carbono completa 8 electrones y cada H, 2. No hay pares solitarios." },
-    { q: "¿Por qué la molécula de N₂ tiene un enlace triple?", sol: "Cada N tiene 5 electrones de valencia y le faltan 3 para el octeto. Al compartir 3 pares (N≡N), cada uno queda con 8 contando un par solitario." },
-    { q: "Escribe la fórmula del compuesto formado por calcio (Ca²⁺) y cloro (Cl⁻) y por sodio (Na⁺) y azufre (S²⁻).", sol: "CaCl₂ y Na₂S." },
-    { q: "¿Por qué los metales conducen la electricidad?", sol: "Porque sus electrones de valencia forman una «nube» de electrones libres que se mueven por toda la red." },
-    { q: "Explica por qué el agua hierve a 100 °C y el metano a −162 °C si los dos son moléculas pequeñas.", sol: "Entre moléculas de agua hay puentes de hidrógeno, fuerzas intermoleculares fuertes; entre moléculas de metano solo hay fuerzas muy débiles. Separar las de agua cuesta más energía." },
-    { q: "¿Es polar el enlace H–Cl? ¿Hacia dónde se desplazan los electrones?", sol: "Sí, porque el cloro es mucho más electronegativo que el hidrógeno. Los electrones se desplazan hacia el cloro, que queda con carga parcial negativa." },
-    { q: "Un sólido es muy duro, no conduce y funde a más de 1.600 °C. No se disuelve en agua. ¿Qué tipo de sustancia es?", sol: "Un cristal covalente, como el cuarzo (SiO₂)." },
-    { q: "¿Por qué se puede hacer un hilo de cobre pero no uno de sal?", sol: "En el metal, las capas de átomos pueden deslizarse sin romperse gracias a la nube de electrones (dúctil). En la sal, al desplazar una capa se enfrentan iones del mismo signo, se repelen y el cristal se rompe (frágil)." },
-    { q: "Dibuja el diagrama de Lewis del CO₂.", sol: "O=C=O: el carbono comparte dos pares con cada oxígeno (dos enlaces dobles). Cada oxígeno conserva dos pares solitarios. Todos completan el octeto." },
+    B("Enuncia la regla del octeto. ¿Qué elemento es la principal excepción y por qué?", "Los átomos tienden a ganar, perder o compartir electrones para tener 8 en la última capa. El hidrógeno, que se completa con 2, como el helio."),
+    B("Dibuja la estructura de Lewis de los átomos de Li, C, N, O, F y Ne.", "Li con 1 punto, C con 4, N con 5, O con 6, F con 7 y Ne con 8 (puntos alrededor del símbolo)."),
+    B("¿Qué ion forman el magnesio, el potasio, el oxígeno y el bromo?", "Mg²⁺, K⁺, O²⁻ y Br⁻."),
+    B("Indica si el enlace es iónico, covalente o metálico: NaF, H₂O, Fe, CO₂, CaO, N₂, Al.", "Iónico: NaF, CaO. Covalente: H₂O, CO₂, N₂. Metálico: Fe, Al."),
+    B("Escribe la fórmula de los compuestos formados por: a) K y Cl; b) Ca y Cl; c) Na y O; d) Mg y O.", "a) KCl. b) CaCl₂. c) Na₂O. d) MgO."),
+    B("¿Qué es una red cristalina? Pon un ejemplo.", "Una estructura ordenada en tres dimensiones con millones de partículas que se repiten; por ejemplo, la sal: Na⁺ y Cl⁻ alternados."),
+    B("Indica si los enlaces de H₂, O₂ y N₂ son simples, dobles o triples.", "H–H simple; O=O doble; N≡N triple."),
+    B("¿Por qué los metales conducen la electricidad?", "Porque tienen electrones libres que se mueven por toda la red de cationes al aplicar un voltaje."),
+    B("Nombra tres propiedades de los compuestos iónicos.", "Sólidos con puntos de fusión altos; duros y frágiles; solubles en agua; conducen fundidos o disueltos (cualquiera de ellas)."),
+    B("¿Qué es una aleación? Pon dos ejemplos con su composición.", "Una mezcla homogénea de un metal con otros elementos. Acero (hierro y carbono) y bronce (cobre y estaño)."),
+    B("¿Qué se rompe cuando el agua hierve: enlaces covalentes o fuerzas intermoleculares?", "Las fuerzas intermoleculares (puentes de hidrógeno); las moléculas de H₂O siguen intactas."),
+    B("¿Por qué el diamante y el grafito tienen propiedades tan distintas si los dos son carbono?", "Porque sus átomos están unidos de forma diferente: en el diamante, cada C se une a 4 en una red rígida; en el grafito, a 3 formando láminas que se deslizan."),
+    M("Explica con configuraciones electrónicas la formación del óxido de magnesio (Mg, Z = 12; O, Z = 8).", "Mg: 1s² 2s² 2p⁶ 3s² → pierde 2 e⁻ → Mg²⁺ (como el Ne). O: 1s² 2s² 2p⁴ → gana 2 e⁻ → O²⁻ (como el Ne). Se atraen: MgO, enlace iónico."),
+    M("Escribe las fórmulas de: a) Al y Cl; b) Al y O; c) Ca y N; d) Li y S.", "a) AlCl₃. b) Al₂O₃. c) Ca₃N₂. d) Li₂S."),
+    M("Dibuja la estructura de Lewis de: a) Cl₂; b) HCl; c) H₂O; d) CH₄.", "a) Cl–Cl con 3 pares solitarios en cada Cl. b) H–Cl con 3 pares solitarios en el Cl. c) H–O–H con 2 pares solitarios en el O. d) C central con 4 enlaces C–H y sin pares solitarios."),
+    M("Dibuja la estructura de Lewis del O₂ y del N₂ y explica por qué el nitrógeno del aire es poco reactivo.", "O=O con 2 pares solitarios en cada O; N≡N con 1 par solitario en cada N. El triple enlace del N₂ es muy fuerte y cuesta mucha energía romperlo."),
+    M("¿Cuántos enlaces suele formar cada uno de estos átomos: H, O, N, C, Cl? Justifícalo.", "H: 1; O: 2; N: 3; C: 4; Cl: 1. Son los electrones que les faltan para el octeto (o para 2, el H)."),
+    M("Explica por qué la sal es frágil y, en cambio, un clavo de hierro se dobla sin romperse.", "En la sal, al desplazar una capa quedan enfrentados iones del mismo signo que se repelen y el cristal se rompe. En el metal, las capas de cationes se deslizan pero la nube de electrones las mantiene unidas."),
+    M("Ordena de menor a mayor polaridad los enlaces H–F, H–H y H–Cl (electronegatividades: H 2,1; Cl 3,0; F 4,0).", "Diferencias: H–H 0; H–Cl 0,9; H–F 1,9. Orden: H–H < H–Cl < H–F."),
+    M("¿Por qué el CO₂ es una molécula apolar si sus enlaces C=O son polares?", "Porque es lineal y simétrica: las dos polaridades son iguales y opuestas y se anulan."),
+    M("Explica por qué el hielo flota en el agua líquida.", "Al congelarse, los puentes de hidrógeno ordenan las moléculas en una red hexagonal con huecos; el hielo ocupa más volumen y es menos denso que el agua líquida."),
+    M("El flúor y el cloro son gases, el bromo es líquido y el yodo es sólido. ¿Qué fuerzas explican esta tendencia?", "Las fuerzas de dispersión de London, que aumentan con el tamaño de la molécula: el I₂ es la más grande y sus moléculas se atraen más."),
+    M("Clasifica como moleculares o redes covalentes: agua, diamante, azúcar, cuarzo, oxígeno, dióxido de carbono.", "Moleculares: agua, azúcar, oxígeno, CO₂. Redes covalentes: diamante, cuarzo."),
+    M("Una sustancia funde a 1.083 °C, no se disuelve en agua y conduce la electricidad en estado sólido. ¿Qué tipo de sustancia es?", "Metálica (es el cobre): conduce sólida gracias a sus electrones libres."),
+    M("Escribe la estructura de Lewis de los iones Na⁺, Cl⁻, O²⁻ y Mg²⁺.", "Na⁺ y Mg²⁺: el símbolo sin puntos en la capa de valencia, entre corchetes con la carga. Cl⁻ y O²⁻: el símbolo con 8 puntos entre corchetes con su carga."),
+    M("¿Por qué el agua del grifo conduce la electricidad y el agua destilada casi no?", "El agua del grifo tiene sales disueltas cuyos iones se mueven y transportan la carga; el agua destilada es casi solo moléculas de H₂O, sin iones libres."),
+    A("Dibuja la estructura de Lewis del etino, C₂H₂, y del metanal, CH₂O (C central).", "Etino: H–C≡C–H (triple enlace entre carbonos, sin pares solitarios). Metanal: C central unido a 2 H con enlaces simples y al O con un doble enlace; el O tiene 2 pares solitarios."),
+    A("El elemento X (Z = 20) se une al Y (Z = 9). Escribe sus configuraciones, el tipo de enlace, la fórmula y tres propiedades esperadas.", "X: [Ar] 4s², calcio, forma X²⁺. Y: 1s² 2s² 2p⁵, flúor, forma Y⁻. Enlace iónico, XY₂ = CaF₂. Sólido de alto punto de fusión, duro y frágil, conduce fundido."),
+    A("El H₂O hierve a 100 °C y el H₂S, con una molécula más pesada, a −60 °C. Explica la diferencia.", "Entre las moléculas de agua hay puentes de hidrógeno, porque el O es muy electronegativo y pequeño. El S no forma puentes de hidrógeno, así que entre las moléculas de H₂S solo hay fuerzas más débiles."),
+    A("Diseña un experimento para distinguir tres polvos blancos: sal, azúcar y arena (cuarzo).", "Disolver en agua: la arena no se disuelve (red covalente). Probar la conductividad de las otras dos disoluciones: la de sal conduce (iónica); la de azúcar no (molecular). También se puede calentar: el azúcar funde y se carameliza fácilmente."),
+    A("¿Por qué el grafito conduce la electricidad y el diamante no?", "En el grafito, cada C se une solo a otros 3 y le queda un electrón libre que puede moverse a lo largo de las láminas. En el diamante, los 4 electrones de valencia de cada C están en enlaces y no hay electrones libres."),
+    A("Explica por qué el agua disuelve la sal pero no el aceite.", "El agua es polar: sus polos atraen a los iones Na⁺ y Cl⁻ y los separan de la red. El aceite es apolar: sus moléculas no son atraídas por el agua, y las moléculas de agua prefieren unirse entre sí por puentes de hidrógeno."),
+    A("Un ingeniero necesita un material ligero, que no se oxide y resistente para el cuadro de una bicicleta. ¿Qué tipo de material propondrías y por qué?", "Una aleación de aluminio (o de titanio): es metálica, así que es resistente y se puede moldear; el aluminio es ligero y se protege con una capa de óxido; la aleación es más dura que el metal puro."),
+    A("Representa con estructuras de Lewis la formación del NaCl y del Cl₂ y explica la diferencia entre ambos enlaces.", "NaCl: el Na· cede su electrón al Cl (7 puntos), que queda con 8: [Na]⁺ [Cl]⁻, enlace iónico por transferencia. Cl₂: cada Cl aporta un electrón a un par compartido, Cl–Cl, enlace covalente."),
+    A("¿Por qué no tiene sentido hablar de la «molécula» de cloruro de sodio, pero sí de la de agua?", "El NaCl es una red con millones de iones en proporción 1:1, sin unidades independientes; su fórmula solo indica la proporción. El agua está formada por moléculas definidas de 3 átomos (H₂O) separadas unas de otras."),
+    A("El NH₃ hierve a −33 °C y el CH₄, de masa parecida, a −162 °C. Explica la diferencia.", "Entre las moléculas de NH₃ hay puentes de hidrógeno (H unido a N), y además es polar. El CH₄ es apolar y solo tiene fuerzas de dispersión, mucho más débiles."),
   ],
   quiz: [
-    { q: "Según la regla del octeto, los átomos tienden a tener en su última capa…", o: ["2 electrones", "8 electrones", "18 electrones"], a: 1, e: "Como los gases nobles (el H, 2)." },
-    { q: "La fórmula del cloruro de magnesio es…", o: ["MgCl", "MgCl₂", "Mg₂Cl"], a: 1, e: "Mg²⁺ necesita dos Cl⁻." },
-    { q: "Un cristal covalente como el diamante es…", o: ["blando y conductor", "durísimo y de punto de fusión muy alto", "un gas"], a: 1, e: "Es una red gigante de enlaces covalentes." },
-    { q: "En el agua, el oxígeno queda con carga parcial…", o: ["positiva", "negativa", "nula"], a: 1, e: "Es más electronegativo que el hidrógeno." },
-    { q: "Un compuesto iónico conduce la corriente…", o: ["siempre", "fundido o disuelto", "nunca"], a: 1, e: "Necesita que los iones puedan moverse." },
+    q4("Los átomos se unen para…", ["ganar masa", "ser más estables", "tener más protones", "cambiar de elemento"], 1, "Menor energía."),
+    q4("La regla del octeto dice que los átomos tienden a tener… en la última capa.", ["2 electrones", "4 electrones", "8 electrones", "18 electrones"], 2, "Como los gases nobles."),
+    q4("En la estructura de Lewis del oxígeno hay…", ["2 puntos", "4 puntos", "6 puntos", "8 puntos"], 2, "6 electrones de valencia."),
+    q4("El enlace iónico se forma entre…", ["dos no metales", "un metal y un no metal", "dos metales", "dos gases nobles"], 1, "Transferencia de electrones."),
+    q4("En el enlace iónico, el metal…", ["capta electrones", "cede electrones", "comparte electrones", "no cambia"], 1, "Forma un catión."),
+    q4("La fórmula del compuesto entre Mg²⁺ y Cl⁻ es…", ["MgCl", "Mg₂Cl", "MgCl₂", "Mg₂Cl₃"], 2, "Cargas compensadas."),
+    q4("Los compuestos iónicos conducen la electricidad…", ["siempre", "nunca", "fundidos o disueltos", "solo sólidos"], 2, "Iones libres."),
+    q4("En el enlace covalente los átomos…", ["ceden electrones", "comparten electrones", "pierden protones", "forman iones"], 1, "Pares compartidos."),
+    q4("La molécula de N₂ tiene un enlace…", ["simple", "doble", "triple", "iónico"], 2, "N≡N."),
+    q4("¿Cuál es una red covalente?", ["Agua", "Diamante", "Sal", "Hierro"], 1, "Átomos de C en red."),
+    q4("Las sustancias moleculares suelen tener puntos de fusión…", ["altísimos", "bajos", "iguales a los iónicos", "infinitos"], 1, "Fuerzas intermoleculares débiles."),
+    q4("Un enlace covalente polar se da entre…", ["átomos iguales", "átomos de distinta electronegatividad", "dos metales", "iones"], 1, "Carga parcial δ+ y δ−."),
+    q4("El agua es una molécula…", ["apolar", "polar", "iónica", "metálica"], 1, "Angular."),
+    q4("En el enlace metálico hay…", ["iones negativos fijos", "cationes en un mar de electrones", "moléculas", "pares compartidos fijos"], 1, "Electrones libres."),
+    q4("Los metales se pueden laminar porque…", ["son blandos siempre", "las capas se deslizan sin romperse", "tienen moléculas", "son líquidos"], 1, "La nube de electrones las mantiene unidas."),
+    q4("El bronce es una aleación de…", ["hierro y carbono", "cobre y estaño", "cobre y cinc", "oro y plata"], 1, "Edad del Bronce."),
+    q4("Los puentes de hidrógeno se forman con H unido a…", ["C, S o P", "F, O o N", "Na o K", "gases nobles"], 1, "Átomos pequeños y muy electronegativos."),
+    q4("Al hervir el agua se rompen…", ["los enlaces O–H", "los puentes de hidrógeno", "los átomos", "los iones"], 1, "Fuerzas intermoleculares."),
+    q4("El hielo flota porque…", ["tiene aire", "es menos denso que el agua líquida", "es más denso", "es apolar"], 1, "Red hexagonal con huecos."),
+    q4("Una sustancia que conduce en estado sólido es probablemente…", ["iónica", "molecular", "metálica", "una red covalente"], 2, "Salvo el grafito."),
   ],
+  examen: [
+    q4("¿Qué tipo de enlace tiene el KCl?", ["Covalente", "Iónico", "Metálico", "Puente de hidrógeno"], 1, "Metal y no metal."),
+    q4("La fórmula del compuesto entre Al³⁺ y O²⁻ es…", ["AlO", "Al₃O₂", "Al₂O₃", "AlO₃"], 2, "2 · 3 = 3 · 2."),
+    q4("¿Cuántos pares solitarios tiene el oxígeno en el H₂O?", ["0", "1", "2", "3"], 2, "Y dos enlaces."),
+    q4("El CO₂ tiene…", ["dos enlaces simples", "dos enlaces dobles", "un triple y un simple", "enlaces iónicos"], 1, "O=C=O."),
+    q4("¿Cuál tiene el punto de fusión más alto?", ["Hielo", "Azúcar", "Cuarzo", "Yodo"], 2, "Red covalente."),
+    q4("La sal sólida no conduce la electricidad porque…", ["no tiene cargas", "sus iones están fijos", "es covalente", "tiene electrones libres"], 1, "Conduce disuelta."),
+    q4("¿Qué molécula es apolar?", ["H₂O", "HCl", "NH₃", "CO₂"], 3, "Lineal y simétrica."),
+    q4("El agua hierve a 100 °C y no a −80 °C gracias a…", ["los enlaces iónicos", "los puentes de hidrógeno", "su masa", "el enlace metálico"], 1, "Fuerzas intermoleculares intensas."),
+  ],
+  feynman: ["Por qué se unen los átomos y qué dice la regla del octeto", "Cómo se forma el enlace iónico y por qué la sal es una red", "Cómo se dibuja una estructura de Lewis", "Qué diferencia hay entre una molécula y una red covalente", "Cómo explica el mar de electrones las propiedades de los metales", "Por qué el hielo flota y el agua hierve a 100 °C"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Regla del octeto", "Los átomos tienden a tener 8 electrones en su última capa."],
-    ["Par solitario", "Par de electrones de valencia que no forma enlace."],
-    ["Enlace polar", "Covalente entre átomos de distinta electronegatividad: los electrones se acercan a uno."],
+    ["Regla del octeto", "Los átomos tienden a tener 8 electrones en la última capa."],
+    ["Estructura de Lewis", "Símbolo con un punto por electrón de valencia; rayas para los pares compartidos."],
+    ["Enlace iónico", "Metal + no metal: transferencia de electrones y atracción entre iones."],
+    ["Red cristalina", "Estructura ordenada de millones de iones o átomos."],
+    ["Fórmula iónica", "Proporción de iones que hace el compuesto neutro (MgCl₂)."],
+    ["Enlace covalente", "No metales: comparten pares de electrones."],
+    ["Simple, doble, triple", "1, 2 o 3 pares compartidos: H–H, O=O, N≡N."],
+    ["Enlace polar", "Covalente entre átomos de distinta electronegatividad: cargas δ+ y δ−."],
+    ["Enlace metálico", "Cationes en un mar de electrones libres."],
+    ["Aleación", "Mezcla homogénea de un metal con otros elementos."],
+    ["Puente de hidrógeno", "Atracción entre un H unido a F, O o N y otro de esos átomos."],
+    ["Propiedades", "Iónicos: conducen disueltos. Metales: conducen sólidos. Moleculares: no conducen."],
   ],
-});
+  glosario: [
+    ["Enlace químico", "Unión entre átomos que los hace más estables."],
+    ["Regla del octeto", "Tendencia a tener ocho electrones en la capa de valencia."],
+    ["Estructura de Lewis", "Representación de los electrones de valencia con puntos y rayas."],
+    ["Par solitario", "Par de electrones de valencia que no forma enlace."],
+    ["Catión", "Ion con carga positiva."],
+    ["Anión", "Ion con carga negativa."],
+    ["Enlace iónico", "Atracción electrostática entre iones de signo contrario."],
+    ["Red cristalina", "Ordenación regular de partículas en tres dimensiones."],
+    ["Enlace covalente", "Unión por compartición de pares de electrones."],
+    ["Molécula", "Grupo definido de átomos unidos por enlaces covalentes."],
+    ["Red covalente", "Sólido de átomos unidos por enlaces covalentes en todas direcciones."],
+    ["Enlace polar", "Enlace covalente en que los electrones se reparten de forma desigual."],
+    ["Enlace metálico", "Unión de cationes metálicos mediante una nube de electrones."],
+    ["Aleación", "Mezcla homogénea de un metal con otros elementos."],
+    ["Fuerzas intermoleculares", "Atracciones débiles entre moléculas."],
+    ["Puente de hidrógeno", "Fuerza intermolecular intensa en la que participa un hidrógeno unido a F, O o N."],
+    ["Ductilidad", "Capacidad de un material para estirarse en hilos."],
+    ["Maleabilidad", "Capacidad de un material para extenderse en láminas."],
+  ],
+  situacion: {
+    titulo: "Detectives de sustancias",
+    reto: "En el laboratorio han aparecido seis botes sin etiqueta con sustancias blancas o grises: sal, azúcar, arena, bicarbonato, cera y limaduras de un metal. Tenéis que identificarlas usando lo que sabéis del enlace químico.",
+    pasos: [
+      "Haced una tabla con las propiedades que esperáis de cada sustancia según su tipo de enlace.",
+      "Diseñad las pruebas: aspecto, dureza, solubilidad en agua, conductividad del sólido y de la disolución, y comportamiento al calentar suavemente.",
+      "Montad un circuito con una pila, cables y un LED para medir la conductividad, con las normas de seguridad.",
+      "Realizad las pruebas, anotad los resultados y comparadlos con vuestras predicciones.",
+      "Identificad cada sustancia y explicad el razonamiento con dibujos de su estructura.",
+    ],
+    producto: "Un informe de laboratorio con la tabla de resultados, la identificación justificada de cada sustancia y sus etiquetas nuevas.",
+    evaluacion: ["Las predicciones relacionan correctamente enlace y propiedades.", "Las pruebas se realizan con seguridad y se registran con orden.", "La identificación es correcta y está justificada.", "El informe usa vocabulario científico y dibujos adecuados."],
+  },
+  familias: [
+    "Buscad en casa objetos de acero, latón, bronce o aluminio y averiguad su composición.",
+    "Haced cristales de sal o azúcar dejando evaporar una disolución concentrada y observadlos con una lupa.",
+    "Acercad un peine frotado a un chorro fino de agua y comentad por qué se desvía.",
+    "Repasad juntos las tarjetas y practicad las fórmulas iónicas con la tabla periódica.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La materia»: enlace químico (iónico, covalente y metálico), estructuras de Lewis, fuerzas intermoleculares y relación entre el tipo de enlace y las propiedades de las sustancias.`,
+    ideas: [
+      "Práctica de conductividad con circuito y LED para disoluciones de sal, azúcar y agua destilada.",
+      "Modelos moleculares con plastilina y palillos o con kits de bolas para H₂O, CO₂, NH₃ y CH₄.",
+      "Desviación de un chorro de agua con un globo frotado para trabajar la polaridad.",
+      "Simulación «Polaridad de la molécula» de PhET.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    { t: "Enlace químico, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Enlace_qu%C3%ADmico" },
+    { t: "Simulaciones PhET de química, Universidad de Colorado", url: "https://phet.colorado.edu/es/" },
+  ],
+  revisado: "2026-11-13",
+};

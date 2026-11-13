@@ -1,185 +1,238 @@
-// Física y Química 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-
-// Átomo de Bohr: núcleo y capas con electrones.
-function bohr(cx, cy, capas, nucleo) {
-  return `<circle cx="${cx}" cy="${cy}" r="14" fill="var(--red)"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" ${F}>${nucleo}</text>
-    ${capas.map((n, k) => { const r = 28 + k * 20; return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="var(--line)" stroke-width="2"/>` +
-      Array.from({ length: n }, (_, j) => { const a = (2 * Math.PI * j) / n - Math.PI / 2; return `<circle cx="${(cx + r * Math.cos(a)).toFixed(1)}" cy="${(cy + r * Math.sin(a)).toFixed(1)}" r="4.5" fill="var(--pen)"/>`; }).join(""); }).join("")}`;
-}
+// Física y Química 4º ESO · El átomo y el sistema periódico (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, compara, barras, escala, rejilla, capas, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD } = require("./_eso4L5");
+const S = BASE["atomo-sistema-periodico"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "4-eso",
   titulo: "El átomo y el sistema periódico",
-  minutos: 40,
-  objetivos: ["Describir la evolución de los modelos atómicos", "Escribir la configuración electrónica de un elemento", "Relacionar la posición en la tabla periódica con las propiedades"],
-  claves: ["protón", "neutrón", "electrón", "número atómico (Z)", "configuración electrónica", "electrones de valencia"],
+  minutos: 110,
+  objetivos: [
+    "Describir la evolución de los modelos atómicos y las pruebas que los apoyaron",
+    "Calcular protones, neutrones y electrones de átomos, isótopos e iones a partir de Z y A",
+    "Calcular la masa atómica media a partir de la abundancia de los isótopos",
+    "Escribir configuraciones electrónicas y deducir los electrones de valencia",
+    "Relacionar la configuración con la posición en la tabla periódica y con las propiedades periódicas",
+  ],
+  claves: ["modelo atómico", "protón", "neutrón", "electrón", "número atómico", "número másico", "isótopo", "ion", "configuración electrónica", "electrones de valencia", "tabla periódica", "electronegatividad"],
   pregunta: {
-    texto: "El sodio explota en el agua y el neón no reacciona con nada. Si los dos están hechos de protones, neutrones y electrones, ¿por qué son tan distintos?",
-    respuesta: "Por cómo se colocan sus <mark>electrones más externos</mark>. El neón tiene su última capa llena y está «tranquilo». El sodio tiene un solo electrón suelto en la última capa y lo pierde con muchísima facilidad. La <b>tabla periódica</b> ordena los elementos justo por eso.",
+    texto: "Si un átomo fuera del tamaño de un estadio de fútbol, ¿qué tamaño tendría su núcleo?",
+    respuesta: "¡El de una canica en el centro del campo! El núcleo es unas <mark>100.000 veces más pequeño</mark> que el átomo, pero concentra casi toda su masa. El resto es, sobre todo, espacio vacío por el que se mueven los electrones. Lo descubrió Rutherford en 1911 bombardeando una lámina de oro.",
+  },
+  lectura: {
+    titulo: "La tabla que predijo el futuro",
+    html: `<p>En 1869, el químico ruso Dmitri Mendeléiev escribió en cartulinas los nombres y las propiedades de los 63 elementos conocidos y las ordenó, según cuenta la leyenda, como si fueran cartas de un solitario. Las colocó por orden de masa atómica, pero de forma que los elementos con propiedades parecidas quedaran en la misma columna. Para conseguirlo tuvo que hacer algo atrevido: dejar huecos vacíos. Afirmó que correspondían a elementos todavía desconocidos y predijo cómo serían.</p><p>Al que llamó «eka-aluminio» le asignó una masa de unos 68 y una densidad de 5,9 g/cm³. En 1875 el francés Lecoq de Boisbaudran descubrió el galio: masa 69,7 y densidad 5,9 g/cm³. Después llegaron el escandio y el germanio, también como Mendeléiev había anunciado. La comunidad científica quedó convencida: aquella tabla no era una simple lista, sino que reflejaba algo profundo de la estructura de la materia. Hoy sabemos que ese «algo» es la forma en que se ordenan los electrones alrededor del núcleo. La tabla periódica tiene 118 elementos, cuelga en todos los laboratorios del mundo y sirve para predecir cómo reaccionará un elemento sin haberlo visto nunca. En este tema descubrirás cómo es el átomo por dentro y por qué la tabla tiene la forma que tiene.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Los modelos atómicos</h3><p>La idea del átomo ha ido cambiando con los experimentos. <b>Dalton</b> (1808): esferas macizas indivisibles. <b>Thomson</b> (1897): descubre el electrón, «pudin de pasas». <b>Rutherford</b> (1911): casi todo es vacío, con un <mark>núcleo pequeño y positivo</mark>. <b>Bohr</b> (1913): los electrones giran en <mark>niveles de energía</mark> fijos. Hoy usamos el modelo <b>cuántico</b>: orbitales, zonas donde es probable encontrar al electrón.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cuatro modelos atómicos: Dalton, Thomson, Rutherford y Bohr">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <circle cx="40" cy="80" r="24" fill="var(--muted)"/>
-        <circle cx="103" cy="80" r="24" fill="var(--sun)" opacity=".5"/>${[[-10, -8], [8, -12], [-4, 10], [12, 6], [0, -1]].map(([x, y]) => `<circle cx="${103 + x}" cy="${80 + y}" r="3.5" fill="var(--pen)"/>`).join("")}
-        <circle cx="163" cy="80" r="24" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="3 3"/><circle cx="163" cy="80" r="4" fill="var(--red)"/><circle cx="181" cy="68" r="3" fill="var(--pen)"/><circle cx="150" cy="96" r="3" fill="var(--pen)"/>
-        <circle cx="224" cy="80" r="4" fill="var(--red)"/><circle cx="224" cy="80" r="13" fill="none" stroke="var(--line)" stroke-width="1.5"/><circle cx="224" cy="80" r="24" fill="none" stroke="var(--line)" stroke-width="1.5"/><circle cx="237" cy="80" r="3" fill="var(--pen)"/><circle cx="224" cy="56" r="3" fill="var(--pen)"/>
-        <g ${F} font-size="12" font-weight="700" fill="var(--ink)" text-anchor="middle"><text x="40" y="130">Dalton</text><text x="103" y="130">Thomson</text><text x="163" y="130">Rutherford</text><text x="224" y="130">Bohr</text></g>
-        <g ${F} font-size="11" fill="var(--muted)" text-anchor="middle"><text x="40" y="146">1808</text><text x="103" y="146">1897</text><text x="163" y="146">1911</text><text x="224" y="146">1913</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Partículas y números</h3><p>En el núcleo están los <b>protones</b> (carga +) y los <b>neutrones</b> (sin carga). Alrededor, los <b>electrones</b> (carga −), casi sin masa. El <mark>número atómico Z</mark> es el número de protones y define el elemento. El <mark>número másico A</mark> = protones + neutrones. Átomos del mismo elemento con distinto número de neutrones son <b>isótopos</b>: el carbono-12 y el carbono-14.</p>
-      <div class="formula"><span>A = Z + N</span><span class="op">→</span><span>¹²₆C: 6 p⁺, 6 n, 6 e⁻</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Átomo de carbono 12 con seis protones y seis neutrones en el núcleo y electrones 2 y 4 en las capas">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${bohr(90, 90, [2, 4], "6+")}
-        <g ${F} font-size="13" font-weight="700"><text x="170" y="60" fill="var(--red)">Z = 6</text><text x="170" y="84" fill="var(--ink)">A = 12</text><text x="170" y="108" fill="var(--pen)">6 e⁻</text><text x="170" y="132" fill="var(--muted)">2 ) 4 )</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>La configuración electrónica</h3><p>Los electrones ocupan <b>subniveles</b> (s, p, d, f) en orden de energía creciente, siguiendo el <mark>diagrama de Moeller</mark> (las diagonales). En cada s caben 2, en cada p 6, en cada d 10 y en cada f 14.</p>
-      <div class="formula"><span>Na (Z = 11): 1s² 2s² 2p⁶ <b>3s¹</b></span></div><p>El último nivel ocupado (aquí, el 3) contiene los <b>electrones de valencia</b>, que deciden cómo reacciona el átomo.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de Moeller con las diagonales para ordenar los subniveles">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-size="13" font-weight="700" fill="var(--ink)">
-          ${[["1s"], ["2s", "2p"], ["3s", "3p", "3d"], ["4s", "4p", "4d", "4f"], ["5s", "5p", "5d", "5f"], ["6s", "6p", "6d"], ["7s", "7p"]]
-            .map((fila, i) => fila.map((t, j) => `<text x="${24 + j * 40}" y="${24 + i * 22}">${t}</text>`).join("")).join("")}
-        </g>
-        <g stroke="var(--red)" stroke-width="2" opacity=".6">
-          ${Array.from({ length: 8 }, (_, k) => { const jmax = Math.min(3, Math.floor(k / 2)), i0 = k - jmax; return `<path d="M${46 + jmax * 40} ${12 + i0 * 22} L ${16} ${30 + k * 22}"/>`; }).join("")}
-        </g>
-        <text x="200" y="40" font-size="12" font-weight="700" fill="var(--muted)" ${F}>s: 2</text><text x="200" y="58" font-size="12" font-weight="700" fill="var(--muted)" ${F}>p: 6</text><text x="200" y="76" font-size="12" font-weight="700" fill="var(--muted)" ${F}>d: 10</text><text x="200" y="94" font-size="12" font-weight="700" fill="var(--muted)" ${F}>f: 14</text>
-      </svg>`,
-    },
-    {
-      html: `<h3>La tabla periódica</h3><p>Mendeléiev (1869) ordenó los elementos y dejó huecos para los que faltaban. Hoy se ordenan por <b>Z creciente</b> en <mark>7 periodos</mark> (filas: número de capas) y <mark>18 grupos</mark> (columnas: mismos electrones de valencia y propiedades parecidas). A la izquierda, los <b>metales</b>; a la derecha, los <b>no metales</b>; en la última columna, los <b>gases nobles</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Esquema de la tabla periódica con metales, no metales y gases nobles">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${(() => { let o = ""; const w = 13, x0 = 13, y0 = 20; const cols = [[1, 18], [1, 2, 13, 14, 15, 16, 17, 18], [1, 2, 13, 14, 15, 16, 17, 18]]; for (let p = 1; p <= 7; p++) { const cs = p <= 3 ? cols[p - 1] : Array.from({ length: 18 }, (_, i) => i + 1); for (const g of cs) { const nm = (g >= 14 && g <= 17 && g - 13 >= p - 1) || (p === 1 && g === 1); const c = g === 18 ? "var(--inf)" : nm ? "var(--leaf)" : g <= 2 ? "var(--red)" : g <= 12 ? "var(--sun)" : "var(--pen)"; o += `<rect x="${x0 + (g - 1) * w}" y="${y0 + (p - 1) * w}" width="${w - 2}" height="${w - 2}" rx="2" fill="${c}" opacity=".85"/>`; } } return o; })()}
-        <g ${F} font-size="11" font-weight="700"><rect x="14" y="128" width="10" height="10" fill="var(--red)"/><text x="28" y="137" fill="var(--ink)">alcalinos y alcalinotérreos</text><rect x="14" y="144" width="10" height="10" fill="var(--sun)"/><text x="28" y="153" fill="var(--ink)">metales de transición</text>
-        <rect x="150" y="144" width="10" height="10" fill="var(--leaf)"/><text x="164" y="153" fill="var(--ink)">no metales</text><rect x="150" y="160" width="10" height="10" fill="var(--inf)"/><text x="164" y="169" fill="var(--ink)">gases nobles</text><rect x="14" y="160" width="10" height="10" fill="var(--pen)"/><text x="28" y="169" fill="var(--ink)">otros metales</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Propiedades periódicas</h3><p>Al recorrer la tabla, algunas propiedades cambian con regularidad. El <b>radio atómico</b> <mark>aumenta hacia abajo</mark> (más capas) y <mark>disminuye hacia la derecha</mark> (más protones atraen más). La <b>energía de ionización</b> y la <b>electronegatividad</b> hacen lo contrario: son máximas arriba a la derecha (flúor) y mínimas abajo a la izquierda (cesio, francio).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Flechas: el radio atómico crece hacia abajo y a la izquierda; la electronegatividad crece hacia arriba y a la derecha">
-        <defs><marker id="at1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--red)"/></marker><marker id="at2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--leaf)"/></marker></defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="40" y="30" width="180" height="110" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
-        <path d="M200 50 L 60 120" stroke="var(--red)" stroke-width="4" marker-end="url(#at1)"/>
-        <path d="M60 50 H 200" stroke="var(--leaf)" stroke-width="4" marker-end="url(#at2)"/>
-        <g ${F} font-size="12" font-weight="700"><text x="130" y="160" text-anchor="middle" fill="var(--red)">radio atómico ↙</text><text x="130" y="24" text-anchor="middle" fill="var(--leaf)">electronegatividad →  ↑</text>
-        <circle cx="70" cy="110" r="14" fill="var(--red)" opacity=".4"/><text x="70" y="114" text-anchor="middle" fill="var(--ink)">Cs</text><circle cx="200" cy="66" r="6" fill="var(--leaf)" opacity=".6"/><text x="200" y="90" text-anchor="middle" fill="var(--ink)">F</text></g>
-      </svg>`,
-    },
+    bloque({ h: "1.1 Los primeros modelos atómicos", p: [
+      "La idea de que la materia está formada por partículas indivisibles, los átomos, se remonta a Demócrito, en la Grecia del siglo V a. C., pero era solo una especulación filosófica. En 1808, John Dalton propuso el primer <b>modelo atómico</b> científico para explicar las leyes de las reacciones químicas: los átomos son esferas macizas e indivisibles; los de un mismo elemento son iguales entre sí; y en las reacciones se reorganizan, pero no se crean ni se destruyen.",
+      "En 1897, J. J. Thomson descubrió el <b>electrón</b>, una partícula con carga negativa mucho más ligera que el átomo, y propuso que el átomo era una esfera de carga positiva con los electrones incrustados, como las pasas de un pudin. En 1911, Ernest Rutherford bombardeó una lámina finísima de oro con partículas alfa. La mayoría la atravesaban, pero unas pocas rebotaban. Concluyó que el átomo es casi todo <mark>espacio vacío</mark>, con un <b>núcleo</b> diminuto, positivo y muy denso en el centro, y los electrones girando alrededor, como planetas en torno al Sol: el <b>modelo nuclear</b>.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.2 El modelo de Bohr y el modelo actual", p: [
+      "El modelo de Rutherford tenía un problema: según la física de la época, un electrón que gira debería perder energía y caer al núcleo. En 1913, Niels Bohr propuso que los electrones solo pueden girar en ciertas <mark>órbitas permitidas</mark>, cada una con una energía fija, en las que no pierden energía. Un electrón puede saltar de una órbita a otra absorbiendo o emitiendo una cantidad exacta de energía en forma de luz. Esto explicaba los <b>espectros</b> de los elementos: cada elemento emite unos colores característicos, como el amarillo del sodio de las farolas o el rojo del neón.",
+      "El <b>modelo actual</b>, o mecanocuántico, desarrollado por Schrödinger, Heisenberg y otros en los años veinte, abandona la idea de trayectorias definidas. No se puede saber exactamente dónde está un electrón; solo la probabilidad de encontrarlo en una región del espacio llamada <b>orbital</b>. Los electrones se organizan en <b>niveles de energía</b> (n = 1, 2, 3…) y, dentro de ellos, en <b>subniveles</b> (s, p, d y f). Para la química de este curso, la idea de capas de Bohr sigue siendo muy útil.",
+    ], svg: capas("Átomo de sodio según el modelo de capas: 2 electrones en la primera, 8 en la segunda y 1 en la tercera", "Na", [2, 8, 1], "var(--pen)", "Sodio: 2, 8, 1") }),
+    bloque({ h: "1.3 Partículas subatómicas: Z y A", p: [
+      "El átomo está formado por tres partículas. En el núcleo están los <b>protones</b>, con carga positiva (+1), y los <b>neutrones</b>, sin carga; los dos tienen una masa de aproximadamente 1 u (unidad de masa atómica, 1,66 · 10<sup>−27</sup> kg). En la corteza están los <b>electrones</b>, con carga negativa (−1) y una masa unas 1.840 veces menor que la del protón. Un átomo es <b>neutro</b>: tiene tantos electrones como protones.",
+      "El <mark>número atómico (Z)</mark> es el número de protones del núcleo. Identifica al elemento: todos los átomos con 6 protones son de carbono, y todos los de 8, de oxígeno. El <mark>número másico (A)</mark> es la suma de protones y neutrones. Por tanto, el número de neutrones es N = A − Z. Un átomo se representa con el símbolo del elemento, A arriba a la izquierda y Z abajo a la izquierda: el carbono-12 tiene Z = 6 y A = 12, así que tiene 6 protones, 6 neutrones y 6 electrones. El hierro-56 (Z = 26) tiene 26 protones, 30 neutrones y 26 electrones.",
+    ], extra: formula("N = A − Z"), svg: S.svg[1] }),
+    bloque({ h: "1.4 Los isótopos", p: [
+      "Los <mark>isótopos</mark> son átomos del mismo elemento (mismo Z) con distinto número de neutrones y, por tanto, distinto número másico. Tienen las mismas propiedades químicas, porque estas dependen de los electrones, pero distinta masa. Se nombran con el número másico: carbono-12, carbono-13 y carbono-14. El hidrógeno tiene tres isótopos con nombre propio: el protio (sin neutrones), el deuterio (un neutrón) y el tritio (dos neutrones).",
+      "Algunos isótopos son <b>radiactivos</b>: su núcleo es inestable y se desintegra emitiendo radiación. Tienen muchas aplicaciones. El <b>carbono-14</b> permite datar restos arqueológicos de hasta unos 50.000 años, porque los seres vivos lo incorporan mientras viven y después se desintegra a un ritmo conocido. El <b>yodo-131</b> se usa para diagnosticar y tratar enfermedades del tiroides; el <b>cobalto-60</b>, en radioterapia y para esterilizar material quirúrgico; y el <b>uranio-235</b>, como combustible de las centrales nucleares. Los isótopos radiactivos deben manejarse con protección, porque la radiación puede dañar las células.",
+    ], svg: rejilla("Isótopos del carbono y del hidrógeno con sus protones y neutrones", ["Isótopo", "Protones", "Neutrones"], [["Carbono-12", "6", "6"], ["Carbono-14", "6", "8"], ["Protio (H-1)", "1", "0"], ["Deuterio (H-2)", "1", "1"], ["Tritio (H-3)", "1", "2"]], "var(--leaf)"), video: S.bvideos[0] }),
+    bloque({ h: "1.5 La masa atómica media", p: [
+      "En la naturaleza, la mayoría de los elementos son una mezcla de isótopos en proporciones fijas. Por eso la masa atómica que aparece en la tabla periódica no es un número entero: es la <mark>masa atómica media</mark>, la media ponderada de las masas de los isótopos según su abundancia:",
+      "Por ejemplo, el cloro natural tiene un 75,8 % de cloro-35 y un 24,2 % de cloro-37. Su masa media es (35 · 75,8 + 37 · 24,2) / 100 ≈ 35,5 u, el valor que aparece en la tabla. El carbono, con un 98,9 % de carbono-12, tiene una masa media de 12,01 u. La masa atómica se mide en <b>unidades de masa atómica (u)</b>, definidas como la doceava parte de la masa de un átomo de carbono-12. Se miden con un aparato llamado espectrómetro de masas, que separa los isótopos según su masa. Este concepto será clave en el tema de los cálculos químicos, donde la masa atómica nos permitirá contar átomos pesando.",
+    ], extra: formula("m̄ = (m₁ · %₁ + m₂ · %₂) / 100"), svg: ficha("Cálculo de la masa atómica media del cloro", "Masa media del cloro", ["Cl-35: 75,8 %", "Cl-37: 24,2 %", "(35 · 75,8 + 37 · 24,2) / 100", "= 35,5 u (valor de la tabla)"], "var(--leaf)"), video: { id: "yj95PMPsIFU", titulo: "Masa atómica relativa y abundancia isotópica: ejercicios", canal: "Susi Profe", vistas: 584009 } }),
+    bloque({ h: "1.6 Los iones", p: [
+      "Un átomo puede ganar o perder electrones (nunca protones en una reacción química) y quedar con carga eléctrica: se convierte en un <mark>ion</mark>. Si <b>pierde</b> electrones, queda con más protones que electrones y su carga es positiva: es un <b>catión</b>. Por ejemplo, el sodio (11 protones, 11 electrones) pierde un electrón y forma Na⁺, con 11 protones y 10 electrones. Si <b>gana</b> electrones, su carga es negativa: es un <b>anión</b>. El cloro (17 protones) gana un electrón y forma Cl⁻, con 18 electrones.",
+      "La carga del ion se escribe arriba a la derecha del símbolo: Mg²⁺ ha perdido dos electrones; O²⁻ ha ganado dos. Los metales tienden a formar cationes y los no metales, aniones. Los iones están por todas partes: en la sal común (Na⁺ y Cl⁻), en el agua mineral (Ca²⁺, Mg²⁺, HCO₃⁻), en las bebidas isotónicas, que reponen los iones que perdemos al sudar, y en nuestro sistema nervioso, donde el movimiento de iones de sodio y potasio a través de las membranas transmite los impulsos nerviosos.",
+    ], svg: compara("Diferencias entre catión y anión", ["Catión", ["pierde e⁻", "carga +", "metales", "Na⁺, Mg²⁺"]], ["Anión", ["gana e⁻", "carga −", "no metales", "Cl⁻, O²⁻"]], "var(--red)", "var(--pen)"), video: S.bvideos[1] }),
+    bloque({ h: "2.1 La configuración electrónica", p: [
+      "La <mark>configuración electrónica</mark> indica cómo se distribuyen los electrones de un átomo en niveles y subniveles. Cada subnivel admite un número máximo de electrones: s, 2; p, 6; d, 10; y f, 14. Los electrones ocupan primero los subniveles de menor energía, en un orden que se recuerda con el <b>diagrama de Moeller</b>, siguiendo las diagonales: 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, 5p, 6s…",
+      "Se escribe el nivel, la letra del subnivel y, como superíndice, el número de electrones. Por ejemplo, el oxígeno (Z = 8) es 1s² 2s² 2p⁴; el sodio (Z = 11), 1s² 2s² 2p⁶ 3s¹; y el hierro (Z = 26), 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. Fíjate en que el 4s se llena antes que el 3d, porque tiene menos energía. La suma de los superíndices debe ser igual al número de electrones. Para un ion, se suman o se restan electrones: Na⁺ (10 electrones) es 1s² 2s² 2p⁶, la misma configuración que el neón. En la versión abreviada se usa el gas noble anterior entre corchetes: Na = [Ne] 3s¹.",
+    ], svg: S.svg[2] }),
+    bloque({ h: "2.2 Electrones de valencia y estabilidad", p: [
+      "Los <mark>electrones de valencia</mark> son los del último nivel ocupado, el más externo. Son los responsables del comportamiento químico del elemento, porque son los que intervienen en los enlaces. El sodio tiene 1 electrón de valencia (3s¹); el oxígeno, 6 (2s² 2p⁴); y el cloro, 7 (3s² 3p⁵).",
+      "Los <b>gases nobles</b> (helio, neón, argón…) tienen su última capa completa con 8 electrones (2 el helio) y son muy estables: casi no reaccionan. Los demás átomos tienden a ganar, perder o compartir electrones para conseguir esa misma configuración, la <b>regla del octeto</b>. Por eso el sodio pierde con facilidad su único electrón de valencia y forma Na⁺, y el cloro gana uno y forma Cl⁻: los dos quedan con ocho electrones en la última capa. Conocer los electrones de valencia permite predecir la carga de los iones más comunes: los elementos con 1, 2 o 3 electrones de valencia tienden a perderlos; los que tienen 5, 6 o 7, a ganar los que les faltan para ocho.",
+    ], svg: capas("Átomo de cloro con 2, 8 y 7 electrones: le falta uno para completar el octeto", "Cl", [2, 8, 7], "var(--leaf)", "Cloro: 7 e⁻ de valencia") }),
+    bloque({ h: "3.1 Historia de la tabla periódica", p: [
+      "A principios del siglo XIX se conocían unos 50 elementos y los químicos buscaban la forma de ordenarlos. En 1829, Johann Döbereiner agrupó elementos parecidos de tres en tres, las <b>tríadas</b> (litio, sodio y potasio), y observó que la masa del central era la media de las otras dos. En 1864, John Newlands ordenó los elementos por su masa y vio que las propiedades se repetían cada ocho, como las notas musicales: la <b>ley de las octavas</b>.",
+      "En 1869, Dmitri Mendeléiev publicó su <mark>tabla periódica</mark>: ordenó los elementos por masa atómica creciente, los agrupó en columnas por propiedades parecidas, dejó huecos para elementos desconocidos y predijo sus propiedades. Cuando se descubrieron el galio, el escandio y el germanio, sus predicciones resultaron asombrosamente exactas. Había algunas incoherencias, como el teluro y el yodo, que Mendeléiev colocó en orden inverso a su masa. En 1913, Henry Moseley descubrió que el orden correcto lo da el <b>número atómico</b>, y así se ordena la tabla actual. El elemento 101 se llama mendelevio en su honor.",
+    ], svg: escala("Hitos en la historia de la tabla periódica", "Historia de la tabla periódica", [["Tríadas", "1829", "var(--leaf)"], ["Octavas", "1864", "#b45309"], ["Mendeléiev", "1869", "var(--red)"], ["Moseley", "1913", "var(--pen)"]], "por masa", "por número atómico") }),
+    bloque({ h: "3.2 La estructura de la tabla periódica", p: [
+      "La tabla periódica actual ordena los 118 elementos conocidos por su número atómico creciente. Tiene 18 columnas, llamadas <mark>grupos</mark>, y 7 filas, llamadas <mark>periodos</mark>. Los elementos de un mismo grupo tienen la misma configuración de su capa de valencia y, por eso, propiedades químicas parecidas. El número del periodo coincide con el nivel más externo ocupado: el sodio (…3s¹) está en el periodo 3.",
+      "Algunos grupos tienen nombre propio: el 1, <b>alcalinos</b> (Li, Na, K…, configuración ns¹), muy reactivos; el 2, <b>alcalinotérreos</b> (Be, Mg, Ca…, ns²); el 17, <b>halógenos</b> (F, Cl, Br, I, ns² np⁵); y el 18, <b>gases nobles</b> (ns² np⁶), casi inertes. Los grupos 3 a 12 son los <b>metales de transición</b>, que llenan subniveles d, como el hierro, el cobre o el oro. Las dos filas separadas de abajo son los <b>lantánidos</b> y <b>actínidos</b>, que llenan subniveles f. Así, la tabla se divide en bloques s, p, d y f según el último subnivel que se llena: la posición de un elemento se deduce de su configuración, y al revés.",
+    ], svg: S.svg[3] }),
+    bloque({ h: "3.3 Metales, no metales, semimetales y gases nobles", p: [
+      "Una línea en escalera que va del boro al astato separa los dos grandes tipos de elementos. A la izquierda están los <mark>metales</mark>, que son más de tres cuartas partes: tienen brillo metálico, conducen bien el calor y la electricidad, son dúctiles (se estiran en hilos) y maleables (se extienden en láminas), son sólidos a temperatura ambiente salvo el mercurio, y tienden a perder electrones y formar cationes.",
+      "A la derecha están los <mark>no metales</mark>, como el carbono, el nitrógeno, el oxígeno, el azufre o los halógenos: no tienen brillo, conducen mal el calor y la electricidad, son frágiles si son sólidos y muchos son gases; tienden a ganar electrones y formar aniones. El hidrógeno, aunque está en el grupo 1, es un no metal. Junto a la escalera están los <b>semimetales</b> o metaloides, como el silicio y el germanio, con propiedades intermedias: son semiconductores y son la base de los chips de todos los aparatos electrónicos. Los <b>gases nobles</b> forman un grupo aparte por su estabilidad.",
+    ], svg: compara("Propiedades de los metales y de los no metales", ["Metales", ["brillo", "conducen", "maleables", "forman cationes"]], ["No metales", ["sin brillo", "aislantes", "frágiles o gases", "forman aniones"]], "var(--pen)", "#b45309") }),
+    bloque({ h: "3.4 Propiedades periódicas", p: [
+      "Algunas propiedades de los elementos varían de forma regular a lo largo de la tabla: son las <b>propiedades periódicas</b>. El <mark>radio atómico</mark> (tamaño del átomo) aumenta al bajar en un grupo, porque se añaden capas de electrones, y disminuye al avanzar en un periodo hacia la derecha, porque aumenta la carga del núcleo, que atrae con más fuerza a los electrones de la misma capa. El átomo más grande es el francio y el más pequeño, el helio.",
+      "La <mark>energía de ionización</mark> es la energía necesaria para arrancar un electrón a un átomo; es baja en los metales alcalinos (pierden fácilmente su electrón) y alta en los gases nobles. La <mark>electronegatividad</mark> mide la tendencia de un átomo a atraer los electrones de un enlace; aumenta hacia arriba y hacia la derecha, y el elemento más electronegativo es el flúor. Las dos tienen la tendencia contraria a la del radio. Estas propiedades explican el <b>carácter metálico</b> (mayor abajo a la izquierda) y permitirán predecir en el próximo tema qué tipo de enlace formarán dos elementos.",
+    ], svg: S.svg[4] }),
+    bloque({ h: "3.5 Los elementos de la vida y de la tecnología", p: [
+      "De los 118 elementos, unos 90 se encuentran en la naturaleza. Los seres vivos están formados sobre todo por seis, los <b>bioelementos primarios</b>: carbono, hidrógeno, oxígeno, nitrógeno, fósforo y azufre (CHONPS). En el cuerpo humano, el oxígeno supone un 65 % de la masa (sobre todo en el agua), el carbono un 18 %, el hidrógeno un 10 % y el nitrógeno un 3 %. Otros, como el calcio de los huesos, el hierro de la hemoglobina o el yodo del tiroides, son imprescindibles en cantidades menores: son los <b>oligoelementos</b>.",
+      "La tecnología actual depende de elementos que antes eran curiosidades. Un móvil contiene más de 60: <b>silicio</b> en los chips, <b>litio</b> y <b>cobalto</b> en la batería, <b>indio</b> en la pantalla táctil, <b>oro</b> y <b>cobre</b> en los circuitos y <b>tierras raras</b> como el neodimio en los altavoces y el vibrador. Algunos son escasos o se extraen en condiciones muy duras, como el coltán del Congo. Por eso es tan importante <mark>reciclar los aparatos electrónicos</mark> en los puntos limpios: son auténticas «minas urbanas».",
+    ], svg: barras("Porcentaje en masa de los principales elementos del cuerpo humano", "Elementos del cuerpo humano (%)", [["Oxígeno", 65, "var(--red)", "65 %"], ["Carbono", 18, "var(--ink)", "18 %"], ["Hidrógeno", 10, "var(--pen)", "10 %"], ["Nitrógeno", 3, "var(--leaf)", "3 %"], ["Otros", 4, "var(--muted)", "4 %"]]) }),
   ],
-  figura: {
-    titulo: "De la configuración a la tabla",
-    svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Tres ejemplos: sodio, cloro y neón, con su configuración, grupo y comportamiento">
-      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${[["Na · Z = 11", "1s² 2s² 2p⁶ 3s¹", "grupo 1 · periodo 3", "pierde 1 e⁻ → Na⁺", "var(--red)"], ["Cl · Z = 17", "1s² 2s² 2p⁶ 3s² 3p⁵", "grupo 17 · periodo 3", "gana 1 e⁻ → Cl⁻", "var(--leaf)"], ["Ne · Z = 10", "1s² 2s² 2p⁶", "grupo 18 · periodo 2", "capa llena: estable", "var(--inf)"]]
-        .map(([n, c1, g, r, c], i) => `<rect x="${20 + i * 206}" y="20" width="190" height="180" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
-          <text x="${115 + i * 206}" y="58" text-anchor="middle" font-size="22" font-weight="700" fill="${c}" ${D}>${n}</text>
-          <text x="${115 + i * 206}" y="98" text-anchor="middle" font-size="14" fill="var(--ink)" ${F}>${c1}</text>
-          <text x="${115 + i * 206}" y="130" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" ${F}>${g}</text>
-          <text x="${115 + i * 206}" y="170" text-anchor="middle" font-size="14" fill="var(--muted)" ${F}>${r}</text>`).join("")}
-    </svg>`,
-  },
-  video: { id: "4MMvumKmqs4", titulo: "Propiedades periódicas. Configuración electrónica", canal: "Amigos de la Química", vistas: 6058421, megusta: 0, busqueda: "configuración electrónica sistema periódico" },
-  quiz: [
-    { q: "¿Quién propuso que el átomo tiene un núcleo pequeño y positivo?", o: ["Dalton", "Rutherford", "Thomson"], a: 1, e: "Con su experimento de la lámina de oro, Rutherford vio que casi todo el átomo es vacío y la carga positiva está en el núcleo." },
-    { q: "Un átomo tiene Z = 8 y A = 16. ¿Cuántos neutrones tiene?", o: ["8", "16", "24"], a: 0, e: "N = A − Z = 16 − 8 = 8 neutrones." },
-    { q: "¿Cuál es la configuración electrónica del magnesio (Z = 12)?", o: ["1s² 2s² 2p⁶ 3s²", "1s² 2s² 2p⁸", "1s² 2s² 2p⁶ 3p²"], a: 0, e: "Se llenan 1s, 2s, 2p (10 electrones) y los 2 que faltan van al 3s." },
-    { q: "Los elementos de un mismo grupo…", o: ["tienen el mismo número de capas", "tienen los mismos electrones de valencia y propiedades parecidas", "tienen la misma masa"], a: 1, e: "Las columnas (grupos) reúnen elementos con la misma configuración externa." },
-    { q: "¿Qué elemento tiene mayor radio atómico?", o: ["Flúor", "Potasio", "Neón"], a: 1, e: "El potasio está más abajo (periodo 4) y a la izquierda: más capas y menos atracción del núcleo." },
-  ],
-  examen: [
-    { q: "Los isótopos de un elemento se diferencian en…", o: ["el número de protones", "el número de neutrones", "el número de electrones de valencia"], a: 1, e: "Mismo Z (mismo elemento), distinto número de neutrones y, por tanto, distinto A." },
-    { q: "Un elemento con configuración 1s² 2s² 2p⁶ 3s² 3p⁴ está en…", o: ["periodo 3, grupo 16", "periodo 4, grupo 6", "periodo 3, grupo 4"], a: 0, e: "Última capa n = 3 (periodo 3) con 6 electrones de valencia s² p⁴: grupo 16 (el azufre)." },
-    { q: "¿Por qué los gases nobles casi no reaccionan?", o: ["Porque son muy ligeros", "Porque tienen su última capa completa", "Porque no tienen electrones"], a: 1, e: "Con ocho electrones en la última capa (dos el helio) son muy estables y no necesitan ganar ni perder electrones." },
-  ],
-  feynman: ["Qué aportó cada modelo atómico y qué experimento lo cambió", "Qué son Z, A e isótopo", "Cómo se escribe una configuración electrónica con el diagrama de Moeller", "Qué indican el periodo y el grupo de un elemento", "Por qué el radio atómico crece hacia abajo"],
-  mapa: mapa("EL ÁTOMO", "var(--eso)", [
-    ["Modelos", "Dalton · Thomson · Rutherford · Bohr", "var(--ink)"],
-    ["Partículas", "p⁺ y n en el núcleo · e⁻ fuera", "var(--red)"],
-    ["Configuración", "1s 2s 2p 3s 3p 4s 3d…", "var(--pen)"],
-    ["Tabla periódica", "7 periodos · 18 grupos", "var(--leaf)"],
-  ], 270),
-  tarjetas: [
-    ["¿Qué indica el número atómico Z?", "El número de protones del núcleo. Define de qué elemento se trata."],
-    ["¿Qué son los isótopos?", "Átomos del mismo elemento (mismo Z) con distinto número de neutrones."],
-    ["Orden de llenado de los primeros subniveles", "1s 2s 2p 3s 3p 4s 3d 4p 5s…"],
-    ["Electrones de valencia", "Los del último nivel ocupado. Determinan las propiedades químicas."],
-    ["Tendencia del radio atómico", "Aumenta hacia abajo en un grupo y disminuye hacia la derecha en un periodo."],
-  ],
-  familias: ["Buscad en casa objetos hechos de un solo elemento (aluminio, cobre, carbono del lápiz) y localizadlos en la tabla.", "Pedidle que escriba la configuración electrónica del elemento de su número favorito.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "La materia: modelos atómicos, configuración electrónica, sistema periódico y propiedades de los elementos (RD 217/2022, Física y Química 4º).",
-    ideas: ["Simulación PhET «Construye un átomo» para practicar Z, A e isótopos.", "Jugar a «adivina el elemento» a partir de su configuración.", "Línea del tiempo de modelos atómicos en el aula con el experimento clave de cada uno."],
-  },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Tabla periódica de los elementos, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Tabla_peri%C3%B3dica_de_los_elementos" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Calcular la masa atómica media a partir de los isótopos", "Predecir el ion que forma un elemento a partir de su configuración electrónica"],
-  tras: {
-    "Partículas y números": [
-      { html: `<h3>Isótopos y masa atómica</h3><p>Los <b>isótopos</b> son átomos del mismo elemento (mismo número atómico Z, mismos protones) con <mark>distinto número de neutrones</mark>, y por tanto distinto número másico A. El carbono-12 tiene 6 neutrones y el carbono-14, 8. Se escriben con A arriba a la izquierda del símbolo: ¹²C, ¹⁴C. Todos se comportan igual químicamente, pero algunos son radiactivos y se usan en medicina o para datar fósiles. La <b>masa atómica</b> de la tabla periódica es la <b>media ponderada</b> de las masas de los isótopos según su abundancia en la naturaleza; por eso no es un número entero. Se mide en <b>unidades de masa atómica</b> (u), la doceava parte de la masa del carbono-12.</p>`, video: { id: "kvhqUBZjEnY", titulo: "Isótopos: qué son, tipos y ejemplos", canal: "Susi Profe", vistas: 816401 } },
-      { html: `<h3>Los iones</h3><p>Un átomo es neutro porque tiene tantos electrones como protones. Si <b>gana o pierde electrones</b> se convierte en un <b>ion</b>: si pierde electrones queda con carga positiva y se llama <mark>catión</mark> (Na⁺, Ca²⁺); si gana electrones queda con carga negativa y se llama <mark>anión</mark> (Cl⁻, O²⁻). El número de protones nunca cambia en una reacción química: cambiar los protones sería cambiar de elemento. Para un ion: electrones = Z − carga. Por ejemplo, el Mg²⁺ (Z = 12) tiene 12 protones y 12 − 2 = 10 electrones.</p>`, video: { id: "dLq5HktWK5g", titulo: "Iones: aniones y cationes", canal: "Susi Profe", vistas: 1039910 } },
-    ],
-    "La configuración electrónica": [
-      { html: `<h3>Electrones de valencia y estabilidad</h3><p>Los electrones del último nivel, los <b>electrones de valencia</b>, deciden cómo se comporta un elemento. Los <b>gases nobles</b> tienen su última capa completa (ns² np⁶, ocho electrones; el helio, dos) y casi no reaccionan. Los demás átomos tienden a ganar, perder o compartir electrones para <mark>parecerse al gas noble más cercano</mark>. El sodio (1s² 2s² 2p⁶ 3s¹) pierde su único electrón de valencia y queda como el neón: Na⁺. El cloro (…3s² 3p⁵) gana uno y queda como el argón: Cl⁻. Así, la configuración electrónica permite predecir el ion de cada elemento.</p>${AMP.tabla(["Grupo", "e⁻ de valencia", "Tendencia", "Ion típico"], [["1 (alcalinos)", "1", "pierde 1", "Na⁺, K⁺"], ["2 (alcalinotérreos)", "2", "pierde 2", "Mg²⁺, Ca²⁺"], ["16 (anfígenos)", "6", "gana 2", "O²⁻, S²⁻"], ["17 (halógenos)", "7", "gana 1", "F⁻, Cl⁻"], ["18 (gases nobles)", "8", "estable", "—"]])}` },
-    ],
-    "La tabla periódica": [
-      { html: `<h3>Metales, no metales y semimetales</h3><p>La tabla se divide en tres grandes zonas. Los <b>metales</b>, a la izquierda y en el centro, son la mayoría: brillan, conducen el calor y la electricidad, son dúctiles y maleables y tienden a <mark>perder electrones</mark> y formar cationes. Los <b>no metales</b>, arriba a la derecha (C, N, O, F, P, S, Cl…), no conducen bien, muchos son gases a temperatura ambiente y tienden a <b>ganar electrones</b>. Entre ambos, en escalera, están los <b>semimetales</b> (B, Si, Ge, As…), con propiedades intermedias: el silicio es un semiconductor y es la base de los chips. El hidrógeno es un caso especial: está en el grupo 1 pero es un no metal.</p>` },
-    ],
-  },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Indica protones, neutrones y electrones del ⁵⁶Fe³⁺ (Z = 26).", pasos: ["Protones = Z = 26.", "Neutrones = A − Z = 56 − 26 = 30.", "Electrones: el ion tiene carga +3, ha perdido 3 electrones: 26 − 3 = 23."], resultado: "26 protones, 30 neutrones y 23 electrones." },
-    { enunciado: "El cloro tiene dos isótopos: cloro-35 (75,8 %) y cloro-37 (24,2 %). Calcula su masa atómica media.", pasos: ["La media ponderada multiplica cada masa por su abundancia en tanto por uno.", "35 · 0,758 = 26,53 y 37 · 0,242 = 8,95.", "Se suman: 26,53 + 8,95 = 35,48."], resultado: "Masa atómica del cloro ≈ 35,5 u." },
-    { enunciado: "Escribe la configuración electrónica del azufre (Z = 16), indica su grupo y periodo y el ion que forma.", pasos: ["Se llenan los niveles en el orden del diagrama de Moeller: 1s² 2s² 2p⁶ 3s² 3p⁴ (2 + 2 + 6 + 2 + 4 = 16).", "El último nivel es el 3: periodo 3. Tiene 6 electrones de valencia (3s² 3p⁴): grupo 16.", "Le faltan 2 electrones para tener 8: gana 2."], resultado: "1s² 2s² 2p⁶ 3s² 3p⁴; periodo 3, grupo 16; forma S²⁻." },
+    { enunciado: "Indica protones, neutrones y electrones del aluminio-27 (Z = 13) y del ion Al³⁺.", pasos: ["Protones = Z = 13.", "Neutrones = A − Z = 27 − 13 = 14.", "Átomo neutro: 13 electrones.", "Al³⁺ ha perdido 3 electrones: 10 electrones (13 protones y 14 neutrones, igual)."], resultado: "Al: 13 p, 14 n, 13 e⁻. Al³⁺: 13 p, 14 n, 10 e⁻." },
+    { enunciado: "El cobre tiene dos isótopos: cobre-63 (69,2 %) y cobre-65 (30,8 %). Calcula su masa atómica media.", pasos: ["m̄ = (63 · 69,2 + 65 · 30,8) / 100.", "= (4.359,6 + 2.002) / 100.", "= 63,6 u."], resultado: "63,6 u (en la tabla, 63,55 u)." },
+    { enunciado: "Escribe la configuración electrónica del calcio (Z = 20) y del ion Ca²⁺. ¿Cuántos electrones de valencia tiene el calcio?", pasos: ["Siguiendo Moeller: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s².", "Comprobación: 2 + 2 + 6 + 2 + 6 + 2 = 20.", "Ca²⁺ pierde los dos del 4s: 1s² 2s² 2p⁶ 3s² 3p⁶ (como el argón).", "Electrones de valencia: 2 (4s²)."], resultado: "Ca: [Ar] 4s²; Ca²⁺: [Ar]; 2 electrones de valencia." },
+    { enunciado: "Un elemento tiene la configuración 1s² 2s² 2p⁶ 3s² 3p⁵. Indica su Z, su grupo, su periodo y qué ion tenderá a formar.", pasos: ["Z = 2 + 2 + 6 + 2 + 5 = 17.", "Último nivel: 3 → periodo 3.", "Capa de valencia 3s² 3p⁵ (7 electrones) → grupo 17, halógenos.", "Le falta un electrón para el octeto: forma el anión X⁻."], resultado: "Es el cloro (Z = 17), periodo 3, grupo 17; forma Cl⁻." },
+    { enunciado: "Ordena de menor a mayor radio atómico: K, Na, Mg, Cl.", pasos: ["En un periodo, el radio disminuye hacia la derecha: Na > Mg > Cl (periodo 3).", "En un grupo, aumenta hacia abajo: K (periodo 4) > Na.", "Orden: Cl < Mg < Na < K."], resultado: "Cl < Mg < Na < K." },
+    { enunciado: "Un ion X²⁻ tiene 18 electrones y 16 neutrones. ¿Qué elemento es y cuál es su número másico?", pasos: ["Ha ganado 2 electrones: el átomo neutro tiene 16 electrones.", "Z = 16 → es el azufre (S).", "A = Z + N = 16 + 16 = 32."], resultado: "Es el ion sulfuro, ³²S²⁻." },
   ],
   errores: [
-    "Pensar que un ion positivo ha ganado protones: lo que cambia son los electrones.",
-    "Confundir número atómico (Z, protones) con número másico (A, protones + neutrones).",
-    "Creer que los isótopos son elementos distintos: tienen el mismo Z y son el mismo elemento.",
-    "Llenar los orbitales en orden 3d antes que 4s: el 4s se llena primero.",
-    "Decir que la masa atómica de la tabla es el número másico de un átomo: es una media de isótopos.",
+    "Confundir Z y A: Z es el número de protones; A, la suma de protones y neutrones.",
+    "Pensar que los isótopos tienen distinto número de protones: tienen el mismo Z y distinto número de neutrones.",
+    "Cambiar el número de protones al formar un ion: solo cambia el número de electrones.",
+    "Equivocarse con el signo de los iones: perder electrones da carga positiva, ganarlos da carga negativa.",
+    "Llenar el 3d antes que el 4s: hay que seguir el diagrama de Moeller.",
+    "Pensar que la tabla actual se ordena por masa atómica: se ordena por número atómico.",
   ],
   ejercicios: [
-    { q: "Completa: el ¹⁹F (Z = 9) tiene … protones, … neutrones y … electrones.", sol: "9 protones, 19 − 9 = 10 neutrones y 9 electrones (es neutro)." },
-    { q: "¿Cuántos electrones tienen el O²⁻ (Z = 8) y el Al³⁺ (Z = 13)?", sol: "O²⁻: 8 + 2 = 10 electrones. Al³⁺: 13 − 3 = 10 electrones. Los dos tienen la configuración del neón." },
-    { q: "¿Son isótopos ¹⁴C y ¹⁴N? ¿Por qué?", sol: "No. Tienen el mismo número másico (14) pero distinto Z (6 y 7): son elementos distintos." },
-    { q: "El boro tiene un 20 % de boro-10 y un 80 % de boro-11. Calcula su masa atómica.", sol: "10 · 0,20 + 11 · 0,80 = 2 + 8,8 = 10,8 u." },
-    { q: "Escribe la configuración electrónica del potasio (Z = 19).", sol: "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹. El 4s se llena antes que el 3d." },
-    { q: "Un elemento tiene la configuración 1s² 2s² 2p⁶ 3s² 3p⁵. Indica Z, periodo, grupo y si es metal o no metal.", sol: "Z = 17 (cloro). Periodo 3, grupo 17 (halógenos). Es un no metal; tiende a ganar 1 electrón." },
-    { q: "Ordena de menor a mayor radio atómico: Na, Cl, K.", sol: "Cl < Na < K. En un periodo el radio disminuye hacia la derecha (Cl < Na) y en un grupo aumenta hacia abajo (Na < K)." },
-    { q: "¿Qué tienen en común el Li, el Na y el K? Explícalo con su configuración.", sol: "Están en el grupo 1: todos acaban en ns¹, con 1 electrón de valencia. Por eso reaccionan de forma parecida y forman iones +1." },
-    { q: "¿Qué ventaja tuvo el modelo de Rutherford sobre el de Thomson? ¿Qué problema dejó sin resolver?", sol: "Explicó que la mayor parte del átomo está vacía y que la carga positiva está concentrada en un núcleo pequeño. No explicaba por qué los electrones no caen al núcleo; Bohr lo resolvió con órbitas de energía fija." },
-    { q: "Clasifica como metal, no metal o semimetal: Fe, S, Si, Ca, Br.", sol: "Metales: Fe y Ca. No metales: S y Br. Semimetal: Si." },
+    B("Ordena cronológicamente y describe en una frase los modelos atómicos de Rutherford, Dalton, Bohr y Thomson.", "Dalton (1808): esferas macizas indivisibles. Thomson (1897): esfera positiva con electrones incrustados. Rutherford (1911): núcleo pequeño y positivo con electrones alrededor. Bohr (1913): electrones en órbitas de energía fija."),
+    B("Completa: el protón tiene carga ___ y está en ___; el electrón tiene carga ___ y está en ___; el neutrón no tiene carga y está en ___.", "Positiva, el núcleo; negativa, la corteza; el núcleo."),
+    B("Calcula protones, neutrones y electrones de: a) ¹⁶O (Z = 8); b) ²³Na (Z = 11); c) ⁵⁶Fe (Z = 26).", "a) 8 p, 8 n, 8 e⁻. b) 11 p, 12 n, 11 e⁻. c) 26 p, 30 n, 26 e⁻."),
+    B("¿Qué tienen en común y en qué se diferencian el carbono-12 y el carbono-14?", "Los dos tienen 6 protones y 6 electrones (son carbono). Se diferencian en los neutrones: 6 y 8."),
+    B("Indica protones y electrones de: a) K⁺ (Z = 19); b) S²⁻ (Z = 16); c) Fe³⁺ (Z = 26).", "a) 19 p, 18 e⁻. b) 16 p, 18 e⁻. c) 26 p, 23 e⁻."),
+    B("¿Un catión ha ganado o perdido electrones? ¿Y un anión?", "Un catión ha perdido electrones; un anión los ha ganado."),
+    B("Escribe la configuración electrónica de: a) N (Z = 7); b) Mg (Z = 12); c) Ar (Z = 18).", "a) 1s² 2s² 2p³. b) 1s² 2s² 2p⁶ 3s². c) 1s² 2s² 2p⁶ 3s² 3p⁶."),
+    B("¿Cuántos electrones de valencia tienen el litio, el oxígeno y el neón?", "Li: 1 (2s¹). O: 6 (2s² 2p⁴). Ne: 8 (2s² 2p⁶)."),
+    B("¿Qué son los grupos y los periodos de la tabla periódica?", "Los grupos son las 18 columnas, con elementos de propiedades parecidas. Los periodos son las 7 filas, que coinciden con el último nivel ocupado."),
+    B("Nombra el grupo de: sodio, calcio, cloro y argón.", "Sodio: alcalinos (1). Calcio: alcalinotérreos (2). Cloro: halógenos (17). Argón: gases nobles (18)."),
+    B("Clasifica en metales, no metales o semimetales: hierro, azufre, silicio, oro, oxígeno, sodio.", "Metales: hierro, oro, sodio. No metales: azufre, oxígeno. Semimetal: silicio."),
+    B("¿Qué aportó Mendeléiev a la tabla periódica?", "Ordenó los elementos por masa y por propiedades, dejó huecos para elementos desconocidos y predijo sus propiedades, que se confirmaron después."),
+    M("Completa la tabla: elemento con Z = 15 y A = 31; elemento con 20 protones y 20 neutrones; ion con 12 protones, 12 neutrones y 10 electrones.", "Z = 15, A = 31: fósforo, 15 p, 16 n, 15 e⁻. 20 p y 20 n: calcio-40, Z = 20, A = 40. 12 p, 12 n, 10 e⁻: ion Mg²⁺, A = 24."),
+    M("El litio tiene dos isótopos: litio-6 (7,5 %) y litio-7 (92,5 %). Calcula su masa atómica media.", "(6 · 7,5 + 7 · 92,5) / 100 = (45 + 647,5) / 100 = 6,925 ≈ 6,94 u."),
+    M("El boro tiene una masa media de 10,8 u y dos isótopos, boro-10 y boro-11. Calcula sus abundancias.", "10x + 11(100 − x) = 1.080 → 1.100 − x = 1.080 → x = 20. Boro-10: 20 %; boro-11: 80 %."),
+    M("Escribe la configuración de K (Z = 19) y de Fe (Z = 26). ¿Por qué el 4s se llena antes que el 3d?", "K: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹. Fe: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. El 4s tiene menos energía que el 3d, y los electrones ocupan primero los subniveles de menor energía."),
+    M("Escribe la configuración de O²⁻ y de Na⁺. ¿Qué tienen en común?", "O²⁻ (10 e⁻): 1s² 2s² 2p⁶. Na⁺ (10 e⁻): 1s² 2s² 2p⁶. Tienen la misma configuración que el neón: son isoelectrónicos."),
+    M("Un elemento está en el periodo 4 y en el grupo 2. Escribe su configuración y di de qué elemento se trata.", "Termina en 4s²: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s². Z = 20: es el calcio."),
+    M("Deduce el ion más probable de: Al, N, Mg, F, Li, S.", "Al³⁺, N³⁻, Mg²⁺, F⁻, Li⁺, S²⁻ (todos consiguen la configuración de un gas noble)."),
+    M("Ordena de mayor a menor electronegatividad: Na, F, C, O.", "F > O > C > Na."),
+    M("Ordena de menor a mayor energía de ionización: K, Ne, Mg, Na.", "K < Na < Mg < Ne."),
+    M("¿Por qué el sodio y el potasio tienen propiedades químicas parecidas?", "Porque están en el mismo grupo y tienen la misma configuración de la capa de valencia (ns¹): un solo electrón de valencia que pierden con facilidad."),
+    M("Explica qué observó Rutherford en su experimento y qué conclusiones sacó.", "La mayoría de las partículas alfa atravesaban la lámina de oro sin desviarse (el átomo es casi vacío); algunas se desviaban y muy pocas rebotaban (hay un núcleo pequeño, muy denso y positivo que las repele)."),
+    M("¿Para qué se usa el carbono-14? Explica la idea del método.", "Para datar restos orgánicos. Mientras vive, un ser vivo mantiene constante su proporción de C-14; al morir deja de incorporarlo y el que tiene se desintegra a un ritmo conocido. Midiendo cuánto queda se calcula cuándo murió."),
+    M("Indica el número de electrones de valencia y el grupo de: P (Z = 15), Ca (Z = 20) y Br (Z = 35).", "P: 3s² 3p³, 5 electrones, grupo 15. Ca: 4s², 2 electrones, grupo 2. Br: 4s² 4p⁵, 7 electrones, grupo 17."),
+    M("¿Qué tienen en común Na⁺, Ne y F⁻? Justifícalo con sus configuraciones.", "Los tres tienen 10 electrones y la configuración 1s² 2s² 2p⁶: son isoelectrónicos, aunque tienen distinto número de protones (11, 10 y 9)."),
+    A("El cloro tiene una masa de 35,45 u. Si sus isótopos tienen masas 34,97 u y 36,97 u, calcula sus abundancias.", "34,97x + 36,97(1 − x) = 35,45 → 36,97 − 2x = 35,45 → x = 0,76. Cl-35: 76 %; Cl-37: 24 %."),
+    A("Un ion tripositivo tiene la configuración 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁵ y 30 neutrones. Identifica el elemento y escribe su símbolo completo.", "El ion tiene 23 electrones; el átomo neutro, 26. Z = 26: hierro. A = 26 + 30 = 56. Es ⁵⁶Fe³⁺."),
+    A("Dos elementos, A (Z = 12) y B (Z = 17), se combinan. Escribe sus configuraciones, indica qué iones formarán y la fórmula del compuesto.", "A: 1s² 2s² 2p⁶ 3s² → pierde 2 e⁻: A²⁺ (magnesio). B: 1s² 2s² 2p⁶ 3s² 3p⁵ → gana 1 e⁻: B⁻ (cloro). Para que el compuesto sea neutro: AB₂ = MgCl₂."),
+    A("Calcula cuántas veces es mayor el átomo de hidrógeno (radio ≈ 5 · 10<sup>−11</sup> m) que su núcleo (radio ≈ 1 · 10<sup>−15</sup> m). Si el núcleo fuera una canica de 1 cm, ¿qué radio tendría el átomo?", "5 · 10<sup>−11</sup> / 10<sup>−15</sup> = 5 · 10<sup>4</sup> = 50.000 veces. Con un núcleo de 1 cm de radio, el átomo tendría 500 m de radio."),
+    A("Calcula la masa en kg de un átomo de hierro-56 (1 u = 1,66 · 10<sup>−27</sup> kg) y cuántos átomos hay en un clavo de 2 g.", "m = 56 · 1,66 · 10<sup>−27</sup> ≈ 9,3 · 10<sup>−26</sup> kg. N = 2 · 10<sup>−3</sup> / 9,3 · 10<sup>−26</sup> ≈ 2,2 · 10<sup>22</sup> átomos."),
+    A("Mendeléiev colocó el teluro (masa 127,6) antes que el yodo (126,9), en contra del orden de masas. ¿Por qué lo hizo y cómo se resolvió?", "Porque por sus propiedades el yodo se parecía al cloro y al bromo (halógenos) y el teluro al azufre y al selenio. Moseley demostró que el orden correcto es por número atómico: Te (52) antes que I (53)."),
+    A("El elemento X está en el periodo 3 y forma el ion X²⁻. Escribe su configuración, identifícalo y explica si es metal o no metal y si es más o menos electronegativo que el cloro.", "Si forma X²⁻, tiene 6 electrones de valencia: 3s² 3p⁴ → 1s² 2s² 2p⁶ 3s² 3p⁴, Z = 16, azufre. Es un no metal y es menos electronegativo que el cloro, que está a su derecha en el mismo periodo."),
+    A("¿Por qué los gases nobles casi no reaccionan y los alcalinos son tan reactivos?", "Los gases nobles tienen la capa de valencia completa (octeto), una configuración muy estable con energía de ionización alta. Los alcalinos tienen un solo electrón de valencia, que se pierde con muy poca energía para alcanzar la configuración del gas noble anterior."),
+    A("Explica por qué el radio atómico disminuye al avanzar en un periodo, aunque el número de electrones aumente.", "En un periodo los electrones se añaden a la misma capa, pero cada vez hay más protones en el núcleo; la carga nuclear mayor atrae con más fuerza a los electrones y contrae el átomo."),
+    A("Un isótopo radiactivo tiene un periodo de semidesintegración de 8 días (cada 8 días queda la mitad). Si un paciente recibe 80 mg de yodo-131, ¿cuánto quedará al cabo de 24 días?", "24 días son 3 periodos: 80 → 40 → 20 → 10 mg."),
   ],
   quiz: [
-    { q: "Dos isótopos de un elemento se diferencian en el número de…", o: ["protones", "neutrones", "electrones de valencia"], a: 1, e: "Mismo Z, distinto A." },
-    { q: "Un anión es un átomo que…", o: ["ha ganado electrones", "ha perdido electrones", "ha ganado protones"], a: 0, e: "Queda con carga negativa." },
-    { q: "¿Cuántos electrones de valencia tienen los halógenos?", o: ["1", "7", "8"], a: 1, e: "Acaban en ns² np⁵." },
-    { q: "¿Qué ion forma el calcio (grupo 2)?", o: ["Ca²⁺", "Ca²⁻", "Ca⁺"], a: 0, e: "Pierde sus 2 electrones de valencia." },
-    { q: "El silicio es un…", o: ["metal", "no metal", "semimetal"], a: 2, e: "Semiconductor, base de los chips." },
+    q4("¿Quién descubrió el electrón?", ["Dalton", "Thomson", "Rutherford", "Bohr"], 1, "En 1897, con los rayos catódicos."),
+    q4("El experimento de la lámina de oro demostró que…", ["el átomo es macizo", "el átomo tiene un núcleo pequeño y denso", "no existen los electrones", "los átomos son cubos"], 1, "Rutherford, 1911."),
+    q4("En el modelo de Bohr, los electrones…", ["están quietos", "giran en órbitas de energía fija", "están en el núcleo", "caen al núcleo"], 1, "Órbitas permitidas."),
+    q4("El número atómico Z indica…", ["los neutrones", "los protones", "protones más neutrones", "la masa"], 1, "Identifica al elemento."),
+    q4("Un átomo con Z = 17 y A = 35 tiene…", ["17 neutrones", "18 neutrones", "35 neutrones", "52 neutrones"], 1, "N = 35 − 17."),
+    q4("Los isótopos de un elemento tienen distinto número de…", ["protones", "electrones", "neutrones", "Z"], 2, "Mismo Z, distinto A."),
+    q4("El ion Mg²⁺ (Z = 12) tiene…", ["14 electrones", "12 electrones", "10 electrones", "2 electrones"], 2, "Ha perdido dos."),
+    q4("Un anión es un átomo que…", ["ha perdido electrones", "ha ganado electrones", "ha perdido protones", "ha ganado neutrones"], 1, "Carga negativa."),
+    q4("La configuración 1s² 2s² 2p⁶ 3s¹ corresponde a…", ["Ne", "Na", "Mg", "K"], 1, "Z = 11."),
+    q4("¿Qué subnivel se llena antes?", ["3d", "4s", "4p", "4d"], 1, "4s tiene menos energía que 3d."),
+    q4("El oxígeno (1s² 2s² 2p⁴) tiene … electrones de valencia.", ["2", "4", "6", "8"], 2, "2s² 2p⁴."),
+    q4("La tabla periódica actual se ordena por…", ["masa atómica", "número atómico", "orden alfabético", "fecha de descubrimiento"], 1, "Moseley, 1913."),
+    q4("Los elementos del grupo 17 se llaman…", ["alcalinos", "gases nobles", "halógenos", "metales de transición"], 2, "F, Cl, Br, I."),
+    q4("Un elemento del periodo 3 tiene su último electrón en el nivel…", ["1", "2", "3", "4"], 2, "El periodo coincide con el último nivel."),
+    q4("¿Cuál es un semimetal?", ["Hierro", "Silicio", "Oxígeno", "Sodio"], 1, "Semiconductor de los chips."),
+    q4("El radio atómico aumenta…", ["hacia arriba y a la derecha", "hacia abajo y a la izquierda", "solo hacia la derecha", "no varía"], 1, "Más capas y menos carga efectiva."),
+    q4("El elemento más electronegativo es…", ["el sodio", "el oxígeno", "el flúor", "el helio"], 2, "Arriba a la derecha (sin contar gases nobles)."),
+    q4("La masa atómica del cloro es 35,5 u porque…", ["un átomo tiene medio neutrón", "es la media de sus isótopos", "está mal medida", "pierde electrones"], 1, "Media ponderada."),
+    q4("Los gases nobles son poco reactivos porque…", ["son gases", "tienen la capa de valencia completa", "no tienen electrones", "son muy pesados"], 1, "Octeto completo."),
+    q4("¿Qué isótopo se usa para datar restos arqueológicos?", ["Uranio-235", "Carbono-14", "Cobalto-60", "Yodo-131"], 1, "Datación por radiocarbono."),
   ],
+  examen: [
+    q4("El ⁴⁰Ca (Z = 20) tiene…", ["20 p, 20 n, 20 e⁻", "20 p, 40 n, 20 e⁻", "40 p, 20 n, 40 e⁻", "20 p, 20 n, 18 e⁻"], 0, "N = 40 − 20."),
+    q4("El ion S²⁻ (Z = 16) tiene…", ["14 electrones", "16 electrones", "18 electrones", "32 electrones"], 2, "Ha ganado dos."),
+    q4("Un elemento con isótopos de masa 20 (90 %) y 22 (10 %) tiene masa media…", ["21 u", "20,2 u", "20 u", "22 u"], 1, "(20 · 90 + 22 · 10) / 100."),
+    q4("La configuración del aluminio (Z = 13) es…", ["1s² 2s² 2p⁶ 3s² 3p¹", "1s² 2s² 2p⁶ 3s³", "1s² 2s² 2p⁹", "1s² 2s⁸ 3s³"], 0, "s admite 2 y p, 6."),
+    q4("¿Qué ion tiende a formar el bromo (grupo 17)?", ["Br⁺", "Br⁻", "Br²⁺", "Br²⁻"], 1, "Le falta un electrón."),
+    q4("Un elemento con configuración …4s² 4p⁵ está en el…", ["periodo 4, grupo 17", "periodo 5, grupo 7", "periodo 4, grupo 5", "periodo 2, grupo 17"], 0, "Es el bromo."),
+    q4("Ordena por radio creciente: Na, K, Li.", ["Li < Na < K", "K < Na < Li", "Na < Li < K", "Li < K < Na"], 0, "Crece al bajar en el grupo."),
+    q4("¿Qué característica es propia de los metales?", ["Forman aniones", "Son frágiles", "Conducen la electricidad", "Son casi todos gases"], 2, "Y tienen brillo metálico."),
+  ],
+  feynman: ["Cómo cambió el modelo atómico de Dalton a Bohr y por qué", "Qué indican Z y A y cómo se calculan los neutrones", "Qué es un isótopo y para qué sirve el carbono-14", "Cómo se forma un catión y un anión", "Cómo se escribe una configuración electrónica", "Por qué los elementos de un grupo se parecen"],
+  mapa: S.mapa,
   tarjetas: [
-    ["¿Qué son los isótopos?", "Átomos del mismo elemento con distinto número de neutrones."],
-    ["Catión y anión", "Catión: ion positivo (ha perdido e⁻). Anión: ion negativo (ha ganado e⁻)."],
-    ["Electrones de valencia", "Los del último nivel; deciden cómo reacciona un elemento."],
+    ["Número atómico (Z)", "Número de protones; identifica el elemento."],
+    ["Número másico (A)", "Protones + neutrones."],
+    ["Neutrones", "N = A − Z."],
+    ["Isótopos", "Mismo Z, distinto número de neutrones."],
+    ["Catión y anión", "Catión: pierde electrones (+). Anión: gana electrones (−)."],
+    ["Masa atómica media", "Media ponderada de los isótopos según su abundancia."],
+    ["Capacidad de los subniveles", "s: 2; p: 6; d: 10; f: 14."],
+    ["Orden de llenado (Moeller)", "1s 2s 2p 3s 3p 4s 3d 4p 5s…"],
+    ["Electrones de valencia", "Los del último nivel; determinan las propiedades químicas."],
+    ["Grupos y periodos", "18 grupos (columnas) y 7 periodos (filas)."],
+    ["Radio atómico", "Aumenta hacia abajo y hacia la izquierda."],
+    ["Electronegatividad", "Aumenta hacia arriba y hacia la derecha; máxima en el flúor."],
   ],
-});
+  glosario: [
+    ["Átomo", "Partícula más pequeña de un elemento que conserva sus propiedades."],
+    ["Modelo atómico", "Representación del átomo que explica las observaciones de su época."],
+    ["Núcleo", "Parte central del átomo, con protones y neutrones."],
+    ["Protón", "Partícula del núcleo con carga positiva."],
+    ["Neutrón", "Partícula del núcleo sin carga."],
+    ["Electrón", "Partícula de la corteza con carga negativa."],
+    ["Número atómico", "Número de protones del núcleo."],
+    ["Número másico", "Suma de protones y neutrones."],
+    ["Isótopo", "Átomo de un elemento con distinto número de neutrones."],
+    ["Ion", "Átomo con carga eléctrica por haber ganado o perdido electrones."],
+    ["Orbital", "Región donde es más probable encontrar un electrón."],
+    ["Configuración electrónica", "Distribución de los electrones en niveles y subniveles."],
+    ["Electrones de valencia", "Electrones del último nivel ocupado."],
+    ["Regla del octeto", "Tendencia de los átomos a tener ocho electrones en la última capa."],
+    ["Grupo", "Columna de la tabla periódica con elementos de propiedades parecidas."],
+    ["Periodo", "Fila de la tabla periódica."],
+    ["Electronegatividad", "Tendencia de un átomo a atraer los electrones de un enlace."],
+    ["Energía de ionización", "Energía necesaria para arrancar un electrón a un átomo."],
+  ],
+  situacion: {
+    titulo: "Los elementos de tu móvil",
+    reto: "Una ONG que recoge móviles usados os pide una campaña para el instituto que explique por qué es importante reciclarlos. Debéis investigar qué elementos contienen y dónde están en la tabla periódica.",
+    pasos: [
+      "Investigad qué elementos hay en un móvil (batería, pantalla, chips, altavoz, carcasa) y en qué cantidad aproximada.",
+      "Situadlos en una tabla periódica en blanco con colores según su función y clasificadlos en metales, no metales y semimetales.",
+      "Elegid tres elementos y escribid su configuración electrónica, sus electrones de valencia y el ion que forman.",
+      "Averiguad de dónde se extraen los elementos escasos (litio, cobalto, tierras raras, coltán) y los problemas ambientales y sociales asociados.",
+      "Diseñad un cartel o un vídeo corto para animar a llevar los móviles viejos al punto limpio.",
+    ],
+    producto: "Una tabla periódica ilustrada del móvil y un cartel de campaña de reciclaje.",
+    evaluacion: ["Los elementos están bien situados y clasificados en la tabla.", "Las configuraciones electrónicas y los iones son correctos.", "Se analizan con rigor los problemas de extracción con fuentes fiables.", "La campaña es clara, creativa y promueve un consumo responsable."],
+  },
+  familias: [
+    "Buscad en la etiqueta de un agua mineral qué iones contiene y su carga.",
+    "Mirad juntos una tabla periódica interactiva en internet y buscad los elementos de vuestro nombre.",
+    "Llevad los aparatos electrónicos viejos y las pilas a un punto limpio.",
+    "Repasad las tarjetas del tema y practicad configuraciones con los primeros 20 elementos.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La materia»: modelos atómicos, partículas subatómicas, isótopos e iones, configuración electrónica, sistema periódico y propiedades periódicas, con su desarrollo histórico.`,
+    ideas: [
+      "Ensayos a la llama con sales de litio, sodio, potasio, calcio y cobre para relacionar colores y niveles de energía.",
+      "Simulación «Construye un átomo» de PhET para trabajar Z, A, isótopos e iones.",
+      "Juego de cartas tipo Mendeléiev: ordenar elementos por propiedades y predecir uno que falta.",
+      "Tabla periódica gigante en el pasillo con fichas elaboradas por el alumnado.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    { t: "Tabla periódica de los elementos, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Tabla_peri%C3%B3dica_de_los_elementos" },
+    { t: "Real Sociedad Española de Química", url: "https://rseq.org/" },
+  ],
+  revisado: "2026-11-13",
+};
