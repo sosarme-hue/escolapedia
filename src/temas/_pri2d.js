@@ -98,4 +98,11 @@ const altavoz = (x, y, n = 3, c = "var(--pen)") => `<g transform="translate(${x}
 const cono = (x, y, c = "var(--sun)") => `<path d="M${x - 10} ${y} L${x} ${y - 24} L${x + 10} ${y}z" fill="${c}" stroke="var(--ink)" stroke-width="1"/><rect x="${x - 13}" y="${y - 2}" width="26" height="4" rx="2" fill="${c}"/>`;
 const aro = (x, y, rx = 22, c = "var(--red)") => `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${rx * 0.35}" fill="none" stroke="${c}" stroke-width="4"/>`;
 
-module.exports = { ...D2, V, VID, P, mancha, pincel, marco2, pentagrama, altavoz, cono, aro };
+// Música: figuras rítmicas y una palma.
+const negra = (x, y, c = "var(--pen)") => `<g><ellipse cx="${x}" cy="${y}" rx="8" ry="6" transform="rotate(-20 ${x} ${y})" fill="${c}"/><path d="M${x + 7} ${y - 2} V${y - 36}" stroke="${c}" stroke-width="3"/></g>`;
+const blanca = (x, y, c = "var(--pen)") => `<g><ellipse cx="${x}" cy="${y}" rx="8" ry="6" transform="rotate(-20 ${x} ${y})" fill="var(--card)" stroke="${c}" stroke-width="2.5"/><path d="M${x + 7} ${y - 2} V${y - 36}" stroke="${c}" stroke-width="3"/></g>`;
+const corcheas = (x, y, c = "var(--pen)", sep = 28) => `<g>${negra(x, y, c)}${negra(x + sep, y, c)}<path d="M${x + 7} ${y - 36} H${x + sep + 7}" stroke="${c}" stroke-width="6"/></g>`;
+const silencio = (x, y, c = "var(--pen)") => `<path d="M${x - 4} ${y - 30} l8 10 l-7 8 l8 10 q-10 -4 -8 8 q-10 -10 2 -12 l-6 -8 l7 -8z" fill="${c}"/>`;
+const palma = (x, y, c = "var(--inf)", s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-12 12 q-4 -16 0 -22 v-10 q0 -5 4 -5 q4 0 4 5 v-4 q0 -5 4 -5 q4 0 4 5 v4 q0 -4 4 -4 q4 0 4 5 v18 q0 12 -10 14z" fill="${P.piel}" stroke="${c}" stroke-width="2"/></g>`;
+
+module.exports = { ...D2, V, VID, P, mancha, pincel, marco2, pentagrama, altavoz, cono, aro, negra, blanca, corcheas, silencio, palma };
