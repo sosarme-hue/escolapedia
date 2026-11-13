@@ -188,7 +188,7 @@ module.exports = {
       ${[["Directa", "y / x = k · regla de tres: x = b · c / a", "var(--pen)"], ["Inversa", "x · y = k · regla de tres: x = a · b / c", "var(--red)"], ["Porcentaje", "parte = total · p/100", "var(--leaf)"], ["Variación", "final = inicial · (1 ± p/100) · encadenar: × índices", "var(--inf)"]].map(([n, f, c], i) => `<rect x="20" y="${16 + i * 50}" width="600" height="42" rx="10" fill="var(--card)" stroke="${c}" stroke-width="2.5"/><text x="36" y="${43 + i * 50}" font-size="16" font-weight="700" fill="${c}" ${D}>${n}</text><text x="180" y="${43 + i * 50}" font-size="15" fill="var(--ink)" ${F}>${f}</text>`).join("")}
     </svg>`,
   },
-  video: { id: "jjyJ4p3E4KM", titulo: "Cómo calcular descuentos: ofertas, súper fácil", canal: "Daniel Carreón", vistas: 2632612, megusta: 0, busqueda: "calcular descuentos porcentajes" },
+  video: { id: "8Mlw67gtVdg", titulo: "Porcentajes: aumentos y descuentos sucesivos", canal: "Tu profe en línea", vistas: 467212, megusta: 0, busqueda: "calcular descuentos porcentajes" },
   mapa: mapa("PROPORCIONALIDAD", "var(--leaf)", [
     ["Directa", "y/x = k · recta", "var(--pen)"],
     ["Inversa", "x·y = k · hipérbola", "var(--red)"],

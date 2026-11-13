@@ -73,7 +73,7 @@ function ejes(label, o) {
     g += mx.map((x) => tx(sx(x), ay + 12, x, { fs: 9.5, c: "var(--muted)", w: 400 })).join("");
     g += my.map((y) => tx(ax - 4, sy(y) + 3.5, y, { fs: 9.5, c: "var(--muted)", w: 400, a: "end" })).join("");
   }
-  for (const z of o.zonas || []) g += `<rect x="${sx(z.de).toFixed(1)}" y="${T}" width="${(sx(z.a) - sx(z.de)).toFixed(1)}" height="${B - T}" fill="${z.c}" fill-opacity=".14"/>`;
+  for (const z of o.zonas || []) g += `<path d="M${sx(z.de).toFixed(1)} ${T} H${sx(z.a).toFixed(1)} V${B} H${sx(z.de).toFixed(1)} Z" fill="${z.c}" fill-opacity=".14"/>`;
   for (const cv of o.curvas || []) {
     const de = cv.de ?? x0, a = cv.a ?? x1, n = 120;
     let d = "", pen = false;
