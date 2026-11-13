@@ -2,7 +2,7 @@
 // Matemáticas A (RD 217/2022) trabaja los mismos saberes con un enfoque más aplicado:
 // se reutilizan los dibujos y explicaciones de B, se quitan los bloques más abstractos
 // y se ponen preguntas, ejemplos y vídeos propios, más cercanos a la vida diaria.
-const B = (f) => require(`./eso-4-matb-${f}`);
+const B = (f) => require(`./_matb-base-${f}`); // copia fija: ampliar Matemáticas B no cambia Matemáticas A
 const { mapa, F } = require("./_util");
 
 // Los bloques de B se eligen por el título de su <h3> (no por posición), para que ampliar B no los cambie.

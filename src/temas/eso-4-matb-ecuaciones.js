@@ -1,173 +1,243 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-
-// Parábola y = a(x - r1)(x - r2) dibujada en un marco 260x180 con origen (130, oy).
-function parabola(f, oy = 110, k = 26, c = "var(--pen)") {
-  return `<path d="${[...Array(61)].map((_, i) => { const x = -4.5 + i * 0.15; const y = f(x); return `${i ? "L" : "M"}${(130 + x * k).toFixed(1)} ${Math.max(6, Math.min(176, oy - y * k / 2)).toFixed(1)}`; }).join(" ")}" fill="none" stroke="${c}" stroke-width="3"/>`;
-}
+// Matemáticas B 4º ESO · Tema 4. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, graf, recta } = require("./_eso4L3");
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Ecuaciones",
-  minutos: 45,
-  objetivos: ["Resolver ecuaciones de segundo grado completas e incompletas", "Saber cuántas soluciones tiene una ecuación con el discriminante", "Resolver ecuaciones bicuadradas, racionales e irracionales y comprobar las soluciones"],
-  claves: ["incógnita", "discriminante", "bicuadrada", "cambio de variable", "solución", "comprobación"],
+  minutos: 120,
+  objetivos: [
+    "Resolver ecuaciones de primer grado con paréntesis y denominadores",
+    "Resolver ecuaciones de segundo grado completas e incompletas y discutirlas con el discriminante",
+    "Usar la suma y el producto de las raíces y factorizar para resolver ecuaciones de grado mayor que 2",
+    "Resolver ecuaciones bicuadradas, racionales e irracionales comprobando las soluciones",
+    "Resolver ecuaciones exponenciales y logarítmicas sencillas",
+    "Plantear y resolver problemas con ecuaciones e interpretar las soluciones en su contexto",
+  ],
+  claves: ["incógnita", "ecuaciones equivalentes", "discriminante", "bicuadrada", "cambio de variable", "ecuación racional", "ecuación irracional", "ecuación exponencial", "comprobación"],
+  lectura: {
+    titulo: "Al-Juarismi y el arte de equilibrar",
+    html: `<p>Hacia el año 820, en la Casa de la Sabiduría de Bagdad, el matemático persa Muhammad ibn Musa al-Juarismi escribió un libro con un título curioso: «Compendio sobre el cálculo por restauración y equilibrio». La palabra árabe para «restauración», <i>al-yabr</i>, acabó dando nombre a toda una rama de las matemáticas: el <b>álgebra</b>. Y de su propio nombre deriva la palabra «algoritmo».</p>
+    <p>Al-Juarismi no usaba letras ni símbolos: todo lo escribía con palabras. Un problema típico decía: «un cuadrado y diez raíces son iguales a treinta y nueve unidades». Hoy lo escribimos en una línea, x² + 10x = 39, y lo resolvemos en un minuto. Él lo resolvía completando un cuadrado dibujado, la misma idea que está detrás de la fórmula que vas a usar en este tema. Su método de «restaurar» consistía en pasar los términos restados al otro lado, y el de «equilibrar», en simplificar lo que aparece en ambos lados: exactamente lo que haces tú al despejar.</p>
+    <p>Las ecuaciones son la herramienta para encontrar un número desconocido a partir de las condiciones que cumple. Con ellas se calculan dosis de medicamentos, se diseñan puentes, se fijan precios o se predice cuándo un satélite pasará sobre nuestra cabeza. En este tema ampliarás tu repertorio: ecuaciones con fracciones, con raíces, con la incógnita en el exponente… y, sobre todo, aprenderás a comprobar si las soluciones tienen sentido.</p>`,
+  },
   pregunta: {
     texto: "Un rectángulo mide 3 cm más de largo que de ancho y su área es 40 cm². ¿Cuánto mide el ancho?",
     respuesta: "Si el ancho es x, el área es x(x + 3) = 40, es decir, <mark>x² + 3x − 40 = 0</mark>. Con la fórmula salen x = 5 y x = −8; como una longitud no puede ser negativa, el ancho es <b>5 cm</b>. Comprobar las soluciones en el problema real es parte del método.",
   },
   bloques: [
     {
-      html: `<h3>La fórmula de segundo grado</h3><p>Toda ecuación ax² + bx + c = 0 se resuelve con:</p><div class="formula"><span>x = (−b ± √(b² − 4ac)) / 2a</span></div>
-      <p>En el rectángulo: a = 1, b = 3, c = −40 → x = (−3 ± √169) / 2 = (−3 ± 13) / 2 → <mark>x = 5 o x = −8</mark>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Rectángulo de ancho x y largo x más 3 con área 40">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="50" y="40" width="160" height="100" rx="6" fill="var(--pen)" opacity=".18" stroke="var(--pen)" stroke-width="3"/>
-        <g ${F} font-weight="700" text-anchor="middle"><text x="130" y="98" font-size="20" fill="var(--pen)">A = 40 cm²</text><text x="130" y="30" font-size="15" fill="var(--red)">x + 3</text><text x="34" y="96" font-size="15" fill="var(--leaf)">x</text>
-        <text x="130" y="166" font-size="13" fill="var(--ink)">x(x + 3) = 40</text></g></svg>`,
+      html: `<h3>4.1 Ecuaciones y soluciones</h3><p>Una <b>ecuación</b> es una igualdad entre dos expresiones algebraicas que solo se cumple para algunos valores de las letras, llamadas <b>incógnitas</b>. Esos valores son las <b>soluciones</b> o raíces. Resolver una ecuación es encontrar todas sus soluciones, o demostrar que no tiene. No hay que confundirla con una <b>identidad</b>, que se cumple para cualquier valor, como (x + 1)² = x² + 2x + 1.</p><p>Dos ecuaciones son <b>equivalentes</b> si tienen las mismas soluciones. Para resolver se transforma la ecuación en otras equivalentes cada vez más sencillas, con dos reglas, como en una balanza en equilibrio:</p><ul><li><b>Regla de la suma</b>: se puede sumar o restar la misma expresión a los dos miembros.</li><li><b>Regla del producto</b>: se pueden multiplicar o dividir los dos miembros por un mismo número <mark>distinto de cero</mark>.</li></ul><p>«Pasar un término al otro lado cambiando el signo» es solo un atajo de la regla de la suma. Algunas operaciones, como elevar al cuadrado o multiplicar por una expresión con x, <b>no</b> siempre dan ecuaciones equivalentes y pueden añadir soluciones falsas: por eso, en las ecuaciones racionales e irracionales, comprobar es obligatorio.</p>`,
+      svg: lienzo("Balanza en equilibrio con 2x más 8 en un platillo y 40 en el otro: lo que se hace en un lado se hace en el otro", `<path d="M130 40 V 130 M100 150 H 160 M130 130 L 110 150 M130 130 L 150 150" stroke="var(--ink)" stroke-width="3"/><path d="M30 60 H 230" stroke="var(--ink)" stroke-width="3"/><path d="M30 60 L 14 100 H 86 L 70 60 M190 60 L 174 100 H 246 L 230 60" fill="none" stroke="var(--muted)" stroke-width="2"/>${t(50, 94, "2x + 8", { s: 16, b: 1, c: "var(--pen)" })}${t(210, 94, "40", { s: 16, b: 1, c: "var(--red)" })}${t(130, 28, "lo mismo en los dos lados", { s: 12, c: "var(--muted)" })}${t(130, 172, "2x = 32  →  x = 16", { s: 14, b: 1, c: "var(--leaf)" })}`),
     },
     {
-      html: `<h3>El discriminante</h3><p>El número de dentro de la raíz, <b>Δ = b² − 4ac</b>, dice cuántas soluciones hay sin resolver:</p>
-      <ul><li>Δ &gt; 0 → <mark>dos soluciones</mark> (la parábola corta dos veces el eje)</li><li>Δ = 0 → una solución doble (lo toca)</li><li>Δ &lt; 0 → ninguna solución real (no lo toca)</li></ul>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres parábolas: una corta el eje en dos puntos, otra lo toca en uno y otra no lo toca">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M10 120 H 250" stroke="var(--ink)" stroke-width="2"/>
-        <path d="M14 40 Q 50 224 86 40" fill="none" stroke="var(--leaf)" stroke-width="3"/><path d="M94 40 Q 130 200 166 40" fill="none" stroke="var(--pen)" stroke-width="3"/><path d="M174 30 Q 210 150 246 30" fill="none" stroke="var(--red)" stroke-width="3"/>
-        <g ${F} font-size="12" font-weight="700" text-anchor="middle"><text x="50" y="150" fill="var(--leaf)">Δ &gt; 0</text><text x="50" y="166" fill="var(--leaf)">2 soluciones</text><text x="130" y="150" fill="var(--pen)">Δ = 0</text><text x="130" y="166" fill="var(--pen)">1 doble</text><text x="210" y="150" fill="var(--red)">Δ &lt; 0</text><text x="210" y="166" fill="var(--red)">sin solución</text></g></svg>`,
+      html: `<h3>4.2 Ecuaciones de primer grado</h3><p>Una ecuación de <b>primer grado</b> se puede reducir a la forma ax + b = 0, con a ≠ 0, y tiene una única solución, x = −b/a. Si aparecen paréntesis y denominadores, se sigue este orden:</p><ol><li>Quitar <b>paréntesis</b> aplicando la propiedad distributiva (con cuidado con los signos menos delante).</li><li>Quitar <b>denominadores</b> multiplicando los dos miembros por el m.c.m. de todos ellos.</li><li><b>Agrupar</b> los términos con x en un miembro y los números en el otro.</li><li><b>Reducir</b> y <b>despejar</b> la x.</li><li><b>Comprobar</b> sustituyendo en la ecuación original.</li></ol><p>Ejemplo: (x − 1)/3 − (x + 2)/4 = 1. El m.c.m. es 12: 4(x − 1) − 3(x + 2) = 12, de donde 4x − 4 − 3x − 6 = 12 y <mark>x = 22</mark>. Observa que el signo menos delante de la segunda fracción afecta a todo su numerador; por eso conviene escribirlo entre paréntesis al quitar denominadores. Si al reducir desaparece la x y queda algo como 0 = 5, la ecuación no tiene solución; si queda 0 = 0, es una identidad.</p>`,
+      svg: tarjeta("Pasos para resolver una ecuación de primer grado con denominadores", "(x − 1)/3 − (x + 2)/4 = 1", [["× 12: 4(x − 1) − 3(x + 2) = 12", "var(--pen)", 13], ["4x − 4 − 3x − 6 = 12", "var(--leaf)", 14], ["x − 10 = 12", "var(--inf)", 14], ["x = 22", "var(--red)", 17]]),
     },
     {
-      html: `<h3>Ecuaciones incompletas: sin fórmula</h3><p>Si falta un término, hay atajos:</p>
-      <div class="formula"><span>ax² + bx = 0 → x(ax + b) = 0 → x = 0 o x = −b/a</span></div>
-      <div class="formula"><span>ax² + c = 0 → x² = −c/a → x = ±√(−c/a)</span></div>
-      <p>Ejemplo: 3x² − 12x = 0 → 3x(x − 4) = 0 → <mark>x = 0 o x = 4</mark>. Nunca dividas entre x: perderías la solución x = 0.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Si un producto vale cero, uno de los factores es cero: 3x por x menos 4 igual a cero da x igual 0 o x igual 4">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-weight="700" text-anchor="middle"><text x="130" y="44" font-size="20" fill="var(--ink)"><tspan fill="var(--pen)">3x</tspan> · <tspan fill="var(--red)">(x − 4)</tspan> = 0</text>
-        <path d="M100 56 L 66 100 M160 56 L 194 100" stroke="var(--muted)" stroke-width="2.5"/>
-        <rect x="24" y="104" width="90" height="44" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/><text x="69" y="132" font-size="17" fill="var(--pen)">x = 0</text>
-        <rect x="146" y="104" width="90" height="44" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/><text x="191" y="132" font-size="17" fill="var(--red)">x = 4</text>
-        <text x="130" y="172" font-size="12" fill="var(--muted)">si a · b = 0, entonces a = 0 o b = 0</text></g></svg>`,
+      html: `<h3>4.3 La fórmula de segundo grado</h3><p>Una ecuación de <b>segundo grado</b> tiene la forma general ax² + bx + c = 0, con a ≠ 0. Sus soluciones se obtienen con la fórmula:</p><div class="formula"><span>x = (−b ± √(b² − 4ac)) / 2a</span></div><p>La fórmula sale de <b>completar el cuadrado</b>, la idea de al-Juarismi. Dividiendo entre a y pasando c/a: x² + (b/a)x = −c/a. Sumando (b/2a)² a ambos lados, el primer miembro es un cuadrado perfecto: (x + b/2a)² = (b² − 4ac)/4a². Al hacer la raíz cuadrada y despejar aparece la fórmula.</p><p>Antes de aplicarla, la ecuación debe estar <mark>igualada a cero y ordenada</mark>, y hay que identificar bien a, b y c con sus signos. Para 2x² − 7x + 3 = 0: a = 2, b = −7, c = 3. Entonces x = (7 ± √(49 − 24))/4 = (7 ± 5)/4, es decir, x₁ = 3 y x₂ = 1/2. Si los coeficientes tienen un factor común conviene simplificar primero: 6x² − 12x − 18 = 0 se convierte en x² − 2x − 3 = 0, que da x = 3 y x = −1 con cuentas más pequeñas.</p>`,
+      svg: tarjeta("Fórmula de la ecuación de segundo grado aplicada a 2x cuadrado menos 7x más 3 igual a 0", "x = (−b ± √(b² − 4ac)) / 2a", [["2x² − 7x + 3 = 0", "var(--ink)", 15], ["a = 2, b = −7, c = 3", "var(--muted)", 13, 0], ["x = (7 ± √25) / 4 = (7 ± 5)/4", "var(--pen)", 14], ["x₁ = 3,  x₂ = 1/2", "var(--red)", 16]], "var(--bac)"),
     },
     {
-      html: `<h3>Ecuaciones bicuadradas</h3><p>Tienen la forma ax⁴ + bx² + c = 0. Se hace un <b>cambio de variable</b> <mark>x² = t</mark>, se resuelve la de segundo grado en t y se deshace: x = ±√t.</p><p>x⁴ − 13x² + 36 = 0 → t² − 13t + 36 = 0 → t = 9 o t = 4 → <b>x = ±3, ±2</b>. Hasta cuatro soluciones.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Esquema del cambio de variable: x a la cuarta menos 13 x al cuadrado más 36 pasa a t al cuadrado menos 13t más 36, da t igual 9 y 4, y x igual más menos 3 y más menos 2">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-weight="700" text-anchor="middle">
-          <text x="130" y="34" font-size="15" fill="var(--ink)">x⁴ − 13x² + 36 = 0</text><path d="M130 44 V 60" stroke="var(--leaf)" stroke-width="2.5"/><text x="180" y="57" font-size="12" fill="var(--leaf)">x² = t</text>
-          <text x="130" y="80" font-size="15" fill="var(--leaf)">t² − 13t + 36 = 0</text><path d="M130 90 V 106" stroke="var(--muted)" stroke-width="2.5"/>
-          <text x="130" y="124" font-size="15" fill="var(--pen)">t = 9 · t = 4</text><path d="M130 134 V 148" stroke="var(--red)" stroke-width="2.5"/>
-          <text x="130" y="168" font-size="16" fill="var(--red)">x = ±3 · x = ±2</text></g></svg>`,
+      html: `<h3>4.4 El discriminante</h3><p>La expresión que está dentro de la raíz, <b>Δ = b² − 4ac</b>, se llama <b>discriminante</b> porque permite saber, sin resolver, cuántas soluciones reales tiene la ecuación:</p><ul><li><b>Δ &gt; 0</b>: dos soluciones reales distintas.</li><li><b>Δ = 0</b>: una solución doble, x = −b/2a.</li><li><b>Δ &lt; 0</b>: ninguna solución real, porque no existe la raíz cuadrada de un negativo.</li></ul><p>Gráficamente, las soluciones de ax² + bx + c = 0 son los puntos donde la parábola y = ax² + bx + c <mark>corta al eje X</mark>: dos cortes, un punto de tangencia o ningún corte. El discriminante sirve también para <b>discutir</b> ecuaciones con un parámetro. Por ejemplo, ¿para qué valores de k tiene x² + 6x + k = 0 una solución doble? Δ = 36 − 4k = 0, así que k = 9; y efectivamente x² + 6x + 9 = (x + 3)². Si k &lt; 9 hay dos soluciones y si k &gt; 9, ninguna.</p>`,
+      svg: graf("Tres parábolas: una corta el eje X dos veces (discriminante positivo), otra lo toca en un punto (cero) y otra no lo corta (negativo)", { x0: -4, x1: 4, y0: -3, y1: 5, paso: 1, etiquetas: false }, (E) => `${E.curva((x) => (x + 1.5) ** 2 - 2, "var(--pen)")}${E.curva((x) => (x - 1) ** 2, "var(--leaf)")}${E.curva((x) => (x - 2.6) ** 2 + 1, "var(--red)")}${t(E.X(-1.5), E.Y(4.4), "Δ > 0", { c: "var(--pen)", s: 12, b: 1 })}${t(E.X(0.7), E.Y(3.4), "Δ = 0", { c: "var(--leaf)", s: 12, b: 1 })}${t(E.X(2.6), E.Y(0.2), "Δ < 0", { c: "var(--red)", s: 12, b: 1 })}`),
     },
     {
-      html: `<h3>Racionales e irracionales: ¡comprueba!</h3><p>En las <b>racionales</b> (x en el denominador) se multiplica todo por el mínimo común múltiplo. En las <b>irracionales</b> (x dentro de una raíz) se <mark>aísla la raíz y se eleva al cuadrado</mark>. Ambos pasos pueden crear soluciones falsas, así que <b>siempre hay que comprobar</b> en la ecuación original.</p>
-      <div class="formula"><span>√(x + 7) = x + 1 → x + 7 = x² + 2x + 1 → x = 2 ✓ · x = −3 ✗</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Comprobación: x igual 2 cumple la ecuación y x igual menos 3 no, porque la raíz da 2 y el otro lado da menos 2">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="16" y="30" width="108" height="120" rx="12" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/><rect x="136" y="30" width="108" height="120" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
-        <g ${F} font-weight="700" text-anchor="middle"><text x="70" y="60" font-size="16" fill="var(--leaf)">x = 2</text><text x="70" y="88" font-size="13" fill="var(--ink)">√9 = 3</text><text x="70" y="108" font-size="13" fill="var(--ink)">2 + 1 = 3</text><text x="70" y="136" font-size="22" fill="var(--leaf)">✓</text>
-        <text x="190" y="60" font-size="16" fill="var(--red)">x = −3</text><text x="190" y="88" font-size="13" fill="var(--ink)">√4 = 2</text><text x="190" y="108" font-size="13" fill="var(--ink)">−3 + 1 = −2</text><text x="190" y="136" font-size="22" fill="var(--red)">✗</text></g></svg>`,
+      html: `<h3>4.5 Ecuaciones de segundo grado incompletas</h3><p>Si falta el término en x o el término independiente, la ecuación es <b>incompleta</b> y se resuelve más deprisa sin la fórmula:</p><ul><li><b>Sin término independiente</b>, ax² + bx = 0: se saca x factor común, x(ax + b) = 0. Un producto vale cero si alguno de los factores vale cero, así que x = 0 o x = −b/a. Ejemplo: 3x² − 12x = 0 → 3x(x − 4) = 0 → x = 0, x = 4.</li><li><b>Sin término en x</b>, ax² + c = 0: se despeja x² y se hace la raíz, x = ±√(−c/a). Ejemplo: 2x² − 50 = 0 → x² = 25 → x = ±5. Si −c/a es negativo, no hay solución real: x² + 9 = 0 no tiene soluciones.</li></ul><p>Un error muy frecuente en el primer caso es <mark>dividir entre x</mark> para simplificar: 3x² = 12x → 3x = 12 → x = 4. Así se pierde la solución x = 0. Nunca se divide entre una expresión que puede valer cero. En el segundo caso, el error típico es olvidar el doble signo ±: x² = 25 tiene dos soluciones, 5 y −5.</p>`,
+      svg: tarjeta("Ecuaciones incompletas: sin término independiente se saca factor común; sin término en x se despeja x cuadrado", "Incompletas", [["3x² − 12x = 0", "var(--pen)", 14], ["3x(x − 4) = 0 → x = 0, x = 4", "var(--pen)", 13], ["2x² − 50 = 0", "var(--leaf)", 14], ["x² = 25 → x = ±5", "var(--leaf)", 14]]),
+    },
+    {
+      html: `<h3>4.6 Suma y producto de las soluciones</h3><p>Si x₁ y x₂ son las soluciones de ax² + bx + c = 0, sumando y multiplicando las expresiones de la fórmula se obtienen dos relaciones muy útiles, llamadas <b>fórmulas de Cardano-Vieta</b>:</p><div class="formula"><span>x₁ + x₂ = −b/a     x₁ · x₂ = c/a</span></div><p>Cuando a = 1, la ecuación es x² − Sx + P = 0, donde S es la suma y P el producto. Esto permite <b>resolver de cabeza</b> muchas ecuaciones: en x² − 7x + 10 = 0 buscamos dos números que sumen 7 y multipliquen 10: son 2 y 5. También permite <b>construir</b> una ecuación con soluciones dadas: con soluciones 3 y −4, S = −1 y P = −12, así que la ecuación es x² + x − 12 = 0.</p><p>Además, sirve para <b>factorizar</b>: ax² + bx + c = a(x − x₁)(x − x₂). Y para <mark>comprobar</mark> rápidamente un resultado: si al resolver 2x² − 7x + 3 = 0 obtenemos 3 y 1/2, su suma es 7/2 = −b/a y su producto 3/2 = c/a. Todo cuadra.</p>`,
+      svg: lienzo("Suma y producto: en x cuadrado menos 7x más 10 igual a 0 se buscan dos números que sumen 7 y multipliquen 10, que son 2 y 5", `${t(130, 36, "x² − 7x + 10 = 0", { s: 18, b: 1 })}<rect x="30" y="56" width="90" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><rect x="140" y="56" width="90" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>${t(75, 78, "suman", { s: 11, c: "var(--muted)" })}${t(75, 100, "7", { s: 18, b: 1, c: "var(--pen)" })}${t(185, 78, "multiplican", { s: 11, c: "var(--muted)" })}${t(185, 100, "10", { s: 18, b: 1, c: "var(--red)" })}${t(130, 146, "x₁ = 2,  x₂ = 5", { s: 17, b: 1, c: "var(--leaf)" })}${t(130, 170, "S = −b/a · P = c/a", { s: 11, c: "var(--muted)" })}`),
+    },
+    {
+      html: `<h3>4.7 Ecuaciones de grado mayor que dos</h3><p>No hay una fórmula sencilla para todas las ecuaciones de grado 3 o superior, pero muchas se resuelven <b>factorizando</b>. La clave es la propiedad que ya hemos usado: <mark>un producto es cero si y solo si alguno de sus factores es cero</mark>. Si P(x) = (x − 1)(x + 2)(2x − 5), la ecuación P(x) = 0 tiene soluciones x = 1, x = −2 y x = 5/2.</p><p>El procedimiento es: igualar a cero, factorizar el polinomio (factor común, identidades, Ruffini con los divisores del término independiente y, al final, la fórmula de segundo grado) e igualar a cero cada factor. Por ejemplo, x³ − 2x² − 5x + 6 = 0. Probando divisores de 6, x = 1 funciona: 1 − 2 − 5 + 6 = 0. Ruffini da el cociente x² − x − 6, cuyas raíces son 3 y −2. Soluciones: 1, 3 y −2.</p><p>Un caso frecuente es el de las ecuaciones con factor común: x³ = 4x se convierte en x³ − 4x = 0 → x(x − 2)(x + 2) = 0 → x = 0, 2, −2. Una ecuación de grado n tiene como máximo n soluciones reales, lo que ayuda a saber cuándo hemos terminado.</p>`,
+      svg: graf("La gráfica de x al cubo menos 4x corta el eje X en menos 2, 0 y 2, las soluciones de la ecuación", { x0: -3, x1: 3, y0: -6, y1: 6, paso: 1, pasoY: 2, etiquetas: false }, (E) => `${E.curva((x) => x ** 3 - 4 * x, "var(--pen)")}${[-2, 0, 2].map((r) => E.punto(r, 0, "var(--red)", String(r).replace("-", "−"), r === 0 ? 8 : 0, 16)).join("")}${t(E.X(2.9), E.Y(5), "x³ − 4x", { c: "var(--pen)", s: 12, b: 1, a: "end" })}`),
+    },
+    {
+      html: `<h3>4.8 Ecuaciones bicuadradas</h3><p>Una ecuación <b>bicuadrada</b> tiene la forma ax⁴ + bx² + c = 0: solo aparecen potencias pares de x. Se resuelve con un <b>cambio de variable</b>: llamando z = x², la ecuación se convierte en una de segundo grado, az² + bz + c = 0. Se resuelve en z y después se deshace el cambio: <mark>x = ±√z</mark> para cada valor de z que no sea negativo.</p><p>Ejemplo: x⁴ − 13x² + 36 = 0. Con z = x²: z² − 13z + 36 = 0, que da z = 9 y z = 4. Deshaciendo: x² = 9 → x = ±3; x² = 4 → x = ±2. Hay cuatro soluciones: −3, −2, 2 y 3.</p><p>Una bicuadrada puede tener 4, 3, 2, 1 o ninguna solución real, según los valores de z: cada z positivo da dos soluciones, z = 0 da una (x = 0) y cada z negativo no da ninguna. Por ejemplo, x⁴ + 3x² − 4 = 0 da z = 1 y z = −4; solo sirve z = 1, así que las soluciones son x = ±1. La misma técnica de cambio de variable sirve para otras ecuaciones, como x⁶ − 9x³ + 8 = 0 (con z = x³) o las exponenciales del apartado 4.11.</p>`,
+      svg: lienzo("Cambio de variable en una bicuadrada: z igual a x cuadrado convierte la ecuación en una de segundo grado; luego x es más o menos raíz de z", `${t(130, 32, "x⁴ − 13x² + 36 = 0", { s: 16, b: 1 })}${t(130, 56, "z = x²", { s: 13, b: 1, c: "var(--inf)" })}${t(130, 80, "z² − 13z + 36 = 0", { s: 16, b: 1, c: "var(--pen)" })}<path d="M130 90 L 80 110 M130 90 L 180 110" stroke="var(--muted)" stroke-width="2"/>${t(80, 126, "z = 9", { s: 14, b: 1, c: "var(--pen)" })}${t(180, 126, "z = 4", { s: 14, b: 1, c: "var(--pen)" })}${t(80, 156, "x = ±3", { s: 15, b: 1, c: "var(--red)" })}${t(180, 156, "x = ±2", { s: 15, b: 1, c: "var(--red)" })}`),
+      video: { id: "mwOU-AGJtdY", titulo: "Ecuaciones bicuadradas", canal: "Susi Profe", vistas: 1219028, busqueda: "ecuaciones bicuadradas" },
+    },
+    {
+      html: `<h3>4.9 Ecuaciones racionales</h3><p>Una ecuación <b>racional</b> tiene la incógnita en algún denominador, como 1/x + 1/(x + 2) = 3/4. Se resuelve igual que una con números en los denominadores: se multiplica todo por el <b>m.c.m. de los denominadores</b>, que ahora es un polinomio. Para que sea sencillo, primero se factorizan los denominadores.</p><p>En el ejemplo, el m.c.m. es 4x(x + 2). Multiplicando: 4(x + 2) + 4x = 3x(x + 2), es decir, 8x + 8 = 3x² + 6x, o bien 3x² − 2x − 8 = 0. Las soluciones son x = 2 y x = −4/3.</p><p>Al multiplicar por una expresión que contiene x puede aparecer una <b>solución falsa</b>: un valor que anula algún denominador de la ecuación original. Por eso <mark>siempre hay que comprobar</mark> que las soluciones no anulan ningún denominador. Por ejemplo, en x/(x − 1) = 1/(x − 1), al multiplicar por x − 1 sale x = 1, pero x = 1 anula el denominador: la ecuación no tiene solución. En el ejemplo anterior, ni 2 ni −4/3 anulan x ni x + 2, así que ambas son válidas.</p>`,
+      svg: tarjeta("Ecuación racional: se multiplica por el mínimo común múltiplo de los denominadores y se comprueban las soluciones", "1/x + 1/(x + 2) = 3/4", [["× 4x(x + 2)", "var(--muted)", 13, 0], ["4(x + 2) + 4x = 3x(x + 2)", "var(--pen)", 14], ["3x² − 2x − 8 = 0", "var(--leaf)", 14], ["x = 2, x = −4/3 ✓ (no anulan)", "var(--red)", 14]]),
+      video: { id: "r_EMdz5cNnQ", titulo: "Ecuaciones racionales", canal: "Susi Profe", vistas: 1304047, busqueda: "ecuaciones racionales" },
+    },
+    {
+      html: `<h3>4.10 Ecuaciones irracionales</h3><p>Una ecuación <b>irracional</b> tiene la incógnita dentro de una raíz, como √(x + 7) = x + 1. Se resuelve así:</p><ol><li><b>Aislar</b> la raíz en un miembro.</li><li><b>Elevar al cuadrado</b> los dos miembros para eliminarla.</li><li><b>Resolver</b> la ecuación resultante.</li><li><b>Comprobar</b> todas las soluciones en la ecuación original.</li></ol><p>En el ejemplo, la raíz ya está aislada. Al cuadrado: x + 7 = (x + 1)² = x² + 2x + 1, que da x² + x − 6 = 0, con soluciones x = 2 y x = −3. Comprobamos: para x = 2, √9 = 3 y 2 + 1 = 3, vale. Para x = −3, √4 = 2 pero −3 + 1 = −2: <mark>no vale</mark>.</p><p>¿Por qué aparece una solución falsa? Porque al elevar al cuadrado se pierde el signo: 2 = −2 es falso, pero 2² = (−2)² es cierto. La comprobación no es un paso opcional, es parte de la resolución. Si hay dos raíces, se aísla una, se eleva al cuadrado, se vuelve a aislar la que queda y se eleva otra vez. Recuerda también que (a + b)² no es a² + b²: al elevar x + 1 hay que desarrollar la identidad notable.</p>`,
+      svg: lienzo("Comprobación de una ecuación irracional: x igual a 2 cumple la ecuación y x igual a menos 3 no la cumple, es una solución falsa", `${t(130, 32, "√(x + 7) = x + 1", { s: 17, b: 1 })}<rect x="20" y="56" width="104" height="80" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.5"/><rect x="136" y="56" width="104" height="80" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>${t(72, 78, "x = 2", { s: 14, b: 1, c: "var(--leaf)" })}${t(72, 102, "√9 = 3 = 3", { s: 13, b: 1 })}${t(72, 126, "✓ vale", { s: 13, b: 1, c: "var(--leaf)" })}${t(188, 78, "x = −3", { s: 14, b: 1, c: "var(--red)" })}${t(188, 102, "√4 = 2 ≠ −2", { s: 13, b: 1 })}${t(188, 126, "✗ falsa", { s: 13, b: 1, c: "var(--red)" })}${t(130, 164, "¡comprueba siempre!", { s: 12, c: "var(--muted)" })}`),
+      video: { id: "SF3xUqRHMis", titulo: "Ecuaciones irracionales con radicales en un miembro", canal: "Susi Profe", vistas: 1000092, busqueda: "ecuaciones irracionales" },
+    },
+    {
+      html: `<h3>4.11 Ecuaciones exponenciales</h3><p>En una ecuación <b>exponencial</b> la incógnita está en un exponente, como 2ˣ = 32 o 3ˣ⁺¹ = 81. Hay tres técnicas, según el caso:</p><ul><li><b>Igualar bases</b>: si los dos miembros se pueden escribir como potencias de la misma base, se igualan los exponentes. 3ˣ⁺¹ = 81 = 3⁴ → x + 1 = 4 → x = 3. Y 4ˣ = 8 → 2²ˣ = 2³ → x = 3/2.</li><li><b>Tomar logaritmos</b>: si no hay base común, se aplica el logaritmo a los dos miembros. 5ˣ = 12 → x · log 5 = log 12 → x = log 12 / log 5 ≈ 1,544.</li><li><b>Cambio de variable</b>: si aparecen sumas de potencias. 4ˣ − 6 · 2ˣ + 8 = 0: como 4ˣ = (2ˣ)², con z = 2ˣ queda z² − 6z + 8 = 0, que da z = 2 y z = 4. Deshaciendo: 2ˣ = 2 → x = 1; 2ˣ = 4 → x = 2.</li></ul><p>Recuerda que <mark>aˣ es siempre positivo</mark>: si al hacer el cambio sale z negativo (por ejemplo, 2ˣ = −3), ese valor no da ninguna solución. Estas ecuaciones aparecen en problemas de crecimiento de poblaciones, intereses bancarios o desintegración radiactiva.</p>`,
+      svg: graf("Gráfica de 3 elevado a x más 1 y la recta horizontal 81: se cortan en x igual a 3", { x0: -2, x1: 4, y0: -10, y1: 100, paso: 1, pasoY: 20, etiquetas: false }, (E) => `${E.curva((x) => 3 ** (x + 1), "var(--pen)")}${E.seg(-2, 81, 4, 81, "var(--red)", 2, 'stroke-dasharray="5 4"')}${E.punto(3, 81, "var(--red)", "x = 3", -8, -8)}${t(E.X(-1.8), E.Y(86), "y = 81", { c: "var(--red)", s: 11, b: 1, a: "start" })}${t(E.X(1), E.Y(30), "y = 3ˣ⁺¹", { c: "var(--pen)", s: 12, b: 1, a: "end" })}`),
+      video: { id: "XdaB464Gt4M", titulo: "Ecuaciones exponenciales: introducción", canal: "Matemáticas profe Alex", vistas: 2496710, busqueda: "ecuaciones exponenciales" },
+    },
+    {
+      html: `<h3>4.12 Ecuaciones logarítmicas</h3><p>En una ecuación <b>logarítmica</b> la incógnita aparece dentro de un logaritmo. La estrategia general es usar las propiedades de los logaritmos para dejar <b>un único logaritmo en cada miembro</b> y después igualar los argumentos, porque si log A = log B, entonces A = B. También se puede usar la definición: si log x = 2, entonces x = 10² = 100.</p><p>Ejemplo: log x + log (x − 3) = 1. Agrupamos el primer miembro: log [x(x − 3)] = 1 = log 10. Por tanto, x² − 3x = 10, es decir, x² − 3x − 10 = 0, con soluciones x = 5 y x = −2. Ahora hay que <mark>comprobar</mark> que los argumentos de los logaritmos de la ecuación original son positivos: con x = 5, log 5 + log 2 = log 10 = 1, vale. Con x = −2 aparecería log (−2), que no existe: se descarta.</p><p>Otro ejemplo: 2 log x = log (5x − 6) → log x² = log (5x − 6) → x² − 5x + 6 = 0 → x = 2 o x = 3. Las dos dan argumentos positivos, así que ambas son válidas.</p>`,
+      svg: tarjeta("Ecuación logarítmica: log x más log de x menos 3 igual a 1 da x igual a 5; x igual a menos 2 se descarta", "log x + log (x − 3) = 1", [["log [x(x − 3)] = log 10", "var(--pen)", 14], ["x² − 3x − 10 = 0", "var(--leaf)", 14], ["x = 5 ✓", "var(--leaf)", 15], ["x = −2 ✗ (log de negativo)", "var(--red)", 14]]),
+    },
+    {
+      html: `<h3>4.13 Resolver problemas con ecuaciones</h3><p>Plantear una ecuación es <b>traducir</b> un enunciado al lenguaje algebraico. El matemático George Pólya propuso cuatro fases que funcionan con casi cualquier problema:</p><ol><li><b>Comprender</b>: leer con calma, identificar los datos y lo que se pregunta. Un dibujo o una tabla ayudan mucho.</li><li><b>Plantear</b>: elegir la incógnita (escribiendo qué representa y en qué unidades) y expresar las demás cantidades en función de ella. Buscar la relación de igualdad que dice el enunciado.</li><li><b>Resolver</b> la ecuación.</li><li><b>Revisar</b>: comprobar la solución en el enunciado, no solo en la ecuación, y <mark>descartar las que no tienen sentido</mark>: longitudes negativas, personas decimales, tiempos imposibles.</li></ol><p>Expresiones útiles al traducir: «el doble de un número» es 2x; «dos números consecutivos», x y x + 1; «la edad dentro de 5 años», x + 5; «un número de dos cifras con decenas d y unidades u», 10d + u; «el 15 % de x», 0,15x. Escribe siempre la respuesta con una frase completa y con unidades: el problema no termina en «x = 5».</p>`,
+      svg: lienzo("Las cuatro fases de Pólya para resolver problemas: comprender, plantear, resolver y revisar", `${[["1", "Comprender", "datos · pregunta", "var(--pen)"], ["2", "Plantear", "incógnita · ecuación", "var(--leaf)"], ["3", "Resolver", "operar con orden", "var(--inf)"], ["4", "Revisar", "¿tiene sentido?", "var(--red)"]].map(([n, a, b, c], i) => `<rect x="${i % 2 ? 136 : 14}" y="${i < 2 ? 18 : 98}" width="110" height="66" rx="12" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>${t((i % 2 ? 136 : 14) + 55, (i < 2 ? 18 : 98) + 26, `${n}. ${a}`, { s: 13, b: 1, c })}${t((i % 2 ? 136 : 14) + 55, (i < 2 ? 18 : 98) + 48, b, { s: 10, c: "var(--muted)" })}`).join("")}`),
+    },
+    {
+      html: `<h3>4.14 Problemas típicos resueltos con ecuaciones</h3><p>Algunos tipos de problemas se repiten mucho. Conviene reconocerlos:</p><ul><li><b>Geométricos</b>: un huerto rectangular de 96 m² tiene 4 m más de largo que de ancho. Con ancho x: x(x + 4) = 96 → x² + 4x − 96 = 0 → x = 8 (la otra solución, −12, se descarta). Mide 8 × 12 m.</li><li><b>De trabajo conjunto</b>: un grifo llena un depósito en 6 h y otro en 3 h. En una hora llenan 1/6 + 1/3 = 1/2 del depósito, así que juntos tardan 2 h. En general, si tardan a y b horas, juntos tardan t con 1/a + 1/b = 1/t, una ecuación racional.</li><li><b>De móviles</b>: dos ciclistas salen a la vez de dos pueblos separados 90 km, uno hacia el otro, a 20 y 25 km/h. Se encuentran cuando la suma de distancias es 90: 20t + 25t = 90 → t = 2 h.</li><li><b>De porcentajes</b>: tras una rebaja del 20 %, un abrigo cuesta 96 €. 0,8x = 96 → x = 120 €.</li></ul><p>En todos ellos, el éxito depende de <mark>elegir bien la incógnita</mark> y de escribir con cuidado qué significa cada expresión. Una tabla con «qué sé» y «qué busco» ahorra muchos errores.</p>`,
+      svg: (() => { const r = recta(0, 90, 120, { paso: 15 }); return lienzo("Problema de móviles: dos ciclistas salen de los extremos de un tramo de 90 kilómetros y se encuentran a los 40 kilómetros del primero tras 2 horas", `${r.svg}${t(r.X(0), 96, "🚲 20 km/h", { s: 11, b: 1, c: "var(--pen)", a: "start" })}${t(r.X(90), 96, "25 km/h 🚲", { s: 11, b: 1, c: "var(--red)", a: "end" })}<path d="M${r.X(0)} 110 H ${r.X(40)}" stroke="var(--pen)" stroke-width="5"/><path d="M${r.X(40)} 110 H ${r.X(90)}" stroke="var(--red)" stroke-width="5"/><circle cx="${r.X(40)}" cy="120" r="6" fill="var(--leaf)"/>${t(r.X(40), 60, "encuentro: t = 2 h", { s: 12, b: 1, c: "var(--leaf)" })}${t(130, 30, "20t + 25t = 90", { s: 16, b: 1 })}${t(130, 168, "km", { s: 10, c: "var(--muted)" })}`); })(),
     },
   ],
-  figura: {
-    titulo: "¿Qué tipo de ecuación es? Elige el método",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Guía de métodos: segundo grado completa con fórmula, incompleta sacando factor común o despejando, bicuadrada con cambio de variable, racional con mínimo común múltiplo e irracional elevando al cuadrado y comprobando">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["ax² + bx + c = 0", "fórmula", "var(--pen)"], ["ax² + bx = 0", "factor común", "var(--leaf)"], ["ax⁴ + bx² + c = 0", "x² = t", "var(--inf)"], ["x en el denominador", "m.c.m. y comprobar", "var(--bac)"], ["x dentro de √", "aislar, elevar y comprobar", "var(--red)"]].map(([t, m, c], i) => `<rect x="20" y="${16 + i * 41}" width="600" height="34" rx="10" fill="var(--card)" stroke="${c}" stroke-width="2"/>
-        <text x="40" y="${38 + i * 41}" font-size="16" font-weight="700" fill="${c}" ${F}>${t}</text><text x="330" y="${38 + i * 41}" font-size="15" fill="var(--muted)" ${F}>→</text><text x="360" y="${38 + i * 41}" font-size="16" font-weight="700" fill="var(--ink)" ${F}>${m}</text>`).join("")}
-    </svg>`,
+  ejemplos: [
+    { enunciado: "Resuelve 2(x − 3) − (x + 1)/2 = x/3 + 1.", pasos: ["Quitamos paréntesis: 2x − 6 − (x + 1)/2 = x/3 + 1.", "m.c.m. = 6: 12x − 36 − 3(x + 1) = 2x + 6.", "12x − 36 − 3x − 3 = 2x + 6 → 7x = 45."], resultado: "x = 45/7." },
+    { enunciado: "Resuelve 3x² + 5x − 2 = 0 y factoriza el polinomio.", pasos: ["Δ = 25 + 24 = 49.", "x = (−5 ± 7)/6 → x₁ = 1/3, x₂ = −2.", "Comprobación: suma −5/3 = −b/a; producto −2/3 = c/a.", "Factorización: 3(x − 1/3)(x + 2) = (3x − 1)(x + 2)."], resultado: "x = 1/3 y x = −2; 3x² + 5x − 2 = (3x − 1)(x + 2)." },
+    { enunciado: "Resuelve la bicuadrada 4x⁴ − 17x² + 4 = 0.", pasos: ["z = x²: 4z² − 17z + 4 = 0.", "z = (17 ± √(289 − 64))/8 = (17 ± 15)/8 → z = 4 y z = 1/4.", "x² = 4 → x = ±2; x² = 1/4 → x = ±1/2."], resultado: "x = −2, −1/2, 1/2, 2." },
+    { enunciado: "Resuelve √(2x − 1) + 2 = x.", pasos: ["Aislamos la raíz: √(2x − 1) = x − 2.", "Elevamos al cuadrado: 2x − 1 = x² − 4x + 4 → x² − 6x + 5 = 0 → x = 5, x = 1.", "Comprobamos x = 5: √9 + 2 = 5 ✓. x = 1: √1 + 2 = 3 ≠ 1 ✗."], resultado: "x = 5 (x = 1 es una solución falsa)." },
+    { enunciado: "Resuelve 9ˣ − 4 · 3ˣ + 3 = 0.", pasos: ["9ˣ = (3ˣ)². Cambio z = 3ˣ: z² − 4z + 3 = 0.", "z = 1 o z = 3.", "3ˣ = 1 → x = 0; 3ˣ = 3 → x = 1."], resultado: "x = 0 y x = 1." },
+    { enunciado: "Dos números naturales consecutivos cumplen que la suma de sus cuadrados es 313. ¿Cuáles son?", pasos: ["Números: x y x + 1.", "x² + (x + 1)² = 313 → 2x² + 2x − 312 = 0 → x² + x − 156 = 0.", "x = (−1 ± 25)/2 → x = 12 o x = −13.", "Solo vale x = 12 por ser natural."], resultado: "Los números son 12 y 13 (144 + 169 = 313)." },
+  ],
+  errores: [
+    "Olvidar que el signo menos delante de una fracción afecta a todo su numerador al quitar denominadores.",
+    "Aplicar la fórmula sin igualar antes a cero o equivocarse con el signo de b.",
+    "Dividir entre x en ax² + bx = 0 y perder la solución x = 0.",
+    "Escribir x² = 16 → x = 4, olvidando la solución −4.",
+    "No comprobar las soluciones de las ecuaciones racionales, irracionales y logarítmicas, que pueden ser falsas.",
+    "Elevar al cuadrado mal: (x + 1)² no es x² + 1.",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Resuelve 5(x − 2) − 3(2x + 1) = 4 − x.", sol: "5x − 10 − 6x − 3 = 4 − x → −x − 13 = 4 − x → −13 = 4. Contradicción: la ecuación no tiene solución." },
+    { nivel: "básico", q: "Resuelve x/2 − (x − 1)/3 = 2.", sol: "m.c.m. 6: 3x − 2(x − 1) = 12 → 3x − 2x + 2 = 12 → x = 10." },
+    { nivel: "básico", q: "Resuelve x² − 5x + 6 = 0 con la fórmula y comprueba con suma y producto.", sol: "x = (5 ± √(25 − 24))/2 = (5 ± 1)/2 → 3 y 2. Suma 5 = −b/a; producto 6 = c/a." },
+    { nivel: "básico", q: "Resuelve 2x² + 3x − 2 = 0.", sol: "Δ = 9 + 16 = 25; x = (−3 ± 5)/4 → x = 1/2 y x = −2." },
+    { nivel: "básico", q: "Resuelve las incompletas: 5x² − 20x = 0 y 3x² − 27 = 0.", sol: "5x(x − 4) = 0 → x = 0, x = 4. x² = 9 → x = ±3." },
+    { nivel: "básico", q: "Sin resolver, di cuántas soluciones tienen: x² − 4x + 4 = 0; x² + x + 1 = 0; 2x² − x − 3 = 0.", sol: "Δ = 16 − 16 = 0: una doble. Δ = 1 − 4 = −3 < 0: ninguna. Δ = 1 + 24 = 25 > 0: dos." },
+    { nivel: "básico", q: "Escribe una ecuación de segundo grado cuyas soluciones sean 4 y −3.", sol: "S = 1, P = −12: x² − x − 12 = 0. Comprobación: (x − 4)(x + 3) = x² − x − 12." },
+    { nivel: "básico", q: "Resuelve (x − 2)(x + 5)(3x − 1) = 0.", sol: "Cada factor igual a cero: x = 2, x = −5, x = 1/3." },
+    { nivel: "básico", q: "Resuelve la bicuadrada x⁴ − 10x² + 9 = 0.", sol: "z = x²: z² − 10z + 9 = 0 → z = 9, z = 1 → x = ±3, x = ±1." },
+    { nivel: "básico", q: "Resuelve 2ˣ = 64, 3ˣ⁻¹ = 27 y 5ˣ = 1/25.", sol: "2ˣ = 2⁶ → x = 6. 3ˣ⁻¹ = 3³ → x = 4. 5ˣ = 5⁻² → x = −2." },
+    { nivel: "básico", q: "Resuelve log x = 3 y log₂ x = −1.", sol: "x = 10³ = 1000. x = 2⁻¹ = 1/2." },
+    { nivel: "básico", q: "La suma de tres números consecutivos es 84. ¿Cuáles son?", sol: "x + (x + 1) + (x + 2) = 84 → 3x + 3 = 84 → x = 27. Los números son 27, 28 y 29." },
+    { nivel: "medio", q: "Resuelve (x + 3)²/2 − (x − 1)(x + 1)/3 = (x² + 13)/6 + 3.", sol: "m.c.m. 6: 3(x² + 6x + 9) − 2(x² − 1) = x² + 13 + 18 → 3x² + 18x + 27 − 2x² + 2 = x² + 31 → 18x + 29 = 31 → x = 1/9." },
+    { nivel: "medio", q: "Halla k para que x² − kx + 16 = 0 tenga una solución doble. ¿Cuál es esa solución?", sol: "Δ = k² − 64 = 0 → k = ±8. Con k = 8: (x − 4)² → x = 4. Con k = −8: (x + 4)² → x = −4." },
+    { nivel: "medio", q: "Resuelve x³ − 3x² − 4x + 12 = 0.", sol: "Agrupando: x²(x − 3) − 4(x − 3) = (x − 3)(x² − 4) = (x − 3)(x − 2)(x + 2). Soluciones: 3, 2, −2." },
+    { nivel: "medio", q: "Resuelve 2x³ − 7x² + 3x = 0.", sol: "x(2x² − 7x + 3) = 0 → x = 0 o 2x² − 7x + 3 = 0 → x = (7 ± 5)/4 → 3 y 1/2. Soluciones: 0, 1/2, 3." },
+    { nivel: "medio", q: "Resuelve la bicuadrada x⁴ + 5x² − 36 = 0.", sol: "z² + 5z − 36 = 0 → z = 4 o z = −9. z = −9 no da soluciones reales. x² = 4 → x = ±2." },
+    { nivel: "medio", q: "Resuelve 3/x − 2/(x + 1) = 1/2.", sol: "m.c.m. 2x(x + 1): 6(x + 1) − 4x = x(x + 1) → 2x + 6 = x² + x → x² − x − 6 = 0 → x = 3, x = −2. Ninguna anula denominadores: ambas valen." },
+    { nivel: "medio", q: "Resuelve x/(x − 2) + 2/(x + 2) = 8/(x² − 4).", sol: "m.c.m. (x − 2)(x + 2): x(x + 2) + 2(x − 2) = 8 → x² + 4x − 12 = 0 → x = 2, x = −6. x = 2 anula denominadores: se descarta. Solución: x = −6." },
+    { nivel: "medio", q: "Resuelve √(x + 5) = x − 1.", sol: "x + 5 = x² − 2x + 1 → x² − 3x − 4 = 0 → x = 4, x = −1. Comprobación: x = 4: √9 = 3 ✓. x = −1: √4 = 2 ≠ −2 ✗. Solución x = 4." },
+    { nivel: "medio", q: "Resuelve x − √(x + 1) = 5.", sol: "√(x + 1) = x − 5 → x + 1 = x² − 10x + 25 → x² − 11x + 24 = 0 → x = 8 o x = 3. x = 8: 8 − 3 = 5 ✓. x = 3: 3 − 2 = 1 ≠ 5 ✗. Solución x = 8." },
+    { nivel: "medio", q: "Resuelve 4ˣ⁺¹ = 8ˣ⁻¹.", sol: "2²⁽ˣ⁺¹⁾ = 2³⁽ˣ⁻¹⁾ → 2x + 2 = 3x − 3 → x = 5." },
+    { nivel: "medio", q: "Resuelve 7ˣ = 200 con logaritmos.", sol: "x = log 200 / log 7 ≈ 2,3010 / 0,8451 ≈ 2,72. Estimación: 7² = 49, 7³ = 343, coherente." },
+    { nivel: "medio", q: "Un rectángulo tiene 34 m de perímetro y 60 m² de área. Halla sus dimensiones.", sol: "Largo + ancho = 17. Con ancho x: x(17 − x) = 60 → x² − 17x + 60 = 0 → x = 12 o x = 5. Mide 12 × 5 m." },
+    { nivel: "avanzado", q: "Resuelve √(x + 4) + √(x − 1) = 5.", sol: "√(x + 4) = 5 − √(x − 1). Al cuadrado: x + 4 = 25 − 10√(x − 1) + x − 1 → 10√(x − 1) = 20 → √(x − 1) = 2 → x = 5. Comprobación: √9 + √4 = 5 ✓." },
+    { nivel: "avanzado", q: "Resuelve 2²ˣ − 5 · 2ˣ⁺¹ + 16 = 0.", sol: "2ˣ⁺¹ = 2 · 2ˣ. Con z = 2ˣ: z² − 10z + 16 = 0 → z = 8 o z = 2. 2ˣ = 8 → x = 3; 2ˣ = 2 → x = 1." },
+    { nivel: "avanzado", q: "Resuelve log (x + 6) − log (x − 3) = 1.", sol: "log [(x + 6)/(x − 3)] = log 10 → x + 6 = 10x − 30 → 9x = 36 → x = 4. Argumentos: 10 y 1, positivos ✓." },
+    { nivel: "avanzado", q: "Resuelve 2 log x − log (x + 20) = 1 y comprueba.", sol: "log [x²/(x + 20)] = 1 → x² = 10x + 200 → x² − 10x − 200 = 0 → x = 20 o x = −10. x = −10 da log (−10): se descarta. Solución x = 20 (log 400 − log 40 = log 10 = 1 ✓)." },
+    { nivel: "avanzado", q: "Dos grifos llenan juntos un depósito en 4 horas. Uno solo tarda 6 horas más que el otro. ¿Cuánto tarda cada uno?", sol: "Si el rápido tarda x h: 1/x + 1/(x + 6) = 1/4. m.c.m. 4x(x + 6): 4(x + 6) + 4x = x(x + 6) → x² − 2x − 24 = 0 → x = 6 (−4 no vale). Tardan 6 h y 12 h." },
+    { nivel: "avanzado", q: "Un tren hace 300 km. Si fuera 10 km/h más rápido, tardaría 1 hora menos. ¿A qué velocidad va?", sol: "300/v − 300/(v + 10) = 1 → 300(v + 10) − 300v = v(v + 10) → v² + 10v − 3000 = 0 → v = 50 (−60 no vale). Va a 50 km/h." },
+    { nivel: "avanzado", q: "Halla m para que la ecuación x² − (m + 1)x + m = 0 tenga una solución igual a 3. ¿Cuál es la otra?", sol: "Sustituyendo x = 3: 9 − 3m − 3 + m = 0 → 6 − 2m = 0 → m = 3. Ecuación x² − 4x + 3 = 0: el producto de soluciones es 3, así que la otra es 1." },
+    { nivel: "avanzado", q: "Una población de 2.000 peces disminuye un 15 % cada año. ¿Cuántos años tardará en bajar de 500?", sol: "2000 · 0,85ᵗ < 500 → 0,85ᵗ < 0,25 → t > log 0,25 / log 0,85 ≈ 8,53. A partir del año 9." },
+    { nivel: "avanzado", q: "El número de diagonales de un polígono de n lados es n(n − 3)/2. ¿Qué polígono tiene 35 diagonales?", sol: "n(n − 3) = 70 → n² − 3n − 70 = 0 → n = 10 (o −7, que no vale). Es un decágono." },
+  ],
+  quiz: reparte([
+    { q: "¿Qué es una identidad?", o: ["Una ecuación sin solución", "Una igualdad que se cumple para todo valor", "Una ecuación de grado 1", "Una ecuación con dos incógnitas"], a: 1, e: "Por ejemplo, 2(x + 1) = 2x + 2." },
+    { q: "La solución de 3(x − 1) = x + 5 es…", o: ["x = 2", "x = 4", "x = 3", "x = −4"], a: 1, e: "3x − 3 = x + 5 → 2x = 8." },
+    { q: "En 2x² − x − 6 = 0, el valor de b es…", o: ["2", "−1", "1", "−6"], a: 1, e: "b es el coeficiente de x, con su signo." },
+    { q: "Si Δ < 0, la ecuación de segundo grado…", o: ["tiene dos soluciones", "tiene una solución doble", "no tiene soluciones reales", "tiene infinitas"], a: 2, e: "No hay raíz cuadrada real de un negativo." },
+    { q: "Las soluciones de x² − 9x = 0 son…", o: ["x = 9", "x = 0 y x = 9", "x = ±3", "x = 0 y x = −9"], a: 1, e: "x(x − 9) = 0." },
+    { q: "Las soluciones de 4x² − 1 = 0 son…", o: ["x = ±1/2", "x = ±2", "x = 1/4", "x = ±1/4"], a: 0, e: "x² = 1/4." },
+    { q: "Si x₁ + x₂ = 5 y x₁ · x₂ = 6, la ecuación es…", o: ["x² + 5x + 6 = 0", "x² − 5x + 6 = 0", "x² − 6x + 5 = 0", "x² + 5x − 6 = 0"], a: 1, e: "x² − Sx + P = 0." },
+    { q: "¿Cuántas soluciones reales tiene x⁴ − 16 = 0?", o: ["4", "2", "1", "ninguna"], a: 1, e: "x² = 4 da ±2; x² = −4 no da soluciones." },
+    { q: "Para resolver una bicuadrada se usa…", o: ["el cambio z = x²", "elevar al cuadrado", "logaritmos", "Ruffini obligatoriamente"], a: 0, e: "Se reduce a segundo grado." },
+    { q: "En una ecuación racional hay que comprobar que las soluciones…", o: ["son enteras", "no anulan denominadores", "son positivas", "son menores que 10"], a: 1, e: "Si anulan un denominador, son falsas." },
+    { q: "¿Por qué hay que comprobar en una ecuación irracional?", o: ["Porque al elevar al cuadrado pueden aparecer soluciones falsas", "Porque siempre tiene dos soluciones", "Porque la raíz es negativa", "No hace falta"], a: 0, e: "Se pierde el signo al elevar." },
+    { q: "La solución de √(x − 3) = 4 es…", o: ["x = 7", "x = 19", "x = 1", "x = 13"], a: 1, e: "x − 3 = 16." },
+    { q: "La solución de 2ˣ⁺³ = 16 es…", o: ["x = 1", "x = 4", "x = 13", "x = 2"], a: 0, e: "x + 3 = 4." },
+    { q: "La solución de 10ˣ = 0,001 es…", o: ["x = 3", "x = −3", "x = 0,3", "no tiene"], a: 1, e: "0,001 = 10⁻³." },
+    { q: "La ecuación 3ˣ = −9…", o: ["tiene x = 2", "tiene x = −2", "no tiene solución", "tiene infinitas"], a: 2, e: "Una potencia de base positiva nunca es negativa." },
+    { q: "log x + log 2 = log 10 tiene solución…", o: ["x = 8", "x = 5", "x = 20", "x = 12"], a: 1, e: "log 2x = log 10 → 2x = 10." },
+    { q: "Si 3x² = 12x y divido entre x, pierdo la solución…", o: ["x = 4", "x = 0", "x = 3", "x = 12"], a: 1, e: "Nunca dividas entre algo que puede valer 0." },
+    { q: "«El doble de un número menos 7 es igual al número más 5» se escribe…", o: ["2x − 7 = x + 5", "2(x − 7) = x + 5", "x² − 7 = x + 5", "2x = 7 + x + 5x"], a: 0, e: "Traducción directa." },
+    { q: "Un huerto cuadrado tiene 49 m². Su lado mide…", o: ["7 m", "±7 m", "24,5 m", "−7 m"], a: 0, e: "La solución negativa no tiene sentido para una longitud." },
+    { q: "Dos grifos que tardan 2 h y 2 h llenan juntos el depósito en…", o: ["4 h", "2 h", "1 h", "0,5 h"], a: 2, e: "1/2 + 1/2 = 1 depósito por hora." },
+  ]),
+  examen: reparte([
+    { q: "La ecuación x² + 2x + 5 = 0…", o: ["tiene dos soluciones", "tiene una doble", "no tiene soluciones reales", "tiene x = −1"], a: 2, e: "Δ = 4 − 20 < 0." },
+    { q: "Las soluciones de x⁴ − 5x² + 4 = 0 son…", o: ["±1 y ±2", "1 y 4", "±1", "±2"], a: 0, e: "z = 1 y z = 4." },
+    { q: "La solución de 1/x + 1/(2x) = 3 es…", o: ["x = 1/2", "x = 2", "x = 3/2", "x = 1"], a: 0, e: "3/(2x) = 3 → x = 1/2." },
+    { q: "La solución válida de √(x + 2) = x es…", o: ["x = 2", "x = −1", "x = 2 y x = −1", "ninguna"], a: 0, e: "x = −1 da √1 = 1 ≠ −1." },
+    { q: "La solución de 25ˣ = 125 es…", o: ["x = 3/2", "x = 5", "x = 2/3", "x = 5/2"], a: 0, e: "5²ˣ = 5³." },
+    { q: "La solución de log₃ x = 4 es…", o: ["12", "81", "64", "4/3"], a: 1, e: "x = 3⁴." },
+    { q: "Si una ecuación de segundo grado tiene soluciones 2 y 2/3 y a = 3, es…", o: ["3x² − 8x + 4 = 0", "3x² + 8x + 4 = 0", "3x² − 4x + 8 = 0", "x² − 8x + 4 = 0"], a: 0, e: "3(x − 2)(x − 2/3) = (x − 2)(3x − 2)." },
+    { q: "Las edades de un padre y su hijo suman 50 y el padre tiene 4 veces la edad del hijo. El hijo tiene…", o: ["10 años", "12 años", "8 años", "40 años"], a: 0, e: "x + 4x = 50." },
+  ], 2),
+  feynman: ["Qué son las ecuaciones equivalentes y qué operaciones las conservan", "De dónde sale la fórmula de segundo grado y qué indica el discriminante", "Cómo se resuelve una bicuadrada con un cambio de variable", "Por qué pueden aparecer soluciones falsas y cómo se detectan", "Qué pasos seguir para resolver un problema con una ecuación"],
+  glosario: [
+    ["Ecuación", "Igualdad entre expresiones algebraicas que solo se cumple para algunos valores de la incógnita."],
+    ["Identidad", "Igualdad que se cumple para cualquier valor de las letras."],
+    ["Solución", "Valor de la incógnita que hace cierta la igualdad."],
+    ["Ecuaciones equivalentes", "Las que tienen exactamente las mismas soluciones."],
+    ["Ecuación de segundo grado", "La que se reduce a ax² + bx + c = 0 con a ≠ 0."],
+    ["Discriminante", "Δ = b² − 4ac; indica el número de soluciones reales."],
+    ["Solución doble", "La única solución cuando Δ = 0; la parábola es tangente al eje X."],
+    ["Ecuación incompleta", "Ecuación de segundo grado en la que b = 0 o c = 0."],
+    ["Fórmulas de Cardano-Vieta", "x₁ + x₂ = −b/a y x₁ · x₂ = c/a."],
+    ["Ecuación bicuadrada", "ax⁴ + bx² + c = 0; se resuelve con z = x²."],
+    ["Cambio de variable", "Sustituir una expresión por una nueva letra para simplificar la ecuación."],
+    ["Ecuación racional", "La que tiene la incógnita en algún denominador."],
+    ["Ecuación irracional", "La que tiene la incógnita dentro de una raíz."],
+    ["Ecuación exponencial", "La que tiene la incógnita en un exponente."],
+    ["Ecuación logarítmica", "La que tiene la incógnita dentro de un logaritmo."],
+    ["Solución falsa", "Valor que sale al resolver pero no cumple la ecuación original."],
+  ],
+  situacion: {
+    titulo: "Escape room matemático",
+    reto: "Vuestra clase va a diseñar un escape room para el alumnado de 3.º. Cada sala se abre con un candado de números y el código es la solución de una ecuación escondida en un enigma. El reto es crear cinco enigmas con ecuaciones de distinto tipo, resolverlos, comprobarlos y montar el juego.",
+    pasos: [
+      "Repartid en grupos los tipos de ecuación: segundo grado, bicuadrada, racional, irracional y exponencial.",
+      "Cada grupo inventa un enigma con contexto (un tesoro, una receta, un viaje) cuya solución sea un número natural que sirva de código.",
+      "Resolved vuestra ecuación paso a paso y comprobad que la solución es única o explicad cómo se elige la buena; detectad posibles soluciones falsas.",
+      "Intercambiad los enigmas con otro grupo para que los pruebe y os dé sugerencias de claridad y dificultad.",
+      "Montad el juego con sobres, pistas y una hoja de soluciones para el profesorado.",
+    ],
+    producto: "Un escape room con cinco enigmas, sus soluciones razonadas y una ficha de pistas.",
+    evaluacion: [
+      "Plantea enunciados claros que se traducen correctamente a ecuaciones.",
+      "Resuelve cada tipo de ecuación con el método adecuado y sin errores.",
+      "Comprueba las soluciones y descarta las falsas o sin sentido.",
+      "Coopera en el grupo y comunica los procedimientos con claridad.",
+    ],
   },
-  video: { id: "mwOU-AGJtdY", titulo: "Ecuaciones bicuadradas", canal: "Susi Profe", vistas: 1219028, megusta: 25429, busqueda: "ecuaciones bicuadradas" },
-  quiz: [
-    { q: "¿Cuántas soluciones tiene x² − 6x + 9 = 0?", o: ["Dos", "Una doble", "Ninguna"], a: 1, e: "Δ = 36 − 36 = 0: una solución doble, x = 3." },
-    { q: "Resuelve x² − 5x = 0.", o: ["x = 5", "x = 0 y x = 5", "x = ±√5"], a: 1, e: "x(x − 5) = 0 → x = 0 o x = 5." },
-    { q: "Resuelve 2x² − 18 = 0.", o: ["x = ±3", "x = 9", "x = ±9"], a: 0, e: "x² = 9 → x = ±3." },
-    { q: "En x⁴ − 5x² + 4 = 0, con t = x² salen t = 4 y t = 1. Las soluciones son…", o: ["x = 4 y x = 1", "x = ±2 y x = ±1", "x = 2 y x = 1"], a: 1, e: "Se deshace el cambio: x = ±√4 = ±2 y x = ±√1 = ±1." },
-    { q: "¿Por qué hay que comprobar las soluciones de una ecuación irracional?", o: ["Porque la fórmula falla", "Porque al elevar al cuadrado pueden aparecer soluciones falsas", "No hace falta"], a: 1, e: "Elevar al cuadrado convierte −2 = 2 en 4 = 4: aparecen soluciones que no valen." },
-  ],
-  examen: [
-    { q: "El discriminante de 2x² + 3x + 5 = 0 es…", o: ["−31", "49", "31"], a: 0, e: "Δ = 9 − 40 = −31 < 0: no tiene soluciones reales." },
-    { q: "Resuelve x² + x − 12 = 0.", o: ["x = 3 y x = −4", "x = −3 y x = 4", "x = 12"], a: 0, e: "x = (−1 ± 7) / 2 → 3 y −4." },
-    { q: "Resuelve 6/x = x − 1.", o: ["x = 3 y x = −2", "x = 6", "x = 2 y x = −3"], a: 0, e: "6 = x² − x → x² − x − 6 = 0 → x = 3 o x = −2 (ninguna anula el denominador)." },
-  ],
-  feynman: ["Cómo se usa la fórmula de segundo grado", "Qué dice el discriminante sobre el número de soluciones", "Cómo se resuelve una bicuadrada con cambio de variable", "Por qué hay que comprobar en las irracionales"],
+  figura: require("./_matb-base-ecuaciones").figura,
+  video: { id: "Wj4cHg8oHzI", titulo: "Fórmula general, súper fácil", canal: "Daniel Carreón", vistas: 2079249, busqueda: "ecuaciones de segundo grado fórmula general" },
   mapa: mapa("ECUACIONES", "var(--bac)", [
-    ["2º grado", "x = (−b ± √Δ) / 2a", "var(--pen)"],
-    ["Discriminante", "Δ > 0 · Δ = 0 · Δ < 0", "var(--leaf)"],
-    ["Bicuadradas", "x² = t · hasta 4 soluciones", "var(--inf)"],
-    ["Racionales e irracionales", "m.c.m. o elevar · ¡comprobar!", "var(--red)"],
+    ["1.er y 2.º grado", "x = (−b ± √Δ) / 2a", "var(--pen)"],
+    ["Bicuadradas", "z = x²", "var(--leaf)"],
+    ["Racionales e irracionales", "¡comprobar siempre!", "var(--red)"],
+    ["Exponenciales y log", "igualar bases · log", "var(--inf)"],
   ], 270),
   tarjetas: [
+    ["Ecuaciones equivalentes", "Tienen las mismas soluciones."],
     ["Fórmula de segundo grado", "x = (−b ± √(b² − 4ac)) / 2a"],
-    ["Si Δ < 0…", "la ecuación no tiene soluciones reales."],
-    ["¿Cómo se resuelve ax² + bx = 0?", "Sacando factor común: x = 0 o x = −b/a."],
-    ["Cambio de variable en bicuadradas", "x² = t; al final x = ±√t."],
-    ["¿Qué hacer siempre en una ecuación irracional?", "Comprobar las soluciones en la ecuación original."],
+    ["Δ > 0, Δ = 0, Δ < 0", "Dos soluciones, una doble, ninguna real."],
+    ["ax² + bx = 0", "x(ax + b) = 0 → x = 0, x = −b/a."],
+    ["Suma y producto de raíces", "x₁ + x₂ = −b/a; x₁ · x₂ = c/a."],
+    ["Bicuadrada", "Cambio z = x² y después x = ±√z."],
+    ["Ecuación racional", "Multiplicar por el m.c.m. y descartar los valores que anulan denominadores."],
+    ["Ecuación irracional", "Aislar la raíz, elevar al cuadrado y comprobar."],
+    ["Exponencial con base común", "Se igualan los exponentes."],
+    ["Exponencial sin base común", "Se toman logaritmos: x = log b / log a."],
+    ["Ecuación logarítmica", "Un solo log en cada lado; argumentos positivos."],
+    ["Fases de Pólya", "Comprender, plantear, resolver, revisar."],
   ],
-  familias: ["Inventad juntos un problema de áreas que lleve a una ecuación de segundo grado.", "Pedidle que os explique qué es el discriminante con un dibujo de parábolas.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  familias: ["Inventad juntos un acertijo de edades y resolvedlo con una ecuación.", "Pedidle que os explique por qué hay que comprobar las soluciones de una ecuación con raíces.", "Buscad situaciones cotidianas con ecuaciones: repartir gastos, calcular un precio antes de una rebaja, tiempos de viaje.", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Sentido algebraico: ecuaciones de segundo grado, bicuadradas, racionales e irracionales; modelización de problemas (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["Deducir la fórmula completando el cuadrado con fichas de álgebra.", "GeoGebra: deslizadores para a, b y c y observar el discriminante.", "Problemas de áreas y edades en grupo, con debate sobre qué solución tiene sentido."],
+    saberes: "Sentido algebraico: ecuaciones de primer y segundo grado, bicuadradas, racionales, irracionales, exponenciales y logarítmicas sencillas; resolución de problemas y modelización (RD 217/2022, Matemáticas B de 4º, saberes básicos D. Sentido algebraico).",
+    ideas: ["Completar el cuadrado con piezas de papel para deducir la fórmula como al-Juarismi.", "Comprobar soluciones con GeoGebra cortando gráficas: y = √(x + 7) e y = x + 1.", "Banco de problemas por tipos (geométricos, móviles, grifos) para que el alumnado los clasifique antes de resolverlos.", "Escape room de ecuaciones como situación de aprendizaje."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Ecuación de segundo grado, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Ecuaci%C3%B3n_de_segundo_grado" },
+    { t: "Al-Juarismi, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Al-Juarismi" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Resolver ecuaciones de grado mayor que dos por factorización", "Resolver ecuaciones exponenciales y plantear problemas con ecuaciones"],
-  tras: {
-    "El discriminante": [
-      { html: `<h3>Suma y producto de las soluciones</h3><p>En una ecuación ax² + bx + c = 0 con soluciones x₁ y x₂ se cumple que <mark>x₁ + x₂ = −b/a</mark> y <mark>x₁ · x₂ = c/a</mark>. Esto sirve para comprobar rápidamente las soluciones y para construir una ecuación a partir de ellas: si las soluciones son 2 y 5, la ecuación es x² − 7x + 10 = 0, porque la suma es 7 y el producto 10. También permite factorizar: ax² + bx + c = a(x − x₁)(x − x₂).</p><div class="formula"><span>x² − 7x + 10 = (x − 2)(x − 5)</span></div>` },
-    ],
-    "Ecuaciones bicuadradas": [
-      { html: `<h3>Ecuaciones de grado superior: factorizar</h3><p>Para resolver una ecuación como x³ − 2x² − 5x + 6 = 0 se <b>factoriza</b> el polinomio. Primero se saca factor común si se puede. Después se buscan raíces enteras entre los <b>divisores del término independiente</b> y se aplica la regla de Ruffini; el cociente es un polinomio de un grado menos. Cuando queda una ecuación de segundo grado, se usa la fórmula. Al final se aplica que <mark>un producto es cero si alguno de sus factores es cero</mark>. Una ecuación de grado n tiene como mucho n soluciones.</p>` },
-    ],
-    "Racionales e irracionales: ¡comprueba!": [
-      { html: `<h3>Ecuaciones exponenciales</h3><p>En las <b>ecuaciones exponenciales</b> la incógnita está en el exponente, como 2ˣ = 32. Si se pueden escribir los dos miembros como potencias de la <b>misma base</b>, se igualan los exponentes: 2ˣ = 2⁵, luego x = 5. Si aparecen sumas, como 2ˣ + 2ˣ⁺¹ = 12, se saca factor común 2ˣ(1 + 2) = 12, de donde 2ˣ = 4 y x = 2. A veces hay que hacer un <b>cambio de variable</b> (t = 2ˣ) que lleva a una ecuación de segundo grado. Cuando las bases no se pueden igualar, se toman <mark>logaritmos</mark> en los dos miembros.</p>`, video: { id: "XdaB464Gt4M", titulo: "Ecuaciones exponenciales: introducción", canal: "Matemáticas profe Alex", vistas: 2496710 } },
-      { html: `<h3>Plantear problemas</h3><p>Para resolver un problema con ecuaciones: 1) lee y decide qué es la <b>incógnita</b>; 2) traduce el enunciado a una <b>ecuación</b>; 3) resuélvela; 4) <b>interpreta</b> las soluciones y descarta las que no tienen sentido, como una longitud negativa o un número de personas decimal; 5) comprueba en el enunciado. Muchos problemas de áreas, de números consecutivos o de movimiento llevan a ecuaciones de segundo grado, y es frecuente que <mark>solo una de las dos soluciones</mark> sea válida.</p>` },
-    ],
-  },
-  ejemplos: [
-    { enunciado: "Resuelve x³ − 2x² − 5x + 6 = 0.", pasos: ["Divisores de 6: ±1, ±2, ±3, ±6. Para x = 1: 1 − 2 − 5 + 6 = 0, es raíz.", "Ruffini con 1: cociente x² − x − 6.", "x² − x − 6 = 0 da x = 3 y x = −2."], resultado: "x = 1, x = 3 y x = −2." },
-    { enunciado: "Resuelve 3ˣ⁺¹ = 81.", pasos: ["81 = 3⁴.", "3ˣ⁺¹ = 3⁴, igualamos exponentes: x + 1 = 4.", "x = 3. Comprobación: 3⁴ = 81."], resultado: "x = 3." },
-    { enunciado: "Un rectángulo tiene 3 cm más de largo que de ancho y su área es 40 cm². Halla sus lados.", pasos: ["Ancho x, largo x + 3: x(x + 3) = 40.", "x² + 3x − 40 = 0, con soluciones x = 5 y x = −8.", "Una longitud no puede ser negativa: se descarta −8."], resultado: "5 cm de ancho y 8 cm de largo." },
-  ],
-  errores: [
-    "Dividir los dos miembros entre x y perder la solución x = 0 (en x² = 5x hay que sacar factor común).",
-    "Olvidar el ± al despejar x² = 9, que tiene dos soluciones: 3 y −3.",
-    "En las bicuadradas, no deshacer el cambio t = x² o aceptar valores de t negativos.",
-    "No comprobar las soluciones de las ecuaciones con radicales o con x en el denominador.",
-    "Igualar exponentes cuando las bases no son iguales.",
-    "Dar como válidas soluciones sin sentido en el problema (longitudes negativas).",
-  ],
-  ejercicios: [
-    { q: "Resuelve x² − 5x + 6 = 0.", sol: "x = 2 y x = 3." },
-    { q: "Sin resolver, ¿cuántas soluciones tiene 2x² + 3x + 5 = 0?", sol: "Δ = 9 − 40 = −31 < 0: ninguna solución real." },
-    { q: "Resuelve 4x² − 9 = 0 y 3x² + 12x = 0.", sol: "x = ±3/2; x = 0 y x = −4." },
-    { q: "Escribe una ecuación de segundo grado cuyas soluciones sean −1 y 4.", sol: "x² − 3x − 4 = 0." },
-    { q: "Resuelve x⁴ − 10x² + 9 = 0.", sol: "t = x²: t = 1 y t = 9; x = ±1 y x = ±3." },
-    { q: "Resuelve x³ − 4x = 0.", sol: "x(x² − 4) = 0: x = 0, x = 2 y x = −2." },
-    { q: "Resuelve √(x + 7) = x + 1.", sol: "x + 7 = x² + 2x + 1, x² + x − 6 = 0: x = 2 o x = −3. Al comprobar, solo vale x = 2." },
-    { q: "Resuelve 5²ˣ⁻¹ = 125.", sol: "2x − 1 = 3, x = 2." },
-    { q: "Resuelve 2ˣ + 2ˣ⁺² = 40.", sol: "2ˣ(1 + 4) = 40, 2ˣ = 8, x = 3." },
-    { q: "La suma de los cuadrados de dos números consecutivos es 145. ¿Cuáles son?", sol: "x² + (x + 1)² = 145, x² + x − 72 = 0: x = 8 o x = −9. Son 8 y 9, o −9 y −8." },
-  ],
-  quiz: [
-    { q: "En ax² + bx + c = 0, la suma de las soluciones es…", o: ["−b/a", "c/a", "b/a"], a: 0, e: "Y el producto, c/a." },
-    { q: "Las posibles raíces enteras de un polinomio son divisores de…", o: ["el coeficiente principal", "el término independiente", "el grado"], a: 1, e: "Se prueban con Ruffini." },
-    { q: "La solución de 2ˣ = 16 es…", o: ["8", "4", "2"], a: 1, e: "2⁴ = 16." },
-    { q: "Una ecuación de grado 3 tiene como mucho…", o: ["2 soluciones", "3 soluciones", "infinitas"], a: 1, e: "Tantas como su grado." },
-    { q: "En un problema, una solución x = −4 cm se…", o: ["acepta", "descarta", "redondea"], a: 1, e: "Una longitud no es negativa." },
-  ],
-  tarjetas: [
-    ["Suma y producto de raíces", "x₁ + x₂ = −b/a; x₁ · x₂ = c/a."],
-    ["Ecuación exponencial", "La incógnita está en el exponente; se igualan bases o se usan logaritmos."],
-    ["Producto nulo", "Si A · B = 0, entonces A = 0 o B = 0."],
-  ],
-});

@@ -1,176 +1,252 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
+// Matemáticas B 4º ESO · Tema 3. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, graf, num } = require("./_eso4L3");
+
+// Tabla de Ruffini dibujada: coeficientes c y raíz r.
+function ruffini(aria, c, r, pie) {
+  const fila2 = [""], fila3 = [c[0]];
+  for (let i = 1; i < c.length; i++) { const p = fila3[i - 1] * r; fila2.push(p); fila3.push(c[i] + p); }
+  const w = 200 / c.length, x = (i) => 50 + i * w + w / 2;
+  const cel = (v, i, y, col) => (v === "" ? "" : t(x(i), y, num(v), { s: 14, b: 1, c: col }));
+  return lienzo(aria, `${c.map((v, i) => cel(v, i, 50, "var(--ink)")).join("")}${t(30, 84, num(r), { s: 15, b: 1, c: "var(--red)" })}${fila2.map((v, i) => cel(v, i, 84, "var(--pen)")).join("")}
+    <path d="M44 30 V 100 M44 98 H 250" stroke="var(--ink)" stroke-width="2"/>${fila3.map((v, i) => cel(v, i, 124, i === c.length - 1 ? "var(--red)" : "var(--leaf)")).join("")}
+    <rect x="${50 + (c.length - 1) * w + 4}" y="106" width="${w - 8}" height="26" rx="6" fill="none" stroke="var(--red)" stroke-width="2"/>${t(130, 160, pie, { s: 12, b: 1 })}`);
+}
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Polinomios y fracciones algebraicas",
-  minutos: 45,
-  objetivos: ["Sumar, restar, multiplicar y dividir polinomios", "Usar la regla de Ruffini y el teorema del resto", "Factorizar polinomios y simplificar fracciones algebraicas"],
-  claves: ["grado", "coeficiente", "Ruffini", "raíz", "factorizar", "identidades notables"],
+  minutos: 115,
+  objetivos: [
+    "Reconocer los elementos de un polinomio y calcular su valor numérico",
+    "Sumar, restar, multiplicar y dividir polinomios, y usar las identidades notables",
+    "Aplicar la regla de Ruffini y los teoremas del resto y del factor",
+    "Hallar las raíces de un polinomio y factorizarlo completamente",
+    "Simplificar y operar fracciones algebraicas",
+    "Usar polinomios para modelizar áreas, volúmenes y costes",
+  ],
+  claves: ["monomio", "grado", "valor numérico", "identidad notable", "regla de Ruffini", "teorema del resto", "raíz", "factorizar", "fracción algebraica"],
+  lectura: {
+    titulo: "La caja de cartón perfecta",
+    html: `<p>Una empresa de embalajes fabrica cajas sin tapa a partir de planchas de cartón de 30 × 20 cm. Recorta un cuadrado de lado x en cada esquina y dobla las solapas hacia arriba. ¿De qué tamaño debe ser el recorte para que la caja tenga el mayor volumen posible? Si el recorte es muy pequeño, la caja es casi plana; si es muy grande, apenas queda base.</p>
+    <p>El volumen de la caja depende de x: la base mide (30 − 2x) por (20 − 2x) y la altura es x. Multiplicando se obtiene V(x) = 4x³ − 100x² + 600x, un <b>polinomio</b> de grado 3. Con él, la empresa puede calcular el volumen para cualquier recorte sin fabricar ni una sola caja: basta con sustituir x por un número. Si V(4) = 1.056 cm³, la caja con recortes de 4 cm cabe más de un litro.</p>
+    <p>Los polinomios son el lenguaje para hacer cuentas cuando todavía no sabemos el número. Aparecen en el diseño de envases, en las trayectorias de los balones, en los costes de una fábrica o en los gráficos por ordenador. En este tema aprenderás a operarlos, a dividirlos con un método rapidísimo, a encontrar sus raíces y a descomponerlos en factores, igual que haces con los números. Al final podrás simplificar <b>fracciones algebraicas</b>, que son a los polinomios lo que las fracciones son a los números enteros.</p>`,
+  },
   pregunta: {
     texto: "Un jardín cuadrado de lado x metros se amplía 3 metros por cada lado. ¿Cuánto crece su área?",
     respuesta: "El área nueva es (x + 3)² = <mark>x² + 6x + 9</mark>. Restando la antigua (x²), el área crece <b>6x + 9</b> m². Los polinomios son la forma de hacer cuentas cuando aún no sabes el número.",
   },
   bloques: [
     {
-      html: `<h3>Qué es un polinomio</h3><p>Es una suma de monomios: P(x) = 3x³ − 2x + 5. El <b>grado</b> es el mayor exponente (aquí 3), los <b>coeficientes</b> son los números que multiplican y el <b>término independiente</b> el que no lleva x (5). El <mark>valor numérico</mark> P(a) se obtiene sustituyendo x por a: P(1) = 3 − 2 + 5 = 6.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Partes del polinomio 3x al cubo menos 2x más 5: coeficiente, grado y término independiente">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <text x="130" y="100" text-anchor="middle" font-size="30" font-weight="700" fill="var(--ink)" ${F}><tspan fill="var(--pen)">3</tspan>x<tspan dy="-12" font-size="18" fill="var(--red)">3</tspan><tspan dy="12"> − 2x + </tspan><tspan fill="var(--leaf)">5</tspan></text>
-        <g ${F} font-size="12" font-weight="700"><path d="M56 70 V 46" stroke="var(--pen)" stroke-width="2"/><text x="56" y="40" text-anchor="middle" fill="var(--pen)">coeficiente</text>
-        <path d="M90 80 L 110 40" stroke="var(--red)" stroke-width="2"/><text x="122" y="34" text-anchor="middle" fill="var(--red)">grado 3</text>
-        <path d="M206 110 V 134" stroke="var(--leaf)" stroke-width="2"/><text x="206" y="150" text-anchor="middle" fill="var(--leaf)">término</text><text x="206" y="164" text-anchor="middle" fill="var(--leaf)">independiente</text></g></svg>`,
+      html: `<h3>3.1 Monomios y polinomios</h3><p>Un <b>monomio</b> es una expresión algebraica formada por un número (el <b>coeficiente</b>) multiplicado por letras con exponentes naturales (la <b>parte literal</b>), como −5x³ o 2ab². Su grado es la suma de los exponentes de las letras. Dos monomios son <b>semejantes</b> si tienen la misma parte literal, y solo esos se pueden sumar: 3x² + 7x² = 10x².</p><p>Un <b>polinomio</b> es una suma de monomios no semejantes, llamados <b>términos</b>. En 4º trabajamos sobre todo con polinomios en una variable, como P(x) = 4x³ − 2x + 7. Sus elementos son:</p><ul><li><b>Grado</b>: el mayor exponente de x (aquí, 3).</li><li><b>Coeficiente principal</b>: el que acompaña al término de mayor grado (4).</li><li><b>Término independiente</b>: el que no lleva x (7).</li></ul><p>Un polinomio está <b>ordenado</b> si sus términos van de mayor a menor grado, y es <b>completo</b> si tiene todos los grados desde el mayor hasta 0. P(x) no es completo: le falta el término en x². El <b>valor numérico</b> de P en x = a, P(a), se obtiene sustituyendo: P(2) = 4 · 8 − 4 + 7 = 35.</p>`,
+      svg: lienzo("Elementos del polinomio 4x al cubo menos 2x más 7: coeficiente principal 4, grado 3, falta el término en x cuadrado y término independiente 7", `${t(130, 74, "4x³ − 2x + 7", { s: 26, b: 1 })}<path d="M93 84 V 108" stroke="var(--pen)" stroke-width="2"/><path d="M116 50 V 34" stroke="var(--red)" stroke-width="2"/><path d="M200 84 V 108" stroke="var(--leaf)" stroke-width="2"/>${t(80, 124, "coef. principal 4", { s: 11, b: 1, c: "var(--pen)" })}${t(116, 26, "grado 3", { s: 11, b: 1, c: "var(--red)" })}${t(200, 124, "término indep. 7", { s: 11, b: 1, c: "var(--leaf)" })}${t(130, 160, "P(2) = 32 − 4 + 7 = 35", { s: 13, b: 1, c: "var(--inf)" })}`),
     },
     {
-      html: `<h3>Identidades notables</h3><p>Tres productos que conviene saber de memoria porque ahorran mucho trabajo:</p>
-      <div class="formula"><span>(a + b)² = a² + 2ab + b²</span></div><div class="formula"><span>(a − b)² = a² − 2ab + b²</span></div><div class="formula"><span>(a + b)(a − b) = a² − b²</span></div>
-      <p>El dibujo muestra por qué el cuadrado de una suma tiene <mark>dos rectángulos ab</mark>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cuadrado de lado a más b dividido en un cuadrado a al cuadrado, otro b al cuadrado y dos rectángulos a por b">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="60" y="20" width="96" height="96" fill="var(--pen)" opacity=".25" stroke="var(--pen)" stroke-width="2"/>
-        <rect x="156" y="20" width="44" height="96" fill="var(--leaf)" opacity=".25" stroke="var(--leaf)" stroke-width="2"/>
-        <rect x="60" y="116" width="96" height="44" fill="var(--leaf)" opacity=".25" stroke="var(--leaf)" stroke-width="2"/>
-        <rect x="156" y="116" width="44" height="44" fill="var(--red)" opacity=".25" stroke="var(--red)" stroke-width="2"/>
-        <g ${F} font-weight="700" text-anchor="middle"><text x="108" y="74" font-size="18" fill="var(--pen)">a²</text><text x="178" y="74" font-size="14" fill="var(--leaf)">ab</text><text x="108" y="144" font-size="14" fill="var(--leaf)">ab</text><text x="178" y="144" font-size="14" fill="var(--red)">b²</text>
-        <text x="44" y="72" font-size="13" fill="var(--muted)">a</text><text x="44" y="142" font-size="13" fill="var(--muted)">b</text><text x="108" y="14" font-size="13" fill="var(--muted)">a</text><text x="178" y="14" font-size="13" fill="var(--muted)">b</text></g></svg>`,
+      html: `<h3>3.2 Suma, resta y multiplicación</h3><p>Para <b>sumar</b> dos polinomios se agrupan los términos semejantes: (3x² − 5x + 1) + (x² + 2x − 4) = 4x² − 3x − 3. Para <b>restar</b>, se suma el opuesto, es decir, se cambia el signo de <mark>todos</mark> los términos del sustraendo: (3x² − 5x + 1) − (x² + 2x − 4) = 2x² − 7x + 5. Un error clásico es cambiar solo el primer signo.</p><p>Para <b>multiplicar</b>, se multiplica cada término del primero por cada término del segundo (propiedad distributiva) y después se agrupan los semejantes. Por ejemplo, (2x + 3)(x² − x + 4) = 2x³ − 2x² + 8x + 3x² − 3x + 12 = 2x³ + x² + 5x + 12. El grado del producto es la <b>suma</b> de los grados (1 + 2 = 3). Una buena forma de visualizarlo es el <b>modelo de área</b>: un rectángulo de lados (2x + 3) y (x + 4) se divide en cuatro trozos, 2x², 8x, 3x y 12, cuya suma es el área total 2x² + 11x + 12. Para multiplicaciones largas conviene colocar los polinomios uno debajo del otro, como en la multiplicación de números.</p>`,
+      svg: lienzo("Modelo de área: el rectángulo de lados 2x más 3 y x más 4 se divide en cuatro trozos de áreas 2x cuadrado, 8x, 3x y 12", `<rect x="60" y="40" width="110" height="70" fill="var(--pen)" opacity=".25" stroke="var(--pen)" stroke-width="2"/><rect x="170" y="40" width="60" height="70" fill="var(--leaf)" opacity=".25" stroke="var(--leaf)" stroke-width="2"/><rect x="60" y="110" width="110" height="40" fill="var(--inf)" opacity=".25" stroke="var(--inf)" stroke-width="2"/><rect x="170" y="110" width="60" height="40" fill="var(--red)" opacity=".25" stroke="var(--red)" stroke-width="2"/>${t(115, 80, "2x²", { s: 15, b: 1 })}${t(200, 80, "8x", { s: 15, b: 1 })}${t(115, 135, "3x", { s: 15, b: 1 })}${t(200, 135, "12", { s: 15, b: 1 })}${t(115, 32, "x", { s: 12, b: 1, c: "var(--muted)" })}${t(200, 32, "4", { s: 12, b: 1, c: "var(--muted)" })}${t(48, 80, "2x", { s: 12, b: 1, c: "var(--muted)", a: "end" })}${t(48, 135, "3", { s: 12, b: 1, c: "var(--muted)", a: "end" })}${t(130, 172, "(2x + 3)(x + 4) = 2x² + 11x + 12", { s: 12, b: 1 })}`),
     },
     {
-      html: `<h3>La regla de Ruffini</h3><p>Sirve para dividir un polinomio entre (x − a) de forma rápida. Se escriben los coeficientes (con 0 si falta algún grado), se baja el primero, se <mark>multiplica por a y se suma</mark> con el siguiente, y así hasta el final. El último número es el <b>resto</b>.</p><p>Ejemplo: (x³ − 2x² − 5x + 6) : (x − 1) da cociente x² − x − 6 y resto 0.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tabla de Ruffini dividiendo x al cubo menos 2x al cuadrado menos 5x más 6 entre x menos 1, con resto 0">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M50 30 V 140 M40 108 H 240" stroke="var(--ink)" stroke-width="2.5"/>
-        <g ${F} font-size="17" font-weight="700" text-anchor="middle">
-          ${["1", "−2", "−5", "6"].map((v, i) => `<text x="${80 + i * 50}" y="56" fill="var(--ink)">${v}</text>`).join("")}
-          <text x="30" y="92" fill="var(--red)">1</text>
-          ${["1", "−1", "−6"].map((v, i) => `<text x="${130 + i * 50}" y="92" fill="var(--pen)">${v}</text>`).join("")}
-          ${["1", "−1", "−6"].map((v, i) => `<text x="${80 + i * 50}" y="134" fill="var(--leaf)">${v}</text>`).join("")}
-          <rect x="214" y="114" width="32" height="30" rx="6" fill="var(--hl)"/><text x="230" y="134" fill="var(--hl-ink)">0</text>
-        </g><text x="130" y="166" text-anchor="middle" font-size="12" fill="var(--muted)" ${F}>cociente x² − x − 6 · resto 0</text></svg>`,
+      html: `<h3>3.3 Identidades notables</h3><p>Algunos productos aparecen tan a menudo que conviene saberlos de memoria:</p><ul><li><b>Cuadrado de una suma</b>: (a + b)² = a² + 2ab + b².</li><li><b>Cuadrado de una diferencia</b>: (a − b)² = a² − 2ab + b².</li><li><b>Suma por diferencia</b>: (a + b)(a − b) = a² − b².</li></ul><p>El dibujo explica la primera: un cuadrado de lado a + b se compone de un cuadrado a², otro b² y <mark>dos rectángulos ab</mark>. Por eso (a + b)² nunca es a² + b²: faltarían los dos rectángulos. Ejemplos: (3x + 2)² = 9x² + 12x + 4; (x − 5)² = x² − 10x + 25; (2x + 7)(2x − 7) = 4x² − 49.</p><p>Las identidades también se usan <b>al revés</b>, para factorizar: x² − 6x + 9 = (x − 3)² y 25x² − 1 = (5x + 1)(5x − 1). Para reconocer un cuadrado perfecto hay que comprobar que el término central es exactamente el doble del producto de las raíces de los extremos. Otras identidades útiles son el cubo de una suma, (a + b)³ = a³ + 3a²b + 3ab² + b³, y sus coeficientes 1, 3, 3, 1, que salen del triángulo de Pascal.</p>`,
+      svg: lienzo("Cuadrado de lado a más b dividido en un cuadrado a cuadrado, un cuadrado b cuadrado y dos rectángulos a por b", `<rect x="60" y="20" width="100" height="100" fill="var(--pen)" opacity=".25" stroke="var(--pen)" stroke-width="2"/><rect x="160" y="20" width="44" height="100" fill="var(--leaf)" opacity=".25" stroke="var(--leaf)" stroke-width="2"/><rect x="60" y="120" width="100" height="44" fill="var(--leaf)" opacity=".25" stroke="var(--leaf)" stroke-width="2"/><rect x="160" y="120" width="44" height="44" fill="var(--red)" opacity=".25" stroke="var(--red)" stroke-width="2"/>${t(110, 76, "a²", { s: 18, b: 1 })}${t(182, 76, "ab", { s: 14, b: 1 })}${t(110, 147, "ab", { s: 14, b: 1 })}${t(182, 147, "b²", { s: 14, b: 1 })}${t(48, 76, "a", { s: 13, b: 1, c: "var(--muted)", a: "end" })}${t(48, 147, "b", { s: 13, b: 1, c: "var(--muted)", a: "end" })}${t(236, 100, "(a+b)²", { s: 12, b: 1, c: "var(--pen)" })}`),
     },
     {
-      html: `<h3>Teorema del resto y raíces</h3><p>El resto de dividir P(x) entre (x − a) es <mark>P(a)</mark>. Si P(a) = 0, entonces <b>a es una raíz</b> y (x − a) es un factor. Las raíces enteras se buscan entre los <b>divisores del término independiente</b>: para 6, prueba ±1, ±2, ±3, ±6.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráfica de un polinomio de grado 3 que corta al eje x en menos 2, 1 y 3: sus raíces">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M14 96 H 246 M110 14 V 170" stroke="var(--line)" stroke-width="2"/>
-        <path d="${[...Array(61)].map((_, i) => { const x = -2.6 + i * 0.1; const y = (x + 2) * (x - 1) * (x - 3); return `${i ? "L" : "M"}${(110 + x * 32).toFixed(1)} ${(96 - y * 4).toFixed(1)}`; }).join(" ")}" fill="none" stroke="var(--pen)" stroke-width="3"/>
-        ${[-2, 1, 3].map((r) => `<circle cx="${110 + r * 32}" cy="96" r="6" fill="var(--red)"/><text x="${110 + r * 32}" y="${r === 1 ? 122 : 82}" text-anchor="middle" font-size="13" font-weight="700" fill="var(--red)" ${F}>${r}</text>`).join("")}
-        <text x="130" y="166" text-anchor="middle" font-size="12" fill="var(--muted)" ${F}>P(x) = (x + 2)(x − 1)(x − 3)</text></svg>`,
+      html: `<h3>3.4 La división de polinomios</h3><p>Dividir P(x) entre Q(x) consiste en encontrar dos polinomios, el <b>cociente</b> C(x) y el <b>resto</b> R(x), tales que</p><div class="formula"><span>P(x) = Q(x) · C(x) + R(x), con grado de R menor que grado de Q</span></div><p>Es la misma idea que la división entera de números (17 = 5 · 3 + 2). El procedimiento es: se ordenan dividendo y divisor de mayor a menor grado, <mark>dejando huecos (o ceros) para los términos que faltan</mark>; se divide el primer término del dividendo entre el primero del divisor; se multiplica ese resultado por todo el divisor y se resta; y se repite con lo que queda hasta que su grado sea menor que el del divisor.</p><p>Por ejemplo, (2x³ − 3x² + 0x + 5) : (x² + 1): primero 2x³ : x² = 2x; restamos 2x(x² + 1) = 2x³ + 2x y queda −3x² − 2x + 5. Después −3x² : x² = −3; restamos −3(x² + 1) y queda −2x + 8. Cociente 2x − 3 y resto −2x + 8. La división es <b>exacta</b> si el resto es 0; entonces el divisor es un factor del dividendo.</p>`,
+      svg: tarjeta("Prueba de la división de polinomios: dividendo igual a divisor por cociente más resto, con un ejemplo", "P = Q · C + R", [["P = 2x³ − 3x² + 5", "var(--ink)", 14], ["Q = x² + 1", "var(--pen)", 14], ["C = 2x − 3", "var(--leaf)", 14], ["R = −2x + 8 (grado < 2)", "var(--red)", 14]]),
+      video: { id: "gpBEUnFBhGc", titulo: "División de polinomios, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 9331815, busqueda: "división de polinomios" },
     },
     {
-      html: `<h3>Factorizar y simplificar fracciones algebraicas</h3><p>Factorizar es escribir el polinomio como producto: saca factor común, usa identidades notables o busca raíces con Ruffini. Con los polinomios factorizados, una <b>fracción algebraica</b> se simplifica <mark>tachando factores iguales</mark>, nunca sumandos:</p>
-      <div class="formula"><span>(x² − 9) / (x² + 3x) = (x + 3)(x − 3) / x(x + 3) = (x − 3) / x</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Simplificación correcta tachando el factor x más 3 arriba y abajo">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-size="18" font-weight="700" text-anchor="middle">
-          <text x="130" y="66" fill="var(--ink)"><tspan fill="var(--red)">(x + 3)</tspan>(x − 3)</text>
-          <path d="M40 82 H 220" stroke="var(--ink)" stroke-width="2.5"/>
-          <text x="130" y="112" fill="var(--ink)">x<tspan fill="var(--red)">(x + 3)</tspan></text>
-          <path d="M60 60 L 116 46 M98 106 L 160 92" stroke="var(--red)" stroke-width="3"/>
-        </g><text x="130" y="152" text-anchor="middle" font-size="13" font-weight="700" fill="var(--leaf)" ${F}>✓ se tachan factores, no sumandos</text></svg>`,
+      html: `<h3>3.5 La regla de Ruffini</h3><p>Cuando el divisor es de la forma <b>x − a</b>, la división se hace mucho más rápido con la <b>regla de Ruffini</b>, que solo trabaja con los coeficientes. Pasos para dividir P(x) = x³ − 4x² + x + 6 entre x − 2:</p><ol><li>Se escriben en fila los coeficientes de P, ordenados y <b>con ceros</b> en los huecos: 1, −4, 1, 6.</li><li>A la izquierda se pone a = 2 (ojo: si el divisor es x + 3, entonces a = −3).</li><li>Se baja el primer coeficiente (1). Se multiplica por a y se coloca bajo el siguiente: 1 · 2 = 2. Se suma: −4 + 2 = −2.</li><li>Se repite: −2 · 2 = −4, 1 + (−4) = −3; −3 · 2 = −6, 6 + (−6) = 0.</li></ol><p>El último número es el <b>resto</b> (0) y los demás son los coeficientes del <b>cociente</b>, que tiene un grado menos: x² − 2x − 3. Por tanto, x³ − 4x² + x + 6 = (x − 2)(x² − 2x − 3). La regla de Ruffini es una herramienta de cálculo rápido; <mark>el error más frecuente es olvidar los ceros</mark> de los términos que faltan.</p>`,
+      svg: ruffini("Tabla de Ruffini para dividir x al cubo menos 4x cuadrado más x más 6 entre x menos 2: cociente x cuadrado menos 2x menos 3 y resto 0", [1, -4, 1, 6], 2, "cociente x² − 2x − 3 · resto 0"),
+    },
+    {
+      html: `<h3>3.6 Teoremas del resto y del factor</h3><p>El <b>teorema del resto</b> dice que <mark>el resto de dividir P(x) entre x − a es P(a)</mark>. La demostración es inmediata: si P(x) = (x − a) · C(x) + R, al sustituir x = a el primer sumando se anula y queda P(a) = R. Así, el resto de dividir P(x) = x³ − 2x + 5 entre x + 1 es P(−1) = −1 + 2 + 5 = 6, sin necesidad de dividir.</p><p>Una consecuencia muy útil es el <b>teorema del factor</b>: x − a es un factor de P(x) (la división es exacta) si y solo si P(a) = 0. Por ejemplo, como P(x) = x³ − 7x + 6 cumple P(1) = 1 − 7 + 6 = 0, sabemos que x − 1 divide a P(x).</p><p>Estos teoremas permiten resolver problemas como: «halla k para que x³ + kx² − 4 sea divisible entre x − 2». Basta con imponer P(2) = 0: 8 + 4k − 4 = 0, de donde k = −1. También sirven para comprobar una división hecha a mano: si el resto de Ruffini no coincide con P(a), algo ha fallado.</p>`,
+      svg: tarjeta("Teorema del resto: el resto de dividir P de x entre x menos a es P de a; si vale cero, x menos a es factor", "Teorema del resto", [["P(x) : (x − a) → resto = P(a)", "var(--pen)", 14], ["P(x) = x³ − 2x + 5,  a = −1", "var(--ink)", 13], ["P(−1) = −1 + 2 + 5 = 6", "var(--leaf)", 14], ["P(a) = 0 ⇔ (x − a) es factor", "var(--red)", 14]]),
+    },
+    {
+      html: `<h3>3.7 Raíces de un polinomio</h3><p>Un número a es una <b>raíz</b> (o cero) de P(x) si P(a) = 0. Gráficamente, las raíces son los puntos donde la gráfica de y = P(x) <b>corta al eje X</b>. Un polinomio de grado n tiene como máximo n raíces reales.</p><p>¿Dónde buscarlas? Si los coeficientes son enteros, <mark>las raíces enteras son divisores del término independiente</mark>. La razón: si a es raíz de x³ + bx² + cx + d, entonces d = −a(a² + ba + c), así que a divide a d. Para P(x) = x³ − 2x² − 5x + 6, los candidatos son ±1, ±2, ±3, ±6. Probando: P(1) = 0, P(−2) = 0 y P(3) = 0. Ya tenemos las tres raíces.</p><p>No todas las raíces son enteras: x² − 2 tiene raíces ±√2, y 2x − 1 tiene la raíz 1/2. Además, una raíz puede estar <b>repetida</b>: en (x − 1)²(x + 3), la raíz 1 es <b>doble</b>, y la gráfica toca el eje en x = 1 sin atravesarlo. Si el término independiente es 0, x = 0 es raíz y se puede sacar x factor común.</p>`,
+      svg: graf("Gráfica de x al cubo menos 2x cuadrado menos 5x más 6: corta al eje X en menos 2, 1 y 3, sus raíces", { x0: -3, x1: 4, y0: -9, y1: 11, paso: 1, pasoY: 2, pasoEt: 1, etiquetas: false }, (E) => `${E.curva((x) => x ** 3 - 2 * x ** 2 - 5 * x + 6, "var(--pen)")}${[-2, 1, 3].map((r) => E.punto(r, 0, "var(--red)", String(r).replace("-", "−"), 0, 16)).join("")}${t(E.X(3.6), E.Y(9), "P(x)", { c: "var(--pen)", s: 12, b: 1, a: "end" })}`),
+    },
+    {
+      html: `<h3>3.8 Factorizar un polinomio</h3><p><b>Factorizar</b> un polinomio es escribirlo como producto de polinomios del menor grado posible, igual que 60 = 2² · 3 · 5. Se aplican estas técnicas, <mark>en este orden</mark>:</p><ol><li><b>Sacar factor común</b> si todos los términos lo tienen: 3x⁴ − 12x² = 3x²(x² − 4).</li><li><b>Identidades notables</b>: x² − 4 = (x + 2)(x − 2); 4x² + 12x + 9 = (2x + 3)².</li><li><b>Ecuación de segundo grado</b>: si ax² + bx + c tiene raíces x₁ y x₂, entonces ax² + bx + c = a(x − x₁)(x − x₂). Por ejemplo, 2x² − x − 3 tiene raíces 3/2 y −1, así que 2x² − x − 3 = 2(x − 3/2)(x + 1) = (2x − 3)(x + 1).</li><li><b>Ruffini</b> con los divisores del término independiente, para grado 3 o mayor.</li></ol><p>Un polinomio de segundo grado con discriminante negativo, como x² + x + 1, no tiene raíces reales y es <b>irreducible</b>: no se puede descomponer más. Al terminar, conviene multiplicar los factores para comprobar el resultado. La factorización es la llave de todo lo que viene después: simplificar fracciones, resolver ecuaciones de grado alto y estudiar el signo de funciones.</p>`,
+      svg: lienzo("Orden para factorizar: factor común, identidades notables, segundo grado y Ruffini", `${[["1", "factor común", "3x²(x² − 4)", "var(--pen)"], ["2", "identidades", "(x + 2)(x − 2)", "var(--leaf)"], ["3", "2.º grado", "a(x − x₁)(x − x₂)", "var(--inf)"], ["4", "Ruffini", "divisores de d", "var(--red)"]].map(([n, a, b, c], i) => `<rect x="14" y="${14 + i * 39}" width="232" height="32" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/>${t(30, 35 + i * 39, n, { s: 15, b: 1, c })}${t(46, 35 + i * 39, a, { s: 13, b: 1, a: "start" })}${t(238, 35 + i * 39, b, { s: 11, c: "var(--muted)", a: "end" })}`).join("")}`),
+      video: { id: "stIFJ0GnS84", titulo: "Factorización por evaluación usando División Sintética, Ruffini", canal: "Matemáticas profe Alex", vistas: 4027216, busqueda: "factorizar polinomios ruffini" },
+    },
+    {
+      html: `<h3>3.9 Una factorización completa, paso a paso</h3><p>Vamos a factorizar P(x) = 2x⁴ − 2x³ − 14x² + 2x + 12. Primero, todos los coeficientes son pares: sacamos factor común 2, y queda 2(x⁴ − x³ − 7x² + x + 6). Ahora buscamos raíces enteras de Q(x) = x⁴ − x³ − 7x² + x + 6 entre los divisores de 6: ±1, ±2, ±3, ±6.</p><p>Q(1) = 1 − 1 − 7 + 1 + 6 = 0, así que dividimos por Ruffini entre x − 1 y obtenemos x³ − 7x − 6. Probamos con −1 en este cociente: −1 + 7 − 6 = 0; dividimos y queda x² − x − 6. Este último es de segundo grado: sus raíces son (1 ± 5)/2, es decir, 3 y −2. Reuniendo todo:</p><div class="formula"><span>P(x) = 2(x − 1)(x + 1)(x − 3)(x + 2)</span></div><p>Las raíces de P son 1, −1, 3 y −2. Fíjate en dos detalles: al encontrar una raíz, <mark>se sigue trabajando con el cociente</mark>, que es más sencillo; y una misma raíz puede volver a funcionar en el cociente, lo que indicaría que es doble. El factor 2 del principio no se pierde: forma parte de la factorización.</p>`,
+      svg: ruffini("Primer paso de Ruffini con la raíz 1 sobre los coeficientes 1, menos 1, menos 7, 1 y 6: cociente x al cubo menos 7x menos 6 y resto 0", [1, -1, -7, 1, 6], 1, "cociente x³ + 0x² − 7x − 6 · resto 0"),
+    },
+    {
+      html: `<h3>3.10 Máximo común divisor y mínimo común múltiplo</h3><p>Igual que con los números, se puede calcular el <b>m.c.d.</b> y el <b>m.c.m.</b> de varios polinomios a partir de su factorización:</p><ul><li><b>m.c.d.</b>: el producto de los factores <b>comunes</b> elevados al <b>menor</b> exponente.</li><li><b>m.c.m.</b>: el producto de los factores comunes y no comunes elevados al <b>mayor</b> exponente.</li></ul><p>Con P(x) = x² − 1 = (x + 1)(x − 1) y Q(x) = x² + 2x + 1 = (x + 1)², el m.c.d. es x + 1 y el m.c.m. es (x + 1)²(x − 1). El m.c.d. sirve para <b>simplificar</b> fracciones algebraicas y el m.c.m. para <b>sumarlas</b>, porque es el denominador común más sencillo. Un consejo práctico: <mark>factoriza siempre antes de buscar el m.c.m.</mark> Multiplicar directamente los denominadores también da un denominador común, pero suele ser mucho más complicado y obliga a simplificar al final. Si dos polinomios no tienen factores comunes, su m.c.d. es 1 y su m.c.m. es su producto.</p>`,
+      svg: tarjeta("Máximo común divisor y mínimo común múltiplo de x cuadrado menos 1 y x cuadrado más 2x más 1", "m.c.d. y m.c.m.", [["x² − 1 = (x + 1)(x − 1)", "var(--ink)", 14], ["x² + 2x + 1 = (x + 1)²", "var(--ink)", 14], ["m.c.d. = x + 1", "var(--leaf)", 15], ["m.c.m. = (x + 1)²(x − 1)", "var(--red)", 15]]),
+    },
+    {
+      html: `<h3>3.11 Fracciones algebraicas: simplificar</h3><p>Una <b>fracción algebraica</b> es un cociente de dos polinomios, P(x)/Q(x), con Q(x) distinto del polinomio nulo. Solo tiene sentido para los valores de x que no anulan el denominador: en (x + 2)/(x − 3), x no puede valer 3.</p><p>Dos fracciones algebraicas son <b>equivalentes</b> si P · S = Q · R. Para <b>simplificar</b> una fracción se <mark>factorizan numerador y denominador y se eliminan los factores comunes</mark>:</p><div class="formula"><span>(x² − 9)/(x² + 3x) = (x + 3)(x − 3) / [x(x + 3)] = (x − 3)/x</span></div><p>La regla de oro es que solo se pueden tachar <b>factores</b>, nunca sumandos. En (x + 3)/3 no se puede «tachar el 3», porque el 3 de arriba es un sumando. De la misma forma, (x² + 4)/(x + 2) no se simplifica, porque x² + 4 no es (x + 2)(x − 2). Al simplificar conviene recordar que la fracción original no existía en los valores que anulaban el factor eliminado (aquí, x = −3).</p>`,
+      svg: lienzo("Simplificar fracciones: se tachan factores comunes, nunca sumandos", `${t(130, 40, "(x + 3)(x − 3)", { s: 16, b: 1 })}<path d="M50 50 H 210" stroke="var(--ink)" stroke-width="2"/>${t(130, 72, "x (x + 3)", { s: 16, b: 1 })}<path d="M72 30 L 120 44 M100 62 L 148 76" stroke="var(--red)" stroke-width="2.4"/>${t(130, 100, "= (x − 3) / x", { s: 16, b: 1, c: "var(--leaf)" })}<rect x="40" y="120" width="180" height="40" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2" stroke-dasharray="5 4"/>${t(130, 145, "(x + 3)/3 ≠ x + 1 ✗", { s: 14, b: 1, c: "var(--red)" })}`),
+      video: { id: "zYM93DA5S7A", titulo: "Simplificación de fracciones algebraicas, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 1696539, busqueda: "simplificar fracciones algebraicas" },
+    },
+    {
+      html: `<h3>3.12 Suma y resta de fracciones algebraicas</h3><p>Se procede como con las fracciones numéricas: se reducen a <b>común denominador</b> (el m.c.m. de los denominadores), se transforman los numeradores y se suman o restan.</p><p>Ejemplo: 2/(x − 1) + 3/(x + 1). El m.c.m. de los denominadores es (x − 1)(x + 1) = x² − 1. Cada numerador se multiplica por lo que «le falta» a su denominador:</p><div class="formula"><span>2(x + 1)/(x² − 1) + 3(x − 1)/(x² − 1) = (5x − 1)/(x² − 1)</span></div><p>En las restas hay que tener especial cuidado: el signo menos afecta a <mark>todo el numerador</mark> de la fracción que se resta, así que conviene escribirlo entre paréntesis. Por ejemplo, x/(x + 2) − (x − 1)/x = [x² − (x − 1)(x + 2)] / [x(x + 2)] = [x² − x² − x + 2] / [x(x + 2)] = (2 − x)/[x(x + 2)]. Al final, siempre se mira si el resultado se puede simplificar factorizando el numerador.</p>`,
+      svg: tarjeta("Suma de fracciones algebraicas con denominador común x cuadrado menos 1", "Común denominador", [["2/(x − 1) + 3/(x + 1)", "var(--ink)", 14], ["m.c.m. = (x − 1)(x + 1)", "var(--pen)", 13], ["[2(x + 1) + 3(x − 1)] / (x² − 1)", "var(--leaf)", 13], ["= (5x − 1)/(x² − 1)", "var(--red)", 15]]),
+    },
+    {
+      html: `<h3>3.13 Producto y cociente de fracciones algebraicas</h3><p>El <b>producto</b> de dos fracciones algebraicas es otra fracción cuyo numerador es el producto de los numeradores y cuyo denominador es el producto de los denominadores. El <b>cociente</b> se calcula multiplicando la primera por la inversa de la segunda (producto «en cruz»):</p><div class="formula"><span>(P/Q) · (R/S) = (P · R)/(Q · S)    (P/Q) : (R/S) = (P · S)/(Q · R)</span></div><p>El consejo más importante es <mark>no multiplicar antes de factorizar</mark>: se factoriza todo, se simplifican los factores comunes y solo después se multiplica lo que queda. Por ejemplo:</p><div class="formula"><span>(x² − 4)/(3x) · 6x²/(x + 2) = (x + 2)(x − 2) · 6x² / [3x (x + 2)] = 2x(x − 2)</span></div><p>Si multiplicáramos primero, obtendríamos polinomios de grado 4 y 2 que luego habría que volver a factorizar. Estas operaciones con fracciones algebraicas reaparecen en física (fórmulas de lentes, resistencias en paralelo) y serán imprescindibles para resolver ecuaciones racionales en el tema siguiente.</p>`,
+      svg: tarjeta("Producto de fracciones algebraicas: se factoriza, se simplifica y después se multiplica", "Factoriza antes de multiplicar", [["(x² − 4)/(3x) · 6x²/(x + 2)", "var(--ink)", 13], ["(x+2)(x−2) · 6x² / [3x(x+2)]", "var(--pen)", 13], ["se tachan (x + 2) y 3x", "var(--muted)", 12, 0], ["= 2x(x − 2)", "var(--red)", 16]]),
+    },
+    {
+      html: `<h3>3.14 Polinomios en la vida real</h3><p>Los polinomios son modelos matemáticos muy útiles porque son fáciles de calcular. Algunos ejemplos:</p><ul><li><b>Geometría</b>: el volumen de la caja de la lectura inicial es V(x) = x(30 − 2x)(20 − 2x). Probando valores, V(3) = 1.008, V(4) = 1.056 y V(5) = 1.000: el máximo está cerca de x = 4 cm.</li><li><b>Física</b>: la altura de una pelota lanzada hacia arriba a 20 m/s es h(t) = 20t − 4,9t², un polinomio de grado 2. Sus raíces, t = 0 y t ≈ 4,08 s, dicen cuándo sale y cuándo vuelve al suelo.</li><li><b>Economía</b>: si fabricar x unidades cuesta C(x) = 0,5x² + 10x + 250 euros y cada una se vende a 40 €, el beneficio es B(x) = 40x − C(x) = −0,5x² + 30x − 250. Factorizando, B(x) = −0,5(x − 10)(x − 50): hay beneficio cuando se fabrican entre 10 y 50 unidades.</li></ul><p>En todos los casos, <mark>las raíces tienen un significado</mark>: el momento en que algo empieza o termina, el umbral de rentabilidad o la medida que anula una magnitud.</p>`,
+      svg: graf("Beneficio de una fábrica: parábola que corta el eje en 10 y 50 unidades, con beneficio positivo entre ambas", { x0: 0, x1: 60, y0: -300, y1: 300, paso: 10, pasoY: 100, etiquetas: false, m: 18 }, (E) => `${E.curva((x) => -0.5 * x * x + 30 * x - 250, "var(--leaf)")}${E.punto(10, 0, "var(--red)", "10", 0, 16)}${E.punto(50, 0, "var(--red)", "50", 0, 16)}${t(E.X(30), E.Y(120), "beneficio", { c: "var(--leaf)", s: 12, b: 1 })}${t(E.X(30), E.Y(-180), "unidades fabricadas", { c: "var(--muted)", s: 10 })}`),
     },
   ],
-  figura: {
-    titulo: "Cómo factorizar un polinomio, paso a paso",
-    svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Tres pasos para factorizar: sacar factor común, buscar identidades notables y aplicar Ruffini con los divisores del término independiente">
-      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${[["1", "Factor común", "2x³ − 8x = 2x(x² − 4)", "var(--pen)"], ["2", "Identidad notable", "x² − 4 = (x + 2)(x − 2)", "var(--leaf)"], ["3", "Ruffini", "prueba divisores del término independiente", "var(--red)"]].map(([n, t, d, c], i) => `<rect x="${20 + i * 206}" y="24" width="190" height="172" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
-        <circle cx="${115 + i * 206}" cy="62" r="20" fill="${c}"/><text x="${115 + i * 206}" y="70" text-anchor="middle" font-size="22" font-weight="800" fill="#fff" ${D}>${n}</text>
-        <text x="${115 + i * 206}" y="112" text-anchor="middle" font-size="18" font-weight="700" fill="${c}" ${D}>${t}</text>
-        <foreignObject x="${32 + i * 206}" y="124" width="166" height="64"><p xmlns="http://www.w3.org/1999/xhtml" style="margin:0;font:14px Atkinson Hyperlegible,sans-serif;text-align:center;color:var(--ink)">${d}</p></foreignObject>`).join("")}
-      ${[0, 1].map((i) => `<path d="M${212 + i * 206} 110 h 12" stroke="var(--muted)" stroke-width="3"/>`).join("")}
-    </svg>`,
+  ejemplos: [
+    { enunciado: "Desarrolla y simplifica (2x − 3)² − (x + 1)(x − 1).", pasos: ["(2x − 3)² = 4x² − 12x + 9 (cuadrado de una diferencia).", "(x + 1)(x − 1) = x² − 1 (suma por diferencia).", "Restamos, cambiando el signo a todo: 4x² − 12x + 9 − x² + 1."], resultado: "3x² − 12x + 10." },
+    { enunciado: "Divide P(x) = 2x³ − 5x² + 4 entre x − 2 por Ruffini.", pasos: ["Coeficientes con el hueco: 2, −5, 0, 4; a = 2.", "Bajamos 2; 2·2 = 4, −5 + 4 = −1; −1·2 = −2, 0 − 2 = −2; −2·2 = −4, 4 − 4 = 0.", "Comprobación con el teorema del resto: P(2) = 16 − 20 + 4 = 0."], resultado: "Cociente 2x² − x − 2, resto 0." },
+    { enunciado: "Halla m para que P(x) = x³ − mx² + 5x − 6 sea divisible entre x − 3.", pasos: ["Por el teorema del factor, debe cumplirse P(3) = 0.", "27 − 9m + 15 − 6 = 0.", "36 − 9m = 0 → m = 4."], resultado: "m = 4." },
+    { enunciado: "Factoriza P(x) = x⁴ − 5x² + 4.", pasos: ["Candidatos a raíz: ±1, ±2, ±4.", "P(1) = 0: Ruffini da x³ + x² − 4x − 4.", "En el cociente, −1 es raíz: queda x² − 4 = (x + 2)(x − 2)."], resultado: "P(x) = (x − 1)(x + 1)(x − 2)(x + 2)." },
+    { enunciado: "Simplifica (x³ − x)/(x² − 2x + 1).", pasos: ["Numerador: x(x² − 1) = x(x + 1)(x − 1).", "Denominador: (x − 1)² (cuadrado de una diferencia).", "Tachamos un factor (x − 1)."], resultado: "x(x + 1)/(x − 1), válido para x ≠ 1." },
+    { enunciado: "Calcula 1/(x − 2) − 4/(x² − 4).", pasos: ["Factorizamos: x² − 4 = (x − 2)(x + 2); m.c.m. = (x − 2)(x + 2).", "Primera fracción: (x + 2)/[(x − 2)(x + 2)].", "Restamos: (x + 2 − 4)/[(x − 2)(x + 2)] = (x − 2)/[(x − 2)(x + 2)].", "Simplificamos el factor x − 2."], resultado: "1/(x + 2)." },
+  ],
+  errores: [
+    "Desarrollar (a + b)² como a² + b², olvidando el doble producto 2ab.",
+    "Cambiar solo el signo del primer término al restar polinomios.",
+    "Olvidar los ceros de los términos que faltan al aplicar Ruffini o la división.",
+    "Usar a = 3 en Ruffini cuando el divisor es x + 3 (debe ser a = −3).",
+    "Tachar sumandos en una fracción algebraica, como en (x + 3)/3 = x + 1.",
+    "Perder el coeficiente principal al factorizar: 2x² − x − 3 = 2(x − 3/2)(x + 1), no (x − 3/2)(x + 1).",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Indica grado, coeficiente principal y término independiente de P(x) = −3x⁴ + x² − 8x + 2, y calcula P(−1).", sol: "Grado 4, coeficiente principal −3, término independiente 2. P(−1) = −3 + 1 + 8 + 2 = 8." },
+    { nivel: "básico", q: "Con P(x) = 2x² − 3x + 1 y Q(x) = x² + 4x − 5, calcula P + Q y P − Q.", sol: "P + Q = 3x² + x − 4. P − Q = 2x² − 3x + 1 − x² − 4x + 5 = x² − 7x + 6." },
+    { nivel: "básico", q: "Multiplica (x − 2)(3x² + x − 4).", sol: "3x³ + x² − 4x − 6x² − 2x + 8 = 3x³ − 5x² − 6x + 8." },
+    { nivel: "básico", q: "Desarrolla: (x + 4)², (3x − 1)², (2x + 5)(2x − 5).", sol: "x² + 8x + 16; 9x² − 6x + 1; 4x² − 25." },
+    { nivel: "básico", q: "Expresa como identidad notable: x² − 10x + 25, 9x² − 16, 4x² + 4x + 1.", sol: "(x − 5)²; (3x + 4)(3x − 4); (2x + 1)²." },
+    { nivel: "básico", q: "Divide por Ruffini (x³ + 2x² − x − 2) : (x + 1).", sol: "a = −1. Coeficientes 1, 2, −1, −2 → 1, 1, −2 | 0. Cociente x² + x − 2, resto 0." },
+    { nivel: "básico", q: "Calcula, sin dividir, el resto de (x⁴ − 3x + 2) : (x − 2).", sol: "Teorema del resto: P(2) = 16 − 6 + 2 = 12." },
+    { nivel: "básico", q: "¿Es x = 2 raíz de x³ − 3x² + 4? ¿Y x = −1?", sol: "P(2) = 8 − 12 + 4 = 0: sí. P(−1) = −1 − 3 + 4 = 0: también." },
+    { nivel: "básico", q: "Saca factor común: 6x³ − 9x², 4x⁴ + 8x² − 2x.", sol: "3x²(2x − 3); 2x(2x³ + 4x − 1)." },
+    { nivel: "básico", q: "Factoriza x² − 7x + 12 resolviendo la ecuación de segundo grado.", sol: "x = (7 ± 1)/2 → 4 y 3. x² − 7x + 12 = (x − 3)(x − 4)." },
+    { nivel: "básico", q: "Simplifica (5x² − 10x)/(15x).", sol: "5x(x − 2)/(15x) = (x − 2)/3." },
+    { nivel: "básico", q: "¿Para qué valores no está definida la fracción (x + 1)/(x² − 9)?", sol: "Cuando x² − 9 = 0, es decir, x = 3 y x = −3." },
+    { nivel: "medio", q: "Divide (4x⁴ − 2x² + x − 3) : (x² − x + 1) y comprueba con P = Q · C + R.", sol: "4x⁴ : x² = 4x²; resta → 4x³ − 6x² + x − 3. 4x³ : x² = 4x; resta → −2x² − 3x − 3. −2x² : x² = −2; resta → −5x − 1. Cociente 4x² + 4x − 2, resto −5x − 1. Comprobación: (x² − x + 1)(4x² + 4x − 2) − 5x − 1 = 4x⁴ − 2x² + x − 3." },
+    { nivel: "medio", q: "Factoriza P(x) = x³ − 6x² + 11x − 6.", sol: "Candidatos ±1, ±2, ±3, ±6. P(1) = 0 → cociente x² − 5x + 6 = (x − 2)(x − 3). P(x) = (x − 1)(x − 2)(x − 3)." },
+    { nivel: "medio", q: "Factoriza P(x) = 2x³ + 3x² − 2x.", sol: "Factor común x: x(2x² + 3x − 2). Raíces de 2x² + 3x − 2: (−3 ± 5)/4 → 1/2 y −2. P(x) = x · 2(x − 1/2)(x + 2) = x(2x − 1)(x + 2)." },
+    { nivel: "medio", q: "Factoriza x⁴ − 16 completamente en ℝ.", sol: "Suma por diferencia: (x² + 4)(x² − 4) = (x² + 4)(x + 2)(x − 2). x² + 4 es irreducible (no tiene raíces reales)." },
+    { nivel: "medio", q: "Halla k para que el resto de (x³ + kx − 4) : (x + 2) sea 6.", sol: "P(−2) = −8 − 2k − 4 = 6 → −2k = 18 → k = −9." },
+    { nivel: "medio", q: "Escribe un polinomio de grado 3 con raíces 1, −2 y 4 y coeficiente principal 2.", sol: "2(x − 1)(x + 2)(x − 4) = 2(x² + x − 2)(x − 4) = 2(x³ − 3x² − 6x + 8) = 2x³ − 6x² − 12x + 16." },
+    { nivel: "medio", q: "Calcula el m.c.d. y el m.c.m. de x² − 9, x² + 6x + 9 y x² + 3x.", sol: "Factorizaciones: (x + 3)(x − 3), (x + 3)², x(x + 3). m.c.d. = x + 3. m.c.m. = x(x + 3)²(x − 3)." },
+    { nivel: "medio", q: "Simplifica (x² + 5x + 6)/(x² − 4).", sol: "(x + 2)(x + 3)/[(x + 2)(x − 2)] = (x + 3)/(x − 2), con x ≠ ±2." },
+    { nivel: "medio", q: "Calcula (x + 1)/x + 2/(x − 1).", sol: "m.c.m. x(x − 1). [(x + 1)(x − 1) + 2x]/[x(x − 1)] = (x² + 2x − 1)/(x² − x)." },
+    { nivel: "medio", q: "Calcula 3/(x + 3) − (x − 1)/(x² + 3x).", sol: "x² + 3x = x(x + 3). [3x − (x − 1)]/[x(x + 3)] = (2x + 1)/[x(x + 3)]." },
+    { nivel: "medio", q: "Calcula (x² − 1)/(2x) : (x + 1)/(4x²).", sol: "(x² − 1) · 4x² / [2x(x + 1)] = (x + 1)(x − 1) · 4x² / [2x(x + 1)] = 2x(x − 1)." },
+    { nivel: "medio", q: "Una pelota se lanza con h(t) = 25t − 5t². Factoriza h y explica qué significan sus raíces.", sol: "h(t) = 5t(5 − t). Raíces t = 0 (el lanzamiento) y t = 5 s (cuando vuelve al suelo)." },
+    { nivel: "avanzado", q: "Factoriza P(x) = x⁴ − 2x³ − 3x² + 4x + 4.", sol: "P(−1) = 1 + 2 − 3 − 4 + 4 = 0 → cociente x³ − 3x² + 4. Este se anula en −1 otra vez: cociente x² − 4x + 4 = (x − 2)². P(x) = (x + 1)²(x − 2)²: raíces dobles −1 y 2." },
+    { nivel: "avanzado", q: "Halla a y b para que P(x) = x³ + ax² + bx − 6 sea divisible entre x − 1 y entre x + 2.", sol: "P(1) = 1 + a + b − 6 = 0 → a + b = 5. P(−2) = −8 + 4a − 2b − 6 = 0 → 4a − 2b = 14 → 2a − b = 7. Sumando: 3a = 12 → a = 4, b = 1." },
+    { nivel: "avanzado", q: "Demuestra el teorema del resto.", sol: "Al dividir P(x) entre x − a, el resto tiene grado menor que 1, así que es un número R: P(x) = (x − a) · C(x) + R. Sustituyendo x = a: P(a) = 0 · C(a) + R = R." },
+    { nivel: "avanzado", q: "Simplifica [1/x − 1/(x + 1)] : [1/x + 1/(x + 1)].", sol: "Numerador: 1/[x(x + 1)]. Denominador: (2x + 1)/[x(x + 1)]. Cociente: 1/(2x + 1)." },
+    { nivel: "avanzado", q: "Encuentra un polinomio de segundo grado P(x) tal que P(0) = 3, P(1) = 2 y P(2) = 5.", sol: "P(x) = ax² + bx + c. c = 3; a + b + 3 = 2 → a + b = −1; 4a + 2b + 3 = 5 → 2a + b = 1. Restando: a = 2, b = −3. P(x) = 2x² − 3x + 3." },
+    { nivel: "avanzado", q: "La caja de la lectura tiene V(x) = 4x³ − 100x² + 600x. Comprueba que V(10) = 0 y explica por qué tiene sentido. ¿Cuál es el dominio de V en el problema?", sol: "V(10) = 4000 − 10000 + 6000 = 0: con recortes de 10 cm, el lado de 20 cm desaparece (20 − 20 = 0) y no hay caja. El dominio con sentido es 0 < x < 10." },
+    { nivel: "avanzado", q: "Prueba que n³ − n es siempre múltiplo de 6 para todo entero n.", sol: "n³ − n = n(n − 1)(n + 1) = (n − 1)n(n + 1): son tres enteros consecutivos. Entre ellos siempre hay un par y un múltiplo de 3, así que el producto es múltiplo de 6." },
+    { nivel: "avanzado", q: "Calcula (x² − x − 6)/(x² − 9) · (x² + 3x)/(x² + 2x).", sol: "(x − 3)(x + 2)/[(x − 3)(x + 3)] · x(x + 3)/[x(x + 2)] = 1, para los x que no anulan ningún denominador (x ≠ 0, ±3, −2)." },
+  ],
+  quiz: reparte([
+    { q: "¿Qué grado tiene 3x² − 5x⁴ + x − 1?", o: ["2", "3", "4", "5"], a: 2, e: "El mayor exponente es 4." },
+    { q: "Si P(x) = x³ − 2x + 1, P(−2) =", o: ["−3", "−11", "5", "13"], a: 0, e: "−8 + 4 + 1 = −3." },
+    { q: "(3x² + 2x) − (x² − 5x) =", o: ["2x² − 3x", "2x² + 7x", "4x² − 3x", "2x² + 3x"], a: 1, e: "Se cambia el signo a los dos términos." },
+    { q: "(x − 3)² =", o: ["x² − 9", "x² + 9", "x² − 6x + 9", "x² − 3x + 9"], a: 2, e: "a² − 2ab + b²." },
+    { q: "(2x + 1)(2x − 1) =", o: ["4x² − 1", "4x² + 1", "2x² − 1", "4x² − 4x + 1"], a: 0, e: "Suma por diferencia." },
+    { q: "El grado del producto de un polinomio de grado 3 por otro de grado 2 es…", o: ["5", "6", "3", "1"], a: 0, e: "Los grados se suman." },
+    { q: "En Ruffini, para dividir entre x + 4 se usa…", o: ["a = 4", "a = −4", "a = 1/4", "a = 0"], a: 1, e: "x + 4 = x − (−4)." },
+    { q: "El resto de (x² + 3x − 1) : (x − 1) es…", o: ["1", "3", "−1", "0"], a: 1, e: "P(1) = 1 + 3 − 1 = 3." },
+    { q: "Si P(5) = 0, entonces…", o: ["x + 5 es factor de P", "x − 5 es factor de P", "P no tiene raíces", "el resto de P : (x − 5) es 5"], a: 1, e: "Teorema del factor." },
+    { q: "Las posibles raíces enteras de x³ − 2x + 4 están entre…", o: ["±1, ±2, ±4", "±1, ±3", "solo 4", "±2, ±4, ±8"], a: 0, e: "Divisores del término independiente, 4." },
+    { q: "x² − 25 factorizado es…", o: ["(x − 5)²", "(x + 5)(x − 5)", "x(x − 25)", "irreducible"], a: 1, e: "Diferencia de cuadrados." },
+    { q: "2x² − 8 factorizado es…", o: ["2(x − 2)²", "2(x + 2)(x − 2)", "(2x − 4)(x + 2)", "2(x² − 4)"], a: 1, e: "Factor común y suma por diferencia; 2(x² − 4) no está terminado." },
+    { q: "¿Cuál es irreducible en ℝ?", o: ["x² − 1", "x² + 1", "x² − 2x + 1", "x² − x"], a: 1, e: "x² + 1 = 0 no tiene soluciones reales." },
+    { q: "Las raíces de (x − 2)²(x + 1) son…", o: ["2 doble y −1", "−2 y 1", "2 y 1", "solo 2"], a: 0, e: "El factor al cuadrado indica raíz doble." },
+    { q: "El m.c.d. de x² − x y x² − 1 es…", o: ["x", "x − 1", "x + 1", "1"], a: 1, e: "x(x − 1) y (x + 1)(x − 1)." },
+    { q: "(x² − 4)/(x − 2) simplificado es…", o: ["x − 2", "x + 2", "x² − 2", "no se puede"], a: 1, e: "(x + 2)(x − 2)/(x − 2)." },
+    { q: "¿Qué simplificación es correcta?", o: ["(x + 2)/2 = x + 1", "2x/(2x + 1) = 1/1", "(3x)/(6x²) = 1/(2x)", "(x² + 1)/(x + 1) = x + 1"], a: 2, e: "Solo se tachan factores." },
+    { q: "1/x + 1/(x + 1) =", o: ["2/(2x + 1)", "(2x + 1)/[x(x + 1)]", "1/(x² + x)", "2/(x + 1)"], a: 1, e: "Común denominador x(x + 1)." },
+    { q: "(x/3) : (x²/6) =", o: ["x³/18", "2/x", "x/2", "6/x"], a: 1, e: "(x · 6)/(3 · x²) = 2/x." },
+    { q: "En h(t) = 20t − 5t², la pelota vuelve al suelo en…", o: ["t = 2", "t = 4", "t = 5", "t = 20"], a: 1, e: "5t(4 − t) = 0 → t = 4." },
+  ]),
+  examen: reparte([
+    { q: "(x + 2)³ tiene como coeficientes…", o: ["1, 6, 12, 8", "1, 3, 3, 1", "1, 2, 4, 8", "1, 6, 6, 8"], a: 0, e: "x³ + 3·2x² + 3·4x + 8." },
+    { q: "El cociente de (x³ − 1) : (x − 1) es…", o: ["x² + x + 1", "x² − 1", "x² − x + 1", "x²"], a: 0, e: "Ruffini con 1, 0, 0, −1." },
+    { q: "Si P(x) = x³ + kx − 2 es divisible entre x − 1, k vale…", o: ["1", "−1", "2", "3"], a: 0, e: "1 + k − 2 = 0." },
+    { q: "La factorización de x³ − 4x es…", o: ["x(x − 2)²", "x(x + 2)(x − 2)", "(x − 2)(x + 2)", "x²(x − 4)"], a: 1, e: "x(x² − 4)." },
+    { q: "3x² − 3x − 6 factorizado es…", o: ["3(x − 2)(x + 1)", "(x − 2)(x + 1)", "3(x + 2)(x − 1)", "(3x − 6)(x − 1)"], a: 0, e: "3(x² − x − 2)." },
+    { q: "El m.c.m. de x y x² − x es…", o: ["x", "x(x − 1)", "x²(x − 1)", "x − 1"], a: 1, e: "x² − x = x(x − 1)." },
+    { q: "x/(x − 1) − 1/(x − 1) =", o: ["1", "x", "(x − 1)/(x − 1)²", "0"], a: 0, e: "(x − 1)/(x − 1)." },
+    { q: "Un polinomio de grado 4 tiene como máximo…", o: ["2 raíces reales", "3 raíces reales", "4 raíces reales", "infinitas raíces"], a: 2, e: "Tantas como su grado." },
+  ], 2),
+  feynman: ["Por qué (a + b)² no es a² + b²", "Cómo funciona la regla de Ruffini", "Qué dice el teorema del resto y para qué sirve", "Cómo se buscan las raíces enteras de un polinomio", "Por qué en una fracción algebraica solo se tachan factores"],
+  glosario: [
+    ["Monomio", "Producto de un número por letras con exponentes naturales, como −5x³."],
+    ["Polinomio", "Suma de monomios no semejantes."],
+    ["Grado", "Mayor exponente de la variable en un polinomio."],
+    ["Término independiente", "Término del polinomio que no lleva variable."],
+    ["Valor numérico", "Resultado de sustituir la variable por un número: P(a)."],
+    ["Identidad notable", "Igualdad algebraica que se cumple siempre, como (a + b)² = a² + 2ab + b²."],
+    ["Cociente y resto", "Polinomios C y R tales que P = Q · C + R con grado de R menor que el de Q."],
+    ["Regla de Ruffini", "Método rápido para dividir un polinomio entre x − a usando sus coeficientes."],
+    ["Teorema del resto", "El resto de dividir P(x) entre x − a es P(a)."],
+    ["Teorema del factor", "x − a es factor de P(x) si y solo si P(a) = 0."],
+    ["Raíz de un polinomio", "Número a tal que P(a) = 0; donde la gráfica corta al eje X."],
+    ["Raíz doble", "Raíz que aparece en un factor elevado al cuadrado."],
+    ["Factorizar", "Escribir un polinomio como producto de polinomios del menor grado posible."],
+    ["Polinomio irreducible", "El que no se puede descomponer en factores de menor grado."],
+    ["Fracción algebraica", "Cociente de dos polinomios."],
+    ["m.c.m. de polinomios", "Producto de factores comunes y no comunes con el mayor exponente."],
+  ],
+  situacion: {
+    titulo: "Diseñamos el envase más eficiente",
+    reto: "Una cooperativa local quiere vender sus galletas en cajas de cartón sin tapa hechas a partir de planchas de 30 × 20 cm. Os pide que encontréis el tamaño de recorte que da la caja de mayor volumen y que comprobéis vuestra propuesta construyendo un prototipo.",
+    pasos: [
+      "Dibujad la plancha y marcad el cuadrado de lado x que se recorta en cada esquina; escribid la longitud, la anchura y la altura de la caja en función de x.",
+      "Obtened el polinomio del volumen V(x), desarrollado y factorizado, e indicad para qué valores de x tiene sentido.",
+      "Calculad V(x) para x = 1, 2, 3, 4, 5, 6 y 7 en una tabla y representad los puntos.",
+      "Afinad la búsqueda del máximo probando valores decimales cerca del mejor resultado.",
+      "Construid con cartulina la caja óptima y otra con un recorte distinto, y comparad su capacidad llenándolas de arroz.",
+    ],
+    producto: "Un prototipo de caja y una ficha técnica con el polinomio del volumen, la tabla de valores, la gráfica y la medida de recorte recomendada.",
+    evaluacion: [
+      "Traduce correctamente la situación a un polinomio y lo opera sin errores.",
+      "Interpreta las raíces y el dominio del polinomio en el contexto del problema.",
+      "Organiza los cálculos en tablas y gráficas y justifica la elección del recorte.",
+      "Contrasta el modelo matemático con la medida real del prototipo.",
+    ],
   },
-  video: { id: "stIFJ0GnS84", titulo: "Factorización por evaluación usando División Sintética, Ruffini", canal: "Matemáticas profe Alex", vistas: 4027216, megusta: 80115, busqueda: "división de polinomios ruffini" },
-  quiz: [
-    { q: "¿Cuál es el grado de P(x) = 4x² − x⁵ + 7?", o: ["2", "5", "7"], a: 1, e: "El grado es el mayor exponente: 5." },
-    { q: "(x − 4)² =", o: ["x² − 16", "x² − 8x + 16", "x² + 16"], a: 1, e: "Cuadrado de una diferencia: a² − 2ab + b²." },
-    { q: "El resto de dividir x³ + 2x − 1 entre (x − 2) es…", o: ["11", "7", "0"], a: 0, e: "Teorema del resto: P(2) = 8 + 4 − 1 = 11." },
-    { q: "¿Cuál de estos números puede ser raíz entera de x³ − x² − 4x + 4?", o: ["3", "2", "5"], a: 1, e: "Las raíces enteras dividen a 4. P(2) = 8 − 4 − 8 + 4 = 0." },
-    { q: "Simplifica (x² − 1) / (x + 1).", o: ["x − 1", "x² − 1", "x"], a: 0, e: "x² − 1 = (x + 1)(x − 1); se tacha (x + 1)." },
-  ],
-  examen: [
-    { q: "Factoriza x² − 6x + 9.", o: ["(x − 3)²", "(x + 3)(x − 3)", "(x − 9)(x + 1)"], a: 0, e: "Es el cuadrado de una diferencia: (x − 3)²." },
-    { q: "Si P(−1) = 0, entonces…", o: ["(x − 1) es factor", "(x + 1) es factor", "P no tiene raíces"], a: 1, e: "Si a = −1 es raíz, el factor es (x − (−1)) = (x + 1)." },
-    { q: "(2x + 3)(2x − 3) =", o: ["4x² − 9", "4x² + 9", "2x² − 9"], a: 0, e: "Suma por diferencia: (2x)² − 3² = 4x² − 9." },
-  ],
-  feynman: ["Qué son el grado, los coeficientes y el término independiente", "Por qué en (a + b)² aparece el término 2ab", "Cómo funciona la regla de Ruffini y qué dice el teorema del resto", "Por qué al simplificar fracciones solo se tachan factores"],
+  figura: require("./_matb-base-polinomios").figura,
+  video: { id: "Kn15S7w4IA8", titulo: "Ruffini: factorización de polinomios (4º ESO)", canal: "unicoos", vistas: 993256, busqueda: "factorizar polinomios ruffini 4 eso" },
   mapa: mapa("POLINOMIOS", "var(--bac)", [
-    ["Elementos", "grado · coeficientes · P(a)", "var(--ink)"],
-    ["Identidades", "(a ± b)² · (a + b)(a − b)", "var(--pen)"],
-    ["Ruffini y resto", "resto = P(a) · raíces", "var(--red)"],
-    ["Fracciones", "factorizar y tachar factores", "var(--leaf)"],
+    ["Operaciones", "+ − × · identidades notables", "var(--pen)"],
+    ["División", "Ruffini · P(a) = resto", "var(--red)"],
+    ["Factorizar", "raíces · divisores de d", "var(--leaf)"],
+    ["Fracciones", "simplificar · m.c.m.", "var(--inf)"],
   ], 260),
   tarjetas: [
-    ["(a + b)² =", "a² + 2ab + b²"],
-    ["(a + b)(a − b) =", "a² − b²"],
-    ["Teorema del resto", "El resto de dividir P(x) entre (x − a) es P(a)."],
-    ["¿Dónde se buscan las raíces enteras?", "Entre los divisores del término independiente."],
-    ["Error típico al simplificar", "Tachar sumandos: (x + 3)/3 no es x. Solo se tachan factores."],
+    ["(a + b)²", "a² + 2ab + b²"],
+    ["(a − b)²", "a² − 2ab + b²"],
+    ["(a + b)(a − b)", "a² − b²"],
+    ["Prueba de la división", "P = Q · C + R, con grado R < grado Q."],
+    ["Regla de Ruffini sirve para…", "Dividir un polinomio entre x − a."],
+    ["Teorema del resto", "El resto de P(x) : (x − a) es P(a)."],
+    ["¿Dónde buscar raíces enteras?", "Entre los divisores del término independiente."],
+    ["Factorizar ax² + bx + c", "a(x − x₁)(x − x₂), con x₁ y x₂ sus raíces."],
+    ["Orden para factorizar", "Factor común, identidades, 2.º grado, Ruffini."],
+    ["Simplificar una fracción algebraica", "Factorizar arriba y abajo y tachar factores comunes."],
+    ["Sumar fracciones algebraicas", "Reducir a común denominador con el m.c.m."],
+    ["Dividir fracciones algebraicas", "Multiplicar por la inversa: (P·S)/(Q·R)."],
   ],
-  familias: ["Pedidle que dibuje el cuadrado de (a + b) con papel y tijeras para ver los cuatro trozos.", "Preguntadle qué número hay que probar primero en Ruffini y por qué.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  familias: ["Construid juntos una caja sin tapa recortando las esquinas de una cartulina y calculad su volumen.", "Comprobad con números que (a + b)² no es a² + b²: probad con a = 3 y b = 4.", "Pedidle que os explique la regla de Ruffini con un ejemplo, como si fuera el profesor.", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Sentido algebraico: operaciones con polinomios, regla de Ruffini, factorización y fracciones algebraicas (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["Fichas de álgebra (algeblocks) para visualizar identidades notables.", "Carrera por parejas de factorizaciones con comprobación por valor numérico.", "Galería de errores típicos al simplificar: los alumnos explican por qué están mal."],
+    saberes: "Sentido algebraico: expresiones algebraicas, operaciones con polinomios, identidades notables, regla de Ruffini, teorema del resto, factorización y fracciones algebraicas (RD 217/2022, Matemáticas B de 4º, saberes básicos D. Sentido algebraico).",
+    ideas: ["Modelos de área con tiras de papel (álgebra con fichas) para visualizar productos e identidades notables.", "Concurso de factorización por parejas con polinomios que tienen raíces enteras.", "Proyecto de la caja de volumen máximo con hoja de cálculo o GeoGebra.", "Relacionar raíces y gráfica con GeoGebra: mover las raíces y observar cómo cambia el polinomio."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Regla de Ruffini, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Regla_de_Ruffini" },
+    { t: "Teorema del resto, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Teorema_del_resto" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Sumar, multiplicar y dividir polinomios", "Calcular el MCD y el mcm de polinomios y operar con fracciones algebraicas"],
-  tras: {
-    "Qué es un polinomio": [
-      { html: `<h3>Sumar, restar y multiplicar</h3><p>Para <b>sumar</b> polinomios se suman los <b>términos semejantes</b>, los que tienen la misma parte literal: (3x² + 2x − 1) + (x² − 5x + 4) = 4x² − 3x + 3. Para <b>restar</b> se suma el opuesto, cambiando el signo de todos los términos del segundo. Para <b>multiplicar</b> se multiplica cada término del primero por cada término del segundo y se reducen los semejantes, recordando que <mark>xᵃ · xᵇ = xᵃ⁺ᵇ</mark>. El grado del producto es la suma de los grados. Para no olvidar ningún término conviene colocarlos ordenados, como en una multiplicación de números.</p><div class="formula"><span>(2x − 3)(x + 4) = 2x² + 8x − 3x − 12 = 2x² + 5x − 12</span></div>` },
-    ],
-    "Identidades notables": [
-      { html: `<h3>La división de polinomios</h3><p>Para dividir P(x) entre Q(x) se ordenan los dos de mayor a menor grado, <b>dejando huecos</b> para los términos que faltan. Se divide el primer término del dividendo entre el primero del divisor, se multiplica el resultado por todo el divisor y se resta. Se repite con lo que queda hasta que el resto tenga <b>menor grado que el divisor</b>. Como con los números, se cumple que <mark>D = d · c + r</mark>. Cuando el divisor es de la forma x − a, la división se abrevia con la regla de Ruffini.</p>`, video: { id: "gpBEUnFBhGc", titulo: "División de polinomios, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 9331815 } },
-    ],
-    "Factorizar y simplificar fracciones algebraicas": [
-      { html: `<h3>MCD y mcm de polinomios</h3><p>Igual que con los números, primero se <b>factorizan</b> los polinomios. El <b>máximo común divisor</b> es el producto de los factores comunes con el menor exponente, y el <b>mínimo común múltiplo</b> es el producto de los factores comunes y no comunes con el mayor exponente. Si P = x²(x − 1) y Q = x(x − 1)²(x + 2), entonces MCD = x(x − 1) y mcm = x²(x − 1)²(x + 2). El mcm sirve, como en las fracciones numéricas, para encontrar el <mark>denominador común</mark>.</p>` },
-      { html: `<h3>Operar con fracciones algebraicas</h3><p>Para <b>sumar o restar</b> fracciones algebraicas se reducen a común denominador con el mcm de los denominadores, se ajustan los numeradores y se suman. Para <b>multiplicar</b>, se multiplican numeradores y denominadores, y para <b>dividir</b>, se multiplica en cruz. En todos los casos conviene <mark>factorizar antes</mark> y simplificar al final. Hay que recordar que solo se pueden simplificar <b>factores</b>, nunca sumandos: en (x + 3)/3 no se puede tachar el 3.</p>` },
-    ],
-  },
-  ejemplos: [
-    { enunciado: "Divide P(x) = 2x³ − 3x² + 4 entre Q(x) = x² − 1.", pasos: ["2x³ / x² = 2x. Se resta 2x(x² − 1) = 2x³ − 2x: queda −3x² + 2x + 4.", "−3x² / x² = −3. Se resta −3(x² − 1) = −3x² + 3: queda 2x + 1.", "El resto 2x + 1 tiene grado menor que el divisor."], resultado: "Cociente 2x − 3; resto 2x + 1." },
-    { enunciado: "Calcula 2/(x − 1) + 3/(x + 1).", pasos: ["mcm = (x − 1)(x + 1) = x² − 1.", "Numeradores: 2(x + 1) + 3(x − 1) = 5x − 1.", "Resultado: (5x − 1)/(x² − 1)."], resultado: "(5x − 1)/(x² − 1)." },
-    { enunciado: "Simplifica (x² − 9)/(x² + 6x + 9).", pasos: ["Numerador: diferencia de cuadrados (x + 3)(x − 3).", "Denominador: cuadrado de una suma (x + 3)².", "Se simplifica el factor común (x + 3)."], resultado: "(x − 3)/(x + 3)." },
-  ],
-  errores: [
-    "Olvidar dejar el hueco de los términos que faltan al dividir.",
-    "No cambiar el signo de todos los términos al restar polinomios.",
-    "Escribir (a + b)² = a² + b², olvidando el doble producto.",
-    "Simplificar sumandos en vez de factores en una fracción algebraica.",
-    "Multiplicar exponentes en lugar de sumarlos: x² · x³ = x⁵, no x⁶.",
-  ],
-  ejercicios: [
-    { q: "Calcula (4x³ − 2x + 5) − (x³ + 3x² − 2x).", sol: "3x³ − 3x² + 5." },
-    { q: "Multiplica (x² − 2)(3x + 1).", sol: "3x³ + x² − 6x − 2." },
-    { q: "Desarrolla (2x + 5)² y (3x − 1)(3x + 1).", sol: "4x² + 20x + 25 y 9x² − 1." },
-    { q: "Divide x³ − 2x² + x − 5 entre x − 2 con Ruffini.", sol: "Cociente x² + 1; resto −3." },
-    { q: "Calcula el valor de P(x) = x³ − 4x + 1 en x = −2 con el teorema del resto.", sol: "−8 + 8 + 1 = 1." },
-    { q: "Factoriza x³ − x² − 6x.", sol: "x(x − 3)(x + 2)." },
-    { q: "Halla el MCD y el mcm de x² − 4 y x² + 4x + 4.", sol: "(x − 2)(x + 2) y (x + 2)²: MCD = x + 2; mcm = (x − 2)(x + 2)²." },
-    { q: "Simplifica (x² − 5x)/(x² − 25).", sol: "x(x − 5)/((x + 5)(x − 5)) = x/(x + 5)." },
-    { q: "Calcula x/(x + 2) − 1/x.", sol: "(x² − x − 2)/(x(x + 2)) = (x − 2)(x + 1)/(x(x + 2))." },
-    { q: "Calcula (x² − 1)/x · 3x/(x + 1).", sol: "3(x − 1)." },
-  ],
-  quiz: [
-    { q: "El grado de (x³ + 1)(x² − 4) es…", o: ["5", "6", "3"], a: 0, e: "Se suman los grados." },
-    { q: "En una división de polinomios, el resto debe tener…", o: ["mayor grado que el divisor", "menor grado que el divisor", "el mismo grado"], a: 1, e: "Si no, se sigue dividiendo." },
-    { q: "D = d · c + r se llama…", o: ["prueba de la división", "teorema del resto", "regla de Ruffini"], a: 0, e: "Como con los números." },
-    { q: "El mcm de x(x − 1) y (x − 1)² es…", o: ["x(x − 1)²", "x − 1", "x(x − 1)"], a: 0, e: "Comunes y no comunes, mayor exponente." },
-    { q: "En (x + 3)/3, ¿se puede tachar el 3?", o: ["Sí", "No, es un sumando", "Solo si x = 0"], a: 1, e: "Solo se simplifican factores." },
-  ],
-  tarjetas: [
-    ["Prueba de la división", "D = d · c + r, con el grado de r menor que el de d."],
-    ["mcm de polinomios", "Factores comunes y no comunes con el mayor exponente."],
-    ["Simplificar fracciones", "Factorizar primero y tachar solo factores comunes."],
-  ],
-});

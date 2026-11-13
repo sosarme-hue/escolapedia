@@ -16,7 +16,7 @@ module.exports = {
     {
       html: `<h3>Potencias y sus propiedades</h3><p>aⁿ significa multiplicar a por sí mismo n veces: 2⁴ = 2 · 2 · 2 · 2 = 16. Las propiedades permiten operar sin calcular:</p>
       <div class="formula"><span>aᵐ · aⁿ = aᵐ⁺ⁿ</span><span class="op">·</span><span>aᵐ : aⁿ = aᵐ⁻ⁿ</span><span class="op">·</span><span>(aᵐ)ⁿ = aᵐ·ⁿ</span></div><p>Recuerda: <mark>a⁰ = 1</mark> y <mark>a⁻ⁿ = 1/aⁿ</mark>.</p>`,
-      svg: require("./eso-4-matb-potencias-logaritmos").bloques[0].svg,
+      svg: require("./_matb-base-potencias-logaritmos").bloques[0].svg,
     },
     {
       html: `<h3>Raíces</h3><p>La raíz cuadrada de un número es el que, multiplicado por sí mismo, lo da: <mark>√49 = 7</mark> porque 7² = 49. La raíz cúbica: ∛8 = 2 porque 2³ = 8. Para simplificar, saca los cuadrados perfectos: √50 = √(25 · 2) = 5√2.</p>`,
