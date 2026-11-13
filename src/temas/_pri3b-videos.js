@@ -60,4 +60,13 @@ module.exports = {
   "Sm5Mn4j3yJc": ["🎭 PATRIMONIO NATURAL y CULTURAL para NIÑOS", "Clases Particulares en Ávila", 111391], // cs-patrimonio
   "i4zrvX7Tpfc": ["¿QUÉ ES UN MUSEO?| Vídeos Educativos para Niños", "Happy Learning Español", 160658], // cs-patrimonio
   "qrxOa3HS24o": ["¿Cuáles son los lugares Patrimonio de la Humanidad en España?", "Europa Press", 36664], // cs-patrimonio
+  "-ClFOuXkiMc": ["¿Qué es el ESQUEMA CORPORAL🏃‍♂️ en EDUCACIÓN FÍSICA?😲 | APRENDE EN CASA🏡 en 4 MINUTOS⏱", "El Tío Kevin Mora - Vlogs", 76328], // ef-conocer-cuerpo
+  "BNINGhbFCeE": ["Esquema Corporal - Imagen corporal - Conciencia Corporal - #PARANUESTROSESTUDIANTES #ELFORTACHÓNEF", "EL FORTACHÓN DE EDUCACIÓN FÍSICA", 36445], // ef-conocer-cuerpo
+  "bFD9X9BJnDc": ["CABEZA, HOMBRO, RODILLA Y PIE- ESQUEMA CORPORAL- ACTIVIDAD FÍSICA", "TÍOARIEL", 215947], // ef-conocer-cuerpo
+  "u9-mrzrNHNo": ["¿Qué son las HABILIDADES MOTRICES BÁSICAS? Tipos y características👶", "Astraway", 90500], // ef-habilidades-basicas
+  "1TcMR-lNkN0": ["Habilidades Motrices Básicas-Desplazamientos,Giros y Manipulación/ Primaria/Educación Física/Parte 2", "Lezama Sports TV", 163518], // ef-habilidades-basicas
+  "JZyhM-vdzY0": ["Giros. Unidad didáctica de giros en educación física", "Francisco J. Vázquez -kisco-", 56283], // ef-habilidades-basicas
+  "xG7nyNvnR1M": ["Juegos Educación Física - El Balón Que Persigue", "Educación Física Para Todos", 135403], // ef-manejo-balones
+  "9gwlktJaa9k": ["Ejercicios de Educación Física con pelota", "Carolina Núñez", 97995], // ef-manejo-balones
+  "pyBahhoU4EA": ["Aprender a botar el balón para principiantes | Baloncesto", "SIKANA Español", 1896514], // ef-manejo-balones
 };
