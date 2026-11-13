@@ -59,12 +59,12 @@ function compara(label, a, b, abajo) {
 
 // Ciclo: etapas alrededor de un centro (3 a 6).
 function ciclo(label, centro, etapas, color = "var(--leaf)") {
-  const id = uid(), n = etapas.length, cx = 130, cy = 88, R = 64;
-  let s = `<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="var(--line)" stroke-width="3" stroke-dasharray="6 5"/>`;
+  const id = uid(), n = etapas.length, cx = 130, cy = 88, R = 64, RX = n >= 5 ? 86 : R;
+  let s = `<ellipse cx="${cx}" cy="${cy}" rx="${RX}" ry="${R}" fill="none" stroke="var(--line)" stroke-width="3" stroke-dasharray="6 5"/>`;
   s += `<circle cx="${cx}" cy="${cy}" r="27" fill="${color}"/>` + txt(cx, cy, centro, { n: 9, fs: 10, fill: "#fff" });
   etapas.forEach((e, i) => {
-    const a = -Math.PI / 2 + (2 * Math.PI * i) / n, x = cx + R * Math.cos(a), y = cy + R * Math.sin(a), c = C[i % C.length];
-    const a2 = a + Math.PI / n, x2 = cx + R * Math.cos(a2), y2 = cy + R * Math.sin(a2);
+    const a = -Math.PI / 2 + (2 * Math.PI * i) / n, x = cx + RX * Math.cos(a), y = cy + R * Math.sin(a), c = C[i % C.length];
+    const a2 = a + Math.PI / n, x2 = cx + RX * Math.cos(a2), y2 = cy + R * Math.sin(a2);
     s += `<path d="M${(x2 - 6 * Math.sin(a2)).toFixed(1)} ${(y2 + 6 * Math.cos(a2)).toFixed(1)} l ${(3 * -Math.sin(a2)).toFixed(1)} ${(3 * Math.cos(a2)).toFixed(1)}" stroke="var(--muted)" stroke-width="2.5" marker-end="url(#${id})"/>`;
     s += `<rect x="${(x - 40).toFixed(1)}" y="${(y - 14).toFixed(1)}" width="80" height="28" rx="14" fill="var(--card)" stroke="${c}" stroke-width="2"/>`;
     s += txt(x, y, e, { n: 14, fs: 9.5, fill: c });
