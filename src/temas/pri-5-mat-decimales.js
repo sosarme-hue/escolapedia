@@ -1,0 +1,100 @@
+// Matemáticas 5º de Primaria: números decimales y sus operaciones. Dibujos propios en SVG.
+const P = require("./_pri5a");
+const { svg, t, caja, rejilla, AZ, RO, VE, NA, SO, MO } = P;
+
+// Cuadrado de 10 × 10 con k centésimas coloreadas.
+const cien = (x, y, k, c, l = 12) => `${[...Array(100)].map((_, i) => i < k ? `<rect x="${x + (i % 10) * l}" y="${y + Math.floor(i / 10) * l}" width="${l}" height="${l}" fill="${c}" fill-opacity=".5"/>` : "").join("")}${rejilla(x, y, 10, 10, l, "var(--muted)")}`;
+
+// Operación en columna: filas de texto alineadas a la derecha en x, con raya antes de la última.
+const columna = (x, y, filas, colores = []) => filas.map((f, i) => `${i === filas.length - 1 ? `<path d="M${x - 92} ${y + i * 24 - 17} H ${x + 4}" stroke="var(--ink)" stroke-width="2"/>` : ""}${t(x, y + i * 24, f, { s: 16, a: "end", d: true, c: colores[i] || "var(--ink)" })}`).join("");
+
+module.exports = P.tema({
+  materia: "Matemáticas",
+  titulo: "Números decimales: operaciones",
+  minutos: 55,
+  objetivos: ["Leer, escribir y descomponer números decimales hasta las milésimas", "Comparar, ordenar y redondear números decimales", "Sumar, restar y multiplicar números decimales", "Multiplicar y dividir por 10, 100 y 1 000 y dividir un decimal entre un natural"],
+  claves: ["número decimal", "coma decimal", "décima", "centésima", "milésima", "redondear", "multiplicar por 10, 100, 1 000", "cociente decimal"],
+  pregunta: ["Si compras un cuaderno de 1,75 € y un bolígrafo de 0,90 €, ¿pagas 1,165 €?", "¡No! Al sumar decimales hay que colocar <b>la coma debajo de la coma</b>, para sumar céntimos con céntimos y euros con euros: 1,75 + 0,90 = <mark>2,65 €</mark>. El error viene de alinear los números por la derecha como si fueran naturales."],
+  bloques: [
+    ["Décimas, centésimas y milésimas", `<p>Los <b>números decimales</b> sirven para expresar cantidades <b>más pequeñas que la unidad</b>. Si dividimos una unidad en partes iguales:</p><ul><li>En 10 partes, cada una es una <b>décima</b>: 1 U = 10 d → 1 d = 0,1.</li><li>En 100 partes, cada una es una <b>centésima</b>: 1 U = 100 c → 1 c = 0,01.</li><li>En 1 000 partes, cada una es una <b>milésima</b>: 1 U = 1 000 m → 1 m = 0,001.</li></ul><p>Un número decimal tiene una <b>parte entera</b> (antes de la coma) y una <b>parte decimal</b> (después de la coma). En 4,37 la parte entera es 4 y la decimal, 37 centésimas.</p><p>Las décimas, centésimas y milésimas son también <mark>fracciones decimales</mark>: 0,3 = 3/10; 0,07 = 7/100.</p>`,
+      svg("Cuadrado de cien casillas con treinta y siete coloreadas: treinta y siete centésimas", `${cien(20, 30, 37, AZ)}${t(198, 66, "0,37", { s: 26, d: true, c: AZ })}${t(198, 94, "37 centésimas", { s: 11 })}${t(198, 116, "= 3 décimas", { s: 11, c: "var(--muted)" })}${t(198, 132, "y 7 centésimas", { s: 11, c: "var(--muted)" })}`)],
+    ["Leer, escribir y descomponer decimales", `<p>Un número decimal se puede leer de dos formas:</p><ul><li>Nombrando la parte entera, la palabra <b>«coma»</b> y la parte decimal: 12,054 → «doce coma cero cincuenta y cuatro».</li><li>Diciendo las unidades y la parte decimal con su nombre: «doce unidades y cincuenta y cuatro milésimas».</li></ul><p>Para descomponerlo, se usa una tabla de valor posicional: <b>D U , d c m</b>.</p><p style="text-align:center">12,054 = 1 D + 2 U + 0 d + 5 c + 4 m = 10 + 2 + 0,05 + 0,004</p><p>Ojo con los ceros: no es lo mismo 3,5 (tres unidades y cinco décimas) que <mark>3,05</mark> (tres unidades y cinco centésimas).</p>`,
+      svg("Tabla de valor posicional con el número 12,054: decenas, unidades, décimas, centésimas y milésimas", `${["D", "U", "d", "c", "m"].map((h, i) => { const x = 22 + i * 46 + (i >= 2 ? 10 : 0), c = i < 2 ? AZ : RO; return `<rect x="${x}" y="40" width="40" height="26" fill="${c}" fill-opacity=".18" stroke="${c}" stroke-width="1.5"/>${t(x + 20, 58, h, { s: 13, c })}<rect x="${x}" y="68" width="40" height="40" fill="var(--card)" stroke="${c}" stroke-width="1.5"/>${t(x + 20, 96, "12054"[i], { s: 20, d: true })}`; }).join("")}<circle cx="113" cy="102" r="4" fill="var(--ink)"/>${t(64, 28, "parte entera", { s: 11, c: AZ })}${t(184, 28, "parte decimal", { s: 11, c: RO })}${t(130, 150, "12,054", { s: 20, d: true })}`)],
+    ["Comparar, ordenar y redondear decimales", `<p>Para <b>comparar</b> decimales:</p><ol><li>Compara primero la <b>parte entera</b>: 5,2 &gt; 4,98.</li><li>Si es igual, compara las <b>décimas</b>, luego las centésimas…: 3,<b>4</b>7 &gt; 3,<b>3</b>9.</li></ol><p>Truco: iguala el número de decimales añadiendo <b>ceros a la derecha</b>, que no cambian el valor: 0,5 = 0,50. Así, ¿0,5 o 0,47? → 0,50 &gt; 0,47.</p><p><b>Redondear</b> a las unidades o a las décimas sigue la misma regla que con los naturales: mira la cifra siguiente; si es 5 o más, se sube. Ejemplos: 7,63 → a las unidades: <b>8</b>; a las décimas: <b>7,6</b>.</p><p>En las tiendas se redondea a los céntimos: 2,346 € → <mark>2,35 €</mark>.</p>`,
+      svg("Recta numérica de 3 a 4 en décimas con 3,47 entre 3,4 y 3,5, más cerca de 3,5", `<path d="M18 90 H 242" stroke="var(--muted)" stroke-width="2.5"/>${[...Array(11)].map((_, i) => `<path d="M${30 + i * 20} ${i % 10 ? 84 : 78} V ${i % 10 ? 96 : 102}" stroke="var(--muted)" stroke-width="${i % 10 ? 1.4 : 2.5}"/>`).join("")}${t(30, 120, "3", { s: 13 })}${t(230, 120, "4", { s: 13 })}${t(110, 120, "3,4", { s: 11, c: "var(--muted)" })}${t(130, 120, "3,5", { s: 11, c: VE })}<circle cx="124" cy="90" r="6" fill="${RO}"/>${t(124, 66, "3,47", { s: 14, c: RO })}${t(130, 156, "3,47 ≈ 3,5 (a las décimas)", { s: 13, d: true, c: VE })}`)],
+    ["Sumar y restar decimales", `<p>Para sumar o restar números decimales:</p><ol><li>Coloca los números de forma que <b>la coma quede debajo de la coma</b> (unidades con unidades, décimas con décimas…).</li><li>Si alguno tiene menos decimales, <b>completa con ceros</b>.</li><li>Opera como con los números naturales.</li><li>Pon la coma en el resultado, <b>debajo de las otras comas</b>.</li></ol><p>Ejemplo: 25,4 + 3,768 → 25,400 + 3,768 = <b>29,168</b>.</p><p>En la resta, los ceros son muy importantes: 8 − 2,35 → 8,00 − 2,35 = <mark>5,65</mark>.</p><p>Comprueba con la prueba de la resta: 5,65 + 2,35 = 8 ✓.</p>`,
+      svg("Suma en columna de 25,4 más 3,768 con la coma alineada: 29,168", `${columna(120, 50, ["2 5 , 4 0 0", "+   3 , 7 6 8", "2 9 , 1 6 8"], ["var(--ink)", AZ, VE])}<path d="M86 34 V 110" stroke="${RO}" stroke-width="1.5" stroke-dasharray="3 3"/>${t(196, 62, "coma", { s: 12, c: RO })}${t(196, 78, "debajo", { s: 12, c: RO })}${t(196, 94, "de coma", { s: 12, c: RO })}${t(130, 150, "completa con ceros", { s: 12, c: "var(--muted)" })}`)],
+    ["Multiplicar y dividir por 10, 100 y 1 000", `<p>Hay un truco muy rápido para multiplicar o dividir un decimal por la unidad seguida de ceros:</p><ul><li>Para <b>multiplicar</b> por 10, 100 o 1 000, se desplaza la coma hacia la <b>derecha</b> uno, dos o tres lugares.<br>3,456 × 100 = <b>345,6</b></li><li>Para <b>dividir</b> entre 10, 100 o 1 000, se desplaza la coma hacia la <b>izquierda</b> uno, dos o tres lugares.<br>45,2 : 100 = <b>0,452</b></li></ul><p>Si faltan cifras, se añaden <b>ceros</b>: 2,5 × 1 000 = 2 500; 7 : 1 000 = 0,007.</p><p>Para recordarlo: al multiplicar el número <mark>se hace más grande</mark> y al dividir, más pequeño.</p>`,
+      svg("Multiplicar por cien desplaza la coma dos lugares a la derecha; dividir, a la izquierda", `${t(130, 46, "3,456 × 100 = 345,6", { s: 15, d: true, c: VE })}<path d="M86 58 q 9 -10 18 0 q 9 -10 18 0" fill="none" stroke="${VE}" stroke-width="2"/>${t(200, 72, "→ derecha", { s: 11, c: VE })}${t(130, 116, "45,2 : 100 = 0,452", { s: 15, d: true, c: RO })}<path d="M108 128 q -9 -10 -18 0 q -9 -10 -18 0" fill="none" stroke="${RO}" stroke-width="2"/>${t(200, 142, "← izquierda", { s: 11, c: RO })}${t(130, 170, "un lugar por cada cero", { s: 11, c: "var(--muted)" })}`),
+      P.V("decB")],
+    ["Multiplicar números decimales", `<p>Para multiplicar con decimales:</p><ol><li>Multiplica como si <b>no hubiera comas</b>.</li><li>Cuenta cuántas cifras decimales hay <b>entre los dos factores</b>.</li><li>Pon la coma en el producto separando ese número de cifras, <b>empezando por la derecha</b>.</li></ol><p>Ejemplo: 2,4 × 1,3</p><ul><li>24 × 13 = 312.</li><li>Decimales: uno en 2,4 y uno en 1,3 → <b>dos</b> en total.</li><li>Resultado: <b>3,12</b>.</li></ul><p>Si el producto no tiene cifras suficientes, se añaden ceros a la izquierda: 0,2 × 0,3 → 2 × 3 = 6 → tres… no, dos decimales → <mark>0,06</mark>.</p><p>Comprueba estimando: 2,4 × 1,3 está cerca de 2 × 1 = 2 y de 3 × 1 = 3. El 3,12 es razonable.</p>`,
+      svg("Multiplicación de 2,4 por 1,3: se multiplica 24 por 13 y se separan dos decimales: 3,12", `${t(100, 44, "2,4", { s: 18, a: "end", d: true })}${t(100, 70, "× 1,3", { s: 18, a: "end", d: true, c: AZ })}<path d="M40 80 H 104" stroke="var(--ink)" stroke-width="2"/>${t(100, 104, "3,12", { s: 20, a: "end", d: true, c: VE })}${caja(136, 30, 108, 30, "1 decimal", RO, { s: 12 })}${caja(136, 64, 108, 30, "+ 1 decimal", RO, { s: 12 })}${caja(136, 98, 108, 30, "= 2 decimales", VE, { s: 12 })}${t(130, 160, "24 × 13 = 312 → 3,12", { s: 13 })}`)],
+    ["Dividir un decimal entre un número natural", `<p>Para dividir un número decimal entre un número natural:</p><ol><li>Divide como siempre la <b>parte entera</b>.</li><li>Al <b>bajar la primera cifra decimal</b>, pon la coma en el cociente.</li><li>Sigue dividiendo como de costumbre.</li></ol><p>Ejemplo: 9,6 : 4 → 9 : 4 = 2, resto 1 → bajas el 6 (pones coma) → 16 : 4 = 4 → cociente <b>2,4</b>.</p><p>Si el dividendo es menor que el divisor, el cociente empieza por <b>0,</b>: 2,4 : 6 = 0,4.</p><p>También podemos <b>sacar decimales</b> en una división de naturales que no es exacta: 7 : 2 = 3, resto 1 → añade coma y un 0 → 10 : 2 = 5 → <mark>7 : 2 = 3,5</mark>.</p>`,
+      svg("División 9,6 entre 4 igual a 2,4: la coma se pone en el cociente al bajar la primera cifra decimal", `<path d="M120 30 V 90 M120 56 H 196" stroke="var(--ink)" stroke-width="2.2" fill="none"/>${t(112, 50, "9,6", { s: 20, a: "end", d: true, c: AZ })}${t(158, 50, "4", { s: 20, d: true, c: RO })}${t(158, 82, "2,4", { s: 20, d: true, c: VE })}${t(112, 80, "1 6", { s: 16, a: "end", d: true, c: "var(--muted)" })}${t(112, 106, "0", { s: 16, a: "end", d: true, c: "var(--muted)" })}${t(130, 142, "al bajar el 6 → coma en el cociente", { s: 11, c: VE })}${t(130, 164, "prueba: 4 × 2,4 = 9,6", { s: 12 })}`),
+      P.V("decB2")],
+    ["Los decimales y el dinero", `<p>Usamos decimales cada día con el <b>dinero</b>: 1 euro tiene 100 céntimos, así que <b>1 céntimo = 0,01 €</b> (una centésima de euro).</p><ul><li>3,45 € = 3 euros y 45 céntimos.</li><li>0,50 € = 50 céntimos = medio euro.</li><li>0,05 € = 5 céntimos (¡no 50!).</li></ul><p>Problema: compras 3 bocadillos a 2,35 € cada uno y pagas con un billete de 10 €. ¿Cuánto te devuelven?</p><ul><li>Gasto: 3 × 2,35 = 7,05 €.</li><li>Cambio: 10 − 7,05 = <b>2,95 €</b>.</li></ul><p>Los precios siempre se escriben con <b>dos decimales</b>, porque los céntimos son centésimas: escribimos 4,50 €, no 4,5 €, aunque <mark>valen lo mismo</mark>.</p>`,
+      svg("Monedas y billete: 3,45 euros son 3 euros y 45 céntimos", `<rect x="16" y="40" width="86" height="48" rx="6" fill="${VE}" fill-opacity=".2" stroke="${VE}" stroke-width="2"/>${t(59, 70, "10 €", { s: 16, d: true, c: VE })}${[["1 €", 132, SO], ["1 €", 168, SO], ["1 €", 204, SO]].map(([v, x, c]) => `<circle cx="${x}" cy="64" r="16" fill="${c}" fill-opacity=".35" stroke="${NA}" stroke-width="2"/>${t(x, 68, v, { s: 10 })}`).join("")}${[["20c", 60], ["20c", 100], ["5c", 140]].map(([v, x]) => `<circle cx="${x}" cy="118" r="${v === "5c" ? 10 : 13}" fill="${NA}" fill-opacity=".3" stroke="${NA}" stroke-width="1.6"/>${t(x, 122, v, { s: 9 })}`).join("")}${t(210, 122, "= 0,45 €", { s: 12, c: NA })}${t(130, 166, "3 € + 0,45 € = 3,45 €", { s: 14, d: true })}`)],
+    ["Resolver problemas con decimales", `<p>Los decimales aparecen en medidas, precios, tiempos deportivos o temperaturas. Para resolver problemas:</p><ol><li>Lee con atención y anota los datos con sus <b>unidades</b>.</li><li>Decide qué operaciones hacen falta.</li><li><b>Estima</b> antes: redondea los números para saber más o menos cuánto debe salir.</li><li>Calcula cuidando la <b>posición de la coma</b>.</li><li>Comprueba que el resultado se parece a tu estimación.</li></ol><p>Ejemplo: en una carrera, Marta tarda 12,85 s y Sergio 13,2 s. ¿Cuánto más ha tardado Sergio?</p><p>13,20 − 12,85 = <mark>0,35 segundos</mark>. Estimación: 13 − 13 ≈ 0, algo pequeño. ✓</p>`,
+      P.filas("Estimar antes de calcular: redondea y comprueba", [["Problema", "13,2 s − 12,85 s", AZ], ["Estimo", "13 − 13 ≈ casi 0", SO], ["Calculo", "13,20 − 12,85 = 0,35", VE], ["Compruebo", "0,35 + 12,85 = 13,2 ✓", RO]])],
+  ],
+  figura: ["Números decimales", P.columnas("Resumen: decimales, sumar y restar, por 10 y 100, multiplicar y dividir", [["0,1 · 0,01 · 0,001", "d · c · m", ["décima, centésima", "milésima"], AZ], ["coma con coma", "+ y −", ["25,400", "+ 3,768"], VE], ["→ × · ← :", "× 10, 100", ["3,45 × 100", "= 345"], SO], ["cuenta decimales", "× y :", ["2,4 × 1,3 = 3,12", "9,6 : 4 = 2,4"], RO]])],
+  video: P.V("decV", true),
+  ejemplos: [
+    ["Ordena de mayor a menor: 2,7; 2,07; 2,77; 2,707.", ["Iguala decimales: 2,700; 2,070; 2,770; 2,707.", "Compara: 2 770 > 2 707 > 2 700 > 2 070."], "2,77 > 2,707 > 2,7 > 2,07"],
+    ["Calcula 15 − 6,48.", ["Completa con ceros: 15,00 − 6,48.", "Resta: 8,52.", "Prueba: 8,52 + 6,48 = 15,00 ✓"], "8,52"],
+    ["Un paquete de 6 zumos cuesta 4,32 €. ¿Cuánto cuesta cada zumo? ¿Y 10 zumos?", ["4,32 : 6 → 4 : 6 = 0, coma; 43 : 6 = 7 resto 1; 12 : 6 = 2 → 0,72 €.", "10 zumos: 0,72 × 10 = 7,2 € (la coma un lugar a la derecha)."], "0,72 € cada zumo; 7,20 € los diez"],
+  ],
+  errores: [
+    "Alinear los decimales por la derecha en la suma y la resta en lugar de poner la coma debajo de la coma.",
+    "Pensar que 0,45 es mayor que 0,5 porque 45 es mayor que 5.",
+    "Al multiplicar, poner en el producto tantos decimales como tiene solo uno de los factores.",
+    "Mover la coma hacia el lado equivocado al multiplicar o dividir por 10, 100 o 1 000.",
+    "Olvidar poner la coma en el cociente al bajar la primera cifra decimal.",
+    "Confundir 0,05 € (5 céntimos) con 0,50 € (50 céntimos).",
+  ],
+  ejercicios: [
+    ["Escribe con cifras: siete unidades y nueve milésimas.", "7,009."],
+    ["Descompón 30,62.", "3 D + 0 U + 6 d + 2 c = 30 + 0,6 + 0,02."],
+    ["Escribe >, < o =: 0,8 __ 0,80; 4,06 __ 4,6; 1,999 __ 2.", "=; <; <."],
+    ["Redondea 15,486 a las unidades, a las décimas y a las centésimas.", "15; 15,5; 15,49."],
+    ["Calcula: 12,5 + 7,86 + 0,4.", "20,76."],
+    ["Calcula: 20 − 13,75.", "6,25."],
+    ["Calcula: 0,78 × 1 000 y 56,3 : 100.", "780 y 0,563."],
+    ["Calcula: 3,25 × 4 y 1,5 × 2,2.", "13 y 3,3."],
+    ["Calcula: 14,4 : 6 y 3 : 4 (sacando decimales).", "2,4 y 0,75."],
+    ["Una tela cuesta 8,50 € el metro. ¿Cuánto cuestan 2,4 m?", "8,50 × 2,4 = 20,40 €."],
+  ],
+  quiz: [
+    ["0,07 se lee…", ["siete centésimas", "siete décimas", "siete milésimas"], "Dos cifras decimales."],
+    ["¿Cuántas centésimas tiene una unidad?", ["100", "10", "1 000"], "1 U = 100 c."],
+    ["¿Cuál es mayor?", ["0,6", "0,59", "0,099"], "0,60 > 0,59."],
+    ["4,38 redondeado a las décimas es…", ["4,4", "4,3", "4"], "La centésima es 8."],
+    ["2,5 + 1,75 es…", ["4,25", "3,100", "4,3"], "Coma debajo de coma."],
+    ["5 − 0,4 es…", ["4,6", "0,1", "4,4"], "5,0 − 0,4."],
+    ["1,23 × 100 es…", ["123", "12,3", "0,0123"], "Coma dos lugares a la derecha."],
+    ["7,5 : 10 es…", ["0,75", "75", "0,075"], "Coma un lugar a la izquierda."],
+    ["0,3 × 0,2 es…", ["0,06", "0,6", "6"], "Dos decimales en total."],
+    ["8,4 : 4 es…", ["2,1", "21", "2,4"], "8 : 4 = 2; 4 : 4 = 1."],
+  ],
+  examen: [
+    ["Medio euro escrito con decimales es…", ["0,50 €", "0,05 €", "5,0 €"], "50 céntimos."],
+    ["3,2 × 1,5 es…", ["4,8", "48", "0,48"], "32 × 15 = 480 → 4,80."],
+    ["0,9 : 3 es…", ["0,3", "3", "0,03"], "9 décimas entre 3."],
+    ["El número 6,054 tiene… centésimas.", ["5", "0", "4"], "Segunda cifra decimal."],
+  ],
+  feynman: ["Qué son las décimas, centésimas y milésimas", "Cómo se comparan dos números decimales", "Por qué hay que poner la coma debajo de la coma al sumar", "Cómo se multiplica por 10, 100 o 1 000 rápidamente", "Dónde se pone la coma al multiplicar dos decimales"],
+  mapa: ["DECIMALES", [["d · c · m", "0,1 · 0,01 · 0,001", AZ], ["Comparar", "iguala decimales", SO], ["+ y −", "coma debajo de coma", VE], ["× y :", "contar decimales", RO]]],
+  tarjetas: [
+    ["Décima, centésima, milésima", "0,1 · 0,01 · 0,001."],
+    ["Ceros a la derecha", "No cambian el valor: 0,5 = 0,50."],
+    ["Sumar y restar decimales", "Coma debajo de coma y completar con ceros."],
+    ["× 10, 100, 1 000", "La coma se mueve 1, 2 o 3 lugares a la derecha."],
+    [": 10, 100, 1 000", "La coma se mueve 1, 2 o 3 lugares a la izquierda."],
+    ["Multiplicar decimales", "Separa en el producto tantos decimales como hay entre los factores."],
+    ["Decimal entre natural", "Al bajar la primera cifra decimal, pon la coma en el cociente."],
+    ["1 céntimo", "0,01 €, una centésima de euro."],
+  ],
+  familias: ["Haced juntos la lista de la compra con precios y calculad el total y el cambio.", "Mirad tiques de compra y comprobad las sumas con decimales.", "Medid la altura de la familia en metros con decimales y ordenadla.", "Repasad las tarjetas dos minutos al día."],
+  saberes: "Sentido numérico: números decimales hasta las milésimas; lectura, escritura, descomposición, comparación y redondeo; suma, resta y multiplicación de decimales; multiplicación y división por la unidad seguida de ceros; división de un decimal entre un natural; problemas con dinero y medidas",
+  ideas: ["Tienda de clase con precios con decimales y monedas de juguete.", "Cuadrados de 100 casillas para representar centésimas.", "Cronometrar carreras cortas y comparar los tiempos con décimas y centésimas."],
+});

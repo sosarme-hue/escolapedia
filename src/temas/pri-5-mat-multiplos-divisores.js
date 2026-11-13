@@ -1,0 +1,100 @@
+// Matemáticas 5º de Primaria: múltiplos, divisores, divisibilidad, primos y compuestos. Dibujos propios en SVG.
+const P = require("./_pri5a");
+const { svg, t, caja, AZ, RO, VE, NA, SO, MO } = P;
+
+// Rectángulos de n puntos: muestra las formas de colocar 12 en filas iguales.
+const puntos = (x, y, f, c, col, r = 4.2, g = 12) => [...Array(f * c)].map((_, i) => `<circle cx="${x + (i % c) * g}" cy="${y + Math.floor(i / c) * g}" r="${r}" fill="${col}"/>`).join("");
+
+// Criba hasta 30: primos coloreados.
+const PRIMOS = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29];
+
+module.exports = P.tema({
+  materia: "Matemáticas",
+  titulo: "Múltiplos y divisores",
+  minutos: 50,
+  objetivos: ["Calcular múltiplos y divisores de un número", "Aplicar los criterios de divisibilidad por 2, 3, 5 y 10", "Distinguir números primos y compuestos", "Hallar el mínimo común múltiplo y el máximo común divisor de dos números sencillos"],
+  claves: ["múltiplo", "divisor", "divisible", "criterio de divisibilidad", "número primo", "número compuesto", "mínimo común múltiplo", "máximo común divisor"],
+  pregunta: ["Tienes 24 caramelos y quieres repartirlos en bolsas con el mismo número, sin que sobre ninguno. ¿De cuántas maneras puedes hacerlo?", "Hay que buscar los números que dividen exactamente a 24, sus <b>divisores</b>: <mark>1, 2, 3, 4, 6, 8, 12 y 24</mark>. Puedes hacer 1 bolsa de 24, 2 de 12, 3 de 8, 4 de 6, 6 de 4, 8 de 3, 12 de 2 o 24 de 1. ¡Ocho maneras!"],
+  bloques: [
+    ["Los múltiplos de un número", `<p>Los <b>múltiplos</b> de un número son los que se obtienen al <b>multiplicarlo</b> por 0, 1, 2, 3, 4… Es decir, son los números de su tabla de multiplicar, que sigue y sigue sin fin.</p><p>Múltiplos de 6: <b>0, 6, 12, 18, 24, 30, 36…</b></p><p>Tres ideas importantes:</p><ul><li>Un número tiene <b>infinitos</b> múltiplos.</li><li>El 0 es múltiplo de todos los números.</li><li>Todo número es múltiplo de sí mismo y de 1.</li></ul><p>Para saber si 72 es múltiplo de 6, divide: 72 : 6 = 12, exacta. Entonces <mark>72 es múltiplo de 6</mark>, porque 6 × 12 = 72.</p>`,
+      svg("Recta numérica con saltos de seis en seis: múltiplos de 6", `<path d="M14 100 H 246" stroke="var(--muted)" stroke-width="2"/>${[0, 6, 12, 18, 24, 30, 36].map((v, i) => `<path d="M${20 + i * 36} 94 V 106" stroke="var(--muted)" stroke-width="2"/>${t(20 + i * 36, 124, String(v), { s: 13, c: AZ })}${i < 6 ? `<path d="M${22 + i * 36} 92 Q ${38 + i * 36} 60 ${54 + i * 36} 92" fill="none" stroke="${RO}" stroke-width="2"/>${t(38 + i * 36, 66, "+6", { s: 10, c: RO })}` : ""}`).join("")}${t(130, 158, "múltiplos de 6 · infinitos", { s: 13, c: AZ, d: true })}`)],
+    ["Los divisores de un número", `<p>Un número es <b>divisor</b> de otro si lo divide de forma <b>exacta</b> (con resto 0). Por ejemplo, 4 es divisor de 20 porque 20 : 4 = 5, resto 0.</p><p>Para encontrar <b>todos</b> los divisores de un número, divídelo entre 1, 2, 3, 4… y busca las divisiones exactas. Van por <b>parejas</b>:</p><p style="text-align:center">Divisores de 20: 1 × 20, 2 × 10, 4 × 5 → <b>1, 2, 4, 5, 10, 20</b></p><p>Cuando la pareja se repite, ya has terminado.</p><p>Relación importante: si a es divisor de b, entonces b es múltiplo de a. <mark>4 es divisor de 20 ↔ 20 es múltiplo de 4</mark>. También se dice que 20 es <b>divisible</b> entre 4.</p>`,
+      svg("Las formas de colocar doce puntos en filas iguales: uno por doce, dos por seis y tres por cuatro", `${puntos(22, 34, 1, 12, AZ, 4, 13)}${t(182, 38, "1 × 12", { s: 11, c: AZ, a: "start" })}${puntos(22, 64, 2, 6, VE)}${t(110, 72, "2 × 6", { s: 11, c: VE, a: "start" })}${puntos(170, 64, 3, 4, SO)}${t(208, 126, "3 × 4", { s: 11, c: NA })}${t(130, 152, "divisores de 12:", { s: 12 })}${t(130, 170, "1, 2, 3, 4, 6, 12", { s: 13, c: RO, d: true })}`)],
+    ["Criterios de divisibilidad por 2, 5 y 10", `<p>Los <b>criterios de divisibilidad</b> son trucos para saber si un número es divisible entre otro <b>sin hacer la división</b>.</p><ul><li>Un número es divisible por <b>2</b> si termina en <b>0, 2, 4, 6 u 8</b> (es par). Ejemplo: 3 578.</li><li>Un número es divisible por <b>5</b> si termina en <b>0 o en 5</b>. Ejemplo: 1 235.</li><li>Un número es divisible por <b>10</b> si termina en <b>0</b>. Ejemplo: 4 560.</li></ul><p>Fíjate: si un número termina en 0, es divisible a la vez por 2, por 5 y por 10. El número 7 890 cumple los tres, pero <mark>7 895 solo es divisible por 5</mark>.</p>`,
+      P.filas("Criterios de divisibilidad por dos, cinco y diez: mirar la última cifra", [["÷ 2", "termina en 0, 2, 4, 6 u 8", AZ], ["÷ 5", "termina en 0 o en 5", VE], ["÷ 10", "termina en 0", RO]], "Mira la última cifra"),
+      P.V("mulB")],
+    ["Criterio de divisibilidad por 3", `<p>El criterio del 3 es diferente: no basta con mirar la última cifra.</p><p>Un número es divisible por <b>3</b> si la <b>suma de sus cifras</b> es múltiplo de 3.</p><ul><li>¿Es 471 divisible por 3? Suma: 4 + 7 + 1 = <b>12</b>. 12 es múltiplo de 3 → <b>sí</b>.</li><li>¿Es 815 divisible por 3? Suma: 8 + 1 + 5 = <b>14</b>. 14 no es múltiplo de 3 → <b>no</b>.</li></ul><p>Si la suma te sale grande, vuelve a sumar sus cifras: 98 799 → 9 + 8 + 7 + 9 + 9 = 42 → 4 + 2 = 6 → sí es divisible.</p><p>Hay un criterio parecido para el 9: <mark>la suma de las cifras debe ser múltiplo de 9</mark>.</p>`,
+      svg("Criterio del tres: en 471 la suma de cifras es doce, múltiplo de tres", `${caja(40, 30, 40, 44, "4", AZ, { s: 22 })}${caja(110, 30, 40, 44, "7", AZ, { s: 22 })}${caja(180, 30, 40, 44, "1", AZ, { s: 22 })}${t(95, 58, "+", { s: 18 })}${t(165, 58, "+", { s: 18 })}${P.flecha(130, 82, 130, 104, "var(--muted)", 2)}${t(130, 130, "= 12 → múltiplo de 3", { s: 15, d: true, c: VE })}${t(130, 158, "471 es divisible por 3 ✓", { s: 12, c: VE })}`)],
+    ["Números primos y compuestos", `<p>Algunos números tienen muy pocos divisores:</p><ul><li>Un número es <b>primo</b> si solo tiene <b>dos divisores</b>: el 1 y él mismo. Ejemplos: 2, 3, 5, 7, 11, 13.</li><li>Un número es <b>compuesto</b> si tiene <b>más de dos divisores</b>. Ejemplo: 9 (1, 3, 9) o 12 (1, 2, 3, 4, 6, 12).</li></ul><p>El <b>1</b> es especial: no es primo ni compuesto, porque solo tiene un divisor.</p><p>El <b>2</b> es el único primo par: todos los demás pares son divisibles entre 2 y, por tanto, compuestos.</p><p>Con puntos se ve claro: <mark>7 puntos solo forman una fila</mark>, pero 8 puntos se pueden ordenar en 2 filas de 4.</p>`,
+      svg("Siete puntos solo se colocan en una fila, es primo; ocho puntos se colocan en dos filas de cuatro, es compuesto", `${puntos(34, 50, 1, 7, RO, 5, 15)}${t(80, 82, "7 → primo", { s: 13, c: RO, d: true })}${puntos(170, 40, 2, 4, AZ, 5, 15)}${t(192, 82, "8 → compuesto", { s: 13, c: AZ, d: true })}${t(130, 124, "primo: solo 1 y él mismo", { s: 12 })}${t(130, 146, "el 1 no es primo ni compuesto", { s: 11, c: "var(--muted)" })}`),
+      P.V("mulB2")],
+    ["La criba de Eratóstenes", `<p>Hace más de 2 000 años, el sabio griego <b>Eratóstenes</b> inventó un método para encontrar los números primos. Se llama <b>criba</b> porque «cuela» los números como un colador:</p><ol><li>Escribe los números del 1 al 100 y tacha el 1.</li><li>Rodea el 2 y tacha todos sus múltiplos (4, 6, 8…).</li><li>Rodea el siguiente que no esté tachado (3) y tacha sus múltiplos.</li><li>Sigue con el 5 y el 7.</li><li>Los números que quedan sin tachar son <b>primos</b>.</li></ol><p>Los primos menores que 30 son: <mark>2, 3, 5, 7, 11, 13, 17, 19, 23 y 29</mark>.</p>`,
+      svg("Criba de los números del 1 al 30 con los primos coloreados", `${[...Array(30)].map((_, i) => { const n = i + 1, x = 18 + (i % 10) * 23, y = 26 + Math.floor(i / 10) * 40, p = PRIMOS.includes(n); return `<rect x="${x}" y="${y}" width="21" height="30" rx="4" fill="${p ? RO : "var(--card)"}" fill-opacity="${p ? 0.25 : 1}" stroke="${p ? RO : "var(--line)"}" stroke-width="1.5"/>${t(x + 10.5, y + 20, String(n), { s: 10, c: p ? RO : "var(--muted)" })}`; }).join("")}${t(130, 166, "primos hasta 30", { s: 12, c: RO, d: true })}`)],
+    ["El mínimo común múltiplo", `<p>Dos números tienen múltiplos <b>comunes</b>, es decir, que están en las dos listas. El más pequeño (sin contar el 0) se llama <b>mínimo común múltiplo</b> o <b>m.c.m.</b></p><p>Ejemplo: m.c.m. de 4 y 6.</p><ul><li>Múltiplos de 4: 4, 8, <b>12</b>, 16, 20, <b>24</b>…</li><li>Múltiplos de 6: 6, <b>12</b>, 18, <b>24</b>…</li></ul><p>Comunes: 12, 24… El menor es <mark>m.c.m.(4, 6) = 12</mark>.</p><p>Sirve para resolver problemas de cosas que <b>se repiten</b> y coinciden. Si un autobús pasa cada 4 minutos y otro cada 6, y acaban de salir juntos, volverán a coincidir dentro de 12 minutos.</p>`,
+      svg("Saltos de cuatro y de seis que coinciden en el doce: mínimo común múltiplo", `<path d="M14 92 H 246" stroke="var(--muted)" stroke-width="2"/>${[0, 4, 8, 12, 16, 20, 24].map((v) => `<path d="M${20 + v * 9} 86 V 98" stroke="var(--muted)" stroke-width="1.5"/>${t(20 + v * 9, 116, String(v), { s: 11, c: "var(--muted)" })}`).join("")}${[0, 4, 8, 12, 16, 20].map((v) => `<path d="M${22 + v * 9} 86 Q ${38 + v * 9} 56 ${56 + v * 9} 86" fill="none" stroke="${AZ}" stroke-width="2"/>`).join("")}${[0, 6, 12, 18].map((v) => `<path d="M${22 + v * 9} 98 Q ${47 + v * 9} 140 ${74 + v * 9} 98" fill="none" stroke="${VE}" stroke-width="2"/>`).join("")}<circle cx="128" cy="92" r="7" fill="${RO}"/>${t(128, 50, "12", { s: 15, c: RO, d: true })}${t(60, 30, "saltos de 4", { s: 11, c: AZ })}${t(200, 30, "saltos de 6", { s: 11, c: VE })}${t(130, 166, "m.c.m.(4, 6) = 12", { s: 13, d: true })}`)],
+    ["El máximo común divisor", `<p>Dos números también pueden tener divisores <b>comunes</b>. El mayor de ellos es el <b>máximo común divisor</b> o <b>m.c.d.</b></p><p>Ejemplo: m.c.d. de 12 y 18.</p><ul><li>Divisores de 12: <b>1, 2, 3</b>, 4, <b>6</b>, 12.</li><li>Divisores de 18: <b>1, 2, 3, 6</b>, 9, 18.</li></ul><p>Comunes: 1, 2, 3 y 6. El mayor es <mark>m.c.d.(12, 18) = 6</mark>.</p><p>Sirve para problemas de <b>repartir en grupos iguales lo más grandes posible</b>. Si tienes 12 rosas y 18 claveles y quieres hacer ramos iguales con el mayor número de flores de cada tipo, harás 6 ramos con 2 rosas y 3 claveles cada uno.</p>`,
+      svg("Diagrama de dos círculos con los divisores de 12 y 18; en el centro los comunes 1, 2, 3 y 6", `<circle cx="96" cy="92" r="64" fill="${AZ}" fill-opacity=".12" stroke="${AZ}" stroke-width="2"/><circle cx="164" cy="92" r="64" fill="${VE}" fill-opacity=".12" stroke="${VE}" stroke-width="2"/>${t(62, 22, "div. de 12", { s: 11, c: AZ })}${t(198, 22, "div. de 18", { s: 11, c: VE })}${t(60, 84, "4", { s: 14, c: AZ })}${t(60, 112, "12", { s: 14, c: AZ })}${t(200, 84, "9", { s: 14, c: VE })}${t(200, 112, "18", { s: 14, c: VE })}${t(130, 74, "1  2", { s: 14 })}${t(130, 98, "3", { s: 14 })}${t(130, 124, "6", { s: 18, d: true, c: RO })}${t(130, 174, "m.c.d. = 6", { s: 12, c: RO })}`)],
+    ["Problemas con múltiplos y divisores", `<p>¿Cómo saber si un problema es de m.c.m. o de m.c.d.? Fíjate en la pregunta:</p><ul><li>Si las cosas <b>se repiten</b> y queremos saber <b>cuándo coinciden</b> (relojes, autobuses, turnos), buscamos un <b>múltiplo común</b> → m.c.m.</li><li>Si queremos <b>repartir o cortar</b> en partes iguales <b>lo más grandes posible</b> sin que sobre nada, buscamos un <b>divisor común</b> → m.c.d.</li></ul><p>Ejemplo: Laura va a la piscina cada 3 días y Hugo cada 5. Hoy coinciden. ¿Cuándo volverán a coincidir? m.c.m.(3, 5) = <mark>15 días</mark>.</p>`,
+      P.filas("Cómo elegir: coincidir es m.c.m.; repartir en lo más grande es m.c.d.", [["m.c.m.", "¿cuándo vuelven a coincidir?", AZ], ["m.c.d.", "repartir en partes iguales", VE], ["Ejemplo", "piscina cada 3 y 5 días → 15", SO]])],
+  ],
+  figura: ["Múltiplos y divisores", P.columnas("Resumen: múltiplos, divisores, criterios y primos", [["× 1, 2, 3…", "MÚLTIPLOS", ["infinitos", "6, 12, 18…"], AZ], ["división exacta", "DIVISORES", ["de 12:", "1, 2, 3, 4, 6, 12"], VE], ["2 · 3 · 5 · 10", "CRITERIOS", ["última cifra", "suma de cifras"], SO], ["solo 1 y él", "PRIMOS", ["2, 3, 5, 7, 11…", "1 no es primo"], RO]])],
+  video: P.V("mulV", true),
+  ejemplos: [
+    ["Escribe todos los divisores de 36.", ["Busca parejas que multiplicadas den 36: 1 × 36, 2 × 18, 3 × 12, 4 × 9, 6 × 6.", "Al llegar a 6 × 6 la pareja se repite: hemos terminado."], "1, 2, 3, 4, 6, 9, 12, 18 y 36"],
+    ["¿Es 2 340 divisible por 2, 3, 5 y 10?", ["Termina en 0 → divisible por 2, por 5 y por 10.", "Suma de cifras: 2 + 3 + 4 + 0 = 9, múltiplo de 3 → divisible por 3."], "Sí, por los cuatro"],
+    ["Un faro se enciende cada 6 segundos y otro cada 8. Se encienden juntos. ¿Cuándo volverán a coincidir?", ["Coincidir → m.c.m.", "Múltiplos de 6: 6, 12, 18, 24, 30…", "Múltiplos de 8: 8, 16, 24, 32…", "El menor común es 24."], "Dentro de 24 segundos"],
+  ],
+  errores: [
+    "Confundir múltiplos (se multiplica, hay infinitos) con divisores (se divide exactamente, hay pocos).",
+    "Pensar que el 1 es un número primo.",
+    "Aplicar el criterio del 3 mirando la última cifra en lugar de sumar todas las cifras.",
+    "Creer que todos los números impares son primos (9, 15 o 21 son compuestos).",
+    "Olvidarse de que el propio número y el 1 también son sus divisores.",
+    "Usar el m.c.m. en problemas de repartir, que se resuelven con el m.c.d.",
+  ],
+  ejercicios: [
+    ["Escribe los ocho primeros múltiplos de 7 (sin el 0).", "7, 14, 21, 28, 35, 42, 49, 56."],
+    ["¿Es 91 múltiplo de 7? ¿Y de 13?", "Sí: 7 × 13 = 91. Es múltiplo de los dos."],
+    ["Escribe todos los divisores de 30.", "1, 2, 3, 5, 6, 10, 15, 30."],
+    ["De estos números: 135, 248, 370, 513, di cuáles son divisibles por 2, por 3 y por 5.", "Por 2: 248, 370. Por 3: 135, 513. Por 5: 135, 370."],
+    ["¿Cuáles son primos? 17, 21, 29, 33, 41.", "17, 29 y 41."],
+    ["Explica por qué 51 no es primo.", "Porque 5 + 1 = 6 es múltiplo de 3: 51 = 3 × 17."],
+    ["Calcula el m.c.m. de 6 y 9.", "Múltiplos de 6: 6, 12, 18… Múltiplos de 9: 9, 18… m.c.m. = 18."],
+    ["Calcula el m.c.d. de 16 y 24.", "Divisores comunes: 1, 2, 4, 8. m.c.d. = 8."],
+    ["Tienes 20 lápices rojos y 30 azules. Quieres hacer estuches iguales con el mayor número de lápices de cada color. ¿Cuántos estuches harás?", "m.c.d.(20, 30) = 10 estuches, con 2 rojos y 3 azules."],
+    ["Escribe un número de 4 cifras divisible por 2, 3, 5 y 10 a la vez.", "Por ejemplo, 1 230 (termina en 0 y 1 + 2 + 3 + 0 = 6)."],
+  ],
+  quiz: [
+    ["¿Cuál es múltiplo de 8?", ["56", "60", "44"], "8 × 7 = 56."],
+    ["¿Cuántos múltiplos tiene un número?", ["infinitos", "diez", "los mismos que divisores"], "La tabla nunca acaba."],
+    ["Un divisor de 18 es…", ["9", "4", "36"], "18 : 9 = 2 exacto."],
+    ["Un número es divisible por 5 si termina en…", ["0 o 5", "5 solamente", "un número par"], "Criterio del 5."],
+    ["¿Es 522 divisible por 3?", ["sí, porque 5 + 2 + 2 = 9", "no, porque termina en 2", "solo por 2"], "Suma de cifras múltiplo de 3."],
+    ["¿Cuál es primo?", ["23", "21", "25"], "Solo 1 y 23."],
+    ["El 1 es…", ["ni primo ni compuesto", "primo", "compuesto"], "Tiene un solo divisor."],
+    ["El único primo par es…", ["2", "4", "0"], "Los demás pares son divisibles entre 2."],
+    ["m.c.m.(2, 3) es…", ["6", "1", "5"], "El primer múltiplo común."],
+    ["m.c.d.(8, 12) es…", ["4", "2", "24"], "Mayor divisor común."],
+  ],
+  examen: [
+    ["Si 6 es divisor de 42, entonces…", ["42 es múltiplo de 6", "6 es múltiplo de 42", "42 es primo"], "Relación recíproca."],
+    ["Un número compuesto tiene…", ["más de dos divisores", "dos divisores", "un divisor"], "Por ejemplo, 9."],
+    ["¿Qué número es divisible por 10?", ["3 470", "3 475", "3 407"], "Termina en 0."],
+    ["Problema de «¿cuándo vuelven a coincidir?» se resuelve con…", ["el m.c.m.", "el m.c.d.", "una resta"], "Cosas que se repiten."],
+  ],
+  feynman: ["Qué diferencia hay entre múltiplo y divisor", "Cómo se buscan todos los divisores de un número", "Cuáles son los criterios de divisibilidad por 2, 3, 5 y 10", "Qué es un número primo y por qué el 1 no lo es", "Cuándo se usa el m.c.m. y cuándo el m.c.d."],
+  mapa: ["MÚLTIPLOS Y DIVISORES", [["Múltiplos", "× · infinitos", AZ], ["Divisores", "división exacta", VE], ["Primos", "solo 1 y él mismo", RO], ["m.c.m. y m.c.d.", "coincidir · repartir", SO]]],
+  tarjetas: [
+    ["Múltiplo de un número", "El resultado de multiplicarlo por otro número."],
+    ["Divisor de un número", "El que lo divide de forma exacta."],
+    ["Divisible por 2", "Termina en 0, 2, 4, 6 u 8."],
+    ["Divisible por 3", "La suma de sus cifras es múltiplo de 3."],
+    ["Divisible por 5 y por 10", "Por 5: termina en 0 o 5. Por 10: termina en 0."],
+    ["Número primo", "Solo tiene dos divisores: 1 y él mismo."],
+    ["m.c.m.", "El menor múltiplo común (sin el 0)."],
+    ["m.c.d.", "El mayor divisor común."],
+  ],
+  familias: ["Repartid objetos (galletas, cromos) en grupos iguales y buscad todos los repartos posibles.", "Mirad matrículas o números de portales y comprobad con los criterios si son divisibles por 2, 3 o 5.", "Haced juntos la criba de Eratóstenes hasta 100 en una hoja cuadriculada.", "Repasad las tarjetas dos minutos al día."],
+  saberes: "Sentido numérico: múltiplos y divisores; criterios de divisibilidad por 2, 3, 5 y 10; números primos y compuestos; mínimo común múltiplo y máximo común divisor en contextos de resolución de problemas",
+  ideas: ["Cuadrícula del 1 al 100 para colorear múltiplos con distintos colores y descubrir patrones.", "Construir rectángulos con fichas para ver qué números solo forman una fila (primos).", "Problemas de horarios reales (autobuses, semáforos) para el m.c.m."],
+});
