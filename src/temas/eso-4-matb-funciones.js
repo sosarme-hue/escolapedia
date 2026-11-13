@@ -210,7 +210,7 @@ module.exports = {
     ],
   },
   figura: require("./_matb-base-funciones").figura,
-  video: { id: "H40lcwlgPMk", titulo: "Dominio y rango de una función", canal: "Matemáticas profe Alex", vistas: 6842269, megusta: 141230, busqueda: "dominio y recorrido de una función" },
+  video: { id: "pwr3Q9hr2OY", titulo: "Dominio y recorrido de una función", canal: "La MATHcueva", vistas: 550396, megusta: 0, busqueda: "dominio y recorrido de una función" },
   mapa: mapa("FUNCIONES", "var(--bac)", [
     ["Dominio y recorrido", "proyecciones sobre los ejes", "var(--pen)"],
     ["Crecimiento", "intervalos de x · máx y mín", "var(--leaf)"],

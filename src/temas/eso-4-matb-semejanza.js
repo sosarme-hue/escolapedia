@@ -99,7 +99,7 @@ module.exports = {
     {
       html: `<h3>9.14 Semejanza en el papel, el arte y la naturaleza</h3><p>¿Por qué al doblar una hoja DIN A4 por la mitad se obtiene una A5 con exactamente la misma forma? Porque los formatos DIN están diseñados para que las dos mitades sean <b>semejantes</b> a la hoja entera. Si los lados son 1 y x, la mitad tiene lados x/2 y 1, y la semejanza exige x / 1 = 1 / (x/2), es decir, x² = 2: la razón entre los lados es <mark>√2 ≈ 1,414</mark>. Una A4 mide 297 × 210 mm, y 297/210 ≈ 1,414. Así, una fotocopiadora puede reducir una A3 a una A4 sin deformarla: razón 1/√2 ≈ 71 %.</p><p>Otra proporción famosa es el <b>número de oro</b>, φ = (1 + √5)/2 ≈ 1,618. Un rectángulo áureo tiene la propiedad de que, si se le quita un cuadrado, el rectángulo que queda es semejante al original. Se ha buscado (a veces con exageración) en el Partenón, en cuadros del Renacimiento y en logotipos actuales.</p><p>En la naturaleza, muchas formas crecen de manera semejante a sí mismas: la concha del nautilo, las piñas o los brócolis romanescos. Cada parte es una copia reducida del todo. Esta <b>autosemejanza</b> es la idea que está detrás de los <b>fractales</b>, figuras que conservan su aspecto a cualquier escala de ampliación.</p>`,
       svg: lienzo("Hoja DIN A3 dividida en dos A4, una de ellas dividida en dos A5: todas semejantes con razón raíz de 2", `<rect x="40" y="16" width="180" height="127" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>${linea([130, 16], [130, 143], "var(--pen)", 2)}${linea([130, 79.5], [220, 79.5], "var(--leaf)", 2)}${t(85, 84, "A4", { c: "var(--pen)", s: 16, b: 1 })}${t(175, 52, "A5", { c: "var(--leaf)", s: 14, b: 1 })}${t(175, 116, "A5", { c: "var(--leaf)", s: 14, b: 1 })}${t(130, 168, "lado largo / lado corto = √2 ≈ 1,414", { c: "var(--red)", s: 12, b: 1 })}`),
-      video: { id: "eoSvj4BbC7U", titulo: "Teorema de Tales: triángulos semejantes", canal: "Susi Profe", vistas: 1785746, busqueda: "triángulos semejantes teorema de tales" },
+      video: { id: "XYBOp1uDgAU", titulo: "Triángulos semejantes: ejercicios", canal: "math2me", vistas: 1771879, busqueda: "triángulos semejantes teorema de tales" },
     },
   ],
   ejemplos: [
@@ -224,7 +224,7 @@ module.exports = {
     ],
   },
   figura: require("./_matb-base-semejanza").figura,
-  video: { id: "staL7w-eT58", titulo: "Teorema de Tales, súper fácil", canal: "Daniel Carreón", vistas: 4840130, megusta: 131468, busqueda: "teorema de tales semejanza" },
+  video: { id: "-MplVMcxOEY", titulo: "Teorema de Tales: ejercicio de aplicación", canal: "Matemáticas profe Alex", vistas: 1420270, megusta: 0, busqueda: "teorema de tales semejanza" },
   mapa: mapa("SEMEJANZA", "var(--bac)", [
     ["Tales", "paralelas · segmentos proporcionales", "var(--pen)"],
     ["Criterios", "AA · LLL · LAL", "var(--leaf)"],
