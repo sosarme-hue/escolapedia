@@ -1,176 +1,248 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
+// Matemáticas B 4º ESO · Tema 6. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, graf, recta } = require("./_eso4L3");
+
+// Tabla de signos: puntos críticos y filas [nombre, signos por tramo].
+function signos(aria, puntos, filas, pie) {
+  const n = puntos.length + 1, x0 = 70, w = (250 - x0) / n;
+  const cab = puntos.map((p, i) => `<path d="M${x0 + (i + 1) * w} 20 V ${30 + filas.length * 28}" stroke="var(--line)" stroke-width="1.5"/>${t(x0 + (i + 1) * w, 16, p, { s: 11, b: 1, c: "var(--red)" })}`).join("");
+  const fs = filas.map(([nom, sg], j) => `${t(x0 - 6, 44 + j * 28, nom, { s: 11, b: 1, a: "end", c: j === filas.length - 1 ? "var(--pen)" : "var(--ink)" })}${sg.map((g, i) => t(x0 + (i + 0.5) * w, 45 + j * 28, g, { s: 16, b: 1, c: g === "+" ? "var(--leaf)" : "var(--red)" })).join("")}`).join("");
+  return lienzo(aria, `<path d="M8 ${26 + (filas.length - 1) * 28} H 252" stroke="var(--ink)" stroke-width="1.5"/>${cab}${fs}${pie ? t(130, 168, pie, { s: 12, b: 1, c: "var(--pen)" }) : ""}`);
+}
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Inecuaciones",
-  minutos: 40,
-  objetivos: ["Resolver inecuaciones de primer grado y expresar la solución como intervalo", "Resolver inecuaciones de segundo grado estudiando el signo", "Resolver sistemas de inecuaciones y problemas de optimización sencillos"],
-  claves: ["desigualdad", "inecuación", "intervalo solución", "estudio de signos", "sistema de inecuaciones", "semiplano"],
+  minutos: 110,
+  objetivos: [
+    "Distinguir entre ecuación e inecuación y expresar las soluciones como intervalos",
+    "Resolver inecuaciones de primer grado aplicando las transformaciones equivalentes",
+    "Resolver sistemas de inecuaciones con una incógnita",
+    "Resolver inecuaciones de segundo grado, polinómicas y racionales con la tabla de signos",
+    "Representar las soluciones de inecuaciones y sistemas con dos incógnitas como regiones del plano",
+    "Plantear y resolver problemas en los que se busca un margen de valores",
+  ],
+  claves: ["desigualdad", "inecuación", "intervalo solución", "cambio de sentido", "sistema de inecuaciones", "tabla de signos", "inecuación racional", "semiplano", "región factible"],
+  lectura: {
+    titulo: "No buscamos un número, buscamos un margen",
+    html: `<p>Un fabricante de mochilas escolares recibe una norma: para no dañar la espalda, la mochila cargada no debe superar el 10 % del peso del alumno. Una aerolínea admite maletas de cabina cuyas medidas sumen como mucho 115 cm. Un medicamento es eficaz si su concentración en sangre está por encima de 4 mg/L, pero resulta tóxico por encima de 12 mg/L. En ninguno de estos casos interesa un número exacto: lo que importa es <b>un margen de valores aceptables</b>.</p>
+    <p>Las matemáticas que describen esos márgenes son las <b>inecuaciones</b>: expresiones con los signos &lt;, &gt;, ≤ o ≥ en lugar del signo igual. Su solución no suele ser un número, sino un <b>intervalo</b> o una unión de intervalos, como aprendiste en el primer tema. Y cuando hay dos incógnitas, la solución es toda una región del plano.</p>
+    <p>Las inecuaciones se usan para planificar dietas, diseñar horarios de producción, calcular cuántas entradas hay que vender para que un concierto no dé pérdidas o decidir cuántos metros de cable caben en un presupuesto. Aprenderás a resolverlas con las mismas herramientas que las ecuaciones, pero con una regla nueva que no debes olvidar nunca, y con una técnica muy visual: la <b>tabla de signos</b>.</p>`,
+  },
   pregunta: {
     texto: "Una tarifa de móvil cuesta 10 € al mes más 0,05 € por minuto. ¿Cuántos minutos puedes hablar sin pasar de 25 €?",
     respuesta: "No buscas un número exacto, sino todos los que cumplen <mark>10 + 0,05x ≤ 25</mark>. Resolviendo: 0,05x ≤ 15 → x ≤ 300. Puedes hablar <b>hasta 300 minutos</b>: la solución es el intervalo [0, 300].",
   },
   bloques: [
     {
-      html: `<h3>Inecuaciones de primer grado</h3><p>Se resuelven como las ecuaciones, con <mark>una regla nueva</mark>: si multiplicas o divides por un número <b>negativo</b>, la desigualdad <b>cambia de sentido</b>.</p>
-      <div class="formula"><span>−2x &lt; 6 → x &gt; −3</span></div><p>La solución es un intervalo: aquí (−3, +∞).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Al dividir entre un número negativo, el signo menor que se convierte en mayor que: la solución es x mayor que menos 3">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-weight="700" text-anchor="middle"><text x="130" y="40" font-size="20" fill="var(--ink)">−2x <tspan fill="var(--red)">&lt;</tspan> 6</text>
-        <text x="130" y="68" font-size="12" fill="var(--red)">÷ (−2) → ¡gira el signo!</text><text x="130" y="96" font-size="20" fill="var(--ink)">x <tspan fill="var(--red)">&gt;</tspan> −3</text></g>
-        <path d="M20 140 H 240" stroke="var(--ink)" stroke-width="2"/>${[-5, -4, -3, -2, -1, 0, 1, 2].map((v, i) => `<path d="M${30 + i * 28} 135 V 145" stroke="var(--ink)" stroke-width="2"/><text x="${30 + i * 28}" y="162" text-anchor="middle" font-size="11" fill="var(--muted)" ${F}>${v}</text>`).join("")}
-        <path d="M86 140 H 248" stroke="var(--pen)" stroke-width="6"/><circle cx="86" cy="140" r="6" fill="var(--paper)" stroke="var(--pen)" stroke-width="3"/></svg>`,
+      html: `<h3>6.1 Desigualdades e inecuaciones</h3><p>Una <b>desigualdad</b> es una expresión que compara dos cantidades con los signos &lt; (menor que), &gt; (mayor que), ≤ (menor o igual que) o ≥ (mayor o igual que). Puede ser numérica, como 3 &lt; 7, o contener letras. Una <b>inecuación</b> es una desigualdad con una o varias incógnitas que solo se cumple para algunos valores, como 2x − 1 &gt; 5.</p><p>Las <b>soluciones</b> de una inecuación son todos los valores que la hacen cierta. En 2x − 1 &gt; 5, x = 4 es solución (7 &gt; 5), pero x = 3 no lo es (5 &gt; 5 es falso). En general, <mark>una inecuación tiene infinitas soluciones</mark>, que se expresan de tres formas equivalentes:</p><ul><li>Con una desigualdad: x &gt; 3.</li><li>Con un intervalo: (3, +∞).</li><li>Con un dibujo en la recta: un punto hueco en 3 y una semirrecta hacia la derecha.</li></ul><p>Fíjate en la diferencia entre &lt; y ≤: con ≤ el extremo forma parte de la solución (corchete y punto relleno); con &lt; no (paréntesis y punto hueco). Este detalle es una fuente frecuente de errores.</p>`,
+      svg: (() => { const r = recta(-1, 7, 112); return lienzo("Solución de 2x menos 1 mayor que 5: semirrecta desde 3, sin incluirlo, hacia la derecha", `${r.svg}${r.intervalo(3, Infinity, 0, 0, "var(--pen)")}${t(130, 36, "2x − 1 > 5  ⇔  x > 3", { s: 15, b: 1 })}${t(130, 62, "(3, +∞)", { s: 15, b: 1, c: "var(--pen)" })}${t(r.X(3), 148, "3 no es solución", { s: 11, c: "var(--red)" })}`); })(),
     },
     {
-      html: `<h3>Inecuaciones de segundo grado</h3><p>Pasa todo a un lado: ax² + bx + c &gt; 0. Busca las <b>raíces</b> con la fórmula; dividen la recta en trozos. Prueba <mark>un número de cada trozo</mark> para ver el signo y quédate con los que cumplen.</p>
-      <div class="formula"><span>x² − x − 6 &lt; 0 → raíces −2 y 3 → solución (−2, 3)</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Parábola que corta el eje en menos 2 y 3; queda por debajo del eje entre ambas raíces, que es la solución">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M10 90 H 250" stroke="var(--line)" stroke-width="2"/>
-        <path d="${[...Array(51)].map((_, i) => { const x = -3.2 + i * 0.15; const y = x * x - x - 6; return `${i ? "L" : "M"}${(110 + x * 26).toFixed(1)} ${(90 - y * 9).toFixed(1)}`; }).join(" ")}" fill="none" stroke="var(--pen)" stroke-width="3"/>
-        <path d="M${110 - 2 * 26} 90 H ${110 + 3 * 26}" stroke="var(--leaf)" stroke-width="7"/>
-        ${[-2, 3].map((r) => `<circle cx="${110 + r * 26}" cy="90" r="6" fill="var(--paper)" stroke="var(--leaf)" stroke-width="3"/><text x="${110 + r * 26}" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)" ${F}>${r}</text>`).join("")}
-        <g ${F} font-size="13" font-weight="700"><text x="40" y="30" fill="var(--red)">+</text><text x="226" y="30" fill="var(--red)">+</text><text x="${110 + 0.5 * 26}" y="170" text-anchor="middle" fill="var(--leaf)">− (cumple)</text></g></svg>`,
+      html: `<h3>6.2 Inecuaciones equivalentes</h3><p>Dos inecuaciones son <b>equivalentes</b> si tienen las mismas soluciones. Para resolver se transforma la inecuación en otras equivalentes más sencillas, con estas reglas:</p><ul><li><b>Sumar o restar</b> la misma expresión a los dos miembros no cambia la desigualdad: si a &lt; b, entonces a + c &lt; b + c.</li><li><b>Multiplicar o dividir</b> por un número <b>positivo</b> no cambia la desigualdad: si a &lt; b y c &gt; 0, entonces a · c &lt; b · c.</li><li><b>Multiplicar o dividir por un número negativo</b> <mark>cambia el sentido de la desigualdad</mark>: si a &lt; b y c &lt; 0, entonces a · c &gt; b · c.</li></ul><p>La tercera regla es la gran novedad respecto a las ecuaciones. Se entiende con un ejemplo: 2 &lt; 5 es cierto, pero al multiplicar por −1 obtenemos −2 y −5, y en la recta −2 está a la <b>derecha</b> de −5, así que −2 &gt; −5. Multiplicar por un negativo es como mirar la recta en un espejo: el orden se invierte. Por la misma razón, no se puede multiplicar por una expresión con x sin saber su signo: por eso las inecuaciones racionales necesitan otro método.</p>`,
+      svg: (() => { const r = recta(-6, 6, 84, { paso: 1, et: false }); return lienzo("Al multiplicar por menos 1, 2 menor que 5 se convierte en menos 2 mayor que menos 5: el orden se invierte como en un espejo", `${r.svg}${[[2, "2", "var(--pen)"], [5, "5", "var(--pen)"], [-2, "−2", "var(--red)"], [-5, "−5", "var(--red)"]].map(([v, l, c]) => `<circle cx="${r.X(v)}" cy="84" r="5" fill="${c}"/>${t(r.X(v), 106, l, { s: 13, b: 1, c })}`).join("")}<path d="M${r.X(0)} 60 V 112" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4"/>${t(r.X(3.5), 50, "2 < 5", { s: 14, b: 1, c: "var(--pen)" })}${t(r.X(-3.5), 50, "−2 > −5", { s: 14, b: 1, c: "var(--red)" })}${t(130, 150, "× (−1): el orden se invierte", { s: 13, b: 1 })}`); })(),
     },
     {
-      html: `<h3>La tabla de signos</h3><p>Otra forma, muy útil con productos y cocientes: factoriza y estudia el signo de <b>cada factor</b> en cada trozo. El signo del total sale <mark>multiplicando signos</mark>.</p><p>En (x + 2)(x − 3) &lt; 0: entre −2 y 3 un factor es + y el otro −, así que el producto es negativo.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tabla de signos de x más 2 y x menos 3 en tres intervalos; el producto es negativo entre menos 2 y 3">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-size="13" font-weight="700" text-anchor="middle">
-          <text x="110" y="28" fill="var(--muted)">−2</text><text x="190" y="28" fill="var(--muted)">3</text>
-          <path d="M110 36 V 160 M190 36 V 160" stroke="var(--line)" stroke-width="2"/>
-          <text x="38" y="62" fill="var(--ink)">x + 2</text><text x="76" y="62" fill="var(--red)">−</text><text x="150" y="62" fill="var(--leaf)">+</text><text x="226" y="62" fill="var(--leaf)">+</text>
-          <text x="38" y="98" fill="var(--ink)">x − 3</text><text x="76" y="98" fill="var(--red)">−</text><text x="150" y="98" fill="var(--red)">−</text><text x="226" y="98" fill="var(--leaf)">+</text>
-          <path d="M14 112 H 248" stroke="var(--ink)" stroke-width="2"/>
-          <text x="38" y="140" fill="var(--pen)">producto</text><text x="76" y="140" fill="var(--leaf)">+</text><rect x="122" y="122" width="56" height="28" rx="8" fill="var(--hl)"/><text x="150" y="141" fill="var(--hl-ink)">−</text><text x="226" y="140" fill="var(--leaf)">+</text></g></svg>`,
+      html: `<h3>6.3 Inecuaciones de primer grado</h3><p>Una inecuación de <b>primer grado</b> con una incógnita se puede reducir a ax + b &lt; 0 (o con &gt;, ≤, ≥). Se resuelve siguiendo <mark>los mismos pasos que una ecuación</mark>: quitar paréntesis, quitar denominadores, agrupar y despejar. La única diferencia está en el último paso: si el coeficiente de x es negativo, al dividir entre él se cambia el sentido.</p><p>Ejemplo 1: 3x − 7 ≤ 5 → 3x ≤ 12 → x ≤ 4. Solución (−∞, 4].</p><p>Ejemplo 2: 5 − 2x &gt; 11 → −2x &gt; 6 → <b>x &lt; −3</b> (al dividir entre −2 el signo gira). Solución (−∞, −3).</p><p>Un truco para evitar errores es agrupar las x en el miembro donde queden con coeficiente positivo: en el ejemplo 2, 5 − 11 &gt; 2x → −6 &gt; 2x → −3 &gt; x, que es lo mismo que x &lt; −3. Para <b>comprobar</b> el resultado, se elige un valor de la solución y otro de fuera: con x = −4, 5 + 8 = 13 &gt; 11 ✓; con x = 0, 5 &gt; 11 ✗. La comprobación con un punto concreto es la mejor defensa contra el cambio de sentido olvidado.</p>`,
+      svg: (() => { const r = recta(-6, 2, 112); return lienzo("Resolución de 5 menos 2x mayor que 11: al dividir entre menos 2 el signo cambia y la solución es x menor que menos 3", `${r.svg}${r.intervalo(-Infinity, -3, 0, 0, "var(--red)")}${t(130, 28, "5 − 2x > 11", { s: 14, b: 1 })}${t(130, 50, "−2x > 6", { s: 14, b: 1, c: "var(--muted)" })}${t(130, 74, ": (−2) → x < −3", { s: 14, b: 1, c: "var(--red)" })}${t(130, 156, "(−∞, −3)", { s: 14, b: 1, c: "var(--red)" })}`); })(),
+      video: { id: "CkVXbU-PNRs", titulo: "Inecuaciones de primer grado (lineales), ejemplo 1", canal: "Matemáticas profe Alex", vistas: 6395557, busqueda: "inecuaciones de primer grado" },
     },
     {
-      html: `<h3>Sistemas de inecuaciones</h3><p>Con una incógnita, se resuelve cada inecuación y la solución es la <mark>intersección</mark>: lo que cumplen todas a la vez.</p>
-      <div class="formula"><span>x + 1 &gt; 0 → x &gt; −1</span><span class="op">y</span><span>2x − 6 ≤ 0 → x ≤ 3</span><span class="op">→</span><span>(−1, 3]</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Intersección de dos semirrectas: x mayor que menos 1 y x menor o igual que 3 se solapan en el intervalo de menos 1 a 3">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[-3, -2, -1, 0, 1, 2, 3, 4, 5].map((v, i) => `<text x="${26 + i * 26}" y="164" text-anchor="middle" font-size="11" fill="var(--muted)" ${F}>${v}</text>`).join("")}
-        <path d="M78 46 H 250" stroke="var(--pen)" stroke-width="6"/><circle cx="78" cy="46" r="6" fill="var(--paper)" stroke="var(--pen)" stroke-width="3"/><text x="160" y="32" font-size="12" font-weight="700" fill="var(--pen)" ${F}>x &gt; −1</text>
-        <path d="M10 86 H 182" stroke="var(--red)" stroke-width="6"/><circle cx="182" cy="86" r="6" fill="var(--red)"/><text x="60" y="72" font-size="12" font-weight="700" fill="var(--red)" ${F}>x ≤ 3</text>
-        <path d="M78 126 H 182" stroke="var(--leaf)" stroke-width="8"/><circle cx="78" cy="126" r="6" fill="var(--paper)" stroke="var(--leaf)" stroke-width="3"/><circle cx="182" cy="126" r="6" fill="var(--leaf)"/>
-        <text x="130" y="114" text-anchor="middle" font-size="12" font-weight="700" fill="var(--leaf)" ${F}>solución (−1, 3]</text>
-        <path d="M78 46 V 126 M182 86 V 126" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4"/></svg>`,
+      html: `<h3>6.4 Paréntesis, denominadores y casos especiales</h3><p>Con paréntesis y denominadores se procede igual que con las ecuaciones. Al multiplicar por el m.c.m. de los denominadores, que es <b>positivo</b>, la desigualdad no cambia. Ejemplo:</p><div class="formula"><span>(x − 1)/2 − (x + 3)/3 ≥ 1 → 3(x − 1) − 2(x + 3) ≥ 6 → x − 9 ≥ 6 → x ≥ 15</span></div><p>La solución es [15, +∞).</p><p>Hay dos casos especiales en los que la x desaparece al simplificar:</p><ul><li>Si queda una desigualdad numérica <b>falsa</b>, como 0 &gt; 4, la inecuación <b>no tiene solución</b>: la solución es el conjunto vacío, ∅. Ejemplo: 2(x + 1) &gt; 2x + 6 → 2 &gt; 6, falso.</li><li>Si queda una desigualdad numérica <b>verdadera</b>, como 0 &lt; 3, la inecuación se cumple para <b>todos los números reales</b>: la solución es ℝ = (−∞, +∞). Ejemplo: 3x − 1 &lt; 3(x + 1) → −1 &lt; 3, cierto.</li></ul><p>En los problemas reales, además, la solución matemática se <mark>restringe al contexto</mark>: si x es un número de personas, solo valen los naturales del intervalo.</p>`,
+      svg: tarjeta("Casos especiales: si la x desaparece y queda algo falso no hay solución; si queda algo verdadero, la solución son todos los reales", "Cuando la x desaparece", [["2(x + 1) > 2x + 6", "var(--ink)", 14], ["2 > 6 falso → ∅", "var(--red)", 15], ["3x − 1 < 3(x + 1)", "var(--ink)", 14], ["−1 < 3 cierto → ℝ", "var(--leaf)", 15]]),
     },
     {
-      html: `<h3>Inecuaciones con dos incógnitas</h3><p>Una inecuación como y ≥ 2x − 1 tiene como solución un <b>semiplano</b>: toda la zona a un lado de la recta. Para saber qué lado, <mark>prueba un punto</mark>, por ejemplo el (0, 0): 0 ≥ −1 es cierto, así que vale el lado del origen.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Semiplano sombreado por encima de la recta y igual a 2x menos 1, que contiene el origen">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M10 10 L 156 10 L 75 172 L 10 172 Z" fill="var(--pen)" opacity=".15"/>
-        <path d="M10 100 H 250 M100 10 V 172" stroke="var(--line)" stroke-width="2"/>
-        <path d="M75 172 L 156 10" stroke="var(--pen)" stroke-width="3"/>
-        <circle cx="100" cy="100" r="6" fill="var(--hl)" stroke="var(--ink)" stroke-width="2"/>
-        <g ${F} font-size="12" font-weight="700"><text x="40" y="60" fill="var(--pen)">y ≥ 2x − 1</text><text x="108" y="118" fill="var(--ink)">(0, 0) ✓</text></g></svg>`,
+      html: `<h3>6.5 Sistemas de inecuaciones con una incógnita</h3><p>Un <b>sistema de inecuaciones</b> está formado por varias inecuaciones que deben cumplirse <b>a la vez</b>. Se resuelve cada inecuación por separado y la solución del sistema es la <mark>intersección</mark> de todas las soluciones, es decir, la parte común.</p><p>Ejemplo: 2x + 1 &gt; 3 y 3x − 2 ≤ 10. La primera da x &gt; 1; la segunda, x ≤ 4. Dibujando las dos semirrectas sobre la misma recta, la zona común es (1, 4].</p><p>Si las soluciones parciales no tienen puntos comunes, el sistema no tiene solución. Por ejemplo, x &lt; 2 y x &gt; 5 no se cumplen a la vez para ningún número.</p><p>Las <b>dobles desigualdades</b>, como −3 &lt; 2x + 1 ≤ 7, son sistemas escritos de forma abreviada. Se pueden resolver operando en los tres miembros a la vez: restando 1, −4 &lt; 2x ≤ 6; dividiendo entre 2, −2 &lt; x ≤ 3. Solución (−2, 3]. Si en algún paso se divide entre un negativo, cambian los dos signos y conviene reordenar la expresión de menor a mayor.</p>`,
+      svg: (() => { const r = recta(-1, 6, 132); return lienzo("Sistema de inecuaciones: x mayor que 1 y x menor o igual que 4; la parte común es el intervalo de 1 a 4", `${r.svg}${r.intervalo(1, Infinity, 0, 0, "var(--pen)", -64)}${r.intervalo(-Infinity, 4, 0, 1, "var(--red)", -40)}<rect x="${r.X(1)}" y="56" width="${r.X(4) - r.X(1)}" height="76" fill="var(--leaf)" opacity=".18"/>${r.intervalo(1, 4, 0, 1, "var(--leaf)")}${t(r.X(5.6), 62, "x > 1", { s: 11, b: 1, c: "var(--pen)", a: "end" })}${t(r.X(-0.6), 86, "x ≤ 4", { s: 11, b: 1, c: "var(--red)", a: "start" })}${t(130, 32, "solución: (1, 4]", { s: 14, b: 1, c: "var(--leaf)" })}`); })(),
+    },
+    {
+      html: `<h3>6.6 Inecuaciones de segundo grado</h3><p>Una inecuación de <b>segundo grado</b> se puede escribir como ax² + bx + c &gt; 0 (o &lt;, ≥, ≤). Para resolverla se usan las <b>raíces</b> del polinomio:</p><ol><li>Se pasa todo a un miembro, dejando 0 en el otro.</li><li>Se resuelve la ecuación ax² + bx + c = 0. Sus raíces dividen la recta en intervalos.</li><li>En cada intervalo el polinomio tiene <b>signo constante</b>. Se elige un valor de prueba en cada uno y se mira el signo.</li><li>Se toman los intervalos que cumplen la desigualdad, incluyendo las raíces si el signo es ≤ o ≥.</li></ol><p>Ejemplo: x² − x − 6 &lt; 0. Las raíces son x = −2 y x = 3. Probamos: x = −3 da 6 (positivo); x = 0 da −6 (negativo); x = 4 da 6 (positivo). Buscamos negativo: la solución es (−2, 3).</p><p>Otra forma equivalente es factorizar, (x + 2)(x − 3) &lt; 0, y estudiar el signo de cada factor en una <mark>tabla de signos</mark>: el producto es negativo cuando los factores tienen signos distintos.</p>`,
+      svg: signos("Tabla de signos de x más 2 por x menos 3: el producto es negativo entre menos 2 y 3", ["−2", "3"], [["x + 2", ["−", "+", "+"]], ["x − 3", ["−", "−", "+"]], ["producto", ["+", "−", "+"]]], "x² − x − 6 < 0  ⇔  x ∈ (−2, 3)"),
+      video: { id: "_uW4nVdCWzQ", titulo: "Inecuaciones cuadráticas: solución, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 4485270, busqueda: "inecuaciones de segundo grado" },
+    },
+    {
+      html: `<h3>6.7 Interpretación gráfica con la parábola</h3><p>Resolver ax² + bx + c &gt; 0 equivale a buscar los valores de x para los que la parábola y = ax² + bx + c está <b>por encima del eje X</b>; con &lt; 0, los valores en que está <b>por debajo</b>. Las raíces son los puntos de corte con el eje.</p><p>Esto da una regla rápida para cuando hay dos raíces x₁ &lt; x₂:</p><ul><li>Si <b>a &gt; 0</b> (parábola hacia arriba), el polinomio es <b>negativo entre las raíces</b> y positivo fuera.</li><li>Si <b>a &lt; 0</b> (parábola hacia abajo), es <b>positivo entre las raíces</b> y negativo fuera.</li></ul><p>Por ejemplo, −x² + 4x ≥ 0: raíces 0 y 4, parábola hacia abajo, así que es positiva entre ellas: [0, 4]. Y x² − 9 &gt; 0: raíces ±3, parábola hacia arriba, positiva fuera: <mark>(−∞, −3) ∪ (3, +∞)</mark>.</p><p>Un error muy frecuente es resolver x² &gt; 9 como x &gt; ±3 o como x &gt; 3. Pensar en la gráfica evita el error: también los números muy negativos, como −10, tienen un cuadrado mayor que 9.</p>`,
+      svg: graf("Parábola y igual a x cuadrado menos x menos 6: está por debajo del eje X entre menos 2 y 3, donde la expresión es negativa", { x0: -4, x1: 5, y0: -8, y1: 8, paso: 1, pasoY: 2, etiquetas: false }, (E) => `${E.area([[-2, 0], ...Array.from({ length: 21 }, (_, i) => { const x = -2 + (5 * i) / 20; return [x, x * x - x - 6]; }), [3, 0]], "var(--red)", 0.2)}${E.curva((x) => x * x - x - 6, "var(--pen)")}${E.punto(-2, 0, "var(--red)", "−2", 0, 16)}${E.punto(3, 0, "var(--red)", "3", 0, 16)}${t(E.X(0.5), E.Y(-3.5), "< 0", { c: "var(--red)", s: 13, b: 1 })}${t(E.X(-3.3), E.Y(5), "> 0", { c: "var(--leaf)", s: 13, b: 1 })}${t(E.X(4.4), E.Y(5), "> 0", { c: "var(--leaf)", s: 13, b: 1 })}`),
+    },
+    {
+      html: `<h3>6.8 Casos con una raíz o ninguna</h3><p>Si el discriminante es <b>cero o negativo</b>, la parábola toca el eje en un punto o no lo corta, y el razonamiento cambia:</p><ul><li><b>Δ &lt; 0</b>: el polinomio <b>no cambia nunca de signo</b>; tiene siempre el signo de a. Por ejemplo, x² + x + 1 &gt; 0 se cumple para todo ℝ (la parábola está entera por encima del eje), mientras que x² + x + 1 &lt; 0 no tiene solución.</li><li><b>Δ = 0</b>: el polinomio es un cuadrado perfecto multiplicado por a, como x² − 6x + 9 = (x − 3)². Un cuadrado es siempre positivo o cero. Así, (x − 3)² &gt; 0 se cumple para todo x salvo x = 3: ℝ − {3}; (x − 3)² ≥ 0 se cumple siempre; (x − 3)² ≤ 0 solo para x = 3; y (x − 3)² &lt; 0 nunca.</li></ul><p>Estos casos son los más traicioneros, porque aplicar mecánicamente la regla «entre las raíces» no funciona. <mark>Dibujar un esbozo de la parábola</mark> o probar un valor concreto (por ejemplo, x = 0) resuelve cualquier duda en segundos.</p>`,
+      svg: graf("Dos parábolas: x cuadrado más x más 1 siempre por encima del eje, y x menos 3 al cuadrado que toca el eje solo en x igual a 3", { x0: -3, x1: 6, y0: -1, y1: 7, paso: 1, etiquetas: false }, (E) => `${E.curva((x) => x * x + x + 1, "var(--pen)")}${E.curva((x) => (x - 3) ** 2, "var(--leaf)")}${E.punto(3, 0, "var(--leaf)", "3", 0, 16)}${t(E.X(-2.9), E.Y(6.4), "Δ < 0", { c: "var(--pen)", s: 12, b: 1 })}${t(E.X(5.2), E.Y(1.2), "Δ = 0", { c: "var(--leaf)", s: 12, b: 1 })}`),
+    },
+    {
+      html: `<h3>6.9 Inecuaciones polinómicas: la tabla de signos</h3><p>Para resolver una inecuación con un polinomio de grado 3 o mayor, como x³ − 4x &gt; 0, se usa la <b>tabla de signos</b>:</p><ol><li>Se deja 0 en un miembro y se <b>factoriza</b> el polinomio: x(x − 2)(x + 2) &gt; 0.</li><li>Se marcan en la recta las raíces de todos los factores, ordenadas: −2, 0, 2. Dividen la recta en intervalos.</li><li>Se estudia el signo de <b>cada factor</b> en cada intervalo (un factor x − a es negativo a la izquierda de a y positivo a la derecha).</li><li>Se aplica la <mark>regla de los signos</mark> del producto en cada columna.</li><li>Se eligen los intervalos con el signo pedido.</li></ol><p>En el ejemplo, el producto es negativo en (−∞, −2), positivo en (−2, 0), negativo en (0, 2) y positivo en (2, +∞). La solución de &gt; 0 es (−2, 0) ∪ (2, +∞). Observa que, si todas las raíces son simples, los signos se van <b>alternando</b>. Si una raíz es doble, como en (x − 1)², el signo no cambia al atravesarla, porque un cuadrado nunca es negativo.</p>`,
+      svg: signos("Tabla de signos de x por x menos 2 por x más 2: positivo entre menos 2 y 0 y a partir de 2", ["−2", "0", "2"], [["x + 2", ["−", "+", "+", "+"]], ["x", ["−", "−", "+", "+"]], ["x − 2", ["−", "−", "−", "+"]], ["producto", ["−", "+", "−", "+"]]], "x³ − 4x > 0 ⇔ (−2, 0) ∪ (2, +∞)"),
+    },
+    {
+      html: `<h3>6.10 Inecuaciones racionales</h3><p>Una inecuación <b>racional</b> tiene la incógnita en un denominador, como (x − 1)/(x + 3) ≥ 0. No se puede multiplicar por x + 3 para quitar el denominador, porque <mark>no sabemos si es positivo o negativo</mark>, y eso decide si la desigualdad cambia de sentido. En su lugar:</p><ol><li>Se pasa todo a un miembro y se reduce a una única fracción P(x)/Q(x) comparada con 0.</li><li>Se buscan las raíces del numerador y del denominador.</li><li>Se hace la tabla de signos con todos los factores, porque el signo de un cociente sigue la misma regla que el de un producto.</li><li>Se eligen los intervalos con el signo pedido. Las raíces del numerador se incluyen si hay ≤ o ≥; las del denominador <b>nunca</b>, porque anulan la fracción.</li></ol><p>En el ejemplo: el numerador se anula en 1 y el denominador en −3. Signos: en (−∞, −3), (−)/(−) = +; en (−3, 1), (−)/(+) = −; en (1, +∞), +. Con ≥ 0: (−∞, −3) ∪ [1, +∞). El −3 lleva paréntesis aunque haya «igual». Un caso típico es 2/(x − 1) &lt; 1: hay que escribirlo como (2 − (x − 1))/(x − 1) &lt; 0, es decir, (3 − x)/(x − 1) &lt; 0.</p>`,
+      svg: signos("Tabla de signos de x menos 1 entre x más 3: positiva antes de menos 3 y desde 1; el menos 3 nunca se incluye", ["−3", "1"], [["x − 1", ["−", "−", "+"]], ["x + 3", ["−", "+", "+"]], ["cociente", ["+", "−", "+"]]], "≥ 0: (−∞, −3) ∪ [1, +∞)"),
+      video: { id: "QLf7vVb6Wao", titulo: "Inecuaciones racionales: solución, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 2017292, busqueda: "inecuaciones racionales" },
+    },
+    {
+      html: `<h3>6.11 Inecuaciones lineales con dos incógnitas</h3><p>Una inecuación como 2x + y ≤ 4 tiene dos incógnitas. Sus soluciones son <b>pares</b> (x, y), y forman una región del plano llamada <b>semiplano</b>. Para dibujarla:</p><ol><li>Se representa la recta frontera, cambiando el signo de desigualdad por =: 2x + y = 4, que pasa por (0, 4) y (2, 0).</li><li>Se dibuja <b>continua</b> si la desigualdad es ≤ o ≥ (los puntos de la recta son solución) y <b>discontinua</b> si es &lt; o &gt;.</li><li>Se elige un <b>punto de prueba</b> que no esté en la recta, normalmente el origen (0, 0). Si cumple la inecuación, la solución es el semiplano que lo contiene; si no, el otro.</li></ol><p>En el ejemplo, (0, 0) da 0 ≤ 4, cierto: la solución es el semiplano que contiene al origen, «por debajo» de la recta. Si la recta pasa por el origen, se prueba con otro punto, como (1, 0). Despejando y también se ve: y ≤ 4 − 2x significa <mark>los puntos que están por debajo de la recta</mark> o sobre ella.</p>`,
+      svg: graf("Semiplano solución de 2x más y menor o igual que 4: la zona sombreada bajo la recta, que contiene al origen", { x0: -2, x1: 5, y0: -2, y1: 6, paso: 1 }, (E) => `${E.area([[-2, -2], [-2, 6], [-1, 6], [3, -2]], "var(--leaf)", 0.22)}${E.curva((x) => 4 - 2 * x, "var(--pen)")}${E.punto(0, 0, "var(--red)", "(0, 0) ✓", -6, -8)}${t(E.X(4.9), E.Y(5.2), "2x + y = 4", { c: "var(--pen)", s: 11, b: 1, a: "end" })}${t(E.X(-0.8), E.Y(2.2), "solución", { c: "var(--leaf)", s: 12, b: 1 })}`),
+    },
+    {
+      html: `<h3>6.12 Sistemas de inecuaciones con dos incógnitas</h3><p>Un <b>sistema de inecuaciones con dos incógnitas</b> se resuelve dibujando el semiplano solución de cada inecuación en los mismos ejes. La solución del sistema es la <mark>región común</mark> a todos los semiplanos, llamada <b>región factible</b>. Puede ser un polígono cerrado, una región abierta (que se extiende sin límite) o estar vacía.</p><p>Ejemplo: x ≥ 0, y ≥ 0, x + y ≤ 6 y x − y ≥ −2. Las dos primeras limitan al primer cuadrante; la tercera, a los puntos bajo la recta x + y = 6; la cuarta, a los puntos bajo la recta y = x + 2. La región factible es un polígono de vértices (0, 0), (6, 0), (2, 4) y (0, 2).</p><p>Los <b>vértices</b> se calculan resolviendo los sistemas de ecuaciones formados por cada par de rectas frontera que se cortan en el borde de la región. Por ejemplo, (2, 4) es la solución de x + y = 6 y x − y = −2. Estas regiones son la base de la <b>programación lineal</b>, una técnica para tomar las mejores decisiones con recursos limitados.</p>`,
+      svg: graf("Región factible del sistema x mayor o igual que 0, y mayor o igual que 0, x más y menor o igual que 6, x menos y mayor o igual que menos 2: cuadrilátero de vértices (0, 0), (6, 0), (2, 4) y (0, 2)", { x0: -1, x1: 7, y0: -1, y1: 7, paso: 1 }, (E) => `${E.area([[0, 0], [6, 0], [2, 4], [0, 2]], "var(--leaf)", 0.3)}${E.curva((x) => 6 - x, "var(--pen)")}${E.curva((x) => x + 2, "var(--red)")}${[[0, 0, "(0, 0)", -4, 14], [6, 0, "(6, 0)", -6, -8], [2, 4, "(2, 4)", 8, -4], [0, 2, "(0, 2)", -6, -6]].map(([x, y, l, dx, dy]) => E.punto(x, y, "var(--ink)", l, dx, dy)).join("")}`),
+      video: { id: "6CUiVzgFfQk", titulo: "Sistema de inecuaciones con dos incógnitas (4º ESO)", canal: "unicoos", vistas: 484652, busqueda: "sistemas de inecuaciones con dos incógnitas" },
+    },
+    {
+      html: `<h3>6.13 Problemas con inecuaciones</h3><p>Las palabras del enunciado indican el signo que hay que usar: «como máximo», «no más de», «no supera» → ≤; «como mínimo», «al menos», «no menos de» → ≥; «más de», «supera» → &gt;; «menos de» → &lt;.</p><p>Ejemplo 1: un taxi cobra 3,50 € de bajada de bandera y 1,20 € por km. ¿Cuántos km se pueden recorrer con 20 €? 3,5 + 1,2x ≤ 20 → x ≤ 13,75 km.</p><p>Ejemplo 2: un grupo organiza un concierto. El alquiler de la sala cuesta 1.800 € y cada entrada se vende a 12 €. ¿Cuántas entradas deben vender para no tener pérdidas? 12x ≥ 1800 → x ≥ 150 entradas. Si el aforo es de 400 personas, la solución en el contexto es 150 ≤ x ≤ 400, con x natural.</p><p>Ejemplo 3: un rectángulo tiene un lado de 8 cm y el otro de x cm. Para que su perímetro esté entre 30 y 40 cm: 30 ≤ 16 + 2x ≤ 40 → 7 ≤ x ≤ 12. <mark>La respuesta final debe interpretarse</mark>: en un problema de personas, cajas o entradas, solo valen los números naturales del intervalo.</p>`,
+      svg: lienzo("Diccionario para traducir enunciados a inecuaciones: como máximo es menor o igual, al menos es mayor o igual, más de es mayor y menos de es menor", `${[["«como máximo», «no supera»", "≤", "var(--pen)"], ["«al menos», «como mínimo»", "≥", "var(--leaf)"], ["«más de», «supera»", ">", "var(--inf)"], ["«menos de»", "<", "var(--red)"]].map(([a, b, c], i) => `<rect x="12" y="${14 + i * 39}" width="236" height="32" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/>${t(22, 35 + i * 39, a, { s: 12, a: "start" })}${t(232, 37 + i * 39, b, { s: 20, b: 1, c, a: "end" })}`).join("")}`),
+    },
+    {
+      html: `<h3>6.14 Decidir lo mejor: introducción a la programación lineal</h3><p>Muchas decisiones consisten en elegir, dentro de una región factible, el punto que hace <b>máxima</b> (o mínima) una cantidad: beneficio, coste, tiempo. Se demuestra que, si la cantidad a optimizar es lineal, <mark>el óptimo se alcanza siempre en un vértice</mark> de la región. Por eso basta con calcular los vértices y comparar.</p><p>Ejemplo: un taller fabrica mesas (x) y sillas (y). Cada mesa necesita 2 horas de trabajo y cada silla 1 hora, y hay como máximo 40 horas a la semana. Por espacio, no se pueden guardar más de 30 piezas. Las restricciones son x ≥ 0, y ≥ 0, 2x + y ≤ 40, x + y ≤ 30. Los vértices de la región son (0, 0), (20, 0), (10, 20) y (0, 30). Si cada mesa deja un beneficio de 50 € y cada silla de 20 €, el beneficio es B = 50x + 20y. Evaluando en los vértices: 0, 1.000, 900 y 600 €. El máximo, 1.000 €, se obtiene fabricando 20 mesas y ninguna silla.</p><p>Si el beneficio por silla subiera a 30 €, los valores serían 0, 1.000, 1.100 y 900 €, y lo mejor pasaría a ser 10 mesas y 20 sillas. Este método se usa en logística, dietas y producción industrial.</p>`,
+      svg: graf("Región factible del taller de mesas y sillas con vértices (0, 0), (20, 0), (10, 20) y (0, 30)", { x0: -2, x1: 32, y0: -2, y1: 42, paso: 5, etiquetas: false, m: 18 }, (E) => `${E.area([[0, 0], [20, 0], [10, 20], [0, 30]], "var(--leaf)", 0.3)}${E.curva((x) => 40 - 2 * x, "var(--pen)")}${E.curva((x) => 30 - x, "var(--red)")}${[[0, 0, "(0, 0)", 6, 14], [20, 0, "(20, 0)", 0, 14], [10, 20, "(10, 20)", 8, -4], [0, 30, "(0, 30)", 6, -6]].map(([x, y, l, dx, dy]) => E.punto(x, y, "var(--ink)", l, dx, dy)).join("")}${t(E.X(31), E.h - 4, "mesas", { c: "var(--muted)", s: 10, a: "end" })}${t(E.X(1), 14, "sillas", { c: "var(--muted)", s: 10, a: "start" })}`),
     },
   ],
-  figura: {
-    titulo: "Ecuación o inecuación: qué cambia",
-    svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Comparación: la ecuación da puntos sueltos como solución y la inecuación da intervalos; al multiplicar por negativo la desigualdad cambia de sentido">
-      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      <rect x="20" y="20" width="290" height="180" rx="14" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/><rect x="330" y="20" width="290" height="180" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/>
-      <text x="165" y="56" text-anchor="middle" font-size="20" font-weight="700" fill="var(--leaf)" ${D}>ECUACIÓN</text><text x="475" y="56" text-anchor="middle" font-size="20" font-weight="700" fill="var(--pen)" ${D}>INECUACIÓN</text>
-      <text x="165" y="90" text-anchor="middle" font-size="16" fill="var(--ink)" ${F}>x² − x − 6 = 0</text><text x="475" y="90" text-anchor="middle" font-size="16" fill="var(--ink)" ${F}>x² − x − 6 &lt; 0</text>
-      <path d="M44 136 H 286 M354 136 H 596" stroke="var(--ink)" stroke-width="2"/>
-      <circle cx="110" cy="136" r="7" fill="var(--leaf)"/><circle cx="230" cy="136" r="7" fill="var(--leaf)"/><path d="M420 136 H 540" stroke="var(--pen)" stroke-width="7"/><circle cx="420" cy="136" r="7" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/><circle cx="540" cy="136" r="7" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/>
-      <text x="165" y="176" text-anchor="middle" font-size="14" fill="var(--muted)" ${F}>solución: x = −2 y x = 3</text><text x="475" y="176" text-anchor="middle" font-size="14" fill="var(--muted)" ${F}>solución: el intervalo (−2, 3)</text>
-    </svg>`,
+  ejemplos: [
+    { enunciado: "Resuelve 2(x − 3) − (x + 1)/2 ≤ x/4.", pasos: ["m.c.m. = 4 (positivo, no cambia el signo): 8(x − 3) − 2(x + 1) ≤ x.", "8x − 24 − 2x − 2 ≤ x → 5x ≤ 26.", "x ≤ 26/5 = 5,2."], resultado: "(−∞; 5,2]." },
+    { enunciado: "Resuelve el sistema 3x − 1 > 2x + 1 y 5 − x ≥ −1.", pasos: ["Primera: x > 2.", "Segunda: −x ≥ −6 → x ≤ 6 (cambia el sentido).", "Intersección de (2, +∞) y (−∞, 6]."], resultado: "(2, 6]." },
+    { enunciado: "Resuelve 2x² + x − 3 ≥ 0.", pasos: ["Raíces: x = (−1 ± 5)/4 → 1 y −3/2.", "a = 2 > 0: parábola hacia arriba, positiva fuera de las raíces.", "Con ≥ se incluyen las raíces."], resultado: "(−∞; −3/2] ∪ [1, +∞)." },
+    { enunciado: "Resuelve x³ − x² − 6x < 0.", pasos: ["Factorizamos: x(x² − x − 6) = x(x − 3)(x + 2).", "Raíces ordenadas: −2, 0, 3.", "Signos del producto: (−∞, −2) −; (−2, 0) +; (0, 3) −; (3, +∞) +."], resultado: "(−∞, −2) ∪ (0, 3)." },
+    { enunciado: "Resuelve (x + 2)/(x − 4) ≤ 0.", pasos: ["Numerador nulo en −2 (se incluye, hay «igual»); denominador nulo en 4 (nunca se incluye).", "Signos: (−∞, −2) +; (−2, 4) −; (4, +∞) +.", "Buscamos ≤ 0."], resultado: "[−2, 4)." },
+    { enunciado: "Representa la región x ≥ 0, y ≥ 0, x + 2y ≤ 8 y halla sus vértices.", pasos: ["Recta x + 2y = 8: puntos (8, 0) y (0, 4).", "Prueba con (0, 0): 0 ≤ 8, cierto: semiplano que contiene al origen.", "Con los ejes, la región es un triángulo."], resultado: "Triángulo de vértices (0, 0), (8, 0) y (0, 4)." },
+  ],
+  errores: [
+    "No cambiar el sentido de la desigualdad al multiplicar o dividir por un número negativo.",
+    "Confundir < con ≤ al escribir el intervalo: el extremo solo se incluye con ≤ o ≥.",
+    "Resolver x² > 9 como x > ±3, en vez de (−∞, −3) ∪ (3, +∞).",
+    "Multiplicar una inecuación racional por el denominador sin conocer su signo.",
+    "Incluir en la solución de una inecuación racional los valores que anulan el denominador.",
+    "Calcular la unión en lugar de la intersección al resolver un sistema de inecuaciones.",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Comprueba si x = 2 y x = 5 son soluciones de 3x − 4 > 7.", sol: "x = 2: 6 − 4 = 2 > 7 falso, no es solución. x = 5: 15 − 4 = 11 > 7 cierto, sí es solución." },
+    { nivel: "básico", q: "Resuelve y da la solución como intervalo: 4x + 5 ≤ 17.", sol: "4x ≤ 12 → x ≤ 3. Solución (−∞, 3]." },
+    { nivel: "básico", q: "Resuelve 7 − 3x < 1.", sol: "−3x < −6 → x > 2 (al dividir entre −3 cambia el sentido). Solución (2, +∞)." },
+    { nivel: "básico", q: "Resuelve 2(x + 4) ≥ 5x − 1.", sol: "2x + 8 ≥ 5x − 1 → 9 ≥ 3x → x ≤ 3. Solución (−∞, 3]." },
+    { nivel: "básico", q: "Resuelve x/3 − 1 > x/2.", sol: "× 6: 2x − 6 > 3x → −6 > x → x < −6. Solución (−∞, −6)." },
+    { nivel: "básico", q: "Resuelve el sistema x + 3 > 1, 2x ≤ 8.", sol: "x > −2 y x ≤ 4. Solución (−2, 4]." },
+    { nivel: "básico", q: "Resuelve la doble desigualdad −1 ≤ 3x + 2 < 11.", sol: "Restando 2: −3 ≤ 3x < 9. Dividiendo entre 3: −1 ≤ x < 3. Solución [−1, 3)." },
+    { nivel: "básico", q: "Resuelve x² − 16 ≤ 0.", sol: "Raíces ±4; parábola hacia arriba, negativa entre las raíces. Solución [−4, 4]." },
+    { nivel: "básico", q: "Resuelve x² − 5x > 0.", sol: "x(x − 5) > 0. Raíces 0 y 5; positivo fuera. Solución (−∞, 0) ∪ (5, +∞)." },
+    { nivel: "básico", q: "Resuelve 3(x − 1) > 3x + 2 y 4x − 2 ≤ 2(2x + 1).", sol: "Primera: −3 > 2, falso → sin solución (∅). Segunda: −2 ≤ 2, cierto → todo ℝ." },
+    { nivel: "básico", q: "Un gimnasio cobra 25 € de matrícula y 18 € al mes. ¿Cuántos meses completos puedes pagar con 200 €?", sol: "25 + 18x ≤ 200 → 18x ≤ 175 → x ≤ 9,7. Como máximo 9 meses." },
+    { nivel: "básico", q: "Dibuja el semiplano solución de y > x + 1.", sol: "Recta y = x + 1 discontinua (pasa por (0, 1) y (−1, 0)). Probando (0, 0): 0 > 1 falso. La solución es el semiplano que no contiene al origen: por encima de la recta." },
+    { nivel: "medio", q: "Resuelve (2x − 1)/3 − (x + 2)/4 ≥ (x − 3)/6.", sol: "× 12: 4(2x − 1) − 3(x + 2) ≥ 2(x − 3) → 8x − 4 − 3x − 6 ≥ 2x − 6 → 3x ≥ 4 → x ≥ 4/3. Solución [4/3, +∞)." },
+    { nivel: "medio", q: "Resuelve el sistema 2x − 3 < x + 1, 3(x + 2) ≥ x, x − 5 < 3x + 1.", sol: "x < 4; 3x + 6 ≥ x → x ≥ −3; −6 < 2x → x > −3. Intersección: (−3, 4)." },
+    { nivel: "medio", q: "Resuelve −x² + 2x + 8 > 0.", sol: "Raíces de −x² + 2x + 8 = 0 → x² − 2x − 8 = 0 → 4 y −2. Parábola hacia abajo: positiva entre las raíces. Solución (−2, 4)." },
+    { nivel: "medio", q: "Resuelve x² + 2x + 5 < 0 y x² + 2x + 5 > 0.", sol: "Δ = 4 − 20 < 0 y a > 0: siempre positivo. La primera no tiene solución (∅); la segunda se cumple en todo ℝ." },
+    { nivel: "medio", q: "Resuelve x² − 10x + 25 > 0.", sol: "Es (x − 5)², que es positivo salvo en x = 5, donde vale 0. Solución ℝ − {5} = (−∞, 5) ∪ (5, +∞)." },
+    { nivel: "medio", q: "Resuelve x(x − 1)(x + 4) ≥ 0.", sol: "Raíces −4, 0, 1. Signos: (−∞, −4) −; (−4, 0) +; (0, 1) −; (1, +∞) +. Con ≥: [−4, 0] ∪ [1, +∞)." },
+    { nivel: "medio", q: "Resuelve (3 − x)/(x + 1) > 0.", sol: "Raíces: 3 (numerador) y −1 (denominador). Signos: (−∞, −1): (+)/(−) = −; (−1, 3): +; (3, +∞): (−)/(+) = −. Solución (−1, 3)." },
+    { nivel: "medio", q: "Resuelve x/(x − 2) ≤ 0.", sol: "Raíces 0 y 2. Signos: (−∞, 0) +; (0, 2) −; (2, +∞) +. Se incluye 0 (numerador) y no 2. Solución [0, 2)." },
+    { nivel: "medio", q: "Representa la región x ≥ 0, y ≥ 0, x + y ≤ 5, y ≤ 3 y calcula sus vértices.", sol: "Vértices: (0, 0), (5, 0), (2, 3) (corte de x + y = 5 con y = 3) y (0, 3). Es un cuadrilátero." },
+    { nivel: "medio", q: "Un concierto tiene unos gastos de 2.400 € y la entrada cuesta 15 €. El aforo es de 300 personas. ¿Cuántas entradas hay que vender para tener beneficio?", sol: "15x > 2400 → x > 160. Con el aforo: 161 ≤ x ≤ 300 entradas." },
+    { nivel: "medio", q: "Halla los valores de x para los que el área de un cuadrado de lado x supera a su perímetro.", sol: "x² > 4x → x(x − 4) > 0 → x < 0 o x > 4. Como x es una longitud, x > 4." },
+    { nivel: "avanzado", q: "Resuelve 2/(x − 1) < 1.", sol: "2/(x − 1) − 1 < 0 → (3 − x)/(x − 1) < 0. Raíces 3 y 1. Signos: (−∞, 1) −; (1, 3) +; (3, +∞) −. Solución (−∞, 1) ∪ (3, +∞)." },
+    { nivel: "avanzado", q: "Resuelve (x² − 4)/(x² − 2x − 3) ≥ 0.", sol: "(x − 2)(x + 2)/[(x − 3)(x + 1)]. Puntos −2, −1, 2, 3. Signos: (−∞, −2) +; (−2, −1) −; (−1, 2) +; (2, 3) −; (3, +∞) +. Con ≥: (−∞, −2] ∪ (−1, 2] ∪ (3, +∞)." },
+    { nivel: "avanzado", q: "Resuelve x⁴ − 5x² + 4 < 0.", sol: "Factorizamos: (x² − 1)(x² − 4) = (x − 1)(x + 1)(x − 2)(x + 2). Puntos −2, −1, 1, 2; signos alternos empezando por + a la izquierda: +, −, +, −, +. Solución (−2, −1) ∪ (1, 2)." },
+    { nivel: "avanzado", q: "¿Para qué valores de k la ecuación x² + kx + 4 = 0 tiene dos soluciones reales distintas?", sol: "Δ = k² − 16 > 0 → (k − 4)(k + 4) > 0 → k < −4 o k > 4." },
+    { nivel: "avanzado", q: "Determina el dominio de f(x) = √(x² − 3x − 10).", sol: "Hace falta x² − 3x − 10 ≥ 0. Raíces 5 y −2; parábola hacia arriba: positiva fuera. Dominio (−∞, −2] ∪ [5, +∞)." },
+    { nivel: "avanzado", q: "Una pelota se lanza con altura h(t) = 2 + 15t − 5t² (metros). ¿Durante cuánto tiempo está por encima de 12 m?", sol: "2 + 15t − 5t² > 12 → 5t² − 15t + 10 < 0 → t² − 3t + 2 < 0 → (t − 1)(t − 2) < 0 → 1 < t < 2. Está 1 segundo por encima de 12 m." },
+    { nivel: "avanzado", q: "En el taller de mesas y sillas del apartado 6.14, ¿qué beneficio por silla haría que (10, 20) y (20, 0) dieran el mismo beneficio?", sol: "Con beneficio p por silla: 50·10 + 20p = 50·20 → 500 + 20p = 1000 → p = 25 €. Por encima de 25 € conviene (10, 20)." },
+    { nivel: "avanzado", q: "Una dieta debe aportar al menos 60 g de proteína con dos alimentos: A tiene 20 g por ración y B tiene 10 g. No se pueden tomar más de 5 raciones en total. Plantea el sistema y halla los vértices de la región.", sol: "x, y ≥ 0; 20x + 10y ≥ 60, es decir, 2x + y ≥ 6; x + y ≤ 5. Las rectas 2x + y = 6 y x + y = 5 se cortan en (1, 4). Los puntos (0, 5) y (0, 6) no cumplen las dos condiciones a la vez, así que la región es el triángulo de vértices (3, 0), (5, 0) y (1, 4)" },
+  ],
+  quiz: reparte([
+    { q: "¿Cuál es la solución de x + 4 > 6?", o: ["x > 2", "x < 2", "x > 10", "x = 2"], a: 0, e: "Se resta 4 en los dos miembros." },
+    { q: "Al dividir los dos miembros de una inecuación entre −3…", o: ["no pasa nada", "la desigualdad cambia de sentido", "se cambia a igualdad", "solo cambia el signo de x"], a: 1, e: "Multiplicar o dividir por un negativo invierte el orden." },
+    { q: "La solución de −2x ≤ 8 es…", o: ["x ≤ −4", "x ≥ −4", "x ≥ 4", "x ≤ 4"], a: 1, e: "Se divide entre −2 y gira el signo." },
+    { q: "x ≥ −1 en forma de intervalo es…", o: ["(−1, +∞)", "[−1, +∞)", "(−∞, −1]", "[−1, +∞]"], a: 1, e: "Corchete en −1 y paréntesis en el infinito." },
+    { q: "La solución del sistema x > 1, x < 6 es…", o: ["(1, 6)", "[1, 6]", "(−∞, 6)", "(1, +∞)"], a: 0, e: "La intersección." },
+    { q: "El sistema x < 0, x > 3…", o: ["tiene solución (0, 3)", "no tiene solución", "tiene solución ℝ", "tiene x = 0"], a: 1, e: "No hay números menores que 0 y mayores que 3." },
+    { q: "Si al resolver queda 0 < 5, la solución es…", o: ["∅", "x = 0", "x < 5", "ℝ"], a: 3, e: "La desigualdad es siempre cierta." },
+    { q: "La solución de x² < 25 es…", o: ["x < 5", "x < ±5", "(−5, 5)", "(−∞, −5) ∪ (5, +∞)"], a: 2, e: "Entre las raíces, parábola hacia arriba." },
+    { q: "La solución de x² ≥ 4 es…", o: ["[−2, 2]", "(−∞, −2] ∪ [2, +∞)", "x ≥ 2", "x ≥ ±2"], a: 1, e: "Fuera de las raíces, incluidas." },
+    { q: "x² + 1 > 0 se cumple…", o: ["nunca", "solo para x > 0", "para todo x real", "solo para x = 0"], a: 2, e: "Un cuadrado más 1 es siempre positivo." },
+    { q: "(x − 2)² < 0 tiene solución…", o: ["x = 2", "x < 2", "ℝ", "ninguna"], a: 3, e: "Un cuadrado nunca es negativo." },
+    { q: "Si a < 0, el polinomio ax² + bx + c con dos raíces es positivo…", o: ["entre las raíces", "fuera de las raíces", "siempre", "nunca"], a: 0, e: "La parábola abre hacia abajo." },
+    { q: "En una tabla de signos, el producto de (−)(+)(−) es…", o: ["+", "−", "0", "depende"], a: 0, e: "Dos negativos dan positivo." },
+    { q: "En (x + 1)/(x − 3) ≥ 0, el valor x = 3…", o: ["se incluye", "no se incluye nunca", "se incluye solo con ≥", "es la única solución"], a: 1, e: "Anula el denominador." },
+    { q: "La solución de 1/x > 0 es…", o: ["x > 0", "x < 0", "x ≠ 0", "ℝ"], a: 0, e: "1 es positivo, así que x debe serlo." },
+    { q: "Para ver qué semiplano es solución de una inecuación con dos incógnitas se…", o: ["prueba un punto que no esté en la recta", "despeja x", "calcula el discriminante", "elige siempre el de arriba"], a: 0, e: "Normalmente el origen." },
+    { q: "La recta frontera de x + y < 3 se dibuja…", o: ["continua", "discontinua", "no se dibuja", "con puntos huecos"], a: 1, e: "Con < los puntos de la recta no son solución." },
+    { q: "¿Qué punto pertenece a la región x ≥ 0, y ≥ 0, x + y ≤ 4?", o: ["(5, 0)", "(1, 2)", "(−1, 1)", "(3, 3)"], a: 1, e: "1 + 2 = 3 ≤ 4 y ambas coordenadas son positivas." },
+    { q: "«Como mínimo 18 años» se escribe…", o: ["x < 18", "x ≤ 18", "x > 18", "x ≥ 18"], a: 3, e: "18 incluido y más." },
+    { q: "En programación lineal, el máximo de una función lineal se alcanza…", o: ["en el centro de la región", "en un vértice de la región", "en el origen siempre", "fuera de la región"], a: 1, e: "Basta con comparar los vértices." },
+  ]),
+  examen: reparte([
+    { q: "La solución de 3 − 2x ≥ 7 es…", o: ["x ≥ −2", "x ≤ −2", "x ≤ 2", "x ≥ 2"], a: 1, e: "−2x ≥ 4 → x ≤ −2." },
+    { q: "La solución de −2 < x + 1 ≤ 4 es…", o: ["(−3, 3]", "[−3, 3)", "(−1, 5]", "(−3, 5]"], a: 0, e: "Se resta 1 en los tres miembros." },
+    { q: "La solución de x² − 3x − 4 ≤ 0 es…", o: ["[−1, 4]", "(−∞, −1] ∪ [4, +∞)", "(−1, 4)", "[−4, 1]"], a: 0, e: "Raíces −1 y 4; negativa entre ellas." },
+    { q: "La solución de x² − 6x + 9 ≤ 0 es…", o: ["x = 3", "ℝ", "∅", "[0, 3]"], a: 0, e: "(x − 3)² ≤ 0 solo si x = 3." },
+    { q: "La solución de (x − 1)/(x + 2) < 0 es…", o: ["(−2, 1)", "[−2, 1]", "(−∞, −2) ∪ (1, +∞)", "(−2, 1]"], a: 0, e: "Cociente negativo entre −2 y 1." },
+    { q: "La solución de x³ − x > 0 es…", o: ["(−1, 0) ∪ (1, +∞)", "(1, +∞)", "(−∞, −1) ∪ (0, 1)", "(−1, 1)"], a: 0, e: "Signos alternos con raíces −1, 0, 1." },
+    { q: "Un taxi cobra 3 € más 1,5 € por km. Con 18 € como máximo se recorren…", o: ["hasta 10 km", "más de 10 km", "hasta 12 km", "hasta 15 km"], a: 0, e: "3 + 1,5x ≤ 18 → x ≤ 10." },
+    { q: "Los vértices de la región x ≥ 0, y ≥ 0, 2x + y ≤ 6 son…", o: ["(0, 0), (3, 0), (0, 6)", "(0, 0), (6, 0), (0, 3)", "(3, 0), (0, 6)", "(0, 0), (2, 2)"], a: 0, e: "Cortes de 2x + y = 6 con los ejes." },
+  ], 2),
+  feynman: ["Qué diferencia hay entre una ecuación y una inecuación", "Por qué la desigualdad cambia de sentido al multiplicar por un negativo", "Cómo se resuelve una inecuación de segundo grado con la gráfica o la tabla de signos", "Por qué no se puede multiplicar por el denominador en una inecuación racional", "Cómo se encuentra la región solución de un sistema con dos incógnitas"],
+  glosario: [
+    ["Desigualdad", "Expresión que compara dos cantidades con <, >, ≤ o ≥."],
+    ["Inecuación", "Desigualdad con incógnitas que solo se cumple para algunos valores."],
+    ["Solución de una inecuación", "Conjunto de valores que la hacen cierta; suele ser un intervalo."],
+    ["Inecuaciones equivalentes", "Las que tienen las mismas soluciones."],
+    ["Cambio de sentido", "Al multiplicar o dividir por un negativo, < pasa a > y viceversa."],
+    ["Sistema de inecuaciones", "Varias inecuaciones que deben cumplirse a la vez; su solución es la intersección."],
+    ["Doble desigualdad", "Expresión como a < x ≤ b, equivalente a un sistema de dos inecuaciones."],
+    ["Inecuación de segundo grado", "La que se reduce a ax² + bx + c comparado con 0."],
+    ["Puntos críticos", "Raíces del numerador y del denominador, que dividen la recta en intervalos."],
+    ["Tabla de signos", "Cuadro con el signo de cada factor en cada intervalo para deducir el del producto o cociente."],
+    ["Inecuación racional", "La que tiene la incógnita en un denominador."],
+    ["Semiplano", "Cada una de las dos partes en que una recta divide al plano."],
+    ["Recta frontera", "Recta que separa los dos semiplanos; continua con ≤ o ≥ y discontinua con < o >."],
+    ["Región factible", "Conjunto de puntos que cumplen todas las inecuaciones de un sistema."],
+    ["Programación lineal", "Técnica para optimizar una función lineal sobre una región factible."],
+  ],
+  situacion: {
+    titulo: "Organizamos la fiesta de fin de curso sin perder dinero",
+    reto: "La clase quiere organizar una fiesta de fin de curso en un local. Hay gastos fijos (alquiler, música), gastos por persona (comida y bebida) y un precio de entrada que hay que decidir. El reto es usar inecuaciones para encontrar el número mínimo de asistentes y el precio adecuado para que la fiesta no tenga pérdidas y sea asequible.",
+    pasos: [
+      "Pedid presupuestos (reales o realistas) del local, la música y el catering, y separad los gastos fijos de los gastos por persona.",
+      "Fijad un precio de entrada provisional y plantead la inecuación «ingresos ≥ gastos» en función del número de asistentes.",
+      "Resolvedla, interpretad la solución con el aforo del local y representadla en la recta.",
+      "Repetid el estudio con dos incógnitas (precio y asistentes) y dibujad la región en la que no hay pérdidas y el precio no supera un máximo acordado.",
+      "Haced una encuesta para estimar cuánta gente vendrá a cada precio y elegid la combinación más razonable.",
+    ],
+    producto: "Un informe para la tutoría con las inecuaciones, la región factible dibujada y la propuesta final de precio con su justificación.",
+    evaluacion: [
+      "Traduce las condiciones del problema a inecuaciones correctas.",
+      "Resuelve las inecuaciones y los sistemas, y expresa las soluciones como intervalos o regiones.",
+      "Interpreta las soluciones en el contexto (números naturales, aforo, precios máximos).",
+      "Argumenta la decisión final con datos y gráficos claros.",
+    ],
   },
-  video: { id: "_uW4nVdCWzQ", titulo: "Inecuaciones cuadráticas: solución, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 4485270, megusta: 0, busqueda: "inecuaciones de segundo grado" },
-  quiz: [
-    { q: "Resuelve 3x − 5 ≤ 7.", o: ["x ≤ 4", "x ≥ 4", "x ≤ 2/3"], a: 0, e: "3x ≤ 12 → x ≤ 4." },
-    { q: "Resuelve −x + 2 > 5.", o: ["x > −3", "x < −3", "x > 3"], a: 1, e: "−x > 3 → al multiplicar por −1 gira el signo: x < −3." },
-    { q: "La solución de x² − 9 > 0 es…", o: ["(−3, 3)", "(−∞, −3) ∪ (3, +∞)", "x > 3"], a: 1, e: "Raíces ±3; la parábola es positiva fuera de ellas." },
-    { q: "La solución del sistema x ≥ 1, x < 4 es…", o: ["[1, 4)", "(1, 4]", "[1, 4]"], a: 0, e: "Intersección: 1 incluido y 4 excluido." },
-    { q: "¿Qué punto cumple y > x + 2?", o: ["(0, 0)", "(0, 5)", "(3, 4)"], a: 1, e: "5 > 0 + 2 es cierto; los otros no." },
-  ],
-  examen: [
-    { q: "Resuelve x² ≤ 4x.", o: ["[0, 4]", "(0, 4)", "x ≤ 4"], a: 0, e: "x² − 4x ≤ 0 → x(x − 4) ≤ 0 → entre 0 y 4, incluidos." },
-    { q: "¿Cuál es la solución de x² + 1 < 0?", o: ["Todos los reales", "Ninguna", "x < −1"], a: 1, e: "x² + 1 siempre es positivo." },
-    { q: "Un taxi cobra 3 € más 1,2 € por km. ¿Hasta cuántos km puedes ir con 15 €?", o: ["10", "12", "15"], a: 0, e: "3 + 1,2x ≤ 15 → x ≤ 10 km." },
-  ],
-  feynman: ["Qué diferencia hay entre la solución de una ecuación y la de una inecuación", "Por qué cambia el signo al multiplicar por un negativo", "Cómo se resuelve una inecuación de segundo grado", "Qué es la solución de un sistema de inecuaciones"],
+  figura: require("./_matb-base-inecuaciones").figura,
+  video: { id: "y9vDsarVxtg", titulo: "Inecuaciones: introducción y conceptos básicos", canal: "Matemáticas profe Alex", vistas: 4640525, busqueda: "inecuaciones introducción" },
   mapa: mapa("INECUACIONES", "var(--bac)", [
-    ["1er grado", "¡negativo gira el signo!", "var(--red)"],
-    ["2º grado", "raíces + signo en cada trozo", "var(--pen)"],
+    ["1.er grado", "× o : negativo → gira", "var(--pen)"],
     ["Sistemas", "intersección de soluciones", "var(--leaf)"],
-    ["Dos incógnitas", "semiplano · prueba un punto", "var(--inf)"],
-  ], 260),
+    ["2.º grado y racionales", "raíces + tabla de signos", "var(--red)"],
+    ["Dos incógnitas", "semiplanos · región factible", "var(--inf)"],
+  ], 270),
   tarjetas: [
-    ["¿Qué pasa al dividir una inecuación entre −3?", "La desigualdad cambia de sentido."],
-    ["Pasos para x² − x − 6 < 0", "Raíces −2 y 3, estudiar el signo en cada trozo: (−2, 3)."],
-    ["Solución de un sistema de inecuaciones", "La intersección de las soluciones de cada una."],
-    ["¿Cómo se sabe qué semiplano es la solución?", "Probando un punto que no esté en la recta, como (0, 0)."],
-    ["Diferencia entre [2, 5) y (2, 5]", "El primero incluye el 2 y excluye el 5; el segundo al revés."],
+    ["¿Qué pasa al multiplicar una inecuación por −1?", "La desigualdad cambia de sentido."],
+    ["x < 3 como intervalo", "(−∞, 3)"],
+    ["Solución de un sistema de inecuaciones", "La intersección de las soluciones de cada inecuación."],
+    ["Si la x desaparece y queda algo falso…", "La inecuación no tiene solución (∅)."],
+    ["Si la x desaparece y queda algo cierto…", "La solución es todo ℝ."],
+    ["Segundo grado con a > 0 y dos raíces", "Negativo entre las raíces, positivo fuera."],
+    ["x² > a² (a > 0)", "(−∞, −a) ∪ (a, +∞)"],
+    ["Tabla de signos", "Se estudia el signo de cada factor en cada intervalo y se multiplica."],
+    ["Inecuación racional: el denominador…", "Nunca se multiplica por él y sus raíces nunca se incluyen."],
+    ["Semiplano solución", "Se dibuja la recta y se prueba un punto, como el (0, 0)."],
+    ["Región factible", "La zona común a todos los semiplanos de un sistema."],
+    ["«Como máximo», «al menos»", "≤ y ≥."],
   ],
-  familias: ["Usad tarifas reales (móvil, gimnasio) para plantear «¿hasta cuánto puedo…?».", "Pedidle que os explique con un ejemplo por qué gira el signo al multiplicar por −1.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  familias: ["Buscad juntos normas con márgenes (velocidad máxima, edad mínima, peso de equipaje) y escribidlas como inecuaciones.", "Pedidle que os explique con la recta por qué −2 > −5 aunque 2 < 5.", "Calculad cuántos meses de una suscripción podéis pagar con un presupuesto fijo.", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Sentido algebraico: inecuaciones de primer y segundo grado, sistemas de inecuaciones e interpretación gráfica (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["Debate: comprobar con números concretos por qué −2 < 6 no implica 2 < −6.", "GeoGebra para sombrear semiplanos y regiones factibles.", "Problema de optimización sencillo con dos productos y restricciones de tiempo."],
+    saberes: "Sentido algebraico: inecuaciones de primer y segundo grado, racionales sencillas y sistemas de inecuaciones con una y dos incógnitas; representación gráfica de sus soluciones (RD 217/2022, Matemáticas B de 4º, saberes básicos D. Sentido algebraico).",
+    ideas: ["Con GeoGebra, sombrear regiones definidas por inecuaciones y comprobar soluciones moviendo un punto.", "Juego de tarjetas: emparejar enunciados («como máximo», «al menos») con su desigualdad.", "Problema de la fiesta de fin de curso como situación de aprendizaje real.", "Introducir la programación lineal con un problema de producción y comprobar que el óptimo está en un vértice."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Inecuación, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Inecuaci%C3%B3n" },
+    { t: "Programación lineal, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Programaci%C3%B3n_lineal" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Resolver inecuaciones racionales con la tabla de signos", "Plantear y resolver problemas con inecuaciones y regiones del plano"],
-  tras: {
-    "Inecuaciones de primer grado": [
-      { html: `<h3>Desigualdades y sus propiedades</h3><p>Una inecuación se resuelve casi como una ecuación, pero con una regla especial. Se puede <b>sumar o restar</b> el mismo número a los dos miembros sin que cambie el sentido de la desigualdad. Se puede <b>multiplicar o dividir</b> por un número positivo sin que cambie. Pero si se multiplica o divide por un número <b>negativo</b>, <mark>el sentido de la desigualdad se invierte</mark>: de −2x &gt; 6 se pasa a x &lt; −3. Es lógico: 2 &lt; 5, pero −2 &gt; −5. La solución se escribe como intervalo, con corchete si el extremo está incluido (≤, ≥) y paréntesis si no (&lt;, &gt;).</p>` },
-    ],
-    "La tabla de signos": [
-      { html: `<h3>Inecuaciones racionales</h3><p>Una inecuación <b>racional</b> tiene la incógnita en el denominador, como (x − 1) / (x + 3) ≥ 0. No se puede multiplicar por el denominador sin más, porque no sabemos si es positivo o negativo. El método es: 1) pasar todo a un miembro y dejar <b>cero en el otro</b>; 2) hallar las raíces del numerador y del denominador; 3) hacer la <b>tabla de signos</b> en los intervalos que determinan; 4) elegir los intervalos con el signo pedido. Las raíces del numerador se incluyen si la desigualdad es ≤ o ≥, pero las del denominador <mark>nunca se incluyen</mark>, porque allí la fracción no existe.</p>`, video: { id: "QLf7vVb6Wao", titulo: "Inecuaciones racionales: solución, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 2017292 } },
-    ],
-    "Inecuaciones con dos incógnitas": [
-      { html: `<h3>Problemas con inecuaciones</h3><p>Muchas situaciones de la vida real no piden un valor exacto sino un <b>límite</b>: «como mucho», «al menos», «no más de», «superar». Se traducen así: «al menos» es ≥; «como mucho» o «no más de» es ≤; «más que» es &gt;. Por ejemplo, para comparar dos tarifas se plantea cuándo una es más barata que la otra, y la solución es un intervalo de valores. Al final hay que <b>interpretar</b>: si la incógnita es un número de personas o de entradas, solo valen los <mark>números naturales</mark> del intervalo.</p>` },
-      { html: `<h3>Regiones factibles</h3><p>Cuando hay varias condiciones con dos incógnitas, cada inecuación determina un semiplano y la solución del sistema es la <b>región factible</b>: la zona común a todos. Por ejemplo, una empresa fabrica x mesas e y sillas con condiciones de tiempo y material. Los <b>vértices</b> de la región son importantes porque, como se estudia en Bachillerato en la <b>programación lineal</b>, el máximo beneficio o el mínimo coste siempre se alcanza en uno de ellos. Para dibujarla se representa cada recta frontera y se comprueba con un punto, como el (0, 0), <mark>qué lado cumple</mark> la desigualdad.</p>` },
-    ],
-  },
-  ejemplos: [
-    { enunciado: "Resuelve (x − 1) / (x + 3) ≥ 0.", pasos: ["Raíces: numerador x = 1; denominador x = −3.", "Signos: en (−∞, −3) es +; en (−3, 1) es −; en (1, +∞) es +.", "Se incluye x = 1 (vale 0), pero no x = −3."], resultado: "(−∞, −3) ∪ [1, +∞)." },
-    { enunciado: "La tarifa A cuesta 20 € al mes más 0,05 € por minuto; la B, 0,15 € por minuto. ¿A partir de cuántos minutos es más barata la A?", pasos: ["A más barata: 20 + 0,05x < 0,15x.", "20 < 0,10x, luego x > 200.", "Para 200 min cuestan lo mismo (30 €)."], resultado: "A partir de 201 minutos." },
-    { enunciado: "Resuelve x² − 5x + 4 < 0.", pasos: ["Raíces de x² − 5x + 4 = 0: x = 1 y x = 4.", "La parábola abre hacia arriba: es negativa entre las raíces.", "Sin incluir los extremos."], resultado: "(1, 4)." },
-  ],
-  errores: [
-    "No invertir el sentido de la desigualdad al multiplicar o dividir por un negativo.",
-    "Multiplicar por el denominador en una inecuación racional sin conocer su signo.",
-    "Incluir en la solución las raíces del denominador.",
-    "Usar corchetes con < o > y paréntesis con ≤ o ≥.",
-    "Dar como solución de un problema valores decimales cuando la incógnita es un número de personas.",
-  ],
-  ejercicios: [
-    { q: "Resuelve 3x − 5 ≤ 7.", sol: "x ≤ 4: (−∞, 4]." },
-    { q: "Resuelve 4 − 2x > 10.", sol: "−2x > 6, x < −3: (−∞, −3)." },
-    { q: "Resuelve (x + 1)/2 − x/3 ≥ 1.", sol: "3(x + 1) − 2x ≥ 6, x ≥ 3: [3, +∞)." },
-    { q: "Resuelve x² − 9 > 0.", sol: "(−∞, −3) ∪ (3, +∞)." },
-    { q: "Resuelve x² + 2x ≤ 0.", sol: "x(x + 2) ≤ 0: [−2, 0]." },
-    { q: "Resuelve (x − 2)/(x − 5) < 0.", sol: "(2, 5)." },
-    { q: "Resuelve el sistema 2x − 1 > 3 y x + 4 ≤ 10.", sol: "x > 2 y x ≤ 6: (2, 6]." },
-    { q: "Un examen tiene 20 preguntas: +0,5 por acierto. ¿Cuántos aciertos hacen falta para sacar al menos un 7 si no restan los fallos?", sol: "0,5x ≥ 7, x ≥ 14: al menos 14 aciertos." },
-    { q: "Un gimnasio cobra 30 € de matrícula y 25 € al mes. ¿Cuántos meses puedes pagar con 200 €?", sol: "30 + 25x ≤ 200, x ≤ 6,8: como mucho 6 meses." },
-    { q: "¿El punto (1, 1) cumple x + 2y < 4? ¿Y (2, 2)?", sol: "(1, 1): 3 < 4, sí. (2, 2): 6 < 4, no." },
-  ],
-  quiz: [
-    { q: "Al dividir por −3 los dos miembros de una inecuación…", o: ["no cambia nada", "se invierte la desigualdad", "se cambia a igualdad"], a: 1, e: "Ocurre con cualquier negativo." },
-    { q: "«Como mucho 50» se escribe…", o: ["x ≥ 50", "x ≤ 50", "x > 50"], a: 1, e: "No puede superarlo." },
-    { q: "En una inecuación racional, las raíces del denominador…", o: ["se incluyen siempre", "no se incluyen nunca", "depende"], a: 1, e: "La fracción no existe." },
-    { q: "La solución de x² < 4 es…", o: ["(−2, 2)", "x < 2", "(−∞, −2) ∪ (2, +∞)"], a: 0, e: "Entre las raíces." },
-    { q: "La región factible es…", o: ["la zona común a todas las inecuaciones", "una recta", "un punto"], a: 0, e: "Intersección de semiplanos." },
-  ],
-  tarjetas: [
-    ["Regla del negativo", "Al multiplicar o dividir por un negativo, la desigualdad cambia de sentido."],
-    ["Inecuación racional", "Se resuelve con cero en un miembro y tabla de signos; el denominador nunca se incluye."],
-    ["Región factible", "Zona del plano que cumple todas las inecuaciones de un sistema."],
-  ],
-});
