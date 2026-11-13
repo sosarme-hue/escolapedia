@@ -86,7 +86,7 @@ module.exports = P.tema({
     ["Un libro cuesta 18 € y pago con 50 €. ¿Cuánto me devuelven?", ["32 €", "68 €", "22 €"], "50 − 18 = 32."],
   ],
   feynman: ["Cómo se colocan los números para sumar o restar en columna", "Qué significa «me llevo una»", "Qué dicen las propiedades conmutativa y asociativa", "Cómo se comprueba una resta", "Qué pasos sigues para resolver un problema"],
-  mapa: ["SUMA Y RESTA", [["Suma", "sumandos → total · llevadas", AZ], ["Resta", "minuendo − sustraendo = diferencia", RO], ["Propiedades", "conmutativa · asociativa", VE], ["Problemas", "comprendo · pienso · calculo · compruebo", SO]]],
+  mapa: ["SUMA Y RESTA", [["Suma", "sumandos → total · llevadas", AZ], ["Resta", "minuendo − sustraendo = diferencia", RO], ["Propiedades", "conmutativa · asociativa", VE], ["Problemas", "4 pasos: comprendo… compruebo", SO]]],
   tarjetas: [
     ["Sumandos", "Los números que se suman."],
     ["Minuendo", "En la resta, el número del que se quita."],
