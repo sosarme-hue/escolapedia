@@ -171,3 +171,159 @@ AMP.amplia(module.exports, {
     ["Accesibilidad digital", "Que cualquier persona, con o sin discapacidad, pueda usar la tecnología."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 100,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "Una beca, una firma y un clic",
+    html: `<p>Ainhoa quiere pedir una beca para el Bachillerato. Su abuela recuerda que, hace años, aquello significaba ir a una oficina, rellenar formularios a mano y hacer cola varias mañanas. Ainhoa lo hace desde el móvil en veinte minutos: se identifica con su DNI electrónico, rellena el formulario en la sede electrónica, autoriza que la administración consulte los datos de renta de su familia y recibe un justificante con fecha y hora. Esa misma tarde firma una petición en línea para que pongan un carril bici junto al instituto y vota en los presupuestos participativos de su ayuntamiento.</p>
+      <p>Internet se ha convertido en la plaza pública de nuestro tiempo: allí nos informamos, compramos, trabajamos, hacemos trámites y participamos en la vida política. Por eso necesitamos conocer nuestros <b>derechos digitales</b>, saber usar la <b>identidad electrónica</b> con seguridad, comprar y pagar sin caer en trampas y entender cómo funcionan las plataformas que median en casi todo. Ser ciudadano digital es tener herramientas para que la tecnología amplíe tus derechos, y no para que los recorte.</p>`,
+  },
+  svgs: {
+    "La administración electrónica": L.cajas("Trámites que se hacen en la administración electrónica", [["Salud", "cita médica|receta"], ["Educación", "becas|matrícula"], ["Hacienda", "renta|certificados"], ["Tráfico", "permisos|multas"]], { t: "Trámites en línea" }),
+    "Comprar en línea con seguridad": L.flujo("Comprobaciones antes de comprar en línea", ["HTTPS y dominio correcto", "Aviso legal con NIF y dirección", "Opiniones en otras webs", "Pago seguro, nunca transferencia", "Guardar factura y confirmación"], { t: "Antes de pagar" }),
+    "Trabajo colaborativo en red": L.estrella("Herramientas de trabajo colaborativo", "Equipo", ["documentos", "videollamada", "tablero", "calendario", "chat", "nube"]),
+    "Accesibilidad digital": L.cajas("Requisitos de una web accesible", [["Texto alternativo", "en imágenes"], ["Contraste", "suficiente"], ["Teclado", "todo funciona|sin ratón"], ["Subtítulos", "en vídeos"]], { t: "Web para todos" }),
+  },
+  tras: {
+    "Los derechos digitales": [
+      {
+        html: `<h3>Derechos digitales en la escuela y el trabajo</h3><p>La Ley Orgánica 3/2018 recoge derechos que afectan a tu vida diaria. El <b>derecho a la educación digital</b> obliga al sistema educativo a enseñar un uso seguro, crítico y respetuoso de Internet, y los centros deben proteger los datos del alumnado: no pueden publicar fotos ni notas sin consentimiento. Los <b>menores</b> tienen una protección especial: en España, a partir de los <mark>14 años</mark> puedes dar tú mismo el consentimiento para que traten tus datos; antes, lo dan tus padres o tutores. Las fotos y datos de menores publicados en redes deben retirarse si así se pide.</p>
+          <p>En el trabajo existe el <b>derecho a la desconexión digital</b>: fuera de su horario, una persona trabajadora no tiene que responder correos ni mensajes de la empresa. También el derecho a la <b>intimidad</b> frente al uso de dispositivos y a la <b>videovigilancia</b> o geolocalización en el trabajo, que solo se permiten con información previa y con límites. Por último, el <b>testamento digital</b> permite decidir qué pasará con tus cuentas y contenidos cuando faltes. Conocer estos derechos permite reclamarlos ante la Agencia Española de Protección de Datos cuando no se respetan.</p>`,
+        svg: L.cajas("Derechos digitales en la escuela, el trabajo y la vida", [["Educación digital", "aprender a usar|Internet con criterio"], ["14 años", "consentimiento|propio"], ["Desconexión", "no responder fuera|del horario"], ["Testamento digital", "qué pasa con|tus cuentas"]], { t: "Derechos para tu vida" }),
+      },
+      {
+        html: `<h3>Neutralidad de la red y gobierno de Internet</h3><p>Internet no tiene un dueño único. Su funcionamiento depende de acuerdos técnicos y de organismos internacionales: la <b>ICANN</b> coordina los nombres de dominio y las direcciones IP, y comunidades de ingenieros definen los protocolos de forma abierta. La <b>neutralidad de la red</b> es el principio de que las compañías que dan acceso a Internet deben tratar todo el tráfico <mark>por igual</mark>: no pueden bloquear, ralentizar o dar prioridad a unas webs o aplicaciones por motivos comerciales. En la Unión Europea está protegida por ley, aunque se permiten excepciones técnicas, por ejemplo para gestionar la red en caso de saturación.</p>
+          <p>Sin neutralidad, una operadora podría hacer que la plataforma de vídeo con la que tiene un acuerdo vaya rápida y las demás lentas, o cobrar más por usar ciertos servicios. En algunos países, los gobiernos bloquean redes sociales, censuran webs o incluso <b>apagan Internet</b> durante protestas o elecciones, lo que la ONU considera una vulneración de derechos humanos. Por eso muchas organizaciones defienden que el acceso a Internet sea un derecho básico, como el acceso a la información o a la libertad de expresión, y que se gobierne de forma abierta y con participación de todos.</p>`,
+        svg: L.comparar("Internet con neutralidad frente a Internet sin neutralidad", ["Con neutralidad", ["todo el tráfico igual", "sin carriles VIP", "competencia justa", "más libertad"]], ["Sin neutralidad", ["webs de pago rápidas", "otras ralentizadas", "pagas por servicio", "menos libertad"]]),
+      },
+    ],
+    "La administración electrónica": [
+      {
+        html: `<h3>Identidad electrónica</h3><p>Para hacer trámites por Internet hay que demostrar quién eres. En España hay varias formas. El <b>certificado digital</b> es un archivo que instala en tu navegador una identidad emitida por una autoridad de confianza (por ejemplo, la Fábrica Nacional de Moneda y Timbre); permite identificarse y <b>firmar</b> documentos con validez legal. El <b>DNI electrónico</b> lleva un chip con ese certificado y, con un lector o con el NFC del móvil, sirve para lo mismo. El sistema <b>Cl@ve</b> permite identificarse con un PIN que llega al móvil o con una contraseña, sin instalar nada.</p>
+          <p>Estos sistemas usan la criptografía de clave pública: la clave privada está protegida en el chip o en el dispositivo y nunca viaja por la red. La firma electrónica garantiza que el documento lo firmaste tú y que nadie lo ha cambiado después. La Unión Europea prepara una <mark>cartera de identidad digital europea</mark>, una aplicación para guardar en el móvil documentos como el DNI, el carné de conducir o los títulos y presentarlos en cualquier país de la Unión, compartiendo solo los datos necesarios (por ejemplo, demostrar que eres mayor de edad sin enseñar tu fecha de nacimiento). Nunca compartas tu certificado, tu PIN de Cl@ve ni el código de tu DNIe.</p>`,
+        svg: L.rejilla("Sistemas de identidad electrónica en España", ["Sistema", "Cómo", "Firma"], [["Certificado", "archivo instalado", "sí"], ["DNIe", "chip + lector o NFC", "sí"], ["Cl@ve PIN", "código al móvil", "trámites"], ["Cartera UE", "app en el móvil", "en marcha"]], { t: "Identificarse en línea" }),
+      },
+    ],
+    "Comprar en línea con seguridad": [
+      {
+        html: `<h3>Pagos digitales</h3><p>Las formas de pago en línea han cambiado mucho. Las <b>tarjetas</b> de débito o crédito son las más usadas; para más seguridad, muchos bancos ofrecen <b>tarjetas virtuales</b> de un solo uso o con un límite bajo, y la ley europea exige la <b>autenticación reforzada</b>: además de los datos de la tarjeta, hay que confirmar el pago en la app del banco o con un código. Las plataformas de pago como PayPal hacen de intermediario y no dan tus datos bancarios a la tienda. Los pagos entre particulares por el móvil, como <b>Bizum</b>, son instantáneos, por lo que <mark>no se pueden anular</mark>: un timo muy común es pedir que aceptes una «devolución» que en realidad es un pago.</p>
+          <p>Cuidado con las <b>suscripciones</b>: muchas apps y servicios ofrecen una prueba gratis que se convierte en un cobro mensual si no se cancela a tiempo. Revisa los cargos del banco cada mes. Las <b>criptomonedas</b> son monedas digitales sin banco central; su valor sube y baja de forma brusca, se usan a menudo en estafas de inversión («gana un 30 % al mes») y en pagos de rescates, y un error al enviarlas no tiene vuelta atrás. Antes de los 18 años no puedes contratar productos financieros por tu cuenta, y las compras de un menor sin permiso pueden reclamarse.</p>`,
+        svg: L.cajas("Formas de pago en línea y su seguridad", [["Tarjeta virtual", "límite bajo|o un solo uso"], ["Plataforma", "no da tus datos|a la tienda"], ["Bizum", "instantáneo, no|se puede anular"], ["Cripto", "volátil, sin|vuelta atrás"]], { t: "Pagar en línea" }),
+      },
+    ],
+    "Netiqueta y participación": [
+      {
+        html: `<h3>Participación ciudadana digital</h3><p>La tecnología abre nuevas formas de participar en la vida pública. Muchos ayuntamientos y comunidades tienen portales de <b>participación</b> donde cualquier vecino puede proponer ideas, votar <b>presupuestos participativos</b> (decidir en qué se invierte una parte del dinero público) o responder consultas. Los portales de <b>transparencia</b> publican los sueldos de los cargos públicos, los contratos y las subvenciones, y los portales de <mark>datos abiertos</mark> ofrecen datos públicos (calidad del aire, accidentes, horarios de autobús) que cualquiera puede usar para crear aplicaciones o investigar. También se pueden presentar quejas y sugerencias o pedir información pública por la sede electrónica.</p>
+          <p>Las <b>peticiones en línea</b> y las campañas en redes, el llamado <b>ciberactivismo</b>, han conseguido cambios reales cuando se acompañan de organización y propuestas concretas. Pero tienen límites: dar un «me gusta» o firmar sin informarse, el llamado <i>slacktivismo</i>, cuesta poco y cambia poco. Para participar bien hay que informarse en fuentes fiables, argumentar con respeto, respetar los resultados aunque no nos gusten y combinar lo digital con lo presencial. Desde los 16 años, además, puedes votar en algunas consultas municipales y participar en consejos de juventud.</p>`,
+        svg: L.estrella("Formas de participación ciudadana digital", "Participar", ["presupuestos", "consultas", "datos abiertos", "transparencia", "peticiones", "quejas"]),
+      },
+    ],
+    "Brecha digital y sostenibilidad": [
+      {
+        html: `<h3>Economía de plataformas</h3><p>Buena parte de lo que hacemos en Internet pasa por unas pocas <b>plataformas</b>: tiendas en línea, redes sociales, buscadores, apps de reparto o de alquiler de viviendas. Funcionan como intermediarias entre quien ofrece algo y quien lo busca, y ganan con comisiones, publicidad o datos. Se benefician del <b>efecto red</b>: cuantas más personas las usan, más útiles son, y por eso tienden a hacerse <mark>enormes</mark> y a dejar poco espacio a la competencia. Algunas deciden qué productos ves primero, qué noticias te llegan o qué precio pagas.</p>
+          <p>Han creado servicios muy cómodos y nuevos trabajos, pero también debates. En la llamada <b>economía de los encargos</b> (<i>gig economy</i>), repartidores o conductores trabajan por tareas a través de una app; en España, la «ley rider» de 2021 reconoció que los repartidores de plataformas son asalariados y no autónomos. La Unión Europea ha aprobado la <b>Ley de Servicios Digitales</b>, que obliga a las grandes plataformas a retirar contenido ilegal, explicar sus algoritmos de recomendación y no mostrar publicidad basada en perfiles a menores, y la <b>Ley de Mercados Digitales</b>, que limita los abusos de las empresas dominantes. Como usuarios, podemos comparar, informarnos y apoyar alternativas.</p>`,
+        svg: L.ciclo("Efecto red: más usuarios atraen a más vendedores y la plataforma crece", "efecto red", ["más usuarios", "más vendedores", "más útil", "más datos"]),
+      },
+    ],
+  },
+  secciones: [4, 7, 4],
+  niveles: "bbbbbmbmbm",
+  ejercicios: [
+    { nivel: "básico", q: "¿A partir de qué edad puedes dar tú mismo en España el consentimiento para que una red social trate tus datos?", sol: "A partir de los 14 años. Por debajo, el consentimiento lo dan los padres, madres o tutores." },
+    { nivel: "básico", q: "¿Qué es el derecho a la desconexión digital?", sol: "El derecho de las personas trabajadoras a no responder correos, mensajes ni llamadas de trabajo fuera de su horario, en vacaciones o en descansos." },
+    { nivel: "básico", q: "Explica la neutralidad de la red con una comparación.", sol: "Es como una autopista en la que todos los coches circulan con las mismas normas, sin carriles rápidos solo para quien paga. Las operadoras tratan igual todo el tráfico." },
+    { nivel: "básico", q: "¿Qué diferencia hay entre identificarse con Cl@ve PIN y firmar con certificado digital?", sol: "Cl@ve PIN solo sirve para identificarte con un código que llega al móvil. El certificado digital (o el DNIe) permite además firmar documentos con validez legal." },
+    { nivel: "básico", q: "¿Qué son los presupuestos participativos?", sol: "Un sistema en el que los vecinos proponen y votan en qué se gasta una parte del dinero público de su municipio." },
+    { nivel: "medio", q: "Te llega un Bizum de un comprador de tu bici de segunda mano que dice «acepta para recibir el dinero». Al abrirlo, es una solicitud de pago. ¿Qué ocurre y qué haces?", sol: "Es un timo: si aceptas, eres tú quien paga. Hay que rechazarlo, no aceptar nunca solicitudes que no esperas, bloquear al usuario y avisar en la plataforma de compraventa." },
+    { nivel: "medio", q: "¿Por qué no hay que compartir nunca el PIN de Cl@ve ni el certificado digital?", sol: "Porque con ellos otra persona podría hacer trámites y firmar documentos en tu nombre (pedir préstamos, cambiar datos, presentar declaraciones), con la misma validez que si fueras tú." },
+    { nivel: "medio", q: "¿Qué ventaja tiene la cartera de identidad digital europea para la privacidad? Pon un ejemplo.", sol: "Permite compartir solo el dato necesario. Ejemplo: para entrar a un concierto para mayores de 18 basta con demostrar que eres mayor de edad, sin mostrar nombre, dirección ni fecha exacta de nacimiento." },
+    { nivel: "medio", q: "Una app ofrece 7 días de prueba gratis y luego 9,99 € al mes. ¿Qué harías antes de aceptarla?", sol: "Leer las condiciones, poner un recordatorio para cancelar antes de que termine la prueba, comprobar cómo se cancela y vigilar los cargos del banco; mejor usar una tarjeta virtual con límite." },
+    { nivel: "medio", q: "¿Qué es el efecto red? Pon un ejemplo con una aplicación de mensajería.", sol: "El valor de una plataforma aumenta cuantas más personas la usan. Una app de mensajería es útil porque la usan tus amigos; si todos están en una, cuesta mucho cambiarse a otra aunque sea mejor." },
+    { nivel: "medio", q: "Busca en el portal de datos abiertos de tu ayuntamiento o comunidad un conjunto de datos y explica para qué podría servir.", sol: "Respuesta abierta. Ejemplo: datos de calidad del aire por horas → crear un aviso para personas asmáticas o comparar barrios con y sin tráfico." },
+    { nivel: "medio", q: "Diferencia ciberactivismo y slacktivismo con un ejemplo de cada uno.", sol: "Ciberactivismo: una campaña organizada en redes con propuestas concretas que recoge firmas, presenta la petición al ayuntamiento y consigue un cambio. Slacktivismo: dar «me gusta» o compartir una causa sin informarse ni hacer nada más." },
+    { nivel: "medio", q: "¿Por qué la «ley rider» fue importante para los repartidores de plataformas?", sol: "Reconoció que son trabajadores asalariados de la plataforma, con derecho a contrato, cotización a la Seguridad Social, vacaciones y salario mínimo, y no autónomos sin protección." },
+    { nivel: "medio", q: "Indica dos obligaciones que la Ley de Servicios Digitales impone a las grandes plataformas.", sol: "Retirar con rapidez los contenidos ilegales notificados; explicar cómo funcionan sus algoritmos de recomendación y ofrecer una opción no basada en perfiles; no mostrar publicidad basada en perfiles a menores; y publicar informes de transparencia." },
+    { nivel: "medio", q: "¿Por qué en una compra en línea es más seguro pagar con tarjeta o plataforma que con transferencia?", sol: "Con tarjeta o plataforma de pago se puede reclamar y recuperar el dinero si la tienda no envía el producto o es un fraude. Una transferencia es muy difícil de recuperar." },
+    { nivel: "medio", q: "Explica qué derechos de privacidad tiene el alumnado respecto a las fotos que publica el instituto.", sol: "El centro necesita el consentimiento (de las familias si el alumno tiene menos de 14 años) para publicar fotos; se puede retirar en cualquier momento y pedir que se borren las ya publicadas." },
+    { nivel: "avanzado", q: "Argumenta a favor o en contra: «El acceso a Internet debería ser un derecho básico».", sol: "A favor: hoy es imprescindible para estudiar, trabajar, hacer trámites e informarse; sin acceso se agrava la desigualdad. En contra o con matices: el derecho básico sería la educación o la información, y garantizar acceso universal tiene costes; aun así, la mayoría de organismos internacionales lo considera esencial." },
+    { nivel: "avanzado", q: "Analiza qué pasaría si una operadora ofreciera «redes sociales gratis sin gastar datos» pero cobrara aparte el resto de webs. ¿Afecta a la neutralidad?", sol: "Sí: favorece a unas aplicaciones frente a otras y empuja a los usuarios hacia ellas, perjudicando a la competencia y a servicios nuevos. Este tipo de ofertas (zero rating) ha sido limitado por los reguladores europeos." },
+    { nivel: "avanzado", q: "Explica cómo funciona la firma electrónica usando las ideas de clave pública y privada.", sol: "El documento se resume en una «huella» y se cifra con la clave privada del firmante, guardada en el chip o el certificado. Cualquiera puede comprobarla con la clave pública: si coincide, sabe quién firmó y que el documento no se ha cambiado." },
+    { nivel: "avanzado", q: "Una web promete ganar un 30 % al mes invirtiendo en una criptomoneda nueva. Enumera cuatro señales de estafa.", sol: "Promete rentabilidades altísimas y seguras; mete prisa («solo hoy»); usa testimonios de famosos falsos; pide que traigas a más gente; la empresa no está registrada en la CNMV; y es difícil retirar el dinero." },
+    { nivel: "avanzado", q: "Diseña una propuesta para los presupuestos participativos de tu municipio: qué, por qué, coste aproximado y cómo la difundirías.", sol: "Ejemplo: una zona wifi y enchufes en la biblioteca para reducir la brecha digital; coste aproximado 8.000 €; justificación con datos de alumnos sin conexión en casa; difusión con carteles, redes del instituto y una presentación en el consejo de juventud." },
+    { nivel: "avanzado", q: "Compara las ventajas y los riesgos de la economía de plataformas para consumidores, trabajadores y pequeños comercios.", sol: "Consumidores: comodidad y precios, pero dependencia y uso de sus datos. Trabajadores: trabajo flexible, pero a veces precario. Pequeños comercios: acceso a muchos clientes, pero comisiones altas y dependencia del algoritmo de la plataforma." },
+    { nivel: "avanzado", q: "Un instituto quiere instalar cámaras en los pasillos. Según los derechos digitales, ¿qué debe cumplir?", sol: "Tener una finalidad legítima y proporcionada (seguridad), informar con carteles visibles, no grabar zonas íntimas (baños, vestuarios), limitar quién ve las imágenes, borrarlas en un plazo corto (normalmente un mes) y respetar el RGPD." },
+    { nivel: "avanzado", q: "¿Qué es el testamento digital y qué decisiones tomarías tú sobre tus cuentas?", sol: "Es dejar indicado qué se hará con tus cuentas, archivos y perfiles cuando fallezcas y quién se encarga. Ejemplo: que se conserven las fotos para la familia, se cierren las redes sociales y se borren los correos." },
+    { nivel: "avanzado", q: "Investiga si tu ayuntamiento tiene portal de transparencia y de participación y evalúa su accesibilidad y facilidad de uso con tres criterios.", sol: "Respuesta abierta. Criterios posibles: ¿se encuentra fácilmente desde la web principal?, ¿la información está actualizada y en formatos abiertos?, ¿es accesible (contraste, móvil, lector de pantalla) y se entiende sin conocimientos técnicos?" },
+  ],
+  ejemplos: [
+    { enunciado: "Necesitas un certificado de empadronamiento para una beca. Planifica el trámite en línea.", pasos: ["Buscar la sede electrónica oficial del ayuntamiento (comprobar el dominio).", "Elegir el método de identificación: Cl@ve PIN o DNIe con el móvil.", "Rellenar la solicitud y descargar el certificado firmado electrónicamente.", "Guardar el PDF y el justificante; adjuntarlo a la solicitud de la beca."], resultado: "Trámite hecho en minutos y con validez legal." },
+    { enunciado: "Un vendedor de una app de segunda mano te pide que pagues por Bizum «para reservar» una consola a mitad de precio. Analiza el riesgo.", pasos: ["Precio muy bajo: señal de alerta.", "Bizum es instantáneo y no se puede anular.", "Pide pagar antes de ver el producto o fuera de la plataforma.", "Mejor opción: pago protegido dentro de la plataforma o entrega en mano."], resultado: "Alto riesgo de estafa; no pagar por Bizum a desconocidos." },
+    { enunciado: "Calcula cuánto pagas al año por cinco suscripciones de 4,99 €, 7,99 €, 9,99 €, 2,99 € y 12,99 € al mes.", pasos: ["Suma mensual: 4,99 + 7,99 + 9,99 + 2,99 + 12,99 = 38,95 €.", "Anual: 38,95 · 12 = 467,40 €.", "Revisar cuáles se usan de verdad y cancelar las demás."], resultado: "467,40 € al año." },
+  ],
+  errores: ["Aceptar una «solicitud de Bizum» pensando que es un cobro: en realidad es un pago y no se puede anular."],
+  cuarta: ["el derecho de cita", "ser más formal", "Está escrito sin faltas", "burbuja de datos", "Guardarlo en un cajón para siempre", "descargar música", "60 días", "admitir varios métodos de pago", "personas daltónicas solamente", ".org"],
+  quiz: [
+    { q: "El derecho a no responder mensajes del trabajo fuera de horario es…", o: ["el derecho al olvido", "la desconexión digital", "la neutralidad", "el desistimiento"], a: 1, e: "Lo recoge la Ley Orgánica 3/2018." },
+    { q: "¿Qué organismo coordina los nombres de dominio de Internet?", o: ["La ICANN", "La AEPD", "La DGT", "La OMS"], a: 0, e: "Gestiona dominios y direcciones IP a nivel mundial." },
+    { q: "El DNI electrónico permite…", o: ["solo viajar", "identificarse y firmar en línea", "pagar con Bizum", "conectarse al wifi"], a: 1, e: "Lleva un chip con certificados." },
+    { q: "Un pago por Bizum…", o: ["se puede anular en 14 días", "es instantáneo y no se puede anular", "solo sirve en tiendas", "necesita un cheque"], a: 1, e: "Por eso se usa en algunos timos." },
+    { q: "La autenticación reforzada en pagos exige…", o: ["solo el número de tarjeta", "confirmar el pago con la app o un código", "pagar en efectivo", "un correo electrónico"], a: 1, e: "Es obligatoria en la UE." },
+    { q: "Los portales de datos abiertos ofrecen…", o: ["datos personales de vecinos", "datos públicos reutilizables", "contraseñas", "juegos"], a: 1, e: "Calidad del aire, transporte, presupuestos…" },
+    { q: "El efecto red hace que una plataforma…", o: ["sea más lenta", "sea más útil cuantos más usuarios tiene", "pierda usuarios", "sea gratuita"], a: 1, e: "Por eso tienden a concentrarse." },
+    { q: "La ley española que reconoció como asalariados a los repartidores de plataformas es…", o: ["la ley rider", "la LOMLOE", "el RGPD", "la ley de cookies"], a: 0, e: "Se aprobó en 2021." },
+    { q: "Firmar peticiones o dar «me gusta» sin informarse ni hacer nada más se llama…", o: ["ciberactivismo", "slacktivismo", "netiqueta", "transparencia"], a: 1, e: "Cuesta poco y suele cambiar poco." },
+    { q: "La Ley de Servicios Digitales prohíbe a las grandes plataformas…", o: ["tener usuarios menores", "mostrar a menores publicidad basada en perfiles", "usar HTTPS", "publicar vídeos"], a: 1, e: "Además las obliga a explicar sus algoritmos." },
+  ],
+  cuartaEx: ["El wifi es gratis en las bibliotecas", "Sí, si lo borras después", "los móviles se calientan"],
+  examen: [
+    { q: "La cartera de identidad digital europea permitirá…", o: ["pagar sin dinero", "mostrar solo el dato necesario, como ser mayor de edad", "eliminar el DNI", "votar por Internet en todo"], a: 1, e: "Mejora la privacidad." },
+    { q: "Apagar Internet durante protestas es considerado por la ONU…", o: ["una medida técnica normal", "una vulneración de derechos humanos", "una forma de ahorrar", "un derecho de los gobiernos"], a: 1, e: "Impide la información y la expresión." },
+    { q: "Un portal de transparencia publica…", o: ["contratos y sueldos públicos", "las contraseñas de los vecinos", "las notas del alumnado", "los mensajes privados"], a: 0, e: "Permite controlar el uso del dinero público." },
+    { q: "Las criptomonedas…", o: ["tienen un valor estable", "pueden subir y bajar bruscamente y se usan en estafas", "las garantiza el Banco de España", "se pueden anular siempre"], a: 1, e: "Hay que extremar la prudencia." },
+    { q: "Con menos de 14 años, el consentimiento para tratar tus datos lo dan…", o: ["tus amigos", "tus padres o tutores", "el instituto", "nadie"], a: 1, e: "Desde los 14 puedes darlo tú." },
+  ],
+  tarjetas: [
+    ["Desconexión digital", "Derecho a no responder al trabajo fuera de horario."],
+    ["Neutralidad de la red", "Todo el tráfico de Internet se trata por igual."],
+    ["Cl@ve, certificado y DNIe", "Formas de identificarse (y firmar) ante la administración."],
+    ["Efecto red", "Una plataforma es más útil cuantos más usuarios tiene."],
+  ],
+  glosario: [
+    ["Ciudadanía digital", "Participación en la sociedad a través de la tecnología con derechos y responsabilidades."],
+    ["Derechos digitales", "Derechos de las personas en el entorno digital, recogidos en la LO 3/2018."],
+    ["Desconexión digital", "Derecho a no atender el trabajo fuera del horario."],
+    ["Neutralidad de la red", "Principio de tratar por igual todo el tráfico de Internet."],
+    ["ICANN", "Organismo que coordina los nombres de dominio y las direcciones IP."],
+    ["Sede electrónica", "Web oficial de una administración para hacer trámites."],
+    ["Certificado digital", "Archivo que acredita tu identidad en Internet y permite firmar."],
+    ["Cl@ve", "Sistema para identificarse ante la administración con un PIN o contraseña."],
+    ["Firma electrónica", "Firma con validez legal hecha con un certificado o el DNIe."],
+    ["Autenticación reforzada", "Confirmación de un pago con un segundo factor."],
+    ["Derecho de desistimiento", "Derecho a devolver una compra a distancia en 14 días sin dar explicaciones."],
+    ["Datos abiertos", "Datos públicos disponibles para que cualquiera los reutilice."],
+    ["Presupuestos participativos", "Sistema para que los vecinos decidan parte del gasto público."],
+    ["Efecto red", "Aumento del valor de un servicio cuantos más usuarios tiene."],
+    ["Economía de plataformas", "Actividad económica organizada a través de aplicaciones intermediarias."],
+    ["Brecha digital", "Desigualdad en el acceso y el uso de la tecnología."],
+    ["Accesibilidad", "Posibilidad de que cualquier persona use la tecnología."],
+  ],
+  situacion: {
+    titulo: "Guía de trámites digitales para tu barrio",
+    reto: "Muchas personas de tu barrio (mayores, recién llegados, familias sin ordenador) tienen dificultades para hacer trámites en línea. Vuestro equipo debe crear una guía práctica y accesible de los cinco trámites más útiles y probarla con personas reales.",
+    pasos: [
+      "Entrevistad a cinco personas del entorno para saber qué trámites necesitan y qué dificultades encuentran.",
+      "Elegid cinco trámites (cita médica, empadronamiento, beca, cita en tráfico, certificado) y averiguad el método de identificación de cada uno.",
+      "Redactad cada trámite paso a paso con capturas, en lenguaje claro y aplicando criterios de accesibilidad.",
+      "Añadid un apartado de seguridad: cómo reconocer webs oficiales, no compartir el PIN y evitar timos de pago.",
+      "Probad la guía con dos personas que no la conozcan, observad dónde se atascan y mejoradla.",
+    ],
+    producto: "Una guía en PDF accesible (y una versión impresa) con los cinco trámites y una ficha de seguridad.",
+    evaluacion: ["Los pasos son correctos, completos y están actualizados.", "El lenguaje es claro y el documento cumple criterios de accesibilidad.", "Se incluyen consejos de seguridad pertinentes.", "La guía se mejora a partir de la prueba con usuarios reales."],
+  },
+  objetivos: ["Conocer los derechos digitales en la escuela y el trabajo y la neutralidad de la red", "Usar la identidad electrónica y los pagos digitales con seguridad"],
+  fuentes: [{ t: "Ley Orgánica 3/2018 de Protección de Datos y garantía de los derechos digitales (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673" }],
+});
