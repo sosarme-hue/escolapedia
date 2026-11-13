@@ -1,186 +1,245 @@
-// Física y Química 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa, flecha } = require("./_util");
+// Física y Química 4º ESO · El calor y la energía térmica (nivel libro). Dibujos propios en SVG.
+const { BASE, marco, T, ficha, pasos, compara, barras, rejilla, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD } = require("./_eso4L5");
+const S = BASE["calor-energia-termica"];
+
+const dilata = marco("Dilatación: una barra metálica se alarga al calentarse y las vías del tren tienen juntas de dilatación", `
+  <rect x="30" y="40" width="160" height="22" rx="4" fill="var(--muted)"/>${T(110, 56, "20 °C", { fs: 13, b: true, c: "#fff" })}
+  <rect x="30" y="86" width="196" height="22" rx="4" fill="var(--red)"/>${T(128, 102, "300 °C", { fs: 13, b: true, c: "#fff" })}
+  <path d="M190 34 V 116" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M226 80 V 116" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4 3"/>
+  ${T(208, 30, "ΔL", { fs: 14, b: true, c: "var(--red)" })}
+  <path d="M20 150 H 116 M124 150 H 240" stroke="var(--ink)" stroke-width="5"/>${T(120, 172, "junta de dilatación", { fs: 12, b: true, c: "var(--pen)" })}`);
 
 module.exports = {
   materia: "Física y Química",
   curso: "4-eso",
   titulo: "El calor y la energía térmica",
-  minutos: 40,
-  objetivos: ["Diferenciar temperatura, energía térmica y calor", "Calcular el calor en cambios de temperatura y de estado", "Explicar la propagación del calor, la dilatación y las máquinas térmicas"],
-  claves: ["temperatura", "calor", "calor específico", "calor latente", "equilibrio térmico", "conducción"],
+  minutos: 110,
+  objetivos: [
+    "Distinguir temperatura, energía interna y calor, y usar las escalas Celsius y Kelvin",
+    "Calcular el calor necesario para cambiar la temperatura y el estado de una sustancia",
+    "Resolver problemas de equilibrio térmico con el calorímetro",
+    "Explicar la conducción, la convección y la radiación y el papel de los aislantes",
+    "Relacionar calor y trabajo y analizar el rendimiento de las máquinas térmicas",
+  ],
+  claves: ["temperatura", "calor", "energía interna", "kelvin", "calor específico", "equilibrio térmico", "calor latente", "conducción", "convección", "radiación", "dilatación", "máquina térmica"],
   pregunta: {
-    texto: "En verano, la arena de la playa quema y el agua del mar está fresquita, aunque las dos reciben el mismo sol. ¿Por qué?",
-    respuesta: "Porque el agua tiene un <mark>calor específico</mark> muy alto: necesita unas <b>cinco veces más energía</b> que la arena para subir un grado. Con el mismo sol, la arena se calienta enseguida y el agua apenas cambia. Por eso el mar suaviza el clima de la costa.",
+    texto: "Por la mañana tocas una barandilla de metal y un banco de madera que llevan toda la noche al aire libre. El metal parece mucho más frío. ¿Está realmente a menor temperatura?",
+    respuesta: "No: los dos están a la <mark>misma temperatura</mark>, la del aire. El metal parece más frío porque es un buen <b>conductor</b> y te quita calor de la mano muy deprisa; la madera es aislante y apenas te lo quita. Tu piel no mide la temperatura, sino la rapidez con la que pierdes calor.",
+  },
+  lectura: {
+    titulo: "Botijos, termos y casas que no gastan",
+    html: `<p>En los pueblos de La Mancha, el agua del botijo se mantiene fresca en pleno agosto sin nevera. El secreto está en el barro poroso: un poco de agua rezuma por las paredes y se evapora, y para evaporarse necesita calor, que toma del agua de dentro. Es el mismo motivo por el que sudamos o por el que sentimos frío al salir de la piscina.</p><p>Controlar el calor es uno de los grandes retos de la tecnología. Los termos tienen doble pared con vacío para que el calor no pueda viajar por conducción ni por convección, y una capa plateada que refleja la radiación. Las casas pasivas, cada vez más frecuentes en el norte de España, están tan bien aisladas que casi no necesitan calefacción: el calor de las personas, los electrodomésticos y el sol que entra por las ventanas basta para mantenerlas a 20 °C en invierno. Y los motores de los coches, las centrales térmicas o las neveras funcionan transformando calor en trabajo o al revés. En este tema descubrirás qué diferencia hay entre calor y temperatura, cómo se calcula la energía necesaria para calentar o fundir algo, cómo viaja el calor y por qué ninguna máquina puede convertir todo el calor en trabajo.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Temperatura y calor no son lo mismo</h3><p>La <b>temperatura</b> mide la <mark>agitación media de las partículas</mark> de un cuerpo. Se mide en °C o en kelvin (K = °C + 273). El <b>calor</b> es la <mark>energía que pasa</mark> de un cuerpo caliente a otro frío por estar a distinta temperatura. Un cuerpo no «tiene» calor: tiene energía térmica, y la transfiere como calor. El paso se detiene en el <b>equilibrio térmico</b>, cuando las temperaturas se igualan.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un cuerpo caliente con partículas rápidas cede calor a uno frío hasta igualar temperaturas">
-        <defs>${flecha("ca1", "var(--red)")}</defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="20" y="40" width="90" height="90" rx="10" fill="var(--red)" opacity=".2" stroke="var(--red)" stroke-width="2"/>
-        <rect x="150" y="40" width="90" height="90" rx="10" fill="var(--water)" opacity=".2" stroke="var(--water)" stroke-width="2"/>
-        ${[[40, 60], [80, 70], [55, 100], [90, 110], [40, 120]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="var(--red)"/><path d="M${x + 6} ${y - 4} l 10 -6" stroke="var(--red)" stroke-width="2"/>`).join("")}
-        ${[[170, 60], [210, 70], [185, 100], [220, 112], [170, 118]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="var(--water)"/>`).join("")}
-        <path d="M114 85 H 144" stroke="var(--red)" stroke-width="4" marker-end="url(#ca1)"/><text x="130" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="var(--red)" ${F}>calor</text>
-        <g ${F} font-size="12" font-weight="700" text-anchor="middle"><text x="65" y="152" fill="var(--red)">80 °C</text><text x="195" y="152" fill="var(--water)">20 °C</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Calor y cambio de temperatura</h3><p>El calor necesario para cambiar la temperatura de un cuerpo depende de su masa, del salto de temperatura y del material:</p>
-      <div class="formula"><span>Q = m · c · ΔT</span></div>
-      <p><b>c</b> es el <b>calor específico</b>: la energía para subir 1 °C un kilo de sustancia. El agua tiene <mark>c = 4 180 J/(kg·°C)</mark>, de los más altos; el hierro, unos 450. Calentar 2 kg de agua de 20 a 70 °C cuesta 2 · 4 180 · 50 = <b>418 000 J</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Con la misma energía, el hierro sube mucha temperatura y el agua muy poca">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[[60, "agua", 5, "var(--water)"], [190, "hierro", 50, "var(--muted)"]].map(([x, n, dt, c]) => `<rect x="${x - 30}" y="60" width="60" height="50" rx="8" fill="${c}" opacity=".6"/><text x="${x}" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ink)" ${F}>1 kg ${n}</text>
-          <rect x="${x + 36}" y="40" width="10" height="80" rx="5" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/><rect x="${x + 38}" y="${118 - dt * 1.4}" width="6" height="${dt * 1.4}" fill="var(--red)"/>
-          <text x="${x}" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="var(--red)" ${F}>+${dt} °C</text>`).join("")}
-        <text x="130" y="28" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>misma energía: 22 500 J</text>
-        <text x="130" y="166" text-anchor="middle" font-size="11" fill="var(--muted)" ${F}>el agua tiene un calor específico mucho mayor</text>
-      </svg>`,
-    },
-    {
-      html: `<h3>Cambios de estado</h3><p>Mientras una sustancia pura cambia de estado, <mark>la temperatura no cambia</mark>: toda la energía se usa en separar las partículas. El calor necesario se calcula con el <b>calor latente</b> L:</p>
-      <div class="formula"><span>Q = m · L</span></div>
-      <p>Fundir 1 kg de hielo necesita 334 000 J y vaporizar 1 kg de agua, ¡2 260 000 J! Por eso sudar refresca: al evaporarse, el sudor se lleva mucha energía de tu piel.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Curva de calentamiento del agua con dos tramos horizontales en la fusión y la ebullición">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M30 20 V 150 H 246" fill="none" stroke="var(--muted)" stroke-width="2"/>
-        <path d="M30 140 L 50 110 H 90 L 130 60 H 200 L 240 26" fill="none" stroke="var(--red)" stroke-width="3.5"/>
-        <path d="M30 110 H 50 M30 60 H 130" stroke="var(--line)" stroke-dasharray="3 3"/>
-        <g ${F} font-size="11" font-weight="700"><text x="4" y="114" fill="var(--ink)">0 °C</text><text x="0" y="64" fill="var(--ink)">100 °C</text><text x="52" y="104" fill="var(--pen)">fusión</text><text x="140" y="54" fill="var(--pen)">ebullición</text><text x="190" y="168" fill="var(--muted)">calor (Q)</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Cómo se propaga el calor</h3><p>Hay tres mecanismos. <b>Conducción</b>: el calor pasa de partícula a partícula en los sólidos; los metales son <mark>buenos conductores</mark> y la madera, el corcho o el aire, <b>aislantes</b>. <b>Convección</b>: en líquidos y gases, el fluido caliente sube y el frío baja, formando corrientes. <b>Radiación</b>: el calor viaja como ondas electromagnéticas, incluso por el vacío, como el del Sol.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Olla al fuego: conducción por el mango, convección en el agua y radiación del fuego">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M60 70 V 130 Q 60 140 70 140 H 150 Q 160 140 160 130 V 70" fill="var(--water)" fill-opacity=".3" stroke="var(--ink)" stroke-width="3"/>
-        <path d="M160 80 H 232" stroke="var(--ink)" stroke-width="6" stroke-linecap="round"/>
-        <path d="M90 128 C 70 110, 70 90, 90 84 M90 84 C 110 80, 110 110, 130 128 M130 128 C 150 110, 150 90, 130 84" fill="none" stroke="var(--red)" stroke-width="2"/>
-        <path d="M80 160 Q 90 144 100 160 Q 110 144 120 160 Q 130 144 140 160" fill="var(--sun)"/>
-        ${[30, 44].map((y) => `<path d="M30 ${y + 110} q 6 -6 12 0 t 12 0" fill="none" stroke="var(--sun)" stroke-width="2"/>`).join("")}
-        <g ${F} font-size="12" font-weight="700"><text x="170" y="70" fill="var(--ink)">conducción</text><text x="80" y="62" fill="var(--red)">convección</text><text x="8" y="132" fill="var(--sun)">radiación</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Dilatación y máquinas térmicas</h3><p>Al calentarse, casi todos los cuerpos se <b>dilatan</b>: sus partículas se agitan y se separan. Por eso las vías del tren y los puentes tienen <mark>juntas de dilatación</mark>. Una <b>máquina térmica</b> (motor de coche, central térmica) transforma calor en trabajo, pero nunca lo aprovecha todo: siempre pierde parte al foco frío. Su <b>rendimiento</b> suele estar entre el 25 % y el 45 %.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Máquina térmica: del foco caliente sale calor, una parte se convierte en trabajo y el resto va al foco frío">
-        <defs>${flecha("ca2", "var(--red)")}${flecha("ca3", "var(--leaf)")}${flecha("ca4", "var(--water)")}</defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="70" y="14" width="120" height="30" rx="8" fill="var(--red)"/><text x="130" y="34" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" ${F}>foco caliente</text>
-        <circle cx="130" cy="90" r="24" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/><text x="130" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>motor</text>
-        <rect x="70" y="138" width="120" height="30" rx="8" fill="var(--water)"/><text x="130" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" ${F}>foco frío</text>
-        <path d="M130 46 V 62" stroke="var(--red)" stroke-width="5" marker-end="url(#ca2)"/><path d="M130 116 V 132" stroke="var(--water)" stroke-width="3.5" marker-end="url(#ca4)"/><path d="M156 90 H 220" stroke="var(--leaf)" stroke-width="3" marker-end="url(#ca3)"/>
-        <text x="200" y="80" font-size="12" font-weight="700" fill="var(--leaf)" ${F}>trabajo</text>
-      </svg>`,
-    },
+    bloque({ h: "1.1 Temperatura y calor no son lo mismo", p: [
+      "En la vida diaria usamos «calor» y «temperatura» como sinónimos, pero en física son conceptos distintos. La <mark>temperatura</mark> es una magnitud que indica lo caliente o frío que está un cuerpo y está relacionada con la <b>energía cinética media</b> de sus partículas: cuanto más rápido se mueven y vibran, mayor es la temperatura. Se mide con termómetros.",
+      "El <mark>calor</mark> (Q) es la <b>energía que se transfiere</b> de un cuerpo a otro debido a una diferencia de temperatura. Siempre pasa espontáneamente del cuerpo de mayor temperatura al de menor temperatura, nunca al revés. Los cuerpos no «tienen» calor, igual que no «tienen» trabajo: tienen energía interna, y el calor es energía en tránsito. El calor se mide en julios, aunque todavía se usa la caloría (1 cal = 4,18 J), la energía necesaria para subir 1 °C la temperatura de 1 g de agua. Una bañera llena de agua templada tiene mucha más energía interna que una taza de café hirviendo, aunque esté a menor temperatura: la energía depende también de la cantidad de materia.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.2 Escalas de temperatura", p: [
+      "Para medir la temperatura se usan escalas basadas en puntos fijos. La <b>escala Celsius</b> (°C) asigna 0 °C a la fusión del hielo y 100 °C a la ebullición del agua a 1 atm. La <b>escala Fahrenheit</b> (°F), usada en Estados Unidos, asigna 32 °F y 212 °F a esos mismos puntos. La escala del Sistema Internacional es la <mark>escala Kelvin</mark> (K), o absoluta, que empieza en el <b>cero absoluto</b>: la temperatura más baja posible, en la que las partículas tendrían la mínima energía.",
+      "El cero absoluto equivale a −273,15 °C y no se puede alcanzar, aunque en laboratorios se ha llegado a menos de una milmillonésima de kelvin. Un grado Celsius y un kelvin tienen el mismo tamaño, así que las variaciones de temperatura valen lo mismo en las dos escalas: ΔT = 10 °C = 10 K. Para convertir se usan las fórmulas siguientes. En la escala Kelvin no se dice «grados» y no hay temperaturas negativas. El cuerpo humano está a unos 310 K y la superficie del Sol, a unos 5.800 K.",
+    ], extra: formula("T(K) = t(°C) + 273 &nbsp;&nbsp; t(°F) = 1,8 · t(°C) + 32"), svg: rejilla("Puntos fijos en las escalas Celsius, Kelvin y Fahrenheit", ["Punto", "°C", "K", "°F"], [["Cero absoluto", "−273", "0", "−460"], ["Fusión hielo", "0", "273", "32"], ["Cuerpo humano", "37", "310", "98,6"], ["Ebullición agua", "100", "373", "212"]], "var(--red)") }),
+    bloque({ h: "1.3 La energía interna y la teoría cinética", p: [
+      "Según la <b>teoría cinético-molecular</b>, la materia está formada por partículas en continuo movimiento: en los sólidos vibran alrededor de posiciones fijas, en los líquidos se deslizan unas sobre otras y en los gases se mueven libremente a gran velocidad. La <mark>energía interna</mark> (U) es la suma de las energías de todas las partículas de un cuerpo: la cinética de su movimiento y la potencial de sus interacciones.",
+      "La energía interna de un cuerpo puede aumentar de dos formas: recibiendo <b>calor</b> de un cuerpo más caliente o recibiendo <b>trabajo</b>, como cuando te frotas las manos o inflas una rueda con una bomba y notas que se calienta. Cuando un cuerpo recibe energía, puede ocurrir que sus partículas se muevan más rápido (sube la temperatura) o que se separen y cambie de estado (la temperatura no cambia), y también que se dilate. Esta idea, que la energía interna cambia por calor y por trabajo, es el <b>primer principio de la termodinámica</b>: ΔU = Q + W, otra forma de expresar la conservación de la energía.",
+    ], extra: formula("ΔU = Q + W"), svg: ficha("Qué puede pasar cuando un cuerpo recibe calor", "Si un cuerpo recibe calor…", ["sube su temperatura", "cambia de estado", "se dilata", "ΔU = Q + W (primer principio)"], "var(--red)") }),
+    bloque({ h: "2.1 Calor y variación de temperatura", p: [
+      "Para calentar un cuerpo sin que cambie de estado hace falta un calor que depende de tres factores: la <b>masa</b> (cuesta más calentar una olla llena que un vaso), la <b>variación de temperatura</b> (cuesta más subir 50 °C que 10 °C) y la <b>sustancia</b>, a través de su <mark>calor específico</mark> (c), la energía necesaria para subir 1 K la temperatura de 1 kg de esa sustancia:",
+      "Si Q es positivo, el cuerpo recibe calor y se calienta; si es negativo, lo cede y se enfría. El calor específico del agua es muy alto, 4.180 J/(kg·K), mientras que el del hierro es solo 450 J/(kg·K): con la misma energía, un kilo de hierro se calienta casi diez veces más que un kilo de agua. Por eso la arena de la playa quema a mediodía mientras el agua del mar está fresca, y por eso el agua es tan buena para almacenar y transportar calor en radiadores y en el circuito de refrigeración de los motores. Para calentar 2 L de agua de 20 °C a 100 °C hacen falta Q = 2 · 4.180 · 80 ≈ 669.000 J.",
+    ], extra: formula("Q = m · c · ΔT"), svg: S.svg[1], video: { id: "-vJaYp3an-0", titulo: "Calorimetría: cómo calcular la cantidad de calor y el calor específico", canal: "Vitual", vistas: 302831 } }),
+    bloque({ h: "2.2 El calor específico y el clima", p: [
+      "Cada sustancia tiene su calor específico, que se mide en el laboratorio y se recoge en tablas. Los metales tienen calores específicos bajos: se calientan y se enfrían deprisa, por eso las sartenes se hacen de metal. El agua tiene uno de los más altos de todas las sustancias comunes, consecuencia de los enlaces de hidrógeno entre sus moléculas.",
+      "Esta propiedad del agua tiene consecuencias enormes para la vida y el clima. Los mares y océanos absorben mucho calor en verano sin calentarse demasiado y lo ceden lentamente en invierno: actúan como un <mark>regulador térmico</mark>. Por eso las ciudades costeras, como Barcelona, Málaga o A Coruña, tienen inviernos suaves y veranos menos extremos que las del interior, como Madrid, Zaragoza o Burgos, donde la oscilación entre el día y la noche y entre el verano y el invierno es mucho mayor. Nuestro cuerpo, formado en un 60 % por agua, también se beneficia: aguanta cambios de temperatura exterior sin que la interna varíe mucho. El aceite, con la mitad de calor específico que el agua, se calienta el doble de rápido con el mismo fuego.",
+    ], svg: barras("Calor específico de algunas sustancias en julios por kilogramo y kelvin", "Calor específico (J/kg·K)", [["Agua", 4180, "var(--pen)", "4.180"], ["Hielo", 2090, "var(--leaf)", "2.090"], ["Aceite", 2000, "#b45309", "2.000"], ["Aluminio", 900, "var(--muted)", "900"], ["Hierro", 450, "var(--red)", "450"]]) }),
+    bloque({ h: "2.3 Equilibrio térmico y calorímetros", p: [
+      "Cuando se ponen en contacto dos cuerpos a distinta temperatura, el caliente cede calor al frío hasta que los dos alcanzan la <mark>misma temperatura final</mark>: es el <b>equilibrio térmico</b>. Si el sistema está aislado, todo el calor que cede uno lo absorbe el otro, así que la suma de los calores es cero:",
+      "Para medir calores y calores específicos se usa el <b>calorímetro</b>, un recipiente aislado (como un termo) con un termómetro y un agitador. Por ejemplo, si se echa una pieza de metal caliente en agua fría, se mide la temperatura de equilibrio y, conociendo la masa y el calor específico del agua, se calcula el calor específico del metal. El método de resolución es siempre el mismo: escribir Q = m · c · (T<sub>f</sub> − T<sub>i</sub>) para cada cuerpo, sumar e igualar a cero, y despejar la incógnita. La temperatura final siempre debe quedar entre las dos iniciales; si no, hay un error. Este principio se llama a veces «principio cero de la termodinámica» y es el que hace posible medir con un termómetro.",
+    ], extra: formula("Q<sub>cedido</sub> + Q<sub>absorbido</sub> = 0 &nbsp;→&nbsp; m₁c₁(T<sub>f</sub> − T₁) + m₂c₂(T<sub>f</sub> − T₂) = 0"), svg: pasos("Cómo resolver un problema de equilibrio térmico", ["Escribe Q = m·c·(Tf − Ti) de cada cuerpo", "Suma todos los calores", "Iguala la suma a cero", "Despeja la incógnita", "Comprueba: Tf entre las iniciales"], "var(--red)"), video: S.bvideos[0] }),
+    bloque({ h: "3.1 Los cambios de estado", p: [
+      "Si se sigue dando calor a una sustancia, puede cambiar de estado. Los cambios progresivos, que absorben calor, son la <b>fusión</b> (sólido a líquido), la <b>vaporización</b> (líquido a gas, por evaporación en la superficie a cualquier temperatura o por ebullición en toda la masa a una temperatura fija) y la <b>sublimación</b> (sólido a gas). Los regresivos, que desprenden calor, son la <b>solidificación</b>, la <b>condensación</b> y la <b>sublimación inversa</b> o deposición.",
+      "Mientras dura un cambio de estado de una sustancia pura, <mark>la temperatura no varía</mark>, aunque se siga aportando calor: la energía se emplea en separar las partículas, venciendo las fuerzas que las mantienen unidas, y no en hacerlas moverse más rápido. Por eso la <b>curva de calentamiento</b> del agua tiene dos tramos horizontales: a 0 °C (fusión) y a 100 °C (ebullición a 1 atm). Las temperaturas de fusión y ebullición son <b>propiedades características</b> que sirven para identificar sustancias puras. La de ebullición depende de la presión: en una olla exprés el agua hierve a unos 120 °C y los alimentos se cuecen antes; en lo alto de una montaña, por debajo de 100 °C.",
+    ], svg: S.svg[2], video: S.bvideos[1] }),
+    bloque({ h: "3.2 El calor latente", p: [
+      "El calor necesario para que una masa m cambie de estado a temperatura constante se calcula con el <mark>calor latente</mark> (L), la energía que necesita 1 kg de la sustancia para cambiar de estado:",
+      "Para el agua, el calor latente de fusión es L<sub>f</sub> = 334.000 J/kg y el de vaporización, L<sub>v</sub> = 2.260.000 J/kg. Son valores enormes: fundir 1 kg de hielo cuesta la misma energía que calentar 1 kg de agua líquida 80 °C, y evaporarlo, más de cinco veces lo que cuesta calentarlo de 0 a 100 °C. Por eso el hielo enfría tan bien las bebidas, la nieve tarda en fundirse en primavera y el sudor es tan eficaz para refrigerar el cuerpo: cada gramo que se evapora se lleva 2.260 J. Por el mismo motivo, una quemadura con vapor a 100 °C es mucho peor que una con agua a 100 °C: al condensarse sobre la piel, el vapor cede además todo su calor latente. Para calcular el calor total en un proceso con cambios de estado, se suman los calores de cada tramo de la curva.",
+    ], extra: formula("Q = m · L"), svg: rejilla("Calores latentes de fusión y de vaporización de algunas sustancias", ["Sustancia", "Lf (kJ/kg)", "Lv (kJ/kg)"], [["Agua", "334", "2.260"], ["Etanol", "108", "855"], ["Plomo", "23", "871"], ["Hierro", "247", "6.340"]], "var(--pen)") }),
+    bloque({ h: "4.1 Cómo se propaga el calor", p: [
+      "El calor se transmite de tres maneras. En la <mark>conducción</mark>, la energía pasa de partícula a partícula por contacto, sin que haya desplazamiento de materia: es lo que ocurre en el mango de una cuchara metida en la sopa. Es típica de los sólidos, y sobre todo de los metales.",
+      "En la <mark>convección</mark>, el calor lo transporta el propio fluido que se mueve: el agua o el aire calientes se dilatan, se vuelven menos densos y suben, mientras que los fríos bajan, y se forman <b>corrientes de convección</b>. Así se calienta el agua de una olla, así funcionan los radiadores (por eso se colocan abajo) y así se forman las brisas marinas y muchas nubes. En la <mark>radiación</mark>, el calor viaja mediante ondas electromagnéticas (sobre todo infrarrojas) y no necesita ningún medio material: atraviesa el vacío. Así nos llega la energía del Sol y así notamos el calor de una hoguera a distancia. Todos los cuerpos emiten radiación, más cuanto más calientes están; las cámaras térmicas la detectan. Los cuerpos oscuros absorben y emiten más radiación que los claros, por eso en verano conviene vestir de blanco.",
+    ], svg: S.svg[3] }),
+    bloque({ h: "4.2 Conductores, aislantes y ahorro de energía", p: [
+      "Los materiales que transmiten bien el calor por conducción son <b>conductores térmicos</b>: los metales, sobre todo el cobre, la plata y el aluminio. Los que lo transmiten mal son <mark>aislantes térmicos</mark>: la madera, el plástico, el corcho, la lana, el poliestireno expandido (corcho blanco) y, sobre todo, el aire quieto. Casi todos los buenos aislantes funcionan atrapando aire en pequeñas celdas donde no puede moverse y formar corrientes de convección: es el caso de la lana, las plumas de un anorak, la nieve de un iglú o el pelo de los animales.",
+      "El aislamiento es clave para ahorrar energía. En una vivienda mal aislada, la calefacción tiene que reponer continuamente el calor que se escapa por paredes, tejado y ventanas. Las ventanas con doble acristalamiento (dos vidrios con una cámara de aire), el aislamiento en fachadas y cubiertas y las puertas bien selladas pueden reducir el gasto en calefacción a la mitad. El <b>Código Técnico de la Edificación</b> fija en España el aislamiento mínimo de los edificios nuevos según la zona climática. Los mismos principios se aplican a las neveras portátiles, a los termos y a los trajes de neopreno.",
+    ], svg: compara("Conductores y aislantes térmicos", ["Conductores", ["cobre", "aluminio", "hierro", "plata", "(metales)"]], ["Aislantes", ["madera", "corcho", "lana", "poliestireno", "aire quieto"]], "var(--red)", "var(--pen)") }),
+    bloque({ h: "4.3 La dilatación térmica", p: [
+      "Casi todos los cuerpos aumentan de tamaño al calentarse y se contraen al enfriarse: es la <mark>dilatación térmica</mark>. Al recibir energía, sus partículas vibran con más amplitud y necesitan más espacio. Los gases se dilatan mucho, los líquidos bastante menos y los sólidos muy poco, pero lo suficiente para que haya que tenerlo en cuenta en ingeniería.",
+      "Por eso las vías del tren, los puentes y las carreteras de hormigón tienen <b>juntas de dilatación</b>, pequeñas separaciones que permiten que los materiales se alarguen en verano sin deformarse ni romperse. Los cables eléctricos se cuelgan algo flojos para que no se rompan al contraerse en invierno. En los termómetros de líquido, la dilatación del alcohol o del mercurio dentro de un tubo muy fino indica la temperatura, y en los termostatos de muchos aparatos una <b>lámina bimetálica</b> (dos metales que se dilatan distinto) se curva y abre o cierra un circuito. El agua es una excepción curiosa: entre 0 °C y 4 °C se contrae al calentarse, y al congelarse aumenta de volumen; por eso el hielo flota, los lagos se congelan solo por arriba y las botellas llenas de agua revientan en el congelador.",
+    ], svg: dilata }),
+    bloque({ h: "5.1 Calor y trabajo: el experimento de Joule", p: [
+      "Hasta el siglo XIX se pensaba que el calor era un fluido invisible, el «calórico», que pasaba de los cuerpos calientes a los fríos. El ingeniero Benjamin Thompson (conde de Rumford) observó que al taladrar cañones se producía calor sin límite, lo que no encajaba con esa idea. Fue James Prescott Joule quien, hacia 1845, demostró que el calor es una forma de transferir energía, equivalente al trabajo.",
+      "En su famoso experimento, unas pesas que bajaban hacían girar unas paletas dentro de un recipiente con agua aislado. El rozamiento de las paletas con el agua aumentaba su temperatura. Midiendo el trabajo de las pesas (m·g·h) y el calor ganado por el agua (m·c·ΔT), Joule obtuvo el <mark>equivalente mecánico del calor</mark>: 1 cal = 4,18 J. Desde entonces, calor y trabajo se miden en la misma unidad, el julio, en su honor. La conversión de trabajo en calor es muy fácil y puede ser total (rozamiento, frenos), pero la conversión inversa, de calor en trabajo, tiene límites, como veremos con las máquinas térmicas.",
+    ], extra: formula("1 cal = 4,18 J"), svg: ficha("El experimento de Joule: el trabajo de unas pesas que caen calienta el agua", "Experimento de Joule", ["Las pesas bajan: trabajo m·g·h", "Las paletas agitan el agua", "El agua se calienta: m·c·ΔT", "Trabajo = calor", "1 cal = 4,18 J"], "var(--pen)") }),
+    bloque({ h: "5.2 Las máquinas térmicas", p: [
+      "Una <mark>máquina térmica</mark> es un dispositivo que transforma calor en trabajo de forma continua. Todas funcionan igual: toman calor (Q₁) de un <b>foco caliente</b> (la combustión de un combustible, una caldera), convierten una parte en trabajo (W) y ceden el resto (Q₂) a un <b>foco frío</b> (el ambiente, el agua de un río). Por conservación de la energía, Q₁ = W + Q₂.",
+      "La primera máquina térmica útil fue la máquina de vapor de James Watt (1769), que impulsó la Revolución Industrial. Hoy son máquinas térmicas los motores de los coches (de explosión o diésel), las turbinas de los aviones y las centrales térmicas y nucleares, que calientan agua, la convierten en vapor a alta presión y la hacen pasar por turbinas conectadas a alternadores. En un motor de cuatro tiempos, la mezcla de aire y gasolina se comprime, explota por la chispa de la bujía, empuja el pistón y se expulsa. Las neveras y las bombas de calor (aerotermia) son máquinas térmicas que funcionan al revés: usan trabajo eléctrico para sacar calor de un lugar frío y llevarlo a uno caliente.",
+    ], extra: formula("Q₁ = W + Q₂"), svg: S.svg[4] }),
+    bloque({ h: "5.3 Rendimiento de las máquinas térmicas y medio ambiente", p: [
+      "El <mark>rendimiento</mark> de una máquina térmica es la fracción del calor recibido que se convierte en trabajo: η = W / Q₁ · 100. El <b>segundo principio de la termodinámica</b> establece que ninguna máquina térmica puede tener un rendimiento del 100 %: siempre tiene que ceder parte del calor a un foco frío. Cuanto mayor es la diferencia de temperatura entre los focos, mayor puede ser el rendimiento.",
+      "Un motor de gasolina aprovecha solo un 25-30 % de la energía del combustible; un diésel, alrededor del 35-40 %; una central térmica de ciclo combinado, cerca del 55-60 %. El resto se pierde como calor, que en los coches se elimina por el radiador y el tubo de escape. Además, las máquinas que queman combustibles fósiles emiten CO₂, que intensifica el efecto invernadero, y otros contaminantes como óxidos de nitrógeno y partículas. Mejorar el rendimiento, aprovechar el calor residual (cogeneración) y sustituir los motores térmicos por eléctricos alimentados con energía renovable son claves para frenar el cambio climático y mejorar la calidad del aire de las ciudades.",
+    ], extra: formula("η = W / Q₁ · 100"), svg: barras("Rendimiento aproximado de distintas máquinas térmicas y de un motor eléctrico", "Rendimiento (%)", [["Gasolina", 28, "var(--red)", "28 %"], ["Diésel", 38, "#b45309", "38 %"], ["Ciclo combinado", 58, "var(--pen)", "58 %"], ["Motor eléctrico", 90, "var(--leaf)", "90 %"]]) }),
   ],
-  figura: {
-    titulo: "Las tres formas de propagación del calor",
-    svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Conducción, convección y radiación con dónde ocurren y un ejemplo">
-      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${[["Conducción", "por contacto, en sólidos", "partícula a partícula", "la cuchara en la sopa", "var(--ink)"], ["Convección", "en líquidos y gases", "corrientes que suben y bajan", "el radiador calienta la sala", "var(--red)"], ["Radiación", "ondas, también en el vacío", "no necesita materia", "el calor del Sol", "var(--sun)"]]
-        .map(([n, a, b, ej, c], i) => `<rect x="${20 + i * 206}" y="20" width="190" height="180" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
-          <text x="${115 + i * 206}" y="58" text-anchor="middle" font-size="21" font-weight="700" fill="${c}" ${D}>${n}</text>
-          <text x="${115 + i * 206}" y="100" text-anchor="middle" font-size="14" fill="var(--ink)" ${F}>${a}</text>
-          <text x="${115 + i * 206}" y="122" text-anchor="middle" font-size="14" fill="var(--ink)" ${F}>${b}</text>
-          <text x="${115 + i * 206}" y="172" text-anchor="middle" font-size="13" fill="var(--muted)" ${F}>${ej}</text>`).join("")}
-    </svg>`,
-  },
-  video: { id: "St8tvRdvghk", titulo: "Calor y temperatura", canal: "Profesor Particular Puebla", vistas: 889283, megusta: 0, busqueda: "calor y temperatura calor específico" },
-  quiz: [
-    { q: "¿Qué mide la temperatura?", o: ["La cantidad de calor de un cuerpo", "La agitación media de las partículas", "La masa de un cuerpo"], a: 1, e: "Cuanto más rápido se mueven las partículas, mayor es la temperatura." },
-    { q: "¿Cuántos kelvin son 27 °C?", o: ["246 K", "300 K", "27 K"], a: 1, e: "K = °C + 273 = 27 + 273 = 300 K." },
-    { q: "¿Qué calor hace falta para calentar 1 kg de agua de 20 °C a 30 °C? (c = 4 180 J/kg·°C)", o: ["41 800 J", "4 180 J", "125 400 J"], a: 0, e: "Q = 1 · 4 180 · 10 = 41 800 J." },
-    { q: "Mientras el agua hierve a 100 °C y le seguimos dando calor, su temperatura…", o: ["sube", "se mantiene en 100 °C", "baja"], a: 1, e: "Durante un cambio de estado la energía se usa para separar las partículas, no para subir la temperatura." },
-    { q: "¿Cómo nos llega el calor del Sol?", o: ["Por conducción", "Por convección", "Por radiación"], a: 2, e: "Entre el Sol y la Tierra hay vacío; solo puede viajar como radiación." },
-  ],
-  examen: [
-    { q: "¿Por qué las sartenes tienen el mango de plástico o madera?", o: ["Porque son conductores", "Porque son aislantes térmicos", "Porque pesan menos"], a: 1, e: "Conducen muy mal el calor y no te quemas al cogerlas." },
-    { q: "¿Qué calor hace falta para fundir 2 kg de hielo a 0 °C? (L = 334 000 J/kg)", o: ["668 000 J", "167 000 J", "334 000 J"], a: 0, e: "Q = m · L = 2 · 334 000 = 668 000 J." },
-    { q: "Las juntas de los puentes sirven para…", o: ["que pase el agua", "permitir la dilatación con el calor", "que sean más bonitos"], a: 1, e: "En verano el material se dilata; sin juntas se deformaría o se rompería." },
-  ],
-  feynman: ["La diferencia entre temperatura, energía térmica y calor", "Qué es el calor específico y por qué el mar modera el clima", "Por qué la temperatura no cambia al hervir el agua", "Las tres formas de propagación del calor", "Por qué ninguna máquina térmica aprovecha todo el calor"],
-  mapa: mapa("CALOR", "var(--eso)", [
-    ["Temperatura", "agitación de partículas · K = °C + 273", "var(--ink)"],
-    ["Calor sensible", "Q = m·c·ΔT", "var(--red)"],
-    ["Cambios de estado", "Q = m·L · T constante", "var(--pen)"],
-    ["Propagación", "conducción · convección · radiación", "var(--sun)"],
-  ], 270),
-  tarjetas: [
-    ["¿Qué es el calor?", "La energía que se transfiere de un cuerpo a otro debido a su diferencia de temperatura."],
-    ["Fórmula del calor para cambiar la temperatura", "Q = m · c · ΔT."],
-    ["Fórmula del calor en un cambio de estado", "Q = m · L (calor latente)."],
-    ["Calor específico del agua", "4 180 J/(kg·°C)."],
-    ["¿Qué es el equilibrio térmico?", "El estado final en que dos cuerpos en contacto alcanzan la misma temperatura."],
-  ],
-  familias: ["Tocad a la vez una mesa de metal y una de madera que estén en la misma habitación: ¿por qué parece más fría la metálica?", "Mirad el termostato de la calefacción o el aire y hablad de cómo se propaga el calor por la casa.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "La energía: calor y temperatura, calor específico y latente, mecanismos de propagación, dilatación y máquinas térmicas (RD 217/2022, Física y Química 4º).",
-    ideas: ["Curva de calentamiento del hielo con termómetro digital cada 30 s.", "Calorímetro casero con vasos de poliestireno para medir el calor específico de un metal.", "Convección con tinta en agua caliente y fría."],
-  },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Calor, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Calor" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Calcular la temperatura de equilibrio al mezclar dos cuerpos", "Calcular el calor necesario para calentar y cambiar de estado una sustancia"],
-  tras: {
-    "Temperatura y calor no son lo mismo": [
-      { html: `<h3>Escalas de temperatura y energía interna</h3><p>La temperatura mide la <b>agitación media</b> de las partículas de un cuerpo. Se usan tres escalas: la <b>Celsius</b> (0 °C funde el hielo y 100 °C hierve el agua), la <b>Fahrenheit</b>, habitual en Estados Unidos, y la <b>Kelvin</b>, la del SI, que empieza en el <mark>cero absoluto</mark> (0 K = −273 °C), la temperatura más baja posible, en la que las partículas casi no se mueven. La conversión es T (K) = t (°C) + 273 y t (°F) = 1,8 · t (°C) + 32. La suma de las energías de todas las partículas de un cuerpo es su <b>energía interna</b>: una bañera de agua tibia tiene más energía interna que una taza de café hirviendo, aunque esté a menor temperatura, porque tiene muchísimas más partículas.</p>` },
-    ],
-    "Calor y cambio de temperatura": [
-      { html: `<h3>Equilibrio térmico y calorímetros</h3><p>Cuando dos cuerpos a distinta temperatura se ponen en contacto, el calor pasa del caliente al frío hasta que los dos alcanzan la misma temperatura: el <b>equilibrio térmico</b>. Si no se pierde calor hacia fuera, <mark>el calor que cede el cuerpo caliente es igual al que absorbe el frío</mark>: Q cedido + Q absorbido = 0, o bien m₁·c₁·(Tₑ − T₁) + m₂·c₂·(Tₑ − T₂) = 0. Para medirlo se usa un <b>calorímetro</b>, un recipiente aislado (como un termo) con termómetro y agitador. Así se puede calcular la temperatura final de una mezcla o el calor específico de un material desconocido.</p>`, video: { id: "uZdE2TOvQUc", titulo: "Equilibrio térmico", canal: "El Profe Rafa", vistas: 276976 } },
-    ],
-    "Cambios de estado": [
-      { html: `<h3>Calor latente y curva de calentamiento</h3><p>Mientras una sustancia cambia de estado, su temperatura <b>no cambia</b>: toda la energía que recibe se usa para separar las partículas. Esa energía por kilogramo es el <b>calor latente</b> L, y el calor necesario es <mark>Q = m · L</mark>. Para el agua, el calor latente de fusión es 334.000 J/kg y el de vaporización, 2.260.000 J/kg: cuesta casi siete veces más hervir un kilo de agua que fundir un kilo de hielo. En la <b>curva de calentamiento</b> (temperatura frente a tiempo) se ven tramos inclinados, donde sube la temperatura (Q = m·c·ΔT), y <b>tramos horizontales</b>, los cambios de estado (Q = m·L).</p>`, video: { id: "44aKjY5Apnw", titulo: "Gráficas de calentamiento: cambios de estado", canal: "Susi Profe", vistas: 227313 } },
-    ],
-    "Dilatación y máquinas térmicas": [
-      { html: `<h3>El rendimiento de las máquinas térmicas</h3><p>Una <b>máquina térmica</b> (motor de coche, central térmica, máquina de vapor) transforma calor en trabajo. Toma calor de un foco caliente, convierte una parte en trabajo y cede el resto a un foco frío, normalmente el ambiente. Es imposible convertir todo el calor en trabajo: siempre se pierde una parte. El <b>rendimiento</b> es <mark>η = trabajo útil / calor absorbido · 100</mark>. Un motor de gasolina ronda el 25-30 % y uno diésel, el 35-40 %: la mayor parte de la energía del combustible acaba calentando el motor y el aire. Por eso mejorar la eficiencia de las máquinas ahorra combustible y emisiones de CO₂.</p>` },
-    ],
-  },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Se mezclan 200 g de agua a 80 °C con 300 g de agua a 20 °C. ¿Cuál es la temperatura final?", pasos: ["El calor cedido por el agua caliente es igual al absorbido por la fría (el c es el mismo y se simplifica).", "0,2 · (80 − Tₑ) = 0,3 · (Tₑ − 20).", "16 − 0,2Tₑ = 0,3Tₑ − 6 → 22 = 0,5Tₑ → Tₑ = 44 °C."], resultado: "Tₑ = 44 °C." },
-    { enunciado: "¿Cuánto calor hace falta para convertir 0,5 kg de hielo a 0 °C en agua a 20 °C? (Lf = 334.000 J/kg; c agua = 4.180 J/(kg·°C).)", pasos: ["Fundir el hielo: Q₁ = m·Lf = 0,5 · 334.000 = 167.000 J.", "Calentar el agua de 0 a 20 °C: Q₂ = 0,5 · 4.180 · 20 = 41.800 J.", "Total: 167.000 + 41.800 = 208.800 J."], resultado: "Q ≈ 2,09 · 10⁵ J." },
-    { enunciado: "Un motor absorbe 50.000 J de calor y realiza 15.000 J de trabajo. Calcula su rendimiento y el calor cedido al ambiente.", pasos: ["η = 15.000 / 50.000 · 100 = 30 %.", "El resto se cede al foco frío: 50.000 − 15.000 = 35.000 J."], resultado: "Rendimiento 30 %; cede 35.000 J." },
+    { enunciado: "¿Cuánto calor hace falta para calentar 3 L de agua de 15 °C a 95 °C? Exprésalo en julios y en kilocalorías.", pasos: ["m = 3 kg (1 L de agua = 1 kg); ΔT = 95 − 15 = 80 K.", "Q = m · c · ΔT = 3 · 4.180 · 80 = 1.003.200 J.", "En calorías: 1.003.200 / 4,18 = 240.000 cal = 240 kcal."], resultado: "Unos 1,0 · 10<sup>6</sup> J o 240 kcal." },
+    { enunciado: "Se mezclan 200 g de agua a 80 °C con 300 g de agua a 20 °C. ¿Cuál es la temperatura final?", pasos: ["0,2 · 4.180 · (T − 80) + 0,3 · 4.180 · (T − 20) = 0.", "Al ser la misma sustancia, c se simplifica: 0,2 (T − 80) + 0,3 (T − 20) = 0.", "0,2T − 16 + 0,3T − 6 = 0 → 0,5T = 22 → T = 44 °C.", "Comprobación: 44 °C está entre 20 y 80 °C."], resultado: "T<sub>f</sub> = 44 °C." },
+    { enunciado: "Una pieza de 150 g de un metal a 100 °C se echa en 250 g de agua a 20 °C. La temperatura final es 24 °C. Calcula el calor específico del metal.", pasos: ["Agua: Q = 0,25 · 4.180 · (24 − 20) = 4.180 J (absorbe).", "Metal: Q = 0,15 · c · (24 − 100) = −11,4 c (cede).", "Suma = 0: 4.180 − 11,4c = 0 → c ≈ 367 J/(kg·K).", "Valor parecido al del cobre (385 J/kg·K)."], resultado: "c ≈ 370 J/(kg·K): probablemente cobre o latón." },
+    { enunciado: "¿Cuánto calor hace falta para convertir 500 g de hielo a −10 °C en agua líquida a 20 °C?", pasos: ["Calentar el hielo: 0,5 · 2.090 · 10 = 10.450 J.", "Fundirlo: 0,5 · 334.000 = 167.000 J.", "Calentar el agua: 0,5 · 4.180 · 20 = 41.800 J.", "Total: 10.450 + 167.000 + 41.800 = 219.250 J."], resultado: "Unos 219.000 J; la fusión se lleva más de las tres cuartas partes." },
+    { enunciado: "Expresa en las otras escalas: a) 25 °C en K y °F; b) 77 K en °C.", pasos: ["a) T = 25 + 273 = 298 K.", "t(°F) = 1,8 · 25 + 32 = 77 °F.", "b) t = 77 − 273 = −196 °C (temperatura del nitrógeno líquido)."], resultado: "298 K y 77 °F; −196 °C." },
+    { enunciado: "Un motor recibe 50.000 J de calor de la combustión y cede 35.000 J al ambiente. Calcula el trabajo y el rendimiento.", pasos: ["Q₁ = W + Q₂ → W = 50.000 − 35.000 = 15.000 J.", "η = 15.000 / 50.000 · 100 = 30 %."], resultado: "W = 15.000 J y η = 30 %." },
   ],
   errores: [
-    "Confundir calor (energía que se transfiere) con temperatura (agitación media de las partículas).",
-    "Decir que un abrigo «da calor»: solo aísla y evita que perdamos el nuestro.",
-    "Pensar que durante la ebullición sube la temperatura del agua.",
-    "Usar el calor específico cuando hay un cambio de estado: entonces se usa el calor latente.",
-    "Olvidar pasar los gramos a kilogramos cuando c está en J/(kg·°C).",
-    "Creer que el frío «entra»: es el calor el que sale del cuerpo caliente.",
+    "Decir que un cuerpo «tiene calor»: tiene energía interna; el calor es la energía que se transfiere.",
+    "Pensar que durante un cambio de estado sube la temperatura: en una sustancia pura se mantiene constante.",
+    "Usar gramos en Q = m·c·ΔT cuando c está en J/(kg·K): la masa debe ir en kilogramos.",
+    "Equivocar el signo de ΔT: siempre es T<sub>final</sub> − T<sub>inicial</sub>, negativo si el cuerpo se enfría.",
+    "Creer que el metal está más frío que la madera a la misma temperatura: solo conduce mejor el calor.",
+    "Pensar que una máquina térmica perfecta podría tener un rendimiento del 100 %: el segundo principio lo impide.",
   ],
   ejercicios: [
-    { q: "Pasa 25 °C a kelvin y a grados Fahrenheit.", sol: "25 + 273 = 298 K. 1,8 · 25 + 32 = 77 °F." },
-    { q: "¿Cuánto calor hace falta para calentar 2 kg de agua de 15 a 65 °C?", sol: "Q = 2 · 4.180 · 50 = 418.000 J." },
-    { q: "Un bloque de 500 g de aluminio (c = 900 J/(kg·°C)) absorbe 9.000 J. ¿Cuánto sube su temperatura?", sol: "ΔT = Q / (m·c) = 9.000 / (0,5 · 900) = 20 °C." },
-    { q: "Se mezclan 1 kg de agua a 60 °C y 1 kg de agua a 10 °C. ¿Temperatura final?", sol: "Masas iguales del mismo líquido: la media, (60 + 10) / 2 = 35 °C." },
-    { q: "¿Cuánto calor se necesita para evaporar 0,2 kg de agua a 100 °C? (Lv = 2.260.000 J/kg.)", sol: "Q = 0,2 · 2.260.000 = 452.000 J." },
-    { q: "Explica por qué el sudor nos refresca.", sol: "Para evaporarse, el sudor absorbe calor latente de la piel; así la piel pierde energía y baja su temperatura." },
-    { q: "Indica cómo se propaga el calor: en una cuchara metida en la sopa, en el aire de una habitación con radiador y desde el Sol a la Tierra.", sol: "Cuchara: conducción. Habitación: convección. Sol: radiación." },
-    { q: "Un trozo de metal de 0,2 kg a 100 °C se mete en 0,5 kg de agua a 20 °C y la mezcla queda a 24 °C. Calcula el calor específico del metal.", sol: "Calor absorbido por el agua: 0,5 · 4.180 · 4 = 8.360 J. Lo cede el metal: 0,2 · c · 76 = 8.360 → c = 550 J/(kg·°C)." },
-    { q: "¿Por qué las vías del tren y los puentes tienen juntas de dilatación?", sol: "Porque con el calor los materiales se dilatan; las juntas dejan espacio para que el metal o el hormigón se alarguen sin deformarse ni romperse." },
-    { q: "Un motor tiene un rendimiento del 35 % y absorbe 80.000 J. ¿Qué trabajo útil realiza?", sol: "W = 0,35 · 80.000 = 28.000 J." },
+    B("Explica la diferencia entre calor y temperatura con un ejemplo.", "La temperatura indica lo caliente que está un cuerpo (energía cinética media de sus partículas); el calor es la energía que pasa de un cuerpo a otro por diferencia de temperatura. Ej.: una piscina templada tiene más energía interna que una taza de café hirviendo, aunque esté a menor temperatura."),
+    B("Pasa a kelvin: a) 27 °C; b) −23 °C; c) 100 °C. Pasa a °C: d) 0 K; e) 300 K.", "a) 300 K. b) 250 K. c) 373 K. d) −273 °C. e) 27 °C."),
+    B("Pasa a °F: a) 0 °C; b) 40 °C. Pasa a °C: c) 212 °F.", "a) 32 °F. b) 1,8 · 40 + 32 = 104 °F. c) (212 − 32) / 1,8 = 100 °C."),
+    B("¿Cuánto calor hay que dar a 2 kg de agua para calentarla de 20 °C a 70 °C?", "Q = 2 · 4.180 · 50 = 418.000 J."),
+    B("¿Cuánto calor cede 1 kg de hierro (c = 450 J/kg·K) al enfriarse de 200 °C a 50 °C?", "Q = 1 · 450 · (50 − 200) = −67.500 J: cede 67.500 J."),
+    B("¿Qué calor hace falta para fundir 2 kg de hielo a 0 °C?", "Q = m · L<sub>f</sub> = 2 · 334.000 = 668.000 J."),
+    B("Indica el cambio de estado: a) la ropa se seca; b) se forma escarcha; c) un cubito se derrite; d) se empaña el espejo.", "a) Evaporación. b) Sublimación inversa (deposición). c) Fusión. d) Condensación."),
+    B("Indica cómo se propaga el calor en cada caso: a) el mango de una sartén se calienta; b) el aire de una habitación con radiador; c) el calor del Sol.", "a) Conducción. b) Convección. c) Radiación."),
+    B("¿Por qué los abrigos de plumas abrigan tanto?", "Porque las plumas atrapan mucho aire quieto, que es un excelente aislante: impiden que el calor del cuerpo escape por conducción y convección."),
+    B("¿Por qué las vías del tren tienen pequeñas separaciones entre los raíles?", "Son juntas de dilatación: en verano los raíles se alargan y, sin ese espacio, se deformarían."),
+    B("¿Por qué las ciudades de costa tienen inviernos más suaves que las del interior?", "Porque el agua del mar, con un calor específico muy alto, almacena calor en verano y lo cede lentamente en invierno, suavizando las temperaturas."),
+    B("Un motor tiene un rendimiento del 25 %. Si recibe 8.000 J de calor, ¿cuánto trabajo produce y cuánto calor cede?", "W = 0,25 · 8.000 = 2.000 J. Q₂ = 8.000 − 2.000 = 6.000 J."),
+    M("Se mezclan 1 kg de agua a 60 °C con 3 kg de agua a 20 °C. Calcula la temperatura de equilibrio.", "1 · (T − 60) + 3 · (T − 20) = 0 → 4T = 120 → T = 30 °C."),
+    M("¿Qué masa de agua a 10 °C hay que mezclar con 2 kg de agua a 90 °C para obtener agua a 40 °C?", "m · (40 − 10) + 2 · (40 − 90) = 0 → 30m = 100 → m ≈ 3,33 kg."),
+    M("Un bloque de aluminio de 500 g (c = 900 J/kg·K) a 150 °C se mete en 1 kg de agua a 20 °C. Calcula la temperatura final.", "0,5 · 900 · (T − 150) + 1 · 4.180 · (T − 20) = 0 → 450T − 67.500 + 4.180T − 83.600 = 0 → T = 151.100 / 4.630 ≈ 32,6 °C."),
+    M("Una pieza de 200 g a 90 °C se introduce en 400 g de agua a 15 °C y la mezcla alcanza 19 °C. Calcula el calor específico de la pieza.", "Agua: 0,4 · 4.180 · 4 = 6.688 J. Pieza: 0,2 · c · (−71) = −14,2c. c = 6.688 / 14,2 ≈ 471 J/(kg·K): podría ser acero."),
+    M("¿Cuánto calor hace falta para evaporar 250 g de agua que ya está a 100 °C?", "Q = 0,25 · 2.260.000 = 565.000 J."),
+    M("¿Qué calor hay que dar a 1 kg de agua a 20 °C para convertirla en vapor a 100 °C?", "Calentar: 1 · 4.180 · 80 = 334.400 J. Evaporar: 2.260.000 J. Total: 2.594.400 J."),
+    M("Un hervidor de 2.000 W calienta 1,5 L de agua de 20 °C a 100 °C. Si no hay pérdidas, ¿cuánto tarda?", "Q = 1,5 · 4.180 · 80 = 501.600 J. t = Q / P = 501.600 / 2.000 ≈ 251 s ≈ 4 min 11 s."),
+    M("Si el hervidor anterior tarda en realidad 5 minutos, ¿cuál es su rendimiento?", "Energía consumida: 2.000 · 300 = 600.000 J. η = 501.600 / 600.000 · 100 ≈ 84 %."),
+    M("Una persona elimina por sudor 0,5 L de agua en una hora de ejercicio. ¿Cuánto calor se lleva la evaporación?", "Q = 0,5 · 2.260.000 = 1.130.000 J ≈ 270 kcal."),
+    M("En la curva de calentamiento de una sustancia hay un tramo horizontal a 80 °C. ¿Qué ocurre ahí? ¿Por qué no cambia la temperatura?", "Se produce un cambio de estado (fusión si es el primero, o ebullición). La energía aportada se usa en separar las partículas, venciendo sus fuerzas de atracción, no en aumentar su velocidad."),
+    M("¿Cuántas kilocalorías aporta un yogur de 120 kcal en julios? ¿Hasta qué altura podrías subir 60 kg con esa energía si toda se convirtiera en trabajo?", "120 kcal = 120.000 · 4,18 ≈ 501.600 J. h = 501.600 / (60 · 9,8) ≈ 853 m."),
+    M("Una central térmica produce 400 MW eléctricos con un rendimiento del 40 %. ¿Qué potencia térmica consume y cuánta cede al ambiente?", "P<sub>consumida</sub> = 400 / 0,4 = 1.000 MW. Cedida: 1.000 − 400 = 600 MW."),
+    M("Explica cómo funciona un termo de doble pared y qué forma de propagación evita cada elemento.", "El vacío entre las paredes evita la conducción y la convección; el plateado refleja la radiación; el tapón aislante evita la convección por arriba."),
+    A("Se echan 50 g de hielo a 0 °C en 300 g de agua a 30 °C. ¿Se funde todo? ¿Cuál es la temperatura final?", "Calor para fundir el hielo: 0,05 · 334.000 = 16.700 J. Calor que puede ceder el agua al bajar a 0 °C: 0,3 · 4.180 · 30 = 37.620 J > 16.700: se funde todo. Equilibrio: 16.700 + 0,05 · 4.180 · T + 0,3 · 4.180 · (T − 30) = 0 → 16.700 + 209T + 1.254T − 37.620 = 0 → T ≈ 14,3 °C."),
+    A("Se echan 200 g de hielo a 0 °C en 300 g de agua a 20 °C. ¿Se funde todo?", "Fundir todo el hielo necesita 66.800 J. El agua, al bajar a 0 °C, solo cede 0,3 · 4.180 · 20 = 25.080 J. No se funde todo: queda una mezcla a 0 °C. Hielo fundido: 25.080 / 334.000 ≈ 75 g; quedan unos 125 g de hielo."),
+    A("Una bala de plomo de 10 g (c = 130 J/kg·K) a 400 m/s se incrusta en un bloque de madera. Si el 50 % de su energía cinética la calienta, ¿cuánto sube su temperatura?", "E<sub>c</sub> = ½ · 0,01 · 160.000 = 800 J. Q = 400 J. ΔT = 400 / (0,01 · 130) ≈ 308 K. ¡Podría llegar a fundirse (el plomo funde a 327 °C)!"),
+    A("En el experimento de Joule, unas pesas de 20 kg bajan 2 m veinte veces y calientan 1 kg de agua. ¿Cuánto sube su temperatura?", "W = 20 · 20 · 9,8 · 2 = 7.840 J. ΔT = 7.840 / (1 · 4.180) ≈ 1,9 °C."),
+    A("Una cascada tiene 100 m de altura. Si toda la energía potencial del agua se convirtiera en calor al llegar abajo, ¿cuánto se calentaría?", "m·g·h = m·c·ΔT → ΔT = g·h / c = 9,8 · 100 / 4.180 ≈ 0,23 °C. La masa se simplifica."),
+    A("Representa la curva de calentamiento de 1 kg de hielo desde −20 °C hasta vapor a 120 °C (c<sub>vapor</sub> = 2.010 J/kg·K) y calcula el calor de cada tramo.", "Hielo −20→0: 41.800 J. Fusión: 334.000 J. Agua 0→100: 418.000 J. Ebullición: 2.260.000 J. Vapor 100→120: 40.200 J. Total ≈ 3,09 · 10<sup>6</sup> J. Los tramos horizontales (cambios de estado) son los más largos."),
+    A("Un coche consume 6 L de gasolina cada 100 km. Cada litro libera 3,2 · 10<sup>7</sup> J. Con un rendimiento del 25 %, ¿cuánta energía útil emplea en esos 100 km y qué fuerza media de resistencia vence?", "Energía química: 6 · 3,2 · 10<sup>7</sup> = 1,92 · 10<sup>8</sup> J. Útil: 4,8 · 10<sup>7</sup> J. F = W / d = 4,8 · 10<sup>7</sup> / 10<sup>5</sup> = 480 N."),
+    A("¿Por qué un lago se congela solo por la superficie y los peces sobreviven debajo?", "El agua tiene su máxima densidad a 4 °C. Al enfriarse por debajo de 4 °C se vuelve menos densa y se queda arriba, hasta congelarse; el hielo, aún menos denso, flota y aísla el agua inferior, que se mantiene a unos 4 °C."),
+    A("Una bomba de calor aporta a una vivienda 4 kWh de calor consumiendo solo 1 kWh eléctrico. ¿Viola la conservación de la energía? Explica de dónde sale el resto.", "No: es una máquina térmica funcionando al revés. Con 1 kWh de trabajo extrae 3 kWh de calor del aire exterior (foco frío) y entrega 1 + 3 = 4 kWh al interior (foco caliente). Por eso la aerotermia es tan eficiente."),
   ],
   quiz: [
-    { q: "El cero absoluto es…", o: ["0 °C", "−273 °C", "−100 °C"], a: 1, e: "0 K, la temperatura más baja posible." },
-    { q: "Durante un cambio de estado, la temperatura…", o: ["sube", "baja", "no cambia"], a: 2, e: "La energía se usa en separar partículas." },
-    { q: "El calor necesario para fundir una masa m es…", o: ["m · c · ΔT", "m · L", "m · g · h"], a: 1, e: "L es el calor latente de fusión." },
-    { q: "Al mezclar agua caliente y fría sin pérdidas…", o: ["el calor cedido es igual al absorbido", "se pierde todo el calor", "la temperatura final es siempre 50 °C"], a: 0, e: "Es el principio del calorímetro." },
-    { q: "El rendimiento de un motor de gasolina es aproximadamente…", o: ["100 %", "25-30 %", "90 %"], a: 1, e: "La mayor parte se pierde como calor." },
+    q4("La temperatura está relacionada con…", ["la masa del cuerpo", "la energía cinética media de sus partículas", "el volumen", "el calor que contiene"], 1, "A más movimiento de partículas, más temperatura."),
+    q4("El calor pasa espontáneamente…", ["del cuerpo grande al pequeño", "del cuerpo caliente al frío", "del frío al caliente", "de los metales a la madera"], 1, "Siempre de mayor a menor temperatura."),
+    q4("25 °C equivalen a…", ["248 K", "298 K", "25 K", "77 K"], 1, "25 + 273."),
+    q4("El cero absoluto es…", ["0 °C", "−100 °C", "−273 °C", "0 °F"], 2, "0 K = −273,15 °C."),
+    q4("El calor específico del agua es…", ["muy bajo", "4.180 J/(kg·K)", "334.000 J/kg", "igual al del hierro"], 1, "Uno de los más altos."),
+    q4("Con la misma energía, ¿qué se calienta más: 1 kg de agua o 1 kg de hierro?", ["El agua", "El hierro", "Igual", "Depende del recipiente"], 1, "El hierro tiene un calor específico casi diez veces menor."),
+    q4("Durante la fusión del hielo, la temperatura…", ["sube", "baja", "se mantiene a 0 °C", "sube a 100 °C"], 2, "La energía se usa en el cambio de estado."),
+    q4("El calor para fundir una sustancia se calcula con…", ["Q = m·c·ΔT", "Q = m·L", "Q = F·d", "Q = P·t"], 1, "Calor latente."),
+    q4("¿Qué cambio de estado desprende calor?", ["Fusión", "Evaporación", "Condensación", "Sublimación"], 2, "Los cambios regresivos desprenden calor."),
+    q4("Al mezclar agua a 80 °C y a 20 °C, la temperatura final…", ["es 100 °C", "está entre 20 y 80 °C", "es 0 °C", "es 80 °C"], 1, "Siempre entre las iniciales."),
+    q4("El calor del Sol llega a la Tierra por…", ["conducción", "convección", "radiación", "dilatación"], 2, "Atraviesa el vacío."),
+    q4("Los radiadores se colocan abajo porque calientan la habitación por…", ["conducción", "convección", "radiación", "evaporación"], 1, "El aire caliente sube y crea corrientes."),
+    q4("¿Cuál es el mejor aislante térmico?", ["Cobre", "Aluminio", "Aire quieto", "Hierro"], 2, "Por eso la lana y las plumas abrigan."),
+    q4("Las juntas de dilatación sirven para…", ["ahorrar material", "permitir que los materiales se alarguen con el calor", "decorar", "aislar del ruido"], 1, "Evitan deformaciones."),
+    q4("El experimento de Joule demostró que…", ["el calor es un fluido", "el calor es energía equivalente al trabajo", "el agua no se calienta", "la temperatura es constante"], 1, "1 cal = 4,18 J."),
+    q4("Una máquina térmica…", ["convierte todo el calor en trabajo", "convierte parte del calor en trabajo y cede el resto", "crea energía", "solo funciona con electricidad"], 1, "Segundo principio."),
+    q4("Un motor que recibe 1.000 J y hace 300 J de trabajo tiene un rendimiento de…", ["30 %", "70 %", "300 %", "3 %"], 0, "300/1.000."),
+    q4("Una quemadura con vapor a 100 °C es peor que con agua a 100 °C porque…", ["el vapor está más caliente", "el vapor cede además su calor latente al condensarse", "el agua no quema", "el vapor pesa más"], 1, "2.260 kJ por kg."),
+    q4("El agua del botijo se enfría porque…", ["el barro es frío", "la evaporación absorbe calor", "entra aire frío", "el agua pierde masa y temperatura a la vez sin motivo"], 1, "La evaporación necesita calor."),
+    q4("El primer principio de la termodinámica dice que…", ["ΔU = Q + W", "Q = m·L", "η < 100 %", "T = t + 273"], 0, "La energía interna cambia por calor y trabajo."),
   ],
+  examen: [
+    q4("El calor para subir 10 °C 2 kg de agua es…", ["83.600 J", "8.360 J", "41.800 J", "836 J"], 0, "2 · 4.180 · 10."),
+    q4("300 K equivalen a…", ["573 °C", "27 °C", "−27 °C", "300 °C"], 1, "300 − 273."),
+    q4("Se mezclan 1 kg de agua a 50 °C y 1 kg a 10 °C. T final = …", ["30 °C", "60 °C", "40 °C", "20 °C"], 0, "Masas iguales: la media."),
+    q4("Fundir 1 kg de hielo a 0 °C requiere…", ["4.180 J", "334.000 J", "2.260.000 J", "0 J"], 1, "L<sub>f</sub> del agua."),
+    q4("El mango metálico de una cuchara se calienta por…", ["radiación", "convección", "conducción", "evaporación"], 2, "Contacto entre partículas."),
+    q4("En la curva de calentamiento del agua, los tramos horizontales están a…", ["0 °C y 100 °C", "4 °C y 100 °C", "0 °C y 50 °C", "−273 °C y 0 °C"], 0, "Fusión y ebullición a 1 atm."),
+    q4("Una máquina recibe 10.000 J y cede 7.000 J al foco frío. Su rendimiento es…", ["70 %", "30 %", "17 %", "100 %"], 1, "W = 3.000 J."),
+    q4("1 cal equivale a…", ["4,18 J", "1.000 J", "0,24 J", "3.600 J"], 0, "Equivalente mecánico del calor."),
+  ],
+  feynman: ["La diferencia entre calor y temperatura", "Por qué el agua tarda tanto en calentarse", "Por qué la temperatura no cambia mientras el hielo se funde", "Las tres formas de propagación del calor con un ejemplo de cada una", "Por qué abriga un anorak de plumas", "Por qué ningún motor aprovecha toda la energía del combustible"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Equilibrio térmico", "Estado final en que dos cuerpos en contacto tienen la misma temperatura."],
-    ["Calor latente", "Energía por kilogramo para cambiar de estado: Q = m · L."],
-    ["Rendimiento de una máquina térmica", "Trabajo útil / calor absorbido · 100; nunca llega al 100 %."],
+    ["Temperatura", "Mide la energía cinética media de las partículas; en K o °C."],
+    ["Calor", "Energía que se transfiere por diferencia de temperatura."],
+    ["Paso de °C a K", "T = t + 273."],
+    ["Calor para cambiar la temperatura", "Q = m · c · ΔT."],
+    ["Calor específico del agua", "4.180 J/(kg·K)."],
+    ["Calor para un cambio de estado", "Q = m · L."],
+    ["Calores latentes del agua", "Fusión 334 kJ/kg; vaporización 2.260 kJ/kg."],
+    ["Equilibrio térmico", "Q<sub>cedido</sub> + Q<sub>absorbido</sub> = 0."],
+    ["Tres formas de propagación", "Conducción, convección y radiación."],
+    ["Equivalente mecánico del calor", "1 cal = 4,18 J."],
+    ["Máquina térmica", "Q₁ = W + Q₂; η = W/Q₁."],
+    ["Segundo principio", "Ninguna máquina térmica tiene rendimiento del 100 %."],
   ],
-});
+  glosario: [
+    ["Temperatura", "Magnitud relacionada con la energía cinética media de las partículas."],
+    ["Calor", "Energía transferida entre cuerpos a distinta temperatura."],
+    ["Energía interna", "Suma de las energías de todas las partículas de un cuerpo."],
+    ["Cero absoluto", "Temperatura más baja posible: 0 K = −273,15 °C."],
+    ["Calor específico", "Energía necesaria para subir 1 K la temperatura de 1 kg de sustancia."],
+    ["Equilibrio térmico", "Estado en el que dos cuerpos en contacto alcanzan la misma temperatura."],
+    ["Calorímetro", "Recipiente aislado para medir intercambios de calor."],
+    ["Calor latente", "Energía necesaria para que 1 kg de sustancia cambie de estado."],
+    ["Conducción", "Propagación del calor de partícula a partícula sin movimiento de materia."],
+    ["Convección", "Propagación del calor por el movimiento de un fluido."],
+    ["Radiación", "Propagación del calor mediante ondas electromagnéticas, incluso en el vacío."],
+    ["Aislante térmico", "Material que conduce mal el calor."],
+    ["Dilatación", "Aumento del tamaño de un cuerpo al calentarse."],
+    ["Máquina térmica", "Dispositivo que convierte calor en trabajo de forma continua."],
+    ["Rendimiento", "Fracción del calor recibido que se convierte en trabajo útil."],
+    ["Bomba de calor", "Máquina que lleva calor de un foco frío a uno caliente usando trabajo."],
+  ],
+  situacion: {
+    titulo: "¿Qué nevera portátil conserva mejor el frío?",
+    reto: "Para la excursión de fin de curso hay que llevar bebidas frías. Vuestro equipo debe diseñar y comparar neveras caseras con distintos aislantes y recomendar la mejor con datos.",
+    pasos: [
+      "Construid tres o cuatro neveras con cajas iguales forradas con materiales distintos: corcho blanco, papel de periódico, lana, papel de aluminio.",
+      "Meted en cada una la misma masa de hielo y medid la masa de hielo que queda cada 30 minutos.",
+      "Calculad el calor que ha entrado en cada nevera con Q = m · L<sub>f</sub>.",
+      "Representad en una gráfica la masa de hielo frente al tiempo para cada material.",
+      "Explicad los resultados con las tres formas de propagación del calor y proponed una nevera mejorada.",
+    ],
+    producto: "Un informe con la gráfica comparativa y un prototipo de nevera mejorada con su justificación.",
+    evaluacion: ["El diseño experimental controla las variables (mismo hielo, mismo tiempo, misma caja).", "Los cálculos de calor con el calor latente son correctos.", "La gráfica está bien construida e interpretada.", "Las mejoras propuestas se justifican con conducción, convección y radiación."],
+  },
+  familias: [
+    "Tocad a la vez un objeto metálico y uno de madera que estén en la misma habitación y comentad por qué parecen distintos.",
+    "Poned un vaso de agua y otro de aceite al sol y comparad cuál se calienta antes con un termómetro de cocina.",
+    "Revisad las ventanas de casa: ¿hay corrientes de aire? Pensad juntos cómo ahorrar en calefacción.",
+    "Repasad las tarjetas y explicad por qué el sudor refresca.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La energía»: calor y temperatura, efectos del calor (cambio de temperatura, cambio de estado y dilatación), equilibrio térmico, propagación del calor, máquinas térmicas y rendimiento, con su impacto ambiental.`,
+    ideas: [
+      "Calorimetría con vasos de poliestireno y termómetros digitales para medir el calor específico de un metal.",
+      "Curva de calentamiento y enfriamiento del agua o de la parafina con un sensor de temperatura.",
+      "Comparar aislantes con latas de agua caliente forradas con distintos materiales.",
+      "Cámara térmica (o app con accesorio) para observar fugas de calor en el aula.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    { t: "Calor, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Calor" },
+    { t: "Código Técnico de la Edificación: ahorro de energía", url: "https://www.codigotecnico.org/" },
+  ],
+  revisado: "2026-11-13",
+};

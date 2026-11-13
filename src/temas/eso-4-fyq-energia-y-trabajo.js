@@ -1,186 +1,259 @@
-// Física y Química 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa, flecha } = require("./_util");
+// Física y Química 4º ESO · La energía y el trabajo (nivel libro). Dibujos propios en SVG.
+const { flecha, BASE, marco, T, ficha, pasos, compara, graf, barras, rejilla, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD } = require("./_eso4L5");
+const S = BASE["energia-y-trabajo"];
+
+const palanca = marco("Palanca: con el punto de apoyo cerca de la carga, una fuerza pequeña con un brazo largo levanta una carga grande", `
+  <path d="M20 150 H 240" stroke="var(--muted)" stroke-width="2"/>
+  <polygon points="90,150 104,122 118,150" fill="var(--ink)"/>
+  <rect x="24" y="114" width="214" height="8" rx="3" fill="#b45309" transform="rotate(-4 104 118)"/>
+  <rect x="30" y="80" width="40" height="34" rx="4" fill="var(--red)"/>${T(50, 102, "R", { fs: 15, b: true, c: "#fff" })}
+  <path d="M226 46 V 100" stroke="var(--pen)" stroke-width="3.5" marker-end="url(#pa1)"/>${T(226, 38, "F", { fs: 15, b: true, c: "var(--pen)" })}
+  <path d="M50 140 H 100" stroke="var(--red)" stroke-width="2" marker-end="url(#pa2)" marker-start="url(#pa2)"/>${T(75, 168, "brazo corto", { fs: 12, b: true, c: "var(--red)" })}
+  <path d="M108 140 H 222" stroke="var(--pen)" stroke-width="2" marker-end="url(#pa1)" marker-start="url(#pa1)"/>${T(166, 168, "brazo largo", { fs: 12, b: true, c: "var(--pen)" })}
+  ${T(150, 30, "F · b(F) = R · b(R)", { fs: 14, b: true })}`,
+  `${flecha("pa1", "var(--pen)")}${flecha("pa2", "var(--red)")}`);
 
 module.exports = {
   materia: "Física y Química",
   curso: "4-eso",
   titulo: "La energía y el trabajo",
-  minutos: 40,
-  objetivos: ["Calcular el trabajo realizado por una fuerza", "Calcular la energía cinética y la potencial gravitatoria", "Aplicar la conservación de la energía mecánica y el concepto de potencia"],
-  claves: ["trabajo", "julio (J)", "energía cinética", "energía potencial", "energía mecánica", "potencia"],
+  minutos: 115,
+  objetivos: [
+    "Reconocer las formas de energía, sus propiedades y las fuentes renovables y no renovables",
+    "Calcular el trabajo de una fuerza y reconocer cuándo es positivo, negativo o nulo",
+    "Calcular la energía cinética y la potencial y relacionarlas con el trabajo",
+    "Aplicar el principio de conservación de la energía mecánica, con y sin rozamiento",
+    "Calcular potencia y rendimiento y explicar el funcionamiento de las máquinas simples",
+  ],
+  claves: ["energía", "trabajo", "julio", "energía cinética", "energía potencial", "conservación", "rozamiento", "potencia", "vatio", "rendimiento", "máquinas simples"],
   pregunta: {
-    texto: "Sostienes una mochila pesada quieto durante diez minutos y acabas agotado. Sin embargo, un físico diría que no has hecho ningún trabajo. ¿Cómo es posible?",
-    respuesta: "En física, el <mark>trabajo</mark> solo existe si la fuerza <b>desplaza</b> el objeto. Si la mochila no se mueve, W = F · d = F · 0 = 0. Tu cansancio es real: tus músculos gastan energía química contrayéndose, pero esa energía no se transfiere a la mochila como trabajo.",
+    texto: "Si sostienes una mochila pesada sin moverte durante diez minutos, acabas agotado. ¿Has hecho trabajo sobre la mochila?",
+    respuesta: "En física, <mark>no</mark>: el trabajo exige que la fuerza desplace su punto de aplicación, y la mochila no se ha movido. Te cansas porque tus músculos se contraen y relajan sin parar para mantenerla y consumen energía química que se convierte en calor, pero el trabajo mecánico sobre la mochila es cero.",
+  },
+  lectura: {
+    titulo: "La energía que mueve una ciudad",
+    html: `<p>Un día cualquiera, una ciudad como Valencia consume tanta energía eléctrica como la que producen varias centrales a pleno rendimiento. Esa energía llega a los hogares desde parques eólicos, huertos solares, centrales hidráulicas, ciclos combinados de gas y centrales nucleares. En España, más de la mitad de la electricidad ya se genera con fuentes renovables, y algunos días soleados y con viento la cifra supera el 70 %.</p><p>Pero la energía no aparece de la nada ni desaparece: solo cambia de forma. El agua de un embalse tiene energía potencial porque está alta; al caer por las tuberías gana velocidad, mueve las turbinas y la energía se convierte en eléctrica, que en tu casa se transforma en luz, en calor o en movimiento. En cada paso una parte se «pierde» en forma de calor que ya no sirve para nada. Entender cómo se transforma y se transfiere la energía es la base para diseñar coches más eficientes, edificios que gastan menos o redes eléctricas sin humo. En este tema aprenderás a calcular la energía de un cuerpo, el trabajo que la transfiere y la potencia con la que se hace, y descubrirás una de las leyes más importantes de toda la ciencia: la conservación de la energía.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>La energía</h3><p>La <b>energía</b> es la capacidad de un sistema para producir cambios. Se mide en <b>julios (J)</b> y tiene muchas formas: cinética, potencial, térmica, química, eléctrica, nuclear, radiante… Cumple dos reglas: <mark>se transforma</mark> de unas formas en otras y <mark>se conserva</mark> (la total no cambia). Pero en cada transformación una parte se <b>degrada</b> en calor que ya no se puede aprovechar bien.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cadena de transformaciones: química de la comida, cinética de la bici, eléctrica de la dinamo y luminosa de la bombilla">
-        <defs>${flecha("ej1", "var(--muted)")}</defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-size="11" font-weight="700" text-anchor="middle">
-          ${[["química", "var(--leaf)", 36, 60], ["cinética", "var(--pen)", 130, 60], ["eléctrica", "var(--sun)", 224, 60], ["luz", "var(--red)", 224, 136], ["calor", "var(--muted)", 110, 136]].map(([t, c, x, y]) => `<circle cx="${x}" cy="${y}" r="28" fill="${c}" opacity=".85"/><text x="${x}" y="${y + 4}" fill="#fff">${t}</text>`).join("")}
-        </g>
-        <g stroke="var(--muted)" stroke-width="2.5" marker-end="url(#ej1)"><path d="M66 60 H 98"/><path d="M160 60 H 192"/><path d="M224 90 V 104"/><path d="M194 136 H 142"/></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>El trabajo</h3><p>Una fuerza realiza <b>trabajo</b> cuando desplaza un cuerpo. Si la fuerza va en la dirección del movimiento:</p>
-      <div class="formula"><span>W = F · d</span><span class="op">(</span><span>J = N · m</span><span class="op">)</span></div>
-      <p>Si la fuerza forma un ángulo α con el desplazamiento, solo cuenta la parte que empuja en esa dirección: <mark>W = F · d · cos α</mark>. Una fuerza perpendicular al movimiento (como el peso de la mochila al andar en horizontal) no hace trabajo. El rozamiento hace un trabajo negativo: quita energía.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Se arrastra una caja con una fuerza inclinada un ángulo alfa a lo largo de una distancia d">
-        <defs>${flecha("ej2", "var(--red)")}${flecha("ej3", "var(--pen)")}</defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M14 120 H 246" stroke="var(--muted)" stroke-width="2"/>
-        <rect x="40" y="80" width="50" height="40" rx="4" fill="var(--sun)" stroke="var(--ink)" stroke-width="2"/>
-        <path d="M90 94 L 156 52" stroke="var(--red)" stroke-width="4" marker-end="url(#ej2)"/><path d="M90 94 H 160" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 4"/>
-        <path d="M116 94 A 26 26 0 0 0 112 80" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        <path d="M40 146 H 210" stroke="var(--pen)" stroke-width="3" marker-end="url(#ej3)"/>
-        <g ${F} font-size="13" font-weight="700"><text x="160" y="46" fill="var(--red)">F</text><text x="122" y="88" fill="var(--ink)">α</text><text x="120" y="168" fill="var(--pen)">d</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Energía cinética y potencial</h3><p>La <b>energía cinética</b> es la que tiene un cuerpo <mark>por moverse</mark>: crece con la masa y, sobre todo, con la velocidad al cuadrado. A doble velocidad, cuatro veces más energía: por eso un choque a 100 km/h es mucho más grave que a 50.</p>
-      <div class="formula"><span>Ec = ½ · m · v²</span></div>
-      <p>La <b>energía potencial gravitatoria</b> es la que tiene <mark>por su altura</mark>:</p>
-      <div class="formula"><span>Ep = m · g · h</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una maceta en un balcón tiene energía potencial y un coche en marcha tiene energía cinética">
-        <defs>${flecha("ej4", "var(--leaf)")}</defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="20" y="30" width="60" height="130" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><rect x="80" y="44" width="20" height="5" fill="var(--ink)"/>
-        <path d="M86 30 L 96 30 L 94 44 L 88 44 Z" fill="var(--red)"/><circle cx="91" cy="24" r="7" fill="var(--leaf)"/>
-        <path d="M110 46 V 156" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/><text x="114" y="104" font-size="13" font-weight="700" fill="var(--pen)" ${F}>h</text>
-        <rect x="150" y="128" width="56" height="20" rx="6" fill="var(--pen)"/><rect x="160" y="116" width="30" height="14" rx="4" fill="var(--pen)"/><circle cx="162" cy="150" r="7" fill="var(--ink)"/><circle cx="194" cy="150" r="7" fill="var(--ink)"/>
-        <path d="M212 136 H 246" stroke="var(--leaf)" stroke-width="3" marker-end="url(#ej4)"/><text x="228" y="128" font-size="13" font-weight="700" fill="var(--leaf)" ${F}>v</text>
-        <g ${F} font-size="12" font-weight="700"><text x="130" y="30" fill="var(--pen)">Ep = m·g·h</text><text x="150" y="98" fill="var(--leaf)">Ec = ½·m·v²</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Conservación de la energía mecánica</h3><p>La <b>energía mecánica</b> es la suma <mark>Em = Ec + Ep</mark>. Si no hay rozamiento, <b>se conserva</b>: lo que pierde una forma lo gana la otra. En una montaña rusa, arriba casi toda es potencial y abajo casi toda cinética. Así se calcula la velocidad al final de una caída desde h:</p>
-      <div class="formula"><span>m · g · h = ½ · m · v²</span><span class="op">→</span><span>v = √(2 · g · h)</span></div>
-      <p>Con rozamiento, parte de la energía mecánica se transforma en calor.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Montaña rusa: arriba energía potencial máxima, abajo cinética máxima; la suma es constante">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M14 40 C 60 40, 70 150, 130 150 S 200 70, 246 80" fill="none" stroke="var(--ink)" stroke-width="3"/>
-        <circle cx="24" cy="34" r="7" fill="var(--red)"/><circle cx="130" cy="144" r="7" fill="var(--red)"/>
-        ${[[30, 70, 0], [118, 0, 70], [216, 30, 40]].map(([x, ep, ec]) => `<rect x="${x}" y="${100 - ep * 0.6 + 0}" width="10" height="${ep * 0.6}" fill="var(--pen)" transform="translate(0 ${-30})"/><rect x="${x + 12}" y="${100 - ec * 0.6}" width="10" height="${ec * 0.6}" fill="var(--leaf)" transform="translate(0 ${-30})"/>`).join("")}
-        <g ${F} font-size="11" font-weight="700"><rect x="150" y="160" width="9" height="9" fill="var(--pen)"/><text x="162" y="168" fill="var(--pen)">Ep</text><rect x="190" y="160" width="9" height="9" fill="var(--leaf)"/><text x="202" y="168" fill="var(--leaf)">Ec</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Potencia y rendimiento</h3><p>La <b>potencia</b> indica <mark>lo rápido que se realiza un trabajo</mark> o se transfiere energía:</p>
-      <div class="formula"><span>P = W / t</span><span class="op">(</span><span>vatio: W = J/s</span><span class="op">)</span></div>
-      <p>Un ascensor potente sube a las mismas personas en menos tiempo. También se usa el caballo de vapor (1 CV ≈ 735 W) y el kilovatio-hora (kWh) de la factura de la luz, que es una unidad de energía. El <b>rendimiento</b> compara la energía útil con la consumida: una bombilla LED aprovecha mucho más que una incandescente.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos personas suben la misma escalera: la que tarda menos desarrolla más potencia">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M20 160 H 60 V 130 H 100 V 100 H 140 V 70 H 180 V 40 H 240" fill="none" stroke="var(--ink)" stroke-width="3"/>
-        <circle cx="88" cy="86" r="8" fill="var(--red)"/><circle cx="168" cy="26" r="8" fill="var(--leaf)"/>
-        <g ${F} font-size="12" font-weight="700"><text x="20" y="40" fill="var(--leaf)">10 s → más potencia</text><text x="20" y="60" fill="var(--red)">30 s → menos potencia</text><text x="130" y="150" fill="var(--muted)">mismo trabajo</text></g>
-      </svg>`,
-    },
+    bloque({ h: "1.1 La energía y sus formas", p: [
+      "La <mark>energía</mark> es la capacidad de un sistema para producir cambios: moverse, calentarse, deformarse, emitir luz o reaccionar químicamente. Su unidad en el SI es el <b>julio (J)</b>, aunque también se usan la caloría (1 cal = 4,18 J), la kilocaloría de los alimentos y el kilovatio hora (kWh) de la factura de la luz.",
+      "La energía se presenta en muchas formas. La <b>cinética</b> es la que tiene un cuerpo por moverse; la <b>potencial gravitatoria</b>, por estar a cierta altura; la <b>potencial elástica</b>, por estar deformado, como un muelle comprimido. La <b>térmica o interna</b> se debe al movimiento de las partículas; la <b>química</b> está almacenada en los enlaces de alimentos y combustibles; la <b>eléctrica</b> la transportan las cargas en movimiento; la <b>radiante</b> la transporta la luz; y la <b>nuclear</b> se encuentra en el núcleo de los átomos. La suma de la cinética y la potencial es la <b>energía mecánica</b>, protagonista de este tema. En una bicicleta con dinamo, la energía química de tus músculos se convierte en cinética, la dinamo la convierte en eléctrica y la bombilla, en luminosa.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.2 Propiedades de la energía", p: [
+      "La energía tiene cuatro propiedades fundamentales. Se <b>transforma</b>: pasa de una forma a otra, como la química de la gasolina en cinética del coche. Se <b>transfiere</b>: pasa de un cuerpo a otro mediante <b>trabajo</b> (cuando una fuerza desplaza un cuerpo) o mediante <b>calor</b> (cuando hay diferencia de temperatura). Se <mark>conserva</mark>: en cualquier proceso, la energía total de un sistema aislado permanece constante; no se crea ni se destruye. Es el <b>principio de conservación de la energía</b>, que nunca se ha visto incumplido.",
+      "Y se <b>degrada</b>: en cada transformación, una parte de la energía acaba como energía térmica dispersa en el ambiente, una forma de energía de «baja calidad» que ya no se puede aprovechar. La energía no se pierde, pero sí pierde utilidad. Por eso tiene sentido ahorrar energía aunque se conserve: lo que gastamos es energía útil, que se convierte en calor inservible. Una bombilla incandescente transformaba en luz solo el 5 % de la energía eléctrica; un LED, cerca del 40 %.",
+    ], svg: ficha("Las cuatro propiedades de la energía", "La energía…", ["se transforma (cambia de forma)", "se transfiere (trabajo y calor)", "se conserva (no se crea ni destruye)", "se degrada (acaba en calor inútil)"], "var(--leaf)") }),
+    bloque({ h: "1.3 Fuentes de energía", p: [
+      "Las <b>fuentes de energía</b> son los recursos naturales de los que obtenemos la energía que usamos. Las <mark>no renovables</mark> existen en cantidad limitada y se agotan: el carbón, el petróleo y el gas natural (combustibles fósiles, formados hace millones de años a partir de restos de seres vivos) y el uranio de las centrales nucleares. Los fósiles son baratos y fáciles de almacenar, pero al quemarse emiten dióxido de carbono, principal causante del cambio climático, y otros contaminantes. La nuclear no emite CO₂, pero genera residuos radiactivos que hay que custodiar durante miles de años.",
+      "Las <mark>renovables</mark> se regeneran de forma natural: solar, eólica, hidráulica, biomasa, geotérmica y mareomotriz. Son limpias y autóctonas, pero algunas son intermitentes (no siempre hay sol ni viento) y necesitan sistemas de almacenamiento, como baterías o centrales de bombeo. España es uno de los países europeos con más potencia eólica y solar instalada. El uso responsable de la energía, que incluye el ahorro y la eficiencia, forma parte de los Objetivos de Desarrollo Sostenible.",
+    ], svg: compara("Fuentes de energía renovables y no renovables", ["Renovables", ["solar", "eólica", "hidráulica", "biomasa", "geotérmica"]], ["No renovables", ["petróleo", "carbón", "gas natural", "uranio", "(se agotan)"]], "var(--leaf)", "var(--muted)") }),
+    bloque({ h: "2.1 El trabajo", p: [
+      "En física, una fuerza realiza <mark>trabajo</mark> cuando desplaza su punto de aplicación. El trabajo es la forma de transferir energía mecánica de un cuerpo a otro. Si la fuerza es constante y forma un ángulo α con el desplazamiento, el trabajo vale:",
+      "Se mide en <b>julios</b>: 1 J es el trabajo que hace una fuerza de 1 N al desplazar su punto de aplicación 1 m en su misma dirección. Solo la componente de la fuerza en la dirección del movimiento (F · cos α) hace trabajo. Si arrastras una maleta tirando del asa con 50 N a 60° del suelo a lo largo de 20 m, el trabajo es 50 · 20 · cos 60° = 500 J. Si tiraras en horizontal (α = 0°, cos 0° = 1), harías 1.000 J con la misma fuerza: aprovecharías toda. El trabajo es una magnitud escalar: no tiene dirección, solo valor y signo. Si la fuerza no es constante, el trabajo es el área bajo la gráfica fuerza-desplazamiento.",
+    ], extra: formula("W = F · d · cos α"), svg: S.svg[1], video: S.bvideos[0] }),
+    bloque({ h: "2.2 Trabajo positivo, negativo y nulo", p: [
+      "El signo del trabajo depende del ángulo entre la fuerza y el desplazamiento. Si la fuerza va a favor del movimiento (α entre 0° y 90°), el trabajo es <b>positivo</b> (trabajo motor): la fuerza aporta energía al cuerpo, como el motor de un coche o tu mano al lanzar una pelota. Si va en contra (α entre 90° y 180°), el trabajo es <b>negativo</b> (trabajo resistente): la fuerza quita energía al cuerpo, como el rozamiento o los frenos, para los que α = 180° y W = −F · d.",
+      "Si la fuerza es <mark>perpendicular al desplazamiento</mark> (α = 90°, cos 90° = 0), el trabajo es <b>nulo</b>. Por eso el peso no hace trabajo cuando llevas una mochila por un pasillo horizontal, la normal no hace trabajo sobre un coche que circula por una carretera llana y la fuerza centrípeta no hace trabajo sobre un satélite en órbita circular: cambia la dirección de su velocidad, pero no su rapidez ni su energía. Tampoco hay trabajo si no hay desplazamiento, como al empujar una pared o sostener un peso quieto.",
+    ], svg: rejilla("Signo del trabajo según el ángulo entre la fuerza y el desplazamiento", ["Ángulo α", "cos α", "Trabajo"], [["0°", "1", "máximo, +"], ["< 90°", "+", "positivo"], ["90°", "0", "nulo"], ["> 90°", "−", "negativo"], ["180°", "−1", "−F·d"]], "var(--pen)") }),
+    bloque({ h: "2.3 Trabajo del peso y del rozamiento", p: [
+      "Dos fuerzas aparecen en casi todos los problemas. El <b>peso</b> hace trabajo cuando el cuerpo cambia de altura: al bajar una altura h, W<sub>P</sub> = +m·g·h; al subirla, W<sub>P</sub> = −m·g·h. Lo más interesante es que este trabajo <mark>no depende del camino</mark>, solo de la diferencia de alturas: bajar 10 m por una escalera, por una rampa o en caída libre supone el mismo trabajo del peso. Las fuerzas con esta propiedad se llaman <b>conservativas</b> y tienen asociada una energía potencial.",
+      "El <b>rozamiento</b>, en cambio, siempre se opone al movimiento, su trabajo siempre es negativo (W<sub>r</sub> = −F<sub>r</sub> · d) y depende del camino: cuanto más largo el recorrido, más energía se pierde. Es una fuerza <b>no conservativa</b>, o disipativa, y la energía que «quita» se transforma en energía térmica de las superficies en contacto. Por eso se calientan los frenos de una bici al bajar un puerto o tus manos al frotarlas. En una gráfica F-d, el trabajo es el área bajo la curva, positiva o negativa según el signo de la fuerza.",
+    ], svg: graf("Gráfica fuerza-desplazamiento: el área bajo la gráfica es el trabajo", "d (m)", "F (N)", [
+      { p: [[0, 0.6], [0.8, 0.6]], c: "var(--pen)" },
+    ], `<rect x="40" y="76" width="160" height="69" fill="var(--pen)" opacity=".2"/>${T(120, 116, "área = W = F · d", { fs: 13, b: true, c: "var(--pen)" })}`) }),
+    bloque({ h: "3.1 La energía cinética", p: [
+      "Todo cuerpo en movimiento tiene <mark>energía cinética</mark>, que depende de su masa y del cuadrado de su velocidad:",
+      "con m en kg y v en m/s, se obtienen julios. Que dependa del cuadrado de la velocidad tiene consecuencias importantes: si un coche duplica su velocidad, su energía cinética se multiplica por cuatro, y los frenos tendrán que disipar cuatro veces más energía. Un coche de 1.000 kg a 50 km/h (13,9 m/s) tiene unos 96.500 J; a 100 km/h, unos 386.000 J. En un choque, toda esa energía se emplea en deformar la carrocería y los cuerpos, de ahí la gravedad de los accidentes a alta velocidad. La energía cinética nunca es negativa y no depende del sentido del movimiento. Un balón de fútbol de 0,45 kg chutado a 30 m/s lleva 202,5 J, más o menos la energía necesaria para subir una bolsa de 20 kg a un metro de altura.",
+    ], extra: formula("E<sub>c</sub> = ½ · m · v²"), svg: graf("La energía cinética crece con el cuadrado de la velocidad: al doble de velocidad, cuatro veces más energía", "v", "Ec", [
+      { p: [[0, 0], [0.2, 0.04], [0.4, 0.16], [0.5, 0.25], [0.6, 0.36], [0.8, 0.64], [1, 1]], c: "var(--red)" },
+    ], `<circle cx="140" cy="116.25" r="5" fill="var(--pen)"/><circle cx="240" cy="30" r="5" fill="var(--pen)"/>${T(146, 108, "v → Ec", { fs: 12, b: true, c: "var(--pen)", a: "start" })}${T(232, 52, "2v → 4·Ec", { fs: 12, b: true, c: "var(--pen)", a: "end" })}`) }),
+    bloque({ h: "3.2 La energía potencial", p: [
+      "La <mark>energía potencial gravitatoria</mark> es la que tiene un cuerpo por estar a cierta altura respecto a un nivel de referencia. Cerca de la superficie de la Tierra vale:",
+      "Una maceta de 3 kg en un balcón a 10 m tiene 294 J respecto al suelo: si cae, esa energía se convertirá en cinética. El valor de E<sub>p</sub> depende del nivel que tomemos como cero (el suelo, la mesa, el fondo de un pozo), pero lo que importa físicamente son las <b>variaciones</b> de energía potencial, que no dependen de esa elección. Al subir un cuerpo, el peso hace trabajo negativo y la energía potencial aumenta; al bajar, ocurre lo contrario: W<sub>P</sub> = −ΔE<sub>p</sub>. Los cuerpos deformados elásticamente almacenan <b>energía potencial elástica</b>, E<sub>pe</sub> = ½ · k · Δl², que es la que libera un arco al disparar una flecha, una cama elástica o el muelle de un bolígrafo. En las centrales hidráulicas de bombeo se sube agua a un embalse superior cuando sobra electricidad para «guardarla» como energía potencial.",
+    ], extra: formula("E<sub>p</sub> = m · g · h"), svg: S.svg[2] }),
+    bloque({ h: "3.3 Trabajo y energía cinética", p: [
+      "Si sobre un cuerpo actúan varias fuerzas, el trabajo total que hacen todas ellas (o el de la resultante) es igual a la variación de su energía cinética. Es el <mark>teorema de la energía cinética</mark> o de las fuerzas vivas:",
+      "Si el trabajo total es positivo, el cuerpo acelera; si es negativo, frena; y si es cero, mantiene su velocidad. Este teorema permite resolver muchos problemas sin usar la cinemática. Por ejemplo, para calcular la distancia de frenado de un coche: la fuerza de los frenos hace un trabajo −F · d que debe ser igual a 0 − ½·m·v². Así, d = m·v² / (2F): con la misma fuerza de frenado, al duplicar la velocidad la distancia se cuadruplica, el mismo resultado al que llegamos en el tema del movimiento. El trabajo es, por tanto, la «moneda» con la que las fuerzas pagan o cobran energía a un cuerpo.",
+    ], extra: formula("W<sub>total</sub> = ΔE<sub>c</sub> = ½·m·v² − ½·m·v₀²"), svg: ficha("Teorema de la energía cinética con un ejemplo de frenado", "W total = ΔEc", ["W > 0: el cuerpo acelera", "W < 0: el cuerpo frena", "W = 0: velocidad constante", "Frenado: −F·d = 0 − ½mv²", "d = m·v² / (2F)"], "var(--red)") }),
+    bloque({ h: "4.1 Conservación de la energía mecánica", p: [
+      "La <b>energía mecánica</b> de un cuerpo es la suma de su energía cinética y su energía potencial: E<sub>m</sub> = E<sub>c</sub> + E<sub>p</sub>. Si solo actúan fuerzas conservativas, como el peso (sin rozamiento ni resistencia del aire), se cumple el <mark>principio de conservación de la energía mecánica</mark>: la energía mecánica permanece constante; lo que pierde de potencial lo gana de cinética y al revés.",
+      "En una montaña rusa sin rozamiento, el vagón tiene energía potencial máxima en lo alto de la primera subida; al bajar, la potencial se convierte en cinética y la velocidad es máxima en el punto más bajo; al volver a subir, recupera potencial y pierde velocidad. Por eso ninguna colina posterior puede ser más alta que la primera. Un péndulo hace lo mismo: oscila entre la máxima altura, donde se para un instante, y el punto más bajo, donde va más rápido. De este principio sale una fórmula muy útil: un cuerpo que cae desde una altura h sin rozamiento llega abajo con v = √(2·g·h), independientemente de su masa y del camino.",
+    ], extra: formula("E<sub>c1</sub> + E<sub>p1</sub> = E<sub>c2</sub> + E<sub>p2</sub>"), svg: S.svg[3], video: S.bvideos[1] }),
+    bloque({ h: "4.2 Resolver problemas de conservación", p: [
+      "Los problemas de conservación se resuelven siempre igual. Primero, se elige el <b>nivel de referencia</b> (h = 0), normalmente el punto más bajo. Segundo, se identifican dos posiciones: una con todos los datos (estado 1) y otra donde está la incógnita (estado 2). Tercero, se calcula la energía cinética y potencial en cada estado. Cuarto, se igualan las energías mecánicas y se despeja.",
+      "Un ejemplo: un esquiador de 70 kg parte del reposo a 45 m de altura. ¿A qué velocidad llega a una zona a 25 m? E<sub>m1</sub> = 0 + 70·9,8·45; E<sub>m2</sub> = ½·70·v² + 70·9,8·25. Al igualar, la masa se simplifica: v² = 2·9,8·20 = 392, v ≈ 19,8 m/s. Fíjate en que solo importa la <mark>diferencia de alturas</mark>, 20 m, y no la forma de la pista. Este método es mucho más rápido que usar fuerzas y aceleraciones, sobre todo en trayectorias curvas, donde la aceleración cambia continuamente. La única condición es que no haya rozamiento; si lo hay, hay que tenerlo en cuenta como veremos en el siguiente apartado.",
+    ], svg: pasos("Cuatro pasos para resolver un problema de conservación de la energía", ["Elige el nivel h = 0", "Estado 1: datos conocidos", "Estado 2: donde está la incógnita", "Iguala Em1 = Em2 y despeja"], "var(--leaf)"), video: { id: "uoAn5qBtm-c", titulo: "Conservación de la energía mecánica: aplicación", canal: "Profesor Sergio Llanos", vistas: 613270 } }),
+    bloque({ h: "4.3 Energía mecánica con rozamiento", p: [
+      "En la realidad casi siempre hay rozamiento y resistencia del aire. Entonces la energía mecánica <b>no se conserva</b>: disminuye, y la energía que falta se ha transformado en energía térmica (calor) en las superficies y el aire. La energía total sí se conserva, pero ya no es toda mecánica. El balance es:",
+      "Como el trabajo del rozamiento es negativo, la energía mecánica final es menor que la inicial. Por ejemplo, si un trineo de 20 kg baja desde 10 m de altura (1.960 J) y llega abajo a 8 m/s (640 J), el rozamiento ha disipado 1.320 J en forma de calor. Un balón que bota cada vez más bajo, un péndulo que se va parando o un columpio que necesita impulso pierden energía mecánica por rozamiento. Los coches eléctricos e híbridos recuperan parte de la energía de frenado con un <mark>freno regenerativo</mark>: en lugar de convertirla en calor en los discos, el motor funciona como generador y recarga la batería.",
+    ], extra: formula("E<sub>m final</sub> = E<sub>m inicial</sub> + W<sub>rozamiento</sub>"), svg: barras("Balance de energía de un trineo que baja con rozamiento", "Energía del trineo (J)", [["Em arriba", 1960, "var(--pen)", "1.960 J"], ["Em abajo", 640, "var(--leaf)", "640 J"], ["Calor", 1320, "var(--red)", "1.320 J"]]) }),
+    bloque({ h: "5.1 Las máquinas simples", p: [
+      "Una <b>máquina</b> es un dispositivo que transforma o transmite energía y permite hacer un trabajo con más comodidad, por ejemplo aplicando una fuerza menor. Las <mark>máquinas simples</mark> son la palanca, la polea, el plano inclinado, la cuña, la rueda y el tornillo. Ninguna máquina crea energía: si reduce la fuerza, aumenta en la misma proporción la distancia que hay que recorrer, y el trabajo es el mismo (o algo mayor por el rozamiento).",
+      "La <b>palanca</b> es una barra rígida que gira sobre un punto de apoyo. Está en equilibrio cuando se cumple la <b>ley de la palanca</b>: F · b<sub>F</sub> = R · b<sub>R</sub>, donde b son los brazos, las distancias de cada fuerza al apoyo. Con un brazo de potencia diez veces mayor que el de resistencia, se levanta una carga diez veces mayor que la fuerza aplicada. Son palancas las tijeras, los alicates, la carretilla, el cascanueces, las pinzas o tu propio antebrazo. El <b>plano inclinado</b> permite subir una carga haciendo menos fuerza pero recorriendo más camino, y la <b>polea</b> móvil divide la fuerza entre dos.",
+    ], extra: formula("F · b<sub>F</sub> = R · b<sub>R</sub>"), svg: palanca }),
+    bloque({ h: "5.2 La potencia", p: [
+      "Dos personas pueden subir la misma caja al mismo piso haciendo el mismo trabajo, pero si una tarda la mitad de tiempo, decimos que es más «potente». La <mark>potencia</mark> mide la rapidez con la que se realiza un trabajo o se transforma la energía:",
+      "Su unidad en el SI es el <b>vatio (W)</b>: 1 W = 1 J/s. También se usan el kilovatio (1 kW = 1.000 W) y, en los coches, el <b>caballo de vapor</b> (1 CV ≈ 735 W). Una persona en reposo consume unos 100 W; un ciclista profesional mantiene 400 W durante una hora; un coche medio tiene unos 100 CV (73,5 kW); y un aerogenerador moderno, entre 3 y 5 MW. Si una fuerza mueve un cuerpo a velocidad constante v, la potencia también se puede calcular como P = F · v, por eso un coche necesita mucha más potencia para ir rápido cuesta arriba. La potencia de un electrodoméstico indica cuánta energía consume cada segundo: un horno de 2.000 W gasta 2.000 J cada segundo.",
+    ], extra: formula("P = W / t"), svg: S.svg[4] }),
+    bloque({ h: "5.3 Rendimiento y consumo de energía", p: [
+      "Ninguna máquina aprovecha toda la energía que recibe: siempre hay pérdidas por rozamiento, calor o ruido. El <mark>rendimiento</mark> (η) indica qué porcentaje de la energía consumida se convierte en energía útil:",
+      "Un motor eléctrico tiene un rendimiento del 85-95 %; un motor de gasolina, solo del 25-30 %; una placa solar, del 20 %; una bombilla LED, mucho más que una incandescente. Mejorar el rendimiento es una de las formas más eficaces de ahorrar energía. En la factura de la luz, la energía consumida se mide en <b>kilovatios hora (kWh)</b>: la energía que consume un aparato de 1 kW funcionando durante 1 hora. Como 1 kW = 1.000 W y 1 h = 3.600 s, 1 kWh = 3,6 · 10<sup>6</sup> J. Para saber cuánto gasta un aparato basta multiplicar su potencia en kW por las horas de uso: una estufa de 2 kW encendida 3 horas consume 6 kWh, que a 0,15 € el kWh cuestan 0,90 €. Las etiquetas energéticas (de la A a la G) ayudan a elegir los aparatos más eficientes.",
+    ], extra: formula("η = (E<sub>útil</sub> / E<sub>consumida</sub>) · 100 &nbsp;&nbsp; 1 kWh = 3,6 · 10<sup>6</sup> J"), svg: barras("Rendimiento aproximado de distintas máquinas", "Rendimiento (%)", [["Motor eléctrico", 90, "var(--leaf)", "90 %"], ["LED", 40, "var(--pen)", "40 %"], ["Motor gasolina", 28, "#b45309", "28 %"], ["Bombilla clásica", 5, "var(--red)", "5 %"]]) }),
   ],
-  figura: {
-    titulo: "Fórmulas clave de la energía mecánica",
-    svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Fórmulas del trabajo, energía cinética, energía potencial y potencia">
-      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${[["Trabajo", "W = F·d·cos α", "julios (J)", "var(--red)"], ["Cinética", "Ec = ½·m·v²", "por moverse", "var(--leaf)"], ["Potencial", "Ep = m·g·h", "por la altura", "var(--pen)"], ["Potencia", "P = W / t", "vatios (W)", "var(--sun)"]]
-        .map(([n, f, d, c], i) => `<rect x="${16 + i * 154}" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
-          <text x="${89 + i * 154}" y="62" text-anchor="middle" font-size="18" font-weight="700" fill="${c}" ${D}>${n}</text>
-          <text x="${89 + i * 154}" y="116" text-anchor="middle" font-size="18" font-weight="700" fill="var(--ink)" ${F}>${f}</text>
-          <text x="${89 + i * 154}" y="164" text-anchor="middle" font-size="13" fill="var(--muted)" ${F}>${d}</text>`).join("")}
-    </svg>`,
-  },
-  video: { id: "fuluizJfsok", titulo: "Física: trabajo mecánico", canal: "YoEstudio", vistas: 753819, megusta: 0, busqueda: "trabajo y energía mecánica física" },
-  quiz: [
-    { q: "Empujas un carro con 50 N a lo largo de 10 m en la dirección del movimiento. ¿Qué trabajo haces?", o: ["5 J", "500 J", "60 J"], a: 1, e: "W = F · d = 50 · 10 = 500 J." },
-    { q: "¿Qué energía cinética tiene una pelota de 0,5 kg a 4 m/s?", o: ["1 J", "4 J", "8 J"], a: 1, e: "Ec = ½ · 0,5 · 4² = 0,25 · 16 = 4 J." },
-    { q: "Si la velocidad de un coche se duplica, su energía cinética…", o: ["se duplica", "se cuadruplica", "no cambia"], a: 1, e: "Ec depende de v²: 2² = 4." },
-    { q: "Un libro de 2 kg en una estantería a 1,5 m. ¿Cuál es su energía potencial? (g = 9,8)", o: ["29,4 J", "3 J", "14,7 J"], a: 0, e: "Ep = 2 · 9,8 · 1,5 = 29,4 J." },
-    { q: "Un motor hace 6 000 J de trabajo en 20 s. ¿Qué potencia desarrolla?", o: ["300 W", "120 000 W", "30 W"], a: 0, e: "P = W / t = 6 000 / 20 = 300 W." },
-  ],
-  examen: [
-    { q: "Dejas caer una piedra desde 20 m sin rozamiento. ¿Con qué velocidad llega al suelo? (g = 10 m/s²)", o: ["20 m/s", "200 m/s", "10 m/s"], a: 0, e: "v = √(2 · 10 · 20) = √400 = 20 m/s." },
-    { q: "Al andar en horizontal con una mochila, el peso de la mochila…", o: ["hace trabajo positivo", "no hace trabajo", "hace trabajo negativo"], a: 1, e: "El peso es vertical y el desplazamiento horizontal: cos 90° = 0." },
-    { q: "¿Qué mide el kilovatio-hora (kWh)?", o: ["Potencia", "Energía", "Fuerza"], a: 1, e: "kW · h = energía. 1 kWh = 3 600 000 J." },
-  ],
-  feynman: ["Qué significa que la energía se transforma, se conserva y se degrada", "Cuándo una fuerza hace trabajo y cuándo no", "Por qué la velocidad influye tanto en la energía cinética", "Cómo se conserva la energía en una montaña rusa", "La diferencia entre potencia y energía"],
-  mapa: mapa("ENERGÍA Y TRABAJO", "var(--eso)", [
-    ["Energía", "se transforma · se conserva", "var(--ink)"],
-    ["Trabajo", "W = F·d·cos α", "var(--red)"],
-    ["Mecánica", "Ec + Ep = constante", "var(--leaf)"],
-    ["Potencia", "P = W/t · vatios", "var(--pen)"],
-  ], 250),
-  tarjetas: [
-    ["Fórmula del trabajo", "W = F · d · cos α (en julios)."],
-    ["Fórmula de la energía cinética", "Ec = ½ · m · v²."],
-    ["Fórmula de la energía potencial gravitatoria", "Ep = m · g · h."],
-    ["Principio de conservación de la energía mecánica", "Sin rozamiento, Ec + Ep se mantiene constante."],
-    ["Definición de potencia", "Trabajo realizado por unidad de tiempo: P = W / t (vatios)."],
-  ],
-  familias: ["Mirad la etiqueta de potencia de varios electrodomésticos y comparad cuál gasta más energía en una hora.", "Subid las escaleras de casa andando y corriendo, cronometrad y calculad la potencia de cada uno.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "La energía: trabajo, energía cinética y potencial, conservación de la energía mecánica, potencia y rendimiento (RD 217/2022, Física y Química 4º).",
-    ideas: ["Simulación PhET «Parque de patinaje: energía» con y sin rozamiento.", "Medir la potencia de cada alumno subiendo escaleras con su masa y un cronómetro.", "Rampa con una canica para comparar la velocidad medida con √(2gh)."],
-  },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Energía mecánica, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Energ%C3%ADa_mec%C3%A1nica" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Calcular el trabajo de una fuerza que forma un ángulo con el desplazamiento", "Aplicar la conservación de la energía con y sin rozamiento"],
-  tras: {
-    "La energía": [
-      { html: `<h3>Fuentes de energía</h3><p>Las <b>fuentes de energía</b> son los recursos de los que obtenemos energía útil. Las <b>no renovables</b> se agotan porque se consumen mucho más deprisa de lo que se forman: carbón, petróleo, gas natural (combustibles fósiles) y uranio (energía nuclear). Las <b>renovables</b> se regeneran de forma natural: solar, eólica, hidráulica, geotérmica, mareomotriz y biomasa. Los combustibles fósiles emiten CO₂ al quemarse y contribuyen al <mark>cambio climático</mark>; la nuclear no emite CO₂ pero genera residuos radiactivos. Las renovables son más limpias, aunque dependen del tiempo atmosférico y necesitan sistemas para almacenar la energía. El <b>ahorro y la eficiencia</b> energética son la «fuente» más barata.</p>` },
-    ],
-    "El trabajo": [
-      { html: `<h3>Trabajo cuando la fuerza está inclinada</h3><p>Si la fuerza forma un ángulo α con el desplazamiento, solo trabaja la parte de la fuerza que va en la dirección del movimiento: <mark>W = F · d · cos α</mark>. Si la fuerza va a favor (α = 0°, cos 0° = 1) el trabajo es máximo y positivo. Si es perpendicular (α = 90°, cos 90° = 0) el trabajo es <b>nulo</b>: al llevar una mochila caminando en horizontal, la fuerza que haces hacia arriba no realiza trabajo, aunque te canses. Si va en contra (α = 180°, cos 180° = −1) el trabajo es <b>negativo</b>, como el del rozamiento, que siempre quita energía al cuerpo. El trabajo total sobre un cuerpo es igual a la variación de su energía cinética.</p>`, video: { id: "Xptwydr5jXc", titulo: "Trabajo sin rozamiento: concepto, fórmula y problemas", canal: "Susi Profe", vistas: 392315 } },
-    ],
-    "Conservación de la energía mecánica": [
-      { html: `<h3>Energía mecánica con rozamiento</h3><p>Cuando hay rozamiento, la energía mecánica <b>no se conserva</b>: una parte se transforma en energía térmica (calor) en las superficies que rozan. Pero la energía total sí se conserva, así que podemos escribir un balance: <mark>Em inicial = Em final + energía perdida por rozamiento</mark>. El trabajo del rozamiento es W = −Fr · d, y la fuerza de rozamiento sobre una superficie horizontal vale Fr = μ · m · g, donde μ es el coeficiente de rozamiento (sin unidades). Por eso un péndulo real va oscilando cada vez menos hasta pararse y una bici que deja de pedalear acaba deteniéndose.</p>`, video: { id: "f4IWnif1wjs", titulo: "Energía mecánica: principio de conservación de la energía", canal: "Susi Profe", vistas: 755446 } },
-      { html: `<h3>Las máquinas simples</h3><p>Una <b>máquina simple</b> no crea energía, pero permite hacer el mismo trabajo con <mark>menos fuerza a cambio de más recorrido</mark>. En la <b>palanca</b> se cumple la ley F · bF = R · bR (fuerza por su brazo igual a resistencia por su brazo): con un brazo largo levantas una piedra pesada. El <b>plano inclinado</b> permite subir una carga empujándola con una fuerza menor que su peso, aunque hay que recorrer más distancia. La <b>polea</b> fija cambia la dirección de la fuerza y el polipasto la reduce. En todos los casos, sin rozamiento, el trabajo que hacemos es igual al trabajo útil: la «ventaja» está en la fuerza, nunca en la energía.</p>` },
-    ],
-  },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Arrastras una maleta 20 m tirando del asa con 50 N y un ángulo de 60° con el suelo. ¿Qué trabajo haces?", pasos: ["W = F · d · cos α.", "cos 60° = 0,5.", "W = 50 · 20 · 0,5 = 500 J."], resultado: "W = 500 J." },
-    { enunciado: "Una pelota de 0,5 kg cae desde 20 m. Sin rozamiento, ¿con qué velocidad llega al suelo? (g = 9,8 m/s².)", pasos: ["Arriba: Ep = m·g·h = 0,5 · 9,8 · 20 = 98 J; Ec = 0.", "Abajo: toda la Ep se ha convertido en Ec: ½·m·v² = 98 J.", "v² = 2 · 98 / 0,5 = 392 → v = √392 ≈ 19,8 m/s."], resultado: "v ≈ 19,8 m/s (no depende de la masa)." },
-    { enunciado: "Un trineo de 40 kg llega a 10 m/s a una zona horizontal con μ = 0,2. ¿Qué distancia recorre hasta pararse?", pasos: ["Ec inicial = ½ · 40 · 100 = 2.000 J. Toda se pierde por rozamiento.", "Fr = μ·m·g = 0,2 · 40 · 9,8 = 78,4 N.", "Fr · d = 2.000 → d = 2.000 / 78,4 ≈ 25,5 m."], resultado: "Recorre unos 25,5 m." },
+    { enunciado: "Se arrastra una caja 15 m tirando de una cuerda con 80 N que forma 30° con el suelo. El rozamiento vale 50 N. Calcula el trabajo de cada fuerza y el trabajo total.", pasos: ["W<sub>F</sub> = 80 · 15 · cos 30° ≈ 1.039 J.", "W<sub>r</sub> = 50 · 15 · cos 180° = −750 J.", "El peso y la normal son perpendiculares al desplazamiento: W = 0.", "W<sub>total</sub> = 1.039 − 750 = 289 J."], resultado: "W<sub>total</sub> ≈ 289 J: la caja gana esa energía cinética." },
+    { enunciado: "Calcula la energía cinética de un coche de 1.200 kg a 90 km/h y la de una moto de 200 kg a 180 km/h.", pasos: ["Coche: v = 25 m/s → E<sub>c</sub> = ½ · 1.200 · 625 = 375.000 J.", "Moto: v = 50 m/s → E<sub>c</sub> = ½ · 200 · 2.500 = 250.000 J.", "El coche tiene 6 veces más masa, pero la moto va al doble de velocidad (4 veces más energía por kg)."], resultado: "375 kJ el coche y 250 kJ la moto." },
+    { enunciado: "Un vagón de montaña rusa parte del reposo a 40 m de altura. Sin rozamiento, ¿con qué velocidad pasa por un punto a 20 m y por el punto más bajo (0 m)?", pasos: ["E<sub>m</sub> = m · 9,8 · 40 en todos los puntos.", "A 20 m: ½v² = 9,8 · (40 − 20) → v = √392 ≈ 19,8 m/s.", "A 0 m: v = √(2 · 9,8 · 40) = √784 = 28 m/s."], resultado: "19,8 m/s a 20 m y 28 m/s abajo (sin depender de la masa)." },
+    { enunciado: "Una pelota de 0,5 kg se lanza hacia arriba a 12 m/s. ¿Qué altura alcanza? Usa la conservación de la energía.", pasos: ["Estado 1 (suelo): E<sub>c</sub> = ½ · 0,5 · 144 = 36 J; E<sub>p</sub> = 0.", "Estado 2 (arriba): v = 0; E<sub>p</sub> = 0,5 · 9,8 · h.", "36 = 4,9 · h → h ≈ 7,35 m."], resultado: "h ≈ 7,3 m." },
+    { enunciado: "Un ascensor sube 600 kg a 30 m de altura en 20 s. Calcula la potencia útil y, si su rendimiento es del 75 %, la consumida.", pasos: ["W = m·g·h = 600 · 9,8 · 30 = 176.400 J.", "P<sub>útil</sub> = 176.400 / 20 = 8.820 W.", "P<sub>consumida</sub> = 8.820 / 0,75 = 11.760 W ≈ 11,8 kW."], resultado: "8,8 kW útiles y unos 11,8 kW consumidos." },
+    { enunciado: "Una lavadora de 2.200 W funciona 1 h 30 min. ¿Cuánta energía consume en kWh y en J? ¿Cuánto cuesta a 0,15 €/kWh?", pasos: ["E = P · t = 2,2 kW · 1,5 h = 3,3 kWh.", "En julios: 3,3 · 3,6 · 10<sup>6</sup> ≈ 1,19 · 10<sup>7</sup> J.", "Coste: 3,3 · 0,15 ≈ 0,50 €."], resultado: "3,3 kWh, unos 12 millones de julios y 0,50 €." },
   ],
   errores: [
-    "Pensar que hay trabajo siempre que nos cansamos: sujetar un peso quieto no realiza trabajo físico.",
-    "Olvidar el coseno cuando la fuerza está inclinada.",
-    "Usar la masa en gramos o la altura en centímetros en Ep = m·g·h.",
-    "Creer que una máquina simple ahorra energía: ahorra fuerza, no trabajo.",
-    "Confundir potencia (rapidez con que se hace un trabajo, en W) con energía (en J o kWh).",
-    "Pensar que la energía «se pierde» por rozamiento: se transforma en energía térmica.",
+    "Pensar que siempre que se hace fuerza se hace trabajo: si no hay desplazamiento o la fuerza es perpendicular, W = 0.",
+    "Olvidar elevar al cuadrado la velocidad en la energía cinética o no pasarla a m/s.",
+    "Creer que la energía se «gasta» y desaparece: se transforma y se degrada, pero se conserva.",
+    "Aplicar la conservación de la energía mecánica cuando hay rozamiento: entonces hay que restar la energía disipada.",
+    "Confundir potencia y energía: el kW es potencia; el kWh es energía.",
+    "Pensar que una máquina simple ahorra trabajo: reduce la fuerza, pero aumenta la distancia.",
   ],
   ejercicios: [
-    { q: "Empujas un carro 15 m con una fuerza horizontal de 80 N. Calcula el trabajo.", sol: "W = 80 · 15 · cos 0° = 1.200 J." },
-    { q: "¿Qué trabajo hace el peso de una caja de 10 kg que llevas en brazos por un pasillo horizontal de 5 m?", sol: "Cero: el peso es vertical y el desplazamiento horizontal (α = 90°)." },
-    { q: "Calcula la energía cinética de un coche de 1.200 kg a 90 km/h.", sol: "90 km/h = 25 m/s. Ec = ½ · 1.200 · 625 = 375.000 J." },
-    { q: "Calcula la energía potencial de una persona de 60 kg en lo alto de un edificio de 30 m.", sol: "Ep = 60 · 9,8 · 30 = 17.640 J." },
-    { q: "Desde qué altura hay que dejar caer un objeto para que llegue al suelo a 14 m/s (sin rozamiento)?", sol: "m·g·h = ½·m·v² → h = v² / (2g) = 196 / 19,6 = 10 m." },
-    { q: "Un montacargas sube 500 kg a 12 m en 20 s. Calcula su potencia útil.", sol: "W = 500 · 9,8 · 12 = 58.800 J. P = 58.800 / 20 = 2.940 W." },
-    { q: "Un motor consume 2.000 J y realiza un trabajo útil de 1.500 J. Calcula su rendimiento.", sol: "1.500 / 2.000 · 100 = 75 %." },
-    { q: "Una vagoneta de montaña rusa pasa por lo alto (h = 25 m) a 5 m/s. ¿A qué velocidad pasa por el punto más bajo (h = 0)? Sin rozamiento.", sol: "½v₁² + g·h = ½v₂² → 12,5 + 245 = ½v₂² → v₂² = 515 → v₂ ≈ 22,7 m/s." },
-    { q: "Con una palanca, el brazo de la fuerza mide 2 m y el de la resistencia 0,4 m. ¿Qué fuerza necesitas para levantar 500 N?", sol: "F · 2 = 500 · 0,4 → F = 100 N." },
-    { q: "Clasifica en renovables o no renovables: gas natural, biomasa, uranio, mareomotriz, geotérmica.", sol: "Renovables: biomasa, mareomotriz y geotérmica. No renovables: gas natural y uranio." },
+    B("Indica qué forma de energía predomina en: a) un arco tensado; b) una pila; c) el agua de un embalse; d) un coche en marcha; e) la luz del Sol.", "a) Potencial elástica. b) Química. c) Potencial gravitatoria. d) Cinética. e) Radiante."),
+    B("Clasifica en renovables o no renovables: carbón, viento, uranio, biomasa, gas natural, sol, mareas, petróleo.", "Renovables: viento, biomasa, sol, mareas. No renovables: carbón, uranio, gas natural, petróleo."),
+    B("Calcula el trabajo realizado al empujar un carro con una fuerza horizontal de 120 N a lo largo de 25 m.", "W = 120 · 25 · cos 0° = 3.000 J."),
+    B("¿Qué trabajo hace el peso de una mochila de 8 kg que llevas a la espalda por un pasillo de 30 m? ¿Por qué?", "W = 0, porque el peso es vertical y el desplazamiento horizontal (α = 90°, cos 90° = 0)."),
+    B("Calcula la energía cinética de un corredor de 60 kg que va a 8 m/s.", "E<sub>c</sub> = ½ · 60 · 64 = 1.920 J."),
+    B("Calcula la energía potencial de un libro de 1,5 kg sobre una estantería a 2 m del suelo.", "E<sub>p</sub> = 1,5 · 9,8 · 2 = 29,4 J."),
+    B("¿Qué potencia desarrolla un motor que realiza 18.000 J de trabajo en 1 minuto?", "P = 18.000 / 60 = 300 W."),
+    B("Pasa a julios: a) 2 kWh; b) 500 cal; c) 3 kJ.", "a) 2 · 3,6 · 10<sup>6</sup> = 7,2 · 10<sup>6</sup> J. b) 500 · 4,18 = 2.090 J. c) 3.000 J."),
+    B("Pasa a vatios: a) 90 CV; b) 2,5 kW; c) 3 MW.", "a) 90 · 735 = 66.150 W. b) 2.500 W. c) 3.000.000 W."),
+    B("Una bombilla consume 100 J y produce 10 J de luz. ¿Cuál es su rendimiento? ¿En qué se convierte el resto?", "η = 10/100 · 100 = 10 %. Los otros 90 J se convierten en calor."),
+    B("Explica qué significa que la energía se degrada y pon un ejemplo.", "Que en cada transformación una parte acaba como energía térmica dispersa, que no se puede aprovechar. Ejemplo: al frenar, la energía cinética se convierte en calor en los discos."),
+    B("Pon tres ejemplos de palancas en la vida cotidiana.", "Tijeras, carretilla, cascanueces (también alicates, pinzas, balancín o el antebrazo)."),
+    M("Una fuerza de 200 N forma 37° con la horizontal y desplaza un trineo 50 m. ¿Qué trabajo hace? (cos 37° = 0,8)", "W = 200 · 50 · 0,8 = 8.000 J."),
+    M("¿Cuánto aumenta la energía cinética de un coche si su velocidad pasa de 30 km/h a 90 km/h?", "Se triplica la velocidad: la energía cinética se multiplica por 3² = 9."),
+    M("Un coche de 1.000 kg pasa de 10 m/s a 20 m/s. ¿Qué trabajo total han hecho las fuerzas que actúan sobre él?", "W = ΔE<sub>c</sub> = ½ · 1.000 · (400 − 100) = 150.000 J."),
+    M("Un coche de 1.200 kg a 20 m/s frena con una fuerza de 6.000 N. Usa el teorema de la energía cinética para calcular la distancia de frenado.", "−6.000 · d = 0 − ½ · 1.200 · 400 = −240.000 → d = 40 m."),
+    M("Se deja caer una piedra desde 20 m. Usa la conservación de la energía para hallar su velocidad al llegar al suelo.", "m·g·h = ½·m·v² → v = √(2 · 9,8 · 20) = √392 ≈ 19,8 m/s."),
+    M("Un péndulo de 0,2 kg se suelta desde 0,45 m de altura sobre su punto más bajo. ¿Con qué velocidad pasa por abajo?", "v = √(2 · 9,8 · 0,45) = √8,82 ≈ 2,97 m/s. La masa no influye."),
+    M("Un esquiador de 70 kg pasa a 5 m/s por un punto a 30 m de altura. ¿Qué velocidad lleva a 10 m de altura, sin rozamiento?", "½v₂² = ½ · 25 + 9,8 · 20 = 12,5 + 196 = 208,5 → v₂ = √417 ≈ 20,4 m/s."),
+    M("Un muelle de k = 400 N/m se comprime 10 cm. ¿Qué energía almacena? ¿A qué velocidad lanzaría una bola de 0,1 kg?", "E<sub>pe</sub> = ½ · 400 · 0,01 = 2 J. ½ · 0,1 · v² = 2 → v = √40 ≈ 6,3 m/s."),
+    M("Una grúa sube 500 kg a 20 m en 10 s. Calcula el trabajo y la potencia.", "W = 500 · 9,8 · 20 = 98.000 J. P = 98.000 / 10 = 9.800 W."),
+    M("Con una palanca, ¿qué fuerza hay que hacer para levantar una piedra de 600 N si el brazo de resistencia mide 0,3 m y el de potencia 1,5 m?", "F · 1,5 = 600 · 0,3 → F = 120 N."),
+    M("Un motor de gasolina consume 200.000 J y produce 56.000 J de trabajo útil. Calcula su rendimiento.", "η = 56.000 / 200.000 · 100 = 28 %."),
+    M("Una familia tiene un frigorífico de 150 W encendido 24 h, cinco LED de 8 W encendidos 5 h y un horno de 2.000 W durante 1 h. ¿Cuántos kWh consume al día?", "Frigorífico: 0,15 · 24 = 3,6 kWh. LED: 5 · 0,008 · 5 = 0,2 kWh. Horno: 2 kWh. Total: 5,8 kWh al día."),
+    M("Un ciclista de 70 kg (con bici) sube un puerto de 500 m de desnivel en 50 minutos. ¿Qué potencia media desarrolla para vencer el peso?", "W = 70 · 9,8 · 500 = 343.000 J. t = 3.000 s. P ≈ 114 W (en realidad más, por el rozamiento y el aire)."),
+    M("Una bomba sube 3.000 L de agua a un depósito situado a 12 m en 5 minutos. Calcula la potencia útil.", "m = 3.000 kg. W = 3.000 · 9,8 · 12 = 352.800 J. P = 352.800 / 300 = 1.176 W."),
+    A("Un trineo de 20 kg baja desde 10 m de altura y llega abajo a 8 m/s. ¿Cuánta energía se ha disipado? Si la pendiente mide 40 m, ¿cuánto vale la fuerza de rozamiento media?", "E<sub>m1</sub> = 20 · 9,8 · 10 = 1.960 J. E<sub>m2</sub> = ½ · 20 · 64 = 640 J. Disipada: 1.320 J. F<sub>r</sub> = 1.320 / 40 = 33 N."),
+    A("Un bloque de 2 kg se lanza a 6 m/s por un suelo horizontal con μ = 0,3. ¿Qué distancia recorre hasta pararse?", "F<sub>r</sub> = 0,3 · 2 · 9,8 = 5,88 N. ½ · 2 · 36 = 36 J = 5,88 · d → d ≈ 6,1 m."),
+    A("Un vagón de 300 kg pasa por lo alto de un rizo de 15 m de altura a 10 m/s después de partir del reposo. Sin rozamiento, ¿desde qué altura salió?", "m·g·h₀ = ½·m·v² + m·g·15 → 9,8·h₀ = 50 + 147 → h₀ ≈ 20,1 m."),
+    A("Una bola de 0,2 kg cae desde 5 m sobre un muelle vertical de k = 2.000 N/m. ¿Cuánto se comprime el muelle? (Desprecia la pequeña bajada adicional durante la compresión.)", "m·g·h = ½·k·x² → 0,2 · 9,8 · 5 = 9,8 J = 1.000 · x² → x ≈ 0,099 m ≈ 10 cm."),
+    A("Una central hidráulica tiene un salto de 80 m y pasan por la turbina 20 m³ de agua por segundo. Si el rendimiento es del 85 %, ¿qué potencia eléctrica produce?", "Masa por segundo: 20.000 kg. P = m·g·h / t = 20.000 · 9,8 · 80 = 15,68 MW. Útil: 0,85 · 15,68 ≈ 13,3 MW."),
+    A("Un coche de 1.000 kg sube a velocidad constante de 72 km/h una pendiente del 10 % (sube 10 m por cada 100 m recorridos). Sin rozamiento, ¿qué potencia necesita?", "Cada segundo recorre 20 m y sube 2 m. P = m·g·Δh / t = 1.000 · 9,8 · 2 = 19.600 W ≈ 26,7 CV."),
+    A("Una pelota de 0,6 kg se suelta desde 2 m y rebota hasta 1,5 m. ¿Qué porcentaje de energía pierde en el bote? ¿Hasta qué altura llegará en el segundo bote si pierde el mismo porcentaje?", "Pierde 25 % (de 11,76 J a 8,82 J). Segundo bote: 1,5 · 0,75 = 1,125 m."),
+    A("Un arquero tensa un arco con una fuerza media de 150 N a lo largo de 0,5 m. Si el 80 % de la energía pasa a una flecha de 30 g, ¿con qué velocidad sale?", "W = 150 · 0,5 = 75 J. Útil: 60 J. ½ · 0,03 · v² = 60 → v = √4.000 ≈ 63 m/s."),
+    A("Un saltador de pértiga corre a 9 m/s. Si toda su energía cinética se convirtiera en potencial, ¿cuánto subiría su centro de gravedad? Compáralo con el récord mundial (más de 6 m).", "h = v² / 2g = 81 / 19,6 ≈ 4,1 m. Sumado a la altura inicial de su centro de gravedad (≈ 1 m) y al impulso de los brazos, se acerca a los 6 m del récord."),
+    A("Demuestra que, sin rozamiento, la velocidad final de un cuerpo que baja por una rampa de altura h no depende de la inclinación ni de la masa.", "Conservación: m·g·h = ½·m·v² → v = √(2gh). Solo aparecen g y h; la masa se simplifica y la inclinación solo cambia el tiempo de bajada, no la velocidad final."),
   ],
   quiz: [
-    { q: "Si la fuerza es perpendicular al desplazamiento, el trabajo es…", o: ["máximo", "cero", "negativo"], a: 1, e: "cos 90° = 0." },
-    { q: "El trabajo del rozamiento es…", o: ["positivo", "negativo", "nulo"], a: 1, e: "Va en contra del movimiento." },
-    { q: "Una palanca permite…", o: ["ahorrar energía", "hacer menos fuerza recorriendo más distancia", "crear trabajo"], a: 1, e: "El trabajo es el mismo." },
-    { q: "¿Cuál es una fuente renovable?", o: ["El carbón", "La eólica", "El uranio"], a: 1, e: "El viento se regenera." },
-    { q: "Con rozamiento, la energía mecánica…", o: ["aumenta", "se conserva", "disminuye y aparece energía térmica"], a: 2, e: "La energía total se conserva." },
+    q4("La unidad de energía y trabajo en el SI es…", ["el vatio", "el julio", "el newton", "el kWh"], 1, "1 J = 1 N · m."),
+    q4("¿Qué forma de energía tiene un muelle comprimido?", ["Cinética", "Potencial elástica", "Térmica", "Nuclear"], 1, "Por estar deformado."),
+    q4("¿Cuál es una fuente renovable?", ["El carbón", "El uranio", "La eólica", "El gas natural"], 2, "El viento se regenera de forma natural."),
+    q4("Una fuerza perpendicular al desplazamiento hace un trabajo…", ["máximo", "negativo", "nulo", "infinito"], 2, "cos 90° = 0."),
+    q4("El trabajo de la fuerza de rozamiento es…", ["siempre positivo", "siempre negativo", "nulo", "depende de la masa"], 1, "Se opone al movimiento."),
+    q4("Si la velocidad de un cuerpo se duplica, su energía cinética…", ["se duplica", "se cuadruplica", "no cambia", "se reduce a la mitad"], 1, "Depende de v²."),
+    q4("La energía potencial de 2 kg a 5 m de altura es…", ["10 J", "98 J", "49 J", "20 J"], 1, "2 · 9,8 · 5 = 98 J."),
+    q4("Sin rozamiento, en el punto más bajo de una montaña rusa la energía cinética es…", ["mínima", "máxima", "cero", "igual a la de arriba"], 1, "Toda la potencial perdida se ha convertido en cinética."),
+    q4("Sin rozamiento, la energía mecánica…", ["aumenta", "disminuye", "se conserva", "se anula"], 2, "Principio de conservación."),
+    q4("Con rozamiento, la energía mecánica que falta se convierte en…", ["masa", "energía térmica", "energía nuclear", "nada, desaparece"], 1, "Se disipa como calor."),
+    q4("El trabajo total sobre un cuerpo es igual a…", ["su energía potencial", "la variación de su energía cinética", "su peso", "su potencia"], 1, "Teorema de la energía cinética."),
+    q4("Un cuerpo cae desde 5 m sin rozamiento. Llega al suelo a…", ["5 m/s", "9,9 m/s", "49 m/s", "98 m/s"], 1, "v = √(2 · 9,8 · 5) ≈ 9,9 m/s."),
+    q4("La unidad de potencia es…", ["el julio", "el vatio", "el kWh", "el newton"], 1, "1 W = 1 J/s."),
+    q4("1 kWh equivale a…", ["1.000 J", "3.600 J", "3,6 · 10<sup>6</sup> J", "1 W"], 2, "1.000 W · 3.600 s."),
+    q4("Un motor con rendimiento del 30 % que consume 1.000 J produce un trabajo útil de…", ["300 J", "700 J", "1.000 J", "30 J"], 0, "0,30 · 1.000."),
+    q4("La ley de la palanca es…", ["F + b = R + b", "F · b<sub>F</sub> = R · b<sub>R</sub>", "F = R", "F / b = R"], 1, "Igualdad de momentos."),
+    q4("Una máquina simple permite…", ["crear energía", "reducir la fuerza aumentando la distancia", "eliminar el rozamiento", "reducir el trabajo a cero"], 1, "El trabajo es el mismo o mayor."),
+    q4("Al sostener un peso quieto, el trabajo mecánico sobre él es…", ["positivo", "negativo", "cero", "igual a su peso"], 2, "No hay desplazamiento."),
+    q4("El caballo de vapor (CV) equivale a unos…", ["100 W", "735 W", "1.000 W", "3.600 W"], 1, "1 CV ≈ 735 W."),
+    q4("Que la energía se degrada significa que…", ["desaparece", "pierde utilidad al convertirse en calor disperso", "aumenta", "se convierte en masa"], 1, "La cantidad se conserva, pero la calidad baja."),
   ],
+  examen: [
+    q4("Una fuerza de 50 N desplaza un cuerpo 4 m en su misma dirección. El trabajo es…", ["12,5 J", "200 J", "54 J", "0 J"], 1, "50 · 4 = 200 J."),
+    q4("La energía cinética de 4 kg a 5 m/s es…", ["10 J", "50 J", "100 J", "20 J"], 1, "½ · 4 · 25 = 50 J."),
+    q4("Un cuerpo de 10 kg sube 3 m. Su energía potencial aumenta…", ["30 J", "294 J", "98 J", "300 J"], 1, "10 · 9,8 · 3."),
+    q4("Una pelota se lanza hacia arriba a 14 m/s. Sin rozamiento sube hasta…", ["7 m", "10 m", "14 m", "20 m"], 1, "h = 196 / 19,6 = 10 m."),
+    q4("Un motor hace 6.000 J en 2 min. Su potencia es…", ["3.000 W", "50 W", "12.000 W", "100 W"], 1, "6.000 / 120 = 50 W."),
+    q4("Un horno de 2 kW funciona 30 min. Consume…", ["1 kWh", "60 kWh", "2 kWh", "4 kWh"], 0, "2 · 0,5 = 1 kWh."),
+    q4("Un péndulo pierde altura en cada oscilación porque…", ["pierde masa", "el rozamiento disipa energía", "la gravedad cambia", "aumenta su energía potencial"], 1, "La energía mecánica se convierte en calor."),
+    q4("Con una palanca de brazos 2 m y 0,5 m, para levantar 400 N basta con…", ["100 N", "400 N", "1.600 N", "200 N"], 0, "F · 2 = 400 · 0,5."),
+  ],
+  feynman: ["Qué es la energía y qué formas puede tener", "Cuándo una fuerza hace trabajo y cuándo no", "Por qué la energía cinética depende de v²", "Cómo se transforma la energía en una montaña rusa", "Por qué la energía mecánica no se conserva si hay rozamiento", "Qué diferencia hay entre kW y kWh"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Trabajo con ángulo", "W = F · d · cos α."],
-    ["Ley de la palanca", "F · bF = R · bR."],
-    ["Fuentes renovables", "Solar, eólica, hidráulica, geotérmica, mareomotriz y biomasa."],
+    ["Trabajo", "W = F · d · cos α, en julios."],
+    ["Energía cinética", "E<sub>c</sub> = ½ · m · v²."],
+    ["Energía potencial gravitatoria", "E<sub>p</sub> = m · g · h."],
+    ["Energía potencial elástica", "E<sub>pe</sub> = ½ · k · Δl²."],
+    ["Teorema de la energía cinética", "W<sub>total</sub> = ΔE<sub>c</sub>."],
+    ["Conservación de la energía mecánica", "Sin rozamiento, E<sub>c</sub> + E<sub>p</sub> = constante."],
+    ["Velocidad al caer desde h sin rozamiento", "v = √(2gh)."],
+    ["Potencia", "P = W / t, en vatios."],
+    ["Rendimiento", "η = E<sub>útil</sub> / E<sub>consumida</sub> · 100."],
+    ["1 kWh en julios", "3,6 · 10<sup>6</sup> J."],
+    ["Ley de la palanca", "F · b<sub>F</sub> = R · b<sub>R</sub>."],
+    ["Cuatro propiedades de la energía", "Se transforma, se transfiere, se conserva y se degrada."],
   ],
-});
+  glosario: [
+    ["Energía", "Capacidad de un sistema para producir cambios; se mide en julios."],
+    ["Julio (J)", "Unidad de energía y trabajo: 1 N · 1 m."],
+    ["Trabajo", "Energía transferida por una fuerza que desplaza su punto de aplicación."],
+    ["Energía cinética", "Energía que tiene un cuerpo por estar en movimiento."],
+    ["Energía potencial", "Energía que tiene un cuerpo por su posición o su deformación."],
+    ["Energía mecánica", "Suma de la energía cinética y la potencial."],
+    ["Fuerza conservativa", "Fuerza cuyo trabajo no depende del camino, como el peso."],
+    ["Fuerza disipativa", "Fuerza que convierte energía mecánica en térmica, como el rozamiento."],
+    ["Degradación de la energía", "Pérdida de utilidad de la energía al transformarse en calor disperso."],
+    ["Fuente renovable", "Recurso energético que se regenera de forma natural."],
+    ["Potencia", "Rapidez con que se realiza un trabajo o se transforma la energía."],
+    ["Vatio (W)", "Unidad de potencia: 1 J/s."],
+    ["Kilovatio hora", "Energía que consume un aparato de 1 kW durante 1 hora: 3,6 · 10<sup>6</sup> J."],
+    ["Rendimiento", "Porcentaje de la energía consumida que se aprovecha como energía útil."],
+    ["Máquina simple", "Dispositivo sencillo que transmite una fuerza, como la palanca o la polea."],
+    ["Freno regenerativo", "Sistema que recupera energía al frenar y la guarda en una batería."],
+  ],
+  situacion: {
+    titulo: "Auditoría energética de tu casa",
+    reto: "Vuestra familia quiere bajar la factura de la luz un 20 %. Vuestro equipo debe analizar el consumo de los aparatos de una vivienda y proponer medidas de ahorro con datos.",
+    pasos: [
+      "Haced un inventario de los aparatos eléctricos de casa con su potencia (en la etiqueta) y las horas de uso diarias.",
+      "Calculad el consumo diario y mensual de cada aparato en kWh y su coste con el precio de vuestra factura.",
+      "Identificad los tres aparatos que más gastan y los consumos «fantasma» en modo de espera.",
+      "Proponed medidas (cambiar a LED, programas eco, apagar el stand-by, horarios más baratos) y calculad el ahorro de cada una.",
+      "Comparad el rendimiento de una bombilla incandescente y de un LED y el tiempo que tarda en amortizarse el cambio.",
+    ],
+    producto: "Una hoja de cálculo con el consumo y un cartel con las cinco medidas de ahorro más eficaces para la familia.",
+    evaluacion: ["Los cálculos de energía (kWh) y coste son correctos.", "Se distingue bien entre potencia y energía consumida.", "Las medidas propuestas son realistas y su ahorro está cuantificado.", "El cartel comunica con claridad y relaciona el ahorro con la sostenibilidad."],
+  },
+  familias: [
+    "Buscad en la factura de la luz cuántos kWh habéis consumido y cuánto cuesta cada uno.",
+    "Mirad la etiqueta energética de la lavadora o el frigorífico y comentad qué significa la letra.",
+    "Soltad una pelota desde un metro y medid hasta dónde rebota: ¿dónde ha ido la energía que falta?",
+    "Repasad las tarjetas del tema y explicad la montaña rusa con energía potencial y cinética.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La energía»: formas y propiedades de la energía, trabajo y potencia, energía mecánica y su conservación, transferencias de energía, rendimiento y fuentes de energía con perspectiva de sostenibilidad.`,
+    ideas: [
+      "Simulación «Energía en la pista de patinaje» de PhET para la conservación con y sin rozamiento.",
+      "Medir la potencia de cada alumno subiendo las escaleras del centro con cronómetro y cinta métrica.",
+      "Medir consumos reales con un vatímetro de enchufe y comparar con la etiqueta.",
+      "Péndulo con sensor del móvil (phyphox) para registrar la pérdida de energía en cada oscilación.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    { t: "Energía mecánica, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Energ%C3%ADa_mec%C3%A1nica" },
+    { t: "Red Eléctrica de España: datos de generación", url: "https://www.ree.es/es/datos/generacion" },
+  ],
+  revisado: "2026-11-13",
+};

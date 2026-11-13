@@ -1,182 +1,255 @@
-// Física y Química 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa, flecha } = require("./_util");
+// Física y Química 4º ESO · Fuerzas en fluidos: presión (nivel libro). Dibujos propios en SVG.
+const { flecha, BASE, marco, T, ficha, pasos, compara, graf, escala, rejilla, fuerzas, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD } = require("./_eso4L5");
+const S = BASE["fuerzas-en-fluidos"];
+
+const vasos = marco("Vasos comunicantes de formas distintas: el agua alcanza la misma altura en todos", `
+  <path d="M20 150 H 240" stroke="var(--muted)" stroke-width="2"/>
+  <rect x="30" y="122" width="200" height="22" fill="var(--pen)" opacity=".35"/>
+  <path d="M40 60 V 122 M70 60 V 122" stroke="var(--ink)" stroke-width="2.5" fill="none"/>
+  <path d="M100 50 L 116 122 M150 50 L 134 122" stroke="var(--ink)" stroke-width="2.5" fill="none"/>
+  <path d="M176 70 Q 166 96 184 122 M216 70 Q 226 96 208 122" stroke="var(--ink)" stroke-width="2.5" fill="none"/>
+  <path d="M30 122 V 144 H 230 V 122" stroke="var(--ink)" stroke-width="2.5" fill="none"/>
+  <rect x="41" y="80" width="28" height="42" fill="var(--pen)" opacity=".35"/>
+  <polygon points="104.5,80 145.5,80 134,122 116,122" fill="var(--pen)" opacity=".35"/>
+  <path d="M171 80 Q 168 100 184 122 L 208 122 Q 224 100 221 80 Z" fill="var(--pen)" opacity=".35"/>
+  <path d="M20 80 H 240" stroke="var(--red)" stroke-width="2" stroke-dasharray="6 4"/>${T(130, 30, "mismo nivel en todos", { fs: 13, b: true, c: "var(--red)" })}`);
 
 module.exports = {
   materia: "Física y Química",
   curso: "4-eso",
   titulo: "Fuerzas en fluidos: presión",
-  minutos: 40,
-  objetivos: ["Definir la presión y calcularla en sólidos y fluidos", "Aplicar el principio fundamental de la hidrostática y el de Pascal", "Explicar la flotación con el principio de Arquímedes y la presión atmosférica"],
-  claves: ["presión", "pascal (Pa)", "hidrostática", "principio de Pascal", "empuje", "presión atmosférica"],
+  minutos: 110,
+  objetivos: [
+    "Definir la presión y calcularla en sólidos, líquidos y gases con sus unidades",
+    "Aplicar el principio fundamental de la hidrostática y explicar los vasos comunicantes",
+    "Enunciar el principio de Pascal y resolver problemas de prensas y frenos hidráulicos",
+    "Aplicar el principio de Arquímedes para explicar la flotación y calcular el empuje",
+    "Explicar la presión atmosférica, el experimento de Torricelli y su relación con el tiempo",
+  ],
+  claves: ["presión", "pascal", "densidad", "presión hidrostática", "vasos comunicantes", "principio de Pascal", "empuje", "principio de Arquímedes", "presión atmosférica", "barómetro"],
   pregunta: {
-    texto: "Un barco de acero pesa miles de toneladas y flota; un clavo de acero se hunde enseguida. ¿Cómo puede ser?",
-    respuesta: "Por el <mark>principio de Arquímedes</mark>: el agua empuja hacia arriba con una fuerza igual al peso del agua que desaloja. El barco tiene forma hueca y <b>desaloja muchísima agua</b>, así que el empuje iguala su peso. El clavo, macizo y pequeño, desaloja muy poca.",
+    texto: "¿Por qué un barco de acero de miles de toneladas flota, mientras que una canica de acero se hunde?",
+    respuesta: "Porque lo que importa no es el material, sino cuánta agua <mark>desaloja</mark>. El casco del barco es hueco y desplaza un volumen enorme de agua: el empuje (el peso de esa agua) iguala su peso. La canica es maciza y desaloja muy poca agua: su empuje es menor que su peso y se hunde. Es el principio de Arquímedes.",
+  },
+  lectura: {
+    titulo: "Bajar al fondo del mar",
+    html: `<p>En 1960, Jacques Piccard y Don Walsh bajaron en el batiscafo <i>Trieste</i> hasta el fondo de la fosa de las Marianas, a casi 11.000 metros de profundidad. Allí abajo, el agua aprieta con una presión mil veces mayor que la del aire en la superficie: sobre cada centímetro cuadrado del casco había una fuerza equivalente al peso de un coche pequeño. Una de las ventanas de plexiglás se agrietó durante el descenso, pero la nave aguantó.</p><p>La presión de los fluidos está en todas partes: en los oídos que se te taponan al bajar en coche de un puerto de montaña, en los frenos del coche, en la jeringuilla del centro de salud, en la presa de un embalse, que es mucho más gruesa abajo que arriba, o en las borrascas que anuncian lluvia en el telediario. Los submarinistas deben subir despacio para que el nitrógeno disuelto en su sangre no forme burbujas al bajar la presión, y los aviones presurizan la cabina para que podamos respirar a 11 km de altura. En este tema aprenderás qué es la presión, por qué aumenta con la profundidad, cómo funcionan las máquinas hidráulicas y por qué flotan los barcos y los globos.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Qué es la presión</h3><p>La <b>presión</b> mide cómo se reparte una fuerza sobre una superficie:</p>
-      <div class="formula"><span>p = F / S</span><span class="op">(</span><span>Pa = N/m²</span><span class="op">)</span></div>
-      <p>Con la <mark>misma fuerza</mark>, cuanto <mark>menor es la superficie, mayor es la presión</mark>. Por eso un cuchillo afilado corta, unas raquetas de nieve evitan que te hundas y un tacón fino marca el suelo más que una zapatilla.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Misma persona sobre la nieve con botas y con raquetas: con raquetas se hunde menos">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="10" y="120" width="240" height="50" fill="var(--water)" opacity=".2"/>
-        ${[[70, 22, 30, "se hunde"], [190, 70, 6, "no se hunde"]].map(([x, w, h, t]) => `<circle cx="${x}" cy="44" r="12" fill="var(--sun)"/><rect x="${x - 10}" y="58" width="20" height="40" rx="6" fill="var(--pen)"/><path d="M${x - 6} 98 V ${116 + h} M${x + 6} 98 V ${116 + h}" stroke="var(--ink)" stroke-width="4"/><rect x="${x - w / 2}" y="${116 + h}" width="${w}" height="6" rx="3" fill="var(--ink)"/><text x="${x}" y="164" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>${t}</text>`).join("")}
-      </svg>`,
-    },
-    {
-      html: `<h3>Presión en los líquidos</h3><p>Un líquido en reposo empuja en <b>todas las direcciones</b> y la presión <mark>aumenta con la profundidad</mark>. Es el <b>principio fundamental de la hidrostática</b>:</p>
-      <div class="formula"><span>p = d · g · h</span></div>
-      <p>(d: densidad del líquido; h: profundidad). A 10 m bajo el agua del mar la presión aumenta unos 100 000 Pa, como si llevaras encima una atmósfera más. Por eso los submarinos tienen paredes tan gruesas.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Depósito con agujeros a distintas alturas: el chorro más bajo sale con más fuerza">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="40" y="24" width="60" height="140" fill="var(--water)" opacity=".4" stroke="var(--ink)" stroke-width="2.5"/>
-        ${[[60, 40], [100, 80], [140, 130]].map(([y, l], i) => `<path d="M100 ${y} Q ${100 + l * 0.6} ${y} ${100 + l} 164" fill="none" stroke="var(--water)" stroke-width="${3 + i}"/>`).join("")}
-        <g ${F} font-size="12" font-weight="700"><text x="12" y="64" fill="var(--muted)">poca</text><text x="8" y="144" fill="var(--red)">mucha</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>El principio de Pascal</h3><p>«La presión que se ejerce en un punto de un líquido encerrado <mark>se transmite igual a todos sus puntos</mark>». En una <b>prensa hidráulica</b>, una fuerza pequeña sobre un émbolo pequeño se convierte en una fuerza grande sobre un émbolo grande:</p>
-      <div class="formula"><span>F₁ / S₁ = F₂ / S₂</span></div>
-      <p>Así funcionan los frenos del coche, los elevadores de los talleres y las excavadoras.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Prensa hidráulica: fuerza pequeña en el émbolo pequeño levanta un coche en el émbolo grande">
-        <defs>${flecha("pf1", "var(--red)")}${flecha("pf2", "var(--leaf)")}</defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M30 60 V 150 H 230 V 70 M60 60 V 120 H 150 V 70" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
-        <path d="M32 92 H 58 V 122 H 150 V 72 H 228 V 148 H 32 Z" fill="var(--water)" opacity=".4"/>
-        <rect x="30" y="86" width="30" height="8" fill="var(--ink)"/><rect x="150" y="64" width="80" height="8" fill="var(--ink)"/>
-        <rect x="160" y="40" width="60" height="18" rx="5" fill="var(--sun)"/><circle cx="172" cy="60" r="5" fill="var(--ink)"/><circle cx="208" cy="60" r="5" fill="var(--ink)"/>
-        <path d="M45 40 V 80" stroke="var(--red)" stroke-width="3.5" marker-end="url(#pf1)"/><path d="M240 100 V 50" stroke="var(--leaf)" stroke-width="4" marker-end="url(#pf2)"/>
-        <g ${F} font-size="12" font-weight="700"><text x="54" y="40" fill="var(--red)">F₁ pequeña</text><text x="226" y="112" text-anchor="end" fill="var(--leaf)">F₂ grande</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>El principio de Arquímedes</h3><p>Todo cuerpo sumergido en un fluido recibe un <b>empuje</b> vertical hacia arriba igual al <mark>peso del fluido que desaloja</mark>:</p>
-      <div class="formula"><span>E = d_fluido · g · V_sumergido</span></div>
-      <p>Si el peso es mayor que el empuje, el cuerpo se hunde; si es menor, sube y <b>flota</b>. En resumen: flota lo que es <b>menos denso</b> que el líquido. El hielo (0,92 g/cm³) flota en el agua (1 g/cm³) y deja fuera un 8 %.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres cuerpos en agua: uno flota, otro queda entre dos aguas y otro se hunde">
-        <defs>${flecha("pf3", "var(--leaf)")}${flecha("pf4", "var(--red)")}</defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="10" y="50" width="240" height="120" rx="6" fill="var(--water)" opacity=".3"/>
-        <rect x="30" y="38" width="44" height="30" rx="4" fill="var(--sun)"/><rect x="108" y="84" width="44" height="30" rx="4" fill="var(--leaf)"/><rect x="186" y="134" width="44" height="30" rx="4" fill="var(--muted)"/>
-        <path d="M60 52 V 24" stroke="var(--leaf)" stroke-width="3" marker-end="url(#pf3)"/><path d="M44 54 V 82" stroke="var(--red)" stroke-width="3" marker-end="url(#pf4)"/>
-        <g ${F} font-size="11" font-weight="700" text-anchor="middle"><text x="52" y="100" fill="var(--ink)">flota</text><text x="130" y="132" fill="var(--ink)">equilibrio</text><text x="208" y="124" fill="var(--ink)">se hunde</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>La presión atmosférica</h3><p>El aire también pesa: la columna de aire que tenemos encima ejerce la <b>presión atmosférica</b>, unos <mark>101 300 Pa = 1 atm = 760 mmHg</mark> al nivel del mar. Torricelli la midió en 1643 con un tubo de mercurio. Disminuye con la altitud (en la cima del Everest es un tercio) y sus cambios ayudan a predecir el tiempo: altas presiones (anticiclones) suelen traer buen tiempo y bajas presiones (borrascas), lluvia.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Experimento de Torricelli: columna de mercurio de 760 milímetros">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="40" y="130" width="100" height="36" rx="4" fill="var(--muted)" opacity=".5"/>
-        <rect x="80" y="20" width="20" height="130" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><rect x="82" y="44" width="16" height="106" fill="var(--muted)"/>
-        <path d="M108 44 H 120 M108 150 H 120 M114 44 V 150" stroke="var(--red)" stroke-width="2"/>
-        <g ${F} font-size="12" font-weight="700"><text x="124" y="100" fill="var(--red)">760 mm</text><text x="150" y="40" fill="var(--ink)">vacío arriba</text><text x="150" y="160" fill="var(--pen)">el aire empuja</text></g>
-      </svg>`,
-    },
+    bloque({ h: "1.1 Qué es la presión", p: [
+      "La misma fuerza puede producir efectos muy distintos según la superficie sobre la que se reparte. Con botas te hundes en la nieve; con raquetas, que reparten tu peso en una superficie mucho mayor, apenas. Un cuchillo afilado corta porque concentra la fuerza en un filo diminuto. Esa magnitud es la <mark>presión</mark>: la fuerza que actúa perpendicularmente por cada unidad de superficie.",
+      "Su unidad en el SI es el <b>pascal (Pa)</b>, la presión que ejerce una fuerza de 1 N sobre 1 m². Es una unidad muy pequeña: una hoja de papel apoyada sobre una mesa ejerce alrededor de 1 Pa. Para aumentar la presión se reduce la superficie (agujas, clavos, tacones de aguja, cuchillas) y para disminuirla se aumenta (raquetas de nieve, esquís, orugas de los tanques y las excavadoras, cimientos anchos de los edificios). Una persona de 60 kg de pie sobre los dos pies (unos 400 cm²) ejerce unos 15.000 Pa; con un tacón de aguja de 1 cm² apoyando todo el peso en él, ¡casi 6 millones de Pa!",
+    ], extra: formula("p = F / S"), svg: S.svg[0] }),
+    bloque({ h: "1.2 Densidad y unidades de presión", p: [
+      "Para estudiar los fluidos (líquidos y gases) es imprescindible la <b>densidad</b>, la masa por unidad de volumen: ρ = m / V, en kg/m³. El agua dulce tiene 1.000 kg/m³; el agua de mar, unos 1.030 kg/m³; el aceite, unos 920 kg/m³; el mercurio, 13.600 kg/m³; y el aire, solo 1,2 kg/m³. Recuerda que 1 g/cm³ = 1.000 kg/m³.",
+      "Además del pascal se usan otras unidades de presión. La <b>atmósfera (atm)</b> es la presión media del aire al nivel del mar: 1 atm = 101.300 Pa. El <b>milímetro de mercurio (mmHg)</b> procede del experimento de Torricelli: 1 atm = 760 mmHg; es la unidad con la que se mide la tensión arterial. En meteorología se usa el <b>hectopascal (hPa)</b> o el milibar (mb), que son equivalentes: 1 atm = 1.013 hPa. En las gasolineras, la presión de los neumáticos se indica en <b>bar</b> (1 bar = 100.000 Pa ≈ 1 atm). Saber pasar de unas a otras con factores de conversión es tan importante como en cualquier otra magnitud.",
+    ], svg: rejilla("Equivalencias entre unidades de presión: atmósfera, pascal, hectopascal, milímetro de mercurio y bar", ["Unidad", "Equivale a"], [["1 atm", "101.300 Pa"], ["1 atm", "1.013 hPa (mb)"], ["1 atm", "760 mmHg"], ["1 bar", "100.000 Pa"], ["1 hPa", "100 Pa"]], "var(--pen)") }),
+    bloque({ h: "2.1 La presión en los líquidos", p: [
+      "Un líquido en reposo ejerce presión sobre el fondo y las paredes del recipiente y sobre cualquier cuerpo sumergido, debido al peso del líquido que hay encima. Esa <mark>presión hidrostática</mark> actúa en todas las direcciones y es perpendicular a las superficies. El <b>principio fundamental de la hidrostática</b> dice que la presión en un punto de un líquido depende de la densidad del líquido y de la profundidad:",
+      "donde ρ es la densidad del líquido, g = 9,8 m/s² y h, la profundidad medida desde la superficie libre. La presión no depende de la forma del recipiente ni de la cantidad total de líquido, solo de la profundidad: en el fondo de una piscina de 2 m hay la misma presión que a 2 m de profundidad en el mar (salvo por la pequeña diferencia de densidad). Por eso el chorro que sale por un agujero en la parte baja de un depósito sale con más fuerza que el de arriba. Si además el líquido está al aire libre, a esa presión hay que sumarle la atmosférica para obtener la presión total.",
+    ], extra: formula("p = ρ · g · h"), svg: S.svg[1], video: { id: "IfjPkQPxWMY", titulo: "Presión hidrostática (vídeo 1)", canal: "Vitual", vistas: 789927 } }),
+    bloque({ h: "2.2 Consecuencias de la presión hidrostática", p: [
+      "Como la presión crece de forma proporcional a la profundidad, su gráfica frente a h es una recta. En el agua, la presión aumenta aproximadamente <b>1 atm cada 10 m</b>: un buceador a 30 m soporta 3 atm del agua más 1 atm del aire, 4 atm en total. Su cuerpo resiste porque está formado sobre todo por líquidos, que apenas se comprimen, pero el aire de sus pulmones y de sus oídos sí se comprime, y por eso hay que «compensar» al bajar.",
+      "Esta dependencia explica muchas cosas. Las <mark>presas</mark> son mucho más gruesas en la base que en la coronación, porque abajo el agua empuja mucho más. Los submarinos y batiscafos se construyen con cascos muy resistentes y esféricos. Las vías de suero en los hospitales se cuelgan altas para que el líquido entre en la vena con presión suficiente. Y las torres de agua de los pueblos se construyen en lo alto para que el agua llegue con presión a los grifos. Un detalle curioso: la presión es la misma en el fondo de un recipiente ancho y de uno estrecho con la misma altura de agua; es la llamada <b>paradoja hidrostática</b>.",
+    ], svg: graf("La presión en el agua crece en línea recta con la profundidad: una atmósfera más cada diez metros", "profundidad (m)", "p (atm)", [
+      { p: [[0, 0.25], [1, 1]], c: "var(--pen)" },
+    ], `${T(46, 134, "1 atm (aire)", { fs: 11, b: true, c: "var(--muted)", a: "start" })}${T(150, 118, "+1 atm cada 10 m", { fs: 12, b: true, c: "var(--pen)" })}${T(206, 82, "30 m: 4 atm", { fs: 12, b: true, c: "var(--red)" })}`) }),
+    bloque({ h: "2.3 Vasos comunicantes", p: [
+      "Los <mark>vasos comunicantes</mark> son recipientes unidos por su parte inferior. Si se llenan con un mismo líquido, este alcanza <b>la misma altura en todos</b>, sea cual sea su forma o su anchura. La explicación es el principio fundamental: en el tubo que los une, a la misma profundidad, la presión debe ser la misma en todos los puntos; si no lo fuera, el líquido se movería desde donde la presión es mayor hasta igualarla.",
+      "En este principio se basan el abastecimiento de agua de las ciudades (el depósito está más alto que las casas), los niveles de agua que usan los albañiles (una manguera transparente con agua para marcar dos puntos a la misma altura), los sifones de los desagües, que mantienen un tapón de agua que impide que suban los malos olores, y las esclusas de los canales como el de Panamá. Si los vasos contienen dos líquidos que no se mezclan, como agua y aceite en un tubo en U, las alturas ya no son iguales: el líquido menos denso sube más. Midiendo las alturas se puede calcular la densidad de uno conociendo la del otro: ρ₁·h₁ = ρ₂·h₂.",
+    ], svg: vasos, video: S.bvideos[0] }),
+    bloque({ h: "2.4 El principio de Pascal", p: [
+      "Blaise Pascal descubrió en el siglo XVII que <i>la presión ejercida en un punto de un líquido encerrado se transmite íntegramente y en todas las direcciones a todos los puntos del líquido</i>. Es el <mark>principio de Pascal</mark>. Se comprueba con una jeringa llena de agua con varios agujeros: al empujar el émbolo, el agua sale con la misma fuerza por todos ellos.",
+      "Su aplicación más importante es la <b>prensa hidráulica</b>: dos cilindros de distinta sección unidos y llenos de líquido. Si se aplica una fuerza F₁ en el émbolo pequeño, de superficie S₁, la presión F₁/S₁ se transmite al émbolo grande, de superficie S₂, donde produce una fuerza F₂ mucho mayor:",
+      "Si el émbolo grande tiene 100 veces más superficie, la fuerza se multiplica por 100. Con 200 N se puede levantar un coche de 2 toneladas. Pero no se crea energía: el émbolo pequeño debe recorrer 100 veces más distancia que el grande, de modo que el trabajo es el mismo en los dos lados.",
+    ], extra: formula("F₁ / S₁ = F₂ / S₂"), svg: S.svg[2] }),
+    bloque({ h: "2.5 Máquinas hidráulicas", p: [
+      "El principio de Pascal está detrás de muchas máquinas cotidianas. En el <mark>freno hidráulico</mark> de un coche, el pie empuja el pedal, que mueve un pequeño émbolo en el cilindro maestro; el líquido de frenos transmite la presión por unos tubos hasta los cilindros de las ruedas, de mayor sección, que aprietan las pastillas contra los discos con una fuerza muy superior a la del pie. Si entra aire en el circuito, los frenos fallan, porque el aire se comprime y no transmite bien la presión.",
+      "También funcionan así los gatos hidráulicos de los talleres, los elevadores de coches, los sillones de los dentistas y peluqueros, las palas excavadoras, los brazos de las grúas y las prensas industriales que dan forma a las chapas de los coches. En todas ellas se usa un líquido, normalmente aceite, porque los líquidos son prácticamente <b>incompresibles</b>. Cuando se usa aire comprimido en lugar de aceite se habla de <b>neumática</b>, como en las puertas de los autobuses o los martillos de los obreros.",
+    ], svg: pasos("Cómo funciona el freno hidráulico de un coche", ["El pie empuja el pedal", "Émbolo pequeño: crea presión", "El líquido la transmite (Pascal)", "Émbolos grandes: más fuerza", "Las pastillas aprietan el disco"], "var(--red)") }),
+    bloque({ h: "3.1 El principio de Arquímedes: el empuje", p: [
+      "Cuando un cuerpo se sumerge en un fluido, el fluido lo empuja hacia arriba. Esta fuerza se llama <mark>empuje</mark> (E) y su origen es la presión: la cara inferior del cuerpo está más profunda que la superior y recibe más presión, así que la fuerza neta del fluido apunta hacia arriba. Arquímedes de Siracusa enunció en el siglo III a. C. el principio que lleva su nombre: <i>todo cuerpo sumergido total o parcialmente en un fluido experimenta un empuje vertical hacia arriba igual al peso del fluido que desaloja</i>.",
+      "donde ρ<sub>f</sub> es la densidad del <b>fluido</b> (no del cuerpo) y V<sub>s</sub>, el volumen sumergido del cuerpo, que es igual al volumen de fluido desalojado. El empuje no depende de la profundidad ni del material del cuerpo, solo de cuánto fluido aparta. Por eso un cubo de hierro y uno de madera del mismo tamaño, totalmente sumergidos, reciben el mismo empuje. El principio se cumple también en los gases: el aire empuja hacia arriba a los globos y a nosotros mismos, aunque en nuestro caso el empuje es muy pequeño.",
+    ], extra: formula("E = ρ<sub>f</sub> · g · V<sub>s</sub>"), svg: fuerzas("Cuerpo sumergido: el peso tira hacia abajo y el empuje del fluido hacia arriba", "cuerpo", [[90, 40, "Empuje E", "var(--pen)"], [270, 30, "Peso P", "var(--red)"]], false), video: S.bvideos[1] }),
+    bloque({ h: "3.2 Flotar o hundirse", p: [
+      "Sobre un cuerpo sumergido actúan dos fuerzas verticales: su peso, hacia abajo, y el empuje, hacia arriba. Compararlas decide qué ocurre. Si el <b>peso es mayor que el empuje</b>, el cuerpo se hunde. Si son <b>iguales</b>, queda en equilibrio «entre dos aguas», como un pez o un submarino a una profundidad fija. Si el <b>empuje es mayor que el peso</b>, el cuerpo sube hasta la superficie y emerge en parte, hasta que la parte sumergida desaloje justo el agua necesaria para que E = P: entonces <mark>flota</mark>.",
+      "Para un cuerpo macizo, la comparación equivale a comparar densidades: se hunde si es más denso que el fluido y flota si es menos denso. La fracción sumergida de un cuerpo que flota es precisamente el cociente de densidades, ρ<sub>cuerpo</sub>/ρ<sub>fluido</sub>. El hielo (920 kg/m³) flota en el agua con el 92 % de su volumen sumergido; por eso solo vemos la «punta del iceberg». Una persona flota con facilidad en el mar Muerto, cuya agua es tan salada que su densidad llega a 1.240 kg/m³. Un huevo fresco se hunde en agua dulce, pero flota si se disuelve suficiente sal.",
+    ], svg: S.svg[3] }),
+    bloque({ h: "3.3 Barcos, submarinos, globos y peso aparente", p: [
+      "Un <b>barco</b> de acero flota porque su casco es hueco: su densidad media (acero más aire interior) es menor que la del agua. Al cargarlo se hunde más, hasta la línea de flotación máxima que llevan pintada todos los buques. Un <b>submarino</b> controla su profundidad con tanques de lastre: los llena de agua para aumentar su peso y sumergirse, y los vacía con aire comprimido para subir. Los peces hacen algo parecido con la vejiga natatoria. Los <b>globos aerostáticos</b> suben porque el aire caliente de su interior es menos denso que el aire frío de fuera.",
+      "Un cuerpo sumergido parece pesar menos: su <mark>peso aparente</mark> es P<sub>ap</sub> = P − E. Por eso cuesta tan poco levantar a una persona dentro de una piscina. Si colgamos un objeto de un dinamómetro y lo sumergimos en agua, la diferencia entre las dos lecturas es el empuje, y con él podemos calcular el volumen del objeto e incluso su densidad, que es lo que, según la leyenda, hizo Arquímedes para descubrir si la corona del rey Hierón era de oro puro.",
+    ], extra: formula("P<sub>aparente</sub> = P − E"), svg: compara("Cómo controlan su flotación un submarino y un globo", ["Submarino", ["tanques con agua:", "pesa más, baja", "tanques con aire:", "pesa menos, sube"]], ["Globo", ["aire caliente:", "menos denso", "empuje > peso:", "sube"]], "var(--pen)", "var(--red)") }),
+    bloque({ h: "4.1 La presión atmosférica", p: [
+      "Vivimos en el fondo de un «océano» de aire de varios cientos de kilómetros de espesor. El peso de esa capa de aire produce la <mark>presión atmosférica</mark>, que al nivel del mar vale de media 1 atm = 101.300 Pa: sobre cada metro cuadrado hay una fuerza de unos 100.000 N, el peso de diez toneladas. No lo notamos porque el aire está dentro y fuera de nuestro cuerpo y empuja en todas direcciones con la misma presión.",
+      "La presión atmosférica disminuye con la altura, porque queda menos aire por encima y, además, el aire es cada vez menos denso. En Madrid (667 m) es de unos 940 hPa; a 5.500 m, la mitad que al nivel del mar; y en la cima del Everest, solo un tercio, unos 330 hPa. Por eso a gran altura cuesta respirar y el agua hierve antes, a unos 70 °C en el Everest, y por eso se taponan los oídos al subir en coche a un puerto o al despegar en un avión. Su existencia la demostró en 1654 Otto von Guericke con los <b>hemisferios de Magdeburgo</b>: dos semiesferas de las que sacó el aire y que ni dos tiros de caballos pudieron separar.",
+    ], svg: escala("La presión atmosférica disminuye al subir: nivel del mar, Madrid, Mont Blanc y Everest", "Presión del aire según la altura", [["Mar", "1.013 hPa", "var(--pen)"], ["Madrid", "940 hPa", "var(--leaf)"], ["M. Blanc", "550 hPa", "#b45309"], ["Everest", "330 hPa", "var(--red)"]], "0 m", "8.849 m") }),
+    bloque({ h: "4.2 El experimento de Torricelli y los barómetros", p: [
+      "En 1643, Evangelista Torricelli llenó de mercurio un tubo de vidrio de 1 m cerrado por un extremo, lo tapó con el dedo y lo volcó en una cubeta también con mercurio. Al destaparlo, el mercurio bajó un poco y se quedó a una altura de <mark>76 cm</mark> sobre el nivel de la cubeta, dejando vacío en la parte de arriba. La presión del aire sobre la cubeta sostenía esa columna de mercurio. Por eso 1 atm = 760 mmHg.",
+      "Podemos comprobar el valor con el principio fundamental: p = ρ·g·h = 13.600 · 9,8 · 0,76 ≈ 101.300 Pa. Si Torricelli hubiera usado agua, que es 13,6 veces menos densa, la columna habría medido más de 10 m. Los instrumentos que miden la presión atmosférica se llaman <b>barómetros</b>. Además del de mercurio, hoy se usan barómetros aneroides (una cápsula metálica con poco aire que se deforma con la presión) y sensores electrónicos como el que llevan muchos móviles. Los <b>altímetros</b> de los aviones y de los relojes de montaña son barómetros calibrados en metros, y los <b>manómetros</b> miden la presión de neumáticos y bombonas.",
+    ], extra: formula("p<sub>atm</sub> = ρ<sub>Hg</sub> · g · h = 13.600 · 9,8 · 0,76 ≈ 101.300 Pa"), svg: S.svg[4] }),
+    bloque({ h: "4.3 La presión y el tiempo atmosférico", p: [
+      "La presión atmosférica cambia de un día a otro y de un lugar a otro, y esos cambios están muy relacionados con el tiempo. En los mapas del tiempo, las líneas que unen puntos con la misma presión se llaman <b>isobaras</b>. Una zona de alta presión, más de 1.013 hPa en el centro, es un <mark>anticiclón</mark>: el aire desciende, se calienta y se seca, y suele traer cielos despejados y tiempo estable. Una zona de baja presión es una <mark>borrasca</mark>: el aire asciende, se enfría y su vapor se condensa en nubes, y suele traer lluvia y viento.",
+      "El viento sopla de las altas a las bajas presiones, y es más fuerte cuanto más juntas están las isobaras. El anticiclón de las Azores es el responsable de muchos veranos secos en la península. Además, la presión explica fenómenos domésticos: al sorber por una pajita bajas la presión dentro de ella y la presión atmosférica empuja el líquido hacia tu boca; una ventosa se pega porque al aplastarla expulsas el aire y la presión exterior la aprieta contra la pared.",
+    ], svg: compara("Diferencias entre anticiclón y borrasca", ["Anticiclón", ["alta presión", "aire que baja", "cielo despejado", "tiempo estable"]], ["Borrasca", ["baja presión", "aire que sube", "nubes y lluvia", "viento"]], "#b45309", "var(--pen)") }),
+    bloque({ h: "4.4 Fluidos en movimiento", p: [
+      "Hasta ahora hemos estudiado fluidos en reposo. Cuando un fluido se mueve, aparece un efecto sorprendente descrito por Daniel Bernoulli en el siglo XVIII: <mark>donde el fluido va más rápido, su presión es menor</mark>. Si soplas entre dos hojas de papel colgadas, en lugar de separarse se juntan, porque el aire rápido entre ellas tiene menos presión que el aire quieto de fuera.",
+      "Este efecto, junto con la desviación del aire hacia abajo, ayuda a explicar la <b>sustentación</b> de las alas de los aviones: su forma y su inclinación hacen que el aire pase más rápido por encima que por debajo, y la diferencia de presiones empuja el ala hacia arriba. También explica por qué un camión que adelanta muy cerca «atrae» a un ciclista, por qué un pulverizador de perfume aspira el líquido, por qué las cortinas de la ducha se pegan a las piernas o por qué los tejados pueden volar en un huracán. Los balones con efecto curvan su trayectoria por un fenómeno relacionado, el <b>efecto Magnus</b>.",
+    ], svg: ficha("Efecto Bernoulli y sus aplicaciones", "Más velocidad → menos presión", ["Alas de avión: sustentación", "Pulverizadores y aerógrafos", "Hojas que se juntan al soplar", "Tejados que vuelan con viento", "Efecto Magnus en el balón"], "var(--leaf)") }),
   ],
-  figura: {
-    titulo: "Los tres principios de los fluidos",
-    svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Hidrostática, Pascal y Arquímedes con su fórmula y una aplicación">
-      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${[["Hidrostática", "p = d · g · h", "más hondo, más presión", "presas y submarinos", "var(--pen)"], ["Pascal", "F₁/S₁ = F₂/S₂", "la presión se transmite", "frenos y gatos hidráulicos", "var(--red)"], ["Arquímedes", "E = d · g · V", "empuje = peso desalojado", "barcos y globos", "var(--leaf)"]]
-        .map(([n, f, d, a, c], i) => `<rect x="${20 + i * 206}" y="20" width="190" height="180" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
-          <text x="${115 + i * 206}" y="56" text-anchor="middle" font-size="19" font-weight="700" fill="${c}" ${D}>${n}</text>
-          <text x="${115 + i * 206}" y="100" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink)" ${F}>${f}</text>
-          <text x="${115 + i * 206}" y="138" text-anchor="middle" font-size="14" fill="var(--ink)" ${F}>${d}</text>
-          <text x="${115 + i * 206}" y="176" text-anchor="middle" font-size="13" fill="var(--muted)" ${F}>${a}</text>`).join("")}
-    </svg>`,
-  },
-  video: { id: "MyybIRPX010", titulo: "El principio de Pascal o cómo multiplicar tu fuerza", canal: "CuriosaMente", vistas: 3282829, megusta: 0, busqueda: "presión hidrostática principio de Arquímedes" },
-  quiz: [
-    { q: "Una caja de 600 N se apoya sobre una cara de 2 m². ¿Qué presión ejerce?", o: ["300 Pa", "1 200 Pa", "602 Pa"], a: 0, e: "p = F / S = 600 / 2 = 300 Pa." },
-    { q: "¿Por qué corta mejor un cuchillo afilado?", o: ["Porque pesa más", "Porque la superficie es menor y la presión mayor", "Porque el filo es más duro"], a: 1, e: "Con la misma fuerza, menos superficie significa más presión." },
-    { q: "La presión en un líquido…", o: ["es igual a cualquier profundidad", "aumenta con la profundidad", "disminuye con la profundidad"], a: 1, e: "p = d · g · h: crece con h." },
-    { q: "Un cuerpo flota en agua si…", o: ["es más denso que el agua", "es menos denso que el agua", "pesa menos de 1 kg"], a: 1, e: "Si su densidad media es menor, el empuje puede igualar su peso antes de hundirse del todo." },
-    { q: "¿Cuánto vale aproximadamente la presión atmosférica al nivel del mar?", o: ["1 Pa", "101 300 Pa", "9,8 Pa"], a: 1, e: "1 atm = 101 300 Pa = 760 mmHg." },
-  ],
-  examen: [
-    { q: "¿Qué presión soporta un buceador a 5 m en agua dulce, sin contar la atmosférica? (d = 1000 kg/m³, g = 9,8)", o: ["49 000 Pa", "4 900 Pa", "5 000 Pa"], a: 0, e: "p = 1000 · 9,8 · 5 = 49 000 Pa." },
-    { q: "En una prensa hidráulica, S₂ es 50 veces mayor que S₁. Si aplicamos 20 N en el émbolo pequeño, ¿qué fuerza obtenemos?", o: ["70 N", "1 000 N", "0,4 N"], a: 1, e: "F₂ = F₁ · S₂ / S₁ = 20 · 50 = 1 000 N." },
-    { q: "Un objeto de 2 L se sumerge entero en agua. ¿Qué empuje recibe? (g = 9,8)", o: ["2 N", "19,6 N", "196 N"], a: 1, e: "Desaloja 2 L = 2 kg de agua: E = 2 · 9,8 = 19,6 N." },
-  ],
-  feynman: ["Qué es la presión y por qué depende de la superficie", "Por qué la presión aumenta con la profundidad", "Cómo multiplica la fuerza una prensa hidráulica", "Por qué flota un barco de acero", "Qué midió Torricelli"],
-  mapa: mapa("FLUIDOS Y PRESIÓN", "var(--eso)", [
-    ["Presión", "p = F/S · Pa", "var(--ink)"],
-    ["Hidrostática", "p = d·g·h", "var(--pen)"],
-    ["Pascal y Arquímedes", "se transmite · empuje", "var(--red)"],
-    ["Atmosférica", "1 atm = 101 300 Pa", "var(--leaf)"],
-  ], 250),
-  tarjetas: [
-    ["Fórmula de la presión y su unidad", "p = F / S; pascal (Pa = N/m²)."],
-    ["Principio fundamental de la hidrostática", "p = d · g · h: la presión crece con la profundidad y la densidad."],
-    ["Enuncia el principio de Pascal", "La presión aplicada a un fluido encerrado se transmite por igual a todos sus puntos."],
-    ["Enuncia el principio de Arquímedes", "Un cuerpo sumergido recibe un empuje hacia arriba igual al peso del fluido desalojado."],
-    ["1 atm en pascales y en mmHg", "101 300 Pa = 760 mmHg."],
-  ],
-  familias: ["Meted un huevo en agua y añadid sal poco a poco hasta que flote: comentad qué ha cambiado.", "Llenad una botella de plástico con agujeros a distintas alturas y mirad qué chorro llega más lejos.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "La interacción: presión, principios de la hidrostática, de Pascal y de Arquímedes, y presión atmosférica (RD 217/2022, Física y Química 4º).",
-    ideas: ["Ludión de Descartes con una botella y un capuchón de bolígrafo.", "Prensa hidráulica con dos jeringas de distinto diámetro unidas con un tubo.", "Medir el empuje con un dinamómetro sumergiendo objetos en agua y en agua salada."],
-  },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Principio de Arquímedes, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Principio_de_Arqu%C3%ADmedes" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Aplicar el principio de los vasos comunicantes y el experimento de Torricelli", "Decidir si un cuerpo flota y qué parte queda sumergida"],
-  tras: {
-    "Qué es la presión": [
-      { html: `<h3>Densidad y unidades de presión</h3><p>Para estudiar los fluidos necesitamos la <b>densidad</b>, la masa por unidad de volumen: d = m / V. El agua tiene 1.000 kg/m³ (1 g/cm³), el aceite unos 920 kg/m³ y el mercurio 13.600 kg/m³. La presión se mide en el SI en <b>pascales</b> (1 Pa = 1 N/m²), una unidad muy pequeña: una hoja de papel sobre la mesa ejerce alrededor de 1 Pa. Por eso se usan también otras unidades: la <b>atmósfera</b> (1 atm = 101.300 Pa), el <b>milímetro de mercurio</b> (1 atm = 760 mmHg), el <b>bar</b> (100.000 Pa) y el <mark>hectopascal</mark> (hPa), que usan los mapas del tiempo: la presión normal al nivel del mar es 1.013 hPa.</p>` },
-    ],
-    "Presión en los líquidos": [
-      { html: `<h3>Vasos comunicantes</h3><p>Si varios recipientes están unidos por la base y se llenan con el mismo líquido, este alcanza <mark>la misma altura en todos</mark>, sea cual sea su forma. La razón es que, en el equilibrio, la presión en el fondo debe ser igual en todos los puntos que están a la misma profundidad. Este principio explica por qué el agua de un depósito situado en lo alto de un pueblo sube por las tuberías hasta los pisos de las casas, cómo funcionan los niveles de agua de los albañiles y por qué los sifones de los fregaderos siempre conservan agua. Si los líquidos son distintos y no se mezclan, el más denso queda a menos altura.</p>`, video: { id: "wUKZk0WWZzQ", titulo: "Vasos comunicantes: interpretación de su funcionamiento", canal: "Julio Germán Rodríguez", vistas: 108014 } },
-    ],
-    "El principio de Arquímedes": [
-      { html: `<h3>Flotar o hundirse</h3><p>Sobre un cuerpo sumergido actúan dos fuerzas: su <b>peso</b> hacia abajo y el <b>empuje</b> hacia arriba. Si el empuje es mayor que el peso, el cuerpo sube y <b>flota</b>; si es menor, se <b>hunde</b>; si son iguales, queda en equilibrio dentro del líquido, como un submarino. Comparando densidades es más rápido: un cuerpo flota si su densidad media es <mark>menor que la del líquido</mark>. Un barco de acero flota porque su casco está lleno de aire y su densidad media es menor que la del agua. Cuando un cuerpo flota, se hunde justo lo necesario para que el empuje iguale su peso: la fracción sumergida es d cuerpo / d líquido. Un iceberg (920 kg/m³) en agua de mar (1.025 kg/m³) tiene sumergido casi el 90 %.</p>`, video: { id: "XoF9s5ODsHI", titulo: "El principio de Arquímedes o ¿por qué flotan los barcos?", canal: "CuriosaMente", vistas: 2915121 } },
-    ],
-    "La presión atmosférica": [
-      { html: `<h3>El experimento de Torricelli y los fluidos en movimiento</h3><p>En 1643, Evangelista Torricelli llenó de mercurio un tubo de un metro, lo tapó y lo volcó en una cubeta también con mercurio. El mercurio bajó hasta quedar a <mark>76 cm</mark> de altura: la presión del aire sobre la cubeta sostenía esa columna. Así se midió por primera vez la presión atmosférica, y nació el <b>barómetro</b>. La presión atmosférica disminuye con la altitud, porque hay menos aire encima: en la cima del Everest es un tercio de la del nivel del mar. Los fluidos en movimiento también producen efectos curiosos: donde el aire va más rápido, la presión es menor. Esto ayuda a explicar la fuerza que sostiene el ala de un avión o por qué se abomba hacia fuera una cortina con corriente.</p>` },
-    ],
-  },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Calcula la presión del agua sobre un buceador a 15 m de profundidad y la presión total si en la superficie hay 101.300 Pa. (d = 1.000 kg/m³, g = 9,8 m/s².)", pasos: ["Presión hidrostática: p = d·g·h = 1.000 · 9,8 · 15 = 147.000 Pa.", "Presión total = atmosférica + hidrostática = 101.300 + 147.000 = 248.300 Pa.", "En atmósferas: 248.300 / 101.300 ≈ 2,45 atm."], resultado: "147.000 Pa del agua; unos 248.300 Pa (≈ 2,5 atm) en total." },
-    { enunciado: "En una prensa hidráulica el émbolo pequeño tiene 10 cm² y el grande 500 cm². ¿Qué fuerza hay que hacer para levantar un coche de 1.200 kg?", pasos: ["Peso del coche: 1.200 · 9,8 = 11.760 N.", "Pascal: F₁ / S₁ = F₂ / S₂ → F₁ = F₂ · S₁ / S₂.", "F₁ = 11.760 · 10 / 500 = 235,2 N."], resultado: "Basta una fuerza de unos 235 N." },
-    { enunciado: "Un cubo de madera de 0,001 m³ y densidad 600 kg/m³ se pone en agua. ¿Flota? ¿Qué volumen queda sumergido?", pasos: ["600 < 1.000: la madera es menos densa que el agua y flota.", "Al flotar, empuje = peso: d agua · V sumergido · g = d madera · V · g.", "V sumergido = 600 / 1.000 · 0,001 = 0,0006 m³ (el 60 %)."], resultado: "Flota con el 60 % sumergido: 0,0006 m³." },
+    { enunciado: "Una caja de 60 kg tiene una base de 0,5 m × 0,4 m. ¿Qué presión ejerce sobre el suelo?", pasos: ["F = P = m·g = 60 · 9,8 = 588 N.", "S = 0,5 · 0,4 = 0,2 m².", "p = F / S = 588 / 0,2 = 2.940 Pa."], resultado: "2.940 Pa." },
+    { enunciado: "Calcula la presión hidrostática y la presión total sobre un buceador a 25 m en el mar (ρ = 1.030 kg/m³).", pasos: ["p<sub>h</sub> = ρ·g·h = 1.030 · 9,8 · 25 = 252.350 Pa.", "En atmósferas: 252.350 / 101.300 ≈ 2,5 atm.", "Total: 252.350 + 101.300 = 353.650 Pa ≈ 3,5 atm."], resultado: "Unos 252.000 Pa de agua y 3,5 atm en total." },
+    { enunciado: "En una prensa hidráulica, el émbolo pequeño tiene 10 cm² y el grande, 2.000 cm². ¿Qué fuerza hay que hacer para levantar un coche de 1.200 kg?", pasos: ["F₂ = 1.200 · 9,8 = 11.760 N.", "F₁ / S₁ = F₂ / S₂ → F₁ = F₂ · S₁ / S₂.", "F₁ = 11.760 · 10 / 2.000 = 58,8 N."], resultado: "Unos 59 N, el peso de 6 kg." },
+    { enunciado: "Un bloque de 2 dm³ y 5 kg se sumerge totalmente en agua. Calcula el empuje y su peso aparente. ¿Flota?", pasos: ["V = 2 dm³ = 0,002 m³.", "E = 1.000 · 9,8 · 0,002 = 19,6 N.", "P = 5 · 9,8 = 49 N.", "P<sub>ap</sub> = 49 − 19,6 = 29,4 N. Como P > E, se hunde."], resultado: "E = 19,6 N; peso aparente 29,4 N; se hunde." },
+    { enunciado: "Un cubo de madera de 10 cm de arista y densidad 600 kg/m³ flota en agua. ¿Qué parte queda sumergida?", pasos: ["Al flotar, E = P: ρ<sub>agua</sub>·g·V<sub>s</sub> = ρ<sub>madera</sub>·g·V.", "V<sub>s</sub>/V = 600 / 1.000 = 0,6.", "Sumergido el 60 %: 6 cm de los 10 cm de altura."], resultado: "El 60 % (6 cm sumergidos y 4 cm fuera)." },
+    { enunciado: "Un objeto pesa 12 N en el aire y 8 N sumergido en agua. Calcula su volumen y su densidad.", pasos: ["E = 12 − 8 = 4 N.", "V = E / (ρ<sub>agua</sub>·g) = 4 / 9.800 ≈ 4,08 · 10<sup>−4</sup> m³.", "m = 12 / 9,8 ≈ 1,22 kg.", "ρ = 1,22 / 4,08 · 10<sup>−4</sup> ≈ 3.000 kg/m³."], resultado: "V ≈ 408 cm³ y ρ ≈ 3.000 kg/m³ (podría ser aluminio o vidrio)." },
   ],
   errores: [
-    "Pensar que la presión de un líquido depende de la forma del recipiente o de la cantidad de líquido: solo depende de la densidad y la profundidad.",
-    "Confundir peso y empuje, o creer que el empuje depende de la masa del cuerpo: depende del volumen sumergido y de la densidad del líquido.",
-    "Usar la profundidad en centímetros en p = d·g·h.",
-    "Creer que los objetos pesados siempre se hunden: depende de su densidad media.",
-    "Olvidar sumar la presión atmosférica cuando se pide la presión total.",
+    "Usar en p = F/S la masa en vez de la fuerza: hay que multiplicar por g para obtener el peso en newtons.",
+    "No pasar las superficies a m² (1 cm² = 10<sup>−4</sup> m²) o los volúmenes a m³ (1 L = 10<sup>−3</sup> m³).",
+    "Medir la profundidad desde el fondo en lugar de desde la superficie libre del líquido.",
+    "Usar en el empuje la densidad del cuerpo en lugar de la del fluido.",
+    "Pensar que el empuje aumenta con la profundidad: una vez sumergido del todo, no cambia.",
+    "Creer que la prensa hidráulica crea energía: multiplica la fuerza, pero el émbolo pequeño recorre más distancia.",
   ],
   ejercicios: [
-    { q: "Una persona de 60 kg está de pie con una superficie de apoyo de 0,04 m². ¿Qué presión ejerce? ¿Y si lleva esquís de 0,4 m²?", sol: "Peso = 588 N. Sin esquís: 588 / 0,04 = 14.700 Pa. Con esquís: 588 / 0,4 = 1.470 Pa, diez veces menos: por eso no se hunde en la nieve." },
-    { q: "Pasa 750 mmHg a atmósferas y a pascales.", sol: "750 / 760 ≈ 0,987 atm ≈ 0,987 · 101.300 ≈ 100.000 Pa." },
-    { q: "¿Qué presión soporta el fondo de una piscina de 2,5 m (solo la del agua)?", sol: "p = 1.000 · 9,8 · 2,5 = 24.500 Pa." },
-    { q: "¿A qué profundidad la presión del agua del mar (1.025 kg/m³) vale 1 atm?", sol: "h = 101.300 / (1.025 · 9,8) ≈ 10,1 m. Cada 10 m de agua la presión aumenta aproximadamente 1 atm." },
-    { q: "En una prensa hidráulica, S₂ = 40 · S₁. Si haces 50 N, ¿qué fuerza se obtiene?", sol: "F₂ = 50 · 40 = 2.000 N." },
-    { q: "Un objeto de 2 dm³ se sumerge entero en agua. Calcula el empuje.", sol: "V = 0,002 m³. E = 1.000 · 0,002 · 9,8 = 19,6 N." },
-    { q: "Un objeto pesa 30 N en el aire y 22 N sumergido en agua. Calcula el empuje y su volumen.", sol: "E = 30 − 22 = 8 N. V = E / (d·g) = 8 / 9.800 ≈ 0,00082 m³ (0,82 L)." },
-    { q: "¿Flota un trozo de hielo (920 kg/m³) en aceite (920 kg/m³)? ¿Y en agua?", sol: "En aceite queda en equilibrio, ni sube ni baja (densidades iguales). En agua flota, con el 92 % sumergido." },
-    { q: "¿Por qué se taponan los oídos al subir en avión o en coche a un puerto de montaña?", sol: "Porque la presión atmosférica disminuye con la altitud; el aire dentro del oído queda a más presión que el de fuera y empuja el tímpano hasta que las presiones se igualan." },
-    { q: "Explica por qué el agua de un depósito en lo alto de una colina llega a las casas del pueblo sin bombas.", sol: "Por el principio de los vasos comunicantes: el agua tiende a alcanzar la misma altura en todos los tubos conectados, así que sube hasta las casas que están más bajas que el depósito." },
+    B("Calcula la presión que ejerce una fuerza de 500 N sobre 0,25 m².", "p = 500 / 0,25 = 2.000 Pa."),
+    B("Explica por qué los cuchillos cortan mejor afilados y por qué las excavadoras llevan orugas.", "El cuchillo afilado reduce la superficie y aumenta mucho la presión. Las orugas aumentan la superficie de apoyo y reducen la presión para no hundirse en el barro."),
+    B("Pasa a pascales: a) 2 atm; b) 380 mmHg; c) 950 hPa; d) 2,2 bar.", "a) 202.600 Pa. b) 380/760 = 0,5 atm = 50.650 Pa. c) 95.000 Pa. d) 220.000 Pa."),
+    B("Calcula la densidad de un cuerpo de 270 g y 100 cm³. ¿Flotará en agua?", "ρ = 270 / 100 = 2,7 g/cm³ = 2.700 kg/m³ (aluminio). Es más denso que el agua: se hunde."),
+    B("Calcula la presión hidrostática en el fondo de una piscina de 2 m de profundidad.", "p = 1.000 · 9,8 · 2 = 19.600 Pa."),
+    B("¿Por qué una presa es más gruesa en la base que arriba?", "Porque la presión del agua aumenta con la profundidad: en la base empuja mucho más."),
+    B("¿Qué es un sistema de vasos comunicantes? Cita dos aplicaciones.", "Recipientes unidos por abajo en los que un líquido alcanza la misma altura. Aplicaciones: el nivel de agua de los albañiles y el abastecimiento de agua desde un depósito alto."),
+    B("Enuncia el principio de Pascal y pon un ejemplo de aplicación.", "La presión en un líquido encerrado se transmite íntegra en todas las direcciones. Ejemplos: prensa hidráulica, frenos del coche, gato hidráulico."),
+    B("Enuncia el principio de Arquímedes.", "Todo cuerpo sumergido en un fluido recibe un empuje vertical hacia arriba igual al peso del fluido que desaloja."),
+    B("Calcula el empuje sobre un cuerpo de 0,003 m³ totalmente sumergido en agua.", "E = 1.000 · 9,8 · 0,003 = 29,4 N."),
+    B("¿Por qué el hielo flota en el agua?", "Porque su densidad (920 kg/m³) es menor que la del agua líquida: el empuje al sumergirse supera su peso hasta que solo queda sumergido el 92 %."),
+    B("¿Qué demostraron los hemisferios de Magdeburgo?", "Que la presión atmosférica existe y es muy grande: al sacar el aire del interior, la presión de fuera los mantenía unidos con fuerza enorme."),
+    M("Una persona de 70 kg está de pie sobre unos esquís de 1,8 m × 0,1 m cada uno. ¿Qué presión ejerce? Compárala con la de sus pies (300 cm² en total).", "Esquís: S = 2 · 0,18 = 0,36 m² → p = 686 / 0,36 ≈ 1.906 Pa. Pies: 686 / 0,03 ≈ 22.870 Pa. Con esquís la presión es 12 veces menor."),
+    M("¿A qué profundidad en el mar (ρ = 1.030 kg/m³) la presión del agua es de 3 atm?", "h = p / (ρ·g) = 303.900 / (1.030 · 9,8) ≈ 30,1 m."),
+    M("Calcula la fuerza que ejerce el agua sobre la escotilla de 0,5 m² de un submarino a 200 m de profundidad en el mar.", "p = 1.030 · 9,8 · 200 = 2.018.800 Pa. F = p · S ≈ 1.009.400 N, el peso de unas 100 toneladas."),
+    M("En un tubo en U hay agua y aceite. Si la columna de aceite mide 15 cm y la de agua, sobre la superficie de separación, 13,8 cm, ¿cuál es la densidad del aceite?", "ρ<sub>a</sub>·h<sub>a</sub> = ρ<sub>w</sub>·h<sub>w</sub> → ρ<sub>a</sub> = 1.000 · 13,8 / 15 = 920 kg/m³."),
+    M("Una prensa hidráulica tiene émbolos de 5 cm y 50 cm de radio. Si en el pequeño se aplican 100 N, ¿qué fuerza se obtiene en el grande?", "La superficie es proporcional al radio al cuadrado: S₂/S₁ = (50/5)² = 100. F₂ = 100 · 100 = 10.000 N."),
+    M("En la prensa anterior, si el émbolo pequeño baja 50 cm, ¿cuánto sube el grande? Comprueba que el trabajo es el mismo.", "El volumen desplazado es el mismo: S₁·d₁ = S₂·d₂ → d₂ = 50 / 100 = 0,5 cm. Trabajo: 100 · 0,5 = 50 J y 10.000 · 0,005 = 50 J."),
+    M("Una piedra de 3 kg y 1,2 L se sumerge en agua. Calcula su peso aparente.", "P = 29,4 N. E = 1.000 · 9,8 · 0,0012 = 11,76 N. P<sub>ap</sub> = 29,4 − 11,76 = 17,64 N."),
+    M("Un iceberg tiene una densidad de 920 kg/m³ y flota en agua de mar de 1.030 kg/m³. ¿Qué porcentaje queda fuera del agua?", "Sumergido: 920/1.030 ≈ 0,893 → 89,3 %. Fuera: 10,7 %."),
+    M("¿Qué altura alcanzaría la columna en un barómetro de agua al nivel del mar?", "h = 101.300 / (1.000 · 9,8) ≈ 10,3 m."),
+    M("Un globo de helio de 0,01 m³ tiene una masa total de 5 g. ¿Subirá? (ρ<sub>aire</sub> = 1,2 kg/m³)", "E = 1,2 · 9,8 · 0,01 = 0,1176 N. P = 0,005 · 9,8 = 0,049 N. Como E > P, sube."),
+    M("Explica por qué los oídos se taponan al subir un puerto de montaña en coche.", "Al subir, la presión atmosférica exterior disminuye, pero el aire del oído medio sigue a la presión de abajo: el tímpano se abomba hacia fuera hasta que al tragar se iguala la presión a través de la trompa de Eustaquio."),
+    M("La presión atmosférica en un pueblo es de 700 mmHg. Exprésala en atm, Pa y hPa.", "700/760 ≈ 0,92 atm ≈ 93.300 Pa ≈ 933 hPa."),
+    M("Un cubo de 20 cm de arista flota en agua con 5 cm fuera. Calcula su densidad y su masa.", "Sumergido 15/20 = 0,75 → ρ = 750 kg/m³. V = 0,008 m³ → m = 6 kg."),
+    M("Un elefante de 5.000 kg se apoya sobre cuatro patas de 0,1 m² cada una y una bailarina de 50 kg, de puntillas sobre 5 cm². ¿Quién ejerce más presión?", "Elefante: 49.000 / 0,4 = 122.500 Pa. Bailarina: 490 / 0,0005 = 980.000 Pa. La bailarina ejerce unas ocho veces más presión, porque concentra su peso en una superficie diminuta."),
+    A("Un bloque de corcho (ρ = 240 kg/m³) de 2 dm³ se mantiene sumergido en agua atado al fondo con un hilo. Calcula la tensión del hilo.", "E = 1.000 · 9,8 · 0,002 = 19,6 N. P = 240 · 0,002 · 9,8 = 4,70 N. Equilibrio: T = E − P = 14,9 N."),
+    A("¿Qué masa máxima de carga puede llevar una balsa de madera (ρ = 500 kg/m³) de 2 m × 1,5 m × 0,2 m sin hundirse del todo en agua dulce?", "V = 0,6 m³. Empuje máximo: 1.000 · 9,8 · 0,6 = 5.880 N (600 kg de agua). Masa de la balsa: 300 kg. Carga máxima: 600 − 300 = 300 kg."),
+    A("Una corona pesa 25 N en el aire y 23,5 N en agua. ¿Es de oro puro (ρ = 19.300 kg/m³)?", "E = 1,5 N → V = 1,5 / 9.800 ≈ 1,53 · 10<sup>−4</sup> m³. m = 25 / 9,8 ≈ 2,55 kg. ρ = 2,55 / 1,53 · 10<sup>−4</sup> ≈ 16.700 kg/m³. Es menor que la del oro: tiene mezcla de un metal menos denso, como la plata."),
+    A("Calcula la fuerza total que ejerce el agua sobre el fondo de un acuario de 1 m × 0,5 m con 40 cm de agua, y compárala con el peso del agua.", "p = 1.000 · 9,8 · 0,4 = 3.920 Pa; F = 3.920 · 0,5 = 1.960 N. Volumen 0,2 m³ = 200 kg → peso 1.960 N. Coinciden porque las paredes son verticales."),
+    A("Un buceador llena un globo con 6 L de aire a 30 m de profundidad (4 atm). Si sube a la superficie sin dejar salir el aire, ¿qué volumen tendrá? ¿Qué lección de seguridad se deduce?", "A temperatura constante p·V se mantiene: 4 · 6 = 1 · V → V = 24 L. Los pulmones de un buceador que sube conteniendo la respiración también se expandirían: por eso hay que subir despacio y expulsando aire."),
+    A("Un barco de 5.000 t pasa de un río (ρ = 1.000 kg/m³) al mar (ρ = 1.030 kg/m³). ¿Cómo cambia el volumen sumergido?", "En los dos casos E = P. Río: V = 5 · 10<sup>6</sup> / 1.000 = 5.000 m³. Mar: 5 · 10<sup>6</sup> / 1.030 ≈ 4.854 m³. En el mar se hunde menos: unos 146 m³ menos sumergidos."),
+    A("En un elevador hidráulico de taller, el émbolo grande tiene 0,05 m² y el pequeño 5 cm². ¿Qué presión hay en el aceite al levantar un coche de 1.500 kg y qué fuerza hay que aplicar?", "F₂ = 14.700 N; p = 14.700 / 0,05 = 294.000 Pa (unas 2,9 atm). F₁ = p · S₁ = 294.000 · 5 · 10<sup>−4</sup> = 147 N."),
+    A("Un tubo de 1 m cerrado por arriba y lleno de agua se coloca invertido en una cubeta. ¿Se vacía? Razónalo con la presión atmosférica.", "No: la presión atmosférica puede sostener una columna de agua de hasta 10,3 m, así que el agua del tubo de 1 m se queda dentro. Es lo que pasa al sacar un vaso boca abajo dentro de un barreño."),
+    A("Una esfera hueca de acero (ρ = 7.800 kg/m³) de 30 cm de radio exterior tiene una masa de 80 kg. ¿Flota en agua? ¿Qué fracción queda sumergida?", "V = (4/3)π · 0,3³ ≈ 0,113 m³. Densidad media: 80 / 0,113 ≈ 708 kg/m³ < 1.000: flota. Fracción sumergida: 0,708 (el 70,8 %)."),
+    A("Calcula la diferencia de presión entre los pies y la cabeza de una persona de 1,75 m de pie, suponiendo que la sangre tiene ρ = 1.060 kg/m³. ¿Por qué la jirafa necesita una presión arterial tan alta?", "Δp = 1.060 · 9,8 · 1,75 ≈ 18.180 Pa ≈ 136 mmHg. En la jirafa, con el cuello de casi 2 m por encima del corazón, hace falta mucha presión para que la sangre llegue al cerebro."),
   ],
   quiz: [
-    { q: "La presión normal al nivel del mar es…", o: ["1.013 hPa", "1.013 Pa", "13 atm"], a: 0, e: "1 atm = 1.013 hPa = 760 mmHg." },
-    { q: "En unos vasos comunicantes con el mismo líquido, el nivel…", o: ["es más alto en el vaso más ancho", "es el mismo en todos", "depende de la forma"], a: 1, e: "La presión se iguala a la misma profundidad." },
-    { q: "Un cuerpo flota si su densidad es…", o: ["mayor que la del líquido", "menor que la del líquido", "cualquiera"], a: 1, e: "Entonces el empuje supera al peso." },
-    { q: "Torricelli comprobó que la presión atmosférica sostiene una columna de mercurio de…", o: ["76 cm", "10 m", "1 m"], a: 0, e: "De ahí, 760 mmHg." },
-    { q: "Al subir una montaña, la presión atmosférica…", o: ["aumenta", "disminuye", "no cambia"], a: 1, e: "Hay menos aire encima." },
+    q4("La unidad de presión en el SI es…", ["el newton", "el pascal", "el bar", "la atmósfera"], 1, "1 Pa = 1 N/m²."),
+    q4("Con la misma fuerza, si la superficie se reduce a la mitad, la presión…", ["se reduce a la mitad", "se duplica", "no cambia", "se cuadruplica"], 1, "p = F/S."),
+    q4("1 atm equivale a…", ["760 mmHg", "100 Pa", "1.000 hPa exactos", "10 m de mercurio"], 0, "Y también a 101.300 Pa y 1.013 hPa."),
+    q4("La presión en un líquido depende de…", ["la forma del recipiente", "la densidad y la profundidad", "la cantidad total de líquido", "el área del fondo"], 1, "p = ρ·g·h."),
+    q4("En el agua, la presión aumenta aproximadamente…", ["1 atm cada metro", "1 atm cada 10 m", "1 atm cada 100 m", "no aumenta"], 1, "1.000 · 9,8 · 10 ≈ 98.000 Pa."),
+    q4("En unos vasos comunicantes con el mismo líquido, la altura…", ["es mayor en el más ancho", "es igual en todos", "es mayor en el más estrecho", "depende de la forma"], 1, "La presión a igual profundidad debe ser la misma."),
+    q4("El principio de Pascal se aplica en…", ["los barcos", "los frenos hidráulicos", "los barómetros", "los globos"], 1, "La presión se transmite por el líquido de frenos."),
+    q4("En una prensa con S₂ = 50·S₁, la fuerza en el émbolo grande es…", ["50 veces menor", "igual", "50 veces mayor", "2.500 veces mayor"], 2, "F₂ = F₁·S₂/S₁."),
+    q4("El empuje depende de…", ["la densidad del cuerpo", "la densidad del fluido y el volumen sumergido", "la profundidad", "el peso del cuerpo"], 1, "E = ρ<sub>f</sub>·g·V<sub>s</sub>."),
+    q4("Un cuerpo flota si…", ["es más denso que el fluido", "es menos denso que el fluido", "es muy grande", "está en el fondo"], 1, "Su peso queda equilibrado por el empuje antes de sumergirse del todo."),
+    q4("El peso aparente de un cuerpo sumergido es…", ["P + E", "P − E", "E − P", "P · E"], 1, "El empuje compensa parte del peso."),
+    q4("Un submarino se sumerge…", ["vaciando los tanques", "llenando los tanques de agua", "calentando el aire", "girando la hélice hacia abajo"], 1, "Así aumenta su peso."),
+    q4("¿Qué fracción de un cuerpo de densidad 800 kg/m³ queda sumergida en agua?", ["20 %", "80 %", "100 %", "8 %"], 1, "800/1.000 = 0,8."),
+    q4("La columna del barómetro de Torricelli medía…", ["76 cm de agua", "76 cm de mercurio", "10 m de mercurio", "1 m de mercurio"], 1, "760 mmHg."),
+    q4("Al subir a una montaña, la presión atmosférica…", ["aumenta", "disminuye", "no cambia", "se duplica"], 1, "Hay menos aire encima."),
+    q4("Un anticiclón es una zona de…", ["baja presión con lluvias", "alta presión y tiempo estable", "vientos huracanados siempre", "nieve"], 1, "El aire desciende y se seca."),
+    q4("Al sorber por una pajita, el líquido sube porque…", ["la pajita lo atrae", "la presión atmosférica lo empuja", "el líquido pierde peso", "aumenta la presión en la boca"], 1, "Bajas la presión dentro de la pajita."),
+    q4("Según Bernoulli, donde un fluido va más rápido…", ["la presión es mayor", "la presión es menor", "la densidad aumenta", "la temperatura sube"], 1, "Por eso se juntan dos hojas al soplar entre ellas."),
+    q4("Un cuerpo de 0,002 m³ sumergido del todo en agua recibe un empuje de…", ["2 N", "19,6 N", "196 N", "0,2 N"], 1, "1.000 · 9,8 · 0,002 = 19,6 N."),
+    q4("Las isobaras de un mapa del tiempo unen puntos con igual…", ["temperatura", "presión", "lluvia", "altura"], 1, "Iso-bara: igual presión."),
   ],
+  examen: [
+    q4("Una fuerza de 300 N sobre 0,1 m² produce una presión de…", ["30 Pa", "3.000 Pa", "300 Pa", "3 Pa"], 1, "300 / 0,1 = 3.000 Pa."),
+    q4("La presión del agua a 5 m de profundidad es…", ["49.000 Pa", "5.000 Pa", "4.900 Pa", "490.000 Pa"], 0, "1.000 · 9,8 · 5."),
+    q4("En una prensa, S₁ = 2 cm² y S₂ = 400 cm². Para obtener 8.000 N, F₁ = …", ["40 N", "400 N", "4 N", "1.600 N"], 0, "8.000 · 2/400 = 40 N."),
+    q4("Un objeto pesa 30 N en el aire y 20 N en agua. El empuje es…", ["50 N", "10 N", "20 N", "30 N"], 1, "30 − 20 = 10 N."),
+    q4("Un cuerpo de densidad 1.200 kg/m³ en agua…", ["flota", "se hunde", "queda entre dos aguas", "flota con un 20 % fuera"], 1, "Es más denso que el agua."),
+    q4("¿Qué instrumento mide la presión atmosférica?", ["El manómetro", "El barómetro", "El dinamómetro", "El termómetro"], 1, "Barómetro."),
+    q4("Un buceador a 20 m en agua dulce soporta en total unas…", ["2 atm", "3 atm", "20 atm", "1 atm"], 1, "2 atm de agua + 1 atm del aire."),
+    q4("El empuje sobre un cuerpo totalmente sumergido, al bajar más…", ["aumenta", "disminuye", "no cambia", "se anula"], 2, "Solo depende del volumen desalojado y de la densidad del fluido."),
+  ],
+  feynman: ["Qué es la presión y por qué las raquetas evitan hundirse en la nieve", "Por qué la presión aumenta con la profundidad", "Cómo una prensa hidráulica multiplica la fuerza sin crear energía", "Por qué flota un barco de acero", "Qué demostró Torricelli", "Qué diferencia hay entre una borrasca y un anticiclón"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Vasos comunicantes", "El mismo líquido alcanza la misma altura en recipientes unidos por la base."],
-    ["Condición de flotación", "Flota si su densidad media es menor que la del líquido."],
-    ["1 atm equivale a…", "101.300 Pa = 1.013 hPa = 760 mmHg."],
+    ["Presión", "p = F / S; en pascales (N/m²)."],
+    ["Principio fundamental de la hidrostática", "p = ρ · g · h."],
+    ["1 atm en otras unidades", "101.300 Pa = 760 mmHg = 1.013 hPa."],
+    ["Principio de Pascal", "La presión en un líquido encerrado se transmite íntegra en todas direcciones."],
+    ["Prensa hidráulica", "F₁ / S₁ = F₂ / S₂."],
+    ["Principio de Arquímedes", "E = ρ<sub>fluido</sub> · g · V<sub>sumergido</sub>."],
+    ["Condición para flotar", "Densidad del cuerpo menor que la del fluido."],
+    ["Peso aparente", "P − E."],
+    ["Vasos comunicantes", "Un mismo líquido alcanza la misma altura en todos."],
+    ["Experimento de Torricelli", "La presión atmosférica sostiene 76 cm de mercurio."],
+    ["Anticiclón y borrasca", "Alta presión, tiempo estable; baja presión, nubes y lluvia."],
+    ["Efecto Bernoulli", "Donde el fluido va más rápido, la presión es menor."],
   ],
-});
+  glosario: [
+    ["Presión", "Fuerza perpendicular por unidad de superficie."],
+    ["Pascal (Pa)", "Unidad de presión del SI: 1 N/m²."],
+    ["Fluido", "Sustancia que puede fluir y adapta su forma al recipiente: líquidos y gases."],
+    ["Densidad", "Masa por unidad de volumen, en kg/m³."],
+    ["Presión hidrostática", "Presión que ejerce un líquido en reposo por el peso del líquido de encima."],
+    ["Vasos comunicantes", "Recipientes unidos por su base en los que un líquido alcanza el mismo nivel."],
+    ["Principio de Pascal", "La presión aplicada a un líquido encerrado se transmite igual a todos sus puntos."],
+    ["Prensa hidráulica", "Máquina que multiplica la fuerza usando dos émbolos de distinta sección."],
+    ["Empuje", "Fuerza vertical hacia arriba que ejerce un fluido sobre un cuerpo sumergido."],
+    ["Peso aparente", "Diferencia entre el peso real y el empuje."],
+    ["Presión atmosférica", "Presión que ejerce el aire por su peso; 1 atm al nivel del mar."],
+    ["Barómetro", "Instrumento que mide la presión atmosférica."],
+    ["Manómetro", "Instrumento que mide la presión de un gas encerrado, como el de un neumático."],
+    ["Isobara", "Línea de un mapa que une puntos con la misma presión."],
+    ["Anticiclón", "Zona de alta presión, normalmente con tiempo estable."],
+    ["Borrasca", "Zona de baja presión, normalmente con nubes, lluvia y viento."],
+  ],
+  situacion: {
+    titulo: "Construye un barco que cargue más",
+    reto: "Un concurso del instituto premia el barco de papel de aluminio que más monedas soporte sin hundirse. Con una hoja de 20 × 20 cm, vuestro equipo debe diseñar, predecir y comprobar.",
+    pasos: [
+      "Calculad cuánta carga puede llevar un barco con forma de caja de base b × b y altura h, aplicando el principio de Arquímedes.",
+      "Elegid las dimensiones que maximizan el volumen con la hoja disponible y predecid el número de monedas (pesad una moneda).",
+      "Construid el barco y comprobad el resultado en un barreño; anotad la carga real.",
+      "Repetid con agua salada y explicad la diferencia.",
+      "Comparad la predicción con la medida y analizad las causas de error (fugas, reparto de la carga, deformación).",
+    ],
+    producto: "Un barco, una hoja de cálculo con la predicción y un informe breve que compare teoría y experimento.",
+    evaluacion: ["El cálculo del empuje y de la carga máxima es correcto.", "El diseño se justifica con el principio de Arquímedes.", "Los datos se recogen con orden y se comparan con la predicción.", "El informe analiza los errores y propone mejoras."],
+  },
+  familias: [
+    "Echad un huevo en un vaso de agua y añadid sal poco a poco hasta que flote: comentad qué ha cambiado.",
+    "Llenad un vaso de agua, tapadlo con una cartulina y dadle la vuelta sobre el fregadero: la presión del aire sostiene el agua.",
+    "Mirad en el telediario el mapa de isobaras y buscad un anticiclón y una borrasca; comprobad si acierta el pronóstico.",
+    "Repasad juntos las tarjetas del tema y explicad por qué flota un barco.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La interacción»: presión, principio fundamental de la hidrostática, principios de Pascal y Arquímedes, presión atmosférica y aplicaciones tecnológicas y meteorológicas.`,
+    ideas: [
+      "Ludión con una botella de plástico y un capuchón de bolígrafo para ver Pascal y Arquímedes a la vez.",
+      "Medir densidades por el método de Arquímedes con un dinamómetro y una probeta.",
+      "Medir con el barómetro del móvil (phyphox) la presión en cada planta del instituto y calcular la altura.",
+      "Simulación «Flotabilidad» de PhET para relacionar densidad, volumen y empuje.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    { t: "Principio de Arquímedes, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Principio_de_Arqu%C3%ADmedes" },
+    { t: "Agencia Estatal de Meteorología (AEMET)", url: "https://www.aemet.es/" },
+  ],
+  revisado: "2026-11-13",
+};
