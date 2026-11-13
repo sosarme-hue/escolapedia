@@ -1,164 +1,249 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
+// Matemáticas B 4º ESO · Tema 12. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, graf } = require("./_eso4L3");
 
-// Nube de puntos a partir de pares [x, y] en un marco 260x180.
-const nube = (pts, c) => pts.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="${c}" fill-opacity=".8"/>`).join("");
-const marco = `<path d="M24 160 H 250 M24 10 V 160" stroke="var(--muted)" stroke-width="2"/>`;
-const sube = [[40, 140], [56, 132], [70, 120], [84, 124], [100, 104], [118, 100], [130, 86], [148, 84], [160, 70], [178, 62], [194, 56], [210, 40], [226, 36]];
+// Nube de puntos con ejes propios.
+const nube = (aria, pts, o, extra = () => "") => graf(aria, { m: 20, ...o }, (E) => `${pts.map(([x, y]) => `<circle cx="${E.X(x)}" cy="${E.Y(y)}" r="3.8" fill="var(--pen)" opacity=".85"/>`).join("")}${extra(E)}`);
+// Puntos de ejemplo con distintas correlaciones (pseudoaleatorios fijos).
+const ruido = (k) => [0.3, -0.6, 0.9, -0.2, 0.5, -0.9, 0.1, 0.7, -0.4, 0.6, -0.7, 0.2, -0.1, 0.8, -0.5][k % 15];
+const EST = [[1, 3], [2, 4], [3, 6], [4, 7], [5, 10]];
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Estadística bidimensional",
-  minutos: 40,
-  objetivos: ["Organizar datos de dos variables y representarlos en una nube de puntos", "Interpretar la correlación: positiva, negativa, fuerte o débil", "Usar la recta de regresión para hacer predicciones con sentido crítico"],
-  claves: ["variable bidimensional", "nube de puntos", "correlación", "coeficiente r", "recta de regresión", "predicción"],
+  minutos: 110,
+  objetivos: [
+    "Organizar datos de dos variables en tablas y representarlos en un diagrama de dispersión",
+    "Describir el tipo y la fuerza de la correlación a partir de la nube de puntos",
+    "Calcular e interpretar el centro de gravedad, la covarianza y el coeficiente de correlación",
+    "Obtener la recta de regresión y usarla para hacer estimaciones razonables",
+    "Distinguir correlación de causalidad y valorar la fiabilidad de las predicciones",
+    "Usar la calculadora y la hoja de cálculo para el análisis bidimensional",
+  ],
+  claves: ["variable bidimensional", "diagrama de dispersión", "nube de puntos", "correlación", "centro de gravedad", "covarianza", "coeficiente de correlación", "recta de regresión", "estimación", "causalidad"],
+  lectura: {
+    titulo: "Las chimeneas, el cáncer y el tabaco",
+    html: `<p>A principios del siglo XX, los médicos británicos observaron algo inquietante: los casos de cáncer de pulmón se multiplicaban año tras año. Algunos culpaban al alquitrán de las nuevas carreteras; otros, a los humos de las fábricas y las chimeneas. En 1950, dos investigadores, Richard Doll y Austin Bradford Hill, decidieron estudiarlo con datos: entrevistaron a cientos de pacientes y anotaron, para cada uno, <b>dos variables</b>: cuántos cigarrillos fumaba al día y si tenía o no la enfermedad.</p>
+    <p>El resultado fue contundente: cuanto más fumaba una persona, mayor era su riesgo. La relación entre las dos variables era tan fuerte y tan constante que, tras muchos más estudios, se convirtió en una de las pruebas más sólidas de la historia de la medicina.</p>
+    <p>Esta historia muestra el poder, y también la dificultad, de la <b>estadística bidimensional</b>: estudiar si dos variables están relacionadas, cómo de fuerte es esa relación y si permite hacer predicciones. Hoy se usa para decidir el precio de una vivienda según sus metros, para prever la demanda eléctrica según la temperatura o para estudiar si el uso del móvil influye en el sueño. Pero también obliga a pensar con cuidado: que dos cosas aparezcan juntas no siempre significa que una cause la otra.</p>`,
+  },
   pregunta: {
     texto: "¿Los alumnos que duermen más sacan mejores notas? ¿Cómo lo comprobarías con datos de tu clase?",
     respuesta: "Recogiendo <mark>dos datos de cada alumno</mark> (horas de sueño y nota) y dibujando cada par como un punto. Si la nube «sube», hay <b>correlación positiva</b>. Pero cuidado: que dos cosas vayan juntas <b>no demuestra</b> que una cause la otra.",
   },
   bloques: [
     {
-      html: `<h3>Variables bidimensionales y nube de puntos</h3><p>Cuando estudiamos <b>dos variables a la vez</b> en cada individuo (altura y peso, horas de estudio y nota) tenemos pares (x, y). Cada par se dibuja como un punto: es la <mark>nube de puntos</mark> o diagrama de dispersión.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Nube de puntos de horas de estudio y nota que sube de izquierda a derecha">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${marco}${nube(sube, "var(--pen)")}
-        <g ${F} font-size="12" font-weight="700" fill="var(--muted)"><text x="140" y="176" text-anchor="middle">horas de estudio (x)</text><text x="30" y="20">nota (y)</text></g></svg>`,
+      html: `<h3>12.1 Variables estadísticas bidimensionales</h3><p>En los cursos anteriores estudiaste variables estadísticas de una en una: la altura de los alumnos, las notas de un examen, el número de hermanos. Una <b>variable estadística bidimensional</b> se obtiene al observar <mark>dos características a la vez en cada individuo</mark> de la población. Se representa como un par (X, Y) y cada individuo aporta un par de valores (xᵢ, yᵢ).</p><p>Ejemplos:</p><ul><li>Horas de estudio semanales (X) y nota del examen (Y) de cada alumno.</li><li>Temperatura máxima (X) y número de helados vendidos (Y) en cada día de verano.</li><li>Antigüedad (X) y precio (Y) de cada coche de segunda mano de un concesionario.</li><li>Altura (X) y peso (Y) de un grupo de personas.</li></ul><p>La pregunta clave de este tema es: <b>¿existe relación entre X e Y?</b> Y si existe, ¿de qué tipo es, cómo de fuerte es y se puede usar para predecir una variable a partir de la otra?</p><p>Cuando entre dos variables hay una relación exacta, como entre el lado de un cuadrado y su área, se dice que hay una <b>dependencia funcional</b>: conocido x, y queda determinado. En estadística casi nunca ocurre eso: dos alumnos que estudian lo mismo pueden sacar notas distintas. Hablamos entonces de <b>dependencia estadística</b> o correlación: hay una tendencia, pero con variaciones.</p>`,
+      svg: lienzo("Comparación entre una dependencia funcional, en la que los puntos están sobre una curva, y una dependencia estadística, en la que forman una nube alrededor de una tendencia", `${[["funcional", "var(--leaf)", 0], ["estadística", "var(--pen)", 1]].map(([n, c, i]) => { const ox = 14 + i * 124; let g = `<rect x="${ox}" y="18" width="112" height="128" rx="8" fill="var(--card)" stroke="var(--line)"/>`; for (let k = 0; k < 10; k++) { const x = ox + 12 + k * 10, y = 132 - k * 10 + (i ? ruido(k) * 14 : 0); g += `<circle cx="${x}" cy="${y.toFixed(1)}" r="3.6" fill="${c}"/>`; } return `${g}${t(ox + 56, 166, n, { s: 13, b: 1, c })}`; }).join("")}`),
     },
     {
-      html: `<h3>Tipos de correlación</h3><p>La <b>correlación</b> mide cómo se relacionan las dos variables:</p><ul><li><b>Positiva</b>: cuando una sube, la otra tiende a subir.</li><li><b>Negativa</b>: cuando una sube, la otra tiende a bajar.</li><li><b>Nula</b>: no hay relación clara.</li></ul><p>Cuanto más se parecen los puntos a una recta, <mark>más fuerte</mark> es la correlación.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres nubes: correlación positiva, negativa y nula">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[[0, (i) => 130 - i * 9 + ((i * 37) % 13) - 6, "var(--leaf)", "positiva"], [1, (i) => 40 + i * 9 + ((i * 29) % 13) - 6, "var(--red)", "negativa"], [2, (i) => 50 + ((i * 53) % 80), "var(--muted)", "nula"]].map(([g, f, c, n]) => `<rect x="${8 + g * 84}" y="20" width="76" height="126" rx="8" fill="var(--card)" stroke="var(--line)"/>
-          ${[...Array(10)].map((_, i) => `<circle cx="${16 + g * 84 + i * 6.5}" cy="${f(i)}" r="3.5" fill="${c}"/>`).join("")}
-          <text x="${46 + g * 84}" y="164" text-anchor="middle" font-size="12" font-weight="700" fill="${c}" ${F}>${n}</text>`).join("")}</svg>`,
+      html: `<h3>12.2 Tablas de datos bidimensionales</h3><p>Los datos de una variable bidimensional se organizan en tablas. Hay dos formatos principales:</p><ul><li><b>Tabla simple</b> o de pares: dos filas (o columnas), una con los valores de X y otra con los de Y. Cada columna es un individuo. Se usa cuando hay pocos datos o casi no se repiten.</li><li><b>Tabla de doble entrada</b>: los valores de X se colocan en las filas y los de Y en las columnas; cada casilla indica la <b>frecuencia</b> con la que aparece ese par. Es útil cuando hay muchos datos y se repiten, por ejemplo al cruzar el número de hermanos con el número de mascotas de toda una clase.</li></ul><p>Ejemplo de tabla simple, con las horas de estudio semanales y la nota de cinco alumnos:</p><table><tr><th>Horas (X)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>Nota (Y)</th><td>3</td><td>4</td><td>6</td><td>7</td><td>10</td></tr></table><p>A partir de una tabla de doble entrada se pueden obtener las <b>distribuciones marginales</b>: las de cada variable por separado, sumando filas o columnas. Con ellas se calculan, como ya sabes, las medias y desviaciones típicas de X y de Y. En este tema trabajaremos sobre todo con tablas simples, que es como se presentan los datos en la mayoría de los estudios y en las hojas de cálculo.</p>`,
+      svg: lienzo("Tabla de datos de horas de estudio y notas de cinco alumnos", `${["Horas (X)", "Nota (Y)"].map((r, i) => `<rect x="12" y="${52 + i * 40}" width="80" height="36" rx="4" fill="${i ? "var(--leaf)" : "var(--pen)"}" fill-opacity=".18" stroke="var(--line)"/>${t(52, 75 + i * 40, r, { s: 11, b: 1 })}${EST.map((p, k) => `<rect x="${96 + k * 30}" y="${52 + i * 40}" width="28" height="36" rx="4" fill="var(--card)" stroke="var(--line)"/>${t(110 + k * 30, 75 + i * 40, String(p[i]), { s: 14, b: 1, c: i ? "var(--leaf)" : "var(--pen)" })}`).join("")}`).join("")}${t(130, 30, "Un par (xᵢ, yᵢ) por alumno", { s: 13, b: 1 })}${t(130, 156, "5 individuos → 5 puntos", { s: 12, c: "var(--muted)" })}`),
     },
     {
-      html: `<h3>El coeficiente de correlación r</h3><p>Es un número entre <b>−1 y 1</b> que resume la correlación. Su signo dice el <mark>sentido</mark> y su tamaño la <mark>fuerza</mark>: r cerca de 1 o −1 es correlación fuerte; cerca de 0, débil o nula. Se calcula con la calculadora en modo estadística (REG o LINE).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Regla del coeficiente r de menos 1 a 1: fuerte negativa, débil, nula, débil y fuerte positiva">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <defs><linearGradient id="gr" x1="0" x2="1"><stop offset="0" stop-color="var(--red)"/><stop offset=".5" stop-color="var(--line)"/><stop offset="1" stop-color="var(--leaf)"/></linearGradient></defs>
-        <rect x="20" y="80" width="220" height="20" rx="10" fill="url(#gr)"/>
-        ${[["−1", 20], ["−0,5", 75], ["0", 130], ["0,5", 185], ["1", 240]].map(([t, x]) => `<path d="M${x} 104 v 8" stroke="var(--ink)" stroke-width="2"/><text x="${x}" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>${t}</text>`).join("")}
-        <g ${F} font-size="11" font-weight="700" text-anchor="middle"><text x="34" y="66" fill="var(--red)">fuerte −</text><text x="130" y="66" fill="var(--muted)">nula</text><text x="226" y="66" fill="var(--leaf)">fuerte +</text><text x="130" y="158" fill="var(--ink)">r = 0,92 → fuerte y positiva</text></g></svg>`,
+      html: `<h3>12.3 El diagrama de dispersión</h3><p>La forma más clara de ver si dos variables están relacionadas es dibujar un <b>diagrama de dispersión</b> o <b>nube de puntos</b>: en unos ejes cartesianos se representa cada par (xᵢ, yᵢ) como un punto. Si un par se repite, se puede indicar con un punto más grande o con su frecuencia al lado.</p><p>Al mirar la nube nos fijamos en tres cosas:</p><ol><li>La <b>dirección</b>: ¿la nube sube (al aumentar X, tiende a aumentar Y) o baja?</li><li>La <b>forma</b>: ¿los puntos se agrupan en torno a una recta o a una curva?</li><li>La <b>dispersión</b>: ¿los puntos están muy pegados a esa línea imaginaria o muy separados?</li></ol><p>En el ejemplo de las horas de estudio, los puntos (1, 3), (2, 4), (3, 6), (4, 7) y (5, 10) forman una nube que sube claramente y que se agrupa bastante cerca de una recta. Hay, por tanto, una relación positiva y bastante fuerte.</p><p>Consejos para dibujarlo bien: la variable que se considera «explicativa» (la que se podría usar para predecir) va en el eje X; cada eje lleva su escala, que no tiene por qué empezar en 0; y siempre se indican los nombres de las variables con sus unidades. Las hojas de cálculo lo dibujan automáticamente con el gráfico de tipo <mark>dispersión</mark>.</p>`,
+      svg: nube("Diagrama de dispersión de horas de estudio y nota: la nube sube", EST, { x0: 0, x1: 6, y0: 0, y1: 11, paso: 1, pasoY: 2 }, (E) => `${t(E.w - 8, E.h - 4, "horas", { c: "var(--muted)", s: 10, a: "end" })}${t(26, 14, "nota", { c: "var(--muted)", s: 10, a: "start" })}`),
     },
     {
-      html: `<h3>La recta de regresión</h3><p>Es la recta que <mark>mejor se ajusta</mark> a la nube: pasa por el punto medio (x̄, ȳ) y deja los puntos lo más cerca posible. Su ecuación y = a + bx la da la calculadora, y sirve para <b>predecir</b>: si y = 3 + 0,8x, con 5 horas de estudio se espera una nota de 3 + 4 = 7.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Nube de puntos con la recta de regresión que mejor se ajusta y el punto medio marcado">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${marco}${nube(sube, "var(--pen)")}
-        <path d="M28 146 L 240 30" stroke="var(--red)" stroke-width="3"/><circle cx="133" cy="88" r="7" fill="var(--hl)" stroke="var(--ink)" stroke-width="2"/>
-        <g ${F} font-size="12" font-weight="700"><text x="142" y="112" fill="var(--ink)">(x̄, ȳ)</text><text x="150" y="24" fill="var(--red)">y = a + bx</text></g></svg>`,
+      html: `<h3>12.4 Tipos de correlación</h3><p>La <b>correlación</b> es el grado de relación entre las dos variables. Según la forma de la nube se distinguen:</p><ul><li><b>Correlación positiva</b> (directa): al aumentar X, tiende a aumentar Y. La nube sube. Ejemplo: temperatura y venta de helados.</li><li><b>Correlación negativa</b> (inversa): al aumentar X, tiende a disminuir Y. La nube baja. Ejemplo: antigüedad de un coche y su precio.</li><li><b>Correlación nula</b> (incorrelación): no se aprecia ninguna tendencia. Ejemplo: altura de una persona y su nota de matemáticas.</li></ul><p>Además, según lo agrupados que estén los puntos:</p><ul><li>Correlación <b>fuerte</b>: los puntos están muy cerca de una línea.</li><li>Correlación <b>débil</b>: hay tendencia, pero con mucha dispersión.</li></ul><p>Y según la forma, la correlación puede ser <b>lineal</b> (los puntos siguen una recta) o <b>no lineal</b> (siguen una curva, como una parábola o una exponencial). En este curso estudiamos solo la correlación lineal. Ojo: una nube con forma de U tiene una relación clara, pero no lineal, y las medidas de este tema darán una correlación cercana a cero. Por eso <mark>siempre hay que mirar el dibujo</mark> antes de calcular.</p>`,
+      svg: lienzo("Cuatro nubes de puntos: correlación positiva fuerte, negativa fuerte, positiva débil y nula", `${[["positiva fuerte", 1, 0.25, "var(--leaf)"], ["negativa fuerte", -1, 0.25, "var(--red)"], ["positiva débil", 1, 1.3, "var(--inf)"], ["nula", 0, 1.6, "var(--muted)"]].map(([n, s, d, c], i) => { const ox = 8 + (i % 2) * 126, oy = 8 + Math.floor(i / 2) * 86; let g = `<rect x="${ox}" y="${oy}" width="118" height="78" rx="8" fill="var(--card)" stroke="var(--line)"/>`; for (let k = 0; k < 12; k++) { const u = k / 11, v = s === 0 ? 0.5 + ruido(k + 3) * 0.4 : (s > 0 ? u : 1 - u) + ruido(k) * d * 0.25; g += `<circle cx="${(ox + 12 + u * 94).toFixed(1)}" cy="${(oy + 56 - Math.max(0, Math.min(1, v)) * 44).toFixed(1)}" r="3" fill="${c}"/>`; } return `${g}${t(ox + 59, oy + 72, n, { s: 10, b: 1, c })}`; }).join("")}`),
     },
     {
-      html: `<h3>Predecir con cuidado</h3><p>Las predicciones son <b>fiables</b> si la correlación es fuerte y si no te alejas del rango de los datos. Además, <mark>correlación no es causalidad</mark>: las ventas de helados y los golpes de calor suben juntos, pero los helados no causan golpes de calor; ambos dependen del verano.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Helados y golpes de calor suben juntos porque los dos dependen del calor: correlación sin causalidad">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <circle cx="130" cy="44" r="26" fill="var(--hl)"/><text x="130" y="50" text-anchor="middle" font-size="13" font-weight="700" fill="var(--hl-ink)" ${F}>calor</text>
-        <rect x="16" y="120" width="96" height="40" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/><rect x="148" y="120" width="96" height="40" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
-        <path d="M112 68 L 72 118 M148 68 L 188 118" stroke="var(--ink)" stroke-width="2.5"/><path d="M114 140 H 146" stroke="var(--muted)" stroke-width="2.5" stroke-dasharray="5 4"/>
-        <g ${F} font-size="12" font-weight="700" text-anchor="middle"><text x="64" y="145" fill="var(--pen)">helados</text><text x="196" y="145" fill="var(--red)">golpes de calor</text><text x="130" y="176" fill="var(--muted)">van juntos, pero uno no causa el otro</text></g></svg>`,
+      html: `<h3>12.5 El centro de gravedad de la nube</h3><p>Para medir numéricamente la correlación, necesitamos primero un punto de referencia: el <b>centro de gravedad</b> de la nube, que es el punto cuyas coordenadas son las <mark>medias de cada variable</mark>:</p><div class="formula"><span>G = (x̄, ȳ)    x̄ = Σxᵢ / n    ȳ = Σyᵢ / n</span></div><p>En el ejemplo de las horas de estudio: x̄ = (1 + 2 + 3 + 4 + 5)/5 = 3 horas e ȳ = (3 + 4 + 6 + 7 + 10)/5 = 6 puntos. El centro de gravedad es <b>G(3, 6)</b>.</p><p>Si por G trazamos una recta vertical y otra horizontal, la nube queda dividida en cuatro cuadrantes. En una correlación positiva, la mayoría de los puntos caen en el cuadrante superior derecho (x e y por encima de su media) y en el inferior izquierdo (ambas por debajo). En una correlación negativa, la mayoría están en los otros dos cuadrantes. Si están repartidos por igual, la correlación es nula.</p><p>Esta idea es la base de la covarianza, la medida que veremos a continuación. Además, el centro de gravedad tiene una propiedad muy útil: la recta de regresión, la que mejor se ajusta a la nube, <b>siempre pasa por G</b>. Por eso es lo primero que se calcula en cualquier análisis.</p>`,
+      svg: nube("Centro de gravedad G(3, 6) de la nube y los cuatro cuadrantes que determina", EST, { x0: 0, x1: 6, y0: 0, y1: 11, paso: 1, pasoY: 2 }, (E) => `${E.seg(3, 0, 3, 11, "var(--red)", 1.5, 'stroke-dasharray="5 4"')}${E.seg(0, 6, 6, 6, "var(--red)", 1.5, 'stroke-dasharray="5 4"')}<circle cx="${E.X(3)}" cy="${E.Y(6)}" r="6" fill="none" stroke="var(--red)" stroke-width="2.4"/>${t(E.X(3) - 8, E.Y(6) + 18, "G(3, 6)", { c: "var(--red)", s: 12, b: 1, a: "end" })}${t(E.X(4.9), E.Y(8.4), "+ · + > 0", { c: "var(--leaf)", s: 11, b: 1 })}${t(E.X(1.4), E.Y(1), "− · − > 0", { c: "var(--leaf)", s: 11, b: 1 })}`),
+    },
+    {
+      html: `<h3>12.6 La covarianza</h3><p>La <b>covarianza</b> mide hacia dónde va la relación entre X e Y. Se calcula multiplicando, para cada individuo, cuánto se separa de la media en X y cuánto en Y, y haciendo la media de esos productos:</p><div class="formula"><span>Sxy = Σ (xᵢ − x̄)(yᵢ − ȳ) / n  = (Σ xᵢ yᵢ) / n − x̄ · ȳ</span></div><p>La segunda fórmula es equivalente y suele ser más cómoda. Si un punto está en el cuadrante superior derecho o en el inferior izquierdo respecto de G, su producto es positivo; si está en los otros dos, negativo. Por tanto:</p><ul><li><mark>Sxy &gt; 0</mark> → correlación positiva.</li><li><mark>Sxy &lt; 0</mark> → correlación negativa.</li><li>Sxy ≈ 0 → no hay correlación lineal.</li></ul><p>En el ejemplo: Σxᵢyᵢ = 1·3 + 2·4 + 3·6 + 4·7 + 5·10 = 3 + 8 + 18 + 28 + 50 = 107. Sxy = 107/5 − 3 · 6 = 21,4 − 18 = <b>3,4</b>. Es positiva, como se veía en la nube.</p><p>La covarianza tiene un inconveniente: su valor depende de las <b>unidades</b>. Si midiéramos el tiempo en minutos en vez de horas, la covarianza se multiplicaría por 60, aunque la relación sea la misma. Por eso su signo es muy útil, pero su tamaño no dice si la correlación es fuerte o débil.</p>`,
+      svg: tarjeta("Cálculo de la covarianza del ejemplo: suma de productos 107, entre 5 da 21,4, menos 3 por 6 da 3,4", "Covarianza del ejemplo", [["Σ xᵢyᵢ = 3 + 8 + 18 + 28 + 50 = 107", "var(--pen)", 12, 1], ["Sxy = 107/5 − 3 · 6", "var(--leaf)", 15, 1], ["Sxy = 21,4 − 18 = 3,4 > 0", "var(--red)", 15, 1], ["el signo indica correlación positiva", "var(--muted)", 11]]),
+      video: { id: "r_ITkER_bh8", titulo: "Covarianza (tabla de datos sin agrupar)", canal: "Ruben Sebastian", vistas: 204314, busqueda: "covarianza estadística bidimensional" },
+    },
+    {
+      html: `<h3>12.7 El coeficiente de correlación lineal</h3><p>Para tener una medida que no dependa de las unidades, se divide la covarianza entre el producto de las <b>desviaciones típicas</b> de X y de Y. Se obtiene el <b>coeficiente de correlación lineal de Pearson</b>:</p><div class="formula"><span>r = Sxy / (Sx · Sy)</span></div><p>Recuerda que la desviación típica es Sx = √(Σxᵢ²/n − x̄²).</p><p>En el ejemplo: Σxᵢ² = 1 + 4 + 9 + 16 + 25 = 55, así que Sx² = 55/5 − 9 = 2 y Sx = √2 ≈ 1,414. Σyᵢ² = 9 + 16 + 36 + 49 + 100 = 210, Sy² = 210/5 − 36 = 6 y Sy = √6 ≈ 2,449. Por tanto:</p><div class="formula"><span>r = 3,4 / (1,414 · 2,449) ≈ 3,4 / 3,464 ≈ 0,98</span></div><p>El coeficiente r tiene propiedades muy útiles: <mark>siempre está entre −1 y 1</mark>, tiene el mismo signo que la covarianza y no cambia si se cambian las unidades de medida. Lo inventó a finales del siglo XIX el matemático británico Karl Pearson, a partir de las ideas de Francis Galton, que estudiaba la relación entre la altura de padres e hijos.</p>`,
+      svg: tarjeta("Cálculo del coeficiente de correlación del ejemplo: covarianza 3,4, desviaciones 1,414 y 2,449, r aproximadamente 0,98", "Coeficiente de correlación", [["Sx = √2 ≈ 1,414", "var(--pen)", 14, 1], ["Sy = √6 ≈ 2,449", "var(--leaf)", 14, 1], ["r = 3,4 / (1,414 · 2,449)", "var(--ink)", 14, 1], ["r ≈ 0,98", "var(--red)", 18, 1]]),
+      video: { id: "6Bf0Ja6uexg", titulo: "Coeficiente de correlación de Pearson", canal: "Ruben Sebastian", vistas: 409014, busqueda: "coeficiente de correlación de Pearson" },
+    },
+    {
+      html: `<h3>12.8 Interpretar el coeficiente de correlación</h3><p>El valor de r resume en un número el tipo y la fuerza de la correlación lineal:</p><ul><li><b>r = 1</b>: dependencia funcional lineal creciente. Todos los puntos están sobre una recta que sube.</li><li><b>r = −1</b>: dependencia funcional lineal decreciente. Todos sobre una recta que baja.</li><li><b>r cercano a 1 o a −1</b> (|r| &gt; 0,8 aproximadamente): correlación <b>fuerte</b>.</li><li><b>|r| entre 0,5 y 0,8</b>: correlación <b>moderada</b>.</li><li><b>|r| menor que 0,5</b>: correlación <b>débil</b>.</li><li><b>r ≈ 0</b>: no hay correlación lineal.</li></ul><p>Estos límites son orientativos y dependen del campo: en física se esperan correlaciones de 0,99, mientras que en psicología o sociología un r = 0,5 ya puede ser un hallazgo interesante.</p><p>En el ejemplo de las horas de estudio, r ≈ 0,98: <mark>correlación positiva muy fuerte</mark>. En el de los coches (antigüedad y precio), un cálculo similar da r ≈ −0,99: negativa muy fuerte.</p><p>Hay que recordar dos advertencias. Primera: r solo mide relación <b>lineal</b>; una relación curva perfecta puede dar r ≈ 0. Segunda: con muy pocos datos, un r alto puede deberse a la casualidad; cuantos más datos, más fiable es la conclusión. Un solo dato extremo (atípico) también puede alterar mucho el valor de r.</p>`,
+      svg: lienzo("Escala del coeficiente de correlación de menos 1 a 1: fuerte negativa, débil, nula, débil y fuerte positiva", `<defs><linearGradient id="gr12" x1="0" x2="1"><stop offset="0" stop-color="var(--red)"/><stop offset=".5" stop-color="var(--muted)"/><stop offset="1" stop-color="var(--leaf)"/></linearGradient></defs><rect x="20" y="70" width="220" height="20" rx="10" fill="url(#gr12)"/>${[-1, -0.5, 0, 0.5, 1].map((v) => t(130 + v * 110, 108, v === 0 ? "0" : String(v).replace(".", ",").replace("-", "−"), { s: 12, b: 1 })).join("")}${t(36, 56, "fuerte −", { c: "var(--red)", s: 11, b: 1 })}${t(130, 56, "débil o nula", { c: "var(--muted)", s: 11, b: 1 })}${t(224, 56, "fuerte +", { c: "var(--leaf)", s: 11, b: 1 })}<path d="M${130 + 0.98 * 110} 66 v 28" stroke="var(--ink)" stroke-width="3"/>${t(130 + 0.98 * 110, 130, "r = 0,98", { s: 12, b: 1, a: "end" })}${t(130, 160, "|r| cerca de 1 → puntos cerca de una recta", { s: 11, c: "var(--muted)" })}`),
+    },
+    {
+      html: `<h3>12.9 La recta de regresión</h3><p>Cuando la correlación es fuerte, tiene sentido buscar la recta que <b>mejor se ajusta</b> a la nube de puntos. Se llama <b>recta de regresión de Y sobre X</b> y se usa para estimar Y a partir de X. Pasa por el centro de gravedad G(x̄, ȳ) y su pendiente es el cociente entre la covarianza y la varianza de X:</p><div class="formula"><span>y − ȳ = (Sxy / Sx²) · (x − x̄)</span></div><p>El número Sxy/Sx² se llama <b>coeficiente de regresión</b>; tiene el mismo signo que la covarianza.</p><p>En el ejemplo: pendiente = 3,4 / 2 = 1,7. La recta es y − 6 = 1,7(x − 3), es decir, <mark>y = 1,7x + 0,9</mark>. Interpretación: por cada hora más de estudio a la semana, la nota aumenta de media 1,7 puntos.</p><p>¿Por qué es la «mejor» recta? Para cada punto de la nube, se mide la distancia vertical hasta la recta (el error o <b>residuo</b>). La recta de regresión es la que hace mínima la suma de los cuadrados de esos errores. Por eso el método se llama de <b>mínimos cuadrados</b>, y lo desarrollaron Legendre y Gauss a principios del siglo XIX para calcular las órbitas de los planetas y cometas a partir de observaciones con errores.</p>`,
+      svg: nube("Recta de regresión y igual a 1,7x más 0,9 que pasa por el centro de gravedad de la nube", EST, { x0: 0, x1: 6, y0: 0, y1: 11, paso: 1, pasoY: 2 }, (E) => `${EST.map(([x, y]) => E.seg(x, y, x, 1.7 * x + 0.9, "var(--muted)", 1.3, 'stroke-dasharray="3 3"')).join("")}${E.curva((x) => 1.7 * x + 0.9, "var(--red)", 0, 6, 2.4)}${E.punto(3, 6, "var(--red)", "G", 8, 14)}${t(E.X(0.2), E.Y(10.2), "y = 1,7x + 0,9", { c: "var(--red)", s: 12, b: 1, a: "start" })}`),
+      video: { id: "wtjfwq1FbzA", titulo: "Recta de regresión lineal", canal: "Ruben Sebastian", vistas: 501588, busqueda: "recta de regresión" },
+    },
+    {
+      html: `<h3>12.10 Hacer estimaciones y valorar su fiabilidad</h3><p>La utilidad práctica de la recta de regresión es <b>estimar</b> el valor de Y para un valor de X del que no tenemos datos. Basta sustituir en la ecuación. En el ejemplo, un alumno que estudie 3,5 horas semanales sacaría, según el modelo, y = 1,7 · 3,5 + 0,9 ≈ <b>6,85</b>.</p><p>¿Cuánto podemos fiarnos de esa estimación? Depende de dos cosas:</p><ol><li><b>Del valor de r</b>. Si |r| está cerca de 1, los puntos están muy pegados a la recta y la estimación será buena. Si |r| es pequeño, la estimación es poco fiable, porque los datos reales se separan mucho de la recta.</li><li><b>De dónde esté el valor de x</b>. Estimar dentro del intervalo de los datos (<b>interpolar</b>) es razonable. Estimar fuera de él (<b>extrapolar</b>) es arriesgado, porque no sabemos si la tendencia se mantiene.</li></ol><p>Un ejemplo de lo absurda que puede ser la extrapolación: con nuestra recta, un alumno que estudie 6 horas sacaría y = 1,7 · 6 + 0,9 = <mark>11,1</mark>, una nota imposible. Y uno que estudie 20 horas, ¡35! La relación entre estudio y nota no puede seguir siendo lineal indefinidamente. Del mismo modo, un niño crece unos 6 cm al año entre los 4 y los 10 años, pero sería absurdo usar esa tendencia para predecir su altura a los 40.</p>`,
+      svg: nube("Interpolar dentro del intervalo de los datos es razonable; extrapolar fuera de él puede dar resultados imposibles, como una nota de 11,1", EST, { x0: 0, x1: 7, y0: 0, y1: 13, paso: 1, pasoY: 2 }, (E) => `<rect x="${E.X(1)}" y="${E.Y(13)}" width="${E.X(5) - E.X(1)}" height="${E.Y(0) - E.Y(13)}" fill="var(--leaf)" opacity=".1"/>${E.seg(0, 10, 7, 10, "var(--muted)", 1.3, 'stroke-dasharray="5 4"')}${E.curva((x) => 1.7 * x + 0.9, "var(--red)", 0, 7, 2.2)}${E.punto(3.5, 6.85, "var(--leaf)", "6,85", -8, -6)}${E.punto(6, 11.1, "var(--red)", "11,1 ?", -8, -6)}${t(E.X(3), E.Y(12.2), "interpolar", { c: "var(--leaf)", s: 11, b: 1 })}${t(E.X(6.9), E.Y(10) + 26, "nota máx. 10", { c: "var(--muted)", s: 10, a: "end" })}`),
+    },
+    {
+      html: `<h3>12.11 Correlación no implica causalidad</h3><p>Este es probablemente el aviso más importante de toda la estadística: que dos variables estén correlacionadas <mark>no demuestra que una cause la otra</mark>. Hay varias explicaciones posibles para una correlación:</p><ul><li><b>Causalidad directa</b>: X provoca Y. Estudiar más mejora la nota; fumar aumenta el riesgo de cáncer.</li><li><b>Una tercera variable</b> que influye en las dos. En verano aumentan a la vez las ventas de helados y los ahogamientos en playas, pero los helados no provocan ahogamientos: la causa común es el calor, que hace que más gente coma helados y se bañe.</li><li><b>Causalidad inversa</b>: es Y la que provoca X. Se observa que en los barrios con más policías hay más delitos; no es que la policía cause delitos, sino que se envían más agentes donde hay más delincuencia.</li><li><b>Pura casualidad</b>. Hay webs que recopilan correlaciones absurdas, como el número de películas de un actor y el de personas que se ahogan en piscinas en un año, con coeficientes altísimos que no significan nada.</li></ul><p>Para demostrar una relación causa-efecto hacen falta <b>experimentos controlados</b>, en los que se cambia una sola variable y se mantienen las demás, o muchos estudios coincidentes que descarten las otras explicaciones. Ante una noticia del tipo «los que hacen X viven más», pregunta siempre: ¿no habrá otra variable detrás?</p>`,
+      svg: lienzo("Una tercera variable, el calor, aumenta a la vez la venta de helados y los baños en el mar; helados y ahogamientos están correlacionados sin que uno cause el otro", `<rect x="85" y="14" width="90" height="38" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.4"/>${t(130, 38, "calor", { c: "var(--red)", s: 14, b: 1 })}<rect x="10" y="118" width="100" height="38" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.4"/>${t(60, 142, "helados", { c: "var(--pen)", s: 13, b: 1 })}<rect x="150" y="118" width="100" height="38" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.4"/>${t(200, 142, "baños", { c: "var(--pen)", s: 13, b: 1 })}<defs><marker id="fl12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="var(--red)"/></marker></defs><path d="M110 52 L 70 114" stroke="var(--red)" stroke-width="2.4" marker-end="url(#fl12)"/><path d="M150 52 L 190 114" stroke="var(--red)" stroke-width="2.4" marker-end="url(#fl12)"/><path d="M114 137 H 146" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 3"/>${t(130, 174, "correlación ≠ causa", { c: "var(--muted)", s: 12, b: 1 })}`),
+    },
+    {
+      html: `<h3>12.12 Calculadora y hoja de cálculo</h3><p>Con muchos datos, los cálculos a mano son largos y es fácil equivocarse. Las herramientas digitales los hacen en segundos.</p><p><b>Con la calculadora científica</b>: se entra en el modo estadístico (STAT o MODE) y se elige el tipo de regresión lineal, normalmente indicado como <b>A + BX</b>. Se introducen los pares de datos en dos columnas y, desde el menú de resultados, se obtienen x̄, ȳ, Sx (σx), Sy (σy), el coeficiente r y los coeficientes A (ordenada) y B (pendiente) de la recta de regresión. Algunas calculadoras incluso estiman ŷ para un x dado.</p><p><b>Con una hoja de cálculo</b>: con los valores de X en la columna A y los de Y en la B, se usan funciones como <mark>=PROMEDIO()</mark>, <mark>=COEF.DE.CORREL(A2:A6;B2:B6)</mark>, <mark>=PENDIENTE(B2:B6;A2:A6)</mark> e <mark>=INTERSECCION.EJE(B2:B6;A2:A6)</mark>. Además, al crear un gráfico de dispersión se puede añadir una «línea de tendencia» lineal y pedir que muestre su ecuación y el valor de R², que es el cuadrado de r.</p><p>Atención: la calculadora siempre da un resultado, aunque no tenga sentido. Por eso, antes de usar la recta, hay que <b>dibujar la nube</b> y comprobar que la relación es lineal, y después interpretar el resultado en el contexto.</p>`,
+      svg: lienzo("Hoja de cálculo con dos columnas de datos y las funciones COEF.DE.CORREL y PENDIENTE", `<rect x="14" y="14" width="232" height="152" rx="8" fill="var(--card)" stroke="var(--line)"/>${["", "A", "B"].map((h, i) => `<rect x="${14 + [0, 28, 82][i]}" y="14" width="${[28, 54, 54][i]}" height="18" fill="var(--grid)" stroke="var(--line)"/>${t(14 + [14, 55, 109][i], 27, h, { s: 10, b: 1, c: "var(--muted)" })}`).join("")}${["horas", ...EST.map((p) => p[0])].map((v, k) => `${t(28, 46 + k * 18, String(k + 1), { s: 10, c: "var(--muted)" })}${t(69, 46 + k * 18, String(v), { s: 11, b: k === 0 ? 1 : 0 })}${t(123, 46 + k * 18, String(k === 0 ? "nota" : EST[k - 1][1]), { s: 11, b: k === 0 ? 1 : 0 })}`).join("")}${t(200, 66, "=COEF.DE.CORREL", { s: 9, b: 1, c: "var(--pen)" })}${t(200, 82, "0,98", { s: 14, b: 1, c: "var(--pen)" })}${t(200, 116, "=PENDIENTE", { s: 9, b: 1, c: "var(--red)" })}${t(200, 132, "1,7", { s: 14, b: 1, c: "var(--red)" })}`),
+    },
+    {
+      html: `<h3>12.13 Un estudio completo paso a paso</h3><p>Una heladería anota durante cinco días la temperatura máxima (X, en °C) y las tarrinas vendidas (Y):</p><table><tr><th>X (°C)</th><td>10</td><td>15</td><td>20</td><td>25</td><td>30</td></tr><tr><th>Y (tarrinas)</th><td>12</td><td>20</td><td>31</td><td>42</td><td>50</td></tr></table><ol><li><b>Nube</b>: los puntos suben y están casi alineados.</li><li><b>Medias</b>: x̄ = 20 °C, ȳ = 155/5 = 31 tarrinas. G(20, 31).</li><li><b>Desviaciones típicas</b>: Sx² = 2250/5 − 400 = 50, Sx ≈ 7,07. Sy² = 5769/5 − 961 = 192,8, Sy ≈ 13,89.</li><li><b>Covarianza</b>: Σxy = 3590; Sxy = 3590/5 − 20 · 31 = 718 − 620 = 98.</li><li><b>Correlación</b>: r = 98/(7,07 · 13,89) ≈ <mark>0,998</mark>: positiva y casi perfecta.</li><li><b>Recta</b>: pendiente 98/50 = 1,96. y − 31 = 1,96(x − 20) → <b>y = 1,96x − 8,2</b>. Cada grado más supone unas 2 tarrinas más.</li><li><b>Estimación</b>: para 22 °C, y ≈ 1,96 · 22 − 8,2 ≈ 35 tarrinas. Es fiable: r alto e interpolación.</li></ol><p>Para 40 °C, la recta daría unas 70 tarrinas, pero es una extrapolación: con tanto calor quizá la gente no salga a la calle. Y para 0 °C daría −8,2 tarrinas, un resultado imposible que confirma que el modelo solo vale <b>dentro del rango</b> de los datos.</p>`,
+      svg: nube("Temperatura y tarrinas vendidas con su recta de regresión y igual a 1,96x menos 8,2", [[10, 12], [15, 20], [20, 31], [25, 42], [30, 50]], { x0: 5, x1: 35, y0: 0, y1: 60, paso: 5, pasoY: 10, pasoEt: 5, pasoEtY: 10 }, (E) => `${E.curva((x) => 1.96 * x - 8.2, "var(--red)", 7, 34, 2.2)}${E.punto(20, 31, "var(--red)", "G(20, 31)", 8, 14)}${t(E.X(6), E.Y(55), "y = 1,96x − 8,2", { c: "var(--red)", s: 12, b: 1, a: "start" })}${t(E.w - 8, E.h - 4, "°C", { c: "var(--muted)", s: 10, a: "end" })}`),
+    },
+    {
+      html: `<h3>12.14 La estadística bidimensional en la vida real</h3><p>El análisis de dos variables está detrás de muchas decisiones que nos afectan:</p><ul><li><b>Economía y empresas</b>: relacionar la inversión en publicidad con las ventas, el precio de un producto con la demanda, o los metros cuadrados de un piso con su precio de alquiler. Los portales inmobiliarios estiman el valor de una vivienda con regresiones de este tipo (con muchas más variables).</li><li><b>Medicina y salud</b>: estudiar la relación entre la dosis de un medicamento y su efecto, entre el ejercicio físico y la tensión arterial, o entre la edad y la densidad ósea.</li><li><b>Ciencias de la Tierra</b>: la relación entre la concentración de CO₂ en la atmósfera y la temperatura media del planeta se estudia con series de datos de décadas.</li><li><b>Deporte</b>: los analistas relacionan la distancia recorrida, los tiros o la posesión con los resultados para diseñar estrategias.</li><li><b>Inteligencia artificial</b>: la regresión lineal es uno de los primeros algoritmos de «aprendizaje automático»: el ordenador «aprende» la recta a partir de los datos y luego predice.</li></ul><p>En todos los casos, el método es el mismo que has aprendido: <mark>datos fiables, nube de puntos, coeficiente de correlación, recta de regresión y una interpretación crítica</mark> que tenga en cuenta las limitaciones del modelo.</p>`,
+      svg: nube("Antigüedad y precio de seis coches de segunda mano: correlación negativa fuerte, r aproximadamente menos 0,99", [[1, 18], [2, 16], [3, 13], [4, 11], [5, 10], [6, 8]], { x0: 0, x1: 7, y0: 0, y1: 20, paso: 1, pasoY: 4 }, (E) => `${E.curva((x) => -2 * x + 19.67, "var(--red)", 0.3, 7, 2.2)}${t(E.X(6.8), E.Y(18), "r ≈ −0,99", { c: "var(--red)", s: 12, b: 1, a: "end" })}${t(E.w - 8, E.h - 4, "años", { c: "var(--muted)", s: 10, a: "end" })}${t(26, 14, "miles de €", { c: "var(--muted)", s: 10, a: "start" })}`),
     },
   ],
-  figura: {
-    titulo: "Cómo leer una nube de puntos",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Cuatro nubes con su coeficiente: fuerte positiva r igual a 0,95, débil positiva 0,4, nula 0 y fuerte negativa menos 0,9">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["fuerte +", "r ≈ 0,95", 1, 4, "var(--leaf)"], ["débil +", "r ≈ 0,4", 0.6, 30, "var(--pen)"], ["nula", "r ≈ 0", 0, 60, "var(--muted)"], ["fuerte −", "r ≈ −0,9", -1, 6, "var(--red)"]].map(([n, r, m, ruido, c], g) => `<g transform="translate(${18 + g * 154} 18)"><rect width="140" height="194" rx="12" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>
-        ${[...Array(14)].map((_, i) => { const x = 14 + i * 8.5; const y = 80 - m * (i - 6.5) * 8 + (((i * 47) % 17) - 8) * ruido / 8; return `<circle cx="${x}" cy="${Math.max(16, Math.min(140, y)).toFixed(1)}" r="4" fill="${c}"/>`; }).join("")}
-        <text x="70" y="166" text-anchor="middle" font-size="16" font-weight="700" fill="${c}" ${D}>${n}</text><text x="70" y="184" text-anchor="middle" font-size="13" fill="var(--ink)" ${F}>${r}</text></g>`).join("")}
-    </svg>`,
+  ejemplos: [
+    { enunciado: "Calcula el centro de gravedad de los datos X: 2, 4, 6, 8; Y: 5, 9, 11, 15.", pasos: ["x̄ = 20/4 = 5.", "ȳ = 40/4 = 10."], resultado: "G(5, 10)." },
+    { enunciado: "Para esos mismos datos, calcula la covarianza.", pasos: ["Σxy = 10 + 36 + 66 + 120 = 232.", "Sxy = 232/4 − 5 · 10 = 58 − 50 = 8."], resultado: "Sxy = 8 > 0: correlación positiva." },
+    { enunciado: "Calcula el coeficiente de correlación, sabiendo que Σx² = 120 y Σy² = 452.", pasos: ["Sx² = 120/4 − 25 = 5 → Sx ≈ 2,236.", "Sy² = 452/4 − 100 = 13 → Sy ≈ 3,606.", "r = 8/(2,236 · 3,606) ≈ 0,99."], resultado: "r ≈ 0,99: correlación positiva muy fuerte." },
+    { enunciado: "Halla la recta de regresión de Y sobre X y estima Y para x = 5,5.", pasos: ["Pendiente = Sxy/Sx² = 8/5 = 1,6.", "y − 10 = 1,6(x − 5) → y = 1,6x + 2.", "Para x = 5,5: y = 8,8 + 2 = 10,8."], resultado: "y = 1,6x + 2; estimación 10,8 (fiable: r alto e interpolación)." },
+    { enunciado: "Un estudio encuentra r = −0,85 entre las horas diarias de pantalla y las horas de sueño de un grupo de adolescentes. Interprétalo.", pasos: ["El signo negativo: a más pantalla, tiende a haber menos sueño.", "|r| = 0,85: correlación fuerte.", "No demuestra causalidad por sí sola: podría haber otras variables (horarios, estrés…)."], resultado: "Correlación negativa fuerte; sugiere relación, pero hacen falta más estudios para afirmar que la pantalla causa la falta de sueño." },
+    { enunciado: "Con la recta y = −2x + 19,67 (antigüedad en años y precio en miles de euros), estima el precio de un coche de 3,5 años y de 12 años. ¿Son fiables?", pasos: ["x = 3,5: y = −7 + 19,67 ≈ 12,67 → unos 12.670 €.", "x = 12: y = −24 + 19,67 = −4,33 → precio negativo."], resultado: "La primera es fiable (interpolación); la segunda es absurda: extrapolar fuera de 1-6 años no tiene sentido." },
+  ],
+  errores: [
+    "Calcular la recta de regresión sin mirar antes la nube de puntos ni el valor de r.",
+    "Pensar que una covarianza grande significa una correlación fuerte: depende de las unidades.",
+    "Interpretar r = 0 como «no hay ninguna relación»: puede haber una relación no lineal.",
+    "Extrapolar con la recta de regresión muy lejos del rango de los datos.",
+    "Concluir que X causa Y solo porque están correlacionadas.",
+    "Usar la desviación típica en lugar de la varianza en el denominador de la pendiente: es Sxy/Sx².",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Indica en cada caso si esperas correlación positiva, negativa o nula: (a) horas de entrenamiento y tiempo en una carrera; (b) número de hermanos y número de calzado; (c) superficie de un piso y su precio.", sol: "(a) Negativa: más entrenamiento, menos tiempo. (b) Nula. (c) Positiva." },
+    { nivel: "básico", q: "Representa la nube de puntos de X: 1, 2, 3, 4, 5 e Y: 10, 8, 7, 4, 1 y describe la correlación.", sol: "Los puntos bajan casi en línea recta: correlación negativa y fuerte." },
+    { nivel: "básico", q: "Calcula el centro de gravedad de X: 1, 2, 3, 4, 5 e Y: 10, 8, 7, 4, 1.", sol: "x̄ = 15/5 = 3; ȳ = 30/5 = 6. G(3, 6)." },
+    { nivel: "básico", q: "Para los datos anteriores, sabiendo que Σxy = 68, calcula la covarianza.", sol: "Sxy = 68/5 − 3 · 6 = 13,6 − 18 = −4,4. Negativa." },
+    { nivel: "básico", q: "Ordena de más débil a más fuerte estas correlaciones: r = 0,6; r = −0,9; r = 0,1; r = −0,4.", sol: "Por |r|: 0,1 < −0,4 < 0,6 < −0,9." },
+    { nivel: "básico", q: "¿Qué significa que r = −1? ¿Y r = 0,05?", sol: "r = −1: todos los puntos sobre una recta decreciente (dependencia funcional lineal). r = 0,05: prácticamente no hay correlación lineal." },
+    { nivel: "básico", q: "La recta de regresión de la nota (Y) sobre las horas de estudio (X) de un grupo es y = 1,2x + 3. Estima la nota de quien estudia 4 horas e interpreta la pendiente.", sol: "y = 4,8 + 3 = 7,8. Cada hora más de estudio supone de media 1,2 puntos más." },
+    { nivel: "básico", q: "¿Puede la covarianza ser positiva y el coeficiente de correlación negativo? Razona.", sol: "No: r = Sxy/(Sx · Sy) y las desviaciones típicas son positivas, así que r tiene siempre el signo de la covarianza." },
+    { nivel: "básico", q: "Explica con un ejemplo la diferencia entre dependencia funcional y dependencia estadística.", sol: "Funcional: el área de un cuadrado depende exactamente de su lado (A = l²). Estadística: el peso tiende a aumentar con la altura, pero dos personas de igual altura pueden pesar distinto." },
+    { nivel: "básico", q: "En una ciudad se observa que los días con más paraguas abiertos hay más accidentes de tráfico. ¿Los paraguas provocan accidentes?", sol: "No. Hay una tercera variable, la lluvia, que aumenta a la vez el uso de paraguas y los accidentes (calzada mojada, menos visibilidad)." },
+    { nivel: "básico", q: "Calcula Sx para X: 2, 4, 6, 8 (usa Σx² = 120).", sol: "x̄ = 5. Sx² = 120/4 − 25 = 5. Sx = √5 ≈ 2,24." },
+    { nivel: "básico", q: "Un modelo predice el peso (kg) a partir de la altura (cm) con y = 0,84x − 78,4, obtenido con personas de 150 a 170 cm. Estima el peso de alguien de 162 cm.", sol: "y = 0,84 · 162 − 78,4 = 136,08 − 78,4 ≈ 57,7 kg." },
+    { nivel: "medio", q: "Calcula el coeficiente de correlación de X: 1, 2, 3, 4, 5 e Y: 10, 8, 7, 4, 1 (Σx² = 55, Σy² = 230, Σxy = 68).", sol: "Sx² = 11 − 9 = 2, Sx ≈ 1,414. Sy² = 46 − 36 = 10, Sy ≈ 3,162. Sxy = −4,4. r = −4,4/(1,414 · 3,162) ≈ −0,98." },
+    { nivel: "medio", q: "Halla la recta de regresión de Y sobre X para los datos anteriores y estima Y para x = 2,5.", sol: "Pendiente = −4,4/2 = −2,2. y − 6 = −2,2(x − 3) → y = −2,2x + 12,6. Para x = 2,5: y = −5,5 + 12,6 = 7,1." },
+    { nivel: "medio", q: "Con X: 1, 3, 5, 7, 9 e Y: 2, 6, 5, 9, 8, calcula x̄, ȳ, Sxy y r.", sol: "x̄ = 5, ȳ = 6. Σxy = 2 + 18 + 25 + 63 + 72 = 180; Sxy = 36 − 30 = 6. Σx² = 165 → Sx² = 33 − 25 = 8; Σy² = 210 → Sy² = 42 − 36 = 6. r = 6/(√8 · √6) ≈ 6/6,93 ≈ 0,87." },
+    { nivel: "medio", q: "Para los datos anteriores, halla la recta de regresión y estima Y para x = 6. ¿Es muy fiable?", sol: "Pendiente 6/8 = 0,75. y − 6 = 0,75(x − 5) → y = 0,75x + 2,25. Para x = 6: 6,75. Es razonable (interpolación, r ≈ 0,87), aunque menos fiable que con r ≈ 0,99." },
+    { nivel: "medio", q: "Una empresa relaciona los euros invertidos en publicidad (X, en miles) con las ventas (Y, en miles): la recta es y = 4,5x + 20 con r = 0,92. ¿Cuánto vendería invirtiendo 8.000 €? Si los datos van de 2.000 a 10.000 €, ¿se puede estimar para 50.000 €?", sol: "y = 4,5 · 8 + 20 = 56 → 56.000 €. Para 50.000 € sería una extrapolación muy lejana: no es fiable (el efecto de la publicidad suele saturarse)." },
+    { nivel: "medio", q: "Si a todos los valores de X se les suma 10, ¿cómo cambian x̄, Sx, Sxy y r?", sol: "x̄ aumenta 10; Sx no cambia (las distancias a la media son las mismas); Sxy tampoco; r tampoco." },
+    { nivel: "medio", q: "Si la estatura se mide en metros en vez de en centímetros, ¿qué ocurre con la covarianza entre estatura y peso? ¿Y con r?", sol: "Los valores de X se dividen entre 100, así que Sxy se divide entre 100. Sx también se divide entre 100, de modo que r no cambia." },
+    { nivel: "medio", q: "Con X: 0, 1, 2, 3, 4 e Y: 4, 3, 4, 5, 4, calcula r e interprétalo.", sol: "x̄ = 2, ȳ = 4. Σxy = 0 + 3 + 8 + 15 + 16 = 42, Sxy = 8,4 − 8 = 0,4. Sx² = 2; Sy² = (16 + 9 + 16 + 25 + 16)/5 − 16 = 0,4. r = 0,4/(√2 · √0,4) ≈ 0,45: correlación positiva débil." },
+    { nivel: "medio", q: "Dibuja una nube de puntos con forma de U (por ejemplo, los puntos (−2, 4), (−1, 1), (0, 0), (1, 1), (2, 4)) y calcula su covarianza. ¿Qué concluyes?", sol: "x̄ = 0, ȳ = 2. Σxy = −8 − 1 + 0 + 1 + 8 = 0. Sxy = 0 − 0 = 0, así que r = 0. Pero hay una relación perfecta, y = x², no lineal: r = 0 no significa ausencia de relación." },
+    { nivel: "medio", q: "En una clase, r = 0,7 entre la nota de Matemáticas y la de Física. Un alumno dice: «Como r no es 1, no hay relación». ¿Tiene razón?", sol: "No. r = 0,7 indica una correlación positiva moderada-fuerte: hay relación, aunque no perfecta (influyen otros factores)." },
+    { nivel: "medio", q: "Calcula la recta de regresión para la temperatura (10, 15, 20, 25, 30 °C) y las tarrinas (12, 20, 31, 42, 50), sabiendo que Sxy = 98 y Sx² = 50, y estima las ventas a 18 °C.", sol: "Pendiente 1,96; y − 31 = 1,96(x − 20) → y = 1,96x − 8,2. A 18 °C: 35,28 − 8,2 ≈ 27 tarrinas." },
+    { nivel: "medio", q: "Explica qué es un residuo en la recta de regresión y calcula el del punto (5, 10) con la recta y = 1,7x + 0,9.", sol: "Es la diferencia entre el valor real y el estimado: 10 − (1,7 · 5 + 0,9) = 10 − 9,4 = 0,6. El punto queda 0,6 por encima de la recta." },
+    { nivel: "avanzado", q: "Demuestra que Σ(xᵢ − x̄)(yᵢ − ȳ)/n = Σxᵢyᵢ/n − x̄ȳ.", sol: "Desarrollando: Σ(xᵢyᵢ − xᵢȳ − x̄yᵢ + x̄ȳ)/n = Σxᵢyᵢ/n − ȳ Σxᵢ/n − x̄ Σyᵢ/n + x̄ȳ = Σxᵢyᵢ/n − ȳx̄ − x̄ȳ + x̄ȳ = Σxᵢyᵢ/n − x̄ȳ." },
+    { nivel: "avanzado", q: "Para unos datos se sabe que x̄ = 4, ȳ = 10, Sx = 2, Sy = 5 y r = 0,8. Halla la recta de regresión de Y sobre X.", sol: "Sxy = r · Sx · Sy = 0,8 · 2 · 5 = 8. Pendiente = 8/4 = 2. y − 10 = 2(x − 4) → y = 2x + 2." },
+    { nivel: "avanzado", q: "Para los datos de las horas de estudio (X: 1, 2, 3, 4, 5; Y: 3, 4, 6, 7, 10), calcula todos los residuos con la recta y = 1,7x + 0,9 y comprueba que suman 0.", sol: "Estimados: 2,6; 4,3; 6; 7,7; 9,4. Residuos: 0,4; −0,3; 0; −0,7; 0,6. Suma: 0,4 − 0,3 + 0 − 0,7 + 0,6 = 0. La recta de regresión siempre «equilibra» los errores." },
+    { nivel: "avanzado", q: "Se añade a los datos de las horas de estudio un sexto alumno con 5 horas y nota 2 (quizá estuvo enfermo). ¿Cómo crees que cambiará r? Calcúlalo.", sol: "Debería bajar mucho. Datos X: 1, 2, 3, 4, 5, 5; Y: 3, 4, 6, 7, 10, 2. x̄ = 20/6 ≈ 3,33; ȳ = 32/6 ≈ 5,33. Σxy = 117; Sxy = 19,5 − 17,78 ≈ 1,72. Σx² = 80 → Sx² ≈ 13,33 − 11,11 = 2,22; Σy² = 214 → Sy² ≈ 35,67 − 28,44 = 7,22. r ≈ 1,72/(1,49 · 2,69) ≈ 0,43. Un solo dato atípico hace caer r de 0,98 a 0,43." },
+    { nivel: "avanzado", q: "La recta de regresión de Y sobre X es y = 3x − 2 y x̄ = 5. ¿Cuánto vale ȳ? Si Sx = 2 y Sy = 7, ¿cuánto vale r?", sol: "La recta pasa por G: ȳ = 15 − 2 = 13. Pendiente = Sxy/Sx² → Sxy = 3 · 4 = 12. r = 12/(2 · 7) ≈ 0,857." },
+    { nivel: "avanzado", q: "La recta de regresión de Y sobre X es y = −0,5x + 12 y el coeficiente de correlación es r = −0,6. Un compañero afirma que, como la pendiente es pequeña, la correlación tiene que ser débil. ¿Tiene razón?", sol: "No. La pendiente depende de las unidades y de las desviaciones típicas (pendiente = r · Sy/Sx), mientras que r no. Aquí |r| = 0,6 indica correlación moderada, independientemente del valor de la pendiente." },
+    { nivel: "avanzado", q: "Comprueba que la pendiente de la recta de regresión es r · Sy/Sx y úsalo con los datos de las horas de estudio (r ≈ 0,9815, Sx = √2, Sy = √6).", sol: "Sxy/Sx² = (r · Sx · Sy)/Sx² = r · Sy/Sx. Con los datos: 0,9815 · √6/√2 = 0,9815 · √3 ≈ 0,9815 · 1,732 ≈ 1,70, que coincide con 3,4/2 = 1,7." },
+    { nivel: "avanzado", q: "En una tabla de doble entrada, 4 alumnos tienen (1 hermano, 0 mascotas), 6 tienen (1, 1), 2 tienen (2, 1) y 8 tienen (2, 2). Calcula x̄, ȳ y la covarianza teniendo en cuenta las frecuencias.", sol: "n = 20. x̄ = (1·10 + 2·10)/20 = 1,5. ȳ = (0·4 + 1·8 + 2·8)/20 = 24/20 = 1,2. Σf·x·y = 4·0 + 6·1 + 2·2 + 8·4 = 42. Sxy = 42/20 − 1,5 · 1,2 = 2,1 − 1,8 = 0,3 > 0: ligera correlación positiva." },
+    { nivel: "avanzado", q: "Busca un ejemplo de correlación entre dos variables en una noticia y analiza si la conclusión que se saca es causal. Propón una tercera variable que podría explicarla.", sol: "Respuesta abierta. Ejemplo: «los países que consumen más chocolate tienen más premios Nobel». La causa probable no es el chocolate, sino la riqueza del país, que aumenta a la vez el consumo de chocolate y la inversión en investigación." },
+    { nivel: "avanzado", q: "Para datos con X: 1, 2, 3, 4, 5, 6 (antigüedad de coches) e Y: 18, 16, 13, 11, 10, 8 (miles de €) se obtiene Sxy ≈ −5,83 y Sx² ≈ 2,92. Halla la recta y estima a qué edad el modelo daría un precio de 5.000 €. ¿Es fiable?", sol: "Pendiente ≈ −5,83/2,92 ≈ −2. ȳ = 76/6 ≈ 12,67; x̄ = 3,5. y − 12,67 = −2(x − 3,5) → y = −2x + 19,67. 5 = −2x + 19,67 → x ≈ 7,3 años. Es una extrapolación ligera (fuera de 1-6 años): orientativa, no del todo fiable." },
+  ],
+  quiz: reparte([
+    { q: "Una variable bidimensional estudia…", o: ["una característica", "dos características de cada individuo", "dos poblaciones", "una variable dos veces"], a: 1, e: "Pares (xᵢ, yᵢ)." },
+    { q: "El diagrama de dispersión representa…", o: ["barras de frecuencias", "cada par como un punto", "un sector circular", "una recta"], a: 1, e: "Nube de puntos." },
+    { q: "Si al aumentar X tiende a disminuir Y, la correlación es…", o: ["positiva", "negativa", "nula", "funcional"], a: 1, e: "La nube baja." },
+    { q: "El centro de gravedad de la nube es…", o: ["(x̄, ȳ)", "(Sx, Sy)", "(0, 0)", "el punto más alto"], a: 0, e: "Medias de cada variable." },
+    { q: "Si la covarianza es negativa, la correlación es…", o: ["positiva", "negativa", "nula", "fuerte"], a: 1, e: "Mismo signo." },
+    { q: "Sxy =", o: ["Σxy/n − x̄ȳ", "Σxy − x̄ȳ", "Σx · Σy/n", "Sx · Sy"], a: 0, e: "Fórmula abreviada." },
+    { q: "El coeficiente de correlación r siempre está entre…", o: ["0 y 1", "−1 y 1", "−∞ y +∞", "0 y 100"], a: 1, e: "Propiedad de r." },
+    { q: "r = Sxy dividido entre…", o: ["Sx + Sy", "Sx · Sy", "Sx²", "n"], a: 1, e: "Producto de desviaciones típicas." },
+    { q: "Si r = 0,95, la correlación es…", o: ["positiva débil", "positiva fuerte", "negativa fuerte", "nula"], a: 1, e: "|r| cerca de 1." },
+    { q: "Si r = −1…", o: ["no hay relación", "todos los puntos están sobre una recta decreciente", "la nube es redonda", "la covarianza es 0"], a: 1, e: "Dependencia lineal exacta." },
+    { q: "Si cambiamos las unidades de X, r…", o: ["cambia", "no cambia", "se hace 0", "cambia de signo"], a: 1, e: "No depende de las unidades." },
+    { q: "La recta de regresión siempre pasa por…", o: ["el origen", "el centro de gravedad", "el primer punto", "el punto más alto"], a: 1, e: "Pasa por (x̄, ȳ)." },
+    { q: "La pendiente de la recta de regresión de Y sobre X es…", o: ["Sxy/Sx²", "Sxy/Sy²", "r", "Sx/Sy"], a: 0, e: "Coeficiente de regresión." },
+    { q: "Estimar fuera del intervalo de los datos se llama…", o: ["interpolar", "extrapolar", "correlacionar", "regresar"], a: 1, e: "Es arriesgado." },
+    { q: "Una estimación es más fiable cuando…", o: ["|r| es cercano a 0", "|r| es cercano a 1 y se interpola", "hay pocos datos", "se extrapola"], a: 1, e: "Puntos cerca de la recta." },
+    { q: "Una correlación fuerte entre X e Y…", o: ["demuestra que X causa Y", "no demuestra causalidad", "demuestra que Y causa X", "es imposible"], a: 1, e: "Correlación no implica causalidad." },
+    { q: "Las ventas de helados y los ahogamientos están correlacionados por…", o: ["casualidad pura", "una tercera variable: el calor", "causalidad directa", "error de cálculo"], a: 1, e: "Causa común." },
+    { q: "Una nube con forma de U perfecta tiene r…", o: ["cercano a 1", "cercano a −1", "cercano a 0", "igual a 2"], a: 2, e: "r solo mide relación lineal." },
+    { q: "En la hoja de cálculo, el coeficiente r se calcula con…", o: ["=PROMEDIO", "=COEF.DE.CORREL", "=SUMA", "=MODA"], a: 1, e: "Función de correlación." },
+    { q: "El método para obtener la recta de regresión se llama…", o: ["de mínimos cuadrados", "de Ruffini", "de reducción", "de Laplace"], a: 0, e: "Minimiza la suma de los cuadrados de los residuos." },
+  ]),
+  examen: reparte([
+    { q: "Con X: 1, 2, 3 e Y: 2, 4, 6, la correlación es…", o: ["r = 1", "r = −1", "r = 0", "r = 0,5"], a: 0, e: "y = 2x exactamente." },
+    { q: "Si Σxy = 50, n = 5, x̄ = 2 e ȳ = 4, Sxy =", o: ["2", "10", "8", "−2"], a: 0, e: "10 − 8." },
+    { q: "Si Sxy = 6, Sx = 2 y Sy = 4, r =", o: ["0,75", "1,5", "0,5", "3"], a: 0, e: "6/8." },
+    { q: "Con x̄ = 3, ȳ = 7, Sxy = 4 y Sx² = 2, la recta de regresión es…", o: ["y = 2x + 1", "y = 2x + 7", "y = 0,5x + 5,5", "y = 4x − 5"], a: 0, e: "y − 7 = 2(x − 3)." },
+    { q: "Con la recta y = 2x + 1, la estimación para x = 4 es…", o: ["9", "8", "6", "7"], a: 0, e: "8 + 1." },
+    { q: "¿Qué valor de r indica la correlación más fuerte?", o: ["−0,92", "0,85", "0,5", "0"], a: 0, e: "Mayor |r|." },
+    { q: "Un modelo de 2015 a 2024 se usa para predecir 2060. Es…", o: ["una interpolación fiable", "una extrapolación arriesgada", "una covarianza", "un residuo"], a: 1, e: "Muy fuera del rango." },
+    { q: "Si r = 0, entonces…", o: ["no hay relación lineal", "no hay ninguna relación", "los puntos están en una recta", "Sxy < 0"], a: 0, e: "Puede haber relación no lineal." },
+  ], 2),
+  feynman: ["Qué es una variable bidimensional y cómo se representa", "Cómo se reconoce en una nube si la correlación es positiva, negativa o nula", "Qué indica el signo de la covarianza y por qué no basta su tamaño", "Qué mide el coeficiente de correlación y cómo se interpreta", "Por qué correlación no implica causalidad"],
+  glosario: [
+    ["Variable bidimensional", "Par de variables (X, Y) observadas en cada individuo."],
+    ["Diagrama de dispersión", "Representación de cada par como un punto; nube de puntos."],
+    ["Dependencia funcional", "Relación exacta: cada x determina y."],
+    ["Dependencia estadística", "Relación con tendencia pero con variaciones; correlación."],
+    ["Correlación positiva", "Al aumentar X tiende a aumentar Y."],
+    ["Correlación negativa", "Al aumentar X tiende a disminuir Y."],
+    ["Centro de gravedad", "Punto (x̄, ȳ)."],
+    ["Covarianza", "Sxy = Σxy/n − x̄ȳ; su signo indica el sentido de la correlación."],
+    ["Coeficiente de correlación", "r = Sxy/(Sx · Sy); entre −1 y 1."],
+    ["Recta de regresión", "Recta que mejor se ajusta a la nube: y − ȳ = (Sxy/Sx²)(x − x̄)."],
+    ["Coeficiente de regresión", "Pendiente de la recta de regresión, Sxy/Sx²."],
+    ["Residuo", "Diferencia entre el valor real y el estimado por la recta."],
+    ["Interpolar", "Estimar dentro del intervalo de los datos."],
+    ["Extrapolar", "Estimar fuera del intervalo de los datos."],
+    ["Dato atípico", "Valor muy alejado del resto que puede alterar los resultados."],
+    ["Causalidad", "Relación en la que una variable provoca cambios en la otra."],
+  ],
+  situacion: {
+    titulo: "¿Qué nos hace dormir mejor?",
+    reto: "El departamento de orientación quiere saber qué hábitos se relacionan con el descanso del alumnado. Vuestro grupo diseñará una pequeña encuesta anónima, recogerá pares de datos (horas de pantalla, ejercicio físico, hora de acostarse…) frente a las horas de sueño y analizará qué variables están más relacionadas, sin olvidar que correlación no es causa.",
+    pasos: [
+      "Elegid tres variables que podrían relacionarse con las horas de sueño y diseñad una encuesta anónima y respetuosa.",
+      "Recoged al menos 20 respuestas y organizad los datos en una hoja de cálculo.",
+      "Dibujad la nube de puntos de cada variable frente a las horas de sueño y describid la correlación.",
+      "Calculad r y la recta de regresión de las relaciones más fuertes y haced alguna estimación razonable.",
+      "Discutid posibles terceras variables y redactad recomendaciones prudentes.",
+    ],
+    producto: "Un informe o infografía con las nubes de puntos, los coeficientes, las rectas y unas conclusiones críticas.",
+    evaluacion: [
+      "Recoge y organiza los datos con rigor y respetando la privacidad.",
+      "Representa e interpreta correctamente las nubes de puntos.",
+      "Calcula r y la recta de regresión y valora la fiabilidad de las estimaciones.",
+      "Distingue correlación y causalidad y extrae conclusiones prudentes.",
+    ],
   },
+  figura: require("./_matb-base-estadistica").figura,
   video: { id: "kYCyNrPToTc", titulo: "Correlación y regresión lineal con ejemplos", canal: "La clase de Ysa", vistas: 547315, megusta: 10905, busqueda: "correlación y regresión lineal" },
-  quiz: [
-    { q: "Si al aumentar x la variable y tiende a disminuir, la correlación es…", o: ["Positiva", "Negativa", "Nula"], a: 1, e: "Van en sentidos opuestos." },
-    { q: "¿Qué valor de r indica la correlación más fuerte?", o: ["0,5", "−0,95", "0,1"], a: 1, e: "Lo que importa para la fuerza es lo cerca que está de 1 o −1." },
-    { q: "La recta de regresión siempre pasa por…", o: ["el origen", "el punto (x̄, ȳ)", "el primer dato"], a: 1, e: "Pasa por el centro de gravedad de la nube." },
-    { q: "Con y = 2 + 0,5x, ¿qué valor se predice para x = 10?", o: ["7", "12", "5"], a: 0, e: "2 + 0,5 · 10 = 7." },
-    { q: "Si r = 0,9 entre el número de bomberos en un incendio y los daños, ¿los bomberos causan los daños?", o: ["Sí", "No: los incendios grandes causan ambas cosas", "Solo si r = 1"], a: 1, e: "Correlación no es causalidad: hay una tercera variable, el tamaño del incendio." },
-  ],
-  examen: [
-    { q: "¿Qué se representa en una nube de puntos?", o: ["Frecuencias de una variable", "Pares de valores (x, y)", "Porcentajes"], a: 1, e: "Cada individuo es un punto con sus dos valores." },
-    { q: "Si los puntos están casi en línea recta descendente, r será aproximadamente…", o: ["−0,95", "0", "0,95"], a: 0, e: "Fuerte y negativa." },
-    { q: "¿Es fiable predecir con la recta de regresión si r = 0,15?", o: ["Sí", "No, la correlación es muy débil", "Solo para valores grandes"], a: 1, e: "Con correlación débil la recta apenas representa los datos." },
-  ],
-  feynman: ["Qué es una variable bidimensional y cómo se dibuja", "Qué significan el signo y el tamaño de r", "Para qué sirve la recta de regresión", "Por qué correlación no significa causalidad"],
   mapa: mapa("ESTADÍSTICA BIDIMENSIONAL", "var(--bac)", [
-    ["Nube de puntos", "un punto por individuo", "var(--pen)"],
-    ["Correlación", "positiva · negativa · nula", "var(--leaf)"],
-    ["Coeficiente r", "de −1 a 1 · signo y fuerza", "var(--inf)"],
-    ["Regresión", "predice · ¡no es causa!", "var(--red)"],
-  ], 260),
+    ["Nube de puntos", "dirección · forma · dispersión", "var(--pen)"],
+    ["Covarianza", "signo de la relación", "var(--leaf)"],
+    ["Correlación r", "−1 ≤ r ≤ 1 · fuerza", "var(--red)"],
+    ["Regresión", "recta · estimar · ¿causa?", "var(--inf)"],
+  ], 270),
   tarjetas: [
-    ["¿Qué es una nube de puntos?", "La representación de pares (x, y), un punto por individuo."],
-    ["Correlación negativa", "Al aumentar una variable, la otra tiende a disminuir."],
-    ["¿Entre qué valores está r?", "Entre −1 y 1."],
-    ["¿Por qué punto pasa la recta de regresión?", "Por (x̄, ȳ), las medias de las dos variables."],
-    ["Correlación y causalidad", "Que dos variables vayan juntas no prueba que una cause la otra."],
+    ["Variable bidimensional", "Dos características (X, Y) de cada individuo."],
+    ["Nube de puntos", "Cada par (xᵢ, yᵢ) dibujado como un punto."],
+    ["Centro de gravedad", "G = (x̄, ȳ)"],
+    ["Covarianza", "Sxy = Σxᵢyᵢ/n − x̄ · ȳ"],
+    ["Signo de Sxy", "Positivo: nube que sube; negativo: nube que baja."],
+    ["Coeficiente de correlación", "r = Sxy/(Sx · Sy)"],
+    ["Valores de r", "Entre −1 y 1; cerca de ±1, fuerte; cerca de 0, débil."],
+    ["Recta de regresión", "y − ȳ = (Sxy/Sx²)(x − x̄)"],
+    ["Interpolar", "Estimar dentro del rango de datos: fiable si |r| es alto."],
+    ["Extrapolar", "Estimar fuera del rango: arriesgado."],
+    ["Correlación y causa", "Correlación no implica causalidad."],
+    ["r = 0", "No hay relación lineal (puede haberla no lineal)."],
   ],
-  familias: ["Recoged datos en casa (temperatura y consumo de agua, por ejemplo) y dibujad la nube juntos.", "Comentad una noticia que confunda correlación y causalidad.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  familias: ["Buscad en una noticia una afirmación del tipo «los que hacen X tienen más Y» y discutid si puede haber otra explicación.", "Anotad durante dos semanas la temperatura y el consumo de calefacción o de aire acondicionado y dibujad la nube.", "Usad una hoja de cálculo para calcular la correlación entre dos datos familiares (pasos diarios y horas de sueño, por ejemplo).", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Sentido estocástico: variables bidimensionales, correlación y regresión lineal, interpretación crítica (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["Medir en clase altura y envergadura y calcular r con hoja de cálculo.", "Colección de correlaciones absurdas (spurious correlations) para debatir causalidad.", "Predecir la marca de un compañero con la recta y comprobar el error."],
+    saberes: "Sentido estocástico: organización y análisis de datos bidimensionales, diagramas de dispersión, covarianza, coeficiente de correlación lineal, recta de regresión y estimaciones, uso de herramientas digitales y valoración crítica (correlación y causalidad) (RD 217/2022, Matemáticas B de 4º, saberes básicos E. Sentido estocástico).",
+    ideas: ["Recogida de datos reales del grupo (con consentimiento) para trabajar con un contexto propio.", "Hoja de cálculo con líneas de tendencia y R² para comparar modelos.", "Galería de «correlaciones absurdas» para debatir sobre causalidad.", "Proyecto interdisciplinar con Biología o Educación Física sobre hábitos saludables."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Correlación, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Correlaci%C3%B3n" },
+    { t: "Coeficiente de correlación de Pearson, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Coeficiente_de_correlaci%C3%B3n_de_Pearson" },
+    { t: "INE: estadísticas oficiales de España", url: "https://www.ine.es/" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Calcular medias, desviaciones típicas y covarianza de una variable bidimensional", "Interpretar la correlación sin confundirla con la causalidad"],
-  tras: {
-    "Variables bidimensionales y nube de puntos": [
-      { html: `<h3>Repaso: media y desviación típica</h3><p>Antes de estudiar dos variables a la vez conviene recordar cómo se resume una. La <b>media</b> x̄ es la suma de los datos dividida entre su número. La <b>varianza</b> mide cuánto se separan los datos de la media: es la media de los cuadrados menos el cuadrado de la media, <mark>σ² = Σx²/N − x̄²</mark>. Su raíz es la <b>desviación típica</b> σ, que se mide en las mismas unidades que los datos. Para comparar la dispersión de variables con distintas unidades se usa el <b>coeficiente de variación</b>, CV = σ / x̄, que suele darse en porcentaje.</p>` },
-    ],
-    "Tipos de correlación": [
-      { html: `<h3>La covarianza</h3><p>La <b>covarianza</b> mide si las dos variables varían juntas. Se calcula como la media de los productos menos el producto de las medias: <mark>σₓᵧ = Σxy/N − x̄ · ȳ</mark>. Si es <b>positiva</b>, cuando una variable crece la otra tiende a crecer; si es <b>negativa</b>, cuando una crece la otra tiende a bajar; si es cercana a cero, no hay relación lineal. Su inconveniente es que depende de las unidades: no es lo mismo medir en metros que en centímetros. Por eso se divide entre las desviaciones típicas y se obtiene el coeficiente de correlación.</p>`, video: { id: "r_ITkER_bh8", titulo: "Covarianza (tabla de datos sin agrupar)", canal: "Ruben Sebastian", vistas: 204314 } },
-    ],
-    "El coeficiente de correlación r": [
-      { html: `<h3>Calcular r paso a paso</h3><p>Para hallar r con pocos datos se organiza una <b>tabla</b> con las columnas x, y, x², y² y x·y, y se suman. Con esas sumas se calculan las medias, las desviaciones típicas y la covarianza, y por último <mark>r = σₓᵧ / (σₓ · σᵧ)</mark>. El resultado siempre está entre −1 y 1. La calculadora científica en modo estadístico (REG o STAT) da r directamente, igual que las hojas de cálculo con la función COEF.DE.CORREL. Conviene igualmente hacer la nube de puntos: un r bajo puede esconder una relación curva, no lineal.</p>${AMP.tabla(["x", "y", "x²", "y²", "xy"], [["1", "2", "1", "4", "2"], ["2", "3", "4", "9", "6"], ["3", "5", "9", "25", "15"], ["4", "6", "16", "36", "24"], ["<b>10</b>", "<b>16</b>", "<b>30</b>", "<b>74</b>", "<b>47</b>"]])}` },
-    ],
-    "Predecir con cuidado": [
-      { html: `<h3>Correlación no es causalidad</h3><p>Que dos variables estén muy correlacionadas no significa que una cause la otra. Las ventas de helados y los ahogamientos están correlacionados, pero no porque los helados ahoguen: ambos aumentan en verano por el calor, que es una <b>variable oculta</b>. Otras veces la correlación es pura <b>casualidad</b>, sobre todo con pocos datos. Para afirmar que algo causa otra cosa hace falta un <mark>experimento controlado</mark>, como los ensayos clínicos de los medicamentos, en los que se compara un grupo tratado con otro que no lo está. Desconfía de los titulares que concluyen causas a partir de una simple correlación.</p>` },
-    ],
-  },
-  ejemplos: [
-    { enunciado: "Con la tabla de la teoría (x: 1, 2, 3, 4; y: 2, 3, 5, 6), calcula r.", pasos: ["Medias: x̄ = 10/4 = 2,5; ȳ = 16/4 = 4.", "σₓ² = 30/4 − 2,5² = 1,25, σₓ ≈ 1,118. σᵧ² = 74/4 − 4² = 2,5, σᵧ ≈ 1,581.", "σₓᵧ = 47/4 − 2,5 · 4 = 1,75.", "r = 1,75 / (1,118 · 1,581) ≈ 0,99."], resultado: "r ≈ 0,99: correlación positiva muy fuerte." },
-    { enunciado: "Con los datos anteriores, halla la recta de regresión de y sobre x y estima y para x = 5.", pasos: ["Pendiente: m = σₓᵧ / σₓ² = 1,75 / 1,25 = 1,4.", "Recta: y − 4 = 1,4(x − 2,5), es decir, y = 1,4x + 0,5.", "Para x = 5: y = 7,5."], resultado: "y = 1,4x + 0,5; estimación 7,5." },
-    { enunciado: "Las notas de Lengua tienen x̄ = 6 y σ = 1,2; las de Matemáticas, x̄ = 5 y σ = 1,5. ¿Cuál es más dispersa?", pasos: ["CV de Lengua: 1,2 / 6 = 0,20 (20 %).", "CV de Matemáticas: 1,5 / 5 = 0,30 (30 %).", "Se compara el CV, no la desviación típica sola."], resultado: "Matemáticas es más dispersa." },
-  ],
-  errores: [
-    "Concluir que una variable causa la otra solo porque r es alto.",
-    "Pensar que r = 0 significa que no hay ninguna relación: puede haber una relación curva.",
-    "Olvidar restar el producto de las medias al calcular la covarianza.",
-    "Hacer predicciones muy lejos del rango de los datos (extrapolar).",
-    "Comparar dispersiones con la desviación típica cuando las medias o las unidades son distintas.",
-  ],
-  ejercicios: [
-    { q: "Calcula la media y la desviación típica de 2, 4, 4, 6, 9.", sol: "x̄ = 5; σ² = 153/5 − 25 = 5,6; σ ≈ 2,37." },
-    { q: "¿Qué significa una covarianza negativa?", sol: "Que cuando una variable aumenta, la otra tiende a disminuir." },
-    { q: "Clasifica la correlación: horas de estudio y nota; edad de un coche y su precio; número de calzado y nota de Historia.", sol: "Positiva, negativa y nula." },
-    { q: "Si σₓᵧ = 12, σₓ = 4 y σᵧ = 5, calcula r e interprétalo.", sol: "r = 12 / 20 = 0,6: correlación positiva moderada." },
-    { q: "¿Puede ser r = 1,3? ¿Por qué?", sol: "No: r siempre está entre −1 y 1." },
-    { q: "Calcula la covarianza de x: 1, 2, 3; y: 6, 4, 2.", sol: "Σxy/3 = 20/3 ≈ 6,67; x̄ · ȳ = 2 · 4 = 8; σₓᵧ ≈ −1,33." },
-    { q: "La recta de regresión del peso (kg) sobre la altura (cm) es y = 0,9x − 90. Estima el peso de alguien de 170 cm.", sol: "0,9 · 170 − 90 = 63 kg." },
-    { q: "¿Es fiable usar la recta anterior para estimar el peso de un bebé de 50 cm? ¿Por qué?", sol: "No: daría −45 kg. Es una extrapolación fuera del rango de los datos." },
-    { q: "Pon un ejemplo de correlación causada por una variable oculta.", sol: "Uso de crema solar y quemaduras: ambas crecen con los días de sol (también helados y ahogamientos)." },
-    { q: "Un conjunto tiene x̄ = 50 y σ = 5, y otro x̄ = 10 y σ = 2. ¿Cuál es más homogéneo?", sol: "CV: 10 % frente a 20 %; el primero es más homogéneo." },
-  ],
-  quiz: [
-    { q: "La covarianza se calcula como…", o: ["Σxy/N − x̄ȳ", "Σx/N", "σₓ · σᵧ"], a: 0, e: "Media de productos menos producto de medias." },
-    { q: "Un r alto entre dos variables demuestra que…", o: ["una causa la otra", "están relacionadas linealmente", "son iguales"], a: 1, e: "Correlación no es causalidad." },
-    { q: "El coeficiente de variación sirve para…", o: ["comparar dispersiones", "calcular la media", "dibujar la recta"], a: 0, e: "CV = σ / x̄." },
-    { q: "Si r = 0, puede haber…", o: ["una relación curva", "una relación lineal perfecta", "covarianza positiva grande"], a: 0, e: "r solo mide relación lineal." },
-    { q: "La desviación típica es…", o: ["la raíz de la varianza", "el cuadrado de la varianza", "la media de los datos"], a: 0, e: "Mismas unidades que los datos." },
-  ],
-  tarjetas: [
-    ["Covarianza", "σₓᵧ = Σxy/N − x̄ȳ; su signo indica si las variables crecen juntas."],
-    ["Coeficiente de variación", "CV = σ / x̄; compara dispersiones de distintos conjuntos."],
-    ["Variable oculta", "Tercera variable que explica la correlación entre otras dos."],
-  ],
-});
