@@ -1,138 +1,713 @@
-// Geografía e Historia 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-const { rueda, dos, linea, filas, figLinea } = require("./_hum");
-
+// Geografía e Historia 4º ESO · tema nivel libro (capítulo completo). Contenido y dibujos SVG propios.
+// Los dibujos nuevos se generaron con src/temas/_eso4L4.js y se guardan ya resueltos.
 module.exports = {
   materia: "Geografía e Historia",
   curso: "4-eso",
   titulo: "El imperialismo y la Primera Guerra Mundial",
-  minutos: 40,
-  objetivos: ["Explicar las causas y consecuencias del imperialismo", "Identificar las causas y los bloques de la Primera Guerra Mundial", "Describir las fases de la guerra y la paz de París"],
-  claves: ["imperialismo", "colonia", "Conferencia de Berlín", "Triple Alianza", "Triple Entente", "guerra de trincheras"],
+  minutos: 110,
+  objetivos: [
+    "Explicar las causas y consecuencias del imperialismo",
+    "Identificar las causas y los bloques de la Primera Guerra Mundial",
+    "Describir las fases de la guerra y la paz de París",
+    "Distinguir las formas de dominio colonial",
+    "Explicar las consecuencias de la Primera Guerra Mundial y de la paz",
+  ],
+  claves: [
+    "imperialismo",
+    "colonia",
+    "Conferencia de Berlín",
+    "Triple Alianza",
+    "Triple Entente",
+    "guerra de trincheras",
+  ],
   pregunta: {
-    texto: "En 1914 casi toda África estaba repartida entre siete países europeos. Ese mismo año, esos países empezaron una guerra que mató a unos 10 millones de soldados. ¿Tienen algo que ver?",
-    respuesta: "Sí. La carrera por las <mark>colonias</mark> (el imperialismo) aumentó la rivalidad entre las potencias europeas, que formaron alianzas militares y se armaron. Un atentado en Sarajevo bastó para que estallara la <b>Primera Guerra Mundial</b> (1914-1918).",
+    texto: `En 1914 casi toda África estaba repartida entre siete países europeos. Ese mismo año, esos países empezaron una guerra que mató a unos 10 millones de soldados. ¿Tienen algo que ver?`,
+    respuesta: `Sí. La carrera por las <mark>colonias</mark> (el imperialismo) aumentó la rivalidad entre las potencias europeas, que formaron alianzas militares y se armaron. Un atentado en Sarajevo bastó para que estallara la <b>Primera Guerra Mundial</b> (1914-1918).`,
+  },
+  lectura: {
+    titulo: "Una regla sobre el mapa",
+    html: `<p>Mira un mapa político de África. Muchas fronteras son líneas rectas, trazadas con regla y escuadra a través de desiertos, selvas y montañas. Entre Egipto y Sudán, entre Argelia y Malí, entre Namibia y Botsuana… No las dibujó ningún pueblo africano. Las decidieron, en su mayoría, diplomáticos europeos sentados en despachos de Berlín, Londres o París a finales del siglo XIX, muchos de los cuales jamás habían pisado el continente.</p><p>Esas líneas separaron a pueblos que hablaban la misma lengua y juntaron a otros que eran rivales. Más de un siglo después, algunas guerras y tensiones de África tienen su origen en aquellos trazos.</p><p>El mismo afán de poder que llevó a las potencias europeas a repartirse el mundo las enfrentó entre sí. En 1914 estalló una guerra que nadie imaginaba tan larga ni tan terrible: diez millones de soldados muertos, ciudades arrasadas, imperios que desaparecieron. Los que la vivieron la llamaron «la Gran Guerra», convencidos de que nunca habría otra igual. En este tema descubrirás cómo el <b>imperialismo</b> y la <b>Primera Guerra Mundial</b> cambiaron el mapa del planeta.</p>`,
   },
   bloques: [
     {
-      html: `<h3>Por qué Europa se repartió el mundo</h3><p>Entre 1870 y 1914 las potencias industriales conquistaron gran parte de África y Asia. Las causas fueron <b>económicas</b> (materias primas, mercados para sus productos, inversiones), <b>demográficas</b> (emigrar el exceso de población), <b>políticas</b> (prestigio y bases estratégicas) e <b>ideológicas</b>: el <mark>racismo</mark> que afirmaba la superioridad europea y su supuesta «misión civilizadora».</p>`,
-      svg: rueda("Causas del imperialismo", "IMPERIA-|LISMO", [["materias primas", "var(--leaf)"], ["mercados", "var(--pen)"], ["población", "var(--sun)"], ["prestigio", "var(--red)"], ["racismo", "var(--muted)"], ["bases navales", "var(--water)"]], "var(--soc, #c2410c)"),
+      html: `<h3>1.1 Qué fue el imperialismo y cuáles fueron sus causas</h3><p>El <mark>imperialismo</mark> es la política de expansión de un Estado que domina a otros territorios y pueblos en lo político, lo económico y lo cultural. Entre 1870 y 1914 las potencias industriales conquistaron casi toda África y gran parte de Asia y Oceanía: hacia 1914 controlaban más de la mitad de las tierras del planeta. A diferencia del colonialismo de los siglos XVI-XVIII, ahora participaban muchas potencias a la vez y la conquista era mucho más rápida, gracias a la superioridad técnica (barcos de vapor, fusiles de repetición, quinina contra la malaria).</p><p>Sus causas fueron varias. <b>Económicas</b>: la segunda Revolución Industrial necesitaba materias primas (caucho, petróleo, cobre, algodón), mercados para vender sus productos e inversiones rentables para sus capitales. <b>Demográficas</b>: Europa crecía y las colonias acogían a parte de los emigrantes. <b>Políticas y estratégicas</b>: tener colonias daba prestigio y bases navales en las rutas clave. <b>Ideológicas</b>: el nacionalismo y el racismo, que afirmaba la superioridad de los europeos y su supuesta «misión civilizadora».</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Causas del imperialismo">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle">
+    <path d="M56 30 L 130 96" stroke="var(--line)" stroke-width="2.5"/><rect x="8" y="17" width="96" height="24" rx="12" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="56" y="34" fill="var(--ink)" font-size="10.5">materias primas</text><path d="M204 30 L 130 96" stroke="var(--line)" stroke-width="2.5"/><rect x="156" y="17" width="96" height="24" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="204" y="34" fill="var(--ink)">mercados</text><path d="M54 96 L 130 96" stroke="var(--line)" stroke-width="2.5"/><rect x="6" y="83" width="96" height="24" rx="12" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="54" y="100" fill="var(--ink)">población</text><path d="M206 96 L 130 96" stroke="var(--line)" stroke-width="2.5"/><rect x="158" y="83" width="96" height="24" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="206" y="100" fill="var(--ink)">prestigio</text><path d="M56 160 L 130 96" stroke="var(--line)" stroke-width="2.5"/><rect x="8" y="147" width="96" height="24" rx="12" fill="var(--card)" stroke="var(--muted)" stroke-width="2"/><text x="56" y="164" fill="var(--ink)">racismo</text><path d="M204 160 L 130 96" stroke="var(--line)" stroke-width="2.5"/><rect x="156" y="147" width="96" height="24" rx="12" fill="var(--card)" stroke="var(--water)" stroke-width="2"/><text x="204" y="164" fill="var(--ink)" font-size="10.5">bases navales</text>
+    <circle cx="130" cy="96" r="34" fill="var(--soc, #c2410c)"/>
+    <text x="130" y="93" fill="#fff" font-size="11">IMPERIA-</text><text x="130" y="107" fill="#fff" font-size="11">LISMO</text>
+  </g>
+  </svg>`,
+      video: {
+        id: "BXOdY6JsUJQ",
+        titulo: "El imperialismo (1886-1914): cuando Europa conquistó el mundo",
+        canal: "La cuna de Halicarnaso",
+        vistas: 885350,
+        megusta: 0,
+      },
     },
     {
-      html: `<h3>El reparto de África y Asia</h3><p>En la <mark>Conferencia de Berlín</mark> (1884-1885) las potencias pactaron las reglas para repartirse África sin tener en cuenta a sus pueblos. Gran Bretaña construyó el mayor imperio (India, Egipto, Sudáfrica) y Francia el segundo (norte y oeste de África, Indochina). Para los pueblos colonizados supuso explotación, pérdida de tierras y fronteras artificiales que aún causan conflictos.</p>`,
-      svg: filas("Grandes imperios coloniales hacia 1914", [["Reino Unido", "India, Egipto, Sudáfrica…", "var(--red)"], ["Francia", "Argelia, Senegal, Indochina", "var(--pen)"], ["Alemania", "Camerún, Tanganica", "var(--ink)"], ["Bélgica", "Congo", "var(--sun)"], ["España", "norte de Marruecos, Guinea", "var(--leaf)"]]),
+      html: `<h3>1.2 Las formas de dominio y su justificación</h3><table class="tb"><thead><tr><th>Tipo</th><th>Qué era</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Colonia</td><td>territorio gobernado directamente por la metrópoli</td><td>Congo belga, Argelia</td></tr><tr><td>Protectorado</td><td>se mantiene un gobierno local, pero la metrópoli controla la política exterior y la economía</td><td>Marruecos (Francia y España)</td></tr><tr><td>Dominio</td><td>colonia de población europea con autogobierno</td><td>Canadá, Australia</td></tr><tr><td>Concesión</td><td>puerto o zona cedida para comerciar</td><td>Hong Kong</td></tr></tbody></table><p>La <b>metrópoli</b> es el país que domina la colonia. Para justificar su dominio, las potencias recurrieron al racismo de la época. Se hablaba de una «<b>misión civilizadora</b>»: llevar la religión cristiana, la ciencia y el progreso a pueblos que se consideraban «atrasados». El poeta británico Kipling escribió sobre «la carga del hombre blanco». El <mark>darwinismo social</mark> aplicaba falsamente la teoría de la selección natural de Darwin a los pueblos: los «más aptos» tendrían derecho a dominar a los demás. Hoy sabemos que estas ideas no tienen ninguna base científica.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Formas de dominio colonial: Colonia, Protectorado, Dominio, Concesión"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Formas de dominio colonial</text><rect x="10.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="68" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Colonia</text><text x="68" y="69.8" text-anchor="middle" font-size="10" >gobierno directo</text><text x="68" y="81.3" text-anchor="middle" font-size="10" >de la metrópoli</text><rect x="134.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="192" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Protectorado</text><text x="192" y="64.0" text-anchor="middle" font-size="10" >gobierno local</text><text x="192" y="75.5" text-anchor="middle" font-size="10" >bajo control</text><text x="192" y="87.0" text-anchor="middle" font-size="10" >extranjero</text><rect x="10.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="68" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--leaf)">Dominio</text><text x="68" y="139.0" text-anchor="middle" font-size="10" >colonia de</text><text x="68" y="150.5" text-anchor="middle" font-size="10" >población con</text><text x="68" y="162.0" text-anchor="middle" font-size="10" >autogobierno</text><rect x="134.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="192" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--sun)">Concesión</text><text x="192" y="144.8" text-anchor="middle" font-size="10" >puerto o zona</text><text x="192" y="156.3" text-anchor="middle" font-size="10" >cedida</text></g></svg>`,
     },
     {
-      html: `<h3>Las causas de la Gran Guerra</h3><p>Las rivalidades coloniales, la carrera de armamentos y los nacionalismos (Francia quería recuperar Alsacia y Lorena; Austria-Hungría y Rusia chocaban en los Balcanes) dividieron Europa en dos bloques: la <mark>Triple Alianza</mark> (Alemania, Austria-Hungría, Italia) y la <mark>Triple Entente</mark> (Francia, Reino Unido, Rusia). El 28 de junio de 1914 un nacionalista serbio asesinó en <b>Sarajevo</b> al heredero austriaco, Francisco Fernando: fue la chispa.</p>`,
-      svg: dos("Los dos bloques en 1914", ["Triple Alianza", ["Alemania", "Austria-Hungría", "Italia (cambió", "de bando en 1915)"], "var(--ink)"], ["Triple Entente", ["Francia", "Reino Unido", "Rusia", "+ EE. UU. en 1917"], "var(--pen)"]),
+      html: `<h3>1.3 El reparto de África</h3><p>Hasta 1870 los europeos apenas ocupaban algunas costas africanas. En treinta años lo dominaron casi todo: solo Etiopía, que derrotó a Italia en Adua (1896), y Liberia conservaron su independencia.</p><p>Para evitar enfrentarse entre ellas, las potencias celebraron la <mark>Conferencia de Berlín</mark> (1884-1885), convocada por Bismarck. Acordaron que una potencia solo podía reclamar un territorio si lo ocupaba de forma efectiva y lo notificaba a las demás, y reconocieron el Congo como propiedad personal del rey Leopoldo II de Bélgica. Ningún africano fue invitado.</p><p>Dos grandes proyectos chocaron. <b>Gran Bretaña</b> quería un eje norte-sur «de El Cairo a El Cabo», con Egipto, Sudán, Kenia y Sudáfrica. <b>Francia</b> buscaba un eje oeste-este, desde Senegal y Argelia hacia el mar Rojo. Ambos se encontraron en Fachoda (Sudán, 1898) y estuvieron a punto de ir a la guerra, pero Francia cedió. Alemania se quedó con Camerún, Togo, Namibia y Tanzania; Italia con Libia y Somalia; Portugal con Angola y Mozambique; y España con Guinea Ecuatorial, el Sáhara y parte de Marruecos.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Grandes imperios coloniales hacia 1914">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <g font-family="Atkinson Hyperlegible, sans-serif"><rect x="14" y="14" width="232" height="26" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><rect x="14" y="14" width="80" height="26" rx="8" fill="var(--red)"/><text x="54" y="31" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Reino Unido</text><text x="102" y="31" font-size="10.5" fill="var(--ink)">India, Egipto, Sudáfrica…</text><rect x="14" y="44" width="232" height="26" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><rect x="14" y="44" width="80" height="26" rx="8" fill="var(--pen)"/><text x="54" y="61" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Francia</text><text x="102" y="61" font-size="9.5" fill="var(--ink)">Argelia, Senegal, Indochina</text><rect x="14" y="74" width="232" height="26" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><rect x="14" y="74" width="80" height="26" rx="8" fill="var(--ink)"/><text x="54" y="91" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Alemania</text><text x="102" y="91" font-size="11.5" fill="var(--ink)">Camerún, Tanganica</text><rect x="14" y="104" width="232" height="26" rx="8" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><rect x="14" y="104" width="80" height="26" rx="8" fill="var(--sun)"/><text x="54" y="121" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Bélgica</text><text x="102" y="121" font-size="11.5" fill="var(--ink)">Congo</text><rect x="14" y="134" width="232" height="26" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><rect x="14" y="134" width="80" height="26" rx="8" fill="var(--leaf)"/><text x="54" y="151" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">España</text><text x="102" y="151" font-size="10.5" fill="var(--ink)">norte de Marruecos, Guinea</text></g>
+  </svg>`,
     },
     {
-      html: `<h3>Una guerra nueva y total</h3><p>Alemania quiso vencer rápido a Francia, pero fue frenada en el Marne (1914). Empezó la <mark>guerra de trincheras</mark>: años de frentes inmóviles con batallas terribles como Verdún (1916). Aparecieron armas nuevas: ametralladoras, gases tóxicos, tanques, aviones y submarinos. Fue una <b>guerra total</b>: la economía entera y la población civil se pusieron al servicio del conflicto, y las mujeres ocuparon puestos en las fábricas.</p>`,
+      html: `<h3>1.4 El imperialismo en Asia: India, China y Japón</h3><p>En Asia, la joya del Imperio británico era la <b>India</b>, que pasó a depender directamente de la Corona en 1858 tras la rebelión de los cipayos; la reina Victoria fue proclamada emperatriz de la India en 1877. Gran Bretaña también controló Birmania, Malasia y Singapur, y Francia formó la <b>Indochina</b> francesa (Vietnam, Laos y Camboya). Países Bajos dominaba Indonesia desde siglos antes.</p><p><b>China</b>, un enorme imperio debilitado, no fue colonizado entero, pero las potencias le impusieron <b>tratados desiguales</b> y zonas de influencia. Gran Bretaña ganó las <b>guerras del opio</b> (1839-1842 y 1856-1860) para obligar a China a aceptar la venta de opio procedente de la India, y obtuvo Hong Kong. La rebelión de los bóxers (1900) contra los extranjeros fue aplastada por una coalición internacional.</p><p>Dos países no europeos se sumaron al reparto. <b>Japón</b> se modernizó a toda velocidad con la era Meiji (desde 1868), venció a China (1895) y a Rusia (1905) y se anexionó Corea. <b>Estados Unidos</b> se expandió por el Pacífico y el Caribe: Hawái, y Filipinas, Puerto Rico y Guam tras vencer a España en 1898.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Potencias imperialistas en Asia y el Pacífico: Gran Bretaña, Francia, Japón, Estados Unidos"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.3" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Potencias imperialistas en Asia y</text><text x="130" y="34.1" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">el Pacífico</text><rect x="10.0" y="42.0" width="116.0" height="60.0" rx="9" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="68" y="60.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Gran Bretaña</text><text x="68" y="80.3" text-anchor="middle" font-size="10" >India, Birmania,</text><text x="68" y="91.8" text-anchor="middle" font-size="10" >Hong Kong</text><rect x="134.0" y="42.0" width="116.0" height="60.0" rx="9" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="192" y="60.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Francia</text><text x="192" y="86.0" text-anchor="middle" font-size="10" >Indochina</text><rect x="10.0" y="110.0" width="116.0" height="60.0" rx="9" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="68" y="128.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--leaf)">Japón</text><text x="68" y="154.0" text-anchor="middle" font-size="10" >Corea, Taiwán</text><rect x="134.0" y="110.0" width="116.0" height="60.0" rx="9" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="192" y="128.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--sun)">Estados Unidos</text><text x="192" y="154.0" text-anchor="middle" font-size="10" >Filipinas, Hawái</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.5 Consecuencias para los pueblos colonizados</h3><p>Para la población colonizada, el imperialismo supuso sobre todo <mark>explotación y pérdida de libertad</mark>. Las metrópolis trazaron fronteras sin tener en cuenta etnias, lenguas ni religiones, lo que causó conflictos que llegan hasta hoy. Se apropiaron de las mejores tierras, impusieron el <b>monocultivo</b> de productos para exportar (café, cacao, caucho, algodón) en lugar de alimentos, y arruinaron la artesanía local con productos industriales baratos.</p><p>Hubo abusos terribles. En el <b>Congo de Leopoldo II</b>, millones de personas murieron por el trabajo forzado para recoger caucho, y a quienes no cumplían las cuotas se les amputaban las manos. Las denuncias de periodistas y misioneros obligaron a Bélgica a quitarle el Congo al rey en 1908. En Namibia, el ejército alemán cometió un genocidio contra los pueblos herero y nama (1904-1908).</p><p>También llegaron puertos, ferrocarriles, escuelas, hospitales y vacunas, pero pensados sobre todo para los colonos y para extraer recursos. Las élites locales que estudiaron en las metrópolis aprendieron las ideas de libertad y nación que, irónicamente, usarían después para reclamar la independencia.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Consecuencias para los colonizados: Fronteras artificiales, Economía, Población, Cultura"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Consecuencias para los colonizados</text><rect x="10.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="68" y="46.5" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Fronteras</text><text x="68" y="59.2" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">artificiales</text><text x="68" y="76.3" text-anchor="middle" font-size="10" >pueblos divididos</text><text x="68" y="87.8" text-anchor="middle" font-size="10" >o mezclados</text><rect x="134.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="192" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Economía</text><text x="192" y="69.8" text-anchor="middle" font-size="10" >monocultivo para</text><text x="192" y="81.3" text-anchor="middle" font-size="10" >exportar</text><rect x="10.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="68" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--leaf)">Población</text><text x="68" y="144.8" text-anchor="middle" font-size="10" >trabajo forzado y</text><text x="68" y="156.3" text-anchor="middle" font-size="10" >abusos</text><rect x="134.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="192" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--sun)">Cultura</text><text x="192" y="144.8" text-anchor="middle" font-size="10" >lengua y religión</text><text x="192" y="156.3" text-anchor="middle" font-size="10" >impuestas</text></g></svg>`,
+      video: {
+        id: "WDc8z_k1hkE",
+        titulo: "El imperialismo: factores y causas",
+        canal: "Clases Particulares en Ávila",
+        vistas: 689097,
+        megusta: 0,
+      },
+    },
+    {
+      html: `<h3>1.6 Las causas de la Gran Guerra</h3><p>A comienzos del siglo XX Europa vivía la «<b>Belle Époque</b>», una etapa de progreso y optimismo, pero bajo la superficie se acumulaban tensiones. Las causas profundas de la <mark>Primera Guerra Mundial</mark> fueron cuatro.</p><p>Las <b>rivalidades imperialistas</b>: Alemania, que había llegado tarde al reparto, quería más colonias y chocó con Francia en Marruecos (crisis de 1905 y 1911). La <b>rivalidad económica</b>: la industria alemana amenazaba la supremacía británica. Los <b>nacionalismos</b>: Francia deseaba recuperar Alsacia y Lorena, perdidas en 1871; en los Balcanes, los pueblos eslavos querían liberarse de Austria-Hungría y del Imperio otomano, con el apoyo de Rusia. Y la <b>carrera de armamentos</b>: todas las potencias aumentaron sus ejércitos y Alemania y Gran Bretaña compitieron por tener la mayor flota de guerra.</p><p>Esta etapa se conoce como la <mark>paz armada</mark>: no había guerra, pero todos se preparaban para ella, y los Estados Mayores tenían planes detallados de ataque. Bastaba una chispa para que el polvorín estallara.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Los dos bloques en 1914">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <rect x="14" y="16" width="110" height="148" rx="12" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>
+    <text x="69" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="var(--ink)" font-family="Baloo 2, sans-serif">Triple Alianza</text>
+    <text x="69" y="68" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Alemania</text><text x="69" y="90" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Austria-Hungría</text><text x="69" y="112" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Italia (cambió</text><text x="69" y="134" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">de bando en 1915)</text><rect x="136" y="16" width="110" height="148" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+    <text x="191" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="var(--pen)" font-family="Baloo 2, sans-serif">Triple Entente</text>
+    <text x="191" y="68" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Francia</text><text x="191" y="90" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Reino Unido</text><text x="191" y="112" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Rusia</text><text x="191" y="134" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">+ EE. UU. en 1917</text>
+  </svg>`,
+    },
+    {
+      html: `<h3>1.7 Los dos bloques y la chispa de Sarajevo</h3><p>Europa estaba dividida en dos sistemas de alianzas: la <b>Triple Entente</b> (Francia, Reino Unido y Rusia) y la <b>Triple Alianza</b> (Alemania, Austria-Hungría e Italia). Las alianzas obligaban a cada país a defender a sus socios: un conflicto local podía arrastrar a todos.</p><p>Los <b>Balcanes</b> eran el «polvorín de Europa». Austria-Hungría se había anexionado Bosnia en 1908, donde vivían muchos serbios, y Serbia, apoyada por Rusia, aspiraba a unir a todos los eslavos del sur. El <mark>28 de junio de 1914</mark>, un joven nacionalista serbobosnio, Gavrilo Princip, asesinó en <b>Sarajevo</b> al archiduque <b>Francisco Fernando</b>, heredero del trono austriaco, y a su esposa.</p><p>Austria-Hungría, respaldada por Alemania, lanzó un ultimátum a Serbia y le declaró la guerra el 28 de julio. Rusia movilizó su ejército para proteger a Serbia; Alemania declaró la guerra a Rusia y a Francia, e invadió Bélgica, que era neutral, lo que hizo entrar al Reino Unido. En una semana, el juego de alianzas convirtió un atentado en una guerra europea. Italia permaneció neutral y en 1915 se pasó a la Entente; el Imperio otomano y Bulgaria se unieron a los imperios centrales.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="La crisis de julio de 1914: 28 jun: atentado de Sarajevo → 28 jul: Austria-Hungría declara la guerra a Serbia → Rusia moviliza; Alemania declara la guerra a Rusia y Francia → 4 ago: Alemania invade Bélgica y entra el Reino Unido"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">La crisis de julio de 1914</text><rect x="30" y="28.0" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="130" y="45.9" text-anchor="middle" font-size="10.5" >28 jun: atentado de Sarajevo</text><path d="M130 57.5 v 7 m -4 -4 l 4 4 l 4 -4" stroke="var(--muted)" stroke-width="2" fill="none"/><rect x="30" y="66.5" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="130" y="78.4" text-anchor="middle" font-size="10.5" >28 jul: Austria-Hungría declara</text><text x="130" y="90.5" text-anchor="middle" font-size="10.5" >la guerra a Serbia</text><path d="M130 96.0 v 7 m -4 -4 l 4 4 l 4 -4" stroke="var(--muted)" stroke-width="2" fill="none"/><rect x="30" y="105.0" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="130" y="110.8" text-anchor="middle" font-size="10.5" >Rusia moviliza; Alemania</text><text x="130" y="122.9" text-anchor="middle" font-size="10.5" >declara la guerra a Rusia y</text><text x="130" y="135.0" text-anchor="middle" font-size="10.5" >Francia</text><path d="M130 134.5 v 7 m -4 -4 l 4 4 l 4 -4" stroke="var(--muted)" stroke-width="2" fill="none"/><rect x="30" y="143.5" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="130" y="155.4" text-anchor="middle" font-size="10.5" >4 ago: Alemania invade Bélgica</text><text x="130" y="167.5" text-anchor="middle" font-size="10.5" >y entra el Reino Unido</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.8 Una guerra nueva y total</h3><p>Todos creían que la guerra sería corta: «en casa por Navidad». No fue así. La Primera Guerra Mundial fue una guerra de un tipo nuevo, por su escala, por su tecnología y por su impacto en toda la sociedad.</p><p>Se usaron <b>armas nuevas</b> producidas por la industria: ametralladoras que disparaban cientos de balas por minuto, artillería pesada, <b>gases tóxicos</b> (cloro, gas mostaza) desde 1915, <b>tanques</b> desde 1916, <b>aviones</b> para observar y bombardear, y <b>submarinos</b> que hundían barcos mercantes. La defensa era más fuerte que el ataque, de modo que los ejércitos se enterraron en trincheras.</p><p>Fue una <mark>guerra total</mark>: no solo luchaban los ejércitos, sino países enteros. Los Estados controlaron la economía, orientando las fábricas a producir armas y municiones, y racionaron alimentos. Se movilizó a más de 65 millones de soldados, incluidos cientos de miles traídos de las colonias. La población civil sufrió bombardeos, hambre y bloqueos, y la <b>propaganda</b> en carteles, prensa y cine fue un arma más para mantener la moral y odiar al enemigo.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Corte de dos trincheras enfrentadas con alambradas y la tierra de nadie en medio">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         <path d="M10 100 H 60 V 130 H 90 V 100 H 170 V 130 H 200 V 100 H 250 V 168 H 10 Z" fill="var(--muted)" opacity=".5"/>
         <path d="M10 100 H 60 V 130 H 90 V 100 H 170 V 130 H 200 V 100 H 250" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
-        ${[100, 115, 145, 160].map((x) => `<path d="M${x} 100 l 6 -12 l 6 12 l 6 -12" fill="none" stroke="var(--ink)" stroke-width="1.5"/>`).join("")}
+        <path d="M100 100 l 6 -12 l 6 12 l 6 -12" fill="none" stroke="var(--ink)" stroke-width="1.5"/><path d="M115 100 l 6 -12 l 6 12 l 6 -12" fill="none" stroke="var(--ink)" stroke-width="1.5"/><path d="M145 100 l 6 -12 l 6 12 l 6 -12" fill="none" stroke="var(--ink)" stroke-width="1.5"/><path d="M160 100 l 6 -12 l 6 12 l 6 -12" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
         <circle cx="75" cy="120" r="6" fill="var(--pen)"/><circle cx="185" cy="120" r="6" fill="var(--red)"/>
-        <text x="130" y="80" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>tierra de nadie</text>
-        <text x="75" y="156" text-anchor="middle" font-size="11" fill="var(--ink)" ${F}>trinchera</text><text x="185" y="156" text-anchor="middle" font-size="11" fill="var(--ink)" ${F}>trinchera</text>
-        <text x="130" y="36" text-anchor="middle" font-size="14" font-weight="700" fill="var(--red)" ${D}>Verdún 1916</text>
+        <text x="130" y="80" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">tierra de nadie</text>
+        <text x="75" y="156" text-anchor="middle" font-size="11" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">trinchera</text><text x="185" y="156" text-anchor="middle" font-size="11" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">trinchera</text>
+        <text x="130" y="36" text-anchor="middle" font-size="14" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">Verdún 1916</text>
       </svg>`,
+      video: {
+        id: "P3BZGnkCn-M",
+        titulo: "La Primera Guerra Mundial en 15 minutos",
+        canal: "Memorias de Pez",
+        vistas: 7306286,
+        megusta: 0,
+      },
     },
     {
-      html: `<h3>1917, el final y la paz</h3><p>En 1917 hubo dos giros: <b>Estados Unidos</b> entró en la guerra con la Entente y <b>Rusia</b> se retiró tras su revolución. Agotados, los imperios centrales se rindieron y el <b>armisticio</b> se firmó el 11 de noviembre de 1918. En la Conferencia de París, el <mark>Tratado de Versalles</mark> (1919) culpó a Alemania, le quitó territorios y colonias, limitó su ejército y le impuso enormes reparaciones. Desaparecieron cuatro imperios y se creó la <b>Sociedad de Naciones</b>.</p>`,
-      svg: linea("Final de la guerra y paz", [["1917", "EE. UU. entra;|Rusia sale"], ["1918", "armisticio|11 nov."], ["1919", "Tratado de|Versalles"], ["1920", "Sociedad de|Naciones"]]),
+      html: `<h3>1.9 Las fases de la guerra</h3><table class="tb"><thead><tr><th>Fase</th><th>Años</th><th>Qué pasó</th></tr></thead><tbody><tr><td>Guerra de movimientos</td><td>1914</td><td>Alemania invade Bélgica y Francia; se detiene en el Marne</td></tr><tr><td>Guerra de trincheras</td><td>1915-1917</td><td>frentes inmóviles; Verdún y el Somme, con cientos de miles de muertos</td></tr><tr><td>Final</td><td>1917-1918</td><td>Rusia sale de la guerra; entra EE. UU.; Alemania firma el armisticio (11-11-1918)</td></tr></tbody></table><p>Alemania aplicó el <b>plan Schlieffen</b>: derrotar rápido a Francia atravesando Bélgica y después volverse contra Rusia. Pero franceses y británicos lo detuvieron en el <b>Marne</b> (septiembre de 1914). Desde entonces el <b>frente occidental</b> quedó inmóvil durante tres años: una línea de trincheras desde el mar del Norte hasta Suiza. Los soldados vivían entre barro, ratas, piojos, frío y cadáveres, y cada ofensiva costaba miles de vidas para avanzar unos metros. En <b>Verdún</b> (1916) murieron unos 700 000 hombres de ambos bandos en diez meses; el primer día de la batalla del <b>Somme</b>, los británicos perdieron casi 20 000.</p><p>En el <b>frente oriental</b> hubo más movimiento: Alemania venció a Rusia en Tannenberg. También se luchó en Italia, en los Balcanes, en Oriente Medio y en el mar.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Línea del tiempo: Primera Guerra Mundial"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><path d="M14 98 H 246" stroke="var(--ink)" stroke-width="3"/><circle cx="28" cy="98" r="6" fill="var(--pen)"/><path d="M28 92 V 78" stroke="var(--pen)" stroke-width="2"/><text x="47.35" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1914</text><text x="47.35" y="44.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">batalla del</text><text x="47.35" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Marne</text><circle cx="79" cy="98" r="6" fill="var(--red)"/><path d="M79 104 V 118" stroke="var(--red)" stroke-width="2"/><text x="79" y="132.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1915</text><text x="79" y="149.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">Italia cambia de</text><text x="79" y="160.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">bando</text><circle cx="130" cy="98" r="6" fill="var(--leaf)"/><path d="M130 92 V 78" stroke="var(--leaf)" stroke-width="2"/><text x="130" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1916</text><text x="130" y="44.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">Verdún y el</text><text x="130" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Somme</text><circle cx="181" cy="98" r="6" fill="var(--sun)"/><path d="M181 104 V 118" stroke="var(--sun)" stroke-width="2"/><text x="181" y="132.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1917</text><text x="181" y="149.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">entra EE. UU.,</text><text x="181" y="160.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">sale Rusia</text><circle cx="232" cy="98" r="6" fill="var(--inf)"/><path d="M232 92 V 78" stroke="var(--inf)" stroke-width="2"/><text x="212.65" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1918</text><text x="212.65" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">armisticio</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.10 La retaguardia: mujeres, propaganda y sacrificio</h3><p>La <b>retaguardia</b>, la zona alejada del frente, fue tan decisiva como las trincheras. Con millones de hombres movilizados, las <mark>mujeres</mark> ocuparon sus puestos: en fábricas de municiones (las <i>munitionettes</i> francesas, las <i>canaries</i> británicas, llamadas así por el color amarillo que los explosivos daban a su piel), en tranvías, oficinas, campos y hospitales. Demostraron que podían hacer cualquier trabajo, y eso impulsó sus reivindicaciones: al terminar la guerra, países como Reino Unido (1918, con limitaciones), Alemania (1918) o Estados Unidos (1920) aprobaron el voto femenino.</p><p>Los Estados controlaron la información mediante la <b>censura</b> y la <b>propaganda</b>: carteles que llamaban a alistarse («Tu país te necesita»), que mostraban al enemigo como un monstruo o que pedían comprar bonos de guerra. Se racionaron el pan, el azúcar o el carbón; el bloqueo naval británico provocó hambre en Alemania, donde el invierno de 1916-1917 se recuerda como «el invierno de los nabos».</p><p>Cuando la guerra se alargó, crecieron el cansancio, las huelgas y los motines de soldados, que en 1917 se extendieron por el ejército francés.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cómo cambió la retaguardia: Mujeres, Economía, Propaganda, Racionamiento"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Cómo cambió la retaguardia</text><rect x="10.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="68" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Mujeres</text><text x="68" y="64.0" text-anchor="middle" font-size="10" >fábricas,</text><text x="68" y="75.5" text-anchor="middle" font-size="10" >transporte,</text><text x="68" y="87.0" text-anchor="middle" font-size="10" >hospitales</text><rect x="134.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="192" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Economía</text><text x="192" y="69.8" text-anchor="middle" font-size="10" >dirigida por el</text><text x="192" y="81.3" text-anchor="middle" font-size="10" >Estado</text><rect x="10.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="68" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--leaf)">Propaganda</text><text x="68" y="144.8" text-anchor="middle" font-size="10" >carteles, prensa y</text><text x="68" y="156.3" text-anchor="middle" font-size="10" >cine</text><rect x="134.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="192" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--sun)">Racionamiento</text><text x="192" y="144.8" text-anchor="middle" font-size="10" >pan, azúcar,</text><text x="192" y="156.3" text-anchor="middle" font-size="10" >carbón</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.11 1917, el final de la guerra y la paz de París</h3><p>El año <mark>1917</mark> cambió el rumbo de la guerra. <b>Estados Unidos</b>, que había prestado mucho dinero a la Entente, entró en la guerra en abril, indignado por la guerra submarina alemana (el hundimiento del <i>Lusitania</i> en 1915 había matado a 128 estadounidenses) y por un telegrama en el que Alemania proponía a México una alianza contra él. Ese mismo año <b>Rusia</b>, agotada, vivió dos revoluciones; los bolcheviques firmaron la paz por separado con Alemania en Brest-Litovsk (1918).</p><p>Alemania lanzó una última gran ofensiva en la primavera de 1918, pero fracasó. Con la llegada masiva de soldados estadounidenses, los aliados contraatacaron. Austria-Hungría se desintegró, en Alemania estalló una revolución y el káiser Guillermo II abdicó. El <b>armisticio</b> se firmó el <b>11 de noviembre de 1918</b>, a las once de la mañana.</p><p>En la <b>Conferencia de Paz de París</b> (1919), los vencedores impusieron los tratados a los vencidos. El presidente estadounidense <b>Wilson</b> había propuesto sus «Catorce Puntos», basados en la autodeterminación de los pueblos y una organización para la paz, pero Francia quería castigar duramente a Alemania. El resultado fue el <mark>Tratado de Versalles</mark>.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Final de la guerra y paz">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <path d="M18 90 H 242" stroke="var(--ink)" stroke-width="3"/>
+    <circle cx="34" cy="90" r="7" fill="var(--red)"/><text x="34" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1917</text><text x="14" y="30" text-anchor="start" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">EE. UU. entra;</text><text x="14" y="44" text-anchor="start" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Rusia sale</text><circle cx="98" cy="90" r="7" fill="var(--red)"/><text x="98" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1918</text><text x="98" y="144" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">armisticio</text><text x="98" y="158" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">11 nov.</text><circle cx="162" cy="90" r="7" fill="var(--red)"/><text x="162" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1919</text><text x="162" y="30" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Tratado de</text><text x="162" y="44" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Versalles</text><circle cx="226" cy="90" r="7" fill="var(--red)"/><text x="226" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1920</text><text x="246" y="144" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Sociedad de</text><text x="246" y="158" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Naciones</text>
+  </svg>`,
+    },
+    {
+      html: `<h3>1.12 Las consecuencias de la guerra</h3><p>Las consecuencias fueron enormes. <b>Demográficas</b>: murieron unos 10 millones de soldados y millones de civiles, y quedaron millones de heridos, mutilados, viudas y huérfanos. A ello se sumó la epidemia de gripe de 1918, que mató a decenas de millones en todo el mundo.</p><p><b>Políticas</b>: desaparecieron cuatro imperios, el alemán, el austrohúngaro, el ruso y el otomano, y nacieron nuevos Estados como Polonia, Checoslovaquia, Yugoslavia, Austria, Hungría o los países bálticos. El <b>Tratado de Versalles</b> declaró a Alemania culpable de la guerra, le quitó Alsacia y Lorena, otros territorios y todas sus colonias, limitó su ejército a 100 000 hombres y le impuso enormes <b>reparaciones</b> económicas. Muchos alemanes lo sintieron como una humillación, un resentimiento que aprovecharía Hitler. Para mantener la paz se creó la <b>Sociedad de Naciones</b> (1920), que nació débil: no tenía ejército y Estados Unidos no entró.</p><p><b>Económicas</b>: Europa quedó arruinada y endeudada con Estados Unidos, que se convirtió en la primera potencia mundial. <b>Sociales</b>: avanzó la incorporación de la mujer y se extendió el miedo a la revolución.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráfico: Soldados muertos (millones, aprox.). Alemania 2, Rusia 1.8, Francia 1.4, Austria-H. 1.2, R. Unido 0.9, Italia 0.6"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Soldados muertos (millones, aprox.)</text><path d="M16 146 H 244" stroke="var(--ink)" stroke-width="2"/><rect x="25.5" y="50.0" width="25.7" height="96.0" rx="3" fill="var(--pen)"/><text x="38.33333333333333" y="46.3" text-anchor="middle" font-size="9.5" font-weight="700">2</text><text x="38.33333333333333" y="163.0" text-anchor="middle" font-size="8.5" fill="var(--muted)">Alemania</text><rect x="62.2" y="59.6" width="25.7" height="86.4" rx="3" fill="var(--red)"/><text x="75" y="55.9" text-anchor="middle" font-size="9.5" font-weight="700">1,8</text><text x="75" y="163.0" text-anchor="middle" font-size="8.5" fill="var(--muted)">Rusia</text><rect x="98.8" y="78.8" width="25.7" height="67.2" rx="3" fill="var(--leaf)"/><text x="111.66666666666666" y="75.1" text-anchor="middle" font-size="9.5" font-weight="700">1,4</text><text x="111.66666666666666" y="163.0" text-anchor="middle" font-size="8.5" fill="var(--muted)">Francia</text><rect x="135.5" y="88.4" width="25.7" height="57.6" rx="3" fill="var(--sun)"/><text x="148.33333333333334" y="84.7" text-anchor="middle" font-size="9.5" font-weight="700">1,2</text><text x="148.33333333333334" y="163.0" text-anchor="middle" font-size="8.5" fill="var(--muted)">Austria-H.</text><rect x="172.2" y="102.8" width="25.7" height="43.2" rx="3" fill="var(--inf)"/><text x="185" y="99.1" text-anchor="middle" font-size="9.5" font-weight="700">0,9</text><text x="185" y="158.1" text-anchor="middle" font-size="8.5" fill="var(--muted)">R.</text><text x="185" y="167.9" text-anchor="middle" font-size="8.5" fill="var(--muted)">Unido</text><rect x="208.8" y="117.2" width="25.7" height="28.8" rx="3" fill="var(--soc, #c2410c)"/><text x="221.66666666666666" y="113.5" text-anchor="middle" font-size="9.5" font-weight="700">0,6</text><text x="221.66666666666666" y="163.0" text-anchor="middle" font-size="8.5" fill="var(--muted)">Italia</text></g></svg>`,
     },
   ],
   figura: {
     titulo: "De la Conferencia de Berlín a Versalles",
-    svg: figLinea("Línea del tiempo del imperialismo y la Primera Guerra Mundial", [[50, "1884", "Conferencia de Berlín", 1], [170, "1898", "desastre del 98", 0], [300, "1914", "Sarajevo y el Marne", 1], [390, "1916", "Verdún", 0], [470, "1917", "EE. UU. entra", 1], [550, "1918", "armisticio", 0], [630, "1919", "Versalles", 1]], [[50, 300, "reparto colonial", "var(--sun)"], [300, 550, "Gran Guerra", "var(--red)"]]),
+    svg: `<svg viewBox="0 0 680 200" role="img" aria-label="Línea del tiempo del imperialismo y la Primera Guerra Mundial">
+    <rect width="680" height="200" rx="16" fill="var(--paper)"/>
+    <path d="M30 100 H 650" stroke="var(--line)" stroke-width="4"/>
+    <rect x="50" y="92" width="250" height="16" rx="8" fill="var(--sun)" opacity=".75"/><text x="175" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">reparto colonial</text><rect x="300" y="92" width="250" height="16" rx="8" fill="var(--red)" opacity=".75"/><text x="425" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Gran Guerra</text>
+    <path d="M50 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="50" cy="100" r="5" fill="var(--ink)"/><text x="50" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1884</text><text x="30" y="54" text-anchor="start" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Conferencia de Berlín</text><path d="M170 100 V 140" stroke="var(--ink)" stroke-width="1.5"/><circle cx="170" cy="100" r="5" fill="var(--ink)"/><text x="170" y="164" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1898</text><text x="170" y="182" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">desastre del 98</text><path d="M300 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="300" cy="100" r="5" fill="var(--ink)"/><text x="300" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1914</text><text x="300" y="54" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Sarajevo y el Marne</text><path d="M390 100 V 140" stroke="var(--ink)" stroke-width="1.5"/><circle cx="390" cy="100" r="5" fill="var(--ink)"/><text x="390" y="164" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1916</text><text x="390" y="182" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Verdún</text><path d="M470 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="470" cy="100" r="5" fill="var(--ink)"/><text x="470" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1917</text><text x="470" y="54" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">EE. UU. entra</text><path d="M550 100 V 140" stroke="var(--ink)" stroke-width="1.5"/><circle cx="550" cy="100" r="5" fill="var(--ink)"/><text x="550" y="164" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1918</text><text x="550" y="182" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">armisticio</text><path d="M630 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="630" cy="100" r="5" fill="var(--ink)"/><text x="630" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1919</text><text x="650" y="54" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Versalles</text>
+  </svg>`,
   },
-  video: { id: "8xrsyuXO3_o", titulo: "La Primera Guerra Mundial en 10 minutos", canal: "Infonimados", vistas: 12288690, megusta: 0, busqueda: "imperialismo y primera guerra mundial resumen" },
+  video: {
+    id: "8xrsyuXO3_o",
+    titulo: "La Primera Guerra Mundial en 10 minutos",
+    canal: "Infonimados",
+    vistas: 12288690,
+    megusta: 0,
+    busqueda: "imperialismo y primera guerra mundial resumen",
+  },
+  ejemplos: [
+    {
+      enunciado: "Explica cómo un asesinato en Sarajevo provocó una guerra mundial.",
+      pasos: [
+        "Austria-Hungría culpa a Serbia y le declara la guerra.",
+        "Rusia, protectora de Serbia, moviliza su ejército.",
+        "Alemania, aliada de Austria, declara la guerra a Rusia y a Francia.",
+        "Al invadir Bélgica, Reino Unido entra en guerra.",
+      ],
+      resultado: `El sistema de alianzas convirtió un conflicto local en una guerra europea y, después, mundial.`,
+    },
+    {
+      enunciado: `Clasifica las causas del imperialismo: buscar materias primas, prestigio nacional, exceso de población, superioridad racial, nuevos mercados.`,
+      pasos: [
+        "Económicas: materias primas y mercados.",
+        "Demográficas: exceso de población.",
+        "Políticas: prestigio nacional.",
+        "Ideológicas: supuesta superioridad racial.",
+      ],
+      resultado: "Económicas (2), demográfica (1), política (1) e ideológica (1).",
+    },
+    {
+      enunciado: "¿Por qué se llama a la Primera Guerra Mundial «guerra total»?",
+      pasos: [
+        "Se movilizó a toda la población y a toda la economía.",
+        "La industria se dedicó a la guerra.",
+        "La propaganda y el racionamiento llegaron a toda la sociedad.",
+        "Los civiles también sufrieron bombardeos y bloqueos.",
+      ],
+      resultado: "Porque implicó a toda la sociedad y no solo a los ejércitos.",
+    },
+    {
+      enunciado: "Explica por qué Bélgica fue clave para que el Reino Unido entrara en la guerra.",
+      pasos: [
+        "El plan Schlieffen exigía atacar Francia a través de Bélgica.",
+        `Bélgica era neutral, y su neutralidad estaba garantizada por un tratado de 1839 firmado por el Reino Unido.`,
+        `El Reino Unido no quería además una gran potencia controlando los puertos frente a sus costas.`,
+        "Al invadir Alemania Bélgica (4 de agosto de 1914), el Reino Unido le declaró la guerra.",
+      ],
+      resultado: `La violación de la neutralidad belga dio al Reino Unido la razón legal y estratégica para entrar en la guerra.`,
+    },
+    {
+      enunciado: `Lee el mapa de África de 1914 y responde: ¿qué potencias tenían los dos mayores imperios y qué proyecto tenía cada una?`,
+      pasos: [
+        `Identifica los colores: Gran Bretaña domina un eje norte-sur (Egipto, Sudán, Kenia, Rodesia, Sudáfrica).`,
+        `Francia domina el noroeste y oeste (Argelia, Túnez, Senegal, África Occidental y Ecuatorial).`,
+        `Proyecto británico: «de El Cairo a El Cabo». Proyecto francés: unir el Atlántico con el mar Rojo.`,
+        "Choque: Fachoda (1898).",
+      ],
+      resultado: `Gran Bretaña y Francia tenían los mayores imperios, con ejes perpendiculares que chocaron en Fachoda.`,
+    },
+    {
+      enunciado: `Comenta este dato: entre 1914 y 1918 el número de mujeres trabajando en la industria británica de armamento pasó de unas 200 000 a casi un millón.`,
+      pasos: [
+        `Causa: millones de hombres fueron movilizados y la guerra total exigía producir armas sin parar.`,
+        `Consecuencia inmediata: las mujeres demostraron su capacidad en trabajos considerados masculinos.`,
+        `Consecuencia política: en 1918 el Reino Unido concedió el voto a las mujeres mayores de 30 años.`,
+        "Matiz: al volver los soldados, muchas fueron despedidas.",
+      ],
+      resultado: `La guerra total aceleró la incorporación de la mujer al trabajo y su acceso al voto, aunque con retrocesos.`,
+    },
+  ],
+  errores: [
+    `Pensar que Italia luchó con Alemania en la Primera Guerra Mundial: en 1915 se pasó a la Entente.`,
+    "Confundir colonia y protectorado.",
+    "Creer que Estados Unidos estuvo desde el principio: entró en 1917.",
+    `Decir que la Sociedad de Naciones evitó nuevas guerras: no tenía ejército ni la apoyaba EE. UU.`,
+    "Situar la Conferencia de Berlín en 1914: fue en 1884-1885.",
+    `Pensar que el imperialismo solo fue europeo: Estados Unidos y Japón también construyeron imperios a finales del siglo XIX.`,
+  ],
+  ejercicios: [
+    {
+      nivel: "básico",
+      q: "Define imperialismo.",
+      sol: `Política de expansión de las potencias industriales, entre 1870 y 1914, para dominar otros territorios y pueblos.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué se decidió en la Conferencia de Berlín?",
+      sol: "Las reglas para repartirse África entre las potencias europeas (1884-1885).",
+    },
+    {
+      nivel: "básico",
+      q: "Explica la paz armada.",
+      sol: `El periodo anterior a 1914 en que las potencias no estaban en guerra pero se armaban sin parar y formaban alianzas.`,
+    },
+    { nivel: "básico", q: "¿Qué países formaban la Triple Entente?", sol: "Francia, Reino Unido y Rusia." },
+    {
+      nivel: "básico",
+      q: "Describe la vida en las trincheras.",
+      sol: `Barro, ratas, frío, enfermedades, miedo constante a los bombardeos y ataques que costaban miles de vidas para avanzar unos metros.`,
+    },
+    {
+      nivel: "básico",
+      q: "Cita tres armas nuevas de la guerra.",
+      sol: "Ametralladoras, gases tóxicos, tanques, aviones y submarinos.",
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué es una metrópoli en el contexto colonial?",
+      sol: `El país que domina y gobierna una colonia. Por ejemplo, el Reino Unido era la metrópoli de la India.`,
+    },
+    {
+      nivel: "básico",
+      q: "Cita tres materias primas que las potencias buscaban en sus colonias.",
+      sol: "Caucho, algodón, petróleo, cobre, cacao, café, oro o diamantes (basta con tres).",
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué dos países africanos conservaron la independencia en 1914?",
+      sol: "Etiopía, que derrotó a Italia en Adua (1896), y Liberia.",
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué fueron las guerras del opio?",
+      sol: `Guerras entre Gran Bretaña y China (1839-1842 y 1856-1860) para obligar a China a aceptar el comercio británico de opio. China perdió, tuvo que abrir puertos y ceder Hong Kong.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué fue la paz armada?",
+      sol: `La etapa anterior a 1914 en que no había guerra entre las potencias, pero todas aumentaban sus ejércitos y armamentos y formaban alianzas preparándose para ella.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué propuso Wilson en los Catorce Puntos?",
+      sol: `Una paz basada en la autodeterminación de los pueblos, la libertad de los mares, el desarme y la creación de una organización internacional para mantener la paz (Sociedad de Naciones).`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Cuándo y dónde se firmó el armisticio que puso fin a la Primera Guerra Mundial?",
+      sol: `El 11 de noviembre de 1918, en un vagón de tren en el bosque de Compiègne (Francia), a las 11 de la mañana.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué cuatro imperios desaparecieron tras la Primera Guerra Mundial?",
+      sol: "El alemán, el austrohúngaro, el ruso y el otomano.",
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué era el darwinismo social?",
+      sol: `Una teoría falsa que aplicaba la selección natural a los pueblos para justificar que los «más fuertes» dominaran a los demás.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Por qué entró EE. UU. en la guerra en 1917?",
+      sol: `Por los ataques de submarinos alemanes a sus barcos y por sus intereses económicos con la Entente.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué imperios desaparecieron tras la guerra?",
+      sol: "El alemán, el austrohúngaro, el ruso y el otomano.",
+    },
+    {
+      nivel: "medio",
+      q: "¿Por qué Japón se convirtió en potencia imperialista?",
+      sol: `Porque con la era Meiji (desde 1868) se modernizó y se industrializó rápidamente, siguiendo modelos occidentales. Necesitaba materias primas y mercados y quería ser tratada como gran potencia: venció a China (1895) y a Rusia (1905) y se anexionó Taiwán y Corea.`,
+    },
+    {
+      nivel: "medio",
+      q: "Explica qué fue el plan Schlieffen y por qué fracasó.",
+      sol: `El plan alemán para evitar luchar en dos frentes: derrotar rápido a Francia atravesando Bélgica y luego volverse contra Rusia. Fracasó porque la resistencia belga y la movilización rusa, más rápida de lo esperado, retrasaron el avance, y franceses y británicos detuvieron a los alemanes en el Marne (1914).`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué era el «polvorín de los Balcanes»?",
+      sol: `La península balcánica, donde chocaban los intereses de Austria-Hungría y Rusia y los nacionalismos eslavos (sobre todo el serbio) contra el dominio austriaco y otomano. Hubo varias guerras balcánicas (1912-1913) y allí se produjo el atentado de Sarajevo.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué decidió la Conferencia de Berlín y por qué es un símbolo del imperialismo?",
+      sol: `Fijó las reglas para repartirse África: había que ocupar efectivamente un territorio y notificarlo, y reconoció el Congo como propiedad de Leopoldo II. Es un símbolo porque las potencias decidieron el destino de un continente sin invitar a ningún africano.`,
+    },
+    {
+      nivel: "medio",
+      q: `Explica tres consecuencias negativas y dos supuestamente positivas del imperialismo para los colonizados.`,
+      sol: `Negativas: fronteras artificiales que generaron conflictos; monocultivo y dependencia económica; trabajo forzado, abusos y genocidios (Congo, herero). Positivas aparentes: infraestructuras (ferrocarriles, puertos) y algunos servicios (escuelas, hospitales, vacunas), aunque pensados sobre todo para los colonos y la explotación.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Por qué la propaganda fue un arma en la Primera Guerra Mundial? Pon ejemplos.",
+      sol: `Porque en una guerra total era necesario mantener la moral de la población, conseguir voluntarios y dinero y justificar los sacrificios. Ejemplos: carteles de reclutamiento («Tu país te necesita»), imágenes del enemigo como bárbaro, llamadas a comprar bonos de guerra y la censura de las noticias negativas.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué territorios perdió Alemania en el Tratado de Versalles?",
+      sol: `Alsacia y Lorena (a Francia), el corredor de Danzig y otras zonas (a Polonia), territorios menores a Bélgica y Dinamarca, el Sarre bajo control internacional y todas sus colonias. Además, se desmilitarizó Renania.`,
+    },
+    {
+      nivel: "medio",
+      q: "Compara la guerra en el frente occidental y en el frente oriental.",
+      sol: `Occidental: guerra de trincheras, frente inmóvil desde 1914 hasta 1918, batallas de desgaste como Verdún y el Somme. Oriental: más movimiento, con grandes avances y retrocesos (Tannenberg), hasta que Rusia salió de la guerra en 1918 por la revolución.`,
+    },
+    {
+      nivel: "avanzado",
+      q: "¿Por qué se dice que el Tratado de Versalles sembró la siguiente guerra?",
+      sol: `Porque humilló a Alemania con pérdidas territoriales y reparaciones enormes, y alimentó el resentimiento que aprovechó el nazismo.`,
+    },
+    {
+      nivel: "avanzado",
+      q: `Comenta este fragmento de Kipling (1899): «Tomad la carga del hombre blanco, enviad a los mejores de vuestra raza… a servir a pueblos hoscos, mitad demonios y mitad niños». ¿Qué ideología refleja y cómo la valoras hoy?`,
+      sol: `Clasifica: poema literario con intención ideológica. Refleja el racismo y la «misión civilizadora»: presenta la dominación como un deber generoso de los blancos hacia pueblos considerados inferiores (mitad demonios, mitad niños). Contexto: auge imperialista y anexión de Filipinas por EE. UU. Valoración: es una justificación de la explotación sin base científica; hoy se considera racista y contraria a la igualdad y dignidad de todas las personas.`,
+    },
+    {
+      nivel: "avanzado",
+      q: `¿Fue el atentado de Sarajevo la causa de la Primera Guerra Mundial? Distingue causas profundas y desencadenante.`,
+      sol: `No fue la causa, sino el desencadenante o chispa. Las causas profundas fueron las rivalidades imperialistas y económicas, los nacionalismos (Alsacia-Lorena, Balcanes), la carrera de armamentos y el sistema de alianzas. Sin ellas, el asesinato habría sido una crisis local; con ellas, el juego de alianzas lo convirtió en guerra europea en una semana.`,
+    },
+    {
+      nivel: "avanzado",
+      q: "Argumenta por qué el Tratado de Versalles fue a la vez demasiado duro y demasiado blando.",
+      sol: `Demasiado duro: humilló a Alemania (culpa de guerra, reparaciones enormes, pérdidas territoriales), alimentando el resentimiento y el nazismo. Demasiado blando: no destruyó el poder de Alemania, que conservó su industria y su unidad, por lo que pudo rearmarse veinte años después. Además, sin EE. UU. ni un sistema eficaz de garantías, nadie lo hizo cumplir.`,
+    },
+    {
+      nivel: "avanzado",
+      q: `Relaciona la Primera Guerra Mundial con la Revolución rusa y con la extensión del voto femenino.`,
+      sol: `Revolución rusa: la guerra agotó a Rusia (derrotas, hambre, millones de muertos) y desacreditó al zar, lo que provocó las revoluciones de 1917 y la salida de la guerra. Voto femenino: la guerra total incorporó masivamente a las mujeres al trabajo y a los servicios públicos, lo que reforzó sus reivindicaciones; varios países les concedieron el voto entre 1918 y 1920.`,
+    },
+    {
+      nivel: "avanzado",
+      q: `Investiga una frontera africana actual trazada en la época colonial y explica un problema que haya causado.`,
+      sol: `Respuesta abierta. Ejemplo: la frontera de Nigeria agrupó a pueblos muy distintos (hausa, yoruba, igbo), lo que contribuyó a la guerra de Biafra (1967-1970); o la división de los somalíes entre varios Estados, que causó la guerra de Ogadén. Debe identificar la potencia colonial, la frontera y el conflicto.`,
+    },
+    {
+      nivel: "avanzado",
+      q: `Escribe una carta imaginaria de un soldado en Verdún en 1916 a su familia, con al menos cinco detalles históricos correctos.`,
+      sol: `Debe incluir detalles como: vida en las trincheras (barro, ratas, piojos, frío), bombardeos de artillería, ataques con gas y máscaras, ametralladoras, asaltos en tierra de nadie, miedo y cansancio, censura de las cartas, número enorme de muertos para avanzar poco terreno.`,
+    },
+  ],
   quiz: [
-    { q: "¿Qué se decidió en la Conferencia de Berlín (1884-1885)?", o: ["El reparto de África entre potencias europeas", "El final de la Primera Guerra Mundial", "La unificación alemana"], a: 0, e: "Las potencias fijaron las reglas para ocupar África sin contar con sus habitantes." },
-    { q: "¿Qué países formaban la Triple Entente?", o: ["Alemania, Austria-Hungría e Italia", "Francia, Reino Unido y Rusia", "España, Portugal y Francia"], a: 1, e: "La Entente se enfrentó a la Triple Alianza encabezada por Alemania." },
-    { q: "¿Qué hecho desencadenó la guerra en 1914?", o: ["El hundimiento del Lusitania", "El asesinato del archiduque Francisco Fernando en Sarajevo", "La revolución rusa"], a: 1, e: "Austria-Hungría declaró la guerra a Serbia y las alianzas arrastraron al resto." },
-    { q: "La guerra de trincheras se caracterizó por…", o: ["avances rápidos de caballería", "frentes estancados durante años", "batallas solo en el mar"], a: 1, e: "En el frente occidental los ejércitos apenas se movieron entre 1914 y 1918." },
-    { q: "El Tratado de Versalles…", o: ["culpó a Alemania y le impuso reparaciones", "dio colonias nuevas a Alemania", "unificó Austria y Alemania"], a: 0, e: "Alemania perdió territorios, colonias y ejército, y tuvo que pagar enormes indemnizaciones." },
+    {
+      q: "¿Qué se decidió en la Conferencia de Berlín (1884-1885)?",
+      o: [
+        "El reparto de África entre potencias europeas",
+        "La creación de la ONU",
+        "El final de la Primera Guerra Mundial",
+        "La unificación alemana",
+      ],
+      a: 0,
+      e: "Las potencias fijaron las reglas para ocupar África sin contar con sus habitantes.",
+    },
+    {
+      q: "¿Qué países formaban la Triple Entente?",
+      o: [
+        "Estados Unidos, Japón y China",
+        "Alemania, Austria-Hungría e Italia",
+        "Francia, Reino Unido y Rusia",
+        "España, Portugal y Francia",
+      ],
+      a: 2,
+      e: "La Entente se enfrentó a la Triple Alianza encabezada por Alemania.",
+    },
+    {
+      q: "¿Qué hecho desencadenó la guerra en 1914?",
+      o: [
+        "El hundimiento del Lusitania",
+        "El asesinato del archiduque Francisco Fernando en Sarajevo",
+        "La revolución rusa",
+        "La invasión de Polonia",
+      ],
+      a: 1,
+      e: "Austria-Hungría declaró la guerra a Serbia y las alianzas arrastraron al resto.",
+    },
+    {
+      q: "La guerra de trincheras se caracterizó por…",
+      o: [
+        "avances rápidos de caballería",
+        "frentes estancados durante años",
+        "guerra aérea sobre las ciudades",
+        "batallas solo en el mar",
+      ],
+      a: 1,
+      e: "En el frente occidental los ejércitos apenas se movieron entre 1914 y 1918.",
+    },
+    {
+      q: "El Tratado de Versalles…",
+      o: [
+        "culpó a Alemania y le impuso reparaciones",
+        "obligó a Francia a pagar reparaciones",
+        "dio colonias nuevas a Alemania",
+        "unificó Austria y Alemania",
+      ],
+      a: 0,
+      e: `Alemania perdió territorios, colonias y ejército, y tuvo que pagar enormes indemnizaciones.`,
+    },
+    {
+      q: "Un protectorado…",
+      o: [
+        "es una ciudad libre",
+        "conserva un gobierno local bajo control extranjero",
+        "es independiente",
+        "es una colonia de población",
+      ],
+      a: 1,
+      e: "Como Marruecos con Francia y España.",
+    },
+    {
+      q: "El atentado de Sarajevo fue el…",
+      o: ["28 de junio de 1914", "11 de noviembre de 1918", "1 de septiembre de 1939", "4 de agosto de 1914"],
+      a: 0,
+      e: "Murió el archiduque Francisco Fernando.",
+    },
+    {
+      q: "Verdún y el Somme son batallas de…",
+      o: ["la guerra de trincheras", "la guerra de movimientos", "la guerra en las colonias", "la guerra en el mar"],
+      a: 0,
+      e: "Fueron de las más sangrientas.",
+    },
+    {
+      q: "El armisticio se firmó el…",
+      o: ["11 de noviembre de 1918", "1 de septiembre de 1939", "28 de junio de 1919", "1 de enero de 1918"],
+      a: 0,
+      e: "Hoy es día de recuerdo en muchos países.",
+    },
+    {
+      q: "La Sociedad de Naciones se creó para…",
+      o: ["repartir Alemania", "mantener la paz", "repartir colonias", "castigar a Rusia"],
+      a: 1,
+      e: "Fue el precedente de la ONU.",
+    },
+    {
+      q: "El darwinismo social sostenía que…",
+      o: [
+        "todos los pueblos son iguales",
+        "los pueblos «más aptos» tenían derecho a dominar",
+        "la evolución no existe",
+        "había que abolir las colonias",
+      ],
+      a: 1,
+      e: "Era una aplicación falsa y racista de las ideas de Darwin.",
+    },
+    {
+      q: "¿Qué rey poseyó el Congo como propiedad personal?",
+      o: ["Guillermo II", "Leopoldo II de Bélgica", "Víctor Manuel II", "Alfonso XIII"],
+      a: 1,
+      e: "Bajo su dominio murieron millones por el trabajo forzado del caucho.",
+    },
+    {
+      q: "El proyecto británico en África era unir…",
+      o: ["Dakar y Yibuti", "El Cairo y El Cabo", "Argel y Lagos", "Trípoli y Mogadiscio"],
+      a: 1,
+      e: "Un eje norte-sur de colonias.",
+    },
+    {
+      q: "¿Qué país asiático se convirtió en potencia imperialista tras la era Meiji?",
+      o: ["China", "India", "Japón", "Vietnam"],
+      a: 2,
+      e: "Venció a China y Rusia y se anexionó Corea.",
+    },
+    {
+      q: "Las guerras del opio enfrentaron a…",
+      o: ["Japón y Rusia", "Gran Bretaña y China", "Francia y Vietnam", "EE. UU. y España"],
+      a: 1,
+      e: "China tuvo que ceder Hong Kong.",
+    },
+    {
+      q: "Francia quería recuperar en 1914…",
+      o: ["Bélgica", "Alsacia y Lorena", "Marruecos", "el Sarre"],
+      a: 1,
+      e: "Las había perdido ante Prusia en 1871.",
+    },
+    {
+      q: "La invasión de un país neutral que provocó la entrada del Reino Unido fue la de…",
+      o: ["Suiza", "Bélgica", "Holanda", "Dinamarca"],
+      a: 1,
+      e: "Alemania atravesó Bélgica siguiendo el plan Schlieffen.",
+    },
+    {
+      q: "¿Qué arma se usó por primera vez a gran escala en 1915?",
+      o: ["La bomba atómica", "El gas tóxico", "El misil", "El cañón"],
+      a: 1,
+      e: "Cloro y luego gas mostaza.",
+    },
+    {
+      q: "¿Qué barco hundido por un submarino alemán indignó a EE. UU. en 1915?",
+      o: ["Titanic", "Lusitania", "Maine", "Bismarck"],
+      a: 1,
+      e: "Murieron 128 estadounidenses.",
+    },
+    {
+      q: "El Tratado de Versalles limitó el ejército alemán a…",
+      o: ["10 000 hombres", "100 000 hombres", "1 millón de hombres", "nada: lo prohibió"],
+      a: 1,
+      e: "Y le prohibió tener aviación, tanques y submarinos.",
+    },
   ],
   examen: [
-    { q: "¿Por qué 1917 fue un año clave?", o: ["Empezó la guerra", "Entró Estados Unidos y salió Rusia", "Se firmó la paz"], a: 1, e: "EE. UU. aportó hombres y recursos a la Entente, mientras Rusia abandonó tras la revolución bolchevique." },
-    { q: "Se llama «guerra total» porque…", o: ["duró mucho", "movilizó toda la economía y la población civil", "participaron todos los países del mundo"], a: 1, e: "La industria, la propaganda y la retaguardia se pusieron al servicio de la guerra." },
-    { q: "¿Qué justificación ideológica usó el imperialismo?", o: ["La igualdad de los pueblos", "La supuesta superioridad europea y la «misión civilizadora»", "La democracia"], a: 1, e: "El racismo de la época sirvió para justificar la dominación colonial." },
+    {
+      q: "¿Por qué 1917 fue un año clave?",
+      o: ["Empezó la guerra", "Entró Estados Unidos y salió Rusia", "Se firmó la paz", "La muerte del zar"],
+      a: 1,
+      e: `EE. UU. aportó hombres y recursos a la Entente, mientras Rusia abandonó tras la revolución bolchevique.`,
+    },
+    {
+      q: "Se llama «guerra total» porque…",
+      o: [
+        "duró mucho",
+        "movilizó toda la economía y la población civil",
+        "duró solo un año",
+        "participaron todos los países del mundo",
+      ],
+      a: 1,
+      e: "La industria, la propaganda y la retaguardia se pusieron al servicio de la guerra.",
+    },
+    {
+      q: "¿Qué justificación ideológica usó el imperialismo?",
+      o: [
+        "La igualdad de los pueblos",
+        "La libertad religiosa",
+        "La supuesta superioridad europea y la «misión civilizadora»",
+        "La democracia",
+      ],
+      a: 2,
+      e: "El racismo de la época sirvió para justificar la dominación colonial.",
+    },
+    {
+      q: "La crisis de Fachoda (1898) enfrentó a…",
+      o: ["Alemania y Francia", "Francia y Gran Bretaña", "Italia y Etiopía", "España y EE. UU."],
+      a: 1,
+      e: "Francia acabó cediendo.",
+    },
+    {
+      q: "¿Qué país estaba en la Triple Alianza en 1914 pero cambió de bando en 1915?",
+      o: ["Rusia", "Italia", "Bulgaria", "Grecia"],
+      a: 1,
+      e: "Se unió a la Entente a cambio de promesas territoriales.",
+    },
+    {
+      q: "La batalla de Verdún (1916) es un ejemplo de…",
+      o: ["guerra de movimientos", "guerra de desgaste en las trincheras", "batalla naval", "guerra colonial"],
+      a: 1,
+      e: "Unos 700 000 muertos en diez meses.",
+    },
+    {
+      q: "Durante la guerra, las mujeres…",
+      o: [
+        "no participaron",
+        "ocuparon fábricas y servicios",
+        "solo fueron enfermeras",
+        "lucharon en todas las trincheras",
+      ],
+      a: 1,
+      e: "Su papel impulsó la concesión del voto en varios países.",
+    },
+    {
+      q: "¿Qué país se convirtió en la primera potencia económica tras la guerra?",
+      o: ["Francia", "Reino Unido", "Estados Unidos", "Japón"],
+      a: 2,
+      e: "Europa quedó endeudada con él.",
+    },
   ],
-  feynman: ["Las cuatro causas del imperialismo", "Cómo se repartió África y qué consecuencias tuvo", "Las causas profundas y la chispa de la Primera Guerra Mundial", "Qué impuso el Tratado de Versalles y por qué fue polémico"],
-  mapa: mapa("IMPERIALISMO Y IGM", "var(--soc, #c2410c)", [
-    ["Imperialismo", "materias primas · mercados · racismo", "var(--sun)"],
-    ["Bloques", "Alianza vs. Entente", "var(--ink)"],
-    ["Guerra", "trincheras · guerra total · 1917", "var(--red)"],
-    ["Paz", "Versalles · Sociedad de Naciones", "var(--pen)"],
-  ], 280),
+  feynman: [
+    "Las cuatro causas del imperialismo",
+    "Cómo se repartió África y qué consecuencias tuvo",
+    "Las causas profundas y la chispa de la Primera Guerra Mundial",
+    "Qué impuso el Tratado de Versalles y por qué fue polémico",
+  ],
+  mapa: `<svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: IMPERIALISMO Y IGM">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="215.5" y="122" width="269" height="56" rx="28" fill="var(--soc, #c2410c)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">IMPERIALISMO Y IGM</text>
+      <rect x="0" y="34" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--sun)">Imperialismo</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">materias primas · mercados · racismo</text><rect x="420" y="34" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--ink)">Bloques</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">Alianza vs. Entente</text><rect x="0" y="214" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--red)">Guerra</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">trincheras · guerra total · 1917</text><rect x="420" y="214" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--pen)">Paz</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">Versalles · Sociedad de Naciones</text>
+    </g></svg>`,
   tarjetas: [
     ["¿Qué es una colonia?", "Un territorio dominado y explotado por una potencia extranjera."],
     ["Conferencia de Berlín", "1884-1885: reparto de África entre potencias europeas."],
-    ["Chispa de la Primera Guerra Mundial", "Asesinato del archiduque Francisco Fernando en Sarajevo (28 de junio de 1914)."],
+    [
+      "Chispa de la Primera Guerra Mundial",
+      "Asesinato del archiduque Francisco Fernando en Sarajevo (28 de junio de 1914).",
+    ],
     ["Fecha del armisticio", "11 de noviembre de 1918."],
     ["Tratado de Versalles", "1919: Alemania culpable, pierde territorios y paga reparaciones."],
-  ],
-  familias: ["Mirad juntos un mapa de África actual y buscad fronteras en línea recta: ¿por qué serán así?", "Preguntad a los abuelos si conocen a alguien de la familia que estuviera en la guerra de Marruecos o emigrara a América.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "Sociedades y territorios: el imperialismo, la Primera Guerra Mundial y la crisis del orden internacional (RD 217/2022, Geografía e Historia 4º).",
-    ideas: ["Comparar el mapa de África de 1880 y de 1914.", "Lectura de cartas de soldados desde las trincheras.", "Debate: ¿preparó Versalles la Segunda Guerra Mundial?"],
-  },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Primera Guerra Mundial, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Primera_Guerra_Mundial" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: nivel de libro de texto.
-const { ampliar, tabla } = require("./_hum");
-ampliar(module.exports, {
-  minutos: 60,
-  objetivos: ["Distinguir las formas de dominio colonial", "Explicar las consecuencias de la Primera Guerra Mundial y de la paz"],
-  bloques: [
-    { tras: "Por qué Europa se repartió", html: `<h3>Las formas de dominio</h3>${tabla(["Tipo", "Qué era", "Ejemplo"], [["Colonia", "territorio gobernado directamente por la metrópoli", "Congo belga, Argelia"], ["Protectorado", "se mantiene un gobierno local, pero la metrópoli controla la política exterior y la economía", "Marruecos (Francia y España)"], ["Dominio", "colonia de población europea con autogobierno", "Canadá, Australia"], ["Concesión", "puerto o zona cedida para comerciar", "Hong Kong"]])}<p>Las potencias justificaban su dominio con el <mark>racismo</mark> de la época («misión civilizadora», «la carga del hombre blanco») y el <b>darwinismo social</b>, que aplicaba falsamente la selección natural a los pueblos.</p>` },
-    { tras: "El reparto de África", html: `<h3>Consecuencias para los pueblos colonizados</h3><p>Las metrópolis trazaron fronteras con regla, sin tener en cuenta etnias ni lenguas, lo que causó conflictos que llegan hasta hoy. Impusieron el <b>monocultivo</b> (café, cacao, caucho) para exportar, arruinaron la artesanía local y explotaron a la población: en el <mark>Congo de Leopoldo II</mark> millones de personas murieron por el trabajo forzado del caucho. También llegaron infraestructuras (puertos, ferrocarriles), escuelas y hospitales, pero pensados sobre todo para los colonos y para sacar recursos.</p>`, video: { id: "WDc8z_k1hkE", titulo: "El imperialismo: factores y causas", canal: "Clases Particulares en Ávila", vistas: 689097, megusta: 0 } },
-    { tras: "Las causas de la Gran Guerra", html: `<h3>Los dos bloques y la chispa de Sarajevo</h3><p>Europa estaba dividida en dos alianzas: la <b>Triple Entente</b> (Francia, Reino Unido y Rusia) y la <b>Triple Alianza</b> (Alemania, Austria-Hungría e Italia). Los <b>Balcanes</b> eran un polvorín donde chocaban Austria-Hungría y Rusia. El <mark>28 de junio de 1914</mark>, un nacionalista serbio asesinó en Sarajevo al heredero austriaco, Francisco Fernando. Austria declaró la guerra a Serbia y, por el juego de alianzas, en pocos días entraron Rusia, Alemania, Francia y Reino Unido. Italia cambió de bando en 1915 y se unió a la Entente.</p>` },
-    { tras: "Una guerra nueva y total", html: `<h3>Las fases de la guerra</h3>${tabla(["Fase", "Años", "Qué pasó"], [["Guerra de movimientos", "1914", "Alemania invade Bélgica y Francia; se detiene en el Marne"], ["Guerra de trincheras", "1915-1917", "frentes inmóviles; batallas de Verdún y el Somme, con cientos de miles de muertos"], ["Final", "1917-1918", "Rusia sale de la guerra; entra EE. UU.; Alemania firma el armisticio (11-11-1918)"]])}<p>En la <mark>retaguardia</mark>, las mujeres ocuparon fábricas y servicios, y la propaganda y el racionamiento afectaron a toda la población.</p>` },
-    { tras: "1917, el final", html: `<h3>Las consecuencias de la guerra</h3><p>Murieron unos <b>10 millones de soldados</b> y millones de civiles. Desaparecieron cuatro imperios: <b>alemán, austrohúngaro, ruso y otomano</b>, y nacieron nuevos Estados como Polonia, Checoslovaquia o Yugoslavia. Europa quedó endeudada con Estados Unidos, que se convirtió en la primera potencia económica. El <mark>Tratado de Versalles</mark> declaró a Alemania culpable, le quitó territorio y colonias, limitó su ejército y le impuso enormes reparaciones: muchos alemanes lo vivieron como una humillación, un resentimiento que aprovecharía Hitler. Para mantener la paz se creó la <b>Sociedad de Naciones</b> (1920), sin fuerza real.</p>` },
-  ],
-  ejemplos: [
-    { enunciado: "Explica cómo un asesinato en Sarajevo provocó una guerra mundial.", pasos: ["Austria-Hungría culpa a Serbia y le declara la guerra.", "Rusia, protectora de Serbia, moviliza su ejército.", "Alemania, aliada de Austria, declara la guerra a Rusia y a Francia.", "Al invadir Bélgica, Reino Unido entra en guerra."], resultado: "El sistema de alianzas convirtió un conflicto local en una guerra europea y, después, mundial." },
-    { enunciado: "Clasifica las causas del imperialismo: buscar materias primas, prestigio nacional, exceso de población, superioridad racial, nuevos mercados.", pasos: ["Económicas: materias primas y mercados.", "Demográficas: exceso de población.", "Políticas: prestigio nacional.", "Ideológicas: supuesta superioridad racial."], resultado: "Económicas (2), demográfica (1), política (1) e ideológica (1)." },
-    { enunciado: "¿Por qué se llama a la Primera Guerra Mundial «guerra total»?", pasos: ["Se movilizó a toda la población y a toda la economía.", "La industria se dedicó a la guerra.", "La propaganda y el racionamiento llegaron a toda la sociedad.", "Los civiles también sufrieron bombardeos y bloqueos."], resultado: "Porque implicó a toda la sociedad y no solo a los ejércitos." },
-  ],
-  errores: [
-    "Pensar que Italia luchó con Alemania en la Primera Guerra Mundial: en 1915 se pasó a la Entente.",
-    "Confundir colonia y protectorado.",
-    "Creer que Estados Unidos estuvo desde el principio: entró en 1917.",
-    "Decir que la Sociedad de Naciones evitó nuevas guerras: no tenía ejército ni la apoyaba EE. UU.",
-    "Situar la Conferencia de Berlín en 1914: fue en 1884-1885.",
-  ],
-  ejercicios: [
-    { q: "Define imperialismo.", sol: "Política de expansión de las potencias industriales, entre 1870 y 1914, para dominar otros territorios y pueblos." },
-    { q: "¿Qué se decidió en la Conferencia de Berlín?", sol: "Las reglas para repartirse África entre las potencias europeas (1884-1885)." },
-    { q: "¿Qué era el darwinismo social?", sol: "Una teoría falsa que aplicaba la selección natural a los pueblos para justificar que los «más fuertes» dominaran a los demás." },
-    { q: "Explica la paz armada.", sol: "El periodo anterior a 1914 en que las potencias no estaban en guerra pero se armaban sin parar y formaban alianzas." },
-    { q: "¿Qué países formaban la Triple Entente?", sol: "Francia, Reino Unido y Rusia." },
-    { q: "Describe la vida en las trincheras.", sol: "Barro, ratas, frío, enfermedades, miedo constante a los bombardeos y ataques que costaban miles de vidas para avanzar unos metros." },
-    { q: "Cita tres armas nuevas de la guerra.", sol: "Ametralladoras, gases tóxicos, tanques, aviones y submarinos." },
-    { q: "¿Por qué entró EE. UU. en la guerra en 1917?", sol: "Por los ataques de submarinos alemanes a sus barcos y por sus intereses económicos con la Entente." },
-    { q: "¿Qué imperios desaparecieron tras la guerra?", sol: "El alemán, el austrohúngaro, el ruso y el otomano." },
-    { q: "¿Por qué se dice que el Tratado de Versalles sembró la siguiente guerra?", sol: "Porque humilló a Alemania con pérdidas territoriales y reparaciones enormes, y alimentó el resentimiento que aprovechó el nazismo." },
-  ],
-  quiz: [
-    { q: "Un protectorado…", o: ["conserva un gobierno local bajo control extranjero", "es independiente", "es una colonia de población"], a: 0, e: "Como Marruecos con Francia y España." },
-    { q: "El atentado de Sarajevo fue el…", o: ["28 de junio de 1914", "11 de noviembre de 1918", "1 de septiembre de 1939"], a: 0, e: "Murió el archiduque Francisco Fernando." },
-    { q: "Verdún y el Somme son batallas de…", o: ["la guerra de trincheras", "la guerra de movimientos", "la guerra en el mar"], a: 0, e: "Fueron de las más sangrientas." },
-    { q: "El armisticio se firmó el…", o: ["11 de noviembre de 1918", "28 de junio de 1919", "1 de enero de 1918"], a: 0, e: "Hoy es día de recuerdo en muchos países." },
-    { q: "La Sociedad de Naciones se creó para…", o: ["mantener la paz", "repartir colonias", "castigar a Rusia"], a: 0, e: "Fue el precedente de la ONU." },
-  ],
-  tarjetas: [
     ["Protectorado", "Territorio con gobierno local pero controlado por una potencia."],
     ["Triple Entente", "Francia, Reino Unido y Rusia."],
     ["Tratado de Versalles", "Paz de 1919 que castigó duramente a Alemania."],
+    [
+      "Darwinismo social",
+      `Aplicación falsa y racista de la selección natural a los pueblos para justificar el dominio.`,
+    ],
+    ["Paz armada", "Etapa previa a 1914 de carrera de armamentos y alianzas sin guerra abierta."],
+    ["Guerra total", "Guerra que moviliza toda la economía, la población y la propaganda de un país."],
+    ["Catorce Puntos", "Propuesta de paz de Wilson (1918): autodeterminación y Sociedad de Naciones."],
   ],
-});
+  glosario: [
+    [
+      "Imperialismo",
+      `Política de expansión y dominio de unos Estados sobre otros territorios y pueblos (1870-1914).`,
+    ],
+    ["Metrópoli", "País que domina una colonia."],
+    ["Colonia", "Territorio gobernado directamente por una metrópoli."],
+    [
+      "Protectorado",
+      `Territorio con gobierno local bajo control extranjero de la política exterior y la economía.`,
+    ],
+    ["Darwinismo social", "Teoría racista que aplicaba la selección natural a los pueblos."],
+    [
+      "Conferencia de Berlín",
+      "Reunión de 1884-1885 en la que las potencias fijaron las reglas del reparto de África.",
+    ],
+    ["Monocultivo", "Cultivo de un solo producto para la exportación."],
+    [
+      "Tratados desiguales",
+      "Acuerdos impuestos por la fuerza a China y otros países en beneficio de las potencias.",
+    ],
+    ["Paz armada", "Etapa de carrera de armamentos y alianzas antes de 1914."],
+    ["Triple Entente", "Alianza de Francia, Reino Unido y Rusia."],
+    ["Triple Alianza", "Alianza de Alemania, Austria-Hungría e Italia."],
+    ["Guerra de trincheras", "Combate desde zanjas defensivas con frentes inmóviles."],
+    ["Guerra total", "Guerra que moviliza todos los recursos humanos y económicos de un país."],
+    ["Retaguardia", "Zona alejada del frente donde vive la población civil."],
+    ["Armisticio", "Acuerdo para detener los combates."],
+    ["Reparaciones", "Indemnizaciones de guerra impuestas a los vencidos."],
+    ["Sociedad de Naciones", "Organización internacional creada en 1920 para mantener la paz."],
+  ],
+  situacion: {
+    titulo: "Cartas desde el frente y desde casa",
+    reto: `El museo de vuestra ciudad prepara una exposición sobre la Primera Guerra Mundial y quiere una sección que muestre la guerra vista por personas corrientes. Vuestro equipo creará un pequeño archivo de cartas, carteles y diarios ficticios pero históricamente rigurosos.`,
+    pasos: [
+      `Repartid personajes: un soldado francés en Verdún, una obrera británica de municiones, un soldado senegalés del ejército francés, una enfermera, un niño alemán en el invierno de 1917.`,
+      `Investigad en fuentes fiables cómo vivía cada uno: dónde estaba, qué comía, qué temía, qué noticias le llegaban.`,
+      `Escribid dos cartas o entradas de diario por personaje (una en 1914 y otra en 1918) que muestren cómo cambió su visión de la guerra.`,
+      "Diseñad un cartel de propaganda de la época y analizad qué técnicas de persuasión usa.",
+      `Montad la exposición con una línea del tiempo, las cartas y los carteles, y presentadla a otra clase.`,
+    ],
+    producto: `Una exposición (en el aula o digital) con cartas, diarios, carteles y una línea del tiempo de la guerra.`,
+    evaluacion: [
+      "Rigor histórico de los detalles (fechas, lugares, armas, condiciones de vida).",
+      "Empatía histórica: los textos reflejan la mentalidad de la época.",
+      "Análisis correcto de la propaganda.",
+      "Organización y presentación de la exposición.",
+    ],
+  },
+  familias: [
+    `Mirad juntos un mapa de África actual y buscad fronteras en línea recta: ¿por qué serán así?`,
+    `Preguntad a los abuelos si conocen a alguien de la familia que estuviera en la guerra de Marruecos o emigrara a América.`,
+    "Repasad las tarjetas del paso 6 dos minutos al día durante la semana.",
+  ],
+  profesores: {
+    saberes: `Sociedades y territorios: el imperialismo, la Primera Guerra Mundial y la crisis del orden internacional (RD 217/2022, Geografía e Historia 4º).`,
+    ideas: [
+      "Comparar el mapa de África de 1880 y de 1914.",
+      "Lectura de cartas de soldados desde las trincheras.",
+      "Debate: ¿preparó Versalles la Segunda Guerra Mundial?",
+    ],
+  },
+  fuentes: [
+    {
+      t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)",
+      url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975",
+    },
+    {
+      t: "Primera Guerra Mundial, Wikipedia en español",
+      url: "https://es.wikipedia.org/wiki/Primera_Guerra_Mundial",
+    },
+  ],
+  revisado: "2026-11-13",
+};

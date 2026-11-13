@@ -1,29 +1,71 @@
-// Geografía e Historia 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-const { dos, linea, filas, figLinea } = require("./_hum");
-
+// Geografía e Historia 4º ESO · tema nivel libro (capítulo completo). Contenido y dibujos SVG propios.
+// Los dibujos nuevos se generaron con src/temas/_eso4L4.js y se guardan ya resueltos.
 module.exports = {
   materia: "Geografía e Historia",
   curso: "4-eso",
   titulo: "La Guerra Fría y la descolonización",
-  minutos: 40,
-  objetivos: ["Explicar la formación de dos bloques enfrentados tras 1945", "Describir los principales conflictos de la Guerra Fría y su final", "Analizar las causas y etapas de la descolonización"],
+  minutos: 110,
+  objetivos: [
+    "Explicar la formación de dos bloques enfrentados tras 1945",
+    "Describir los principales conflictos de la Guerra Fría y su final",
+    "Analizar las causas y etapas de la descolonización",
+    "Comparar el modelo capitalista y el comunista",
+    "Explicar las vías y las consecuencias de la descolonización",
+  ],
   claves: ["Guerra Fría", "telón de acero", "OTAN", "Pacto de Varsovia", "muro de Berlín", "descolonización"],
   pregunta: {
-    texto: "Durante más de 40 años, Estados Unidos y la Unión Soviética tuvieron miles de bombas atómicas apuntándose mutuamente, pero nunca se atacaron directamente. ¿Por qué se llama a eso una guerra?",
-    respuesta: "Porque fue un enfrentamiento total, aunque «frío»: ideológico, económico, militar y propagandístico. Las dos <mark>superpotencias</mark> competían por el mundo, se armaban sin parar y luchaban en guerras de otros países. A la vez, los pueblos de Asia y África conseguían su independencia: la <b>descolonización</b>.",
+    texto: `Durante más de 40 años, Estados Unidos y la Unión Soviética tuvieron miles de bombas atómicas apuntándose mutuamente, pero nunca se atacaron directamente. ¿Por qué se llama a eso una guerra?`,
+    respuesta: `Porque fue un enfrentamiento total, aunque «frío»: ideológico, económico, militar y propagandístico. Las dos <mark>superpotencias</mark> competían por el mundo, se armaban sin parar y luchaban en guerras de otros países. A la vez, los pueblos de Asia y África conseguían su independencia: la <b>descolonización</b>.`,
+  },
+  lectura: {
+    titulo: "Una noche de agosto en Berlín",
+    html: `<p>Berlín, madrugada del 13 de agosto de 1961. Mientras la ciudad duerme, soldados y obreros de la Alemania comunista desenrollan kilómetros de alambre de espino a lo largo de la línea que separa el sector soviético de los sectores occidentales. Por la mañana, los berlineses descubren que ya no pueden cruzar al otro lado. Familias enteras quedan separadas: abuelos a un lado, nietos al otro; novios que no volverán a verse en años. En los días siguientes, el alambre se convierte en un muro de hormigón.</p><p>Ese mismo día, un joven soldado de la RDA, Conrad Schumann, salta la alambrada con el fusil al hombro hacia el oeste. Un fotógrafo capta el instante, y la imagen da la vuelta al mundo. Durante 28 años, el Muro de Berlín fue el símbolo de un planeta dividido en dos bloques que se vigilaban, competían en todo y acumulaban miles de bombas atómicas, sin llegar nunca a enfrentarse directamente.</p><p>Al mismo tiempo, en Asia y África, cientos de millones de personas conquistaban su independencia tras siglos de dominio colonial. En este tema estudiarás esos dos grandes procesos que marcaron la segunda mitad del siglo XX: la <b>Guerra Fría</b> y la <b>descolonización</b>.</p>`,
   },
   bloques: [
     {
-      html: `<h3>Un mundo bipolar</h3><p>Tras 1945 el mundo se dividió en dos bloques. El <b>bloque occidental</b>, liderado por <mark>Estados Unidos</mark>: capitalismo y democracia liberal, con la alianza militar de la <b>OTAN</b> (1949). El <b>bloque oriental</b>, liderado por la <mark>URSS</mark>: comunismo, economía planificada y partido único, con el <b>Pacto de Varsovia</b> (1955). Churchill dijo que un «<b>telón de acero</b>» había caído sobre Europa.</p>`,
-      svg: dos("Los dos bloques de la Guerra Fría", ["EE. UU.", ["capitalismo", "democracia", "liberal", "OTAN 1949", "Plan Marshall"], "var(--pen)"], ["URSS", ["comunismo", "partido único", "planificación", "Varsovia 1955", "COMECON"], "var(--red)"]),
+      html: `<h3>1.1 Un mundo bipolar</h3><p>Tras la Segunda Guerra Mundial, la alianza entre Estados Unidos y la URSS se rompió enseguida. Los dos vencedores, convertidos en <b>superpotencias</b>, tenían sistemas opuestos y desconfiaban el uno del otro. El mundo se volvió <mark>bipolar</mark>: dividido en dos bloques, cada uno liderado por una superpotencia.</p><p>Se llamó <mark>Guerra Fría</mark> (1947-1991) porque las superpotencias nunca se enfrentaron en una guerra directa, que con armas nucleares habría destruido el planeta. En su lugar, compitieron en todos los terrenos: armamento, economía, ciencia, deporte, propaganda y espionaje (la CIA estadounidense y el KGB soviético), y lucharon de forma indirecta apoyando a bandos opuestos en guerras locales.</p><p>En 1946 Churchill dijo que «un <b>telón de acero</b>» había caído sobre Europa, desde el Báltico hasta el Adriático: al este, los países ocupados por el Ejército Rojo (Polonia, Hungría, Checoslovaquia, Rumanía, Bulgaria, Alemania Oriental) se convirtieron en «democracias populares» comunistas controladas por Moscú. En 1947 el presidente <b>Truman</b> anunció que EE. UU. ayudaría a cualquier país amenazado por el comunismo: era la política de contención o <b>doctrina Truman</b>, inicio formal de la Guerra Fría.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Los dos bloques de la Guerra Fría">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <rect x="14" y="16" width="110" height="148" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+    <text x="69" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="var(--pen)" font-family="Baloo 2, sans-serif">EE. UU.</text>
+    <text x="69" y="68" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">capitalismo</text><text x="69" y="90" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">democracia</text><text x="69" y="112" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">liberal</text><text x="69" y="134" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">OTAN 1949</text><text x="69" y="156" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Plan Marshall</text><rect x="136" y="16" width="110" height="148" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
+    <text x="191" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="var(--red)" font-family="Baloo 2, sans-serif">URSS</text>
+    <text x="191" y="68" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">comunismo</text><text x="191" y="90" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">partido único</text><text x="191" y="112" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">planificación</text><text x="191" y="134" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Varsovia 1955</text><text x="191" y="156" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">COMECON</text>
+  </svg>`,
+      video: {
+        id: "RRAS5tMrV4c",
+        titulo: "La Guerra Fría en 12 minutos",
+        canal: "Memorias de Pez",
+        vistas: 2265820,
+        megusta: 0,
+      },
     },
     {
-      html: `<h3>Las crisis más peligrosas</h3><p>El <b>bloqueo de Berlín</b> (1948-1949) y la construcción del <mark>muro de Berlín</mark> (1961) partieron en dos la ciudad. En la <b>guerra de Corea</b> (1950-1953) y la <b>guerra de Vietnam</b> (1955-1975) las superpotencias apoyaron a bandos distintos. La <b>crisis de los misiles de Cuba</b> (1962), cuando la URSS instaló misiles nucleares a 150 km de Florida, llevó al mundo al borde de la guerra nuclear durante 13 días.</p>`,
-      svg: linea("Grandes crisis de la Guerra Fría", [["1948", "bloqueo|de Berlín"], ["1950", "guerra|de Corea"], ["1961", "muro de|Berlín"], ["1962", "misiles|de Cuba"]]),
+      html: `<h3>1.2 Dos modelos enfrentados</h3><table class="tb"><thead><tr><th></th><th>Bloque occidental</th><th>Bloque comunista</th></tr></thead><tbody><tr><td>Líder</td><td>Estados Unidos</td><td>URSS</td></tr><tr><td>Economía</td><td>capitalismo: propiedad privada y mercado</td><td>planificación estatal, sin propiedad privada de empresas</td></tr><tr><td>Política</td><td>democracias liberales con varios partidos</td><td>partido comunista único</td></tr><tr><td>Alianza militar</td><td>OTAN (1949)</td><td>Pacto de Varsovia (1955)</td></tr><tr><td>Ayuda económica</td><td>Plan Marshall (1947)</td><td>COMECON (1949)</td></tr></tbody></table><p>El <b>Plan Marshall</b> (1947) aportó más de 13 000 millones de dólares para reconstruir Europa occidental; servía también para frenar el comunismo, que crecía con la miseria, y para crear mercados para los productos estadounidenses. La URSS prohibió a sus países aceptarlo y creó el <b>COMECON</b>. Cada bloque presentaba su modelo como el único justo: el occidental defendía la libertad individual y el consumo; el comunista, la igualdad social, el pleno empleo y la sanidad y educación gratuitas. Las sociedades occidentales vivieron un fuerte crecimiento económico y la creación del Estado del bienestar; las del este, una industrialización rápida bajo dictaduras sin libertades.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Frentes de la competencia: Economía, Propaganda, Espionaje, Deporte"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Frentes de la competencia</text><rect x="10.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="68" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Economía</text><text x="68" y="69.8" text-anchor="middle" font-size="10" >Plan Marshall</text><text x="68" y="81.3" text-anchor="middle" font-size="10" >frente a COMECON</text><rect x="134.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="192" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Propaganda</text><text x="192" y="69.8" text-anchor="middle" font-size="10" >cine, radio y</text><text x="192" y="81.3" text-anchor="middle" font-size="10" >carteles</text><rect x="10.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="68" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--leaf)">Espionaje</text><text x="68" y="150.5" text-anchor="middle" font-size="10" >CIA frente a KGB</text><rect x="134.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="192" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--sun)">Deporte</text><text x="192" y="150.5" text-anchor="middle" font-size="10" >medallas olímpicas</text></g></svg>`,
     },
     {
-      html: `<h3>Carrera de armamentos y carrera espacial</h3><p>Las dos superpotencias acumularon miles de armas nucleares: si una atacaba, ambas serían destruidas («destrucción mutua asegurada»). También compitieron en el espacio: la URSS lanzó el primer satélite (<b>Sputnik</b>, 1957) y el primer astronauta (<b>Gagarin</b>, 1961); Estados Unidos llevó al primer ser humano a la Luna (<mark>Apolo 11</mark>, 1969).</p>`,
+      html: `<h3>1.3 Alemania y el Muro de Berlín</h3><p>Alemania, dividida en cuatro zonas de ocupación, fue el primer escenario de la Guerra Fría. Berlín, situada dentro de la zona soviética, también estaba dividida en cuatro sectores. En 1948, cuando los occidentales unificaron sus zonas y crearon una nueva moneda, Stalin <b>bloqueó</b> todos los accesos por tierra a Berlín Oeste para obligarles a abandonarla. Estados Unidos y Reino Unido respondieron con un gigantesco <mark>puente aéreo</mark>: durante casi un año, cientos de aviones diarios llevaron alimentos y carbón a dos millones de berlineses. Stalin levantó el bloqueo en 1949.</p><p>Ese año nacieron dos Estados alemanes: la <b>República Federal de Alemania</b> (RFA), democrática y capitalista, con capital en Bonn, y la <b>República Democrática Alemana</b> (RDA), comunista. Como casi tres millones de alemanes huyeron del este al oeste, sobre todo jóvenes y profesionales, en 1961 la RDA levantó el <mark>Muro de Berlín</mark>, que llamó «muro de protección antifascista». Con torres de vigilancia, perros y orden de disparar, se convirtió en el símbolo de la división del mundo. Murieron al menos 140 personas intentando cruzarlo. El presidente Kennedy visitó la ciudad en 1963 y proclamó: «Ich bin ein Berliner» («Soy berlinés»).</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Línea del tiempo: Alemania y Berlín"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><path d="M14 98 H 246" stroke="var(--ink)" stroke-width="3"/><circle cx="28" cy="98" r="6" fill="var(--pen)"/><path d="M28 92 V 78" stroke="var(--pen)" stroke-width="2"/><text x="47.35" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1948-49</text><text x="47.35" y="44.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">bloqueo y puente</text><text x="47.35" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">aéreo</text><circle cx="79" cy="98" r="6" fill="var(--red)"/><path d="M79 104 V 118" stroke="var(--red)" stroke-width="2"/><text x="79" y="132.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1949</text><text x="79" y="149.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">nacen RFA y RDA</text><circle cx="130" cy="98" r="6" fill="var(--leaf)"/><path d="M130 92 V 78" stroke="var(--leaf)" stroke-width="2"/><text x="130" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1961</text><text x="130" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Muro de Berlín</text><circle cx="181" cy="98" r="6" fill="var(--sun)"/><path d="M181 104 V 118" stroke="var(--sun)" stroke-width="2"/><text x="181" y="132.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1989</text><text x="181" y="149.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">cae el Muro</text><circle cx="232" cy="98" r="6" fill="var(--inf)"/><path d="M232 92 V 78" stroke="var(--inf)" stroke-width="2"/><text x="212.65" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1990</text><text x="212.65" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">reunificación</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.4 Las guerras calientes: Corea y Vietnam</h3><p>Las superpotencias no se enfrentaron directamente, pero apoyaron a bandos opuestos en <mark>conflictos locales</mark>, sobre todo en Asia. Corea, antigua colonia japonesa, quedó dividida en 1945 por el paralelo 38: el norte, comunista, y el sur, prooccidental. En 1950 el norte invadió el sur. Una fuerza de la ONU dirigida por EE. UU. hizo retroceder a los norcoreanos casi hasta China, y entonces intervinieron cientos de miles de «voluntarios» chinos. Tras tres años y unos tres millones de muertos, el armisticio de 1953 dejó la frontera casi igual. Corea sigue dividida y técnicamente en guerra.</p><p>En <b>Vietnam</b>, tras la derrota francesa en Dien Bien Phu (1954), el país se dividió en un norte comunista, dirigido por Ho Chi Minh, y un sur apoyado por EE. UU. La guerrilla comunista del sur (el Vietcong) y el norte lucharon por la unificación. Estados Unidos llegó a enviar más de medio millón de soldados y bombardeó masivamente el país con napalm y defoliantes. Las imágenes de la guerra en televisión provocaron enormes protestas, sobre todo entre los jóvenes estadounidenses. Tras su retirada (1973), Vietnam se unificó bajo un gobierno comunista en <b>1975</b>. Fue la gran derrota de EE. UU.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Guerras calientes de la Guerra Fría: Corea, Vietnam, Afganistán"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Guerras calientes de la Guerra Fría</text><rect x="10.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="68" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Corea</text><text x="68" y="69.8" text-anchor="middle" font-size="10" >1950-1953: el país</text><text x="68" y="81.3" text-anchor="middle" font-size="10" >sigue dividido</text><rect x="134.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="192" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Vietnam</text><text x="192" y="69.8" text-anchor="middle" font-size="10" >1955-1975:</text><text x="192" y="81.3" text-anchor="middle" font-size="10" >victoria comunista</text><rect x="10.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="68" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--leaf)">Afganistán</text><text x="68" y="144.8" text-anchor="middle" font-size="10" >1979-1989:</text><text x="68" y="156.3" text-anchor="middle" font-size="10" >retirada soviética</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.5 La expansión del comunismo: China y Cuba</h3><p>En 1949 el comunismo triunfó en el país más poblado del mundo. Tras una larga guerra civil, el Partido Comunista de <b>Mao Zedong</b> derrotó a los nacionalistas de Chiang Kai-shek, que se refugiaron en la isla de Taiwán. Nació la <mark>República Popular China</mark>. Mao colectivizó la tierra y lanzó campañas como el «Gran Salto Adelante» (1958-1962), un intento de industrialización acelerada que provocó una hambruna con decenas de millones de muertos, y la «Revolución Cultural» (1966-1976), una persecución masiva de supuestos enemigos. Desde los años sesenta China rompió con la URSS y siguió su propio camino: el bloque comunista ya no era un único bloque.</p><p>En <b>Cuba</b>, en 1959, la guerrilla de <b>Fidel Castro</b> y Ernesto «Che» Guevara derrocó al dictador Batista, apoyado por EE. UU. El nuevo régimen nacionalizó las empresas estadounidenses y se acercó a la URSS. En 1961 EE. UU. apoyó un desembarco de exiliados cubanos en <b>bahía de Cochinos</b>, que fracasó. Cuba se declaró socialista y se convirtió en el primer país comunista de América, a solo 150 km de Florida. Estados Unidos le impuso un embargo económico que todavía continúa.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Línea del tiempo: China y Cuba"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><path d="M14 98 H 246" stroke="var(--ink)" stroke-width="3"/><circle cx="28" cy="98" r="6" fill="var(--pen)"/><path d="M28 92 V 78" stroke="var(--pen)" stroke-width="2"/><text x="47.35" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1949</text><text x="47.35" y="33.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">Mao proclama la</text><text x="47.35" y="44.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">República</text><text x="47.35" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Popular</text><circle cx="79" cy="98" r="6" fill="var(--red)"/><path d="M79 104 V 118" stroke="var(--red)" stroke-width="2"/><text x="79" y="132.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1958</text><text x="79" y="149.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">Gran Salto</text><text x="79" y="160.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Adelante</text><circle cx="130" cy="98" r="6" fill="var(--leaf)"/><path d="M130 92 V 78" stroke="var(--leaf)" stroke-width="2"/><text x="130" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1959</text><text x="130" y="44.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">revolución</text><text x="130" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">cubana</text><circle cx="181" cy="98" r="6" fill="var(--sun)"/><path d="M181 104 V 118" stroke="var(--sun)" stroke-width="2"/><text x="181" y="132.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1961</text><text x="181" y="149.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">bahía de</text><text x="181" y="160.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Cochinos</text><circle cx="232" cy="98" r="6" fill="var(--inf)"/><path d="M232 92 V 78" stroke="var(--inf)" stroke-width="2"/><text x="212.65" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1966</text><text x="212.65" y="44.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">Revolución</text><text x="212.65" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Cultural</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.6 La crisis de los misiles de Cuba (1962)</h3><p>El momento más peligroso de la Guerra Fría llegó en octubre de 1962. Aviones espía estadounidenses fotografiaron en Cuba rampas para <b>misiles nucleares soviéticos</b> capaces de alcanzar las principales ciudades de EE. UU. en minutos. El líder soviético <b>Jruschov</b> quería proteger a Cuba de una invasión y equilibrar los misiles estadounidenses instalados en Turquía, cerca de la URSS.</p><p>El presidente <b>Kennedy</b> ordenó un bloqueo naval de la isla y exigió la retirada de los misiles. Durante <mark>trece días</mark> el mundo estuvo al borde de una guerra nuclear: los barcos soviéticos se acercaban al bloqueo, un avión espía estadounidense fue derribado sobre Cuba y los ejércitos estaban en alerta máxima. Finalmente, ambos líderes negociaron: la URSS retiró los misiles a cambio de que EE. UU. se comprometiera a no invadir Cuba y retirara, en secreto, sus misiles de Turquía.</p><p>El susto tuvo consecuencias positivas: se instaló un «<b>teléfono rojo</b>», una línea directa entre la Casa Blanca y el Kremlin para evitar malentendidos, y en 1963 se firmó el primer tratado que prohibía las pruebas nucleares en la atmósfera. Comenzaba una etapa de menor tensión.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Grandes crisis de la Guerra Fría">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <path d="M18 90 H 242" stroke="var(--ink)" stroke-width="3"/>
+    <circle cx="34" cy="90" r="7" fill="var(--red)"/><text x="34" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1948</text><text x="14" y="30" text-anchor="start" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">bloqueo</text><text x="14" y="44" text-anchor="start" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">de Berlín</text><circle cx="98" cy="90" r="7" fill="var(--red)"/><text x="98" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1950</text><text x="98" y="144" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">guerra</text><text x="98" y="158" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">de Corea</text><circle cx="162" cy="90" r="7" fill="var(--red)"/><text x="162" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1961</text><text x="162" y="30" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">muro de</text><text x="162" y="44" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Berlín</text><circle cx="226" cy="90" r="7" fill="var(--red)"/><text x="226" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1962</text><text x="246" y="144" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">misiles</text><text x="246" y="158" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">de Cuba</text>
+  </svg>`,
+    },
+    {
+      html: `<h3>1.7 La carrera de armamentos y la carrera espacial</h3><p>EE. UU. lanzó la primera bomba atómica en 1945, pero la URSS consiguió la suya en 1949. Desde entonces se lanzaron a una <mark>carrera de armamentos</mark>: bombas de hidrógeno mil veces más potentes que la de Hiroshima, misiles intercontinentales, submarinos nucleares. En los años ochenta había en el mundo unas 70 000 cabezas nucleares. La paz se mantenía por el miedo: si una potencia atacaba, la otra respondería y ambas serían destruidas. Era la doctrina de la <b>destrucción mutua asegurada</b>. Muchas familias construyeron refugios antiatómicos y en las escuelas se hacían simulacros.</p><p>La competencia se trasladó al espacio, que era también una demostración de capacidad militar. La URSS se adelantó: lanzó el primer satélite artificial, el <b>Sputnik</b> (1957), envió al primer ser vivo, la perra Laika, y al primer ser humano, <b>Yuri Gagarin</b> (1961); Valentina Tereshkova fue la primera mujer en el espacio (1963). Estados Unidos respondió creando la NASA y el programa Apolo, y el 20 de julio de <b>1969</b> Neil Armstrong y Buzz Aldrin pisaron la Luna con el <b>Apolo 11</b>. La carrera espacial impulsó avances que hoy usamos a diario, como los satélites de comunicaciones o el GPS.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cohete despegando hacia la Luna con los hitos Sputnik 1957 y Apolo 11 1969">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         <circle cx="210" cy="44" r="26" fill="var(--line)"/><circle cx="202" cy="38" r="5" fill="var(--muted)" opacity=".5"/><circle cx="218" cy="52" r="4" fill="var(--muted)" opacity=".5"/>
@@ -31,79 +73,121 @@ module.exports = {
         <path d="M80 120 L 68 140 H 80 Z M100 120 L 112 140 H 100 Z" fill="var(--red)"/>
         <path d="M84 142 Q 90 166 96 142 Z" fill="var(--sun)"/>
         <circle cx="90" cy="96" r="5" fill="var(--pen)"/>
-        <text x="190" y="104" text-anchor="middle" font-size="12" font-weight="700" fill="var(--red)" ${F}>Sputnik 1957</text>
-        <text x="190" y="124" text-anchor="middle" font-size="12" font-weight="700" fill="var(--red)" ${F}>Gagarin 1961</text>
-        <text x="190" y="144" text-anchor="middle" font-size="12" font-weight="700" fill="var(--pen)" ${F}>Apolo 11 1969</text>
+        <text x="190" y="104" text-anchor="middle" font-size="12" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">Sputnik 1957</text>
+        <text x="190" y="124" text-anchor="middle" font-size="12" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">Gagarin 1961</text>
+        <text x="190" y="144" text-anchor="middle" font-size="12" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">Apolo 11 1969</text>
       </svg>`,
     },
     {
-      html: `<h3>El final de la Guerra Fría</h3><p>En los años 80 la economía soviética estaba estancada. <b>Gorbachov</b> (1985) intentó reformarla con la <i>perestroika</i> (reestructuración) y la <i>glasnost</i> (transparencia). En 1989 los países de Europa del Este abandonaron el comunismo y el 9 de noviembre cayó el <mark>muro de Berlín</mark>. Alemania se reunificó en 1990 y en diciembre de 1991 la URSS se disolvió en 15 repúblicas.</p>`,
-      svg: linea("Final de la Guerra Fría", [["1985", "Gorbachov"], ["1989", "cae el muro|de Berlín"], ["1990", "Alemania|reunificada"], ["1991", "fin de|la URSS"]], "var(--pen)"),
+      html: `<h3>1.8 Coexistencia, distensión y disidencia</h3><p>La Guerra Fría alternó momentos de tensión y de calma. Tras la muerte de Stalin (1953), Jruschov denunció sus crímenes y habló de <mark>coexistencia pacífica</mark>: los dos sistemas debían competir sin llegar a la guerra. En los años setenta llegó la <b>distensión</b>: EE. UU. y la URSS firmaron acuerdos para limitar las armas nucleares (SALT) y, en 1975, los acuerdos de Helsinki, en los que los países del este se comprometían a respetar los derechos humanos.</p><p>Pero dentro del bloque soviético la URSS no toleraba que ningún país se apartara de su modelo. En <b>Hungría</b> (1956) una revolución popular que pedía libertad y la salida del Pacto de Varsovia fue aplastada por los tanques soviéticos, con miles de muertos. En <b>Checoslovaquia</b> (1968), la <b>Primavera de Praga</b>, un intento de crear un «socialismo con rostro humano» con libertad de prensa, terminó con la invasión de tropas del Pacto de Varsovia. En los países del este hubo <b>disidentes</b>, como el físico soviético Andréi Sájarov o el escritor Aleksandr Solzhenitsyn, que denunciaron la falta de libertad y el gulag, y fueron perseguidos.</p><p>A finales de los setenta la tensión volvió con la invasión soviética de <b>Afganistán</b> (1979) y la presidencia de Ronald Reagan, que relanzó la carrera de armamentos.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Revueltas en el bloque del Este: Berlín Este, Hungría, Checoslovaquia, Polonia"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Revueltas en el bloque del Este</text><rect x="10.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="68" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Berlín Este</text><text x="68" y="69.8" text-anchor="middle" font-size="10" >1953: huelgas</text><text x="68" y="81.3" text-anchor="middle" font-size="10" >obreras</text><rect x="134.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="192" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Hungría</text><text x="192" y="69.8" text-anchor="middle" font-size="10" >1956: revolución</text><text x="192" y="81.3" text-anchor="middle" font-size="10" >aplastada</text><rect x="10.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="68" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--leaf)">Checoslovaquia</text><text x="68" y="144.8" text-anchor="middle" font-size="10" >1968: Primavera de</text><text x="68" y="156.3" text-anchor="middle" font-size="10" >Praga</text><rect x="134.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="192" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--sun)">Polonia</text><text x="192" y="144.8" text-anchor="middle" font-size="10" >1980: sindicato</text><text x="192" y="156.3" text-anchor="middle" font-size="10" >Solidaridad</text></g></svg>`,
     },
     {
-      html: `<h3>La descolonización</h3><p>Entre 1945 y 1975 casi todas las colonias de Asia y África se independizaron. Las causas: el debilitamiento de Europa tras la guerra, el nacionalismo de los pueblos colonizados, el apoyo de la ONU y de las superpotencias. Algunas independencias fueron pacíficas, como la de la <mark>India</mark> (1947), con la resistencia no violenta de <b>Gandhi</b>; otras fueron muy violentas, como la de <b>Argelia</b> frente a Francia (1954-1962). Muchos nuevos países formaron el <b>Tercer Mundo</b> y el movimiento de los no alineados.</p>`,
-      svg: filas("Etapas de la descolonización", [["1945-55", "Asia: India, Indonesia", "var(--sun)"], ["1956-65", "África: Ghana, Argelia…", "var(--leaf)"], ["1966-75", "colonias portuguesas", "var(--pen)"], ["1955", "Bandung: no alineados", "var(--muted)"]]),
+      html: `<h3>1.9 El final de la Guerra Fría</h3><p>En los años ochenta la <b>economía soviética</b> estaba estancada: la planificación era ineficaz, faltaban productos de consumo, la tecnología se quedaba atrás y la guerra de Afganistán y la carrera de armamentos consumían enormes recursos. En 1985 llegó al poder <b>Mijaíl Gorbachov</b>, que intentó salvar el sistema reformándolo con la <mark>perestroika</mark> (reestructuración de la economía, con algo de mercado) y la <mark>glasnost</mark> (transparencia y libertad de expresión). Firmó con Reagan tratados de desarme y retiró las tropas de Afganistán. El accidente nuclear de <b>Chernóbil</b> (1986) mostró las debilidades del sistema.</p><p>Gorbachov renunció a intervenir en los países del este, y en <b>1989</b> se produjo un efecto dominó: en Polonia ganó las elecciones el sindicato Solidaridad, de Lech Walesa; Hungría abrió su frontera con Austria; en Checoslovaquia la «revolución de terciopelo» llevó al poder al escritor Václav Havel; y el <b>9 de noviembre</b> cayó el <b>Muro de Berlín</b> entre la alegría de miles de berlineses. Alemania se reunificó en octubre de 1990.</p><p>En la URSS, las repúblicas reclamaron la independencia. Tras un fallido golpe de Estado de los comunistas más duros (agosto de 1991), la <b>URSS se disolvió</b> en diciembre de 1991 en 15 Estados. Terminaba la Guerra Fría.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Final de la Guerra Fría">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <path d="M18 90 H 242" stroke="var(--ink)" stroke-width="3"/>
+    <circle cx="34" cy="90" r="7" fill="var(--pen)"/><text x="34" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1985</text><text x="14" y="30" text-anchor="start" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Gorbachov</text><circle cx="98" cy="90" r="7" fill="var(--pen)"/><text x="98" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1989</text><text x="98" y="144" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">cae el muro</text><text x="98" y="158" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">de Berlín</text><circle cx="162" cy="90" r="7" fill="var(--pen)"/><text x="162" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1990</text><text x="162" y="30" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Alemania</text><text x="162" y="44" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">reunificada</text><circle cx="226" cy="90" r="7" fill="var(--pen)"/><text x="226" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1991</text><text x="246" y="144" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">fin de</text><text x="246" y="158" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">la URSS</text>
+  </svg>`,
+    },
+    {
+      html: `<h3>1.10 La descolonización: causas</h3><p>Entre 1945 y 1975 casi todas las colonias de Asia y África se convirtieron en Estados independientes: es la <mark>descolonización</mark>. En 1945 la ONU tenía 51 miembros; en 1975, 144. Fue uno de los grandes cambios del siglo XX.</p><p>Sus causas fueron varias. Las <b>metrópolis europeas</b> (Reino Unido, Francia, Países Bajos, Bélgica, Portugal) quedaron debilitadas económica y militarmente tras la Segunda Guerra Mundial, y Japón había demostrado que los europeos podían ser derrotados. Crecieron los <b>movimientos nacionalistas</b> en las colonias, dirigidos por élites que habían estudiado en Europa y usaban sus propias ideas de libertad y autodeterminación; muchos soldados coloniales habían luchado en la guerra y regresaron con nuevas expectativas. La <b>ONU</b>, en su Carta, reconocía el derecho de los pueblos a la autodeterminación. Y las dos <b>superpotencias</b> estaban en contra del colonialismo europeo, aunque por intereses propios: ambas querían extender su influencia a los nuevos países.</p><p>La descolonización empezó en Asia, en los años cuarenta y cincuenta, y siguió en África, sobre todo en los sesenta. Las últimas grandes colonias, las portuguesas (Angola, Mozambique), se independizaron en 1975.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Etapas de la descolonización">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <g font-family="Atkinson Hyperlegible, sans-serif"><rect x="14" y="21" width="232" height="30" rx="8" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><rect x="14" y="21" width="80" height="30" rx="8" fill="var(--sun)"/><text x="54" y="40" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">1945-55</text><text x="102" y="40" font-size="11.5" fill="var(--ink)">Asia: India, Indonesia</text><rect x="14" y="55" width="232" height="30" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><rect x="14" y="55" width="80" height="30" rx="8" fill="var(--leaf)"/><text x="54" y="74" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">1956-65</text><text x="102" y="74" font-size="10.5" fill="var(--ink)">África: Ghana, Argelia…</text><rect x="14" y="89" width="232" height="30" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><rect x="14" y="89" width="80" height="30" rx="8" fill="var(--pen)"/><text x="54" y="108" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">1966-75</text><text x="102" y="108" font-size="11.5" fill="var(--ink)">colonias portuguesas</text><rect x="14" y="123" width="232" height="30" rx="8" fill="var(--card)" stroke="var(--muted)" stroke-width="2"/><rect x="14" y="123" width="80" height="30" rx="8" fill="var(--muted)"/><text x="54" y="142" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">1955</text><text x="102" y="142" font-size="11.5" fill="var(--ink)">Bandung: no alineados</text></g>
+  </svg>`,
+    },
+    {
+      html: `<h3>1.11 Las vías de la independencia: India, Argelia y África</h3><p>Hubo dos vías. La <b>pacífica o negociada</b>, cuando la metrópoli aceptó retirarse. El ejemplo más famoso es la <b>India</b>, donde <b>Mahatma Gandhi</b> dirigió una resistencia no violenta: boicot a los productos británicos, desobediencia civil, huelgas de hambre, la «marcha de la sal» (1930). En 1947 el Reino Unido concedió la independencia, pero el subcontinente se dividió en dos Estados según la religión, la India (mayoría hindú) y Pakistán (musulmán), lo que provocó enormes migraciones y violencia, con cientos de miles de muertos. Gandhi fue asesinado en 1948.</p><p>La <b>violenta</b>, cuando la metrópoli se resistió. Francia combatió en Indochina hasta su derrota en Dien Bien Phu (1954) y libró en <b>Argelia</b> (1954-1962), donde vivía un millón de colonos franceses, una guerra brutal con torturas y atentados que causó cientos de miles de muertos. Hubo también rebeliones en Kenia contra los británicos y guerras en las colonias portuguesas.</p><p>En el África subsahariana la mayoría de las independencias fueron negociadas y se concentraron en <b>1960</b>, el «año de África», cuando nacieron 17 Estados. España concedió la independencia a Guinea Ecuatorial en 1968 y abandonó el Sáhara Occidental en 1975, cuyo conflicto sigue abierto.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos vías hacia la independencia: Pacífica frente a Violenta"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Dos vías hacia la independencia</text><rect x="10" y="28" width="114" height="144" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="67" y="44.9" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Pacífica</text><text x="67" y="72.1" text-anchor="middle" font-size="9.5" >negociación</text><text x="67" y="101.6" text-anchor="middle" font-size="9.5" >India (1947)</text><text x="67" y="125.6" text-anchor="middle" font-size="9.5" >Gandhi: no</text><text x="67" y="136.5" text-anchor="middle" font-size="9.5" >violencia</text><text x="67" y="160.6" text-anchor="middle" font-size="9.5" >Ghana (1957)</text><rect x="136" y="28" width="114" height="144" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="193" y="44.9" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Violenta</text><text x="193" y="72.1" text-anchor="middle" font-size="9.5" >guerra larga</text><text x="193" y="101.6" text-anchor="middle" font-size="9.5" >Argelia (1954-1962)</text><text x="193" y="125.6" text-anchor="middle" font-size="9.5" >Indochina</text><text x="193" y="136.5" text-anchor="middle" font-size="9.5" >(1946-1954)</text><text x="193" y="160.6" text-anchor="middle" font-size="9.5" >Angola, Kenia</text></g></svg>`,
+      video: {
+        id: "E8lN3zR1wm0",
+        titulo: "La descolonización de África y Asia: resumen",
+        canal: "Cuaderno de Historia",
+        vistas: 390450,
+        megusta: 0,
+      },
+    },
+    {
+      html: `<h3>1.12 El Tercer Mundo, los No Alineados y el neocolonialismo</h3><p>La independencia política no trajo automáticamente el desarrollo. Muchos nuevos países heredaron <b>fronteras artificiales</b> que mezclaban pueblos rivales, lo que provocó guerras civiles como la de Nigeria (Biafra) o el Congo; economías basadas en exportar unas pocas materias primas, cuyos precios fijaban los países ricos; pocas personas formadas; y, con el tiempo, una gran <b>deuda externa</b>. Muchas veces se impusieron dictaduras y golpes militares, a menudo apoyados por una u otra superpotencia.</p><p>Se habla de <mark>neocolonialismo</mark> para describir la dependencia económica, política y cultural que mantuvieron respecto de las antiguas metrópolis y de las grandes potencias y empresas multinacionales.</p><p>En la <b>Conferencia de Bandung</b> (Indonesia, 1955), 29 países de Asia y África condenaron el colonialismo y reclamaron cooperación. De ahí nació el <mark>Movimiento de Países No Alineados</mark> (1961), impulsado por Nehru (India), Nasser (Egipto), Sukarno (Indonesia) y Tito (Yugoslavia), que no querían depender de ninguno de los dos bloques. La expresión <b>Tercer Mundo</b> designó a esos países pobres, distintos del primero (capitalista desarrollado) y del segundo (comunista). Hoy se prefiere hablar de países en desarrollo o del Sur global.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Problemas de los nuevos Estados: Fronteras, Economía, Deuda, Política"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Problemas de los nuevos Estados</text><rect x="10.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="68" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Fronteras</text><text x="68" y="69.8" text-anchor="middle" font-size="10" >artificiales y</text><text x="68" y="81.3" text-anchor="middle" font-size="10" >conflictos étnicos</text><rect x="134.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="192" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Economía</text><text x="192" y="69.8" text-anchor="middle" font-size="10" >dependencia de</text><text x="192" y="81.3" text-anchor="middle" font-size="10" >materias primas</text><rect x="10.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="68" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--leaf)">Deuda</text><text x="68" y="144.8" text-anchor="middle" font-size="10" >préstamos</text><text x="68" y="156.3" text-anchor="middle" font-size="10" >difíciles de pagar</text><rect x="134.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="192" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--sun)">Política</text><text x="192" y="144.8" text-anchor="middle" font-size="10" >golpes de Estado y</text><text x="192" y="156.3" text-anchor="middle" font-size="10" >dictaduras</text></g></svg>`,
     },
   ],
   figura: {
     titulo: "Cronología de la Guerra Fría",
-    svg: figLinea("Línea del tiempo de 1947 a 1991", [[40, "1947", "India independiente", 1], [100, "1949", "OTAN", 0], [190, "1955", "Pacto de Varsovia", 1], [260, "1961", "muro de Berlín", 0], [330, "1962", "misiles de Cuba", 1], [420, "1969", "llegada a la Luna", 0], [560, "1989", "cae el muro", 1], [630, "1991", "fin de la URSS", 0]], [[40, 630, "", "var(--muted)"]]),
+    svg: `<svg viewBox="0 0 680 200" role="img" aria-label="Línea del tiempo de 1947 a 1991">
+    <rect width="680" height="200" rx="16" fill="var(--paper)"/>
+    <path d="M30 100 H 650" stroke="var(--line)" stroke-width="4"/>
+    <rect x="40" y="92" width="590" height="16" rx="8" fill="var(--muted)" opacity=".75"/><text x="335" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif"></text>
+    <path d="M40 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="40" cy="100" r="5" fill="var(--ink)"/><text x="40" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1947</text><text x="20" y="54" text-anchor="start" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">India independiente</text><path d="M100 100 V 140" stroke="var(--ink)" stroke-width="1.5"/><circle cx="100" cy="100" r="5" fill="var(--ink)"/><text x="100" y="164" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1949</text><text x="100" y="182" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">OTAN</text><path d="M190 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="190" cy="100" r="5" fill="var(--ink)"/><text x="190" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1955</text><text x="190" y="54" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Pacto de Varsovia</text><path d="M260 100 V 140" stroke="var(--ink)" stroke-width="1.5"/><circle cx="260" cy="100" r="5" fill="var(--ink)"/><text x="260" y="164" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1961</text><text x="260" y="182" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">muro de Berlín</text><path d="M330 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="330" cy="100" r="5" fill="var(--ink)"/><text x="330" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1962</text><text x="330" y="54" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">misiles de Cuba</text><path d="M420 100 V 140" stroke="var(--ink)" stroke-width="1.5"/><circle cx="420" cy="100" r="5" fill="var(--ink)"/><text x="420" y="164" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1969</text><text x="420" y="182" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">llegada a la Luna</text><path d="M560 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="560" cy="100" r="5" fill="var(--ink)"/><text x="560" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1989</text><text x="560" y="54" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">cae el muro</text><path d="M630 100 V 140" stroke="var(--ink)" stroke-width="1.5"/><circle cx="630" cy="100" r="5" fill="var(--ink)"/><text x="630" y="164" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1991</text><text x="650" y="182" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">fin de la URSS</text>
+  </svg>`,
   },
-  video: { id: "EXijvhBQ-u8", titulo: "La Guerra Fría en 7 minutos", canal: "Academia Play", vistas: 12587533, megusta: 297612, busqueda: "guerra fría resumen" },
-  quiz: [
-    { q: "¿Por qué se llamó «fría» a esta guerra?", o: ["Porque se luchó en el Ártico", "Porque las superpotencias nunca se enfrentaron directamente", "Porque duró solo un invierno"], a: 1, e: "La rivalidad fue ideológica, económica y militar, pero sin combates directos entre EE. UU. y la URSS." },
-    { q: "¿Qué alianza militar lideraba Estados Unidos?", o: ["El Pacto de Varsovia", "La OTAN", "El COMECON"], a: 1, e: "La OTAN se fundó en 1949; el Pacto de Varsovia fue la respuesta soviética de 1955." },
-    { q: "¿Cuándo cayó el muro de Berlín?", o: ["1961", "1989", "1991"], a: 1, e: "El 9 de noviembre de 1989; se había levantado en 1961." },
-    { q: "La crisis de los misiles (1962) tuvo lugar en…", o: ["Cuba", "Corea", "Vietnam"], a: 0, e: "La URSS instaló misiles nucleares en Cuba y EE. UU. impuso un bloqueo naval." },
-    { q: "¿Quién lideró la independencia no violenta de la India?", o: ["Nelson Mandela", "Mahatma Gandhi", "Gorbachov"], a: 1, e: "Gandhi impulsó la desobediencia civil pacífica; la India se independizó en 1947." },
-  ],
-  examen: [
-    { q: "¿Qué fue el Plan Marshall?", o: ["Un plan de ayuda de EE. UU. para reconstruir Europa occidental", "Un ataque soviético", "Un tratado de desarme"], a: 0, e: "Entre 1948 y 1952 EE. UU. prestó y donó miles de millones para la reconstrucción y frenar el comunismo." },
-    { q: "Perestroika significa…", o: ["revolución", "reestructuración", "muro"], a: 1, e: "Fue la reforma económica de Gorbachov; glasnost era la transparencia informativa." },
-    { q: "¿Qué causa favoreció la descolonización?", o: ["El fortalecimiento de Europa tras 1945", "El debilitamiento de las metrópolis europeas y el nacionalismo de los colonizados", "La creación del muro de Berlín"], a: 1, e: "Europa salió arruinada de la guerra y los pueblos colonizados exigían su independencia." },
-  ],
-  feynman: ["Qué diferenciaba a los dos bloques", "Por qué la crisis de Cuba fue tan peligrosa", "Cómo y por qué terminó la Guerra Fría", "Causas y ejemplos de la descolonización"],
-  mapa: mapa("GUERRA FRÍA", "var(--soc, #c2410c)", [
-    ["Bloques", "EE. UU./OTAN vs. URSS/Varsovia", "var(--pen)"],
-    ["Crisis", "Berlín · Corea · Cuba · Vietnam", "var(--red)"],
-    ["Final", "Gorbachov · 1989 · 1991", "var(--leaf)"],
-    ["Descolonización", "India 1947 · África 1960", "var(--sun)"],
-  ], 280),
-  tarjetas: [
-    ["¿Qué era el «telón de acero»?", "La frontera que separaba la Europa occidental de la oriental comunista."],
-    ["OTAN", "Alianza militar occidental fundada en 1949."],
-    ["Muro de Berlín", "Levantado en 1961, derribado el 9 de noviembre de 1989."],
-    ["Fin de la URSS", "Diciembre de 1991."],
-    ["Independencia de la India", "1947, con la resistencia no violenta de Gandhi."],
-  ],
-  familias: ["Preguntad a quien lo viviera qué recuerda de la caída del muro de Berlín en 1989.", "Buscad en un mapa países que se independizaron en 1960, «el año de África».", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "Sociedades y territorios: la Guerra Fría, la descolonización y la configuración del mundo actual (RD 217/2022, Geografía e Historia 4º).",
-    ideas: ["Mapa mudo de los bloques en 1955 con OTAN, Varsovia y no alineados.", "Análisis de propaganda de ambos bloques (carrera espacial).", "Discurso de Kennedy en Berlín (1963) y de Gandhi sobre la no violencia."],
+  video: {
+    id: "EXijvhBQ-u8",
+    titulo: "La Guerra Fría en 7 minutos",
+    canal: "Academia Play",
+    vistas: 12587533,
+    megusta: 297612,
+    busqueda: "guerra fría resumen",
   },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Guerra Fría, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Guerra_Fr%C3%ADa" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: nivel de libro de texto.
-const { ampliar, tabla } = require("./_hum");
-ampliar(module.exports, {
-  minutos: 60,
-  objetivos: ["Comparar el modelo capitalista y el comunista", "Explicar las vías y las consecuencias de la descolonización"],
-  bloques: [
-    { tras: "Un mundo bipolar", html: `<h3>Dos modelos enfrentados</h3>${tabla(["", "Bloque occidental", "Bloque comunista"], [["Líder", "Estados Unidos", "URSS"], ["Economía", "capitalismo: propiedad privada y mercado", "planificación estatal, sin propiedad privada de empresas"], ["Política", "democracias liberales con varios partidos", "partido comunista único"], ["Alianza militar", "OTAN (1949)", "Pacto de Varsovia (1955)"], ["Ayuda económica", "Plan Marshall (1947)", "COMECON (1949)"]])}<p>Europa quedó dividida por el <mark>telón de acero</mark>, como dijo Churchill en 1946.</p>` },
-    { tras: "Las crisis más peligrosas", html: `<h3>Alemania y el muro de Berlín</h3><p>En 1949 Alemania se dividió en dos Estados: la <b>República Federal</b> (RFA, occidental) y la <b>República Democrática</b> (RDA, comunista). Berlín, dentro de la RDA, también estaba partido. En 1948-1949 los soviéticos bloquearon los accesos a Berlín Oeste y los aliados lo abastecieron con un <b>puente aéreo</b>. Como miles de alemanes huían al oeste, en <mark>1961</mark> la RDA levantó el <b>muro de Berlín</b>, que se convirtió en el símbolo de la Guerra Fría. Murieron más de 100 personas intentando cruzarlo.</p>` },
-    { tras: "Las crisis más peligrosas", html: `<h3>Las guerras calientes: Corea y Vietnam</h3><p>Las superpotencias nunca se enfrentaron directamente, pero apoyaron a bandos opuestos en otros países. En la <b>guerra de Corea</b> (1950-1953) el norte comunista invadió el sur; tras tres años de lucha la frontera quedó casi igual, y Corea sigue dividida. En la <mark>guerra de Vietnam</mark> (1955-1975) EE. UU. llegó a enviar más de medio millón de soldados para frenar a los comunistas; las imágenes de la guerra provocaron grandes protestas, y en 1975 Vietnam se unificó bajo un gobierno comunista.</p>` },
-    { tras: "La descolonización", html: `<h3>Causas y vías de la descolonización</h3><p>Tras 1945 las metrópolis europeas estaban debilitadas, crecían los <b>movimientos nacionalistas</b> en las colonias, y tanto la ONU como EE. UU. y la URSS apoyaban la independencia. Hubo dos vías: la <b>pacífica</b>, negociada, como la de la <b>India</b> (1947), con <mark>Gandhi</mark> y su resistencia no violenta, y la <b>violenta</b>, con guerras largas, como la de Argelia contra Francia (1954-1962). África se independizó sobre todo en los años 60: en <b>1960</b>, el «año de África», nacieron 17 Estados. España concedió la independencia a Guinea Ecuatorial en 1968.</p>`, video: { id: "E8lN3zR1wm0", titulo: "La descolonización de África y Asia: resumen", canal: "Cuaderno de Historia", vistas: 390450, megusta: 0 } },
-    { tras: "La descolonización", html: `<h3>El Tercer Mundo y los No Alineados</h3><p>Muchos países nuevos heredaron fronteras artificiales, economías basadas en exportar materias primas y una gran deuda: es el <mark>neocolonialismo</mark>, la dependencia económica de las antiguas metrópolis. En la <b>Conferencia de Bandung</b> (1955) los países de Asia y África condenaron el colonialismo y nació el <b>Movimiento de Países No Alineados</b>, que no quería depender de ninguno de los dos bloques. La expresión <b>Tercer Mundo</b> designó a esos países pobres, distintos del primero (capitalista) y del segundo (comunista).</p>` },
-  ],
   ejemplos: [
-    { enunciado: "Explica por qué la Guerra Fría se llama «fría».", pasos: ["EE. UU. y la URSS nunca lucharon directamente entre sí.", "Su enfrentamiento fue político, económico, ideológico y tecnológico.", "Las armas nucleares hacían que una guerra directa fuera suicida.", "Sí hubo guerras «calientes» en otros países, como Corea o Vietnam."], resultado: "Porque fue una tensión permanente sin guerra directa entre las superpotencias." },
-    { enunciado: "Compara la independencia de la India y la de Argelia.", pasos: ["India: negociación con Reino Unido y resistencia no violenta de Gandhi; independencia en 1947.", "Argelia: guerra de 1954 a 1962 contra Francia, con cientos de miles de muertos."], resultado: "India siguió la vía pacífica y Argelia, la violenta." },
-    { enunciado: "Lee esta frase de Kennedy en 1963: «Ich bin ein Berliner» («Soy berlinés»). ¿Qué quería decir?", pasos: ["La pronunció en Berlín Oeste, rodeado por el muro.", "Mostraba el apoyo de EE. UU. a los berlineses occidentales.", "Era un mensaje a la URSS: EE. UU. no abandonaría la ciudad."], resultado: "Era un gesto de solidaridad con Berlín Oeste frente al bloque soviético." },
+    {
+      enunciado: "Explica por qué la Guerra Fría se llama «fría».",
+      pasos: [
+        "EE. UU. y la URSS nunca lucharon directamente entre sí.",
+        "Su enfrentamiento fue político, económico, ideológico y tecnológico.",
+        "Las armas nucleares hacían que una guerra directa fuera suicida.",
+        "Sí hubo guerras «calientes» en otros países, como Corea o Vietnam.",
+      ],
+      resultado: "Porque fue una tensión permanente sin guerra directa entre las superpotencias.",
+    },
+    {
+      enunciado: "Compara la independencia de la India y la de Argelia.",
+      pasos: [
+        `India: negociación con Reino Unido y resistencia no violenta de Gandhi; independencia en 1947.`,
+        "Argelia: guerra de 1954 a 1962 contra Francia, con cientos de miles de muertos.",
+      ],
+      resultado: "India siguió la vía pacífica y Argelia, la violenta.",
+    },
+    {
+      enunciado: `Lee esta frase de Kennedy en 1963: «Ich bin ein Berliner» («Soy berlinés»). ¿Qué quería decir?`,
+      pasos: [
+        "La pronunció en Berlín Oeste, rodeado por el muro.",
+        "Mostraba el apoyo de EE. UU. a los berlineses occidentales.",
+        "Era un mensaje a la URSS: EE. UU. no abandonaría la ciudad.",
+      ],
+      resultado: "Era un gesto de solidaridad con Berlín Oeste frente al bloque soviético.",
+    },
+    {
+      enunciado: "Explica por qué la crisis de los misiles terminó sin guerra.",
+      pasos: [
+        `Ambos líderes sabían que una guerra nuclear destruiría a los dos países (destrucción mutua asegurada).`,
+        `Kennedy eligió un bloqueo naval en lugar de bombardear Cuba, lo que dejaba margen para negociar.`,
+        `Se negoció en secreto: retirada de misiles soviéticos a cambio de no invadir Cuba y retirar los misiles de Turquía.`,
+        `Lección: se instaló el teléfono rojo y se firmaron acuerdos de control de pruebas nucleares.`,
+      ],
+      resultado: `El miedo a la destrucción mutua y la negociación discreta evitaron la guerra; después se crearon mecanismos para reducir el riesgo.`,
+    },
+    {
+      enunciado: "Compara la caída del comunismo en 1989 en Polonia y en Alemania Oriental.",
+      pasos: [
+        `Polonia: sindicato Solidaridad (1980), negociación con el Gobierno y elecciones semilibres en junio de 1989 que ganó la oposición.`,
+        `RDA: huidas masivas por Hungría, manifestaciones pacíficas en Leipzig y apertura del Muro el 9 de noviembre.`,
+        "Común: Gorbachov no envió tropas; transiciones mayoritariamente pacíficas.",
+        "Resultado: Polonia, nueva democracia; la RDA desapareció y se integró en la RFA (1990).",
+      ],
+      resultado: `En ambos casos la presión popular y la renuncia soviética a intervenir acabaron con el comunismo de forma pacífica, aunque con caminos distintos.`,
+    },
+    {
+      enunciado: "Analiza el dato: miembros de la ONU en 1945: 51; en 1960: 99; en 1975: 144.",
+      pasos: [
+        "El aumento refleja la aparición de nuevos Estados independientes.",
+        `1945-1960: independencias de Asia (India, Indonesia) y primeras africanas; en 1960, 17 países africanos.`,
+        "1960-1975: resto de África y colonias portuguesas.",
+        "Consecuencia: los países del Tercer Mundo pasaron a ser mayoría en la Asamblea General.",
+      ],
+      resultado: `El crecimiento de la ONU mide la descolonización: en 30 años el número de Estados casi se triplicó.`,
+    },
   ],
   errores: [
     "Pensar que EE. UU. y la URSS se enfrentaron en una guerra directa.",
@@ -111,29 +195,437 @@ ampliar(module.exports, {
     "Creer que el muro de Berlín se levantó en 1945: se construyó en 1961.",
     "Pensar que toda descolonización fue pacífica.",
     "Decir que la independencia acabó con la dependencia económica: surgió el neocolonialismo.",
+    `Pensar que el bloque comunista fue siempre unido: China rompió con la URSS en los años sesenta, y Yugoslavia siguió su propio camino desde 1948.`,
   ],
   ejercicios: [
-    { q: "¿Qué era el telón de acero?", sol: "La frontera que separaba la Europa occidental de los países comunistas del este." },
-    { q: "¿Para qué sirvió el Plan Marshall?", sol: "Ayuda económica de EE. UU. para reconstruir Europa occidental y frenar el comunismo." },
-    { q: "¿Qué fue el puente aéreo de Berlín?", sol: "El abastecimiento por avión de Berlín Oeste durante el bloqueo soviético de 1948-1949." },
-    { q: "¿Por qué se construyó el muro de Berlín?", sol: "Para impedir que los alemanes del este huyeran al oeste." },
-    { q: "¿Cómo terminó la guerra de Corea?", sol: "Con un armisticio en 1953 que dejó la península dividida casi por la misma frontera." },
-    { q: "¿Qué fue la crisis de los misiles de 1962?", sol: "El enfrentamiento por los misiles soviéticos en Cuba, que puso al mundo al borde de una guerra nuclear." },
-    { q: "Cita tres causas de la descolonización.", sol: "Debilidad de las metrópolis tras la guerra, nacionalismo en las colonias y apoyo de la ONU y de las superpotencias." },
-    { q: "¿Qué es el neocolonialismo?", sol: "La dependencia económica que mantienen muchos países independizados respecto de sus antiguas metrópolis o de grandes empresas." },
-    { q: "¿Qué se decidió en Bandung?", sol: "Condenar el colonialismo y apostar por la no alineación con ningún bloque (1955)." },
-    { q: "¿Por qué cayó el muro de Berlín en 1989?", sol: "Por las reformas de Gorbachov, la crisis de los regímenes comunistas y las protestas masivas en la RDA." },
+    {
+      nivel: "básico",
+      q: "¿Qué era el telón de acero?",
+      sol: "La frontera que separaba la Europa occidental de los países comunistas del este.",
+    },
+    {
+      nivel: "básico",
+      q: "¿Para qué sirvió el Plan Marshall?",
+      sol: "Ayuda económica de EE. UU. para reconstruir Europa occidental y frenar el comunismo.",
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué fue el puente aéreo de Berlín?",
+      sol: "El abastecimiento por avión de Berlín Oeste durante el bloqueo soviético de 1948-1949.",
+    },
+    {
+      nivel: "básico",
+      q: "¿Por qué se construyó el muro de Berlín?",
+      sol: "Para impedir que los alemanes del este huyeran al oeste.",
+    },
+    {
+      nivel: "básico",
+      q: "Cita tres causas de la descolonización.",
+      sol: `Debilidad de las metrópolis tras la guerra, nacionalismo en las colonias y apoyo de la ONU y de las superpotencias.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué fue la doctrina Truman?",
+      sol: `La política anunciada en 1947 por el presidente Truman de ayudar a cualquier país amenazado por el comunismo; también llamada política de contención.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué eran la CIA y el KGB?",
+      sol: `Los servicios de inteligencia y espionaje de EE. UU. (CIA) y de la URSS (KGB), muy activos durante la Guerra Fría.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Quién fue Mao Zedong?",
+      sol: `El líder del Partido Comunista chino, que proclamó la República Popular China en 1949 y la gobernó hasta su muerte en 1976.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué fue la Primavera de Praga?",
+      sol: `El intento del Gobierno checoslovaco de Dubček (1968) de crear un «socialismo con rostro humano», con libertad de prensa y reformas, aplastado por la invasión del Pacto de Varsovia.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué fue el Sputnik?",
+      sol: "El primer satélite artificial de la historia, lanzado por la URSS en 1957.",
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué fue el «teléfono rojo»?",
+      sol: `Una línea de comunicación directa entre la Casa Blanca y el Kremlin creada tras la crisis de los misiles (1963) para evitar malentendidos que llevaran a una guerra nuclear.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Cuándo y cómo terminó la URSS?",
+      sol: `En diciembre de 1991, cuando se disolvió en 15 Estados independientes tras el fracaso de un golpe de Estado comunista en agosto y la independencia de las repúblicas.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué fue el año de África?",
+      sol: "1960, cuando 17 países africanos se independizaron, la mayoría de Francia.",
+    },
+    {
+      nivel: "medio",
+      q: "¿Cómo terminó la guerra de Corea?",
+      sol: "Con un armisticio en 1953 que dejó la península dividida casi por la misma frontera.",
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué fue la crisis de los misiles de 1962?",
+      sol: `El enfrentamiento por los misiles soviéticos en Cuba, que puso al mundo al borde de una guerra nuclear.`,
+    },
+    {
+      nivel: "medio",
+      q: "Explica la doctrina de la destrucción mutua asegurada.",
+      sol: `Como ambas superpotencias tenían suficientes armas nucleares para destruirse varias veces, si una atacaba la otra respondería y las dos serían aniquiladas. Ese miedo disuadía de atacar y mantenía una «paz armada» basada en el terror.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Por qué fracasó EE. UU. en Vietnam?",
+      sol: `Por el apoyo de la población campesina al Vietcong, la eficacia de la guerra de guerrillas en la selva, la ayuda soviética y china al norte, la corrupción del régimen del sur y la oposición creciente de la opinión pública estadounidense, impactada por las imágenes y las bajas.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Por qué el bloque soviético intervino en Hungría (1956) y Checoslovaquia (1968)?",
+      sol: `Porque la URSS no toleraba que ningún país del bloque abandonara el modelo comunista o el Pacto de Varsovia: temía un efecto contagio que debilitara su control sobre Europa del Este y su seguridad.`,
+    },
+    {
+      nivel: "medio",
+      q: "Explica el papel de Gorbachov en el final de la Guerra Fría.",
+      sol: `Lanzó la perestroika y la glasnost para reformar la URSS; firmó tratados de desarme con Reagan; retiró las tropas de Afganistán; y, sobre todo, renunció a intervenir militarmente en los países del Este, lo que permitió las revoluciones pacíficas de 1989 y la caída del Muro.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Por qué la independencia de la India terminó en división y violencia?",
+      sol: `Porque musulmanes e hindúes no se pusieron de acuerdo en un Estado común; los británicos dividieron el territorio en India y Pakistán según la religión. Millones de personas tuvieron que desplazarse para quedar en el lado «correcto» y hubo matanzas con cientos de miles de muertos.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué fue la conferencia de Bandung y qué movimiento originó?",
+      sol: `Una reunión de 29 países de Asia y África en Indonesia (1955) que condenó el colonialismo y la división en bloques y defendió la cooperación. Originó el Movimiento de Países No Alineados (1961).`,
+    },
+    {
+      nivel: "medio",
+      q: "Explica por qué la guerra de Argelia fue tan violenta.",
+      sol: `Porque en Argelia vivía un millón de colonos franceses, que la consideraban parte de Francia, y Francia no quería renunciar a ella. El Frente de Liberación Nacional usó la guerrilla y atentados, y el ejército francés respondió con torturas y represión masiva. Hubo cientos de miles de muertos hasta la independencia en 1962.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué hizo España en la descolonización?",
+      sol: `Concedió la independencia a Marruecos (protectorado) en 1956, a Guinea Ecuatorial en 1968 y abandonó el Sáhara Occidental en 1975, que quedó ocupado por Marruecos y Mauritania; el conflicto saharaui sigue sin resolver.`,
+    },
+    {
+      nivel: "avanzado",
+      q: "¿Qué es el neocolonialismo?",
+      sol: `La dependencia económica que mantienen muchos países independizados respecto de sus antiguas metrópolis o de grandes empresas.`,
+    },
+    {
+      nivel: "avanzado",
+      q: "¿Qué se decidió en Bandung?",
+      sol: "Condenar el colonialismo y apostar por la no alineación con ningún bloque (1955).",
+    },
+    {
+      nivel: "avanzado",
+      q: "¿Por qué cayó el muro de Berlín en 1989?",
+      sol: `Por las reformas de Gorbachov, la crisis de los regímenes comunistas y las protestas masivas en la RDA.`,
+    },
+    {
+      nivel: "avanzado",
+      q: `Comenta la frase de Churchill (1946): «Desde Stettin, en el Báltico, hasta Trieste, en el Adriático, ha caído sobre el continente un telón de acero». ¿Qué significaba?`,
+      sol: `Clasifica: discurso político de Churchill en Fulton (EE. UU.). Idea: Europa estaba dividida en dos: al este, los países bajo control soviético, aislados del oeste. Contexto: imposición de gobiernos comunistas en Europa del Este tras la guerra. Importancia: dio nombre a la división de Europa y anunció el enfrentamiento entre aliados de ayer, inicio de la Guerra Fría.`,
+    },
+    {
+      nivel: "avanzado",
+      q: "¿Fue realmente «fría» la Guerra Fría? Argumenta con ejemplos.",
+      sol: `Fue fría en el sentido de que EE. UU. y la URSS no se enfrentaron directamente. Pero fue muy «caliente» en otros lugares: guerras de Corea, Vietnam y Afganistán, conflictos en África, Oriente Medio y América Latina, golpes de Estado apoyados por las superpotencias, con millones de muertos, además del riesgo nuclear de 1962.`,
+    },
+    {
+      nivel: "avanzado",
+      q: "Compara la descolonización de la India y de Argelia: causas, vía, líderes y consecuencias.",
+      sol: `India: nacionalismo del Partido del Congreso; vía pacífica con resistencia no violenta de Gandhi; independencia en 1947; consecuencia: partición con Pakistán y violencia religiosa. Argelia: nacionalismo del FLN y presencia de un millón de colonos; vía violenta, guerra de 1954 a 1962; consecuencia: independencia y salida masiva de colonos. Ambas muestran el fin de los imperios europeos.`,
+    },
+    {
+      nivel: "avanzado",
+      q: "¿Por qué se puede decir que el neocolonialismo es una forma de dependencia sin colonias?",
+      sol: `Porque tras la independencia política los nuevos países siguieron dependiendo económicamente de las antiguas metrópolis y de las grandes potencias: exportaban materias primas baratas, importaban productos industriales caros, se endeudaron y muchas empresas eran extranjeras; además, las potencias apoyaban gobiernos afines. La soberanía era formal, pero la autonomía real, limitada.`,
+    },
+    {
+      nivel: "avanzado",
+      q: `Relaciona la carrera espacial con la vida actual: pon tres ejemplos de tecnologías derivadas.`,
+      sol: `Satélites de comunicaciones (televisión, internet, telefonía), el GPS, las previsiones meteorológicas por satélite, materiales nuevos (velcro mejorado, mantas térmicas), avances en informática y miniaturización. La competencia política impulsó una enorme inversión científica.`,
+    },
+    {
+      nivel: "avanzado",
+      q: `Imagina que eres un berlinés del Este el 9 de noviembre de 1989. Escribe una entrada de diario sobre ese día.`,
+      sol: `Debe mencionar: la vida en la RDA (falta de libertades, vigilancia de la Stasi, colas, imposibilidad de viajar); las manifestaciones de las semanas anteriores; el anuncio confuso de que se podía cruzar; la multitud en los pasos fronterizos; el cruce a Berlín Oeste, el reencuentro con familiares, la emoción, el martillo contra el Muro; la incertidumbre sobre el futuro.`,
+    },
   ],
   quiz: [
-    { q: "La OTAN se fundó en…", o: ["1949", "1955", "1961"], a: 0, e: "El Pacto de Varsovia, en 1955." },
-    { q: "El muro de Berlín se construyó en…", o: ["1945", "1961", "1989"], a: 1, e: "Cayó en 1989." },
-    { q: "La India se independizó en…", o: ["1947", "1960", "1975"], a: 0, e: "De Reino Unido." },
-    { q: "El «año de África» fue…", o: ["1955", "1960", "1968"], a: 1, e: "Se independizaron 17 países." },
-    { q: "Vietnam se unificó en…", o: ["1953", "1975", "1991"], a: 1, e: "Con un gobierno comunista." },
+    {
+      q: "¿Por qué se llamó «fría» a esta guerra?",
+      o: [
+        "Porque se luchó en el Ártico",
+        "Porque fue en Siberia",
+        "Porque las superpotencias nunca se enfrentaron directamente",
+        "Porque duró solo un invierno",
+      ],
+      a: 2,
+      e: `La rivalidad fue ideológica, económica y militar, pero sin combates directos entre EE. UU. y la URSS.`,
+    },
+    {
+      q: "¿Qué alianza militar lideraba Estados Unidos?",
+      o: ["El Plan Marshall", "El Pacto de Varsovia", "La OTAN", "El COMECON"],
+      a: 2,
+      e: "La OTAN se fundó en 1949; el Pacto de Varsovia fue la respuesta soviética de 1955.",
+    },
+    {
+      q: "¿Cuándo cayó el muro de Berlín?",
+      o: ["1961", "1989", "1991", "1975"],
+      a: 1,
+      e: "El 9 de noviembre de 1989; se había levantado en 1961.",
+    },
+    {
+      q: "La crisis de los misiles (1962) tuvo lugar en…",
+      o: ["Cuba", "Corea", "Berlín", "Vietnam"],
+      a: 0,
+      e: "La URSS instaló misiles nucleares en Cuba y EE. UU. impuso un bloqueo naval.",
+    },
+    {
+      q: "¿Quién lideró la independencia no violenta de la India?",
+      o: ["Nelson Mandela", "Ho Chi Minh", "Mahatma Gandhi", "Gorbachov"],
+      a: 2,
+      e: "Gandhi impulsó la desobediencia civil pacífica; la India se independizó en 1947.",
+    },
+    { q: "La OTAN se fundó en…", o: ["1945", "1949", "1955", "1961"], a: 1, e: "El Pacto de Varsovia, en 1955." },
+    { q: "El muro de Berlín se construyó en…", o: ["1945", "1961", "1989", "1949"], a: 1, e: "Cayó en 1989." },
+    { q: "La India se independizó en…", o: ["1947", "1960", "1962", "1975"], a: 0, e: "De Reino Unido." },
+    {
+      q: "El «año de África» fue…",
+      o: ["1955", "1975", "1960", "1968"],
+      a: 2,
+      e: "Se independizaron 17 países.",
+    },
+    { q: "Vietnam se unificó en…", o: ["1965", "1953", "1975", "1991"], a: 2, e: "Con un gobierno comunista." },
+    {
+      q: "La doctrina Truman (1947) buscaba…",
+      o: ["invadir la URSS", "contener la expansión del comunismo", "crear la ONU", "independizar las colonias"],
+      a: 1,
+      e: "EE. UU. ayudaría a los países amenazados por el comunismo.",
+    },
+    {
+      q: "El puente aéreo de Berlín respondió al…",
+      o: ["Muro de 1961", "bloqueo soviético de 1948", "Plan Marshall", "golpe de 1991"],
+      a: 1,
+      e: "Abasteció a Berlín Oeste durante casi un año.",
+    },
+    {
+      q: "La guerra de Corea terminó en 1953 con…",
+      o: [
+        "la unificación comunista",
+        "un armisticio y el país dividido",
+        "la victoria total de EE. UU.",
+        "la anexión a China",
+      ],
+      a: 1,
+      e: "Corea sigue dividida en el paralelo 38.",
+    },
+    {
+      q: "La revolución cubana triunfó en…",
+      o: ["1949", "1959", "1962", "1968"],
+      a: 1,
+      e: "Fidel Castro derrocó al dictador Batista.",
+    },
+    {
+      q: "¿Quién fue el primer ser humano en el espacio?",
+      o: ["Neil Armstrong", "Yuri Gagarin", "Buzz Aldrin", "Valentina Tereshkova"],
+      a: 1,
+      e: "En 1961.",
+    },
+    {
+      q: "La Primavera de Praga (1968) fue aplastada por…",
+      o: ["la OTAN", "el Pacto de Varsovia", "la ONU", "China"],
+      a: 1,
+      e: "Tanques de varios países del bloque soviético invadieron Checoslovaquia.",
+    },
+    {
+      q: "Glasnost significa…",
+      o: ["reestructuración", "transparencia", "paz", "revolución"],
+      a: 1,
+      e: "Era la apertura informativa de Gorbachov; perestroika es reestructuración.",
+    },
+    {
+      q: "La URSS se disolvió en…",
+      o: ["1985", "1989", "1991", "1995"],
+      a: 2,
+      e: "En diciembre de 1991, en 15 Estados.",
+    },
+    {
+      q: "La India y Pakistán se separaron en 1947 por motivos…",
+      o: ["lingüísticos", "religiosos", "económicos", "geográficos"],
+      a: 1,
+      e: "Mayoría hindú en la India, musulmana en Pakistán.",
+    },
+    {
+      q: "El Movimiento de Países No Alineados quería…",
+      o: ["unirse a la OTAN", "no depender de ninguno de los dos bloques", "volver al colonialismo", "crear la URSS"],
+      a: 1,
+      e: "Nació de la conferencia de Bandung (1955).",
+    },
   ],
+  examen: [
+    {
+      q: "¿Qué fue el Plan Marshall?",
+      o: [
+        "Un plan de ayuda de EE. UU. para reconstruir Europa occidental",
+        "Un ataque soviético",
+        "Un tratado de desarme",
+        "Un plan militar de la URSS",
+      ],
+      a: 0,
+      e: `Entre 1948 y 1952 EE. UU. prestó y donó miles de millones para la reconstrucción y frenar el comunismo.`,
+    },
+    {
+      q: "Perestroika significa…",
+      o: ["revolución", "reestructuración", "transparencia", "muro"],
+      a: 1,
+      e: "Fue la reforma económica de Gorbachov; glasnost era la transparencia informativa.",
+    },
+    {
+      q: "¿Qué causa favoreció la descolonización?",
+      o: [
+        "El fortalecimiento de Europa tras 1945",
+        "La carrera espacial",
+        "El debilitamiento de las metrópolis europeas y el nacionalismo de los colonizados",
+        "La creación del muro de Berlín",
+      ],
+      a: 2,
+      e: "Europa salió arruinada de la guerra y los pueblos colonizados exigían su independencia.",
+    },
+    {
+      q: "La RFA y la RDA nacieron en…",
+      o: ["1945", "1949", "1961", "1990"],
+      a: 1,
+      e: "Alemania se dividió en dos Estados.",
+    },
+    {
+      q: "¿Qué líder soviético instaló misiles en Cuba en 1962?",
+      o: ["Stalin", "Jruschov", "Brézhnev", "Gorbachov"],
+      a: 1,
+      e: "Negoció su retirada con Kennedy.",
+    },
+    {
+      q: "El primer hombre que pisó la Luna (1969) fue…",
+      o: ["Gagarin", "Armstrong", "Collins", "Glenn"],
+      a: 1,
+      e: "Con la misión Apolo 11.",
+    },
+    {
+      q: "La guerra de Argelia enfrentó a los argelinos con…",
+      o: ["Reino Unido", "Francia", "España", "Italia"],
+      a: 1,
+      e: "Duró de 1954 a 1962.",
+    },
+    {
+      q: "El sindicato polaco Solidaridad lo dirigía…",
+      o: ["Václav Havel", "Lech Walesa", "Gorbachov", "Tito"],
+      a: 1,
+      e: "Ganó las elecciones de 1989.",
+    },
+  ],
+  feynman: [
+    "Qué diferenciaba a los dos bloques",
+    "Por qué la crisis de Cuba fue tan peligrosa",
+    "Cómo y por qué terminó la Guerra Fría",
+    "Causas y ejemplos de la descolonización",
+  ],
+  mapa: `<svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: GUERRA FRÍA">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="225" y="122" width="250" height="56" rx="28" fill="var(--soc, #c2410c)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">GUERRA FRÍA</text>
+      <rect x="0" y="34" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--pen)">Bloques</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">EE. UU./OTAN vs. URSS/Varsovia</text><rect x="420" y="34" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--red)">Crisis</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">Berlín · Corea · Cuba · Vietnam</text><rect x="0" y="214" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--leaf)">Final</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">Gorbachov · 1989 · 1991</text><rect x="420" y="214" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--sun)">Descolonización</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">India 1947 · África 1960</text>
+    </g></svg>`,
   tarjetas: [
+    ["¿Qué era el «telón de acero»?", "La frontera que separaba la Europa occidental de la oriental comunista."],
+    ["OTAN", "Alianza militar occidental fundada en 1949."],
+    ["Muro de Berlín", "Levantado en 1961, derribado el 9 de noviembre de 1989."],
+    ["Fin de la URSS", "Diciembre de 1991."],
+    ["Independencia de la India", "1947, con la resistencia no violenta de Gandhi."],
     ["Plan Marshall", "Ayuda de EE. UU. para reconstruir Europa (1947)."],
     ["Muro de Berlín", "Levantado en 1961, cayó en 1989."],
     ["Neocolonialismo", "Dependencia económica tras la independencia política."],
+    ["Doctrina Truman", "Política de EE. UU. (1947) de contener la expansión del comunismo."],
+    [
+      "Crisis de los misiles",
+      "Octubre de 1962: misiles soviéticos en Cuba; 13 días al borde de la guerra nuclear.",
+    ],
+    ["Perestroika y glasnost", "Reformas de Gorbachov: reestructuración económica y transparencia."],
+    ["Bandung", "Conferencia de 1955 de países de Asia y África contra el colonialismo."],
   ],
-});
+  glosario: [
+    ["Guerra Fría", "Enfrentamiento entre EE. UU. y la URSS (1947-1991) sin guerra directa entre ellos."],
+    ["Bipolar", "Mundo dividido en dos bloques liderados por dos superpotencias."],
+    ["Telón de acero", "Frontera que separaba la Europa comunista de la occidental."],
+    ["Doctrina Truman", "Política de contención del comunismo de EE. UU."],
+    ["Plan Marshall", "Ayuda de EE. UU. para reconstruir Europa occidental (1947)."],
+    ["OTAN", "Alianza militar del bloque occidental, creada en 1949."],
+    ["Pacto de Varsovia", "Alianza militar del bloque comunista, creada en 1955."],
+    ["Muro de Berlín", "Muro que dividió la ciudad entre 1961 y 1989."],
+    ["Destrucción mutua asegurada", "Equilibrio basado en que un ataque nuclear destruiría a ambos bandos."],
+    ["Coexistencia pacífica", "Competencia entre los bloques sin llegar a la guerra."],
+    ["Disidente", "Persona que se opone públicamente al régimen de su país."],
+    ["Perestroika", "Reestructuración económica impulsada por Gorbachov."],
+    ["Descolonización", "Proceso de independencia de las colonias tras 1945."],
+    ["Autodeterminación", "Derecho de un pueblo a decidir su propio destino político."],
+    ["No violencia", "Resistencia sin armas, como la de Gandhi."],
+    ["Neocolonialismo", "Dependencia económica y política de los antiguos territorios coloniales."],
+    ["Tercer Mundo", "Países pobres que no pertenecían a ninguno de los dos bloques."],
+    ["No Alineados", "Movimiento de países que no querían depender de ningún bloque."],
+  ],
+  situacion: {
+    titulo: "Dos ciudades, un muro",
+    reto: `El Ayuntamiento de vuestra ciudad está hermanado con un distrito de Berlín y quiere celebrar el aniversario de la caída del Muro con una exposición escolar que compare la vida a ambos lados entre 1961 y 1989.`,
+    pasos: [
+      "Dividid la clase en dos equipos: Berlín Oeste y Berlín Este.",
+      `Investigad la vida cotidiana de cada lado: trabajo, consumo, vivienda, ocio, libertad de expresión, viajes, educación.`,
+      `Buscad testimonios y fotografías (por ejemplo, del Museo del Muro o de la Fundación Muro de Berlín) y seleccionad cinco cada equipo.`,
+      `Elaborad paneles comparativos y una línea del tiempo de 1945 a 1990 con los hechos clave de la Guerra Fría.`,
+      `Organizad un debate final: ¿por qué cayó el Muro? Escribid juntos una conclusión sobre la libertad y la convivencia.`,
+    ],
+    producto: "Una exposición con paneles comparativos, línea del tiempo y un texto de conclusiones.",
+    evaluacion: [
+      "Comprensión de los dos modelos enfrentados en la Guerra Fría.",
+      "Selección y análisis riguroso de fuentes.",
+      "Equilibrio y espíritu crítico al comparar ambos lados.",
+      "Calidad del debate y de la conclusión colectiva.",
+    ],
+  },
+  familias: [
+    "Preguntad a quien lo viviera qué recuerda de la caída del muro de Berlín en 1989.",
+    "Buscad en un mapa países que se independizaron en 1960, «el año de África».",
+    "Repasad las tarjetas del paso 6 dos minutos al día durante la semana.",
+  ],
+  profesores: {
+    saberes: `Sociedades y territorios: la Guerra Fría, la descolonización y la configuración del mundo actual (RD 217/2022, Geografía e Historia 4º).`,
+    ideas: [
+      "Mapa mudo de los bloques en 1955 con OTAN, Varsovia y no alineados.",
+      "Análisis de propaganda de ambos bloques (carrera espacial).",
+      "Discurso de Kennedy en Berlín (1963) y de Gandhi sobre la no violencia.",
+    ],
+  },
+  fuentes: [
+    {
+      t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)",
+      url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975",
+    },
+    { t: "Guerra Fría, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Guerra_Fr%C3%ADa" },
+  ],
+  revisado: "2026-11-13",
+};
