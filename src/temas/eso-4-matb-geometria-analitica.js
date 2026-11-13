@@ -1,171 +1,252 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa, flecha } = require("./_util");
+// Matemáticas B 4º ESO · Tema 11. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, graf } = require("./_eso4L3");
 
-// Cuadrícula de -1..9 en x y -1..6 en y, unidad k, origen (ox, oy).
-const ox = 30, oy = 150, k = 22;
-const P = (x, y) => [ox + x * k, oy - y * k];
-const rejilla = `<g stroke="var(--line)" stroke-width="1">${[...Array(10)].map((_, i) => `<path d="M${ox + i * k} 8 V 172"/>`).join("")}${[...Array(7)].map((_, i) => `<path d="M8 ${oy - i * k} H 252"/>`).join("")}</g><path d="M8 ${oy} H 252 M${ox} 8 V 172" stroke="var(--muted)" stroke-width="2"/>`;
+// Flecha (vector) de P a Q en unos ejes E.
+let nf = 0;
+const vec = (E, P, Q, c = "var(--red)", lab = "", dx = 6, dy = -6) => {
+  const id = `v11_${++nf}`;
+  const [x1, y1, x2, y2] = [E.X(P[0]), E.Y(P[1]), E.X(Q[0]), E.Y(Q[1])];
+  return `<defs><marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="${c}"/></marker></defs><path d="M${x1} ${y1} L ${x2} ${y2}" stroke="${c}" stroke-width="2.6" marker-end="url(#${id})"/>${lab ? t((x1 + x2) / 2 + dx, (y1 + y2) / 2 + dy, lab, { c, s: 12, b: 1, a: dx < 0 ? "end" : "start" }) : ""}`;
+};
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Geometría analítica",
-  minutos: 45,
-  objetivos: ["Operar con vectores: coordenadas, módulo, suma y producto por un número", "Calcular el punto medio y la distancia entre dos puntos", "Escribir la ecuación de una recta y estudiar si dos rectas son paralelas o se cortan"],
-  claves: ["vector", "módulo", "punto medio", "pendiente", "ecuación de la recta", "paralelas"],
+  minutos: 115,
+  objetivos: [
+    "Trabajar con vectores en el plano: componentes, módulo y operaciones",
+    "Calcular distancias, puntos medios y puntos simétricos",
+    "Escribir la ecuación de una recta en sus distintas formas y pasar de una a otra",
+    "Estudiar la posición relativa de dos rectas y hallar rectas paralelas y perpendiculares",
+    "Reconocer y escribir la ecuación de una circunferencia",
+    "Resolver problemas geométricos con coordenadas",
+  ],
+  claves: ["vector", "componentes", "módulo", "punto medio", "vector director", "pendiente", "ecuación general", "rectas paralelas", "rectas perpendiculares", "circunferencia"],
+  lectura: {
+    titulo: "La mosca en el techo",
+    html: `<p>Cuenta la leyenda que el filósofo y matemático francés René Descartes, enfermo en la cama, observaba una mosca que se paseaba por el techo de su habitación. Se preguntó cómo podría describir con exactitud la posición de la mosca en cada momento. Se le ocurrió que bastaba con dar dos números: la distancia a una pared y la distancia a la otra. Así nacieron, en 1637, las <b>coordenadas cartesianas</b>, que llevan su nombre.</p>
+    <p>La idea de Descartes revolucionó las matemáticas: unió dos mundos que hasta entonces estaban separados, la <b>geometría</b> (figuras, rectas, curvas) y el <b>álgebra</b> (números, ecuaciones). Una recta se convirtió en una ecuación; una circunferencia, en otra. Los problemas geométricos difíciles pasaron a resolverse con cálculos.</p>
+    <p>Hoy la geometría analítica está por todas partes. Cada píxel de tu pantalla tiene sus coordenadas; los videojuegos mueven personajes sumando vectores; los GPS calculan tu posición y las rutas con coordenadas; los programas de diseño, las impresoras 3D y los robots industriales trabajan con ecuaciones de rectas y curvas. En este tema aprenderás el lenguaje con el que los ordenadores entienden el espacio.</p>`,
+  },
   pregunta: {
     texto: "En un videojuego, tu personaje está en (1, 2) y el tesoro en (7, 5). ¿Qué distancia hay en línea recta y qué dirección debes tomar?",
     respuesta: "La dirección es el <mark>vector</mark> (7 − 1, 5 − 2) = (6, 3) y la distancia, su módulo: √(6² + 3²) = √45 ≈ <b>6,7 unidades</b>. La geometría analítica convierte los dibujos en números, y así es como los ordenadores mueven todo lo que ves en pantalla.",
   },
   bloques: [
     {
-      html: `<h3>Vectores</h3><p>Un <b>vector</b> es una flecha con <mark>módulo</mark> (longitud), <mark>dirección</mark> y <mark>sentido</mark>. El vector de A a B se calcula <b>restando coordenadas</b>: AB = (x₂ − x₁, y₂ − y₁). Su módulo es:</p><div class="formula"><span>|v| = √(v₁² + v₂²)</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Vector desde A (1, 2) hasta B (7, 5) con componentes 6 y 3">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/><defs>${flecha("fv", "var(--red)")}</defs>${rejilla}
-        <path d="M${P(1, 2)} H ${P(7, 2)[0]} V ${P(7, 5)[1]}" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 4"/>
-        <path d="M${P(1, 2)} L ${P(7, 5)}" stroke="var(--red)" stroke-width="3.5" marker-end="url(#fv)"/>
-        <circle cx="${P(1, 2)[0]}" cy="${P(1, 2)[1]}" r="5" fill="var(--ink)"/>
-        <g ${F} font-size="12" font-weight="700"><text x="${P(1, 2)[0] - 12}" y="${P(1, 2)[1] + 18}" fill="var(--ink)">A(1, 2)</text><text x="${P(7, 5)[0] - 10}" y="${P(7, 5)[1] - 8}" fill="var(--ink)">B(7, 5)</text>
-        <text x="${P(4, 2)[0]}" y="${P(4, 2)[1] + 16}" text-anchor="middle" fill="var(--pen)">6</text><text x="${P(7, 3.5)[0] + 8}" y="${P(7, 3.5)[1]}" fill="var(--pen)">3</text></g></svg>`,
+      html: `<h3>11.1 Puntos y vectores en el plano</h3><p>En unos ejes cartesianos, cada punto P se identifica con un par de números (x, y): su <b>abscisa</b> y su <b>ordenada</b>. Pero en geometría no solo interesan las posiciones, sino también los <b>desplazamientos</b>: ir de un punto a otro. Para eso se usan los vectores.</p><p>Un <b>vector fijo</b> AB es un segmento orientado que va del punto A (origen) al punto B (extremo). Tiene tres características: <b>módulo</b> (su longitud), <b>dirección</b> (la de la recta que lo contiene) y <b>sentido</b> (de A hacia B). Sus <b>componentes</b> se obtienen restando las coordenadas del extremo menos las del origen:</p><div class="formula"><span>A(x₁, y₁), B(x₂, y₂) → AB = (x₂ − x₁, y₂ − y₁)</span></div><p>Ejemplo: si A(1, 2) y B(7, 5), AB = (6, 3): para ir de A a B hay que avanzar 6 unidades a la derecha y 3 hacia arriba.</p><p>Dos vectores fijos con las mismas componentes representan el mismo desplazamiento aunque empiecen en puntos distintos: se dice que son <b>equipolentes</b> y que representan el mismo <b>vector libre</b>, que se escribe con una letra, como v = (6, 3). El vector que va del origen O a un punto P se llama <mark>vector de posición</mark> de P, y tiene las mismas componentes que las coordenadas de P.</p>`,
+      svg: graf("Vector AB de A(1, 2) a B(7, 5) con componentes 6 y 3", { x0: -1, x1: 8, y0: -1, y1: 6, paso: 1 }, (E) => `${E.seg(1, 2, 7, 2, "var(--muted)", 1.5, 'stroke-dasharray="4 3"')}${E.seg(7, 2, 7, 5, "var(--muted)", 1.5, 'stroke-dasharray="4 3"')}${vec(E, [1, 2], [7, 5], "var(--red)", "AB = (6, 3)", -8, -8)}${E.punto(1, 2, "var(--pen)", "A(1, 2)", -6, 14)}${E.punto(7, 5, "var(--pen)", "B(7, 5)", -8, -6)}${t(E.X(4), E.Y(2) + 14, "6", { c: "var(--muted)", s: 11, b: 1 })}${t(E.X(7) + 6, E.Y(3.5), "3", { c: "var(--muted)", s: 11, b: 1, a: "start" })}`),
     },
     {
-      html: `<h3>Operaciones con vectores</h3><p>Para <b>sumar</b> vectores se suman coordenadas: (2, 1) + (1, 3) = (3, 4). Gráficamente se pone <mark>uno a continuación del otro</mark>. Para <b>multiplicar por un número</b>, se multiplican las dos coordenadas: 2 · (1, 3) = (2, 6). Si el número es negativo, el vector cambia de sentido.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Suma de vectores: u igual a (2, 1) seguido de v igual a (1, 3) da u más v igual a (3, 4)">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/><defs>${flecha("fa", "var(--pen)")}${flecha("fb", "var(--leaf)")}${flecha("fc", "var(--red)")}</defs>${rejilla}
-        <path d="M${P(1, 1)} L ${P(3, 2)}" stroke="var(--pen)" stroke-width="3.5" marker-end="url(#fa)"/>
-        <path d="M${P(3, 2)} L ${P(4, 5)}" stroke="var(--leaf)" stroke-width="3.5" marker-end="url(#fb)"/>
-        <path d="M${P(1, 1)} L ${P(4, 5)}" stroke="var(--red)" stroke-width="3.5" marker-end="url(#fc)"/>
-        <g ${F} font-size="13" font-weight="700"><text x="${P(2.2, 1)[0]}" y="${P(2.2, 1)[1] + 12}" fill="var(--pen)">u</text><text x="${P(3.7, 3.2)[0] + 6}" y="${P(3.7, 3.2)[1]}" fill="var(--leaf)">v</text><text x="${P(1.6, 3.4)[0] - 10}" y="${P(1.6, 3.4)[1]}" fill="var(--red)">u + v</text></g></svg>`,
+      html: `<h3>11.2 Módulo de un vector y distancia entre dos puntos</h3><p>El <b>módulo</b> de un vector v = (v₁, v₂) es su longitud. Como sus componentes son los catetos de un triángulo rectángulo y el vector es la hipotenusa, por el teorema de Pitágoras:</p><div class="formula"><span>|v| = √(v₁² + v₂²)</span></div><p>La <b>distancia entre dos puntos</b> A y B es el módulo del vector AB:</p><div class="formula"><span>d(A, B) = √((x₂ − x₁)² + (y₂ − y₁)²)</span></div><p>Ejemplo: la distancia entre A(1, 2) y B(7, 5) es √(36 + 9) = √45 = 3√5 ≈ <mark>6,71</mark>. Observa que da igual restar en un orden o en otro, porque las diferencias se elevan al cuadrado.</p><p>La fórmula de la distancia tiene muchas aplicaciones: comprobar si un triángulo es isósceles o equilátero (comparando sus lados), calcular perímetros de polígonos dados por sus vértices, o decidir qué punto está más cerca de otro. Un vector de módulo 1 se llama <b>unitario</b>; se obtiene dividiendo un vector entre su módulo. Por ejemplo, v = (3, 4) tiene módulo 5, y (3/5, 4/5) es un vector unitario con su misma dirección y sentido. Los videojuegos usan vectores unitarios para mover a los personajes siempre a la misma velocidad, sea cual sea la dirección.</p>`,
+      svg: graf("Distancia entre A(1, 1) y B(4, 5): los catetos miden 3 y 4 y la distancia es 5", { x0: -1, x1: 6, y0: -1, y1: 6, paso: 1 }, (E) => `<path d="M${E.X(1)} ${E.Y(1)} L ${E.X(4)} ${E.Y(1)} L ${E.X(4)} ${E.Y(5)} Z" fill="var(--leaf)" fill-opacity=".14" stroke="var(--leaf)" stroke-width="1.6"/>${E.seg(1, 1, 4, 5, "var(--red)", 3)}${E.punto(1, 1, "var(--pen)", "A", -6, -6)}${E.punto(4, 5, "var(--pen)", "B", 8, 0)}${t(E.X(2.5), E.Y(1) + 14, "3", { c: "var(--leaf)", s: 12, b: 1 })}${t(E.X(4) + 6, E.Y(3), "4", { c: "var(--leaf)", s: 12, b: 1, a: "start" })}${t(E.X(-0.8), E.Y(5.6), "d = √(9 + 16) = 5", { c: "var(--red)", s: 12, b: 1, a: "start" })}`),
+      video: { id: "HPS7B57keEE", titulo: "Distancia entre dos puntos", canal: "Matemáticas profe Alex", vistas: 1825454, busqueda: "distancia entre dos puntos" },
     },
     {
-      html: `<h3>Punto medio y distancia</h3><p>El <b>punto medio</b> de un segmento es la media de las coordenadas, y la <b>distancia</b> entre dos puntos es el módulo del vector que los une (es el teorema de Pitágoras):</p>
-      <div class="formula"><span>M = ((x₁ + x₂)/2, (y₁ + y₂)/2)</span></div><div class="formula"><span>d(A, B) = √((x₂ − x₁)² + (y₂ − y₁)²)</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Segmento de A (1, 1) a B (7, 5) con punto medio M (4, 3)">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${rejilla}
-        <path d="M${P(1, 1)} L ${P(7, 5)}" stroke="var(--pen)" stroke-width="3"/>
-        ${[[1, 1, "A"], [7, 5, "B"]].map(([x, y, n]) => `<circle cx="${P(x, y)[0]}" cy="${P(x, y)[1]}" r="5" fill="var(--ink)"/><text x="${P(x, y)[0] + 8}" y="${P(x, y)[1] + 14}" font-size="13" font-weight="700" fill="var(--ink)" ${F}>${n}</text>`).join("")}
-        <circle cx="${P(4, 3)[0]}" cy="${P(4, 3)[1]}" r="7" fill="var(--hl)" stroke="var(--ink)" stroke-width="2"/><text x="${P(4, 3)[0] - 4}" y="${P(4, 3)[1] - 12}" text-anchor="end" font-size="13" font-weight="700" fill="var(--red)" ${F}>M(4, 3)</text></svg>`,
+      html: `<h3>11.3 Operaciones con vectores</h3><p>Con los vectores se puede operar componente a componente:</p><ul><li><b>Suma</b>: u + v = (u₁ + v₁, u₂ + v₂). Geométricamente, se coloca el origen de v en el extremo de u (regla del triángulo) o se dibuja el paralelogramo que forman (regla del paralelogramo). Representa hacer un desplazamiento y después el otro.</li><li><b>Resta</b>: u − v = (u₁ − v₁, u₂ − v₂). Es sumar a u el opuesto de v, −v = (−v₁, −v₂).</li><li><b>Producto por un número</b>: k · v = (k v₁, k v₂). El resultado tiene la misma dirección que v, el módulo multiplicado por |k| y el mismo sentido si k &gt; 0 (o el contrario si k &lt; 0).</li></ul><p>Ejemplo: si u = (3, 1) y v = (1, 2), entonces u + v = (4, 3), u − v = (2, −1) y 2u − 3v = (6, 2) − (3, 6) = (3, −4).</p><p>La suma de vectores describe muy bien situaciones físicas. Un avión que vuela con velocidad propia (200, 0) km/h mientras sopla un viento (0, −30) km/h se mueve en realidad con velocidad (200, −30) km/h. Un nadador que cruza un río con corriente sigue una trayectoria que es la suma de su propio movimiento y el del agua. En física, las fuerzas también se suman como vectores para obtener la <mark>fuerza resultante</mark>.</p>`,
+      svg: graf("Suma de vectores u igual a (3, 1) y v igual a (1, 2): la diagonal del paralelogramo es u más v igual a (4, 3)", { x0: -1, x1: 6, y0: -1, y1: 5, paso: 1 }, (E) => `${E.seg(3, 1, 4, 3, "var(--muted)", 1.4, 'stroke-dasharray="4 3"')}${E.seg(1, 2, 4, 3, "var(--muted)", 1.4, 'stroke-dasharray="4 3"')}${vec(E, [0, 0], [3, 1], "var(--pen)", "u", 2, 16)}${vec(E, [0, 0], [1, 2], "var(--leaf)", "v", -6, -2)}${vec(E, [0, 0], [4, 3], "var(--red)")}${t(E.X(3.8), E.Y(3) - 10, "u + v = (4, 3)", { c: "var(--red)", s: 12, b: 1, a: "end" })}`),
+      video: { id: "IrTeyyzerjI", titulo: "Vectores: introducción y operaciones", canal: "Matemáticas profe Alex", vistas: 5082683, busqueda: "vectores en el plano" },
     },
     {
-      html: `<h3>Ecuaciones de la recta</h3><p>Una recta queda fijada por un punto y una dirección (o por dos puntos). Las formas más usadas:</p>
-      <div class="formula"><span>Punto-pendiente: y − y₁ = m(x − x₁)</span></div><div class="formula"><span>Explícita: y = mx + n</span></div><div class="formula"><span>General: Ax + By + C = 0</span></div>
-      <p>Con dos puntos, la <mark>pendiente</mark> es m = (y₂ − y₁) / (x₂ − x₁). Por A(1, 1) y B(7, 5): m = 4/6 = 2/3.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Recta que pasa por A (1, 1) y B (7, 5) con pendiente dos tercios">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${rejilla}
-        <path d="M${P(-1, -1 / 3)} L ${P(9.5, 6.67)}" stroke="var(--pen)" stroke-width="3"/>
-        <path d="M${P(1, 1)} H ${P(7, 1)[0]} V ${P(7, 5)[1]}" fill="none" stroke="var(--red)" stroke-width="2" stroke-dasharray="5 4"/>
-        ${[[1, 1], [7, 5]].map(([x, y]) => `<circle cx="${P(x, y)[0]}" cy="${P(x, y)[1]}" r="5" fill="var(--ink)"/>`).join("")}
-        <g ${F} font-size="12" font-weight="700"><text x="${P(4, 1)[0]}" y="${P(4, 1)[1] + 16}" text-anchor="middle" fill="var(--red)">Δx = 6</text><text x="${P(7, 3)[0] + 6}" y="${P(7, 3)[1]}" fill="var(--red)">Δy = 4</text><text x="40" y="24" fill="var(--pen)">m = 4/6 = 2/3</text></g></svg>`,
+      html: `<h3>11.4 Punto medio y punto simétrico</h3><p>El <b>punto medio</b> M de un segmento AB está a la misma distancia de A que de B. Sus coordenadas son la <b>media</b> de las coordenadas de los extremos:</p><div class="formula"><span>M = ((x₁ + x₂)/2 , (y₁ + y₂)/2)</span></div><p>Ejemplo: el punto medio de A(1, 2) y B(7, 5) es M(4; 3,5).</p><p>La fórmula se puede usar al revés para calcular el <b>simétrico</b> de un punto. Si A′ es el simétrico de A respecto de un punto M, entonces M es el punto medio de AA′. Si A(2, −1) y M(3, 2): (2 + x)/2 = 3 da x = 4, y (−1 + y)/2 = 2 da y = 5. El simétrico es <mark>A′(4, 5)</mark>. Un atajo: A′ = 2M − A.</p><p>Otras aplicaciones del punto medio: el <b>centro de un segmento</b> o de un diámetro de una circunferencia, el centro de un paralelogramo (punto medio de sus diagonales, que se cortan en su mitad) y el <b>baricentro</b> de un triángulo, que es la media de los tres vértices: G = ((x₁ + x₂ + x₃)/3, (y₁ + y₂ + y₃)/3). El baricentro es el centro de gravedad: un triángulo de cartón recortado se mantiene en equilibrio sobre la punta de un lápiz colocada en ese punto. Para comprobar si un cuadrilátero es un paralelogramo basta ver si sus diagonales tienen el mismo punto medio.</p>`,
+      svg: graf("Punto medio M(3, 2) del segmento de A(2, menos 1) a A prima (4, 5): A prima es el simétrico de A respecto de M", { x0: -1, x1: 6, y0: -2, y1: 6, paso: 1 }, (E) => `${E.seg(2, -1, 4, 5, "var(--pen)", 2.6)}${E.punto(2, -1, "var(--pen)", "A(2, −1)", 8, 4)}${E.punto(4, 5, "var(--leaf)", "A′(4, 5)", 8, 4)}${E.punto(3, 2, "var(--red)", "M(3, 2)", 8, 4)}${t(E.X(5.9), E.Y(0.4), "A′ = 2M − A", { c: "var(--red)", s: 12, b: 1, a: "end" })}`),
     },
     {
-      html: `<h3>Posición de dos rectas</h3><p>Comparando pendientes: si son <b>iguales</b>, las rectas son <mark>paralelas</mark> (o la misma recta, si además comparten un punto). Si son <b>distintas</b>, <mark>se cortan</mark>, y el punto de corte se halla resolviendo el sistema. Si m₁ · m₂ = −1, además son <b>perpendiculares</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos rectas paralelas con la misma pendiente y una tercera perpendicular que las corta">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${rejilla}
-        <path d="M${P(-1, 0)} L ${P(9.5, 5.25)}" stroke="var(--pen)" stroke-width="3"/><path d="M${P(-1, 2)} L ${P(7.5, 6.25)}" stroke="var(--pen)" stroke-width="3"/>
-        <path d="M${P(2, 6.5)} L ${P(5.5, -0.5)}" stroke="var(--red)" stroke-width="3"/>
-        <g ${F} font-size="12" font-weight="700"><text x="248" y="${P(6, 0.5)[1] + 4}" text-anchor="end" fill="var(--pen)">paralelas: m = 1/2</text><text x="248" y="20" text-anchor="end" fill="var(--red)">perpendicular: m = −2</text></g></svg>`,
+      html: `<h3>11.5 Vectores paralelos y puntos alineados</h3><p>Dos vectores u = (u₁, u₂) y v = (v₁, v₂) tienen la <b>misma dirección</b> (son paralelos) si uno es múltiplo del otro, es decir, si sus componentes son <mark>proporcionales</mark>:</p><div class="formula"><span>u₁ / v₁ = u₂ / v₂</span></div><p>Por ejemplo, (2, 3) y (6, 9) son paralelos (6/2 = 9/3 = 3), pero (2, 3) y (4, 5) no lo son.</p><p>Esto da un método sencillo para saber si tres puntos están <b>alineados</b>: A, B y C están en la misma recta si los vectores AB y AC son paralelos. Con A(1, 1), B(3, 4) y C(7, 10): AB = (2, 3) y AC = (6, 9), proporcionales, así que están alineados. Con C(7, 9), AC = (6, 8), y 6/2 ≠ 8/3: no lo están.</p><p>La proporcionalidad de vectores sirve también para <b>dividir un segmento</b> en partes iguales. Para hallar los puntos que dividen AB en tres partes iguales, se calcula un tercio del vector AB y se suma a A una y dos veces: P = A + (1/3)AB y Q = A + (2/3)AB. Es la versión analítica del teorema de Tales: lo que antes se hacía con regla y compás, ahora se hace con un par de operaciones. Este cálculo, llamado <b>interpolación</b>, es el que hacen los programas de animación para mover objetos de una posición a otra fotograma a fotograma.</p>`,
+      svg: graf("Puntos alineados A(1, 1), B(3, 4) y C(7, 10): los vectores AB y AC son proporcionales", { x0: 0, x1: 8, y0: 0, y1: 11, paso: 1, pasoY: 2 }, (E) => `${E.seg(1, 1, 7, 10, "var(--muted)", 1.4, 'stroke-dasharray="4 3"')}${vec(E, [1, 1], [7, 10], "var(--leaf)", "AC = (6, 9)", 8, 8)}${vec(E, [1, 1], [3, 4], "var(--red)", "AB = (2, 3)", 8, 12)}${E.punto(1, 1, "var(--pen)", "A", 8, 6)}${E.punto(3, 4, "var(--pen)", "B", 8, 8)}${E.punto(7, 10, "var(--pen)", "C", -8, 0)}`),
+    },
+    {
+      html: `<h3>11.6 Ecuación vectorial y paramétricas de la recta</h3><p>Una recta queda determinada por un <b>punto</b> P(x₀, y₀) por el que pasa y un <b>vector director</b> v = (v₁, v₂) que indica su dirección. Cualquier punto X de la recta se alcanza partiendo de P y avanzando un número t de veces el vector v:</p><div class="formula"><span>(x, y) = (x₀, y₀) + t · (v₁, v₂)</span></div><p>Esta es la <b>ecuación vectorial</b>. El número t es el <b>parámetro</b>: cada valor de t da un punto de la recta (t = 0 da P, t = 1 da P + v, t = −1 da P − v…). Separando las dos coordenadas se obtienen las <b>ecuaciones paramétricas</b>:</p><div class="formula"><span>x = x₀ + t · v₁     y = y₀ + t · v₂</span></div><p>Ejemplo: la recta que pasa por P(1, 2) con vector director v = (3, 1) tiene paramétricas x = 1 + 3t, y = 2 + t. Para t = 2 se obtiene el punto (7, 4).</p><p>Las paramétricas son muy naturales para describir <mark>movimientos</mark>: si t es el tiempo, la ecuación dice dónde está un objeto en cada instante. Un barco que sale del puerto (1, 2) y avanza cada hora el vector (3, 1) km estará a las 2 horas en (7, 4). Una misma recta tiene infinitas ecuaciones paramétricas, porque se puede elegir cualquier punto suyo y cualquier vector director paralelo.</p>`,
+      svg: graf("Recta que pasa por P(1, 2) con vector director (3, 1): puntos para t igual a menos 1, 0, 1 y 2", { x0: -3, x1: 8, y0: -1, y1: 6, paso: 1 }, (E) => `${E.curva((x) => 2 + (x - 1) / 3, "var(--pen)")}${vec(E, [1, 2], [4, 3], "var(--red)", "v = (3, 1)", -6, -8)}${[-1, 0, 1, 2].map((k) => E.punto(1 + 3 * k, 2 + k, k ? "var(--leaf)" : "var(--red)", `t = ${k === -1 ? "−1" : k}`, 0, k === -1 ? -10 : 22)).join("")}`),
+    },
+    {
+      html: `<h3>11.7 Ecuación continua y ecuación general</h3><p>Si en las paramétricas se despeja t en ambas y se igualan, se obtiene la <b>ecuación continua</b>:</p><div class="formula"><span>(x − x₀) / v₁ = (y − y₀) / v₂</span></div><p>(Solo se puede escribir si v₁ y v₂ no son cero.) Para la recta por P(1, 2) con v = (3, 1): (x − 1)/3 = (y − 2)/1.</p><p>Si se quitan denominadores y se pasa todo a un miembro, se llega a la <b>ecuación general</b> o implícita:</p><div class="formula"><span>Ax + By + C = 0</span></div><p>En el ejemplo: x − 1 = 3(y − 2) → x − 1 = 3y − 6 → <mark>x − 3y + 5 = 0</mark>.</p><p>La ecuación general es la más usada porque es la más compacta y permite comprobar rápidamente si un punto pertenece a la recta: basta sustituir y ver si da 0. ¿Está Q(4, 3) en la recta? 4 − 9 + 5 = 0: sí. ¿Y R(2, 2)? 2 − 6 + 5 = 1 ≠ 0: no.</p><p>De la ecuación general se recupera un vector director: <b>v = (−B, A)</b> o (B, −A). En x − 3y + 5 = 0, v = (3, 1), como al principio. Además, el vector <b>(A, B)</b> es <b>perpendicular</b> a la recta (se llama vector normal), algo que usarás pronto para trazar perpendiculares.</p>`,
+      svg: tarjeta("Paso de la ecuación paramétrica a la continua y a la general de la recta que pasa por (1, 2) con vector (3, 1)", "Una recta, varias ecuaciones", [["x = 1 + 3t ; y = 2 + t", "var(--pen)", 14, 1], ["(x − 1)/3 = (y − 2)/1", "var(--leaf)", 14, 1], ["x − 3y + 5 = 0", "var(--red)", 16, 1], ["v = (−B, A) = (3, 1)", "var(--muted)", 12]]),
+    },
+    {
+      html: `<h3>11.8 Ecuación explícita y punto-pendiente</h3><p>Despejando y en la ecuación general (si B ≠ 0) se obtiene la <b>ecuación explícita</b>, que ya conoces del tema de funciones:</p><div class="formula"><span>y = m x + n</span></div><p>donde m es la <b>pendiente</b> y n la ordenada en el origen. En x − 3y + 5 = 0: 3y = x + 5, y = x/3 + 5/3, con pendiente m = 1/3.</p><p>La pendiente se relaciona con todo lo anterior:</p><ul><li>Con el vector director: <mark>m = v₂ / v₁</mark>. Con v = (3, 1), m = 1/3.</li><li>Con la ecuación general: m = −A / B.</li><li>Con dos puntos: m = (y₂ − y₁)/(x₂ − x₁).</li><li>Con el ángulo α que forma la recta con el eje X: m = tan α. Una pendiente de 1 corresponde a 45°.</li></ul><p>Si conocemos un punto P(x₀, y₀) y la pendiente m, la <b>ecuación punto-pendiente</b> da la recta directamente: <b>y − y₀ = m(x − x₀)</b>. Por ejemplo, la recta que pasa por (2, −1) con pendiente 3 es y + 1 = 3(x − 2), es decir, y = 3x − 7.</p><p>La explícita no sirve para las rectas verticales, como x = 4, porque su pendiente «sería infinita»: en ellas no se puede despejar y.</p>`,
+      svg: graf("Recta y igual a 3x menos 7 por el punto (2, menos 1) con pendiente 3: avanza 1 y sube 3", { x0: -1, x1: 5, y0: -4, y1: 6, paso: 1 }, (E) => `${E.curva((x) => 3 * x - 7, "var(--pen)")}${E.seg(2, -1, 3, -1, "var(--red)", 2, 'stroke-dasharray="4 3"')}${E.seg(3, -1, 3, 2, "var(--red)", 2, 'stroke-dasharray="4 3"')}${E.punto(2, -1, "var(--pen)", "(2, −1)", -8, -4)}${t(E.X(2.5), E.Y(-1) + 14, "1", { c: "var(--red)", s: 12, b: 1 })}${t(E.X(3) + 6, E.Y(0.5), "3", { c: "var(--red)", s: 12, b: 1, a: "start" })}${t(E.X(4.8), E.Y(-2.5), "y = 3x − 7", { c: "var(--pen)", s: 12, b: 1, a: "end" })}${t(E.X(-0.8), E.Y(5.3), "m = 3/1 = 3", { c: "var(--red)", s: 12, b: 1, a: "start" })}`),
+    },
+    {
+      html: `<h3>11.9 La recta que pasa por dos puntos</h3><p>Un caso muy frecuente: hallar la recta que pasa por dos puntos A y B. El vector AB sirve como vector director y A como punto, así que cualquiera de las formas anteriores sirve.</p><p>Ejemplo: A(−1, 3) y B(3, 1). Vector director AB = (4, −2), o mejor el paralelo (2, −1), más sencillo. Pendiente m = −1/2. Punto-pendiente: y − 3 = −½(x + 1). Multiplicando por 2: 2y − 6 = −x − 1, es decir, <mark>x + 2y − 5 = 0</mark>. Comprobación: con B(3, 1), 3 + 2 − 5 = 0. ✓</p><p>Conviene conocer algunos casos especiales:</p><ul><li>Si los dos puntos tienen la <b>misma ordenada</b>, la recta es <b>horizontal</b>: y = k (pendiente 0). El eje X es y = 0.</li><li>Si tienen la <b>misma abscisa</b>, es <b>vertical</b>: x = k. El eje Y es x = 0.</li><li>Las bisectrices de los cuadrantes son y = x e y = −x.</li></ul><p>Siempre es buena idea <b>comprobar</b> la ecuación sustituyendo los dos puntos de partida: si los dos cumplen la ecuación, está bien. Y dibujar un esbozo ayuda a detectar errores de signo en la pendiente: si la recta baja de izquierda a derecha, m debe ser negativa.</p>`,
+      svg: graf("Recta que pasa por A(menos 1, 3) y B(3, 1): x más 2y menos 5 igual a 0, con pendiente menos un medio", { x0: -3, x1: 6, y0: -1, y1: 5, paso: 1 }, (E) => `${E.curva((x) => (5 - x) / 2, "var(--pen)")}${E.punto(-1, 3, "var(--red)", "A(−1, 3)", 6, -8)}${E.punto(3, 1, "var(--red)", "B(3, 1)", 6, -8)}${t(E.X(5.8), E.Y(4.4), "x + 2y − 5 = 0", { c: "var(--pen)", s: 12, b: 1, a: "end" })}`),
+    },
+    {
+      html: `<h3>11.10 Posiciones relativas de dos rectas</h3><p>Dos rectas del plano pueden estar en tres posiciones:</p><ul><li><b>Secantes</b>: se cortan en un único punto. Tienen distinta pendiente (vectores directores no proporcionales).</li><li><b>Paralelas</b>: no se cortan. Tienen la misma pendiente pero distinta ordenada en el origen.</li><li><b>Coincidentes</b>: son la misma recta, con ecuaciones equivalentes.</li></ul><p>Con las ecuaciones generales Ax + By + C = 0 y A′x + B′y + C′ = 0 se decide comparando coeficientes:</p><div class="formula"><span>A/A′ ≠ B/B′ → secantes   A/A′ = B/B′ ≠ C/C′ → paralelas   A/A′ = B/B′ = C/C′ → coincidentes</span></div><p>Por ejemplo, 2x − y + 1 = 0 y 4x − 2y + 3 = 0 son paralelas: 2/4 = −1/−2, pero 1/3 es distinto.</p><p>Para hallar el <b>punto de corte</b> de dos rectas secantes se resuelve el <mark>sistema formado por sus ecuaciones</mark>. Las rectas x + y = 5 y x − y = 1 se cortan en (3, 2). Esta es la interpretación geométrica de los sistemas lineales que estudiaste: sistema compatible determinado ↔ rectas secantes; incompatible ↔ paralelas; compatible indeterminado ↔ coincidentes.</p>`,
+      svg: graf("Rectas secantes x más y igual a 5 y x menos y igual a 1 que se cortan en (3, 2), y una recta paralela a la segunda", { x0: -1, x1: 7, y0: -2, y1: 6, paso: 1 }, (E) => `${E.curva((x) => 5 - x, "var(--pen)")}${E.curva((x) => x - 1, "var(--red)")}${E.curva((x) => x + 2, "var(--leaf)", -1, 7, 2.2, 'stroke-dasharray="6 4"')}${E.punto(3, 2, "var(--ink)", "(3, 2)", 8, 6)}${t(E.X(6.9), E.Y(0.9), "x + y = 5", { c: "var(--pen)", s: 11, b: 1, a: "end" })}${t(E.X(6.9), E.Y(3.3), "x − y = 1", { c: "var(--red)", s: 11, b: 1, a: "end" })}${t(E.X(4.6), E.Y(5.5), "paralela", { c: "var(--leaf)", s: 11, b: 1, a: "start" })}`),
+    },
+    {
+      html: `<h3>11.11 Rectas paralelas y perpendiculares</h3><p>Muchos problemas piden la recta que pasa por un punto y es <b>paralela</b> o <b>perpendicular</b> a otra dada:</p><ul><li>Dos rectas son <b>paralelas</b> si tienen <mark>la misma pendiente</mark>: m′ = m.</li><li>Dos rectas (no verticales ni horizontales) son <b>perpendiculares</b> si el producto de sus pendientes es −1: <mark>m · m′ = −1</mark>, es decir, m′ = −1/m. «Se da la vuelta a la pendiente y se le cambia el signo».</li></ul><p>Ejemplo: recta r: y = 2x + 1 y punto P(4, 1). La paralela por P es y − 1 = 2(x − 4), y = 2x − 7. La perpendicular por P tiene pendiente −1/2: y − 1 = −½(x − 4), y = −½x + 3.</p><p>Con vectores también se ve fácil: el vector (a, b) es perpendicular al vector (−b, a), porque al girar 90° un vector sus componentes se intercambian y una cambia de signo. Por eso, si una recta tiene ecuación general Ax + By + C = 0, sus paralelas son <b>Ax + By + K = 0</b> (mismos A y B) y sus perpendiculares son <b>Bx − Ay + K = 0</b>. Ejemplo: paralela a 3x − y + 2 = 0 por (1, 1): 3x − y + K = 0 con 3 − 1 + K = 0, K = −2, así que 3x − y − 2 = 0.</p>`,
+      svg: graf("Recta y igual a 2x más 1, su paralela y igual a 2x menos 7 y su perpendicular y igual a menos medio x más 3 por el punto (4, 1)", { x0: -1, x1: 7, y0: -2, y1: 6, paso: 1 }, (E) => `${E.curva((x) => 2 * x + 1, "var(--pen)")}${E.curva((x) => 2 * x - 7, "var(--leaf)")}${E.curva((x) => -0.5 * x + 3, "var(--red)")}${E.punto(4, 1, "var(--ink)")}${t(E.X(5), E.Y(2.3), "P(4, 1)", { s: 11, b: 1, a: "start" })}${t(E.X(1.7), E.Y(5.3), "r", { c: "var(--pen)", s: 13, b: 1, a: "end" })}${t(E.X(6), E.Y(5.3), "paralela", { c: "var(--leaf)", s: 11, b: 1, a: "end" })}${t(E.X(6.9), E.Y(-1.5), "perpendicular", { c: "var(--red)", s: 11, b: 1, a: "end" })}`),
+      video: { id: "OxBg_0di558", titulo: "Ecuación de la recta que pasa por un punto y es paralela a otra", canal: "Matemáticas profe Alex", vistas: 1819745, busqueda: "recta paralela por un punto" },
+    },
+    {
+      html: `<h3>11.12 La ecuación de la circunferencia</h3><p>Una <b>circunferencia</b> es el conjunto de puntos del plano que están a la <b>misma distancia r</b> (el radio) de un punto fijo C(a, b) (el centro). Si P(x, y) es un punto de la circunferencia, la fórmula de la distancia da d(P, C) = r, y elevando al cuadrado:</p><div class="formula"><span>(x − a)² + (y − b)² = r²</span></div><p>Ejemplo: la circunferencia de centro (2, −1) y radio 3 es (x − 2)² + (y + 1)² = 9. Desarrollando los cuadrados se obtiene la forma <b>desarrollada</b>: x² + y² − 4x + 2y − 4 = 0.</p><p>Al revés, de una ecuación desarrollada se recupera el centro y el radio <mark>completando cuadrados</mark>. Ejemplo: x² + y² − 6x + 8y = 0 → (x² − 6x + 9) + (y² + 8y + 16) = 25 → (x − 3)² + (y + 4)² = 25: centro (3, −4) y radio 5.</p><p>Para saber si un punto está dentro, sobre o fuera de la circunferencia, se compara su distancia al centro con el radio. El punto (0, 0) está sobre la última circunferencia, porque su distancia al centro es √(9 + 16) = 5. Esta comparación es la que hace un móvil para saber si estás dentro de la zona de cobertura de una antena o la que usa un videojuego para detectar si un personaje ha entrado en un área circular.</p>`,
+      svg: graf("Circunferencia de centro (2, menos 1) y radio 3", { x0: -2.5, x1: 8.5, y0: -4.6, y1: 2.6, paso: 1 }, (E) => `<circle cx="${E.X(2)}" cy="${E.Y(-1)}" r="${E.X(3) - E.X(0)}" fill="var(--pen)" fill-opacity=".08" stroke="var(--pen)" stroke-width="2.6"/>${E.seg(2, -1, 5, -1, "var(--red)", 2.4)}${E.punto(2, -1, "var(--red)", "C(2, −1)", -6, 16)}${t(E.X(3.5), E.Y(-1) + 16, "r = 3", { c: "var(--red)", s: 12, b: 1 })}${t(E.X(8.4), E.Y(-4.3), "(x − 2)² + (y + 1)² = 9", { c: "var(--pen)", s: 10, b: 1, a: "end" })}`),
+    },
+    {
+      html: `<h3>11.13 Problemas geométricos con coordenadas</h3><p>Con las herramientas anteriores se resuelven muchos problemas clásicos de geometría sin necesidad de regla ni compás:</p><ul><li><b>Clasificar triángulos</b>: calculando las longitudes de sus lados (¿isósceles?, ¿equilátero?) y comprobando Pitágoras (¿rectángulo?) o la perpendicularidad de dos lados.</li><li><b>Mediatriz</b> de un segmento AB: es la recta perpendicular a AB que pasa por su punto medio. Todos sus puntos equidistan de A y B. Para A(1, 1) y B(5, 3): M(3, 2), AB = (4, 2), así que la mediatriz es 4(x − 3) + 2(y − 2) = 0, es decir, <mark>2x + y − 8 = 0</mark>.</li><li><b>Altura</b> de un triángulo: recta perpendicular a un lado que pasa por el vértice opuesto.</li><li><b>Áreas</b>: con la base y la altura, o descomponiendo en figuras sencillas.</li><li><b>Cuarto vértice de un paralelogramo</b>: si ABCD es un paralelogramo, D = A + BC.</li></ul><p>Ejemplo: ¿es rectángulo el triángulo A(0, 0), B(4, 2), C(1, 3)? AB = (4, 2), AC = (1, 3), BC = (−3, 1). Los lados miden √20, √10 y √10: es isósceles. Además 10 + 10 = 20, así que se cumple Pitágoras: es <b>rectángulo en C</b>. Su área es √10 · √10 / 2 = 5.</p>`,
+      svg: graf("Triángulo A(0, 0), B(4, 2), C(1, 3): isósceles y rectángulo en C", { x0: -1, x1: 5, y0: -1, y1: 4, paso: 1 }, (E) => `<path d="M${E.X(0)} ${E.Y(0)} L ${E.X(4)} ${E.Y(2)} L ${E.X(1)} ${E.Y(3)} Z" fill="var(--leaf)" fill-opacity=".14" stroke="var(--leaf)" stroke-width="2.6"/>${E.punto(0, 0, "var(--pen)", "A", -6, -6)}${E.punto(4, 2, "var(--pen)", "B", 8, 4)}${E.punto(1, 3, "var(--pen)", "C", -8, -4)}${t(E.X(1.1), E.Y(1.6), "√10", { c: "var(--leaf)", s: 11, b: 1, a: "start" })}${t(E.X(2.7), E.Y(2.8), "√10", { c: "var(--leaf)", s: 11, b: 1, a: "start" })}${t(E.X(2.4), E.Y(0.7), "√20", { c: "var(--leaf)", s: 11, b: 1, a: "start" })}`),
+    },
+    {
+      html: `<h3>11.14 Aplicaciones: GPS, pantallas y robots</h3><p>La geometría analítica es el idioma con el que trabajan las máquinas que manejan el espacio:</p><ul><li><b>Pantallas y videojuegos.</b> Cada píxel tiene coordenadas (en las pantallas, el eje Y suele ir hacia abajo). Mover un personaje es sumar un vector de velocidad a su posición en cada fotograma; detectar choques es calcular distancias; las paredes son segmentos y las zonas de acción, círculos.</li><li><b>Navegación y GPS.</b> Los receptores calculan su posición midiendo la distancia a varios satélites: cada distancia da una circunferencia (una esfera, en realidad) y la posición está en su intersección. Esta técnica se llama <b>trilateración</b>.</li><li><b>Diseño y fabricación.</b> Los programas de diseño asistido (CAD), las máquinas de control numérico y las impresoras 3D reciben instrucciones del tipo «ir en línea recta del punto (10, 20) al punto (45, 20)».</li><li><b>Robótica.</b> Un brazo robótico calcula con vectores y trigonometría las posiciones de sus articulaciones para coger un objeto.</li></ul><p>Incluso las tipografías que lees en pantalla se definen con coordenadas: cada letra es un conjunto de puntos y curvas que el ordenador dibuja al tamaño que haga falta. Por eso un texto se puede ampliar sin perder nitidez: la geometría analítica <mark>convierte formas en números</mark> y los números se escalan sin perder precisión.</p>`,
+      svg: graf("Trilateración: la posición es el punto donde se cortan tres circunferencias centradas en tres antenas", { x0: -2.7, x1: 10.7, y0: -0.9, y1: 7.9, paso: 1, etiquetas: false }, (E) => `${[[[2, 2], 2.83, "var(--pen)"], [[6, 2], 2.83, "var(--leaf)"], [[4, 6], 2, "var(--red)"]].map(([c, r, col]) => `<circle cx="${E.X(c[0])}" cy="${E.Y(c[1])}" r="${E.X(r) - E.X(0)}" fill="none" stroke="${col}" stroke-width="2.2"/>${E.punto(c[0], c[1], col)}`).join("")}${E.punto(4, 4, "var(--ink)")}${E.seg(1.7, 5.1, 3.85, 4.1, "var(--ink)", 1.2)}${t(E.X(1.6), E.Y(5.2), "aquí", { s: 12, b: 1, a: "end" })}`),
     },
   ],
-  figura: {
-    titulo: "Fórmulas de la geometría analítica en una ficha",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Resumen de fórmulas: vector, módulo, punto medio, distancia, pendiente y ecuación punto-pendiente">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["Vector AB", "(x₂ − x₁, y₂ − y₁)", "var(--red)"], ["Módulo", "√(v₁² + v₂²)", "var(--red)"], ["Punto medio", "((x₁+x₂)/2, (y₁+y₂)/2)", "var(--leaf)"], ["Distancia", "√((x₂−x₁)² + (y₂−y₁)²)", "var(--leaf)"], ["Pendiente", "m = (y₂ − y₁)/(x₂ − x₁)", "var(--pen)"], ["Recta", "y − y₁ = m(x − x₁)", "var(--pen)"]].map(([t, f, c], i) => {
-        const x = 20 + (i % 2) * 306, y = 20 + Math.floor(i / 2) * 66;
-        return `<rect x="${x}" y="${y}" width="294" height="56" rx="12" fill="var(--card)" stroke="${c}" stroke-width="2.5"/><text x="${x + 16}" y="${y + 34}" font-size="15" font-weight="700" fill="${c}" ${D}>${t}</text><text x="${x + 130}" y="${y + 34}" font-size="15" fill="var(--ink)" ${F}>${f}</text>`;
-      }).join("")}
-    </svg>`,
+  ejemplos: [
+    { enunciado: "Dados A(−2, 1) y B(4, 9), calcula el vector AB, su módulo y el punto medio del segmento.", pasos: ["AB = (4 − (−2), 9 − 1) = (6, 8).", "|AB| = √(36 + 64) = 10.", "M = ((−2 + 4)/2, (1 + 9)/2) = (1, 5)."], resultado: "AB = (6, 8); d(A, B) = 10; M(1, 5)." },
+    { enunciado: "Comprueba si A(0, −1), B(2, 3) y C(5, 9) están alineados.", pasos: ["AB = (2, 4); AC = (5, 10).", "5/2 = 10/4 = 2,5: proporcionales."], resultado: "Sí, están alineados." },
+    { enunciado: "Halla todas las ecuaciones de la recta que pasa por P(2, −3) con vector director v = (1, 4).", pasos: ["Vectorial: (x, y) = (2, −3) + t(1, 4).", "Paramétricas: x = 2 + t; y = −3 + 4t.", "Continua: (x − 2)/1 = (y + 3)/4.", "General: 4x − 8 = y + 3 → 4x − y − 11 = 0.", "Explícita: y = 4x − 11."], resultado: "4x − y − 11 = 0, pendiente 4." },
+    { enunciado: "Estudia la posición relativa de r: 3x − 2y + 1 = 0 y s: x + y − 3 = 0 y halla su punto de corte si existe.", pasos: ["3/1 ≠ −2/1: secantes.", "De s, y = 3 − x. Sustituyendo: 3x − 6 + 2x + 1 = 0 → x = 1.", "y = 2."], resultado: "Secantes en (1, 2)." },
+    { enunciado: "Halla la recta perpendicular a 2x + 3y − 6 = 0 que pasa por (1, 4).", pasos: ["Perpendiculares: Bx − Ay + K = 0 → 3x − 2y + K = 0.", "Con (1, 4): 3 − 8 + K = 0 → K = 5."], resultado: "3x − 2y + 5 = 0." },
+    { enunciado: "Halla el centro y el radio de x² + y² + 4x − 2y − 11 = 0.", pasos: ["(x² + 4x + 4) + (y² − 2y + 1) = 11 + 4 + 1.", "(x + 2)² + (y − 1)² = 16."], resultado: "Centro (−2, 1); radio 4." },
+  ],
+  errores: [
+    "Restar las coordenadas al revés al calcular el vector AB: es extremo menos origen.",
+    "Olvidar la raíz cuadrada al calcular la distancia entre dos puntos.",
+    "Confundir el vector director (−B, A) con el vector normal (A, B) de una recta.",
+    "Escribir la pendiente perpendicular como −m en vez de −1/m.",
+    "En la circunferencia, poner el centro con el signo cambiado: (x + 2)² corresponde a a = −2.",
+    "No comprobar la ecuación de una recta sustituyendo los puntos del enunciado.",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Dados A(3, −1) y B(−2, 5), calcula las componentes de AB y de BA.", sol: "AB = (−2 − 3, 5 − (−1)) = (−5, 6). BA = (5, −6), el opuesto." },
+    { nivel: "básico", q: "Calcula el módulo de u = (5, −12) y de v = (2, 2).", sol: "|u| = √(25 + 144) = 13. |v| = √8 = 2√2 ≈ 2,83." },
+    { nivel: "básico", q: "Halla la distancia entre P(−1, 4) y Q(5, −4).", sol: "√(6² + (−8)²) = √100 = 10." },
+    { nivel: "básico", q: "Con u = (2, −1) y v = (−3, 4), calcula u + v, u − v y 3u + 2v.", sol: "u + v = (−1, 3); u − v = (5, −5); 3u + 2v = (6, −3) + (−6, 8) = (0, 5)." },
+    { nivel: "básico", q: "Halla el punto medio del segmento de extremos A(−3, 2) y B(5, 8).", sol: "M = ((−3 + 5)/2, (2 + 8)/2) = (2/2, 10/2) = (1, 5)." },
+    { nivel: "básico", q: "Halla el simétrico de A(1, 3) respecto de M(4, 0).", sol: "A′ = 2M − A = (8 − 1, 0 − 3) = (7, −3)." },
+    { nivel: "básico", q: "¿Son paralelos u = (4, −6) y v = (−2, 3)? ¿Y u y w = (6, 4)?", sol: "u = −2v: paralelos. u y w: 6/4 ≠ 4/(−6): no." },
+    { nivel: "básico", q: "Escribe las ecuaciones paramétricas de la recta que pasa por (0, 5) con vector director (2, −1).", sol: "Punto (0, 5) y vector (2, −1): x = 0 + 2t = 2t; y = 5 − t. Por ejemplo, con t = 1 se obtiene el punto (2, 4)." },
+    { nivel: "básico", q: "Halla la ecuación general de la recta que pasa por A(1, 1) y B(3, 7).", sol: "m = 6/2 = 3. y − 1 = 3(x − 1) → 3x − y − 2 = 0." },
+    { nivel: "básico", q: "Halla la pendiente, la ordenada en el origen y un vector director de 2x + 5y − 10 = 0.", sol: "y = −2x/5 + 2: m = −2/5, n = 2. Vector director (−B, A) = (−5, 2) o (5, −2)." },
+    { nivel: "básico", q: "¿Pertenece el punto (2, −1) a la recta 3x + 4y − 2 = 0? ¿Y el (−2, 2)?", sol: "6 − 4 − 2 = 0: sí. −6 + 8 − 2 = 0: también." },
+    { nivel: "básico", q: "Escribe la ecuación de la circunferencia de centro (−1, 3) y radio 4.", sol: "(x + 1)² + (y − 3)² = 16." },
+    { nivel: "medio", q: "Comprueba si los puntos A(−1, −4), B(1, 2) y C(4, 11) están alineados. Si lo están, halla la recta que los contiene.", sol: "AB = (2, 6), AC = (5, 15): proporcionales (×2,5). Recta: m = 3; y − 2 = 3(x − 1) → 3x − y − 1 = 0." },
+    { nivel: "medio", q: "Halla los puntos que dividen el segmento de A(−2, 1) a B(7, 4) en tres partes iguales.", sol: "AB = (9, 3); un tercio es (3, 1). P = (1, 2) y Q = (4, 3)." },
+    { nivel: "medio", q: "Estudia la posición relativa de r: x − 2y + 3 = 0 y s: −2x + 4y − 6 = 0.", sol: "1/(−2) = (−2)/4 = 3/(−6) = −1/2: coincidentes (s es r multiplicada por −2)." },
+    { nivel: "medio", q: "Halla el punto de corte de 2x + y = 7 y x − 3y = 0.", sol: "x = 3y. 6y + y = 7 → y = 1, x = 3. Punto (3, 1)." },
+    { nivel: "medio", q: "Halla la recta paralela a y = −3x + 2 que pasa por (−1, 5) y la perpendicular por ese mismo punto.", sol: "Paralela: y − 5 = −3(x + 1) → y = −3x + 2 (¡es la misma recta, porque el punto ya estaba en ella!). Perpendicular: m = 1/3; y − 5 = (x + 1)/3 → x − 3y + 16 = 0." },
+    { nivel: "medio", q: "Halla la mediatriz del segmento de extremos A(−1, 2) y B(3, 6).", sol: "M(1, 4); AB = (4, 4). Perpendicular: 4(x − 1) + 4(y − 4) = 0 → x + y − 5 = 0." },
+    { nivel: "medio", q: "Halla el centro y el radio de x² + y² − 8x + 6y = 0. ¿Pasa por el origen?", sol: "(x − 4)² + (y + 3)² = 25: centro (4, −3), radio 5. Sí: 0 + 0 − 0 + 0 = 0." },
+    { nivel: "medio", q: "Clasifica el triángulo de vértices A(1, 1), B(5, 1) y C(3, 5) según sus lados y halla su perímetro.", sol: "AB = 4; AC = √(4 + 16) = √20; BC = √(4 + 16) = √20. Isósceles. Perímetro = 4 + 2√20 ≈ 12,94." },
+    { nivel: "medio", q: "Halla el cuarto vértice D del paralelogramo ABCD con A(1, 1), B(4, 2) y C(6, 5).", sol: "D = A + BC = (1, 1) + (2, 3) = (3, 4). Comprobación: punto medio de AC = (3,5; 3) = punto medio de BD." },
+    { nivel: "medio", q: "¿Qué ángulo forma con el eje X la recta x − y + 4 = 0? ¿Y la recta √3x − y = 0?", sol: "m = 1 → 45°. m = √3 → 60°." },
+    { nivel: "medio", q: "Halla el baricentro del triángulo de vértices (−2, 0), (4, 1) y (1, 8).", sol: "G = ((−2 + 4 + 1)/3, (0 + 1 + 8)/3) = (1, 3)." },
+    { nivel: "medio", q: "Una antena de telefonía en (2, 3) da cobertura en un radio de 5 km. ¿Tienen cobertura los pueblos situados en (5, 7), (7, 1) y (−2, 6)?", sol: "Distancias al centro: (5, 7) → √(9 + 16) = 5, justo en el borde; (7, 1) → √(25 + 4) = √29 ≈ 5,39, fuera; (−2, 6) → √(16 + 9) = 5, en el borde. Tienen cobertura, justo en el límite, (5, 7) y (−2, 6); (7, 1) se queda fuera." },
+    { nivel: "avanzado", q: "Halla los puntos de corte de la recta y = x + 1 con la circunferencia x² + y² = 25.", sol: "x² + (x + 1)² = 25 → 2x² + 2x − 24 = 0 → x² + x − 12 = 0 → x = 3 o x = −4. Puntos (3, 4) y (−4, −3)." },
+    { nivel: "avanzado", q: "Halla un punto P del eje X que esté a la misma distancia de A(1, 3) que de B(5, 1).", sol: "P(x, 0): (x − 1)² + 9 = (x − 5)² + 1 → −2x + 10 = −10x + 26 → 8x = 16 → x = 2. P(2, 0) (es el corte de la mediatriz de AB con el eje X)." },
+    { nivel: "avanzado", q: "Halla las ecuaciones de las tres alturas del triángulo A(0, 0), B(6, 0), C(2, 4) y comprueba que se cortan en un punto (ortocentro).", sol: "Altura desde C ⟂ AB (horizontal): x = 2. Desde A ⟂ BC = (−4, 4): −4x + 4y = 0 → y = x. Desde B ⟂ AC = (2, 4): 2(x − 6) + 4y = 0 → x + 2y − 6 = 0. Las dos primeras se cortan en (2, 2), que cumple la tercera: 2 + 4 − 6 = 0. Ortocentro (2, 2)." },
+    { nivel: "avanzado", q: "Halla el valor de k para que las rectas kx + 2y − 1 = 0 y 3x + (k + 1)y + 5 = 0 sean paralelas.", sol: "k/3 = 2/(k + 1) → k² + k − 6 = 0 → k = 2 o k = −3. Hay que comprobar que no sean coincidentes: con k = 2: 2/3 = 2/3 y −1/5 ≠ 2/3, paralelas. Con k = −3: −1 = −1 y −1/5 ≠ −1, paralelas. Ambos valores sirven." },
+    { nivel: "avanzado", q: "Halla k para que las rectas 2x − ky + 3 = 0 y 4x + 3y − 1 = 0 sean perpendiculares.", sol: "Vectores normales (2, −k) y (4, 3) perpendiculares: 2 · 4 + (−k) · 3 = 0 → k = 8/3." },
+    { nivel: "avanzado", q: "Halla la ecuación de la circunferencia que tiene como diámetro el segmento de A(−1, 2) a B(5, 10).", sol: "Centro = punto medio (2, 6). Radio = |AB|/2 = √(36 + 64)/2 = 5. (x − 2)² + (y − 6)² = 25." },
+    { nivel: "avanzado", q: "Halla la circunferencia que pasa por A(0, 0), B(8, 0) y C(0, 6).", sol: "El centro equidista de los tres: está en la mediatriz de AB (x = 4) y en la de AC (y = 3): centro (4, 3). Radio √(16 + 9) = 5. (x − 4)² + (y − 3)² = 25." },
+    { nivel: "avanzado", q: "Calcula el área del triángulo de vértices A(1, 1), B(7, 3) y C(3, 7) usando la recta AB y la altura desde C. Pista: la distancia de un punto (x₀, y₀) a la recta Ax + By + C = 0 es |Ax₀ + By₀ + C|/√(A² + B²).", sol: "Recta AB: m = 1/3 → x − 3y + 2 = 0. |AB| = √40. Altura = |3 − 21 + 2|/√10 = 16/√10. Área = √40 · 16/√10 / 2 = 2 · 16/2 = 16." },
+    { nivel: "avanzado", q: "Un barco parte de (0, 0) y navega con velocidad (3, 4) km/h. Un faro está en (10, 5). ¿En qué punto de su trayectoria está el barco más cerca del faro? ¿A qué distancia?", sol: "El punto más cercano es el pie de la perpendicular desde el faro a la recta 4x − 3y = 0. La perpendicular por (10, 5) es 3x + 4y − 50 = 0. Corte: x = 6, y = 8. Distancia: √(16 + 9) = 5 km (a las 2 h)." },
+    { nivel: "avanzado", q: "Demuestra con coordenadas que las diagonales de un rectángulo de vértices (0, 0), (a, 0), (a, b), (0, b) miden lo mismo y se cortan en su punto medio.", sol: "Diagonales: de (0, 0) a (a, b) y de (a, 0) a (0, b). Ambas miden √(a² + b²). Sus puntos medios son (a/2, b/2) en los dos casos: se cortan en él." },
+  ],
+  quiz: reparte([
+    { q: "Si A(2, 5) y B(6, 3), el vector AB es…", o: ["(4, −2)", "(−4, 2)", "(8, 8)", "(4, 2)"], a: 0, e: "Extremo menos origen." },
+    { q: "El módulo de (6, 8) es…", o: ["14", "10", "100", "48"], a: 1, e: "√(36 + 64)." },
+    { q: "La distancia entre (0, 0) y (3, 4) es…", o: ["7", "5", "25", "1"], a: 1, e: "Terna pitagórica." },
+    { q: "(1, 2) + (3, −5) =", o: ["(4, −3)", "(4, 7)", "(−2, 7)", "(3, −10)"], a: 0, e: "Componente a componente." },
+    { q: "3 · (2, −1) =", o: ["(6, −3)", "(5, 2)", "(6, 3)", "(2, −3)"], a: 0, e: "Se multiplica cada componente." },
+    { q: "El punto medio de (2, 4) y (6, 10) es…", o: ["(4, 7)", "(8, 14)", "(2, 3)", "(4, 6)"], a: 0, e: "Media de coordenadas." },
+    { q: "Los vectores (2, 3) y (4, 6) son…", o: ["perpendiculares", "paralelos", "opuestos", "unitarios"], a: 1, e: "Proporcionales." },
+    { q: "Tres puntos A, B, C están alineados si…", o: ["AB y AC son paralelos", "AB = AC", "|AB| = |AC|", "AB y AC son perpendiculares"], a: 0, e: "Misma dirección." },
+    { q: "En x = 1 + 2t, y = 3 − t, un vector director es…", o: ["(1, 3)", "(2, −1)", "(2, 3)", "(−1, 2)"], a: 1, e: "Coeficientes de t." },
+    { q: "La pendiente de 4x − 2y + 1 = 0 es…", o: ["2", "−2", "4", "1/2"], a: 0, e: "m = −A/B = −4/(−2)." },
+    { q: "Un vector director de 3x + y − 5 = 0 es…", o: ["(3, 1)", "(−1, 3)", "(1, 3)", "(3, −5)"], a: 1, e: "(−B, A)." },
+    { q: "La recta que pasa por (1, 2) y (1, 7) es…", o: ["y = 1", "x = 1", "y = x + 1", "x + y = 1"], a: 1, e: "Misma abscisa: vertical." },
+    { q: "Las rectas y = 2x + 1 e y = 2x − 3 son…", o: ["secantes", "paralelas", "coincidentes", "perpendiculares"], a: 1, e: "Misma pendiente, distinta ordenada." },
+    { q: "Si una recta tiene pendiente 4, sus perpendiculares tienen pendiente…", o: ["−4", "1/4", "−1/4", "4"], a: 2, e: "m′ = −1/m." },
+    { q: "Las rectas secantes se corresponden con un sistema…", o: ["compatible determinado", "incompatible", "compatible indeterminado", "sin ecuaciones"], a: 0, e: "Una única solución: el punto de corte." },
+    { q: "La circunferencia (x − 3)² + (y + 2)² = 16 tiene centro…", o: ["(3, −2)", "(−3, 2)", "(3, 2)", "(16, 0)"], a: 0, e: "Signos cambiados respecto a la ecuación." },
+    { q: "Y su radio es…", o: ["16", "4", "8", "2"], a: 1, e: "√16." },
+    { q: "La mediatriz de un segmento es…", o: ["paralela al segmento por un extremo", "perpendicular al segmento por su punto medio", "la recta que contiene al segmento", "una circunferencia"], a: 1, e: "Sus puntos equidistan de los extremos." },
+    { q: "Si la recta es 2x − y + 5 = 0, sus paralelas son de la forma…", o: ["2x − y + K = 0", "x + 2y + K = 0", "−x + 2y + K = 0", "y = −2x + K"], a: 0, e: "Mismos A y B." },
+    { q: "El simétrico de (1, 1) respecto de (3, 3) es…", o: ["(5, 5)", "(2, 2)", "(4, 4)", "(6, 6)"], a: 0, e: "2M − A." },
+  ]),
+  examen: reparte([
+    { q: "La distancia entre A(−2, 3) y B(4, −5) es…", o: ["10", "14", "√20", "100"], a: 0, e: "√(36 + 64)." },
+    { q: "La recta que pasa por (0, −1) y (2, 5) es…", o: ["3x − y − 1 = 0", "x − 3y − 1 = 0", "3x + y + 1 = 0", "y = 2x − 1"], a: 0, e: "m = 3, n = −1." },
+    { q: "La perpendicular a y = ½x por el origen es…", o: ["y = −2x", "y = 2x", "y = −½x", "x = 0"], a: 0, e: "m′ = −2." },
+    { q: "r: 2x + y = 4 y s: x − y = −1 se cortan en…", o: ["(1, 2)", "(2, 0)", "(0, 4)", "no se cortan"], a: 0, e: "Sumando: 3x = 3." },
+    { q: "Las rectas 3x − 6y + 2 = 0 y x − 2y + 1 = 0 son…", o: ["paralelas", "secantes", "coincidentes", "perpendiculares"], a: 0, e: "3/1 = −6/−2 ≠ 2/1." },
+    { q: "El centro y el radio de x² + y² − 2x − 8 = 0 son…", o: ["(1, 0) y 3", "(−1, 0) y 3", "(1, 0) y 9", "(2, 0) y 8"], a: 0, e: "(x − 1)² + y² = 9." },
+    { q: "Los puntos (1, 2), (3, 6) y (5, k) están alineados si k =", o: ["10", "8", "9", "12"], a: 0, e: "Pendiente 2." },
+    { q: "Si ABCD es un paralelogramo con A(0, 0), B(3, 1), C(5, 4), D =", o: ["(2, 3)", "(8, 5)", "(−2, −3)", "(3, 2)"], a: 0, e: "D = A + BC = (2, 3)." },
+  ], 2),
+  feynman: ["Qué es un vector y cómo se calculan sus componentes", "Por qué la distancia entre dos puntos sale del teorema de Pitágoras", "Qué información da cada forma de la ecuación de la recta", "Cómo se sabe si dos rectas son paralelas o perpendiculares", "Por qué la ecuación de una circunferencia es (x − a)² + (y − b)² = r²"],
+  glosario: [
+    ["Vector fijo AB", "Segmento orientado de A a B; componentes: extremo menos origen."],
+    ["Vector libre", "Conjunto de vectores fijos con las mismas componentes."],
+    ["Módulo", "Longitud de un vector: √(v₁² + v₂²)."],
+    ["Vector unitario", "Vector de módulo 1."],
+    ["Punto medio", "Punto que divide un segmento en dos partes iguales; media de las coordenadas."],
+    ["Baricentro", "Punto de corte de las medianas de un triángulo; media de los vértices."],
+    ["Vector director", "Vector que indica la dirección de una recta."],
+    ["Ecuaciones paramétricas", "x = x₀ + t v₁; y = y₀ + t v₂."],
+    ["Ecuación general", "Ax + By + C = 0."],
+    ["Ecuación explícita", "y = mx + n."],
+    ["Pendiente", "m = v₂/v₁ = −A/B = tan α."],
+    ["Rectas secantes", "Rectas que se cortan en un único punto."],
+    ["Rectas paralelas", "Rectas con la misma pendiente que no se cortan."],
+    ["Rectas perpendiculares", "Rectas que forman un ángulo recto; m · m′ = −1."],
+    ["Mediatriz", "Recta perpendicular a un segmento por su punto medio."],
+    ["Circunferencia", "Puntos que equidistan r de un centro C(a, b): (x − a)² + (y − b)² = r²."],
+    ["Trilateración", "Cálculo de una posición a partir de las distancias a varios puntos conocidos."],
+  ],
+  situacion: {
+    titulo: "Diseña el nivel de un videojuego",
+    reto: "Un estudio de videojuegos os encarga el diseño de un nivel en una cuadrícula de 20 × 15 casillas. Tendréis que colocar al personaje, los tesoros, las paredes y los enemigos usando coordenadas, y programar sus movimientos con vectores y ecuaciones. El documento técnico debe permitir a un programador construir el nivel sin ver el dibujo.",
+    pasos: [
+      "Dibujad el mapa del nivel en papel cuadriculado con ejes y escribid las coordenadas de todos los elementos.",
+      "Definid las paredes como segmentos y escribid la ecuación de la recta que contiene a cada una.",
+      "Programad la patrulla de un enemigo con ecuaciones paramétricas (posición según el tiempo t).",
+      "Definid zonas circulares de peligro con su ecuación y comprobad qué puntos del camino del personaje caen dentro.",
+      "Calculad distancias entre el personaje y los tesoros para decidir el orden óptimo de recogida.",
+    ],
+    producto: "El mapa del nivel y una «ficha técnica» con todas las coordenadas, ecuaciones y cálculos.",
+    evaluacion: [
+      "Usa correctamente coordenadas, vectores y sus operaciones.",
+      "Escribe y verifica ecuaciones de rectas y circunferencias.",
+      "Aplica distancias, paralelismo y perpendicularidad para resolver los retos del diseño.",
+      "Comunica la información de forma precisa y ordenada para que otra persona pueda usarla.",
+    ],
   },
+  figura: require("./_matb-base-geometria-analitica").figura,
   video: { id: "bo3JsAc9CbE", titulo: "Ecuación de la recta conociendo dos puntos", canal: "Matemáticas profe Alex", vistas: 5957363, megusta: 108578, busqueda: "ecuación de la recta" },
-  quiz: [
-    { q: "El vector de A(2, 3) a B(5, 7) es…", o: ["(3, 4)", "(7, 10)", "(−3, −4)"], a: 0, e: "Final menos origen: (5 − 2, 7 − 3) = (3, 4)." },
-    { q: "¿Cuál es el módulo de (3, 4)?", o: ["7", "5", "25"], a: 1, e: "√(9 + 16) = √25 = 5." },
-    { q: "El punto medio de A(−2, 4) y B(6, 0) es…", o: ["(2, 2)", "(4, 4)", "(8, −4)"], a: 0, e: "((−2 + 6)/2, (4 + 0)/2) = (2, 2)." },
-    { q: "La pendiente de la recta que pasa por (1, 2) y (3, 8) es…", o: ["3", "1/3", "6"], a: 0, e: "m = (8 − 2)/(3 − 1) = 6/2 = 3." },
-    { q: "Las rectas y = 2x + 1 e y = 2x − 5 son…", o: ["Secantes", "Paralelas", "Perpendiculares"], a: 1, e: "Misma pendiente y distinta ordenada en el origen." },
-  ],
-  examen: [
-    { q: "La recta que pasa por (2, 1) con pendiente 3 es…", o: ["y = 3x − 5", "y = 3x + 1", "y = 2x + 3"], a: 0, e: "y − 1 = 3(x − 2) → y = 3x − 5." },
-    { q: "Distancia entre (0, 0) y (6, 8):", o: ["10", "14", "48"], a: 0, e: "√(36 + 64) = √100 = 10." },
-    { q: "Una recta perpendicular a y = 4x − 1 tiene pendiente…", o: ["4", "−4", "−1/4"], a: 2, e: "m₁ · m₂ = −1 → m₂ = −1/4." },
-  ],
-  feynman: ["Qué es un vector y cómo se calculan sus coordenadas", "Por qué la distancia entre dos puntos es el teorema de Pitágoras", "Cómo se halla la ecuación de la recta que pasa por dos puntos", "Cómo saber si dos rectas son paralelas o se cortan"],
   mapa: mapa("GEOMETRÍA ANALÍTICA", "var(--bac)", [
-    ["Vectores", "AB = B − A · |v|", "var(--red)"],
-    ["Puntos", "punto medio · distancia", "var(--leaf)"],
-    ["Rectas", "y = mx + n · m = Δy/Δx", "var(--pen)"],
-    ["Posiciones", "paralelas · secantes · ⊥", "var(--inf)"],
-  ], 260),
+    ["Vectores", "componentes · módulo · operaciones", "var(--pen)"],
+    ["Puntos", "distancia · punto medio · simétrico", "var(--leaf)"],
+    ["Rectas", "paramétricas · general · explícita", "var(--red)"],
+    ["Posiciones", "paralelas · perpendiculares · circunferencia", "var(--inf)"],
+  ], 270),
   tarjetas: [
-    ["Coordenadas del vector AB", "(x_B − x_A, y_B − y_A)"],
-    ["Módulo de v = (a, b)", "√(a² + b²)"],
-    ["Punto medio de AB", "((x_A + x_B)/2, (y_A + y_B)/2)"],
-    ["Pendiente por dos puntos", "m = (y₂ − y₁) / (x₂ − x₁)"],
-    ["Condición de paralelismo", "Misma pendiente."],
+    ["Componentes de AB", "(x₂ − x₁, y₂ − y₁)"],
+    ["Módulo de v", "√(v₁² + v₂²)"],
+    ["Distancia entre A y B", "|AB|"],
+    ["Punto medio", "((x₁ + x₂)/2, (y₁ + y₂)/2)"],
+    ["Vectores paralelos", "Componentes proporcionales."],
+    ["Ecuaciones paramétricas", "x = x₀ + t v₁; y = y₀ + t v₂"],
+    ["Ecuación general", "Ax + By + C = 0; vector director (−B, A)."],
+    ["Pendiente", "m = v₂/v₁ = −A/B"],
+    ["Rectas paralelas", "Misma pendiente."],
+    ["Rectas perpendiculares", "m · m′ = −1"],
+    ["Circunferencia", "(x − a)² + (y − b)² = r²"],
+    ["Mediatriz", "Perpendicular al segmento por su punto medio."],
   ],
-  familias: ["Jugad a hundir la flota y calculad distancias entre barcos con la fórmula.", "Pedidle que explique cómo un GPS calcula una distancia en línea recta.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  familias: ["Buscad juntos en un mapa digital las coordenadas de casa y del instituto y calculad la distancia en línea recta.", "Jugad a «hundir la flota» y usad vectores para describir los movimientos.", "Mirad cómo una app de navegación marca la zona de cobertura o de búsqueda con círculos.", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Sentido espacial: vectores, distancia, punto medio, ecuaciones de la recta y posiciones relativas (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["Programar en Scratch un personaje que se mueve con vectores.", "GeoGebra: arrastrar puntos y ver cómo cambia la ecuación de la recta.", "Búsqueda del tesoro en el patio con coordenadas y vectores de desplazamiento."],
+    saberes: "Sentido espacial: vectores en el plano, operaciones y módulo; distancia entre puntos y punto medio; ecuaciones de la recta, posiciones relativas, paralelismo y perpendicularidad; ecuación de la circunferencia; modelización geométrica con coordenadas (RD 217/2022, Matemáticas B de 4º, saberes básicos C. Sentido espacial).",
+    ideas: ["GeoGebra para comprobar ecuaciones de rectas y circunferencias moviendo puntos.", "Programación por bloques (Scratch) para mover personajes con vectores.", "Coordenadas GPS del entorno del centro y cálculo de distancias aproximadas.", "Retos de demostración: probar propiedades de figuras con coordenadas."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Geometría analítica, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Geometr%C3%ADa_anal%C3%ADtica" },
+    { t: "Ecuación de la recta, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Recta" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Relacionar pendiente, vector director y ángulo de una recta", "Hallar rectas paralelas y perpendiculares y la ecuación de una circunferencia"],
-  tras: {
-    "Operaciones con vectores": [
-      { html: `<h3>Módulo y vectores unitarios</h3><p>El <b>módulo</b> de un vector v = (a, b) es su longitud y se calcula con el teorema de Pitágoras: <mark>|v| = √(a² + b²)</mark>. El vector (3, 4) mide √25 = 5. Un <b>vector unitario</b> es el que mide 1; para obtener uno con la dirección de v se divide v entre su módulo: (3/5, 4/5). Dos vectores son <b>paralelos</b> si sus coordenadas son proporcionales, como (2, 3) y (6, 9). Y son <b>perpendiculares</b> si el producto de primeras coordenadas más el de segundas es 0: (2, 3) y (−3, 2) lo son, porque 2·(−3) + 3·2 = 0.</p>` },
-    ],
-    "Ecuaciones de la recta": [
-      { html: `<h3>Pendiente, vector director y ángulo</h3><p>La <b>pendiente</b> m de una recta indica cuánto sube por cada unidad que avanza hacia la derecha. Si se conocen dos puntos, <mark>m = (y₂ − y₁) / (x₂ − x₁)</mark>. Si el vector director es (v₁, v₂), la pendiente es v₂/v₁. Además, la pendiente es la <b>tangente del ángulo</b> que forma la recta con el eje X: m = tg α. Una recta con m = 1 forma 45°. Las rectas horizontales tienen m = 0 y las verticales no tienen pendiente: su ecuación es x = k. Con un punto y la pendiente se escribe la forma <b>punto-pendiente</b>: y − y₁ = m(x − x₁).</p>${AMP.tabla(["Forma", "Ecuación", "Qué se ve"], [["Explícita", "y = mx + n", "Pendiente y ordenada"], ["Punto-pendiente", "y − y₁ = m(x − x₁)", "Un punto y la pendiente"], ["General", "Ax + By + C = 0", "Vector director (−B, A)"]])}` },
-    ],
-    "Posición de dos rectas": [
-      { html: `<h3>Rectas paralelas y perpendiculares</h3><p>Dos rectas son <b>paralelas</b> si tienen la <mark>misma pendiente</mark>: y = 2x + 1 e y = 2x − 5. Son <b>perpendiculares</b> si el producto de sus pendientes es −1, es decir, si una es la <mark>inversa cambiada de signo</mark> de la otra: m₂ = −1/m₁. La perpendicular a y = 2x + 1 tiene pendiente −1/2. Con esto se resuelven problemas como hallar la recta que pasa por un punto y es paralela o perpendicular a otra: se toma la pendiente adecuada y se usa la forma punto-pendiente.</p>`, video: { id: "OxBg_0di558", titulo: "Ecuación de la recta que pasa por un punto y es paralela a otra", canal: "Matemáticas profe Alex", vistas: 1819745 } },
-      { html: `<h3>La ecuación de la circunferencia</h3><p>Una <b>circunferencia</b> es el conjunto de puntos que están a la misma distancia r (el radio) de un punto C(a, b), el centro. Aplicando la fórmula de la distancia se obtiene su ecuación: <mark>(x − a)² + (y − b)² = r²</mark>. La circunferencia de centro (2, −1) y radio 3 es (x − 2)² + (y + 1)² = 9. Para saber si un punto está dentro, fuera o sobre ella, se sustituye y se compara con r². Así es como los GPS localizan una posición: cada satélite define una «circunferencia» (en realidad, una esfera) y el receptor está en su intersección.</p>` },
-    ],
-  },
-  ejemplos: [
-    { enunciado: "Halla la recta que pasa por P(1, 4) y es perpendicular a y = 3x − 2.", pasos: ["Pendiente de la dada: 3. Perpendicular: m = −1/3.", "Punto-pendiente: y − 4 = −1/3 (x − 1).", "Despejando: y = −x/3 + 13/3, o en general x + 3y − 13 = 0."], resultado: "x + 3y − 13 = 0." },
-    { enunciado: "Halla la pendiente y el ángulo con el eje X de la recta que pasa por A(−1, 2) y B(3, 6).", pasos: ["m = (6 − 2) / (3 − (−1)) = 4/4 = 1.", "tg α = 1.", "α = 45°."], resultado: "m = 1 y 45°." },
-    { enunciado: "Escribe la circunferencia de centro C(1, 2) que pasa por P(4, 6).", pasos: ["El radio es la distancia CP: √(3² + 4²) = 5.", "Ecuación: (x − 1)² + (y − 2)² = 25."], resultado: "(x − 1)² + (y − 2)² = 25." },
-  ],
-  errores: [
-    "Restar las coordenadas en distinto orden arriba y abajo al calcular la pendiente.",
-    "Pensar que la perpendicular tiene la pendiente cambiada de signo, sin invertirla.",
-    "Escribir el centro con el signo equivocado: (x + 3)² corresponde a a = −3.",
-    "Calcular el módulo sumando las coordenadas sin elevarlas al cuadrado.",
-    "Confundir el vector director (−B, A) de Ax + By + C = 0 con el vector (A, B).",
-  ],
-  ejercicios: [
-    { q: "Calcula el vector AB y su módulo con A(2, −1) y B(5, 3).", sol: "AB = (3, 4); |AB| = 5." },
-    { q: "Halla el punto medio de A(−2, 5) y B(6, 1).", sol: "M(2, 3)." },
-    { q: "¿Son perpendiculares u = (4, −2) y v = (1, 2)?", sol: "Sí: 4 · 1 + (−2) · 2 = 0." },
-    { q: "Halla la pendiente de la recta 2x − 4y + 7 = 0.", sol: "y = x/2 + 7/4: m = 1/2." },
-    { q: "Escribe la recta que pasa por (0, 3) y (2, 7) en forma explícita.", sol: "m = 2; y = 2x + 3." },
-    { q: "Halla la recta paralela a y = −x + 4 que pasa por (2, 5).", sol: "y − 5 = −(x − 2): y = −x + 7." },
-    { q: "Halla la recta perpendicular a y = 2x que pasa por el origen.", sol: "y = −x/2." },
-    { q: "Estudia la posición de y = 3x + 1 e y = 3x − 2.", sol: "Paralelas: misma pendiente y distinta ordenada." },
-    { q: "Indica el centro y el radio de (x + 2)² + (y − 3)² = 16.", sol: "C(−2, 3), r = 4." },
-    { q: "¿El punto (3, 1) está dentro, fuera o sobre x² + y² = 9?", sol: "9 + 1 = 10 > 9: está fuera." },
-  ],
-  quiz: [
-    { q: "Dos rectas paralelas tienen…", o: ["la misma pendiente", "pendientes opuestas", "producto de pendientes −1"], a: 0, e: "Mismo ángulo con el eje X." },
-    { q: "Si m₁ = 2, la perpendicular tiene m₂ =…", o: ["−2", "1/2", "−1/2"], a: 2, e: "Inversa cambiada de signo." },
-    { q: "El módulo de (6, 8) es…", o: ["14", "10", "48"], a: 1, e: "√(36 + 64) = 10." },
-    { q: "La pendiente es la tangente de…", o: ["el ángulo con el eje X", "el ángulo con el eje Y", "90°"], a: 0, e: "m = tg α." },
-    { q: "La circunferencia x² + y² = 25 tiene radio…", o: ["25", "5", "12,5"], a: 1, e: "r² = 25." },
-  ],
-  tarjetas: [
-    ["Pendiente", "m = (y₂ − y₁) / (x₂ − x₁) = tg α."],
-    ["Rectas perpendiculares", "m₁ · m₂ = −1."],
-    ["Circunferencia", "(x − a)² + (y − b)² = r², con centro (a, b) y radio r."],
-  ],
-});
