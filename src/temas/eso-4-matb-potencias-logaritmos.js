@@ -1,173 +1,245 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
+// Matemáticas B 4º ESO · Tema 2. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, graf, barras } = require("./_eso4L3");
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Potencias, radicales y logaritmos",
-  minutos: 45,
-  objetivos: ["Operar con potencias de exponente entero y fraccionario", "Simplificar, extraer factores y racionalizar radicales", "Entender el logaritmo como la operación inversa de la potencia y usar sus propiedades"],
-  claves: ["exponente", "radical", "índice", "racionalizar", "logaritmo", "base"],
+  minutos: 115,
+  objetivos: [
+    "Operar con potencias de exponente entero y fraccionario aplicando sus propiedades",
+    "Expresar y operar números en notación científica",
+    "Simplificar, extraer factores, operar y racionalizar radicales",
+    "Comprender el logaritmo como el exponente al que hay que elevar la base",
+    "Aplicar las propiedades de los logaritmos y el cambio de base con la calculadora",
+    "Interpretar escalas logarítmicas de la vida real: decibelios, pH y terremotos",
+  ],
+  claves: ["exponente negativo", "notación científica", "radical", "índice", "exponente fraccionario", "racionalizar", "logaritmo", "cambio de base", "escala logarítmica"],
+  lectura: {
+    titulo: "Doblar un papel hasta la Luna",
+    html: `<p>Coge un folio y dóblalo por la mitad. Su grosor, unos 0,1 mm, se duplica. Dóblalo otra vez y ya mide 0,4 mm. Parece poca cosa, pero si pudieras doblarlo 42 veces, el grosor sería 0,1 · 2⁴² mm, más de 400.000 km: llegarías a la Luna. Con 103 dobleces, el papel sería más grueso que el universo observable. Esta es la fuerza de las <b>potencias</b>: multiplicar una y otra vez por el mismo número produce resultados gigantescos muy deprisa.</p>
+    <p>Ahora piensa al revés. Sabes que el papel debe llegar a la Luna, ¿cuántas veces tienes que doblarlo? Ya no buscas el resultado, sino el <b>exponente</b>. Esa pregunta la responde el <b>logaritmo</b>, una herramienta que inventó John Napier en 1614 para que los astrónomos pudieran hacer en minutos cálculos que les llevaban semanas. Y si lo que conoces es el resultado y el exponente pero no la base, necesitas una <b>raíz</b>.</p>
+    <p>Potencias, raíces y logaritmos son, por tanto, tres caras de la misma operación. En este tema aprenderás a manejarlas con soltura, a escribir números enormes o diminutos en notación científica y a entender por qué los terremotos, el sonido o la acidez se miden con escalas logarítmicas.</p>`,
+  },
   pregunta: {
     texto: "Una bacteria se divide en dos cada hora. Si empiezas con una, ¿cuántas horas tardarás en tener más de 1.000 bacterias?",
     respuesta: "Buscamos el exponente de 2ⁿ = 1.000. Esa pregunta, «<mark>a qué número hay que elevar la base</mark>», la responde el <b>logaritmo</b>: log₂ 1.000 ≈ 9,97. En <b>10 horas</b> ya hay 1.024 bacterias.",
   },
   bloques: [
     {
-      html: `<h3>Propiedades de las potencias</h3><p>Una potencia aⁿ es multiplicar la base a por sí misma n veces. Las propiedades permiten operar sin calcular:</p>
-      <div class="formula"><span>aᵐ · aⁿ = aᵐ⁺ⁿ</span><span class="op">·</span><span>aᵐ : aⁿ = aᵐ⁻ⁿ</span><span class="op">·</span><span>(aᵐ)ⁿ = aᵐ·ⁿ</span></div>
-      <p>Y dos que sorprenden: <mark>a⁰ = 1</mark> y <mark>a⁻ⁿ = 1 / aⁿ</mark>. Por ejemplo, 2⁻³ = 1/8.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Escalera de potencias de 2: cada escalón a la izquierda divide entre 2, hasta 2 elevado a 0 igual a 1 y 2 elevado a menos 1 igual a un medio">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[[-2, "1/4"], [-1, "1/2"], [0, "1"], [1, "2"], [2, "4"], [3, "8"]].map(([e, v], i) => `<rect x="${14 + i * 40}" y="${130 - i * 18}" width="36" height="${36 + i * 18}" rx="6" fill="${e < 0 ? "var(--red)" : e === 0 ? "var(--hl)" : "var(--pen)"}" opacity="${e === 0 ? 1 : 0.85}"/>
-          <text x="${32 + i * 40}" y="${122 - i * 18}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>2${["⁻²", "⁻¹", "⁰", "¹", "²", "³"][i]}</text>
-          <text x="${32 + i * 40}" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="${e === 0 ? "var(--hl-ink)" : "#fff"}" ${F}>${v}</text>`).join("")}
-        <text x="110" y="24" text-anchor="middle" font-size="12" fill="var(--muted)" ${F}>← dividir entre 2 · multiplicar por 2 →</text></svg>`,
+      html: `<h3>2.1 Potencias de exponente entero</h3><p>Una <b>potencia</b> aⁿ de exponente natural es una multiplicación abreviada: la <b>base</b> a se multiplica por sí misma n veces. Así, 3⁴ = 3 · 3 · 3 · 3 = 81. El signo del resultado depende de la base y del exponente: si la base es negativa, la potencia es positiva con exponente par y negativa con exponente impar: (−2)⁴ = 16 y (−2)³ = −8. Cuidado con los paréntesis: <mark>−2⁴ = −16</mark>, porque el exponente afecta solo al 2.</p><p>Para que las propiedades sigan funcionando se definen dos casos más. Todo número distinto de cero elevado a 0 vale 1, a⁰ = 1, porque aⁿ : aⁿ = aⁿ⁻ⁿ = a⁰ y también vale 1. Y un <b>exponente negativo</b> indica el inverso: <mark>a⁻ⁿ = 1/aⁿ</mark>. Por ejemplo, 2⁻³ = 1/8 y (2/5)⁻² = (5/2)² = 25/4. Un exponente negativo no hace negativo el resultado: le da la vuelta a la base.</p>`,
+      svg: lienzo("Escalera de potencias de 2: al bajar un escalón se divide entre 2, y así se llega a 2 elevado a 0 igual a 1 y a los exponentes negativos", `${[[3, "8"], [2, "4"], [1, "2"], [0, "1"], [-1, "1/2"], [-2, "1/4"]].map(([e, v], i) => `<rect x="${16 + i * 38}" y="${24 + i * 22}" width="36" height="${150 - i * 22 - 18}" rx="4" fill="${e >= 0 ? "var(--pen)" : "var(--red)"}" opacity="${0.25 + 0.1 * (6 - i)}"/>${t(34 + i * 38, 18 + i * 22, `2^${e}`.replace("^3", "³").replace("^2", "²").replace("^1", "¹").replace("^0", "⁰").replace("^-1", "⁻¹").replace("^-2", "⁻²"), { s: 12, b: 1 })}${t(34 + i * 38, 168, v, { s: 12, b: 1, c: e >= 0 ? "var(--pen)" : "var(--red)" })}`).join("")}${t(246, 44, "÷ 2 en cada paso", { s: 10, c: "var(--muted)", a: "end" })}`),
     },
     {
-      html: `<h3>Radicales: potencias de exponente fraccionario</h3><p>La raíz n-ésima es una potencia con exponente fracción: <mark>ⁿ√aᵐ = aᵐ/ⁿ</mark>. Así √x = x¹ᐟ² y ∛8 = 8¹ᐟ³ = 2. Con esta idea, las propiedades de las potencias sirven también para las raíces.</p>
-      <div class="formula"><span>√a · √b = √(a·b)</span><span class="op">·</span><span>√a / √b = √(a/b)</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Equivalencia entre la raíz cúbica de 8 y 8 elevado a un tercio, que valen 2; un cubo de volumen 8 tiene arista 2">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M40 140 h60 v-60 h-60 z" fill="var(--pen)" opacity=".18" stroke="var(--pen)" stroke-width="2.5"/>
-        <path d="M40 80 l24 -24 h60 l-24 24 M100 80 l24 -24 v60 l-24 24" fill="none" stroke="var(--pen)" stroke-width="2.5"/>
-        <path d="M70 80 v60 M40 110 h60" stroke="var(--pen)" stroke-width="1.5" stroke-dasharray="3 3"/>
-        <g ${F} font-weight="700"><text x="70" y="160" text-anchor="middle" font-size="13" fill="var(--pen)">arista 2</text><text x="88" y="114" font-size="12" fill="var(--ink)">V = 8</text>
-        <text x="190" y="80" text-anchor="middle" font-size="22" fill="var(--ink)">∛8</text><text x="190" y="108" text-anchor="middle" font-size="18" fill="var(--muted)">=</text><text x="190" y="136" text-anchor="middle" font-size="22" fill="var(--red)">8¹ᐟ³ = 2</text></g></svg>`,
+      html: `<h3>2.2 Propiedades de las potencias</h3><p>Las propiedades permiten simplificar expresiones sin calcular cada potencia. Para cualquier base no nula y exponentes enteros:</p><ul><li>Producto de igual base: <b>aᵐ · aⁿ = aᵐ⁺ⁿ</b>.</li><li>Cociente de igual base: <b>aᵐ : aⁿ = aᵐ⁻ⁿ</b>.</li><li>Potencia de una potencia: <b>(aᵐ)ⁿ = aᵐ·ⁿ</b>.</li><li>Potencia de un producto o cociente: <b>(a · b)ⁿ = aⁿ · bⁿ</b> y <b>(a/b)ⁿ = aⁿ/bⁿ</b>.</li></ul><p>Para usarlas, el truco es <mark>escribir todo con las mismas bases</mark>, normalmente factores primos. Por ejemplo, 8² · 4⁻³ = (2³)² · (2²)⁻³ = 2⁶ · 2⁻⁶ = 2⁰ = 1. No existen propiedades para la suma: 2³ + 2² no es 2⁵ (es 8 + 4 = 12, y 2⁵ = 32). Lo que sí se puede hacer es sacar factor común: 2³ + 2² = 2²(2 + 1) = 12. Estas reglas son la base del álgebra de los próximos temas y de la notación científica.</p>`,
+      svg: tarjeta("Las cinco propiedades de las potencias con un ejemplo", "Propiedades", [["aᵐ · aⁿ = aᵐ⁺ⁿ   2³·2⁴ = 2⁷", "var(--pen)", 13], ["aᵐ : aⁿ = aᵐ⁻ⁿ   5⁶:5⁴ = 5²", "var(--leaf)", 13], ["(aᵐ)ⁿ = aᵐⁿ   (3²)³ = 3⁶", "var(--inf)", 13], ["(a·b)ⁿ = aⁿ·bⁿ   (2x)³ = 8x³", "var(--red)", 13]]),
     },
     {
-      html: `<h3>Simplificar y racionalizar</h3><p>Para <b>extraer factores</b>, descompón y saca lo que forme la potencia del índice: √50 = √(25·2) = <mark>5√2</mark>. <b>Racionalizar</b> es quitar la raíz del denominador multiplicando arriba y abajo por la raíz:</p>
-      <div class="formula"><span>3 / √2 = 3·√2 / (√2·√2) = 3√2 / 2</span></div>
-      <p>Si hay un binomio, se multiplica por el <b>conjugado</b>: (a + √b)(a − √b) = a² − b.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Extraer factores: raíz de 50 se descompone en 25 por 2, el 25 sale como 5 y queda 5 raíz de 2">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-size="22" font-weight="700" text-anchor="middle">
-          <text x="60" y="60" fill="var(--ink)">√50</text><text x="130" y="60" fill="var(--muted)">=</text><text x="200" y="60" fill="var(--ink)">√(<tspan fill="var(--leaf)">25</tspan>·2)</text>
-          <path d="M180 74 Q 150 110 112 126" fill="none" stroke="var(--leaf)" stroke-width="2.5"/>
-          <text x="96" y="140" fill="var(--leaf)">5</text><text x="140" y="140" fill="var(--ink)">√2</text>
-        </g><text x="130" y="168" text-anchor="middle" font-size="12" fill="var(--muted)" ${F}>el cuadrado perfecto sale fuera de la raíz</text></svg>`,
+      html: `<h3>2.3 Notación científica</h3><p>Para escribir números muy grandes o muy pequeños se usa la <b>notación científica</b>: <mark>a · 10ⁿ, con 1 ≤ |a| &lt; 10</mark> y n entero. El número a se llama <b>mantisa</b> y n, <b>orden de magnitud</b>. La masa de la Tierra es 5,97 · 10²⁴ kg; el diámetro de un glóbulo rojo, 7 · 10⁻⁶ m. Para pasar a notación científica se mueve la coma hasta dejar una sola cifra no nula delante: 0,000 34 = 3,4 · 10⁻⁴ (la coma se mueve 4 lugares a la derecha, exponente −4).</p><p>Para <b>multiplicar o dividir</b> se operan las mantisas y los exponentes por separado: (3 · 10⁵) · (4 · 10⁻²) = 12 · 10³ = 1,2 · 10⁴. Para <b>sumar o restar</b> hay que igualar antes los exponentes: 3 · 10⁵ + 4 · 10⁴ = 30 · 10⁴ + 4 · 10⁴ = 34 · 10⁴ = 3,4 · 10⁵. Al final siempre se ajusta la mantisa para que quede entre 1 y 10. Las calculadoras muestran estos números con la tecla EXP o ×10ˣ, y a veces escriben «3.4E5».</p>`,
+      svg: lienzo("Escala de tamaños en notación científica: desde un átomo, 10 a la menos 10 metros, hasta la distancia Tierra-Sol, 10 a la 11 metros", `<path d="M20 100 H 240" stroke="var(--ink)" stroke-width="2"/>${[[-10, "átomo"], [-6, "bacteria"], [0, "persona"], [7, "Tierra"], [11, "Tierra-Sol"]].map(([e, n], i) => { const x = 40 + ((e + 10) / 21) * 180; return `<circle cx="${x.toFixed(1)}" cy="100" r="5" fill="${e < 0 ? "var(--red)" : "var(--pen)"}"/>${t(x, i % 2 ? 132 : 78, n, { s: 11, b: 1, c: e < 0 ? "var(--red)" : "var(--pen)" })}${t(x, i % 2 ? 148 : 62, `10^${e}`.replace("^-10", "⁻¹⁰").replace("^-6", "⁻⁶").replace("^0", "⁰").replace("^7", "⁷").replace("^11", "¹¹") + " m", { s: 10, c: "var(--muted)" })}`; }).join("")}${t(130, 26, "cada marca: un orden de magnitud", { s: 12, b: 1 })}`),
     },
     {
-      html: `<h3>¿Qué es un logaritmo?</h3><p>El logaritmo responde a la pregunta «¿a qué exponente elevo la base para obtener este número?».</p><div class="formula"><span>logₐ x = y</span><span class="op">⇔</span><span>aʸ = x</span></div>
-      <p>Así, log₂ 8 = 3 porque 2³ = 8, y <mark>log 1.000 = 3</mark> (si no se escribe la base, es 10). El logaritmo neperiano <b>ln</b> usa la base e ≈ 2,718.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Ciclo entre potencia y logaritmo: 2 elevado a 3 da 8, y logaritmo en base 2 de 8 da 3">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="20" y="66" width="80" height="48" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/><rect x="160" y="66" width="80" height="48" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
-        <g ${F} font-weight="700" text-anchor="middle"><text x="60" y="97" font-size="22" fill="var(--pen)">3</text><text x="200" y="97" font-size="22" fill="var(--red)">8</text>
-        <path d="M80 66 Q 130 10 180 66" fill="none" stroke="var(--pen)" stroke-width="2.5"/><text x="130" y="30" font-size="14" fill="var(--pen)">2³ = 8</text>
-        <path d="M180 114 Q 130 170 80 114" fill="none" stroke="var(--red)" stroke-width="2.5"/><text x="130" y="160" font-size="14" fill="var(--red)">log₂ 8 = 3</text></g></svg>`,
+      html: `<h3>2.4 Raíces y radicales</h3><p>La <b>raíz n-ésima</b> de un número a es otro número b tal que bⁿ = a: <mark>ⁿ√a = b ⇔ bⁿ = a</mark>. La expresión ⁿ√a se llama <b>radical</b>; n es el <b>índice</b> y a, el <b>radicando</b>. Cuando el índice es 2 no se escribe. Así, ∛125 = 5 porque 5³ = 125, y ⁴√81 = 3 porque 3⁴ = 81.</p><p>¿Siempre existe la raíz? Depende del índice y del signo del radicando:</p><ul><li>Índice <b>impar</b>: siempre hay una única raíz real, con el mismo signo que el radicando: ∛−8 = −2.</li><li>Índice <b>par</b> y radicando positivo: hay dos raíces opuestas, ±√9 = ±3, aunque el símbolo √9 designa solo la positiva, 3.</li><li>Índice <b>par</b> y radicando negativo: <b>no existe raíz real</b>, porque ninguna potencia par de un real es negativa. √−4 no es un número real.</li></ul><p>Cuando la raíz no es exacta, como √7 o ∛10, el resultado es un número irracional que se deja indicado como radical o se aproxima con la calculadora.</p>`,
+      svg: tarjeta("Partes de un radical: índice, radicando y raíz, con la relación entre raíz y potencia", "ⁿ√a = b  ⇔  bⁿ = a", [["∛125 = 5   porque 5³ = 125", "var(--pen)", 14], ["∛−8 = −2   (índice impar)", "var(--leaf)", 14], ["√9 = 3   (−3 también cumple x² = 9)", "var(--inf)", 13], ["√−4 no es real (índice par)", "var(--red)", 14]], "var(--bac)"),
     },
     {
-      html: `<h3>Propiedades de los logaritmos</h3><p>Convierten productos en sumas, y por eso se inventaron para calcular rápido:</p>
-      <div class="formula"><span>log(a·b) = log a + log b</span></div><div class="formula"><span>log(a/b) = log a − log b</span></div><div class="formula"><span>log(aⁿ) = n · log a</span></div>
-      <p>Para usar otra base con la calculadora: <mark>logₐ x = log x / log a</mark>. En la bacteria: log₂ 1.000 = 3 / 0,301 ≈ 9,97.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Escala logarítmica: 1, 10, 100, 1000 están a la misma distancia, cada salto multiplica por 10">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M20 100 H 240" stroke="var(--ink)" stroke-width="2"/>
-        ${["1", "10", "100", "1.000"].map((v, i) => `<path d="M${36 + i * 62} 92 V 108" stroke="var(--ink)" stroke-width="2"/><text x="${36 + i * 62}" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)" ${F}>${v}</text><text x="${36 + i * 62}" y="84" text-anchor="middle" font-size="12" fill="var(--pen)" ${F}>log = ${i}</text>`).join("")}
-        ${[0, 1, 2].map((i) => `<path d="M${42 + i * 62} 60 Q ${67 + i * 62} 40 ${92 + i * 62} 60" fill="none" stroke="var(--red)" stroke-width="2"/><text x="${67 + i * 62}" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="var(--red)" ${F}>×10</text>`).join("")}
-        <text x="130" y="160" text-anchor="middle" font-size="12" fill="var(--muted)" ${F}>así se miden los terremotos y los decibelios</text></svg>`,
+      html: `<h3>2.5 Potencias de exponente fraccionario</h3><p>Las raíces se pueden escribir como potencias. Como (a^(1/n))ⁿ = a^(n/n) = a, el número a^(1/n) cumple la definición de raíz n-ésima. En general:</p><div class="formula"><span>a^(m/n) = ⁿ√(aᵐ)</span></div><p>El <b>denominador</b> de la fracción es el índice y el <b>numerador</b>, el exponente del radicando. Por ejemplo, 8^(2/3) = ∛(8²) = ∛64 = 4, y también (∛8)² = 2² = 4: da igual hacer primero la raíz o la potencia, y suele ser más cómodo empezar por la raíz. Un exponente fraccionario negativo combina ambas ideas: 16^(−3/4) = 1/16^(3/4) = 1/(⁴√16)³ = 1/8.</p><p>La gran ventaja de esta escritura es que <mark>todas las propiedades de las potencias sirven también para los radicales</mark>. Por ejemplo, √x · ∛x = x^(1/2) · x^(1/3) = x^(5/6) = ⁶√(x⁵). Este paso a exponente fraccionario es la herramienta más potente para simplificar expresiones con raíces de distinto índice.</p>`,
+      svg: lienzo("La fracción del exponente: el denominador es el índice de la raíz y el numerador el exponente del radicando; ejemplo 8 elevado a dos tercios igual a 4", `${t(130, 60, "a^(m/n) = ⁿ√aᵐ", { s: 22, b: 1 })}<path d="M70 72 Q 60 100 80 112" fill="none" stroke="var(--red)" stroke-width="2"/><path d="M118 72 Q 150 96 170 112" fill="none" stroke="var(--pen)" stroke-width="2"/>${t(58, 128, "n → índice", { c: "var(--red)", s: 12, b: 1 })}${t(190, 128, "m → exponente", { c: "var(--pen)", s: 12, b: 1 })}${t(130, 164, "8^(2/3) = (∛8)² = 2² = 4", { c: "var(--leaf)", s: 15, b: 1 })}`),
+    },
+    {
+      html: `<h3>2.6 Radicales equivalentes y simplificación</h3><p>Dos radicales son <b>equivalentes</b> si representan el mismo número. Como a^(m/n) = a^(mk/nk), <mark>multiplicar o dividir el índice y el exponente por el mismo número</mark> no cambia el valor: √2 = ⁴√(2²) = ⁶√(2³). Es lo mismo que pasa con las fracciones equivalentes.</p><p>Esta propiedad tiene dos usos. El primero es <b>simplificar</b>: ⁶√(5⁴) = 5^(4/6) = 5^(2/3) = ∛(5²) = ∛25. El segundo es <b>reducir a índice común</b>, imprescindible para multiplicar o comparar radicales de distinto índice. Se toma como índice común el mínimo común múltiplo de los índices. Para comparar √3 y ∛5, el m.c.m. de 2 y 3 es 6: √3 = ⁶√(3³) = ⁶√27 y ∛5 = ⁶√(5²) = ⁶√25. Como 27 &gt; 25, √3 &gt; ∛5. Ojo: si el radicando es negativo y el índice impar, al simplificar hay que tener cuidado con los signos; en 4º trabajaremos casi siempre con radicandos positivos.</p>`,
+      svg: lienzo("Comparar raíz de 3 y raíz cúbica de 5 pasándolas a índice 6: raíz sexta de 27 frente a raíz sexta de 25", `${t(70, 44, "√3", { s: 22, b: 1, c: "var(--pen)" })}${t(190, 44, "∛5", { s: 22, b: 1, c: "var(--red)" })}<path d="M70 54 V 84 M190 54 V 84" stroke="var(--muted)" stroke-width="2"/>${t(70, 106, "⁶√(3³) = ⁶√27", { s: 15, b: 1, c: "var(--pen)" })}${t(190, 106, "⁶√(5²) = ⁶√25", { s: 15, b: 1, c: "var(--red)" })}${t(130, 146, "27 > 25  →  √3 > ∛5", { s: 15, b: 1 })}${t(130, 168, "índice común: m.c.m.(2, 3) = 6", { s: 11, c: "var(--muted)" })}`),
+    },
+    {
+      html: `<h3>2.7 Extraer e introducir factores</h3><p>Si el radicando tiene factores cuyo exponente es mayor o igual que el índice, se pueden <b>sacar fuera</b> de la raíz. Se descompone en factores primos y se divide cada exponente entre el índice: el <b>cociente</b> es el exponente que sale y el <b>resto</b>, el que se queda dentro. Por ejemplo, √72 = √(2³ · 3²) = 2 · 3 · √2 = 6√2, y ∛(2⁷ · x⁵) = 2² x ∛(2x²) = 4x∛(2x²).</p><p>El proceso contrario, <b>introducir</b> un factor, consiste en elevarlo al índice y multiplicarlo por el radicando: 3∛2 = ∛(3³ · 2) = ∛54. Introducir factores sirve para comparar radicales (¿qué es mayor, 2√7 o 3√3? Como 2√7 = √28 y 3√3 = √27, es mayor 2√7) y para algunos cálculos. Al extraer factores el objetivo es dejar el radicando <mark>lo más pequeño posible</mark>, porque así se ven los radicales semejantes que se pueden sumar.</p>`,
+      svg: tarjeta("Extraer factores de raíz de 72: se descompone en 2 al cubo por 3 al cuadrado y sale 6 raíz de 2", "Extraer factores de √72", [["72 = 2³ · 3²", "var(--ink)", 15], ["3 : 2 → sale 2¹, queda 2¹", "var(--pen)", 13], ["2 : 2 → sale 3¹, queda 3⁰", "var(--leaf)", 13], ["√72 = 2 · 3 · √2 = 6√2", "var(--red)", 15]]),
+    },
+    {
+      html: `<h3>2.8 Operaciones con radicales</h3><p><b>Suma y resta.</b> Solo se pueden sumar radicales <b>semejantes</b>: los que tienen el mismo índice y el mismo radicando, como 3√2 y 5√2. Se suman los coeficientes: 3√2 + 5√2 = 8√2. A menudo hay que extraer factores primero: √50 − √18 = 5√2 − 3√2 = 2√2. <mark>√a + √b no es √(a + b)</mark>: √9 + √16 = 7, pero √25 = 5.</p><p><b>Producto y cociente.</b> Con el mismo índice, se multiplican o dividen los radicandos: √3 · √12 = √36 = 6 y ∛54 : ∛2 = ∛27 = 3. Con distinto índice, se reduce antes a índice común: √2 · ∛2 = ⁶√8 · ⁶√4 = ⁶√32.</p><p><b>Potencia y raíz de una raíz.</b> (ⁿ√a)ᵐ = ⁿ√(aᵐ), y la raíz de una raíz multiplica los índices: √(∛a) = ⁶√a. Todas estas reglas son consecuencia directa de las propiedades de las potencias con exponente fraccionario.</p>`,
+      svg: tarjeta("Operaciones con radicales: suma de semejantes, producto con el mismo índice y raíz de una raíz", "Operar radicales", [["3√2 + 5√2 = 8√2", "var(--pen)", 15], ["√3 · √12 = √36 = 6", "var(--leaf)", 15], ["√(∛a) = ⁶√a", "var(--inf)", 15], ["√9 + √16 ≠ √25", "var(--red)", 15]]),
+    },
+    {
+      html: `<h3>2.9 Racionalizar denominadores</h3><p><b>Racionalizar</b> es transformar una fracción con raíces en el denominador en otra equivalente sin ellas. Se hace por tradición y por comodidad: es más fácil estimar √2/2 ≈ 0,707 que 1/√2. Se multiplica numerador y denominador por la expresión adecuada:</p><ul><li><b>Raíz cuadrada sola</b>: se multiplica por la misma raíz. 6/√3 = 6√3/3 = 2√3.</li><li><b>Raíz de otro índice</b>: se multiplica por la raíz que completa el exponente hasta el índice. 5/∛2 = 5∛(2²)/∛(2³) = 5∛4/2.</li><li><b>Binomio con raíces</b>: se multiplica por el <b>conjugado</b> (el mismo binomio con el signo central cambiado), aprovechando que (a + b)(a − b) = a² − b². 4/(3 − √5) = 4(3 + √5)/(9 − 5) = 3 + √5.</li></ul><p>La idea clave es que <mark>multiplicar arriba y abajo por lo mismo no cambia el valor</mark> de la fracción, igual que al buscar fracciones equivalentes.</p>`,
+      svg: tarjeta("Racionalizar multiplicando por el conjugado: 4 entre 3 menos raíz de 5 se convierte en 3 más raíz de 5", "Por el conjugado", [["4 / (3 − √5)", "var(--ink)", 16], ["× (3 + √5) / (3 + √5)", "var(--pen)", 14], ["= 4(3 + √5) / (9 − 5)", "var(--leaf)", 14], ["= 3 + √5", "var(--red)", 17]]),
+      video: { id: "PI2TVst7Ibs", titulo: "Racionalización de denominadores, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 3774811, busqueda: "racionalización de denominadores" },
+    },
+    {
+      html: `<h3>2.10 ¿Qué es un logaritmo?</h3><p>El <b>logaritmo en base a</b> de un número x es el exponente al que hay que elevar a para obtener x:</p><div class="formula"><span>logₐ x = y</span><span class="op">⇔</span><span>aʸ = x</span></div><p>La base debe ser positiva y distinta de 1, y x debe ser positivo. Así, log₂ 32 = 5 porque 2⁵ = 32; log₃ (1/9) = −2 porque 3⁻² = 1/9; y log₄ 2 = 1/2 porque 4^(1/2) = 2. <mark>No existe el logaritmo de 0 ni de un número negativo</mark>: ninguna potencia de base positiva da 0 o un negativo.</p><p>De la definición salen dos valores que conviene recordar: logₐ 1 = 0 (porque a⁰ = 1) y logₐ a = 1. Además, logₐ aⁿ = n y a^(logₐ x) = x: el logaritmo y la potencia de la misma base se «deshacen» mutuamente. Los más usados tienen nombre propio: el <b>decimal</b>, de base 10, que se escribe log x, y el <b>neperiano</b> o natural, de base e ≈ 2,718, que se escribe ln x. Con la gráfica de y = 2ˣ, calcular log₂ 6 es leer qué x da altura 6: aproximadamente 2,58.</p>`,
+      svg: graf("Gráfica de 2 elevado a x: para altura 6 se lee x aproximadamente 2,58, que es el logaritmo en base 2 de 6", { x0: -2, x1: 4, y0: -1, y1: 9, paso: 1, pasoEt: 2 }, (E) => `${E.curva((x) => 2 ** x, "var(--pen)")}${E.seg(-2, 6, Math.log2(6), 6, "var(--red)", 1.8, 'stroke-dasharray="4 3"')}${E.seg(Math.log2(6), 6, Math.log2(6), 0, "var(--red)", 1.8, 'stroke-dasharray="4 3"')}${E.punto(Math.log2(6), 6, "var(--red)")}${t(E.X(Math.log2(6)) + 5, E.Y(1), "≈ 2,58", { c: "var(--red)", s: 11, b: 1, a: "start" })}${t(E.X(1.6), E.Y(7.6), "y = 2ˣ", { c: "var(--pen)", s: 12, b: 1, a: "end" })}`),
+    },
+    {
+      html: `<h3>2.11 Propiedades de los logaritmos</h3><p>Como los logaritmos son exponentes, heredan las propiedades de las potencias. Para x, y positivos:</p><ul><li><b>Producto</b>: logₐ (x · y) = logₐ x + logₐ y.</li><li><b>Cociente</b>: logₐ (x / y) = logₐ x − logₐ y.</li><li><b>Potencia</b>: logₐ (xⁿ) = n · logₐ x. En particular, logₐ ⁿ√x = (1/n) logₐ x.</li></ul><p>Estas reglas <mark>convierten productos en sumas y potencias en productos</mark>, y por eso fueron una revolución: con unas tablas de logaritmos se podían multiplicar números de muchas cifras sumando. Por ejemplo, si log 2 ≈ 0,301 y log 3 ≈ 0,477, entonces log 6 = log 2 + log 3 ≈ 0,778; log 1,5 = log 3 − log 2 ≈ 0,176; y log 8 = 3 log 2 ≈ 0,903. Errores frecuentes: log (x + y) <b>no</b> es log x + log y, y (log x)² <b>no</b> es 2 log x. Las propiedades también se usan al revés, para agrupar: 2 log 5 + log 4 = log (25 · 4) = log 100 = 2.</p>`,
+      svg: tarjeta("Propiedades de los logaritmos: producto, cociente y potencia, con un ejemplo de log 6", "Propiedades del logaritmo", [["log (x·y) = log x + log y", "var(--pen)", 14], ["log (x/y) = log x − log y", "var(--leaf)", 14], ["log xⁿ = n · log x", "var(--inf)", 14], ["log 6 = log 2 + log 3 ≈ 0,778", "var(--red)", 13]]),
+      video: { id: "vcLE0wNTdXo", titulo: "Propiedades de los logaritmos", canal: "Susi Profe", vistas: 1819072, busqueda: "propiedades de los logaritmos" },
+    },
+    {
+      html: `<h3>2.12 Cambio de base y uso de la calculadora</h3><p>La mayoría de las calculadoras solo tienen las teclas <b>log</b> (base 10) y <b>ln</b> (base e). Para calcular un logaritmo en cualquier otra base se usa la <b>fórmula del cambio de base</b>:</p><div class="formula"><span>logₐ x = log x / log a = ln x / ln a</span></div><p>Por ejemplo, log₂ 1000 = log 1000 / log 2 = 3 / 0,30103 ≈ 9,97, que es la respuesta al problema de las bacterias. La fórmula se demuestra con la definición: si y = logₐ x, entonces aʸ = x; tomando logaritmos decimales, y · log a = log x, y despejando, y = log x / log a.</p><p>El cambio de base permite resolver <b>ecuaciones exponenciales</b> sencillas: si 3ˣ = 20, entonces x = log 20 / log 3 ≈ 2,73. Al usar la calculadora conviene <mark>estimar antes el resultado</mark>: como 3² = 9 y 3³ = 27, el valor de x tiene que estar entre 2 y 3. Si sale otra cosa, probablemente se ha tecleado mal o se han olvidado paréntesis.</p>`,
+      svg: tarjeta("Cambio de base: logaritmo en base 2 de 1000 igual a log de 1000 entre log de 2, aproximadamente 9,97", "Cambio de base", [["log₂ 1000 = log 1000 / log 2", "var(--pen)", 14], ["= 3 / 0,30103", "var(--leaf)", 15], ["≈ 9,97", "var(--red)", 17], ["estimación: 2⁹ = 512 y 2¹⁰ = 1024", "var(--muted)", 12, 0]]),
+      video: { id: "0bq7zE3yq4s", titulo: "Cambio de base en logaritmos", canal: "Susi Profe", vistas: 245575, busqueda: "cambio de base logaritmos" },
+    },
+    {
+      html: `<h3>2.13 Escalas logarítmicas en la vida real</h3><p>Cuando una magnitud varía en un rango enorme, se mide con una <b>escala logarítmica</b>: cada unidad de la escala multiplica la magnitud por 10 (u otro número). Tres ejemplos:</p><ul><li><b>Decibelios (dB)</b>: el nivel sonoro es 10 · log (I/I₀). Subir 10 dB significa multiplicar por 10 la intensidad. Una conversación (60 dB) tiene 1.000 veces más intensidad que un susurro (30 dB), y a partir de 85 dB mantenidos el oído se daña.</li><li><b>pH</b>: pH = −log [H⁺]. Un zumo de limón (pH 2) es 100.000 veces más ácido que el agua pura (pH 7).</li><li><b>Terremotos</b>: en la escala de magnitud, cada punto más supone unas 32 veces más energía liberada; un terremoto de magnitud 7 libera unas 1.000 veces más energía que uno de magnitud 5.</li></ul><p>Las escalas logarítmicas <mark>convierten multiplicaciones en sumas</mark> y permiten comparar en una misma gráfica cantidades muy dispares. Por eso también se usan en gráficos de contagios, de población o de bolsa.</p>`,
+      svg: barras("Niveles sonoros en decibelios: susurro 30, conversación 60, tráfico 80, concierto 110 y avión despegando 130", [["susurro", 30, "var(--leaf)"], ["charla", 60, "var(--pen)"], ["tráfico", 80, "var(--inf)"], ["concierto", 110, "var(--red)"], ["avión", 130, "var(--red)"]], 140, { unidad: " dB" }),
+    },
+    {
+      html: `<h3>2.14 Elegir la operación adecuada en un problema</h3><p>Muchas situaciones reales responden a la fórmula <b>C = C₀ · aᵗ</b>: un valor inicial C₀ que se multiplica por un factor a en cada periodo t. Es el caso de un capital al 3 % anual (a = 1,03), de una población de bacterias que se duplica (a = 2) o de un medicamento que el cuerpo elimina a razón de un 20 % por hora (a = 0,8). Según qué dato falte, se usa una operación distinta:</p><ul><li>Si se busca el <b>valor final</b> C, se calcula una <b>potencia</b>: 1.000 € al 3 % durante 5 años son 1000 · 1,03⁵ ≈ 1.159,27 €.</li><li>Si se busca el <b>factor</b> a, se calcula una <b>raíz</b>: si un precio pasa de 50 € a 72 € en 2 años, a = √(72/50) = 1,2, una subida del 20 % anual.</li><li>Si se busca el <b>tiempo</b> t, se calcula un <b>logaritmo</b>: para que 0,8ᵗ = 0,1 hacen falta t = log 0,1 / log 0,8 ≈ 10,3 horas.</li></ul><p>Antes de calcular, <mark>identifica qué letra es la incógnita</mark>: así sabrás si toca potencia, raíz o logaritmo y evitarás aplicar fórmulas a ciegas.</p>`,
+      svg: lienzo("Triángulo de decisiones: si falta el resultado se usa una potencia, si falta la base una raíz y si falta el exponente un logaritmo", `${t(130, 34, "C = C₀ · aᵗ", { s: 20, b: 1 })}${[["falta C", "potencia", "var(--pen)", 50], ["falta a", "raíz", "var(--leaf)", 130], ["falta t", "logaritmo", "var(--red)", 210]].map(([q, r, c, x]) => `<rect x="${x - 36}" y="62" width="72" height="84" rx="10" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>${t(x, 90, q, { s: 12, b: 1, c: "var(--muted)" })}${t(x, 104, "↓", { s: 13, b: 1, c })}${t(x, 126, r, { s: 13, b: 1, c })}`).join("")}${t(130, 168, "¿qué letra es la incógnita?", { s: 11, c: "var(--muted)" })}`),
     },
   ],
-  figura: {
-    titulo: "Potencia, raíz y logaritmo: tres caras de la misma operación",
-    svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Con 2 elevado a 3 igual a 8: la potencia busca el 8, la raíz busca la base 2 y el logaritmo busca el exponente 3">
-      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      <text x="320" y="50" text-anchor="middle" font-size="40" font-weight="800" fill="var(--ink)" ${D}><tspan fill="var(--leaf)">2</tspan><tspan dy="-16" font-size="26" fill="var(--red)">3</tspan><tspan dy="16"> = </tspan><tspan fill="var(--pen)">8</tspan></text>
-      ${[["POTENCIA", "busco el resultado", "2³ = ?", "var(--pen)"], ["RAÍZ", "busco la base", "∛8 = ?", "var(--leaf)"], ["LOGARITMO", "busco el exponente", "log₂ 8 = ?", "var(--red)"]].map(([n, d, f, c], i) => `<rect x="${24 + i * 202}" y="82" width="188" height="120" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
-        <text x="${118 + i * 202}" y="116" text-anchor="middle" font-size="20" font-weight="700" fill="${c}" ${D}>${n}</text><text x="${118 + i * 202}" y="144" text-anchor="middle" font-size="14" fill="var(--muted)" ${F}>${d}</text><text x="${118 + i * 202}" y="180" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink)" ${F}>${f}</text>`).join("")}
-    </svg>`,
+  ejemplos: [
+    { enunciado: "Simplifica (2⁻³ · 4²) / 8⁻¹ y da el resultado como potencia de 2.", pasos: ["Escribimos todo en base 2: 4² = (2²)² = 2⁴ y 8⁻¹ = (2³)⁻¹ = 2⁻³.", "Numerador: 2⁻³ · 2⁴ = 2¹.", "Cociente: 2¹ : 2⁻³ = 2¹⁻⁽⁻³⁾ = 2⁴."], resultado: "2⁴ = 16." },
+    { enunciado: "Calcula (4,2 · 10⁷ · 5 · 10⁻³) / (1,5 · 10²) y exprésalo en notación científica.", pasos: ["Mantisas: 4,2 · 5 / 1,5 = 14.", "Exponentes: 7 − 3 − 2 = 2.", "14 · 10² = 1,4 · 10³."], resultado: "1,4 · 10³." },
+    { enunciado: "Simplifica √50 + 2√18 − √8.", pasos: ["Extraemos factores: √50 = √(2 · 5²) = 5√2.", "2√18 = 2 · √(2 · 3²) = 2 · 3√2 = 6√2.", "√8 = √(2³) = 2√2.", "Son semejantes: (5 + 6 − 2)√2."], resultado: "9√2." },
+    { enunciado: "Racionaliza 6/(√5 + √2).", pasos: ["Multiplicamos por el conjugado √5 − √2 arriba y abajo.", "Denominador: (√5)² − (√2)² = 5 − 2 = 3.", "Queda 6(√5 − √2)/3."], resultado: "2(√5 − √2) = 2√5 − 2√2." },
+    { enunciado: "Calcula log₂ 64 + log₃ (1/27) − log 0,01.", pasos: ["2⁶ = 64, luego log₂ 64 = 6.", "3⁻³ = 1/27, luego log₃ (1/27) = −3.", "10⁻² = 0,01, luego log 0,01 = −2.", "6 + (−3) − (−2) = 5."], resultado: "5." },
+    { enunciado: "Un capital de 2.000 € crece un 4 % anual. ¿Cuántos años tarda en llegar a 3.000 €?", pasos: ["Planteamos 2000 · 1,04ⁿ = 3000, es decir, 1,04ⁿ = 1,5.", "Tomamos logaritmos: n · log 1,04 = log 1,5.", "n = log 1,5 / log 1,04 ≈ 0,1761 / 0,0170 ≈ 10,34."], resultado: "Hacen falta 11 años completos (a los 10 años aún no llega)." },
+  ],
+  errores: [
+    "Creer que un exponente negativo da un resultado negativo: 2⁻³ = 1/8, que es positivo.",
+    "Confundir −2⁴ (= −16) con (−2)⁴ (= 16).",
+    "Sumar potencias o radicales como si se pudieran juntar: 2³ + 2² ≠ 2⁵ y √9 + √16 ≠ √25.",
+    "Multiplicar radicales de distinto índice sin reducirlos antes a índice común.",
+    "Aplicar mal las propiedades del logaritmo: log (x + y) ≠ log x + log y y (log x)² ≠ 2 log x.",
+    "Calcular el logaritmo de 0 o de un número negativo, que no existen.",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Calcula: 3⁻², (−2)⁵, −3⁴, (1/2)⁻³, 7⁰.", sol: "3⁻² = 1/9; (−2)⁵ = −32; −3⁴ = −81 (el signo no está elevado); (1/2)⁻³ = 2³ = 8; 7⁰ = 1." },
+    { nivel: "básico", q: "Expresa como una sola potencia: a) 5³ · 5⁻⁷; b) (2⁴)⁻²; c) 6⁵ : 6⁸.", sol: "a) 5³⁺⁽⁻⁷⁾ = 5⁻⁴. b) 2⁴·⁽⁻²⁾ = 2⁻⁸. c) 6⁵⁻⁸ = 6⁻³." },
+    { nivel: "básico", q: "Escribe en notación científica: 45.600.000, 0,000 082 y 0,5.", sol: "4,56 · 10⁷; 8,2 · 10⁻⁵; 5 · 10⁻¹." },
+    { nivel: "básico", q: "Calcula (6 · 10⁴) · (3 · 10⁻⁹) y expresa el resultado en notación científica.", sol: "Mantisas: 6 · 3 = 18. Exponentes: 4 − 9 = −5. 18 · 10⁻⁵ = 1,8 · 10⁻⁴." },
+    { nivel: "básico", q: "Calcula las raíces: ∛−27, ⁴√16, ⁵√32, √(49/100). ¿Existe ⁴√−16?", sol: "∛−27 = −3; ⁴√16 = 2; ⁵√32 = 2; √(49/100) = 7/10. ⁴√−16 no existe en ℝ: índice par y radicando negativo." },
+    { nivel: "básico", q: "Escribe como potencia: ∛(x²), √5, 1/⁴√7. Y como radical: 3^(2/5), a^(−1/2).", sol: "x^(2/3); 5^(1/2); 7^(−1/4). 3^(2/5) = ⁵√9; a^(−1/2) = 1/√a." },
+    { nivel: "básico", q: "Calcula 27^(2/3) y 32^(−3/5).", sol: "27^(2/3) = (∛27)² = 3² = 9. 32^(−3/5) = 1/(⁵√32)³ = 1/2³ = 1/8." },
+    { nivel: "básico", q: "Extrae factores: √12, √75, ∛16, √(18a³).", sol: "√12 = 2√3; √75 = 5√3; ∛16 = 2∛2; √(18a³) = √(2 · 3² · a² · a) = 3a√(2a)." },
+    { nivel: "básico", q: "Suma: 2√3 + 5√3 − √3 y √20 + √45.", sol: "6√3. √20 = 2√5 y √45 = 3√5, así que la suma es 5√5." },
+    { nivel: "básico", q: "Racionaliza: 3/√3 y 10/√5.", sol: "3√3/3 = √3. 10√5/5 = 2√5." },
+    { nivel: "básico", q: "Calcula aplicando la definición: log₂ 16, log₅ 1, log 1000, log₃ 3, log₂ (1/8).", sol: "4 (2⁴ = 16); 0 (5⁰ = 1); 3 (10³); 1; −3 (2⁻³ = 1/8)." },
+    { nivel: "básico", q: "Escribe en forma de potencia: log₇ 49 = 2, log 0,001 = −3, log₂₇ 3 = 1/3.", sol: "7² = 49; 10⁻³ = 0,001; 27^(1/3) = 3." },
+    { nivel: "medio", q: "Simplifica (9² · 27⁻¹) / 3⁻⁴ como potencia de 3.", sol: "9² = 3⁴; 27⁻¹ = 3⁻³. Numerador: 3⁴⁻³ = 3¹. Entre 3⁻⁴: 3¹⁺⁴ = 3⁵ = 243." },
+    { nivel: "medio", q: "Calcula 2,5 · 10⁶ + 3,8 · 10⁵ − 4 · 10⁴ en notación científica.", sol: "Igualamos a 10⁴: 250 · 10⁴ + 38 · 10⁴ − 4 · 10⁴ = 284 · 10⁴ = 2,84 · 10⁶." },
+    { nivel: "medio", q: "La luz recorre 3 · 10⁵ km/s. ¿Cuántos km recorre en un año (365 días)? Exprésalo en notación científica.", sol: "Un año tiene 365 · 24 · 3600 = 31.536.000 s ≈ 3,15 · 10⁷ s. Distancia: 3 · 10⁵ · 3,15 · 10⁷ ≈ 9,46 · 10¹² km (un año luz)." },
+    { nivel: "medio", q: "Ordena de menor a mayor reduciendo a índice común: √2, ∛3, ⁶√7.", sol: "Índice 6: √2 = ⁶√8; ∛3 = ⁶√9; ⁶√7. Orden: ⁶√7 < √2 < ∛3." },
+    { nivel: "medio", q: "Simplifica: ⁸√(a⁶), ¹²√(x⁸y⁴), ⁶√27.", sol: "⁸√a⁶ = a^(6/8) = ⁴√a³. ¹²√(x⁸y⁴) = x^(8/12) y^(4/12) = ∛(x²y). ⁶√27 = ⁶√3³ = √3." },
+    { nivel: "medio", q: "Calcula y simplifica: √6 · √15 · √10.", sol: "√(6 · 15 · 10) = √900 = 30." },
+    { nivel: "medio", q: "Expresa con un único radical: √2 · ∛4.", sol: "√2 = ⁶√(2³) = ⁶√8 y ∛4 = ⁶√(4²) = ⁶√16. Producto: ⁶√128 = ⁶√(2⁷) = 2·⁶√2." },
+    { nivel: "medio", q: "Simplifica 3√8 − 2√50 + √72 − √18.", sol: "3 · 2√2 − 2 · 5√2 + 6√2 − 3√2 = (6 − 10 + 6 − 3)√2 = −√2." },
+    { nivel: "medio", q: "Racionaliza: 4/∛2 y 2/(1 + √3).", sol: "4∛(2²)/∛(2³) = 4∛4/2 = 2∛4. 2(1 − √3)/(1 − 3) = 2(1 − √3)/(−2) = √3 − 1." },
+    { nivel: "medio", q: "Sabiendo que log 2 ≈ 0,301 y log 3 ≈ 0,477, calcula log 12, log 1,5 y log ∛9.", sol: "log 12 = 2 log 2 + log 3 ≈ 1,079. log 1,5 = log 3 − log 2 ≈ 0,176. log ∛9 = (2/3) log 3 ≈ 0,318." },
+    { nivel: "medio", q: "Calcula con la calculadora usando el cambio de base: log₂ 50 y log₅ 7. Estima antes el resultado.", sol: "Estimaciones: 2⁵ = 32 < 50 < 64 = 2⁶ → entre 5 y 6; 5¹ = 5 < 7 < 25 → entre 1 y 2. log 50 / log 2 ≈ 5,64; log 7 / log 5 ≈ 1,21." },
+    { nivel: "medio", q: "Agrupa en un solo logaritmo: 2 log 3 + log 5 − log 15.", sol: "log 9 + log 5 − log 15 = log (9 · 5 / 15) = log 3." },
+    { nivel: "medio", q: "Un sonido de 90 dB, ¿cuántas veces más intenso es que uno de 60 dB?", sol: "La diferencia es 30 dB, es decir, 3 saltos de 10 dB. Intensidad: 10³ = 1.000 veces mayor." },
+    { nivel: "medio", q: "Resuelve 5ˣ = 80 con logaritmos.", sol: "x = log 80 / log 5 ≈ 1,9031 / 0,6990 ≈ 2,72 (comprobación: 5² = 25 y 5³ = 125, coherente)." },
+    { nivel: "avanzado", q: "Simplifica √(x · ∛(x²)) como potencia de x y como radical.", sol: "x · x^(2/3) = x^(5/3). Su raíz cuadrada: x^(5/6) = ⁶√(x⁵)." },
+    { nivel: "avanzado", q: "Racionaliza y simplifica: (√3 + √2)/(√3 − √2).", sol: "Multiplicamos por √3 + √2: (√3 + √2)²/(3 − 2) = 3 + 2√6 + 2 = 5 + 2√6." },
+    { nivel: "avanzado", q: "Demuestra que logₐ (x · y) = logₐ x + logₐ y usando la definición.", sol: "Sean m = logₐ x y n = logₐ y, es decir, aᵐ = x y aⁿ = y. Entonces x · y = aᵐ · aⁿ = aᵐ⁺ⁿ, y por definición logₐ (x · y) = m + n = logₐ x + logₐ y." },
+    { nivel: "avanzado", q: "Si log x = 0,6 y log y = −0,2, calcula log (x² · √y / 100).", sol: "2 log x + (1/2) log y − log 100 = 1,2 − 0,1 − 2 = −0,9." },
+    { nivel: "avanzado", q: "¿Cuántas cifras tiene 2¹⁰⁰? (Usa log 2 ≈ 0,30103.)", sol: "log 2¹⁰⁰ = 100 · 0,30103 = 30,103. Entonces 2¹⁰⁰ = 10³⁰·¹⁰³, que está entre 10³⁰ y 10³¹: tiene 31 cifras." },
+    { nivel: "avanzado", q: "El pH de una disolución es 3,5. Calcula su concentración de H⁺ y compárala con la de otra de pH 5.", sol: "[H⁺] = 10⁻³·⁵ ≈ 3,16 · 10⁻⁴ mol/L. La de pH 5 tiene 10⁻⁵. Cociente: 10¹·⁵ ≈ 31,6: la primera es unas 32 veces más ácida." },
+    { nivel: "avanzado", q: "Una población de 5.000 bacterias se duplica cada 3 horas. ¿Cuándo llegará a 1.000.000?", sol: "5000 · 2^(t/3) = 10⁶ → 2^(t/3) = 200 → t/3 = log 200 / log 2 ≈ 7,64 → t ≈ 22,9 horas." },
+    { nivel: "avanzado", q: "Calcula sin calculadora: log₄ 8 + log₉ 27 − log₈ 2.", sol: "log₄ 8: 4ˣ = 8 → 2²ˣ = 2³ → x = 3/2. log₉ 27: 3²ˣ = 3³ → 3/2. log₈ 2: 2³ˣ = 2 → 1/3. Total: 3/2 + 3/2 − 1/3 = 8/3." },
+    { nivel: "avanzado", q: "Compara sin calculadora 2⁵⁰ y 3³⁰.", sol: "2⁵⁰ = (2⁵)¹⁰ = 32¹⁰ y 3³⁰ = (3³)¹⁰ = 27¹⁰. Como 32 > 27, 2⁵⁰ > 3³⁰." },
+  ],
+  quiz: reparte([
+    { q: "¿Cuánto vale 2⁻³?", o: ["−8", "1/8", "−1/8", "8"], a: 1, e: "El exponente negativo invierte la base: 1/2³." },
+    { q: "(−3)² y −3² valen…", o: ["9 y 9", "−9 y 9", "9 y −9", "−9 y −9"], a: 2, e: "En −3² el signo no está elevado." },
+    { q: "a⁵ · a⁻² · a⁰ =", o: ["a³", "a⁷", "a⁰", "a¹⁰"], a: 0, e: "5 − 2 + 0 = 3." },
+    { q: "En notación científica, 0,00045 es…", o: ["45 · 10⁻⁵", "4,5 · 10⁻⁴", "4,5 · 10⁴", "0,45 · 10⁻³"], a: 1, e: "Mantisa entre 1 y 10." },
+    { q: "(2 · 10³) · (5 · 10⁴) =", o: ["10 · 10⁷", "1 · 10⁸", "7 · 10⁷", "1 · 10¹²"], a: 1, e: "10 · 10⁷ = 1 · 10⁸." },
+    { q: "∛−64 =", o: ["4", "−4", "No existe", "±4"], a: 1, e: "Índice impar: (−4)³ = −64." },
+    { q: "16^(3/4) =", o: ["12", "8", "64", "4/3"], a: 1, e: "(⁴√16)³ = 2³ = 8." },
+    { q: "x^(2/5) como radical es…", o: ["²√(x⁵)", "⁵√(x²)", "x²/5", "√x/5"], a: 1, e: "El denominador es el índice." },
+    { q: "√48 simplificado es…", o: ["4√3", "2√12", "16√3", "3√4"], a: 0, e: "48 = 16 · 3." },
+    { q: "2√5 + 3√5 =", o: ["5√10", "5√5", "6√5", "√50"], a: 1, e: "Radicales semejantes: se suman los coeficientes." },
+    { q: "√2 · √8 =", o: ["√10", "4", "16", "2√2"], a: 1, e: "√16 = 4." },
+    { q: "Para racionalizar 1/(2 + √3) se multiplica por…", o: ["√3", "2 + √3", "2 − √3", "2"], a: 2, e: "El conjugado." },
+    { q: "log₃ 81 =", o: ["3", "4", "27", "1/4"], a: 1, e: "3⁴ = 81." },
+    { q: "log 0,1 =", o: ["1", "−1", "0,1", "No existe"], a: 1, e: "10⁻¹ = 0,1." },
+    { q: "¿Cuál de estos logaritmos no existe?", o: ["log 1", "log₂ 0,5", "log (−10)", "ln e"], a: 2, e: "No hay logaritmos de negativos." },
+    { q: "log 5 + log 20 =", o: ["log 25", "2", "100", "log 4"], a: 1, e: "log 100 = 2." },
+    { q: "log x³ =", o: ["(log x)³", "3 log x", "log 3x", "log x + 3"], a: 1, e: "Propiedad de la potencia." },
+    { q: "log₂ 10 equivale a…", o: ["log 2 / log 10", "log 10 / log 2", "log 10 − log 2", "10 / 2"], a: 1, e: "Cambio de base." },
+    { q: "Si 2ˣ = 20, x está entre…", o: ["2 y 3", "3 y 4", "4 y 5", "9 y 10"], a: 2, e: "2⁴ = 16 y 2⁵ = 32." },
+    { q: "Subir 20 dB multiplica la intensidad del sonido por…", o: ["2", "20", "100", "200"], a: 2, e: "Cada 10 dB, por 10: 10²." },
+  ]),
+  examen: reparte([
+    { q: "(2³)⁻² · 2⁷ =", o: ["2", "2¹³", "2⁻¹", "2⁸"], a: 0, e: "2⁻⁶ · 2⁷ = 2¹." },
+    { q: "La masa de un electrón es 0,000…091 kg con 30 ceros tras la coma. En notación científica es…", o: ["9,1 · 10⁻³¹", "9,1 · 10⁻³⁰", "91 · 10⁻³²", "9,1 · 10³¹"], a: 0, e: "La coma se mueve 31 lugares." },
+    { q: "√3 · ∛3 =", o: ["⁶√3", "⁶√(3⁵)", "∛9", "3"], a: 1, e: "3^(1/2 + 1/3) = 3^(5/6)." },
+    { q: "6/√2 racionalizado es…", o: ["3√2", "6√2", "√3", "12"], a: 0, e: "6√2/2." },
+    { q: "log₂ 1/16 =", o: ["4", "−4", "1/4", "−1/4"], a: 1, e: "2⁻⁴ = 1/16." },
+    { q: "Si log a = 2, log (100a) =", o: ["200", "4", "102", "2"], a: 1, e: "log 100 + log a = 2 + 2." },
+    { q: "La ecuación 10ˣ = 500 tiene solución…", o: ["x = 50", "x = log 500 ≈ 2,7", "x = 5", "no tiene"], a: 1, e: "Por definición de logaritmo decimal." },
+    { q: "¿Qué es mayor, √5 o ∛11?", o: ["√5", "∛11", "son iguales", "no se puede saber"], a: 0, e: "⁶√125 frente a ⁶√121." },
+  ], 2),
+  feynman: ["Por qué a⁰ = 1 y qué significa un exponente negativo", "Qué relación hay entre raíces y potencias de exponente fraccionario", "Cuándo se pueden sumar dos radicales", "Para qué sirve racionalizar", "Qué pregunta responde un logaritmo y cómo se calcula con la calculadora"],
+  glosario: [
+    ["Potencia", "Producto de un número (base) por sí mismo tantas veces como indica el exponente."],
+    ["Exponente negativo", "Indica el inverso: a⁻ⁿ = 1/aⁿ."],
+    ["Notación científica", "Escritura a · 10ⁿ con 1 ≤ |a| < 10."],
+    ["Orden de magnitud", "Exponente de 10 en la notación científica de un número."],
+    ["Radical", "Expresión ⁿ√a que representa la raíz n-ésima de a."],
+    ["Índice", "Número n de un radical; indica qué raíz se calcula."],
+    ["Radicando", "Número que está dentro de la raíz."],
+    ["Radicales semejantes", "Los que tienen igual índice e igual radicando; se pueden sumar."],
+    ["Exponente fraccionario", "a^(m/n) = ⁿ√(aᵐ)."],
+    ["Racionalizar", "Eliminar las raíces del denominador de una fracción."],
+    ["Conjugado", "Binomio con el signo central cambiado: el de a + √b es a − √b."],
+    ["Logaritmo", "logₐ x es el exponente al que se eleva a para obtener x."],
+    ["Logaritmo decimal", "El de base 10; se escribe log x."],
+    ["Logaritmo neperiano", "El de base e ≈ 2,718; se escribe ln x."],
+    ["Cambio de base", "logₐ x = log x / log a."],
+    ["Escala logarítmica", "Escala en la que cada unidad multiplica la magnitud por un factor fijo (dB, pH)."],
+  ],
+  situacion: {
+    titulo: "¿Cuánto ruido hay en el instituto?",
+    reto: "La dirección quiere saber si el ruido del comedor, del patio y de los pasillos puede afectar a la salud y a la concentración. Vuestro reto es medir los niveles sonoros con una aplicación de sonómetro, interpretarlos con logaritmos y proponer medidas para reducir el ruido.",
+    pasos: [
+      "Investigad qué es el decibelio, cómo se calcula (10 · log I/I₀) y qué niveles recomienda la OMS en espacios educativos.",
+      "Con una aplicación de sonómetro, medid el nivel sonoro en cinco lugares y momentos distintos, tres veces cada uno, y calculad la media.",
+      "Comparad los lugares: calculad cuántas veces más intensa es la energía sonora de unos respecto de otros usando potencias de 10.",
+      "Representad los datos en un gráfico de barras y marcad el umbral recomendado.",
+      "Calculad cuántos decibelios habría que reducir en el lugar más ruidoso para dividir su intensidad entre 10 o entre 100.",
+      "Proponed al menos tres medidas concretas y razonadas para bajar el ruido.",
+    ],
+    producto: "Un póster o presentación con el mapa de ruido del centro, los cálculos con logaritmos y las propuestas de mejora para la dirección.",
+    evaluacion: [
+      "Mide con rigor y registra los datos de forma ordenada.",
+      "Interpreta correctamente la escala logarítmica y calcula cocientes de intensidad.",
+      "Comunica los resultados con gráficos claros y vocabulario matemático preciso.",
+      "Propone medidas realistas justificadas con los datos.",
+    ],
   },
+  figura: require("./_matb-base-potencias-logaritmos").figura,
   video: { id: "pZTuEHrnOMg", titulo: "Logaritmos | Introducción conceptos básicos", canal: "Matemáticas profe Alex", vistas: 5929584, megusta: 125779, busqueda: "logaritmos explicación" },
-  quiz: [
-    { q: "¿Cuánto vale 5⁻²?", o: ["−25", "1/25", "−10"], a: 1, e: "Exponente negativo = inverso: 5⁻² = 1/5² = 1/25." },
-    { q: "Escribe 16³ᐟ⁴ como número.", o: ["8", "12", "64"], a: 0, e: "16³ᐟ⁴ = (⁴√16)³ = 2³ = 8." },
-    { q: "Extrae factores: √72 =", o: ["6√2", "8√3", "36√2"], a: 0, e: "72 = 36 · 2, así que √72 = 6√2." },
-    { q: "¿Cuánto vale log₃ 81?", o: ["27", "4", "3"], a: 1, e: "3⁴ = 81, así que el exponente es 4." },
-    { q: "Si log 2 ≈ 0,301, ¿cuánto vale log 8?", o: ["0,903", "2,408", "0,602"], a: 0, e: "log 8 = log 2³ = 3 · log 2 ≈ 0,903." },
-  ],
-  examen: [
-    { q: "Racionaliza 6 / √3.", o: ["2√3", "6√3", "√3 / 2"], a: 0, e: "6√3 / 3 = 2√3." },
-    { q: "Simplifica (x³)² · x⁻⁴.", o: ["x²", "x⁵", "x¹⁰"], a: 0, e: "x⁶ · x⁻⁴ = x²." },
-    { q: "log₅ 1 =", o: ["1", "5", "0"], a: 2, e: "Cualquier base elevada a 0 da 1." },
-  ],
-  feynman: ["Por qué a⁰ = 1 y qué significa un exponente negativo", "Qué relación hay entre raíces y potencias de exponente fracción", "Qué pregunta responde un logaritmo", "Cómo resolver el problema de las bacterias con logaritmos"],
   mapa: mapa("POTENCIAS Y LOGARITMOS", "var(--bac)", [
     ["Potencias", "aᵐ·aⁿ = aᵐ⁺ⁿ · a⁻ⁿ = 1/aⁿ", "var(--pen)"],
-    ["Radicales", "ⁿ√aᵐ = aᵐ/ⁿ · racionalizar", "var(--leaf)"],
-    ["Logaritmo", "logₐ x = y ⇔ aʸ = x", "var(--red)"],
-    ["Propiedades log", "producto → suma · aⁿ → n·log", "var(--inf)"],
-  ], 270),
+    ["Radicales", "ⁿ√aᵐ = a^(m/n)", "var(--leaf)"],
+    ["Logaritmos", "logₐ x = y ⇔ aʸ = x", "var(--red)"],
+    ["Propiedades log", "producto → suma", "var(--inf)"],
+  ], 260),
   tarjetas: [
-    ["a⁻ⁿ =", "1 / aⁿ"],
-    ["ⁿ√aᵐ como potencia", "aᵐ/ⁿ"],
-    ["¿Qué es racionalizar?", "Quitar las raíces del denominador multiplicando por la raíz o por el conjugado."],
-    ["logₐ x = y significa…", "aʸ = x"],
-    ["log(a·b) =", "log a + log b"],
+    ["¿Qué significa a⁻ⁿ?", "El inverso de aⁿ: 1/aⁿ."],
+    ["¿Cuánto vale a⁰ (a ≠ 0)?", "1."],
+    ["Notación científica", "a · 10ⁿ con 1 ≤ |a| < 10."],
+    ["¿Cómo se suman números en notación científica?", "Igualando antes los exponentes."],
+    ["a^(m/n) como radical", "ⁿ√(aᵐ)"],
+    ["¿Cuándo no existe una raíz real?", "Con índice par y radicando negativo."],
+    ["¿Qué radicales se pueden sumar?", "Los semejantes: mismo índice y mismo radicando."],
+    ["Racionalizar 1/(a − √b)", "Multiplicar arriba y abajo por el conjugado a + √b."],
+    ["Definición de logaritmo", "logₐ x = y ⇔ aʸ = x."],
+    ["log (x · y)", "log x + log y"],
+    ["log xⁿ", "n · log x"],
+    ["Cambio de base", "logₐ x = log x / log a"],
   ],
-  familias: ["Preguntadle cuántas veces hay que doblar una hoja para que su grosor llegue a la Luna (unas 42): es un problema de potencias.", "Pedidle que explique por qué la escala de los terremotos es logarítmica.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  familias: ["Haced el experimento de doblar un folio y calculad juntos cuánto mediría tras 10, 20 y 42 dobleces.", "Buscad en las noticias números en notación científica (distancias, presupuestos, virus) y leedlos en voz alta.", "Usad una aplicación de sonómetro en casa y comparad los decibelios de la tele, la calle o una conversación.", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Sentido numérico y algebraico: potencias de exponente racional, radicales y logaritmos (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["Doblar papel y registrar el grosor para introducir el crecimiento exponencial.", "Usar la escala de Richter o los decibelios como contexto real del logaritmo.", "Dominó de equivalencias entre raíces y potencias de exponente fraccionario."],
+    saberes: "Sentido numérico: potencias de exponente entero y fraccionario, radicales, notación científica y logaritmos; uso de la calculadora y estimación (RD 217/2022, Matemáticas B de 4º, saberes básicos A. Sentido numérico y D. Sentido algebraico).",
+    ideas: ["Experimento del folio: medir el grosor de un paquete de 500 hojas y estimar cuántos dobleces llevarían a la Luna.", "Construir una escala de tamaños del universo en notación científica en una tira de papel.", "Trabajo interdisciplinar con Física y Química: el pH y los decibelios como logaritmos.", "Recrear el uso histórico de las tablas de logaritmos multiplicando números grandes con sumas."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Logaritmo, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Logaritmo" },
+    { t: "Organización Mundial de la Salud: ruido y salud", url: "https://www.who.int/europe/news-room/fact-sheets/item/noise" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Operar con radicales: extraer factores, sumar y multiplicar", "Usar el cambio de base y aplicar los logaritmos a escalas reales"],
-  tras: {
-    "Radicales: potencias de exponente fraccionario": [
-      { html: `<h3>Operaciones con radicales</h3><p>Para <b>extraer factores</b> de una raíz se descompone el radicando y se saca cada factor cuyo exponente sea mayor o igual que el índice: √72 = √(2³ · 3²) = 2 · 3 · √2 = 6√2. Solo se pueden <b>sumar</b> radicales <b>semejantes</b>, con el mismo índice y el mismo radicando: 3√2 + 5√2 = 8√2, pero √2 + √3 no se puede simplificar. Por eso a menudo hay que extraer factores antes de sumar. Para <b>multiplicar</b> radicales del mismo índice se multiplican los radicandos: <mark>√a · √b = √(a · b)</mark>. Si tienen distinto índice, se pasan antes a índice común.</p><div class="formula"><span>√50 + √18 = 5√2 + 3√2 = 8√2</span></div>` },
-    ],
-    "Propiedades de los logaritmos": [
-      { html: `<h3>Logaritmos decimales, neperianos y cambio de base</h3><p>Las calculadoras tienen dos teclas de logaritmos: <b>log</b>, el logaritmo <b>decimal</b> (base 10), y <b>ln</b>, el <b>neperiano</b> (base e ≈ 2,718). Para calcular un logaritmo en otra base se usa la fórmula del <b>cambio de base</b>: <mark>logₐ x = log x / log a</mark>. Así, log₂ 50 = log 50 / log 2 ≈ 1,699 / 0,301 ≈ 5,64. Esto permite resolver ecuaciones exponenciales en las que no se pueden igualar las bases: de 2ˣ = 50 se obtiene x = log₂ 50 ≈ 5,64.</p>`, video: { id: "0bq7zE3yq4s", titulo: "Cambio de base en logaritmos", canal: "Susi Profe", vistas: 245575 } },
-      { html: `<h3>Logaritmos en la vida real</h3><p>Los logaritmos convierten números enormes en escalas manejables. La <b>escala de Richter</b> de los terremotos es logarítmica: un terremoto de magnitud 7 libera unas 32 veces más energía que uno de 6, y su amplitud es 10 veces mayor. El <b>pH</b> de una disolución es pH = −log [H⁺]: el zumo de limón (pH 2) es cien mil veces más ácido que el agua pura (pH 7), porque la diferencia es de 5 unidades y 10⁵ = 100.000. Los <b>decibelios</b> del sonido también: cada 10 dB más supone una intensidad <mark>10 veces mayor</mark>. Por eso pasar de 60 dB a 90 dB no es «un poco más de ruido», sino mil veces más intensidad.</p>` },
-    ],
-  },
-  final: [
-    { html: `<h3>Ecuaciones logarítmicas</h3><p>En una <b>ecuación logarítmica</b> la incógnita está dentro de un logaritmo. La estrategia es usar las propiedades para dejar un <b>único logaritmo</b> a cada lado, log A = log B, y entonces igualar A = B. Otra opción es pasar a forma exponencial: log₃ x = 4 significa x = 3⁴ = 81. Al terminar es obligatorio <mark>comprobar las soluciones</mark>, porque el logaritmo solo existe para números positivos y alguna solución puede no ser válida.</p>` },
-  ],
-  ejemplos: [
-    { enunciado: "Simplifica √12 + √75 − √27.", pasos: ["√12 = 2√3; √75 = 5√3; √27 = 3√3.", "Son semejantes: 2√3 + 5√3 − 3√3.", "Se suman los coeficientes: 4√3."], resultado: "4√3." },
-    { enunciado: "Resuelve 3ˣ = 20.", pasos: ["No se puede escribir 20 como potencia exacta de 3.", "Se toman logaritmos: x = log 20 / log 3.", "x ≈ 1,301 / 0,477 ≈ 2,73."], resultado: "x ≈ 2,73." },
-    { enunciado: "Resuelve log x + log (x − 3) = 1.", pasos: ["Producto: log [x(x − 3)] = log 10.", "x² − 3x − 10 = 0, con soluciones x = 5 y x = −2.", "x = −2 no vale: el logaritmo de un negativo no existe."], resultado: "x = 5." },
-  ],
-  errores: [
-    "Sumar radicales no semejantes: √2 + √3 no es √5.",
-    "Escribir log (a + b) = log a + log b: la propiedad es para productos.",
-    "Olvidar comprobar las soluciones de las ecuaciones logarítmicas.",
-    "Pensar que una diferencia de 1 en la escala de Richter o en el pH es un cambio pequeño.",
-    "Racionalizar multiplicando solo el denominador por la raíz, sin multiplicar también el numerador.",
-  ],
-  ejercicios: [
-    { q: "Calcula 2⁻³ y (2/3)⁻².", sol: "1/8 y 9/4." },
-    { q: "Escribe como potencia: ∛(x²) y 1/√x.", sol: "x^(2/3) y x^(−1/2)." },
-    { q: "Extrae factores: √48 y ∛54.", sol: "4√3 y 3∛2." },
-    { q: "Calcula 2√8 − √32 + √50.", sol: "4√2 − 4√2 + 5√2 = 5√2." },
-    { q: "Racionaliza 6/√3 y 2/(√5 − 1).", sol: "2√3 y (√5 + 1)/2." },
-    { q: "Calcula log₂ 64, log 0,001 y ln e³.", sol: "6, −3 y 3." },
-    { q: "Si log 2 ≈ 0,301, calcula log 8 y log 5.", sol: "log 8 = 3 log 2 ≈ 0,903; log 5 = log 10 − log 2 ≈ 0,699." },
-    { q: "Calcula log₅ 40 con el cambio de base.", sol: "log 40 / log 5 ≈ 1,602 / 0,699 ≈ 2,29." },
-    { q: "Resuelve log₂ (x + 1) = 3.", sol: "x + 1 = 8, x = 7." },
-    { q: "Un sonido de 80 dB, ¿cuántas veces más intenso es que uno de 50 dB?", sol: "30 dB más: 10³ = 1.000 veces." },
-  ],
-  quiz: [
-    { q: "√2 + √8 es igual a…", o: ["√10", "3√2", "4"], a: 1, e: "√8 = 2√2." },
-    { q: "logₐ x = log x / log a se llama…", o: ["cambio de base", "regla del producto", "racionalización"], a: 0, e: "Para usar la calculadora." },
-    { q: "La tecla ln calcula el logaritmo en base…", o: ["10", "2", "e"], a: 2, e: "Logaritmo neperiano." },
-    { q: "Un pH de 3 frente a uno de 5 es…", o: ["2 veces más ácido", "100 veces más ácido", "igual"], a: 1, e: "10² = 100." },
-    { q: "En una ecuación logarítmica hay que…", o: ["comprobar las soluciones", "redondear siempre", "multiplicar por 10"], a: 0, e: "Solo hay logaritmos de positivos." },
-  ],
-  tarjetas: [
-    ["Radicales semejantes", "Mismo índice y mismo radicando; solo estos se suman."],
-    ["Cambio de base", "logₐ x = log x / log a."],
-    ["Escala logarítmica", "Cada unidad más multiplica la magnitud (pH, Richter, decibelios)."],
-  ],
-});

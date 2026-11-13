@@ -1,167 +1,241 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-
-// Ejes con origen (ox, oy) y escala k.
-const ejes = (ox = 80, oy = 140, k = 20) => `<path d="M10 ${oy} H 250 M${ox} 10 V 172" stroke="var(--line)" stroke-width="2"/>`;
-const recta = (m, n, c, ox = 80, oy = 140, k = 20) => { const y = (x) => oy - (m * x + n) * k; return `<path d="M${ox - 3.5 * k} ${y(-3.5)} L ${ox + 8.5 * k} ${y(8.5)}" stroke="${c}" stroke-width="3"/>`; };
+// Matemáticas B 4º ESO · Tema 5. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, graf } = require("./_eso4L3");
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Sistemas de ecuaciones",
-  minutos: 40,
-  objetivos: ["Resolver sistemas lineales por sustitución, igualación y reducción", "Interpretar la solución de un sistema como el corte de dos rectas", "Resolver sistemas no lineales sencillos y plantear problemas"],
-  claves: ["sistema", "sustitución", "igualación", "reducción", "compatible", "incompatible"],
+  minutos: 115,
+  objetivos: [
+    "Reconocer las soluciones de una ecuación lineal con dos incógnitas como los puntos de una recta",
+    "Resolver sistemas lineales por los métodos gráfico, de sustitución, de igualación y de reducción",
+    "Clasificar un sistema según su número de soluciones e interpretarlo gráficamente",
+    "Resolver sistemas sencillos de tres ecuaciones por el método de Gauss",
+    "Resolver sistemas no lineales e interpretar sus soluciones como puntos de corte",
+    "Plantear y resolver problemas de la vida real con sistemas",
+  ],
+  claves: ["sistema de ecuaciones", "solución", "sustitución", "igualación", "reducción", "compatible determinado", "incompatible", "método de Gauss", "sistema no lineal"],
+  lectura: {
+    titulo: "Gallinas, conejos y un libro de hace 1.500 años",
+    html: `<p>En un antiguo libro chino de matemáticas, el «Sunzi Suanjing», escrito hacia el siglo V, aparece un acertijo que todavía hoy se usa en clase: «En una jaula hay faisanes y conejos. Arriba se cuentan 35 cabezas y abajo, 94 patas. ¿Cuántos animales hay de cada clase?». El autor proponía un truco ingenioso: si todos los animales levantaran dos patas, quedarían 94 − 70 = 24 patas en el suelo, que solo pueden ser de conejos (dos cada uno). Por tanto, hay 12 conejos y 23 faisanes.</p>
+    <p>Aquel truco es, en realidad, un <b>sistema de ecuaciones</b> resuelto sin letras. Hoy lo escribiríamos así: x + y = 35 y 2x + 4y = 94. Dos datos, dos incógnitas, dos ecuaciones que se cumplen <b>a la vez</b>. Ninguna de las dos ecuaciones por separado basta para encontrar la respuesta; juntas, la determinan por completo.</p>
+    <p>Los sistemas de ecuaciones están por todas partes: un GPS calcula tu posición resolviendo sistemas con las señales de varios satélites, una nutricionista combina alimentos para conseguir las proteínas y calorías justas y una empresa decide cuántas unidades de cada producto fabricar. En este tema aprenderás varios métodos para resolverlos, a ver sus soluciones como puntos donde se cortan gráficas y, sobre todo, a traducir problemas reales a sistemas.</p>`,
+  },
   pregunta: {
     texto: "En una granja hay gallinas y conejos: en total 20 cabezas y 56 patas. ¿Cuántos animales hay de cada tipo?",
     respuesta: "Con dos incógnitas necesitas dos ecuaciones: <mark>x + y = 20</mark> (cabezas) y <mark>2x + 4y = 56</mark> (patas). Resolviendo el sistema: <b>12 gallinas y 8 conejos</b>.",
   },
   bloques: [
     {
-      html: `<h3>Qué es un sistema</h3><p>Es un grupo de ecuaciones que se cumplen <b>a la vez</b>. La solución es el par (x, y) que satisface todas. Cada ecuación lineal es una recta, y la solución es <mark>el punto donde se cortan</mark>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos rectas que se cortan en el punto (2, 3), la solución del sistema">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${ejes()}${recta(1, 1, "var(--pen)")}${recta(-0.5, 4, "var(--red)")}
-        <circle cx="${80 + 2 * 20}" cy="${140 - 3 * 20}" r="7" fill="var(--hl)" stroke="var(--ink)" stroke-width="2"/>
-        <g ${F} font-size="13" font-weight="700"><text x="${80 + 2 * 20 + 10}" y="${140 - 3 * 20 + 24}" fill="var(--ink)">(2, 3)</text><text x="200" y="30" fill="var(--pen)">y = x + 1</text><text x="150" y="165" fill="var(--red)">x + 2y = 8</text></g></svg>`,
+      html: `<h3>5.1 Ecuaciones lineales con dos incógnitas</h3><p>Una <b>ecuación lineal con dos incógnitas</b> tiene la forma ax + by = c, como 2x + y = 7. Una <b>solución</b> es un par de números (x, y) que la cumple: (1, 5), (2, 3) o (3, 1) son soluciones, porque 2 · 1 + 5 = 7, 2 · 2 + 3 = 7 y 2 · 3 + 1 = 7. En realidad hay <b>infinitas</b> soluciones: para cada valor de x se despeja y = 7 − 2x.</p><p>Si representamos todas esas soluciones como puntos del plano, forman una <b>recta</b>. Por eso estas ecuaciones se llaman lineales. Para dibujarla basta con dos puntos; los más cómodos suelen ser los cortes con los ejes: con x = 0 sale y = 7, y con y = 0 sale x = 3,5.</p><p>Esta interpretación geométrica es la idea clave del tema: <mark>cada ecuación lineal es una recta, y resolver un sistema es buscar los puntos comunes</mark> a varias rectas. En un problema real, a veces solo tienen sentido algunas soluciones: si x e y son números de entradas, solo valen los pares de números naturales.</p>`,
+      svg: graf("Recta 2x más y igual a 7 con tres de sus soluciones marcadas: (1, 5), (2, 3) y (3, 1)", { x0: -1, x1: 5, y0: -1, y1: 8, paso: 1 }, (E) => `${E.curva((x) => 7 - 2 * x, "var(--pen)")}${[[1, 5], [2, 3], [3, 1]].map(([x, y]) => E.punto(x, y, "var(--red)", `(${x}, ${y})`, 7, -2)).join("")}${t(E.X(4.9), E.Y(7.2), "2x + y = 7", { c: "var(--pen)", s: 12, b: 1, a: "end" })}`),
     },
     {
-      html: `<h3>Sustitución</h3><p><b>Despeja</b> una incógnita en una ecuación y <mark>sustitúyela</mark> en la otra. Es el método más cómodo cuando alguna incógnita tiene coeficiente 1.</p>
-      <div class="formula"><span>x + y = 20 → x = 20 − y</span></div><div class="formula"><span>2(20 − y) + 4y = 56 → 2y = 16 → y = 8, x = 12</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Sustitución: se despeja x en la primera ecuación y se mete en la segunda">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-weight="700" text-anchor="middle"><text x="130" y="40" font-size="17" fill="var(--ink)"><tspan fill="var(--pen)">x</tspan> + y = 20</text><text x="130" y="68" font-size="15" fill="var(--pen)">x = 20 − y</text>
-        <path d="M130 78 C 130 100 90 100 90 118" fill="none" stroke="var(--pen)" stroke-width="2.5" marker-end="url(#fs)"/><defs><marker id="fs" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--pen)"/></marker></defs>
-        <text x="130" y="140" font-size="17" fill="var(--ink)">2·<tspan fill="var(--pen)">(20 − y)</tspan> + 4y = 56</text><text x="130" y="168" font-size="14" fill="var(--leaf)">una ecuación con una incógnita</text></g></svg>`,
+      html: `<h3>5.2 Sistemas y método gráfico</h3><p>Un <b>sistema de dos ecuaciones lineales con dos incógnitas</b> está formado por dos ecuaciones que deben cumplirse <b>a la vez</b>:</p><div class="formula"><span>x + y = 5   ·   x − y = 1</span></div><p>Su <b>solución</b> es el par (x, y) que satisface las dos ecuaciones simultáneamente. En el ejemplo es (3, 2), porque 3 + 2 = 5 y 3 − 2 = 1.</p><p>El <b>método gráfico</b> consiste en dibujar las dos rectas en los mismos ejes: <mark>la solución es el punto donde se cortan</mark>. Para cada recta se hace una pequeña tabla con dos o tres valores. Este método tiene la ventaja de que se «ve» lo que pasa, pero es poco preciso si la solución no tiene coordenadas enteras, por ejemplo (1,37; 2,8). Por eso se combina con los métodos algebraicos de los apartados siguientes: primero se resuelve con cálculo y después se comprueba en la gráfica. Hoy, programas como GeoGebra permiten dibujar las rectas y encontrar su corte con toda precisión.</p>`,
+      svg: graf("Las rectas x más y igual a 5 y x menos y igual a 1 se cortan en el punto (3, 2), la solución del sistema", { x0: -1, x1: 6, y0: -2, y1: 6, paso: 1 }, (E) => `${E.curva((x) => 5 - x, "var(--pen)")}${E.curva((x) => x - 1, "var(--red)")}${E.punto(3, 2, "var(--leaf)", "(3, 2)", 8, 4)}${t(E.X(0.2), E.Y(5.3), "x + y = 5", { c: "var(--pen)", s: 11, b: 1, a: "start" })}${t(E.X(5.8), E.Y(5.4), "x − y = 1", { c: "var(--red)", s: 11, b: 1, a: "end" })}`),
+      video: { id: "lJ2yfxzmAkc", titulo: "Sistemas de ecuaciones: método gráfico, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 5114797, busqueda: "sistemas de ecuaciones método gráfico" },
     },
     {
-      html: `<h3>Igualación y reducción</h3><p><b>Igualación</b>: despeja la misma incógnita en las dos y <mark>iguala</mark> los resultados. <b>Reducción</b>: multiplica las ecuaciones para que una incógnita tenga coeficientes opuestos y <mark>súmalas</mark> para que desaparezca.</p>
-      <div class="formula"><span>(−2)·(x + y = 20) → −2x − 2y = −40</span><span class="op">+</span><span>2x + 4y = 56</span><span class="op">→</span><span>2y = 16</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Reducción: al sumar las dos ecuaciones, los términos en x se anulan">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-weight="700" font-size="17" text-anchor="end"><text x="200" y="50" fill="var(--ink)"><tspan fill="var(--red)">−2x</tspan> − 2y = −40</text><text x="200" y="84" fill="var(--ink)"><tspan fill="var(--red)">2x</tspan> + 4y = 56</text>
-        <text x="40" y="84" text-anchor="middle" fill="var(--muted)">+</text><path d="M50 98 H 210" stroke="var(--ink)" stroke-width="2.5"/><text x="200" y="128" fill="var(--leaf)">2y = 16</text></g>
-        <path d="M66 44 L 106 54 M66 78 L 96 88" stroke="var(--red)" stroke-width="2.5"/><text x="130" y="164" text-anchor="middle" font-size="12" fill="var(--muted)" ${F}>los términos opuestos se anulan</text></svg>`,
+      html: `<h3>5.3 Tipos de sistemas</h3><p>Dos rectas en el plano pueden estar en tres posiciones, y cada una corresponde a un tipo de sistema:</p><ul><li><b>Secantes</b> (se cortan en un punto): el sistema tiene <b>una única solución</b>. Es <b>compatible determinado</b> (SCD).</li><li><b>Paralelas</b> (no se cortan): el sistema <b>no tiene solución</b>. Es <b>incompatible</b> (SI). Por ejemplo, x + y = 2 y x + y = 5: dos números no pueden sumar 2 y 5 a la vez.</li><li><b>Coincidentes</b> (son la misma recta): el sistema tiene <b>infinitas soluciones</b>. Es <b>compatible indeterminado</b> (SCI). Por ejemplo, x + y = 2 y 3x + 3y = 6: la segunda es la primera multiplicada por 3, no aporta información nueva.</li></ul><p>Al resolver algebraicamente se detecta el tipo por lo que queda al final: si se llega a una igualdad falsa como <mark>0 = 3</mark>, el sistema es incompatible; si se llega a una identidad como <mark>0 = 0</mark>, es compatible indeterminado, y sus soluciones se escriben en función de un parámetro: (x, 2 − x) para cualquier x.</p>`,
+      svg: lienzo("Tres posiciones de dos rectas: secantes con una solución, paralelas sin solución y coincidentes con infinitas soluciones", `${[["SCD", "secantes", "1 solución", "var(--leaf)", [[10, 70, 70, 20], [10, 20, 70, 70]]], ["SI", "paralelas", "ninguna", "var(--red)", [[10, 60, 70, 20], [10, 80, 70, 40]]], ["SCI", "coincidentes", "infinitas", "var(--pen)", [[10, 70, 70, 20], [10, 70, 70, 20]]]].map(([n, a, b, c, ls], i) => { const ox = 6 + i * 84; return `<rect x="${ox}" y="24" width="80" height="96" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/>${ls.map(([x1, y1, x2, y2], k) => `<path d="M${ox + x1} ${24 + y1} L ${ox + x2} ${24 + y2}" stroke="${k ? "var(--red)" : "var(--pen)"}" stroke-width="${k && i === 2 ? 2 : 3}" ${k && i === 2 ? 'stroke-dasharray="5 4"' : ""}/>`).join("")}${t(ox + 40, 18, n, { s: 12, b: 1, c })}${t(ox + 40, 140, a, { s: 11, b: 1 })}${t(ox + 40, 158, b, { s: 11, c: "var(--muted)" })}`; }).join("")}`),
     },
     {
-      html: `<h3>Tipos de sistemas</h3><p>Según cómo sean las rectas:</p><ul><li><b>Compatible determinado</b>: se cortan en un punto, <mark>una solución</mark>.</li><li><b>Compatible indeterminado</b>: son la misma recta, infinitas soluciones.</li><li><b>Incompatible</b>: son paralelas, ninguna solución.</li></ul>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres casos: rectas que se cortan, rectas coincidentes y rectas paralelas">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M14 120 L 76 40 M14 50 L 76 120" stroke="var(--leaf)" stroke-width="3"/>
-        <path d="M98 120 L 160 40" stroke="var(--pen)" stroke-width="6"/><path d="M98 120 L 160 40" stroke="var(--hl)" stroke-width="2" stroke-dasharray="6 6"/>
-        <path d="M182 120 L 228 40 M200 120 L 246 40" stroke="var(--red)" stroke-width="3"/>
-        <g ${F} font-size="11" font-weight="700" text-anchor="middle"><text x="45" y="146" fill="var(--leaf)">se cortan</text><text x="45" y="162" fill="var(--leaf)">1 solución</text><text x="129" y="146" fill="var(--pen)">coinciden</text><text x="129" y="162" fill="var(--pen)">infinitas</text><text x="214" y="146" fill="var(--red)">paralelas</text><text x="214" y="162" fill="var(--red)">ninguna</text></g></svg>`,
+      html: `<h3>5.4 Método de sustitución</h3><p>El método de <b>sustitución</b> consiste en <mark>despejar una incógnita en una ecuación y sustituirla en la otra</mark>. Así se obtiene una ecuación con una sola incógnita.</p><p>Ejemplo: 3x + y = 11 y x − 2y = −1.</p><ol><li>Despejamos la incógnita más cómoda (la que tiene coeficiente 1 o −1): de la primera, y = 11 − 3x.</li><li>Sustituimos en la otra ecuación: x − 2(11 − 3x) = −1.</li><li>Resolvemos: x − 22 + 6x = −1 → 7x = 21 → x = 3.</li><li>Calculamos la otra incógnita con la expresión despejada: y = 11 − 9 = 2.</li><li>Comprobamos en las dos ecuaciones originales: 9 + 2 = 11 ✓ y 3 − 4 = −1 ✓.</li></ol><p>La sustitución es especialmente útil cuando una incógnita ya aparece despejada o tiene coeficiente ±1, y es el método preferido en los <b>sistemas no lineales</b>. Un error frecuente es sustituir en la misma ecuación de la que se ha despejado, lo que conduce a una identidad sin información (0 = 0).</p>`,
+      svg: tarjeta("Método de sustitución: se despeja y de la primera ecuación y se sustituye en la segunda", "Sustitución", [["y = 11 − 3x", "var(--pen)", 15], ["x − 2(11 − 3x) = −1", "var(--leaf)", 14], ["7x = 21 → x = 3", "var(--inf)", 15], ["y = 11 − 9 = 2", "var(--red)", 15]]),
     },
     {
-      html: `<h3>Sistemas no lineales</h3><p>Si alguna ecuación tiene x², xy o √, el sistema es <b>no lineal</b>. Casi siempre se resuelve por <mark>sustitución</mark>, y puede tener varias soluciones porque una recta puede cortar una curva en dos puntos.</p>
-      <div class="formula"><span>x + y = 5 · xy = 6 → x(5 − x) = 6 → x = 2 o x = 3</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una recta corta a una curva en dos puntos: un sistema no lineal con dos soluciones (2, 3) y (3, 2)">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M10 160 H 250 M30 10 V 172" stroke="var(--line)" stroke-width="2"/>
-        <path d="${[...Array(40)].map((_, i) => { const x = 1.1 + i * 0.13; return `${i ? "L" : "M"}${(30 + x * 30).toFixed(1)} ${(160 - (6 / x) * 26).toFixed(1)}`; }).join(" ")}" fill="none" stroke="var(--pen)" stroke-width="3"/>
-        <path d="M${30 + 0 * 30} ${160 - 5 * 26} L ${30 + 6 * 30} ${160 + 1 * 26}" stroke="var(--red)" stroke-width="3"/>
-        <circle cx="${30 + 2 * 30}" cy="${160 - 3 * 26}" r="6" fill="var(--hl)" stroke="var(--ink)" stroke-width="2"/><circle cx="${30 + 3 * 30}" cy="${160 - 2 * 26}" r="6" fill="var(--hl)" stroke="var(--ink)" stroke-width="2"/>
-        <g ${F} font-size="12" font-weight="700"><text x="${30 + 2 * 30 - 46}" y="${160 - 3 * 26 - 6}" fill="var(--ink)">(2, 3)</text><text x="${30 + 3 * 30 + 8}" y="${160 - 2 * 26 - 8}" fill="var(--ink)">(3, 2)</text><text x="200" y="128" fill="var(--pen)">xy = 6</text></g></svg>`,
+      html: `<h3>5.5 Método de igualación</h3><p>El método de <b>igualación</b> consiste en <mark>despejar la misma incógnita en las dos ecuaciones e igualar las expresiones</mark> obtenidas. Si dos cosas son iguales a y, son iguales entre sí.</p><p>Ejemplo: 2x + y = 8 y 3x − y = 7.</p><ol><li>Despejamos y en las dos: y = 8 − 2x; y = 3x − 7.</li><li>Igualamos: 8 − 2x = 3x − 7.</li><li>Resolvemos: 15 = 5x → x = 3.</li><li>Sustituimos en cualquiera de las expresiones: y = 8 − 6 = 2.</li></ol><p>La solución es (3, 2). La igualación es muy natural cuando las dos ecuaciones ya vienen con la misma incógnita despejada, algo habitual en problemas de tarifas: «la compañía A cobra y = 20 + 0,10x y la compañía B cobra y = 12 + 0,15x; ¿cuándo cuestan lo mismo?». Igualando, 20 + 0,10x = 12 + 0,15x, de donde x = 160 minutos. Gráficamente, es el punto donde se cruzan las rectas de las dos tarifas: a partir de ahí una pasa a ser más barata que la otra.</p>`,
+      svg: graf("Dos tarifas telefónicas: la A empieza en 20 euros y sube 0,10 por minuto; la B empieza en 12 y sube 0,15; se cruzan a los 160 minutos", { x0: 0, x1: 300, y0: 0, y1: 60, paso: 50, pasoY: 10, etiquetas: false, m: 18 }, (E) => `${E.curva((x) => 20 + 0.1 * x, "var(--pen)")}${E.curva((x) => 12 + 0.15 * x, "var(--red)")}${E.punto(160, 36, "var(--leaf)", "160 min, 36 €", -6, -8)}${t(E.X(20), E.Y(22) - 6, "A", { c: "var(--pen)", s: 13, b: 1 })}${t(E.X(20), E.Y(15) + 16, "B", { c: "var(--red)", s: 13, b: 1 })}${t(E.X(150), E.h - 4, "minutos", { c: "var(--muted)", s: 10 })}`),
+    },
+    {
+      html: `<h3>5.6 Método de reducción</h3><p>El método de <b>reducción</b> consiste en <mark>conseguir que una incógnita tenga coeficientes opuestos en las dos ecuaciones y sumarlas</mark>, para que esa incógnita desaparezca.</p><p>Ejemplo: 3x + 2y = 16 y 5x − 3y = 14. Para eliminar y, multiplicamos la primera por 3 y la segunda por 2 (los coeficientes de y pasan a ser 6 y −6):</p><div class="formula"><span>9x + 6y = 48  +  10x − 6y = 28  →  19x = 76  →  x = 4</span></div><p>Sustituyendo en la primera: 12 + 2y = 16, y = 2. Solución (4, 2).</p><p>La reducción es el método más eficaz cuando ninguna incógnita tiene coeficiente 1, porque evita las fracciones que aparecerían al despejar. Para elegir los números por los que multiplicar, se busca el m.c.m. de los coeficientes de la incógnita que se quiere eliminar. Si las incógnitas ya tienen el mismo coeficiente, basta con <b>restar</b> las ecuaciones. Esta idea de combinar ecuaciones para eliminar incógnitas es la base del método de Gauss, que permite resolver sistemas con muchas incógnitas.</p>`,
+      svg: tarjeta("Método de reducción: se multiplican las ecuaciones para que la y tenga coeficientes opuestos y se suman", "Reducción", [["(3x + 2y = 16) · 3 → 9x + 6y = 48", "var(--pen)", 13], ["(5x − 3y = 14) · 2 → 10x − 6y = 28", "var(--red)", 13], ["sumando: 19x = 76 → x = 4", "var(--leaf)", 14], ["12 + 2y = 16 → y = 2", "var(--inf)", 14]]),
+      video: { id: "0ilTVp5uRz8", titulo: "Sistemas de ecuaciones 2x2: método de reducción o eliminación", canal: "Matemáticas profe Alex", vistas: 7489103, busqueda: "método de reducción sistemas" },
+    },
+    {
+      html: `<h3>5.7 Preparar el sistema y elegir método</h3><p>Muchas veces el sistema no viene en la forma ax + by = c, sino con paréntesis y denominadores. Antes de aplicar ningún método hay que <b>prepararlo</b>: quitar paréntesis, quitar denominadores multiplicando por el m.c.m. de cada ecuación por separado, y agrupar las incógnitas a la izquierda y los números a la derecha.</p><p>Por ejemplo, la ecuación x/2 + (y − 1)/3 = 2 se multiplica por 6: 3x + 2(y − 1) = 12, es decir, 3x + 2y = 14.</p><p>¿Qué método conviene? No hay reglas fijas, pero sí orientaciones:</p><ul><li><b>Sustitución</b>: si alguna incógnita tiene coeficiente 1 o −1, o ya está despejada.</li><li><b>Igualación</b>: si la misma incógnita está despejada en las dos ecuaciones.</li><li><b>Reducción</b>: si todos los coeficientes son distintos de ±1; evita fracciones.</li><li><b>Gráfico</b>: para interpretar o comprobar, o si se piden soluciones aproximadas.</li></ul><p>Todos los métodos dan la misma solución. <mark>Comprobar al final</mark> en las ecuaciones originales (no en las ya transformadas) detecta los errores de cálculo, que son la causa principal de fallos en este tema.</p>`,
+      svg: lienzo("Guía para elegir método: coeficiente 1 lleva a sustitución, misma incógnita despejada a igualación, coeficientes distintos a reducción y para ver la solución el método gráfico", `${[["¿coeficiente ±1?", "sustitución", "var(--pen)"], ["¿misma letra despejada?", "igualación", "var(--leaf)"], ["¿coeficientes sin ±1?", "reducción", "var(--red)"], ["¿quieres verlo?", "gráfico", "var(--inf)"]].map(([q, r, c], i) => `<rect x="12" y="${14 + i * 39}" width="236" height="32" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/>${t(22, 35 + i * 39, q, { s: 12, a: "start" })}${t(238, 35 + i * 39, "→ " + r, { s: 13, b: 1, c, a: "end" })}`).join("")}`),
+    },
+    {
+      html: `<h3>5.8 Discutir un sistema sin resolverlo</h3><p>Se puede saber de qué tipo es un sistema ax + by = c, a′x + b′y = c′ comparando las razones entre sus coeficientes:</p><ul><li>Si <b>a/a′ ≠ b/b′</b>, las rectas tienen distinta inclinación y se cortan: <b>compatible determinado</b>.</li><li>Si <b>a/a′ = b/b′ ≠ c/c′</b>, las rectas son paralelas: <b>incompatible</b>.</li><li>Si <b>a/a′ = b/b′ = c/c′</b>, una ecuación es múltiplo de la otra: <b>compatible indeterminado</b>.</li></ul><p>Ejemplos: en 2x − 3y = 5 y 4x − 6y = 1, 2/4 = −3/−6 = 1/2 pero 5/1 = 5: incompatible. En x + 2y = 3 y 3x + 6y = 9, todas las razones valen 1/3: indeterminado.</p><p>Esto permite <b>discutir</b> sistemas con un parámetro. ¿Para qué valor de m el sistema mx + 2y = 4, 3x + y = 5 no tiene solución única? Se necesita m/3 = 2/1, es decir, m = 6. Con m = 6, 4/5 ≠ 2, así que es incompatible. Para cualquier otro valor de m, el sistema es compatible determinado. <mark>Proporcionalidad de coeficientes = rectas paralelas o coincidentes</mark>.</p>`,
+      svg: tarjeta("Discusión de un sistema comparando las razones entre coeficientes", "Comparar a/a′, b/b′, c/c′", [["a/a′ ≠ b/b′ → SCD (se cortan)", "var(--leaf)", 13], ["a/a′ = b/b′ ≠ c/c′ → SI (paralelas)", "var(--red)", 13], ["a/a′ = b/b′ = c/c′ → SCI (iguales)", "var(--pen)", 13], ["ej.: 2x − 3y = 5 y 4x − 6y = 1 → SI", "var(--muted)", 12, 0]]),
+    },
+    {
+      html: `<h3>5.9 Sistemas de tres ecuaciones: método de Gauss</h3><p>Con tres incógnitas hacen falta, en general, tres ecuaciones. El <b>método de Gauss</b> generaliza la reducción: se transforma el sistema en otro equivalente <b>escalonado</b>, en el que la segunda ecuación no tiene x y la tercera solo tiene z. Después se resuelve «de abajo arriba».</p><p>Ejemplo: x + y + z = 6, 2x − y + z = 3, x + 2y − z = 2.</p><ol><li>Eliminamos x de la 2.ª y la 3.ª: E2 − 2·E1 da −3y − z = −9; E3 − E1 da y − 2z = −4.</li><li>Eliminamos y de la última usando la nueva 2.ª: multiplicamos y − 2z = −4 por 3 y le sumamos −3y − z = −9: −7z = −21, z = 3.</li><li>Subimos: y − 6 = −4 → y = 2; x + 2 + 3 = 6 → x = 1.</li></ol><p>La solución es (1, 2, 3). El método de Gauss es el que usan los ordenadores para resolver sistemas con miles de ecuaciones, por ejemplo al calcular estructuras de edificios o predecir el tiempo. La clave es <mark>trabajar con orden</mark>: escribir siempre las incógnitas en las mismas columnas y anotar qué operación se hace en cada paso.</p>`,
+      svg: lienzo("Sistema escalonado de Gauss: la tercera ecuación solo tiene z, la segunda y y z, y se resuelve de abajo arriba", `${[["x + y + z = 6", "var(--ink)"], ["−3y − z = −9", "var(--pen)"], ["−7z = −21", "var(--red)"]].map(([e, c], i) => `<rect x="${30 + i * 26}" y="${22 + i * 40}" width="${200 - i * 26}" height="32" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/>${t(230 - 4, 43 + i * 40, e, { s: 14, b: 1, c, a: "end" })}`).join("")}${t(130, 160, "z = 3 → y = 2 → x = 1", { s: 14, b: 1, c: "var(--leaf)" })}<path d="M22 120 V 34" stroke="var(--leaf)" stroke-width="2"/><path d="M16 42 L 22 32 L 28 42" fill="none" stroke="var(--leaf)" stroke-width="2"/>`),
+    },
+    {
+      html: `<h3>5.10 Sistemas no lineales</h3><p>Un sistema es <b>no lineal</b> si alguna ecuación tiene incógnitas elevadas a potencias, multiplicadas entre sí, en denominadores o dentro de raíces. Gráficamente, ya no son dos rectas: puede haber parábolas, circunferencias o hipérbolas, y por eso puede haber <mark>más de una solución</mark>.</p><p>El método más usado es la <b>sustitución</b>: se despeja una incógnita de la ecuación más sencilla (normalmente la lineal) y se sustituye en la otra. Ejemplo: y = x² − 3 e y = x − 1. Igualando (o sustituyendo): x² − 3 = x − 1 → x² − x − 2 = 0 → x = 2 o x = −1. Para cada x se calcula su y con la ecuación lineal: x = 2 → y = 1; x = −1 → y = −2. Las soluciones son (2, 1) y (−1, −2), los dos puntos donde la recta corta a la parábola.</p><p>Hay que tener cuidado al calcular la segunda incógnita: conviene usar la ecuación que da <b>un único valor</b>. Si se usara x² = …, aparecerían valores con ±, y algunos podrían no cumplir el sistema. Como siempre, la comprobación final evita aceptar soluciones falsas.</p>`,
+      svg: graf("Parábola y igual a x cuadrado menos 3 y recta y igual a x menos 1; se cortan en (menos 1, menos 2) y (2, 1)", { x0: -3, x1: 3.5, y0: -4, y1: 6, paso: 1 }, (E) => `${E.curva((x) => x * x - 3, "var(--pen)")}${E.curva((x) => x - 1, "var(--red)")}${E.punto(2, 1, "var(--leaf)", "(2, 1)", 7, 12)}${E.punto(-1, -2, "var(--leaf)", "(−1, −2)", -7, 14)}${t(E.X(-2.6), E.Y(5), "y = x² − 3", { c: "var(--pen)", s: 11, b: 1, a: "start" })}${t(E.X(3.4), E.Y(3.6), "y = x − 1", { c: "var(--red)", s: 11, b: 1, a: "end" })}`),
+    },
+    {
+      html: `<h3>5.11 Otros sistemas no lineales</h3><p>Hay sistemas no lineales que aparecen con frecuencia en problemas geométricos:</p><ul><li><b>Suma y producto</b>: x + y = 10, x · y = 21. Sustituyendo y = 10 − x: x(10 − x) = 21 → x² − 10x + 21 = 0 → x = 7 o x = 3. Soluciones (7, 3) y (3, 7). Es el problema de buscar dos números conociendo su suma y su producto, y recuerda a las fórmulas de Cardano-Vieta.</li><li><b>Con cuadrados</b>: x² + y² = 25, x + y = 7. Con y = 7 − x: x² + (7 − x)² = 25 → 2x² − 14x + 24 = 0 → x² − 7x + 12 = 0 → x = 3 o x = 4. Soluciones (3, 4) y (4, 3). Geométricamente, x² + y² = 25 es una circunferencia de radio 5 y la recta la corta en dos puntos.</li><li><b>Por reducción</b>: si las dos ecuaciones tienen x² e y² sin otros términos, como x² + y² = 13 y x² − y² = 5, se pueden sumar: 2x² = 18 → x = ±3, y² = 4 → y = ±2. Hay cuatro soluciones: (3, 2), (3, −2), (−3, 2) y (−3, −2).</li></ul><p>En los problemas reales, <mark>se descartan las soluciones sin sentido</mark>, como longitudes negativas.</p>`,
+      svg: graf("Circunferencia de radio 5 centrada en el origen cortada por la recta x más y igual a 7 en los puntos (3, 4) y (4, 3)", { x0: -6, x1: 8, y0: -6, y1: 8, paso: 1, pasoEt: 2 }, (E) => `<circle cx="${E.X(0)}" cy="${E.Y(0)}" r="${E.X(5) - E.X(0)}" fill="none" stroke="var(--pen)" stroke-width="2.6"/>${E.curva((x) => 7 - x, "var(--red)")}${E.punto(3, 4, "var(--leaf)", "(3, 4)", -8, -6)}${E.punto(4, 3, "var(--leaf)", "(4, 3)", 6, 16)}${t(E.X(-5.8), E.Y(7.3), "x² + y² = 25", { c: "var(--pen)", s: 11, b: 1, a: "start" })}`),
+    },
+    {
+      html: `<h3>5.12 Plantear problemas con sistemas</h3><p>Los sistemas son la herramienta natural cuando un problema tiene <b>dos (o más) cantidades desconocidas</b> relacionadas por <b>dos (o más) condiciones</b>. Los pasos son:</p><ol><li><b>Identificar las incógnitas</b> y escribir qué representa cada una, con unidades: «x = número de entradas de adulto; y = número de entradas infantiles».</li><li><b>Traducir cada condición</b> del enunciado a una ecuación. Una tabla con las cantidades y los precios, pesos o velocidades ayuda mucho.</li><li><b>Resolver</b> el sistema con el método más cómodo.</li><li><b>Interpretar y comprobar</b> en el enunciado.</li></ol><p>Ejemplo: en un cine se vendieron 180 entradas y se recaudaron 1.230 €; la de adulto cuesta 8 € y la infantil, 5 €. Sistema: x + y = 180; 8x + 5y = 1230. Por reducción (restando 5 veces la primera): 3x = 330 → x = 110, y = 70. Se vendieron 110 entradas de adulto y 70 infantiles. Comprobación: 880 + 350 = 1.230 ✓. <mark>Hay que usar todas las condiciones del enunciado</mark>, y cada una solo una vez.</p>`,
+      svg: lienzo("Tabla para plantear el problema del cine: adultos x entradas a 8 euros, niños y entradas a 5 euros; total 180 entradas y 1230 euros", `${[["", "entradas", "€"], ["adulto", "x", "8x"], ["infantil", "y", "5y"], ["total", "180", "1230"]].map((f, i) => f.map((c, j) => `<rect x="${20 + j * 74}" y="${16 + i * 30}" width="72" height="28" fill="${i === 0 || j === 0 ? "var(--card)" : "var(--paper)"}" stroke="var(--line)"/>${t(56 + j * 74, 35 + i * 30, c, { s: 13, b: i === 0 || i === 3 ? 1 : 0, c: i === 3 ? "var(--red)" : j === 0 ? "var(--muted)" : "var(--ink)" })}`).join("")).join("")}${t(130, 152, "x + y = 180", { s: 13, b: 1, c: "var(--pen)" })}${t(130, 172, "8x + 5y = 1230", { s: 13, b: 1, c: "var(--pen)" })}`),
+      video: { id: "gq2Kae_8880", titulo: "Solución de problemas con sistemas de ecuaciones lineales 2x2", canal: "Matemáticas profe Alex", vistas: 300888, busqueda: "problemas de sistemas de ecuaciones" },
+    },
+    {
+      html: `<h3>5.13 Problemas de mezclas y porcentajes</h3><p>En los problemas de <b>mezclas</b> se combinan dos productos con distinto precio o concentración. Siempre hay dos ecuaciones: una para la <b>cantidad total</b> y otra para el <b>valor total</b> (dinero, sustancia pura…).</p><p>Ejemplo: un comerciante quiere obtener 50 kg de café a 9,60 €/kg mezclando café de 12 €/kg con café de 8 €/kg. Con x kg del caro e y kg del barato: x + y = 50 y 12x + 8y = 9,60 · 50 = 480. Restando 8 veces la primera: 4x = 80 → x = 20 kg, y = 30 kg.</p><p>Con <b>porcentajes</b>, el planteamiento es parecido. «Una tienda vendió dos productos por 180 €. Si el primero hubiera tenido un 10 % de descuento y el segundo un 20 %, habría cobrado 151 €». Sistema: x + y = 180; 0,9x + 0,8y = 151. Restando 0,8 veces la primera: 0,1x = 7 → x = 70 €, y = 110 €. <mark>El precio con un descuento del p % es (1 − p/100) por el precio inicial</mark>, y con una subida del p %, (1 + p/100). Esta forma de escribir los porcentajes simplifica muchísimo los sistemas.</p>`,
+      svg: lienzo("Mezcla de café: 20 kilos a 12 euros más 30 kilos a 8 euros dan 50 kilos a 9,60 euros el kilo", `${[["20 kg", "12 €/kg", "var(--red)", 30], ["30 kg", "8 €/kg", "var(--pen)", 130]].map(([a, b, c, x]) => `<path d="M${x} 40 L ${x + 10} 100 H ${x + 70} L ${x + 80} 40 Z" fill="${c}" opacity=".3" stroke="${c}" stroke-width="2"/>${t(x + 40, 70, a, { s: 14, b: 1 })}${t(x + 40, 32, b, { s: 12, b: 1, c })}`).join("")}${t(120, 76, "+", { s: 20, b: 1 })}<path d="M70 108 L 115 128 M170 108 L 135 128" stroke="var(--muted)" stroke-width="2"/><rect x="70" y="130" width="120" height="34" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>${t(130, 152, "50 kg a 9,60 €", { s: 13, b: 1, c: "var(--leaf)" })}`),
+    },
+    {
+      html: `<h3>5.14 Problemas de cifras, edades y geometría</h3><p>Otros problemas clásicos con sistemas:</p><ul><li><b>Cifras</b>: un número de dos cifras se escribe 10x + y, donde x son las decenas e y las unidades. «Las cifras suman 9 y, si se invierten, el número aumenta en 27»: x + y = 9 y (10y + x) − (10x + y) = 27, es decir, y − x = 3. Solución x = 3, y = 6: el número es 36 (y 63 − 36 = 27 ✓).</li><li><b>Edades</b>: conviene hacer una tabla con «hoy», «hace n años» y «dentro de n años». «Una madre tiene el triple de edad que su hijo; dentro de 12 años tendrá el doble». m = 3h; m + 12 = 2(h + 12). Sustituyendo: 3h + 12 = 2h + 24 → h = 12, m = 36.</li><li><b>Geometría</b>: «un rectángulo tiene 46 cm de perímetro y su diagonal mide 17 cm». 2x + 2y = 46 y x² + y² = 289. Es un sistema no lineal: y = 23 − x, x² + (23 − x)² = 289 → x² − 23x + 120 = 0 → x = 15 o x = 8. El rectángulo mide 15 × 8 cm.</li></ul><p>En todos ellos, <mark>una buena tabla o un buen dibujo</mark> es la mitad de la solución.</p>`,
+      svg: lienzo("Rectángulo de lados 15 y 8 centímetros con diagonal de 17 centímetros", `<rect x="40" y="40" width="180" height="96" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/><path d="M40 136 L 220 40" stroke="var(--red)" stroke-width="2.5"/>${t(130, 154, "x = 15 cm", { s: 13, b: 1, c: "var(--pen)" })}${t(214, 92, "y = 8", { s: 13, b: 1, c: "var(--pen)", a: "end" })}${t(124, 80, "17 cm", { s: 13, b: 1, c: "var(--red)" })}${t(130, 26, "2x + 2y = 46 · x² + y² = 289", { s: 12, b: 1 })}`),
     },
   ],
-  figura: {
-    titulo: "Tres métodos, la misma solución",
-    svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Comparación de los métodos de sustitución, igualación y reducción con cuándo conviene cada uno">
-      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${[["SUSTITUCIÓN", "despeja y mete", "si una incógnita lleva coeficiente 1", "var(--pen)"], ["IGUALACIÓN", "despeja la misma letra", "si es fácil despejar la misma incógnita en las dos", "var(--leaf)"], ["REDUCCIÓN", "multiplica y suma", "si los coeficientes son múltiplos", "var(--red)"]].map(([n, d, w, c], i) => `<rect x="${20 + i * 206}" y="24" width="190" height="172" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
-        <text x="${115 + i * 206}" y="66" text-anchor="middle" font-size="20" font-weight="700" fill="${c}" ${D}>${n}</text><text x="${115 + i * 206}" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" ${F}>${d}</text>
-        <foreignObject x="${32 + i * 206}" y="120" width="166" height="70"><p xmlns="http://www.w3.org/1999/xhtml" style="margin:0;font:14px Atkinson Hyperlegible,sans-serif;text-align:center;color:var(--muted)">Conviene ${w}.</p></foreignObject>`).join("")}
-    </svg>`,
+  ejemplos: [
+    { enunciado: "Resuelve por sustitución: x + 3y = 10; 2x − y = 6.", pasos: ["Despejamos x de la primera: x = 10 − 3y.", "Sustituimos: 2(10 − 3y) − y = 6 → 20 − 7y = 6 → y = 2.", "x = 10 − 6 = 4.", "Comprobación: 4 + 6 = 10 ✓; 8 − 2 = 6 ✓."], resultado: "(x, y) = (4, 2)." },
+    { enunciado: "Resuelve por reducción: 4x + 3y = 1; 6x − 5y = 30.", pasos: ["Eliminamos x: primera × 3 y segunda × (−2): 12x + 9y = 3; −12x + 10y = −60.", "Sumamos: 19y = −57 → y = −3.", "4x − 9 = 1 → x = 5/2."], resultado: "(5/2, −3)." },
+    { enunciado: "Prepara y resuelve: (x + 1)/2 − y/3 = 1; x − (y − 2)/4 = 3.", pasos: ["Primera × 6: 3x + 3 − 2y = 6 → 3x − 2y = 3.", "Segunda × 4: 4x − y + 2 = 12 → 4x − y = 10.", "De la segunda, y = 4x − 10. Sustituyendo: 3x − 8x + 20 = 3 → x = 17/5.", "y = 68/5 − 10 = 18/5."], resultado: "(17/5, 18/5)." },
+    { enunciado: "Discute el sistema 2x + ky = 3; 4x + 6y = 6 según los valores de k.", pasos: ["Razones: 2/4 = 1/2; k/6; 3/6 = 1/2.", "Si k/6 ≠ 1/2, es decir, k ≠ 3: compatible determinado.", "Si k = 3: todas las razones son 1/2, la 2.ª ecuación es el doble de la 1.ª."], resultado: "k ≠ 3: SCD; k = 3: SCI (infinitas soluciones)." },
+    { enunciado: "Resuelve el sistema no lineal x · y = 12; x − y = 1.", pasos: ["x = y + 1. Sustituimos: (y + 1)y = 12 → y² + y − 12 = 0.", "y = 3 o y = −4.", "x = 4 o x = −3."], resultado: "(4, 3) y (−3, −4)." },
+    { enunciado: "En un examen de 20 preguntas, cada acierto suma 3 puntos y cada fallo resta 1. Ana respondió todas y sacó 32 puntos. ¿Cuántas acertó?", pasos: ["a = aciertos, f = fallos: a + f = 20; 3a − f = 32.", "Sumando: 4a = 52 → a = 13; f = 7.", "Comprobación: 39 − 7 = 32 ✓."], resultado: "Acertó 13 preguntas y falló 7." },
+  ],
+  errores: [
+    "Sustituir la incógnita despejada en la misma ecuación de la que se despejó (se obtiene 0 = 0).",
+    "Multiplicar solo un término de la ecuación al aplicar reducción, en vez de toda la ecuación.",
+    "Restar ecuaciones y olvidar cambiar el signo de todos los términos de la que se resta.",
+    "Detenerse tras hallar x y no calcular y, o dar la solución como un solo número.",
+    "Interpretar 0 = 0 como «sin solución» (es infinitas) o 0 = 5 como «solución 0» (no tiene).",
+    "En los sistemas no lineales, calcular la segunda incógnita con una ecuación cuadrática y aceptar valores que no cumplen el sistema.",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Comprueba si (2, −1) es solución del sistema 3x + y = 5; x − 2y = 4.", sol: "3·2 + (−1) = 5 ✓; 2 − 2·(−1) = 4 ✓. Sí es solución." },
+    { nivel: "básico", q: "Resuelve gráficamente: x + y = 4; x − y = 2.", sol: "Primera recta: (0, 4) y (4, 0). Segunda: (0, −2) y (2, 0). Se cortan en (3, 1). Comprobación: 3 + 1 = 4, 3 − 1 = 2." },
+    { nivel: "básico", q: "Resuelve por sustitución: y = 2x − 1; 3x + y = 9.", sol: "3x + 2x − 1 = 9 → 5x = 10 → x = 2; y = 3. Solución (2, 3)." },
+    { nivel: "básico", q: "Resuelve por igualación: y = 3x + 2; y = −x + 10.", sol: "3x + 2 = −x + 10 → 4x = 8 → x = 2; y = 8. Solución (2, 8)." },
+    { nivel: "básico", q: "Resuelve por reducción: 2x + 3y = 12; 2x − y = 4.", sol: "Restamos: 4y = 8 → y = 2. 2x − 2 = 4 → x = 3. Solución (3, 2)." },
+    { nivel: "básico", q: "Resuelve por reducción: 5x − 2y = 1; 3x + 4y = 24.", sol: "Primera × 2: 10x − 4y = 2. Sumamos: 13x = 26 → x = 2. 6 + 4y = 24 → y = 9/2. Solución (2; 4,5)." },
+    { nivel: "básico", q: "Clasifica sin resolver: a) x + y = 3; 2x + 2y = 7. b) x − y = 1; 2x − 2y = 2. c) x + y = 1; x − y = 1.", sol: "a) 1/2 = 1/2 ≠ 3/7: incompatible. b) Todo proporcional (1/2): compatible indeterminado. c) 1/1 ≠ 1/−1: compatible determinado (1, 0)." },
+    { nivel: "básico", q: "Escribe un sistema cuya solución sea (−1, 4).", sol: "Por ejemplo, x + y = 3 y 2x − y = −6 (−1 + 4 = 3; −2 − 4 = −6). Hay infinitos sistemas posibles." },
+    { nivel: "básico", q: "La suma de dos números es 45 y su diferencia, 11. ¿Cuáles son?", sol: "x + y = 45; x − y = 11. Sumando: 2x = 56 → x = 28; y = 17." },
+    { nivel: "básico", q: "En un aparcamiento hay 30 vehículos entre coches y motos, con 96 ruedas. ¿Cuántos hay de cada tipo?", sol: "c + m = 30; 4c + 2m = 96. Restando el doble de la primera: 2c = 36 → c = 18, m = 12." },
+    { nivel: "básico", q: "Resuelve el sistema no lineal y = x²; y = 4.", sol: "x² = 4 → x = ±2. Soluciones (2, 4) y (−2, 4)." },
+    { nivel: "básico", q: "Tres bolígrafos y dos cuadernos cuestan 7,50 €; un bolígrafo y un cuaderno, 3 €. ¿Cuánto cuesta cada cosa?", sol: "3b + 2c = 7,5; b + c = 3. Restando 2 veces la segunda: b = 1,50 €; c = 1,50 €." },
+    { nivel: "medio", q: "Resuelve: (x − 1)/3 + (y + 2)/4 = 2; x/2 − y/3 = 1.", sol: "Primera × 12: 4x − 4 + 3y + 6 = 24 → 4x + 3y = 22. Segunda × 6: 3x − 2y = 6. Reducción (×2 y ×3): 8x + 6y = 44; 9x − 6y = 18 → 17x = 62 → x = 62/17; y = (22 − 248/17)/3 = 42/17." },
+    { nivel: "medio", q: "Resuelve: 2(x + y) − 3(x − y) = 11; 4x − (y − 1) = 2.", sol: "Primera: −x + 5y = 11. Segunda: 4x − y = 1 → y = 4x − 1. Sustituyendo: −x + 20x − 5 = 11 → 19x = 16 → x = 16/19; y = 64/19 − 1 = 45/19." },
+    { nivel: "medio", q: "Halla m para que el sistema mx − 3y = 2; 4x − 6y = 5 sea incompatible.", sol: "Hace falta m/4 = −3/−6 = 1/2 → m = 2. Entonces 2/5 ≠ 1/2, así que es incompatible." },
+    { nivel: "medio", q: "Resuelve por Gauss: x + y + z = 2; x − y + 2z = 5; 2x + y − z = −1.", sol: "E2 − E1: −2y + z = 3. E3 − 2E1: −y − 3z = −5. Multiplicamos esta por −2 y sumamos con la anterior: (−2y + z) − 2(−y − 3z) = 3 + 10 → 7z = 13 → z = 13/7. Entonces y = 5 − 3z = 5 − 39/7 = −4/7 y x = 2 − y − z = 2 + 4/7 − 13/7 = 5/7. Solución (5/7, −4/7, 13/7)." },
+    { nivel: "medio", q: "Resuelve: x + y = 8; x² + y² = 34.", sol: "y = 8 − x: x² + 64 − 16x + x² = 34 → x² − 8x + 15 = 0 → x = 5 o x = 3. Soluciones (5, 3) y (3, 5)." },
+    { nivel: "medio", q: "Resuelve: y = x² − 4x + 3; y = x − 1.", sol: "x² − 4x + 3 = x − 1 → x² − 5x + 4 = 0 → x = 1 o x = 4. y = 0 o y = 3. Soluciones (1, 0) y (4, 3)." },
+    { nivel: "medio", q: "Una empresa de alquiler cobra 30 € fijos y 0,20 € por km. Otra, 18 € fijos y 0,35 € por km. ¿A partir de cuántos km es más barata la primera?", sol: "Igualamos: 30 + 0,2x = 18 + 0,35x → 12 = 0,15x → x = 80 km. A partir de 80 km la primera es más barata (su recta crece más despacio)." },
+    { nivel: "medio", q: "Se mezclan aceite de 3,20 €/L con aceite de 4,80 €/L para obtener 40 L a 4 €/L. ¿Cuántos litros de cada tipo?", sol: "x + y = 40; 3,2x + 4,8y = 160. Restando 3,2 veces la primera: 1,6y = 32 → y = 20 L; x = 20 L." },
+    { nivel: "medio", q: "Un número de dos cifras es igual a 7 veces la suma de sus cifras. Si se le resta 27, se obtiene el número con las cifras invertidas. ¿Cuál es?", sol: "10x + y = 7(x + y) → 3x = 6y → x = 2y. (10x + y) − 27 = 10y + x → 9x − 9y = 27 → x − y = 3. Con x = 2y: y = 3, x = 6. Número 63." },
+    { nivel: "medio", q: "Hace 5 años la edad de un padre era el cuádruple de la de su hija; dentro de 5 años será el doble. ¿Qué edades tienen?", sol: "p − 5 = 4(h − 5) → p = 4h − 15. p + 5 = 2(h + 5) → p = 2h + 5. Igualando: 4h − 15 = 2h + 5 → h = 10, p = 25." },
+    { nivel: "medio", q: "Un rectángulo tiene 28 cm de perímetro y 48 cm² de área. Halla sus lados.", sol: "x + y = 14; xy = 48. x(14 − x) = 48 → x² − 14x + 48 = 0 → x = 8 o x = 6. Lados 8 y 6 cm." },
+    { nivel: "avanzado", q: "Resuelve: x² + y² = 41; x² − y² = 9.", sol: "Sumando: 2x² = 50 → x = ±5. Restando: 2y² = 32 → y = ±4. Cuatro soluciones: (5, 4), (5, −4), (−5, 4), (−5, −4)." },
+    { nivel: "avanzado", q: "Resuelve: 1/x + 1/y = 5/6; x + y = 5.", sol: "1/x + 1/y = (x + y)/(xy) = 5/xy = 5/6 → xy = 6. Con x + y = 5: x² − 5x + 6 = 0 → x = 2 o 3. Soluciones (2, 3) y (3, 2)." },
+    { nivel: "avanzado", q: "Resuelve por Gauss y clasifica: x + 2y − z = 1; 2x + 4y − 2z = 3; x − y + z = 0.", sol: "E2 − 2E1: 0 = 1. Igualdad falsa: el sistema es incompatible (los dos primeros planos son paralelos)." },
+    { nivel: "avanzado", q: "Dos ciudades distan 300 km. Un coche sale de A hacia B y, a la vez, una moto sale de B hacia A. Se cruzan a las 2 horas. Si el coche fuera 10 km/h más rápido, se cruzarían a los 180 km de A. Halla las velocidades.", sol: "2c + 2m = 300 → c + m = 150. Con el coche a c + 10, se cruzan a t horas: (c + 10)t = 180 y mt = 120, así que (c + 10)/m = 3/2 → 2c + 20 = 3m. Con m = 150 − c: 2c + 20 = 450 − 3c → c = 86 km/h, m = 64 km/h." },
+    { nivel: "avanzado", q: "Halla una parábola y = ax² + bx + c que pase por (0, 1), (1, 0) y (2, 3).", sol: "c = 1; a + b + 1 = 0; 4a + 2b + 1 = 3. De la 2.ª, b = −1 − a; en la 3.ª: 4a − 2 − 2a + 1 = 3 → 2a = 4 → a = 2, b = −3. y = 2x² − 3x + 1." },
+    { nivel: "avanzado", q: "¿Para qué valores de k la recta y = x + k corta a la parábola y = x² en dos puntos? ¿Y en uno?", sol: "x² = x + k → x² − x − k = 0, Δ = 1 + 4k. Dos puntos si Δ > 0: k > −1/4. Uno (tangente) si k = −1/4. Ninguno si k < −1/4." },
+    { nivel: "avanzado", q: "Una dietista quiere preparar 100 g de una mezcla de cereales A (12 % de proteína) y B (20 % de proteína) con 15 % de proteína. ¿Cuántos gramos de cada uno?", sol: "a + b = 100; 0,12a + 0,20b = 15. Restando 0,12 veces la primera: 0,08b = 3 → b = 37,5 g; a = 62,5 g." },
+    { nivel: "avanzado", q: "La hipotenusa de un triángulo rectángulo mide 13 cm y su área es 30 cm². Halla los catetos.", sol: "x² + y² = 169; xy = 60. (x + y)² = 169 + 120 = 289 → x + y = 17. Con xy = 60: t² − 17t + 60 = 0 → t = 12 o 5. Catetos 12 y 5 cm." },
+    { nivel: "avanzado", q: "Un inversor reparte 20.000 € entre un fondo al 3 % y otro al 5 % anual. Al año gana 820 €. ¿Cuánto puso en cada uno?", sol: "x + y = 20000; 0,03x + 0,05y = 820. Restando 0,03 veces la primera: 0,02y = 220 → y = 11.000 €; x = 9.000 €." },
+  ],
+  quiz: reparte([
+    { q: "¿Cuántas soluciones tiene una ecuación lineal con dos incógnitas?", o: ["Una", "Dos", "Infinitas", "Ninguna"], a: 2, e: "Todos los puntos de una recta." },
+    { q: "La solución de un sistema lineal compatible determinado es…", o: ["una recta", "el punto de corte de las rectas", "el origen", "la pendiente"], a: 1, e: "Cumple las dos ecuaciones a la vez." },
+    { q: "Si al resolver un sistema llegas a 0 = 0, el sistema…", o: ["no tiene solución", "tiene infinitas soluciones", "tiene x = 0", "está mal planteado"], a: 1, e: "Compatible indeterminado." },
+    { q: "Si llegas a 0 = 7, el sistema…", o: ["es incompatible", "tiene la solución 7", "es indeterminado", "tiene x = 0, y = 7"], a: 0, e: "Las rectas son paralelas." },
+    { q: "Dos rectas paralelas forman un sistema…", o: ["compatible determinado", "incompatible", "indeterminado", "no lineal"], a: 1, e: "No tienen puntos comunes." },
+    { q: "La solución de x + y = 7; x − y = 3 es…", o: ["(5, 2)", "(2, 5)", "(4, 3)", "(3, 4)"], a: 0, e: "Sumando: 2x = 10." },
+    { q: "En y = 2x; x + y = 9, x vale…", o: ["3", "6", "4,5", "9"], a: 0, e: "3x = 9." },
+    { q: "¿Qué método despeja la misma incógnita en las dos ecuaciones?", o: ["Sustitución", "Igualación", "Reducción", "Gauss"], a: 1, e: "Después se igualan las expresiones." },
+    { q: "Para eliminar y en 2x + 3y = 7 y x − y = 1 por reducción, la segunda se multiplica por…", o: ["2", "3", "−2", "7"], a: 1, e: "Así queda 3x − 3y = 3 y se suma." },
+    { q: "El sistema 3x − 6y = 9; x − 2y = 3 es…", o: ["SCD", "SI", "SCI", "no lineal"], a: 2, e: "La primera es la segunda por 3." },
+    { q: "¿Para qué m es incompatible mx + y = 1; 4x + 2y = 5?", o: ["m = 2", "m = 4", "m = 1/2", "m = 5"], a: 0, e: "m/4 = 1/2 y 1/5 ≠ 1/2." },
+    { q: "En un sistema escalonado de Gauss se resuelve primero…", o: ["la primera ecuación", "la última ecuación", "cualquiera", "la que tenga más incógnitas"], a: 1, e: "Se resuelve de abajo arriba." },
+    { q: "¿Qué sistema es no lineal?", o: ["x + y = 3; x − y = 1", "2x = y; x + 3y = 7", "xy = 6; x + y = 5", "x = 4; y = 2"], a: 2, e: "Aparece el producto xy." },
+    { q: "¿Cuántas soluciones puede tener como máximo una recta y una parábola?", o: ["1", "2", "3", "infinitas"], a: 1, e: "Se reduce a una ecuación de segundo grado." },
+    { q: "Las soluciones de x + y = 5; xy = 6 son…", o: ["(2, 3) y (3, 2)", "(1, 6)", "(5, 0)", "(1, 4) y (4, 1)"], a: 0, e: "Suman 5 y multiplican 6." },
+    { q: "Si 2 manzanas y 1 pera cuestan 1,10 € y 1 manzana y 1 pera, 0,70 €, una manzana cuesta…", o: ["0,40 €", "0,30 €", "0,35 €", "0,55 €"], a: 0, e: "Restando: 1 manzana = 0,40 €." },
+    { q: "Un número de dos cifras con decenas x y unidades y se escribe…", o: ["xy", "x + y", "10x + y", "10y + x"], a: 2, e: "Valor posicional." },
+    { q: "Un precio con un 15 % de descuento es…", o: ["0,15x", "0,85x", "1,15x", "x − 15"], a: 1, e: "Se paga el 85 %." },
+    { q: "En x² + y² = 13; x² − y² = 5, ¿cuántas soluciones hay?", o: ["1", "2", "4", "ninguna"], a: 2, e: "x = ±3, y = ±2." },
+    { q: "Al resolver un problema con un sistema, la comprobación se hace…", o: ["en las ecuaciones transformadas", "en el enunciado y en las ecuaciones originales", "no es necesaria", "solo con la calculadora"], a: 1, e: "Así se detectan errores de planteamiento y de cálculo." },
+  ]),
+  examen: reparte([
+    { q: "La solución de 2x + y = 10; x − y = 2 es…", o: ["(4, 2)", "(2, 4)", "(3, 4)", "(6, −2)"], a: 0, e: "Sumando: 3x = 12." },
+    { q: "El sistema x + 2y = 4; 2x + 4y = 3 es…", o: ["SCD", "SCI", "SI", "no lineal"], a: 2, e: "1/2 = 2/4 ≠ 4/3." },
+    { q: "La solución de y = x + 1; y = 3x − 5 es…", o: ["(3, 4)", "(4, 3)", "(2, 3)", "(−3, −2)"], a: 0, e: "x + 1 = 3x − 5." },
+    { q: "Los puntos de corte de y = x² e y = 2x son…", o: ["(0, 0) y (2, 4)", "(2, 4)", "(1, 2)", "(0, 0) y (4, 8)"], a: 0, e: "x² = 2x → x = 0 o 2." },
+    { q: "En una granja hay 15 animales entre gallinas y ovejas con 44 patas. Hay…", o: ["8 gallinas y 7 ovejas", "7 gallinas y 8 ovejas", "10 gallinas y 5 ovejas", "4 gallinas y 11 ovejas"], a: 0, e: "g + o = 15; 2g + 4o = 44 → o = 7." },
+    { q: "El método más cómodo para 3x + 4y = 10; 5x − 4y = 6 es…", o: ["sustitución", "igualación", "reducción", "gráfico"], a: 2, e: "Los coeficientes de y ya son opuestos." },
+    { q: "En el sistema escalonado x + y + z = 6; y + z = 5; z = 3, x vale…", o: ["1", "2", "3", "6"], a: 0, e: "y = 2, x = 6 − 5." },
+    { q: "Dos números suman 20 y la suma de sus cuadrados es 208. Son…", o: ["12 y 8", "14 y 6", "10 y 10", "16 y 4"], a: 0, e: "144 + 64 = 208." },
+  ], 2),
+  feynman: ["Qué significa que (x, y) sea solución de un sistema", "Cómo se interpreta un sistema en una gráfica", "En qué consisten los métodos de sustitución, igualación y reducción", "Cómo saber si un sistema no tiene solución o tiene infinitas", "Cómo se resuelve un sistema no lineal y por qué puede tener varias soluciones"],
+  glosario: [
+    ["Ecuación lineal con dos incógnitas", "ax + by = c; sus soluciones forman una recta."],
+    ["Sistema de ecuaciones", "Conjunto de ecuaciones que deben cumplirse a la vez."],
+    ["Solución de un sistema", "Valores de las incógnitas que cumplen todas las ecuaciones."],
+    ["Sistemas equivalentes", "Los que tienen las mismas soluciones."],
+    ["Método gráfico", "Dibujar las ecuaciones y buscar los puntos de corte."],
+    ["Sustitución", "Despejar una incógnita y sustituirla en la otra ecuación."],
+    ["Igualación", "Despejar la misma incógnita en las dos ecuaciones e igualar."],
+    ["Reducción", "Combinar las ecuaciones para eliminar una incógnita."],
+    ["Compatible determinado", "Sistema con una única solución; rectas secantes."],
+    ["Compatible indeterminado", "Sistema con infinitas soluciones; rectas coincidentes."],
+    ["Incompatible", "Sistema sin solución; rectas paralelas."],
+    ["Discutir un sistema", "Estudiar cuántas soluciones tiene según el valor de un parámetro."],
+    ["Método de Gauss", "Transformar el sistema en uno escalonado y resolver de abajo arriba."],
+    ["Sistema escalonado", "Aquel en que cada ecuación tiene una incógnita menos que la anterior."],
+    ["Sistema no lineal", "Sistema con alguna ecuación no lineal (cuadrados, productos de incógnitas…)."],
+    ["Parámetro", "Letra que representa un número fijo pero desconocido, como k o m."],
+  ],
+  situacion: {
+    titulo: "¿Qué tarifa de móvil nos conviene?",
+    reto: "Las familias de la clase pagan tarifas de móvil muy distintas. Vuestro reto es comparar tres ofertas reales de compañías telefónicas, encontrar a partir de qué consumo es más barata cada una y elaborar una guía que ayude a cualquier familia a elegir.",
+    pasos: [
+      "Buscad tres tarifas con una cuota fija y un precio variable (por GB adicional, por minuto o por línea) y anotad sus datos.",
+      "Escribid la función de coste de cada tarifa en la forma y = a + bx e indicad qué representa x.",
+      "Plantead y resolved los sistemas de dos en dos para hallar los puntos de equilibrio, donde dos tarifas cuestan lo mismo.",
+      "Representad las tres rectas en los mismos ejes (a mano o con GeoGebra) y señalad qué tarifa es la más barata en cada tramo de consumo.",
+      "Haced una pequeña encuesta en clase sobre el consumo real y decidid qué tarifa convendría a cada perfil.",
+    ],
+    producto: "Una guía visual de una página con la gráfica de las tarifas, los puntos de equilibrio y una recomendación para cada tipo de usuario.",
+    evaluacion: [
+      "Traduce correctamente las tarifas a ecuaciones lineales.",
+      "Resuelve los sistemas con un método adecuado y comprueba las soluciones.",
+      "Interpreta los puntos de corte de la gráfica en el contexto del problema.",
+      "Presenta conclusiones claras y útiles para tomar decisiones.",
+    ],
   },
-  video: { id: "L0QuX9RpEoM", titulo: "Resolver sistemas de ecuaciones: método de sustitución", canal: "Daniel Carreón", vistas: 6342038, megusta: 0, busqueda: "sistemas de ecuaciones métodos" },
-  quiz: [
-    { q: "La solución de x + y = 7, x − y = 1 es…", o: ["(4, 3)", "(3, 4)", "(5, 2)"], a: 0, e: "Sumando: 2x = 8 → x = 4 y y = 3." },
-    { q: "Si dos rectas son paralelas, el sistema es…", o: ["Compatible determinado", "Incompatible", "Compatible indeterminado"], a: 1, e: "Las paralelas no se cortan: no hay solución." },
-    { q: "¿Qué método usa «multiplica y suma para eliminar una incógnita»?", o: ["Sustitución", "Igualación", "Reducción"], a: 2, e: "En reducción se buscan coeficientes opuestos y se suman las ecuaciones." },
-    { q: "El sistema 2x + y = 3, 4x + 2y = 6 tiene…", o: ["Una solución", "Infinitas soluciones", "Ninguna"], a: 1, e: "La segunda es el doble de la primera: es la misma recta." },
-    { q: "En un aparcamiento hay 15 vehículos entre coches y motos con 50 ruedas. ¿Cuántos coches hay?", o: ["10", "5", "8"], a: 0, e: "x + y = 15, 4x + 2y = 50 → 2x = 20 → 10 coches y 5 motos." },
-  ],
-  examen: [
-    { q: "Resuelve y = 2x, x + y = 9.", o: ["(3, 6)", "(6, 3)", "(4, 5)"], a: 0, e: "x + 2x = 9 → x = 3 y y = 6." },
-    { q: "¿Cuántas soluciones puede tener el sistema x + y = 5, x² + y² = 13?", o: ["Ninguna", "Una", "Dos"], a: 2, e: "Una recta corta a una circunferencia en dos puntos: (2, 3) y (3, 2)." },
-    { q: "x + y = 4 y x + y = 6 forman un sistema…", o: ["Incompatible", "Compatible determinado", "Compatible indeterminado"], a: 0, e: "La misma suma no puede valer 4 y 6: rectas paralelas." },
-  ],
-  feynman: ["Qué significa la solución de un sistema en una gráfica", "Cómo funcionan sustitución, igualación y reducción", "Cuándo un sistema no tiene solución o tiene infinitas", "Cómo se plantea el problema de gallinas y conejos"],
+  figura: require("./_matb-base-sistemas").figura,
+  video: { id: "L0QuX9RpEoM", titulo: "Resolver sistemas de ecuaciones: método de sustitución", canal: "Daniel Carreón", vistas: 6342038, busqueda: "sistemas de ecuaciones métodos" },
   mapa: mapa("SISTEMAS", "var(--bac)", [
-    ["Solución", "el punto de corte", "var(--ink)"],
     ["Métodos", "sustitución · igualación · reducción", "var(--pen)"],
-    ["Tipos", "determinado · indeterminado · incompatible", "var(--red)"],
-    ["No lineales", "sustitución · varias soluciones", "var(--leaf)"],
+    ["Tipos", "SCD · SCI · SI", "var(--red)"],
+    ["No lineales", "recta y parábola · xy", "var(--leaf)"],
+    ["Problemas", "dos datos → dos ecuaciones", "var(--inf)"],
   ], 280),
   tarjetas: [
-    ["¿Qué es la solución de un sistema de dos ecuaciones lineales?", "El punto donde se cortan las dos rectas."],
-    ["Método de reducción", "Multiplicar para que una incógnita tenga coeficientes opuestos y sumar."],
-    ["Sistema incompatible", "No tiene solución: rectas paralelas."],
-    ["Sistema compatible indeterminado", "Infinitas soluciones: rectas coincidentes."],
-    ["¿Qué método suele usarse en los no lineales?", "Sustitución."],
+    ["Solución de un sistema", "Valores que cumplen todas las ecuaciones a la vez."],
+    ["Interpretación gráfica", "El punto (o puntos) de corte de las gráficas."],
+    ["Sustitución", "Despejar una incógnita y llevarla a la otra ecuación."],
+    ["Igualación", "Despejar la misma incógnita en las dos e igualar."],
+    ["Reducción", "Multiplicar para tener coeficientes opuestos y sumar."],
+    ["Compatible determinado", "Una solución: rectas que se cortan."],
+    ["Incompatible", "Sin solución: rectas paralelas (se llega a 0 = k)."],
+    ["Compatible indeterminado", "Infinitas soluciones: rectas iguales (0 = 0)."],
+    ["Discutir con coeficientes", "a/a′ = b/b′ indica rectas paralelas o coincidentes."],
+    ["Método de Gauss", "Escalonar el sistema y resolver de abajo arriba."],
+    ["Sistema no lineal", "Se suele resolver por sustitución; puede tener varias soluciones."],
+    ["Planteamiento", "Una incógnita por cantidad desconocida y una ecuación por condición."],
   ],
-  familias: ["Planteadle acertijos de edades o de precios de la compra con dos incógnitas.", "Pedidle que resuelva el mismo sistema por los tres métodos y compare.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  familias: ["Proponed el acertijo de las gallinas y los conejos con otros números y resolvedlo juntos.", "Comparad dos tarifas reales (luz, móvil, gimnasio) y buscad a partir de qué consumo conviene cada una.", "Pedidle que os explique con un dibujo por qué un sistema puede no tener solución.", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Sentido algebraico: sistemas lineales y no lineales, interpretación gráfica y modelización (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["GeoGebra: escribir las dos ecuaciones y ver el punto de corte.", "Problemas de tarifas de móvil: ¿a partir de cuántos minutos conviene cada una?", "Escape room con sistemas cuya solución abre un candado."],
+    saberes: "Sentido algebraico: sistemas de ecuaciones lineales y no lineales sencillos; resolución algebraica y gráfica; modelización de situaciones reales (RD 217/2022, Matemáticas B de 4º, saberes básicos D. Sentido algebraico).",
+    ideas: ["Resolver el problema chino de las cabezas y las patas sin letras y después con un sistema, comparando los razonamientos.", "Comprobar los tres tipos de sistemas moviendo rectas con deslizadores en GeoGebra.", "Concurso de métodos: el mismo sistema resuelto por los tres métodos por equipos distintos.", "Investigar cómo un GPS calcula la posición con sistemas de ecuaciones."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Sistema de ecuaciones lineales, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Sistema_de_ecuaciones_lineales" },
+    { t: "Eliminación de Gauss-Jordan, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Eliminaci%C3%B3n_de_Gauss-Jordan" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Resolver sistemas por el método gráfico y elegir el método más cómodo", "Plantear problemas con sistemas y resolver sistemas de tres ecuaciones"],
-  tras: {
-    "Qué es un sistema": [
-      { html: `<h3>El método gráfico</h3><p>Cada ecuación lineal con dos incógnitas es una <b>recta</b> en el plano. Para resolver un sistema gráficamente se despeja y en las dos ecuaciones, se hace una tabla de valores de cada una y se dibujan las dos rectas en los mismos ejes. La solución es el <mark>punto de corte</mark>: sus coordenadas (x, y) cumplen las dos ecuaciones a la vez. El método gráfico es muy visual y permite ver de un golpe si el sistema tiene solución, pero es poco preciso cuando la solución no es entera, así que conviene comprobarla con un método algebraico.</p>`, video: { id: "lJ2yfxzmAkc", titulo: "Sistemas de ecuaciones: método gráfico, ejemplo 1", canal: "Matemáticas profe Alex", vistas: 5114797 } },
-    ],
-    "Igualación y reducción": [
-      { html: `<h3>¿Qué método elijo?</h3><p>Los tres métodos algebraicos dan la misma solución, pero no siempre con el mismo esfuerzo. <b>Sustitución</b>: cuando una incógnita ya está despejada o tiene coeficiente 1 o −1. <b>Igualación</b>: cuando la misma incógnita es fácil de despejar en las dos ecuaciones. <b>Reducción</b>: cuando los coeficientes de una incógnita son iguales u opuestos, o es fácil conseguirlo multiplicando. Si el sistema tiene <b>fracciones o paréntesis</b>, lo primero es <mark>quitar denominadores y paréntesis</mark> hasta dejar cada ecuación en la forma ax + by = c.</p>` },
-    ],
-    "Sistemas no lineales": [
-      { html: `<h3>Plantear problemas con sistemas</h3><p>Muchos problemas tienen <b>dos datos desconocidos</b> y dos informaciones sobre ellos. Los pasos son: 1) llamar x e y a las incógnitas, indicando qué representa cada una; 2) escribir una ecuación por cada información; 3) resolver el sistema; 4) <b>comprobar</b> la solución en el enunciado, no solo en las ecuaciones. Problemas típicos: de edades, de mezclas (café de dos precios), de monedas y billetes, de cifras de un número, de móviles que se encuentran o de entradas de cine de dos precios. Escribir los datos en una <mark>tabla</mark> ayuda a plantear las ecuaciones.</p>` },
-      { html: `<h3>Sistemas de tres ecuaciones</h3><p>Con tres incógnitas hacen falta tres ecuaciones. El método de <b>Gauss</b> generaliza la reducción: se usa una ecuación para eliminar la x de las otras dos, con lo que queda un sistema de dos ecuaciones y dos incógnitas; se elimina después la y de la última, y se resuelve <mark>de abajo arriba</mark>. El resultado es un sistema «escalonado», con una incógnita en la última ecuación, dos en la penúltima y tres en la primera. Este método es la base de cómo los ordenadores resuelven sistemas con miles de ecuaciones.</p>` },
-    ],
-  },
-  ejemplos: [
-    { enunciado: "En un cine, 3 entradas de adulto y 2 infantiles cuestan 38 €, y 2 de adulto y 4 infantiles, 36 €. ¿Cuánto cuesta cada una?", pasos: ["Adulto x, infantil y: 3x + 2y = 38; 2x + 4y = 36.", "Reducción: multiplica la primera por 2: 6x + 4y = 76. Resta la segunda: 4x = 40, x = 10.", "Sustituye: 30 + 2y = 38, y = 4."], resultado: "Adulto 10 €, infantil 4 €." },
-    { enunciado: "Resuelve el sistema x + y + z = 6; 2x − y + z = 3; x + 2y − z = 2.", pasos: ["Eliminar x: E2 − 2E1 da −3y − z = −9; E3 − E1 da y − 2z = −4.", "De la segunda, y = 2z − 4. Sustituye: −3(2z − 4) − z = −9, −7z = −21, z = 3.", "y = 2; x = 6 − 2 − 3 = 1."], resultado: "x = 1, y = 2, z = 3." },
-    { enunciado: "Resuelve x/2 + y/3 = 4; x − y = 3.", pasos: ["Quita denominadores en la primera (mcm 6): 3x + 2y = 24.", "De la segunda, x = y + 3. Sustituye: 3y + 9 + 2y = 24, y = 3.", "x = 6."], resultado: "x = 6, y = 3." },
-  ],
-  errores: [
-    "Olvidar multiplicar todos los términos (también el independiente) al usar reducción.",
-    "Dar solo el valor de una incógnita y olvidar calcular la otra.",
-    "No quitar denominadores antes de aplicar un método.",
-    "Comprobar la solución solo en una ecuación.",
-    "En los no lineales, no emparejar bien cada x con su y.",
-  ],
-  ejercicios: [
-    { q: "Resuelve por sustitución: y = 2x − 1; 3x + y = 9.", sol: "3x + 2x − 1 = 9, x = 2, y = 3." },
-    { q: "Resuelve por igualación: x = 5 − y; x = 2y − 1.", sol: "5 − y = 2y − 1, y = 2, x = 3." },
-    { q: "Resuelve por reducción: 2x + 3y = 12; 5x − 3y = 9.", sol: "7x = 21, x = 3, y = 2." },
-    { q: "Clasifica el sistema x + 2y = 4; 2x + 4y = 8.", sol: "Compatible indeterminado: la segunda es el doble de la primera (infinitas soluciones)." },
-    { q: "Clasifica el sistema x − y = 1; 2x − 2y = 5.", sol: "Incompatible: rectas paralelas, no tiene solución." },
-    { q: "Resuelve gráficamente y = x + 1; y = −x + 5.", sol: "Las rectas se cortan en (2, 3)." },
-    { q: "Resuelve x + y = 7; x · y = 12.", sol: "x = 3, y = 4 o x = 4, y = 3." },
-    { q: "Ana tiene el triple de la edad de su hijo; dentro de 12 años tendrá el doble. ¿Qué edades tienen?", sol: "x = 3y; x + 12 = 2(y + 12): y = 12, x = 36." },
-    { q: "Se mezcla café de 8 €/kg con café de 12 €/kg para obtener 20 kg a 9 €/kg. ¿Cuántos kg de cada?", sol: "x + y = 20; 8x + 12y = 180: x = 15 kg, y = 5 kg." },
-    { q: "Resuelve x + y + z = 3; y + z = 1; z = −1.", sol: "z = −1, y = 2, x = 2." },
-  ],
-  quiz: [
-    { q: "En el método gráfico, la solución es…", o: ["el punto de corte", "la pendiente", "el origen"], a: 0, e: "Cumple las dos ecuaciones." },
-    { q: "Dos rectas paralelas dan un sistema…", o: ["compatible determinado", "incompatible", "indeterminado"], a: 1, e: "No se cortan." },
-    { q: "Si una incógnita tiene coeficiente 1, conviene…", o: ["sustitución", "Gauss", "el método gráfico"], a: 0, e: "Se despeja fácil." },
-    { q: "Para un sistema de 3 incógnitas hacen falta…", o: ["2 ecuaciones", "3 ecuaciones", "1 ecuación"], a: 1, e: "Tantas como incógnitas." },
-    { q: "El método de Gauss resuelve el sistema escalonado…", o: ["de abajo arriba", "de arriba abajo", "al azar"], a: 0, e: "Primero la última ecuación." },
-  ],
-  tarjetas: [
-    ["Método gráfico", "La solución es el punto de corte de las dos rectas."],
-    ["Método de Gauss", "Elimina incógnitas hasta un sistema escalonado y se resuelve de abajo arriba."],
-    ["Comprobar", "La solución debe cumplir todas las ecuaciones y tener sentido en el problema."],
-  ],
-});

@@ -1,86 +1,213 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-
-// Recta real de -4 a 4 entre x0 y x1.
-function recta(y, x0 = 24, x1 = 236) {
-  const u = (x1 - x0) / 8;
-  const marcas = [...Array(9)].map((_, i) => `<path d="M${x0 + i * u} ${y - 5} V ${y + 5}" stroke="var(--ink)" stroke-width="2"/><text x="${x0 + i * u}" y="${y + 20}" text-anchor="middle" font-size="12" fill="var(--muted)" ${F}>${i - 4}</text>`).join("");
-  return { svg: `<path d="M${x0 - 10} ${y} H ${x1 + 10}" stroke="var(--ink)" stroke-width="2"/>${marcas}`, x: (v) => x0 + (v + 4) * u };
-}
+// Matemáticas B 4º ESO · Tema 1. Nivel libro. Dibujos propios en SVG.
+const { reparte, F, D, mapa, lienzo, t, tarjeta, recta, triangulo, barras } = require("./_eso4L3");
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Números reales e intervalos",
-  minutos: 35,
-  objetivos: ["Clasificar números en naturales, enteros, racionales e irracionales", "Representar números reales en la recta", "Escribir y dibujar intervalos, semirrectas y valores absolutos"],
-  claves: ["número irracional", "recta real", "intervalo abierto", "intervalo cerrado", "valor absoluto", "aproximación"],
+  minutos: 110,
+  objetivos: [
+    "Clasificar números en naturales, enteros, racionales e irracionales y justificar la clasificación",
+    "Hallar la fracción generatriz de un decimal exacto o periódico",
+    "Representar números reales en la recta, incluidas raíces cuadradas con el teorema de Pitágoras",
+    "Escribir, dibujar y operar intervalos, semirrectas y entornos",
+    "Usar el valor absoluto como distancia y resolver desigualdades sencillas con él",
+    "Aproximar números reales y calcular el error absoluto y el relativo",
+  ],
+  claves: ["número racional", "número irracional", "fracción generatriz", "recta real", "intervalo", "semirrecta", "entorno", "valor absoluto", "error relativo"],
+  lectura: {
+    titulo: "El número que no cabía en una fracción",
+    html: `<p>Hace unos 2.500 años, los seguidores de Pitágoras creían que todo en el universo se podía medir con números enteros y con sus cocientes, las fracciones. La música, los astros y las figuras geométricas debían obedecer a proporciones sencillas como 1/2 o 3/4. Según cuenta la tradición, uno de ellos, Hipaso de Metaponto, se fijó en algo inquietante: la diagonal de un cuadrado de lado 1 no se podía expresar como cociente de dos enteros, por mucho que se intentara.</p>
+    <p>Aquel descubrimiento rompía la idea de un mundo hecho solo de fracciones. Hoy lo llamamos <b>√2</b> y sabemos que es un <b>número irracional</b>: sus cifras decimales no terminan nunca y no se repiten. Lo sorprendente es que estos números no son rarezas. Aparecen en el formato de los folios DIN A4, en la longitud de una circunferencia, en el crecimiento de una población o en el interés de un préstamo.</p>
+    <p>En este tema vas a ordenar todos los números que conoces en un único conjunto, los <b>números reales</b>, y a dibujarlos sobre una recta sin huecos. Aprenderás a describir trozos de esa recta con intervalos, a medir distancias con el valor absoluto y a decidir cuántas cifras merece la pena usar cuando calculas con una aproximación. ¿Se puede medir algo con total exactitud? Al final del tema tendrás argumentos para responder.</p>`,
+  },
   pregunta: {
     texto: "La diagonal de un cuadrado de lado 1 mide √2. ¿Podrías escribir ese número con todas sus cifras decimales?",
     respuesta: "No: √2 = 1,41421356… tiene <mark>infinitas cifras decimales que no se repiten</mark>. Es un número <b>irracional</b>: no se puede escribir como fracción. Aun así ocupa un punto exacto de la recta, y se puede dibujar con regla y compás.",
   },
   bloques: [
     {
-      html: `<h3>Los conjuntos de números</h3><p>Cada conjunto contiene al anterior: <b>naturales</b> ℕ (0, 1, 2…), <b>enteros</b> ℤ (también los negativos), <b>racionales</b> ℚ (los que son fracción: decimales exactos o periódicos). Los <mark>irracionales</mark> 𝕀 tienen infinitas cifras sin periodo (√2, π, e). Racionales e irracionales juntos forman los <b>reales</b> ℝ.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Conjuntos de números unos dentro de otros: naturales dentro de enteros dentro de racionales; racionales e irracionales forman los reales">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="10" y="10" width="240" height="160" rx="14" fill="var(--card)" stroke="var(--bac)" stroke-width="2.5"/>
-        <rect x="20" y="34" width="150" height="126" rx="12" fill="none" stroke="var(--pen)" stroke-width="2.5"/>
-        <rect x="30" y="58" width="128" height="94" rx="10" fill="none" stroke="var(--leaf)" stroke-width="2.5"/>
-        <rect x="40" y="92" width="70" height="52" rx="10" fill="none" stroke="var(--inf)" stroke-width="2.5"/>
-        <rect x="178" y="34" width="62" height="126" rx="12" fill="none" stroke="var(--red)" stroke-width="2.5"/>
-        <g ${F} font-size="12" font-weight="700">
-          <text x="18" y="27" fill="var(--bac)">ℝ reales</text><text x="28" y="51" fill="var(--pen)">ℚ racionales  2/3 · 0,7̂</text>
-          <text x="38" y="77" fill="var(--leaf)">ℤ enteros  −5</text><text x="48" y="112" fill="var(--inf)">ℕ</text><text x="48" y="132" fill="var(--ink)">0 · 1 · 7</text>
-          <text x="186" y="54" fill="var(--red)">𝕀</text><text x="186" y="84" fill="var(--ink)">√2</text><text x="186" y="110" fill="var(--ink)">π</text><text x="186" y="136" fill="var(--ink)">e</text>
-        </g></svg>`,
+      html: `<h3>1.1 Naturales y enteros</h3><p>Los primeros números que aprendemos sirven para contar: son los <b>números naturales</b>, ℕ = {0, 1, 2, 3, …}. Con ellos siempre se puede sumar y multiplicar, pero no siempre restar: 3 − 7 no tiene resultado dentro de ℕ. Para resolverlo se añaden los negativos y se obtienen los <b>números enteros</b>, ℤ = {…, −2, −1, 0, 1, 2, …}, que permiten expresar deudas, temperaturas bajo cero o alturas por debajo del nivel del mar.</p><p>Cada vez que una operación «no cabe» en un conjunto, los matemáticos lo amplían. Así, en ℤ ya se puede restar siempre, pero no dividir: 7 : 2 no es un entero. Esta idea de <mark>ampliar los conjuntos para que las operaciones tengan solución</mark> recorre todo el tema y explica por qué existen los distintos tipos de números. Recuerda también que cada conjunto <b>contiene</b> al anterior: todo natural es entero, pero no al revés.</p>`,
+      svg: (() => { const r = recta(-5, 5, 112); return lienzo("Recta con los enteros de menos 5 a 5; los naturales están marcados en azul y los negativos en rojo", `${r.svg}${[0, 1, 2, 3, 4, 5].map((v) => `<circle cx="${r.X(v)}" cy="112" r="5" fill="var(--pen)"/>`).join("")}${[-5, -4, -3, -2, -1].map((v) => `<circle cx="${r.X(v)}" cy="112" r="5" fill="var(--red)"/>`).join("")}${t(r.X(2.5), 76, "ℕ: 0, 1, 2, 3…", { c: "var(--pen)", s: 13, b: 1 })}${t(r.X(-3), 76, "negativos", { c: "var(--red)", s: 13, b: 1 })}${t(130, 40, "ℤ = negativos ∪ ℕ", { s: 14, b: 1 })}${t(130, 160, "3 − 7 = −4 no está en ℕ, sí en ℤ", { c: "var(--muted)", s: 11 })}`); })(),
     },
     {
-      html: `<h3>La recta real</h3><p>A cada número real le corresponde <mark>un punto de la recta</mark>, y a cada punto un número real: la recta no tiene «huecos». Los racionales se colocan dividiendo la unidad; algunos irracionales como √2 se dibujan con el teorema de Pitágoras.</p>`,
-      svg: (() => { const r = recta(110); return `<svg viewBox="0 0 260 180" role="img" aria-label="Recta real con √2 construido como la diagonal de un cuadrado de lado 1 y llevado a la recta con un compás">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${r.svg}
-        <rect x="${r.x(0)}" y="${110 - (r.x(1) - r.x(0))}" width="${r.x(1) - r.x(0)}" height="${r.x(1) - r.x(0)}" fill="none" stroke="var(--pen)" stroke-width="2"/>
-        <path d="M${r.x(0)} 110 L ${r.x(1)} ${110 - (r.x(1) - r.x(0))}" stroke="var(--red)" stroke-width="2.5"/>
-        <path d="M${r.x(1)} ${110 - (r.x(1) - r.x(0))} A ${(r.x(1) - r.x(0)) * Math.SQRT2} ${(r.x(1) - r.x(0)) * Math.SQRT2} 0 0 1 ${r.x(Math.SQRT2)} 110" fill="none" stroke="var(--red)" stroke-width="2" stroke-dasharray="4 4"/>
-        <circle cx="${r.x(Math.SQRT2)}" cy="110" r="5" fill="var(--red)"/>
-        <circle cx="${r.x(-2.5)}" cy="110" r="5" fill="var(--leaf)"/>
-        <g ${F} font-size="13" font-weight="700"><text x="${r.x(Math.SQRT2) + 4}" y="96" fill="var(--red)">√2</text><text x="${r.x(-2.5)}" y="96" text-anchor="middle" fill="var(--leaf)">−5/2</text></g>
-        <text x="130" y="160" text-anchor="middle" font-size="12" fill="var(--muted)" ${F}>la diagonal del cuadrado de lado 1 mide √2</text></svg>`; })(),
+      html: `<h3>1.2 Números racionales</h3><p>Un <b>número racional</b> es el que se puede escribir como una fracción a/b, con a y b enteros y b ≠ 0. El conjunto se representa con la letra ℚ (de «cociente»). Todos los enteros son racionales, porque −4 = −4/1. Además, cada racional tiene infinitas fracciones equivalentes: 1/2 = 2/4 = 50/100. Entre todas ellas se suele elegir la <b>fracción irreducible</b>.</p><p>Si dividimos el numerador entre el denominador obtenemos su expresión decimal, que solo puede ser de tres tipos: <b>decimal exacto</b> (3/8 = 0,375), <b>periódico puro</b> (1/3 = 0,333…, el periodo empieza justo tras la coma) o <b>periódico mixto</b> (1/6 = 0,1666…, hay un anteperiodo antes del periodo). La razón es sencilla: al dividir entre b solo pueden salir b restos distintos, así que tarde o temprano uno se repite y las cifras vuelven a empezar. Una fracción irreducible da un decimal exacto <mark>solo si su denominador no tiene más factores primos que 2 y 5</mark>.</p>`,
+      svg: tarjeta("Los tres tipos de decimales de un número racional con un ejemplo de cada uno", "Decimales de un racional", [["exacto: 3/8 = 0,375", "var(--pen)", 14], ["periódico puro: 1/3 = 0,333…", "var(--leaf)", 14], ["periódico mixto: 1/6 = 0,1666…", "var(--inf)", 14], ["denominador 2ᵃ·5ᵇ → exacto", "var(--muted)", 12, 0]]),
     },
     {
-      html: `<h3>Intervalos</h3><p>Un <b>intervalo</b> es un trozo de la recta entre dos números. El <mark>corchete [ ]</mark> incluye el extremo (punto relleno) y el <mark>paréntesis ( )</mark> lo excluye (punto hueco).</p>
-      <div class="formula"><span>[−1, 3] → −1 ≤ x ≤ 3</span></div><div class="formula"><span>(−1, 3) → −1 &lt; x &lt; 3</span></div><div class="formula"><span>[2, +∞) → x ≥ 2</span></div>`,
-      svg: (() => { const r = recta(60), s = recta(140); return `<svg viewBox="0 0 260 180" role="img" aria-label="Intervalo cerrado de menos 1 a 3 con puntos rellenos, y semirrecta abierta desde 1 hacia la derecha con punto hueco">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${r.svg}${s.svg}
-        <path d="M${r.x(-1)} 60 H ${r.x(3)}" stroke="var(--pen)" stroke-width="6"/><circle cx="${r.x(-1)}" cy="60" r="6" fill="var(--pen)"/><circle cx="${r.x(3)}" cy="60" r="6" fill="var(--pen)"/>
-        <path d="M${s.x(1)} 140 H 248" stroke="var(--red)" stroke-width="6"/><circle cx="${s.x(1)}" cy="140" r="6" fill="var(--paper)" stroke="var(--red)" stroke-width="3"/>
-        <g ${F} font-size="14" font-weight="700"><text x="130" y="30" text-anchor="middle" fill="var(--pen)">[−1, 3]</text><text x="130" y="112" text-anchor="middle" fill="var(--red)">(1, +∞)</text></g></svg>`; })(),
+      html: `<h3>1.3 La fracción generatriz</h3><p>El camino inverso también es posible: todo decimal exacto o periódico procede de una fracción, llamada <b>fracción generatriz</b>. Para hallarla se usa un truco algebraico: multiplicar el número por potencias de 10 hasta que, al restar, desaparezca la parte que se repite.</p><p>Con x = 0,272727… (periódico puro), 100x = 27,2727… y, al restar, 99x = 27, de modo que x = 27/99 = 3/11. Con x = 1,2333… (periódico mixto), 100x = 123,333… y 10x = 12,333…; restando, 90x = 111 y x = 111/90 = 37/30. De ahí sale la <mark>regla práctica</mark>: en el numerador se escribe el número sin coma menos la parte que no se repite; en el denominador, tantos nueves como cifras tiene el periodo seguidos de tantos ceros como cifras tiene el anteperiodo. Un caso curioso es 0,999… = 9/9 = 1: no es «casi 1», es exactamente 1.</p>`,
+      svg: tarjeta("Cálculo de la fracción generatriz de 1,2333… restando 100x menos 10x", "Generatriz de x = 1,2333…", [["100x = 123,333…", "var(--pen)", 14], ["10x =  12,333…", "var(--pen)", 14], ["90x = 111", "var(--red)", 15], ["x = 111/90 = 37/30", "var(--leaf)", 15]]),
+      video: { id: "Iy7de-ytpxM", titulo: "Pasar de decimal periódico puro a fracción: fracción generatriz", canal: "Susi Profe", vistas: 715127, busqueda: "fracción generatriz decimal periódico" },
     },
     {
-      html: `<h3>Valor absoluto y distancias</h3><p>El <b>valor absoluto</b> |x| es la <mark>distancia de x al 0</mark>: |−5| = 5 y |5| = 5. La distancia entre dos números es |a − b|. Por eso |x| &lt; 3 significa «x está a menos de 3 del cero», es decir, el intervalo (−3, 3).</p>`,
-      svg: (() => { const r = recta(110); return `<svg viewBox="0 0 260 180" role="img" aria-label="Valor absoluto: menos 3 y 3 están a la misma distancia del cero">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${r.svg}
-        <path d="M${r.x(-3)} 80 Q ${r.x(-1.5)} 50 ${r.x(0)} 80" fill="none" stroke="var(--leaf)" stroke-width="2.5"/><path d="M${r.x(0)} 80 Q ${r.x(1.5)} 50 ${r.x(3)} 80" fill="none" stroke="var(--leaf)" stroke-width="2.5"/>
-        <circle cx="${r.x(-3)}" cy="110" r="5" fill="var(--leaf)"/><circle cx="${r.x(3)}" cy="110" r="5" fill="var(--leaf)"/>
-        <g ${F} font-size="13" font-weight="700" fill="var(--leaf)"><text x="${r.x(-1.5)}" y="52" text-anchor="middle">3</text><text x="${r.x(1.5)}" y="52" text-anchor="middle">3</text></g>
-        <text x="130" y="160" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)" ${F}>|−3| = |3| = 3</text></svg>`; })(),
+      html: `<h3>1.4 Los números irracionales</h3><p>Hay números cuya expresión decimal tiene <b>infinitas cifras sin periodo</b>. No pueden ser fracciones, porque toda fracción da un decimal exacto o periódico. Son los <b>números irracionales</b> y se representan con 𝕀. Los más conocidos son:</p><ul><li><b>π ≈ 3,14159…</b>, la razón entre la longitud de una circunferencia y su diámetro.</li><li><b>e ≈ 2,71828…</b>, la base del crecimiento continuo, que aparecerá en las funciones exponenciales.</li><li><b>φ = (1 + √5)/2 ≈ 1,618…</b>, el número de oro, ligado a la sucesión de Fibonacci.</li><li>Las raíces no exactas: √2, √3, ∛5…</li></ul><p>¿Cómo sabemos que √2 no es una fracción? Supongamos que √2 = a/b irreducible. Entonces 2b² = a², luego a² es par y a también; si a = 2k, queda b² = 2k², así que b también sería par. Pero entonces a/b no era irreducible: <mark>contradicción</mark>. Este razonamiento, llamado reducción al absurdo, tiene más de dos mil años. También es irracional cualquier suma o producto de un racional no nulo con un irracional, como 3 + √2 o 5π.</p>`,
+      svg: lienzo("Tres números irracionales famosos con sus primeras cifras: pi, e y el número de oro", `${[["π", "3,14159265…", "var(--red)"], ["e", "2,71828182…", "var(--leaf)"], ["φ", "1,61803398…", "var(--inf)"]].map(([s, v, c], i) => `<rect x="20" y="${20 + i * 50}" width="220" height="40" rx="10" fill="var(--card)" stroke="${c}" stroke-width="2"/>${t(46, 48 + i * 50, s, { c, s: 22, b: 1, f: D })}${t(150, 47 + i * 50, v, { s: 15, b: 1 })}`).join("")}${t(130, 174, "cifras infinitas y sin periodo", { c: "var(--muted)", s: 11 })}`),
+      video: { id: "yDyMSliKsxI", titulo: "La sucesión de Fibonacci y la razón áurea", canal: "Derivando", busqueda: "número de oro Fibonacci" },
     },
     {
-      html: `<h3>Aproximar y medir el error</h3><p>Los irracionales se usan <b>aproximados</b>: π ≈ 3,14. Se puede <mark>truncar</mark> (cortar cifras) o <mark>redondear</mark> (mirar la siguiente cifra: si es 5 o más, se sube). El <b>error absoluto</b> es |valor real − aproximación| y el <b>error relativo</b> es el error absoluto dividido entre el valor real.</p>
-      <div class="formula"><span>π = 3,14159…</span><span class="op">→</span><span>redondeo a centésimas: 3,14 · error ≈ 0,0016</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Lupa sobre la recta: pi está entre 3,14 y 3,15, más cerca de 3,14">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M20 100 H 240" stroke="var(--ink)" stroke-width="2"/>
-        ${[3.13, 3.14, 3.15, 3.16].map((v, i) => `<path d="M${40 + i * 60} 94 V 106" stroke="var(--ink)" stroke-width="2"/><text x="${40 + i * 60}" y="124" text-anchor="middle" font-size="12" fill="var(--muted)" ${F}>${String(v).replace(".", ",")}</text>`).join("")}
-        <circle cx="${100 + 0.159 * 60}" cy="100" r="6" fill="var(--red)"/><text x="${100 + 0.159 * 60}" y="82" text-anchor="middle" font-size="16" font-weight="700" fill="var(--red)" ${F}>π</text>
-        <path d="M100 140 H ${100 + 0.159 * 60}" stroke="var(--pen)" stroke-width="4"/><text x="130" y="160" text-anchor="middle" font-size="12" fill="var(--pen)" ${F}>error del redondeo ≈ 0,0016</text></svg>`,
+      html: `<h3>1.5 Los números reales y la recta real</h3><p>Al juntar racionales e irracionales se obtienen los <b>números reales</b>: ℝ = ℚ ∪ 𝕀. Los conjuntos quedan encajados así: ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ, y además 𝕀 ⊂ ℝ, sin ningún número común entre ℚ e 𝕀. La propiedad fundamental de ℝ es que se puede identificar con una recta: <mark>a cada número real le corresponde un punto y a cada punto, un número real</mark>. Por eso decimos que la recta real «no tiene huecos».</p><p>Los racionales se sitúan dividiendo la unidad en partes iguales (para 7/3 se divide cada unidad en tres y se cuentan siete tercios). Algunos irracionales se pueden dibujar <b>exactamente</b> con regla y compás gracias al teorema de Pitágoras: la diagonal de un cuadrado de lado 1 mide √2; levantando sobre ella un segmento de longitud 1 perpendicular se obtiene √3, y así sucesivamente, formando la llamada espiral de Teodoro. Con un triángulo de catetos 1 y 2 se obtiene √5. Otros, como π, solo pueden situarse de forma aproximada.</p>`,
+      svg: (() => { const r = recta(-1, 3, 140, { xa: 30, xb: 230 }); const u = r.X(1) - r.X(0); const d = u * Math.SQRT2; return lienzo("Construcción de raíz de 2 en la recta: cuadrado de lado 1, diagonal y arco de compás que corta la recta", `${r.svg}<rect x="${r.X(0)}" y="${140 - u}" width="${u}" height="${u}" fill="none" stroke="var(--pen)" stroke-width="2"/><path d="M${r.X(0)} 140 L ${r.X(1)} ${140 - u}" stroke="var(--red)" stroke-width="2.6"/><path d="M${r.X(1)} ${140 - u} A ${d} ${d} 0 0 1 ${r.X(Math.SQRT2)} 140" fill="none" stroke="var(--red)" stroke-width="2" stroke-dasharray="4 4"/><circle cx="${r.X(Math.SQRT2)}" cy="140" r="5" fill="var(--red)"/>${t(r.X(Math.SQRT2) + 6, 126, "√2", { c: "var(--red)", s: 14, b: 1, a: "start" })}${t(r.X(0.5), 140 - u - 8, "1", { c: "var(--pen)", s: 12, b: 1 })}${t(130, 26, "diagonal = √(1² + 1²) = √2", { s: 13, b: 1 })}`); })(),
+    },
+    {
+      html: `<h3>1.6 Orden y densidad de los reales</h3><p>Los números reales están <b>ordenados</b>: dados dos reales distintos a y b, siempre ocurre a &lt; b o b &lt; a, y en la recta el menor está a la izquierda. Para comparar dos números se puede restar (si a − b &gt; 0, entonces a &gt; b) o usar aproximaciones decimales: √10 ≈ 3,162 &gt; π ≈ 3,1416.</p><p>Las desigualdades cumplen reglas que usaremos en las inecuaciones: si a &lt; b, entonces a + c &lt; b + c para cualquier c; si se multiplica por un número positivo, la desigualdad se mantiene; pero <mark>si se multiplica por un número negativo, la desigualdad cambia de sentido</mark>: 2 &lt; 5, pero −2 &gt; −5.</p><p>Otra propiedad sorprendente es la <b>densidad</b>: entre dos números reales distintos, por próximos que estén, hay infinitos números. Por ejemplo, entre 0,1 y 0,2 está su punto medio, 0,15; entre 0,1 y 0,15 está 0,125, y así sin fin. Además, entre dos racionales siempre hay irracionales y entre dos irracionales siempre hay racionales.</p>`,
+      svg: (() => { const r = recta(0.1, 0.2, 110, { paso: 0.025, et: false }); return lienzo("Densidad: entre 0,1 y 0,2 está 0,15, entre 0,1 y 0,15 está 0,125, y así sin fin", `${r.svg}${[[0.1, "0,1", "var(--ink)"], [0.2, "0,2", "var(--ink)"], [0.15, "0,15", "var(--pen)"], [0.125, "0,125", "var(--leaf)"]].map(([v, s, c]) => `<circle cx="${r.X(v)}" cy="110" r="4.5" fill="${c}"/>${t(r.X(v), 134, s, { c, s: 11, b: 1 })}`).join("")}<path d="M${r.X(0.1)} 96 Q ${r.X(0.15)} 60 ${r.X(0.2)} 96" fill="none" stroke="var(--pen)" stroke-width="1.6"/><path d="M${r.X(0.1)} 98 Q ${r.X(0.125)} 76 ${r.X(0.15)} 98" fill="none" stroke="var(--leaf)" stroke-width="1.6"/>${t(130, 36, "siempre cabe otro número en medio", { s: 13, b: 1 })}`); })(),
+    },
+    {
+      html: `<h3>1.7 Intervalos</h3><p>Un <b>intervalo</b> es el conjunto de todos los números reales comprendidos entre dos números a y b, llamados <b>extremos</b>. Según incluya o no los extremos se distinguen cuatro tipos:</p><ul><li><b>Cerrado</b> [a, b]: a ≤ x ≤ b; incluye ambos extremos.</li><li><b>Abierto</b> (a, b): a &lt; x &lt; b; no incluye ninguno.</li><li><b>Semiabierto</b> [a, b) o (a, b]: incluye solo uno.</li></ul><p>En el dibujo, el extremo incluido se marca con un <mark>punto relleno</mark> y el excluido con un <mark>punto hueco</mark>. La <b>longitud</b> del intervalo es b − a, y su punto medio es (a + b)/2. Atención: aunque un intervalo tenga longitud finita, contiene infinitos números. Por ejemplo, [2, 3] tiene longitud 1 e incluye 2, 2,5, √5, e y cualquier otro real entre 2 y 3. Los intervalos aparecen en la vida diaria cada vez que se da un margen: «la temperatura del frigorífico debe estar entre 2 °C y 6 °C» es el intervalo [2, 6].</p>`,
+      svg: (() => { const r = recta(-2, 4, 62), s = recta(-2, 4, 140); return lienzo("Intervalo cerrado de menos 1 a 3 con puntos rellenos y semiabierto de 0 a 2 con el 2 excluido", `${r.svg}${r.intervalo(-1, 3, 1, 1, "var(--pen)")}${s.svg}${s.intervalo(0, 2, 1, 0, "var(--red)")}${t(130, 34, "[−1, 3]: −1 ≤ x ≤ 3", { c: "var(--pen)", s: 13, b: 1 })}${t(130, 112, "[0, 2): 0 ≤ x < 2", { c: "var(--red)", s: 13, b: 1 })}`); })(),
+    },
+    {
+      html: `<h3>1.8 Semirrectas y entornos</h3><p>Cuando el conjunto no tiene final por uno de los lados se usa el símbolo <b>∞</b> (infinito). Así se obtienen las <b>semirrectas</b>: (a, +∞) son los x &gt; a; [a, +∞), los x ≥ a; (−∞, b), los x &lt; b; y (−∞, b], los x ≤ b. El infinito no es un número, sino una forma de decir «sin límite», por eso <mark>junto a ∞ siempre va un paréntesis</mark>, nunca un corchete. La recta entera se escribe ℝ = (−∞, +∞).</p><p>Un caso especial muy útil es el <b>entorno</b> de centro a y radio r: el intervalo (a − r, a + r), formado por los números que distan de a menos que r. Por ejemplo, el entorno de centro 5 y radio 0,1 es (4,9; 5,1). Los entornos se usan para expresar tolerancias: una pieza de 20 mm fabricada con un margen de ±0,05 mm debe medir un valor del intervalo [19,95; 20,05]. Observa que, cuando los extremos tienen decimales, se separan con punto y coma para no confundirlos con la coma decimal.</p>`,
+      svg: (() => { const r = recta(-3, 3, 62), s = recta(1, 7, 140); return lienzo("Semirrecta de 1 hacia más infinito sin incluir el 1, y entorno de centro 4 y radio 2", `${r.svg}${r.intervalo(1, Infinity, 0, 0, "var(--red)")}${s.svg}${s.intervalo(2, 6, 0, 0, "var(--leaf)")}<circle cx="${s.X(4)}" cy="140" r="4" fill="var(--ink)"/>${t(130, 34, "(1, +∞): x > 1", { c: "var(--red)", s: 13, b: 1 })}${t(130, 112, "entorno de centro 4 y radio 2: (2, 6)", { c: "var(--leaf)", s: 12, b: 1 })}`); })(),
+    },
+    {
+      html: `<h3>1.9 Unión e intersección de intervalos</h3><p>Con intervalos se pueden hacer las operaciones de conjuntos. La <b>unión</b> A ∪ B está formada por los números que están en A <b>o</b> en B (o en ambos). La <b>intersección</b> A ∩ B la forman los que están en A <b>y</b> en B a la vez. Si no tienen ningún número en común, la intersección es el conjunto vacío, ∅.</p><p>El método más seguro es <mark>dibujar los dos intervalos sobre la misma recta</mark>, a distinta altura, y leer el resultado. Con A = [−2, 3) y B = (1, 5]: la unión va de −2 (incluido) a 5 (incluido), [−2, 5]; la intersección es la zona común, (1, 3). Fíjate en los extremos: en la intersección, un extremo se incluye solo si pertenece a los dos intervalos; en la unión, basta con que pertenezca a uno. Si los intervalos están separados, como [0, 1] y [3, 4], la unión no se puede escribir como un único intervalo y se deja indicada: [0, 1] ∪ [3, 4]. Estas operaciones son imprescindibles para expresar las soluciones de inecuaciones y los dominios de funciones.</p>`,
+      svg: (() => { const r = recta(-3, 6, 128); return lienzo("Intervalos A de menos 2 a 3 y B de 1 a 5 dibujados a distinta altura; la zona común de 1 a 3 es la intersección", `${r.svg}${r.intervalo(-2, 3, 1, 0, "var(--pen)", -50)}${r.intervalo(1, 5, 0, 1, "var(--red)", -28)}<rect x="${r.X(1)}" y="68" width="${r.X(3) - r.X(1)}" height="60" fill="var(--leaf)" opacity=".18"/>${t(r.X(-2) - 10, 82, "A", { c: "var(--pen)", s: 13, b: 1, a: "end" })}${t(r.X(5) + 8, 104, "B", { c: "var(--red)", s: 13, b: 1, a: "start" })}${t(130, 30, "A ∩ B = (1, 3) · A ∪ B = [−2, 5]", { s: 12, b: 1 })}`); })(),
+    },
+    {
+      html: `<h3>1.10 El valor absoluto</h3><p>El <b>valor absoluto</b> de un número x, que se escribe |x|, es su <mark>distancia al 0</mark> en la recta. Como una distancia nunca es negativa, |x| ≥ 0 siempre. Formalmente: |x| = x si x ≥ 0, y |x| = −x si x &lt; 0. Así, |7| = 7, |−7| = −(−7) = 7 y |0| = 0. La definición «−x» no significa que el resultado sea negativo: si x es negativo, −x es positivo.</p><p>Propiedades útiles: |−x| = |x|; |x · y| = |x| · |y|; |x / y| = |x| / |y|; y la <b>desigualdad triangular</b> |x + y| ≤ |x| + |y|, que solo es una igualdad cuando x e y tienen el mismo signo. Por ejemplo, |3 + (−5)| = 2, mientras que |3| + |−5| = 8. Ojo con las operaciones dentro de las barras: primero se calcula lo de dentro y después se quita el signo. |2 − 9| = |−7| = 7, y no 2 + 9. El valor absoluto aparece en física (el módulo de una velocidad), en estadística (las desviaciones) y en el cálculo de errores.</p>`,
+      svg: (() => { const r = recta(-4, 4, 120); return lienzo("Valor absoluto: menos 3 y 3 están a la misma distancia, 3 unidades, del cero", `${r.svg}<path d="M${r.X(-3)} 98 Q ${r.X(-1.5)} 64 ${r.X(0)} 98" fill="none" stroke="var(--leaf)" stroke-width="2.4"/><path d="M${r.X(0)} 98 Q ${r.X(1.5)} 64 ${r.X(3)} 98" fill="none" stroke="var(--leaf)" stroke-width="2.4"/><circle cx="${r.X(-3)}" cy="120" r="5" fill="var(--leaf)"/><circle cx="${r.X(3)}" cy="120" r="5" fill="var(--leaf)"/>${t(r.X(-1.5), 70, "3", { c: "var(--leaf)", s: 13, b: 1 })}${t(r.X(1.5), 70, "3", { c: "var(--leaf)", s: 13, b: 1 })}${t(130, 34, "|−3| = |3| = 3", { s: 15, b: 1 })}${t(130, 164, "distancia al 0", { c: "var(--muted)", s: 11 })}`); })(),
+      video: { id: "aQN8cn4gzpE", titulo: "Valor absoluto de un número", canal: "Matemáticas profe Alex", vistas: 2488219, busqueda: "valor absoluto de un número" },
+    },
+    {
+      html: `<h3>1.11 Distancias y desigualdades con valor absoluto</h3><p>La distancia entre dos números a y b es <mark>d(a, b) = |a − b|</mark>, y da igual el orden: |2 − 9| = |9 − 2| = 7. Esta interpretación permite resolver de cabeza muchas desigualdades:</p><ul><li>|x| &lt; r son los números a menos de r del cero: el intervalo (−r, r).</li><li>|x| &gt; r son los que están a más de r del cero: (−∞, −r) ∪ (r, +∞).</li><li>|x − a| &lt; r son los que distan de a menos que r: el entorno (a − r, a + r).</li><li>|x − a| ≤ r es el intervalo cerrado [a − r, a + r].</li></ul><p>Por ejemplo, |x − 4| ≤ 3 significa «x está a 3 unidades o menos del 4», es decir, x ∈ [1, 7]. Y |x + 2| &gt; 1 se lee como |x − (−2)| &gt; 1: los números que distan más de 1 del −2, que son (−∞, −3) ∪ (−1, +∞). Estas expresiones son muy frecuentes en control de calidad: una botella de 750 ml cumple la norma si |V − 750| ≤ 15, es decir, si su volumen está en [735, 765] ml.</p>`,
+      svg: (() => { const r = recta(-1, 8, 120); return lienzo("La desigualdad valor absoluto de x menos 4 menor o igual que 3 es el intervalo de 1 a 7", `${r.svg}${r.intervalo(1, 7, 1, 1, "var(--pen)")}<circle cx="${r.X(4)}" cy="120" r="4" fill="var(--red)"/><path d="M${r.X(4)} 92 H ${r.X(7)}" stroke="var(--red)" stroke-width="2"/><path d="M${r.X(4)} 92 H ${r.X(1)}" stroke="var(--red)" stroke-width="2"/>${t(r.X(5.5), 86, "3", { c: "var(--red)", s: 12, b: 1 })}${t(r.X(2.5), 86, "3", { c: "var(--red)", s: 12, b: 1 })}${t(130, 40, "|x − 4| ≤ 3  ⇔  x ∈ [1, 7]", { s: 14, b: 1 })}`); })(),
+    },
+    {
+      html: `<h3>1.12 Aproximaciones: truncar y redondear</h3><p>En la práctica, los números irracionales y muchos decimales largos se usan <b>aproximados</b>. Hay dos formas de hacerlo hasta un orden (décimas, centésimas, milésimas…):</p><ul><li><b>Truncar</b>: cortar las cifras a partir del orden elegido. π truncado a las centésimas es 3,14.</li><li><b>Redondear</b>: mirar la primera cifra que se suprime; si es 5 o mayor, se suma 1 a la última cifra que se conserva. √3 = 1,7320… redondeado a las milésimas es 1,732; e = 2,71828… redondeado a las centésimas es 2,72.</li></ul><p>Una aproximación es <b>por defecto</b> si es menor que el valor real y <b>por exceso</b> si es mayor. Truncar siempre da una aproximación por defecto en los números positivos; redondear puede dar cualquiera de las dos. El redondeo es preferible porque <mark>el error que comete nunca supera media unidad del orden elegido</mark>. Las <b>cifras significativas</b> son las que aportan información: 0,00470 tiene tres (4, 7 y el 0 final, que indica precisión de cienmilésimas).</p>`,
+      svg: (() => { const r = recta(2.7, 2.73, 112, { paso: 0.01, et: false }); return lienzo("El número e entre 2,71 y 2,72: truncar da 2,71 y redondear da 2,72, que está más cerca", `${r.svg}${[2.7, 2.71, 2.72, 2.73].map((v) => t(r.X(v), 132, String(v).replace(".", ","), { c: "var(--muted)", s: 10 })).join("")}<circle cx="${r.X(2.71828)}" cy="112" r="5" fill="var(--red)"/>${t(r.X(2.71828), 96, "e", { c: "var(--red)", s: 15, b: 1 })}${t(r.X(2.71), 58, "truncar", { c: "var(--pen)", s: 11, b: 1 })}${t(r.X(2.72), 58, "redondear", { c: "var(--leaf)", s: 11, b: 1 })}<path d="M${r.X(2.71)} 64 V 104" stroke="var(--pen)" stroke-width="1.6" stroke-dasharray="3 3"/><path d="M${r.X(2.72)} 64 V 104" stroke="var(--leaf)" stroke-width="1.6" stroke-dasharray="3 3"/>${t(130, 30, "e = 2,71828…", { s: 14, b: 1 })}${t(130, 162, "el redondeo cae en la marca más cercana", { c: "var(--muted)", s: 11 })}`); })(),
+    },
+    {
+      html: `<h3>1.13 Error absoluto, error relativo y cotas</h3><p>Al aproximar se comete un error. El <b>error absoluto</b> es la diferencia, en valor absoluto, entre el valor real y el aproximado: <mark>Eₐ = |valor real − aproximación|</mark>. Se mide en las mismas unidades que la cantidad. El <b>error relativo</b> es el cociente <mark>Eᵣ = Eₐ / |valor real|</mark>, no tiene unidades y suele darse en porcentaje.</p><p>El error relativo indica la <b>calidad</b> de una medida. Equivocarse en 1 cm al medir un lápiz de 15 cm (Eᵣ ≈ 6,7 %) es mucho peor que equivocarse en 1 cm al medir una pista de 100 m (Eᵣ = 0,01 %), aunque el error absoluto sea el mismo. Cuando el valor exacto se desconoce, como ocurre siempre con las medidas reales, se da una <b>cota del error</b>: el error máximo posible. Si una longitud se redondea a 3,4 m (décimas), la cota de error absoluto es 0,05 m, y el valor real está en el intervalo [3,35; 3,45). Así, los intervalos y las aproximaciones se dan la mano: <b>medir es siempre dar un intervalo</b>, no un número exacto.</p>`,
+      svg: barras("Comparación de errores relativos: 1 centímetro en un lápiz es un 6,7 por ciento y en una pista de 100 metros un 0,01 por ciento", [["lápiz 15 cm", 6.7, "var(--red)"], ["regla 1 m", 1, "var(--inf)"], ["aula 8 m", 0.125, "var(--leaf)"], ["pista 100 m", 0.01, "var(--pen)"]], 7, { unidad: " %" }),
     },
   ],
+  ejemplos: [
+    { enunciado: "Clasifica los números −3, 0,25, 2,0303…, √16, √12, π/2 y 1 + √2.", pasos: ["−3 es entero (también racional y real).", "0,25 = 1/4 es racional (decimal exacto).", "2,0303… es periódico puro: racional (201/99).", "√16 = 4 es natural.", "√12 = 2√3, 12 no es cuadrado perfecto: irracional.", "π/2 y 1 + √2 combinan un racional no nulo con un irracional: irracionales."], resultado: "ℕ: √16; ℤ: −3 y √16; ℚ: además 0,25 y 2,0303…; 𝕀: √12, π/2 y 1 + √2. Todos son reales." },
+    { enunciado: "Halla la fracción generatriz de 3,1454545…", pasos: ["Es periódico mixto: anteperiodo 1, periodo 45.", "x = 3,14545…; 1000x = 3145,4545…; 10x = 31,4545…", "Restando: 990x = 3114.", "x = 3114/990; simplificamos entre 18: 173/55."], resultado: "3,14545… = 173/55." },
+    { enunciado: "Representa √5 en la recta real.", pasos: ["Busca dos cuadrados que sumen 5: 1² + 2² = 5.", "Sobre la recta, dibuja un segmento de 0 a 2 y en el 2 levanta una perpendicular de longitud 1.", "La hipotenusa del triángulo mide √(4 + 1) = √5.", "Con el compás en 0 y abertura igual a la hipotenusa, traza un arco hasta la recta."], resultado: "El arco corta la recta en √5 ≈ 2,236." },
+    { enunciado: "Calcula A ∪ B y A ∩ B para A = (−∞, 2] y B = (−1, 6).", pasos: ["Dibuja ambos en la misma recta.", "Unión: cubre todo desde −∞ hasta 6, sin incluir el 6.", "Intersección: zona común, de −1 (no incluido, porque no está en B) a 2 (incluido, porque está en los dos)."], resultado: "A ∪ B = (−∞, 6); A ∩ B = (−1, 2]." },
+    { enunciado: "Resuelve |2x − 3| ≤ 5 y expresa la solución como intervalo.", pasos: ["|2x − 3| ≤ 5 equivale a −5 ≤ 2x − 3 ≤ 5.", "Sumamos 3: −2 ≤ 2x ≤ 8.", "Dividimos entre 2 (positivo, no cambia el sentido): −1 ≤ x ≤ 4."], resultado: "x ∈ [−1, 4]." },
+    { enunciado: "Una mesa mide 1,237 m y se da la medida 1,24 m. Calcula los errores absoluto y relativo.", pasos: ["Eₐ = |1,237 − 1,24| = 0,003 m.", "Eᵣ = 0,003 / 1,237 ≈ 0,00243.", "En porcentaje: ≈ 0,24 %."], resultado: "Eₐ = 0,003 m = 3 mm; Eᵣ ≈ 0,24 %." },
+  ],
+  errores: [
+    "Pensar que 22/7 o 3,14 «son» π: son aproximaciones racionales; π es irracional.",
+    "Creer que un decimal periódico como 0,333… es irracional porque tiene infinitas cifras: es 1/3.",
+    "Poner corchete junto al infinito, como [2, +∞]: el infinito no es un número y siempre lleva paréntesis.",
+    "Confundir la unión (o) con la intersección (y), o incluir en la intersección un extremo que solo pertenece a uno de los intervalos.",
+    "Calcular |2 − 9| como 2 + 9: primero se opera dentro de las barras (−7) y después se toma el valor absoluto (7).",
+    "Comparar la precisión de dos medidas por el error absoluto en vez de por el relativo.",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Indica a qué conjuntos (ℕ, ℤ, ℚ, 𝕀, ℝ) pertenece cada número: 7, −2, 3/5, √9, √11, 0,4444…, −π.", sol: "7 y √9 = 3: ℕ, ℤ, ℚ, ℝ. −2: ℤ, ℚ, ℝ. 3/5 y 0,444… = 4/9: ℚ, ℝ. √11 y −π: 𝕀, ℝ." },
+    { nivel: "básico", q: "Sin hacer la división, ¿cuáles de estas fracciones dan un decimal exacto? 7/20, 5/12, 9/40, 4/15.", sol: "Se miran los factores del denominador (fracciones irreducibles). 20 = 2²·5 y 40 = 2³·5: decimal exacto (0,35 y 0,225). 12 = 2²·3 y 15 = 3·5 tienen un 3: periódicos (0,41666… y 0,2666…)." },
+    { nivel: "básico", q: "Halla la fracción generatriz de 0,45 y de 0,454545…", sol: "0,45 = 45/100 = 9/20. Para 0,4545…: 100x − x = 45, 99x = 45, x = 45/99 = 5/11." },
+    { nivel: "básico", q: "Ordena de menor a mayor: √3, 1,7, 7/4, 1,73.", sol: "Pasamos a decimal: √3 ≈ 1,7321; 7/4 = 1,75. Orden: 1,7 < 1,73 < √3 < 7/4." },
+    { nivel: "básico", q: "Escribe como intervalo y dibuja: a) −1 < x ≤ 4; b) x ≥ −2; c) x < 0,5.", sol: "a) (−1, 4]: punto hueco en −1 y relleno en 4. b) [−2, +∞): relleno en −2 y flecha a la derecha. c) (−∞; 0,5): hueco en 0,5 y flecha a la izquierda." },
+    { nivel: "básico", q: "Escribe con desigualdades: [3, 8), (−∞, 1], (−2, 2).", sol: "3 ≤ x < 8; x ≤ 1; −2 < x < 2." },
+    { nivel: "básico", q: "Calcula: |−12|, |5 − 9|, |−3| · |4|, |−2 − 6|.", sol: "|−12| = 12; |5 − 9| = |−4| = 4; 3 · 4 = 12; |−8| = 8." },
+    { nivel: "básico", q: "Calcula la distancia entre −4 y 7, y entre −5 y −1.", sol: "d(−4, 7) = |−4 − 7| = 11. d(−5, −1) = |−5 − (−1)| = |−4| = 4." },
+    { nivel: "básico", q: "Redondea y trunca √7 = 2,645751… a las décimas, centésimas y milésimas.", sol: "Redondeo: 2,6; 2,65; 2,646. Truncamiento: 2,6; 2,64; 2,645." },
+    { nivel: "básico", q: "Escribe el entorno de centro −1 y radio 3 como intervalo y con valor absoluto.", sol: "(−1 − 3, −1 + 3) = (−4, 2); con valor absoluto: |x + 1| < 3." },
+    { nivel: "básico", q: "¿Cuál es la longitud y el punto medio del intervalo [−3, 9]?", sol: "Longitud: 9 − (−3) = 12. Punto medio: (−3 + 9)/2 = 3." },
+    { nivel: "básico", q: "Da tres números racionales y tres irracionales comprendidos entre 2 y 3.", sol: "Racionales: 2,5; 2,1; 11/4. Irracionales: √5 ≈ 2,236; √7 ≈ 2,646; e ≈ 2,718 (o también 2 + √2/2)." },
+    { nivel: "medio", q: "Halla la fracción generatriz de 2,3777… y de 0,1252525…", sol: "2,3777…: 100x − 10x = 237,77… − 23,77… → 90x = 214 → x = 214/90 = 107/45. 0,12525…: 1000x − 10x = 125,25… − 1,2525… → 990x = 124 → x = 124/990 = 62/495." },
+    { nivel: "medio", q: "Demuestra que 0,999… = 1 con la fracción generatriz.", sol: "x = 0,999…; 10x = 9,999…; restando: 9x = 9, así que x = 1. No es una aproximación: son dos escrituras del mismo número." },
+    { nivel: "medio", q: "Explica cómo representar √13 en la recta con regla y compás.", sol: "13 = 2² + 3². Se dibuja en la recta el segmento de 0 a 3, se levanta en el 3 una perpendicular de longitud 2 y la hipotenusa mide √13. Con el compás en 0 se lleva esa longitud a la recta: √13 ≈ 3,606." },
+    { nivel: "medio", q: "Calcula A ∪ B y A ∩ B con A = [−3, 4) y B = [1, 7].", sol: "Unión: de −3 incluido a 7 incluido, [−3, 7]. Intersección: zona común de 1 (en los dos) a 4 (no está en A): [1, 4)." },
+    { nivel: "medio", q: "Calcula (−∞, 2) ∩ (2, +∞) y (−∞, 2] ∪ (2, +∞).", sol: "La intersección es vacía (∅): el 2 no está en ninguno y no hay más números comunes. La unión es toda la recta, ℝ, porque el 2 está en el primero." },
+    { nivel: "medio", q: "Resuelve y expresa como intervalo: a) |x| ≤ 5; b) |x − 2| < 4; c) |x| > 3.", sol: "a) [−5, 5]. b) −4 < x − 2 < 4 → −2 < x < 6: (−2, 6). c) (−∞, −3) ∪ (3, +∞)." },
+    { nivel: "medio", q: "Expresa con valor absoluto el intervalo [3, 11].", sol: "Centro: (3 + 11)/2 = 7; radio: (11 − 3)/2 = 4. Es |x − 7| ≤ 4." },
+    { nivel: "medio", q: "Al aproximar 2/3 por 0,67, ¿qué error absoluto y relativo se comete? ¿Es por defecto o por exceso?", sol: "2/3 = 0,6666… Eₐ = |0,6666… − 0,67| = 0,00333… = 1/300. Eᵣ = (1/300)/(2/3) = 1/200 = 0,5 %. Es por exceso, porque 0,67 > 2/3." },
+    { nivel: "medio", q: "Un atleta corre 100 m en 10,47 s y un cronometrador da 10,5 s. Otro mide un maratón de 7.623 s como 7.600 s. ¿Qué medida es más precisa?", sol: "Atleta: Eₐ = 0,03 s; Eᵣ = 0,03/10,47 ≈ 0,29 %. Maratón: Eₐ = 23 s; Eᵣ = 23/7623 ≈ 0,30 %. Son casi iguales y la del atleta es ligeramente más precisa. Mirando solo el error absoluto (0,03 s frente a 23 s) se exageraría la diferencia: hay que comparar Eᵣ." },
+    { nivel: "medio", q: "Una pieza debe medir 40 mm con una tolerancia de ±0,2 mm. Escribe el intervalo de medidas válidas y la condición con valor absoluto. ¿Vale una pieza de 39,75 mm?", sol: "Intervalo [39,8; 40,2]; condición |x − 40| ≤ 0,2. Para 39,75: |39,75 − 40| = 0,25 > 0,2, así que no vale." },
+    { nivel: "medio", q: "Decide si es verdadero o falso y justifica: a) la suma de dos irracionales es siempre irracional; b) el producto de un racional no nulo por un irracional es irracional.", sol: "a) Falso: √2 + (−√2) = 0, que es racional. b) Verdadero: si q·i = r con q y r racionales, entonces i = r/q sería racional, contradicción." },
+    { nivel: "medio", q: "¿Cuántas cifras significativas tiene cada número? 0,0305; 4,200; 3,0 · 10⁴.", sol: "0,0305: tres (3, 0, 5); los ceros iniciales no cuentan. 4,200: cuatro, porque los ceros finales indican precisión. 3,0 · 10⁴: dos." },
+    { nivel: "medio", q: "Si se redondea un precio a 12,5 €, ¿entre qué valores está el precio real? Da la cota del error absoluto.", sol: "Redondeado a décimas, el error máximo es media décima: 0,05 €. El precio real está en [12,45; 12,55)." },
+    { nivel: "avanzado", q: "Demuestra que √3 es irracional siguiendo el razonamiento de √2.", sol: "Supón √3 = a/b irreducible. Entonces 3b² = a², así que a² es múltiplo de 3 y, como 3 es primo, a también: a = 3k. Sustituyendo: 3b² = 9k² → b² = 3k², luego b también es múltiplo de 3. Entonces a/b no era irreducible: contradicción. √3 es irracional." },
+    { nivel: "avanzado", q: "Resuelve |3 − 2x| ≥ 7 y represéntalo.", sol: "Equivale a 3 − 2x ≥ 7 o 3 − 2x ≤ −7. Primera: −2x ≥ 4 → x ≤ −2 (cambia el sentido al dividir entre −2). Segunda: −2x ≤ −10 → x ≥ 5. Solución: (−∞, −2] ∪ [5, +∞), con puntos rellenos en −2 y 5." },
+    { nivel: "avanzado", q: "Halla todos los números reales x tales que |x − 1| + |x + 1| = 2.", sol: "|x − 1| + |x + 1| es la suma de las distancias de x a 1 y a −1. Si x está entre −1 y 1, esa suma vale exactamente 2 (la distancia entre −1 y 1). Fuera de ese intervalo es mayor que 2. Solución: [−1, 1]." },
+    { nivel: "avanzado", q: "Encuentra un número irracional y uno racional entre 1,414 y 1,415.", sol: "Racional: el punto medio, 1,4145 = 2829/2000. Irracional: √2 = 1,41421…, que está entre ambos (también 1,4141 + √2/10000…). Entre dos reales cualesquiera hay de los dos tipos." },
+    { nivel: "avanzado", q: "La aproximación 355/113 de π fue usada en China en el siglo V. Calcula su error absoluto y relativo tomando π = 3,14159265.", sol: "355/113 = 3,14159292… Eₐ ≈ |3,14159265 − 3,14159292| = 0,00000027 = 2,7 · 10⁻⁷. Eᵣ ≈ 2,7 · 10⁻⁷ / 3,1416 ≈ 8,5 · 10⁻⁸, menos de una diezmillonésima parte." },
+    { nivel: "avanzado", q: "Determina el conjunto [−2, 5) ∩ ((−∞, 0) ∪ [3, +∞)).", sol: "(−∞, 0) ∪ [3, +∞) son todos los números salvo [0, 3). Al cortar con [−2, 5) queda: [−2, 0) ∪ [3, 5)." },
+    { nivel: "avanzado", q: "Un folio DIN A4 mide 210 × 297 mm. Comprueba que la razón largo/ancho se aproxima a √2 y calcula el error relativo.", sol: "297/210 = 1,414285… y √2 = 1,414213… Eₐ ≈ 0,000072; Eᵣ ≈ 0,000072/1,414 ≈ 0,005 %. La norma usa √2 para que al doblar el folio se conserve la forma." },
+    { nivel: "avanzado", q: "¿Para qué valores de a el intervalo (a, 2a + 3) no es vacío? ¿Y para cuáles contiene al 0?", sol: "No es vacío si a < 2a + 3, es decir, a > −3. Contiene al 0 si a < 0 < 2a + 3: a < 0 y a > −1,5. Por tanto, a ∈ (−1,5; 0)." },
+  ],
+  quiz: reparte([
+    { q: "¿Cuál de estos números es irracional?", o: ["0,333…", "√9", "√5", "22/7"], a: 2, e: "√5 = 2,2360679… no tiene periodo. 0,333… = 1/3, √9 = 3 y 22/7 son racionales." },
+    { q: "La fracción generatriz de 0,1666… es…", o: ["1/6", "16/99", "1/66", "15/9"], a: 0, e: "(16 − 1)/90 = 15/90 = 1/6." },
+    { q: "¿Qué fracción irreducible da un decimal exacto?", o: ["5/6", "7/12", "3/40", "2/9"], a: 2, e: "40 = 2³ · 5: solo factores 2 y 5." },
+    { q: "¿Qué intervalo corresponde a −2 < x ≤ 5?", o: ["[−2, 5]", "(−2, 5]", "[−2, 5)", "(−2, 5)"], a: 1, e: "−2 no se incluye (paréntesis) y 5 sí (corchete)." },
+    { q: "La semirrecta «x ≥ 4» se escribe…", o: ["(4, +∞)", "[4, +∞]", "[4, +∞)", "(−∞, 4]"], a: 2, e: "Corchete en 4 (incluido) y paréntesis en el infinito." },
+    { q: "[0, 5] ∩ [3, 8] es…", o: ["[0, 8]", "[3, 5]", "(3, 5)", "∅"], a: 1, e: "Los comunes, con extremos incluidos en los dos." },
+    { q: "(−∞, 1) ∪ [1, 4] es…", o: ["(−∞, 4]", "(−∞, 1)", "[1, 4]", "(−∞, 4)"], a: 0, e: "Juntos cubren todo hasta 4 incluido, sin hueco en el 1." },
+    { q: "¿Cuánto vale |−7| + |3|?", o: ["−4", "4", "10", "−10"], a: 2, e: "7 + 3 = 10; el valor absoluto nunca es negativo." },
+    { q: "La distancia entre −3 y 5 es…", o: ["2", "8", "−8", "15"], a: 1, e: "|−3 − 5| = 8." },
+    { q: "¿Qué números cumplen |x| < 2?", o: ["(−2, 2)", "[0, 2)", "(2, +∞)", "[−2, 2]"], a: 0, e: "A menos de 2 del cero, sin incluir los extremos." },
+    { q: "|x − 3| ≤ 1 equivale a…", o: ["[2, 4]", "(2, 4)", "[−1, 3]", "[3, 4]"], a: 0, e: "Distancia a 3 menor o igual que 1." },
+    { q: "Redondea √3 = 1,73205… a las centésimas.", o: ["1,73", "1,74", "1,7", "1,732"], a: 0, e: "La cifra siguiente es 2 < 5: se queda 1,73." },
+    { q: "Truncar 2,71828 a las milésimas da…", o: ["2,719", "2,718", "2,72", "2,7"], a: 1, e: "Se cortan las cifras: 2,718." },
+    { q: "El error relativo de aproximar 50 por 49 es…", o: ["1", "2 %", "1 %", "0,5 %"], a: 1, e: "1/50 = 0,02 = 2 %." },
+    { q: "¿Qué afirmación es verdadera?", o: ["Todo racional es entero", "Todo entero es racional", "ℚ e 𝕀 tienen números comunes", "√16 es irracional"], a: 1, e: "Cualquier entero n se escribe n/1." },
+    { q: "Entre 0,1 y 0,11 hay…", o: ["ningún número", "un número", "nueve números", "infinitos números"], a: 3, e: "Densidad de los reales." },
+    { q: "Si a < b y multiplicamos por −2…", o: ["−2a < −2b", "−2a > −2b", "−2a = −2b", "no se puede saber"], a: 1, e: "Multiplicar por un negativo invierte la desigualdad." },
+    { q: "El entorno de centro 0 y radio 0,5 es…", o: ["[−0,5; 0,5]", "(0; 0,5)", "(−0,5; 0,5)", "(−0,5; 0)"], a: 2, e: "(a − r, a + r) con a = 0 y r = 0,5." },
+    { q: "Si una medida se redondea a 6,3 cm, el valor real está en…", o: ["[6,25; 6,35)", "[6,2; 6,4]", "[6,3; 6,4)", "exactamente 6,3"], a: 0, e: "Cota de error: media décima, 0,05 cm." },
+    { q: "¿Cuál es el valor exacto de 0,999…?", o: ["Casi 1", "1", "0,9", "No se puede saber"], a: 1, e: "Su generatriz es 9/9 = 1." },
+  ]),
+  examen: reparte([
+    { q: "¿Qué número es racional?", o: ["π", "2,151515…", "√7", "e"], a: 1, e: "2,1515… es periódico: 213/99 = 71/33." },
+    { q: "La intersección de [0, 4] y (2, 6) es…", o: ["(2, 4]", "[0, 6)", "[2, 4)", "(2, 4)"], a: 0, e: "Mayores que 2 y menores o iguales que 4." },
+    { q: "¿Qué desigualdad describe (−∞, 1]?", o: ["x < 1", "x ≥ 1", "x ≤ 1", "x > 1"], a: 2, e: "Todos los menores que 1, incluido el 1." },
+    { q: "La solución de |x + 1| > 2 es…", o: ["(−3, 1)", "(−∞, −3) ∪ (1, +∞)", "(1, +∞)", "[−3, 1]"], a: 1, e: "Distancia a −1 mayor que 2." },
+    { q: "La generatriz de 1,2333… es…", o: ["37/30", "123/99", "111/99", "12/9"], a: 0, e: "(123 − 12)/90 = 111/90 = 37/30." },
+    { q: "Con √2 se construye en la recta…", o: ["la diagonal de un cuadrado de lado 1", "el lado de un triángulo equilátero", "la mitad de un círculo", "el radio de una circunferencia de longitud 2"], a: 0, e: "√(1² + 1²) = √2." },
+    { q: "¿Qué medida es más precisa?", o: ["Error de 1 cm en 20 cm", "Error de 1 cm en 2 m", "Error de 1 m en 50 m", "Las tres igual"], a: 1, e: "Eᵣ: 5 %, 0,5 % y 2 %." },
+    { q: "|a · b| es igual a…", o: ["|a| + |b|", "|a| · |b|", "a · b", "−a · b"], a: 1, e: "El valor absoluto de un producto es el producto de los valores absolutos." },
+  ], 2),
+  feynman: ["Qué diferencia hay entre un número racional y uno irracional", "Cómo se obtiene la fracción generatriz de un periódico", "Cuándo se usa corchete y cuándo paréntesis en un intervalo", "Qué significa el valor absoluto como distancia", "Por qué el error relativo mide la calidad de una medida"],
+  glosario: [
+    ["Número racional (ℚ)", "El que se puede escribir como fracción a/b de enteros con b ≠ 0; su decimal es exacto o periódico."],
+    ["Número irracional (𝕀)", "El que tiene infinitas cifras decimales no periódicas; no es una fracción."],
+    ["Número real (ℝ)", "Cualquier número racional o irracional; se corresponde con un punto de la recta."],
+    ["Decimal periódico puro", "Aquel cuyo periodo empieza justo después de la coma, como 0,333…"],
+    ["Decimal periódico mixto", "Aquel con un anteperiodo entre la coma y el periodo, como 0,1666…"],
+    ["Fracción generatriz", "Fracción irreducible de la que procede un decimal exacto o periódico."],
+    ["Recta real", "Recta en la que cada punto representa un número real, sin huecos."],
+    ["Intervalo", "Conjunto de reales comprendidos entre dos extremos; puede ser abierto, cerrado o semiabierto."],
+    ["Semirrecta", "Conjunto de reales mayores (o menores) que un número; un extremo es ±∞."],
+    ["Entorno", "Intervalo (a − r, a + r) de centro a y radio r."],
+    ["Valor absoluto", "Distancia de un número al cero: |x| = x si x ≥ 0 y |x| = −x si x < 0."],
+    ["Densidad", "Propiedad de los reales: entre dos distintos siempre hay infinitos números."],
+    ["Truncar", "Aproximar cortando las cifras a partir de un orden."],
+    ["Redondear", "Aproximar al valor más cercano del orden elegido."],
+    ["Error absoluto", "Diferencia en valor absoluto entre el valor real y el aproximado."],
+    ["Error relativo", "Error absoluto dividido entre el valor real; suele darse en %."],
+  ],
+  situacion: {
+    titulo: "¿Cuánto mide de verdad nuestra aula?",
+    reto: "Un equipo de mantenimiento necesita saber la superficie del aula para encargar suelo nuevo y nos pide un informe fiable. Pero cada persona mide distinto y ningún instrumento es perfecto. Vuestro reto es dar las medidas del aula como intervalos y decidir cuántos metros cuadrados de suelo hay que pedir sin quedarse cortos ni derrochar.",
+    pasos: [
+      "En grupos de cuatro, medid el largo y el ancho del aula con dos instrumentos distintos (cinta métrica y pasos o regla de 1 m) y anotad cada medida.",
+      "Calculad la media de las medidas del grupo y redondeadla a los centímetros; indicad la cota de error de cada instrumento.",
+      "Expresad el largo y el ancho como intervalos [mínimo, máximo] y dibujadlos sobre una recta.",
+      "Calculad la superficie mínima y máxima posible multiplicando los extremos, y el error relativo de vuestra medida.",
+      "Comparad vuestro intervalo con el de los demás grupos: ¿se solapan? Calculad la intersección de todos.",
+      "Redactad el informe con la cantidad de suelo recomendada y su justificación.",
+    ],
+    producto: "Un informe de una página con las medidas en forma de intervalo, los cálculos de error y la recomendación final para el equipo de mantenimiento.",
+    evaluacion: [
+      "Expresa correctamente las medidas como intervalos y los representa en la recta.",
+      "Calcula con corrección el error absoluto, el relativo y la superficie mínima y máxima.",
+      "Usa la intersección de intervalos para combinar los resultados de los grupos.",
+      "Justifica la decisión final con argumentos matemáticos claros.",
+    ],
+  },
   figura: {
     titulo: "Intervalos y semirrectas de un vistazo",
     svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Tabla con los cuatro tipos de intervalo: cerrado, abierto, semiabierto y semirrecta, con su desigualdad y su dibujo">
       <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["[a, b]", "a ≤ x ≤ b", 1, 1, 0], ["(a, b)", "a < x < b", 0, 0, 0], ["[a, b)", "a ≤ x < b", 1, 0, 0], ["(a, +∞)", "x > a", 0, 0, 1]].map(([n, d, l, r, inf], i) => {
+      ${[["[a, b]", "a ≤ x ≤ b", 1, 1, 0], ["(a, b)", "a &lt; x &lt; b", 0, 0, 0], ["[a, b)", "a ≤ x &lt; b", 1, 0, 0], ["(a, +∞)", "x &gt; a", 0, 0, 1]].map(([n, d, l, r, inf], i) => {
         const y = 40 + i * 48;
         return `<text x="30" y="${y + 5}" font-size="18" font-weight="700" fill="var(--pen)" ${D}>${n}</text><text x="180" y="${y + 5}" font-size="15" fill="var(--ink)" ${F}>${d}</text>
         <path d="M340 ${y} H 610" stroke="var(--line)" stroke-width="2"/><path d="M400 ${y} H ${inf ? 610 : 540}" stroke="var(--pen)" stroke-width="6"/>
@@ -90,97 +217,35 @@ module.exports = {
     </svg>`,
   },
   video: { id: "yhdmoH_lyeU", titulo: "Intervalos introducción | tipos de intervalos", canal: "Matemáticas profe Alex", vistas: 3855074, megusta: 75493, busqueda: "intervalos números reales" },
-  quiz: [
-    { q: "¿Cuál de estos números es irracional?", o: ["0,333…", "√9", "√5"], a: 2, e: "√5 = 2,2360679… no tiene periodo. 0,333… = 1/3 y √9 = 3 son racionales." },
-    { q: "¿Qué intervalo corresponde a −2 < x ≤ 5?", o: ["[−2, 5]", "(−2, 5]", "[−2, 5)"], a: 1, e: "−2 no se incluye (paréntesis) y 5 sí (corchete)." },
-    { q: "¿Cuánto vale |−7| + |3|?", o: ["−4", "4", "10"], a: 2, e: "El valor absoluto es una distancia, siempre positiva: 7 + 3 = 10." },
-    { q: "¿Qué números cumplen |x| < 2?", o: ["(−2, 2)", "[0, 2)", "(2, +∞)"], a: 0, e: "Son los que están a menos de 2 del cero: entre −2 y 2, sin incluirlos." },
-    { q: "Redondea √3 = 1,73205… a las centésimas.", o: ["1,73", "1,74", "1,7"], a: 0, e: "La cifra siguiente a las centésimas es 2, menor que 5: se queda 1,73." },
-  ],
-  examen: [
-    { q: "¿Qué número es racional?", o: ["π", "2,151515…", "√7"], a: 1, e: "2,1515… es periódico, así que es una fracción: 213/99." },
-    { q: "La intersección de [0, 4] y (2, 6) es…", o: ["(2, 4]", "[0, 6)", "[2, 4)"], a: 0, e: "Comunes a los dos: mayores que 2 y menores o iguales que 4." },
-    { q: "¿Qué desigualdad describe la semirrecta (−∞, 1]?", o: ["x < 1", "x ≥ 1", "x ≤ 1"], a: 2, e: "Todos los números menores que 1, incluido el 1." },
-  ],
-  feynman: ["Qué diferencia hay entre un número racional y uno irracional", "Por qué la recta real no tiene huecos", "Cuándo se usa corchete y cuándo paréntesis", "Qué significa el valor absoluto como distancia"],
   mapa: mapa("NÚMEROS REALES", "var(--bac)", [
     ["Conjuntos", "ℕ ⊂ ℤ ⊂ ℚ · ℚ ∪ 𝕀 = ℝ", "var(--pen)"],
     ["Recta real", "un punto, un número", "var(--leaf)"],
     ["Intervalos", "[ ] incluye · ( ) excluye", "var(--red)"],
-    ["Valor absoluto", "|x| = distancia al 0", "var(--inf)"],
+    ["Valor absoluto y error", "|x| = distancia al 0", "var(--inf)"],
   ], 250),
   tarjetas: [
     ["¿Qué es un número irracional?", "Uno con infinitas cifras decimales no periódicas; no se puede escribir como fracción (√2, π)."],
+    ["¿Cuándo da un decimal exacto una fracción irreducible?", "Cuando su denominador solo tiene los factores primos 2 y 5."],
+    ["Regla de la fracción generatriz", "Numerador: número sin coma menos lo que no se repite. Denominador: un 9 por cifra del periodo y un 0 por cifra del anteperiodo."],
     ["¿Qué significa el corchete en [a, b]?", "Que el extremo está incluido (punto relleno)."],
+    ["¿Por qué el infinito lleva paréntesis?", "Porque no es un número y no puede incluirse."],
     ["Escribe −3 ≤ x < 1 como intervalo", "[−3, 1)"],
+    ["Unión e intersección", "A ∪ B: en A o en B. A ∩ B: en A y en B a la vez."],
     ["¿Qué es |x|?", "La distancia de x al cero; siempre es positiva o cero."],
+    ["|x − a| < r", "El entorno (a − r, a + r)."],
+    ["Truncar frente a redondear", "Truncar corta las cifras; redondear lleva al valor más cercano."],
     ["Error absoluto", "|valor real − valor aproximado|"],
+    ["Error relativo", "Error absoluto / valor real; mide la calidad de la aproximación."],
   ],
-  familias: ["Pedidle que coloque en una recta dibujada −1,5, √2 y π.", "Jugad a describir intervalos con temperaturas: «entre 18 y 25 grados, ambos incluidos».", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  familias: ["Pedidle que coloque en una recta dibujada −1,5, √2, π y 7/3.", "Jugad a describir intervalos con temperaturas o precios: «entre 18 y 25 grados, ambos incluidos».", "Al medir algo en casa (una mesa, una ventana), preguntad: ¿qué error podríamos estar cometiendo?", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Sentido numérico: números reales, representación en la recta, intervalos y aproximaciones (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["Construir √2, √3 y √5 con regla y compás y colocarlos en la recta.", "Juego de intervalos: un alumno dice una desigualdad y otro la dibuja en la pizarra.", "Comparar aproximaciones de π a lo largo de la historia y calcular su error relativo."],
+    saberes: "Sentido numérico: números reales, representación en la recta, intervalos, valor absoluto y aproximaciones con estimación del error (RD 217/2022, Matemáticas B de 4º, saberes básicos A. Sentido numérico).",
+    ideas: ["Construir √2, √3 y √5 con regla y compás (espiral de Teodoro) y colocarlos en la recta.", "Juego de intervalos: un alumno dice una desigualdad y otro la dibuja en la pizarra; después se calculan uniones e intersecciones.", "Comparar aproximaciones históricas de π (Babilonia, Arquímedes, Zu Chongzhi) y calcular su error relativo.", "Medir objetos del aula y expresar el resultado como intervalo con su cota de error."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Número real, Wikipedia en español", url: "https://es.wikipedia.org/wiki/N%C3%BAmero_real" },
+    { t: "Número irracional, Wikipedia en español", url: "https://es.wikipedia.org/wiki/N%C3%BAmero_irracional" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Reconocer irracionales famosos y representar raíces en la recta", "Operar con intervalos y con números en notación científica"],
-  tras: {
-    "Los conjuntos de números": [
-      { html: `<h3>Irracionales famosos</h3><p>Un número <b>irracional</b> tiene infinitas cifras decimales que no se repiten periódicamente, por lo que no se puede escribir como fracción. Los más conocidos son <b>π</b> ≈ 3,14159…, la razón entre la longitud de una circunferencia y su diámetro; <b>√2</b> ≈ 1,41421…, la diagonal de un cuadrado de lado 1, que ya los pitagóricos demostraron que no era una fracción; el número <b>e</b> ≈ 2,71828…, que aparece en el crecimiento de poblaciones y en el interés continuo; y el <b>número de oro</b> <mark>φ = (1 + √5)/2 ≈ 1,618</mark>, la proporción que se encuentra en la espiral de algunas conchas, en las pipas de girasol y en la sucesión de Fibonacci.</p>`, video: { id: "yDyMSliKsxI", titulo: "La sucesión de Fibonacci y la razón áurea", canal: "Derivando", vistas: 1901058 } },
-    ],
-    "La recta real": [
-      { html: `<h3>Representar raíces con Pitágoras</h3><p>Aunque √2 tenga infinitas cifras, se puede situar <b>exactamente</b> en la recta con regla y compás. Se dibuja un cuadrado de lado 1 sobre la recta, desde 0 hasta 1. Su diagonal mide √(1² + 1²) = √2. Con el compás pinchado en 0 y abierto hasta el extremo de la diagonal, se traza un arco que corta la recta en el punto √2. Del mismo modo, con un triángulo rectángulo de catetos 1 y 2 se obtiene √5, y con catetos 2 y 3, √13. Este método muestra que la recta real está <mark>completa</mark>: cada punto corresponde a un número real.</p>` },
-    ],
-    "Intervalos": [
-      { html: `<h3>Unión e intersección de intervalos</h3><p>Con los intervalos se pueden hacer operaciones de conjuntos. La <b>unión</b> A ∪ B está formada por los números que están en A <b>o</b> en B (o en ambos). La <b>intersección</b> A ∩ B la forman los que están en A <b>y</b> en B a la vez. Para calcularlas es muy útil <mark>dibujar los dos intervalos</mark> sobre la misma recta, uno encima del otro. Si A = [−2, 3) y B = (1, 5], entonces A ∪ B = [−2, 5] y A ∩ B = (1, 3). Si no se solapan, la intersección es el conjunto vacío, ∅.</p>` },
-    ],
-    "Aproximar y medir el error": [
-      { html: `<h3>La notación científica</h3><p>Para escribir números muy grandes o muy pequeños se usa la <b>notación científica</b>: un número entre 1 y 10 multiplicado por una potencia de 10, <mark>a · 10ⁿ</mark> con 1 ≤ a &lt; 10. La distancia de la Tierra al Sol es 1,5 · 10⁸ km y el tamaño de un virus, 1 · 10⁻⁷ m. Para <b>multiplicar</b> se multiplican las mantisas y se suman los exponentes; para <b>dividir</b>, se dividen y se restan. Para <b>sumar</b> o restar hay que igualar antes los exponentes. Al final se ajusta el resultado para que la mantisa quede entre 1 y 10.</p><div class="formula"><span>(3 · 10⁵) · (4 · 10³) = 12 · 10⁸ = 1,2 · 10⁹</span></div>` },
-    ],
-  },
-  ejemplos: [
-    { enunciado: "Halla A ∪ B y A ∩ B con A = (−∞, 2] y B = (−1, 6).", pasos: ["Dibuja los dos intervalos en la misma recta.", "Unión: desde −∞ hasta 6 sin incluirlo.", "Intersección: la parte común, de −1 (sin incluir) a 2 (incluido)."], resultado: "A ∪ B = (−∞, 6); A ∩ B = (−1, 2]." },
-    { enunciado: "Calcula (6 · 10⁻⁴) · (5 · 10⁷) / (2 · 10²).", pasos: ["Mantisas: 6 · 5 / 2 = 15.", "Exponentes: −4 + 7 − 2 = 1.", "15 · 10¹ = 1,5 · 10²."], resultado: "1,5 · 10² = 150." },
-    { enunciado: "Aproxima π ≈ 3,1416 a las centésimas y calcula el error absoluto y el relativo.", pasos: ["Aproximación: 3,14.", "Error absoluto: |3,1416 − 3,14| = 0,0016.", "Error relativo: 0,0016 / 3,1416 ≈ 0,0005 = 0,05 %."], resultado: "Ea = 0,0016; Er ≈ 0,05 %." },
-  ],
-  errores: [
-    "Pensar que 22/7 es igual a π: es solo una aproximación racional.",
-    "Considerar irracional un decimal periódico como 0,333…, que es 1/3.",
-    "Confundir la unión (o) con la intersección (y).",
-    "Escribir en notación científica una mantisa mayor que 10, como 25 · 10⁴.",
-    "Sumar números en notación científica sin igualar antes los exponentes.",
-  ],
-  ejercicios: [
-    { q: "Clasifica: −5, 3/4, √9, √7, 0,121212…, π.", sol: "−5 entero; 3/4 racional; √9 = 3 natural; √7 irracional; 0,1212… racional (12/99); π irracional." },
-    { q: "Explica cómo representarías √10 en la recta.", sol: "Con un triángulo rectángulo de catetos 1 y 3, cuya hipotenusa mide √10, y trasladándola con el compás." },
-    { q: "Escribe como intervalo: −2 < x ≤ 5 y x ≥ 3.", sol: "(−2, 5] y [3, +∞)." },
-    { q: "Calcula [−3, 4) ∪ [1, 7] y [−3, 4) ∩ [1, 7].", sol: "[−3, 7] y [1, 4)." },
-    { q: "Escribe con valor absoluto los números que están a menos de 2 unidades de 5.", sol: "|x − 5| < 2, es decir, (3, 7)." },
-    { q: "Escribe en notación científica 34.500.000 y 0,00072.", sol: "3,45 · 10⁷ y 7,2 · 10⁻⁴." },
-    { q: "Calcula (2,5 · 10⁶) · (4 · 10⁻²).", sol: "10 · 10⁴ = 1 · 10⁵." },
-    { q: "Calcula 3 · 10⁵ + 4 · 10⁴.", sol: "30 · 10⁴ + 4 · 10⁴ = 34 · 10⁴ = 3,4 · 10⁵." },
-    { q: "Redondea √2 = 1,41421… a las milésimas y calcula el error absoluto aproximado.", sol: "1,414; Ea ≈ 0,0002." },
-    { q: "Calcula φ = (1 + √5)/2 con 3 decimales y comprueba que φ² ≈ φ + 1.", sol: "φ ≈ 1,618; φ² ≈ 2,618 = 1,618 + 1." },
-  ],
-  quiz: [
-    { q: "El número de oro vale aproximadamente…", o: ["1,618", "3,14", "2,718"], a: 0, e: "φ = (1 + √5)/2." },
-    { q: "La diagonal de un cuadrado de lado 1 mide…", o: ["2", "√2", "1,5"], a: 1, e: "Por Pitágoras." },
-    { q: "[0, 5] ∩ [3, 8] es…", o: ["[0, 8]", "[3, 5]", "∅"], a: 1, e: "La parte común." },
-    { q: "En notación científica, 0,0045 es…", o: ["4,5 · 10⁻³", "45 · 10⁻⁴", "4,5 · 10³"], a: 0, e: "Mantisa entre 1 y 10." },
-    { q: "Al multiplicar en notación científica, los exponentes…", o: ["se suman", "se multiplican", "se restan"], a: 0, e: "10ᵃ · 10ᵇ = 10ᵃ⁺ᵇ." },
-  ],
-  tarjetas: [
-    ["Número de oro", "φ = (1 + √5)/2 ≈ 1,618."],
-    ["Intersección de intervalos", "Números que están en los dos intervalos a la vez."],
-    ["Notación científica", "a · 10ⁿ con 1 ≤ a < 10."],
-  ],
-});

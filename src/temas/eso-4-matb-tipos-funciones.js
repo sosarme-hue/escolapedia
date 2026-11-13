@@ -1,165 +1,244 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-
-// Dibuja f en un marco 260x180 con origen (ox, oy) y escala k; corta valores fuera.
-function graf(f, c, ox = 130, oy = 100, k = 22, x0 = -5.5, x1 = 5.5) {
-  let d = "", pen = false;
-  for (let x = x0; x <= x1 + 1e-9; x += 0.05) {
-    const y = f(x), Y = oy - y * k;
-    if (!isFinite(y) || Y < 4 || Y > 176) { pen = false; continue; }
-    d += `${pen ? "L" : "M"}${(ox + x * k).toFixed(1)} ${Y.toFixed(1)} `; pen = true;
-  }
-  return `<path d="${d}" fill="none" stroke="${c}" stroke-width="3"/>`;
-}
-const ejes = (ox = 130, oy = 100) => `<path d="M8 ${oy} H 252 M${ox} 6 V 174" stroke="var(--line)" stroke-width="2"/>`;
+// Matemáticas B 4º ESO · Tema 8. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, graf } = require("./_eso4L3");
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Funciones polinómicas, racionales, exponenciales y logarítmicas",
-  minutos: 45,
-  objetivos: ["Reconocer y representar funciones lineales, cuadráticas y de proporcionalidad inversa", "Hallar el vértice y los cortes de una parábola", "Distinguir el crecimiento exponencial y el logarítmico y aplicarlos a situaciones reales"],
-  claves: ["pendiente", "parábola", "vértice", "hipérbola", "asíntota", "exponencial"],
+  minutos: 120,
+  objetivos: [
+    "Representar funciones lineales y afines e interpretar su pendiente y su ordenada en el origen",
+    "Estudiar parábolas: vértice, eje de simetría, cortes y problemas de máximos y mínimos",
+    "Reconocer la proporcionalidad inversa y las funciones racionales sencillas con sus asíntotas",
+    "Obtener nuevas gráficas mediante traslaciones y reflexiones",
+    "Representar e interpretar funciones exponenciales y logarítmicas en contextos reales",
+    "Elegir el modelo de función que mejor describe una situación",
+  ],
+  claves: ["pendiente", "ordenada en el origen", "parábola", "vértice", "hipérbola", "asíntota", "traslación", "exponencial", "logaritmo", "modelo"],
+  lectura: {
+    titulo: "Un grano de trigo por casilla",
+    html: `<p>Cuenta una vieja leyenda que el inventor del ajedrez presentó el juego a un rey de la India. Encantado, el rey le ofreció la recompensa que quisiera. El sabio pidió algo aparentemente modesto: un grano de trigo por la primera casilla del tablero, dos por la segunda, cuatro por la tercera, y así, doblando siempre, hasta la casilla 64. El rey sonrió ante una petición tan humilde… hasta que sus contables hicieron la cuenta.</p>
+    <p>Solo la última casilla necesitaba 2⁶³ granos, unos nueve trillones: más trigo del que la humanidad ha cosechado en toda su historia. El rey había subestimado el poder del <b>crecimiento exponencial</b>, el que multiplica en lugar de sumar.</p>
+    <p>Este error de intuición se sigue cometiendo hoy. Nos cuesta entender cómo crecen unos ahorros con interés compuesto, cómo se propaga un virus o un bulo en redes sociales, o por qué un medicamento tarda tanto en desaparecer del cuerpo. Cada fenómeno tiene su <b>forma</b>: algunos crecen en línea recta, otros suben y bajan como una parábola, otros se disparan o se estabilizan. Conocer el catálogo de funciones de este tema es como tener una caja de herramientas: ante un problema real, sabrás qué modelo elegir para describirlo y predecir qué ocurrirá.</p>`,
+  },
   pregunta: {
     texto: "Te ofrecen dos premios: 1.000 € cada día durante un mes, o 1 céntimo el primer día y el doble cada día siguiente. ¿Cuál eliges?",
     respuesta: "El primero da 30.000 €. El segundo es una <mark>función exponencial</mark>: el día 30 recibes 0,01 · 2²⁹ ≈ <b>5,4 millones de euros</b>. Las exponenciales empiezan lentas y luego se disparan.",
   },
   bloques: [
     {
-      html: `<h3>Funciones lineales y afines</h3><p>Su gráfica es una <b>recta</b>: y = mx + n. La <b>pendiente</b> m indica cuánto sube y por cada unidad que avanza x (si es negativa, baja). La <b>ordenada en el origen</b> n es donde corta al eje Y. Si n = 0, es de <mark>proporcionalidad directa</mark>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Rectas y igual a 2x más 1, con pendiente positiva, e y igual a menos medio x más 2, con pendiente negativa">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${ejes()}${graf((x) => 2 * x + 1, "var(--pen)")}${graf((x) => -0.5 * x + 2, "var(--red)")}
-        <g ${F} font-size="12" font-weight="700"><text x="14" y="164" fill="var(--pen)">y = 2x + 1 (m = 2)</text><text x="170" y="140" fill="var(--red)">y = −x/2 + 2</text></g></svg>`,
+      html: `<h3>8.1 Funciones lineales y afines</h3><p>Una <b>función afín</b> tiene la forma f(x) = mx + n y su gráfica es una <mark>recta</mark>. Sus dos parámetros tienen un significado muy claro:</p><ul><li>La <b>pendiente</b> m indica cuánto aumenta y por cada unidad que aumenta x. Si m &gt; 0, la recta sube (función creciente); si m &lt; 0, baja (decreciente); si m = 0, es horizontal (función constante).</li><li>La <b>ordenada en el origen</b> n es el valor de y cuando x = 0: el punto (0, n) donde la recta corta al eje Y.</li></ul><p>Si n = 0, la función f(x) = mx se llama <b>lineal</b> o de <b>proporcionalidad directa</b>: su recta pasa por el origen y y es proporcional a x (al doble de x, doble de y). La pendiente es entonces la constante de proporcionalidad.</p><p>Las funciones afines describen todo lo que tiene una <b>parte fija</b> y una <b>parte que crece a ritmo constante</b>: una tarifa de teléfono con cuota fija y precio por minuto, el alquiler de una bicicleta, el agua que entra en un depósito con un grifo de caudal constante. Para dibujar una recta bastan <mark>dos puntos</mark>: el corte con el eje Y y cualquier otro.</p>`,
+      svg: graf("Rectas y igual a 2x más 1, creciente, e y igual a menos medio x más 2, decreciente, con sus ordenadas en el origen", { x0: -4, x1: 4, y0: -3, y1: 5, paso: 1 }, (E) => `${E.curva((x) => 2 * x + 1, "var(--pen)")}${E.curva((x) => -0.5 * x + 2, "var(--red)")}${E.punto(0, 1, "var(--pen)", "n = 1", 8, 12)}${E.punto(0, 2, "var(--red)", "n = 2", -8, 14)}${t(E.X(2.0), E.Y(4.5), "y = 2x + 1", { c: "var(--pen)", s: 11, b: 1, a: "start" })}${t(E.X(-3.8), E.Y(4.1), "y = −x/2 + 2", { c: "var(--red)", s: 11, b: 1, a: "start" })}`),
     },
     {
-      html: `<h3>Funciones cuadráticas: la parábola</h3><p>y = ax² + bx + c dibuja una <b>parábola</b>. Si a &gt; 0 abre hacia arriba (∪) y si a &lt; 0, hacia abajo (∩). Su punto clave es el <b>vértice</b>:</p><div class="formula"><span>x_v = −b / 2a</span></div><p>Los cortes con el eje X son las soluciones de ax² + bx + c = 0, y con el eje Y, el punto (0, c).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Parábola y igual a x al cuadrado menos 2x menos 3 con vértice en (1, menos 4) y cortes en menos 1 y 3">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${ejes(110, 80)}${graf((x) => x * x - 2 * x - 3, "var(--pen)", 110, 80, 20)}
-        <circle cx="${110 + 20}" cy="${80 + 4 * 20}" r="6" fill="var(--red)"/><circle cx="${110 - 20}" cy="80" r="5" fill="var(--leaf)"/><circle cx="${110 + 60}" cy="80" r="5" fill="var(--leaf)"/><circle cx="110" cy="${80 + 60}" r="5" fill="var(--inf)"/>
-        <g ${F} font-size="12" font-weight="700"><text x="${110 + 30}" y="${80 + 4 * 20 + 4}" fill="var(--red)">vértice (1, −4)</text><text x="70" y="72" fill="var(--leaf)">−1</text><text x="174" y="72" fill="var(--leaf)">3</text><text x="64" y="${80 + 64}" fill="var(--inf)">(0, −3)</text></g></svg>`,
+      html: `<h3>8.2 La recta que pasa por dos puntos</h3><p>Si conocemos dos puntos de una recta, A(x₁, y₁) y B(x₂, y₂), su pendiente es el cociente entre lo que sube y lo que avanza:</p><div class="formula"><span>m = (y₂ − y₁) / (x₂ − x₁)</span></div><p>Es exactamente la tasa de variación media del tema anterior, que en una recta vale lo mismo en cualquier intervalo. Después, la ecuación se obtiene con la <b>forma punto-pendiente</b>: y − y₁ = m(x − x₁).</p><p>Ejemplo: un fontanero cobra 70 € por 1 hora de trabajo y 130 € por 3 horas. Los puntos son (1, 70) y (3, 130). La pendiente es (130 − 70)/(3 − 1) = 30 €/h y la recta, y − 70 = 30(x − 1), es decir, <mark>y = 30x + 40</mark>. Interpretación: cobra 40 € por el desplazamiento y 30 € por cada hora.</p><p>Dos rectas son <b>paralelas</b> si tienen la misma pendiente y distinta ordenada en el origen. Por eso, en un problema con dos tarifas afines de la misma pendiente, una será siempre más cara que la otra. Si las pendientes son distintas, las rectas se cortan en un punto, que se halla resolviendo el sistema formado por sus ecuaciones: es el momento en que dos tarifas cuestan lo mismo.</p>`,
+      svg: graf("Recta que pasa por los puntos (1, 70) y (3, 130): sube 60 euros al avanzar 2 horas, pendiente 30", { x0: 0, x1: 5, y0: 0, y1: 200, paso: 1, pasoY: 40, m: 18 }, (E) => `${E.curva((x) => 30 * x + 40, "var(--pen)")}${E.seg(1, 70, 3, 70, "var(--muted)", 1.5, 'stroke-dasharray="4 3"')}${E.seg(3, 70, 3, 130, "var(--muted)", 1.5, 'stroke-dasharray="4 3"')}${E.punto(1, 70, "var(--red)", "(1, 70)", -6, -8)}${E.punto(3, 130, "var(--red)", "(3, 130)", -6, -8)}${t(E.X(2), E.Y(70) + 14, "+2 h", { c: "var(--muted)", s: 10 })}${t(E.X(3) + 6, E.Y(100), "+60 €", { c: "var(--muted)", s: 10, a: "start" })}${t(E.X(4.6), E.Y(40), "m = 30 €/h", { c: "var(--red)", s: 12, b: 1, a: "end" })}`),
     },
     {
-      html: `<h3>Proporcionalidad inversa y funciones racionales</h3><p>y = k / x es una <b>hipérbola</b>: cuando x crece, y decrece (a doble velocidad, mitad de tiempo). Nunca toca los ejes: tiene <mark>asíntotas</mark>, rectas a las que la curva se acerca sin llegar. En y = k / (x − a) + b, las asíntotas son x = a e y = b.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Hipérbola y igual a 4 entre x, con dos ramas que se acercan a los ejes sin tocarlos">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${ejes()}${graf((x) => (Math.abs(x) < 0.05 ? NaN : 4 / x), "var(--pen)")}
-        <g ${F} font-size="12" font-weight="700"><text x="186" y="124" fill="var(--pen)">y = 4/x</text><text x="14" y="22" fill="var(--red)">asíntota x = 0 (eje Y)</text><text x="14" y="92" fill="var(--red)">asíntota y = 0</text></g></svg>`,
+      html: `<h3>8.3 Funciones cuadráticas: la parábola</h3><p>Una <b>función cuadrática</b> es f(x) = ax² + bx + c, con a ≠ 0. Su gráfica es una <b>parábola</b>, una curva con un eje de simetría vertical y un punto más alto o más bajo llamado <b>vértice</b>.</p><p>El coeficiente a decide la forma:</p><ul><li>Si <mark>a &gt; 0</mark>, las ramas van hacia arriba (forma de U) y el vértice es un <b>mínimo</b>.</li><li>Si <mark>a &lt; 0</mark>, las ramas van hacia abajo (forma de ∩) y el vértice es un <b>máximo</b>.</li><li>Cuanto mayor es |a|, más cerrada es la parábola; cuanto más cerca de 0, más abierta.</li></ul><p>El término c es la ordenada en el origen: la parábola corta al eje Y en (0, c).</p><p>Las parábolas aparecen en todas partes. La trayectoria de un balón lanzado, el chorro de una fuente o el agua que sale de una manguera son parábolas, porque la altura depende del cuadrado del tiempo por efecto de la gravedad. Los faros de los coches, las antenas parabólicas y los hornos solares tienen sección parabólica porque esa forma concentra los rayos en un solo punto, el <b>foco</b>. Y muchos problemas económicos de ingresos y beneficios conducen también a funciones cuadráticas.</p>`,
+      svg: graf("Parábolas y igual a x cuadrado, y igual a 3x cuadrado, más cerrada, y y igual a menos medio x cuadrado, hacia abajo", { x0: -4, x1: 4, y0: -5, y1: 6, paso: 1 }, (E) => `${E.curva((x) => x * x, "var(--pen)")}${E.curva((x) => 3 * x * x, "var(--leaf)")}${E.curva((x) => -0.5 * x * x, "var(--red)")}${t(E.X(2.6), E.Y(4.6), "x²", { c: "var(--pen)", s: 12, b: 1, a: "start" })}${t(E.X(0.15), E.Y(4.6), "3x²", { c: "var(--leaf)", s: 11, b: 1, a: "start" })}${t(E.X(-3.9), E.Y(-2.2), "−x²/2", { c: "var(--red)", s: 12, b: 1, a: "start" })}`),
+      video: { id: "gnAdna_tLK0", titulo: "Graficar funciones cuadráticas, súper fácil", canal: "Daniel Carreón", vistas: 8974017, busqueda: "representar parábola función cuadrática" },
     },
     {
-      html: `<h3>Funciones exponenciales</h3><p>y = aˣ (con a &gt; 0, a ≠ 1). Si a &gt; 1 <mark>crece cada vez más deprisa</mark>; si 0 &lt; a &lt; 1, decrece. Siempre pasa por (0, 1) y nunca toca el eje X. Modelan poblaciones, interés compuesto, contagios o la desintegración radiactiva.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráficas de 2 elevado a x, creciente, y de un medio elevado a x, decreciente; ambas pasan por (0, 1)">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${ejes(130, 150)}${graf((x) => 2 ** x, "var(--red)", 130, 150, 20)}${graf((x) => 0.5 ** x, "var(--leaf)", 130, 150, 20)}
-        <circle cx="130" cy="130" r="5" fill="var(--ink)"/>
-        <g ${F} font-size="12" font-weight="700"><text x="186" y="30" fill="var(--red)">y = 2ˣ</text><text x="22" y="30" fill="var(--leaf)">y = (1/2)ˣ</text><text x="136" y="126" fill="var(--ink)">(0, 1)</text></g></svg>`,
+      html: `<h3>8.4 Vértice, eje y cortes de una parábola</h3><p>Para representar y = ax² + bx + c con precisión se siguen estos pasos:</p><ol><li><b>Vértice</b>: su abscisa es <mark>x_v = −b / (2a)</mark>; su ordenada se obtiene sustituyendo, y_v = f(x_v).</li><li><b>Eje de simetría</b>: la recta vertical x = x_v.</li><li><b>Corte con el eje Y</b>: (0, c).</li><li><b>Cortes con el eje X</b>: se resuelve ax² + bx + c = 0. Si el discriminante b² − 4ac es positivo hay dos cortes; si es cero, uno (el vértice está sobre el eje); si es negativo, ninguno.</li><li><b>Tabla</b> con algunos valores a ambos lados del vértice, aprovechando la simetría.</li></ol><p>Ejemplo: y = x² − 4x + 3. Vértice en x = 4/2 = 2, y = 4 − 8 + 3 = −1: V(2, −1). Corta al eje Y en (0, 3) y, por simetría, pasa también por (4, 3). Cortes con el eje X: x² − 4x + 3 = 0 da x = 1 y x = 3. Con estos cinco puntos la parábola queda perfectamente dibujada.</p><p>Observa que los cortes con el eje X son simétricos respecto al eje: 1 y 3 están a la misma distancia de 2. Esto sirve de comprobación: el vértice está siempre en el <b>punto medio de las raíces</b>.</p>`,
+      svg: graf("Parábola y igual a x cuadrado menos 4x más 3 con vértice (2, menos 1), eje x igual a 2 y cortes en 1, 3 y (0, 3)", { x0: -1, x1: 5, y0: -2, y1: 5, paso: 1 }, (E) => `${E.seg(2, -2, 2, 5, "var(--muted)", 1.5, 'stroke-dasharray="4 3"')}${E.curva((x) => x * x - 4 * x + 3, "var(--pen)")}${E.punto(2, -1, "var(--red)", "V(2, −1)", 8, 16)}${E.punto(1, 0, "var(--leaf)")}${E.punto(3, 0, "var(--leaf)")}${E.punto(0, 3, "var(--inf)", "(0, 3)", 6, -6)}${E.punto(4, 3, "var(--inf)", "(4, 3)", -6, -6)}${t(E.X(2) + 4, E.Y(4.4), "x = 2", { c: "var(--muted)", s: 10, a: "start" })}`),
     },
     {
-      html: `<h3>Funciones logarítmicas</h3><p>y = logₐ x es la <b>inversa</b> de la exponencial: su gráfica es la de aˣ <mark>reflejada en la recta y = x</mark>. Solo existe para x &gt; 0, pasa por (1, 0) y crece muy despacio. Se usa en la escala de terremotos, el pH o los decibelios.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="La exponencial 2 elevado a x y el logaritmo en base 2 son simétricos respecto a la recta y igual a x">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>${ejes(90, 120)}
-        ${graf((x) => x, "var(--muted)", 90, 120, 20)}${graf((x) => 2 ** x, "var(--red)", 90, 120, 20)}${graf((x) => (x > 0 ? Math.log2(x) : NaN), "var(--pen)", 90, 120, 20)}
-        <g ${F} font-size="12" font-weight="700"><text x="104" y="22" fill="var(--red)">y = 2ˣ</text><text x="196" y="76" fill="var(--pen)">y = log₂ x</text><text x="196" y="22" fill="var(--muted)">y = x</text></g></svg>`,
+      html: `<h3>8.5 Problemas de máximos y mínimos</h3><p>Como el vértice es el punto más alto o más bajo de la parábola, las funciones cuadráticas permiten resolver problemas de <b>optimización</b>: encontrar el valor que hace máxima o mínima una cantidad.</p><p><b>Ejemplo 1.</b> Con 40 m de valla queremos cercar un huerto rectangular junto a un muro (que hace de cuarto lado). Si x es la anchura de los lados perpendiculares al muro, el lado paralelo mide 40 − 2x y el área es A(x) = x(40 − 2x) = −2x² + 40x. Es una parábola hacia abajo con vértice en x = −40/(−4) = 10. El área máxima es A(10) = 10 · 20 = <mark>200 m²</mark>.</p><p><b>Ejemplo 2.</b> Un balón se lanza hacia arriba y su altura es h(t) = −5t² + 20t + 1,5 (metros, segundos). El vértice está en t = 2 s y la altura máxima es h(2) = −20 + 40 + 1,5 = 21,5 m.</p><p>El método es siempre el mismo: <b>elegir la variable</b>, <b>escribir la función</b> que hay que optimizar usando los datos, comprobar que es una parábola con el signo adecuado de a y <b>calcular el vértice</b>. Al final hay que interpretar el resultado en el contexto y comprobar que tiene sentido (que las medidas no salen negativas, por ejemplo).</p>`,
+      svg: graf("Área del huerto en función de x: parábola con máximo de 200 metros cuadrados en x igual a 10", { x0: 0, x1: 20, y0: 0, y1: 240, paso: 2, pasoY: 40, pasoEt: 4, m: 24 }, (E) => `${E.area([[0, 0], ...Array.from({ length: 41 }, (_, i) => [i / 2, (i / 2) * (40 - i)]), [20, 0]], "var(--leaf)", 0.12)}${E.curva((x) => x * (40 - 2 * x), "var(--leaf)", 0, 20)}${E.seg(10, 0, 10, 200, "var(--muted)", 1.5, 'stroke-dasharray="4 3"')}${E.punto(10, 200, "var(--red)", "máx: 200 m²", 8, -4)}${t(E.X(19.5), E.h - 4, "x (m)", { c: "var(--muted)", s: 10, a: "end" })}`),
+    },
+    {
+      html: `<h3>8.6 Funciones polinómicas de grado mayor</h3><p>Las funciones dadas por polinomios de grado 3, 4 o más son continuas en todo ℝ y tienen gráficas «suaves», sin picos ni saltos. Algunas propiedades permiten esbozarlas sin hacer una tabla enorme:</p><ul><li>Un polinomio de grado n corta al eje X <mark>como mucho n veces</mark> y tiene como mucho n − 1 «colinas y valles» (máximos y mínimos).</li><li>Los cortes con el eje X son sus raíces, que se hallan factorizando con Ruffini.</li><li>Para valores de x muy grandes, manda el término de mayor grado. Si es ax³ con a &gt; 0, la gráfica empieza abajo a la izquierda y termina arriba a la derecha; con grado par y a &gt; 0, ambas ramas van hacia arriba.</li></ul><p>Ejemplo: f(x) = x³ − x² − 4x + 4 = (x − 1)(x − 2)(x + 2). Corta al eje X en −2, 1 y 2 y al eje Y en (0, 4). Como el término principal es x³, viene de −∞ y va a +∞: sube hasta un máximo entre −2 y 1, baja hasta un mínimo entre 1 y 2 y vuelve a subir.</p><p>Con la tabla de signos de los factores se sabe dónde la gráfica está por encima o por debajo del eje. Las funciones cúbicas sirven, por ejemplo, para modelar el volumen de una caja hecha recortando las esquinas de una lámina.</p>`,
+      svg: graf("Cúbica x al cubo menos x cuadrado menos 4x más 4 con cortes en menos 2, 1 y 2 y en (0, 4)", { x0: -3, x1: 3, y0: -4, y1: 8, paso: 1, pasoY: 2 }, (E) => `${E.curva((x) => x ** 3 - x * x - 4 * x + 4, "var(--pen)")}${E.punto(-2, 0, "var(--red)")}${E.punto(1, 0, "var(--red)")}${E.punto(2, 0, "var(--red)")}${E.punto(0, 4, "var(--leaf)", "(0, 4)", 6, -6)}`),
+    },
+    {
+      html: `<h3>8.7 Proporcionalidad inversa: la hipérbola</h3><p>Dos magnitudes son <b>inversamente proporcionales</b> si al multiplicar una por un número, la otra queda dividida por ese mismo número. Su producto es constante: x · y = k, es decir,</p><div class="formula"><span>y = k / x</span></div><p>Su gráfica es una <b>hipérbola</b> formada por dos ramas. Si k &gt; 0, están en el primer y tercer cuadrante y la función es decreciente en cada rama; si k &lt; 0, están en el segundo y cuarto y es creciente en cada rama.</p><p>La hipérbola tiene dos <b>asíntotas</b>: el eje Y (x = 0), porque no se puede dividir entre 0 y, cerca de él, la función se dispara; y el eje X (y = 0), porque al crecer x, k/x se hace cada vez más pequeño sin llegar a 0. Además, es una función <mark>impar</mark>: simétrica respecto al origen.</p><p>Ejemplos reales: el tiempo que se tarda en hacer un trayecto de 120 km según la velocidad (t = 120/v); el número de días que dura un depósito de pienso según los animales que comen; el reparto de un premio de 600 € entre x personas (cada una recibe 600/x). En todos ellos el dominio con sentido es solo x &gt; 0, así que se dibuja una sola rama.</p>`,
+      svg: graf("Hipérbola y igual a 4 entre x con dos ramas en el primer y tercer cuadrante y los ejes como asíntotas", { x0: -6, x1: 6, y0: -6, y1: 6, paso: 1, pasoEt: 2 }, (E) => `${E.curva((x) => 4 / x, "var(--pen)", -6, -0.02)}${E.curva((x) => 4 / x, "var(--pen)", 0.02, 6)}${E.punto(2, 2, "var(--red)", "(2, 2)", 6, -6)}${E.punto(-2, -2, "var(--red)", "(−2, −2)", -6, 14)}${t(E.X(5.8), E.Y(3.8), "y = 4/x", { c: "var(--pen)", s: 12, b: 1, a: "end" })}`),
+    },
+    {
+      html: `<h3>8.8 Funciones racionales y asíntotas</h3><p>Una <b>función racional</b> es un cociente de polinomios. Las más sencillas son las de la forma y = k/(x − a) + b, que son hipérbolas desplazadas. Sus elementos se leen directamente en la fórmula:</p><ul><li><b>Asíntota vertical</b>: x = a, el valor que anula el denominador. Es el valor excluido del dominio.</li><li><b>Asíntota horizontal</b>: y = b, el valor al que tiende la función cuando x se hace muy grande o muy negativa.</li></ul><p>Por ejemplo, f(x) = 2/(x − 1) + 3 tiene la asíntota vertical x = 1 y la horizontal y = 3. Dom f = ℝ − {1} y Im f = ℝ − {3}.</p><p>Una función como f(x) = (3x − 1)/(x − 1) puede llevarse a esa forma dividiendo: 3x − 1 = 3(x − 1) + 2, así que f(x) = 3 + 2/(x − 1). Regla práctica: si numerador y denominador tienen el mismo grado, la asíntota horizontal es el <mark>cociente de los coeficientes principales</mark> (aquí 3/1 = 3).</p><p>Las funciones racionales modelan fenómenos que se estabilizan. El coste medio por unidad de un producto, C(x) = (5000 + 2x)/x = 2 + 5000/x, se acerca a 2 € cuando se fabrican muchas unidades: los costes fijos se reparten entre más productos.</p>`,
+      svg: graf("Función 2 entre x menos 1, más 3, con asíntota vertical x igual a 1 y asíntota horizontal y igual a 3", { x0: -4, x1: 6, y0: -2, y1: 8, paso: 1, pasoEt: 2 }, (E) => `${E.seg(1, -2, 1, 8, "var(--red)", 1.8, 'stroke-dasharray="6 4"')}${E.seg(-4, 3, 6, 3, "var(--red)", 1.8, 'stroke-dasharray="6 4"')}${E.curva((x) => 2 / (x - 1) + 3, "var(--pen)", -4, 0.98)}${E.curva((x) => 2 / (x - 1) + 3, "var(--pen)", 1.02, 6)}${t(E.X(1) + 5, E.Y(7.4), "x = 1", { c: "var(--red)", s: 11, b: 1, a: "start" })}${t(E.X(5.9), E.Y(3) + 14, "y = 3", { c: "var(--red)", s: 11, b: 1, a: "end" })}`),
+    },
+    {
+      html: `<h3>8.9 Traslaciones y reflexiones</h3><p>Conociendo la gráfica de una función f(x) se obtienen muchas otras sin hacer tablas, moviéndola o reflejándola:</p><ul><li><b>f(x) + k</b>: desplaza la gráfica k unidades hacia arriba (hacia abajo si k &lt; 0).</li><li><b>f(x − k)</b>: la desplaza k unidades <mark>a la derecha</mark>; f(x + k), a la izquierda. ¡Al revés de lo que parece!</li><li><b>−f(x)</b>: la refleja respecto al eje X, como en un espejo.</li><li><b>f(−x)</b>: la refleja respecto al eje Y.</li></ul><p>¿Por qué f(x − 3) va a la derecha? Porque para obtener el mismo valor que f daba en 0, ahora hay que poner x = 3: todo ocurre 3 unidades más tarde.</p><p>Así, y = (x − 3)² + 1 es la parábola y = x² con el vértice llevado al punto (3, 1), e y = 1/(x + 2) es la hipérbola 1/x desplazada 2 unidades a la izquierda, con su asíntota vertical en x = −2. De hecho, toda parábola y = ax² + bx + c se puede escribir como <b>a(x − x_v)² + y_v</b>, que es la parábola ax² trasladada a su vértice. Las traslaciones permiten dibujar en segundos familias enteras de funciones y entender qué hace cada parámetro de una fórmula.</p>`,
+      svg: graf("Traslación de la parábola y igual a x cuadrado al vértice (3, 1): y igual a x menos 3 al cuadrado más 1", { x0: -3, x1: 6, y0: -2, y1: 7, paso: 1 }, (E) => `${E.curva((x) => x * x, "var(--muted)", -3, 3, 2, 'stroke-dasharray="5 4"')}${E.curva((x) => (x - 3) ** 2 + 1, "var(--pen)")}${E.punto(0, 0, "var(--muted)")}${E.punto(3, 1, "var(--red)", "(3, 1)", 8, 4)}<path d="M${E.X(0.3)} ${E.Y(0.1)} L ${E.X(2.6)} ${E.Y(0.9)}" stroke="var(--red)" stroke-width="2" marker-end="url(#fl8)"/><defs><marker id="fl8" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="var(--red)"/></marker></defs>${t(E.X(-1.2), E.Y(6.3), "x²", { c: "var(--muted)", s: 12, b: 1, a: "start" })}${t(E.X(5.9), E.Y(-1.4), "(x − 3)² + 1", { c: "var(--pen)", s: 11, b: 1, a: "end" })}`),
+      video: { id: "yLQKUfxXDjg", titulo: "Transformaciones de funciones: traslaciones y reflexiones", canal: "ferchomat", vistas: 582731, busqueda: "traslaciones de funciones" },
+    },
+    {
+      html: `<h3>8.10 Funciones exponenciales</h3><p>Una <b>función exponencial</b> es de la forma f(x) = aˣ, con a &gt; 0 y a ≠ 1. La variable está en el <b>exponente</b>, y eso cambia todo: en lugar de sumar una cantidad fija en cada paso, <mark>se multiplica por un factor fijo</mark>.</p><p>Sus propiedades:</p><ul><li>Dominio ℝ; recorrido (0, +∞): una potencia de base positiva nunca es negativa ni cero.</li><li>Todas pasan por el punto <b>(0, 1)</b>, porque a⁰ = 1, y por (1, a).</li><li>Si <b>a &gt; 1</b> son crecientes, y crecen cada vez más deprisa; si <b>0 &lt; a &lt; 1</b> son decrecientes.</li><li>El eje X (y = 0) es una <b>asíntota horizontal</b>: por un lado la gráfica se pega a él sin tocarlo.</li></ul><p>Las gráficas de 2ˣ y (1/2)ˣ son simétricas respecto al eje Y, porque (1/2)ˣ = 2⁻ˣ.</p><p>Comparar una función afín con una exponencial explica la leyenda del ajedrez. La función 1000x (sumar 1.000 cada día) va muy por delante al principio, pero 2ˣ la alcanza hacia x = 14 y después la deja atrás para siempre: el día 30 vale más de mil millones. A largo plazo, <b>cualquier exponencial de base mayor que 1 supera a cualquier polinomio</b>.</p>`,
+      svg: graf("Funciones exponenciales 2 elevado a x, creciente, y un medio elevado a x, decreciente, que se cortan en (0, 1)", { x0: -4, x1: 4, y0: -1, y1: 8, paso: 1 }, (E) => `${E.curva((x) => 2 ** x, "var(--pen)")}${E.curva((x) => 0.5 ** x, "var(--red)")}${E.punto(0, 1, "var(--leaf)", "(0, 1)", 8, -6)}${t(E.X(3.9), E.Y(6.8), "2ˣ", { c: "var(--pen)", s: 13, b: 1, a: "end" })}${t(E.X(-3.9), E.Y(6.8), "(1/2)ˣ", { c: "var(--red)", s: 13, b: 1, a: "start" })}`),
+      video: { id: "4U4Xd-bZXG8", titulo: "Función exponencial", canal: "Andrea Montonati", vistas: 696345, busqueda: "función exponencial gráfica" },
+    },
+    {
+      html: `<h3>8.11 Crecimiento y decrecimiento exponencial</h3><p>Muchos fenómenos siguen el modelo <b>C(t) = C₀ · aᵗ</b>, donde C₀ es la cantidad inicial y a el factor por el que se multiplica en cada unidad de tiempo:</p><ul><li><b>Interés compuesto</b>: 5.000 € al 4 % anual se convierten en C(t) = 5000 · 1,04ᵗ. A los 10 años hay 5000 · 1,04¹⁰ ≈ 7.401 €. Si el porcentaje es r %, el factor es <mark>1 + r/100</mark>.</li><li><b>Poblaciones</b>: una colonia de bacterias que se duplica cada hora: N(t) = N₀ · 2ᵗ. Una ciudad que crece un 2 % al año: P(t) = P₀ · 1,02ᵗ.</li><li><b>Depreciación</b>: un coche de 20.000 € que pierde el 15 % de su valor cada año: V(t) = 20000 · 0,85ᵗ. Si disminuye un r %, el factor es <mark>1 − r/100</mark>.</li><li><b>Desintegración radiactiva</b>: el carbono-14 tiene un <b>periodo de semidesintegración</b> de unos 5.730 años: cada 5.730 años queda la mitad. Es lo que permite datar restos arqueológicos.</li></ul><p>Una característica de estos modelos es el <b>tiempo de duplicación</b> (o de reducción a la mitad), que es siempre el mismo, sea cual sea la cantidad de partida. Para calcularlo, o para saber cuándo se alcanza cierta cantidad, hay que despejar un exponente: para eso sirven los logaritmos.</p>`,
+      svg: graf("Valor de un coche que pierde el 15 por ciento cada año: de 20 000 euros a menos de 4 000 en 10 años", { x0: 0, x1: 12, y0: 0, y1: 22, paso: 1, pasoY: 4, pasoEt: 2, m: 18 }, (E) => `${E.curva((x) => 20 * 0.85 ** x, "var(--red)")}${[0, 2, 4, 6, 8, 10].map((x) => E.punto(x, 20 * 0.85 ** x, "var(--red)")).join("")}${t(E.X(5.2), E.Y(17), "V = 20 · 0,85ᵗ (miles de €)", { c: "var(--red)", s: 11, b: 1 })}${t(E.X(11.8), E.h - 4, "años", { c: "var(--muted)", s: 10, a: "end" })}`),
+    },
+    {
+      html: `<h3>8.12 Funciones logarítmicas</h3><p>La <b>función logarítmica</b> de base a es f(x) = logₐ x, con a &gt; 0 y a ≠ 1. Es la <mark>inversa</mark> de la exponencial: si 2³ = 8, entonces log₂ 8 = 3. Por eso su gráfica es la de aˣ reflejada respecto a la recta y = x.</p><p>Sus propiedades son las de la exponencial «intercambiando x e y»:</p><ul><li>Dominio (0, +∞): solo existen logaritmos de números positivos. Recorrido ℝ.</li><li>Todas pasan por <b>(1, 0)</b>, porque logₐ 1 = 0, y por (a, 1).</li><li>Si a &gt; 1 son crecientes, pero crecen <b>cada vez más despacio</b>: log₁₀ 10 = 1, log₁₀ 100 = 2, log₁₀ 1.000.000 = 6.</li><li>El eje Y (x = 0) es una <b>asíntota vertical</b>.</li></ul><p>Este crecimiento tan lento hace que los logaritmos sean ideales para medir magnitudes que abarcan muchos órdenes de tamaño. La <b>escala de Richter</b> de los terremotos es logarítmica: un terremoto de magnitud 7 libera unas 32 veces más energía que uno de magnitud 6. También lo son los <b>decibelios</b> del sonido y el <b>pH</b> de las disoluciones: un pH de 3 es diez veces más ácido que uno de 4. Y el logaritmo responde a la pregunta «¿cuánto tiempo hace falta?» en los modelos exponenciales: para duplicar dinero al 4 % hacen falta t = log 2 / log 1,04 ≈ 17,7 años.</p>`,
+      svg: graf("La exponencial 2 elevado a x y su inversa, el logaritmo en base 2, simétricas respecto a la recta y igual a x", { x0: -3, x1: 6, y0: -3, y1: 6, paso: 1 }, (E) => `${E.seg(-3, -3, 6, 6, "var(--muted)", 1.5, 'stroke-dasharray="5 4"')}${E.curva((x) => 2 ** x, "var(--pen)")}${E.curva((x) => Math.log2(x), "var(--leaf)", 0.01, 6)}${E.punto(0, 1, "var(--pen)")}${E.punto(1, 0, "var(--leaf)")}${t(E.X(2.0), E.Y(5.4), "2ˣ", { c: "var(--pen)", s: 13, b: 1, a: "end" })}${t(E.X(5.8), E.Y(2.9), "log₂ x", { c: "var(--leaf)", s: 12, b: 1, a: "end" })}${t(E.X(5.6), E.Y(5.9), "y = x", { c: "var(--muted)", s: 10, a: "end" })}`),
+    },
+    {
+      html: `<h3>8.13 Funciones con radicales</h3><p>La función raíz cuadrada, f(x) = √x, es la inversa de y = x² para x ≥ 0. Su gráfica es <b>media parábola tumbada</b>: empieza en el origen y crece cada vez más despacio. Dominio [0, +∞) y recorrido [0, +∞).</p><p>Con las traslaciones se obtienen otras: y = √(x − 2) empieza en (2, 0); y = √x + 1 empieza en (0, 1); y = −√x va hacia abajo. En general, para que y = √(expresión) exista, la expresión debe ser <mark>mayor o igual que cero</mark>, lo que se resuelve con una inecuación. En cambio, ∛x está definida en todo ℝ y es impar.</p><p>Las raíces aparecen en muchas fórmulas físicas. El tiempo que tarda un objeto en caer desde una altura h (sin rozamiento) es t = √(h/4,9): para caer desde 4,9 m tarda 1 s, pero desde 19,6 m (cuatro veces más alto) tarda solo 2 s. El periodo de un péndulo, la velocidad de las olas en aguas poco profundas o la distancia al horizonte desde una altura h, d ≈ 3,57 √h km, son también funciones raíz. En todas se aprecia lo mismo: <b>multiplicar la variable por 4 solo duplica el resultado</b>.</p>`,
+      svg: graf("Funciones raíz cuadrada de x, raíz de x menos 2 y raíz de x más 1, obtenidas por traslación", { x0: -1, x1: 9, y0: -1, y1: 5, paso: 1 }, (E) => `${E.curva((x) => Math.sqrt(x), "var(--pen)", 0, 9)}${E.curva((x) => Math.sqrt(x - 2), "var(--red)", 2, 9)}${E.curva((x) => Math.sqrt(x) + 1, "var(--leaf)", 0, 9)}${E.punto(0, 0, "var(--pen)")}${E.punto(2, 0, "var(--red)")}${E.punto(0, 1, "var(--leaf)")}${t(E.X(8.8), E.Y(4.4), "√x + 1", { c: "var(--leaf)", s: 11, b: 1, a: "end" })}${t(E.X(4.5), E.Y(2.6), "√x", { c: "var(--pen)", s: 11, b: 1, a: "start" })}${t(E.X(8.8), E.Y(1.7) + 16, "√(x − 2)", { c: "var(--red)", s: 11, b: 1, a: "end" })}`),
+    },
+    {
+      html: `<h3>8.14 Elegir el modelo adecuado</h3><p>Ante unos datos reales, la primera pregunta es: ¿qué tipo de función los describe mejor? Algunas pistas:</p><ul><li>Si y aumenta <b>la misma cantidad</b> en cada paso igual de x → <b>afín</b> (y = mx + n).</li><li>Si sube y luego baja (o al revés) de forma simétrica, con un máximo o mínimo → <b>cuadrática</b>.</li><li>Si el <b>producto</b> x · y es constante → <b>proporcionalidad inversa</b>.</li><li>Si y se <b>multiplica</b> por el mismo factor en cada paso igual de x → <b>exponencial</b>.</li><li>Si y crece muy deprisa al principio y luego cada vez más despacio, sin tope → <b>logarítmica o raíz</b>.</li><li>Si se acerca a un valor límite → racional o exponencial con asíntota.</li></ul><p>Ejemplo: una tabla da 3, 6, 12, 24, 48 para x = 0, 1, 2, 3, 4. Las diferencias (3, 6, 12, 24) no son constantes, pero los <mark>cocientes sí</mark>: cada valor es el doble del anterior. El modelo es y = 3 · 2ˣ.</p><p>Elegir bien el modelo es clave para hacer predicciones. Un mismo crecimiento inicial puede corresponder a una recta o a una exponencial, y la diferencia a largo plazo es enorme. Por eso los científicos comprueban sus modelos con nuevos datos y los corrigen cuando dejan de ajustarse a la realidad: <b>ningún modelo vale para siempre</b>.</p>`,
+      svg: lienzo("Galería de modelos: recta, parábola, hipérbola, exponencial, logaritmo y raíz", `${[["afín", "var(--pen)", "M6 52 L 70 10"], ["cuadrática", "var(--red)", "M6 10 Q 38 90 70 10"], ["inversa", "var(--leaf)", "M10 8 Q 14 48 70 52"], ["exponencial", "var(--inf)", "M6 54 Q 52 54 68 6"], ["logarítmica", "var(--bac)", "M8 58 Q 14 14 70 10"], ["raíz", "var(--pen)", "M6 54 Q 14 24 70 14"]].map(([n, c, d], i) => { const ox = 8 + (i % 3) * 84, oy = 8 + Math.floor(i / 3) * 86; return `<rect x="${ox}" y="${oy}" width="78" height="80" rx="8" fill="var(--card)" stroke="var(--line)"/><g transform="translate(${ox + 1} ${oy + 2})"><path d="${d}" fill="none" stroke="${c}" stroke-width="3"/></g>${t(ox + 39, oy + 74, n, { s: 11, b: 1, c })}`; }).join("")}`),
     },
   ],
-  figura: {
-    titulo: "Galería de funciones: reconoce la forma",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Cinco miniaturas: recta, parábola, hipérbola, exponencial y logaritmo, con su fórmula">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["recta", "y = mx + n", "M10 90 L 100 20", "var(--pen)"], ["parábola", "y = ax² + bx + c", "M10 20 Q 55 160 100 20", "var(--leaf)"], ["hipérbola", "y = k / x", "M56 10 Q 60 70 100 76 M10 96 Q 44 100 50 136", "var(--inf)"], ["exponencial", "y = aˣ", "M10 96 Q 70 96 100 14", "var(--red)"], ["logaritmo", "y = logₐ x", "M14 136 Q 22 50 100 40", "var(--bac)"]].map(([n, f, d, c], i) => `<g transform="translate(${16 + i * 124} 20)"><rect width="112" height="190" rx="12" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>
-        <g transform="translate(6 6) scale(0.95)"><path d="${d}" fill="none" stroke="${c}" stroke-width="4" stroke-linecap="round"/></g>
-        <text x="56" y="160" text-anchor="middle" font-size="16" font-weight="700" fill="${c}" ${D}>${n}</text><text x="56" y="180" text-anchor="middle" font-size="12" fill="var(--ink)" ${F}>${f}</text></g>`).join("")}
-    </svg>`,
+  ejemplos: [
+    { enunciado: "Halla la ecuación de la recta que pasa por A(−1, 5) y B(3, −3).", pasos: ["m = (−3 − 5)/(3 − (−1)) = −8/4 = −2.", "y − 5 = −2(x + 1) → y = −2x + 3."], resultado: "y = −2x + 3 (decreciente, corta al eje Y en (0, 3))." },
+    { enunciado: "Representa y = −x² + 2x + 3.", pasos: ["a = −1 < 0: ramas hacia abajo.", "Vértice: x = −2/(−2) = 1; y = −1 + 2 + 3 = 4. V(1, 4).", "Eje Y: (0, 3); por simetría (2, 3).", "Eje X: −x² + 2x + 3 = 0 → x = −1 y x = 3."], resultado: "Parábola con máximo en (1, 4) que corta al eje X en −1 y 3." },
+    { enunciado: "Un cine con entradas a 8 € vende 300 entradas. Por cada euro que baja el precio vende 50 más. ¿Qué precio da el máximo ingreso?", pasos: ["Si baja x euros: precio 8 − x, entradas 300 + 50x.", "I(x) = (8 − x)(300 + 50x) = −50x² + 100x + 2400.", "Vértice: x = −100/(−100) = 1.", "I(1) = 7 · 350 = 2.450 €."], resultado: "Bajar 1 €: precio 7 €, ingreso máximo 2.450 €." },
+    { enunciado: "Halla las asíntotas, el dominio y el recorrido de f(x) = (2x + 5)/(x + 2).", pasos: ["2x + 5 = 2(x + 2) + 1 → f(x) = 2 + 1/(x + 2).", "Asíntota vertical x = −2; horizontal y = 2."], resultado: "Dom f = ℝ − {−2}; Im f = ℝ − {2}." },
+    { enunciado: "Una población de 800 conejos crece un 12 % cada año. ¿Cuántos habrá dentro de 5 años? ¿Cuándo se duplicará?", pasos: ["P(t) = 800 · 1,12ᵗ.", "P(5) = 800 · 1,12⁵ ≈ 800 · 1,7623 ≈ 1.410.", "1,12ᵗ = 2 → t = log 2 / log 1,12 ≈ 0,3010/0,0492 ≈ 6,1."], resultado: "Unos 1.410 conejos; se duplica en algo más de 6 años." },
+    { enunciado: "Decide qué modelo siguen los datos x: 1, 2, 3, 4, 6 e y: 12, 6, 4, 3, 2.", pasos: ["Los productos x · y valen 12, 12, 12, 12, 12.", "El producto es constante."], resultado: "Proporcionalidad inversa: y = 12/x." },
+  ],
+  errores: [
+    "Pensar que f(x − 3) desplaza la gráfica a la izquierda: va 3 unidades a la derecha.",
+    "Calcular el vértice con x = b/(2a) olvidando el signo menos: es x = −b/(2a).",
+    "Creer que una exponencial puede cortar al eje X o tomar valores negativos.",
+    "Usar como factor 0,15 en vez de 0,85 cuando algo disminuye un 15 % cada año.",
+    "Dibujar la hipérbola y = k/x como una curva continua que pasa por el origen.",
+    "Confundir crecimiento lineal (sumar) con exponencial (multiplicar) al analizar una tabla.",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Indica la pendiente y la ordenada en el origen de y = −3x + 5, y = x/2 e y = 4. ¿Cuáles son crecientes?", sol: "y = −3x + 5: m = −3, n = 5 (decreciente). y = x/2: m = 1/2, n = 0 (creciente, lineal). y = 4: m = 0, n = 4 (constante)." },
+    { nivel: "básico", q: "Halla la ecuación de la recta que pasa por (2, 1) y (4, 7).", sol: "m = 6/2 = 3. y − 1 = 3(x − 2) → y = 3x − 5." },
+    { nivel: "básico", q: "Un gimnasio cobra 20 € de matrícula y 30 € al mes. Escribe la función del coste y calcula cuánto se paga en un año.", sol: "C(x) = 30x + 20. C(12) = 360 + 20 = 380 €." },
+    { nivel: "básico", q: "¿Hacia dónde se abren y = 2x² − 3 e y = −x² + 4x? ¿Dónde cortan al eje Y?", sol: "La primera hacia arriba (a = 2 > 0), corta en (0, −3). La segunda hacia abajo (a = −1 < 0), corta en (0, 0)." },
+    { nivel: "básico", q: "Halla el vértice de y = x² − 6x + 5 y sus cortes con el eje X.", sol: "x_v = 6/2 = 3; y_v = 9 − 18 + 5 = −4. V(3, −4). x² − 6x + 5 = 0 → x = 1 y x = 5." },
+    { nivel: "básico", q: "Seis amigos tardan 4 horas en pintar una valla. ¿Cuánto tardarían 8 amigos? Escribe la función.", sol: "x · y = 24 → y = 24/x. Con 8 amigos, 24/8 = 3 horas." },
+    { nivel: "básico", q: "Describe cómo se obtiene la gráfica de y = (x + 2)² − 1 a partir de y = x². ¿Cuál es su vértice?", sol: "Se desplaza 2 unidades a la izquierda y 1 hacia abajo. Vértice (−2, −1)." },
+    { nivel: "básico", q: "Calcula f(0), f(3) y f(−2) para f(x) = 3ˣ. ¿Pasa por algún punto común a todas las exponenciales?", sol: "f(0) = 1, f(3) = 27, f(−2) = 1/9. Sí: (0, 1)." },
+    { nivel: "básico", q: "Un capital de 2.000 € se coloca al 3 % de interés compuesto anual. ¿Cuánto habrá a los 5 años?", sol: "C = 2000 · 1,03⁵ ≈ 2000 · 1,1593 ≈ 2.318,55 €." },
+    { nivel: "básico", q: "Calcula log₂ 32, log₁₀ 0,01 y log₃ 1. ¿Por qué no existe log₂(−4)?", sol: "log₂ 32 = 5; log₁₀ 0,01 = −2; log₃ 1 = 0. No existe porque ninguna potencia de 2 es negativa: el dominio del logaritmo es (0, +∞)." },
+    { nivel: "básico", q: "Escribe las asíntotas de y = 3/(x − 4) + 1.", sol: "Vertical x = 4; horizontal y = 1." },
+    { nivel: "básico", q: "Halla el dominio de f(x) = √(x − 3) y su punto de partida.", sol: "x − 3 ≥ 0 → Dom f = [3, +∞). La gráfica empieza en (3, 0)." },
+    { nivel: "medio", q: "Dos compañías de taxis cobran: A, 4 € + 0,80 €/km; B, 2 € + 1 €/km. ¿A partir de qué distancia es más barata A?", sol: "4 + 0,8x = 2 + x → 0,2x = 2 → x = 10 km. Para más de 10 km, A es más barata (su pendiente es menor)." },
+    { nivel: "medio", q: "Halla la recta paralela a y = 2x − 1 que pasa por (3, 4).", sol: "Misma pendiente m = 2: y − 4 = 2(x − 3) → y = 2x − 2." },
+    { nivel: "medio", q: "Representa y = x² + 2x − 8: vértice, eje, cortes y dos puntos más.", sol: "V(−1, −9); eje x = −1. Eje Y (0, −8) y su simétrico (−2, −8). Eje X: x = 2 y x = −4." },
+    { nivel: "medio", q: "Estudia cuántas veces corta al eje X la parábola y = x² − 4x + c según el valor de c.", sol: "Δ = 16 − 4c. Dos cortes si c < 4; uno (vértice en el eje) si c = 4; ninguno si c > 4." },
+    { nivel: "medio", q: "Con 60 m de valla se quiere cercar un rectángulo (los cuatro lados). ¿Qué dimensiones dan el área máxima?", sol: "Lados x y 30 − x. A(x) = x(30 − x) = −x² + 30x. Vértice x = 15: un cuadrado de 15 × 15 m, área 225 m²." },
+    { nivel: "medio", q: "La altura de un proyectil es h(t) = −4,9t² + 29,4t (m, s). Halla la altura máxima y cuándo cae al suelo.", sol: "Vértice t = 29,4/9,8 = 3 s; h(3) = −44,1 + 88,2 = 44,1 m. h = 0 → t(29,4 − 4,9t) = 0 → t = 6 s." },
+    { nivel: "medio", q: "Halla las raíces de f(x) = x³ − 4x y esboza su gráfica indicando el signo.", sol: "x(x − 2)(x + 2) = 0 → x = −2, 0, 2. Negativa en (−∞, −2) y (0, 2); positiva en (−2, 0) y (2, +∞). Sube, baja y vuelve a subir." },
+    { nivel: "medio", q: "Escribe f(x) = (x + 3)/(x − 1) en la forma b + k/(x − a) y halla sus asíntotas.", sol: "x + 3 = (x − 1) + 4 → f(x) = 1 + 4/(x − 1). Asíntotas x = 1 e y = 1." },
+    { nivel: "medio", q: "Un coche de 24.000 € se deprecia un 18 % anual. ¿Cuánto valdrá a los 4 años? ¿Cuántos años tarda en valer menos de la mitad?", sol: "V(4) = 24000 · 0,82⁴ ≈ 24000 · 0,4521 ≈ 10.851 €. Ya a los 4 años vale menos de 12.000 €; a los 3, 24000 · 0,5514 ≈ 13.233 € todavía no. Tarda 4 años." },
+    { nivel: "medio", q: "Una muestra de 80 g de un isótopo pierde la mitad de su masa cada 6 horas. Escribe la función y calcula la masa al cabo de un día.", sol: "m(t) = 80 · (1/2)^(t/6). Un día son 24 h = 4 periodos: 80/16 = 5 g." },
+    { nivel: "medio", q: "Decide el modelo de cada tabla para x = 0, 1, 2, 3: (a) 5, 8, 11, 14; (b) 2, 6, 18, 54; (c) 0, 1, 4, 9.", sol: "(a) Diferencias constantes 3: afín y = 3x + 5. (b) Cocientes constantes 3: exponencial y = 2 · 3ˣ. (c) Cuadrados: cuadrática y = x²." },
+    { nivel: "medio", q: "Un terremoto de magnitud 6 libera unas 32 veces más energía que uno de magnitud 5. ¿Cuántas veces más energía libera uno de magnitud 8 que uno de magnitud 5?", sol: "Cada punto multiplica la energía por unas 32: 32³ = 32.768 veces más." },
+    { nivel: "avanzado", q: "Halla la parábola y = ax² + bx + c que tiene el vértice en (2, −3) y pasa por (0, 5).", sol: "y = a(x − 2)² − 3. Con (0, 5): 4a − 3 = 5 → a = 2. y = 2(x − 2)² − 3 = 2x² − 8x + 5." },
+    { nivel: "avanzado", q: "Una agencia organiza un viaje para 40 personas a 500 € cada una. Por cada persona por encima de 40, rebaja 10 € a todos. ¿Cuántos viajeros maximizan el ingreso?", sol: "Con 40 + x viajeros: I(x) = (40 + x)(500 − 10x) = −10x² + 100x + 20000. Vértice x = 5: 45 viajeros a 450 €, ingreso 20.250 €." },
+    { nivel: "avanzado", q: "Halla los puntos de corte de la recta y = x + 1 y la parábola y = x² − 1.", sol: "x² − 1 = x + 1 → x² − x − 2 = 0 → x = 2 o x = −1. Puntos (2, 3) y (−1, 0)." },
+    { nivel: "avanzado", q: "¿Cuántos años tardan 10.000 € al 5 % de interés compuesto en superar 15.000 €? Resuélvelo con logaritmos.", sol: "1,05ᵗ > 1,5 → t > log 1,5 / log 1,05 ≈ 0,1761/0,0212 ≈ 8,3. Hacen falta 9 años completos." },
+    { nivel: "avanzado", q: "La temperatura de un horno que se apaga es T(t) = 20 + 180 · 0,9ᵗ (°C, minutos). ¿Cuál es la asíntota horizontal y qué significa? ¿Cuándo baja de 50 °C?", sol: "Cuando t crece, 0,9ᵗ → 0 y T → 20: asíntota y = 20, la temperatura ambiente. 180 · 0,9ᵗ < 30 → 0,9ᵗ < 1/6 → t > log 6 / (−log 0,9) ≈ 0,7782/0,0458 ≈ 17 min." },
+    { nivel: "avanzado", q: "El coste de producir x unidades es C(x) = 3000 + 4x. Escribe el coste medio por unidad, halla su asíntota horizontal e interprétala.", sol: "Cm(x) = (3000 + 4x)/x = 4 + 3000/x. Asíntota y = 4: al fabricar muchas unidades el coste medio se acerca a 4 €, porque los 3.000 € fijos se reparten entre muchas." },
+    { nivel: "avanzado", q: "Determina b y c para que la parábola y = x² + bx + c corte al eje X en 1 y 5. ¿Cuál es su vértice?", sol: "y = (x − 1)(x − 5) = x² − 6x + 5: b = −6, c = 5. Vértice en x = 3 (punto medio), y = −4: V(3, −4)." },
+    { nivel: "avanzado", q: "Explica por qué la gráfica de y = log₂(x + 3) tiene asíntota vertical en x = −3 y calcula sus cortes con los ejes.", sol: "Es log₂ x desplazada 3 a la izquierda; el argumento x + 3 debe ser positivo, x > −3. Eje X: x + 3 = 1 → (−2, 0). Eje Y: log₂ 3 ≈ 1,58 → (0; 1,58)." },
+    { nivel: "avanzado", q: "Una caja sin tapa se construye con una lámina de 20 × 20 cm recortando cuadrados de lado x en las esquinas. Escribe su volumen V(x), su dominio con sentido y calcula V(2), V(3) y V(4). ¿Qué observas?", sol: "V(x) = x(20 − 2x)² con 0 < x < 10. V(2) = 2 · 256 = 512 cm³; V(3) = 3 · 196 = 588 cm³; V(4) = 4 · 144 = 576 cm³. El volumen sube y luego baja: el máximo está cerca de x = 3 (exactamente en x = 10/3 ≈ 3,33, como verás con derivadas)." },
+    { nivel: "avanzado", q: "Una colonia de bacterias se triplica cada 2 horas. Si a las 0 h hay 500, escribe N(t) y halla cuándo habrá 40.500.", sol: "N(t) = 500 · 3^(t/2). 3^(t/2) = 81 = 3⁴ → t/2 = 4 → t = 8 h." },
+  ],
+  quiz: reparte([
+    { q: "En y = −2x + 7, la pendiente es…", o: ["7", "−2", "2", "−7"], a: 1, e: "Es el coeficiente de x." },
+    { q: "Una recta con pendiente negativa es…", o: ["creciente", "decreciente", "constante", "una parábola"], a: 1, e: "Al aumentar x, y disminuye." },
+    { q: "La pendiente de la recta por (1, 2) y (3, 8) es…", o: ["3", "6", "2", "1/3"], a: 0, e: "6/2 = 3." },
+    { q: "Dos rectas son paralelas si tienen…", o: ["la misma ordenada en el origen", "la misma pendiente", "pendientes opuestas", "el mismo corte con el eje X"], a: 1, e: "Igual inclinación." },
+    { q: "La parábola y = −3x² + x se abre…", o: ["hacia arriba", "hacia abajo", "a la derecha", "depende de x"], a: 1, e: "a = −3 < 0." },
+    { q: "El vértice de y = x² − 8x + 1 tiene abscisa…", o: ["8", "4", "−4", "1"], a: 1, e: "x = 8/2." },
+    { q: "Si el discriminante de la parábola es negativo, corta al eje X…", o: ["en dos puntos", "en un punto", "en ningún punto", "infinitas veces"], a: 2, e: "La ecuación no tiene soluciones reales." },
+    { q: "La gráfica de y = 6/x es…", o: ["una recta", "una parábola", "una hipérbola", "una exponencial"], a: 2, e: "Proporcionalidad inversa." },
+    { q: "Las asíntotas de y = 6/x son…", o: ["los ejes", "y = 6", "x = 6", "no tiene"], a: 0, e: "x = 0 e y = 0." },
+    { q: "La asíntota vertical de y = 1/(x + 5) − 2 es…", o: ["x = 5", "x = −5", "y = −2", "x = −2"], a: 1, e: "Se anula el denominador en −5." },
+    { q: "y = f(x − 4) desplaza la gráfica de f…", o: ["4 a la izquierda", "4 a la derecha", "4 hacia arriba", "4 hacia abajo"], a: 1, e: "Ocurre todo 4 unidades después." },
+    { q: "El vértice de y = (x + 1)² + 5 es…", o: ["(1, 5)", "(−1, 5)", "(−1, −5)", "(5, −1)"], a: 1, e: "Traslación de x²." },
+    { q: "Todas las exponenciales y = aˣ pasan por…", o: ["(0, 0)", "(1, 0)", "(0, 1)", "(1, 1)"], a: 2, e: "a⁰ = 1." },
+    { q: "y = 0,7ˣ es…", o: ["creciente", "decreciente", "constante", "negativa a veces"], a: 1, e: "Base entre 0 y 1." },
+    { q: "Si algo aumenta un 6 % cada año, el factor de crecimiento es…", o: ["0,06", "1,6", "1,06", "6"], a: 2, e: "1 + 6/100." },
+    { q: "Si algo pierde un 20 % cada año, el factor es…", o: ["0,2", "0,8", "1,2", "−0,2"], a: 1, e: "1 − 20/100." },
+    { q: "log₁₀ 1000 vale…", o: ["2", "3", "100", "10"], a: 1, e: "10³ = 1000." },
+    { q: "El dominio de y = log x es…", o: ["ℝ", "[0, +∞)", "(0, +∞)", "(1, +∞)"], a: 2, e: "Solo números positivos." },
+    { q: "Si en una tabla los cocientes entre valores consecutivos son constantes, el modelo es…", o: ["afín", "cuadrático", "exponencial", "inverso"], a: 2, e: "Se multiplica por un factor fijo." },
+    { q: "La función y = √(x + 4) empieza en el punto…", o: ["(4, 0)", "(−4, 0)", "(0, 4)", "(0, 2)"], a: 1, e: "x + 4 ≥ 0 → x ≥ −4." },
+  ]),
+  examen: reparte([
+    { q: "La recta que pasa por (0, −2) y (2, 4) es…", o: ["y = 3x − 2", "y = 2x − 2", "y = 3x + 2", "y = −3x − 2"], a: 0, e: "m = 6/2 = 3, n = −2." },
+    { q: "El vértice de y = −x² + 6x − 5 es…", o: ["(3, 4)", "(−3, 4)", "(3, −4)", "(6, −5)"], a: 0, e: "x = 3; y = −9 + 18 − 5 = 4." },
+    { q: "El área máxima de un rectángulo de perímetro 40 cm es…", o: ["100 cm²", "400 cm²", "200 cm²", "80 cm²"], a: 0, e: "Cuadrado de 10 × 10." },
+    { q: "Las asíntotas de y = (4x − 1)/(x − 2) son…", o: ["x = 2, y = 4", "x = −2, y = 4", "x = 2, y = −1", "x = 4, y = 2"], a: 0, e: "Denominador nulo en 2; cociente de coeficientes 4/1." },
+    { q: "1.000 € al 2 % compuesto durante 3 años dan…", o: ["1.061,21 €", "1.060 €", "1.006 €", "1.020 €"], a: 0, e: "1000 · 1,02³." },
+    { q: "La gráfica de y = log₂ x pasa por…", o: ["(0, 1) y (2, 1)", "(1, 0) y (2, 1)", "(1, 2) y (0, 0)", "(2, 4)"], a: 1, e: "log₂ 1 = 0 y log₂ 2 = 1." },
+    { q: "Si x · y = 18 en todos los datos, el modelo es…", o: ["y = 18x", "y = 18/x", "y = x + 18", "y = 18ˣ"], a: 1, e: "Proporcionalidad inversa." },
+    { q: "y = 2ˣ − 3 tiene asíntota horizontal…", o: ["y = 0", "y = −3", "y = 2", "x = −3"], a: 1, e: "La exponencial bajada 3 unidades." },
+  ], 2),
+  feynman: ["Qué significan la pendiente y la ordenada en el origen de una recta", "Cómo se dibuja una parábola a partir de su vértice y sus cortes", "Por qué y = k/x tiene asíntotas en los ejes", "En qué se diferencia sumar (lineal) de multiplicar (exponencial)", "Para qué sirven los logaritmos en los modelos exponenciales"],
+  glosario: [
+    ["Función afín", "f(x) = mx + n; su gráfica es una recta."],
+    ["Función lineal", "f(x) = mx; recta que pasa por el origen (proporcionalidad directa)."],
+    ["Pendiente", "Variación de y por cada unidad de x en una recta."],
+    ["Ordenada en el origen", "Valor de y cuando x = 0."],
+    ["Función cuadrática", "f(x) = ax² + bx + c; su gráfica es una parábola."],
+    ["Vértice", "Punto máximo o mínimo de una parábola; x = −b/(2a)."],
+    ["Eje de simetría", "Recta vertical que pasa por el vértice."],
+    ["Proporcionalidad inversa", "x · y = k; su gráfica es una hipérbola."],
+    ["Función racional", "Cociente de dos polinomios."],
+    ["Asíntota vertical", "Recta x = a cerca de la cual la función se dispara."],
+    ["Asíntota horizontal", "Recta y = b a la que tiende la función cuando x crece mucho."],
+    ["Traslación", "Desplazamiento de una gráfica sin deformarla."],
+    ["Función exponencial", "f(x) = aˣ con a > 0, a ≠ 1."],
+    ["Interés compuesto", "C = C₀ · (1 + r/100)ᵗ."],
+    ["Periodo de semidesintegración", "Tiempo en que una cantidad que decrece exponencialmente se reduce a la mitad."],
+    ["Función logarítmica", "f(x) = logₐ x, inversa de la exponencial."],
+    ["Modelo matemático", "Función que describe aproximadamente un fenómeno real."],
+  ],
+  situacion: {
+    titulo: "¿Qué forma tiene el mundo?",
+    reto: "Vais a convertiros en un equipo de modelización. Cada grupo recibirá o buscará un conjunto de datos reales (la evolución del precio de un producto, la caída de un objeto grabada en vídeo, el enfriamiento de un vaso de agua, la población de un municipio, el número de seguidores de una cuenta…) y tendrá que descubrir qué tipo de función los describe mejor y utilizarla para hacer una predicción.",
+    pasos: [
+      "Recoged o buscad entre 6 y 10 datos de un fenómeno real y organizadlos en una tabla.",
+      "Calculad diferencias y cocientes entre datos consecutivos y representad los puntos en unos ejes.",
+      "Proponed un modelo (afín, cuadrático, inverso, exponencial o logarítmico) y justificad la elección.",
+      "Ajustad los parámetros del modelo con dos o tres datos y comprobad si se acerca a los demás.",
+      "Haced una predicción para un valor futuro y discutid hasta cuándo puede ser fiable.",
+    ],
+    producto: "Un póster o presentación con los datos, la gráfica, el modelo elegido, la predicción y sus limitaciones.",
+    evaluacion: [
+      "Organiza y representa correctamente los datos reales.",
+      "Justifica el tipo de función elegido con argumentos matemáticos (diferencias, cocientes, forma).",
+      "Calcula los parámetros del modelo y lo usa para predecir.",
+      "Reflexiona críticamente sobre la validez y los límites del modelo.",
+    ],
   },
+  figura: require("./_matb-base-tipos-funciones").figura,
   video: { id: "C0vUje9Uduc", titulo: "Función logarítmica: gráfica, dominio y rango", canal: "Matemáticas profe Alex", vistas: 3749125, megusta: 0, busqueda: "función exponencial y logarítmica" },
-  quiz: [
-    { q: "¿Cuál es la pendiente de y = −3x + 5?", o: ["5", "−3", "3"], a: 1, e: "La pendiente es el número que multiplica a x." },
-    { q: "¿Dónde está el vértice de y = x² − 6x + 1?", o: ["x = 3", "x = −3", "x = 6"], a: 0, e: "x_v = −b/2a = 6/2 = 3." },
-    { q: "La parábola y = −2x² + 4 abre…", o: ["hacia arriba", "hacia abajo", "hacia la derecha"], a: 1, e: "a = −2 < 0: forma de ∩." },
-    { q: "¿Por qué punto pasan todas las funciones y = aˣ?", o: ["(1, 0)", "(0, 1)", "(0, 0)"], a: 1, e: "a⁰ = 1 para cualquier base." },
-    { q: "¿Cuál es el dominio de y = log x?", o: ["ℝ", "x > 0", "x ≥ 1"], a: 1, e: "Solo existen logaritmos de números positivos." },
-  ],
-  examen: [
-    { q: "Las asíntotas de y = 3 / (x − 2) + 1 son…", o: ["x = 2, y = 1", "x = −2, y = 1", "x = 1, y = 2"], a: 0, e: "Vertical donde se anula el denominador (x = 2) y horizontal y = 1." },
-    { q: "Una población de 500 bacterias se duplica cada hora. ¿Qué fórmula da las bacterias tras t horas?", o: ["500 + 2t", "500 · 2ᵗ", "2 · 500ᵗ"], a: 1, e: "Crecimiento exponencial: se multiplica por 2 cada hora." },
-    { q: "La recta que pasa por (0, 2) con pendiente 4 es…", o: ["y = 2x + 4", "y = 4x + 2", "y = 4x − 2"], a: 1, e: "y = mx + n con m = 4 y n = 2." },
-  ],
-  feynman: ["Qué significan la pendiente y la ordenada en el origen", "Cómo se calcula el vértice y los cortes de una parábola", "Qué es una asíntota con el ejemplo de la hipérbola", "Por qué la exponencial y el logaritmo son inversas"],
   mapa: mapa("TIPOS DE FUNCIONES", "var(--bac)", [
-    ["Lineales", "y = mx + n · recta", "var(--pen)"],
-    ["Cuadráticas", "parábola · vértice −b/2a", "var(--leaf)"],
-    ["Racionales", "hipérbola · asíntotas", "var(--inf)"],
-    ["Exp. y log.", "aˣ y logₐ x · inversas", "var(--red)"],
-  ], 250),
+    ["Rectas y parábolas", "pendiente · vértice · optimizar", "var(--pen)"],
+    ["Racionales", "k/x · asíntotas", "var(--leaf)"],
+    ["Exponenciales", "aˣ · interés · semivida", "var(--red)"],
+    ["Logarítmicas", "inversa de aˣ · escalas", "var(--inf)"],
+  ], 270),
   tarjetas: [
-    ["¿Qué indica la pendiente m?", "Cuánto aumenta y por cada unidad que aumenta x."],
-    ["Fórmula del vértice de una parábola", "x_v = −b / 2a"],
-    ["¿Qué es una asíntota?", "Una recta a la que la gráfica se acerca sin llegar a tocarla."],
-    ["Diferencia entre 2ˣ y (1/2)ˣ", "La primera crece y la segunda decrece; ambas pasan por (0, 1)."],
-    ["Dominio de y = logₐ x", "(0, +∞): solo x positivos."],
+    ["Pendiente entre dos puntos", "m = (y₂ − y₁)/(x₂ − x₁)"],
+    ["Forma punto-pendiente", "y − y₁ = m(x − x₁)"],
+    ["Rectas paralelas", "Misma pendiente."],
+    ["Vértice de una parábola", "x = −b/(2a); y = f(x_v)"],
+    ["a > 0 en una parábola", "Ramas hacia arriba; el vértice es un mínimo."],
+    ["Proporcionalidad inversa", "y = k/x; hipérbola con asíntotas en los ejes."],
+    ["Asíntotas de k/(x − a) + b", "x = a (vertical) e y = b (horizontal)."],
+    ["f(x − k)", "Desplaza la gráfica k unidades a la derecha."],
+    ["Exponencial aˣ", "Pasa por (0, 1); creciente si a > 1."],
+    ["Factor de aumento del r %", "1 + r/100 (de disminución: 1 − r/100)."],
+    ["Logaritmo", "logₐ x = y ⇔ aʸ = x; pasa por (1, 0)."],
+    ["¿Lineal o exponencial?", "Diferencias constantes → lineal; cocientes constantes → exponencial."],
   ],
-  familias: ["Calculad juntos el problema del céntimo que se duplica con una hoja de cálculo.", "Buscad en casa ejemplos de cada tipo: tarifa por kilómetro (recta), trayectoria de una pelota (parábola).", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  familias: ["Comparad dos tarifas de móvil o de luz con su gráfica y buscad el punto en que cuestan lo mismo.", "Calculad juntos cuánto valdrían unos ahorros dentro de 10 años con interés compuesto.", "Lanzad una pelota y discutid por qué su trayectoria es una parábola.", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Relaciones y funciones: funciones lineales, cuadráticas, de proporcionalidad inversa, exponenciales y logarítmicas; modelización (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["Lanzar una pelota, grabarla y ajustar una parábola con GeoGebra.", "Simular el interés compuesto o un contagio con una hoja de cálculo.", "Juego de emparejar gráficas, fórmulas y situaciones."],
+    saberes: "Sentido algebraico, modelo matemático y relaciones y funciones: funciones lineales, cuadráticas, de proporcionalidad inversa, exponenciales y logarítmicas; representación, propiedades y uso para modelizar situaciones reales (RD 217/2022, Matemáticas B de 4º, saberes básicos D. Sentido algebraico).",
+    ideas: ["Uso de GeoGebra con deslizadores para ver cómo cambian las gráficas al variar los parámetros.", "Problemas de optimización con material real: cuerdas para cercar áreas máximas.", "Simulaciones de interés compuesto y de contagios con una hoja de cálculo.", "Datación por carbono-14 y escalas logarítmicas (Richter, pH, decibelios) en colaboración con Física y Química."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Función exponencial, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Funci%C3%B3n_exponencial" },
+    { t: "Problema del trigo y del tablero de ajedrez, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Problema_del_trigo_y_del_tablero_de_ajedrez" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Obtener gráficas nuevas trasladando y reflejando gráficas conocidas", "Modelizar situaciones reales con funciones exponenciales y de valor absoluto"],
-  tras: {
-    "Funciones cuadráticas: la parábola": [
-      { html: `<h3>Representar una parábola paso a paso</h3><p>Para dibujar y = ax² + bx + c con precisión se siguen cuatro pasos. 1) El signo de <b>a</b> indica la forma: si a &gt; 0 abre hacia arriba (∪) y tiene un mínimo; si a &lt; 0, hacia abajo (∩) y tiene un máximo. 2) El <b>vértice</b> está en <mark>x = −b / 2a</mark>; su y se obtiene sustituyendo. 3) Los <b>cortes con el eje X</b> se hallan resolviendo ax² + bx + c = 0, y el corte con el eje Y es el punto (0, c). 4) Se completan unos cuantos puntos <b>simétricos</b> respecto al eje vertical que pasa por el vértice. Las parábolas describen la trayectoria de un balón, la forma de las antenas o el beneficio de una empresa.</p>` },
-    ],
-    "Proporcionalidad inversa y funciones racionales": [
-      { html: `<h3>Traslaciones y reflexiones</h3><p>Conociendo la gráfica de una función f(x) se obtienen muchas otras sin hacer tablas. f(x) + k desplaza la gráfica <b>k unidades hacia arriba</b> (o hacia abajo si k es negativo). f(x − k) la desplaza <b>k unidades a la derecha</b>: ¡al revés de lo que parece! −f(x) la refleja respecto al eje X, como en un espejo. Así, y = (x − 3)² + 1 es la parábola y = x² con el vértice llevado al punto (3, 1), e y = 1/(x + 2) es la hipérbola 1/x desplazada 2 unidades a la izquierda, con su asíntota vertical en <mark>x = −2</mark>.</p>${AMP.tabla(["Fórmula", "Efecto sobre y = f(x)"], [["f(x) + k", "Sube k unidades"], ["f(x) − k", "Baja k unidades"], ["f(x − k)", "Se mueve k a la derecha"], ["f(x + k)", "Se mueve k a la izquierda"], ["−f(x)", "Se refleja en el eje X"]])}`, video: { id: "yLQKUfxXDjg", titulo: "Transformaciones de funciones: traslaciones y reflexiones", canal: "ferchomat", vistas: 582731 } },
-    ],
-    "Funciones exponenciales": [
-      { html: `<h3>Crecimiento y decrecimiento exponencial</h3><p>Muchos fenómenos crecen o decrecen en un <b>porcentaje fijo</b> por unidad de tiempo, y eso da una función exponencial: <mark>C(t) = C₀ · (1 + r)ᵗ</mark>. Un capital de 1.000 € al 4 % anual compuesto se convierte en 1.000 · 1,04ᵗ. Una población de bacterias que se duplica cada hora sigue N = N₀ · 2ᵗ. Y cuando algo pierde un porcentaje, el factor es menor que 1: un coche que se devalúa un 15 % al año vale V₀ · 0,85ᵗ. La desintegración radiactiva también: el <b>periodo de semidesintegración</b> es el tiempo en que la cantidad se reduce a la mitad, y permite datar fósiles con el carbono-14.</p>` },
-    ],
-    "Funciones logarítmicas": [
-      { html: `<h3>La función valor absoluto</h3><p>La función <b>valor absoluto</b> y = |x| devuelve la distancia al cero: deja igual los positivos y cambia de signo los negativos. Su gráfica tiene forma de <b>V</b> con el vértice en el origen. En realidad es una función a trozos: |x| = x si x ≥ 0 y |x| = −x si x &lt; 0. Para dibujar y = |f(x)| se dibuja f(x) y se <mark>refleja hacia arriba</mark> la parte que queda por debajo del eje X. Por ejemplo, y = |x² − 4| es la parábola con el tramo entre −2 y 2 dado la vuelta.</p>` },
-    ],
-  },
-  ejemplos: [
-    { enunciado: "Representa y = x² − 4x + 3: vértice, cortes y forma.", pasos: ["a = 1 > 0: abre hacia arriba.", "Vértice: x = 4/2 = 2; y = 4 − 8 + 3 = −1. V(2, −1).", "Cortes con X: x² − 4x + 3 = 0, x = 1 y x = 3. Corte con Y: (0, 3)."], resultado: "Parábola ∪ con vértice (2, −1), cortes (1, 0), (3, 0) y (0, 3)." },
-    { enunciado: "Describe cómo se obtiene la gráfica de y = (x + 1)² − 4 a partir de y = x².", pasos: ["(x + 1)²: se desplaza 1 unidad a la izquierda.", "− 4: se desplaza 4 unidades hacia abajo.", "El vértice pasa de (0, 0) a (−1, −4)."], resultado: "Traslación 1 a la izquierda y 4 abajo; vértice (−1, −4)." },
-    { enunciado: "Un coche de 20.000 € pierde un 15 % de su valor cada año. ¿Cuánto vale a los 4 años?", pasos: ["Factor anual: 1 − 0,15 = 0,85.", "V(t) = 20.000 · 0,85ᵗ.", "V(4) = 20.000 · 0,522 ≈ 10.440 €."], resultado: "Unos 10.440 €." },
-  ],
-  errores: [
-    "Pensar que f(x − 3) desplaza la gráfica a la izquierda: va a la derecha.",
-    "Calcular el vértice con x = b / 2a, olvidando el signo menos.",
-    "Usar 0,15 como factor en lugar de 0,85 cuando algo disminuye un 15 %.",
-    "Creer que el crecimiento exponencial es como el lineal: al principio parece lento, pero se dispara.",
-    "Dibujar la función logarítmica con valores para x ≤ 0, donde no existe.",
-  ],
-  ejercicios: [
-    { q: "Escribe la recta de pendiente −2 que pasa por (1, 5).", sol: "y = −2x + 7." },
-    { q: "Halla el vértice de y = −x² + 6x − 5 e indica si es máximo o mínimo.", sol: "x = 3, y = 4. V(3, 4), máximo (a < 0)." },
-    { q: "Halla los cortes con los ejes de y = x² − x − 6.", sol: "Eje X: (3, 0) y (−2, 0). Eje Y: (0, −6)." },
-    { q: "¿Qué traslación lleva y = x² a y = (x − 2)² + 5?", sol: "2 unidades a la derecha y 5 hacia arriba; vértice (2, 5)." },
-    { q: "Indica las asíntotas de y = 3/(x − 1) + 2.", sol: "Vertical x = 1; horizontal y = 2." },
-    { q: "Una colonia de 500 bacterias se duplica cada hora. ¿Cuántas hay a las 6 horas?", sol: "500 · 2⁶ = 32.000." },
-    { q: "Calcula el capital final de 2.000 € al 3 % anual compuesto durante 5 años.", sol: "2.000 · 1,03⁵ ≈ 2.318,55 €." },
-    { q: "Una sustancia tiene un periodo de semidesintegración de 10 años. ¿Qué queda de 80 g a los 30 años?", sol: "80 → 40 → 20 → 10 g." },
-    { q: "Calcula log₂ 8 y log₂ (1/4) y di qué puntos de y = log₂ x representan.", sol: "3 y −2: puntos (8, 3) y (1/4, −2)." },
-    { q: "Escribe y = |x − 3| como función a trozos.", sol: "y = x − 3 si x ≥ 3; y = 3 − x si x < 3." },
-  ],
-  quiz: [
-    { q: "y = f(x) + 3 desplaza la gráfica…", o: ["3 hacia arriba", "3 a la derecha", "3 hacia abajo"], a: 0, e: "Suma fuera: vertical." },
-    { q: "y = f(x + 2) desplaza la gráfica…", o: ["2 a la derecha", "2 a la izquierda", "2 hacia arriba"], a: 1, e: "Al revés de lo que parece." },
-    { q: "El vértice de y = ax² + bx + c está en x =…", o: ["−b / 2a", "b / 2a", "−c / a"], a: 0, e: "Eje de simetría." },
-    { q: "Un 4 % de crecimiento anual da el factor…", o: ["0,04", "1,04", "0,96"], a: 1, e: "1 + 0,04." },
-    { q: "La gráfica de y = |x| tiene forma de…", o: ["U", "V", "S"], a: 1, e: "Vértice en el origen." },
-  ],
-  tarjetas: [
-    ["Vértice de la parábola", "x = −b / 2a; es el máximo o el mínimo."],
-    ["Traslaciones", "f(x) + k sube; f(x − k) se mueve a la derecha."],
-    ["Crecimiento exponencial", "C(t) = C₀ · (1 + r)ᵗ, con un porcentaje fijo por periodo."],
-  ],
-});
