@@ -99,9 +99,9 @@ module.exports = libro({
         "Les <mark>causals</mark> indiquen el motiu o la causa de l'acció principal. Nexes: <b>perquè</b>, <b>ja que</b>, <b>com que</b> (sempre a l'inici de l'oració), <b>atès que</b>, <b>vist que</b>, <b>puix que</b>: «No vaig venir <b>perquè</b> estava malalt»; «<b>Com que</b> plovia, vam anul·lar el partit».",
         "Les <mark>finals</mark> indiquen la finalitat o objectiu. Nexes: <b>perquè</b> + subjuntiu, <b>per tal que</b>, <b>a fi que</b>, i amb infinitiu, <b>per</b>, <b>per tal de</b>, <b>a fi de</b>: «T'ho explico <b>perquè</b> ho entenguis»; «Estudio <b>per</b> aprovar».",
         "Fixa't que <b>perquè</b> pot ser causal (amb indicatiu: «perquè estava malalt») o final (amb subjuntiu: «perquè ho entenguis»). No el confonguis amb <b>per què</b> (preposició + interrogatiu): «<b>Per què</b> no vens?». I recorda la diferència entre «per» (causa, també davant d'infinitiu) i «per a» (destinació d'un nom: «un regal per a tu»)."),
-      L.frase("Perquè causal i perquè final", [
-        ["No vaig venir", "", "var(--line)"], ["perquè estava malalt", "causa + indicatiu", "var(--red)"],
-        ["T'ho explico", "", "var(--line)"], ["perquè ho entenguis", "finalitat + subjuntiu", "var(--leaf)"],
+      L.filas("Perquè causal i perquè final", [
+        ["Causal", "perquè + indicatiu", "var(--red)"], ["Exemple", "perquè era malalt", "var(--red)"],
+        ["Final", "perquè + subjuntiu", "var(--leaf)"], ["Exemple", "perquè ho vegis", "var(--leaf)"],
       ])],
     ["5.10 Les adverbials impròpies (II): condició i concessió",
       P("Les <mark>condicionals</mark> expressen una condició necessària perquè es compleixi la principal. El nexe principal és <b>si</b>; també <b>en cas que</b>, <b>sempre que</b>, <b>a condició que</b>, <b>llevat que</b> (condició negativa) i el gerundi («<b>Estudiant</b>, aprovaràs»). L'oració condicional té dues parts: la <b>pròtasi</b> (la condició) i l'<b>apòdosi</b> (la conseqüència).",

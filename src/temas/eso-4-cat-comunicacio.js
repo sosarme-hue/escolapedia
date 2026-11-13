@@ -138,7 +138,7 @@ module.exports = libro({
       ["Està ben lligat?", "COHESIÓ", ["connectors, pronoms,", "sinònims i el·lipsi"], "var(--inf)"],
     ]),
   },
-  video: vid("UJxSAq54HkA", "Las funciones del lenguaje: explicación con ejemplos", "TeoCom", 323859, "funcions del llenguatge"),
+  video: vid("ioSGdxGO-Xk", "Tipologia textual Comentari de text", "Andrea Cuenca", 27870, "tipologia textual comentari de text"),
   ejemplos: [
     ["Identifica els elements de la comunicació: la Marta envia un àudio al seu avi per felicitar-lo mentre va en autobús.", ["Emissor: la Marta. Receptor: el seu avi.", "Missatge: la felicitació. Codi: la llengua catalana oral.", "Canal: l'aire i la xarxa telefònica (àudio digital).", "Context: l'aniversari de l'avi; el soroll de l'autobús és un possible soroll físic."], "emissor la Marta, receptor l'avi, missatge la felicitació, codi el català, canal l'àudio, context l'aniversari i soroll de l'autobús."],
     ["Quina funció predomina a «Atenció! Si trobeu aquest gos, truqueu al 600 000 000»?", ["Hi ha un imperatiu («truqueu») i una crida d'atenció.", "El text vol que el receptor faci alguna cosa.", "Tot i que informa d'un gos perdut, la intenció principal és fer actuar el lector."], "predomina la funció conativa o apel·lativa."],
