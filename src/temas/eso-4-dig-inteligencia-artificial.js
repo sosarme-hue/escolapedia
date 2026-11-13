@@ -172,3 +172,167 @@ AMP.amplia(module.exports, {
     ["Deepfake", "Vídeo, imagen o audio falso hecho con IA que imita a una persona real."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 110,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "La máquina que aprendió a ver un cáncer",
+    html: `<p>En un hospital, una dermatóloga sube a un programa la foto de un lunar sospechoso. En dos segundos, el sistema marca la zona que le preocupa y estima la probabilidad de que sea un melanoma. Nadie le ha escrito reglas del tipo «si el borde es irregular y el color es oscuro…»: ha aprendido sola, a partir de cientos de miles de imágenes revisadas por especialistas. La decisión final es de la médica, pero la herramienta le ayuda a no pasar nada por alto.</p>
+      <p>Esa misma tecnología escribe textos, traduce idiomas, recomienda canciones, conduce coches de prueba y crea imágenes que nunca existieron. También se equivoca, inventa datos con total seguridad, puede discriminar si aprende de datos sesgados y consume enormes cantidades de energía. En este tema verás qué es realmente la inteligencia artificial, cómo aprende a partir de datos, cómo funciona un modelo de lenguaje por dentro, qué dice la ley europea y cómo usarla de forma crítica, responsable y creativa. La pregunta no es si usarás la IA, sino cómo.</p>`,
+  },
+  svgs: {
+    "Tipos de aprendizaje automático": L.cajas("Tres tipos de aprendizaje automático", [["Supervisado", "ejemplos|etiquetados"], ["No supervisado", "busca grupos|sin etiquetas"], ["Por refuerzo", "ensayo y error|con premios"], ["Ejemplo", "spam · clientes|· robot que anda"]], { t: "Cómo aprende" }),
+    "Cómo dar buenas instrucciones": L.capas("Partes de un buen prompt: rol y contexto, tarea, formato y límites", [["Contexto", "soy alumno de 4º"], ["Tarea", "explica la ley de Ohm"], ["Formato", "5 puntos y un ejemplo"], ["Límites", "sin fórmulas difíciles"]], { t: "Un buen prompt" }),
+    "La IA y el trabajo": L.comparar("Tareas que la IA automatiza y capacidades humanas más valiosas", ["IA automatiza", ["tareas repetitivas", "clasificar datos", "traducir borradores", "revisar imágenes"]], ["Humanos aportan", ["criterio y ética", "creatividad", "empatía", "trabajo en equipo"]]),
+    "Cómo reconocer contenido generado por IA": L.cajas("Pistas para reconocer contenido generado por IA", [["Manos y texto", "dedos raros,|letras sin sentido"], ["Luz y sombras", "incoherentes"], ["Fuente", "¿quién lo|publica?"], ["Marca de agua", "etiqueta|«creado con IA»"]], { t: "¿Lo ha hecho una IA?" }),
+  },
+  tras: {
+    "Qué es la inteligencia artificial": [
+      {
+        html: `<h3>Breve historia de la IA</h3><p>En <b>1950</b>, el matemático Alan Turing se preguntó si las máquinas podrían pensar y propuso una prueba: si una persona conversa por escrito con una máquina y no sabe distinguirla de un humano, la máquina «piensa». En <b>1956</b>, en un congreso en Dartmouth (EE. UU.), se usó por primera vez la expresión <b>inteligencia artificial</b>. Las primeras IA seguían <mark>reglas escritas a mano</mark>: jugaban a las damas o resolvían problemas lógicos, pero fallaban ante el mundo real. Tras grandes promesas incumplidas llegaron los «inviernos de la IA», épocas sin apenas financiación.</p>
+          <p>En <b>1997</b>, el ordenador Deep Blue de IBM venció al campeón mundial de ajedrez Garri Kaspárov. El gran salto llegó hacia <b>2012</b> con el <b>aprendizaje profundo</b>: redes neuronales con muchas capas, entrenadas con enormes cantidades de datos y con los procesadores gráficos (GPU) de los videojuegos, empezaron a reconocer imágenes y voz mejor que nunca. En <b>2016</b>, AlphaGo ganó al go, un juego con más posiciones que átomos en el universo. En <b>2017</b> se inventó la arquitectura <b>transformer</b>, base de los modelos de lenguaje que desde <b>2022</b> usan cientos de millones de personas para escribir, programar o estudiar.</p>`,
+        svg: L.rejilla("Hitos de la historia de la inteligencia artificial", ["Año", "Hito"], [["1950", "prueba de Turing"], ["1956", "nace el término IA"], ["1997", "Deep Blue gana al ajedrez"], ["2012", "aprendizaje profundo"], ["2022", "chatbots para todos"]], { t: "Línea del tiempo" }),
+      },
+    ],
+    "Cómo aprende una máquina": [
+      {
+        html: `<h3>Los datos, el combustible de la IA</h3><p>Un modelo de aprendizaje automático es tan bueno como los datos con los que aprende. Hacen falta <b>muchos</b> datos, pero sobre todo datos de <b>calidad</b>: variados, correctos y representativos de la realidad en la que se va a usar el sistema. En el aprendizaje supervisado, además, alguien tiene que <b>etiquetarlos</b>: marcar miles de fotos como «gato» o «perro», o revisar textos uno a uno. Es un trabajo enorme, muchas veces hecho por personas mal pagadas en otros países.</p>
+          <p>Los datos se dividen en tres grupos. Con el de <b>entrenamiento</b> el modelo ajusta sus parámetros; con el de <b>validación</b> se eligen los ajustes; y con el de <b>prueba</b>, que el modelo nunca ha visto, se mide si de verdad ha aprendido. Un problema típico es el <mark>sobreajuste</mark>: el modelo memoriza los ejemplos de entrenamiento, incluidos sus detalles casuales, y falla con datos nuevos, como un alumno que se aprende de memoria las soluciones del libro pero no sabe resolver un problema distinto. Para evaluar un modelo se usa la <b>precisión</b> (el porcentaje de aciertos), aunque no basta: un detector de una enfermedad rara que siempre dice «sano» acierta el 99 % y no sirve para nada.</p>`,
+        svg: L.barras("Reparto típico de los datos en entrenamiento, validación y prueba", [["Entrenamiento", 70], ["Validación", 15], ["Prueba", 15]], { t: "Cómo se reparten los datos", unidad: " %" }),
+      },
+    ],
+    "Tipos de aprendizaje automático": [
+      {
+        html: `<h3>Un clasificador por dentro</h3><p>Veamos un modelo sencillo: el <b>árbol de decisión</b>. Imagina que queremos que una IA decida si un día es bueno para ir en bici al instituto. Le damos una tabla de días anteriores con sus datos (¿llueve?, temperatura, viento) y la etiqueta (fuimos en bici o no). El algoritmo busca la pregunta que <mark>mejor separa</mark> los ejemplos: quizá «¿llueve?». Si llueve, casi nunca se fue en bici. Si no llueve, busca la siguiente mejor pregunta, por ejemplo «¿la temperatura es menor de 5 °C?», y así construye un árbol de preguntas de sí o no.</p>
+          <p>Con un día nuevo, el modelo recorre el árbol desde arriba y llega a una hoja con la respuesta. Otro método muy intuitivo es el de los <b>k vecinos más próximos</b>: para clasificar un ejemplo nuevo, mira los <i>k</i> ejemplos conocidos más parecidos y elige lo que diga la mayoría. Plataformas educativas como Teachable Machine o Machine Learning for Kids permiten entrenar clasificadores de imágenes, sonidos o posturas en minutos y usarlos en Scratch. Al hacerlo se ve claro que el modelo no «entiende» nada: solo encuentra patrones en los números de los datos.</p>`,
+        svg: L.flujo("Árbol de decisión para ir en bici: llueve, temperatura y viento", ["¿Llueve? sí → no ir en bici", "no → ¿menos de 5 °C?", "sí → no ir en bici", "no → ¿viento fuerte?", "no → ¡ir en bici!"], { t: "Árbol de decisión" }),
+      },
+    ],
+    "Redes neuronales e IA generativa": [
+      {
+        html: `<h3>Cómo funciona un modelo de lenguaje</h3><p>Un <b>modelo de lenguaje</b> grande (los que usan los chatbots) es una red neuronal enorme entrenada con muchísimo texto. Primero, el texto se trocea en <b>tokens</b>: palabras o partes de palabras. Durante el entrenamiento, el modelo lee frases con el final tapado e intenta <mark>predecir el siguiente token</mark>; cada vez que se equivoca, ajusta ligeramente sus miles de millones de parámetros. Tras repetir esto billones de veces, aprende gramática, datos sobre el mundo y formas de razonar, todo ello como probabilidades.</p>
+          <p>Después se <b>ajusta</b> con ejemplos de conversaciones y con valoraciones de personas para que sea útil, siga instrucciones y rechace peticiones dañinas. Cuando le escribes, genera la respuesta token a token, eligiendo en cada paso entre los más probables; un parámetro llamado <b>temperatura</b> controla cuánto se arriesga (más creatividad o más previsibilidad). Solo «recuerda» lo que cabe en su <b>ventana de contexto</b>, la conversación actual. Como no consulta una base de datos de hechos, sino que produce lo más probable, puede <b>alucinar</b>: inventar citas, fechas o fuentes con total seguridad. Por eso hay que contrastar siempre lo importante.</p>`,
+        svg: L.flujo("Cómo genera texto un modelo de lenguaje: tokens y predicción", ["Texto: «El agua hierve a…»", "Se trocea en tokens", "La red calcula probabilidades", "Elige: «100» (alta), «frío» (baja)", "Añade el token y repite"], { t: "Predecir la siguiente palabra" }),
+      },
+    ],
+    "La IA en tu día a día": [
+      {
+        html: `<h3>Visión artificial y reconocimiento de voz</h3><p>Para un ordenador, una foto es solo una tabla de números: el color de cada píxel. La <b>visión artificial</b> usa redes neuronales que aprenden a detectar, capa a capa, primero bordes y manchas, luego formas como ojos o ruedas y, al final, objetos completos. Así se puede <b>clasificar</b> una imagen («hay un gato»), <b>detectar</b> objetos y dónde están (los recuadros alrededor de peatones de un coche autónomo) o <b>segmentar</b>, es decir, saber a qué objeto pertenece cada píxel, algo útil en medicina para delimitar un tumor.</p>
+          <p>El <b>reconocimiento de voz</b> convierte el sonido en texto: el micrófono digitaliza la onda, el sistema la transforma en un «mapa» de frecuencias y una red neuronal reconoce los sonidos y las palabras más probables. Lo usan los asistentes de voz, los subtítulos automáticos y los dictados del móvil. El proceso inverso, la <b>síntesis de voz</b>, ya imita voces humanas casi a la perfección, lo que ayuda a personas que han perdido el habla, pero también permite fraudes telefónicos que imitan la voz de un familiar. Estas tecnologías mejoran la accesibilidad, aunque el reconocimiento facial en espacios públicos plantea serios problemas de privacidad.</p>`,
+        svg: L.capas("Capas de una red de visión artificial: píxeles, bordes, formas y objeto", [["Objeto", "«es un gato»"], ["Formas", "orejas, ojos"], ["Bordes", "líneas y manchas"], ["Píxeles", "números de color"]], { t: "Ver por capas" }),
+      },
+    ],
+    "Riesgos y ética": [
+      {
+        html: `<h3>La ley: el Reglamento europeo de IA</h3><p>La Unión Europea aprobó en 2024 el <b>Reglamento de Inteligencia Artificial</b>, la primera ley general sobre IA del mundo. Clasifica los sistemas según su <mark>nivel de riesgo</mark>. Los de <b>riesgo inaceptable</b> están prohibidos: la puntuación social de los ciudadanos, la manipulación que explota la vulnerabilidad de menores o el reconocimiento de emociones en centros educativos y de trabajo. Los de <b>alto riesgo</b>, como los que deciden sobre contrataciones, notas de exámenes, créditos o atención sanitaria, deben cumplir requisitos estrictos: datos de calidad, documentación, supervisión humana y seguridad.</p>
+          <p>Los de <b>riesgo limitado</b> tienen obligaciones de <b>transparencia</b>: un chatbot debe decir que es una máquina y los contenidos generados o manipulados con IA, como los deepfakes, deben estar etiquetados. Los de <b>riesgo mínimo</b>, como un filtro de spam o la IA de un videojuego, no tienen obligaciones especiales. Los grandes modelos de uso general también deben informar de cómo se entrenaron y respetar los derechos de autor. En España, la Agencia Española de Supervisión de la Inteligencia Artificial (AESIA), con sede en A Coruña, vigila que se cumpla.</p>`,
+        svg: L.capas("Pirámide de riesgos del Reglamento europeo de IA", [["Inaceptable", "prohibido"], ["Alto", "requisitos estrictos"], ["Limitado", "transparencia"], ["Mínimo", "sin obligaciones"]], { t: "Niveles de riesgo" }),
+      },
+      {
+        html: `<h3>La huella ambiental de la IA</h3><p>La IA no vive en una nube etérea: funciona en <b>centros de datos</b> llenos de servidores con miles de procesadores gráficos. Entrenar un gran modelo de lenguaje puede consumir tanta electricidad como miles de hogares en un año, y cada consulta gasta varias veces más energía que una búsqueda web tradicional. Los servidores se calientan y se refrigeran, a menudo con <mark>agua</mark>, lo que en zonas con sequía genera conflictos. Además, fabricar los chips exige minerales escasos y mucha energía.</p>
+          <p>Las empresas trabajan en modelos más pequeños y eficientes, en chips especializados y en alimentar sus centros con energías renovables. Pero también importa cómo la usamos: no hace falta pedir a una IA generativa lo que se resuelve con una calculadora, un buscador o pensando un momento. Al mismo tiempo, la IA puede ayudar al medio ambiente: optimizar redes eléctricas con mucha energía renovable, predecir fenómenos meteorológicos extremos, detectar incendios o vigilar la deforestación con imágenes de satélite. Como toda tecnología, su balance depende de las decisiones que tomemos.</p>`,
+        svg: L.comparar("Costes ambientales y aportaciones de la IA al medio ambiente", ["Costes", ["mucha electricidad", "agua para enfriar", "minerales escasos", "residuos de chips"]], ["Aportaciones", ["redes eléctricas", "predecir el clima", "detectar incendios", "vigilar bosques"]]),
+      },
+    ],
+  },
+  secciones: [6, 3, 7],
+  niveles: "bmbbmbmbmm",
+  ejercicios: [
+    { nivel: "básico", q: "¿Qué proponía la prueba de Turing?", sol: "Que si una persona conversa por escrito con una máquina y no sabe distinguirla de un ser humano, se puede decir que la máquina muestra un comportamiento inteligente." },
+    { nivel: "básico", q: "¿Para qué sirven los datos de prueba en el aprendizaje automático?", sol: "Para comprobar con ejemplos que el modelo nunca ha visto si ha aprendido de verdad o solo ha memorizado los de entrenamiento." },
+    { nivel: "básico", q: "¿Qué es un token en un modelo de lenguaje?", sol: "Un trozo de texto (una palabra o parte de una palabra) en que se divide lo que se escribe; el modelo trabaja prediciendo el siguiente token." },
+    { nivel: "básico", q: "Nombra los cuatro niveles de riesgo del Reglamento europeo de IA.", sol: "Inaceptable (prohibido), alto (requisitos estrictos), limitado (transparencia) y mínimo (sin obligaciones especiales)." },
+    { nivel: "básico", q: "Di si es clasificar, detectar o segmentar: marcar con un recuadro cada peatón de una foto.", sol: "Detectar: se localiza cada objeto y su posición con un recuadro." },
+    { nivel: "básico", q: "Indica dos costes ambientales de la IA y dos formas en que puede ayudar al medio ambiente.", sol: "Costes: mucho consumo eléctrico y agua para refrigerar los centros de datos. Ayudas: predecir fenómenos meteorológicos extremos y detectar incendios o deforestación con satélites." },
+    { nivel: "básico", q: "¿Qué hito de la IA ocurrió en 1997?", sol: "El ordenador Deep Blue de IBM venció al campeón mundial de ajedrez Garri Kaspárov." },
+    { nivel: "medio", q: "Explica el sobreajuste con un ejemplo de clase.", sol: "Es cuando el modelo memoriza los ejemplos de entrenamiento y falla con datos nuevos. Como un alumno que se aprende las soluciones exactas del libro y no sabe resolver un problema con números distintos en el examen." },
+    { nivel: "medio", q: "Un detector de una enfermedad que afecta a 1 de cada 100 personas siempre responde «sano». ¿Qué precisión tiene? ¿Es útil?", sol: "Acierta 99 de cada 100: precisión del 99 %. Pero no sirve, porque no detecta a ningún enfermo. Hay que mirar también cuántos casos positivos encuentra." },
+    { nivel: "medio", q: "Construye un árbol de decisión de tres preguntas para decidir si llevar paraguas.", sol: "¿Está lloviendo? Sí → paraguas. No → ¿La previsión da más del 50 % de lluvia? Sí → paraguas. No → ¿Vas a estar fuera más de 3 horas? Sí → paraguas plegable; No → sin paraguas." },
+    { nivel: "medio", q: "Explica por qué un chatbot puede inventarse una cita bibliográfica que no existe.", sol: "Porque genera el texto más probable token a token, no consulta una base de datos de libros. Una cita con autor, título y año «suena» correcta aunque no exista: es una alucinación." },
+    { nivel: "medio", q: "¿Qué controla la temperatura de un modelo de lenguaje? ¿Cuándo la subirías y cuándo la bajarías?", sol: "Cuánto se arriesga al elegir el siguiente token. Alta para tareas creativas (ideas, un poema); baja para respuestas precisas y repetibles (un resumen técnico, código)." },
+    { nivel: "medio", q: "Clasifica según el Reglamento europeo: un filtro de spam, un sistema que puntúa currículos, un chatbot de una tienda y la puntuación social de ciudadanos.", sol: "Filtro de spam: riesgo mínimo. Currículos: alto riesgo. Chatbot: riesgo limitado (debe decir que es una máquina). Puntuación social: riesgo inaceptable, prohibido." },
+    { nivel: "medio", q: "¿Por qué el etiquetado de datos es una parte importante y polémica de la IA?", sol: "Importante porque el aprendizaje supervisado necesita millones de ejemplos bien marcados. Polémica porque a menudo lo hacen personas con sueldos muy bajos y, en algunos casos, revisando contenido desagradable." },
+    { nivel: "medio", q: "Explica cómo una red de visión reconoce un gato «por capas».", sol: "Las primeras capas detectan bordes y manchas de color; las intermedias combinan esos bordes en formas (orejas, ojos, bigotes); las últimas combinan las formas y deciden que el conjunto es un gato." },
+    { nivel: "medio", q: "Explica el método de los k vecinos más próximos con un ejemplo.", sol: "Para clasificar un ejemplo nuevo se buscan los k ejemplos conocidos más parecidos y se elige la etiqueta mayoritaria. Ejemplo con k = 3: una fruta nueva se parece a dos naranjas y una mandarina conocidas → se clasifica como naranja." },
+    { nivel: "avanzado", q: "Diseña un experimento con Teachable Machine para clasificar tres gestos de la mano. ¿Cómo comprobarías si funciona bien?", sol: "Crear tres clases (puño, mano abierta, pulgar arriba) y grabar unas 100 imágenes de cada una con distintas luces, fondos y personas. Entrenar. Probar con personas y fondos que no estaban en el entrenamiento, anotar aciertos y fallos en una tabla y añadir ejemplos donde falle." },
+    { nivel: "avanzado", q: "Un sistema de reconocimiento facial falla más con mujeres de piel oscura. Explica la causa probable y cómo corregirla.", sol: "Sesgo en los datos: había muchas menos fotos de ese grupo en el entrenamiento. Se corrige con datos más variados y representativos, midiendo la precisión por grupos y no solo en total, y con supervisión humana en decisiones importantes." },
+    { nivel: "avanzado", q: "¿Por qué el reconocimiento de emociones en centros educativos está prohibido en la UE? Da dos argumentos.", sol: "Porque la ciencia no garantiza que una cara refleje con fiabilidad las emociones, así que puede clasificar mal a alumnos; y porque supone una vigilancia muy invasiva sobre menores en una situación de dependencia, que afecta a su intimidad y libertad." },
+    { nivel: "avanzado", q: "Redacta las normas para usar IA generativa en un trabajo de clase (cinco puntos).", sol: "1) Preguntar al profesorado si se permite y para qué. 2) Usarla para entender, generar ideas o revisar, no para copiar. 3) Contrastar todos los datos en fuentes fiables. 4) Indicar qué herramienta se usó y para qué. 5) No introducir datos personales propios ni de otros." },
+    { nivel: "avanzado", q: "Si una consulta a un chatbot gasta 3 Wh y una búsqueda web 0,3 Wh, ¿cuánta energía gastan 20 consultas diarias de 30 alumnos durante un curso de 175 días con cada método?", sol: "Consultas totales: 20 · 30 · 175 = 105.000. Chatbot: 105.000 · 3 = 315.000 Wh = 315 kWh. Buscador: 31,5 kWh. El chatbot gasta 10 veces más en este ejemplo." },
+    { nivel: "avanzado", q: "Compara la IA de reglas de los años 60 con el aprendizaje automático actual: cómo funcionan, ventajas e inconvenientes.", sol: "La de reglas sigue instrucciones escritas por expertos: es explicable y predecible, pero no se adapta a situaciones imprevistas. El aprendizaje automático aprende patrones de los datos: se adapta a problemas complejos (imágenes, voz), pero necesita muchos datos, puede tener sesgos y cuesta explicar por qué decide algo." },
+    { nivel: "avanzado", q: "Explica por qué la síntesis de voz puede facilitar estafas y propón dos medidas de protección para tu familia.", sol: "Con unos segundos de audio se puede imitar la voz de alguien y llamar fingiendo una emergencia para pedir dinero. Medidas: acordar una palabra clave familiar para emergencias y colgar y llamar al número habitual de esa persona para comprobarlo." },
+    { nivel: "avanzado", q: "¿Puede una IA ser autora de una obra? Argumenta desde los derechos de autor.", sol: "En la legislación europea y española, la autoría corresponde a personas físicas: una obra creada solo por una IA no tiene autor protegido. Si una persona aporta decisiones creativas relevantes al usarla, puede haber protección sobre esa parte. Además, se discute si entrenar modelos con obras protegidas respeta los derechos de sus autores." },
+    { nivel: "avanzado", q: "Elige un problema de tu entorno que la IA podría ayudar a resolver. Describe los datos que harían falta, el tipo de aprendizaje y un riesgo ético.", sol: "Ejemplo: clasificar residuos en la papelera del instituto con una cámara. Datos: miles de fotos de envases, papel y orgánico etiquetadas. Aprendizaje supervisado. Riesgo: que la cámara grabe a las personas; habría que enfocarla solo a la boca de la papelera y no guardar imágenes." },
+  ],
+  ejemplos: [
+    { enunciado: "Un modelo clasifica 200 correos de prueba: 90 spam bien detectados, 10 spam no detectados, 95 normales correctos y 5 normales marcados como spam. Calcula su precisión.", pasos: ["Aciertos: 90 + 95 = 185.", "Total: 200.", "Precisión: 185 / 200 = 0,925.", "Errores graves: 5 correos normales irían a spam (podrías perder uno importante)."], resultado: "92,5 % de aciertos." },
+    { enunciado: "Entrena mentalmente un árbol de decisión con estos días: lluvia → no bici (4 veces); sin lluvia y frío → no bici (2); sin lluvia y templado → bici (6). Clasifica un día sin lluvia y a 15 °C.", pasos: ["Primera pregunta: ¿llueve? separa perfectamente los 4 días de lluvia.", "Para los que no llueve, la pregunta ¿hace frío? separa 2 y 6.", "Día nuevo: no llueve → bajamos por la rama del no.", "15 °C es templado → hoja «bici»."], resultado: "Ir en bici." },
+    { enunciado: "Mejora este prompt: «Hazme un trabajo de la IA».", pasos: ["Contexto: «Soy alumno de 4º de ESO y preparo una exposición de 5 minutos».", "Tarea: «Propón un guion sobre ventajas y riesgos de la IA en medicina».", "Formato: «Cinco apartados con dos ideas cada uno y un ejemplo real».", "Límites: «Lenguaje sencillo e indica qué datos debo comprobar»."], resultado: "Un prompt que ayuda a preparar el trabajo propio, en lugar de pedir que la IA lo haga por ti." },
+  ],
+  errores: ["Creer que la IA «entiende» o «sabe» lo que dice: calcula probabilidades a partir de patrones en los datos."],
+  cuarta: ["funciona sin electricidad", "Para que el modelo sea gratis", "traduciendo de otro idioma siempre", "un antivirus", "más color", "por refuerzo", "por imitación de humanos", "contraseñas", "un cable de red", "solo cree trabajos en informática"],
+  quiz: [
+    { q: "¿En qué año se acuñó el término «inteligencia artificial»?", o: ["1936", "1956", "1997", "2022"], a: 1, e: "En el congreso de Dartmouth." },
+    { q: "Cuando un modelo memoriza los ejemplos y falla con datos nuevos, hay…", o: ["sobreajuste", "cifrado", "latencia", "compresión"], a: 0, e: "No ha aprendido a generalizar." },
+    { q: "Un modelo de lenguaje genera texto…", o: ["consultando una enciclopedia", "prediciendo el siguiente token", "copiando una web al azar", "con reglas gramaticales escritas a mano"], a: 1, e: "Token a token, según probabilidades." },
+    { q: "La ventana de contexto es…", o: ["la pantalla del ordenador", "lo que el modelo puede tener en cuenta de la conversación", "el tamaño de los datos de entrenamiento", "un filtro de privacidad"], a: 1, e: "Lo que queda fuera, no lo «recuerda»." },
+    { q: "Un árbol de decisión clasifica…", o: ["con preguntas de sí o no", "sin datos", "cifrando la información", "al azar"], a: 0, e: "Recorre el árbol hasta una hoja." },
+    { q: "Según el Reglamento europeo, un chatbot debe…", o: ["ser gratuito", "avisar de que es una máquina", "tener voz", "funcionar sin Internet"], a: 1, e: "Es una obligación de transparencia." },
+    { q: "Saber a qué objeto pertenece cada píxel de una imagen es…", o: ["clasificar", "detectar", "segmentar", "comprimir"], a: 2, e: "Se usa, por ejemplo, para delimitar un tumor." },
+    { q: "¿Qué recurso consumen mucho los centros de datos además de electricidad?", o: ["Agua para refrigerar", "Papel", "Gasolina", "Arena"], a: 0, e: "Los servidores generan mucho calor." },
+    { q: "La IA que puntúa a los ciudadanos por su conducta está en el nivel de riesgo…", o: ["mínimo", "limitado", "alto", "inaceptable"], a: 3, e: "Está prohibida en la UE." },
+    { q: "El aprendizaje profundo despegó hacia 2012 gracias a…", o: ["las GPU y los grandes conjuntos de datos", "las impresoras 3D", "el fax", "el Bluetooth"], a: 0, e: "Permitieron entrenar redes con muchas capas." },
+  ],
+  cuartaEx: ["Un tipo de cable de fibra", "pedir que te haga todo el trabajo", "Que la IA solo hable en inglés"],
+  examen: [
+    { q: "¿Qué hace el parámetro de temperatura?", o: ["Mide el calor del servidor", "Controla cuánto se arriesga el modelo al elegir palabras", "Cambia el idioma", "Borra la conversación"], a: 1, e: "Más alta, más creatividad y variación." },
+    { q: "En España vigila el cumplimiento de la ley de IA…", o: ["la AESIA", "la DGT", "el INE", "la RAE"], a: 0, e: "Agencia Española de Supervisión de la IA, en A Coruña." },
+    { q: "Teachable Machine permite…", o: ["entrenar clasificadores sencillos sin programar", "fabricar chips", "cifrar el disco", "crear un sistema operativo"], a: 0, e: "Con imágenes, sonidos o posturas." },
+    { q: "Una consulta a un chatbot, frente a una búsqueda web tradicional, suele gastar…", o: ["menos energía", "la misma", "bastante más energía", "nada de energía"], a: 2, e: "Requiere mucho más cálculo." },
+    { q: "Los datos de entrenamiento deben ser…", o: ["pocos y parecidos", "variados, correctos y representativos", "solo de un país", "secretos para todos"], a: 1, e: "Si no, el modelo tendrá sesgos o fallará." },
+  ],
+  tarjetas: [
+    ["Sobreajuste", "El modelo memoriza el entrenamiento y falla con datos nuevos."],
+    ["Token", "Trozo de texto con el que trabaja un modelo de lenguaje."],
+    ["Niveles del Reglamento de IA", "Inaceptable, alto, limitado y mínimo."],
+    ["Árbol de decisión", "Clasificador formado por preguntas de sí o no."],
+  ],
+  glosario: [
+    ["Inteligencia artificial", "Sistemas capaces de hacer tareas que asociamos a la inteligencia humana."],
+    ["Aprendizaje automático", "Técnica en la que el sistema aprende patrones a partir de datos."],
+    ["Aprendizaje profundo", "Aprendizaje con redes neuronales de muchas capas."],
+    ["Red neuronal artificial", "Capas de unidades conectadas que ajustan sus conexiones al aprender."],
+    ["Datos de entrenamiento", "Ejemplos con los que el modelo ajusta sus parámetros."],
+    ["Etiqueta", "Respuesta correcta asociada a un ejemplo en el aprendizaje supervisado."],
+    ["Sobreajuste", "Memorizar los datos de entrenamiento sin generalizar."],
+    ["Precisión", "Porcentaje de aciertos de un modelo."],
+    ["Árbol de decisión", "Modelo que clasifica con una serie de preguntas encadenadas."],
+    ["Modelo de lenguaje", "Red neuronal entrenada para predecir el siguiente fragmento de texto."],
+    ["Token", "Unidad de texto (palabra o parte) que procesa un modelo de lenguaje."],
+    ["Prompt", "Instrucción que se da a una IA generativa."],
+    ["Alucinación", "Respuesta inventada que la IA presenta como cierta."],
+    ["Sesgo algorítmico", "Error sistemático que perjudica a un grupo, a menudo por datos poco representativos."],
+    ["Visión artificial", "IA que analiza imágenes y vídeos."],
+    ["Deepfake", "Contenido falso realista generado con IA."],
+    ["Reglamento de IA", "Ley europea que regula la IA según su nivel de riesgo."],
+    ["Centro de datos", "Instalación con miles de servidores donde funcionan la nube y la IA."],
+  ],
+  situacion: {
+    titulo: "Entrenamos nuestra propia IA (y la auditamos)",
+    reto: "Por equipos, entrenad un clasificador sencillo con Teachable Machine o Machine Learning for Kids que resuelva una necesidad del centro (clasificar residuos, reconocer gestos para un juego accesible, distinguir sonidos) y después auditadlo para detectar sesgos y límites.",
+    pasos: [
+      "Definid el problema, las clases que distinguirá el modelo y el uso que se le dará.",
+      "Recoged y etiquetad los datos de entrenamiento con variedad (luces, fondos, personas) y reservad un grupo de prueba.",
+      "Entrenad el modelo, medid su precisión con los datos de prueba y anotad los errores en una tabla.",
+      "Buscad sesgos: probad con personas, objetos o condiciones poco representados y mejorad los datos.",
+      "Clasificad vuestro sistema según el Reglamento europeo de IA y redactad una ficha de uso responsable.",
+    ],
+    producto: "El modelo funcionando (o integrado en Scratch), la tabla de pruebas y una ficha de transparencia de una página.",
+    evaluacion: ["Los datos son suficientes, variados y están bien etiquetados.", "La precisión se mide con datos de prueba y se analizan los errores.", "Se detectan y corrigen sesgos o límites del modelo.", "La ficha explica con claridad qué hace el sistema, sus riesgos y su nivel según la ley."],
+  },
+  objetivos: ["Explicar cómo se entrena y se evalúa un modelo y cómo genera texto un modelo de lenguaje", "Valorar la IA según el Reglamento europeo y su impacto ambiental"],
+  fuentes: [{ t: "Reglamento (UE) 2024/1689 de Inteligencia Artificial (EUR-Lex)", url: "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32024R1689" }],
+});
