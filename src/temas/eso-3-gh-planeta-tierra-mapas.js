@@ -1,146 +1,228 @@
-// Geografía e Historia 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-const { filas, dos, rueda, figCols, ampliar, tabla } = require("./_hum");
+// Geografía e Historia 3º ESO · tema nivel libro (capítulo completo). Contenido y dibujos SVG propios.
+// Los dibujos de los apartados se generan con src/temas/_eso3L5.js.
+const { linea, cajas, flujo, barras, versus, piramide, rueda, B, QS, EJ, EX, V, MAPA, SIT, RD, WIKI } = require("./_eso3L5");
 
 module.exports = {
   materia: "Geografía e Historia",
   curso: "3-eso",
   titulo: "El planeta Tierra y los mapas",
-  minutos: 35,
-  objetivos: ["Explicar la forma y los movimientos de la Tierra y sus consecuencias", "Localizar cualquier punto con latitud y longitud", "Leer un mapa: escala, leyenda y tipo de proyección"],
-  claves: ["rotación", "traslación", "latitud", "longitud", "escala", "proyección"],
+  minutos: 100,
+  objetivos: [
+    "Describir la forma, los movimientos y las consecuencias de los movimientos de la Tierra",
+    "Localizar cualquier punto con latitud y longitud",
+    "Calcular diferencias horarias con los husos horarios",
+    "Distinguir proyecciones, tipos de mapas y elementos de un mapa",
+    "Usar la escala para medir distancias reales",
+    "Conocer las tecnologías actuales de información geográfica (GPS, SIG, teledetección)",
+  ],
+  claves: ["rotación", "traslación", "latitud", "longitud", "huso horario", "proyección", "escala", "SIG"],
   pregunta: {
-    texto: "En un mapa del mundo de los que hay en las aulas, Groenlandia parece casi tan grande como África. En realidad, África es unas 14 veces mayor. ¿Por qué nos engaña el mapa?",
-    respuesta: "Porque la Tierra es casi una esfera y un mapa es plano: al «aplanarla» siempre se deforma algo. La <mark>proyección de Mercator</mark> respeta las formas y las direcciones, pero agranda mucho las tierras cercanas a los polos. Todos los mapas son una <b>representación</b> con ventajas e inconvenientes.",
+    texto: "Tu móvil sabe en qué calle estás con un margen de pocos metros, aunque estés en medio del campo. ¿Cómo puede saber «dónde» estás un aparato que no ve nada?",
+    respuesta: "Porque la Tierra está cubierta por una <mark>red imaginaria de paralelos y meridianos</mark>: cualquier punto tiene una dirección única formada por su <b>latitud</b> y su <b>longitud</b>. El receptor GPS calcula esas dos coordenadas comparando las señales de varios satélites, y el mapa digital las dibuja sobre el plano.",
+  },
+  lectura: {
+    titulo: "El mapa que mentía sobre Groenlandia",
+    html: `<p>Abre el mapa del mundo que hay en casi cualquier aula. Groenlandia parece casi tan grande como África. Ahora busca los datos: Groenlandia tiene unos 2,2 millones de km² y África, más de 30 millones. ¡África es catorce veces mayor! ¿Quién se ha equivocado?</p><p>Nadie, en realidad. El problema es que la Tierra es casi una esfera y el papel es plano. Es imposible «aplanar» una pelota sin estirarla o romperla, igual que no puedes aplastar una piel de naranja sobre la mesa sin que se rasgue. Cada mapa elige qué deforma: unos conservan las formas y exageran el tamaño de las tierras cercanas a los polos; otros respetan las superficies, pero estiran las siluetas.</p><p>El mapa de tu clase seguramente procede de la <b>proyección de Mercator</b>, creada en 1569 para navegar: sus rumbos son líneas rectas, algo fantástico para un marino, aunque engañoso para comparar países. En este tema aprenderás a «leer» los mapas como un geógrafo: saber qué muestran, qué ocultan, cómo medir con ellos y cómo localizar cualquier lugar del planeta con solo dos números.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>La Tierra en el sistema solar</h3><p>La Tierra es el tercer planeta del sistema solar y el único con vida conocida. Tiene forma de <b>esfera ligeramente achatada</b> por los polos (un geoide). Gira sobre sí misma en unas 24 horas (<mark>rotación</mark>), lo que produce el día y la noche, y da una vuelta alrededor del Sol en 365 días y 6 horas (<mark>traslación</mark>). Por eso cada cuatro años sumamos un día: el año bisiesto.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="La Tierra gira sobre su eje inclinado y da la vuelta alrededor del Sol">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <ellipse cx="130" cy="92" rx="104" ry="52" fill="none" stroke="var(--line)" stroke-width="2.5" stroke-dasharray="6 5"/>
-        <circle cx="130" cy="92" r="24" fill="var(--sun)"/>
-        <circle cx="226" cy="92" r="14" fill="var(--pen)"/><path d="M220 74 L 232 110" stroke="var(--ink)" stroke-width="2"/>
-        <circle cx="34" cy="92" r="14" fill="var(--pen)"/><path d="M28 74 L 40 110" stroke="var(--ink)" stroke-width="2"/>
-        <g ${F} font-size="12" font-weight="700" text-anchor="middle"><text x="130" y="97" fill="var(--ink)">Sol</text><text x="130" y="28" fill="var(--pen)">traslación: 365 días</text><text x="130" y="166" fill="var(--red)">rotación: 24 horas</text></g></svg>`,
-    },
-    {
-      html: `<h3>Las estaciones y las zonas de la Tierra</h3><p>El eje de la Tierra está <b>inclinado unos 23,5°</b>. Por eso, durante la traslación, cada hemisferio recibe los rayos del Sol más directos en una época del año (verano) y más oblicuos en otra (invierno). Los <b>trópicos</b> y los <b>círculos polares</b> dividen la Tierra en cinco <mark>zonas climáticas</mark>: una cálida entre los trópicos, dos templadas y dos frías alrededor de los polos.</p>`,
-      svg: filas("Las cinco zonas de la Tierra según la llegada del Sol", [["Fría N", "más allá del círculo polar", "var(--inf)"], ["Templada N", "entre trópico y polar", "var(--leaf)"], ["Cálida", "entre los dos trópicos", "var(--red)"], ["Templada S", "entre trópico y polar", "var(--leaf)"], ["Fría S", "más allá del círculo polar", "var(--inf)"]]),
-    },
-    {
-      html: `<h3>Paralelos, meridianos y coordenadas</h3><p>Para localizar un punto usamos una red de líneas imaginarias. Los <b>paralelos</b> son círculos paralelos al <b>ecuador</b> (0°). Los <b>meridianos</b> van de polo a polo; el de referencia es el de <b>Greenwich</b> (0°). La <mark>latitud</mark> es la distancia en grados al ecuador (0° a 90°, norte o sur) y la <mark>longitud</mark>, la distancia al meridiano de Greenwich (0° a 180°, este u oeste). Madrid está en 40° N, 3° O.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Globo con el ecuador, paralelos, el meridiano de Greenwich y un punto con su latitud y longitud">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <circle cx="110" cy="90" r="70" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>
-        <path d="M40 90 H 180" stroke="var(--red)" stroke-width="2.5"/>
-        <path d="M52 55 H 168 M52 125 H 168" stroke="var(--line)" stroke-width="1.5"/>
-        <ellipse cx="110" cy="90" rx="30" ry="70" fill="none" stroke="var(--pen)" stroke-width="2.5"/>
-        <path d="M110 20 V 160" stroke="var(--line)" stroke-width="1.5"/>
-        <circle cx="132" cy="55" r="6" fill="var(--sun)" stroke="var(--ink)" stroke-width="1.5"/>
-        <g ${F} font-size="11.5" font-weight="700"><text x="186" y="94" fill="var(--red)">ecuador 0°</text><text x="186" y="58" fill="var(--ink)">punto 40° N</text><text x="150" y="172" fill="var(--pen)">Greenwich 0°</text></g></svg>`,
-    },
-    {
-      html: `<h3>Los mapas y la escala</h3><p>Un <b>mapa</b> es una representación reducida y plana de la superficie terrestre. La <mark>escala</mark> indica cuántas veces se ha reducido la realidad. En la escala numérica 1:50.000, 1 cm del mapa equivale a 50.000 cm (500 m) en la realidad. La escala gráfica es una regla dibujada. Cuanto <b>menor</b> es el denominador, mayor es la escala y más detalle se ve: un plano de ciudad (1:10.000) frente a un mapa de España (1:6.000.000).</p>`,
-      svg: dos("Escala grande frente a escala pequeña", ["Grande", ["1:10.000", "poco territorio", "mucho detalle", "planos de ciudad", "senderismo"], "var(--leaf)"], ["Pequeña", ["1:6.000.000", "mucho territorio", "poco detalle", "mapas de países", "atlas del mundo"], "var(--pen)"]),
-    },
-    {
-      html: `<h3>Tipos de mapas</h3><p>Los <b>mapas topográficos</b> representan el relieve con <mark>curvas de nivel</mark>, líneas que unen puntos de la misma altitud; cuanto más juntas están, más pendiente tiene el terreno. Los <b>mapas temáticos</b> muestran un solo tema: clima, población, carreteras, votos. Todo mapa debe tener <b>título, orientación (norte), escala y leyenda</b>, que explica el significado de colores y símbolos.</p>`,
-      svg: rueda("Elementos que debe tener todo mapa", "MAPA", [["título", "var(--pen)"], ["escala", "var(--red)"], ["leyenda", "var(--leaf)"], ["orientación", "var(--sun)"]], "var(--ink)"),
-    },
+    B("1.1 La Tierra en el sistema solar", `<p>La Tierra es el tercer planeta del <b>sistema solar</b> y el único en el que conocemos la vida. Se encuentra a unos <b>150 millones de kilómetros</b> del Sol, distancia que la luz recorre en algo más de ocho minutos. Esa posición es clave: está en la llamada <mark>zona habitable</mark>, ni tan cerca que el agua hierva ni tan lejos que se congele por completo.</p><p>Además de la distancia, otros rasgos explican por qué la Tierra es un planeta vivo: una <b>atmósfera</b> que filtra la radiación peligrosa y mantiene una temperatura media de unos 15 °C; una <b>hidrosfera</b> que cubre el 71 % de la superficie; un <b>campo magnético</b> que nos protege del viento solar, y una <b>biosfera</b> que, a su vez, ha transformado el aire y los suelos. La Geografía estudia precisamente cómo se relacionan estas capas con las sociedades humanas que viven sobre ellas.</p>`,
+      cajas("Las capas de la Tierra que estudia la Geografía", [["Atmósfera", "aire que respiramos y clima"], ["Hidrosfera", "océanos, ríos, hielo"], ["Litosfera", "rocas y relieve"], ["Biosfera", "todos los seres vivos"]])),
+    B("1.2 La forma de la Tierra", `<p>La Tierra no es una esfera perfecta: está ligeramente <b>achatada por los polos</b> y ensanchada por el ecuador, una forma que llamamos <mark>geoide</mark>. El radio ecuatorial mide unos 6.378 km y el polar, unos 6.357 km: apenas 21 km de diferencia, por eso desde el espacio la vemos redonda.</p><p>Que la Tierra es redonda se sabe desde la Antigüedad. En el siglo III a. C., el griego <b>Eratóstenes</b> midió la sombra de un palo en dos ciudades de Egipto el mismo día y, con geometría sencilla, calculó la circunferencia terrestre con un error pequeño. La primera vuelta al mundo (Magallanes y Elcano, 1519-1522) lo demostró en la práctica, y hoy las fotografías desde satélites lo confirman. La forma esférica tiene consecuencias geográficas enormes: los rayos del Sol llegan perpendiculares cerca del ecuador y muy inclinados cerca de los polos, y por eso hace más calor en unas latitudes que en otras.</p><p>Esa diferencia de calor según la latitud permite dividir el planeta en <b>zonas térmicas</b>: una zona cálida entre los trópicos, dos zonas templadas entre los trópicos y los círculos polares, y dos zonas frías alrededor de los polos. Son la base de los grandes climas y paisajes que estudiarás en el tema siguiente, y explican, por ejemplo, por qué casi todas las selvas están cerca del ecuador.</p>`,
+      versus("Medidas de la Tierra", ["Ecuador", ["radio: 6.378 km", "circunferencia: 40.075 km", "zona más ensanchada"]], ["Polos", ["radio: 6.357 km", "circunferencia polar: 40.008 km", "zona achatada"]])),
+    B("1.3 El movimiento de rotación", `<p>La Tierra gira sobre sí misma alrededor de un <b>eje imaginario</b> que pasa por los polos Norte y Sur. Este movimiento se llama <mark>rotación</mark>, se produce de oeste a este y dura aproximadamente <b>24 horas</b> (exactamente, 23 h 56 min respecto a las estrellas).</p><p>Sus consecuencias son muy visibles. La primera es la <b>sucesión de los días y las noches</b>: mientras la mitad del planeta está iluminada, la otra mitad está a oscuras. La segunda es el <b>movimiento aparente del Sol</b>, que parece salir por el este y ponerse por el oeste, aunque somos nosotros quienes giramos. La tercera son las <b>diferencias horarias</b>: cuando en Madrid es mediodía, en Tokio ya es de noche. Además, la rotación desvía los vientos y las corrientes marinas (hacia la derecha en el hemisferio norte y hacia la izquierda en el sur), lo que influye en el clima.</p>`,
+      flujo("La rotación y sus consecuencias", ["La Tierra gira de oeste a este en 24 horas", "Una mitad está iluminada y la otra a oscuras", "Días y noches; el Sol «sale» por el este", "Cada lugar tiene una hora distinta"])),
+    B("1.4 El movimiento de traslación y las estaciones", `<p>Además de girar sobre sí misma, la Tierra da una vuelta alrededor del Sol siguiendo una órbita casi circular (ligeramente elíptica). Es el movimiento de <mark>traslación</mark> y dura <b>365 días y unas 6 horas</b>. Esas 6 horas sobrantes se acumulan y cada cuatro años añadimos un día, el 29 de febrero: es el <b>año bisiesto</b>.</p><p>El eje de la Tierra está <b>inclinado unos 23,5°</b> respecto al plano de la órbita. Por eso, durante una parte del año el hemisferio norte recibe los rayos del Sol más directos y tiene días más largos (verano), mientras el sur recibe rayos inclinados (invierno); seis meses después ocurre al revés. Así se explican las <b>estaciones</b>. Hay cuatro momentos clave: los <b>solsticios</b> (hacia el 21 de junio y el 21 de diciembre), con el día más largo y el más corto del año, y los <b>equinoccios</b> (hacia el 21 de marzo y el 23 de septiembre), cuando el día y la noche duran lo mismo en todo el planeta. Ojo: las estaciones no se deben a que la Tierra esté más cerca o más lejos del Sol; de hecho, estamos más cerca en enero.</p>`,
+      linea("Las estaciones en el hemisferio norte", [["21 mar", "equinoccio: empieza la primavera"], ["21 jun", "solsticio: día más largo"], ["23 sep", "equinoccio: empieza el otoño"], ["21 dic", "solsticio: día más corto"]]),
+      V("bhgepNKQNTU", "Husos horarios: las consecuencias menos esperadas", "Un Mundo Inmenso", 1958015)),
+    B("1.5 La red de paralelos y meridianos", `<p>Para localizar lugares, los geógrafos imaginaron una red de líneas sobre la Tierra. Los <mark>paralelos</mark> son círculos perpendiculares al eje terrestre. El más largo es el <b>ecuador</b>, que divide la Tierra en hemisferio norte y hemisferio sur. Otros paralelos importantes son los <b>trópicos de Cáncer</b> (23,5° N) y de <b>Capricornio</b> (23,5° S), y los <b>círculos polares</b> Ártico (66,5° N) y Antártico (66,5° S). Entre ellos quedan las zonas climáticas: cálida, templadas y frías.</p><p>Los <mark>meridianos</mark> son semicírculos que van de polo a polo. Todos miden lo mismo. Por acuerdo internacional (1884), el meridiano de referencia es el que pasa por el observatorio de <b>Greenwich</b>, en Londres: el meridiano 0°. Junto con su opuesto, el antimeridiano (180°), divide la Tierra en hemisferio este (oriental) y hemisferio oeste (occidental).</p>`,
+      cajas("Líneas imaginarias principales", [["Ecuador", "0°: hemisferios norte y sur"], ["Trópicos", "23,5° N y S"], ["Círculos polares", "66,5° N y S"], ["Greenwich", "meridiano 0°: este y oeste"]])),
+    B("1.6 Las coordenadas geográficas: latitud y longitud", `<p>Con esa red, cualquier punto queda definido por dos medidas en grados, las <mark>coordenadas geográficas</mark>. La <b>latitud</b> es la distancia angular entre un punto y el ecuador; va de 0° (ecuador) a 90° (polos) y se indica con N (norte) o S (sur). La <b>longitud</b> es la distancia angular entre un punto y el meridiano de Greenwich; va de 0° a 180° y se indica con E (este) u O (oeste).</p><p>Cada grado se divide en 60 minutos (′) y cada minuto en 60 segundos (″). Por ejemplo, la Puerta del Sol de Madrid está aproximadamente en <b>40° 25′ N, 3° 42′ O</b>. Los GPS suelen expresarlo en grados decimales: 40,417 y −3,703 (el signo menos indica sur u oeste). Además, la <b>altitud</b> indica la altura de un punto sobre el nivel del mar: con latitud, longitud y altitud un lugar queda localizado en tres dimensiones. Un truco para no confundirlas: la latitud se lee en los paralelos («subir y bajar»), la longitud en los meridianos («ir a derecha e izquierda»).</p>`,
+      versus("Latitud y longitud", ["Latitud", ["respecto al ecuador", "de 0° a 90°", "norte (N) o sur (S)", "se lee en paralelos"]], ["Longitud", ["respecto a Greenwich", "de 0° a 180°", "este (E) u oeste (O)", "se lee en meridianos"]]),
+      V("sFyKJ3m3nBk", "Latitud y longitud", "Clases Particulares en Ávila", 1088251)),
+    B("1.7 Los husos horarios", `<p>Como la Tierra gira 360° en 24 horas, recorre <b>15° cada hora</b>. Por eso el planeta se dividió en <mark>24 husos horarios</mark>, franjas de 15° de longitud en las que rige la misma hora oficial. El huso de referencia es el de Greenwich, y la hora mundial se llama <b>UTC</b> (tiempo universal coordinado).</p><p>La regla es sencilla: hacia el <b>este</b> se <b>suma</b> una hora por cada huso y hacia el <b>oeste</b> se <b>resta</b>. Si en Londres son las 12:00, en Moscú (UTC+3) son las 15:00 y en Nueva York (UTC−5), las 07:00. En el antimeridiano está la <b>línea internacional de cambio de fecha</b>: al cruzarla hacia el oeste se añade un día y hacia el este se resta. En la práctica, las fronteras de los husos siguen límites políticos. España peninsular usa UTC+1 (UTC+2 en verano) aunque por su longitud le correspondería la hora de Greenwich, y Canarias va una hora por detrás de la Península.</p>`,
+      barras("Hora cuando en Londres son las 12:00", [["N. York", 7], ["Londres", 12], ["Madrid", 13], ["Moscú", 15], ["Pekín", 20]], " h")),
+    B("1.8 Del globo al plano: las proyecciones cartográficas", `<p>El <b>globo terráqueo</b> es la representación más fiel de la Tierra, pero no cabe en un libro ni permite ver detalles. Por eso usamos <b>mapas</b>, representaciones planas, reducidas y simplificadas de la superficie terrestre. Para pasar de la esfera al plano se utilizan <mark>proyecciones cartográficas</mark>, que siempre deforman algo: formas, superficies, distancias o direcciones.</p><p>Hay tres grandes familias. La <b>proyección cilíndrica</b> (como la de Mercator) envuelve la Tierra en un cilindro: es precisa cerca del ecuador y exagera mucho las zonas polares. La <b>cónica</b> usa un cono apoyado en un paralelo: va bien para países de latitudes medias, como España. La <b>acimutal o plana</b> apoya un plano en un punto (a menudo un polo): sirve para regiones polares y para trazar rutas aéreas. Existen también proyecciones de compromiso, como la de <b>Robinson</b> o la de <b>Peters</b> (que respeta las superficies), y cada una se elige según el uso del mapa.</p>`,
+      cajas("Tipos de proyección", [["Cilíndrica", "exacta en el ecuador; deforma los polos"], ["Cónica", "buena en latitudes medias"], ["Acimutal", "buena en los polos y rutas aéreas"]]),
+      V("-3EGgXgCmoA", "Proyecciones cartográficas: cónica, cilíndrica, plana o acimutal", "GeografiAndo", 134873)),
+    B("1.9 Los elementos de un mapa", `<p>Un mapa bien hecho contiene siempre unos <mark>elementos básicos</mark> que permiten interpretarlo. El <b>título</b> indica qué representa y de qué lugar. La <b>leyenda</b> explica el significado de los colores, símbolos y líneas (signos convencionales). La <b>escala</b> dice cuántas veces se ha reducido la realidad. La <b>orientación</b> señala los puntos cardinales; normalmente el norte está arriba y se marca con una flecha o una rosa de los vientos.</p><p>Muchos mapas incluyen además la <b>red de coordenadas</b> en los bordes, la <b>fuente</b> de los datos y la <b>fecha</b>, que es importante porque fronteras, carreteras o ciudades cambian. Al leer un mapa conviene seguir siempre el mismo orden: título, leyenda, escala y orientación; después, describir lo que se ve y, por último, buscar explicaciones. Sin leyenda, un mapa es solo un dibujo bonito; con ella, se convierte en una herramienta de análisis.</p><p>La <b>orientación</b> también se puede hacer sin brújula. De día, el Sol sale por el este y a mediodía está al sur (en el hemisferio norte); de noche, la <b>estrella Polar</b> marca el norte. Hoy el móvil incorpora una brújula digital, pero conviene saber orientarse con el paisaje por si falla la batería en una excursión.</p>`,
+      rueda("Elementos del mapa", ["título", "leyenda", "escala", "orientación", "coordenadas", "fuente y fecha"])),
+    B("1.10 La escala: medir en el mapa", `<p>La <mark>escala</mark> es la relación entre una distancia en el mapa y la distancia real en el terreno. Puede ser <b>numérica</b>, como 1:50.000, que significa que 1 cm del mapa equivale a 50.000 cm (500 m) de la realidad; o <b>gráfica</b>, una barra dividida en tramos que indica directamente cuántos kilómetros representa cada segmento. La gráfica tiene una ventaja: si se amplía o reduce el mapa, la barra cambia de tamaño con él y sigue siendo correcta.</p><p>Para calcular distancias reales se multiplica la distancia medida por el denominador de la escala y se pasan las unidades: 4 cm a escala 1:50.000 son 200.000 cm, es decir, 2 km. Hablamos de <b>escala grande</b> cuando el denominador es pequeño (1:10.000): se ve poco territorio con mucho detalle, como en un plano de ciudad. Una <b>escala pequeña</b> (1:10.000.000) muestra mucho territorio con poco detalle, como un mapa del mundo. Es un error frecuente pensar lo contrario.</p>`,
+      versus("Escala grande y escala pequeña", ["Grande (1:5.000)", ["poco territorio", "mucho detalle", "planos urbanos"]], ["Pequeña (1:5.000.000)", ["mucho territorio", "poco detalle", "mapas del mundo"]])),
+    B("1.11 Tipos de mapas", `<p>Según su contenido, distinguimos dos grandes grupos. Los <mark>mapas topográficos</mark> representan con detalle la superficie terrestre: relieve, ríos, núcleos de población, carreteras, límites. El relieve se dibuja con <b>curvas de nivel</b>, líneas que unen puntos de la misma altitud: cuanto más juntas están, más empinada es la pendiente. En España, el Instituto Geográfico Nacional (IGN) publica el Mapa Topográfico Nacional a escala 1:50.000 y 1:25.000.</p><p>Los <mark>mapas temáticos</mark> muestran un fenómeno concreto: clima, población, economía, votos, uso del suelo. Usan recursos variados: colores de distinta intensidad (mapas de coropletas), puntos proporcionales, flechas de flujos o isolíneas como las <b>isobaras</b> (igual presión) y las <b>isotermas</b> (igual temperatura). También son representaciones geográficas los <b>planos</b> (de ciudades o edificios, a escala muy grande), las <b>fotografías aéreas</b> y las <b>imágenes de satélite</b>.</p>`,
+      versus("Mapas topográficos y temáticos", ["Topográfico", ["relieve con curvas de nivel", "ríos, pueblos, vías", "uso general"]], ["Temático", ["un solo tema", "clima, población, economía", "coropletas, flujos"]])),
+    B("1.12 Las tecnologías de la información geográfica", `<p>La cartografía actual es digital. El <mark>GPS</mark> (sistema de posicionamiento global) es una red de satélites que emiten señales horarias; un receptor que capta al menos cuatro calcula su posición en segundos. Europa tiene su propio sistema, <b>Galileo</b>. La <b>teledetección</b> obtiene información de la superficie mediante sensores en satélites y aviones: permite vigilar incendios, cosechas, el deshielo o el crecimiento de las ciudades. El programa europeo <b>Copernicus</b> ofrece estas imágenes de forma gratuita.</p><p>Los <mark>Sistemas de Información Geográfica</mark> (SIG) son programas que combinan mapas con bases de datos en capas superpuestas (relieve, carreteras, población, riesgos) para analizarlas juntas. Se usan para planificar rutas de ambulancias, decidir dónde abrir un colegio o prever inundaciones. Aplicaciones como Google Maps o el visor Iberpix del IGN acercan estas herramientas a cualquier persona. Eso sí: un mapa digital también es una representación elaborada por alguien y conviene preguntarse siempre quién lo hizo y con qué datos.</p>`,
+      flujo("Cómo funciona un SIG", ["Se recogen datos: GPS, satélites, censos", "Se organizan en capas: relieve, vías, población", "Se superponen y analizan las capas", "Se toma una decisión: dónde construir, cómo evacuar"])),
   ],
   figura: {
-    titulo: "Las tres grandes proyecciones",
-    svg: figCols("Proyección cilíndrica, cónica y azimutal con su uso", [
-      ["Cilíndrica", ["como un cilindro", "bien en el ecuador", "deforma los polos", "ej.: Mercator"], "var(--pen)"],
-      ["Cónica", ["como un cono", "latitudes medias", "mapas de países", "ej.: España"], "var(--leaf)"],
-      ["Azimutal", ["un plano tangente", "bien en el centro", "zonas polares", "rutas de avión"], "var(--red)"],
-    ]),
+    "titulo": "Las tres grandes proyecciones",
+    "svg": "<svg viewBox=\"0 0 680 200\" role=\"img\" aria-label=\"Proyección cilíndrica, cónica y azimutal con su uso\">\n    <rect width=\"680\" height=\"200\" rx=\"16\" fill=\"var(--paper)\"/>\n    <g font-family=\"Atkinson Hyperlegible, sans-serif\" text-anchor=\"middle\">\n    <rect x=\"20\" y=\"16\" width=\"204\" height=\"168\" rx=\"12\" fill=\"var(--card)\" stroke=\"var(--pen)\" stroke-width=\"2.5\"/><rect x=\"20\" y=\"16\" width=\"204\" height=\"36\" rx=\"12\" fill=\"var(--pen)\"/><text x=\"122\" y=\"40\" font-size=\"15\" font-weight=\"700\" fill=\"#fff\" font-family=\"Baloo 2, sans-serif\">Cilíndrica</text><text x=\"122\" y=\"76\" font-size=\"13\" fill=\"var(--ink)\">como un cilindro</text><text x=\"122\" y=\"100\" font-size=\"13\" fill=\"var(--ink)\">bien en el ecuador</text><text x=\"122\" y=\"124\" font-size=\"13\" fill=\"var(--ink)\">deforma los polos</text><text x=\"122\" y=\"148\" font-size=\"13\" fill=\"var(--ink)\">ej.: Mercator</text><rect x=\"238\" y=\"16\" width=\"204\" height=\"168\" rx=\"12\" fill=\"var(--card)\" stroke=\"var(--leaf)\" stroke-width=\"2.5\"/><rect x=\"238\" y=\"16\" width=\"204\" height=\"36\" rx=\"12\" fill=\"var(--leaf)\"/><text x=\"340\" y=\"40\" font-size=\"15\" font-weight=\"700\" fill=\"#fff\" font-family=\"Baloo 2, sans-serif\">Cónica</text><text x=\"340\" y=\"76\" font-size=\"13\" fill=\"var(--ink)\">como un cono</text><text x=\"340\" y=\"100\" font-size=\"13\" fill=\"var(--ink)\">latitudes medias</text><text x=\"340\" y=\"124\" font-size=\"13\" fill=\"var(--ink)\">mapas de países</text><text x=\"340\" y=\"148\" font-size=\"13\" fill=\"var(--ink)\">ej.: España</text><rect x=\"456\" y=\"16\" width=\"204\" height=\"168\" rx=\"12\" fill=\"var(--card)\" stroke=\"var(--red)\" stroke-width=\"2.5\"/><rect x=\"456\" y=\"16\" width=\"204\" height=\"36\" rx=\"12\" fill=\"var(--red)\"/><text x=\"558\" y=\"40\" font-size=\"15\" font-weight=\"700\" fill=\"#fff\" font-family=\"Baloo 2, sans-serif\">Azimutal</text><text x=\"558\" y=\"76\" font-size=\"13\" fill=\"var(--ink)\">un plano tangente</text><text x=\"558\" y=\"100\" font-size=\"13\" fill=\"var(--ink)\">bien en el centro</text><text x=\"558\" y=\"124\" font-size=\"13\" fill=\"var(--ink)\">zonas polares</text><text x=\"558\" y=\"148\" font-size=\"13\" fill=\"var(--ink)\">rutas de avión</text>\n    </g>\n  </svg>"
   },
-  video: { id: "u1eqEvVzagk", titulo: "Proyecciones cartográficas: por qué nos mienten los mapas", canal: "Un Mundo Inmenso", vistas: 1966280, megusta: 0, busqueda: "proyecciones cartográficas" },
-  quiz: [
-    { q: "¿Qué movimiento de la Tierra produce el día y la noche?", o: ["La traslación", "La rotación", "La inclinación"], a: 1, e: "La Tierra gira sobre sí misma en unas 24 horas." },
-    { q: "La latitud mide la distancia en grados…", o: ["al meridiano de Greenwich", "al ecuador", "al polo sur"], a: 1, e: "Va de 0° en el ecuador a 90° en los polos." },
-    { q: "En un mapa 1:100.000, 1 cm equivale a…", o: ["100 m", "1 km", "10 km"], a: 1, e: "100.000 cm = 1.000 m = 1 km." },
-    { q: "¿Qué indican las curvas de nivel muy juntas?", o: ["Terreno llano", "Mucha pendiente", "Un río"], a: 1, e: "La altitud cambia mucho en poca distancia." },
-    { q: "¿Qué explica la leyenda de un mapa?", o: ["La escala", "El significado de colores y símbolos", "El autor"], a: 1, e: "Es la «clave» para leer el mapa." },
-  ],
-  examen: [
-    { q: "Las estaciones se producen sobre todo por…", o: ["la distancia al Sol", "la inclinación del eje terrestre", "la rotación"], a: 1, e: "La inclinación hace que los rayos lleguen más o menos directos." },
-    { q: "¿Qué escala tiene más detalle?", o: ["1:5.000", "1:500.000", "1:5.000.000"], a: 0, e: "Cuanto menor es el denominador, mayor es la escala." },
-    { q: "La longitud de un punto al oeste de Greenwich se expresa…", o: ["en grados N", "en grados O", "en grados S"], a: 1, e: "La longitud es este u oeste; la latitud, norte o sur." },
-  ],
-  feynman: ["Qué diferencia hay entre rotación y traslación", "Cómo se localiza un lugar con latitud y longitud", "Qué significa la escala 1:50.000", "Por qué todos los mapas deforman algo"],
-  mapa: mapa("LA TIERRA Y LOS MAPAS", "var(--pen)", [
-    ["Movimientos", "rotación · traslación", "var(--sun)"],
-    ["Coordenadas", "latitud · longitud", "var(--red)"],
-    ["Escala", "numérica · gráfica", "var(--leaf)"],
-    ["Mapas", "topográficos · temáticos", "var(--ink)"],
-  ], 260),
-  tarjetas: [
-    ["Rotación", "Giro de la Tierra sobre su eje en unas 24 horas: día y noche."],
-    ["Traslación", "Vuelta de la Tierra alrededor del Sol en 365 días y 6 horas."],
-    ["Latitud", "Distancia en grados de un punto al ecuador (N o S)."],
-    ["Longitud", "Distancia en grados de un punto al meridiano de Greenwich (E u O)."],
-    ["Escala 1:50.000", "1 cm del mapa son 50.000 cm (500 m) en la realidad."],
-  ],
-  familias: ["Buscad juntos vuestra casa en un mapa digital y anotad su latitud y longitud.", "Con un mapa de carreteras, calculad la distancia real entre dos pueblos usando la escala.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "Tecnologías de la información geográfica: la Tierra, sus movimientos, la red de coordenadas y la lectura e interpretación de mapas (RD 217/2022, Geografía e Historia 3º).",
-    ideas: ["Gincana de coordenadas con un globo terráqueo o un visor de mapas.", "Comparar el tamaño real de países con una web de proyecciones.", "Dibujar las curvas de nivel de una montaña de plastilina cortada en capas."],
+  video: {
+    "id": "u1eqEvVzagk",
+    "titulo": "Proyecciones cartográficas: por qué nos mienten los mapas",
+    "canal": "Un Mundo Inmenso",
+    "vistas": 1966280,
+    "megusta": 0,
+    "busqueda": "proyecciones cartográficas"
   },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Instituto Geográfico Nacional: recursos educativos", url: "https://www.ign.es/web/ign/portal/recursos-educativos" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: nivel de libro de texto.
-ampliar(module.exports, {
-  minutos: 60,
-  objetivos: ["Calcular distancias reales con la escala y diferencias horarias con los husos", "Conocer las tecnologías de información geográfica (SIG, GPS, teledetección)"],
-  bloques: [
-    { tras: "La Tierra en el sistema solar", html: `<h3>Solsticios y equinoccios</h3><p>A lo largo de la traslación hay cuatro momentos clave. En el <b>solsticio de verano</b> (hacia el 21 de junio en el hemisferio norte) el Sol cae perpendicular sobre el trópico de Cáncer y tenemos el día más largo del año. En el <b>solsticio de invierno</b> (hacia el 21 de diciembre) cae sobre el trópico de Capricornio y tenemos la noche más larga. En los <mark>equinoccios</mark> (hacia el 20 de marzo y el 23 de septiembre) el Sol cae sobre el ecuador y el día y la noche duran lo mismo en toda la Tierra. En el hemisferio sur las estaciones van al revés: cuando en España es verano, en Argentina es invierno.</p>${tabla(["Fecha aproximada", "Hemisferio norte", "Hemisferio sur"], [["20 de marzo", "equinoccio de primavera", "equinoccio de otoño"], ["21 de junio", "solsticio de verano", "solsticio de invierno"], ["23 de septiembre", "equinoccio de otoño", "equinoccio de primavera"], ["21 de diciembre", "solsticio de invierno", "solsticio de verano"]])}` },
-    { tras: "Paralelos, meridianos y coordenadas", html: `<h3>Los husos horarios</h3><p>Como la Tierra gira 360° en 24 horas, cada hora gira <b>15°</b>. Por eso se dividió el planeta en <mark>24 husos horarios</mark> de 15° de longitud cada uno, a partir del meridiano de Greenwich. Hacia el <b>este</b> la hora aumenta (se suma una hora por huso) y hacia el <b>oeste</b> disminuye. Al otro lado de Greenwich, cerca del meridiano 180°, está la <b>línea internacional de cambio de fecha</b>: al cruzarla hacia el oeste se suma un día. España peninsular está en el huso de Greenwich, pero usa la hora de Europa central (una hora más, y dos en verano); Canarias va una hora por detrás de la península.</p>`, video: { id: "NFLZfS1Gy0Q", titulo: "¿Qué esconden los paralelos y meridianos?", canal: "Un Mundo Inmenso", vistas: 608604, megusta: 0 } },
-    { tras: "Los mapas y la escala", html: `<h3>Calcular distancias con la escala</h3><p>Para pasar del mapa a la realidad se <b>multiplica</b> la medida del mapa por el denominador de la escala y luego se pasa a la unidad adecuada. Si en un mapa 1:200.000 dos pueblos están a 4 cm, la distancia real es 4 × 200.000 = 800.000 cm = <mark>8 km</mark>. Para el camino inverso se divide: 15 km reales en un mapa 1:500.000 son 1.500.000 cm / 500.000 = 3 cm. Recuerda las equivalencias: 1 m = 100 cm y 1 km = 100.000 cm. La escala gráfica tiene una ventaja: si se amplía o reduce el mapa con una fotocopiadora, la regla cambia a la vez y sigue siendo correcta.</p>` },
-    { tras: "Tipos de mapas", html: `<h3>Las proyecciones cartográficas</h3><p>Una <b>proyección</b> es el método para pasar la superficie esférica de la Tierra a un plano. Ninguna es perfecta: unas conservan las <b>formas</b> (conformes), otras las <b>superficies</b> (equivalentes) y otras las distancias desde un punto. La de <mark>Mercator</mark> (1569) es cilíndrica y conforme; fue muy útil para navegar, pero agranda las zonas polares. La de <b>Peters</b> respeta el tamaño real de los continentes, aunque deforma sus formas. Las <b>cónicas</b> se usan para países de latitudes medias, como España, y las <b>azimutales</b>, para las regiones polares y las rutas aéreas, porque la línea recta desde el centro es el camino más corto.</p>` },
-    { tras: "Tipos de mapas", html: `<h3>Las tecnologías de información geográfica</h3><p>Hoy los mapas se hacen y se consultan con herramientas digitales. La <b>teledetección</b> obtiene imágenes de la Tierra desde satélites o aviones; el programa europeo <b>Copernicus</b> vigila incendios, sequías o el deshielo. El <mark>GPS</mark> (y el europeo <b>Galileo</b>) calcula nuestra posición con señales de varios satélites. Los <b>Sistemas de Información Geográfica (SIG)</b> combinan capas de datos sobre un mapa: carreteras, población, riesgo de inundación… Los usan ayuntamientos, empresas y servicios de emergencia. En España, el <b>Instituto Geográfico Nacional</b> ofrece gratis sus mapas en el visor del IGN.</p>`, video: { id: "4wFaT3TBEo4", titulo: "Escalas, mapas y planos: semejanza", canal: "Susi Profe", vistas: 798177, megusta: 0 } },
-  ],
   ejemplos: [
-    { enunciado: "En un mapa 1:250.000, dos ciudades están separadas 6 cm. ¿Cuál es la distancia real?", pasos: ["Multiplica: 6 × 250.000 = 1.500.000 cm.", "Pasa a metros dividiendo entre 100: 15.000 m.", "Pasa a kilómetros dividiendo entre 1.000: 15 km."], resultado: "15 km." },
-    { enunciado: "En Madrid (huso +1 en invierno) son las 12:00. ¿Qué hora es en Nueva York (huso −5)?", pasos: ["Diferencia de husos: de +1 a −5 hay 6 husos.", "Nueva York está al oeste, así que la hora es menor.", "12:00 − 6 h = 6:00."], resultado: "Son las 6:00 de la mañana en Nueva York." },
-    { enunciado: "Un barco está en 40° N y 3° O. Otro está en 40° S y 3° O. ¿Qué tienen en común y en qué se diferencian?", pasos: ["Misma longitud: los dos están sobre el meridiano 3° O.", "Latitud distinta: uno al norte del ecuador y otro al sur.", "Están a la misma distancia del ecuador, uno en cada hemisferio."], resultado: "Comparten meridiano y distancia al ecuador, pero están en hemisferios opuestos." },
+    EX("Calcula la distancia real entre dos pueblos que en un mapa a escala 1:25.000 están separados por 8 cm.", ["Escala 1:25.000: 1 cm del mapa = 25.000 cm reales.", "8 cm × 25.000 = 200.000 cm.", "200.000 cm = 2.000 m = 2 km."], "Los pueblos están a 2 km en línea recta."),
+    EX("Si en Madrid (UTC+1) son las 18:00, ¿qué hora es en Ciudad de México (UTC−6)?", ["Diferencia entre husos: de +1 a −6 hay 7 horas.", "Ciudad de México está al oeste: se restan.", "18:00 − 7 h = 11:00."], "En Ciudad de México son las 11:00 de la mañana."),
+    EX("Un barco está en 15° S y 30° O. Indica en qué hemisferios se encuentra y en qué zona climática.", ["15° S: al sur del ecuador → hemisferio sur.", "30° O: al oeste de Greenwich → hemisferio occidental.", "15° está entre el ecuador y el trópico de Capricornio (23,5°)."], "Está en los hemisferios sur y occidental, en la zona cálida (intertropical): en pleno océano Atlántico."),
+    EX("Dos ciudades están a 45° de longitud de diferencia. ¿Cuántas horas de diferencia tienen?", ["La Tierra gira 15° por hora.", "45° ÷ 15° = 3.", "Si la ciudad B está al este de A, tendrá 3 horas más."], "Tienen 3 horas de diferencia (más en la que está al este)."),
+    EX("Un mapa tiene una escala gráfica en la que 2 cm equivalen a 10 km. Exprésala como escala numérica.", ["10 km = 1.000.000 cm.", "2 cm del mapa = 1.000.000 cm reales.", "1 cm del mapa = 500.000 cm reales."], "La escala numérica es 1:500.000."),
+    EX("Explica por qué en Sídney celebran la Navidad en verano.", ["Sídney está en el hemisferio sur (34° S).", "El eje terrestre está inclinado 23,5°.", "En diciembre el hemisferio sur está inclinado hacia el Sol: recibe rayos más directos y días largos."], "En diciembre es verano en el hemisferio sur: allí la Navidad cae en la estación cálida."),
   ],
   errores: [
-    "Confundir latitud (norte-sur, respecto al ecuador) con longitud (este-oeste, respecto a Greenwich).",
-    "Pensar que hace calor en verano porque la Tierra está más cerca del Sol: en realidad está más lejos en julio.",
-    "Creer que una escala 1:1.000.000 es «más grande» que una 1:10.000 porque el número es mayor.",
-    "Olvidar pasar los centímetros a kilómetros al calcular distancias con la escala.",
-    "Pensar que el mapa de Mercator muestra el tamaño real de los países.",
+    "Creer que las estaciones se deben a la distancia al Sol: se deben a la inclinación del eje terrestre (estamos más cerca del Sol en enero).",
+    "Confundir latitud y longitud: la latitud se mide desde el ecuador (N/S) y la longitud desde Greenwich (E/O).",
+    "Pensar que «escala grande» significa mostrar mucho territorio: es al revés, 1:5.000 es más grande que 1:500.000.",
+    "Sumar horas al ir hacia el oeste: hacia el este se suma y hacia el oeste se resta.",
+    "Comparar tamaños de países en un mapa de Mercator: exagera las tierras cercanas a los polos.",
+    "Olvidar pasar las unidades al calcular con la escala: el resultado sale en centímetros y hay que pasarlo a metros o kilómetros.",
   ],
-  ejercicios: [
-    { q: "¿Cuánto dura la rotación y qué consecuencia tiene?", sol: "Unas 24 horas. Produce la sucesión del día y la noche." },
-    { q: "¿Por qué hay años bisiestos?", sol: "Porque la traslación dura 365 días y unas 6 horas; cada cuatro años esas horas suman un día, que se añade el 29 de febrero." },
-    { q: "Nombra los paralelos principales y su latitud aproximada.", sol: "Ecuador (0°), trópico de Cáncer (23,5° N), trópico de Capricornio (23,5° S), círculo polar ártico (66,5° N) y círculo polar antártico (66,5° S)." },
-    { q: "Localiza en grados: un punto sobre el ecuador y el meridiano de Greenwich.", sol: "0° de latitud y 0° de longitud. Está en el golfo de Guinea, en el océano Atlántico." },
-    { q: "En un mapa 1:50.000, ¿cuántos cm ocupa un camino real de 2 km?", sol: "2 km = 200.000 cm. 200.000 / 50.000 = 4 cm." },
-    { q: "¿Qué escala usarías para una excursión por la montaña y cuál para ver todo un continente?", sol: "Para la excursión, una escala grande como 1:25.000 (mucho detalle). Para el continente, una pequeña como 1:20.000.000." },
-    { q: "Si en Londres (huso 0) son las 10:00, ¿qué hora es en Tokio (huso +9)?", sol: "Tokio está 9 husos al este: 10:00 + 9 h = 19:00." },
-    { q: "¿Qué ventaja y qué inconveniente tiene la proyección de Mercator?", sol: "Ventaja: conserva las formas y los ángulos, útil para navegar. Inconveniente: agranda mucho las tierras cercanas a los polos." },
-    { q: "¿Qué cuatro elementos debe tener un mapa?", sol: "Título, orientación (flecha del norte), escala y leyenda." },
-    { q: "Cita dos usos de los SIG en la vida diaria.", sol: "Por ejemplo: planificar rutas de autobús, localizar zonas con riesgo de inundación, decidir dónde abrir un centro de salud o gestionar emergencias." },
+  ejercicios: EJ(
+    [
+      ["¿Cuánto dura el movimiento de rotación y en qué sentido se produce?", "Unas 24 horas (23 h 56 min) y se produce de oeste a este; por eso el Sol parece salir por el este."],
+      ["¿Qué consecuencias tiene el movimiento de traslación?", "La traslación (365 días y 6 horas), junto con la inclinación del eje, produce las estaciones y obliga a añadir un día cada cuatro años (año bisiesto)."],
+      ["Define paralelo y meridiano y pon un ejemplo de cada uno.", "Un paralelo es un círculo imaginario perpendicular al eje terrestre (ej.: el ecuador o el trópico de Cáncer). Un meridiano es un semicírculo que va de polo a polo (ej.: el de Greenwich)."],
+      ["¿Qué es la latitud? ¿Entre qué valores se mueve?", "La distancia angular entre un punto y el ecuador; va de 0° (ecuador) a 90° N o 90° S (polos)."],
+      ["¿Qué es la longitud? ¿Entre qué valores se mueve?", "La distancia angular entre un punto y el meridiano de Greenwich; va de 0° a 180° E o 180° O."],
+      ["Nombra los cuatro elementos básicos de un mapa.", "Título, leyenda, escala y orientación (norte). Muchos añaden coordenadas, fuente y fecha."],
+      ["¿Qué diferencia hay entre solsticio y equinoccio?", "En los solsticios (junio y diciembre) se dan el día más largo y el más corto del año; en los equinoccios (marzo y septiembre) el día y la noche duran lo mismo en todo el planeta."],
+      ["¿Cuántos husos horarios hay y cuántos grados mide cada uno?", "Hay 24 husos de 15° cada uno, porque la Tierra gira 360° en 24 horas (360 ÷ 24 = 15)."],
+      ["¿Qué son las curvas de nivel?", "Líneas de los mapas topográficos que unen puntos de igual altitud; si están juntas, la pendiente es fuerte, y si están separadas, el terreno es suave."],
+      ["¿Qué significa la escala 1:100.000?", "Que 1 cm del mapa equivale a 100.000 cm (1 km) en la realidad."],
+      ["¿Qué es un SIG?", "Un Sistema de Información Geográfica: programa que combina mapas digitales y bases de datos en capas para analizarlas y tomar decisiones."],
+    ],
+    [
+      ["Dos pueblos están a 6 cm en un mapa 1:50.000. ¿Qué distancia real los separa?", "6 × 50.000 = 300.000 cm = 3.000 m = 3 km."],
+      ["En un mapa 1:200.000, ¿cuántos cm separarán dos ciudades que están a 30 km?", "30 km = 3.000.000 cm; 3.000.000 ÷ 200.000 = 15 cm."],
+      ["Si en Londres son las 10:00, ¿qué hora es en Tokio (UTC+9) y en Los Ángeles (UTC−8)?", "Tokio: 10 + 9 = 19:00. Los Ángeles: 10 − 8 = 02:00 de la madrugada."],
+      ["Un avión sale de Madrid (UTC+1) a las 12:00 y vuela 8 horas hasta Nueva York (UTC−5). ¿A qué hora local llega?", "Llega a las 20:00 hora de Madrid. Nueva York va 6 horas por detrás: 20 − 6 = 14:00 hora local."],
+      ["Explica por qué en el ecuador hace calor todo el año y en los polos hace frío.", "Por la forma esférica: en el ecuador los rayos del Sol llegan casi perpendiculares y concentran la energía en poca superficie; en los polos llegan muy inclinados y la reparten en mucha superficie."],
+      ["Indica en qué hemisferios están estos puntos: 40° N 3° O; 34° S 151° E; 23° S 43° O.", "40° N 3° O: norte y occidental (Madrid). 34° S 151° E: sur y oriental (Sídney). 23° S 43° O: sur y occidental (Río de Janeiro)."],
+      ["¿Por qué Groenlandia parece tan grande en muchos mapas?", "Porque se usan proyecciones cilíndricas como la de Mercator, que conservan las formas pero agrandan cada vez más las superficies a medida que nos alejamos del ecuador."],
+      ["¿Qué proyección elegirías para un mapa de la Antártida y por qué?", "Una acimutal o plana apoyada en el polo Sur: deforma poco la zona central, que es justo la región polar."],
+      ["Convierte la escala «1 cm = 5 km» en escala numérica.", "5 km = 500.000 cm, así que la escala es 1:500.000."],
+      ["Ordena de mayor a menor estas escalas: 1:1.000.000, 1:10.000, 1:250.000.", "De mayor a menor escala: 1:10.000, 1:250.000, 1:1.000.000 (cuanto menor es el denominador, mayor es la escala)."],
+      ["¿Por qué el año bisiesto tiene un día más?", "Porque la traslación dura 365 días y unas 6 horas. Cada 4 años esas horas suman unas 24 y se añade el 29 de febrero para que el calendario no se desfase con las estaciones."],
+      ["Explica qué ventaja tiene la escala gráfica frente a la numérica.", "Si el mapa se fotocopia ampliado o reducido, la barra cambia de tamaño con él y sigue siendo válida; la escala numérica dejaría de ser correcta."],
+    ],
+    [
+      ["Calcula la hora en Sídney (UTC+10) y en Buenos Aires (UTC−3) cuando en Madrid (UTC+1) son las 23:00 del 31 de diciembre. ¿En qué año está cada ciudad?", "Sídney: 23 + 9 = 32 → 08:00 del 1 de enero (ya en el año nuevo). Buenos Aires: 23 − 4 = 19:00 del 31 de diciembre (aún en el año viejo)."],
+      ["Un ciclista mide en un mapa 1:25.000 una ruta de 18 cm. Si avanza a 15 km/h, ¿cuánto tardará?", "18 × 25.000 = 450.000 cm = 4,5 km. 4,5 ÷ 15 = 0,3 h = 18 minutos (sin contar desniveles, que la escala plana no muestra)."],
+      ["España peninsular está casi toda al oeste de Greenwich. ¿Qué hora le correspondería por longitud y cuál usa? Argumenta ventajas e inconvenientes.", "Por longitud le correspondería UTC+0, como Portugal y Reino Unido, pero usa UTC+1 desde 1940. Ventaja: misma hora que la mayoría de socios europeos. Inconveniente: amanece y anochece tarde, lo que retrasa los horarios de comida y sueño."],
+      ["Compara para qué sirve la proyección de Mercator y para qué la de Peters.", "Mercator conserva ángulos y formas locales: los rumbos son rectas, ideal para navegar. Peters conserva las superficies: sirve para comparar tamaños de países y continentes, aunque deforma las siluetas. Ninguna es «la verdadera»: cada una responde a un uso."],
+      ["Diseña con un SIG imaginario los pasos para decidir dónde construir un nuevo instituto en tu municipio.", "Capas: población joven por barrios, institutos existentes y su capacidad, transporte público, suelo disponible, zonas de riesgo (inundación). Se superponen, se buscan solares libres en barrios con muchos jóvenes y lejos de otros centros, con buen transporte y sin riesgos, y se comparan las opciones."],
+      ["Describe la posición del Sol y la duración del día en el círculo polar ártico el 21 de junio y el 21 de diciembre.", "El 21 de junio el Sol no se pone: hay 24 horas de luz (sol de medianoche). El 21 de diciembre no llega a salir: 24 horas de oscuridad (noche polar). Se debe a la inclinación de 23,5° del eje."],
+      ["Investiga y explica por qué un mismo país puede tener varios husos horarios (por ejemplo, Rusia o EE. UU.) y por qué China tiene solo uno.", "Rusia y EE. UU. se extienden muchos grados de longitud y adoptan varios husos para que la hora oficial se ajuste al Sol. China, aunque abarca unos 60°, usa una sola hora (la de Pekín) por decisión política de unidad; en el oeste del país amanece muy tarde."],
+    ]
+  ),
+  quiz: QS([
+    ["¿Cuánto tarda la Tierra en dar una vuelta alrededor del Sol?", ["365 días y unas 6 horas", "24 horas", "30 días", "12 meses exactos sin horas"], "Es la traslación: 365 días y unas 6 horas; por eso existen los años bisiestos."],
+    ["¿Qué movimiento produce el día y la noche?", ["La rotación", "La traslación", "La precesión", "El movimiento de las placas"], "Al girar sobre su eje, una mitad de la Tierra queda iluminada y la otra a oscuras."],
+    ["¿Por qué existen las estaciones?", ["Por la inclinación del eje terrestre", "Porque la Tierra se acerca y se aleja del Sol", "Por la rotación", "Por las corrientes marinas"], "La inclinación de 23,5° hace que cada hemisferio reciba rayos más o menos directos según la época."],
+    ["¿Qué paralelo divide la Tierra en hemisferio norte y sur?", ["El ecuador", "El trópico de Cáncer", "El meridiano de Greenwich", "El círculo polar ártico"], "El ecuador (0°) es el paralelo más largo y separa los dos hemisferios."],
+    ["La longitud se mide respecto a…", ["el meridiano de Greenwich", "el ecuador", "el polo Norte", "el trópico de Capricornio"], "La longitud es la distancia angular al meridiano 0° (Greenwich), de 0° a 180° E u O."],
+    ["¿Qué latitud tiene el polo Sur?", ["90° S", "0°", "180° S", "66,5° S"], "Los polos están a 90° del ecuador."],
+    ["¿Cuántos grados de longitud abarca cada huso horario?", ["15°", "24°", "10°", "30°"], "360° ÷ 24 horas = 15° por hora."],
+    ["Si viajas hacia el este, la hora…", ["se adelanta (se suman horas)", "se retrasa (se restan horas)", "no cambia", "cambia solo en verano"], "Hacia el este se suma una hora por huso."],
+    ["En una escala 1:50.000, 1 cm equivale a…", ["500 m", "50 m", "5 km", "50 km"], "50.000 cm = 500 m."],
+    ["¿Cuál de estas escalas es mayor?", ["1:10.000", "1:100.000", "1:1.000.000", "1:500.000"], "La escala es mayor cuanto menor es el denominador: muestra más detalle."],
+    ["¿Qué elemento del mapa explica el significado de los símbolos?", ["La leyenda", "La escala", "El título", "La rosa de los vientos"], "La leyenda traduce colores, signos y líneas."],
+    ["La proyección de Mercator es…", ["cilíndrica", "cónica", "acimutal", "polar"], "Mercator proyecta la Tierra sobre un cilindro; exagera las zonas polares."],
+    ["¿Qué representan las curvas de nivel?", ["Puntos de igual altitud", "Puntos de igual temperatura", "Puntos de igual presión", "Fronteras"], "Las curvas de nivel muestran el relieve; las isotermas, temperatura; las isobaras, presión."],
+    ["Un mapa de la densidad de población de España es un mapa…", ["temático", "topográfico", "físico general", "de navegación"], "Representa un solo fenómeno: es temático."],
+    ["¿Qué es Galileo?", ["El sistema europeo de navegación por satélite", "Un tipo de proyección", "Un mapa del IGN", "Un huso horario"], "Galileo es el sistema europeo equivalente al GPS."],
+    ["¿Qué ocurre en los equinoccios?", ["El día y la noche duran lo mismo en todo el planeta", "Se da el día más largo del año", "Hay 24 horas de luz en los polos", "La Tierra está más cerca del Sol"], "En marzo y septiembre el Sol incide perpendicular sobre el ecuador."],
+    ["¿Qué ventaja tiene la escala gráfica?", ["Sigue siendo válida si se amplía o reduce el mapa", "Es más precisa en la Luna", "No necesita unidades", "Solo sirve para planos"], "La barra cambia de tamaño con el mapa."],
+    ["¿Qué latitud tiene el trópico de Cáncer?", ["23,5° N", "23,5° S", "66,5° N", "45° N"], "El trópico de Cáncer está en el hemisferio norte, a 23,5°."],
+    ["La forma real de la Tierra, achatada por los polos, se llama…", ["geoide", "esfera perfecta", "elipse plana", "cilindro"], "El geoide es la forma real: radio polar unos 21 km menor que el ecuatorial."],
+    ["¿Qué hacen los SIG?", ["Superponen capas de datos geográficos para analizarlas", "Miden terremotos", "Fijan los husos horarios", "Dibujan solo mapas en papel"], "Los Sistemas de Información Geográfica combinan mapas y bases de datos por capas."],
+  ]),
+  examen: QS([
+    ["Madrid está aproximadamente en…", ["40° N, 3° O", "40° S, 3° E", "3° N, 40° O", "0°, 0°"], "Latitud norte (sobre el ecuador) y longitud oeste (a la izquierda de Greenwich)."],
+    ["Si en Londres son las 12:00, en Moscú (UTC+3) son las…", ["15:00", "09:00", "12:00", "03:00"], "Moscú está al este: 12 + 3 = 15."],
+    ["8 cm en un mapa 1:25.000 son…", ["2 km", "200 m", "20 km", "25 km"], "8 × 25.000 = 200.000 cm = 2 km."],
+    ["El solsticio de verano del hemisferio norte es hacia el…", ["21 de junio", "21 de marzo", "23 de septiembre", "21 de diciembre"], "Es el día más largo del año en el hemisferio norte."],
+    ["Una proyección adecuada para España es la…", ["cónica", "acimutal polar", "de Mercator", "ninguna"], "Las cónicas son precisas en latitudes medias."],
+    ["La línea internacional de cambio de fecha está en el meridiano…", ["180°", "0°", "90° E", "90° O"], "En el antimeridiano de Greenwich se cambia de día."],
+    ["Un plano de tu barrio tendrá una escala…", ["grande, como 1:5.000", "pequeña, como 1:5.000.000", "1:1", "sin escala"], "Poco territorio con mucho detalle: escala grande."],
+    ["La teledetección consiste en…", ["obtener información de la superficie desde satélites o aviones", "medir la hora", "dibujar mapas a mano", "calcular la latitud con una brújula"], "Sensores remotos captan imágenes y datos de la superficie."],
+  ]),
+  feynman: [
+    "Por qué hay días, noches y estaciones",
+    "Cómo se localiza un punto con latitud y longitud",
+    "Cómo se calcula la hora en otro país",
+    "Por qué todos los mapas deforman algo y para qué sirve la escala",
   ],
-  quiz: [
-    { q: "Cada hora, la Tierra gira…", o: ["15°", "30°", "1°"], a: 0, e: "360° / 24 h = 15°." },
-    { q: "El día más largo del año en el hemisferio norte es…", o: ["el solsticio de verano", "el equinoccio de primavera", "el solsticio de invierno"], a: 0, e: "Hacia el 21 de junio." },
-    { q: "Una proyección que conserva las superficies se llama…", o: ["conforme", "equivalente", "azimutal"], a: 1, e: "Por ejemplo, la de Peters." },
-    { q: "En un mapa 1:200.000, 3 cm son…", o: ["6 km", "60 km", "600 m"], a: 0, e: "600.000 cm = 6 km." },
-    { q: "El sistema europeo de navegación por satélite es…", o: ["Galileo", "Copernicus", "Mercator"], a: 0, e: "Copernicus observa la Tierra; Galileo da la posición." },
-  ],
+  mapa: MAPA("LA TIERRA Y LOS MAPAS", [["Movimientos", "rotación (días) · traslación (estaciones)"], ["Coordenadas", "latitud (N/S) · longitud (E/O)"], ["Mapas", "proyección · leyenda · escala"], ["Tecnología", "GPS · teledetección · SIG"]]),
   tarjetas: [
-    ["Equinoccio", "Día y noche duran lo mismo; el Sol cae sobre el ecuador (20 de marzo y 23 de septiembre)."],
-    ["Huso horario", "Franja de 15° de longitud con la misma hora; hay 24."],
-    ["SIG", "Sistema de Información Geográfica: combina capas de datos sobre un mapa."],
+    ["Rotación", "Giro de la Tierra sobre su eje en 24 h: días y noches."],
+    ["Traslación", "Vuelta alrededor del Sol en 365 días y 6 h: estaciones (por la inclinación del eje)."],
+    ["Inclinación del eje terrestre", "Unos 23,5°."],
+    ["Latitud", "Distancia angular al ecuador: 0° a 90° N o S."],
+    ["Longitud", "Distancia angular a Greenwich: 0° a 180° E u O."],
+    ["Huso horario", "Franja de 15° con la misma hora; al este se suma y al oeste se resta."],
+    ["Solsticios", "21 de junio y 21 de diciembre: día más largo y más corto."],
+    ["Equinoccios", "21 de marzo y 23 de septiembre: día y noche iguales."],
+    ["Escala 1:50.000", "1 cm del mapa = 500 m reales."],
+    ["Proyección de Mercator", "Cilíndrica: buena para navegar; agranda las zonas polares."],
+    ["Curvas de nivel", "Líneas que unen puntos de igual altitud."],
+    ["SIG", "Programa que analiza datos geográficos en capas."],
   ],
-});
+  glosario: [
+    ["Geoide", "Forma real de la Tierra, ligeramente achatada por los polos."],
+    ["Rotación", "Movimiento de la Tierra sobre su eje, de oeste a este, en unas 24 horas."],
+    ["Traslación", "Movimiento de la Tierra alrededor del Sol, en 365 días y unas 6 horas."],
+    ["Paralelo", "Círculo imaginario perpendicular al eje terrestre."],
+    ["Meridiano", "Semicírculo imaginario que une los polos."],
+    ["Latitud", "Distancia en grados desde un punto al ecuador."],
+    ["Longitud", "Distancia en grados desde un punto al meridiano de Greenwich."],
+    ["Altitud", "Altura de un punto sobre el nivel del mar."],
+    ["Huso horario", "Cada una de las 24 franjas de 15° en que se divide la Tierra para fijar la hora."],
+    ["UTC", "Tiempo universal coordinado, la hora de referencia mundial."],
+    ["Proyección cartográfica", "Sistema para representar la superficie esférica de la Tierra sobre un plano."],
+    ["Escala", "Relación entre una distancia en el mapa y la distancia real."],
+    ["Leyenda", "Explicación de los signos y colores de un mapa."],
+    ["Mapa topográfico", "Mapa detallado del relieve y los elementos del territorio."],
+    ["Mapa temático", "Mapa que representa un fenómeno concreto (clima, población, economía…)."],
+    ["Teledetección", "Obtención de información de la superficie terrestre mediante sensores remotos."],
+    ["SIG", "Sistema de Información Geográfica: análisis de datos espaciales por capas."],
+  ],
+  situacion: SIT(
+    "Una ruta a pie por mi municipio",
+    "El ayuntamiento quiere ofrecer a los visitantes una ruta a pie de unos 5 km por los lugares más interesantes del municipio. Vuestro equipo debe diseñarla con mapas reales y presentarla como un folleto.",
+    [
+      "Abrid el visor Iberpix del IGN o un mapa digital y localizad el centro del municipio: anotad sus coordenadas.",
+      "Elegid entre 5 y 7 paradas (monumentos, parques, miradores) y marcadlas en el mapa.",
+      "Medid la ruta con la escala y calculad la distancia total y el tiempo a 4 km/h.",
+      "Mirad las curvas de nivel o el perfil de altitud: ¿hay tramos con pendiente fuerte?",
+      "Dibujad el mapa final con título, leyenda, escala gráfica y orientación.",
+    ],
+    "Un folleto con el mapa de la ruta, una ficha de cada parada y los datos de distancia, tiempo y desnivel.",
+    [
+      "El mapa tiene todos sus elementos (título, leyenda, escala, orientación).",
+      "Los cálculos de distancia y tiempo con la escala son correctos.",
+      "Las coordenadas y la descripción del relieve son precisas.",
+      "El folleto es claro, atractivo y útil para un visitante.",
+    ]
+  ),
+  familias: [
+    "Buscad juntos vuestra casa en un mapa digital y apuntad sus coordenadas.",
+    "Cuando habléis con alguien de otro país, calculad antes qué hora es allí.",
+    "Comparad en la web «The True Size» el tamaño real de Groenlandia y África.",
+    "Repasad las tarjetas del paso 6 dos minutos al día durante la semana.",
+  ],
+  profesores: {
+    saberes: "Retos del mundo actual y sociedades y territorios: la Tierra, las coordenadas geográficas, la cartografía y las tecnologías de la información geográfica (RD 217/2022, Geografía e Historia 1º a 3º ESO).",
+    ideas: [
+      "Reproducir el experimento de Eratóstenes con otro centro escolar situado a distinta latitud.",
+      "Taller de husos horarios con relojes de distintas ciudades en la pared del aula.",
+      "Práctica con Iberpix o Google Earth: medir distancias, leer curvas de nivel y localizar coordenadas.",
+    ],
+  },
+  fuentes: [RD, { t: "Instituto Geográfico Nacional: visor Iberpix y recursos educativos", url: "https://www.ign.es/" }, WIKI("Proyección cartográfica", "Proyecci%C3%B3n_cartogr%C3%A1fica"), WIKI("Huso horario", "Huso_horario")],
+  revisado: "2026-11-13",
+};
