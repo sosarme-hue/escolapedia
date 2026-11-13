@@ -508,3 +508,6 @@ L.amplia(module.exports[3], {
     ["Rúbrica", "Tabla de criterios y niveles para evaluar."],
   ],
 });
+
+// Nivel libro 4º ESO (lote 12): ver _eso4L12.js y _eso4L12-<clave>.js.
+require("./_eso4L12").aplica(module.exports, ["digital", "cine", "volumen", "proyecto"]);

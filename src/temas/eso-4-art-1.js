@@ -508,3 +508,6 @@ L.amplia(module.exports[3], {
     ["Editar o manipular", "Ajustar luz y color frente a cambiar lo que ocurrió."],
   ],
 });
+
+// Nivel libro 4º ESO (lote 12): ver _eso4L12.js y _eso4L12-<clave>.js.
+require("./_eso4L12").aplica(module.exports, ["tecnicas", "dibujo", "color", "fotografia"]);
