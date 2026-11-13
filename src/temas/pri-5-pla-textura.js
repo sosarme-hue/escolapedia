@@ -1,0 +1,98 @@
+// Educación Plástica 5º de Primaria: la textura. Dibujos propios en SVG.
+const { tema, L, svg, tx, AZ, RO, VE, NA, AM } = require("./_pri5d");
+
+const M = "Educación Plástica";
+
+// Cuadro de textura con un patrón SVG propio.
+const cuadro = (id, x, y, w, h, pat, n, c) => `<pattern id="${id}" width="10" height="10" patternUnits="userSpaceOnUse">${pat}</pattern><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" fill="url(#${id})" stroke="${c}" stroke-width="2"/>${n ? tx(x + w / 2, y + h + 14, n, { s: 10.5, c }) : ""}`;
+
+module.exports = tema({
+  materia: M,
+  titulo: "La textura",
+  objetivos: ["Definir la textura y distinguir textura táctil y textura visual", "Describir texturas con un vocabulario variado", "Crear texturas con distintas técnicas: frottage, estampado, collage, esgrafiado y relieve", "Usar texturas con intención expresiva en una obra"],
+  claves: ["textura", "textura táctil", "textura visual", "natural", "artificial", "rugoso", "liso", "frottage", "estampado", "collage", "esgrafiado", "relieve"],
+  pregunta: [
+    "Cierra los ojos y toca la mesa, tu jersey y la suela de tu zapatilla. ¿Sabrías decir qué es cada cosa solo con los dedos?",
+    "Seguro que sí, gracias a su <mark>textura</mark>: la mesa es lisa, el jersey es suave y la suela, rugosa. La textura es el aspecto de la superficie de los objetos. Algunas se tocan (<b>táctiles</b>) y otras solo se ven, porque están dibujadas o impresas (<b>visuales</b>). Los artistas usan las dos para que sus obras parezcan reales o despierten sensaciones.",
+  ],
+  bloques: [
+    ["¿Qué es la textura?", `<p>La <mark>textura</mark> es la cualidad de la superficie de los objetos, lo que percibimos con el <b>tacto</b> y también con la <b>vista</b>. Todo tiene textura: el tronco de un árbol, la piel de una naranja, el cristal de una ventana o la lana de una bufanda.</p><p>Para describirla usamos adjetivos: <b>lisa</b>, <b>rugosa</b>, <b>áspera</b>, <b>suave</b>, <b>blanda</b>, <b>dura</b>, <b>esponjosa</b>, <b>pegajosa</b>, <b>granulada</b>, <b>brillante</b> o <b>mate</b>. Cuanto más rico sea tu vocabulario, mejor podrás observar y explicar lo que ves.</p>`,
+      svg("Cuatro texturas: líneas, puntos, ondas y cuadrícula", `${cuadro("p5t1", 16, 18, 104, 56, `<path d="M0 10 L 10 0" stroke="${AZ}" stroke-width="1.5"/>`, "rayada", AZ)}${cuadro("p5t2", 140, 18, 104, 56, `<circle cx="5" cy="5" r="2" fill="${RO}"/>`, "granulada", RO)}${cuadro("p5t3", 16, 100, 104, 56, `<path d="M0 5 q 2.5 -4 5 0 t 5 0" fill="none" stroke="${VE}" stroke-width="1.4"/>`, "ondulada", VE)}${cuadro("p5t4", 140, 100, 104, 56, `<path d="M0 0 H 10 M0 0 V 10" stroke="${NA}" stroke-width="1.4"/>`, "cuadriculada", NA)}`)],
+    ["Textura táctil", `<p>La <mark>textura táctil</mark> es la que podemos <b>tocar</b>: tiene relieve de verdad. La corteza de un pino, una piedra pómez, una toalla, el papel de lija o una pared de gotelé. Si pasas la mano por encima, notas los bultos y las hendiduras.</p><p>En el arte, la textura táctil aparece en las <b>esculturas</b>, en los <b>tapices</b> y en las pinturas con mucha materia. Algunos pintores aplican la pintura tan gruesa, con espátula, que se forman relieves: es la técnica del <b>empaste</b>. Otros pegan arena, telas o cartón sobre el cuadro.</p>`,
+      svg("Un dedo tocando una superficie con relieve", `<path d="M20 120 q 10 -14 20 0 q 10 -18 20 0 q 10 -10 20 0 q 10 -20 20 0 q 10 -12 20 0 q 10 -16 20 0 q 10 -10 20 0 q 10 -18 20 0 q 10 -12 20 0 q 10 -14 20 0 q 10 -12 20 0 V 150 H 20 Z" fill="${NA}" fill-opacity=".45" stroke="${NA}" stroke-width="2"/><path d="M118 104 V 44 q 0 -12 12 -12 q 12 0 12 12 V 104 q -12 10 -24 0 Z" fill="${AM}" fill-opacity=".5" stroke="var(--ink)" stroke-width="2"/><path d="M122 46 q 8 -6 16 0" fill="none" stroke="var(--ink)" stroke-width="1.5"/>${tx(130, 172, "se nota al tocar: relieve real", { s: 11, c: "var(--muted)" })}`)],
+    ["Textura visual", `<p>La <mark>textura visual</mark> es la que solo podemos <b>ver</b>: parece rugosa o peluda, pero al tocarla es lisa. Por ejemplo, la foto de un tronco en una revista, un suelo de plástico que imita la madera o el dibujo de un gato en el que se ve cada pelo.</p><p>Los dibujantes crean texturas visuales con <b>líneas</b>, <b>puntos</b>, <b>rayados</b> y <b>manchas</b>. Si juntas mucho los trazos, parece más oscuro y denso; si los separas, más claro y ligero. Así una hoja de papel plana puede «parecer» piedra, pelo, agua o escamas.</p>`,
+      svg("Dibujos que imitan pelo, escamas, madera y ladrillos", `${[0, 1, 2, 3].map((k) => { const x = 16 + (k % 2) * 124, y = 18 + Math.floor(k / 2) * 80, c = [NA, VE, AM, RO][k]; let d = ""; if (k === 0) for (let i = 0; i < 40; i++) d += `<path d="M${x + 6 + (i % 10) * 10} ${y + 8 + Math.floor(i / 10) * 13} q 3 6 0 12" fill="none" stroke="${c}" stroke-width="1.4"/>`; if (k === 1) for (let j = 0; j < 4; j++) for (let i = 0; i < 8; i++) d += `<path d="M${x + 4 + i * 12 + (j % 2) * 6} ${y + 14 + j * 12} q 6 -10 12 0" fill="none" stroke="${c}" stroke-width="1.4"/>`; if (k === 2) for (let i = 0; i < 5; i++) d += `<path d="M${x + 4} ${y + 10 + i * 10} q 25 ${i % 2 ? 6 : -6} 50 0 t 50 0" fill="none" stroke="${c}" stroke-width="1.6"/>`; if (k === 3) for (let j = 0; j < 4; j++) for (let i = 0; i < 4; i++) d += `<rect x="${x + 4 + i * 26 + (j % 2) * 13 - (j % 2 && i === 3 ? 13 : 0)}" y="${y + 6 + j * 13}" width="${j % 2 && i === 3 ? 12 : 24}" height="11" fill="${c}" fill-opacity=".35" stroke="${c}"/>`; return `<rect x="${x}" y="${y}" width="108" height="58" rx="6" fill="var(--card)" stroke="var(--line)"/>${d}${tx(x + 54, y + 72, ["pelo", "escamas", "madera", "ladrillos"][k], { s: 10.5, c })}`; }).join("")}`)],
+    ["Texturas naturales y artificiales", `<p>Según su origen, las texturas pueden ser <mark>naturales</mark> o <mark>artificiales</mark>. Las <b>naturales</b> están en la naturaleza: las vetas de la madera, las escamas de un pez, las plumas de un pájaro, la piel de un elefante, la arena de la playa o los nervios de una hoja.</p><p>Las <b>artificiales</b> las fabrica el ser humano: el tejido de un pantalón vaquero, la rejilla de un colador, el asfalto, el plástico de burbujas o un estampado de lunares. Fíjate: muchas texturas artificiales imitan a las naturales, como una tela con estampado de piel de leopardo.</p>`,
+      L.filas("Texturas naturales y artificiales", [["naturales", "madera · plumas · arena · hojas", VE], ["artificiales", "vaquero · asfalto · plástico", AZ], ["imitación", "tela de «leopardo»", NA]])],
+    ["Frottage: frotar para descubrir", `<p>El <mark>frottage</mark> (en francés, «frotado») es una técnica muy sencilla para capturar texturas táctiles y convertirlas en visuales. Coloca un papel fino sobre una superficie con relieve (una hoja de árbol, una moneda, una rejilla, la suela de un zapato) y frota encima con una <b>cera</b> o un <b>lápiz blando</b> tumbado.</p><p>La textura aparece en el papel como por arte de magia. La popularizó el pintor alemán <b>Max Ernst</b> hacia 1925, que la usaba para inventar bosques y animales fantásticos a partir de las vetas del suelo de madera.</p>`,
+      svg("Frottage de una hoja con cera sobre papel", `<rect x="40" y="26" width="180" height="130" rx="4" fill="var(--card)" stroke="var(--line)" stroke-width="2"/><path d="M130 40 q 50 40 0 100 q -50 -60 0 -100 Z" fill="${VE}" fill-opacity=".35"/><path d="M130 44 V 138" stroke="${VE}" stroke-width="2"/>${[0, 1, 2, 3, 4].map((i) => `<path d="M130 ${60 + i * 16} l 22 -12 M130 ${60 + i * 16} l -22 -12" stroke="${VE}" stroke-width="1.5"/>`).join("")}${[...Array(16)].map((_, i) => `<path d="M${84 + i * 6} 140 l 12 -100" stroke="${VE}" stroke-width="2" stroke-opacity=".25"/>`).join("")}<rect x="190" y="60" width="16" height="56" rx="3" fill="${VE}" transform="rotate(35 198 88)"/>`), "p2b"],
+    ["Estampado, esgrafiado y collage", `<p>Otras técnicas para crear texturas: el <mark>estampado</mark> consiste en mojar un objeto en pintura y presionarlo sobre el papel: esponjas, corchos, tapones, medias patatas talladas, hojas o los propios dedos. Repitiendo la huella creamos ritmos y tramas.</p><p>El <mark>esgrafiado</mark>: colorea un papel con ceras de colores, cúbrelo con cera negra y rasca con un palillo para que aparezcan las líneas de color. El <mark>collage</mark>: pega papeles, telas, lanas, arena o papel de periódico para que la obra tenga partes que se puedan tocar.</p>`,
+      L.filas("Técnicas para crear texturas", [["estampado", "esponja, corcho, tapón", AZ], ["esgrafiado", "rascar cera negra", RO], ["collage", "pegar papel, tela, arena", VE], ["relieve", "plastilina, cartón, pasta", NA]])],
+    ["La textura expresa", `<p>Las texturas no solo imitan cosas: también <mark>transmiten sensaciones</mark>. Una superficie <b>suave y lisa</b> sugiere calma, limpieza o delicadeza, como la piel de un bebé o un lago en calma. Una superficie <b>áspera y llena de picos</b> sugiere dureza, frío, peligro o vejez, como una roca o un cactus.</p><p>Los ilustradores lo saben: un dragón tendrá escamas y pinchos; un osito de peluche, trazos curvos y suaves. Elige las texturas de tu dibujo pensando en lo que quieres que sienta quien lo mire.</p>`,
+      svg("Una forma suave y redondeada frente a otra áspera y con pinchos", `<ellipse cx="70" cy="90" rx="46" ry="38" fill="${AZ}" fill-opacity=".25" stroke="${AZ}" stroke-width="2"/>${[0, 1, 2].map((i) => `<path d="M${40 + i * 6} ${90 - i * 10} q 30 -10 60 0" fill="none" stroke="${AZ}" stroke-width="1.2" stroke-opacity=".6"/>`).join("")}${tx(70, 150, "suave: calma", { s: 11, c: AZ })}<path d="M190 52 ${[...Array(16)].map((_, i) => { const a = i * 22.5 * Math.PI / 180, r = i % 2 ? 22 : 40; return `L ${(190 + r * Math.sin(a)).toFixed(1)} ${(90 - r * Math.cos(a)).toFixed(1)}`; }).join(" ")} Z" fill="${RO}" fill-opacity=".3" stroke="${RO}" stroke-width="2"/>${tx(190, 150, "áspera: tensión", { s: 11, c: RO })}`)],
+    ["La textura en el arte", `<p>Muchos artistas han convertido la textura en protagonista. <b>Van Gogh</b> pintaba con pinceladas gruesas que dejan surcos de pintura. <b>Antoni Tàpies</b>, artista catalán, mezclaba la pintura con arena, polvo de mármol y barniz, y sus cuadros parecen muros viejos llenos de marcas.</p><p>En la <b>escultura</b>, el contraste entre zonas pulidas y zonas rugosas da vida a la piedra. Y en la <b>arquitectura</b>, el ladrillo, la piedra o el hormigón visto crean texturas que cambian con la luz del día. Busca texturas cuando visites un museo o pasees por tu barrio.</p>`,
+      L.filas("Artistas de la textura", [["Van Gogh", "pinceladas gruesas con relieve", AM], ["Max Ernst", "frottage de maderas y hojas", VE], ["Antoni Tàpies", "pintura con arena y polvo", NA], ["Arquitectura", "ladrillo, piedra, hormigón", AZ]])],
+    ["Taller: mi catálogo de texturas", `<p>Crea un <mark>catálogo de texturas</mark>. Divide una cartulina en nueve cuadros. En tres de ellos haz <b>frottage</b> de objetos de la clase o del patio. En otros tres, <b>dibuja</b> texturas visuales con rotulador: pelo, escamas y ladrillo. En los tres últimos, haz <b>collage</b> con materiales reales: tela, papel de lija y lana.</p><p>Debajo de cada cuadro escribe un adjetivo: rugosa, suave, áspera… Después, con los ojos cerrados, un compañero tocará los cuadros de collage e intentará adivinar el material. ¿Cuáles son táctiles y cuáles visuales?</p>`,
+      svg("Cartulina dividida en nueve cuadros de texturas", `${[...Array(9)].map((_, i) => { const x = 50 + (i % 3) * 56, y = 14 + Math.floor(i / 3) * 52, c = [VE, VE, VE, AZ, AZ, AZ, NA, NA, NA][Math.floor(i / 3) * 3]; return `<rect x="${x}" y="${y}" width="50" height="46" rx="4" fill="${c}" fill-opacity="${0.12 + (i % 3) * 0.1}" stroke="${c}" stroke-width="1.5"/>`; }).join("")}${tx(40, 40, "frottage", { s: 10, a: "end", c: VE })}${tx(40, 92, "dibujo", { s: 10, a: "end", c: AZ })}${tx(40, 144, "collage", { s: 10, a: "end", c: NA })}`)],
+  ],
+  ejemplos: [
+    ["Clasifica en táctil o visual: una piña de pino, la foto de una piña, un jersey de lana, un estampado de cebra en una camiseta.", ["Táctil: se nota el relieve al tocar.", "Visual: solo se ve; al tocar es liso."], "Táctiles: la piña y el jersey. Visuales: la foto y el estampado."],
+    ["Quieres representar el tronco de un árbol en un dibujo. ¿Qué técnica usarías?", ["Puedes capturar la textura real con frottage sobre la corteza.", "O dibujarla con líneas verticales onduladas y juntas."], "Frottage sobre un tronco o rayado con líneas onduladas (textura visual)."],
+    ["Describe con tres adjetivos la textura de una esponja de cocina.", ["Piensa en cómo es al tocar y al ver."], "Blanda, porosa y rugosa (por una cara)."],
+  ],
+  errores: [
+    "Creer que solo las cosas que se tocan tienen textura: también hay texturas visuales.",
+    "Confundir textura con color: un objeto rojo puede ser liso o rugoso.",
+    "Hacer frottage con la punta del lápiz: hay que usarlo tumbado y frotar con suavidad.",
+    "Poner demasiado pegamento en el collage y estropear las texturas.",
+    "Repetir siempre la misma textura en todo el dibujo: el contraste da interés.",
+  ],
+  ejercicios: [
+    ["Define textura con tus palabras.", "Es el aspecto de la superficie de un objeto, lo que percibimos al tocarlo o al verlo."],
+    ["Escribe dos ejemplos de textura táctil y dos de textura visual.", "Táctil: corteza, lija. Visual: foto de madera, dibujo de pelo."],
+    ["Escribe cuatro adjetivos para describir texturas.", "Por ejemplo: lisa, rugosa, suave, áspera."],
+    ["¿Qué es el frottage y quién lo popularizó?", "Frotar con cera sobre un papel colocado encima de un relieve; Max Ernst."],
+    ["Explica cómo se hace un esgrafiado.", "Se colorea con ceras, se cubre con cera negra y se rasca con un palillo."],
+    ["¿Qué diferencia hay entre una textura natural y una artificial?", "La natural está en la naturaleza; la artificial la fabrica el ser humano."],
+    ["Nombra tres objetos que sirvan para estampar.", "Una esponja, un corcho y un tapón (o media patata)."],
+    ["¿Qué sensación transmite una textura con muchos pinchos?", "Tensión, peligro o dureza."],
+    ["Busca en tu mochila tres texturas distintas y descríbelas.", "Respuesta libre. Ejemplo: cremallera dura y dentada, estuche suave, cuaderno liso."],
+    ["¿Qué artista catalán mezclaba la pintura con arena?", "Antoni Tàpies."],
+  ],
+  figura: ["La textura", L.columnas("Tipos de textura y técnicas", [["se toca", "TÁCTIL", ["corteza, lija", "relieve real"], NA], ["se ve", "VISUAL", ["foto, dibujo", "parece rugosa"], AZ], ["frotar", "FROTTAGE", ["cera sobre", "relieve"], VE], ["pegar", "COLLAGE", ["tela, arena", "papeles"], RO]])],
+  video: "p2v",
+  quiz: [
+    ["La textura es…", ["el aspecto de la superficie", "el color de un objeto", "el tamaño de un objeto"], "Superficie."],
+    ["La textura que se puede tocar es…", ["táctil", "visual", "gráfica"], "Táctil."],
+    ["Una foto de una roca tiene textura…", ["visual", "táctil", "natural táctil"], "Al tocar es lisa."],
+    ["¿Cuál es una textura natural?", ["plumas de un pájaro", "tela vaquera", "plástico de burbujas"], "Está en la naturaleza."],
+    ["El frottage consiste en…", ["frotar con cera sobre un relieve", "pegar papeles", "rascar cera negra"], "Frotado."],
+    ["¿Quién popularizó el frottage?", ["Max Ernst", "Picasso", "Sorolla"], "Max Ernst."],
+    ["Rascar una capa de cera negra es…", ["esgrafiado", "collage", "estampado"], "Esgrafiado."],
+    ["El collage consiste en…", ["pegar materiales", "frotar", "pintar con espátula"], "Pegar."],
+    ["Una textura suave y lisa transmite…", ["calma", "peligro", "tensión"], "Calma."],
+    ["¿Qué adjetivo describe una textura?", ["rugosa", "azul", "grande"], "Rugosa."],
+  ],
+  examen: [
+    ["Un suelo de plástico que imita madera tiene textura…", ["visual", "táctil natural", "rugosa"], "Solo lo parece."],
+    ["Para estampar podemos usar…", ["un corcho", "un sacapuntas", "una regla"], "Mojado en pintura."],
+    ["Pintar con pintura muy gruesa que forma relieve se llama…", ["empaste", "frottage", "acuarela"], "Empaste."],
+    ["El artista Antoni Tàpies usaba…", ["arena y polvo de mármol", "solo acuarela", "fotografía"], "Materia en sus cuadros."],
+  ],
+  feynman: ["Qué es la textura y cómo se describe", "En qué se diferencian la textura táctil y la visual", "Qué técnicas sirven para crear texturas", "Qué sensaciones pueden transmitir las texturas"],
+  mapa: ["LA TEXTURA", NA, [["Táctil", "se toca: corteza, lija", NA], ["Visual", "se ve: dibujo, foto", AZ], ["Técnicas", "frottage · estampado · collage", VE], ["Expresa", "suave = calma · áspera = tensión", RO]], 240],
+  tarjetas: [
+    ["Textura", "Aspecto de la superficie de un objeto."],
+    ["Textura táctil", "La que se nota al tocar."],
+    ["Textura visual", "La que solo se ve."],
+    ["Frottage", "Frotar con cera sobre un relieve."],
+    ["Estampado", "Imprimir con un objeto mojado en pintura."],
+    ["Esgrafiado", "Rascar cera negra para ver los colores."],
+    ["Collage", "Pegar materiales distintos."],
+    ["Empaste", "Pintura gruesa con relieve."],
+  ],
+  familias: ["Haced una «caza de texturas» por casa y describid cada una con un adjetivo.", "Haced juntos un frottage de monedas, hojas o llaves con una cera."],
+  saberes: "Elementos del lenguaje visual: la textura táctil y visual; técnicas de creación de texturas; valores expresivos (Educación Artística)",
+  ideas: ["Catálogo de texturas en una cartulina de nueve cuadros.", "Juego de adivinar materiales con los ojos cerrados.", "Salida al patio para hacer frottage de cortezas, rejillas y suelos."],
+  fuentes: [["Fundació Antoni Tàpies", "https://fundaciotapies.org/"], ["Museo Reina Sofía: colección", "https://www.museoreinasofia.es/coleccion"]],
+});
