@@ -290,7 +290,7 @@ module.exports = {
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Tectónica de placas, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Tect%C3%B3nica_de_placas" },
-    { t: "Instituto Geográfico Nacional: terremotos", url: "https://www.ign.es/web/ign/portal/sis-area-sismicidad" },
+    { t: "Escala sismológica de magnitud de momento, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Escala_sismol%C3%B3gica_de_magnitud_de_momento" },
   ],
   revisado: "2026-11-13",
 };
