@@ -1,165 +1,232 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
+// Física y Química 3º ESO · El átomo y los modelos atómicos (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, rejilla, escala, capas, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["atomo-modelos"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "El átomo y los modelos atómicos",
-  minutos: 55,
-  objetivos: ["Describir la evolución de los modelos atómicos de Dalton a Bohr", "Identificar las partículas subatómicas con su carga, masa y posición", "Usar el número atómico y el número másico para calcular protones, neutrones y electrones", "Explicar qué son los isótopos y los iones y algunas aplicaciones de la radiactividad"],
-  claves: ["átomo", "protón", "neutrón", "electrón", "número atómico", "número másico", "isótopo", "ion"],
+  minutos: 105,
+  objetivos: [
+    "Describir la evolución de los modelos atómicos de Dalton, Thomson, Rutherford y Bohr y los experimentos que los motivaron",
+    "Identificar las partículas subatómicas y sus propiedades",
+    "Calcular el número de protones, neutrones y electrones a partir del número atómico y el número másico",
+    "Explicar qué son los isótopos y calcular masas atómicas medias",
+    "Distribuir los electrones en capas y explicar la formación de iones",
+    "Valorar las aplicaciones y los riesgos de la radiactividad",
+  ],
+  claves: ["átomo", "modelo atómico", "electrón", "protón", "neutrón", "núcleo", "corteza", "número atómico", "número másico", "isótopo", "ion", "radiactividad"],
   pregunta: {
-    texto: "En 1909, Rutherford disparó partículas contra una lámina de oro finísima. Casi todas la atravesaron, pero 1 de cada 8000 rebotó hacia atrás. Dijo que era «como disparar una bala de cañón contra un pañuelo de papel y que volviera». ¿Qué descubrió?",
-    respuesta: "Que el átomo está casi <mark>vacío</mark>, y que toda su masa y su carga positiva están concentradas en un <mark>núcleo</mark> diminuto. Si el átomo fuera un estadio de fútbol, el núcleo sería un garbanzo en el centro del campo. Las partículas que rebotaban eran las pocas que chocaban de frente con un núcleo.",
+    texto: "Si un átomo de oro tuviera el tamaño de un estadio de fútbol, ¿de qué tamaño sería su núcleo, donde está casi toda su masa?",
+    respuesta: "Como un <mark>garbanzo</mark> en el centro del campo. El átomo es casi todo <b>espacio vacío</b>: el núcleo es unas 100.000 veces más pequeño que el átomo, y los electrones, diminutos, se mueven alrededor a gran distancia. Lo descubrió <b>Rutherford</b> en 1911, al ver que casi todas las partículas que lanzaba contra una lámina de oro la atravesaban sin desviarse.",
+  },
+  lectura: {
+    titulo: "Como disparar a un pañuelo de papel",
+    html: `<p>En 1909, en un laboratorio de Mánchester, dos jóvenes ayudantes de Ernest Rutherford, Hans Geiger y Ernest Marsden, pasaban horas a oscuras contando destellos. Lanzaban partículas alfa, unos proyectiles diminutos y muy rápidos que emiten algunas sustancias radiactivas, contra una lámina de oro finísima, de apenas unos cientos de átomos de grosor. Detrás había una pantalla que brillaba cada vez que una partícula chocaba contra ella.</p><p>Según el modelo de la época, el de Thomson, el átomo era una esfera de carga positiva repartida, con los electrones incrustados como pasas en un bizcocho. Si era así, las partículas alfa debían atravesar la lámina casi sin desviarse. Y eso hacía la gran mayoría. Pero, de vez en cuando, una partícula rebotaba hacia atrás. Rutherford diría después: «Fue lo más increíble que me ha pasado en la vida. Era como si disparases un proyectil de artillería contra un pañuelo de papel y te volviera a dar».</p><p>Tras dos años de cálculos, Rutherford encontró la única explicación posible: toda la carga positiva y casi toda la masa del átomo estaban concentradas en un núcleo diminuto. Las pocas partículas que pasaban muy cerca de él eran repelidas con violencia; las demás cruzaban el inmenso vacío del átomo. Había nacido el modelo nuclear, y con él la física del siglo XX: la energía nuclear, la medicina nuclear y, también, la bomba atómica.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>La idea de átomo</h3><p>Hace unos 2.400 años, los filósofos griegos <b>Leucipo</b> y <b>Demócrito</b> se preguntaron qué pasaría si partiéramos un trozo de materia en mitades cada vez más pequeñas. Pensaron que se llegaría a una partícula que ya no se podría dividir, y la llamaron <mark>átomo</mark>, que en griego significa «indivisible». Aristóteles defendía, en cambio, que la materia era continua y que todo estaba formado por cuatro elementos: tierra, agua, aire y fuego. Su idea dominó durante casi dos mil años. Pero eran solo razonamientos: no hicieron experimentos. La teoría atómica científica llegó en el siglo XIX, cuando se empezaron a medir las masas en las reacciones químicas.</p>`,
-    },
-    {
-      html: `<h3>El modelo de Dalton</h3><p>En 1808, el químico inglés <b>John Dalton</b> propuso la primera <mark>teoría atómica</mark> basada en experimentos. Sus ideas principales eran: la materia está formada por átomos <b>indivisibles</b> e indestructibles; todos los átomos de un mismo <b>elemento</b> son iguales en masa y propiedades, y distintos de los de otros elementos; los <b>compuestos</b> se forman al unirse átomos de distintos elementos en una proporción fija de números enteros; y en una <b>reacción química</b> los átomos no se crean ni se destruyen, solo se reorganizan. Dalton imaginaba los átomos como <b>esferas macizas</b>. Hoy sabemos que algunas ideas eran incorrectas, pero su teoría explicó la ley de conservación de la masa.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Modelo de Dalton: esferas macizas; átomos de un elemento iguales entre sí, distintos de los de otro elemento; un compuesto une átomos en proporción fija">${BG}
-        ${[40, 80].map(x => `<circle cx="${x}" cy="60" r="16" fill="var(--pen)"/>`).join("")}${[170, 210].map(x => `<circle cx="${x}" cy="60" r="12" fill="var(--red)"/>`).join("")}
-        ${t(60, 100, "elemento A", { size: 11, color: "var(--pen)" })}${t(190, 100, "elemento B", { size: 11, color: "var(--red)" })}
-        <circle cx="116" cy="140" r="16" fill="var(--pen)"/><circle cx="142" cy="140" r="12" fill="var(--red)"/>
-        ${t(130, 172, "compuesto AB", { size: 11 })}${t(130, 22, "esferas macizas e indivisibles", { size: 11, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>El electrón y el modelo de Thomson</h3><p>En 1897, <b>J. J. Thomson</b> estudiaba los <b>rayos catódicos</b>, unos rayos que aparecen en tubos de vidrio con gas a baja presión cuando se aplica un voltaje alto. Comprobó que estaban formados por partículas con <b>carga negativa</b>, mucho más ligeras que el átomo más pequeño. Las llamó <mark>electrones</mark>. Por tanto, el átomo no era indivisible: tenía partes. Como la materia es neutra, Thomson propuso que el átomo era una <b>esfera de carga positiva</b> con los electrones incrustados, como las pasas en un bizcocho. Por eso se conoce como el «modelo del pudin de pasas».</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Modelo de Thomson: una esfera de carga positiva con electrones negativos incrustados como pasas en un bizcocho">${BG}
-        <circle cx="130" cy="92" r="62" fill="var(--red)" fill-opacity=".18" stroke="var(--red)" stroke-width="2.5"/>
-        ${[[106, 64], [150, 60], [96, 104], [130, 92], [166, 112], [122, 132], [158, 82]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="9" fill="var(--pen)"/><text x="${x}" y="${y + 4}" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" ${F}>−</text>`).join("")}
-        ${t(130, 20, "esfera positiva con electrones", { size: 11, color: "var(--muted)" })}${t(230, 170, "+", { size: 16, color: "var(--red)" })}</svg>`,
-    },
-    {
-      html: `<h3>El experimento de Rutherford</h3><p>En 1909, <b>Ernest Rutherford</b> y sus colaboradores lanzaron <b>partículas alfa</b>, con carga positiva, contra una lámina de oro muy fina. Si el modelo de Thomson fuera cierto, todas la atravesarían casi sin desviarse. Observaron que la mayoría pasaba en línea recta, algunas se desviaban y muy pocas <mark>rebotaban</mark>. Rutherford concluyó que el átomo tiene un <b>núcleo</b> muy pequeño, con carga positiva y casi toda la masa, y una <b>corteza</b> donde los electrones giran a gran distancia, como los planetas alrededor del Sol. Entre el núcleo y los electrones hay <b>vacío</b>. Más tarde se descubrió que el núcleo está formado por <b>protones</b> (positivos) y <b>neutrones</b> (sin carga), estos últimos por Chadwick en 1932.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Experimento de Rutherford: partículas alfa contra una lámina de oro; la mayoría pasa recta, alguna se desvía y muy pocas rebotan">${BG}
-        <rect x="20" y="78" width="40" height="24" rx="4" fill="var(--muted)"/>${t(40, 120, "fuente α", { size: 10 })}
-        <rect x="128" y="24" width="8" height="132" fill="#d4a017"/>${t(132, 172, "lámina de oro", { size: 10, color: "#b8860b" })}
-        ${[78, 86, 94, 102].map(y => `<line x1="60" y1="${y}" x2="128" y2="${y}" stroke="var(--red)" stroke-width="1.5"/>`).join("")}
-        ${fl(136, 82, 236, 82, "var(--red)", 1.5)}${fl(136, 98, 236, 98, "var(--red)", 1.5)}${fl(136, 90, 220, 40, "var(--red)", 1.5)}
-        <path d="M128 86 Q 140 86 96 50" fill="none" stroke="var(--pen)" stroke-width="2"/>${fl(104, 58, 96, 50, "var(--pen)", 2)}
-        ${t(244, 76, "la mayoría", { size: 10, anchor: "end" })}${t(226, 34, "se desvían", { size: 10, anchor: "end" })}${t(92, 40, "rebotan", { size: 10, color: "var(--pen)" })}</svg>`,
-    },
-    {
-      html: `<h3>El modelo de Bohr</h3><p>El modelo de Rutherford tenía un problema: según las leyes de la física, un electrón girando debería perder energía y caer al núcleo. En 1913, el danés <b>Niels Bohr</b> propuso que los electrones solo pueden girar en ciertas <mark>órbitas permitidas</mark>, cada una con una energía determinada, llamadas <b>niveles de energía</b> o capas. Mientras un electrón está en su órbita, no pierde energía. Si absorbe energía, salta a una órbita más externa; al volver, emite esa energía en forma de <b>luz</b> de un color concreto. Así se explica que cada elemento emita colores característicos en los fuegos artificiales: el sodio, amarillo; el estroncio, rojo; el cobre, verde azulado.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Modelo de Bohr: núcleo central y electrones en órbitas circulares permitidas; un electrón salta de una órbita externa a otra interna y emite luz">${BG}
-        <circle cx="110" cy="92" r="16" fill="var(--red)"/>${t(110, 97, "+", { size: 14, color: "#fff" })}
-        ${[36, 58, 80].map(r => `<circle cx="110" cy="92" r="${r}" fill="none" stroke="var(--muted)" stroke-width="1.5"/>`).join("")}
-        ${[[146, 92], [74, 92], [110, 34], [110, 150], [168, 92]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="6" fill="var(--pen)"/>`).join("")}
-        <circle cx="167" cy="58" r="6" fill="var(--pen)" fill-opacity=".4"/>${fl(164, 62, 152, 76, "var(--pen)", 1.5)}
-        <path d="M176 58 q 6 -6 12 0 t 12 0 t 12 0" stroke="#e0a000" stroke-width="2.5" fill="none"/>${t(244, 46, "luz", { size: 11, anchor: "end", color: "#b8860b" })}
-        ${t(250, 174, "niveles de energía", { size: 10, anchor: "end", color: "var(--muted)" })}</svg>`,
-      video: { id: "LS3N5hOxRPE", titulo: "Modelos Atómicos [Fácil y Rápido]", canal: "A Cierta Ciencia", vistas: 969611 },
-    },
-    {
-      html: `<h3>Las partículas subatómicas</h3><p>Hoy sabemos que el átomo está formado por tres tipos de partículas. En el <b>núcleo</b> están los <mark>protones</mark>, con carga positiva, y los <mark>neutrones</mark>, sin carga; juntos se llaman <b>nucleones</b> y tienen casi la misma masa. En la <b>corteza</b> se mueven los <mark>electrones</mark>, con carga negativa igual a la del protón pero de signo contrario, y una masa unas 1836 veces menor. Por eso casi toda la masa del átomo está en el núcleo. Un átomo es <b>neutro</b> porque tiene tantos electrones como protones. El tamaño de un átomo es de unos 10⁻¹⁰ m, y el del núcleo, unas cien mil veces menor.</p>${tabla(["Partícula", "Carga", "Masa relativa", "Lugar"], [["Protón", "+1", "1", "núcleo"], ["Neutrón", "0", "1", "núcleo"], ["Electrón", "−1", "1/1836", "corteza"]])}`,
-    },
-    {
-      html: `<h3>Número atómico y número másico</h3><p>Cada elemento se identifica por su <mark>número atómico (Z)</mark>, que es el número de <b>protones</b> del núcleo. Todos los átomos de carbono tienen 6 protones; todos los de oxígeno, 8. Si cambia Z, cambia el elemento. En un átomo neutro, Z también es el número de electrones. El <mark>número másico (A)</mark> es el número total de partículas del núcleo: <b>A = protones + neutrones</b>. Por tanto, el número de neutrones es <b>N = A − Z</b>. Se representa así: el símbolo del elemento con A arriba a la izquierda y Z abajo a la izquierda. Por ejemplo, el sodio-23 tiene Z = 11 y A = 23: 11 protones, 11 electrones y 12 neutrones.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Notación del sodio: número másico 23 arriba a la izquierda, número atómico 11 abajo; 11 protones, 11 electrones y 12 neutrones">${BG}
-        ${t(64, 70, "23", { size: 20, color: "var(--red)", anchor: "end" })}${t(64, 118, "11", { size: 20, color: "var(--pen)", anchor: "end" })}${t(96, 112, "Na", { size: 50 })}
-        ${t(18, 46, "A: másico", { size: 10, anchor: "start", color: "var(--red)" })}${t(18, 142, "Z: atómico", { size: 10, anchor: "start", color: "var(--pen)" })}
-        ${caja(150, 30, 100, 30, "p⁺ = Z = 11", "var(--pen)", { size: 11 })}${caja(150, 70, 100, 30, "e⁻ = Z = 11", "var(--pen)", { size: 11 })}${caja(150, 110, 100, 30, "n = A − Z = 12", "var(--red)", { size: 11 })}
-        ${t(200, 164, "átomo neutro", { size: 10, color: "var(--muted)" })}</svg>`,
-      video: { id: "5-jW1Tppdgs", titulo: "Calcular PROTONES, NEUTRONES y ELECTRONES. Número Másico y Atómico", canal: "Susi Profe", vistas: 2996891 },
-    },
-    {
-      html: `<h3>Los isótopos</h3><p>Los <mark>isótopos</mark> son átomos de un mismo elemento, es decir, con el mismo número de protones (mismo Z), pero con distinto número de neutrones (distinto A). Tienen las mismas propiedades químicas, pero distinta masa. El hidrógeno tiene tres: el <b>protio</b> (¹H, sin neutrones), el <b>deuterio</b> (²H, un neutrón) y el <b>tritio</b> (³H, dos neutrones). El carbono tiene el carbono-12, el más abundante, y el <b>carbono-14</b>. Como en la naturaleza los elementos son mezclas de isótopos, la <b>masa atómica</b> que aparece en la tabla periódica es una media ponderada; por eso la del cloro es 35,5 y no un número entero.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Los tres isótopos del hidrógeno: protio con un protón, deuterio con un protón y un neutrón, tritio con un protón y dos neutrones; todos con un electrón">${BG}
-        ${[["¹H protio", 0], ["²H deuterio", 1], ["³H tritio", 2]].map(([n, k], i) => { const x = 46 + i * 84; return `<circle cx="${x}" cy="84" r="34" fill="none" stroke="var(--muted)" stroke-width="1.5"/><circle cx="${x + 34}" cy="84" r="5" fill="var(--pen)"/><circle cx="${x - (k ? 5 : 0)}" cy="84" r="8" fill="var(--red)"/>${k > 0 ? `<circle cx="${x + 7}" cy="${k === 2 ? 78 : 84}" r="8" fill="var(--muted)"/>` : ""}${k === 2 ? `<circle cx="${x + 3}" cy="93" r="8" fill="var(--muted)"/>` : ""}${t(x, 140, n, { size: 11 })}`; }).join("")}
-        ${t(130, 24, "mismo Z = 1, distinto número de neutrones", { size: 10, color: "var(--muted)" })}
-        ${t(60, 168, "● protón", { size: 10, color: "var(--red)" })}${t(130, 168, "● neutrón", { size: 10, color: "var(--muted)" })}${t(200, 168, "● electrón", { size: 10, color: "var(--pen)" })}</svg>`,
-    },
-    {
-      html: `<h3>La radiactividad y sus aplicaciones</h3><p>Algunos isótopos tienen núcleos <b>inestables</b> que se desintegran espontáneamente y emiten radiación: son <mark>radiactivos</mark>. La radiactividad la descubrió Henri Becquerel en 1896 y la investigó a fondo <b>Marie Curie</b>, primera persona en ganar dos premios Nobel. Tiene muchas aplicaciones. En <b>medicina</b>, se usan isótopos para diagnosticar enfermedades (gammagrafías) y para tratar tumores (radioterapia). El <b>carbono-14</b> permite saber la edad de restos de seres vivos de hasta unos 50.000 años. Las <b>centrales nucleares</b> producen electricidad con la fisión del uranio-235. Pero la radiación es peligrosa: daña las células y genera <b>residuos radiactivos</b> que hay que guardar durante miles de años.</p>`,
-    },
-    {
-      html: `<h3>Los iones</h3><p>Los átomos pueden ganar o perder <b>electrones</b> (nunca protones en una reacción química). Entonces dejan de ser neutros y se convierten en <mark>iones</mark>. Si un átomo <b>pierde</b> electrones, queda con más protones que electrones y forma un ion positivo o <b>catión</b>: el sodio pierde un electrón y forma Na⁺, con 11 protones y 10 electrones. Si un átomo <b>gana</b> electrones, forma un ion negativo o <b>anión</b>: el cloro gana uno y forma Cl⁻, con 17 protones y 18 electrones. La carga se escribe arriba a la derecha del símbolo. Los iones son fundamentales en la vida: los impulsos nerviosos funcionan gracias a los iones de sodio y potasio, y la sal común está formada por iones Na⁺ y Cl⁻.</p>`,
-    },
+    bloque({ h: "1.1 La idea de átomo", p: [
+      "Hace unos 2.400 años, los filósofos griegos <b>Leucipo</b> y <b>Demócrito</b> se preguntaron qué pasaría si dividiéramos un trozo de materia una y otra vez. Pensaron que llegaría un momento en que tendríamos una partícula tan pequeña que ya no se podría dividir más, y la llamaron <mark>átomo</mark>, que en griego significa «indivisible». Según ellos, todo estaba formado por átomos y vacío, y las diferencias entre las cosas se debían a la forma y la colocación de sus átomos.",
+      "Otros filósofos, como Aristóteles, rechazaron esta idea: pensaban que la materia era continua y estaba formada por cuatro elementos, tierra, agua, aire y fuego. Como Aristóteles tuvo una enorme influencia, la idea del átomo quedó casi olvidada durante más de dos mil años. Pero estas propuestas eran solo <b>especulaciones filosóficas</b>, sin experimentos que las apoyaran. El átomo volvió a la ciencia a principios del siglo XIX, cuando los químicos encontraron leyes, como la de conservación de la masa de Lavoisier y la de las proporciones definidas de Proust, que solo se podían explicar si la materia estaba formada por partículas.",
+    ], svg: escala("Línea del tiempo de los modelos atómicos", "Historia del átomo", [["Demócrito", "−400", "var(--muted)"], ["Dalton", "1808", "var(--pen)"], ["Thomson", "1897", "var(--leaf)"], ["Rutherford", "1911", "var(--red)"], ["Bohr", "1913", "#b45309"]], "Antigüedad", "siglo XX") }),
+    bloque({ h: "1.2 El modelo de Dalton", p: [
+      "En 1808, el químico inglés <b>John Dalton</b> propuso la primera <mark>teoría atómica</mark> científica, basada en datos experimentales. Sus ideas principales eran: la materia está formada por partículas indivisibles e indestructibles llamadas átomos; todos los átomos de un mismo elemento son iguales en masa y propiedades, y distintos de los de otros elementos; los compuestos se forman al unirse átomos de distintos elementos en una proporción de números enteros sencillos; y en las reacciones químicas los átomos no se crean ni se destruyen, solo se reorganizan.",
+      "Dalton imaginaba los átomos como <b>esferas macizas</b>, como bolas de billar diminutas, y usaba símbolos circulares para representarlos. Su teoría explicaba muy bien las leyes de las reacciones químicas y fue un gran avance. Hoy sabemos que tenía algunos errores: los átomos sí se pueden dividir en partículas más pequeñas, y no todos los átomos de un mismo elemento tienen la misma masa (existen los isótopos). Pero la idea central sigue vigente: la química consiste en la reorganización de átomos. Es un buen ejemplo de cómo funciona la ciencia: un modelo útil se mantiene mientras explica los hechos y se corrige cuando aparecen datos nuevos.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.3 El electrón y el modelo de Thomson", p: [
+      "A finales del siglo XIX se sabía que la materia tiene naturaleza eléctrica: al frotar un objeto se carga, y las disoluciones conducen la corriente. En 1897, <b>Joseph John Thomson</b> estudió los rayos catódicos, unos haces que se producen en tubos de vidrio casi vacíos al aplicar un alto voltaje. Comprobó que eran desviados por imanes y por placas cargadas, y que estaban formados por partículas con <b>carga negativa</b>, unas dos mil veces más ligeras que el átomo de hidrógeno: había descubierto el <mark>electrón</mark>.",
+      "Si los átomos contenían electrones negativos, pero la materia es neutra, tenía que haber también carga positiva. Thomson propuso en 1904 su modelo: el átomo es una <b>esfera de carga positiva</b> repartida uniformemente, en la que están incrustados los electrones, en número suficiente para que el conjunto sea neutro. Se le llamó el modelo del «pudin de pasas». Era el primer modelo con partículas subatómicas y explicaba por qué los átomos pueden ganar o perder electrones y cargarse. Su gran limitación apareció pocos años después con el experimento de la lámina de oro.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "1.4 El experimento de Rutherford", p: [
+      "En 1911, <b>Ernest Rutherford</b> analizó los resultados de un experimento en el que se bombardeaba una lámina de oro muy fina con <b>partículas alfa</b>, positivas. Observó tres cosas: la mayoría atravesaban la lámina sin desviarse; algunas se desviaban un poco; y muy pocas, una de cada veinte mil aproximadamente, rebotaban hacia atrás. El modelo de Thomson no podía explicar los rebotes.",
+      "Rutherford propuso el <mark>modelo nuclear</mark>: el átomo tiene un <b>núcleo</b> central muy pequeño, donde se concentran toda la carga positiva y casi toda la masa, y una <b>corteza</b> donde los electrones giran alrededor del núcleo, como los planetas alrededor del Sol. Entre el núcleo y los electrones hay sobre todo <b>espacio vacío</b>. Así, la mayoría de las partículas alfa pasaban por el vacío; las que pasaban cerca del núcleo se desviaban por la repulsión entre cargas positivas, y las que chocaban casi de frente rebotaban. En 1919 Rutherford identificó las partículas positivas del núcleo, los <b>protones</b>, y predijo que debía haber también partículas neutras, que <b>Chadwick</b> descubrió en 1932: los neutrones.",
+    ], svg: S.svg[2] }),
+    bloque({ h: "1.5 El modelo de Bohr", p: [
+      "El modelo de Rutherford tenía un problema: según la física de la época, un electrón que gira debería ir perdiendo energía y caer en espiral hacia el núcleo, y el átomo se destruiría en una fracción de segundo. Además, no explicaba por qué cada elemento emite luz solo de unos colores determinados, su <b>espectro</b>, que es como su huella dactilar.",
+      "En 1913, el danés <b>Niels Bohr</b> propuso que los electrones solo pueden girar en ciertas <mark>órbitas</mark> permitidas, a distancias fijas del núcleo, cada una con una energía determinada; se llaman <b>niveles de energía</b> o capas. Mientras un electrón está en una órbita, no pierde energía. Si absorbe energía, salta a una órbita más externa; cuando vuelve a una más interna, emite esa energía en forma de luz de un color concreto. Así se explican los espectros y los colores de los fuegos artificiales: el estroncio da rojo; el sodio, amarillo; el cobre, verde azulado. El modelo actual, el <b>modelo cuántico</b>, sustituye las órbitas por <b>orbitales</b>, zonas donde es más probable encontrar al electrón, pero los niveles de energía de Bohr siguen siendo muy útiles.",
+    ], svg: S.svg[3], video: S.bvideos[0] }),
+    bloque({ h: "2.1 Las partículas subatómicas", p: [
+      "Hoy sabemos que el átomo está formado por tres tipos de <mark>partículas subatómicas</mark>. En el <b>núcleo</b> están los <b>protones</b>, con carga eléctrica positiva (+1), y los <b>neutrones</b>, sin carga; protones y neutrones se llaman <b>nucleones</b> y tienen una masa casi igual, de aproximadamente 1 u (unidad de masa atómica, 1,66 · 10⁻²⁷ kg). En la <b>corteza</b> están los <b>electrones</b>, con carga negativa (−1) y una masa unas 1.840 veces menor que la del protón.",
+      "La carga del protón y la del electrón son iguales en valor y de signo contrario, 1,6 · 10⁻¹⁹ culombios. Por eso un átomo con el mismo número de protones que de electrones es <b>eléctricamente neutro</b>. Como los electrones casi no tienen masa, <b>la masa del átomo está prácticamente toda en el núcleo</b>, aunque el núcleo ocupa una parte minúscula de su volumen: unas 100.000 veces más pequeño que el átomo. Los protones se repelen entre sí por tener la misma carga; los mantiene unidos en el núcleo la <b>fuerza nuclear fuerte</b>, mucho más intensa que la eléctrica a distancias tan cortas. Hoy se sabe que protones y neutrones están formados a su vez por partículas aún más pequeñas, los quarks.",
+    ], svg: rejilla("Propiedades de las partículas subatómicas", ["Partícula", "Carga", "Masa (u)"], [["Protón", "+1", "≈ 1"], ["Neutrón", "0", "≈ 1"], ["Electrón", "−1", "≈ 1/1.840"]], "var(--pen)") }),
+    bloque({ h: "2.2 Número atómico y número másico", p: [
+      "Cada elemento químico se caracteriza por el número de protones de su núcleo, llamado <mark>número atómico</mark> (Z). Todos los átomos de hidrógeno tienen 1 protón; todos los de carbono, 6; todos los de oxígeno, 8; todos los de oro, 79. Si cambia el número de protones, cambia el elemento. En un átomo neutro, el número de electrones es igual a Z.",
+      "El <mark>número másico</mark> (A) es el número total de partículas del núcleo: protones más neutrones, A = Z + N. Por tanto, el número de neutrones es N = A − Z. Para representar un átomo concreto se escribe el símbolo del elemento con A arriba a la izquierda y Z abajo a la izquierda, por ejemplo ¹²₆C o ²³₁₁Na. A veces se escribe solo el nombre y el número másico: carbono-12, uranio-235. Así, un átomo de sodio-23 (Z = 11) tiene 11 protones, 11 electrones y 23 − 11 = 12 neutrones. El número másico es siempre un número entero y coincide aproximadamente con la masa del átomo en unidades de masa atómica, ya que protones y neutrones pesan cerca de 1 u y los electrones casi nada.",
+    ], extra: formula("A = Z + N  ·  N = A − Z"), svg: S.svg[4] }),
+    bloque({ h: "2.3 Los isótopos", p: [
+      "Dalton pensaba que todos los átomos de un elemento eran idénticos, pero no es así. Los <mark>isótopos</mark> son átomos del mismo elemento, es decir, con el mismo número de protones (mismo Z), pero con distinto número de neutrones, y por tanto distinto número másico A. Por ejemplo, el hidrógeno tiene tres isótopos: el protio (¹H, sin neutrones), el deuterio (²H, un neutrón) y el tritio (³H, dos neutrones). El carbono tiene, entre otros, el carbono-12, el carbono-13 y el carbono-14.",
+      "Los isótopos de un elemento tienen las mismas propiedades químicas, porque estas dependen de los electrones, pero distinta masa y, a veces, distinta estabilidad. La mayoría de los elementos son una mezcla de isótopos en una proporción fija. Por eso la <b>masa atómica</b> que aparece en la tabla periódica es una <b>media ponderada</b> de las masas de sus isótopos según su abundancia, y no suele ser un número entero. El cloro, por ejemplo, tiene un 75 % de cloro-35 y un 25 % de cloro-37; su masa atómica media es 35 · 0,75 + 37 · 0,25 = 35,5 u.",
+    ], extra: formula("masa atómica media = Σ (masa del isótopo · % abundancia) / 100"), svg: S.svg[5], video: S.bvideos[1] }),
+    bloque({ h: "3.1 La distribución de los electrones en capas", p: [
+      "Según el modelo de Bohr, los electrones se colocan en <b>capas</b> o niveles de energía alrededor del núcleo, numeradas desde dentro hacia fuera (n = 1, 2, 3…). Cada capa admite un número máximo de electrones: la primera, 2; la segunda, 8; la tercera, 18 (aunque en los primeros elementos se llena solo hasta 8 antes de empezar la cuarta). Los electrones ocupan primero las capas más cercanas al núcleo, que tienen menos energía.",
+      "Así, el sodio (Z = 11) tiene sus 11 electrones distribuidos en 2, 8, 1; el cloro (Z = 17), en 2, 8, 7; el oxígeno (Z = 8), en 2, 6. Los electrones de la <mark>última capa</mark>, llamados <b>electrones de valencia</b>, son los más importantes: determinan cómo se comporta químicamente el elemento, con qué otros se une y cuántos enlaces forma. Los elementos con el mismo número de electrones en la última capa tienen propiedades parecidas y están en la misma columna de la tabla periódica. Los gases nobles, con su última capa completa (8 electrones, o 2 el helio), son muy estables y casi no reaccionan.",
+    ], svg: capas("Distribución de los electrones del sodio en capas: 2, 8 y 1", "Na 11+", [2, 8, 1], "var(--pen)", "Sodio: 2 · 8 · 1") }),
+    bloque({ h: "3.2 Los iones", p: [
+      "Un átomo neutro puede <b>ganar o perder electrones</b>, normalmente de su última capa, y convertirse en un <mark>ion</mark>, una partícula con carga eléctrica. El núcleo no cambia: el número de protones sigue siendo el mismo, así que sigue siendo el mismo elemento. Si un átomo <b>pierde</b> electrones, queda con más protones que electrones y su carga es positiva: es un <b>catión</b>. Si <b>gana</b> electrones, queda con carga negativa: es un <b>anión</b>.",
+      "La carga se escribe arriba a la derecha del símbolo: Na⁺, Mg²⁺, Cl⁻, O²⁻. Los <b>metales</b> tienden a perder electrones y formar cationes: el sodio (2, 8, 1) pierde su electrón de valencia y queda como Na⁺, con la configuración estable 2, 8. Los <b>no metales</b> tienden a ganarlos y formar aniones: el cloro (2, 8, 7) gana uno y queda como Cl⁻ (2, 8, 8). Así consiguen tener la última capa completa, como los gases nobles. Los iones son muy importantes: la sal común está formada por iones Na⁺ y Cl⁻; los impulsos nerviosos dependen de iones de sodio y potasio; y las bebidas isotónicas reponen los iones que perdemos con el sudor.",
+    ], svg: compara("Diferencias entre catión y anión", ["Catión", ["pierde electrones", "carga positiva", "metales", "Na⁺, Ca²⁺"]], ["Anión", ["gana electrones", "carga negativa", "no metales", "Cl⁻, O²⁻"]], "var(--red)", "var(--pen)") }),
+    bloque({ h: "3.3 La radiactividad", p: [
+      "Algunos núcleos son <b>inestables</b>, normalmente porque tienen demasiados neutrones o son muy grandes, y se transforman espontáneamente en otros más estables emitiendo partículas y energía: es la <mark>radiactividad</mark>, descubierta por Henri Becquerel en 1896 y estudiada por Marie y Pierre Curie, que descubrieron el polonio y el radio. Marie Curie fue la primera persona en ganar dos premios Nobel, en Física y en Química.",
+      "Hay tres tipos principales de radiación. La <b>alfa</b> (α) está formada por núcleos de helio, dos protones y dos neutrones; es poco penetrante y la detiene una hoja de papel. La <b>beta</b> (β) son electrones rápidos que salen del núcleo; la detiene una lámina de aluminio. La <b>gamma</b> (γ) es radiación electromagnética muy energética, como la luz pero invisible; es muy penetrante y hacen falta gruesas capas de plomo u hormigón para frenarla. Cada isótopo radiactivo tiene un <b>periodo de semidesintegración</b>, el tiempo que tarda en desintegrarse la mitad de sus núcleos: unos segundos en algunos isótopos, 5.730 años en el carbono-14 y 4.500 millones de años en el uranio-238.",
+    ], svg: rejilla("Tipos de radiación y qué las detiene", ["Radiación", "Qué es", "La detiene"], [["Alfa (α)", "núcleo de He", "papel"], ["Beta (β)", "electrón", "aluminio"], ["Gamma (γ)", "onda energética", "plomo"]], "var(--red)"), video: S.bvideos[2] }),
+    bloque({ h: "3.4 Aplicaciones y riesgos de la radiactividad", p: [
+      "Los <b>radioisótopos</b> tienen muchísimas aplicaciones. En <b>medicina</b> se usan para diagnosticar enfermedades (el yodo-131 para el tiroides, o los trazadores de las gammagrafías y los PET) y para tratar tumores con radioterapia, que destruye las células cancerosas. También se usan para esterilizar material quirúrgico y alimentos. En <b>arqueología</b>, la datación con <b>carbono-14</b> permite saber la edad de restos de seres vivos de hasta unos 50.000 años: midiendo cuánto carbono-14 queda, se calcula cuánto tiempo hace que murió el organismo.",
+      "En las <b>centrales nucleares</b>, la fisión de núcleos de uranio-235 libera enormes cantidades de energía que se usa para producir electricidad sin emitir CO₂. Pero la radiactividad también tiene <b>riesgos</b>: la radiación puede dañar las células y el ADN y causar quemaduras, cáncer o mutaciones. Los <b>residuos radiactivos</b> de las centrales siguen siendo peligrosos durante miles de años y hay que almacenarlos de forma segura. Accidentes como los de Chernóbil (1986) y Fukushima (2011) muestran sus peligros. Por eso los trabajadores expuestos llevan dosímetros y protecciones, y la radiación solo se usa con estrictas medidas de seguridad. La señal de peligro radiactivo es un trébol negro sobre fondo amarillo.",
+    ], svg: compara("Aplicaciones y riesgos de la radiactividad", ["Aplicaciones", ["diagnóstico médico", "radioterapia", "datación C-14", "electricidad"]], ["Riesgos", ["daño al ADN", "cáncer", "residuos", "accidentes"]], "var(--leaf)", "var(--red)") }),
   ],
-  figura: {
-    titulo: "Cómo cambió la idea de átomo",
-    svg: `<svg viewBox="0 0 640 240" role="img" aria-label="Línea del tiempo de los modelos atómicos: Dalton 1808 esfera maciza, Thomson 1897 esfera positiva con electrones, Rutherford 1911 núcleo y vacío, Bohr 1913 órbitas permitidas">
-      <rect width="640" height="240" rx="16" fill="var(--paper)"/>
-      <line x1="40" y1="200" x2="600" y2="200" stroke="var(--muted)" stroke-width="3"/>
-      ${[["Dalton", "1808", "esfera maciza"], ["Thomson", "1897", "pudin de pasas"], ["Rutherford", "1911", "núcleo y vacío"], ["Bohr", "1913", "órbitas fijas"]].map(([n, a, d], i) => { const x = 90 + i * 150; return `<circle cx="${x}" cy="200" r="7" fill="var(--pen)"/>${t(x, 224, a, { size: 13, color: "var(--muted)" })}${t(x, 26, n, { size: 17, color: "var(--pen)", font: D })}${t(x, 166, d, { size: 13, weight: 400 })}`; }).join("")}
-      <circle cx="90" cy="96" r="34" fill="var(--pen)"/>
-      <circle cx="240" cy="96" r="38" fill="var(--red)" fill-opacity=".2" stroke="var(--red)" stroke-width="2"/>${[[222, 80], [256, 84], [236, 110], [258, 112], [228, 96]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="var(--pen)"/>`).join("")}
-      <circle cx="390" cy="96" r="6" fill="var(--red)"/><ellipse cx="390" cy="96" rx="44" ry="16" fill="none" stroke="var(--muted)"/><ellipse cx="390" cy="96" rx="44" ry="16" transform="rotate(60 390 96)" fill="none" stroke="var(--muted)"/><ellipse cx="390" cy="96" rx="44" ry="16" transform="rotate(-60 390 96)" fill="none" stroke="var(--muted)"/>
-      <circle cx="540" cy="96" r="8" fill="var(--red)"/>${[22, 38, 54].map(r => `<circle cx="540" cy="96" r="${r}" fill="none" stroke="var(--muted)"/>`).join("")}<circle cx="562" cy="96" r="4" fill="var(--pen)"/><circle cx="540" cy="58" r="4" fill="var(--pen)"/><circle cx="502" cy="134" r="4" fill="var(--pen)"/>
-    </svg>`,
-  },
-  video: { id: "8lX8FjjLKhc", titulo: "Modelos atómicos (Dalton, Thomson, Rutherford, Bohr y Chadwick)", canal: "Es Ciencia", vistas: 2514269, megusta: 0, busqueda: "modelos atómicos Dalton Thomson Rutherford Bohr" },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "El hierro-56 tiene Z = 26. ¿Cuántos protones, neutrones y electrones tiene un átomo neutro?",
-      pasos: ["Protones = Z = 26.", "Electrones = protones, por ser neutro = 26.", "Neutrones = A − Z = 56 − 26 = 30."],
-      resultado: "26 p⁺, 30 n y 26 e⁻." },
-    { enunciado: "El ion Mg²⁺ procede del magnesio-24 (Z = 12). Calcula sus partículas.",
-      pasos: ["Protones = 12; neutrones = 24 − 12 = 12.", "La carga 2+ indica que ha perdido 2 electrones.", "Electrones = 12 − 2 = 10."],
-      resultado: "12 p⁺, 12 n y 10 e⁻; es un catión." },
-    { enunciado: "Un átomo tiene 17 protones y 20 neutrones, y otro 17 protones y 18 neutrones. ¿Qué relación hay entre ellos?",
-      pasos: ["Ambos tienen Z = 17: son del mismo elemento, el cloro.", "Sus números másicos son 37 y 35.", "Mismo Z y distinto A: isótopos."],
-      resultado: "son isótopos del cloro: cloro-37 y cloro-35." },
+    { enunciado: "Indica el número de protones, neutrones y electrones de ²⁷₁₃Al.", pasos: ["Z = 13 → 13 protones.", "Átomo neutro → 13 electrones.", "N = A − Z = 27 − 13 = 14 neutrones."], resultado: "13 p⁺, 14 n, 13 e⁻." },
+    { enunciado: "Un átomo tiene 17 protones y 18 neutrones. ¿Cuál es su Z y su A? ¿Qué elemento es?", pasos: ["Z = número de protones = 17.", "A = Z + N = 17 + 18 = 35.", "Z = 17 corresponde al cloro."], resultado: "³⁵₁₇Cl, cloro-35." },
+    { enunciado: "¿Cuántas partículas tiene el ion ²⁴₁₂Mg²⁺?", pasos: ["Protones: Z = 12.", "Neutrones: 24 − 12 = 12.", "Carga 2+: ha perdido 2 electrones → 12 − 2 = 10 electrones."], resultado: "12 p⁺, 12 n, 10 e⁻." },
+    { enunciado: "¿Cuántas partículas tiene el ion ³²₁₆S²⁻?", pasos: ["Protones: 16.", "Neutrones: 32 − 16 = 16.", "Carga 2−: ha ganado 2 electrones → 16 + 2 = 18."], resultado: "16 p⁺, 16 n, 18 e⁻." },
+    { enunciado: "El cobre tiene dos isótopos: cobre-63 (69 %) y cobre-65 (31 %). Calcula su masa atómica media.", pasos: ["Media ponderada: (63 · 69 + 65 · 31) / 100.", "(4.347 + 2.015) / 100 = 63,62."], resultado: "≈ 63,6 u." },
+    { enunciado: "Distribuye en capas los electrones del magnesio (Z = 12) e indica qué ion tiende a formar.", pasos: ["12 electrones: 2 en la 1.ª capa, 8 en la 2.ª y 2 en la 3.ª.", "Tiene 2 electrones de valencia.", "Es un metal: tiende a perderlos y quedar con 2, 8."], resultado: "2, 8, 2; forma el catión Mg²⁺." },
   ],
   errores: [
-    "Pensar que el número másico es el número de neutrones: es protones más neutrones.",
-    "Creer que un ion positivo ha ganado protones: ha perdido electrones.",
-    "Pensar que los isótopos son elementos distintos: son el mismo elemento con distinta masa.",
-    "Imaginar el átomo macizo: es casi todo vacío.",
-    "Confundir los modelos: Thomson no tenía núcleo; el núcleo lo descubrió Rutherford.",
+    "Pensar que el número másico es el número de neutrones: es protones + neutrones.",
+    "Creer que un ion positivo ha ganado protones: ha perdido electrones; el núcleo no cambia.",
+    "Pensar que los isótopos son elementos distintos: tienen el mismo número de protones.",
+    "Imaginar el átomo como una bola maciza: es casi todo espacio vacío.",
+    "Decir que el electrón está en el núcleo: está en la corteza.",
+    "Confundir la masa atómica media (decimal) con el número másico (entero).",
   ],
   ejercicios: [
-    { q: "Resume la teoría atómica de Dalton en cuatro ideas.", sol: "Materia formada por átomos indivisibles; los átomos de un elemento son iguales; los compuestos se forman uniendo átomos en proporción fija; en las reacciones los átomos se reorganizan sin crearse ni destruirse." },
-    { q: "¿Qué partícula descubrió Thomson y cómo era su modelo?", sol: "El electrón. Una esfera de carga positiva con los electrones incrustados." },
-    { q: "Explica las tres observaciones de Rutherford y su conclusión.", sol: "La mayoría de partículas pasa recta (el átomo está casi vacío), algunas se desvían y unas pocas rebotan (hay un núcleo pequeño, positivo y con casi toda la masa)." },
-    { q: "¿Qué aportó Bohr al modelo atómico?", sol: "Que los electrones solo giran en órbitas permitidas con energía fija y que, al saltar entre ellas, absorben o emiten luz." },
-    { q: "Completa: carbono-14 (Z = 6): protones, neutrones, electrones.", sol: "6 protones, 8 neutrones y 6 electrones." },
-    { q: "Un átomo tiene A = 40 y 20 neutrones. ¿Cuál es su Z? ¿Qué elemento es si Z = 20 es el calcio?", sol: "Z = 40 − 20 = 20: calcio." },
-    { q: "Calcula las partículas del ion O²⁻ (oxígeno-16, Z = 8).", sol: "8 protones, 8 neutrones y 10 electrones." },
-    { q: "Define isótopo y pon un ejemplo.", sol: "Átomos del mismo elemento (igual Z) con distinto número de neutrones (distinto A). Ejemplo: carbono-12 y carbono-14." },
-    { q: "Cita dos aplicaciones y un riesgo de la radiactividad.", sol: "Aplicaciones: radioterapia, datación con carbono-14, centrales nucleares. Riesgo: daña las células y genera residuos peligrosos durante miles de años." },
-    { q: "Explica la diferencia entre un catión y un anión.", sol: "Un catión es un ion positivo que ha perdido electrones; un anión es un ion negativo que ha ganado electrones." },
+    B("Ordena cronológicamente los modelos atómicos de Rutherford, Dalton, Bohr y Thomson.", "Dalton (1808), Thomson (1904), Rutherford (1911), Bohr (1913)."),
+    B("¿Qué partícula descubrió Thomson y qué carga tiene?", "El electrón, con carga negativa."),
+    B("Describe el modelo de Thomson.", "Una esfera de carga positiva repartida con los electrones incrustados, como pasas en un pudin; en conjunto, neutra."),
+    B("¿Qué observó Rutherford en el experimento de la lámina de oro?", "La mayoría de las partículas alfa atravesaban sin desviarse, algunas se desviaban y muy pocas rebotaban."),
+    B("Completa: el protón tiene carga …, el neutrón …, y el electrón …; los dos primeros están en el …, y el tercero en la …", "Positiva; ninguna (neutro); negativa; núcleo; corteza."),
+    B("Define número atómico y número másico.", "Z: número de protones del núcleo. A: número de protones más neutrones."),
+    B("Calcula los protones, neutrones y electrones de ¹⁶₈O.", "8 p⁺, 8 n, 8 e⁻."),
+    B("Calcula los protones, neutrones y electrones de ⁵⁶₂₆Fe.", "26 p⁺, 30 n, 26 e⁻."),
+    B("¿Qué son los isótopos? Pon un ejemplo.", "Átomos del mismo elemento (mismo Z) con distinto número de neutrones (distinto A); por ejemplo, carbono-12 y carbono-14."),
+    B("¿Qué es un catión y qué es un anión?", "Catión: ion positivo, que ha perdido electrones. Anión: ion negativo, que ha ganado electrones."),
+    B("Distribuye en capas los electrones de: litio (Z = 3), carbono (Z = 6), argón (Z = 18).", "Li: 2, 1. C: 2, 4. Ar: 2, 8, 8."),
+    B("Nombra los tres tipos de radiación y qué material detiene a cada uno.", "Alfa: papel. Beta: lámina de aluminio. Gamma: plomo u hormigón grueso."),
+    M("¿Por qué el modelo de Thomson no podía explicar el experimento de Rutherford?", "Porque con la carga positiva repartida por todo el átomo no había ningún punto con carga y masa concentradas capaz de hacer rebotar a las partículas alfa."),
+    M("Explica qué aportó el modelo de Bohr respecto al de Rutherford.", "Que los electrones solo pueden estar en órbitas permitidas con energías fijas y no pierden energía en ellas; al saltar entre órbitas absorben o emiten luz de energías concretas, lo que explica los espectros."),
+    M("Completa la tabla para ³⁹₁₉K, ⁴⁰₂₀Ca²⁺ y ¹⁹₉F⁻: protones, neutrones y electrones.", "K: 19 p, 20 n, 19 e. Ca²⁺: 20 p, 20 n, 18 e. F⁻: 9 p, 10 n, 10 e."),
+    M("Un ion tiene 26 protones, 30 neutrones y 23 electrones. Escribe su símbolo.", "Z = 26 (hierro), A = 56, carga 26 − 23 = +3: ⁵⁶₂₆Fe³⁺."),
+    M("Un ion tiene 16 protones, 16 neutrones y 18 electrones. Escribe su símbolo.", "Z = 16 (azufre), A = 32, carga −2: ³²₁₆S²⁻."),
+    M("¿Son isótopos ¹⁴₆C y ¹⁴₇N? Justifícalo.", "No: tienen distinto número de protones (6 y 7), son elementos diferentes, aunque tengan el mismo número másico."),
+    M("El litio tiene un 7,5 % de litio-6 y un 92,5 % de litio-7. Calcula su masa atómica media.", "(6 · 7,5 + 7 · 92,5) / 100 = (45 + 647,5) / 100 = 6,925 ≈ 6,93 u."),
+    M("Indica qué ion forman el aluminio (Z = 13) y el oxígeno (Z = 8) según su distribución en capas.", "Al: 2, 8, 3 → pierde 3 → Al³⁺. O: 2, 6 → gana 2 → O²⁻."),
+    M("¿Por qué los isótopos de un elemento tienen las mismas propiedades químicas?", "Porque tienen el mismo número de protones y de electrones, y las propiedades químicas dependen de los electrones, sobre todo de los de la última capa."),
+    M("¿Por qué el átomo es eléctricamente neutro si tiene partículas cargadas?", "Porque tiene el mismo número de protones (positivos) que de electrones (negativos), y sus cargas son iguales y de signo contrario."),
+    M("Explica por qué los fuegos artificiales tienen distintos colores.", "Las sales de distintos metales se calientan, sus electrones saltan a órbitas superiores y, al volver, emiten luz de energías (colores) característicos de cada elemento: estroncio rojo, sodio amarillo, cobre verde azulado."),
+    A("Si el núcleo de un átomo de hidrógeno tuviera 1 cm de diámetro, el átomo tendría 1 km. ¿Cuántas veces es mayor el átomo? ¿Qué fracción del volumen ocupa el núcleo?", "1 km = 100.000 cm: el átomo es 10⁵ veces mayor en diámetro. El volumen va con el cubo: el núcleo ocupa (10⁻⁵)³ = 10⁻¹⁵ del volumen del átomo."),
+    A("El boro tiene dos isótopos, boro-10 y boro-11, y su masa atómica media es 10,8 u. Calcula el porcentaje de cada isótopo.", "Sea x el % de B-10: 10x + 11(100 − x) = 1.080 → −x + 1.100 = 1.080 → x = 20. B-10: 20 %, B-11: 80 %."),
+    A("Un isótopo radiactivo tiene un periodo de semidesintegración de 8 días. Si hay 80 g, ¿cuánto queda tras 32 días?", "32 / 8 = 4 periodos: 80 → 40 → 20 → 10 → 5 g."),
+    A("Unos restos de madera tienen la cuarta parte del carbono-14 que una madera actual. ¿Qué edad tienen aproximadamente? (periodo 5.730 años)", "La cuarta parte = dos periodos: 2 · 5.730 = 11.460 años."),
+    A("Explica cómo cambiaría el resultado del experimento de Rutherford si el modelo de Thomson hubiera sido correcto, y por qué.", "Todas las partículas alfa atravesarían la lámina con desviaciones muy pequeñas, porque la carga positiva repartida no crearía en ningún punto una repulsión fuerte; no habría rebotes."),
+    A("Relaciona la distribución electrónica del neón (2, 8) y del sodio (2, 8, 1) con su reactividad.", "El neón tiene la última capa completa: es muy estable y no reacciona. El sodio tiene un solo electrón de valencia que pierde con mucha facilidad para quedar como el neón: es muy reactivo."),
+    A("¿Por qué los modelos atómicos han ido cambiando? ¿Significa que los anteriores eran inútiles?", "Porque aparecieron experimentos que los modelos anteriores no explicaban (rayos catódicos, lámina de oro, espectros). No eran inútiles: explicaban bien los hechos conocidos en su época y siguen siendo útiles en su ámbito (Dalton para las reacciones, Bohr para las capas)."),
+    A("Debate: ¿deberían usarse centrales nucleares para reducir las emisiones de CO₂? Da dos argumentos a favor y dos en contra.", "A favor: producen mucha electricidad de forma estable y sin emitir CO₂; ocupan poco terreno. En contra: generan residuos radiactivos peligrosos durante miles de años; riesgo de accidentes graves; dependencia del uranio y costes altos."),
   ],
   quiz: [
-    { q: "«Átomo» significa…", o: ["pequeño", "indivisible", "partícula"], a: 1, e: "Indivisible, en griego." },
-    { q: "El electrón lo descubrió…", o: ["Dalton", "Thomson", "Bohr"], a: 1, e: "Thomson, en 1897." },
-    { q: "El núcleo atómico lo descubrió…", o: ["Rutherford", "Demócrito", "Thomson"], a: 0, e: "Rutherford." },
-    { q: "En el núcleo hay…", o: ["protones y electrones", "protones y neutrones", "solo electrones"], a: 1, e: "Protones y neutrones." },
-    { q: "El número atómico Z es el número de…", o: ["neutrones", "protones", "nucleones"], a: 1, e: "Protones." },
-    { q: "Si A = 27 y Z = 13, los neutrones son…", o: ["13", "14", "40"], a: 1, e: "27 − 13 = 14." },
-    { q: "Los isótopos se diferencian en el número de…", o: ["protones", "neutrones", "electrones de valencia"], a: 1, e: "Neutrones." },
-    { q: "Un catión se forma al…", o: ["ganar electrones", "perder electrones", "ganar protones"], a: 1, e: "Perder electrones." },
-    { q: "El Cl⁻ tiene…", o: ["17 electrones", "18 electrones", "16 electrones"], a: 1, e: "17 + 1 = 18." },
-    { q: "Las órbitas de energía fija son del modelo de…", o: ["Dalton", "Rutherford", "Bohr"], a: 2, e: "Bohr." },
+    q4("La palabra «átomo» significa…", ["pequeño", "indivisible", "partícula", "elemento"], 1, "Demócrito."),
+    q4("Dalton imaginaba los átomos como…", ["esferas macizas indivisibles", "pudin con pasas", "sistemas solares", "nubes"], 0, "1808."),
+    q4("Thomson descubrió…", ["el protón", "el neutrón", "el electrón", "el núcleo"], 2, "Rayos catódicos."),
+    q4("El experimento de la lámina de oro llevó al modelo de…", ["Dalton", "Thomson", "Rutherford", "Bohr"], 2, "Modelo nuclear."),
+    q4("La mayoría de las partículas alfa atravesaban la lámina porque…", ["el oro es blando", "el átomo es casi todo vacío", "eran muy pequeñas", "el oro es negativo"], 1, "Núcleo diminuto."),
+    q4("En el modelo de Bohr, los electrones…", ["están quietos", "giran en órbitas de energía fija", "están en el núcleo", "caen al núcleo"], 1, "Niveles de energía."),
+    q4("El neutrón tiene carga…", ["positiva", "negativa", "nula", "doble"], 2, "Descubierto por Chadwick."),
+    q4("Casi toda la masa del átomo está en…", ["la corteza", "el núcleo", "los electrones", "el vacío"], 1, "Protones y neutrones."),
+    q4("El número atómico Z indica el número de…", ["neutrones", "protones", "nucleones", "capas"], 1, "Identifica al elemento."),
+    q4("El número másico A es…", ["protones + electrones", "protones + neutrones", "solo neutrones", "solo protones"], 1, "Nucleones."),
+    q4("¿Cuántos neutrones tiene ²³₁₁Na?", ["11", "12", "23", "34"], 1, "23 − 11."),
+    q4("Los isótopos de un elemento se diferencian en el número de…", ["protones", "electrones", "neutrones", "capas"], 2, "Mismo Z, distinto A."),
+    q4("Un catión es un átomo que…", ["ha ganado electrones", "ha perdido electrones", "ha ganado protones", "ha perdido neutrones"], 1, "Carga positiva."),
+    q4("¿Cuántos electrones tiene Cl⁻ (Z = 17)?", ["16", "17", "18", "35"], 2, "Ha ganado uno."),
+    q4("¿Cuántos electrones tiene Ca²⁺ (Z = 20)?", ["18", "20", "22", "40"], 0, "Ha perdido dos."),
+    q4("La primera capa admite como máximo…", ["1 electrón", "2 electrones", "8 electrones", "18 electrones"], 1, "Capa n = 1."),
+    q4("La distribución del oxígeno (Z = 8) es…", ["2, 6", "8", "2, 8", "4, 4"], 0, "2 + 6."),
+    q4("La radiación más penetrante es la…", ["alfa", "beta", "gamma", "luz visible"], 2, "Hace falta plomo."),
+    q4("La datación con carbono-14 sirve para…", ["fabricar electricidad", "saber la edad de restos orgánicos", "curar el cáncer", "medir la temperatura"], 1, "Arqueología."),
+    q4("La primera persona con dos premios Nobel fue…", ["Rutherford", "Marie Curie", "Bohr", "Dalton"], 1, "Física y Química."),
   ],
   examen: [
-    { q: "La masa del electrón comparada con la del protón es…", o: ["igual", "unas 1836 veces menor", "el doble"], a: 1, e: "Unas 1836 veces menor." },
-    { q: "Un átomo neutro con 15 protones tiene…", o: ["15 electrones", "30 electrones", "0 electrones"], a: 0, e: "15 electrones." },
-    { q: "El carbono-14 se usa para…", o: ["datar restos de seres vivos", "fabricar acero", "hacer plásticos"], a: 0, e: "Datación." },
+    q4("El ion ⁵⁶₂₆Fe³⁺ tiene…", ["26 p, 30 n, 26 e", "26 p, 30 n, 23 e", "26 p, 30 n, 29 e", "30 p, 26 n, 23 e"], 1, "Pierde 3 electrones."),
+    q4("¿Cuál de estos pares son isótopos?", ["¹²C y ¹⁴N", "¹²C y ¹³C", "¹⁶O y ¹⁶N", "Na y Na⁺"], 1, "Mismo Z."),
+    q4("Un elemento con un 50 % de A = 79 y un 50 % de A = 81 tiene una masa media de…", ["79", "80", "81", "160"], 1, "Media de 79 y 81."),
+    q4("El modelo que explica los espectros de emisión es el de…", ["Dalton", "Thomson", "Rutherford", "Bohr"], 3, "Saltos entre órbitas."),
+    q4("Un átomo con distribución 2, 8, 7 tiende a formar…", ["un catión +1", "un anión −1", "un catión +7", "nada"], 1, "Gana un electrón."),
+    q4("Tras tres periodos de semidesintegración queda…", ["1/3", "1/6", "1/8", "1/9"], 2, "(1/2)³."),
+    q4("Lo que identifica a un elemento químico es…", ["su número másico", "su número de neutrones", "su número atómico", "su masa"], 2, "Número de protones."),
+    q4("¿Qué hizo rebotar a algunas partículas alfa?", ["Los electrones", "El núcleo positivo", "El vacío", "Los neutrones"], 1, "Repulsión entre cargas positivas."),
   ],
-  feynman: ["Por qué el modelo de Thomson no explicaba el experimento de Rutherford", "Cómo calcular protones, neutrones y electrones con Z y A", "Qué diferencia hay entre un isótopo y un ion"],
-  mapa: mapa("ÁTOMO", "var(--eso)", [
-    ["Modelos", "Dalton · Thomson · Rutherford · Bohr", "var(--pen)"],
-    ["Partículas", "protón · neutrón · electrón", "var(--red)"],
-    ["Números", "Z = protones · A = p + n", "var(--leaf)"],
-    ["Variantes", "isótopos · iones", "#b8860b"],
-  ], 300),
+  feynman: ["Cómo fueron cambiando los modelos atómicos y por qué", "Qué demostró el experimento de la lámina de oro", "Qué partículas forman el átomo y dónde están", "Cómo se calculan protones, neutrones y electrones con Z y A", "Qué son los isótopos y cómo se calcula la masa atómica media", "Cómo se forman los iones y qué es la radiactividad"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Protón", "Partícula del núcleo con carga +1."],
-    ["Neutrón", "Partícula del núcleo sin carga."],
-    ["Electrón", "Partícula de la corteza con carga −1, muy ligera."],
-    ["Número atómico Z", "Número de protones; identifica el elemento."],
-    ["Número másico A", "Protones + neutrones."],
-    ["Isótopos", "Mismo Z, distinto A."],
-    ["Catión / anión", "Catión: ion positivo. Anión: ion negativo."],
-    ["Modelo de Bohr", "Electrones en órbitas de energía fija."],
+    ["Dalton", "Átomos indivisibles; iguales en cada elemento."],
+    ["Thomson", "Esfera positiva con electrones incrustados."],
+    ["Rutherford", "Núcleo pequeño positivo y corteza con electrones; casi todo vacío."],
+    ["Bohr", "Electrones en órbitas de energía fija (capas)."],
+    ["Protón", "Carga +1, masa ≈ 1 u, en el núcleo."],
+    ["Neutrón", "Sin carga, masa ≈ 1 u, en el núcleo."],
+    ["Electrón", "Carga −1, masa muy pequeña, en la corteza."],
+    ["Z", "Número atómico: protones."],
+    ["A", "Número másico: protones + neutrones."],
+    ["Isótopos", "Mismo Z, distinto número de neutrones."],
+    ["Ion", "Catión (pierde e⁻, +) o anión (gana e⁻, −)."],
+    ["Radiactividad", "Emisión α, β, γ de núcleos inestables."],
   ],
-  familias: ["Construid un modelo de átomo con plastilina de tres colores para protones, neutrones y electrones.", "Buscad en un paquete de sal o en el agua mineral qué iones aparecen en la etiqueta.", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "La materia: modelos atómicos, partículas subatómicas, número atómico y másico, isótopos, iones y aplicaciones de la radiactividad (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Simular el experimento de Rutherford lanzando canicas contra objetos ocultos bajo un cartón.", "Ensayo a la llama con sales de distintos metales para ilustrar el modelo de Bohr.", "Línea del tiempo colaborativa con biografías de científicas y científicos del átomo."],
+  glosario: [
+    ["Átomo", "La partícula más pequeña de un elemento que conserva sus propiedades."],
+    ["Modelo atómico", "Representación simplificada de la estructura del átomo."],
+    ["Electrón", "Partícula subatómica con carga negativa que está en la corteza."],
+    ["Protón", "Partícula del núcleo con carga positiva."],
+    ["Neutrón", "Partícula del núcleo sin carga."],
+    ["Núcleo", "Zona central del átomo con los protones y neutrones."],
+    ["Corteza", "Zona del átomo donde se mueven los electrones."],
+    ["Nivel de energía", "Capa del átomo en la que pueden estar los electrones con una energía determinada."],
+    ["Número atómico", "Número de protones del núcleo (Z)."],
+    ["Número másico", "Número de protones más neutrones (A)."],
+    ["Isótopo", "Átomo de un elemento con un número de neutrones distinto."],
+    ["Masa atómica", "Masa media de los átomos de un elemento según la abundancia de sus isótopos."],
+    ["Unidad de masa atómica", "u, la doceava parte de la masa de un átomo de carbono-12."],
+    ["Electrones de valencia", "Electrones de la última capa."],
+    ["Catión", "Ion con carga positiva."],
+    ["Anión", "Ion con carga negativa."],
+    ["Radiactividad", "Emisión espontánea de radiación por núcleos inestables."],
+    ["Periodo de semidesintegración", "Tiempo en el que se desintegran la mitad de los núcleos de una muestra radiactiva."],
+  ],
+  situacion: {
+    titulo: "La exposición de los modelos atómicos",
+    reto: "El centro organiza una semana de la ciencia. Vuestra clase prepara una exposición interactiva que cuente la historia del átomo, con maquetas, un experimento simulado y fichas para que alumnos de 1º de ESO aprendan a «construir» átomos e iones.",
+    pasos: [
+      "Repartid los modelos (Demócrito, Dalton, Thomson, Rutherford, Bohr, cuántico) y buscad el contexto, el experimento clave y sus limitaciones.",
+      "Construid una maqueta de cada modelo con materiales reciclados.",
+      "Simulad el experimento de Rutherford lanzando canicas contra un objeto escondido bajo un tablero y deduciendo su forma.",
+      "Preparad un juego de tarjetas para formar átomos e iones a partir de Z, A y la carga.",
+      "Elaborad una línea del tiempo con científicos y científicas, incluida Marie Curie.",
+      "Presentad la exposición y recoged las opiniones de los visitantes.",
+    ],
+    producto: "Una exposición con maquetas, una línea del tiempo, la simulación del experimento de Rutherford y un juego de tarjetas sobre átomos e iones.",
+    evaluacion: ["Explican correctamente cada modelo, su experimento clave y sus limitaciones.", "Las maquetas y la simulación son rigurosas y comprensibles.", "El juego permite calcular correctamente partículas, isótopos e iones.", "La presentación es clara y adaptada al público."],
   },
-  fuentes: [RD, wiki("Modelo atómico", "Modelo_at%C3%B3mico"), wiki("Isótopo", "Is%C3%B3topo")],
-  revisado: "2026-11-12",
+  familias: [
+    "Mirad juntos un vídeo de fuegos artificiales y hablad de por qué cada color corresponde a un metal distinto.",
+    "Construid átomos con bolitas de plastilina de tres colores para protones, neutrones y electrones.",
+    "Buscad en casa la etiqueta de agua mineral y localizad los iones que contiene (Na⁺, Ca²⁺, Cl⁻…).",
+    "Leed la biografía de Marie Curie y comentad las dificultades que tuvo como científica.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La materia»: estructura atómica, desarrollo histórico de los modelos atómicos, partículas subatómicas, número atómico y másico, isótopos y masa atómica, distribución electrónica en capas, formación de iones y aplicaciones de los radioisótopos.`,
+    ideas: [
+      "Simulación del experimento de Rutherford con canicas y un objeto oculto bajo una tabla.",
+      "Ensayo a la llama con sales de distintos metales (con las debidas precauciones) o vídeo de espectros.",
+      "Taller de construcción de átomos e iones con fichas y tableros.",
+      "Simulación de la desintegración radiactiva lanzando monedas o dados.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Modelo atómico", "Modelo_at%C3%B3mico"),
+    wiki("Isótopo", "Is%C3%B3topo"),
+    { t: "Simulación «Construye un átomo», PhET", url: "https://phet.colorado.edu/es/simulations/build-an-atom" },
+  ],
+  revisado: "2026-11-13",
 };
