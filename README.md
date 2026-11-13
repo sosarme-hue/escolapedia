@@ -33,6 +33,21 @@ Modelo: `src/temas/pri-1-mat-unidades-decenas.js` (ayudas de dibujo en `src/tema
 - Las páginas de 1º y 2º de Primaria usan letra grande (clase `peque`).
 - Después: `node build.js && node tools/desbordes.js 1-primaria` (0 desbordes) y `node tools/pdfs.js`.
 
+## Tema nivel libro de 1º de Primaria
+
+Mismo esquema que el «Tema nivel libro» (lectura, apartados numerados, ejercicios por niveles, glosario y situación) pero **a la medida de un niño de 6 años**: frases cortas (máx. 12 palabras), vocabulario sencillo y dibujos grandes. Se reescriben los `pri-1-*` existentes (mismo curso, materia y título); ayudas nuevas en `_pri1L<n>.js`.
+
+- `lectura`: «Para empezar», un cuento o situación corta de 80 a 120 palabras con personajes de su edad.
+- `bloques`: 10 a 12 apartados numerados, de 50 a 90 palabras cada uno y **siempre** con `svg` propio, grande y claro. Unas 700 a 1.000 palabras en total. Incluir «¿Para qué sirve?», un juego y un repaso.
+- `figura`, `video` infantil en castellano y 2 o 3 vídeos de bloque (`python3 -I tools/videos.py`, nunca inventar ids). Inglés y catalán con vídeos en su lengua.
+- `ejemplosTitulo: "Lo hacemos juntos"` con 4 ejemplos; `errores`: 4.
+- `ejercicios`: 18 a 24 con `nivel` (básico, medio, avanzado; unos 8/9/5), de contar, rodear, unir, dibujar, completar o decir en voz alta, con solución para las familias.
+- `quiz`: 12 preguntas con 3 opciones; `examen`: 6; `tarjetas`: 10.
+- `glosario`: 8 a 10 «palabras nuevas» con definición de una frase.
+- `situacion`: reto sencillo de clase o casa (3 o 4 pasos, producto y cómo se evalúa).
+- `familias` (4 ideas) y `profesores` (RD 157/2022). `minutos`: 45 a 60.
+- Letra grande (clase `peque`). Después: `node build.js && node tools/desbordes.js 1-primaria` (0 desbordes).
+
 ## Tema de Infantil (3, 4 y 5 años)
 
 Modelo de estructura: los temas `pri-1-*` (ayudas en `_pri1.js`), pero **más corto**: el niño no lee, el tema se mira y se hace con un adulto. Ficheros `inf-<edad>-<sigla>-<slug>.js` con `curso: "3-anos"`, `"4-anos"` o `"5-anos"`; listas en `src/listas-infantil.js`.
