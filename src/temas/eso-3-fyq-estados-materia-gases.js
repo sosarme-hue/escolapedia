@@ -1,170 +1,242 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
+// Física y Química 3º ESO · Los estados de la materia y los gases (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, graf, rejilla, barras, ciclo, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["estados-materia-gases"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "Los estados de la materia y los gases",
-  minutos: 55,
-  objetivos: ["Describir los estados de agregación con la teoría cinético-molecular", "Explicar los cambios de estado e interpretar curvas de calentamiento", "Relacionar presión, volumen y temperatura de un gas", "Aplicar las leyes de Boyle, Charles y Gay-Lussac"],
-  claves: ["estado de agregación", "teoría cinético-molecular", "cambio de estado", "presión", "ley de Boyle", "ley de Charles", "ley de Gay-Lussac", "kelvin"],
+  minutos: 110,
+  objetivos: [
+    "Describir los estados sólido, líquido y gaseoso y explicarlos con la teoría cinético-molecular",
+    "Identificar y explicar los cambios de estado, la evaporación y la ebullición",
+    "Interpretar curvas de calentamiento y enfriamiento de sustancias puras",
+    "Explicar la presión de un gas y la presión atmosférica con el modelo de partículas",
+    "Aplicar las leyes de Boyle, Charles y Gay-Lussac y la ecuación general de los gases",
+    "Relacionar el comportamiento de los gases con fenómenos y aparatos de la vida diaria",
+  ],
+  claves: ["estado sólido", "estado líquido", "estado gaseoso", "teoría cinético-molecular", "cambio de estado", "evaporación", "ebullición", "curva de calentamiento", "presión", "ley de Boyle", "ley de Charles", "ley de Gay-Lussac"],
   pregunta: {
-    texto: "Si dejas una botella de plástico cerrada en el coche al sol de agosto, se hincha. Si la sacas de la nevera y la cierras, al calentarse en la mesa también se hincha. ¿Qué está pasando dentro?",
-    respuesta: "El aire está formado por partículas que se mueven sin parar y chocan contra las paredes. Al subir la <mark>temperatura</mark>, se mueven más rápido y chocan con más fuerza: aumenta la <mark>presión</mark> y la botella se hincha. Es la ley de Gay-Lussac en tu coche.",
+    texto: "Si dejas un balón bien inflado en el coche al sol, por la tarde está durísimo; si lo dejas en la terraza una noche de invierno, a la mañana siguiente parece desinflado. ¿Se ha escapado aire por la noche?",
+    respuesta: "No necesariamente. Al <mark>enfriarse</mark>, las partículas del aire se mueven más despacio y chocan con menos fuerza y frecuencia contra la goma: la <b>presión</b> baja y el balón parece blando. Al <mark>calentarse</mark> ocurre lo contrario. Es la <b>ley de Gay-Lussac</b>: a volumen constante, la presión de un gas es proporcional a su temperatura absoluta.",
+  },
+  lectura: {
+    titulo: "El aire que pesa",
+    html: `<p>Durante siglos se pensó que el aire no pesaba nada y que «la naturaleza tiene horror al vacío». Pero en el siglo XVII los fontaneros de Florencia se toparon con un misterio: por mucho que se esforzaran, las bombas de los pozos no conseguían subir el agua a más de unos diez metros de altura.</p><p>En 1643, Evangelista Torricelli, alumno de Galileo, ideó un experimento genial. Llenó de mercurio un tubo de vidrio de un metro, cerrado por un extremo, lo tapó con el dedo y lo puso boca abajo en una cubeta también con mercurio. Al quitar el dedo, el mercurio bajó hasta quedarse a unos 76 centímetros de altura, dejando arriba un espacio vacío. ¿Qué sostenía esa columna? El peso del aire que presionaba sobre la cubeta. Torricelli había inventado el barómetro y demostrado que vivimos en el fondo de un océano de aire.</p><p>Pocos años después, Blaise Pascal pidió a su cuñado que subiera el tubo a una montaña: arriba, la columna de mercurio era más baja, porque había menos aire encima. Y en 1654, en Magdeburgo, Otto von Guericke sacó el aire de dos semiesferas de cobre unidas: ni dieciséis caballos tirando lograron separarlas. Hoy sabemos que sobre cada centímetro cuadrado de nuestra piel el aire empuja con la fuerza de un kilo. No lo notamos porque el aire de nuestro interior empuja con la misma fuerza hacia fuera.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Los tres estados de la materia</h3><p>En la naturaleza la materia aparece en tres <b>estados de agregación</b> principales. Los <mark>sólidos</mark> tienen <b>forma y volumen fijos</b>, no se pueden comprimir y no fluyen. Los <mark>líquidos</mark> tienen <b>volumen fijo</b> pero adoptan la <b>forma del recipiente</b>, fluyen y apenas se comprimen. Los <mark>gases</mark> no tienen ni forma ni volumen propios: ocupan <b>todo el recipiente</b>, se comprimen con facilidad y se expanden. Existe un cuarto estado, el <b>plasma</b>, un gas muy caliente con partículas cargadas, que forma las estrellas, los rayos y la luz de los tubos fluorescentes.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Partículas en los tres estados: ordenadas y juntas en el sólido, juntas pero desordenadas en el líquido y muy separadas en el gas">${BG}
-        ${[0, 1, 2].map(k => `<rect x="${12 + k * 82}" y="40" width="72" height="90" rx="6" fill="none" stroke="var(--ink)" stroke-width="2"/>`).join("")}
-        ${Array.from({ length: 20 }, (_, i) => `<circle cx="${22 + (i % 4) * 17}" cy="${66 + Math.floor(i / 4) * 14}" r="6" fill="var(--pen)"/>`).join("")}
-        ${[[104, 120], [118, 116], [132, 122], [146, 118], [110, 106], [126, 104], [142, 106], [100, 92], [116, 92], [134, 90], [150, 94], [108, 78], [128, 80]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="6" fill="var(--water)"/>`).join("")}
-        ${[[190, 54], [222, 62], [206, 92], [234, 110], [186, 120]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="6" fill="var(--inf)"/>`).join("")}
-        ${[["sólido", 48], ["líquido", 130], ["gas", 212]].map(([n, x]) => t(x, 28, n, { size: 12 })).join("")}
-        ${[["ordenadas", 48], ["juntas, se deslizan", 130], ["muy separadas", 212]].map(([n, x]) => t(x, 150, n, { size: 9, weight: 400 })).join("")}</svg>`,
-      video: { id: "cux9sSjtsgw", titulo: "ESTADOS DE AGREGACIÓN DE LA MATERIA [Fácil y Rápido]", canal: "A Cierta Ciencia", vistas: 1258175 },
-    },
-    {
-      html: `<h3>La teoría cinético-molecular</h3><p>Para explicar estas propiedades, los científicos proponen la <mark>teoría cinético-molecular</mark>, un modelo con cuatro ideas. Primera: la materia está formada por <b>partículas</b> muy pequeñas. Segunda: entre las partículas hay <b>espacio vacío</b>. Tercera: las partículas están en <b>movimiento continuo</b>, y se mueven más deprisa cuanto mayor es la temperatura. Cuarta: entre ellas hay <b>fuerzas de atracción</b>, que son fuertes en los sólidos, menores en los líquidos y casi nulas en los gases. En los sólidos las partículas solo vibran en su sitio; en los líquidos se deslizan unas sobre otras; en los gases se mueven libremente en línea recta y chocan entre sí y con las paredes.</p>`,
-      video: { id: "NGVbvm2-18U", titulo: "Teoría CINÉTICO MOLECULAR de la materia", canal: "Susi Profe", vistas: 489292 },
-    },
-    {
-      html: `<h3>Los cambios de estado</h3><p>Al calentar o enfriar, la materia cambia de estado. Los cambios <b>progresivos</b> absorben energía: la <b>fusión</b> (sólido a líquido), la <b>vaporización</b> (líquido a gas) y la <b>sublimación</b> (sólido a gas directamente, como el hielo seco o la naftalina). Los cambios <b>regresivos</b> desprenden energía: la <b>solidificación</b> (líquido a sólido), la <b>condensación</b> (gas a líquido, como el vaho en un espejo) y la <b>sublimación inversa</b> o deposición (gas a sólido, como la escarcha). En un cambio de estado la sustancia no cambia: el hielo, el agua y el vapor son siempre agua. Es un <mark>cambio físico</mark>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Triángulo de los cambios de estado: fusión y solidificación entre sólido y líquido, vaporización y condensación entre líquido y gas, sublimación y deposición entre sólido y gas">${BG}
-        ${caja(14, 130, 70, 32, "SÓLIDO", "var(--pen)", { size: 11 })}${caja(176, 130, 70, 32, "LÍQUIDO", "var(--water)", { size: 11 })}${caja(95, 14, 70, 32, "GAS", "var(--inf)", { size: 11 })}
-        ${fl(86, 140, 174, 140, "var(--red)", 2)}${fl(174, 154, 86, 154, "var(--pen)", 2)}${t(130, 134, "fusión", { size: 10, color: "var(--red)" })}${t(130, 172, "solidificación", { size: 10, color: "var(--pen)" })}
-        ${fl(200, 128, 156, 48, "var(--red)", 2)}${fl(146, 48, 190, 128, "var(--pen)", 2)}${t(236, 86, "vaporiz.", { size: 10, anchor: "end", color: "var(--red)" })}${t(168, 104, "conden.", { size: 10, anchor: "end", color: "var(--pen)" })}
-        ${fl(40, 128, 96, 40, "var(--red)", 2)}${fl(106, 48, 56, 128, "var(--pen)", 2)}${t(14, 80, "sublim.", { size: 10, anchor: "start", color: "var(--red)" })}${t(84, 104, "depos.", { size: 10, anchor: "start", color: "var(--pen)" })}</svg>`,
-    },
-    {
-      html: `<h3>Evaporación y ebullición</h3><p>La vaporización puede ocurrir de dos formas. La <mark>evaporación</mark> se produce solo en la <b>superficie</b> del líquido y a <b>cualquier temperatura</b>: por eso la ropa tendida se seca aunque no haga calor. Es más rápida si hace calor, si hay viento o si el líquido está extendido. La <mark>ebullición</mark> se produce en <b>todo el volumen</b> del líquido, con burbujas, y solo a una temperatura concreta, la <b>temperatura de ebullición</b>. La evaporación absorbe calor de lo que la rodea: por eso sudar nos refresca y el botijo mantiene fresca el agua, porque un poco se evapora por los poros del barro y enfría el resto.</p>`,
-    },
-    {
-      html: `<h3>La curva de calentamiento</h3><p>Si calentamos hielo a −20 °C y medimos la temperatura cada minuto, obtenemos una <b>curva de calentamiento</b>. Primero la temperatura sube hasta 0 °C. Después se mantiene <mark>constante</mark> mientras el hielo se funde, aunque sigamos calentando: toda la energía se usa en separar las partículas, no en moverlas más rápido. Cuando todo es líquido, la temperatura vuelve a subir hasta 100 °C, y allí se queda de nuevo constante durante la ebullición. Esos <b>tramos horizontales</b> indican los cambios de estado y sus temperaturas son propiedades características de las <b>sustancias puras</b>. Una mezcla no tiene tramos horizontales tan claros.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Curva de calentamiento del agua: sube hasta 0 grados, tramo horizontal de fusión, sube hasta 100, tramo horizontal de ebullición y vuelve a subir">${BG}
-        <path d="M40 16 V 156 H 246" stroke="var(--muted)" stroke-width="2" fill="none"/>
-        ${t(246, 172, "tiempo", { size: 10, anchor: "end", color: "var(--muted)" })}${t(44, 14, "T (°C)", { size: 10, anchor: "start", color: "var(--muted)" })}
-        <path d="M40 146 L 64 122 H 104 L 144 52 H 204 L 236 30" stroke="var(--red)" stroke-width="3" fill="none"/>
-        <line x1="40" y1="122" x2="64" y2="122" stroke="var(--muted)" stroke-dasharray="3 3"/><line x1="40" y1="52" x2="144" y2="52" stroke="var(--muted)" stroke-dasharray="3 3"/>
-        ${t(34, 126, "0", { size: 10, anchor: "end" })}${t(34, 56, "100", { size: 10, anchor: "end" })}
-        ${t(84, 114, "fusión", { size: 10, color: "var(--pen)" })}${t(174, 44, "ebullición", { size: 10, color: "var(--pen)" })}
-        ${t(100, 140, "sólido + líquido", { size: 9, weight: 400 })}${t(174, 70, "líquido + gas", { size: 9, weight: 400 })}</svg>`,
-    },
-    {
-      html: `<h3>La presión de un gas</h3><p>Las partículas de un gas chocan continuamente contra las paredes del recipiente. Cada choque empuja un poquito la pared; millones de choques por segundo producen una fuerza repartida sobre toda la superficie: es la <mark>presión</mark> del gas. La presión es la fuerza por unidad de superficie y su unidad en el SI es el <b>pascal (Pa)</b>. También se usan la <b>atmósfera (atm)</b> y el <b>milímetro de mercurio (mmHg)</b>: <b>1 atm = 760 mmHg = 101.325 Pa</b>. La <b>presión atmosférica</b> es la que ejerce el aire sobre nosotros; disminuye con la altura, porque arriba hay menos aire. Se mide con el <b>barómetro</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Recipiente con partículas de gas que chocan contra las paredes; cada choque empuja y el conjunto de choques es la presión">${BG}
-        <rect x="40" y="30" width="180" height="120" rx="8" fill="none" stroke="var(--ink)" stroke-width="3"/>
-        ${[[80, 60, 1, 1], [150, 70, 1, -1], [110, 110, -1, 1], [180, 120, 1, 1], [70, 128, -1, 1], [196, 48, 1, -1]].map(([x, y, a, b]) => `<circle cx="${x}" cy="${y}" r="6" fill="var(--inf)"/><line x1="${x}" y1="${y}" x2="${x + a * 16}" y2="${y + b * 12}" stroke="var(--inf)" stroke-width="1.5"/>`).join("")}
-        ${[[220, 60], [220, 120], [40, 90]].map(([x, y]) => `<path d="M${x - 5} ${y - 7} L ${x + 5} ${y} L ${x - 5} ${y + 7}" stroke="var(--red)" stroke-width="2" fill="none" transform="${x === 40 ? `rotate(180 ${x} ${y})` : ""}"/>`).join("")}
-        ${t(130, 20, "choques contra las paredes", { size: 11, color: "var(--red)" })}${t(130, 170, "1 atm = 760 mmHg = 101.325 Pa", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>La ley de Boyle: presión y volumen</h3><p>Si tapamos la salida de una jeringa y empujamos el émbolo, el aire se comprime y cada vez cuesta más. El físico Robert Boyle estudió este fenómeno en el siglo XVII. A <b>temperatura constante</b>, la presión y el volumen de un gas son <mark>inversamente proporcionales</mark>: si el volumen se reduce a la mitad, la presión se duplica. Su producto se mantiene constante: <b>P₁ · V₁ = P₂ · V₂</b>. Con el modelo de partículas se entiende bien: en un volumen más pequeño las partículas tienen menos espacio y chocan con más frecuencia contra las paredes, así que la presión aumenta. Por eso los buceadores no deben aguantar la respiración al subir.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos jeringas: con 20 mililitros el gas tiene 1 atmósfera; al comprimirlo a 10 mililitros la presión sube a 2 atmósferas">${BG}
-        ${[[50, 180, "V = 20 mL", "P = 1 atm"], [110, 90, "V = 10 mL", "P = 2 atm"]].map(([y, w, v, p]) => `<rect x="30" y="${y}" width="200" height="34" rx="4" fill="none" stroke="var(--ink)" stroke-width="2"/><rect x="31" y="${y + 1}" width="${w - 2}" height="32" fill="var(--inf)" fill-opacity=".18"/><rect x="${30 + w}" y="${y - 4}" width="8" height="42" fill="var(--muted)"/><line x1="${38 + w}" y1="${y + 17}" x2="246" y2="${y + 17}" stroke="var(--muted)" stroke-width="4"/>${t(30 + w / 2, y + 22, v, { size: 11 })}${t(30, y - 8, p, { size: 11, anchor: "start", color: "var(--red)" })}`).join("")}
-        ${t(130, 170, "P · V = constante", { size: 12, color: "var(--leaf)" })}</svg>`,
-      video: { id: "vq3-tk1xDo0", titulo: "Química: Ley de Boyle (relación entre presión y volumen)", canal: "Socratica Español", vistas: 1081441 },
-    },
-    {
-      html: `<h3>La ley de Charles: volumen y temperatura</h3><p>Si metemos un globo en el congelador, se encoge; al sacarlo, vuelve a hincharse. Jacques Charles comprobó que, a <b>presión constante</b>, el volumen de un gas es <mark>directamente proporcional a su temperatura absoluta</mark>: <b>V₁ / T₁ = V₂ / T₂</b>. Al calentar el gas, las partículas se mueven más rápido, chocan con más fuerza y empujan las paredes flexibles hacia fuera, hasta que el gas ocupa más espacio. Es el principio de los <b>globos aerostáticos</b>: el aire caliente del interior se expande, se vuelve menos denso que el aire frío de fuera y el globo sube. <b>Importante</b>: en las leyes de los gases la temperatura siempre se expresa en <b>kelvin</b>.</p>`,
-    },
-    {
-      html: `<h3>La ley de Gay-Lussac: presión y temperatura</h3><p>Si el gas está en un recipiente <b>rígido</b>, su volumen no puede cambiar. Joseph Gay-Lussac observó que entonces la presión es <mark>directamente proporcional a la temperatura absoluta</mark>: <b>P₁ / T₁ = P₂ / T₂</b>. Al calentar, las partículas chocan más rápido y con más fuerza contra las paredes. Por eso los aerosoles llevan el aviso «no exponer a temperaturas superiores a 50 °C» y no se deben tirar al fuego: la presión podría hacerlos explotar. También por eso la presión de los neumáticos se mide en frío: tras un viaje largo, el aire está caliente y la presión es mayor.</p>${tabla(["Ley", "Constante", "Relación", "Fórmula"], [["Boyle", "T", "P y V inversas", "P₁V₁ = P₂V₂"], ["Charles", "P", "V y T directas", "V₁/T₁ = V₂/T₂"], ["Gay-Lussac", "V", "P y T directas", "P₁/T₁ = P₂/T₂"]])}`,
-    },
-    {
-      html: `<h3>La ecuación general de los gases</h3><p>Las tres leyes se pueden reunir en una sola, la <mark>ecuación general de los gases</mark>, para una misma cantidad de gas que cambia de condiciones: <b>P₁ · V₁ / T₁ = P₂ · V₂ / T₂</b>. Si una de las tres magnitudes se mantiene constante, se simplifica y obtenemos la ley correspondiente. Para resolver problemas conviene seguir siempre los mismos pasos: anotar los datos iniciales y finales, <b>pasar la temperatura a kelvin</b>, comprobar que las unidades de presión y volumen son las mismas en los dos estados, despejar la incógnita y comprobar si el resultado tiene sentido: si el gas se calienta a volumen constante, su presión debe aumentar.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Ecuación general de los gases y las tres leyes que salen de ella al dejar fija la temperatura, la presión o el volumen">${BG}
-        ${caja(30, 18, 200, 40, "P₁V₁/T₁ = P₂V₂/T₂", "var(--leaf)", { size: 14 })}
-        ${fl(70, 60, 50, 92)}${fl(130, 60, 130, 92)}${fl(190, 60, 210, 92)}
-        ${caja(8, 96, 78, 34, "T fija", "var(--pen)", { size: 11 })}${caja(91, 96, 78, 34, "P fija", "var(--red)", { size: 11 })}${caja(174, 96, 78, 34, "V fijo", "#b8860b", { size: 11 })}
-        ${t(47, 150, "Boyle", { size: 12, color: "var(--pen)" })}${t(130, 150, "Charles", { size: 12, color: "var(--red)" })}${t(213, 150, "Gay-Lussac", { size: 12, color: "#b8860b" })}
-        ${t(130, 172, "T siempre en kelvin", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>Los gases en la vida diaria</h3><p>Las leyes de los gases explican muchas situaciones cotidianas. La <b>olla exprés</b> mantiene el vapor encerrado: la presión aumenta, el agua hierve a unos 120 °C y la comida se cuece antes. Al <b>subir una montaña</b> o en un avión, la presión exterior baja, nos taponamos los oídos y las bolsas de patatas se hinchan. Al <b>respirar</b>, el diafragma baja, el volumen de los pulmones aumenta, la presión dentro disminuye (ley de Boyle) y el aire entra. Las <b>bombonas de butano</b> guardan mucho gas en poco espacio porque, a alta presión, el butano se licúa. Y una pelota de baloncesto bota peor en la calle en invierno, porque con el frío baja la presión del aire de dentro.</p>`,
-    },
+    bloque({ h: "1.1 Los tres estados de la materia", p: [
+      "En la naturaleza, la materia se presenta principalmente en tres <mark>estados de agregación</mark>: sólido, líquido y gaseoso. Los <b>sólidos</b> tienen forma y volumen propios: una piedra no cambia de forma al moverla de recipiente, y no se pueden comprimir. Los <b>líquidos</b> tienen volumen propio, pero no forma propia: adoptan la forma del recipiente que los contiene, pueden fluir y apenas se comprimen.",
+      "Los <b>gases</b> no tienen ni forma ni volumen propios: ocupan todo el recipiente que los contiene, se pueden <b>comprimir</b> mucho (como el aire de una bombona de buceo) y se <b>expanden</b> hasta llenar cualquier espacio, como el olor de un perfume que se extiende por una habitación. Los líquidos y los gases se llaman <b>fluidos</b> porque pueden fluir. Una misma sustancia puede estar en cualquiera de los tres estados según su temperatura y la presión: el agua es hielo, agua líquida o vapor. Existe un cuarto estado, el <b>plasma</b>, un gas tan caliente que sus átomos han perdido electrones; es el estado de las estrellas, los rayos o las auroras, y en realidad es el más abundante del universo.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.2 La teoría cinético-molecular", p: [
+      "¿Por qué los sólidos, los líquidos y los gases se comportan de forma tan distinta? La <mark>teoría cinético-molecular</mark> (TCM) lo explica con unas pocas ideas. Primera: la materia está formada por <b>partículas</b> muy pequeñas (átomos o moléculas) entre las que hay espacio vacío. Segunda: las partículas están en <b>continuo movimiento</b>, y se mueven más deprisa cuanto mayor es la temperatura.",
+      "Tercera: entre las partículas existen <b>fuerzas de atracción</b>, más intensas cuanto más cerca están. El estado de una sustancia depende del equilibrio entre estas fuerzas, que tienden a mantener las partículas unidas, y el movimiento, que tiende a separarlas. Cuarta, en los gases: las partículas chocan entre sí y con las paredes del recipiente sin perder energía, y esos choques producen la <b>presión</b>. La TCM es un <b>modelo</b>: nadie ha visto las partículas moverse, pero el modelo explica y predice con éxito cómo se comportan los gases, por qué la materia se dilata al calentarse o por qué un terrón de azúcar se disuelve. El movimiento browniano, el baile al azar de partículas de polen en el agua, fue una de las primeras pruebas de que las moléculas se mueven.",
+    ], svg: ficha("Postulados de la teoría cinético-molecular", "Teoría cinético-molecular", ["Partículas con vacío entre ellas", "En movimiento continuo", "Más rápido a más temperatura", "Se atraen entre sí"], "var(--pen)"), video: S.bvideos[0] }),
+    bloque({ h: "1.3 Los estados según la teoría cinético-molecular", p: [
+      "En un <b>sólido</b>, las fuerzas de atracción son muy intensas: las partículas están muy juntas, ocupando posiciones fijas y ordenadas, y solo pueden <b>vibrar</b> alrededor de ellas. Por eso tienen forma y volumen fijos y no se comprimen. Muchos sólidos forman <b>cristales</b>, con las partículas colocadas en redes regulares, como la sal o el cuarzo.",
+      "En un <b>líquido</b>, las fuerzas son algo menores: las partículas siguen muy juntas, por eso el volumen es fijo y casi no se comprimen, pero pueden <b>deslizarse</b> unas sobre otras, y por eso el líquido fluye y toma la forma del recipiente. En un <b>gas</b>, las fuerzas de atracción son prácticamente nulas: las partículas están muy separadas y se mueven <b>libremente y a gran velocidad</b> en todas direcciones, en línea recta hasta que chocan. Como casi todo es espacio vacío, los gases se comprimen con facilidad y se expanden hasta ocupar todo el recipiente. La difusión, la mezcla espontánea de dos gases, se explica por este movimiento: las moléculas de un perfume se cuelan entre las del aire y lo invaden todo.",
+    ], svg: rejilla("Comparación de los estados según la teoría cinético-molecular", ["", "Sólido", "Gas"], [["Distancia", "muy juntas", "muy separadas"], ["Fuerzas", "muy fuertes", "casi nulas"], ["Movimiento", "vibran", "libre y rápido"], ["Forma", "propia", "la del recipiente"], ["Compresión", "no", "sí, mucho"]], "var(--pen)") }),
+    bloque({ h: "2.1 Los cambios de estado", p: [
+      "Al calentar o enfriar una sustancia, o al cambiar la presión, puede pasar de un estado a otro: es un <mark>cambio de estado</mark>. Es un cambio físico, porque la sustancia sigue siendo la misma. Los cambios que necesitan calor son progresivos: la <b>fusión</b> (sólido → líquido), la <b>vaporización</b> (líquido → gas) y la <b>sublimación</b> (sólido → gas, como la naftalina o el hielo seco). Los que desprenden calor son regresivos: la <b>solidificación</b> (líquido → sólido), la <b>condensación</b> (gas → líquido) y la <b>sublimación inversa</b> o deposición (gas → sólido, como la escarcha).",
+      "La TCM los explica así: al calentar un sólido, sus partículas vibran cada vez con más energía; a la temperatura de fusión, la vibración es tan fuerte que vencen en parte las fuerzas de atracción y empiezan a deslizarse: se funde. Si se sigue calentando el líquido, llega un momento en que las partículas tienen energía suficiente para escapar del todo y separarse: se vaporiza. Al enfriar, ocurre lo contrario: las partículas pierden energía, las fuerzas las vuelven a juntar y el gas se condensa o el líquido se solidifica.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "2.2 Evaporación y ebullición", p: [
+      "La vaporización puede producirse de dos maneras. La <mark>evaporación</mark> ocurre solo en la <b>superficie</b> del líquido y a <b>cualquier temperatura</b>: algunas partículas de la superficie, las más rápidas, consiguen escapar. Por eso la ropa tendida se seca aunque no haga calor, y un charco desaparece poco a poco. La evaporación es más rápida cuanto mayor es la temperatura, mayor es la superficie, más viento hay y menos humedad tiene el aire.",
+      "La <mark>ebullición</mark> ocurre en <b>todo el líquido</b> a la vez y a una <b>temperatura fija</b>, el punto de ebullición: se forman burbujas de vapor en el interior que suben y revientan en la superficie. Mientras el agua hierve, su temperatura no sube aunque sigamos calentando. La evaporación <b>enfría</b>: las partículas que escapan son las de más energía, y las que quedan tienen menos energía media. Por eso sudamos, para refrescarnos; por eso tenemos frío al salir del agua de la piscina, y por eso un botijo mantiene el agua fresca: el agua rezuma por el barro, se evapora y enfría el resto.",
+    ], svg: compara("Diferencias entre evaporación y ebullición", ["Evaporación", ["en la superficie", "a cualquier T", "lenta", "enfría"]], ["Ebullición", ["en todo el líquido", "a T fija", "con burbujas", "T constante"]], "var(--pen)", "var(--red)") }),
+    bloque({ h: "2.3 La curva de calentamiento", p: [
+      "Si calentamos hielo a −20 °C con un fuego constante y medimos la temperatura cada minuto, obtenemos una <mark>curva de calentamiento</mark>. Primero la temperatura sube hasta 0 °C. Entonces aparece un <b>tramo horizontal</b>: mientras el hielo se funde, la temperatura no cambia aunque sigamos dando calor. Cuando todo es líquido, la temperatura vuelve a subir hasta 100 °C, y allí aparece otro tramo horizontal mientras el agua hierve. Al final, el vapor se calienta por encima de 100 °C.",
+      "¿Adónde va el calor durante los tramos horizontales? Se emplea en <b>vencer las fuerzas de atracción</b> entre las partículas para cambiar de estado, no en hacerlas moverse más deprisa. La energía necesaria para cambiar de estado una unidad de masa se llama <b>calor latente</b>. Los tramos horizontales permiten conocer el punto de fusión y de ebullición, y son la prueba de que se trata de una <b>sustancia pura</b>: en una mezcla, como el agua con sal, la temperatura sigue cambiando durante el cambio de estado. La <b>curva de enfriamiento</b> es la inversa: la temperatura baja, se mantiene constante mientras el vapor se condensa y el líquido se solidifica, y vuelve a bajar.",
+    ], svg: S.svg[2] }),
+    bloque({ h: "2.4 Los cambios de estado en la naturaleza", p: [
+      "Los cambios de estado están por todas partes. El <mark>ciclo del agua</mark> es el gran ejemplo: el Sol evapora agua de mares, ríos y suelos; el vapor sube, se enfría y se condensa en gotitas que forman las nubes; las gotas crecen y caen como lluvia o, si hace mucho frío, solidificadas como nieve o granizo; y el agua vuelve a los ríos y al mar. En las montañas, los glaciares se funden en primavera y alimentan los ríos.",
+      "En casa también los observamos: el vaho del espejo del baño es vapor que se <b>condensa</b> al tocar una superficie fría; las gotas que «sudan» una lata fría vienen del vapor del aire, no del interior de la lata; la <b>escarcha</b> de las mañanas de invierno es vapor que pasa directamente a hielo; y los cubitos que se dejan mucho tiempo en el congelador se hacen más pequeños porque se subliman poco a poco. En la industria, los cambios de estado se usan en los frigoríficos y aires acondicionados, que evaporan y condensan un gas para transportar calor, o en la destilación, que separa líquidos por sus distintos puntos de ebullición.",
+    ], svg: ciclo("Ciclo del agua con sus cambios de estado", ["Evaporación", "Condensación", "Precipitación", "Escorrentía"], "var(--pen)", "Ciclo del agua") }),
+    bloque({ h: "3.1 La presión de un gas", p: [
+      "La <mark>presión</mark> es la fuerza que actúa sobre cada unidad de superficie: P = F / S. En un gas, la presión se debe a los <b>choques</b> de millones de partículas contra las paredes del recipiente. Cada choque es un pequeño empujón; todos juntos producen una fuerza constante sobre la pared. Cuantos más choques y más fuertes, mayor es la presión.",
+      "Por eso la presión de un gas aumenta si hay <b>más partículas</b> (al inflar más un balón), si el <b>volumen es menor</b> (las partículas tienen menos espacio y chocan más a menudo con las paredes) o si la <b>temperatura es mayor</b> (se mueven más deprisa y chocan con más fuerza y frecuencia). La unidad de presión en el SI es el <b>pascal</b> (Pa), que es 1 N/m², una presión muy pequeña. También se usan la <b>atmósfera</b> (atm), el milímetro de mercurio (mmHg), el bar y el hectopascal (hPa) de los mapas del tiempo. Las equivalencias son: 1 atm = 760 mmHg = 101.325 Pa ≈ 1.013 hPa. El volumen de los gases se suele medir en litros y la temperatura, siempre en kelvin para aplicar las leyes de los gases.",
+    ], extra: formula("1 atm = 760 mmHg = 101.325 Pa"), svg: S.svg[3] }),
+    bloque({ h: "3.2 La presión atmosférica", p: [
+      "La Tierra está rodeada por una capa de aire, la atmósfera, de cientos de kilómetros de espesor. El peso de todo ese aire ejerce una presión sobre todo lo que hay en la superficie: es la <mark>presión atmosférica</mark>. A nivel del mar vale, de media, 1 atm, la presión que ejerce una columna de mercurio de 76 cm, como demostró Torricelli. Se mide con el <b>barómetro</b>.",
+      "La presión atmosférica <b>disminuye con la altura</b>, porque hay menos aire encima: a 5.500 m es aproximadamente la mitad, y en la cima del Everest, un tercio. Por eso a los alpinistas les cuesta respirar, los oídos «se taponan» al subir un puerto de montaña y los aviones presurizan sus cabinas. La presión atmosférica también cambia con el tiempo meteorológico: las <b>altas presiones</b> (anticiclones) suelen traer buen tiempo, y las <b>bajas presiones</b> (borrascas), lluvia y viento. Muchas acciones cotidianas funcionan gracias a ella: beber con pajita (al aspirar bajamos la presión en la boca y el aire empuja el líquido hacia arriba), las ventosas o el cuentagotas.",
+    ], svg: barras("Presión atmosférica según la altitud", "Presión (atm)", [["Nivel del mar", 1, "var(--pen)", "1,0"], ["2.000 m", 0.78, "var(--leaf)", "0,78"], ["5.500 m", 0.5, "#b45309", "0,50"], ["Everest", 0.33, "var(--red)", "0,33"]]) }),
+    bloque({ h: "3.3 La ley de Boyle: presión y volumen", p: [
+      "En 1662, Robert Boyle estudió cómo cambia el volumen de un gas al comprimirlo, manteniendo la <b>temperatura constante</b>. Descubrió que si la presión se duplica, el volumen se reduce a la mitad; si la presión se triplica, el volumen se queda en un tercio. Es decir, presión y volumen son <b>inversamente proporcionales</b> y su producto es constante. Es la <mark>ley de Boyle-Mariotte</mark>: P₁ · V₁ = P₂ · V₂.",
+      "La gráfica P-V es una curva llamada <b>hipérbola</b>. La TCM lo explica: si reducimos el volumen a la mitad, las mismas partículas tienen la mitad de espacio y chocan el doble de veces contra cada trozo de pared, así que la presión se duplica. Lo comprobamos al tapar con el dedo la salida de una jeringuilla y apretar el émbolo: cuesta cada vez más. La ley de Boyle explica por qué los buceadores no deben aguantar la respiración al subir, ya que el aire de sus pulmones se expandiría al disminuir la presión del agua, o por qué una bolsa de patatas cerrada se hincha al subir a la montaña.",
+    ], extra: formula("P₁ · V₁ = P₂ · V₂  (T constante)"), svg: S.svg[4], video: S.bvideos[1] }),
+    bloque({ h: "3.4 La ley de Charles: volumen y temperatura", p: [
+      "Jacques Charles, un físico francés aficionado a los globos aerostáticos, estudió hacia 1787 cómo cambia el volumen de un gas al calentarlo a <b>presión constante</b>. Encontró que el volumen aumenta al aumentar la temperatura. Si la temperatura se mide en <b>kelvin</b>, la relación es de <mark>proporcionalidad directa</mark>: si la temperatura absoluta se duplica, el volumen también. Es la <b>ley de Charles</b>: V₁ / T₁ = V₂ / T₂.",
+      "La gráfica V-T es una recta que, si se prolonga, corta el eje de temperaturas en −273 °C, el cero absoluto: a esa temperatura el volumen del gas sería nulo. Por eso es imprescindible usar kelvin en estas leyes; con grados Celsius los cálculos salen mal. Con la TCM: al calentar, las partículas se mueven más deprisa y chocan con más fuerza; para que la presión no aumente, el gas se expande. Así funcionan los globos aerostáticos (el aire caliente se expande, se vuelve menos denso y el globo sube) o el globo que se infla al poner una botella en agua caliente y se desinfla al meterla en agua con hielo.",
+    ], extra: formula("V₁ / T₁ = V₂ / T₂  (P constante, T en K)"), svg: graf("Gráfica volumen-temperatura absoluta de un gas: recta que pasa por el origen", "T (K)", "V (L)", [{ p: [[0, 0], [1, 0.9]], c: "var(--red)", t: "P constante" }]), video: S.bvideos[2] }),
+    bloque({ h: "3.5 La ley de Gay-Lussac: presión y temperatura", p: [
+      "Si un gas está en un recipiente rígido, de <b>volumen constante</b>, y lo calentamos, no puede expandirse: lo que aumenta es la presión. Joseph Louis Gay-Lussac comprobó en 1802 que la presión es <mark>directamente proporcional a la temperatura absoluta</mark>: P₁ / T₁ = P₂ / T₂. Si la temperatura en kelvin se duplica, la presión también.",
+      "La TCM lo explica: al calentar, las partículas se mueven más deprisa, chocan más a menudo y con más fuerza contra las paredes, y la presión aumenta. Por esta razón los aerosoles llevan el aviso «no exponer a temperaturas superiores a 50 °C» ni tirar al fuego: la presión podría hacer estallar el envase. Los neumáticos de un coche tienen más presión después de un viaje largo, porque se calientan con el rozamiento; por eso la presión se debe medir en frío. Y una olla exprés aprovecha la relación inversa: al aumentar la presión, el agua hierve a más temperatura. Las tres leyes describen gases ideales, en los que las partículas no se atraen; los gases reales se comportan así a presiones bajas y temperaturas no muy bajas.",
+    ], extra: formula("P₁ / T₁ = P₂ / T₂  (V constante, T en K)"), svg: graf("Gráfica presión-temperatura absoluta a volumen constante: recta que pasa por el origen", "T (K)", "P (atm)", [{ p: [[0, 0], [1, 0.85]], c: "var(--pen)", t: "V constante" }]) }),
+    bloque({ h: "3.6 La ecuación general de los gases", p: [
+      "Las tres leyes anteriores se pueden reunir en una sola expresión, la <mark>ecuación general de los gases</mark>, que sirve cuando cambian a la vez la presión, el volumen y la temperatura de una misma cantidad de gas: P₁ · V₁ / T₁ = P₂ · V₂ / T₂. Si una de las tres magnitudes es constante, se simplifica y se convierte en la ley de Boyle, de Charles o de Gay-Lussac.",
+      "Para aplicarla, conviene seguir un orden: escribir los datos del estado inicial (1) y del final (2), <b>pasar la temperatura a kelvin</b>, comprobar que la presión y el volumen están en las mismas unidades en los dos estados (no hace falta pasarlos al SI, basta con que coincidan), despejar la incógnita y sustituir. Por ejemplo, un globo de 2 L a 1 atm y 27 °C (300 K) sube a una zona donde la presión es 0,5 atm y la temperatura −3 °C (270 K). Su volumen será V₂ = P₁ · V₁ · T₂ / (T₁ · P₂) = 1 · 2 · 270 / (300 · 0,5) = 3,6 L. Los globos sonda meteorológicos se expanden tanto al subir que acaban estallando a unos 30 km de altura.",
+    ], extra: formula("P₁ · V₁ / T₁ = P₂ · V₂ / T₂"), svg: S.svg[5] }),
+    bloque({ h: "3.7 Los gases en la vida diaria", p: [
+      "Los gases y sus leyes aparecen en muchísimas situaciones. El <b>aire comprimido</b> mueve herramientas y frenos de camiones, y llena las botellas de buceo, en las que caben unos 2.000 litros de aire a 200 atm. Los <b>gases licuados</b>, como el butano y el propano, se guardan como líquidos a presión para ocupar poco espacio. Las <b>bolsas de aire</b> o airbags de los coches se inflan en milésimas de segundo con el gas que produce una reacción química.",
+      "En el cuerpo humano, la <b>respiración</b> funciona por la ley de Boyle: al bajar el diafragma, el volumen de los pulmones aumenta, la presión dentro baja y entra el aire; al subir, el volumen disminuye, la presión aumenta y el aire sale. Los médicos miden la presión arterial en mmHg, una herencia del barómetro de Torricelli. Los <b>neumáticos</b>, las pelotas, los colchones hinchables o las latas de refresco con gas son otros ejemplos. Y hay que conocer los riesgos: los aerosoles no se calientan, las bombonas se guardan en lugares ventilados y lejos del sol, y nunca se inhala el gas de un mechero o de un globo.",
+    ], svg: ficha("Ejemplos cotidianos de las leyes de los gases", "Gases en la vida diaria", ["Respirar: ley de Boyle", "Globo aerostático: Charles", "Aerosol al sol: Gay-Lussac", "Butano: gas licuado"], "var(--leaf)") }),
   ],
-  figura: {
-    titulo: "Estados, cambios y leyes de los gases",
-    svg: `<svg viewBox="0 0 640 250" role="img" aria-label="A la izquierda, los tres estados con los cambios entre ellos; a la derecha, las tres leyes de los gases con su magnitud constante">
-      <rect width="640" height="250" rx="16" fill="var(--paper)"/>
-      ${caja(20, 180, 110, 44, "sólido", "var(--pen)", { size: 15 })}${caja(220, 180, 110, 44, "líquido", "var(--water)", { size: 15 })}${caja(120, 24, 110, 44, "gas", "var(--inf)", { size: 15 })}
-      ${fl(132, 196, 218, 196, "var(--red)", 3)}${fl(258, 178, 200, 70, "var(--red)", 3)}${fl(70, 178, 140, 70, "var(--red)", 3)}
-      ${t(175, 240, "calentar: fusión, vaporización, sublimación", { size: 12, color: "var(--red)" })}
-      <line x1="360" y1="20" x2="360" y2="230" stroke="var(--muted)" stroke-dasharray="4 4"/>
-      ${[["Boyle", "T constante", "P₁V₁ = P₂V₂", "var(--pen)"], ["Charles", "P constante", "V₁/T₁ = V₂/T₂", "var(--red)"], ["Gay-Lussac", "V constante", "P₁/T₁ = P₂/T₂", "#b8860b"]].map(([n, c, f, col], i) => `<rect x="380" y="${24 + i * 68}" width="240" height="56" rx="10" fill="var(--card)" stroke="${col}" stroke-width="2.5"/>${t(396, 48 + i * 68, n, { size: 15, anchor: "start", color: col, font: D })}${t(396, 68 + i * 68, c, { size: 12, anchor: "start", weight: 400 })}${t(608, 60 + i * 68, f, { size: 14, anchor: "end" })}`).join("")}
-    </svg>`,
-  },
-  video: { id: "SoDg3UDBqYU", titulo: "LEYES de los GASES: truco fácil para aprender las fórmulas", canal: "Susi Profe", vistas: 1152651, megusta: 0, busqueda: "leyes de los gases Boyle Charles Gay-Lussac" },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Un gas ocupa 6 L a 1 atm. Si, sin cambiar la temperatura, la presión sube a 3 atm, ¿qué volumen ocupa?",
-      pasos: ["T constante: ley de Boyle, P₁V₁ = P₂V₂.", "1 · 6 = 3 · V₂.", "V₂ = 6 / 3 = 2 L."],
-      resultado: "2 L; al triplicar la presión, el volumen se reduce a la tercera parte." },
-    { enunciado: "Un globo tiene 2 L a 27 °C. ¿Qué volumen tendrá a 87 °C si la presión no cambia?",
-      pasos: ["Pasamos a kelvin: T₁ = 300 K; T₂ = 360 K.", "Ley de Charles: V₁/T₁ = V₂/T₂ → 2/300 = V₂/360.", "V₂ = 2 · 360 / 300 = 2,4 L."],
-      resultado: "2,4 L." },
-    { enunciado: "Un neumático tiene 2,2 atm a 7 °C. Tras un viaje, su temperatura es 47 °C. ¿Qué presión tiene, si el volumen no cambia?",
-      pasos: ["T₁ = 280 K; T₂ = 320 K.", "Gay-Lussac: P₁/T₁ = P₂/T₂ → 2,2/280 = P₂/320.", "P₂ = 2,2 · 320 / 280 ≈ 2,51 atm."],
-      resultado: "unas 2,5 atm." },
+    { enunciado: "Explica con la TCM por qué un gas se puede comprimir y un sólido no.", pasos: ["En un gas las partículas están muy separadas y casi todo es espacio vacío.", "Al comprimir, las partículas se acercan y ocupan menos volumen.", "En un sólido ya están en contacto y no hay espacio que reducir."], resultado: "El gas se comprime porque hay mucho espacio vacío entre sus partículas; el sólido, no." },
+    { enunciado: "Un gas ocupa 6 L a 1 atm. ¿Qué volumen ocupará a 3 atm si la temperatura no cambia?", pasos: ["T constante → ley de Boyle: P₁ · V₁ = P₂ · V₂.", "1 · 6 = 3 · V₂.", "V₂ = 6 / 3 = 2 L."], resultado: "2 L." },
+    { enunciado: "Un globo tiene 3 L a 27 °C. ¿Qué volumen tendrá a 87 °C, a presión constante?", pasos: ["P constante → ley de Charles: V₁ / T₁ = V₂ / T₂.", "T₁ = 27 + 273 = 300 K; T₂ = 87 + 273 = 360 K.", "V₂ = 3 · 360 / 300 = 3,6 L."], resultado: "3,6 L." },
+    { enunciado: "Un neumático tiene 2 atm a 7 °C. Tras un viaje, su temperatura es 47 °C. ¿Qué presión tiene? (volumen constante)", pasos: ["V constante → ley de Gay-Lussac: P₁ / T₁ = P₂ / T₂.", "T₁ = 280 K; T₂ = 320 K.", "P₂ = 2 · 320 / 280 ≈ 2,29 atm."], resultado: "Unas 2,3 atm." },
+    { enunciado: "Un gas ocupa 10 L a 2 atm y 300 K. ¿Qué volumen ocupará a 1 atm y 450 K?", pasos: ["Ecuación general: P₁V₁/T₁ = P₂V₂/T₂.", "V₂ = P₁ · V₁ · T₂ / (T₁ · P₂).", "V₂ = 2 · 10 · 450 / (300 · 1) = 30 L."], resultado: "30 L." },
+    { enunciado: "Describe la curva de calentamiento del agua desde −10 °C hasta 110 °C.", pasos: ["De −10 a 0 °C: sube la temperatura del hielo.", "A 0 °C: tramo horizontal, fusión (sólido + líquido).", "De 0 a 100 °C: sube la temperatura del agua líquida.", "A 100 °C: tramo horizontal, ebullición (líquido + gas).", "De 100 a 110 °C: se calienta el vapor."], resultado: "Tres tramos inclinados y dos horizontales a 0 y 100 °C." },
   ],
   errores: [
-    "Usar grados Celsius en las leyes de los gases: hay que pasar siempre a kelvin.",
-    "Decir que en un cambio de estado la sustancia se transforma en otra: sigue siendo la misma.",
-    "Confundir evaporación (en la superficie, a cualquier temperatura) con ebullición (en todo el líquido, a una temperatura fija).",
-    "Pensar que durante la fusión la temperatura sigue subiendo: se mantiene constante.",
-    "Creer que las partículas de un sólido están quietas: vibran.",
+    "Usar grados Celsius en las leyes de los gases: la temperatura siempre va en kelvin.",
+    "Pensar que durante la ebullición la temperatura sigue subiendo: se mantiene constante.",
+    "Confundir evaporación (en la superficie, a cualquier temperatura) con ebullición (en todo el líquido, a temperatura fija).",
+    "Creer que las gotas de una lata fría salen de su interior: es vapor del aire que se condensa.",
+    "Pensar que las partículas se dilatan al calentar: lo que aumenta es su movimiento y la distancia entre ellas.",
+    "Olvidar que en Boyle la relación es inversa y en Charles y Gay-Lussac, directa.",
   ],
   ejercicios: [
-    { q: "Compara forma, volumen y compresibilidad de sólidos, líquidos y gases.", sol: "Sólidos: forma y volumen fijos, no se comprimen. Líquidos: volumen fijo, forma del recipiente, casi no se comprimen. Gases: sin forma ni volumen propios, se comprimen fácilmente." },
-    { q: "Enuncia las ideas de la teoría cinético-molecular.", sol: "La materia está formada por partículas; entre ellas hay vacío; se mueven continuamente, más deprisa a mayor temperatura; y hay fuerzas de atracción entre ellas." },
-    { q: "Nombra el cambio de estado: a) se forma escarcha; b) se seca un charco; c) se derrite un helado; d) se empaña un espejo.", sol: "a) Sublimación inversa o deposición; b) evaporación; c) fusión; d) condensación." },
-    { q: "¿Por qué sudar nos refresca?", sol: "Porque el sudor se evapora y la evaporación absorbe calor de la piel." },
-    { q: "En la curva de calentamiento de una sustancia hay un tramo horizontal a 80 °C. ¿Qué significa?", sol: "Que a 80 °C se produce un cambio de estado; la temperatura se mantiene constante mientras dura." },
-    { q: "Explica con partículas qué es la presión de un gas.", sol: "Es el efecto de los choques de las partículas contra las paredes del recipiente; cuantos más choques y más fuertes, mayor presión." },
-    { q: "Un gas ocupa 10 L a 2 atm. ¿Qué presión tendrá si se expande a 25 L a temperatura constante?", sol: "P₂ = 2 · 10 / 25 = 0,8 atm." },
-    { q: "Un gas ocupa 300 mL a 0 °C. ¿Qué volumen ocupa a 91 °C a presión constante?", sol: "T₁ = 273 K, T₂ = 364 K; V₂ = 300 · 364 / 273 = 400 mL." },
-    { q: "¿Por qué no se debe tirar un aerosol al fuego?", sol: "Al calentarse a volumen constante, la presión del gas aumenta (Gay-Lussac) y el envase puede explotar." },
-    { q: "Pasa 1,5 atm a mmHg y 380 mmHg a atm.", sol: "1,5 · 760 = 1140 mmHg; 380 / 760 = 0,5 atm." },
+    B("Indica qué estado tiene forma propia, cuál volumen propio y cuál se comprime con facilidad.", "Forma propia: sólido. Volumen propio: sólido y líquido. Se comprime con facilidad: gas."),
+    B("Enuncia las ideas principales de la teoría cinético-molecular.", "La materia está formada por partículas con espacio vacío entre ellas; están en continuo movimiento, más rápido cuanto mayor es la temperatura; se atraen entre sí; en los gases, sus choques contra las paredes producen la presión."),
+    B("Nombra los cambios de estado: sólido → líquido; gas → líquido; sólido → gas; líquido → sólido; líquido → gas; gas → sólido.", "Fusión; condensación; sublimación; solidificación; vaporización; sublimación inversa (deposición)."),
+    B("Indica dos diferencias entre evaporación y ebullición.", "La evaporación ocurre en la superficie y a cualquier temperatura; la ebullición, en todo el líquido y a una temperatura fija, con burbujas."),
+    B("¿Por qué tenemos frío al salir de la piscina aunque haga sol?", "Porque el agua de la piel se evapora, y las partículas que escapan son las de más energía: el agua que queda y nuestra piel se enfrían."),
+    B("¿Qué cambio de estado es: la escarcha, el vaho de un espejo, un charco que se seca, la nieve que se derrite?", "Sublimación inversa; condensación; evaporación; fusión."),
+    B("¿A qué se debe la presión de un gas según la TCM?", "A los choques de las partículas contra las paredes del recipiente."),
+    B("Pasa a kelvin: 27 °C, 127 °C, −73 °C.", "300 K, 400 K, 200 K."),
+    B("Pasa 2 atm a mmHg y 380 mmHg a atm.", "1.520 mmHg; 0,5 atm."),
+    B("Enuncia la ley de Boyle e indica qué magnitud se mantiene constante.", "A temperatura constante, la presión y el volumen de un gas son inversamente proporcionales: P₁V₁ = P₂V₂."),
+    B("¿Por qué la presión atmosférica disminuye al subir una montaña?", "Porque hay menos aire por encima y, por tanto, menos peso de aire."),
+    B("¿Por qué los aerosoles no se deben dejar al sol?", "Porque al calentarse aumenta la presión del gas (ley de Gay-Lussac) y el envase podría estallar."),
+    M("Explica con la TCM por qué el olor de un perfume llega a toda la habitación.", "Las partículas del perfume se mueven libre y rápidamente y se mezclan con las del aire (difusión) hasta repartirse por todo el espacio."),
+    M("Explica qué ocurre con las partículas durante la fusión de un sólido.", "Al calentar, vibran cada vez con más energía; a la temperatura de fusión, vencen en parte las fuerzas de atracción y abandonan sus posiciones fijas: pueden deslizarse unas sobre otras."),
+    M("¿Por qué la temperatura no sube mientras el agua hierve, aunque sigamos calentando?", "Porque el calor se emplea en vencer las fuerzas de atracción entre las partículas para que pasen a gas (calor latente), no en aumentar su energía cinética."),
+    M("Un gas ocupa 4 L a 2 atm. ¿Qué presión tendrá si se comprime a 1 L sin cambiar la temperatura?", "P₂ = 2 · 4 / 1 = 8 atm."),
+    M("Un gas ocupa 500 mL a 1 atm. ¿Qué volumen ocupará a 760 mmHg · 2,5?", "P₂ = 2,5 atm. V₂ = 1 · 500 / 2,5 = 200 mL."),
+    M("Un globo tiene 2 L a 27 °C. ¿Qué volumen tendrá en el congelador a −33 °C, a presión constante?", "T₁ = 300 K, T₂ = 240 K. V₂ = 2 · 240 / 300 = 1,6 L."),
+    M("¿A qué temperatura (en °C) hay que calentar un gas que ocupa 3 L a 300 K para que ocupe 4,5 L a presión constante?", "T₂ = 300 · 4,5 / 3 = 450 K = 177 °C."),
+    M("Una bombona tiene 5 atm a 17 °C. ¿Qué presión tendrá a 57 °C?", "T₁ = 290 K, T₂ = 330 K. P₂ = 5 · 330 / 290 ≈ 5,7 atm."),
+    M("¿Por qué no se debe medir la presión de los neumáticos después de un viaje largo?", "Porque están calientes y su presión es mayor que en frío (ley de Gay-Lussac); el dato no sería el de referencia."),
+    M("Una sustancia tiene una curva de calentamiento sin tramos horizontales. ¿Qué puedes deducir?", "Que no es una sustancia pura, sino una mezcla: su temperatura cambia durante el cambio de estado."),
+    M("Explica cómo bebemos con una pajita.", "Al aspirar, disminuye la presión del aire dentro de la pajita y de la boca; la presión atmosférica, mayor, empuja el líquido hacia arriba."),
+    M("¿Por qué un botijo mantiene el agua fresca?", "El agua atraviesa el barro poroso y se evapora en la superficie exterior; la evaporación roba energía y enfría el agua del interior."),
+    A("Un gas ocupa 12 L a 1,5 atm y 27 °C. ¿Qué volumen ocupará a 3 atm y 127 °C?", "T₁ = 300 K, T₂ = 400 K. V₂ = 1,5 · 12 · 400 / (300 · 3) = 8 L."),
+    A("Un globo sonda de 5 m³ se suelta a 1 atm y 17 °C. A cierta altura la presión es 0,1 atm y la temperatura −53 °C. ¿Qué volumen tiene?", "T₁ = 290 K, T₂ = 220 K. V₂ = 1 · 5 · 220 / (290 · 0,1) ≈ 37,9 m³."),
+    A("Un buceador suelta a 20 m de profundidad (3 atm) una burbuja de 2 cm³. ¿Qué volumen tendrá al llegar a la superficie (1 atm), si la temperatura no cambia? ¿Por qué no debe aguantar la respiración al subir?", "V₂ = 3 · 2 / 1 = 6 cm³. Porque el aire de sus pulmones también triplicaría su volumen y podría dañarlos."),
+    A("Representa con datos la gráfica P-V de un gas que ocupa 12 L a 1 atm (T constante) para 2, 3, 4 y 6 atm. ¿Qué forma tiene?", "P · V = 12: 2 atm → 6 L; 3 atm → 4 L; 4 atm → 3 L; 6 atm → 2 L. Es una hipérbola (proporcionalidad inversa)."),
+    A("Explica por qué al prolongar la recta V-t (en °C) de un gas se llega a −273 °C. ¿Qué significado tiene?", "Porque el volumen es proporcional a la temperatura absoluta: se anularía a 0 K = −273 °C. Es el cero absoluto, la temperatura mínima posible, a la que las partículas prácticamente no se moverían."),
+    A("Una lata de aerosol vacía contiene gas a 1,2 atm y 20 °C. Si se tira al fuego y alcanza 500 °C, ¿qué presión tendrá? ¿Qué ocurrirá si la lata soporta 3 atm?", "T₁ = 293 K, T₂ = 773 K. P₂ = 1,2 · 773 / 293 ≈ 3,2 atm > 3 atm: la lata explotaría."),
+    A("Interpreta: al subir un puerto de montaña, una bolsa de patatas cerrada en el coche se hincha. ¿Qué ley se cumple? ¿Qué pasaría al bajar?", "Ley de Boyle: la presión exterior disminuye, el gas de la bolsa se expande. Al bajar, la presión exterior aumenta y la bolsa vuelve a su tamaño."),
+    A("¿Cuántos globos de 4 L a 1 atm se pueden llenar con una bombona de helio de 20 L a 150 atm, a temperatura constante?", "El helio a 1 atm ocuparía 150 · 20 = 3.000 L, pero 20 L quedan dentro de la bombona: 2.980 / 4 = 745 globos."),
+    A("Explica por qué los alimentos se cocinan más rápido en una olla exprés relacionando presión y punto de ebullición.", "Al cerrar la olla, el vapor no escapa y la presión aumenta; a más presión, las partículas necesitan más energía para escapar del líquido y el agua hierve a más temperatura (unos 120 °C), así que cocina antes."),
   ],
   quiz: [
-    { q: "Un líquido tiene…", o: ["forma y volumen fijos", "volumen fijo y forma variable", "ni forma ni volumen fijos"], a: 1, e: "Volumen fijo, forma del recipiente." },
-    { q: "Al subir la temperatura, las partículas…", o: ["se mueven más rápido", "se paran", "se hacen más grandes"], a: 0, e: "Se mueven más rápido." },
-    { q: "Paso de sólido a gas sin pasar por líquido:", o: ["fusión", "sublimación", "condensación"], a: 1, e: "Sublimación." },
-    { q: "La evaporación ocurre…", o: ["solo a 100 °C", "en la superficie a cualquier temperatura", "en todo el líquido"], a: 1, e: "En la superficie." },
-    { q: "Durante la fusión de una sustancia pura, la temperatura…", o: ["sube", "baja", "se mantiene constante"], a: 2, e: "Constante." },
-    { q: "1 atm equivale a…", o: ["760 mmHg", "100 mmHg", "1000 Pa"], a: 0, e: "760 mmHg." },
-    { q: "Ley de Boyle: a T constante, si V se reduce a la mitad, P…", o: ["se reduce a la mitad", "se duplica", "no cambia"], a: 1, e: "Se duplica." },
-    { q: "En la ley de Charles se mantiene constante…", o: ["la presión", "el volumen", "la temperatura"], a: 0, e: "La presión." },
-    { q: "27 °C en kelvin son…", o: ["246 K", "300 K", "27 K"], a: 1, e: "27 + 273 = 300 K." },
-    { q: "Un globo de aire caliente sube porque…", o: ["el aire caliente es menos denso", "el aire caliente pesa más", "el fuego lo empuja"], a: 0, e: "El aire caliente se expande y es menos denso." },
+    q4("¿Qué estado tiene volumen propio pero no forma propia?", ["Sólido", "Líquido", "Gas", "Plasma"], 1, "Se adapta al recipiente."),
+    q4("Según la TCM, al aumentar la temperatura las partículas…", ["se hacen más grandes", "se mueven más deprisa", "se detienen", "desaparecen"], 1, "Más energía cinética."),
+    q4("En un sólido, las partículas…", ["se mueven libremente", "solo vibran", "están muy separadas", "no se atraen"], 1, "Posiciones fijas."),
+    q4("El paso de gas a líquido es la…", ["evaporación", "condensación", "sublimación", "fusión"], 1, "Como el vaho del espejo."),
+    q4("La sublimación es el paso de…", ["sólido a gas", "líquido a gas", "gas a líquido", "sólido a líquido"], 0, "Como el hielo seco."),
+    q4("La evaporación se produce…", ["solo a 100 °C", "en la superficie y a cualquier temperatura", "en todo el líquido", "solo con viento"], 1, "La ropa se seca."),
+    q4("Durante la ebullición de una sustancia pura, la temperatura…", ["sube", "baja", "permanece constante", "oscila"], 2, "Tramo horizontal."),
+    q4("Los tramos horizontales de una curva de calentamiento indican…", ["errores", "cambios de estado", "que se apagó el fuego", "una mezcla"], 1, "Fusión y ebullición."),
+    q4("La presión de un gas se debe a…", ["su peso", "los choques de sus partículas", "su color", "su densidad"], 1, "Contra las paredes."),
+    q4("1 atm equivale a…", ["100 mmHg", "760 mmHg", "1.000 mmHg", "1 Pa"], 1, "Experimento de Torricelli."),
+    q4("La presión atmosférica se mide con un…", ["termómetro", "barómetro", "dinamómetro", "manómetro de neumáticos"], 1, "Torricelli."),
+    q4("Al subir una montaña, la presión atmosférica…", ["aumenta", "disminuye", "no cambia", "se duplica"], 1, "Menos aire encima."),
+    q4("La ley de Boyle relaciona…", ["P y V a T constante", "V y T a P constante", "P y T a V constante", "m y V"], 0, "P · V = constante."),
+    q4("Si a temperatura constante se duplica la presión de un gas, su volumen…", ["se duplica", "se reduce a la mitad", "no cambia", "se cuadruplica"], 1, "Proporcionalidad inversa."),
+    q4("En las leyes de los gases la temperatura se expresa en…", ["°C", "°F", "K", "J"], 2, "Escala absoluta."),
+    q4("Según la ley de Charles, al calentar un gas a presión constante su volumen…", ["disminuye", "aumenta", "no cambia", "se anula"], 1, "Proporcional a T."),
+    q4("Un aerosol al sol puede estallar por la ley de…", ["Boyle", "Charles", "Gay-Lussac", "Lavoisier"], 2, "A volumen constante sube P."),
+    q4("La gráfica P-V a temperatura constante es…", ["una recta", "una hipérbola", "una parábola", "un círculo"], 1, "Proporcionalidad inversa."),
+    q4("La escarcha es un ejemplo de…", ["fusión", "evaporación", "sublimación inversa", "ebullición"], 2, "Vapor que pasa a hielo."),
+    q4("Respiramos gracias a la ley de…", ["Charles", "Boyle", "Gay-Lussac", "Hooke"], 1, "Al aumentar el volumen pulmonar baja la presión."),
   ],
   examen: [
-    { q: "La condensación es el paso de…", o: ["gas a líquido", "líquido a gas", "sólido a líquido"], a: 0, e: "Gas a líquido." },
-    { q: "En un recipiente rígido, al calentar el gas, la presión…", o: ["aumenta", "disminuye", "no cambia"], a: 0, e: "Aumenta (Gay-Lussac)." },
-    { q: "Las fuerzas de atracción entre partículas son mayores en…", o: ["los gases", "los líquidos", "los sólidos"], a: 2, e: "Los sólidos." },
+    q4("Un gas ocupa 8 L a 1 atm. A 4 atm y misma temperatura ocupará…", ["32 L", "2 L", "4 L", "8 L"], 1, "8 / 4."),
+    q4("Un gas a 300 K ocupa 6 L. A 400 K y misma presión ocupará…", ["4,5 L", "8 L", "6 L", "2 L"], 1, "6 · 400 / 300."),
+    q4("Una bombona a 3 atm y 300 K se calienta hasta 600 K. Su presión será…", ["1,5 atm", "3 atm", "6 atm", "9 atm"], 2, "Proporcional a T."),
+    q4("¿Qué cambio de estado desprende calor?", ["Fusión", "Vaporización", "Condensación", "Sublimación"], 2, "Es regresivo."),
+    q4("El sudor nos refresca porque…", ["el agua está fría", "la evaporación enfría", "tapa los poros", "refleja el sol"], 1, "Escapan las partículas más energéticas."),
+    q4("Si una sustancia funde entre 40 y 45 °C, sin tramo horizontal, probablemente es…", ["una sustancia pura", "una mezcla", "un gas", "agua"], 1, "Las puras funden a T fija."),
+    q4("La ecuación general de los gases es…", ["PV = constante", "P₁V₁/T₁ = P₂V₂/T₂", "V/T = constante", "P = F · S"], 1, "Reúne las tres leyes."),
+    q4("Torricelli demostró que…", ["el aire no pesa", "el aire ejerce presión", "el vacío no existe", "el mercurio es un gas"], 1, "Columna de 76 cm."),
   ],
-  feynman: ["Cómo explica la teoría cinético-molecular los tres estados", "Por qué la temperatura no cambia mientras el hielo se funde", "Qué dicen las leyes de Boyle, Charles y Gay-Lussac"],
-  mapa: mapa("ESTADOS Y GASES", "var(--eso)", [
-    ["Estados", "sólido · líquido · gas · plasma", "var(--pen)"],
-    ["Modelo", "teoría cinético-molecular", "var(--leaf)"],
-    ["Cambios", "fusión · vaporización · sublimación", "var(--red)"],
-    ["Leyes", "Boyle · Charles · Gay-Lussac", "#b8860b"],
-  ], 300),
+  feynman: ["Cómo explica la TCM los tres estados de la materia", "Qué ocurre con las partículas en un cambio de estado", "Por qué la temperatura no cambia durante la fusión y la ebullición", "Qué es la presión de un gas y la presión atmosférica", "Qué dicen las leyes de Boyle, Charles y Gay-Lussac", "Cómo se usa la ecuación general de los gases"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Teoría cinético-molecular", "La materia son partículas en movimiento con espacio vacío entre ellas."],
-    ["Fusión", "Paso de sólido a líquido."],
-    ["Sublimación", "Paso directo de sólido a gas."],
-    ["Evaporación", "Vaporización en la superficie a cualquier temperatura."],
-    ["Presión de un gas", "Efecto de los choques de las partículas contra las paredes."],
-    ["Ley de Boyle", "A T constante: P₁V₁ = P₂V₂."],
-    ["Ley de Charles", "A P constante: V₁/T₁ = V₂/T₂."],
-    ["Ley de Gay-Lussac", "A V constante: P₁/T₁ = P₂/T₂."],
+    ["Sólido", "Forma y volumen propios; partículas que vibran."],
+    ["Líquido", "Volumen propio; partículas que se deslizan."],
+    ["Gas", "Sin forma ni volumen propios; partículas libres."],
+    ["TCM", "Partículas en movimiento, con vacío y atracciones."],
+    ["Cambios progresivos", "Fusión, vaporización, sublimación: absorben calor."],
+    ["Evaporación", "En la superficie, a cualquier temperatura; enfría."],
+    ["Ebullición", "En todo el líquido, a temperatura fija."],
+    ["Presión de un gas", "Choques de las partículas contra las paredes."],
+    ["1 atm", "760 mmHg = 101.325 Pa."],
+    ["Ley de Boyle", "P₁V₁ = P₂V₂ (T constante)."],
+    ["Ley de Charles", "V₁/T₁ = V₂/T₂ (P constante)."],
+    ["Ley de Gay-Lussac", "P₁/T₁ = P₂/T₂ (V constante)."],
   ],
-  familias: ["Meted un globo un poco inflado en el congelador y medid su contorno antes y después.", "Tapad con el dedo una jeringa sin aguja y empujad el émbolo: notaréis la ley de Boyle.", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "La materia: teoría cinético-molecular, estados de agregación, cambios de estado y leyes de los gases (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Curva de calentamiento del agua con termómetro y cronómetro.", "Jeringa y manómetro para tomar datos de la ley de Boyle y graficar P frente a V.", "Simulación PhET de estados de la materia y propiedades de los gases."],
+  glosario: [
+    ["Estado de agregación", "Forma en que se presenta la materia: sólido, líquido o gas."],
+    ["Fluido", "Sustancia que puede fluir: líquidos y gases."],
+    ["Plasma", "Gas a altísima temperatura con los átomos ionizados."],
+    ["Teoría cinético-molecular", "Modelo que explica las propiedades de la materia por el movimiento de sus partículas."],
+    ["Difusión", "Mezcla espontánea de sustancias por el movimiento de sus partículas."],
+    ["Fusión", "Paso de sólido a líquido."],
+    ["Vaporización", "Paso de líquido a gas, por evaporación o ebullición."],
+    ["Condensación", "Paso de gas a líquido."],
+    ["Sublimación", "Paso directo de sólido a gas."],
+    ["Calor latente", "Energía necesaria para cambiar de estado una unidad de masa."],
+    ["Curva de calentamiento", "Gráfica de la temperatura de una sustancia frente al tiempo mientras se calienta."],
+    ["Presión", "Fuerza por unidad de superficie."],
+    ["Presión atmosférica", "Presión que ejerce el peso del aire."],
+    ["Barómetro", "Instrumento que mide la presión atmosférica."],
+    ["Pascal", "Unidad de presión del SI: 1 N/m²."],
+    ["Ley de Boyle", "A T constante, P y V son inversamente proporcionales."],
+    ["Ley de Charles", "A P constante, V es proporcional a T absoluta."],
+    ["Ley de Gay-Lussac", "A V constante, P es proporcional a T absoluta."],
+  ],
+  situacion: {
+    titulo: "Misión globo estratosférico",
+    reto: "Un club de ciencia quiere lanzar un globo meteorológico con una cámara. Vuestro equipo debe predecir cómo cambiará el volumen del globo al subir y a qué altura podría estallar, y preparar la presentación para el resto del centro.",
+    pasos: [
+      "Buscad datos reales de cómo varían la presión y la temperatura con la altitud hasta 30 km.",
+      "Calculad con la ecuación general el volumen del globo cada 5 km, partiendo de su volumen en el suelo.",
+      "Representad en una gráfica el volumen frente a la altura y explicad su forma.",
+      "Si el globo estalla al multiplicar su volumen por 50, estimad a qué altura ocurrirá.",
+      "Haced en el aula un modelo con una jeringa tapada o un globo dentro de un frasco al vacío.",
+      "Preparad una presentación explicando el fenómeno con la teoría cinético-molecular.",
+    ],
+    producto: "Una presentación con tabla de cálculos, gráfica volumen-altura y una demostración en el aula.",
+    evaluacion: ["Los cálculos con la ecuación general son correctos y usan la temperatura en kelvin.", "La gráfica está bien construida e interpretada.", "La explicación con la TCM es correcta.", "La presentación es clara y se apoya en datos fiables."],
   },
-  fuentes: [RD, wiki("Teoría cinética", "Teor%C3%ADa_cin%C3%A9tica"), wiki("Ley de Boyle-Mariotte", "Ley_de_Boyle-Mariotte")],
-  revisado: "2026-11-12",
+  familias: [
+    "Poned un globo en la boca de una botella vacía y meted la botella en agua caliente y luego en agua con hielo: ¿qué le pasa al globo?",
+    "Observad juntos el vaho del baño, la escarcha o una lata fría y nombrad el cambio de estado.",
+    "Medid la presión de las ruedas de la bici en frío y después de un paseo largo.",
+    "Mirad el mapa del tiempo: buscad anticiclones y borrascas y comprobad qué tiempo hace.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La materia»: teoría cinético-molecular, estados de agregación y cambios de estado, curvas de calentamiento, presión, presión atmosférica y leyes de los gases (Boyle, Charles, Gay-Lussac) interpretadas con el modelo cinético.`,
+    ideas: [
+      "Curva de calentamiento del agua y de una mezcla (agua con sal) con termómetro o sensor.",
+      "Ley de Boyle con una jeringa tapada y pesas sobre el émbolo.",
+      "Globo en botella en baños de agua caliente y fría (ley de Charles).",
+      "Lata que se aplasta al enfriar bruscamente el vapor de su interior (presión atmosférica).",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Teoría cinética", "Teor%C3%ADa_cin%C3%A9tica"),
+    wiki("Ley de los gases ideales", "Ley_de_los_gases_ideales"),
+    { t: "Simulación «Propiedades de los gases», PhET", url: "https://phet.colorado.edu/es/simulations/gas-properties" },
+  ],
+  revisado: "2026-11-13",
 };

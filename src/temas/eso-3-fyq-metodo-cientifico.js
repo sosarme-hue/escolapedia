@@ -1,162 +1,247 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
+// Física y Química 3º ESO · El método científico (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, graf, rejilla, ciclo, escala, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["metodo-cientifico"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "El método científico",
-  minutos: 55,
-  objetivos: ["Describir las etapas del método científico y aplicarlas a un problema sencillo", "Distinguir magnitudes fundamentales y derivadas y usar las unidades del SI", "Expresar medidas con notación científica, cambios de unidades y cifras adecuadas", "Trabajar con seguridad en el laboratorio e interpretar tablas y gráficas"],
-  claves: ["hipótesis", "variable", "magnitud", "unidad", "Sistema Internacional", "notación científica", "factor de conversión", "error"],
+  minutos: 100,
+  objetivos: [
+    "Describir las etapas del método científico y aplicarlas a una investigación sencilla",
+    "Formular hipótesis contrastables e identificar variables independientes, dependientes y controladas",
+    "Utilizar magnitudes y unidades del Sistema Internacional, múltiplos, submúltiplos y notación científica",
+    "Cambiar de unidades con factores de conversión y expresar medidas con sus cifras significativas y su error",
+    "Representar e interpretar datos en tablas y gráficas",
+    "Trabajar en el laboratorio con seguridad y valorar el papel de la ciencia en la sociedad",
+  ],
+  claves: ["método científico", "hipótesis", "variable", "magnitud", "unidad", "Sistema Internacional", "notación científica", "factor de conversión", "error absoluto", "error relativo", "gráfica", "pictograma"],
   pregunta: {
-    texto: "En 1847 el médico Ignaz Semmelweis notó que en una sala de partos morían muchas más madres que en otra. ¿Cómo descubrió la causa sin saber nada de microbios?",
-    respuesta: "Observó que en la sala peligrosa atendían médicos que venían de hacer autopsias. Propuso una <mark>hipótesis</mark>: llevaban «algo» de los cadáveres en las manos. La puso a prueba con un <mark>experimento</mark>: obligó a lavarse las manos con cloro, y las muertes bajaron de un 12 % a un 2 %. Eso es el método científico.",
+    texto: "Dos amigos discuten: uno dice que el agua con sal hierve antes que el agua sola y el otro, que después. ¿Cómo podrían saber quién tiene razón sin discutir más?",
+    respuesta: "Haciendo un <mark>experimento controlado</mark>: dos ollas iguales, con la misma cantidad de agua, en el mismo fuego, una con sal y otra sin ella, y midiendo con un termómetro la temperatura de ebullición. Así se cambia <b>una sola variable</b> (la sal) y se mide su efecto. Eso es aplicar el <b>método científico</b>: no vale tener razón por hablar más alto, sino aportar pruebas que cualquiera pueda repetir. (Por cierto: el agua salada hierve a una temperatura algo mayor.)",
+  },
+  lectura: {
+    titulo: "El médico que se lavaba las manos",
+    html: `<p>En 1846, en el hospital general de Viena, había dos salas de partos. En la primera, atendida por estudiantes de medicina, morían de fiebre puerperal hasta una de cada diez madres. En la segunda, atendida por comadronas, morían muchas menos. El joven médico húngaro Ignaz Semmelweis se hizo una pregunta sencilla: ¿por qué esa diferencia?</p><p>Fue descartando posibles causas una a una: no era la postura en el parto, ni el miedo, ni el aire de la sala. La pista llegó con una desgracia: un compañero se cortó con un bisturí durante una autopsia y murió con los mismos síntomas que las madres. Semmelweis formuló una hipótesis: los estudiantes venían de diseccionar cadáveres y llevaban en las manos «partículas» que contagiaban a las parturientas. Para comprobarlo, obligó a todos a lavarse las manos con agua clorada antes de atender un parto. La mortalidad cayó por debajo del 2 %.</p><p>Aun así, muchos médicos se rieron de él: les ofendía la idea de que ellos mismos transmitieran la enfermedad. Hubo que esperar a Pasteur y a la teoría de los microbios para que se le diera la razón. La historia de Semmelweis resume qué es la ciencia: observar, preguntar, proponer una explicación, ponerla a prueba con datos… y aceptar lo que dicen los datos aunque no nos guste.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Qué es la ciencia</h3><p>La <b>ciencia</b> es una forma de conocer el mundo basada en la <b>observación</b>, la <b>medida</b> y la <b>comprobación</b>. Sus afirmaciones no se aceptan porque las diga una persona importante, sino porque cualquiera puede repetir los experimentos y obtener el mismo resultado. La <mark>física</mark> estudia los fenómenos en los que la materia no cambia de naturaleza, como el movimiento, la luz o la electricidad. La <mark>química</mark> estudia la composición de la materia y sus transformaciones, como la combustión o la oxidación. Ambas comparten un procedimiento de trabajo: el <b>método científico</b>.</p>`,
-    },
-    {
-      html: `<h3>Las etapas del método científico</h3><p>El método científico es un proceso ordenado para responder preguntas sobre la naturaleza. Empieza con la <b>observación</b> de un fenómeno y el <b>planteamiento de un problema</b> en forma de pregunta. Después se formula una <mark>hipótesis</mark>, una posible explicación que se pueda comprobar. Se diseña un <b>experimento</b> para ponerla a prueba, se recogen y <b>analizan los datos</b> en tablas y gráficas y se sacan <b>conclusiones</b>. Si los datos no apoyan la hipótesis, se rechaza y se propone otra. Por último, los resultados se <b>comunican</b> para que otros científicos los revisen.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Ciclo del método científico: observación, pregunta, hipótesis, experimento, análisis de datos y conclusión; si la hipótesis falla, se vuelve a plantear otra">${BG}
-        ${[["observación", 14, 14], ["pregunta", 136, 14], ["hipótesis", 136, 66], ["experimento", 136, 118], ["análisis", 14, 118], ["conclusión", 14, 66]].map(([n, x, y], i) => caja(x, y, 110, 34, n, ["var(--pen)", "var(--pen)", "var(--leaf)", "#b8860b", "#b8860b", "var(--red)"][i], { size: 12 })).join("")}
-        ${fl(124, 31, 134, 31)}${fl(191, 48, 191, 64)}${fl(191, 100, 191, 116)}${fl(136, 135, 126, 135)}${fl(69, 118, 69, 102)}
-        ${fl(124, 76, 134, 80, "var(--red)", 2)}${t(130, 170, "si falla, nueva hipótesis", { size: 10, color: "var(--red)" })}</svg>`,
-      video: { id: "zMYRU4S_RSk", titulo: "MÉTODO CIENTÍFICO [6 PASOS]", canal: "A Cierta Ciencia", vistas: 1235446 },
-    },
-    {
-      html: `<h3>Hipótesis y variables</h3><p>Una buena hipótesis debe poder <b>comprobarse</b>. «El azúcar se disuelve antes en agua caliente» es comprobable; «el azúcar es feliz en el agua» no lo es. Para comprobarla se identifican las <b>variables</b>, las magnitudes que pueden cambiar. La <mark>variable independiente</mark> es la que el investigador cambia a voluntad (la temperatura del agua). La <mark>variable dependiente</mark> es la que se mide para ver cómo responde (el tiempo que tarda en disolverse). Las <b>variables controladas</b> se mantienen iguales en todas las pruebas (la cantidad de agua y de azúcar, el tipo de azúcar, la forma de remover) para que el resultado sea justo.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres vasos con agua a 20, 50 y 80 grados: la temperatura es la variable independiente, el tiempo de disolución la dependiente y la cantidad de agua y azúcar se controla">${BG}
-        ${[[40, "20 °C", "90 s"], [130, "50 °C", "40 s"], [220, "80 °C", "15 s"]].map(([x, tt, s], i) => `<path d="M${x - 26} 60 V 120 Q ${x - 26} 130 ${x - 16} 130 H ${x + 16} Q ${x + 26} 130 ${x + 26} 120 V 60" fill="var(--water)" fill-opacity="${0.25 + i * 0.15}" stroke="var(--muted)" stroke-width="2"/>${t(x, 48, tt, { size: 12, color: "var(--red)" })}${t(x, 150, s, { size: 12, color: "var(--pen)" })}`).join("")}
-        ${t(130, 22, "cambio: temperatura", { size: 11, color: "var(--red)" })}${t(130, 170, "mido: tiempo · fijo: 200 mL y 10 g", { size: 10, color: "var(--pen)" })}</svg>`,
-    },
-    {
-      html: `<h3>Magnitudes y unidades</h3><p>Una <b>magnitud</b> es toda propiedad que se puede <mark>medir</mark> y expresar con un número y una unidad, como la longitud, la masa o la temperatura. La belleza o el miedo no son magnitudes. <b>Medir</b> es comparar una magnitud con otra de la misma clase que se toma como patrón, la <b>unidad</b>. Una medida siempre lleva número y unidad: decir «la mesa mide 2» no tiene sentido; hay que decir «2 m». Las <b>magnitudes fundamentales</b> se definen por sí mismas y las <b>derivadas</b> se obtienen a partir de ellas: la superficie (m²), el volumen (m³), la velocidad (m/s) o la densidad (kg/m³).</p>`,
-    },
-    {
-      html: `<h3>El Sistema Internacional de Unidades</h3><p>Para que todos los científicos se entiendan, en 1960 se acordó el <mark>Sistema Internacional (SI)</mark>, que usan casi todos los países del mundo. Fija siete magnitudes fundamentales con sus unidades. Desde 2019, todas se definen a partir de constantes de la naturaleza, como la velocidad de la luz, y no de objetos que pueden cambiar, como el antiguo kilogramo patrón guardado en París.</p>${tabla(["Magnitud", "Unidad", "Símbolo"], [["Longitud", "metro", "m"], ["Masa", "kilogramo", "kg"], ["Tiempo", "segundo", "s"], ["Temperatura", "kelvin", "K"], ["Intensidad de corriente", "amperio", "A"], ["Cantidad de sustancia", "mol", "mol"], ["Intensidad luminosa", "candela", "cd"]])}`,
-    },
-    {
-      html: `<h3>Múltiplos, submúltiplos y notación científica</h3><p>Para medir cosas muy grandes o muy pequeñas se usan <b>prefijos</b>: kilo (k) = 10³, mega (M) = 10⁶, giga (G) = 10⁹; centi (c) = 10⁻², mili (m) = 10⁻³, micro (µ) = 10⁻⁶, nano (n) = 10⁻⁹. La <mark>notación científica</mark> escribe un número como un factor entre 1 y 10 multiplicado por una potencia de 10. La distancia Tierra-Sol, 150.000.000.000 m, se escribe <b>1,5 · 10¹¹ m</b>. El diámetro de un glóbulo rojo, 0,000007 m, es <b>7 · 10⁻⁶ m</b>. Si la coma se mueve a la izquierda, el exponente es positivo; si se mueve a la derecha, negativo.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Escalera de prefijos: kilo, hecto, deca, unidad, deci, centi, mili; bajar un escalón multiplica por 10 y subir divide entre 10">${BG}
-        ${["km", "hm", "dam", "m", "dm", "cm", "mm"].map((u, i) => `<rect x="${14 + i * 32}" y="${26 + i * 20}" width="32" height="${154 - 26 - i * 20}" fill="var(--pen)" fill-opacity="${0.08 + i * 0.03}" stroke="var(--pen)" stroke-width="1.5"/>${t(30 + i * 32, 42 + i * 20, u, { size: 11, color: "var(--pen)" })}`).join("")}
-        ${fl(150, 52, 196, 80, "var(--leaf)", 2)}${t(244, 22, "baja: × 10", { size: 11, anchor: "end", color: "var(--leaf)" })}
-        ${t(244, 38, "sube: ÷ 10", { size: 11, anchor: "end", color: "var(--red)" })}</svg>`,
-    },
-    {
-      html: `<h3>Los factores de conversión</h3><p>Para cambiar de unidad se usan <mark>factores de conversión</mark>: fracciones que valen 1 porque el numerador y el denominador son la misma cantidad expresada en unidades distintas, como <b>1 km / 1000 m</b> o <b>1 h / 3600 s</b>. Se multiplica la cantidad por el factor colocado de forma que la unidad que queremos eliminar quede arriba y abajo, y se tache. Por ejemplo: <b>72 km/h · (1000 m / 1 km) · (1 h / 3600 s) = 20 m/s</b>. Con este método se pueden encadenar varios cambios en una sola operación y es difícil equivocarse.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Paso de 72 kilómetros por hora a metros por segundo con dos factores de conversión; los kilómetros y las horas se tachan">${BG}
-        ${t(40, 70, "72 km", { size: 13 })}<line x1="18" y1="80" x2="62" y2="80" stroke="var(--ink)" stroke-width="1.5"/>${t(40, 98, "h", { size: 13 })}
-        ${t(72, 86, "·", { size: 16 })}${t(108, 70, "1000 m", { size: 13 })}<line x1="82" y1="80" x2="134" y2="80" stroke="var(--ink)" stroke-width="1.5"/>${t(108, 98, "1 km", { size: 13 })}
-        ${t(144, 86, "·", { size: 16 })}${t(178, 70, "1 h", { size: 13 })}<line x1="154" y1="80" x2="202" y2="80" stroke="var(--ink)" stroke-width="1.5"/>${t(178, 98, "3600 s", { size: 13 })}
-        <line x1="44" y1="74" x2="62" y2="58" stroke="var(--red)" stroke-width="2"/><line x1="100" y1="102" x2="128" y2="86" stroke="var(--red)" stroke-width="2"/><line x1="32" y1="102" x2="48" y2="86" stroke="var(--red)" stroke-width="2"/><line x1="168" y1="74" x2="188" y2="58" stroke="var(--red)" stroke-width="2"/>
-        ${t(130, 140, "= 20 m/s", { size: 16, color: "var(--leaf)" })}${t(130, 26, "lo que sobra arriba se tacha abajo", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>La medida y sus errores</h3><p>Ninguna medida es perfecta. Los <b>instrumentos</b> tienen una <b>sensibilidad</b>, la menor cantidad que pueden apreciar: una regla escolar aprecia 1 mm. Hay dos tipos de errores. Los <b>errores sistemáticos</b> se repiten siempre en el mismo sentido, por un instrumento mal calibrado o un mal método, como mirar la probeta desde arriba. Los <b>errores aleatorios</b> se deben al azar y cambian en cada medida; se reducen <mark>repitiendo la medida varias veces y calculando la media</mark>. El <b>error absoluto</b> es la diferencia entre el valor medido y el real; el <b>error relativo</b>, ese error dividido entre el valor real, indica la calidad de la medida, y suele darse en porcentaje.</p>`,
-    },
-    {
-      html: `<h3>Tablas y gráficas</h3><p>Los datos de un experimento se ordenan en <b>tablas</b>, con la variable independiente en la primera columna y las unidades en la cabecera. Después se representan en una <mark>gráfica</mark>: la variable independiente en el eje horizontal (X) y la dependiente en el vertical (Y), con escalas adecuadas y nombre y unidad en cada eje. La forma de la gráfica revela la relación entre las variables. Si los puntos forman una <b>recta que pasa por el origen</b>, las magnitudes son <b>directamente proporcionales</b>: al doblar una, se dobla la otra. Si forman una curva que baja, como una hipérbola, pueden ser <b>inversamente proporcionales</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráfica masa frente a volumen de agua: los puntos forman una recta que pasa por el origen, relación directamente proporcional">${BG}
-        <path d="M44 20 V 150 H 240" stroke="var(--muted)" stroke-width="2" fill="none"/>
-        ${t(240, 168, "volumen (mL)", { size: 10, anchor: "end", color: "var(--muted)" })}${t(48, 16, "masa (g)", { size: 10, anchor: "start", color: "var(--muted)" })}
-        <line x1="44" y1="150" x2="230" y2="36" stroke="var(--pen)" stroke-width="2.5"/>
-        ${[[80, 128], [118, 105], [155, 82], [192, 59], [224, 40]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="var(--red)"/>`).join("")}
-        ${t(150, 130, "recta por el origen:", { size: 10, anchor: "start" })}${t(150, 143, "proporcional", { size: 10, anchor: "start" })}</svg>`,
-    },
-    {
-      html: `<h3>El laboratorio y la seguridad</h3><p>En el laboratorio se usan materiales como el <b>vaso de precipitados</b>, el <b>matraz Erlenmeyer</b>, la <b>probeta</b> para medir volúmenes, la <b>pipeta</b> para volúmenes pequeños y precisos, el <b>embudo</b>, la <b>balanza</b> y el <b>mechero Bunsen</b>. Las normas de seguridad son obligatorias: usar <mark>bata y gafas</mark>, recogerse el pelo, no comer ni beber, no oler ni probar los productos, calentar los tubos sin apuntar a nadie y tirar los residuos donde indique el profesor. Los envases llevan <b>pictogramas de peligro</b> con forma de rombo rojo: inflamable, corrosivo, tóxico, irritante o peligroso para el medio ambiente.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Material de laboratorio: vaso de precipitados, matraz Erlenmeyer, probeta y un pictograma de peligro en forma de rombo rojo">${BG}
-        <path d="M24 60 V 140 H 74 V 60" fill="var(--water)" fill-opacity=".25" stroke="var(--ink)" stroke-width="2"/>${t(49, 160, "vaso", { size: 10 })}
-        <path d="M106 50 H 118 V 80 L 140 140 H 84 L 106 80 Z" fill="var(--water)" fill-opacity=".25" stroke="var(--ink)" stroke-width="2"/>${t(112, 160, "Erlenmeyer", { size: 10 })}
-        <path d="M164 30 V 136 H 156 V 142 H 184 V 136 H 176 V 30" fill="var(--water)" fill-opacity=".25" stroke="var(--ink)" stroke-width="2"/>${[50, 70, 90, 110].map(y => `<line x1="164" y1="${y}" x2="170" y2="${y}" stroke="var(--ink)"/>`).join("")}${t(170, 160, "probeta", { size: 10 })}
-        <rect x="208" y="60" width="32" height="32" transform="rotate(45 224 76)" fill="#fff" stroke="var(--red)" stroke-width="3"/>${t(224, 82, "!", { size: 18, color: "var(--ink)" })}${t(224, 128, "peligro", { size: 10, color: "var(--red)" })}</svg>`,
-    },
-    {
-      html: `<h3>Teorías, leyes y ciencia en la sociedad</h3><p>Cuando una hipótesis se confirma muchas veces se convierte en una <b>ley</b>, que describe con precisión cómo se comporta la naturaleza, a menudo con una fórmula, como la ley de Boyle de los gases. Una <mark>teoría</mark> explica por qué ocurren muchos fenómenos relacionados, como la teoría cinética o la teoría atómica. En ciencia, «teoría» no significa «suposición»: es una explicación muy comprobada, aunque siempre puede corregirse si aparecen datos nuevos. La ciencia y la tecnología han traído vacunas, electricidad e internet, pero también problemas como la contaminación. Por eso hace falta una ciudadanía capaz de <b>distinguir información científica de bulos</b>.</p>`,
-    },
+    bloque({ h: "1.1 ¿Qué es la ciencia?", p: [
+      "La <mark>ciencia</mark> es una forma de conocer el mundo basada en la <b>observación</b>, la <b>experimentación</b> y el <b>razonamiento</b>. Su objetivo es explicar cómo funciona la naturaleza y predecir lo que ocurrirá. Lo que la distingue de otras formas de conocimiento, como la opinión, la tradición o la creencia, es que sus afirmaciones se apoyan en <b>pruebas</b> que cualquiera puede comprobar y que se aceptan solo mientras los datos no las contradigan.",
+      "La Física y la Química son dos ciencias de la naturaleza muy relacionadas. La <b>Física</b> estudia los fenómenos en los que no cambia la naturaleza de la materia: el movimiento, las fuerzas, la energía, la luz, el sonido o la electricidad. La <b>Química</b> estudia la composición de la materia y sus transformaciones, en las que unas sustancias se convierten en otras. Ambas se apoyan en las Matemáticas para medir, calcular y expresar sus leyes, y se relacionan con la Biología, la Geología, la Medicina o la Tecnología. La ciencia es una actividad humana y colectiva: los científicos comparten sus resultados, los revisan unos a otros y construyen sobre el trabajo de quienes vinieron antes.",
+    ], svg: compara("Diferencia entre fenómenos físicos y químicos", ["Física", ["movimiento", "fuerzas", "energía", "luz y sonido"]], ["Química", ["composición", "sustancias", "reacciones", "materiales"]], "var(--pen)", "var(--leaf)") }),
+    bloque({ h: "1.2 Las etapas del método científico", p: [
+      "El <mark>método científico</mark> es el procedimiento que siguen los científicos para investigar. Empieza con la <b>observación</b> de un fenómeno que despierta la curiosidad, de la que surge una <b>pregunta</b> concreta. Después se busca <b>información</b> sobre lo que ya se sabe y se formula una <b>hipótesis</b>, una posible respuesta que se pueda comprobar. A continuación se diseña y realiza un <b>experimento</b> para ponerla a prueba, recogiendo datos con cuidado.",
+      "Los datos se organizan en tablas y gráficas y se <b>analizan</b> para sacar <b>conclusiones</b>: si los resultados confirman la hipótesis, se acepta provisionalmente; si no, se rechaza o se modifica y se vuelve a empezar. Por último, los resultados se <b>comunican</b> en un informe, un artículo o una presentación, para que otros puedan revisarlos y repetir el experimento. En la práctica no es una receta rígida: a veces un resultado inesperado lleva a una pregunta nueva, y el proceso se repite en forma de ciclo. Lo esencial es que cualquier idea se contrasta con la realidad.",
+    ], svg: S.svg[0], video: S.bvideos[0] }),
+    bloque({ h: "1.3 Hipótesis y variables", p: [
+      "Una <mark>hipótesis</mark> es una explicación provisional que se puede poner a prueba. Una buena hipótesis es <b>contrastable</b>: se puede diseñar un experimento cuyo resultado la confirme o la refute. «El azúcar se disuelve más deprisa en agua caliente» es una hipótesis contrastable; «el agua tiene buenas intenciones», no. Suele escribirse con la forma «si… entonces…»: si aumento la temperatura del agua, entonces el azúcar tardará menos en disolverse.",
+      "En un experimento intervienen <b>variables</b>, magnitudes que pueden cambiar. La <mark>variable independiente</mark> es la que el investigador modifica a voluntad (la temperatura del agua). La <mark>variable dependiente</mark> es la que se mide para ver cómo responde (el tiempo de disolución). Las <b>variables controladas</b> son todas las demás, que deben mantenerse constantes para que el experimento sea justo: la cantidad de agua, la masa de azúcar, el tipo de azúcar, si se remueve o no. Si cambiáramos dos cosas a la vez, no sabríamos cuál ha causado el efecto. Por eso se dice que un buen experimento cambia una sola variable cada vez.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "1.4 Leyes, teorías y modelos", p: [
+      "Cuando una relación entre magnitudes se comprueba muchas veces y siempre se cumple, se convierte en una <mark>ley científica</mark>, que suele expresarse con una fórmula matemática. Por ejemplo, la ley de Boyle dice que, a temperatura constante, la presión de un gas por su volumen es constante. Una ley describe <b>qué</b> ocurre, pero no explica <b>por qué</b>.",
+      "Una <mark>teoría científica</mark> es un conjunto de ideas que explica muchas leyes y observaciones a la vez, como la teoría cinético-molecular, que explica las leyes de los gases a partir del movimiento de las partículas. En el lenguaje de la calle «teoría» significa una suposición, pero en ciencia es justo lo contrario: una explicación muy comprobada. Para explicar fenómenos que no se ven, los científicos usan <b>modelos</b>, representaciones simplificadas de la realidad, como los modelos atómicos. Ninguna teoría es definitiva: si aparecen datos que no encajan, se corrige o se sustituye por otra mejor. Así cambió el modelo del universo de Ptolomeo, con la Tierra en el centro, por el de Copérnico.",
+    ], svg: pasos("De la observación a la teoría", ["Observaciones repetidas", "Ley: describe qué pasa", "Teoría: explica por qué", "Se revisa con datos nuevos"], "var(--pen)") }),
+    bloque({ h: "2.1 Magnitudes y unidades", p: [
+      "En ciencia hay que <b>medir</b>. Una <mark>magnitud</mark> es cualquier propiedad que se puede medir y expresar con un número: la longitud, la masa, el tiempo, la temperatura o la velocidad. La belleza o la simpatía no son magnitudes, porque no se pueden medir de forma objetiva. <b>Medir</b> es comparar una magnitud con otra de la misma clase que se toma como referencia, llamada <mark>unidad</mark>.",
+      "El resultado de una medida tiene siempre dos partes: un <b>número</b> y una <b>unidad</b>. Decir «la mesa mide 2» no significa nada: ¿2 metros, 2 palmos, 2 pies? Hay magnitudes <b>fundamentales</b>, que se definen por sí mismas, como la longitud, la masa o el tiempo, y magnitudes <b>derivadas</b>, que se obtienen combinando las fundamentales mediante fórmulas: la superficie (longitud × longitud), el volumen, la velocidad (longitud / tiempo) o la densidad (masa / volumen). Algunas magnitudes, como la temperatura o la masa, quedan definidas con un número: son <b>escalares</b>. Otras, como la velocidad o la fuerza, necesitan además una dirección y un sentido: son <b>vectoriales</b>.",
+    ], svg: rejilla("Magnitudes derivadas y cómo se obtienen", ["Magnitud", "Fórmula", "Unidad SI"], [["Superficie", "l · l", "m²"], ["Volumen", "l · l · l", "m³"], ["Velocidad", "d / t", "m/s"], ["Densidad", "m / V", "kg/m³"]], "var(--pen)") }),
+    bloque({ h: "2.2 El Sistema Internacional de Unidades", p: [
+      "Durante siglos, cada región usaba sus propias unidades: varas, leguas, arrobas o libras, que además cambiaban de un lugar a otro. Esto dificultaba el comercio y la ciencia. En 1960 se acordó el <mark>Sistema Internacional de Unidades</mark> (SI), que hoy usan casi todos los países y toda la comunidad científica. Tiene siete magnitudes fundamentales, cada una con su unidad.",
+      "Las más usadas en este curso son: la <b>longitud</b>, en metros (m); la <b>masa</b>, en kilogramos (kg); el <b>tiempo</b>, en segundos (s); la <b>temperatura</b>, en kelvin (K); la <b>intensidad de corriente</b>, en amperios (A); y la <b>cantidad de sustancia</b>, en moles (mol). La séptima es la intensidad luminosa, en candelas (cd). Los símbolos se escriben sin punto final y no se ponen en plural: 5 kg, no 5 kgs. Desde 2019, todas las unidades se definen a partir de constantes de la naturaleza, como la velocidad de la luz, para que sean exactamente iguales en cualquier laboratorio del mundo. En la vida diaria usamos también unidades que no son del SI, como el litro, la hora o el grado Celsius.",
+    ], svg: rejilla("Magnitudes fundamentales del Sistema Internacional", ["Magnitud", "Unidad", "Símbolo"], [["Longitud", "metro", "m"], ["Masa", "kilogramo", "kg"], ["Tiempo", "segundo", "s"], ["Temperatura", "kelvin", "K"], ["Corriente", "amperio", "A"]], "var(--leaf)") }),
+    bloque({ h: "2.3 Múltiplos, submúltiplos y notación científica", p: [
+      "Para expresar cantidades muy grandes o muy pequeñas se usan <b>prefijos</b> que multiplican la unidad por potencias de 10. Los <mark>múltiplos</mark> más comunes son kilo (k, 10³), mega (M, 10⁶) y giga (G, 10⁹); los <mark>submúltiplos</mark>, deci (d, 10⁻¹), centi (c, 10⁻²), mili (m, 10⁻³), micro (µ, 10⁻⁶) y nano (n, 10⁻⁹). Así, 1 km = 1.000 m y 1 mg = 0,001 g.",
+      "La <mark>notación científica</mark> expresa cualquier número como un número entre 1 y 10 multiplicado por una potencia de 10: a · 10ⁿ. La distancia de la Tierra al Sol, 150.000.000 km, se escribe 1,5 · 10⁸ km; el tamaño de un átomo, 0,0000000001 m, se escribe 1 · 10⁻¹⁰ m. Para pasar a notación científica se desplaza la coma hasta dejar una sola cifra distinta de cero delante: el exponente es el número de lugares que se ha movido, positivo si el número era grande y negativo si era pequeño. Para multiplicar se multiplican los números y se suman los exponentes; para dividir, se dividen y se restan los exponentes.",
+    ], extra: formula("número = a · 10ⁿ, con 1 ≤ a &lt; 10"), svg: S.svg[2], video: S.bvideos[1] }),
+    bloque({ h: "2.4 Los factores de conversión", p: [
+      "Para cambiar de unidades se utilizan los <mark>factores de conversión</mark>: fracciones que valen 1 porque el numerador y el denominador son la misma cantidad expresada en unidades distintas, como 1 km / 1.000 m o 1 h / 3.600 s. Multiplicar por un factor de conversión no cambia la cantidad, solo la unidad en que se expresa.",
+      "El método consiste en escribir la cantidad y multiplicarla por un factor colocado de forma que la unidad que queremos eliminar quede una vez arriba y otra abajo, para que se simplifique. Por ejemplo, 2,5 km · (1.000 m / 1 km) = 2.500 m. Con unidades compuestas se encadenan varios factores: para pasar 72 km/h a m/s, 72 km/h · (1.000 m / 1 km) · (1 h / 3.600 s) = 20 m/s. Un truco útil: para pasar de km/h a m/s basta dividir entre 3,6. Con superficies y volúmenes hay que tener cuidado: 1 m² = 10.000 cm², porque son 100 cm × 100 cm; y 1 m³ = 1.000 L, mientras que 1 L = 1 dm³ = 1.000 cm³ = 1.000 mL.",
+    ], svg: S.svg[3], video: S.bvideos[2] }),
+    bloque({ h: "3.1 Los instrumentos de medida", p: [
+      "Cada magnitud se mide con un <b>instrumento</b> adecuado: la longitud con una regla, una cinta métrica o un calibre; la masa con una balanza; el tiempo con un cronómetro; la temperatura con un termómetro; el volumen de un líquido con una probeta, una pipeta o una bureta. Al elegir un instrumento hay que fijarse en dos características.",
+      "La <mark>sensibilidad</mark> o <b>resolución</b> es la menor variación que el instrumento puede apreciar: una regla milimetrada tiene una sensibilidad de 1 mm, y una balanza que muestra 0,01 g, de 0,01 g. El <b>alcance</b> o fondo de escala es el valor máximo que puede medir. Para medir el grosor de una moneda, una regla es poco sensible; un calibre o un micrómetro son mejores. Además, un buen instrumento debe ser <b>preciso</b>, es decir, dar valores muy parecidos al repetir la medida, y <b>exacto</b>, es decir, dar valores próximos al valor real. Antes de usarlo conviene comprobar que marca cero cuando no mide nada (calibrarlo) y leer la escala con la vista perpendicular a ella, para evitar el error de paralaje.",
+    ], svg: rejilla("Instrumentos de medida y su sensibilidad", ["Magnitud", "Instrumento", "Sensibilidad"], [["Longitud", "regla", "1 mm"], ["Longitud", "calibre", "0,05 mm"], ["Masa", "balanza", "0,01 g"], ["Volumen", "probeta", "1 mL"], ["Tiempo", "cronómetro", "0,01 s"]], "var(--pen)") }),
+    bloque({ h: "3.2 Los errores en la medida", p: [
+      "Ninguna medida es perfecta: siempre tiene un <b>error</b> o incertidumbre. Hay <b>errores sistemáticos</b>, que se repiten siempre en el mismo sentido porque el instrumento está mal calibrado o el método es defectuoso (una balanza que marca 2 g de más), y <b>errores aleatorios</b>, que varían al azar en cada medida (el tiempo de reacción al pulsar un cronómetro). Los aleatorios se reducen repitiendo la medida varias veces y calculando la <b>media</b>, que se toma como valor más probable.",
+      "El <mark>error absoluto</mark> es la diferencia, en valor absoluto, entre el valor medido y el valor real (o el valor medio): Eₐ = |x − x̄|. Tiene las mismas unidades que la medida. El <mark>error relativo</mark> es el cociente entre el error absoluto y el valor real, y se suele dar en porcentaje: Eᵣ = Eₐ / x̄ · 100. El error relativo indica la <b>calidad</b> de la medida: equivocarse en 1 cm al medir un campo de fútbol es una medida excelente, pero equivocarse en 1 cm al medir una goma de borrar es una medida pésima. El resultado se expresa como valor ± error, por ejemplo 12,4 ± 0,1 cm.",
+    ], extra: formula("Eₐ = |x − x̄|  ·  Eᵣ = Eₐ / x̄ · 100 %"), svg: compara("Error absoluto frente a error relativo", ["Absoluto", ["|medida − real|", "con unidades", "ej.: 0,2 cm", "no dice calidad"]], ["Relativo", ["Eₐ / valor real", "sin unidades (%)", "ej.: 1,6 %", "indica calidad"]], "var(--pen)", "var(--red)") }),
+    bloque({ h: "3.3 Cifras significativas y redondeo", p: [
+      "Las <mark>cifras significativas</mark> de una medida son las que se conocen con seguridad más la primera dudosa. Si una regla milimetrada indica 12,4 cm, tiene tres cifras significativas; escribir 12,4000 cm sería engañoso, porque la regla no aprecia diezmilésimas. Los ceros a la izquierda no son significativos (0,0052 tiene dos), pero los ceros entre cifras o al final de un decimal sí lo son (2,05 y 3,40 tienen tres).",
+      "Cuando se hacen cálculos con medidas, el resultado no puede ser más preciso que los datos. Una regla práctica: en una multiplicación o división, el resultado se da con tantas cifras significativas como el dato que tenga menos. Por eso hay que <b>redondear</b>: si la primera cifra que se elimina es 5 o mayor, la anterior se aumenta en una unidad; si es menor que 5, se deja igual. Así, 3,467 redondeado a tres cifras es 3,47, y 3,462 es 3,46. La calculadora puede mostrar 2,333333333, pero si los datos tenían dos cifras significativas el resultado correcto es 2,3. Escribir todos los decimales de la calculadora no hace el resultado más exacto, solo más falso.",
+    ], svg: pasos("Cómo redondear a tres cifras significativas", ["Cuenta cifras desde la primera ≠ 0", "Mira la cifra siguiente", "Si es ≥ 5, sube la anterior", "3,467 → 3,47"], "var(--leaf)") }),
+    bloque({ h: "3.4 Tablas y gráficas", p: [
+      "Los datos de un experimento se organizan en una <mark>tabla</mark> de valores: en la primera columna la variable independiente y en la segunda la dependiente, con el nombre de cada magnitud y su unidad en la cabecera. La tabla permite ver los datos de un vistazo, pero una <mark>gráfica</mark> muestra mucho mejor la relación entre ellos.",
+      "Para hacer una gráfica se dibujan dos ejes perpendiculares: en el eje horizontal (abscisas) se representa la variable independiente y en el vertical (ordenadas) la dependiente, con su magnitud, su unidad y una escala adecuada que aproveche el papel. Se marcan los puntos y se traza la línea que mejor se ajusta a ellos, sin unir punto con punto, porque los datos tienen errores. Si la gráfica es una <b>recta que pasa por el origen</b>, las magnitudes son <b>directamente proporcionales</b>: si una se duplica, la otra también, como la masa y el volumen de una sustancia. Si es una curva descendente en la que el producto de ambas es constante (una hipérbola), son <b>inversamente proporcionales</b>, como la presión y el volumen de un gas. Las gráficas permiten además leer valores intermedios (interpolar) y predecir otros (extrapolar).",
+    ], svg: S.svg[4] }),
+    bloque({ h: "4.1 El laboratorio y su material", p: [
+      "El <b>laboratorio</b> es el lugar donde se realizan los experimentos en condiciones controladas. Conocer el material y usarlo bien es la primera condición para trabajar con seguridad. Para medir volúmenes de líquidos se usan la <b>probeta</b> (poco precisa), la <b>pipeta</b> y la <b>bureta</b> (más precisas) y el <b>matraz aforado</b>, que mide un volumen fijo con mucha exactitud. El <b>vaso de precipitados</b> y el <b>matraz Erlenmeyer</b> sirven para contener, mezclar o calentar líquidos, pero sus marcas son solo orientativas.",
+      "Para calentar se usan el <b>mechero Bunsen</b> o la placa calefactora, junto con el trípode, la rejilla y las pinzas. Los <b>tubos de ensayo</b> se colocan en una gradilla. El <b>embudo</b> y el papel de filtro sirven para filtrar, y el <b>embudo de decantación</b>, para separar líquidos que no se mezclan. Para medir la masa se usa la <b>balanza</b>, colocando la sustancia sobre un vidrio de reloj o un papel, nunca directamente sobre el plato. Al leer el volumen en una probeta hay que mirar la parte baja de la superficie curva del líquido, llamada <b>menisco</b>, con los ojos a su misma altura.",
+    ], svg: S.svg[5] }),
+    bloque({ h: "4.2 La seguridad en el laboratorio", p: [
+      "En el laboratorio hay sustancias y aparatos peligrosos, así que hay que seguir unas <b>normas de seguridad</b>: usar bata y gafas de protección, recogerse el pelo largo, no comer ni beber, no oler ni probar ninguna sustancia, leer las etiquetas antes de usar un producto, no devolver los restos a su frasco, trabajar con la mesa ordenada y avisar al profesor de cualquier accidente, por pequeño que sea. Los tubos de ensayo se calientan inclinados y sin apuntar a nadie.",
+      "Las etiquetas de los productos químicos llevan <mark>pictogramas de peligro</mark>, rombos rojos con un dibujo negro que informan del riesgo, según el sistema internacional SGA. Indican, por ejemplo, que un producto es <b>inflamable</b> (una llama), <b>corrosivo</b> (un líquido que quema una mano y una superficie), <b>tóxico</b> (una calavera), <b>nocivo o irritante</b> (un signo de exclamación), <b>peligroso para el medio ambiente</b> (un pez y un árbol muertos) o un <b>gas a presión</b> (una bombona). Muchos productos de casa, como la lejía, el amoníaco o los desatascadores, también los llevan. Nunca hay que mezclar productos de limpieza, porque pueden desprender gases tóxicos.",
+    ], svg: ficha("Normas básicas de seguridad en el laboratorio", "Seguridad", ["Bata, gafas y pelo recogido", "No comer, oler ni probar", "Leer etiquetas y pictogramas", "Avisar de cualquier accidente"], "var(--red)") }),
+    bloque({ h: "4.3 Ciencia, tecnología y sociedad", p: [
+      "La ciencia busca comprender la naturaleza y la <b>tecnología</b> aplica esos conocimientos para resolver problemas y fabricar objetos útiles. Ambas avanzan juntas: el estudio de la electricidad permitió inventar la bombilla y el motor, y a la vez los telescopios y los ordenadores permiten hacer nueva ciencia. Gracias a ellas tenemos vacunas, agua potable, teléfonos móviles o energía solar, y vivimos el doble que hace dos siglos.",
+      "Pero la ciencia también tiene <b>responsabilidades</b>: algunos avances han causado contaminación, armas o desigualdades, y por eso la sociedad debe participar en las decisiones sobre cómo usarlos. Además, hoy circulan muchas <mark>pseudociencias</mark> y bulos que se presentan como científicos sin serlo: no aportan pruebas, no se pueden refutar o no se han publicado ni revisado. Para reconocerlos conviene preguntarse quién lo dice, en qué pruebas se basa, si otros expertos lo confirman y si alguien gana dinero con ello. Durante mucho tiempo las mujeres tuvieron muy difícil dedicarse a la ciencia; aun así, científicas como Marie Curie, Lise Meitner o Margarita Salas hicieron descubrimientos fundamentales.",
+    ], svg: ciclo("Relación entre ciencia, tecnología, sociedad y medio ambiente", ["Ciencia", "Tecnología", "Sociedad", "Ambiente"], "var(--pen)", "CTSA") }),
   ],
-  figura: {
-    titulo: "Del problema a la conclusión",
-    svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Las seis etapas del método científico en fila: observar, preguntar, hipótesis, experimentar, analizar y concluir, con una flecha de vuelta a la hipótesis si se rechaza">
-      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${["observar", "preguntar", "hipótesis", "experimentar", "analizar", "concluir"].map((n, i) => caja(14 + i * 104, 70, 98, 46, n, ["var(--pen)", "var(--pen)", "var(--leaf)", "#b8860b", "#b8860b", "var(--red)"][i], { size: 13 })).join("")}
-      ${[0, 1, 2, 3, 4].map(i => fl(112 + i * 104, 93, 118 + i * 104, 93)).join("")}
-      <path d="M582 118 V 170 H 270 V 122" fill="none" stroke="var(--red)" stroke-width="2.5" stroke-dasharray="6 4"/>${fl(270, 140, 270, 120, "var(--red)", 2.5)}
-      ${t(426, 194, "si los datos no la apoyan, se propone otra hipótesis", { size: 13, color: "var(--red)" })}
-      ${t(320, 40, "comunicar los resultados para que otros los comprueben", { size: 14, color: "var(--muted)", font: D })}
-    </svg>`,
-  },
-  video: { id: "2q3XeWtdlfY", titulo: "El método científico explicado con ejemplos", canal: "Profe Marilin", vistas: 989233, megusta: 0, busqueda: "el método científico explicación" },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Expresa en notación científica: a) 340.000 m; b) 0,00052 kg.",
-      pasos: ["a) Movemos la coma 5 lugares a la izquierda hasta dejar una cifra entera: 3,4.", "Como la movimos a la izquierda, el exponente es +5.", "b) Movemos la coma 4 lugares a la derecha: 5,2; el exponente es −4."],
-      resultado: "a) 3,4 · 10⁵ m; b) 5,2 · 10⁻⁴ kg." },
-    { enunciado: "Pasa 2,5 h a segundos y 15 m/s a km/h.",
-      pasos: ["2,5 h · (3600 s / 1 h) = 9000 s.", "15 m/s · (1 km / 1000 m) · (3600 s / 1 h).", "15 · 3600 / 1000 = 54."],
-      resultado: "9000 s y 54 km/h." },
-    { enunciado: "Mides el largo de un libro cuatro veces: 24,1 cm, 24,3 cm, 24,2 cm y 24,2 cm. ¿Qué valor das?",
-      pasos: ["Sumamos las medidas: 24,1 + 24,3 + 24,2 + 24,2 = 96,8 cm.", "Dividimos entre 4: 96,8 / 4 = 24,2 cm.", "La media reduce el efecto de los errores aleatorios."],
-      resultado: "24,2 cm." },
+    { enunciado: "Queremos estudiar si la altura desde la que se deja caer una pelota influye en la altura a la que rebota. Identifica las variables y formula una hipótesis.", pasos: ["Variable independiente (la que cambiamos): la altura de caída.", "Variable dependiente (la que medimos): la altura del rebote.", "Variables controladas: la misma pelota, el mismo suelo, la misma forma de soltarla.", "Hipótesis: si aumenta la altura de caída, entonces aumentará la altura del rebote."], resultado: "VI: altura de caída; VD: altura del rebote; hipótesis contrastable con un experimento." },
+    { enunciado: "Expresa en notación científica: a) 0,000045 m; b) 7.200.000 km.", pasos: ["a) La coma se mueve 5 lugares a la derecha hasta 4,5 → exponente −5.", "b) La coma se mueve 6 lugares a la izquierda hasta 7,2 → exponente 6."], resultado: "a) 4,5 · 10⁻⁵ m; b) 7,2 · 10⁶ km." },
+    { enunciado: "Pasa 90 km/h a m/s con factores de conversión.", pasos: ["90 km/h · (1.000 m / 1 km) · (1 h / 3.600 s).", "Se simplifican km y h.", "90 · 1.000 / 3.600 = 25."], resultado: "25 m/s." },
+    { enunciado: "Pasa 2,5 L a cm³ y 350 cm² a m².", pasos: ["1 L = 1.000 cm³ → 2,5 L · (1.000 cm³ / 1 L) = 2.500 cm³.", "1 m² = 10.000 cm² → 350 cm² · (1 m² / 10.000 cm²) = 0,035 m²."], resultado: "2.500 cm³ y 0,035 m² (3,5 · 10⁻² m²)." },
+    { enunciado: "Cinco medidas del periodo de un péndulo dan 2,02 s; 1,98 s; 2,05 s; 1,99 s y 2,01 s. Calcula el valor medio y el error absoluto y relativo de la medida 2,05 s.", pasos: ["Media: (2,02 + 1,98 + 2,05 + 1,99 + 2,01) / 5 = 10,05 / 5 = 2,01 s.", "Error absoluto: |2,05 − 2,01| = 0,04 s.", "Error relativo: 0,04 / 2,01 · 100 = 2,0 %."], resultado: "Valor medio 2,01 s; Eₐ = 0,04 s; Eᵣ ≈ 2 %." },
+    { enunciado: "Se miden la masa y el volumen de varios trozos de aluminio: 27 g – 10 cm³; 54 g – 20 cm³; 81 g – 30 cm³. ¿Qué relación hay entre masa y volumen? ¿Qué masa tendrían 25 cm³?", pasos: ["Se divide masa entre volumen: 27/10 = 54/20 = 81/30 = 2,7 g/cm³.", "El cociente es constante: son directamente proporcionales y la gráfica es una recta que pasa por el origen.", "Para 25 cm³: m = 2,7 · 25 = 67,5 g."], resultado: "Proporcionalidad directa (densidad 2,7 g/cm³); 25 cm³ tienen 67,5 g." },
   ],
   errores: [
-    "Escribir una medida sin unidad: «mide 5» no dice nada.",
-    "Confundir la variable independiente (la que cambio) con la dependiente (la que mido).",
-    "Escribir mal los símbolos: «Kg», «KM» o «seg»; lo correcto es kg, km y s.",
-    "Poner el factor de conversión al revés, de forma que las unidades no se tachan.",
-    "Pensar que una teoría científica es solo una opinión sin pruebas.",
+    "Dar una medida sin unidad: «la mesa mide 2» no significa nada.",
+    "Cambiar varias variables a la vez en un experimento: no se sabe cuál causa el efecto.",
+    "Pensar que «teoría» en ciencia significa «suposición»: es una explicación muy comprobada.",
+    "Copiar todos los decimales de la calculadora: el resultado no puede ser más preciso que los datos.",
+    "Creer que 1 m² son 100 cm²: son 100 · 100 = 10.000 cm².",
+    "Unir los puntos de una gráfica uno a uno en vez de trazar la línea que mejor se ajusta.",
   ],
   ejercicios: [
-    { q: "Ordena las etapas del método científico.", sol: "Observación, planteamiento del problema, hipótesis, experimentación, análisis de datos, conclusiones y comunicación." },
-    { q: "Queremos saber si la luz influye en el crecimiento de una planta. Indica la variable independiente, la dependiente y dos controladas.", sol: "Independiente: la cantidad de luz. Dependiente: la altura de la planta. Controladas: el agua, el tipo de planta, la tierra o la temperatura." },
-    { q: "¿Cuáles de estas son magnitudes: la masa, la simpatía, la temperatura, el color favorito, el volumen?", sol: "La masa, la temperatura y el volumen." },
-    { q: "Escribe la unidad del SI y su símbolo para la masa, el tiempo, la longitud y la temperatura.", sol: "Kilogramo (kg), segundo (s), metro (m) y kelvin (K)." },
-    { q: "Expresa en notación científica: 6.000.000; 0,0003; 45.000.", sol: "6 · 10⁶; 3 · 10⁻⁴; 4,5 · 10⁴." },
-    { q: "Pasa 3,2 km a cm y 450 g a kg.", sol: "3,2 km = 320.000 cm = 3,2 · 10⁵ cm; 450 g = 0,45 kg." },
-    { q: "Convierte 108 km/h a m/s.", sol: "108 · 1000 / 3600 = 30 m/s." },
-    { q: "Una pieza mide en realidad 50,0 cm y tú obtienes 49,5 cm. Calcula el error absoluto y el relativo.", sol: "Error absoluto: 0,5 cm. Error relativo: 0,5 / 50 = 0,01, es decir, un 1 %." },
-    { q: "En una gráfica masa-volumen los puntos forman una recta que pasa por el origen. ¿Qué relación hay entre las magnitudes?", sol: "Son directamente proporcionales: al doblar el volumen se dobla la masa." },
-    { q: "Escribe cuatro normas de seguridad del laboratorio.", sol: "Usar bata y gafas, recogerse el pelo, no comer ni beber, no oler ni probar productos y seguir las indicaciones del profesor." },
+    B("Ordena las etapas del método científico: experimentación, hipótesis, observación, conclusiones, pregunta, comunicación, análisis de datos.", "Observación → pregunta → hipótesis → experimentación → análisis de datos → conclusiones → comunicación."),
+    B("¿Cuáles de estas hipótesis son contrastables? a) Las plantas crecen más con luz; b) Los gatos negros traen mala suerte a quien los ve en martes; c) El agua hierve antes en la montaña.", "a) y c) son contrastables: se pueden diseñar experimentos para comprobarlas. b) no lo es en sentido científico: «mala suerte» no se puede medir de forma objetiva."),
+    B("Indica cuáles son magnitudes: la masa, la alegría, la temperatura, el color favorito, el volumen, la velocidad.", "Magnitudes: masa, temperatura, volumen y velocidad. La alegría y el color favorito no se pueden medir de forma objetiva."),
+    B("Escribe la unidad y el símbolo en el SI de: longitud, masa, tiempo, temperatura, intensidad de corriente.", "Metro (m), kilogramo (kg), segundo (s), kelvin (K), amperio (A)."),
+    B("Escribe el valor de los prefijos: kilo, centi, mili, micro, mega.", "kilo = 10³; centi = 10⁻²; mili = 10⁻³; micro = 10⁻⁶; mega = 10⁶."),
+    B("Expresa en notación científica: 300.000.000 m/s; 0,0025 kg; 6.400 km.", "3 · 10⁸ m/s; 2,5 · 10⁻³ kg; 6,4 · 10³ km."),
+    B("Escribe en forma decimal: 4,2 · 10⁵; 3 · 10⁻⁴; 1,05 · 10³.", "420.000; 0,0003; 1.050."),
+    B("Pasa a la unidad del SI: 3,5 km; 250 g; 2 h; 45 cm.", "3.500 m; 0,25 kg; 7.200 s; 0,45 m."),
+    B("¿Qué instrumento usarías para medir: el volumen de un líquido, la masa de una piedra, el diámetro de un tornillo, el tiempo de una carrera?", "Probeta (o pipeta/bureta), balanza, calibre, cronómetro."),
+    B("Explica qué significan tres pictogramas de peligro.", "Llama: inflamable; calavera: tóxico; mano corroída: corrosivo; exclamación: nocivo o irritante; pez y árbol: peligro para el medio ambiente; bombona: gas a presión."),
+    B("Nombra cinco normas de seguridad del laboratorio.", "Usar bata y gafas; recogerse el pelo; no comer, beber, oler ni probar sustancias; leer las etiquetas; no devolver restos al frasco; avisar de cualquier accidente."),
+    B("¿Cuántas cifras significativas tienen: 25,0; 0,0047; 1.002; 3,10?", "25,0 → 3; 0,0047 → 2; 1.002 → 4; 3,10 → 3."),
+    M("Diseña un experimento para comprobar si la temperatura del agua influye en el tiempo que tarda en disolverse una pastilla efervescente. Indica las variables.", "VI: temperatura del agua (por ejemplo 10, 20, 40 y 60 °C). VD: tiempo de disolución, medido con cronómetro. Controladas: mismo volumen de agua, mismo tipo y tamaño de pastilla, sin remover. Repetir cada medida tres veces y hacer la media."),
+    M("Pasa 108 km/h a m/s y 15 m/s a km/h.", "108 · 1.000 / 3.600 = 30 m/s. 15 · 3.600 / 1.000 = 54 km/h."),
+    M("Pasa 0,75 L a mL y a m³.", "0,75 L · 1.000 mL/L = 750 mL. 0,75 L · (1 m³ / 1.000 L) = 7,5 · 10⁻⁴ m³."),
+    M("Pasa 2,7 g/cm³ a kg/m³.", "2,7 g/cm³ · (1 kg / 1.000 g) · (10⁶ cm³ / 1 m³) = 2.700 kg/m³."),
+    M("Calcula y expresa en notación científica: (3 · 10⁴) · (2 · 10⁵) y (8 · 10⁶) / (4 · 10⁻²).", "6 · 10⁹ y 2 · 10⁸."),
+    M("Redondea a tres cifras significativas: 4,5678; 0,012349; 128,51; 9,995.", "4,57; 0,0123; 129; 10,0 (9,995 → 10,0)."),
+    M("Un alumno mide una mesa de 1,500 m y obtiene 1,52 m; otro mide un lápiz de 15,0 cm y obtiene 15,2 cm. ¿Quién comete más error absoluto? ¿Y relativo? ¿Qué medida es mejor?", "Mesa: Eₐ = 0,02 m = 2 cm; Eᵣ = 0,02/1,5 · 100 = 1,3 %. Lápiz: Eₐ = 0,2 cm; Eᵣ = 0,2/15 · 100 = 1,3 %. El de la mesa tiene más error absoluto, pero los dos tienen el mismo error relativo: las dos medidas son igual de buenas."),
+    M("Clasifica como error sistemático o aleatorio: a) una balanza que no marca cero en vacío; b) pulsar el cronómetro un poco antes o después; c) mirar siempre la probeta desde arriba.", "a) Sistemático; b) aleatorio; c) sistemático (error de paralaje siempre en el mismo sentido)."),
+    M("Explica la diferencia entre una ley y una teoría con un ejemplo.", "Una ley describe una regularidad, a menudo con una fórmula (ley de Boyle: P · V = constante). Una teoría explica por qué ocurren muchas leyes (la teoría cinético-molecular explica las leyes de los gases con el movimiento de las partículas)."),
+    M("En un experimento se mide el alargamiento de un muelle con distintas masas: 50 g → 2 cm; 100 g → 4 cm; 150 g → 6 cm; 200 g → 8 cm. ¿Qué tipo de gráfica se obtiene? ¿Qué alargamiento producirían 125 g?", "Una recta que pasa por el origen: proporcionalidad directa (0,04 cm por gramo). Para 125 g: 125 · 0,04 = 5 cm (interpolación)."),
+    M("Ordena de menor a mayor: 3 · 10⁻³ m; 2 mm; 0,5 cm; 4 · 10³ µm.", "2 mm = 0,002 m; 3 · 10⁻³ m = 0,003 m; 4 · 10³ µm = 0,004 m; 0,5 cm = 0,005 m. Orden: 2 mm < 3 · 10⁻³ m < 4 · 10³ µm < 0,5 cm."),
+    M("Una noticia dice: «Un estudio demuestra que una pulsera magnética cura el insomnio». ¿Qué preguntas harías para saber si es fiable?", "¿Quién hizo el estudio y quién lo pagó? ¿Se publicó en una revista científica revisada? ¿Con cuántas personas? ¿Había un grupo de control con pulseras falsas? ¿Otros estudios lo confirman? ¿Quién vende la pulsera?"),
+    M("Explica por qué la balanza muestra 0,01 g y la regla 1 mm. ¿Qué es la sensibilidad?", "La sensibilidad es la menor variación que puede apreciar un instrumento. La balanza aprecia centésimas de gramo y la regla, milímetros. Una medida no puede darse con más cifras de las que permite la sensibilidad del instrumento."),
+    A("La luz recorre 3 · 10⁸ m cada segundo. ¿Cuánto tarda en llegar desde el Sol, a 1,5 · 10¹¹ m? Da el resultado en segundos y en minutos.", "t = 1,5 · 10¹¹ / 3 · 10⁸ = 5 · 10² s = 500 s ≈ 8,3 min."),
+    A("Pasa 1 año luz a km, sabiendo que la luz recorre 300.000 km/s y un año tiene 365 días.", "Segundos en un año: 365 · 24 · 3.600 = 3,15 · 10⁷ s. Distancia: 3 · 10⁵ km/s · 3,15 · 10⁷ s ≈ 9,46 · 10¹² km."),
+    A("Cuatro medidas de la masa de un objeto: 25,4 g; 25,6 g; 25,3 g; 25,5 g. Calcula el valor medio, el error absoluto de cada medida, el error absoluto medio y expresa el resultado.", "Media: 101,8 / 4 = 25,45 ≈ 25,5 g (con la sensibilidad de la balanza). Errores: 0,05; 0,15; 0,15; 0,05 → media ≈ 0,1 g. Resultado: 25,5 ± 0,1 g."),
+    A("Un grifo gotea 1 gota cada 2 s y cada gota tiene 0,05 mL. ¿Cuántos litros se pierden en un año? Usa factores de conversión.", "Gotas por año: 365 · 24 · 3.600 / 2 = 1,58 · 10⁷ gotas. Volumen: 1,58 · 10⁷ · 0,05 mL = 7,9 · 10⁵ mL = 790 L."),
+    A("En un experimento sobre la presión y el volumen de un gas se obtienen: 1 atm – 12 L; 2 atm – 6 L; 3 atm – 4 L; 4 atm – 3 L. ¿Qué relación hay? ¿Cómo es la gráfica? ¿Qué volumen habría a 6 atm?", "P · V = 12 en todos los casos: son inversamente proporcionales y la gráfica es una hipérbola. A 6 atm: V = 12 / 6 = 2 L."),
+    A("Explica por qué en el experimento de Semmelweis era importante comparar dos salas iguales salvo en una cosa.", "Porque así la diferencia de mortalidad solo podía deberse a la variable que cambiaba (quién atendía el parto y si venía de las autopsias). Una sala servía de control. Si hubiera cambiado varias cosas a la vez, no podría atribuir el efecto a la falta de higiene."),
+    A("Calcula la densidad de una piedra de 54,0 g que, al sumergirla en una probeta con 40,0 mL de agua, hace subir el nivel hasta 60,0 mL. Exprésala en g/cm³ y en kg/m³ con las cifras significativas adecuadas.", "V = 60,0 − 40,0 = 20,0 mL = 20,0 cm³. d = 54,0 / 20,0 = 2,70 g/cm³ = 2.700 kg/m³ (2,70 · 10³ kg/m³)."),
+    A("Propón una investigación completa (pregunta, hipótesis, variables, procedimiento y forma de presentar los resultados) para saber qué tipo de papel absorbe más agua.", "Pregunta: ¿qué papel absorbe más agua? Hipótesis: el papel de cocina absorbe más que el de periódico y el de folio. VI: tipo de papel; VD: volumen de agua absorbido (medido con probeta antes y después). Controladas: mismo tamaño de papel, mismo tiempo sumergido, misma agua. Repetir tres veces, hacer la media y presentar una tabla y un gráfico de barras."),
+    A("¿Por qué una teoría científica nunca se considera definitivamente demostrada? Pon un ejemplo histórico.", "Porque siempre pueden aparecer datos nuevos que no encajen; basta un experimento fiable en contra para obligar a corregirla. Ejemplo: el modelo atómico de Thomson fue sustituido por el de Rutherford tras el experimento de la lámina de oro; o el geocentrismo, sustituido por el heliocentrismo."),
   ],
   quiz: [
-    { q: "Una hipótesis es…", o: ["una conclusión segura", "una explicación que se puede comprobar", "una opinión"], a: 1, e: "Una explicación comprobable." },
-    { q: "La variable que el investigador cambia es la…", o: ["dependiente", "independiente", "controlada"], a: 1, e: "La independiente." },
-    { q: "La unidad de masa en el SI es…", o: ["el gramo", "el kilogramo", "la tonelada"], a: 1, e: "El kilogramo." },
-    { q: "La unidad de temperatura del SI es…", o: ["el grado Celsius", "el kelvin", "el grado Fahrenheit"], a: 1, e: "El kelvin." },
-    { q: "0,004 en notación científica es…", o: ["4 · 10³", "4 · 10⁻³", "0,4 · 10⁻²"], a: 1, e: "4 · 10⁻³." },
-    { q: "El prefijo mili significa…", o: ["10³", "10⁻³", "10⁻⁶"], a: 1, e: "Una milésima." },
-    { q: "36 km/h son…", o: ["10 m/s", "36 m/s", "100 m/s"], a: 0, e: "36 / 3,6 = 10 m/s." },
-    { q: "Para reducir errores aleatorios hay que…", o: ["medir una vez con cuidado", "repetir y hacer la media", "cambiar de unidad"], a: 1, e: "Repetir y hacer la media." },
-    { q: "La velocidad es una magnitud…", o: ["fundamental", "derivada", "que no tiene unidad"], a: 1, e: "Derivada: m/s." },
-    { q: "Para medir un volumen de líquido se usa…", o: ["la probeta", "la balanza", "el mechero"], a: 0, e: "La probeta." },
+    q4("La primera etapa del método científico suele ser…", ["la hipótesis", "la observación", "la conclusión", "la comunicación"], 1, "De la observación surge la pregunta."),
+    q4("Una hipótesis debe ser…", ["verdadera", "contrastable", "complicada", "una ley"], 1, "Se tiene que poder comprobar."),
+    q4("La variable que el investigador cambia a voluntad es la…", ["dependiente", "independiente", "controlada", "constante"], 1, "La dependiente es la que se mide."),
+    q4("¿Cuál NO es una magnitud?", ["Masa", "Tiempo", "Simpatía", "Volumen"], 2, "No se puede medir objetivamente."),
+    q4("La unidad de masa en el SI es el…", ["gramo", "kilogramo", "litro", "newton"], 1, "kg."),
+    q4("La unidad de temperatura en el SI es el…", ["grado Celsius", "kelvin", "grado Fahrenheit", "julio"], 1, "K."),
+    q4("El prefijo «mili» equivale a…", ["10³", "10⁻²", "10⁻³", "10⁻⁶"], 2, "1 mm = 0,001 m."),
+    q4("0,00072 en notación científica es…", ["7,2 · 10⁻⁴", "7,2 · 10⁴", "72 · 10⁻⁵", "0,72 · 10⁻³"], 0, "La coma se mueve 4 lugares."),
+    q4("72 km/h equivalen a…", ["7,2 m/s", "20 m/s", "36 m/s", "259 m/s"], 1, "72 / 3,6."),
+    q4("1 m² equivale a…", ["100 cm²", "1.000 cm²", "10.000 cm²", "1.000.000 cm²"], 2, "100 × 100."),
+    q4("1 L equivale a…", ["1 m³", "1 dm³", "1 cm³", "10 cm³"], 1, "Y a 1.000 cm³."),
+    q4("La menor variación que aprecia un instrumento es su…", ["alcance", "sensibilidad", "exactitud", "error"], 1, "También llamada resolución."),
+    q4("Un error que se repite siempre en el mismo sentido es…", ["aleatorio", "sistemático", "relativo", "nulo"], 1, "Por ejemplo, una balanza mal calibrada."),
+    q4("El error relativo indica…", ["las unidades", "la calidad de la medida", "el instrumento", "el valor real"], 1, "Se da en porcentaje."),
+    q4("¿Cuántas cifras significativas tiene 0,0350?", ["2", "3", "4", "5"], 1, "3, 5 y el 0 final."),
+    q4("Si la gráfica es una recta que pasa por el origen, las magnitudes son…", ["inversamente proporcionales", "directamente proporcionales", "independientes", "iguales"], 1, "Su cociente es constante."),
+    q4("En una gráfica, la variable independiente se pone en el eje…", ["vertical", "horizontal", "que sea", "de la derecha"], 1, "Eje de abscisas."),
+    q4("Para medir con precisión 25,0 mL de un líquido usarías…", ["un vaso de precipitados", "una pipeta", "un embudo", "un tubo de ensayo"], 1, "El vaso solo da medidas orientativas."),
+    q4("El pictograma de la calavera indica que el producto es…", ["inflamable", "tóxico", "corrosivo", "explosivo"], 1, "Puede causar intoxicación grave."),
+    q4("En ciencia, una teoría es…", ["una suposición sin pruebas", "una explicación muy comprobada", "una opinión", "una ley matemática"], 1, "Explica muchas leyes y observaciones."),
   ],
   examen: [
-    { q: "En una gráfica, la variable independiente va en…", o: ["el eje X", "el eje Y", "la leyenda"], a: 0, e: "El eje horizontal." },
-    { q: "1,5 · 10² equivale a…", o: ["15", "150", "1500"], a: 1, e: "150." },
-    { q: "Una ley científica…", o: ["describe un fenómeno con precisión", "es una suposición", "no se puede comprobar"], a: 0, e: "Describe, a menudo con una fórmula." },
+    q4("En un experimento sobre cómo afecta la luz al crecimiento de una planta, la variable dependiente es…", ["la luz", "el crecimiento", "el agua", "la maceta"], 1, "Es lo que se mide."),
+    q4("2,5 · 10³ g expresados en kg son…", ["2,5 kg", "25 kg", "0,25 kg", "2.500 kg"], 0, "Se divide entre 1.000."),
+    q4("¿Cuál está bien escrita?", ["5 Kgs.", "5 kg", "5 KG", "5 kgs"], 1, "Sin plural ni punto."),
+    q4("(4 · 10⁵) · (2 · 10⁻²) =", ["8 · 10³", "8 · 10⁷", "6 · 10³", "8 · 10⁻¹⁰"], 0, "Se suman los exponentes."),
+    q4("Una medida de 10,0 cm con un error de 0,5 cm tiene un error relativo de…", ["0,5 %", "5 %", "50 %", "0,05 %"], 1, "0,5 / 10 · 100."),
+    q4("3,456 redondeado a dos cifras significativas es…", ["3,4", "3,5", "3,45", "3,46"], 1, "La siguiente cifra es 5."),
+    q4("Si P · V es constante, la gráfica P-V es…", ["una recta por el origen", "una hipérbola", "una recta horizontal", "una parábola"], 1, "Proporcionalidad inversa."),
+    q4("¿Qué hay que hacer si un compañero se quema en el laboratorio?", ["Seguir trabajando", "Avisar al profesor y enfriar con agua", "Ponerle aceite", "Esconderlo"], 1, "Siempre se avisa."),
   ],
-  feynman: ["Cómo se pone a prueba una hipótesis con un experimento justo", "Para qué sirven el Sistema Internacional y la notación científica", "Cómo se cambia de unidades con factores de conversión"],
-  mapa: mapa("MÉTODO CIENTÍFICO", "var(--eso)", [
-    ["Etapas", "observar · hipótesis · experimentar · concluir", "var(--pen)"],
-    ["Variables", "independiente · dependiente · controladas", "var(--leaf)"],
-    ["Medida", "magnitud · unidad · SI · error", "#b8860b"],
-    ["Herramientas", "notación científica · factores", "var(--red)"],
-  ], 300),
+  feynman: ["Cuáles son las etapas del método científico y por qué se repiten", "Qué es una hipótesis contrastable y qué son las variables", "Qué diferencia hay entre una ley y una teoría", "Cómo se usan los prefijos, la notación científica y los factores de conversión", "Qué son el error absoluto y el relativo", "Cómo se hace e interpreta una gráfica"],
+  mapa: S.mapa,
   tarjetas: [
+    ["Método científico", "Observación, pregunta, hipótesis, experimento, análisis, conclusión y comunicación."],
     ["Hipótesis", "Explicación provisional que se puede comprobar."],
     ["Variable independiente", "La que el investigador cambia."],
-    ["Variable dependiente", "La que se mide como respuesta."],
+    ["Variable dependiente", "La que se mide para ver cómo responde."],
     ["Magnitud", "Propiedad que se puede medir."],
-    ["SI", "Sistema Internacional: m, kg, s, K, A, mol, cd."],
-    ["Notación científica", "a · 10ⁿ con a entre 1 y 10."],
-    ["Factor de conversión", "Fracción que vale 1 para cambiar de unidad."],
-    ["Error relativo", "Error absoluto dividido entre el valor real."],
+    ["SI", "m, kg, s, K, A, mol, cd."],
+    ["Notación científica", "a · 10ⁿ con 1 ≤ a < 10."],
+    ["Factor de conversión", "Fracción igual a 1 para cambiar de unidad."],
+    ["Error absoluto", "|medida − valor real|, con unidades."],
+    ["Error relativo", "Eₐ / valor real · 100: indica la calidad."],
+    ["Proporcionalidad directa", "Recta que pasa por el origen."],
+    ["Pictograma", "Rombo rojo que indica el peligro de un producto."],
   ],
-  familias: ["Haced en casa un experimento justo: ¿se derrite antes el hielo con sal o sin sal? Anotad las variables.", "Buscad en la cocina envases con unidades y pasadlas a otras (g a kg, mL a L).", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "Las destrezas científicas básicas: metodologías de la investigación científica, trabajo de laboratorio, magnitudes, unidades del SI, notación científica y análisis de datos (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Diseñar un experimento sobre la velocidad de disolución identificando las variables.", "Medir el péndulo diez veces y comparar con una sola medida para hablar de errores.", "Carrera de conversiones de unidades por equipos con factores de conversión."],
+  glosario: [
+    ["Ciencia", "Conocimiento basado en la observación, la experimentación y el razonamiento, que se acepta mientras los datos lo apoyan."],
+    ["Método científico", "Procedimiento ordenado para investigar un fenómeno."],
+    ["Hipótesis", "Respuesta provisional y contrastable a una pregunta."],
+    ["Variable controlada", "Variable que se mantiene constante en un experimento."],
+    ["Ley científica", "Regularidad comprobada que describe un fenómeno, a menudo con una fórmula."],
+    ["Teoría científica", "Conjunto de ideas que explica muchas leyes y observaciones."],
+    ["Modelo", "Representación simplificada de la realidad."],
+    ["Magnitud", "Propiedad que se puede medir."],
+    ["Unidad", "Cantidad de referencia con la que se compara una magnitud."],
+    ["Magnitud derivada", "La que se obtiene combinando magnitudes fundamentales."],
+    ["Notación científica", "Forma de escribir números como a · 10ⁿ."],
+    ["Factor de conversión", "Fracción de valor 1 que permite cambiar de unidades."],
+    ["Sensibilidad", "Menor variación que puede apreciar un instrumento."],
+    ["Error sistemático", "Error que se repite siempre en el mismo sentido."],
+    ["Error aleatorio", "Error que varía al azar en cada medida."],
+    ["Cifras significativas", "Cifras conocidas con seguridad más la primera dudosa."],
+    ["Menisco", "Superficie curva de un líquido en un tubo estrecho."],
+    ["Pseudociencia", "Creencia que se presenta como científica sin seguir el método científico."],
+  ],
+  situacion: {
+    titulo: "Detectives del bulo",
+    reto: "En las redes circula que «beber agua fría después de comer engorda». Vuestro equipo debe investigar la afirmación con el método científico y preparar una pieza para desmentir o confirmar bulos científicos en el blog del centro.",
+    pasos: [
+      "Buscad el origen del mensaje y anotad qué pruebas aporta y quién lo difunde.",
+      "Formulad la pregunta y una hipótesis contrastable, e identificad las variables implicadas.",
+      "Consultad al menos tres fuentes fiables (organismos sanitarios, revistas científicas, divulgadores reconocidos) y comparadlas.",
+      "Diseñad un pequeño experimento o una encuesta que se pueda hacer en el centro, con variables controladas.",
+      "Organizad los datos en tablas y gráficas y sacad conclusiones.",
+      "Redactad la pieza para el blog con una lista de comprobación para detectar bulos.",
+    ],
+    producto: "Un artículo de divulgación con gráficas y una guía de cinco preguntas para reconocer pseudociencias y bulos.",
+    evaluacion: ["La hipótesis es contrastable y las variables están bien identificadas.", "Las fuentes son fiables y se citan correctamente.", "Los datos se presentan en tablas y gráficas con magnitudes y unidades.", "Las conclusiones se apoyan en pruebas y se comunican con claridad."],
   },
-  fuentes: [RD, wiki("Método científico", "M%C3%A9todo_cient%C3%ADfico"), wiki("Sistema Internacional de Unidades", "Sistema_Internacional_de_Unidades")],
-  revisado: "2026-11-12",
+  familias: [
+    "Haced en casa un experimento sencillo cambiando una sola variable (por ejemplo, cuánto tarda en derretirse un cubito en agua fría y caliente).",
+    "Buscad en la cocina productos con pictogramas de peligro y comentad qué significa cada uno.",
+    "Practicad cambios de unidades con datos reales: la velocidad del coche en m/s, el consumo de agua en litros al año.",
+    "Cuando aparezca una noticia sorprendente, preguntaos juntos: ¿quién lo dice y qué pruebas aporta?",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «Las destrezas científicas básicas»: metodologías de la investigación científica, hipótesis y variables, magnitudes y unidades del SI, notación científica, factores de conversión, errores en la medida, tablas y gráficas, trabajo seguro en el laboratorio y relación ciencia, tecnología, sociedad y medio ambiente.`,
+    ideas: [
+      "Péndulo casero: estudiar qué variable (masa, longitud o amplitud) influye en el periodo, cambiando una cada vez.",
+      "Concurso de medidas: medir el mismo objeto con regla, calibre y cinta métrica y comparar errores.",
+      "Densidad del aluminio con trozos de distintos tamaños y gráfica masa-volumen.",
+      "Análisis de un bulo de redes sociales con una lista de comprobación.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Método científico", "M%C3%A9todo_cient%C3%ADfico"),
+    wiki("Sistema Internacional de Unidades", "Sistema_Internacional_de_Unidades"),
+    { t: "Pictogramas de peligro (SGA), Instituto Nacional de Seguridad y Salud en el Trabajo", url: "https://www.insst.es/" },
+  ],
+  revisado: "2026-11-13",
 };
