@@ -6,6 +6,7 @@
 // X.mas: [[trozo, html]]                         añade párrafos al bloque que contiene «trozo»
 // X.svgs: [[trozo, etiqueta, filas, titulo?]]    dibujo propio para un bloque que no lo tenía
 // X.bloques: [{ tras?, html, svg, video? }]      bloques nuevos; svg puede ser [etiqueta, filas, titulo?]; video = clave de V
+// X.videos: [[trozo, clave de V]]                vídeo para un bloque que ya existía
 // X.grupos: [n1, n2, …]                          cuántos bloques hay en cada apartado (1.x, 2.x…)
 // X.ejemplos: [[enunciado, [pasos], resultado]]; X.errores: [texto]
 // X.niveles: "bbbbmmmmaa"                        nivel de los ejercicios que ya existían (b/m/a)
@@ -70,6 +71,7 @@ function libro(T, X) {
     Object.defineProperty(nuevo, "_libro", { value: nb.tras });
     T.bloques.splice(j, 0, nuevo);
   }
+  for (const [trozo, k] of X.videos || []) { const b = buscar(T, trozo); if (b.video) throw new Error(`libro: «${trozo}» ya tiene vídeo`); if (!V[k]) throw new Error(`libro: vídeo «${k}» no está en V`); b.video = V[k]; }
   // Numeración de los apartados: 1.1, 1.2… 2.1…
   const g = X.grupos || [Math.ceil(T.bloques.length / 3), Math.ceil(T.bloques.length / 3), T.bloques.length];
   let k = 0;
