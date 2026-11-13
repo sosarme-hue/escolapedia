@@ -39,4 +39,7 @@ module.exports = {
   "DaBWWjsReeQ": ["Los Mapas y Los Planos | Aula chachi - Vídeos educativos para niños", "Aula chachi", 308096], // cs-mapas-planos
   "CTUhpEBLeWw": ["🗾 Los PLANOS y sus ELEMENTOS para NIÑOS | GEOGRAFIA", "Clases Particulares en Ávila", 94155], // cs-mapas-planos
   "qxwNRos9Jb8": ["Los PUNTOS CARDINALES. 𝓝𝓸𝓻𝓽𝓮 𝓢𝓾𝓻 𝓔𝓼𝓽𝓮 𝔂 𝓞𝓮𝓼𝓽𝓮. Para niños de primaria.", "soy Alba", 842813], // cs-mapas-planos
+  "x-Em4JGD8pQ": ["EL CICLO DEL AGUA para niños💧 | Aprende sobre la Naturaleza🌿", "Happy Learning Español", 435192], // cs-agua-rios
+  "76dw3ZRFGNQ": ["El ciclo del agua | Camaleón", "CNTV Infantil", 6427929], // cs-agua-rios
+  "5UjuCMxT_NY": ["La Eduteca - Los ríos", "La Eduteca", 406145], // cs-agua-rios
 };
