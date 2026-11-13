@@ -176,3 +176,159 @@ AMP.amplia(module.exports, {
     ["Grados de libertad", "Número de movimientos independientes de un robot."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 110,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "Un robot en Marte, a 20 minutos de distancia",
+    html: `<p>Cuando el robot Perseverance avanza por el cráter Jezero, en Marte, nadie lo maneja con un mando. Una orden desde la Tierra tarda entre 5 y 20 minutos en llegar, demasiado para esquivar una roca a tiempo. Por eso el robot decide por sí mismo: sus cámaras y sensores miden el terreno, su ordenador calcula el camino más seguro, los motores de sus seis ruedas lo mueven y, a cada paso, vuelve a medir para corregir el rumbo. Es un sistema de control en lazo cerrado funcionando a 200 millones de kilómetros.</p>
+      <p>La misma idea, medir, decidir y actuar, está en el termostato de tu casa, en el robot aspirador, en el brazo que suelda coches o en el coche que frena solo ante un peatón. En este tema conocerás cómo funcionan los sistemas de control, qué sensores y actuadores usan los robots, cómo se leen los sensores y se controlan los motores con una placa como Arduino y cómo se programa un robot que sigue una línea o esquiva obstáculos. También reflexionarás sobre cómo los robots están cambiando el trabajo y qué normas éticas deberían seguir.</p>`,
+  },
+  svgs: {
+    "Sensores digitales y analógicos": L.comparar("Sensores digitales frente a sensores analógicos", ["Digital", ["solo 0 o 1", "pulsador", "final de carrera", "infrarrojos"]], ["Analógico", ["valores continuos", "LDR", "termistor", "potenciómetro"]]),
+    "Motores para robots": L.rejilla("Tipos de motores para robots y su uso", ["Motor", "Cómo gira", "Uso"], [["CC", "continuo, rápido", "ruedas"], ["Servo", "a un ángulo", "pinzas, brazos"], ["Paso a paso", "pasos exactos", "impresoras 3D"]], { t: "Motores" }),
+    "Partes de un robot y grados de libertad": L.capas("Partes de un robot", [["Control", "microcontrolador"], ["Sensores", "percibir"], ["Actuadores", "moverse"], ["Estructura", "chasis o brazo"], ["Energía", "batería"]], { t: "Partes de un robot" }),
+    "Robots en la industria y en la vida diaria": L.cajas("Tipos de robots según su uso", [["Industriales", "soldar, pintar|montar"], ["De servicio", "aspirador|reparto"], ["Médicos", "cirugía|rehabilitación"], ["Exploración", "Marte, fondos|marinos"]], { t: "Robots por todas partes" }),
+  },
+  tras: {
+    "Lazo abierto y lazo cerrado": [
+      {
+        html: `<h3>Control todo-nada y control proporcional</h3><p>En un sistema en lazo cerrado, el controlador compara la medida con la <b>consigna</b> (el valor deseado) y calcula el <b>error</b>: la diferencia entre ambos. La forma más sencilla de actuar es el <b>control todo-nada</b>: si la temperatura está por debajo de 21 °C, la calefacción se enciende a tope; si está por encima, se apaga. Es lo que hacen muchos termostatos. Para que el aparato no se encienda y apague cada pocos segundos alrededor de la consigna, se añade una <mark>histéresis</mark>: se enciende a 20,5 °C y se apaga a 21,5 °C.</p>
+          <p>El control todo-nada provoca oscilaciones. Un control más fino es el <b>proporcional</b>: la acción es mayor cuanto mayor es el error. Un robot que sigue una pared gira mucho si está muy desviado y poco si casi va recto, y así su movimiento es suave. Los sistemas industriales usan el <b>control PID</b>, que además tiene en cuenta el error acumulado (parte integral) y lo rápido que cambia (parte derivativa); lo encontramos en el control de velocidad de crucero de un coche, en los drones que se mantienen quietos en el aire o en los hornos industriales. Ajustar bien estas acciones es un trabajo clave de la ingeniería de control.</p>`,
+        svg: L.flujo("Lazo cerrado con consigna, error y corrección", ["Consigna: 21 °C", "Sensor mide: 19 °C", "Error = 21 − 19 = 2 °C", "Controlador decide la acción", "Actuador calienta y se vuelve a medir"], { t: "Consigna y error" }),
+      },
+    ],
+    "Sensores digitales y analógicos": [
+      {
+        html: `<h3>Leer sensores con Arduino</h3><p>Una placa <b>Arduino</b> tiene patillas digitales (0 a 13) y analógicas (A0 a A5). Para leer un sensor digital, como un pulsador, primero se configura la patilla como entrada con <code>pinMode(2, INPUT)</code> y luego se lee con <code>digitalRead(2)</code>, que devuelve <b>HIGH</b> (1, unos 5 V) o <b>LOW</b> (0, 0 V). Para que la entrada no quede «flotando» cuando el pulsador está suelto se usa una resistencia de <b>pull-down</b> o se activa la de pull-up interna con <code>INPUT_PULLUP</code>.</p>
+          <p>Los sensores analógicos se conectan a las patillas A0-A5 y se leen con <code>analogRead(A0)</code>. El <b>conversor analógico-digital</b> de la placa transforma la tensión de 0 a 5 V en un número de <mark>0 a 1023</mark> (10 bits). Para pasar ese valor a una unidad útil se usa la función <code>map</code>: <code>map(valor, 0, 1023, 0, 100)</code> lo convierte en un porcentaje. En el programa se suele comparar la lectura con un <b>umbral</b>: si la luz baja de 300, se enciende el LED. Los sensores más complejos, como el de ultrasonidos, miden tiempos (<code>pulseIn</code>) y otros, como los de temperatura y humedad, envían los datos por un protocolo de comunicación con su propia librería. Con el <b>monitor serie</b> (<code>Serial.println</code>) se ven las lecturas en el ordenador para calibrar.</p>`,
+        svg: L.rejilla("Funciones de Arduino para leer sensores", ["Sensor", "Patilla", "Función", "Valor"], [["Pulsador", "digital", "digitalRead", "0 o 1"], ["LDR", "A0-A5", "analogRead", "0-1023"], ["Ultrasonidos", "digital", "pulseIn", "µs"], ["Ver datos", "USB", "Serial.println", "texto"]], { t: "Leer sensores" }),
+      },
+    ],
+    "Motores para robots": [
+      {
+        html: `<h3>Controlar motores: puente H y PWM</h3><p>Una patilla de Arduino solo puede dar unos 20-40 mA, muy poco para un motor, que puede necesitar cientos de miliamperios. Por eso los motores se conectan a través de un <b>controlador</b> o <i>driver</i>, como el L298N o el L9110, que recibe las órdenes de la placa y entrega la corriente de una batería aparte. Dentro hay un <mark>puente H</mark>: cuatro interruptores electrónicos dispuestos en forma de H alrededor del motor. Cerrando una pareja en diagonal, la corriente atraviesa el motor en un sentido; cerrando la otra pareja, lo atraviesa al revés y el motor <b>invierte su giro</b>.</p>
+          <p>Para regular la <b>velocidad</b> se usa la modulación por ancho de pulso, <b>PWM</b>: la placa enciende y apaga la alimentación cientos de veces por segundo y varía qué parte del tiempo está encendida (el <b>ciclo de trabajo</b>). Con <code>analogWrite(pin, 255)</code> está siempre encendida (100 %), con 128 la mitad del tiempo (50 %, velocidad media) y con 0 apagada. El motor, por su inercia, no nota los pulsos y gira más o menos rápido. El mismo método regula el brillo de un LED. Los servomotores se controlan con la librería Servo (<code>miServo.write(90)</code>) y los motores paso a paso, con secuencias de pulsos que avanzan un ángulo fijo cada vez.</p>`,
+        svg: L.barras("Ciclo de trabajo PWM según el valor de analogWrite", [["analogWrite 0", 0.5], ["analogWrite 64", 25], ["analogWrite 128", 50], ["analogWrite 255", 100]], { t: "PWM: tiempo encendido", unidad: " %" }),
+      },
+    ],
+    "Partes de un robot y grados de libertad": [
+      {
+        html: `<h3>Robots móviles: seguir líneas y evitar obstáculos</h3><p>Dos retos clásicos de la robótica educativa muestran cómo se combinan sensores, control y motores. El <b>robot siguelíneas</b> lleva debajo dos sensores de infrarrojos que distinguen el suelo blanco (refleja la luz) de una línea negra (la absorbe). Si los dos ven blanco, la línea está en medio y el robot avanza recto; si el sensor izquierdo ve negro, la línea se ha desviado a la izquierda y el robot gira a la izquierda frenando esa rueda; y al revés. Es un control en lazo cerrado repetido muchas veces por segundo.</p>
+          <p>El <b>robot evitaobstáculos</b> usa un sensor de <b>ultrasonidos</b> delante, que emite un pulso y mide el tiempo que tarda el eco: distancia = tiempo × velocidad del sonido (unos 343 m/s) ÷ 2, porque el sonido va y vuelve. Si el obstáculo está a más de 20 cm avanza; si está más cerca, se para, retrocede un poco, gira y vuelve a medir. Estos robots tienen <b>tracción diferencial</b>: dos ruedas motrices independientes y una rueda loca; para girar, una rueda va más rápido que la otra o en sentido contrario. Combinando comportamientos sencillos se logran robots que parecen inteligentes, como los aspiradores domésticos que recorren toda la casa.</p>`,
+        svg: L.rejilla("Decisiones de un robot siguelíneas según sus dos sensores", ["Sensor izq.", "Sensor der.", "Acción"], [["blanco", "blanco", "recto"], ["negro", "blanco", "girar izquierda"], ["blanco", "negro", "girar derecha"], ["negro", "negro", "parar (cruce)"]], { t: "Siguelíneas" }),
+      },
+      {
+        html: `<h3>Programar un robot</h3><p>Un programa de Arduino tiene siempre dos partes. En <code>setup()</code> se escriben las instrucciones que se ejecutan <b>una sola vez</b> al encender: configurar patillas como entrada o salida, iniciar el monitor serie o colocar un servo en su posición inicial. En <code>loop()</code> va lo que se repite <mark>sin parar</mark>: leer los sensores, decidir con estructuras <code>if</code> y actuar sobre los motores, LED o zumbadores. La función <code>delay(ms)</code> detiene el programa unos milisegundos, aunque en robots conviene usarla con cuidado porque mientras espera no lee los sensores.</p>
+          <p>Se puede programar con bloques (mBlock, ArduinoBlocks, MakeCode para micro:bit) o en lenguaje C++ con el entorno de Arduino. Una buena práctica es dividir el comportamiento en funciones: <code>avanzar()</code>, <code>girarIzquierda()</code>, <code>parar()</code>, <code>medirDistancia()</code>. Así el <code>loop</code> se lee casi como una frase. Antes de montar el robot completo hay que <b>probar cada parte por separado</b>: primero un motor, después el sensor mostrando sus lecturas en el monitor serie, y solo al final todo junto. Muchos robots también usan una <b>máquina de estados</b>: el robot está en «buscar», «seguir» o «esquivar», y cambia de estado según lo que detectan sus sensores.</p>`,
+        svg: L.flujo("Estructura de un programa de Arduino para un robot", ["setup(): configurar patillas", "loop(): leer sensores", "Decidir con if / else", "Actuar sobre los motores", "Volver a empezar el loop"], { t: "setup y loop" }),
+      },
+    ],
+    "Robots en la industria y en la vida diaria": [
+      {
+        html: `<h3>Robótica, trabajo y ética</h3><p>Los robots industriales tradicionales trabajan dentro de jaulas, porque son rápidos y fuertes y podrían herir a una persona. Hoy se extienden los <b>robots colaborativos</b> o <b>cobots</b>: más ligeros, con sensores de fuerza que los detienen si tocan a alguien, diseñados para trabajar al lado de las personas en tareas como atornillar o empaquetar. La robotización aumenta la productividad y elimina trabajos peligrosos, repetitivos o pesados, pero también <mark>sustituye empleos</mark> poco cualificados y crea otros nuevos: programación, mantenimiento, diseño de robots. Por eso la formación a lo largo de la vida es cada vez más importante.</p>
+          <p>La robótica plantea preguntas éticas. El escritor Isaac Asimov imaginó en 1942 tres <b>leyes de la robótica</b>, la primera de ellas que un robot no debe dañar a un ser humano. Hoy los debates son reales: ¿quién es responsable si un coche autónomo causa un accidente?, ¿deben existir armas que decidan solas a quién atacar?, ¿qué datos pueden recoger los robots domésticos? La Unión Europea exige que las máquinas sean seguras y que los sistemas de alto riesgo tengan siempre supervisión humana. Diseñar robots útiles también es diseñarlos para que respeten a las personas.</p>`,
+        svg: L.comparar("Ventajas y retos de la robotización", ["Ventajas", ["más productividad", "menos riesgos", "más precisión", "nuevos empleos"]], ["Retos", ["pérdida de empleos", "responsabilidad", "privacidad", "dependencia"]]),
+      },
+    ],
+  },
+  secciones: [3, 6, 6],
+  niveles: "bbbbmmmamb",
+  ejercicios: [
+    { nivel: "básico", q: "¿Qué es la consigna en un sistema de control? ¿Y el error?", sol: "La consigna es el valor que queremos conseguir (por ejemplo, 21 °C). El error es la diferencia entre la consigna y lo que mide el sensor." },
+    { nivel: "básico", q: "¿Qué valores devuelve digitalRead? ¿Y analogRead?", sol: "digitalRead devuelve HIGH (1) o LOW (0). analogRead devuelve un número entre 0 y 1023." },
+    { nivel: "básico", q: "¿Qué parte del programa de Arduino se ejecuta una vez y cuál se repite?", sol: "setup() se ejecuta una sola vez al encender; loop() se repite sin parar." },
+    { nivel: "básico", q: "¿Para qué sirve un puente H?", sol: "Para controlar un motor de corriente continua y poder invertir su sentido de giro cambiando el sentido de la corriente." },
+    { nivel: "básico", q: "¿Qué es un cobot?", sol: "Un robot colaborativo, diseñado para trabajar junto a las personas de forma segura, con sensores que lo detienen si toca a alguien." },
+    { nivel: "básico", q: "¿Por qué los motores no se conectan directamente a las patillas de Arduino?", sol: "Porque una patilla solo da unos 20-40 mA y un motor necesita mucha más corriente; se usa un controlador con una batería aparte." },
+    { nivel: "básico", q: "Explica qué ve un sensor de infrarrojos sobre una línea negra y sobre el suelo blanco.", sol: "El blanco refleja la luz infrarroja y el sensor la recibe; el negro la absorbe y el sensor no recibe reflejo. Así distingue la línea del suelo." },
+    { nivel: "medio", q: "Un termostato tiene consigna 21 °C con histéresis de ±0,5 °C. ¿Cuándo se enciende y cuándo se apaga la calefacción? ¿Para qué sirve la histéresis?", sol: "Se enciende al bajar de 20,5 °C y se apaga al superar 21,5 °C. Evita que la calefacción se encienda y apague continuamente alrededor de 21 °C." },
+    { nivel: "medio", q: "Convierte con map una lectura de 768 (de 0 a 1023) a un porcentaje de 0 a 100.", sol: "768 · 100 / 1023 ≈ 75 %. En código: map(768, 0, 1023, 0, 100) → 75." },
+    { nivel: "medio", q: "¿Qué tensión hay en una patilla analógica si analogRead devuelve 205? (Placa de 5 V)", sol: "V = 205 · 5 / 1023 ≈ 1,0 V." },
+    { nivel: "medio", q: "Con analogWrite(9, 191), ¿qué ciclo de trabajo tiene la señal PWM?", sol: "191 / 255 ≈ 0,75 → 75 % del tiempo encendida; el motor gira a unas tres cuartas partes de su velocidad." },
+    { nivel: "medio", q: "Compara el control todo-nada y el proporcional con el ejemplo de un robot que sigue una pared.", sol: "Todo-nada: si está lejos gira a tope hacia la pared, si está cerca gira a tope hacia fuera: avanza en zigzag. Proporcional: gira más cuanto más desviado está y poco si casi va bien: avanza de forma suave." },
+    { nivel: "medio", q: "Escribe en pseudocódigo el programa de un siguelíneas con dos sensores.", sol: "Repetir siempre: leer izq y der. Si izq = blanco y der = blanco → avanzar. Si izq = negro → girar a la izquierda. Si der = negro → girar a la derecha. Si los dos negro → parar." },
+    { nivel: "medio", q: "Un sensor de ultrasonidos mide un eco de 1.166 µs. ¿A qué distancia está el obstáculo?", sol: "d = 0,001166 s · 343 m/s / 2 ≈ 0,20 m = 20 cm." },
+    { nivel: "medio", q: "¿Cómo gira un robot de tracción diferencial a la derecha? Da dos formas.", sol: "Haciendo que la rueda izquierda gire más rápido que la derecha (giro amplio) o que las ruedas giren en sentidos contrarios (giro sobre sí mismo)." },
+    { nivel: "medio", q: "¿Por qué conviene probar cada sensor y cada motor por separado antes de montar el robot entero?", sol: "Porque si falla todo junto es muy difícil saber si el problema es de conexión, de un componente o del programa. Probar por partes localiza los errores enseguida." },
+    { nivel: "medio", q: "¿Qué es una resistencia pull-down y qué problema evita?", sol: "Una resistencia que une la entrada a 0 V cuando el pulsador está suelto. Evita que la entrada quede «flotando» y lea valores al azar." },
+    { nivel: "avanzado", q: "Escribe el programa de Arduino que encienda un LED (patilla 13) cuando la LDR (A0) lea menos de 300.", sol: "void setup() {\n  pinMode(13, OUTPUT);\n}\nvoid loop() {\n  int luz = analogRead(A0);\n  if (luz < 300) {\n    digitalWrite(13, HIGH);\n  } else {\n    digitalWrite(13, LOW);\n  }\n}" },
+    { nivel: "avanzado", q: "Escribe una función avanzar(velocidad) para un controlador con las patillas ENA = 5, IN1 = 7 e IN2 = 8.", sol: "void avanzar(int velocidad) {\n  digitalWrite(7, HIGH);\n  digitalWrite(8, LOW);\n  analogWrite(5, velocidad);\n}" },
+    { nivel: "avanzado", q: "Diseña la máquina de estados de un robot aspirador con estados «limpiar», «esquivar» y «volver a cargar».", sol: "Limpiar: avanza; si detecta obstáculo → esquivar; si batería < 15 % → volver. Esquivar: retrocede, gira un ángulo aleatorio → limpiar. Volver: busca la señal de la base y avanza hacia ella; al conectar, se para y carga." },
+    { nivel: "avanzado", q: "Calcula los grados de libertad de un brazo con base giratoria, hombro, codo, muñeca con dos giros y pinza. ¿Cuenta la pinza?", sol: "Base 1 + hombro 1 + codo 1 + muñeca 2 = 5 grados de libertad. La pinza abre y cierra, pero no posiciona el extremo, así que normalmente no se cuenta como grado de libertad del brazo." },
+    { nivel: "avanzado", q: "¿Por qué usar delay() largos puede hacer que un robot choque? Propón una solución.", sol: "Mientras espera, el programa no lee los sensores: si aparece un obstáculo no reacciona. Solución: usar esperas cortas, o controlar el tiempo con millis() para medir sin detener el programa." },
+    { nivel: "avanzado", q: "Debate: ¿quién debería ser responsable si un coche autónomo causa un accidente? Da argumentos para dos posturas.", sol: "Fabricante: diseñó el sistema que tomó la decisión y debe garantizar su seguridad. Conductor o propietario: debía supervisar y estar atento para intervenir. La ley europea tiende a exigir supervisión humana y responsabilidad del fabricante por defectos." },
+    { nivel: "avanzado", q: "Una fábrica sustituye 20 puestos de empaquetado por 4 robots y crea 3 puestos de técnico. Analiza el impacto y propón medidas sociales.", sol: "Pérdida neta de 17 puestos, aunque los nuevos son más cualificados y mejor pagados, y desaparecen tareas repetitivas. Medidas: formar a los trabajadores para los nuevos puestos, recolocarlos en otras áreas, planes de transición y formación profesional continua." },
+    { nivel: "avanzado", q: "Explica cómo un dron usa el control en lazo cerrado para mantenerse quieto en el aire.", sol: "Sus sensores (giróscopo, acelerómetro, barómetro, GPS) miden continuamente su inclinación, altura y posición; el controlador calcula el error respecto a la posición deseada y ajusta la velocidad de cada hélice cientos de veces por segundo, normalmente con control PID." },
+  ],
+  ejemplos: [
+    { enunciado: "Diseña el control de un invernadero que abra una ventana (servo) si la temperatura supera 28 °C y la cierre por debajo de 25 °C.", pasos: ["Entrada: sensor de temperatura (analógico o digital con librería).", "Consigna con histéresis: abrir a más de 28 °C, cerrar a menos de 25 °C.", "Salida: servomotor a 90° (abierta) o 0° (cerrada).", "Es un sistema en lazo cerrado: tras abrir, la temperatura baja y se vuelve a medir."], resultado: "Control todo-nada con histéresis de 3 °C en lazo cerrado." },
+    { enunciado: "Un robot evitaobstáculos mide 15 cm al frente. Describe qué hace su programa.", pasos: ["Lee la distancia con el sensor de ultrasonidos: 15 cm.", "Compara con el umbral: 15 < 20 cm → hay obstáculo.", "Para los motores, retrocede medio segundo y gira a la derecha.", "Vuelve a medir: si hay más de 20 cm libres, avanza."], resultado: "Esquiva el obstáculo y continúa." },
+    { enunciado: "Con analogWrite, regula un motor al 40 % de su velocidad.", pasos: ["El valor máximo es 255 (100 %).", "40 % de 255 = 0,4 · 255 = 102.", "Instrucción: analogWrite(pinMotor, 102).", "El motor recibe pulsos encendidos el 40 % del tiempo."], resultado: "analogWrite(pinMotor, 102)" },
+  ],
+  errores: ["Conectar un motor directamente a una patilla de Arduino: puede dañar la placa; hay que usar un controlador o un transistor."],
+  cuarta: ["con sensores de luz", "Aumentar la potencia", "Pulsador", "LED", "La batería", "de temperatura", "0 y 5", "motor paso a paso de juguete", "100 grados de libertad", "la humedad"],
+  quiz: [
+    { q: "La diferencia entre la consigna y el valor medido es…", o: ["la histéresis", "el error", "la potencia", "el umbral"], a: 1, e: "El controlador actúa para reducirlo." },
+    { q: "La histéresis de un termostato sirve para…", o: ["calentar más rápido", "evitar que se encienda y apague continuamente", "medir la humedad", "ahorrar batería del mando"], a: 1, e: "Separa el punto de encendido y el de apagado." },
+    { q: "¿Qué función de Arduino lee una patilla analógica?", o: ["digitalRead", "analogRead", "analogWrite", "pinMode"], a: 1, e: "Devuelve de 0 a 1023." },
+    { q: "Con analogWrite(pin, 128) el motor gira aproximadamente a…", o: ["0 %", "25 %", "50 %", "100 %"], a: 2, e: "128 es la mitad de 255." },
+    { q: "Un puente H permite…", o: ["medir la distancia", "invertir el sentido de giro de un motor", "leer un pulsador", "guardar el programa"], a: 1, e: "Cambia el sentido de la corriente." },
+    { q: "En un siguelíneas, si el sensor izquierdo ve negro, el robot debe…", o: ["girar a la izquierda", "girar a la derecha", "acelerar recto", "dar marcha atrás"], a: 0, e: "La línea se ha desplazado a la izquierda." },
+    { q: "La distancia con ultrasonidos se calcula con…", o: ["tiempo × 343 / 2", "tiempo × 343", "tiempo / 2", "343 / tiempo"], a: 0, e: "Se divide entre 2 porque el sonido va y vuelve." },
+    { q: "Las instrucciones que se ejecutan una sola vez van en…", o: ["loop()", "setup()", "delay()", "if"], a: 1, e: "Por ejemplo, configurar las patillas." },
+    { q: "Un robot diseñado para trabajar junto a personas es un…", o: ["cobot", "dron", "servo", "sensor"], a: 0, e: "Robot colaborativo." },
+    { q: "El control que ajusta la acción según el error, su acumulado y su variación es el…", o: ["todo-nada", "PID", "lazo abierto", "PWM"], a: 1, e: "Proporcional, integral y derivativo." },
+  ],
+  cuartaEx: ["programa", "sensor de luz", "Para cargar la batería"],
+  examen: [
+    { q: "El conversor analógico-digital de Arduino tiene…", o: ["1 bit", "8 bits", "10 bits", "64 bits"], a: 2, e: "Por eso da 1.024 valores (0-1023)." },
+    { q: "PWM regula la velocidad de un motor variando…", o: ["el color del cable", "la parte del tiempo que está encendido", "el tamaño del motor", "la temperatura"], a: 1, e: "Es el ciclo de trabajo." },
+    { q: "Un robot de tracción diferencial gira…", o: ["con un volante", "variando la velocidad de cada rueda", "solo marcha atrás", "con una hélice"], a: 1, e: "Una rueda más rápida que la otra." },
+    { q: "INPUT_PULLUP en Arduino…", o: ["activa una resistencia interna para que la entrada no quede flotando", "enciende un LED", "acelera el motor", "borra el programa"], a: 0, e: "Así el pulsador da lecturas fiables." },
+    { q: "Una pregunta ética de la robótica actual es…", o: ["¿de qué color pintar el robot?", "¿quién responde si un coche autónomo causa un accidente?", "¿cuántos tornillos lleva?", "¿qué voltaje usa?"], a: 1, e: "La responsabilidad es un debate abierto." },
+  ],
+  tarjetas: [
+    ["Consigna y error", "Valor deseado y diferencia con lo medido."],
+    ["analogRead y map", "Lee 0-1023 y lo convierte a la escala que queramos."],
+    ["Puente H y PWM", "Invierte el giro y regula la velocidad de un motor."],
+    ["setup() y loop()", "Una vez al inicio y repetición sin fin."],
+  ],
+  glosario: [
+    ["Sistema de control", "Conjunto que gobierna un proceso sin intervención continua de una persona."],
+    ["Lazo cerrado", "Control que mide el resultado y corrige la acción."],
+    ["Consigna", "Valor que se desea alcanzar."],
+    ["Histéresis", "Margen entre los valores de encendido y apagado de un control."],
+    ["Control PID", "Control que combina acciones proporcional, integral y derivativa."],
+    ["Sensor", "Dispositivo que convierte una magnitud física en una señal eléctrica."],
+    ["Actuador", "Dispositivo que convierte una señal en una acción."],
+    ["Conversor analógico-digital", "Circuito que transforma una tensión en un número."],
+    ["Umbral", "Valor de referencia para tomar una decisión."],
+    ["Puente H", "Circuito que permite invertir el sentido de giro de un motor."],
+    ["PWM", "Modulación por ancho de pulso para regular velocidad o brillo."],
+    ["Servomotor", "Motor que gira hasta un ángulo exacto."],
+    ["Grado de libertad", "Cada movimiento independiente que puede hacer un robot."],
+    ["Tracción diferencial", "Sistema de giro con dos ruedas motrices independientes."],
+    ["Máquina de estados", "Forma de programar en la que el sistema pasa de un estado a otro según las entradas."],
+    ["Cobot", "Robot colaborativo que trabaja junto a personas."],
+    ["Microcontrolador", "Chip programable que controla el robot."],
+  ],
+  situacion: {
+    titulo: "Robot de rescate en el laberinto",
+    reto: "Por equipos, construid y programad un robot móvil que recorra un circuito del aula siguiendo una línea, detecte un obstáculo en el camino, lo esquive y avise con una señal luminosa y sonora al llegar a la «zona de rescate».",
+    pasos: [
+      "Diseñad el robot: chasis, dos motores con controlador, sensores de infrarrojos, ultrasonidos, LED y zumbador; dibujad el esquema de conexiones.",
+      "Probad por separado cada motor y cada sensor, mostrando las lecturas en el monitor serie para calibrar los umbrales.",
+      "Programad los comportamientos como funciones (avanzar, girar, parar, medir) y organizadlos en una máquina de estados.",
+      "Ajustad velocidades con PWM y probad en el circuito, anotando tiempos y fallos en una tabla.",
+      "Mejorad el robot y presentad su funcionamiento explicando el control en lazo cerrado que utiliza.",
+    ],
+    producto: "El robot funcionando, el esquema de conexiones, el programa comentado y una tabla de pruebas.",
+    evaluacion: ["El esquema es correcto y las conexiones son seguras (controlador de motores, alimentación).", "El programa está bien estructurado en funciones o estados y usa correctamente sensores y PWM.", "El robot completa el recorrido y esquiva el obstáculo de forma fiable.", "El equipo explica el sistema de control y documenta las pruebas y mejoras."],
+  },
+  objetivos: ["Leer sensores y controlar motores con Arduino (analogRead, PWM, puente H)", "Programar comportamientos de robots móviles y valorar el impacto de la robótica"],
+  fuentes: [{ t: "Documentación de Arduino en español", url: "https://docs.arduino.cc/" }],
+});
