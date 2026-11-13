@@ -29,7 +29,23 @@ const I18N = {
 // Partes opcionales de un tema ampliado: ejemplos resueltos, errores típicos y ejercicios con solución.
 const ejemplosHTML = (T) => (T.ejemplos || []).length ? `<div class="ejemplos"><h3>${T.ejemplosTitulo || "Ejemplos resueltos"}</h3>${T.ejemplos.map((x, i) => `<div class="ej"><p><b>${T.ejemplosTitulo ? "" : `Ejemplo ${i + 1}.`}</b> ${x.enunciado}</p><ol>${x.pasos.map((p) => `<li>${p}</li>`).join("")}</ol><p class="res"><b>Resultado:</b> ${x.resultado}</p></div>`).join("")}</div>` : "";
 const erroresHTML = (T) => (T.errores || []).length ? `<div class="errores"><h3>Errores típicos</h3><ul>${T.errores.map((x) => `<li>${x}</li>`).join("")}</ul></div>` : "";
-const ejerciciosHTML = (T) => (T.ejercicios || []).length ? `<div class="ejercicios"><h3>Ejercicios</h3><p class="caption">Hazlos en tu cuaderno y después abre la solución.</p><ol>${T.ejercicios.map((x) => `<li><p>${x.q}</p><details><summary>Ver solución</summary><div>${x.sol}</div></details></li>`).join("")}</ol></div>` : "";
+const ejLi = (x) => `<li><p>${x.q}</p><details><summary>Ver solución</summary><div>${x.sol}</div></details></li>`;
+// Nivel libro: los ejercicios pueden llevar nivel (básico, medio, avanzado) y se agrupan.
+const NIVELES = [["basico", "Nivel básico"], ["medio", "Nivel medio"], ["avanzado", "Nivel avanzado"]];
+const nivelDe = (x) => (x.nivel || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const ejerciciosHTML = (T) => {
+  const ej = T.ejercicios || [];
+  if (!ej.length) return "";
+  const head = `<div class="ejercicios"><h3>Ejercicios${ej.length > 12 ? ` (${ej.length})` : ""}</h3><p class="caption">Hazlos en tu cuaderno y después abre la solución.</p>`;
+  if (!ej.some((x) => x.nivel)) return `${head}<ol>${ej.map(ejLi).join("")}</ol></div>`;
+  let n = 0;
+  return head + NIVELES.map(([k, t]) => { const xs = ej.filter((x) => nivelDe(x) === k); if (!xs.length) return ""; const start = n + 1; n += xs.length; return `<h4 class="nivel nivel-${k}">${t}</h4><ol start="${start}">${xs.map(ejLi).join("")}</ol>`; }).join("") + "</div>";
+};
+const lecturaHTML = (T) => T.lectura ? `<div class="lectura"><h3>Para empezar: ${T.lectura.titulo}</h3>${T.lectura.html}</div>` : "";
+const glosarioHTML = (T) => (T.glosario || []).length ? `<div class="glosario"><h3>Glosario</h3><dl>${T.glosario.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl></div>` : "";
+const situacionHTML = (T) => T.situacion ? `<section class="sec situacion"><div class="sec-h"><span class="n">★</span><h2>Situación de aprendizaje<small>${T.situacion.titulo}</small></h2></div>
+  <p>${T.situacion.reto}</p>${(T.situacion.pasos || []).length ? `<h3>Pasos</h3><ol>${T.situacion.pasos.map((x) => `<li>${x}</li>`).join("")}</ol>` : ""}
+  ${T.situacion.producto ? `<p><b>Producto final:</b> ${T.situacion.producto}</p>` : ""}${(T.situacion.evaluacion || []).length ? `<h3>Cómo se valora</h3><ul>${T.situacion.evaluacion.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}</section>` : "";
 function page({ title, desc, depth, body, lang = "es", nav = "", extraHead = "", scripts = "", bodyClass = "" }) {
   const r = depth ? "../".repeat(depth) : "./";
   const t = I18N[lang];
@@ -249,7 +265,7 @@ function fichaPage(e, c, m, T, n) {
   ${(T.ejercicios || []).length ? `<section class="brk"><h2>Ejercicios</h2><ol class="fq">${T.ejercicios.map((x) => `<li><p>${x.q}</p><div class="lines"></div></li>`).join("")}</ol></section>` : ""}
   <section class="brk"><h2>Practica</h2><ol class="fq">${T.quiz.map((q) => `<li><p>${q.q}</p><ol class="abc">${q.o.map((o, j) => `<li><span>${L[j]})</span> ${o}</li>`).join("")}</ol></li>`).join("")}</ol></section>
   <section><h2>Explícalo con tus palabras</h2><p class="caption">Incluye: ${T.feynman.join("; ")}.</p><div class="lines tall"></div></section>
-  <section><h2>Resumen</h2><div class="map">${T.mapa}</div></section>
+  <section><h2>Resumen</h2><div class="map">${T.mapa}</div>${glosarioHTML(T)}</section>
   <section><h2>Tarjetas de repaso</h2><p class="caption">Recórtalas: pregunta delante, respuesta detrás.</p><div class="cut">${T.tarjetas.map(([q, a]) => `<div><b>${q}</b><span>${a}</span></div>`).join("")}</div></section>
   <section class="sol"><h2>Soluciones</h2><ol>${T.quiz.map((q) => `<li><b>${L[q.a]})</b> ${q.e}</li>`).join("")}</ol></section>
   ${(T.ejercicios || []).length ? `<section class="sol"><h2>Soluciones de los ejercicios</h2><ol>${T.ejercicios.map((x) => `<li>${x.sol}</li>`).join("")}</ol></section>` : ""}
@@ -272,7 +288,8 @@ function topicPage(e, c, m, T, n) {
       <p class="question">${T.pregunta.texto}</p>
       <div class="reveal"><p style="margin:0">Escribe o di en voz alta tu respuesta. Después <button type="button" id="rv">mira la solución</button>.</p><p id="rv-text" hidden style="margin:10px 0 0">${T.pregunta.respuesta}</p></div>
     </section>
-    <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>${T.bloques.length} bloques cortos</small></h2></div>
+    <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>${T.lectura ? `${T.bloques.length} apartados` : `${T.bloques.length} bloques cortos`}</small></h2></div>
+      ${lecturaHTML(T)}
       ${T.bloques.map((b) => `<div class="chunk">${b.svg ? `<div>${b.html}</div>${b.svg}` : `<div class="solo">${b.html}</div>`}</div>${b.video ? videoHTML(b.video) : ""}`).join("")}
       ${ejemplosHTML(T)}${erroresHTML(T)}
       <h3 style="font-size:21px;margin-top:10px">${T.figura.titulo}</h3>
@@ -288,7 +305,8 @@ function topicPage(e, c, m, T, n) {
       <textarea id="feyn" placeholder="Con mis palabras…"></textarea>
       <div class="check"><span class="caption">¿Has nombrado estas ideas?</span>${T.feynman.map((f, i) => `<label><input type="checkbox" id="c${i}"> ${f}</label>`).join("")}</div>
     </section>
-    <section class="sec" id="p5"><div class="sec-h"><span class="n">5</span><h2>Resumen visual<small>Todo el tema en una pantalla</small></h2></div><div class="map">${T.mapa}</div></section>
+    ${situacionHTML(T)}
+    <section class="sec" id="p5"><div class="sec-h"><span class="n">5</span><h2>Resumen visual<small>Todo el tema en una pantalla</small></h2></div><div class="map">${T.mapa}</div>${glosarioHTML(T)}</section>
     <section class="sec" id="p6"><div class="sec-h"><span class="n">6</span><h2>Tarjetas de repaso<small>Toca la tarjeta para darle la vuelta</small></h2></div>
       <div class="cards">
         <button class="flash" id="flash" type="button" aria-live="polite"><div class="in"><div class="face front"><small id="fc-count"></small><span id="fc-q"></span></div><div class="face back"><small>Respuesta</small><span id="fc-a"></span></div></div></button>

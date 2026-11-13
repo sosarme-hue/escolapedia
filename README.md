@@ -45,6 +45,21 @@ Modelo de estructura: los temas `pri-1-*` (ayudas en `_pri1.js`), pero **más co
 - `familias` (4 ideas en casa) y `profesores` (RD 95/2022, BOE-A-2022-1654).
 - Letra grande (clase `peque`). Después: `node build.js && node tools/desbordes.js anos` (0 desbordes).
 
+## Tema nivel libro (4º ESO)
+
+Es el tema ampliado al máximo, como un capítulo de libro de texto. Se reescribe el fichero del tema que ya existe (mismo nombre, `materia`, `curso` y `titulo`), conservando lo bueno y ampliándolo. Todo es contenido propio: nunca se copia de libros.
+
+- `lectura`: `{ titulo, html }`, una lectura inicial motivadora (150-250 palabras) que conecta el tema con la vida real.
+- `bloques`: 10 a 16 apartados numerados en el `<h3>` («1.1 …», «1.2 …», «2.1 …»), **2.000 a 3.000 palabras** en total, cada uno con su `svg` propio. Definiciones, propiedades, procedimientos, matices y conexiones con otros temas.
+- `ejemplos`: 6 ejemplos resueltos paso a paso; `errores`: 6.
+- `ejercicios`: **30 a 40**, cada uno con `nivel: "básico" | "medio" | "avanzado"` (unos 12 / 14 / 10) y `sol` completa (el desarrollo, no solo el resultado).
+- `quiz`: **20 preguntas** (autoevaluación) con 4 opciones y explicación; `examen`: 8; `tarjetas`: 12.
+- `glosario`: 12 a 20 pares `[término, definición]`.
+- `situacion`: `{ titulo, reto, pasos: [4-6], producto, evaluacion: [3-4 criterios] }`, una situación de aprendizaje LOMLOE con un reto práctico.
+- `mapa` (resumen final), `figura`, `video` y 2-3 vídeos de bloque (`python3 -I tools/videos.py`, nunca inventar ids ni repetir los de otros temas o ramas), `familias`, `profesores` (saberes básicos del RD 217/2022 y del Decret/currículo autonómico si procede), `fuentes`, `minutos` (90-120), `revisado`.
+- Lengua Catalana en catalán; Inglés y Francés con explicación en castellano y ejemplos en el idioma.
+- Después: `node build.js && node tools/desbordes.js 4-eso` (0 desbordes) y revisar los dibujos en captura.
+
 ## Publicación
 
 escolapedia.com se publica desde la rama `claude/project-thread-d876yp` con `hosting_git_deploy-website-repository` (sin despliegue automático: solo cambia cuando se vuelve a lanzar). El `.htaccess` de la raíz sirve la carpeta `dist/`. Solo se publica lo que hay en `dist/` cuando se sube: generar con `node build.js && node tools/pdfs.js` y subir `dist/` únicamente cuando Alex haya dado el visto bueno.

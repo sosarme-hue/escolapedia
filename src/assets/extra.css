@@ -178,3 +178,12 @@ body.peque .chunk svg{max-width:300px}
 .sda p{margin:0 0 10px}
 .rec-toc{gap:10px;margin-bottom:12px}
 .sda ul{margin-bottom:12px!important}
+/* Nivel libro: lectura inicial, ejercicios por niveles, glosario y situación de aprendizaje */
+.lectura{background:var(--card);border-left:6px solid var(--pen);border-radius:12px;padding:18px 22px;margin:0 0 22px;line-height:1.7}
+.lectura h3{margin-top:0}
+.ejercicios h4.nivel{margin:22px 0 8px;font-size:17px;padding:4px 12px;border-radius:999px;display:inline-block;color:#fff}
+.nivel-basico{background:#1f9d55}.nivel-medio{background:#b45309}.nivel-avanzado{background:#b91c1c}
+.glosario dl{display:grid;grid-template-columns:minmax(120px,max-content) 1fr;gap:8px 18px;margin:0}
+.glosario dt{font-weight:700}.glosario dd{margin:0}
+@media (max-width:560px){.glosario dl{grid-template-columns:1fr}.glosario dd{margin-bottom:8px}}
+.situacion{border:2px dashed var(--pen);border-radius:16px;padding:20px 24px;line-height:1.7}
