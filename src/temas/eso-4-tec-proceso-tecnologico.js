@@ -165,3 +165,160 @@ AMP.amplia(module.exports, {
     ["Matriz de decisión", "Tabla que puntúa cada idea según criterios con peso."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 110,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "Del enfado a la patente",
+    html: `<p>En 1956, el ingeniero español Manuel Jalón vio a las limpiadoras de un hangar escurrir la fregona con las manos, agachadas y mojadas. Se preguntó si había una forma mejor. Hizo bocetos, probó materiales, construyó prototipos con un cubo y un escurridor de rodillos y, tras muchos intentos, patentó junto a su socio un sistema de cubo con escurridor que acabó en casi todas las casas del mundo. Lo que empezó como una molestia cotidiana se convirtió en un producto industrial.</p>
+      <p>Así funciona la tecnología: alguien detecta una necesidad, la define con precisión, genera ideas, elige la mejor con criterio, la dibuja, la construye, la prueba y la mejora. Ese camino, el <b>proceso tecnológico</b>, es el mismo para diseñar una silla, una app o un puente. En este tema aprenderás cada fase como lo haría un equipo de ingeniería: analizar objetos, dibujar en perspectiva y con vistas, elegir materiales, trabajar con seguridad, organizarte con herramientas de gestión y proteger tus ideas. Y lo pondrás en práctica en un proyecto real.</p>`,
+  },
+  svgs: {
+    "Buscar ideas: técnicas de creatividad": L.estrella("Técnicas de creatividad para generar ideas", "Ideas", ["lluvia de ideas", "SCAMPER", "mapa mental", "analogías", "6 sombreros", "bocetos"]),
+    "Elegir la mejor solución": L.rejilla("Matriz de decisión con tres ideas puntuadas", ["Criterio (peso)", "Idea A", "Idea B", "Idea C"], [["Coste (×2)", "3", "5", "4"], ["Facilidad (×1)", "4", "2", "5"], ["Seguridad (×2)", "5", "4", "3"], ["Total", "20", "20", "19"]], { t: "Matriz de decisión" }),
+    "Vistas, acotación y escalas": L.cajas("Tipos de escala: natural, de reducción y de ampliación", [["Natural 1:1", "igual que|el objeto"], ["Reducción 1:50", "casas,|muebles"], ["Ampliación 5:1", "piezas|pequeñas"], ["Cotas", "en mm, sin|unidades"]], { t: "Escalas y cotas" }),
+    "Herramientas de gestión del proyecto": L.rejilla("Diagrama de Gantt simplificado de un proyecto de cuatro semanas", ["Tarea", "S1", "S2", "S3", "S4"], [["Diseño", "■", "■", "", ""], ["Compras", "", "■", "", ""], ["Construcción", "", "■", "■", ""], ["Pruebas", "", "", "", "■"], ["Memoria", "", "", "■", "■"]], { t: "Diagrama de Gantt" }),
+  },
+  tras: {
+    "Buscar ideas: técnicas de creatividad": [
+      {
+        html: `<h3>Análisis de objetos</h3><p>Antes de inventar algo conviene estudiar lo que ya existe. El <b>análisis de objetos</b> examina un producto desde varios puntos de vista para entender por qué es como es. El análisis <b>formal</b> describe su forma, tamaño, color y textura, y lo representa con bocetos y vistas. El análisis <b>técnico</b> estudia sus piezas, los materiales de cada una, cómo se unen y cómo se fabricaron. El análisis <b>funcional</b> explica para qué sirve, cómo se usa y qué principio lo hace funcionar (una palanca, un muelle, un circuito).</p>
+          <p>Además, se hace un análisis <b>económico</b> (cuánto cuesta, a quién va dirigido, si compensa repararlo) y un análisis <b>socioambiental</b>: qué necesidad cubre, qué impacto tiene al fabricarlo, al usarlo y al desecharlo, y si se puede reciclar o reparar. Por ejemplo, al analizar una grapadora descubrimos que su cuerpo es de acero porque debe resistir golpes, que funciona como una <mark>palanca</mark> y que un muelle empuja las grapas. Analizar objetos entrena el ojo para detectar buenas soluciones que se pueden adaptar a nuestro problema y errores que hay que evitar. Muchos inventos nacen de combinar ideas que ya funcionaban en otro contexto.</p>`,
+        svg: L.cajas("Cinco puntos de vista del análisis de objetos", [["Formal", "forma y tamaño"], ["Técnico", "piezas y materiales"], ["Funcional", "para qué y cómo"], ["Económico", "coste y público"], ["Socioambiental", "impacto y reciclaje"], ["Histórico", "cómo ha cambiado"]], { t: "Analizar un objeto", cols: 2 }),
+      },
+    ],
+    "Diseñar: del boceto al plano": [
+      {
+        html: `<h3>Perspectivas: caballera e isométrica</h3><p>Las vistas describen un objeto con exactitud, pero cuesta imaginarlo. Para verlo de un golpe se usan las <b>perspectivas</b>, que lo dibujan en tres dimensiones sobre el papel. En la <b>perspectiva caballera</b>, la cara frontal se dibuja en verdadera magnitud, igual que en el alzado, y la profundidad se traza con líneas inclinadas a <mark>45°</mark>, reducidas normalmente a la mitad para que no parezca demasiado alargada. Es rápida y muy útil para objetos con una cara principal, como un mueble o una caja.</p>
+          <p>En la <b>perspectiva isométrica</b>, los tres ejes (ancho, alto y profundidad) forman entre sí ángulos iguales de <mark>120°</mark>: las líneas verticales siguen verticales y las otras se inclinan 30° respecto a la horizontal. Las medidas se toman sin reducir, así que es fácil dibujarla sobre papel de trama isométrica. El objeto se ve más natural y equilibrado, por eso se usa en catálogos e instrucciones de montaje. Para dibujar cualquiera de las dos se empieza por una caja que envuelve el objeto y se van «tallando» los huecos. Pasar de vistas a perspectiva, y al revés, es una de las destrezas clave de la ingeniería.</p>`,
+        svg: L.comparar("Perspectiva caballera frente a isométrica", ["Caballera", ["cara frontal real", "fondo a 45°", "fondo × 0,5", "rápida"]], ["Isométrica", ["ejes a 120°", "líneas a 30°", "sin reducir", "más natural"]]),
+      },
+    ],
+    "Vistas, acotación y escalas": [
+      {
+        html: `<h3>Diseño asistido por ordenador (CAD)</h3><p>Hoy los planos se hacen con programas de <b>diseño asistido por ordenador</b> o <b>CAD</b>. En el CAD en dos dimensiones (LibreCAD, QCAD) se dibujan vistas y planos con líneas precisas, capas y cotas automáticas. En el <b>modelado 3D</b> (Tinkercad, FreeCAD, SketchUp, Fusion) se construye un modelo virtual del objeto a partir de formas básicas que se suman o se restan, o bien dibujando un perfil y extruyéndolo. Del modelo 3D el programa obtiene automáticamente las vistas acotadas y la perspectiva.</p>
+          <p>Las ventajas son enormes: se corrigen errores sin borrar, se prueban versiones distintas, se calculan volúmenes y masas, se simula si una pieza resistirá un esfuerzo o si dos piezas encajan, y el archivo se envía directamente a máquinas de <b>fabricación asistida por ordenador</b> (<mark>CAM</mark>): impresoras 3D, cortadoras láser o fresadoras CNC. Además, el equipo puede trabajar a la vez en la nube sobre el mismo diseño. Los formatos más habituales son <b>STL</b> para imprimir en 3D, <b>DXF</b> y <b>SVG</b> para cortar con láser y <b>STEP</b> para intercambiar modelos entre programas distintos. Muchos de estos programas son gratuitos o libres y funcionan en el navegador, por lo que se pueden usar en el instituto y en casa. Aun así, el boceto a mano sigue siendo imprescindible para pensar rápido: el CAD llega cuando la idea ya está clara.</p>`,
+        svg: L.flujo("Del diseño por ordenador a la fabricación", ["Boceto a mano", "Modelo 3D en CAD", "Simular y comprobar", "Exportar (STL, DXF)", "Fabricar con CAM"], { t: "De CAD a CAM" }),
+      },
+    ],
+    "Planificar y construir": [
+      {
+        html: `<h3>Elegir los materiales</h3><p>Cada pieza de un proyecto necesita el material adecuado. Para elegirlo se tienen en cuenta sus <b>propiedades</b>: <b>mecánicas</b> (dureza, resistencia, elasticidad, tenacidad), <b>térmicas</b> y <b>eléctricas</b> (si conduce o aísla), su <b>peso</b>, su facilidad para trabajarlo con las herramientas disponibles, su <b>precio</b> y su impacto ambiental. Los más usados en el taller escolar son la <b>madera</b> y sus derivados (contrachapado, DM), fáciles de cortar y unir; los <b>metales</b> (aluminio, acero), resistentes y conductores; y los <b>plásticos</b> (PLA, metacrilato, PVC), ligeros, aislantes y moldeables.</p>
+          <p>Un buen ingeniero piensa también en el <mark>ciclo de vida</mark> del material: de dónde sale, cuánta energía cuesta producirlo, si se puede reutilizar o reciclar y qué pasará al final. Los materiales reciclados (cartón, botellas, maderas recuperadas) son perfectos para prototipos. Por ejemplo, para la estructura de un comedero de pájaros conviene madera tratada para exterior, resistente a la humedad; para la tapa, un plástico transparente que deje ver el nivel de comida; y para las uniones, tornillos de acero inoxidable que no se oxiden.</p>`,
+        svg: L.rejilla("Comparación de materiales del taller", ["Material", "Peso", "Resiste", "Trabajar"], [["Madera / DM", "medio", "media", "fácil"], ["Aluminio", "ligero", "alta", "media"], ["Acero", "pesado", "muy alta", "difícil"], ["Plástico PLA", "ligero", "baja", "fácil (3D)"], ["Cartón", "muy ligero", "baja", "muy fácil"]], { t: "Elegir material" }),
+      },
+      {
+        html: `<h3>Seguridad en el taller</h3><p>El taller es un lugar de trabajo con herramientas cortantes, calor y electricidad, y la seguridad es lo primero. Hay que usar los <b>equipos de protección individual</b> (EPI) adecuados a cada tarea: <b>gafas</b> al cortar, taladrar o lijar; <b>guantes</b> al manipular piezas con rebabas (pero nunca con máquinas giratorias, que pueden atraparlos); mascarilla con polvo o vapores; y el pelo recogido, sin pulseras ni ropa suelta. Las herramientas se usan solo para lo que están pensadas, se sujetan las piezas con un tornillo de banco o un sargento y se corta siempre <mark>en dirección contraria al cuerpo</mark>.</p>
+          <p>Las máquinas eléctricas se usan con permiso del profesorado, comprobando antes que cables y enchufes están en buen estado. El soldador y la pistola de cola caliente se dejan en su soporte. Hay que conocer las <b>señales de seguridad</b>: las de <b>obligación</b> son círculos azules (uso obligatorio de gafas), las de <b>prohibición</b>, círculos rojos tachados, las de <b>advertencia</b>, triángulos amarillos (riesgo eléctrico) y las de <b>emergencia</b>, rectángulos verdes (salida, botiquín). El orden y la limpieza también son seguridad: un taller ordenado evita tropiezos y pérdidas de herramientas.</p>`,
+        svg: L.cajas("Tipos de señales de seguridad", [["Obligación", "círculo azul|(usar gafas)"], ["Prohibición", "círculo rojo|tachado"], ["Advertencia", "triángulo|amarillo"], ["Emergencia", "rectángulo|verde"]], { t: "Señales del taller" }),
+      },
+    ],
+    "Herramientas de gestión del proyecto": [
+      {
+        html: `<h3>Normalización, patentes y emprendimiento</h3><p>Para que las piezas de distintos fabricantes encajen, los tornillos sean intercambiables y los planos se entiendan en todo el mundo, existen las <b>normas</b> técnicas. En España las elabora la UNE, en Europa el CEN y a nivel mundial la <b>ISO</b>. Hay normas para el formato del papel (el DIN A4 mide 210 × 297 mm), las escalas, las cotas, los enchufes o la seguridad de los juguetes. El marcado <mark>CE</mark> indica que un producto cumple las exigencias europeas de seguridad, salud y medio ambiente para venderse en la Unión.</p>
+          <p>Quien inventa algo nuevo puede protegerlo con una <b>patente</b>, que le da el derecho exclusivo a explotarlo durante 20 años a cambio de hacer pública la invención; pasado ese tiempo, cualquiera puede usarla. Las mejoras más sencillas se protegen como <b>modelo de utilidad</b> y el aspecto externo, como <b>diseño industrial</b>; en España lo gestiona la Oficina Española de Patentes y Marcas. Muchos proyectos escolares podrían convertirse en productos: para ello hay que estudiar el mercado, calcular costes, buscar financiación y pensar en la fabricación en serie. El emprendimiento tecnológico empieza, precisamente, con un buen proceso tecnológico.</p>`,
+        svg: L.cajas("Formas de proteger y normalizar un producto", [["Norma ISO/UNE", "medidas y|formatos comunes"], ["Marcado CE", "seguridad|en la UE"], ["Patente", "20 años de|exclusiva"], ["Diseño industrial", "protege|el aspecto"]], { t: "Normas y patentes" }),
+      },
+    ],
+  },
+  secciones: [5, 4, 6],
+  niveles: "bbbbmmmbbm",
+  ejercicios: [
+    { nivel: "básico", q: "Nombra los cinco puntos de vista del análisis de un objeto.", sol: "Formal (forma, tamaño), técnico (piezas, materiales, uniones), funcional (para qué sirve y cómo funciona), económico (coste, público) y socioambiental (impacto, reciclaje)." },
+    { nivel: "básico", q: "¿Qué ángulo forman las líneas de profundidad en la perspectiva caballera? ¿Y los ejes de la isométrica?", sol: "En la caballera, las líneas de profundidad van a 45° (normalmente reducidas a la mitad). En la isométrica, los tres ejes forman ángulos de 120° entre sí." },
+    { nivel: "básico", q: "¿Qué significan las siglas CAD y CAM?", sol: "CAD: diseño asistido por ordenador. CAM: fabricación asistida por ordenador." },
+    { nivel: "básico", q: "Indica el EPI adecuado para: taladrar madera, lijar, manipular chapa con rebabas.", sol: "Taladrar: gafas (y nunca guantes con la máquina girando). Lijar: gafas y mascarilla. Manipular chapa: guantes." },
+    { nivel: "básico", q: "Describe la forma y el color de las señales de obligación, prohibición, advertencia y emergencia.", sol: "Obligación: círculo azul. Prohibición: círculo con borde rojo y banda cruzada. Advertencia: triángulo amarillo con borde negro. Emergencia: rectángulo o cuadrado verde." },
+    { nivel: "básico", q: "¿Cuánto dura una patente y qué se da a cambio?", sol: "20 años de derechos exclusivos de explotación; a cambio, la invención se hace pública y, al terminar, cualquiera puede usarla." },
+    { nivel: "medio", q: "Haz el análisis técnico y funcional de unas tijeras.", sol: "Técnico: dos hojas de acero afiladas, mangos de plástico, unidas por un tornillo o remache que hace de eje. Funcional: son dos palancas de primer género unidas por el fulcro; al cerrar los mangos, las hojas se cruzan y cortan por cizalladura." },
+    { nivel: "medio", q: "Dibuja (describe) en perspectiva caballera un cubo de 4 cm de arista con reducción 0,5. ¿Cuánto miden las líneas de profundidad?", sol: "La cara frontal es un cuadrado de 4 × 4 cm. Las aristas de profundidad se trazan a 45° con 4 · 0,5 = 2 cm." },
+    { nivel: "medio", q: "Elige material para: la caja de un altavoz, el soporte de un móvil impreso en 3D y el eje de un coche de juguete. Justifica.", sol: "Caja de altavoz: DM o contrachapado, rígido, fácil de cortar y con buen comportamiento acústico. Soporte: PLA, ligero y fácil de imprimir. Eje: varilla de acero, resistente y que no se dobla." },
+    { nivel: "medio", q: "¿Por qué no se deben usar guantes al trabajar con un taladro de columna?", sol: "Porque el guante puede quedar atrapado por la broca o el portabrocas en movimiento y arrastrar la mano, causando lesiones graves." },
+    { nivel: "medio", q: "Explica dos ventajas del modelado 3D frente al dibujo a mano y una ventaja del boceto a mano.", sol: "3D: se corrigen errores fácilmente y se obtienen vistas, medidas y archivos de fabricación automáticamente; permite simular. Boceto a mano: es mucho más rápido para explorar ideas al principio." },
+    { nivel: "medio", q: "Aplica SCAMPER a una mochila escolar: propón una idea para tres de sus letras.", sol: "Sustituir: tela por material reciclado impermeable. Combinar: añadir una batería solar para cargar el móvil. Adaptar: correas acolchadas como las de montaña. (Modificar, Poner otros usos, Eliminar y Reordenar también valen.)" },
+    { nivel: "medio", q: "Una hoja DIN A4 mide 210 × 297 mm. ¿Cuánto mide un A3? ¿Y un A5?", sol: "A3 es el doble de A4: 297 × 420 mm. A5 es la mitad: 148 × 210 mm (cada formato se obtiene doblando por la mitad el anterior)." },
+    { nivel: "medio", q: "¿Qué indica el marcado CE en un juguete?", sol: "Que el fabricante declara que cumple las normas europeas de seguridad y salud aplicables y que puede venderse en la Unión Europea." },
+    { nivel: "medio", q: "Completa un plan de trabajo de un portalápices: 4 tareas con responsable, tiempo y herramientas.", sol: "Ejemplo: 1) Marcar y cortar la madera (Ana, 1 h, regla, sierra). 2) Lijar (Luis, 30 min, lija, gafas). 3) Montar y encolar (Sara, 45 min, cola, sargentos). 4) Pintar y barnizar (Pau, 1 h, pincel, mascarilla)." },
+    { nivel: "medio", q: "Calcula la puntuación ponderada de dos ideas: A (coste 4, seguridad 3, estética 5) y B (coste 3, seguridad 5, estética 3), con pesos 2, 3 y 1.", sol: "A: 4·2 + 3·3 + 5·1 = 8 + 9 + 5 = 22. B: 3·2 + 5·3 + 3·1 = 6 + 15 + 3 = 24. Gana B." },
+    { nivel: "avanzado", q: "Haz el análisis socioambiental de una botella de plástico de un solo uso y propón un rediseño.", sol: "Cubre la necesidad de transportar agua, pero se fabrica con petróleo, se usa minutos y tarda siglos en degradarse; mucha acaba en el mar. Rediseño: botella reutilizable de acero o vidrio, o envase retornable con depósito." },
+    { nivel: "avanzado", q: "Una pieza de 40 × 25 × 10 mm se dibuja en isométrica a escala 2:1. ¿Qué longitud tienen sus aristas en el dibujo?", sol: "Se multiplican todas por 2: 80 mm, 50 mm y 20 mm, trazadas sobre los tres ejes isométricos sin reducción." },
+    { nivel: "avanzado", q: "Explica por qué la patente obliga a publicar la invención y cómo beneficia eso a la sociedad.", sol: "Es un pacto: el inventor obtiene 20 años de exclusiva y la sociedad conoce cómo funciona. Así otros pueden aprender de ella, mejorarla y, al caducar, usarla libremente, lo que acelera el progreso." },
+    { nivel: "avanzado", q: "Diseña el diagrama de Gantt de un proyecto de 5 semanas con 6 tareas, indicando cuáles pueden hacerse a la vez.", sol: "Ejemplo: S1 definir y buscar ideas; S1-S2 diseño; S2 compra de materiales (a la vez que el final del diseño); S3-S4 construcción; S4-S5 memoria (a la vez que la construcción); S5 pruebas y presentación." },
+    { nivel: "avanzado", q: "Un prototipo de lámpara se calienta demasiado en la evaluación. Describe cómo volverías atrás en el proceso tecnológico.", sol: "Identificar la causa (bombilla demasiado potente o poca ventilación); volver a la fase de diseño para añadir ranuras o cambiar a LED; revisar materiales (uno resistente al calor); construir la mejora y repetir la prueba hasta cumplir el requisito." },
+    { nivel: "avanzado", q: "Compara una pieza fabricada por impresión 3D con la misma fabricada por inyección de plástico, pensando en 10 unidades y en 100.000.", sol: "Para 10 unidades, la impresión 3D es más barata: no necesita molde. Para 100.000, la inyección es mucho más rápida y barata por pieza, aunque el molde cueste miles de euros, porque ese coste se reparte entre muchas unidades." },
+    { nivel: "avanzado", q: "Propón un plan de seguridad para una sesión de taller en la que se va a cortar con sierra de marquetería, taladrar y soldar con estaño.", sol: "Repaso de normas al inicio; EPI: gafas para cortar y taladrar, ventilación o extractor para soldar; piezas sujetas con tornillo de banco; soldador en su soporte y lejos de cables; taladro solo con supervisión; zona ordenada y botiquín localizado." },
+    { nivel: "avanzado", q: "Explica qué es el ciclo de vida de un producto y aplícalo a un móvil.", sol: "Son todas sus etapas: extracción de materias primas (minerales, a veces en condiciones de explotación), fabricación (mucha energía), transporte, uso (carga eléctrica) y fin de vida (reparación, reutilización, reciclaje en un punto limpio o residuo). Alargar el uso es lo que más reduce su impacto." },
+    { nivel: "avanzado", q: "Tu proyecto escolar podría venderse. Enumera cinco pasos para convertirlo en un producto.", sol: "Estudiar el mercado y los clientes; mejorar el diseño para fabricarlo en serie y con materiales adecuados; calcular costes y precio; comprobar normas (marcado CE) y proteger la idea (modelo de utilidad o diseño); buscar financiación y canales de venta." },
+  ],
+  ejemplos: [
+    { enunciado: "Analiza una grapadora desde los puntos de vista formal, técnico y funcional.", pasos: ["Formal: cuerpo alargado de unos 15 cm, metálico con base de goma.", "Técnico: piezas de acero estampado, un muelle, un empujador y un yunque; unidas por un eje.", "Funcional: es una palanca; al presionar, una cuchilla empuja la grapa, que atraviesa el papel y se dobla contra el yunque.", "El muelle devuelve la palanca y empuja la siguiente grapa."], resultado: "Un objeto sencillo que combina palanca, muelle y materiales resistentes." },
+    { enunciado: "Dibuja en isométrica una pieza en L de 60 mm de largo, 40 mm de alto y 20 mm de fondo, con un escalón de 30 × 20 mm.", pasos: ["Trazar los tres ejes isométricos desde un punto: vertical y dos a 30°.", "Dibujar la caja envolvente de 60 × 40 × 20 mm sin reducir medidas.", "Marcar en la cara frontal el escalón: 30 mm de largo por 20 mm de alto.", "Llevar el escalón hacia el fondo con paralelas al eje de profundidad y borrar las líneas sobrantes."], resultado: "Una perspectiva isométrica de la pieza en L con medidas reales." },
+    { enunciado: "Elige el material de un cartel para el patio que estará al sol y a la lluvia.", pasos: ["Requisitos: resistir agua y rayos UV, ser ligero y fácil de cortar.", "Cartón: descartado, se deshace con el agua.", "Madera sin tratar: se pudre; tratada o barnizada, sirve pero pesa más.", "Metacrilato o chapa de aluminio: resisten la intemperie y son ligeros."], resultado: "Metacrilato o aluminio (o madera tratada si se prefiere un material natural)." },
+  ],
+  errores: [],
+  cuarta: ["Hacer la memoria técnica", "Una lista de precios", "izquierda, derecha y centro", "Para medir piezas", "El diagrama de Gantt", "se vota cada idea al instante", "a la derecha del alzado", "10 cm reales", "comprar herramientas", "los colores"],
+  quiz: [
+    { q: "En la perspectiva caballera, la profundidad se dibuja…", o: ["vertical", "a 45° y normalmente reducida", "a 120°", "no se dibuja"], a: 1, e: "La cara frontal va en verdadera magnitud." },
+    { q: "En la isométrica, los ejes forman ángulos de…", o: ["90°", "45°", "120°", "60°"], a: 2, e: "Tres ángulos iguales de 120°." },
+    { q: "CAM significa…", o: ["Cálculo de áreas medidas", "fabricación asistida por ordenador", "control automático de máquinas", "cámara digital"], a: 1, e: "Las máquinas fabrican a partir del archivo de diseño." },
+    { q: "El análisis funcional de un objeto estudia…", o: ["su color", "para qué sirve y cómo funciona", "su precio", "su historia"], a: 1, e: "Por ejemplo, qué mecanismo usa." },
+    { q: "Una señal circular azul indica…", o: ["prohibición", "obligación", "peligro", "salida de emergencia"], a: 1, e: "Por ejemplo, uso obligatorio de gafas." },
+    { q: "Con un taladro en marcha NO se deben usar…", o: ["gafas", "guantes", "calzado cerrado", "el pelo recogido"], a: 1, e: "Pueden quedar atrapados por la broca." },
+    { q: "Una patente protege una invención durante…", o: ["5 años", "20 años", "70 años", "para siempre"], a: 1, e: "Después pasa a ser de uso libre." },
+    { q: "El marcado CE indica que un producto…", o: ["está hecho en Europa", "cumple los requisitos de seguridad europeos", "es reciclado", "es barato"], a: 1, e: "Es obligatorio para venderlo en la UE." },
+    { q: "¿Qué propiedad describe que un material no se rompe al recibir golpes?", o: ["Dureza", "Tenacidad", "Conductividad", "Densidad"], a: 1, e: "La dureza es resistir el rayado." },
+    { q: "Un DIN A4 mide…", o: ["210 × 297 mm", "297 × 420 mm", "148 × 210 mm", "200 × 300 mm"], a: 0, e: "El A3 es el doble y el A5, la mitad." },
+  ],
+  cuartaEx: ["romper el prototipo", "dibujar vistas", "Corte asistido de diseños"],
+  examen: [
+    { q: "Estudiar de qué piezas y materiales está hecho un objeto es el análisis…", o: ["formal", "técnico", "económico", "histórico"], a: 1, e: "Incluye también las uniones y la fabricación." },
+    { q: "Para un prototipo rápido y barato es buena idea usar…", o: ["acero inoxidable", "cartón y materiales reciclados", "titanio", "vidrio"], a: 1, e: "Fáciles de trabajar y de bajo coste." },
+    { q: "La perspectiva más usada en instrucciones de montaje es…", o: ["la isométrica", "la caballera", "ninguna", "la cónica de tres puntos"], a: 0, e: "Se ve equilibrada y usa medidas reales." },
+    { q: "El organismo que elabora normas técnicas a nivel mundial es…", o: ["la ISO", "la UNE", "la OMS", "la CNMV"], a: 0, e: "International Organization for Standardization." },
+    { q: "Cortar «en dirección contraria al cuerpo» es una norma de…", o: ["estética", "seguridad", "acotación", "gestión"], a: 1, e: "Evita cortes si la herramienta resbala." },
+  ],
+  tarjetas: [
+    ["Análisis de objetos", "Formal, técnico, funcional, económico y socioambiental."],
+    ["Caballera e isométrica", "45° con reducción frente a ejes a 120° sin reducir."],
+    ["CAD y CAM", "Diseño y fabricación asistidos por ordenador."],
+    ["Patente", "Exclusiva de 20 años a cambio de publicar la invención."],
+  ],
+  glosario: [
+    ["Proceso tecnológico", "Conjunto de fases para resolver un problema con tecnología."],
+    ["Requisito", "Condición que debe cumplir la solución."],
+    ["Lluvia de ideas", "Técnica de grupo para generar muchas ideas sin criticarlas."],
+    ["Matriz de decisión", "Tabla para elegir una idea puntuando criterios con pesos."],
+    ["Análisis de objetos", "Estudio de un producto desde varios puntos de vista."],
+    ["Boceto", "Dibujo rápido a mano alzada."],
+    ["Croquis", "Dibujo a mano con las medidas aproximadas."],
+    ["Vistas", "Proyecciones del objeto: alzado, planta y perfil."],
+    ["Perspectiva caballera", "Representación con la cara frontal real y la profundidad a 45°."],
+    ["Perspectiva isométrica", "Representación con los tres ejes a 120° y medidas reales."],
+    ["Escala", "Relación entre la medida del dibujo y la real."],
+    ["Cota", "Medida indicada en un plano."],
+    ["CAD", "Diseño asistido por ordenador."],
+    ["Prototipo", "Primer modelo funcional de un objeto para probarlo."],
+    ["EPI", "Equipo de protección individual: gafas, guantes, mascarilla…"],
+    ["Diagrama de Gantt", "Gráfico que organiza las tareas de un proyecto en el tiempo."],
+    ["Memoria técnica", "Documento que recoge todo el proyecto."],
+    ["Patente", "Derecho exclusivo para explotar una invención durante 20 años."],
+  ],
+  situacion: {
+    titulo: "Un objeto que mejora el aula",
+    reto: "Detectad un problema real de vuestra aula o del patio (cables enredados, mochilas por el suelo, ruido, falta de sombra) y diseñad, construid y evaluad un prototipo que lo resuelva, siguiendo todas las fases del proceso tecnológico.",
+    pasos: [
+      "Observad el aula, elegid un problema y redactad sus requisitos (función, medidas, coste máximo, seguridad).",
+      "Analizad dos objetos que ya existan con un uso parecido y generad al menos diez ideas con lluvia de ideas o SCAMPER.",
+      "Elegid la mejor idea con una matriz de decisión y dibujadla en boceto, vistas acotadas y perspectiva (a mano y en CAD).",
+      "Elaborad el plan de trabajo con diagrama de Gantt, lista de materiales y presupuesto, y construid el prototipo con las normas de seguridad.",
+      "Evaluad el prototipo con los requisitos y con usuarios reales, anotad mejoras y presentad la memoria técnica.",
+    ],
+    producto: "El prototipo, la memoria técnica (con planos, presupuesto, Gantt y evaluación) y una presentación de tres minutos.",
+    evaluacion: ["El problema y los requisitos están bien definidos.", "La elección de la idea se justifica con criterios y los planos son correctos (vistas, cotas, escala, perspectiva).", "El prototipo funciona, se construye con seguridad y se ajusta al presupuesto.", "La memoria es completa y la evaluación propone mejoras realistas."],
+  },
+  objetivos: ["Analizar objetos y representarlos en perspectiva caballera e isométrica", "Elegir materiales, trabajar con seguridad y conocer normas y patentes"],
+  fuentes: [{ t: "Oficina Española de Patentes y Marcas", url: "https://www.oepm.es/" }],
+});
