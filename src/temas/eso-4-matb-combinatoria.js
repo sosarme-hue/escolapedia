@@ -1,160 +1,248 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
+// Matemáticas B 4º ESO · Tema 13. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, arbol, casillas } = require("./_eso4L3");
+
+// Triángulo de Pascal con n filas.
+const pascal = (n, resalta = -1) => {
+  const filas = [[1]];
+  for (let i = 1; i < n; i++) { const p = filas[i - 1]; filas.push([1, ...p.slice(1).map((v, k) => v + p[k]), 1]); }
+  return filas.map((f, i) => f.map((v, k) => { const x = 130 + (k - i / 2) * 34, y = 22 + i * 24; return `<circle cx="${x}" cy="${y - 4}" r="11" fill="${i === resalta ? "var(--pen)" : "var(--card)"}" fill-opacity="${i === resalta ? ".2" : "1"}" stroke="var(--line)"/>${t(x, y, String(v), { s: 11, b: 1, c: i === resalta ? "var(--pen)" : "var(--ink)" })}`; }).join("")).join("");
+};
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Combinatoria",
-  minutos: 40,
-  objetivos: ["Contar posibilidades con diagramas de árbol y el principio de multiplicación", "Distinguir variaciones, permutaciones y combinaciones", "Calcular factoriales y números combinatorios y aplicarlos a problemas"],
-  claves: ["diagrama de árbol", "factorial", "variación", "permutación", "combinación", "orden"],
+  minutos: 110,
+  objetivos: [
+    "Contar casos con diagramas de árbol y con los principios de multiplicación y de suma",
+    "Calcular y simplificar factoriales y números combinatorios",
+    "Distinguir y calcular permutaciones, variaciones y combinaciones, con y sin repetición",
+    "Construir el triángulo de Pascal y desarrollar potencias con el binomio de Newton",
+    "Elegir el modelo adecuado en problemas de recuento de la vida real",
+  ],
+  claves: ["diagrama de árbol", "principio de multiplicación", "factorial", "permutación", "variación", "combinación", "con repetición", "número combinatorio", "triángulo de Pascal", "binomio de Newton"],
+  lectura: {
+    titulo: "¿Cuántas contraseñas existen?",
+    html: `<p>Cada día escribes contraseñas: para desbloquear el móvil, entrar en la plataforma del instituto o en una red social. Los expertos en ciberseguridad repiten un consejo: usa contraseñas largas y con distintos tipos de caracteres. ¿Por qué? La respuesta es puramente matemática.</p>
+    <p>Un PIN de 4 cifras admite 10.000 posibilidades: un ordenador las prueba todas en menos de un segundo. Una contraseña de 8 letras minúsculas tiene más de 200.000 millones de posibilidades. Si además se usan mayúsculas, números y símbolos, el número de contraseñas de 8 caracteres supera los 6.000 billones. Cada carácter extra multiplica la dificultad: añadir solo uno puede hacer que un ataque que tardaba un día pase a tardar meses.</p>
+    <p>La rama de las matemáticas que estudia cómo <b>contar sin tener que enumerar</b> todas las posibilidades se llama <b>combinatoria</b>. Nació con los juegos de azar y con los acertijos de los matemáticos árabes e indios, y hoy es imprescindible en informática, en criptografía, en genética (¿cuántas secuencias de ADN son posibles?), en la organización de horarios y torneos, y en el cálculo de probabilidades que estudiarás en el próximo tema. Aprenderás a contar millones de casos con una sola multiplicación.</p>`,
+  },
   pregunta: {
     texto: "Un candado tiene 4 ruedas con las cifras del 0 al 9. ¿Cuántas combinaciones tendría que probar un ladrón, como mucho, para abrirlo?",
     respuesta: "En cada rueda hay 10 opciones y se pueden repetir: 10 · 10 · 10 · 10 = <mark>10.000</mark>. Curiosamente, en matemáticas esto no es una «combinación» sino una <b>variación con repetición</b>, porque el orden importa: 1234 no abre lo mismo que 4321.",
   },
   bloques: [
     {
-      html: `<h3>El principio de multiplicación</h3><p>Si una elección se hace en varias etapas, el número total de posibilidades es el <mark>producto</mark> de las opciones de cada etapa. Con 3 camisetas y 2 pantalones puedes vestirte de 3 · 2 = 6 formas. El <b>diagrama de árbol</b> permite verlo.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de árbol: tres camisetas, cada una con dos pantalones, dan seis conjuntos">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <circle cx="24" cy="90" r="6" fill="var(--ink)"/>
-        ${[0, 1, 2].map((i) => { const y = 34 + i * 56, c = ["var(--red)", "var(--pen)", "var(--leaf)"][i]; return `<path d="M24 90 L 100 ${y}" stroke="var(--muted)" stroke-width="2"/><rect x="92" y="${y - 10}" width="20" height="20" rx="4" fill="${c}"/>
-          ${[-1, 1].map((s) => `<path d="M112 ${y} L 180 ${y + s * 14}" stroke="var(--muted)" stroke-width="2"/><rect x="182" y="${y + s * 14 - 8}" width="12" height="16" rx="2" fill="${s < 0 ? "var(--ink)" : "var(--inf)"}"/>`).join("")}`; }).join("")}
-        <text x="226" y="94" text-anchor="middle" font-size="18" font-weight="700" fill="var(--ink)" ${F}>3·2</text><text x="226" y="116" text-anchor="middle" font-size="18" font-weight="700" fill="var(--red)" ${F}>= 6</text></svg>`,
+      html: `<h3>13.1 Contar con diagramas de árbol</h3><p>La combinatoria se ocupa de <b>contar</b> de cuántas formas puede ocurrir algo: cuántos menús distintos se pueden pedir, cuántas contraseñas hay, cuántos equipos se pueden formar. Cuando hay pocos casos, la herramienta más clara es el <b>diagrama de árbol</b>.</p><p>Un diagrama de árbol representa una situación que se decide <b>por etapas</b>. Desde un punto inicial salen tantas ramas como opciones hay en la primera etapa; desde el final de cada una salen las ramas de la segunda etapa, y así sucesivamente. Cada camino completo, desde la raíz hasta el final, es un caso posible.</p><p>Ejemplo: Lucía tiene 3 camisetas (azul, gris y roja) y 2 pantalones (vaquero y negro). ¿De cuántas formas puede vestirse? El árbol tiene 3 ramas iniciales y de cada una salen 2: en total hay <mark>3 · 2 = 6 conjuntos</mark>: azul-vaquero, azul-negro, gris-vaquero, gris-negro, roja-vaquero y roja-negro.</p><p>Los árboles tienen una gran ventaja: además de contar, permiten <b>escribir todos los casos</b> sin olvidar ninguno ni repetir. Su inconveniente es que crecen muy deprisa: con 5 etapas de 4 opciones cada una, el árbol tendría 4⁵ = 1.024 ramas finales. Por eso, para casos grandes, se usan los principios y las fórmulas que veremos a continuación.</p>`,
+      svg: arbol("Diagrama de árbol con 3 camisetas y 2 pantalones: 6 conjuntos posibles", [["azul", "", [["vaquero", "", "1"], ["negro", "", "2"]]], ["gris", "", [["vaquero", "", "3"], ["negro", "", "4"]]], ["roja", "", [["vaquero", "", "5"], ["negro", "", "6"]]]]),
     },
     {
-      html: `<h3>El factorial</h3><p>El <b>factorial</b> de n, n!, es el producto de todos los números de n hasta 1: <mark>5! = 5 · 4 · 3 · 2 · 1 = 120</mark>. Por convenio, 0! = 1. Crece muy deprisa: 10! ya es más de 3,6 millones.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Barras con los factoriales de 1 a 5: 1, 2, 6, 24 y 120, que crecen muy rápido">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/><path d="M20 150 H 246" stroke="var(--muted)" stroke-width="2"/>
-        ${[[1, 1], [2, 2], [3, 6], [4, 24], [5, 120]].map(([n, v], i) => `<rect x="${30 + i * 44}" y="${150 - v}" width="30" height="${Math.max(2, v)}" rx="4" fill="var(--pen)"/><text x="${45 + i * 44}" y="${144 - v}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>${v}</text><text x="${45 + i * 44}" y="168" text-anchor="middle" font-size="12" font-weight="700" fill="var(--muted)" ${F}>${n}!</text>`).join("")}</svg>`,
+      html: `<h3>13.2 El principio de multiplicación</h3><p>El árbol anterior sugiere una regla general, el <b>principio de multiplicación</b> o principio fundamental del recuento:</p><div class="formula"><span>Si una tarea se hace en k etapas con n₁, n₂, …, nₖ opciones, hay n₁ · n₂ · … · nₖ formas</span></div><p>Lo importante es que el número de opciones de cada etapa no dependa de lo que se eligió en las anteriores (aunque las opciones concretas sí puedan cambiar).</p><p>Ejemplos:</p><ul><li>Un restaurante ofrece 3 primeros, 4 segundos y 2 postres: hay 3 · 4 · 2 = <b>24 menús</b> distintos.</li><li>Las matrículas de los coches en España tienen 4 cifras y 3 letras elegidas entre 20 consonantes: hay 10⁴ · 20³ = <mark>80.000.000</mark> de matrículas posibles.</li><li>Una quiniela de fútbol con 14 partidos y tres resultados posibles (1, X, 2) tiene 3¹⁴ = 4.782.969 columnas distintas.</li></ul><p>Para representar estos problemas es útil el método de las <b>casillas</b>: se dibuja una casilla por etapa y en cada una se escribe el número de opciones; después se multiplican. Si en una etapa las opciones disminuyen porque ya se usaron elementos (por ejemplo, porque no se pueden repetir), se refleja en la casilla correspondiente.</p>`,
+      svg: casillas("Principio de multiplicación con casillas: 3 primeros por 4 segundos por 2 postres son 24 menús", ["3", "4", "2"], ["primero", "segundo", "postre"], "3 · 4 · 2 = 24 menús"),
     },
     {
-      html: `<h3>Variaciones y permutaciones: el orden importa</h3><p>Las <b>variaciones</b> V(m, n) cuentan cuántas filas ordenadas de n elementos puedes formar con m: <mark>V(m, n) = m · (m − 1) · … (n factores)</mark>. Si usas todos los elementos (n = m) son <b>permutaciones</b>: Pₘ = m!. Si se pueden repetir, son variaciones con repetición: mⁿ.</p>
-      <div class="formula"><span>Podio de 8 corredores: V(8, 3) = 8 · 7 · 6 = 336</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Podio con 8 opciones para oro, 7 para plata y 6 para bronce: 336 podios posibles">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="100" y="70" width="60" height="90" fill="var(--hl)"/><rect x="40" y="100" width="60" height="60" fill="var(--line)"/><rect x="160" y="120" width="60" height="40" fill="var(--inf)" fill-opacity=".5"/>
-        <g ${F} font-weight="700" text-anchor="middle"><text x="130" y="110" font-size="22" fill="var(--hl-ink)">8</text><text x="70" y="136" font-size="20" fill="var(--ink)">7</text><text x="190" y="146" font-size="18" fill="var(--ink)">6</text>
-        <text x="130" y="40" font-size="16" fill="var(--red)">8 · 7 · 6 = 336</text></g></svg>`,
+      html: `<h3>13.3 El principio de suma</h3><p>A veces la tarea no se hace por etapas sino que se puede hacer de <b>varias maneras distintas que no se solapan</b>. Entonces se aplica el <b>principio de suma</b>: si una cosa se puede hacer de n₁ formas o, alternativamente, de n₂ formas (sin casos comunes), en total hay <mark>n₁ + n₂</mark> formas.</p><p>Ejemplo: para ir de excursión se puede elegir entre 4 destinos de montaña o 3 de playa. Hay 4 + 3 = 7 opciones (no 4 · 3, porque solo se va a un sitio).</p><p>Los dos principios se combinan a menudo. ¿Cuántos números de 1 o 2 cifras se pueden escribir con los dígitos 1, 2 y 3 (pudiendo repetir)? Los de una cifra son 3; los de dos cifras, 3 · 3 = 9. Total: 3 + 9 = <b>12</b>.</p><p>Una aplicación muy útil es <b>contar lo contrario</b>. ¿Cuántos números de 3 cifras tienen alguna cifra repetida? Es más fácil contar los que no la tienen y restar. Números de 3 cifras: 9 · 10 · 10 = 900 (la primera no puede ser 0). Sin repetir: 9 · 9 · 8 = 648. Con alguna repetición: 900 − 648 = <b>252</b>. Este truco, contar el total y restar los casos que no interesan, ahorra muchos cálculos y se usará también en probabilidad con el «suceso contrario».</p>`,
+      svg: lienzo("Principio de suma: 4 destinos de montaña o 3 de playa son 7 opciones; contar lo contrario: 900 menos 648 son 252", `<rect x="14" y="16" width="104" height="72" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.4"/>${t(66, 46, "montaña", { c: "var(--leaf)", s: 13, b: 1 })}${t(66, 72, "4", { c: "var(--leaf)", s: 20, b: 1 })}${t(130, 60, "+", { s: 22, b: 1 })}<rect x="142" y="16" width="104" height="72" rx="10" fill="var(--card)" stroke="var(--inf)" stroke-width="2.4"/>${t(194, 46, "playa", { c: "var(--inf)", s: 13, b: 1 })}${t(194, 72, "3", { c: "var(--inf)", s: 20, b: 1 })}${t(130, 112, "= 7 opciones (o una u otra)", { s: 13, b: 1 })}${t(130, 152, "con repetición = total − sin repetir", { c: "var(--red)", s: 12, b: 1 })}${t(130, 170, "900 − 648 = 252", { c: "var(--red)", s: 12, b: 1 })}`),
     },
     {
-      html: `<h3>Combinaciones: el orden no importa</h3><p>Las <b>combinaciones</b> C(m, n) cuentan <mark>grupos</mark> de n elementos elegidos entre m, sin importar el orden. Se calculan con el número combinatorio:</p><div class="formula"><span>C(m, n) = (m sobre n) = m! / (n! · (m − n)!)</span></div><p>Elegir 2 delegados entre 5: C(5, 2) = 10 parejas (Ana-Luis es la misma pareja que Luis-Ana).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Con 5 personas se forman 10 parejas distintas si el orden no importa; si importara, serían 20">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[...Array(5)].map((_, i) => { const a = (-90 + i * 72) * Math.PI / 180; return [80 + 52 * Math.cos(a), 90 + 52 * Math.sin(a)]; }).map((p, i, arr) => arr.slice(i + 1).map((q) => `<path d="M${p[0].toFixed(1)} ${p[1].toFixed(1)} L ${q[0].toFixed(1)} ${q[1].toFixed(1)}" stroke="var(--leaf)" stroke-width="2"/>`).join("") + `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="10" fill="var(--pen)"/><text x="${p[0].toFixed(1)}" y="${(p[1] + 4).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" ${F}>${"ABCDE"[i]}</text>`).join("")}
-        <g ${F} font-weight="700"><text x="150" y="80" font-size="15" fill="var(--leaf)">10 líneas</text><text x="150" y="100" font-size="13" fill="var(--ink)">= 10 parejas</text><text x="150" y="130" font-size="12" fill="var(--muted)">C(5, 2) = 10</text></g></svg>`,
+      html: `<h3>13.4 El factorial de un número</h3><p>Muchos recuentos llevan a multiplicar números consecutivos decrecientes. Para escribirlo de forma abreviada se usa el <b>factorial</b>: el factorial de un número natural n, que se escribe <b>n!</b>, es el producto de todos los naturales desde n hasta 1:</p><div class="formula"><span>n! = n · (n − 1) · (n − 2) · … · 2 · 1</span></div><p>Así, 3! = 6, 4! = 24, 5! = 120 y 10! = 3.628.800. Por convenio, <mark>0! = 1</mark> (esto hace que todas las fórmulas funcionen también en los casos extremos).</p><p>Los factoriales crecen muchísimo más deprisa que las potencias: 20! ya es un número de 19 cifras, más de dos trillones. Por eso, al operar con ellos conviene <b>simplificar antes de multiplicar</b>, aprovechando que n! = n · (n − 1)!:</p><ul><li>10!/8! = 10 · 9 · 8!/8! = 10 · 9 = 90.</li><li>7!/(5! · 2!) = (7 · 6)/2 = 21.</li><li>(n + 1)!/n! = n + 1.</li></ul><p>La calculadora tiene la tecla <b>x!</b> o <b>n!</b>, pero para números grandes da error o un resultado en notación científica. Simplificar a mano es más rápido y exacto. El símbolo «!» lo introdujo el matemático francés Christian Kramp en 1808, quizás para expresar la sorpresa ante lo rápido que crecen estos números.</p>`,
+      svg: lienzo("Valores de los factoriales de 0 a 7, que crecen muy deprisa", `${[0, 1, 2, 3, 4, 5, 6, 7].map((n, i) => { const f = [1, 1, 2, 6, 24, 120, 720, 5040][n]; const y = 16 + i * 19; const L = Math.max(3, (Math.log10(f) + 0.2) * 40); return `${t(36, y + 13, `${n}! =`, { s: 11, b: 1, a: "end" })}<rect x="44" y="${y + 2}" width="${L.toFixed(1)}" height="14" rx="4" fill="var(--pen)" fill-opacity="${0.3 + i * 0.09}"/>${t(50 + L, y + 13, f.toLocaleString("es-ES"), { s: 11, b: 1, a: "start", c: "var(--pen)" })}`; }).join("")}${t(250, 14, "escala logarítmica", { s: 9, c: "var(--muted)", a: "end" })}`),
+      video: { id: "T8b8CYdL-4M", titulo: "Factoriales: qué son y cómo simplificarlos", canal: "Matemáticas profe Alex", vistas: 865162, busqueda: "factorial de un número" },
     },
     {
-      html: `<h3>¿Qué fórmula uso?</h3><p>Hazte tres preguntas: <mark>¿entran todos los elementos?</mark> (permutación), <mark>¿importa el orden?</mark> (variación) o no (combinación), y <mark>¿se pueden repetir?</mark>. Ejemplos: un número de teléfono (variación con repetición), ordenar libros en una estantería (permutación), una mano de cartas (combinación).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de decisión: si entran todos es permutación; si no, si importa el orden es variación y si no, combinación">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="70" y="14" width="120" height="32" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><text x="130" y="35" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>¿entran todos?</text>
-        <path d="M100 46 L 54 70 M160 46 L 196 70" stroke="var(--muted)" stroke-width="2"/>
-        <rect x="10" y="72" width="88" height="30" rx="10" fill="var(--inf)"/><text x="54" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" ${F}>sí → P = m!</text>
-        <rect x="140" y="72" width="112" height="30" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><text x="196" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>¿importa orden?</text>
-        <path d="M170 102 L 140 128 M222 102 L 226 128" stroke="var(--muted)" stroke-width="2"/>
-        <rect x="88" y="130" width="96" height="30" rx="10" fill="var(--pen)"/><text x="136" y="150" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" ${F}>sí → variación</text>
-        <rect x="188" y="130" width="64" height="30" rx="10" fill="var(--leaf)"/><text x="220" y="150" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" ${F}>no → C</text></svg>`,
+      html: `<h3>13.5 Permutaciones</h3><p>Una <b>permutación</b> de n elementos es cada una de las formas de <mark>ordenar todos ellos</mark>. Para contarlas, se piensa en casillas: para el primer lugar hay n opciones, para el segundo quedan n − 1, para el tercero n − 2… y para el último, 1. Por el principio de multiplicación:</p><div class="formula"><span>Pₙ = n!</span></div><p>Ejemplos:</p><ul><li>¿De cuántas formas se pueden sentar 5 amigos en 5 butacas del cine? P₅ = 5! = <b>120</b>.</li><li>¿Cuántas «palabras» (con o sin sentido) se forman con las letras de la palabra LIBRO? P₅ = 120 anagramas.</li><li>¿De cuántas formas se pueden colocar 10 libros distintos en una estantería? 10! = 3.628.800.</li></ul><p>En las permutaciones intervienen <b>todos</b> los elementos, <b>importa el orden</b> y <b>no se repiten</b>.</p><p>Una variante curiosa son las <b>permutaciones circulares</b>: si 5 personas se sientan alrededor de una mesa redonda y solo importa quién está al lado de quién, se fija a una persona y se ordenan las demás: (5 − 1)! = 24 formas. El número de permutaciones explica también por qué es tan difícil resolver un cubo de Rubik al azar: tiene unos 43 trillones de posiciones posibles.</p>`,
+      svg: casillas("Permutaciones de 5 amigos en 5 butacas: 5 por 4 por 3 por 2 por 1 igual a 120", ["5", "4", "3", "2", "1"], ["1.ª", "2.ª", "3.ª", "4.ª", "5.ª"], "P₅ = 5! = 120 formas"),
+    },
+    {
+      html: `<h3>13.6 Permutaciones con repetición</h3><p>¿Qué ocurre si algunos de los elementos que se ordenan son <b>iguales</b>? Por ejemplo, ¿cuántos anagramas tiene la palabra CASA? Si las dos A fueran distintas (A₁, A₂) habría 4! = 24 ordenaciones. Pero intercambiar A₁ y A₂ da la misma palabra, así que cada palabra está contada 2! = 2 veces. Hay 24/2 = <b>12</b> anagramas.</p><p>En general, si hay n elementos de los cuales uno se repite a veces, otro b veces, etc. (con a + b + … = n), el número de ordenaciones distintas es:</p><div class="formula"><span>PRₙ^(a, b, …) = n! / (a! · b! · …)</span></div><p>Ejemplos:</p><ul><li>Anagramas de PAPAYA (P dos veces, A tres veces, Y una): 6!/(2! · 3! · 1!) = 720/12 = <mark>60</mark>.</li><li>Una banda de 7 franjas con 4 rojas y 3 blancas: 7!/(4! · 3!) = 35 diseños.</li><li>Formas de colocar en fila 3 bolas rojas, 2 azules y 1 verde: 6!/(3! · 2! · 1!) = 60.</li></ul><p>Un problema clásico que se resuelve así es el de los <b>caminos en una cuadrícula</b>: para ir de una esquina a la opuesta de una cuadrícula de 3 × 2 moviéndose solo hacia la derecha (D) o hacia arriba (A), hay que ordenar las letras DDDAA: 5!/(3! · 2!) = 10 caminos.</p>`,
+      svg: lienzo("Caminos en una cuadrícula de 3 por 2 moviéndose a la derecha o hacia arriba: hay 10, uno de ellos es D D A D A", `${[0, 1, 2, 3].map((i) => `<path d="M${50 + i * 50} 30 V 130" stroke="var(--grid)" stroke-width="2"/>`).join("")}${[0, 1, 2].map((j) => `<path d="M50 ${30 + j * 50} H 200" stroke="var(--grid)" stroke-width="2"/>`).join("")}<path d="M50 130 H 150 V 80 H 200 V 30" fill="none" stroke="var(--red)" stroke-width="4" stroke-linejoin="round"/><circle cx="50" cy="130" r="6" fill="var(--leaf)"/><circle cx="200" cy="30" r="6" fill="var(--pen)"/>${t(42, 134, "salida", { c: "var(--leaf)", s: 11, b: 1, a: "end" })}${t(206, 24, "llegada", { c: "var(--pen)", s: 11, b: 1, a: "start" })}${t(130, 160, "D D D A A en cualquier orden", { s: 12, b: 1 })}${t(130, 176, "5! / (3! · 2!) = 10 caminos", { c: "var(--red)", s: 12, b: 1 })}`),
+    },
+    {
+      html: `<h3>13.7 Variaciones sin repetición</h3><p>Ahora no ordenamos todos los elementos, sino que <b>elegimos y ordenamos solo algunos</b>. Las <b>variaciones</b> de n elementos tomados de k en k son las formas de escoger k elementos distintos de entre n <mark>importando el orden</mark>. Con casillas: k casillas, con n, n − 1, n − 2… opciones:</p><div class="formula"><span>Vₙ,ₖ = n · (n − 1) · … · (n − k + 1) = n! / (n − k)!</span></div><p>(Son k factores decrecientes a partir de n.)</p><p>Ejemplos:</p><ul><li>En una carrera de 10 corredores, ¿de cuántas formas se puede formar el podio (oro, plata, bronce)? V₁₀,₃ = 10 · 9 · 8 = <b>720</b>.</li><li>En una clase de 25 alumnos se elige delegado y subdelegado: V₂₅,₂ = 25 · 24 = 600.</li><li>¿Cuántos números de 3 cifras distintas se forman con los dígitos 1 a 7? V₇,₃ = 7 · 6 · 5 = 210.</li></ul><p>La clave para reconocer una variación es preguntarse: si cambio el orden de los elegidos, ¿obtengo un resultado distinto? En el podio, sí: no es lo mismo ganar el oro que el bronce. Observa que las permutaciones son un caso particular de variaciones, cuando se eligen todos los elementos: Vₙ,ₙ = n!/0! = n! = Pₙ.</p>`,
+      svg: casillas("Variaciones de 10 corredores tomados de 3 en 3 para el podio: 10 por 9 por 8 igual a 720", ["10", "9", "8"], ["oro", "plata", "bronce"], "V₁₀,₃ = 10 · 9 · 8 = 720", "var(--red)"),
+    },
+    {
+      html: `<h3>13.8 Variaciones con repetición</h3><p>Si los elementos <b>se pueden repetir</b>, en cada casilla vuelven a estar disponibles las n opciones. Las <b>variaciones con repetición</b> de n elementos tomados de k en k son:</p><div class="formula"><span>VRₙ,ₖ = nᵏ</span></div><p>Aquí k puede ser mayor que n: con 2 símbolos se pueden formar secuencias de cualquier longitud.</p><p>Ejemplos:</p><ul><li>Un candado de 4 ruedas con cifras del 0 al 9: VR₁₀,₄ = 10⁴ = <b>10.000</b> claves.</li><li>Un <b>byte</b> está formado por 8 bits, cada uno 0 o 1: VR₂,₈ = 2⁸ = 256 valores distintos. Por eso un byte guarda números del 0 al 255.</li><li>Una contraseña de 8 caracteres elegidos entre 26 minúsculas: 26⁸ ≈ 2,09 · 10¹¹. Con 62 caracteres (minúsculas, mayúsculas y cifras): 62⁸ ≈ <mark>2,18 · 10¹⁴</mark>, unas mil veces más.</li><li>Las secuencias de ADN de 10 bases (A, C, G, T): 4¹⁰ = 1.048.576.</li></ul><p>Las variaciones con repetición explican la seguridad de las contraseñas: aumentar el número de caracteres posibles (n) ayuda, pero aumentar la longitud (k, el exponente) ayuda mucho más. Pasar de 8 a 12 caracteres multiplica las posibilidades por 62⁴, casi 15 millones.</p>`,
+      svg: casillas("Variaciones con repetición: un candado de 4 ruedas con 10 cifras cada una tiene 10 elevado a 4, 10 000 claves", ["10", "10", "10", "10"], ["rueda 1", "rueda 2", "rueda 3", "rueda 4"], "VR₁₀,₄ = 10⁴ = 10 000", "var(--leaf)"),
+      video: { id: "t7oHJD7h6gM", titulo: "Variaciones con repetición", canal: "unicoos", vistas: 281195, busqueda: "variaciones con repetición" },
+    },
+    {
+      html: `<h3>13.9 Combinaciones</h3><p>Muchas veces solo interesa <b>qué elementos</b> se eligen, no en qué orden. Las <b>combinaciones</b> de n elementos tomados de k en k son los grupos de k elementos distintos que se pueden formar con n, <mark>sin importar el orden</mark>.</p><p>Para contarlas, partimos de las variaciones (que sí tienen en cuenta el orden). Cada grupo de k elementos aparece en las variaciones k! veces, una por cada forma de ordenarlo. Por tanto:</p><div class="formula"><span>Cₙ,ₖ = Vₙ,ₖ / k! = n! / (k! · (n − k)!)</span></div><p>Ejemplos:</p><ul><li>De una clase de 25 alumnos se eligen 2 para representar al grupo (sin cargos distintos): C₂₅,₂ = 600/2 = <b>300</b> parejas. Compáralo con delegado y subdelegado: 600.</li><li>Formar un equipo de 5 jugadores entre 12: C₁₂,₅ = 792.</li><li>En la Lotería Primitiva se eligen 6 números de 49: C₄₉,₆ = <mark>13.983.816</mark> combinaciones. Comprando una apuesta, la probabilidad de acertar los seis es de 1 entre casi 14 millones.</li><li>Si 6 amigos se saludan dándose la mano, hay C₆,₂ = 15 apretones.</li></ul><p>Pregunta clave: si intercambio dos de los elegidos, ¿cambia el resultado? Si no cambia (un equipo, un grupo de números, una mano de cartas), son combinaciones.</p>`,
+      svg: lienzo("Variaciones frente a combinaciones al elegir 2 de A, B y C: hay 6 variaciones ordenadas pero solo 3 combinaciones", `${t(66, 22, "importa el orden", { c: "var(--red)", s: 12, b: 1 })}${t(194, 22, "no importa", { c: "var(--leaf)", s: 12, b: 1 })}${["AB", "BA", "AC", "CA", "BC", "CB"].map((p, i) => `<rect x="${24 + (i % 2) * 44}" y="${34 + Math.floor(i / 2) * 36}" width="38" height="28" rx="6" fill="var(--card)" stroke="var(--red)" stroke-width="1.8"/>${t(43 + (i % 2) * 44, 53 + Math.floor(i / 2) * 36, p, { s: 13, b: 1 })}`).join("")}${["{A, B}", "{A, C}", "{B, C}"].map((p, i) => `<rect x="160" y="${34 + i * 36}" width="68" height="28" rx="6" fill="var(--card)" stroke="var(--leaf)" stroke-width="1.8"/>${t(194, 53 + i * 36, p, { s: 13, b: 1 })}`).join("")}${t(66, 160, "V₃,₂ = 6", { c: "var(--red)", s: 14, b: 1 })}${t(194, 160, "C₃,₂ = 6/2! = 3", { c: "var(--leaf)", s: 14, b: 1 })}`),
+    },
+    {
+      html: `<h3>13.10 Números combinatorios</h3><p>El número de combinaciones Cₙ,ₖ se escribe también como un <b>número combinatorio</b>, con la notación <b>(n sobre k)</b>, es decir, n arriba y k abajo entre paréntesis, y se lee «n sobre k»:</p><div class="formula"><span>(n sobre k) = n! / (k! · (n − k)!)</span></div><p>Para calcularlo a mano lo más rápido es: <mark>k factores decrecientes desde n, divididos entre k!</mark>. Por ejemplo, (8 sobre 3) = (8 · 7 · 6)/(3 · 2 · 1) = 336/6 = 56.</p><p>Propiedades importantes:</p><ul><li>(n sobre 0) = (n sobre n) = 1: solo hay una forma de no elegir nada o de elegirlo todo.</li><li>(n sobre 1) = n.</li><li><b>Simetría</b>: (n sobre k) = (n sobre n − k). Elegir 3 alumnos de 25 para ir a una excursión es lo mismo que elegir los 22 que se quedan: (25 sobre 3) = (25 sobre 22) = 2.300. Esto ahorra cálculos.</li><li><b>Fórmula de Pascal</b>: (n sobre k) + (n sobre k + 1) = (n + 1 sobre k + 1). Por ejemplo, (4 sobre 1) + (4 sobre 2) = 4 + 6 = 10 = (5 sobre 2).</li></ul><p>La calculadora calcula los números combinatorios con la tecla <b>nCr</b>: para (49 sobre 6) se escribe 49 nCr 6. Del mismo modo, la tecla <b>nPr</b> calcula las variaciones Vₙ,ₖ.</p>`,
+      svg: tarjeta("Números combinatorios: cálculo de 8 sobre 3 igual a 56 y propiedad de simetría", "Números combinatorios", [["(8 sobre 3) = 8·7·6 / 3! = 56", "var(--pen)", 14, 1], ["(n sobre 0) = (n sobre n) = 1", "var(--leaf)", 13, 1], ["(n sobre k) = (n sobre n − k)", "var(--red)", 14, 1], ["calculadora: 8 nCr 3 = 56", "var(--muted)", 12]]),
+    },
+    {
+      html: `<h3>13.11 El triángulo de Pascal</h3><p>Si se colocan los números combinatorios en filas (n = 0, 1, 2, 3…), con cada fila centrada, se obtiene el <b>triángulo de Pascal</b> (o de Tartaglia):</p><div class="formula"><span>1 · 1 1 · 1 2 1 · 1 3 3 1 · 1 4 6 4 1 · 1 5 10 10 5 1</span></div><p>Se construye con una regla muy sencilla: cada fila empieza y acaba en 1, y cada número interior es <mark>la suma de los dos que tiene encima</mark>. Esa regla es precisamente la fórmula de Pascal del bloque anterior.</p><p>El triángulo está lleno de propiedades curiosas:</p><ul><li>Es simétrico, por la propiedad de simetría de los números combinatorios.</li><li>La suma de los números de la fila n es <b>2ⁿ</b>: 1 + 4 + 6 + 4 + 1 = 16 = 2⁴. Es el número total de subconjuntos de un conjunto de n elementos.</li><li>La segunda diagonal son los naturales (1, 2, 3, 4…) y la tercera, los números triangulares (1, 3, 6, 10, 15…).</li><li>Si se colorean los números impares, aparece un fractal: el triángulo de Sierpinski.</li></ul><p>Aunque lleva el nombre de Blaise Pascal, que lo estudió en 1654, el triángulo era conocido siglos antes por matemáticos chinos como Yang Hui, persas como Omar Jayam e indios.</p>`,
+      svg: lienzo("Triángulo de Pascal hasta la fila 6, con la fila 4 resaltada: 1, 4, 6, 4, 1", pascal(7, 4)),
+    },
+    {
+      html: `<h3>13.12 El binomio de Newton</h3><p>Ya sabes que (a + b)² = a² + 2ab + b². ¿Y (a + b)⁴ o (a + b)⁶? Multiplicar a mano es largo, pero el triángulo de Pascal da directamente los coeficientes. Es la fórmula del <b>binomio de Newton</b>:</p><div class="formula"><span>(a + b)ⁿ = (n sobre 0)aⁿ + (n sobre 1)aⁿ⁻¹b + (n sobre 2)aⁿ⁻²b² + … + (n sobre n)bⁿ</span></div><p>Los exponentes de a bajan de n a 0 y los de b suben de 0 a n; los coeficientes son la fila n del triángulo. Ejemplo:</p><div class="formula"><span>(a + b)⁴ = a⁴ + 4a³b + 6a²b² + 4ab³ + b⁴</span></div><p>¿Por qué aparecen números combinatorios? Al desarrollar (a + b)(a + b)(a + b)(a + b), cada término sale de elegir a o b en cada paréntesis. El término a²b² aparece tantas veces como formas hay de elegir en qué 2 paréntesis se toma b: (4 sobre 2) = 6.</p><p>Si el binomio es una resta, los signos se alternan: (x − 2)³ = x³ − 3 · x² · 2 + 3 · x · 4 − 8 = <mark>x³ − 6x² + 12x − 8</mark>. Y si los términos llevan coeficientes, hay que elevarlos también: (2x + 1)³ = 8x³ + 12x² + 6x + 1. La fórmula se usa en probabilidad (distribución binomial) y para hacer aproximaciones rápidas, como 1,01¹⁰ ≈ 1 + 10 · 0,01 + 45 · 0,0001 ≈ 1,1045.</p>`,
+      svg: tarjeta("Binomio de Newton: los coeficientes de a más b elevado a 4 son la fila 4 del triángulo de Pascal", "(a + b)⁴ con la fila 4", [["1 · 4 · 6 · 4 · 1", "var(--pen)", 16, 1], ["a⁴ + 4a³b + 6a²b² + 4ab³ + b⁴", "var(--red)", 13, 1], ["exponentes de a: 4 → 0", "var(--leaf)", 12], ["exponentes de b: 0 → 4", "var(--leaf)", 12]]),
+      video: { id: "9ri5dwV2K6E", titulo: "Binomio de Newton, triángulo de Pascal y potencias de un binomio", canal: "Matemáticas profe Alex", vistas: 1846279, busqueda: "binomio de Newton" },
+    },
+    {
+      html: `<h3>13.13 ¿Qué fórmula uso? Tres preguntas clave</h3><p>La mayor dificultad de la combinatoria no está en las fórmulas, sino en <b>reconocer qué tipo de agrupación</b> plantea el problema. Para decidir, hazte estas preguntas:</p><ol><li><b>¿Importa el orden?</b> Si cambiar el orden de los elegidos da un resultado distinto (un podio, un número, una contraseña), son variaciones o permutaciones. Si no (un equipo, un grupo, una apuesta de lotería), son combinaciones.</li><li><b>¿Se pueden repetir los elementos?</b> Si sí (cifras de un PIN, resultados de una quiniela), con repetición. Si no (personas, cartas de una baraja), sin repetición.</li><li><b>¿Intervienen todos los elementos?</b> Si se ordenan todos, son permutaciones (con o sin elementos repetidos).</li></ol><p>Resumen:</p><ul><li>Orden sí, repetición no, todos → <mark>Pₙ = n!</mark></li><li>Orden sí, repetición no, algunos → <mark>Vₙ,ₖ = n!/(n − k)!</mark></li><li>Orden sí, repetición sí → <mark>VRₙ,ₖ = nᵏ</mark></li><li>Orden no, repetición no → <mark>Cₙ,ₖ = (n sobre k)</mark></li></ul><p>Y si el problema no encaja en ninguna, no pasa nada: el principio de multiplicación con casillas, el principio de suma y los diagramas de árbol resuelven casi cualquier recuento. Un buen consejo es <b>probar con un caso pequeño</b> y contarlo a mano para comprobar el razonamiento.</p>`,
+      svg: lienzo("Esquema para elegir la fórmula: si importa el orden y se usan todos, permutaciones; si importa el orden y hay repetición, variaciones con repetición; si importa el orden sin repetición, variaciones; si no importa el orden, combinaciones", `<rect x="66" y="8" width="128" height="30" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${t(130, 28, "¿importa el orden?", { s: 11, b: 1 })}<path d="M100 38 L 60 64 M160 38 L 206 64" stroke="var(--muted)" stroke-width="1.8"/>${t(70, 52, "sí", { c: "var(--leaf)", s: 11, b: 1 })}${t(194, 52, "no", { c: "var(--red)", s: 11, b: 1 })}<rect x="14" y="64" width="100" height="30" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${t(64, 84, "¿se repiten?", { s: 11, b: 1 })}<rect x="160" y="64" width="92" height="44" rx="8" fill="var(--leaf)" fill-opacity=".14" stroke="var(--leaf)" stroke-width="2"/>${t(206, 84, "combinaciones", { c: "var(--leaf)", s: 11, b: 1 })}${t(206, 100, "Cₙ,ₖ", { c: "var(--leaf)", s: 12, b: 1 })}<path d="M40 94 L 30 120 M88 94 L 110 120" stroke="var(--muted)" stroke-width="1.8"/>${t(24, 110, "sí", { c: "var(--leaf)", s: 10, b: 1 })}${t(112, 110, "no", { c: "var(--red)", s: 10, b: 1 })}<rect x="6" y="120" width="70" height="48" rx="8" fill="var(--pen)" fill-opacity=".12" stroke="var(--pen)" stroke-width="2"/>${t(41, 140, "VRₙ,ₖ", { c: "var(--pen)", s: 12, b: 1 })}${t(41, 158, "nᵏ", { c: "var(--pen)", s: 12, b: 1 })}<rect x="84" y="120" width="96" height="48" rx="8" fill="var(--red)" fill-opacity=".1" stroke="var(--red)" stroke-width="2"/>${t(132, 140, "Vₙ,ₖ (algunos)", { c: "var(--red)", s: 11, b: 1 })}${t(132, 158, "Pₙ = n! (todos)", { c: "var(--red)", s: 11, b: 1 })}`),
+    },
+    {
+      html: `<h3>13.14 Combinatoria en la vida real</h3><p>Contar bien tiene consecuencias muy prácticas:</p><ul><li><b>Juegos de azar</b>. En el Euromillones se eligen 5 números de 50 y 2 estrellas de 12: (50 sobre 5) · (12 sobre 2) = 2.118.760 · 66 = <mark>139.838.160</mark> combinaciones. Para tener la seguridad de ganar el primer premio habría que gastar más de 300 millones de euros en apuestas.</li><li><b>Seguridad informática</b>. La fuerza de una contraseña se mide por el número de posibilidades: con 12 caracteres de entre 94 símbolos del teclado hay 94¹² ≈ 4,8 · 10²³, un número que ni los superordenadores pueden recorrer.</li><li><b>Torneos y calendarios</b>. Una liga de 20 equipos en la que todos juegan contra todos a ida y vuelta tiene V₂₀,₂ = 380 partidos; solo a ida, C₂₀,₂ = 190.</li><li><b>Genética</b>. Cada persona recibe un cromosoma de cada uno de los 23 pares de su padre y de su madre: un progenitor puede producir 2²³ ≈ 8,4 millones de combinaciones distintas de cromosomas, lo que explica por qué los hermanos son tan distintos.</li><li><b>Química y farmacia</b>. Se calculan cuántas moléculas distintas se pueden formar combinando ciertos grupos para decidir cuáles ensayar.</li></ul><p>La combinatoria es, además, la base del cálculo de probabilidades: para aplicar la regla de Laplace (casos favorables entre casos posibles) hay que saber <b>contar</b> unos y otros.</p>`,
+      svg: lienzo("Comparación del número de posibilidades: PIN de 4 cifras, Primitiva, Euromillones y contraseña de 8 caracteres", `${[["PIN 4 cifras", 4, "10⁴"], ["Primitiva", 7.15, "1,4·10⁷"], ["Euromillones", 8.15, "1,4·10⁸"], ["Contraseña", 14.34, "2,2·10¹⁴"]].map(([n, e, v], i) => { const y = 24 + i * 36; const L = e * 9; return `${t(92, y + 15, n, { s: 11, b: 1, a: "end" })}<rect x="98" y="${y}" width="${L.toFixed(1)}" height="22" rx="5" fill="${["var(--leaf)", "var(--pen)", "var(--inf)", "var(--red)"][i]}"/>${t(L > 110 ? 92 + L : 104 + L, y + 15, v, { s: 10, b: 1, a: L > 110 ? "end" : "start", c: L > 110 ? "var(--paper)" : "var(--ink)" })}`; }).join("")}${t(130, 172, "longitud de barra: número de cifras", { s: 10, c: "var(--muted)" })}`),
     },
   ],
-  figura: {
-    titulo: "Las fórmulas de contar, con un ejemplo cada una",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Tabla con permutaciones, variaciones, variaciones con repetición y combinaciones, su fórmula y un ejemplo">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["Permutaciones", "Pₘ = m!", "ordenar 6 libros: 720", "var(--inf)"], ["Variaciones", "V(m, n) = m!/(m − n)!", "podio de 8: 336", "var(--pen)"], ["Var. con repetición", "VR(m, n) = mⁿ", "candado de 4 cifras: 10.000", "var(--red)"], ["Combinaciones", "C(m, n) = m!/(n!(m − n)!)", "2 delegados de 5: 10", "var(--leaf)"]].map(([n, f, e, c], i) => `<rect x="20" y="${18 + i * 50}" width="600" height="42" rx="10" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>
-        <text x="36" y="${45 + i * 50}" font-size="16" font-weight="700" fill="${c}" ${D}>${n}</text><text x="222" y="${45 + i * 50}" font-size="15" fill="var(--ink)" ${F}>${f}</text><text x="440" y="${45 + i * 50}" font-size="14" fill="var(--muted)" ${F}>${e}</text>`).join("")}
-    </svg>`,
+  ejemplos: [
+    { enunciado: "¿Cuántos números de 4 cifras distintas se pueden formar con los dígitos 1, 2, 3, 4, 5 y 6? ¿Cuántos son pares?", pasos: ["Importa el orden, sin repetición: V₆,₄ = 6 · 5 · 4 · 3 = 360.", "Pares: la última cifra es 2, 4 o 6 (3 opciones).", "Las otras tres casillas: 5 · 4 · 3 = 60. Total 3 · 60 = 180."], resultado: "360 números; 180 de ellos pares." },
+    { enunciado: "¿Cuántos anagramas tiene la palabra BANANA?", pasos: ["6 letras: B una vez, A tres, N dos.", "6!/(1! · 3! · 2!) = 720/12."], resultado: "60 anagramas." },
+    { enunciado: "Un examen tiene 10 preguntas y hay que contestar 7. ¿De cuántas formas se pueden elegir? ¿Y si las 3 primeras son obligatorias?", pasos: ["No importa el orden: C₁₀,₇ = C₁₀,₃ = 120.", "Si 3 son obligatorias, se eligen 4 de las 7 restantes: C₇,₄ = 35."], resultado: "120 formas; 35 si las tres primeras son obligatorias." },
+    { enunciado: "En una clase hay 12 chicas y 10 chicos. ¿Cuántas comisiones de 2 chicas y 2 chicos se pueden formar?", pasos: ["Chicas: C₁₂,₂ = 66.", "Chicos: C₁₀,₂ = 45.", "Principio de multiplicación: 66 · 45."], resultado: "2.970 comisiones." },
+    { enunciado: "Desarrolla (x − 2)⁴.", pasos: ["Fila 4: 1, 4, 6, 4, 1.", "x⁴ − 4 · x³ · 2 + 6 · x² · 4 − 4 · x · 8 + 16."], resultado: "x⁴ − 8x³ + 24x² − 32x + 16." },
+    { enunciado: "¿Cuántas diagonales tiene un octógono?", pasos: ["Segmentos que unen 2 de los 8 vértices: C₈,₂ = 28.", "De ellos, 8 son lados."], resultado: "28 − 8 = 20 diagonales." },
+  ],
+  errores: [
+    "Confundir variaciones y combinaciones: hay que preguntarse si el orden importa.",
+    "Usar Cₙ,ₖ cuando los elementos se pueden repetir.",
+    "Sumar en lugar de multiplicar (o al revés): se multiplica por etapas y se suma por casos alternativos.",
+    "Calcular factoriales grandes en la calculadora sin simplificar antes.",
+    "Olvidar que 0! = 1 al aplicar las fórmulas.",
+    "Contar dos veces los casos en los que hay elementos iguales en una permutación.",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Un bocadillo se hace con 3 tipos de pan, 5 rellenos y 2 salsas (un elemento de cada). ¿Cuántos bocadillos distintos hay?", sol: "Tres etapas independientes (pan, relleno, salsa): por el principio de multiplicación, 3 · 5 · 2 = 30 bocadillos." },
+    { nivel: "básico", q: "Calcula 6!, 8!/6! y 10!/(7! · 3!).", sol: "6! = 720. 8!/6! = 8 · 7 = 56. 10!/(7! · 3!) = (10 · 9 · 8)/6 = 120." },
+    { nivel: "básico", q: "¿De cuántas formas se pueden colocar en fila 6 personas para una foto?", sol: "Se ordenan las 6 personas: P₆ = 6! = 6 · 5 · 4 · 3 · 2 · 1 = 720 formas." },
+    { nivel: "básico", q: "¿Cuántos códigos de 3 letras (de 27) se pueden formar si se pueden repetir? ¿Y si no?", sol: "Con repetición: 27³ = 19.683. Sin repetición: V₂₇,₃ = 27 · 26 · 25 = 17.550." },
+    { nivel: "básico", q: "En un concurso de 8 participantes se dan un primer y un segundo premio. ¿De cuántas formas?", sol: "Importa el orden y no se repite: V₈,₂ = 8 · 7 = 56." },
+    { nivel: "básico", q: "¿Cuántos grupos de 3 alumnos se pueden formar con 9 alumnos?", sol: "No importa el orden: C₉,₃ = (9 · 8 · 7)/6 = 84." },
+    { nivel: "básico", q: "Calcula (7 sobre 2), (7 sobre 5) y (12 sobre 0).", sol: "(7 sobre 2) = 21; (7 sobre 5) = (7 sobre 2) = 21; (12 sobre 0) = 1." },
+    { nivel: "básico", q: "Escribe las 7 primeras filas del triángulo de Pascal y comprueba que la fila 6 suma 2⁶.", sol: "1 / 1 1 / 1 2 1 / 1 3 3 1 / 1 4 6 4 1 / 1 5 10 10 5 1 / 1 6 15 20 15 6 1. Suma: 64 = 2⁶." },
+    { nivel: "básico", q: "Desarrolla (a + b)³ y (x + 1)⁵.", sol: "(a + b)³ = a³ + 3a²b + 3ab² + b³. (x + 1)⁵ = x⁵ + 5x⁴ + 10x³ + 10x² + 5x + 1." },
+    { nivel: "básico", q: "¿Cuántos resultados distintos hay al lanzar una moneda 5 veces (anotando el orden)?", sol: "Cada lanzamiento tiene 2 resultados y se repiten: VR₂,₅ = 2⁵ = 32 secuencias distintas." },
+    { nivel: "básico", q: "¿Cuántos anagramas tiene la palabra ROMA? ¿Y la palabra ROSA? ¿Y la palabra OSO?", sol: "ROMA: 4! = 24. ROSA: 4! = 24. OSO: 3!/2! = 3 (OSO, OOS, SOO)." },
+    { nivel: "básico", q: "Para ir de A a B hay 3 caminos y de B a C, 4. ¿Cuántos itinerarios hay de A a C pasando por B? ¿Y de ida y vuelta?", sol: "Ida: 3 · 4 = 12. Ida y vuelta: 12 · 12 = 144." },
+    { nivel: "medio", q: "¿Cuántos números de 3 cifras (de 100 a 999) hay con todas las cifras distintas?", sol: "Primera cifra: 9 opciones (no 0). Segunda: 9 (incluye el 0, excluye la primera). Tercera: 8. Total 9 · 9 · 8 = 648." },
+    { nivel: "medio", q: "¿De cuántas formas se pueden sentar 4 chicos y 3 chicas en una fila si las chicas deben estar juntas?", sol: "Se trata el bloque de chicas como un elemento: 5 elementos, 5! = 120. Dentro del bloque, 3! = 6. Total 720." },
+    { nivel: "medio", q: "Con las letras de la palabra NÚMERO, ¿cuántas palabras de 6 letras empiezan por vocal?", sol: "Vocales: U, E, O (3). Primera casilla: 3; resto: 5! = 120. Total 360." },
+    { nivel: "medio", q: "Una liga tiene 18 equipos que juegan todos contra todos a ida y vuelta. ¿Cuántos partidos hay? ¿Y si solo es a ida?", sol: "Ida y vuelta: V₁₈,₂ = 306. Solo ida: C₁₈,₂ = 153." },
+    { nivel: "medio", q: "En una baraja española de 40 cartas, ¿cuántas manos de 5 cartas hay? ¿Cuántas tienen todas las cartas de oros?", sol: "C₄₀,₅ = 658.008. De oros (10 cartas): C₁₀,₅ = 252." },
+    { nivel: "medio", q: "¿Cuántas diagonales tiene un polígono de 12 lados? Generaliza para n lados.", sol: "C₁₂,₂ − 12 = 66 − 12 = 54. En general: n(n − 1)/2 − n = n(n − 3)/2." },
+    { nivel: "medio", q: "¿Cuántos caminos mínimos hay en una cuadrícula de 4 × 3 desde la esquina inferior izquierda a la superior derecha?", sol: "Hay que dar 4 pasos D y 3 pasos A: 7!/(4! · 3!) = 35." },
+    { nivel: "medio", q: "Halla el término que contiene x³ en el desarrollo de (x + 2)⁵.", sol: "Es (5 sobre 2) · x³ · 2² = 10 · 4 · x³ = 40x³." },
+    { nivel: "medio", q: "Un comité de 4 personas se elige entre 6 profesores y 8 alumnos. ¿Cuántos comités hay con exactamente 2 profesores? ¿Y con al menos un profesor?", sol: "Exactamente 2: C₆,₂ · C₈,₂ = 15 · 28 = 420. Al menos uno: total C₁₄,₄ = 1.001 menos los que no tienen ninguno, C₈,₄ = 70: 931." },
+    { nivel: "medio", q: "Resuelve la ecuación Vₙ,₂ = 42.", sol: "n(n − 1) = 42 → n² − n − 42 = 0 → n = 7 (la otra solución, −6, no sirve)." },
+    { nivel: "medio", q: "¿Cuántos números capicúas de 5 cifras hay?", sol: "Se eligen libremente las 3 primeras cifras (la primera no puede ser 0); las otras dos las determinan: 9 · 10 · 10 = 900." },
+    { nivel: "medio", q: "¿De cuántas formas se pueden repartir 3 premios distintos entre 10 personas si una persona puede recibir varios premios?", sol: "Para cada premio hay 10 posibles ganadores: VR₁₀,₃ = 1.000." },
+    { nivel: "avanzado", q: "Demuestra que (n sobre k) = (n sobre n − k) usando la fórmula con factoriales.", sol: "(n sobre n − k) = n!/((n − k)! · (n − (n − k))!) = n!/((n − k)! · k!) = (n sobre k)." },
+    { nivel: "avanzado", q: "Demuestra que la suma de la fila n del triángulo de Pascal es 2ⁿ usando el binomio de Newton.", sol: "Se toma a = b = 1 en (a + b)ⁿ: 2ⁿ = (1 + 1)ⁿ = (n sobre 0) + (n sobre 1) + … + (n sobre n)." },
+    { nivel: "avanzado", q: "¿Cuántas contraseñas de 6 caracteres (26 letras minúsculas y 10 cifras) contienen al menos una cifra?", sol: "Total: 36⁶ = 2.176.782.336. Sin ninguna cifra: 26⁶ = 308.915.776. Con al menos una: 1.867.866.560." },
+    { nivel: "avanzado", q: "¿De cuántas formas se pueden sentar 6 personas alrededor de una mesa redonda? ¿Y si dos de ellas quieren estar juntas?", sol: "Circular: (6 − 1)! = 120. Juntas: se tratan como un bloque, (5 − 1)! = 24, por 2 formas de ordenarlas dentro: 48." },
+    { nivel: "avanzado", q: "Desarrolla (2x − 1)⁴.", sol: "16x⁴ − 4 · 8x³ + 6 · 4x² − 4 · 2x + 1 = 16x⁴ − 32x³ + 24x² − 8x + 1." },
+    { nivel: "avanzado", q: "Resuelve la ecuación (n sobre 2) = 28.", sol: "n(n − 1)/2 = 28 → n² − n − 56 = 0 → n = 8." },
+    { nivel: "avanzado", q: "¿Cuántos números de 5 cifras se pueden formar con los dígitos 1, 1, 2, 2, 2? ¿Cuántos de ellos son mayores que 20.000?", sol: "5!/(2! · 3!) = 10. Mayores que 20.000: empiezan por 2; quedan 1, 1, 2, 2: 4!/(2! · 2!) = 6." },
+    { nivel: "avanzado", q: "Calcula aproximadamente 1,02⁵ con los tres primeros términos del binomio de Newton y compáralo con el valor exacto.", sol: "(1 + 0,02)⁵ ≈ 1 + 5 · 0,02 + 10 · 0,0004 = 1 + 0,1 + 0,004 = 1,104. Exacto: 1,10408… El error es menor que una diezmilésima." },
+    { nivel: "avanzado", q: "Una persona sube una escalera de 6 escalones subiendo 1 o 2 escalones en cada paso. ¿De cuántas formas puede hacerlo?", sol: "Por casos según el número de pasos dobles: 0 dobles: 1 forma; 1 doble (5 pasos): C₅,₁ = 5; 2 dobles (4 pasos): C₄,₂ = 6; 3 dobles (3 pasos): 1. Total 13 (¡un número de Fibonacci!)." },
+    { nivel: "avanzado", q: "Explica por qué hay más combinaciones en el Euromillones que en la Primitiva y calcula cuántas veces más.", sol: "Euromillones: 139.838.160; Primitiva: 13.983.816. El cociente es exactamente 10: las estrellas multiplican las combinaciones." },
+  ],
+  quiz: reparte([
+    { q: "3 camisas y 4 pantalones dan… conjuntos.", o: ["7", "12", "34", "81"], a: 1, e: "Principio de multiplicación." },
+    { q: "5! =", o: ["25", "120", "15", "60"], a: 1, e: "5 · 4 · 3 · 2 · 1." },
+    { q: "0! =", o: ["0", "1", "no existe", "∞"], a: 1, e: "Por convenio." },
+    { q: "10!/9! =", o: ["1", "10", "90", "9"], a: 1, e: "10 · 9!/9!." },
+    { q: "Las formas de ordenar 4 libros distintos son…", o: ["16", "24", "4", "256"], a: 1, e: "P₄ = 4!." },
+    { q: "Los anagramas de OSO son…", o: ["6", "3", "2", "9"], a: 1, e: "3!/2!." },
+    { q: "Un podio con 8 corredores se puede formar de… formas.", o: ["56", "336", "512", "24"], a: 1, e: "V₈,₃ = 8 · 7 · 6." },
+    { q: "Las claves de 3 cifras (0-9) con repetición son…", o: ["720", "1.000", "30", "120"], a: 1, e: "10³." },
+    { q: "Un byte (8 bits) puede tomar… valores.", o: ["8", "16", "256", "64"], a: 2, e: "2⁸." },
+    { q: "Los grupos de 2 que se forman con 5 personas son…", o: ["10", "20", "25", "5"], a: 0, e: "C₅,₂." },
+    { q: "Se usan combinaciones cuando…", o: ["importa el orden", "no importa el orden", "hay repetición", "se usan todos"], a: 1, e: "Solo importa qué se elige." },
+    { q: "(6 sobre 2) =", o: ["12", "15", "30", "3"], a: 1, e: "6 · 5/2." },
+    { q: "(10 sobre 8) =", o: ["45", "80", "90", "18"], a: 0, e: "= (10 sobre 2)." },
+    { q: "La fila 4 del triángulo de Pascal es…", o: ["1 4 4 1", "1 4 6 4 1", "1 3 3 1", "1 4 8 4 1"], a: 1, e: "Suma de los de arriba." },
+    { q: "La suma de la fila 5 del triángulo de Pascal es…", o: ["25", "32", "10", "16"], a: 1, e: "2⁵." },
+    { q: "El coeficiente de a²b² en (a + b)⁴ es…", o: ["4", "6", "2", "12"], a: 1, e: "(4 sobre 2)." },
+    { q: "(x − 1)² =", o: ["x² − 1", "x² − 2x + 1", "x² + 2x + 1", "x² + 1"], a: 1, e: "Signos alternos." },
+    { q: "En la Primitiva (6 de 49) se usan…", o: ["variaciones", "combinaciones", "permutaciones", "variaciones con repetición"], a: 1, e: "No importa el orden de los números." },
+    { q: "5 personas en una mesa redonda se pueden sentar de… formas.", o: ["120", "24", "5", "60"], a: 1, e: "(5 − 1)!." },
+    { q: "En la calculadora, las combinaciones se calculan con la tecla…", o: ["nPr", "nCr", "x!", "xʸ"], a: 1, e: "n C r." },
+  ]),
+  examen: reparte([
+    { q: "¿Cuántos números de 3 cifras distintas se forman con 1, 2, 3, 4, 5?", o: ["60", "125", "10", "120"], a: 0, e: "V₅,₃." },
+    { q: "Equipos de 4 elegidos entre 10 personas:", o: ["210", "5.040", "40", "10.000"], a: 0, e: "C₁₀,₄." },
+    { q: "Anagramas de PAPA:", o: ["6", "24", "12", "4"], a: 0, e: "4!/(2! · 2!)." },
+    { q: "Resultados al lanzar un dado 3 veces (con orden):", o: ["216", "18", "120", "20"], a: 0, e: "6³." },
+    { q: "El término central de (a + b)⁶ es…", o: ["20a³b³", "15a³b³", "6a³b³", "a³b³"], a: 0, e: "(6 sobre 3) = 20." },
+    { q: "Si Cₙ,₂ = 10, n =", o: ["5", "10", "4", "20"], a: 0, e: "n(n − 1)/2 = 10." },
+    { q: "Las diagonales de un hexágono son…", o: ["9", "15", "6", "12"], a: 0, e: "6 · 3/2." },
+    { q: "Matrículas con 4 cifras y 3 letras de 20 consonantes:", o: ["80.000.000", "8.000.000", "1.600.000", "800.000"], a: 0, e: "10⁴ · 20³." },
+  ], 2),
+  feynman: ["Qué dice el principio de multiplicación y cuándo se suma en lugar de multiplicar", "Qué es el factorial y por qué 0! = 1", "En qué se diferencian variaciones, permutaciones y combinaciones", "Cómo se construye el triángulo de Pascal y qué relación tiene con los números combinatorios", "Para qué sirve el binomio de Newton"],
+  glosario: [
+    ["Combinatoria", "Rama de las matemáticas que estudia cómo contar agrupaciones."],
+    ["Diagrama de árbol", "Esquema por etapas en el que cada camino es un caso."],
+    ["Principio de multiplicación", "Si una tarea tiene etapas con n₁, n₂… opciones, hay n₁ · n₂ · … formas."],
+    ["Principio de suma", "Si hay formas alternativas sin casos comunes, se suman."],
+    ["Factorial", "n! = n · (n − 1) · … · 1; 0! = 1."],
+    ["Permutación", "Ordenación de todos los elementos: Pₙ = n!."],
+    ["Permutación con repetición", "Ordenación con elementos iguales: n!/(a! · b! · …)."],
+    ["Variación", "Elección ordenada de k elementos distintos de n: n!/(n − k)!."],
+    ["Variación con repetición", "Elección ordenada de k elementos de n con repetición: nᵏ."],
+    ["Combinación", "Elección de k elementos de n sin importar el orden."],
+    ["Número combinatorio", "(n sobre k) = n!/(k! · (n − k)!)."],
+    ["Triángulo de Pascal", "Disposición de los números combinatorios en la que cada uno es la suma de los dos de encima."],
+    ["Binomio de Newton", "Fórmula para desarrollar (a + b)ⁿ con números combinatorios."],
+    ["Permutación circular", "Ordenación alrededor de un círculo: (n − 1)!."],
+    ["Anagrama", "Palabra formada reordenando las letras de otra."],
+  ],
+  situacion: {
+    titulo: "¿Es segura tu contraseña?",
+    reto: "El centro quiere hacer una campaña de ciberseguridad para el alumnado. Vuestro grupo debe calcular, con combinatoria, cuántas contraseñas distintas existen según su longitud y los tipos de caracteres que se usen, estimar cuánto tardaría un ordenador en probarlas todas y diseñar recomendaciones claras y justificadas.",
+    pasos: [
+      "Identificad los tipos de caracteres posibles (minúsculas, mayúsculas, cifras, símbolos) y cuántos hay de cada.",
+      "Calculad el número de contraseñas posibles para longitudes de 4 a 12 caracteres con distintos conjuntos de símbolos.",
+      "Suponiendo que un ordenador prueba mil millones de contraseñas por segundo, calculad el tiempo máximo para descubrir cada una.",
+      "Comparad con los PIN de 4 y 6 cifras y con las contraseñas que son palabras del diccionario.",
+      "Elaborad una tabla y unas recomendaciones de seguridad basadas en los cálculos.",
+    ],
+    producto: "Un cartel o presentación con la tabla de posibilidades, los tiempos y los consejos de seguridad.",
+    evaluacion: [
+      "Identifica correctamente el tipo de agrupación (variaciones con repetición) y lo justifica.",
+      "Calcula con precisión números muy grandes usando potencias y notación científica.",
+      "Relaciona los resultados con tiempos reales e interpreta su significado.",
+      "Comunica recomendaciones claras, justificadas matemáticamente.",
+    ],
   },
+  figura: require("./_matb-base-combinatoria").figura,
   video: { id: "h4IfRXoVcpo", titulo: "Combinaciones, permutaciones y variaciones", canal: "Matemáticas profe Alex", vistas: 1661631, megusta: 49630, busqueda: "combinaciones permutaciones variaciones" },
-  quiz: [
-    { q: "¿Cuánto vale 4!?", o: ["16", "24", "10"], a: 1, e: "4 · 3 · 2 · 1 = 24." },
-    { q: "¿De cuántas formas se pueden sentar 5 amigos en 5 sillas en fila?", o: ["25", "120", "10"], a: 1, e: "Permutaciones de 5: 5! = 120." },
-    { q: "¿Cuántas matrículas de 3 letras (de 26) se pueden formar si se pueden repetir?", o: ["26³ = 17.576", "26 · 25 · 24", "C(26, 3)"], a: 0, e: "Importa el orden y se repiten: 26³." },
-    { q: "¿Cuántos equipos de 3 se pueden elegir entre 6 personas?", o: ["120", "20", "18"], a: 1, e: "No importa el orden: C(6, 3) = 720 / (6 · 6) = 20." },
-    { q: "Elegir presidente y secretario entre 10 personas es…", o: ["Combinación", "Variación", "Permutación"], a: 1, e: "Importa el orden (cargos distintos) y no entran todos: V(10, 2) = 90." },
-  ],
-  examen: [
-    { q: "C(7, 2) =", o: ["21", "42", "14"], a: 0, e: "7 · 6 / 2 = 21." },
-    { q: "¿Cuántos números de 3 cifras distintas se forman con 1, 2, 3, 4 y 5?", o: ["60", "125", "10"], a: 0, e: "V(5, 3) = 5 · 4 · 3 = 60." },
-    { q: "Hay 4 caminos de A a B y 3 de B a C. ¿Cuántas formas de ir de A a C pasando por B?", o: ["7", "12", "64"], a: 1, e: "Principio de multiplicación: 4 · 3." },
-  ],
-  feynman: ["Qué dice el principio de multiplicación con un ejemplo de ropa", "Qué es el factorial y por qué 0! = 1 por convenio", "Qué diferencia hay entre una variación y una combinación", "Cómo decido qué fórmula usar"],
   mapa: mapa("COMBINATORIA", "var(--bac)", [
-    ["Contar", "árbol · producto de opciones", "var(--ink)"],
-    ["Permutaciones", "todos · Pₘ = m!", "var(--inf)"],
-    ["Variaciones", "orden importa · mⁿ si se repite", "var(--pen)"],
-    ["Combinaciones", "orden no importa · C(m, n)", "var(--leaf)"],
+    ["Contar", "árbol · multiplicar · sumar", "var(--pen)"],
+    ["Ordenar", "Pₙ = n! · con repetición", "var(--leaf)"],
+    ["Elegir", "Vₙ,ₖ · VRₙ,ₖ · Cₙ,ₖ", "var(--red)"],
+    ["Pascal", "números combinatorios · binomio", "var(--inf)"],
   ], 270),
   tarjetas: [
-    ["n! =", "n · (n − 1) · … · 2 · 1; y 0! = 1."],
-    ["¿Cuándo es permutación?", "Cuando se ordenan todos los elementos: m!."],
-    ["¿Cuándo es combinación?", "Cuando se eligen grupos y el orden no importa."],
-    ["Fórmula de C(m, n)", "m! / (n! · (m − n)!)"],
-    ["Candado de 4 ruedas del 0 al 9", "Variación con repetición: 10⁴ = 10.000."],
+    ["Principio de multiplicación", "Etapas: se multiplican las opciones de cada una."],
+    ["Principio de suma", "Casos alternativos: se suman."],
+    ["n!", "n · (n − 1) · … · 2 · 1; 0! = 1"],
+    ["Permutaciones", "Pₙ = n! (todos, importa el orden)"],
+    ["Permutaciones con repetición", "n!/(a! · b! · …)"],
+    ["Variaciones", "Vₙ,ₖ = n!/(n − k)! (importa el orden, sin repetir)"],
+    ["Variaciones con repetición", "VRₙ,ₖ = nᵏ"],
+    ["Combinaciones", "Cₙ,ₖ = (n sobre k) = n!/(k!(n − k)!)"],
+    ["¿Importa el orden?", "Sí: variaciones/permutaciones. No: combinaciones."],
+    ["Simetría", "(n sobre k) = (n sobre n − k)"],
+    ["Triángulo de Pascal", "Cada número es la suma de los dos de encima."],
+    ["(a + b)⁴", "a⁴ + 4a³b + 6a²b² + 4ab³ + b⁴"],
   ],
-  familias: ["Contad juntos de cuántas formas podéis sentaros a la mesa los de casa.", "Preguntadle cuántas apuestas distintas hay en una quiniela o una primitiva y por qué es tan difícil ganar.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  familias: ["Calculad juntos cuántas combinaciones tiene el candado de una maleta o el PIN del móvil.", "Contad de cuántas formas os podéis sentar a la mesa en casa y comprobad que da n!.", "Calculad cuántas apuestas distintas tiene la Primitiva y comentad las probabilidades de ganar.", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Sentido estocástico: técnicas de recuento, diagramas de árbol, variaciones, permutaciones y combinaciones (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["Contar a mano todas las parejas de un grupo pequeño y descubrir la fórmula.", "Calcular la probabilidad de acertar la lotería primitiva con números combinatorios.", "Construir el triángulo de Pascal y relacionarlo con C(m, n)."],
+    saberes: "Sentido numérico y sentido estocástico: técnicas de recuento (diagramas de árbol, principio de multiplicación), permutaciones, variaciones y combinaciones, números combinatorios, triángulo de Pascal y binomio de Newton, aplicados a problemas de contexto y al cálculo de probabilidades (RD 217/2022, Matemáticas B de 4º, saberes básicos A. Sentido numérico y E. Sentido estocástico).",
+    ideas: ["Resolver primero casos pequeños a mano (con objetos o tarjetas) antes de generalizar con fórmulas.", "Hoja de cálculo para construir el triángulo de Pascal y colorear sus patrones.", "Debate sobre juegos de azar con el cálculo de combinaciones de la Primitiva y el Euromillones.", "Proyecto de ciberseguridad con Tecnología o Digitalización."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Combinatoria, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Combinatoria" },
+    { t: "INCIBE: oficina de seguridad del internauta, contraseñas seguras", url: "https://www.incibe.es/ciudadania/tematicas/contrasenas" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Contar con permutaciones con repetición y variaciones con repetición", "Usar el triángulo de Tartaglia y el binomio de Newton"],
-  tras: {
-    "Variaciones y permutaciones: el orden importa": [
-      { html: `<h3>Con repetición: cuando los elementos se pueden repetir</h3><p>Si cada posición puede ocupar cualquiera de los m elementos, aunque ya haya salido, se trata de <b>variaciones con repetición</b>: <mark>VR(m, n) = mⁿ</mark>. Es el caso de las matrículas, los PIN o las quinielas: una quiniela de 15 partidos con 3 resultados posibles tiene 3¹⁵ = 14.348.907 columnas. Las <b>permutaciones con repetición</b> aparecen cuando ordenamos elementos que no son todos distintos, como las letras de una palabra con letras repetidas. Se divide entre los factoriales de las repeticiones, porque intercambiar dos letras iguales no da una palabra nueva.</p><div class="formula"><span>Letras de CASA: 4! / 2! = 24 / 2 = 12 palabras</span></div>` },
-    ],
-    "Combinaciones: el orden no importa": [
-      { html: `<h3>Los números combinatorios</h3><p>El número de combinaciones C(m, n) se escribe también como el <b>número combinatorio</b> «m sobre n» y se calcula con <mark>C(m, n) = m! / (n! · (m − n)!)</mark>. Tiene propiedades útiles: C(m, 0) = C(m, m) = 1, porque solo hay una forma de no elegir nada o de elegirlo todo; y C(m, n) = C(m, m − n), porque elegir los 3 que van de excursión es lo mismo que elegir los 7 que se quedan. Así, C(10, 8) = C(10, 2) = 45, mucho más rápido de calcular.</p>` },
-      { html: `<h3>El triángulo de Tartaglia y el binomio de Newton</h3><p>Si colocamos los números combinatorios en filas, cada uno es la <b>suma de los dos que tiene encima</b>: es el <b>triángulo de Tartaglia</b> o de Pascal. Sus filas dan los coeficientes para desarrollar potencias de un binomio, el <b>binomio de Newton</b>: (a + b)³ = a³ + 3a²b + 3ab² + b³, con los coeficientes 1, 3, 3, 1 de la cuarta fila. Los exponentes de a bajan de uno en uno y los de b suben. Si el binomio es una resta, los signos se alternan.</p>${AMP.tabla(["Fila", "Coeficientes"], [["n = 0", "1"], ["n = 1", "1 1"], ["n = 2", "1 2 1"], ["n = 3", "1 3 3 1"], ["n = 4", "1 4 6 4 1"], ["n = 5", "1 5 10 10 5 1"]])}`, video: { id: "9ri5dwV2K6E", titulo: "Binomio de Newton, triángulo de Pascal y potencias de un binomio", canal: "Matemáticas profe Alex", vistas: 1846279 } },
-    ],
-    "¿Qué fórmula uso?": [
-      { html: `<h3>Estrategia para problemas de recuento</h3><p>Ante un problema de contar, hazte tres preguntas. <b>¿Intervienen todos los elementos?</b> Si es así, son permutaciones. <b>¿Influye el orden?</b> Si cambiar el orden da un resultado distinto (podio, contraseña, cargos de delegado y subdelegado), son variaciones; si no (equipo, comisión, mano de cartas), combinaciones. <b>¿Se pueden repetir?</b> Si sí, se usa la versión con repetición. Cuando el problema tiene condiciones («empieza por vocal», «A y B juntos»), lo más fácil suele ser <mark>colocar primero lo obligado</mark> y contar después el resto con el principio de multiplicación. Y si la cuenta es pequeña, un diagrama de árbol confirma el resultado.</p>` },
-    ],
-  },
-  ejemplos: [
-    { enunciado: "¿Cuántas palabras distintas, con o sin sentido, se pueden formar con las letras de MATEMÁTICA (sin tilde)?", pasos: ["Hay 10 letras: M ×2, A ×3, T ×2, E, I, C.", "Permutaciones con repetición: 10! / (2! · 3! · 2!).", "10! = 3.628.800; 2! · 3! · 2! = 24.", "3.628.800 / 24 = 151.200."], resultado: "151.200 palabras." },
-    { enunciado: "Desarrolla (x − 2)⁴ con el binomio de Newton.", pasos: ["Coeficientes de la fila 4: 1, 4, 6, 4, 1.", "Términos: x⁴, 4x³(−2), 6x²(−2)², 4x(−2)³, (−2)⁴.", "Calcula: x⁴ − 8x³ + 24x² − 32x + 16."], resultado: "(x − 2)⁴ = x⁴ − 8x³ + 24x² − 32x + 16." },
-    { enunciado: "En una clase de 25 alumnos se elige un delegado, un subdelegado y una comisión de 3 personas entre los restantes. ¿De cuántas formas?", pasos: ["Delegado y subdelegado: el orden importa, V(25, 2) = 25 · 24 = 600.", "Comisión entre los 23 restantes: el orden no importa, C(23, 3) = 23 · 22 · 21 / 6 = 1.771.", "Principio de multiplicación: 600 · 1.771."], resultado: "1.062.600 formas." },
-  ],
-  errores: [
-    "Usar combinaciones cuando el orden sí importa (podios, contraseñas, cargos).",
-    "Olvidar dividir entre los factoriales de las repeticiones en palabras con letras repetidas.",
-    "Pensar que 0! = 0: por convenio 0! = 1.",
-    "Calcular factoriales enormes en vez de simplificar: 10! / 8! = 10 · 9 = 90.",
-    "Olvidar alternar los signos al desarrollar (a − b)ⁿ.",
-  ],
-  ejercicios: [
-    { q: "Calcula 6!, 8! / 6! y 0!.", sol: "720, 56 y 1." },
-    { q: "¿Cuántos números de 3 cifras distintas se pueden formar con 1, 2, 3, 4 y 5?", sol: "V(5, 3) = 5 · 4 · 3 = 60." },
-    { q: "¿Cuántos PIN de 4 cifras existen?", sol: "VR(10, 4) = 10⁴ = 10.000." },
-    { q: "¿De cuántas formas se pueden sentar 6 amigos en 6 butacas seguidas?", sol: "P₆ = 6! = 720." },
-    { q: "¿Cuántos equipos de 5 jugadores se pueden formar con 12?", sol: "C(12, 5) = 792." },
-    { q: "Comprueba que C(9, 7) = C(9, 2) y calcula su valor.", sol: "Ambos valen 9 · 8 / 2 = 36." },
-    { q: "¿Cuántas palabras se forman con las letras de PAPEL? ¿Y de BANANA?", sol: "PAPEL: 5! / 2! = 60. BANANA: 6! / (3! · 2!) = 60." },
-    { q: "Escribe la sexta fila del triángulo de Tartaglia (n = 6).", sol: "1, 6, 15, 20, 15, 6, 1." },
-    { q: "Desarrolla (a + 3)³.", sol: "a³ + 9a² + 27a + 27." },
-    { q: "Con 7 libros, ¿de cuántas formas se pueden colocar en una estantería si dos de ellos deben ir juntos?", sol: "Se tratan los dos como un bloque: 6! · 2! = 1.440." },
-  ],
-  quiz: [
-    { q: "Las matrículas y los PIN son ejemplos de…", o: ["combinaciones", "variaciones con repetición", "permutaciones"], a: 1, e: "El orden importa y se repiten cifras." },
-    { q: "C(10, 9) vale…", o: ["10", "90", "1"], a: 0, e: "C(10, 9) = C(10, 1) = 10." },
-    { q: "En el triángulo de Tartaglia, cada número es…", o: ["el producto de los de arriba", "la suma de los dos de arriba", "el doble del anterior"], a: 1, e: "1 3 3 1 → 1 4 6 4 1." },
-    { q: "Los coeficientes de (a + b)⁴ son…", o: ["1 4 6 4 1", "1 3 3 1", "1 4 4 1"], a: 0, e: "Quinta fila del triángulo." },
-    { q: "Las palabras con las letras de OSO son…", o: ["6", "3", "9"], a: 1, e: "3! / 2! = 3." },
-  ],
-  tarjetas: [
-    ["Variación con repetición", "VR(m, n) = mⁿ: el orden importa y los elementos se repiten."],
-    ["Número combinatorio", "C(m, n) = m! / (n! · (m − n)!)."],
-    ["Binomio de Newton", "Desarrollo de (a + b)ⁿ con los coeficientes del triángulo de Tartaglia."],
-  ],
-});
