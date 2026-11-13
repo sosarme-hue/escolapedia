@@ -135,6 +135,6 @@ function libro(T, o) {
 }
 
 // Aplica a un fichero de temas los datos de nivel libro, en el mismo orden.
-const aplica = (temas, claves) => claves.forEach((k, i) => libro(temas[i], require(`./_eso4L12-${k}`)));
+const aplica = (temas, claves) => claves.forEach((k, i) => k && libro(temas[i], require(`./_eso4L12-${k}`)));
 
 module.exports = { libro, aplica, barras, cadena, vs, rueda, rejilla, escala, marco, fz, F, D, filas: L.filas, frase: L.frase, linea: L.linea, tabla: L.tabla, tb: L.tb, columnas: L.columnas, eje: L.eje, pasos: L.pasos };

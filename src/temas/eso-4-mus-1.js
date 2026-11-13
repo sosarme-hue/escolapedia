@@ -461,4 +461,4 @@ ampliar(T("La música española"), {
 });
 
 // Nivel libro 4º ESO (lote 12): ver _eso4L12.js y _eso4L12-<clave>.js.
-require("./_eso4L12").aplica(module.exports, ["medios"]);
+require("./_eso4L12").aplica(module.exports, ["medios", "cineymus", "urbana"]);
