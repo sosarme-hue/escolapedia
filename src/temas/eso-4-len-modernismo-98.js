@@ -4,7 +4,7 @@ const { B, C, L, mapa, libro, BOE, CERVANTES } = require("./_eso4L1");
 module.exports = libro({
   materia: "Lengua Castellana y Literatura",
   curso: "4-eso",
-  titulo: "El Modernismo y la Generación del 98",
+  titulo: "Modernismo y Generación del 98",
   minutos: 110,
   objetivos: [
     "Explicar la crisis de fin de siglo y el desastre de 1898",

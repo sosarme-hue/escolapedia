@@ -64,7 +64,7 @@ module.exports = libro({
       ["1944", "Borges", ["Ficciones"], C.inf],
       ["1955", "Rulfo", ["Pedro Páramo"], C.leaf],
       ["1963", "Cortázar", ["Rayuela"], C.muted],
-      ["1967", "García Márquez", ["Cien años", "de soledad"], C.pen],
+      ["1967", "G. Márquez", ["Cien años", "de soledad"], C.pen],
     ]),
   },
   video: { id: "9Ge5XnOTziw", titulo: "El boom latinoamericano", canal: "Academia Libre", vistas: 282449, megusta: 6703, busqueda: "literatura hispanoamericana siglo XX boom realismo mágico" },

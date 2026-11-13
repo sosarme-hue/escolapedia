@@ -4,7 +4,7 @@ const { B, C, L, mapa, libro, BOE, CERVANTES } = require("./_eso4L1");
 module.exports = libro({
   materia: "Lengua Castellana y Literatura",
   curso: "4-eso",
-  titulo: "El Realismo y el Naturalismo",
+  titulo: "Realismo y Naturalismo",
   minutos: 105,
   objetivos: [
     "Situar el Realismo en la sociedad burguesa del siglo XIX",

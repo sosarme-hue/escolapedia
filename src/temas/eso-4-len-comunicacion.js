@@ -67,7 +67,7 @@ module.exports = libro({
       ["¿Está bien enlazado?", "COHESIÓN", ["conectores, pronombres,", "sinónimos y elipsis"], C.inf],
     ]),
   },
-  video: { id: "xF8lqF9LMAg", titulo: "Los elementos de la comunicación (ejemplos y características)", canal: "Astraway", vistas: 1713988, megusta: 0, busqueda: "la comunicación y sus elementos" },
+  video: { id: "qpNamkCmrik", titulo: "La comunicación: definición, elementos y tipos", canal: "TeoCom", vistas: 168707, megusta: 0, busqueda: "la comunicación y sus elementos" },
   feynman: ["Los seis elementos de la comunicación con un ejemplo", "Qué es el ruido y cómo lo combate la retroalimentación", "Las seis funciones del lenguaje", "La diferencia entre adecuación, coherencia y cohesión", "Tres mecanismos de cohesión"],
   mapa: mapa("COMUNICACIÓN Y TEXTO", "var(--eso)", [
     ["Elementos", "emisor · receptor · canal…", C.pen],

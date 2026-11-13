@@ -67,7 +67,7 @@ module.exports = libro({
       ["a menudo se mezclan", "ENSAYO", ["explica y opina", "a la vez"], C.leaf],
     ]),
   },
-  video: { id: "Mq4Hzx1peNU", titulo: "Texto argumentativo: características, contenidos, clases y rasgos lingüísticos", canal: "Clases Particulares en Ávila", vistas: 424752, megusta: 0, busqueda: "texto argumentativo características estructura" },
+  video: { id: "DDnmTF0DDYg", titulo: "La argumentación: concepto y estructura", canal: "Stav Guxt", vistas: 887207, megusta: 0, busqueda: "texto argumentativo características estructura" },
   feynman: ["La diferencia entre un texto expositivo y uno argumentativo", "Cuatro procedimientos para explicar", "Qué son la tesis, los argumentos y la conclusión", "Tres tipos de argumentos y una falacia", "Las cuatro fases para escribir un texto argumentativo"],
   mapa: mapa("EXPONER Y ARGUMENTAR", "var(--eso)", [
     ["Expositivo", "explica · objetivo", C.inf],
@@ -136,7 +136,7 @@ module.exports = libro({
 }, {
   videos: [
     ["1.3", L.vid("j5oiWmTa9YA", "Texto expositivo explicado fácil: estructura, características y ejemplos", "Te Lo Explico", 144609)],
-    ["2.3", L.vid("tuxhapbjMBk", "5 tipos de argumentos explicados con ejemplos", "Profesor Paolo Astorga", 121815)],
+    ["2.3", L.vid("8kJfrcsp0hs", "Tipos de argumentos: explicación y ejemplos fáciles", "Javier Lengua", 55577)],
     ["2.6", L.vid("CY9AgK1yJYw", "Cómo usar correctamente los conectores lógicos", "Renato Zarate Amador", 497755)],
   ],
   ejemplos: [
