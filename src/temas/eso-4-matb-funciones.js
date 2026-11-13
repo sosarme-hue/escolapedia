@@ -1,172 +1,245 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-
-// Curva genérica a partir de puntos [x, y] en píxeles (spline sencillo con Q).
-const curva = (pts, c = "var(--pen)") => `<path d="M${pts[0].join(" ")} ${pts.slice(1).map((p, i) => `L ${p.join(" ")}`).join(" ")}" fill="none" stroke="${c}" stroke-width="3" stroke-linejoin="round"/>`;
+// Matemáticas B 4º ESO · Tema 7. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, graf } = require("./_eso4L3");
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Funciones y sus propiedades",
-  minutos: 40,
-  objetivos: ["Reconocer una función y hallar su dominio y recorrido", "Estudiar continuidad, crecimiento, máximos y mínimos en una gráfica", "Identificar simetrías, periodicidad y tendencias"],
-  claves: ["dominio", "recorrido", "continuidad", "creciente", "máximo relativo", "simetría"],
+  minutos: 115,
+  objetivos: [
+    "Reconocer una función a partir de un enunciado, una tabla, una fórmula o una gráfica",
+    "Hallar el dominio y el recorrido de una función, también a partir de su fórmula",
+    "Estudiar cortes con los ejes, signo, crecimiento, máximos y mínimos",
+    "Calcular e interpretar la tasa de variación media",
+    "Estudiar la continuidad y trabajar con funciones definidas a trozos",
+    "Identificar simetrías, periodicidad y tendencias, y analizar gráficas reales",
+  ],
+  claves: ["función", "variable independiente", "dominio", "recorrido", "creciente", "máximo relativo", "tasa de variación media", "continuidad", "función a trozos", "simetría", "periodo", "asíntota"],
+  lectura: {
+    titulo: "Una gráfica vale más que mil datos",
+    html: `<p>En 1854, Londres sufría una epidemia de cólera que mató a cientos de personas en pocos días. Se creía que la enfermedad se transmitía por el «aire malo». El médico John Snow hizo algo distinto: dibujó en un mapa cada fallecimiento y vio que las muertes se agrupaban alrededor de una fuente de agua de Broad Street. Cuando se retiró la manivela de la bomba, la epidemia remitió. Una buena representación de los datos había salvado vidas.</p>
+    <p>Hoy convivimos con gráficas constantemente: la evolución de la temperatura en una aplicación del tiempo, el ritmo cardiaco en un reloj deportivo, el precio de la luz hora a hora, las visitas de un vídeo o la curva de contagios de una enfermedad. Todas ellas describen cómo una cantidad <b>depende</b> de otra. Esa relación de dependencia es lo que en matemáticas se llama una <b>función</b>.</p>
+    <p>Saber leer una función es una competencia imprescindible para un ciudadano informado: permite detectar cuándo algo crece o se estanca, cuál es el mejor y el peor momento, si un cambio es brusco o gradual y qué tendencia sigue a largo plazo. En este tema aprenderás el vocabulario preciso para describir cualquier gráfica y las herramientas para estudiar una función a partir de su fórmula. Así podrás contar con rigor lo que un dibujo dice de un vistazo.</p>`,
+  },
   pregunta: {
     texto: "La temperatura de un día empieza en 8 °C, sube hasta 22 °C a las 15 h y baja a 12 °C por la noche. ¿Cómo lo contarías con un solo dibujo?",
     respuesta: "Con la <mark>gráfica de una función</mark>: a cada hora (x) le corresponde una única temperatura (y). En ella se ve de un vistazo dónde <b>crece</b>, dónde <b>decrece</b> y cuál es el <b>máximo</b> (22 °C a las 15 h).",
   },
   bloques: [
     {
-      html: `<h3>Qué es una función</h3><p>Es una relación que asigna a cada valor de x (<b>variable independiente</b>) <mark>un único valor</mark> de y (<b>variable dependiente</b>). Se puede dar con una fórmula, una tabla, una gráfica o un enunciado. Truco gráfico: si una recta vertical corta a la curva en más de un punto, no es función.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Prueba de la recta vertical: una curva que la recta corta una vez es función; una circunferencia, que corta dos veces, no">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${curva([[14, 140], [40, 110], [70, 60], [100, 80], [120, 40]], "var(--leaf)")}
-        <circle cx="190" cy="90" r="46" fill="none" stroke="var(--red)" stroke-width="3"/>
-        <path d="M70 20 V 160 M190 20 V 160" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 5"/>
-        <circle cx="70" cy="60" r="5" fill="var(--leaf)"/><circle cx="190" cy="44" r="5" fill="var(--red)"/><circle cx="190" cy="136" r="5" fill="var(--red)"/>
-        <g ${F} font-size="12" font-weight="700" text-anchor="middle"><text x="70" y="174" fill="var(--leaf)">sí es función</text><text x="190" y="174" fill="var(--red)">no es función</text></g></svg>`,
+      html: `<h3>7.1 Qué es una función</h3><p>Una <b>función</b> es una relación entre dos variables que asigna a cada valor de la primera, x, <mark>un único valor</mark> de la segunda, y. Se escribe y = f(x). La x se llama <b>variable independiente</b> (la que elegimos libremente, como el tiempo) y la y, <b>variable dependiente</b> (la que resulta, como la temperatura). El valor f(a) es la <b>imagen</b> de a, y a es una <b>antiimagen</b> de f(a).</p><p>Una misma función se puede expresar de cuatro maneras:</p><ul><li><b>Enunciado</b>: «un taxi cobra 3 € de bajada de bandera y 1,20 € por km».</li><li><b>Tabla de valores</b>: 0 km → 3 €; 5 km → 9 €; 10 km → 15 €.</li><li><b>Fórmula</b>: f(x) = 3 + 1,2x.</li><li><b>Gráfica</b>: los puntos (x, f(x)) dibujados en unos ejes.</li></ul><p>Cada forma tiene ventajas: la fórmula permite calcular cualquier valor exacto, la tabla organiza datos medidos y la gráfica muestra el comportamiento global de un vistazo. Pasar de una forma a otra con soltura es una de las destrezas clave de este tema. No todas las relaciones son funciones: asignar a cada persona sus hermanos no lo es, porque una persona puede tener varios.</p>`,
+      svg: lienzo("Cuatro formas de expresar la misma función del taxi: enunciado, tabla, fórmula y gráfica", `${[["Enunciado", "3 € + 1,20 €/km", "var(--pen)", 14, 14], ["Tabla", "0 → 3 · 5 → 9", "var(--leaf)", 136, 14], ["Fórmula", "f(x) = 3 + 1,2x", "var(--red)", 14, 96]].map(([a, b, c, x, y]) => `<rect x="${x}" y="${y}" width="110" height="70" rx="10" fill="var(--card)" stroke="${c}" stroke-width="2"/>${t(x + 55, y + 26, a, { s: 13, b: 1, c })}${t(x + 55, y + 50, b, { s: 11 })}`).join("")}<rect x="136" y="96" width="110" height="70" rx="10" fill="var(--card)" stroke="var(--inf)" stroke-width="2"/><path d="M148 156 H 236 M148 156 V 108" stroke="var(--muted)" stroke-width="1.5"/><path d="M148 146 L 232 112" stroke="var(--inf)" stroke-width="3"/>${t(200, 150, "Gráfica", { s: 12, b: 1, c: "var(--inf)" })}`),
     },
     {
-      html: `<h3>Dominio y recorrido</h3><p>El <b>dominio</b> son los valores de x que <mark>se pueden usar</mark>; el <b>recorrido</b> (o imagen), los valores de y que <mark>se obtienen</mark>. Por fórmula: un <b>denominador</b> no puede ser 0 y una <b>raíz cuadrada</b> no puede tener dentro un número negativo.</p>
-      <div class="formula"><span>f(x) = 1/(x − 2) → Dom = ℝ − {2}</span></div><div class="formula"><span>g(x) = √(x + 3) → Dom = [−3, +∞)</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráfica de raíz de x más 3: empieza en x igual menos 3; el dominio se marca en el eje x y el recorrido en el eje y">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M10 140 H 250 M100 10 V 172" stroke="var(--line)" stroke-width="2"/>
-        <path d="${[...Array(41)].map((_, i) => { const x = -3 + i * 0.25; return `${i ? "L" : "M"}${(100 + x * 18).toFixed(1)} ${(140 - Math.sqrt(x + 3) * 30).toFixed(1)}`; }).join(" ")}" fill="none" stroke="var(--pen)" stroke-width="3"/>
-        <path d="M46 150 H 250" stroke="var(--leaf)" stroke-width="5"/><circle cx="46" cy="150" r="5" fill="var(--leaf)"/>
-        <path d="M18 140 V 14" stroke="var(--red)" stroke-width="5"/><circle cx="18" cy="140" r="5" fill="var(--red)"/>
-        <g ${F} font-size="12" font-weight="700"><text x="130" y="172" fill="var(--leaf)">dominio [−3, +∞)</text><text x="26" y="30" fill="var(--red)">recorrido [0, +∞)</text><text x="40" y="166" fill="var(--muted)">−3</text></g></svg>`,
+      html: `<h3>7.2 Cómo reconocer una función en una gráfica</h3><p>Como a cada x le corresponde un único valor de y, una gráfica representa una función si <mark>cualquier recta vertical la corta, como mucho, en un punto</mark>. Es la llamada <b>prueba de la recta vertical</b>. Una circunferencia, por ejemplo, no es la gráfica de una función: la recta x = 0 la corta dos veces.</p><p>En cambio, sí puede ocurrir que varios valores de x tengan la misma imagen: en y = x², tanto 2 como −2 tienen imagen 4. Eso está permitido, porque cada x sigue teniendo una sola y.</p><p>Al dibujar la gráfica de una función a partir de su fórmula conviene: hacer una tabla con valores de x positivos, negativos y cero; elegir una escala adecuada en cada eje (no tiene por qué ser la misma); unir los puntos solo si la variable puede tomar valores intermedios. Si la x es un número de personas, la gráfica son puntos sueltos; si es el tiempo, se unen con una línea. Una gráfica sin <b>títulos y unidades</b> en los ejes está incompleta: nadie podría interpretarla.</p>`,
+      svg: graf("Prueba de la recta vertical: la parábola es una función porque cada recta vertical la corta una vez; la circunferencia no, porque la corta dos veces", { x0: -5, x1: 5, y0: -3, y1: 4, paso: 1, etiquetas: false }, (E) => `${E.curva((x) => (x + 2.5) ** 2 / 2 - 2, "var(--leaf)", -5, 0)}<circle cx="${E.X(2.6)}" cy="${E.Y(0.5)}" r="${E.X(1.8) - E.X(0)}" fill="none" stroke="var(--red)" stroke-width="2.6"/>${E.seg(-2.5, -3, -2.5, 4, "var(--muted)", 1.6, 'stroke-dasharray="4 3"')}${E.seg(2.6, -3, 2.6, 4, "var(--muted)", 1.6, 'stroke-dasharray="4 3"')}${E.punto(-2.5, -2, "var(--leaf)")}${E.punto(2.6, 2.3, "var(--red)")}${E.punto(2.6, -1.3, "var(--red)")}${t(E.X(-3.8), E.Y(3.3), "sí ✓", { c: "var(--leaf)", s: 13, b: 1 })}${t(E.X(4.4), E.Y(3.3), "no ✗", { c: "var(--red)", s: 13, b: 1 })}`),
     },
     {
-      html: `<h3>Crecimiento, máximos y mínimos</h3><p>Una función es <b>creciente</b> donde, al avanzar x, <mark>sube</mark>, y <b>decreciente</b> donde baja. Donde pasa de crecer a decrecer hay un <b>máximo relativo</b>; donde pasa de decrecer a crecer, un <b>mínimo relativo</b>. Se escriben con intervalos de x.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráfica de la temperatura de un día: crece hasta un máximo a las 15 horas y luego decrece; tiene un mínimo de madrugada">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M24 150 H 250 M24 10 V 150" stroke="var(--line)" stroke-width="2"/>
-        <path d="M24 110 C 40 120 50 130 66 128 C 110 124 140 30 170 30 C 200 30 220 80 248 92" fill="none" stroke="var(--pen)" stroke-width="3"/>
-        <circle cx="170" cy="30" r="6" fill="var(--red)"/><circle cx="62" cy="128" r="6" fill="var(--leaf)"/>
-        <g ${F} font-size="12" font-weight="700"><text x="112" y="24" fill="var(--red)">máximo: 22 °C a las 15 h</text><text x="70" y="146" fill="var(--leaf)">mínimo</text>
-        <text x="96" y="70" fill="var(--pen)">↗ crece</text><text x="200" y="110" fill="var(--pen)">↘ decrece</text><text x="236" y="166" fill="var(--muted)">h</text></g></svg>`,
+      html: `<h3>7.3 Dominio y recorrido</h3><p>El <b>dominio</b> de una función, Dom f, es el conjunto de valores de x que tienen imagen. El <b>recorrido</b> o imagen, Im f, es el conjunto de valores que toma y. Ambos se suelen escribir como intervalos o uniones de intervalos.</p><p>En una gráfica, el dominio se lee <mark>proyectando la gráfica sobre el eje X</mark> (¿desde dónde hasta dónde llega horizontalmente?) y el recorrido, <mark>proyectándola sobre el eje Y</mark> (¿desde dónde hasta dónde llega verticalmente?). Los puntos huecos en los extremos indican que ese valor no se incluye.</p><p>Por ejemplo, si la temperatura de un día se mide de 0 a 24 h y oscila entre 8 °C y 22 °C, el dominio es [0, 24] y el recorrido [8, 22]. En los problemas reales el dominio también depende del <b>contexto</b>: en la función «área de un cuadrado según su lado», A(x) = x², la fórmula admite cualquier x, pero un lado no puede ser negativo ni cero, así que el dominio con sentido es (0, +∞). Distinguir entre el dominio de la fórmula y el dominio del problema es una fuente habitual de preguntas de examen.</p>`,
+      svg: graf("Dominio y recorrido de una gráfica: la proyección sobre el eje X va de menos 3 a 4 y la proyección sobre el eje Y de menos 1 a 3", { x0: -4, x1: 5, y0: -2, y1: 4, paso: 1 }, (E) => `${E.curva((x) => 1 + 2 * Math.sin(x * 0.9) * Math.exp(-0.05 * x * x) - 0.2 * x * 0, "var(--pen)", -3, 4)}${E.punto(-3, 1 + 2 * Math.sin(-2.7) * Math.exp(-0.45), "var(--pen)")}${E.punto(4, 1 + 2 * Math.sin(3.6) * Math.exp(-0.8), "var(--pen)", "", 0, 0, true)}<path d="M${E.X(-3)} ${E.Y(-1.6)} H ${E.X(4)}" stroke="var(--red)" stroke-width="5" opacity=".7"/><path d="M${E.X(-3.6)} ${E.Y(-0.75)} V ${E.Y(2.75)}" stroke="var(--leaf)" stroke-width="5" opacity=".7"/>${t(E.X(0.5), E.Y(-1.6) + 14, "dominio", { c: "var(--red)", s: 11, b: 1 })}${t(E.X(-3.4), E.Y(3.3), "recorrido", { c: "var(--leaf)", s: 11, b: 1, a: "start" })}`),
     },
     {
-      html: `<h3>Continuidad</h3><p>Una función es <b>continua</b> si se puede dibujar <mark>sin levantar el lápiz</mark>. Si hay un salto, un agujero o la función se dispara hacia el infinito (asíntota), es <b>discontinua</b> en ese punto. Las tarifas por tramos (aparcamientos, envíos) suelen tener saltos.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráfica escalonada del precio de un aparcamiento: tiene saltos en cada hora, así que es discontinua">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M24 150 H 250 M24 10 V 150" stroke="var(--line)" stroke-width="2"/>
-        ${[0, 1, 2, 3].map((i) => `<path d="M${24 + i * 55} ${126 - i * 30} H ${79 + i * 55}" stroke="var(--pen)" stroke-width="4"/><circle cx="${24 + i * 55}" cy="${126 - i * 30}" r="5" fill="${i ? "var(--pen)" : "var(--pen)"}"/><circle cx="${79 + i * 55}" cy="${126 - i * 30}" r="5" fill="var(--paper)" stroke="var(--pen)" stroke-width="2.5"/>`).join("")}
-        <g ${F} font-size="12" font-weight="700"><text x="34" y="30" fill="var(--red)">saltos → discontinua</text>${[1, 2, 3, 4].map((h, i) => `<text x="${79 + i * 55}" y="166" text-anchor="middle" fill="var(--muted)">${h} h</text>`).join("")}</g></svg>`,
+      html: `<h3>7.4 Dominio a partir de la fórmula</h3><p>Cuando la función viene dada por una fórmula, su dominio son todos los números reales <b>salvo</b> los que hacen imposible el cálculo. En 4º hay tres situaciones que vigilar:</p><ul><li><b>Polinomios</b>: se pueden calcular siempre. Dom f = ℝ.</li><li><b>Fracciones</b>: <mark>el denominador no puede valer cero</mark>. En f(x) = 3/(x − 2), x ≠ 2: Dom f = ℝ − {2}. En g(x) = x/(x² − 9), se excluyen x = ±3.</li><li><b>Raíces de índice par</b>: <mark>el radicando debe ser mayor o igual que cero</mark>. En h(x) = √(x − 5), x − 5 ≥ 0, así que Dom h = [5, +∞). En k(x) = √(4 − x²), 4 − x² ≥ 0, lo que da [−2, 2].</li></ul><p>Las raíces de índice impar, como ∛x, existen para cualquier número real. Los logaritmos, que verás en el tema siguiente, exigen que su argumento sea estrictamente positivo. Cuando aparecen varias condiciones, como en √x / (x − 1), se deben cumplir todas a la vez: x ≥ 0 y x ≠ 1, es decir, [0, 1) ∪ (1, +∞). Calcular dominios es, por tanto, una aplicación directa de las ecuaciones y las inecuaciones de los temas anteriores.</p>`,
+      svg: tarjeta("Reglas para calcular el dominio: polinomios todo R, fracciones denominador distinto de cero, raíces de índice par radicando mayor o igual que cero", "¿Dónde no se puede calcular?", [["polinomio → Dom = ℝ", "var(--leaf)", 14], ["3/(x − 2) → x ≠ 2", "var(--pen)", 14], ["√(x − 5) → x ≥ 5", "var(--red)", 14], ["√x/(x − 1) → [0, 1) ∪ (1, +∞)", "var(--inf)", 13]]),
+      video: { id: "c20QWEhBPKs", titulo: "Hallar el dominio de una función", canal: "Susi Profe", vistas: 3679172, busqueda: "dominio de una función" },
     },
     {
-      html: `<h3>Simetrías y periodicidad</h3><p>Una función es <b>par</b> si f(−x) = f(x): es <mark>simétrica respecto al eje Y</mark> (como x²). Es <b>impar</b> si f(−x) = −f(x): simétrica respecto al <mark>origen</mark> (como x³). Es <b>periódica</b> si se repite cada cierto intervalo, el <b>periodo</b> (como las mareas).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Función par con forma de U simétrica respecto al eje vertical y función impar simétrica respecto al origen">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M10 100 H 120 M65 14 V 170 M140 100 H 250 M195 14 V 170" stroke="var(--line)" stroke-width="2"/>
-        <path d="${[...Array(31)].map((_, i) => { const x = -1.5 + i * 0.1; return `${i ? "L" : "M"}${(65 + x * 34).toFixed(1)} ${(100 - x * x * 30).toFixed(1)}`; }).join(" ")}" fill="none" stroke="var(--leaf)" stroke-width="3"/>
-        <path d="${[...Array(31)].map((_, i) => { const x = -1.5 + i * 0.1; return `${i ? "L" : "M"}${(195 + x * 34).toFixed(1)} ${(100 - x * x * x * 22).toFixed(1)}`; }).join(" ")}" fill="none" stroke="var(--red)" stroke-width="3"/>
-        <g ${F} font-size="12" font-weight="700" text-anchor="middle"><text x="65" y="130" fill="var(--leaf)">par: y = x²</text><text x="195" y="160" fill="var(--red)">impar: y = x³</text></g></svg>`,
+      html: `<h3>7.5 Cortes con los ejes y signo</h3><p>Los <b>puntos de corte</b> son los puntos donde la gráfica toca los ejes:</p><ul><li>Con el <b>eje Y</b>: se hace <mark>x = 0</mark> y se calcula f(0). Hay como máximo un corte (si 0 está en el dominio), porque una función no puede tener dos imágenes para x = 0.</li><li>Con el <b>eje X</b>: se resuelve la ecuación <mark>f(x) = 0</mark>. Puede haber ninguno, uno o varios. Sus soluciones se llaman <b>ceros</b> o raíces de la función.</li></ul><p>Por ejemplo, para f(x) = x² − 2x − 3: f(0) = −3, corte (0, −3); y x² − 2x − 3 = 0 da x = 3 y x = −1, cortes (3, 0) y (−1, 0).</p><p>Los ceros dividen el dominio en intervalos en los que la función tiene <b>signo constante</b>: la gráfica está por encima del eje X (f &gt; 0) o por debajo (f &lt; 0). Estudiar el signo es, por tanto, resolver las inecuaciones f(x) &gt; 0 y f(x) &lt; 0, lo que conecta directamente con el tema anterior. En el ejemplo, f es positiva en (−∞, −1) ∪ (3, +∞) y negativa en (−1, 3). En un problema de beneficios, el signo indica cuándo se gana y cuándo se pierde dinero.</p>`,
+      svg: graf("Cortes de x cuadrado menos 2x menos 3 con los ejes: (menos 1, 0), (3, 0) y (0, menos 3); la función es negativa entre menos 1 y 3", { x0: -3, x1: 5, y0: -5, y1: 6, paso: 1 }, (E) => `${E.curva((x) => x * x - 2 * x - 3, "var(--pen)")}${E.punto(-1, 0, "var(--red)", "(−1, 0)", -4, -8)}${E.punto(3, 0, "var(--red)", "(3, 0)", 6, -8)}${E.punto(0, -3, "var(--leaf)")}${t(E.X(-1.9), E.Y(-3.2), "(0, −3)", { c: "var(--leaf)", s: 11, b: 1 })}${t(E.X(1), E.Y(-2.4), "−", { c: "var(--red)", s: 18, b: 1 })}${t(E.X(-2.2), E.Y(2), "+", { c: "var(--leaf)", s: 18, b: 1 })}${t(E.X(4.3), E.Y(2), "+", { c: "var(--leaf)", s: 18, b: 1 })}`),
+    },
+    {
+      html: `<h3>7.6 Crecimiento y decrecimiento</h3><p>Una función es <b>creciente</b> en un intervalo si, al aumentar x, aumenta también y: si x₁ &lt; x₂, entonces f(x₁) &lt; f(x₂). Su gráfica «sube» al recorrerla de izquierda a derecha. Es <b>decreciente</b> si, al aumentar x, disminuye y: la gráfica «baja». Y es <b>constante</b> si y no cambia: la gráfica es un tramo horizontal.</p><p>Los intervalos de crecimiento y decrecimiento se expresan siempre con <mark>valores de x</mark>, nunca de y, y normalmente con intervalos abiertos. Es un error frecuente decir «crece de 2 a 8» refiriéndose a las alturas: hay que decir «crece en (1, 4)» si entre x = 1 y x = 4 la gráfica sube.</p><p>Una función que crece en todo su dominio se llama <b>estrictamente creciente</b>; por ejemplo, f(x) = 2x + 1 o g(x) = 2ˣ. Las funciones que cambian de comportamiento lo hacen en los <b>extremos relativos</b>, los puntos donde la gráfica pasa de subir a bajar o al revés. En la vida real, el crecimiento indica tendencias: si la gráfica de ventas de una empresa crece, el negocio va bien; si la gráfica del nivel de un embalse decrece durante meses, hay sequía.</p>`,
+      svg: graf("Función que crece hasta x igual a menos 1, decrece entre menos 1 y 2 y vuelve a crecer desde 2", { x0: -3, x1: 4, y0: -5, y1: 5, paso: 1 }, (E) => `${E.curva((x) => (x ** 3) / 2 - 0.75 * x * x - 3 * x + 1, "var(--pen)")}${t(E.X(-2.2), E.Y(4), "↗ crece", { c: "var(--leaf)", s: 12, b: 1 })}${t(E.X(1.3), E.Y(3.3), "↘ decrece", { c: "var(--red)", s: 12, b: 1 })}${t(E.X(2.3), E.Y(2.2), "crece ↗", { c: "var(--leaf)", s: 12, b: 1 })}`),
+    },
+    {
+      html: `<h3>7.7 Máximos y mínimos</h3><p>Una función tiene un <b>máximo relativo</b> en x = a si f(a) es mayor que las imágenes de los puntos <b>cercanos</b> a a: en a la función pasa de crecer a decrecer, como la cima de una colina. Tiene un <b>mínimo relativo</b> en x = b si f(b) es menor que las imágenes cercanas: pasa de decrecer a crecer, como el fondo de un valle. Máximos y mínimos se llaman <b>extremos</b>.</p><p>El <b>máximo absoluto</b> es el mayor valor que toma la función en todo su dominio, y el <b>mínimo absoluto</b>, el menor. Un máximo relativo no tiene por qué ser absoluto: puede haber «colinas» más altas en otra parte. Y puede que no exista máximo absoluto, como en y = x², que crece sin límite.</p><p>Al dar un extremo hay que distinguir <mark>dónde se alcanza (el valor de x) y cuánto vale (el valor de y)</mark>. Lo más completo es dar el punto: «máximo relativo en (−1, 2,75)». En contextos reales, los extremos tienen mucho significado: la hora de máxima temperatura, el precio que da el máximo beneficio o el momento de menor consumo eléctrico. En Bachillerato aprenderás a calcularlos con las derivadas; en 4º se leen en la gráfica o se hallan con el vértice de una parábola.</p>`,
+      svg: graf("La misma función con un máximo relativo en (menos 1; 2,75) y un mínimo relativo en (2, menos 4)", { x0: -3, x1: 4, y0: -5, y1: 5, paso: 1 }, (E) => `${E.curva((x) => (x ** 3) / 2 - 0.75 * x * x - 3 * x + 1, "var(--pen)")}${E.punto(-1, 2.75, "var(--leaf)", "máx (−1; 2,75)", -6, -10)}${E.punto(2, -4, "var(--red)", "mín (2, −4)", 8, 4)}`),
+    },
+    {
+      html: `<h3>7.8 La tasa de variación media</h3><p>La <b>tasa de variación media</b> (TVM) de una función en un intervalo [a, b] mide cuánto cambia y, por término medio, por cada unidad que aumenta x:</p><div class="formula"><span>TVM [a, b] = (f(b) − f(a)) / (b − a)</span></div><p>Geométricamente, es la <mark>pendiente de la recta que une los puntos</mark> (a, f(a)) y (b, f(b)) de la gráfica. Si es positiva, la función ha aumentado en el intervalo; si es negativa, ha disminuido; si es cero, empieza y acaba a la misma altura (aunque entre medias haya subido y bajado).</p><p>La TVM tiene interpretaciones muy concretas según las unidades. Si la función da la distancia recorrida en km según el tiempo en horas, la TVM es la <b>velocidad media</b> en km/h. Si da la población de una ciudad según el año, es el número medio de habitantes que gana o pierde cada año. Ejemplo: un coche está en el km 40 a las 10:00 y en el km 190 a las 11:30. Su velocidad media es (190 − 40)/(1,5) = 100 km/h. Comparar la TVM en distintos intervalos permite saber <b>dónde la función cambia más deprisa</b>.</p>`,
+      svg: graf("Tasa de variación media: pendiente del segmento que une dos puntos de la gráfica de x cuadrado entre 1 y 3, que vale 4", { x0: -1, x1: 4, y0: -1, y1: 10, paso: 1, pasoY: 2 }, (E) => `${E.curva((x) => x * x, "var(--pen)")}${E.seg(1, 1, 3, 9, "var(--red)", 2.4)}${E.seg(1, 1, 3, 1, "var(--muted)", 1.5, 'stroke-dasharray="4 3"')}${E.seg(3, 1, 3, 9, "var(--muted)", 1.5, 'stroke-dasharray="4 3"')}${E.punto(1, 1, "var(--red)")}${E.punto(3, 9, "var(--red)")}${t(E.X(2), E.Y(1) + 14, "b − a = 2", { s: 10, c: "var(--muted)" })}${t(E.X(3.1), E.Y(5), "8", { s: 11, b: 1, c: "var(--muted)", a: "start" })}${t(E.X(1.2), E.Y(7.5), "TVM = 8/2 = 4", { s: 12, b: 1, c: "var(--red)" })}`),
+      video: { id: "2RBCifEcV7w", titulo: "Tasa de variación media", canal: "unicoos", vistas: 360060, busqueda: "tasa de variación media" },
+    },
+    {
+      html: `<h3>7.9 Continuidad</h3><p>Intuitivamente, una función es <b>continua</b> si su gráfica se puede dibujar <mark>sin levantar el lápiz del papel</mark>. Si en algún punto hay que levantarlo, la función es <b>discontinua</b> en ese punto. Hay tres tipos de discontinuidad:</p><ul><li><b>De salto</b>: la gráfica «salta» de un valor a otro. Ocurre en las tarifas por tramos, como el precio de un aparcamiento por horas o el de los envíos según el peso.</li><li><b>Evitable</b>: a la gráfica le falta un único punto (o ese punto está desplazado), como en f(x) = (x² − 1)/(x − 1), que coincide con x + 1 salvo en x = 1, donde no existe.</li><li><b>Asintótica</b>: la función se dispara hacia +∞ o −∞ cerca de un valor, como 1/x cerca de 0.</li></ul><p>Muchas funciones que modelan fenómenos físicos son continuas: la temperatura, la altura de una persona o la posición de un objeto no cambian de golpe. En cambio, las magnitudes que se cuentan o se cobran por tramos suelen ser discontinuas. Los polinomios son continuos en todo ℝ; las funciones racionales son continuas en todo su dominio, y tienen discontinuidades donde se anula el denominador.</p>`,
+      svg: lienzo("Tres tipos de discontinuidad: de salto, evitable con un punto hueco y asintótica con la gráfica que se dispara", `${[["salto", "var(--pen)"], ["evitable", "var(--leaf)"], ["asintótica", "var(--red)"]].map(([n, c], i) => { const ox = 8 + i * 84; let g = ""; if (i === 0) g = `<path d="M${ox + 6} 110 H ${ox + 38}" stroke="${c}" stroke-width="3"/><circle cx="${ox + 38}" cy="110" r="4" fill="var(--paper)" stroke="${c}" stroke-width="2"/><path d="M${ox + 38} 70 H ${ox + 72}" stroke="${c}" stroke-width="3"/><circle cx="${ox + 38}" cy="70" r="4" fill="${c}"/>`; if (i === 1) g = `<path d="M${ox + 6} 130 L ${ox + 72} 50" stroke="${c}" stroke-width="3"/><circle cx="${ox + 39}" cy="90" r="5" fill="var(--paper)" stroke="${c}" stroke-width="2.5"/>`; if (i === 2) g = `<path d="M${ox + 40} 30 V 140" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M${ox + 6} 98 Q ${ox + 30} 96 ${ox + 36} 140" fill="none" stroke="${c}" stroke-width="3"/><path d="M${ox + 44} 30 Q ${ox + 50} 76 ${ox + 74} 78" fill="none" stroke="${c}" stroke-width="3"/>`; return `<rect x="${ox}" y="24" width="78" height="124" rx="8" fill="var(--card)" stroke="var(--line)"/>${g}${t(ox + 39, 168, n, { s: 12, b: 1, c })}`; }).join("")}`),
+    },
+    {
+      html: `<h3>7.10 Funciones definidas a trozos</h3><p>Una función <b>definida a trozos</b> usa fórmulas distintas en distintas partes de su dominio. Por ejemplo, una compañía de mensajería cobra:</p><div class="formula"><span>f(x) = 5 si 0 &lt; x ≤ 2;   f(x) = 5 + 1,5(x − 2) si x &gt; 2</span></div><p>donde x es el peso en kg. Hasta 2 kg se paga una tarifa plana de 5 €; a partir de ahí, 1,50 € más por cada kg adicional. Para calcular una imagen, primero se mira <mark>en qué trozo está la x</mark> y se usa esa fórmula: f(1) = 5 €; f(6) = 5 + 6 = 11 €.</p><p>Para dibujarla se representa cada fórmula solo en su intervalo, marcando con punto relleno o hueco los extremos según estén incluidos o no. Para estudiar la <b>continuidad</b> en el punto donde cambia la fórmula, se comparan los valores a los que se acercan los dos trozos: en el ejemplo, el primero vale 5 en x = 2 y el segundo también se acerca a 5 + 0 = 5. Como coinciden, la función es continua. Si fuera f(x) = 7 + 1,5(x − 2) para x &gt; 2, habría un salto de 2 €. Las tarifas eléctricas, los impuestos por tramos (IRPF) o las notas de un examen son funciones a trozos.</p>`,
+      svg: graf("Función a trozos de la mensajería: tramo horizontal a 5 euros hasta 2 kilos y luego recta creciente", { x0: 0, x1: 8, y0: 0, y1: 16, paso: 1, pasoY: 2, pasoEt: 2 }, (E) => `${E.curva(() => 5, "var(--pen)", 0, 2)}${E.curva((x) => 5 + 1.5 * (x - 2), "var(--red)", 2, 8)}${E.punto(0, 5, "var(--pen)", "", 0, 0, true)}${E.punto(2, 5, "var(--pen)")}${t(E.X(1), E.Y(5) - 8, "5 €", { c: "var(--pen)", s: 11, b: 1 })}${t(E.X(5.6), E.Y(13), "5 + 1,5(x − 2)", { c: "var(--red)", s: 11, b: 1, a: "end" })}${t(E.X(7.8), E.h - 4, "kg", { c: "var(--muted)", s: 10, a: "end" })}`),
+      video: { id: "L9ePjFfbM5w", titulo: "Funciones definidas a trozos: representación gráfica", canal: "Susi Profe", vistas: 1032936, busqueda: "funciones definidas a trozos" },
+    },
+    {
+      html: `<h3>7.11 Simetrías</h3><p>Algunas funciones tienen gráficas simétricas, lo que permite dibujar solo la mitad y completar el resto «por reflejo»:</p><ul><li>Una función es <b>par</b> si f(−x) = f(x) para todo x del dominio. Su gráfica es <mark>simétrica respecto al eje Y</mark>: la parte izquierda es el reflejo de la derecha. Ejemplos: y = x², y = x⁴ − 3x², y = |x|.</li><li>Una función es <b>impar</b> si f(−x) = −f(x). Su gráfica es <mark>simétrica respecto al origen</mark>: si se gira media vuelta alrededor de (0, 0), coincide consigo misma. Ejemplos: y = x³, y = 1/x, y = x³ − 2x.</li></ul><p>Para comprobarlo se calcula f(−x) y se compara. Con f(x) = x⁴ − 2x²: f(−x) = (−x)⁴ − 2(−x)² = x⁴ − 2x² = f(x), par. Con g(x) = x³ + x: g(−x) = −x³ − x = −g(x), impar. Con h(x) = x² + x: h(−x) = x² − x, que no coincide ni con h(x) ni con −h(x): no tiene ninguna de estas simetrías. La mayoría de las funciones no son ni pares ni impares. En los polinomios hay un truco: si solo tienen potencias pares de x son pares, y si solo tienen potencias impares, impares.</p>`,
+      svg: graf("Función par x a la cuarta menos 2x cuadrado, simétrica respecto al eje Y, y función impar x al cubo menos 2x, simétrica respecto al origen", { x0: -2.5, x1: 2.5, y0: -3, y1: 3, paso: 1, etiquetas: false }, (E) => `${E.curva((x) => x ** 4 - 2 * x * x, "var(--pen)")}${E.curva((x) => x ** 3 - 2 * x, "var(--red)")}${t(E.X(-1), E.Y(-1.7), "par", { c: "var(--pen)", s: 13, b: 1 })}${t(E.X(1.9), E.Y(-2.3), "impar", { c: "var(--red)", s: 13, b: 1 })}`),
+    },
+    {
+      html: `<h3>7.12 Funciones periódicas</h3><p>Una función es <b>periódica</b> si su gráfica se repite exactamente cada cierto intervalo de longitud T, llamado <b>periodo</b>: f(x + T) = f(x) para todo x. Basta con conocer la función en un periodo para conocerla entera.</p><p>Hay muchos fenómenos periódicos a nuestro alrededor:</p><ul><li>La altura de una cabina de una noria que da una vuelta cada 8 minutos tiene periodo 8 min.</li><li>Las mareas suben y bajan con un periodo aproximado de 12 horas y 25 minutos.</li><li>El electrocardiograma de un corazón en reposo repite su forma con cada latido, aproximadamente cada segundo.</li><li>La corriente eléctrica de los enchufes en Europa tiene un periodo de 1/50 s (50 hercios).</li></ul><p>Además del periodo, en una función periódica que oscila se mide la <b>amplitud</b>: la mitad de la diferencia entre el valor máximo y el mínimo. En la noria, si la cabina sube de 2 m a 32 m, la amplitud es 15 m. Las funciones periódicas más importantes son el <mark>seno y el coseno</mark>, que conocerás en el tema de trigonometría y en Bachillerato, y que sirven para describir cualquier fenómeno que se repite, desde el sonido hasta la luz.</p>`,
+      svg: graf("Función periódica: altura de una cabina de noria que se repite cada 8 minutos, entre 2 y 32 metros", { x0: 0, x1: 20, y0: 0, y1: 36, paso: 2, pasoY: 6, pasoEt: 4, m: 18 }, (E) => `${E.curva((x) => 17 - 15 * Math.cos((2 * Math.PI * x) / 8), "var(--pen)")}${E.seg(0, 34, 8, 34, "var(--red)", 2)}${t(E.X(4), E.Y(34) - 4, "periodo 8 min", { c: "var(--red)", s: 10, b: 1 })}${t(E.X(19.5), E.h - 4, "min", { c: "var(--muted)", s: 10, a: "end" })}`),
+    },
+    {
+      html: `<h3>7.13 Tendencias y asíntotas</h3><p>A veces interesa saber qué le pasa a una función cuando x se hace muy grande (x → +∞), muy negativa (x → −∞) o cuando se acerca a un valor concreto. Ese comportamiento es su <b>tendencia</b>.</p><p>Si al crecer x la función se acerca cada vez más a un valor fijo L sin llegar a alcanzarlo, la recta y = L es una <b>asíntota horizontal</b>. Por ejemplo, la temperatura de un café recién hecho baja rápidamente al principio y después cada vez más despacio, acercándose a la temperatura de la habitación, 20 °C: la recta y = 20 es una asíntota horizontal. Si cerca de un valor x = a la función crece o decrece sin límite, la recta x = a es una <b>asíntota vertical</b>, como ocurre con y = 1/x en x = 0.</p><p>Las asíntotas se dibujan con líneas discontinuas y la gráfica <mark>se acerca a ellas tanto como se quiera</mark>. Conocer la tendencia ayuda a hacer predicciones: ¿se estabilizará el número de usuarios de una aplicación?, ¿hacia qué valor tiende la población de una especie en un ecosistema limitado? En el tema siguiente estudiarás las asíntotas de las funciones racionales y exponenciales.</p>`,
+      svg: graf("Enfriamiento de un café: la temperatura baja de 90 grados y se acerca a la asíntota horizontal de 20 grados", { x0: 0, x1: 60, y0: 0, y1: 100, paso: 10, pasoY: 20, pasoEt: 20, m: 18 }, (E) => `${E.seg(0, 20, 60, 20, "var(--red)", 2, 'stroke-dasharray="6 4"')}${E.curva((x) => 20 + 70 * Math.exp(-x / 12), "var(--pen)")}${t(E.X(58), E.Y(20) - 6, "y = 20 °C", { c: "var(--red)", s: 11, b: 1, a: "end" })}${t(E.X(20), E.Y(70), "café", { c: "var(--pen)", s: 12, b: 1 })}${t(E.X(59), E.h - 4, "min", { c: "var(--muted)", s: 10, a: "end" })}`),
+    },
+    {
+      html: `<h3>7.14 Analizar una gráfica paso a paso</h3><p>Para describir completamente una función, conviene seguir siempre el mismo guion:</p><ol><li><b>Variables y unidades</b>: ¿qué representa cada eje?</li><li><b>Dominio y recorrido</b>.</li><li><b>Cortes con los ejes</b> y <b>signo</b>.</li><li><b>Crecimiento y decrecimiento</b>, con intervalos de x.</li><li><b>Máximos y mínimos</b>, relativos y absolutos, dando el punto.</li><li><b>Continuidad</b>: ¿hay saltos o huecos?</li><li><b>Simetrías y periodicidad</b>.</li><li><b>Tendencias</b>: ¿qué pasa en los extremos?</li></ol><p>Ejemplo: el consumo eléctrico de una casa a lo largo de un día. El dominio es [0, 24] h; el recorrido, [0,2; 3,5] kW. La función es positiva siempre (siempre hay algo encendido, como el frigorífico). Decrece de 0 a 5 h (madrugada), crece de 5 a 8 h (desayuno), baja a media mañana, sube a mediodía y alcanza el máximo absoluto hacia las 21 h (cena, luces, lavadora). Es continua y aproximadamente periódica de periodo 24 h. Con este análisis, la familia puede decidir, por ejemplo, <mark>programar la lavadora en las horas valle</mark>, cuando la electricidad es más barata.</p>`,
+      svg: graf("Consumo eléctrico de una casa a lo largo del día: mínimo de madrugada, picos en el desayuno, la comida y un máximo por la noche", { x0: 0, x1: 24, y0: 0, y1: 4, paso: 2, pasoY: 1, pasoEt: 4, m: 18 }, (E) => `${E.curva((x) => 0.3 + 0.9 * Math.exp(-((x - 8) ** 2) / 2) + 1.2 * Math.exp(-((x - 14) ** 2) / 3) + 3.1 * Math.exp(-((x - 21) ** 2) / 4) + 0.4 * Math.exp(-((x) ** 2) / 6), "var(--pen)")}${E.punto(21, 3.47, "var(--red)", "máx", -6, -6)}${E.punto(4.6, 0.31, "var(--leaf)", "mín", 4, -8)}${t(E.X(23.5), E.h - 4, "h", { c: "var(--muted)", s: 10, a: "end" })}${t(E.X(1), 14, "kW", { c: "var(--muted)", s: 10, a: "start" })}`),
     },
   ],
-  figura: {
-    titulo: "Lo que hay que mirar en cualquier gráfica",
-    svg: `<svg viewBox="0 0 640 240" role="img" aria-label="Gráfica comentada con dominio, recorrido, cortes con los ejes, crecimiento, máximo, mínimo y continuidad">
-      <rect width="640" height="240" rx="16" fill="var(--paper)"/>
-      <path d="M30 170 H 400 M120 20 V 220" stroke="var(--line)" stroke-width="2"/>
-      <path d="M40 210 C 80 120 120 40 170 40 C 220 40 250 180 300 180 C 340 180 360 120 390 70" fill="none" stroke="var(--pen)" stroke-width="3.5"/>
-      <circle cx="170" cy="40" r="7" fill="var(--red)"/><circle cx="300" cy="180" r="7" fill="var(--leaf)"/><circle cx="120" cy="58" r="6" fill="var(--inf)"/><circle cx="66" cy="170" r="6" fill="var(--inf)"/><circle cx="243" cy="170" r="6" fill="var(--inf)"/><circle cx="356" cy="170" r="6" fill="var(--inf)"/>
-      ${[["1", "Dominio y recorrido", "qué x e y aparecen", "var(--ink)"], ["2", "Cortes con los ejes", "x = 0 · y = 0", "var(--inf)"], ["3", "Crece / decrece", "intervalos de x", "var(--pen)"], ["4", "Máximos y mínimos", "cambios de tendencia", "var(--red)"], ["5", "Continuidad y simetría", "saltos · par · impar", "var(--leaf)"]].map(([n, t, d, c], i) => `<circle cx="432" cy="${36 + i * 42}" r="13" fill="${c}"/><text x="432" y="${41 + i * 42}" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" ${D}>${n}</text><text x="454" y="${34 + i * 42}" font-size="14" font-weight="700" fill="${c}" ${F}>${t}</text><text x="454" y="${50 + i * 42}" font-size="12" fill="var(--muted)" ${F}>${d}</text>`).join("")}
-    </svg>`,
-  },
-  video: { id: "H40lcwlgPMk", titulo: "Dominio y rango de una función", canal: "Matemáticas profe Alex", vistas: 6842269, megusta: 141230, busqueda: "dominio y recorrido de una función" },
-  quiz: [
-    { q: "¿Cuál es el dominio de f(x) = 3 / (x + 1)?", o: ["ℝ", "ℝ − {−1}", "ℝ − {1}"], a: 1, e: "El denominador se anula en x = −1." },
-    { q: "¿Cuál es el dominio de g(x) = √(x − 4)?", o: ["[4, +∞)", "(−∞, 4]", "ℝ"], a: 0, e: "Dentro de la raíz: x − 4 ≥ 0 → x ≥ 4." },
-    { q: "Si una función pasa de crecer a decrecer en x = 2, en ese punto hay…", o: ["Un mínimo relativo", "Un máximo relativo", "Una discontinuidad"], a: 1, e: "Sube y luego baja: es un máximo." },
-    { q: "Una función par es simétrica respecto…", o: ["al eje Y", "al origen", "al eje X"], a: 0, e: "f(−x) = f(x): lo de la izquierda es el reflejo de lo de la derecha." },
-    { q: "El precio de un envío que cambia por tramos de peso es una función…", o: ["Continua", "Discontinua", "Periódica"], a: 1, e: "Tiene saltos al cambiar de tramo." },
+  ejemplos: [
+    { enunciado: "Halla el dominio de f(x) = (x + 1)/(x² − 4x) y de g(x) = √(6 − 2x).", pasos: ["f: el denominador se anula si x(x − 4) = 0, es decir, x = 0 o x = 4.", "Dom f = ℝ − {0, 4}.", "g: 6 − 2x ≥ 0 → x ≤ 3.", "Dom g = (−∞, 3]."], resultado: "Dom f = ℝ − {0, 4}; Dom g = (−∞, 3]." },
+    { enunciado: "Calcula los cortes con los ejes de f(x) = x³ − 9x.", pasos: ["Eje Y: f(0) = 0 → (0, 0).", "Eje X: x³ − 9x = 0 → x(x − 3)(x + 3) = 0.", "x = 0, x = 3, x = −3."], resultado: "Cortes (−3, 0), (0, 0) y (3, 0)." },
+    { enunciado: "La población de un pueblo era 2.400 habitantes en 2010 y 1.950 en 2025. Calcula la TVM e interprétala.", pasos: ["TVM = (1950 − 2400)/(2025 − 2010) = −450/15.", "= −30."], resultado: "El pueblo perdió de media 30 habitantes al año." },
+    { enunciado: "Estudia la continuidad de f(x) = x + 2 si x < 1; f(x) = 4 − x si x ≥ 1.", pasos: ["A la izquierda de 1, el primer trozo se acerca a 1 + 2 = 3.", "En x = 1 y a la derecha, el segundo trozo vale 4 − 1 = 3.", "Los dos trozos coinciden en x = 1."], resultado: "Es continua en x = 1 (y en todo ℝ, porque cada trozo es un polinomio)." },
+    { enunciado: "Estudia la simetría de f(x) = x/(x² + 1).", pasos: ["f(−x) = (−x)/((−x)² + 1) = −x/(x² + 1).", "Eso es −f(x)."], resultado: "Es impar: su gráfica es simétrica respecto al origen." },
+    { enunciado: "Un aparcamiento cobra 2 € la primera hora (o fracción) y 1,50 € cada hora adicional o fracción, con un máximo de 12 € al día. ¿Cuánto se paga por 3 h 20 min? ¿Es continua la función?", pasos: ["3 h 20 min cuentan como 4 horas: 2 + 3 · 1,50 = 6,50 €.", "El precio salta al empezar cada nueva hora.", "Al llegar a 9 horas se alcanzan 14 € > 12 €, así que a partir de ahí se paga 12 €."], resultado: "6,50 €. La función es escalonada: discontinua de salto en cada hora entera." },
   ],
-  examen: [
-    { q: "¿f(x) = x³ − x es par, impar o ninguna?", o: ["Par", "Impar", "Ninguna"], a: 1, e: "f(−x) = −x³ + x = −f(x)." },
-    { q: "¿Dónde corta f(x) = 2x − 6 al eje X?", o: ["(3, 0)", "(0, −6)", "(−3, 0)"], a: 0, e: "Se iguala a 0: 2x − 6 = 0 → x = 3." },
-    { q: "El dominio de h(x) = 1 / (x² − 9) es…", o: ["ℝ − {3}", "ℝ − {−3, 3}", "ℝ"], a: 1, e: "x² − 9 = 0 en x = ±3." },
+  errores: [
+    "Dar los intervalos de crecimiento con valores de y en lugar de valores de x.",
+    "Confundir dónde se alcanza un máximo (la x) con cuánto vale (la y).",
+    "Olvidar excluir del dominio los valores que anulan un denominador o hacen negativo el radicando de una raíz par.",
+    "Pensar que una gráfica de distancia-tiempo es el dibujo del camino recorrido.",
+    "Creer que una función continua no puede tener picos: los picos (como en |x|) no rompen la continuidad.",
+    "Calcular f(−x) cambiando solo el signo del primer término al estudiar la simetría.",
   ],
-  feynman: ["Qué condición tiene que cumplir una relación para ser función", "Cómo se calcula el dominio con denominadores y raíces", "Cómo se reconocen en una gráfica el crecimiento y los extremos", "Qué diferencia hay entre una función par y una impar"],
-  mapa: mapa("FUNCIONES", "var(--bac)", [
-    ["Dominio y recorrido", "x permitidos · y obtenidos", "var(--ink)"],
-    ["Monotonía", "crece · decrece · máx · mín", "var(--pen)"],
-    ["Continuidad", "sin levantar el lápiz", "var(--leaf)"],
-    ["Simetría", "par · impar · periódica", "var(--red)"],
-  ], 260),
-  tarjetas: [
-    ["¿Qué es el dominio de una función?", "El conjunto de valores de x para los que existe f(x)."],
-    ["¿Qué valores quitan del dominio un denominador y una raíz?", "Los que anulan el denominador y los que dejan negativo el radicando."],
+  ejercicios: [
+    { nivel: "básico", q: "Si f(x) = 2x² − 3x + 1, calcula f(0), f(2), f(−1) y f(1/2).", sol: "f(0) = 1; f(2) = 8 − 6 + 1 = 3; f(−1) = 2 + 3 + 1 = 6; f(1/2) = 1/2 − 3/2 + 1 = 0." },
+    { nivel: "básico", q: "¿Es una función asignar a cada número su cuadrado? ¿Y asignar a cada número positivo sus raíces cuadradas?", sol: "La primera sí: cada número tiene un único cuadrado. La segunda no: 9 tiene dos raíces cuadradas, 3 y −3." },
+    { nivel: "básico", q: "Una piscina de 60.000 L se vacía a 2.500 L por hora. Escribe la fórmula, el dominio y el recorrido.", sol: "V(t) = 60000 − 2500t. Se vacía cuando V = 0 → t = 24 h. Dominio [0, 24]; recorrido [0, 60000]." },
+    { nivel: "básico", q: "Halla el dominio de f(x) = 5/(x + 3) y de g(x) = x³ − 2x.", sol: "f: x ≠ −3, Dom f = ℝ − {−3}. g es un polinomio: Dom g = ℝ." },
+    { nivel: "básico", q: "Halla el dominio de f(x) = √(2x − 8).", sol: "2x − 8 ≥ 0 → x ≥ 4. Dom f = [4, +∞)." },
+    { nivel: "básico", q: "Calcula los cortes con los ejes de f(x) = 3x − 6 y de g(x) = x² − 4.", sol: "f: eje Y (0, −6); eje X: 3x − 6 = 0 → (2, 0). g: eje Y (0, −4); eje X: x = ±2 → (−2, 0) y (2, 0)." },
+    { nivel: "básico", q: "En la gráfica de la temperatura del apartado inicial, ¿en qué intervalo crece y en cuál decrece?", sol: "Crece de las 0 h (o desde el inicio) hasta las 15 h: (0, 15). Decrece desde las 15 h hasta el final del día: (15, 24)." },
+    { nivel: "básico", q: "Calcula la TVM de f(x) = x² + 1 en [0, 2] y en [2, 4]. ¿Dónde crece más deprisa?", sol: "[0, 2]: (5 − 1)/2 = 2. [2, 4]: (17 − 5)/2 = 6. Crece más deprisa en [2, 4]." },
+    { nivel: "básico", q: "Un tren está en el km 30 a las 9:00 y en el km 255 a las 10:30. ¿Cuál es su velocidad media?", sol: "TVM = (255 − 30)/(1,5) = 150 km/h." },
+    { nivel: "básico", q: "Di si son pares, impares o ninguna de las dos: f(x) = x⁴ + 1, g(x) = x³, h(x) = x + 1.", sol: "f: f(−x) = x⁴ + 1 = f(x), par. g: g(−x) = −x³ = −g(x), impar. h: h(−x) = −x + 1, que no es h(x) ni −h(x): ninguna." },
+    { nivel: "básico", q: "Una noria da una vuelta cada 6 minutos. ¿Cuál es el periodo de la altura de una cabina? Si a los 2 min está a 20 m, ¿a qué altura estará a los 14 min?", sol: "Periodo 6 min. 14 = 2 + 2·6, así que estará a la misma altura que a los 2 min: 20 m." },
+    { nivel: "básico", q: "Calcula f(1) y f(5) si f(x) = 2x si x ≤ 3 y f(x) = 10 − x si x > 3. ¿Es continua en x = 3?", sol: "f(1) = 2; f(5) = 5. En x = 3, el primer trozo vale 6 y el segundo se acerca a 10 − 3 = 7. Hay un salto: discontinua." },
+    { nivel: "medio", q: "Halla el dominio de f(x) = (x − 1)/(x² − 5x + 6).", sol: "x² − 5x + 6 = 0 → x = 2 y x = 3. Dom f = ℝ − {2, 3}." },
+    { nivel: "medio", q: "Halla el dominio de g(x) = √(x² − 9) y de h(x) = √(9 − x²).", sol: "g: x² − 9 ≥ 0 → (−∞, −3] ∪ [3, +∞). h: 9 − x² ≥ 0 → [−3, 3]." },
+    { nivel: "medio", q: "Halla el dominio de f(x) = √(x + 2)/(x − 3).", sol: "x + 2 ≥ 0 → x ≥ −2, y x ≠ 3. Dom f = [−2, 3) ∪ (3, +∞)." },
+    { nivel: "medio", q: "Estudia el signo de f(x) = x² − x − 12.", sol: "Raíces: x = 4 y x = −3. Parábola hacia arriba: positiva en (−∞, −3) ∪ (4, +∞), negativa en (−3, 4)." },
+    { nivel: "medio", q: "Dibuja la función f(x) = x + 3 si x < −1; f(x) = x² si −1 ≤ x ≤ 2; f(x) = 4 si x > 2, y estudia su continuidad.", sol: "En x = −1: el primer trozo tiende a 2 y el segundo vale 1: salto. En x = 2: el segundo vale 4 y el tercero también vale 4: continua. Discontinua solo en x = −1." },
+    { nivel: "medio", q: "Halla a para que f(x) = ax + 1 si x < 2; f(x) = x² − 1 si x ≥ 2 sea continua.", sol: "En x = 2 deben coincidir: 2a + 1 = 4 − 1 = 3 → a = 1." },
+    { nivel: "medio", q: "Estudia la simetría de f(x) = x⁵ − 3x³ + x y de g(x) = (x² + 1)/x².", sol: "f solo tiene potencias impares: f(−x) = −f(x), impar. g(−x) = (x² + 1)/x² = g(x): par." },
+    { nivel: "medio", q: "La altura de una pelota es h(t) = 20t − 5t². Halla su máximo, en qué intervalo sube y en cuál baja, y el dominio con sentido.", sol: "Vértice en t = −20/(−10) = 2 s; h(2) = 20 m: máximo (2, 20). Sube en (0, 2) y baja en (2, 4). Toca el suelo en t = 4: dominio [0, 4]." },
+    { nivel: "medio", q: "Calcula la TVM de f(x) = 1/x en [1, 2] y en [2, 4]. ¿Qué significa que sean negativas?", sol: "[1, 2]: (1/2 − 1)/1 = −1/2. [2, 4]: (1/4 − 1/2)/2 = −1/8. Son negativas porque la función decrece; en [2, 4] decrece más despacio." },
+    { nivel: "medio", q: "Un vídeo tiene 200 visitas el día 1 y 8.200 el día 9. Un segundo vídeo pasa de 5.000 a 9.000 en los mismos días. ¿Cuál ha crecido más deprisa de media?", sol: "Primero: (8200 − 200)/8 = 1.000 visitas al día. Segundo: (9000 − 5000)/8 = 500 visitas al día. El primero crece el doble de deprisa." },
+    { nivel: "medio", q: "Una empresa de taxis cobra 3,5 € hasta 2 km y 1,2 € por cada km adicional. Escribe la función a trozos y calcula el precio de 1,5 km y de 9 km.", sol: "f(x) = 3,5 si 0 < x ≤ 2; f(x) = 3,5 + 1,2(x − 2) si x > 2. f(1,5) = 3,5 €; f(9) = 3,5 + 8,4 = 11,90 €." },
+    { nivel: "medio", q: "Describe la tendencia de f(x) = 3 + 2/x cuando x → +∞ y cuando x se acerca a 0.", sol: "Cuando x crece, 2/x se acerca a 0 y f a 3: asíntota horizontal y = 3. Cerca de 0, 2/x se hace enorme (positivo o negativo): asíntota vertical x = 0." },
+    { nivel: "avanzado", q: "Halla el recorrido de f(x) = x² − 6x + 10 y de g(x) = 3 − √(x + 1).", sol: "f(x) = (x − 3)² + 1 ≥ 1: Im f = [1, +∞). En g, √(x + 1) toma todos los valores de [0, +∞), así que g toma los de (−∞, 3]: Im g = (−∞, 3]." },
+    { nivel: "avanzado", q: "Una función par cumple f(2) = 5 y una función impar cumple g(2) = 5. Calcula f(−2), g(−2) y g(0), suponiendo que 0 está en el dominio de g.", sol: "f(−2) = f(2) = 5. g(−2) = −g(2) = −5. Como g(−0) = −g(0) y −0 = 0, se tiene g(0) = −g(0), luego g(0) = 0." },
+    { nivel: "avanzado", q: "La distancia (en m) de un ciclista a la salida es d(t) = 2t² para 0 ≤ t ≤ 10 y d(t) = 200 + 40(t − 10) para t > 10 (t en s). Comprueba que es continua y compara su velocidad media en [0, 10] y en [10, 20].", sol: "En t = 10 ambos trozos valen 200: continua. TVM [0, 10] = 200/10 = 20 m/s. TVM [10, 20] = (600 − 200)/10 = 40 m/s: en el segundo tramo va al doble de velocidad media." },
+    { nivel: "avanzado", q: "Halla el dominio de f(x) = √((x − 1)/(x + 2)).", sol: "Hace falta (x − 1)/(x + 2) ≥ 0, con x ≠ −2. Tabla de signos: positivo en (−∞, −2) y en [1, +∞). Dom f = (−∞, −2) ∪ [1, +∞)." },
+    { nivel: "avanzado", q: "Demuestra que la suma de dos funciones impares es impar y que el producto de dos impares es par.", sol: "Si f y g son impares: (f + g)(−x) = −f(x) − g(x) = −(f + g)(x), impar. (f · g)(−x) = (−f(x))(−g(x)) = f(x)g(x), par." },
+    { nivel: "avanzado", q: "Una función tiene periodo 5 y en [0, 5) vale f(x) = x. Calcula f(12), f(23,5) y f(−3).", sol: "f(12) = f(12 − 10) = f(2) = 2. f(23,5) = f(3,5) = 3,5. f(−3) = f(−3 + 5) = f(2) = 2." },
+    { nivel: "avanzado", q: "Halla a y b para que f(x) = x² si x < 1; ax + b si 1 ≤ x ≤ 3; 6 si x > 3 sea continua.", sol: "En x = 1: a + b = 1. En x = 3: 3a + b = 6. Restando: 2a = 5 → a = 5/2, b = −3/2." },
+    { nivel: "avanzado", q: "El IVA de una factura es el 21 % y existe un recargo fijo de 3 € para facturas de menos de 20 € (antes de impuestos). Escribe el total T(x) como función a trozos del importe x y estudia si es continua.", sol: "T(x) = 1,21x + 3 si 0 < x < 20; T(x) = 1,21x si x ≥ 20. En x = 20: el primer trozo tiende a 27,20 y el segundo vale 24,20. Hay un salto de 3 €: es discontinua (y pagar 20 € resulta más barato que pagar 19,90 €)." },
+    { nivel: "avanzado", q: "Halla la TVM de f(x) = x² en [2, 2 + h] y simplifica. ¿A qué valor se acerca cuando h es muy pequeño?", sol: "TVM = ((2 + h)² − 4)/h = (4h + h²)/h = 4 + h. Cuando h se acerca a 0, la TVM se acerca a 4: es la tasa de variación instantánea, que estudiarás en Bachillerato con las derivadas." },
+    { nivel: "avanzado", q: "Esboza una función con dominio [−4, 4], recorrido [−2, 3], máximo absoluto en x = −1, mínimo relativo en x = 1, discontinua en x = 2 y decreciente en (2, 4).", sol: "Respuesta abierta. Por ejemplo: sube de (−4, 0) a (−1, 3), baja hasta (1, 0), sube hasta (2, 1) con punto relleno, salta a (2, 2) con punto hueco y baja hasta (4, −2). Debe cumplir todas las condiciones a la vez." },
+  ],
+  quiz: reparte([
+    { q: "Una función asigna a cada x…", o: ["varios valores de y", "un único valor de y", "ningún valor", "siempre el mismo valor"], a: 1, e: "Es la condición que define una función." },
+    { q: "¿Qué gráfica no corresponde a una función?", o: ["Una recta oblicua", "Una parábola", "Una circunferencia", "Una recta horizontal"], a: 2, e: "Una recta vertical la corta en dos puntos." },
+    { q: "Si f(x) = x² − 3, f(−2) =", o: ["1", "−7", "7", "−1"], a: 0, e: "4 − 3 = 1." },
+    { q: "El dominio de f(x) = 1/(x − 5) es…", o: ["ℝ", "ℝ − {5}", "(5, +∞)", "ℝ − {−5}"], a: 1, e: "x − 5 ≠ 0." },
+    { q: "El dominio de f(x) = √(x + 1) es…", o: ["[−1, +∞)", "(−1, +∞)", "ℝ", "[1, +∞)"], a: 0, e: "x + 1 ≥ 0." },
+    { q: "El dominio de un polinomio es…", o: ["ℝ", "ℕ", "(0, +∞)", "depende del grado"], a: 0, e: "Siempre se puede calcular." },
+    { q: "El corte con el eje Y se obtiene…", o: ["resolviendo f(x) = 0", "calculando f(0)", "con la TVM", "con el dominio"], a: 1, e: "Se hace x = 0." },
+    { q: "Los cortes de f(x) = x² − 9 con el eje X son…", o: ["(9, 0)", "(±3, 0)", "(0, −9)", "no tiene"], a: 1, e: "x² = 9." },
+    { q: "Los intervalos de crecimiento se dan con valores de…", o: ["y", "x", "x e y", "la TVM"], a: 1, e: "Se indica dónde (en el eje X) sube la gráfica." },
+    { q: "En un máximo relativo, la función pasa de…", o: ["decrecer a crecer", "crecer a decrecer", "ser continua a discontinua", "positiva a negativa"], a: 1, e: "Es la cima de una colina." },
+    { q: "La TVM de f(x) = 3x + 2 en cualquier intervalo es…", o: ["2", "3", "5", "depende del intervalo"], a: 1, e: "En una recta, la TVM es la pendiente." },
+    { q: "Si la TVM en un intervalo es negativa…", o: ["f ha disminuido de a a b", "f es siempre negativa", "f es constante", "f no es continua"], a: 0, e: "f(b) < f(a)." },
+    { q: "Una función con un salto en su gráfica es…", o: ["continua", "discontinua", "periódica", "par"], a: 1, e: "Hay que levantar el lápiz." },
+    { q: "f(x) = (x² − 4)/(x − 2) tiene en x = 2 una discontinuidad…", o: ["de salto", "evitable", "asintótica", "no tiene"], a: 1, e: "Coincide con x + 2 salvo en x = 2." },
+    { q: "Una función par es simétrica respecto…", o: ["al eje X", "al eje Y", "al origen", "a la recta y = x"], a: 1, e: "f(−x) = f(x)." },
+    { q: "¿Qué función es impar?", o: ["x²", "x³", "x² + 1", "|x|"], a: 1, e: "(−x)³ = −x³." },
+    { q: "Una función de periodo 4 cumple…", o: ["f(x + 4) = f(x)", "f(4x) = f(x)", "f(x) = 4", "f(x + 4) = 4f(x)"], a: 0, e: "Se repite cada 4 unidades." },
+    { q: "La gráfica de la temperatura de un café que se enfría tiende a…", o: ["0 °C", "la temperatura ambiente", "−∞", "100 °C"], a: 1, e: "Asíntota horizontal: la temperatura de la habitación." },
+    { q: "En f(x) = 2 si x ≤ 1; f(x) = x + 1 si x > 1, f(1) vale…", o: ["2", "1", "3", "no existe"], a: 0, e: "x = 1 está en el primer trozo." },
+    { q: "El recorrido de f(x) = x² es…", o: ["ℝ", "[0, +∞)", "(0, +∞)", "(−∞, 0]"], a: 1, e: "Un cuadrado nunca es negativo y puede valer 0." },
+  ]),
+  examen: reparte([
+    { q: "El dominio de f(x) = x/(x² − 1) es…", o: ["ℝ − {1}", "ℝ − {−1, 1}", "ℝ − {0}", "ℝ"], a: 1, e: "x² − 1 = 0 → x = ±1." },
+    { q: "El dominio de f(x) = √(4 − x) es…", o: ["(−∞, 4]", "[4, +∞)", "(−∞, 4)", "[−4, 4]"], a: 0, e: "4 − x ≥ 0 → x ≤ 4." },
+    { q: "La TVM de f(x) = x² − 2x en [1, 3] es…", o: ["2", "1", "3", "4"], a: 0, e: "(3 − (−1))/2 = 2." },
+    { q: "El máximo de h(t) = −t² + 6t se alcanza en…", o: ["t = 3, h = 9", "t = 6, h = 0", "t = 9, h = 3", "t = 0"], a: 0, e: "Vértice en t = 3." },
+    { q: "f(x) = x⁴ − x² es…", o: ["par", "impar", "periódica", "ninguna"], a: 0, e: "Solo potencias pares." },
+    { q: "Para que f(x) = x + a si x < 0; x² + 2 si x ≥ 0 sea continua, a vale…", o: ["2", "0", "−2", "1"], a: 0, e: "En x = 0 ambos trozos valen a y 2." },
+    { q: "Si una función tiene periodo 3 y f(1) = 7, entonces f(10) =", o: ["7", "10", "21", "no se sabe"], a: 0, e: "10 = 1 + 3 · 3." },
+    { q: "La recta y = 5 es asíntota horizontal de f si…", o: ["f(5) = 0", "f se acerca a 5 cuando x crece mucho", "f(0) = 5", "f vale siempre 5"], a: 1, e: "Describe la tendencia en el infinito." },
+  ], 2),
+  feynman: ["Qué es una función y cómo se reconoce en una gráfica", "Cómo se calcula el dominio a partir de la fórmula", "Qué diferencia hay entre dónde se alcanza un máximo y cuánto vale", "Qué mide la tasa de variación media y cómo se interpreta", "Qué significa que una función sea continua, par, impar o periódica"],
+  glosario: [
+    ["Función", "Relación que asigna a cada valor de x un único valor de y."],
+    ["Variable independiente", "La variable x, cuyos valores se eligen."],
+    ["Variable dependiente", "La variable y, cuyo valor depende de x."],
+    ["Imagen", "Valor f(a) que corresponde a x = a."],
+    ["Dominio", "Conjunto de valores de x que tienen imagen."],
+    ["Recorrido", "Conjunto de valores que toma la función."],
+    ["Ceros de una función", "Valores de x en los que f(x) = 0; cortes con el eje X."],
+    ["Función creciente", "Al aumentar x, aumenta y."],
     ["Máximo relativo", "Punto donde la función pasa de crecer a decrecer."],
+    ["Máximo absoluto", "Mayor valor que toma la función en todo su dominio."],
+    ["Tasa de variación media", "(f(b) − f(a))/(b − a); pendiente del segmento entre dos puntos."],
+    ["Función continua", "La que se dibuja sin levantar el lápiz."],
+    ["Discontinuidad de salto", "Punto donde la gráfica salta de un valor a otro."],
+    ["Función a trozos", "Función definida con fórmulas distintas en distintos intervalos."],
     ["Función par", "f(−x) = f(x); simétrica respecto al eje Y."],
-    ["Función periódica", "Se repite cada cierto intervalo, llamado periodo."],
+    ["Función impar", "f(−x) = −f(x); simétrica respecto al origen."],
+    ["Función periódica", "Se repite cada intervalo de longitud T (periodo)."],
+    ["Asíntota", "Recta a la que se acerca la gráfica indefinidamente."],
   ],
-  familias: ["Buscad gráficas en el periódico o en una app del tiempo y pedidle que las describa con estas palabras.", "Dibujad juntos la gráfica de un trayecto (distancia a casa según la hora).", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  situacion: {
+    titulo: "Nuestro día en gráficas",
+    reto: "Vais a registrar durante una semana tres magnitudes de vuestra vida cotidiana (por ejemplo, la temperatura exterior, la batería del móvil y los pasos acumulados) y a analizarlas como funciones. El reto es presentar un «informe de funciones» que explique con vocabulario matemático qué cuentan esas gráficas y qué decisiones se pueden tomar con ellas.",
+    pasos: [
+      "Elegid tres magnitudes que cambien a lo largo del día y anotad sus valores cada hora (o usad datos de una aplicación).",
+      "Representad cada una en una gráfica con ejes, títulos y unidades, decidiendo si los puntos se unen o no.",
+      "Analizad cada gráfica con el guion de ocho pasos: dominio, recorrido, crecimiento, extremos, continuidad, periodicidad y tendencias.",
+      "Calculad la TVM en dos tramos de cada gráfica e interpretadla con sus unidades (grados por hora, % de batería por hora…).",
+      "Proponed una decisión práctica basada en el análisis (cuándo cargar el móvil, a qué hora salir a pasear…).",
+    ],
+    producto: "Un informe o infografía con las tres gráficas comentadas y las decisiones propuestas.",
+    evaluacion: [
+      "Representa los datos en gráficas correctas, con escalas, títulos y unidades.",
+      "Describe las propiedades de las funciones con vocabulario preciso (intervalos de x, puntos extremos…).",
+      "Calcula e interpreta la tasa de variación media en el contexto.",
+      "Extrae conclusiones razonadas y útiles a partir de las gráficas.",
+    ],
+  },
+  figura: require("./_matb-base-funciones").figura,
+  video: { id: "H40lcwlgPMk", titulo: "Dominio y rango de una función", canal: "Matemáticas profe Alex", vistas: 6842269, megusta: 141230, busqueda: "dominio y recorrido de una función" },
+  mapa: mapa("FUNCIONES", "var(--bac)", [
+    ["Dominio y recorrido", "proyecciones sobre los ejes", "var(--pen)"],
+    ["Crecimiento", "intervalos de x · máx y mín", "var(--leaf)"],
+    ["Continuidad", "salto · evitable · asíntota", "var(--red)"],
+    ["Simetría y periodo", "par · impar · f(x + T) = f(x)", "var(--inf)"],
+  ], 270),
+  tarjetas: [
+    ["¿Qué es una función?", "Una relación que asigna a cada x un único valor de y."],
+    ["Prueba de la recta vertical", "Si una vertical corta la gráfica en dos puntos, no es función."],
+    ["Dominio de una fracción", "Todos los reales salvo los que anulan el denominador."],
+    ["Dominio de una raíz de índice par", "Los x con radicando mayor o igual que cero."],
+    ["Corte con el eje Y", "El punto (0, f(0))."],
+    ["Cortes con el eje X", "Soluciones de f(x) = 0."],
+    ["Máximo relativo", "Punto donde la función pasa de crecer a decrecer."],
+    ["TVM en [a, b]", "(f(b) − f(a))/(b − a)"],
+    ["Función continua", "Se dibuja sin levantar el lápiz."],
+    ["Función par", "f(−x) = f(x): simétrica respecto al eje Y."],
+    ["Función impar", "f(−x) = −f(x): simétrica respecto al origen."],
+    ["Asíntota horizontal", "Recta y = L a la que se acerca la función cuando x crece mucho."],
+  ],
+  familias: ["Mirad juntos la gráfica del precio de la luz de hoy y buscad las horas más baratas y más caras.", "Pedidle que dibuje una gráfica de vuestro trayecto al instituto (distancia a casa según el tiempo) y que la explique.", "Revisad una factura con tarifas por tramos y comentad si la función es continua.", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Sentido algebraico y relaciones funcionales: dominio, recorrido, continuidad, monotonía, extremos y simetrías (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["Relatos gráficos: un alumno cuenta una historia y otro dibuja la gráfica.", "Analizar datos reales (temperatura, consumo eléctrico) en hoja de cálculo.", "Dominó de fórmulas y dominios."],
+    saberes: "Sentido algebraico y relaciones funcionales: concepto de función, formas de representación, dominio y recorrido, características de las gráficas (crecimiento, extremos, continuidad, simetrías, periodicidad y tendencias) y tasa de variación media (RD 217/2022, Matemáticas B de 4º, saberes básicos D. Sentido algebraico, «Relaciones y funciones»).",
+    ideas: ["Gráficas de la vida real (precio de la luz, ritmo cardiaco, temperatura) para describirlas con el guion de ocho pasos.", "Juego de «adivina la gráfica»: un alumno la describe con vocabulario técnico y otro la dibuja sin verla.", "Sensores o aplicaciones del móvil para generar datos propios y analizarlos.", "Funciones a trozos con tarifas reales: mensajería, aparcamientos o tramos del IRPF."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Función matemática, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Funci%C3%B3n_(matem%C3%A1tica)" },
+    { t: "Red Eléctrica: demanda de energía en tiempo real", url: "https://demanda.ree.es/visiona/peninsula/demandaaereas/tablas/" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Calcular la tasa de variación media e interpretarla", "Trabajar con funciones definidas a trozos y estudiar las tendencias de una función"],
-  tras: {
-    "Qué es una función": [
-      { html: `<h3>Cuatro formas de expresar una función</h3><p>Una misma función se puede dar de cuatro maneras. Con un <b>enunciado</b>: «el taxi cobra 3 € de bajada de bandera y 1,20 € por kilómetro». Con una <b>tabla</b> de valores, útil para datos medidos. Con una <b>gráfica</b>, que muestra de un vistazo cómo se comporta. Y con una <b>fórmula</b> o expresión algebraica, y = 1,2x + 3, que permite calcular cualquier valor exacto. Saber <mark>pasar de una forma a otra</mark> es una de las destrezas clave del tema: de la fórmula se obtiene la tabla dando valores, y de la tabla, la gráfica.</p>` },
-    ],
-    "Crecimiento, máximos y mínimos": [
-      { html: `<h3>La tasa de variación media</h3><p>La <b>tasa de variación media</b> (TVM) de una función en un intervalo [a, b] mide cuánto cambia, por término medio, la y por cada unidad que avanza la x: <mark>TVM = (f(b) − f(a)) / (b − a)</mark>. Geométricamente es la <b>pendiente</b> del segmento que une los dos puntos de la gráfica. Si es positiva, la función ha crecido en ese intervalo; si es negativa, ha decrecido. En la vida real es una velocidad media: si un coche recorre 180 km entre las 2 h y las 4 h, su TVM es 90 km/h. Es la base de lo que en Bachillerato será la derivada.</p><div class="formula"><span>f(x) = x² en [1, 3]: TVM = (9 − 1) / (3 − 1) = 4</span></div>`, video: { id: "2RBCifEcV7w", titulo: "Tasa de variación media", canal: "unicoos", vistas: 360060 } },
-    ],
-    "Continuidad": [
-      { html: `<h3>Funciones definidas a trozos</h3><p>Algunas funciones tienen una fórmula distinta según el tramo de x. Por ejemplo, una tarifa de móvil cuesta 10 € fijos hasta 5 GB y, a partir de ahí, 2 € más por cada GB: f(x) = 10 si 0 ≤ x ≤ 5, y f(x) = 10 + 2(x − 5) si x &gt; 5. Para representarlas se dibuja <b>cada trozo solo en su intervalo</b> y se marcan los extremos con un punto <b>relleno</b> si el valor está incluido o <b>hueco</b> si no lo está. En los puntos donde cambia la fórmula hay que estudiar si la función es <mark>continua</mark> o da un salto.</p>` },
-    ],
-    "Simetrías y periodicidad": [
-      { html: `<h3>Tendencias y asíntotas</h3><p>La <b>tendencia</b> de una función es lo que le ocurre cuando x se hace muy grande o muy pequeña, o cuando se acerca a un valor concreto. Si la gráfica se acerca cada vez más a una recta sin llegar a tocarla, esa recta es una <b>asíntota</b>. La función y = 1/x tiene una asíntota <b>horizontal</b>, y = 0, porque al crecer x el valor se acerca a 0; y una <b>vertical</b>, x = 0, porque cerca de 0 los valores se disparan. Muchos fenómenos reales tienen tendencias: la temperatura de un café que se enfría tiende a la <mark>temperatura ambiente</mark>.</p>` },
-    ],
-  },
-  ejemplos: [
-    { enunciado: "Calcula la TVM de f(x) = x² − 4x en [0, 2] y en [2, 5] e interpreta.", pasos: ["f(0) = 0, f(2) = −4, f(5) = 5.", "En [0, 2]: (−4 − 0) / 2 = −2, la función decrece.", "En [2, 5]: (5 − (−4)) / 3 = 3, la función crece."], resultado: "TVM = −2 y TVM = 3: decrece y luego crece (mínimo en x = 2)." },
-    { enunciado: "Halla el dominio de f(x) = √(x − 3) y de g(x) = 5 / (x² − 4).", pasos: ["Una raíz cuadrada exige radicando ≥ 0: x − 3 ≥ 0, x ≥ 3.", "Un cociente no existe donde el denominador es 0: x² − 4 = 0 en x = ±2.", "Dom g = ℝ − {−2, 2}."], resultado: "Dom f = [3, +∞); Dom g = ℝ − {−2, 2}." },
-    { enunciado: "Un taxi cobra 3 € más 1,20 € por km. Escribe la función, haz una tabla y calcula el precio de 12 km.", pasos: ["Fórmula: P(x) = 1,2x + 3.", "Tabla: x = 0 → 3; x = 5 → 9; x = 10 → 15.", "P(12) = 14,4 + 3 = 17,4."], resultado: "P(x) = 1,2x + 3; 12 km cuestan 17,40 €." },
-  ],
-  errores: [
-    "Confundir dominio (valores de x) con recorrido (valores de y).",
-    "Restar en distinto orden arriba y abajo al calcular la TVM.",
-    "Unir con una línea los dos trozos de una función definida a trozos aunque haya un salto.",
-    "Olvidar que un denominador no puede ser 0 ni una raíz par puede tener radicando negativo.",
-    "Pensar que una función nunca puede cortar a su asíntota horizontal.",
-  ],
-  ejercicios: [
-    { q: "¿Es función la relación que asocia a cada número su raíz cuadrada (con las dos raíces)? ¿Por qué?", sol: "No: a cada x positivo le corresponderían dos valores de y." },
-    { q: "Halla el dominio de f(x) = 1 / (x − 7).", sol: "ℝ − {7}." },
-    { q: "Halla el dominio de f(x) = √(6 − 2x).", sol: "6 − 2x ≥ 0: x ≤ 3, es decir, (−∞, 3]." },
-    { q: "Calcula la TVM de f(x) = 3x − 1 en [2, 6]. ¿Qué observas?", sol: "(17 − 5) / 4 = 3: coincide con la pendiente, porque es una recta." },
-    { q: "Un ciclista está en el km 12 a las 10:00 y en el km 48 a las 11:30. ¿Cuál es su velocidad media?", sol: "36 km / 1,5 h = 24 km/h." },
-    { q: "Estudia si f(x) = x² es par, impar o ninguna.", sol: "f(−x) = x² = f(x): es par, simétrica respecto al eje Y." },
-    { q: "Representa f(x) = 2 si x < 1 y f(x) = x + 1 si x ≥ 1. ¿Es continua en x = 1?", sol: "Por la izquierda vale 2 y en x = 1 vale 2: no hay salto, es continua." },
-    { q: "Indica las asíntotas de y = 1/(x − 2).", sol: "Vertical x = 2 y horizontal y = 0." },
-    { q: "Indica el periodo de una función que repite sus valores cada 24 horas, como la temperatura diaria.", sol: "24 horas." },
-    { q: "Una función crece en (−∞, 1) y decrece en (1, +∞). ¿Qué ocurre en x = 1?", sol: "Tiene un máximo relativo." },
-  ],
-  quiz: [
-    { q: "La TVM en [a, b] es…", o: ["(f(b) − f(a)) / (b − a)", "f(b) − f(a)", "(b − a) / (f(b) − f(a))"], a: 0, e: "La pendiente media." },
-    { q: "Si la TVM es negativa, en ese intervalo la función…", o: ["crece", "decrece", "es constante"], a: 1, e: "Ha bajado por término medio." },
-    { q: "En una función a trozos, un punto hueco indica que el valor…", o: ["está incluido", "no está incluido", "es 0"], a: 1, e: "Relleno: incluido." },
-    { q: "y = 1/x tiene asíntota horizontal en…", o: ["y = 1", "y = 0", "x = 1"], a: 1, e: "Los valores se acercan a 0." },
-    { q: "La fórmula de una función permite…", o: ["calcular cualquier valor exacto", "solo dibujar", "solo hacer tablas"], a: 0, e: "Es la forma más precisa." },
-  ],
-  tarjetas: [
-    ["Tasa de variación media", "TVM = (f(b) − f(a)) / (b − a): pendiente media en [a, b]."],
-    ["Función a trozos", "Función con una fórmula distinta en cada intervalo."],
-    ["Asíntota", "Recta a la que se acerca la gráfica cada vez más."],
-  ],
-});
