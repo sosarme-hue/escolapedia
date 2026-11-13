@@ -1,0 +1,100 @@
+// Matemáticas 5º de Primaria: estadística y probabilidad. Dibujos propios en SVG.
+const P = require("./_pri5a");
+const { svg, t, barras, AZ, RO, VE, NA, SO, MO } = P;
+
+// Sector circular de un gráfico de sectores: centro (cx, cy), radio r, de a1 a a2 grados (0 arriba, sentido horario).
+const sector = (cx, cy, r, a1, a2, c) => {
+  const p = (a) => `${(cx + r * Math.sin((a * Math.PI) / 180)).toFixed(1)} ${(cy - r * Math.cos((a * Math.PI) / 180)).toFixed(1)}`;
+  return `<path d="M${cx} ${cy} L ${p(a1)} A ${r} ${r} 0 ${a2 - a1 > 180 ? 1 : 0} 1 ${p(a2)} Z" fill="${c}" fill-opacity=".55" stroke="var(--paper)" stroke-width="2"/>`;
+};
+
+module.exports = P.tema({
+  materia: "Matemáticas",
+  titulo: "Estadística y probabilidad",
+  minutos: 55,
+  objetivos: ["Recoger datos y organizarlos en tablas de frecuencias", "Leer e interpretar gráficos de barras, de líneas y de sectores", "Calcular la media, la moda y el rango de un conjunto de datos", "Reconocer sucesos seguros, posibles e imposibles y comparar probabilidades"],
+  claves: ["estadística", "dato", "frecuencia", "tabla", "gráfico de barras", "gráfico de sectores", "media", "moda", "rango", "probabilidad", "suceso"],
+  pregunta: ["En tu clase todos dicen que el deporte favorito es el fútbol. ¿Cómo podrías comprobarlo de verdad?", "Haciendo un pequeño <b>estudio estadístico</b>: preguntar a cada compañero, <b>anotar</b> las respuestas, <b>contar</b> cuántas veces sale cada deporte (su <b>frecuencia</b>) y hacer un <b>gráfico</b>. El deporte con más votos es la <mark>moda</mark>. ¡A lo mejor te llevas una sorpresa!"],
+  bloques: [
+    ["¿Qué es la estadística?", `<p>La <b>estadística</b> es la parte de las matemáticas que <b>recoge</b>, <b>organiza</b>, <b>representa</b> e <b>interpreta</b> datos para sacar conclusiones.</p><p>Un estudio estadístico tiene varios pasos:</p><ol><li><b>Pregunta</b>: ¿qué queremos saber? Por ejemplo, la fruta favorita de la clase.</li><li><b>Recogida de datos</b>: con una encuesta, una observación o un experimento.</li><li><b>Organización</b>: en una tabla de frecuencias.</li><li><b>Representación</b>: con un gráfico.</li><li><b>Interpretación</b>: ¿qué nos dicen los datos?</li></ol><p>La estadística se usa para hacer el parte del tiempo, conocer la población de un país, organizar un comedor o saber <mark>qué programas ve más gente</mark>.</p>`,
+      P.pasos("Pasos de un estudio estadístico: preguntar, recoger, organizar y representar", [["Preguntar", ["¿qué fruta", "os gusta?"], AZ], ["Recoger", ["encuesta", "a la clase"], VE], ["Organizar", ["tabla de", "frecuencias"], SO], ["Representar", ["gráfico", "y conclusión"], RO]])],
+    ["Recoger y organizar datos", `<p>Imagina que preguntamos a los 24 alumnos de la clase por su fruta favorita. Para no perdernos al contar, usamos <b>marcas de recuento</b>: una rayita por cada respuesta y, al llegar a cinco, una raya que tacha las cuatro anteriores.</p><p>Luego escribimos el número de veces que se repite cada respuesta. Ese número es la <b>frecuencia absoluta</b>.</p>${P.tb(["Fruta", "Recuento", "Frecuencia"], [["Fresa", "<s>IIII</s> <s>IIII</s>", "10"], ["Plátano", "<s>IIII</s> I", "6"], ["Manzana", "<s>IIII</s>", "5"], ["Naranja", "III", "3"]])}<p>Comprueba siempre que la <b>suma de las frecuencias</b> es igual al número total de datos: 10 + 6 + 5 + 3 = <mark>24 ✓</mark>.</p>`,
+      P.tabla("Tabla de frecuencias de la fruta favorita de 24 alumnos", ["Fruta", "Frecuencia"], [["Fresa", "10"], ["Plátano", "6"], ["Manzana", "5"], ["Naranja", "3"]], RO)],
+    ["El gráfico de barras", `<p>El <b>gráfico de barras</b> representa cada dato con una barra. La <b>altura</b> de la barra indica su frecuencia.</p><p>Para construirlo:</p><ol><li>Dibuja dos <b>ejes</b>: el horizontal para las opciones y el vertical para las frecuencias.</li><li>Elige una <b>escala</b> adecuada en el eje vertical (de 1 en 1, de 2 en 2…).</li><li>Dibuja una barra para cada opción, todas con el <b>mismo ancho</b> y separadas.</li><li>Pon un <b>título</b> y el nombre de cada eje.</li></ol><p>De un vistazo vemos que la fresa es la favorita y la naranja, la menos votada. Los gráficos de barras son ideales para <mark>comparar cantidades</mark>.</p>`,
+      svg("Gráfico de barras de la fruta favorita: fresa 10, plátano 6, manzana 5 y naranja 3", `<path d="M30 20 V 140" stroke="var(--muted)" stroke-width="2"/>${barras(30, 140, 210, 100, [["fresa", 10, RO], ["plátano", 6, SO], ["manzana", 5, VE], ["naranja", 3, NA]], 10)}${t(130, 176, "fruta favorita", { s: 11, c: "var(--muted)" })}`)],
+    ["El gráfico de líneas", `<p>El <b>gráfico de líneas</b> sirve para ver cómo <b>cambia un dato con el tiempo</b>: la temperatura a lo largo del día, la altura de una planta cada semana o las ventas de cada mes.</p><p>Se marca un <b>punto</b> para cada dato y después se unen los puntos con segmentos.</p><ul><li>Si la línea <b>sube</b>, el dato aumenta.</li><li>Si <b>baja</b>, disminuye.</li><li>Si es <b>horizontal</b>, se mantiene igual.</li></ul><p>En el ejemplo vemos las temperaturas de un día de primavera: subieron desde las 8 h hasta las 14 h (la más alta, 22 °C) y luego <mark>empezaron a bajar</mark>.</p>`,
+      svg("Gráfico de líneas de la temperatura a lo largo del día: sube hasta las 14 horas y luego baja", `<path d="M32 20 V 140 H 244" stroke="var(--muted)" stroke-width="2" fill="none"/>${[[8, 10], [11, 16], [14, 22], [17, 19], [20, 13]].map(([h, c], i, a) => { const x = 50 + i * 46, y = 140 - c * 5; return `${i ? `<path d="M${50 + (i - 1) * 46} ${140 - a[i - 1][1] * 5} L ${x} ${y}" stroke="${RO}" stroke-width="2.5"/>` : ""}<circle cx="${x}" cy="${y}" r="4.5" fill="${RO}"/>${t(x, y - 9, `${c}°`, { s: 10, c: RO })}${t(x, 156, `${h} h`, { s: 10 })}`; }).join("")}${t(138, 176, "temperatura a lo largo del día", { s: 10, c: "var(--muted)" })}`)],
+    ["El gráfico de sectores", `<p>El <b>gráfico de sectores</b> es un círculo dividido en <b>sectores circulares</b>. Cada sector representa una opción, y su tamaño es <b>proporcional</b> a su frecuencia.</p><p>Es muy útil para ver <b>cómo se reparte un total</b>: qué parte de la clase prefiere cada fruta, cómo se gasta el dinero de una familia o qué parte del día dedicamos a cada actividad.</p><p>Por ejemplo, si de 24 alumnos 12 prefieren la fresa, la fresa ocupa <b>la mitad</b> del círculo (12/24 = 1/2). Si 6 prefieren el plátano, ocupa <b>un cuarto</b>.</p><p>No sirve tanto para comparar con exactitud, pero es perfecto para ver <mark>qué parte del todo</mark> representa cada opción.</p>`,
+      svg("Gráfico de sectores: la mitad fresa, un cuarto plátano y el resto manzana y naranja", `${sector(86, 92, 64, 0, 180, RO)}${sector(86, 92, 64, 180, 270, SO)}${sector(86, 92, 64, 270, 330, VE)}${sector(86, 92, 64, 330, 360, NA)}${[["fresa 1/2", RO], ["plátano 1/4", NA], ["manzana", VE], ["naranja", NA]].map(([n, c], i) => `<rect x="168" y="${44 + i * 26}" width="12" height="12" fill="${[RO, SO, VE, NA][i]}" fill-opacity=".55"/>${t(186, 54 + i * 26, n, { s: 11, c, a: "start" })}`).join("")}`)],
+    ["La media", `<p>La <b>media</b> (o media aritmética, o promedio) es el valor que tendría cada dato si <b>repartiéramos el total a partes iguales</b>.</p><p style="text-align:center"><b>Media = suma de todos los datos : número de datos</b></p><p>Ejemplo: las notas de Alba en cinco exámenes son 7, 9, 6, 8 y 10.</p><ul><li>Suma: 7 + 9 + 6 + 8 + 10 = 40.</li><li>Número de datos: 5.</li><li>Media: 40 : 5 = <b>8</b>.</li></ul><p>La media de Alba es un 8, aunque no haya sacado un 8 en todos los exámenes. Es como si <mark>«igualáramos» las torres</mark>: las altas le dan a las bajas hasta que todas miden lo mismo.</p>`,
+      svg("Torres de cubos de alturas 7, 9, 6, 8 y 10 igualadas a una media de 8", `${[7, 9, 6, 8, 10].map((v, i) => `<rect x="${24 + i * 42}" y="${144 - v * 11}" width="30" height="${v * 11}" fill="${AZ}" fill-opacity=".3" stroke="${AZ}" stroke-width="1.5"/>${t(39 + i * 42, 160, String(v), { s: 12 })}`).join("")}<path d="M18 56 H 236" stroke="${RO}" stroke-width="2.5" stroke-dasharray="6 4"/>${t(130, 24, "media = 8", { s: 12, c: RO })}${t(130, 176, "40 : 5 = 8", { s: 12, c: "var(--muted)" })}`),
+      P.V("estB")],
+    ["La moda y el rango", `<p>Además de la media, hay otros números que resumen los datos:</p><ul><li>La <b>moda</b> es el dato que <b>más se repite</b>, el de mayor frecuencia. En la encuesta de frutas, la moda es la <b>fresa</b>. Un conjunto de datos puede tener más de una moda.</li><li>El <b>rango</b> es la diferencia entre el dato <b>mayor</b> y el <b>menor</b>. Nos dice lo «separados» que están los datos.</li></ul><p>Ejemplo: los goles de un equipo en 7 partidos: 2, 0, 3, 2, 1, 2, 4.</p><ul><li>Moda: el <b>2</b> (sale tres veces).</li><li>Rango: 4 − 0 = <b>4</b>.</li><li>Media: 14 : 7 = <b>2</b>.</li></ul><p>A diferencia de la media, la moda sirve también para datos que <mark>no son números</mark>, como colores o deportes.</p>`,
+      P.filas("Goles en siete partidos: moda, rango y media", [["Datos", "2, 0, 3, 2, 1, 2, 4", AZ], ["Moda", "2 (se repite más)", VE], ["Rango", "4 − 0 = 4", SO], ["Media", "14 : 7 = 2", RO]])],
+    ["La probabilidad", `<p>La <b>probabilidad</b> estudia los <b>sucesos de azar</b>: aquellos cuyo resultado no podemos saber antes, como lanzar un dado o sacar una bola de una bolsa.</p><p>Un suceso puede ser:</p><ul><li><b>Seguro</b>: ocurre siempre. Al lanzar un dado, sacar un número menor que 7.</li><li><b>Imposible</b>: no ocurre nunca. Sacar un 8 en un dado normal.</li><li><b>Posible</b>: puede ocurrir o no. Sacar un 5.</li></ul><p>Entre los sucesos posibles, unos son <b>más probables</b> que otros. En una bolsa con 7 bolas rojas y 3 azules, es <mark>más probable</mark> sacar una roja que una azul, aunque las dos son posibles.</p>`,
+      svg("Bolsa con siete bolas rojas y tres azules: es más probable sacar roja", `<path d="M50 60 Q 40 150 100 156 Q 160 150 150 60 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/><path d="M50 60 Q 100 40 150 60" fill="none" stroke="var(--ink)" stroke-width="2.5"/>${[[68, 84], [90, 84], [112, 84], [134, 84], [70, 108], [92, 108], [114, 108], [136, 108], [90, 132], [112, 132]].map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="9" fill="${i < 7 ? RO : AZ}" fill-opacity=".7"/>`).join("")}${t(210, 70, "7 rojas", { s: 12, c: RO })}${t(210, 92, "3 azules", { s: 12, c: AZ })}${t(210, 126, "más probable:", { s: 11 })}${t(210, 142, "roja", { s: 13, d: true, c: RO })}`),
+      P.V("estB2")],
+    ["Expresar la probabilidad con números", `<p>Cuando todos los resultados son <b>igual de fáciles</b> de salir, podemos dar la probabilidad con una <b>fracción</b>:</p><p style="text-align:center"><b>Probabilidad = casos favorables / casos posibles</b></p><ul><li>Al lanzar una moneda, la probabilidad de sacar cara es <b>1/2</b> (1 caso favorable de 2 posibles).</li><li>Al lanzar un dado, la de sacar un 3 es <b>1/6</b>.</li><li>La de sacar un número par es <b>3/6 = 1/2</b> (2, 4 y 6).</li><li>En la bolsa de 7 rojas y 3 azules: roja = <b>7/10</b>; azul = <b>3/10</b>.</li></ul><p>Un suceso imposible tiene probabilidad <b>0</b> y uno seguro, <b>1</b>. Todos los demás están entre 0 y 1. Cuanto más cerca de 1, <mark>más probable</mark>.</p>`,
+      svg("Escala de probabilidad de cero, imposible, a uno, seguro, con un medio en el centro", `<path d="M24 90 H 236" stroke="var(--muted)" stroke-width="4"/><circle cx="24" cy="90" r="6" fill="${RO}"/><circle cx="130" cy="90" r="6" fill="${SO}"/><circle cx="236" cy="90" r="6" fill="${VE}"/><circle cx="172" cy="90" r="5" fill="${MO}"/>${t(30, 120, "0", { s: 14, d: true, c: RO })}${t(30, 138, "imposible", { s: 10, c: RO })}${t(130, 120, "1/2", { s: 14, d: true, c: NA })}${t(130, 138, "cara o cruz", { s: 10, c: NA })}${t(230, 120, "1", { s: 14, d: true, c: VE })}${t(230, 138, "seguro", { s: 10, c: VE })}${t(172, 70, "7/10 roja", { s: 11, c: MO })}`)],
+  ],
+  figura: ["Estadística y probabilidad", P.columnas("Resumen: datos, gráficos, media y moda, probabilidad", [["recuento", "TABLAS", ["frecuencia", "absoluta"], AZ], ["barras, líneas", "GRÁFICOS", ["sectores", "comparar y repartir"], SO], ["suma : n.º", "MEDIA", ["moda: más repetido", "rango: mayor − menor"], VE], ["favorables / posibles", "AZAR", ["seguro, posible", "imposible"], RO]])],
+  video: P.V("estV", true),
+  ejemplos: [
+    ["Calcula la media, la moda y el rango de las edades de un grupo: 10, 11, 10, 12, 10, 11.", ["Suma: 10 + 11 + 10 + 12 + 10 + 11 = 64. Media: 64 : 6 ≈ 10,67.", "Moda: 10 (sale tres veces).", "Rango: 12 − 10 = 2."], "Media ≈ 10,67; moda 10; rango 2"],
+    ["En una ruleta con 8 casillas iguales, 3 son verdes, 4 amarillas y 1 roja. ¿Qué probabilidad hay de que salga verde?", ["Casos posibles: 8.", "Casos favorables (verde): 3."], "3/8"],
+    ["Clasifica al lanzar un dado: sacar 0; sacar menos de 10; sacar un 6.", ["Sacar 0: no hay ninguna cara con 0 → imposible.", "Menos de 10: siempre ocurre → seguro.", "Sacar 6: puede ocurrir → posible (1/6)."], "imposible, seguro y posible"],
+  ],
+  errores: [
+    "Olvidar comprobar que la suma de las frecuencias es igual al total de datos.",
+    "Dibujar barras de distinto ancho o usar una escala que no empieza en 0.",
+    "Confundir la media (repartir a partes iguales) con la moda (el dato más repetido).",
+    "Calcular la media dividiendo entre un número distinto del número de datos.",
+    "Pensar que, si en una moneda han salido 3 caras seguidas, la siguiente tiene que ser cruz.",
+    "Decir que un suceso es imposible solo porque es poco probable.",
+  ],
+  ejercicios: [
+    ["Escribe los pasos de un estudio estadístico.", "Pregunta, recogida de datos, organización en tabla, gráfico e interpretación."],
+    ["Haz el recuento y la tabla de frecuencias de estos colores: rojo, azul, rojo, verde, azul, rojo, rojo, verde.", "Rojo 4, azul 2, verde 2. Total 8."],
+    ["¿Qué gráfico usarías para ver cómo cambia tu altura cada año? ¿Y para ver el reparto de los votos de una elección?", "Un gráfico de líneas; un gráfico de sectores."],
+    ["Calcula la media de 12, 15, 9 y 14.", "50 : 4 = 12,5."],
+    ["Halla la moda y el rango de 3, 7, 5, 7, 2, 7, 9.", "Moda 7; rango 9 − 2 = 7."],
+    ["Un ciclista recorre 30, 45 y 60 km en tres días. ¿Cuál es la media diaria?", "135 : 3 = 45 km."],
+    ["Escribe un suceso seguro, uno posible y uno imposible al sacar una carta de una baraja española.", "Seguro: sacar una carta con número del 1 al 12; posible: sacar un as; imposible: sacar un 15."],
+    ["En una bolsa hay 5 bolas blancas y 5 negras. ¿Qué es más probable?", "Igual de probable: 5/10 = 1/2 cada color."],
+    ["¿Qué probabilidad hay de sacar un número mayor que 4 al lanzar un dado?", "Favorables: 5 y 6 → 2/6 = 1/3."],
+    ["La media de 4 números es 10. Tres de ellos son 8, 12 y 9. ¿Cuál es el cuarto?", "La suma debe ser 40; 40 − 29 = 11."],
+  ],
+  quiz: [
+    ["El número de veces que se repite un dato es su…", ["frecuencia", "media", "rango"], "Frecuencia absoluta."],
+    ["Para ver cómo cambia la temperatura cada hora se usa un gráfico de…", ["líneas", "sectores", "pictogramas"], "Cambios en el tiempo."],
+    ["Para ver cómo se reparte un total se usa un gráfico de…", ["sectores", "líneas", "puntos"], "Partes del círculo."],
+    ["La media de 2, 4 y 6 es…", ["4", "6", "12"], "12 : 3."],
+    ["La moda de 1, 3, 3, 5 es…", ["3", "1", "5"], "Se repite más."],
+    ["El rango de 4, 9, 2, 7 es…", ["7", "9", "5"], "9 − 2."],
+    ["Sacar un 7 con un dado normal es…", ["imposible", "posible", "seguro"], "Solo hay del 1 al 6."],
+    ["La probabilidad de sacar cara con una moneda es…", ["1/2", "1/4", "1"], "1 de 2."],
+    ["La probabilidad de un suceso seguro es…", ["1", "0", "1/2"], "Siempre ocurre."],
+    ["Con 3 bolas rojas y 1 verde, es más probable sacar…", ["roja", "verde", "las dos igual"], "3/4 frente a 1/4."],
+  ],
+  examen: [
+    ["La media de 5, 5, 8 y 6 es…", ["6", "5", "8"], "24 : 4."],
+    ["La probabilidad de sacar un número par con un dado es…", ["1/2", "1/6", "2/6"], "3 de 6."],
+    ["Si la suma de frecuencias es 30, hay… datos.", ["30", "15", "no se sabe"], "Coinciden."],
+    ["¿Qué medida sirve para datos que no son números?", ["la moda", "la media", "el rango"], "El más repetido."],
+  ],
+  feynman: ["Qué pasos tiene un estudio estadístico", "Qué es la frecuencia absoluta y cómo se hace un recuento", "Para qué sirve cada tipo de gráfico", "Cómo se calculan la media, la moda y el rango", "Qué diferencia hay entre un suceso seguro, posible e imposible"],
+  mapa: ["ESTADÍSTICA Y AZAR", [["Datos y tablas", "recuento · frecuencia", AZ], ["Gráficos", "barras · líneas · sectores", SO], ["Medidas", "media · moda · rango", VE], ["Probabilidad", "favorables / posibles", RO]]],
+  tarjetas: [
+    ["Frecuencia absoluta", "Número de veces que se repite un dato."],
+    ["Gráfico de barras", "Para comparar cantidades."],
+    ["Gráfico de líneas", "Para ver cambios a lo largo del tiempo."],
+    ["Gráfico de sectores", "Para ver cómo se reparte un total."],
+    ["Media", "Suma de los datos : número de datos."],
+    ["Moda y rango", "El dato más repetido; mayor − menor."],
+    ["Seguro, posible, imposible", "Siempre, a veces, nunca."],
+    ["Probabilidad", "Casos favorables / casos posibles (entre 0 y 1)."],
+  ],
+  familias: ["Haced una encuesta familiar (comida, película, deporte favorito) y representadla en un gráfico de barras.", "Anotad la temperatura cada día de una semana y haced un gráfico de líneas.", "Jugad con un dado: lanzadlo 30 veces, anotad los resultados y comparad con lo que esperabais.", "Repasad las tarjetas dos minutos al día."],
+  saberes: "Sentido estocástico: recogida y organización de datos en tablas de frecuencias; gráficos de barras, de líneas y de sectores; media aritmética, moda y rango; sucesos seguros, posibles e imposibles; estimación y cálculo sencillo de probabilidades",
+  ideas: ["Encuesta real en el colegio con presentación de resultados en gráficos.", "Experimento de lanzar dados y monedas por equipos para comparar frecuencias.", "Analizar gráficos de periódicos o del parte meteorológico."],
+});
