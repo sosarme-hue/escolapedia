@@ -1,0 +1,100 @@
+// Matemáticas 5º de Primaria: medidas de longitud, masa y capacidad. Dibujos propios en SVG.
+const P = require("./_pri5a");
+const { svg, t, AZ, RO, VE, NA, SO, MO, AG } = P;
+
+// Escalera de unidades: 7 peldaños con sus nombres; la unidad principal en el centro.
+const escalera = (u, c, nota) => {
+  const n = u.length;
+  return `${u.map((x, i) => { const X = 12 + i * 34, Y = 30 + i * 18; return `<rect x="${X}" y="${Y}" width="32" height="${150 - Y}" fill="${c}" fill-opacity="${i === 3 ? 0.45 : 0.15}" stroke="${c}" stroke-width="1.5"/>${t(X + 16, Y + 16, x, { s: x.length > 3 ? 9 : 11, c: i === 3 ? "var(--ink)" : c })}`; }).join("")}${P.flecha(36, 164, 220, 164, VE, 2)}${t(128, 176, nota || "bajar: × 10 · subir: : 10", { s: 10, c: "var(--muted)" })}`;
+};
+
+module.exports = P.tema({
+  materia: "Matemáticas",
+  titulo: "Medidas de longitud, masa y capacidad",
+  minutos: 55,
+  objetivos: ["Conocer las unidades de longitud, masa y capacidad del Sistema Métrico Decimal", "Pasar de una unidad a otra multiplicando o dividiendo por 10, 100, 1 000", "Expresar medidas en forma compleja e incompleja", "Elegir la unidad adecuada y resolver problemas de medida"],
+  claves: ["magnitud", "metro", "gramo", "litro", "múltiplos", "submúltiplos", "tonelada", "forma compleja", "forma incompleja"],
+  pregunta: ["¿Por qué los científicos de todo el mundo usan el metro y no el «palmo» o el «pie»?", "Porque el palmo de cada persona es distinto y así no nos entenderíamos. En 1799 Francia creó el <b>Sistema Métrico Decimal</b>, con unidades iguales para todos y que van <mark>de 10 en 10</mark>. Hoy lo usa casi todo el mundo y facilita el comercio, la ciencia y la vida diaria."],
+  bloques: [
+    ["Medir: magnitudes y unidades", `<p>Una <b>magnitud</b> es todo lo que se puede <b>medir</b>: la longitud de un pasillo, la masa de una sandía, la capacidad de una botella, el tiempo de una carrera…</p><p><b>Medir</b> es comparar una cantidad con otra que tomamos como <b>unidad</b>, y contar cuántas veces cabe.</p><p>En este tema estudiamos tres magnitudes con sus <b>unidades principales</b>:</p><ul><li><b>Longitud</b> (lo largo): el <b>metro</b> (m).</li><li><b>Masa</b> (lo que pesa): el <b>gramo</b> (g).</li><li><b>Capacidad</b> (lo que cabe dentro): el <b>litro</b> (L).</li></ul><p>Todas forman el Sistema Métrico <b>Decimal</b>: cada unidad es <mark>10 veces mayor</mark> que la siguiente más pequeña.</p>`,
+      svg("Las tres magnitudes: longitud con una regla, masa con una balanza y capacidad con una botella", `<rect x="16" y="70" width="70" height="20" rx="3" fill="${AZ}" fill-opacity=".25" stroke="${AZ}" stroke-width="2"/>${[...Array(7)].map((_, i) => `<path d="M${24 + i * 9} 70 v ${i % 2 ? 6 : 10}" stroke="${AZ}" stroke-width="1.4"/>`).join("")}${t(51, 120, "longitud", { s: 11, c: AZ })}${t(51, 138, "metro (m)", { s: 11 })}<path d="M106 96 H 154 M130 96 V 56 M108 60 H 152" stroke="${NA}" stroke-width="2.5"/><path d="M108 60 l -6 18 h 12 Z M152 60 l -6 18 h 12 Z" fill="${SO}" fill-opacity=".5" stroke="${NA}" stroke-width="1.5"/>${t(130, 120, "masa", { s: 11, c: NA })}${t(130, 138, "gramo (g)", { s: 11 })}<path d="M200 46 h 14 v 12 q 12 6 12 18 v 26 h -38 v -26 q 0 -12 12 -18 Z" fill="${AG}" fill-opacity=".25" stroke="${AG}" stroke-width="2"/>${t(207, 120, "capacidad", { s: 11, c: AG })}${t(207, 138, "litro (L)", { s: 11 })}`)],
+    ["Las unidades de longitud", `<p>La unidad principal de longitud es el <b>metro</b>. Para medir cosas muy grandes o muy pequeñas usamos sus <b>múltiplos</b> y <b>submúltiplos</b>:</p>${P.tb(["Múltiplos", "", "Unidad", "", "Submúltiplos", "", ""], [["km", "hm", "dam", "m", "dm", "cm", "mm"], ["1 000 m", "100 m", "10 m", "1 m", "0,1 m", "0,01 m", "0,001 m"]])}<p>Los prefijos ayudan: <b>kilo</b> = mil, <b>hecto</b> = cien, <b>deca</b> = diez; <b>deci</b> = décima, <b>centi</b> = centésima, <b>mili</b> = milésima.</p><p>Usos: en <b>km</b> medimos distancias entre ciudades; en <b>m</b>, una habitación; en <b>cm</b>, un lápiz; en <b>mm</b>, el grosor de una moneda. Un paso largo mide más o menos <mark>1 metro</mark>.</p>`,
+      svg("Escalera de las unidades de longitud de kilómetro a milímetro", escalera(["km", "hm", "dam", "m", "dm", "cm", "mm"], AZ))],
+    ["Cambiar de unidad de longitud", `<p>Como cada unidad es 10 veces la siguiente, cambiar de unidad es muy sencillo con la <b>escalera</b>:</p><ul><li>Para pasar a una unidad <b>menor</b> (bajar), se <b>multiplica</b> por 10 en cada peldaño.</li><li>Para pasar a una unidad <b>mayor</b> (subir), se <b>divide</b> entre 10 en cada peldaño.</li></ul><p>Ejemplos:</p><ul><li>3,5 km a m: bajamos 3 peldaños → × 1 000 → <b>3 500 m</b>.</li><li>480 cm a m: subimos 2 peldaños → : 100 → <b>4,8 m</b>.</li><li>25 mm a cm: subimos 1 → : 10 → <b>2,5 cm</b>.</li></ul><p>Comprueba si tiene sentido: al pasar a una unidad más pequeña, el número <mark>se hace más grande</mark>, porque necesitas más unidades pequeñas.</p>`,
+      svg("Pasar de kilómetros a metros multiplicando por mil y de centímetros a metros dividiendo entre cien", `${t(130, 34, "bajar = multiplicar", { s: 13, c: VE, d: true })}${t(130, 60, "3,5 km × 1 000 = 3 500 m", { s: 13 })}${t(130, 104, "subir = dividir", { s: 13, c: RO, d: true })}${t(130, 130, "480 cm : 100 = 4,8 m", { s: 13 })}${t(130, 166, "1 peldaño = un 0", { s: 11, c: "var(--muted)" })}`)],
+    ["Las unidades de masa", `<p>La <b>masa</b> es la cantidad de materia que tiene un objeto (en la vida diaria decimos «lo que pesa»). Su unidad principal es el <b>gramo</b> (g), aunque la que más usamos es el <b>kilogramo</b> (kg).</p>${P.tb(["kg", "hg", "dag", "g", "dg", "cg", "mg"], [["1 000 g", "100 g", "10 g", "1 g", "0,1 g", "0,01 g", "0,001 g"]])}<p>Para masas muy grandes se usa la <b>tonelada</b> (t): <b>1 t = 1 000 kg</b>. Un coche pesa más de una tonelada; una ballena azul, ¡más de cien!</p><p>Recuerda también: <b>medio kilo</b> = 500 g y <b>un cuarto de kilo</b> = 250 g.</p><p>Usos: un medicamento en mg, una tableta de chocolate en g, una persona en kg y un camión en <mark>toneladas</mark>.</p>`,
+      svg("Escalera de las unidades de masa de kilogramo a miligramo", escalera(["kg", "hg", "dag", "g", "dg", "cg", "mg"], NA, "1 t = 1 000 kg")),
+      P.V("medB")],
+    ["Las unidades de capacidad", `<p>La <b>capacidad</b> es lo que <b>cabe</b> dentro de un recipiente. Su unidad principal es el <b>litro</b> (L).</p>${P.tb(["kL", "hL", "daL", "L", "dL", "cL", "mL"], [["1 000 L", "100 L", "10 L", "1 L", "0,1 L", "0,01 L", "0,001 L"]])}<p>Los cambios de unidad funcionan exactamente igual: de 10 en 10.</p><ul><li>Una lata de refresco: 33 cL = 330 mL.</li><li>Una cucharada de jarabe: 5 mL.</li><li>Una bañera llena: unos 150 L.</li><li>Una piscina: muchos kL.</li></ul><p>También usamos <b>medio litro</b> (500 mL) y <b>un cuarto de litro</b> (250 mL). Un brik de leche tiene <mark>1 litro</mark>.</p>`,
+      svg("Escalera de las unidades de capacidad de kilolitro a mililitro", escalera(["kL", "hL", "daL", "L", "dL", "cL", "mL"], AG)),
+      P.V("medB2")],
+    ["Forma compleja e incompleja", `<p>Una medida puede expresarse de dos formas:</p><ul><li><b>Forma compleja</b>: con varias unidades. Ej.: 2 m 3 dm 5 cm.</li><li><b>Forma incompleja</b>: con una sola unidad. Ej.: 2,35 m o 235 cm.</li></ul><p><b>De compleja a incompleja</b>: pasa cada parte a la unidad pedida y suma. 3 kg 250 g a g → 3 000 g + 250 g = <b>3 250 g</b>.</p><p><b>De incompleja a compleja</b>: coloca las cifras en la tabla. 4,075 L → 4 L 0 dL 7 cL 5 mL → <b>4 L 7 cL 5 mL</b>.</p><p>Las etiquetas de los alimentos y los resultados deportivos usan ambas formas: «un salto de <mark>1 m 85 cm</mark>» es lo mismo que «1,85 m».</p>`,
+      svg("Dos metros, tres decímetros y cinco centímetros son 2,35 metros", `${t(130, 40, "2 m 3 dm 5 cm", { s: 18, d: true, c: AZ })}${t(130, 62, "forma compleja", { s: 11, c: "var(--muted)" })}${P.flecha(130, 72, 130, 98, "var(--muted)", 2)}${t(130, 126, "2,35 m = 235 cm", { s: 18, d: true, c: VE })}${t(130, 148, "forma incompleja", { s: 11, c: "var(--muted)" })}`)],
+    ["Sumar y restar medidas", `<p>Para sumar o restar medidas, todas deben estar en la <b>misma unidad</b>. No se pueden sumar metros con centímetros directamente.</p><p>Ejemplo: una cinta de 2 m y otra de 75 cm. ¿Cuánto miden juntas?</p><ul><li>Pasamos todo a cm: 2 m = 200 cm.</li><li>Sumamos: 200 + 75 = <b>275 cm</b> = 2,75 m.</li></ul><p>Ejemplo de resta: una garrafa de 5 L tiene que llenar vasos de 25 cL. Si ya hemos servido 3 L 50 cL, ¿cuánto queda?</p><ul><li>En cL: 500 − 350 = <b>150 cL</b> = 1,5 L.</li><li>Quedan para <mark>6 vasos</mark> más (150 : 25).</li></ul>`,
+      svg("Una cinta de dos metros y otra de setenta y cinco centímetros: juntas miden 275 centímetros", `<rect x="16" y="44" width="160" height="22" rx="4" fill="${AZ}" fill-opacity=".3" stroke="${AZ}" stroke-width="2"/>${t(96, 59, "2 m = 200 cm", { s: 11 })}<rect x="176" y="44" width="60" height="22" rx="4" fill="${VE}" fill-opacity=".35" stroke="${VE}" stroke-width="2"/>${t(206, 59, "75 cm", { s: 11 })}<path d="M16 82 V 92 H 236 V 82" fill="none" stroke="var(--muted)" stroke-width="2"/>${t(126, 116, "200 + 75 = 275 cm", { s: 15, d: true })}${t(126, 142, "= 2,75 m", { s: 15, d: true, c: VE })}${t(126, 168, "misma unidad antes de operar", { s: 11, c: "var(--muted)" })}`)],
+    ["Elegir la unidad adecuada y estimar", `<p>Para medir, primero hay que elegir la <b>unidad adecuada</b>: no tiene sentido medir un viaje en milímetros ni una hormiga en kilómetros.</p><p>Usa referencias de tu cuerpo y objetos conocidos para <b>estimar</b>:</p><ul><li>Tu dedo meñique mide de ancho más o menos <b>1 cm</b>.</li><li>Una puerta mide unos <b>2 m</b> de alto.</li><li>Un paquete de azúcar pesa <b>1 kg</b>; un folio, unos <b>5 g</b>.</li><li>Una botella grande de agua tiene <b>1,5 L</b>; una cucharilla, unos <b>5 mL</b>.</li></ul><p>Estimar antes de medir ayuda a detectar errores: si al calcular te sale que una mochila pesa <mark>450 kg</mark>, ¡seguro que querías decir 4,5 kg!</p>`,
+      P.filas("Referencias para estimar: un centímetro, dos metros, un kilogramo, un litro y medio", [["1 cm", "ancho del dedo meñique", AZ], ["2 m", "alto de una puerta", VE], ["1 kg", "paquete de azúcar", NA], ["1,5 L", "botella grande de agua", MO]])],
+    ["Resolver problemas de medida", `<p>Muchos problemas de la vida diaria son de medidas: recetas, viajes, compras… Sigue estos pasos:</p><ol><li>Subraya los datos y sus <b>unidades</b>.</li><li>Si hay unidades distintas, pásalas todas a la <b>misma</b>.</li><li>Haz las operaciones.</li><li>Escribe la solución con su <b>unidad</b>.</li></ol><p>Problema: una receta de bizcocho para 4 personas lleva 250 g de harina y 2 dL de leche. ¿Qué cantidades hacen falta para 12 personas?</p><ul><li>12 personas es el triple de 4 → multiplicamos por 3.</li><li>Harina: 250 × 3 = 750 g. Leche: 2 × 3 = 6 dL = <b>0,6 L</b>.</li></ul><p>Solución: <mark>750 g de harina y 0,6 L de leche</mark>.</p>`,
+      P.filas("Receta para 12 personas: el triple de harina y de leche", [["Para 4", "250 g harina · 2 dL leche", AZ], ["× 3", "12 personas es el triple", SO], ["Para 12", "750 g harina · 6 dL leche", VE], ["6 dL", "= 0,6 L", MO]])],
+  ],
+  figura: ["Medidas de longitud, masa y capacidad", P.columnas("Resumen: metro, gramo, litro y cambios de unidad", [["lo largo", "METRO", ["km hm dam m", "dm cm mm"], AZ], ["lo que pesa", "GRAMO", ["1 kg = 1 000 g", "1 t = 1 000 kg"], NA], ["lo que cabe", "LITRO", ["1 L = 100 cL", "= 1 000 mL"], AG], ["de 10 en 10", "CAMBIOS", ["bajar: × 10", "subir: : 10"], VE]])],
+  video: P.V("medV", true),
+  ejemplos: [
+    ["Expresa en metros: 4 km 3 hm 25 m.", ["4 km = 4 000 m.", "3 hm = 300 m.", "4 000 + 300 + 25 = 4 325 m."], "4 325 m"],
+    ["Pasa 2,6 kg a gramos y 850 g a kilogramos.", ["kg → g: bajamos 3 peldaños, × 1 000: 2 600 g.", "g → kg: subimos 3, : 1 000: 0,85 kg."], "2 600 g y 0,85 kg"],
+    ["Una jarra tiene 1,5 L de zumo. ¿Cuántos vasos de 25 cL se pueden llenar?", ["Misma unidad: 1,5 L = 150 cL.", "150 : 25 = 6."], "6 vasos"],
+  ],
+  errores: [
+    "Multiplicar al pasar a una unidad mayor (hay que dividir) o dividir al pasar a una menor.",
+    "Sumar medidas que están en unidades distintas sin pasarlas antes a la misma.",
+    "Confundir los prefijos deca (×10) y deci (÷10).",
+    "Olvidar que entre kg y g hay tres peldaños (× 1 000) y no uno.",
+    "Escribir la solución de un problema sin la unidad de medida.",
+    "Elegir unidades absurdas, como medir la longitud de un lápiz en kilómetros.",
+  ],
+  ejercicios: [
+    ["Ordena de mayor a menor: dam, mm, km, dm, m.", "km > dam > m > dm > mm."],
+    ["Pasa a centímetros: 3 m, 4,5 dm y 72 mm.", "300 cm, 45 cm y 7,2 cm."],
+    ["Pasa a kilómetros: 3 500 m y 800 dam.", "3,5 km y 8 km."],
+    ["¿Cuántos gramos son medio kilo y un cuarto de kilo?", "500 g y 250 g."],
+    ["Pasa a toneladas: 7 500 kg.", "7,5 t."],
+    ["Pasa a mililitros: 2 L, 5 cL y 0,3 dL.", "2 000 mL, 50 mL y 30 mL."],
+    ["Escribe en forma incompleja (en gramos): 2 kg 5 dag 8 g.", "2 058 g."],
+    ["Escribe en forma compleja: 6,42 m.", "6 m 4 dm 2 cm."],
+    ["¿Qué unidad usarías para medir el largo del patio, el peso de una carta y el agua de una piscina?", "Metros, gramos y kilolitros (o hectolitros)."],
+    ["Una botella tiene 2 L de agua. Bebes 3 vasos de 20 cL. ¿Cuánta agua queda?", "200 − 60 = 140 cL = 1,4 L."],
+  ],
+  quiz: [
+    ["La unidad principal de longitud es…", ["el metro", "el kilómetro", "el centímetro"], "El metro."],
+    ["1 km son…", ["1 000 m", "100 m", "10 m"], "Kilo = mil."],
+    ["1 m son…", ["100 cm", "10 cm", "1 000 cm"], "Dos peldaños."],
+    ["2,5 m en centímetros son…", ["250 cm", "25 cm", "2 500 cm"], "× 100."],
+    ["1 kg son…", ["1 000 g", "100 g", "10 g"], "Tres peldaños."],
+    ["1 tonelada son…", ["1 000 kg", "100 kg", "10 000 kg"], "1 t = 1 000 kg."],
+    ["Un cuarto de litro son…", ["250 mL", "25 mL", "400 mL"], "1 000 : 4."],
+    ["33 cL en mililitros son…", ["330 mL", "3,3 mL", "3 300 mL"], "× 10."],
+    ["Para pasar a una unidad mayor se…", ["divide", "multiplica", "suma"], "Se sube en la escalera."],
+    ["1 m 5 cm en forma incompleja es…", ["1,05 m", "1,5 m", "15 cm"], "105 cm."],
+  ],
+  examen: [
+    ["4 500 g en kilogramos son…", ["4,5 kg", "45 kg", "0,45 kg"], ": 1 000."],
+    ["La capacidad de una lata de refresco es de unos…", ["33 cL", "33 L", "33 mL"], "330 mL."],
+    ["2 km + 300 m son…", ["2 300 m", "302 m", "2,03 km"], "2 000 + 300."],
+    ["Deci significa…", ["la décima parte", "diez veces más", "cien veces más"], "dm = 0,1 m."],
+  ],
+  feynman: ["Qué es una magnitud y qué es medir", "Cuáles son las unidades de longitud, masa y capacidad", "Cómo se pasa de una unidad a otra con la escalera", "Qué diferencia hay entre forma compleja e incompleja", "Por qué hay que usar la misma unidad para sumar medidas"],
+  mapa: ["MEDIDAS", [["Longitud", "metro · km … mm", AZ], ["Masa", "gramo · kg · t", NA], ["Capacidad", "litro · kL … mL", AG], ["Cambios", "× 10 bajar · : 10 subir", VE]]],
+  tarjetas: [
+    ["Kilo, hecto, deca", "× 1 000, × 100, × 10."],
+    ["Deci, centi, mili", "La décima, la centésima y la milésima parte."],
+    ["1 km", "1 000 m."],
+    ["1 m", "10 dm = 100 cm = 1 000 mm."],
+    ["1 kg y 1 t", "1 kg = 1 000 g; 1 t = 1 000 kg."],
+    ["1 L", "10 dL = 100 cL = 1 000 mL."],
+    ["Bajar en la escalera", "Multiplicar por 10 en cada peldaño."],
+    ["Forma compleja", "Varias unidades: 2 m 35 cm."],
+  ],
+  familias: ["Cocinad una receta juntos pesando y midiendo los ingredientes.", "Mirad etiquetas de productos y pasad sus cantidades a otras unidades.", "Estimad longitudes de casa (mesa, pasillo) y comprobadlo con un metro.", "Repasad las tarjetas dos minutos al día."],
+  saberes: "Sentido de la medida: unidades del Sistema Métrico Decimal de longitud, masa y capacidad; equivalencias y cambios de unidad; expresiones complejas e incomplejas; estimación y elección de la unidad adecuada; resolución de problemas",
+  ideas: ["Taller de medición: medir objetos del aula con regla, cinta métrica y balanza.", "Escalera de unidades dibujada en el suelo para «bajar» y «subir» multiplicando y dividiendo.", "Comparar la capacidad de recipientes trasvasando agua con jarras graduadas."],
+});
