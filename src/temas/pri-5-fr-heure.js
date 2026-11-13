@@ -1,0 +1,101 @@
+// Francés 5º de Primaria: el día y la hora. Explicaciones en español, ejemplos en francés. Dibujos propios en SVG.
+const P = require("./_pri5a");
+const { svg, t, persona, AZ, RO, VE, NA, SO, MO, AG } = P;
+
+const reloj = (cx, cy, r, h, m, c) => {
+  const ah = ((h % 12) + m / 60) * 30 - 90, am = m * 6 - 90, rad = (a) => (a * Math.PI) / 180;
+  const marcas = Array.from({ length: 12 }, (_, i) => { const a = rad(i * 30 - 90); return `<path d="M${cx + Math.cos(a) * (r - 6)} ${cy + Math.sin(a) * (r - 6)} L ${cx + Math.cos(a) * r} ${cy + Math.sin(a) * r}" stroke="var(--ink)" stroke-width="2"/>`; }).join("");
+  return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="var(--card)" stroke="${c}" stroke-width="3"/>${marcas}<path d="M${cx} ${cy} L ${cx + Math.cos(rad(ah)) * r * 0.5} ${cy + Math.sin(rad(ah)) * r * 0.5}" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/><path d="M${cx} ${cy} L ${cx + Math.cos(rad(am)) * r * 0.8} ${cy + Math.sin(rad(am)) * r * 0.8}" stroke="${c}" stroke-width="2.5" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="3" fill="var(--ink)"/>`;
+};
+
+module.exports = P.tema({
+  materia: "Francés",
+  titulo: "La journée et l'heure",
+  minutos: 45,
+  objetivos: ["Preguntar y decir la hora en francés", "Nombrar los días de la semana y los momentos del día", "Describir la rutina diaria con verbos reflexivos", "Ordenar las acciones del día con conectores"],
+  claves: ["Quelle heure est-il ?", "il est … heures", "et quart / et demie", "moins le quart", "midi / minuit", "les jours de la semaine", "le matin / l'après-midi / le soir", "je me lève", "d'abord / ensuite / après", "à quelle heure ?"],
+  pregunta: ["¿Cómo se dice en francés «son las siete y media»?", "<b>Il est sept heures et demie.</b> En francés siempre se dice <b>il est</b> (en singular) y se añade la palabra <b>heures</b>: <mark>il est une heure, il est deux heures</mark>. En español decimos «son las dos», pero en francés es literalmente «es dos horas»."],
+  bloques: [
+    ["Preguntar la hora", `<p>Para preguntar la hora se dice:</p><ul><li><b>Quelle heure est-il ?</b> — ¿Qué hora es? (forma correcta)</li><li><b>Il est quelle heure ?</b> — ¿Qué hora es? (forma más coloquial)</li></ul><p>Para responder con horas en punto:</p><ul><li><b>Il est une heure.</b> — Es la una.</li><li><b>Il est deux heures.</b> — Son las dos.</li><li><b>Il est neuf heures.</b> — Son las nueve. (¡Ojo! <i>neuf heures</i> se pronuncia «nev-er».)</li></ul><p>A las doce del mediodía se dice <b>il est midi</b>, y a las doce de la noche, <b>il est minuit</b>.</p><p>Y para pedirla con educación: <mark>Excusez-moi, quelle heure est-il, s'il vous plaît ?</mark></p>`,
+      svg("Dos relojes: il est une heure, il est midi", `${reloj(70, 78, 46, 1, 0, AZ)}${reloj(190, 78, 46, 12, 0, NA)}${t(70, 152, "Il est une heure.", { s: 12, c: AZ })}${t(190, 152, "Il est midi.", { s: 12, c: NA })}`)],
+    ["Cuartos y medias", `<p>Para las fracciones de hora:</p>${P.tb(["hora", "en francés"], [["3:15", "trois heures <b>et quart</b>"], ["3:30", "trois heures <b>et demie</b>"], ["3:45", "quatre heures <b>moins le quart</b>"], ["12:30", "midi <b>et demi</b>"]])}<p>Fíjate en «menos cuarto»: igual que en español, se dice la hora <b>siguiente</b> menos el cuarto: <i>quatre heures moins le quart</i> (las cuatro menos cuarto).</p><p>Detalle curioso: con <i>heures</i> se escribe <b>demie</b> (con -e, porque <i>heure</i> es femenino), pero con <i>midi</i> y <i>minuit</i> se escribe <mark>demi</mark>.</p>`,
+      svg("Relojes con y cuarto, y media y menos cuarto", `${[[3, 15, "et quart", AZ], [3, 30, "et demie", VE], [3, 45, "moins le quart", MO]].map(([h, m, n, c], i) => `${reloj(46 + i * 84, 70, 34, h, m, c)}${t(46 + i * 84, 128, n, { s: 11, c, d: true })}`).join("")}${t(130, 162, "trois heures…", { s: 12, c: "var(--muted)" })}`),
+      P.V("heuB")],
+    ["Minutos exactos", `<p>Para decir los minutos exactos:</p><ul><li>Hasta la media, se <b>suman</b>: <i>Il est huit heures <b>dix</b></i> (8:10). <i>Il est huit heures <b>vingt-cinq</b></i> (8:25).</li><li>Después de la media, se <b>restan</b> a la hora siguiente con <b>moins</b>: <i>Il est neuf heures <b>moins dix</b></i> (8:50).</li></ul><p>En los horarios oficiales (trenes, televisión, cine) los franceses usan el <b>formato de 24 horas</b>:</p><ul><li><i>Le train part à <b>quinze heures quarante</b>.</i> — El tren sale a las 15:40.</li><li><i>Le film commence à <b>vingt heures trente</b>.</i></li></ul><p>En francés la hora se escribe con <b>h</b>: <mark>15 h 40</mark>, en lugar de 15:40.</p>`,
+      P.filas("Minutos en francés: 8 h 10, 8 h 25, 8 h 50 y 15 h 40", [["8 h 10", "huit heures dix", AZ], ["8 h 25", "huit heures vingt-cinq", VE], ["8 h 50", "neuf heures moins dix", MO], ["15 h 40", "quinze heures quarante", NA]])],
+    ["Los días de la semana", `<p>Los días de la semana (<b>les jours de la semaine</b>) se escriben con <b>minúscula</b>:</p><p><i>lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche</i>.</p><p>Casi todos terminan en <b>-di</b>, que viene del latín <i>dies</i> (día), igual que nuestro «-es» de lunes, martes…</p><p>Para preguntar qué día es: <b>On est quel jour ?</b> — <i>On est mardi.</i></p><p>Fíjate en esta diferencia:</p><ul><li><b>Lundi</b>, je vais au cinéma. — El lunes (este lunes) voy al cine.</li><li><b>Le lundi</b>, je fais du judo. — Los lunes (todos los lunes) hago judo.</li></ul><p>En Francia, muchos colegios de primaria <mark>no tienen clase el miércoles</mark> o solo por la mañana.</p>`,
+      svg("Los siete días de la semana en francés", `${["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"].map((d, i) => { const x = 22 + (i % 4) * 60, y = 30 + Math.floor(i / 4) * 70, c = i > 4 ? RO : AZ; return `<rect x="${x}" y="${y}" width="54" height="52" rx="6" fill="${c}" fill-opacity=".12" stroke="${c}" stroke-width="2"/>${t(x + 27, y + 20, String(i + 1), { s: 14, c, d: true })}${t(x + 27, y + 40, d, { s: 10, c: "var(--ink)" })}`; }).join("")}${t(139, 172, "le week-end", { s: 11, c: RO, d: true })}`)],
+    ["Los momentos del día", `<p>El día (<b>la journée</b>) se divide en momentos:</p><ul><li><b>le matin</b> — la mañana</li><li><b>le midi</b> — el mediodía</li><li><b>l'après-midi</b> — la tarde (después de comer)</li><li><b>le soir</b> — la tarde-noche (al anochecer)</li><li><b>la nuit</b> — la noche</li></ul><p>Para precisar la hora se añade el momento: <i>Il est huit heures <b>du matin</b></i> (8 de la mañana), <i>trois heures <b>de l'après-midi</b></i>, <i>huit heures <b>du soir</b></i>.</p><p>Saludos según el momento: <b>Bonjour</b> durante el día, <b>Bonsoir</b> por la tarde-noche y <mark>Bonne nuit</mark> antes de ir a dormir.</p>`,
+      svg("Arco del día: matin, après-midi, soir y nuit", `<path d="M20 140 A 110 110 0 0 1 240 140" fill="none" stroke="var(--line)" stroke-width="4"/>${[["le matin", 36, 92, SO], ["midi", 130, 30, NA], ["l'après-midi", 218, 76, VE], ["le soir", 236, 128, MO]].map(([n, x, y, c]) => `<circle cx="${x}" cy="${y}" r="9" fill="${c}"/>${t(x < 130 ? x + 14 : x - 14, y + 26, n, { s: 11, c, d: true, a: x < 100 ? "start" : x > 160 ? "end" : "middle" })}`).join("")}${t(110, 168, "la nuit : bonne nuit !", { s: 12, c: AZ })}`)],
+    ["Mi rutina: los verbos reflexivos", `<p>Para contar lo que haces cada día se usan muchos <b>verbos reflexivos</b>, que llevan <b>me</b> (o <b>m'</b> ante vocal):</p>${P.tb(["francés", "español"], [["je me réveille", "me despierto"], ["je me lève", "me levanto"], ["je me lave", "me lavo"], ["je m'habille", "me visto"], ["je me brosse les dents", "me cepillo los dientes"], ["je me couche", "me acuesto"]])}<p>Otros verbos de la rutina: <b>je prends le petit-déjeuner</b> (desayuno), <b>je vais à l'école</b> (voy al colegio), <b>je déjeune</b> (como), <b>je fais mes devoirs</b> (hago los deberes), <b>je dîne</b> (ceno).</p><p>Con la hora: <mark>Je me lève à sept heures.</mark></p>`,
+      svg("Niño despertándose junto a un despertador", `<rect x="20" y="104" width="120" height="26" rx="6" fill="${MO}" fill-opacity=".3" stroke="${MO}" stroke-width="2"/><rect x="20" y="88" width="26" height="42" rx="4" fill="${MO}" fill-opacity=".5"/><circle cx="72" cy="88" r="14" fill="${SO}" fill-opacity=".4" stroke="${NA}" stroke-width="2"/><path d="M60 72 l -6 -8 M72 70 v -10 M84 72 l 6 -8" stroke="${NA}" stroke-width="2"/>${reloj(196, 80, 34, 7, 0, RO)}${t(196, 136, "7 h", { s: 13, c: RO, d: true })}${t(80, 160, "Je me réveille.", { s: 13, c: MO })}`),
+      P.V("heuB2")],
+    ["¿A qué hora?", `<p>Para preguntar a qué hora haces algo se dice <b>À quelle heure… ?</b></p><ul><li><b>À quelle heure</b> tu te lèves ? — ¿A qué hora te levantas?</li><li>Je me lève <b>à</b> sept heures et quart.</li><li><b>À quelle heure</b> commence l'école ? — <i>L'école commence <b>à</b> neuf heures.</i></li><li><b>À quelle heure</b> tu te couches ? — <i>Je me couche <b>vers</b> neuf heures et demie.</i></li></ul><p><b>Vers</b> significa «hacia», «más o menos a»: es útil cuando no sabes la hora exacta.</p><p>Fíjate: «a las» se dice solo <b>à</b>, sin artículo: <mark>à huit heures</mark>, nunca «à les huit heures».</p>`,
+      P.dialogo("Preguntar a qué hora", [["Max", "À quelle heure tu te lèves ?", AZ], ["Lina", "À sept heures et quart.", VE], ["Max", "Moi, à sept heures !", AZ]])],
+    ["Ordenar las acciones", `<p>Para contar tu día en orden se usan <b>conectores</b>:</p><ul><li><b>d'abord</b> — primero</li><li><b>ensuite</b> — luego, a continuación</li><li><b>puis</b> — después</li><li><b>après</b> — después</li><li><b>enfin</b> — por último</li></ul><p>Ejemplo: <i><b>D'abord</b>, je me lève. <b>Ensuite</b>, je me lave et je m'habille. <b>Puis</b>, je prends le petit-déjeuner. <b>Enfin</b>, je vais à l'école.</i></p><p>Con estos conectores tu texto queda mucho más claro y <mark>se entiende el orden</mark> de las acciones.</p>`,
+      svg("Conectores en orden: d'abord, ensuite, puis, enfin", `${[["d'abord", AZ], ["ensuite", VE], ["puis", SO], ["enfin", MO]].map(([n, c], i) => `<rect x="${10 + i * 62}" y="60" width="50" height="40" rx="8" fill="${c}" fill-opacity=".2" stroke="${c}" stroke-width="2"/>${t(35 + i * 62, 85, n, { s: 11, c, d: true })}${i < 3 ? P.flecha(61 + i * 62, 80, 71 + i * 62, 80, "var(--muted)", 2) : ""}`).join("")}${t(130, 136, "D'abord, je me lève…", { s: 12, c: "var(--ink)" })}`)],
+    ["Mi día completo", `<p>Lee el día de Théo, un niño francés de 10 años:</p><p><i>Le matin, je me réveille à sept heures. D'abord, je me lave et je m'habille. Ensuite, je prends le petit-déjeuner avec ma sœur. À huit heures et quart, je vais à l'école à pied. Je déjeune à la cantine à midi. L'école finit à quatre heures et demie. L'après-midi, je prends le goûter et je fais mes devoirs. Le soir, je dîne à sept heures et demie. Enfin, je me couche à neuf heures. Bonne nuit !</i></p><p>Ahora escribe tu día: usa <b>la hora</b>, <b>los momentos del día</b>, los <b>verbos de rutina</b> y los <mark>conectores</mark>.</p>`,
+      P.filas("El día de Théo", [["7 h", "je me réveille", SO], ["8 h 15", "je vais à l'école", AZ], ["16 h 30", "je fais mes devoirs", VE], ["21 h", "je me couche", MO]], "La journée de Théo")],
+  ],
+  figura: ["La journée et l'heure", P.columnas("Resumen: la hora, los días, la rutina y los conectores", [["Quelle heure est-il ?", "L'HEURE", ["et quart, et demie", "moins le quart"], AZ], ["lundi… dimanche", "LES JOURS", ["le matin", "le soir"], VE], ["je me lève", "LA ROUTINE", ["je m'habille", "je me couche"], MO], ["d'abord, ensuite", "L'ORDRE", ["puis", "enfin"], NA]])],
+  video: P.V("heuV", true),
+  ejemplosTitulo: "Exemples",
+  ejemplos: [
+    ["Di estas horas en francés: 10:15, 6:30 y 2:45.", ["10:15 → dix heures et quart", "6:30 → six heures et demie", "2:45 → trois heures moins le quart"], "Il est dix heures et quart. / Il est six heures et demie. / Il est trois heures moins le quart."],
+    ["Responde: «À quelle heure tu te couches ?» (a las 21:30).", ["À quelle heure → à + hora", "21:30 por la noche → neuf heures et demie du soir"], "Je me couche à neuf heures et demie."],
+    ["Ordena tu mañana: me levanto, me visto, desayuno, voy al colegio.", ["d'abord → je me lève", "ensuite → je m'habille; puis → je prends le petit-déjeuner", "enfin → je vais à l'école"], "D'abord, je me lève. Ensuite, je m'habille. Puis, je prends le petit-déjeuner. Enfin, je vais à l'école."],
+  ],
+  errores: [
+    "Decir «ils sont deux heures»: siempre es «il est».",
+    "Olvidar la palabra «heures»: «il est deux» está incompleto.",
+    "Escribir los días con mayúscula: «Lundi».",
+    "Decir «à les huit heures» en lugar de «à huit heures».",
+    "Olvidar el pronombre de los verbos reflexivos: «je lève» en vez de «je me lève».",
+    "Escribir «et demi» con heures: es «et demie».",
+  ],
+  ejercicios: [
+    ["¿Cómo preguntas la hora en francés?", "Quelle heure est-il ?"],
+    ["Escribe en francés: 1:00, 12:00 (mediodía) y 00:00.", "Il est une heure. Il est midi. Il est minuit."],
+    ["Escribe en francés: 4:15, 4:30 y 4:45.", "quatre heures et quart, quatre heures et demie, cinq heures moins le quart."],
+    ["Escribe en francés: 7:10 y 7:50.", "sept heures dix, huit heures moins dix."],
+    ["Escribe los días de la semana en francés.", "lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche."],
+    ["¿Qué diferencia hay entre «lundi» y «le lundi»?", "Lundi = este lunes; le lundi = todos los lunes."],
+    ["Traduce: me despierto, me visto, me acuesto.", "je me réveille, je m'habille, je me couche."],
+    ["Traduce: «¿A qué hora empieza el colegio?»", "À quelle heure commence l'école ?"],
+    ["Escribe cuatro conectores para ordenar acciones.", "d'abord, ensuite, puis, enfin."],
+    ["Escribe tu rutina de la mañana en cuatro frases con la hora.", "Respuesta libre siguiendo el modelo de Théo."],
+  ],
+  quiz: [
+    ["«¿Qué hora es?» se dice…", ["Quelle heure est-il ?", "Quel jour est-il ?", "Comment ça va ?"], "Heure = hora."],
+    ["«Il est trois heures et demie» es…", ["3:30", "3:15", "2:30"], "Et demie = y media."],
+    ["«Il est cinq heures moins le quart» es…", ["4:45", "5:15", "5:45"], "Hora siguiente menos cuarto."],
+    ["Las 12 del mediodía se dice…", ["midi", "minuit", "douze nuit"], "Midi."],
+    ["El día después de «mardi» es…", ["mercredi", "lundi", "jeudi"], "Martes → miércoles."],
+    ["«Le soir» es…", ["la tarde-noche", "la mañana", "el mediodía"], "Soir."],
+    ["«Je me lève» significa…", ["me levanto", "me lavo", "me acuesto"], "Se lever."],
+    ["«Me visto» se dice…", ["je m'habille", "je me habille", "je habille"], "M' ante vocal o h muda."],
+    ["«Primero» se dice…", ["d'abord", "enfin", "puis"], "D'abord."],
+    ["«A las ocho» se dice…", ["à huit heures", "à les huit heures", "aux huit"], "Sin artículo."],
+  ],
+  examen: [
+    ["«15 h 40» en un horario de tren se lee…", ["quinze heures quarante", "trois heures quarante", "quinze et quarante"], "Formato 24 h."],
+    ["«Vers neuf heures» significa…", ["hacia las nueve", "a las nueve en punto", "después de las nueve"], "Vers = hacia."],
+    ["Antes de dormir se dice…", ["Bonne nuit !", "Bonjour !", "Bon appétit !"], "Bonne nuit."],
+    ["«Midi et ___»:", ["demi", "demie", "demis"], "Con midi, demi."],
+  ],
+  feynman: ["Cómo se pregunta y se dice la hora en francés", "Cómo se dicen los cuartos, las medias y los minutos", "Cuáles son los días de la semana y los momentos del día", "Cómo funcionan los verbos reflexivos de la rutina", "Cómo ordeno mi día con conectores"],
+  mapa: ["LA JOURNÉE", [["L'heure", "il est… · et quart · et demie", AZ], ["Les jours", "lundi… dimanche", VE], ["La routine", "je me lève · je me couche", MO], ["L'ordre", "d'abord · ensuite · enfin", NA]]],
+  tarjetas: [
+    ["Quelle heure est-il ?", "¿Qué hora es?"],
+    ["Il est deux heures et quart", "Son las dos y cuarto"],
+    ["moins le quart", "menos cuarto"],
+    ["midi / minuit", "mediodía / medianoche"],
+    ["le matin / le soir", "la mañana / la tarde-noche"],
+    ["je me lève", "me levanto"],
+    ["À quelle heure… ?", "¿A qué hora…?"],
+    ["d'abord / ensuite / enfin", "primero / luego / por último"],
+  ],
+  familias: ["Preguntad la hora en francés en casa durante una semana.", "Escribid juntos el horario semanal de la familia con los días en francés.", "Contad la rutina de un fin de semana con conectores.", "Repasad las tarjetas dos minutos al día."],
+  saberes: "Comunicación: preguntar y decir la hora; días de la semana y momentos del día; describir la rutina diaria con verbos pronominales; preguntar a qué hora; conectores de orden; aspectos socioculturales del horario escolar francés",
+  ideas: ["Reloj de cartón para practicar la hora por parejas.", "Cómic de la rutina diaria con viñetas y conectores.", "Comparar el horario de un colegio francés con el nuestro."],
+});
