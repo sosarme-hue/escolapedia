@@ -43,7 +43,7 @@ module.exports = {
     {
       html: `<h3>Jugamos: ¿limpio o sucio?</h3><p>Mira tus manos después de jugar con tierra. ¿Están <mark>limpias o sucias</mark>? ¡A lavarlas!</p><p>Ahora lava a un muñeco: agua, jabón y toalla. ¡Qué limpio está ahora!</p>`,
       svg: escena("Una mano sucia, el jabón y la mano ya limpia", `${ic("mano", 50, 84, 2)}${manchas(48, 84)}${t(50, 148, "sucia", 20, N)}
-        <text x="96" y="96" font-size="24" font-weight="800" fill="var(--muted)">→</text>${ic("jabon", 130, 90, 1.4)}<text x="150" y="96" font-size="24" font-weight="800" fill="var(--muted)">→</text>
+        <text x="80" y="96" font-size="24" font-weight="800" fill="var(--muted)">→</text>${ic("jabon", 130, 90, 1.4)}<text x="158" y="96" font-size="24" font-weight="800" fill="var(--muted)">→</text>
         ${ic("mano", 210, 84, 2)}${brillos(210, 84)}${t(210, 148, "limpia", 20, V)}`, "¿Limpia o sucia?"),
     },
   ],
