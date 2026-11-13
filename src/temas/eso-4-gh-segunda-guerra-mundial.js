@@ -1,136 +1,665 @@
-// Geografía e Historia 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-const { dos, linea, barras, rueda, figLinea } = require("./_hum");
-
+// Geografía e Historia 4º ESO · tema nivel libro (capítulo completo). Contenido y dibujos SVG propios.
+// Los dibujos nuevos se generaron con src/temas/_eso4L4.js y se guardan ya resueltos.
 module.exports = {
   materia: "Geografía e Historia",
   curso: "4-eso",
   titulo: "La Segunda Guerra Mundial",
-  minutos: 40,
-  objetivos: ["Explicar las causas de la Segunda Guerra Mundial", "Describir las fases y los bandos del conflicto", "Analizar el Holocausto y las consecuencias de la guerra"],
+  minutos: 115,
+  objetivos: [
+    "Explicar las causas de la Segunda Guerra Mundial",
+    "Describir las fases y los bandos del conflicto",
+    "Analizar el Holocausto y las consecuencias de la guerra",
+    "Situar en el tiempo las grandes batallas y su significado",
+    "Explicar el nuevo orden mundial tras 1945",
+  ],
   claves: ["Eje", "Aliados", "guerra relámpago", "Holocausto", "bomba atómica", "ONU"],
   pregunta: {
-    texto: "Entre 1939 y 1945 murieron unos 60 millones de personas, más de la mitad civiles. Fue la guerra más destructiva de la historia. ¿Cómo pudo pasar solo veinte años después de la «guerra que acabaría con todas las guerras»?",
-    respuesta: "La paz de 1919 dejó a Alemania humillada, la crisis del 29 llevó al poder a <b>Hitler</b> y las democracias cedieron una y otra vez ante sus conquistas. Cuando Alemania invadió <mark>Polonia en 1939</mark>, Francia y Reino Unido le declararon la guerra.",
+    texto: `Entre 1939 y 1945 murieron unos 60 millones de personas, más de la mitad civiles. Fue la guerra más destructiva de la historia. ¿Cómo pudo pasar solo veinte años después de la «guerra que acabaría con todas las guerras»?`,
+    respuesta: `La paz de 1919 dejó a Alemania humillada, la crisis del 29 llevó al poder a <b>Hitler</b> y las democracias cedieron una y otra vez ante sus conquistas. Cuando Alemania invadió <mark>Polonia en 1939</mark>, Francia y Reino Unido le declararon la guerra.`,
+  },
+  lectura: {
+    titulo: "El diario de una niña escondida",
+    html: `<p>Ámsterdam, 12 de junio de 1942. Una niña judía de trece años, Ana Frank, recibe por su cumpleaños un cuaderno de tapas a cuadros rojos y blancos y empieza a escribir un diario. Un mes después, su familia se esconde en unas habitaciones secretas detrás de una estantería, en el edificio donde trabajaba su padre. Durante dos años, ocho personas viven allí en silencio, sin poder salir, mientras unos amigos les llevan comida a escondidas.</p><p>En su diario, Ana escribe sobre sus discusiones con su madre, sus sueños de ser periodista, su primer amor, el miedo a los bombardeos y las noticias del desembarco aliado. «A pesar de todo, sigo creyendo en la bondad innata del hombre», anota. El 4 de agosto de 1944 la policía descubre el escondite. Ana muere de tifus en el campo de concentración de Bergen-Belsen a principios de 1945, pocas semanas antes de la liberación.</p><p>Su padre, el único superviviente, publicó el diario en 1947. Hoy es uno de los libros más leídos del mundo. Ana fue una de los seis millones de judíos asesinados en el Holocausto, durante la guerra más mortífera de la historia: la <b>Segunda Guerra Mundial</b>, que estudiarás en este tema.</p>`,
   },
   bloques: [
     {
-      html: `<h3>Las causas</h3><p>El <b>Tratado de Versalles</b> creó resentimiento en Alemania. La <b>Gran Depresión</b> facilitó el ascenso de los totalitarismos con políticas expansionistas: Japón invadió Manchuria (1931), Italia Etiopía (1935) y Alemania se rearmó, ocupó Renania, se anexionó Austria (1938) y los Sudetes. Francia y Reino Unido practicaron la <mark>política de apaciguamiento</mark>: ceder para evitar la guerra. En agosto de 1939 Hitler firmó un pacto de no agresión con Stalin y el 1 de septiembre invadió Polonia.</p>`,
-      svg: linea("Expansión alemana antes de la guerra", [["1936", "Renania"], ["1938", "Austria y|Sudetes"], ["ago. 1939", "pacto con|Stalin"], ["sep. 1939", "invade|Polonia"]], "var(--ink)"),
+      html: `<h3>1.1 Las causas de la guerra</h3><p>La Segunda Guerra Mundial (1939-1945) tuvo causas profundas que venían de la Primera. El <b>Tratado de Versalles</b> había dejado en Alemania un fuerte resentimiento por la humillación, las pérdidas territoriales y las reparaciones. La <b>Gran Depresión</b> de los años treinta hundió las economías, desacreditó a las democracias y facilitó el ascenso de los <mark>totalitarismos</mark>.</p><p>Alemania, Italia y Japón tenían ideologías nacionalistas y militaristas y querían expandirse: Hitler buscaba unir a todos los alemanes y conquistar «espacio vital» (<i>Lebensraum</i>) en el este de Europa a costa de los pueblos eslavos; Mussolini soñaba con un imperio mediterráneo; Japón quería dominar Asia oriental y sus materias primas.</p><p>Las democracias, Reino Unido y Francia, estaban debilitadas por la crisis y por el recuerdo traumático de la Gran Guerra, y aplicaron la <mark>política de apaciguamiento</mark>: ceder ante las exigencias de Hitler con la esperanza de evitar un conflicto. La <b>Sociedad de Naciones</b> se mostró incapaz de frenar ninguna agresión. Estados Unidos, por su parte, se mantenía aislado de los problemas europeos. Cada concesión animó a los dictadores a pedir más.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Expansión alemana antes de la guerra">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <path d="M18 90 H 242" stroke="var(--ink)" stroke-width="3"/>
+    <circle cx="34" cy="90" r="7" fill="var(--ink)"/><text x="34" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1936</text><text x="14" y="30" text-anchor="start" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Renania</text><circle cx="98" cy="90" r="7" fill="var(--ink)"/><text x="98" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">1938</text><text x="98" y="144" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Austria y</text><text x="98" y="158" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Sudetes</text><circle cx="162" cy="90" r="7" fill="var(--ink)"/><text x="162" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">ago. 1939</text><text x="162" y="30" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">pacto con</text><text x="162" y="44" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Stalin</text><circle cx="226" cy="90" r="7" fill="var(--ink)"/><text x="226" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">sep. 1939</text><text x="246" y="144" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">invade</text><text x="246" y="158" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Polonia</text>
+  </svg>`,
     },
     {
-      html: `<h3>Los bandos</h3><p>Por un lado, las potencias del <mark>Eje</mark>: Alemania, Italia y Japón. Por otro, los <mark>Aliados</mark>: Reino Unido y Francia desde el principio, y desde 1941 la <b>URSS</b> (invadida por Hitler) y <b>Estados Unidos</b> (atacado por Japón en Pearl Harbor). España, con Franco, fue oficialmente no beligerante, aunque envió la División Azul a luchar contra la URSS.</p>`,
-      svg: dos("Eje frente a Aliados", ["Eje", ["Alemania", "Italia", "Japón"], "var(--ink)"], ["Aliados", ["Reino Unido", "Francia", "URSS (1941)", "EE. UU. (1941)"], "var(--pen)"]),
+      html: `<h3>1.2 El camino a la guerra (1935-1939)</h3><table class="tb"><thead><tr><th>Año</th><th>Hecho</th></tr></thead><tbody><tr><td>1935-1936</td><td>Italia invade Etiopía; Alemania se rearma y ocupa Renania</td></tr><tr><td>1936-1939</td><td>Alemania e Italia ayudan a Franco en España</td></tr><tr><td>1938</td><td>Alemania se anexiona Austria (Anschluss) y, en Múnich, los Sudetes checos</td></tr><tr><td>1939</td><td>Hitler ocupa el resto de Checoslovaquia; pacto germano-soviético; invasión de Polonia</td></tr></tbody></table><p>El momento culminante del apaciguamiento fue la <b>conferencia de Múnich</b> (septiembre de 1938): el primer ministro británico <b>Chamberlain</b> y el francés Daladier aceptaron que Alemania se quedara con los <b>Sudetes</b>, región de Checoslovaquia con población alemana, sin consultar a los checos. Chamberlain volvió a Londres anunciando «paz para nuestro tiempo». Seis meses después Hitler ocupó el resto del país.</p><p>Entonces Reino Unido y Francia garantizaron la independencia de Polonia. En agosto de 1939 Hitler y Stalin, enemigos ideológicos, firmaron el <mark>pacto germano-soviético</mark> de no agresión, con un protocolo secreto para repartirse Polonia y Europa oriental. Con el este asegurado, el <b>1 de septiembre de 1939</b> Alemania invadió Polonia. El día 3, Reino Unido y Francia le declararon la guerra.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Pacto germano-soviético (1939): Hitler gana frente a Stalin gana"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Pacto germano-soviético (1939)</text><rect x="10" y="28" width="114" height="144" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="67" y="44.9" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Hitler gana</text><text x="67" y="71.5" text-anchor="middle" font-size="9.5" >no luchar en dos</text><text x="67" y="82.5" text-anchor="middle" font-size="9.5" >frentes</text><text x="67" y="116.3" text-anchor="middle" font-size="9.5" >oeste de Polonia</text><text x="67" y="150.2" text-anchor="middle" font-size="9.5" >materias primas</text><text x="67" y="161.1" text-anchor="middle" font-size="9.5" >soviéticas</text><rect x="136" y="28" width="114" height="144" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="193" y="44.9" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Stalin gana</text><text x="193" y="71.5" text-anchor="middle" font-size="9.5" >tiempo para</text><text x="193" y="82.5" text-anchor="middle" font-size="9.5" >rearmarse</text><text x="193" y="116.3" text-anchor="middle" font-size="9.5" >este de Polonia</text><text x="193" y="155.7" text-anchor="middle" font-size="9.5" >países bálticos</text></g></svg>`,
     },
     {
-      html: `<h3>Las fases de la guerra</h3><p><b>1939-1941, éxitos del Eje</b>: la <mark>guerra relámpago</mark> (Blitzkrieg) alemana conquistó Polonia, Francia (1940) y gran parte de Europa; Reino Unido resistió en la batalla de Inglaterra. En 1941 Alemania invadió la URSS y Japón atacó Pearl Harbor. <b>1942-1945, victoria aliada</b>: Midway (1942), <b>Stalingrado</b> (1943), el desembarco de <b>Normandía</b> (6 de junio de 1944). Alemania se rindió el 8 de mayo de 1945 y Japón en septiembre, tras las bombas atómicas de Hiroshima y Nagasaki.</p>`,
-      svg: dos("Dos fases de la guerra", ["1939-1941", ["avanza el Eje", "guerra relámpago", "cae Francia", "invasión URSS", "Pearl Harbor"], "var(--ink)"], ["1942-1945", ["avanzan Aliados", "Stalingrado", "Normandía", "rendición alemana", "Hiroshima"], "var(--pen)"]),
+      html: `<h3>1.3 Los bandos</h3><p>En la guerra se enfrentaron dos grandes coaliciones. Las <mark>potencias del Eje</mark> eran Alemania, Italia y Japón, unidas por el Pacto Tripartito (1940), a las que se sumaron Hungría, Rumanía, Bulgaria y otros países. Los <mark>Aliados</mark> eran al principio Polonia, Reino Unido y Francia, con los países de la Commonwealth (Canadá, Australia, India…). En 1941 se incorporaron las dos grandes potencias que decidirían la guerra: la <b>URSS</b>, tras ser invadida por Hitler, y <b>Estados Unidos</b>, tras el ataque japonés a Pearl Harbor. China luchaba contra Japón desde 1937.</p><p>Fue una alianza extraña: democracias capitalistas junto a la dictadura comunista de Stalin, unidas solo por el enemigo común. Sus líderes fueron <b>Churchill</b> (Reino Unido), <b>Roosevelt</b> (EE. UU.) y <b>Stalin</b> (URSS). El general <b>De Gaulle</b> dirigió desde Londres la Francia Libre.</p><p>Algunos países se mantuvieron neutrales, como Suiza, Suecia, Irlanda o Portugal. La España de Franco, arruinada tras la guerra civil, se declaró neutral y después «no beligerante», más cercana al Eje: se entrevistó con Hitler en Hendaya (1940) y envió la <b>División Azul</b>, unos 47 000 voluntarios, a luchar contra la URSS.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Eje frente a Aliados">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <rect x="14" y="16" width="110" height="148" rx="12" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>
+    <text x="69" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="var(--ink)" font-family="Baloo 2, sans-serif">Eje</text>
+    <text x="69" y="68" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Alemania</text><text x="69" y="90" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Italia</text><text x="69" y="112" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Japón</text><rect x="136" y="16" width="110" height="148" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+    <text x="191" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="var(--pen)" font-family="Baloo 2, sans-serif">Aliados</text>
+    <text x="191" y="68" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Reino Unido</text><text x="191" y="90" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Francia</text><text x="191" y="112" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">URSS (1941)</text><text x="191" y="134" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">EE. UU. (1941)</text>
+  </svg>`,
     },
     {
-      html: `<h3>El Holocausto</h3><p>Los nazis organizaron el exterminio sistemático de los judíos de Europa: el <mark>Holocausto</mark> o Shoá. Primero los encerraron en guetos; desde 1942 los deportaron a <b>campos de exterminio</b> como Auschwitz. Asesinaron a unos <b>6 millones de judíos</b>, además de gitanos, personas con discapacidad, homosexuales y opositores. Unos 9 000 republicanos españoles murieron en el campo de Mauthausen.</p>`,
+      html: `<h3>1.4 Las fases de la guerra</h3><p>La guerra puede dividirse en dos grandes etapas. Entre <b>1939 y 1941</b> el Eje encadenó victorias: Alemania conquistó Polonia, Dinamarca, Noruega, los Países Bajos, Bélgica y Francia, y dominó los Balcanes; Italia atacó en el norte de África y Grecia; Japón avanzó por China. Solo Reino Unido resistía.</p><p>En <b>1941</b> la guerra se convirtió en verdaderamente mundial con la invasión alemana de la URSS (junio) y el ataque japonés a Estados Unidos (diciembre). Entre 1942 y 1943 se produjeron los <mark>puntos de inflexión</mark>: Midway, El Alamein y, sobre todo, Stalingrado. Desde entonces, y hasta <b>1945</b>, los Aliados pasaron a la ofensiva gracias a su superioridad industrial y humana: Estados Unidos fabricó más aviones, barcos y tanques que todos sus enemigos juntos.</p><p>Alemania, atacada desde el este por los soviéticos y desde el oeste por estadounidenses y británicos, se rindió el <b>8 de mayo de 1945</b>, días después del suicidio de Hitler en Berlín. Japón resistió hasta septiembre, tras las bombas atómicas. Fue una guerra global, con frentes en Europa, el norte de África, el Atlántico, Asia y el Pacífico.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos fases de la guerra">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <rect x="14" y="16" width="110" height="148" rx="12" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>
+    <text x="69" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="var(--ink)" font-family="Baloo 2, sans-serif">1939-1941</text>
+    <text x="69" y="68" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">avanza el Eje</text><text x="69" y="90" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">guerra relámpago</text><text x="69" y="112" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">cae Francia</text><text x="69" y="134" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">invasión URSS</text><text x="69" y="156" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Pearl Harbor</text><rect x="136" y="16" width="110" height="148" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+    <text x="191" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="var(--pen)" font-family="Baloo 2, sans-serif">1942-1945</text>
+    <text x="191" y="68" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">avanzan Aliados</text><text x="191" y="90" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Stalingrado</text><text x="191" y="112" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Normandía</text><text x="191" y="134" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">rendición alemana</text><text x="191" y="156" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Hiroshima</text>
+  </svg>`,
+      video: {
+        id: "sRi0bCjnMFs",
+        titulo: "La Segunda Guerra Mundial en 15 minutos",
+        canal: "Memorias de Pez",
+        vistas: 5589240,
+        megusta: 0,
+      },
+    },
+    {
+      html: `<h3>1.5 La guerra relámpago y la batalla de Inglaterra</h3><p>Alemania había aprendido de la guerra de trincheras y aplicó una táctica nueva: la <mark>Blitzkrieg</mark> o «guerra relámpago», ataques rápidos y concentrados de divisiones de tanques (<i>panzer</i>) coordinados con la aviación, que rompían el frente y rodeaban al enemigo antes de que pudiera reaccionar. Polonia cayó en un mes, repartida entre Alemania y la URSS.</p><p>En la primavera de 1940 Alemania ocupó Dinamarca y Noruega y después atacó por Bélgica, los Países Bajos y el bosque de las Ardenas, que los franceses creían infranqueable para los tanques. En seis semanas derrotó a Francia, que firmó el armisticio en junio en el mismo vagón de 1918. El norte y la costa atlántica quedaron ocupados, y en el sur se creó el <b>régimen de Vichy</b>, dirigido por el mariscal Pétain y colaboracionista con los nazis. Unos 340 000 soldados británicos y franceses lograron escapar en barcos desde la playa de Dunkerque.</p><p>Reino Unido, con <b>Churchill</b>, resistió solo. En la <b>batalla de Inglaterra</b> (verano-otoño de 1940), la aviación británica, la RAF, ayudada por el radar, impidió que la Luftwaffe alemana dominara el cielo. Hitler aplazó la invasión de las islas, aunque siguió bombardeando Londres y otras ciudades durante meses (el <i>Blitz</i>).</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cómo funcionaba la Blitzkrieg: la aviación destruye aeródromos y comunicaciones → los tanques rompen el frente en un punto → avanzan rápido y rodean al enemigo → la infantería ocupa el terreno"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Cómo funcionaba la Blitzkrieg</text><rect x="30" y="28.0" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="130" y="39.9" text-anchor="middle" font-size="10.5" >la aviación destruye aeródromos</text><text x="130" y="52.0" text-anchor="middle" font-size="10.5" >y comunicaciones</text><path d="M130 57.5 v 7 m -4 -4 l 4 4 l 4 -4" stroke="var(--muted)" stroke-width="2" fill="none"/><rect x="30" y="66.5" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="130" y="78.4" text-anchor="middle" font-size="10.5" >los tanques rompen el frente en</text><text x="130" y="90.5" text-anchor="middle" font-size="10.5" >un punto</text><path d="M130 96.0 v 7 m -4 -4 l 4 4 l 4 -4" stroke="var(--muted)" stroke-width="2" fill="none"/><rect x="30" y="105.0" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="130" y="116.9" text-anchor="middle" font-size="10.5" >avanzan rápido y rodean al</text><text x="130" y="129.0" text-anchor="middle" font-size="10.5" >enemigo</text><path d="M130 134.5 v 7 m -4 -4 l 4 4 l 4 -4" stroke="var(--muted)" stroke-width="2" fill="none"/><rect x="30" y="143.5" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="130" y="161.4" text-anchor="middle" font-size="10.5" >la infantería ocupa el terreno</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.6 Barbarroja, Stalingrado y los puntos de inflexión</h3><p>El 22 de junio de 1941 Hitler rompió el pacto con Stalin y lanzó la <mark>operación Barbarroja</mark>, la mayor invasión de la historia: más de tres millones de soldados atacaron la URSS. Fue una guerra de exterminio: los nazis consideraban a los eslavos «infrahombres», asesinaron a millones de civiles y prisioneros y sometieron a Leningrado a un asedio de casi 900 días en el que murieron de hambre cientos de miles de personas. Pero no lograron tomar Moscú antes del invierno.</p><p>En 1942 los alemanes avanzaron hacia el sur, buscando el petróleo del Cáucaso, y llegaron a <b>Stalingrado</b>, a orillas del Volga. La batalla (agosto de 1942-febrero de 1943) se libró calle por calle, casa por casa; el Ejército Rojo contraatacó y rodeó al VI Ejército alemán, que se rindió con unos 90 000 supervivientes. Fue el gran <b>punto de inflexión</b> en Europa: desde entonces los soviéticos avanzaron hacia el oeste.</p><p>Ese mismo año cambió la guerra en otros frentes: en el Pacífico, Estados Unidos derrotó a la flota japonesa en <b>Midway</b>; en el norte de África, los británicos vencieron en <b>El Alamein</b> al Afrika Korps de Rommel, y los aliados desembarcaron en Marruecos y Argelia. En el Atlántico, los aliados ganaron la guerra contra los submarinos alemanes.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Los puntos de inflexión (1942-1943): Midway, El Alamein, Stalingrado, Kursk"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Los puntos de inflexión (1942-1943)</text><rect x="10.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="68" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Midway</text><text x="68" y="69.8" text-anchor="middle" font-size="10" >junio 1942,</text><text x="68" y="81.3" text-anchor="middle" font-size="10" >Pacífico</text><rect x="134.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="192" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">El Alamein</text><text x="192" y="69.8" text-anchor="middle" font-size="10" >noviembre 1942,</text><text x="192" y="81.3" text-anchor="middle" font-size="10" >África</text><rect x="10.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="68" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--leaf)">Stalingrado</text><text x="68" y="144.8" text-anchor="middle" font-size="10" >agosto</text><text x="68" y="156.3" text-anchor="middle" font-size="10" >1942-febrero 1943</text><rect x="134.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="192" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--sun)">Kursk</text><text x="192" y="144.8" text-anchor="middle" font-size="10" >julio 1943,</text><text x="192" y="156.3" text-anchor="middle" font-size="10" >batalla de tanques</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.7 La guerra en Asia y el Pacífico</h3><p>Japón llevaba en guerra con China desde 1937, cuando inició una invasión brutal: en la <b>masacre de Nankín</b> sus tropas asesinaron a decenas de miles de civiles. Necesitaba petróleo, caucho y metales, y cuando Estados Unidos le cortó el suministro de petróleo decidió golpear primero.</p><p>El 7 de diciembre de 1941 la aviación japonesa atacó por sorpresa la base naval estadounidense de <mark>Pearl Harbor</mark> (Hawái), hundiendo o dañando buques y matando a más de 2 400 personas. Estados Unidos declaró la guerra a Japón, y Alemania e Italia se la declararon a Estados Unidos. En los meses siguientes Japón conquistó Filipinas, Indochina, Malasia, Singapur, Birmania e Indonesia, presentándose como libertador de Asia frente al colonialismo europeo, aunque su dominio fue durísimo.</p><p>Tras <b>Midway</b> (junio de 1942), Estados Unidos pasó a la ofensiva con la estrategia de «saltos de isla en isla»: conquistaba las islas clave y aislaba las demás. Las batallas de Guadalcanal, Iwo Jima y Okinawa fueron terribles; los soldados japoneses rara vez se rendían, y los pilotos <b>kamikazes</b> se lanzaban con sus aviones contra los barcos enemigos. En 1945 los bombardeos incendiarios arrasaban las ciudades japonesas.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Línea del tiempo: guerra del Pacífico"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><path d="M14 98 H 246" stroke="var(--ink)" stroke-width="3"/><circle cx="28" cy="98" r="6" fill="var(--pen)"/><path d="M28 92 V 78" stroke="var(--pen)" stroke-width="2"/><text x="47.35" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1937</text><text x="47.35" y="44.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">Japón invade</text><text x="47.35" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">China</text><circle cx="79" cy="98" r="6" fill="var(--red)"/><path d="M79 104 V 118" stroke="var(--red)" stroke-width="2"/><text x="79" y="132.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">dic 1941</text><text x="79" y="149.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Pearl Harbor</text><circle cx="130" cy="98" r="6" fill="var(--leaf)"/><path d="M130 92 V 78" stroke="var(--leaf)" stroke-width="2"/><text x="130" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">jun 1942</text><text x="130" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Midway</text><circle cx="181" cy="98" r="6" fill="var(--sun)"/><path d="M181 104 V 118" stroke="var(--sun)" stroke-width="2"/><text x="181" y="132.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">1945</text><text x="181" y="149.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">Iwo Jima y</text><text x="181" y="160.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Okinawa</text><circle cx="232" cy="98" r="6" fill="var(--inf)"/><path d="M232 92 V 78" stroke="var(--inf)" stroke-width="2"/><text x="212.65" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">ago 1945</text><text x="212.65" y="44.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">Hiroshima y</text><text x="212.65" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Nagasaki</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.8 Europa bajo el dominio nazi: colaboración y resistencia</h3><p>Hacia 1942 la Alemania nazi dominaba casi toda Europa. Impuso un «<mark>Nuevo Orden</mark>» basado en la jerarquía racial: los territorios ocupados fueron saqueados para alimentar la economía de guerra alemana, y millones de personas fueron deportadas para hacer <b>trabajos forzados</b> en las fábricas del Reich. En el este, la ocupación fue especialmente brutal.</p><p>En todos los países hubo <b>colaboracionistas</b>, que cooperaron con los ocupantes por convicción ideológica, interés o miedo: el régimen de Vichy en Francia, Quisling en Noruega o movimientos fascistas locales. Ayudaron, por ejemplo, a detener y deportar a los judíos.</p><p>Frente a ellos surgió la <mark>Resistencia</mark>: grupos clandestinos que espiaban para los Aliados, saboteaban trenes y fábricas, publicaban prensa clandestina, ayudaban a escapar a pilotos aliados y a judíos, o luchaban como guerrilla (los partisanos). Fue muy fuerte en Francia, Italia, Polonia, Yugoslavia (con Tito) y Grecia. Muchos republicanos españoles exiliados lucharon en la Resistencia francesa: los primeros soldados que entraron en París en su liberación (agosto de 1944) fueron los de la Nueve, una compañía formada sobre todo por españoles. Hubo también resistencia dentro de Alemania, como el grupo estudiantil de la Rosa Blanca, y personas que arriesgaron su vida para salvar a judíos.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Ante la ocupación nazi: Colaboración frente a Resistencia"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Ante la ocupación nazi</text><rect x="10" y="28" width="114" height="144" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="67" y="44.9" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Colaboración</text><text x="67" y="72.1" text-anchor="middle" font-size="9.5" >Vichy (Pétain)</text><text x="67" y="101.6" text-anchor="middle" font-size="9.5" >Quisling en Noruega</text><text x="67" y="131.1" text-anchor="middle" font-size="9.5" >policías locales</text><text x="67" y="160.6" text-anchor="middle" font-size="9.5" >deportaciones</text><rect x="136" y="28" width="114" height="144" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="193" y="44.9" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Resistencia</text><text x="193" y="72.1" text-anchor="middle" font-size="9.5" >sabotajes</text><text x="193" y="101.6" text-anchor="middle" font-size="9.5" >prensa clandestina</text><text x="193" y="131.1" text-anchor="middle" font-size="9.5" >partisanos</text><text x="193" y="160.6" text-anchor="middle" font-size="9.5" >rescate de judíos</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.9 El Holocausto</h3><p>El <mark>Holocausto</mark>, o <b>Shoá</b> en hebreo, fue el exterminio sistemático y planificado de los judíos de Europa por la Alemania nazi y sus colaboradores. Fue el resultado extremo de la ideología racista nazi, que consideraba a los judíos una «raza» enemiga a la que había que eliminar.</p><p>La persecución empezó en 1933 con la exclusión de los judíos de la vida pública, siguió con las Leyes de Núremberg (1935) y la Noche de los Cristales Rotos (1938). Con la guerra, millones de judíos de Polonia y otros países ocupados fueron encerrados en <b>guetos</b>, barrios cercados y superpoblados, como el de Varsovia, donde morían de hambre y enfermedades; en 1943 el gueto de Varsovia se rebeló y fue aplastado. Tras la invasión de la URSS, unidades especiales de las SS, los <i>Einsatzgruppen</i>, asesinaron a más de un millón de judíos a tiros, junto a fosas comunes, como en Babi Yar (Ucrania).</p><p>Además de unos <b>6 millones de judíos</b>, los nazis asesinaron a cientos de miles de gitanos (el <i>Porraimos</i>), a personas con discapacidad, a homosexuales, a prisioneros de guerra soviéticos y a opositores políticos. Fue un crimen sin precedentes por su escala, su organización burocrática e industrial y su objetivo de destruir a un pueblo entero: un <b>genocidio</b>.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Vela encendida en memoria de las víctimas del Holocausto">
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         <rect x="112" y="70" width="36" height="80" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>
         <path d="M130 70 V 60" stroke="var(--ink)" stroke-width="2"/>
         <path d="M130 30 C 120 44, 122 58, 130 60 C 138 58, 140 44, 130 30 Z" fill="var(--sun)"/>
         <rect x="96" y="150" width="68" height="8" rx="3" fill="var(--ink)"/>
-        <text x="130" y="176" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>27 de enero: Día de la Memoria</text>
+        <text x="130" y="176" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">27 de enero: Día de la Memoria</text>
       </svg>`,
     },
     {
-      html: `<h3>Las consecuencias</h3><p>Unos <b>60 millones de muertos</b> y Europa destruida. Alemania quedó dividida y los líderes nazis fueron juzgados en <b>Núremberg</b> por crímenes contra la humanidad. En 1945 se creó la <mark>ONU</mark> para mantener la paz, y en 1948 se aprobó la <b>Declaración Universal de los Derechos Humanos</b>. Estados Unidos y la URSS salieron como superpotencias rivales: empezaba la Guerra Fría.</p>`,
-      svg: barras("Muertos aproximados en millones por país o grupo", [["URSS", 26, "var(--red)", "≈ 26 M"], ["China", 15, "var(--sun)", "≈ 15 M"], ["Alemania", 7, "var(--ink)", "≈ 7 M"], ["Polonia", 6, "var(--pen)", "≈ 6 M"], ["Japón", 3, "var(--muted)", "≈ 3 M"]], 28),
+      html: `<h3>1.10 Los campos de exterminio</h3><p>En enero de 1942, en la <b>conferencia de Wannsee</b>, altos cargos nazis organizaron la llamada «<mark>solución final</mark>»: el asesinato de todos los judíos de Europa. Desde entonces fueron deportados en trenes de mercancías, hacinados y sin agua, a <b>campos de exterminio</b> construidos en Polonia ocupada: Auschwitz-Birkenau, Treblinka, Sobibor, Belzec, Majdanek y Chelmno. En ellos la mayoría era asesinada en cámaras de gas nada más llegar; los cuerpos se quemaban en crematorios. Solo en Auschwitz murió alrededor de un millón de personas.</p><p>Hay que distinguir los campos de exterminio de los <b>campos de concentración</b>, como Dachau, Buchenwald o Mauthausen, donde los presos eran sometidos a trabajos forzados, hambre, malos tratos y experimentos médicos, y morían en masa por agotamiento o ejecuciones. Unos 9 000 republicanos españoles pasaron por <b>Mauthausen</b>, y más de la mitad murieron allí; el fotógrafo Francesc Boix logró sacar fotos que sirvieron de prueba en Núremberg.</p><p>El 27 de enero, día de la liberación de Auschwitz por el ejército soviético (1945), es el <b>Día Internacional en Memoria de las Víctimas del Holocausto</b>.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Las etapas de la persecución: 1933-1938: exclusión y Leyes de Núremberg → 1939-1941: guetos y deportaciones → 1941: fusilamientos masivos en el este → 1942-1945: «solución final», campos de exterminio"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Las etapas de la persecución</text><rect x="30" y="28.0" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="130" y="39.9" text-anchor="middle" font-size="10.5" >1933-1938: exclusión y Leyes de</text><text x="130" y="52.0" text-anchor="middle" font-size="10.5" >Núremberg</text><path d="M130 57.5 v 7 m -4 -4 l 4 4 l 4 -4" stroke="var(--muted)" stroke-width="2" fill="none"/><rect x="30" y="66.5" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="130" y="78.4" text-anchor="middle" font-size="10.5" >1939-1941: guetos y</text><text x="130" y="90.5" text-anchor="middle" font-size="10.5" >deportaciones</text><path d="M130 96.0 v 7 m -4 -4 l 4 4 l 4 -4" stroke="var(--muted)" stroke-width="2" fill="none"/><rect x="30" y="105.0" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="130" y="116.9" text-anchor="middle" font-size="10.5" >1941: fusilamientos masivos en</text><text x="130" y="129.0" text-anchor="middle" font-size="10.5" >el este</text><path d="M130 134.5 v 7 m -4 -4 l 4 4 l 4 -4" stroke="var(--muted)" stroke-width="2" fill="none"/><rect x="30" y="143.5" width="200" height="28.5" rx="8" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="130" y="155.4" text-anchor="middle" font-size="10.5" >1942-1945: «solución final»,</text><text x="130" y="167.5" text-anchor="middle" font-size="10.5" >campos de exterminio</text></g></svg>`,
+      video: {
+        id: "WGCBtPIdid4",
+        titulo: "Cómo fue la liberación de Auschwitz, el campo de exterminio nazi símbolo del Holocausto",
+        canal: "BBC News Mundo",
+        vistas: 1028786,
+        megusta: 0,
+      },
+    },
+    {
+      html: `<h3>1.11 El final de la guerra y la bomba atómica</h3><p>El <b>6 de junio de 1944</b>, el «día D», más de 150 000 soldados aliados desembarcaron en las playas de <mark>Normandía</mark>: fue la mayor operación anfibia de la historia, dirigida por el general Eisenhower. París se liberó en agosto. Mientras, el Ejército Rojo avanzaba desde el este y liberaba Polonia y los Balcanes. En abril de 1945 los soviéticos llegaron a Berlín; Hitler se suicidó en su búnker el 30 de abril y Alemania se rindió el <b>8 de mayo de 1945</b>. Mussolini había sido capturado y ejecutado por partisanos italianos días antes.</p><p>Japón siguió luchando. Estados Unidos, que había desarrollado en secreto la bomba atómica (Proyecto Manhattan), decidió usarla para forzar la rendición sin invadir las islas. El <b>6 de agosto</b> lanzó una sobre <b>Hiroshima</b> y el <b>9 de agosto</b> otra sobre <b>Nagasaki</b>: murieron más de 100 000 personas en el acto y muchas más después por las quemaduras y la radiación. Entre ambas fechas, la URSS declaró la guerra a Japón. Japón se rindió el <b>2 de septiembre de 1945</b>.</p><p>El uso de la bomba sigue generando debate: unos sostienen que salvó vidas al evitar una invasión; otros, que fue un ataque contra civiles innecesario y que inauguró la era nuclear.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Línea del tiempo: el final de la guerra"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><path d="M14 98 H 246" stroke="var(--ink)" stroke-width="3"/><circle cx="28" cy="98" r="6" fill="var(--pen)"/><path d="M28 92 V 78" stroke="var(--pen)" stroke-width="2"/><text x="47.35" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">6 jun 1944</text><text x="47.35" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Normandía</text><circle cx="79" cy="98" r="6" fill="var(--red)"/><path d="M79 104 V 118" stroke="var(--red)" stroke-width="2"/><text x="79" y="132.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">ago 1944</text><text x="79" y="149.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">liberación de</text><text x="79" y="160.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">París</text><circle cx="130" cy="98" r="6" fill="var(--leaf)"/><path d="M130 92 V 78" stroke="var(--leaf)" stroke-width="2"/><text x="130" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">8 may 1945</text><text x="130" y="44.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">rendición</text><text x="130" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">alemana</text><circle cx="181" cy="98" r="6" fill="var(--sun)"/><path d="M181 104 V 118" stroke="var(--sun)" stroke-width="2"/><text x="181" y="132.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">6-9 ago 1945</text><text x="181" y="149.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">Hiroshima y</text><text x="181" y="160.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Nagasaki</text><circle cx="232" cy="98" r="6" fill="var(--inf)"/><path d="M232 92 V 78" stroke="var(--inf)" stroke-width="2"/><text x="212.65" y="72.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">2 sep 1945</text><text x="212.65" y="44.4" text-anchor="middle" font-size="9.5" fill="var(--muted)">rendición de</text><text x="212.65" y="55.3" text-anchor="middle" font-size="9.5" fill="var(--muted)">Japón</text></g></svg>`,
+    },
+    {
+      html: `<h3>1.12 Las consecuencias y el nuevo orden mundial</h3><p>La Segunda Guerra Mundial fue el conflicto más destructivo de la historia: unos <b>60 millones de muertos</b>, más de la mitad civiles. La URSS perdió unos 26 millones de personas; Polonia, casi una de cada cinco de su población. Millones de personas quedaron desplazadas, y ciudades como Varsovia, Dresde, Berlín o Hiroshima estaban arrasadas.</p><p>Los vencedores decidieron el futuro en las conferencias de <b>Yalta</b> y <b>Potsdam</b> (1945): Alemania y Austria se dividieron en cuatro zonas de ocupación (estadounidense, británica, francesa y soviética), y también Berlín; Polonia se desplazó hacia el oeste. En los <mark>juicios de Núremberg</mark> (1945-1946) se juzgó por primera vez a dirigentes de un Estado por <b>crímenes contra la humanidad</b>, crímenes de guerra y genocidio.</p><p>Para evitar otra guerra se creó en 1945 la <mark>ONU</mark> (Organización de las Naciones Unidas), con sede en Nueva York y un Consejo de Seguridad en el que las cinco grandes potencias tienen derecho de veto. En 1948 aprobó la <b>Declaración Universal de los Derechos Humanos</b>. Europa perdió su hegemonía: <b>Estados Unidos y la URSS</b> salieron como superpotencias rivales, y su enfrentamiento abrió la Guerra Fría. Las colonias europeas, además, empezaron a reclamar su independencia.</p>`,
+      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Muertos aproximados en millones por país o grupo">
+    <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="11.5"><text x="84" y="34" text-anchor="end" font-weight="700" fill="var(--ink)">URSS</text><rect x="92" y="20" width="111.42857142857143" height="20" rx="5" fill="var(--red)"/><text x="207.42857142857144" y="34" fill="var(--ink)">≈ 26 M</text><text x="84" y="62" text-anchor="end" font-weight="700" fill="var(--ink)">China</text><rect x="92" y="48" width="64.28571428571428" height="20" rx="5" fill="var(--sun)"/><text x="160.28571428571428" y="62" fill="var(--ink)">≈ 15 M</text><text x="84" y="90" text-anchor="end" font-weight="700" fill="var(--ink)">Alemania</text><rect x="92" y="76" width="30" height="20" rx="5" fill="var(--ink)"/><text x="126" y="90" fill="var(--ink)">≈ 7 M</text><text x="84" y="118" text-anchor="end" font-weight="700" fill="var(--ink)">Polonia</text><rect x="92" y="104" width="25.71428571428571" height="20" rx="5" fill="var(--pen)"/><text x="121.71428571428571" y="118" fill="var(--ink)">≈ 6 M</text><text x="84" y="146" text-anchor="end" font-weight="700" fill="var(--ink)">Japón</text><rect x="92" y="132" width="12.857142857142856" height="20" rx="5" fill="var(--muted)"/><text x="108.85714285714286" y="146" fill="var(--ink)">≈ 3 M</text></g>
+  </svg>`,
     },
   ],
   figura: {
     titulo: "Cronología de la Segunda Guerra Mundial",
-    svg: figLinea("Línea del tiempo de 1939 a 1945", [[40, "1939", "invasión de Polonia", 1], [130, "1940", "cae Francia", 0], [220, "1941", "URSS y Pearl Harbor", 1], [320, "1942", "Midway", 0], [410, "1943", "Stalingrado", 1], [510, "1944", "Normandía", 0], [630, "1945", "rendición y bombas", 1]], [[40, 260, "avanza el Eje", "var(--ink)"], [260, 630, "avanzan los Aliados", "var(--pen)"]]),
+    svg: `<svg viewBox="0 0 680 200" role="img" aria-label="Línea del tiempo de 1939 a 1945">
+    <rect width="680" height="200" rx="16" fill="var(--paper)"/>
+    <path d="M30 100 H 650" stroke="var(--line)" stroke-width="4"/>
+    <rect x="40" y="92" width="220" height="16" rx="8" fill="var(--ink)" opacity=".75"/><text x="150" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">avanza el Eje</text><rect x="260" y="92" width="370" height="16" rx="8" fill="var(--pen)" opacity=".75"/><text x="445" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">avanzan los Aliados</text>
+    <path d="M40 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="40" cy="100" r="5" fill="var(--ink)"/><text x="40" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1939</text><text x="20" y="54" text-anchor="start" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">invasión de Polonia</text><path d="M130 100 V 140" stroke="var(--ink)" stroke-width="1.5"/><circle cx="130" cy="100" r="5" fill="var(--ink)"/><text x="130" y="164" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1940</text><text x="130" y="182" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">cae Francia</text><path d="M220 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="220" cy="100" r="5" fill="var(--ink)"/><text x="220" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1941</text><text x="220" y="54" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">URSS y Pearl Harbor</text><path d="M320 100 V 140" stroke="var(--ink)" stroke-width="1.5"/><circle cx="320" cy="100" r="5" fill="var(--ink)"/><text x="320" y="164" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1942</text><text x="320" y="182" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Midway</text><path d="M410 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="410" cy="100" r="5" fill="var(--ink)"/><text x="410" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1943</text><text x="410" y="54" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Stalingrado</text><path d="M510 100 V 140" stroke="var(--ink)" stroke-width="1.5"/><circle cx="510" cy="100" r="5" fill="var(--ink)"/><text x="510" y="164" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1944</text><text x="510" y="182" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">Normandía</text><path d="M630 100 V 62" stroke="var(--ink)" stroke-width="1.5"/><circle cx="630" cy="100" r="5" fill="var(--ink)"/><text x="630" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">1945</text><text x="650" y="54" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">rendición y bombas</text>
+  </svg>`,
   },
-  video: { id: "AYQ8hT8cVTE", titulo: "La Segunda Guerra Mundial en 17 minutos", canal: "Academia Play", vistas: 33293168, megusta: 733744, busqueda: "segunda guerra mundial resumen" },
+  video: {
+    id: "AYQ8hT8cVTE",
+    titulo: "La Segunda Guerra Mundial en 17 minutos",
+    canal: "Academia Play",
+    vistas: 33293168,
+    megusta: 733744,
+    busqueda: "segunda guerra mundial resumen",
+  },
+  ejemplos: [
+    {
+      enunciado: "Explica por qué Stalingrado se considera el punto de inflexión de la guerra en Europa.",
+      pasos: [
+        "Alemania había avanzado sin freno hasta el Volga.",
+        "En Stalingrado el ejército soviético cercó al VI Ejército alemán.",
+        "En febrero de 1943 se rindieron unos 90.000 soldados alemanes.",
+        "A partir de entonces la URSS pasó a la ofensiva hasta Berlín.",
+      ],
+      resultado: "Fue la primera gran derrota alemana y cambió el sentido de la guerra.",
+    },
+    {
+      enunciado: "Compara la Primera y la Segunda Guerra Mundial en víctimas civiles.",
+      pasos: [
+        "En la Primera murieron sobre todo soldados en las trincheras.",
+        "En la Segunda hubo bombardeos masivos de ciudades, genocidio y represión.",
+        "Murieron entre 50 y 60 millones de personas, más de la mitad civiles.",
+      ],
+      resultado: "La Segunda fue mucho más mortífera y castigó sobre todo a la población civil.",
+    },
+    {
+      enunciado: `Ordena: Pearl Harbor, invasión de Polonia, desembarco de Normandía, Hiroshima, Stalingrado.`,
+      pasos: ["Polonia: 1939.", "Pearl Harbor: 1941.", "Stalingrado: 1942-1943.", "Normandía: 1944.", "Hiroshima: 1945."],
+      resultado: "Polonia → Pearl Harbor → Stalingrado → Normandía → Hiroshima.",
+    },
+    {
+      enunciado: `Explica por qué el pacto germano-soviético de 1939 fue decisivo para el inicio de la guerra.`,
+      pasos: [
+        `Hitler quería invadir Polonia, pero temía luchar a la vez contra la URSS y contra Francia y Reino Unido.`,
+        "El pacto de no agresión le garantizó que la URSS no intervendría.",
+        "El protocolo secreto repartía Polonia y Europa oriental entre ambos.",
+        `Una semana después, Alemania invadió Polonia y la URSS la atacó por el este el 17 de septiembre.`,
+      ],
+      resultado: `El pacto eliminó el riesgo de una guerra en dos frentes y dio a Hitler vía libre para invadir Polonia.`,
+    },
+    {
+      enunciado: `Analiza la tabla de muertos: URSS 26 millones, Alemania 7, EE. UU. 0,4. ¿Qué explica la diferencia?`,
+      pasos: [
+        `La URSS sufrió la invasión en su territorio y una guerra de exterminio contra civiles y prisioneros.`,
+        "Alemania sufrió bombardeos masivos y la derrota en el este.",
+        "EE. UU. no fue invadido ni bombardeado (salvo Pearl Harbor); solo perdió soldados.",
+        `Conclusión: el número de muertos depende de dónde se libró la guerra y del trato a los civiles.`,
+      ],
+      resultado: `La guerra fue mucho más mortífera donde se combatió en el propio territorio y donde los nazis aplicaron políticas de exterminio.`,
+    },
+    {
+      enunciado: "Compara un campo de concentración y un campo de exterminio.",
+      pasos: [
+        `Campo de concentración: encierro de opositores, presos y prisioneros; trabajo forzado; muerte por agotamiento, hambre o ejecuciones (Dachau, Mauthausen).`,
+        `Campo de exterminio: diseñado para asesinar de inmediato a los deportados en cámaras de gas (Treblinka, Sobibor).`,
+        "Algunos eran mixtos: Auschwitz-Birkenau tenía campo de trabajo y de exterminio.",
+        "Ambos formaban parte del sistema represivo nazi.",
+      ],
+      resultado: `La diferencia es la finalidad: el de concentración explotaba y destruía lentamente; el de exterminio mataba de forma inmediata e industrial.`,
+    },
+  ],
+  errores: [
+    "Pensar que EE. UU. estuvo en la guerra desde 1939: entró en diciembre de 1941.",
+    "Creer que la URSS fue siempre aliada de Reino Unido: hasta 1941 tenía un pacto con Hitler.",
+    `Confundir campos de concentración con campos de exterminio: en estos últimos se asesinaba de forma masiva y planificada.`,
+    `Decir que España participó oficialmente en la guerra: fue no beligerante, aunque envió la División Azul contra la URSS.`,
+    `Situar el fin de la guerra en mayo de 1945 en todo el mundo: en el Pacífico terminó en septiembre.`,
+    `Pensar que el Holocausto fue obra solo de Hitler y unos pocos: necesitó la participación de miles de funcionarios, soldados, policías y colaboradores en toda Europa.`,
+  ],
+  ejercicios: [
+    {
+      nivel: "básico",
+      q: "¿Qué fue la política de apaciguamiento?",
+      sol: `Ceder ante las exigencias de Hitler, como en Múnich en 1938, para intentar evitar la guerra.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué era la Blitzkrieg?",
+      sol: "La guerra relámpago: ataques rápidos y por sorpresa combinando tanques y aviación.",
+    },
+    {
+      nivel: "básico",
+      q: "¿Por qué fue importante la batalla de Inglaterra?",
+      sol: `La RAF impidió que Alemania dominara el aire, y Hitler tuvo que renunciar a invadir Gran Bretaña.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué provocó la entrada de EE. UU. en la guerra?",
+      sol: "El ataque japonés a Pearl Harbor el 7 de diciembre de 1941.",
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué ocurrió el 6 de junio de 1944?",
+      sol: "El desembarco aliado de Normandía, que abrió un frente en el oeste de Europa.",
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué relación tienen los republicanos españoles con Mauthausen?",
+      sol: `Miles de exiliados republicanos fueron deportados a ese campo nazi; más de la mitad murieron allí.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué se aprobó en 1948?",
+      sol: "La Declaración Universal de Derechos Humanos de la ONU.",
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué era el «espacio vital» que reclamaba Hitler?",
+      sol: `Los territorios del este de Europa (Polonia, URSS) que quería conquistar para colonizarlos con alemanes y explotar sus recursos, a costa de los pueblos eslavos, considerados inferiores.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué fue la conferencia de Múnich (1938)?",
+      sol: `La reunión en la que Reino Unido, Francia, Alemania e Italia acordaron entregar a Hitler los Sudetes checos sin consultar a Checoslovaquia. Fue el punto culminante del apaciguamiento.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué era el régimen de Vichy?",
+      sol: `El gobierno francés colaboracionista instalado en el sur de Francia tras la derrota de 1940, dirigido por el mariscal Pétain.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué fue la operación Barbarroja?",
+      sol: `La invasión alemana de la URSS, iniciada el 22 de junio de 1941, con más de tres millones de soldados.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué fue la División Azul?",
+      sol: `Una unidad de unos 47 000 voluntarios españoles enviada por Franco para luchar junto a Alemania contra la URSS (1941-1943).`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué se aprobó en Yalta y Potsdam sobre Alemania?",
+      sol: `Su división en cuatro zonas de ocupación (EE. UU., Reino Unido, Francia y URSS), también Berlín, su desmilitarización y desnazificación.`,
+    },
+    {
+      nivel: "básico",
+      q: "¿Cuándo se rindieron Alemania y Japón?",
+      sol: "Alemania, el 8 de mayo de 1945; Japón, el 2 de septiembre de 1945.",
+    },
+    {
+      nivel: "básico",
+      q: "¿Qué día se recuerda a las víctimas del Holocausto y por qué?",
+      sol: "El 27 de enero, porque ese día de 1945 el ejército soviético liberó el campo de Auschwitz.",
+    },
+    {
+      nivel: "medio",
+      q: "Explica qué fue la «solución final».",
+      sol: "El plan nazi para asesinar a todos los judíos de Europa en campos de exterminio.",
+    },
+    {
+      nivel: "medio",
+      q: "¿Por qué se rindió Japón?",
+      sol: `Tras las bombas atómicas de Hiroshima y Nagasaki y la entrada de la URSS en la guerra contra Japón.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué novedad supusieron los juicios de Núremberg?",
+      sol: `Por primera vez se juzgó a dirigentes de un Estado por crímenes de guerra y contra la humanidad.`,
+    },
+    {
+      nivel: "medio",
+      q: "Explica por qué Pearl Harbor convirtió la guerra en mundial.",
+      sol: `Porque el ataque japonés (7-12-1941) llevó a EE. UU. a declarar la guerra a Japón, y Alemania e Italia se la declararon a EE. UU. Así se unieron en un solo conflicto la guerra europea y la asiática, con la mayor potencia industrial del mundo en el bando aliado.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Por qué la batalla de Inglaterra fue la primera derrota de Hitler?",
+      sol: `Porque la RAF, con ayuda del radar y de pilotos de varios países, impidió que la Luftwaffe dominara el aire, condición imprescindible para invadir Gran Bretaña. Hitler tuvo que renunciar a la invasión, y Reino Unido siguió siendo una base para los Aliados.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué fue la conferencia de Wannsee?",
+      sol: `La reunión de altos funcionarios nazis en enero de 1942 que organizó la «solución final»: coordinar la deportación y el asesinato de todos los judíos de Europa.`,
+    },
+    {
+      nivel: "medio",
+      q: "Explica qué hicieron los republicanos españoles en la Segunda Guerra Mundial.",
+      sol: `Muchos exiliados lucharon contra el nazismo: en la Resistencia francesa y en el ejército de la Francia Libre (La Nueve, primera en entrar en París); otros acabaron en campos nazis, sobre todo Mauthausen, donde murieron más de la mitad de los 9 000 deportados.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Por qué Japón atacó Estados Unidos?",
+      sol: `Porque quería dominar Asia oriental y sus recursos, y EE. UU. le había cortado el suministro de petróleo y otros materiales por su agresión a China. Japón pensó que destruyendo la flota del Pacífico en Pearl Harbor podría conquistar el sudeste asiático antes de que EE. UU. reaccionara.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué novedades aportó la ONU respecto a la Sociedad de Naciones?",
+      sol: `Contó con todas las grandes potencias, incluidos EE. UU. y la URSS; tiene un Consejo de Seguridad que puede autorizar el uso de la fuerza y misiones de paz; aprobó la Declaración Universal de Derechos Humanos (1948) y creó organismos especializados (UNESCO, UNICEF, OMS).`,
+    },
+    {
+      nivel: "medio",
+      q: "Explica qué fue el desembarco de Normandía y por qué fue importante.",
+      sol: `El 6 de junio de 1944 (día D) los Aliados desembarcaron en las playas de Normandía con más de 150 000 soldados. Abrió el segundo frente que pedía Stalin, permitió liberar Francia y Europa occidental y atacar a Alemania desde el oeste.`,
+    },
+    {
+      nivel: "medio",
+      q: "¿Qué fue la Resistencia y qué actividades realizaba?",
+      sol: `Grupos clandestinos que se oponían a la ocupación nazi en Europa. Espiaban para los Aliados, saboteaban trenes y fábricas, publicaban prensa clandestina, escondían a judíos y pilotos aliados y combatían como guerrilla (partisanos en Yugoslavia, Italia, Francia).`,
+    },
+    {
+      nivel: "avanzado",
+      q: `Comenta la frase de Chamberlain al volver de Múnich (1938): «Creo que es la paz para nuestro tiempo». ¿Por qué se equivocó?`,
+      sol: `Clasifica: declaración política tras la conferencia de Múnich. Idea: entregar los Sudetes a Hitler había evitado la guerra. Error: Hitler no buscaba solo unir a los alemanes, sino expandirse; cada concesión le reforzó y le convenció de que las democracias no lucharían. En marzo de 1939 ocupó Checoslovaquia y en septiembre invadió Polonia. Muestra el fracaso del apaciguamiento frente a una dictadura expansionista.`,
+    },
+    {
+      nivel: "avanzado",
+      q: "¿Por qué ganaron los Aliados la guerra? Explica al menos cuatro factores.",
+      sol: `1) Superioridad industrial y demográfica (EE. UU. y URSS). 2) Error de Hitler al atacar a la URSS y declarar la guerra a EE. UU., luchando en varios frentes. 3) Resistencia soviética y victoria en Stalingrado. 4) Dominio aliado del mar y del aire. 5) Coordinación aliada y apoyo de las resistencias. 6) Desciframiento de códigos enemigos (Enigma).`,
+    },
+    {
+      nivel: "avanzado",
+      q: `Debate: ¿estaba justificado el lanzamiento de las bombas atómicas sobre Hiroshima y Nagasaki? Expón los dos puntos de vista y tu opinión.`,
+      sol: `A favor: Japón no se rendía; una invasión podría haber causado cientos de miles de muertos en ambos bandos; aceleró el final. En contra: murieron más de 100 000 civiles en el acto y muchos más por la radiación; Japón estaba ya muy debilitado; pudo haber razones de demostración de fuerza ante la URSS; abrió la era nuclear. Opinión argumentada con respeto.`,
+    },
+    {
+      nivel: "avanzado",
+      q: "¿Por qué el Holocausto se considera un genocidio y un crimen único en la historia?",
+      sol: `Es genocidio porque buscó destruir total o parcialmente a un grupo (los judíos) por su origen. Su carácter extremo viene de su escala (6 millones), de su planificación burocrática y estatal, del uso de métodos industriales (cámaras de gas, crematorios) y del objetivo de eliminar a todo un pueblo en un continente entero. Llevó a crear el concepto jurídico de genocidio (1948).`,
+    },
+    {
+      nivel: "avanzado",
+      q: `Relaciona la Segunda Guerra Mundial con el comienzo de la Guerra Fría y de la descolonización.`,
+      sol: `La guerra dejó a Europa arruinada y a EE. UU. y la URSS como superpotencias con sistemas opuestos; el reparto de Alemania y Europa en zonas de influencia originó su rivalidad (Guerra Fría). Las potencias coloniales quedaron debilitadas, Japón había mostrado que se podía vencer a los europeos y la Carta de la ONU proclamaba la autodeterminación: los pueblos colonizados reclamaron la independencia.`,
+    },
+    {
+      nivel: "avanzado",
+      q: `Lee un fragmento del diario de Ana Frank («A pesar de todo, sigo creyendo en la bondad innata del hombre») y explica qué valor tiene el diario como fuente histórica.`,
+      sol: `Es una fuente primaria personal escrita durante los hechos (1942-1944) por una adolescente judía escondida en Ámsterdam. Permite conocer la vida cotidiana bajo la persecución, el miedo, las noticias de la guerra y los sentimientos de una víctima. Limitaciones: visión subjetiva y limitada al escondite. Su valor es humano y educativo: da rostro a una de los seis millones de víctimas.`,
+    },
+  ],
   quiz: [
-    { q: "¿Qué hecho inició la Segunda Guerra Mundial?", o: ["El ataque a Pearl Harbor", "La invasión alemana de Polonia (1 de septiembre de 1939)", "La batalla de Stalingrado"], a: 1, e: "Dos días después, Francia y Reino Unido declararon la guerra a Alemania." },
-    { q: "¿Qué países formaban el Eje?", o: ["Alemania, Italia y Japón", "Alemania, URSS y España", "Reino Unido, Francia y EE. UU."], a: 0, e: "Fueron las tres potencias totalitarias y expansionistas." },
-    { q: "La «guerra relámpago» consistía en…", o: ["ataques rápidos con tanques y aviación", "guerra de trincheras", "bombardeos atómicos"], a: 0, e: "La Blitzkrieg combinaba blindados y aviones para romper el frente en pocos días." },
-    { q: "¿Qué fue el Holocausto?", o: ["Una batalla naval", "El exterminio sistemático de los judíos por los nazis", "Un tratado de paz"], a: 1, e: "Unos 6 millones de judíos fueron asesinados, junto a otros grupos perseguidos." },
-    { q: "¿Qué organización se creó en 1945 para mantener la paz?", o: ["La OTAN", "La Sociedad de Naciones", "La ONU"], a: 2, e: "La Organización de las Naciones Unidas sustituyó a la fracasada Sociedad de Naciones." },
+    {
+      q: "¿Qué hecho inició la Segunda Guerra Mundial?",
+      o: [
+        "El ataque a Pearl Harbor",
+        "La batalla de Inglaterra",
+        "La invasión alemana de Polonia (1 de septiembre de 1939)",
+        "La batalla de Stalingrado",
+      ],
+      a: 2,
+      e: "Dos días después, Francia y Reino Unido declararon la guerra a Alemania.",
+    },
+    {
+      q: "¿Qué países formaban el Eje?",
+      o: [
+        "Alemania, Italia y España",
+        "Alemania, Italia y Japón",
+        "Alemania, URSS y España",
+        "Reino Unido, Francia y EE. UU.",
+      ],
+      a: 1,
+      e: "Fueron las tres potencias totalitarias y expansionistas.",
+    },
+    {
+      q: "La «guerra relámpago» consistía en…",
+      o: ["ataques rápidos con tanques y aviación", "guerra de trincheras", "bombardeos atómicos", "guerra submarina"],
+      a: 0,
+      e: "La Blitzkrieg combinaba blindados y aviones para romper el frente en pocos días.",
+    },
+    {
+      q: "¿Qué fue el Holocausto?",
+      o: [
+        "Una batalla naval",
+        "El exterminio sistemático de los judíos por los nazis",
+        "Una conferencia de paz",
+        "Un tratado de paz",
+      ],
+      a: 1,
+      e: "Unos 6 millones de judíos fueron asesinados, junto a otros grupos perseguidos.",
+    },
+    {
+      q: "¿Qué organización se creó en 1945 para mantener la paz?",
+      o: ["La OTAN", "La Comunidad Europea", "La Sociedad de Naciones", "La ONU"],
+      a: 3,
+      e: "La Organización de las Naciones Unidas sustituyó a la fracasada Sociedad de Naciones.",
+    },
+    {
+      q: "El Anschluss fue la anexión de…",
+      o: ["Hungría", "Austria", "Polonia", "Francia"],
+      a: 1,
+      e: "En 1938.",
+    },
+    {
+      q: "La batalla de Stalingrado terminó en…",
+      o: ["1941", "1943", "1945", "1942"],
+      a: 1,
+      e: "Con la rendición alemana en febrero de 1943.",
+    },
+    {
+      q: "El Día del Holocausto es el 27 de enero porque…",
+      o: ["se liberó Auschwitz", "acabó la guerra", "murió Hitler", "se fundó la ONU"],
+      a: 0,
+      e: "En 1945.",
+    },
+    {
+      q: "La primera bomba atómica cayó sobre…",
+      o: ["Hiroshima", "Berlín", "Nagasaki", "Tokio"],
+      a: 0,
+      e: "El 6 de agosto de 1945.",
+    },
+    {
+      q: "La ONU nació en…",
+      o: ["1948", "1919", "1945", "1957"],
+      a: 2,
+      e: "Sustituyó a la Sociedad de Naciones.",
+    },
+    {
+      q: "El Anschluss y la cesión de los Sudetes ocurrieron en…",
+      o: ["1936", "1938", "1940", "1941"],
+      a: 1,
+      e: "Fueron el culmen del apaciguamiento.",
+    },
+    {
+      q: "El pacto germano-soviético (1939) lo firmaron…",
+      o: ["Hitler y Mussolini", "Hitler y Stalin", "Churchill y Stalin", "Roosevelt y Stalin"],
+      a: 1,
+      e: "Incluía un reparto secreto de Polonia.",
+    },
+    {
+      q: "¿Quién dirigió Reino Unido durante la guerra desde 1940?",
+      o: ["Chamberlain", "Churchill", "Attlee", "Eden"],
+      a: 1,
+      e: "Encabezó la resistencia británica.",
+    },
+    {
+      q: "La evacuación de Dunkerque (1940) permitió…",
+      o: ["invadir Alemania", "rescatar a unos 340 000 soldados aliados", "liberar París", "rendir a Italia"],
+      a: 1,
+      e: "Salvó al ejército británico.",
+    },
+    {
+      q: "El ataque a Pearl Harbor fue el…",
+      o: ["1 de septiembre de 1939", "7 de diciembre de 1941", "6 de junio de 1944", "6 de agosto de 1945"],
+      a: 1,
+      e: "EE. UU. entró en la guerra.",
+    },
+    {
+      q: "La batalla naval que frenó a Japón en 1942 fue…",
+      o: ["Trafalgar", "Midway", "Jutlandia", "Lepanto"],
+      a: 1,
+      e: "Estados Unidos hundió cuatro portaaviones japoneses.",
+    },
+    {
+      q: "¿Qué es un campo de exterminio?",
+      o: [
+        "Un campo de prisioneros de guerra",
+        "Un campo diseñado para asesinar en masa",
+        "Un campo de refugiados",
+        "Un cuartel",
+      ],
+      a: 1,
+      e: "Como Treblinka o Auschwitz-Birkenau.",
+    },
+    {
+      q: "La Nueve, primera unidad en entrar en París liberado, estaba formada sobre todo por…",
+      o: ["británicos", "españoles republicanos", "estadounidenses", "soviéticos"],
+      a: 1,
+      e: "Republicanos exiliados en la Francia Libre.",
+    },
+    {
+      q: "Las conferencias de Yalta y Potsdam decidieron…",
+      o: [
+        "la invasión de Polonia",
+        "la división de Alemania en zonas de ocupación",
+        "crear la OTAN",
+        "el lanzamiento de la bomba",
+      ],
+      a: 1,
+      e: "Alemania y Berlín se dividieron en cuatro zonas.",
+    },
+    {
+      q: "Aproximadamente, ¿cuántas personas murieron en la Segunda Guerra Mundial?",
+      o: ["6 millones", "20 millones", "60 millones", "600 millones"],
+      a: 2,
+      e: "Más de la mitad fueron civiles.",
+    },
   ],
   examen: [
-    { q: "La política de apaciguamiento consistió en…", o: ["declarar la guerra a Hitler en 1936", "ceder ante las exigencias de Hitler para evitar la guerra", "aliarse con Japón"], a: 1, e: "En Múnich (1938) Francia y Reino Unido aceptaron que Alemania se quedara con los Sudetes." },
-    { q: "¿Qué batalla marcó el giro en el frente oriental?", o: ["Stalingrado (1942-1943)", "Waterloo", "Normandía"], a: 0, e: "La derrota alemana en Stalingrado inició el avance soviético hacia Berlín." },
-    { q: "¿Qué se juzgó en Núremberg?", o: ["A los líderes nazis por crímenes contra la humanidad", "A Franco", "A los soldados aliados"], a: 0, e: "Fue el primer gran tribunal internacional por crímenes de guerra y genocidio." },
+    {
+      q: "La política de apaciguamiento consistió en…",
+      o: [
+        "declarar la guerra a Hitler en 1936",
+        "ceder ante las exigencias de Hitler para evitar la guerra",
+        "aliarse con Japón",
+        "atacar Pearl Harbor",
+      ],
+      a: 1,
+      e: "En Múnich (1938) Francia y Reino Unido aceptaron que Alemania se quedara con los Sudetes.",
+    },
+    {
+      q: "¿Qué batalla marcó el giro en el frente oriental?",
+      o: ["Stalingrado (1942-1943)", "Waterloo", "Verdún", "Normandía"],
+      a: 0,
+      e: "La derrota alemana en Stalingrado inició el avance soviético hacia Berlín.",
+    },
+    {
+      q: "¿Qué se juzgó en Núremberg?",
+      o: [
+        "A los líderes nazis por crímenes contra la humanidad",
+        "A los generales soviéticos",
+        "A Franco",
+        "A los soldados aliados",
+      ],
+      a: 0,
+      e: "Fue el primer gran tribunal internacional por crímenes de guerra y genocidio.",
+    },
+    {
+      q: "¿Qué país invadió Alemania el 1 de septiembre de 1939?",
+      o: ["Francia", "Polonia", "Checoslovaquia", "Austria"],
+      a: 1,
+      e: "Dos días después, Reino Unido y Francia le declararon la guerra.",
+    },
+    {
+      q: "La operación Barbarroja fue la invasión de…",
+      o: ["Gran Bretaña", "la URSS", "Francia", "Grecia"],
+      a: 1,
+      e: "Empezó el 22 de junio de 1941.",
+    },
+    {
+      q: "El régimen colaboracionista francés lo dirigió…",
+      o: ["De Gaulle", "Pétain", "Daladier", "Blum"],
+      a: 1,
+      e: "Desde Vichy.",
+    },
+    {
+      q: "¿En qué campo murieron más de la mitad de los republicanos españoles deportados?",
+      o: ["Auschwitz", "Mauthausen", "Dachau", "Treblinka"],
+      a: 1,
+      e: "Unos 9 000 españoles pasaron por él.",
+    },
+    {
+      q: "La Declaración Universal de los Derechos Humanos se aprobó en…",
+      o: ["1919", "1945", "1948", "1957"],
+      a: 2,
+      e: "Por la Asamblea General de la ONU.",
+    },
   ],
-  feynman: ["Las causas de la guerra y la política de apaciguamiento", "Quién formaba el Eje y quién los Aliados", "Las dos fases y las batallas clave", "Qué fue el Holocausto y qué consecuencias dejó la guerra"],
-  mapa: mapa("II GUERRA MUNDIAL", "var(--soc, #c2410c)", [
-    ["Causas", "Versalles · crisis · apaciguamiento", "var(--muted)"],
-    ["Bandos", "Eje vs. Aliados", "var(--ink)"],
-    ["Fases", "Blitzkrieg · Stalingrado · Normandía", "var(--pen)"],
-    ["Consecuencias", "Holocausto · ONU · Guerra Fría", "var(--red)"],
-  ], 280),
+  feynman: [
+    "Las causas de la guerra y la política de apaciguamiento",
+    "Quién formaba el Eje y quién los Aliados",
+    "Las dos fases y las batallas clave",
+    "Qué fue el Holocausto y qué consecuencias dejó la guerra",
+  ],
+  mapa: `<svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: II GUERRA MUNDIAL">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="221.75" y="122" width="256.5" height="56" rx="28" fill="var(--soc, #c2410c)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">II GUERRA MUNDIAL</text>
+      <rect x="0" y="34" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--muted)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--muted)">Causas</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">Versalles · crisis · apaciguamiento</text><rect x="420" y="34" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--ink)">Bandos</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">Eje vs. Aliados</text><rect x="0" y="214" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--pen)">Fases</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">Blitzkrieg · Stalingrado · Normandía</text><rect x="420" y="214" width="280" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--red)">Consecuencias</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">Holocausto · ONU · Guerra Fría</text>
+    </g></svg>`,
   tarjetas: [
     ["Inicio de la Segunda Guerra Mundial", "1 de septiembre de 1939: Alemania invade Polonia."],
     ["Desembarco de Normandía", "6 de junio de 1944 (Día D)."],
     ["Rendición de Alemania", "8 de mayo de 1945."],
     ["Holocausto", "Exterminio de unos 6 millones de judíos por los nazis."],
     ["Creación de la ONU", "1945."],
-  ],
-  familias: ["Leed juntos un fragmento del «Diario de Ana Frank» y comentadlo.", "Buscad si hay en vuestra ciudad una placa o «piedra de la memoria» dedicada a deportados a Mauthausen.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "Sociedades y territorios: la Segunda Guerra Mundial, el Holocausto y el nuevo orden internacional; derechos humanos (RD 217/2022, Geografía e Historia 4º).",
-    ideas: ["Trabajo con testimonios de supervivientes (Yad Vashem, Centro Sefarad-Israel).", "Mapa de Europa en 1942 frente a 1945.", "Lectura de la Declaración Universal de 1948 y relación con lo ocurrido en la guerra."],
-  },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Segunda Guerra Mundial, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Segunda_Guerra_Mundial" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: nivel de libro de texto.
-const { ampliar, tabla } = require("./_hum");
-ampliar(module.exports, {
-  minutos: 60,
-  objetivos: ["Situar en el tiempo las grandes batallas y su significado", "Explicar el nuevo orden mundial tras 1945"],
-  bloques: [
-    { tras: "Las causas", html: `<h3>El camino a la guerra (1935-1939)</h3>${tabla(["Año", "Hecho"], [["1935-1936", "Italia invade Etiopía; Alemania rearma y ocupa Renania"], ["1936-1939", "Alemania e Italia ayudan a Franco en España"], ["1938", "Alemania se anexiona Austria (Anschluss) y, en Múnich, los Sudetes checos"], ["1939", "Hitler ocupa el resto de Checoslovaquia; pacto germano-soviético; invasión de Polonia"]])}<p>Francia y Reino Unido practicaron la <mark>política de apaciguamiento</mark>: cedieron ante Hitler esperando evitar la guerra. Cuando Alemania invadió <b>Polonia</b> el 1 de septiembre de 1939, les declararon la guerra.</p>` },
-    { tras: "Las fases de la guerra", html: `<h3>La guerra relámpago y la batalla de Inglaterra</h3><p>Alemania usó la <mark>Blitzkrieg</mark>: ataques rápidos con tanques y aviones coordinados. En 1940 conquistó Dinamarca, Noruega, los Países Bajos, Bélgica y Francia, que firmó el armisticio en junio; el norte quedó ocupado y en el sur se creó el régimen colaboracionista de <b>Vichy</b>. Reino Unido, con <b>Churchill</b>, resistió solo: en la <b>batalla de Inglaterra</b> la aviación británica (RAF) impidió que Alemania lograra el dominio del aire, y Hitler renunció a invadir las islas.</p>` },
-    { tras: "Las fases de la guerra", html: `<h3>Los puntos de inflexión</h3><p>En <b>1941</b> la guerra se hizo mundial: en junio Alemania invadió la URSS (operación Barbarroja) y en diciembre Japón atacó la base estadounidense de <b>Pearl Harbor</b>, lo que llevó a EE. UU. a la guerra. Entre 1942 y 1943 el Eje sufrió sus primeras grandes derrotas: <b>Midway</b> en el Pacífico, <b>El Alamein</b> en el norte de África y, sobre todo, <mark>Stalingrado</mark> (1942-1943), donde se rindió un ejército alemán entero. Desde entonces los aliados avanzaron: desembarco de Italia (1943), de <b>Normandía</b> (6 de junio de 1944) y llegada de los soviéticos a Berlín (abril de 1945).</p>` },
-    { tras: "El Holocausto", html: `<h3>Los campos de exterminio</h3><p>Desde 1942, en la conferencia de <b>Wannsee</b>, los nazis organizaron la «solución final»: el asesinato de todos los judíos de Europa. Los deportaban en trenes de mercancías a campos de exterminio como <mark>Auschwitz-Birkenau</mark>, Treblinka o Sobibor, donde la mayoría morían en cámaras de gas al llegar. También fueron perseguidos y asesinados gitanos, personas con discapacidad, homosexuales y opositores. Murieron unos <b>6 millones de judíos</b>. Unos 9.000 republicanos españoles pasaron por el campo de <b>Mauthausen</b>, y más de la mitad murieron allí. El 27 de enero, día de la liberación de Auschwitz (1945), es el Día Internacional en Memoria de las Víctimas del Holocausto.</p>`, video: { id: "WGCBtPIdid4", titulo: "Cómo fue la liberación de Auschwitz, el campo de exterminio nazi símbolo del Holocausto", canal: "BBC News Mundo", vistas: 1028786, megusta: 0 } },
-    { tras: "Las consecuencias", html: `<h3>La bomba atómica y el nuevo orden</h3><p>Alemania se rindió el <b>8 de mayo de 1945</b>. Japón siguió luchando hasta que EE. UU. lanzó las <mark>bombas atómicas</mark> sobre <b>Hiroshima</b> (6 de agosto) y <b>Nagasaki</b> (9 de agosto): murieron más de 100.000 personas en el acto y muchas más después por la radiación. Japón se rindió el 2 de septiembre. En las conferencias de <b>Yalta</b> y <b>Potsdam</b> los vencedores dividieron Alemania en cuatro zonas de ocupación. En los <b>juicios de Núremberg</b> se juzgó por primera vez a dirigentes por crímenes contra la humanidad. En 1945 nació la <b>ONU</b> y en 1948 se aprobó la <b>Declaración Universal de Derechos Humanos</b>.</p>` },
-  ],
-  ejemplos: [
-    { enunciado: "Explica por qué Stalingrado se considera el punto de inflexión de la guerra en Europa.", pasos: ["Alemania había avanzado sin freno hasta el Volga.", "En Stalingrado el ejército soviético cercó al VI Ejército alemán.", "En febrero de 1943 se rindieron unos 90.000 soldados alemanes.", "A partir de entonces la URSS pasó a la ofensiva hasta Berlín."], resultado: "Fue la primera gran derrota alemana y cambió el sentido de la guerra." },
-    { enunciado: "Compara la Primera y la Segunda Guerra Mundial en víctimas civiles.", pasos: ["En la Primera murieron sobre todo soldados en las trincheras.", "En la Segunda hubo bombardeos masivos de ciudades, genocidio y represión.", "Murieron entre 50 y 60 millones de personas, más de la mitad civiles."], resultado: "La Segunda fue mucho más mortífera y castigó sobre todo a la población civil." },
-    { enunciado: "Ordena: Pearl Harbor, invasión de Polonia, desembarco de Normandía, Hiroshima, Stalingrado.", pasos: ["Polonia: 1939.", "Pearl Harbor: 1941.", "Stalingrado: 1942-1943.", "Normandía: 1944.", "Hiroshima: 1945."], resultado: "Polonia → Pearl Harbor → Stalingrado → Normandía → Hiroshima." },
-  ],
-  errores: [
-    "Pensar que EE. UU. estuvo en la guerra desde 1939: entró en diciembre de 1941.",
-    "Creer que la URSS fue siempre aliada de Reino Unido: hasta 1941 tenía un pacto con Hitler.",
-    "Confundir campos de concentración con campos de exterminio: en estos últimos se asesinaba de forma masiva y planificada.",
-    "Decir que España participó oficialmente en la guerra: fue no beligerante, aunque envió la División Azul contra la URSS.",
-    "Situar el fin de la guerra en mayo de 1945 en todo el mundo: en el Pacífico terminó en septiembre.",
-  ],
-  ejercicios: [
-    { q: "¿Qué fue la política de apaciguamiento?", sol: "Ceder ante las exigencias de Hitler, como en Múnich en 1938, para intentar evitar la guerra." },
-    { q: "¿Qué era la Blitzkrieg?", sol: "La guerra relámpago: ataques rápidos y por sorpresa combinando tanques y aviación." },
-    { q: "¿Por qué fue importante la batalla de Inglaterra?", sol: "La RAF impidió que Alemania dominara el aire, y Hitler tuvo que renunciar a invadir Gran Bretaña." },
-    { q: "¿Qué provocó la entrada de EE. UU. en la guerra?", sol: "El ataque japonés a Pearl Harbor el 7 de diciembre de 1941." },
-    { q: "¿Qué ocurrió el 6 de junio de 1944?", sol: "El desembarco aliado de Normandía, que abrió un frente en el oeste de Europa." },
-    { q: "Explica qué fue la «solución final».", sol: "El plan nazi para asesinar a todos los judíos de Europa en campos de exterminio." },
-    { q: "¿Qué relación tienen los republicanos españoles con Mauthausen?", sol: "Miles de exiliados republicanos fueron deportados a ese campo nazi; más de la mitad murieron allí." },
-    { q: "¿Por qué se rindió Japón?", sol: "Tras las bombas atómicas de Hiroshima y Nagasaki y la entrada de la URSS en la guerra contra Japón." },
-    { q: "¿Qué novedad supusieron los juicios de Núremberg?", sol: "Por primera vez se juzgó a dirigentes de un Estado por crímenes de guerra y contra la humanidad." },
-    { q: "¿Qué se aprobó en 1948?", sol: "La Declaración Universal de Derechos Humanos de la ONU." },
-  ],
-  quiz: [
-    { q: "El Anschluss fue la anexión de…", o: ["Austria", "Polonia", "Francia"], a: 0, e: "En 1938." },
-    { q: "La batalla de Stalingrado terminó en…", o: ["1941", "1943", "1945"], a: 1, e: "Con la rendición alemana en febrero de 1943." },
-    { q: "El Día del Holocausto es el 27 de enero porque…", o: ["se liberó Auschwitz", "acabó la guerra", "se fundó la ONU"], a: 0, e: "En 1945." },
-    { q: "La primera bomba atómica cayó sobre…", o: ["Hiroshima", "Nagasaki", "Tokio"], a: 0, e: "El 6 de agosto de 1945." },
-    { q: "La ONU nació en…", o: ["1919", "1945", "1957"], a: 1, e: "Sustituyó a la Sociedad de Naciones." },
-  ],
-  tarjetas: [
     ["Blitzkrieg", "Guerra relámpago con tanques y aviones."],
     ["Stalingrado", "Batalla (1942-1943) que cambió el rumbo de la guerra."],
     ["Juicios de Núremberg", "Juicios a los dirigentes nazis por crímenes contra la humanidad."],
+    [
+      "Pacto germano-soviético",
+      "Acuerdo de no agresión entre Hitler y Stalin (agosto 1939) con reparto secreto de Polonia.",
+    ],
+    ["Pearl Harbor", "Ataque japonés a la flota de EE. UU. (7-12-1941) que lo llevó a la guerra."],
+    ["Solución final", "Plan nazi, organizado en Wannsee (1942), para asesinar a todos los judíos de Europa."],
+    ["Hiroshima y Nagasaki", "Ciudades japonesas destruidas por bombas atómicas el 6 y 9 de agosto de 1945."],
   ],
-});
+  glosario: [
+    ["Espacio vital", "Territorio del este de Europa que Hitler quería conquistar para Alemania."],
+    ["Apaciguamiento", "Política de ceder ante Hitler para evitar la guerra."],
+    ["Anschluss", "Anexión de Austria por Alemania en 1938."],
+    ["Eje", "Alianza de Alemania, Italia y Japón."],
+    ["Aliados", "Coalición formada, entre otros, por Reino Unido, Francia, la URSS y EE. UU."],
+    ["Blitzkrieg", "Guerra relámpago: ataques rápidos de tanques y aviones coordinados."],
+    ["Colaboracionismo", "Cooperación con el ocupante nazi en los países conquistados."],
+    ["Resistencia", "Movimientos clandestinos de lucha contra la ocupación nazi."],
+    ["Gueto", "Barrio cerrado donde los nazis encerraban a los judíos."],
+    ["Holocausto (Shoá)", "Exterminio de unos 6 millones de judíos por la Alemania nazi."],
+    ["Genocidio", "Destrucción intencionada de un grupo nacional, étnico, racial o religioso."],
+    ["Campo de exterminio", "Campo nazi destinado a asesinar en masa, sobre todo en cámaras de gas."],
+    ["Campo de concentración", "Campo de encierro con trabajos forzados y malos tratos."],
+    ["Kamikaze", "Piloto japonés que se estrellaba con su avión contra el enemigo."],
+    ["Bomba atómica", "Arma de enorme poder destructivo basada en la fisión nuclear."],
+    ["Crímenes contra la humanidad", "Ataques graves y sistemáticos contra la población civil."],
+    ["ONU", "Organización de las Naciones Unidas, creada en 1945 para mantener la paz."],
+  ],
+  situacion: {
+    titulo: "Lugares de memoria",
+    reto: `La UNESCO protege como patrimonio mundial lugares como Auschwitz-Birkenau o el Memorial de la Paz de Hiroshima. Vuestro grupo preparará una visita virtual guiada a uno de estos lugares de memoria, explicando qué ocurrió allí y por qué es importante recordarlo.`,
+    pasos: [
+      `Elegid un lugar: Auschwitz-Birkenau, Hiroshima, Mauthausen, la casa de Ana Frank, las playas de Normandía o Stalingrado (Volgogrado).`,
+      `Investigad qué ocurrió allí, con fechas, cifras y protagonistas, usando las webs oficiales de los museos y memoriales.`,
+      `Seleccionad tres testimonios o fuentes primarias (fotografías, diarios, declaraciones) y explicad su valor.`,
+      `Diseñad el recorrido de la visita en 5-6 paradas, con un texto breve e imagen para cada una.`,
+      "Terminad con una reflexión: ¿qué nos enseña este lugar sobre los derechos humanos hoy?",
+    ],
+    producto: `Una visita virtual guiada (presentación o mapa interactivo) de 5-6 paradas, presentada oralmente.`,
+    evaluacion: [
+      "Rigor histórico y uso de fuentes fiables y oficiales.",
+      "Tratamiento respetuoso de las víctimas.",
+      "Análisis de fuentes primarias.",
+      "Calidad de la reflexión final sobre derechos humanos y memoria.",
+    ],
+  },
+  familias: [
+    "Leed juntos un fragmento del «Diario de Ana Frank» y comentadlo.",
+    `Buscad si hay en vuestra ciudad una placa o «piedra de la memoria» dedicada a deportados a Mauthausen.`,
+    "Repasad las tarjetas del paso 6 dos minutos al día durante la semana.",
+  ],
+  profesores: {
+    saberes: `Sociedades y territorios: la Segunda Guerra Mundial, el Holocausto y el nuevo orden internacional; derechos humanos (RD 217/2022, Geografía e Historia 4º).`,
+    ideas: [
+      "Trabajo con testimonios de supervivientes (Yad Vashem, Centro Sefarad-Israel).",
+      "Mapa de Europa en 1942 frente a 1945.",
+      "Lectura de la Declaración Universal de 1948 y relación con lo ocurrido en la guerra.",
+    ],
+  },
+  fuentes: [
+    {
+      t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)",
+      url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975",
+    },
+    {
+      t: "Segunda Guerra Mundial, Wikipedia en español",
+      url: "https://es.wikipedia.org/wiki/Segunda_Guerra_Mundial",
+    },
+  ],
+  revisado: "2026-11-13",
+};
