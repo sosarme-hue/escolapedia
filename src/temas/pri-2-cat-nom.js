@@ -18,7 +18,7 @@ module.exports = {
   },
   bloques: [
     {
-      html: `<h3>Paraules que anomenen</h3><p>Tot el que ens envolta té un <mark>nom</mark>. Aquestes paraules també es diuen <b>substantius</b>.</p><p>Anomenen <b>persones</b> (nena, avi), <b>animals</b> (gat, peix), <b>coses</b> (taula, llibre) i <b>llocs</b> (casa, escola).</p><p>Si ho pots assenyalar o imaginar, segur que té un nom!</p>`,
+      html: `<h3>Paraules que anomenen</h3><p>Tot el que ens envolta té un <mark>nom</mark>. Aquestes paraules també es diuen <b>substantius</b>.</p><p>Anomenen <b>persones</b> (nena, avi), <b>animals</b> (gat, peix), <b>coses</b> (taula, llibre) i <b>llocs</b> (casa, escola).</p><p>Si ho pots assenyalar o imaginar, segur que té un nom! El teu nom, el teu carrer i la teva joguina preferida també són noms.</p>`,
       svg: dibujos("Una nena, un gat, un llibre i una escola: persona, animal, cosa i lloc", [["nina", "nena", R], ["gato", "gat", A], ["libro", "llibre", Ve], ["escuela", "escola", N]], { titulo: "Persona · animal · cosa · lloc", nota: "Tots són noms" }),
       video: V("cnomV", "els noms en català"),
     },
@@ -27,7 +27,7 @@ module.exports = {
       svg: frase("El sol, la lluna, un arbre, una flor", [["el", "var(--muted)"], ["sol", R], ["la", "var(--muted)"], ["lluna", R], ["/"], ["un", "var(--muted)"], ["arbre", R], ["una", "var(--muted)"], ["flor", R]], { titulo: "el, la, un, una + nom", nota: "Si encaixa, és un nom", fs: 22 }),
     },
     {
-      html: `<h3>Noms comuns</h3><p>Els <mark>noms comuns</mark> serveixen per anomenar <b>tots</b> els d'una mateixa classe.</p><p><i>Gos</i> val per a qualsevol gos: gran, petit, blanc o negre. <i>Ciutat</i> val per a qualsevol ciutat. <i>Nen</i>, per a qualsevol nen.</p><p>S'escriuen amb <b>minúscula</b>, tret que comencin la frase.</p>`,
+      html: `<h3>Noms comuns</h3><p>Els <mark>noms comuns</mark> serveixen per anomenar <b>tots</b> els d'una mateixa classe.</p><p><i>Gos</i> val per a qualsevol gos: gran, petit, blanc o negre. <i>Ciutat</i> val per a qualsevol ciutat. <i>Nen</i>, per a qualsevol nen.</p><p>S'escriuen amb <b>minúscula</b>, tret que comencin la frase.</p><p>Més noms comuns: <i>cadira</i>, <i>muntanya</i>, <i>ocell</i>, <i>amiga</i>, <i>carrer</i>.</p>`,
       svg: dibujos("Gos, ciutat i nen: noms comuns per a tots els de la seva classe", [["perro", "gos", A], ["casa", "ciutat", A], ["nino", "nen", A]], { titulo: "Noms comuns", nota: "Per a tots · amb minúscula" }),
     },
     {
@@ -48,7 +48,7 @@ module.exports = {
       svg: frase("La Marta menja una poma al parc: Marta, poma i parc són noms", [["La", K], ["Marta", R], ["menja", K], ["/"], ["una", K], ["poma", A], ["al", K], ["parc", A]], { titulo: "Busca els noms", nota: "Vermell: propi · blau: comuns", fs: 22 }),
     },
     {
-      html: `<h3>Per a què serveix?</h3><p>Sense noms <mark>no sabríem de què parlem</mark>. «Menja una al» no s'entén.</p><p>Els noms propis ens ajuden a no confondre'ns: hi ha molts gossos, però només un <i>Bruc</i>.</p><p>Quan escrius una carta, un conte o una adreça, la majúscula dels noms propis és molt important.</p>`,
+      html: `<h3>Per a què serveix?</h3><p>Sense noms <mark>no sabríem de què parlem</mark>. «Menja una al» no s'entén.</p><p>Els noms propis ens ajuden a no confondre'ns: hi ha molts gossos, però només un <i>Bruc</i>. I moltes ciutats, però només una <i>Lleida</i>.</p><p>Quan escrius una carta, un conte o una adreça, la majúscula dels noms propis és molt important.</p>`,
       svg: charla("Un nen diu he vist un gos; la nena pregunta quin; respon el Bruc de l'Anna", [["nino", "He vist un gos.", A], ["nina", "Quin? N'hi ha molts.", R], ["nino", "El Bruc, el de l'Anna!", A], ["nina", "Ara ja ho sé!", R]]),
     },
     {

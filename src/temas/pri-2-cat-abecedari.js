@@ -58,7 +58,7 @@ module.exports = {
   ],
   figura: {
     titulo: "L'abecedari",
-    svg: mural("Abecedari de 26 lletres, la ce trencada, els dígrafs i l'ordre alfabètic", [[null, "a … z", "26 lletres", A], [null, "ç", "ce trencada: plaça", R], [null, "ny · ll · l·l", "dues lletres, un so", Ve], ["libro", "diccionari", "tot en ordre", N]], "Les paraules s'ordenen com les lletres de l'abecedari"),
+    svg: mural("Abecedari de 26 lletres, la ce trencada, els dígrafs i l'ordre alfabètic", [[null, "a … z", "26 lletres", A], [null, "ç", "ce trencada: plaça", R], [null, "ny · ll · l·l", "lletres que van juntes", Ve], ["libro", "diccionari", "tot en ordre", N]], "Les paraules s'ordenen com les lletres de l'abecedari"),
   },
   video: V("cabcV", "l'alfabet català per a nens"),
   ejemplosTitulo: "Ho fem junts",
@@ -120,7 +120,7 @@ module.exports = {
     ["Quantes lletres té l'abecedari?", "26"],
     ["Quina lletra és la ce trencada?", "La ç"],
     ["Com sona la ç?", "Com una s"],
-    ["Què és un dígraf?", "Dues lletres que fan un so: ny, ll"],
+    ["Què és un dígraf?", "Dues lletres juntes: ny, ll, rr"],
     ["Ordena: ós, gat", "gat, ós"],
     ["Si comencen igual…", "Mirem la segona lletra"],
     ["Què és el diccionari?", "Un llibre que explica les paraules"],

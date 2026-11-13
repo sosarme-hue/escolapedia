@@ -24,7 +24,7 @@ module.exports = {
     },
     {
       html: `<h3>Sinónimos para escribir mejor</h3><p>Cuando repetimos mucho una palabra, el texto <mark>aburre</mark>.</p><p>«Fuimos a una casa <b>grande</b>. Tenía un jardín <b>grande</b> y una piscina <b>grande</b>.»</p><p>Con sinónimos suena mucho mejor: «una casa <b>grande</b>, un jardín <b>enorme</b> y una piscina <b>gigante</b>». ¡Los escritores siempre buscan palabras amigas!</p>`,
-      svg: frase("Grande, enorme, gigante en lugar de repetir grande", [["casa grande", A], ["/"], ["jardín enorme", Ve], ["/"], ["piscina gigante", N]], { titulo: "Sin repetir «grande»", nota: "grande = enorme = gigante", fs: 22 }),
+      svg: frase("Grande, enorme, gigante en lugar de repetir grande", [["casa grande", A], ["/"], ["jardín enorme", Ve], ["/"], ["piscina gigante", N]], { nota: "grande = enorme = gigante", fs: 22 }),
     },
     {
       html: `<h3>El sinónimo que encaja</h3><p>No todos los sinónimos sirven <mark>en todas las frases</mark>.</p><p><i>Viejo</i> y <i>antiguo</i> son sinónimos. Decimos «un castillo <b>antiguo</b>», pero de una persona decimos «un señor <b>mayor</b>», que es más amable.</p><p>Elige siempre el sinónimo que <b>suena bien</b> en tu frase. Léela en voz alta para comprobarlo.</p>`,
@@ -58,7 +58,7 @@ module.exports = {
   ],
   figura: {
     titulo: "Sinónimos y antónimos",
-    svg: mural("Sinónimos como fácil y sencillo; antónimos como fácil y difícil; con des- e in-", [[null, "fácil = sencillo", "sinónimos: lo mismo", Ve], [null, "fácil ↔ difícil", "antónimos: contrario", R], [null, "des-", "hacer ↔ deshacer", A], [null, "in- / im-", "posible ↔ imposible", N]], "Sinónimos para no repetir; antónimos para comparar"),
+    svg: mural("Sinónimos como fácil y sencillo; antónimos como fácil y difícil; con des- e in-", [["coche", "rápido = veloz", "sinónimos: lo mismo", Ve], ["tortuga", "rápido ↔ lento", "antónimos: lo contrario", R], [null, "des-", "hacer ↔ deshacer", A], [null, "in- / im-", "posible ↔ imposible", N]], "Sinónimos para no repetir; antónimos para comparar"),
   },
   video: V("sinV", "antónimos para niños"),
   ejemplosTitulo: "Lo hacemos juntos",

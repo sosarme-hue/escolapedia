@@ -19,7 +19,7 @@ module.exports = {
   bloques: [
     {
       html: `<h3>¿Qué es un poema?</h3><p>Un <mark>poema</mark> es un texto escrito para que <b>suene bonito</b>.</p><p>Se escribe en <b>líneas cortas</b> que no llegan al final de la página. Cada línea se llama <b>verso</b>.</p><p>Los poemas hablan de cosas que sentimos o vemos: la luna, el mar, un amigo, el otoño… ¡Se leen despacio y con cariño!</p>`,
-      svg: frase("Versos de un poema: La luna es redonda, la luna es de plata", [["La luna es redonda,", A], ["/"], ["la luna es de plata,", A], ["/"], ["y cuelga en el cielo", A], ["/"], ["como una corbata.", A]], { titulo: "Cada línea es un verso", fs: 18 }),
+      svg: lista("Cuatro versos de un poema: La luna es redonda, la luna es de plata, y cuelga en el cielo como una corbata", [["La luna es redonda,", A], ["la luna es de plata,", A], ["y cuelga en el cielo", A], ["como una corbata.", A]], { titulo: "Cada línea es un verso", marca: "n" }),
       video: V("poeV", "poemas para niños de primaria"),
     },
     {
