@@ -30,7 +30,7 @@ function tarjeta(aria, titulo, ls, color = "var(--pen)", w = 260, h = 180) {
 
 // Ejes cartesianos con cuadrícula. Devuelve { svg, X, Y, curva, punto, seg, area }.
 function ejes(o = {}) {
-  const { x0 = -5, x1 = 5, y0 = -4, y1 = 4, w = 260, h = 180, m = 14, paso = 1, etiquetas = true, pasoEt = null, pasoY = null } = o;
+  const { x0 = -5, x1 = 5, y0 = -4, y1 = 4, w = 260, h = 180, m = 14, paso = 1, etiquetas = true, pasoEt = null, pasoY = null, pasoEtY = null } = o;
   const py = pasoY || paso;
   const X = (v) => n2(m + ((v - x0) / (x1 - x0)) * (w - 2 * m));
   const Y = (v) => n2(h - m - ((v - y0) / (y1 - y0)) * (h - 2 * m));
@@ -45,7 +45,8 @@ function ejes(o = {}) {
     const yb = y0 <= 0 && y1 >= 0 ? Y(0) : Y(y0);
     const xb = x0 <= 0 && x1 >= 0 ? X(0) : X(x0);
     for (let v = Math.ceil((x0 + 0.01) / pe) * pe; v < x1; v += pe) if (Math.abs(v) > 1e-9) et += t(X(v), Math.min(yb + 11, h - 3), num(v), { c: "var(--muted)", s: 9 });
-    for (let v = Math.ceil((y0 + 0.01) / pe) * pe; v < y1; v += pe) if (Math.abs(v) > 1e-9) et += t(xb - 3, Y(v) + 3, num(v), { c: "var(--muted)", s: 9, a: "end" });
+    const pey = pasoEtY || pasoY || pe;
+    for (let v = Math.ceil((y0 + 0.01) / pey) * pey; v < y1; v += pey) if (Math.abs(v) > 1e-9) et += t(xb - 3, Y(v) + 3, num(v), { c: "var(--muted)", s: 9, a: "end" });
   }
   // Curva y = f(x) en [a, b]; se corta donde f se sale mucho o no existe.
   const curva = (f, c = "var(--pen)", a = x0, b = x1, ancho = 2.6, extra = "") => {
