@@ -38,7 +38,7 @@ function linea(t, hitos) {
     const x = n > 1 ? x0 + step * i : 130, up = i % 2 === 0, c = COL[i % COL.length];
     const xc = Math.min(260 - w / 2 - 4, Math.max(w / 2 + 4, x));
     return `<circle cx="${x}" cy="98" r="6" fill="${c}"/><path d="M${x} ${up ? 92 : 104} V ${up ? 78 : 118}" stroke="${c}" stroke-width="2"/>`
-      + txt(f, xc, up ? 68 : 128, w, 12, `font-weight="700" ${D}`) + txt(d, xc, up ? 48 : 150, w, 9.5, 'fill="var(--muted)"');
+      + txt(f, xc, up ? 68 : 128, w, 12, `font-weight="700" ${D}`) + txt(d, xc, (up ? 52 : 146) + (up ? -1 : 1) * (partir(d, Math.floor(w / cw(9.5))).length - 1) * 5.5, w, 9.5, 'fill="var(--muted)"');
   }).join("");
   return marco(`Línea del tiempo: ${t}`, `<path d="M14 98 H 246" stroke="var(--ink)" stroke-width="3"/>${body}${t && n < 5 ? "" : ""}`);
 }
