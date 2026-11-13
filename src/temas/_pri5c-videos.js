@@ -63,7 +63,7 @@ module.exports = {
   re2c: ["mCrxUf_ydhw", "La historia de Jonás y la ballena", "Minno Español", 2760269],
   re3v: ["5vetHWhTLmg", "La infancia de Jesús para niños", "Jesús Manuel Gallardo", 883182, "la vida de Jesús para niños"],
   re3b: ["8W-ORexGOK0", "Cada discípulo de Jesús y cómo Jesús los encontró", "Minno Español", 260930],
-  re3c: ["q2JUUxPOYQI", "La historia de los milagros de Jesús", "Minno Español", 558165],
+  re3c: ["o3syDmLSyI4", "Los milagros de Jesús: historias que muestran su amor", "PequeFe", 12622],
   re4v: ["jkdHZ-v_kZ8", "¿Qué pasó cada día de la Semana Santa?", "PequeFe", 336825, "la Semana Santa explicada a niños"],
   re4b: ["uGS0ixl5PJU", "Biblia para niños: la última cena de Jesús", "Ana Upia", 534215],
   re4c: ["7cD3mFiX1B4", "La historia de la resurrección de Jesús", "Minno Español", 911676],
