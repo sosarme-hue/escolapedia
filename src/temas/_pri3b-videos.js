@@ -69,4 +69,13 @@ module.exports = {
   "xG7nyNvnR1M": ["Juegos Educación Física - El Balón Que Persigue", "Educación Física Para Todos", 135403], // ef-manejo-balones
   "9gwlktJaa9k": ["Ejercicios de Educación Física con pelota", "Carolina Núñez", 97995], // ef-manejo-balones
   "pyBahhoU4EA": ["Aprender a botar el balón para principiantes | Baloncesto", "SIKANA Español", 1896514], // ef-manejo-balones
+  "UKCiXA8Pa7g": ["7 EJERCICIOS DE EQUILIBRIO Y COORDINACIÓN PARA NIÑOS", "Little Sports Español", 14572], // ef-equilibrio-coordinacion
+  "jeuMuq-ni4o": ["18 EJERCICIOS de COORDINACIÓN para NIÑOS y JÓVENES en CASA con el cuerpo, EDUCACIÓN FÍSICA EN CASA😍", "Educación Física Internacional", 578381], // ef-equilibrio-coordinacion
+  "Q6ZDUuMiMcA": ["5 EJERCICIOS DE COORDINACIÓN /GIMNASIA CEREBRAL PARA NIÑOS/EDUCACIÓN FÍSICA", "EDUCACIÓN FÍSICA INTELIGENTE", 305759], // ef-equilibrio-coordinacion
+  "gmFrWDcYfsQ": ["Tafad Juegos Cooperativos", "TAFAD UFV", 969391], // ef-juegos-cooperativos
+  "6Qgq1bPD9RA": ["Nuestras 5 mejores actividades con paracaídas para Educación Física", "The Activity Channel", 208388], // ef-juegos-cooperativos
+  "KWKG8wU1rZs": ["Los 6 juegos de TRABAJO EN EQUIPO que todo profesor debe aplicar éste 2020 | EDUCACIÓN FÍSICA", "Educación Física Internacional", 254300], // ef-juegos-cooperativos
+  "9V8KublOYtw": ["7.  Juegos tradicionales, populares y autóctonos", "Adolfo Rodríguez", 314999], // ef-juegos-populares
+  "FlO1UbqaPpo": ["Juegos tradicionales", "Educación Física Elena", 28796], // ef-juegos-populares
+  "eQ8tm3KXQso": ["Juegos infantiles tradicionales | 🎲 ¡Descubre los Juegos Tradicionales! 🏃‍♂️🤹‍♀️ | Diversión niños", "Learn with Socrates", 64516], // ef-juegos-populares
 };
