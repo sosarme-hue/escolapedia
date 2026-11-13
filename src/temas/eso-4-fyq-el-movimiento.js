@@ -1,179 +1,263 @@
-// Física y Química 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa, flecha } = require("./_util");
+// Física y Química 4º ESO · El movimiento (nivel libro). Dibujos propios en SVG.
+const { mapa, flecha, tabla, BASE, marco, T, ficha, pasos, compara, graf, barras, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD } = require("./_eso4L5");
+const S = BASE["el-movimiento"];
 
-// Ejes de una gráfica pequeña.
-const ejes = (x, y, w, h, ex, ey) => `<path d="M${x} ${y - h} V ${y} H ${x + w}" fill="none" stroke="var(--muted)" stroke-width="2"/>
-  <text x="${x + w}" y="${y + 16}" text-anchor="end" font-size="12" fill="var(--muted)" ${F}>${ex}</text><text x="${x - 6}" y="${y - h + 4}" text-anchor="end" font-size="12" fill="var(--muted)" ${F}>${ey}</text>`;
+const mcu = marco("Movimiento circular uniforme: la velocidad es tangente a la circunferencia y la aceleración centrípeta apunta al centro", `
+  <circle cx="110" cy="92" r="62" fill="none" stroke="var(--pen)" stroke-width="3" stroke-dasharray="6 5"/>
+  <circle cx="110" cy="92" r="4" fill="var(--ink)"/><path d="M110 92 L 48 92" stroke="var(--muted)" stroke-width="1.6"/>
+  ${T(78, 86, "R", { fs: 13, b: true, c: "var(--muted)" })}
+  <circle cx="154" cy="48" r="8" fill="var(--red)"/>
+  <path d="M154 48 L 196 90" stroke="var(--leaf)" stroke-width="3.5" marker-end="url(#mc1)"/>${T(214, 104, "v", { fs: 15, b: true, c: "var(--leaf)" })}
+  <path d="M154 48 L 128 74" stroke="var(--red)" stroke-width="3.5" marker-end="url(#mc2)"/>${T(146, 86, "aᶜ", { fs: 14, b: true, c: "var(--red)" })}
+  ${T(222, 30, "ω = φ / t", { fs: 13, b: true, c: "var(--pen)" })}${T(222, 50, "v = ω · R", { fs: 13, b: true, c: "var(--pen)" })}${T(222, 160, "aᶜ = v² / R", { fs: 13, b: true, c: "var(--red)" })}`,
+  `${flecha("mc1", "var(--leaf)")}${flecha("mc2", "var(--red)")}`);
 
 module.exports = {
   materia: "Física y Química",
   curso: "4-eso",
   titulo: "El movimiento",
-  minutos: 45,
-  objetivos: ["Describir un movimiento con posición, desplazamiento, velocidad y aceleración", "Resolver problemas de MRU, MRUA y caída libre", "Interpretar gráficas posición-tiempo y velocidad-tiempo"],
-  claves: ["sistema de referencia", "velocidad", "aceleración", "MRU", "MRUA", "caída libre"],
+  minutos: 110,
+  objetivos: [
+    "Describir un movimiento eligiendo un sistema de referencia y usando posición, desplazamiento, velocidad y aceleración",
+    "Distinguir magnitudes escalares y vectoriales, y velocidad media e instantánea",
+    "Resolver problemas de MRU, MRUA, caída libre, lanzamiento vertical y encuentros",
+    "Leer y construir gráficas posición-tiempo y velocidad-tiempo (pendiente y área)",
+    "Calcular magnitudes del movimiento circular uniforme",
+    "Aplicar la cinemática a la seguridad vial: tiempo de reacción y distancia de frenado",
+  ],
+  claves: ["sistema de referencia", "desplazamiento", "velocidad", "aceleración", "MRU", "MRUA", "caída libre", "MCU", "gráficas"],
   pregunta: {
     texto: "Vas en el tren leyendo y tu amigo, en el andén, dice que te mueves a 100 km/h. Tú dices que estás quieto. ¿Quién tiene razón?",
     respuesta: "¡Los dos! El movimiento es <mark>relativo</mark>: depende del <b>sistema de referencia</b>. Respecto al tren estás en reposo; respecto al andén vas a 100 km/h. Por eso, para describir un movimiento, lo primero es decir desde dónde lo miras.",
   },
+  lectura: {
+    titulo: "Dos segundos que salvan vidas",
+    html: `<p>Un coche circula por una calle a 50 km/h. De repente, una pelota rueda hasta la calzada y detrás aparece un niño. El conductor tarda casi un segundo en reaccionar: ver, entender y mover el pie hasta el freno. En ese segundo, sin haber empezado a frenar, el coche ya ha avanzado unos 14 metros. Después, los frenos necesitan otros 14 metros para detenerlo. Si el mismo coche hubiera ido a 30 km/h, se habría parado en menos de la mitad de espacio.</p><p>Por eso existen los límites de velocidad en las ciudades, la distancia de seguridad en las autovías y las campañas que piden no mirar el móvil al volante. Todas se basan en las mismas ecuaciones que vas a aprender en este tema. La <b>cinemática</b> es la parte de la física que describe cómo se mueven los cuerpos sin preguntarse todavía por qué lo hacen. Con ella se calcula cuándo llegará un tren, dónde caerá un balón, cuánto tarda un ascensor o cómo se coordinan los semáforos de una avenida. Al terminar el tema podrás hacer tú mismo el cálculo de la distancia de frenado y entender, con números, por qué unos pocos km/h marcan la diferencia.</p>`,
+  },
   bloques: [
-    {
-      html: `<h3>Posición, trayectoria y desplazamiento</h3><p>La <b>posición</b> es dónde está el cuerpo respecto a un <b>sistema de referencia</b>. La <b>trayectoria</b> es el camino que recorre (recta o curva). La <b>distancia recorrida</b> se mide sobre la trayectoria; el <mark>desplazamiento</mark> es la línea recta entre el punto inicial y el final. Si das una vuelta completa a la pista, recorres 400 m, pero tu desplazamiento es cero.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Trayectoria curva de A a B y desplazamiento en línea recta">
-        <defs>${flecha("mv1", "var(--red)")}</defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M40 130 C 60 30, 140 20, 150 90 S 210 150, 220 60" fill="none" stroke="var(--pen)" stroke-width="3" stroke-dasharray="7 5"/>
-        <path d="M40 130 L 214 66" stroke="var(--red)" stroke-width="3.5" marker-end="url(#mv1)"/>
-        <circle cx="40" cy="130" r="6" fill="var(--ink)"/><circle cx="220" cy="60" r="6" fill="var(--ink)"/>
-        <g ${F} font-size="13" font-weight="700"><text x="26" y="152" fill="var(--ink)">A</text><text x="228" y="56" fill="var(--ink)">B</text><text x="70" y="40" fill="var(--pen)">trayectoria</text><text x="120" y="122" fill="var(--red)">desplazamiento</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Velocidad y aceleración</h3><p>La <b>velocidad</b> indica lo rápido que cambia la posición: <mark>v = Δx / Δt</mark>, en m/s. La <b>velocidad media</b> usa todo el trayecto; la <b>instantánea</b> es la del velocímetro en cada momento. La <b>aceleración</b> indica lo rápido que cambia la velocidad: <mark>a = Δv / Δt</mark>, en m/s². Si es negativa respecto al sentido del movimiento, el cuerpo frena.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Coche que pasa de 0 a 20 metros por segundo en 5 segundos: aceleración de 4 metros por segundo al cuadrado">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M14 120 H 246" stroke="var(--muted)" stroke-width="2"/>
-        ${[[30, "0 m/s", "t = 0 s"], [170, "20 m/s", "t = 5 s"]].map(([x, v, t]) => `<rect x="${x}" y="92" width="56" height="20" rx="6" fill="var(--red)"/><rect x="${x + 10}" y="80" width="30" height="14" rx="4" fill="var(--red)"/><circle cx="${x + 12}" cy="114" r="7" fill="var(--ink)"/><circle cx="${x + 44}" cy="114" r="7" fill="var(--ink)"/>
-          <text x="${x + 28}" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="var(--pen)" ${F}>${v}</text><text x="${x + 28}" y="146" text-anchor="middle" font-size="12" fill="var(--muted)" ${F}>${t}</text>`).join("")}
-        <text x="130" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="var(--leaf)" ${F}>a = (20 − 0) / 5 = 4 m/s²</text>
-      </svg>`,
-    },
-    {
-      html: `<h3>Movimiento rectilíneo uniforme (MRU)</h3><p>Trayectoria recta y <mark>velocidad constante</mark> (a = 0). Recorre distancias iguales en tiempos iguales. Su ecuación:</p>
-      <div class="formula"><span>x = x₀ + v · t</span></div>
-      <p>En la gráfica posición-tiempo es una <b>recta inclinada</b> (la pendiente es la velocidad) y en la velocidad-tiempo, una <b>recta horizontal</b>. Ejemplo: un ciclista a 5 m/s recorre 300 m en un minuto.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráficas del MRU: posición recta inclinada y velocidad horizontal">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${ejes(34, 140, 90, 110, "t", "x")}<path d="M34 130 L 118 44" stroke="var(--pen)" stroke-width="3.5"/>
-        ${ejes(160, 140, 90, 110, "t", "v")}<path d="M160 80 H 246" stroke="var(--leaf)" stroke-width="3.5"/>
-        <g ${F} font-size="12" font-weight="700" text-anchor="middle"><text x="80" y="170" fill="var(--pen)">x-t: recta</text><text x="205" y="170" fill="var(--leaf)">v-t: horizontal</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Movimiento rectilíneo uniformemente acelerado (MRUA)</h3><p>Trayectoria recta y <mark>aceleración constante</mark>: la velocidad aumenta (o disminuye) lo mismo cada segundo.</p>
-      <div class="formula"><span>v = v₀ + a · t</span></div>
-      <div class="formula"><span>x = x₀ + v₀ · t + ½ · a · t²</span></div>
-      <p>En la gráfica posición-tiempo es una <b>parábola</b> y en la velocidad-tiempo, una <b>recta inclinada</b> (su pendiente es la aceleración). El área bajo la gráfica v-t es la distancia recorrida.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráficas del MRUA: posición en parábola y velocidad recta inclinada">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${ejes(34, 140, 90, 110, "t", "x")}<path d="M34 138 Q 90 136 118 40" fill="none" stroke="var(--pen)" stroke-width="3.5"/>
-        ${ejes(160, 140, 90, 110, "t", "v")}<path d="M160 140 L 246 52 V 140 Z" fill="var(--leaf)" opacity=".2"/><path d="M160 140 L 246 52" stroke="var(--leaf)" stroke-width="3.5"/>
-        <g ${F} font-size="12" font-weight="700" text-anchor="middle"><text x="80" y="170" fill="var(--pen)">x-t: parábola</text><text x="205" y="170" fill="var(--leaf)">área = distancia</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Caída libre</h3><p>Si dejamos caer un objeto y despreciamos el rozamiento con el aire, cae con un MRUA de aceleración <mark>g = 9,8 m/s²</mark>, sea cual sea su masa. Galileo lo comprobó: una bola pesada y una ligera llegan a la vez. Una piedra que cae desde el reposo lleva, tras 2 s, v = 9,8 · 2 ≈ <b>19,6 m/s</b> y ha caído ½ · 9,8 · 2² ≈ <b>19,6 m</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Bola en caída libre fotografiada cada segundo: las distancias recorridas aumentan">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M100 14 V 172" stroke="var(--line)" stroke-width="2"/>
-        ${[[0, "0 s"], [1, "1 s"], [2, "2 s"], [3, "3 s"]].map(([t, l]) => { const y = 20 + 16 * t * t; return `<circle cx="100" cy="${y}" r="8" fill="var(--red)" opacity="${0.4 + t * 0.2}"/><text x="118" y="${y + 4}" font-size="12" font-weight="700" fill="var(--ink)" ${F}>${l} · ${(4.9 * t * t).toFixed(1).replace(".", ",")} m</text>`; }).join("")}
-        <text x="20" y="100" font-size="13" font-weight="700" fill="var(--leaf)" ${F}>g</text><path d="M26 60 V 140" stroke="var(--leaf)" stroke-width="3"/><path d="M20 132 L 26 144 L 32 132" fill="none" stroke="var(--leaf)" stroke-width="3"/>
-      </svg>`,
-    },
+    bloque({ h: "1.1 El movimiento es relativo", p: [
+      "Decimos que un cuerpo se <b>mueve</b> cuando cambia su posición respecto a otro cuerpo que tomamos como referencia. Esa elección no es un detalle: un pasajero sentado en un tren está en reposo respecto a su asiento, pero se mueve a 100 km/h respecto a las vías y a unos 1.600 km/h respecto al eje de la Tierra, que gira. Ninguna de esas descripciones es «la verdadera»; todas son correctas desde su punto de vista.",
+      "Un <mark>sistema de referencia</mark> está formado por un punto fijo, el <b>origen</b>, unos <b>ejes</b> con un sentido positivo y un <b>reloj</b> para medir el tiempo. En los problemas de este curso casi siempre basta con una recta: el eje X. Antes de escribir ninguna ecuación hay que decidir dónde está el origen y hacia dónde se cuenta positivo. Si cambias el origen, cambian las posiciones, pero no cambia lo que pasa físicamente: el coche frena igual lo mires desde donde lo mires.",
+    ], svg: compara("El mismo pasajero visto desde el tren y desde el andén", ["Desde el tren", ["pasajero:", "0 km/h", "andén:", "100 km/h atrás"]], ["Desde el andén", ["pasajero:", "100 km/h", "tren:", "100 km/h"]]) }),
+    bloque({ h: "1.2 Posición, trayectoria, distancia y desplazamiento", p: [
+      "La <b>posición</b> (x) indica dónde está el móvil respecto al origen. En una dimensión es un número con signo: x = +30 m está 30 m a la derecha del origen y x = −10 m, 10 m a la izquierda. La <b>trayectoria</b> es la línea que dibuja el móvil al moverse; puede ser recta, curva, circular o tener cualquier forma.",
+      "Conviene no confundir dos magnitudes. La <b>distancia recorrida</b> (s) se mide sobre la trayectoria y siempre es positiva o nula. El <mark>desplazamiento</mark> (Δx = x − x₀) es la diferencia entre la posición final y la inicial, y puede ser positivo, negativo o cero. Si das una vuelta completa a una pista de 400 m, recorres 400 m, pero tu desplazamiento es cero porque acabas donde empezaste. Si caminas 50 m hacia el este y vuelves 20 m, la distancia recorrida es 70 m y el desplazamiento, 30 m hacia el este. Solo coinciden cuando el movimiento es rectilíneo y no cambia de sentido.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.3 Magnitudes escalares y vectoriales", p: [
+      "Algunas magnitudes quedan completamente descritas con un número y su unidad: la masa (60 kg), la temperatura (20 °C), el tiempo (12 s) o la distancia recorrida (400 m). Son <b>magnitudes escalares</b>. Otras, en cambio, necesitan además una dirección y un sentido: no es lo mismo desplazarse 5 km hacia el norte que hacia el sur. Son <mark>magnitudes vectoriales</mark> y se representan con flechas llamadas <b>vectores</b>.",
+      "Un vector tiene <b>módulo</b> (su tamaño, la longitud de la flecha), <b>dirección</b> (la recta sobre la que está) y <b>sentido</b> (hacia dónde apunta la punta). El desplazamiento, la velocidad, la aceleración y la fuerza son vectoriales. En el movimiento rectilíneo el sentido se indica con el signo: v = +8 m/s significa que el móvil avanza en el sentido positivo y v = −8 m/s, que retrocede. El valor de la velocidad sin signo se llama <b>rapidez</b>, que es lo que marca el velocímetro de un coche.",
+    ], svg: compara("Magnitudes escalares frente a vectoriales", ["Escalares", ["masa", "tiempo", "temperatura", "distancia", "rapidez"]], ["Vectoriales", ["desplazamiento", "velocidad", "aceleración", "fuerza", "peso"]], "var(--leaf)", "var(--red)") }),
+    bloque({ h: "2.1 Velocidad media y velocidad instantánea", p: [
+      "La <b>velocidad</b> mide lo rápido que cambia la posición. La <mark>velocidad media</mark> es el desplazamiento dividido entre el tiempo empleado:",
+      "Si un autobús recorre 120 km en 2 h, su velocidad media es 60 km/h, aunque haya parado en semáforos y haya ido a 90 km/h por la autovía. La velocidad media no dice nada de lo que ocurre en cada momento. La <b>velocidad instantánea</b> es la que tiene el móvil en un instante concreto: la que marca el velocímetro. Se obtiene calculando la velocidad media en intervalos de tiempo cada vez más pequeños. En una gráfica posición-tiempo, la velocidad media es la pendiente de la recta que une dos puntos y la instantánea, la pendiente de la recta tangente en un punto. En el día a día también se usa la <b>rapidez media</b>, que divide la distancia recorrida (no el desplazamiento) entre el tiempo: es la que calculan los relojes deportivos de los corredores.",
+    ], extra: formula("v<sub>m</sub> = Δx / Δt = (x − x₀) / (t − t₀)"), svg: graf("Gráfica posición-tiempo curva: la recta secante da la velocidad media y la tangente la instantánea", "t (s)", "x (m)", [
+      { p: [[0, 0.05], [0.2, 0.08], [0.4, 0.2], [0.6, 0.42], [0.8, 0.7], [1, 1]], c: "var(--pen)" },
+      { p: [[0.2, 0.08], [0.9, 0.84]], c: "var(--red)", dash: true },
+      { p: [[0.35, 0.107], [0.9, 0.795]], c: "var(--leaf)" },
+    ], `${T(118, 52, "secante: v media", { fs: 12, b: true, c: "var(--red)" })}${T(196, 128, "tangente:", { fs: 12, b: true, c: "var(--leaf)" })}${T(196, 142, "v instantánea", { fs: 12, b: true, c: "var(--leaf)" })}`) }),
+    bloque({ h: "2.2 Unidades de velocidad: de km/h a m/s", p: [
+      "En el Sistema Internacional la velocidad se mide en <b>metros por segundo (m/s)</b>, pero en la carretera se usa el <b>kilómetro por hora (km/h)</b>. Para hacer cálculos con las ecuaciones del movimiento hay que trabajar siempre con unidades coherentes, así que el primer paso de casi todos los problemas es pasar a m/s.",
+      "La conversión se hace con factores de conversión: 1 km = 1.000 m y 1 h = 3.600 s. Por tanto, 72 km/h = 72 · 1.000 m / 3.600 s = 20 m/s. El atajo es <mark>dividir entre 3,6 para pasar de km/h a m/s</mark> y multiplicar por 3,6 para el paso contrario. Conviene tener algunas referencias en la cabeza: una persona andando va a unos 1,4 m/s (5 km/h); un buen velocista, a 10 m/s (36 km/h); un coche en ciudad, a 13,9 m/s (50 km/h); un AVE, a unos 83 m/s (300 km/h); y el sonido en el aire, a 340 m/s. Comprobar si un resultado es razonable comparándolo con estas cifras ayuda a detectar errores de cálculo.",
+    ], svg: ficha("Cambiar de km/h a m/s y al revés", "km/h ⇄ m/s", ["km/h → m/s: dividir entre 3,6", "m/s → km/h: multiplicar por 3,6", "36 km/h = 10 m/s", "72 km/h = 20 m/s", "108 km/h = 30 m/s"], "var(--pen)") }),
+    bloque({ h: "2.3 La aceleración", p: [
+      "La <b>aceleración</b> mide lo rápido que cambia la velocidad. La aceleración media es la variación de velocidad dividida entre el tiempo:",
+      "Se mide en <b>m/s²</b>. Una aceleración de 3 m/s² significa que la velocidad aumenta 3 m/s cada segundo. Si un coche pasa de 0 a 20 m/s en 5 s, su aceleración es 4 m/s². Cuando la aceleración tiene el mismo signo que la velocidad, el móvil va cada vez más deprisa; cuando tiene signo contrario, <mark>frena</mark>. Un coche que circula a +25 m/s y frena con a = −5 m/s² se detiene en 5 s. Fíjate en que «acelerar» en física no es solo ir más rápido: también es frenar o cambiar de dirección, porque en los tres casos cambia el vector velocidad. Por eso un coche que toma una curva a 60 km/h constantes también tiene aceleración.",
+    ], extra: formula("a = Δv / Δt = (v − v₀) / (t − t₀)"), svg: S.svg[1] }),
+    bloque({ h: "3.1 Movimiento rectilíneo uniforme (MRU)", p: [
+      "Un movimiento es <mark>rectilíneo uniforme</mark> cuando su trayectoria es una recta y su velocidad es constante; por tanto, su aceleración es cero. El móvil recorre distancias iguales en tiempos iguales. Su ecuación de posición es:",
+      "donde x₀ es la posición inicial y v la velocidad (con su signo). En la gráfica posición-tiempo (x-t) el MRU es una <b>recta inclinada</b> cuya pendiente es la velocidad: cuanto más inclinada, más rápido. Si la recta baja, la velocidad es negativa y el móvil vuelve hacia el origen. En la gráfica velocidad-tiempo (v-t) es una <b>recta horizontal</b>. Ejemplos aproximados de MRU son un tren de alta velocidad en un tramo recto o una escalera mecánica. Un ciclista que parte de x₀ = 200 m y se aleja a 5 m/s estará en x = 200 + 5 · 60 = 500 m al cabo de un minuto.",
+    ], extra: formula("x = x₀ + v · t"), svg: S.svg[2] }),
+    bloque({ h: "3.2 Movimiento rectilíneo uniformemente acelerado (MRUA)", p: [
+      "En el <mark>MRUA</mark> la trayectoria es recta y la aceleración es constante: la velocidad cambia lo mismo cada segundo. Lo describen dos ecuaciones básicas y una tercera que se obtiene de ellas eliminando el tiempo:",
+      "La tercera ecuación es muy útil cuando no se conoce el tiempo, por ejemplo para calcular la distancia de frenado. En la gráfica v-t, el MRUA es una <b>recta inclinada</b> cuya pendiente es la aceleración; en la gráfica x-t es una <b>parábola</b>. Atención a los signos: si el móvil frena, la aceleración lleva signo contrario a la velocidad. Un coche que va a 30 m/s y frena con a = −6 m/s² tarda t = 30/6 = 5 s en pararse y recorre Δx = 30² / (2 · 6) = 75 m.",
+    ], extra: formula("v = v₀ + a · t") + formula("x = x₀ + v₀ · t + ½ · a · t²") + formula("v² − v₀² = 2 · a · Δx"), svg: S.svg[3] }),
+    bloque({ h: "3.3 Leer las gráficas del movimiento", p: [
+      "Las gráficas cuentan un movimiento de un vistazo. En la gráfica <b>x-t</b>, un tramo horizontal significa que el móvil está parado; una recta que sube, que avanza con MRU; una que baja, que retrocede; y una curva, que la velocidad cambia. La <mark>pendiente de la gráfica x-t es la velocidad</mark>.",
+      "En la gráfica <b>v-t</b>, un tramo horizontal es un MRU y una recta inclinada es un MRUA: la <mark>pendiente es la aceleración</mark>. Además, el <b>área bajo la gráfica v-t es el desplazamiento</b>. Si un coche va a 20 m/s durante 10 s, el rectángulo mide 20 · 10 = 200 m; si acelera de 0 a 20 m/s en 10 s, el triángulo mide ½ · 10 · 20 = 100 m. Esta idea permite resolver movimientos a tramos sumando áreas de rectángulos y triángulos, sin usar ecuaciones. Un consejo: lee siempre qué magnitud hay en cada eje antes de interpretar nada, porque la misma forma significa cosas distintas en una gráfica x-t y en una v-t.",
+    ], svg: graf("Gráfica velocidad-tiempo a tramos: acelera, va constante y frena; el área es el desplazamiento", "t (s)", "v (m/s)", [
+      { p: [[0, 0], [0.3, 0.8], [0.7, 0.8], [1, 0]], c: "var(--pen)", t: "" },
+    ], `<polygon points="40,145 100,53 180,53 240,145" fill="var(--pen)" opacity=".18"/>${T(140, 110, "área = Δx", { fs: 14, b: true, c: "var(--pen)" })}${T(66, 46, "acelera", { fs: 11, c: "var(--leaf)", b: true })}${T(140, 46, "MRU", { fs: 11, c: "var(--ink)", b: true })}${T(214, 46, "frena", { fs: 11, c: "var(--red)", b: true })}`), video: S.bvideos[0] }),
+    bloque({ h: "3.4 Tiempo de reacción y distancia de frenado", p: [
+      "Cuando un conductor ve un obstáculo, el coche no empieza a frenar de inmediato. Durante el <b>tiempo de reacción</b> (entre 0,75 y 1 s en una persona atenta, mucho más si mira el móvil) el coche sigue en MRU: es la <b>distancia de reacción</b>. Después empieza el MRUA de frenada hasta pararse: es la <b>distancia de frenado</b>. La suma de las dos es la <mark>distancia de detención</mark>.",
+      "Con un tiempo de reacción de 1 s y una deceleración de 7 m/s² (asfalto seco), a 50 km/h (13,9 m/s) el coche necesita 13,9 + 13,9² / 14 ≈ 28 m; a 90 km/h, unos 70 m; y a 120 km/h, unos 113 m. La distancia de frenado depende del <b>cuadrado de la velocidad</b>: al duplicar la velocidad, se multiplica por cuatro. Con lluvia la deceleración baja y las distancias crecen todavía más. Por eso la Dirección General de Tráfico recomienda dejar con el coche de delante al menos <b>dos segundos</b> de separación, y tres o cuatro con lluvia.",
+    ], svg: barras("Distancia de detención de un coche según su velocidad, con un segundo de reacción", "Distancia para pararse", [["50 km/h", 28, "var(--leaf)", "28 m"], ["90 km/h", 70, "#b45309", "70 m"], ["120 km/h", 113, "var(--red)", "113 m"]]) }),
+    bloque({ h: "3.5 Problemas de encuentro", p: [
+      "Muchos problemas preguntan cuándo y dónde se cruzan dos móviles, o cuándo uno alcanza a otro. El método es siempre el mismo: 1) elegir <b>un único origen y un único sentido positivo</b> para los dos; 2) escribir la ecuación de posición de cada uno, con su x₀, su velocidad con signo y, si sale más tarde, el tiempo corregido; 3) <mark>igualar las posiciones</mark>, porque en el encuentro los dos están en el mismo sitio a la vez: x₁ = x₂; 4) despejar el tiempo y sustituirlo en cualquiera de las ecuaciones para hallar el lugar.",
+      "Gráficamente, el encuentro es el punto donde se cortan las dos rectas de la gráfica x-t. Si los móviles van en sentidos opuestos, una recta sube y la otra baja; si uno persigue al otro, las dos suben, pero la del perseguidor con más pendiente. Si uno sale más tarde, su tiempo es (t − t<sub>retraso</sub>). Comprueba siempre el resultado: el tiempo debe ser positivo y el lugar, estar entre los puntos de salida cuando van al encuentro.",
+    ], svg: graf("Dos rectas posición-tiempo que se cortan: el punto de corte es el lugar y el instante del encuentro", "t (s)", "x (m)", [
+      { p: [[0, 0], [1, 1]], c: "var(--red)", t: "coche" },
+      { p: [[0, 1], [1, 0.5]], c: "var(--pen)", t: "" },
+    ], `<circle cx="173.3" cy="68.3" r="7" fill="none" stroke="var(--ink)" stroke-width="2.5"/>${T(150, 100, "encuentro", { fs: 12, b: true })}${T(208, 106, "moto", { fs: 12, b: true, c: "var(--pen)" })}`) }),
+    bloque({ h: "4.1 Caída libre y lanzamiento vertical", p: [
+      "Cuando un cuerpo cae sin que el aire le frene apreciablemente, se mueve con un MRUA cuya aceleración es la de la gravedad, <mark>g = 9,8 m/s²</mark>, dirigida hacia abajo. Galileo comprobó que, sin aire, <b>todos los cuerpos caen con la misma aceleración</b>, sean pesados o ligeros: en la Luna, un astronauta del Apolo 15 dejó caer un martillo y una pluma, y llegaron a la vez.",
+      "Para resolver estos problemas se toma el eje Y vertical con el sentido positivo hacia arriba, y entonces a = −9,8 m/s². Las ecuaciones son las del MRUA: v = v₀ − g·t e y = y₀ + v₀·t − ½·g·t². Si se deja caer (v₀ = 0) desde 20 m, tarda t = √(2·20/9,8) ≈ 2,0 s y llega a 19,8 m/s. En un <b>lanzamiento vertical hacia arriba</b>, el cuerpo sube frenando, en el punto más alto su velocidad es cero (pero la aceleración sigue siendo g) y baja acelerando; tarda lo mismo en subir que en bajar a la misma altura. La altura máxima es h = v₀² / (2g).",
+    ], svg: S.svg[4], video: { id: "yvz40RrLrkM", titulo: "Caída libre: se deja caer… (ejemplo resuelto)", canal: "Matemáticas profe Alex", vistas: 979639 } }),
+    bloque({ h: "4.2 Movimiento circular uniforme (MCU)", p: [
+      "En el <mark>MCU</mark> la trayectoria es una circunferencia y el móvil da vueltas con rapidez constante, como un punto de una noria o del tambor de una lavadora. Se describe con magnitudes angulares: el <b>ángulo girado</b> φ, en radianes (una vuelta son 2π rad), y la <b>velocidad angular</b> ω = φ / t, en rad/s. El <b>periodo</b> T es el tiempo de una vuelta y la <b>frecuencia</b> f = 1/T, el número de vueltas por segundo (Hz). Se cumple ω = 2π / T = 2π·f.",
+      "La velocidad lineal de un punto que está a una distancia R del centro es <b>v = ω · R</b>: en un tiovivo, los caballitos de fuera van más rápido que los de dentro aunque den las mismas vueltas. Aunque la rapidez no cambie, la dirección de la velocidad cambia continuamente, así que hay aceleración: la <b>aceleración centrípeta</b>, dirigida hacia el centro, de valor a<sub>c</sub> = v² / R. Para pasar de revoluciones por minuto (rpm) a rad/s se multiplica por 2π y se divide entre 60.",
+    ], svg: mcu, video: S.bvideos[1] }),
+    bloque({ h: "4.3 Cómo resolver un problema de cinemática", p: [
+      "Casi todos los problemas del tema se resuelven con el mismo plan. Primero, <b>lee y dibuja</b>: un esquema con el origen, el sentido positivo y los datos de cada móvil. Segundo, <b>pasa los datos al SI</b> (km/h a m/s, minutos a segundos, km a m). Tercero, <b>identifica el tipo de movimiento</b>: si la velocidad es constante, MRU; si cambia de forma uniforme, MRUA; si cae, caída libre con a = −9,8 m/s². Cuarto, <b>escribe las ecuaciones</b> con los signos correctos y elige la que tenga una sola incógnita. Quinto, <b>resuelve y comprueba</b>: unidades, signo y orden de magnitud.",
+      "Un truco para elegir la ecuación del MRUA: si no te dan ni te piden el tiempo, usa v² − v₀² = 2·a·Δx. Si te piden «cuándo se para», la condición es v = 0; si te piden «cuándo llega al suelo», la condición es y = 0; y si te piden «cuándo se encuentran», x₁ = x₂. Escribir la condición con palabras antes de calcular evita la mayoría de los errores.",
+    ], svg: pasos("Cinco pasos para resolver un problema de cinemática", ["Dibuja: origen y sentido +", "Pasa los datos al SI", "Identifica: MRU, MRUA, caída", "Plantea la condición: v = 0, y = 0…", "Resuelve y comprueba"]) }),
   ],
-  figura: {
-    titulo: "MRU frente a MRUA",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Comparación de MRU y MRUA: aceleración, ecuaciones y forma de las gráficas">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["MRU", "a = 0 · v constante", "x = x₀ + v·t", "x-t: recta · v-t: horizontal", "var(--pen)"], ["MRUA", "a constante", "v = v₀ + a·t  ·  x = x₀ + v₀·t + ½·a·t²", "x-t: parábola · v-t: recta", "var(--leaf)"]]
-        .map(([n, a, e, g, c], i) => `<rect x="${20 + i * 310}" y="20" width="290" height="190" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
-          <text x="${165 + i * 310}" y="62" text-anchor="middle" font-size="28" font-weight="700" fill="${c}" ${D}>${n}</text>
-          <text x="${165 + i * 310}" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" ${F}>${a}</text>
-          <text x="${165 + i * 310}" y="138" text-anchor="middle" font-size="${i ? 13 : 17}" fill="var(--ink)" ${F}>${e}</text>
-          <text x="${165 + i * 310}" y="182" text-anchor="middle" font-size="14" fill="var(--muted)" ${F}>${g}</text>`).join("")}
-    </svg>`,
-  },
-  video: { id: "XE9UXxtep6M", titulo: "MRU: explicación, fórmulas y ejercicios", canal: "Susi Profe", vistas: 2375463, megusta: 0, busqueda: "MRU MRUA movimiento física" },
-  quiz: [
-    { q: "Das una vuelta completa a una pista de 400 m. ¿Cuál es tu desplazamiento?", o: ["400 m", "0 m", "200 m"], a: 1, e: "Acabas en el mismo punto donde empezaste: el desplazamiento es cero, aunque la distancia recorrida sea 400 m." },
-    { q: "Un coche va a 72 km/h constantes. ¿Qué distancia recorre en 10 s?", o: ["720 m", "200 m", "72 m"], a: 1, e: "72 km/h = 20 m/s; x = 20 · 10 = 200 m." },
-    { q: "Una moto pasa de 10 m/s a 30 m/s en 4 s. ¿Cuál es su aceleración?", o: ["5 m/s²", "10 m/s²", "7,5 m/s²"], a: 0, e: "a = (30 − 10) / 4 = 5 m/s²." },
-    { q: "En una gráfica velocidad-tiempo, un MRUA aparece como…", o: ["una recta horizontal", "una recta inclinada", "una parábola"], a: 1, e: "La velocidad cambia lo mismo cada segundo: recta con pendiente igual a la aceleración." },
-    { q: "Sin aire, una bola de hierro y una de madera soltadas a la vez…", o: ["llega antes la de hierro", "llegan a la vez", "llega antes la de madera"], a: 1, e: "En caída libre todos los cuerpos caen con la misma aceleración g." },
-  ],
-  examen: [
-    { q: "Un coche a 20 m/s frena con a = −4 m/s². ¿Cuánto tarda en pararse?", o: ["5 s", "80 s", "4 s"], a: 0, e: "0 = 20 − 4 · t → t = 5 s." },
-    { q: "¿Qué distancia recorre ese coche mientras frena?", o: ["100 m", "50 m", "20 m"], a: 1, e: "x = 20 · 5 + ½ · (−4) · 5² = 100 − 50 = 50 m." },
-    { q: "La pendiente de una gráfica posición-tiempo representa…", o: ["la aceleración", "la velocidad", "la distancia"], a: 1, e: "Δx / Δt es la velocidad." },
-  ],
-  feynman: ["Por qué el movimiento es relativo", "La diferencia entre distancia recorrida y desplazamiento", "Qué significa una aceleración de 3 m/s²", "Cómo son las gráficas del MRU y del MRUA", "Por qué todos los cuerpos caen igual sin aire"],
-  mapa: mapa("EL MOVIMIENTO", "var(--eso)", [
-    ["Conceptos", "referencia · trayectoria · desplazamiento", "var(--ink)"],
-    ["Magnitudes", "v = Δx/Δt · a = Δv/Δt", "var(--red)"],
-    ["MRU", "x = x₀ + v·t", "var(--pen)"],
-    ["MRUA y caída", "v = v₀ + a·t · g = 9,8", "var(--leaf)"],
-  ], 260),
-  tarjetas: [
-    ["Ecuación de posición del MRU", "x = x₀ + v · t."],
-    ["Ecuaciones del MRUA", "v = v₀ + a · t ; x = x₀ + v₀ · t + ½ · a · t²."],
-    ["¿Cómo se pasa de km/h a m/s?", "Dividiendo entre 3,6."],
-    ["Valor de g en la Tierra", "9,8 m/s²."],
-    ["¿Qué representa el área bajo la gráfica v-t?", "La distancia recorrida."],
-  ],
-  familias: ["En un viaje en coche, calculad la velocidad media con la distancia y el tiempo del navegador.", "Dejad caer a la vez una hoja de papel plana y otra arrugada en bola: comentad el papel del aire.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "La interacción: descripción del movimiento, MRU, MRUA y caída libre, con interpretación de gráficas (RD 217/2022, Física y Química 4º).",
-    ideas: ["Grabar con el móvil una bola rodando y analizar el vídeo con Tracker.", "Medir la velocidad media de los alumnos en 20 m con cronómetros por parejas.", "Construir gráficas x-t y v-t con sensores de movimiento o apps como phyphox."],
-  },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Movimiento rectilíneo uniformemente acelerado, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Movimiento_rectil%C3%ADneo_uniformemente_acelerado" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Interpretar y dibujar gráficas posición-tiempo y velocidad-tiempo", "Resolver problemas de encuentros y de movimiento circular uniforme"],
-  tras: {
-    "Posición, trayectoria y desplazamiento": [
-      { html: `<h3>Sistema de referencia</h3><p>Para describir un movimiento hay que elegir un <b>sistema de referencia</b>: un punto fijo (el origen) y unos ejes desde donde medimos la posición. El movimiento es <mark>relativo</mark>: si viajas en un tren, estás quieto respecto a tu asiento pero te mueves a 200 km/h respecto a las vías. En una dimensión, la posición se indica con un número con signo: x = +30 m está 30 m a la derecha del origen y x = −10 m, 10 m a la izquierda. El <b>desplazamiento</b> es la diferencia entre la posición final y la inicial, Δx = x − x₀, y puede ser negativo; la <b>distancia recorrida</b> se mide sobre la trayectoria y siempre es positiva.</p>` },
-    ],
-    "Movimiento rectilíneo uniformemente acelerado (MRUA)": [
-      { html: `<h3>Leer las gráficas del movimiento</h3><p>Las gráficas cuentan cómo es un movimiento. En la gráfica <b>posición-tiempo</b> (x-t), un MRU es una recta: cuanto más inclinada, más rápido; si es horizontal, el móvil está parado; si baja, va hacia atrás. La <mark>pendiente de la gráfica x-t es la velocidad</mark>. En un MRUA, la gráfica x-t es una parábola. En la gráfica <b>velocidad-tiempo</b> (v-t), un MRU es una recta horizontal y un MRUA es una recta inclinada cuya <mark>pendiente es la aceleración</mark>. Además, el <b>área bajo la gráfica v-t</b> es el desplazamiento: para un coche que va a 20 m/s durante 10 s, el rectángulo mide 20 · 10 = 200 m.</p>`, video: { id: "3ZVFdmEL-tg", titulo: "Velocidad a tramos (interpretación gráfica del movimiento)", canal: "Ruben Sebastian", vistas: 892746 } },
-      { html: `<h3>Problemas de encuentro</h3><p>Muchos problemas preguntan cuándo y dónde se cruzan dos móviles. El método es siempre el mismo: elegir un único origen y un sentido positivo para los dos; escribir la ecuación de la posición de cada uno; e <mark>igualar las posiciones</mark>, porque en el encuentro los dos están en el mismo sitio: x₁ = x₂. Se despeja el tiempo y se sustituye en cualquiera de las ecuaciones para saber el lugar. Cuidado con los signos: si un móvil va hacia el origen, su velocidad es negativa; y si uno sale más tarde, en su ecuación se usa (t − retraso).</p>` },
-    ],
-    "Caída libre": [
-      { html: `<h3>Movimiento circular uniforme (MCU)</h3><p>En un <b>MCU</b> el móvil recorre una circunferencia con rapidez constante, como un punto de una noria o del disco duro de un ordenador. Se describe con la <b>velocidad angular</b> ω, el ángulo recorrido por unidad de tiempo, que se mide en radianes por segundo (rad/s); una vuelta completa son 2π rad. El <b>periodo</b> T es el tiempo de una vuelta y la <b>frecuencia</b> f, las vueltas por segundo (f = 1/T, en hercios). La velocidad lineal es v = ω · R. Aunque la rapidez no cambie, la dirección de la velocidad cambia a cada instante, así que <mark>sí hay aceleración</mark>: la aceleración centrípeta, aₙ = v² / R, dirigida hacia el centro.</p><div class="formula"><span>ω = 2π / T · v = ω · R</span></div>`, video: { id: "JVGvzWgO5i4", titulo: "MCU: explicación, fórmulas y ejercicios", canal: "Susi Profe", vistas: 1305489 } },
-    ],
-  },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
     { enunciado: "Un coche sale de A a 72 km/h hacia B, que está a 3 km. A la vez, una moto sale de B hacia A a 36 km/h. ¿Cuándo y dónde se cruzan?", pasos: ["Pasa a m/s: 72 km/h = 20 m/s; 36 km/h = 10 m/s. Origen en A, sentido positivo hacia B.", "Coche: x₁ = 20t. Moto: x₂ = 3.000 − 10t (va hacia el origen).", "Iguala: 20t = 3.000 − 10t → 30t = 3.000 → t = 100 s.", "Posición: x₁ = 20 · 100 = 2.000 m."], resultado: "Se cruzan a los 100 s, a 2 km de A." },
-    { enunciado: "Un coche a 25 m/s frena con a = −5 m/s². ¿Cuánto tarda en pararse y qué distancia recorre?", pasos: ["v = v₀ + a·t → 0 = 25 − 5t → t = 5 s.", "x = v₀·t + ½·a·t² = 25 · 5 + ½ · (−5) · 25 = 125 − 62,5.", "x = 62,5 m."], resultado: "Tarda 5 s y recorre 62,5 m." },
-    { enunciado: "Una noria de 20 m de radio da una vuelta cada 40 s. Calcula ω, la frecuencia y la velocidad lineal de una cabina.", pasos: ["ω = 2π / T = 2π / 40 ≈ 0,157 rad/s.", "f = 1 / T = 1 / 40 = 0,025 Hz.", "v = ω · R = 0,157 · 20 ≈ 3,14 m/s."], resultado: "ω ≈ 0,157 rad/s; f = 0,025 Hz; v ≈ 3,1 m/s." },
+    { enunciado: "Un coche que circula a 108 km/h frena con una aceleración de −6 m/s². ¿Cuánto tarda en pararse y qué distancia recorre?", pasos: ["v₀ = 108 / 3,6 = 30 m/s; a = −6 m/s²; v = 0.", "Tiempo: 0 = 30 − 6t → t = 5 s.", "Distancia: v² − v₀² = 2aΔx → 0 − 900 = −12 Δx → Δx = 75 m.", "Comprobación con la otra ecuación: 30 · 5 − ½ · 6 · 25 = 150 − 75 = 75 m."], resultado: "Tarda 5 s y recorre 75 m." },
+    { enunciado: "Se lanza una pelota verticalmente hacia arriba a 14,7 m/s. Calcula la altura máxima y el tiempo que tarda en volver a la mano.", pasos: ["Eje Y hacia arriba: v₀ = 14,7 m/s; a = −9,8 m/s².", "Arriba v = 0: 0 = 14,7 − 9,8t → t = 1,5 s.", "Altura: h = v₀² / (2g) = 216,09 / 19,6 ≈ 11,0 m.", "Sube en 1,5 s y baja en otros 1,5 s."], resultado: "Sube unos 11 m y vuelve a los 3 s." },
+    { enunciado: "Un motorista parado en un semáforo arranca con a = 2 m/s² justo cuando le adelanta un camión a 10 m/s constantes. ¿Cuándo y dónde le alcanza?", pasos: ["Origen en el semáforo. Moto (MRUA): x₁ = ½ · 2 · t² = t². Camión (MRU): x₂ = 10t.", "Iguala: t² = 10t → t(t − 10) = 0.", "Soluciones t = 0 (la salida) y t = 10 s.", "Lugar: x = 10 · 10 = 100 m. Velocidad de la moto: v = 2 · 10 = 20 m/s."], resultado: "La alcanza a los 10 s, a 100 m del semáforo." },
+    { enunciado: "Una gráfica v-t muestra un ciclista que acelera de 0 a 8 m/s en 4 s, mantiene esa velocidad 10 s y frena hasta pararse en 2 s. Calcula las aceleraciones y la distancia total.", pasos: ["Tramo 1: a = 8/4 = 2 m/s²; área = ½ · 4 · 8 = 16 m.", "Tramo 2: a = 0; área = 10 · 8 = 80 m.", "Tramo 3: a = −8/2 = −4 m/s²; área = ½ · 2 · 8 = 8 m.", "Total: 16 + 80 + 8 = 104 m."], resultado: "2 m/s², 0 y −4 m/s²; recorre 104 m." },
+    { enunciado: "La rueda de una bicicleta tiene 35 cm de radio y gira a 120 rpm. Calcula ω, el periodo y la velocidad de la bici.", pasos: ["ω = 120 · 2π / 60 = 4π ≈ 12,6 rad/s.", "f = 120 / 60 = 2 Hz → T = 1 / f = 0,5 s.", "v = ω · R = 12,6 · 0,35 ≈ 4,4 m/s.", "En km/h: 4,4 · 3,6 ≈ 15,8 km/h."], resultado: "ω ≈ 12,6 rad/s, T = 0,5 s y v ≈ 4,4 m/s (unos 16 km/h)." },
   ],
   errores: [
-    "Mezclar unidades: usar km/h con segundos sin convertir.",
-    "Confundir distancia recorrida (siempre positiva) con desplazamiento (puede ser negativo o cero).",
-    "Pensar que una aceleración negativa siempre significa frenar: depende del sentido de la velocidad.",
-    "Leer la gráfica x-t como si fuera el dibujo de la trayectoria.",
-    "Creer que en el MCU no hay aceleración porque la rapidez es constante.",
-    "En caída libre, olvidar que la aceleración vale g también en el punto más alto del lanzamiento.",
+    "Mezclar km/h y m/s en la misma ecuación: pasa siempre todo al SI antes de calcular.",
+    "Confundir distancia recorrida con desplazamiento: si el móvil vuelve atrás, no coinciden.",
+    "Olvidar el signo de la aceleración al frenar: si la velocidad es positiva y el coche frena, a es negativa.",
+    "Pensar que en el punto más alto de un lanzamiento la aceleración es cero: la velocidad es cero, pero g sigue actuando.",
+    "Usar orígenes distintos para cada móvil en un problema de encuentro: las posiciones solo se pueden igualar si se miden desde el mismo origen.",
+    "Leer una gráfica v-t como si fuera x-t: en la v-t un tramo horizontal es velocidad constante, no reposo.",
   ],
   ejercicios: [
-    { q: "Un ciclista recorre 18 km en 45 min. Calcula su velocidad media en m/s.", sol: "18.000 m / 2.700 s = 6,67 m/s." },
-    { q: "Escribe la ecuación de un móvil que parte de x₀ = −50 m con v = 5 m/s. ¿Cuándo pasa por el origen?", sol: "x = −50 + 5t. En el origen x = 0: t = 10 s." },
-    { q: "Un coche pasa de 0 a 100 km/h en 8 s. Calcula su aceleración.", sol: "100 km/h = 27,8 m/s. a = 27,8 / 8 ≈ 3,5 m/s²." },
-    { q: "Una moto parte del reposo con a = 2 m/s². ¿Qué velocidad lleva y qué distancia ha recorrido a los 10 s?", sol: "v = 2 · 10 = 20 m/s. x = ½ · 2 · 100 = 100 m." },
-    { q: "Se deja caer una piedra desde un puente y tarda 3 s en llegar al agua. Halla la altura y la velocidad de llegada (g = 9,8 m/s²).", sol: "h = ½ · 9,8 · 9 = 44,1 m. v = 9,8 · 3 = 29,4 m/s." },
-    { q: "Se lanza una pelota hacia arriba a 19,6 m/s. ¿Cuánto tarda en llegar al punto más alto y qué altura alcanza?", sol: "En lo más alto v = 0: 0 = 19,6 − 9,8t → t = 2 s. h = 19,6 · 2 − ½ · 9,8 · 4 = 39,2 − 19,6 = 19,6 m." },
-    { q: "En una gráfica v-t, la velocidad sube de 0 a 30 m/s en 6 s y luego se mantiene 4 s. Calcula la aceleración del primer tramo y el desplazamiento total.", sol: "a = 30 / 6 = 5 m/s². Área: triángulo ½ · 6 · 30 = 90 m más rectángulo 4 · 30 = 120 m: total 210 m." },
-    { q: "Dos amigos están a 600 m y caminan uno hacia el otro a 1,5 m/s y 2,5 m/s. ¿Cuándo se encuentran?", sol: "x₁ = 1,5t; x₂ = 600 − 2,5t. 1,5t = 600 − 2,5t → 4t = 600 → t = 150 s (2,5 min), a 225 m del primero." },
-    { q: "Un disco gira a 33 vueltas por minuto. Calcula su periodo y su velocidad angular.", sol: "f = 33 / 60 = 0,55 Hz. T = 1 / 0,55 ≈ 1,82 s. ω = 2π · 0,55 ≈ 3,46 rad/s." },
-    { q: "¿Qué tipo de movimiento representa una gráfica x-t horizontal? ¿Y una gráfica v-t horizontal por encima del eje?", sol: "x-t horizontal: el móvil está en reposo. v-t horizontal positiva: MRU, velocidad constante." },
+    B("Pasa a m/s: a) 90 km/h; b) 18 km/h; c) 126 km/h.", "Se divide entre 3,6: a) 90 / 3,6 = 25 m/s; b) 18 / 3,6 = 5 m/s; c) 126 / 3,6 = 35 m/s."),
+    B("Pasa a km/h: a) 15 m/s; b) 2,5 m/s; c) 340 m/s.", "Se multiplica por 3,6: a) 54 km/h; b) 9 km/h; c) 1.224 km/h."),
+    B("Una corredora da dos vueltas y media a una pista circular de 400 m. ¿Qué distancia recorre? ¿Su desplazamiento puede ser 1.000 m?", "Distancia: 2,5 · 400 = 1.000 m. El desplazamiento no puede ser 1.000 m: tras dos vueltas completas está en la salida y la media vuelta la deja en el lado opuesto, así que su desplazamiento es la recta que une salida y llegada, mucho menor que 1.000 m."),
+    B("Clasifica en escalares o vectoriales: masa, velocidad, tiempo, fuerza, temperatura, aceleración, volumen y desplazamiento.", "Escalares: masa, tiempo, temperatura y volumen. Vectoriales: velocidad, fuerza, aceleración y desplazamiento (necesitan dirección y sentido)."),
+    B("Un tren recorre 450 km en 2 h 30 min. Calcula su velocidad media en km/h y en m/s.", "t = 2,5 h → v<sub>m</sub> = 450 / 2,5 = 180 km/h. En m/s: 180 / 3,6 = 50 m/s."),
+    B("Un ciclista va con MRU a 6 m/s. ¿Qué distancia recorre en 5 minutos?", "t = 5 · 60 = 300 s; x = v · t = 6 · 300 = 1.800 m = 1,8 km."),
+    B("¿Cuánto tarda la luz del Sol en llegar a la Tierra si está a 1,5 · 10<sup>11</sup> m y la luz viaja a 3 · 10<sup>8</sup> m/s?", "t = x / v = 1,5 · 10<sup>11</sup> / 3 · 10<sup>8</sup> = 500 s, unos 8 minutos y 20 segundos."),
+    B("Un coche pasa de 0 a 100 km/h en 10 s. Calcula su aceleración media.", "100 km/h = 27,8 m/s. a = (27,8 − 0) / 10 = 2,78 m/s²."),
+    B("Una moto que va a 20 m/s frena y se para en 4 s. ¿Cuál es su aceleración? Interpreta el signo.", "a = (0 − 20) / 4 = −5 m/s². El signo negativo, opuesto a la velocidad, indica que frena: pierde 5 m/s cada segundo."),
+    B("Se deja caer una piedra desde un puente y tarda 3 s en llegar al agua. ¿Con qué velocidad llega?", "v = g · t = 9,8 · 3 = 29,4 m/s (hacia abajo)."),
+    B("Una noria da una vuelta cada 40 s. Calcula su periodo, su frecuencia y su velocidad angular.", "T = 40 s; f = 1/40 = 0,025 Hz; ω = 2π / T = 2π / 40 ≈ 0,157 rad/s."),
+    B("Describe el movimiento de un móvil cuya gráfica x-t es: recta que sube de 0 a 40 m en 8 s, tramo horizontal de 8 a 12 s y recta que baja hasta 0 m a los 20 s.", "0–8 s: MRU alejándose a v = 40/8 = 5 m/s. 8–12 s: parado en x = 40 m. 12–20 s: MRU volviendo al origen a v = −40/8 = −5 m/s. El desplazamiento total es cero y la distancia recorrida, 80 m."),
+    M("Un coche está en x₀ = −50 m y se mueve a 15 m/s en sentido positivo. Escribe su ecuación de posición y calcula cuándo pasa por el origen y dónde está a los 10 s.", "x = −50 + 15t. Pasa por el origen cuando 0 = −50 + 15t → t ≈ 3,3 s. A los 10 s: x = −50 + 150 = 100 m."),
+    M("Un coche acelera desde el reposo con a = 3 m/s² durante 8 s. Calcula su velocidad final y la distancia recorrida.", "v = 0 + 3 · 8 = 24 m/s. x = ½ · 3 · 8² = 96 m."),
+    M("Un avión necesita 75 m/s para despegar y la pista mide 1.500 m. ¿Qué aceleración mínima necesita, partiendo del reposo?", "Sin tiempo: v² − v₀² = 2aΔx → 75² = 2 · a · 1.500 → a = 5.625 / 3.000 = 1,875 m/s²."),
+    M("Un tren que va a 72 km/h frena con a = −0,5 m/s². ¿Qué distancia necesita para pararse y cuánto tarda?", "v₀ = 20 m/s. Δx = (0 − 400) / (2 · (−0,5)) = 400 m. t = (0 − 20) / (−0,5) = 40 s."),
+    M("Se deja caer una pelota desde 45 m de altura. ¿Cuánto tarda en llegar al suelo y con qué velocidad llega?", "Eje hacia arriba, suelo y = 0: 0 = 45 − 4,9t² → t² = 9,18 → t ≈ 3,03 s. v = −9,8 · 3,03 ≈ −29,7 m/s (unos 30 m/s hacia abajo)."),
+    M("Se lanza una piedra hacia arriba a 20 m/s. Calcula la altura máxima, el tiempo de subida y la velocidad a los 3 s.", "h<sub>máx</sub> = 20² / (2 · 9,8) ≈ 20,4 m. t<sub>subida</sub> = 20 / 9,8 ≈ 2,04 s. A los 3 s: v = 20 − 9,8 · 3 = −9,4 m/s: ya está bajando a 9,4 m/s."),
+    M("Dos ciudades están a 300 km. Un coche sale de A hacia B a 100 km/h y, a la vez, otro sale de B hacia A a 50 km/h. ¿Cuándo y dónde se cruzan?", "Origen en A, en km y h: x₁ = 100t; x₂ = 300 − 50t. 100t = 300 − 50t → t = 2 h. x = 200 km de A."),
+    M("Un ladrón huye a 5 m/s y, 10 s después, sale tras él un policía a 7 m/s desde el mismo punto. ¿Cuándo le alcanza?", "Ladrón: x₁ = 5t. Policía: x₂ = 7(t − 10). 5t = 7t − 70 → t = 35 s desde que salió el ladrón (25 s de carrera del policía). Lugar: x = 175 m."),
+    M("Calcula la distancia de detención de un coche a 72 km/h si el conductor tarda 0,8 s en reaccionar y los frenos producen a = −8 m/s².", "v = 20 m/s. Reacción: 20 · 0,8 = 16 m. Frenado: 20² / (2 · 8) = 25 m. Detención: 16 + 25 = 41 m."),
+    M("Repite el cálculo anterior si el conductor mira el móvil y tarda 2,5 s en reaccionar. ¿Cuántos metros más necesita?", "Reacción: 20 · 2,5 = 50 m. Frenado: 25 m (no cambia). Total 75 m: 34 m más que antes, más de la longitud de siete coches."),
+    M("En una gráfica v-t, un coche va a 15 m/s de 0 a 6 s y después frena uniformemente hasta pararse a los 9 s. Calcula la aceleración de frenado y la distancia total.", "Frenado: a = (0 − 15) / 3 = −5 m/s². Distancia: rectángulo 15 · 6 = 90 m + triángulo ½ · 3 · 15 = 22,5 m → 112,5 m."),
+    M("Un disco de vinilo gira a 33 rpm y tiene 15 cm de radio. Calcula ω y la velocidad lineal de un punto del borde.", "ω = 33 · 2π / 60 ≈ 3,46 rad/s. v = ω · R = 3,46 · 0,15 ≈ 0,52 m/s."),
+    M("Calcula la aceleración centrípeta de un coche que toma una curva de 50 m de radio a 54 km/h.", "v = 15 m/s. a<sub>c</sub> = v² / R = 225 / 50 = 4,5 m/s², dirigida hacia el centro de la curva."),
+    M("Una moto arranca con a = 4 m/s². ¿Qué distancia recorre en el tercer segundo (entre t = 2 s y t = 3 s)?", "x(3) = ½ · 4 · 9 = 18 m; x(2) = ½ · 4 · 4 = 8 m. En el tercer segundo recorre 18 − 8 = 10 m."),
+    A("Un coche y un camión están separados 200 m y van uno hacia el otro. El coche parte del reposo con a = 2 m/s² y el camión va a 10 m/s constantes. ¿Cuándo y dónde se cruzan?", "Origen en el coche: x₁ = t²; x₂ = 200 − 10t. t² + 10t − 200 = 0 → t = (−10 + √(100 + 800)) / 2 = (−10 + 30) / 2 = 10 s. x = 100 m desde la salida del coche."),
+    A("Desde lo alto de un edificio de 60 m se lanza una piedra hacia arriba a 10 m/s. ¿Cuánto tarda en llegar al suelo y con qué velocidad llega?", "Eje hacia arriba, suelo y = 0: 0 = 60 + 10t − 4,9t² → 4,9t² − 10t − 60 = 0 → t = (10 + √(100 + 1.176)) / 9,8 = (10 + 35,7) / 9,8 ≈ 4,67 s. v = 10 − 9,8 · 4,67 ≈ −35,7 m/s (hacia abajo). Comprobación: v² = 10² + 2 · 9,8 · 60 = 1.276 → 35,7 m/s."),
+    A("Una pelota se deja caer desde una ventana y otra se lanza hacia abajo a 5 m/s desde la misma ventana 1 s después. ¿La alcanza antes de llegar al suelo, que está a 45 m?", "Eje hacia abajo desde la ventana: y₁ = 4,9t²; y₂ = 5(t − 1) + 4,9(t − 1)². Igualando: 4,9t² = 5t − 5 + 4,9t² − 9,8t + 4,9 → 0 = −4,8t − 0,1 → t < 0. No la alcanza nunca: la primera llega al suelo a los 3,03 s con 29,7 m/s, siempre más rápida que la segunda en ese tiempo."),
+    A("Un conductor que circula a 90 km/h ve un obstáculo a 60 m. Reacciona en 0,8 s y frena con a = −7 m/s². ¿Choca? Si choca, ¿a qué velocidad?", "v₀ = 25 m/s. Reacción: 25 · 0,8 = 20 m. Le quedan 40 m para frenar, pero necesitaría 25² / 14 ≈ 44,6 m: choca. Velocidad del choque: v² = 625 − 2 · 7 · 40 = 65 → v ≈ 8,1 m/s (unos 29 km/h)."),
+    A("¿Qué velocidad máxima debería llevar el conductor anterior para no chocar con el obstáculo a 60 m?", "Debe cumplirse 0,8v + v² / 14 ≤ 60 → v² + 11,2v − 840 ≤ 0 → v ≤ (−11,2 + √(125,4 + 3.360)) / 2 = (−11,2 + 59,0) / 2 ≈ 23,9 m/s ≈ 86 km/h."),
+    A("Un ascensor sube con MRUA desde el reposo con a = 1 m/s² durante 2 s, sigue 8 s a velocidad constante y frena en 2 s. Dibuja la gráfica v-t y calcula la altura que sube.", "Sube a 2 m/s en 2 s, mantiene 2 m/s 8 s y frena en 2 s. La gráfica es un trapecio. Altura = ½ · 2 · 2 + 8 · 2 + ½ · 2 · 2 = 2 + 16 + 2 = 20 m (unos 7 pisos)."),
+    A("Desde un globo que sube a 5 m/s se suelta un saco cuando está a 100 m de altura. ¿Cuánto tarda el saco en llegar al suelo?", "El saco sale con la velocidad del globo: v₀ = +5 m/s. 0 = 100 + 5t − 4,9t² → t = (5 + √(25 + 1.960)) / 9,8 = (5 + 44,55) / 9,8 ≈ 5,06 s."),
+    A("La Tierra gira alrededor del Sol en una órbita casi circular de 1,5 · 10<sup>11</sup> m de radio en un año. Calcula su velocidad lineal y su aceleración centrípeta.", "T = 365 · 24 · 3.600 ≈ 3,15 · 10<sup>7</sup> s. v = 2πR / T = 9,42 · 10<sup>11</sup> / 3,15 · 10<sup>7</sup> ≈ 3,0 · 10<sup>4</sup> m/s (30 km/s). a<sub>c</sub> = v² / R = 9 · 10<sup>8</sup> / 1,5 · 10<sup>11</sup> = 6 · 10<sup>−3</sup> m/s²."),
+    A("Demuestra, a partir de v = v₀ + at y x = x₀ + v₀t + ½at², que v² − v₀² = 2aΔx.", "De la primera, t = (v − v₀)/a. Sustituyendo: Δx = v₀(v − v₀)/a + ½a(v − v₀)²/a² = [2v₀(v − v₀) + (v − v₀)²] / 2a = (v − v₀)(v + v₀) / 2a = (v² − v₀²) / 2a. Despejando: v² − v₀² = 2aΔx."),
+    A("Un objeto cae libremente. Demuestra que las distancias recorridas en segundos sucesivos están en proporción 1 : 3 : 5 : 7.", "x(t) = 4,9t². En el 1.er segundo: 4,9 · 1 = 4,9 m. En el 2.º: 4,9 · (4 − 1) = 3 · 4,9. En el 3.º: 4,9 · (9 − 4) = 5 · 4,9. En el 4.º: 4,9 · (16 − 9) = 7 · 4,9. La proporción es la de los números impares, como ya observó Galileo."),
   ],
   quiz: [
-    { q: "La pendiente de la gráfica posición-tiempo es…", o: ["la velocidad", "la aceleración", "la distancia"], a: 0, e: "Δx / Δt." },
-    { q: "El área bajo la gráfica velocidad-tiempo es…", o: ["la aceleración", "el desplazamiento", "el tiempo"], a: 1, e: "v · t = x." },
-    { q: "Para calcular cuándo se encuentran dos móviles se igualan sus…", o: ["velocidades", "posiciones", "aceleraciones"], a: 1, e: "En el encuentro están en el mismo punto." },
-    { q: "Una vuelta completa equivale a…", o: ["π rad", "2π rad", "360 rad"], a: 1, e: "2π rad = 360°." },
-    { q: "En un MCU, la aceleración centrípeta apunta…", o: ["hacia el centro", "hacia fuera", "en la dirección de la velocidad"], a: 0, e: "Cambia la dirección de la velocidad." },
+    q4("Das una vuelta completa a una pista de 400 m. ¿Cuál es tu desplazamiento?", ["400 m", "0 m", "200 m", "800 m"], 1, "Acabas en el mismo punto donde empezaste: el desplazamiento es cero, aunque la distancia recorrida sea 400 m."),
+    q4("¿Cuál de estas magnitudes es vectorial?", ["La masa", "El tiempo", "La aceleración", "La temperatura"], 2, "La aceleración necesita módulo, dirección y sentido."),
+    q4("72 km/h equivalen a…", ["20 m/s", "7,2 m/s", "259 m/s", "2 m/s"], 0, "72 / 3,6 = 20 m/s."),
+    q4("Un coche va a 72 km/h constantes. ¿Qué distancia recorre en 10 s?", ["720 m", "200 m", "72 m", "20 m"], 1, "72 km/h = 20 m/s; x = 20 · 10 = 200 m."),
+    q4("Una moto pasa de 10 m/s a 30 m/s en 4 s. ¿Cuál es su aceleración?", ["5 m/s²", "10 m/s²", "7,5 m/s²", "20 m/s²"], 0, "a = (30 − 10) / 4 = 5 m/s²."),
+    q4("En una gráfica x-t, un tramo horizontal significa que el móvil…", ["va a velocidad constante", "acelera", "está parado", "frena"], 2, "La posición no cambia con el tiempo: está en reposo."),
+    q4("En una gráfica velocidad-tiempo, un MRUA aparece como…", ["una recta horizontal", "una recta inclinada", "una parábola", "un punto"], 1, "La velocidad cambia lo mismo cada segundo: recta con pendiente igual a la aceleración."),
+    q4("El área bajo una gráfica v-t representa…", ["la aceleración", "el desplazamiento", "el tiempo", "la velocidad media"], 1, "Velocidad por tiempo da desplazamiento."),
+    q4("Sin aire, una bola de hierro y una de madera soltadas a la vez…", ["llega antes la de hierro", "llegan a la vez", "llega antes la de madera", "depende de la altura"], 1, "En caída libre todos los cuerpos caen con la misma aceleración g."),
+    q4("En el punto más alto de un lanzamiento vertical…", ["v = 0 y a = 0", "v = 0 y a = g", "v = g y a = 0", "v y a máximas"], 1, "La velocidad se anula un instante, pero la gravedad sigue actuando."),
+    q4("Si un coche duplica su velocidad, su distancia de frenado…", ["se duplica", "se cuadruplica", "no cambia", "se reduce a la mitad"], 1, "Δx = v² / 2a: depende del cuadrado de la velocidad."),
+    q4("Un coche a 20 m/s frena con a = −4 m/s². ¿Cuánto tarda en pararse?", ["4 s", "5 s", "80 s", "16 s"], 1, "0 = 20 − 4t → t = 5 s."),
+    q4("¿Qué ecuación usarías si no conoces ni te piden el tiempo?", ["x = x₀ + vt", "v = v₀ + at", "v² − v₀² = 2aΔx", "a = Δv/Δt"], 2, "Relaciona velocidades, aceleración y desplazamiento sin el tiempo."),
+    q4("En un problema de encuentro, la condición de encuentro es…", ["v₁ = v₂", "x₁ = x₂", "a₁ = a₂", "t₁ = 0"], 1, "Los dos están en el mismo lugar en el mismo instante."),
+    q4("Una rueda gira a 60 rpm. Su frecuencia es…", ["60 Hz", "1 Hz", "2π Hz", "0,5 Hz"], 1, "60 vueltas por minuto = 1 vuelta por segundo."),
+    q4("En un MCU, la aceleración centrípeta…", ["es cero porque la rapidez es constante", "apunta hacia el centro", "es tangente a la trayectoria", "apunta hacia fuera"], 1, "La dirección de la velocidad cambia y eso exige una aceleración hacia el centro, v²/R."),
+    q4("En un tiovivo, un caballo exterior y uno interior…", ["tienen la misma v", "tienen la misma ω", "el interior va más rápido", "tienen distinta frecuencia"], 1, "Dan las mismas vueltas (misma ω), pero el exterior tiene más R y por tanto más v."),
+    q4("Una piedra cae desde el reposo. ¿Qué velocidad lleva a los 2 s?", ["9,8 m/s", "19,6 m/s", "4,9 m/s", "39,2 m/s"], 1, "v = 9,8 · 2 = 19,6 m/s."),
+    q4("La velocidad que marca el velocímetro de un coche es…", ["la media", "la instantánea (su módulo)", "la aceleración", "el desplazamiento"], 1, "Marca la rapidez en cada instante."),
+    q4("Durante el tiempo de reacción, el coche se mueve con…", ["MRUA de frenado", "MRU", "caída libre", "MCU"], 1, "Aún no se ha pisado el freno: mantiene su velocidad."),
   ],
+  examen: [
+    q4("Un coche a 20 m/s frena con a = −4 m/s². ¿Qué distancia recorre hasta pararse?", ["100 m", "50 m", "20 m", "80 m"], 1, "x = 20² / (2 · 4) = 50 m."),
+    q4("La pendiente de una gráfica posición-tiempo representa…", ["la aceleración", "la velocidad", "la distancia", "el tiempo"], 1, "Δx / Δt es la velocidad."),
+    q4("Un tren recorre 300 km en 1 h 30 min. Su velocidad media es…", ["200 km/h", "300 km/h", "450 km/h", "150 km/h"], 0, "300 / 1,5 = 200 km/h."),
+    q4("Un objeto se lanza hacia arriba a 29,4 m/s. Tarda en llegar arriba…", ["2 s", "3 s", "4 s", "6 s"], 1, "t = 29,4 / 9,8 = 3 s."),
+    q4("Una moto parte del reposo con a = 2 m/s². En 5 s recorre…", ["10 m", "25 m", "50 m", "5 m"], 1, "x = ½ · 2 · 25 = 25 m."),
+    q4("Una rueda de 0,5 m de radio gira a 10 rad/s. La velocidad del borde es…", ["5 m/s", "20 m/s", "0,05 m/s", "10 m/s"], 0, "v = ω · R = 10 · 0,5 = 5 m/s."),
+    q4("Dos coches salen a la vez de A y B (100 km) uno hacia el otro a 60 y 40 km/h. Se cruzan a…", ["1 h", "0,5 h", "2 h", "1,5 h"], 0, "60t + 40t = 100 → t = 1 h."),
+    q4("En una gráfica v-t, un tramo descendente que llega a cero indica que el móvil…", ["retrocede", "frena hasta pararse", "está parado", "va a velocidad constante"], 1, "La velocidad disminuye hasta anularse: frena."),
+  ],
+  feynman: ["Por qué el movimiento es relativo", "La diferencia entre distancia recorrida y desplazamiento", "Qué significa una aceleración de 3 m/s²", "Cómo son las gráficas del MRU y del MRUA", "Por qué todos los cuerpos caen igual sin aire", "Por qué al doblar la velocidad la frenada se cuadruplica"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Sistema de referencia", "Origen y ejes desde los que se mide la posición; el movimiento es relativo."],
-    ["Pendiente de la gráfica v-t", "La aceleración."],
+    ["Ecuación de posición del MRU", "x = x₀ + v · t."],
+    ["Ecuaciones del MRUA", "v = v₀ + a · t ; x = x₀ + v₀ · t + ½ · a · t² ; v² − v₀² = 2aΔx."],
+    ["¿Cómo se pasa de km/h a m/s?", "Dividiendo entre 3,6."],
+    ["Valor de g en la Tierra", "9,8 m/s², hacia abajo."],
+    ["¿Qué representa el área bajo la gráfica v-t?", "El desplazamiento."],
+    ["¿Qué representa la pendiente de la gráfica x-t?", "La velocidad."],
+    ["Distancia frente a desplazamiento", "La distancia se mide sobre la trayectoria; el desplazamiento es Δx = x − x₀."],
+    ["Altura máxima de un lanzamiento vertical", "h = v₀² / (2g)."],
+    ["Relación entre ω, T y f", "ω = 2π / T = 2πf."],
     ["Velocidad lineal en el MCU", "v = ω · R."],
+    ["Aceleración centrípeta", "a<sub>c</sub> = v² / R, hacia el centro."],
+    ["Distancia de detención", "Distancia de reacción (MRU) + distancia de frenado (MRUA)."],
   ],
-});
+  glosario: [
+    ["Cinemática", "Parte de la física que describe el movimiento sin estudiar sus causas."],
+    ["Sistema de referencia", "Origen, ejes con sentido positivo y reloj desde los que se describe un movimiento."],
+    ["Posición", "Lugar que ocupa el móvil respecto al origen; en una recta, un número con signo."],
+    ["Trayectoria", "Línea que describe el móvil al moverse."],
+    ["Desplazamiento", "Diferencia entre la posición final y la inicial, Δx = x − x₀."],
+    ["Distancia recorrida", "Longitud medida sobre la trayectoria; siempre positiva."],
+    ["Magnitud vectorial", "La que necesita módulo, dirección y sentido, como la velocidad."],
+    ["Velocidad media", "Desplazamiento dividido entre el tiempo empleado."],
+    ["Velocidad instantánea", "Velocidad en un instante concreto; la que marca el velocímetro."],
+    ["Aceleración", "Variación de la velocidad por unidad de tiempo; en m/s²."],
+    ["MRU", "Movimiento rectilíneo con velocidad constante."],
+    ["MRUA", "Movimiento rectilíneo con aceleración constante."],
+    ["Caída libre", "Movimiento vertical bajo la sola acción de la gravedad, con a = g."],
+    ["Periodo", "Tiempo que tarda en darse una vuelta completa en un movimiento circular."],
+    ["Frecuencia", "Número de vueltas por segundo; se mide en hercios (Hz)."],
+    ["Velocidad angular", "Ángulo girado por unidad de tiempo; en rad/s."],
+    ["Aceleración centrípeta", "Aceleración dirigida al centro de la curva que cambia la dirección de la velocidad."],
+    ["Tiempo de reacción", "Tiempo que pasa entre ver un peligro y empezar a actuar."],
+  ],
+  situacion: {
+    titulo: "Campaña de seguridad vial para tu barrio",
+    reto: "El ayuntamiento quiere saber si el límite de 30 km/h en las calles de un solo carril cerca del instituto está justificado. Vuestro equipo debe demostrarlo con datos propios y preparar una campaña para las familias.",
+    pasos: [
+      "Medid vuestro tiempo de reacción con la prueba de la regla que cae (o una aplicación) y calculad la media del grupo.",
+      "Calculad la distancia de detención a 30, 40 y 50 km/h con vuestro tiempo de reacción y a = −7 m/s² (seco) y −5 m/s² (mojado).",
+      "Repetid el cálculo suponiendo que el conductor mira el móvil (tiempo de reacción de 2,5 s).",
+      "Representad los resultados en una gráfica de barras y en una gráfica v-t de una frenada.",
+      "Medid con cinta métrica en el patio esas distancias para visualizarlas con conos.",
+      "Diseñad un cartel o un vídeo corto con la conclusión y una recomendación para conductores.",
+    ],
+    producto: "Un cartel o vídeo de un minuto con las gráficas y los cálculos que justifican (o no) el límite de 30 km/h.",
+    evaluacion: ["Los cálculos de MRU y MRUA son correctos y están en unidades del SI.", "Las gráficas están bien construidas, con ejes, unidades y título.", "La conclusión se apoya en los datos y distingue distancia de reacción y de frenado.", "El mensaje de la campaña es claro, riguroso y respetuoso."],
+  },
+  familias: [
+    "En un viaje en coche, calculad la velocidad media con la distancia y el tiempo del navegador y comparadla con la máxima.",
+    "Dejad caer a la vez una hoja de papel plana y otra arrugada en bola: comentad el papel del aire.",
+    "Contad en voz alta «mil uno, mil dos» con el coche de delante para comprobar la distancia de seguridad de dos segundos (siempre como pasajeros).",
+    "Repasad las tarjetas del tema dos minutos al día durante la semana y pedid que os expliquen una gráfica v-t.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La interacción»: descripción del movimiento, magnitudes cinemáticas, MRU, MRUA, caída libre, MCU e interpretación de gráficas, con aplicación a la seguridad vial.`,
+    ideas: [
+      "Grabar con el móvil una bola rodando y analizar el vídeo con Tracker para obtener las gráficas x-t y v-t.",
+      "Medir la velocidad media de los alumnos en 20 m con cronómetros por parejas y comparar con la de un coche en ciudad.",
+      "Usar los sensores del móvil con phyphox para registrar la aceleración en un ascensor.",
+      "Situación de aprendizaje de seguridad vial con la prueba de la regla para el tiempo de reacción.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    { t: "Movimiento rectilíneo uniformemente acelerado, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Movimiento_rectil%C3%ADneo_uniformemente_acelerado" },
+    { t: "Dirección General de Tráfico (DGT)", url: "https://www.dgt.es/" },
+  ],
+  revisado: "2026-11-13",
+};

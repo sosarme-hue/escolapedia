@@ -1,172 +1,246 @@
-// Física y Química 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa, flecha } = require("./_util");
+// Física y Química 4º ESO · La gravitación universal (nivel libro). Dibujos propios en SVG.
+const { BASE, marco, T, ficha, rejilla, graf, barras, escala, compara, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD } = require("./_eso4L5");
+const S = BASE["gravitacion-universal"];
+
+const mareas = marco("Mareas: la Luna atrae más el agua del lado cercano y menos la del lado lejano, y se forman dos abultamientos de pleamar", `
+  <ellipse cx="96" cy="92" rx="70" ry="52" fill="var(--pen)" opacity=".25"/>
+  <circle cx="96" cy="92" r="44" fill="var(--leaf)"/>${T(96, 97, "Tierra", { fs: 13, b: true, c: "#fff" })}
+  <circle cx="226" cy="92" r="16" fill="var(--muted)"/>${T(226, 128, "Luna", { fs: 12, b: true })}
+  ${T(36, 30, "pleamar", { fs: 12, b: true, c: "var(--pen)" })}${T(176, 30, "pleamar", { fs: 12, b: true, c: "var(--pen)" })}
+  ${T(96, 26, "bajamar", { fs: 11, c: "var(--muted)" })}${T(96, 166, "bajamar", { fs: 11, c: "var(--muted)" })}
+  <path d="M168 92 H 206" stroke="var(--red)" stroke-width="2.5" stroke-dasharray="4 3"/>`);
 
 module.exports = {
   materia: "Física y Química",
   curso: "4-eso",
   titulo: "La gravitación universal",
-  minutos: 40,
-  objetivos: ["Conocer la evolución de los modelos del universo", "Aplicar la ley de la gravitación universal de Newton", "Explicar el peso, las órbitas y las mareas con la gravedad"],
-  claves: ["geocentrismo", "heliocentrismo", "leyes de Kepler", "gravitación universal", "constante G", "satélite"],
+  minutos: 105,
+  objetivos: [
+    "Explicar la evolución de los modelos del universo, del geocentrismo a Newton",
+    "Enunciar y aplicar las leyes de Kepler",
+    "Calcular fuerzas gravitatorias con la ley de la gravitación universal",
+    "Calcular la gravedad en la superficie de un planeta y a cierta altura",
+    "Relacionar la gravitación con las órbitas de satélites, las mareas y la estructura del universo",
+  ],
+  claves: ["geocentrismo", "heliocentrismo", "leyes de Kepler", "gravitación universal", "constante G", "gravedad g", "satélites", "velocidad orbital", "mareas"],
   pregunta: {
-    texto: "Si la Luna es atraída por la Tierra, ¿por qué no se cae sobre nosotros?",
-    respuesta: "¡En realidad está cayendo todo el rato! Pero también <mark>avanza muy deprisa</mark> de lado, a 1 km/s. Mientras cae, la superficie de la Tierra «se curva» por debajo y nunca la alcanza. Eso es una <b>órbita</b>: caer sin llegar nunca al suelo.",
+    texto: "Si la Tierra atrae a la Luna, ¿por qué la Luna no cae sobre nosotros?",
+    respuesta: "¡Sí que cae! Pero también se mueve de lado muy deprisa, a 1 km/s. Mientras cae hacia la Tierra, avanza tanto que la superficie «se curva» por debajo y nunca llega a tocarla: está en <mark>caída libre continua</mark> alrededor de la Tierra. Eso es una órbita. La misma fuerza que hace caer una manzana mantiene a la Luna en su sitio.",
+  },
+  lectura: {
+    titulo: "Un mensaje que tardó 300 años en confirmarse",
+    html: `<p>En 1687, Isaac Newton propuso que la fuerza que hace caer una manzana es la misma que mantiene a la Luna girando alrededor de la Tierra y a los planetas alrededor del Sol. Era una idea revolucionaria: por primera vez, una sola ley explicaba a la vez lo que pasa en la Tierra y en el cielo. Con ella, en 1846, el astrónomo francés Urbain Le Verrier calculó dónde debía estar un planeta desconocido que perturbaba la órbita de Urano. Lo comunicó a un observatorio de Berlín y, esa misma noche, el astrónomo Johann Galle encontró Neptuno a menos de un grado del lugar predicho.</p><p>Hoy usamos la gravitación para colocar satélites de comunicaciones, del GPS o de observación de incendios en la órbita exacta, para enviar sondas a Marte aprovechando el «empujón» de otros planetas y para pesar galaxias enteras. Cada vez que el móvil te sitúa en un mapa, unos treinta satélites que giran a 20.000 km de altura obedecen la ley de Newton. En este tema descubrirás cómo se llegó a ella y cómo se usa para calcular el peso en otros planetas o la velocidad de un satélite.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Del geocentrismo al heliocentrismo</h3><p>Durante siglos se pensó que la Tierra estaba quieta en el centro (<b>modelo geocéntrico</b> de Ptolomeo). En 1543, <b>Copérnico</b> propuso que <mark>el Sol está en el centro</mark> y la Tierra gira a su alrededor (<b>heliocentrismo</b>). <b>Galileo</b> lo apoyó con su telescopio al descubrir lunas que giraban alrededor de Júpiter.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Modelo geocéntrico con la Tierra en el centro y modelo heliocéntrico con el Sol en el centro">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[[68, "var(--water)", "var(--sun)", "geocéntrico"], [192, "var(--sun)", "var(--water)", "heliocéntrico"]].map(([x, c1, c2, t]) => `<circle cx="${x}" cy="82" r="50" fill="none" stroke="var(--line)" stroke-width="2"/><circle cx="${x}" cy="82" r="30" fill="none" stroke="var(--line)" stroke-width="2"/>
-          <circle cx="${x}" cy="82" r="13" fill="${c1}"/><circle cx="${x + 50}" cy="82" r="8" fill="${c2}"/><circle cx="${x - 21}" cy="61" r="5" fill="var(--red)"/>
-          <text x="${x}" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>${t}</text>`).join("")}
-      </svg>`,
-    },
-    {
-      html: `<h3>Las leyes de Kepler</h3><p>Kepler analizó las medidas de Tycho Brahe y descubrió tres leyes: 1) los planetas giran en <mark>órbitas elípticas</mark> con el Sol en un foco; 2) se mueven <b>más rápido cuando están más cerca</b> del Sol (barren áreas iguales en tiempos iguales); 3) cuanto más lejos está un planeta, <b>más tarda en dar la vuelta</b> (T² es proporcional a r³).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Órbita elíptica con el Sol en un foco y dos áreas iguales barridas">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <ellipse cx="130" cy="88" rx="100" ry="62" fill="none" stroke="var(--line)" stroke-width="2.5"/>
-        <path d="M80 88 L 30 88 A 100 62 0 0 1 44 54 Z" fill="var(--pen)" opacity=".35"/>
-        <path d="M80 88 L 222 66 A 100 62 0 0 1 229 80 Z" fill="var(--pen)" opacity=".35"/>
-        <circle cx="80" cy="88" r="12" fill="var(--sun)"/><circle cx="30" cy="88" r="6" fill="var(--water)"/><circle cx="229" cy="80" r="6" fill="var(--water)"/>
-        <g ${F} font-size="12" font-weight="700"><text x="14" y="122" fill="var(--red)">rápido</text><text x="196" y="40" fill="var(--leaf)">lento</text><text x="130" y="172" text-anchor="middle" fill="var(--pen)">áreas iguales, tiempos iguales</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>La ley de la gravitación universal</h3><p>Newton (1687) unió el cielo y la Tierra: la fuerza que hace caer una manzana es la misma que mantiene a la Luna en órbita. <mark>Dos cuerpos cualesquiera se atraen</mark> con una fuerza proporcional a sus masas e inversamente proporcional al cuadrado de la distancia:</p>
-      <div class="formula"><span>F = G · m₁ · m₂ / d²</span></div>
-      <p><b>G = 6,67 · 10⁻¹¹ N·m²/kg²</b>, un número tan pequeño que la atracción entre dos personas es imperceptible. Solo la notamos con masas enormes, como planetas.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos masas que se atraen con fuerzas iguales y opuestas separadas una distancia d">
-        <defs>${flecha("gv1", "var(--red)")}</defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <circle cx="60" cy="80" r="30" fill="var(--pen)"/><circle cx="200" cy="80" r="18" fill="var(--leaf)"/>
-        <path d="M94 80 H 130" stroke="var(--red)" stroke-width="4" marker-end="url(#gv1)"/><path d="M180 80 H 144" stroke="var(--red)" stroke-width="4" marker-end="url(#gv1)"/>
-        <path d="M60 136 H 200 M60 130 V 142 M200 130 V 142" stroke="var(--muted)" stroke-width="2"/>
-        <g ${F} font-weight="700" text-anchor="middle"><text x="60" y="85" font-size="14" fill="#fff">m₁</text><text x="200" y="85" font-size="12" fill="#fff">m₂</text><text x="130" y="158" font-size="14" fill="var(--muted)">d</text><text x="112" y="68" font-size="13" fill="var(--red)">F</text><text x="164" y="68" font-size="13" fill="var(--red)">F</text></g>
-      </svg>`,
-    },
-    {
-      html: `<h3>El peso y la gravedad de cada planeta</h3><p>El <b>peso</b> es la fuerza gravitatoria que un planeta ejerce sobre ti. Aplicando la ley de Newton en la superficie aparece la <b>gravedad</b>: <mark>g = G · M / R²</mark>. En la Tierra vale 9,8 m/s²; en la Luna, 1,6 m/s²; en Júpiter, unos 24,8 m/s². Si te alejas, g disminuye: <b>al doble de distancia, la fuerza es cuatro veces menor</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Valores de la gravedad en la Luna, Marte, la Tierra y Júpiter">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[["Luna", 1.6, "var(--muted)", 10], ["Marte", 3.7, "var(--red)", 13], ["Tierra", 9.8, "var(--water)", 18], ["Júpiter", 24.8, "var(--sun)", 26]].map(([n, g, c, r], i) => `<rect x="${24 + i * 58}" y="${140 - g * 4.6}" width="36" height="${g * 4.6}" rx="4" fill="${c}"/><text x="${42 + i * 58}" y="${132 - g * 4.6}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>${String(g).replace(".", ",")}</text><text x="${42 + i * 58}" y="160" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>${n}</text>`).join("")}
-        <text x="14" y="22" font-size="11" fill="var(--muted)" ${F}>g en m/s²</text>
-      </svg>`,
-    },
-    {
-      html: `<h3>Órbitas, satélites y mareas</h3><p>Un <b>satélite</b> se mantiene en órbita porque la gravedad <mark>curva su trayectoria</mark> continuamente hacia el planeta mientras avanza. Así funcionan la Luna, la Estación Espacial Internacional (a unos 400 km, da una vuelta cada 90 minutos) y los satélites de GPS. La atracción de la Luna sobre los océanos produce las <b>mareas</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cañón de Newton: con más velocidad, el proyectil cae más lejos hasta dar la vuelta a la Tierra">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <circle cx="130" cy="110" r="52" fill="var(--water)" opacity=".5"/><rect x="124" y="44" width="12" height="16" fill="var(--ink)"/>
-        <path d="M136 52 Q 160 56 168 80" fill="none" stroke="var(--red)" stroke-width="2" stroke-dasharray="4 3"/>
-        <path d="M136 52 Q 196 56 186 120" fill="none" stroke="var(--sun)" stroke-width="2" stroke-dasharray="4 3"/>
-        <circle cx="130" cy="110" r="66" fill="none" stroke="var(--leaf)" stroke-width="2.5"/>
-        <g ${F} font-size="12" font-weight="700"><text x="246" y="26" text-anchor="end" fill="var(--leaf)">órbita: cae sin llegar</text><text x="190" y="140" fill="var(--sun)">más rápido</text><text x="96" y="86" fill="var(--red)">lento</text></g>
-      </svg>`,
-    },
+    bloque({ h: "1.1 Del geocentrismo al heliocentrismo", p: [
+      "Durante casi dos mil años se aceptó el <b>modelo geocéntrico</b>: la Tierra, inmóvil, ocupaba el centro del universo y el Sol, la Luna, los planetas y las estrellas giraban a su alrededor. Lo propuso Aristóteles y lo perfeccionó Claudio Ptolomeo en el siglo II con un complicado sistema de círculos (epiciclos) para explicar por qué los planetas a veces parecen retroceder en el cielo.",
+      "En 1543, Nicolás Copérnico publicó el <mark>modelo heliocéntrico</mark>: el Sol está en el centro y la Tierra es un planeta más, que gira sobre sí misma y alrededor del Sol. El modelo explicaba de forma mucho más sencilla el movimiento retrógrado de los planetas. A principios del siglo XVII, Galileo Galilei apuntó su telescopio al cielo y encontró pruebas a su favor: cuatro lunas girando alrededor de Júpiter (no todo gira alrededor de la Tierra) y las fases de Venus, que solo se explican si Venus gira alrededor del Sol. Este cambio de modelo, la <b>revolución copernicana</b>, muestra cómo funciona la ciencia: un modelo se sustituye cuando otro explica mejor las observaciones.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.2 Las leyes de Kepler", p: [
+      "Johannes Kepler analizó durante años las precisas observaciones de Marte que había hecho Tycho Brahe y descubrió que las órbitas no son círculos perfectos. Resumió el movimiento de los planetas en tres leyes. <b>Primera ley</b>: los planetas describen <mark>órbitas elípticas</mark> con el Sol en uno de sus focos. <b>Segunda ley</b>: la línea que une el Sol con un planeta barre <b>áreas iguales en tiempos iguales</b>; por eso el planeta va más rápido cuando está cerca del Sol (perihelio) y más despacio cuando está lejos (afelio).",
+      "<b>Tercera ley</b>: el cuadrado del periodo de un planeta es proporcional al cubo del radio medio de su órbita, T² = k · r³. Cuanto más lejos está un planeta, más tarda en dar la vuelta, y no de forma proporcional, sino más deprisa: Júpiter está unas cinco veces más lejos que la Tierra y tarda casi doce años. Las leyes de Kepler describen <i>cómo</i> se mueven los planetas, pero no explican <i>por qué</i>. Esa explicación llegaría con Newton.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "1.3 La tercera ley de Kepler con números", p: [
+      "La tercera ley se comprueba fácilmente si medimos los periodos en años y las distancias en <b>unidades astronómicas</b> (1 UA = distancia media Tierra-Sol ≈ 1,5 · 10<sup>11</sup> m). Con esas unidades, para la Tierra T = 1 año y r = 1 UA, así que T² / r³ = 1. Para Marte, T = 1,88 años y r = 1,52 UA: T² = 3,53 y r³ = 3,51, casi el mismo número. Para Júpiter, T = 11,86 años y r = 5,20 UA: T² ≈ 140,7 y r³ ≈ 140,6. El cociente T² / r³ es el mismo para todos los planetas del Sistema Solar.",
+      "Esta ley permite calcular el periodo de un planeta conociendo su distancia, o al revés. Por ejemplo, un asteroide a 4 UA del Sol tardará T = √(4³) = √64 = 8 años en dar una vuelta. La ley también se cumple para las lunas de Júpiter o para los satélites que giran alrededor de la Tierra, aunque con otra constante, porque esa constante depende de la masa del cuerpo central. Newton demostró que su valor es k = 4π² / (G · M).",
+    ], svg: rejilla("Tabla de la tercera ley de Kepler: Tierra, Marte y Júpiter tienen el mismo cociente T al cuadrado entre r al cubo", ["Planeta", "T (años) · r (UA)", "T² / r³"], [["Tierra", "1 · 1", "1,00"], ["Marte", "1,88 · 1,52", "1,00"], ["Júpiter", "11,86 · 5,20", "1,00"], ["Saturno", "29,5 · 9,54", "1,00"]], "var(--pen)") }),
+    bloque({ h: "2.1 La ley de la gravitación universal", p: [
+      "Newton se preguntó qué fuerza obligaba a los planetas a seguir las leyes de Kepler y llegó a una conclusión sorprendente: <i>todos los cuerpos con masa se atraen entre sí</i>. Esta fuerza, la <mark>fuerza gravitatoria</mark>, es directamente proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia que separa sus centros:",
+      "G es la <b>constante de gravitación universal</b>, G = 6,67 · 10<sup>−11</sup> N·m²/kg², y es la misma en todo el universo. Su valor tan pequeño explica por qué no notamos la atracción entre objetos cotidianos: dos personas de 60 y 70 kg separadas 1 m se atraen con unos 3 · 10<sup>−7</sup> N, menos que el peso de un grano de arena. Solo cuando al menos una masa es enorme, como un planeta o una estrella, la fuerza es importante. La fuerza gravitatoria siempre es atractiva, actúa a distancia y, por la tercera ley de Newton, es igual y de sentido contrario sobre cada uno de los dos cuerpos. G no la midió Newton: lo hizo Henry Cavendish en 1798 con una balanza de torsión.",
+    ], extra: formula("F = G · M · m / d²"), svg: S.svg[2] }),
+    bloque({ h: "2.2 Cómo depende la fuerza de las masas y la distancia", p: [
+      "La ley de Newton tiene dos dependencias distintas que conviene saber razonar sin calculadora. Con las <b>masas</b> la relación es directa: si una de ellas se duplica, la fuerza se duplica; si se duplican las dos, la fuerza se multiplica por cuatro.",
+      "Con la <b>distancia</b> la relación es inversa del cuadrado: si la distancia se duplica, la fuerza se divide entre 2² = 4; si se triplica, entre 3² = 9; si se reduce a la mitad, se multiplica por 4. Este tipo de dependencia, llamada <mark>ley del inverso del cuadrado</mark>, aparece también en la intensidad de la luz de una bombilla o en la fuerza eléctrica. Al resolver problemas, hay que recordar que d es la distancia <b>entre los centros</b> de los cuerpos, no entre sus superficies. Para un satélite a 400 km de altura, la distancia al centro de la Tierra es 6.370 + 400 = 6.770 km. Un error muy frecuente es olvidar elevar la distancia al cuadrado o no pasarla a metros.",
+    ], svg: barras("La fuerza gravitatoria disminuye con el cuadrado de la distancia", "F según la distancia", [["d", 100, "var(--red)", "F"], ["2d", 25, "#b45309", "F/4"], ["3d", 11.1, "var(--pen)", "F/9"], ["4d", 6.25, "var(--leaf)", "F/16"]]), video: S.bvideos[0] }),
+    bloque({ h: "2.3 El peso y la gravedad de cada planeta", p: [
+      "El peso de un cuerpo es la fuerza gravitatoria con la que lo atrae el planeta. Igualando P = m · g con la ley de Newton, F = G · M · m / R², la masa del cuerpo se simplifica y obtenemos la <mark>intensidad del campo gravitatorio</mark> o gravedad en la superficie:",
+      "La gravedad depende solo de la masa M del planeta y de su radio R, no del cuerpo que cae; por eso todos los cuerpos caen igual. Con los datos de la Tierra (M = 5,97 · 10<sup>24</sup> kg, R = 6,37 · 10<sup>6</sup> m) sale g ≈ 9,8 m/s². En la Luna g = 1,62 m/s², en Marte 3,7 m/s² y en Júpiter 24,8 m/s². Un astronauta de 80 kg pesa 784 N en la Tierra, 130 N en la Luna y casi 2.000 N en Júpiter, pero su masa es siempre 80 kg. La fórmula también se puede usar al revés: midiendo g y R, Cavendish pudo «pesar la Tierra» y calcular su masa.",
+    ], extra: formula("g = G · M / R²"), svg: S.svg[3] }),
+    bloque({ h: "2.4 Cómo cambia g con la altura", p: [
+      "Si nos alejamos de la superficie, la distancia al centro del planeta aumenta y la gravedad disminuye según la ley del inverso del cuadrado. A una altura h sobre la superficie, la distancia al centro es R + h, y la gravedad vale:",
+      "En lo alto del Everest (8,8 km) g apenas baja un 0,3 %, porque 8,8 km es muy poco comparado con los 6.370 km del radio terrestre. A la altura de la Estación Espacial Internacional (400 km), g ≈ 8,7 m/s², todavía casi el 90 % del valor en el suelo. A una altura igual al radio terrestre (h = R), la distancia al centro se duplica y g se reduce a la cuarta parte: 2,45 m/s². Y a la distancia de la Luna, 60 radios terrestres, la gravedad de la Tierra es 3.600 veces menor que aquí, unos 0,0027 m/s². Newton usó precisamente ese dato para comprobar que la gravedad de la Tierra es la que mantiene a la Luna en órbita.",
+    ], extra: formula("g<sub>h</sub> = G · M / (R + h)²"), svg: graf("La gravedad disminuye con la distancia al centro de la Tierra: a dos radios es la cuarta parte", "distancia al centro", "g (m/s²)", [
+      { p: [[0.10, 1.000], [0.12, 0.694], [0.14, 0.510], [0.17, 0.346], [0.20, 0.250], [0.24, 0.174], [0.30, 0.111], [0.40, 0.062], [0.55, 0.033], [0.75, 0.018], [1.00, 0.010]], c: "var(--pen)" },
+    ], `${T(70, 34, "R: 9,8", { fs: 12, b: true, c: "var(--pen)", a: "start" })}${T(88, 110, "2R: 2,45", { fs: 12, b: true, c: "var(--red)", a: "start" })}${T(108, 124, "3R: 1,09", { fs: 11, b: true, c: "var(--muted)", a: "start" })}`) }),
+    bloque({ h: "3.1 El cañón de Newton: por qué la Luna no cae", p: [
+      "Newton imaginó un cañón en lo alto de una montaña altísima que dispara balas cada vez más rápidas en horizontal. Las primeras caen cerca; las más rápidas, más lejos. Pero la Tierra es redonda: si la bala va lo bastante rápida, mientras cae la superficie se curva por debajo de ella al mismo ritmo, y la bala <mark>da la vuelta a la Tierra sin tocar el suelo</mark>. Eso es una órbita.",
+      "Un satélite en órbita, por tanto, no flota «porque ahí no hay gravedad»: está cayendo continuamente hacia la Tierra, pero con tanta velocidad lateral que nunca llega. La fuerza gravitatoria hace de <b>fuerza centrípeta</b> y curva su trayectoria. Lo mismo le pasa a la Luna con la Tierra y a la Tierra con el Sol. Los astronautas de la Estación Espacial flotan dentro de ella porque ellos y la estación caen juntos con la misma aceleración: es una <b>ingravidez aparente</b>, igual que la que sentirías en un ascensor en caída libre. Si la bala fuera todavía más rápida, se alejaría para siempre: habría alcanzado la velocidad de escape.",
+    ], svg: S.svg[4] }),
+    bloque({ h: "3.2 Velocidad orbital y periodo de un satélite", p: [
+      "Para un satélite de masa m en órbita circular de radio r alrededor de un planeta de masa M, la fuerza gravitatoria es la fuerza centrípeta: G·M·m / r² = m·v² / r. La masa del satélite se simplifica y queda la <mark>velocidad orbital</mark>:",
+      "La velocidad orbital no depende de la masa del satélite, solo de la masa del planeta y del radio de la órbita: cuanto más lejos, más despacio. El periodo se obtiene con T = 2πr / v. Para la Estación Espacial, a 400 km de altura (r = 6,77 · 10<sup>6</sup> m), v ≈ 7,7 km/s (¡unos 27.600 km/h!) y T ≈ 92 minutos: da casi 16 vueltas a la Tierra cada día. La Luna, a 384.000 km, va a solo 1 km/s y tarda 27,3 días. Si combinamos las dos fórmulas se obtiene T² = (4π² / GM) · r³: la tercera ley de Kepler sale de la ley de Newton. Fue uno de los grandes triunfos de la física.",
+    ], extra: formula("v = √(G · M / r) &nbsp;&nbsp; T = 2π · r / v"), svg: ficha("Fórmulas de un satélite en órbita circular", "Satélite en órbita", ["Gravedad = fuerza centrípeta", "G·M·m / r² = m·v² / r", "v = √(G·M / r)", "T = 2π·r / v", "r = R planeta + altura"], "var(--leaf)"), video: { id: "AHhxyXGNuXA", titulo: "Velocidad orbital de un satélite: cálculo", canal: "FiQuiMates", vistas: 94890 } }),
+    bloque({ h: "3.3 Satélites artificiales y sus órbitas", p: [
+      "Hay más de diez mil satélites activos alrededor de la Tierra y cada tipo usa una órbita según su función. En la <b>órbita baja</b> (entre 200 y 2.000 km) están la Estación Espacial, los satélites de observación de la Tierra (como los Sentinel del programa europeo Copernicus, que vigilan incendios y cultivos) y las constelaciones de internet; dan una vuelta en hora y media aproximadamente.",
+      "En la <b>órbita media</b>, unos 20.000 km, giran los sistemas de navegación por satélite: GPS, el europeo <b>Galileo</b> o GLONASS, con periodos de unas 12 horas. Y a 35.800 km sobre el ecuador está la <mark>órbita geoestacionaria</mark>: un satélite allí tarda exactamente 24 horas en dar la vuelta, lo mismo que la Tierra en girar, así que parece inmóvil en el cielo. Es la órbita de los satélites de televisión (por eso las antenas parabólicas apuntan siempre al mismo sitio) y de los meteorológicos como Meteosat. La basura espacial, formada por restos de satélites y cohetes, es un problema creciente en las órbitas bajas.",
+    ], svg: escala("Tipos de órbitas de satélites según su altura sobre la Tierra", "Altura de las órbitas", [["ISS", "400 km", "var(--leaf)"], ["GPS", "20.200 km", "var(--pen)"], ["Geoest.", "35.800 km", "var(--red)"], ["Luna", "384.000 km", "var(--muted)"]], "1 h 30 min", "27 días") }),
+    bloque({ h: "3.4 Las mareas", p: [
+      "Dos veces al día el nivel del mar sube (<b>pleamar</b>) y baja (<b>bajamar</b>). La causa principal es la Luna. Su atracción gravitatoria no es igual en toda la Tierra: el agua del lado que mira a la Luna está más cerca y es atraída con más fuerza que el centro de la Tierra, y el centro de la Tierra, a su vez, más que el agua del lado opuesto. El resultado son <mark>dos abultamientos de agua</mark>, uno hacia la Luna y otro en el lado contrario.",
+      "Al girar la Tierra sobre sí misma, cada costa pasa por los dos abultamientos cada día, y por eso hay dos pleamares y dos bajamares cada 24 horas y 50 minutos (la Luna también avanza en su órbita). El Sol también produce mareas, aunque menos de la mitad que la Luna, porque está mucho más lejos. Cuando el Sol y la Luna se alinean (luna nueva y llena) sus efectos se suman y se producen las <b>mareas vivas</b>; cuando forman ángulo recto (cuartos), las <b>mareas muertas</b>. En el Cantábrico la diferencia entre pleamar y bajamar puede superar los 4 m, mientras que en el Mediterráneo apenas se nota.",
+    ], svg: mareas }),
+    bloque({ h: "3.5 La velocidad de escape", p: [
+      "Si lanzas una piedra hacia arriba, sube, se frena y vuelve. Cuanto más rápido la lances, más alto llega. ¿Existe una velocidad a partir de la cual no vuelva nunca? Sí: es la <mark>velocidad de escape</mark>, la mínima velocidad con la que hay que lanzar un cuerpo desde la superficie para que se aleje indefinidamente sin volver, despreciando el rozamiento con el aire:",
+      "En la Tierra vale 11,2 km/s (más de 40.000 km/h); en la Luna, solo 2,4 km/s, y en Júpiter, 59,5 km/s. La velocidad de escape explica por qué la Luna no tiene atmósfera: las moléculas de gas se mueven lo bastante rápido como para escapar de su débil gravedad. También explica que los cohetes necesiten tanto combustible. Si un cuerpo estuviera tan concentrado que su velocidad de escape superara la de la luz (300.000 km/s), ni siquiera la luz podría salir de él: sería un <b>agujero negro</b>.",
+    ], extra: formula("v<sub>e</sub> = √(2 · G · M / R)"), svg: barras("Velocidad de escape en la Luna, Marte, la Tierra y Júpiter", "Velocidad de escape (km/s)", [["Luna", 2.4, "var(--muted)", "2,4"], ["Marte", 5.0, "var(--red)", "5,0"], ["Tierra", 11.2, "var(--leaf)", "11,2"], ["Júpiter", 59.5, "#b45309", "59,5"]]), video: S.bvideos[1] }),
+    bloque({ h: "4.1 La gravitación y el universo", p: [
+      "La gravedad es la fuerza más débil de la naturaleza, pero es la que da forma al universo a gran escala, porque siempre atrae y su alcance es ilimitado. Ella reunió el gas y el polvo que formaron el Sol y los planetas hace 4.600 millones de años, mantiene unidas las galaxias como la Vía Láctea (con unos cien mil millones de estrellas) y agrupa las galaxias en cúmulos.",
+      "Midiendo cómo giran las estrellas en las galaxias, los astrónomos descubrieron que hay mucha más masa de la que se ve: la llamada <b>materia oscura</b>, cuya naturaleza aún no se conoce. En 1915, Albert Einstein propuso con la <mark>relatividad general</mark> una explicación más profunda: la gravedad es una curvatura del espacio-tiempo producida por la masa. Para casi todos los cálculos cotidianos, la ley de Newton sigue siendo excelente, pero sin las correcciones de Einstein el GPS acumularía errores de varios kilómetros al día. En 2015 se detectaron por primera vez <b>ondas gravitacionales</b>, producidas por el choque de dos agujeros negros, cien años después de que Einstein las predijera.",
+    ], svg: escala("Estructuras del universo unidas por la gravedad, de menor a mayor tamaño", "Lo que mantiene unida la gravedad", [["Tierra-Luna", "384.000 km", "var(--leaf)"], ["Sistema Solar", "planetas", "#b45309"], ["Vía Láctea", "10¹¹ estrellas", "var(--pen)"], ["Cúmulos", "de galaxias", "var(--red)"]], "más pequeño", "más grande") }),
   ],
-  figura: {
-    titulo: "Cómo cambia la fuerza de la gravedad",
-    svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Si las masas se duplican la fuerza se duplica; si la distancia se duplica la fuerza se divide entre cuatro">
-      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${[["× 2 una masa", "F × 2", "var(--pen)"], ["× 2 las dos masas", "F × 4", "var(--leaf)"], ["× 2 la distancia", "F ÷ 4", "var(--red)"]]
-        .map(([c1, r, c], i) => `<rect x="${20 + i * 206}" y="20" width="190" height="180" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
-          <text x="${115 + i * 206}" y="62" text-anchor="middle" font-size="15" fill="var(--muted)" ${F}>si multiplicas por 2</text>
-          <text x="${115 + i * 206}" y="90" text-anchor="middle" font-size="16" font-weight="700" fill="var(--ink)" ${F}>${c1.replace("× 2 ", "")}</text>
-          <text x="${115 + i * 206}" y="152" text-anchor="middle" font-size="34" font-weight="700" fill="${c}" ${D}>${r}</text>`).join("")}
-    </svg>`,
-  },
-  video: { id: "1ZeqDflo-SQ", titulo: "Ley de gravitación universal con fórmulas y ejercicio", canal: "Vitual", vistas: 973978, megusta: 0, busqueda: "ley de gravitación universal" },
-  quiz: [
-    { q: "¿Quién propuso que el Sol está en el centro y la Tierra gira a su alrededor?", o: ["Ptolomeo", "Copérnico", "Aristóteles"], a: 1, e: "Copérnico publicó el modelo heliocéntrico en 1543." },
-    { q: "Según Kepler, un planeta se mueve más rápido cuando…", o: ["está más lejos del Sol", "está más cerca del Sol", "siempre va igual"], a: 1, e: "Segunda ley: barre áreas iguales en tiempos iguales, así que cerca del Sol va más deprisa." },
-    { q: "Si la distancia entre dos cuerpos se triplica, la fuerza gravitatoria…", o: ["se divide entre 3", "se divide entre 9", "se multiplica por 3"], a: 1, e: "La fuerza depende de 1/d²: 3² = 9." },
-    { q: "¿Por qué no notamos la atracción gravitatoria entre dos personas?", o: ["Porque no existe", "Porque G es muy pequeña y las masas también", "Porque solo atraen los planetas"], a: 1, e: "Existe, pero con masas de 60 kg es del orden de 10⁻⁷ N: imperceptible." },
-    { q: "Tu masa es 50 kg. ¿Cuál es tu peso en la Luna (g = 1,6 m/s²)?", o: ["50 N", "80 N", "490 N"], a: 1, e: "P = m · g = 50 · 1,6 = 80 N. La masa sigue siendo 50 kg." },
-  ],
-  examen: [
-    { q: "El valor de G es…", o: ["9,8 m/s²", "6,67 · 10⁻¹¹ N·m²/kg²", "3 · 10⁸ m/s"], a: 1, e: "G es la constante de gravitación universal, igual en todo el universo." },
-    { q: "Las mareas se deben principalmente a…", o: ["el viento", "la atracción gravitatoria de la Luna", "la rotación del Sol"], a: 1, e: "La Luna (y en menor medida el Sol) atraen el agua de los océanos." },
-    { q: "Según la tercera ley de Kepler, un planeta más alejado del Sol…", o: ["tarda más en dar una vuelta", "tarda menos", "tarda lo mismo"], a: 0, e: "T² es proporcional a r³: Neptuno tarda 165 años y la Tierra uno." },
-  ],
-  feynman: ["Qué cambió del modelo geocéntrico al heliocéntrico", "Las tres leyes de Kepler con tus palabras", "Qué dice la ley de la gravitación universal y qué es G", "Por qué el peso cambia de un planeta a otro", "Por qué la Luna no cae sobre la Tierra"],
-  mapa: mapa("GRAVITACIÓN", "var(--eso)", [
-    ["Modelos", "geocéntrico → heliocéntrico", "var(--ink)"],
-    ["Kepler", "elipses · áreas · T² ∝ r³", "var(--pen)"],
-    ["Newton", "F = G·m₁·m₂/d²", "var(--red)"],
-    ["Consecuencias", "peso · órbitas · mareas", "var(--leaf)"],
-  ], 250),
-  tarjetas: [
-    ["Ley de la gravitación universal", "F = G · m₁ · m₂ / d²."],
-    ["Valor de la constante G", "6,67 · 10⁻¹¹ N·m²/kg²."],
-    ["Primera ley de Kepler", "Los planetas describen órbitas elípticas con el Sol en uno de los focos."],
-    ["Si la distancia se duplica, la fuerza…", "Se divide entre cuatro."],
-    ["Fórmula de la gravedad en la superficie de un planeta", "g = G · M / R²."],
-  ],
-  familias: ["Buscad en una app de astronomía la Estación Espacial Internacional y ved cuándo pasa sobre vuestra ciudad.", "Calculad juntos vuestro peso en newtons en la Tierra, la Luna y Júpiter.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "La interacción: ley de la gravitación universal, peso, movimiento de planetas y satélites, y evolución de los modelos del universo (RD 217/2022, Física y Química 4º).",
-    ideas: ["Simulación PhET «Gravedad y órbitas» para variar masas y distancias.", "Dibujar una elipse con dos chinchetas y un cordel para la primera ley de Kepler.", "Calcular el periodo de la ISS con datos reales y comprobarlo en directo."],
-  },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Ley de gravitación universal, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Ley_de_gravitaci%C3%B3n_universal" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Calcular la velocidad orbital de un satélite", "Explicar el peso aparente y la ingravidez de los astronautas"],
-  tras: {
-    "La ley de la gravitación universal": [
-      { html: `<h3>Usar la ley de la gravitación</h3><p>La fuerza gravitatoria es <b>siempre atractiva</b>, actúa a distancia y es mutua: la Tierra te atrae con la misma fuerza con que tú atraes a la Tierra (tercera ley de Newton), aunque a ti te mueve mucho y a ella nada, porque su masa es enorme. La constante G = 6,67 · 10⁻¹¹ N·m²/kg² es tan pequeña que entre dos personas la atracción es de millonésimas de newton: solo se nota cuando al menos una masa es gigantesca. La dependencia con la distancia es muy fuerte: si la distancia se duplica, la fuerza se divide entre <mark>cuatro</mark>; si se triplica, entre nueve. La distancia se mide siempre entre los centros de los cuerpos.</p>`, video: { id: "_sbc_9FDRCM", titulo: "Ley de gravitación universal: calcular la masa", canal: "Vitual", vistas: 372861 } },
-    ],
-    "El peso y la gravedad de cada planeta": [
-      { html: `<h3>Cómo cambia g con la altura</h3><p>La gravedad en la superficie de un planeta vale <mark>g = G · M / R²</mark>, donde M es su masa y R su radio. Si nos alejamos de la superficie, la distancia al centro aumenta y g disminuye: a una altura h, g = G · M / (R + h)². A la altura de la Estación Espacial Internacional, unos 400 km, g todavía vale unos 8,7 m/s², casi un 90 % del valor en el suelo. Por tanto, los astronautas <b>no flotan porque allí no haya gravedad</b>, sino porque la estación y ellos están cayendo continuamente alrededor de la Tierra a la vez: es la <b>ingravidez</b> o caída libre, en la que el peso aparente es cero.</p>` },
-    ],
-    "Órbitas, satélites y mareas": [
-      { html: `<h3>Velocidad orbital y satélites</h3><p>Un satélite está en órbita porque la gravedad le proporciona justo la fuerza centrípeta que necesita para girar. Igualando las dos fuerzas sale la <b>velocidad orbital</b>: <mark>v = √(G · M / r)</mark>, donde r es la distancia al centro de la Tierra. Cuanto más lejos, más despacio gira y más tarda en dar una vuelta. Los satélites de órbita baja (300-2.000 km) dan una vuelta en hora y media; los <b>geoestacionarios</b>, a 36.000 km sobre el ecuador, tardan exactamente un día y parecen quietos en el cielo, por eso se usan para la televisión y la meteorología. Los GPS orbitan a unos 20.000 km. Para escapar de la Tierra sin volver hay que superar la <b>velocidad de escape</b>, 11,2 km/s.</p>`, video: { id: "FOYfxBjT5wQ", titulo: "Velocidad de escape: órbitas y trayectorias", canal: "Cienciabit", vistas: 189261 } },
-      { html: `<h3>La gravitación y el universo</h3><p>La misma ley que hace caer una manzana mantiene la Luna alrededor de la Tierra, los planetas alrededor del Sol y el Sol alrededor del centro de la Vía Láctea: fue la primera vez que se demostró que <mark>las leyes de la física son las mismas en la Tierra y en el cielo</mark>. Con ella se descubrió Neptuno en 1846, antes de verlo, por las alteraciones que causaba en la órbita de Urano. También se usa para «pesar» astros: midiendo el periodo de la Luna se calcula la masa de la Tierra. Hoy sabemos que la teoría de Einstein mejora la de Newton cuando las masas o las velocidades son enormes, pero para las misiones espaciales la ley de Newton sigue siendo suficiente.</p>` },
-    ],
-  },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Calcula la fuerza entre la Tierra (6 · 10²⁴ kg) y la Luna (7,3 · 10²² kg), separadas 3,84 · 10⁸ m.", pasos: ["F = G · M · m / d².", "Numerador: 6,67 · 10⁻¹¹ · 6 · 10²⁴ · 7,3 · 10²² ≈ 2,92 · 10³⁷.", "d² = (3,84 · 10⁸)² ≈ 1,47 · 10¹⁷.", "F = 2,92 · 10³⁷ / 1,47 · 10¹⁷ ≈ 1,99 · 10²⁰ N."], resultado: "F ≈ 2 · 10²⁰ N." },
-    { enunciado: "Un planeta tiene el doble de masa que la Tierra y el mismo radio. ¿Cuánto vale g en su superficie? ¿Cuánto pesaría allí una persona de 50 kg?", pasos: ["g = G·M / R²: si M se duplica y R no cambia, g se duplica.", "g = 2 · 9,8 = 19,6 m/s².", "P = m · g = 50 · 19,6 = 980 N."], resultado: "g = 19,6 m/s²; pesaría 980 N (su masa seguiría siendo 50 kg)." },
-    { enunciado: "Calcula la velocidad orbital de un satélite a 7.000 km del centro de la Tierra (M = 6 · 10²⁴ kg).", pasos: ["v = √(G·M / r), con r = 7 · 10⁶ m.", "G·M = 6,67 · 10⁻¹¹ · 6 · 10²⁴ = 4 · 10¹⁴.", "G·M / r = 4 · 10¹⁴ / 7 · 10⁶ ≈ 5,7 · 10⁷ → v ≈ 7.560 m/s."], resultado: "v ≈ 7,6 km/s (unos 27.000 km/h)." },
+    { enunciado: "Calcula la fuerza con la que se atraen la Tierra (5,97 · 10<sup>24</sup> kg) y la Luna (7,35 · 10<sup>22</sup> kg), separadas 3,84 · 10<sup>8</sup> m.", pasos: ["F = G · M · m / d².", "Numerador: 6,67 · 10<sup>−11</sup> · 5,97 · 10<sup>24</sup> · 7,35 · 10<sup>22</sup> ≈ 2,93 · 10<sup>37</sup>.", "Denominador: (3,84 · 10<sup>8</sup>)² ≈ 1,47 · 10<sup>17</sup>.", "F ≈ 2,93 · 10<sup>37</sup> / 1,47 · 10<sup>17</sup> ≈ 2,0 · 10<sup>20</sup> N."], resultado: "Unos 2 · 10<sup>20</sup> N, igual sobre la Tierra y sobre la Luna." },
+    { enunciado: "Calcula la gravedad en la superficie de Marte (M = 6,42 · 10<sup>23</sup> kg; R = 3,39 · 10<sup>6</sup> m) y el peso allí de un robot de 900 kg.", pasos: ["g = G · M / R².", "g = 6,67 · 10<sup>−11</sup> · 6,42 · 10<sup>23</sup> / (3,39 · 10<sup>6</sup>)² = 4,28 · 10<sup>13</sup> / 1,15 · 10<sup>13</sup>.", "g ≈ 3,7 m/s².", "P = 900 · 3,7 ≈ 3.330 N (en la Tierra serían 8.820 N)."], resultado: "g ≈ 3,7 m/s²; el robot pesa unos 3.300 N." },
+    { enunciado: "¿A qué altura sobre la superficie la gravedad terrestre se reduce a la cuarta parte?", pasos: ["g disminuye con el cuadrado de la distancia al centro.", "Para que g se divida entre 4, la distancia al centro debe multiplicarse por 2.", "d = 2R → la altura sobre la superficie es h = 2R − R = R.", "h = 6.370 km."], resultado: "A 6.370 km de altura (un radio terrestre)." },
+    { enunciado: "Calcula la velocidad y el periodo de la Estación Espacial Internacional, que orbita a 400 km de altura. (G · M<sub>T</sub> = 3,98 · 10<sup>14</sup> N·m²/kg)", pasos: ["r = 6.370 + 400 = 6.770 km = 6,77 · 10<sup>6</sup> m.", "v = √(3,98 · 10<sup>14</sup> / 6,77 · 10<sup>6</sup>) = √(5,88 · 10<sup>7</sup>) ≈ 7.670 m/s.", "T = 2π · 6,77 · 10<sup>6</sup> / 7.670 ≈ 5.550 s.", "5.550 s ≈ 92 minutos."], resultado: "v ≈ 7,7 km/s y T ≈ 92 min." },
+    { enunciado: "Un asteroide gira alrededor del Sol en una órbita de radio medio 2,8 UA. ¿Cuánto dura su año?", pasos: ["Tercera ley de Kepler en años y UA: T² = r³.", "r³ = 2,8³ ≈ 21,95.", "T = √21,95 ≈ 4,7 años."], resultado: "Unos 4,7 años terrestres (es el caso de Ceres)." },
+    { enunciado: "Si la distancia entre dos cuerpos se reduce a la tercera parte y la masa de uno de ellos se duplica, ¿cómo cambia la fuerza?", pasos: ["Masa doble → F se multiplica por 2.", "Distancia ÷ 3 → F se multiplica por 3² = 9.", "Efecto total: 2 · 9 = 18."], resultado: "La fuerza se hace 18 veces mayor." },
   ],
   errores: [
-    "Pensar que en el espacio no hay gravedad: los astronautas están en caída libre.",
-    "Confundir masa (kg, no cambia) y peso (N, depende de g).",
-    "Medir la distancia desde la superficie en vez de desde el centro del planeta.",
-    "Olvidar elevar la distancia al cuadrado: al doble de distancia, la fuerza es la cuarta parte, no la mitad.",
-    "Creer que la Tierra atrae a la Luna con más fuerza que la Luna a la Tierra: las dos fuerzas son iguales.",
+    "Usar la distancia entre superficies en lugar de la distancia entre centros: a la altura hay que sumarle el radio del planeta.",
+    "Olvidar elevar la distancia al cuadrado o no pasarla de kilómetros a metros.",
+    "Confundir G (constante universal, 6,67 · 10<sup>−11</sup>) con g (gravedad en un lugar, 9,8 m/s² en la Tierra).",
+    "Pensar que en la Estación Espacial no hay gravedad: allí g ≈ 8,7 m/s²; los astronautas flotan porque están en caída libre.",
+    "Creer que un cuerpo más pesado atrae más a la Tierra que la Tierra a él: las dos fuerzas son iguales (tercera ley).",
+    "Pensar que la masa cambia de un planeta a otro: lo que cambia es el peso.",
   ],
   ejercicios: [
-    { q: "Enuncia las tres leyes de Kepler con tus palabras.", sol: "1) Los planetas giran en elipses con el Sol en un foco. 2) Barren áreas iguales en tiempos iguales: van más rápido cerca del Sol. 3) Cuanto más lejos está un planeta, más tarda en dar una vuelta (T² proporcional a r³)." },
-    { q: "Calcula la fuerza entre dos personas de 70 kg separadas 1 m.", sol: "F = 6,67 · 10⁻¹¹ · 70 · 70 / 1 ≈ 3,3 · 10⁻⁷ N, prácticamente nada." },
-    { q: "Si la distancia entre dos cuerpos se triplica, ¿cómo cambia la fuerza?", sol: "Se divide entre 3² = 9." },
-    { q: "Calcula el peso de un astronauta de 80 kg en la Tierra (9,8 m/s²), en la Luna (1,62 m/s²) y en Marte (3,7 m/s²).", sol: "Tierra 784 N, Luna 129,6 N, Marte 296 N. Su masa es 80 kg en los tres." },
-    { q: "Calcula g en la superficie de la Tierra (M = 6 · 10²⁴ kg, R = 6,37 · 10⁶ m).", sol: "g = 6,67 · 10⁻¹¹ · 6 · 10²⁴ / (6,37 · 10⁶)² ≈ 4 · 10¹⁴ / 4,06 · 10¹³ ≈ 9,86 m/s²." },
-    { q: "¿A qué distancia del centro de la Tierra g vale la cuarta parte que en la superficie?", sol: "A doble distancia: 2R ≈ 12.740 km del centro (6.370 km de altura)." },
-    { q: "¿Por qué un satélite geoestacionario debe estar sobre el ecuador y tardar 24 h en dar una vuelta?", sol: "Para girar a la vez que la Tierra y en el mismo plano, y así estar siempre sobre el mismo punto: las antenas no tienen que moverse." },
-    { q: "Explica por qué los astronautas de la Estación Espacial flotan si allí g ≈ 8,7 m/s².", sol: "Porque la estación y ellos caen juntos alrededor de la Tierra con la misma aceleración: no se apoyan en nada y su peso aparente es cero (ingravidez)." },
-    { q: "¿Por qué hay dos mareas altas al día?", sol: "La Luna atrae más el agua del lado más cercano y menos la del lado opuesto, que «se queda atrás»; se forman dos abultamientos y la Tierra gira bajo ellos en un día." },
-    { q: "Compara el modelo de Ptolomeo con el de Copérnico.", sol: "Ptolomeo: geocéntrico, la Tierra inmóvil en el centro. Copérnico: heliocéntrico, el Sol en el centro y la Tierra gira a su alrededor y sobre sí misma. Galileo aportó pruebas con el telescopio a favor de Copérnico." },
+    B("Explica la diferencia entre el modelo geocéntrico y el heliocéntrico y cita dos observaciones de Galileo que apoyaron el segundo.", "Geocéntrico: la Tierra está inmóvil en el centro y todo gira a su alrededor. Heliocéntrico: el Sol está en el centro y la Tierra gira a su alrededor y sobre sí misma. Galileo observó las lunas de Júpiter y las fases de Venus."),
+    B("Enuncia las tres leyes de Kepler con tus palabras.", "1) Las órbitas son elipses con el Sol en un foco. 2) El planeta barre áreas iguales en tiempos iguales: va más rápido cerca del Sol. 3) T² es proporcional a r³: cuanto más lejos, más tarda en dar la vuelta."),
+    B("¿En qué punto de su órbita va más rápido un planeta: en el perihelio o en el afelio? ¿Por qué?", "En el perihelio, el punto más cercano al Sol: por la segunda ley de Kepler, para barrer la misma área en el mismo tiempo con un radio más corto debe recorrer más arco."),
+    B("Calcula la fuerza gravitatoria entre dos personas de 50 kg y 80 kg separadas 2 m.", "F = 6,67 · 10<sup>−11</sup> · 50 · 80 / 4 = 6,67 · 10<sup>−8</sup> N. Es una fuerza insignificante."),
+    B("¿Cómo cambia la fuerza gravitatoria entre dos cuerpos si la distancia se duplica? ¿Y si se reduce a la mitad?", "Si se duplica, se divide entre 4. Si se reduce a la mitad, se multiplica por 4."),
+    B("¿Qué masa y qué peso tiene en la Luna (g = 1,62 m/s²) un astronauta de 75 kg?", "Masa: 75 kg (no cambia). Peso: 75 · 1,62 = 121,5 N."),
+    B("Un objeto pesa 245 N en la Tierra. ¿Cuál es su masa?", "m = P / g = 245 / 9,8 = 25 kg."),
+    B("¿Por qué no notamos la atracción gravitatoria entre una mesa y una silla?", "Porque G es muy pequeña (6,67 · 10<sup>−11</sup>) y las masas son pequeñas: la fuerza es del orden de 10<sup>−8</sup> N, imposible de notar frente al rozamiento con el suelo."),
+    B("Explica con el cañón de Newton qué es una órbita.", "Si se lanza un cuerpo en horizontal suficientemente rápido, mientras cae la superficie terrestre se curva por debajo al mismo ritmo y nunca llega al suelo: está en caída libre continua alrededor de la Tierra."),
+    B("¿Qué es un satélite geoestacionario y para qué se usa?", "Un satélite a 35.800 km sobre el ecuador que tarda 24 h en dar la vuelta, como la Tierra en girar; parece fijo en el cielo. Se usa para televisión, comunicaciones y meteorología."),
+    B("¿Por qué hay dos mareas altas al día y no una?", "Porque la atracción de la Luna crea dos abultamientos de agua, uno hacia la Luna y otro en el lado opuesto, y cada costa pasa por los dos al girar la Tierra."),
+    B("¿Qué son las mareas vivas y cuándo se producen?", "Mareas con mucha diferencia entre pleamar y bajamar; ocurren en luna nueva y luna llena, cuando el Sol y la Luna están alineados y sus efectos se suman."),
+    M("Calcula la gravedad en la superficie de la Luna (M = 7,35 · 10<sup>22</sup> kg; R = 1,74 · 10<sup>6</sup> m).", "g = 6,67 · 10<sup>−11</sup> · 7,35 · 10<sup>22</sup> / (1,74 · 10<sup>6</sup>)² = 4,90 · 10<sup>12</sup> / 3,03 · 10<sup>12</sup> ≈ 1,62 m/s²."),
+    M("Calcula la gravedad terrestre a 400 km de altura (R<sub>T</sub> = 6.370 km; g₀ = 9,8 m/s²).", "g = g₀ · (R / (R + h))² = 9,8 · (6.370 / 6.770)² = 9,8 · 0,885 ≈ 8,7 m/s²."),
+    M("Calcula la masa de la Tierra sabiendo que g = 9,8 m/s² y R = 6,37 · 10<sup>6</sup> m.", "M = g · R² / G = 9,8 · 4,06 · 10<sup>13</sup> / 6,67 · 10<sup>−11</sup> ≈ 5,96 · 10<sup>24</sup> kg."),
+    M("Un planeta tiene el doble de masa que la Tierra y el mismo radio. ¿Cuánto vale g en su superficie? ¿Y si tuviera la misma masa y el doble de radio?", "Doble masa: g se duplica, 19,6 m/s². Doble radio: g se divide entre 4, 2,45 m/s²."),
+    M("Saturno está a 9,54 UA del Sol. Calcula su periodo con la tercera ley de Kepler.", "T² = 9,54³ ≈ 868 → T ≈ 29,5 años."),
+    M("¿A qué distancia del Sol, en UA, estaría un planeta que tardara 8 años en dar la vuelta?", "r³ = T² = 64 → r = 4 UA."),
+    M("Calcula la velocidad orbital de un satélite a 1.000 km de altura. (G · M<sub>T</sub> = 3,98 · 10<sup>14</sup>)", "r = 7,37 · 10<sup>6</sup> m. v = √(3,98 · 10<sup>14</sup> / 7,37 · 10<sup>6</sup>) = √(5,40 · 10<sup>7</sup>) ≈ 7.350 m/s."),
+    M("Comprueba que la Luna, a 3,84 · 10<sup>8</sup> m, tarda unos 27 días en dar la vuelta a la Tierra.", "v = √(3,98 · 10<sup>14</sup> / 3,84 · 10<sup>8</sup>) ≈ 1.018 m/s. T = 2π · 3,84 · 10<sup>8</sup> / 1.018 ≈ 2,37 · 10<sup>6</sup> s ≈ 27,4 días."),
+    M("Un satélite pesa 4.900 N en la superficie terrestre. ¿Cuánto pesará a una altura de 2R<sub>T</sub> sobre la superficie?", "A 2R de altura, la distancia al centro es 3R: g se divide entre 9. P = 4.900 / 9 ≈ 544 N."),
+    M("Calcula la fuerza con la que el Sol (2,0 · 10<sup>30</sup> kg) atrae a la Tierra (6,0 · 10<sup>24</sup> kg) a 1,5 · 10<sup>11</sup> m.", "F = 6,67 · 10<sup>−11</sup> · 2,0 · 10<sup>30</sup> · 6,0 · 10<sup>24</sup> / (2,25 · 10<sup>22</sup>) ≈ 3,6 · 10<sup>22</sup> N."),
+    M("Si la distancia entre dos cuerpos se triplica y las dos masas se duplican, ¿cómo cambia la fuerza?", "Masas: × 2 · 2 = × 4. Distancia: ÷ 9. Total: × 4/9 ≈ 0,44: la fuerza disminuye a menos de la mitad."),
+    M("Calcula la velocidad de escape de la Luna (M = 7,35 · 10<sup>22</sup> kg; R = 1,74 · 10<sup>6</sup> m).", "v<sub>e</sub> = √(2 · 6,67 · 10<sup>−11</sup> · 7,35 · 10<sup>22</sup> / 1,74 · 10<sup>6</sup>) = √(5,63 · 10<sup>6</sup>) ≈ 2.370 m/s ≈ 2,4 km/s."),
+    M("¿Por qué un satélite más lejano va más despacio que uno cercano?", "Porque v = √(GM/r): al aumentar r, la gravedad que lo curva es menor y basta una velocidad menor para mantener la órbita."),
+    A("¿En qué punto entre la Tierra y la Luna se anulan sus atracciones sobre una nave? (M<sub>T</sub> = 81 · M<sub>L</sub>; d = 384.000 km)", "G·81M<sub>L</sub>·m / x² = G·M<sub>L</sub>·m / (d − x)² → 81 (d − x)² = x² → 9(d − x) = x → x = 9d/10 = 345.600 km desde la Tierra."),
+    A("Calcula a qué altura sobre la superficie debe estar un satélite geoestacionario (T = 86.400 s; G · M<sub>T</sub> = 3,98 · 10<sup>14</sup>).", "r³ = G·M·T² / 4π² = 3,98 · 10<sup>14</sup> · 7,46 · 10<sup>9</sup> / 39,5 ≈ 7,52 · 10<sup>22</sup> → r ≈ 4,22 · 10<sup>7</sup> m. h = 42.200 − 6.370 ≈ 35.800 km."),
+    A("Un planeta tiene la mitad de radio que la Tierra y la misma densidad. ¿Cuánto vale su gravedad?", "Con igual densidad, M es proporcional a R³: M' = M/8. g' = G·(M/8)/(R/2)² = (1/8)·4·g = g/2 = 4,9 m/s²."),
+    A("Demuestra que la velocidad orbital no depende de la masa del satélite y deduce la tercera ley de Kepler.", "G·M·m/r² = m·v²/r → v² = GM/r (m se simplifica). Con v = 2πr/T: 4π²r²/T² = GM/r → T² = (4π²/GM)·r³. El cociente T²/r³ solo depende de la masa central."),
+    A("Io gira alrededor de Júpiter a 4,22 · 10<sup>8</sup> m con un periodo de 1,77 días. Calcula la masa de Júpiter.", "T = 1,77 · 86.400 ≈ 1,53 · 10<sup>5</sup> s. M = 4π²r³ / (G·T²) = 39,5 · 7,52 · 10<sup>25</sup> / (6,67 · 10<sup>−11</sup> · 2,34 · 10<sup>10</sup>) ≈ 1,9 · 10<sup>27</sup> kg."),
+    A("Explica por qué la Luna no tiene atmósfera y la Tierra sí, usando la velocidad de escape.", "Las moléculas de un gas se mueven a centenares de m/s y algunas superan 1-2 km/s. En la Luna, con v<sub>e</sub> = 2,4 km/s, a lo largo de millones de años muchas escapan; en la Tierra, con 11,2 km/s, casi ninguna lo consigue, y la atmósfera se retiene."),
+    A("Un astronauta pesa 700 N en la Tierra. Calcula su peso en la superficie de un planeta con 4 veces la masa terrestre y el doble de radio.", "g' = G·4M/(2R)² = g. Su peso sería el mismo: 700 N."),
+    A("Calcula la velocidad de un satélite GPS, cuya órbita tiene un radio de 26.600 km, y su periodo en horas.", "v = √(3,98 · 10<sup>14</sup> / 2,66 · 10<sup>7</sup>) ≈ 3.870 m/s. T = 2π · 2,66 · 10<sup>7</sup> / 3.870 ≈ 43.200 s = 12 h."),
+    M("Calcula el peso de un satélite de 1.200 kg en la órbita de la Estación Espacial (g = 8,7 m/s²). ¿Por qué no cae?", "P = 1.200 · 8,7 = 10.440 N. Sí cae, pero su velocidad lateral de 7,7 km/s hace que la superficie se curve por debajo al mismo ritmo: su peso actúa como fuerza centrípeta."),
+    A("Si la Tierra se comprimiera hasta la mitad de su radio sin perder masa, ¿cómo cambiarían g en su superficie y la velocidad de escape?", "g = GM/R²: con R/2, g se multiplica por 4 (39,2 m/s²). v<sub>e</sub> = √(2GM/R): con R/2 se multiplica por √2 (unos 15,8 km/s). Si se comprimiera a 9 mm, la velocidad de escape superaría la de la luz: un agujero negro."),
+    A("La Tierra está a 1 UA del Sol y su velocidad orbital es de unos 30 km/s. Calcula la velocidad orbital de Marte (1,52 UA).", "v es proporcional a 1/√r: v<sub>Marte</sub> = 30 / √1,52 ≈ 30 / 1,233 ≈ 24,3 km/s."),
   ],
   quiz: [
-    { q: "Si la distancia entre dos masas se duplica, la fuerza gravitatoria…", o: ["se reduce a la mitad", "se reduce a la cuarta parte", "se duplica"], a: 1, e: "Depende de 1/d²." },
-    { q: "Los astronautas de la Estación Espacial flotan porque…", o: ["allí no hay gravedad", "están en caída libre alrededor de la Tierra", "están muy lejos del Sol"], a: 1, e: "g allí es casi el 90 % de la del suelo." },
-    { q: "Cuanto más lejos está un satélite de la Tierra, su velocidad orbital es…", o: ["mayor", "menor", "igual"], a: 1, e: "v = √(G·M/r)." },
-    { q: "Un satélite geoestacionario tarda en dar una vuelta…", o: ["90 minutos", "24 horas", "un mes"], a: 1, e: "Gira al ritmo de la Tierra." },
-    { q: "La velocidad de escape de la Tierra es de unos…", o: ["11,2 km/s", "300.000 km/s", "1 km/s"], a: 0, e: "Para no volver a caer." },
+    q4("¿Quién propuso el modelo heliocéntrico en 1543?", ["Ptolomeo", "Copérnico", "Newton", "Aristóteles"], 1, "Nicolás Copérnico, en su obra sobre las revoluciones de las esferas celestes."),
+    q4("Según la primera ley de Kepler, las órbitas de los planetas son…", ["círculos perfectos", "elipses con el Sol en un foco", "espirales", "parábolas"], 1, "Elipses, con el Sol en uno de los focos."),
+    q4("Un planeta va más rápido cuando está…", ["más lejos del Sol", "más cerca del Sol", "igual en toda la órbita", "en los equinoccios"], 1, "Segunda ley: áreas iguales en tiempos iguales."),
+    q4("La tercera ley de Kepler relaciona…", ["T con r", "T² con r³", "T³ con r²", "v con m"], 1, "T² es proporcional a r³."),
+    q4("El valor de G es…", ["9,8 m/s²", "6,67 · 10<sup>−11</sup> N·m²/kg²", "3 · 10<sup>8</sup> m/s", "6,02 · 10<sup>23</sup>"], 1, "Es la constante de gravitación universal."),
+    q4("Si la distancia entre dos masas se duplica, la fuerza gravitatoria…", ["se duplica", "se reduce a la mitad", "se reduce a la cuarta parte", "no cambia"], 2, "Depende del inverso del cuadrado de la distancia."),
+    q4("Si las dos masas se duplican, la fuerza…", ["se duplica", "se cuadruplica", "se reduce a la mitad", "no cambia"], 1, "2 · 2 = 4."),
+    q4("La gravedad en la superficie de un planeta depende de…", ["la masa del cuerpo que cae", "la masa y el radio del planeta", "solo del radio", "la velocidad del cuerpo"], 1, "g = G·M/R²."),
+    q4("Una persona de 60 kg en Marte tiene una masa de…", ["60 kg", "22 kg", "222 N", "588 N"], 0, "La masa no cambia."),
+    q4("A una altura igual al radio terrestre, g vale aproximadamente…", ["9,8 m/s²", "4,9 m/s²", "2,45 m/s²", "0"], 2, "La distancia al centro se duplica: g/4."),
+    q4("Los astronautas flotan en la Estación Espacial porque…", ["allí no hay gravedad", "están en caída libre junto con la estación", "el aire los sostiene", "la Luna los atrae"], 1, "Ingravidez aparente: todo cae a la vez."),
+    q4("La velocidad orbital de un satélite depende de…", ["su masa", "la masa del planeta y el radio de la órbita", "su forma", "su color"], 1, "v = √(GM/r)."),
+    q4("Un satélite más alejado de la Tierra…", ["va más rápido", "va más despacio", "va igual", "no puede orbitar"], 1, "v disminuye al aumentar r."),
+    q4("Un satélite geoestacionario tarda en dar una vuelta…", ["92 minutos", "12 horas", "24 horas", "27 días"], 2, "Como la Tierra en girar sobre sí misma."),
+    q4("La principal causa de las mareas es…", ["el viento", "la atracción de la Luna", "la rotación del Sol", "los terremotos"], 1, "El Sol contribuye, pero menos de la mitad que la Luna."),
+    q4("Las mareas vivas se producen en…", ["cuarto creciente", "luna nueva y llena", "cuarto menguante", "solo en verano"], 1, "Sol y Luna alineados."),
+    q4("La velocidad de escape de la Tierra es aproximadamente…", ["7,7 km/s", "11,2 km/s", "300.000 km/s", "1 km/s"], 1, "11,2 km/s."),
+    q4("¿Qué descubrió Galileo con su telescopio que apoyaba el heliocentrismo?", ["Neptuno", "Las lunas de Júpiter", "Los agujeros negros", "La materia oscura"], 1, "Y también las fases de Venus."),
+    q4("¿Quién midió por primera vez el valor de G?", ["Newton", "Kepler", "Cavendish", "Einstein"], 2, "Henry Cavendish, en 1798, con una balanza de torsión."),
+    q4("La fuerza con la que la Tierra atrae a la Luna, comparada con la que la Luna ejerce sobre la Tierra, es…", ["mucho mayor", "igual", "menor", "cero"], 1, "Tercera ley de Newton: iguales y opuestas."),
   ],
+  examen: [
+    q4("¿Qué fuerza gravitatoria hay entre dos masas de 1.000 kg separadas 1 m?", ["6,67 · 10<sup>−5</sup> N", "6,67 · 10<sup>−11</sup> N", "1.000 N", "9.800 N"], 0, "6,67 · 10<sup>−11</sup> · 10<sup>6</sup> = 6,67 · 10<sup>−5</sup> N."),
+    q4("Un objeto pesa 98 N en la Tierra. En la Luna (g = 1,62) pesa…", ["98 N", "16,2 N", "10 N", "60 N"], 1, "m = 10 kg; P = 16,2 N."),
+    q4("Un planeta a 4 UA del Sol tiene un periodo de…", ["4 años", "8 años", "16 años", "64 años"], 1, "T² = 64 → T = 8."),
+    q4("Si un planeta tiene el doble de radio y la misma masa que la Tierra, g vale…", ["19,6 m/s²", "4,9 m/s²", "2,45 m/s²", "9,8 m/s²"], 2, "g/4."),
+    q4("La distancia al centro de la Tierra de un satélite a 600 km de altura es…", ["600 km", "6.970 km", "5.770 km", "6.370 km"], 1, "6.370 + 600 = 6.970 km."),
+    q4("¿Por qué la Luna no cae sobre la Tierra?", ["Porque no la atrae", "Porque se mueve de lado muy deprisa y cae en órbita", "Porque la sostiene el Sol", "Porque no tiene masa"], 1, "Está en caída libre continua."),
+    q4("La masa de la Tierra se puede calcular con…", ["M = g·R²/G", "M = G·g/R", "M = R/g", "M = m·g"], 0, "Despejando de g = GM/R²."),
+    q4("Si la Tierra tuviera el doble de masa, la velocidad orbital de la Luna (misma distancia)…", ["se duplicaría", "se multiplicaría por √2", "no cambiaría", "se reduciría"], 1, "v = √(GM/r)."),
+  ],
+  feynman: ["Por qué el modelo heliocéntrico sustituyó al geocéntrico", "Qué dicen las tres leyes de Kepler", "Por qué no notamos la atracción entre dos personas", "Por qué g es diferente en cada planeta", "Por qué un satélite no se cae", "Por qué hay dos mareas al día"],
+  mapa: S.mapa,
   tarjetas: [
-    ["g en la superficie de un planeta", "g = G · M / R²."],
-    ["Velocidad orbital", "v = √(G · M / r); disminuye al alejarse."],
-    ["Ingravidez", "Estado de caída libre en el que el peso aparente es cero."],
+    ["Ley de la gravitación universal", "F = G · M · m / d²."],
+    ["Valor de G", "6,67 · 10<sup>−11</sup> N·m²/kg²."],
+    ["Primera ley de Kepler", "Órbitas elípticas con el Sol en un foco."],
+    ["Segunda ley de Kepler", "Áreas iguales en tiempos iguales."],
+    ["Tercera ley de Kepler", "T² = k · r³."],
+    ["Gravedad en la superficie", "g = G · M / R²."],
+    ["Gravedad a una altura h", "g = G · M / (R + h)²."],
+    ["Velocidad orbital", "v = √(G · M / r)."],
+    ["Periodo de un satélite", "T = 2πr / v."],
+    ["Órbita geoestacionaria", "35.800 km sobre el ecuador, T = 24 h."],
+    ["Velocidad de escape de la Tierra", "11,2 km/s."],
+    ["¿Por qué flotan los astronautas?", "Porque están en caída libre con la estación: ingravidez aparente."],
   ],
-});
+  glosario: [
+    ["Geocentrismo", "Modelo que sitúa la Tierra inmóvil en el centro del universo."],
+    ["Heliocentrismo", "Modelo que sitúa el Sol en el centro y la Tierra girando a su alrededor."],
+    ["Órbita", "Trayectoria que sigue un cuerpo alrededor de otro por la acción de la gravedad."],
+    ["Elipse", "Curva cerrada y alargada con dos focos; forma de las órbitas planetarias."],
+    ["Perihelio", "Punto de la órbita más cercano al Sol."],
+    ["Afelio", "Punto de la órbita más alejado del Sol."],
+    ["Unidad astronómica", "Distancia media Tierra-Sol, unos 150 millones de km."],
+    ["Constante G", "Constante de gravitación universal, 6,67 · 10<sup>−11</sup> N·m²/kg²."],
+    ["Intensidad del campo gravitatorio", "Fuerza gravitatoria por unidad de masa en un punto; g."],
+    ["Satélite", "Cuerpo que orbita alrededor de un planeta; puede ser natural o artificial."],
+    ["Velocidad orbital", "Velocidad necesaria para mantener una órbita circular de un radio dado."],
+    ["Órbita geoestacionaria", "Órbita ecuatorial de 24 h en la que el satélite parece fijo en el cielo."],
+    ["Ingravidez aparente", "Sensación de no pesar en caída libre."],
+    ["Marea", "Subida y bajada periódica del nivel del mar por la atracción de la Luna y el Sol."],
+    ["Velocidad de escape", "Velocidad mínima para alejarse indefinidamente de un astro."],
+    ["Materia oscura", "Materia que no emite luz y se detecta solo por sus efectos gravitatorios."],
+  ],
+  situacion: {
+    titulo: "Diseña la misión de un satélite",
+    reto: "La agencia espacial de tu comunidad quiere lanzar un pequeño satélite para vigilar incendios forestales y otro para dar internet a pueblos aislados. Vuestro equipo debe proponer la órbita de cada uno y justificarla con cálculos.",
+    pasos: [
+      "Investigad qué necesita cada misión: resolución de las imágenes, cobertura y si el satélite debe verse siempre en el mismo punto.",
+      "Elegid una altura para cada satélite (órbita baja, media o geoestacionaria) y calculad su velocidad orbital y su periodo.",
+      "Calculad cuántas vueltas al día da cada satélite y el valor de g a esa altura.",
+      "Explicad con el cañón de Newton por qué el satélite no cae y qué pasaría si perdiera velocidad.",
+      "Valorad el problema de la basura espacial y proponed qué hacer con el satélite al final de su vida útil.",
+    ],
+    producto: "Un póster o presentación de la misión con un esquema de las órbitas, los cálculos y las decisiones justificadas.",
+    evaluacion: ["Los cálculos de velocidad orbital, periodo y g son correctos y tienen unidades.", "La elección de órbitas está justificada con los requisitos de cada misión.", "Se explica correctamente qué es una órbita y la ingravidez.", "Se incluye una reflexión responsable sobre la basura espacial."],
+  },
+  familias: [
+    "Mirad la Luna varias noches seguidas y anotad su forma y la hora a la que sale.",
+    "Buscad en internet la hora de las pleamares de una playa y comprobad que se retrasan unos 50 minutos cada día.",
+    "Usad una web de seguimiento para ver cuándo pasa la Estación Espacial sobre vuestra ciudad y salid a verla.",
+    "Repasad juntos las tarjetas y calculad cuánto pesaríais en la Luna y en Marte.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La interacción»: ley de la gravitación universal, peso y aceleración de la gravedad, movimiento de planetas y satélites, y evolución histórica de los modelos del universo.`,
+    ideas: [
+      "Construir elipses con dos chinchetas y un cordel para comprobar la primera ley de Kepler.",
+      "Comprobar la tercera ley con una hoja de cálculo y los datos de los planetas (T²/r³).",
+      "Simulación «Gravedad y órbitas» de PhET para explorar cómo cambia la órbita con la velocidad.",
+      "Seguimiento en directo de la Estación Espacial y cálculo de su periodo con los datos públicos.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    { t: "Ley de gravitación universal, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Ley_de_gravitaci%C3%B3n_universal" },
+    { t: "Agencia Espacial Europea (ESA) en español", url: "https://www.esa.int/Space_in_Member_States/Spain" },
+  ],
+  revisado: "2026-11-13",
+};
