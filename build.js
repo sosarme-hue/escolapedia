@@ -56,7 +56,6 @@ ${extraHead}
     <a href="${r}familias/"${nav === "familias" ? ' class="on"' : ""}>${t.familias}</a>
     <a href="${r}profesores/"${nav === "profesores" ? ' class="on"' : ""}>${t.profesores}</a>
   </nav>
-  <div class="lang" aria-label="Idioma"><a href="${lang === "ca" ? esUrl : r}"${lang === "es" ? ' aria-current="page"' : ""} lang="es">ES</a><a href="${r}ca/"${lang === "ca" ? ' aria-current="page"' : ""} lang="ca">CA</a></div>
 </div></header>
 ${body}
 <footer class="foot"><div class="wrap">${SITE} · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso ${CURSO_ESCOLAR}. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.<br><small>Escolapedia es un refuerzo: no sustituye al profesorado ni a los centros. <a href="${r}quien-esta-detras/">Quién está detrás</a> · <a href="${r}aviso-legal/">Aviso legal</a> · <a href="${r}privacidad/">Privacidad</a></small></div></footer>
@@ -140,7 +139,6 @@ function home(lang) {
   return page({ title: ca ? "Escolapedia: totes les matèries d'Infantil a Batxillerat" : "Escolapedia: todas las materias de Infantil a Bachillerato", desc: "Todas las materias de Infantil, Primaria, ESO y Bachillerato explicadas fácil, con vídeos, dibujos y un método de estudio eficaz.", depth, body, lang, scripts: `<script src="${r}assets/indice.js"></script>` });
 }
 write("", home("es"));
-write("ca", home("ca"));
 
 // ---------- etapa ----------
 for (const e of ETAPAS) {
