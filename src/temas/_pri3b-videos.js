@@ -42,4 +42,13 @@ module.exports = {
   "x-Em4JGD8pQ": ["EL CICLO DEL AGUA para niños💧 | Aprende sobre la Naturaleza🌿", "Happy Learning Español", 435192], // cs-agua-rios
   "76dw3ZRFGNQ": ["El ciclo del agua | Camaleón", "CNTV Infantil", 6427929], // cs-agua-rios
   "5UjuCMxT_NY": ["La Eduteca - Los ríos", "La Eduteca", 406145], // cs-agua-rios
+  "oJykj5nHD2Y": ["¿QUÉ ES EL RELIEVE? | Videos Educativos para Niños", "Happy Learning Español", 403938], // cs-relieve
+  "n7saInzFOYs": ["El relieve y sus formas | Videos Educativos Para Niños", "GuerrerosPlanet", 1652523], // cs-relieve
+  "nOl9y1OeL9k": ["Los ACCIDENTES GEOGRÁFICOS para niños - El relieve - Montaña, cordillera, meseta, río, lago, isla", "Smile and Learn - Español", 488548], // cs-relieve
+  "65mS782mCLQ": ["La Eduteca - El tiempo atmosférico", "La Eduteca", 917866], // cs-tiempo-clima
+  "C21VJ75bvUY": ["VELETA y ANEMÓMETRO 🍃​⛵ Instrumentos meteorológicos para niños 🌀 Episodio 2", "Smile and Learn - Español", 92182], // cs-tiempo-clima
+  "8gII_aUzwn8": ["Instrumentos meteorológicos | Camaleón", "CNTV Infantil", 1194615], // cs-tiempo-clima
+  "jGmM_ZIG6vM": ["Mi localidad y el AYUNTAMIENTO ✔👩‍🏫 PRIMARIA", "La BiBlioTHeKa", 22285], // cs-municipio
+  "X-EN9DGe3DM": ["🏛 El AYUNTAMIENTO 🏛 - CÓMO se ORGANIZA el MUNICIPIO - Para NIÑOS de PRIMARIA - 2º EP - CC.SS 2.1", "Maestro EP Online", 26114], // cs-municipio
+  "cgCZwyvb1V0": ["LOS SERVICIOS PÚBLICOS | Videos Educativos para Niños", "Happy Learning Español", 64400], // cs-municipio
 };
