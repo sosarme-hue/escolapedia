@@ -1,0 +1,98 @@
+// Educación Plástica 4º de Primaria: la imagen fija, fotografía y cartel. Dibujos propios en SVG.
+const { tema, L, svg, tx, t, planos, AZ, RO, VE, NA, AM, MO } = require("./_pri4d");
+
+const M = "Educación Plástica";
+
+// Cámara de fotos sencilla.
+const camara = (x, y, c = AZ) => `<rect x="${x}" y="${y}" width="90" height="58" rx="10" fill="${c}" fill-opacity=".3" stroke="${c}" stroke-width="2.5"/><rect x="${x + 12}" y="${y - 10}" width="24" height="12" rx="3" fill="${c}"/><circle cx="${x + 45}" cy="${y + 29}" r="18" fill="var(--card)" stroke="${c}" stroke-width="3"/><circle cx="${x + 45}" cy="${y + 29}" r="8" fill="${c}" fill-opacity=".6"/><circle cx="${x + 76}" cy="${y + 12}" r="4" fill="${RO}"/>`;
+
+module.exports = tema({
+  materia: M,
+  titulo: "La imagen fija: fotografía y cartel",
+  objetivos: ["Distinguir la imagen fija de la imagen en movimiento", "Conocer los encuadres o planos de la fotografía", "Analizar las partes de un cartel: imagen, título, texto y datos", "Hacer una fotografía pensada y diseñar un cartel propio"],
+  claves: ["imagen fija", "fotografía", "encuadre", "plano general", "primer plano", "punto de vista", "cartel", "eslogan", "anuncio", "luz"],
+  pregunta: [
+    "Una foto de tu cumpleaños y el cartel de la fiesta del pueblo son imágenes que no se mueven. ¿En qué se parecen y en qué se diferencian?",
+    "Las dos son <mark>imágenes fijas</mark>: no se mueven, como ocurre en el cine o los vídeos. La <b>fotografía</b> guarda un momento real. El <b>cartel</b> combina imágenes y palabras para dar un <b>mensaje</b> rápido: anunciar una fiesta, vender algo o pedir que cuidemos el planeta.",
+  ],
+  bloques: [
+    ["Imágenes que no se mueven", `<p>Vivimos rodeados de imágenes. Algunas se mueven, como las películas, los dibujos animados o los vídeos: son <b>imágenes en movimiento</b>. Otras están quietas, como las fotografías, los carteles, los cuadros, los cómics o las ilustraciones de los libros: son <mark>imágenes fijas</mark>.</p><p>Las imágenes fijas nos cuentan cosas sin palabras o con muy pocas. Aprender a «leerlas» es importante: saber qué nos muestran, qué nos quieren decir y si nos quieren convencer de algo. A esto se le llama <b>educación visual</b>.</p>`,
+      L.filas("Imagen fija e imagen en movimiento", [["Imagen fija", "foto, cartel, cuadro, cómic", AZ], ["Imagen en movimiento", "cine, vídeo, dibujos animados", RO]], "¿Se mueve o no?")],
+    ["La fotografía", `<p>La <mark>fotografía</mark> es una imagen que se obtiene gracias a la <b>luz</b>. La cámara tiene un agujerito con una lente (el <b>objetivo</b>) por donde entra la luz, que queda grabada en un sensor (antes, en una película). Sin luz no hay foto.</p><p>La fotografía se inventó hace casi doscientos años. Las primeras fotos eran en blanco y negro y había que quedarse quieto varios minutos. Hoy, con un móvil, hacemos fotos en color en un instante. Pero hacer una <b>buena</b> foto sigue necesitando pensar.</p>`,
+      svg("Cámara de fotos con su objetivo", `${camara(85, 60)}${tx(130, 40, "la luz entra por el objetivo", { s: 11, c: AM })}<path d="M30 60 L 108 86" stroke="${AM}" stroke-width="3" stroke-dasharray="6 4"/>${tx(130, 150, "objetivo", { s: 11, c: AZ })}`)],
+    ["Los encuadres o planos", `<p>El <mark>encuadre</mark> es lo que decides que salga dentro de la foto. Según lo cerca o lejos que estés, hay distintos <b>planos</b>. El <b>plano general</b> muestra un paisaje o lugar con la persona pequeña. El <b>plano entero</b> muestra a la persona de pies a cabeza.</p><p>El <b>plano medio</b> la muestra de cintura para arriba. El <b>primer plano</b> enseña solo la cara, y el <b>plano detalle</b>, una parte muy pequeña (un ojo, una mano). Cuanto más cerca, más se ven las <b>emociones</b>.</p>`,
+      planos("Planos de más lejos a más cerca", [["general", 0.35, 6], ["entero", 0.9, 0], ["medio", 1.8, 28], ["primer", 3.4, 74]]), "pl6b"],
+    ["El punto de vista", `<p>El <mark>punto de vista</mark> es desde dónde hacemos la foto. Si la hacemos a la altura de los ojos, la imagen es <b>normal</b>. Si la hacemos desde <b>abajo</b> mirando hacia arriba (contrapicado), lo fotografiado parece grande, fuerte o importante.</p><p>Si la hacemos desde <b>arriba</b> mirando hacia abajo (picado), parece pequeño o indefenso. Prueba a fotografiar el mismo juguete desde abajo y desde arriba: ¡parecerán dos personajes distintos!</p>`,
+      svg("Puntos de vista: desde abajo parece grande y desde arriba parece pequeño", `<path d="M66 40 l -24 100 h 48 z" fill="${AZ}" fill-opacity=".35" stroke="${AZ}" stroke-width="2"/><circle cx="66" cy="36" r="12" fill="${AZ}"/><path d="M180 100 h 50 l -8 30 h -34 z" fill="${RO}" fill-opacity=".35" stroke="${RO}" stroke-width="2"/><circle cx="205" cy="92" r="16" fill="${RO}"/>${tx(66, 160, "desde abajo: grande", { s: 11, c: AZ })}${tx(205, 160, "desde arriba: pequeño", { s: 11, c: RO })}`)],
+    ["Consejos para hacer buenas fotos", `<p><b>1. La luz:</b> fotografía con luz natural y con el sol detrás de ti, no delante. <b>2. Sujeta bien:</b> con las dos manos y sin moverte para que no salga borrosa. <b>3. Acércate:</b> si lo importante sale muy pequeño, da unos pasos hacia delante.</p><p><b>4. La regla de los tercios:</b> imagina la imagen dividida en 9 cuadros, como un tres en raya, y coloca lo importante en uno de los cruces, no siempre en el centro. <b>5. Pide permiso:</b> antes de fotografiar a alguien, y nunca compartas fotos de otras personas sin su permiso.</p>`,
+      svg("Regla de los tercios con una flor en uno de los cruces", `<rect x="40" y="20" width="180" height="120" rx="6" fill="${AZ}" fill-opacity=".12" stroke="var(--ink)" stroke-opacity=".3"/><path d="M100 20 V 140 M160 20 V 140 M40 60 H 220 M40 100 H 220" stroke="${RO}" stroke-width="1.5" stroke-dasharray="4 4"/><path d="M160 140 V 66" stroke="${VE}" stroke-width="3"/>${[0, 1, 2, 3, 4].map((i) => { const a = i * 72 * Math.PI / 180; return `<circle cx="${(160 + 10 * Math.cos(a)).toFixed(1)}" cy="${(60 + 10 * Math.sin(a)).toFixed(1)}" r="7" fill="${AM}"/>`; }).join("")}<circle cx="160" cy="60" r="5" fill="${NA}"/>${tx(130, 162, "lo importante, en un cruce", { s: 11, c: "var(--muted)" })}`)],
+    ["El cartel", `<p>Un <mark>cartel</mark> es una imagen grande, con dibujos o fotos y algo de texto, que se cuelga en la calle, en el cole o en tiendas para <b>dar un mensaje</b>. Hay carteles que <b>anuncian</b> algo (un concierto, una feria), carteles que <b>venden</b> un producto (publicidad) y carteles que <b>enseñan</b> o aconsejan (lavarse las manos, reciclar).</p><p>Un buen cartel se entiende <b>en pocos segundos</b>, porque la gente lo ve mientras pasa. Por eso usa imágenes claras, colores llamativos y pocas palabras.</p>`,
+      L.filas("Tipos de cartel según su mensaje", [["anunciar", "un concierto, una feria", AZ], ["vender", "un producto (publicidad)", RO], ["enseñar", "recicla, lávate las manos", VE]], "¿Para qué sirve?")],
+    ["Las partes de un cartel", `<p>Un cartel suele tener cuatro partes. La <b>imagen</b>: un dibujo o foto grande que atrae la mirada. El <b>título</b> o <mark>eslogan</mark>: una frase corta y fácil de recordar, con letras grandes. El <b>texto</b>: poca información, solo la necesaria. Y los <b>datos</b>: el lugar, la fecha, la hora o quién lo organiza.</p><p>Todo debe estar ordenado: lo más importante, más grande y arriba o en el centro. Las letras deben leerse de lejos y el color de las letras debe <b>contrastar</b> con el fondo.</p>`,
+      svg("Cartel inventado de una feria del libro con sus partes señaladas", `<rect x="60" y="10" width="110" height="160" rx="4" fill="var(--card)" stroke="${MO}" stroke-width="2.5"/>${t(115, 34, "¡A LEER!", { s: 16, c: RO })}<rect x="80" y="46" width="70" height="56" rx="4" fill="${AZ}" fill-opacity=".35"/><path d="M90 92 l 25 -10 l 25 10 v -36 l -25 10 l -25 -10 z" fill="var(--paper)" stroke="${AZ}" stroke-width="2"/>${tx(115, 122, "Feria del libro", { s: 11 })}${tx(115, 150, "Plaza Mayor · 12:00", { s: 9.5, c: MO })}${[["eslogan", 30], ["imagen", 74], ["texto", 118], ["datos", 148]].map(([s, y]) => `<path d="M172 ${y} H 186" stroke="var(--muted)" stroke-width="1.5"/>${tx(190, y + 4, s, { s: 11, c: "var(--muted)", a: "start" })}`).join("")}`)],
+    ["Leer la publicidad", `<p>Muchos carteles y anuncios son <mark>publicidad</mark>: quieren que compremos algo. Para convencernos, usan trucos: personas sonrientes, colores alegres, frases como «el mejor» o «¡solo hoy!», o personajes famosos.</p><p>Es importante que aprendas a mirar la publicidad con <b>espíritu crítico</b>: ¿qué me quieren vender? ¿Me están contando toda la verdad? ¿Lo necesito de verdad? Por ejemplo, un anuncio de cereales puede mostrar a niños muy deportistas, aunque los cereales lleven mucho azúcar.</p>`,
+      L.filas("Preguntas para leer un anuncio", [["¿Qué venden?", "el producto o la idea", AZ], ["¿Cómo convencen?", "colores, famosos", NA], ["¿Es verdad?", "piensa antes de creerlo", RO], ["¿Lo necesito?", "decide tú", VE]], "Espíritu crítico")],
+    ["Taller: el cartel de mi clase", `<p>Por grupos, vais a diseñar un <b>cartel</b> para una campaña del cole, por ejemplo: «Cuidemos el patio», «Lee cada día» o «Ahorra agua». <b>1)</b> Pensad un <b>eslogan</b> corto y divertido. <b>2)</b> Haced un <b>boceto</b> pequeño para decidir dónde va cada parte.</p><p><b>3)</b> Dibujad la imagen principal bien grande o haced una foto pensando el encuadre. <b>4)</b> Escribid el eslogan con letras grandes y los datos abajo. <b>5)</b> Colgad los carteles y comprobad desde lejos si se entienden en cinco segundos.</p>`,
+      L.filas("Pasos para hacer un cartel", [["1", "Inventa un eslogan corto.", AZ], ["2", "Haz un boceto.", VE], ["3", "Imagen grande y clara.", NA], ["4", "Prueba: ¿se entiende en 5 segundos?", RO]], "Paso a paso")],
+  ],
+  ejemplos: [
+    ["Quiero que en una foto se vea lo contenta que está mi abuela. ¿Qué plano uso?", ["Las emociones se ven en la cara.", "El plano que muestra la cara es el primer plano."], "Un primer plano."],
+    ["¿Desde dónde fotografío a un dinosaurio de juguete para que parezca enorme?", ["Desde abajo las cosas parecen grandes.", "Me agacho y apunto hacia arriba."], "Desde abajo (contrapicado)."],
+    ["Corrige este eslogan para un cartel: «Es muy importante que todos los alumnos recordemos apagar las luces al salir».", ["Es demasiado largo para leerlo de pasada.", "Busca pocas palabras y fáciles de recordar."], "«¡Al salir, apaga la luz!»"],
+  ],
+  errores: [
+    "Hacer fotos a contraluz con el sol delante: la persona sale oscura.",
+    "Poner demasiado texto en un cartel: nadie lo lee de pasada.",
+    "Usar letras del mismo color que el fondo: no se distinguen.",
+    "Colocar siempre lo importante en el centro: la regla de los tercios da fotos más interesantes.",
+    "Compartir fotos de otras personas sin su permiso.",
+  ],
+  ejercicios: [
+    ["Escribe tres ejemplos de imágenes fijas.", "Fotografía, cartel y cuadro (también cómic o ilustración)."],
+    ["¿Qué hace falta para que exista una fotografía?", "Luz."],
+    ["¿Qué muestra el plano general?", "Un lugar o paisaje amplio con las personas pequeñas."],
+    ["¿Qué plano muestra solo la cara?", "El primer plano."],
+    ["¿Cómo parece algo fotografiado desde arriba?", "Pequeño o indefenso."],
+    ["Explica la regla de los tercios.", "Dividir la imagen en nueve partes y colocar lo importante en un cruce de las líneas."],
+    ["¿Para qué sirve un cartel?", "Para dar un mensaje rápido: anunciar, vender o enseñar."],
+    ["Escribe las cuatro partes de un cartel.", "Imagen, eslogan o título, texto y datos."],
+    ["¿Qué es un eslogan?", "Una frase corta y fácil de recordar."],
+    ["Inventa un eslogan para un cartel sobre reciclar.", "Respuesta libre: «¡Cada envase a su contenedor!»."],
+  ],
+  figura: ["Fotografía y cartel", L.columnas("La imagen fija", [["foto", "ENCUADRE", ["general, entero", "medio, primer"], AZ], ["foto", "PUNTO DE VISTA", ["desde abajo: grande", "desde arriba: pequeño"], VE], ["cartel", "PARTES", ["imagen, eslogan", "texto, datos"], RO], ["anuncios", "CRÍTICA", ["¿qué venden?", "¿es verdad?"], NA]])],
+  video: "pl6v",
+  quiz: [
+    ["Una fotografía es una imagen…", ["fija", "en movimiento", "sonora"], "No se mueve."],
+    ["Sin ___ no hay fotografía.", ["luz", "color", "papel"], "Luz."],
+    ["El plano que muestra a la persona de pies a cabeza es el…", ["plano entero", "primer plano", "plano detalle"], "Entero."],
+    ["Para mostrar emociones usamos el…", ["primer plano", "plano general", "plano entero"], "Cara."],
+    ["Fotografiado desde abajo, algo parece…", ["grande", "pequeño", "lejano"], "Contrapicado."],
+    ["La frase corta de un cartel es el…", ["eslogan", "encuadre", "objetivo"], "Eslogan."],
+    ["Un buen cartel se entiende…", ["en pocos segundos", "en diez minutos", "solo de cerca"], "Rápido."],
+    ["Las letras de un cartel deben…", ["contrastar con el fondo", "ser del mismo color", "ser pequeñas"], "Contraste."],
+    ["La publicidad quiere que…", ["compremos algo", "durmamos", "dibujemos"], "Vender."],
+    ["Antes de fotografiar a alguien hay que…", ["pedir permiso", "gritar", "apagar la luz"], "Respeto."],
+  ],
+  examen: [
+    ["Los datos de un cartel indican…", ["lugar, fecha y hora", "el color favorito", "el precio del papel"], "Información."],
+    ["Una película es una imagen…", ["en movimiento", "fija", "táctil"], "Se mueve."],
+    ["Un plano general muestra…", ["un lugar amplio", "solo un ojo", "solo la cara"], "General."],
+    ["La lente de la cámara se llama…", ["objetivo", "flash", "pantalla"], "Objetivo."],
+  ],
+  feynman: ["Qué es una imagen fija y ejemplos", "Qué son los planos y el punto de vista en fotografía", "Qué partes tiene un cartel y cómo debe ser", "Cómo leer la publicidad con espíritu crítico"],
+  mapa: ["IMAGEN FIJA", MO, [["Fotografía", "luz · objetivo", AZ], ["Planos", "general · entero · medio · primer", VE], ["Cartel", "imagen · eslogan · datos", RO], ["Publicidad", "¿qué venden? ¿es verdad?", NA]], 240],
+  tarjetas: [
+    ["Imagen fija", "No se mueve: foto, cartel, cuadro."],
+    ["Encuadre", "Lo que decides que salga en la foto."],
+    ["Plano general", "Lugar amplio, persona pequeña."],
+    ["Primer plano", "Solo la cara: emociones."],
+    ["Contrapicado", "Desde abajo: parece grande."],
+    ["Regla de los tercios", "Lo importante, en un cruce."],
+    ["Eslogan", "Frase corta del cartel."],
+    ["Publicidad", "Quiere que compremos algo."],
+  ],
+  familias: ["Con el móvil, haced fotos del mismo objeto en plano general, primer plano y desde abajo, y comparadlas.", "Comentad juntos un anuncio de la calle: qué vende, cómo convence y si es verdad."],
+  saberes: "La imagen fija: fotografía (encuadres, puntos de vista, luz) y cartel (elementos y finalidad); lectura crítica de la publicidad; uso responsable de la imagen (Educación Plástica y Visual)",
+  ideas: ["Paseo fotográfico por el cole con retos de encuadre.", "Carteles de una campaña escolar por grupos y prueba de los cinco segundos.", "Análisis en grupo de anuncios de revistas."],
+  fuentes: [["Diccionario de la RAE: fotografía", "https://dle.rae.es/fotograf%C3%ADa"], ["INCIBE IS4K: Internet segura para menores", "https://www.is4k.es/"]],
+});

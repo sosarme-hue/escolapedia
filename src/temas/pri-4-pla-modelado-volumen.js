@@ -35,7 +35,7 @@ module.exports = tema({
   ],
   ejemplos: [
     ["¿Qué técnica uso para hacer las patas de un perro?", ["Las patas son alargadas y redondeadas.", "Se hacen rodando el material: churros."], "La técnica del churro."],
-    ["Quiero pegar las orejas de un gato de arcilla. ¿Cómo lo hago?", ["Rayo la cabeza y la oreja.", "Pongo barbotina y aprieto.", "Alisé la unión con el dedo."], "Rayar, barbotina, apretar y alisar."],
+    ["Quiero pegar las orejas de un gato de arcilla. ¿Cómo lo hago?", ["Rayo la cabeza y la oreja.", "Pongo barbotina y aprieto.", "Aliso la unión con el dedo."], "Rayar, barbotina, apretar y alisar."],
     ["¿Es un relieve o bulto redondo una estatua en el centro de una plaza?", ["Puedo rodearla y verla por todos lados.", "No está pegada a ningún fondo."], "Bulto redondo."],
   ],
   errores: [
