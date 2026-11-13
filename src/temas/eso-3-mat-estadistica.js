@@ -200,7 +200,7 @@ module.exports = {
       ["Posición y dispersión", "cuartiles · rango · varianza · σ · CV = σ/x̄", "var(--inf)"],
     ], 220),
   },
-  video: { id: "xq6tBKbg3HQ", titulo: "Tabla de FRECUENCIAS 📊 Estadística", canal: "Susi Profe", vistas: 2205965, megusta: 0 },
+  video: { id: "rU9C3Fs16hc", titulo: "Aprende estadística en 3 minutos | Tabla de frecuencias", canal: "Academia Internet", vistas: 1288795, megusta: 0 },
   mapa: mapa("ESTADÍSTICA", "var(--leaf)", [
     ["Recoger", "muestra · variables", "var(--pen)"],
     ["Organizar", "tablas · gráficos", "var(--leaf)"],
