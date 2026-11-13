@@ -1,21 +1,5 @@
 // Nivel libro: La música española (Música 4º ESO).
-const { filas, cadena, rejilla, linea, tabla, marco } = require("./_eso4L12");
-
-// Compás de 12 tiempos de la soleá: reloj con los acentos en 3, 6, 8, 10 y 12.
-const reloj = (() => {
-  const ac = [3, 6, 8, 10, 12];
-  const pts = Array.from({ length: 12 }, (_, k) => {
-    const n = k + 1, a = ((n * 30 - 90) * Math.PI) / 180;
-    const x = (130 + 62 * Math.cos(a)).toFixed(1), y = (88 + 62 * Math.sin(a)).toFixed(1);
-    const f = ac.includes(n);
-    return `<circle cx="${x}" cy="${y}" r="${f ? 13 : 9}" fill="${f ? "var(--red)" : "var(--card)"}" stroke="${f ? "var(--red)" : "var(--line)"}" stroke-width="2"/><text x="${x}" y="${(+y + 4).toFixed(1)}" text-anchor="middle" font-size="${f ? 12 : 10}" font-weight="700" fill="${f ? "#fff" : "var(--ink)"}">${n}</text>`;
-  }).join("");
-  return marco("Compás de 12 tiempos de la soleá con acentos en 3, 6, 8, 10 y 12", `
-    <circle cx="130" cy="88" r="62" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 4"/>${pts}
-    <text x="130" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">soleá</text>
-    <text x="130" y="100" text-anchor="middle" font-size="10.5" fill="var(--muted)">12 tiempos</text>
-    <text x="130" y="174" text-anchor="middle" font-size="11" fill="var(--red)" font-weight="700">en rojo, los acentos</text>`);
-})();
+const { filas, rejilla, linea } = require("./_eso4L12");
 
 module.exports = {
   minutos: 100,
@@ -29,6 +13,7 @@ module.exports = {
   },
   partes: ["La zarzuela", "El flamenco", "Tradición y música actual"],
   mas: {
+    "Los palos del flamenco": `<p>Existen también los <b>cantes de ida y vuelta</b>, como las guajiras, las colombianas o la milonga: estilos que viajaron de Andalucía a América, se mezclaron allí con ritmos latinoamericanos y volvieron transformados.</p>`,
     "De la Edad Media al Barroco": `<p>La Península fue en la Edad Media un cruce de culturas. Además de las <b>Cantigas</b>, se conservan el <b>Códice Calixtino</b>, con música para los peregrinos de Santiago, y el <b>Llibre Vermell</b> de Montserrat (siglo XIV), con canciones y danzas de peregrinos. En Al-Ándalus floreció la música andalusí, con instrumentos como el laúd, que llegó a Europa a través de la Península. En Elche se representa todavía el <b>Misteri d'Elx</b>, un drama cantado medieval que es Patrimonio de la Humanidad.</p>`,
     "La zarzuela": `<p>Se distinguen dos tipos. El <b>género grande</b> tiene tres actos y argumentos más serios, como <i>El barberillo de Lavapiés</i> de Barbieri. El <b>género chico</b>, en un acto y de tono cómico, triunfó en los teatros de Madrid a finales del siglo XIX, con títulos como <i>La Gran Vía</i> de Chueca. En el siglo XX destacaron Pablo Sorozábal (<i>La tabernera del puerto</i>) y Federico Moreno Torroba (<i>Luisa Fernanda</i>). El nombre viene del palacio de la Zarzuela, un pabellón de caza cerca de Madrid donde en el siglo XVII se representaban estas obras para la corte.</p>`,
     "El nacionalismo musical": `<p>El padre del nacionalismo español fue <b>Felipe Pedrell</b>, que estudió el folclore y la música antigua española y fue maestro de Albéniz, Granados y Falla. <i>Iberia</i>, de Albéniz, es una colección de doce piezas para piano que retratan lugares de España. Falla vivió en París, donde conoció a Debussy y Ravel, y mezcló su lenguaje moderno con el cante jondo. Joaquín Rodrigo, ciego desde los tres años, compuso en 1939 el <i>Concierto de Aranjuez</i> para guitarra y orquesta, una de las obras españolas más interpretadas del mundo.</p>`,
@@ -41,7 +26,7 @@ module.exports = {
   },
   svgs: {
     "Compositores españoles por épocas": filas("Un compositor español de cada época", [["Edad Media", "Alfonso X: Cantigas", "var(--muted)"], ["Renacimiento", "Tomás Luis de Victoria", "var(--pen)"], ["Barroco", "Domenico Scarlatti", "var(--hl-ink)"], ["Romanticismo", "Barbieri y Chapí", "var(--red)"], ["Nacionalismo", "Albéniz, Granados, Falla", "var(--leaf)"]]),
-    "Los palos del flamenco": reloj,
+    "Los palos del flamenco": rejilla("Familias de palos del flamenco por su carácter", [["Jondos", "soleá, seguiriya, toná", "var(--ink)"], ["Festivos", "alegrías, bulerías", "var(--red)"], ["Fandangos", "malagueñas, granaínas", "var(--pen)"], ["Ida y vuelta", "guajiras, colombianas", "var(--leaf)"]]),
     "Los instrumentos de la tradición": rejilla("Instrumentos tradicionales de España", [["Gaita", "Galicia y Asturias", "var(--pen)"], ["Txalaparta", "País Vasco", "var(--red)"], ["Tenora", "cobla catalana", "var(--hl-ink)"], ["Timple", "Canarias", "var(--leaf)"], ["Dulzaina", "Castilla y Valencia", "var(--sun)"], ["Castañuelas", "todo el país", "var(--ink)"]]),
   },
   nuevos: [

@@ -18,6 +18,9 @@ module.exports = {
     "Tipos de plano y ángulo": `<p>Hay más ángulos expresivos: el <b>cenital</b> (desde justo encima, muy usado en fotos de comida) y el <b>nadir</b> (desde justo debajo), y el <b>plano holandés</b> o aberrante, con la cámara inclinada, que transmite inquietud o desequilibrio. Los mismos nombres de planos se usan en el cine y el cómic, así que lo que aprendas aquí te servirá en los temas de lenguaje audiovisual.</p>`,
     "Fotografía, ética y derechos": `<p>En España, el <b>derecho a la propia imagen</b> está protegido por la ley: para publicar la foto de una persona reconocible se necesita su consentimiento, y en el caso de menores de 14 años, el de sus padres o tutores. Además, quien hace una foto es su <b>autor</b> y tiene derechos sobre ella, aunque esté colgada en internet: para usarla hay que pedir permiso o elegir imágenes con licencias libres, como <i>Creative Commons</i>, citando siempre al autor.</p>`,
   },
+  videos: {
+    "Tipos de plano y ángulo": { id: "kzEb2Ny-kjc", titulo: "Conoce los planos y ángulos de cámara", canal: "DOMÉNICAM", vistas: 128914 },
+  },
   svgs: {
     "Una breve historia de la fotografía": linea("Hitos de la historia de la fotografía", [["1826", "Niépce: primera foto (horas)", "var(--hl-ink)"], ["1839", "Daguerrotipo: imagen única", "var(--red)"], ["1888", "Kodak: foto para todos", "var(--sun)"], ["1935", "película en color", "var(--leaf)"], ["2000", "digital y móviles", "var(--pen)"]]),
     "Los modos de la cámara": tabla("Modos de la cámara y qué controla cada uno", ["Modo", "Tú eliges", "La cámara"], [["Auto", "nada", "todo"], ["A / Av", "diafragma", "velocidad"], ["S / Tv", "velocidad", "diafragma"], ["M", "todo", "nada"]]),

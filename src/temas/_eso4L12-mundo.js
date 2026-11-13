@@ -1,26 +1,7 @@
 // Nivel libro: La música en el mundo (Música 4º ESO).
 const { filas, cadena, vs, rejilla, linea, tabla, marco } = require("./_eso4L12");
 
-// Polirritmia 3 contra 2 en 6 pulsos.
-const poli = marco("Polirritmia 3 contra 2: dos grupos dan palmas a la vez en 6 pulsos", `
-  <g font-size="12" font-weight="700"><text x="12" y="52" fill="var(--pen)">grupo A</text><text x="12" y="112" fill="var(--red)">grupo B</text></g>
-  ${[1, 2, 3, 4, 5, 6].map((n, i) => {
-    const x = 78 + i * 30, a = [1, 3, 5].includes(n), b = [1, 4].includes(n);
-    return `<text x="${x}" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="var(--muted)">${n}</text>
-    <circle cx="${x}" cy="48" r="11" fill="${a ? "var(--pen)" : "var(--card)"}" stroke="var(--line)" stroke-width="2"/>
-    <circle cx="${x}" cy="108" r="11" fill="${b ? "var(--red)" : "var(--card)"}" stroke="var(--line)" stroke-width="2"/>`;
-  }).join("")}
-  <text x="130" y="80" text-anchor="middle" font-size="11" fill="var(--pen)">3 golpes: 1, 3, 5</text>
-  <text x="130" y="140" text-anchor="middle" font-size="11" fill="var(--red)">2 golpes: 1 y 4</text>
-  <text x="130" y="166" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)">coinciden solo en el 1</text>`);
 
-// Teclado de una octava con las teclas negras (pentatónica) resaltadas.
-const penta = marco("Las cinco teclas negras del piano forman una escala pentatónica", `
-  ${[0, 1, 2, 3, 4, 5, 6].map((i) => `<rect x="${32 + i * 28}" y="30" width="28" height="110" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/>`).join("")}
-  ${[0, 1, 3, 4, 5].map((i) => `<rect x="${51 + i * 28}" y="30" width="18" height="66" rx="2" fill="var(--red)" stroke="var(--ink)"/>`).join("")}
-  ${["do", "re", "mi", "fa", "sol", "la", "si"].map((n, i) => `<text x="${46 + i * 28}" y="132" text-anchor="middle" font-size="10.5" fill="var(--muted)">${n}</text>`).join("")}
-  <text x="130" y="20" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--red)">5 teclas negras = pentatónica</text>
-  <text x="130" y="164" text-anchor="middle" font-size="11" fill="var(--ink)">sin semitonos: todo combina</text>`);
 
 module.exports = {
   minutos: 100,
@@ -48,8 +29,8 @@ module.exports = {
   },
   svgs: {
     "Instrumentos del mundo": tabla("Instrumentos del mundo según lo que vibra", ["Instrumento", "Lugar", "Tipo"], [["Kora", "Malí", "cordófono"], ["Sitar", "India", "cordófono"], ["Djembé", "Guinea", "membranófono"], ["Gamelán", "Indonesia", "idiófono"], ["Didgeridoo", "Australia", "aerófono"]]),
-    "La polirritmia africana": poli,
-    "La escala pentatónica": penta,
+    "La polirritmia africana": vs("Llamada y respuesta: solista y grupo", ["Llamada", ["canta el solista", "frase que cambia", "improvisa"], "var(--pen)"], ["Respuesta", ["contesta el grupo", "frase fija", "todos participan"], "var(--red)"]),
+    "La escala pentatónica": rejilla("Dónde suena la escala pentatónica", [["China y Japón", "música tradicional", "var(--red)"], ["África", "cantos y kora", "var(--hl-ink)"], ["Andes", "quena y sikus", "var(--leaf)"], ["Blues y rock", "solos de guitarra", "var(--pen)"], ["Celta", "gaita y violín", "var(--sun)"], ["Infantil", "canciones de juego", "var(--ink)"]]),
   },
   nuevos: [
     {
@@ -70,7 +51,7 @@ module.exports = {
     {
       tras: "América y Oceanía",
       html: `<h3>Música latinoamericana: el gran mestizaje</h3><p>América Latina es el mejor ejemplo de cómo se mezclan las músicas. A las tradiciones de los pueblos indígenas se sumaron la música española y portuguesa (la guitarra, las coplas, las danzas) y la de los millones de africanos esclavizados (los tambores, la polirritmia, el canto de llamada y respuesta), traídos a la fuerza durante más de tres siglos. De esa mezcla nacieron estilos que hoy se bailan en todo el mundo.</p><p>En Cuba, el <b>son</b> unió la guitarra española y los tambores africanos, y de él derivaron el mambo, el chachachá y, en Nueva York, la <b>salsa</b>. Su base rítmica es la <b>clave</b>, un patrón de cinco golpes que organiza toda la música. En Argentina y Uruguay nació el <b>tango</b>, con el bandoneón como instrumento característico. En Brasil, la <b>bossa nova</b> combinó samba y jazz, y en Colombia la <b>cumbia</b> se extendió por todo el continente. En México, el <b>mariachi</b>, con violines, trompetas y guitarras, es Patrimonio de la Humanidad. Muchos de estos estilos volvieron después a España y a África, cerrando un viaje de ida y vuelta.</p>`,
-      svg: filas("Estilos latinoamericanos y su instrumento característico", [["Son y salsa", "Cuba: clave y congas", "var(--red)"], ["Tango", "Río de la Plata: bandoneón", "var(--pen)"], ["Samba y bossa", "Brasil: percusión y guitarra", "var(--leaf)"], ["Mariachi", "México: trompetas y violines", "var(--hl-ink)"]]),
+      svg: cadena("Las tres raíces de la música latinoamericana", [["Indígena", "flautas y cantos rituales", "var(--leaf)"], ["Europea", "guitarra, coplas, danzas", "var(--pen)"], ["Africana", "tambores y polirritmia", "var(--red)"], ["Mestizaje", "son, tango, samba, cumbia", "var(--sun)"]]),
     },
     {
       tras: "Fusión y música global",

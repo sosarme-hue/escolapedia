@@ -20,6 +20,9 @@ module.exports = {
     "Guion y storyboard": `<p>El storyboard no tiene que estar bien dibujado: bastan figuras esquemáticas, flechas para indicar movimientos y anotaciones sobre el sonido y la duración. Lo importante es que todo el equipo entienda qué plano hay que grabar. En animación y en publicidad se suele hacer además un <b>animatic</b>: las viñetas del storyboard montadas en vídeo con una pista de sonido provisional, para comprobar el ritmo antes de producir.</p>`,
     "El montaje y el sonido": `<p>El sonido de una película tiene cuatro componentes: los <b>diálogos</b>, los <b>efectos</b> (pasos, puertas, coches), el <b>ambiente</b> (el rumor de una ciudad, el viento) y la <b>música</b>. Todos se graban y se mezclan por separado. El <b>silencio</b> también es un recurso: un corte brusco del sonido puede ser más impactante que una explosión.</p>`,
   },
+  videos: {
+    "Movimientos de cámara": { id: "8h-z5_ErGLE", titulo: "Movimientos de cámara: curso de iniciación al cine y vídeo", canal: "Jorge de Libra", vistas: 251284 },
+  },
   svgs: {
     "Breve historia del cine": linea("Hitos de la historia del cine", [["1895", "Lumière: primera proyección", "var(--hl-ink)"], ["1902", "Méliès: Viaje a la Luna", "var(--red)"], ["1927", "llega el cine sonoro", "var(--sun)"], ["1929", "Buñuel y Dalí: Un perro andaluz", "var(--leaf)"], ["hoy", "plataformas y vídeo corto", "var(--pen)"]]),
     "Escalas de plano y ángulos": marco("Escalas de plano de una persona: general, medio, primer plano y detalle", `
@@ -35,7 +38,7 @@ module.exports = {
         <g font-family="Courier New, monospace" font-size="11"><text x="44" y="36" font-weight="700" fill="var(--ink)">INT. COCINA – NOCHE</text>
         <text x="44" y="60" fill="var(--ink)">Lucía abre la nevera.</text><text x="44" y="76" fill="var(--ink)">Está vacía.</text>
         <text x="130" y="104" text-anchor="middle" font-weight="700" fill="var(--pen)">LUCÍA</text><text x="130" y="122" text-anchor="middle" fill="var(--ink)">Otra vez no…</text></g>
-        <g font-size="10" font-weight="700" fill="var(--red)"><text x="234" y="36" text-anchor="end">encabezado</text></g>
+        <g font-size="10" font-weight="700" fill="var(--red)"><text x="222" y="50" text-anchor="end">↑ encabezado</text></g>
         <text x="130" y="154" text-anchor="middle" font-size="10.5" fill="var(--muted)">1 página ≈ 1 minuto</text>`),
     "Recursos del montaje": rejilla("Recursos de montaje: corte, fundido, encadenado, plano-contraplano, paralelo y flashback", [["Corte", "paso directo", "var(--ink)"], ["Fundido", "final o salto", "var(--muted)"], ["Encadenado", "mezcla dos planos", "var(--pen)"], ["Plano-contraplano", "diálogos", "var(--leaf)"], ["Paralelo", "dos acciones", "var(--red)"], ["Flashback", "salto al pasado", "var(--sun)"]]),
     "Del corto a las redes": vs("Cine frente a vídeo corto en redes", ["Cine", ["horizontal ancho", "ritmo pausado", "sala, sonido", "historia larga"], "var(--hl-ink)"], ["Redes", ["vertical 9:16", "gancho en 3 s", "subtítulos", "segundos o minutos"], "var(--red)"]),

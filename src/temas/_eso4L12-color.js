@@ -21,6 +21,9 @@ module.exports = {
     "El color en la historia del arte": `<p>Velázquez, en cambio, trabajaba con una paleta muy reducida de tierras, blancos y negros, y conseguía con ella una sensación de aire y de luz asombrosa. Demuestra que no hacen falta muchos colores, sino saber relacionarlos.</p>`,
     "El color expresa": `<p>Las asociaciones del color también se aprenden: el verde se relaciona con la ecología porque lo han usado durante años las campañas medioambientales, y el rosa no fue «de niña» hasta mediados del siglo XX. Conocer estos códigos permite usarlos, pero también cuestionarlos.</p>`,
   },
+  videos: {
+    "Las cualidades del color": { id: "nntrcOTE5Bw", titulo: "Color: tono, valor, saturación", canal: "César Córdova", vistas: 355367 },
+  },
   svgs: {
     "Síntesis aditiva y sustractiva": vs("Síntesis aditiva y sustractiva comparadas", ["Aditiva", ["luces que se suman", "R + G + B", "= blanco", "pantallas, focos"], "var(--pen)"], ["Sustractiva", ["pigmentos que restan", "C + M + Y", "= casi negro", "pintura, imprenta"], "var(--red)"]),
     "Primarios, secundarios y terciarios": marco("Mezclas de pigmento: cian y amarillo dan verde, magenta y amarillo dan rojo, cian y magenta dan azul", `

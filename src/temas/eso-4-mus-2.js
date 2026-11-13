@@ -460,4 +460,4 @@ ampliar(T("Profesiones de la música"), {
     ["Derechos conexos", "De intérpretes y productores de grabaciones."],
   ],
 });
-require("./_eso4L12").aplica(module.exports, ["mundo", "tecnologia", "interpretacion"]);
+require("./_eso4L12").aplica(module.exports, ["mundo", "tecnologia", "interpretacion", "profesiones"]);

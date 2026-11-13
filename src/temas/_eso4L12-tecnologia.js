@@ -1,18 +1,6 @@
 // Nivel libro: Tecnología musical (Música 4º ESO).
 const { filas, cadena, vs, rejilla, barras, tabla, marco } = require("./_eso4L12");
 
-// Onda continua y sus muestras.
-const muestras = (() => {
-  const xs = Array.from({ length: 17 }, (_, i) => 20 + i * 14);
-  const y = (x) => 80 - 48 * Math.sin(((x - 20) / 224) * 2 * Math.PI);
-  const curva = Array.from({ length: 113 }, (_, i) => { const x = 20 + i * 2; return `${i ? "L" : "M"}${x} ${y(x).toFixed(1)}`; }).join(" ");
-  return marco("Muestreo: el ordenador mide la onda a intervalos regulares", `
-    <path d="M14 80 H 250" stroke="var(--line)" stroke-width="1.5"/>
-    <path d="${curva}" fill="none" stroke="var(--pen)" stroke-width="2.5"/>
-    ${xs.map((x) => `<path d="M${x} 80 V ${y(x).toFixed(1)}" stroke="var(--red)" stroke-width="2"/><circle cx="${x}" cy="${y(x).toFixed(1)}" r="3.5" fill="var(--red)"/>`).join("")}
-    <g font-size="11" font-weight="700"><text x="130" y="152" text-anchor="middle" fill="var(--pen)">onda real (continua)</text><text x="130" y="170" text-anchor="middle" fill="var(--red)">muestras: números guardados</text></g>`);
-})();
-
 // Envolvente ADSR.
 const adsr = marco("Envolvente ADSR: ataque, decaimiento, sostenimiento y relajación", `
   <path d="M14 140 H 250" stroke="var(--line)" stroke-width="1.5"/>
@@ -46,7 +34,7 @@ module.exports = {
     "El estudio de grabación": { id: "qFos6QuiYe8", titulo: "Home studio para principiantes", canal: "Bada Sessions", vistas: 535091 },
   },
   svgs: {
-    "Muestreo y calidad de audio": muestras,
+    "Muestreo y calidad de audio": tabla("Calidad de audio: CD y estudio", ["Dato", "CD", "Estudio"], [["Muestreo", "44,1 kHz", "48 kHz"], ["Bits", "16", "24"], ["Niveles", "65.536", "16,7 mill."], ["1 min estéreo", "≈ 10 MB", "≈ 17 MB"]]),
     "Tipos de micrófonos": vs("Micrófono dinámico y de condensador", ["Dinámico", ["resistente", "para directo y voces fuertes", "no necesita phantom"], "var(--pen)"], ["Condensador", ["muy sensible y detallado", "para estudio", "necesita phantom 48 V"], "var(--red)"]),
     "Qué es MIDI y qué no es": vs("Audio y MIDI: qué guarda cada uno", ["Audio", ["guarda el sonido grabado", "ocupa megas", "difícil cambiar notas"], "var(--pen)"], ["MIDI", ["guarda instrucciones", "ocupa kilobytes", "se cambia nota e instrumento"], "var(--leaf)"]),
   },
@@ -54,7 +42,7 @@ module.exports = {
     {
       tras: "Del sonido al archivo digital",
       html: `<h3>Las cualidades del sonido y cómo se miden</h3><p>Toda la tecnología musical trabaja con las cuatro <b>cualidades del sonido</b>. La <b>altura</b> depende de la <b>frecuencia</b>, el número de vibraciones por segundo, que se mide en hercios (Hz): cuanto más rápida la vibración, más agudo el sonido. El ser humano oye aproximadamente entre 20 Hz y 20.000 Hz, y con la edad perdemos los agudos. El la de afinar vibra a 440 Hz.</p><p>La <b>intensidad</b> depende de la amplitud de la onda y se mide en <b>decibelios</b> (dB). La escala de decibelios es logarítmica: cada 10 dB más, el sonido es diez veces más intenso, y nuestro oído lo percibe aproximadamente el doble de fuerte. La <b>duración</b> se mide en segundos y el <b>timbre</b>, lo que diferencia un violín de una flauta tocando la misma nota, depende de los <b>armónicos</b>, frecuencias más agudas que acompañan a la nota principal. Los programas de audio muestran todo esto: la forma de onda indica la intensidad en el tiempo y el analizador de espectro, las frecuencias.</p>`,
-      svg: barras("Nivel de algunos sonidos en decibelios", [["Susurro", 30, "var(--leaf)"], ["Conversación", 60, "var(--leaf)"], ["Tráfico", 85, "var(--sun)"], ["Concierto", 110, "var(--red)"], ["Avión", 130, "var(--red)"]], " dB", "Desde 85 dB, riesgo con exposición larga"),
+      svg: rejilla("Las cuatro cualidades del sonido y su medida", [["Altura", "frecuencia, en Hz", "var(--pen)"], ["Intensidad", "amplitud, en dB", "var(--red)"], ["Duración", "tiempo, en segundos", "var(--leaf)"], ["Timbre", "armónicos", "var(--hl-ink)"]]),
     },
     {
       tras: "Muestreo y calidad de audio",
