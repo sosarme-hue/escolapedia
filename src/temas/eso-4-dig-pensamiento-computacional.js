@@ -175,3 +175,160 @@ AMP.amplia(module.exports, {
     ["Búsqueda binaria", "Busca en una lista ordenada descartando la mitad en cada paso."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 110,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "La receta que una máquina sí entiende",
+    html: `<p>Pide a un compañero que te dé instrucciones para hacer un bocadillo y síguelas al pie de la letra, como haría un robot. «Pon el jamón en el pan»: dejas el paquete cerrado encima de la barra. «Corta el pan»: lo partes en cuatro trozos. En pocos minutos descubrirás algo que todos los programadores aprenden pronto: un ordenador no entiende lo que <i>quieres decir</i>, solo lo que <i>dices</i>, paso a paso y sin ambigüedades.</p>
+      <p>Esa es la esencia del <b>pensamiento computacional</b>: descomponer un problema, encontrar patrones, quedarse con lo importante y escribir un algoritmo tan preciso que lo pueda ejecutar una máquina. Con él se programan desde los semáforos de tu ciudad hasta el algoritmo que te recomienda vídeos. En este tema aprenderás a diseñar algoritmos, a trabajar con variables, listas y bucles en Scratch y en Python, a organizar el código en funciones y a medir si un algoritmo es más eficiente que otro. Programar no es memorizar órdenes: es aprender a pensar con orden.</p>`,
+  },
+  svgs: {
+    "Variables y tipos de datos": L.rejilla("Tipos de datos en Python con ejemplos", ["Tipo", "Nombre", "Ejemplo"], [["Entero", "int", "42"], ["Decimal", "float", "3.14"], ["Texto", "str", "\"hola\""], ["Booleano", "bool", "True"], ["Lista", "list", "[1, 2, 3]"]], { t: "Tipos de datos" }),
+    "Programar con Scratch": L.flujo("Programa de Scratch: al pulsar la bandera, por siempre mover y rebotar", ["al hacer clic en la bandera", "ir a x: 0  y: 0", "por siempre", "mover 10 pasos", "si toca un borde, rebotar"], { t: "Un sprite que rebota" }),
+    "Primeros pasos en Python": L.cajas("Órdenes básicas de Python", [["print()", "muestra|en pantalla"], ["input()", "pide un dato|(texto)"], ["int()", "convierte|a número"], ["if / else", "decide según|una condición"]], { t: "Python básico" }),
+    "Funciones y modularidad": L.flujo("Una función recibe parámetros, los procesa y devuelve un resultado", ["parámetros: base, altura", "def area(base, altura):", "resultado = base * altura / 2", "return resultado"], { t: "Una función por dentro" }),
+    "Buscar y ordenar": L.comparar("Búsqueda lineal frente a búsqueda binaria", ["Lineal", ["uno por uno", "lista cualquiera", "1.000 → hasta 1.000", "pasos"]], ["Binaria", ["parte por la mitad", "lista ordenada", "1.000 → unos 10", "pasos"]]),
+  },
+  tras: {
+    "Variables y tipos de datos": [
+      {
+        html: `<h3>Operadores y expresiones</h3><p>Una <b>expresión</b> combina datos, variables y <b>operadores</b> para obtener un valor. Los operadores <b>aritméticos</b> de Python son <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> (división con decimales), <code>//</code> (división entera), <code>%</code> (resto o módulo) y <code>**</code> (potencia). El resto es muy útil: <code>n % 2 == 0</code> indica si un número es par. Como en matemáticas, primero se hacen las potencias, luego multiplicaciones y divisiones y al final sumas y restas; los paréntesis cambian el orden.</p>
+          <p>Los operadores de <b>comparación</b> (<code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>) dan como resultado un <mark>booleano</mark>: <code>True</code> o <code>False</code>. Los operadores <b>lógicos</b> combinan condiciones: <code>and</code> exige que se cumplan las dos (edad &gt;= 12 and edad &lt;= 16), <code>or</code> basta con una y <code>not</code> invierte el resultado. Son las mismas puertas lógicas AND, OR y NOT de la electrónica digital. Un error muy frecuente es confundir <code>=</code>, que <b>asigna</b> un valor a una variable, con <code>==</code>, que <b>compara</b> dos valores. Otro es sumar texto y números: <code>"5" + 3</code> da error, porque primero hay que convertir con <code>int("5")</code>.</p>`,
+        svg: L.rejilla("Operadores de Python con ejemplos y resultados", ["Operador", "Ejemplo", "Da"], [["//", "17 // 5", "3"], ["%", "17 % 5", "2"], ["**", "2 ** 5", "32"], ["==", "3 == 4", "False"], ["and", "True and False", "False"]], { t: "Operadores" }),
+      },
+      {
+        html: `<h3>Listas y cadenas de texto</h3><p>Cuando hay muchos datos del mismo tipo no se crea una variable para cada uno, sino una <b>lista</b>: <code>notas = [7, 5, 9, 4]</code>. Cada elemento tiene una posición o <b>índice</b>, que en Python <mark>empieza en 0</mark>: <code>notas[0]</code> es 7 y <code>notas[3]</code> es 4. Con <code>len(notas)</code> se sabe cuántos elementos tiene, con <code>notas.append(8)</code> se añade uno al final y con <code>notas.remove(5)</code> se quita. Las listas se recorren con un bucle: <code>for n in notas:</code> repite las instrucciones una vez por cada elemento.</p>
+          <p>Las <b>cadenas</b> de texto funcionan de forma parecida: <code>nombre = "Python"</code> tiene 6 caracteres y <code>nombre[0]</code> es la «P». Se pueden <b>trocear</b> (<code>nombre[0:3]</code> da "Pyt"), pasar a mayúsculas con <code>.upper()</code> o unir con <code>+</code>. Las funciones <code>sum()</code>, <code>max()</code> y <code>min()</code> trabajan directamente con listas de números, y <code>sorted()</code> devuelve la lista ordenada. Las listas son la base de casi todos los programas reales: la lista de canciones de una aplicación, los mensajes de un chat o los puntos de un mapa.</p>`,
+        svg: L.rejilla("Lista de notas con sus índices empezando en cero", ["Índice", "0", "1", "2", "3"], [["Valor", "7", "5", "9", "4"], ["Acceso", "notas[0]", "notas[1]", "notas[2]", "notas[3]"]], { t: "notas = [7, 5, 9, 4]" }),
+      },
+    ],
+    "Primeros pasos en Python": [
+      {
+        html: `<h3>Bucles en Python: while y for</h3><p>Python tiene dos bucles. El bucle <b>while</b> («mientras») repite mientras se cumpla una condición; se usa cuando no sabemos cuántas vueltas habrá, por ejemplo, pedir una contraseña hasta que sea correcta. Dentro del bucle algo debe cambiar para que la condición deje de cumplirse; si no, se produce un <mark>bucle infinito</mark> y el programa no termina nunca.</p>
+          <p>El bucle <b>for</b> recorre una secuencia: una lista, una cadena o un rango de números. <code>range(5)</code> genera 0, 1, 2, 3, 4; <code>range(1, 11)</code> va del 1 al 10, y <code>range(0, 20, 5)</code> salta de 5 en 5. Dos patrones aparecen una y otra vez. El <b>contador</b> suma 1 cada vez que pasa algo (<code>aprobados = aprobados + 1</code>). El <b>acumulador</b> va sumando valores (<code>total = total + nota</code>); al final, la media es <code>total / len(notas)</code>. La orden <code>break</code> sale del bucle antes de tiempo, útil cuando ya se ha encontrado lo que se buscaba. Saber elegir el bucle adecuado y comprobar que siempre termina es una de las claves de la programación.</p>`,
+        svg: L.comparar("Bucle while frente a bucle for", ["while", ["mientras se cumpla", "vueltas desconocidas", "ej.: pedir clave", "cuidado: infinito"]], ["for", ["recorre secuencia", "vueltas conocidas", "ej.: range(1, 11)", "termina siempre"]]),
+      },
+    ],
+    "Funciones y modularidad": [
+      {
+        html: `<h3>Programación por eventos</h3><p>En los programas que hemos visto, las instrucciones se ejecutan en orden de principio a fin. Pero un videojuego, una app del móvil o una página web esperan a que ocurra algo: un clic, una tecla, un mensaje que llega o un sensor que cambia. Esto es la <b>programación orientada a eventos</b>. El programador escribe <b>manejadores</b>: trozos de código que se ejecutan <mark>cuando ocurre</mark> un evento concreto. En Scratch son los bloques amarillos «al hacer clic en este objeto» o «al presionar la tecla espacio»; en App Inventor, «cuando Botón1.Clic»; en JavaScript, <code>boton.onclick</code>.</p>
+          <p>Mientras no pasa nada, el programa espera en un <b>bucle de eventos</b> sin gastar apenas recursos. Varios objetos pueden comunicarse enviando <b>mensajes</b> (el bloque «enviar mensaje» de Scratch): cuando el jugador toca la meta, se envía «fin» y el escenario muestra la pantalla de victoria. Este modelo hace que las aplicaciones respondan al usuario de forma natural. Su dificultad es que el orden en que se ejecutan las cosas depende de lo que haga el usuario, así que hay que probar muchas combinaciones distintas.</p>`,
+        svg: L.flujo("Programación por eventos: el programa espera, ocurre un evento y se ejecuta su manejador", ["El programa espera", "Ocurre un evento: clic o tecla", "Se ejecuta su manejador", "Puede enviar un mensaje", "Vuelve a esperar"], { t: "Bucle de eventos" }),
+      },
+    ],
+    "Probar y depurar": [
+      {
+        html: `<h3>Buenas prácticas de programación</h3><p>Un programa no solo lo lee el ordenador: también lo leerán tus compañeros y tú mismo dentro de un mes. Por eso conviene seguir unas <b>buenas prácticas</b>. Usa <b>nombres descriptivos</b>: <code>precio_total</code> se entiende; <code>x2</code>, no. Escribe <b>comentarios</b> (en Python empiezan con <code>#</code>) para explicar el <i>porqué</i> de las partes difíciles, no lo que es evidente. Mantén las funciones <mark>cortas</mark>, cada una con una sola tarea, y evita repetir código: si copias y pegas tres veces lo mismo, es momento de crear una función.</p>
+          <p>Antes de programar, escribe el algoritmo en <b>pseudocódigo</b> o dibuja el diagrama de flujo. Prueba el programa con <b>casos límite</b>: la lista vacía, el número 0, una nota de exactamente 5, un texto con tildes. Los programadores profesionales guardan cada cambio con un <b>sistema de control de versiones</b> como <b>Git</b>, que permite volver atrás y trabajar en equipo sin pisarse; plataformas como GitHub alojan millones de proyectos de código abierto. Por último, ten en cuenta la <b>accesibilidad</b> y la <b>ética</b>: un programa debe poder usarlo todo el mundo y no debe recoger más datos de los necesarios.</p>`,
+        svg: L.cajas("Buenas prácticas: nombres claros, comentarios, funciones cortas y control de versiones", [["Nombres", "precio_total|mejor que x2"], ["Comentarios", "# explican|el porqué"], ["Funciones", "cortas, una|sola tarea"], ["Versiones", "Git guarda|cada cambio"]], { t: "Código que se entiende" }),
+      },
+    ],
+    "Buscar y ordenar": [
+      {
+        html: `<h3>La eficiencia de los algoritmos</h3><p>Dos algoritmos pueden resolver el mismo problema y tardar tiempos muy distintos. Para compararlos no se miden segundos, que dependen del ordenador, sino el <b>número de pasos</b> en función del tamaño de los datos, <i>n</i>. La búsqueda lineal necesita, en el peor caso, <b>n pasos</b>: si la lista se duplica, el tiempo se duplica. La búsqueda binaria solo necesita unos <b>log₂ n</b> pasos: con 1.000 elementos, unos 10; con un millón, unos 20. El método de la burbuja para ordenar hace unas <b>n²</b> comparaciones: con 1.000 elementos, un millón de comparaciones.</p>
+          <p>Por eso los informáticos buscan algoritmos más listos, como el <b>ordenamiento por mezcla</b> (<i>merge sort</i>), que divide la lista en mitades, las ordena y las une, con unos n · log₂ n pasos. Con datos pequeños la diferencia apenas se nota, pero los buscadores, las redes sociales o los mapas trabajan con miles de millones de datos: un algoritmo ineficiente haría que una búsqueda tardara horas en lugar de milisegundos. También importa la <b>memoria</b> que usa el algoritmo. Elegir bien el algoritmo suele mejorar más un programa que comprar un ordenador más potente.</p>`,
+        svg: L.barras("Pasos necesarios para mil elementos según el algoritmo", [["binaria", 10], ["lineal", 1000], ["mezcla", 10000], ["burbuja", 1000000]], { t: "Pasos con n = 1.000" }),
+      },
+    ],
+  },
+  secciones: [3, 3, 6, 4],
+  niveles: "bbbmmmbmab",
+  ejercicios: [
+    { nivel: "básico", q: "Aplica los cuatro pilares al problema de organizar una excursión.", sol: "Descomposición: transporte, comida, permisos, horario. Patrones: es parecida a otras excursiones del curso pasado. Abstracción: lo importante es el número de alumnos, el destino y el presupuesto (no el color del autobús). Algoritmo: la lista ordenada de tareas con sus fechas." },
+    { nivel: "básico", q: "¿Qué valen 17 // 3, 17 % 3 y 2 ** 4 en Python?", sol: "17 // 3 = 5 (división entera), 17 % 3 = 2 (resto) y 2 ** 4 = 16 (potencia)." },
+    { nivel: "básico", q: "Dada la lista colores = [\"rojo\", \"verde\", \"azul\"], ¿qué es colores[1]? ¿Y len(colores)?", sol: "colores[1] es \"verde\", porque los índices empiezan en 0. len(colores) es 3." },
+    { nivel: "básico", q: "¿Qué diferencia hay entre = y == en Python?", sol: "= asigna un valor a una variable (x = 5). == compara dos valores y da True o False (x == 5)." },
+    { nivel: "básico", q: "Escribe qué números genera range(2, 12, 3).", sol: "2, 5, 8, 11. Empieza en 2, salta de 3 en 3 y se detiene antes de 12." },
+    { nivel: "básico", q: "Pon dos ejemplos de eventos en una aplicación del móvil.", sol: "Pulsar un botón, deslizar el dedo, recibir una notificación, girar el móvil o que cambie la batería." },
+    { nivel: "básico", q: "Escribe un comentario útil para la línea total = total * 1.21.", sol: "# Añadimos el 21 % de IVA al total" },
+    { nivel: "medio", q: "Escribe en Python una condición que sea True si un número n es par y mayor que 10.", sol: "n % 2 == 0 and n > 10" },
+    { nivel: "medio", q: "Escribe un programa que pida números hasta que el usuario escriba 0 y muestre la suma.", sol: "total = 0\nn = int(input(\"Número: \"))\nwhile n != 0:\n    total = total + n\n    n = int(input(\"Número: \"))\nprint(total)" },
+    { nivel: "medio", q: "Recorre la lista notas = [6, 3, 8, 5, 4] y cuenta cuántos aprobados hay.", sol: "aprobados = 0\nfor n in notas:\n    if n >= 5:\n        aprobados = aprobados + 1\nprint(aprobados)  # muestra 3" },
+    { nivel: "medio", q: "Calcula la media de una lista de notas sin usar sum().", sol: "total = 0\nfor n in notas:\n    total = total + n\nmedia = total / len(notas)\nprint(media)" },
+    { nivel: "medio", q: "Encuentra el fallo: i = 1; while i <= 5: print(i). ¿Qué pasa y cómo se arregla?", sol: "i nunca cambia, así que la condición siempre se cumple: bucle infinito que muestra 1 sin parar. Se arregla añadiendo i = i + 1 dentro del bucle." },
+    { nivel: "medio", q: "Escribe una función es_mayor(edad) que devuelva True si la edad es 18 o más.", sol: "def es_mayor(edad):\n    return edad >= 18" },
+    { nivel: "medio", q: "¿Qué muestra: palabra = \"robotica\"; print(palabra[0:4].upper())?", sol: "Toma los caracteres de las posiciones 0 a 3, \"robo\", y los pasa a mayúsculas: ROBO." },
+    { nivel: "medio", q: "Describe en Scratch un juego en el que, al tocar una moneda, se suma un punto y la moneda aparece en otro sitio.", sol: "Variable «puntos» a 0 al pulsar la bandera. En la moneda: por siempre, si toca al personaje → cambiar puntos en 1, ir a una posición aleatoria. Es un evento (tocar) dentro de un bucle." },
+    { nivel: "medio", q: "¿Cuántos pasos necesita como máximo la búsqueda binaria en una lista ordenada de 1.024 elementos? ¿Y la lineal?", sol: "Binaria: log₂ 1.024 = 10 pasos (cada paso divide la lista a la mitad). Lineal: hasta 1.024 pasos." },
+    { nivel: "medio", q: "Reescribe con nombres claros y un comentario: a = int(input()); b = a * 0.8; print(b).", sol: "precio = int(input(\"Precio: \"))\n# Aplicamos un descuento del 20 %\nprecio_final = precio * 0.8\nprint(precio_final)" },
+    { nivel: "avanzado", q: "Escribe una función mayor(lista) que devuelva el número más grande sin usar max().", sol: "def mayor(lista):\n    m = lista[0]\n    for x in lista:\n        if x > m:\n            m = x\n    return m" },
+    { nivel: "avanzado", q: "Escribe un programa que pida una contraseña y dé solo 3 intentos.", sol: "intentos = 0\nwhile intentos < 3:\n    clave = input(\"Clave: \")\n    if clave == \"tecno24\":\n        print(\"Acceso concedido\")\n        break\n    intentos = intentos + 1\nif intentos == 3:\n    print(\"Bloqueado\")" },
+    { nivel: "avanzado", q: "Escribe un programa que muestre la tabla de multiplicar de un número pedido al usuario.", sol: "n = int(input(\"Número: \"))\nfor i in range(1, 11):\n    print(n, \"x\", i, \"=\", n * i)" },
+    { nivel: "avanzado", q: "Una lista de 1.000 elementos se ordena con burbuja y otra con mezcla. Estima las comparaciones de cada una y explica la diferencia con 1.000.000 de elementos.", sol: "Burbuja: unos n² = 1.000.000; mezcla: unos n · log₂ n ≈ 1.000 · 10 = 10.000. Con un millón: burbuja 10¹² (un billón) y mezcla unos 20 millones. La diferencia crece muchísimo con el tamaño." },
+    { nivel: "avanzado", q: "Escribe una función que reciba una palabra y diga si es un palíndromo (se lee igual al revés).", sol: "def palindromo(p):\n    p = p.lower()\n    return p == p[::-1]\n\nprint(palindromo(\"Ana\"))  # True" },
+    { nivel: "avanzado", q: "Diseña los casos de prueba para una función que dice si una nota es «Suspenso», «Aprobado», «Notable» o «Sobresaliente».", sol: "Probar valores normales (3, 6, 7.5, 9.5) y sobre todo los límites: 4.99, 5, 6.99, 7, 8.99, 9 y 10; además valores no válidos como -1, 11 o un texto, para comprobar que el programa avisa del error." },
+    { nivel: "avanzado", q: "Explica por qué en un videojuego por eventos pueden aparecer errores que no salen en las pruebas normales.", sol: "El orden de ejecución depende de lo que haga el jugador: dos eventos pueden ocurrir casi a la vez (tocar la meta y perder la última vida) y el resultado depende de cuál se procese primero. Hay que probar combinaciones raras y controlar el estado del juego." },
+    { nivel: "avanzado", q: "Escribe un programa que cuente cuántas vocales tiene una frase.", sol: "frase = input(\"Frase: \").lower()\nvocales = 0\nfor letra in frase:\n    if letra in \"aeiouáéíóú\":\n        vocales = vocales + 1\nprint(vocales)" },
+  ],
+  ejemplos: [
+    { enunciado: "Escribe en Python un programa que lea 5 notas, las guarde en una lista y muestre la media y la nota más alta.", pasos: ["Crear una lista vacía: notas = [].", "Bucle for i in range(5): pedir la nota con float(input()) y añadirla con notas.append(nota).", "Media: sum(notas) / len(notas).", "Máxima: max(notas).", "Mostrar ambos resultados con print."], resultado: "notas = []\nfor i in range(5):\n    notas.append(float(input(\"Nota: \")))\nprint(\"Media:\", sum(notas) / len(notas))\nprint(\"Máxima:\", max(notas))" },
+    { enunciado: "Evalúa la expresión 3 + 4 * 2 ** 2 > 18 and not False.", pasos: ["Potencia: 2 ** 2 = 4.", "Multiplicación: 4 * 4 = 16.", "Suma: 3 + 16 = 19.", "Comparación: 19 > 18 → True.", "not False → True; True and True → True."], resultado: "True" },
+    { enunciado: "Calcula cuántas vueltas da este bucle y qué muestra: n = 100; pasos = 0; while n > 1: n = n // 2; pasos = pasos + 1; print(pasos).", pasos: ["n vale 100 → 50 → 25 → 12 → 6 → 3 → 1.", "Cada división cuenta un paso: 6 divisiones.", "Cuando n vale 1 la condición n > 1 es falsa y el bucle termina.", "Es la misma idea que la búsqueda binaria: dividir a la mitad."], resultado: "Da 6 vueltas y muestra 6." },
+  ],
+  errores: [],
+  cuarta: ["reconocer patrones", "un hexágono", "La función", "Una instrucción de salida", "red", "hace el programa más rápido", "decimal", "multiplicar", "desordenada", "variables globales"],
+  quiz: [
+    { q: "¿Qué da 17 % 5 en Python?", o: ["3", "2", "3.4", "85"], a: 1, e: "% calcula el resto de la división: 17 = 5 · 3 + 2." },
+    { q: "En la lista [4, 8, 15], ¿qué índice tiene el 15?", o: ["0", "1", "2", "3"], a: 2, e: "Los índices empiezan en 0." },
+    { q: "¿Qué bucle usarías para pedir una contraseña hasta que sea correcta?", o: ["for con range(10)", "while", "Ninguno", "if"], a: 1, e: "No se sabe cuántas veces habrá que repetir." },
+    { q: "¿Qué valor da True and False?", o: ["True", "False", "Error", "1"], a: 1, e: "and exige que las dos condiciones sean ciertas." },
+    { q: "Una variable que va sumando valores en un bucle es…", o: ["un contador", "un acumulador", "un evento", "un índice"], a: 1, e: "El contador suma 1; el acumulador suma valores." },
+    { q: "«Al hacer clic en este objeto» es un bloque de…", o: ["bucle", "evento", "operador", "lista"], a: 1, e: "Se ejecuta cuando ocurre el clic." },
+    { q: "¿Qué hace break dentro de un bucle?", o: ["Repite el bucle", "Sale del bucle", "Borra la variable", "Detiene el ordenador"], a: 1, e: "Termina el bucle antes de tiempo." },
+    { q: "Con una lista ordenada de un millón de elementos, la búsqueda binaria necesita unos…", o: ["20 pasos", "1.000 pasos", "500.000 pasos", "un millón de pasos"], a: 0, e: "log₂ 1.000.000 ≈ 20." },
+    { q: "Git es…", o: ["un lenguaje de programación", "un sistema de control de versiones", "un tipo de bucle", "un editor de imagen"], a: 1, e: "Guarda el historial de cambios del código." },
+    { q: "¿Qué da \"5\" + 3 en Python?", o: ["8", "53", "Un error", "\"8\""], a: 2, e: "No se puede sumar texto y número sin convertir antes." },
+  ],
+  cuartaEx: ["algoritmo", "Muestra 0, 1, 2, 3", "Programar sin probar"],
+  examen: [
+    { q: "¿Qué muestra print(len(\"hola\"))?", o: ["3", "4", "5", "hola"], a: 1, e: "La cadena tiene 4 caracteres." },
+    { q: "¿Qué estructura usa un acumulador para calcular una media?", o: ["Un bucle", "Un evento", "Un comentario", "Una licencia"], a: 0, e: "Se recorre la lista sumando cada valor." },
+    { q: "El método de la burbuja con n elementos hace unas…", o: ["n comparaciones", "log₂ n comparaciones", "n² comparaciones", "2 comparaciones"], a: 2, e: "Por eso es lento con listas grandes." },
+    { q: "Un bucle while que nunca termina es…", o: ["un bucle infinito", "una función", "una lista", "un evento"], a: 0, e: "La condición nunca llega a ser falsa." },
+    { q: "Un buen nombre de variable es…", o: ["x2", "precio_total", "aaa", "variable1"], a: 1, e: "Dice qué guarda." },
+  ],
+  tarjetas: [
+    ["Operador %", "Da el resto de la división: n % 2 == 0 indica que n es par."],
+    ["Índices de una lista", "Empiezan en 0: lista[0] es el primer elemento."],
+    ["while frente a for", "while repite mientras se cumpla algo; for recorre una secuencia."],
+    ["Eficiencia", "Se mide en pasos según el tamaño n: lineal n, binaria log₂ n, burbuja n²."],
+  ],
+  glosario: [
+    ["Pensamiento computacional", "Forma de resolver problemas con descomposición, patrones, abstracción y algoritmos."],
+    ["Algoritmo", "Secuencia finita y ordenada de instrucciones que resuelve un problema."],
+    ["Pseudocódigo", "Algoritmo escrito en lenguaje parecido al natural, sin reglas de un lenguaje concreto."],
+    ["Variable", "Espacio de memoria con nombre que guarda un dato."],
+    ["Booleano", "Tipo de dato que solo puede valer True o False."],
+    ["Operador lógico", "and, or y not: combinan o invierten condiciones."],
+    ["Lista", "Colección ordenada de datos a la que se accede por su índice."],
+    ["Índice", "Posición de un elemento en una lista o cadena; empieza en 0."],
+    ["Bucle", "Estructura que repite instrucciones."],
+    ["Contador", "Variable que aumenta en 1 cada vez que ocurre algo."],
+    ["Acumulador", "Variable que va sumando valores dentro de un bucle."],
+    ["Función", "Bloque de código con nombre que realiza una tarea y puede devolver un resultado."],
+    ["Parámetro", "Dato que recibe una función."],
+    ["Evento", "Algo que ocurre (un clic, una tecla) y que pone en marcha un trozo de código."],
+    ["Depurar", "Buscar y corregir los errores de un programa."],
+    ["Control de versiones", "Sistema que guarda el historial de cambios del código (Git)."],
+    ["Eficiencia", "Cantidad de pasos o de memoria que necesita un algoritmo."],
+  ],
+  situacion: {
+    titulo: "Un programa útil para mi clase",
+    reto: "Por parejas, detectad un problema pequeño de vuestro día a día en el instituto (calcular la nota media, repartir tareas, un cuestionario de repaso, un temporizador de estudio) y programad en Python o Scratch una solución que funcione y que otra pareja pueda usar sin ayuda.",
+    pasos: [
+      "Describid el problema y aplicad los cuatro pilares: descomposición, patrones, abstracción y algoritmo.",
+      "Escribid el algoritmo en pseudocódigo o con un diagrama de flujo antes de programar.",
+      "Programad la solución usando variables, al menos una lista, un bucle, una condición y una función.",
+      "Diseñad una tabla de casos de prueba, incluidos los casos límite, y depurad los errores encontrados.",
+      "Intercambiad el programa con otra pareja, recoged sus sugerencias y mejoradlo.",
+    ],
+    producto: "El programa comentado, el diagrama de flujo y la tabla de pruebas, con una demostración de dos minutos.",
+    evaluacion: ["El algoritmo resuelve el problema y está bien descompuesto.", "El código usa correctamente variables, listas, bucles, condiciones y funciones.", "Se prueban los casos límite y se documentan los errores corregidos.", "El código es legible: nombres claros y comentarios útiles."],
+  },
+  objetivos: ["Usar operadores, listas y bucles while y for en Python", "Comparar la eficiencia de algoritmos de búsqueda y ordenación"],
+  fuentes: [{ t: "Documentación oficial de Python en español", url: "https://docs.python.org/es/3/tutorial/" }],
+});

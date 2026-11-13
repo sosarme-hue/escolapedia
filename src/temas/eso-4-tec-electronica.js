@@ -177,3 +177,158 @@ AMP.amplia(module.exports, {
     ["Potencia eléctrica", "P = V · I, en vatios; la energía se paga en kWh."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 110,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "La farola que sabe cuándo es de noche",
+    html: `<p>Al anochecer, las farolas de tu calle se encienden solas. Nadie pulsa un interruptor: dentro de cada una hay un pequeño circuito con un sensor de luz, unas resistencias y un transistor que decide, en una fracción de segundo, que ya hay poca luz y que toca encender. Ese mismo tipo de decisión, repetido miles de millones de veces por segundo, es lo que hace un procesador cuando juegas, envías un mensaje o haces una foto.</p>
+      <p>La electrónica es el arte de controlar la corriente eléctrica para que haga cosas útiles: medir, amplificar, temporizar, decidir. Comienza con tres magnitudes y una ley sencilla, la de Ohm, y llega hasta los chips con miles de millones de transistores. En este tema aprenderás a calcular circuitos, a medir con el polímetro, a entender cómo se cargan los condensadores y cómo un transistor actúa de interruptor, y a diseñar circuitos digitales a partir de una tabla de verdad. Al final podrás montar tu propio circuito automático, como el de la farola.</p>`,
+  },
+  svgs: {
+    "Circuitos en serie, en paralelo y mixtos": L.comparar("Circuito en serie frente a circuito en paralelo", ["Serie", ["misma corriente", "tensión se reparte", "Rt = R1 + R2", "si una falla, todo"]], ["Paralelo", ["misma tensión", "corriente se reparte", "1/Rt = 1/R1 + 1/R2", "ramas independientes"]]),
+    "Potencia y energía eléctrica": L.barras("Potencia aproximada de algunos aparatos en vatios", [["LED", 8], ["Portátil", 60], ["Televisor", 100], ["Microondas", 800], ["Radiador", 2000]], { t: "Potencia (W)", unidad: " W" }),
+    "El código de colores de las resistencias": L.rejilla("Valores del código de colores de las resistencias", ["Color", "Cifra", "Color", "Cifra"], [["negro", "0", "verde", "5"], ["marrón", "1", "azul", "6"], ["rojo", "2", "violeta", "7"], ["naranja", "3", "gris", "8"], ["amarillo", "4", "blanco", "9"]], { t: "Código de colores" }),
+    "Calcular la resistencia de un LED": L.flujo("Pasos para calcular la resistencia de un LED", ["Tensión de la fuente: 9 V", "Tensión del LED: 2 V", "Tensión que sobra: 7 V", "Corriente: 20 mA = 0,02 A", "R = 7 / 0,02 = 350 Ω → 390 Ω"], { t: "Resistencia del LED" }),
+  },
+  tras: {
+    "Potencia y energía eléctrica": [
+      {
+        html: `<h3>Medir con el polímetro</h3><p>El <b>polímetro</b> o multímetro es el instrumento básico del taller de electrónica. Con un selector giratorio se elige qué medir. Como <b>voltímetro</b>, mide la tensión: se conecta <mark>en paralelo</mark> con el componente, tocando sus dos extremos con las puntas, y con el circuito funcionando. Como <b>amperímetro</b>, mide la intensidad: hay que abrir el circuito y conectarlo <mark>en serie</mark>, para que toda la corriente pase a través de él; la punta roja va a la entrada de amperios o miliamperios. Como <b>óhmetro</b>, mide resistencias, siempre con el componente desconectado del circuito y sin alimentación.</p>
+          <p>Antes de medir hay que elegir el tipo de corriente (continua, CC, en pilas y circuitos electrónicos; alterna, CA, en los enchufes) y una escala mayor que el valor esperado; si se desconoce, se empieza por la más alta y se va bajando. Muchos polímetros tienen también la función de <b>continuidad</b>, que pita si hay conexión entre dos puntos, muy útil para encontrar un cable roto o una soldadura fría, y la prueba de diodos. Un error típico es medir corriente con las puntas en paralelo: se provoca un cortocircuito y se funde el fusible del aparato.</p>`,
+        svg: L.rejilla("Cómo se conecta el polímetro para medir cada magnitud", ["Mide", "Función", "Conexión"], [["Tensión (V)", "voltímetro", "en paralelo"], ["Intensidad (A)", "amperímetro", "en serie"], ["Resistencia (Ω)", "óhmetro", "sin tensión"], ["Continuidad", "pitido", "sin tensión"]], { t: "Usar el polímetro" }),
+      },
+    ],
+    "El código de colores de las resistencias": [
+      {
+        html: `<h3>El condensador: cargar y descargar</h3><p>Un <b>condensador</b> está formado por dos placas conductoras separadas por un aislante. Al conectarlo a una pila, se acumulan cargas opuestas en las placas hasta que su tensión iguala la de la pila; al desconectarlo, guarda esa carga y puede devolverla. Su capacidad se mide en <b>faradios</b> (F), aunque en la práctica se usan microfaradios (µF). Los condensadores <b>electrolíticos</b> tienen polaridad: la pata larga es el positivo y conectarlos al revés puede hacer que revienten.</p>
+          <p>Cuando un condensador se carga a través de una resistencia, no lo hace de golpe: la tensión sube rápido al principio y cada vez más despacio. El ritmo lo marca la <b>constante de tiempo</b>, <mark>τ = R · C</mark> (en segundos si R está en ohmios y C en faradios). En un tiempo τ se carga hasta el 63 % y en unos 5τ se considera cargado del todo. Con R = 100 kΩ y C = 100 µF, τ = 100.000 · 0,0001 = 10 s. Así se fabrican <b>temporizadores</b>: la luz de la escalera que se apaga sola, el retardo de una alarma o el parpadeo de un LED. Los condensadores también filtran la corriente de los cargadores para que salga estable y protegen los chips de picos de tensión.</p>`,
+        svg: L.barras("Carga de un condensador en función de la constante de tiempo", [["1 τ", 63], ["2 τ", 86], ["3 τ", 95], ["5 τ", 99]], { t: "Carga del condensador", unidad: " %" }),
+      },
+    ],
+    "Calcular la resistencia de un LED": [
+      {
+        html: `<h3>El transistor como interruptor automático</h3><p>Un transistor NPN conduce entre colector y emisor cuando por su base entra una pequeña corriente, a partir de unos <b>0,7 V</b> entre base y emisor. Si la base no recibe corriente, el transistor está en <b>corte</b> (interruptor abierto); si recibe suficiente, pasa a <b>saturación</b> (interruptor cerrado) y puede encender un LED, un zumbador o la bobina de un <b>relé</b>, que a su vez maneja un motor o una lámpara de más potencia.</p>
+          <p>Para que el transistor «decida» solo se usa un <mark>divisor de tensión</mark>: dos resistencias en serie entre los polos de la pila, con la base conectada al punto medio. Si una de ellas es una <b>LDR</b>, la tensión del punto medio cambia con la luz. Colocando la LDR entre la base y el negativo, de día su resistencia es baja, la base apenas recibe tensión y el LED está apagado; de noche su resistencia sube mucho, la tensión de la base pasa de 0,7 V y el LED se enciende: es el circuito de la farola. Cambiando la LDR por un <b>termistor</b> se obtiene una alarma de temperatura, y con un potenciómetro en lugar de la resistencia fija se ajusta el punto de disparo. Si la carga es un relé o un motor, se pone un <b>diodo</b> en paralelo para protegerlo de los picos al desconectarse.</p>`,
+        svg: L.flujo("Funcionamiento del circuito de la farola con LDR y transistor", ["Anochece: la LDR sube su resistencia", "Sube la tensión en la base", "Pasa de 0,7 V: el transistor conduce", "Circula corriente colector-emisor", "Se enciende el LED o el relé"], { t: "Interruptor de oscuridad" }),
+      },
+    ],
+    "Puertas lógicas": [
+      {
+        html: `<h3>Otras puertas y álgebra de Boole</h3><p>Además de NOT, AND y OR existen otras puertas muy usadas. La <b>NAND</b> es una AND seguida de una NOT: solo da 0 cuando todas las entradas son 1. La <b>NOR</b> es una OR negada: solo da 1 cuando todas las entradas son 0. La <b>XOR</b> u «O exclusiva» da 1 cuando las entradas son <mark>distintas</mark>; es la base de los circuitos que suman en binario. Curiosamente, con puertas NAND solas se puede construir cualquier otra puerta, por eso son las más baratas y abundantes en los chips.</p>
+          <p>El <b>álgebra de Boole</b> escribe estas operaciones como expresiones: la AND como producto (A · B), la OR como suma (A + B) y la NOT con una barra o un apóstrofo (A'). Tiene reglas propias: A · 0 = 0, A + 1 = 1, A · A = A, A + A' = 1. Las <b>leyes de De Morgan</b> permiten transformar unas puertas en otras: (A · B)' = A' + B' y (A + B)' = A' · B'. Simplificar una expresión significa usar menos puertas, lo que abarata el circuito, ocupa menos y consume menos energía.</p>`,
+        svg: L.rejilla("Tablas de verdad de las puertas NAND, NOR y XOR", ["A", "B", "NAND", "NOR", "XOR"], [["0", "0", "1", "1", "0"], ["0", "1", "1", "0", "1"], ["1", "0", "1", "0", "1"], ["1", "1", "0", "0", "0"]], { t: "NAND, NOR y XOR" }),
+      },
+      {
+        html: `<h3>Diseñar un circuito digital</h3><p>Un circuito digital se diseña en cuatro pasos. Primero se describe el problema y se identifican las <b>entradas</b> (sensores, pulsadores) y las <b>salidas</b> (LED, motor, alarma). Después se construye la <b>tabla de verdad</b> con todas las combinaciones posibles de entradas: con 2 entradas hay 4 filas; con 3, 8 filas (2ⁿ). En tercer lugar se obtiene la <b>función lógica</b>: se toman las filas en las que la salida vale 1 y, para cada una, se escribe el producto de sus entradas (negando las que valen 0); la función es la suma de esos productos. Por último se <mark>simplifica</mark> y se dibuja el circuito con puertas.</p>
+          <p>Ejemplo: una alarma de un coche debe sonar si la puerta está abierta (P = 1) <b>y</b> el motor está apagado (M = 0) <b>o</b> si el cinturón no está puesto (C = 0) con el motor encendido (M = 1). La función es S = P · M' + C' · M. Se monta con dos puertas NOT, dos AND y una OR. Hoy estos circuitos se prueban primero en simuladores como Logisim o Tinkercad y, en muchos casos, se programan en un microcontrolador en lugar de montarlos con puertas sueltas. Aun así, la forma de pensar es la misma: entradas, condiciones y salidas.</p>`,
+        svg: L.flujo("Pasos para diseñar un circuito digital", ["Entradas y salidas", "Tabla de verdad (2ⁿ filas)", "Función: suma de productos", "Simplificar con Boole", "Dibujar y simular"], { t: "Diseño digital" }),
+      },
+      {
+        html: `<h3>Circuitos integrados y microcontroladores</h3><p>Un <b>circuito integrado</b> o chip reúne en una pequeña pieza de silicio miles, millones o miles de millones de transistores, resistencias y condensadores ya conectados. Se fabrican sobre obleas de silicio mediante <b>fotolitografía</b>: se dibujan los circuitos con luz ultravioleta a través de máscaras, capa a capa, con detalles de unos pocos nanómetros. En 1965, Gordon Moore observó que el número de transistores de un chip se duplicaba cada dos años aproximadamente, la llamada <mark>ley de Moore</mark>, que se ha cumplido durante décadas.</p>
+          <p>En el taller se usan chips sencillos: el <b>555</b>, un temporizador para hacer parpadear un LED o generar sonidos; los integrados de la serie 74, que contienen varias puertas lógicas; o los amplificadores operacionales. Pero el gran protagonista es el <b>microcontrolador</b>: un ordenador completo en un chip, con procesador, memoria y patillas de entrada y salida, que se programa para leer sensores y controlar actuadores. Placas como Arduino o micro:bit lo ponen al alcance de cualquiera: en lugar de cablear puertas, se escribe un programa. Fabricar chips es hoy una industria estratégica, concentrada en muy pocos países, y su escasez puede paralizar fábricas de coches o de móviles.</p>`,
+        svg: L.capas("Del transistor al microcontrolador", [["Microcontrolador", "ordenador en un chip"], ["Circuito integrado", "miles de millones"], ["Puertas lógicas", "AND, OR, NAND"], ["Transistor", "interruptor 0/1"]], { t: "Niveles de la electrónica" }),
+      },
+    ],
+  },
+  secciones: [4, 6, 5],
+  niveles: "bbbmbbmmmm",
+  ejercicios: [
+    { nivel: "básico", q: "¿Cómo se conecta el polímetro para medir tensión? ¿Y para medir intensidad?", sol: "Para tensión, en paralelo con el componente (sus dos extremos). Para intensidad, en serie, abriendo el circuito para que la corriente pase por el aparato." },
+    { nivel: "básico", q: "¿Qué unidades tienen la tensión, la intensidad, la resistencia, la potencia y la capacidad?", sol: "Voltio (V), amperio (A), ohmio (Ω), vatio (W) y faradio (F)." },
+    { nivel: "básico", q: "¿Qué hace la puerta XOR? Escribe su tabla de verdad.", sol: "Da 1 cuando las entradas son distintas. 00 → 0; 01 → 1; 10 → 1; 11 → 0." },
+    { nivel: "básico", q: "¿Qué diferencia hay entre el estado de corte y el de saturación de un transistor?", sol: "En corte no conduce entre colector y emisor (interruptor abierto). En saturación conduce todo lo posible (interruptor cerrado)." },
+    { nivel: "básico", q: "¿Qué es un microcontrolador? Pon dos ejemplos de placas que lo usan.", sol: "Un ordenador completo en un chip (procesador, memoria, entradas y salidas) que se programa para controlar sensores y actuadores. Ejemplos: Arduino y micro:bit." },
+    { nivel: "básico", q: "¿Cuántas filas tiene la tabla de verdad de un circuito con 3 entradas? ¿Y con 4?", sol: "2³ = 8 filas y 2⁴ = 16 filas." },
+    { nivel: "básico", q: "¿Qué dice la ley de Moore?", sol: "Que el número de transistores de un chip se duplica aproximadamente cada dos años." },
+    { nivel: "medio", q: "Calcula la constante de tiempo de un circuito con R = 47 kΩ y C = 220 µF. ¿Cuánto tarda en cargarse del todo?", sol: "τ = R · C = 47.000 · 0,000220 = 10,34 s. Cargado del todo en unos 5τ ≈ 52 s." },
+    { nivel: "medio", q: "Tres resistencias de 30 Ω, 60 Ω y 20 Ω están en paralelo a 12 V. Calcula la resistencia equivalente y la corriente total.", sol: "1/Rt = 1/30 + 1/60 + 1/20 = 2/60 + 1/60 + 3/60 = 6/60 → Rt = 10 Ω. I = 12 / 10 = 1,2 A." },
+    { nivel: "medio", q: "Un circuito mixto tiene una R de 20 Ω en serie con dos de 60 Ω en paralelo, a 10 V. Calcula la corriente total y la tensión en la de 20 Ω.", sol: "Paralelo: 60/2 = 30 Ω. Total: 20 + 30 = 50 Ω. I = 10 / 50 = 0,2 A. V(20 Ω) = 0,2 · 20 = 4 V (y 6 V en el paralelo)." },
+    { nivel: "medio", q: "Calcula la resistencia para un LED rojo (2 V, 15 mA) alimentado con 5 V. ¿Qué valor comercial elegirías?", sol: "R = (5 − 2) / 0,015 = 200 Ω. Se elige el valor comercial igual o algo mayor: 220 Ω." },
+    { nivel: "medio", q: "Escribe la expresión booleana de un circuito con una AND de A y B cuya salida entra en una OR junto con C.", sol: "S = A · B + C." },
+    { nivel: "medio", q: "Aplica De Morgan para escribir (A + B)' usando solo AND y NOT.", sol: "(A + B)' = A' · B': se niegan A y B y se unen con una AND." },
+    { nivel: "medio", q: "Explica por qué en el circuito de la farola la LDR se coloca entre la base y el negativo y no entre la base y el positivo.", sol: "Para que al aumentar su resistencia (oscuridad) suba la tensión en la base y el transistor conduzca. Si estuviera arriba, el LED se encendería con luz y se apagaría a oscuras: sería un detector de luz." },
+    { nivel: "medio", q: "Un radiador de 1.500 W funciona 4 h al día durante 30 días. ¿Cuánto cuesta a 0,16 €/kWh?", sol: "E = 1,5 kW · 4 h · 30 = 180 kWh. Coste = 180 · 0,16 = 28,80 €." },
+    { nivel: "medio", q: "Al medir la corriente con el polímetro en paralelo con la pila, deja de funcionar. ¿Qué ha pasado?", sol: "El amperímetro tiene una resistencia casi nula; en paralelo con la pila provoca un cortocircuito, pasa una corriente enorme y se funde el fusible del polímetro." },
+    { nivel: "avanzado", q: "Diseña la tabla de verdad y la función de un sistema de riego que se activa si la tierra está seca (S = 1) y no llueve (L = 0), o si se pulsa el botón manual (B = 1).", sol: "S = S · L' + B. Tabla (S, L, B → salida): 000 0, 001 1, 010 0, 011 1, 100 1, 101 1, 110 0, 111 1. Se monta con una NOT para L, una AND y una OR." },
+    { nivel: "avanzado", q: "Simplifica S = A · B + A · B' usando el álgebra de Boole.", sol: "S = A · (B + B') = A · 1 = A. La salida solo depende de A: no hace falta ninguna puerta." },
+    { nivel: "avanzado", q: "Una luz de escalera debe quedarse encendida unos 30 s con un condensador de 470 µF. ¿Qué resistencia necesitas si consideras que se apaga a los 5τ?", sol: "5τ = 30 s → τ = 6 s. R = τ / C = 6 / 0,00047 ≈ 12.766 Ω → unos 12 kΩ (valor comercial)." },
+    { nivel: "avanzado", q: "Construye una puerta NOT y una AND usando solo puertas NAND. Explica cómo.", sol: "NOT: se unen las dos entradas de una NAND (A NAND A = A'). AND: una NAND seguida de otra NAND usada como NOT, que invierte su salida: (A · B)'' = A · B." },
+    { nivel: "avanzado", q: "Obtén la función lógica de esta tabla (A, B, C → S): solo valen 1 las filas 011, 101 y 111.", sol: "S = A'·B·C + A·B'·C + A·B·C. Simplificando: S = C · (A'·B + A·B' + A·B) = C · (A + B). Se monta con una OR de A y B y una AND con C." },
+    { nivel: "avanzado", q: "¿Por qué se pone un diodo en paralelo con la bobina de un relé controlado por un transistor?", sol: "Al cortar la corriente, la bobina genera un pico de tensión inversa que podría destruir el transistor. El diodo, conectado en inversa, deja circular esa corriente y absorbe el pico (diodo de protección o «volante»)." },
+    { nivel: "avanzado", q: "Compara montar un sistema de alarma con puertas lógicas o con un microcontrolador: ventajas de cada uno.", sol: "Con puertas: muy rápido, sin programación, consumo bajo, ideal para lógica fija y sencilla. Con microcontrolador: un solo chip sustituye muchas puertas, se cambia el comportamiento reprogramando, puede añadir temporizaciones, sonidos o comunicación." },
+    { nivel: "avanzado", q: "Un televisor en espera consume 1 W todo el año y en uso 100 W durante 3 h al día. ¿Qué porcentaje del consumo anual se va en espera?", sol: "Espera: 1 W · 21 h · 365 = 7,7 kWh. Uso: 100 · 3 · 365 = 109,5 kWh. Total ≈ 117,2 kWh. Espera: 7,7 / 117,2 ≈ 6,6 %." },
+    { nivel: "avanzado", q: "Explica por qué la fabricación de chips es una industria estratégica y qué consecuencias tuvo su escasez en 2021.", sol: "Casi todo lleva chips (coches, móviles, electrodomésticos) y su fabricación avanzada está concentrada en muy pocas empresas y países. En 2021 la escasez paralizó fábricas de coches en Europa, subió precios y retrasó entregas; por eso la UE impulsa su propia producción." },
+  ],
+  ejemplos: [
+    { enunciado: "Calcula cuánto tarda en cargarse un condensador de 1.000 µF a través de una resistencia de 10 kΩ.", pasos: ["Pasar a unidades básicas: R = 10.000 Ω; C = 0,001 F.", "τ = R · C = 10.000 · 0,001 = 10 s.", "En 10 s llega al 63 % de la tensión de la pila.", "Carga completa en unos 5τ = 50 s."], resultado: "τ = 10 s; carga completa en unos 50 s." },
+    { enunciado: "Diseña la tabla y la función de una alarma que suena si se abre la ventana (V = 1) o la puerta (P = 1), pero solo si está activada (A = 1).", pasos: ["Entradas: A, V, P. Salida: S (alarma).", "La alarma suena cuando A = 1 y (V = 1 o P = 1).", "Función: S = A · (V + P).", "Circuito: una OR con V y P, y su salida a una AND junto con A."], resultado: "S = A · (V + P): una OR y una AND." },
+    { enunciado: "Lee el valor de una resistencia marrón-negro-rojo-dorado y calcula la corriente si se conecta a 5 V.", pasos: ["Marrón = 1, negro = 0: cifras 10.", "Rojo = 2: se añaden dos ceros → 1.000 Ω = 1 kΩ.", "Dorado: tolerancia ±5 %.", "I = 5 / 1.000 = 0,005 A = 5 mA."], resultado: "1 kΩ ± 5 %; 5 mA." },
+  ],
+  errores: [],
+  cuarta: ["2 A", "El diodo LED", "Para cambiar su color", "continua", "ninguna entrada es 1", "0 Ω", "200 Ω", "4", "P = R / V", "medir la tensión"],
+  quiz: [
+    { q: "Para medir intensidad, el polímetro se conecta…", o: ["en paralelo", "en serie", "sin tensión", "a tierra"], a: 1, e: "Toda la corriente debe pasar por él." },
+    { q: "La constante de tiempo de un circuito RC es…", o: ["R + C", "R · C", "R / C", "V · I"], a: 1, e: "τ = R · C, en segundos." },
+    { q: "En un tiempo τ, el condensador se carga hasta el…", o: ["10 %", "50 %", "63 %", "100 %"], a: 2, e: "Y casi del todo en 5τ." },
+    { q: "Un transistor NPN de silicio empieza a conducir con unos…", o: ["0,7 V en la base", "9 V en la base", "0 V", "230 V"], a: 0, e: "Es la tensión base-emisor típica." },
+    { q: "La puerta que da 1 solo si las entradas son distintas es…", o: ["AND", "NOR", "XOR", "NAND"], a: 2, e: "Es la O exclusiva." },
+    { q: "Con puertas NAND solas se puede construir…", o: ["solo NOT", "cualquier otra puerta", "nada útil", "solo AND"], a: 1, e: "Por eso se llama puerta universal." },
+    { q: "Según De Morgan, (A · B)' es igual a…", o: ["A' · B'", "A' + B'", "A + B", "A · B"], a: 1, e: "La negación de un producto es la suma de las negaciones." },
+    { q: "Un divisor de tensión con una LDR sirve para…", o: ["medir el tiempo", "que la tensión cambie con la luz", "almacenar carga", "emitir luz"], a: 1, e: "Es la base de los interruptores automáticos." },
+    { q: "El chip 555 se usa sobre todo como…", o: ["memoria", "temporizador", "sensor de luz", "pila"], a: 1, e: "Para hacer parpadear LED o generar tonos." },
+    { q: "La función de continuidad del polímetro sirve para…", o: ["medir potencia", "comprobar si hay conexión entre dos puntos", "cargar condensadores", "cambiar la tensión"], a: 1, e: "Pita si hay conexión." },
+  ],
+  cuartaEx: ["0 Ω", "Cambia el color de la luz", "Se funde"],
+  examen: [
+    { q: "Un condensador electrolítico…", o: ["no tiene polaridad", "tiene polaridad y la pata larga es el positivo", "solo funciona en alterna", "mide la luz"], a: 1, e: "Conectarlo al revés puede dañarlo." },
+    { q: "¿Qué función lógica corresponde a «suena si A y no B»?", o: ["A + B", "A · B'", "A' · B", "(A · B)'"], a: 1, e: "AND con B negada." },
+    { q: "Una resistencia se mide con el óhmetro…", o: ["con el circuito encendido", "desconectada y sin tensión", "en serie con la pila", "en alterna"], a: 1, e: "Si no, la medida es falsa o se daña el aparato." },
+    { q: "¿Qué hace un relé controlado por un transistor?", o: ["Permite manejar cargas grandes con una señal pequeña", "Almacena datos", "Emite luz", "Mide la temperatura"], a: 0, e: "Su bobina cierra un contacto independiente." },
+    { q: "El proceso con luz ultravioleta para fabricar chips se llama…", o: ["soldadura", "fotolitografía", "extrusión", "fundición"], a: 1, e: "Dibuja los circuitos capa a capa." },
+  ],
+  tarjetas: [
+    ["Polímetro", "Voltímetro en paralelo, amperímetro en serie, óhmetro sin tensión."],
+    ["Constante de tiempo", "τ = R · C; carga del 63 % en τ y completa en 5τ."],
+    ["Puertas NAND, NOR y XOR", "NAND: AND negada; NOR: OR negada; XOR: 1 si las entradas son distintas."],
+    ["Leyes de De Morgan", "(A·B)' = A' + B'; (A+B)' = A' · B'."],
+  ],
+  glosario: [
+    ["Tensión", "Diferencia de potencial que impulsa la corriente; se mide en voltios."],
+    ["Intensidad", "Cantidad de carga que circula por segundo; se mide en amperios."],
+    ["Resistencia", "Oposición al paso de la corriente; se mide en ohmios."],
+    ["Ley de Ohm", "V = I · R."],
+    ["Potencia", "Energía consumida por segundo: P = V · I, en vatios."],
+    ["Polímetro", "Instrumento que mide tensión, intensidad, resistencia y continuidad."],
+    ["Condensador", "Componente que almacena carga eléctrica; se mide en faradios."],
+    ["Constante de tiempo", "τ = R · C: marca la rapidez de carga de un condensador."],
+    ["Diodo", "Componente que solo deja pasar la corriente en un sentido."],
+    ["Transistor", "Componente que amplifica o actúa como interruptor controlado por corriente."],
+    ["Divisor de tensión", "Dos resistencias en serie que reparten la tensión."],
+    ["Relé", "Interruptor accionado por un electroimán."],
+    ["Señal digital", "Señal que solo toma dos valores: 0 y 1."],
+    ["Puerta lógica", "Circuito que realiza una operación lógica (AND, OR, NOT…)."],
+    ["Tabla de verdad", "Tabla con la salida para cada combinación de entradas."],
+    ["Álgebra de Boole", "Álgebra de las operaciones lógicas con 0 y 1."],
+    ["Circuito integrado", "Chip que reúne muchos componentes en una pieza de silicio."],
+    ["Microcontrolador", "Ordenador completo en un chip para controlar dispositivos."],
+  ],
+  situacion: {
+    titulo: "Un detector automático para el instituto",
+    reto: "Por parejas, diseñad, simulad y montad un circuito electrónico que resuelva una necesidad del centro sin intervención humana: una luz que se enciende al oscurecer, una alarma si una puerta queda abierta o un aviso si el aula se calienta demasiado.",
+    pasos: [
+      "Definid la necesidad, las entradas (sensores) y las salidas (LED, zumbador, relé).",
+      "Diseñad el circuito con un divisor de tensión y un transistor o con puertas lógicas, y calculad las resistencias necesarias.",
+      "Simulad el circuito en Tinkercad Circuits y comprobad su funcionamiento en distintas condiciones.",
+      "Montadlo en una placa de prototipos, medid con el polímetro las tensiones y corrientes clave y comparadlas con los cálculos.",
+      "Ajustad el punto de disparo con un potenciómetro y documentad el resultado con esquema, fotos y tabla de medidas.",
+    ],
+    producto: "El circuito funcionando, su esquema, los cálculos y una ficha técnica con las medidas tomadas.",
+    evaluacion: ["El esquema es correcto y usa los símbolos normalizados.", "Los cálculos (ley de Ohm, resistencia del LED, divisor) son correctos y coinciden razonablemente con las medidas.", "El circuito funciona y se monta con orden y seguridad.", "La ficha técnica explica con claridad el funcionamiento y las mejoras posibles."],
+  },
+  objetivos: ["Medir con el polímetro y calcular la carga de un condensador", "Diseñar circuitos digitales a partir de una tabla de verdad"],
+  fuentes: [{ t: "Tinkercad Circuits: simulador de electrónica", url: "https://www.tinkercad.com/circuits" }],
+});

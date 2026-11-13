@@ -164,3 +164,163 @@ AMP.amplia(module.exports, {
     ["Testigo activo", "Quien, ante un acoso, no difunde, apoya a la víctima y avisa."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 100,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "Lo que Google sabía de Daniel",
+    html: `<p>Daniel tenía 22 años y había conseguido una entrevista para el trabajo de sus sueños. Antes de la cita, la responsable de selección escribió su nombre en un buscador. Encontró su currículum y un proyecto de robótica premiado en el instituto, pero también un vídeo de cuando tenía 15 años burlándose de un compañero y unos comentarios ofensivos en un foro de videojuegos que él ya ni recordaba. La entrevista fue mucho más incómoda de lo que esperaba.</p>
+      <p>Lo que hacemos en Internet construye una imagen de nosotros que otros ven, a veces durante años. Pero la vida digital no es solo un riesgo para el futuro: también afecta a cómo nos sentimos hoy, a cómo dormimos, a cómo tratamos a los demás y a lo que creemos que es verdad. En este tema aprenderás a gestionar tu identidad y tu reputación, a reconocer y frenar el ciberacoso y los bulos, a entender cómo las aplicaciones capturan tu atención y a construir unos hábitos digitales que te hagan sentir bien.</p>`,
+  },
+  svgs: {
+    "Reputación digital y futuro profesional": L.comparar("Lo que suma y lo que resta a la reputación digital", ["Suma", ["proyectos y premios", "voluntariado", "opiniones respetuosas", "perfil profesional"]], ["Resta", ["insultos y burlas", "fotos comprometidas", "bulos compartidos", "datos de otros"]]),
+    "Ciberacoso: el papel de los testigos": L.flujo("Qué puede hacer un testigo de ciberacoso", ["No reír ni reenviar", "Apoyar a la víctima en privado", "Guardar pruebas", "Avisar a un adulto o al 017", "Reportar en la plataforma"], { t: "Testigo activo" }),
+    "Algoritmos y diseño persuasivo": L.ciclo("Ciclo del algoritmo de recomendación: miras, el algoritmo aprende, te muestra más y pasas más tiempo", "algoritmo", ["miras un vídeo", "aprende tus gustos", "te muestra más", "pasas más tiempo"]),
+    "Apuestas en línea y videojuegos": L.barras("Ejemplo: de cada 100 euros apostados, cuánto vuelve de media a los jugadores y cuánto se queda la casa", [["Vuelve al jugador", 93], ["Se queda la casa", 7]], { t: "De cada 100 € apostados", unidad: " €" }),
+  },
+  tras: {
+    "Identidad y huella digital": [
+      {
+        html: `<h3>Controlar tu información: el derecho al olvido</h3><p>Una buena costumbre es hacer <b>egosurfing</b> de vez en cuando: buscar tu nombre y tus apodos en varios buscadores, también en imágenes, para saber qué ven los demás. Si encuentras algo que no te gusta, empieza por lo más sencillo: borrar la publicación si es tuya, pedir a quien la subió que la retire o usar la opción de denuncia de la red social. Cierra también las cuentas antiguas que ya no uses, porque siguen mostrando datos y pueden ser robadas.</p>
+          <p>La ley te protege. El <b>Reglamento General de Protección de Datos</b> y la ley española reconocen el <mark>derecho de supresión</mark>, conocido como <b>derecho al olvido</b>: puedes pedir a un buscador que deje de mostrar enlaces con información tuya que sea inexacta, antigua o que ya no tenga interés público. En el caso de menores, las redes sociales deben borrar los datos que se publicaron cuando eran niños si así lo piden. Si una empresa no responde, se puede reclamar ante la <b>Agencia Española de Protección de Datos</b> (AEPD), que además tiene un <b>Canal Prioritario</b> para retirar con urgencia imágenes sexuales o violentas difundidas sin permiso. Aun así, lo más eficaz es no publicar aquello que no querrías ver dentro de diez años.</p>`,
+        svg: L.flujo("Pasos para controlar tu información en Internet", ["Buscar tu nombre (egosurfing)", "Borrar o pedir que lo retiren", "Denunciar en la plataforma", "Ejercer el derecho al olvido", "Reclamar ante la AEPD"], { t: "Recuperar el control" }),
+      },
+    ],
+    "Pensar antes de publicar": [
+      {
+        html: `<h3>Netiqueta y comunicación respetuosa</h3><p>La <b>netiqueta</b> es el conjunto de normas de buena educación en Internet. En la comunicación escrita faltan el tono de voz, los gestos y la mirada, así que es fácil malinterpretar un mensaje: una broma puede parecer un ataque y un «vale.» con punto puede sonar seco. Por eso conviene <mark>leer dos veces</mark> antes de enviar, usar emojis con sentido y no escribir en mayúsculas, que equivale a gritar. Si un mensaje te enfada, espera un rato antes de responder: lo que se escribe en caliente suele traer problemas.</p>
+          <p>Cada espacio tiene sus normas. En un correo formal a un profesor o a una empresa se usa un asunto claro, un saludo, frases completas y una despedida. En el grupo de clase conviene no saturar con mensajes, respetar los horarios de descanso y no mencionar a nadie para ridiculizarle. En los foros y comentarios, se critican las ideas, no a las personas. Y en las videollamadas, cámara y micrófono se activan cuando corresponde. El anonimato aparente hace que algunas personas digan cosas que nunca dirían cara a cara: la regla de oro es tratar a los demás en la red como te gustaría que te trataran a ti.</p>`,
+        svg: L.cajas("Normas de netiqueta", [["Relee", "antes de|enviar"], ["SIN GRITOS", "nada de|mayúsculas"], ["Espera", "si estás|enfadado"], ["Ideas", "critica ideas,|no personas"]], { t: "Netiqueta" }),
+      },
+    ],
+    "Riesgos en las relaciones digitales": [
+      {
+        html: `<h3>Sexting, sextorsión y discurso de odio</h3><p>El <b>sexting</b> es enviar fotos o vídeos íntimos propios por el móvil. Aunque se haga con confianza, una vez enviada la imagen se pierde el control sobre ella: una ruptura, un móvil robado o una captura pueden hacer que se difunda. La <b>sextorsión</b> es el chantaje con esas imágenes: «Si no me mandas más o no me pagas, la publico». Ante una sextorsión, <mark>no hay que ceder</mark> al chantaje: se guardan las pruebas, se bloquea al agresor y se pide ayuda a un adulto, al 017 o a la policía. Difundir imágenes íntimas de otra persona sin su permiso es delito, aunque te las hayan enviado a ti, y si la persona es menor las penas son mucho mayores.</p>
+          <p>El <b>discurso de odio</b> son los mensajes que insultan, humillan o incitan a la violencia contra personas por su origen, religión, orientación sexual, discapacidad o cualquier otra característica. En redes se propaga rápido porque genera reacciones. No es libertad de expresión: los casos graves son delito. Frente a él se puede <b>reportar</b> el contenido, no compartirlo ni para criticarlo (porque le da más alcance) y apoyar a las personas atacadas. Las plataformas están obligadas por la ley europea de servicios digitales a retirar con rapidez los contenidos ilegales que se les notifican.</p>`,
+        svg: L.cajas("Qué hacer ante una sextorsión o un mensaje de odio", [["No ceder", "al chantaje"], ["Pruebas", "capturas|con fecha"], ["Bloquear", "y reportar"], ["Pedir ayuda", "adulto · 017|policía"]], { t: "Cómo responder" }),
+      },
+    ],
+    "Ciberacoso: el papel de los testigos": [
+      {
+        html: `<h3>Desinformación y bulos</h3><p>Un <b>bulo</b> es una información falsa que se difunde como si fuera verdadera. La <b>desinformación</b> se crea a propósito para engañar, ganar dinero con los clics o influir en lo que piensa la gente; la información errónea, en cambio, se comparte sin mala intención. Los bulos funcionan porque apelan a las <mark>emociones</mark> (miedo, indignación, sorpresa) y porque confirman lo que ya pensamos. Hoy, además, la inteligencia artificial permite crear imágenes, audios y vídeos falsos muy realistas, los <b>deepfakes</b>.</p>
+          <p>Antes de compartir algo, aplica un pequeño método de verificación. ¿Quién lo publica y es una fuente fiable? ¿Lo cuentan otros medios serios? ¿Tiene fecha o es una noticia antigua que vuelve a circular? ¿El titular coincide con el texto? Busca la imagen con la <b>búsqueda inversa</b> para ver dónde apareció por primera vez y consulta webs de <b>verificación</b> (<i>fact-checking</i>) como Maldita o Newtral. Desconfía de mensajes que piden «¡compártelo antes de que lo borren!». Si dudas, no lo compartas: frenar un bulo también es una forma de ciudadanía digital.</p>`,
+        svg: L.flujo("Método para comprobar una información antes de compartirla", ["¿Quién lo publica?", "¿Lo cuentan otros medios?", "¿Es actual? Mira la fecha", "Búsqueda inversa de la imagen", "Si dudas, no lo compartas"], { t: "Antes de compartir" }),
+      },
+    ],
+    "Bienestar digital": [
+      {
+        html: `<h3>Dependencia y nomofobia</h3><p>Usar mucho el móvil no significa tener una adicción, pero hay señales de que el uso se ha vuelto <b>problemático</b>: necesitar el móvil cada vez más tiempo para sentirse bien, ponerse nervioso o de mal humor cuando no se tiene, mentir sobre el tiempo de uso, dejar de lado amistades, deporte o estudios y no conseguir reducirlo aunque se intente. La <b>nomofobia</b> es el miedo irracional a quedarse sin móvil, sin batería o sin cobertura.</p>
+          <p>Detrás está el sistema de <b>recompensa</b> del cerebro: cada «me gusta», mensaje o vídeo sorprendente libera <mark>dopamina</mark>, una sustancia que da placer y nos empuja a repetir. Como las recompensas llegan de forma imprevisible, revisamos el móvil una y otra vez «por si acaso», igual que en una máquina tragaperras. En la adolescencia el cerebro es especialmente sensible a esta recompensa y a la aprobación social. Otro efecto frecuente es la <b>comparación social</b>: vemos la vida editada de los demás y la comparamos con nuestra vida real, lo que puede afectar a la autoestima. Si sientes que el móvil te controla a ti, habla con alguien de confianza: es un problema frecuente y tiene solución.</p>`,
+        svg: L.estrella("Señales de un uso problemático del móvil", "Señales", ["más tiempo", "mal humor sin él", "menos sueño", "deja amigos", "miente", "no puede parar"]),
+        video: { id: "SQunsz5fkiw", titulo: "Nomofobia: el trastorno de ansiedad de la generación del celular", canal: "DW Español", vistas: 90774 },
+      },
+    ],
+    "Apuestas en línea y videojuegos": [
+      {
+        html: `<h3>Salud física y pantallas</h3><p>Las pantallas también afectan al cuerpo. La <b>vista</b> se cansa porque, al mirar de cerca, parpadeamos menos y los ojos se secan; la regla <b>20-20-20</b> ayuda: cada 20 minutos, mirar 20 segundos algo a 6 metros (20 pies). La <b>postura</b> importa: inclinar la cabeza 60 grados para mirar el móvil equivale a cargar unos 27 kilos sobre el cuello, el llamado «cuello de texto». Conviene subir el móvil a la altura de los ojos y, con el ordenador, tener la pantalla a un brazo de distancia, con el borde superior a la altura de la vista y los pies apoyados.</p>
+          <p>El <b>sueño</b> es lo que más sufre. La luz azul de las pantallas y, sobre todo, la actividad emocionante (chatear, jugar, ver vídeos) retrasan la hormona del sueño, la <mark>melatonina</mark>. Un adolescente necesita entre 8 y 10 horas; dormir menos afecta a la memoria, al humor y al rendimiento en clase y en el deporte. Otros riesgos son el <b>sedentarismo</b> (la OMS recomienda al menos 60 minutos diarios de actividad física a tu edad) y la pérdida de audición por el volumen alto de los auriculares: no superes el 60 % del volumen durante más de 60 minutos seguidos.</p>`,
+        svg: L.cajas("Cuidados físicos con las pantallas", [["Vista", "regla|20-20-20"], ["Cuello", "pantalla a la|altura de los ojos"], ["Sueño", "8-10 h, sin|pantallas antes"], ["Oído", "regla|60-60"]], { t: "Cuerpo y pantallas" }),
+      },
+    ],
+  },
+  secciones: [5, 4, 6],
+  niveles: "bbmmbbmmbm",
+  ejercicios: [
+    { nivel: "básico", q: "¿Qué es el egosurfing y para qué sirve?", sol: "Buscar tu propio nombre en Internet. Sirve para saber qué información tuya pueden encontrar otras personas y corregir o retirar lo que no te gusta." },
+    { nivel: "básico", q: "Nombra tres normas de netiqueta para el grupo de WhatsApp de clase.", sol: "No saturar con mensajes ni stickers, respetar los horarios de descanso, no reenviar fotos de nadie sin permiso, no ridiculizar a nadie y no escribir en mayúsculas." },
+    { nivel: "básico", q: "¿Qué es un bulo? ¿Y un deepfake?", sol: "Un bulo es una información falsa que se difunde como verdadera. Un deepfake es un vídeo, imagen o audio falso creado con inteligencia artificial que imita a una persona real." },
+    { nivel: "básico", q: "Explica la regla 20-20-20.", sol: "Cada 20 minutos de pantalla, mirar durante 20 segundos algo que esté a unos 6 metros (20 pies) para relajar la vista." },
+    { nivel: "básico", q: "¿Qué es la nomofobia?", sol: "El miedo irracional a quedarse sin móvil, sin batería o sin cobertura." },
+    { nivel: "básico", q: "¿Qué organismo español protege los datos personales y ayuda a retirar imágenes difundidas sin permiso?", sol: "La Agencia Española de Protección de Datos (AEPD), con su Canal Prioritario." },
+    { nivel: "básico", q: "¿Cuántas horas de sueño necesita un adolescente y por qué afectan las pantallas?", sol: "Entre 8 y 10 horas. Las pantallas, por la luz y sobre todo por la actividad emocionante, retrasan la melatonina y hacen que te duermas más tarde." },
+    { nivel: "medio", q: "Explica qué es el derecho al olvido y en qué casos se puede pedir.", sol: "Es el derecho a pedir que un buscador deje de mostrar enlaces a información personal que es inexacta, antigua o sin interés público, y a que se borren datos tratados sin motivo. Para datos publicados siendo menor, las redes deben borrarlos si se pide." },
+    { nivel: "medio", q: "Reescribe de forma respetuosa este comentario: «QUÉ TONTERÍA DE VÍDEO, NO TIENES NI IDEA».", sol: "Por ejemplo: «No estoy de acuerdo con lo que dices sobre X; yo creo que… porque…». Sin mayúsculas, criticando la idea y no a la persona, y con un argumento." },
+    { nivel: "medio", q: "Aplica el método de verificación a una imagen viral de «tiburones en una autopista inundada».", sol: "Mirar quién la publica; buscar si la cuentan medios fiables; hacer una búsqueda inversa de la imagen (suele aparecer en inundaciones anteriores o ser un montaje); consultar una web de verificación. Si no se confirma, no compartirla." },
+    { nivel: "medio", q: "¿Por qué compartir un mensaje de odio para criticarlo puede ser contraproducente?", sol: "Porque los algoritmos premian lo que genera reacciones: al compartirlo le das más alcance y llega a más personas. Es mejor reportarlo y apoyar a quien sufre el ataque." },
+    { nivel: "medio", q: "Explica la relación entre la dopamina, las notificaciones y las tragaperras.", sol: "Las recompensas imprevisibles (un «me gusta», un mensaje) liberan dopamina y nos empujan a repetir. Como no sabemos cuándo llegará la próxima, revisamos una y otra vez, igual que al tirar de la palanca de una tragaperras." },
+    { nivel: "medio", q: "Una amiga recibe un mensaje: «Tengo tus fotos; o me mandas 100 € o las publico». ¿Qué le aconsejas?", sol: "Que no pague ni envíe nada más, que guarde capturas del chantaje, bloquee y reporte al agresor, lo cuente a un adulto de confianza y llame al 017 o denuncie a la policía. La culpa es del chantajista, no suya." },
+    { nivel: "medio", q: "¿Qué postura es correcta delante del ordenador? Enumera cuatro detalles.", sol: "Pantalla a un brazo de distancia; borde superior a la altura de los ojos; espalda apoyada en el respaldo; pies apoyados en el suelo; muñecas rectas y descansos cada cierto tiempo." },
+    { nivel: "medio", q: "¿Qué es la comparación social en redes y cómo puede afectarte?", sol: "Comparar tu vida real con la vida editada y filtrada que otros muestran. Puede hacer que te sientas peor contigo, con tu cuerpo o con tus planes, aunque lo que ves no sea la realidad completa." },
+    { nivel: "medio", q: "Calcula: si revisas el móvil 80 veces al día y cada vez pierdes 3 minutos de concentración, ¿cuánto tiempo pierdes al día y a la semana?", sol: "80 · 3 = 240 minutos = 4 horas al día. A la semana: 4 · 7 = 28 horas." },
+    { nivel: "avanzado", q: "Redacta un correo formal a la AEPD o a una red social pidiendo que retiren una foto tuya publicada por otra persona sin permiso.", sol: "Debe incluir: asunto claro («Solicitud de retirada de imagen publicada sin consentimiento»), saludo, tus datos, el enlace exacto, explicación de que no diste permiso y de que eres menor (si es el caso), petición concreta de retirada, despedida y firma." },
+    { nivel: "avanzado", q: "Diseña un perfil profesional (por ejemplo, para presentarte a unas prácticas): qué incluirías y qué evitarías.", sol: "Incluir: foto adecuada, formación, proyectos (un robot, una web, voluntariado), idiomas y un enlace a un portafolio. Evitar: datos personales innecesarios (dirección, teléfono abierto), fotos de fiestas, opiniones ofensivas y faltas de ortografía." },
+    { nivel: "avanzado", q: "Analiza por qué los bulos se difunden más rápido que las noticias verdaderas.", sol: "Suelen ser más sorprendentes y emocionales (miedo, indignación), confirman lo que ya pensamos, son sencillos y fáciles de compartir, y los algoritmos premian lo que genera reacciones. La verificación, en cambio, tarda más en llegar." },
+    { nivel: "avanzado", q: "Mide durante una semana tu tiempo de pantalla por app y propón un plan de reducción realista con tres medidas.", sol: "Respuesta personal. Ejemplo: si las redes suman 3 h diarias, poner límites por app de 1 h, quitar notificaciones no urgentes, dejar el móvil fuera del cuarto por la noche y sustituir media hora por una actividad física. Revisar el resultado la semana siguiente." },
+    { nivel: "avanzado", q: "¿Dónde está el límite entre la libertad de expresión y el discurso de odio? Razónalo con un ejemplo.", sol: "La libertad de expresión protege opiniones, incluso críticas o molestas. Se convierte en discurso de odio cuando humilla o incita a la violencia o discriminación contra personas por lo que son. Criticar una ley de inmigración es una opinión; llamar a agredir a inmigrantes es discurso de odio." },
+    { nivel: "avanzado", q: "Explica por qué un deepfake puede ser peligroso para la democracia y para una persona concreta.", sol: "Para la democracia: un vídeo falso de un político diciendo algo puede influir en unas elecciones antes de que se desmienta. Para una persona: pueden fabricar imágenes íntimas o comprometedoras suyas y dañar su reputación; además es delito." },
+    { nivel: "avanzado", q: "Diseña tres normas de uso del móvil para tu familia que todos puedan cumplir, también los adultos.", sol: "Ejemplo: sin móviles en las comidas; móviles a cargar fuera de los dormitorios desde las 22:30; un rato de actividad sin pantallas el fin de semana. Deben ser concretas, iguales para todos y revisarse al cabo de un mes." },
+    { nivel: "avanzado", q: "Las cajas de botín de los videojuegos, ¿son juegos de azar? Argumenta a favor y en contra.", sol: "A favor: se paga dinero real por un premio aleatorio, con la misma mecánica de recompensa imprevisible que una tragaperras. En contra: el premio no se puede cambiar por dinero en muchos juegos. Varios países las han regulado o prohibido para menores." },
+    { nivel: "avanzado", q: "Prepara una mini campaña de tres mensajes para frenar el ciberacoso en tu centro, dirigida a los testigos.", sol: "Ejemplo: 1) «Si te ríes, participas: no reenvíes». 2) «Un mensaje privado de apoyo cambia mucho: escríbele». 3) «Avisar no es chivarse: cuéntalo a tu tutor o llama al 017». Con imagen sencilla y un código QR al protocolo del centro." },
+  ],
+  ejemplos: [
+    { enunciado: "Te llega un audio «del Ministerio» que dice que mañana cortarán el agua de toda la ciudad y pide reenviarlo. Verifícalo.", pasos: ["Fuente: un audio anónimo reenviado muchas veces no es una fuente fiable.", "Contraste: buscar en la web del ayuntamiento o de la compañía de aguas.", "Señal de alarma: «reenvíalo a todos» y el tono alarmista.", "Resultado de la búsqueda: no aparece en ninguna fuente oficial ni en medios.", "Decisión: no reenviarlo y avisar a quien lo envió de que es falso."], resultado: "Es un bulo; no se comparte." },
+    { enunciado: "Calcula cuánto pesa la cabeza sobre el cuello a 0°, 30° y 60° de inclinación (unos 5, 18 y 27 kg) y extrae una conclusión.", pasos: ["Cabeza recta: unos 5 kg.", "Inclinada 30°: unos 18 kg (más de tres veces).", "Inclinada 60°: unos 27 kg (más de cinco veces).", "La carga aumenta mucho al bajar la cabeza para mirar el móvil."], resultado: "Conviene subir el móvil a la altura de los ojos y hacer pausas." },
+    { enunciado: "Un compañero escribe en un foro: «Los de 3º B sois todos idiotas». Propón una respuesta con netiqueta.", pasos: ["No responder con otro insulto: alimenta la discusión.", "Separar la idea de la persona: ¿qué critica en realidad?", "Responder con calma o no responder y reportar si es ofensivo.", "Ejemplo: «Entiendo que estés molesto por el partido; si quieres lo hablamos sin insultos»."], resultado: "Respuesta respetuosa o, si continúa, reportar el mensaje." },
+  ],
+  errores: ["Pensar que lo que se envía por privado o en una historia que desaparece no puede difundirse: basta una captura."],
+  cuarta: ["permanente", "Sí, si la borras en 24 horas", "Hacer una captura para reírte después", "Un tipo de contraseña", "dormir menos", "venderte un móvil nuevo", "ciberseguridad", "comentar el meme", "están permitidas los fines de semana", "las actualizaciones"],
+  quiz: [
+    { q: "El derecho al olvido permite…", o: ["borrar Internet entero", "pedir que un buscador deje de mostrar información personal antigua o inexacta", "cambiar tu nombre", "no ir a clase"], a: 1, e: "Es parte del derecho de supresión del RGPD." },
+    { q: "Escribir todo en mayúsculas en un chat equivale a…", o: ["susurrar", "gritar", "ser educado", "cifrar"], a: 1, e: "Es una norma básica de netiqueta." },
+    { q: "Ante una sextorsión, lo primero es…", o: ["pagar para que pare", "no ceder, guardar pruebas y pedir ayuda", "enviar más fotos", "borrar todas las pruebas"], a: 1, e: "Ceder no detiene el chantaje." },
+    { q: "La búsqueda inversa de una imagen sirve para…", o: ["mejorar su calidad", "saber dónde apareció antes", "cifrarla", "borrarla de Internet"], a: 1, e: "Ayuda a descubrir montajes y fotos antiguas." },
+    { q: "Un deepfake es…", o: ["una red social", "un contenido falso creado con IA que imita a una persona", "un tipo de cookie", "una contraseña segura"], a: 1, e: "Pueden imitar caras y voces de forma muy realista." },
+    { q: "La sustancia del cerebro asociada a la recompensa es…", o: ["la melatonina", "la dopamina", "la insulina", "la cafeína"], a: 1, e: "Se libera ante recompensas como un «me gusta»." },
+    { q: "La melatonina es la hormona…", o: ["del hambre", "del sueño", "del crecimiento muscular", "de la vista"], a: 1, e: "Las pantallas antes de dormir la retrasan." },
+    { q: "Inclinar la cabeza 60° para mirar el móvil carga el cuello con unos…", o: ["5 kg", "10 kg", "27 kg", "100 kg"], a: 2, e: "Por eso conviene subir el móvil." },
+    { q: "El discurso de odio…", o: ["es siempre libertad de expresión", "puede ser delito en los casos graves", "solo existe fuera de Internet", "está permitido en foros"], a: 1, e: "Incitar a la violencia o la discriminación no está protegido." },
+    { q: "La regla 60-60 de los auriculares significa…", o: ["60 canciones al día", "no más del 60 % de volumen más de 60 minutos seguidos", "60 decibelios siempre", "cambiar de auriculares cada 60 días"], a: 1, e: "Protege la audición." },
+  ],
+  cuartaEx: ["Solo tu número de teléfono", "Tener la batería baja", "es legal si la borras"],
+  examen: [
+    { q: "¿Qué web te ayuda a comprobar si un bulo es falso?", o: ["Una web de verificación como Maldita o Newtral", "Cualquier grupo de WhatsApp", "Un foro anónimo", "La web que lo publica"], a: 0, e: "Se dedican a contrastar informaciones." },
+    { q: "La comparación social en redes puede…", o: ["mejorar siempre la autoestima", "afectar a la autoestima", "cargar el móvil", "proteger tus datos"], a: 1, e: "Comparamos nuestra vida real con vidas editadas." },
+    { q: "¿Cuánta actividad física diaria recomienda la OMS a tu edad?", o: ["10 minutos", "30 minutos", "60 minutos", "4 horas"], a: 2, e: "Al menos una hora al día." },
+    { q: "Una buena norma ante un mensaje que te enfada es…", o: ["responder al momento", "esperar antes de contestar", "contestar en mayúsculas", "reenviarlo"], a: 1, e: "Lo que se escribe en caliente suele traer problemas." },
+    { q: "La AEPD es…", o: ["una red social", "la Agencia Española de Protección de Datos", "un antivirus", "un buscador"], a: 1, e: "Atiende reclamaciones sobre datos personales." },
+  ],
+  tarjetas: [
+    ["Derecho al olvido", "Pedir que los buscadores dejen de mostrar información personal antigua o inexacta."],
+    ["Netiqueta", "Normas de buena educación en Internet."],
+    ["Verificar antes de compartir", "Fuente, otros medios, fecha, búsqueda inversa; si dudas, no compartas."],
+    ["Nomofobia", "Miedo irracional a quedarse sin móvil."],
+  ],
+  glosario: [
+    ["Identidad digital", "Imagen de una persona que se forma con lo que hay sobre ella en Internet."],
+    ["Huella digital", "Rastro de datos que dejamos al usar Internet, de forma activa o pasiva."],
+    ["Reputación digital", "Opinión que otros se forman de alguien por lo que encuentran en la red."],
+    ["Egosurfing", "Buscar tu propio nombre en Internet."],
+    ["Derecho al olvido", "Derecho a pedir que se retire o deje de mostrarse información personal."],
+    ["Netiqueta", "Normas de comportamiento respetuoso en Internet."],
+    ["Ciberacoso", "Acoso repetido a una persona por medios digitales."],
+    ["Grooming", "Engaño de un adulto a un menor por Internet con fines sexuales."],
+    ["Sextorsión", "Chantaje con imágenes íntimas."],
+    ["Discurso de odio", "Mensajes que humillan o incitan a la violencia contra personas por lo que son."],
+    ["Bulo", "Información falsa que se difunde como verdadera."],
+    ["Deepfake", "Imagen, audio o vídeo falso creado con IA que imita a una persona."],
+    ["Verificación", "Comprobación de una información con fuentes fiables."],
+    ["Diseño persuasivo", "Técnicas de las apps para captar la atención y el tiempo."],
+    ["Burbuja de filtro", "Situación en la que el algoritmo solo te muestra lo que confirma tus gustos."],
+    ["Nomofobia", "Miedo irracional a quedarse sin móvil."],
+    ["Dopamina", "Sustancia del cerebro relacionada con el placer y la recompensa."],
+    ["Bienestar digital", "Uso de la tecnología que ayuda a sentirse bien y no perjudica la salud."],
+  ],
+  situacion: {
+    titulo: "Semana del bienestar digital",
+    reto: "Vuestro grupo organiza una «semana del bienestar digital» en el instituto. Debéis medir cómo usáis la tecnología, experimentar un cambio de hábitos durante siete días y contar los resultados al resto del centro.",
+    pasos: [
+      "Medid durante una semana vuestro tiempo de pantalla por aplicación y vuestras horas de sueño (con las herramientas del propio móvil).",
+      "Analizad los datos en una hoja de cálculo: medias, máximo y relación entre pantallas por la noche y horas de sueño.",
+      "Elegid tres hábitos que cambiar (notificaciones, móvil fuera del cuarto, límites por app) y aplicadlos otra semana.",
+      "Comparad las dos semanas y anotad cómo os habéis sentido (descanso, concentración, ánimo).",
+      "Preparad unos carteles o un vídeo corto con los resultados y consejos, aplicando la netiqueta y citando las fuentes.",
+    ],
+    producto: "Un informe con gráficos «antes y después» y una campaña de carteles o vídeo para el centro.",
+    evaluacion: ["Los datos se recogen con rigor y se analizan correctamente.", "Las conclusiones se apoyan en los datos y no en opiniones.", "Los consejos son realistas, respetuosos y están bien fundamentados.", "La campaña es clara, atractiva y cuida la privacidad de los participantes."],
+  },
+  objetivos: ["Gestionar la identidad digital y ejercer el derecho al olvido", "Verificar informaciones y reconocer bulos y deepfakes"],
+  fuentes: [{ t: "AEPD: Canal Prioritario", url: "https://www.aepd.es/canalprioritario" }, { t: "Maldita.es: verificación de bulos", url: "https://maldita.es/" }],
+});
