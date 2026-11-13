@@ -173,3 +173,163 @@ AMP.amplia(module.exports, {
     ["Certificado energético", "Calificación de la A a la G de la eficiencia de un edificio."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 110,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "La casa que paga la mitad",
+    html: `<p>Dos pisos idénticos, en el mismo edificio y con familias parecidas. Uno paga unos 1.800 euros al año entre luz, gas y agua; el otro, menos de 900. La diferencia no está en pasar frío ni en ducharse menos. El segundo piso tiene las ventanas con doble vidrio y rotura de puente térmico, bombillas LED, una bomba de calor en lugar de radiadores eléctricos, grifos con aireadores, la potencia contratada ajustada a lo que realmente necesita y unas placas solares compartidas en la azotea.</p>
+      <p>Detrás de cada interruptor, grifo y radiador hay instalaciones diseñadas con normas precisas para que sean útiles, seguras y eficientes. En este tema recorrerás la instalación eléctrica desde la calle hasta el enchufe y aprenderás a leer sus esquemas, sabrás qué hacer ante un accidente, entenderás cómo funcionan el agua, la calefacción, el gas y las telecomunicaciones, y descubrirás cómo la energía solar, la domótica y la arquitectura bioclimática pueden reducir a la mitad el consumo de una vivienda. Con estos conocimientos podrás leer una factura y tomar decisiones con criterio.</p>`,
+  },
+  svgs: {
+    "Circuitos de una vivienda y potencia contratada": L.rejilla("Circuitos de una vivienda con su sección de cable y su PIA", ["Circuito", "Uso", "Cable", "PIA"], [["C1", "alumbrado", "1,5 mm²", "10 A"], ["C2", "enchufes", "2,5 mm²", "16 A"], ["C3", "cocina y horno", "6 mm²", "25 A"], ["C4", "lavadora", "4 mm²", "20 A"], ["C5", "baño y cocina", "2,5 mm²", "16 A"]], { t: "Circuitos básicos" }),
+    "Qué hacer ante un accidente eléctrico": L.flujo("Pasos ante un accidente eléctrico", ["No tocar a la persona", "Cortar la corriente en el cuadro", "Si no se puede, separar con material aislante", "Llamar al 112", "Primeros auxilios si sabes"], { t: "Ante un accidente" }),
+    "Telecomunicaciones y gas": L.cajas("Servicios de la infraestructura común de telecomunicaciones", [["TV terrestre", "antena|en la azotea"], ["TV satélite", "parabólica"], ["Teléfono e Internet", "fibra óptica|y cobre"], ["Registros", "cajas en cada|planta y vivienda"]], { t: "ICT del edificio" }),
+    "La factura y la certificación energética": L.barras("Ejemplo de reparto de una factura de luz mensual", [["Potencia", 15], ["Energía", 38], ["Impuestos", 10], ["Contador", 1]], { t: "Factura de 64 € (ejemplo)", unidad: " €" }),
+  },
+  tras: {
+    "Circuitos de una vivienda y potencia contratada": [
+      {
+        html: `<h3>Esquemas de la instalación interior</h3><p>Los electricistas trabajan con <b>esquemas</b> que usan símbolos normalizados. Los más sencillos son: el <b>punto de luz simple</b>, una lámpara controlada por un interruptor colocado en serie con ella en la <b>fase</b> (el cable marrón, negro o gris), mientras el <b>neutro</b> (azul) va directo a la lámpara; la <b>toma de corriente</b> o enchufe, con fase, neutro y <b>tierra</b> (amarillo y verde) conectados en paralelo con los demás enchufes del circuito; y el <b>timbre</b>, accionado por un pulsador que solo cierra el circuito mientras se aprieta.</p>
+          <p>Para encender una luz desde dos sitios, por ejemplo desde los dos extremos de un pasillo, se usa un <mark>circuito conmutado</mark> con dos <b>conmutadores</b>. Cada conmutador tiene tres bornes y elige por cuál de dos cables (los «puentes») pasa la fase; la lámpara luce cuando los dos conmutadores están en la misma posición respecto a esos puentes, y al cambiar cualquiera de ellos se apaga. Para tres o más puntos se intercala un <b>conmutador de cruce</b>. Hoy muchas viviendas usan también <b>telerruptores</b> o mecanismos inteligentes. Los esquemas pueden ser <b>multifilares</b>, con todos los cables dibujados, o <b>unifilares</b>, con un solo trazo y marcas que indican el número de conductores, que es como se representa el cuadro general.</p>`,
+        svg: L.cajas("Circuitos básicos de una vivienda", [["Punto de luz", "interruptor en|la fase"], ["Enchufe", "fase, neutro|y tierra"], ["Conmutado", "una luz desde|dos sitios"], ["Timbre", "pulsador:|solo al apretar"]], { t: "Esquemas básicos" }),
+      },
+    ],
+    "Seguridad eléctrica": [
+      {
+        html: `<h3>Normas y profesionales</h3><p>Las instalaciones eléctricas de los edificios en España deben cumplir el <b>Reglamento Electrotécnico para Baja Tensión</b> (<mark>REBT</mark>), que fija los circuitos mínimos, el grosor de los cables, las protecciones, la toma de tierra y las distancias de seguridad en baños y cocinas. Por ejemplo, en el baño se definen <b>volúmenes</b> alrededor de la bañera y la ducha donde no se pueden poner enchufes ni interruptores, porque el agua y la piel mojada aumentan mucho el riesgo de electrocución.</p>
+          <p>Solo un <b>instalador autorizado</b> puede hacer o reformar una instalación. Al terminar, entrega el <b>certificado de instalación eléctrica</b> (el antiguo «boletín»), necesario para dar de alta la luz con la compañía. Las instalaciones de gas y de calefacción también tienen sus reglamentos y necesitan revisiones periódicas obligatorias. En casa, lo que sí puedes hacer con seguridad es cambiar una bombilla con el interruptor apagado, rearmar un PIA que ha saltado tras desenchufar el aparato que lo provocó y pulsar una vez al mes el botón de prueba del diferencial para comprobar que funciona. Ante cualquier otra avería, lo prudente es llamar a un profesional.</p>`,
+        svg: L.cajas("Lo que puedes hacer y lo que debe hacer un profesional", [["Tú puedes", "cambiar bombillas|sin tensión"], ["Tú puedes", "probar el|diferencial cada mes"], ["Profesional", "nuevos circuitos|y reformas"], ["Profesional", "certificado|de instalación"]], { t: "REBT y seguridad" }),
+      },
+    ],
+    "Agua, saneamiento, calefacción y gas": [
+      {
+        html: `<h3>Calefacción y climatización: la bomba de calor</h3><p>Hay varias formas de calentar una casa. Las <b>calderas</b> queman gas natural o gasóleo y calientan agua que circula por radiadores o por <b>suelo radiante</b>; las de condensación aprovechan también el calor del vapor de los humos y gastan menos. Los <b>radiadores eléctricos</b> convierten la electricidad en calor por efecto Joule: 1 kWh de electricidad da 1 kWh de calor, lo que resulta caro. Las estufas de <b>biomasa</b> queman pellets o leña, un combustible renovable.</p>
+          <p>La opción más eficiente es la <b>bomba de calor</b>, que funciona como una nevera al revés: un gas refrigerante absorbe calor del aire exterior (incluso a temperaturas bajo cero), un compresor lo comprime y lo calienta más, y ese calor se cede al interior. Por cada kWh de electricidad entrega 3 o 4 kWh de calor: su rendimiento, el <mark>COP</mark>, es de 3 a 4. En verano invierte el ciclo y refrigera. Cuando la bomba de calor calienta agua para radiadores, suelo radiante y agua caliente sanitaria se llama <b>aerotermia</b>; si toma el calor del subsuelo, <b>geotermia</b>. Al usar electricidad, que puede venir de fuentes renovables, ayuda a reducir las emisiones de los edificios.</p>`,
+        svg: L.flujo("Ciclo de una bomba de calor en modo calefacción", ["El refrigerante toma calor del aire exterior", "El compresor lo comprime y lo calienta", "Cede el calor dentro de la casa", "La válvula lo expande y lo enfría", "Vuelve a empezar (COP 3-4)"], { t: "Bomba de calor" }),
+        video: { id: "mHrlRcPlVcE", titulo: "Cómo funciona la aerotermia y tipos de bombas de calor", canal: "Caloryfrio.com", vistas: 217475 },
+      },
+    ],
+    "Telecomunicaciones y gas": [
+      {
+        html: `<h3>Energía solar en la vivienda</h3><p>El sol puede aportar buena parte de la energía de una casa de dos formas. La <b>energía solar térmica</b> usa colectores en el tejado por los que circula un líquido que se calienta y transfiere ese calor a un depósito de agua caliente sanitaria; en España, el Código Técnico de la Edificación obliga a que los edificios nuevos cubran así una parte del agua caliente (o con otra renovable). La <b>energía solar fotovoltaica</b> usa paneles de silicio que transforman la luz directamente en electricidad en corriente continua; un <b>inversor</b> la convierte en alterna a 230 V para usarla en casa.</p>
+          <p>En el <mark>autoconsumo</mark>, la vivienda usa la electricidad de sus paneles mientras los produce, y el excedente se vierte a la red y se descuenta en la factura (<b>compensación de excedentes</b>). Se puede añadir una batería para guardar la energía y usarla de noche, aunque encarece la instalación. Un panel de unos 400 W de potencia pico produce en España alrededor de 1,5 kWh al día de media. Los vecinos de un edificio pueden compartir una instalación en la azotea (<b>autoconsumo colectivo</b>) o unirse en una <b>comunidad energética</b> local. Para aprovecharlo al máximo, conviene poner la lavadora o el lavavajillas en las horas de sol.</p>`,
+        svg: L.flujo("Instalación de autoconsumo fotovoltaico", ["Paneles: luz → corriente continua", "Inversor: continua → alterna 230 V", "Consumo en casa", "Excedente a la red (se compensa)", "Opcional: batería para la noche"], { t: "Autoconsumo solar" }),
+      },
+    ],
+    "Ahorro energético y domótica": [
+      {
+        html: `<h3>La domótica por dentro</h3><p>Una vivienda domótica funciona como un sistema de control: <b>sensores</b> (temperatura, humedad, presencia, apertura de puertas y ventanas, fugas de agua, humo), un <b>controlador</b> o pasarela que decide según unas reglas y <b>actuadores</b> (relés, motores de persianas, válvulas, enchufes inteligentes, termostatos). Las reglas se llaman <b>escenas</b> o automatizaciones: «si no hay nadie en casa, apagar luces y bajar la calefacción a 16 °C»; «si se detecta una fuga de agua, cerrar la electroválvula y avisar al móvil».</p>
+          <p>Los dispositivos se comunican por cable (el estándar <b>KNX</b>, muy usado en edificios) o de forma inalámbrica (wifi, Zigbee, Z-Wave o el nuevo estándar común <mark>Matter</mark>, que busca que aparatos de marcas distintas se entiendan). La domótica aporta <b>confort</b>, <b>ahorro</b> energético (la calefacción solo funciona en las estancias ocupadas), <b>seguridad</b> (alarmas técnicas y de intrusión) y <b>accesibilidad</b>, muy importante para personas mayores o con discapacidad, que pueden controlar la casa con la voz. Sus riesgos son la dependencia de Internet y de un fabricante, la privacidad de los datos que recoge y la ciberseguridad: hay que cambiar las contraseñas de fábrica y mantenerla actualizada.</p>`,
+        svg: L.flujo("Funcionamiento de una escena domótica de fuga de agua", ["Sensor detecta agua en el suelo", "El controlador aplica la regla", "Electroválvula cierra el agua", "Aviso al móvil", "Registro del evento"], { t: "Escena: fuga de agua" }),
+      },
+    ],
+    "La factura y la certificación energética": [
+      {
+        html: `<h3>Arquitectura bioclimática y aislamiento</h3><p>La energía más barata es la que no se gasta. La <b>arquitectura bioclimática</b> diseña los edificios aprovechando el clima del lugar para necesitar poca calefacción y refrigeración. En el hemisferio norte, las estancias principales y las ventanas grandes se orientan al <b>sur</b>, donde entra el sol en invierno, que va bajo; en verano, con el sol alto, unos <b>aleros</b>, toldos o árboles de hoja caduca dan sombra. La <b>ventilación cruzada</b>, abriendo ventanas en fachadas opuestas, refresca de noche, y los muros gruesos de piedra o ladrillo acumulan calor (<b>inercia térmica</b>) y suavizan los cambios de temperatura.</p>
+          <p>El <b>aislamiento</b> térmico (lana mineral, poliestireno, corcho, fibra de madera) en fachadas y cubiertas reduce las pérdidas de calor, y las ventanas con doble o triple vidrio y marcos con rotura de <b>puente térmico</b> evitan que el frío entre por los bordes. Los edificios de <mark>consumo casi nulo</mark>, obligatorios en la Unión Europea para las nuevas construcciones, combinan todo esto con renovables y ventilación con recuperación de calor. Rehabilitar edificios antiguos con estos criterios es una de las grandes tareas para frenar el cambio climático, ya que los edificios consumen alrededor del 40 % de la energía en Europa.</p>`,
+        svg: L.cajas("Estrategias de la arquitectura bioclimática", [["Orientación sur", "sol en|invierno"], ["Aleros y toldos", "sombra|en verano"], ["Aislamiento", "fachada,|cubierta, ventanas"], ["Ventilación", "cruzada|de noche"]], { t: "Diseño bioclimático" }),
+      },
+    ],
+  },
+  secciones: [7, 4, 4],
+  niveles: "bbmmmbbbbb",
+  ejercicios: [
+    { nivel: "básico", q: "¿De qué color son los cables de fase, neutro y tierra?", sol: "Fase: marrón, negro o gris. Neutro: azul. Tierra: amarillo y verde." },
+    { nivel: "básico", q: "¿Qué es un circuito conmutado y dónde se usa?", sol: "Un circuito que permite encender y apagar una luz desde dos puntos distintos con dos conmutadores; se usa en pasillos, escaleras y dormitorios." },
+    { nivel: "básico", q: "¿Qué significan las siglas REBT?", sol: "Reglamento Electrotécnico para Baja Tensión, la norma que deben cumplir las instalaciones eléctricas de los edificios." },
+    { nivel: "básico", q: "¿Qué diferencia hay entre energía solar térmica y fotovoltaica?", sol: "La térmica calienta un líquido para obtener agua caliente; la fotovoltaica transforma la luz en electricidad." },
+    { nivel: "básico", q: "Nombra cuatro estrategias de la arquitectura bioclimática.", sol: "Orientar las estancias al sur, poner aleros o toldos para dar sombra en verano, aislar bien fachadas y ventanas, ventilación cruzada e inercia térmica de muros gruesos." },
+    { nivel: "medio", q: "¿Por qué el interruptor de una lámpara debe cortar la fase y no el neutro?", sol: "Porque así, con el interruptor apagado, la lámpara queda sin tensión; si cortara el neutro, el portalámparas seguiría con tensión y habría riesgo al cambiar la bombilla." },
+    { nivel: "medio", q: "Una bomba de calor con COP 4 entrega 12.000 kWh de calor al año. ¿Cuánta electricidad consume? ¿Y un radiador eléctrico para dar lo mismo?", sol: "Bomba de calor: 12.000 / 4 = 3.000 kWh. Radiador eléctrico (rendimiento 1): 12.000 kWh, cuatro veces más." },
+    { nivel: "medio", q: "Con el ejercicio anterior y la electricidad a 0,15 €/kWh, ¿cuánto se ahorra al año con la bomba de calor?", sol: "Radiador: 12.000 · 0,15 = 1.800 €. Bomba: 3.000 · 0,15 = 450 €. Ahorro: 1.350 € al año." },
+    { nivel: "medio", q: "Una casa tiene 8 paneles de 400 W. Si cada uno produce 1,5 kWh al día, ¿cuánta energía generan al año?", sol: "8 · 1,5 = 12 kWh al día. Al año: 12 · 365 = 4.380 kWh." },
+    { nivel: "medio", q: "¿Qué hace el inversor en una instalación fotovoltaica?", sol: "Convierte la corriente continua que producen los paneles en corriente alterna a 230 V y 50 Hz para usarla en la vivienda y verterla a la red." },
+    { nivel: "medio", q: "Explica por qué no puede haber enchufes junto a la bañera.", sol: "El agua es conductora y la piel mojada tiene mucha menos resistencia, así que una descarga sería mucho más peligrosa. El REBT define volúmenes de seguridad alrededor de bañera y ducha donde se prohíben enchufes e interruptores." },
+    { nivel: "medio", q: "Describe una escena domótica para cuando la familia sale de casa.", sol: "Al activar «salir» (o detectar que todos los móviles se alejan): apagar todas las luces y los enchufes de espera, bajar la calefacción a 16 °C, bajar persianas, activar la alarma y cerrar la llave de agua si se va de viaje." },
+    { nivel: "medio", q: "¿Qué ventajas aporta la domótica a una persona mayor que vive sola?", sol: "Controlar luces y persianas con la voz, recordatorios de medicación, detectores de caídas, de humo o de fugas con aviso a familiares y apertura de la puerta sin desplazarse." },
+    { nivel: "medio", q: "¿Qué es la compensación de excedentes en el autoconsumo?", sol: "La energía que los paneles producen y la casa no usa se vierte a la red y la compañía la descuenta en la factura, normalmente a un precio menor que el de compra." },
+    { nivel: "medio", q: "¿Por qué conviene orientar al sur las ventanas grandes de una casa en España?", sol: "Porque en invierno el sol, que va bajo, entra por ellas y calienta la casa gratis; en verano, con el sol alto, un alero las protege fácilmente." },
+    { nivel: "medio", q: "¿Qué puedes hacer tú en casa si salta un PIA y qué no debes hacer?", sol: "Desenchufar el aparato sospechoso y volver a subir el PIA. Si vuelve a saltar, no insistir ni puentearlo: hay una avería y debe revisarla un instalador autorizado." },
+    { nivel: "avanzado", q: "Dibuja (describe) el esquema de un circuito conmutado: qué cables llegan a cada conmutador y a la lámpara.", sol: "La fase llega al borne común del primer conmutador; de sus otros dos bornes salen dos cables (puentes) a los dos bornes del segundo conmutador; del común del segundo sale el cable a la lámpara. El neutro va directo a la lámpara y la tierra a su carcasa si es metálica." },
+    { nivel: "avanzado", q: "Una familia consume 3.600 kWh al año y su instalación solar produce 4.380 kWh, pero solo aprovecha directamente el 40 % de lo producido. ¿Cuánta energía compra a la red y cuánta vierte?", sol: "Aprovecha 0,4 · 4.380 = 1.752 kWh. Compra 3.600 − 1.752 = 1.848 kWh. Vierte 4.380 − 1.752 = 2.628 kWh, que se compensan en la factura." },
+    { nivel: "avanzado", q: "Compara calefacción con caldera de gas, radiadores eléctricos y aerotermia en coste, emisiones y mantenimiento.", sol: "Gas: coste medio, emite CO₂ al quemar, necesita revisiones. Radiadores eléctricos: instalación barata pero consumo muy caro (COP 1). Aerotermia: instalación cara pero consumo bajo (COP 3-4) y sin emisiones directas; con electricidad renovable, casi sin emisiones." },
+    { nivel: "avanzado", q: "Calcula el ahorro anual de cambiar un piso de potencia contratada de 6,9 kW a 4,6 kW si el término de potencia cuesta 0,10 €/kW al día.", sol: "Diferencia: 2,3 kW. Ahorro: 2,3 · 0,10 · 365 ≈ 84 € al año, siempre que no se usen a la vez aparatos que sumen más de 4,6 kW." },
+    { nivel: "avanzado", q: "Propón un plan de rehabilitación energética de un piso de los años 70 con un presupuesto limitado, ordenando las medidas de más a menos rentables.", sol: "1) LED y ajustar la potencia contratada (coste bajo, ahorro inmediato). 2) Burletes y sellado de ventanas, aireadores en grifos. 3) Termostato programable. 4) Cambiar ventanas a doble vidrio. 5) Aislamiento de fachada (mejor con la comunidad). 6) Bomba de calor o autoconsumo colectivo." },
+    { nivel: "avanzado", q: "¿Qué riesgos de ciberseguridad y privacidad tiene una casa domótica? Propón tres medidas.", sol: "Riesgos: que alguien acceda a cámaras o cerraduras, que se sepa cuándo no hay nadie en casa, robo de datos. Medidas: cambiar las contraseñas de fábrica, actualizar los dispositivos, separar la red domótica (red de invitados o VLAN) y elegir marcas que cifren los datos." },
+    { nivel: "avanzado", q: "Explica por qué los edificios de consumo casi nulo necesitan ventilación con recuperación de calor.", sol: "Están tan bien aislados y sellados que no se renueva el aire por las rendijas; hay que ventilar para la salud, y al hacerlo se perdería el calor. El recuperador cruza el aire que sale con el que entra y le transfiere gran parte de su calor." },
+    { nivel: "avanzado", q: "En un pasillo largo se quiere encender la luz desde tres puntos. ¿Qué mecanismos necesitas?", sol: "Dos conmutadores en los extremos y un conmutador de cruce en el punto intermedio (por cada punto adicional se añade otro de cruce). Alternativa: pulsadores con un telerruptor." },
+    { nivel: "avanzado", q: "Analiza la etiqueta energética de un frigorífico: clase A con 100 kWh/año frente a clase E con 300 kWh/año. Si el A cuesta 150 € más, ¿en cuántos años se amortiza a 0,15 €/kWh?", sol: "Ahorro anual: (300 − 100) · 0,15 = 30 €. Amortización: 150 / 30 = 5 años; como un frigorífico dura unos 15 años, compensa claramente." },
+  ],
+  ejemplos: [
+    { enunciado: "Calcula cuánto ahorra al año una familia que sustituye un termo eléctrico de 1.500 W que funciona 3 h al día por una bomba de calor para ACS con COP 3.", pasos: ["Consumo del termo: 1,5 kW · 3 h · 365 = 1.642,5 kWh.", "Misma energía térmica con COP 3: 1.642,5 / 3 = 547,5 kWh.", "Ahorro: 1.642,5 − 547,5 = 1.095 kWh.", "A 0,15 €/kWh: 1.095 · 0,15 ≈ 164 €."], resultado: "Unos 164 € y 1.095 kWh al año." },
+    { enunciado: "Explica qué ocurre en un circuito conmutado cuando se pulsa el segundo conmutador estando la luz encendida.", pasos: ["Con la luz encendida, los dos conmutadores conectan con el mismo puente.", "Al cambiar el segundo, este pasa al otro puente.", "La fase ya no tiene camino hasta la lámpara: el circuito se abre.", "La luz se apaga; cambiar cualquiera de los dos la vuelve a encender."], resultado: "La luz se apaga: cada conmutador cambia el estado." },
+    { enunciado: "Dimensiona una instalación de autoconsumo para cubrir unos 3.000 kWh al año con paneles de 400 W que producen 1,5 kWh al día.", pasos: ["Producción anual por panel: 1,5 · 365 = 547,5 kWh.", "Paneles necesarios: 3.000 / 547,5 ≈ 5,5 → 6 paneles.", "Potencia instalada: 6 · 400 W = 2,4 kW pico.", "Habrá excedentes en verano y déficit en invierno: se compensan con la red."], resultado: "6 paneles, unos 2,4 kW." },
+  ],
+  errores: ["Puentear un PIA o un diferencial que salta a menudo: elimina la protección y puede provocar un incendio o una electrocución."],
+  cuarta: ["400 V", "Rojo", "El IGA", "Para que el agua salga más rápido", "climatización solar", "25 mm²", "llamar por teléfono junto a la persona", "salir de casa", "el agua caliente", "B+"],
+  quiz: [
+    { q: "Para encender una luz desde dos puntos se usa un circuito…", o: ["simple", "conmutado", "en paralelo con el timbre", "de tierra"], a: 1, e: "Con dos conmutadores." },
+    { q: "El interruptor de una lámpara debe cortar…", o: ["el neutro", "la fase", "la tierra", "las tres"], a: 1, e: "Así la lámpara queda sin tensión." },
+    { q: "El documento que entrega el instalador al terminar es…", o: ["la factura de la luz", "el certificado de instalación", "el certificado energético", "la escritura"], a: 1, e: "Antes se llamaba «boletín»." },
+    { q: "Una bomba de calor con COP 3 entrega por cada kWh eléctrico…", o: ["1 kWh de calor", "3 kWh de calor", "0,3 kWh", "30 kWh"], a: 1, e: "Toma el resto del calor del aire exterior." },
+    { q: "La aerotermia es…", o: ["una caldera de gas", "una bomba de calor que calienta agua", "un panel fotovoltaico", "un tipo de aislamiento"], a: 1, e: "Para radiadores, suelo radiante y ACS." },
+    { q: "En una instalación fotovoltaica, el inversor…", o: ["convierte continua en alterna", "almacena energía", "calienta el agua", "mide el consumo"], a: 0, e: "Para usar la electricidad a 230 V." },
+    { q: "El estándar común que busca que aparatos domóticos de distintas marcas se entiendan es…", o: ["Matter", "HDMI", "REBT", "ACS"], a: 0, e: "Lo apoyan los grandes fabricantes." },
+    { q: "En el hemisferio norte, las ventanas grandes conviene orientarlas al…", o: ["norte", "sur", "este siempre", "da igual"], a: 1, e: "Para captar el sol en invierno." },
+    { q: "La rotura de puente térmico en una ventana…", o: ["evita que el frío pase por el marco", "hace que se abra sola", "es un tipo de cristal tintado", "mide la temperatura"], a: 0, e: "Separa el interior y el exterior del marco." },
+    { q: "Los edificios consumen en Europa cerca del…", o: ["5 %", "15 %", "40 %", "90 %"], a: 2, e: "Por eso su rehabilitación es clave." },
+  ],
+  cuartaEx: ["se cambia de compañía", "Antena de comunicación satelital", "Clase E"],
+  examen: [
+    { q: "El cable de tierra sirve para…", o: ["llevar la corriente al aparato", "desviar a tierra una fuga y proteger a las personas", "medir el consumo", "encender la luz"], a: 1, e: "Junto con el diferencial evita descargas." },
+    { q: "Para tres puntos de encendido de una misma luz se necesita…", o: ["tres interruptores simples", "dos conmutadores y uno de cruce", "un timbre", "un diferencial"], a: 1, e: "El de cruce va en medio." },
+    { q: "La energía solar térmica sirve sobre todo para…", o: ["producir electricidad", "calentar agua", "cargar el móvil", "iluminar"], a: 1, e: "Con colectores y un depósito." },
+    { q: "En autoconsumo, conviene poner la lavadora…", o: ["de noche", "en las horas de sol", "nunca", "solo en invierno"], a: 1, e: "Así se usa la energía de los paneles." },
+    { q: "Un riesgo de la domótica es…", o: ["el ahorro energético", "la privacidad y la ciberseguridad", "la accesibilidad", "el confort"], a: 1, e: "Hay que cambiar contraseñas y actualizar." },
+  ],
+  tarjetas: [
+    ["Circuito conmutado", "Dos conmutadores encienden y apagan una luz desde dos sitios."],
+    ["COP de la bomba de calor", "kWh de calor por cada kWh eléctrico: 3 a 4."],
+    ["Autoconsumo", "Usar la electricidad de tus paneles y compensar el excedente."],
+    ["Bioclimática", "Orientación, sombra, aislamiento e inercia para gastar menos."],
+  ],
+  glosario: [
+    ["Fase", "Conductor que lleva la tensión; marrón, negro o gris."],
+    ["Neutro", "Conductor de retorno de la corriente; azul."],
+    ["Toma de tierra", "Conexión que desvía a tierra las fugas; amarillo y verde."],
+    ["Cuadro general de mando y protección", "Caja con el IGA, el diferencial y los PIA."],
+    ["Interruptor diferencial", "Protección que corta la corriente si detecta una fuga a tierra."],
+    ["PIA", "Pequeño interruptor automático que protege cada circuito de sobrecargas y cortocircuitos."],
+    ["Conmutador", "Mecanismo que permite controlar una luz desde dos puntos."],
+    ["REBT", "Reglamento Electrotécnico para Baja Tensión."],
+    ["Potencia contratada", "Máximo de kW que se pueden usar a la vez en la vivienda."],
+    ["ACS", "Agua caliente sanitaria."],
+    ["Bomba de calor", "Máquina que transporta calor del exterior al interior con un compresor."],
+    ["Aerotermia", "Bomba de calor aire-agua para calefacción y ACS."],
+    ["COP", "Rendimiento de una bomba de calor: calor entregado entre electricidad consumida."],
+    ["Autoconsumo", "Producir y consumir la propia electricidad, normalmente solar."],
+    ["Inversor", "Aparato que convierte corriente continua en alterna."],
+    ["Domótica", "Automatización y control de la vivienda."],
+    ["Arquitectura bioclimática", "Diseño que aprovecha el clima para reducir el consumo."],
+    ["Puente térmico", "Zona de un edificio por donde se escapa el calor más fácilmente."],
+  ],
+  situacion: {
+    titulo: "Auditoría energética de mi casa",
+    reto: "Realizad una auditoría energética de vuestra vivienda (o de una vivienda tipo) y proponed un plan de mejora que reduzca al menos un 25 % el consumo, con su coste y su plazo de amortización.",
+    pasos: [
+      "Recoged las facturas de luz (y gas si lo hay) de un año y analizad la potencia contratada, el consumo mensual y su coste.",
+      "Haced un inventario de aparatos con su potencia y horas de uso, y calculad su consumo anual en una hoja de cálculo.",
+      "Revisad la vivienda: orientación, ventanas, aislamiento, calefacción, iluminación y aparatos en espera.",
+      "Proponed mejoras (LED, ajuste de potencia, bomba de calor, autoconsumo, aislamiento, domótica) con su coste y ahorro anual.",
+      "Calculad el plazo de amortización de cada mejora y ordenadlas de más a menos rentable.",
+    ],
+    producto: "Un informe de auditoría con tablas, gráficos de consumo y un plan de mejora priorizado.",
+    evaluacion: ["Los cálculos de potencia, energía y coste son correctos y usan bien las unidades (kW, kWh, €).", "El diagnóstico identifica los principales puntos de consumo.", "Las mejoras son técnicamente adecuadas y se justifican con datos.", "El informe es claro e incluye la amortización de cada medida."],
+  },
+  objetivos: ["Interpretar esquemas eléctricos básicos y conocer la normativa de las instalaciones", "Comparar sistemas de calefacción y valorar el autoconsumo y la arquitectura bioclimática"],
+  fuentes: [{ t: "IDAE: guías de ahorro energético en el hogar", url: "https://www.idae.es/" }],
+});
