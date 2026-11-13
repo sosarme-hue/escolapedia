@@ -169,3 +169,167 @@ AMP.amplia(module.exports, {
     ["Historial de versiones", "Registro de cambios de un documento en la nube para recuperar versiones anteriores."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 100,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "El día que el portátil de Marc no arrancó",
+    html: `<p>La víspera de entregar el trabajo de Historia, el portátil de Marc se quedó en una pantalla negra. Había pasado meses aplazando las actualizaciones y nunca había hecho una copia. Su hermana, en cambio, abrió el mismo trabajo desde el móvil en cinco segundos: lo tenía en una carpeta sincronizada con la nube y el historial de versiones le permitía recuperar hasta la frase que había borrado por error.</p>
+      <p>La diferencia entre las dos situaciones no fue la suerte, sino entender cómo funciona el programa que gobierna cada aparato, el <b>sistema operativo</b>, y saber dónde y cómo se guardan los archivos. En este tema verás qué pasa desde que pulsas el botón de encendido hasta que aparece el escritorio, cómo reparte el sistema el trabajo entre los programas, qué significan las licencias de software y qué hay realmente detrás de «la nube». Terminarás diseñando tu propio plan para que nunca te pase lo de Marc.</p>`,
+  },
+  svgs: {
+    "Usuarios, cuentas y permisos": L.rejilla("Permisos de lectura, escritura y ejecución según el tipo de cuenta", ["Cuenta", "Leer", "Cambiar", "Instalar"], [["Administrador", "sí", "sí", "sí"], ["Estándar", "sus archivos", "sus archivos", "no"], ["Invitado", "limitado", "no", "no"]], { t: "Quién puede hacer qué" }),
+    "Instalar, actualizar y desinstalar programas": L.flujo("Pasos para instalar un programa con seguridad", ["Fuente oficial o tienda", "Revisar permisos y extras", "Instalar y actualizar", "Desinstalar lo que no se usa"], { t: "Instalar con cabeza" }),
+    "Trabajar en la nube": L.rejilla("Permisos al compartir un documento en la nube", ["Permiso", "Ver", "Comentar", "Editar"], [["Lector", "sí", "no", "no"], ["Comentarista", "sí", "sí", "no"], ["Editor", "sí", "sí", "sí"]], { t: "Compartir con permisos" }),
+    "Comprimir archivos": L.barras("Tamaño de una carpeta antes y después de comprimirla", [["Texto original", 10], ["Texto en ZIP", 3], ["Foto RAW", 25], ["Foto JPEG", 4]], { t: "Antes y después (MB)", unidad: " MB" }),
+  },
+  videos: {},
+  tras: {
+    "Qué es un sistema operativo": [
+      {
+        html: `<h3>Cómo arranca un ordenador</h3><p>Al pulsar el botón de encendido, la placa base ejecuta un pequeño programa grabado en un chip, el <b>firmware</b> (antes llamado BIOS y hoy <b>UEFI</b>). Primero hace el <b>POST</b>, una revisión rápida de que la memoria, el procesador y el teclado responden; si algo falla, avisa con pitidos o un mensaje. Después busca un disco con un sistema operativo y entrega el control al <b>gestor de arranque</b>, que carga en la RAM el <mark>núcleo</mark> o <i>kernel</i>, la parte central del sistema.</p>
+          <p>El núcleo reconoce el hardware y carga los <b>controladores</b>, pone en marcha los <b>servicios</b> que trabajan en segundo plano (red, sonido, antivirus, actualizaciones) y, por último, muestra la pantalla de inicio de sesión y el escritorio. Todo el proceso dura unos segundos gracias a los discos SSD. El <b>arranque seguro</b> de UEFI comprueba que el sistema que se carga está firmado, para impedir que un programa malicioso se cuele antes que el propio sistema. Si un equipo no arranca, saber en qué fase se queda ayuda a encontrar el problema: un fallo en el POST apunta al hardware; uno después del logotipo, al sistema operativo.</p>`,
+        svg: L.flujo("Fases del arranque de un ordenador", ["Firmware UEFI y POST", "Gestor de arranque", "Núcleo y controladores", "Servicios en segundo plano", "Inicio de sesión y escritorio"], { t: "Del botón al escritorio" }),
+      },
+      {
+        html: `<h3>Procesos y multitarea</h3><p>Cada programa en ejecución es un <b>proceso</b>. Aunque tengas abiertos el navegador, la música y un juego, el procesador solo puede hacer unas pocas cosas a la vez (una por núcleo). El sistema operativo da la sensación de que todo funciona simultáneamente gracias a su <b>planificador</b>, que reparte el tiempo de la CPU en turnos de milisegundos: es la <mark>multitarea</mark>. Los procesos pueden estar <b>en ejecución</b>, <b>listos</b> (esperando turno) o <b>bloqueados</b> (esperando un dato del disco o de la red).</p>
+          <p>El sistema también gestiona la <b>memoria</b>: da a cada proceso su espacio y evita que uno escriba en el de otro. Cuando la RAM se llena, usa una parte del disco como <b>memoria virtual</b>, mucho más lenta; por eso un equipo con poca RAM va lento si abres demasiadas pestañas. Con el <b>Administrador de tareas</b> (Windows), el Monitor de actividad (macOS) o el comando <code>top</code> (Linux) puedes ver qué procesos consumen más CPU, memoria o batería y cerrar uno que se ha quedado «colgado».</p>`,
+        svg: L.ciclo("Estados de un proceso: listo, en ejecución y bloqueado", "SO", ["listo", "en ejecución", "bloqueado"]),
+      },
+    ],
+    "Los sistemas más usados": [
+      {
+        html: `<h3>Software libre y licencias</h3><p>Todo programa se usa bajo una <b>licencia</b>, un contrato que dice lo que puedes hacer con él. El <b>software propietario</b> (Windows, macOS, Photoshop) permite usarlo, pero no ver ni modificar su código ni repartir copias. El <b>software libre</b> garantiza cuatro libertades: <mark>usarlo</mark> para cualquier fin, <mark>estudiar</mark> cómo funciona (su código fuente es público), <mark>modificarlo</mark> y <mark>distribuir</mark> copias, incluso mejoradas. Ejemplos: Linux, LibreOffice, Firefox, GIMP o VLC.</p>
+          <p>Libre no siempre significa gratis, ni gratis significa libre. El <b>freeware</b> es gratuito pero cerrado (muchas aplicaciones de móvil); el <b>shareware</b> o de prueba funciona unos días o con funciones limitadas; el modelo <b>freemium</b> es gratis con opciones de pago. Algunas licencias libres, como la <b>GPL</b>, obligan a que las versiones modificadas sigan siendo libres. Usar programas propietarios sin licencia (copias «pirata») es ilegal y peligroso, porque suelen llevar malware escondido. Muchos centros educativos usan software libre porque no tiene coste de licencias y se puede adaptar.</p>`,
+        svg: L.cajas("Cuatro libertades del software libre", [["Usar", "para cualquier|fin"], ["Estudiar", "código fuente|abierto"], ["Modificar", "adaptarlo|y mejorarlo"], ["Distribuir", "compartir|copias"]], { t: "Las 4 libertades" }),
+      },
+      {
+        html: `<h3>Máquinas virtuales</h3><p>Una <b>máquina virtual</b> es un ordenador simulado por software dentro de otro ordenador. Un programa llamado <b>hipervisor</b> (VirtualBox, VMware o Hyper-V) reserva una parte del procesador, de la RAM y del disco del equipo real, el <b>anfitrión</b>, y la presenta como si fuera un ordenador completo, el <b>invitado</b>. En él se puede instalar otro sistema operativo: probar Linux desde Windows, por ejemplo, sin tocar el sistema principal.</p>
+          <p>Las máquinas virtuales son muy útiles para <mark>aprender y experimentar</mark> sin miedo a estropear nada, para usar programas antiguos o para analizar archivos sospechosos de forma aislada. Se pueden guardar «instantáneas» y volver atrás si algo sale mal. La nube funciona en gran parte así: un único servidor físico de un centro de datos ejecuta decenas de máquinas virtuales de clientes distintos, separadas entre sí. El inconveniente es que el invitado comparte los recursos del anfitrión, así que hace falta un ordenador con bastante RAM para que ambos vayan con soltura.</p>`,
+        svg: L.capas("Capas de una máquina virtual: hardware, sistema anfitrión, hipervisor y sistema invitado", [["Invitado", "Linux de prueba"], ["Hipervisor", "VirtualBox"], ["Anfitrión", "Windows"], ["Hardware", "CPU · RAM · disco"]], { t: "Un ordenador dentro de otro" }),
+        video: { id: "2v_3f_jjLL4", titulo: "¿Qué es una máquina virtual?", canal: "Udacity", vistas: 104205 },
+      },
+    ],
+    "Archivos, carpetas y extensiones": [
+      {
+        html: `<h3>Sistemas de archivos y unidades</h3><p>Un disco nuevo es como un almacén vacío sin estanterías. Para guardar archivos hay que <b>formatearlo</b> con un <b>sistema de archivos</b>, que organiza el espacio en bloques y lleva un índice de qué archivo ocupa cada bloque, su nombre, su tamaño y sus permisos. Cada sistema operativo prefiere el suyo: <b>NTFS</b> en Windows, <b>APFS</b> en macOS y <b>ext4</b> en Linux. Para memorias USB y tarjetas que se usan en varios aparatos se emplea <b>exFAT</b>; el antiguo <b>FAT32</b> no admite archivos de más de 4 GB, por eso a veces una película «no cabe» aunque sobre espacio.</p>
+          <p>Un disco puede dividirse en <b>particiones</b>, zonas independientes que el sistema ve como unidades distintas. Formatear borra el índice, así que hay que hacerlo con cuidado. Cuando «borras» un archivo normalmente va a la <b>papelera</b>; al vaciarla, el espacio se marca como libre, pero los datos pueden seguir ahí hasta que se sobrescriben. Por eso, antes de vender o regalar un equipo, conviene usar la opción de <mark>restablecer y borrar de forma segura</mark>.</p>`,
+        svg: L.rejilla("Sistemas de archivos más comunes y dónde se usan", ["Sistema", "Dónde", "Archivo máx."], [["NTFS", "Windows", "enorme"], ["APFS", "macOS / iOS", "enorme"], ["ext4", "Linux", "16 TB"], ["exFAT", "USB, tarjetas", "enorme"], ["FAT32", "USB antiguos", "4 GB"]], { t: "Sistemas de archivos" }),
+      },
+    ],
+    "Qué es la nube": [
+      {
+        html: `<h3>Modelos de servicio en la nube</h3><p>No todo en la nube es igual. Según lo que te da el proveedor se distinguen tres modelos. En el <b>software como servicio</b> (<mark>SaaS</mark>) usas una aplicación completa desde el navegador: Gmail, Canva, Google Docs o Spotify. En la <b>plataforma como servicio</b> (<mark>PaaS</mark>) el proveedor te da un entorno listo para publicar tus propios programas o webs sin preocuparte de los servidores. En la <b>infraestructura como servicio</b> (<mark>IaaS</mark>) alquilas máquinas virtuales, discos y redes y lo configuras todo tú, como hacen muchas empresas con Amazon Web Services, Azure o Google Cloud.</p>
+          <p>Por quién la usa, la nube puede ser <b>pública</b> (compartida con otros clientes), <b>privada</b> (solo para una organización) o <b>híbrida</b> (una mezcla). Detrás hay enormes <b>centros de datos</b> con miles de servidores, sistemas de refrigeración y conexiones redundantes. Consumen muchísima electricidad y agua, por lo que las empresas buscan energías renovables y lugares fríos. Pagar solo por lo que se usa y poder crecer en minutos son las grandes ventajas del modelo.</p>`,
+        svg: L.capas("Tres modelos de nube: SaaS, PaaS e IaaS", [["SaaS", "usas la aplicación"], ["PaaS", "publicas tu programa"], ["IaaS", "alquilas servidores"]], { t: "Cuánto gestiona el proveedor" }),
+      },
+    ],
+    "Trabajar en la nube": [
+      {
+        html: `<h3>Privacidad y dependencia de la nube</h3><p>Guardar algo en la nube significa guardarlo en el ordenador de otra empresa. Antes de subir datos personales conviene saber <b>dónde</b> están los servidores y qué dicen las <b>condiciones de uso</b>. En la Unión Europea, el <b>Reglamento General de Protección de Datos</b> (RGPD) obliga a las empresas a informar de qué hacen con tus datos, a dejarte descargarlos y a borrarlos si lo pides. Algunos servicios cifran los archivos de forma que ni la propia empresa puede leerlos (<mark>cifrado de extremo a extremo</mark>).</p>
+          <p>Para proteger tu cuenta, activa la <b>verificación en dos pasos</b> y revisa a menudo qué enlaces has compartido: un enlace «público» puede abrirlo cualquiera que lo tenga. La nube también crea <b>dependencia</b>: si el servicio cierra, cambia sus precios o pierdes la conexión, puedes quedarte sin acceso. Por eso los formatos abiertos (ODT, PDF, PNG) y una copia local de lo importante te dan independencia. La <b>sincronización</b> mantiene iguales los archivos de todos tus dispositivos; si editas el mismo archivo sin conexión en dos sitios, puede aparecer un <b>conflicto</b> y el servicio guarda las dos versiones para que elijas.</p>`,
+        svg: L.cajas("Cuatro medidas para usar la nube con seguridad", [["Dos pasos", "contraseña|+ código"], ["Enlaces", "revisar quién|tiene acceso"], ["RGPD", "derecho a|descargar y borrar"], ["Copia local", "formatos|abiertos"]], { t: "Nube segura" }),
+      },
+    ],
+  },
+  secciones: [7, 4, 5],
+  niveles: "bbmbbmbamm",
+  ejercicios: [
+    { nivel: "básico", q: "Ordena las fases del arranque: escritorio, POST, núcleo, gestor de arranque, servicios.", sol: "POST (dentro del firmware UEFI) → gestor de arranque → núcleo → servicios → escritorio." },
+    { nivel: "básico", q: "¿Qué es un proceso? Pon tres ejemplos de procesos que tengas abiertos ahora.", sol: "Un proceso es un programa en ejecución. Ejemplos: el navegador, el reproductor de música y el antivirus que trabaja en segundo plano." },
+    { nivel: "básico", q: "Explica con tus palabras las cuatro libertades del software libre.", sol: "Usar el programa para lo que quieras, estudiar cómo funciona viendo su código, modificarlo para adaptarlo y repartir copias, también de tus versiones mejoradas." },
+    { nivel: "básico", q: "Clasifica como SaaS, PaaS o IaaS: Gmail, alquilar un servidor virtual, Canva, un servicio para publicar tu web sin gestionar servidores.", sol: "SaaS: Gmail y Canva. IaaS: alquilar un servidor virtual. PaaS: el servicio para publicar tu web." },
+    { nivel: "básico", q: "¿Qué sistema de archivos usarías para un USB que vas a conectar a un PC con Windows y a un Mac? ¿Por qué?", sol: "exFAT, porque lo leen y escriben los dos sistemas y admite archivos de más de 4 GB." },
+    { nivel: "básico", q: "¿Qué diferencia hay entre freeware y software libre?", sol: "El freeware es gratis pero su código es cerrado y no se puede modificar ni redistribuir libremente. El software libre permite estudiar, modificar y compartir; además suele ser gratuito, aunque no siempre." },
+    { nivel: "básico", q: "Nombra la herramienta para ver los procesos en Windows, en macOS y en Linux.", sol: "Administrador de tareas (Windows), Monitor de actividad (macOS) y el comando top o el Monitor del sistema (Linux)." },
+    { nivel: "medio", q: "Un ordenador pita al encenderlo y no muestra nada en pantalla. ¿En qué fase del arranque falla? ¿Hardware o software?", sol: "Falla en el POST, la revisión que hace el firmware antes de cargar nada. Apunta a un problema de hardware: memoria RAM mal colocada, tarjeta gráfica o placa." },
+    { nivel: "medio", q: "Explica por qué un ordenador con 4 GB de RAM va lento con 30 pestañas abiertas.", sol: "Cada pestaña es un proceso que ocupa memoria. Cuando la RAM se llena, el sistema usa el disco como memoria virtual, que es mucho más lento; el ordenador pasa mucho tiempo moviendo datos entre RAM y disco." },
+    { nivel: "medio", q: "Quieres copiar una película de 6 GB a un USB formateado en FAT32 con 16 GB libres y da error. Explica la causa y dos soluciones.", sol: "FAT32 no admite archivos de más de 4 GB. Soluciones: reformatear el USB en exFAT (tras copiar lo que tenga) o comprimir la película en varios trozos." },
+    { nivel: "medio", q: "Compara SaaS e IaaS: quién gestiona qué y un ejemplo de usuario para cada uno.", sol: "En SaaS el proveedor lo gestiona todo y tú solo usas la aplicación (un estudiante con Google Docs). En IaaS el proveedor da el hardware virtual y tú instalas y mantienes el sistema y los programas (una empresa que monta su tienda online)." },
+    { nivel: "medio", q: "¿Por qué es peligroso descargar una copia pirata de un programa de pago?", sol: "Es ilegal porque incumple la licencia y, además, esas copias suelen incluir malware (troyanos, mineros de criptomonedas, ransomware) que se instala con permisos de administrador." },
+    { nivel: "medio", q: "Describe dos usos de una máquina virtual para un estudiante de 4º.", sol: "Probar Linux u otro sistema sin borrar el suyo; practicar a configurar un sistema sin miedo a romperlo (con instantáneas para volver atrás); o abrir un archivo sospechoso en un entorno aislado." },
+    { nivel: "medio", q: "Has editado sin conexión el mismo archivo en el móvil y en el portátil. Al conectarte aparecen dos copias. ¿Qué ha pasado y qué haces?", sol: "Es un conflicto de sincronización: el servicio no sabe qué versión es la buena y guarda las dos. Hay que abrirlas, combinar los cambios en una y borrar la otra." },
+    { nivel: "medio", q: "¿Qué derechos te da el RGPD sobre los datos que guardas en un servicio en la nube?", sol: "Saber qué datos tienen y para qué los usan (información y acceso), corregirlos (rectificación), pedir que los borren (supresión) y descargarlos para llevarlos a otro servicio (portabilidad)." },
+    { nivel: "medio", q: "Explica qué diferencia hay entre borrar un archivo, vaciar la papelera y formatear.", sol: "Borrar lo manda a la papelera y se puede recuperar. Vaciar la papelera marca su espacio como libre, aunque los datos pueden seguir hasta que se sobrescriben. Formatear borra el índice de todo el disco y prepara un sistema de archivos nuevo." },
+    { nivel: "medio", q: "¿Por qué el arranque seguro de UEFI mejora la seguridad?", sol: "Comprueba la firma digital del gestor de arranque y del núcleo; si alguien ha modificado esos archivos (por ejemplo, un malware que quiere cargarse antes que el sistema), la firma no coincide y se bloquea el arranque." },
+    { nivel: "avanzado", q: "Una empresa de 20 personas duda entre comprar un servidor propio o usar IaaS. Da dos argumentos a favor de cada opción.", sol: "Servidor propio: control total de los datos y sin cuota mensual tras la compra. IaaS: no hay que comprar ni mantener hardware y se puede ampliar o reducir en minutos pagando solo lo que se usa; además el proveedor garantiza copias y alta disponibilidad." },
+    { nivel: "avanzado", q: "Abre el administrador de tareas (o imagina uno) y explica cómo detectarías un programa que gasta demasiada batería.", sol: "Ordenar los procesos por uso de CPU o de energía; si uno usa mucho de forma continua sin que lo estés usando, es sospechoso. Comprobar si es necesario, cerrarlo, desactivar su inicio automático o desinstalarlo; si es desconocido, analizarlo con el antivirus." },
+    { nivel: "avanzado", q: "La licencia GPL obliga a que las versiones modificadas sigan siendo libres. ¿Qué ventaja tiene para la comunidad? ¿Qué inconveniente puede ver una empresa?", sol: "Ventaja: las mejoras vuelven a la comunidad y nadie puede cerrar el código. Inconveniente para una empresa: si distribuye un programa basado en código GPL, debe publicar también su código, lo que le impide venderlo como cerrado." },
+    { nivel: "avanzado", q: "Un portátil de 8 GB de RAM quiere ejecutar una máquina virtual con Linux. ¿Cuánta RAM le asignarías y por qué?", sol: "Unos 2-3 GB: Linux funciona bien con eso, y el anfitrión necesita el resto (5-6 GB) para no quedarse sin memoria. Asignar demasiado haría que los dos fueran lentos." },
+    { nivel: "avanzado", q: "Un centro de datos consume 20 MW de forma continua. ¿Cuánta energía consume al año en GWh? ¿Por qué se construyen en zonas frías?", sol: "20 MW · 8.760 h = 175.200 MWh ≈ 175 GWh al año. En zonas frías el aire exterior ayuda a refrigerar los servidores y se gasta menos energía en aire acondicionado." },
+    { nivel: "avanzado", q: "Diseña la estructura de carpetas de tu curso (materias, trimestres, trabajos) y una norma para nombrar archivos. Justifícala.", sol: "Por ejemplo: Insti/4ESO/<Materia>/<Trimestre>/ y nombres como «2026-11-13_Tecno_Informe-v2.pdf». La fecha al principio ordena cronológicamente, la materia identifica y la versión evita confundir borradores; sin espacios ni tildes para evitar problemas entre sistemas." },
+    { nivel: "avanzado", q: "¿Qué riesgos tiene compartir una carpeta en la nube con un enlace «cualquiera con el enlace puede editar»? Propón una configuración mejor.", sol: "Cualquiera que reciba el enlace, aunque sea reenviado, puede ver, borrar o cambiar los archivos, y no sabrás quién fue. Mejor compartir solo con cuentas concretas, dar permiso de lectura o comentario salvo a quien deba editar y poner fecha de caducidad al enlace." },
+    { nivel: "avanzado", q: "Explica por qué el planificador del sistema da más prioridad a la música o al ratón que a una copia de archivos.", sol: "Son tareas interactivas: si se retrasan unos milisegundos, el usuario nota cortes o el ratón a saltos. Una copia de archivos puede ir un poco más lenta sin que se note. Dar prioridad a lo interactivo mejora la sensación de rapidez." },
+  ],
+  ejemplos: [
+    { enunciado: "Un equipo muestra el logotipo del fabricante y después una pantalla azul con un error. ¿Dónde está el problema?", pasos: ["Si aparece el logotipo, el POST ha terminado bien: el hardware básico responde.", "El fallo ocurre al cargar el núcleo o los controladores.", "Probables causas: una actualización o un controlador defectuoso.", "Solución: arrancar en modo seguro o usar la recuperación para deshacer el último cambio."], resultado: "Es un problema del sistema operativo, no del hardware básico." },
+    { enunciado: "Clasifica estos programas por su licencia: LibreOffice, WhatsApp, Photoshop, un juego de prueba de 30 días.", pasos: ["LibreOffice: código abierto con las cuatro libertades → software libre.", "WhatsApp: gratis, pero cerrado → freeware.", "Photoshop: de pago y cerrado → propietario (por suscripción).", "Juego de 30 días: funciona un tiempo limitado → shareware o de prueba."], resultado: "Libre, freeware, propietario y shareware." },
+    { enunciado: "Un instituto quiere un aula virtual para 800 alumnos sin comprar servidores. ¿Qué modelo de nube le conviene?", pasos: ["No quiere mantener hardware → descarta un servidor propio.", "Si usa una plataforma ya hecha (Google Classroom, Moodle alojado), es SaaS.", "Si quiere instalar su propio Moodle en una máquina alquilada, es IaaS.", "Para un centro sin informáticos, lo más sencillo es SaaS."], resultado: "SaaS (o IaaS si tiene personal técnico y quiere control total)." },
+  ],
+  errores: ["Pensar que vaciar la papelera borra los datos para siempre: pueden recuperarse hasta que se sobrescriben."],
+  cuarta: ["El ratón", "macOS", "una hoja de cálculo", "No necesita contraseña", "tres discos duros", "de sistema", "completa", "imprimir", "subir más rápido", "anuncios en buscadores"],
+  quiz: [
+    { q: "¿Qué hace el POST al encender el ordenador?", o: ["Carga el escritorio", "Revisa que el hardware básico responde", "Instala actualizaciones", "Conecta a Internet"], a: 1, e: "Es la autocomprobación del firmware antes de arrancar el sistema." },
+    { q: "La parte central del sistema operativo se llama…", o: ["núcleo o kernel", "escritorio", "navegador", "periférico"], a: 0, e: "El núcleo gestiona memoria, procesos y hardware." },
+    { q: "Un proceso que espera datos del disco está…", o: ["en ejecución", "listo", "bloqueado", "terminado"], a: 2, e: "Queda bloqueado hasta que llega lo que necesita." },
+    { q: "¿Cuál NO es una de las cuatro libertades del software libre?", o: ["Usarlo", "Estudiarlo", "Venderlo sin dar el código", "Distribuirlo"], a: 2, e: "Las libertades son usar, estudiar, modificar y distribuir." },
+    { q: "El sistema de archivos FAT32 no admite archivos de más de…", o: ["4 MB", "4 GB", "4 TB", "40 GB"], a: 1, e: "Por eso hoy se prefiere exFAT en las memorias USB." },
+    { q: "Google Docs es un ejemplo de…", o: ["IaaS", "PaaS", "SaaS", "hardware"], a: 2, e: "Usas una aplicación completa desde el navegador." },
+    { q: "Un hipervisor sirve para…", o: ["comprimir archivos", "crear máquinas virtuales", "proteger el wifi", "hacer copias en la nube"], a: 1, e: "Reparte los recursos del anfitrión entre los sistemas invitados." },
+    { q: "Cuando la RAM se llena, el sistema usa el disco como…", o: ["memoria virtual", "caché", "papelera", "partición"], a: 0, e: "Es mucho más lenta, por eso el equipo se ralentiza." },
+    { q: "¿Qué ley europea protege tus datos personales en la nube?", o: ["La GPL", "El RGPD", "El UEFI", "El TCP"], a: 1, e: "El Reglamento General de Protección de Datos." },
+    { q: "Si editas el mismo archivo sin conexión en dos dispositivos, puede aparecer…", o: ["un virus", "un conflicto de sincronización", "una partición", "un error de POST"], a: 1, e: "El servicio guarda ambas versiones para que elijas." },
+  ],
+  cuartaEx: ["Para cargar la batería", "Aumentan la RAM", "el idioma del programa"],
+  examen: [
+    { q: "¿Qué programa reparte el tiempo de la CPU entre los procesos?", o: ["El planificador del sistema operativo", "El navegador", "El firmware", "El antivirus"], a: 0, e: "Así consigue la multitarea." },
+    { q: "Una licencia freemium…", o: ["es libre", "es gratis con opciones de pago", "es siempre ilegal", "solo funciona en Linux"], a: 1, e: "La parte básica es gratuita y se paga por funciones extra." },
+    { q: "Antes de vender un ordenador conviene…", o: ["vaciar la papelera", "restablecerlo con borrado seguro", "cambiar el fondo", "desinstalar el navegador"], a: 1, e: "Así los datos no se pueden recuperar." },
+    { q: "Alquilar máquinas virtuales a un proveedor es…", o: ["SaaS", "PaaS", "IaaS", "freeware"], a: 2, e: "Infraestructura como servicio." },
+    { q: "¿Qué sistema de archivos usa macOS?", o: ["NTFS", "ext4", "APFS", "FAT16"], a: 2, e: "Apple File System." },
+  ],
+  tarjetas: [
+    ["Fases del arranque", "Firmware y POST, gestor de arranque, núcleo, servicios y escritorio."],
+    ["Multitarea", "El planificador reparte la CPU en turnos de milisegundos."],
+    ["SaaS, PaaS, IaaS", "Aplicación, plataforma o infraestructura como servicio."],
+    ["Máquina virtual", "Ordenador simulado dentro de otro mediante un hipervisor."],
+  ],
+  glosario: [
+    ["Sistema operativo", "Programa principal que gestiona el hardware y hace de intermediario con las aplicaciones."],
+    ["Firmware (UEFI)", "Programa grabado en la placa base que arranca el equipo."],
+    ["POST", "Autocomprobación del hardware al encender el ordenador."],
+    ["Núcleo (kernel)", "Parte central del sistema operativo que controla memoria, procesos y dispositivos."],
+    ["Proceso", "Programa en ejecución."],
+    ["Planificador", "Parte del sistema que reparte el tiempo de CPU entre procesos."],
+    ["Memoria virtual", "Espacio del disco que se usa como RAM cuando esta se llena."],
+    ["Licencia", "Contrato que fija lo que se puede hacer con un programa."],
+    ["Software libre", "Programa que permite usarlo, estudiarlo, modificarlo y distribuirlo."],
+    ["Código fuente", "Instrucciones del programa escritas en un lenguaje de programación."],
+    ["Sistema de archivos", "Forma de organizar los datos en un disco (NTFS, APFS, ext4, exFAT)."],
+    ["Formatear", "Preparar un disco con un sistema de archivos nuevo, borrando el índice anterior."],
+    ["Partición", "Parte de un disco que el sistema trata como una unidad independiente."],
+    ["Hipervisor", "Programa que crea y gestiona máquinas virtuales."],
+    ["SaaS", "Software como servicio: aplicación lista para usar desde Internet."],
+    ["IaaS", "Infraestructura como servicio: alquiler de servidores, discos y redes virtuales."],
+    ["Sincronización", "Mantener iguales los archivos en varios dispositivos a través de la nube."],
+    ["RGPD", "Reglamento europeo que protege los datos personales."],
+  ],
+  situacion: {
+    titulo: "Plan antidesastres para mis archivos",
+    reto: "Imagina que mañana pierdes el móvil y el ordenador. Diseña y pon en marcha un sistema para que tus trabajos, fotos y contraseñas sigan a salvo y en orden, usando solo herramientas gratuitas o libres.",
+    pasos: [
+      "Haz inventario de tus datos importantes: dónde están, cuánto ocupan y qué pasaría si los pierdes.",
+      "Diseña una estructura de carpetas y una norma de nombres de archivo y aplícala a un trimestre de trabajos.",
+      "Aplica la regla 3-2-1: decide qué copia va en el equipo, cuál en un disco o USB y cuál en la nube.",
+      "Revisa la seguridad de tu cuenta en la nube: verificación en dos pasos, enlaces compartidos y permisos de aplicaciones.",
+      "Haz una prueba de recuperación: borra (en una copia) un archivo y recupéralo desde el historial o la copia.",
+    ],
+    producto: "Una guía ilustrada de una página «Mi plan 3-2-1» con capturas del sistema funcionando.",
+    evaluacion: ["La estructura de carpetas y los nombres son coherentes y se aplican de verdad.", "El plan cumple la regla 3-2-1 y explica la frecuencia de las copias.", "Se configuran correctamente las medidas de seguridad de la cuenta.", "La prueba de recuperación funciona y se documenta."],
+  },
+  objetivos: ["Describir el arranque del ordenador y la gestión de procesos", "Distinguir tipos de licencias y modelos de nube (SaaS, PaaS, IaaS)"],
+  fuentes: [{ t: "Free Software Foundation: ¿Qué es el software libre?", url: "https://www.gnu.org/philosophy/free-sw.es.html" }],
+});

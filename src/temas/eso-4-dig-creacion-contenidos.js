@@ -167,3 +167,167 @@ AMP.amplia(module.exports, {
     ["Texto alternativo", "Descripción de una imagen para lectores de pantalla."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 100,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "Un vídeo de un minuto, seis horas de trabajo",
+    html: `<p>Irene publicó en la cuenta del instituto un vídeo de un minuto sobre el reciclaje de móviles. En una semana lo vieron más de 20.000 personas y el ayuntamiento lo usó en su campaña. Parece fácil, pero detrás hubo un guion de diez líneas, un <i>storyboard</i> dibujado a lápiz, tres tomas de cada plano, una tarde de montaje, música con licencia libre, subtítulos para quien lo ve sin sonido y una lista de los créditos de cada imagen que no era suya.</p>
+      <p>Crear contenidos digitales de calidad no consiste en dominar un programa concreto: los programas cambian cada pocos años. Consiste en saber planificar, entender cómo funcionan la imagen, el sonido y los datos, elegir el formato adecuado para cada público y respetar el trabajo de los demás. En este tema aprenderás a diseñar con criterio, a editar imagen y vídeo, a sacar partido a la hoja de cálculo y a publicar respetando los derechos de autor y la accesibilidad.</p>`,
+  },
+  svgs: {
+    "Infografías y diseño visual": L.cajas("Reglas de diseño de una infografía", [["Jerarquía", "título grande|datos destacados"], ["Pocos colores", "2-3 y|con contraste"], ["Iconos", "en lugar|de párrafos"], ["Fuente", "cita de|los datos"]], { t: "Una buena infografía" }),
+    "Presentaciones eficaces": L.comparar("Diapositiva mala frente a diapositiva buena", ["Así no", ["14 líneas", "letra pequeña", "5 colores", "se lee en voz alta"]], ["Así sí", ["una idea", "imagen grande", "2-3 colores", "tú lo explicas"]]),
+    "Hojas de cálculo": L.rejilla("Ejemplo de hoja de cálculo con fórmulas", ["", "A", "B", "C"], [["1", "Producto", "Uds.", "Total"], ["2", "Lápiz", "3", "=B2*0,5"], ["3", "Cuaderno", "2", "=B3*2"], ["4", "Suma", "", "=SUMA(C2:C3)"]], { t: "Celdas y fórmulas" }),
+    "Publicar en la web": L.capas("Las tres capas de una página web: HTML, CSS y JavaScript", [["HTML", "estructura y contenido"], ["CSS", "diseño: colores y tamaños"], ["JavaScript", "interacción"]], { t: "Una web por dentro" }),
+  },
+  tras: {
+    "Planificar antes de crear": [
+      {
+        html: `<h3>Guion y storyboard</h3><p>Antes de grabar un vídeo, un pódcast o una animación conviene escribir un <b>guion</b>. El guion <b>literario</b> cuenta lo que se dice y lo que pasa; el guion <b>técnico</b> añade, para cada escena, el tipo de plano, el sonido, la duración y los recursos necesarios. Un buen guion tiene una estructura clara: un <mark>gancho</mark> en los primeros segundos para captar la atención, un desarrollo con la información principal y un cierre con una idea para recordar o una llamada a la acción.</p>
+          <p>El <b>storyboard</b> es el guion dibujado: una serie de viñetas, una por plano, con un boceto de la imagen y debajo el texto, la música o el efecto. No hace falta dibujar bien; sirve para ver el ritmo, detectar huecos y decidir los encuadres antes de gastar tiempo grabando. Los <b>tipos de plano</b> más usados son el plano general (muestra el lugar), el plano medio (de la cintura hacia arriba, ideal para hablar a cámara) y el primer plano (la cara, para transmitir emoción). Variar los planos y mantener cada uno entre 3 y 6 segundos hace que un vídeo corto resulte dinámico.</p>`,
+        svg: L.flujo("Fases de producción de un vídeo", ["Idea y público", "Guion literario y técnico", "Storyboard por planos", "Grabación", "Montaje y publicación"], { t: "De la idea al vídeo" }),
+      },
+    ],
+    "Imagen digital: píxeles y vectores": [
+      {
+        html: `<h3>Edición de imagen</h3><p>Los editores de imagen (GIMP, Photopea, Krita, Photoshop o los del propio móvil) comparten unas herramientas básicas. <b>Recortar</b> elimina lo que sobra y mejora el encuadre; la <mark>regla de los tercios</mark> aconseja situar lo importante en las líneas que dividen la imagen en tres partes. Los <b>ajustes</b> de brillo, contraste, saturación y balance de blancos corrigen fotos oscuras, apagadas o con colores raros.</p>
+          <p>Las <b>capas</b> son como hojas transparentes apiladas: permiten trabajar en un elemento (un texto, un fondo, una persona) sin estropear el resto. Las <b>selecciones</b> y las <b>máscaras</b> sirven para aplicar un cambio solo a una zona. Para publicar en la web conviene <b>redimensionar</b> la imagen al tamaño real en que se verá (no subir una foto de 4.000 píxeles para mostrarla a 800) y elegir el formato: <b>JPEG</b> o <b>WebP</b> para fotos, <b>PNG</b> para capturas y gráficos con transparencia y <b>SVG</b> para logotipos e iconos. Editar es legítimo, pero manipular una imagen para engañar (cambiar lo que ocurrió en una foto de noticia) no lo es: si retocas mucho, dilo.</p>`,
+        svg: L.capas("Capas de una imagen editada: texto, persona recortada, filtro y fondo", [["Texto", "título encima"], ["Recorte", "persona sin fondo"], ["Ajuste", "brillo y color"], ["Fondo", "foto original"]], { t: "Trabajar con capas" }),
+      },
+    ],
+    "Infografías y diseño visual": [
+      {
+        html: `<h3>Color y tipografía</h3><p>El <b>color</b> transmite emociones y ordena la información. El <b>círculo cromático</b> ayuda a combinarlos: los colores <b>complementarios</b> (opuestos, como azul y naranja) crean contraste y destacan; los <b>análogos</b> (vecinos, como azul y verde) dan armonía. En pantalla los colores se forman con luz <mark>RGB</mark> y se escriben en hexadecimal (#1E66F5); en imprenta se usan tintas <mark>CMYK</mark>. Para que todo el mundo pueda leer, el texto y el fondo deben tener suficiente <b>contraste</b>, y nunca hay que transmitir información solo con el color, pensando en las personas daltónicas.</p>
+          <p>La <b>tipografía</b> es el tipo de letra. Las fuentes <b>con serifa</b> (con remates, como Times) se asocian a lo tradicional y a los textos largos impresos; las <b>de palo seco</b> (sin remates, como Atkinson o Arial) se leen mejor en pantalla. Como norma, usa como mucho dos tipografías: una para los títulos y otra para el texto. La <b>jerarquía</b> se crea con el tamaño, el grosor y el espacio: el ojo debe saber qué leer primero. El <b>espacio en blanco</b> no es espacio perdido, sino aire que hace que el diseño respire.</p>`,
+        svg: L.cajas("Colores complementarios, análogos y tipografías con y sin serifa", [["Complementarios", "azul + naranja|contraste"], ["Análogos", "azul + verde|armonía"], ["Con serifa", "textos largos|impresos"], ["Palo seco", "pantallas|y títulos"]], { t: "Color y letra" }),
+      },
+    ],
+    "Audio y vídeo": [
+      {
+        html: `<h3>Formatos y exportación de vídeo</h3><p>Al exportar un vídeo hay que decidir varias cosas. La <b>resolución</b> es el número de píxeles de cada fotograma: HD (1.280 × 720), Full HD (1.920 × 1.080) o 4K (3.840 × 2.160). La <b>relación de aspecto</b> es la forma: <mark>16:9</mark> horizontal para YouTube y televisión, <mark>9:16</mark> vertical para historias y vídeos cortos del móvil, 1:1 cuadrado para algunas redes. La <b>tasa de fotogramas</b> indica cuántas imágenes por segundo se muestran: 24 da aspecto de cine, 30 es lo habitual y 60 da suavidad en deportes y videojuegos.</p>
+          <p>El archivo final es un <b>contenedor</b> (MP4, MOV, WebM) que guarda el vídeo y el audio comprimidos con un <b>códec</b> (H.264, H.265, AV1). La <b>tasa de bits</b> fija cuántos datos se usan por segundo: más bits, más calidad y más peso. Un minuto en Full HD a 8 Mbps ocupa unos 60 MB. Los <b>subtítulos</b> se añaden en un archivo aparte (SRT) o «quemados» en la imagen; hacen el vídeo accesible para personas sordas y para quien lo ve sin sonido, que en redes es la mayoría.</p>`,
+        svg: L.rejilla("Resolución, relación de aspecto y uso de los formatos de vídeo", ["Formato", "Píxeles", "Uso"], [["HD", "1280×720", "web ligera"], ["Full HD", "1920×1080", "YouTube"], ["4K", "3840×2160", "cine, TV"], ["Vertical 9:16", "1080×1920", "móvil"]], { t: "Formatos de vídeo" }),
+      },
+      {
+        html: `<h3>El procesador de textos</h3><p>El procesador de textos (Writer, Word, Google Docs) parece sencillo, pero se usa a medias. La clave son los <b>estilos</b>: en lugar de poner a mano cada título en negrita y grande, se aplica el estilo «Título 1», «Título 2» o «Texto». Así todo el documento es coherente, se cambia el aspecto de golpe y se puede generar un <mark>índice automático</mark> que se actualiza solo. Otras herramientas útiles son los <b>encabezados y pies de página</b> con la numeración, las <b>notas al pie</b>, las <b>tablas</b> y la inserción de imágenes con su <b>pie de foto</b>.</p>
+          <p>Para trabajar en equipo están el <b>control de cambios</b>, que muestra lo que añade o borra cada persona para aceptarlo o rechazarlo, y los <b>comentarios</b>. Un documento <b>accesible</b> usa estilos de título (los lectores de pantalla los usan para navegar), texto alternativo en las imágenes, buen contraste y enlaces con nombres claros («descarga la guía» mejor que «pincha aquí»). Para entregar un trabajo que debe verse igual en cualquier equipo se exporta a <b>PDF</b>; para que otros lo editen se comparte en un formato abierto como <b>ODT</b> o en la nube.</p>`,
+        svg: L.capas("Estilos de un documento: título 1, título 2, texto e índice automático", [["Título 1", "capítulo"], ["Título 2", "apartado"], ["Texto", "párrafos"], ["Índice", "se genera solo"]], { t: "Usar estilos" }),
+      },
+    ],
+    "Hojas de cálculo": [
+      {
+        html: `<h3>Funciones y referencias</h3><p>Las <b>funciones</b> son fórmulas ya preparadas. Las más usadas: <code>SUMA(A1:A10)</code> suma un rango; <code>PROMEDIO</code> calcula la media; <code>MAX</code> y <code>MIN</code> dan el mayor y el menor; <code>CONTAR</code> cuenta celdas con números y <code>CONTAR.SI(B2:B30;"&gt;=5")</code> cuenta las que cumplen una condición; <code>SI</code> elige entre dos resultados; y <code>BUSCARV</code> busca un dato en una tabla, como el precio de un producto a partir de su código.</p>
+          <p>Al copiar una fórmula hacia abajo, sus referencias cambian solas: <code>=B2*C2</code> pasa a <code>=B3*C3</code>. Son <b>referencias relativas</b>. Si una celda debe quedar fija (por ejemplo, el IVA escrito en F1), se usa una <mark>referencia absoluta</mark> con el símbolo dólar: <code>=B2*$F$1</code>. El <b>formato condicional</b> colorea las celdas según su valor (suspensos en rojo, por ejemplo) y los <b>filtros</b> y la <b>ordenación</b> permiten analizar listas largas. Con todo ello, una hoja de cálculo se convierte en una herramienta para tomar decisiones: un presupuesto, el control de gastos de un viaje o el análisis de una encuesta.</p>`,
+        svg: L.comparar("Referencia relativa frente a absoluta al copiar una fórmula", ["Relativa", ["=B2*C2", "↓ copiar", "=B3*C3", "cambia"]], ["Absoluta", ["=B2*$F$1", "↓ copiar", "=B3*$F$1", "F1 fija"]]),
+      },
+    ],
+    "Licencias Creative Commons": [
+      {
+        html: `<h3>Citar y reutilizar recursos</h3><p>No hace falta crearlo todo desde cero. Existen <b>bancos de recursos</b> con licencias abiertas: imágenes en Wikimedia Commons, Pixabay o Unsplash; música en Free Music Archive o Jamendo; iconos en Openverse o The Noun Project; sonidos en Freesound. Las obras en <b>dominio público</b> (en España, 70 años después de la muerte del autor) se pueden usar libremente, y lo mismo ocurre con las que llevan la marca <b>CC0</b>.</p>
+          <p>Cuando la licencia pide reconocimiento hay que <b>citar</b> bien. Una regla fácil de recordar es <mark>TALL</mark>: <b>T</b>ítulo de la obra, <b>A</b>utor, <b>L</b>ugar donde se encuentra (enlace) y <b>L</b>icencia. Por ejemplo: «Puesta de sol», de Ana Ruiz, en Wikimedia Commons, CC BY 4.0. En un trabajo escrito, las fuentes de información se recogen en una bibliografía o lista de referencias. La ley también permite el <b>derecho de cita</b>: incluir fragmentos breves de una obra ajena para comentarla o analizarla con fines educativos, siempre indicando de dónde vienen. Copiar un texto y presentarlo como propio es <b>plagio</b>, aunque sea gratis y esté en Internet.</p>`,
+        svg: L.cajas("Regla TALL para citar: título, autor, lugar y licencia", [["Título", "«Puesta|de sol»"], ["Autor", "Ana Ruiz"], ["Lugar", "Wikimedia|Commons (enlace)"], ["Licencia", "CC BY 4.0"]], { t: "Citar con TALL" }),
+      },
+    ],
+  },
+  secciones: [6, 6, 4],
+  niveles: "bbbmbbmmbb",
+  ejercicios: [
+    { nivel: "básico", q: "¿Qué tres partes debe tener la estructura de un vídeo corto?", sol: "Un gancho al principio para captar la atención, un desarrollo con la información principal y un cierre con una idea final o una llamada a la acción." },
+    { nivel: "básico", q: "Di qué formato de imagen elegirías para: una foto de vacaciones, la captura de una web, el logotipo de un club.", sol: "Foto: JPEG o WebP. Captura: PNG (nítida y sin pérdida). Logotipo: SVG, porque es vectorial y se amplía sin perder calidad." },
+    { nivel: "básico", q: "¿Para qué sirven las capas en un editor de imagen?", sol: "Para separar los elementos (fondo, texto, figura) y poder modificar uno sin estropear los demás." },
+    { nivel: "básico", q: "Escribe la función para contar cuántas notas de B2 a B30 son mayores o iguales que 5.", sol: "=CONTAR.SI(B2:B30;\">=5\")" },
+    { nivel: "básico", q: "Escribe la cita TALL de una canción llamada «Amanecer», de Lúa Música, descargada de Jamendo con licencia CC BY-SA.", sol: "«Amanecer», de Lúa Música, en Jamendo (enlace), licencia CC BY-SA." },
+    { nivel: "medio", q: "Explica la diferencia entre guion literario, guion técnico y storyboard.", sol: "El literario cuenta qué se dice y qué ocurre. El técnico añade para cada escena el plano, el sonido, la duración y los recursos. El storyboard es el guion dibujado en viñetas, una por plano." },
+    { nivel: "medio", q: "Copias la fórmula =B2*C2 de D2 a D5. ¿Qué fórmula aparece en D5? ¿Y si la fórmula era =B2*$C$1?", sol: "Con referencias relativas, D5 tendrá =B5*C5. Con la absoluta, D5 tendrá =B5*$C$1: la B cambia, pero C1 queda fija." },
+    { nivel: "medio", q: "Vas a grabar un vídeo para historias de una red social. ¿Qué relación de aspecto y resolución eliges? ¿Por qué?", sol: "Vertical 9:16, 1.080 × 1.920 píxeles: es la forma de la pantalla del móvil sujeto en vertical y ocupa toda la pantalla sin franjas negras." },
+    { nivel: "medio", q: "¿Cuánto ocupa aproximadamente un vídeo de 5 minutos en Full HD a 8 Mbps?", sol: "8 Mbps = 1 MB/s. 5 min = 300 s. 300 · 1 = 300 MB aproximadamente." },
+    { nivel: "medio", q: "¿Qué ventajas tiene usar estilos de título en un documento largo?", sol: "Todo el documento es coherente, se cambia el aspecto de todos los títulos a la vez, se genera un índice automático y los lectores de pantalla pueden navegar por los apartados (accesibilidad)." },
+    { nivel: "medio", q: "Propón una combinación de dos colores complementarios y explica dónde la usarías.", sol: "Azul y naranja: el azul como color principal del fondo o los títulos y el naranja solo en el botón o el dato que quieres destacar, porque el contraste lo hace saltar a la vista." },
+    { nivel: "medio", q: "¿Por qué no hay que transmitir información solo con el color? Pon un ejemplo y una solución.", sol: "Porque hay personas daltónicas que no distinguen ciertos colores. Ejemplo: aprobados en verde y suspensos en rojo. Solución: añadir también un icono o la palabra «Aprobado/Suspenso»." },
+    { nivel: "medio", q: "Explica qué es el derecho de cita y pon un ejemplo correcto en un trabajo de clase.", sol: "Es la posibilidad legal de incluir un fragmento breve de una obra ajena para analizarla o comentarla, indicando autor y fuente. Ejemplo: copiar dos versos de un poema entre comillas, con su autor, para comentarlos en un trabajo de Lengua." },
+    { nivel: "medio", q: "Una foto de 4.000 × 3.000 píxeles se va a mostrar en una web a 800 píxeles de ancho. ¿Qué harías antes de subirla y por qué?", sol: "Redimensionarla a 800 × 600 y exportarla en JPEG o WebP con compresión. Ocupará 25 veces menos píxeles, la web cargará más rápido y gastará menos datos." },
+    { nivel: "medio", q: "¿Qué hace la función BUSCARV? Pon un ejemplo de uso.", sol: "Busca un valor en la primera columna de una tabla y devuelve el dato de otra columna de la misma fila. Ejemplo: a partir del código de un producto, obtener su precio en una tabla de precios." },
+    { nivel: "medio", q: "Cuatro diferencias entre tipografía con serifa y de palo seco.", sol: "La de serifa tiene remates y la de palo seco no; la de serifa se asocia a lo clásico y la de palo seco a lo moderno; la de serifa se usa en textos largos impresos y la de palo seco se lee mejor en pantalla y en títulos; en tamaños pequeños en pantalla, la de palo seco es más legible." },
+    { nivel: "avanzado", q: "Escribe un guion técnico de 4 planos para un vídeo de 20 segundos sobre el ahorro de agua (plano, imagen, sonido y duración).", sol: "Ejemplo: 1) Primer plano de un grifo goteando; sonido del goteo; 4 s. 2) Plano medio de una persona cepillándose con el grifo abierto; voz: «¿Sabías que gastas 12 litros?»; 6 s. 3) La misma persona cierra el grifo; música alegre; 5 s. 4) Plano general con el texto «Cierra el grifo, ahorra agua»; 5 s." },
+    { nivel: "avanzado", q: "Diseña una hoja para controlar el gasto de un viaje de clase: columnas, fórmulas y un formato condicional útil.", sol: "Columnas: Concepto, Precio unitario, Cantidad, Total (=B2*C2). Al final, =SUMA(D2:D20) y el presupuesto en una celda fija; Diferencia =Presupuesto−Total. Formato condicional: la diferencia en rojo si es negativa (nos pasamos)." },
+    { nivel: "avanzado", q: "Un compañero entrega una infografía con 6 tipografías, 8 colores y párrafos largos. Redacta tres mejoras concretas.", sol: "Reducir a dos tipografías (una para títulos y otra para texto); limitar la paleta a 2-3 colores con contraste y uno de acento; cambiar los párrafos por cifras destacadas, iconos y frases cortas, y añadir la fuente de los datos." },
+    { nivel: "avanzado", q: "¿Es ético retocar una foto? Distingue entre un retoque aceptable y una manipulación engañosa con dos ejemplos.", sol: "Aceptable: corregir el brillo o recortar el encuadre de una foto del viaje. Engañoso: añadir a una persona que no estaba en una foto de noticia o cambiar el tamaño de una manifestación. La diferencia es si cambia lo que realmente ocurrió y si se oculta al público." },
+    { nivel: "avanzado", q: "Quieres usar en un vídeo de YouTube una canción famosa de la radio. ¿Qué problemas puede haber y qué alternativas tienes?", sol: "La canción tiene derechos de autor: YouTube puede silenciar el vídeo, quitarle los ingresos o bloquearlo. Alternativas: música de la biblioteca de audio de YouTube, de bancos con licencia CC (citando según la licencia) o componer una propia." },
+    { nivel: "avanzado", q: "Explica por qué un vídeo de 1 minuto puede ocupar 20 MB o 400 MB según cómo se exporte.", sol: "Depende de la resolución (4K tiene 4 veces más píxeles que Full HD), de la tasa de fotogramas, del códec (H.265 o AV1 comprimen más que H.264) y sobre todo de la tasa de bits que se elija: a 2,5 Mbps ocupa unos 19 MB y a 50 Mbps unos 375 MB." },
+    { nivel: "avanzado", q: "Convierte en accesible un documento que tiene títulos en negrita a mano, imágenes sin descripción y enlaces que dicen «aquí».", sol: "Aplicar estilos Título 1 y Título 2 a los títulos; añadir texto alternativo que describa cada imagen; cambiar «aquí» por textos que digan a dónde llevan («descarga el horario en PDF»); revisar el contraste y exportar a PDF etiquetado." },
+    { nivel: "avanzado", q: "Una obra de un pintor que murió en 1950 y una foto de un fotógrafo vivo. ¿Cuál puedes usar libremente en España en 2026? Razona.", sol: "La del pintor muerto en 1950: sus derechos de explotación duraron 70 años tras su muerte (hasta 2020) y ya está en dominio público. La foto del fotógrafo vivo tiene derechos y solo puedes usarla si su licencia lo permite o con su permiso." },
+    { nivel: "avanzado", q: "Calcula con la hoja: en C2:C31 están las notas de 30 alumnos. Escribe fórmulas para la media, la nota más alta, el número de aprobados y el porcentaje de aprobados.", sol: "Media: =PROMEDIO(C2:C31). Máxima: =MAX(C2:C31). Aprobados: =CONTAR.SI(C2:C31;\">=5\"). Porcentaje: =CONTAR.SI(C2:C31;\">=5\")/30 con formato de porcentaje (o dividir entre CONTAR(C2:C31))." },
+  ],
+  ejemplos: [
+    { enunciado: "En una hoja, A2:A6 son productos, B2:B6 precios sin IVA y F1 contiene 21 %. Escribe la fórmula del precio con IVA en C2 para copiarla hacia abajo.", pasos: ["Precio con IVA = precio · (1 + IVA).", "El precio cambia en cada fila: referencia relativa B2.", "El IVA está siempre en F1: referencia absoluta $F$1.", "Fórmula: =B2*(1+$F$1). Al copiarla a C3 queda =B3*(1+$F$1)."], resultado: "=B2*(1+$F$1)" },
+    { enunciado: "Prepara una foto de 4.000 × 3.000 píxeles para la web del instituto, donde se verá a 1.200 píxeles de ancho.", pasos: ["Recortar si hace falta, aplicando la regla de los tercios.", "Ajustar brillo y contraste si está oscura.", "Redimensionar a 1.200 × 900 píxeles (se mantiene la proporción 4:3).", "Exportar en JPEG o WebP con calidad del 75-80 %.", "Añadir texto alternativo al publicarla."], resultado: "Una foto de unos 200-300 KB en lugar de varios MB." },
+    { enunciado: "Cita correctamente una foto de Wikimedia Commons titulada «Faro de Finisterre», de M. López, con licencia CC BY-SA 4.0.", pasos: ["Título: «Faro de Finisterre».", "Autor: M. López.", "Lugar: Wikimedia Commons, con el enlace a la página de la foto.", "Licencia: CC BY-SA 4.0 (y, si la modificas, compartir con la misma licencia)."], resultado: "«Faro de Finisterre», de M. López, Wikimedia Commons, CC BY-SA 4.0." },
+  ],
+  errores: ["Olvidar el símbolo $ al copiar una fórmula que debe usar siempre la misma celda: los resultados salen mal en todas las filas menos la primera."],
+  cuarta: ["La comprimida en JPEG", "su tamaño en centímetros siempre", "Lo traduce a otro idioma", "no se pueden hacer copias de seguridad", "Sí, si cambias el nombre del archivo", "%", "barras apiladas en 3D", "los vídeos", "el precio de una web", "fotos sin texto"],
+  quiz: [
+    { q: "El storyboard es…", o: ["el guion dibujado en viñetas", "la música del vídeo", "el programa de montaje", "un formato de vídeo"], a: 0, e: "Una viñeta por plano, con boceto y notas." },
+    { q: "La regla de los tercios ayuda a…", o: ["comprimir una foto", "encuadrar mejor", "elegir la licencia", "subir el volumen"], a: 1, e: "Se sitúa lo importante en las líneas que dividen la imagen en tercios." },
+    { q: "¿Qué relación de aspecto tienen los vídeos verticales del móvil?", o: ["16:9", "4:3", "9:16", "1:1"], a: 2, e: "Más alto que ancho." },
+    { q: "En =B2*$F$1, la parte $F$1 es una referencia…", o: ["relativa", "absoluta", "circular", "externa"], a: 1, e: "El dólar la fija al copiar la fórmula." },
+    { q: "¿Qué función cuenta solo las celdas que cumplen una condición?", o: ["SUMA", "CONTAR.SI", "PROMEDIO", "MAX"], a: 1, e: "Por ejemplo, cuántos aprobados hay." },
+    { q: "Los colores complementarios son…", o: ["vecinos en el círculo cromático", "opuestos en el círculo cromático", "siempre grises", "solo los de imprenta"], a: 1, e: "Como azul y naranja: crean contraste." },
+    { q: "Para generar un índice automático en un documento hay que usar…", o: ["negritas a mano", "estilos de título", "tablas", "notas al pie"], a: 1, e: "El índice se construye a partir de los estilos." },
+    { q: "MP4 es…", o: ["un códec de audio", "un contenedor de vídeo", "una licencia", "una resolución"], a: 1, e: "Guarda vídeo y audio codificados, por ejemplo, con H.264." },
+    { q: "En España, una obra pasa al dominio público…", o: ["al publicarse", "10 años después de crearse", "70 años después de la muerte del autor", "nunca"], a: 2, e: "A partir de ahí se puede usar libremente." },
+    { q: "Presentar como propio un texto copiado de Internet es…", o: ["derecho de cita", "plagio", "dominio público", "una licencia CC"], a: 1, e: "Aunque sea gratis, hay que citar siempre la fuente." },
+  ],
+  cuartaEx: ["GIF animado", "Venderla sin permiso", "Cambiar el título de la obra"],
+  examen: [
+    { q: "¿Qué tasa de fotogramas da aspecto de cine?", o: ["12", "24", "60", "120"], a: 1, e: "24 fotogramas por segundo es el estándar del cine." },
+    { q: "¿Qué formato elegirías para una captura de pantalla nítida?", o: ["JPEG muy comprimido", "PNG", "MP3", "DOCX"], a: 1, e: "PNG comprime sin pérdida y mantiene el texto nítido." },
+    { q: "La regla TALL para citar incluye…", o: ["Título, Autor, Lugar y Licencia", "Tamaño, Año, Lengua y Lugar", "Texto, Audio, Letra y Logo", "Tema, Alumno, Libro y Lápiz"], a: 0, e: "Así cualquiera puede encontrar y respetar la obra." },
+    { q: "El control de cambios de un procesador de textos sirve para…", o: ["comprimir el documento", "ver y aceptar lo que cambia cada persona", "cambiar la tipografía", "crear el índice"], a: 1, e: "Es básico para corregir en equipo." },
+    { q: "¿Por qué conviene subtitular los vídeos?", o: ["Para que pesen menos", "Para hacerlos accesibles y verlos sin sonido", "Para cambiar la resolución", "Porque lo exige el códec"], a: 1, e: "Ayudan a personas sordas y a quien ve vídeos en silencio." },
+  ],
+  tarjetas: [
+    ["Storyboard", "Guion dibujado: una viñeta por plano con imagen, texto y sonido."],
+    ["Referencia absoluta", "Celda fija con $: =B2*$F$1."],
+    ["Resolución Full HD", "1.920 × 1.080 píxeles, relación 16:9."],
+    ["Cita TALL", "Título, autor, lugar (enlace) y licencia."],
+  ],
+  glosario: [
+    ["Guion técnico", "Guion que detalla por escenas el plano, el sonido y la duración."],
+    ["Storyboard", "Secuencia de viñetas dibujadas que muestra cada plano de un vídeo."],
+    ["Píxel", "Punto mínimo de color de una imagen de mapa de bits."],
+    ["Imagen vectorial", "Imagen formada por formas matemáticas que se amplía sin perder calidad."],
+    ["Capa", "Lámina transparente de un editor que permite trabajar un elemento por separado."],
+    ["Relación de aspecto", "Proporción entre el ancho y el alto de una imagen o vídeo."],
+    ["Códec", "Sistema que comprime y descomprime el audio o el vídeo."],
+    ["Tasa de bits", "Cantidad de datos por segundo de un audio o vídeo."],
+    ["Estilo", "Formato con nombre que se aplica a títulos y párrafos de un documento."],
+    ["Función", "Fórmula preparada de una hoja de cálculo (SUMA, SI, CONTAR.SI…)."],
+    ["Referencia absoluta", "Referencia a una celda que no cambia al copiar la fórmula ($F$1)."],
+    ["Contraste", "Diferencia de luminosidad entre el texto y el fondo."],
+    ["Derechos de autor", "Derechos que la ley da a quien crea una obra."],
+    ["Creative Commons", "Licencias que indican de antemano qué usos permite el autor."],
+    ["Dominio público", "Situación de una obra que se puede usar libremente."],
+    ["Derecho de cita", "Permiso legal para incluir fragmentos breves de una obra ajena citándola."],
+    ["Plagio", "Presentar como propio el trabajo de otra persona."],
+    ["Texto alternativo", "Descripción de una imagen para quien no puede verla."],
+  ],
+  situacion: {
+    titulo: "Campaña digital para el instituto",
+    reto: "El instituto quiere una campaña para reducir los residuos en el patio. Vuestro equipo debe crear un pequeño kit de comunicación (vídeo vertical de 30-45 segundos, infografía y hoja de datos) usando solo recursos propios o con licencia libre.",
+    pasos: [
+      "Recoged datos reales: contad durante tres días los residuos del patio y anotadlos en una hoja de cálculo con totales, medias y un gráfico.",
+      "Escribid el guion técnico y el storyboard del vídeo con un gancho en los tres primeros segundos.",
+      "Grabad y montad el vídeo en 9:16 con subtítulos; exportadlo en Full HD con un peso razonable.",
+      "Diseñad la infografía con los datos de la hoja, dos tipografías y una paleta de tres colores con buen contraste.",
+      "Preparad la ficha de créditos con la cita TALL de cada recurso ajeno y elegid una licencia CC para vuestro trabajo.",
+    ],
+    producto: "Vídeo, infografía, hoja de cálculo con gráfico y ficha de créditos, presentados al resto del grupo.",
+    evaluacion: ["El guion y el storyboard planifican bien el mensaje y el ritmo.", "La hoja de cálculo usa fórmulas y funciones correctas y el gráfico es adecuado.", "El diseño respeta la jerarquía, el contraste y la accesibilidad (subtítulos, texto alternativo).", "Todos los recursos ajenos están bien citados y la licencia elegida es coherente."],
+  },
+  objetivos: ["Planificar un vídeo con guion y storyboard y exportarlo en el formato adecuado", "Usar funciones y referencias absolutas en la hoja de cálculo"],
+  fuentes: [{ t: "Creative Commons: sobre las licencias", url: "https://creativecommons.org/licenses/?lang=es" }],
+});
