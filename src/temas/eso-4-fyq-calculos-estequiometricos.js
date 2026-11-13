@@ -1,184 +1,234 @@
-// Física y Química 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa, flecha } = require("./_util");
+// Física y Química 4º ESO · Cálculos estequiométricos (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, rejilla, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD } = require("./_eso4L5");
+const S = BASE["calculos-estequiometricos"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "4-eso",
   titulo: "Cálculos estequiométricos",
-  minutos: 45,
-  objetivos: ["Usar el mol y la masa molar para contar partículas", "Calcular concentraciones de disoluciones", "Resolver problemas de masa y volumen a partir de una ecuación ajustada"],
-  claves: ["mol", "número de Avogadro", "masa molar", "concentración", "molaridad", "proporción estequiométrica"],
+  minutos: 120,
+  objetivos: [
+    "Utilizar el mol como unidad de cantidad de sustancia y relacionarlo con la masa y el número de partículas",
+    "Calcular masas molares y la composición centesimal de un compuesto",
+    "Expresar la concentración de una disolución en g/L, porcentaje en masa y molaridad",
+    "Aplicar la ecuación de los gases ideales y el volumen molar",
+    "Resolver problemas estequiométricos con masas, volúmenes de gases y disoluciones, incluidos reactivo limitante, pureza y rendimiento",
+  ],
+  claves: ["mol", "número de Avogadro", "masa molar", "composición centesimal", "concentración", "molaridad", "volumen molar", "gases ideales", "estequiometría", "reactivo limitante", "pureza", "rendimiento"],
   pregunta: {
-    texto: "Una cucharada de agua (18 g) tiene unos 600 000 trillones de moléculas. ¿Cómo cuentan los químicos algo tan imposible de contar?",
-    respuesta: "Con una «docena gigante»: el <mark>mol</mark>. Un mol son 6,022 · 10²³ partículas, y se ha elegido para que <b>un mol de agua pese justo su masa molecular en gramos</b>: 18 g. Así, pesar en la balanza equivale a contar moléculas.",
+    texto: "¿Cuántas moléculas de agua hay en un sorbo de 18 mL?",
+    respuesta: "Unas <mark>602.000 trillones</mark>: 6,02 · 10²³ moléculas, un número tan grande que, si cada molécula fuera un grano de arena, cubrirían toda España con una capa de varios metros. Para contar partículas tan pequeñas, los químicos usan un «paquete» especial llamado <b>mol</b>, y 18 g de agua son justamente 1 mol.",
+  },
+  lectura: {
+    titulo: "Contar pesando",
+    html: `<p>Imagina que trabajas en una ferretería y un cliente te pide 5.000 tornillos. No te pondrás a contarlos uno a uno: pesarás uno, o mejor cien, y calcularás cuánto deben pesar los 5.000. Los bancos hacen lo mismo con las monedas y las fábricas con las piezas pequeñas. Contar pesando es mucho más rápido cuando los objetos son pequeños y numerosos.</p><p>Los químicos tienen ese problema elevado al extremo. Los átomos son tan diminutos que en una gota de agua hay más de mil trillones de moléculas, y cuando se prepara una reacción hay que saber cuántas partículas de cada reactivo se mezclan, porque las reacciones ocurren partícula a partícula, en proporciones fijas. La solución fue definir una unidad que conectara el mundo de los átomos con el de la balanza: el mol. A principios del siglo XIX, el italiano Amedeo Avogadro propuso que volúmenes iguales de gases distintos, en las mismas condiciones, contienen el mismo número de partículas. Décadas después, se midió ese número, que hoy lleva su nombre: 6,022 · 10²³. Desde 2019, el mol se define fijando exactamente ese valor. Con él, una balanza de laboratorio se convierte en un contador de átomos, y es posible calcular cuánto combustible necesita un cohete, cuánto principio activo lleva una pastilla o cuánto CO₂ emite un coche.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>El mol</h3><p>El <b>mol</b> es la unidad de <b>cantidad de sustancia</b> del SI. Un mol contiene siempre el mismo número de partículas, el <mark>número de Avogadro: Nₐ = 6,022 · 10²³</mark>. Igual que una docena son 12 huevos, un mol de átomos de hierro son 6,022 · 10²³ átomos de hierro.</p>
-      <div class="formula"><span>N.º de partículas = n · Nₐ</span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una docena son 12 unidades y un mol son 6,022 por 10 elevado a 23 unidades">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${Array.from({ length: 12 }, (_, i) => `<ellipse cx="${30 + (i % 6) * 18}" cy="${54 + Math.floor(i / 6) * 22}" rx="7" ry="9" fill="var(--sun)"/>`).join("")}
-        <text x="74" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)" ${F}>1 docena = 12</text>
-        ${Array.from({ length: 60 }, (_, i) => `<circle cx="${150 + (i % 10) * 9}" cy="${42 + Math.floor(i / 10) * 9}" r="3.2" fill="var(--pen)"/>`).join("")}
-        <text x="192" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="var(--pen)" ${F}>1 mol =</text>
-        <text x="192" y="146" text-anchor="middle" font-size="15" font-weight="700" fill="var(--pen)" ${D}>6,022 · 10²³</text>
-      </svg>`,
-    },
-    {
-      html: `<h3>Masa molar</h3><p>La <b>masa molar (M)</b> es la masa de un mol, en g/mol. Se calcula <mark>sumando las masas atómicas</mark> de la tabla periódica: H = 1, C = 12, O = 16. Para el agua, M(H₂O) = 2 · 1 + 16 = <b>18 g/mol</b>. Con ella se pasa de gramos a moles:</p>
-      <div class="formula"><span>n = m / M</span><span class="op">→</span><span>36 g de agua = 36 / 18 = <b>2 mol</b></span></div>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Triángulo de relaciones entre gramos, moles y partículas">
-        <defs>${flecha("es1", "var(--muted)")}</defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-weight="700" text-anchor="middle">
-          <rect x="20" y="30" width="80" height="40" rx="20" fill="var(--sun)"/><text x="60" y="56" font-size="15" fill="var(--ink)">gramos</text>
-          <rect x="160" y="30" width="80" height="40" rx="20" fill="var(--pen)"/><text x="200" y="56" font-size="15" fill="#fff">moles</text>
-          <rect x="140" y="124" width="110" height="40" rx="20" fill="var(--leaf)"/><text x="195" y="150" font-size="15" fill="#fff">partículas</text>
-          <path d="M104 42 H 154" stroke="var(--muted)" stroke-width="2.5" marker-end="url(#es1)"/><text x="130" y="34" font-size="12" fill="var(--muted)">÷ M</text>
-          <path d="M156 60 H 106" stroke="var(--muted)" stroke-width="2.5" marker-end="url(#es1)"/><text x="130" y="80" font-size="12" fill="var(--muted)">× M</text>
-          <path d="M200 74 V 118" stroke="var(--muted)" stroke-width="2.5" marker-end="url(#es1)"/><text x="160" y="102" font-size="12" fill="var(--muted)">× Nₐ</text>
-        </g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Disoluciones y concentración</h3><p>Una <b>disolución</b> es una mezcla homogénea de <b>soluto</b> (lo que se disuelve) y <b>disolvente</b> (normalmente agua). Su <b>concentración</b> dice cuánto soluto hay:</p>
-      <div class="formula"><span>g/L = masa de soluto (g) / volumen (L)</span></div>
-      <div class="formula"><span>Molaridad M = moles de soluto / volumen (L)</span></div>
-      <p>Disolver 58,5 g de NaCl (1 mol) hasta 0,5 L de disolución da <mark>117 g/L o 2 mol/L (2 M)</mark>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos vasos: uno diluido con pocas partículas y otro concentrado con muchas">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[[30, 6, "diluida"], [150, 22, "concentrada"]].map(([x, n, t]) => `<path d="M${x} 40 V 140 Q ${x} 150 ${x + 10} 150 H ${x + 70} Q ${x + 80} 150 ${x + 80} 140 V 40" fill="none" stroke="var(--ink)" stroke-width="2.5"/><rect x="${x + 2}" y="70" width="76" height="78" rx="8" fill="var(--water)" opacity=".3"/>
-          ${Array.from({ length: n }, (_, i) => `<circle cx="${x + 12 + ((i * 37) % 58)}" cy="${80 + ((i * 23) % 60)}" r="4" fill="var(--red)"/>`).join("")}<text x="${x + 40}" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>${t}</text>`).join("")}
-      </svg>`,
-    },
-    {
-      html: `<h3>Proporciones en una reacción</h3><p>Los <b>coeficientes</b> de una ecuación ajustada indican la <mark>proporción en moles</mark> en que reaccionan y se forman las sustancias. En la síntesis del amoniaco:</p>
-      <div class="formula"><span>N₂ + 3 H₂</span><span class="op">→</span><span>2 NH₃</span></div>
-      <p>se lee: <b>1 mol</b> de nitrógeno reacciona con <b>3 mol</b> de hidrógeno y da <b>2 mol</b> de amoniaco. Si usamos 5 mol de N₂, necesitaremos 15 mol de H₂ y obtendremos 10 mol de NH₃.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Proporción 1 a 3 a 2 en la síntesis del amoniaco">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-weight="700" text-anchor="middle">
-          ${[["N₂", 1, 36, "var(--pen)"], ["H₂", 3, 104, "var(--muted)"], ["NH₃", 2, 206, "var(--leaf)"]].map(([s, n, x, c]) => `${Array.from({ length: n }, (_, i) => `<rect x="${x - 22}" y="${110 - i * 28}" width="44" height="22" rx="6" fill="${c}"/><text x="${x}" y="${126 - i * 28}" font-size="13" fill="#fff">${s}</text>`).join("")}<text x="${x}" y="156" font-size="15" fill="${c}">${n} mol</text>`).join("")}
-          <text x="70" y="126" font-size="18" fill="var(--ink)">+</text><text x="152" y="126" font-size="18" fill="var(--ink)">→</text>
-        </g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Problemas paso a paso</h3><p>¿Cuántos gramos de agua se obtienen al quemar 8 g de hidrógeno? Sigue siempre el mismo camino: <mark>gramos → moles → proporción → moles → gramos</mark>.</p>
-      <p>1) Ecuación ajustada: 2 H₂ + O₂ → 2 H₂O. 2) Moles de H₂: 8 / 2 = 4 mol. 3) Proporción 2 : 2, así que salen 4 mol de H₂O. 4) Gramos: 4 · 18 = <b>72 g de agua</b>. Si hay gases a 0 °C y 1 atm, cada mol ocupa <b>22,4 L</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Camino de cuatro pasos de un problema estequiométrico">
-        <defs>${flecha("es2", "var(--muted)")}</defs>
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} font-weight="700" text-anchor="middle" font-size="13">
-          ${[["8 g H₂", 40, "var(--sun)"], ["4 mol H₂", 40 + 0, "var(--pen)"], ["4 mol H₂O", 0, "var(--pen)"], ["72 g H₂O", 0, "var(--leaf)"]].map(([t, _, c], i) => `<rect x="${i % 2 ? 140 : 20}" y="${20 + i * 38}" width="100" height="28" rx="14" fill="${c}"/><text x="${i % 2 ? 190 : 70}" y="${39 + i * 38}" fill="#fff">${t}</text>`).join("")}
-          <path d="M120 40 L 140 56" stroke="var(--muted)" stroke-width="2" marker-end="url(#es2)"/><path d="M140 82 L 120 96" stroke="var(--muted)" stroke-width="2" marker-end="url(#es2)"/><path d="M120 116 L 140 132" stroke="var(--muted)" stroke-width="2" marker-end="url(#es2)"/>
-          <g font-size="11" fill="var(--muted)"><text x="214" y="40">÷ 2 g/mol</text><text x="56" y="80">× 2/2</text><text x="214" y="116">× 18 g/mol</text></g>
-        </g>
-      </svg>`,
-    },
+    bloque({ h: "1.1 El mol y el número de Avogadro", p: [
+      "Para contar objetos usamos a veces agrupaciones: una <b>docena</b> son 12 unidades y una <b>resma</b>, 500 hojas. En química, la agrupación que se usa es el <mark>mol</mark>, la unidad de <b>cantidad de sustancia</b> del Sistema Internacional, que se representa con la letra n. Un mol es la cantidad de sustancia que contiene exactamente <b>6,022 · 10²³</b> partículas elementales (átomos, moléculas o iones). Este número se llama <mark>número de Avogadro</mark>, N<sub>A</sub>.",
+      "Así, 1 mol de átomos de hierro son 6,022 · 10²³ átomos de hierro; 1 mol de moléculas de agua son 6,022 · 10²³ moléculas de H₂O; y 2 mol de agua, el doble. Para pasar de moles a número de partículas se multiplica por N<sub>A</sub>, y para pasar de partículas a moles se divide. El número es gigantesco porque los átomos son pequeñísimos: 6,022 · 10²³ granos de arroz cubrirían toda la superficie de la Tierra con una capa de varios kilómetros. Recuerda que es importante indicar de qué partículas hablamos: 1 mol de moléculas de O₂ contiene 2 mol de átomos de oxígeno.",
+    ], extra: formula("N = n · N<sub>A</sub>"), svg: S.svg[0] }),
+    bloque({ h: "1.2 La masa molar", p: [
+      "La <mark>masa molar</mark>, M, es la masa de un mol de una sustancia, y se mide en gramos por mol (g/mol). Su valor numérico coincide con la masa atómica o molecular expresada en unidades de masa atómica. Por eso, si el carbono tiene una masa atómica de 12 u, un mol de carbono tiene una masa de 12 g. Esta es la conexión mágica entre el mundo microscópico y la balanza.",
+      "Para calcular la masa molar de un compuesto se <b>suman las masas atómicas</b> de todos los átomos de su fórmula. Por ejemplo, para el agua: M(H₂O) = 2 · 1 + 16 = 18 g/mol. Para el dióxido de carbono: M(CO₂) = 12 + 2 · 16 = 44 g/mol. Para el ácido sulfúrico: M(H₂SO₄) = 2 · 1 + 32 + 4 · 16 = 98 g/mol. Para la glucosa: M(C₆H₁₂O₆) = 6 · 12 + 12 · 1 + 6 · 16 = 180 g/mol. Con la masa molar se pasa de masa a moles dividiendo, y de moles a masa multiplicando. Así, 90 g de agua son 90/18 = 5 mol, y 0,5 mol de CO₂ tienen una masa de 0,5 · 44 = 22 g.",
+    ], extra: formula("n = m / M"), svg: S.svg[1] }),
+    bloque({ h: "1.3 La composición centesimal", p: [
+      "La <mark>composición centesimal</mark> de un compuesto indica el porcentaje en masa de cada elemento. Se calcula dividiendo la masa de cada elemento en un mol del compuesto entre la masa molar, y multiplicando por 100. Por ejemplo, en el agua (18 g/mol) hay 2 g de hidrógeno y 16 g de oxígeno: el 11,1 % de su masa es hidrógeno y el 88,9 %, oxígeno. Esto se cumple en cualquier muestra de agua pura, sea una gota o un océano: es la <b>ley de las proporciones definidas</b> de Proust.",
+      "La composición centesimal tiene muchas aplicaciones. En minería, permite saber qué mineral es más rentable: la hematites, Fe₂O₃, tiene un 70 % de hierro, mientras que la siderita, FeCO₃, solo un 48 %. En agricultura, sirve para comparar abonos: la urea, CO(NH₂)₂, tiene un 46,7 % de nitrógeno, más que el nitrato de amonio, con un 35 %. Y en el laboratorio permite el camino inverso: a partir de los porcentajes obtenidos al analizar una sustancia desconocida, se puede deducir su <b>fórmula empírica</b>, la proporción más sencilla entre sus átomos.",
+    ], extra: formula("% elemento = (masa del elemento / M) · 100"), svg: ficha("Cálculo de la composición centesimal del agua", "Composición del agua", ["M(H₂O) = 18 g/mol", "H: 2 / 18 · 100 = 11,1 %", "O: 16 / 18 · 100 = 88,9 %", "Total: 100 %"], "var(--pen)") }),
+    bloque({ h: "2.1 Disoluciones y concentración", p: [
+      "Una <b>disolución</b> es una mezcla homogénea de un <b>soluto</b>, la sustancia que se disuelve y suele estar en menor cantidad, y un <b>disolvente</b>, normalmente agua. La <mark>concentración</mark> indica cuánto soluto hay en una cantidad de disolución. Una disolución es diluida si tiene poco soluto y concentrada si tiene mucho, pero en ciencia hace falta expresarlo con números.",
+      "La forma más sencilla es la <b>concentración en masa</b>, en gramos de soluto por litro de disolución (g/L): si disolvemos 20 g de sal hasta tener 500 mL de disolución, la concentración es 20 / 0,5 = 40 g/L. El <b>porcentaje en masa</b> indica los gramos de soluto por cada 100 g de disolución: el suero fisiológico tiene un 0,9 % de sal. El <b>porcentaje en volumen</b> se usa con líquidos: un vino de 13 % vol. tiene 13 mL de etanol por cada 100 mL. En los análisis de sangre, la glucosa o el colesterol se expresan en mg/dL. Fíjate siempre en si la cantidad se refiere a la disolución o al disolvente: no es lo mismo.",
+    ], extra: formula("c (g/L) = m soluto / V disolución"), svg: S.svg[2], video: { id: "yYSkPM9IA38", titulo: "Concentración: porcentaje en masa. Disoluciones", canal: "Susi Profe", vistas: 1527989 } }),
+    bloque({ h: "2.2 La molaridad", p: [
+      "En química, la forma más útil de expresar la concentración es la <mark>molaridad</mark>, M, que indica los <b>moles de soluto por litro de disolución</b> (mol/L). Su ventaja es que permite saber directamente cuántas partículas de soluto hay en un volumen, y eso es lo que importa en las reacciones. Una disolución 1 M de NaCl contiene 1 mol de NaCl, es decir, 58,5 g, en cada litro de disolución.",
+      "Para preparar una disolución de molaridad conocida se calcula la masa de soluto necesaria, se pesa, se disuelve en un poco de agua en un vaso y se pasa a un <b>matraz aforado</b> del volumen deseado, completando con agua hasta la marca. Por ejemplo, para preparar 250 mL de NaOH 0,2 M: n = 0,2 · 0,25 = 0,05 mol, y m = 0,05 · 40 = 2 g de NaOH. Cuando una disolución se <b>diluye</b> añadiendo agua, la cantidad de soluto no cambia, así que se cumple que M₁ · V₁ = M₂ · V₂. Es lo que hacemos al preparar un zumo con concentrado o al diluir la lejía para limpiar.",
+    ], extra: formula("M = n soluto / V disolución (L)"), svg: pasos("Pasos para preparar una disolución de molaridad conocida", ["Calcula n = M · V", "Calcula y pesa m = n · M", "Disuelve en un vaso", "Enrasa en el matraz aforado"], "var(--leaf)") }),
+    bloque({ h: "3.1 Los gases y el volumen molar", p: [
+      "Los gases tienen una propiedad muy útil: según la hipótesis de Avogadro, <b>volúmenes iguales de gases distintos, a la misma presión y temperatura, contienen el mismo número de partículas</b>. Por eso, un mol de cualquier gas ocupa el mismo volumen en las mismas condiciones. En <mark>condiciones normales</mark> (0 °C y 1 atm), ese <b>volumen molar</b> es de <b>22,4 L</b>, aproximadamente lo que cabe en una caja de 28 cm de lado.",
+      "Esto significa que 2 g de hidrógeno, 32 g de oxígeno y 44 g de dióxido de carbono ocupan los tres 22,4 L en condiciones normales, aunque sus masas sean muy distintas. Para pasar de volumen de gas a moles en esas condiciones basta con dividir entre 22,4 L/mol. Por ejemplo, 11,2 L de CO₂ en condiciones normales son 0,5 mol, que tienen una masa de 22 g. Si la temperatura o la presión son otras, el volumen molar cambia: a 25 °C y 1 atm es de 24,5 L. Para esos casos se usa la ecuación de los gases ideales.",
+    ], extra: formula("n = V / 22,4 L (0 °C y 1 atm)"), svg: compara("Un mol de distintos gases en condiciones normales", ["1 mol de H₂", ["2 g", "22,4 L", "6,02 · 10²³"]], ["1 mol de CO₂", ["44 g", "22,4 L", "6,02 · 10²³"]], "var(--pen)", "var(--red)") }),
+    bloque({ h: "3.2 La ecuación de los gases ideales", p: [
+      "El comportamiento de los gases se resume en una única ecuación que relaciona la presión (P), el volumen (V), la cantidad de sustancia (n) y la temperatura absoluta (T): la <mark>ecuación de los gases ideales</mark>, P · V = n · R · T. La constante R vale <b>0,082 atm · L / (mol · K)</b>. Es importante usar las unidades correctas: la presión en atmósferas, el volumen en litros y la temperatura en <b>kelvin</b> (T = t °C + 273).",
+      "Con esta ecuación se puede calcular cualquiera de las cuatro magnitudes si se conocen las otras tres. Por ejemplo, ¿cuántos moles de aire hay en una habitación de 50 m³ (50.000 L) a 20 °C y 1 atm? n = P · V / (R · T) = 1 · 50.000 / (0,082 · 293) ≈ 2.081 mol. Como el aire tiene una masa molar media de 29 g/mol, la masa del aire de la habitación es de unos 60 kg. La ecuación incluye las leyes que ya conoces: a temperatura constante, P y V son inversamente proporcionales (ley de Boyle), y a presión constante, V y T son directamente proporcionales (ley de Charles). Los gases reales se comportan casi como ideales a presiones bajas y temperaturas altas.",
+    ], extra: formula("P · V = n · R · T"), svg: rejilla("Magnitudes y unidades de la ecuación de los gases ideales", ["Magnitud", "Unidad"], [["P presión", "atm"], ["V volumen", "L"], ["n cantidad", "mol"], ["T temperatura", "K = °C + 273"], ["R constante", "0,082 atm·L/(mol·K)"]], "var(--pen)"), video: S.bvideos[0] }),
+    bloque({ h: "4.1 Interpretar una ecuación química", p: [
+      "Una ecuación química ajustada indica en qué <mark>proporción</mark> reaccionan las sustancias. Los coeficientes estequiométricos se pueden leer en moléculas o en moles. Por ejemplo, N₂ + 3 H₂ → 2 NH₃ significa que una molécula de nitrógeno reacciona con tres de hidrógeno para dar dos de amoníaco; y también que <b>1 mol de N₂ reacciona con 3 mol de H₂ y forma 2 mol de NH₃</b>. La proporción 1 : 3 : 2 se mantiene sea cual sea la cantidad: 5 mol de N₂ necesitan 15 mol de H₂ y forman 10 mol de NH₃.",
+      "Multiplicando cada cantidad de moles por la masa molar, se obtienen las proporciones en masa: 28 g de N₂ reaccionan con 6 g de H₂ y forman 34 g de NH₃. Comprueba que 28 + 6 = 34: se cumple la ley de conservación de la masa. Si los reactivos y productos son gases en las mismas condiciones, la proporción en moles también es la proporción en volumen: 1 L de N₂ reacciona con 3 L de H₂ y forma 2 L de NH₃. La <mark>estequiometría</mark> es la parte de la química que se ocupa de estos cálculos, y su nombre viene del griego <i>stoicheion</i>, elemento, y <i>metron</i>, medida.",
+    ], svg: S.svg[3] }),
+    bloque({ h: "4.2 Cálculos masa-masa", p: [
+      "La mayoría de los problemas de estequiometría siguen siempre el mismo camino de <mark>cuatro pasos</mark>. Primero, escribir la <b>ecuación ajustada</b>. Segundo, pasar el dato que nos dan a <b>moles</b>, usando la masa molar (n = m / M), el volumen molar si es un gas o la molaridad si es una disolución. Tercero, usar la <b>proporción de los coeficientes</b> para calcular los moles de la sustancia que nos piden. Cuarto, pasar esos moles a la <b>unidad pedida</b>: gramos, litros o número de partículas.",
+      "Veamos un ejemplo: ¿qué masa de agua se forma al quemar 8 g de hidrógeno? Paso 1: 2 H₂ + O₂ → 2 H₂O. Paso 2: n(H₂) = 8 / 2 = 4 mol. Paso 3: la proporción H₂ : H₂O es 2 : 2, es decir, 1 : 1, así que se forman 4 mol de agua. Paso 4: m(H₂O) = 4 · 18 = 72 g. El error más frecuente es saltarse el paso a moles y aplicar la proporción directamente a los gramos: ¡los coeficientes relacionan moles, no gramos! Otro consejo útil es escribir siempre las unidades en cada operación, porque ayudan a detectar errores.",
+    ], svg: S.svg[4] }),
+    bloque({ h: "4.3 Cálculos con gases y con disoluciones", p: [
+      "Cuando el dato o la incógnita es el <mark>volumen de un gas</mark>, en el paso 2 o en el 4 se usa el volumen molar (22,4 L/mol en condiciones normales) o la ecuación de los gases ideales. Por ejemplo, ¿qué volumen de CO₂, medido en condiciones normales, se obtiene al quemar 32 g de metano? CH₄ + 2 O₂ → CO₂ + 2 H₂O; n(CH₄) = 32 / 16 = 2 mol; proporción 1 : 1, así que se forman 2 mol de CO₂; V = 2 · 22,4 = 44,8 L.",
+      "Cuando un reactivo está en <mark>disolución</mark>, sus moles se calculan con la molaridad: n = M · V. Por ejemplo, ¿qué masa de cinc reacciona con 200 mL de HCl 2 M? Zn + 2 HCl → ZnCl₂ + H₂; n(HCl) = 2 · 0,2 = 0,4 mol; proporción Zn : HCl = 1 : 2, así que reaccionan 0,2 mol de Zn; m = 0,2 · 65,4 ≈ 13,1 g. Este tipo de cálculo se usa en las <b>valoraciones</b> ácido-base, en las que se añade una disolución de concentración conocida hasta neutralizar otra, para averiguar su concentración, por ejemplo, la acidez de un vinagre.",
+    ], svg: ficha("Cómo pasar a moles según el tipo de dato", "Del dato a moles", ["Masa: n = m / M", "Gas (c. n.): n = V / 22,4", "Gas (otras): n = PV / RT", "Disolución: n = M · V"], "var(--red)") }),
+    bloque({ h: "4.4 El reactivo limitante", p: [
+      "Para hacer bocadillos necesitas dos rebanadas de pan y una loncha de queso. Si tienes 10 rebanadas y 8 lonchas, solo puedes hacer 5 bocadillos: el pan se acaba antes y sobran 3 lonchas. En las reacciones químicas pasa lo mismo cuando los reactivos no están en la proporción exacta. El reactivo que se agota primero se llama <mark>reactivo limitante</mark>, porque limita la cantidad de producto que se puede formar; el otro es el <b>reactivo en exceso</b>, y parte de él sobra.",
+      "Para identificarlo, se calculan los moles de cada reactivo y se comparan con la proporción de la ecuación. Por ejemplo, se mezclan 4 g de H₂ (2 mol) con 48 g de O₂ (1,5 mol) para formar agua: 2 H₂ + O₂ → 2 H₂O. Los 2 mol de H₂ necesitan solo 1 mol de O₂, y hay 1,5 mol: el <b>H₂ es el limitante</b> y sobran 0,5 mol de O₂ (16 g). El agua formada se calcula siempre a partir del limitante: 2 mol de H₂O, 36 g. En la industria se suele añadir en exceso el reactivo más barato para aprovechar al máximo el más caro.",
+    ], svg: compara("Reactivo limitante y en exceso con el ejemplo de los bocadillos", ["Limitante", ["se agota", "pan: 10 rebanadas", "decide el producto", "H₂ en el ejemplo"]], ["En exceso", ["sobra una parte", "queso: 8 lonchas", "sobran 3", "O₂ en el ejemplo"]], "var(--red)", "var(--leaf)"), video: S.bvideos[1] }),
+    bloque({ h: "4.5 Pureza y rendimiento", p: [
+      "En la realidad, los reactivos no siempre son puros. Una caliza puede contener un 80 % de carbonato de calcio y el resto, arcilla y otras impurezas que no reaccionan. La <mark>pureza</mark> indica el porcentaje de sustancia útil en una muestra. Antes de hacer los cálculos hay que quedarse solo con la parte pura: de 500 g de caliza al 80 %, solo 400 g son CaCO₃.",
+      "Además, las reacciones raramente producen toda la cantidad de producto que predicen los cálculos, la cantidad teórica: parte se pierde en reacciones secundarias, al filtrar o al trasvasar, o la reacción no llega a completarse. El <mark>rendimiento</mark> compara la cantidad de producto obtenida realmente con la teórica: rendimiento = (cantidad real / cantidad teórica) · 100. Si los cálculos predicen 50 g de producto y se obtienen 42 g, el rendimiento es del 84 %. Mejorar el rendimiento y la pureza es uno de los grandes objetivos de la industria química, porque supone ahorrar materias primas y energía y producir menos residuos.",
+    ], extra: formula("rendimiento (%) = (real / teórico) · 100"), svg: pasos("Cómo tener en cuenta la pureza y el rendimiento", ["Masa pura = masa · pureza", "Cálculo estequiométrico", "Producto teórico", "Real = teórico · rendimiento"], "#b45309") }),
   ],
-  figura: {
-    titulo: "Las cuatro fórmulas que lo resuelven casi todo",
-    svg: `<svg viewBox="0 0 640 220" role="img" aria-label="Fórmulas: moles a partir de masa, partículas, molaridad y volumen de gas">
-      <rect width="640" height="220" rx="16" fill="var(--paper)"/>
-      ${[["n = m / M", "masa → moles", "var(--sun)"], ["N = n · Nₐ", "moles → partículas", "var(--leaf)"], ["M = n / V", "molaridad (mol/L)", "var(--pen)"], ["V = n · 22,4 L", "gas a 0 °C y 1 atm", "var(--red)"]]
-        .map(([f, d, c], i) => `<rect x="${16 + i * 154}" y="30" width="146" height="160" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>
-          <text x="${89 + i * 154}" y="104" text-anchor="middle" font-size="21" font-weight="700" fill="${c}" ${D}>${f}</text>
-          <text x="${89 + i * 154}" y="150" text-anchor="middle" font-size="13" fill="var(--ink)" ${F}>${d}</text>`).join("")}
-    </svg>`,
-  },
-  video: { id: "jHRNPVJR7Lo", titulo: "Cálculo de moles rápido y fácil", canal: "EMMANUEL ASESORÍAS", vistas: 2179334, megusta: 0, busqueda: "estequiometría mol cálculos" },
-  quiz: [
-    { q: "¿Cuántas partículas hay en un mol?", o: ["6,022 · 10²³", "1 000", "22,4"], a: 0, e: "Es el número de Avogadro." },
-    { q: "¿Cuál es la masa molar del CO₂? (C = 12, O = 16)", o: ["28 g/mol", "44 g/mol", "32 g/mol"], a: 1, e: "12 + 2 · 16 = 44 g/mol." },
-    { q: "¿Cuántos moles son 90 g de agua? (M = 18 g/mol)", o: ["5 mol", "1 620 mol", "0,2 mol"], a: 0, e: "n = 90 / 18 = 5 mol." },
-    { q: "Disolvemos 0,4 mol de azúcar hasta 2 L. ¿Cuál es la molaridad?", o: ["0,8 M", "0,2 M", "5 M"], a: 1, e: "M = 0,4 / 2 = 0,2 mol/L." },
-    { q: "En N₂ + 3 H₂ → 2 NH₃, con 6 mol de H₂, ¿cuántos mol de NH₃ se forman?", o: ["2", "4", "6"], a: 1, e: "La proporción H₂ : NH₃ es 3 : 2. 6 · 2 / 3 = 4 mol." },
-  ],
-  examen: [
-    { q: "¿Cuántos gramos son 3 mol de NaCl? (M = 58,5 g/mol)", o: ["19,5 g", "175,5 g", "58,5 g"], a: 1, e: "m = n · M = 3 · 58,5 = 175,5 g." },
-    { q: "¿Qué volumen ocupan 2 mol de O₂ a 0 °C y 1 atm?", o: ["22,4 L", "44,8 L", "11,2 L"], a: 1, e: "Cada mol de gas ocupa 22,4 L en esas condiciones: 2 · 22,4 = 44,8 L." },
-    { q: "Al quemar 16 g de metano (CH₄ + 2 O₂ → CO₂ + 2 H₂O), ¿cuántos gramos de CO₂ salen?", o: ["16 g", "44 g", "88 g"], a: 1, e: "16 g de CH₄ = 1 mol → 1 mol de CO₂ = 44 g." },
-  ],
-  feynman: ["Qué es un mol y por qué lo usan los químicos", "Cómo se calcula la masa molar de un compuesto", "La diferencia entre g/L y molaridad", "Qué significan los coeficientes de una ecuación ajustada", "Los cuatro pasos de un problema estequiométrico"],
-  mapa: mapa("ESTEQUIOMETRÍA", "var(--eso)", [
-    ["Mol", "6,022 · 10²³ partículas", "var(--leaf)"],
-    ["Masa molar", "n = m / M", "var(--sun)"],
-    ["Disoluciones", "g/L · molaridad n/V", "var(--pen)"],
-    ["Reacciones", "coeficientes = proporción en mol", "var(--red)"],
-  ], 260),
-  tarjetas: [
-    ["Número de Avogadro", "6,022 · 10²³ partículas por mol."],
-    ["Fórmula para pasar de gramos a moles", "n = m / M."],
-    ["Definición de molaridad", "Moles de soluto por litro de disolución (mol/L)."],
-    ["Volumen de un mol de gas a 0 °C y 1 atm", "22,4 L."],
-    ["¿Qué indican los coeficientes de una ecuación?", "La proporción en moles entre reactivos y productos."],
-  ],
-  familias: ["Mirad el suero fisiológico de casa: 0,9 % de NaCl. Calculad cuántos gramos de sal hay en 1 L (9 g).", "Contad cuántos granos de arroz hay en 10 g y estimad cuántos habría en un kilo: es la misma idea que el mol.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "El cambio: cantidad de sustancia, mol, concentración de disoluciones y cálculos estequiométricos sencillos (RD 217/2022, Física y Química 4º).",
-    ideas: ["Preparar disoluciones de concentración conocida con balanza y matraz aforado.", "Reacción de bicarbonato y vinagre midiendo el CO₂ producido por pérdida de masa.", "Analogía del mol con «paquetes» de clips para practicar conversiones."],
-  },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Estequiometría, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Estequiometr%C3%ADa" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Aplicar la ecuación de los gases ideales y el volumen molar", "Resolver problemas con reactivo limitante, pureza y rendimiento"],
-  tras: {
-    "Masa molar": [
-      { html: `<h3>El número de Avogadro en la práctica</h3><p>Un mol de cualquier sustancia contiene <mark>6,022 · 10²³ partículas</mark> (átomos, moléculas o iones): es el <b>número de Avogadro</b>, Nₐ. Con él se pasa de moles a partículas y al revés: N = n · Nₐ. Para hacerte una idea de su tamaño: si cada partícula fuera un grano de arena, un mol de granos cubriría toda España con una capa de varios kilómetros. Por eso los químicos cuentan en moles y no en partículas sueltas. Fíjate en qué partícula cuentas: un mol de moléculas de agua (H₂O) contiene 2 moles de átomos de hidrógeno y 1 mol de átomos de oxígeno.</p>` },
-    ],
-    "Disoluciones y concentración": [
-      { html: `<h3>Gases: volumen molar y ecuación de los gases ideales</h3><p>Los gases cumplen una ley muy sencilla que relaciona presión (p), volumen (V), cantidad de sustancia (n) y temperatura absoluta (T): la <b>ecuación de los gases ideales</b>, con R = 0,082 atm·L/(mol·K). La temperatura siempre en kelvin: T (K) = t (°C) + 273. Una consecuencia importante es que, en las mismas condiciones, <mark>un mol de cualquier gas ocupa el mismo volumen</mark>: en condiciones normales (0 °C y 1 atm), 22,4 L. Así, 2 moles de O₂ o 2 moles de CO₂ ocupan 44,8 L en esas condiciones, aunque su masa sea diferente.</p><div class="formula"><span>p · V = n · R · T</span></div>`, video: { id: "7uWK3GmeGzY", titulo: "Ley de los gases ideales: fórmula y problema", canal: "Susi Profe", vistas: 1094665 } },
-    ],
-    "Problemas paso a paso": [
-      { html: `<h3>Reactivo limitante y en exceso</h3><p>En la vida real los reactivos rara vez están en la proporción exacta de la ecuación. El <b>reactivo limitante</b> es el que <mark>se acaba primero</mark> y por tanto decide cuánto producto se forma; el otro es el <b>reactivo en exceso</b> y sobra una parte. Piensa en hacer bocadillos: con 10 panes y 6 lonchas de queso (una por bocadillo) solo puedes hacer 6; el queso es el limitante y sobran 4 panes. Para encontrarlo: pasa los datos a moles, divide cada cantidad entre su coeficiente de la ecuación y el que dé el número más pequeño es el limitante. Todos los cálculos de productos se hacen a partir de él.</p>`, video: { id: "olgYihEe6B8", titulo: "Estequiometría: reactivo limitante y en exceso", canal: "Amigos de la Química", vistas: 2973889 } },
-      { html: `<h3>Pureza y rendimiento</h3><p>Los reactivos industriales no son puros: una caliza del 80 % de riqueza contiene 80 g de carbonato de calcio por cada 100 g de piedra; el resto son impurezas que no reaccionan. Antes de calcular hay que quedarse solo con la parte pura: masa pura = masa total · riqueza / 100. Además, casi nunca se obtiene todo el producto que predice la ecuación (hay pérdidas, reacciones secundarias…). El <b>rendimiento</b> compara lo que se obtiene de verdad con lo que se esperaba: <mark>rendimiento (%) = masa real / masa teórica · 100</mark>. Un rendimiento del 75 % significa que se obtuvo tres cuartas partes de lo calculado.</p>` },
-    ],
-  },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "¿Cuántas moléculas hay en 9 g de agua? (Masas: H = 1, O = 16.)", pasos: ["Masa molar del H₂O = 2 · 1 + 16 = 18 g/mol.", "Moles: n = 9 / 18 = 0,5 mol.", "Moléculas: 0,5 · 6,022 · 10²³ = 3,011 · 10²³."], resultado: "3,01 · 10²³ moléculas de agua." },
-    { enunciado: "¿Qué volumen ocupan 3 moles de N₂ a 27 °C y 2 atm?", pasos: ["Temperatura en kelvin: T = 27 + 273 = 300 K.", "Despeja V de pV = nRT: V = nRT / p.", "V = 3 · 0,082 · 300 / 2 = 36,9 L."], resultado: "V ≈ 36,9 L." },
-    { enunciado: "Reaccionan 4 g de H₂ con 64 g de O₂: 2 H₂ + O₂ → 2 H₂O. ¿Cuál es el limitante y cuánta agua se forma? (H = 1, O = 16.)", pasos: ["Moles: H₂ = 4 / 2 = 2 mol; O₂ = 64 / 32 = 2 mol.", "Divide entre los coeficientes: H₂ → 2 / 2 = 1; O₂ → 2 / 1 = 2. El menor es el del H₂: es el limitante.", "2 mol de H₂ dan 2 mol de H₂O (proporción 2:2). Masa = 2 · 18 = 36 g.", "Sobra O₂: se gasta 1 mol (32 g) y quedan 32 g."], resultado: "Limitante: H₂. Se forman 36 g de agua y sobran 32 g de O₂." },
+    { enunciado: "¿Cuántos moles y cuántas moléculas hay en 88 g de CO₂? (C = 12, O = 16)", pasos: ["M(CO₂) = 12 + 2 · 16 = 44 g/mol.", "n = 88 / 44 = 2 mol.", "N = 2 · 6,022 · 10²³ = 1,2 · 10²⁴ moléculas."], resultado: "2 mol; 1,2 · 10²⁴ moléculas." },
+    { enunciado: "Calcula la composición centesimal del ácido sulfúrico, H₂SO₄ (H = 1, S = 32, O = 16).", pasos: ["M = 2 + 32 + 64 = 98 g/mol.", "H: 2 / 98 · 100 = 2,0 %.", "S: 32 / 98 · 100 = 32,7 %.", "O: 64 / 98 · 100 = 65,3 %."], resultado: "2,0 % H, 32,7 % S y 65,3 % O." },
+    { enunciado: "Se disuelven 29,25 g de NaCl en agua hasta 250 mL. Calcula la concentración en g/L y la molaridad (Na = 23, Cl = 35,5).", pasos: ["c = 29,25 / 0,25 = 117 g/L.", "M(NaCl) = 58,5 g/mol → n = 29,25 / 58,5 = 0,5 mol.", "Molaridad = 0,5 / 0,25 = 2 M."], resultado: "117 g/L; 2 M." },
+    { enunciado: "¿Qué volumen ocupan 64 g de O₂ a 27 °C y 2 atm? (O = 16; R = 0,082)", pasos: ["n = 64 / 32 = 2 mol.", "T = 27 + 273 = 300 K.", "V = n · R · T / P = 2 · 0,082 · 300 / 2.", "V = 24,6 L."], resultado: "24,6 L." },
+    { enunciado: "¿Qué masa de óxido de calcio se obtiene al descomponer 250 g de CaCO₃? (Ca = 40, C = 12, O = 16)", pasos: ["CaCO₃ → CaO + CO₂.", "n(CaCO₃) = 250 / 100 = 2,5 mol.", "Proporción 1 : 1 → 2,5 mol de CaO.", "m = 2,5 · 56 = 140 g."], resultado: "140 g de CaO." },
+    { enunciado: "Se hacen reaccionar 54 g de aluminio con 213 g de cloro: 2 Al + 3 Cl₂ → 2 AlCl₃. ¿Cuál es el limitante y cuánto AlCl₃ se forma? (Al = 27, Cl = 35,5)", pasos: ["n(Al) = 54 / 27 = 2 mol; n(Cl₂) = 213 / 71 = 3 mol.", "2 mol de Al necesitan 3 mol de Cl₂: están en proporción exacta.", "No sobra ninguno; se forman 2 mol de AlCl₃.", "M(AlCl₃) = 27 + 106,5 = 133,5 g/mol → m = 267 g."], resultado: "Proporción exacta; se forman 267 g de AlCl₃." },
   ],
   errores: [
-    "Usar la temperatura en grados Celsius en pV = nRT: siempre en kelvin.",
-    "Hacer las proporciones con gramos en vez de con moles: los coeficientes de la ecuación son proporciones de moles.",
-    "Olvidar ajustar la ecuación antes de hacer cálculos.",
-    "Calcular el producto a partir del reactivo en exceso en vez del limitante.",
-    "Aplicar 22,4 L/mol a líquidos o sólidos, o a gases que no están a 0 °C y 1 atm.",
-    "Confundir la masa molar del oxígeno atómico (16 g/mol) con la del O₂ (32 g/mol).",
+    "Aplicar la proporción de los coeficientes directamente a los gramos: los coeficientes relacionan moles.",
+    "Olvidar ajustar la ecuación antes de empezar los cálculos.",
+    "Usar el volumen en mL en la molaridad o en los gases: hay que pasarlo a litros.",
+    "Usar la temperatura en °C en la ecuación de los gases: debe ir en kelvin.",
+    "Aplicar 22,4 L/mol fuera de las condiciones normales (0 °C y 1 atm).",
+    "Calcular el producto a partir del reactivo en exceso en lugar del limitante.",
   ],
   ejercicios: [
-    { q: "Calcula la masa molar del CaCO₃ (Ca = 40, C = 12, O = 16).", sol: "40 + 12 + 3 · 16 = 100 g/mol." },
-    { q: "¿Cuántos moles hay en 88 g de CO₂? ¿Y cuántas moléculas?", sol: "M(CO₂) = 44 g/mol. n = 88 / 44 = 2 mol. Moléculas: 2 · 6,022 · 10²³ = 1,2 · 10²⁴." },
-    { q: "Se disuelven 20 g de NaOH (M = 40 g/mol) en agua hasta tener 500 mL de disolución. Calcula la molaridad.", sol: "n = 20 / 40 = 0,5 mol. V = 0,5 L. M = 0,5 / 0,5 = 1 mol/L." },
-    { q: "¿Qué volumen ocupan 0,25 mol de un gas en condiciones normales?", sol: "0,25 · 22,4 = 5,6 L." },
-    { q: "Un gas ocupa 10 L a 2 atm y 300 K. ¿Cuántos moles hay?", sol: "n = pV / RT = 2 · 10 / (0,082 · 300) = 20 / 24,6 ≈ 0,81 mol." },
-    { q: "En la reacción N₂ + 3 H₂ → 2 NH₃, ¿cuántos gramos de amoniaco se forman con 6 g de H₂ si hay N₂ de sobra? (N = 14, H = 1.)", sol: "n(H₂) = 6 / 2 = 3 mol. Por cada 3 mol de H₂ se forman 2 mol de NH₃. M(NH₃) = 17 g/mol: 2 · 17 = 34 g." },
-    { q: "CaCO₃ → CaO + CO₂. ¿Cuánto CaO se obtiene de 200 g de CaCO₃? (Ca = 40, C = 12, O = 16.)", sol: "n(CaCO₃) = 200 / 100 = 2 mol. Proporción 1:1: 2 mol de CaO. M(CaO) = 56: 2 · 56 = 112 g." },
-    { q: "En el ejercicio anterior, la caliza tiene un 80 % de riqueza. ¿Cuánto CaO se obtiene de 200 g de caliza?", sol: "Masa pura = 200 · 0,80 = 160 g de CaCO₃ = 1,6 mol. Se obtienen 1,6 · 56 = 89,6 g de CaO." },
-    { q: "Se esperaban 50 g de producto y se obtuvieron 42 g. Calcula el rendimiento.", sol: "42 / 50 · 100 = 84 %." },
-    { q: "Zn + 2 HCl → ZnCl₂ + H₂. Reaccionan 0,5 mol de Zn con 0,6 mol de HCl. ¿Cuál es el limitante? ¿Cuántos moles de H₂ se forman?", sol: "Zn: 0,5 / 1 = 0,5. HCl: 0,6 / 2 = 0,3. Limitante: HCl. 0,6 mol de HCl dan 0,3 mol de H₂." },
+    B("¿Cuántas moléculas hay en 3 mol de agua? ¿Y cuántos átomos de hidrógeno?", "N = 3 · 6,022 · 10²³ = 1,8 · 10²⁴ moléculas; átomos de H: el doble, 3,6 · 10²⁴."),
+    B("Calcula la masa molar de: NaCl, H₂O, CO₂, CaCO₃ y NH₃ (Na = 23, Cl = 35,5, H = 1, O = 16, C = 12, Ca = 40, N = 14).", "58,5; 18; 44; 100; 17 g/mol."),
+    B("¿Cuántos moles hay en 36 g de agua y en 11 g de CO₂?", "36 / 18 = 2 mol; 11 / 44 = 0,25 mol."),
+    B("¿Qué masa tienen 3 mol de NaCl y 0,5 mol de CaCO₃?", "3 · 58,5 = 175,5 g; 0,5 · 100 = 50 g."),
+    B("¿Cuántos moles hay en 1,2 · 10²⁴ átomos de hierro?", "1,2 · 10²⁴ / 6,022 · 10²³ ≈ 2 mol."),
+    B("Se disuelven 15 g de azúcar en agua hasta 300 mL. Calcula la concentración en g/L.", "15 / 0,3 = 50 g/L."),
+    B("¿Cuántos gramos de sal hay en 500 g de suero fisiológico al 0,9 %?", "500 · 0,9 / 100 = 4,5 g."),
+    B("Calcula la molaridad de una disolución con 2 mol de soluto en 4 L.", "2 / 4 = 0,5 M."),
+    B("¿Qué volumen ocupan 3 mol de un gas en condiciones normales?", "3 · 22,4 = 67,2 L."),
+    B("¿Cuántos moles de gas hay en 44,8 L medidos en condiciones normales?", "44,8 / 22,4 = 2 mol."),
+    B("Interpreta en moles la ecuación 2 H₂ + O₂ → 2 H₂O.", "2 mol de H₂ reaccionan con 1 mol de O₂ y forman 2 mol de H₂O."),
+    B("En la reacción N₂ + 3 H₂ → 2 NH₃, ¿cuántos moles de NH₃ se forman con 6 mol de H₂?", "6 · 2 / 3 = 4 mol de NH₃."),
+    M("Calcula la composición centesimal del CaCO₃ (Ca = 40, C = 12, O = 16).", "Ca: 40 %; C: 12 %; O: 48 %."),
+    M("¿Qué mineral tiene mayor porcentaje de hierro: la hematites (Fe₂O₃) o la magnetita (Fe₃O₄)? (Fe = 56, O = 16)", "Fe₂O₃: 112/160 = 70 %. Fe₃O₄: 168/232 = 72,4 %. La magnetita."),
+    M("¿Qué masa de NaOH se necesita para preparar 500 mL de disolución 0,1 M? (NaOH = 40 g/mol)", "n = 0,1 · 0,5 = 0,05 mol; m = 0,05 · 40 = 2 g."),
+    M("Se toman 50 mL de una disolución 2 M y se diluyen hasta 250 mL. ¿Cuál es la nueva molaridad?", "M₂ = 2 · 50 / 250 = 0,4 M."),
+    M("Un vino tiene un 12 % en volumen de etanol. ¿Cuántos mL de etanol hay en una botella de 750 mL?", "750 · 12 / 100 = 90 mL."),
+    M("¿Cuántos moles de gas hay en un globo de 5 L a 27 °C y 1 atm? (R = 0,082)", "n = 1 · 5 / (0,082 · 300) ≈ 0,2 mol."),
+    M("Calcula la presión de 2 mol de N₂ en un recipiente de 10 L a 0 °C.", "P = 2 · 0,082 · 273 / 10 ≈ 4,5 atm."),
+    M("¿Qué masa de agua se forma al quemar 4 g de hidrógeno? 2 H₂ + O₂ → 2 H₂O.", "n(H₂) = 2 mol → 2 mol de H₂O → 36 g."),
+    M("¿Qué masa de oxígeno se necesita para quemar 48 g de metano? CH₄ + 2 O₂ → CO₂ + 2 H₂O.", "n(CH₄) = 48/16 = 3 mol → 6 mol de O₂ → 6 · 32 = 192 g."),
+    M("¿Qué volumen de H₂, en condiciones normales, se desprende al reaccionar 13 g de cinc con ácido clorhídrico? Zn + 2 HCl → ZnCl₂ + H₂ (Zn = 65)", "n(Zn) = 0,2 mol → 0,2 mol de H₂ → 0,2 · 22,4 = 4,48 L."),
+    M("¿Qué volumen de HCl 1 M se necesita para neutralizar 0,2 mol de NaOH? HCl + NaOH → NaCl + H₂O.", "Se necesitan 0,2 mol de HCl; V = 0,2 / 1 = 0,2 L = 200 mL."),
+    M("Al quemar 1 L de gasolina (unos 700 g de C₈H₁₈) se forman unos 2,2 kg de CO₂. Comprueba el dato: 2 C₈H₁₈ + 25 O₂ → 16 CO₂ + 18 H₂O (C₈H₁₈ = 114 g/mol).", "n = 700/114 = 6,14 mol → 8 · 6,14 = 49,1 mol de CO₂ → 49,1 · 44 ≈ 2.161 g ≈ 2,2 kg."),
+    M("Calcula la composición centesimal de la urea, CO(NH₂)₂, y explica por qué es un buen abono (C = 12, O = 16, N = 14, H = 1).", "M = 60 g/mol. C: 20 %; O: 26,7 %; N: 46,7 %; H: 6,7 %. Tiene un porcentaje de nitrógeno muy alto."),
+    M("¿Qué masa de glucosa (180 g/mol) hay en 250 mL de una disolución 0,2 M?", "n = 0,2 · 0,25 = 0,05 mol; m = 0,05 · 180 = 9 g."),
+    A("Se mezclan 10 g de H₂ y 64 g de O₂ para formar agua. Indica el reactivo limitante, la masa de agua formada y la masa que sobra del otro reactivo.", "n(H₂) = 5 mol; n(O₂) = 2 mol. 2 mol de O₂ necesitan 4 mol de H₂: el limitante es el O₂ y sobra 1 mol de H₂ (2 g). Agua: 4 mol = 72 g."),
+    A("Reaccionan 20 g de NaOH con 20 g de HCl. ¿Cuál es el limitante y qué masa de NaCl se forma? (NaOH = 40; HCl = 36,5; NaCl = 58,5)", "n(NaOH) = 0,5 mol; n(HCl) = 0,548 mol. Proporción 1 : 1: limita el NaOH. NaCl: 0,5 mol = 29,25 g."),
+    A("¿Qué masa de CO₂ se obtiene al tratar 200 g de caliza con un 75 % de pureza en CaCO₃ con exceso de ácido? CaCO₃ + 2 HCl → CaCl₂ + H₂O + CO₂", "CaCO₃ puro: 150 g = 1,5 mol → 1,5 mol de CO₂ = 66 g."),
+    A("En la síntesis del amoníaco se usan 56 g de N₂ con hidrógeno en exceso y se obtienen 51 g de NH₃. Calcula el rendimiento.", "n(N₂) = 2 mol → teórico 4 mol de NH₃ = 68 g. Rendimiento = 51/68 · 100 = 75 %."),
+    A("Una muestra de 2 g de un compuesto contiene 0,8 g de carbono, 0,133 g de hidrógeno y el resto oxígeno. Halla su fórmula empírica.", "C: 0,8/12 = 0,0667 mol; H: 0,133/1 = 0,133 mol; O: 1,067/16 = 0,0667 mol. Proporción 1 : 2 : 1 → CH₂O."),
+    A("¿Qué volumen de O₂ a 25 °C y 1 atm se necesita para quemar 1 mol de glucosa en la respiración? C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O (R = 0,082)", "6 mol de O₂; V = 6 · 0,082 · 298 / 1 ≈ 146,6 L."),
+    A("Para valorar un vinagre, 10 mL necesitan 15 mL de NaOH 0,5 M. Calcula la molaridad del ácido acético y su concentración en g/L. CH₃COOH + NaOH → CH₃COONa + H₂O (CH₃COOH = 60)", "n(NaOH) = 0,0075 mol = n(ácido). M = 0,0075/0,010 = 0,75 M; 0,75 · 60 = 45 g/L (≈ 4,5 %)."),
+    A("Un airbag se infla con N₂ por la descomposición de la azida de sodio: 2 NaN₃ → 2 Na + 3 N₂. ¿Qué masa de NaN₃ se necesita para obtener 60 L de N₂ a 27 °C y 1,2 atm? (NaN₃ = 65)", "n(N₂) = 1,2 · 60 / (0,082 · 300) ≈ 2,93 mol; n(NaN₃) = 2,93 · 2/3 ≈ 1,95 mol; m ≈ 127 g."),
+    A("Se quieren obtener 100 g de hierro en un alto horno: Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂, con un rendimiento del 80 %. ¿Qué masa de mineral con un 70 % de Fe₂O₃ hace falta? (Fe = 56; Fe₂O₃ = 160)", "Teórico necesario: 100/0,8 = 125 g de Fe = 2,23 mol → 1,116 mol de Fe₂O₃ = 178,6 g; mineral: 178,6/0,7 ≈ 255 g."),
+    A("¿Cuántas moléculas de agua hay en una gota de 0,05 mL? (densidad 1 g/mL)", "m = 0,05 g; n = 0,05/18 = 2,78 · 10⁻³ mol; N = 2,78 · 10⁻³ · 6,022 · 10²³ ≈ 1,7 · 10²¹ moléculas."),
   ],
   quiz: [
-    { q: "Un mol de cualquier sustancia contiene…", o: ["6,022 · 10²³ partículas", "22,4 partículas", "1 g de sustancia"], a: 0, e: "Es el número de Avogadro." },
-    { q: "En condiciones normales, un mol de gas ocupa…", o: ["1 L", "22,4 L", "6,022 L"], a: 1, e: "Para cualquier gas ideal a 0 °C y 1 atm." },
-    { q: "En pV = nRT, la temperatura se expresa en…", o: ["°C", "K", "°F"], a: 1, e: "T (K) = t (°C) + 273." },
-    { q: "El reactivo limitante es el que…", o: ["sobra", "se acaba primero", "pesa más"], a: 1, e: "Determina cuánto producto se forma." },
-    { q: "Si se esperaban 20 g y se obtienen 15 g, el rendimiento es…", o: ["75 %", "133 %", "25 %"], a: 0, e: "15 / 20 · 100." },
+    q4("El mol es la unidad de…", ["masa", "volumen", "cantidad de sustancia", "concentración"], 2, "Sistema Internacional."),
+    q4("El número de Avogadro vale…", ["6,022 · 10²³", "6,022 · 10⁻²³", "22,4", "0,082"], 0, "Partículas por mol."),
+    q4("La masa molar del agua es…", ["16 g/mol", "18 g/mol", "20 g/mol", "10 g/mol"], 1, "2 · 1 + 16."),
+    q4("¿Cuántos moles hay en 44 g de CO₂?", ["0,5", "1", "2", "44"], 1, "M = 44 g/mol."),
+    q4("La masa de 2 mol de NaCl (58,5 g/mol) es…", ["29,25 g", "58,5 g", "117 g", "60,5 g"], 2, "m = n · M."),
+    q4("La composición centesimal indica…", ["el número de átomos", "el porcentaje en masa de cada elemento", "la concentración", "el volumen molar"], 1, "Proust."),
+    q4("En una disolución, el soluto es…", ["el que disuelve", "el que se disuelve", "siempre el agua", "el recipiente"], 1, "Suele estar en menor cantidad."),
+    q4("La molaridad se mide en…", ["g/L", "mol/L", "%", "mol/kg"], 1, "Moles por litro de disolución."),
+    q4("Al diluir una disolución, la cantidad de soluto…", ["aumenta", "disminuye", "no cambia", "desaparece"], 2, "M₁V₁ = M₂V₂."),
+    q4("En condiciones normales, 1 mol de gas ocupa…", ["1 L", "22,4 L", "24,5 L", "6,02 L"], 1, "0 °C y 1 atm."),
+    q4("En la ecuación PV = nRT, la temperatura va en…", ["°C", "°F", "K", "J"], 2, "T = t + 273."),
+    q4("El valor de R en atm · L/(mol · K) es…", ["8,31", "0,082", "22,4", "6,02"], 1, "Constante de los gases."),
+    q4("En 2 H₂ + O₂ → 2 H₂O, la proporción en moles H₂ : O₂ es…", ["1 : 1", "2 : 1", "1 : 2", "4 : 32"], 1, "Coeficientes."),
+    q4("Los coeficientes estequiométricos relacionan…", ["gramos", "moles", "litros siempre", "temperaturas"], 1, "Moles o moléculas."),
+    q4("El primer paso de un problema estequiométrico es…", ["calcular gramos", "ajustar la ecuación", "dividir por 22,4", "calcular el rendimiento"], 1, "Sin ajuste no hay proporción."),
+    q4("El reactivo limitante es el que…", ["sobra", "se agota primero", "es más pesado", "es un gas"], 1, "Decide el producto."),
+    q4("El producto se calcula a partir del…", ["reactivo en exceso", "reactivo limitante", "catalizador", "disolvente"], 1, "El que se agota."),
+    q4("Si se obtienen 40 g de producto de 50 g teóricos, el rendimiento es…", ["40 %", "80 %", "125 %", "90 %"], 1, "40/50 · 100."),
+    q4("100 g de caliza al 90 % contienen … de CaCO₃.", ["10 g", "90 g", "100 g", "110 g"], 1, "Pureza."),
+    q4("1 mol de O₂ contiene … átomos de oxígeno.", ["6,022 · 10²³", "1,2 · 10²⁴", "3,01 · 10²³", "32"], 1, "Dos átomos por molécula."),
   ],
+  examen: [
+    q4("¿Cuántas moléculas hay en 9 g de agua?", ["6,022 · 10²³", "3,01 · 10²³", "1,2 · 10²⁴", "9"], 1, "0,5 mol."),
+    q4("El porcentaje de oxígeno en el CO₂ es…", ["27,3 %", "50 %", "72,7 %", "66,7 %"], 2, "32/44."),
+    q4("Una disolución con 0,4 mol en 200 mL tiene una molaridad de…", ["0,08 M", "2 M", "0,4 M", "80 M"], 1, "0,4/0,2."),
+    q4("11,2 L de un gas en condiciones normales son…", ["0,5 mol", "1 mol", "2 mol", "11,2 mol"], 0, "11,2/22,4."),
+    q4("¿Qué volumen ocupa 1 mol de gas a 27 °C y 1 atm?", ["22,4 L", "24,6 L", "2,2 L", "27 L"], 1, "0,082 · 300."),
+    q4("En CH₄ + 2 O₂ → CO₂ + 2 H₂O, 16 g de metano producen…", ["18 g de agua", "36 g de agua", "44 g de agua", "32 g de agua"], 1, "1 mol → 2 mol de H₂O."),
+    q4("Se mezclan 2 mol de N₂ y 3 mol de H₂: N₂ + 3 H₂ → 2 NH₃. El limitante es…", ["N₂", "H₂", "ninguno", "NH₃"], 1, "2 mol de N₂ necesitarían 6 mol de H₂."),
+    q4("Si la cantidad teórica es 80 g y el rendimiento del 75 %, se obtienen…", ["60 g", "75 g", "80 g", "106 g"], 0, "80 · 0,75."),
+  ],
+  feynman: ["Qué es un mol y por qué se usa en química", "Cómo se calcula la masa molar y para qué sirve", "Qué indica la molaridad y cómo se prepara una disolución", "Qué es el volumen molar y cuándo vale 22,4 L", "Cuáles son los cuatro pasos de un problema de estequiometría", "Qué es el reactivo limitante y cómo se identifica"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Ecuación de los gases ideales", "p · V = n · R · T, con R = 0,082 atm·L/(mol·K) y T en kelvin."],
-    ["Reactivo limitante", "El que se agota primero y fija la cantidad de producto."],
-    ["Rendimiento", "masa real / masa teórica · 100."],
+    ["Mol", "Cantidad de sustancia con 6,022 · 10²³ partículas."],
+    ["Número de Avogadro", "6,022 · 10²³ partículas por mol."],
+    ["Masa molar", "Masa de 1 mol en g/mol; suma de masas atómicas."],
+    ["Moles y masa", "n = m / M."],
+    ["Composición centesimal", "% = masa del elemento / M · 100."],
+    ["Concentración en masa", "c = m soluto / V disolución (g/L)."],
+    ["Molaridad", "M = n soluto / V disolución (mol/L)."],
+    ["Dilución", "M₁ · V₁ = M₂ · V₂."],
+    ["Volumen molar", "22,4 L/mol a 0 °C y 1 atm."],
+    ["Gases ideales", "P · V = n · R · T; R = 0,082; T en K."],
+    ["Cuatro pasos", "Ajustar, pasar a moles, proporción, pasar a la unidad pedida."],
+    ["Limitante y rendimiento", "El limitante decide el producto; rendimiento = real/teórico · 100."],
   ],
-});
+  glosario: [
+    ["Cantidad de sustancia", "Magnitud que mide el número de partículas en moles."],
+    ["Mol", "Unidad de cantidad de sustancia: 6,022 · 10²³ partículas."],
+    ["Número de Avogadro", "Número de partículas que hay en un mol."],
+    ["Masa molar", "Masa de un mol de sustancia, en g/mol."],
+    ["Composición centesimal", "Porcentaje en masa de cada elemento de un compuesto."],
+    ["Fórmula empírica", "Fórmula con la proporción más sencilla entre los átomos de un compuesto."],
+    ["Soluto", "Componente de una disolución que se disuelve."],
+    ["Disolvente", "Componente de una disolución en el que se disuelve el soluto."],
+    ["Concentración", "Cantidad de soluto en una cantidad de disolución."],
+    ["Molaridad", "Moles de soluto por litro de disolución."],
+    ["Matraz aforado", "Recipiente de vidrio con una marca que indica un volumen exacto."],
+    ["Volumen molar", "Volumen que ocupa un mol de gas en unas condiciones dadas."],
+    ["Condiciones normales", "0 °C y 1 atm de presión."],
+    ["Gas ideal", "Modelo de gas que cumple P · V = n · R · T."],
+    ["Estequiometría", "Cálculo de las cantidades de sustancias que intervienen en una reacción."],
+    ["Reactivo limitante", "Reactivo que se agota primero y determina la cantidad de producto."],
+    ["Pureza", "Porcentaje de sustancia útil en una muestra."],
+    ["Rendimiento", "Porcentaje de producto obtenido respecto al teórico."],
+  ],
+  situacion: {
+    titulo: "La huella de carbono del viaje de estudios",
+    reto: "Vuestra clase prepara el viaje de fin de curso y quiere calcular cuánto CO₂ emitiría según el medio de transporte para elegir la opción más sostenible y compensar las emisiones.",
+    pasos: [
+      "Calculad la distancia del viaje y buscad el consumo de combustible de un autobús, un tren y un avión por pasajero.",
+      "Escribid y ajustad la ecuación de combustión del gasóleo y del queroseno, que se pueden aproximar los dos como C₁₂H₂₆.",
+      "Calculad con estequiometría la masa de CO₂ emitida por pasajero en cada opción (densidad del gasóleo: 0,85 kg/L).",
+      "Calculad el volumen que ocuparía ese CO₂ a 20 °C y 1 atm y comparadlo con el volumen de vuestra aula.",
+      "Investigad cuántos árboles harían falta para absorberlo y presentad una propuesta razonada a la clase.",
+    ],
+    producto: "Un informe comparativo con los cálculos de emisiones y una propuesta de viaje con plan de compensación.",
+    evaluacion: ["Las ecuaciones están bien ajustadas y los cálculos estequiométricos son correctos.", "Se usan bien las unidades, la ecuación de los gases y los factores de conversión.", "Los datos de consumo proceden de fuentes fiables y se citan.", "La propuesta está argumentada con los resultados obtenidos."],
+  },
+  familias: [
+    "Leed juntos la etiqueta de un agua mineral o de un suero y calculad cuántos gramos de cada sal hay en la botella.",
+    "Preparad una limonada con una receta exacta y calculad su concentración de azúcar en g/L.",
+    "Calculad cuántos moles de agua hay en un vaso y cuántas moléculas: ¡un número sorprendente!",
+    "Calculad la huella de carbono de un trayecto en coche a partir de los litros de combustible.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «El cambio»: cantidad de sustancia y mol, masa molar, concentración de disoluciones (molaridad), leyes de los gases y ecuación de los gases ideales, cálculos estequiométricos con reactivo limitante, pureza y rendimiento.`,
+    ideas: [
+      "Contar pesando: estimar el número de lentejas o clips de un paquete a partir de la masa de cien.",
+      "Preparación de disoluciones de sulfato de cobre de distintas molaridades y comparación del color.",
+      "Reacción de bicarbonato y vinagre con globos para trabajar el reactivo limitante.",
+      "Valoración de un vinagre comercial con NaOH y fenolftaleína.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    { t: "Mol, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Mol" },
+    { t: "Estequiometría, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Estequiometr%C3%ADa" },
+  ],
+  revisado: "2026-11-13",
+};
