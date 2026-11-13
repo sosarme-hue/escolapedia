@@ -129,13 +129,13 @@ function piramide(label, niveles, pieTxt) {
 
 // Concepto central con ramas: ramas = ["texto", …] (4 o 6).
 function radial(label, centro, ramas, color = "var(--pen)") {
-  const pos = ramas.length > 4 ? [[56, 30], [204, 30], [40, 90], [220, 90], [56, 150], [204, 150]] : [[60, 36], [200, 36], [60, 144], [200, 144]];
+  const pos = ramas.length > 4 ? [[56, 30], [204, 30], [45, 90], [215, 90], [56, 150], [204, 150]] : [[60, 36], [200, 36], [60, 144], [200, 144]];
   let s = pos.slice(0, ramas.length).map(([x, y]) => `<path d="M130 90 L ${x} ${y}" stroke="var(--line)" stroke-width="2.5"/>`).join("");
-  s += `<ellipse cx="130" cy="90" rx="${ramas.length > 4 ? 46 : 54}" ry="24" fill="${color}"/>` + txt(130, 90, centro, { n: 12, fs: 11, fill: "#fff" });
+  s += `<ellipse cx="130" cy="90" rx="${ramas.length > 4 ? 42 : 54}" ry="24" fill="${color}"/>` + txt(130, 90, centro, { n: 12, fs: 11, fill: "#fff" });
   ramas.forEach((r, i) => {
-    const [x, y] = pos[i], c = C[(i + 1) % C.length], w = ramas.length > 4 ? 84 : 104;
+    const [x, y] = pos[i], c = C[(i + 1) % C.length], w = ramas.length > 4 ? (i === 2 || i === 3 ? 78 : 84) : 104;
     s += `<rect x="${x - w / 2}" y="${y - 15}" width="${w}" height="30" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/>`;
-    s += txt(x, y, r, { n: ramas.length > 4 ? 15 : 18, fs: 9.5, fill: c });
+    s += txt(x, y, r, { n: ramas.length > 4 ? 13 : 18, fs: 9.5, fill: c });
   });
   return svg(label, s, uid());
 }
