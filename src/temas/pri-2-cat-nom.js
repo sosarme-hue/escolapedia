@@ -41,7 +41,6 @@ module.exports = {
     {
       html: `<h3>Noms individuals i col·lectius</h3><p>Alguns noms anomenen <b>un</b>: <i>ovella</i>, <i>arbre</i>, <i>peix</i>. Són <mark>individuals</mark>.</p><p>Altres anomenen un <b>grup</b> encara que siguin en singular: <i>ramat</i> (d'ovelles), <i>bosc</i> (d'arbres), <i>banc</i> (de peixos). Són <mark>col·lectius</mark>.</p><p>Un <i>eixam</i> és un grup d'abelles. I una <i>orquestra</i>, de músics!</p>`,
       svg: cuantos("Un arbre i un bosc; un peix i un banc de peixos", [["arbol", "arbre", "bosc", 3], ["pez", "peix", "banc", 3]], { izq: "individual", der: "col·lectiu", color: A, color2: Ve }),
-      video: V("cnomB"),
     },
     {
       html: `<h3>Els noms a les frases</h3><p>Gairebé a totes les frases hi ha <mark>noms</mark>. Ens diuen <b>de qui</b> o <b>de què</b> parlem.</p><p>«La <b>Marta</b> menja una <b>poma</b> al <b>parc</b>.» Aquí hi ha tres noms: Marta (propi), poma i parc (comuns).</p><p>Pinta de colors els noms d'un conte. Veuràs quants n'hi ha!</p>`,

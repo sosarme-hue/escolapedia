@@ -20,7 +20,6 @@ module.exports = {
     {
       html: `<h3>Paraules que diuen com és</h3><p>Els <mark>adjectius</mark> són paraules que diuen <b>com és</b> una cosa o una persona.</p><p>Acompanyen el nom: <i>casa <b>gran</b></i>, <i>flor <b>vermella</b></i>, <i>nen <b>alegre</b></i>.</p><p>Els adjectius diuen <b>qualitats</b>: el color, la mida, la forma, com se sent… Són com els colors d'un dibuix!</p>`,
       svg: dibujos("Casa gran, flor vermella i nen alegre", [["casa", "gran", A], ["flor", "vermella", R], ["feliz", "alegre", Ve]], { titulo: "Com és?", nota: "casa gran · flor vermella · nen alegre" }),
-      video: V("cadjB2"),
     },
     {
       html: `<h3>Adjectius de color i de mida</h3><p>Molts adjectius diuen el <mark>color</mark>: <i>vermell</i>, <i>blau</i>, <i>verd</i>, <i>groc</i>.</p><p>Altres diuen la <mark>mida</mark>: <i>gran</i>, <i>petit</i>, <i>alt</i>, <i>baix</i>, <i>llarg</i>, <i>curt</i>.</p><p>«Un elefant <b>gran</b> i <b>gris</b>.» «Una formiga <b>petita</b> i <b>negra</b>.» Veus com ara te'ls imagines millor?</p>`,
@@ -42,7 +41,6 @@ module.exports = {
     {
       html: `<h3>L'adjectiu concorda</h3><p>L'adjectiu es posa <mark>igual que el seu nom</mark>: masculí o femení, un o molts.</p><p><i>gat blanc</i>, <i>gata blanc<b>a</b></i>, <i>gats blanc<b>s</b></i>, <i>gates blanqu<b>es</b></i>.</p><p>Si no concorden, sona estrany: «la gata blanc». Alguns adjectius no canvien en masculí i femení: <i>nen alegre</i>, <i>nena alegre</i>.</p>`,
       svg: parejas("Gat blanc, gata blanca; gats blancs, gates blanques", [["gato", "gat blanc", "gato", "gata blanca"], ["gato", "gats blancs", "gato", "gates blanques"]], { izq: "masculí", der: "femení", color: A, color2: R, flecha: "·" }),
-      video: V("cadjB"),
     },
     {
       html: `<h3>Descriure amb adjectius</h3><p>Per <mark>descriure</mark> bé, fes servir uns quants adjectius.</p><p>Primer digues què és: <i>La meva motxilla</i>. Després com és per fora: <i>és blava i gran</i>. Després altres coses: <i>té una butxaca petita</i>.</p><p>«La meva motxilla és blava i gran. Té una butxaca petita. És molt còmoda.» Així tothom la reconeixeria!</p>`,

@@ -41,7 +41,6 @@ module.exports = {
     {
       html: `<h3>Separar en escriure</h3><p>Per separar síl·labes fem servir un <mark>guionet</mark>: <b>ca-sa</b>.</p><p>En català, alguns dígrafs <b>se separen</b>: <i>go<b>r-r</b>o</i>, <i>ca<b>s-s</b>o-la</i>, <i>co<b>l-l</b>e-gi</i> (la l·l).</p><p>Però <b>ny</b> i <b>ll</b> van sempre juntes: <i>mun-ta-<b>ny</b>a</i>, <i>ce-<b>ll</b>a</i>. És diferent del castellà. Fixa-t'hi bé!</p>`,
       svg: frase("Gor-ro i cas-so-la se separen; mun-ta-nya i ce-lla no", [["gor-ro", R], ["cas-so-la", R], ["/"], ["mun-ta-nya", Ve], ["ce-lla", Ve]], { titulo: "rr i ss se separen; ny i ll, no", nota: "Separem amb un guionet", fs: 24 }),
-      video: V("csilB"),
     },
     {
       html: `<h3>La síl·laba que sona fort</h3><p>A cada paraula hi ha una síl·laba que sona <mark>més forta</mark>. És la <b>síl·laba tònica</b>.</p><p>A <i>a-<b>vió</b></i> sona fort «vió». A <i><b>tau</b>-la</i> sona fort «tau». A <i>pi-<b>lo</b>-ta</i>, «lo».</p><p>Truc: crida la paraula com si fos lluny. «Taaaula!» La síl·laba que allargues és la tònica.</p>`,

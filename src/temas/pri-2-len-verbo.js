@@ -42,7 +42,6 @@ module.exports = {
     {
       html: `<h3>Ayer, hoy y mañana</h3><p>El verbo también dice <mark>cuándo</mark> pasa la acción.</p><p><b>Pasado</b> (ya pasó): <i>Ayer <b>jugué</b> al fútbol.</i></p><p><b>Presente</b> (pasa ahora): <i>Hoy <b>juego</b> al fútbol.</i></p><p><b>Futuro</b> (pasará): <i>Mañana <b>jugaré</b> al fútbol.</i> Las palabras <i>ayer</i>, <i>hoy</i> y <i>mañana</i> te ayudan a saberlo.</p>`,
       svg: lista("Pasado: ayer jugué; presente: hoy juego; futuro: mañana jugaré", [["Ayer jugué: pasado", N], ["Hoy juego: presente", Ve], ["Mañana jugaré: futuro", R]], { titulo: "¿Cuándo?", marca: "n" }),
-      video: V("verB2"),
     },
     {
       html: `<h3>Verbos para hablar y sentir</h3><p>No todos los verbos son de moverse. Hay verbos de <mark>hablar</mark>: <i>decir</i>, <i>preguntar</i>, <i>contar</i>, <i>gritar</i>.</p><p>Y verbos de <mark>pensar y sentir</mark>: <i>pensar</i>, <i>querer</i>, <i>recordar</i>, <i>soñar</i>.</p><p>«Lucía <b>piensa</b> en su abuela y la <b>quiere</b> mucho.» También son acciones, aunque no se vean.</p>`,

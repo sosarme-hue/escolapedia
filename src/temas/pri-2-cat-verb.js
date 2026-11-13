@@ -41,7 +41,6 @@ module.exports = {
     {
       html: `<h3>Ahir, avui i demà</h3><p>El verb també diu <mark>quan</mark> passa l'acció.</p><p><b>Passat</b> (ja ha passat): <i>Ahir <b>vaig jugar</b> a futbol.</i></p><p><b>Present</b> (passa ara): <i>Avui <b>jugo</b> a futbol.</i></p><p><b>Futur</b> (passarà): <i>Demà <b>jugaré</b> a futbol.</i> Les paraules <i>ahir</i>, <i>avui</i> i <i>demà</i> t'ajuden a saber-ho.</p>`,
       svg: lista("Passat: ahir vaig jugar; present: avui jugo; futur: demà jugaré", [["Ahir vaig jugar: passat", N], ["Avui jugo: present", Ve], ["Demà jugaré: futur", R]], { titulo: "Quan?", marca: "n" }),
-      video: V("cverB"),
     },
     {
       html: `<h3>Verbs per parlar i sentir</h3><p>No tots els verbs són de moure's. Hi ha verbs de <mark>parlar</mark>: <i>dir</i>, <i>preguntar</i>, <i>explicar</i>, <i>cridar</i>.</p><p>I verbs de <mark>pensar i sentir</mark>: <i>pensar</i>, <i>estimar</i>, <i>recordar</i>, <i>somiar</i>.</p><p>«La Laia <b>pensa</b> en la seva àvia i l'<b>estima</b> molt.» També són accions, encara que no es vegin.</p>`,
