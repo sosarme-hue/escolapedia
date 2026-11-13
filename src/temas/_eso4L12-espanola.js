@@ -1,0 +1,191 @@
+// Nivel libro: La música española (Música 4º ESO).
+const { filas, cadena, rejilla, linea, tabla, marco } = require("./_eso4L12");
+
+// Compás de 12 tiempos de la soleá: reloj con los acentos en 3, 6, 8, 10 y 12.
+const reloj = (() => {
+  const ac = [3, 6, 8, 10, 12];
+  const pts = Array.from({ length: 12 }, (_, k) => {
+    const n = k + 1, a = ((n * 30 - 90) * Math.PI) / 180;
+    const x = (130 + 62 * Math.cos(a)).toFixed(1), y = (88 + 62 * Math.sin(a)).toFixed(1);
+    const f = ac.includes(n);
+    return `<circle cx="${x}" cy="${y}" r="${f ? 13 : 9}" fill="${f ? "var(--red)" : "var(--card)"}" stroke="${f ? "var(--red)" : "var(--line)"}" stroke-width="2"/><text x="${x}" y="${(+y + 4).toFixed(1)}" text-anchor="middle" font-size="${f ? 12 : 10}" font-weight="700" fill="${f ? "#fff" : "var(--ink)"}">${n}</text>`;
+  }).join("");
+  return marco("Compás de 12 tiempos de la soleá con acentos en 3, 6, 8, 10 y 12", `
+    <circle cx="130" cy="88" r="62" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 4"/>${pts}
+    <text x="130" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">soleá</text>
+    <text x="130" y="100" text-anchor="middle" font-size="10.5" fill="var(--muted)">12 tiempos</text>
+    <text x="130" y="174" text-anchor="middle" font-size="11" fill="var(--red)" font-weight="700">en rojo, los acentos</text>`);
+})();
+
+module.exports = {
+  minutos: 100,
+  revisado: "2026-11-13",
+  video: { id: "IypR5dWbFRY", titulo: "Historia de la música española (1ª parte)", canal: "Juan Antonio César", vistas: 2936, megusta: 0, busqueda: "historia de la música española" },
+  objetivos: ["Situar en el tiempo las principales etapas y obras de la música española", "Reconocer la zarzuela, el flamenco y las músicas tradicionales como patrimonio vivo"],
+  claves: ["vihuela", "género chico", "Concurso de Cante Jondo", "nuevo flamenco"],
+  lectura: {
+    titulo: "Granada, junio de 1922",
+    html: `<p>En la noche del 13 de junio de 1922, la plaza de los Aljibes de la Alhambra de Granada se llenó de público. Se celebraba el <b>Concurso de Cante Jondo</b>, organizado por el compositor Manuel de Falla y el joven poeta Federico García Lorca, con el apoyo de pintores e intelectuales. Les preocupaba que el cante más antiguo y profundo del flamenco se estuviera perdiendo, sustituido por espectáculos comerciales. Por eso solo podían participar aficionados, no profesionales.</p><p>Entre los ganadores hubo un niño de doce años, Manolo Caracol, y un anciano de más de setenta, el Tenazas, que había caminado días para llegar a Granada. El concurso no salvó por sí solo el cante jondo, pero demostró algo importante: <mark>la música popular merecía el mismo respeto que la música culta</mark>. Falla llevaba años usando ritmos y escalas flamencas en sus obras orquestales, y Lorca escribiría el <i>Poema del cante jondo</i>. Un siglo después, el flamenco es Patrimonio de la Humanidad y artistas como Rosalía lo llevan a todo el mundo. En este tema recorrerás la historia de la música española, desde las cantigas medievales hasta la actualidad, pasando por la zarzuela, el nacionalismo, el flamenco y las músicas tradicionales de cada región.</p>`,
+  },
+  partes: ["La zarzuela", "El flamenco", "Tradición y música actual"],
+  mas: {
+    "De la Edad Media al Barroco": `<p>La Península fue en la Edad Media un cruce de culturas. Además de las <b>Cantigas</b>, se conservan el <b>Códice Calixtino</b>, con música para los peregrinos de Santiago, y el <b>Llibre Vermell</b> de Montserrat (siglo XIV), con canciones y danzas de peregrinos. En Al-Ándalus floreció la música andalusí, con instrumentos como el laúd, que llegó a Europa a través de la Península. En Elche se representa todavía el <b>Misteri d'Elx</b>, un drama cantado medieval que es Patrimonio de la Humanidad.</p>`,
+    "La zarzuela": `<p>Se distinguen dos tipos. El <b>género grande</b> tiene tres actos y argumentos más serios, como <i>El barberillo de Lavapiés</i> de Barbieri. El <b>género chico</b>, en un acto y de tono cómico, triunfó en los teatros de Madrid a finales del siglo XIX, con títulos como <i>La Gran Vía</i> de Chueca. En el siglo XX destacaron Pablo Sorozábal (<i>La tabernera del puerto</i>) y Federico Moreno Torroba (<i>Luisa Fernanda</i>). El nombre viene del palacio de la Zarzuela, un pabellón de caza cerca de Madrid donde en el siglo XVII se representaban estas obras para la corte.</p>`,
+    "El nacionalismo musical": `<p>El padre del nacionalismo español fue <b>Felipe Pedrell</b>, que estudió el folclore y la música antigua española y fue maestro de Albéniz, Granados y Falla. <i>Iberia</i>, de Albéniz, es una colección de doce piezas para piano que retratan lugares de España. Falla vivió en París, donde conoció a Debussy y Ravel, y mezcló su lenguaje moderno con el cante jondo. Joaquín Rodrigo, ciego desde los tres años, compuso en 1939 el <i>Concierto de Aranjuez</i> para guitarra y orquesta, una de las obras españolas más interpretadas del mundo.</p>`,
+    "El flamenco": `<p>Además de cante, toque y baile, en el flamenco son fundamentales las <b>palmas</b> (sordas o claras), los <b>pitos</b> (chasquidos de dedos), el <b>jaleo</b> (los gritos de ánimo como «¡olé!») y el <b>zapateado</b> del bailaor. El <b>cajón</b>, de origen peruano, se incorporó en los años 70. El cante jondo («hondo», profundo) agrupa los palos más antiguos y dramáticos, como la soleá, la seguiriya o la toná, que a veces se canta sin acompañamiento.</p>`,
+    "Tradición y música actual": `<p>La música tradicional cumplía funciones en la vida diaria: había <b>canciones de trabajo</b> (de siega, de arrieros), <b>nanas</b> para dormir a los niños, <b>canciones de ronda</b> para cortejar, <b>romances</b> que contaban historias y música para las fiestas y procesiones. Se transmitía de forma oral, por eso existen muchas versiones de una misma canción. Muchas de ellas se han recogido en <b>cancioneros</b> y hoy se mantienen vivas gracias a escuelas de música tradicional, bandas y grupos folk. Muchos ayuntamientos y asociaciones organizan además encuentros de música tradicional en los que se reúnen intérpretes de distintas generaciones.</p>`,
+    "Los instrumentos de la tradición": `<p>Hay otros instrumentos muy característicos: las <b>castañuelas</b>, que acompañan la jota, las sevillanas y la danza clásica española; la <b>bandurria</b> y el <b>laúd</b> de las rondallas y las tunas; la <b>alboka</b> vasca, un aerófono de doble tubo con cuernos; y las <b>panderetas</b> y <b>panderos cuadrados</b> que acompañan los cantos de las pandereteiras gallegas.</p>`,
+  },
+  videos: {
+    "La zarzuela": { id: "5ZnKu5EAeeg", titulo: "Breve historia de la zarzuela", canal: "JavierZarzuelas", vistas: 11946 },
+  },
+  svgs: {
+    "Compositores españoles por épocas": filas("Un compositor español de cada época", [["Edad Media", "Alfonso X: Cantigas", "var(--muted)"], ["Renacimiento", "Tomás Luis de Victoria", "var(--pen)"], ["Barroco", "Domenico Scarlatti", "var(--hl-ink)"], ["Romanticismo", "Barbieri y Chapí", "var(--red)"], ["Nacionalismo", "Albéniz, Granados, Falla", "var(--leaf)"]]),
+    "Los palos del flamenco": reloj,
+    "Los instrumentos de la tradición": rejilla("Instrumentos tradicionales de España", [["Gaita", "Galicia y Asturias", "var(--pen)"], ["Txalaparta", "País Vasco", "var(--red)"], ["Tenora", "cobla catalana", "var(--hl-ink)"], ["Timple", "Canarias", "var(--leaf)"], ["Dulzaina", "Castilla y Valencia", "var(--sun)"], ["Castañuelas", "todo el país", "var(--ink)"]]),
+  },
+  nuevos: [
+    {
+      tras: "De la Edad Media al Barroco",
+      html: `<h3>El Renacimiento: un siglo de oro musical</h3><p>El siglo XVI fue una época brillante para la música española, coincidiendo con el Siglo de Oro de la literatura. En la <b>música religiosa</b> destacaron tres grandes polifonistas: <b>Cristóbal de Morales</b>, <b>Francisco Guerrero</b> y, sobre todo, <b>Tomás Luis de Victoria</b>, que trabajó en Roma y en Madrid y escribió misas y motetes de gran intensidad expresiva, como su <i>Oficio de difuntos</i>.</p><p>En la <b>música profana</b>, el <b>Cancionero de Palacio</b> recoge cientos de villancicos y romances de la corte de los Reyes Católicos, muchos de <b>Juan del Encina</b>. El instrumento más característico fue la <b>vihuela</b>, parecida a una guitarra, para la que <b>Luis de Milán</b> publicó en 1536 <i>El Maestro</i>, uno de los primeros libros de música para un instrumento de cuerda pulsada de Europa. El organista ciego <b>Antonio de Cabezón</b> fue uno de los grandes compositores para teclado de su tiempo. Con la expansión por América, la música española viajó al otro lado del océano y se mezcló con las tradiciones indígenas y africanas.</p>`,
+      svg: rejilla("La música del Renacimiento español", [["Religiosa", "Victoria, Morales, Guerrero", "var(--pen)"], ["Profana", "Cancionero de Palacio", "var(--red)"], ["Vihuela", "Luis de Milán, 1536", "var(--leaf)"], ["Teclado", "Antonio de Cabezón", "var(--hl-ink)"]]),
+    },
+    {
+      tras: "Compositores españoles por épocas",
+      html: `<h3>El siglo XVIII y el siglo XIX</h3><p>En el siglo XVIII la corte de Madrid atrajo a músicos extranjeros. El italiano <b>Domenico Scarlatti</b> vivió en Madrid como maestro de la reina y compuso más de 500 sonatas para clave, algunas con ecos de la guitarra y el folclore españoles. Su discípulo, el padre <b>Antonio Soler</b>, siguió su estilo desde El Escorial. El violonchelista <b>Luigi Boccherini</b> pasó gran parte de su vida en Madrid y retrató la ciudad en su quinteto <i>La musica notturna delle strade di Madrid</i>. En los teatros triunfaba la <b>tonadilla escénica</b>, una pieza breve y cantada con personajes populares.</p><p>En el siglo XIX destacó el bilbaíno <b>Juan Crisóstomo Arriaga</b>, llamado «el Mozart español» porque compuso obras maestras antes de morir con solo 19 años. El violinista navarro <b>Pablo Sarasate</b> fue famoso en toda Europa por su virtuosismo y sus <i>Aires gitanos</i>. Pero el gran género del siglo fue la <b>zarzuela</b>, que renació a mediados de siglo con <b>Francisco Asenjo Barbieri</b> y se convirtió en el espectáculo favorito del público español.</p>`,
+      svg: linea("Música española en los siglos XVIII y XIX", [["1729", "Scarlatti llega a España", "var(--pen)"], ["1760", "tonadilla escénica", "var(--hl-ink)"], ["1824", "Arriaga: cuartetos", "var(--leaf)"], ["1878", "Sarasate: Aires gitanos", "var(--red)"]]),
+    },
+    {
+      tras: "El nacionalismo musical",
+      html: `<h3>La música culta en el siglo XX y hoy</h3><p>En los años 20 y 30, un grupo de jóvenes compositores conocido como la <b>Generación del 27</b>, igual que los poetas, buscó modernizar la música española: entre ellos estaban los hermanos <b>Ernesto y Rodolfo Halffter</b>, <b>Julián Bautista</b> y compositoras como <b>María Rodrigo</b> y <b>Rosa García Ascot</b>. La Guerra Civil dispersó al grupo y muchos se exiliaron a México o Argentina. Tras la guerra, Joaquín Rodrigo y Federico Mompou, con su música íntima para piano, fueron figuras destacadas.</p><p>En los años 50 y 60, la <b>Generación del 51</b>, con <b>Cristóbal Halffter</b>, <b>Luis de Pablo</b> y <b>Carmelo Bernaola</b>, conectó con las vanguardias europeas y experimentó con nuevas sonoridades. España ha dado también grandes intérpretes: el violonchelista <b>Pau Casals</b>, la pianista <b>Alicia de Larrocha</b>, el guitarrista <b>Andrés Segovia</b> y las voces de <b>Montserrat Caballé</b>, <b>Teresa Berganza</b>, <b>Plácido Domingo</b> y <b>José Carreras</b>. Hoy, numerosos compositores y compositoras españoles estrenan obras en festivales de todo el mundo, y las orquestas jóvenes y los conservatorios forman a miles de músicos cada año.</p>`,
+      svg: filas("La música culta española del siglo XX", [["Gen. del 27", "E. Halffter, M. Rodrigo", "var(--pen)"], ["Posguerra", "Rodrigo, Mompou", "var(--hl-ink)"], ["Gen. del 51", "Cristóbal Halffter", "var(--red)"], ["Intérpretes", "Casals, Larrocha, Caballé", "var(--leaf)"]]),
+    },
+    {
+      tras: "Los palos del flamenco",
+      html: `<h3>Historia del flamenco: del café cantante al nuevo flamenco</h3><p>El flamenco se profesionalizó a mediados del siglo XIX en los <b>cafés cantantes</b>, locales de Sevilla, Cádiz o Madrid donde el público pagaba por ver cante, toque y baile. Allí se fijaron muchos palos y surgieron las primeras figuras, como Silverio Franconetti. A principios del siglo XX llegó la <b>ópera flamenca</b>, espectáculos en grandes teatros con estilos más ligeros como los fandangos, y en 1922 el Concurso de Cante Jondo reivindicó los cantes más antiguos. Grandes nombres de esa época fueron la Niña de los Peines, Antonio Chacón o Manolo Caracol.</p><p>En los años 70 y 80 llegó la revolución. <b>Paco de Lucía</b> transformó la guitarra flamenca y la unió al jazz; <b>Camarón de la Isla</b> grabó en 1979 <i>La leyenda del tiempo</i>, con instrumentos de rock y poemas de Lorca, que escandalizó a los puristas y hoy es una obra de culto; y <b>Enrique Morente</b> experimentó incluso con el rock. Así nació el <b>nuevo flamenco</b>, con grupos como Ketama o Pata Negra. En el siglo XXI, artistas como Estrella Morente, Miguel Poveda, Niño de Elche o Rosalía, cuyo disco <i>El mal querer</i> (2018) mezcla flamenco y pop urbano, demuestran que la tradición sigue viva cuando se renueva. Hoy el flamenco se enseña en conservatorios, se estudia en universidades y se escucha en festivales de todo el mundo, desde Nimes hasta Nueva York o Tokio, donde hay numerosas academias de baile flamenco.</p>`,
+      svg: linea("Etapas de la historia del flamenco", [["1850", "cafés cantantes", "var(--pen)"], ["1922", "Concurso de Cante Jondo", "var(--hl-ink)"], ["1979", "La leyenda del tiempo", "var(--red)"], ["2018", "Rosalía: El mal querer", "var(--leaf)"]]),
+    },
+    {
+      tras: "Tradición y música actual",
+      html: `<h3>Pop, rock y canción de autor en España</h3><p>En los años 60 llegaron a España el rock y el pop anglosajón, y surgieron grupos como Los Bravos o Los Brincos. Al mismo tiempo, la <b>canción de autor</b>, con cantautores como Joan Manuel Serrat, Raimon, Lluís Llach o Paco Ibáñez, usó letras poéticas y comprometidas que en los últimos años de la dictadura expresaban deseos de libertad. Muchos cantaban en catalán, gallego o euskera.</p><p>Tras la llegada de la democracia, la <b>Movida madrileña</b> de los años 80 trajo una explosión de creatividad, con Alaska, Radio Futura, Nacha Pop o Mecano, mientras en otras ciudades surgían grupos de rock y pop como Héroes del Silencio o Duncan Dhu. En los 90 y 2000 destacaron Jarabe de Palo, Estopa, La Oreja de Van Gogh o Amaral. Hoy la música española vive un gran momento internacional: además de Rosalía, artistas como C. Tangana, Quevedo o Aitana triunfan en las plataformas, y grupos como Tanxugueiras o Delaporte renuevan las tradiciones con sonidos electrónicos. La música urbana en español es una de las más escuchadas del planeta.</p>`,
+      svg: linea("Música popular en España desde los años 60", [["1965", "Los Bravos, Los Brincos", "var(--pen)"], ["1970", "canción de autor", "var(--hl-ink)"], ["1982", "Movida madrileña", "var(--red)"], ["hoy", "urbano y nuevo folk", "var(--leaf)"]]),
+    },
+  ],
+  ejemplos: [
+    ["Marca el compás de 12 tiempos de la soleá con palmas.", ["Contar del 1 al 12.", "Acentuar 3, 6, 8, 10 y 12.", "«1 2 TRES 4 5 SEIS 7 OCHO 9 DIEZ 11 DOCE»."], "El compás de amalgama característico del flamenco."],
+    ["Clasifica la zarzuela La verbena de la Paloma.", ["Alterna partes cantadas y habladas.", "Ambiente popular madrileño.", "Es de 1894, una obra corta en un acto."], "Es una zarzuela del género chico."],
+    ["Identifica el nacionalismo en El amor brujo de Falla.", ["Usa ritmos y escalas del flamenco andaluz.", "Lo integra en una orquesta clásica.", "Busca una música con identidad española."], "Nacionalismo musical: folclore dentro de la música culta."],
+    ["Sitúa en su época estas obras: Cantigas de Santa María, Oficio de difuntos de Victoria y Concierto de Aranjuez.", ["Cantigas: siglo XIII, Edad Media.", "Victoria: 1605, final del Renacimiento.", "Rodrigo: 1939, siglo XX."], "Edad Media, Renacimiento y siglo XX."],
+    ["¿Por qué La leyenda del tiempo de Camarón fue tan polémica?", ["Usaba bajo eléctrico, batería y sitar junto al cante.", "Ponía música a poemas de Lorca.", "Los puristas lo vieron como una traición; hoy es un clásico."], "Fue el inicio del nuevo flamenco."],
+    ["Explica qué función tenía una nana y una canción de siega.", ["La nana servía para dormir a los niños: tempo lento y melodía suave.", "La canción de siega acompañaba el trabajo en el campo y marcaba su ritmo."], "Música tradicional con función en la vida diaria."],
+  ],
+  errores: [
+    "Pensar que el flamenco es solo baile.",
+    "Confundir la zarzuela con la ópera: la zarzuela tiene partes habladas.",
+    "Creer que la música española empieza en el siglo XX.",
+    "Pensar que todas las regiones tienen la misma música tradicional.",
+    "Llamar «flamenco» a cualquier canción con guitarra española.",
+    "Creer que la tradición no puede cambiar: el nuevo flamenco y el nuevo folk la mantienen viva.",
+  ],
+  ejercicios: [
+    ["b", "¿Quién mandó recopilar las Cantigas de Santa María y en qué siglo?", "Alfonso X el Sabio, en el siglo XIII."],
+    ["b", "Nombra un compositor español del Renacimiento y su tipo de música.", "Tomás Luis de Victoria, música religiosa polifónica."],
+    ["b", "¿Qué instrumento era típico del Renacimiento español?", "La vihuela."],
+    ["b", "¿Qué compuso Domenico Scarlatti en Madrid?", "Más de 500 sonatas para clave."],
+    ["b", "¿Qué es la zarzuela?", "El género lírico español: alterna partes habladas y cantadas."],
+    ["b", "Nombra dos zarzuelas del género chico.", "La verbena de la Paloma y La revoltosa (también La Gran Vía)."],
+    ["b", "¿Qué compositores pertenecen al nacionalismo musical español?", "Albéniz, Granados y Falla (y Rodrigo después)."],
+    ["b", "¿Quién compuso el Concierto de Aranjuez?", "Joaquín Rodrigo, en 1939."],
+    ["b", "¿Cuáles son los tres elementos del flamenco?", "Cante, toque y baile."],
+    ["b", "¿Desde cuándo es el flamenco Patrimonio de la Humanidad?", "Desde 2010 (UNESCO)."],
+    ["b", "¿Qué es un palo flamenco? Nombra tres.", "Cada estilo del flamenco: soleá, bulería, alegrías (también seguiriya, tangos, fandangos)."],
+    ["b", "Relaciona cada instrumento con su región: gaita, txalaparta, timple.", "Gaita: Galicia y Asturias; txalaparta: País Vasco; timple: Canarias."],
+    ["b", "¿Qué fue la Movida madrileña?", "Un movimiento cultural y musical de los años 80 en Madrid, con Alaska, Radio Futura o Mecano."],
+    ["m", "¿En qué se diferencia la zarzuela del género grande y la del género chico?", "Grande: tres actos y tema serio. Chico: un acto y tono cómico y popular."],
+    ["m", "¿De dónde viene el nombre de la zarzuela?", "Del palacio de la Zarzuela, pabellón de caza donde se representaban estas obras para la corte en el siglo XVII."],
+    ["m", "¿Por qué se llama a Arriaga «el Mozart español»?", "Porque compuso obras maestras muy joven y murió con solo 19 años."],
+    ["m", "¿Qué buscaba el nacionalismo musical?", "Una música con identidad propia inspirada en el folclore, dentro de las formas de la música culta."],
+    ["m", "Explica qué fue el Concurso de Cante Jondo de 1922 y quién lo organizó.", "Un concurso en la Alhambra para proteger el cante antiguo, organizado por Falla y Lorca, solo para aficionados."],
+    ["m", "¿Qué eran los cafés cantantes?", "Locales del siglo XIX donde el público pagaba por ver flamenco; profesionalizaron el género."],
+    ["m", "¿Qué aportaron Paco de Lucía y Camarón al flamenco?", "Paco de Lucía renovó la guitarra y la unió al jazz; Camarón mezcló el cante con el rock en La leyenda del tiempo."],
+    ["m", "Explica tres funciones de la música tradicional con un ejemplo de cada una.", "Trabajo (canción de siega), dormir a los niños (nana), fiesta o cortejo (jota, canción de ronda)."],
+    ["m", "¿Qué fue la canción de autor y qué temas trataba?", "Canciones de cantautores como Serrat o Llach con letras poéticas y comprometidas que pedían libertad."],
+    ["m", "¿Qué fue la Generación del 51?", "Compositores como Cristóbal Halffter, Luis de Pablo y Bernaola que conectaron la música española con las vanguardias."],
+    ["m", "Nombra cuatro intérpretes españoles de música clásica de fama mundial.", "Pau Casals, Alicia de Larrocha, Andrés Segovia, Montserrat Caballé (o Plácido Domingo, José Carreras, Teresa Berganza)."],
+    ["a", "Elabora una línea del tiempo con ocho hitos de la música española, desde las Cantigas hasta hoy.", "Respuesta abierta. Ejemplo: Cantigas (s. XIII), Victoria (s. XVI), Scarlatti (s. XVIII), Arriaga (1824), La verbena de la Paloma (1894), Concurso de Cante Jondo (1922), Concierto de Aranjuez (1939), Movida (1982), Rosalía (2018)."],
+    ["a", "Compara la zarzuela con la ópera y el musical: parecidos y diferencias.", "Las tres combinan música y teatro. La ópera suele ser toda cantada; la zarzuela alterna canto y diálogo hablado; el musical también alterna, pero con estilos populares y mucha danza."],
+    ["a", "Toca con palmas el compás de bulería o soleá con un compañero que marque los acentos y otro el pulso.", "Respuesta práctica: un grupo marca los 12 tiempos y otro acentúa 3, 6, 8, 10 y 12, sin perder el pulso."],
+    ["a", "Investiga una canción tradicional de tu comunidad: función, instrumentos, forma y una versión actual.", "Respuesta abierta. Debe identificar su función social, describir la música y comparar con una versión moderna."],
+    ["a", "Debate: ¿es la fusión una forma de mantener viva la tradición o de perderla? Usa ejemplos.", "Respuesta abierta. A favor: Camarón o Rosalía llevan el flamenco a nuevos públicos. En contra: puede borrar rasgos antiguos. Lo ideal es conocer la raíz y crear con respeto."],
+    ["a", "Escucha un fragmento de El amor brujo y explica qué elementos del flamenco reconoces.", "Respuesta abierta: escalas con sonido andaluz, ritmos de danza, melodías que imitan el cante, uso de la orquesta para evocar la guitarra."],
+    ["a", "Explica la relación entre Lorca, Falla y el flamenco.", "Organizaron juntos el Concurso de Cante Jondo; Falla usó el flamenco en su música orquestal y Lorca en su poesía (Poema del cante jondo), y Camarón y Morente cantaron después sus versos."],
+    ["a", "Diseña un concierto de 20 minutos que recorra la música española con cinco obras. Justifica la elección.", "Respuesta abierta. Debe incluir obras de épocas distintas (por ejemplo, una cantiga, Victoria, una zarzuela, Falla o Rodrigo y un tema actual) y explicar qué representa cada una."],
+    ["a", "¿Por qué crees que la música urbana en español triunfa hoy en todo el mundo? Da tres razones.", "Respuesta abierta: plataformas digitales globales, gran comunidad hispanohablante, ritmos bailables y mezcla con tradiciones propias."],
+  ],
+  quiz: [
+    ["Las Cantigas de Santa María son de…", ["el siglo XIII", "el Barroco", "el siglo XIX", "el siglo XX"], 0, "Alfonso X el Sabio."],
+    ["Tomás Luis de Victoria compuso sobre todo música…", ["religiosa", "para guitarra eléctrica", "de zarzuela", "flamenca"], 0, "Polifonía del Renacimiento."],
+    ["La vihuela es un instrumento…", ["de cuerda del Renacimiento", "de viento vasco", "electrónico", "de percusión"], 0, "Parecido a la guitarra."],
+    ["Scarlatti escribió en Madrid…", ["sonatas para clave", "zarzuelas", "rap", "cantigas"], 0, "Más de 500."],
+    ["La zarzuela se diferencia de la ópera porque…", ["tiene partes habladas", "no tiene música", "es solo instrumental", "no tiene cantantes"], 0, "Alterna canto y diálogo."],
+    ["El género chico es…", ["zarzuela en un acto y cómica", "un tipo de flamenco", "una ópera en tres actos", "un baile vasco"], 0, "Finales del XIX."],
+    ["La verbena de la Paloma es de…", ["Bretón", "Falla", "Victoria", "Rosalía"], 0, "1894."],
+    ["Iberia es una obra de…", ["Albéniz", "Rodrigo", "Scarlatti", "Arriaga"], 0, "Para piano."],
+    ["El Concierto de Aranjuez es para…", ["guitarra y orquesta", "piano solo", "coro", "gaita"], 0, "Joaquín Rodrigo, 1939."],
+    ["Falla llevó a la orquesta…", ["el flamenco", "el rock", "el rap", "la sardana"], 0, "El amor brujo."],
+    ["El flamenco es Patrimonio de la Humanidad desde…", ["2010", "1922", "1979", "2018"], 0, "UNESCO."],
+    ["La soleá tiene un compás de…", ["12 tiempos", "2 tiempos", "3 tiempos", "5 tiempos"], 0, "Acentos en 3, 6, 8, 10 y 12."],
+    ["El Concurso de Cante Jondo lo organizaron…", ["Falla y Lorca", "Camarón y Paco de Lucía", "Alaska y Mecano", "Albéniz y Granados"], 0, "Granada, 1922."],
+    ["La leyenda del tiempo es un disco de…", ["Camarón", "Serrat", "Mecano", "Victoria"], 0, "1979, nuevo flamenco."],
+    ["El cajón llegó al flamenco desde…", ["Perú", "Japón", "Escocia", "Australia"], 0, "En los años 70."],
+    ["La txalaparta es del…", ["País Vasco", "Canarias", "Andalucía", "Galicia"], 0, "Percusión de madera."],
+    ["El timple es un instrumento de…", ["Canarias", "Asturias", "Cataluña", "Murcia"], 0, "Pequeña guitarra."],
+    ["La Movida madrileña fue en los años…", ["80", "20", "50", "2010"], 0, "Alaska, Radio Futura, Mecano."],
+    ["La canción de autor se caracteriza por…", ["letras poéticas y comprometidas", "no tener letra", "ser solo bailable", "usar orquesta sinfónica"], 0, "Serrat, Llach, Raimon."],
+    ["El mal querer (2018) mezcla…", ["flamenco y pop urbano", "zarzuela y ópera", "jota y punk", "canto gregoriano y jazz"], 0, "Rosalía."],
+  ],
+  examen: [
+    ["El Cancionero de Palacio recoge…", ["villancicos y romances de la corte", "sonatas para clave", "zarzuelas", "rap"], 0, "Época de los Reyes Católicos."],
+    ["A Arriaga se le llama…", ["el Mozart español", "el padre del flamenco", "el rey de la zarzuela", "el Beethoven vasco"], 0, "Murió con 19 años."],
+    ["El padre del nacionalismo musical español fue…", ["Felipe Pedrell", "Scarlatti", "Victoria", "Serrat"], 0, "Maestro de Albéniz, Granados y Falla."],
+    ["En los cafés cantantes del siglo XIX…", ["se profesionalizó el flamenco", "nació la zarzuela", "se cantaban cantigas", "se grababan discos"], 0, "Sevilla, Cádiz, Madrid."],
+    ["La Generación del 51 conectó la música española con…", ["las vanguardias europeas", "el rock and roll", "la música medieval", "el reguetón"], 0, "Halffter, De Pablo, Bernaola."],
+    ["La tonadilla escénica era…", ["una pieza teatral breve y cantada del XVIII", "un palo flamenco", "un instrumento", "una danza vasca"], 0, "Personajes populares."],
+    ["Una nana es una canción…", ["para dormir a los niños", "de trabajo", "de protesta", "de baile"], 0, "Función en la vida diaria."],
+    ["Paco de Lucía unió el flamenco con…", ["el jazz", "el canto gregoriano", "la zarzuela", "la polifonía"], 0, "Renovó la guitarra."],
+  ],
+  tarjetas: [
+    ["Vihuela", "Instrumento de cuerda del Renacimiento español; Luis de Milán, 1536."],
+    ["Género chico", "Zarzuela en un acto, cómica y popular, de finales del XIX."],
+    ["Concurso de Cante Jondo", "Granada, 1922, organizado por Falla y Lorca."],
+    ["Nuevo flamenco", "Fusión con rock, jazz o pop desde los años 70: Camarón, Paco de Lucía."],
+  ],
+  glosario: [
+    ["Bulería", "Palo flamenco festivo de compás de 12 tiempos."],
+    ["Café cantante", "Local del siglo XIX con espectáculos flamencos."],
+    ["Cancionero", "Colección de canciones recogidas por escrito."],
+    ["Cantiga", "Canción medieval en galaicoportugués."],
+    ["Cante jondo", "Cante flamenco antiguo, profundo y dramático."],
+    ["Canción de autor", "Canción con letra poética escrita por quien la canta."],
+    ["Género chico", "Zarzuela breve, en un acto y de tono cómico."],
+    ["Jaleo", "Gritos de ánimo que acompañan al flamenco."],
+    ["Jota", "Danza y canto tradicional de ritmo ternario."],
+    ["Nacionalismo", "Corriente que se inspira en el folclore propio."],
+    ["Palo", "Cada estilo del flamenco."],
+    ["Polifonía", "Música de varias voces que suenan a la vez."],
+    ["Tonadilla", "Pieza teatral breve y cantada del siglo XVIII."],
+    ["Toque", "La guitarra en el flamenco."],
+    ["Vihuela", "Instrumento renacentista de cuerda pulsada."],
+    ["Zarzuela", "Género lírico español con partes habladas."],
+  ],
+  situacion: {
+    titulo: "Podcast: mil años de música española",
+    reto: "La radio del instituto quiere una serie de podcasts sobre la música española. Cada grupo preparará un episodio de 6 minutos sobre una etapa o un género, con fragmentos musicales comentados y una actuación en directo.",
+    pasos: ["Elegid una etapa o género (Edad Media y Renacimiento, zarzuela, nacionalismo, flamenco, música tradicional, pop y urbano).", "Investigad en al menos tres fuentes fiables y seleccionad tres fragmentos musicales representativos.", "Escribid el guion: presentación, contexto, comentario de cada fragmento (instrumentos, ritmo, carácter) y cierre.", "Preparad una pequeña interpretación en directo: palmas por soleá, una jota, una cantiga o un estribillo de zarzuela.", "Grabad y editad el episodio con un programa gratuito y citad las fuentes y las músicas al final."],
+    producto: "Episodio de podcast de 6 minutos con interpretación en directo y lista de fuentes.",
+    evaluacion: ["Rigor histórico y uso del vocabulario musical.", "Calidad del comentario de los fragmentos.", "Interpretación en directo: pulso, acentos y afinación.", "Calidad técnica del audio y citación de las fuentes."],
+  },
+  familias: ["Escuchad juntos el segundo movimiento del Concierto de Aranjuez.", "Investigad la música tradicional de vuestro pueblo o región y preguntad a los mayores qué canciones recuerdan.", "Ved juntos un fragmento de zarzuela y otro de un musical, y comparadlos.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  profesores: { saberes: "Contextos y culturas: la música española a lo largo de la historia (Edad Media, Renacimiento, siglos XVIII y XIX), la zarzuela, el nacionalismo, la música culta del siglo XX, el flamenco y su evolución, la música tradicional y la música popular actual (RD 217/2022, Música 4º ESO).", ideas: ["Taller de palmas por soleá y bulería.", "Escenificar un fragmento de zarzuela.", "Comparar una canción tradicional con su versión de un artista actual.", "Podcast sobre la música española por etapas (situación de aprendizaje)."] },
+  fuentes: [{ t: "Fundación Juan March: música española", url: "https://www.march.es/es/musica" }],
+};
