@@ -61,12 +61,12 @@ const VID = {
   mu8v: ["rapbwWhCKTU", "Las notas musicales", "Bichikids", 8346549, "las notas musicales para niños"],
   mu8b: ["0liuKHSPqZk", "Musicograma de la polka Tritsch Tratsch", "Juanga Peces", 277623],
   // Educación Física
-  ef1v: ["-ClFOuXkiMc", "¿Qué es el esquema corporal en Educación Física?", "El Tío Kevin Mora - Vlogs", 76328, "esquema corporal para niños educación física"],
+  ef1v: ["AH4QUsktYVc", "11 actividades de esquema corporal para niños y niñas", "MOTRI APRENDIZAJE", 43374, "esquema corporal para niños educación física"],
   ef1b: ["r-i5BqoV8FM", "¡Mueve tu cuerpo! El baile de los ejercicios", "Danny Go! Español", 3166677],
   ef2v: ["Zo4BFQavttQ", "Giros: habilidades motrices básicas (Primaria)", "Educación Física Online", 60118, "desplazamientos saltos giros niños educación física"],
   ef2b: ["ut4mpMJWa3I", "Desplazamientos: juegos sin material", "Educación Física y Deportes", 32578],
   ef3v: ["N-_Mc6GhZME", "Habilidades motrices básicas: lanzar y atrapar", "El Profe Pelotita", 4452, "lanzar y atrapar pelota niños educación física"],
-  ef3b: ["gNGqasmYPng", "Juegos de lanzamiento para Educación Física en Primaria", "Movimiento Lúdico", 15024],
+  ef3b: ["sjLmZ_IhZ_M", "10 juegos de lanzamientos para Educación Física", "efjuegos", 8971],
   ef4v: ["RQdPjx0sq5I", "¿Qué es el equilibrio en la Educación Física?", "El Tío Kevin Mora - Vlogs", 181479, "equilibrio para niños educación física"],
   ef4b: ["b2PfrTWc5AE", "Brinca y para ya: equilibrio y movimiento", "TÍOARIEL", 710586],
   ef5v: ["5qGNWPLc5SE", "10 juegos de persecución para Educación Física", "JuegosEF", 286536, "juegos de persecución para niños"],
@@ -75,7 +75,7 @@ const VID = {
   ef6b: ["HBNoYx4B78w", "10 juegos tradicionales que ya no se juegan", "De Otra Época", 1305121],
   ef7v: ["83DDU7xvW8s", "Mimos: gestos y movimiento para niños", "Diana Ramírez", 231862, "mímica para niños juego"],
   ef7b: ["a7a5mbewZ-c", "¡Juega y congélate con Mr. G! Canción de ejercicio", "Mr. G Play & Music", 1606338],
-  ef8v: ["rZr8geozI_s", "Hábitos de higiene para niños: lavado de manos, higiene…", "Smile and Learn - Español", 2359671, "hábitos de higiene para niños"],
+  ef8v: ["R9fW1kx3ZbA", "Medidas de higiene para niños: hábitos de higiene", "FUNtasticGames4Kids", 973180, "hábitos de higiene para niños"],
   ef8b: ["lDTY-OD1jJk", "¿Por qué debemos dormir?", "JunyTony en Español", 583560],
 };
 
