@@ -82,7 +82,7 @@ module.exports = {
     titulo: "Expresión corporal y danza",
     svg: figCols("Expresión corporal y danza", [["Lenguaje", ["gesto", "mirada", "postura"], "var(--pen)"], ["Elementos", ["espacio", "tiempo", "energía"], "var(--red)"], ["Danza", ["ritmo en 8", "estilos", "coreografía"], "var(--sun)"], ["Acrosport", ["portor", "ágil", "ayudante"], "var(--leaf)"]]),
   },
-  video: { id: "b-y_9GscbTg", titulo: "Expresión corporal: conceptos básicos", canal: "Rocío Núñez", vistas: 227974, megusta: 2708, busqueda: "expresión corporal conceptos" },
+  video: { id: "dMgk3--C-WA", titulo: "Juegos de expresión corporal: expresión dramática, movimiento y comunicación", canal: "ACENTO Escuela de Animadores", vistas: 162151, megusta: 0, busqueda: "juegos de expresión corporal" },
   ejemplos: [
     EX("Expresa «tristeza» caminando, usando los elementos de Laban.", ["Tiempo: lento, con pausas.", "Energía: pesada, sostenida.", "Espacio: nivel medio-bajo, trayectoria recta, mirada al suelo.", "Cuerpo: hombros caídos, brazos colgando."], "El mismo gesto cambia de significado con los elementos."),
     EX("Una canción tiene 120 bpm. ¿Cuántos segundos dura una frase de 8 tiempos?", ["120 pulsos en 60 s: 1 pulso cada 0,5 s.", "8 tiempos × 0,5 s = 4 s.", "Una coreografía de 1 minuto tiene 15 frases."], "4 segundos por frase de 8."),
