@@ -33,6 +33,18 @@ Modelo: `src/temas/pri-1-mat-unidades-decenas.js` (ayudas de dibujo en `src/tema
 - Las páginas de 1º y 2º de Primaria usan letra grande (clase `peque`).
 - Después: `node build.js && node tools/desbordes.js 1-primaria` (0 desbordes) y `node tools/pdfs.js`.
 
+## Tema de Infantil (3, 4 y 5 años)
+
+Modelo de estructura: los temas `pri-1-*` (ayudas en `_pri1.js`), pero **más corto**: el niño no lee, el tema se mira y se hace con un adulto. Ficheros `inf-<edad>-<sigla>-<slug>.js` con `curso: "3-anos"`, `"4-anos"` o `"5-anos"`; listas en `src/listas-infantil.js`.
+
+- `bloques`: 6, cada uno de 25 a 45 palabras (frases muy cortas, para leer en voz alta) y **siempre** con `svg` propio, grande y alegre. Unas 200 a 300 palabras en total. Un bloque de «¿Para qué sirve?» y uno de juego.
+- `figura` y `video` infantil en castellano (Smile and Learn, Happy Learning, Cantajuego…; `python3 -I tools/videos.py`, nunca inventar ids). Inglés y catalán con vídeo en su lengua si lo hay.
+- `ejemplosTitulo: "Lo hacemos juntos"` con 2 ejemplos; `errores`: 3.
+- `ejercicios`: 6 actividades de manipular, señalar, dibujar o moverse, con nota para la familia.
+- `quiz`: 6 preguntas con 3 opciones (el adulto lee); `examen`: 3; `tarjetas`: 6.
+- `familias` (4 ideas en casa) y `profesores` (RD 95/2022, BOE-A-2022-1654).
+- Letra grande (clase `peque`). Después: `node build.js && node tools/desbordes.js anos` (0 desbordes).
+
 ## Publicación
 
 escolapedia.com se publica desde la rama `claude/project-thread-d876yp` con `hosting_git_deploy-website-repository` (sin despliegue automático: solo cambia cuando se vuelve a lanzar). El `.htaccess` de la raíz sirve la carpeta `dist/`. Solo se publica lo que hay en `dist/` cuando se sube: generar con `node build.js && node tools/pdfs.js` y subir `dist/` únicamente cuando Alex haya dado el visto bueno.

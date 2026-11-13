@@ -314,7 +314,7 @@ function topicPage(e, c, m, T, n) {
   </aside></div>
 </div></main>`;
   const data = { id, quiz: T.quiz, tarjetas: T.tarjetas };
-  return page({ bodyClass: /^[12]-primaria$/.test(c.slug) ? "peque" : "", title: `${T.titulo} · ${m.nombre} ${cursoNombre(e, c)} · ${SITE}`, desc: `${T.titulo}: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. ${cursoNombre(e, c)}.`, depth: 4, body, scripts: `<script>window.TEMA=${JSON.stringify(data)};</script>` });
+  return page({ bodyClass: /^([12]-primaria|[345]-anos)$/.test(c.slug) ? "peque" : "", title: `${T.titulo} · ${m.nombre} ${cursoNombre(e, c)} · ${SITE}`, desc: `${T.titulo}: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. ${cursoNombre(e, c)}.`, depth: 4, body, scripts: `<script>window.TEMA=${JSON.stringify(data)};</script>` });
 }
 
 // ---------- familias y profesores ----------
