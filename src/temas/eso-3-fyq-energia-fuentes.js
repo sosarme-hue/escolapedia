@@ -1,153 +1,229 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
+// Física y Química 3º ESO · La energía y sus fuentes (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, barras, ciclo, rejilla, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["energia-fuentes"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "La energía y sus fuentes",
-  minutos: 55,
-  objetivos: ["Definir la energía, sus unidades y sus formas principales", "Aplicar el principio de conservación de la energía y explicar la degradación", "Calcular energías cinética y potencial gravitatoria sencillas", "Comparar las fuentes de energía renovables y no renovables y valorar el ahorro energético"],
-  claves: ["energía", "julio", "energía cinética", "energía potencial", "conservación de la energía", "rendimiento", "renovable", "no renovable"],
+  minutos: 110,
+  objetivos: [
+    "Definir la energía, sus propiedades y sus unidades",
+    "Reconocer las formas de energía y sus transformaciones",
+    "Calcular energías cinética y potencial gravitatoria y aplicar la conservación de la energía mecánica",
+    "Explicar la degradación de la energía y calcular rendimientos",
+    "Comparar las fuentes de energía renovables y no renovables y sus impactos",
+    "Proponer medidas de ahorro y eficiencia energética",
+  ],
+  claves: ["energía", "julio", "kilovatio hora", "energía cinética", "energía potencial", "energía mecánica", "conservación de la energía", "degradación", "rendimiento", "potencia", "renovable", "no renovable"],
   pregunta: {
     texto: "En un día soleado de primavera, más de la mitad de la electricidad que se consume en España sale del sol y del viento. Hace veinte años era menos del 10 %. ¿De dónde sale la energía y por qué importa tanto cómo la obtenemos?",
-    respuesta: "La energía no se crea: <mark>se transforma</mark> de unas formas en otras. Las centrales la toman de una <mark>fuente</mark> (el viento, el sol, el agua, el gas, el uranio) y la convierten en electricidad. Elegir fuentes renovables reduce la contaminación y el CO₂, y no depende de combustibles que se agotan o que hay que importar.",
+    respuesta: "La energía no se crea: se <mark>transforma</mark>. Casi toda procede, directa o indirectamente, del Sol. Lo que elegimos es qué <b>fuente</b> usamos para transformarla en electricidad, calor o movimiento. Las fuentes fósiles se agotan y emiten CO₂, que calienta el planeta; las <b>renovables</b> se regeneran y contaminan mucho menos. De esa elección depende el clima de las próximas décadas.",
+  },
+  lectura: {
+    titulo: "El misterio de la energía que no desaparece",
+    html: `<p>A mediados del siglo XIX, un médico alemán, Julius Robert Mayer, viajaba como cirujano de barco hacia la isla de Java. Al hacer sangrías a los marineros en el trópico, notó que la sangre de las venas era de un rojo mucho más vivo que en Europa. Pensó que, con el calor, el cuerpo necesitaba «quemar» menos alimento para mantenerse caliente, y que el calor y el trabajo del cuerpo debían salir de la misma fuente. De ahí intuyó que la energía no se crea ni se pierde: solo cambia de forma.</p><p>Casi a la vez, en Inglaterra, el cervecero y científico aficionado James Prescott Joule lo demostró con un experimento famoso. Dejó caer unas pesas que, al bajar, hacían girar unas paletas dentro de un recipiente con agua. El rozamiento de las paletas calentaba el agua, y Joule midió que la misma cantidad de trabajo producía siempre el mismo aumento de temperatura. Por eso la unidad de energía lleva su nombre: el julio.</p><p>Hoy el principio de conservación de la energía es una de las leyes más sólidas de la ciencia. Pero que la energía se conserve no significa que no haya problema energético: en cada transformación una parte se convierte en calor que se dispersa y ya no podemos aprovechar. Por eso hay que ahorrarla y elegir bien sus fuentes.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Qué es la energía</h3><p>La <mark>energía</mark> es la capacidad que tiene un cuerpo o un sistema para producir <b>cambios</b>: moverse, calentarse, iluminar, deformar, hacer funcionar una máquina o mantener la vida. Todo lo que ocurre en el universo implica energía. Su unidad en el SI es el <b>julio (J)</b>, en honor al físico inglés James Joule; 1 J es aproximadamente la energía necesaria para levantar una manzana de 100 g a 1 m de altura. Como el julio es una unidad pequeña, se usan también el <b>kilojulio (kJ)</b>; la <b>caloría (cal)</b>, muy usada en los alimentos (1 cal = 4,18 J); y el <b>kilovatio hora (kWh)</b>, que aparece en la factura de la luz (1 kWh = 3,6 millones de J).</p>`,
-    },
-    {
-      html: `<h3>Las formas de la energía</h3><p>La energía se presenta de muchas formas. La <b>energía cinética</b> la tienen los cuerpos en movimiento: un coche, el viento, el agua de un río. La <b>potencial gravitatoria</b> la tienen por su altura: el agua de un embalse. La <b>elástica</b>, los cuerpos deformados, como un muelle comprimido o un arco tenso. La <b>energía química</b> está almacenada en los enlaces de las sustancias: en los alimentos, el gas o una pila. La <b>térmica</b> está relacionada con la agitación de las partículas. La <b>eléctrica</b> la transporta la corriente. La <b>radiante</b> o luminosa la transportan la luz y otras ondas electromagnéticas. La <b>nuclear</b> está en los núcleos de los átomos. Y la <b>sonora</b> la transportan las vibraciones del aire. La suma de cinética y potencial se llama <mark>energía mecánica</mark>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Ocho formas de energía en tarjetas: cinética, potencial, química, térmica, eléctrica, radiante, nuclear y sonora">${BG}
-        ${[["cinética", "var(--red)"], ["potencial", "var(--pen)"], ["química", "var(--leaf)"], ["térmica", "#f08a24"], ["eléctrica", "#e0a000"], ["radiante", "#b8860b"], ["nuclear", "#9b59b6"], ["sonora", "var(--muted)"]].map(([n, c], i) => caja(12 + (i % 2) * 122, 14 + Math.floor(i / 2) * 40, 114, 32, n, c, { size: 12 })).join("")}</svg>`,
-    },
-    {
-      html: `<h3>La energía cinética</h3><p>La <mark>energía cinética</mark> es la que tiene un cuerpo por estar en movimiento. Depende de su <b>masa</b> y, sobre todo, de su <b>velocidad</b>: <b>Ec = ½ · m · v²</b>, con la masa en kg, la velocidad en m/s y la energía en julios. Como la velocidad está elevada al cuadrado, si un coche duplica su velocidad, su energía cinética se multiplica por cuatro. Por eso los choques a alta velocidad son tan destructivos y por eso la distancia de frenado aumenta tanto: los frenos tienen que eliminar toda esa energía convirtiéndola en calor. Un camión a la misma velocidad que un coche tiene mucha más energía cinética porque su masa es mucho mayor.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="El mismo coche a 50 y a 100 kilómetros por hora: al doblar la velocidad, la energía cinética se multiplica por cuatro">${BG}
-        ${[[40, "50 km/h", 1], [108, "100 km/h", 4]].map(([y, v, k]) => `<rect x="20" y="${y}" width="44" height="18" rx="5" fill="var(--red)"/><circle cx="30" cy="${y + 20}" r="5" fill="var(--ink)"/><circle cx="54" cy="${y + 20}" r="5" fill="var(--ink)"/>${t(42, y - 6, v, { size: 10 })}<rect x="80" y="${y}" width="${k * 30}" height="22" rx="4" fill="#e0a000" fill-opacity=".7"/>${t(86 + k * 30, y + 16, "Ec × " + k, { size: 11, anchor: "start" })}`).join("")}
-        ${t(130, 166, "Ec = ½ · m · v²", { size: 14, color: "var(--leaf)" })}</svg>`,
-    },
-    {
-      html: `<h3>La energía potencial gravitatoria</h3><p>La <mark>energía potencial gravitatoria</mark> es la que tiene un cuerpo por estar a una cierta <b>altura</b>. Depende de su masa, de la altura y de la gravedad: <b>Ep = m · g · h</b>, con g = 9,8 m/s². Una maceta en un balcón del quinto piso tiene mucha más energía potencial que en el primero; si cae, esa energía se convierte en cinética. Las <b>centrales hidroeléctricas</b> aprovechan la energía potencial del agua de los embalses: al caer por tuberías, el agua gana velocidad, mueve una turbina y un generador produce electricidad. Algunas, llamadas de <b>bombeo</b>, suben agua cuando sobra electricidad y la dejan caer cuando se necesita, funcionando como una gran batería.</p>`,
-    },
-    {
-      html: `<h3>La conservación de la energía</h3><p>La energía tiene una propiedad fundamental: el <mark>principio de conservación de la energía</mark> dice que <b>la energía no se crea ni se destruye, solo se transforma</b> de unas formas en otras. La cantidad total de energía del universo es siempre la misma. Un ejemplo es la montaña rusa: arriba del todo el vagón tiene mucha energía potencial; al bajar, se transforma en cinética y gana velocidad; al volver a subir, la cinética se vuelve a transformar en potencial. Si no hubiera rozamiento, la energía mecánica se conservaría y el vagón podría volver a la misma altura. Otros ejemplos: en una bombilla, la energía eléctrica se transforma en luz y calor; en una placa solar, la luz en electricidad.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Montaña rusa: arriba la energía es sobre todo potencial, abajo sobre todo cinética, y la suma se mantiene">${BG}
-        <path d="M14 34 Q 60 34 90 90 Q 120 132 150 90 Q 180 50 220 60 L 246 60" stroke="var(--muted)" stroke-width="3" fill="none"/>
-        <rect x="20" y="20" width="22" height="12" rx="3" fill="var(--red)"/><rect x="108" y="100" width="22" height="12" rx="3" fill="var(--red)"/>
-        <line x1="20" y1="164" x2="150" y2="164" stroke="var(--muted)"/>
-        ${[[30, 40, 2, "arriba"], [104, 4, 38, "abajo"]].map(([x, p, c, n]) => `<rect x="${x}" y="${164 - p}" width="14" height="${p}" fill="var(--pen)"/><rect x="${x + 16}" y="${164 - c}" width="14" height="${c}" fill="var(--red)"/>${t(x + 15, 176, n, { size: 9, weight: 400 })}`).join("")}
-        ${t(246, 130, "Ep + Ec = constante", { size: 10, anchor: "end", color: "var(--leaf)" })}${t(170, 152, "■ Ep", { size: 10, anchor: "start", color: "var(--pen)" })}${t(210, 152, "■ Ec", { size: 10, anchor: "start", color: "var(--red)" })}</svg>`,
-    },
-    {
-      html: `<h3>La degradación de la energía y el rendimiento</h3><p>Aunque la energía se conserva, en cada transformación una parte se convierte en <b>calor</b> que se dispersa en el entorno y ya no se puede aprovechar: decimos que la energía se <mark>degrada</mark>. Por eso ninguna máquina convierte toda la energía que recibe en energía útil. El <mark>rendimiento</mark> indica qué porcentaje se aprovecha: <b>rendimiento = energía útil / energía consumida · 100</b>. Una bombilla incandescente antigua solo convertía en luz el 5 % de la energía; el resto era calor. Una bombilla LED aprovecha alrededor del 40 %. Un motor de gasolina aprovecha un 25-30 %, y uno eléctrico, más del 85 %. Mejorar el rendimiento es una de las formas más eficaces de ahorrar energía.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de una bombilla LED: de 100 julios de electricidad, 40 salen como luz útil y 60 se pierden como calor">${BG}
-        <rect x="14" y="70" width="70" height="40" fill="#e0a000" fill-opacity=".7"/>${t(49, 95, "100 J", { size: 13 })}${t(49, 60, "eléctrica", { size: 10 })}
-        <path d="M84 70 H 150 L 230 46 V 62 L 150 86 Z" fill="var(--leaf)" fill-opacity=".6"/>${t(236, 42, "40 J luz", { size: 11, anchor: "end", color: "var(--leaf)" })}
-        <path d="M84 86 V 110 H 150 L 220 150 L 206 160 L 150 120 Z" fill="var(--red)" fill-opacity=".4"/>${t(246, 176, "60 J calor", { size: 11, anchor: "end", color: "var(--red)" })}
-        ${t(130, 24, "rendimiento = 40 %", { size: 13, color: "var(--pen)" })}</svg>`,
-    },
-    {
-      html: `<h3>Las fuentes de energía no renovables</h3><p>Las <mark>fuentes no renovables</mark> son las que existen en cantidades limitadas y se agotan al usarlas, porque tardan millones de años en formarse. Los <b>combustibles fósiles</b> son el <b>carbón</b>, el <b>petróleo</b> y el <b>gas natural</b>, formados a partir de restos de seres vivos enterrados hace millones de años. Al quemarlos se obtiene mucha energía, pero se libera <b>CO₂</b>, que causa el cambio climático, y otros contaminantes. La <b>energía nuclear</b> se obtiene de la <b>fisión</b> de núcleos de uranio: no emite CO₂, pero genera residuos radiactivos peligrosos durante miles de años y tiene riesgo de accidentes graves, como los de Chernóbil (1986) o Fukushima (2011). Todavía hoy, los combustibles fósiles proporcionan más del 70 % de la energía que se consume en España.</p>`,
-    },
-    {
-      html: `<h3>Las fuentes de energía renovables</h3><p>Las <mark>fuentes renovables</mark> son inagotables o se regeneran rápidamente, y casi no emiten CO₂. La <b>solar</b> aprovecha la luz del Sol con <b>paneles fotovoltaicos</b> que producen electricidad o con <b>colectores térmicos</b> que calientan agua. La <b>eólica</b> usa la fuerza del viento con aerogeneradores; España es uno de los mayores productores del mundo. La <b>hidráulica</b> aprovecha el agua de los embalses. La <b>biomasa</b> quema restos agrícolas y forestales. La <b>geotérmica</b> usa el calor del interior de la Tierra, muy útil en Canarias. La <b>mareomotriz</b> y la <b>undimotriz</b> usan las mareas y las olas. Sus inconvenientes son que dependen del tiempo (no siempre hace sol o viento), ocupan mucho terreno y necesitan sistemas para almacenar la energía, como baterías.</p>${tabla(["Fuente", "Tipo", "Ventaja", "Inconveniente"], [["Petróleo", "no renovable", "mucha energía", "CO₂, se agota"], ["Nuclear", "no renovable", "sin CO₂", "residuos radiactivos"], ["Solar", "renovable", "limpia, abundante", "solo de día"], ["Eólica", "renovable", "limpia, barata", "depende del viento"], ["Hidráulica", "renovable", "se puede almacenar", "embalses, sequías"]])}`,
-      video: { id: "NAPAMIpGB-s", titulo: "¿Qué es la energía? Tipos de energía. Energías renovables y no renovables", canal: "Smile and Learn - Español", vistas: 3042719 },
-    },
-    {
-      html: `<h3>De la central a tu casa</h3><p>La mayoría de las centrales eléctricas funcionan de forma parecida: una fuente de energía hace girar una <b>turbina</b>, que mueve un <mark>generador</mark> o alternador, donde unos imanes que giran dentro de bobinas producen corriente eléctrica por inducción electromagnética. En las térmicas y nucleares, el calor hierve agua y el vapor mueve la turbina; en las hidroeléctricas, la mueve el agua; en las eólicas, el viento. Solo los paneles fotovoltaicos producen electricidad directamente, sin piezas que giren. La electricidad sale de la central a alta tensión por las <b>líneas de transporte</b>, para perder menos energía, y en las <b>subestaciones</b> se baja la tensión hasta los 230 V que llegan a los enchufes.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Esquema de una central: la fuente mueve una turbina, la turbina un generador, la electricidad viaja por líneas de alta tensión y llega a las casas a 230 voltios">${BG}
-        ${[["fuente", "var(--red)"], ["turbina", "var(--muted)"], ["generador", "#e0a000"]].map(([n, c], i) => caja(8 + i * 84, 28, 76, 36, n, c, { size: 11 })).join("")}
-        ${fl(84, 46, 92, 46)}${fl(168, 46, 176, 46)}
-        <path d="M70 140 L 82 92 L 94 140 M76 116 H 88" stroke="var(--muted)" stroke-width="2" fill="none"/><path d="M160 140 L 172 92 L 184 140 M166 116 H 178" stroke="var(--muted)" stroke-width="2" fill="none"/>
-        <path d="M82 96 Q 127 112 172 96" stroke="#e0a000" stroke-width="2" fill="none"/>${fl(214, 66, 214, 90, "var(--muted)", 2)}
-        <path d="M206 130 L 226 112 L 246 130 V 150 H 206 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
-        ${t(127, 160, "alta tensión", { size: 10, color: "#b8860b" })}${t(226, 168, "230 V", { size: 10, color: "var(--pen)" })}</svg>`,
-    },
-    {
-      html: `<h3>El ahorro energético y el futuro</h3><p>La energía más limpia es la que <mark>no se gasta</mark>. En casa podemos ahorrar mucho con pequeños gestos: apagar las luces y los aparatos en lugar de dejarlos en espera (el famoso «piloto rojo» puede suponer hasta un 10 % de la factura), usar bombillas LED, aprovechar la luz natural, poner la lavadora llena y en frío, ajustar la calefacción a unos 20 °C y el aire acondicionado a unos 26 °C, y elegir electrodomésticos con buena <b>etiqueta energética</b> (clase A). En el transporte, andar, ir en bici o en transporte público ahorra energía y contamina menos. La <b>transición energética</b> que vive España busca sustituir los combustibles fósiles por renovables, electrificar el transporte y mejorar el aislamiento de los edificios para alcanzar la neutralidad climática en 2050.</p>`,
-    },
+    bloque({ h: "1.1 ¿Qué es la energía?", p: [
+      "La <mark>energía</mark> es la capacidad de un sistema para producir cambios: mover un objeto, calentarlo, deformarlo, iluminar una habitación o hacer que se produzca una reacción química. Cualquier cambio que observamos en la naturaleza va acompañado de un intercambio de energía. Un coche necesita la energía del combustible o de la batería para moverse; las plantas, la energía del Sol para crecer; y nosotros, la de los alimentos para vivir.",
+      "La energía tiene cuatro propiedades fundamentales. Se <b>transforma</b>: pasa de unas formas a otras, como en una bombilla que convierte energía eléctrica en luz y calor. Se <b>transfiere</b>: pasa de unos cuerpos a otros, mediante trabajo, calor o radiación. Se <b>conserva</b>: la cantidad total permanece constante. Y se <b>degrada</b>: en cada transformación, parte se convierte en calor poco aprovechable. La unidad de energía en el SI es el <b>julio</b> (J), que es la energía necesaria para levantar unos 100 g a un metro de altura. En la vida diaria se usan otras unidades: la <b>caloría</b> (1 cal = 4,18 J) en los alimentos, y el <b>kilovatio hora</b> (1 kWh = 3.600.000 J) en las facturas de la luz.",
+    ], extra: formula("1 kWh = 3,6 · 10⁶ J  ·  1 cal = 4,18 J"), svg: ficha("Propiedades de la energía", "Energía", ["Se transforma", "Se transfiere", "Se conserva", "Se degrada"], "var(--pen)") }),
+    bloque({ h: "1.2 Las formas de la energía", p: [
+      "La energía se presenta en muchas <mark>formas</mark>, según el origen del cambio que puede producir. La <b>energía cinética</b> es la que tienen los cuerpos por estar en movimiento, como el viento o un coche. La <b>energía potencial gravitatoria</b> es la que tienen por estar a cierta altura, como el agua de un embalse. La <b>energía potencial elástica</b> es la de los cuerpos deformados, como un muelle comprimido o un arco tenso. La <b>energía térmica</b> está relacionada con el movimiento de las partículas y con la temperatura.",
+      "La <b>energía química</b> está almacenada en los enlaces de las sustancias y se libera en las reacciones químicas, como en los alimentos, el carbón, la gasolina o las pilas. La <b>energía eléctrica</b> es la que transporta la corriente eléctrica. La <b>energía radiante</b> o luminosa es la que transportan las ondas electromagnéticas, como la luz del Sol. La <b>energía nuclear</b> está almacenada en los núcleos de los átomos y se libera en reacciones de fisión y fusión. La <b>energía sonora</b> viaja con las vibraciones del sonido. La suma de las energías cinética y potencial de un cuerpo se llama <b>energía mecánica</b>.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.3 Energía cinética y energía potencial", p: [
+      "La <mark>energía cinética</mark> (Ec) depende de la masa del cuerpo y, sobre todo, de su velocidad: Ec = ½ · m · v². Como la velocidad está al cuadrado, si se duplica la velocidad, la energía cinética se multiplica por cuatro. Esto explica por qué los accidentes a alta velocidad son mucho más graves: un coche a 100 km/h tiene cuatro veces más energía que a 50 km/h, y toda ella se libera en el choque. Por ejemplo, un balón de 0,45 kg a 20 m/s tiene Ec = ½ · 0,45 · 400 = 90 J.",
+      "La <mark>energía potencial gravitatoria</mark> (Ep) depende de la masa, de la gravedad y de la altura respecto a un nivel de referencia, normalmente el suelo: Ep = m · g · h. Un libro de 1 kg en una estantería a 2 m tiene Ep = 1 · 9,8 · 2 = 19,6 J. Si cae, esa energía se convierte en cinética. Las centrales hidroeléctricas aprovechan la energía potencial del agua almacenada a gran altura en los embalses. La suma de las dos es la <b>energía mecánica</b>: Em = Ec + Ep. En una montaña rusa, el carrito tiene la máxima energía potencial en lo más alto, y al bajar la va transformando en cinética.",
+    ], extra: formula("Ec = ½ · m · v²  ·  Ep = m · g · h"), svg: S.svg[1] }),
+    bloque({ h: "1.4 La conservación de la energía", p: [
+      "El <mark>principio de conservación de la energía</mark> afirma que la energía no se crea ni se destruye, solo se transforma: la energía total de un sistema aislado permanece constante. Si en un proceso parece que desaparece energía, en realidad se ha transformado en otra forma, muchas veces en energía térmica por rozamiento, que se dispersa en el ambiente.",
+      "Un caso importante es la <b>conservación de la energía mecánica</b>: si no hay rozamiento, la energía mecánica de un cuerpo se mantiene constante, y lo que pierde de potencial lo gana de cinética. Por ejemplo, si se deja caer una piedra de 2 kg desde 5 m, arriba tiene Ep = 2 · 9,8 · 5 = 98 J y Ec = 0. Justo antes de llegar al suelo, Ep = 0 y Ec = 98 J, así que ½ · 2 · v² = 98 y v ≈ 9,9 m/s. Un péndulo ideal oscilaría para siempre; uno real se acaba parando porque el rozamiento con el aire y en el punto de giro transforma poco a poco su energía mecánica en térmica. La energía total sigue siendo la misma, pero ya no está en forma de movimiento.",
+    ], extra: formula("Em = Ec + Ep = constante (sin rozamiento)"), svg: S.svg[2], video: S.bvideos[0] }),
+    bloque({ h: "1.5 Trabajo, calor y potencia", p: [
+      "La energía pasa de unos cuerpos a otros de dos maneras principales. Por <mark>trabajo</mark>, cuando una fuerza desplaza un cuerpo: W = F · d, si la fuerza y el desplazamiento tienen la misma dirección. Al empujar un carro de la compra con 30 N a lo largo de 10 m, le transfieres 300 J. Si la fuerza no logra mover el cuerpo, no hay trabajo, aunque te canses. Por <mark>calor</mark>, cuando dos cuerpos a distinta temperatura entran en contacto: la energía pasa siempre del cuerpo caliente al frío, hasta que igualan su temperatura. Tanto el trabajo como el calor se miden en julios.",
+      "La <mark>potencia</mark> (P) indica la rapidez con que se transfiere o se transforma la energía: P = E / t. Se mide en <b>vatios</b> (W): 1 W = 1 J/s. Un secador de 2.000 W transforma 2.000 J de energía eléctrica cada segundo. Dos personas pueden subir la misma escalera haciendo el mismo trabajo, pero la que lo haga en menos tiempo desarrolla más potencia. A partir de la potencia se calcula la energía consumida por un aparato: E = P · t. Por eso el kilovatio hora es la energía que consume un aparato de 1.000 W durante una hora. Una bombilla LED de 10 W encendida 100 horas consume 1 kWh.",
+    ], extra: formula("W = F · d  ·  P = E / t  ·  E = P · t"), svg: rejilla("Potencia de algunos aparatos", ["Aparato", "Potencia", "Energía en 1 h"], [["Bombilla LED", "10 W", "0,01 kWh"], ["Portátil", "60 W", "0,06 kWh"], ["Frigorífico", "150 W", "0,15 kWh"], ["Horno", "2.000 W", "2 kWh"], ["Secador", "2.000 W", "2 kWh"]], "var(--leaf)") }),
+    bloque({ h: "1.6 La degradación de la energía y el rendimiento", p: [
+      "Aunque la energía se conserva, no toda es igual de útil. En cualquier transformación, una parte se convierte en <b>energía térmica</b> que se dispersa en el entorno y ya no se puede aprovechar para producir trabajo útil. Esto se llama <mark>degradación de la energía</mark>. Por ejemplo, el motor de un coche transforma la energía química de la gasolina en movimiento, pero la mayor parte se pierde como calor por el tubo de escape y el radiador. Por eso la energía se «gasta» aunque se conserve: pasa a una forma de menor calidad.",
+      "Para medir lo bien que una máquina aprovecha la energía se usa el <mark>rendimiento</mark>: el cociente entre la energía útil que obtenemos y la energía total que consume, expresado en porcentaje: η = (E útil / E consumida) · 100. Ningún rendimiento puede llegar al 100 %. Algunos valores aproximados: una bombilla incandescente, 5 %; un motor de gasolina, 25-30 %; una central térmica de carbón, 35-40 %; una bombilla LED, 40 %; un motor eléctrico, 85-95 %. Por eso los coches eléctricos y las bombillas LED ahorran tanta energía. Las etiquetas energéticas de los electrodomésticos, de la A a la G, indican su eficiencia.",
+    ], extra: formula("η = (E útil / E consumida) · 100"), svg: S.svg[3] }),
+    bloque({ h: "2.1 Las fuentes de energía", p: [
+      "Las <mark>fuentes de energía</mark> son los recursos naturales de los que obtenemos la energía que usamos. Se clasifican en dos grandes grupos. Las <b>no renovables</b> existen en cantidades limitadas y se agotan al usarlas, porque tardan millones de años en formarse: el carbón, el petróleo, el gas natural y el uranio. Las <b>renovables</b> se regeneran de forma natural a un ritmo mayor del que las consumimos y son prácticamente inagotables: la solar, la eólica, la hidráulica, la biomasa, la geotérmica y la mareomotriz.",
+      "Casi todas las fuentes tienen su origen último en el <b>Sol</b>. La energía solar calienta el aire y produce el viento; evapora el agua, que luego llueve y llena los embalses; permite que las plantas crezcan y formen biomasa; e incluso los combustibles fósiles son restos de seres vivos que almacenaron energía solar hace millones de años. Solo la geotérmica, la nuclear y la mareomotriz tienen otro origen: el calor interno de la Tierra, los núcleos de los átomos y la atracción de la Luna. En el mundo, todavía cerca del 80 % de la energía primaria procede de combustibles fósiles, aunque las renovables crecen muy deprisa.",
+    ], svg: compara("Fuentes de energía", ["No renovables", ["Carbón y petróleo", "Gas natural", "Uranio (nuclear)", "Se agotan"]], ["Renovables", ["Solar y eólica", "Hidráulica", "Biomasa y geotérmica", "Se regeneran"]], "var(--red)", "var(--leaf)") }),
+    bloque({ h: "2.2 Las energías no renovables", p: [
+      "Los <mark>combustibles fósiles</mark> (carbón, petróleo y gas natural) se formaron a partir de restos de seres vivos enterrados durante millones de años. Se queman para obtener calor, que mueve vehículos, calienta casas o genera electricidad en las <b>centrales térmicas</b>: el calor convierte agua en vapor, el vapor mueve una turbina y la turbina mueve un generador. Sus ventajas son que son baratos, fáciles de transportar y almacenar y producen energía a demanda. Pero tienen graves inconvenientes: se agotan, su combustión emite <b>CO₂</b>, el principal gas responsable del <b>cambio climático</b>, y otros contaminantes que causan lluvia ácida y enfermedades respiratorias.",
+      "La <mark>energía nuclear</mark> se obtiene por <b>fisión</b> de núcleos de uranio: al romperse, liberan una enorme cantidad de energía que calienta agua y produce vapor, como en una central térmica. Una pequeña cantidad de uranio produce muchísima energía, y no emite CO₂ durante su funcionamiento. Sus inconvenientes son los <b>residuos radiactivos</b>, que siguen siendo peligrosos durante miles de años y hay que almacenar con seguridad, y el riesgo de accidentes graves, como los de Chernóbil (1986) y Fukushima (2011). En España, la nuclear produce alrededor del 20 % de la electricidad.",
+    ], svg: pasos("Funcionamiento de una central térmica", ["Combustible que se quema", "Agua → vapor", "Turbina que gira", "Generador: electricidad"], "var(--red)") }),
+    bloque({ h: "2.3 Las energías renovables", p: [
+      "La <mark>energía solar</mark> se aprovecha de dos formas: los <b>paneles fotovoltaicos</b> transforman directamente la luz en electricidad, y los <b>colectores térmicos</b> calientan agua. La <mark>energía eólica</mark> usa aerogeneradores, cuyas aspas mueven un generador con la fuerza del viento; España es uno de los países con más potencia eólica instalada del mundo. La <b>hidráulica</b> aprovecha la energía potencial del agua de los embalses, que al caer mueve turbinas. La <b>biomasa</b> utiliza restos vegetales, forestales o residuos orgánicos como combustible o para producir biogás.",
+      "La <b>geotérmica</b> aprovecha el calor del interior de la Tierra, muy útil en zonas volcánicas como Islandia o Canarias. La <b>mareomotriz</b> y la <b>undimotriz</b> aprovechan las mareas y las olas. Las renovables son inagotables y apenas emiten gases de efecto invernadero, pero también tienen inconvenientes: la solar y la eólica son <b>intermitentes</b>, porque dependen del tiempo, y necesitan sistemas de almacenamiento como baterías o centrales de bombeo; ocupan mucho terreno; los embalses inundan valles; y los paneles y aerogeneradores tienen un impacto visual y requieren minerales cuya extracción también tiene costes ambientales. Aun así, son la base de la transición energética.",
+    ], svg: barras("Origen aproximado de la electricidad generada en España en un año reciente", "Electricidad en España (%)", [["Eólica", 23, "var(--leaf)", "≈ 23 %"], ["Nuclear", 20, "var(--red)", "≈ 20 %"], ["Solar", 17, "#b45309", "≈ 17 %"], ["Ciclo combinado", 14, "var(--muted)", "≈ 14 %"], ["Hidráulica", 13, "var(--pen)", "≈ 13 %"]]), video: S.bvideos[1] }),
+    bloque({ h: "2.4 De la central a tu casa", p: [
+      "La electricidad se genera en las centrales a una tensión de unos 20.000 V. Para transportarla a largas distancias perdiendo poca energía, unos <b>transformadores elevadores</b> suben la tensión hasta 220.000 o 400.000 V, y viaja por las <mark>líneas de alta tensión</mark>. Cerca de las ciudades, en las <b>subestaciones</b>, otros transformadores la reducen a media tensión, y finalmente los <b>centros de transformación</b> de cada barrio la bajan a los 230 V que llegan a los enchufes de casa.",
+      "La red eléctrica debe mantener en todo momento un equilibrio exacto entre la electricidad que se produce y la que se consume, porque la electricidad es difícil de almacenar en grandes cantidades. En España, Red Eléctrica vigila ese equilibrio cada segundo y ordena aumentar o reducir la producción de las centrales. Las horas de mayor consumo son las <b>horas punta</b>, y por eso la electricidad suele ser más cara en esas horas. Cada vez más casas generan su propia electricidad con paneles solares en el tejado: es el <b>autoconsumo</b>, que reduce las pérdidas del transporte y la factura.",
+    ], svg: S.svg[4] }),
+    bloque({ h: "2.5 Impacto ambiental y ahorro energético", p: [
+      "El uso de la energía tiene consecuencias para el medio ambiente. La quema de combustibles fósiles aumenta la concentración de CO₂ en la atmósfera, que ha pasado de 280 ppm antes de la Revolución Industrial a más de 420 ppm hoy, y refuerza el <mark>efecto invernadero</mark>: la temperatura media del planeta ya ha subido más de 1 °C, con olas de calor, sequías, deshielo y subida del nivel del mar. También hay contaminación del aire en las ciudades, mareas negras por vertidos de petróleo y residuos radiactivos.",
+      "Para afrontarlo hay que actuar a la vez en tres frentes: cambiar a <b>fuentes renovables</b>, mejorar la <mark>eficiencia energética</mark> (obtener lo mismo con menos energía) y practicar el <mark>ahorro energético</mark> (no gastar energía innecesariamente). Algunas medidas cotidianas: apagar las luces y los aparatos que no se usan, evitar el modo en espera, usar bombillas LED y electrodomésticos de clase A, aislar bien las casas, ajustar la calefacción a 20 °C y el aire acondicionado a 26 °C, caminar, ir en bicicleta o usar el transporte público, y reducir, reutilizar y reciclar, porque fabricar cualquier objeto consume energía.",
+    ], svg: ciclo("Medidas de ahorro energético", ["Apagar aparatos", "Bombillas LED", "Aislar la casa", "Transporte público", "Reciclar"], "var(--leaf)", "Ahorro"), video: S.bvideos[2] }),
   ],
-  figura: {
-    titulo: "Fuentes de energía",
-    svg: `<svg viewBox="0 0 640 240" role="img" aria-label="Dos grupos de fuentes: no renovables, carbón, petróleo, gas natural y uranio; renovables, solar, eólica, hidráulica, biomasa, geotérmica y marina">
-      <rect width="640" height="240" rx="16" fill="var(--paper)"/>
-      ${caja(20, 20, 290, 44, "NO RENOVABLES", "var(--red)", { size: 16 })}${caja(330, 20, 290, 44, "RENOVABLES", "var(--leaf)", { size: 16 })}
-      ${["carbón", "petróleo", "gas natural", "uranio (nuclear)"].map((n, i) => t(165, 98 + i * 30, n, { size: 15, weight: 400 })).join("")}
-      ${["solar · eólica", "hidráulica", "biomasa · geotérmica", "mareomotriz · olas"].map((n, i) => t(475, 98 + i * 30, n, { size: 15, weight: 400 })).join("")}
-      ${t(165, 226, "se agotan · CO₂ o residuos", { size: 13, color: "var(--red)", font: D })}${t(475, 226, "inagotables · casi sin CO₂", { size: 13, color: "var(--leaf)", font: D })}
-    </svg>`,
-  },
-  video: { id: "b2khuHTzkeU", titulo: "La ENERGÍA y sus TRANSFORMACIONES. Renovables vs No Renovables", canal: "La Mano Maestra", vistas: 836872, megusta: 0, busqueda: "la energía y sus tipos conservación" },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Calcula la energía cinética de una bicicleta con su ciclista (80 kg) que va a 5 m/s.",
-      pasos: ["Ec = ½ · m · v².", "Ec = 0,5 · 80 · 5².", "Ec = 0,5 · 80 · 25 = 1000 J."],
-      resultado: "1000 J = 1 kJ." },
-    { enunciado: "¿Qué energía potencial tiene una maceta de 2 kg en un balcón a 12 m de altura?",
-      pasos: ["Ep = m · g · h.", "Ep = 2 · 9,8 · 12.", "Ep = 235,2 J."],
-      resultado: "unos 235 J." },
-    { enunciado: "Un motor consume 2000 J y realiza un trabajo útil de 500 J. ¿Cuál es su rendimiento?",
-      pasos: ["Rendimiento = útil / consumida · 100.", "= 500 / 2000 · 100.", "= 25 %."],
-      resultado: "25 %; el 75 % se pierde como calor." },
+    { enunciado: "Calcula la energía cinética de un coche de 1.000 kg que va a 72 km/h.", pasos: ["72 km/h = 20 m/s.", "Ec = ½ · m · v² = ½ · 1.000 · 400."], resultado: "Ec = 200.000 J = 200 kJ." },
+    { enunciado: "¿Qué energía potencial tiene un excursionista de 60 kg en la cima de una montaña de 1.500 m?", pasos: ["Ep = m · g · h.", "Ep = 60 · 9,8 · 1.500."], resultado: "Ep = 882.000 J ≈ 882 kJ." },
+    { enunciado: "Se deja caer una pelota de 0,5 kg desde 20 m. ¿Con qué velocidad llega al suelo? (sin rozamiento, g = 10 m/s²)", pasos: ["Ep arriba = 0,5 · 10 · 20 = 100 J.", "Abajo, Ec = 100 J.", "½ · 0,5 · v² = 100 → v² = 400."], resultado: "v = 20 m/s." },
+    { enunciado: "Un secador de 1.800 W se usa 10 minutos al día. ¿Cuánta energía consume en un mes de 30 días en kWh?", pasos: ["t = 10 min · 30 = 300 min = 5 h.", "E = P · t = 1,8 kW · 5 h."], resultado: "9 kWh." },
+    { enunciado: "Un motor consume 2.000 J y realiza un trabajo útil de 600 J. Calcula su rendimiento.", pasos: ["η = (600 / 2.000) · 100."], resultado: "30 %; los otros 1.400 J se pierden como calor." },
+    { enunciado: "Una grúa sube 500 kg a 12 m en 20 s. Calcula el trabajo y la potencia.", pasos: ["F = peso = 500 · 9,8 = 4.900 N.", "W = 4.900 · 12 = 58.800 J.", "P = 58.800 / 20."], resultado: "W = 58.800 J; P = 2.940 W." },
   ],
   errores: [
-    "Decir que la energía se «gasta» o «desaparece»: se transforma y se degrada.",
+    "Pensar que la energía se gasta y desaparece: se transforma, sobre todo en calor disperso.",
+    "Confundir potencia (W) con energía (J o kWh): el kWh es energía, no potencia.",
     "Olvidar elevar al cuadrado la velocidad en la energía cinética.",
-    "Pensar que la energía nuclear es renovable: el uranio se agota.",
-    "Confundir potencia (W) con energía (J o kWh).",
-    "Creer que las renovables no tienen ningún inconveniente: dependen del tiempo y ocupan terreno.",
+    "Usar la velocidad en km/h en lugar de m/s en las fórmulas.",
+    "Creer que las energías renovables no tienen ningún impacto ambiental.",
+    "Pensar que una máquina puede tener un rendimiento del 100 %.",
   ],
   ejercicios: [
-    { q: "Define energía y escribe su unidad en el SI.", sol: "Capacidad de un sistema para producir cambios. Se mide en julios (J)." },
-    { q: "Indica la forma de energía principal de: una pila, un arco tenso, el agua de un embalse, el Sol, un coche en marcha.", sol: "Química, elástica, potencial gravitatoria, radiante (y nuclear en su interior), cinética." },
-    { q: "Calcula la energía cinética de un balón de 0,4 kg a 20 m/s.", sol: "Ec = 0,5 · 0,4 · 400 = 80 J." },
-    { q: "¿Qué ocurre con la energía cinética de un coche si su velocidad se triplica?", sol: "Se multiplica por 9." },
-    { q: "Calcula la energía potencial de una persona de 60 kg en lo alto de un trampolín de 10 m.", sol: "Ep = 60 · 9,8 · 10 = 5880 J." },
-    { q: "Describe las transformaciones de energía en una montaña rusa.", sol: "Arriba, potencial; al bajar, se transforma en cinética; al subir, vuelve a potencial; parte se pierde como calor por rozamiento." },
-    { q: "Explica qué significa que la energía se degrada.", sol: "Que en cada transformación una parte se convierte en calor que se dispersa y ya no se puede aprovechar." },
-    { q: "Clasifica: carbón, viento, uranio, biomasa, gas natural, sol.", sol: "No renovables: carbón, uranio, gas natural. Renovables: viento, biomasa, sol." },
-    { q: "Cita una ventaja y un inconveniente de la energía eólica y de la nuclear.", sol: "Eólica: limpia; depende del viento. Nuclear: no emite CO₂; genera residuos radiactivos." },
-    { q: "Propón cinco gestos de ahorro energético en casa.", sol: "Apagar aparatos en espera, bombillas LED, aprovechar la luz natural, lavadora llena y en frío, calefacción a unos 20 °C." },
+    B("Define energía e indica su unidad en el SI.", "La capacidad de producir cambios. Se mide en julios (J)."),
+    B("Indica qué forma de energía predomina en: el agua de un embalse, un coche en marcha, una pila, la luz del Sol, un muelle comprimido.", "Potencial gravitatoria, cinética, química, radiante, potencial elástica."),
+    B("Pasa 2 kWh a julios y 500 cal a julios.", "7,2 · 10⁶ J; 2.090 J."),
+    B("Calcula la energía cinética de un balón de 0,4 kg a 10 m/s.", "Ec = ½ · 0,4 · 100 = 20 J."),
+    B("Calcula la energía potencial de una maceta de 3 kg en un balcón a 10 m.", "Ep = 3 · 9,8 · 10 = 294 J."),
+    B("Enuncia el principio de conservación de la energía.", "La energía no se crea ni se destruye, solo se transforma; la total permanece constante."),
+    B("¿Qué transformaciones de energía ocurren en una bombilla, una batidora y un panel solar?", "Eléctrica → luminosa y térmica; eléctrica → cinética; radiante → eléctrica."),
+    B("¿Qué es la potencia y en qué unidad se mide?", "La energía transferida por unidad de tiempo; en vatios (W)."),
+    B("Clasifica en renovables y no renovables: petróleo, eólica, uranio, biomasa, gas natural, solar.", "Renovables: eólica, biomasa, solar. No renovables: petróleo, uranio, gas natural."),
+    B("¿Qué gas emitido al quemar combustibles fósiles provoca el cambio climático?", "El dióxido de carbono (CO₂)."),
+    B("Escribe cuatro medidas de ahorro energético en casa.", "Apagar luces, usar LED, evitar el modo en espera, ajustar la calefacción."),
+    B("¿Por qué casi todas las fuentes de energía proceden del Sol?", "Porque el Sol produce el viento, el ciclo del agua, el crecimiento de las plantas y, hace millones de años, los combustibles fósiles."),
+    M("Compara la energía cinética de un coche de 1.200 kg a 50 km/h y a 100 km/h.", "13,9 m/s: ≈ 116.000 J. 27,8 m/s: ≈ 463.000 J. Cuatro veces más."),
+    M("Una manzana de 0,2 kg cae desde 3 m. Calcula la energía potencial inicial y la velocidad al llegar al suelo (g = 10 m/s²).", "Ep = 6 J. ½ · 0,2 · v² = 6 → v ≈ 7,7 m/s."),
+    M("Un carrito de montaña rusa de 400 kg parte del reposo a 30 m de altura. ¿Qué velocidad tiene a 10 m de altura? (sin rozamiento, g = 10)", "Ep pierde 400 · 10 · 20 = 80.000 J = Ec. v² = 400 → v = 20 m/s."),
+    M("¿Qué trabajo realizas al empujar un carro con 40 N durante 25 m? ¿Y al sostener una caja quieta?", "W = 1.000 J. Sostener quieta: W = 0, porque no hay desplazamiento."),
+    M("Un frigorífico de 150 W funciona 24 h al día. ¿Cuánta energía consume en un año y cuánto cuesta a 0,15 €/kWh?", "0,15 kW · 8.760 h = 1.314 kWh. Coste ≈ 197 €."),
+    M("Compara el consumo de una bombilla incandescente de 60 W y una LED de 8 W encendidas 5 h al día durante un año.", "Incandescente: 109,5 kWh. LED: 14,6 kWh. Ahorro ≈ 95 kWh al año."),
+    M("Una central de carbón consume 1.000 MJ de carbón y produce 380 MJ de electricidad. Calcula su rendimiento. ¿Adónde va el resto?", "38 %. El resto se pierde como calor, sobre todo en el agua de refrigeración y los gases."),
+    M("Explica por qué un péndulo real se acaba parando si la energía se conserva.", "El rozamiento transforma su energía mecánica en energía térmica, que se dispersa; la total se conserva, pero degradada."),
+    M("Ordena las etapas de la producción de electricidad en una central térmica.", "Combustión → calentar agua → vapor → turbina → generador → transformador → red."),
+    M("¿Por qué se eleva la tensión para transportar la electricidad?", "Porque a mayor tensión circula menos corriente para la misma potencia y se pierde menos energía en forma de calor en los cables."),
+    M("Indica dos ventajas y dos inconvenientes de la energía nuclear.", "Ventajas: mucha energía con poco combustible, no emite CO₂. Inconvenientes: residuos radiactivos, riesgo de accidentes."),
+    M("Indica dos ventajas y dos inconvenientes de la energía eólica.", "Ventajas: renovable, sin emisiones. Inconvenientes: intermitente, impacto visual y en aves."),
+    A("Un ciclista de 70 kg (con bici) baja una cuesta de 50 m de desnivel partiendo del reposo y llega abajo a 20 m/s. ¿Cuánta energía se ha perdido por rozamiento? (g = 10)", "Ep = 70 · 10 · 50 = 35.000 J. Ec = ½ · 70 · 400 = 14.000 J. Perdida: 21.000 J (60 %)."),
+    A("Un embalse tiene el agua a 100 m sobre las turbinas. Si caen 50.000 kg de agua por segundo y el rendimiento es del 85 %, ¿qué potencia eléctrica produce? (g = 9,8)", "Ep por segundo = 50.000 · 9,8 · 100 = 4,9 · 10⁷ J. P útil = 0,85 · 4,9 · 10⁷ ≈ 4,2 · 10⁷ W = 42 MW."),
+    A("Una familia consume 3.500 kWh al año. ¿Cuántos paneles de 400 W necesitaría si cada uno produce 1.600 kWh al año en su zona? ¿Qué potencia instalada sería?", "3.500 / 1.600 ≈ 2,2 → 3 paneles; 1.200 W instalados."),
+    A("Un coche eléctrico consume 15 kWh cada 100 km y uno de gasolina 6 L cada 100 km (1 L ≈ 9 kWh). Compara la energía que usa cada uno y explica la diferencia.", "Gasolina: 54 kWh/100 km, más de tres veces más, porque el motor de combustión tiene un rendimiento del 25-30 % y el eléctrico de casi el 90 %."),
+    A("Una pelota de 0,6 kg se lanza hacia arriba a 15 m/s. ¿Qué altura máxima alcanza sin rozamiento? Si en realidad sube 10 m, ¿cuánta energía se pierde? (g = 10)", "Ec = 67,5 J → h = 67,5 / 6 = 11,25 m. Real: Ep = 60 J; se pierden 7,5 J por rozamiento con el aire."),
+    A("Una persona de 60 kg sube andando a un 5.º piso (15 m) en 30 s, y otra igual lo hace en ascensor en 20 s. Compara el trabajo y la potencia. (g = 10)", "Trabajo igual en ambos casos: 60 · 10 · 15 = 9.000 J. Potencia: 300 W andando y 450 W en ascensor (sin contar el rendimiento del motor)."),
+    A("Calcula cuántas toneladas de CO₂ se evitan al año sustituyendo 100 tubos fluorescentes de 36 W por LED de 18 W, encendidos 1.500 h al año, si cada kWh emite 0,25 kg de CO₂.", "Ahorro: 100 · 18 W · 1.500 h = 2.700 kWh. CO₂: 2.700 · 0,25 = 675 kg ≈ 0,68 t."),
+    A("Diseña un plan de ahorro energético para tu instituto con al menos cinco medidas y estima su efecto.", "Por ejemplo: LED en todas las aulas, apagar proyectores y ordenadores al final del día, sensores de presencia en pasillos, termostatos a 20 °C, paneles solares en la cubierta; estimar el ahorro con P · t de los aparatos afectados."),
+    A("Argumenta, con datos del tema, por qué una red eléctrica 100 % renovable necesita sistemas de almacenamiento.", "Porque la solar y la eólica son intermitentes y la producción debe igualar al consumo en cada instante; baterías y centrales de bombeo guardan el excedente y lo devuelven cuando falta sol o viento."),
   ],
   quiz: [
-    { q: "La unidad de energía del SI es…", o: ["el vatio", "el julio", "el newton"], a: 1, e: "El julio." },
-    { q: "1 kWh equivale a…", o: ["1000 J", "3,6 millones de J", "4,18 J"], a: 1, e: "3,6 · 10⁶ J." },
-    { q: "La energía de un cuerpo en movimiento es…", o: ["potencial", "cinética", "química"], a: 1, e: "Cinética." },
-    { q: "Ep = m · g · h es la energía…", o: ["cinética", "potencial gravitatoria", "térmica"], a: 1, e: "Potencial gravitatoria." },
-    { q: "La energía…", o: ["se crea en las centrales", "se transforma", "se destruye al usarla"], a: 1, e: "Se transforma." },
-    { q: "Una LED frente a una incandescente tiene…", o: ["más rendimiento", "menos rendimiento", "igual"], a: 0, e: "Más rendimiento." },
-    { q: "Es renovable…", o: ["el gas natural", "la biomasa", "el uranio"], a: 1, e: "La biomasa." },
-    { q: "La energía nuclear se obtiene por…", o: ["fisión del uranio", "combustión", "fotosíntesis"], a: 0, e: "Fisión." },
-    { q: "Los paneles fotovoltaicos transforman la luz en…", o: ["calor", "electricidad", "movimiento"], a: 1, e: "Electricidad." },
-    { q: "Los combustibles fósiles al quemarse emiten…", o: ["O₂", "CO₂", "nada"], a: 1, e: "CO₂." },
+    q4("La unidad de energía en el SI es el…", ["vatio", "julio", "newton", "kilovatio hora"], 1, "J."),
+    q4("Un kilovatio hora equivale a…", ["1.000 J", "3,6 · 10⁶ J", "3.600 J", "4,18 J"], 1, "1.000 W · 3.600 s."),
+    q4("La energía de un cuerpo en movimiento es…", ["potencial", "cinética", "química", "nuclear"], 1, "Ec."),
+    q4("El agua de un embalse tiene sobre todo energía…", ["cinética", "potencial gravitatoria", "eléctrica", "química"], 1, "Por su altura."),
+    q4("Si la velocidad se duplica, la energía cinética…", ["se duplica", "se cuadruplica", "no cambia", "se reduce"], 1, "v²."),
+    q4("La energía potencial de 2 kg a 5 m (g = 10) es…", ["10 J", "100 J", "50 J", "20 J"], 1, "2 · 10 · 5."),
+    q4("La energía no se crea ni se destruye: es el principio de…", ["degradación", "conservación", "rendimiento", "inercia"], 1, "Se transforma."),
+    q4("En una caída sin rozamiento, la energía potencial se transforma en…", ["química", "cinética", "nuclear", "eléctrica"], 1, "Movimiento."),
+    q4("La potencia se mide en…", ["julios", "vatios", "newtons", "kWh"], 1, "W = J/s."),
+    q4("Un aparato de 2.000 W durante 3 h consume…", ["6 kWh", "600 kWh", "0,6 kWh", "2 kWh"], 0, "2 kW · 3 h."),
+    q4("La degradación de la energía significa que…", ["desaparece", "se convierte en calor poco útil", "aumenta", "se crea"], 1, "Menor calidad."),
+    q4("Un motor que consume 100 J y da 25 J útiles tiene un rendimiento de…", ["75 %", "25 %", "125 %", "4 %"], 1, "25 / 100."),
+    q4("¿Cuál es una fuente no renovable?", ["Eólica", "Gas natural", "Solar", "Biomasa"], 1, "Combustible fósil."),
+    q4("¿Cuál es una fuente renovable?", ["Carbón", "Uranio", "Geotérmica", "Petróleo"], 2, "Calor interno."),
+    q4("Los paneles fotovoltaicos transforman la luz en…", ["calor", "electricidad", "movimiento", "sonido"], 1, "Efecto fotovoltaico."),
+    q4("Un inconveniente de la energía solar y eólica es que son…", ["contaminantes", "intermitentes", "agotables", "radiactivas"], 1, "Dependen del tiempo."),
+    q4("La energía nuclear se obtiene por…", ["combustión", "fisión de núcleos", "fotosíntesis", "evaporación"], 1, "Uranio."),
+    q4("La electricidad se transporta a alta tensión para…", ["que vaya más rápido", "perder menos energía", "que sea más barata de producir", "que no se vea"], 1, "Menos pérdidas."),
+    q4("El principal gas responsable del cambio climático es el…", ["oxígeno", "CO₂", "nitrógeno", "helio"], 1, "Combustión."),
+    q4("¿Qué medida ahorra energía?", ["Dejar aparatos en espera", "Usar bombillas LED", "Calefacción a 25 °C", "Ventanas abiertas con calefacción"], 1, "Más eficiencia."),
   ],
   examen: [
-    { q: "Si la masa se duplica a igual velocidad, la Ec…", o: ["se duplica", "se cuadruplica", "no cambia"], a: 0, e: "Proporcional a la masa." },
-    { q: "Un aparato con rendimiento del 30 % de 1000 J aprovecha…", o: ["30 J", "300 J", "700 J"], a: 1, e: "300 J." },
-    { q: "En un generador eléctrico la energía se produce por…", o: ["inducción electromagnética", "fisión", "rozamiento"], a: 0, e: "Inducción." },
+    q4("Un coche de 800 kg a 10 m/s tiene una energía cinética de…", ["4.000 J", "40.000 J", "8.000 J", "80.000 J"], 1, "½ · 800 · 100."),
+    q4("Un objeto cae sin rozamiento desde 5 m (g = 10). Llega al suelo a…", ["5 m/s", "10 m/s", "50 m/s", "100 m/s"], 1, "v² = 2gh = 100."),
+    q4("Empujar con 50 N a lo largo de 4 m supone un trabajo de…", ["12,5 J", "200 J", "54 J", "46 J"], 1, "F · d."),
+    q4("Una bombilla de 10 W durante 100 h consume…", ["1 kWh", "10 kWh", "1.000 kWh", "0,1 kWh"], 0, "10 W · 100 h = 1.000 Wh."),
+    q4("Una máquina con rendimiento del 40 % que consume 500 J da…", ["40 J útiles", "200 J útiles", "300 J útiles", "500 J útiles"], 1, "0,4 · 500."),
+    q4("¿Qué fuente NO tiene su origen en el Sol?", ["Eólica", "Hidráulica", "Geotérmica", "Biomasa"], 2, "Calor interno."),
+    q4("Un inconveniente de los combustibles fósiles es que…", ["son caros de transportar", "emiten CO₂", "son intermitentes", "no producen calor"], 1, "Cambio climático."),
+    q4("Los transformadores de barrio reducen la tensión hasta…", ["400.000 V", "20.000 V", "230 V", "12 V"], 2, "Enchufes."),
   ],
-  feynman: ["Qué significa que la energía se conserva pero se degrada", "Cómo se calculan la energía cinética y la potencial", "Ventajas e inconvenientes de las fuentes renovables y no renovables"],
-  mapa: mapa("ENERGÍA", "var(--eso)", [
-    ["Formas", "cinética · potencial · química · eléctrica", "var(--red)"],
-    ["Cálculo", "Ec = ½mv² · Ep = mgh", "var(--pen)"],
-    ["Principio", "conservación · degradación · rendimiento", "#b8860b"],
-    ["Fuentes", "renovables · no renovables · ahorro", "var(--leaf)"],
-  ], 300),
+  feynman: ["Qué es la energía y cuáles son sus propiedades", "Cómo se calculan la energía cinética y la potencial", "Qué dice el principio de conservación y por qué la energía se degrada", "Qué diferencia hay entre energía y potencia", "Ventajas e inconvenientes de las fuentes renovables y no renovables", "Cómo llega la electricidad a casa y cómo podemos ahorrarla"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Energía", "Capacidad de producir cambios; se mide en julios."],
+    ["Energía", "Capacidad de producir cambios; julios (J)."],
+    ["kWh", "3,6 · 10⁶ J; energía de la factura."],
     ["Energía cinética", "Ec = ½ · m · v²."],
     ["Energía potencial", "Ep = m · g · h."],
-    ["Conservación", "La energía no se crea ni se destruye, se transforma."],
-    ["Degradación", "Parte de la energía se convierte en calor no aprovechable."],
-    ["Rendimiento", "Energía útil / energía consumida · 100."],
-    ["No renovable", "Se agota: carbón, petróleo, gas, uranio."],
-    ["Renovable", "Inagotable: solar, eólica, hidráulica, biomasa…"],
+    ["Energía mecánica", "Em = Ec + Ep."],
+    ["Conservación", "La energía no se crea ni se destruye."],
+    ["Degradación", "Parte de la energía se convierte en calor inútil."],
+    ["Rendimiento", "η = E útil / E consumida · 100."],
+    ["Trabajo", "W = F · d."],
+    ["Potencia", "P = E / t; vatios (W)."],
+    ["No renovables", "Carbón, petróleo, gas, uranio."],
+    ["Renovables", "Solar, eólica, hidráulica, biomasa, geotérmica."],
   ],
-  familias: ["Leed juntos la factura de la luz: cuántos kWh se consumen al mes y cuánto cuestan.", "Buscad la etiqueta energética de la nevera o la lavadora y comentad qué significa.", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "La energía: formas, transformaciones, conservación y degradación, energía mecánica, fuentes renovables y no renovables y uso responsable (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Medir con un vatímetro el consumo en espera de los aparatos del aula.", "Pelota que rebota para discutir conservación y degradación.", "Mapa de las centrales de España con datos de Red Eléctrica en tiempo real."],
+  glosario: [
+    ["Energía", "Capacidad de un sistema para producir cambios."],
+    ["Julio", "Unidad de energía en el SI."],
+    ["Kilovatio hora", "Energía que consume un aparato de 1 kW durante una hora."],
+    ["Energía cinética", "Energía que tiene un cuerpo por estar en movimiento."],
+    ["Energía potencial", "Energía que tiene un cuerpo por su posición o su deformación."],
+    ["Energía mecánica", "Suma de las energías cinética y potencial."],
+    ["Energía química", "Energía almacenada en los enlaces de las sustancias."],
+    ["Conservación de la energía", "Principio según el cual la energía total no cambia."],
+    ["Degradación", "Pérdida de calidad de la energía al transformarse en calor disperso."],
+    ["Rendimiento", "Porcentaje de energía consumida que se aprovecha."],
+    ["Trabajo", "Energía transferida por una fuerza que desplaza un cuerpo."],
+    ["Calor", "Energía transferida entre cuerpos a distinta temperatura."],
+    ["Potencia", "Energía transferida o transformada por unidad de tiempo."],
+    ["Fuente renovable", "Recurso energético que se regenera de forma natural."],
+    ["Fuente no renovable", "Recurso energético limitado que se agota."],
+    ["Combustible fósil", "Carbón, petróleo o gas formados por restos de seres vivos."],
+    ["Fisión nuclear", "Ruptura de núcleos pesados que libera energía."],
+    ["Eficiencia energética", "Obtener el mismo servicio consumiendo menos energía."],
+  ],
+  situacion: {
+    titulo: "Auditoría energética del instituto",
+    reto: "El consejo escolar quiere reducir la factura de la luz y las emisiones del centro. Vuestro equipo realizará una auditoría energética y propondrá un plan de mejora con datos.",
+    pasos: [
+      "Haced un inventario de los aparatos eléctricos de un aula y un pasillo con su potencia (en la etiqueta).",
+      "Estimad las horas de uso diarias y calculad la energía consumida al mes en kWh y su coste.",
+      "Detectad derroches: luces encendidas sin nadie, aparatos en espera, ventanas abiertas con calefacción.",
+      "Proponed medidas (LED, sensores, paneles solares, hábitos) y calculad el ahorro de energía, dinero y CO₂.",
+      "Presentad el plan al consejo escolar o a la dirección.",
+    ],
+    producto: "Un informe de auditoría con tablas de consumo, cálculos de ahorro y un cartel de buenas prácticas.",
+    evaluacion: ["El inventario es completo y los datos son reales.", "Los cálculos de energía, coste y rendimiento son correctos.", "Las medidas propuestas son viables y están cuantificadas.", "La presentación es clara y convincente."],
   },
-  fuentes: [RD, wiki("Energía renovable", "Energ%C3%ADa_renovable"), wiki("Principio de conservación de la energía", "Principio_de_conservaci%C3%B3n_de_la_energ%C3%ADa")],
-  revisado: "2026-11-12",
+  familias: [
+    "Revisad juntos la factura de la luz: cuántos kWh se consumen y cuánto cuesta cada uno.",
+    "Leed las etiquetas energéticas de los electrodomésticos de casa.",
+    "Haced un recorrido por casa buscando aparatos en modo de espera y calculad lo que gastan al año.",
+    "Comentad de dónde viene la electricidad hoy consultando la web de Red Eléctrica en tiempo real.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La energía»: concepto, formas y propiedades de la energía, energía cinética y potencial, conservación y degradación, trabajo y potencia, fuentes de energía renovables y no renovables, producción y transporte de la electricidad, uso responsable y sostenibilidad.`,
+    ideas: [
+      "Práctica de conservación de la energía con una rampa o un péndulo y sensores de velocidad.",
+      "Auditoría energética del aula con vatímetro de enchufe.",
+      "Debate con roles sobre el mix energético (nuclear, renovables, gas).",
+      "Consulta de los datos en tiempo real de Red Eléctrica para analizar la generación por fuentes.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Conservación de la energía", "Principio_de_conservaci%C3%B3n_de_la_energ%C3%ADa"),
+    wiki("Energía renovable", "Energ%C3%ADa_renovable"),
+    { t: "Red Eléctrica: demanda y generación en tiempo real", url: "https://www.ree.es/es/datos" },
+  ],
+  revisado: "2026-11-13",
 };

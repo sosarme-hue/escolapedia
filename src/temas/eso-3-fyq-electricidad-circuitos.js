@@ -1,164 +1,233 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
-
-// Símbolos de circuito.
-const pila = (x, y) => `<line x1="${x}" y1="${y - 12}" x2="${x}" y2="${y + 12}" stroke="var(--ink)" stroke-width="2.5"/><line x1="${x + 8}" y1="${y - 6}" x2="${x + 8}" y2="${y + 6}" stroke="var(--ink)" stroke-width="5"/>`;
-const bombilla = (x, y) => `<circle cx="${x}" cy="${y}" r="11" fill="#fff6c8" stroke="var(--ink)" stroke-width="2"/><path d="M${x - 7} ${y - 7} L ${x + 7} ${y + 7} M${x + 7} ${y - 7} L ${x - 7} ${y + 7}" stroke="var(--ink)" stroke-width="1.5"/>`;
+// Física y Química 3º ESO · La electricidad y los circuitos (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, graf, rejilla, ciclo, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["electricidad-circuitos"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "La electricidad y los circuitos",
-  minutos: 60,
-  objetivos: ["Explicar la corriente eléctrica y sus magnitudes: intensidad, voltaje y resistencia", "Identificar los elementos de un circuito y sus símbolos", "Aplicar la ley de Ohm y analizar circuitos en serie y en paralelo", "Calcular la potencia y la energía consumida y conocer las normas de seguridad eléctrica"],
-  claves: ["corriente eléctrica", "intensidad", "voltaje", "resistencia", "ley de Ohm", "serie", "paralelo", "potencia"],
+  minutos: 110,
+  objetivos: [
+    "Explicar qué es la corriente eléctrica y reconocer los elementos de un circuito y sus símbolos",
+    "Definir intensidad, voltaje y resistencia, sus unidades y cómo se miden",
+    "Aplicar la ley de Ohm a circuitos sencillos",
+    "Calcular resistencias equivalentes, intensidades y voltajes en circuitos en serie y en paralelo",
+    "Calcular la potencia y la energía eléctrica consumida y su coste",
+    "Conocer los efectos de la corriente y las normas de seguridad eléctrica",
+  ],
+  claves: ["corriente eléctrica", "circuito", "intensidad", "amperio", "voltaje", "voltio", "resistencia", "ohmio", "ley de Ohm", "serie", "paralelo", "potencia eléctrica"],
   pregunta: {
     texto: "En casa, si se funde una bombilla del salón, las demás siguen encendidas. Pero en algunas guirnaldas de Navidad antiguas, si se fundía una bombilla, se apagaban todas. ¿Por qué?",
     respuesta: "Por la forma de conectarlas. En la guirnalda antigua las bombillas estaban <mark>en serie</mark>, una detrás de otra, en un único camino: si una se rompe, el circuito se abre y no pasa corriente. En casa, las lámparas están <mark>en paralelo</mark>: cada una tiene su propio camino, así que funcionan de forma independiente.",
   },
-  bloques: [
-    {
-      html: `<h3>La corriente eléctrica</h3><p>En el tema del átomo vimos que los electrones tienen carga negativa. En los <b>metales</b>, algunos electrones están poco ligados a sus átomos y se pueden mover libremente. Si conectamos un cable metálico a una pila, esos electrones se desplazan de forma ordenada a lo largo del cable: es la <mark>corriente eléctrica</mark>, un <b>flujo ordenado de cargas</b>. Los electrones van del polo negativo al positivo, pero por convenio histórico se dice que la corriente va del <b>polo positivo al negativo</b>. Los materiales que dejan pasar la corriente son <b>conductores</b> (cobre, aluminio, agua con sales, el cuerpo humano); los que no, son <b>aislantes</b> (plástico, goma, madera seca, vidrio).</p>`,
-    },
-    {
-      html: `<h3>Los elementos de un circuito</h3><p>Un <mark>circuito eléctrico</mark> es un camino <b>cerrado</b> por el que circula la corriente. Tiene varios elementos. El <b>generador</b> (una pila, una batería o un enchufe) aporta la energía que impulsa los electrones. Los <b>conductores</b> (cables) unen los elementos. Los <b>receptores</b> transforman la energía eléctrica en otras formas: las bombillas en luz, los motores en movimiento, las resistencias en calor, los timbres en sonido. Los elementos de <b>control</b>, como interruptores y pulsadores, abren o cierran el circuito. Y los de <b>protección</b>, como fusibles y diferenciales, lo cortan si hay peligro. Para dibujarlos se usan <b>símbolos</b> normalizados.</p>${tabla(["Elemento", "Función", "Ejemplo"], [["Generador", "aporta energía", "pila, batería"], ["Conductor", "transporta la corriente", "cable de cobre"], ["Receptor", "transforma la energía", "bombilla, motor"], ["Control", "abre o cierra", "interruptor"], ["Protección", "evita daños", "fusible, diferencial"]])}`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Circuito simple: pila, interruptor y bombilla conectados por cables en un camino cerrado">${BG}
-        <path d="M60 40 H 200 V 140 H 60 V 104 M60 76 V 40" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        <rect x="48" y="76" width="24" height="28" fill="var(--paper)"/>${pila(56, 90)}${t(34, 94, "pila", { size: 10, anchor: "end" })}
-        <rect x="186" y="78" width="28" height="24" fill="var(--paper)"/>${bombilla(200, 90)}${t(184, 120, "bombilla", { size: 10, anchor: "end" })}
-        <rect x="112" y="132" width="40" height="16" fill="var(--paper)"/><circle cx="114" cy="140" r="3" fill="var(--ink)"/><circle cx="150" cy="140" r="3" fill="var(--ink)"/><line x1="114" y1="140" x2="146" y2="128" stroke="var(--ink)" stroke-width="2"/>
-        ${t(132, 166, "interruptor (abierto)", { size: 10 })}${t(130, 28, "cables", { size: 10, color: "var(--muted)" })}${t(48, 72, "+", { size: 12, color: "var(--red)" })}</svg>`,
-    },
-    {
-      html: `<h3>La intensidad de corriente</h3><p>La <mark>intensidad de corriente (I)</mark> es la cantidad de carga eléctrica que atraviesa una sección del conductor en cada segundo: <b>I = q / t</b>. Se mide en <b>amperios (A)</b>, en honor a André-Marie Ampère. Una corriente de 1 A equivale a que pasen 1 culombio por segundo, unos seis trillones de electrones. Se mide con el <b>amperímetro</b>, que se conecta <b>en serie</b>, es decir, intercalado en el circuito para que toda la corriente pase por él. Una bombilla LED de casa consume unos 0,05 A; un móvil cargándose, alrededor de 1 A; un horno eléctrico, unos 10 A. Una corriente de solo 0,1 A atravesando el corazón puede ser mortal.</p>`,
-    },
-    {
-      html: `<h3>El voltaje</h3><p>Para que los electrones se muevan, hace falta algo que los empuje, igual que el agua de una tubería necesita una diferencia de altura o una bomba. Ese «empuje» es el <mark>voltaje</mark>, también llamado <b>diferencia de potencial</b> o <b>tensión (V)</b>: la energía que el generador da a cada unidad de carga. Se mide en <b>voltios (V)</b>, en honor a Alessandro Volta, inventor de la pila en 1800. Se mide con el <b>voltímetro</b>, que se conecta <b>en paralelo</b>, es decir, con sus dos cables en los extremos del elemento que queremos medir. Una pila normal tiene 1,5 V; una batería de coche, 12 V; los enchufes de casa, 230 V; y las líneas de alta tensión, hasta 400.000 V.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Analogía hidráulica: la bomba es la pila, que da el empuje o voltaje; el caudal de agua es la intensidad; y un estrechamiento de la tubería es la resistencia">${BG}
-        <path d="M40 50 H 220 V 140 H 40 Z" fill="none" stroke="var(--water)" stroke-width="12"/>
-        <path d="M110 140 h 40" stroke="var(--paper)" stroke-width="12"/><path d="M110 140 h 40" stroke="var(--water)" stroke-width="4"/>
-        <circle cx="40" cy="95" r="18" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>${t(40, 100, "V", { size: 13, color: "var(--red)" })}
-        ${fl(110, 50, 150, 50, "var(--pen)", 2.5)}${fl(220, 80, 220, 110, "var(--pen)", 2.5)}
-        ${t(70, 82, "bomba = pila", { size: 10, anchor: "start", color: "var(--red)" })}${t(130, 34, "caudal = intensidad (I)", { size: 10, color: "var(--pen)" })}${t(130, 168, "estrechamiento = resistencia (R)", { size: 10, color: "#b8860b" })}</svg>`,
-    },
-    {
-      html: `<h3>La resistencia eléctrica</h3><p>Al moverse por un material, los electrones chocan con los átomos y encuentran dificultad para avanzar. Esa oposición al paso de la corriente es la <mark>resistencia eléctrica (R)</mark>. Se mide en <b>ohmios (Ω)</b>, en honor a Georg Ohm. Depende del <b>material</b> (el cobre tiene poca resistencia y el nicrom, mucha), de la <b>longitud</b> del conductor (cuanto más largo, más resistencia), de su <b>grosor</b> (cuanto más fino, más resistencia) y de la <b>temperatura</b>. Al chocar, los electrones transfieren energía a los átomos y el conductor se calienta: es el <b>efecto Joule</b>. Se aprovecha en estufas, tostadoras, secadores y planchas, pero es una pérdida en cables y aparatos electrónicos.</p>`,
-    },
-    {
-      html: `<h3>La ley de Ohm</h3><p>En 1827, Georg Ohm descubrió que, en muchos conductores, la intensidad es <b>directamente proporcional al voltaje</b> e <b>inversamente proporcional a la resistencia</b>. Es la <mark>ley de Ohm</mark>: <b>V = I · R</b>. Despejando se obtienen las otras dos formas: I = V / R y R = V / I. Un truco para recordarla es el <b>triángulo de Ohm</b>, con V arriba e I y R abajo: tapando la magnitud que queremos calcular, las otras dos indican la operación. Por ejemplo, si una bombilla de 6 Ω se conecta a una pila de 12 V, la intensidad que circula es I = 12 / 6 = 2 A. Si duplicamos el voltaje, se duplica la intensidad.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Triángulo de la ley de Ohm: V arriba, I y R abajo; V igual a I por R, I igual a V entre R, R igual a V entre I">${BG}
-        <path d="M70 20 L 130 140 H 10 Z" fill="var(--pen)" fill-opacity=".12" stroke="var(--pen)" stroke-width="2.5"/><line x1="40" y1="80" x2="100" y2="80" stroke="var(--pen)" stroke-width="2"/><line x1="70" y1="80" x2="70" y2="140" stroke="var(--pen)" stroke-width="2"/>
-        ${t(70, 68, "V", { size: 20, color: "var(--red)" })}${t(48, 120, "I", { size: 18 })}${t(92, 120, "R", { size: 18 })}
-        ${t(150, 54, "V = I · R", { size: 14, anchor: "start" })}${t(150, 92, "I = V / R", { size: 14, anchor: "start" })}${t(150, 130, "R = V / I", { size: 14, anchor: "start" })}
-        ${t(130, 168, "tapa la que buscas", { size: 10, color: "var(--muted)" })}</svg>`,
-      video: { id: "izDKIyCPRWE", titulo: "Aprende la LEY DE OHM - ejercicios", canal: "math2me", vistas: 2543126 },
-    },
-    {
-      html: `<h3>Circuitos en serie</h3><p>En un <mark>circuito en serie</mark>, los receptores se conectan <b>uno detrás de otro</b>, formando un único camino. Sus características son: la <b>intensidad es la misma</b> en todos los elementos, porque solo hay un camino; el <b>voltaje del generador se reparte</b> entre los receptores; y la <b>resistencia total es la suma</b> de las resistencias: <b>R = R₁ + R₂ + R₃…</b> Al añadir más bombillas en serie, la resistencia total aumenta, la intensidad disminuye y las bombillas lucen menos. Su gran inconveniente es que, si un elemento se estropea o se desconecta, el circuito se abre y <b>todos dejan de funcionar</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Circuito en serie: una pila y dos bombillas en un único camino; la misma intensidad pasa por las dos">${BG}
-        <path d="M40 50 H 220 V 140 H 40 V 106 M40 74 V 50" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        <rect x="28" y="74" width="24" height="32" fill="var(--paper)"/>${pila(36, 90)}
-        <rect x="88" y="40" width="28" height="22" fill="var(--paper)"/>${bombilla(102, 50)}<rect x="152" y="40" width="28" height="22" fill="var(--paper)"/>${bombilla(166, 50)}
-        ${fl(130, 140, 100, 140, "var(--red)", 2)}${t(130, 160, "un solo camino: I igual en todas", { size: 10, color: "var(--red)" })}
-        ${t(134, 28, "R = R₁ + R₂", { size: 12, color: "var(--pen)" })}${t(18, 94, "V", { size: 11, anchor: "end" })}</svg>`,
-    },
-    {
-      html: `<h3>Circuitos en paralelo</h3><p>En un <mark>circuito en paralelo</mark>, cada receptor se conecta en una <b>rama diferente</b>, directamente a los dos polos del generador. Sus características son: el <b>voltaje es el mismo</b> en todos los receptores e igual al del generador; la <b>intensidad total se reparte</b> entre las ramas; y la resistencia total es <b>menor</b> que la de cualquiera de las ramas: 1/R = 1/R₁ + 1/R₂… Cada receptor funciona de forma <b>independiente</b>: si uno se estropea o se apaga, los demás siguen funcionando, y todos lucen con la misma intensidad. Por eso todas las instalaciones de las viviendas son en paralelo. Su inconveniente es que, cuantos más aparatos conectamos, más intensidad total sale del generador, lo que puede sobrecargar la instalación.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Circuito en paralelo: una pila y dos bombillas en ramas distintas; cada una recibe el mismo voltaje y la intensidad se reparte">${BG}
-        <path d="M40 40 H 200 M40 140 H 200 M40 40 V 74 M40 106 V 140 M130 40 V 140 M200 40 V 140" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        <rect x="28" y="74" width="24" height="32" fill="var(--paper)"/>${pila(36, 90)}
-        <rect x="118" y="78" width="24" height="24" fill="var(--paper)"/>${bombilla(130, 90)}<rect x="188" y="78" width="24" height="24" fill="var(--paper)"/>${bombilla(200, 90)}
-        ${fl(70, 40, 100, 40, "var(--red)", 2)}${fl(130, 60, 130, 76, "var(--red)", 1.5)}${fl(200, 60, 200, 76, "var(--red)", 1.5)}
-        ${t(146, 120, "I₁", { size: 11, anchor: "start", color: "var(--red)" })}${t(216, 120, "I₂", { size: 11, anchor: "start", color: "var(--red)" })}
-        ${t(130, 164, "mismo V en cada rama; I se reparte", { size: 10, color: "var(--red)" })}${t(18, 94, "V", { size: 11, anchor: "end" })}</svg>`,
-      video: { id: "GUESpG6inds", titulo: "¿Qué son los Circuitos Eléctricos? Y sus tipos: Serie y Paralelo", canal: "A Cierta Ciencia", vistas: 882519 },
-    },
-    {
-      html: `<h3>Potencia y energía eléctrica</h3><p>La <mark>potencia eléctrica (P)</mark> indica la rapidez con la que un aparato consume o transforma energía: <b>P = V · I</b>. Se mide en <b>vatios (W)</b>. Todos los aparatos llevan una etiqueta con su potencia: una bombilla LED, unos 10 W; un portátil, 60 W; un microondas, 800 W; un horno, 2000 W. La <b>energía consumida</b> depende de la potencia y del tiempo que está funcionando: <b>E = P · t</b>. Si la potencia está en kilovatios (kW) y el tiempo en horas, la energía sale en <b>kilovatios hora (kWh)</b>, la unidad de la factura de la luz. Por ejemplo, un horno de 2 kW durante 1,5 horas consume 3 kWh; si el kWh cuesta 0,15 €, cuesta 0,45 €.</p>${tabla(["Aparato", "Potencia", "Uso diario", "Energía"], [["Bombilla LED", "10 W", "5 h", "0,05 kWh"], ["Televisor", "100 W", "3 h", "0,3 kWh"], ["Nevera", "150 W", "24 h*", "1,2 kWh"], ["Horno", "2000 W", "0,5 h", "1 kWh"]])}<p><small>* La nevera solo enciende el motor una parte del tiempo.</small></p>`,
-    },
-    {
-      html: `<h3>La seguridad eléctrica</h3><p>La electricidad es muy útil pero <mark>peligrosa</mark>. Una corriente que atraviesa el cuerpo puede causar quemaduras, contracciones musculares e incluso paradas cardiacas: es la <b>electrocución</b>. El riesgo aumenta mucho con la <b>humedad</b>, porque el agua con sales es conductora. Las viviendas tienen elementos de protección: el <b>interruptor diferencial</b>, que corta la corriente si detecta una fuga, por ejemplo hacia una persona; los <b>interruptores automáticos</b> o magnetotérmicos, que la cortan si hay un cortocircuito o una sobrecarga; y la <b>toma de tierra</b>, que desvía las fugas al suelo. Normas básicas: no tocar aparatos con las manos mojadas, no sobrecargar los enchufes con ladrones, desenchufar tirando de la clavija y no del cable, y no acercarse a cables caídos ni a torres de alta tensión.</p>`,
-    },
-  ],
-  figura: {
-    titulo: "Serie frente a paralelo",
-    svg: `<svg viewBox="0 0 640 240" role="img" aria-label="Comparación: en serie, un camino, misma intensidad, el voltaje se reparte, la resistencia se suma y si una falla se apagan todas; en paralelo, varios caminos, mismo voltaje, la intensidad se reparte y cada una funciona por separado">
-      <rect width="640" height="240" rx="16" fill="var(--paper)"/>
-      ${caja(20, 20, 290, 44, "SERIE", "var(--red)", { size: 17 })}${caja(330, 20, 290, 44, "PARALELO", "var(--leaf)", { size: 17 })}
-      ${["un solo camino", "misma intensidad", "el voltaje se reparte", "R total = suma", "si una falla, se apagan todas"].map((n, i) => t(165, 94 + i * 28, n, { size: 14, weight: 400 })).join("")}
-      ${["varios caminos (ramas)", "mismo voltaje", "la intensidad se reparte", "R total menor", "cada una funciona sola"].map((n, i) => t(475, 94 + i * 28, n, { size: 14, weight: 400 })).join("")}
-    </svg>`,
+  lectura: {
+    titulo: "Las ranas de Galvani y la pila de Volta",
+    html: `<p>En 1780, el médico italiano Luigi Galvani estaba diseccionando ranas en su laboratorio de Bolonia cuando observó algo asombroso: al tocar el nervio de una pata con dos metales distintos, la pata se contraía como si estuviera viva. Galvani pensó que había descubierto una «electricidad animal» almacenada en los músculos.</p><p>Su compatriota Alessandro Volta no estaba de acuerdo. Sospechaba que la electricidad no venía de la rana, sino del contacto entre los dos metales, y que la pata solo actuaba como detector. Para demostrarlo, en 1800 apiló discos de cinc y de cobre separados por cartones empapados en agua salada. Aquella columna producía una corriente eléctrica continua, sin ninguna rana: era la primera pila de la historia. Por eso la unidad de voltaje se llama voltio.</p><p>La pila de Volta permitió por primera vez disponer de una corriente constante para experimentar. En pocas décadas llegaron la ley de Ohm, los electroimanes, el telégrafo y, al final del siglo XIX, la bombilla y las primeras redes eléctricas. Hoy, cada vez que conectas el móvil al cargador, usas los mismos conceptos que nacieron de aquella disputa sobre las patas de rana.</p>`,
   },
-  video: { id: "x99TPYOjiPA", titulo: "¿QUÉ ES LA LEY DE OHM?", canal: "Capacitación Eléctrica Trafomex", vistas: 591631, megusta: 0, busqueda: "ley de Ohm circuitos eléctricos" },
+  bloques: [
+    bloque({ h: "1.1 La corriente eléctrica", p: [
+      "La <mark>corriente eléctrica</mark> es un movimiento ordenado de cargas eléctricas a través de un material. En los metales, las cargas que se mueven son los <b>electrones</b> libres, que pueden desplazarse con facilidad entre los átomos. Cuando no hay corriente, esos electrones se mueven al azar en todas direcciones; al conectar una pila, la pila los empuja y todos avanzan en el mismo sentido, aunque muy despacio, apenas unos milímetros por segundo. Lo que viaja casi a la velocidad de la luz es el «empujón», por eso la bombilla se enciende al instante.",
+      "Para que haya corriente hacen falta dos condiciones: un <b>generador</b> que proporcione energía a las cargas y un <b>camino cerrado</b> de materiales conductores por el que puedan circular. Por convenio, el <b>sentido de la corriente</b> se dibuja del polo positivo al negativo del generador por el circuito exterior, aunque los electrones se mueven en sentido contrario: este convenio se estableció antes de descubrir el electrón. Hay dos tipos de corriente: la <b>continua</b>, que circula siempre en el mismo sentido, como la de las pilas y baterías; y la <b>alterna</b>, que cambia de sentido muchas veces por segundo, 50 veces en Europa, como la de los enchufes.",
+    ], svg: compara("Corriente continua y corriente alterna", ["Continua", ["Siempre en el mismo sentido", "Pilas y baterías", "Móviles y linternas"]], ["Alterna", ["Cambia de sentido 50 veces/s", "Enchufes de casa", "Fácil de transformar"]], "var(--pen)", "var(--red)") }),
+    bloque({ h: "1.2 Los elementos de un circuito", p: [
+      "Un <mark>circuito eléctrico</mark> es un conjunto de elementos conectados que forman un camino cerrado por el que circula la corriente. Tiene cinco tipos de elementos. El <b>generador</b> (pila, batería, dinamo, enchufe) proporciona la energía. Los <b>conductores</b> (cables de cobre) unen los elementos. Los <b>receptores</b> transforman la energía eléctrica en otras formas: las bombillas en luz, los motores en movimiento, las resistencias en calor, los timbres en sonido. Los <b>elementos de control</b> (interruptores, pulsadores, conmutadores) abren o cierran el circuito. Y los <b>elementos de protección</b> (fusibles, magnetotérmicos, diferenciales) lo desconectan si hay peligro.",
+      "Para representar los circuitos se usan <b>esquemas</b> con <b>símbolos normalizados</b>, que entienden los técnicos de todo el mundo: la pila se dibuja con dos líneas paralelas de distinta longitud (la larga es el polo positivo), la bombilla con un círculo con un aspa, la resistencia con un rectángulo, el motor con un círculo con una M y el interruptor con una línea inclinada. Un circuito está <b>cerrado</b> cuando el camino es completo y pasa corriente, y <b>abierto</b> cuando hay una interrupción. Si los dos polos del generador se unen directamente con un cable sin receptor, se produce un <b>cortocircuito</b>: la corriente es enorme, los cables se calientan y puede haber un incendio.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.3 La intensidad de corriente", p: [
+      "La <mark>intensidad de corriente</mark> (I) es la cantidad de carga eléctrica que atraviesa una sección del conductor en cada segundo: I = q / t. Se mide en <b>amperios</b> (A), en honor del físico francés André-Marie Ampère. Un amperio equivale a un culombio por segundo, es decir, unos seis trillones de electrones cada segundo. En electrónica se usa mucho el miliamperio (1 mA = 0,001 A).",
+      "La intensidad se mide con un <b>amperímetro</b>, que se conecta <b>en serie</b>, intercalado en el circuito, para que toda la corriente pase a través de él. Algunos valores típicos: un LED, unos 20 mA; una bombilla LED de casa, 0,05 A; un portátil, 0,3 A; un horno, 9 A. Por el cuerpo humano, intensidades de solo 30 mA pueden ser peligrosas, y a partir de 100 mA pueden causar la muerte si atraviesan el corazón. Una analogía útil: si el circuito fuera un circuito de agua, la intensidad sería el caudal, la cantidad de agua que pasa por la tubería cada segundo. Por ejemplo, si por un cable pasan 12 C en 4 s, la intensidad es I = 12 / 4 = 3 A.",
+    ], extra: formula("I = q / t"), svg: rejilla("Intensidad típica de algunos aparatos", ["Aparato", "Intensidad"], [["LED pequeño", "0,02 A"], ["Bombilla LED", "0,05 A"], ["Portátil", "0,3 A"], ["Lavadora", "8 A"], ["Horno", "9 A"]], "var(--pen)") }),
+    bloque({ h: "1.4 El voltaje o diferencia de potencial", p: [
+      "El <mark>voltaje</mark>, también llamado <b>tensión</b> o <b>diferencia de potencial</b> (V), mide la energía que el generador proporciona a cada unidad de carga que lo atraviesa. Es el «empuje» que hace circular la corriente. Se mide en <b>voltios</b> (V): un generador de 1 V da 1 julio de energía a cada culombio de carga. Cuanto mayor es el voltaje, más energía lleva cada carga y más intensa es la corriente en un mismo circuito.",
+      "El voltaje se mide con un <b>voltímetro</b>, que se conecta <b>en paralelo</b>, con sus dos cables tocando los dos extremos del elemento cuyo voltaje queremos medir. En la analogía del agua, el voltaje sería la diferencia de altura entre dos depósitos, que hace que el agua fluya: sin desnivel, no hay corriente. Valores típicos: una pila AA, 1,5 V; una pila de petaca, 4,5 V; la batería de un móvil, 3,7 V; la batería de un coche, 12 V; los enchufes de casa, 230 V; las líneas de alta tensión, hasta 400.000 V. Hoy se usa mucho el <b>polímetro</b>, un aparato que puede funcionar como voltímetro, amperímetro u óhmetro según la posición del selector.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "1.5 La resistencia eléctrica", p: [
+      "La <mark>resistencia eléctrica</mark> (R) es la oposición que presenta un material al paso de la corriente. Se mide en <b>ohmios</b> (Ω), en honor del alemán Georg Simon Ohm, y se mide con un <b>óhmetro</b>, con el circuito desconectado. Los <b>conductores</b>, como el cobre o la plata, tienen una resistencia muy pequeña; los <b>aislantes</b>, como el plástico o el vidrio, tienen una resistencia enorme y prácticamente no dejan pasar la corriente. Por eso los cables son de cobre recubierto de plástico.",
+      "La resistencia de un cable depende de tres factores. Del <b>material</b>: la plata conduce mejor que el cobre, y el cobre mejor que el hierro. De la <b>longitud</b>: cuanto más largo es el cable, mayor es su resistencia, igual que es más difícil hacer pasar agua por una tubería más larga. Y de la <b>sección</b>: cuanto más grueso es, menor resistencia, porque la corriente tiene más espacio. Por eso los electrodomésticos potentes, como el horno, usan cables más gruesos. La resistencia también aumenta con la <b>temperatura</b> en los metales. Al pasar la corriente por una resistencia, parte de la energía se transforma en calor: es el <b>efecto Joule</b>, útil en estufas y tostadoras y molesto en los cables.",
+    ], svg: ficha("La resistencia de un cable depende de", "Resistencia (Ω)", ["Material: plata < cobre < hierro", "Longitud: más largo, más R", "Sección: más grueso, menos R", "Temperatura: más calor, más R"], "var(--red)") }),
+    bloque({ h: "2.1 La ley de Ohm", p: [
+      "En 1827, Georg Simon Ohm descubrió experimentalmente la relación entre las tres magnitudes: la intensidad que circula por un conductor es directamente proporcional al voltaje aplicado e inversamente proporcional a su resistencia. Es la <mark>ley de Ohm</mark>: I = V / R, que también se escribe V = I · R o R = V / I. Si se duplica el voltaje, se duplica la intensidad; si se duplica la resistencia, la intensidad se reduce a la mitad.",
+      "La ley de Ohm permite calcular cualquiera de las tres magnitudes conociendo las otras dos. Por ejemplo, una bombilla de 12 Ω conectada a una pila de 6 V deja pasar I = 6 / 12 = 0,5 A. Si en un tostador conectado a 230 V circulan 5 A, su resistencia es R = 230 / 5 = 46 Ω. Un truco para recordarla es el triángulo con V arriba e I y R abajo: tapando la magnitud que se busca, aparece la operación. Si se representa en una gráfica la intensidad frente al voltaje para una resistencia fija, se obtiene una <b>línea recta</b> que pasa por el origen; cuanto más inclinada, menor es la resistencia. Los materiales que cumplen esta ley se llaman óhmicos.",
+    ], extra: formula("I = V / R  ·  V = I · R  ·  R = V / I"), svg: S.svg[2], video: S.bvideos[0] }),
+    bloque({ h: "2.2 Circuitos en serie", p: [
+      "En un <mark>circuito en serie</mark>, los receptores se conectan uno detrás de otro, de modo que la corriente solo tiene <b>un camino</b>. Sus propiedades son: la <b>intensidad es la misma</b> en todos los elementos, porque toda la corriente pasa por todos; el <b>voltaje del generador se reparte</b> entre los receptores, V = V₁ + V₂ + …; y la <b>resistencia equivalente es la suma</b> de las resistencias: R = R₁ + R₂ + R₃ + … Por eso, cuantas más bombillas se añaden en serie, menos corriente circula y más débilmente lucen.",
+      "Por ejemplo, dos resistencias de 4 Ω y 8 Ω en serie con una pila de 6 V: R = 12 Ω; I = 6 / 12 = 0,5 A; V₁ = 0,5 · 4 = 2 V y V₂ = 0,5 · 8 = 4 V, que suman 6 V. El gran inconveniente del circuito en serie es que, si un elemento se rompe o se desconecta, <b>el circuito se abre y todos dejan de funcionar</b>, como en las guirnaldas antiguas. Se usa cuando interesa que un elemento controle a los demás: los interruptores y los fusibles se colocan siempre en serie con los aparatos que controlan o protegen.",
+    ], extra: formula("R = R₁ + R₂ + …  ·  I igual en todos  ·  V = V₁ + V₂ + …"), svg: S.svg[3] }),
+    bloque({ h: "2.3 Circuitos en paralelo", p: [
+      "En un <mark>circuito en paralelo</mark>, los receptores se conectan en ramas distintas, cada uno con sus extremos unidos directamente al generador, de modo que la corriente se divide y tiene <b>varios caminos</b>. Sus propiedades son: el <b>voltaje es el mismo</b> en todos los receptores e igual al del generador; la <b>intensidad total se reparte</b> entre las ramas, I = I₁ + I₂ + …, y por la rama de menor resistencia pasa más corriente; y la resistencia equivalente es <b>menor que la más pequeña</b> de las resistencias: 1/R = 1/R₁ + 1/R₂ + …",
+      "Por ejemplo, dos resistencias de 6 Ω y 3 Ω en paralelo con una pila de 6 V: I₁ = 6 / 6 = 1 A; I₂ = 6 / 3 = 2 A; la intensidad total es 3 A y la resistencia equivalente, R = 6 / 3 = 2 Ω. Para dos resistencias iguales en paralelo, la equivalente es la mitad de una de ellas. La gran ventaja es que cada receptor <b>funciona de forma independiente</b>: si uno se funde, los demás siguen funcionando, y todos reciben el voltaje completo. Por eso <b>la instalación eléctrica de una casa es en paralelo</b>: todos los enchufes y lámparas reciben 230 V. Pero cuantos más aparatos se conectan, mayor es la intensidad total, y por eso no se deben sobrecargar los enchufes con ladrones.",
+    ], extra: formula("1/R = 1/R₁ + 1/R₂ + …  ·  V igual en todos  ·  I = I₁ + I₂ + …"), svg: S.svg[4] }),
+    bloque({ h: "2.4 Comparar serie y paralelo", p: [
+      "Comparar los dos montajes con bombillas iguales ayuda a entenderlos. Si se conectan dos bombillas iguales <b>en serie</b> a una pila, cada una recibe la mitad del voltaje y lucen menos que una sola; si se desenrosca una, se apagan las dos. Si se conectan <b>en paralelo</b>, cada una recibe todo el voltaje y lucen igual que una sola; si se desenrosca una, la otra sigue encendida. Pero la pila se agota antes en paralelo, porque entrega el doble de corriente.",
+      "Muchos circuitos reales son <b>mixtos</b>, con partes en serie y partes en paralelo. Para resolverlos se van sustituyendo grupos de resistencias por su equivalente, paso a paso, hasta llegar a una sola. Por ejemplo, una resistencia de 2 Ω en serie con dos de 6 Ω en paralelo: las dos en paralelo equivalen a 3 Ω, y sumando la de serie, el total es 5 Ω. Con una pila de 10 V, la intensidad total es 2 A, que se reparte en 1 A por cada rama del paralelo. En una casa, cada aparato está en paralelo con los demás, pero el interruptor de cada lámpara está en serie con ella, y el interruptor general está en serie con toda la instalación.",
+    ], svg: rejilla("Serie y paralelo", ["Magnitud", "Serie", "Paralelo"], [["Intensidad", "igual en todos", "se reparte"], ["Voltaje", "se reparte", "igual en todos"], ["R equivalente", "suma", "menor que la menor"], ["Si uno falla", "se apagan todos", "los demás siguen"]], "var(--leaf)") }),
+    bloque({ h: "3.1 Potencia y energía eléctrica", p: [
+      "La <mark>potencia eléctrica</mark> de un aparato es la energía que consume cada segundo, y se calcula multiplicando el voltaje por la intensidad: P = V · I. Se mide en vatios (W). Un aparato conectado a 230 V por el que pasan 2 A tiene una potencia de 460 W. Combinando con la ley de Ohm, también se puede escribir P = I² · R = V² / R. La potencia aparece en la etiqueta de todos los electrodomésticos, y nos indica cuánto consume cada uno.",
+      "La <mark>energía eléctrica</mark> consumida es la potencia por el tiempo de funcionamiento: E = P · t. Si la potencia está en vatios y el tiempo en segundos, la energía sale en julios; pero las compañías eléctricas usan el <b>kilovatio hora</b> (kWh), con la potencia en kW y el tiempo en horas. Por ejemplo, una plancha de 2.000 W usada 3 horas a la semana consume 2 · 3 = 6 kWh a la semana. Si el precio es de 0,15 €/kWh, cuesta 0,90 € semanales. Los aparatos que producen calor (hornos, calefactores, secadores, termos eléctricos) son los de mayor potencia y los que más encarecen la factura. Además, la potencia contratada limita cuántos aparatos se pueden conectar a la vez: si se supera, salta el limitador.",
+    ], extra: formula("P = V · I  ·  E = P · t"), svg: graf("Gráfica intensidad-voltaje de dos resistencias: la más inclinada tiene menor resistencia", "V (V)", "I (A)", [{ p: [[0, 0], [1, 0.9]], c: "var(--pen)", t: "R pequeña" }, { p: [[0, 0], [1, 0.4]], c: "var(--red)", t: "R grande" }]), video: S.bvideos[1] }),
+    bloque({ h: "3.2 Los efectos de la corriente eléctrica", p: [
+      "La corriente eléctrica produce varios <mark>efectos</mark> que aprovechamos en los aparatos. El <b>efecto térmico</b> o efecto Joule: al pasar la corriente por una resistencia, se produce calor; se usa en estufas, hornos, tostadoras, planchas y secadores. El <b>efecto luminoso</b>: en las bombillas incandescentes el filamento se calienta tanto que brilla, y en los LED la corriente produce luz directamente con mucha más eficiencia. El <b>efecto magnético</b>: la corriente crea un campo magnético, que se aprovecha en electroimanes, motores, altavoces y timbres.",
+      "El <b>efecto químico</b>: la corriente puede provocar reacciones químicas, como en la <b>electrólisis</b>, que descompone el agua en hidrógeno y oxígeno, o en la carga de las baterías, en la que se invierte la reacción de la pila; también se usa para recubrir objetos con una capa de metal, como el cromado o el dorado. Y el <b>efecto fisiológico</b>: la corriente que atraviesa el cuerpo humano provoca contracciones musculares, quemaduras y alteraciones del ritmo del corazón. Los médicos lo aprovechan en los desfibriladores, que con una descarga controlada pueden devolver el ritmo normal a un corazón en parada.",
+    ], svg: ciclo("Efectos de la corriente eléctrica", ["Térmico", "Luminoso", "Magnético", "Químico", "Fisiológico"], "var(--pen)", "Corriente") }),
+    bloque({ h: "3.3 La seguridad eléctrica", p: [
+      "La electricidad es muy útil, pero puede ser peligrosa. Una <b>descarga eléctrica</b> se produce cuando el cuerpo se convierte en parte de un circuito, por ejemplo, al tocar un cable pelado y estar a la vez en contacto con el suelo. El daño depende de la <b>intensidad</b> que atraviesa el cuerpo, del <b>camino</b> que recorre y del <b>tiempo</b>. El agua y la piel mojada reducen mucho la resistencia del cuerpo y aumentan la intensidad, por eso el baño y la cocina son los lugares más peligrosos.",
+      "Las instalaciones tienen <mark>elementos de protección</mark> en el cuadro eléctrico. El <b>interruptor magnetotérmico</b> corta la corriente si hay una sobrecarga o un cortocircuito, protegiendo los cables. El <b>interruptor diferencial</b> detecta fugas de corriente, por ejemplo hacia una persona, y desconecta en milésimas de segundo. La <b>toma de tierra</b> conduce al suelo la corriente de un aparato averiado. Normas básicas: no manipular aparatos enchufados ni con las manos mojadas; desenchufar tirando de la clavija, no del cable; no sobrecargar los enchufes; no meter objetos en ellos y usar protectores si hay niños; no acercarse a cables caídos ni a torres de alta tensión; y, ante una persona electrocutada, cortar primero la corriente y no tocarla directamente.",
+    ], svg: pasos("Protecciones de la instalación eléctrica", ["Magnetotérmico: sobrecargas", "Diferencial: fugas", "Toma de tierra: aparatos averiados"], "var(--red)"), video: S.bvideos[2] }),
+  ],
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Una tostadora de 46 Ω se conecta a 230 V. ¿Qué intensidad circula y qué potencia tiene?",
-      pasos: ["Ley de Ohm: I = V / R = 230 / 46 = 5 A.", "Potencia: P = V · I = 230 · 5.", "P = 1150 W."],
-      resultado: "5 A y 1150 W." },
-    { enunciado: "Dos resistencias de 4 Ω y 8 Ω se conectan en serie a una pila de 6 V. Calcula la intensidad y el voltaje en cada una.",
-      pasos: ["R total = 4 + 8 = 12 Ω; I = 6 / 12 = 0,5 A.", "V₁ = 0,5 · 4 = 2 V.", "V₂ = 0,5 · 8 = 4 V; la suma da 6 V."],
-      resultado: "0,5 A; 2 V y 4 V." },
-    { enunciado: "Un televisor de 120 W está encendido 4 h al día. ¿Cuánta energía consume en 30 días y cuánto cuesta a 0,15 €/kWh?",
-      pasos: ["Energía diaria: 0,12 kW · 4 h = 0,48 kWh.", "En 30 días: 0,48 · 30 = 14,4 kWh.", "Coste: 14,4 · 0,15 = 2,16 €."],
-      resultado: "14,4 kWh y unos 2,16 €." },
+    { enunciado: "Por un cable pasan 90 C en 30 s. Calcula la intensidad.", pasos: ["I = q / t = 90 / 30."], resultado: "I = 3 A." },
+    { enunciado: "Una bombilla de 24 Ω se conecta a una pila de 12 V. ¿Qué intensidad circula?", pasos: ["Ley de Ohm: I = V / R.", "I = 12 / 24."], resultado: "I = 0,5 A." },
+    { enunciado: "Por una estufa conectada a 230 V circulan 10 A. Calcula su resistencia y su potencia.", pasos: ["R = V / I = 230 / 10 = 23 Ω.", "P = V · I = 230 · 10 = 2.300 W."], resultado: "R = 23 Ω; P = 2.300 W." },
+    { enunciado: "Tres resistencias de 2, 3 y 5 Ω en serie se conectan a 20 V. Calcula la intensidad y el voltaje en cada una.", pasos: ["R = 2 + 3 + 5 = 10 Ω.", "I = 20 / 10 = 2 A.", "V₁ = 4 V, V₂ = 6 V, V₃ = 10 V."], resultado: "I = 2 A; 4 V, 6 V y 10 V (suman 20 V)." },
+    { enunciado: "Dos resistencias de 12 Ω y 4 Ω en paralelo se conectan a 12 V. Calcula las intensidades y la resistencia equivalente.", pasos: ["I₁ = 12 / 12 = 1 A; I₂ = 12 / 4 = 3 A.", "I total = 4 A.", "R = 12 / 4 = 3 Ω."], resultado: "1 A, 3 A, 4 A en total; R = 3 Ω." },
+    { enunciado: "Un horno de 2.500 W se usa 1,5 h al día. ¿Cuánto cuesta al mes (30 días) a 0,15 €/kWh?", pasos: ["E diaria = 2,5 kW · 1,5 h = 3,75 kWh.", "Al mes: 3,75 · 30 = 112,5 kWh.", "Coste: 112,5 · 0,15."], resultado: "≈ 16,9 € al mes." },
   ],
   errores: [
-    "Conectar el amperímetro en paralelo o el voltímetro en serie: es al revés.",
-    "Pensar que la corriente «se gasta» en las bombillas: la intensidad que entra es la que sale.",
-    "Sumar resistencias en paralelo como si estuvieran en serie.",
+    "Pensar que la corriente se gasta en las bombillas: la intensidad es la misma a la entrada y a la salida; lo que se transforma es la energía.",
+    "Conectar el amperímetro en paralelo o el voltímetro en serie.",
+    "Sumar las resistencias en paralelo: la equivalente es menor que la más pequeña.",
+    "Creer que en serie el voltaje es igual en todos los elementos: se reparte.",
     "Confundir potencia (W) con energía (kWh).",
-    "Creer que las instalaciones de casa son en serie: son en paralelo.",
+    "Pensar que un circuito en paralelo consume menos: con más ramas, la intensidad total aumenta.",
   ],
   ejercicios: [
-    { q: "¿Qué es la corriente eléctrica y por qué los metales la conducen bien?", sol: "Un flujo ordenado de cargas. Los metales tienen electrones libres que pueden moverse." },
-    { q: "Nombra los elementos de un circuito y la función de cada uno.", sol: "Generador (aporta energía), conductores (transportan), receptores (transforman la energía), control (abren o cierran) y protección (evitan daños)." },
-    { q: "Escribe la unidad y el aparato de medida de la intensidad y del voltaje. ¿Cómo se conecta cada uno?", sol: "Intensidad: amperio, amperímetro, en serie. Voltaje: voltio, voltímetro, en paralelo." },
-    { q: "¿De qué factores depende la resistencia de un cable?", sol: "Del material, la longitud, el grosor y la temperatura." },
-    { q: "Calcula la resistencia de una bombilla por la que pasan 0,5 A con 12 V.", sol: "R = 12 / 0,5 = 24 Ω." },
-    { q: "¿Qué voltaje hace falta para que pasen 3 A por una resistencia de 20 Ω?", sol: "V = 3 · 20 = 60 V." },
-    { q: "Tres bombillas de 10 Ω en serie se conectan a 9 V. Calcula la resistencia total y la intensidad.", sol: "R = 30 Ω; I = 9 / 30 = 0,3 A." },
-    { q: "Explica por qué las lámparas de casa se conectan en paralelo.", sol: "Para que todas reciban los 230 V y funcionen de forma independiente: si una se apaga o se estropea, las demás siguen." },
-    { q: "Un secador de 1800 W funciona 10 min al día. ¿Cuánta energía consume al mes (30 días)?", sol: "1,8 kW · (10/60) h = 0,3 kWh al día; 9 kWh al mes." },
-    { q: "Cita cuatro normas de seguridad eléctrica.", sol: "No tocar aparatos con las manos mojadas, no sobrecargar enchufes, desenchufar tirando de la clavija y no acercarse a cables caídos." },
+    B("¿Qué es la corriente eléctrica? ¿Qué partículas se mueven en un metal?", "Un movimiento ordenado de cargas; los electrones libres."),
+    B("Nombra los cinco tipos de elementos de un circuito con un ejemplo de cada uno.", "Generador (pila), conductor (cable), receptor (bombilla), control (interruptor), protección (fusible)."),
+    B("Diferencia corriente continua y alterna y pon un ejemplo de cada una.", "Continua: siempre en el mismo sentido (pila). Alterna: cambia de sentido 50 veces por segundo (enchufe)."),
+    B("Completa: la intensidad se mide en ___ con un ___; el voltaje en ___ con un ___; la resistencia en ___ con un ___.", "Amperios, amperímetro; voltios, voltímetro; ohmios, óhmetro."),
+    B("¿Cómo se conecta un amperímetro? ¿Y un voltímetro?", "Amperímetro en serie; voltímetro en paralelo."),
+    B("Por un conductor pasan 60 C en 20 s. Calcula la intensidad.", "I = 60 / 20 = 3 A."),
+    B("Enuncia la ley de Ohm y escribe su fórmula.", "La intensidad es proporcional al voltaje e inversamente proporcional a la resistencia: I = V / R."),
+    B("Calcula la intensidad que pasa por una resistencia de 100 Ω conectada a 230 V.", "I = 230 / 100 = 2,3 A."),
+    B("¿Qué voltaje hace falta para que pasen 2 A por una resistencia de 6 Ω?", "V = 2 · 6 = 12 V."),
+    B("¿Cómo influyen la longitud y la sección de un cable en su resistencia?", "Más largo, más resistencia; más grueso, menos resistencia."),
+    B("¿Qué es un cortocircuito y por qué es peligroso?", "Unir los polos del generador sin receptor; la intensidad es enorme y puede provocar un incendio."),
+    B("Nombra tres efectos de la corriente eléctrica y un aparato que aproveche cada uno.", "Térmico (estufa), luminoso (bombilla), magnético (motor)."),
+    M("Tres bombillas de 4 Ω en serie se conectan a 12 V. Calcula la resistencia equivalente, la intensidad y el voltaje en cada una.", "R = 12 Ω; I = 1 A; 4 V en cada una."),
+    M("Las mismas tres bombillas de 4 Ω se conectan en paralelo a 12 V. Calcula la intensidad en cada una y la total.", "3 A en cada una; 9 A en total; R = 4/3 Ω."),
+    M("Compara el brillo de las bombillas en los dos ejercicios anteriores y explica qué ocurre si se funde una.", "En paralelo lucen más (más voltaje y corriente). En serie se apagan todas; en paralelo, las otras siguen."),
+    M("Calcula la resistencia equivalente de 6 Ω y 3 Ω en paralelo.", "1/R = 1/6 + 1/3 = 3/6 → R = 2 Ω."),
+    M("Una resistencia de 8 Ω y otra de 12 Ω están en serie con una pila de 10 V. Calcula la intensidad y el voltaje en cada una.", "R = 20 Ω; I = 0,5 A; V₁ = 4 V; V₂ = 6 V."),
+    M("Un secador de 230 V consume 8 A. Calcula su potencia y su resistencia.", "P = 1.840 W; R = 28,75 Ω."),
+    M("Un televisor de 120 W está 4 h al día encendido. ¿Cuánta energía consume en un mes de 30 días?", "0,12 kW · 4 h · 30 = 14,4 kWh."),
+    M("¿Por qué la instalación eléctrica de una casa está en paralelo?", "Para que todos los aparatos reciban 230 V y funcionen de forma independiente."),
+    M("Explica la diferencia entre el interruptor magnetotérmico y el diferencial.", "El magnetotérmico corta por sobrecarga o cortocircuito; el diferencial, por fuga de corriente (por ejemplo, a través de una persona)."),
+    M("Dibuja la gráfica I-V de una resistencia de 10 Ω entre 0 y 10 V.", "Una recta que pasa por el origen y por el punto (10 V, 1 A)."),
+    M("¿Por qué es más peligroso tocar un aparato eléctrico con las manos mojadas?", "Porque el agua reduce la resistencia del cuerpo, y con el mismo voltaje la intensidad que lo atraviesa es mucho mayor."),
+    M("¿Qué intensidad circula por una bombilla LED de 9 W conectada a 230 V?", "I = P / V = 9 / 230 ≈ 0,04 A."),
+    A("Una resistencia de 4 Ω está en serie con un grupo de dos resistencias de 6 Ω y 12 Ω en paralelo, todo conectado a 16 V. Calcula la resistencia total, la intensidad total y la intensidad en cada rama.", "Paralelo: 1/R = 1/6 + 1/12 → 4 Ω. Total 8 Ω. I = 2 A. Voltaje en el paralelo: 2 · 4 = 8 V. I(6 Ω) = 1,33 A; I(12 Ω) = 0,67 A."),
+    A("En un enchufe con ladrón (230 V) se conectan un calefactor de 2.000 W, una plancha de 1.500 W y un hervidor de 2.200 W. ¿Qué intensidad total circula? Si el enchufe aguanta 16 A, ¿es seguro?", "P = 5.700 W; I = 5.700 / 230 ≈ 24,8 A > 16 A. No es seguro: se calentaría el cable y saltaría el magnetotérmico."),
+    A("Una vivienda tiene contratados 4,6 kW. ¿Cuántos aparatos de 2.000 W puede usar a la vez? ¿Qué intensidad máxima permite?", "2 aparatos (4.000 W); el tercero lo superaría. I máx = 4.600 / 230 = 20 A."),
+    A("Calcula el ahorro anual de cambiar 8 bombillas halógenas de 50 W por LED de 6 W, encendidas 4 h al día, a 0,15 €/kWh.", "Ahorro de potencia: 8 · 44 = 352 W. Energía: 0,352 · 4 · 365 ≈ 514 kWh. Ahorro ≈ 77 € al año."),
+    A("Dos bombillas, A de 6 Ω y B de 12 Ω, se conectan en serie a 18 V. ¿Cuál brilla más? ¿Y si se conectan en paralelo?", "Serie: I = 1 A; P(A) = 6 W, P(B) = 12 W: brilla más B. Paralelo: P(A) = 18²/6 = 54 W; P(B) = 18²/12 = 27 W: brilla más A."),
+    A("Un cable de cobre de 10 m tiene 0,2 Ω. ¿Qué resistencia tendrá uno igual de 25 m? ¿Y uno de 10 m con el doble de sección?", "La resistencia es proporcional a la longitud: 0,5 Ω. Con el doble de sección, la mitad: 0,1 Ω."),
+    A("Una batería de móvil de 3,7 V almacena 4.000 mAh. ¿Cuánta energía guarda en julios y en Wh? Si el móvil consume 0,5 W de media, ¿cuánto dura la carga?", "Carga: 4 A · 3.600 s = 14.400 C. E = 3,7 · 14.400 ≈ 53.300 J = 14,8 Wh. Duración: 14,8 / 0,5 ≈ 30 h."),
+    A("Diseña un circuito para una habitación con una lámpara que se encienda desde dos interruptores distintos (en la puerta y en la cama). ¿Qué tipo de interruptor necesitas?", "Dos conmutadores conectados entre sí por dos cables; cualquiera de ellos cambia el estado de la lámpara."),
+    A("¿Por qué un pájaro posado en un cable de alta tensión no se electrocuta, y una persona que toca el cable desde una escalera sí?", "El pájaro solo toca un cable: entre sus patas no hay diferencia de potencial y no pasa corriente. La persona toca el cable y el suelo a la vez, cierra el circuito y la atraviesa la corriente."),
   ],
   quiz: [
-    { q: "La intensidad se mide en…", o: ["voltios", "amperios", "ohmios"], a: 1, e: "Amperios." },
-    { q: "El voltímetro se conecta…", o: ["en serie", "en paralelo", "sin conectar"], a: 1, e: "En paralelo." },
-    { q: "La resistencia se mide en…", o: ["ohmios", "vatios", "julios"], a: 0, e: "Ohmios." },
-    { q: "La ley de Ohm es…", o: ["V = I · R", "P = m · g", "I = V · R"], a: 0, e: "V = I · R." },
-    { q: "Con 12 V y 4 Ω, la intensidad es…", o: ["48 A", "3 A", "0,33 A"], a: 1, e: "12 / 4 = 3 A." },
-    { q: "En serie, la intensidad es…", o: ["la misma en todos", "distinta en cada uno", "cero"], a: 0, e: "La misma." },
-    { q: "En paralelo, el voltaje es…", o: ["el mismo en todas las ramas", "se reparte", "cero"], a: 0, e: "El mismo." },
-    { q: "Dos resistencias de 5 Ω en serie dan…", o: ["2,5 Ω", "10 Ω", "25 Ω"], a: 1, e: "Se suman: 10 Ω." },
-    { q: "La factura de la luz se cobra en…", o: ["kW", "kWh", "V"], a: 1, e: "kWh." },
-    { q: "El elemento que corta la corriente si hay una fuga es…", o: ["el diferencial", "la bombilla", "el cable"], a: 0, e: "El diferencial." },
+    q4("En un metal, la corriente eléctrica es un movimiento de…", ["protones", "electrones", "neutrones", "iones positivos"], 1, "Electrones libres."),
+    q4("La corriente de los enchufes de casa es…", ["continua", "alterna", "estática", "nula"], 1, "50 Hz."),
+    q4("El elemento que proporciona energía al circuito es el…", ["receptor", "generador", "interruptor", "fusible"], 1, "Pila o batería."),
+    q4("La intensidad se mide en…", ["voltios", "amperios", "ohmios", "vatios"], 1, "A."),
+    q4("El voltímetro se conecta…", ["en serie", "en paralelo", "sin circuito", "al generador solo"], 1, "En los extremos."),
+    q4("El amperímetro se conecta…", ["en serie", "en paralelo", "a tierra", "fuera del circuito"], 0, "Pasa toda la corriente."),
+    q4("La resistencia se mide en…", ["amperios", "ohmios", "julios", "culombios"], 1, "Ω."),
+    q4("Un cable más largo tiene…", ["menos resistencia", "más resistencia", "la misma", "ninguna"], 1, "Proporcional a la longitud."),
+    q4("La ley de Ohm es…", ["V = I / R", "I = V / R", "R = V · I", "P = V / I"], 1, "I = V / R."),
+    q4("Una resistencia de 10 Ω a 20 V deja pasar…", ["200 A", "2 A", "0,5 A", "30 A"], 1, "20 / 10."),
+    q4("En un circuito en serie, la intensidad es…", ["distinta en cada elemento", "igual en todos", "cero", "mayor en el último"], 1, "Un solo camino."),
+    q4("En un circuito en paralelo, el voltaje es…", ["igual en todos", "se reparte", "cero", "mayor en la primera rama"], 0, "El del generador."),
+    q4("Dos resistencias de 5 Ω en serie equivalen a…", ["2,5 Ω", "10 Ω", "5 Ω", "25 Ω"], 1, "Suma."),
+    q4("Dos resistencias de 10 Ω en paralelo equivalen a…", ["20 Ω", "5 Ω", "10 Ω", "100 Ω"], 1, "La mitad."),
+    q4("Si se funde una bombilla en un circuito en serie…", ["las demás lucen más", "se apagan todas", "no pasa nada", "lucen igual"], 1, "Se abre el circuito."),
+    q4("La potencia eléctrica se calcula con…", ["P = V / I", "P = V · I", "P = I / R", "P = R · t"], 1, "Voltaje por intensidad."),
+    q4("Un aparato de 230 V y 4 A tiene una potencia de…", ["57,5 W", "920 W", "234 W", "226 W"], 1, "230 · 4."),
+    q4("El efecto Joule consiste en…", ["producir luz", "producir calor al pasar corriente", "crear un campo magnético", "descomponer el agua"], 1, "Efecto térmico."),
+    q4("El interruptor diferencial protege frente a…", ["sobrecargas", "fugas de corriente", "subidas de tensión", "rayos"], 1, "Protege a las personas."),
+    q4("¿Qué norma de seguridad es correcta?", ["Desenchufar tirando del cable", "No tocar aparatos con las manos mojadas", "Usar muchos ladrones", "Tocar a un electrocutado"], 1, "El agua conduce."),
   ],
   examen: [
-    { q: "El calentamiento de un conductor por la corriente es el efecto…", o: ["Joule", "Ohm", "Volta"], a: 0, e: "Efecto Joule." },
-    { q: "La potencia eléctrica se calcula con…", o: ["P = V · I", "P = V / I", "P = I / V"], a: 0, e: "P = V · I." },
-    { q: "Si en serie una bombilla se funde…", o: ["las demás siguen", "se apagan todas", "lucen más"], a: 1, e: "Se abre el circuito." },
+    q4("Por un hilo pasan 120 C en 1 minuto. La intensidad es…", ["120 A", "2 A", "0,5 A", "60 A"], 1, "120 / 60."),
+    q4("¿Qué voltaje hace pasar 0,2 A por 50 Ω?", ["250 V", "10 V", "0,004 V", "50,2 V"], 1, "0,2 · 50."),
+    q4("Resistencias de 2, 4 y 6 Ω en serie a 24 V: la intensidad es…", ["2 A", "12 A", "4 A", "1 A"], 0, "24 / 12."),
+    q4("6 Ω y 3 Ω en paralelo equivalen a…", ["9 Ω", "2 Ω", "4,5 Ω", "18 Ω"], 1, "18 / 9."),
+    q4("En paralelo a 12 V, por una rama de 4 Ω pasan…", ["48 A", "3 A", "0,33 A", "16 A"], 1, "12 / 4."),
+    q4("Un calefactor de 2 kW durante 5 h consume…", ["10 kWh", "0,4 kWh", "2,5 kWh", "10.000 kWh"], 0, "2 · 5."),
+    q4("Si se duplica el voltaje en una resistencia fija, la intensidad…", ["se reduce a la mitad", "se duplica", "no cambia", "se cuadruplica"], 1, "Proporcional."),
+    q4("La instalación de una casa está en paralelo para que…", ["consuma menos", "todos los aparatos reciban 230 V y sean independientes", "la intensidad sea igual", "no haga falta interruptor"], 1, "Independencia."),
   ],
-  feynman: ["Qué son la intensidad, el voltaje y la resistencia, con la analogía del agua", "Cómo se usa la ley de Ohm", "Por qué en casa los aparatos van en paralelo"],
-  mapa: mapa("ELECTRICIDAD", "var(--eso)", [
-    ["Magnitudes", "I (A) · V (V) · R (Ω)", "var(--red)"],
-    ["Ley de Ohm", "V = I · R", "var(--pen)"],
-    ["Circuitos", "serie · paralelo · símbolos", "#b8860b"],
-    ["Energía", "P = V·I · E = P·t · seguridad", "var(--leaf)"],
-  ], 300),
+  feynman: ["Qué es la corriente eléctrica y qué hace falta para que circule", "Qué miden la intensidad, el voltaje y la resistencia", "Qué dice la ley de Ohm", "En qué se diferencian los circuitos en serie y en paralelo", "Cómo se calcula lo que gasta un aparato", "Qué protecciones tiene una instalación eléctrica y por qué"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Corriente eléctrica", "Flujo ordenado de cargas por un conductor."],
-    ["Intensidad", "Carga por segundo; amperios; amperímetro en serie."],
+    ["Corriente eléctrica", "Movimiento ordenado de cargas."],
+    ["Intensidad", "I = q / t; amperios; amperímetro en serie."],
     ["Voltaje", "Energía por unidad de carga; voltios; voltímetro en paralelo."],
-    ["Resistencia", "Oposición al paso de la corriente; ohmios."],
-    ["Ley de Ohm", "V = I · R."],
-    ["Serie", "Un camino; misma I; resistencias se suman."],
-    ["Paralelo", "Varias ramas; mismo V; funcionan por separado."],
-    ["Potencia", "P = V · I; vatios. Energía = P · t (kWh)."],
+    ["Resistencia", "Oposición al paso de corriente; ohmios."],
+    ["Ley de Ohm", "I = V / R."],
+    ["Serie", "R = R₁ + R₂; I igual; V se reparte."],
+    ["Paralelo", "1/R = 1/R₁ + 1/R₂; V igual; I se reparte."],
+    ["Potencia eléctrica", "P = V · I; vatios."],
+    ["Energía eléctrica", "E = P · t; kWh."],
+    ["Efecto Joule", "La corriente produce calor en una resistencia."],
+    ["Cortocircuito", "Unión directa de los polos sin receptor."],
+    ["Diferencial", "Corta la corriente si hay fugas."],
   ],
-  familias: ["Leed la potencia de cinco aparatos de casa y calculad cuánto cuesta usarlos una hora.", "Revisad juntos el cuadro eléctrico: localizad el diferencial y los automáticos.", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "La energía: electricidad, magnitudes eléctricas, ley de Ohm, circuitos en serie y en paralelo, potencia, consumo y seguridad eléctrica (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Montar circuitos en serie y en paralelo con pilas, portalámparas y polímetros.", "Simulador PhET de construcción de circuitos.", "Auditoría energética del aula con la potencia de los aparatos."],
+  glosario: [
+    ["Corriente eléctrica", "Movimiento ordenado de cargas eléctricas por un conductor."],
+    ["Circuito eléctrico", "Camino cerrado por el que circula la corriente."],
+    ["Generador", "Elemento que proporciona energía a las cargas."],
+    ["Receptor", "Elemento que transforma la energía eléctrica en otra forma."],
+    ["Corriente continua", "Corriente que circula siempre en el mismo sentido."],
+    ["Corriente alterna", "Corriente que cambia de sentido periódicamente."],
+    ["Intensidad", "Carga que atraviesa un conductor por unidad de tiempo."],
+    ["Amperio", "Unidad de intensidad de corriente."],
+    ["Voltaje", "Energía que recibe cada unidad de carga; diferencia de potencial."],
+    ["Voltio", "Unidad de voltaje."],
+    ["Resistencia", "Oposición de un material al paso de la corriente."],
+    ["Ohmio", "Unidad de resistencia eléctrica."],
+    ["Ley de Ohm", "Relación I = V / R entre intensidad, voltaje y resistencia."],
+    ["Circuito en serie", "Montaje en el que los receptores están uno tras otro."],
+    ["Circuito en paralelo", "Montaje en el que cada receptor está en una rama distinta."],
+    ["Polímetro", "Aparato que mide voltaje, intensidad y resistencia."],
+    ["Cortocircuito", "Conexión directa de los polos de un generador sin receptor."],
+    ["Efecto Joule", "Producción de calor al pasar corriente por una resistencia."],
+  ],
+  situacion: {
+    titulo: "La instalación eléctrica de una maqueta",
+    reto: "Vuestro equipo debe diseñar y montar la instalación eléctrica de una maqueta de vivienda de dos habitaciones, con iluminación, un ventilador y un timbre, cumpliendo criterios de seguridad y de ahorro.",
+    pasos: [
+      "Dibujad el esquema eléctrico con símbolos normalizados, decidiendo qué elementos van en serie y cuáles en paralelo.",
+      "Calculad con la ley de Ohm las intensidades previstas y comprobad que la pila y los cables las soportan.",
+      "Montad el circuito con portalámparas, LED, interruptores, un pequeño motor y un zumbador.",
+      "Medid con el polímetro voltajes e intensidades y comparadlos con vuestros cálculos.",
+      "Incorporad un elemento de protección (fusible) y explicad su función.",
+    ],
+    producto: "Una maqueta funcional con su esquema, la tabla de cálculos y mediciones, y una breve memoria técnica.",
+    evaluacion: ["El esquema es correcto y usa símbolos normalizados.", "Los cálculos con la ley de Ohm son correctos y coinciden con las medidas.", "La maqueta funciona y cumple las normas de seguridad.", "La memoria explica las decisiones de diseño."],
   },
-  fuentes: [RD, wiki("Ley de Ohm", "Ley_de_Ohm"), wiki("Circuito eléctrico", "Circuito_el%C3%A9ctrico")],
-  revisado: "2026-11-12",
+  familias: [
+    "Mirad juntos el cuadro eléctrico de casa e identificad el interruptor general, el diferencial y los magnetotérmicos.",
+    "Leed la potencia en las etiquetas de los electrodomésticos y calculad cuánto gasta cada uno al mes.",
+    "Revisad los enchufes: ¿hay ladrones sobrecargados o cables dañados?",
+    "Construid un circuito sencillo con una pila de petaca, cables y una bombilla o LED.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La energía»: la electricidad, magnitudes eléctricas (intensidad, voltaje y resistencia), ley de Ohm, circuitos en serie y en paralelo, potencia y energía eléctrica, efectos de la corriente, consumo responsable y seguridad eléctrica.`,
+    ideas: [
+      "Montaje de circuitos en serie y en paralelo con pilas, bombillas y polímetro.",
+      "Comprobación experimental de la ley de Ohm y gráfica I-V.",
+      "Simulador gratuito de circuitos (PhET) para explorar casos peligrosos sin riesgo.",
+      "Cálculo de la factura eléctrica de casa a partir de las potencias de los aparatos.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Ley de Ohm", "Ley_de_Ohm"),
+    wiki("Circuito eléctrico", "Circuito_el%C3%A9ctrico"),
+    { t: "PhET (Universidad de Colorado): kit de construcción de circuitos", url: "https://phet.colorado.edu/es/" },
+  ],
+  revisado: "2026-11-13",
 };
