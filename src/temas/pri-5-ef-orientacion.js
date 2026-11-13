@@ -19,7 +19,7 @@ module.exports = {
     {
       html: `<h3>¿Qué es orientarse?</h3><p><mark>Orientarse</mark> es saber dónde estamos y en qué dirección tenemos que movernos para llegar a un lugar. La palabra viene de «oriente», el lugar por donde sale el Sol: antiguamente, para orientarse, la gente buscaba primero el oriente.</p><p>Para orientarnos usamos los <mark>puntos cardinales</mark>:</p><p>• <b>Norte (N)</b><br>• <b>Sur (S)</b><br>• <b>Este (E)</b>, también llamado oriente o levante.<br>• <b>Oeste (O)</b>, también llamado occidente o poniente.</p><p>Entre ellos están los puntos intermedios: noreste (NE), sureste (SE), suroeste (SO) y noroeste (NO). Todos juntos forman la <b>rosa de los vientos</b>, que aparece en mapas y brújulas.</p><p>Un truco para recordarlos: si te pones de pie con el brazo derecho señalando por donde sale el sol (el este), delante de ti tienes el <b>norte</b>, detrás el <b>sur</b> y a tu izquierda el <b>oeste</b>.</p><p>Orientarse es útil en muchas situaciones: excursiones, viajes, ciudades desconocidas... y es la base de un deporte divertido: la <b>carrera de orientación</b>.</p>`,
       svg: svg("Rosa de los vientos con norte, sur, este y oeste", `${tit("Puntos cardinales")}${rosa(80, 100, 40)}${filas([["N", "norte", COL.rojo], ["S", "sur", COL.azul], ["E", "este: amanece", COL.naranja], ["O", "oeste: atardece", COL.morado]], 58, 28, { x: 146, wa: 22, wb: 104 })}`),
-      video: vid("QNRl73IDmPY"),
+      video: vid("3lNLvuOo18s"),
     },
     {
       html: `<h3>Orientarse con el sol y las estrellas</h3><p>Antes de existir las brújulas y el GPS, las personas se orientaban mirando el cielo.</p><p><b>De día, con el sol</b>:</p><p>• El sol <b>sale por el este</b> por la mañana y <b>se pone por el oeste</b> por la tarde. En realidad, es la Tierra la que gira.<br>• A <b>mediodía</b> (en España, hacia las 14:00 en verano y las 13:00 en invierno), en el hemisferio norte el sol está en dirección <b>sur</b>. Por eso, a esa hora, nuestra sombra apunta hacia el <b>norte</b>.<br>• Puedes hacer un <b>reloj de sombras</b>: clava un palo en el suelo, marca dónde acaba su sombra, espera 15–20 minutos y marca de nuevo. La línea que une la primera marca con la segunda va, aproximadamente, de oeste a este.</p><p><b>De noche, con las estrellas</b>:</p><p>• En el hemisferio norte, la <mark>estrella Polar</mark> indica siempre el <b>norte</b>, porque está casi justo encima del Polo Norte y apenas se mueve en el cielo.<br>• Para encontrarla, busca la <b>Osa Mayor</b> (o «el Carro»): siete estrellas brillantes con forma de cazo. Prolonga unas cinco veces la distancia entre las dos estrellas del borde del cazo y llegarás a la estrella Polar.</p><p>Otras pistas, como que el musgo crece en la cara norte de los árboles, <b>no son fiables</b>: el musgo crece donde hay más humedad y sombra, que puede ser cualquier lado.</p>`,
@@ -69,7 +69,7 @@ module.exports = {
       ["Si me pierdo", "parar y 112", COL.agua],
     ], 4, 86, "Resumen de la orientación en la naturaleza"),
   },
-  video: vgen("QNRl73IDmPY", "orientación deportiva para niños mapa brújula"),
+  video: vgen("3lNLvuOo18s", "orientación deportiva para niños mapa brújula"),
   ejemplos: [
     { enunciado: "Son las 9 de la mañana y el sol está a tu derecha. ¿Hacia dónde miras?",
       pasos: ["Por la mañana el sol está hacia el este.", "Si el este está a tu derecha, tienes delante el norte."],
