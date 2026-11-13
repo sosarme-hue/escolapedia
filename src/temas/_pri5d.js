@@ -118,7 +118,7 @@ const flauta = (x, y0, tapados, c = AZ, nombre = "") => {
 // Varias posiciones de flauta: [[nota, tapados, color]].
 const flautas = (label, notas, o = {}) => {
   const w = 240 / notas.length;
-  return svg(label, notas.map(([n, k, c], i) => flauta(10 + w * (i + 0.5) + 4, 14, k, c, n)).join("") + tx(16, 52, "pulgar", { s: 8.5, a: "start", c: "var(--muted)" }) + (o.extra || ""));
+  return svg(label, notas.map(([n, k, c], i) => flauta(10 + w * (i + 0.5) + 4, 14, k, c, n)).join("") + (o.extra || ""));
 };
 
 // Teclado de piano de una octava (do a si) con marcas: { do: color, "do#": color }.
