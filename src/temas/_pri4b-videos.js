@@ -4,32 +4,32 @@ module.exports = {
   "N3lSG-10M3A": ["Funciones vitales de los seres vivos. Nutrición, relación y reproducción. PequesAprendenJugando", "Peques Aprenden Jugando", 183393], // cn-seres-vivos-celula
   "zWb9uStf6tI": ["🌐Células Procariotas y Eucariotas🌿🐱  | [Fácil y Rápido] | BIOLOGÍA |", "A Cierta Ciencia", 2280489], // cn-seres-vivos-celula
   "VuTis6DmIME": ["LA NUTRICIÓN | Videos Educativos para niños", "Happy Learning Español", 849578], // cn-nutricion
-  "nj168qvxJzg": ["La Eduteca - La función de nutrición", "La Eduteca", 1783792], // cn-nutricion
+  "oSgqvE_1pRM": ["CLASIFICACIÓN DE LOS ALIMENTOS SEGÚN SU FUNCIÓN  /APRENDE EN CASA", "DETODOCURIOSO", 804359], // cn-nutricion
   "i9WV6oRGgoA": ["LOS NUTRIENTES | Videos Educativos para niños", "Happy Learning Español", 769647], // cn-nutricion
-  "_jbw0FxnaQE": ["El sistema digestivo del cuerpo humano para niños - Smile and Learn", "Smile and Learn - Español", 7893970], // cn-digestivo-respiratorio
+  "LNzUhQLig6o": ["¿Cómo funciona el sistema digestivo? (animación)", "Thomas Schwenke ES", 3063690], // cn-digestivo-respiratorio
   "H19lcJcX7FE": ["El sistema digestivo para niños. Video del aparato digestivo y sus partes. De PequesAprendenJugando", "Peques Aprenden Jugando", 947054], // cn-digestivo-respiratorio
-  "tMLFFKof29o": ["EL APARATO RESPIRATORIO | Videos Educativos para Niños", "Happy Learning Español", 1900060], // cn-digestivo-respiratorio
-  "ZzATGDMNKYw": ["El sistema circulatorio del cuerpo humano para niños - Smile and Learn", "Smile and Learn - Español", 8229681], // cn-circulacion-excrecion
+  "JaISgsXU_a4": ["El SISTEMA RESPIRATORIO | Drawing About con @GlóbuloAzul", "TikTak Draw", 2159801], // cn-digestivo-respiratorio
+  "gzgqBCvSA1Y": ["LA SANGRE Y EL SISTEMA CIRCULATORIO | Videos Educativos para Niños", "Happy Learning Español", 2014551], // cn-circulacion-excrecion
   "WN6sAN2hcFM": ["EL CORAZÓN HUMANO | Vídeos Educativos para Niños", "Happy Learning Español", 2176006], // cn-circulacion-excrecion
-  "IHsfVmGeet8": ["¿Cómo funciona el Sistema Excretor? | Videos Educativos Aula365", "FlexFlix Kids en Español", 1632347], // cn-circulacion-excrecion
-  "uQo9wZS2BC0": ["Animales Vertebrados | Videos Educativos para Niños", "Happy Learning Español", 2298428], // cn-vertebrados
+  "VhF3mreqUQc": ["EL APARATO EXCRETOR | Videos Educativos para Niños", "Happy Learning Español", 553768], // cn-circulacion-excrecion
+  "eUt7455Mi8s": ["LOS ANIMALES VERTEBRADOS | Videos Educativos para Niños", "Happy Learning Español", 573472], // cn-vertebrados
   "i2pYf03Trnw": ["🐅 Los mamíferos | Videos Educativos para Niños de PRIMARIA | Ciencias Naturales | @HappyLearningES", "Happy Learning Español", 1225113], // cn-vertebrados
   "UcGKVBYM5d0": ["REPRODUCCIÓN de los ANIMALES 🐶🐦 SEXUAL Y ASEXUAL 🥚🤰🏻 OVÍPAROS, VIVÍPAROS Y OVOVIVÍPAROS", "Smile and Learn - Español", 2574225], // cn-vertebrados
-  "WB4h351Oxaw": ["Animales Invertebrados para Niños: Clasificación de los Animales (Videos Educativos para Niños)", "Mundo Divertido de Niños", 2339248], // cn-invertebrados
+  "rzxFTrktN1c": ["Animales invertebrados | Vídeo educativo para niños", "Happy Learning English", 3004126], // cn-invertebrados
   "UWUTC6yRXo8": ["Los artrópodos para niños - Animales invertebrados - Ciencias naturales para niños", "Smile and Learn - Español", 1393169], // cn-invertebrados
   "1Mo7uRIco44": ["Los moluscos para niños - Animales invertebrados - Ciencias naturales para niños", "Smile and Learn - Español", 967682], // cn-invertebrados
   "gLJS8p8HnSY": ["La PLANTA y sus PARTES para niños 🌼 🌷 🌱 🌲 | Función de las plantas", "El Club de Motas", 882732], // cn-plantas
   "QThutHjxsUs": ["FOTOSÍNTESIS: Cómo las Plantas Producen Su Alimento |Ciencia Divertida para Niños | Happy Learning 📚", "Happy Learning Español", 383036], // cn-plantas
-  "89NwOC1KFCA": ["Las Plantas | Reproducción | Aula chachi - Vídeos educativos para niños", "Aula chachi", 905488], // cn-plantas
-  "_U4dv3KwQic": ["¿Qué son Los Ecosistemas? (Videos Educativos para Niños)", "Mundo Divertido de Niños", 1938353], // cn-ecosistemas
-  "LtDpx5HCG_Y": ["¿Qué es la Cadena Alimenticia? | Videos Educativos Aula365", "FlexFlix Kids en Español", 3679410], // cn-ecosistemas
+  "W9OiGA5_mVs": ["Reproducción sexual de las plantas | Vídeo educativo para niños", "Happy Learning English", 644779], // cn-plantas
+  "SsRdLoYOMQA": ["¡Aprende sobre los Ecosistemas! 🌍🐾 | Vídeos Educativos para Niños | @HappyLearningES", "Happy Learning Español", 194062], // cn-ecosistemas
+  "ZPyEYNpAXXY": ["🙊QUÉ ES LA CADENA ALIMENTICIA y CÓMO FUNCIONA🦄 | Explicación SENCILLA 🤓/VideoS EducativoS", "Pase de lista", 742147], // cn-ecosistemas
   "yOMsTJNVZq0": ["HÁBITATS TERRESTRES y ACUÁTICOS para niños 🌲💧 Desierto, selva, ríos, océanos... 🌄🌊 Recopilación", "Smile and Learn - Español", 425227], // cn-ecosistemas
   "L3fmJrr72fk": ["😎 La MATERIA y sus PROPIEDADES para NIÑOS de PRIMARIA", "Clases Particulares en Ávila", 307686], // cn-materia
   "lXwWkh_8Stc": ["Masa y volumen | Propiedades de los materiales", "Escuela de Aprendices", 717000], // cn-materia
-  "fxDKpEYAoSE": ["Estados de la materia para niños - ¿Cuáles son los estados de la materia? Sólido, Líquido y Gaseoso", "Smile and Learn - Español", 2991172], // cn-materia
+  "ZdPhmPNgiEw": ["Los Estados de la materia y los cambios de los estados de la materia - Solido, líquido y gaseoso", "Smile and Learn - Español", 2056908], // cn-materia
   "eGS0ZHEPlEM": ["¿QUÉ ES LA FUERZA? | Videos Educativos para Niños", "Happy Learning Español", 920429], // cn-fuerzas-maquinas
   "wh-pKrArCKs": ["Las Fuerzas | Definición y Tipos | Aula chachi - Vídeos educativos para niños", "Aula chachi", 796662], // cn-fuerzas-maquinas
-  "lsWuFiDUMso": ["¿Cómo Funcionan las Palancas? | Videos Educativos para Niños", "FlexFlix Kids en Español", 449947], // cn-fuerzas-maquinas
+  "8gpl_2cDEuY": ["Como Hacer PALANCA (Maquina Simple)", "ProyectosFaciles", 745018], // cn-fuerzas-maquinas
   "ZykXgSqet6A": ["El Sistema Solar | Videos Educativos para Niños  | Happy Learning", "Happy Learning Español", 22570553], // cs-universo-sistema-solar
   "UymxMp7j7Ps": ["Las Estrellas, las Galaxias y la Vía Láctea | Videos Educativos Aula365", "FlexFlix Kids en Español", 1401356], // cs-universo-sistema-solar
   "FsRAB3UCDU0": ["El Sistema Solar en 3D para niños - Vídeos educativos", "Smile and Learn - Español", 2427210], // cs-universo-sistema-solar
@@ -45,20 +45,20 @@ module.exports = {
   "zVPFr47Hbmc": ["Los ríos de ESPAÑA para niños ✔👩‍🏫 PRIMARIA", "La BiBlioTHeKa", 43342], // cs-rios-espana
   "DMTLtpG8LV4": ["Las PARTES de un RÍO  para NIÑOS ✔👩‍🏫 PRIMARIA", "La BiBlioTHeKa", 89229], // cs-rios-espana
   "3flu7QerH2A": ["🗺️ Los RÍOS de ESPAÑA y sus VERTIENTES | Vídeos Educativos para Niños de PRIMARIA | @HappyLearningES", "Happy Learning Español", 17363], // cs-rios-espana
-  "Hu0U-odsG7A": ["La Población | Aula chachi - Vídeos educativos para niños", "Aula chachi", 178124], // cs-poblacion-municipios
+  "SFqJX31ye0w": ["LOS SERVICIOS PÚBLICOS | CURIOSIDADES PARA NIÑOS | Happy Learning 🏥🚓🧑🏽‍🚒🚍🏥📚", "Happy Learning Español", 111816], // cs-poblacion-municipios
   "UCcXBDxZTYM": ["El Ayuntamiento | Aula chachi - Vídeos educativos para niños", "Aula chachi", 148828], // cs-poblacion-municipios
   "it__vYEABlY": ["El campo y la ciudad (Rural y Urbano)/ Profe Ángel", "Profe Ángel ", 572143], // cs-poblacion-municipios
   "w7cLYHmyZG0": ["🌍 Cómo APRENDERSE las COMUNIDADES AUTÓNOMAS y las PROVINCIAS de ESPAÑA", "Clases Particulares en Ávila", 207114], // cs-organizacion-territorial
-  "J1T0NLXcDyM": ["La CONSTITUCIÓN ESPAÑOLA explicada de MANERA SENCILLA - Resumen de historia ⚔🏰", "MaestraSuperIsa", 231898], // cs-organizacion-territorial
+  "cWojVKR2Ing": ["✅✅✅ PROVINCIAS, comunidades y capitales de ESPAÑA ✅✅✅ Mapa político de España", "Daniel Geohistoria", 2806881], // cs-organizacion-territorial
   "Md5-ANncZpM": ["Aprender español: Comunidades autónomas de España (nivel básico)", "Tu escuela de español", 2841553], // cs-organizacion-territorial
-  "Sw-SO3WTxAc": ["LA PREHISTORIA PARA NIÑOS | Vídeos Educativos para Niños de Primaria | Happy Learning", "Happy Learning Español", 11350831], // cs-prehistoria
+  "XQrZ7giSLxI": ["La Prehistoria - 5 cosas que deberías saber - Historia para niños", "Smile and Learn - Español", 957028], // cs-prehistoria
   "HGoK_cWIMH4": ["El Paleolítico | Videos Educativos para Niños", "Happy Learning Español", 2073098], // cs-prehistoria
-  "LBi2KLq8Fgs": ["El Neolítico. Vídeos educativos para niños", "Happy Learning Español", 1616053], // cs-prehistoria
+  "OR1p2xgNptM": ["El neolítico - 5 cosas que deberías saber - Historia para niños", "Smile and Learn - Español", 579407], // cs-prehistoria
   "Pvmh760AhAA": ["La Eduteca - Momentos de la historia: La Edad Antigua: los íberos, los celtas y otros pueblos", "La Eduteca", 618789], // cs-hispania-romana
-  "ufEclRGXV6k": ["EL IMPERIO ROMANO | Vídeos Educativos para Niños", "Happy Learning Español", 3770065], // cs-hispania-romana
-  "nf5qP4BG9Zk": ["Una romana en Hispania 🏺 LA HISTORIA TIENE VOZ 🔊​  Podcast de Historia para niños 🎙️ Episodio 3", "Smile and Learn - Español", 86261], // cs-hispania-romana
+  "iE5U8luNEfU": ["CURIOSIDADES DE LA ANTIGUA ROMA | Vídeos Educativos para Niños", "Happy Learning Español", 250414], // cs-hispania-romana
+  "ja5Kqn2Ab7I": ["La EDAD ANTIGUA  𝖊𝖌𝖎𝖕𝖈𝖎𝖔𝖘, 𝖌𝖗𝖎𝖊𝖌𝖔𝖘 𝖞 𝖗𝖔𝖒𝖆𝖓𝖔𝖘. Para niños de primaria. Historia antigua.", "soy Alba", 113907], // cs-hispania-romana
   "3kQoewZgf-U": ["LA EDAD MEDIA | Vídeos Educativos para niños", "Happy Learning Español", 923496], // cs-edad-media
-  "2cVgqOqGkWU": ["🏰 AL ANDALUS resumen para NIÑOS", "Clases Particulares en Ávila", 293882], // cs-edad-media
+  "ORNTC9GB7_Y": ["🇪🇸 Al Andalus [711 - 1492]🌐 HISTORIA de ESPAÑA", "A toda leche", 388730], // cs-edad-media
   "EBJOFF4JDaI": ["🏰 EDAD MEDIA PARA NIÑOS ⚔️ Reyes, castillos, caballeros y aldeas medievales 👑", "Smile and Learn - Español", 89735], // cs-edad-media
   "BC9MJrmM1h4": ["Los JUEGOS más Divertidos para trabajar el “ESQUEMA CORPORAL” en niños de PRIMARIA [Educa. Fisica]‼️", "El Profe Geo", 175414], // ef-esquema-corporal
   "jfZ-NX18BKU": ["7 ACTIVIDADES DE LATERALIDAD / ORIENTACIÓN ESPACIAL", "Power Kids", 609586], // ef-esquema-corporal
@@ -81,7 +81,7 @@ module.exports = {
   "dLRF-C7MCl0": ["EXPRESIÓN CORPORAL PARA NIÑOS", "Santiago López ", 127730], // ef-expresion-corporal
   "qBZSlGo4N1k": ["Las emociones básicas para niños - Alegría, tristeza, miedo, ira, asco y sorpresa", "Smile and Learn - Español", 15860495], // ef-expresion-corporal
   "dKfbBVEDM7A": ["Expresión corporal: Cuento ¨La Mariposa¨", "Alicia Álvarez", 147173], // ef-expresion-corporal
-  "PJSuRsQ4uzs": ["💪 Importancia de la ACTIVIDAD FÍSICA para niños 🏀 ¡Muévete y cuida tu cuerpo! 🚶‍♀️", "Smile and Learn - Español", 164176], // ef-habitos-saludables
+  "qELDncaLfjo": ["La importancia de la actividad física", "Clío Niños", 540952], // ef-habitos-saludables
   "PSw6wj2ppGk": ["Higiene corporal para niños - Hábitos de higiene - La ducha, lavado de manos, dientes y cara", "Smile and Learn - Español", 2999486], // ef-habitos-saludables
   "QUlLt-r0j1o": ["¿Cómo deben llevar los niños correctamente la mochila para evitar dolores de espalda?", "Hospital Sant Joan de Déu Barcelona", 55596], // ef-habitos-saludables
 };

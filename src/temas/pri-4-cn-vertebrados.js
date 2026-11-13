@@ -64,7 +64,7 @@ module.exports = {
       ["Nacimiento", "vivíparo u ovíparo", COL.morado],
     ], 4, 86, "Resumen de los animales vertebrados"),
   },
-  video: vgen("uQo9wZS2BC0", "animales vertebrados para niños"),
+  video: vgen("eUt7455Mi8s", "animales vertebrados para niños"),
   ejemplos: [
     { enunciado: "Clasifica el delfín.",
       pasos: ["Vive en el mar y tiene aletas, pero eso no basta.", "Respira por pulmones: sube a tomar aire.", "Sus crías nacen del vientre y maman leche."],

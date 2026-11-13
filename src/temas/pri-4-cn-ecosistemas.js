@@ -28,7 +28,7 @@ module.exports = {
     {
       html: `<h3>Las cadenas alimentarias</h3><p>Una <mark>cadena alimentaria</mark> muestra <b>quién se come a quién</b> en un ecosistema. Se dibuja con <b>flechas</b> que van desde el ser vivo que es comido hasta el que se lo come. Así:</p><p><b>hierba → conejo → zorro</b></p><p>Se lee: «la hierba es comida por el conejo, y el conejo es comido por el zorro». La flecha indica hacia dónde pasa el alimento.</p><p>Toda cadena alimentaria <b>empieza siempre por un productor</b>, porque es el único que fabrica alimento. Después vienen los consumidores. Cada paso de la cadena se llama <b>eslabón</b>.</p><p>Otros ejemplos:</p><p>• En un río: algas → pulga de agua → trucha → nutria.<br>• En un prado: trigo → ratón → culebra → águila.<br>• En el mar: algas microscópicas → pequeños crustáceos → sardina → atún.</p><p>En la naturaleza, cada animal suele comer varias cosas y servir de alimento a varios otros. Si juntamos todas las cadenas de un ecosistema, se forma una <b>red alimentaria</b>, como una telaraña de relaciones.</p>`,
       svg: svg("Cadena alimentaria: hierba, conejo, zorro, con flechas", `${tit("Una cadena alimentaria")}${flujo([["hierba", COL.verde], ["conejo", COL.marron], ["zorro", COL.naranja]], 56, 40)}${tx(130, 120, "la flecha va del comido al que come", 236, { weight: 700 })}${et(42, 144, "productor", 80, { size: 10.5, color: COL.verde })}${et(130, 144, "herbívoro", 80, { size: 10.5, color: COL.marron })}${et(218, 144, "carnívoro", 80, { size: 10.5, color: COL.naranja })}`),
-      video: vid("LtDpx5HCG_Y"),
+      video: vid("ZPyEYNpAXXY"),
     },
     {
       html: `<h3>Otras relaciones entre seres vivos</h3><p>Además de comerse unos a otros, los seres vivos se relacionan de otras maneras.</p><p>Entre individuos de la <b>misma especie</b>:</p><p>• Algunos viven en <b>familia</b>: los pájaros cuidan juntos a sus polluelos.<br>• Otros forman <b>grupos</b>: los lobos viven en manadas, los peces en bancos y los ciervos en rebaños, para defenderse o cazar mejor.<br>• Otros forman <b>sociedades</b> con reparto de tareas, como las abejas y las hormigas.<br>• También <b>compiten</b> por el alimento, el territorio o la pareja.</p><p>Entre <b>especies distintas</b>:</p><p>• <b>Depredación</b>: un animal caza a otro. El búho caza ratones.<br>• <b>Parasitismo</b>: un ser vive a costa de otro y lo perjudica. La pulga en un perro.<br>• <b>Mutualismo</b>: las dos especies salen ganando. La abeja toma néctar de la flor y la poliniza.<br>• <b>Comensalismo</b>: una especie se beneficia y a la otra no le afecta. Un pájaro que hace su nido en un árbol.<br>• <b>Competencia</b>: dos especies necesitan lo mismo. El zorro y el águila cazan conejos.</p>`,
@@ -65,7 +65,7 @@ module.exports = {
       ["Proteger", "parques y 3 erres", COL.azul],
     ], 4, 86, "Resumen de los ecosistemas"),
   },
-  video: vgen("_U4dv3KwQic", "los ecosistemas para niños primaria"),
+  video: vgen("SsRdLoYOMQA", "los ecosistemas para niños primaria"),
   ejemplos: [
     { enunciado: "En un bosque hay: suelo, encina, ciervo, lluvia, lobo, seta, roca. Separa medio físico y seres vivos.",
       pasos: ["Medio físico: lo que no tiene vida.", "Seres vivos: plantas, animales, hongos."],

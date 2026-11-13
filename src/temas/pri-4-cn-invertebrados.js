@@ -68,7 +68,7 @@ module.exports = {
       ["Insectos", "6 patas, metamorfosis", COL.agua],
     ], 4, 86, "Resumen de los animales invertebrados"),
   },
-  video: vgen("WB4h351Oxaw", "animales invertebrados para niños"),
+  video: vgen("rzxFTrktN1c", "animales invertebrados para niños"),
   ejemplos: [
     { enunciado: "Un animal tiene 8 patas, no tiene antenas y teje una red. ¿Qué es?",
       pasos: ["Patas articuladas y exoesqueleto: artrópodo.", "Ocho patas y sin antenas: arácnido.", "Teje telarañas: araña."],

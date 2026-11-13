@@ -37,7 +37,7 @@ module.exports = {
     {
       html: `<h3>El aparato excretor</h3><p>Al trabajar, las células producen <b>desechos</b> que pasan a la sangre. Si se acumularan, serían tóxicos. Eliminarlos es la <mark>excreción</mark>, y en ella participan varios órganos:</p><p>• Los <b>pulmones</b> expulsan el dióxido de carbono.<br>• La <b>piel</b> elimina agua y sales con el <b>sudor</b>, gracias a las glándulas sudoríparas. El sudor, además, nos refresca cuando hace calor.<br>• El <mark>aparato urinario</mark>, el más importante, elimina los desechos disueltos en la <b>orina</b>.</p><p>El aparato urinario está formado por:</p><p>• Dos <mark>riñones</mark>, con forma de judía y del tamaño de un puño, situados a ambos lados de la columna, a la altura de la cintura, en la espalda.<br>• Dos <b>uréteres</b>, unos tubos finos que bajan de cada riñón.<br>• La <b>vejiga</b>, una bolsa elástica que almacena la orina.<br>• La <b>uretra</b>, el conducto por el que la orina sale al exterior.</p><p>Fíjate en la diferencia: las <b>heces</b> son restos de comida que nunca llegaron a entrar en la sangre; la <b>orina</b> sí sale de la sangre.</p>`,
       svg: svg("Aparato urinario: riñones, uréteres, vejiga y uretra", `${tit("Aparato urinario")}<path d="M60 64 q-22 0 -22 24 q0 24 22 22 q-8 -12 0 -22 q-8 -12 0 -24z" fill="${COL.rojo}" fill-opacity=".55"/><path d="M128 64 q22 0 22 24 q0 24 -22 22 q8 -12 0 -22 q8 -12 0 -24z" fill="${COL.rojo}" fill-opacity=".55"/><path d="M62 98 Q80 120 86 140 M126 98 Q108 120 102 140" stroke="${COL.sol}" stroke-width="3" fill="none"/><ellipse cx="94" cy="148" rx="16" ry="12" fill="${COL.sol}" fill-opacity=".55"/><path d="M94 160 V174" stroke="${COL.sol}" stroke-width="3"/>${filas([["riñones", "filtran", COL.rojo], ["uréteres", "bajan la orina", COL.sol], ["vejiga", "la guarda", COL.naranja], ["uretra", "la expulsa", COL.marron]], 56, 30, { x: 172, wa: 74, wb: 74, dos: true })}`),
-      video: vid("IHsfVmGeet8"),
+      video: vid("VhF3mreqUQc"),
     },
     {
       html: `<h3>Cómo se forma la orina</h3><p>Los <b>riñones</b> funcionan como un <b>filtro</b> o un colador muy fino. Toda la sangre del cuerpo pasa por ellos muchas veces al día, unas 300 veces.</p><p>Dentro de cada riñón hay alrededor de un millón de diminutas unidades de filtrado. Allí la sangre se <b>limpia</b>: se separan el agua sobrante, las sales y los desechos, como la <b>urea</b>, y se forma la <mark>orina</mark>. Las sustancias útiles, como la mayor parte del agua y los nutrientes, vuelven a la sangre.</p><p>La orina baja gota a gota por los uréteres hasta la <b>vejiga</b>. Cuando la vejiga se llena, notamos ganas de orinar y la vaciamos a través de la uretra. Una persona produce entre 1 y 2 litros de orina al día.</p><p>El color de la orina da pistas: si es de color <b>amarillo claro</b>, estás bien hidratado; si es muy oscura, necesitas <b>beber más agua</b>.</p><p>Una persona puede vivir con un solo riñón sano. Cuando los dos fallan, se usa una máquina de <b>diálisis</b> que limpia la sangre, o se hace un <b>trasplante</b> gracias a un donante.</p>`,
@@ -65,7 +65,7 @@ module.exports = {
       ["Riñones", "filtran: orina", COL.sol],
     ], 4, 86, "Resumen de la circulación y la excreción"),
   },
-  video: vgen("ZzATGDMNKYw", "aparato circulatorio para niños"),
+  video: vgen("gzgqBCvSA1Y", "aparato circulatorio para niños"),
   ejemplos: [
     { enunciado: "En 15 segundos cuentas 21 latidos. ¿Cuántos latidos por minuto tienes?",
       pasos: ["Un minuto son 4 veces 15 segundos.", "21 × 4 = 84."],
