@@ -37,7 +37,7 @@ module.exports = tema({
     {
       html: `<h3>El ciclo del agua</h3><p>El agua de la Tierra <mark>da vueltas sin parar</mark>. El sol calienta el agua del mar y se <b>evapora</b>.</p><p>Arriba hace frío y el vapor se <b>condensa</b> en gotitas que forman las <b>nubes</b>. Cuando las gotas pesan, caen como <b>lluvia</b> o nieve. El agua llega a los ríos, que la llevan otra vez al mar. ¡Y vuelta a empezar!</p>`,
       svg: svg("El ciclo del agua: el sol evapora el mar, se forman nubes, llueve y el río vuelve al mar", `${sol(30, 30, 12)}${mar(130, 40)}${monte(60, 136, 100, 60)}${nube(170, 34, 1.1)}${lluvia(80, 54, 4)}<path d="M200 118 V70" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 4"/>${flechaR(214, 118, 214, 70, "var(--red)")}${flechaR(140, 34, 104, 34, "var(--muted)")}<path d="M76 136 q20 -2 40 4" stroke="var(--water)" stroke-width="4" fill="none"/>${txt(234, 96, "sube", "var(--red)", 11)}${txt(60, 76, "llueve", "var(--water)", 11)}`),
-      video: V("76dw3ZRFGNQ"),
+      video: V("AUGKRQpkGkY"),
     },
     {
       html: `<h3>Agua para vivir</h3><p>Sin agua <mark>no hay vida</mark>. Las personas necesitamos beber agua todos los días. Las plantas la toman de la tierra y los animales beben en ríos y charcas.</p><p>También usamos el agua para <b>lavarnos</b>, cocinar, limpiar y regar los campos. El agua que sale del grifo llega por tuberías y antes la han <b>limpiado</b> para que sea potable.</p>`,
@@ -64,7 +64,7 @@ module.exports = tema({
       ${[["Sólido", "hielo", 110], ["Líquido", "agua", 320], ["Gaseoso", "vapor", 540]].map(([t, d, x]) => rot(x, 222, t, { size: 22, color: "var(--pen)", w: 800 }) + rot(x, 246, d, { size: 15, color: "var(--muted)" })).join("")}
     </svg>`,
   },
-  video: V("JXv643OKCB4", "estados del agua para niños"),
+  video: V("c4nhGai4TFs", "estados del agua para niños"),
   ejemplos: [
     { enunciado: "Un polo se derrite en la mano. ¿Qué cambio de estado es?", pasos: ["El polo es hielo: agua sólida.", "La mano está caliente y le da calor.", "Pasa de sólido a líquido."], resultado: "se funde (se derrite)." },
     { enunciado: "La ropa mojada se seca en el tendedero. ¿A dónde va el agua?", pasos: ["El sol y el aire calientan la ropa.", "El agua líquida se convierte en vapor.", "El vapor se va al aire."], resultado: "se evapora y se va al aire." },

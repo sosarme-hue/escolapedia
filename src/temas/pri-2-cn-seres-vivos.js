@@ -57,7 +57,7 @@ module.exports = tema({
       ${manzanaF(110, 110)}${oreja(320, 110)}${huevo(510, 116, 2)}${huevo(552, 116, 2)}
     </svg>`,
   },
-  video: V("Ex6HZEHXOYk", "seres vivos y no vivos para niños"),
+  video: V("l7kJSQcrd4E", "seres vivos y no vivos para niños"),
   ejemplos: [
     { enunciado: "¿Una flor es un ser vivo?", pasos: ["¿Ha nacido? Sí, de una semilla.", "¿Se alimenta? Sí, con agua, aire y luz.", "¿Crece? Sí, cada día un poco."], resultado: "la flor es un ser vivo." },
     { enunciado: "¿Un robot que anda es un ser vivo?", pasos: ["¿Ha nacido? No, lo fabricaron.", "¿Se alimenta? No, usa pilas.", "¿Crece? No, siempre mide lo mismo."], resultado: "el robot es inerte, aunque se mueva." },

@@ -68,7 +68,7 @@ module.exports = tema({
       ${[["levanta", 70], ["rueda", 190], ["sube", 320], ["empuja", 455], ["corta", 575]].map(([t, x]) => rot(x, 244, t, { size: 14, color: "var(--muted)" })).join("")}
     </svg>`,
   },
-  video: V("ixH0OqAPanY", "máquinas simples para niños"),
+  video: V("8GHRZabpsQE", "máquinas simples para niños"),
   ejemplos: [
     { enunciado: "¿Qué máquina simple es el tobogán?", pasos: ["El tobogán es una superficie en cuesta.", "Una superficie en cuesta es una rampa.", "La rampa se llama plano inclinado."], resultado: "un plano inclinado." },
     { enunciado: "¿Por qué el carrito de la compra tiene ruedas?", pasos: ["El carrito lleva mucho peso.", "Arrastrarlo por el suelo costaría mucho.", "Las ruedas lo hacen rodar con poco esfuerzo."], resultado: "para moverlo con menos esfuerzo." },

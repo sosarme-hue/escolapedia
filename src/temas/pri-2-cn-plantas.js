@@ -67,7 +67,7 @@ module.exports = tema({
       ${[130, 255, 385, 510].map((x) => flechaR(x - 18, 120, x + 14, 120)).join("")}
     </svg>`,
   },
-  video: V("JBhk8YfB5K8", "las partes de la planta para niños"),
+  video: V("gQ5y5gT-Wbc", "cómo nace y crece una planta"),
   ejemplos: [
     { enunciado: "¿Qué parte de la planta chupa el agua?", pasos: ["El agua está en la tierra.", "La parte que está bajo tierra es la raíz.", "La raíz chupa el agua y la manda al tallo."], resultado: "la raíz." },
     { enunciado: "Una planta en un armario oscuro se pone amarilla. ¿Por qué?", pasos: ["Las hojas fabrican el alimento con la luz.", "En el armario no hay luz.", "Sin luz no puede hacer su alimento y se debilita."], resultado: "le falta luz; hay que ponerla cerca de la ventana." },
