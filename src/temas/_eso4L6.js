@@ -37,7 +37,7 @@ function flujo(label, pasos, titulo) {
     const y = top + i * (h + gap), c = C[i % C.length];
     s += `<rect x="22" y="${y}" width="216" height="${h}" rx="9" fill="${c}" fill-opacity=".14" stroke="${c}" stroke-width="2"/>`;
     const fs = h < 30 ? 10 : 11;
-    s += txt(130, y + h / 2, p, { n: fs === 10 ? 40 : 34, fs, lh: 1.15 });
+    s += txt(130, y + h / 2, p, { n: fs === 10 ? 37 : 34, fs, lh: 1.15 });
     if (i < n - 1) s += `<path d="M130 ${y + h + 1} V ${y + h + gap - 2}" stroke="var(--muted)" stroke-width="2.5" marker-end="url(#${id})"/>`;
   });
   return svg(label, s, id);
