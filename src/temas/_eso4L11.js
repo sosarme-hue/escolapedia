@@ -121,6 +121,8 @@ const palabras = (T) => T.bloques.reduce((a, b) => a + strip(b.html).split(" ").
 const buscar = (T, t) => { const i = T.bloques.findIndex((b) => b.html.includes(`<h3>${t}</h3>`)); if (i < 0) throw new Error(`libro: no encuentro «${t}» en «${T.titulo}»`); return i; };
 const conVideo = (b) => (b.video ? { ...b, video: { megusta: 0, ...b.video } } : b);
 const NIV = { b: "básico", m: "medio", a: "avanzado" };
+// Un texto con saltos de línea es código: se muestra en <pre> conservando la sangría.
+const codigo = (s) => (typeof s === "string" && s.includes("\n") ? `<pre>${s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</pre>` : s);
 
 function libro(T, o) {
   if (o.lectura) T.lectura = o.lectura;
@@ -136,8 +138,8 @@ function libro(T, o) {
   sec.forEach((n, s) => { for (let j = 1; j <= n; j++, k++) T.bloques[k].html = T.bloques[k].html.replace(/<h3>/, `<h3>${s + 1}.${j} `); });
   // Ejercicios por niveles.
   if (o.niveles) T.ejercicios.forEach((e, i) => { e.nivel = NIV[o.niveles[i]]; });
-  if (o.ejercicios) T.ejercicios.push(...o.ejercicios);
-  if (o.ejemplos) T.ejemplos.push(...o.ejemplos);
+  if (o.ejercicios) T.ejercicios.push(...o.ejercicios.map((e) => ({ ...e, sol: codigo(e.sol) })));
+  if (o.ejemplos) T.ejemplos.push(...o.ejemplos.map((e) => ({ ...e, resultado: codigo(e.resultado) })));
   if (o.errores) T.errores.push(...o.errores);
   // Cuarta opción en las preguntas que tenían tres: se coloca en distinta posición para no dar pistas.
   const cuarta = (lista, extra) => (extra || []).forEach((op, i) => { const q = lista[i], p = (i * 3 + 1) % 4; q.o.splice(p, 0, op); if (p <= q.a) q.a++; });
