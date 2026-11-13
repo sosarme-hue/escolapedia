@@ -1,0 +1,98 @@
+// Educación Plástica 3º de Primaria: la simetría. Dibujos propios en SVG.
+const { tema, L, svg, tx, t, mariposa, pol, persona, AZ, RO, VE, NA, AM, AG, MO } = require("./_pri3d");
+
+const M = "Educación Plástica";
+// Eje de simetría discontinuo vertical en x o horizontal en y.
+const ejeV = (x, y1, y2, c = RO) => `<path d="M${x} ${y1} V ${y2}" stroke="${c}" stroke-width="2" stroke-dasharray="6 4"/>`;
+const ejeH = (y, x1, x2, c = RO) => `<path d="M${x1} ${y} H ${x2}" stroke="${c}" stroke-width="2" stroke-dasharray="6 4"/>`;
+
+module.exports = tema({
+  materia: M,
+  titulo: "Simetría",
+  objetivos: ["Comprender qué es una figura simétrica y qué es el eje de simetría", "Descubrir la simetría en la naturaleza, en el cuerpo y en el arte", "Encontrar uno o varios ejes de simetría en figuras sencillas", "Completar y crear dibujos simétricos con técnicas como la mancha doblada"],
+  claves: ["simetría", "eje de simetría", "simétrico", "asimétrico", "espejo", "mitad", "reflejo", "mancha", "mosaico", "rosetón"],
+  pregunta: [
+    "Si pones un espejo justo en medio de una mariposa dibujada, ¡parece una mariposa entera! ¿Por qué pasa esto?",
+    "Porque la mariposa es <mark>simétrica</mark>: sus dos mitades son iguales, como un reflejo en un espejo. La línea donde pones el espejo se llama <b>eje de simetría</b>. Si doblas el dibujo por esa línea, las dos mitades encajan exactamente.",
+  ],
+  bloques: [
+    ["¿Qué es la simetría?", `<p>Una figura tiene <mark>simetría</mark> cuando una línea la divide en <b>dos mitades iguales</b> pero «dadas la vuelta», como si una fuera el reflejo de la otra en un espejo. Esa línea se llama <mark>eje de simetría</mark>.</p><p>Un truco para comprobarlo: dibuja la figura en un papel, recórtala y dóblala por la línea. Si las dos mitades coinciden perfectamente, la figura es <b>simétrica</b>. Si no coinciden, es <b>asimétrica</b>.</p>`,
+      svg("Una mariposa con su eje de simetría", `${mariposa(130, 86, 1, MO, AM)}${ejeV(130, 14, 160)}${tx(212, 30, "eje de simetría", { s: 11, c: RO })}${tx(130, 172, "dos mitades iguales", { s: 11, c: "var(--muted)" })}`), "pl3b"],
+    ["Como en un espejo", `<p>En una figura simétrica, cada punto de un lado tiene su «pareja» en el otro lado, a la <b>misma distancia</b> del eje. Si un ojo está a dos cuadritos del eje por la izquierda, el otro ojo estará a dos cuadritos por la derecha.</p><p>Por eso, al reflejarse en el espejo, la izquierda y la derecha se <b>cambian</b>: si levantas la mano derecha delante de un espejo, tu reflejo parece levantar la izquierda. Fíjate también en el reflejo de los árboles en un lago: ¡es una simetría con el eje horizontal!</p>`,
+      svg("Una casa y su reflejo en el agua con eje horizontal", `<rect x="0" y="92" width="260" height="88" fill="${AG}" fill-opacity=".2"/>${ejeH(92, 10, 250)}<path d="M90 92 V 56 L 130 30 L 170 56 V 92 Z" fill="${RO}" fill-opacity=".45" stroke="${RO}" stroke-width="2"/><path d="M90 92 V 128 L 130 154 L 170 128 V 92 Z" fill="${RO}" fill-opacity=".2" stroke="${RO}" stroke-width="2" stroke-opacity=".5"/><rect x="122" y="70" width="16" height="22" fill="${NA}"/><rect x="122" y="92" width="16" height="22" fill="${NA}" fill-opacity=".4"/>${tx(220, 82, "eje", { s: 11, c: RO })}${tx(52, 60, "casa", { s: 11 })}${tx(52, 130, "reflejo", { s: 11, c: AG })}`)],
+    ["La simetría en la naturaleza", `<p>La naturaleza está llena de simetrías. Muchos <b>animales</b> son simétricos: las mariposas, las mariquitas, los peces, los pájaros… tienen dos ojos, dos alas o dos aletas, una a cada lado. Muchas <b>hojas</b> de los árboles también lo son: el nervio central hace de eje.</p><p>Algunas <b>flores</b> y las <b>estrellas de mar</b> tienen simetría alrededor de un centro, con varios ejes, como los radios de una rueda. Y los <b>copos de nieve</b> tienen seis brazos iguales. ¡Busca simetrías en el patio!</p>`,
+      svg("Una hoja, una mariquita y una flor simétricas", `<path d="M50 140 Q 10 80 50 24 Q 90 80 50 140 Z" fill="${VE}" fill-opacity=".45" stroke="${VE}" stroke-width="2"/>${ejeV(50, 20, 150)}<ellipse cx="130" cy="84" rx="26" ry="32" fill="${RO}"/>${ejeV(130, 46, 120, "var(--ink)")}<circle cx="130" cy="52" r="10" fill="var(--ink)"/>${[[118, 74], [142, 74], [116, 98], [144, 98]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="var(--ink)"/>`).join("")}${[0, 1, 2, 3, 4].map((i) => { const a = (i * 72 - 90) * Math.PI / 180; return `<ellipse cx="${(212 + 22 * Math.cos(a)).toFixed(1)}" cy="${(84 + 22 * Math.sin(a)).toFixed(1)}" rx="12" ry="18" transform="rotate(${i * 72} ${(212 + 22 * Math.cos(a)).toFixed(1)} ${(84 + 22 * Math.sin(a)).toFixed(1)})" fill="${MO}" fill-opacity=".5"/>`; }).join("")}<circle cx="212" cy="84" r="9" fill="${AM}"/>${tx(50, 168, "hoja", { s: 11, c: VE })}${tx(130, 150, "mariquita", { s: 11, c: RO })}${tx(212, 140, "flor", { s: 11, c: MO })}`)],
+    ["Nuestro cuerpo", `<p>Nuestro <b>cuerpo</b> también es casi simétrico. Si trazamos una línea imaginaria desde la frente hasta los pies, a cada lado tenemos un ojo, una oreja, un brazo, una mano, una pierna y un pie. La nariz y la boca quedan justo en el centro, cortadas por el eje.</p><p>Pero no somos perfectamente simétricos: el pelo, los lunares o una sonrisa torcida cambian un poco cada lado. <b>Experimento:</b> haz una foto de frente, tapa la mitad con un espejo y mira qué cara tan curiosa sale.</p>`,
+      svg("Una persona con su eje de simetría", `${persona(130, 44, AZ, { brazos: [[-34, 20], [34, 20]], piernas: [[-20, 48], [20, 48]] })}<circle cx="127" cy="42" r="1.5" fill="var(--ink)"/><circle cx="133" cy="42" r="1.5" fill="var(--ink)"/>${ejeV(130, 18, 140)}${tx(52, 70, "brazo", { s: 11 })}${tx(208, 70, "brazo", { s: 11 })}${tx(130, 162, "casi simétricos", { s: 11, c: "var(--muted)" })}`)],
+    ["Figuras con varios ejes", `<p>Algunas figuras tienen <b>más de un eje de simetría</b>. El <b>cuadrado</b> tiene cuatro: uno vertical, uno horizontal y dos diagonales. El <b>rectángulo</b> tiene dos. El <b>triángulo</b> de lados iguales tiene tres. ¡Y el <b>círculo</b> tiene infinitos, porque cualquier línea que pase por el centro lo divide en dos mitades iguales!</p><p>Otras figuras no tienen ninguno: un garabato o una nube suelen ser <b>asimétricos</b>. Busca los ejes de las letras: la A tiene uno vertical, la B uno horizontal y la F ninguno.</p>`,
+      svg("Cuadrado con cuatro ejes, rectángulo con dos y círculo con muchos", `<rect x="22" y="44" width="60" height="60" fill="${AZ}" fill-opacity=".2" stroke="${AZ}" stroke-width="2"/><path d="M52 36 V 112 M14 74 H 90 M16 38 L 88 110 M88 38 L 16 110" stroke="${RO}" stroke-width="1.6" stroke-dasharray="5 4"/><rect x="104" y="54" width="70" height="40" fill="${VE}" fill-opacity=".2" stroke="${VE}" stroke-width="2"/><path d="M139 44 V 104 M96 74 H 182" stroke="${RO}" stroke-width="1.6" stroke-dasharray="5 4"/><circle cx="214" cy="74" r="30" fill="${AM}" fill-opacity=".25" stroke="${AM}" stroke-width="2"/>${[0, 30, 60, 90, 120, 150].map((g) => `<path d="M214 74 m ${(-36 * Math.cos(g * Math.PI / 180)).toFixed(1)} ${(-36 * Math.sin(g * Math.PI / 180)).toFixed(1)} l ${(72 * Math.cos(g * Math.PI / 180)).toFixed(1)} ${(72 * Math.sin(g * Math.PI / 180)).toFixed(1)}" stroke="${RO}" stroke-width="1.2" stroke-dasharray="4 3"/>`).join("")}${tx(52, 136, "cuadrado: 4", { s: 11, c: AZ })}${tx(139, 136, "rectángulo: 2", { s: 11, c: VE })}${tx(214, 136, "círculo: ∞", { s: 11, c: NA })}`)],
+    ["Completar un dibujo simétrico", `<p>Para <b>completar</b> la mitad que falta de un dibujo simétrico, lo mejor es usar una <mark>cuadrícula</mark>. Cuenta los cuadritos que hay desde cada punto hasta el eje y dibuja su pareja a la misma distancia en el otro lado. Une después los puntos.</p><p>Otro truco es el <b>papel de calco</b>: calca la mitad, dale la vuelta y vuelve a calcar al otro lado del eje. Así salen caras, jarrones, castillos o cohetes perfectamente simétricos.</p>`,
+      svg("Mitad de un cohete en cuadrícula y la otra mitad a completar", `${[...Array(11)].map((_, i) => `<path d="M${42 + i * 16} 20 V 156" stroke="var(--line)" stroke-width="1"/>`).join("")}${[...Array(9)].map((_, j) => `<path d="M42 ${20 + j * 17} H 202" stroke="var(--line)" stroke-width="1"/>`).join("")}${ejeV(122, 14, 162)}<path d="M122 24 L 106 56 V 122 L 90 140 H 122" fill="${AZ}" fill-opacity=".35" stroke="${AZ}" stroke-width="2.5"/><path d="M122 24 L 138 56 V 122 L 154 140 H 122" fill="none" stroke="${AZ}" stroke-width="2" stroke-dasharray="4 4"/><circle cx="114" cy="80" r="5" fill="var(--paper)" stroke="${AZ}" stroke-width="2"/>${tx(228, 90, "¿y la", { s: 10, c: "var(--muted)" })}${tx(228, 104, "otra mitad?", { s: 10, c: "var(--muted)" })}`)],
+    ["La simetría en el arte", `<p>Los artistas usan la simetría porque da sensación de <b>orden</b>, equilibrio y calma. Muchos <b>edificios</b> son simétricos, como las catedrales con sus rosetones, los palacios o la fachada de tu ayuntamiento. Los <b>mosaicos</b> de la Alhambra de Granada repiten formas simétricas sin parar.</p><p>También hay <b>máscaras</b>, alfombras, vidrieras y mandalas con simetría. En cambio, cuando un artista quiere dar sensación de movimiento o sorpresa, prefiere composiciones <b>asimétricas</b>.</p>`,
+      svg("Un rosetón con simetría alrededor del centro", `<circle cx="130" cy="88" r="70" fill="var(--card)" stroke="${NA}" stroke-width="3"/>${[...Array(8)].map((_, i) => { const a = i * 45; return `<ellipse cx="130" cy="50" rx="11" ry="30" transform="rotate(${a} 130 88)" fill="${[AZ, RO][i % 2]}" fill-opacity=".45" stroke="${[AZ, RO][i % 2]}" stroke-width="1.5"/>`; }).join("")}${pol(130, 88, 16, 8, AM, -90, { op: 0.9 })}${tx(130, 174, "rosetón: 8 ejes", { s: 11, c: "var(--muted)" })}`)],
+    ["Taller: la mancha mágica", `<p>Dobla una hoja por la mitad y ábrela. Echa unas gotas gordas de <b>témpera</b> de varios colores solo en una mitad, cerca del pliegue. Vuelve a doblar la hoja, aprieta con la mano y frota del pliegue hacia fuera. ¡Ábrela con cuidado!</p><p>Aparecerá una <mark>mancha simétrica</mark>: una mariposa, un monstruo, una cara… Cuando se seque, mira qué te sugiere y complétala con rotulador: antenas, ojos, patas. Este juego se parece a un famoso test de manchas que usan los psicólogos.</p>`,
+      svg("Hoja doblada con una mancha simétrica de colores", `<rect x="40" y="20" width="180" height="130" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-opacity=".3"/>${ejeV(130, 20, 150, "var(--muted)")}${[[106, 60, 18, RO], [96, 92, 22, AZ], [112, 118, 12, AM], [118, 40, 8, VE]].map(([x, y, r, c]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}" fill-opacity=".7"/><circle cx="${260 - x}" cy="${y}" r="${r}" fill="${c}" fill-opacity=".7"/>`).join("")}${tx(130, 170, "pinta, dobla, aprieta y abre", { s: 11, c: "var(--muted)" })}`)],
+    ["Simetría con papel recortado", `<p>Otra técnica divertida es el <b>papel recortado</b>. Dobla un papel por la mitad y dibuja <b>media figura</b> pegada al pliegue: medio corazón, medio árbol, medio jarrón. Recórtala sin cortar por el pliegue y ábrela: ¡figura entera y simétrica!</p><p>Si doblas el papel varias veces (en cuatro o en ocho) y recortas formitas en los bordes, saldrán <b>copos de nieve</b> o puntillas con muchos ejes. Con una tira doblada en acordeón obtendrás una <b>cadena de muñecos</b> cogidos de la mano.</p>`,
+      svg("Cadena de muñecos de papel recortado cogidos de la mano", `${[0, 1, 2, 3].map((i) => `<g transform="translate(${36 + i * 62} 30)"><circle cx="0" cy="16" r="12" fill="${[AZ, RO, VE, AM][i]}" fill-opacity=".5" stroke="${[AZ, RO, VE, AM][i]}" stroke-width="2"/><path d="M-10 30 h 20 l 21 10 v 8 l -21 -4 v 34 l 8 30 h -12 l -6 -24 l -6 24 h -12 l 8 -30 v -34 l -21 4 v -8 z" fill="${[AZ, RO, VE, AM][i]}" fill-opacity=".5" stroke="${[AZ, RO, VE, AM][i]}" stroke-width="1.5"/></g>`).join("")}${tx(130, 170, "papel doblado en acordeón", { s: 11, c: "var(--muted)" })}`)],
+  ],
+  ejemplos: [
+    ["¿Es simétrica la letra A? ¿Dónde está su eje?", ["Imagina una línea vertical por el centro.", "Las dos patas son iguales a cada lado."], "Sí, con un eje vertical."],
+    ["¿Cuántos ejes de simetría tiene un cuadrado?", ["Cuenta el vertical y el horizontal.", "Añade las dos diagonales."], "Cuatro."],
+    ["Un ojo está a 3 cuadritos del eje por la izquierda. ¿Dónde dibujo el otro?", ["Las parejas están a la misma distancia.", "Al otro lado del eje."], "A 3 cuadritos del eje por la derecha."],
+  ],
+  errores: [
+    "Copiar la mitad igual sin darle la vuelta: debe ser como en un espejo.",
+    "Dibujar la pareja a distinta distancia del eje.",
+    "Pensar que todas las figuras tienen un solo eje: algunas tienen varios y otras ninguno.",
+    "En la mancha doblada, echar la pintura lejos del pliegue o demasiado aguada.",
+    "Cortar por el pliegue en el papel recortado y que la figura se separe en dos.",
+  ],
+  ejercicios: [
+    ["¿Qué es una figura simétrica?", "La que una línea divide en dos mitades iguales, como en un espejo."],
+    ["¿Qué es el eje de simetría?", "La línea que divide la figura en dos mitades iguales."],
+    ["Escribe tres animales simétricos.", "Mariposa, mariquita y pez (respuesta abierta)."],
+    ["¿Cómo puedo comprobar si una figura es simétrica?", "Doblándola por la línea: las mitades deben coincidir."],
+    ["¿Cuántos ejes tiene un rectángulo?", "Dos."],
+    ["¿Cuántos ejes tiene un círculo?", "Infinitos."],
+    ["¿Es simétrica la letra F?", "No, no tiene ningún eje."],
+    ["¿Qué eje tiene el reflejo de un árbol en un lago?", "Un eje horizontal, la orilla del agua."],
+    ["¿Qué transmite la simetría en un edificio?", "Orden, equilibrio y calma."],
+    ["Dibuja media cara en una cuadrícula y completa la otra mitad.", "Respuesta libre; cada ojo, oreja y mejilla a la misma distancia del eje."],
+  ],
+  figura: ["La simetría", L.columnas("Claves de la simetría", [["dos mitades", "SIMETRÍA", ["como en", "un espejo"], AZ], ["la línea", "EJE", ["vertical, horizontal", "o diagonal"], RO], ["dónde está", "NATURALEZA", ["mariposas, hojas", "flores, cuerpo"], VE], ["técnicas", "MANCHA", ["doblar y apretar", "papel recortado"], MO]])],
+  video: "pl3v",
+  quiz: [
+    ["Una figura simétrica tiene dos mitades…", ["iguales", "distintas", "de colores"], "Iguales."],
+    ["La línea que divide una figura simétrica es el…", ["eje de simetría", "contorno", "horizonte"], "Eje."],
+    ["Las mitades simétricas son como un…", ["reflejo en el espejo", "dibujo diferente", "garabato"], "Reflejo."],
+    ["¿Qué animal es simétrico?", ["la mariposa", "una nube", "ninguno"], "Mariposa."],
+    ["Un cuadrado tiene…", ["4 ejes", "1 eje", "ningún eje"], "Cuatro."],
+    ["Un círculo tiene…", ["infinitos ejes", "2 ejes", "1 eje"], "Infinitos."],
+    ["Una figura sin ningún eje es…", ["asimétrica", "simétrica", "cuadrada"], "Asimétrica."],
+    ["El reflejo en un lago tiene un eje…", ["horizontal", "vertical", "inclinado"], "Horizontal."],
+    ["La simetría en un edificio transmite…", ["orden y equilibrio", "movimiento", "desorden"], "Orden."],
+    ["Para hacer una mancha simétrica se…", ["dobla el papel", "corta el papel", "moja el papel"], "Se dobla."],
+  ],
+  examen: [
+    ["¿Qué letra tiene un eje vertical?", ["A", "F", "G"], "La A."],
+    ["Un rectángulo tiene…", ["2 ejes", "4 ejes", "ningún eje"], "Dos."],
+    ["Si un punto está a 2 cuadritos del eje, su pareja estará a…", ["2 cuadritos al otro lado", "4 cuadritos", "1 cuadrito"], "Misma distancia."],
+    ["Los mosaicos de la Alhambra están en…", ["Granada", "Madrid", "Barcelona"], "Granada."],
+  ],
+  feynman: ["Qué es una figura simétrica y qué es el eje", "Dónde encuentro simetrías en la naturaleza y en mi cuerpo", "Cuántos ejes tienen algunas figuras", "Cómo creo dibujos simétricos con cuadrícula, mancha o recorte"],
+  mapa: ["SIMETRÍA", AZ, [["Eje", "divide en dos mitades iguales", RO], ["Naturaleza", "mariposa · hoja · flor", VE], ["Figuras", "cuadrado 4 · círculo ∞", AZ], ["Técnicas", "cuadrícula · mancha · recorte", MO]], 240],
+  tarjetas: [
+    ["Simetría", "Dos mitades iguales, como en un espejo."],
+    ["Eje de simetría", "Línea que divide la figura en dos mitades iguales."],
+    ["Asimétrico", "Sin ningún eje de simetría."],
+    ["Reflejo", "Imagen como en un espejo: izquierda y derecha cambian."],
+    ["Cuadrado", "Cuatro ejes de simetría."],
+    ["Círculo", "Infinitos ejes de simetría."],
+    ["Mancha simétrica", "Pintura en una mitad, se dobla y se aprieta."],
+    ["Papel recortado", "Media figura pegada al pliegue y se recorta."],
+  ],
+  familias: ["Buscad simetrías en casa y en el parque: hojas, ventanas, caras, coches.", "Haced juntos manchas simétricas con témpera y poned nombre a lo que parecen."],
+  saberes: "La simetría axial: eje, figuras simétricas y asimétricas, simetría en la naturaleza, el cuerpo y el arte; técnicas de mancha y recorte (Educación Plástica y Visual)",
+  ideas: ["Manchas simétricas con témpera y completar con rotulador.", "Completar dibujos simétricos en cuadrícula.", "Caza de simetrías con fotos del entorno escolar."],
+  fuentes: [["EducaThyssen: la simetría", "https://www.educathyssen.org/"], ["Patronato de la Alhambra y Generalife", "https://www.alhambra-patronato.es/"]],
+});

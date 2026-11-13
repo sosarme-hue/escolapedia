@@ -94,7 +94,7 @@ const mariposa = (cx, cy, k, c1, c2) => {
 
 // Paisaje con tres planos: montañas al fondo, colinas en medio y un árbol delante.
 const paisaje = (label, o = {}) => svg(label, `<rect x="0" y="0" width="260" height="180" rx="14" fill="${o.cielo || AG}" fill-opacity=".14"/>${o.sol === false ? "" : `<circle cx="214" cy="34" r="16" fill="${AM}"/>`}
-  <path d="M0 96 L 50 46 L 92 84 L 140 34 L 196 90 L 260 56 V 120 H 0 Z" fill="${MO}" fill-opacity=".35"/>
+  <path d="M0 96 L 50 46 L 92 84 L 140 34 L 196 90 L 260 56 V 150 H 0 Z" fill="${MO}" fill-opacity=".35"/>
   <path d="M0 118 Q 70 86 140 112 T 260 104 V 150 H 0 Z" fill="${VE}" fill-opacity=".45"/>
   <path d="M0 146 Q 120 132 260 148 V 180 H 0 Z" fill="${VE}" fill-opacity=".8"/>
   <rect x="44" y="104" width="10" height="50" fill="${NA}"/><circle cx="49" cy="96" r="24" fill="${VE}"/>
