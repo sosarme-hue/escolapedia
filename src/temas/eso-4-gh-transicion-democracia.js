@@ -33,11 +33,11 @@ module.exports = {
       html: `<h3>1.1 España en 1975: ¿continuidad, reforma o ruptura?</h3><p>Cuando Franco murió, el 20 de noviembre de 1975, nadie sabía qué iba a ocurrir. La sociedad española había cambiado mucho: era urbana, con amplias clases medias, más formada y abierta a Europa, y deseaba libertades. Pero las instituciones franquistas seguían en pie, y el ejército vigilaba.</p><p>Había tres grandes opciones:</p><ul><li>El <mark>continuismo</mark>: el «búnker», los franquistas más duros, quería mantener el régimen sin cambios.</li><li>La <mark>reforma</mark>: los franquistas más abiertos querían llegar a la democracia de forma gradual, cambiando las leyes desde dentro, sin romper con la legalidad.</li><li>La <mark>ruptura</mark>: la oposición democrática (PSOE, PCE, nacionalistas, sindicatos) quería acabar de golpe con el franquismo, formar un gobierno provisional y convocar elecciones constituyentes.</li></ul><p>Al principio, el rey mantuvo como presidente a Carlos <b>Arias Navarro</b>, que solo planteaba pequeños cambios. Pero la presión de la calle fue enorme: en 1976 hubo miles de huelgas y manifestaciones por la amnistía y la libertad, algunas con muertos, como en Vitoria. Finalmente se impuso una vía intermedia: una <b>reforma pactada</b>, que acabó llevando a una ruptura con la dictadura sin violencia generalizada.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres caminos en 1975: Continuismo, Reforma, Ruptura"><rect width="260" height="180" rx="14" fill="var(--paper)"/><g font-family="Atkinson Hyperlegible, sans-serif" fill="var(--ink)"><text x="130" y="20.2" text-anchor="middle" font-size="12" font-weight="700" font-family="Baloo 2, sans-serif">Tres caminos en 1975</text><rect x="10.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="68" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--pen)">Continuismo</text><text x="68" y="69.8" text-anchor="middle" font-size="10" >el búnker: nada</text><text x="68" y="81.3" text-anchor="middle" font-size="10" >cambia</text><rect x="134.0" y="28.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--red)" stroke-width="2"/><text x="192" y="46.4" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)">Reforma</text><text x="192" y="69.8" text-anchor="middle" font-size="10" >cambio gradual</text><text x="192" y="81.3" text-anchor="middle" font-size="10" >desde las leyes</text><rect x="10.0" y="103.0" width="116.0" height="67.0" rx="9" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="68" y="121.3" text-anchor="middle" font-size="11" font-weight="700" fill="var(--leaf)">Ruptura</text><text x="68" y="144.8" text-anchor="middle" font-size="10" >la oposición:</text><text x="68" y="156.3" text-anchor="middle" font-size="10" >romper de golpe</text></g></svg>`,
       video: {
-        id: "Ck5-OXF34Fw",
-        titulo: "La Transición en 6 minutos",
-        canal: "Alejandro Díaz de Losada",
-        vistas: 122206,
-        megusta: 0,
+        id: "rCMsI9wi3yc",
+        titulo: "Resumen de la transición a la democracia",
+        canal: "unProfesor",
+        vistas: 106195,
+        megusta: 1759,
       },
     },
     {
