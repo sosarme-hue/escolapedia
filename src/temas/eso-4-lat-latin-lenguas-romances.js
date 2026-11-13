@@ -42,7 +42,7 @@ module.exports = L.libro({
       "1.4 Latín clásico y latín vulgar",
       `<p>Como en cualquier lengua, en Roma no se hablaba igual en el foro que en la taberna. El <mark>latín clásico</mark> era la lengua escrita y cuidada de los escritores como Cicerón, César o Virgilio; tenía reglas fijas y cambió muy poco. El <mark>latín vulgar</mark> (de <i>vulgus</i>, pueblo) era el latín hablado por la mayoría: soldados, comerciantes, campesinos y esclavos. No era un latín «malo», sino el latín vivo de cada día, y fue el que dio lugar a las lenguas romances.</p><p>Sabemos cómo era gracias a pintadas de Pompeya, inscripciones en tumbas, cartas privadas y un documento curioso, el <b>Appendix Probi</b>, una lista en la que un maestro corregía errores frecuentes: «<i>speculum non speclum</i>», «<i>calida non calda</i>», «<i>auris non oricla</i>». ¡Precisamente los «errores» son los que triunfaron! De <i>speclum</i> sale «espejo»; de <i>calda</i>, «caldo»; de <i>oricla</i>, «oreja». El latín vulgar prefería palabras más expresivas: decía <i>caballus</i> (jamelgo) en vez de <i>equus</i>, <i>casa</i> (choza) en vez de <i>domus</i> y <i>manducare</i> (masticar) en vez de <i>edere</i>.</p>`,
       L.dos("Latín clásico y latín vulgar", ["Clásico", ["escrito, culto", "Cicerón, Virgilio", "equus, domus", "edere", "muy estable"], "var(--pen)"], ["Vulgar", ["hablado, diario", "soldados, pueblo", "caballus, casa", "manducare", "cambia rápido"], "var(--red)"]),
-      { id: "r3vdVMCl1pA", titulo: "Las lenguas romances (idiomas latinos)", canal: "El Mapa de Sebas", vistas: 183124 },
+      { id: "JThfNP2dA24", titulo: "5 idiomas romances que quizás no sabías que existían", canal: "El Mapa de Sebas", vistas: 288677 },
     ],
     [
       "1.5 La fragmentación del Imperio",

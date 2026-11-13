@@ -31,7 +31,7 @@ module.exports = L.libro({
     [
       "1.2 Poder, autoridad y legitimidad",
       `<p>El <mark>poder</mark> es la capacidad de influir en la conducta de otros, incluso contra su voluntad. Puede basarse en la <b>fuerza</b> (las armas, el castigo), en la <b>riqueza</b> (el dinero, los recursos) o en la <b>persuasión</b> (las ideas, la propaganda, los medios de comunicación). El <b>poder político</b> es el que organiza la vida de una sociedad entera y, en el Estado moderno, tiene el monopolio del uso legítimo de la fuerza: solo él puede usar la policía o el ejército.</p><p>Pero no todo poder es legítimo. Un ladrón con una pistola tiene poder sobre ti, pero no <b>autoridad</b>. La <mark>legitimidad</mark> es la razón por la que consideramos que un poder es justo y merece ser obedecido. El sociólogo alemán <b>Max Weber</b> distinguió tres tipos de legitimidad: la <b>tradicional</b>, basada en la costumbre (el rey lo es porque lo fue su padre); la <b>carismática</b>, basada en las cualidades excepcionales de un líder; y la <b>racional-legal</b>, basada en leyes y procedimientos aceptados, como las elecciones. En las democracias actuales predomina esta última.</p>`,
-      L.rueda("Tipos de legitimidad (Weber)", "LEGITIMIDAD", [["tradicional", "var(--sun)"], ["carismática", "var(--red)"], ["legal", "var(--pen)"]], "var(--ink)"),
+      L.rueda("Tipos de legitimidad (Weber)", "LEGITI-|MIDAD", [["tradicional", "var(--sun)"], ["carismática", "var(--red)"], ["legal", "var(--pen)"]], "var(--ink)"),
     ],
     [
       "1.3 El Estado",
@@ -72,7 +72,7 @@ module.exports = L.libro({
     [
       "1.10 La justicia hoy: Rawls y el velo de ignorancia",
       `<p>El filósofo estadounidense <b>John Rawls</b> (1921-2002) escribió <i>Teoría de la justicia</i> (1971), una de las obras más influyentes del siglo XX. Rawls propuso un experimento mental: imagina que tienes que elegir las reglas de la sociedad en la que vas a vivir, pero bajo un <mark>velo de ignorancia</mark>: no sabes si serás hombre o mujer, rico o pobre, sano o enfermo, de qué país o religión, ni qué talentos tendrás. ¿Qué principios elegirías?</p><p>Según Rawls, cualquier persona racional elegiría dos <b>principios de justicia</b>. Primero: todos deben tener las mismas <b>libertades básicas</b> (expresión, voto, conciencia). Segundo: las desigualdades económicas y sociales solo son aceptables si existe <b>igualdad de oportunidades</b> y si benefician a los <b>más desfavorecidos</b> (principio de la diferencia). Por ejemplo, que un médico gane más que otros puede ser justo si eso hace que haya buenos médicos para todos. Otros filósofos, como Robert Nozick, criticaron a Rawls desde el liberalismo: para ellos, lo justo es respetar la libertad y la propiedad adquirida legítimamente, aunque haya grandes desigualdades.</p>`,
-      L.flujo("El velo de ignorancia", ["no sé|quién|seré", "elijo|reglas", "libertad|igual", "ayuda al|peor|situado"], "var(--pen)"),
+      L.flujo("El velo de ignorancia", ["no sé|quién soy", "elijo|reglas", "libertad|igual", "ayuda al|más débil"], "var(--pen)"),
     ],
     [
       "1.11 Justicia y género: el feminismo",

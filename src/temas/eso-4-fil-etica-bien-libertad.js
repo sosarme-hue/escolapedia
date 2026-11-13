@@ -41,7 +41,7 @@ module.exports = L.libro({
     [
       "1.4 La libertad: ¿somos libres?",
       `<p>Sin <mark>libertad</mark> no hay ética: si no pudiéramos elegir, no tendría sentido alabar ni culpar a nadie. Pero ¿somos realmente libres? El <b>determinismo</b> sostiene que todo lo que ocurre, incluidas nuestras decisiones, está determinado por causas anteriores: los genes, la educación, el cerebro, la sociedad. Si conociéramos todas esas causas, podríamos predecir lo que alguien va a hacer. Algunos experimentos de neurociencia, como los de Benjamin Libet en los años ochenta, parecieron mostrar que el cerebro «decide» antes de que seamos conscientes.</p><p>El <b>indeterminismo</b> o libertarismo sostiene, en cambio, que tenemos libre albedrío: ante una elección, podríamos haber actuado de otra manera. Muchos filósofos defienden una posición intermedia, el <b>compatibilismo</b>: estamos condicionados por muchas causas, pero no completamente determinados; somos libres cuando actuamos según nuestros propios deseos y razones, sin coacción externa. Como decía Ortega y Gasset: «yo soy yo y mi circunstancia». La circunstancia nos limita, pero dentro de ella elegimos. La libertad humana es siempre una libertad <b>situada</b>.</p>`,
-      L.escalera("¿Somos libres?", ["determinismo", "compatibilismo", "libre albedrío"], "var(--red)"),
+      L.flujo("¿Somos libres?", ["determi-|nismo", "compati-|bilismo", "libre|albedrío"], "var(--red)"),
     ],
     [
       "1.5 Tipos de libertad y sus condiciones",

@@ -62,7 +62,7 @@ module.exports = L.libro({
     [
       "1.8 Los complementos de tiempo",
       `<p>El tiempo también se expresa con casos distintos según la pregunta. Para responder a <b>¿cuándo?</b> se usa el <mark>ablativo</mark> sin preposición: <i>prima luce</i> (al amanecer), <i>hieme</i> (en invierno), <i>tertio die</i> (al tercer día), <i>eo anno</i> (ese año). Para responder a <b>¿durante cuánto tiempo?</b> se usa el <mark>acusativo</mark> sin preposición, que expresa extensión: <i>tres annos regnavit</i> (reinó durante tres años); <i>multos dies</i> (durante muchos días).</p><p>Hay también preposiciones de tiempo: <i>ante</i> + acusativo (antes de: <i>ante bellum</i>), <i>post</i> + acusativo (después de: <i>post proelium</i>, después de la batalla) e <i>in</i> + acusativo para un plazo futuro (<i>in posterum diem</i>, para el día siguiente). Algunos adverbios son muy frecuentes y conviene memorizarlos: <i>hodie</i> (hoy), <i>cras</i> (mañana), <i>heri</i> (ayer), <i>semper</i> (siempre), <i>numquam</i> (nunca), <i>iam</i> (ya), <i>diu</i> (durante mucho tiempo), <i>tum</i> (entonces) y <i>nunc</i> (ahora). De <i>post meridiem</i> y <i>ante meridiem</i> salen las abreviaturas p. m. y a. m. de las horas.</p>`,
-      L.dos("Dos preguntas de tiempo", ["¿Cuándo?", ["ablativo", "prima luce", "hieme", "tertio die"], "var(--muted)"], ["¿Cuánto tiempo?", ["acusativo", "tres annos", "multos dies", "totam noctem"], "var(--pen)"]),
+      L.dos("Dos preguntas de tiempo", ["¿Cuándo?", ["ablativo", "prima luce", "hieme", "tertio die"], "var(--muted)"], ["¿Cuánto?", ["acusativo", "tres annos", "multos dies", "totam noctem"], "var(--pen)"]),
     ],
     [
       "1.9 La concordancia: la clave para agrupar",

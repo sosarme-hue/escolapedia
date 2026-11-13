@@ -72,7 +72,7 @@ module.exports = L.libro({
     [
       "1.10 Palabras patrimoniales, cultismos y dobletes",
       `<p>Las reglas anteriores solo se aplican por completo a las <mark>palabras patrimoniales</mark>, las que pasaron de boca en boca sin interrupción desde el latín vulgar. Los <b>cultismos</b>, tomados de los libros en la Edad Media, el Renacimiento o la época moderna, apenas sufren cambios: solo se adaptan la terminación y la ortografía (<i>oculare</i> &gt; ocular, <i>nocturnum</i> &gt; nocturno, <i>lacteum</i> &gt; lácteo). Los <b>semicultismos</b> sufrieron solo algunos cambios: <i>saeculum</i> &gt; siglo, <i>regulam</i> &gt; regla (la forma patrimonial es «reja»).</p><p>Cuando un mismo étimo dio una palabra patrimonial y otra culta, tenemos un <b>doblete</b>. Comparar los dobletes es la mejor manera de comprobar las reglas: <i>clavem</i> &gt; llave / clave (cl- &gt; ll-), <i>directum</i> &gt; derecho / directo (-ct- &gt; ch), <i>operam</i> &gt; obra / ópera (-p- &gt; -b- y síncopa), <i>fabulam</i> &gt; habla / fábula (f- &gt; h- y síncopa), <i>solitarium</i> &gt; soltero / solitario, <i>integrum</i> &gt; entero / íntegro, <i>lucrum</i> &gt; logro / lucro, <i>cathedram</i> &gt; cadera / cátedra. La palabra patrimonial suele tener un significado más concreto y cotidiano.</p>`,
-      L.arbol("Dobletes y reglas", [["fabulam", ["habla", "fábula"], "var(--red)", ["f- > h-, síncopa", "cultismo"]], ["integrum", ["entero", "íntegro"], "var(--pen)", ["ĭ > e, -gr- > r", "cultismo"]]]),
+      L.arbol("Dobletes y reglas", [["fabulam", ["habla", "fábula"], "var(--red)", ["f- > h-", "cultismo"]], ["integrum", ["entero", "íntegro"], "var(--pen)", ["ĭ > e", "cultismo"]]]),
       { id: "5AqETZHpITE", titulo: "Diferencia entre las palabras patrimoniales, los cultismos y semicultismos", canal: "unProfesor", vistas: 63156 },
     ],
     [
@@ -95,7 +95,7 @@ module.exports = L.libro({
     titulo: "Las grandes reglas de la evolución fonética",
     svg: L.figCols("Cuatro grupos de reglas", [["Vocales tónicas", ["ĕ > ie: piedra", "ŏ > ue: puerta", "ĭ > e: pelo", "ŭ > o: lobo"], "var(--red)"], ["Átonas y finales", ["síncopa: ojo", "-um > -o", "cae -m", "panem > pan"], "var(--pen)"], ["Inicio", ["f- > h-: hijo", "cl- > ll-: llave", "pl- > ll-: lleno", "s- > es-: escuela"], "var(--leaf)"], ["Interior", ["-p- > -b-: lobo", "-t- > -d-: vida", "-ct- > ch: noche", "-li- > j: hijo"], "var(--sun)"]]),
   },
-  video: { id: "jMX1o2rB-b0", titulo: "¿Cómo evolucionó el latín al español?", canal: "Manuel Bravo", vistas: 663032, megusta: 40695, busqueda: "evolución fonética latín castellano" },
+  video: { id: "SZZEoS-w5S8", titulo: "La épica historia de por qué el español perdió las declinaciones del latín", canal: "Spanish Speakers Factory", vistas: 94812, megusta: 0, busqueda: "evolución del latín al castellano" },
   ejemplos: [
     ["Evoluciona <i>pĕtram</i>.", ["Tónica: pé- (dos sílabas). ĕ breve tónica > ie: <i>pietram</i>.", "Cae la -m: <i>pietra</i>.", "-t- intervocálica (entre vocal y r) sonoriza > -d-: <i>piedra</i>."], "<i>pĕtram</i> > <b>piedra</b>."],
     ["Evoluciona <i>fŏcum</i>.", ["ŏ breve tónica > ue: <i>fuecum</i>.", "-um > -o: <i>fueco</i>.", "-c- intervocálica > -g-; la f- se conserva ante ue."], "<i>fŏcum</i> > <b>fuego</b>."],

@@ -62,7 +62,7 @@ module.exports = L.libro({
     [
       "1.8 Las grandes preguntas de Kant",
       `<p>El filósofo alemán <b>Immanuel Kant</b> (1724-1804) resumió todo el campo de la filosofía en <mark>cuatro preguntas</mark>: <b>¿qué puedo saber?</b>, que corresponde a la teoría del conocimiento; <b>¿qué debo hacer?</b>, que corresponde a la ética; <b>¿qué me cabe esperar?</b>, que se refiere a la religión y al sentido de la existencia; y una cuarta que, según él, reúne a las otras tres: <b>¿qué es el ser humano?</b></p><p>Estas preguntas siguen vigentes. Cuando alguien comparte un bulo en una red social, está en juego la primera: ¿cómo sabemos que algo es verdad? Cuando dudamos si contar un secreto de un amigo para protegerlo, aparece la segunda. Cuando perdemos a alguien querido, surge la tercera. Y cuando debatimos si una inteligencia artificial puede tener derechos, estamos ante la cuarta. Kant pensaba que la filosofía no se aprende como una lista de datos: «no se puede aprender filosofía, solo se puede aprender a filosofar».</p>`,
-      L.rueda("Las preguntas de Kant", "¿QUÉ ES EL|SER HUMANO?", [["¿saber?", "var(--pen)"], ["¿hacer?", "var(--red)"], ["¿esperar?", "var(--sun)"]], "var(--leaf)"),
+      L.rueda("Las preguntas de Kant", "¿SER|HUMANO?", [["¿saber?", "var(--pen)"], ["¿hacer?", "var(--red)"], ["¿esperar?", "var(--sun)"]], "var(--leaf)"),
     ],
     [
       "1.9 Las ramas de la filosofía",

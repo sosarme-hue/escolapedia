@@ -25,7 +25,7 @@ module.exports = L.libro({
     [
       "1.1 ¿Qué es el ser humano?",
       `<p>Kant pensaba que todas las preguntas de la filosofía se resumen en una: <mark>¿qué es el ser humano?</mark> La disciplina que se ocupa de ella es la <b>antropología</b> (del griego <i>ánthropos</i>, ser humano, y <i>logos</i>, estudio). Hay varias antropologías científicas: la <b>antropología física o biológica</b> estudia nuestra evolución y nuestras características corporales; la <b>antropología cultural o social</b> estudia las costumbres, creencias e instituciones de los distintos pueblos.</p><p>La <b>antropología filosófica</b> recoge lo que dicen estas ciencias, pero se hace preguntas más amplias: ¿qué nos distingue de los demás animales?, ¿somos solo cuerpo o también algo más?, ¿somos libres o estamos determinados por la biología y la sociedad?, ¿existe una «naturaleza humana» común a todos?, ¿qué sentido tiene la vida humana? Es una pregunta especial, porque en ella el que pregunta y lo preguntado coinciden: somos nosotros quienes nos preguntamos por nosotros mismos. Por eso el filósofo alemán Max Scheler dijo que el ser humano se ha vuelto «problemático» para sí mismo.</p>`,
-      L.arbol("Tipos de antropología", [["Científica", ["física", "cultural"], "var(--leaf)", ["cuerpo, evolución", "costumbres"]], ["Filosófica", ["¿qué somos?", "¿sentido?"], "var(--pen)", ["naturaleza", "libertad"]]]),
+      L.dos("Tipos de antropología", ["Científica", ["física: cuerpo", "y evolución", "cultural:", "costumbres"], "var(--leaf)"], ["Filosófica", ["¿qué somos?", "¿somos libres?", "¿naturaleza?", "¿sentido?"], "var(--pen)"]),
     ],
     [
       "1.2 La hominización: la evolución biológica",
@@ -67,7 +67,7 @@ module.exports = L.libro({
     [
       "1.9 Etnocentrismo y relativismo cultural",
       `<p>Ante otras culturas caben varias actitudes. El <mark>etnocentrismo</mark> consiste en juzgar las demás culturas tomando la propia como modelo y considerarla superior. Los griegos llamaban «bárbaros» a quienes no hablaban griego; los colonizadores europeos consideraron «salvajes» a los pueblos de América, África y Oceanía, y usaron esa idea para justificar su dominio. El etnocentrismo lleva a menudo a la <b>xenofobia</b> (rechazo al extranjero) y al <b>racismo</b>.</p><p>En el extremo opuesto está el <mark>relativismo cultural</mark>: cada cultura solo puede juzgarse desde sus propios valores, y ninguna es mejor ni peor que otra. Tiene una parte valiosa: nos obliga a entender antes de juzgar. Pero llevado al extremo nos impediría criticar prácticas como la esclavitud, la ablación o el matrimonio infantil, solo porque son «parte de una cultura». Una postura intermedia es el <b>interculturalismo</b>: respetar y dialogar con las demás culturas, aprender de ellas y, a la vez, defender unos mínimos comunes, los <b>derechos humanos</b>, que protegen la dignidad de todas las personas, también dentro de cada cultura.</p>`,
-      L.escalera("Actitudes ante otras culturas", ["etnocentrismo", "diálogo", "relativismo"], "var(--pen)"),
+      L.flujo("Actitudes ante otras culturas", ["etnocen-|trismo", "diálogo", "relati-|vismo"], "var(--pen)"),
     ],
     [
       "1.10 Concepciones del ser humano en la historia",

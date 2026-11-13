@@ -72,7 +72,7 @@ module.exports = L.libro({
     [
       "1.10 La pregunta por Dios",
       `<p>La existencia de <mark>Dios</mark> ha sido uno de los grandes temas de la metafísica. Algunos filósofos han intentado demostrarla con argumentos racionales. El <b>argumento cosmológico</b>, que procede de Aristóteles y desarrolló Tomás de Aquino en sus «cinco vías», dice que todo lo que se mueve es movido por otro y todo efecto tiene una causa, pero no puede haber una cadena infinita de causas: tiene que existir una <b>primera causa</b> o primer motor, que es Dios. El <b>argumento del diseño</b> sostiene que el orden y la complejidad del universo exigen una inteligencia ordenadora, igual que un reloj exige un relojero.</p><p>Otros filósofos han criticado estas pruebas. Hume objetó que el universo no se parece tanto a un reloj, y la teoría de la evolución de Darwin explicó la complejidad de los seres vivos sin necesidad de un diseñador. Kant sostuvo que la razón no puede demostrar ni refutar la existencia de Dios, porque está más allá de la experiencia. Ante esta cuestión hay varias posturas: el <b>teísmo</b> (creer en Dios), el <b>ateísmo</b> (negar su existencia) y el <b>agnosticismo</b> (considerar que no se puede saber). En una sociedad plural, todas deben respetarse.</p>`,
-      L.escalera("Posturas ante Dios", ["ateísmo", "agnosticismo", "teísmo"], "var(--pen)"),
+      L.flujo("Posturas ante Dios", ["ateísmo", "agnosti-|cismo", "teísmo"], "var(--pen)"),
     ],
     [
       "1.11 El tiempo, el espacio y la identidad",
@@ -82,7 +82,7 @@ module.exports = L.libro({
     [
       "1.12 ¿Vivimos en una simulación?",
       `<p>En 2003, el filósofo sueco Nick Bostrom publicó un artículo que se hizo célebre: el <mark>argumento de la simulación</mark>. Su razonamiento es este: si alguna civilización llega a tener ordenadores capaces de simular mundos con seres conscientes, y si le interesa hacerlo, podría crear miles de simulaciones. En ese caso, habría muchos más seres simulados que reales, y lo más probable sería que nosotros fuéramos uno de ellos. Bostrom no afirma que vivamos en una simulación, sino que, al menos, una de sus tres hipótesis debe ser verdadera.</p><p>La idea recuerda a la caverna de Platón, al genio maligno de Descartes o a la hipótesis del «cerebro en una cubeta» del filósofo Hilary Putnam. Muchos filósofos y científicos la critican: no se puede comprobar ni refutar, y por eso se acerca más a la especulación que a la ciencia. Pero sirve para pensar preguntas metafísicas importantes: ¿qué hace real a algo?, ¿sería menos valiosa una vida simulada?, ¿cambiaría algo en nuestra forma de actuar? En cierto sentido, cada época imagina el problema de la apariencia con la tecnología que tiene a mano.</p>`,
-      L.linea("Imágenes del engaño", [["s. IV a. C.", "caverna|de Platón"], ["1641", "genio maligno|Descartes"], ["1981", "cerebro en|cubeta"], ["2003", "simulación|Bostrom"]], "var(--red)"),
+      L.linea("Imágenes del engaño", [["Grecia", "caverna|de Platón"], ["1641", "genio maligno|Descartes"], ["1981", "cerebro en|cubeta"], ["2003", "simulación|Bostrom"]], "var(--red)"),
     ],
     [
       "1.13 ¿Tiene sentido la metafísica hoy?",

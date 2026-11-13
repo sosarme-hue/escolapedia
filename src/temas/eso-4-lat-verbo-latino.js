@@ -88,7 +88,7 @@ module.exports = L.libro({
     [
       "1.13 Del verbo latino al verbo español",
       `<p>Muchas formas verbales españolas vienen directamente del latín: <i>amo</i> > amo, <i>amas</i> > amas, <i>amat</i> > ama, <i>amabam</i> > amaba, <i>amavi</i> > <i>amai</i> > amé, <i>amavit</i> > <i>amaut</i> > amó. Pero otras se crearon de nuevo en el latín vulgar, porque las formas clásicas se desgastaban o se confundían. El <b>futuro</b> latino (<i>amabo</i>) desapareció porque, al pronunciarse la b como v, se confundía con el perfecto (<i>amavi</i>). En su lugar se usó una perífrasis: <i>amare habeo</i> («tengo que amar») > <i>amar he</i> > «amaré». Por eso en castellano antiguo podía separarse: «decir vos he» (os diré).</p><p>Del mismo modo nacieron los <b>tiempos compuestos</b>: <i>habeo epistulam scriptam</i> («tengo la carta escrita») dio «he escrito la carta», y el <b>condicional</b> procede de <i>amare habebam</i> > «amaría». La voz pasiva sintética (<i>amor</i>) desapareció y fue sustituida por «ser + participio» (soy amado). Así, al estudiar el verbo latino entiendes por qué el español tiene las formas que tiene, y por qué «amaré», «amaría» y «he amado» se parecen tanto a «he», «había» y «haber».</p>`,
-      L.escalera("Del latín amare habeo al español amaré", ["amare|habeo", "amar he", "amaré"], "var(--red)"),
+      L.flujo("Del latín amare habeo al español amaré", ["amare|habeo", "amar he", "amaré"], "var(--red)"),
     ],
     [
       "1.14 Cómo analizar una forma verbal",

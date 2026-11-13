@@ -36,7 +36,7 @@ module.exports = L.libro({
     [
       "1.3 La familia romana y el pater familias",
       `<p>La <mark>familia</mark> romana (<i>familia</i>) era más amplia que la actual: incluía al padre, la esposa, los hijos, las esposas de los hijos, los nietos y también los esclavos de la casa. Al frente estaba el <b>pater familias</b>, el varón de más edad, que tenía un poder enorme, la <i>patria potestas</i>, sobre todos los miembros mientras vivía: administraba todos los bienes (los hijos adultos no tenían propiedades propias), decidía los matrimonios y, en la época antigua, podía incluso vender a sus hijos o castigarlos con la muerte, aunque esto era excepcional y se limitó con el tiempo.</p><p>Al nacer un niño, se le colocaba ante los pies del padre: si lo levantaba (<i>tollere</i>), lo aceptaba como hijo. A los nueve días (ocho para las niñas) se le ponía nombre en una fiesta y se le colgaba la <i>bulla</i>, un amuleto protector. Los nombres de los varones tenían tres partes, los <b>tria nomina</b>: el <b>praenomen</b> (nombre personal: Marco, Cayo, Lucio), el <b>nomen</b> (la familia o gens: Tulio, Julio) y el <b>cognomen</b> (rama o apodo: Cicerón, «garbanzo», o César). Así, Marco Tulio Cicerón. Las mujeres llevaban el nombre de la gens en femenino: la hija de Cicerón se llamaba Tulia.</p>`,
-      L.partes("Los tria nomina", [["Marcus", "praenomen", "var(--red)"], ["Tullius", "nomen", "var(--pen)"], ["Cicero", "cognomen", "var(--leaf)"]], "nombre · familia · apodo"),
+      L.filas("Los tria nomina", [["praenomen", "Marcus: nombre propio", "var(--red)"], ["nomen", "Tullius: la familia", "var(--pen)"], ["cognomen", "Cicero: rama o apodo", "var(--leaf)"]]),
     ],
     [
       "1.4 La mujer en Roma",
