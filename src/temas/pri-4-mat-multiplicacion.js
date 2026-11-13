@@ -1,0 +1,98 @@
+// Matemáticas 4º de Primaria: la multiplicación. Dibujos propios en SVG.
+const P = require("./_pri4a");
+const { svg, t, AZ, RO, VE, NA, SO, MO } = P;
+
+// Matriz de puntos f × c en (x, y) con separación p.
+const puntos = (x, y, f, c, col, p = 16) => [...Array(f * c)].map((_, i) => `<circle cx="${x + (i % c) * p}" cy="${y + Math.floor(i / c) * p}" r="${p * 0.32}" fill="${col}"/>`).join("");
+// Líneas de una multiplicación en vertical alineadas a la derecha en x.
+const col = (x, y, filas) => filas.map(([n, c, raya], i) => `${raya ? `<path d="M${x - 92} ${y + i * 24 - 17} H ${x + 4}" stroke="var(--ink)" stroke-width="2.2"/>` : ""}${t(x, y + i * 24, n, { s: 16, d: true, a: "end", c: c || "var(--ink)" })}`).join("");
+
+module.exports = P.tema({
+  materia: "Matemáticas",
+  titulo: "La multiplicación",
+  minutos: 50,
+  objetivos: ["Entender la multiplicación como una suma de sumandos iguales", "Conocer sus términos y sus propiedades", "Multiplicar por números de una y de dos cifras", "Multiplicar por 10, 100 y 1 000 y resolver problemas"],
+  claves: ["factores", "producto", "tablas de multiplicar", "propiedad conmutativa", "propiedad asociativa", "propiedad distributiva", "multiplicar por 10, 100 y 1 000", "doble", "triple", "estimar"],
+  pregunta: ["Un autobús escolar tiene 12 filas con 4 asientos en cada fila. ¿Hace falta contar los asientos uno a uno para saber cuántos hay?", "¡No! Basta con <b>multiplicar</b>: 12 × 4 = <mark>48 asientos</mark>. Multiplicar es una forma rápida de hacer una suma en la que todos los sumandos son iguales: 4 + 4 + 4 + … (doce veces)."],
+  bloques: [
+    ["Multiplicar es sumar números iguales", `<p>Cuando tenemos que sumar varias veces <b>el mismo número</b>, podemos multiplicar. Es mucho más rápido.</p><p style="text-align:center">6 + 6 + 6 + 6 + 6 = 5 × 6 = <b>30</b></p><p>Se lee «cinco por seis». Podemos imaginarlo como 5 bolsas con 6 caramelos cada una.</p><p>Las multiplicaciones se ven muy bien en forma de <mark>rectángulo</mark>: filas y columnas. En una caja de huevos hay 2 filas de 6 huevos: 2 × 6 = 12. En una tableta de chocolate de 4 filas y 5 onzas por fila hay 4 × 5 = 20 onzas.</p>`,
+      svg("Tableta de chocolate de cuatro filas por cinco onzas: veinte onzas", `${[...Array(20)].map((_, i) => `<rect x="${70 + (i % 5) * 24}" y="${30 + Math.floor(i / 5) * 24}" width="21" height="21" rx="3" fill="${SO}" fill-opacity=".45" stroke="${SO}" stroke-width="1.5"/>`).join("")}${t(48, 82, "4 filas", { s: 11, c: "var(--muted)" })}${t(130, 142, "5 onzas en cada fila", { s: 11, c: "var(--muted)" })}${t(130, 168, "4 × 5 = 20", { s: 16, c: RO })}`)],
+    ["Los términos de la multiplicación", `<p>Los números que se multiplican se llaman <b>factores</b>, y el resultado se llama <b>producto</b>:</p><p style="text-align:center">7 × 8 = <mark>56</mark> → 7 y 8 son los factores; 56 es el producto.</p><p>Para multiplicar bien es imprescindible saberse las <b>tablas</b> de memoria. Algunos trucos:</p><ul><li>Tabla del 2: es el <b>doble</b>. Tabla del 4: el doble del doble.</li><li>Tabla del 5: los resultados acaban en 0 o en 5.</li><li>Tabla del 9: las dos cifras del resultado suman 9 (9 × 7 = 63 → 6 + 3 = 9).</li><li>Tabla del 10: se añade un cero.</li></ul><p>El <b>triple</b> de un número es multiplicarlo por 3.</p>`,
+      P.frase("Términos de la multiplicación: factores y producto", [["7", "factor", AZ], ["×", "", "var(--muted)"], ["8", "factor", AZ], ["=", "", "var(--muted)"], ["56", "producto", RO]], "doble = × 2 · triple = × 3")],
+    ["Propiedades conmutativa y asociativa", `<p>La <b>propiedad conmutativa</b>: <mark>el orden de los factores no cambia el producto</mark>. 3 × 8 = 8 × 3 = 24. Si giras el rectángulo de puntos, sigue teniendo los mismos puntos. Gracias a ella, ¡solo tienes que aprenderte la mitad de las tablas!</p><p>La <b>propiedad asociativa</b>: al multiplicar tres números, podemos agruparlos como queramos:</p><p style="text-align:center">(2 × 5) × 7 = 10 × 7 = 70<br>2 × (5 × 7) = 2 × 35 = 70</p><p>Un buen truco es juntar primero el 2 con el 5 o el 4 con el 25, porque dan números redondos.</p>`,
+      svg("Propiedad conmutativa: tres filas de ocho puntos y ocho filas de tres puntos tienen 24 puntos", `${puntos(22, 40, 3, 8, AZ, 13)}${t(68, 96, "3 × 8", { s: 13, c: AZ })}${puntos(176, 26, 8, 3, VE, 13)}${t(190, 140, "8 × 3", { s: 13, c: VE })}${t(70, 150, "= 24 =", { s: 15, c: RO })}`),
+      P.V("mulB")],
+    ["La propiedad distributiva", `<p>La <b>propiedad distributiva</b> nos permite <mark>romper un número en partes</mark> para multiplicar más fácil:</p><p style="text-align:center">6 × 14 = 6 × (10 + 4) = 6 × 10 + 6 × 4 = 60 + 24 = 84</p><p>Es como si en un rectángulo de 6 filas y 14 columnas cortáramos un trozo de 10 columnas y otro de 4: contamos cada trozo y los sumamos.</p><p>Sirve muchísimo para el <b>cálculo mental</b>: 3 × 25 = 3 × 20 + 3 × 5 = 60 + 15 = 75. Y es justo lo que hacemos, sin darnos cuenta, cuando multiplicamos en vertical.</p>`,
+      svg("Propiedad distributiva: un rectángulo de 6 por 14 se divide en 6 por 10 y 6 por 4", `<rect x="20" y="40" width="150" height="78" fill="${AZ}" fill-opacity=".2" stroke="${AZ}" stroke-width="2"/><rect x="170" y="40" width="60" height="78" fill="${VE}" fill-opacity=".25" stroke="${VE}" stroke-width="2"/>${t(95, 84, "6 × 10 = 60", { s: 13, c: AZ })}${t(200, 84, "6 × 4", { s: 11, c: VE })}${t(200, 100, "= 24", { s: 11, c: VE })}${t(95, 32, "10", { s: 11 })}${t(200, 32, "4", { s: 11 })}${t(12, 84, "6", { s: 11 })}${t(130, 150, "6 × 14 = 60 + 24 = 84", { s: 14, c: RO })}`)],
+    ["Multiplicar por una cifra", `<p>Para multiplicar un número grande por una cifra, lo colocamos en vertical y multiplicamos la cifra de abajo por <b>cada cifra de arriba</b>, empezando por las unidades. Si sale 10 o más, escribimos las unidades y <mark>nos llevamos</mark> las decenas, que se suman al resultado siguiente.</p><p style="text-align:center">2 435 × 6 = <b>14 610</b></p><ul><li>6 × 5 = 30 → escribo 0, llevo 3.</li><li>6 × 3 = 18, + 3 = 21 → escribo 1, llevo 2.</li><li>6 × 4 = 24, + 2 = 26 → escribo 6, llevo 2.</li><li>6 × 2 = 12, + 2 = 14 → escribo 14.</li></ul>`,
+      svg("Multiplicación en vertical de 2 435 por 6 igual a 14 610", `${col(150, 56, [["2 435"], ["× 6", AZ], ["14 610", RO, true]])}${t(80, 40, "3", { s: 11, c: RO })}${t(100, 40, "2", { s: 11, c: RO })}${t(120, 40, "2", { s: 11, c: RO })}${t(206, 60, "llevadas", { s: 10, c: RO })}${t(206, 74, "arriba", { s: 10, c: RO })}${t(130, 160, "se multiplica cifra a cifra", { s: 11, c: "var(--muted)" })}`)],
+    ["Multiplicar por 10, 100 y 1 000", `<p>Hay un atajo muy útil:</p><ul><li>Para multiplicar por <b>10</b>, se añade <b>un cero</b> a la derecha: 34 × 10 = 340.</li><li>Por <b>100</b>, se añaden <b>dos ceros</b>: 34 × 100 = 3 400.</li><li>Por <b>1 000</b>, se añaden <b>tres ceros</b>: 34 × 1 000 = 34 000.</li></ul><p>¿Por qué funciona? Porque cada cifra <mark>salta uno, dos o tres lugares</mark> a la izquierda en la tabla de valor posicional, y vale 10, 100 o 1 000 veces más.</p><p>Con números acabados en cero también ayuda: 30 × 40 = 3 × 4 = 12 y añadimos los dos ceros → 1 200.</p>`,
+      P.filas("Multiplicar 34 por 10, 100 y 1 000 añadiendo ceros", [["34 × 10", "340", AZ], ["34 × 100", "3 400", VE], ["34 × 1 000", "34 000", RO]], "un cero por cada cero"),
+      P.V("mulB2")],
+    ["Multiplicar por dos cifras", `<p>Cuando el número de abajo tiene <b>dos cifras</b>, multiplicamos en dos pasos y después sumamos:</p><p style="text-align:center">235 × 24</p><ol><li>Multiplicamos 235 por las <b>unidades</b> (4): 235 × 4 = 940.</li><li>Multiplicamos 235 por las <b>decenas</b> (2): 235 × 2 = 470. Como son decenas, este resultado se escribe <mark>un lugar a la izquierda</mark> (dejando un hueco o un 0 en las unidades): 4 700.</li><li>Sumamos los dos productos parciales: 940 + 4 700 = <b>5 640</b>.</li></ol><p>Es la propiedad distributiva: 235 × 24 = 235 × 4 + 235 × 20.</p>`,
+      svg("Multiplicación de 235 por 24 con dos productos parciales: 940 y 4 700, total 5 640", `${col(150, 32, [["235"], ["× 24", AZ], ["940", VE, true], ["4 700", SO], ["5 640", RO, true]])}${t(214, 80, "235 × 4", { s: 10, c: VE })}${t(214, 104, "235 × 20", { s: 10, c: SO })}${t(214, 128, "sumo", { s: 10, c: RO })}`)],
+    ["Estimar productos", `<p>Antes de multiplicar, conviene <b>estimar</b> para saber más o menos cuánto saldrá. Se redondea uno o los dos factores y se calcula de cabeza.</p><p>Ejemplo: 48 × 21. Redondeo: 50 × 20 = <mark>1 000</mark>. El resultado exacto es 1 008. ¡Muy cerca!</p><p>La estimación sirve para descubrir errores. Si al hacer 312 × 9 te sale 28 080, piensa: 300 × 9 = 2 700. Tu resultado es diez veces más grande… Seguramente has puesto un cero de más. El resultado correcto es 2 808.</p>`,
+      P.filas("Estimación de 48 por 21 redondeando a 50 por 20", [["48 × 21", "≈ 50 × 20", AZ], ["Estimación", "1 000", VE], ["Exacto", "1 008 ✔", RO]])],
+    ["Problemas de multiplicar", `<p>Usamos la multiplicación cuando hay <b>grupos iguales</b> y queremos saber el total. Palabras pista: «cada», «en cada uno», «por», «el doble», «el triple», «veces».</p><p><i>Un cine tiene 18 filas con 24 butacas en cada fila. La entrada cuesta 7 €. Si se llena, ¿cuánto dinero recauda?</i></p><ol><li>Butacas: 18 × 24 = 432.</li><li>Dinero: 432 × 7 = <mark>3 024 €</mark>.</li></ol><p><b>Solución:</b> si se llena, el cine recauda 3 024 €. Comprueba con una estimación: 400 × 7 = 2 800, un número parecido. ✔</p>`,
+      svg("Cine con filas de butacas: 18 filas por 24 butacas", `${[...Array(6)].map((_, f) => [...Array(12)].map((_, c) => `<rect x="${32 + c * 17}" y="${46 + f * 15}" width="13" height="10" rx="3" fill="${RO}" fill-opacity=".45"/>`).join("")).join("")}<rect x="50" y="18" width="160" height="12" rx="3" fill="${AZ}" fill-opacity=".3"/>${t(130, 28, "pantalla", { s: 9, c: AZ })}${t(130, 152, "18 × 24 = 432 butacas", { s: 13, c: RO })}${t(130, 170, "432 × 7 € = 3 024 €", { s: 12, c: VE })}`)],
+  ],
+  figura: ["La multiplicación", P.columnas("Resumen: sumar iguales, propiedades, multiplicar en vertical y por la unidad seguida de ceros", [["4 + 4 + 4 = 3 × 4", "SUMA REPETIDA", ["factores", "producto"], AZ], ["el orden no importa", "PROPIEDADES", ["conmutativa, asociativa", "distributiva"], VE], ["por 1 y 2 cifras", "EN VERTICAL", ["me llevo", "productos parciales"], RO], ["× 10, 100, 1 000", "CEROS", ["1, 2 o 3 ceros", "a la derecha"], SO]])],
+  video: P.V("mulV", true),
+  ejemplos: [
+    ["Calcula 3 207 × 8.", ["8 × 7 = 56 → 6, llevo 5.", "8 × 0 = 0, + 5 = 5. 8 × 2 = 16 → 6, llevo 1.", "8 × 3 = 24, + 1 = 25."], "25 656"],
+    ["Calcula 146 × 35.", ["146 × 5 = 730.", "146 × 3 = 438 → se escribe un lugar a la izquierda: 4 380.", "730 + 4 380 = 5 110."], "5 110"],
+    ["Una caja tiene 24 botellas. ¿Cuántas botellas hay en 100 cajas? ¿Y en 25 cajas?", ["24 × 100: añado dos ceros → 2 400.", "24 × 25 = 24 × 20 + 24 × 5 = 480 + 120 = 600."], "2 400 botellas y 600 botellas"],
+  ],
+  errores: [
+    "Olvidar sumar la llevada al siguiente producto.",
+    "En la multiplicación por dos cifras, no correr un lugar a la izquierda el segundo producto parcial.",
+    "Al multiplicar por 100, añadir un solo cero o tres.",
+    "Confundir el doble (× 2) con el triple (× 3).",
+    "No saber bien las tablas: un fallo en 7 × 8 estropea toda la operación.",
+  ],
+  ejercicios: [
+    ["Escribe como multiplicación: 9 + 9 + 9 + 9 + 9 + 9.", "6 × 9 = 54."],
+    ["Calcula 4 156 × 7.", "29 092."],
+    ["Calcula 58 × 1 000 y 360 × 10.", "58 000 y 3 600."],
+    ["Calcula 312 × 23.", "312 × 3 = 936; 312 × 20 = 6 240; total 7 176."],
+    ["Aplica la propiedad distributiva para calcular 7 × 23.", "7 × 20 + 7 × 3 = 140 + 21 = 161."],
+    ["Calcula de cabeza agrupando bien: 4 × 9 × 25.", "(4 × 25) × 9 = 100 × 9 = 900."],
+    ["Estima 62 × 39 y calcula el resultado exacto.", "60 × 40 = 2 400; exacto: 2 418."],
+    ["¿Cuál es el triple de 1 250?", "3 750."],
+    ["Una granja recoge 145 huevos cada día. ¿Cuántos recoge en las 52 semanas del año si cada semana tiene 7 días?", "52 × 7 = 364 días; 364 × 145 = 52 780 huevos."],
+    ["Un álbum tiene 36 páginas y en cada página caben 12 cromos. ¿Cuántos cromos caben?", "36 × 12 = 432 cromos."],
+  ],
+  quiz: [
+    ["El resultado de una multiplicación se llama…", ["producto", "factor", "cociente"], "Los factores dan el producto."],
+    ["5 + 5 + 5 + 5 =", ["4 × 5", "5 × 5", "4 + 5"], "Cuatro veces cinco."],
+    ["8 × 7 =", ["56", "54", "63"], "Tabla del 8."],
+    ["Si 6 × 9 = 54, entonces 9 × 6 =", ["54", "45", "69"], "Propiedad conmutativa."],
+    ["72 × 100 =", ["7 200", "720", "72 000"], "Dos ceros."],
+    ["El doble de 450 es…", ["900", "450", "1 350"], "450 × 2."],
+    ["5 × 12 = 5 × 10 + 5 × 2 es la propiedad…", ["distributiva", "conmutativa", "asociativa"], "Se rompe el 12 en 10 + 2."],
+    ["123 × 3 =", ["369", "366", "396"], "3 × 3, 3 × 2, 3 × 1."],
+    ["Estima 49 × 11.", ["unos 500", "unos 50", "unos 5 000"], "50 × 10."],
+    ["40 × 30 =", ["1 200", "120", "12 000"], "4 × 3 = 12 y dos ceros."],
+  ],
+  examen: [
+    ["En 25 × 4 = 100, los factores son…", ["25 y 4", "100", "25 y 100"], "Lo que se multiplica."],
+    ["El triple de 15 es…", ["45", "30", "18"], "15 × 3."],
+    ["En 213 × 32, el segundo producto parcial es…", ["6 390", "639", "426"], "213 × 30."],
+    ["Un paquete tiene 6 yogures. ¿Cuántos hay en 15 paquetes?", ["90", "21", "75"], "15 × 6."],
+  ],
+  feynman: ["Por qué multiplicar es una suma rápida", "Qué dicen las propiedades conmutativa, asociativa y distributiva", "Cómo se multiplica por una cifra llevándose", "Por qué al multiplicar por 10 se añade un cero", "Cómo se multiplica por un número de dos cifras"],
+  mapa: ["LA MULTIPLICACIÓN", [["Qué es", "suma de sumandos iguales", AZ], ["Términos", "factores y producto", VE], ["Propiedades", "conmutativa · asociativa · distributiva", RO], ["Cálculo", "1 y 2 cifras · × 10, 100, 1 000", SO]]],
+  tarjetas: [
+    ["Factores", "Los números que se multiplican."],
+    ["Producto", "El resultado de una multiplicación."],
+    ["Propiedad conmutativa", "El orden de los factores no cambia el producto."],
+    ["Propiedad asociativa", "Se pueden agrupar los factores como se quiera."],
+    ["Propiedad distributiva", "6 × 14 = 6 × 10 + 6 × 4."],
+    ["Multiplicar por 100", "Se añaden dos ceros a la derecha."],
+    ["Doble y triple", "Multiplicar por 2 y por 3."],
+    ["Productos parciales", "Los resultados de multiplicar por cada cifra antes de sumar."],
+  ],
+  familias: ["Repasad las tablas con juegos: preguntas salteadas en el coche o al poner la mesa.", "Buscad multiplicaciones en casa: cajas de huevos, tabletas, baldosas del suelo.", "Calculad juntos cuánto cuestan varias unidades del mismo producto en la compra.", "Repasad las tarjetas dos minutos al día."],
+  saberes: "Sentido de las operaciones: la multiplicación como suma de sumandos iguales y como organización rectangular; propiedades; algoritmo por una y dos cifras; multiplicación por la unidad seguida de ceros; estimación y problemas",
+  ideas: ["Construir multiplicaciones con matrices de pegatinas o regletas.", "Descubrir la propiedad distributiva cortando rectángulos de papel cuadriculado.", "Concurso de cálculo mental por equipos con tablas salteadas y × 10, 100, 1 000."],
+});
