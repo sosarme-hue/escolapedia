@@ -173,3 +173,160 @@ AMP.amplia(module.exports, {
     ["SLA y SLS", "SLA: resina con luz UV. SLS: polvo fundido con láser."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 110,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "Una mano impresa",
+    html: `<p>En 2013, un carpintero sudafricano que había perdido varios dedos en un accidente se puso en contacto con un artista de efectos especiales de Estados Unidos. Juntos diseñaron una mano mecánica sencilla, con dedos que se cierran al doblar la muñeca gracias a unos hilos que hacen de tendones. Decidieron publicar el diseño en internet con una licencia libre para que cualquiera pudiera imprimirlo. Así nació una red mundial de voluntarios que, con impresoras 3D domésticas y escolares, ha fabricado miles de manos y brazos para niños y niñas de todo el mundo por una fracción del precio de una prótesis comercial.</p>
+      <p>Esta historia resume lo que hace especial a la impresión 3D: un diseño digital puede viajar por internet y convertirse en un objeto físico en cualquier lugar, adaptado a cada persona. En este tema aprenderás a diseñar piezas en 3D, desde las formas básicas de Tinkercad hasta el diseño paramétrico, a prepararlas en el laminador, a elegir materiales y parámetros, a resolver los fallos típicos y a acabar las piezas. También verás cómo se escanean objetos reales, qué dice la ley sobre copiar diseños y qué papel puede tener esta tecnología en una fabricación más sostenible.</p>`,
+  },
+  svgs: {
+    "Modelar con Tinkercad paso a paso": L.flujo("Pasos para modelar una pieza en Tinkercad", ["Arrastrar formas básicas", "Ajustar medidas en mm", "Añadir huecos", "Alinear las piezas", "Agrupar y exportar STL"], { t: "Tinkercad paso a paso" }),
+    "Diseñar para imprimir": L.cajas("Reglas de diseño para imprimir bien", [["Base plana", "cara grande|sobre la cama"], ["Voladizos", "menos de 45°|o soportes"], ["Paredes", "al menos|1,2 mm"], ["Puentes", "cortos, de|pocos cm"]], { t: "Diseñar para imprimir" }),
+    "Otras tecnologías de fabricación aditiva": L.rejilla("Comparación de tecnologías de impresión 3D", ["Tecnología", "Material", "Uso"], [["FDM", "filamento", "prototipos"], ["SLA", "resina + UV", "detalle fino"], ["SLS", "polvo + láser", "piezas técnicas"], ["Metal", "polvo metálico", "industria"]], { t: "Tecnologías aditivas" }),
+    "Aplicaciones y propiedad intelectual": L.estrella("Aplicaciones de la impresión 3D", "Impresión 3D", ["prototipos", "repuestos", "medicina", "educación", "arquitectura", "arte"]),
+  },
+  tras: {
+    "Diseñar en 3D": [
+      {
+        html: `<h3>Diseño paramétrico y croquis</h3><p>Tinkercad combina formas ya hechas, pero los programas de CAD profesionales, como <b>FreeCAD</b>, <b>Onshape</b> o <b>Fusion</b>, trabajan de otra manera: el <b>diseño paramétrico</b>. Se empieza dibujando un <b>croquis</b> en 2D sobre un plano (rectángulos, círculos, líneas) y se le ponen <mark>restricciones</mark>: cotas (esta línea mide 40 mm), relaciones geométricas (estas dos líneas son paralelas, este círculo es tangente) y simetrías. Después, una <b>operación</b> convierte el croquis en sólido: la <b>extrusión</b> lo estira en altura, la <b>revolución</b> lo hace girar alrededor de un eje (perfecto para vasos o ruedas) y el <b>vaciado</b> deja la pieza hueca.</p>
+          <p>La gran ventaja es que el programa guarda el <b>historial</b> de operaciones y las medidas como <b>parámetros</b>. Si después quieres que la caja mida 50 mm en lugar de 40, cambias el número y todo el modelo se recalcula: agujeros, redondeos y tapas se ajustan solos. Por eso la industria diseña así. Además, estos programas permiten crear <b>ensamblajes</b> de varias piezas, comprobar que no chocan y generar automáticamente los <b>planos</b> con vistas y cotas. OpenSCAD va más allá: el modelo se describe escribiendo código, y las medidas son variables de un programa.</p>`,
+        svg: L.flujo("Proceso de diseño paramétrico", ["Croquis 2D en un plano", "Restricciones y cotas", "Extrusión o revolución", "Redondeos y agujeros", "Cambiar un parámetro: se recalcula"], { t: "Diseño paramétrico" }),
+      },
+    ],
+    "Diseñar para imprimir": [
+      {
+        html: `<h3>Encajes, uniones y tolerancias</h3><p>Muchos proyectos tienen varias piezas que deben unirse: una caja con su tapa, un eje que gira dentro de un agujero, un mecanismo con engranajes. La impresora no es perfectamente exacta: el plástico se dilata al salir caliente y se contrae al enfriarse, y los agujeros suelen salir algo más pequeños de lo diseñado. Por eso hay que prever una <b>holgura</b> o <mark>tolerancia</mark>: un espacio entre las piezas de unos <b>0,2-0,3 mm</b> por lado para que encajen a presión suave, y algo más (0,4-0,5 mm) si deben deslizar o girar.</p>
+          <p>Hay varias formas de unir piezas impresas. Los <b>encajes a presión</b> (<i>snap-fit</i>) usan una pestaña flexible que se dobla y se engancha. Las <b>colas de milano</b> deslizan una pieza dentro de otra. Para atornillar, se diseña un agujero algo menor que el tornillo o se deja hueco para una <b>tuerca</b> hexagonal, o se insertan <b>insertos roscados</b> de latón con el soldador. También se pueden usar imanes, pasadores o pegamento. Una buena práctica es imprimir primero una <b>pieza de prueba</b> pequeña con varios agujeros de distintas medidas para conocer cómo se comporta tu impresora antes de imprimir el proyecto completo.</p>`,
+        svg: L.comparar("Holgura recomendada según el tipo de unión", ["Encaje fijo", ["0,2-0,3 mm", "a presión", "tapas y cajas", "no se mueve"]], ["Encaje móvil", ["0,4-0,5 mm", "desliza o gira", "ejes y bisagras", "con juego"]]),
+      },
+    ],
+    "Del modelo a la impresora: el laminador": [
+      {
+        html: `<h3>Problemas frecuentes y cómo resolverlos</h3><p>Imprimir en 3D requiere paciencia: muchas piezas fallan, sobre todo al principio. La mayoría de problemas tiene una causa conocida. El más común es que la <b>primera capa no se pega</b> a la cama: suele deberse a una cama mal nivelada, sucia (con grasa de los dedos) o a una boquilla demasiado alejada; se arregla nivelando, limpiando con alcohol y usando un <b>borde</b> (<i>brim</i>) o una <b>balsa</b> (<i>raft</i>). El <b>warping</b> es la deformación de las esquinas, que se levantan al enfriarse el plástico; aparece más en ABS y se reduce con cama caliente y sin corrientes de aire.</p>
+          <p>Los <b>hilos</b> (<i>stringing</i>), finos filamentos entre partes de la pieza, se corrigen ajustando la <mark>retracción</mark> y bajando la temperatura. Si la pieza tiene huecos o capas débiles, puede haber <b>subextrusión</b>: boquilla parcialmente atascada, filamento húmedo o temperatura baja. Si las capas se desplazan, las correas pueden estar flojas o la boquilla chocó con la pieza. Una buena costumbre es vigilar las primeras capas, guardar un registro de los parámetros que funcionan con cada filamento y guardar el filamento en un lugar seco, porque la humedad lo estropea.</p>`,
+        svg: L.rejilla("Problemas frecuentes en impresión 3D, causa y solución", ["Problema", "Causa", "Solución"], [["No se pega", "cama mal nivelada", "nivelar, limpiar"], ["Warping", "enfriamiento", "cama caliente"], ["Hilos", "sin retracción", "retraer, bajar T"], ["Huecos", "subextrusión", "limpiar boquilla"]], { t: "Fallos típicos" }),
+      },
+    ],
+    "Materiales y buenas prácticas": [
+      {
+        html: `<h3>Postprocesado y acabado</h3><p>Una pieza recién impresa casi nunca está terminada. El primer paso es <b>retirar los soportes</b> con cuidado, con alicates o una espátula, y quitar el borde o la balsa. Las marcas que dejan se eliminan con una <b>cuchilla</b> y <b>lija</b>, empezando por un grano grueso (120-220) y terminando con uno fino (400-800), mejor en húmedo para que el plástico no se caliente. Las líneas de las capas se notan menos si se aplica una <b>imprimación</b> de relleno y se vuelve a lijar antes de <b>pintar</b> con acrílico o espray.</p>
+          <p>Hay otros acabados: las piezas de PLA se pueden unir con pegamento de cianoacrilato; las de ABS se alisan con vapor de acetona, un proceso que solo debe hacerse con supervisión y ventilación porque es inflamable y tóxico; las de resina SLA deben lavarse en alcohol isopropílico y curarse con luz ultravioleta. Al postprocesar hay que usar <mark>equipos de protección</mark>: gafas, guantes de nitrilo con la resina y mascarilla al lijar. Un buen acabado convierte un prototipo en un producto que se puede presentar, y forma parte del proceso de diseño: conviene pensar desde el principio qué caras se verán.</p>`,
+        svg: L.flujo("Pasos del postprocesado de una pieza impresa", ["Retirar soportes y borde", "Repasar con cuchilla", "Lijar de grueso a fino", "Imprimación y lijado", "Pintar y proteger"], { t: "Acabado de una pieza" }),
+      },
+    ],
+    "Aplicaciones y propiedad intelectual": [
+      {
+        html: `<h3>Escaneado 3D e ingeniería inversa</h3><p>No siempre se parte de cero: a veces se quiere copiar o medir un objeto que ya existe. El <b>escáner 3D</b> captura la forma de un objeto real y genera una <b>nube de puntos</b> que se convierte en una malla de triángulos. Hay escáneres de <b>luz estructurada</b>, que proyectan un patrón de franjas y observan cómo se deforma; escáneres <b>láser</b>, muy precisos; y la <mark>fotogrametría</mark>, que reconstruye el modelo a partir de decenas de fotos tomadas desde distintos ángulos, incluso con un móvil.</p>
+          <p>El resultado suele necesitar limpieza: tapar agujeros, eliminar el fondo y reducir el número de triángulos. La <b>ingeniería inversa</b> consiste en analizar una pieza existente, medirla con el <b>calibre</b> o escanearla y volver a modelarla en CAD para fabricar un repuesto, mejorarla o adaptarla. Se usa para recuperar piezas de máquinas antiguas, en museos para digitalizar esculturas y fósiles, en medicina para crear férulas a partir del escaneo del brazo del paciente y en el diseño de calzado y ropa a medida. Recuerda que copiar objetos protegidos por patentes o derechos de autor puede no estar permitido.</p>`,
+        svg: L.flujo("Del objeto real al modelo imprimible", ["Objeto real", "Escáner o fotogrametría", "Nube de puntos y malla", "Limpiar y reparar", "Modelo listo para imprimir"], { t: "Escaneado 3D" }),
+      },
+      {
+        html: `<h3>Impresión 3D, sostenibilidad y futuro</h3><p>La fabricación aditiva puede ser más sostenible que la tradicional: usa solo el material necesario (en el mecanizado se puede desperdiciar más de la mitad del bloque), permite fabricar <b>bajo demanda</b> y cerca del usuario, sin almacenes ni transporte, y alarga la vida de los aparatos al imprimir <b>repuestos</b> que ya no se venden. Además, un mismo equipo puede fabricar piezas muy distintas sin moldes, que son caros y solo compensan en grandes series. Las piezas con <b>estructuras aligeradas</b> y diseñadas por algoritmos de <mark>optimización topológica</mark>, con formas parecidas a huesos, pesan menos y ahorran combustible en aviones y coches.</p>
+          <p>Pero también tiene problemas: muchas impresiones son pruebas fallidas o adornos que acaban en la basura, la mayoría de filamentos son plásticos derivados del petróleo y el PLA solo se composta en plantas industriales. Algunas soluciones son reciclar los restos para fabricar filamento nuevo, usar filamentos reciclados y diseñar con cuidado para fallar menos. El futuro de la tecnología es asombroso: se imprimen casas de hormigón en pocos días, puentes de acero, cohetes, alimentos y se investiga la <b>bioimpresión</b> de tejidos con células vivas. También se trabaja en la impresión 4D, con materiales que cambian de forma con el calor o la humedad.</p>`,
+        svg: L.comparar("Ventajas e inconvenientes ambientales de la impresión 3D", ["Ventajas", ["poco desperdicio", "bajo demanda", "repuestos", "piezas ligeras"]], ["Inconvenientes", ["pruebas fallidas", "plásticos fósiles", "PLA industrial", "consumo eléctrico"]]),
+      },
+    ],
+  },
+  secciones: [6, 6, 3],
+  niveles: "mbbbbmmmbm",
+  ejercicios: [
+    { nivel: "básico", q: "¿Qué es un croquis en un programa de CAD paramétrico?", sol: "Un dibujo 2D sobre un plano, con cotas y restricciones, que después se convierte en sólido con una operación como la extrusión." },
+    { nivel: "básico", q: "Explica la diferencia entre extrusión y revolución.", sol: "La extrusión estira el croquis en una dirección (da altura a un perfil); la revolución lo hace girar alrededor de un eje (sirve para piezas redondas como vasos o ruedas)." },
+    { nivel: "básico", q: "¿Qué holgura dejarías entre una caja y su tapa para que encaje a presión?", sol: "Unos 0,2-0,3 mm por lado." },
+    { nivel: "básico", q: "¿Qué es el warping y cómo se evita?", sol: "La deformación de las esquinas de una pieza, que se levantan al enfriarse. Se evita con cama caliente, buena adhesión (brim) y sin corrientes de aire." },
+    { nivel: "básico", q: "Enumera los pasos para lijar una pieza impresa.", sol: "Retirar soportes, repasar con cuchilla, lijar empezando con grano grueso (120-220) y acabar con fino (400-800), mejor en húmedo." },
+    { nivel: "básico", q: "¿Qué es la fotogrametría?", sol: "Una técnica que reconstruye un modelo 3D a partir de muchas fotos de un objeto tomadas desde distintos ángulos." },
+    { nivel: "básico", q: "Nombra tres ventajas ambientales de la impresión 3D.", sol: "Poco desperdicio de material, fabricación bajo demanda cerca del usuario y posibilidad de imprimir repuestos para alargar la vida de los aparatos." },
+    { nivel: "medio", q: "¿Qué ventaja tiene el diseño paramétrico frente a combinar formas en Tinkercad?", sol: "Las medidas son parámetros y se guarda el historial: si cambias una cota, todo el modelo se recalcula automáticamente sin rehacerlo." },
+    { nivel: "medio", q: "Diseñas un eje de 8 mm que debe girar dentro de un agujero. ¿Qué diámetro le das al agujero?", sol: "Unos 8,8-9 mm (holgura de 0,4-0,5 mm por lado), porque debe girar y los agujeros impresos suelen salir algo más pequeños." },
+    { nivel: "medio", q: "Una pieza tiene muchos hilos finos entre sus torres. ¿Qué parámetros ajustarías?", sol: "Aumentar la retracción (distancia o velocidad) y bajar unos grados la temperatura de la boquilla; también secar el filamento si está húmedo." },
+    { nivel: "medio", q: "La primera capa no se pega a la cama. Propón tres soluciones.", sol: "Nivelar la cama y ajustar la distancia de la boquilla, limpiar la cama con alcohol y añadir un borde (brim) o subir la temperatura de la cama." },
+    { nivel: "medio", q: "Compara tres formas de unir dos piezas impresas.", sol: "Encaje a presión: rápido, sin piezas extra, pero puede romperse. Tornillo y tuerca: resistente y desmontable, necesita hueco para la tuerca. Pegamento: sencillo, pero la unión es permanente." },
+    { nivel: "medio", q: "¿Qué precauciones de seguridad tomarías al postprocesar piezas de resina?", sol: "Guantes de nitrilo y gafas, ventilación, lavar con alcohol isopropílico lejos de llamas, curar con UV y no tirar resina líquida por el desagüe." },
+    { nivel: "medio", q: "Explica qué es la ingeniería inversa con un ejemplo.", sol: "Analizar y medir un objeto existente para volver a modelarlo en CAD. Ejemplo: medir con el calibre la rueda rota de una persiana antigua, modelarla e imprimir un repuesto." },
+    { nivel: "medio", q: "Una pieza mecanizada parte de un bloque de 500 g y queda en 180 g. ¿Qué porcentaje de material se desperdicia? ¿Y si se imprime usando 200 g con soportes?", sol: "Mecanizado: (500 − 180) / 500 = 64 % de desperdicio. Impresión: (200 − 180) / 200 = 10 %." },
+    { nivel: "medio", q: "¿Por qué el PLA no es tan «ecológico» como parece?", sol: "Aunque procede de plantas, solo se composta en plantas industriales a alta temperatura; en un vertedero o en la naturaleza tarda muchísimo en degradarse." },
+    { nivel: "avanzado", q: "Diseña con croquis y operaciones (sin dibujar) un vaso de 70 mm de diámetro, 90 mm de alto y 2 mm de pared.", sol: "Opción 1: croquis de un círculo de 70 mm, extrusión de 90 mm y vaciado de 2 mm dejando abierta la cara superior. Opción 2: croquis del perfil en L (pared de 2 mm y fondo de 2 mm) y revolución de 360° alrededor del eje central." },
+    { nivel: "avanzado", q: "Imprimes una pieza de prueba con agujeros de 5,0, 5,2, 5,4 y 5,6 mm para un tornillo de 5 mm. Solo entra a presión en el de 5,4 y holgado en el de 5,6. ¿Qué conclusión sacas para tus diseños?", sol: "Tu impresora hace los agujeros unos 0,3-0,4 mm más pequeños; para un ajuste a presión debes diseñar con +0,4 mm y para que gire, +0,6 mm o más." },
+    { nivel: "avanzado", q: "Una pieza de ABS se deforma en las esquinas y se agrieta entre capas. Explica las causas y propón un plan de mejora.", sol: "El ABS se contrae mucho al enfriarse; el aire frío provoca warping y mala unión entre capas. Plan: cama a 100 °C, cerramiento o caja que mantenga el calor, sin ventilador de capa, borde amplio y redondear esquinas en el diseño; o cambiar a PETG si no se necesita ABS." },
+    { nivel: "avanzado", q: "Escribe en pseudocódigo (estilo OpenSCAD) un modelo paramétrico de una caja con variables para largo, ancho, alto y pared.", sol: "largo = 60; ancho = 40; alto = 30; pared = 2;\ndifference() {\n  cube([largo, ancho, alto]);\n  translate([pared, pared, pared])\n    cube([largo - 2*pared, ancho - 2*pared, alto]);\n}" },
+    { nivel: "avanzado", q: "Planifica cómo digitalizar con fotogrametría una figura de cerámica de 20 cm.", sol: "Iluminación difusa sin sombras, fondo neutro, tomar 50-100 fotos en varias alturas girando alrededor (con solapamiento del 60-70 %), procesar en un programa de fotogrametría, limpiar y cerrar la malla, escalarla con una medida real y exportar STL." },
+    { nivel: "avanzado", q: "Calcula el coste total de una pieza: 85 g de PLA a 22 €/kg, 4 horas a 150 W con electricidad a 0,18 €/kWh y un 20 % de piezas fallidas.", sol: "Material: 0,085 · 22 = 1,87 €. Energía: 0,15 · 4 = 0,6 kWh · 0,18 = 0,11 €. Subtotal: 1,98 €. Con un 20 % de fallos: 1,98 · 1,2 ≈ 2,38 €." },
+    { nivel: "avanzado", q: "¿Qué es la optimización topológica y por qué interesa en aviones?", sol: "Un método en que un algoritmo elimina el material que no soporta esfuerzos y deja formas orgánicas parecidas a huesos. En aviones reduce el peso de las piezas manteniendo la resistencia, lo que ahorra combustible y emisiones; la impresión 3D permite fabricar esas formas complejas." },
+    { nivel: "avanzado", q: "Debate: ¿debería una persona poder imprimir en casa repuestos de cualquier aparato? Considera derechos de autor, seguridad y sostenibilidad.", sol: "A favor: alarga la vida de los productos y reduce residuos, en línea con el derecho a reparar. En contra o con límites: algunas piezas están protegidas por patentes o diseños registrados, y piezas de seguridad (frenos, gas, juguetes infantiles) requieren materiales y certificaciones. Conclusión: repuestos sí, respetando licencias y sin piezas críticas para la seguridad." },
+    { nivel: "avanzado", q: "Diseña un proceso para reciclar en el instituto los restos de impresión.", sol: "Separar los restos por material (PLA, PETG) y color, triturarlos, secarlos y fabricar filamento nuevo con una extrusora de reciclaje, o enviarlos a una empresa que los recicle. Registrar los kilos recuperados y reducir fallos imprimiendo piezas de prueba pequeñas." },
+  ],
+  ejemplos: [
+    { enunciado: "Diseña con FreeCAD una arandela de 20 mm de diámetro exterior, 8 mm de agujero y 2 mm de grosor.", pasos: ["Crear un croquis en el plano XY.", "Dibujar dos círculos concéntricos y acotarlos: 20 mm y 8 mm.", "Restringir el centro de ambos al origen.", "Extruir (pad) el croquis 2 mm.", "Exportar la pieza como STL."], resultado: "Una arandela paramétrica: cambiando las cotas se obtiene cualquier tamaño." },
+    { enunciado: "Calcula el diámetro del hueco para que una tuerca M3 quede encajada a presión en una pieza.", pasos: ["La tuerca M3 mide 5,5 mm entre caras planas.", "Se añade una holgura de 0,2-0,3 mm por lado: 5,5 + 0,5 = 6,0 mm.", "Se diseña un hueco hexagonal de 6,0 mm entre caras y 2,6 mm de profundidad (algo más que la tuerca)."], resultado: "Hueco hexagonal de 6,0 mm entre caras." },
+    { enunciado: "Diagnostica una pieza con hilos finos entre dos torres y la superficie algo brillante y blanda.", pasos: ["Hilos y brillo indican plástico demasiado caliente y fluido.", "Bajar 5-10 °C la temperatura de la boquilla.", "Aumentar la retracción 1 mm.", "Imprimir una torre de temperatura para encontrar el valor óptimo."], resultado: "Temperatura más baja y más retracción." },
+  ],
+  errores: ["Diseñar un agujero con la medida exacta del tornillo o del eje: sale más pequeño y no encaja; hay que dejar holgura."],
+  cuarta: ["Porque añade capas de pintura", "PNG", "Pinta la pieza", "Para pegar la pieza a la cama", "Madera maciza", "una imagen", "1 cm", "arcilla y horno", "MP4", "solo se puede regalar"],
+  quiz: [
+    { q: "En CAD paramétrico, el dibujo 2D con cotas se llama…", o: ["render", "croquis", "malla", "STL"], a: 1, e: "Después se extruye o revoluciona." },
+    { q: "Para crear una rueda a partir de un perfil se usa…", o: ["la extrusión", "la revolución", "el texto", "el borrado"], a: 1, e: "Gira el perfil alrededor de un eje." },
+    { q: "Para que un eje gire dentro de un agujero se deja una holgura de unos…", o: ["0,4-0,5 mm", "0 mm", "5 mm", "2 cm"], a: 0, e: "Algo más que para un encaje fijo." },
+    { q: "El warping es…", o: ["un tipo de filamento", "la deformación de las esquinas al enfriarse", "una tecnología de impresión", "un formato de archivo"], a: 1, e: "Se reduce con cama caliente." },
+    { q: "Los hilos finos entre partes de la pieza se corrigen con…", o: ["más relleno", "la retracción", "más velocidad de ventilador de la cama", "otra cama"], a: 1, e: "Y bajando la temperatura." },
+    { q: "Un borde (brim) sirve para…", o: ["decorar", "mejorar la adhesión de la primera capa", "ahorrar plástico", "enfriar"], a: 1, e: "Aumenta la superficie de contacto." },
+    { q: "Al lijar una pieza se empieza por…", o: ["grano fino", "grano grueso", "pintura", "acetona"], a: 1, e: "Y se termina con grano fino." },
+    { q: "La fotogrametría crea un modelo 3D a partir de…", o: ["un único dibujo", "muchas fotos", "un sonido", "un texto"], a: 1, e: "Tomadas desde varios ángulos." },
+    { q: "La optimización topológica sirve para…", o: ["aligerar piezas manteniendo la resistencia", "colorear modelos", "comprimir archivos", "nivelar la cama"], a: 0, e: "Deja formas parecidas a huesos." },
+    { q: "La bioimpresión imprime…", o: ["papel", "tejidos con células vivas", "metal", "hormigón"], a: 1, e: "Es un campo de investigación." },
+  ],
+  cuartaEx: ["se imprime más rápido sin cambios", "la pieza tiene un 15 % de soportes", "el extremo de la bobina"],
+  examen: [
+    { q: "En diseño paramétrico, si cambias una cota…", o: ["el modelo se recalcula", "hay que empezar de cero", "se borra la pieza", "nada cambia"], a: 0, e: "Gracias al historial y los parámetros." },
+    { q: "Un encaje a presión con pestaña flexible se llama…", o: ["snap-fit", "raft", "brim", "G-code"], a: 0, e: "La pestaña se dobla y engancha." },
+    { q: "La subextrusión puede deberse a…", o: ["boquilla parcialmente atascada", "demasiado relleno", "cama fría", "un modelo grande"], a: 0, e: "También a filamento húmedo." },
+    { q: "Las piezas de resina SLA se terminan…", o: ["lavándolas y curándolas con UV", "pintándolas sin lavar", "metiéndolas en agua fría", "con acetona"], a: 0, e: "Con guantes y ventilación." },
+    { q: "Una ventaja ambiental de la impresión 3D es…", o: ["fabricar bajo demanda con poco desperdicio", "no consumir energía", "que todo es biodegradable", "que no falla nunca"], a: 0, e: "Aunque también tiene inconvenientes." },
+  ],
+  tarjetas: [
+    ["Diseño paramétrico", "Medidas como parámetros e historial: cambias una cota y se recalcula."],
+    ["Holgura", "0,2-0,3 mm para encaje fijo; 0,4-0,5 mm si gira o desliza."],
+    ["Warping", "Esquinas que se levantan al enfriarse; cama caliente y brim."],
+    ["Fotogrametría", "Modelo 3D a partir de muchas fotos."],
+  ],
+  glosario: [
+    ["Fabricación aditiva", "Fabricación que construye el objeto añadiendo material capa a capa."],
+    ["CAD", "Diseño asistido por ordenador."],
+    ["Croquis", "Dibujo 2D con cotas y restricciones que sirve de base a un sólido."],
+    ["Extrusión", "Operación que da altura a un croquis estirándolo en una dirección."],
+    ["Revolución", "Operación que gira un perfil alrededor de un eje."],
+    ["Diseño paramétrico", "Diseño en que las medidas son parámetros modificables."],
+    ["STL", "Formato de archivo que describe la superficie con triángulos."],
+    ["Laminador", "Programa que corta el modelo en capas y genera el código G."],
+    ["Código G", "Instrucciones de movimiento y temperatura que entiende la impresora."],
+    ["Extrusor", "Parte de la impresora que empuja y funde el filamento."],
+    ["Relleno", "Estructura interior de la pieza, expresada en porcentaje."],
+    ["Soportes", "Estructuras provisionales que sostienen los voladizos."],
+    ["Holgura", "Espacio que se deja entre piezas para que encajen."],
+    ["Warping", "Deformación de las esquinas al contraerse el plástico."],
+    ["Retracción", "Retroceso del filamento para evitar hilos."],
+    ["Fotogrametría", "Reconstrucción 3D a partir de fotografías."],
+    ["Ingeniería inversa", "Análisis y modelado de un objeto existente para reproducirlo o mejorarlo."],
+  ],
+  situacion: {
+    titulo: "Repuestos para alargar la vida",
+    reto: "Muchos aparatos y muebles se tiran por una pieza rota pequeña. Cada equipo buscará un objeto de casa o del instituto con una pieza de plástico rota o perdida, la diseñará en CAD a partir de medidas reales e imprimirá un repuesto que funcione.",
+    pasos: [
+      "Elegid el objeto, fotografiad la pieza rota y comprobad que no es una pieza crítica para la seguridad.",
+      "Medid la pieza con el calibre y haced un croquis acotado a mano.",
+      "Modeladla en CAD paramétrico, previendo holguras y uniones.",
+      "Preparad la impresión en el laminador (orientación, soportes, relleno) y calculad coste y tiempo.",
+      "Imprimid, postprocesad, probad el encaje y repetid con mejoras si hace falta.",
+      "Documentad el proceso y publicad el diseño con una licencia libre.",
+    ],
+    producto: "Un repuesto impreso que funciona y una ficha técnica con croquis, modelo, parámetros, coste e iteraciones.",
+    evaluacion: ["El croquis y el modelo tienen medidas correctas y holguras adecuadas.", "Los parámetros de impresión están justificados y el coste calculado.", "La pieza encaja y funciona tras las iteraciones necesarias.", "La documentación es clara y respeta la propiedad intelectual."],
+  },
+  objetivos: ["Diseñar piezas con CAD paramétrico previendo holguras y uniones", "Resolver fallos de impresión, postprocesar piezas y valorar la sostenibilidad de la fabricación aditiva"],
+  fuentes: [{ t: "FreeCAD: documentación oficial", url: "https://wiki.freecad.org/" }],
+});
