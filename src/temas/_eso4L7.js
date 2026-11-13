@@ -52,7 +52,7 @@ function libro(T, X) {
   T.ejercicios.forEach((e, i) => { if (niv[i]) e.nivel = NIV[niv[i]]; });
   for (const [n, q, sol] of X.ejercicios || []) T.ejercicios.push({ nivel: NIV[n], q, sol });
   const viejas = [...T.quiz, ...T.examen];
-  (X.cuartas || []).forEach((o, i) => { if (viejas[i]) viejas[i].o.push(o); });
+  (X.cuartas || []).forEach((o, i) => { if (viejas[i] && o && viejas[i].o.length < 4) viejas[i].o.push(o); });
   for (const [q, o, a, e] of X.quiz || []) T.quiz.push({ q, o, a, e });
   for (const [q, o, a, e] of X.examen || []) T.examen.push({ q, o, a, e });
   T.tarjetas.push(...(X.tarjetas || []));
