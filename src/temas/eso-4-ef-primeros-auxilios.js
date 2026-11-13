@@ -44,12 +44,11 @@ module.exports = {
         <rect width="260" height="180" rx="14" fill="var(--paper)"/>
         <rect x="20" y="148" width="220" height="6" rx="3" fill="var(--line)"/>
         <circle cx="210" cy="132" r="12" fill="none" stroke="var(--ink)" stroke-width="3"/>
-        <path d="M198 136 H 60 M 120 136 l -20 -4 M 60 136 l -20 6" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" fill="none"/>
-        <circle cx="132" cy="44" r="12" fill="none" stroke="var(--red)" stroke-width="3"/>
-        <path d="M128 56 L 112 104 L 92 112 L 92 146 M 112 104 L 70 146" stroke="var(--red)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <path d="M126 64 L 150 128" stroke="var(--red)" stroke-width="4" stroke-linecap="round"/>
-        <path d="M150 104 v 20 l -6 -8 m 6 8 l 6 -8" stroke="var(--sun)" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <g ${F} font-size="10.5" font-weight="700"><text x="168" y="98" fill="var(--sun)">5-6 cm</text><text x="168" y="112" fill="var(--sun)">100-120/min</text><text x="20" y="30" fill="var(--red)">brazos rectos</text><text x="20" y="44" fill="var(--muted)">centro del pecho</text></g>
+        <path d="M198 136 H 60 M 60 136 l -20 6" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <circle cx="146" cy="54" r="11" fill="none" stroke="var(--red)" stroke-width="3"/>
+        <path d="M98 146 H 124 L 126 106 L 142 68 M 142 72 L 160 128" stroke="var(--red)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M176 104 v 20 l -6 -8 m 6 8 l 6 -8" stroke="var(--sun)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <g ${F} font-size="10.5" font-weight="700"><text x="186" y="98" fill="var(--sun)">5-6 cm</text><text x="186" y="112" fill="var(--sun)">100-120/min</text><text x="20" y="30" fill="var(--red)">brazos rectos</text><text x="20" y="44" fill="var(--muted)">centro del pecho</text></g>
       </svg>`,
       { id: "FEayzgNGGBQ", titulo: "Primeros auxilios: RCP en adultos", canal: "Cruz Roja en Euskadi", vistas: 1489460, megusta: 17071 }),
     B("1.6 El desfibrilador externo automático (DEA)", `<p>La causa más frecuente de parada cardiaca en adultos es la <b>fibrilación ventricular</b>: el corazón no late, sino que «tiembla» de forma desordenada y no bombea sangre. La única forma de corregirla es una <b>descarga eléctrica</b> que «reinicie» el ritmo: eso hace el <mark>desfibrilador externo automático (DEA)</mark>.</p><p>El DEA está diseñado para que lo use <b>cualquier persona</b>, sin formación previa: al abrirlo, da instrucciones en voz alta. Los pasos son: <b>1.</b> Encenderlo. <b>2.</b> Descubrir el pecho de la víctima (secarlo si está mojado) y pegar los dos parches como indican los dibujos: uno bajo la clavícula derecha y otro en el costado izquierdo, bajo la axila. <b>3.</b> El aparato analiza el ritmo: nadie debe tocar a la víctima. <b>4.</b> Si indica descarga, asegurarse de que nadie la toca y pulsar el botón (algunos modelos la dan solos). <b>5.</b> Reanudar inmediatamente la RCP y seguir las instrucciones. El DEA <b>no da descargas si no son necesarias</b>, por lo que no hay riesgo de hacer daño.</p><p>Los DEA están en lugares públicos (estaciones, centros comerciales, polideportivos, muchos institutos) señalizados con un corazón verde con un rayo. Aplicaciones móviles y el propio 112 indican dónde está el más cercano. Conviene que, mientras uno hace la RCP, otra persona vaya a buscarlo.</p>`,
@@ -81,7 +80,7 @@ module.exports = {
         <rect x="80" y="18" width="100" height="62" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
         <rect x="114" y="10" width="32" height="12" rx="4" fill="none" stroke="var(--red)" stroke-width="3"/>
         <path d="M130 34 v 30 M 115 49 h 30" stroke="var(--red)" stroke-width="8" stroke-linecap="round"/>
-        <g ${F} font-size="10.5" font-weight="700" text-anchor="middle">${[["guantes", "var(--pen)"], ["gasas", "var(--leaf)"], ["vendas", "var(--bac)"], ["suero", "var(--inf)"], ["antiséptico", "var(--sun)"], ["tijeras", "var(--muted)"], ["manta térmica", "var(--red)"], ["teléfonos", "var(--ink)"]].map(([t, c], i) => `<text x="${42 + (i % 4) * 59}" y="${112 + Math.floor(i / 4) * 28}" fill="${c}">${t}</text>`).join("")}</g>
+        <g ${F} font-size="10.5" font-weight="700" text-anchor="middle">${[["guantes", "var(--pen)"], ["gasas", "var(--leaf)"], ["vendas", "var(--bac)"], ["suero", "var(--inf)"], ["antiséptico", "var(--sun)"], ["tijeras", "var(--muted)"], ["manta", "var(--red)"], ["teléfonos", "var(--ink)"]].map(([t, c], i) => `<text x="${42 + (i % 4) * 59}" y="${112 + Math.floor(i / 4) * 28}" fill="${c}">${t}</text>`).join("")}</g>
       </svg>`),
   ],
   figura: {

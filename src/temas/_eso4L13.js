@@ -100,7 +100,17 @@ function rejilla(label, xs, cols = ["var(--pen)", "var(--red)", "var(--leaf)", "
   }).join("") + (fi ? "" : ""));
 }
 
+// Pirámide escalonada (trapecios): el nivel de arriba también tiene sitio para su rótulo.
+function escalon(label, niveles) {
+  const n = niveles.length, top = 18, base = 164, h = (base - top) / n;
+  return caja(label, niveles.map(([t, c], i) => {
+    const y0 = top + i * h, y1 = y0 + h, w0 = 110 + (i / n) * 120, w1 = 110 + ((i + 1) / n) * 120;
+    const fs = Math.min(11.5, ((w0 + w1) / 2 - 14) / (String(t).length * 0.6)).toFixed(1);
+    return `<path d="M${130 - w0 / 2} ${y0} H ${130 + w0 / 2} L ${130 + w1 / 2} ${y1} H ${130 - w1 / 2} Z" fill="${c}" stroke="var(--ink)" stroke-width="2"/><text x="130" y="${(y0 + h / 2 + 4).toFixed(1)}" text-anchor="middle" font-size="${fs}" font-weight="700" fill="var(--ink)" ${F}>${esc(t)}</text>`;
+  }).join(""));
+}
+
 const RD = { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" };
 const DEC_CAT = { t: "Decret 175/2022, d'ordenació dels ensenyaments de l'educació bàsica (DOGC)", url: "https://portaldogc.gencat.cat/utilsEADOP/PDF/8762/1928817.pdf" };
 
-module.exports = { B, Q, QS, EJ, EX, muneco, poses, escenario, curva, zonas, pista, rejilla, RD, DEC_CAT };
+module.exports = { escalon, B, Q, QS, EJ, EX, muneco, poses, escenario, curva, zonas, pista, rejilla, RD, DEC_CAT };

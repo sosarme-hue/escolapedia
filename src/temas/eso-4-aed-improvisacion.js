@@ -1,7 +1,7 @@
 // Artes Escénicas y Danza 4º ESO (optativa). Tema nivel libro. Dibujos propios en SVG.
 const { F, D, mapa } = require("./_util");
 const { tabla, dos, filas, rueda, flujo, figCols, piramide, linea } = require("./_hum");
-const { B, QS, EJ, EX, poses, escenario, rejilla, curva, zonas, RD } = require("./_eso4L13");
+const { escalon, B, QS, EJ, EX, poses, escenario, rejilla, curva, zonas, RD } = require("./_eso4L13");
 
 module.exports = {
   materia: "Artes Escénicas y Danza",
@@ -50,7 +50,7 @@ module.exports = {
       rejilla("Juegos básicos de improvisación", [["Palabra a palabra", "escucha"], ["Congelados", "reacción"], ["El experto", "espontaneidad"], ["Emociones", "expresión"], ["Doblaje", "coordinación"], ["Solo preguntas", "rapidez"]]),
       { id: "uWe7gk5Usgs", titulo: "5 juegos de improvisación teatral para niños y adultos", canal: "Pau Farías, Improvisación Teatral y Creatividad", vistas: 288845, megusta: 0 }),
     B("1.12 El error, el miedo y el grupo seguro", `<p>Muchos se bloquean ante la improvisación por miedo: a no ser gracioso, a quedarse en blanco, a hacer el ridículo. Los maestros dan un consejo sorprendente: <mark>no intentes ser original</mark>. Di lo obvio, lo primero que se te ocurra; para el público será fresco porque es sincero. Johnstone contaba que sus alumnos se volvían creativos justo cuando dejaban de esforzarse por serlo.</p><p>En improvisación <b>el error no existe</b>: es otra oferta. Si te equivocas de nombre, ahora tu personaje tiene dos nombres y quizá una doble vida; si se cae una silla, la escena puede integrar el accidente. Esta actitud ante el fallo, celebrarlo en lugar de esconderlo, es muy liberadora. Para que funcione, el grupo debe ser un <b>espacio seguro</b>, con normas claras: nadie se burla de nadie, se aplaude a quien sale, se respetan los límites físicos y personales (nadie está obligado a contar algo íntimo ni a tocar a otra persona si no quiere) y se evitan los estereotipos ofensivos. Al terminar cada ejercicio, se comenta qué funcionó y qué se puede mejorar, siempre de forma constructiva. Con ese clima, hasta los más tímidos acaban saliendo al escenario y disfrutando.</p>`,
-      piramide("Pirámide del grupo seguro", [["arriesgar", "var(--red)"], ["confianza", "var(--sun)"], ["respeto y normas", "var(--leaf)"]])),
+      escalon("Pirámide del grupo seguro", [["arriesgar", "var(--red)"], ["confianza", "var(--sun)"], ["respeto y normas", "var(--leaf)"]])),
   ],
   figura: {
     titulo: "Fórmula de una buena improvisación",
