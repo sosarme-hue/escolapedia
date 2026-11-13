@@ -1,142 +1,244 @@
-// Economía y Emprendimiento 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-const { filas, dos, barras, flujo, figCols } = require("./_hum");
+// Economía y Emprendimiento 4º ESO. Tema nivel libro. Dibujos propios en SVG.
+const { F, D, mapa, B, ejs, qz, caja, dos, rueda, filas, flujo, figCols, formula, balanza, tarta, barras, cuadro4, ciclo, escalera, tabla, arbol } = require("./_eso4L10");
+
+const umbral = caja("Umbral de rentabilidad: la recta de ingresos corta a la de costes totales en 300 unidades; antes hay pérdidas y después beneficios", `
+  <g ${F} font-size="10">
+    <path d="M36 16 V 150 H 244" fill="none" stroke="var(--ink)" stroke-width="2"/>
+    <text x="32" y="20" text-anchor="end" fill="var(--muted)">€</text><text x="244" y="166" text-anchor="end" fill="var(--muted)">unidades</text>
+    <path d="M36 112 H 236" stroke="var(--muted)" stroke-dasharray="5 3"/><text x="240" y="126" text-anchor="end" fill="var(--muted)">costes fijos</text>
+    <path d="M36 112 L 236 52" stroke="var(--red)" stroke-width="3"/><text x="244" y="98" text-anchor="end" fill="var(--red)" font-weight="700">costes totales</text>
+    <path d="M36 150 L 226 24" stroke="var(--leaf)" stroke-width="3"/><text x="150" y="34" text-anchor="end" fill="var(--leaf)" font-weight="700">ingresos</text>
+    <circle cx="136" cy="82" r="5" fill="var(--pen)"/><path d="M136 82 V 150" stroke="var(--pen)" stroke-dasharray="4 3"/>
+    <text x="136" y="163" text-anchor="middle" fill="var(--pen)" font-weight="700">300 u.</text>
+    <text x="42" y="128" fill="var(--red)" font-size="9">pérdidas</text><text x="196" y="60" fill="var(--leaf)">beneficios</text>
+  </g>`);
 
 module.exports = {
   materia: "Economía y Emprendimiento",
   curso: "4-eso",
   titulo: "Plan económico y financiación",
-  minutos: 40,
-  objetivos: ["Distinguir inversión inicial, gastos e ingresos previstos de un proyecto", "Calcular el umbral de rentabilidad de un negocio sencillo", "Comparar fuentes de financiación propias y ajenas"],
-  claves: ["inversión inicial", "umbral de rentabilidad", "financiación propia", "financiación ajena", "préstamo", "crowdfunding"],
+  minutos: 100,
+  objetivos: [
+    "Distinguir inversión, gasto, pago, ingreso y cobro",
+    "Elaborar un plan de inversión inicial y una cuenta de resultados previsional",
+    "Hacer una previsión de tesorería y entender por qué beneficio no es lo mismo que dinero",
+    "Calcular el umbral de rentabilidad de un negocio",
+    "Comparar fuentes de financiación propias y ajenas, tradicionales y nuevas",
+    "Valorar la viabilidad económica de un proyecto",
+  ],
+  claves: ["plan económico-financiero", "inversión inicial", "amortización", "cuenta de resultados", "tesorería", "umbral de rentabilidad", "margen de contribución", "financiación propia", "financiación ajena", "préstamo", "leasing", "crowdfunding", "business angel", "subvención"],
   pregunta: {
     texto: "Quieres montar un puesto de zumos naturales en la feria del instituto. Necesitas una licuadora, fruta, vasos y un toldo. ¿Cuántos zumos tendrás que vender para no perder dinero? ¿Y de dónde sacas el dinero para empezar?",
-    respuesta: "Para responder hace falta un <mark>plan económico</mark>: calcular la <b>inversión inicial</b>, los costes y los ingresos previstos, y hallar el <b>umbral de rentabilidad</b> (cuántas unidades hay que vender para cubrir costes). Después, elegir la mejor <b>fuente de financiación</b>.",
+    respuesta: "Para responder hace falta un <mark>plan económico</mark>: calcular la <b>inversión inicial</b>, los costes y los ingresos previstos, y hallar el <b>umbral de rentabilidad</b> (cuántas unidades hay que vender para cubrir todos los costes). Después hay que elegir la mejor <b>fuente de financiación</b>: tus ahorros, un préstamo, socios o una campaña de micromecenazgo.",
+  },
+  lectura: {
+    titulo: "Beneficios en el papel, caja vacía",
+    html: `<p>Marcos y Laia montaron una empresa de catering para eventos. El primer año fue un éxito: bodas, comuniones, cenas de empresa… Según sus cuentas, iban a ganar más de 30.000 euros. Sin embargo, en octubre no podían pagar las nóminas. ¿Cómo era posible?</p><p>El problema no eran las ventas, sino los <b>plazos</b>. Las empresas que los contrataban pagaban a 60 o 90 días, mientras que ellos tenían que pagar la comida, el alquiler de la cocina y los sueldos cada mes. Además, habían comprado una furgoneta refrigerada al contado, gastando casi todo su dinero. Tenían beneficios, pero no tenían <mark>tesorería</mark>.</p><p>Una asesora les ayudó a hacer lo que deberían haber hecho al principio: un <b>plan económico-financiero</b>. Calcularon cuánto necesitaban invertir, cuándo entraría y saldría cada euro, cuántos menús tenían que vender para cubrir los costes y qué financiación les convenía. Cambiaron la furgoneta por un <i>leasing</i>, pidieron una póliza de crédito para los meses flojos y exigieron un anticipo del 30 % en cada encargo.</p><p>Muchas empresas cierran no por falta de clientes, sino por falta de dinero en el momento preciso. En este tema aprenderás a planificar las cuentas de un proyecto y a elegir cómo financiarlo.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Inversión, gastos e ingresos</h3><p>La <mark>inversión inicial</mark> es lo que necesitas comprar para empezar y dura en el tiempo (la licuadora, el toldo, un ordenador). Los <b>gastos</b> son lo que pagas para funcionar: <b>fijos</b> (alquiler, cuota de autónomo) y <b>variables</b> (fruta y vasos por cada zumo). Los <b>ingresos</b> son las ventas previstas: precio × unidades vendidas.</p>`,
-      svg: filas("Plan económico del puesto de zumos", [["Inversión", "licuadora y toldo: 200 €", "var(--ink)"], ["Fijos", "permiso de la feria: 50 €", "var(--red)"], ["Variables", "fruta y vaso: 1 € por zumo", "var(--sun)"], ["Ingresos", "precio: 3 € por zumo", "var(--leaf)"]]),
-    },
-    {
-      html: `<h3>El umbral de rentabilidad</h3><p>El <mark>umbral de rentabilidad</mark> o punto muerto es la cantidad que hay que vender para que ingresos = costes (beneficio cero). Se calcula: <b>costes fijos ÷ (precio − coste variable unitario)</b>. Si los costes fijos son 250 € (incluida la inversión), el precio 3 € y el coste variable 1 €, cada zumo deja 2 € de margen: 250 ÷ 2 = <b>125 zumos</b>. A partir del zumo 126, hay beneficio.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráfico del umbral de rentabilidad: la recta de ingresos corta a la de costes en 125 zumos">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M30 150 H 244 M30 150 V 16" stroke="var(--ink)" stroke-width="2"/>
-        <path d="M30 150 L 230 30" stroke="var(--leaf)" stroke-width="3"/>
-        <path d="M30 120 L 230 80" stroke="var(--red)" stroke-width="3"/>
-        <path d="M30 150 L 105 105 L 30 120 Z" fill="var(--red)" opacity=".25"/><path d="M105 105 L 230 30 L 230 80 Z" fill="var(--leaf)" opacity=".25"/>
-        <circle cx="105" cy="105" r="6" fill="var(--ink)"/>
-        <path d="M105 105 V 150" stroke="var(--ink)" stroke-dasharray="4 3"/>
-        <g ${F} font-size="11" font-weight="700">
-          <text x="226" y="24" text-anchor="end" fill="var(--leaf)">ingresos</text><text x="236" y="98" text-anchor="end" fill="var(--red)">costes</text>
-          <text x="105" y="166" text-anchor="middle" fill="var(--ink)">125 zumos</text>
-          <text x="36" y="104" fill="var(--red)">pérdidas</text><text x="168" y="80" fill="var(--leaf)">beneficio</text>
-        </g>
-      </svg>`,
-    },
-    {
-      html: `<h3>Financiación propia y ajena</h3><p>La <mark>financiación propia</mark> no hay que devolverla: el <b>dinero de los socios</b> (capital), los <b>beneficios reinvertidos</b> y algunas <b>subvenciones</b> públicas. La <mark>financiación ajena</mark> es deuda que hay que devolver, normalmente con intereses: <b>préstamos</b> bancarios, crédito de proveedores (pagarles más tarde) o <i>leasing</i> (alquilar con opción de compra).</p>`,
-      svg: dos("Financiación propia frente a ajena", ["Propia", ["ahorros de", "los socios", "beneficios", "subvenciones", "no se devuelve"], "var(--leaf)"], ["Ajena", ["préstamo", "bancario", "proveedores", "leasing", "se devuelve"], "var(--red)"]),
-    },
-    {
-      html: `<h3>Nuevas formas de financiación</h3><p>Los emprendedores también pueden recurrir al <mark>crowdfunding</mark> o micromecenazgo (muchas personas aportan pequeñas cantidades a través de una plataforma a cambio de recompensas), a <b>business angels</b> (inversores particulares que aportan dinero y experiencia a cambio de una parte de la empresa) o a programas públicos como los microcréditos o las aceleradoras de empresas.</p>`,
-      svg: barras("Ejemplo de campaña de crowdfunding: aportaciones por tramo", [["5 €", 120, "var(--sun)", "120 personas"], ["20 €", 60, "var(--pen)", "60 personas"], ["50 €", 15, "var(--leaf)", "15 personas"]], 210),
-    },
+    B("7.1", "El plan económico-financiero", `<p>Toda idea de negocio debe pasar por un <b>plan de empresa</b>, un documento que recoge la idea, el estudio de mercado, el plan de marketing, la organización y las cuentas. La parte de las cuentas es el <mark>plan económico-financiero</mark>, que responde a cuatro preguntas:</p><ol><li>¿Cuánto dinero hace falta para empezar? (<b>plan de inversión inicial</b>)</li><li>¿De dónde saldrá ese dinero? (<b>plan de financiación</b>)</li><li>¿Ganará o perderá dinero el negocio? (<b>cuenta de resultados previsional</b> y <b>umbral de rentabilidad</b>)</li><li>¿Habrá dinero suficiente cada mes para pagar? (<b>previsión de tesorería</b>)</li></ol><p>Antes de empezar conviene distinguir algunos conceptos que en la calle se confunden:</p><ul><li>Una <b>inversión</b> es la compra de bienes que se usarán durante varios años (un horno, un ordenador). Un <b>gasto</b> es el consumo de recursos de un periodo (la harina del mes, la luz).</li><li>Un <b>ingreso</b> se produce al vender; un <b>cobro</b>, cuando entra el dinero.</li><li>Un gasto se produce al consumir; un <b>pago</b>, cuando sale el dinero.</li></ul><p>Si vendes hoy y te pagan dentro de dos meses, tienes un ingreso hoy, pero el cobro llegará más tarde. Esta diferencia es clave para entender la tesorería.</p>`,
+      cuadro4("Cuatro preguntas del plan económico-financiero", [["Inversión", "¿cuánto|necesito?", "var(--pen)"], ["Financiación", "¿de dónde|lo saco?", "var(--sun)"], ["Resultados", "¿gano o|pierdo?", "var(--leaf)"], ["Tesorería", "¿tengo caja|cada mes?", "var(--red)"]])),
+    B("7.2", "El plan de inversión inicial", `<p>El <mark>plan de inversión inicial</mark> recoge todo lo que hay que comprar o pagar antes de empezar a vender. Se divide en:</p><ul><li><b>Activo no corriente</b>: bienes que la empresa usará más de un año. Pueden ser <b>materiales</b> (local, obras de acondicionamiento, maquinaria, mobiliario, vehículos, ordenadores) o <b>inmateriales</b> (aplicaciones informáticas, registro de la marca, una patente, el traspaso de un negocio).</li><li><b>Gastos de puesta en marcha</b>: notario, registro, licencias, fianza del local, primera campaña de publicidad.</li><li><b>Activo corriente</b>: lo necesario para el día a día: <b>existencias</b> iniciales (mercancía, materias primas) y un <b>colchón de tesorería</b> para pagar los primeros meses mientras llegan las ventas.</li></ul><p>Un error muy frecuente es olvidar ese colchón: muchos negocios gastan todo en el local y la decoración y se quedan sin dinero en el tercer mes. Una regla prudente es reservar el dinero necesario para cubrir al menos tres meses de costes fijos.</p><p>Para preparar el plan conviene pedir <b>presupuestos</b> a varios proveedores, comparar comprar con alquilar y empezar con lo imprescindible: siempre se puede ampliar cuando el negocio funcione.</p>`,
+      tarta("Plan de inversión de una cafetería", [["obras y mobiliario", 45, "var(--pen)"], ["maquinaria", 25, "var(--sun)"], ["puesta en marcha", 10, "var(--muted)"], ["existencias", 5, "var(--red)"], ["colchón de caja", 15, "var(--leaf)"]])),
+    B("7.3", "La amortización", `<p>Los bienes de inversión no se gastan de golpe: se desgastan poco a poco con el uso y el paso del tiempo, o se quedan anticuados. La <mark>amortización</mark> es la forma de reflejar en las cuentas esa pérdida de valor, repartiendo el coste del bien entre los años de su vida útil.</p><p>El método más sencillo es la <b>amortización lineal</b>:</p><p style="text-align:center"><b>Amortización anual = (valor de compra − valor residual) ÷ años de vida útil</b></p><p>El <b>valor residual</b> es lo que valdrá el bien al final (lo que te darían al venderlo de segunda mano). Ejemplo: una furgoneta cuesta 24.000 €, se usará 5 años y al final valdrá 4.000 €. Amortización anual = (24.000 − 4.000) / 5 = 4.000 € al año.</p><p>La amortización es un <b>gasto</b> en la cuenta de resultados, aunque no supone ningún pago ese año (el pago se hizo al comprar). Tiene dos efectos importantes: refleja el verdadero coste de producir y, además, el dinero que «no sale» se puede ir reservando para <b>sustituir</b> el bien cuando se estropee. Hacienda fija coeficientes máximos de amortización según el tipo de bien: los ordenadores, por ejemplo, se amortizan más deprisa que los edificios.</p>`,
+      formula("Amortización lineal: valor de compra menos residual entre años", ["compra −|residual", "÷", "años de|vida útil", "=", "amortiz.|anual"], ["var(--pen)", "var(--sun)", "var(--red)"], "(24.000 − 4.000) / 5 = 4.000 € al año")),
+    B("7.4", "La cuenta de resultados previsional", `<p>La <mark>cuenta de resultados</mark> (o de pérdidas y ganancias) compara los <b>ingresos</b> y los <b>gastos</b> de un periodo para saber si hay beneficio o pérdida. En un plan de empresa se hace <b>previsional</b>, es decir, con las estimaciones de los primeros años.</p><p>Una versión sencilla es:</p>${tabla(["Concepto", "Cafetería (año 1)"], [["Ventas", "120.000 €"], ["− Compras (consumo de café, leche, bollería…)", "−36.000 €"], ["− Gastos de personal (sueldos y Seguridad Social)", "−48.000 €"], ["− Otros gastos (alquiler, luz, seguros, publicidad)", "−22.000 €"], ["− Amortizaciones", "−5.000 €"], ["= Resultado de explotación", "9.000 €"], ["− Intereses del préstamo", "−1.000 €"], ["= Resultado antes de impuestos", "8.000 €"], ["− Impuesto (15 % para empresas de nueva creación)", "−1.200 €"], ["= Resultado del ejercicio", "6.800 €"]])}<p>Para estimar las ventas hay que ser <b>prudentes</b>: partir del estudio de mercado, empezar con cifras bajas y hacer tres escenarios: <b>pesimista</b>, <b>realista</b> y <b>optimista</b>. Si el negocio solo es viable en el escenario optimista, hay mucho riesgo.</p>`,
+      filas("De las ventas al resultado de la cafetería", [["Ventas", "120.000 €", "var(--pen)"], ["− Gastos", "compras, personal, otros", "var(--red)"], ["− Amortiz.", "5.000 €", "var(--sun)"], ["− Intereses", "1.000 € e impuesto", "var(--muted)"], ["= Resultado", "6.800 €", "var(--leaf)"]])),
+    B("7.5", "La previsión de tesorería", `<p>La <mark>tesorería</mark> es el dinero disponible en caja y en el banco. La <b>previsión de tesorería</b> (o presupuesto de tesorería) es una tabla, mes a mes, con los <b>cobros</b> y <b>pagos</b> previstos y el <b>saldo</b> resultante:</p><p style="text-align:center"><b>Saldo final del mes = saldo inicial + cobros − pagos</b></p><p>El saldo final de un mes es el saldo inicial del siguiente. Si algún mes sale negativo, la empresa sabe con antelación que necesitará financiación (por ejemplo, una póliza de crédito) o que debe retrasar alguna compra.</p><p>¿Por qué beneficio y tesorería no coinciden?</p><ul><li>Las <b>ventas a plazo</b>: el ingreso se cuenta al vender, pero el cobro llega después.</li><li>Las <b>inversiones</b>: se pagan de golpe, pero en la cuenta de resultados solo aparece la amortización de cada año.</li><li>La <b>devolución del préstamo</b>: es un pago, pero no un gasto (solo los intereses son gasto).</li><li>El <b>IVA</b>: se cobra a los clientes y se paga a Hacienda trimestralmente.</li></ul><p>Para cuidar la tesorería conviene cobrar pronto (anticipos, pago con tarjeta), negociar pagar más tarde a proveedores, no inmovilizar demasiado dinero en existencias y tener un colchón para imprevistos.</p>`,
+      barras("Saldo de tesorería mensual: enero 2.000, febrero 500, marzo menos 800, abril 1.500 euros", [["enero", 2000, "var(--leaf)", "2.000 €"], ["febrero", 500, "var(--sun)", "500 €"], ["marzo", 800, "var(--red)", "−800 €"], ["abril", 1500, "var(--leaf)", "1.500 €"]], 2000),
+      { id: "rauWwcO-RFw", titulo: "El plan financiero de un plan de negocio", canal: "Finanzas Fáciles para Emprendedores", vistas: 35275, megusta: 866 }),
+    B("7.6", "El umbral de rentabilidad", `<p>El <mark>umbral de rentabilidad</mark> o <b>punto muerto</b> es la cantidad de unidades que hay que vender para que los ingresos cubran exactamente todos los costes: ni se gana ni se pierde (beneficio = 0). Por debajo hay pérdidas; por encima, beneficios.</p><p>Para calcularlo necesitamos tres datos: los <b>costes fijos</b> (CF), el <b>precio de venta</b> (P) y el <b>coste variable unitario</b> (CVu). La diferencia P − CVu es el <mark>margen de contribución</mark> unitario: lo que deja cada unidad vendida para pagar los costes fijos. Por tanto:</p><p style="text-align:center"><b>Umbral (Q*) = CF ÷ (P − CVu)</b></p><p>Ejemplo: un puesto de zumos tiene 300 € de costes fijos (alquiler del puesto, licuadora amortizada, toldo), vende cada zumo a 2,50 € y cada uno cuesta 1 € de fruta y vaso. Margen = 1,50 €. Umbral = 300 / 1,50 = <b>200 zumos</b>. Con el zumo 201 empieza a ganar 1,50 € por cada uno.</p><p>El umbral también se puede expresar en euros de ventas: 200 · 2,50 = 500 €. Es un dato muy útil: si el estudio de mercado dice que solo venderás 150 zumos, el negocio, tal como está planteado, no es viable.</p>`,
+      formula("Umbral de rentabilidad: costes fijos entre margen unitario", ["costes|fijos", "÷", "precio −|CV unit.", "=", "unidades|umbral"], ["var(--red)", "var(--sun)", "var(--pen)"], "300 / (2,50 − 1) = 200 zumos")),
+    B("7.7", "Calcular y usar el umbral", `<p>El umbral se puede ver en un <b>gráfico</b>: en el eje horizontal, las unidades; en el vertical, los euros. La línea de <b>costes fijos</b> es horizontal; la de <b>costes totales</b> parte de los costes fijos y sube con cada unidad; la de <b>ingresos</b> parte de cero y sube más deprisa. Donde se cruzan ingresos y costes totales está el umbral.</p><p>Pasos para resolverlo en un problema:</p><ol><li>Identifica y suma los costes fijos del periodo (mes o año).</li><li>Calcula el coste variable por unidad.</li><li>Resta precio − coste variable unitario.</li><li>Divide costes fijos entre ese margen y redondea <b>hacia arriba</b> (no se venden medias unidades).</li><li>Comprueba: ingresos − costes totales en ese punto ≈ 0.</li></ol><p>El umbral sirve para tomar decisiones: ¿qué pasa si subo el precio?, ¿y si consigo un proveedor más barato?, ¿y si alquilo un local más caro? Subir el precio o bajar el coste variable baja el umbral; aumentar los costes fijos lo sube. También permite calcular cuánto hay que vender para conseguir un <b>beneficio deseado</b>: Q = (CF + beneficio) ÷ (P − CVu).</p>`,
+      umbral, { id: "TwgbEkyf9yQ", titulo: "Cálculo del punto muerto o punto de equilibrio", canal: "ECONOSUBLIME", vistas: 437499, megusta: 0 }),
+    B("7.8", "Las fuentes de financiación", `<p>La <mark>financiación</mark> es la obtención del dinero necesario para invertir y funcionar. Las fuentes se clasifican de dos maneras:</p><ul><li>Según la <b>propiedad</b>: la <b>financiación propia</b> pertenece a los dueños de la empresa y no hay que devolverla (capital aportado, reservas, subvenciones); la <b>financiación ajena</b> procede de terceros y hay que devolverla, normalmente con intereses (préstamos, créditos, proveedores).</li><li>Según la <b>procedencia</b>: la <b>financiación interna</b> la genera la propia empresa con su actividad (beneficios no repartidos, amortizaciones); la <b>externa</b> viene de fuera (socios, bancos, inversores, Administración).</li></ul><p>También se distingue por el <b>plazo</b>: a <b>corto plazo</b> (menos de un año), para el día a día, y a <b>largo plazo</b> (más de un año), para las inversiones. Una regla de oro financiera es que <b>las inversiones a largo plazo se financien con fuentes a largo plazo</b>: no tiene sentido pagar una máquina que durará diez años con un crédito que hay que devolver en tres meses.</p><p>La mayoría de las empresas combinan fuentes propias y ajenas. Demasiada deuda aumenta el riesgo: si las ventas bajan, las cuotas siguen llegando.</p>`,
+      arbol("Fuentes de financiación según la propiedad", [["Propia", ["capital", "reservas"], "var(--leaf)", ["socios", "beneficios"]], ["Ajena", ["préstamo", "proveedor"], "var(--red)", ["con interés", "aplazar pago"]]])),
+    B("7.9", "La financiación propia", `<p>Las principales fuentes de financiación propia son:</p><ul><li><b>Aportaciones de los socios</b>: el capital inicial que ponen los fundadores, en dinero o en bienes. Al principio suele venir de los ahorros propios y de las tres F: <i>family, friends and fools</i> (familia, amigos y «locos» que creen en el proyecto).</li><li><b>Ampliaciones de capital</b>: entran nuevos socios o los existentes aportan más dinero a cambio de participaciones o acciones. Así se reparte la propiedad.</li><li><b>Autofinanciación</b>: los <b>beneficios no repartidos</b> (reservas) que se quedan en la empresa para crecer, y las <b>amortizaciones</b>, que permiten ir reservando dinero para renovar los equipos.</li><li><b>Subvenciones</b> no reintegrables: ayudas públicas que no hay que devolver si se cumplen las condiciones.</li></ul><p>Ventajas: no hay que devolverla ni pagar intereses, da estabilidad y mejora la confianza de los bancos. Inconvenientes: suele ser limitada y, si entran nuevos socios, los fundadores pierden parte del control y de los beneficios. Por eso la financiación propia y la ajena se complementan.</p>`,
+      rueda("Financiación propia", "PROPIA", [["ahorros", "var(--pen)"], ["familia y amigos", "var(--sun)"], ["nuevos socios", "var(--inf)"], ["reservas", "var(--leaf)"], ["amortizaciones", "var(--muted)"], ["subvenciones", "var(--red)"]], "var(--leaf)")),
+    B("7.10", "La financiación ajena tradicional", `<p>Las fuentes ajenas más habituales son:</p><ul><li><b>Préstamo bancario</b>: el banco entrega una cantidad de golpe que se devuelve en cuotas con intereses durante un plazo. Útil para inversiones. Suele pedir garantías o avales.</li><li><b>Póliza o línea de crédito</b>: el banco pone a disposición un límite de dinero y solo se pagan intereses por lo que se usa. Útil para los desajustes de tesorería.</li><li><b>Leasing</b> (arrendamiento financiero): se alquila un bien (furgoneta, maquinaria) con <b>opción de compra</b> al final por un valor pequeño.</li><li><b>Renting</b>: alquiler a largo plazo que incluye mantenimiento y seguro, sin intención de comprar. Permite renovar los equipos con frecuencia.</li><li><b>Crédito de proveedores</b>: pagar a 30, 60 o 90 días. Es una financiación «gratuita» si no hay recargo.</li><li><b>Descuento comercial</b> y <b>factoring</b>: el banco adelanta el dinero de las facturas que los clientes pagarán más tarde, a cambio de una comisión.</li></ul><p>Al comparar opciones hay que mirar la <b>TAE</b>, las comisiones, el plazo, las garantías exigidas y si la cuota es asumible con la tesorería prevista.</p>`,
+      filas("Financiación ajena tradicional", [["Préstamo", "dinero de golpe, cuotas", "var(--red)"], ["Crédito", "límite, pagas lo que usas", "var(--sun)"], ["Leasing", "alquiler con opción compra", "var(--pen)"], ["Renting", "alquiler con servicios", "var(--inf)"], ["Proveedores", "pagar a 30-90 días", "var(--leaf)"]])),
+    B("7.11", "Nuevas formas de financiación", `<p>En los últimos años han surgido alternativas a los bancos:</p><ul><li><mark>Crowdfunding</mark> o micromecenazgo: muchas personas aportan pequeñas cantidades a través de una plataforma digital. Hay varios tipos: de <b>recompensa</b> (recibes el producto o un regalo), de <b>donación</b> (proyectos solidarios), de <b>inversión</b> o <i>equity</i> (recibes participaciones de la empresa) y de <b>préstamo</b> (<i>crowdlending</i>, te devuelven el dinero con intereses). Además de dinero, sirve para validar la idea y conseguir los primeros clientes.</li><li><b>Business angels</b>: inversores particulares que aportan dinero, experiencia y contactos a empresas que empiezan, a cambio de una parte del capital.</li><li><b>Capital riesgo</b> (<i>venture capital</i>): fondos que invierten grandes cantidades en startups con mucho potencial de crecimiento, asumiendo un riesgo alto.</li><li><b>Aceleradoras e incubadoras</b>: programas que ofrecen formación, espacio, mentores y, a veces, financiación a cambio de una pequeña participación.</li></ul><p>Las plataformas de financiación participativa deben estar autorizadas por la <b>CNMV</b>. Para el inversor, estas inversiones son arriesgadas: muchas empresas nuevas fracasan y es difícil recuperar el dinero antes de tiempo.</p>`,
+      cuadro4("Tipos de crowdfunding", [["Recompensa", "recibes el|producto", "var(--sun)"], ["Donación", "proyectos|solidarios", "var(--leaf)"], ["Inversión", "recibes|participaciones", "var(--pen)"], ["Préstamo", "te devuelven|con intereses", "var(--red)"]]),
+      { id: "LvGa1JnSRCk", titulo: "¿Qué es el crowdfunding?", canal: "GrupoEducare", vistas: 282424, megusta: 0 }),
+    B("7.12", "Ayudas públicas para emprender", `<p>Las administraciones apoyan a las personas emprendedoras con distintos instrumentos:</p><ul><li><b>Subvenciones</b>: ayudas a fondo perdido de comunidades autónomas, ayuntamientos o fondos europeos para crear empresa, contratar o invertir en digitalización o sostenibilidad. Suelen tener requisitos y plazos estrictos.</li><li><b>Préstamos públicos</b> en condiciones ventajosas: las líneas del <b>ICO</b> (Instituto de Crédito Oficial) a través de los bancos, y los <b>préstamos participativos</b> de <b>ENISA</b> para startups y pymes innovadoras, sin avales.</li><li><b>Capitalización de la prestación por desempleo</b>: quien cobra el paro puede pedir cobrarlo de una vez para invertirlo en su propio negocio.</li><li><b>Tarifa reducida para nuevos autónomos</b>: una cuota a la Seguridad Social muy baja durante el primer año, ampliable en algunos casos.</li><li><b>Asesoramiento gratuito</b> en cámaras de comercio, viveros de empresas municipales y Puntos de Atención al Emprendedor.</li></ul><p>También hay concursos y premios para jóvenes emprendedores, y programas específicos para mujeres, entornos rurales o economía social. Antes de pedir una ayuda hay que leer bien las bases: algunas se cobran después de hacer la inversión, lo que obliga a adelantar el dinero.</p>`,
+      rueda("Ayudas públicas para emprender", "AYUDAS", [["subvenciones", "var(--leaf)"], ["ICO y ENISA", "var(--pen)"], ["capitalizar paro", "var(--sun)"], ["cuota reducida", "var(--red)"], ["asesoramiento", "var(--inf)"], ["premios", "var(--muted)"]], "var(--ink)")),
+    B("7.13", "¿Es viable el proyecto?", `<p>Con todos los datos, el emprendedor debe decidir si el proyecto es <b>viable</b>. Hay tres tipos de viabilidad que deben cumplirse a la vez:</p><ul><li><b>Viabilidad económica</b>: el negocio genera beneficios en un plazo razonable. Las ventas previstas superan el umbral de rentabilidad con margen.</li><li><b>Viabilidad financiera</b>: se consigue el dinero necesario y la tesorería nunca queda en negativo sin una solución prevista.</li><li><b>Viabilidad técnica y legal</b>: se puede producir con los medios disponibles y cumpliendo la normativa.</li></ul><p>Algunos indicadores sencillos ayudan a valorarlo:</p><ul><li><b>Rentabilidad de la inversión</b> = beneficio anual ÷ inversión × 100. Si invertimos 40.000 € y ganamos 6.000 € al año, la rentabilidad es del 15 %.</li><li><b>Plazo de recuperación</b> (<i>payback</i>): cuántos años se tarda en recuperar la inversión con los flujos de caja que genera.</li><li><b>Margen de seguridad</b>: cuánto pueden caer las ventas previstas antes de llegar al umbral.</li></ul><p>Un buen plan no garantiza el éxito, pero reduce mucho el riesgo: permite detectar problemas sobre el papel, cuando corregirlos es barato, y convencer a socios, bancos e inversores.</p>`,
+      cuadro4("Viabilidad de un proyecto", [["Económica", "gana dinero|ventas > umbral", "var(--leaf)"], ["Financiera", "consigue fondos|y tiene caja", "var(--pen)"], ["Técnica", "se puede|producir", "var(--sun)"], ["Legal", "cumple|la normativa", "var(--red)"]])),
+  ],
+  ejemplos: [
+    { enunciado: "Un puesto de zumos tiene 300 € de costes fijos, vende cada zumo a 2,50 € y el coste variable por zumo es 1 €. Calcula el umbral de rentabilidad en unidades y en euros.", pasos: ["Margen unitario = 2,50 − 1 = 1,50 €.", "Umbral = 300 / 1,50 = 200 zumos.", "En euros: 200 · 2,50 = 500 €.", "Comprobación: ingresos 500 − costes (300 + 200) = 0."], resultado: "200 zumos (500 € de ventas)." },
+    { enunciado: "Con los datos anteriores, ¿cuántos zumos hay que vender para ganar 150 €?", pasos: ["Q = (CF + beneficio) / margen.", "Q = (300 + 150) / 1,50 = 300 zumos."], resultado: "300 zumos." },
+    { enunciado: "Una furgoneta cuesta 30.000 €, tendrá un valor residual de 6.000 € y una vida útil de 6 años. Calcula la amortización anual.", pasos: ["Valor a amortizar = 30.000 − 6.000 = 24.000 €.", "Amortización anual = 24.000 / 6 = 4.000 €."], resultado: "4.000 € al año." },
+    { enunciado: "Saldo inicial de enero: 1.000 €. Cobros: enero 4.000, febrero 3.000. Pagos: enero 3.500, febrero 4.200. Calcula el saldo de cada mes.", pasos: ["Enero: 1.000 + 4.000 − 3.500 = 1.500 €.", "Febrero: 1.500 + 3.000 − 4.200 = 300 €."], resultado: "1.500 € en enero y 300 € en febrero: febrero va muy justo." },
+    { enunciado: "Una tienda invierte 50.000 € y espera un beneficio de 7.500 € anuales. Calcula la rentabilidad y el plazo de recuperación aproximado si los flujos de caja anuales son 12.500 € (beneficio + amortizaciones).", pasos: ["Rentabilidad = 7.500 / 50.000 · 100 = 15 %.", "Plazo de recuperación = 50.000 / 12.500 = 4 años."], resultado: "15 % de rentabilidad; recupera la inversión en unos 4 años." },
+    { enunciado: "Para comprar una máquina de 20.000 € que durará 8 años, ¿qué financiación es más adecuada: póliza de crédito a 3 meses o préstamo a 5 años? ¿Y para pagar a un proveedor mientras se cobra a un cliente dentro de 60 días?", pasos: ["La máquina es una inversión a largo plazo: préstamo a 5 años o leasing.", "El desfase de 60 días es un problema de tesorería a corto plazo: póliza de crédito o descuento de la factura."], resultado: "Largo plazo para inversiones; corto plazo para el día a día." },
+  ],
+  errores: [
+    "Confundir beneficio con dinero en caja: una empresa con beneficios puede quedarse sin tesorería.",
+    "Olvidar el colchón de tesorería en el plan de inversión inicial.",
+    "Calcular el umbral dividiendo los costes fijos entre el precio en lugar de entre el margen (precio − coste variable unitario).",
+    "Redondear hacia abajo el umbral: siempre hacia arriba, porque no se venden medias unidades.",
+    "Contar la devolución del préstamo como gasto: solo los intereses son gasto; la devolución es un pago.",
+    "Financiar inversiones a largo plazo con créditos a corto plazo.",
   ],
   figura: {
-    titulo: "Cuenta de resultados del puesto de zumos",
-    svg: figCols("Ventas de 200 zumos: ingresos, costes y beneficio", [
-      ["Ingresos", ["200 zumos × 3 €", "= 600 €", "", "ventas totales"], "var(--leaf)"],
-      ["Costes", ["fijos: 250 €", "variables:", "200 × 1 € = 200 €", "total = 450 €"], "var(--red)"],
-      ["Resultado", ["600 − 450", "= 150 €", "de beneficio", "(umbral: 125)"], "var(--pen)"],
+    titulo: "El plan económico-financiero de un vistazo",
+    svg: figCols("Esquema: inversión, resultados, tesorería y financiación", [
+      ["Inversión", ["activo no corriente", "puesta en marcha", "existencias", "colchón de caja", "amortización"], "var(--pen)"],
+      ["Resultados", ["ingresos − gastos", "escenarios", "umbral =", "CF / (P − CVu)", "rentabilidad"], "var(--leaf)"],
+      ["Tesorería", ["cobros − pagos", "saldo mensual", "beneficio ≠ caja", "cobrar pronto", "colchón"], "var(--red)"],
+      ["Financiación", ["propia: socios", "reservas, ayudas", "ajena: préstamo", "leasing, crédito", "crowdfunding"], "var(--sun)"],
     ]),
   },
   video: { id: "h_1z8nOgGns", titulo: "Tipos de financiación", canal: "ECONOSUBLIME", vistas: 121124, megusta: 0, busqueda: "fuentes de financiación empresa" },
-  quiz: [
-    { q: "Una licuadora para el negocio es…", o: ["un gasto variable", "parte de la inversión inicial", "un ingreso"], a: 1, e: "Se compra al principio y se usa durante mucho tiempo." },
-    { q: "Costes fijos 300 €, precio 5 €, coste variable 2 €. ¿Umbral de rentabilidad?", o: ["60 unidades", "100 unidades", "150 unidades"], a: 1, e: "300 ÷ (5 − 2) = 300 ÷ 3 = 100 unidades." },
-    { q: "¿Cuál es financiación ajena?", o: ["Ahorros de los socios", "Préstamo bancario", "Beneficios reinvertidos"], a: 1, e: "La financiación ajena hay que devolverla, normalmente con intereses." },
-    { q: "El crowdfunding consiste en…", o: ["un préstamo del banco", "muchas personas aportando pequeñas cantidades", "vender acciones en Bolsa"], a: 1, e: "Se hace a través de plataformas online a cambio de recompensas o participaciones." },
-    { q: "En el umbral de rentabilidad, el beneficio es…", o: ["máximo", "cero", "negativo"], a: 1, e: "Los ingresos igualan exactamente a los costes." },
+  quiz: qz([
+    ["Comprar un horno que durará diez años es…", ["un gasto del mes", "una inversión", "un cobro", "una subvención"], 1, "Se usará durante varios años."],
+    ["El dinero que entra en la caja cuando el cliente paga es un…", ["ingreso", "cobro", "gasto", "pago"], 1, "El ingreso se produce al vender; el cobro, al recibir el dinero."],
+    ["El colchón de tesorería forma parte de…", ["la cuenta de resultados", "el plan de inversión inicial", "los gastos de personal", "las amortizaciones"], 1, "Sirve para pagar los primeros meses."],
+    ["La fianza del local y el notario son…", ["existencias", "gastos de puesta en marcha", "amortización", "ventas"], 1, "Se pagan antes de empezar."],
+    ["Un ordenador de 1.200 € con 4 años de vida y sin valor residual se amortiza al año…", ["120 €", "300 €", "400 €", "1.200 €"], 1, "1.200 / 4 = 300 €."],
+    ["La amortización es…", ["un pago", "un gasto que no supone pago ese año", "un ingreso", "una deuda"], 1, "El pago se hizo al comprar el bien."],
+    ["Saldo final de tesorería =", ["ingresos − gastos", "saldo inicial + cobros − pagos", "ventas − compras", "capital + deudas"], 1, "Cada mes se arrastra el saldo."],
+    ["Devolver la parte del préstamo (sin intereses) es…", ["un gasto", "un pago, pero no un gasto", "un ingreso", "una amortización"], 1, "Solo los intereses son gasto."],
+    ["El umbral de rentabilidad es el punto en que…", ["se gana lo máximo", "el beneficio es cero", "se pierde todo", "los costes fijos son cero"], 1, "Ingresos = costes totales."],
+    ["Si CF = 600 €, P = 5 € y CVu = 2 €, el umbral es…", ["120", "200", "300", "86"], 1, "600 / (5 − 2) = 200 unidades."],
+    ["Si sube el precio de venta, el umbral…", ["sube", "baja", "no cambia", "desaparece"], 1, "Aumenta el margen por unidad."],
+    ["Si suben los costes fijos, el umbral…", ["sube", "baja", "no cambia", "se hace negativo"], 0, "Hay que vender más para cubrirlos."],
+    ["La financiación propia…", ["hay que devolverla con intereses", "no hay que devolverla", "solo viene de bancos", "es siempre a corto plazo"], 1, "Pertenece a los dueños."],
+    ["Los beneficios no repartidos son financiación…", ["ajena externa", "propia interna", "ajena interna", "pública"], 1, "La genera la propia empresa."],
+    ["Alquilar una furgoneta con opción de compra al final es…", ["renting", "leasing", "factoring", "crowdfunding"], 1, "Arrendamiento financiero."],
+    ["Una póliza de crédito sirve sobre todo para…", ["comprar un edificio", "cubrir desajustes de tesorería", "repartir dividendos", "pagar impuestos"], 1, "Solo pagas intereses por lo que usas."],
+    ["Recibir participaciones de una empresa a cambio de aportar en una plataforma es crowdfunding de…", ["recompensa", "donación", "inversión", "préstamo"], 2, "También llamado equity."],
+    ["Un business angel es…", ["un banco", "un inversor particular que aporta dinero y experiencia", "una subvención", "un proveedor"], 1, "A cambio de capital."],
+    ["Cobrar de una vez el paro para montar un negocio es…", ["capitalizar la prestación", "un préstamo ICO", "un leasing", "una subvención europea"], 0, "Permite invertirlo en el negocio propio."],
+    ["Invertir 20.000 € y ganar 3.000 € al año es una rentabilidad del…", ["3 %", "15 %", "20 %", "6,7 %"], 1, "3.000 / 20.000 · 100 = 15 %."],
+  ]),
+  examen: qz([
+    ["Vender hoy y cobrar en 60 días genera hoy…", ["un cobro", "un ingreso", "un pago", "una inversión"], 1, "El cobro llegará dentro de 60 días."],
+    ["Una patente comprada es un activo…", ["corriente", "no corriente inmaterial", "material", "existencia"], 1, "Se usa varios años y no es física."],
+    ["Margen de contribución unitario =", ["P − CVu", "CF / P", "P · Q", "CF − CV"], 0, "Lo que deja cada unidad para cubrir los fijos."],
+    ["CF 1.200 €, P 10 €, CVu 4 €: umbral…", ["120", "200", "300", "150"], 1, "1.200 / 6 = 200."],
+    ["Pagar a un proveedor a 60 días es financiación…", ["propia", "ajena a corto plazo", "ajena a largo plazo", "pública"], 1, "Crédito comercial."],
+    ["Las plataformas de crowdfunding de inversión las autoriza…", ["el ayuntamiento", "la CNMV", "Hacienda", "la OEPM"], 1, "Comisión Nacional del Mercado de Valores."],
+    ["Una empresa con saldo de tesorería negativo previsto en marzo debería…", ["no hacer nada", "prever financiación a corto plazo o retrasar pagos", "repartir dividendos", "comprar más existencias"], 1, "La previsión permite anticiparse."],
+    ["Si las ventas previstas son 500 y el umbral 400, el margen de seguridad es…", ["100 unidades (20 %)", "400 unidades", "900 unidades", "0"], 0, "Pueden caer 100 unidades (un 20 %) antes de perder."],
+  ]),
+  ejercicios: ejs([
+    ["b", "Explica la diferencia entre inversión y gasto con dos ejemplos.", "Inversión: compra de bienes que se usan varios años (una máquina de coser, un ordenador). Gasto: consumo de recursos del periodo (el hilo del mes, la factura de la luz)."],
+    ["b", "Diferencia ingreso y cobro, y gasto y pago.", "El ingreso se produce al vender; el cobro, cuando entra el dinero. El gasto se produce al consumir; el pago, cuando sale el dinero."],
+    ["b", "Enumera los cuatro apartados del plan económico-financiero.", "Plan de inversión inicial, plan de financiación, cuenta de resultados previsional (y umbral de rentabilidad) y previsión de tesorería."],
+    ["b", "Clasifica en activo no corriente, puesta en marcha o activo corriente: cafetera industrial, licencia de apertura, café y leche iniciales, mobiliario, notario, dinero de reserva.", "No corriente: cafetera, mobiliario. Puesta en marcha: licencia, notario. Corriente: café y leche (existencias), dinero de reserva."],
+    ["b", "Define amortización y escribe la fórmula de la amortización lineal.", "Es el reparto del coste de un bien de inversión entre los años de su vida útil por su desgaste. Amortización anual = (valor de compra − valor residual) / años de vida útil."],
+    ["b", "Escribe la fórmula del saldo de tesorería.", "Saldo final = saldo inicial + cobros − pagos."],
+    ["b", "¿Qué es el umbral de rentabilidad?", "La cantidad de ventas en la que los ingresos igualan a los costes totales: el beneficio es cero."],
+    ["b", "Escribe la fórmula del umbral y explica qué es el margen de contribución.", "Q* = CF / (P − CVu). El margen de contribución (P − CVu) es lo que aporta cada unidad vendida para cubrir los costes fijos."],
+    ["b", "Diferencia financiación propia y ajena con dos ejemplos de cada.", "Propia (no se devuelve): aportaciones de los socios, reservas. Ajena (se devuelve): préstamo bancario, crédito de proveedores."],
+    ["b", "Diferencia leasing y renting.", "Leasing: alquiler con opción de compra al final. Renting: alquiler a largo plazo con mantenimiento y seguro incluidos, sin intención de comprar."],
+    ["b", "Cita los cuatro tipos de crowdfunding.", "Recompensa, donación, inversión (equity) y préstamo (crowdlending)."],
+    ["b", "Nombra tres ayudas públicas para emprender.", "Subvenciones, préstamos ICO o ENISA, capitalización del paro, tarifa reducida de autónomos, asesoramiento gratuito (cualquier tres)."],
+    ["m", "Una tienda de bicis compra herramientas por 6.000 € (vida útil 5 años, residual 1.000 €) y un ordenador por 1.500 € (3 años, sin residual). Calcula la amortización anual total.", "Herramientas: (6.000 − 1.000)/5 = 1.000 €. Ordenador: 1.500/3 = 500 €. Total: 1.500 € al año."],
+    ["m", "Calcula el umbral de una camisetería: costes fijos 4.500 € al mes, precio 18 €, coste variable 8 € por camiseta. Exprésalo en unidades y euros.", "Margen = 10 €. Umbral = 4.500/10 = 450 camisetas. En euros: 450 · 18 = 8.100 €."],
+    ["m", "Con los datos anteriores, ¿cuántas camisetas hay que vender para ganar 2.000 € al mes?", "Q = (4.500 + 2.000)/10 = 650 camisetas."],
+    ["m", "Si en la camisetería el proveedor sube el coste variable a 10 €, ¿cuál es el nuevo umbral? ¿Qué podría hacer la empresa?", "Margen = 8 €. Umbral = 4.500/8 = 562,5 → 563 camisetas. Podría subir el precio, buscar otro proveedor, reducir costes fijos o vender más."],
+    ["m", "Haz la previsión de tesorería de tres meses: saldo inicial 2.000 €. Cobros: 5.000, 6.000, 4.000. Pagos: 6.500, 5.000, 5.500. ¿Qué mes hay problema?", "Mes 1: 2.000 + 5.000 − 6.500 = 500 €. Mes 2: 500 + 6.000 − 5.000 = 1.500 €. Mes 3: 1.500 + 4.000 − 5.500 = 0 €. El mes 3 se queda sin colchón; el 1 va muy justo."],
+    ["m", "Completa la cuenta de resultados: ventas 80.000 €, compras 30.000 €, personal 28.000 €, otros gastos 12.000 €, amortización 3.000 €, intereses 1.000 €, impuesto del 15 %.", "Resultado de explotación = 80.000 − 30.000 − 28.000 − 12.000 − 3.000 = 7.000 €. Antes de impuestos = 6.000 €. Impuesto = 900 €. Resultado = 5.100 €."],
+    ["m", "Explica tres motivos por los que una empresa con beneficios puede tener problemas de tesorería.", "Vende a plazo y cobra tarde; ha pagado inversiones al contado; devuelve préstamos (pagos que no son gastos); tiene mucho dinero inmovilizado en existencias; paga el IVA trimestral."],
+    ["m", "¿Qué financiación recomendarías? a) Furgoneta de reparto; b) desfase de cobros en Navidad; c) ordenadores que se quieren renovar cada 3 años; d) producto innovador para el que hay muchos interesados.", "a) Préstamo a largo plazo o leasing. b) Póliza de crédito. c) Renting. d) Crowdfunding de recompensa (preventa)."],
+    ["m", "Compara ventajas e inconvenientes de la entrada de un business angel en una startup.", "Ventajas: dinero sin devolver, experiencia, contactos y credibilidad. Inconvenientes: los fundadores ceden parte de la propiedad, de los beneficios y del control de las decisiones."],
+    ["m", "Una empresa invierte 80.000 € y obtiene un beneficio anual de 10.000 €. Calcula la rentabilidad. ¿Es buena si un depósito ofrece el 3 %?", "Rentabilidad = 10.000/80.000 · 100 = 12,5 %. Es mayor que el 3 % del depósito, lo que compensa el riesgo mayor de la empresa, aunque hay que valorar ese riesgo."],
+    ["m", "Calcula el margen de seguridad de un negocio con ventas previstas de 1.200 unidades y umbral de 900.", "Margen = 1.200 − 900 = 300 unidades, es decir 300/1.200 = 25 %: las ventas pueden caer un 25 % antes de entrar en pérdidas."],
+    ["m", "Explica por qué conviene hacer tres escenarios (pesimista, realista y optimista) en la cuenta de resultados previsional.", "Porque las ventas son inciertas. Ver qué ocurre en el peor caso permite comprobar si el negocio aguanta, preparar planes de reacción y no tomar decisiones basadas en previsiones demasiado optimistas."],
+    ["a", "Un food truck tiene estos costes fijos mensuales: aparcamiento 300 €, seguro 120 €, amortización del vehículo 450 €, cuota de autónomo 230 €, gestoría 100 €. Vende menús a 9 € con un coste variable de 3,60 €. Calcula el umbral mensual y diario (25 días). Si espera vender 15 menús al día, ¿es viable?", "CF = 1.200 €. Margen = 5,40 €. Umbral = 1.200/5,40 = 222,2 → 223 menús al mes, unos 9 al día. Con 15 al día (375 al mes) gana (375 − 222,2) · 5,40 ≈ 825 €: es viable, con un margen de seguridad del 40 %."],
+    ["a", "Representa en un gráfico el umbral del food truck (de 0 a 400 menús) con las rectas de costes fijos, costes totales e ingresos.", "Costes fijos: horizontal en 1.200 €. Costes totales: de 1.200 € (0 menús) a 1.200 + 3,60 · 400 = 2.640 € (400 menús). Ingresos: de 0 a 9 · 400 = 3.600 €. Se cortan en unos 222 menús y 2.000 €."],
+    ["a", "Una emprendedora necesita 40.000 €. Tiene 8.000 € ahorrados, su familia le presta 5.000 € sin intereses, el ayuntamiento da una subvención de 4.000 € y el resto lo pide al banco. ¿Cuánto pide al banco y qué porcentaje de la financiación es propia y ajena?", "Banco: 40.000 − 8.000 − 5.000 − 4.000 = 23.000 €. Propia: ahorros 8.000 + subvención 4.000 = 12.000 € (30 %). Ajena: préstamo familiar 5.000 + banco 23.000 = 28.000 € (70 %)."],
+    ["a", "Un préstamo de 23.000 € al 6 % anual a 5 años tiene una cuota mensual de unos 445 €. Calcula cuánto se paga en total y cuánto son intereses. ¿Cómo afecta a la tesorería y a la cuenta de resultados?", "Total = 445 · 60 = 26.700 €. Intereses ≈ 3.700 €. En la tesorería sale cada mes la cuota completa (445 €); en la cuenta de resultados solo aparecen los intereses como gasto financiero."],
+    ["a", "Compara comprar una furgoneta de 30.000 € al contado con un leasing de 60 cuotas de 580 € y opción de compra de 600 €. ¿Cuánto se paga en cada caso y qué ventaja tiene el leasing para la tesorería?", "Contado: 30.000 € de golpe. Leasing: 60 · 580 + 600 = 35.400 €, es decir 5.400 € más. Ventaja: no hay que desembolsar 30.000 € al principio, se conserva el colchón de tesorería y las cuotas se pagan con lo que genera el negocio."],
+    ["a", "Diseña una campaña de crowdfunding de recompensa para un juego de mesa: objetivo, recompensas por niveles y qué harías si no se alcanza.", "Objetivo: 12.000 € (para imprimir 1.000 juegos). Recompensas: 5 € agradecimiento en la web, 30 € un juego, 55 € dos juegos, 120 € edición especial firmada. Si no se alcanza, en la modalidad «todo o nada» se devuelve el dinero; se analizaría por qué (precio, comunicación) y se relanzaría mejorada."],
+    ["a", "Explica la regla de oro de la financiación (inversiones a largo con fuentes a largo) con un ejemplo de lo que pasa si no se cumple.", "Si se compra una máquina de 50.000 € con una póliza de crédito a 6 meses, en medio año hay que devolver todo el dinero, pero la máquina solo genera ingresos poco a poco durante años: la empresa no tendrá caja suficiente y puede entrar en suspensión de pagos. Con un préstamo a 7 años, las cuotas se pagan con lo que la máquina va produciendo."],
+    ["a", "Con la cuenta de resultados de la cafetería del tema (ventas 120.000 €), calcula el umbral en euros de ventas sabiendo que los costes variables son las compras (30 % de las ventas) y el resto de gastos son fijos.", "Costes fijos = 48.000 + 22.000 + 5.000 + 1.000 = 76.000 €. Cada euro vendido deja 1 − 0,30 = 0,70 € de margen. Umbral en ventas = 76.000/0,70 ≈ 108.571 €. Con 120.000 € de ventas, el margen de seguridad es de unos 11.400 € (9,5 %): bastante ajustado."],
+    ["a", "Analiza la viabilidad económica, financiera y legal de un negocio de alquiler de patinetes eléctricos en tu ciudad. Indica qué datos necesitarías.", "Económica: usos diarios previstos, precio por minuto, costes de flota, carga y mantenimiento, umbral. Financiera: inversión en patinetes y app, financiación (renting, inversores), tesorería en meses de poco uso. Legal: ordenanza municipal (licencias, zonas permitidas), seguros obligatorios, normativa de la DGT. Datos: estudio de demanda, ordenanzas y presupuestos de proveedores."],
+    ["a", "Redacta el plan económico básico de un proyecto de clase (inversión, ingresos, costes, umbral y financiación) para vender camisetas solidarias en el instituto.", "Ejemplo. Inversión: diseño y pantalla de serigrafía 80 €. Coste variable: camiseta 4,50 € + tinta 0,50 €. Precio: 10 €. CF = 80 €. Margen = 5 €. Umbral = 16 camisetas. Previsión: 120 camisetas → beneficio (120 − 16) · 5 = 520 € para la ONG. Financiación: aportación del AMPA (propia) y preventa a compañeros (crowdfunding de recompensa)."],
+  ]),
+  glosario: [
+    ["Plan económico-financiero", "Parte del plan de empresa con la inversión, la financiación, los resultados y la tesorería previstos."],
+    ["Inversión", "Compra de bienes que se usarán varios años."],
+    ["Cobro", "Entrada de dinero en la caja o el banco."],
+    ["Pago", "Salida de dinero de la caja o el banco."],
+    ["Activo no corriente", "Bienes y derechos que la empresa usará más de un año."],
+    ["Amortización", "Reparto del coste de un bien entre los años de su vida útil."],
+    ["Cuenta de resultados", "Comparación de ingresos y gastos de un periodo."],
+    ["Tesorería", "Dinero disponible en caja y bancos."],
+    ["Umbral de rentabilidad", "Ventas con las que el beneficio es cero."],
+    ["Margen de contribución", "Precio menos coste variable unitario."],
+    ["Financiación propia", "Fondos de los dueños que no hay que devolver."],
+    ["Financiación ajena", "Fondos de terceros que hay que devolver."],
+    ["Autofinanciación", "Financiación con beneficios no repartidos y amortizaciones."],
+    ["Préstamo", "Dinero que el banco entrega de una vez y se devuelve en cuotas."],
+    ["Póliza de crédito", "Límite de dinero disponible; se pagan intereses solo por lo usado."],
+    ["Leasing", "Alquiler de un bien con opción de compra."],
+    ["Crowdfunding", "Financiación colectiva de muchas personas a través de una plataforma."],
+    ["Business angel", "Inversor particular que aporta dinero y experiencia a cambio de capital."],
   ],
-  examen: [
-    { q: "Un business angel aporta…", o: ["solo un préstamo", "dinero y experiencia a cambio de parte de la empresa", "una subvención pública"], a: 1, e: "Es un inversor particular que se convierte en socio." },
-    { q: "Si vendes menos unidades que el umbral de rentabilidad…", o: ["tienes beneficios", "tienes pérdidas", "no pasa nada"], a: 1, e: "Los ingresos no llegan a cubrir los costes." },
-    { q: "El leasing es…", o: ["un alquiler con opción de compra", "una subvención", "un tipo de impuesto"], a: 0, e: "Se usa mucho para vehículos y maquinaria." },
-  ],
-  feynman: ["Diferencia entre inversión, gasto fijo y gasto variable", "Cómo se calcula el umbral de rentabilidad", "Tres fuentes de financiación propia y tres ajenas", "Qué es el crowdfunding y quién es un business angel"],
-  mapa: mapa("PLAN ECONÓMICO", "var(--leaf)", [
-    ["Inversión", "lo que compras para empezar", "var(--ink)"],
-    ["Umbral", "CF ÷ (precio − CV)", "var(--red)"],
-    ["Propia", "socios · beneficios · subvención", "var(--leaf)"],
-    ["Ajena", "préstamo · proveedores · leasing", "var(--pen)"],
+  situacion: {
+    titulo: "Plan financiero para el mercadillo solidario",
+    reto: "Vuestra clase organizará un puesto en el mercadillo solidario del instituto. Antes de comprar nada, debéis presentar a la dirección un plan económico-financiero que demuestre que el proyecto no perderá dinero y que diga cómo se financiará.",
+    pasos: [
+      "Elegid el producto y haced un sondeo para estimar cuántas unidades se venderían y a qué precio.",
+      "Elaborad el plan de inversión inicial con presupuestos reales de al menos dos proveedores.",
+      "Clasificad los costes en fijos y variables y calculad el umbral de rentabilidad, con un gráfico.",
+      "Haced una previsión de tesorería semanal desde la compra hasta el cobro de las ventas.",
+      "Proponed la financiación (aportaciones, AMPA, preventa) y calculad el beneficio en tres escenarios.",
+    ],
+    producto: "Un plan económico de dos páginas en hoja de cálculo y una presentación de tres minutos ante la dirección.",
+    evaluacion: [
+      "Los cálculos de inversión, umbral y tesorería son correctos.",
+      "Distingue con claridad inversión, gasto, pago y cobro.",
+      "La financiación elegida es adecuada y está justificada.",
+      "Analiza el riesgo con los tres escenarios.",
+    ],
+  },
+  feynman: ["La diferencia entre beneficio y tesorería", "Qué es la amortización y cómo se calcula", "Cómo se calcula el umbral de rentabilidad y para qué sirve", "Las diferencias entre financiación propia y ajena, con ejemplos"],
+  mapa: mapa("PLAN ECONÓMICO Y FINANCIACIÓN", "var(--sun)", [
+    ["Inversión", "activos · puesta en marcha · caja", "var(--pen)"],
+    ["Resultados", "cuenta · amortización · umbral", "var(--leaf)"],
+    ["Tesorería", "cobros − pagos · saldo mensual", "var(--red)"],
+    ["Financiación", "propia · ajena · nuevas · ayudas", "var(--inf)"],
   ], 270),
   tarjetas: [
-    ["Umbral de rentabilidad", "Costes fijos ÷ (precio − coste variable unitario)."],
-    ["Inversión inicial", "Bienes que se compran para empezar y duran en el tiempo."],
-    ["Financiación propia", "Aportaciones de socios, beneficios reinvertidos y subvenciones."],
-    ["Financiación ajena", "Deuda que hay que devolver: préstamos, proveedores, leasing."],
-    ["Crowdfunding", "Financiación colectiva de muchas pequeñas aportaciones."],
+    ["Inversión frente a gasto", "La inversión dura años; el gasto se consume en el periodo."],
+    ["Ingreso frente a cobro", "Ingreso al vender; cobro cuando entra el dinero."],
+    ["Amortización lineal", "(Compra − residual) / años de vida útil."],
+    ["Saldo de tesorería", "Saldo inicial + cobros − pagos."],
+    ["Umbral de rentabilidad", "CF / (P − CVu)."],
+    ["Margen de contribución", "P − CVu: lo que deja cada unidad."],
+    ["Financiación propia", "No se devuelve: socios, reservas, subvenciones."],
+    ["Financiación ajena", "Se devuelve: préstamos, créditos, proveedores."],
+    ["Leasing", "Alquiler con opción de compra."],
+    ["Póliza de crédito", "Para desajustes de tesorería: pagas por lo que usas."],
+    ["Crowdfunding", "Muchas personas aportan poco a través de una plataforma."],
+    ["Regla de oro", "Inversiones a largo plazo con financiación a largo plazo."],
   ],
-  familias: ["Calculad juntos el umbral de rentabilidad de una venta solidaria (pasteles, camisetas) del colegio.", "Buscad una campaña de crowdfunding real y comentad qué recompensas ofrece.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
+  familias: [
+    "Calculad juntos cuánto se amortiza al año el coche o un electrodoméstico de casa.",
+    "Haced una previsión de tesorería familiar de tres meses con los cobros y pagos fijos (sin cifras privadas si no queréis).",
+    "Buscad un proyecto de crowdfunding real y analizad su objetivo y sus recompensas.",
+    "Repasad las tarjetas del paso 6 dos minutos al día durante la semana.",
+  ],
   profesores: {
-    saberes: "Plan económico-financiero: inversión, costes, ingresos, umbral de rentabilidad y fuentes de financiación (RD 217/2022, Economía y Emprendimiento 4º).",
-    ideas: ["Hoja de cálculo con gráfico del punto muerto de un proyecto de aula.", "Comparar ofertas de préstamo con su TAE.", "Simular una ronda de inversión ante un jurado de «business angels»."],
+    saberes: "Bloque C del RD 217/2022 (Economía y Emprendimiento 4.º): plan económico-financiero del proyecto emprendedor, inversión inicial, amortización, cuenta de resultados previsional, previsión de tesorería, umbral de rentabilidad, fuentes de financiación propias y ajenas, nuevas fuentes y ayudas públicas, viabilidad.",
+    ideas: [
+      "Plantilla de hoja de cálculo del plan económico con el gráfico del umbral generado automáticamente.",
+      "Simulación con dados: cada grupo lanza para saber las ventas del mes y actualiza su tesorería.",
+      "Comparar ofertas reales de préstamos y leasing con su TAE.",
+      "Proyecto real de mercadillo solidario con plan económico previo (situación de aprendizaje).",
+    ],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Punto de equilibrio (economía), Wikipedia en español", url: "https://es.wikipedia.org/wiki/Punto_de_equilibrio_(econom%C3%ADa)" },
+    { t: "Plataforma PYME: financiación y ayudas", url: "https://plataformapyme.es/" },
+    { t: "ENISA: préstamos para emprendedores", url: "https://www.enisa.es/" },
+    { t: "CNMV: plataformas de financiación participativa", url: "https://www.cnmv.es/" },
+    { t: "Punto muerto (economía), Wikipedia en español", url: "https://es.wikipedia.org/wiki/Punto_muerto_(econom%C3%ADa)" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: nivel de libro de texto.
-const { ampliar, tabla } = require("./_hum");
-ampliar(module.exports, {
-  minutos: 60,
-  objetivos: ["Elaborar un plan de inversión inicial y una previsión de tesorería", "Calcular el umbral de rentabilidad y la cuota de un préstamo sencillo"],
-  bloques: [
-    { tras: "Inversión, gastos e ingresos", html: `<h3>El plan de inversión inicial</h3><p>Antes de abrir hay que calcular cuánto dinero hace falta para empezar. La <b>inversión inicial</b> incluye bienes que durarán años, el <mark>activo no corriente</mark> (local, reformas, maquinaria, ordenadores, furgoneta), y lo necesario para funcionar los primeros meses, el <b>activo corriente</b> (existencias de mercancía y un colchón de dinero en caja). Ejemplo para una pequeña cafetería:</p>${tabla(["Concepto", "Importe"], [["Reforma del local", "12.000 €"], ["Cafetera, nevera y mobiliario", "9.000 €"], ["Ordenador y caja registradora", "1.500 €"], ["Primeras existencias", "2.500 €"], ["Fondo para los 3 primeros meses", "5.000 €"], ["<b>Total</b>", "<b>30.000 €</b>"]])}` },
-    { tras: "Inversión, gastos e ingresos", html: `<h3>La previsión de tesorería</h3><p>Una empresa puede tener beneficios y, aun así, quedarse sin dinero si cobra tarde y paga pronto. La <mark>previsión de tesorería</mark> anota, mes a mes, los <b>cobros</b> y los <b>pagos</b> esperados y el saldo que queda. Si algún mes sale negativo, hay que prever una solución (una póliza de crédito, retrasar una compra, negociar con proveedores). No es lo mismo un <b>ingreso</b> (una venta) que un <b>cobro</b> (cuando el dinero entra de verdad); ni un <b>gasto</b> que un <b>pago</b>.</p>` },
-    { tras: "El umbral de rentabilidad", html: `<h3>Calcular el umbral paso a paso</h3><p>El <mark>umbral de rentabilidad</mark> o punto muerto es la cantidad que hay que vender para cubrir todos los costes: ni se gana ni se pierde. Se calcula así: <b>Q* = costes fijos / (precio − coste variable unitario)</b>. La diferencia precio − coste variable se llama <b>margen de contribución</b>: lo que deja cada unidad para pagar los costes fijos. Por encima de Q* hay beneficio; por debajo, pérdidas. Si suben los costes fijos o baja el margen, hay que vender más para cubrir costes.</p>`, video: { id: "TwgbEkyf9yQ", titulo: "Cálculo del punto muerto o punto de equilibrio", canal: "ECONOSUBLIME", vistas: 437499, megusta: 0 } },
-    { tras: "Financiación propia y ajena", html: `<h3>Préstamo, crédito y leasing</h3>${tabla(["Producto", "Cómo funciona", "Cuándo conviene"], [["Préstamo", "el banco da una cantidad y se devuelve en cuotas con intereses", "comprar maquinaria o un local"], ["Póliza de crédito", "el banco deja un límite disponible; se pagan intereses solo por lo usado", "desfases de tesorería"], ["Leasing", "se alquila un bien con opción de compra al final", "vehículos, maquinaria"], ["Renting", "alquiler con mantenimiento incluido, sin opción de compra", "ordenadores, coches"]])}<p>Antes de endeudarse hay que comparar la <b>TAE</b> y asegurarse de que la empresa podrá pagar las cuotas.</p>` },
-    { tras: "Nuevas formas de financiación", html: `<h3>Ayudas públicas y business angels</h3><p>Además de bancos y crowdfunding, existen <b>subvenciones</b> y préstamos públicos para emprendedores, por ejemplo de la Empresa Nacional de Innovación (ENISA), de las comunidades autónomas o para jóvenes a través de la Garantía Juvenil. Los <mark>business angels</mark> son personas con experiencia que invierten su dinero en empresas que empiezan a cambio de una parte de ellas y además las aconsejan. Las <b>aceleradoras</b> e incubadoras ofrecen formación, oficinas y contactos.</p>` },
-  ],
-  ejemplos: [
-    { enunciado: "Una tienda de camisetas tiene 6.000 € de costes fijos al mes. Vende cada camiseta a 20 € y le cuesta 8 €. Calcula el umbral de rentabilidad.", pasos: ["Margen de contribución = 20 − 8 = 12 € por camiseta.", "Q* = 6.000 / 12 = 500 camisetas.", "Comprobación: ingresos 500 · 20 = 10.000 €; costes 6.000 + 500 · 8 = 10.000 €."], resultado: "Debe vender 500 camisetas al mes para no perder." },
-    { enunciado: "Con esos datos, ¿qué beneficio obtiene si vende 700 camisetas?", pasos: ["Unidades por encima del umbral: 700 − 500 = 200.", "Cada una deja 12 € de margen.", "Beneficio = 200 · 12 = 2.400 €."], resultado: "2.400 € de beneficio." },
-    { enunciado: "Pides un préstamo de 6.000 € a devolver en 1 año en 12 cuotas iguales, con un interés total de 300 €. ¿Cuánto pagas al mes?", pasos: ["Total a devolver = 6.000 + 300 = 6.300 €.", "Cuota = 6.300 / 12 = 525 €."], resultado: "525 € al mes (cálculo simplificado; los bancos usan el sistema francés)." },
-  ],
-  errores: [
-    "Confundir inversión inicial con gastos mensuales.",
-    "Pensar que tener beneficios garantiza tener dinero en caja.",
-    "Restar el precio menos los costes fijos al calcular el margen de contribución: se resta el coste variable unitario.",
-    "Pedir un préstamo sin calcular si se pueden pagar las cuotas.",
-    "Confundir leasing (opción de compra) y renting (solo alquiler).",
-  ],
-  ejercicios: [
-    { q: "Clasifica en activo no corriente o corriente: furgoneta, mercancía, dinero en caja, local.", sol: "No corriente: furgoneta y local. Corriente: mercancía y dinero en caja." },
-    { q: "Diferencia ingreso y cobro.", sol: "El ingreso es la venta; el cobro, el momento en que entra el dinero." },
-    { q: "¿Para qué sirve una previsión de tesorería?", sol: "Para saber si cada mes habrá dinero suficiente para pagar y anticipar soluciones." },
-    { q: "Una pizzería tiene 4.500 € de costes fijos, vende cada pizza a 12 € y le cuesta 3 €. ¿Cuál es su umbral?", sol: "4.500 / (12 − 3) = 500 pizzas." },
-    { q: "Si la pizzería vende 600 pizzas, ¿cuánto gana?", sol: "(600 − 500) · 9 = 900 €." },
-    { q: "Si el alquiler sube y los costes fijos pasan a 5.400 €, ¿cuál es el nuevo umbral?", sol: "5.400 / 9 = 600 pizzas." },
-    { q: "¿Qué diferencia hay entre préstamo y póliza de crédito?", sol: "En el préstamo recibes todo el dinero y pagas intereses por todo; en la póliza dispones de un límite y pagas intereses solo por lo usado." },
-    { q: "¿Qué es un business angel?", sol: "Un inversor particular que aporta dinero y experiencia a empresas nuevas a cambio de una participación." },
-    { q: "Cita dos fuentes de financiación propia.", sol: "Aportaciones de los socios y beneficios reinvertidos (autofinanciación)." },
-    { q: "¿Por qué conviene tener un fondo para los primeros meses?", sol: "Porque al principio las ventas suelen ser bajas y hay que seguir pagando alquiler, sueldos y proveedores." },
-  ],
-  quiz: [
-    { q: "El umbral de rentabilidad es el punto en que…", o: ["beneficio = 0", "ventas = 0", "costes = 0"], a: 0, e: "Los ingresos igualan a los costes." },
-    { q: "El margen de contribución es…", o: ["precio − coste variable unitario", "precio − costes fijos", "ingresos − impuestos"], a: 0, e: "Lo que deja cada unidad." },
-    { q: "Una furgoneta de reparto es activo…", o: ["no corriente", "corriente", "pasivo"], a: 0, e: "Se usa durante varios años." },
-    { q: "El leasing incluye…", o: ["opción de compra", "un regalo", "subvención"], a: 0, e: "Al final se puede comprar el bien." },
-    { q: "Si suben los costes fijos, el umbral…", o: ["sube", "baja", "no cambia"], a: 0, e: "Hay que vender más para cubrirlos." },
-  ],
-  tarjetas: [
-    ["Activo no corriente", "Bienes que la empresa usa durante varios años."],
-    ["Previsión de tesorería", "Cobros y pagos previstos mes a mes."],
-    ["Margen de contribución", "Precio − coste variable unitario."],
-  ],
-});
