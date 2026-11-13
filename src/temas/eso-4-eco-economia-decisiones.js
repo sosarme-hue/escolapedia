@@ -1,149 +1,253 @@
-// Economía y Emprendimiento 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-const { rueda, filas, flujo, dos, figCols } = require("./_hum");
+// Economía y Emprendimiento 4º ESO. Tema nivel libro. Dibujos propios en SVG.
+const { F, D, mapa, B, ejs, qz, caja, dos, rueda, filas, piramide, flujo, figCols, formula, balanza, ciclo, tabla } = require("./_eso4L10");
+
+const fpp = caja("Frontera de posibilidades de producción entre bicicletas y ordenadores, con un punto ineficiente dentro y uno inalcanzable fuera", `
+  <g ${F} font-size="10.5">
+    <path d="M40 18 V 150 H 244" fill="none" stroke="var(--ink)" stroke-width="2"/>
+    <text x="36" y="16" text-anchor="end" fill="var(--muted)">bicis</text><text x="244" y="166" text-anchor="end" fill="var(--muted)">ordenadores</text>
+    <path d="M40 34 C 120 36, 196 80, 214 150" fill="none" stroke="var(--pen)" stroke-width="3.5"/>
+    <circle cx="150" cy="70" r="5" fill="var(--pen)"/><text x="156" y="64" fill="var(--pen)" font-weight="700">A eficiente</text>
+    <circle cx="104" cy="104" r="5" fill="var(--sun)"/><text x="66" y="124" fill="var(--ink)" font-weight="700">B ineficiente</text>
+    <circle cx="200" cy="44" r="5" fill="var(--red)"/><text x="240" y="30" text-anchor="end" fill="var(--red)" font-weight="700">C inalcanzable</text>
+  </g>`);
+
+const flujoRenta = caja("Flujo circular: las familias venden factores a las empresas y les compran bienes; el dinero circula en sentido contrario", `
+  <defs><marker id="fr-a" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--leaf)"/></marker><marker id="fr-b" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--red)"/></marker></defs>
+  <g ${F} text-anchor="middle" font-weight="700">
+    <rect x="14" y="70" width="70" height="40" rx="10" fill="var(--pen)"/><text x="49" y="94" fill="#fff" font-size="12">Familias</text>
+    <rect x="176" y="70" width="70" height="40" rx="10" fill="var(--sun)"/><text x="211" y="94" fill="var(--ink)" font-size="12">Empresas</text>
+    <path d="M60 66 C 90 20, 170 20, 200 66" fill="none" stroke="var(--leaf)" stroke-width="2.5" marker-end="url(#fr-a)"/>
+    <path d="M190 58 C 160 34, 100 34, 70 58" fill="none" stroke="var(--red)" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#fr-b)"/>
+    <text x="130" y="18" font-size="10.5" fill="var(--leaf)">trabajo, capital, tierra</text><text x="130" y="82" font-size="9.5" fill="var(--red)">salarios, rentas €</text>
+    <path d="M200 114 C 170 160, 90 160, 60 114" fill="none" stroke="var(--leaf)" stroke-width="2.5" marker-end="url(#fr-a)"/>
+    <path d="M70 122 C 100 146, 160 146, 190 122" fill="none" stroke="var(--red)" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#fr-b)"/>
+    <text x="130" y="106" font-size="9.5" fill="var(--red)">gasto en consumo €</text><text x="130" y="172" font-size="10.5" fill="var(--leaf)">bienes y servicios</text>
+  </g>`);
 
 module.exports = {
   materia: "Economía y Emprendimiento",
   curso: "4-eso",
   titulo: "La economía y las decisiones",
-  minutos: 35,
-  objetivos: ["Entender la economía como la ciencia que estudia cómo gestionar recursos escasos", "Aplicar el concepto de coste de oportunidad a decisiones cotidianas", "Identificar los agentes económicos y el flujo circular de la renta"],
-  claves: ["escasez", "coste de oportunidad", "necesidades", "bienes y servicios", "agentes económicos", "flujo circular"],
+  minutos: 100,
+  objetivos: [
+    "Explicar la escasez y por qué obliga a elegir",
+    "Distinguir necesidades, bienes y servicios y sus tipos",
+    "Calcular el coste de oportunidad y razonar en el margen",
+    "Interpretar la frontera de posibilidades de producción",
+    "Describir los factores, los agentes y el flujo circular de la renta",
+    "Diferenciar sistemas económicos, micro y macroeconomía, economía positiva y normativa",
+  ],
+  claves: ["escasez", "necesidad", "bien económico", "coste de oportunidad", "análisis marginal", "FPP", "factores de producción", "agentes económicos", "flujo circular", "sistema económico"],
   pregunta: {
-    texto: "Tienes 20 euros y una tarde libre. Puedes ir al cine con tus amigos o comprarte el videojuego que quieres desde hace semanas. No te llega para las dos cosas. ¿Cómo decides?",
-    respuesta: "Acabas de enfrentarte al problema básico de la <mark>economía</mark>: los recursos (dinero, tiempo) son <b>escasos</b> y las necesidades y deseos, casi ilimitados. Elegir una cosa supone renunciar a otra, y eso a lo que renuncias es el <b>coste de oportunidad</b>.",
+    texto: "Tienes 20 € y una tarde libre. Puedes ir al cine con tus amigos, comprar un libro o quedarte estudiando para el examen del lunes. Elijas lo que elijas, ¿qué pierdes?",
+    respuesta: "Pierdes la <mark>mejor alternativa</mark> que has dejado de lado: eso es el <b>coste de oportunidad</b>. Como el dinero y el tiempo son <b>escasos</b>, cada elección tiene un precio, aunque no lo pagues en euros. La economía estudia justamente cómo decidimos cuando no podemos tenerlo todo.",
+  },
+  lectura: {
+    titulo: "El sábado de Nora",
+    html: `<p>Nora tiene quince años y un problema que no sale en ningún libro de texto: el sábado. Le han ofrecido cuidar a sus primos por 25 €, su equipo de baloncesto juega la final a las once, quiere terminar el trabajo de Física y su mejor amiga celebra el cumpleaños por la tarde. El día tiene las mismas 24 horas para ella que para todo el mundo, y no le alcanzan para todo.</p><p>Al final hace una lista: qué gana con cada plan, qué pierde y qué no puede dejar para otro día. Descubre que la final y el cumpleaños no se repiten, que el trabajo de Física puede hacerlo el domingo por la mañana y que a sus tíos les viene bien que cuide a los primos otro sábado. Sin saberlo, Nora acaba de hacer lo mismo que hacen los gobiernos cuando reparten un presupuesto o las empresas cuando deciden qué fabricar: ha comparado <b>costes y beneficios</b> con unos recursos limitados.</p><p>Eso es la economía. No trata solo del dinero, sino de algo más cotidiano: <mark>elegir bien cuando no se puede tener todo</mark>. En este tema aprenderás las herramientas que usan los economistas para pensar esas decisiones.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>La escasez, el problema económico</h3><p>Las personas tenemos <b>necesidades</b> (comer, vestir, aprender, divertirnos) que satisfacemos con <b>bienes</b> (objetos) y <b>servicios</b> (actividades, como una clase o un corte de pelo). Pero los recursos para producirlos son limitados: esa es la <mark>escasez</mark>. La economía estudia cómo las personas y las sociedades <b>eligen</b> qué producir, cómo y para quién con esos recursos escasos.</p>`,
-      svg: dos("Necesidades ilimitadas frente a recursos escasos", ["Necesidades", ["alimento", "vivienda", "educación", "ocio", "¡casi infinitas!"], "var(--red)"], ["Recursos", ["tierra", "trabajo", "capital", "tiempo", "¡limitados!"], "var(--leaf)"]),
-    },
-    {
-      html: `<h3>El coste de oportunidad</h3><p>Cada decisión tiene un precio oculto: el <mark>coste de oportunidad</mark>, que es el valor de la <b>mejor alternativa a la que renuncias</b>. Si eliges el videojuego, tu coste de oportunidad es la tarde de cine con tus amigos. Si dedicas el sábado a trabajar, renuncias a descansar. Pensar en el coste de oportunidad ayuda a tomar mejores decisiones.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Balanza con 20 euros: cine frente a videojuego; lo que dejas es el coste de oportunidad">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <path d="M130 40 V 140 M 90 150 H 170" stroke="var(--ink)" stroke-width="3"/>
-        <path d="M50 64 L 210 56" stroke="var(--ink)" stroke-width="3"/>
-        <circle cx="130" cy="40" r="14" fill="var(--sun)"/><text x="130" y="45" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" ${F}>20 €</text>
-        <path d="M30 64 H 70 L 62 92 H 38 Z" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
-        <path d="M190 56 H 230 L 222 84 H 198 Z" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
-        <text x="50" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="var(--pen)" ${F}>cine</text>
-        <text x="210" y="104" text-anchor="middle" font-size="12" font-weight="700" fill="var(--red)" ${F}>videojuego</text>
-        <text x="130" y="172" text-anchor="middle" font-size="11.5" fill="var(--muted)" ${F}>lo que dejas = coste de oportunidad</text>
-      </svg>`,
-    },
-    {
-      html: `<h3>Los factores de producción</h3><p>Para producir bienes y servicios se combinan los <mark>factores productivos</mark>: la <b>tierra</b> (recursos naturales), el <b>trabajo</b> (esfuerzo físico y mental de las personas), el <b>capital</b> (máquinas, herramientas, edificios) y la <b>iniciativa empresarial</b> (quien organiza los demás y asume el riesgo). Cada uno recibe una recompensa: renta, salario, interés y beneficio.</p>`,
-      svg: filas("Factores de producción y su recompensa", [["Tierra", "recursos naturales → renta", "var(--leaf)"], ["Trabajo", "personas → salario", "var(--pen)"], ["Capital", "máquinas → interés", "var(--muted)"], ["Empresa", "iniciativa → beneficio", "var(--red)"]]),
-    },
-    {
-      html: `<h3>Los agentes económicos y el flujo circular</h3><p>En la economía participan tres <mark>agentes</mark>: las <b>familias</b> (consumen y ofrecen su trabajo), las <b>empresas</b> (producen bienes y servicios y contratan trabajo) y el <b>sector público</b> (cobra impuestos y ofrece servicios como sanidad o educación). El dinero circula entre ellos: las familias trabajan en las empresas, cobran un salario y lo gastan comprando lo que las empresas producen. Es el <b>flujo circular de la renta</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Flujo circular: familias y empresas intercambian trabajo y salarios, bienes y pagos">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <defs><marker id="eco1a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink)"/></marker></defs>
-        <rect x="14" y="66" width="76" height="40" rx="10" fill="var(--pen)"/><text x="52" y="91" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" ${F}>familias</text>
-        <rect x="170" y="66" width="76" height="40" rx="10" fill="var(--leaf)"/><text x="208" y="91" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" ${F}>empresas</text>
-        <path d="M60 62 C 90 18, 170 18, 200 62" fill="none" stroke="var(--ink)" stroke-width="2" marker-end="url(#eco1a)"/>
-        <path d="M200 110 C 170 156, 90 156, 60 110" fill="none" stroke="var(--ink)" stroke-width="2" marker-end="url(#eco1a)"/>
-        <text x="130" y="28" text-anchor="middle" font-size="11.5" fill="var(--ink)" ${F}>trabajo y gasto en compras</text>
-        <text x="130" y="166" text-anchor="middle" font-size="11.5" fill="var(--ink)" ${F}>salarios y bienes</text>
-        <text x="130" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)" ${F}>sector público</text>
-      </svg>`,
-    },
+    B("1.1", "La escasez, el problema económico", `<p>Las personas tenemos <b>necesidades y deseos prácticamente ilimitados</b>: comer, vestirnos, estudiar, viajar, tener un móvil mejor, cuidar de nuestra salud. En cambio, los <b>recursos</b> para satisfacerlos (tiempo, dinero, tierra, agua, energía, trabajo) son <mark>limitados</mark>. Este desajuste se llama <mark>escasez</mark> y es el punto de partida de toda la economía.</p><p>Escasez no significa pobreza. Un millonario también tiene escasez de tiempo, y un país rico tiene que decidir si gasta más en hospitales o en carreteras. Algo es escaso cuando <b>no hay suficiente para todos los usos posibles</b>, de modo que usarlo para una cosa impide usarlo para otra.</p><p>Por eso la <b>economía</b> se define como la ciencia social que estudia <b>cómo las personas y las sociedades administran recursos escasos</b> para producir bienes y servicios y repartirlos. La palabra viene del griego <i>oikonomía</i>, «administración de la casa»: al principio era el arte de llevar bien un hogar, y hoy se aplica a familias, empresas, gobiernos y al planeta entero.</p>`,
+      balanza("La escasez: necesidades ilimitadas frente a recursos limitados", ["Necesidades", "ilimitadas|y crecientes", "var(--red)"], ["Recursos", "limitados|tiempo, dinero…", "var(--pen)"], 2, "hay que elegir: escasez")),
+    B("1.2", "Necesidades: de las básicas a las sociales", `<p>Una <mark>necesidad</mark> es la sensación de carencia de algo, unida al deseo de satisfacerla. Se pueden clasificar de varias formas:</p><ul><li><b>Primarias o básicas</b>: imprescindibles para vivir (alimento, agua, vivienda, abrigo, salud).</li><li><b>Secundarias</b>: mejoran la calidad de vida, pero no son vitales (ocio, viajes, tecnología). Dependen mucho de la época y la cultura: hace cincuenta años nadie necesitaba internet y hoy es casi imprescindible para estudiar.</li><li><b>Individuales</b> (las siente cada persona) y <b>colectivas o sociales</b> (las comparte la comunidad: seguridad, alumbrado, educación pública).</li></ul><p>El psicólogo Abraham Maslow propuso ordenarlas en una <b>pirámide</b>: primero las fisiológicas, después la seguridad, la pertenencia a un grupo, el reconocimiento y, en la cima, la autorrealización. La idea es que, cuando las de abajo están cubiertas, buscamos satisfacer las de arriba. No es una ley exacta, pero ayuda a entender por qué las prioridades cambian con la renta.</p>`,
+      piramide("Pirámide de Maslow simplificada", [["realizarse", "var(--leaf)"], ["reconocimiento", "var(--sun)"], ["pertenencia y seguridad", "var(--inf)"], ["fisiológicas", "var(--red)"]]),
+      { id: "IUGotDZIb40", titulo: "Concepto de escasez | Economía", canal: "Flex Flix Teens en Español", vistas: 421689, megusta: 0 }),
+    B("1.3", "Bienes y servicios", `<p>Para satisfacer necesidades usamos <b>bienes</b> (objetos materiales, como una bicicleta) y <b>servicios</b> (actividades intangibles, como una clase o un corte de pelo). Se clasifican así:</p><ul><li>Según su escasez: <b>bienes libres</b>, que existen en abundancia y no tienen precio (el aire, la luz del sol), y <b>bienes económicos</b>, que son escasos, requieren trabajo para obtenerse y tienen precio.</li><li>Según su uso: <b>bienes de consumo</b>, que satisfacen directamente una necesidad (un bocadillo), y <b>bienes de capital</b>, que sirven para producir otros bienes (el horno de una panadería).</li><li>Según su relación: <b>complementarios</b>, que se usan juntos (impresora y tinta), y <b>sustitutivos</b>, que se pueden cambiar uno por otro (bus o metro).</li><li>Según quién los ofrece: <b>privados</b>, de los que se puede excluir a quien no paga, y <b>públicos</b>, que disfrutan todos a la vez (el alumbrado de una calle).</li></ul><p>Un mismo objeto puede cambiar de grupo según cómo se use: el ordenador de casa es un bien de consumo, y el del diseñador gráfico, un bien de capital.</p>`,
+      filas("Tipos de bienes", [["Libres", "abundantes, sin precio", "var(--leaf)"], ["Económicos", "escasos y con precio", "var(--pen)"], ["Consumo", "satisfacen directamente", "var(--sun)"], ["Capital", "sirven para producir", "var(--red)"], ["Públicos", "los usamos todos a la vez", "var(--inf)"]])),
+    B("1.4", "Las tres preguntas básicas", `<p>Como los recursos son escasos, toda sociedad tiene que responder a tres preguntas económicas fundamentales:</p><ol><li><b>¿Qué producir y en qué cantidad?</b> ¿Más viviendas o más hospitales? ¿Coches eléctricos o de gasolina?</li><li><b>¿Cómo producir?</b> ¿Con muchas personas y pocas máquinas, o con robots? ¿Con energía renovable o con carbón? La respuesta cambia el empleo y el impacto ambiental.</li><li><b>¿Para quién producir?</b> ¿Cómo se reparte lo producido? ¿Según lo que cada persona puede pagar, según sus necesidades o a partes iguales?</li></ol><p>Estas preguntas no tienen una única respuesta correcta. Detrás de cada una hay <b>valores</b>: eficiencia, igualdad, libertad, sostenibilidad. Por ejemplo, decidir «para quién» implica hablar de justicia social, y decidir «cómo» obliga a pensar en las generaciones futuras. La forma en que cada país las responde da lugar a los distintos <mark>sistemas económicos</mark>.</p>`,
+      filas("Las tres preguntas económicas", [["¿Qué?", "qué bienes y cuántos", "var(--pen)"], ["¿Cómo?", "con qué técnicas y recursos", "var(--leaf)"], ["¿Para quién?", "cómo se reparte", "var(--red)"]])),
+    B("1.5", "Los sistemas económicos", `<p>Un <mark>sistema económico</mark> es la forma en que una sociedad organiza la producción y el reparto. Hay tres modelos básicos:</p><ul><li><b>Economía de mercado</b>: las decisiones las toman libremente consumidores y empresas, guiados por los <b>precios</b>. La propiedad es privada y cada empresa busca beneficio. Ventajas: libertad, variedad, innovación. Inconvenientes: puede dejar sin atender a quien no tiene dinero, crea desigualdades y no se ocupa por sí sola del medio ambiente.</li><li><b>Economía planificada</b>: el Estado decide qué, cómo y para quién producir mediante un plan central, y los medios de producción son públicos. Busca la igualdad, pero suele ser poco eficiente, con escasez de productos y poca libertad. Fue el modelo de la antigua Unión Soviética.</li><li><b>Economía mixta</b>: combina mercado y Estado. Las empresas privadas producen la mayoría de los bienes, pero el Estado regula, cobra impuestos y ofrece servicios como la sanidad o la educación. Es el sistema de España y de la Unión Europea.</li></ul><p>También existe la <b>economía tradicional</b>, basada en la costumbre, propia de comunidades rurales o indígenas.</p>`,
+      filas("Tres sistemas económicos", [["Mercado", "deciden precios y empresas", "var(--pen)"], ["Planificada", "decide el Estado", "var(--red)"], ["Mixta", "mercado + Estado", "var(--leaf)"]]),
+      { id: "MqEgTICAt38", titulo: "¿Cuáles son los 4 sistemas económicos?", canal: "Economia Desde Casa", vistas: 361696, megusta: 0 }),
+    B("1.6", "El coste de oportunidad", `<p>Si elegir una opción significa renunciar a otras, toda decisión tiene un coste aunque no se pague dinero. El <mark>coste de oportunidad</mark> es el <b>valor de la mejor alternativa a la que se renuncia</b> al tomar una decisión. Ojo: no es la suma de todas las alternativas, solo la mejor de las descartadas.</p><p>Si dedicas la tarde a jugar a la consola, su coste de oportunidad puede ser estudiar para el examen; si un ayuntamiento gasta un millón en una piscina, renuncia a usar ese millón en la biblioteca. Muchas veces el coste de oportunidad es <b>tiempo</b>: estudiar un ciclo de dos años supone renunciar al sueldo que se habría ganado trabajando esos dos años.</p><p>Para calcularlo bien hay que sumar el <b>coste explícito</b> (el dinero que se paga) y el <b>coste implícito</b> (lo que se deja de ganar). Ir al cine cuesta la entrada, pero también lo que habrías ganado trabajando esa tarde. Pensar en el coste de oportunidad nos ayuda a no fijarnos solo en el precio y a valorar lo que de verdad perdemos.</p>`,
+      formula("Coste de oportunidad: coste explícito más coste implícito", ["Coste|explícito", "+", "Coste|implícito", "=", "Coste de|oportunidad"], ["var(--sun)", "var(--red)", "var(--pen)"], "lo que pagas + lo que dejas de ganar")),
+    B("1.7", "Pensar en el margen y los incentivos", `<p>Pocas decisiones son de «todo o nada». Casi siempre elegimos <b>un poco más o un poco menos</b>: estudiar una hora más, producir cien unidades más, comprar otra camiseta. El <mark>análisis marginal</mark> consiste en comparar el <b>beneficio adicional</b> (beneficio marginal) con el <b>coste adicional</b> (coste marginal) de ese paso extra. Conviene seguir mientras el beneficio marginal sea mayor que el coste marginal.</p><p>Ejemplo: una pizzería abre de 20 a 24 h. ¿Le compensa abrir una hora más? Si en esa hora vendería pizzas por 120 € y el coste extra (sueldos, luz, ingredientes) es de 90 €, sí; si vendiera por 60 €, no. Lo que se gastó en el horno ya no cuenta: es un <b>coste hundido</b> que no cambia hagas lo que hagas.</p><p>Las personas también responden a <mark>incentivos</mark>: premios o castigos que cambian los costes y beneficios. Un descuento anima a comprar, una multa desanima a aparcar mal y una beca anima a estudiar. Los gobiernos y las empresas diseñan incentivos para orientar el comportamiento, pero a veces provocan efectos inesperados.</p>`,
+      balanza("Análisis marginal: beneficio marginal frente a coste marginal", ["Beneficio", "de la hora extra|120 €", "var(--leaf)"], ["Coste", "de la hora extra|90 €", "var(--red)"], 1.5, "120 > 90: compensa abrir")),
+    B("1.8", "La frontera de posibilidades de producción", `<p>La <mark>frontera de posibilidades de producción</mark> (FPP) es un gráfico que muestra las <b>combinaciones máximas</b> de dos bienes que una economía puede producir usando todos sus recursos y la tecnología disponible. Imagina un país que solo fabrica bicicletas y ordenadores: si dedica todo a bicicletas, hará muchas bicis y ningún ordenador; si reparte, hará algo de cada.</p><ul><li>Un punto <b>sobre la curva</b> es <b>eficiente</b>: se aprovechan todos los recursos.</li><li>Un punto <b>dentro</b> es <b>ineficiente</b>: hay recursos parados, por ejemplo personas en paro o fábricas cerradas.</li><li>Un punto <b>fuera</b> es <b>inalcanzable</b> con los recursos actuales.</li></ul><p>Moverse por la curva muestra el coste de oportunidad: para fabricar más ordenadores hay que renunciar a bicicletas. La curva suele ser <b>cóncava</b> (arqueada hacia fuera) porque los recursos no sirven igual para todo, y el coste de oportunidad crece cuanto más nos especializamos. Si mejora la tecnología, aumenta la población activa o se invierte en maquinaria, la frontera se <b>desplaza hacia fuera</b>: eso es <b>crecimiento económico</b>.</p>`, fpp),
+    B("1.9", "Los factores de producción y sus rentas", `<p>Para producir hacen falta <mark>factores de producción</mark>, los recursos que se combinan para obtener bienes y servicios:</p><ul><li><b>Tierra o recursos naturales</b>: suelo, agua, minerales, energía. Su renta es el <b>alquiler</b> o renta de la tierra.</li><li><b>Trabajo</b>: el esfuerzo físico e intelectual de las personas. Su renta es el <b>salario</b>.</li><li><b>Capital</b>: bienes fabricados para producir otros, como máquinas, edificios, ordenadores o herramientas. Su renta son los <b>intereses</b>. Se distingue del capital financiero (el dinero).</li><li><b>Iniciativa empresarial</b>: la capacidad de organizar los demás factores, innovar y asumir riesgos. Su renta es el <b>beneficio</b>.</li></ul><p>Hoy se añaden la <b>tecnología</b> y el <b>conocimiento</b> (el capital humano): la formación de las personas multiplica lo que se puede producir con los mismos recursos. Por eso estudiar es, en términos económicos, una <b>inversión</b>. La <b>productividad</b> mide cuánto se produce por unidad de factor, por ejemplo por hora trabajada, y es la clave del bienestar a largo plazo.</p>`,
+      rueda("Factores de producción y sus rentas", "FACTORES", [["tierra: alquiler", "var(--leaf)"], ["trabajo: salario", "var(--pen)"], ["capital: interés", "var(--sun)"], ["empresa: beneficio", "var(--red)"]], "var(--ink)")),
+    B("1.10", "Los agentes económicos", `<p>Los <mark>agentes económicos</mark> son quienes toman las decisiones en la economía:</p><ul><li><b>Las familias o economías domésticas</b>: son dueñas de los factores de producción (sobre todo del trabajo). Los ofrecen a las empresas a cambio de rentas y con ellas consumen y ahorran. Su objetivo es lograr el máximo bienestar.</li><li><b>Las empresas</b>: compran o alquilan factores, producen bienes y servicios y los venden. Su objetivo principal es obtener beneficio, aunque cada vez se les exige también responsabilidad social.</li><li><b>El sector público</b> (Estado, comunidades autónomas, ayuntamientos): cobra impuestos, ofrece servicios públicos, redistribuye la renta con pensiones y ayudas y pone las reglas del juego. Busca el bienestar general.</li></ul><p>Además, como las economías están abiertas, existe el <b>sector exterior</b>: las familias, empresas y gobiernos de otros países, con quienes compramos (importaciones) y vendemos (exportaciones). Una misma persona actúa como varios agentes: como consumidora en el súper, como trabajadora en su empleo y como contribuyente al pagar impuestos.</p>`,
+      rueda("Agentes económicos", "AGENTES", [["familias", "var(--pen)"], ["empresas", "var(--sun)"], ["sector público", "var(--red)"], ["sector exterior", "var(--leaf)"]], "var(--ink)")),
+    B("1.11", "El flujo circular de la renta", `<p>El <mark>flujo circular de la renta</mark> es un modelo sencillo que muestra cómo se relacionan familias y empresas a través de dos mercados:</p><ul><li>En el <b>mercado de factores</b>, las familias ofrecen trabajo, capital y tierra, y las empresas les pagan <b>rentas</b>: salarios, intereses, alquileres y beneficios.</li><li>En el <b>mercado de bienes y servicios</b>, las empresas venden lo que producen y las familias lo pagan con esas rentas (<b>gasto en consumo</b>).</li></ul><p>Así se forman dos corrientes que van en sentido contrario: un <b>flujo real</b> (factores, bienes y servicios) y un <b>flujo monetario</b> (rentas y gasto). Lo que para unos es gasto, para otros es ingreso.</p><p>El modelo se completa con el <b>sector público</b>, que recibe impuestos y devuelve servicios, pensiones y subvenciones; con los <b>bancos</b>, que recogen el ahorro y lo prestan para invertir; y con el <b>sector exterior</b>, que compra exportaciones y vende importaciones. Este esquema explica por qué una caída del consumo puede provocar menos ventas, más paro y, a su vez, menos consumo.</p>`,
+      flujoRenta, { id: "_BtwFbC6jK8", titulo: "El flujo circular de la renta", canal: "ECONOSUBLIME", vistas: 184738, megusta: 0 }),
+    B("1.12", "Microeconomía y macroeconomía; positiva y normativa", `<p>La economía se puede estudiar a dos escalas:</p><ul><li>La <mark>microeconomía</mark> analiza las decisiones de los agentes individuales: cómo elige una familia qué comprar, cómo fija una empresa sus precios o cómo funciona el mercado de la vivienda en una ciudad.</li><li>La <mark>macroeconomía</mark> estudia la economía en su conjunto: el crecimiento del PIB, la inflación, el paro, el comercio exterior o la deuda pública.</li></ul><p>También se distinguen dos tipos de afirmaciones:</p><ul><li>La <b>economía positiva</b> describe y explica hechos que se pueden comprobar con datos: «La tasa de paro juvenil en España supera el 25 %».</li><li>La <b>economía normativa</b> expresa juicios de valor sobre lo que debería hacerse: «El Gobierno debería subir las becas». No se puede demostrar que sea verdad o mentira, porque depende de valores.</li></ul><p>Distinguirlas es muy útil para leer noticias y debates: los datos se pueden comprobar, y las opiniones se pueden discutir, pero no conviene confundir unos con otras. Los economistas usan <b>modelos</b>, simplificaciones de la realidad que suponen «todo lo demás constante» para ver el efecto de una sola causa.</p>`,
+      dos("Microeconomía y macroeconomía", ["Micro", ["familias", "empresas", "un mercado", "precios", "decisiones"], "var(--pen)"], ["Macro", ["un país entero", "PIB", "inflación", "paro", "comercio"], "var(--red)"])),
+    B("1.13", "Decidir bien: racionalidad y sesgos", `<p>Los modelos clásicos suponen que actuamos de forma <b>racional</b>: comparamos costes y beneficios y elegimos lo mejor para nosotros. Sin embargo, la <mark>economía conductual</mark>, que estudia cómo decidimos de verdad, ha demostrado que a menudo nos dejamos llevar por <b>atajos mentales</b> o sesgos:</p><ul><li><b>Sesgo del presente</b>: valoramos mucho más lo inmediato que lo futuro, por eso cuesta ahorrar o estudiar con tiempo.</li><li><b>Efecto ancla</b>: el primer precio que vemos condiciona lo que nos parece caro o barato («antes 80 €, ahora 49 €»).</li><li><b>Aversión a la pérdida</b>: perder 10 € duele más de lo que alegra ganar 10 €.</li><li><b>Efecto rebaño</b>: elegimos lo que eligen los demás, aunque no nos convenga.</li><li><b>Falacia del coste hundido</b>: seguir con algo malo solo porque ya hemos invertido en ello.</li></ul><p>Conocer estos sesgos ayuda a decidir mejor: hacer una lista de alternativas, pensar en el coste de oportunidad, esperar un día antes de una compra grande y preguntarse si se decidiría igual sin la presión del momento. El premio Nobel Daniel Kahneman dedicó su carrera a estudiarlos.</p>`,
+      flujo("Pasos para decidir bien", ["definir|objetivo", "listar|alternativas", "costes y|beneficios", "coste de|oportunidad", "elegir", "revisar"], "var(--leaf)")),
+  ],
+  ejemplos: [
+    { enunciado: "Un país produce bicicletas y ordenadores con estas combinaciones: A (0 ordenadores, 100 bicis), B (10, 90), C (20, 70), D (30, 40), E (40, 0). ¿Cuál es el coste de oportunidad de pasar de C a D?", pasos: ["En C se hacen 20 ordenadores y 70 bicis; en D, 30 ordenadores y 40 bicis.", "Se ganan 10 ordenadores y se pierden 70 − 40 = 30 bicis.", "Coste de oportunidad por ordenador: 30 / 10 = 3 bicis."], resultado: "30 bicicletas en total, 3 bicicletas por cada ordenador extra." },
+    { enunciado: "Con la misma tabla, compara el coste de oportunidad de pasar de A a B y de D a E. ¿Qué observas?", pasos: ["De A a B: +10 ordenadores, −10 bicis → 1 bici por ordenador.", "De D a E: +10 ordenadores, −40 bicis → 4 bicis por ordenador.", "El coste crece a medida que nos especializamos en ordenadores."], resultado: "El coste de oportunidad es creciente: por eso la FPP es cóncava." },
+    { enunciado: "Lucía puede trabajar la tarde de canguro (25 €), estudiar o ir al cine (entrada de 8 €). Va al cine. ¿Cuánto le cuesta realmente?", pasos: ["Coste explícito: la entrada, 8 €.", "Coste implícito: la mejor alternativa, que valora en 25 € (el trabajo).", "Coste total = 8 + 25 = 33 €."], resultado: "El cine le cuesta 33 €, no 8 €." },
+    { enunciado: "Una pizzería piensa abrir una hora más. Ingresos extra: 120 €. Costes extra: un empleado 15 €, luz 10 €, ingredientes 45 €. Ya pagó 6.000 € por el horno. ¿Le conviene?", pasos: ["Coste marginal = 15 + 10 + 45 = 70 €.", "El horno es un coste hundido: no cambia la decisión.", "Beneficio marginal 120 € > coste marginal 70 €."], resultado: "Sí: gana 50 € más con la hora extra." },
+    { enunciado: "Clasifica: un tractor de un agricultor, el aire, el agua del grifo, un concierto y el alumbrado de una calle.", pasos: ["Tractor: bien económico de capital (sirve para producir).", "Aire: bien libre.", "Agua del grifo: bien económico (tiene coste y precio).", "Concierto: servicio de consumo.", "Alumbrado: bien público."], resultado: "Capital, libre, económico, servicio y público." },
+    { enunciado: "Una familia cobra 2.000 € de salarios, paga 300 € de impuestos, gasta 1.500 € en consumo y el resto lo ahorra en el banco. Sitúa cada flujo en el modelo circular.", pasos: ["Salarios: renta que las empresas pagan por el trabajo (mercado de factores).", "Impuestos: flujo hacia el sector público.", "Consumo: gasto en el mercado de bienes y servicios.", "Ahorro: 2.000 − 300 − 1.500 = 200 €, va a los bancos, que lo prestarán para invertir."], resultado: "Ahorra 200 €; todos los flujos monetarios tienen una contrapartida real." },
+  ],
+  errores: [
+    "Creer que la escasez es lo mismo que la pobreza: hasta el más rico tiene que elegir.",
+    "Sumar todas las alternativas en el coste de oportunidad: solo cuenta la mejor de las descartadas.",
+    "Olvidar el coste implícito (el tiempo o el dinero que se deja de ganar).",
+    "Tener en cuenta los costes hundidos al decidir, aunque no cambian con la decisión.",
+    "Pensar que un punto dentro de la FPP es imposible: es posible, pero ineficiente.",
+    "Confundir una opinión («se debería…») con un dato comprobable: economía normativa frente a positiva.",
   ],
   figura: {
-    titulo: "Las tres preguntas de toda economía",
-    svg: figCols("Qué producir, cómo producir y para quién producir, con ejemplos", [
-      ["¿Qué producir?", ["¿coches o bicis?", "¿hospitales o", "carreteras?", "depende de las", "necesidades"], "var(--pen)"],
-      ["¿Cómo producir?", ["¿con más máquinas", "o más personas?", "¿energía solar", "o petróleo?", "eficiencia"], "var(--leaf)"],
-      ["¿Para quién?", ["¿cómo se reparte", "lo producido?", "salarios, precios", "impuestos y", "ayudas"], "var(--red)"],
+    titulo: "Cómo piensa un economista",
+    svg: figCols("Esquema: escasez, elegir, coste de oportunidad y agentes", [
+      ["Escasez", ["necesidades ilimitadas", "recursos limitados", "hay que elegir", "qué, cómo,", "para quién"], "var(--red)"],
+      ["Elegir", ["coste de oportunidad", "análisis marginal", "incentivos", "evitar sesgos", "FPP"], "var(--pen)"],
+      ["Producir", ["tierra, trabajo,", "capital, empresa", "productividad", "conocimiento", "tecnología"], "var(--sun)"],
+      ["Relacionarse", ["familias", "empresas", "sector público", "sector exterior", "flujo circular"], "var(--leaf)"],
     ]),
   },
   video: { id: "pplbyImPNJw", titulo: "Coste de oportunidad explicado en 2 minutos", canal: "GAYTÁN", vistas: 531663, megusta: 0, busqueda: "qué es la economía escasez coste de oportunidad" },
-  quiz: [
-    { q: "¿Qué estudia la economía?", o: ["Solo el dinero de los bancos", "Cómo gestionar recursos escasos para satisfacer necesidades", "Los precios de la Bolsa"], a: 1, e: "La economía estudia las decisiones sobre qué, cómo y para quién producir con recursos limitados." },
-    { q: "Si eliges estudiar en vez de ir al cine, el coste de oportunidad es…", o: ["el precio de la entrada", "la tarde de cine a la que renuncias", "nada"], a: 1, e: "Es el valor de la mejor alternativa a la que renuncias." },
-    { q: "¿Cuál de estos es un servicio?", o: ["Una camiseta", "Una clase de guitarra", "Un balón"], a: 1, e: "Los servicios son actividades que no se pueden almacenar." },
-    { q: "La recompensa del factor trabajo es…", o: ["el salario", "el interés", "la renta"], a: 0, e: "El trabajo se paga con salarios; el capital, con intereses; la tierra, con rentas." },
-    { q: "¿Qué agente económico cobra impuestos?", o: ["Las familias", "Las empresas", "El sector público"], a: 2, e: "El sector público financia con impuestos servicios como sanidad o educación." },
-  ],
-  examen: [
-    { q: "¿Por qué existe la escasez?", o: ["Porque las necesidades son ilimitadas y los recursos limitados", "Porque la gente no trabaja", "Porque hay mucho dinero"], a: 0, e: "Incluso los países ricos tienen que elegir en qué usar sus recursos." },
-    { q: "Una fábrica de bicicletas es un ejemplo de…", o: ["factor tierra", "factor capital", "factor trabajo"], a: 1, e: "Las máquinas y edificios que sirven para producir son capital." },
-    { q: "En el flujo circular, las familias entregan a las empresas…", o: ["bienes y servicios", "trabajo y pagos por compras", "impuestos"], a: 1, e: "Ofrecen su trabajo y gastan sus ingresos comprando lo que las empresas producen." },
-  ],
-  feynman: ["Qué es la escasez y por qué obliga a elegir", "El coste de oportunidad con un ejemplo de tu vida", "Los cuatro factores de producción y su recompensa", "Cómo circula el dinero entre familias y empresas"],
-  mapa: mapa("ECONOMÍA", "var(--leaf)", [
-    ["Escasez", "recursos limitados", "var(--red)"],
-    ["Decisiones", "coste de oportunidad", "var(--pen)"],
-    ["Factores", "tierra · trabajo · capital", "var(--muted)"],
-    ["Agentes", "familias · empresas · Estado", "var(--sun)"],
-  ], 260),
-  tarjetas: [
-    ["Escasez", "Recursos limitados frente a necesidades ilimitadas."],
-    ["Coste de oportunidad", "El valor de la mejor alternativa a la que renuncias al elegir."],
-    ["Bien frente a servicio", "Un bien es un objeto; un servicio, una actividad."],
+  quiz: qz([
+    ["¿Qué es la escasez en economía?", ["Que algo no existe", "Que los recursos no alcanzan para todas las necesidades", "Que los precios suben", "Que un país es pobre"], 1, "Necesidades ilimitadas frente a recursos limitados: obliga a elegir."],
+    ["El aire que respiramos es un bien…", ["económico", "de capital", "libre", "público"], 2, "Es abundante y no tiene precio."],
+    ["El horno de una panadería es un bien…", ["de consumo", "de capital", "libre", "complementario"], 1, "Sirve para producir otros bienes (el pan)."],
+    ["La impresora y la tinta son bienes…", ["sustitutivos", "complementarios", "libres", "públicos"], 1, "Se usan juntos."],
+    ["El coste de oportunidad es…", ["el precio de un bien", "la suma de todas las alternativas", "la mejor alternativa a la que se renuncia", "un coste hundido"], 2, "Solo cuenta la mejor alternativa descartada."],
+    ["Un punto dentro de la FPP indica…", ["eficiencia", "recursos sin aprovechar", "algo inalcanzable", "crecimiento"], 1, "Hay paro o fábricas paradas: es ineficiente."],
+    ["La FPP se desplaza hacia fuera cuando…", ["sube el paro", "mejora la tecnología", "baja la población", "hay una guerra"], 1, "Más recursos o mejor tecnología permiten producir más: crecimiento."],
+    ["La renta del trabajo es…", ["el interés", "el beneficio", "el salario", "el alquiler"], 2, "Las empresas pagan salarios por el trabajo."],
+    ["La renta de la iniciativa empresarial es…", ["el beneficio", "el salario", "el interés", "la subvención"], 0, "Premia organizar y asumir riesgos."],
+    ["¿Qué agente busca sobre todo el bienestar general?", ["Las familias", "Las empresas", "El sector público", "Los bancos"], 2, "Cobra impuestos y presta servicios para toda la sociedad."],
+    ["En el flujo circular, las familias reciben de las empresas…", ["bienes y rentas", "impuestos", "solo bienes", "factores"], 0, "Rentas en el mercado de factores y bienes en el de bienes (pagándolos)."],
+    ["España tiene una economía…", ["planificada", "tradicional", "mixta", "de trueque"], 2, "Combina mercado y un sector público importante."],
+    ["En la economía planificada decide…", ["el mercado", "el Estado", "cada familia", "la costumbre"], 1, "Un plan central fija qué, cómo y para quién producir."],
+    ["«El paro juvenil supera el 25 %» es una afirmación…", ["normativa", "positiva", "falsa siempre", "microeconómica"], 1, "Se puede comprobar con datos."],
+    ["«Habría que subir las becas» es…", ["positiva", "normativa", "un dato", "un modelo"], 1, "Expresa un juicio de valor."],
+    ["Estudiar cómo fija el precio una heladería es…", ["macroeconomía", "microeconomía", "economía normativa", "contabilidad"], 1, "Se ocupa de un agente individual."],
+    ["El análisis marginal compara…", ["ingresos totales y costes totales", "el beneficio y el coste de un paso más", "dos países", "precios antiguos y nuevos"], 1, "Conviene seguir mientras el beneficio marginal supere al coste marginal."],
+    ["Un coste hundido…", ["debe pesar mucho al decidir", "ya está pagado y no cambia la decisión", "es un coste futuro", "es un impuesto"], 1, "No se recupera hagas lo que hagas."],
+    ["Valorar mucho más lo inmediato que lo futuro es el sesgo…", ["del presente", "ancla", "rebaño", "de confirmación"], 0, "Explica por qué cuesta ahorrar."],
+    ["La pregunta «¿para quién producir?» trata de…", ["la tecnología", "el reparto de lo producido", "la cantidad", "los precios internacionales"], 1, "Decide cómo se distribuye la producción."],
+  ]),
+  examen: qz([
+    ["La economía estudia…", ["solo el dinero", "cómo se administran recursos escasos", "solo las empresas", "la bolsa"], 1, "Familias, empresas y gobiernos eligen con recursos limitados."],
+    ["Un servicio es…", ["un bien material", "una actividad intangible", "un bien libre", "un factor"], 1, "Por ejemplo, una clase o una consulta médica."],
+    ["Si pasar de 20 a 30 ordenadores cuesta 30 bicis, el coste por ordenador es…", ["30 bicis", "3 bicis", "10 bicis", "0,3 bicis"], 1, "30 / 10 = 3."],
+    ["Un punto fuera de la FPP es…", ["eficiente", "ineficiente", "inalcanzable hoy", "el óptimo"], 2, "No hay recursos para producirlo."],
+    ["Las máquinas de una fábrica son el factor…", ["tierra", "trabajo", "capital", "iniciativa"], 2, "Bienes producidos que sirven para producir."],
+    ["En el flujo circular, el dinero que pagan las familias por los bienes es…", ["renta", "gasto en consumo", "impuesto", "salario"], 1, "Va de las familias a las empresas."],
+    ["El sector exterior incluye…", ["solo el Gobierno", "las importaciones y exportaciones", "solo los bancos", "las familias"], 1, "Agentes de otros países."],
+    ["Una multa para quien aparca mal es un…", ["coste hundido", "incentivo", "bien público", "factor"], 1, "Cambia los costes de una conducta."],
+  ]),
+  ejercicios: ejs([
+    ["b", "Define escasez y explica por qué afecta también a las personas ricas.", "La escasez es el desajuste entre unas necesidades ilimitadas y unos recursos limitados. Afecta a todos porque, aunque alguien tenga mucho dinero, su tiempo, su energía o los recursos naturales siguen siendo limitados y tiene que elegir en qué usarlos."],
+    ["b", "Clasifica estas necesidades en primarias o secundarias: comer, ver series, vivienda, viajar, medicinas, un patinete.", "Primarias: comer, vivienda, medicinas. Secundarias: ver series, viajar, un patinete."],
+    ["b", "Pon un ejemplo de necesidad individual y otro de necesidad colectiva.", "Individual: comprarse unas zapatillas. Colectiva: seguridad ciudadana, alumbrado o transporte público."],
+    ["b", "Indica si son bienes libres o económicos: el agua del mar en la playa, el agua embotellada, la luz del sol, la electricidad.", "Libres: agua del mar en la playa y luz del sol. Económicos: agua embotellada y electricidad, porque cuestan producirlos y tienen precio."],
+    ["b", "Escribe dos pares de bienes complementarios y dos de sustitutivos.", "Complementarios: coche y gasolina; móvil y funda. Sustitutivos: mantequilla y margarina; autobús y metro."],
+    ["b", "Enumera los cuatro factores de producción y la renta de cada uno.", "Tierra → alquiler o renta; trabajo → salario; capital → interés; iniciativa empresarial → beneficio."],
+    ["b", "¿Cuáles son las tres preguntas básicas de la economía?", "¿Qué producir y cuánto?, ¿cómo producir? y ¿para quién producir?"],
+    ["b", "Cita los agentes económicos y el objetivo principal de cada uno.", "Familias: máximo bienestar. Empresas: beneficio. Sector público: bienestar general. Sector exterior: los agentes de otros países, con sus propios objetivos."],
+    ["b", "¿Qué sistema económico tiene España? Explica en una frase por qué.", "Economía mixta: la mayoría de los bienes los producen empresas privadas en el mercado, pero el Estado regula, cobra impuestos y ofrece sanidad, educación y pensiones."],
+    ["b", "Define coste de oportunidad con tus palabras y pon un ejemplo de tu vida.", "Es el valor de la mejor opción a la que renuncio al elegir. Ejemplo: si salgo con mis amigos el viernes, renuncio a ver el partido en casa con mi familia (si era mi segunda preferida)."],
+    ["b", "Clasifica como micro o macroeconomía: el precio del pan en tu barrio; el PIB de Francia; la inflación de España; cuántas horas trabaja una cafetería.", "Micro: precio del pan en el barrio y horas de la cafetería. Macro: PIB de Francia e inflación de España."],
+    ["b", "Indica si son afirmaciones positivas o normativas: a) «En 2025 el salario mínimo fue de 1.184 € al mes en 14 pagas»; b) «El salario mínimo debería ser más alto».", "a) Positiva: se puede comprobar en el BOE. b) Normativa: es un juicio de valor."],
+    ["m", "Explica con un ejemplo por qué un ordenador puede ser bien de consumo o de capital.", "Depende del uso: el portátil que usas para ver series es un bien de consumo; el mismo portátil, en manos de una diseñadora que trabaja con él, es un bien de capital porque sirve para producir otros bienes o servicios."],
+    ["m", "Con la tabla A (0, 100), B (10, 90), C (20, 70), D (30, 40), E (40, 0) de ordenadores y bicis, calcula el coste de oportunidad por ordenador entre B y C.", "Se ganan 10 ordenadores y se pierden 90 − 70 = 20 bicis. Coste por ordenador = 20 / 10 = 2 bicis."],
+    ["m", "Con la misma tabla, ¿es posible producir 20 ordenadores y 50 bicis? ¿Y 30 ordenadores y 60 bicis? Explica qué tipo de punto es cada uno.", "20 y 50 es posible pero ineficiente: con 20 ordenadores se podrían hacer 70 bicis, así que sobran recursos. 30 y 60 es inalcanzable: con 30 ordenadores el máximo son 40 bicis."],
+    ["m", "Dibuja una FPP y señala cómo cambia si el país invierte en robots y mejora su tecnología.", "La curva se desplaza hacia fuera (hacia arriba y a la derecha): con los mismos recursos se puede producir más de ambos bienes. Es crecimiento económico."],
+    ["m", "¿Por qué la FPP suele tener forma cóncava? Relaciónalo con el coste de oportunidad.", "Porque los recursos no son igual de buenos para todo. Al principio pasamos a producir ordenadores con los recursos más adecuados y se pierden pocas bicis; después hay que usar recursos menos aptos y se pierden cada vez más bicis. El coste de oportunidad creciente curva la frontera hacia fuera."],
+    ["m", "Pablo deja un trabajo de verano de 900 € para hacer un curso de inglés que cuesta 400 €. ¿Cuál es el coste de oportunidad total del curso?", "Coste explícito: 400 €. Coste implícito: los 900 € que deja de ganar. Coste de oportunidad total = 1.300 €."],
+    ["m", "Una cafetería ingresaría 80 € más si abre el domingo por la tarde. Tendría que pagar 50 € de sueldo y 15 € de luz y género. El año pasado reformó el local por 20.000 €. ¿Debe abrir? Razona usando el análisis marginal.", "Coste marginal = 50 + 15 = 65 €. Beneficio marginal = 80 €. Como 80 > 65, conviene abrir: gana 15 € más. La reforma es un coste hundido y no influye."],
+    ["m", "Explica el flujo real y el flujo monetario del flujo circular de la renta.", "Flujo real: las familias dan factores (trabajo, capital, tierra) a las empresas, y estas dan bienes y servicios a las familias. Flujo monetario, en sentido contrario: las empresas pagan rentas (salarios, intereses, alquileres, beneficios) y las familias pagan el gasto en consumo."],
+    ["m", "Compara la economía de mercado y la planificada: una ventaja y un inconveniente de cada una.", "Mercado: ventaja, libertad e innovación; inconveniente, desigualdad y desatención a quien no puede pagar. Planificada: ventaja, busca la igualdad y el pleno empleo; inconveniente, ineficiencia, escasez de productos y poca libertad."],
+    ["m", "Pon dos ejemplos de incentivos que use el Estado y explica qué conducta buscan.", "Una deducción fiscal por instalar placas solares (fomenta las renovables) y una multa por tirar basura (desanima ensuciar). También becas (estudiar) o impuestos sobre el tabaco (fumar menos)."],
+    ["m", "Una tienda pone «Antes 120 €, ahora 79 €». ¿Qué sesgo intenta aprovechar? ¿Cómo lo evitarías?", "El efecto ancla: el primer precio hace que el segundo parezca barato. Para evitarlo, compara el precio con otras tiendas y pregúntate si comprarías el producto a 79 € sin ver el precio antiguo."],
+    ["m", "Una persona trabaja de profesora, va al súper y paga el IRPF. ¿Qué papel de agente económico tiene en cada caso?", "Como profesora ofrece su trabajo (familia en el mercado de factores; trabaja para el sector público si es pública). En el súper es consumidora (familia en el mercado de bienes). Al pagar el IRPF es contribuyente que aporta al sector público."],
+    ["m", "Ordena tus necesidades de una semana según la pirámide de Maslow y comenta si se cumple la idea de que primero se cubren las de abajo.", "Respuesta personal. Ejemplo: comer y dormir (fisiológicas), sentirme seguro en casa (seguridad), quedar con amigos (pertenencia), sacar buena nota (reconocimiento), tocar la guitarra (autorrealización). Normalmente sí, pero a veces se priorizan necesidades altas, como quedar con amigos antes de dormir lo suficiente."],
+    ["m", "Explica qué es la productividad y por qué estudiar la aumenta.", "La productividad es lo que se produce por unidad de factor, por ejemplo por hora trabajada. Estudiar aumenta el capital humano: con más conocimientos y habilidades, una persona produce más y mejor en el mismo tiempo."],
+    ["a", "Un país tiene esta FPP de alimentos (t) y ropa (u): (0, 50), (10, 45), (20, 35), (30, 20), (40, 0). Calcula el coste de oportunidad de cada tramo de 10 t de alimentos y comenta el resultado.", "0→10: 5 u (0,5 u por t). 10→20: 10 u (1 u por t). 20→30: 15 u (1,5). 30→40: 20 u (2). El coste de oportunidad crece: es una FPP cóncava, porque los recursos más aptos para la ropa se pasan a alimentos al final."],
+    ["a", "En el caso anterior, el país produce 20 t de alimentos y 25 u de ropa. ¿Qué puedes decir? ¿Cuánta ropa podría ganar sin perder alimentos?", "Es un punto ineficiente (dentro de la frontera), porque con 20 t podría producir 35 u. Podría ganar 35 − 25 = 10 u de ropa sin renunciar a alimentos, usando los recursos parados."],
+    ["a", "Una estudiante duda entre trabajar al terminar la ESO (cobraría 14.000 € al año) o hacer un ciclo de grado superior de dos años (matrícula y material: 600 € al año). Calcula el coste de oportunidad del ciclo y explica por qué, aun así, puede ser una buena inversión.", "Coste explícito: 2 × 600 = 1.200 €. Implícito: 2 × 14.000 = 28.000 €. Total: 29.200 €. Puede compensar porque, de media, quienes tienen FP superior ganan más, tienen menos paro y trabajan muchos años: el beneficio futuro supera el coste."],
+    ["a", "Un ayuntamiento dispone de 2 millones de euros y duda entre un polideportivo y un centro de salud. Plantea las tres preguntas básicas para este caso y argumenta tu decisión distinguiendo afirmaciones positivas y normativas.", "¿Qué? Polideportivo o centro de salud. ¿Cómo? Con empresa pública o privada, con criterios ecológicos… ¿Para quién? Para jóvenes, mayores, barrios con menos servicios… Afirmaciones positivas: «el barrio tiene 12.000 habitantes y el centro de salud más cercano está a 4 km». Normativas: «la salud debería ser prioritaria». La decisión debe apoyarse en datos y explicitar los valores."],
+    ["a", "Una empresa ya ha gastado 500.000 € en desarrollar un videojuego que no funciona. Terminarlo costaría 300.000 € más y esperan ingresar 200.000 €. ¿Qué deberían hacer? ¿Qué sesgo deberían evitar?", "Comparan solo lo futuro: coste adicional 300.000 € > ingresos esperados 200.000 €, así que no conviene terminarlo (perderían 100.000 € más). Los 500.000 € son coste hundido. Deben evitar la falacia del coste hundido."],
+    ["a", "Explica qué ocurriría en el flujo circular si las familias, por miedo a una crisis, ahorran mucho más y consumen menos. ¿Podría el sector público compensarlo?", "Menos consumo → las empresas venden menos → producen menos y contratan menos → bajan las rentas de las familias → todavía menos consumo (círculo vicioso). Si el ahorro no se presta para invertir, la economía se frena. El sector público puede compensar gastando más (obras, ayudas) o bajando impuestos para animar el consumo."],
+    ["a", "Diseña un incentivo para que en tu instituto se recicle más y anticipa un posible efecto inesperado.", "Ejemplo: un concurso entre clases con premio para la que más envases recicle, medido por peso. Efecto inesperado: alguien podría traer envases de casa o meter basura en el contenedor para pesar más. Habría que medir bien y premiar también la calidad de la separación."],
+    ["a", "Debate: ¿la economía de mercado es más eficiente que la planificada? Escribe un párrafo con dos argumentos a favor y uno en contra, separando datos de opiniones.", "A favor: los precios transmiten información sobre lo que se desea y lo que escasea (dato: las economías planificadas sufrieron escasez crónica); la competencia impulsa la innovación. En contra: el mercado no garantiza servicios a quien no puede pagarlos ni protege el medio ambiente. Opinión: por eso la mayoría de los países combinan ambos en una economía mixta."],
+    ["a", "Relaciona la sostenibilidad con la FPP: ¿qué pasaría con la frontera de un país que agota sus acuíferos y sus suelos fértiles?", "Al perder recursos naturales, la frontera se desplazaría hacia dentro: podría producir menos de todo en el futuro. La sostenibilidad consiste en usar los recursos hoy sin reducir la FPP de las generaciones futuras."],
+    ["a", "Elige una decisión importante que tengas que tomar este curso y aplícale los pasos de una decisión racional, incluyendo el coste de oportunidad y un sesgo que podría afectarte.", "Respuesta personal. Ejemplo: elegir entre Bachillerato y FP. Objetivo: trabajar en algo sanitario. Alternativas: Bachillerato de Ciencias, FP de grado medio de Cuidados Auxiliares de Enfermería. Costes y beneficios de cada uno. Coste de oportunidad: años de estudio frente a incorporarse antes al trabajo. Sesgo: efecto rebaño, elegir lo que eligen mis amigos."],
+  ]),
+  glosario: [
+    ["Escasez", "Desajuste entre necesidades ilimitadas y recursos limitados."],
+    ["Necesidad", "Sensación de carencia unida al deseo de satisfacerla."],
+    ["Bien económico", "Bien escaso que cuesta producir y tiene precio."],
+    ["Bien libre", "Bien abundante que no tiene precio, como el aire."],
+    ["Bien de capital", "Bien que sirve para producir otros bienes."],
+    ["Coste de oportunidad", "Valor de la mejor alternativa a la que se renuncia."],
+    ["Coste hundido", "Coste ya realizado que no se puede recuperar."],
+    ["Análisis marginal", "Comparar el beneficio y el coste de un paso adicional."],
+    ["Incentivo", "Premio o castigo que cambia los costes y beneficios de una conducta."],
+    ["FPP", "Gráfico con las combinaciones máximas de dos bienes que puede producir una economía."],
     ["Factores de producción", "Tierra, trabajo, capital e iniciativa empresarial."],
-    ["Agentes económicos", "Familias, empresas y sector público."],
+    ["Productividad", "Producción por unidad de factor, por ejemplo por hora trabajada."],
+    ["Agentes económicos", "Familias, empresas, sector público y sector exterior."],
+    ["Flujo circular de la renta", "Modelo de los intercambios reales y monetarios entre agentes."],
+    ["Economía mixta", "Sistema que combina mercado e intervención del Estado."],
+    ["Economía normativa", "Afirmaciones sobre lo que debería hacerse, basadas en valores."],
   ],
-  familias: ["Al hacer la compra, pensad juntos en el coste de oportunidad de un capricho.", "Preguntadle qué haría con 50 euros y qué dejaría de hacer al elegir.", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
+  situacion: {
+    titulo: "Presupuestos participativos del instituto",
+    reto: "La dirección del centro dispone de 3.000 € para mejorar el instituto y quiere que el alumnado de 4.º proponga en qué gastarlos. Tu grupo debe presentar una propuesta razonada como economistas: con datos, alternativas y coste de oportunidad.",
+    pasos: [
+      "Haced una encuesta breve (al menos 30 respuestas) para detectar las necesidades del alumnado y clasificadlas.",
+      "Elegid tres alternativas y pedid o buscad presupuestos reales de cada una.",
+      "Para cada alternativa, responded a qué, cómo y para quién, y calculad a quién beneficia y cuánto cuesta por alumno.",
+      "Elegid una y explicad su coste de oportunidad (qué se deja de hacer).",
+      "Separad en vuestra presentación las afirmaciones positivas (datos) de las normativas (valores).",
+    ],
+    producto: "Una presentación de 5 minutos y un póster con la propuesta, el presupuesto y un gráfico de la encuesta.",
+    evaluacion: [
+      "Usa correctamente los conceptos de escasez, coste de oportunidad y análisis marginal.",
+      "Apoya la propuesta en datos reales de la encuesta y de los presupuestos.",
+      "Distingue con claridad datos y juicios de valor.",
+      "Comunica con orden y responde a las preguntas del público.",
+    ],
+  },
+  feynman: ["Qué es la escasez y por qué obliga a elegir", "Qué es el coste de oportunidad, con un ejemplo", "Qué muestra la frontera de posibilidades de producción", "Cómo circula la renta entre familias y empresas"],
+  mapa: mapa("LA ECONOMÍA Y LAS DECISIONES", "var(--pen)", [
+    ["Escasez", "necesidades · bienes · 3 preguntas", "var(--red)"],
+    ["Elegir", "coste de oportunidad · margen", "var(--sun)"],
+    ["Producir", "factores · FPP · productividad", "var(--leaf)"],
+    ["Sistema", "agentes · flujo · economía mixta", "var(--inf)"],
+  ], 270),
+  tarjetas: [
+    ["Escasez", "Necesidades ilimitadas y recursos limitados."],
+    ["Coste de oportunidad", "La mejor alternativa a la que renuncias."],
+    ["Bien de capital", "Sirve para producir otros bienes, como una máquina."],
+    ["Bienes complementarios", "Se usan juntos: impresora y tinta."],
+    ["Punto dentro de la FPP", "Ineficiente: hay recursos parados."],
+    ["FPP hacia fuera", "Crecimiento económico: más recursos o mejor tecnología."],
+    ["Renta del capital", "El interés."],
+    ["Renta de la iniciativa empresarial", "El beneficio."],
+    ["Flujo circular", "Factores y bienes en un sentido; rentas y gasto en el otro."],
+    ["Economía mixta", "Mercado y Estado a la vez, como en España."],
+    ["Economía positiva", "Afirmaciones que se pueden comprobar con datos."],
+    ["Coste hundido", "Ya está pagado: no debe influir en la decisión."],
+  ],
+  familias: [
+    "Al hacer la compra, preguntad «¿qué dejamos de comprar si elegimos esto?»: es el coste de oportunidad.",
+    "Comentad una noticia económica y distinguid juntos los datos de las opiniones.",
+    "Contad qué decisiones importantes de estudios o trabajo tomasteis y qué alternativas descartasteis.",
+    "Repasad las tarjetas del paso 6 dos minutos al día durante la semana.",
+  ],
   profesores: {
-    saberes: "Conceptos económicos básicos: escasez, coste de oportunidad, factores productivos y agentes económicos (RD 217/2022, Economía y Emprendimiento 4º).",
-    ideas: ["Dilema con presupuesto: la clase reparte 1 000 € entre cinco necesidades del centro.", "Dibujar el flujo circular con ejemplos reales de la familia.", "Registro semanal de decisiones y sus costes de oportunidad."],
+    saberes: "Bloque A del RD 217/2022 (Economía y Emprendimiento 4.º): la economía como ciencia, escasez y elección, coste de oportunidad, factores productivos, agentes económicos, flujo circular de la renta y sistemas económicos; toma de decisiones económicas y sesgos.",
+    ideas: [
+      "Juego de la FPP: el grupo reparte 10 personas entre dos tareas (doblar aviones de papel y hacer pulseras) y dibuja la frontera con sus datos.",
+      "Diario de decisiones: durante una semana el alumnado anota tres decisiones y su coste de oportunidad.",
+      "Recorte de prensa: clasificar titulares en micro o macro y en positivos o normativos.",
+      "Situación de aprendizaje de presupuestos participativos con la dirección del centro.",
+    ],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Coste de oportunidad, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Coste_de_oportunidad" },
+    { t: "Frontera de posibilidades de producción, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Frontera_de_posibilidades_de_producci%C3%B3n" },
+    { t: "Banco de España: Aula Virtual de educación financiera", url: "https://aulavirtual.bde.es/" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: nivel de libro de texto.
-const { ampliar, tabla } = require("./_hum");
-ampliar(module.exports, {
-  minutos: 60,
-  objetivos: ["Representar e interpretar la frontera de posibilidades de producción", "Distinguir economía positiva y normativa, y microeconomía y macroeconomía"],
-  bloques: [
-    { tras: "La escasez, el problema", html: `<h3>Necesidades y bienes</h3><p>Una <b>necesidad</b> es la sensación de carencia de algo, unida al deseo de satisfacerla. Las hay <b>primarias</b> (alimento, vivienda, salud) y <b>secundarias</b> (ocio, viajes, un móvil nuevo), y crecen con el nivel de vida. Para satisfacerlas usamos <mark>bienes</mark> (objetos: una manzana, una bici) y <mark>servicios</mark> (actividades: una clase, un corte de pelo). Los <b>bienes libres</b>, como el aire, son abundantes y no tienen precio; los <b>bienes económicos</b> son escasos y cuestan dinero. Los bienes pueden ser <b>de consumo</b> (los usa el consumidor) o <b>de capital</b> (sirven para producir otros, como una máquina).</p>`, video: { id: "IUGotDZIb40", titulo: "Concepto de escasez | Economía", canal: "Flex Flix Teens en Español", vistas: 421689, megusta: 0 } },
-    { tras: "La escasez, el problema", html: `<h3>Las tres preguntas básicas</h3><p>Como los recursos son escasos, toda sociedad debe responder a tres preguntas: <b>¿qué producir?</b> (y cuánto), <b>¿cómo producir?</b> (con qué técnicas y recursos) y <b>¿para quién producir?</b> (cómo se reparte lo producido). Cada <mark>sistema económico</mark> las responde de forma distinta: en la <b>economía de mercado</b> deciden la oferta y la demanda; en la <b>economía planificada</b> decide el Estado; y en la <b>economía mixta</b>, la de España y casi todos los países, el mercado decide la mayor parte, pero el Estado interviene con impuestos, servicios públicos y leyes.</p>` },
-    { tras: "El coste de oportunidad", html: `<h3>La frontera de posibilidades de producción</h3><p>La <mark>frontera de posibilidades de producción</mark> (FPP) muestra las combinaciones máximas de dos bienes que puede producir una economía con sus recursos y su tecnología.</p>${tabla(["Opción", "Ordenadores", "Bicicletas"], [["A", "0", "100"], ["B", "10", "90"], ["C", "20", "70"], ["D", "30", "40"], ["E", "40", "0"]])}<p>Los puntos de la frontera son <b>eficientes</b>; los de dentro, <b>ineficientes</b> (hay recursos sin usar, como trabajadores en paro); los de fuera, <b>inalcanzables</b> por ahora. Si mejora la tecnología o aumentan los recursos, la frontera se desplaza hacia fuera: hay <b>crecimiento económico</b>.</p>` },
-    { tras: "Los factores de producción", html: `<h3>Las rentas de los factores</h3><p>Cada factor de producción recibe un pago, llamado <b>renta</b>, por participar en la producción.</p>${tabla(["Factor", "Ejemplo", "Renta que recibe"], [["Tierra (recursos naturales)", "un terreno, un pozo de agua", "alquiler o renta"], ["Trabajo", "el esfuerzo de un cocinero", "salario"], ["Capital", "un horno, un ordenador", "interés"], ["Iniciativa empresarial", "quien organiza el restaurante y asume el riesgo", "beneficio"]])}<p>La <mark>productividad</mark> mide cuánto se produce con cada unidad de factor, por ejemplo, unidades por trabajador y hora.</p>` },
-    { tras: "Los agentes económicos", html: `<h3>Cómo estudia la economía el mundo</h3><p>La <b>microeconomía</b> estudia las decisiones de las familias y las empresas: por qué sube el precio de un producto o cuántos trabajadores contrata una empresa. La <b>macroeconomía</b> estudia el conjunto: el crecimiento del país, la inflación, el paro. Además, la <mark>economía positiva</mark> describe lo que es («si sube el precio del tabaco, se fuma menos») y se puede comprobar con datos, mientras que la <mark>economía normativa</mark> opina sobre lo que debería ser («habría que subir el impuesto del tabaco»), y depende de valores.</p>` },
-  ],
-  ejemplos: [
-    { enunciado: "Con la tabla de la FPP, ¿cuál es el coste de oportunidad de pasar de 20 a 30 ordenadores?", pasos: ["Con 20 ordenadores se producen 70 bicicletas (opción C).", "Con 30 ordenadores se producen 40 bicicletas (opción D).", "Se renuncia a 70 − 40 = 30 bicicletas.", "Por cada ordenador extra se pierden 30 / 10 = 3 bicicletas."], resultado: "El coste de oportunidad es de 30 bicicletas (3 por ordenador)." },
-    { enunciado: "Lucía tiene la tarde libre: puede trabajar de canguro (ganaría 25 €), estudiar o ir al cine (8 €). Elige el cine. ¿Cuál es su coste de oportunidad?", pasos: ["El coste de oportunidad es la mejor alternativa a la que se renuncia.", "Si valora más ganar dinero que estudiar, la mejor alternativa es el trabajo.", "Además paga 8 € de entrada."], resultado: "Renuncia a 25 € (y a la tarde de estudio), y gasta 8 €: el cine le cuesta en realidad 33 €." },
-    { enunciado: "Clasifica: «El paro juvenil en España es más alto que la media europea» y «El Gobierno debería bajar las cotizaciones a los jóvenes».", pasos: ["La primera describe un hecho que se puede comprobar con estadísticas: positiva.", "La segunda propone lo que habría que hacer: normativa."], resultado: "La primera es economía positiva; la segunda, normativa." },
-  ],
-  errores: [
-    "Pensar que el coste de oportunidad es el dinero que pagas: es la mejor alternativa a la que renuncias.",
-    "Sumar todas las alternativas perdidas: solo cuenta la mejor.",
-    "Confundir escasez con pobreza: hasta el país más rico tiene recursos limitados.",
-    "Creer que un punto dentro de la FPP es imposible: es posible, pero ineficiente.",
-    "Confundir el dinero con el capital como factor de producción: el capital son máquinas, herramientas y edificios.",
-  ],
-  ejercicios: [
-    { q: "Pon un ejemplo de necesidad primaria y otro de secundaria.", sol: "Primaria: alimentarse. Secundaria: ir a un concierto." },
-    { q: "¿Por qué el agua del mar es un bien libre y el agua embotellada, un bien económico?", sol: "La del mar es abundante y nadie cobra por ella; la embotellada requiere recursos para producirla y tiene precio." },
-    { q: "¿Qué tres preguntas debe responder todo sistema económico?", sol: "Qué producir, cómo producir y para quién producir." },
-    { q: "Describe una economía mixta.", sol: "El mercado decide la mayoría de las cosas, pero el Estado interviene con servicios públicos, impuestos y leyes." },
-    { q: "En la tabla de la FPP, ¿qué ocurre si la economía produce 20 ordenadores y 50 bicicletas?", sol: "Está dentro de la frontera: es ineficiente, porque podría producir 70 bicicletas con 20 ordenadores." },
-    { q: "¿Qué desplaza la FPP hacia fuera?", sol: "Más recursos (más población activa, más capital) o mejor tecnología." },
-    { q: "Asocia cada factor con su renta.", sol: "Tierra: alquiler. Trabajo: salario. Capital: interés. Iniciativa empresarial: beneficio." },
-    { q: "Un taller produce 120 piezas al día con 4 trabajadores. ¿Cuál es la productividad por trabajador?", sol: "120 / 4 = 30 piezas por trabajador y día." },
-    { q: "¿Estudia la microeconomía o la macroeconomía el paro de España?", sol: "La macroeconomía, porque estudia el conjunto de la economía." },
-    { q: "Escribe una frase de economía positiva y otra de normativa sobre el precio de la vivienda.", sol: "Positiva: «El precio del alquiler ha subido en las grandes ciudades». Normativa: «Debería limitarse el precio del alquiler»." },
-  ],
-  quiz: [
-    { q: "Un corte de pelo es…", o: ["un bien", "un servicio", "un factor"], a: 1, e: "Es una actividad, no un objeto." },
-    { q: "Un punto fuera de la FPP es…", o: ["eficiente", "ineficiente", "inalcanzable"], a: 2, e: "No hay recursos suficientes para producirlo." },
-    { q: "La renta del trabajo es…", o: ["el interés", "el salario", "el beneficio"], a: 1, e: "Lo que se cobra por trabajar." },
-    { q: "«Habría que subir el salario mínimo» es economía…", o: ["positiva", "normativa", "planificada"], a: 1, e: "Expresa una opinión sobre lo que debería ser." },
-    { q: "En una economía planificada decide…", o: ["el mercado", "el Estado", "cada familia"], a: 1, e: "El Estado fija qué, cómo y para quién." },
-  ],
-  tarjetas: [
-    ["Bien económico", "Bien escaso que tiene precio."],
-    ["Frontera de posibilidades de producción", "Combinaciones máximas de dos bienes que puede producir una economía."],
-    ["Economía normativa", "Opina sobre lo que debería hacerse."],
-  ],
-});
