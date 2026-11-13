@@ -1,0 +1,103 @@
+// Religión 2º de Primaria: Dios crea el mundo con amor.
+const P = require("./_pri2a");
+const { svg, rot, big, nino, sol, luna, nube, arbol, flor, estrella, corazon, pez, pajaro, suelo, casa } = P;
+
+module.exports = P.tema({
+  materia: "Religión",
+  titulo: "Dios crea el mundo con amor",
+  objetivos: ["Recordar el relato de la creación del libro del Génesis", "Descubrir que Dios crea a las personas por amor y nos confía el mundo", "Aprender a cuidar la creación y a dar gracias"],
+  claves: ["creación", "Génesis", "Adán y Eva", "imagen de Dios", "jardín", "cuidar", "dar gracias"],
+  pregunta: ["Cuando haces un dibujo con mucho cariño para alguien, ¿cómo lo tratas?", "Lo haces con cuidado y lo regalas con alegría. Los cristianos creemos que Dios hizo el mundo así: <mark>con amor</mark>, como un regalo para nosotros."],
+  bloques: [
+    ["El primer libro de la Biblia", `<p>La Biblia empieza con un libro que se llama <mark>Génesis</mark>. Génesis quiere decir «origen» o «principio».</p><p>En sus primeras páginas cuenta cómo Dios <b>creó el mundo</b>.</p><p>Lo cuenta como una historia bonita para que todos la entiendan. Su mensaje es muy claro: <b>todo lo bueno viene de Dios</b>.</p>`,
+      svg("Una Biblia abierta por la primera página, la del Génesis", `<path d="M130 50 Q95 36 46 42 V140 Q95 134 130 148 Q165 134 214 140 V42 Q165 36 130 50z" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/><path d="M130 50 V148" stroke="var(--ink)" stroke-width="2"/>${rot(88, 74, "Génesis", { color: "var(--red)", size: 15 })}${[0, 1, 2].map((i) => `<path d="M60 ${90 + i * 14} H116 M144 ${70 + i * 14} H200" stroke="var(--line)" stroke-width="3"/>`).join("")}${sol(172, 116, 10)}${rot(130, 172, "«Al principio…»", { color: "var(--pen)" })}`)],
+    ["Dios crea con su palabra", `<p>El relato dice que Dios <b>habló</b> y las cosas aparecieron: «¡Que exista la luz!». Y la luz existió.</p><p>Así fue creando el <b>cielo</b>, el <b>mar</b>, la <b>tierra</b>, las <b>plantas</b>, el <b>sol</b>, la <b>luna</b> y los <b>animales</b>.</p><p>Después de cada cosa, Dios miraba y veía que era <mark>buena</mark>.</p>`,
+      svg("Paisaje con sol, nubes, montaña, mar con peces y pájaros", `<rect x="14" y="14" width="232" height="80" rx="10" fill="#bfe3ff"/>${sol(210, 40, 14)}${nube(70, 40, 0.9)}${pajaro(130, 34)}${pajaro(154, 46)}<path d="M14 120 L70 64 L126 120z" fill="var(--leaf)"/>${arbol(40, 140, 0.7)}<rect x="126" y="94" width="120" height="54" fill="var(--water)"/>${pez(170, 120, "var(--sun)")}${pez(214, 132, "var(--inf)")}${suelo(148)}${rot(130, 170, "¡Y vio que era bueno!", { color: "var(--pen)" })}`), P.V("creB")],
+    ["Las personas, a imagen de Dios", `<p>Al final, Dios creó a las <b>personas</b>: al hombre y a la mujer. La Biblia los llama <mark>Adán y Eva</mark>.</p><p>Dice que los hizo <b>a su imagen</b>: como Dios, podemos <b>pensar</b>, <b>amar</b> y <b>elegir</b>.</p><p>Esta vez Dios vio que todo era <mark>muy bueno</mark>. ¡Somos lo más especial de la creación!</p>`,
+      svg("Un hombre y una mujer de la mano bajo un gran corazón", `${corazon(130, 50, 2.6)}${nino(100, 156, { c: "var(--pen)", s: 1.3 })}${nino(160, 156, { c: "var(--red)", nina: true, s: 1.3 })}<path d="M114 98 Q130 108 146 98" stroke="var(--muted)" stroke-width="3" fill="none"/>${suelo(156)}${rot(130, 174, "Adán y Eva", { color: "var(--pen)" })}`)],
+    ["Un jardín para vivir", `<p>Dios puso a Adán y Eva en un <mark>jardín</mark> precioso, lleno de árboles con frutas, ríos y animales.</p><p>Les dijo: «<b>Cuidad</b> este jardín». Dios no los quería solo para mirar, sino para <b>trabajar</b> y <b>proteger</b> la tierra.</p><p>Adán puso nombre a todos los animales. ¡Imagina qué nombres inventó!</p>`,
+      svg("Un jardín con árboles frutales, flores, un río y animales", `${arbol(40, 120, 1)}${arbol(214, 112, 0.9)}${[0, 1, 2].map((i) => `<circle cx="${30 + i * 10}" cy="${76 + (i % 2) * 8}" r="4" fill="var(--red)"/>`).join("")}<path d="M90 160 Q110 120 130 130 T170 100 T220 140" stroke="var(--water)" stroke-width="10" fill="none" stroke-linecap="round"/>${flor(80, 120)}${flor(100, 116, "var(--inf)")}${flor(172, 150, "var(--sun)")}${pajaro(120, 46)}${pajaro(144, 56)}${rot(130, 26, "El jardín de Dios", { color: "var(--leaf)", size: 14 })}`)],
+    ["Dios nos quiere a cada uno", `<p>Dios no solo creó a Adán y Eva. Los cristianos creemos que también ha querido que <b>tú existas</b>.</p><p>Te conoce por tu nombre y te quiere tal como eres. Por eso cada persona es <mark>única</mark> e importante.</p><p>Nadie sobra: el niño que corre deprisa y el que va despacio, el alto y el bajo. Todos somos <b>hijos de Dios</b>.</p>`,
+      svg("Cuatro niños distintos debajo de una estrella", `${[["var(--pen)", false, 0.95], ["var(--red)", true, 1.1], ["var(--leaf)", false, 0.85], ["var(--sun)", true, 1]].map(([c, n, s], i) => nino(46 + i * 56, 150, { c, nina: n, s, pelo: i === 2 ? "#8a5a2b" : "var(--ink)" })).join("")}${estrella(130, 30, 14)}${suelo(150)}${rot(130, 172, "Cada uno es único", { color: "var(--pen)" })}`)],
+    ["Cuidar la casa común", `<p>El mundo es como una <mark>gran casa</mark> donde vivimos todos: personas, animales y plantas.</p><p>El papa Francisco la llamó <b>«la casa común»</b>. Si la ensuciamos, nos hacemos daño todos.</p><p>Podemos cuidarla: <b>reciclar</b>, no gastar agua sin necesidad, apagar la luz y tratar bien a los animales.</p>`,
+      svg("La Tierra como una casa con personas, árboles y animales", `<circle cx="130" cy="96" r="58" fill="var(--water)" opacity=".55" stroke="var(--ink)" stroke-width="2"/><path d="M96 70 q14 -14 30 -4 q8 14 -6 22 q-16 4 -24 -18z M140 110 q20 -6 26 10 q-4 18 -22 14 q-12 -8 -4 -24z" fill="var(--leaf)"/>${casa(130, 46, "var(--red)")}${corazon(178, 60, 0.9)}${rot(130, 172, "Nuestra casa común", { color: "var(--pen)" })}`)],
+    ["Dar gracias por todo", `<p>Cuando alguien nos hace un regalo, decimos <b>«gracias»</b>. A Dios también le podemos dar <mark>gracias</mark>.</p><p><b>San Francisco de Asís</b> escribió una oración muy bonita: el <b>Cántico de las criaturas</b>. En ella llama «hermano» al sol y «hermana» a la luna y al agua.</p><p>¡Él veía a todas las criaturas como una gran familia!</p>`,
+      svg("San Francisco con los brazos abiertos entre el sol, la luna y un pájaro", `${sol(46, 46, 14)}${luna(214, 40, 14)}${nino(130, 156, { pose: "brazos", c: "#8a5a2b", s: 1.25 })}${pajaro(84, 96)}${pajaro(180, 92)}${rot(46, 90, "hermano sol", { size: 12, color: "var(--sun)" })}${rot(212, 78, "hermana luna", { size: 12, color: "var(--muted)" })}${suelo(156)}${rot(130, 174, "San Francisco de Asís", { color: "var(--pen)", size: 13 })}`)],
+    ["¿Para qué sirve?", `<p>Saber que el mundo es un regalo nos cambia la <b>mirada</b>.</p><p>Cuando miramos un árbol o un cachorro, podemos sentir <mark>asombro</mark> y alegría.</p><p>Y cuando vemos basura en el parque, sabemos que hay que <b>recogerla</b>. Cuidar la naturaleza es cuidar a todos y dar gracias a Dios.</p>`,
+      svg("Un niño echa un papel a la papelera de reciclaje", `${nino(80, 156, { pose: "lanza", c: "var(--pen)" })}<path d="M170 110 h44 l-5 46 h-34z" fill="var(--leaf)" stroke="var(--ink)" stroke-width="1.5"/><path d="M182 126 l10 -8 l10 8 M184 138 h16" stroke="var(--card)" stroke-width="2.5" fill="none"/><rect x="128" y="58" width="12" height="14" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5" transform="rotate(20 134 65)"/><path d="M140 70 Q170 60 190 104" stroke="var(--muted)" stroke-width="2" fill="none" stroke-dasharray="4 3"/>${suelo(156)}${rot(130, 174, "¡Cuidamos la casa común!", { color: "var(--leaf)" })}`)],
+    ["Juego: el álbum de la creación", `<p>Haz tu propio <b>álbum</b>. Dobla un folio en <b>seis partes</b> y en cada una dibuja algo creado por Dios: la luz, el cielo, el mar, las plantas, los animales y las personas.</p><p>Debajo de cada dibujo escribe: <mark>«Gracias por…»</mark>.</p><p>Al final, enséñaselo a tu familia y cuéntales el relato del Génesis.</p>`,
+      svg("Un folio doblado en seis partes con dibujos de la creación", `${[0, 1, 2, 3, 4, 5].map((i) => { const x = 20 + (i % 3) * 76, y = 22 + Math.floor(i / 3) * 70; const d = [sol(x + 36, y + 30, 10), nube(x + 38, y + 32, 0.6), `<rect x="${x + 8}" y="${y + 24}" width="60" height="22" rx="4" fill="var(--water)"/>`, flor(x + 36, y + 50), pez(x + 34, y + 32, "var(--inf)"), corazon(x + 36, y + 36, 1)][i]; return `<rect x="${x}" y="${y}" width="72" height="66" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>${d}`; }).join("")}${rot(130, 172, "Gracias por…", { color: "var(--pen)" })}`)],
+  ],
+  figura: ["La creación, un regalo de amor", `<svg viewBox="0 0 640 260" role="img" aria-label="Dios crea el mundo, crea a las personas a su imagen, les confía el jardín y nosotros damos gracias">
+    <rect width="640" height="260" rx="16" fill="var(--paper)"/>
+    ${[["Dios crea", "con su palabra", "var(--sun)"], ["Las personas", "a su imagen", "var(--red)"], ["El jardín", "para cuidarlo", "var(--leaf)"], ["Gracias", "por el regalo", "var(--pen)"]].map(([a, b, c], i) => `<rect x="${24 + i * 152}" y="30" width="136" height="200" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>${rot(92 + i * 152, 170, a, { size: 17, color: c })}${rot(92 + i * 152, 198, b, { size: 13, color: "var(--muted)" })}`).join("")}
+    ${sol(92, 96, 22)}${corazon(244, 96, 2.4)}${arbol(396, 132, 1.2)}${estrella(548, 96, 26)}
+  </svg>`],
+  video: P.V("creV", true),
+  ejemplos: [
+    ["¿Qué quiere decir que somos «imagen de Dios»?", ["Dios nos hizo con un cariño especial.", "Como Él, podemos pensar, amar y elegir."], "que nos parecemos a Dios en que podemos amar, pensar y elegir."],
+    ["¿Qué les pidió Dios a Adán y Eva?", ["Les dio un jardín precioso.", "Les pidió que lo trabajaran y lo protegieran."], "que cuidaran el jardín."],
+    ["Ves que un grifo del baño gotea. ¿Qué puedes hacer?", ["El agua es un regalo de la creación.", "Cuidar la casa común es no malgastarla.", "Lo cerramos bien o avisamos a un adulto."], "cierro el grifo para no malgastar el agua."],
+  ],
+  errores: [
+    "Pensar que el relato del Génesis es un libro de ciencias: es una historia que enseña que Dios nos quiere.",
+    "Creer que la naturaleza es solo nuestra y podemos estropearla: es de todos y hay que cuidarla.",
+    "Pensar que hay personas que valen menos: todas somos imagen de Dios.",
+    "Olvidar dar gracias por lo que recibimos cada día.",
+  ],
+  ejercicios: [
+    ["¿Cómo se llama el primer libro de la Biblia?", "Génesis."],
+    ["¿Qué quiere decir Génesis?", "Origen o principio."],
+    ["¿Cómo se llaman las primeras personas en el relato?", "Adán y Eva."],
+    ["¿Qué dijo Dios al ver lo que había creado?", "Que era bueno (y, al final, muy bueno)."],
+    ["Di tres cosas que podemos hacer por la casa común.", "Por ejemplo: reciclar, cerrar el grifo y apagar la luz."],
+    ["¿Quién escribió el Cántico de las criaturas?", "San Francisco de Asís."],
+    ["¿Cómo llamaba San Francisco al sol?", "Hermano sol."],
+    ["Dibuja el jardín de Adán y Eva.", "Dibujo libre con árboles, ríos y animales."],
+    ["Escribe una oración de gracias de una línea.", "Por ejemplo: «Gracias, Dios, por mi familia y por el mar»."],
+    ["¿Por qué decimos que cada persona es única?", "Porque Dios nos quiere a cada uno y no hay nadie igual."],
+  ],
+  quiz: [
+    ["El relato de la creación está en el libro del…", ["Génesis", "Evangelio", "Diccionario"], "Es el primer libro de la Biblia."],
+    ["¿Cómo creó Dios, según el relato?", ["Con su palabra", "Con barro solamente", "Con una máquina"], "Dijo: «¡Que exista la luz!»."],
+    ["¿Qué veía Dios después de crear cada cosa?", ["Que era buena", "Que era fea", "Que sobraba"], "Todo lo que hizo era bueno."],
+    ["Las primeras personas del relato se llaman…", ["Adán y Eva", "José y María", "Noé y su esposa"], "Aparecen en el Génesis."],
+    ["Ser «imagen de Dios» significa que podemos…", ["amar, pensar y elegir", "volar", "no comer"], "Nos parecemos a Dios en eso."],
+    ["¿Qué les pidió Dios a Adán y Eva?", ["Cuidar el jardín", "Romper los árboles", "Irse lejos"], "Los hizo responsables del mundo."],
+    ["El papa Francisco llamó al mundo…", ["la casa común", "la casa vacía", "el castillo"], "Una casa para todos."],
+    ["¿Quién llamaba «hermano sol» al sol?", ["San Francisco de Asís", "Adán", "Noé"], "Lo dice en el Cántico de las criaturas."],
+    ["Cuidar la creación es…", ["reciclar y no malgastar agua", "tirar papeles", "pisar las flores"], "Así protegemos la casa común."],
+    ["Por un regalo decimos…", ["gracias", "nada", "dame más"], "También damos gracias a Dios."],
+  ],
+  examen: [
+    ["¿Qué creó Dios al final?", ["A las personas", "La luz", "El mar"], "Fueron lo último y lo más especial."],
+    ["¿Dónde puso Dios a Adán y Eva?", ["En un jardín", "En un barco", "En un desierto"], "Un jardín para cuidarlo."],
+    ["¿Qué es la casa común?", ["El mundo donde vivimos todos", "Un edificio", "La iglesia del barrio"], "Es nuestro planeta."],
+    ["¿Qué escribió San Francisco?", ["El Cántico de las criaturas", "El Génesis", "Un cuento de piratas"], "Una oración de gracias por la creación."],
+  ],
+  feynman: ["Qué cuenta el libro del Génesis", "Qué significa que somos imagen de Dios", "Cómo puedo cuidar la casa común"],
+  mapa: ["DIOS CREA", [
+    ["Génesis", "el principio de la Biblia", "var(--sun)"],
+    ["Personas", "a imagen de Dios", "var(--red)"],
+    ["Casa común", "cuidarla entre todos", "var(--leaf)"],
+    ["Gracias", "por todo lo bueno", "var(--pen)"],
+  ]],
+  tarjetas: [
+    ["¿Qué libro cuenta la creación?", "El Génesis"],
+    ["¿Qué significa Génesis?", "Origen, principio"],
+    ["Las primeras personas", "Adán y Eva"],
+    ["¿Qué vio Dios al terminar?", "Que todo era muy bueno"],
+    ["Ser imagen de Dios es…", "poder amar, pensar y elegir"],
+    ["¿Qué nos pide Dios?", "Cuidar el mundo"],
+    ["¿Qué es la casa común?", "El mundo donde vivimos todos"],
+    ["¿Quién dijo «hermano sol»?", "San Francisco de Asís"],
+  ],
+  familias: [
+    "Salid a un parque y nombrad juntos cosas de la naturaleza por las que dar gracias.",
+    "Repartid tareas de cuidado en casa: regar las plantas, separar la basura, cerrar grifos.",
+    "Leed juntos el comienzo del Génesis en una Biblia infantil.",
+    "Antes de dormir, decid cada uno una cosa bonita del día por la que dar gracias.",
+  ],
+  saberes: "La creación como don de Dios en el relato del Génesis; la persona, imagen de Dios; el cuidado de la casa común y la acción de gracias",
+  ideas: ["Mural de la creación por grupos, un día cada grupo.", "Lectura dramatizada del Génesis 1 y 2 con una Biblia infantil.", "Compromiso de aula para el cuidado del entorno (reciclaje, agua, luz)."],
+});

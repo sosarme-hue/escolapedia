@@ -1,0 +1,103 @@
+// Matemáticas 2º de Primaria: la suma llevando.
+const P = require("./_pri2a");
+const { svg, num, txt, cuenta, dec, uni, nino, manzana } = P;
+
+module.exports = P.tema({
+  materia: "Matemáticas",
+  titulo: "La suma llevando",
+  objetivos: ["Colocar bien los números para sumar en columna", "Sumar llevando de las unidades a las decenas", "Comprobar una suma y usarla en la vida diaria"],
+  claves: ["sumar", "sumandos", "suma o total", "en columna", "llevar", "me llevo una"],
+  pregunta: ["Tienes 27 canicas y te regalan 15. ¿Cuántas tienes ahora?", "Sumamos <b>27 + 15</b>. Las unidades: 7 + 5 = 12. ¡Son más de 9! Escribimos 2 y <mark>nos llevamos 1</mark> a las decenas: 2 + 1 + 1 = 4. Tienes <b>42 canicas</b>."],
+  bloques: [
+    ["Recordamos la suma", `<p><mark>Sumar</mark> es juntar cantidades para saber cuántas hay en total.</p><p>Los números que sumamos se llaman <b>sumandos</b>. El resultado se llama <b>suma</b> o <b>total</b>.</p><p>En 23 + 14 = 37, los sumandos son 23 y 14. La suma es <b>37</b>. El signo de sumar es <b>+</b> y se lee «más».</p>`,
+      svg("Tres manzanas más dos manzanas son cinco manzanas", `${[0, 1, 2].map((i) => manzana(30 + i * 28, 70)).join("")}${num(120, 78, "+", "var(--muted)", 30)}${[0, 1].map((i) => manzana(150 + i * 28, 70)).join("")}${num(130, 130, "3 + 2 = 5", "var(--pen)", 28)}${txt(70, 162, "sumandos", "var(--muted)", 13)}${txt(200, 162, "suma", "var(--leaf)", 13)}`)],
+    ["Sumar en columna", `<p>Para sumar números grandes, los escribimos <mark>uno debajo del otro</mark>.</p><p>Las <b>unidades</b> van debajo de las unidades. Las <b>decenas</b> van debajo de las decenas.</p><p>Después trazamos una raya. Empezamos a sumar siempre por la <b>derecha</b>: primero las unidades y luego las decenas.</p>`,
+      svg("Suma en columna 23 más 14 igual a 37, con las columnas D y U", `${txt(118, 26, "D", "var(--pen)", 15)}${txt(140, 26, "U", "var(--sun)", 15)}<rect x="107" y="32" width="22" height="104" fill="var(--pen)" opacity=".1"/><rect x="129" y="32" width="22" height="104" fill="var(--sun)" opacity=".15"/>${cuenta(140, 58, [23, 14], { res: 37 })}${txt(210, 80, "empieza", "var(--red)", 12)}${txt(210, 96, "por aquí", "var(--red)", 12)}<path d="M190 100 Q170 120 150 115" stroke="var(--red)" stroke-width="2" fill="none"/>`)],
+    ["¿Qué es llevar?", `<p>A veces las unidades suman <b>10 o más</b>. ¡No caben en una casilla!</p><p>Entonces hacemos un cambio: <mark>10 unidades son 1 decena</mark>.</p><p>Escribimos las unidades que sobran y <b>nos llevamos 1</b> a la columna de las decenas. Lo apuntamos pequeñito arriba para no olvidarlo.</p>`,
+      svg("Siete cubitos más cinco cubitos son doce: diez forman una barra y sobran dos", `${[...Array(7)].map((_, i) => uni(20 + (i % 4) * 16, 40 + Math.floor(i / 4) * 16, 12)).join("")}${num(96, 60, "+", "var(--muted)", 22)}${[...Array(5)].map((_, i) => uni(110 + (i % 3) * 16, 40 + Math.floor(i / 3) * 16, 12, "var(--leaf)")).join("")}${num(178, 60, "=", "var(--muted)", 22)}${dec(196, 26, 9)}${uni(218, 98, 12)}${uni(234, 98, 12)}${num(130, 140, "7 + 5 = 12", "var(--ink)", 22)}${txt(130, 166, "1 decena y 2 unidades", "var(--pen)", 14)}`), P.V("sumB")],
+    ["Paso a paso: 38 + 25", `<p>1. Sumamos las <b>unidades</b>: 8 + 5 = 13.</p><p>2. Escribimos el <b>3</b> abajo y <mark>nos llevamos 1</mark>. Lo ponemos encima de las decenas.</p><p>3. Sumamos las <b>decenas</b> con la que llevamos: 1 + 3 + 2 = 6.</p><p>El resultado es <b>63</b>.</p>`,
+      svg("Suma en columna 38 más 25 igual a 63, llevando una", `${cuenta(140, 64, [38, 25], { res: 63, llevo: [[1, "1"]] })}${txt(212, 64, "8 + 5 = 13", "var(--ink)", 13)}${txt(212, 84, "pongo 3", "var(--pen)", 13)}${txt(212, 104, "me llevo 1", "var(--red)", 13)}${txt(212, 140, "1 + 3 + 2 = 6", "var(--ink)", 13)}`)],
+    ["Sumar con centenas", `<p>Con números de tres cifras hacemos igual. Ahora hay <b>tres columnas</b>: U, D y C.</p><p>En <b>156 + 238</b>: unidades 6 + 8 = 14. Pongo 4 y me llevo 1.</p><p>Decenas: 1 + 5 + 3 = 9. Centenas: 1 + 2 = 3. El total es <mark>394</mark>.</p>`,
+      svg("Suma en columna 156 más 238 igual a 394, llevando una", `${cuenta(160, 64, [156, 238], { res: 394, llevo: [[1, "1"]] })}${txt(116, 30, "C", "var(--red)", 14)}${txt(138, 30, "D", "var(--pen)", 14)}${txt(160, 30, "U", "var(--sun)", 14)}`)],
+    ["Comprobar la suma", `<p>Para saber si una suma está bien, podemos <mark>cambiar el orden</mark> de los sumandos.</p><p>38 + 25 da lo mismo que 25 + 38. ¡Las dos dan <b>63</b>!</p><p>También podemos <b>estimar</b>: 38 es casi 40 y 25 es casi 20. 40 + 20 = 60. Si te sale 600, ¡algo va mal!</p>`,
+      svg("38 más 25 es igual que 25 más 38: las dos dan 63", `${num(130, 50, "38 + 25 = 63", "var(--pen)", 24)}${num(130, 90, "25 + 38 = 63", "var(--leaf)", 24)}${P.tick(200, 120)}${txt(130, 150, "Casi 40 + 20 = 60", "var(--muted)", 14)}`)],
+    ["Trucos de cálculo mental", `<p>Algunas sumas se hacen <b>de cabeza</b>.</p><p>Para sumar <b>9</b>, suma 10 y quita 1. 27 + 9: 27 + 10 = 37, menos 1, <mark>36</mark>.</p><p>Busca los <b>amigos del 10</b>: 7 y 3, 6 y 4, 8 y 2. En 7 + 5 + 3, junta primero 7 y 3: 10 + 5 = 15.</p>`,
+      svg("Para sumar nueve, suma diez y quita uno: 27 más 9 es 36", `<path d="M20 100 H240" stroke="var(--ink)" stroke-width="2.5"/>${[[27, 40], [36, 160], [37, 190]].map(([n, x]) => `<path d="M${x} 92 V108" stroke="var(--ink)" stroke-width="2"/>${num(x, 130, n, n === 36 ? "var(--red)" : "var(--pen)", 18)}`).join("")}<path d="M42 90 Q115 30 188 90" stroke="var(--leaf)" stroke-width="2.5" fill="none"/>${txt(115, 50, "+10", "var(--leaf)", 14)}<path d="M188 90 Q175 72 162 90" stroke="var(--red)" stroke-width="2.5" fill="none"/>${txt(175, 70, "−1", "var(--red)", 13)}${txt(130, 162, "27 + 9 = 36", "var(--ink)", 15)}`)],
+    ["¿Para qué sirve?", `<p>Sumamos cuando queremos saber <b>cuánto hay en total</b>.</p><p>En una excursión van <b>28 niños</b> de 2.º A y <b>27</b> de 2.º B. ¿Cuántos van? 28 + 27 = <mark>55 niños</mark>.</p><p>También sumamos los puntos de un juego, los cromos de una colección o el dinero de la hucha.</p>`,
+      svg("Un autobús con dos grupos de niños: 28 más 27 son 55", `<rect x="20" y="40" width="220" height="70" rx="14" fill="var(--sun)" stroke="var(--ink)" stroke-width="2"/>${[0, 1, 2, 3, 4].map((i) => `<rect x="${34 + i * 40}" y="52" width="30" height="24" rx="4" fill="var(--card)"/><circle cx="${49 + i * 40}" cy="66" r="6" fill="#f3c9a1"/>`).join("")}<circle cx="60" cy="112" r="11" fill="var(--ink)"/><circle cx="200" cy="112" r="11" fill="var(--ink)"/>${num(130, 156, "28 + 27 = 55", "var(--pen)", 22)}`)],
+    ["Juego: ¡a llevar!", `<p>Lanza dos dados <b>dos veces</b>. Con los dos primeros forma un número; con los otros dos, otro número.</p><p>Si sale 4 y 5, y luego 3 y 6, sumas <b>45 + 36</b>. ¿Te llevas una? Sí: 5 + 6 = 11. Pongo 1 y me llevo 1.</p><p>El total es <mark>81</mark>. ¡Gana quien tenga la suma más alta!</p>`,
+      svg("Cuatro dados con los puntos 4, 5, 3 y 6 y la suma 45 más 36 igual a 81", `${[4, 5, 3, 6].map((n, i) => { const x = 22 + i * 56, pts = { 3: [[0, 0], [1, 1], [2, 2]], 4: [[0, 0], [2, 0], [0, 2], [2, 2]], 6: [[0, 0], [2, 0], [0, 1], [2, 1], [0, 2], [2, 2]], 5: [[0, 0], [2, 0], [1, 1], [0, 2], [2, 2]] }[n]; return `<rect x="${x}" y="30" width="44" height="44" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${pts.map(([a, b]) => `<circle cx="${x + 10 + a * 12}" cy="${40 + b * 12}" r="3.6" fill="var(--ink)"/>`).join("")}`; }).join("")}${num(130, 120, "45 + 36 = 81", "var(--pen)", 26)}${txt(130, 156, "¿Quién suma más?", "var(--ink)", 14)}`)],
+  ],
+  figura: ["Sumar llevando en 3 pasos", `<svg viewBox="0 0 640 260" role="img" aria-label="Tres pasos para sumar 38 más 25: unidades, me llevo una, decenas">
+    <rect width="640" height="260" rx="16" fill="var(--paper)"/>
+    ${[["1. Unidades", "8 + 5 = 13", "var(--sun)"], ["2. Pongo 3, me llevo 1", "¡apúntalo arriba!", "var(--red)"], ["3. Decenas", "1 + 3 + 2 = 6", "var(--pen)"]].map(([a, b, c], i) => `<rect x="${24 + i * 202}" y="30" width="188" height="110" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>${txt(118 + i * 202, 76, a, c, 16)}${txt(118 + i * 202, 108, b, "var(--ink)", 15)}`).join("")}
+    ${cuenta(340, 190, [38, 25], { res: 63, llevo: [[1, "1"]], size: 22 })}
+  </svg>`],
+  video: P.V("sumV", true),
+  ejemplos: [
+    ["Suma 46 + 28.", ["Unidades: 6 + 8 = 14. Pongo 4 y me llevo 1.", "Decenas: 1 + 4 + 2 = 7."], "46 + 28 = 74."],
+    ["Suma 135 + 47.", ["Coloca el 47 debajo del 35: unidades con unidades.", "Unidades: 5 + 7 = 12. Pongo 2 y me llevo 1.", "Decenas: 1 + 3 + 4 = 8. Centenas: 1."], "135 + 47 = 182."],
+    ["Lucía tiene 19 € y le dan 15 €. ¿Cuánto tiene?", ["Sumamos 19 + 15.", "Unidades: 9 + 5 = 14. Pongo 4 y me llevo 1.", "Decenas: 1 + 1 + 1 = 3."], "tiene 34 €."],
+  ],
+  errores: [
+    "Olvidar sumar la que me llevo: 38 + 25 no es 53, es 63.",
+    "Escribir el 13 entero abajo: solo se escribe el 3 y el 1 se lleva.",
+    "Colocar mal los números: las unidades van siempre debajo de las unidades.",
+    "Empezar a sumar por la izquierda: se empieza por las unidades, a la derecha.",
+  ],
+  ejercicios: [
+    ["Suma: 27 + 15.", "42."],
+    ["Suma: 48 + 36.", "84."],
+    ["Suma: 59 + 29.", "88."],
+    ["Suma: 65 + 18.", "83."],
+    ["Suma: 124 + 58.", "182."],
+    ["Suma: 236 + 147.", "383."],
+    ["¿En cuál hay que llevar: 32 + 41 o 37 + 45?", "En 37 + 45, porque 7 + 5 = 12."],
+    ["Calcula de cabeza: 34 + 9.", "43 (34 + 10 = 44, menos 1)."],
+    ["En un árbol hay 38 pájaros y llegan 14 más. ¿Cuántos hay?", "52 pájaros."],
+    ["Inventa una suma en la que te lleves una y resuélvela.", "Respuesta libre: por ejemplo, 26 + 17 = 43."],
+  ],
+  quiz: [
+    ["Los números que sumamos se llaman…", ["sumandos", "restas", "totales"], "El resultado es la suma."],
+    ["¿Por qué columna empezamos a sumar?", ["Por las unidades", "Por las decenas", "Por las centenas"], "Siempre por la derecha."],
+    ["7 + 6 = 13. ¿Qué escribimos abajo?", ["3", "13", "1"], "Escribo 3 y me llevo 1."],
+    ["29 + 13 es…", ["42", "32", "312"], "9 + 3 = 12, me llevo 1: 1 + 2 + 1 = 4."],
+    ["45 + 45 es…", ["90", "80", "810"], "5 + 5 = 10, me llevo 1: 1 + 4 + 4 = 9."],
+    ["¿Cuándo nos llevamos una?", ["Cuando las unidades suman 10 o más", "Siempre", "Nunca"], "10 unidades son 1 decena."],
+    ["18 + 7 es…", ["25", "15", "24"], "8 + 7 = 15, me llevo 1: 1 + 1 = 2."],
+    ["Para sumar 9 de cabeza…", ["sumo 10 y quito 1", "sumo 1 y quito 10", "sumo 9 veces"], "27 + 9 = 37 − 1 = 36."],
+    ["156 + 27 es…", ["183", "173", "426"], "6 + 7 = 13, me llevo 1: 1 + 5 + 2 = 8; centenas, 1."],
+    ["38 + 25 = 63. Entonces 25 + 38 es…", ["63", "53", "13"], "El orden no cambia la suma."],
+  ],
+  examen: [
+    ["Suma: 57 + 26", ["83", "73", "713"], "7 + 6 = 13, me llevo 1: 1 + 5 + 2 = 8."],
+    ["Suma: 218 + 145", ["363", "353", "3513"], "8 + 5 = 13, me llevo 1: 1 + 1 + 4 = 6; 2 + 1 = 3."],
+    ["Hay 36 niñas y 28 niños. ¿Cuántos hay?", ["64", "54", "8"], "36 + 28 = 64."],
+    ["¿Dónde apuntamos la que me llevo?", ["Encima de la columna siguiente", "Debajo del resultado", "No se apunta"], "Así no se olvida."],
+  ],
+  feynman: ["Qué significa «me llevo una»", "Por qué empezamos por las unidades", "Cómo se comprueba una suma"],
+  mapa: ["SUMA LLEVANDO", [
+    ["Colocar", "U bajo U, D bajo D", "var(--pen)"],
+    ["Unidades", "si pasan de 9…", "var(--sun)"],
+    ["Me llevo 1", "10 U = 1 D", "var(--red)"],
+    ["Comprobar", "cambia el orden", "var(--leaf)"],
+  ]],
+  tarjetas: [
+    ["¿Cómo se llaman los números que sumamos?", "Sumandos"],
+    ["¿Por dónde empezamos a sumar?", "Por las unidades (a la derecha)"],
+    ["8 + 5 = 13: ¿qué escribo y qué me llevo?", "Escribo 3 y me llevo 1"],
+    ["36 + 27", "63"],
+    ["49 + 49", "98"],
+    ["¿Dónde apunto la que me llevo?", "Arriba, en la columna de al lado"],
+    ["Truco para sumar 9", "Sumar 10 y quitar 1"],
+    ["¿Cambia la suma si cambio el orden?", "No: 25 + 38 = 38 + 25"],
+  ],
+  familias: [
+    "Sumad los precios de dos cosas en el súper con números redondos y luego con los reales.",
+    "Jugad con dados o cartas a formar dos números y sumarlos en un papel.",
+    "Revisad que coloque bien las cifras en columna: unidades bajo unidades.",
+    "Contad juntos el dinero de la hucha separando monedas y billetes.",
+  ],
+  saberes: "Sentido numérico: suma de números naturales con llevadas; estrategias de cálculo mental y estimación",
+  ideas: ["Material multibase para hacer el canje de 10 unidades por 1 decena antes del algoritmo.", "Cuadrícula para alinear las cifras en columna.", "Problemas de la vida del aula (excursiones, recreos, colecciones)."],
+});

@@ -1,0 +1,103 @@
+// Matemáticas 2º de Primaria: la resta llevando.
+const P = require("./_pri2a");
+const { svg, num, txt, cuenta, dec, uni, nino, flechaR, tick } = P;
+
+module.exports = P.tema({
+  materia: "Matemáticas",
+  titulo: "La resta llevando",
+  objetivos: ["Recordar las partes de la resta", "Restar llevando cuando arriba hay menos unidades", "Comprobar una resta con una suma"],
+  claves: ["restar", "minuendo", "sustraendo", "diferencia", "llevar", "quitar", "comprobar"],
+  pregunta: ["Tienes 42 cromos y regalas 17. ¿Cuántos te quedan?", "Restamos <b>42 − 17</b>. ¡Pero 2 − 7 no se puede! Rompemos una decena: <mark>12 − 7 = 5</mark>. Luego 3 − 1 = 2. Te quedan <b>25 cromos</b>."],
+  bloques: [
+    ["Recordamos la resta", `<p><mark>Restar</mark> es quitar. También sirve para saber cuánto falta o cuánto más tiene uno que otro.</p><p>En <b>9 − 4 = 5</b>, el 9 es el <b>minuendo</b>: lo que tenemos. El 4 es el <b>sustraendo</b>: lo que quitamos. El 5 es la <b>diferencia</b>: lo que queda.</p><p>El signo <b>−</b> se lee «menos».</p>`,
+      svg("Nueve globos, se van cuatro y quedan cinco", `${[...Array(9)].map((_, i) => { const x = 30 + i * 24, ido = i >= 5; return `<path d="M${x} ${ido ? 70 : 92} V${ido ? 92 : 118}" stroke="var(--muted)" stroke-width="1.5"/><ellipse cx="${x}" cy="${ido ? 56 : 78}" rx="10" ry="13" fill="${ido ? "var(--line)" : ["var(--red)", "var(--pen)", "var(--sun)", "var(--leaf)", "var(--inf)"][i % 5]}"/>`; }).join("")}${num(130, 150, "9 − 4 = 5", "var(--pen)", 26)}${txt(180, 30, "¡Se van 4!", "var(--muted)", 13)}`)],
+    ["Restar en columna", `<p>Igual que en la suma, colocamos los números <mark>uno debajo del otro</mark>. El número grande va <b>arriba</b>.</p><p>Las unidades, debajo de las unidades. Las decenas, debajo de las decenas.</p><p>Empezamos siempre por la <b>derecha</b>. En <b>58 − 23</b>: 8 − 3 = 5 y 5 − 2 = 3. El resultado es <b>35</b>.</p>`,
+      svg("Resta en columna 58 menos 23 igual a 35", `${txt(118, 26, "D", "var(--pen)", 15)}${txt(140, 26, "U", "var(--sun)", 15)}${cuenta(140, 58, [58, 23], { op: "−", res: 35 })}${txt(210, 70, "8 − 3 = 5", "var(--ink)", 13)}${txt(210, 92, "5 − 2 = 3", "var(--ink)", 13)}`)],
+    ["¿Y si arriba hay menos?", `<p>En <b>42 − 17</b>, arriba hay 2 unidades y abajo 7. ¡<mark>2 − 7 no se puede</mark>!</p><p>Entonces pedimos ayuda a las decenas. <b>Rompemos una decena</b> en 10 cubitos.</p><p>Ahora tenemos 10 + 2 = <b>12 unidades</b>. Y 12 − 7 sí se puede: <mark>5</mark>.</p>`,
+      svg("Una barra de decena se rompe en diez cubitos que se juntan con dos: doce unidades", `${dec(30, 30, 9)}${dec(46, 30, 9)}${dec(62, 30, 9, "var(--line)")}${uni(84, 110, 10)}${uni(98, 110, 10)}${flechaR(80, 70, 120, 70, "var(--red)")}${[...Array(12)].map((_, i) => uni(130 + (i % 4) * 14, 46 + Math.floor(i / 4) * 14, 11, i < 10 ? "var(--pen)" : "var(--sun)")).join("")}${txt(162, 112, "12 unidades", "var(--ink)", 13)}${num(130, 154, "12 − 7 = 5", "var(--red)", 22)}`), P.V("resB")],
+    ["Paso a paso: 42 − 17", `<p>1. Unidades: 2 − 7 no se puede. Pedimos una decena: <b>12 − 7 = 5</b>.</p><p>2. Como hemos usado una decena, <mark>nos llevamos 1</mark>. La apuntamos <b>junto al 1 de abajo</b>.</p><p>3. Decenas: 1 + 1 = 2. Y 4 − 2 = <b>2</b>.</p><p>El resultado es <b>25</b>.</p>`,
+      svg("Resta en columna 42 menos 17 igual a 25, llevando una", `${cuenta(130, 64, [42, 17], { op: "−", res: 25 })}${num(108, 75, "+1", "var(--red)", 11)}${txt(206, 50, "12 − 7 = 5", "var(--ink)", 13)}${txt(206, 72, "me llevo 1", "var(--red)", 13)}${txt(206, 104, "1 + 1 = 2", "var(--ink)", 13)}${txt(206, 126, "4 − 2 = 2", "var(--ink)", 13)}`)],
+    ["Dos maneras de llevar", `<p>Hay dos formas de hacer lo mismo. Tu maestro te dirá cuál usáis en clase.</p><p><b>Pedir prestado</b>: tachamos el 4 de arriba y ponemos un <b>3</b>. Al 2 le ponemos un 1 delante: 12.</p><p><b>Llevar</b>: sumamos 1 al número de <b>abajo</b> (el 1 pasa a 2). ¡Las dos dan <mark>25</mark>!</p>`,
+      svg("Dos maneras de restar 42 menos 17: tachando el 4 o sumando uno abajo", `<g>${cuenta(80, 64, [42, 17], { op: "−", res: 25, paso: 20, size: 20 })}<path d="M54 46 L68 60" stroke="var(--red)" stroke-width="2.5"/>${num(64, 38, "3", "var(--red)", 13)}${num(80, 38, "1", "var(--red)", 11)}${txt(64, 154, "pedir prestado", "var(--pen)", 12)}</g><path d="M130 24 V160" stroke="var(--line)" stroke-width="2"/><g>${cuenta(210, 64, [42, 17], { op: "−", res: 25, paso: 20, size: 20 })}${num(190, 73, "+1", "var(--red)", 11)}${txt(196, 154, "llevar", "var(--pen)", 12)}</g>`)],
+    ["Restar con centenas", `<p>Con tres cifras hacemos igual, columna a columna.</p><p>En <b>352 − 128</b>: unidades, 2 − 8 no se puede. Hacemos 12 − 8 = 4 y nos llevamos 1.</p><p>Decenas: 1 + 2 = 3, y 5 − 3 = 2. Centenas: 3 − 1 = 2. El resultado es <mark>224</mark>.</p>`,
+      svg("Resta en columna 352 menos 128 igual a 224", `${txt(116, 30, "C", "var(--red)", 14)}${txt(138, 30, "D", "var(--pen)", 14)}${txt(160, 30, "U", "var(--sun)", 14)}${cuenta(160, 64, [352, 128], { op: "−", res: 224 })}${num(138, 76, "+1", "var(--red)", 11)}`)],
+    ["La prueba de la resta", `<p>¿Cómo sabemos si la resta está bien? Hacemos la <mark>prueba</mark>.</p><p>Sumamos el resultado y el número de abajo. Si sale el número de arriba, ¡está <b>bien</b>!</p><p>42 − 17 = 25. Prueba: 25 + 17 = <b>42</b>. ¡Correcto! La resta y la suma son <b>operaciones contrarias</b>.</p>`,
+      svg("Prueba de la resta: 25 más 17 es 42", `${num(130, 50, "42 − 17 = 25", "var(--pen)", 24)}${flechaR(130, 64, 130, 88, "var(--muted)")}${num(130, 120, "25 + 17 = 42", "var(--leaf)", 24)}${tick(220, 118)}${txt(130, 160, "¡Sale el de arriba!", "var(--ink)", 14)}`)],
+    ["¿Para qué sirve?", `<p>Restamos para saber <b>cuánto queda</b>, <b>cuánto falta</b> o <b>cuánto más</b> hay.</p><p>Un libro tiene <b>64 páginas</b> y ya has leído 38. ¿Cuántas te faltan? 64 − 38 = <mark>26 páginas</mark>.</p><p>También restamos para saber la vuelta en la tienda o cuántos años tiene tu hermano más que tú.</p>`,
+      svg("Una niña lee un libro de 64 páginas; le faltan 26", `${nino(56, 160, { nina: true, pose: "sentado", c: "var(--leaf)" })}<path d="M100 76 Q120 68 140 72 V120 Q120 116 100 124z M140 72 Q160 68 180 76 V124 Q160 116 140 120z" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${num(140, 52, "64 páginas", "var(--pen)", 15)}${num(186, 150, "64 − 38 = 26", "var(--red)", 17)}`)],
+    ["Juego: la resta escondida", `<p>Piensa un número de dos cifras, por ejemplo el <b>71</b>. Dale la vuelta: <b>17</b>.</p><p>Resta el pequeño al grande: 71 − 17. Unidades: 1 − 7 no se puede, así que 11 − 7 = 4. Decenas: 7 − 2 = 5. ¡Sale <mark>54</mark>!</p><p>Prueba con otros: 52 − 25 = 27. ¿Te sale siempre un número de la tabla del 9? ¡Es magia matemática!</p>`,
+      svg("Las tarjetas 71 y 17 y el resultado 54", `<rect x="30" y="40" width="70" height="50" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${num(65, 76, "71", "var(--pen)", 28)}<rect x="160" y="40" width="70" height="50" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${num(195, 76, "17", "var(--red)", 28)}<path d="M104 54 Q130 30 156 54" stroke="var(--muted)" stroke-width="2" fill="none"/>${txt(130, 36, "al revés", "var(--muted)", 12)}${num(130, 140, "71 − 17 = 54", "var(--leaf)", 24)}`)],
+  ],
+  figura: ["Restar llevando en 3 pasos", `<svg viewBox="0 0 640 260" role="img" aria-label="Tres pasos para restar 42 menos 17">
+    <rect width="640" height="260" rx="16" fill="var(--paper)"/>
+    ${[["1. ¿Se puede?", "2 − 7: ¡no!", "var(--sun)"], ["2. Rompo una decena", "12 − 7 = 5", "var(--red)"], ["3. Me llevo 1", "4 − (1 + 1) = 2", "var(--pen)"]].map(([a, b, c], i) => `<rect x="${24 + i * 202}" y="30" width="188" height="110" rx="14" fill="var(--card)" stroke="${c}" stroke-width="3"/>${txt(118 + i * 202, 76, a, c, 16)}${txt(118 + i * 202, 108, b, "var(--ink)", 15)}`).join("")}
+    ${cuenta(340, 190, [42, 17], { op: "−", res: 25, size: 22 })}
+  </svg>`],
+  video: P.V("resV", true),
+  ejemplos: [
+    ["Resta 53 − 28.", ["Unidades: 3 − 8 no se puede. Hacemos 13 − 8 = 5.", "Me llevo 1: 1 + 2 = 3.", "Decenas: 5 − 3 = 2."], "53 − 28 = 25."],
+    ["Resta 70 − 34.", ["Unidades: 0 − 4 no se puede. Hacemos 10 − 4 = 6.", "Me llevo 1: 1 + 3 = 4.", "Decenas: 7 − 4 = 3."], "70 − 34 = 36."],
+    ["Hago la prueba de 53 − 28 = 25.", ["Sumo el resultado y el de abajo: 25 + 28.", "5 + 8 = 13, me llevo 1. 1 + 2 + 2 = 5.", "Sale 53, el número de arriba."], "la resta está bien."],
+  ],
+  errores: [
+    "Restar al revés: en 42 − 17, hacer 7 − 2 en las unidades. Siempre es el de arriba menos el de abajo.",
+    "Olvidar la que me llevo: 42 − 17 no es 35, es 25.",
+    "Poner el número pequeño arriba: el grande va siempre arriba.",
+    "Pensar que 0 − 4 es 4: con un 0 arriba también hay que pedir una decena.",
+  ],
+  ejercicios: [
+    ["Resta: 65 − 32.", "33."],
+    ["Resta: 41 − 16.", "25."],
+    ["Resta: 80 − 27.", "53."],
+    ["Resta: 92 − 58.", "34."],
+    ["Resta: 245 − 118.", "127."],
+    ["Resta: 360 − 145.", "215."],
+    ["Haz la prueba de 74 − 29 = 45.", "45 + 29 = 74: está bien."],
+    ["¿En cuál hay que llevar: 86 − 43 o 83 − 46?", "En 83 − 46, porque 3 − 6 no se puede."],
+    ["Tenías 50 € y gastas 23 €. ¿Cuánto te queda?", "27 €."],
+    ["Inventa una resta llevando y resuélvela.", "Respuesta libre: por ejemplo, 61 − 25 = 36."],
+  ],
+  quiz: [
+    ["En 9 − 4 = 5, el 5 se llama…", ["diferencia", "minuendo", "sustraendo"], "Es lo que queda."],
+    ["¿Qué número va arriba en una resta?", ["El más grande", "El más pequeño", "Da igual"], "Al grande le quitamos el pequeño."],
+    ["En 52 − 18, ¿se puede hacer 2 − 8?", ["No, hay que llevar", "Sí", "Sale 6"], "Hacemos 12 − 8 = 4."],
+    ["52 − 18 es…", ["34", "46", "44"], "12 − 8 = 4; 5 − 2 = 3."],
+    ["60 − 25 es…", ["35", "45", "25"], "10 − 5 = 5; 6 − 3 = 3."],
+    ["La prueba de la resta se hace con una…", ["suma", "resta", "multiplicación"], "Resultado + sustraendo = minuendo."],
+    ["31 − 9 es…", ["22", "28", "38"], "11 − 9 = 2; 3 − 1 = 2."],
+    ["Si 75 − 38 = 37, entonces 37 + 38 es…", ["75", "37", "1"], "Es la prueba de la resta."],
+    ["¿Por qué columna empezamos a restar?", ["Por las unidades", "Por las centenas", "Por las decenas"], "Siempre por la derecha."],
+    ["Tengo 40 caramelos y me como 12. Me quedan…", ["28", "32", "52"], "40 − 12 = 28."],
+  ],
+  examen: [
+    ["Resta: 73 − 46", ["27", "33", "37"], "13 − 6 = 7; 7 − 5 = 2."],
+    ["Resta: 425 − 207", ["218", "222", "228"], "15 − 7 = 8; 2 − 1 = 1; 4 − 2 = 2."],
+    ["¿Cuál es la prueba de 61 − 24 = 37?", ["37 + 24 = 61", "61 + 24 = 85", "37 − 24 = 13"], "Resultado + número de abajo."],
+    ["En un bus van 54 personas y bajan 27. ¿Cuántas quedan?", ["27", "37", "81"], "54 − 27 = 27."],
+  ],
+  feynman: ["Qué hacemos cuando arriba hay menos unidades", "Qué significa «me llevo una» en la resta", "Cómo se hace la prueba de la resta"],
+  mapa: ["RESTA LLEVANDO", [
+    ["Partes", "minuendo − sustraendo", "var(--pen)"],
+    ["¿No se puede?", "rompo una decena", "var(--red)"],
+    ["Me llevo 1", "se suma abajo", "var(--sun)"],
+    ["Prueba", "resultado + abajo", "var(--leaf)"],
+  ]],
+  tarjetas: [
+    ["¿Cómo se llama el resultado de una resta?", "Diferencia"],
+    ["¿Qué número va arriba?", "El mayor (minuendo)"],
+    ["2 − 7 no se puede. ¿Qué hago?", "Pido una decena: 12 − 7"],
+    ["43 − 18", "25"],
+    ["80 − 35", "45"],
+    ["¿Con qué se hace la prueba de la resta?", "Con una suma"],
+    ["Prueba de 50 − 21 = 29", "29 + 21 = 50"],
+    ["¿Por dónde empiezo a restar?", "Por las unidades"],
+  ],
+  familias: [
+    "Jugad a las tiendas: pagad con 50 céntimos o 1 € y calculad la vuelta.",
+    "Contad cuántos días faltan para un cumpleaños o una fiesta restando en el calendario.",
+    "Pedidle que haga siempre la prueba con una suma: así se corrige sola.",
+    "Usad palillos atados de 10 en 10 y soltad uno cuando haga falta «romper una decena».",
+  ],
+  saberes: "Sentido numérico: resta de números naturales con llevadas; relación entre suma y resta; estrategias de comprobación",
+  ideas: ["Material multibase para representar el canje de una decena por diez unidades.", "Acordar en el ciclo un único algoritmo (pedir prestado o llevar) y mantenerlo.", "Problemas de cambio, comparación y complemento con situaciones del aula."],
+});
