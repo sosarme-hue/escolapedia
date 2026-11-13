@@ -1,153 +1,233 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
+// Física y Química 3º ESO · Formulación inorgánica básica (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, rejilla, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["formulacion-inorganica"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "Formulación inorgánica básica",
-  minutos: 60,
-  objetivos: ["Comprender qué indica una fórmula química y qué es el número de oxidación", "Formular y nombrar sustancias simples, óxidos, hidruros y sales binarias", "Usar la nomenclatura de composición con prefijos y la de números de oxidación", "Reconocer compuestos binarios de uso cotidiano"],
-  claves: ["fórmula química", "número de oxidación", "compuesto binario", "óxido", "hidruro", "sal binaria", "prefijos multiplicadores", "IUPAC"],
+  minutos: 110,
+  objetivos: [
+    "Comprender qué es la formulación química y por qué se usan normas internacionales (IUPAC)",
+    "Conocer los números de oxidación más frecuentes y usarlos para escribir fórmulas",
+    "Nombrar y formular sustancias simples",
+    "Nombrar y formular óxidos, hidruros y sales binarias con la nomenclatura de composición (prefijos) y con números de oxidación (Stock)",
+    "Pasar con soltura del nombre a la fórmula y de la fórmula al nombre",
+    "Reconocer compuestos binarios de la vida diaria y su importancia",
+  ],
+  claves: ["fórmula química", "IUPAC", "número de oxidación", "método del aspa", "sustancia simple", "prefijos multiplicadores", "nomenclatura de Stock", "óxido", "hidruro", "sal binaria", "compuesto binario", "electronegatividad"],
   pregunta: {
-    texto: "En la etiqueta de una pasta de dientes pone «fluoruro de sodio» y en la de un protector solar, «dióxido de titanio». ¿Cómo sabe un químico de cualquier país qué sustancia es solo con leer su nombre?",
-    respuesta: "Porque hay unas <mark>normas internacionales</mark>, las de la <b>IUPAC</b>, que fijan cómo se escribe la <mark>fórmula</mark> y cómo se nombra cada sustancia. «Dióxido de titanio» significa exactamente TiO₂: un átomo de titanio por cada dos de oxígeno. Es un idioma común para la química de todo el mundo.",
+    texto: "En una etiqueta lees «óxido de hierro(III)» y en otra «trióxido de dihierro». ¿Son dos sustancias distintas?",
+    respuesta: "No, son <mark>la misma sustancia</mark>, Fe₂O₃, el componente principal de la herrumbre, nombrada de dos maneras aceptadas por la IUPAC. La primera indica el <b>número de oxidación</b> del hierro entre paréntesis (nomenclatura de <b>Stock</b>); la segunda dice cuántos átomos de cada elemento hay con <b>prefijos</b> (nomenclatura de <b>composición</b>). Las dos llevan a la misma fórmula.",
+  },
+  lectura: {
+    titulo: "Un idioma para todos los químicos",
+    html: `<p>En el siglo XVIII, la química era un caos de nombres. La misma sustancia podía llamarse «vitriolo azul», «piedra lipis» o «cardenillo» según el país o el oficio. Había nombres poéticos, como «flores de cinc» o «manteca de antimonio», que no decían nada de su composición, y otros que confundían sustancias distintas. Era imposible entenderse.</p><p>En 1787, el químico francés Antoine Lavoisier y otros colegas publicaron un «Método de nomenclatura química» con una idea revolucionaria: el nombre de una sustancia debía indicar de qué estaba hecha. Así, el antiguo «aire fijo» pasó a llamarse ácido carbónico, y la «cal de mercurio», óxido de mercurio. Algunos protestaron porque había que aprender todo de nuevo, pero en pocos años el nuevo sistema se impuso en toda Europa.</p><p>Hoy esta tarea la tiene la IUPAC, la Unión Internacional de Química Pura y Aplicada, fundada en 1919. Sus normas, que se revisan cada pocos años, son las que siguen los químicos del mundo entero, igual que los músicos de cualquier país leen las mismas partituras. Gracias a ellas, una fórmula como Fe₂O₃ significa exactamente lo mismo en Madrid, en Tokio o en Buenos Aires. Aprender a formular es aprender ese idioma común.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Qué es formular</h3><p>Una <mark>fórmula química</mark> representa una sustancia con los <b>símbolos</b> de sus elementos y unos <b>subíndices</b> que indican la proporción de átomos. En H₂O hay 2 átomos de hidrógeno por cada uno de oxígeno; en CO₂, 1 de carbono por cada 2 de oxígeno. El subíndice 1 no se escribe. <b>Formular</b> es escribir la fórmula a partir del nombre, y <b>nombrar</b> es hacer lo contrario. Las normas las establece la <b>IUPAC</b> (Unión Internacional de Química Pura y Aplicada), con las recomendaciones de 2005. En este curso trabajamos los <b>compuestos binarios</b>, formados por dos elementos: óxidos, hidruros y sales binarias.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="La fórmula Fe2O3: los símbolos indican los elementos y los subíndices, 2 de hierro y 3 de oxígeno, la proporción de átomos">${BG}
-        ${t(130, 96, "Fe₂O₃", { size: 48 })}
-        ${fl(86, 40, 92, 62, "var(--pen)", 2)}${t(70, 32, "símbolo", { size: 11, color: "var(--pen)" })}
-        ${fl(116, 130, 112, 108, "var(--red)", 2)}${fl(176, 130, 172, 108, "var(--red)", 2)}${t(146, 146, "subíndices", { size: 11, color: "var(--red)" })}
-        ${t(130, 170, "2 átomos de Fe por cada 3 de O", { size: 11, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>El número de oxidación</h3><p>Para escribir bien las fórmulas usamos el <mark>número de oxidación</mark>, un número con signo que indica, de forma simplificada, la carga que tendría un átomo si cediera o ganara electrones. Los <b>metales</b> siempre tienen números de oxidación <b>positivos</b>. El <b>oxígeno</b> actúa casi siempre con <b>−2</b>. El <b>hidrógeno</b> actúa con <b>+1</b> cuando se une a no metales y con <b>−1</b> cuando se une a metales. Los no metales, cuando van a la derecha en la fórmula, usan su número negativo: −1 los halógenos, −2 el azufre, −3 el nitrógeno. La regla de oro es que en un compuesto la <mark>suma de los números de oxidación es cero</mark>.</p>${tabla(["Elemento", "Nº de oxidación"], [["Li, Na, K, Ag", "+1"], ["Be, Mg, Ca, Ba, Zn", "+2"], ["Al", "+3"], ["Fe, Co, Ni", "+2, +3"], ["Cu", "+1, +2"], ["O", "−2"], ["F, Cl, Br, I", "−1 (con metales)"], ["S", "−2 (con metales)"], ["N", "−3 (con metales)"]])}`,
-    },
-    {
-      html: `<h3>El método del aspa</h3><p>Para escribir la fórmula de un compuesto binario hay un truco sencillo. Primero se escribe a la <b>izquierda</b> el elemento <b>menos electronegativo</b> (normalmente el metal) y a la <b>derecha</b> el más electronegativo. Después se escriben sus números de oxidación, se <mark>intercambian</mark> sin el signo y se colocan como subíndices del otro elemento. Por último, si se puede, se <b>simplifican</b>. Por ejemplo, para el óxido de aluminio: Al (+3) y O (−2); intercambiando, Al₂O₃. Para el óxido de calcio: Ca (+2) y O (−2) da Ca₂O₂, que se simplifica a <b>CaO</b>. Siempre se puede comprobar: en Al₂O₃, 2 · (+3) + 3 · (−2) = 0.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Método del aspa: aluminio más tres y oxígeno menos dos; los números se cruzan y quedan como subíndices, Al2O3">${BG}
-        ${t(60, 66, "Al", { size: 28 })}${t(86, 46, "+3", { size: 14, color: "var(--red)" })}${t(176, 66, "O", { size: 28 })}${t(204, 46, "−2", { size: 14, color: "var(--pen)" })}
-        ${fl(92, 52, 200, 118, "var(--red)", 2)}${fl(210, 54, 94, 118, "var(--pen)", 2)}
-        ${t(60, 140, "Al", { size: 28 })}${t(88, 146, "2", { size: 18, color: "var(--pen)" })}${t(176, 140, "O", { size: 28 })}${t(204, 146, "3", { size: 18, color: "var(--red)" })}
-        ${t(130, 22, "se cruzan sin signo", { size: 11, color: "var(--muted)" })}
-        ${t(130, 172, "2·(+3) + 3·(−2) = 0", { size: 11, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>Las sustancias simples</h3><p>Las <mark>sustancias simples</mark> están formadas por un solo elemento. Los <b>metales</b> y los <b>gases nobles</b> se representan solo con su símbolo y se nombran con el nombre del elemento: Fe (hierro), Cu (cobre), He (helio). Muchos <b>no metales</b> forman moléculas de varios átomos, y la fórmula lleva un subíndice. Se nombran con un <b>prefijo</b> que indica el número de átomos: H₂, <b>dihidrógeno</b>; O₂, <b>dioxígeno</b>; N₂, <b>dinitrógeno</b>; Cl₂, <b>dicloro</b>; O₃, <b>trioxígeno</b> (ozono); P₄, <b>tetrafósforo</b>; S₈, <b>octaazufre</b>. En el lenguaje cotidiano, decimos «oxígeno» o «hidrógeno» refiriéndonos a la molécula, pero el nombre sistemático deja claro cuántos átomos tiene.</p>`,
-    },
-    {
-      html: `<h3>Los prefijos y las dos nomenclaturas</h3><p>Los compuestos binarios se pueden nombrar de dos formas. En la <mark>nomenclatura de composición</mark> (sistemática) se usan <b>prefijos multiplicadores</b> que indican el número de átomos de cada elemento: mono (1), di (2), tri (3), tetra (4), penta (5), hexa (6), hepta (7). Por ejemplo, Fe₂O₃ es <b>trióxido de dihierro</b>. El prefijo mono solo se usa cuando hace falta para evitar confusiones, como en CO, monóxido de carbono. En la <mark>nomenclatura de números de oxidación</mark> (o de Stock) se escribe el nombre del compuesto y, si el metal tiene varios números de oxidación, se indica el que usa con <b>números romanos</b> entre paréntesis: Fe₂O₃ es <b>óxido de hierro(III)</b>. Si solo tiene uno, no se pone: CaO es óxido de calcio.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="La fórmula Fe2O3 se nombra trióxido de dihierro con prefijos y óxido de hierro tres con números de oxidación">${BG}
-        ${t(130, 40, "Fe₂O₃", { size: 30 })}${fl(110, 52, 70, 82)}${fl(150, 52, 190, 82)}
-        ${caja(8, 86, 122, 44, "", "var(--pen)")}${t(69, 104, "trióxido", { size: 12, color: "var(--pen)" })}${t(69, 120, "de dihierro", { size: 12, color: "var(--pen)" })}
-        ${caja(134, 86, 118, 44, "", "var(--red)")}${t(193, 104, "óxido de", { size: 12, color: "var(--red)" })}${t(193, 120, "hierro(III)", { size: 12, color: "var(--red)" })}
-        ${t(69, 152, "prefijos", { size: 10, color: "var(--muted)" })}${t(193, 152, "nº de oxidación", { size: 10, color: "var(--muted)" })}</svg>`,
-      video: { id: "lBCHQugsl2E", titulo: "Formulación inorgánica. ÓXIDOS metálicos, no metálicos y haluros de oxígeno", canal: "Amigos de la Química", vistas: 3443022 },
-    },
-    {
-      html: `<h3>Los óxidos</h3><p>Los <mark>óxidos</mark> son combinaciones del <b>oxígeno</b> (con número de oxidación −2) con cualquier otro elemento, salvo los halógenos. El oxígeno se escribe a la <b>derecha</b>. Con metales: Na₂O, óxido de sodio; MgO, óxido de magnesio; FeO, óxido de hierro(II) o monóxido de hierro; Cu₂O, óxido de cobre(I). Con no metales, se usa sobre todo la nomenclatura de prefijos: CO, monóxido de carbono; CO₂, dióxido de carbono; SO₂, dióxido de azufre; SO₃, trióxido de azufre; NO₂, dióxido de nitrógeno; N₂O₅, pentaóxido de dinitrógeno. Muchos óxidos nos rodean: la herrumbre es óxido de hierro(III), la arena es SiO₂ y la cal viva es CaO.</p>${tabla(["Fórmula", "Prefijos", "Nº de oxidación"], [["Na₂O", "óxido de disodio", "óxido de sodio"], ["CuO", "monóxido de cobre", "óxido de cobre(II)"], ["Al₂O₃", "trióxido de dialuminio", "óxido de aluminio"], ["CO₂", "dióxido de carbono", "óxido de carbono(IV)"]])}`,
-    },
-    {
-      html: `<h3>Los compuestos de oxígeno con halógenos</h3><p>Cuando el oxígeno se une a los halógenos (F, Cl, Br, I), la IUPAC considera que el halógeno es más electronegativo, así que el <b>halógeno va a la derecha</b> y el compuesto se llama <mark>haluro de oxígeno</mark>. Se usa la nomenclatura de prefijos. Por ejemplo: OF₂, difluoruro de oxígeno; OCl₂, dicloruro de oxígeno; O₃Cl₂, dicloruro de trioxígeno; O₅Br₂, dibromuro de pentaoxígeno. Es una excepción que conviene recordar, porque durante muchos años estos compuestos se escribían al revés y se llamaban óxidos.</p>`,
-    },
-    {
-      html: `<h3>Los hidruros</h3><p>Los <mark>hidruros</mark> son combinaciones del <b>hidrógeno</b> con otro elemento. Con los <b>metales</b>, el hidrógeno actúa con −1 y se escribe a la derecha: NaH, hidruro de sodio; CaH₂, dihidruro de calcio o hidruro de calcio; FeH₃, trihidruro de hierro o hidruro de hierro(III). Con los halógenos y el azufre, el hidrógeno actúa con +1 y se escribe a la <b>izquierda</b>: HF, fluoruro de hidrógeno; HCl, cloruro de hidrógeno; H₂S, sulfuro de dihidrógeno. Disueltos en agua forman los <b>hidrácidos</b>: el HCl en agua es el <b>ácido clorhídrico</b>, que hay en el estómago y en el salfumán. Algunos hidruros tienen nombres tradicionales aceptados por la IUPAC: <b>H₂O, agua; NH₃, amoniaco; CH₄, metano</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Hidruros: con metales el hidrógeno va a la derecha, como NaH; con halógenos y azufre va a la izquierda, como HCl; y tres nombres tradicionales: agua, amoniaco y metano">${BG}
-        ${caja(10, 18, 114, 64, "", "var(--pen)")}${t(67, 40, "con metal", { size: 11, color: "var(--pen)" })}${t(67, 68, "NaH · CaH₂", { size: 13 })}
-        ${caja(136, 18, 114, 64, "", "var(--red)")}${t(193, 40, "con no metal", { size: 11, color: "var(--red)" })}${t(193, 68, "HCl · H₂S", { size: 13 })}
-        ${t(130, 108, "nombres tradicionales", { size: 11, color: "var(--muted)" })}
-        ${[["H₂O", "agua"], ["NH₃", "amoniaco"], ["CH₄", "metano"]].map(([f, n], i) => `${t(50 + i * 80, 136, f, { size: 15, color: "var(--leaf)" })}${t(50 + i * 80, 156, n, { size: 10, weight: 400 })}`).join("")}</svg>`,
-      video: { id: "wkqoQjpxAUk", titulo: "Formulación inorgánica. HIDRUROS metálicos, no metálicos y haluros de hidrógeno", canal: "Amigos de la Química", vistas: 2400090 },
-    },
-    {
-      html: `<h3>Las sales binarias</h3><p>Las <mark>sales binarias</mark> son combinaciones de un <b>metal</b> con un <b>no metal</b> (que no sea el oxígeno ni el hidrógeno). El metal va a la izquierda y el no metal a la derecha, con su número de oxidación negativo. Para nombrarlas, el no metal termina en <mark>-uro</mark>: fluoruro, cloruro, bromuro, yoduro, sulfuro, nitruro, carburo. Por ejemplo: NaCl, cloruro de sodio, la sal de mesa; KI, yoduro de potasio, que se añade a la sal yodada; CaF₂, difluoruro de calcio o fluoruro de calcio, el mineral fluorita; FeS, sulfuro de hierro(II); FeCl₃, tricloruro de hierro o cloruro de hierro(III). También hay sales entre dos no metales, como el CCl₄, tetracloruro de carbono, o el PCl₅, pentacloruro de fósforo.</p>`,
-      video: { id: "xRSkwbvtW8c", titulo: "Formulación inorgánica. SALES BINARIAS", canal: "Amigos de la Química", vistas: 1699430 },
-    },
-    {
-      html: `<h3>Del nombre a la fórmula y al revés</h3><p>Para <b>formular a partir del nombre</b>: si el nombre tiene prefijos, basta con traducirlos a subíndices (pentaóxido de dinitrógeno, N₂O₅). Si tiene un número romano, se usa como número de oxidación del metal y se aplica el aspa (óxido de plomo(IV): Pb⁴⁺ y O²⁻, Pb₂O₄, que se simplifica a PbO₂). Para <b>nombrar a partir de la fórmula</b>: con prefijos, se leen los subíndices; con números de oxidación, se calcula el del metal sabiendo que la suma es cero. En CuCl₂, el cloro tiene −1 y hay dos, así que el cobre debe tener +2: <b>cloruro de cobre(II)</b>. Con práctica, en pocas semanas se formula con la misma soltura con la que se escribe una palabra.</p>`,
-    },
-    {
-      html: `<h3>Compuestos binarios de la vida diaria</h3><p>Muchos compuestos binarios están en nuestra vida cotidiana. El <b>cloruro de sodio</b> (NaCl) sala la comida y quita el hielo de las carreteras. El <b>dióxido de carbono</b> (CO₂) da las burbujas a los refrescos y es el principal gas de efecto invernadero. El <mark>monóxido de carbono</mark> (CO), que se forma en combustiones con poco oxígeno, es un gas venenoso, invisible e inodoro: por eso hay que revisar las calderas y estufas. El <b>amoniaco</b> (NH₃) se usa en productos de limpieza y fertilizantes. El <b>dióxido de titanio</b> (TiO₂) es el pigmento blanco de pinturas y protectores solares. Y el <b>fluoruro de sodio</b> (NaF) de la pasta de dientes refuerza el esmalte.</p>`,
-    },
+    bloque({ h: "1.1 ¿Qué es formular?", p: [
+      "Una <mark>fórmula química</mark> representa una sustancia con los <b>símbolos</b> de los elementos que la forman y unos <b>subíndices</b> que indican cuántos átomos de cada uno hay, o en qué proporción están. En H₂O hay dos átomos de hidrógeno por cada uno de oxígeno; el subíndice 1 no se escribe. <b>Formular</b> es escribir la fórmula a partir del nombre, y <b>nombrar</b> es escribir el nombre a partir de la fórmula.",
+      "Las normas para hacerlo las establece la <b>IUPAC</b>, y las que se estudian hoy son las recomendaciones de 2005. En este curso trabajamos los <mark>compuestos binarios</mark>, formados por dos elementos: óxidos, hidruros y sales binarias. En una fórmula binaria se escribe primero el elemento <b>menos electronegativo</b> (el que tiene menos tendencia a atraer electrones, normalmente el metal) y después el más electronegativo. Al nombrar, se dice primero el elemento de la derecha, terminado en <b>-uro</b> (cloruro, sulfuro, hidruro), o la palabra <b>óxido</b>, y después «de» y el nombre del de la izquierda: NaCl es cloruro de sodio. Aprender a formular es como aprender la gramática de un idioma: al principio cuesta, pero con práctica sale solo.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.2 El número de oxidación", p: [
+      "Para escribir correctamente una fórmula hay que saber en qué proporción se combinan los elementos. Para eso se usa el <mark>número de oxidación</mark>: un número entero, positivo o negativo, que indica la carga que tendría un átomo si todos sus enlaces fueran iónicos. Está relacionado con los electrones que el átomo gana, pierde o comparte. Los <b>metales</b> tienen siempre números de oxidación <b>positivos</b>; los no metales pueden tenerlos negativos (cuando se unen a metales o al hidrógeno) o positivos (cuando se unen al oxígeno).",
+      "Conviene memorizar los más frecuentes. Alcalinos (Li, Na, K): +1. Alcalinotérreos (Mg, Ca, Ba): +2. Plata: +1; cinc: +2; aluminio: +3. Hierro, cobalto y níquel: +2 y +3; cobre: +1 y +2; plomo y estaño: +2 y +4. Hidrógeno: +1 (y −1 con metales). Oxígeno: −2. Halógenos: −1 con metales e hidrógeno. Azufre: −2; nitrógeno: −3; carbono: −4. Una regla fundamental: en un compuesto neutro, la <b>suma de los números de oxidación</b> de todos los átomos es <b>cero</b>. En Fe₂O₃: 2 · (+3) + 3 · (−2) = 0. Con esta regla se puede averiguar el número de oxidación desconocido de un elemento en una fórmula.",
+    ], extra: formula("Σ números de oxidación = 0"), svg: rejilla("Números de oxidación más frecuentes", ["Elementos", "N.º de oxidación"], [["Na, K, Ag, H", "+1"], ["Mg, Ca, Zn", "+2"], ["Al", "+3"], ["Fe, Co, Ni", "+2, +3"], ["O / Cl, F", "−2 / −1"]], "var(--pen)"), video: S.bvideos[0] }),
+    bloque({ h: "1.3 Escribir una fórmula: el método del aspa", p: [
+      "Una forma rápida de escribir la fórmula de un compuesto binario cuando conocemos los números de oxidación es el <mark>método del aspa</mark> o intercambio. Se escriben los dos símbolos, el menos electronegativo a la izquierda, con su número de oxidación encima; después se <b>intercambian</b> los valores, sin signo, y se ponen como subíndices del otro elemento. Por último, si se puede, se <b>simplifican</b> los subíndices dividiendo entre su máximo común divisor.",
+      "Por ejemplo, el óxido de aluminio: Al con +3 y O con −2. Intercambiando, Al₂O₃. Comprobación: 2 · (+3) + 3 · (−2) = 6 − 6 = 0. El óxido de calcio: Ca con +2 y O con −2 da Ca₂O₂, que se simplifica a CaO. El cloruro de hierro(III): Fe con +3 y Cl con −1 da FeCl₃. Hay que tener cuidado: en la nomenclatura de composición con prefijos no se simplifica, porque los prefijos ya indican el número exacto de átomos; y algunas sustancias, como el agua oxigenada, H₂O₂, no se simplifican nunca, porque esa es su fórmula real. Siempre conviene comprobar al final que la suma de los números de oxidación es cero.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "1.4 Las sustancias simples", p: [
+      "Las <mark>sustancias simples</mark> están formadas por átomos de un solo elemento. Los <b>metales</b> y la mayoría de los sólidos se representan solo con su símbolo, porque forman redes con un número enorme de átomos: Fe (hierro), Cu (cobre), Na (sodio), C (carbono), S (azufre). Los <b>gases nobles</b> también, porque son átomos sueltos: He, Ne, Ar.",
+      "Pero algunos no metales forman <b>moléculas</b> de varios átomos, y su fórmula lleva un subíndice: son diatómicos el hidrógeno (H₂), el nitrógeno (N₂), el oxígeno (O₂), el flúor (F₂), el cloro (Cl₂), el bromo (Br₂) y el yodo (I₂). Un truco para recordarlos: los «siete diatómicos» son el hidrógeno y los que forman una «L» invertida en la tabla, del nitrógeno al flúor y bajando por los halógenos. Hay otras moléculas: el ozono, O₃; el fósforo blanco, P₄; el azufre, S₈. Con la nomenclatura de composición se nombran con prefijos que indican el número de átomos: O₂ es dioxígeno; O₃, trioxígeno (ozono); N₂, dinitrógeno; P₄, tetrafósforo. El oxígeno y el ozono son formas distintas del mismo elemento, llamadas <b>formas alotrópicas</b>, como el diamante y el grafito en el carbono.",
+    ], svg: rejilla("Sustancias simples moleculares y sus nombres", ["Fórmula", "Nombre IUPAC", "Común"], [["H₂", "dihidrógeno", "hidrógeno"], ["O₂", "dioxígeno", "oxígeno"], ["O₃", "trioxígeno", "ozono"], ["N₂", "dinitrógeno", "nitrógeno"], ["Cl₂", "dicloro", "cloro"]], "var(--leaf)") }),
+    bloque({ h: "2.1 Las dos nomenclaturas", p: [
+      "La IUPAC admite varias formas de nombrar los compuestos binarios. La <mark>nomenclatura de composición</mark> o estequiométrica usa <b>prefijos multiplicadores</b> para indicar el número de átomos de cada elemento: mono- (1), di- (2), tri- (3), tetra- (4), penta- (5), hexa- (6), hepta- (7). Por ejemplo, Fe₂O₃ es trióxido de dihierro; CO₂, dióxido de carbono; PCl₅, pentacloruro de fósforo. El prefijo mono- solo se usa cuando es necesario para distinguir un compuesto de otro, como en el monóxido de carbono, CO.",
+      "La <mark>nomenclatura con número de oxidación</mark>, llamada de <b>Stock</b>, se usa sobre todo cuando el elemento de la izquierda es un metal con varios números de oxidación. Se indica el número de oxidación en <b>números romanos</b> y entre paréntesis, sin espacio, detrás del nombre del elemento: Fe₂O₃ es óxido de hierro(III), y FeO, óxido de hierro(II). Si el elemento solo tiene un número de oxidación posible, no se indica: Na₂O es óxido de sodio, y no óxido de sodio(I). Los nombres tradicionales con -oso e -ico, como «óxido férrico», ya no se recomiendan, aunque aún aparecen en algunas etiquetas antiguas.",
+    ], svg: S.svg[2] }),
+    bloque({ h: "2.2 Los óxidos metálicos", p: [
+      "Los <mark>óxidos</mark> son compuestos binarios del <b>oxígeno</b>, con número de oxidación −2, con otro elemento. En la fórmula, el oxígeno va a la <b>derecha</b> (excepto con los halógenos) y se nombran como «óxido de…». Los <b>óxidos metálicos</b> se forman al combinarse un metal con el oxígeno; muchos aparecen cuando los metales se oxidan al aire, como la herrumbre del hierro o la pátina verde de las estatuas de cobre.",
+      "Ejemplos: Na₂O, óxido de sodio u óxido de disodio; MgO, óxido de magnesio; Al₂O₃, óxido de aluminio o trióxido de dialuminio; CaO, óxido de calcio (la cal viva); ZnO, óxido de cinc (en las cremas solares); FeO, óxido de hierro(II) u óxido de hierro; Fe₂O₃, óxido de hierro(III) o trióxido de dihierro; Cu₂O, óxido de cobre(I); CuO, óxido de cobre(II); PbO₂, óxido de plomo(IV) o dióxido de plomo. Para formular un óxido metálico se aplica el método del aspa con el número de oxidación del metal y el −2 del oxígeno, y se simplifica si es posible. Los óxidos metálicos suelen ser sólidos iónicos de punto de fusión alto, y muchos minerales de los que se extraen los metales son óxidos.",
+    ], svg: rejilla("Óxidos metálicos: fórmula y nombres", ["Fórmula", "Composición", "Stock"], [["Na₂O", "óxido de disodio", "óxido de sodio"], ["CaO", "óxido de calcio", "óxido de calcio"], ["FeO", "óxido de hierro", "óx. de hierro(II)"], ["Fe₂O₃", "trióxido de dihierro", "óx. de hierro(III)"], ["CuO", "óxido de cobre", "óx. de cobre(II)"]], "var(--red)") }),
+    bloque({ h: "2.3 Los óxidos de no metales", p: [
+      "Los no metales también forman óxidos, y en ellos actúan con números de oxidación <b>positivos</b>. Muchos de estos óxidos son <b>gases</b> y tienen gran importancia ambiental. Para nombrarlos se usa preferentemente la nomenclatura de <b>composición</b>, con prefijos, porque un mismo no metal suele formar varios óxidos distintos.",
+      "El carbono forma el <b>monóxido de carbono</b>, CO, un gas tóxico que se produce en combustiones con poco oxígeno, y el <b>dióxido de carbono</b>, CO₂, que expulsamos al respirar y que es el principal gas de efecto invernadero. El azufre forma el <b>dióxido de azufre</b>, SO₂, y el <b>trióxido de azufre</b>, SO₃, responsables de la lluvia ácida. El nitrógeno forma varios: el <b>monóxido de nitrógeno</b>, NO, y el <b>dióxido de nitrógeno</b>, NO₂, que dan el color pardo a la contaminación de las ciudades, y el monóxido de dinitrógeno, N₂O, el «gas de la risa». El silicio forma el <b>dióxido de silicio</b>, SiO₂, la sílice, que es la arena y el cuarzo, y la materia prima del vidrio. También se pueden nombrar con Stock: SO₂ es óxido de azufre(IV) y SO₃, óxido de azufre(VI).",
+    ], svg: rejilla("Óxidos de no metales importantes", ["Fórmula", "Nombre", "Dónde aparece"], [["CO", "monóxido de carbono", "combustión mala"], ["CO₂", "dióxido de carbono", "respiración"], ["SO₂", "dióxido de azufre", "lluvia ácida"], ["NO₂", "dióxido de nitrógeno", "tráfico"], ["SiO₂", "dióxido de silicio", "arena, vidrio"]], "var(--muted)") }),
+    bloque({ h: "2.4 Los compuestos de oxígeno con halógenos", p: [
+      "Hay una excepción a la regla de que el oxígeno va a la derecha. Según la IUPAC, los <b>halógenos</b> (flúor, cloro, bromo y yodo) se consideran <b>más electronegativos</b> que el oxígeno a efectos de nomenclatura. Por eso, en estos compuestos, el <mark>oxígeno se escribe a la izquierda</mark> y el halógeno a la derecha, y no se llaman óxidos, sino <b>halogenuros de oxígeno</b>: fluoruros, cloruros, bromuros o yoduros de oxígeno.",
+      "Se nombran siempre con la nomenclatura de composición, con prefijos. Ejemplos: OF₂, difluoruro de oxígeno; OCl₂, dicloruro de oxígeno; O₃Cl₂, dicloruro de trioxígeno; O₅Cl₂, dicloruro de pentaoxígeno; O₇Cl₂, dicloruro de heptaoxígeno; O₅Br₂, dibromuro de pentaoxígeno; O₅I₂, diyoduro de pentaoxígeno. En libros antiguos aparecen escritos al revés, como Cl₂O₅, y con nombres como «óxido de cloro(V)» o «anhídrido clórico», que ya no se recomiendan. Algunos compuestos de oxígeno y cloro se usan para potabilizar el agua y blanquear el papel, aunque son muy reactivos y se manejan con mucha precaución.",
+    ], svg: compara("Óxidos frente a halogenuros de oxígeno", ["Óxido", ["O a la derecha", "metales y no metales", "Fe₂O₃, CO₂", "«óxido de…»"]], ["Halogenuro de O", ["O a la izquierda", "con F, Cl, Br, I", "OCl₂, O₅Cl₂", "«…uro de oxígeno»"]], "var(--red)", "var(--leaf)") }),
+    bloque({ h: "3.1 Los hidruros metálicos", p: [
+      "Los <mark>hidruros</mark> son compuestos binarios del <b>hidrógeno</b> con otro elemento. Cuando el hidrógeno se une a un <b>metal</b>, actúa con número de oxidación <b>−1</b> y se escribe a la <b>derecha</b>: son los <b>hidruros metálicos</b>, que se nombran como «hidruro de…».",
+      "Para formularlos se escribe el metal con su número de oxidación y el hidrógeno con −1, y se aplica el aspa: el subíndice del hidrógeno es igual al número de oxidación del metal. Ejemplos: LiH, hidruro de litio; NaH, hidruro de sodio; CaH₂, hidruro de calcio o dihidruro de calcio; AlH₃, hidruro de aluminio o trihidruro de aluminio; FeH₂, hidruro de hierro(II) o dihidruro de hierro; FeH₃, hidruro de hierro(III) o trihidruro de hierro; PbH₄, hidruro de plomo(IV) o tetrahidruro de plomo. Los hidruros metálicos son sólidos que reaccionan con el agua desprendiendo hidrógeno; algunos se estudian para almacenar hidrógeno como combustible de forma segura en vehículos del futuro.",
+    ], svg: S.svg[3], video: S.bvideos[1] }),
+    bloque({ h: "3.2 Los hidruros de no metales", p: [
+      "Cuando el hidrógeno se une a un <b>no metal</b>, actúa con número de oxidación <b>+1</b>. Si el no metal es un <b>halógeno</b> (grupo 17) o un anfígeno como el azufre (grupo 16), estos son más electronegativos que el hidrógeno: el hidrógeno se escribe a la <b>izquierda</b> y se nombran con la terminación <b>-uro de hidrógeno</b>: HF, fluoruro de hidrógeno; HCl, cloruro de hidrógeno; HBr, bromuro de hidrógeno; HI, yoduro de hidrógeno; H₂S, sulfuro de hidrógeno (el gas con olor a huevos podridos); H₂Se, seleniuro de hidrógeno.",
+      "Disueltos en agua, estos compuestos forman ácidos, llamados <b>hidrácidos</b>: el cloruro de hidrógeno disuelto es el ácido clorhídrico, HCl(aq), presente en el jugo gástrico del estómago y en el salfumán de limpieza. Con los no metales de los grupos 13, 14 y 15, el hidrógeno va a la derecha y muchos tienen <b>nombres especiales</b> aceptados por la IUPAC: H₂O, agua (oxidano); NH₃, amoniaco (azano); CH₄, metano; PH₃, fosfano; SiH₄, silano; BH₃, borano. El amoniaco es la base de los abonos nitrogenados y el metano es el componente principal del gas natural.",
+    ], svg: rejilla("Hidruros de no metales y sus nombres", ["Fórmula", "Nombre", "Uso o curiosidad"], [["HCl", "cloruro de hidrógeno", "ácido del estómago"], ["H₂S", "sulfuro de hidrógeno", "olor a huevo"], ["NH₃", "amoniaco", "abonos"], ["CH₄", "metano", "gas natural"], ["H₂O", "agua", "oxidano"]], "var(--pen)") }),
+    bloque({ h: "3.3 Las sales binarias", p: [
+      "Las <mark>sales binarias</mark> son compuestos de un <b>metal</b> con un <b>no metal</b> (que no sea oxígeno ni hidrógeno). El metal va a la izquierda con número de oxidación positivo, y el no metal a la derecha con su número de oxidación negativo: −1 los halógenos, −2 el azufre, −3 el nitrógeno y el fósforo, −4 el carbono. Se nombran con el no metal terminado en <b>-uro</b>, seguido de «de» y el nombre del metal.",
+      "Ejemplos: NaCl, cloruro de sodio, la sal común; KBr, bromuro de potasio; CaF₂, fluoruro de calcio o difluoruro de calcio, el mineral fluorita; FeCl₃, cloruro de hierro(III) o tricloruro de hierro; FeS, sulfuro de hierro(II); Cu₂S, sulfuro de cobre(I) o sulfuro de dicobre; PbS, sulfuro de plomo(II), el mineral galena; AlN, nitruro de aluminio; Mg₃N₂, nitruro de magnesio o dinitruro de trimagnesio; KI, yoduro de potasio, que se añade a la sal yodada. También hay compuestos entre dos <b>no metales</b> que se nombran igual, como CCl₄, tetracloruro de carbono, o PCl₃, tricloruro de fósforo; en ellos se escribe a la izquierda el no metal menos electronegativo. Las sales binarias son sólidos iónicos y muchas forman minerales.",
+    ], svg: rejilla("Sales binarias: fórmula y nombres", ["Fórmula", "Composición", "Stock"], [["NaCl", "cloruro de sodio", "cloruro de sodio"], ["CaF₂", "difluoruro de calcio", "fluoruro de calcio"], ["FeCl₃", "tricloruro de hierro", "cloruro de hierro(III)"], ["Cu₂S", "sulfuro de dicobre", "sulfuro de cobre(I)"], ["PbS", "sulfuro de plomo", "sulfuro de plomo(II)"]], "#b45309"), video: S.bvideos[2] }),
+    bloque({ h: "3.4 Del nombre a la fórmula y al revés", p: [
+      "Para <b>formular</b> a partir de un nombre, se siguen unos pasos. Primero, identificar el tipo de compuesto y los dos elementos. Segundo, escribir los símbolos en el orden correcto: el menos electronegativo a la izquierda. Tercero, si el nombre lleva prefijos, poner los subíndices que indican, sin simplificar: «pentacloruro de fósforo» es PCl₅. Si lleva números romanos o no lleva nada, aplicar el método del aspa con los números de oxidación y simplificar: «óxido de plomo(IV)» es Pb₂O₄, que se simplifica a PbO₂.",
+      "Para <b>nombrar</b> a partir de una fórmula, primero se reconoce el tipo de compuesto por sus elementos. Con prefijos basta contar los átomos: N₂O₅ es pentaóxido de dinitrógeno. Con Stock, si el metal tiene varios números de oxidación, hay que <b>calcularlo</b>: se usa que la suma de los números de oxidación es cero. En Cu₂O, el oxígeno aporta −2, así que los dos cobres suman +2 y cada uno tiene +1: óxido de cobre(I). En SnCl₄, los cuatro cloros aportan −4, así que el estaño tiene +4: cloruro de estaño(IV). Cuidado con las fórmulas simplificadas: en PbO₂ el plomo tiene +4, no +2.",
+    ], svg: pasos("Cómo nombrar con números de oxidación", ["Reconocer el tipo de compuesto", "N.º de oxidación del no metal", "Suma total = 0: despejar el metal", "Escribirlo en romanos: (III)"], "var(--leaf)") }),
+    bloque({ h: "3.5 Compuestos binarios de la vida diaria", p: [
+      "Muchos compuestos binarios forman parte de nuestra vida. El <b>agua</b> (H₂O) es el compuesto más importante para la vida. El <b>cloruro de sodio</b> (NaCl) sala y conserva los alimentos, y se usa para derretir el hielo de las carreteras. El <b>dióxido de carbono</b> (CO₂) da las burbujas a los refrescos, apaga incendios en los extintores y es el gas que las plantas usan en la fotosíntesis. El <b>óxido de calcio</b> (CaO), la cal viva, se usa en construcción y para corregir suelos ácidos.",
+      "El <b>óxido de cinc</b> (ZnO) y el <b>dióxido de titanio</b> (TiO₂) son los filtros blancos de las cremas solares y de muchas pinturas. El <b>fluoruro de sodio</b> (NaF) se añade a las pastas de dientes para prevenir la caries. El <b>amoniaco</b> (NH₃) se usa en limpieza y para fabricar abonos. El <b>metano</b> (CH₄) es el gas natural de las cocinas y calefacciones. El <b>ácido clorhídrico</b> (HCl disuelto) es el salfumán. El <b>dióxido de silicio</b> (SiO₂) es la arena con la que se fabrica el vidrio. Y algunos son peligrosos: el <b>monóxido de carbono</b> (CO), inodoro y mortal, y el <b>sulfuro de hidrógeno</b> (H₂S), tóxico en concentraciones altas. Saber leer sus fórmulas en las etiquetas nos ayuda a usarlos con seguridad.",
+    ], svg: rejilla("Compuestos binarios en casa", ["Fórmula", "Nombre", "Uso"], [["NaCl", "cloruro de sodio", "sal de mesa"], ["NaF", "fluoruro de sodio", "pasta de dientes"], ["ZnO", "óxido de cinc", "crema solar"], ["CaO", "óxido de calcio", "cal viva"], ["NH₃", "amoniaco", "limpieza"]], "var(--leaf)") }),
   ],
-  figura: {
-    titulo: "Los compuestos binarios de un vistazo",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Tres columnas: óxidos, elemento más oxígeno, como CO2; hidruros, metal más hidrógeno o hidrógeno más no metal, como NaH y HCl; sales binarias, metal más no metal acabado en uro, como NaCl">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["ÓXIDOS", "elemento + O⁻²", "CO₂ · Fe₂O₃ · CaO", "dióxido de carbono", "var(--red)"], ["HIDRUROS", "metal + H⁻¹ / H⁺¹ + no metal", "NaH · HCl · NH₃", "hidruro de sodio", "var(--pen)"], ["SALES BINARIAS", "metal + no metal (-uro)", "NaCl · FeS · KI", "cloruro de sodio", "var(--leaf)"]].map(([n, r, e, x, c], i) => { const X = 20 + i * 206; return `<rect x="${X}" y="20" width="190" height="190" rx="14" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>${t(X + 95, 52, n, { size: 17, color: c, font: D })}${t(X + 95, 88, r, { size: 12, weight: 400 })}${t(X + 95, 136, e, { size: 16 })}${t(X + 95, 180, x, { size: 12, weight: 400, color: "var(--muted)" })}`; }).join("")}
-    </svg>`,
-  },
-  video: { id: "CqsXRn1kdzg", titulo: "ÓXIDOS. Formulación Inorgánica", canal: "Susi Profe", vistas: 688942, megusta: 0, busqueda: "formulación inorgánica óxidos" },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Formula el óxido de hierro(III).",
-      pasos: ["Hierro con +3, oxígeno con −2.", "Intercambiamos: Fe₂O₃.", "No se puede simplificar; comprobamos: 2·(+3) + 3·(−2) = 0."],
-      resultado: "Fe₂O₃." },
-    { enunciado: "Nombra PbO₂ con las dos nomenclaturas.",
-      pasos: ["Prefijos: 1 Pb y 2 O → dióxido de plomo.", "Número de oxidación: O tiene −2 y hay dos: −4. Pb debe tener +4.", "El plomo tiene varios números de oxidación, así que se indica: (IV)."],
-      resultado: "dióxido de plomo u óxido de plomo(IV)." },
-    { enunciado: "Formula el sulfuro de aluminio.",
-      pasos: ["Aluminio +3; azufre, como -uro, −2.", "Intercambiamos: Al₂S₃.", "Comprobamos: 2·(+3) + 3·(−2) = 0."],
-      resultado: "Al₂S₃." },
+    { enunciado: "Formula el óxido de aluminio.", pasos: ["Al: +3; O: −2.", "Aspa: Al₂O₃.", "No se puede simplificar.", "Comprobación: 2 · 3 − 3 · 2 = 0."], resultado: "Al₂O₃." },
+    { enunciado: "Formula el óxido de plomo(IV).", pasos: ["Pb: +4; O: −2.", "Aspa: Pb₂O₄.", "Se simplifica entre 2: PbO₂."], resultado: "PbO₂ (dióxido de plomo)." },
+    { enunciado: "Nombra Fe₂S₃ con las dos nomenclaturas.", pasos: ["Es una sal binaria (metal + azufre).", "Composición: trisulfuro de dihierro.", "Stock: S tiene −2 → 3 · (−2) = −6 → cada Fe +3."], resultado: "Trisulfuro de dihierro; sulfuro de hierro(III)." },
+    { enunciado: "Nombra CuCl₂ y Cu₂O.", pasos: ["CuCl₂: Cl −1 → 2 · (−1) = −2 → Cu +2 → cloruro de cobre(II) o dicloruro de cobre.", "Cu₂O: O −2 → los dos Cu suman +2 → Cu +1 → óxido de cobre(I) u óxido de dicobre."], resultado: "Cloruro de cobre(II); óxido de cobre(I)." },
+    { enunciado: "Formula: dicloruro de pentaoxígeno, sulfuro de hidrógeno, hidruro de calcio y nitruro de magnesio.", pasos: ["Dicloruro de pentaoxígeno: O₅Cl₂ (O a la izquierda con halógenos).", "Sulfuro de hidrógeno: H +1, S −2 → H₂S.", "Hidruro de calcio: Ca +2, H −1 → CaH₂.", "Nitruro de magnesio: Mg +2, N −3 → Mg₃N₂."], resultado: "O₅Cl₂, H₂S, CaH₂, Mg₃N₂." },
+    { enunciado: "Calcula el número de oxidación del azufre en SO₃ y del nitrógeno en N₂O₅.", pasos: ["SO₃: 3 · (−2) = −6 → S = +6.", "N₂O₅: 5 · (−2) = −10 → 2 N = +10 → N = +5."], resultado: "S: +6; N: +5." },
   ],
   errores: [
-    "Escribir el oxígeno a la izquierda en los óxidos: va a la derecha (salvo con halógenos).",
-    "Olvidar simplificar: Ca₂O₂ debe quedar CaO.",
-    "Poner el número romano a metales con un solo número de oxidación: «óxido de sodio(I)» no es necesario.",
-    "Simplificar en la nomenclatura de prefijos cuando la fórmula no lo permite, o cambiar los subíndices al nombrar.",
-    "Escribir «cloruro de hidrógeno» como ClH: el hidrógeno va a la izquierda con los no metales.",
+    "Escribir el oxígeno a la derecha con los halógenos: es OCl₂, no Cl₂O.",
+    "Simplificar los subíndices cuando el nombre lleva prefijos, o en el agua oxigenada.",
+    "Poner el número de oxidación a elementos que solo tienen uno: «óxido de sodio(I)» es incorrecto.",
+    "Olvidar que en PbO₂ el plomo tiene +4: hay que deshacer la simplificación al calcular.",
+    "Confundir hidruros metálicos (H a la derecha, −1) con haluros de hidrógeno (H a la izquierda, +1).",
+    "Escribir mal los símbolos de dos letras: Co, Cl, Ca llevan la segunda letra en minúscula.",
   ],
   ejercicios: [
-    { q: "¿Qué indican los subíndices de la fórmula N₂O₅?", sol: "Que hay 2 átomos de nitrógeno por cada 5 de oxígeno." },
-    { q: "Calcula el número de oxidación del metal en: FeCl₃, CuO, SnO₂.", sol: "Fe +3, Cu +2, Sn +4." },
-    { q: "Nombra estas sustancias simples: O₂, N₂, O₃, Cl₂.", sol: "Dioxígeno, dinitrógeno, trioxígeno (ozono) y dicloro." },
-    { q: "Formula: óxido de potasio, óxido de magnesio, óxido de cobre(I), trióxido de azufre.", sol: "K₂O, MgO, Cu₂O, SO₃." },
-    { q: "Nombra con prefijos y con números de oxidación: FeO, Fe₂O₃, Al₂O₃.", sol: "Monóxido de hierro u óxido de hierro(II); trióxido de dihierro u óxido de hierro(III); trióxido de dialuminio u óxido de aluminio." },
-    { q: "Formula: hidruro de litio, hidruro de calcio, sulfuro de hidrógeno, amoniaco.", sol: "LiH, CaH₂, H₂S, NH₃." },
-    { q: "Formula: cloruro de potasio, bromuro de magnesio, yoduro de plata, sulfuro de cobre(II).", sol: "KCl, MgBr₂, AgI, CuS." },
-    { q: "Nombra: CaF₂, Na₂S, FeCl₂, CCl₄.", sol: "Fluoruro de calcio, sulfuro de sodio, cloruro de hierro(II) o dicloruro de hierro, tetracloruro de carbono." },
-    { q: "Formula y nombra el compuesto del oxígeno con el cloro en el que hay 2 Cl y 1 O.", sol: "OCl₂, dicloruro de oxígeno." },
-    { q: "¿Por qué es peligroso el monóxido de carbono y cuándo se forma?", sol: "Es venenoso, invisible e inodoro; se forma en combustiones con poco oxígeno, como en calderas o estufas mal revisadas." },
+    B("Indica el número de oxidación habitual de: Na, Ca, Al, O, Cl (con metales), Ag, Zn.", "Na +1; Ca +2; Al +3; O −2; Cl −1; Ag +1; Zn +2."),
+    B("Escribe los prefijos multiplicadores del 1 al 7.", "Mono-, di-, tri-, tetra-, penta-, hexa-, hepta-."),
+    B("Nombra: O₂, O₃, N₂, Cl₂.", "Dioxígeno (oxígeno), trioxígeno (ozono), dinitrógeno (nitrógeno), dicloro (cloro)."),
+    B("Formula: óxido de sodio, óxido de magnesio, óxido de calcio, óxido de cinc.", "Na₂O, MgO, CaO, ZnO."),
+    B("Formula: dióxido de carbono, monóxido de carbono, dióxido de azufre, trióxido de azufre.", "CO₂, CO, SO₂, SO₃."),
+    B("Nombra con prefijos: CO₂, N₂O₅, SiO₂, PCl₃.", "Dióxido de carbono, pentaóxido de dinitrógeno, dióxido de silicio, tricloruro de fósforo."),
+    B("Formula: hidruro de sodio, hidruro de calcio, hidruro de aluminio.", "NaH, CaH₂, AlH₃."),
+    B("Formula: cloruro de hidrógeno, bromuro de hidrógeno, sulfuro de hidrógeno.", "HCl, HBr, H₂S."),
+    B("Escribe la fórmula del agua, el amoniaco y el metano.", "H₂O, NH₃, CH₄."),
+    B("Formula: cloruro de sodio, bromuro de potasio, yoduro de plata, fluoruro de calcio.", "NaCl, KBr, AgI, CaF₂."),
+    B("Nombra: KCl, MgO, NaH, HF.", "Cloruro de potasio, óxido de magnesio, hidruro de sodio, fluoruro de hidrógeno."),
+    B("¿Qué indica el número romano en «óxido de hierro(III)»?", "El número de oxidación del hierro, +3."),
+    M("Formula: óxido de hierro(II), óxido de hierro(III), óxido de cobre(I), óxido de cobre(II).", "FeO, Fe₂O₃, Cu₂O, CuO."),
+    M("Formula: óxido de plomo(II), óxido de plomo(IV), óxido de estaño(IV), óxido de níquel(III).", "PbO, PbO₂, SnO₂, Ni₂O₃."),
+    M("Nombra con Stock y con prefijos: Fe₂O₃, CuO, SnO₂.", "Óxido de hierro(III) / trióxido de dihierro; óxido de cobre(II) / óxido de cobre; óxido de estaño(IV) / dióxido de estaño."),
+    M("Formula: difluoruro de oxígeno, dicloruro de trioxígeno, dibromuro de pentaoxígeno, diyoduro de heptaoxígeno.", "OF₂, O₃Cl₂, O₅Br₂, O₇I₂."),
+    M("Formula: hidruro de hierro(III), hidruro de plomo(IV), hidruro de cobre(II).", "FeH₃, PbH₄, CuH₂."),
+    M("Formula: cloruro de hierro(II), cloruro de hierro(III), sulfuro de cobre(I), sulfuro de plomo(II).", "FeCl₂, FeCl₃, Cu₂S, PbS."),
+    M("Nombra con dos nomenclaturas: FeCl₂, CoS, SnCl₄, Cu₂S.", "Cloruro de hierro(II) / dicloruro de hierro; sulfuro de cobalto(II) / sulfuro de cobalto; cloruro de estaño(IV) / tetracloruro de estaño; sulfuro de cobre(I) / sulfuro de dicobre."),
+    M("Formula: nitruro de aluminio, nitruro de magnesio, carburo de silicio (C −4), fosfuro de calcio (P −3).", "AlN, Mg₃N₂, SiC, Ca₃P₂."),
+    M("Calcula el número de oxidación del elemento subrayado: MnO₂ (Mn), Cr₂O₃ (Cr), PCl₅ (P), Co₂S₃ (Co).", "Mn +4; Cr +3; P +5; Co +3."),
+    M("Corrige los errores: «Cl₂O₅ es pentaóxido de dicloro»; «óxido de calcio(II)»; «NaCl₂».", "Es O₅Cl₂, dicloruro de pentaoxígeno; óxido de calcio (el calcio solo tiene +2); NaCl (Na +1, Cl −1)."),
+    A("Nombra con todas las nomenclaturas posibles: PbO₂, Ni₂S₃, AuCl₃, HgO.", "PbO₂: dióxido de plomo, óxido de plomo(IV). Ni₂S₃: trisulfuro de diníquel, sulfuro de níquel(III). AuCl₃: tricloruro de oro, cloruro de oro(III). HgO: óxido de mercurio, óxido de mercurio(II)."),
+    A("Un óxido de manganeso tiene la fórmula Mn₂O₇. ¿Qué número de oxidación tiene el manganeso? Nómbralo.", "7 · (−2) = −14 → 2 Mn = +14 → Mn +7. Heptaóxido de dimanganeso; óxido de manganeso(VII)."),
+    A("Explica por qué el PbO₂ no es «óxido de plomo(II)» aunque solo haya un plomo y dos oxígenos parezca simplificado.", "Porque el número de oxidación se calcula con la fórmula: 2 · (−2) = −4, así que el plomo tiene +4. PbO₂ viene de simplificar Pb₂O₄. El óxido de plomo(II) es PbO."),
+    A("Clasifica y nombra: CaH₂, HI, Al₂O₃, OF₂, Ag₂S, NH₃, CO.", "Hidruro metálico: hidruro de calcio. Haluro de hidrógeno: yoduro de hidrógeno. Óxido metálico: óxido de aluminio. Halogenuro de oxígeno: difluoruro de oxígeno. Sal binaria: sulfuro de plata. Hidruro de no metal: amoniaco (azano). Óxido de no metal: monóxido de carbono."),
+    A("Calcula la masa molecular del óxido de hierro(III) y el porcentaje de hierro (Fe = 56, O = 16). ¿Por qué interesa saberlo en la minería?", "Fe₂O₃: 112 + 48 = 160 u. %Fe = 112 / 160 · 100 = 70 %. Porque indica cuánto hierro se puede obtener de cada tonelada de mineral (hematites)."),
+    A("Escribe la fórmula de los compuestos que forma el cloro con: sodio, hidrógeno, oxígeno (con 7 oxígenos) y calcio. Nómbralos.", "NaCl, cloruro de sodio; HCl, cloruro de hidrógeno; O₇Cl₂, dicloruro de heptaoxígeno; CaCl₂, cloruro de calcio."),
+    A("Busca en tres etiquetas de productos de casa (pasta de dientes, crema solar, sal) compuestos binarios y escribe su fórmula y su nombre IUPAC.", "Por ejemplo: fluoruro de sodio, NaF (pasta de dientes); óxido de cinc, ZnO, y dióxido de titanio, TiO₂ (crema solar); cloruro de sodio, NaCl, y yoduro de potasio, KI (sal yodada)."),
+    A("Explica por qué los nombres de la IUPAC son preferibles a nombres como «cal viva», «salfumán» o «herrumbre».", "Porque indican la composición exacta de la sustancia y son iguales en todo el mundo; los nombres comunes varían según el lugar, no dicen qué elementos tiene la sustancia y pueden llevar a confusiones peligrosas."),
   ],
   quiz: [
-    { q: "El número de oxidación del oxígeno en los óxidos es…", o: ["+2", "−2", "−1"], a: 1, e: "−2." },
-    { q: "La fórmula del óxido de calcio es…", o: ["Ca₂O₂", "CaO", "CaO₂"], a: 1, e: "Se simplifica: CaO." },
-    { q: "CO₂ se llama…", o: ["óxido de carbono", "dióxido de carbono", "carburo de oxígeno"], a: 1, e: "Dióxido de carbono." },
-    { q: "En los hidruros metálicos, el hidrógeno actúa con…", o: ["+1", "−1", "−2"], a: 1, e: "−1." },
-    { q: "NH₃ es…", o: ["metano", "amoniaco", "agua"], a: 1, e: "Amoniaco." },
-    { q: "Las sales binarias terminan en…", o: ["-ato", "-uro", "-ito"], a: 1, e: "-uro." },
-    { q: "La fórmula del cloruro de sodio es…", o: ["NaCl", "ClNa", "NaCl₂"], a: 0, e: "NaCl." },
-    { q: "En Fe₂O₃, el hierro tiene número de oxidación…", o: ["+2", "+3", "+6"], a: 1, e: "+3." },
-    { q: "El prefijo «penta» significa…", o: ["4", "5", "6"], a: 1, e: "5." },
-    { q: "El compuesto de oxígeno y flúor se escribe…", o: ["F₂O", "OF₂", "FO₂"], a: 1, e: "OF₂: el halógeno a la derecha." },
+    q4("En un compuesto neutro, la suma de los números de oxidación es…", ["1", "0", "−1", "el número de átomos"], 1, "Regla básica."),
+    q4("El número de oxidación del oxígeno en los óxidos es…", ["+2", "−1", "−2", "+1"], 2, "Siempre −2 en óxidos."),
+    q4("La fórmula del óxido de calcio es…", ["Ca₂O", "CaO", "CaO₂", "Ca₂O₂"], 1, "Se simplifica."),
+    q4("Al₂O₃ se llama…", ["óxido de aluminio", "óxido de aluminio(III)", "dióxido de trialuminio", "aluminio de oxígeno"], 0, "El aluminio solo tiene +3."),
+    q4("El prefijo «penta» indica…", ["4", "5", "6", "7"], 1, "Pentágono."),
+    q4("CO₂ se llama…", ["monóxido de carbono", "dióxido de carbono", "carbono de oxígeno", "óxido de carbono(II)"], 1, "Dos oxígenos."),
+    q4("Fe₂O₃ en Stock es…", ["óxido de hierro(II)", "óxido de hierro(III)", "óxido férrico(II)", "óxido de hierro(VI)"], 1, "Fe +3."),
+    q4("El compuesto de oxígeno y cloro se escribe…", ["Cl₂O", "OCl₂", "ClO₂O", "Cl₂O₂"], 1, "O a la izquierda con halógenos."),
+    q4("O₅Cl₂ se llama…", ["pentaóxido de dicloro", "dicloruro de pentaoxígeno", "óxido de cloro(V)", "cloruro de oxígeno"], 1, "Halogenuro de oxígeno."),
+    q4("En los hidruros metálicos el hidrógeno tiene…", ["+1", "−1", "−2", "0"], 1, "Va a la derecha."),
+    q4("La fórmula del hidruro de calcio es…", ["CaH", "CaH₂", "H₂Ca", "Ca₂H"], 1, "Ca +2."),
+    q4("HCl se llama…", ["hidruro de cloro", "cloruro de hidrógeno", "clorato de hidrógeno", "hidrógeno de cloro"], 1, "Disuelto: ácido clorhídrico."),
+    q4("NH₃ es el…", ["metano", "amoniaco", "agua", "fosfano"], 1, "Azano."),
+    q4("CH₄ es el…", ["metano", "amoniaco", "silano", "borano"], 0, "Gas natural."),
+    q4("NaCl es una…", ["sal binaria", "óxido", "hidruro", "sustancia simple"], 0, "Metal + no metal."),
+    q4("La fórmula del cloruro de hierro(III) es…", ["FeCl", "FeCl₂", "FeCl₃", "Fe₃Cl"], 2, "Fe +3, Cl −1."),
+    q4("En PbO₂, el número de oxidación del plomo es…", ["+2", "+4", "−2", "+1"], 1, "2 · (−2) = −4."),
+    q4("Cu₂O se llama…", ["óxido de cobre(II)", "óxido de cobre(I)", "dióxido de cobre", "óxido de dicobre(II)"], 1, "Cu +1."),
+    q4("Una sustancia diatómica es…", ["Fe", "He", "N₂", "C"], 2, "Dos átomos."),
+    q4("El sulfuro de hidrógeno es…", ["HS", "H₂S", "HS₂", "SH"], 1, "S −2."),
   ],
   examen: [
-    { q: "El cloruro de hierro(III) es…", o: ["FeCl", "FeCl₂", "FeCl₃"], a: 2, e: "FeCl₃." },
-    { q: "H₂S se llama…", o: ["sulfuro de dihidrógeno", "hidruro de azufre", "dihidruro de azufre"], a: 0, e: "Sulfuro de dihidrógeno." },
-    { q: "La suma de los números de oxidación en un compuesto es…", o: ["1", "0", "−1"], a: 1, e: "Cero." },
+    q4("El óxido de plomo(IV) es…", ["PbO", "Pb₂O", "PbO₂", "Pb₄O"], 2, "Pb₂O₄ simplificado."),
+    q4("SnCl₄ se nombra…", ["cloruro de estaño(II)", "cloruro de estaño(IV)", "estaño de cloro", "tetracloruro de estaño(IV)"], 1, "Sn +4."),
+    q4("El nitruro de magnesio es…", ["MgN", "Mg₂N₃", "Mg₃N₂", "MgN₂"], 2, "Mg +2, N −3."),
+    q4("¿Cuál está mal escrita?", ["NaCl", "CaO", "Cl₂O₇", "AlH₃"], 2, "Debe ser O₇Cl₂."),
+    q4("N₂O₅ se llama…", ["pentaóxido de dinitrógeno", "dióxido de pentanitrógeno", "óxido de nitrógeno(II)", "nitruro de oxígeno"], 0, "Prefijos."),
+    q4("El número de oxidación del cromo en Cr₂O₃ es…", ["+2", "+3", "+6", "−3"], 1, "3 · (−2) = −6."),
+    q4("El hidruro de hierro(II) es…", ["FeH", "FeH₂", "H₂Fe", "FeH₃"], 1, "Fe +2."),
+    q4("¿Qué compuesto se usa en la pasta de dientes contra la caries?", ["NaCl", "NaF", "CO", "H₂S"], 1, "Fluoruro de sodio."),
   ],
-  feynman: ["Qué significan los símbolos y los subíndices de una fórmula", "Cómo se usa el método del aspa para formular", "En qué se diferencian óxidos, hidruros y sales binarias"],
-  mapa: mapa("FORMULACIÓN", "var(--eso)", [
-    ["Herramientas", "nº de oxidación · aspa · suma 0", "var(--pen)"],
-    ["Nombres", "prefijos · números romanos", "var(--red)"],
-    ["Óxidos e hidruros", "CO₂ · Fe₂O₃ · NaH · HCl", "#b8860b"],
-    ["Sales binarias", "NaCl · FeS · KI (-uro)", "var(--leaf)"],
-  ], 300),
+  feynman: ["Qué es una fórmula química y qué indican sus subíndices", "Qué es el número de oxidación y por qué la suma es cero", "Cómo funciona el método del aspa", "Qué diferencia hay entre la nomenclatura con prefijos y la de Stock", "Cómo se formulan los óxidos, los hidruros y las sales binarias", "Por qué el oxígeno va a la izquierda con los halógenos"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Fórmula química", "Símbolos y subíndices: qué átomos y en qué proporción."],
-    ["Número de oxidación", "Carga simplificada de un átomo; la suma en un compuesto es 0."],
-    ["Óxido", "Elemento + oxígeno (−2): CO₂, Fe₂O₃."],
-    ["Hidruro metálico", "Metal + hidrógeno (−1): NaH, CaH₂."],
-    ["Haluro de hidrógeno", "H + halógeno: HCl, cloruro de hidrógeno."],
-    ["Sal binaria", "Metal + no metal acabado en -uro: NaCl."],
-    ["Prefijos", "mono 1, di 2, tri 3, tetra 4, penta 5, hexa 6, hepta 7."],
-    ["Stock", "Número de oxidación en romanos: óxido de hierro(III)."],
+    ["Fórmula", "Símbolos y subíndices que indican la composición."],
+    ["IUPAC", "Organismo que fija las normas de nomenclatura."],
+    ["Número de oxidación", "Carga que tendría un átomo; la suma en un compuesto es 0."],
+    ["Método del aspa", "Intercambiar números de oxidación como subíndices y simplificar."],
+    ["Prefijos", "mono, di, tri, tetra, penta, hexa, hepta."],
+    ["Stock", "N.º de oxidación en romanos: óxido de hierro(III)."],
+    ["Óxido", "Elemento + O (−2): Fe₂O₃, CO₂."],
+    ["Halogenuro de oxígeno", "O a la izquierda: OCl₂, O₅Cl₂."],
+    ["Hidruro metálico", "Metal + H (−1): NaH, CaH₂."],
+    ["Haluro de hidrógeno", "H (+1) + halógeno o S: HCl, H₂S."],
+    ["Nombres especiales", "H₂O agua, NH₃ amoniaco, CH₄ metano."],
+    ["Sal binaria", "Metal + no metal: NaCl, FeCl₃."],
   ],
-  familias: ["Buscad en etiquetas de productos de casa nombres de compuestos binarios y escribid su fórmula.", "Haced tarjetas con nombre por un lado y fórmula por otro y jugad a emparejarlas.", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "La materia: nomenclatura de sustancias simples y compuestos binarios (óxidos, hidruros y sales binarias) según las normas de la IUPAC (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Dominó de formulación con fórmulas y nombres.", "Concurso por equipos con pizarras: el profesor dice un nombre y gana quien antes escribe la fórmula.", "Búsqueda de compuestos binarios en etiquetas de productos reales."],
+  glosario: [
+    ["Formular", "Escribir la fórmula de una sustancia a partir de su nombre."],
+    ["Nombrar", "Escribir el nombre de una sustancia a partir de su fórmula."],
+    ["IUPAC", "Unión Internacional de Química Pura y Aplicada."],
+    ["Compuesto binario", "Compuesto formado por dos elementos."],
+    ["Electronegatividad", "Tendencia de un átomo a atraer los electrones de un enlace."],
+    ["Número de oxidación", "Carga que tendría un átomo si todos sus enlaces fueran iónicos."],
+    ["Subíndice", "Número que indica cuántos átomos de un elemento hay en una fórmula."],
+    ["Prefijo multiplicador", "Partícula que indica el número de átomos: di-, tri-, tetra-…"],
+    ["Nomenclatura de composición", "La que usa prefijos para indicar el número de átomos."],
+    ["Nomenclatura de Stock", "La que indica el número de oxidación en números romanos."],
+    ["Sustancia simple", "Sustancia formada por un solo elemento."],
+    ["Forma alotrópica", "Cada una de las formas en que se presenta un mismo elemento, como O₂ y O₃."],
+    ["Óxido", "Compuesto binario del oxígeno con otro elemento (salvo halógenos)."],
+    ["Hidruro", "Compuesto binario del hidrógeno con otro elemento."],
+    ["Hidrácido", "Disolución acuosa de un haluro de hidrógeno o de H₂S."],
+    ["Sal binaria", "Compuesto de un metal con un no metal distinto de O e H."],
+    ["Halogenuro de oxígeno", "Compuesto del oxígeno con un halógeno."],
+    ["Diatómica", "Sustancia cuyas moléculas tienen dos átomos."],
+  ],
+  situacion: {
+    titulo: "Detectives de etiquetas",
+    reto: "Una asociación de consumidores quiere una guía sencilla para entender las sustancias químicas que aparecen en los productos de casa. Vuestro equipo debe recoger etiquetas, identificar compuestos binarios, formularlos y nombrarlos correctamente y explicar para qué sirven y si son peligrosos.",
+    pasos: [
+      "Recoged fotos de etiquetas de productos de limpieza, alimentación, higiene y cosmética.",
+      "Localizad los compuestos binarios y escribid su fórmula y sus nombres IUPAC.",
+      "Calculad los números de oxidación de los metales y comprobad que la suma es cero.",
+      "Investigad la función de cada compuesto y sus pictogramas de peligro.",
+      "Elaborad fichas de la guía con fórmula, nombres, usos y precauciones.",
+    ],
+    producto: "Una guía ilustrada de compuestos químicos del hogar con fórmula, nombres IUPAC, usos y precauciones.",
+    evaluacion: ["Las fórmulas y los nombres siguen las normas de la IUPAC.", "Los números de oxidación están bien calculados.", "La información sobre usos y riesgos es correcta y está contrastada.", "La guía es clara y útil para cualquier persona."],
   },
-  fuentes: [RD, wiki("Nomenclatura química de los compuestos inorgánicos", "Nomenclatura_qu%C3%ADmica_de_los_compuestos_inorg%C3%A1nicos"), wiki("Óxido", "%C3%93xido")],
-  revisado: "2026-11-12",
+  familias: [
+    "Jugad al «bingo de fórmulas»: uno dice un nombre y el otro busca la fórmula en un cartón.",
+    "Revisad las etiquetas de la pasta de dientes, la crema solar y la sal y buscad compuestos binarios.",
+    "Haced tarjetas con los números de oxidación y repasadlas cinco minutos al día.",
+    "Hablad de por qué no se deben mezclar productos de limpieza como lejía y salfumán.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La materia»: nomenclatura y formulación de sustancias simples y compuestos binarios (óxidos, hidruros y sales binarias) según las normas de la IUPAC, con nomenclatura de composición y con números de oxidación.`,
+    ideas: [
+      "Dominó o memoria de fórmulas y nombres.",
+      "Concurso por equipos de formulación con dificultad creciente.",
+      "Búsqueda de compuestos binarios en etiquetas de productos reales.",
+      "Construcción de fórmulas con fichas de colores que representan números de oxidación.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Nomenclatura química de los compuestos inorgánicos", "Nomenclatura_qu%C3%ADmica_de_los_compuestos_inorg%C3%A1nicos"),
+    { t: "Nomenclatura de Química Inorgánica. Recomendaciones de la IUPAC de 2005, Real Sociedad Española de Química", url: "https://rseq.org/" },
+  ],
+  revisado: "2026-11-13",
 };

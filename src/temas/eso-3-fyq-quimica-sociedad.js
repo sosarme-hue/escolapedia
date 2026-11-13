@@ -1,156 +1,231 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
+// Física y Química 3º ESO · La química en la sociedad y el medio ambiente (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, rejilla, barras, ciclo, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["quimica-sociedad"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "La química en la sociedad y el medio ambiente",
-  minutos: 50,
-  objetivos: ["Valorar la contribución de la química a la salud, la alimentación y los materiales", "Explicar el efecto invernadero, la lluvia ácida y la destrucción de la capa de ozono", "Relacionar los plásticos y los residuos con los problemas ambientales", "Conocer los principios de la química verde y las acciones para un consumo sostenible"],
-  claves: ["industria química", "medicamento", "fertilizante", "efecto invernadero", "lluvia ácida", "capa de ozono", "microplásticos", "química verde"],
+  minutos: 100,
+  objetivos: [
+    "Valorar la contribución de la química a la salud, la alimentación, los materiales y la calidad de vida",
+    "Identificar los principales contaminantes del aire, el agua y el suelo y su origen",
+    "Explicar con reacciones químicas el efecto invernadero, la lluvia ácida y la destrucción de la capa de ozono",
+    "Analizar el problema de los plásticos y los residuos y proponer soluciones",
+    "Conocer los principios de la química verde y su relación con el desarrollo sostenible",
+    "Adoptar hábitos de consumo responsables basados en información científica",
+  ],
+  claves: ["industria química", "medicamento", "aditivo", "nuevos materiales", "contaminación", "efecto invernadero", "cambio climático", "lluvia ácida", "capa de ozono", "plástico", "química verde", "desarrollo sostenible"],
   pregunta: {
-    texto: "En 1987, casi todos los países del mundo firmaron prohibir unos gases que se usaban en neveras y aerosoles. Hoy, el agujero de la capa de ozono se está cerrando. ¿Qué tenía de malo un gas de nevera?",
-    respuesta: "Los <mark>CFC</mark> (clorofluorocarbonos) eran estables y no tóxicos, pero al subir a la estratosfera la luz ultravioleta los rompía y liberaban cloro, que destruía el <mark>ozono</mark> que nos protege del sol. El Protocolo de Montreal demostró que la química puede causar un problema mundial… y también ayudar a resolverlo.",
+    texto: "Si la química contamina, ¿no sería mejor vivir sin productos químicos?",
+    respuesta: "Es imposible: <mark>todo es química</mark>, empezando por el agua, el aire y nuestro propio cuerpo. Sin la química no tendríamos medicamentos, vacunas, agua potable, abonos para producir alimentos ni la mayoría de los materiales que usamos. El problema no es la química, sino <b>cómo</b> la usamos. La propia química aporta las soluciones: depurar aguas, reciclar, fabricar materiales biodegradables o diseñar procesos limpios con la <b>química verde</b>.",
+  },
+  lectura: {
+    titulo: "El agujero que cerramos entre todos",
+    html: `<p>En 1985, tres científicos británicos que medían el ozono sobre la Antártida publicaron un dato que parecía un error de los aparatos: cada primavera austral, la cantidad de ozono caía casi a la mitad. Los satélites de la NASA lo confirmaron: sobre el polo sur se abría un enorme «agujero» en la capa de ozono, el escudo que nos protege de la radiación ultravioleta del Sol.</p><p>Años antes, los químicos Mario Molina y Sherwood Rowland habían advertido de que unos gases muy usados en neveras, aerosoles y espumas, los clorofluorocarbonos o CFC, podían subir hasta la estratosfera y destruir el ozono. Muchas empresas se rieron de ellos. Pero las mediciones les dieron la razón: en las frías nubes antárticas, el cloro de los CFC rompía una molécula de ozono tras otra, y cada átomo de cloro podía destruir miles.</p><p>Lo que pasó después es una de las mejores noticias de la historia del medio ambiente. En 1987, casi todos los países del mundo firmaron el Protocolo de Montreal y se comprometieron a dejar de fabricar CFC. La industria química encontró sustitutos. Molina y Rowland recibieron el Premio Nobel de Química en 1995. Y hoy, según la ONU, la capa de ozono se está recuperando y podría volver a su estado de 1980 hacia mediados de siglo. La ciencia detectó el problema, explicó su causa y propuso la solución; la sociedad decidió actuar. Es un ejemplo de que los grandes problemas ambientales se pueden resolver.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>La química está en todas partes</h3><p>Desde que te levantas, la química te acompaña: el jabón y la pasta de dientes, la ropa de algodón o de poliéster, el plástico del cepillo, el combustible del autobús, la pantalla del móvil, los medicamentos o los alimentos envasados. La <mark>industria química</mark> transforma materias primas naturales, como el petróleo, el aire, la sal o los minerales, en productos útiles. En España es uno de los sectores industriales más importantes, con grandes polos en Tarragona, Huelva y Cartagena. Hay que evitar la idea de que «químico» significa «malo»: todo lo que existe, incluido tu cuerpo y una manzana, está formado por sustancias químicas. Lo importante es conocerlas y usarlas con responsabilidad.</p>`,
-    },
-    {
-      html: `<h3>La química y la salud</h3><p>Gracias a la química, la esperanza de vida en España ha pasado de unos 35 años en 1900 a más de 83 hoy. Los <mark>medicamentos</mark> se fabrican en laboratorios: el ácido acetilsalicílico (la aspirina), el paracetamol, los <b>antibióticos</b> como la penicilina, que descubrió Fleming en 1928, o las <b>vacunas</b>. Los <b>desinfectantes</b> como el alcohol, la lejía o el agua oxigenada evitan infecciones. La <b>potabilización</b> del agua con cloro ha salvado más vidas que casi cualquier otro avance. También la química permite fabricar prótesis, lentes de contacto, anestesia o los materiales para hacer análisis de sangre. Pero los medicamentos deben usarse con receta y según las indicaciones, porque el abuso de antibióticos crea bacterias resistentes.</p>`,
-    },
-    {
-      html: `<h3>La química y la alimentación</h3><p>Para alimentar a 8.000 millones de personas, la agricultura necesita <mark>fertilizantes</mark>, que aportan al suelo nitrógeno, fósforo y potasio. En 1909, Fritz Haber logró fabricar amoniaco a partir del nitrógeno del aire, y hoy se calcula que la mitad de la población mundial come gracias a los fertilizantes que se fabrican con él. Los <b>pesticidas</b> protegen los cultivos de plagas. Los <b>conservantes</b> y otros <b>aditivos</b>, que aparecen en las etiquetas con una letra E y un número, evitan que los alimentos se estropeen. Sin embargo, el uso excesivo de fertilizantes contamina ríos y acuíferos con nitratos y provoca la <b>eutrofización</b>: el agua se llena de algas, se queda sin oxígeno y mueren los peces, como ha ocurrido en el Mar Menor.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Eutrofización: el exceso de fertilizante llega al agua, crecen muchas algas, se agota el oxígeno y mueren los peces">${BG}
-        ${caja(8, 20, 70, 40, "abono", "#b8860b", { size: 11 })}${fl(80, 40, 96, 40)}
-        ${caja(98, 20, 70, 40, "nitratos", "var(--pen)", { size: 11 })}${fl(170, 40, 186, 40)}${caja(188, 20, 64, 40, "algas", "var(--leaf)", { size: 11 })}
-        <rect x="20" y="86" width="220" height="70" rx="8" fill="var(--water)" fill-opacity=".35"/><rect x="20" y="86" width="220" height="12" fill="var(--leaf)" fill-opacity=".7"/>
-        <path d="M80 130 q 14 -10 28 0 q -14 10 -28 0 Z M108 130 l 8 -6 v 12 Z" fill="var(--muted)" transform="rotate(180 98 130)"/>
-        ${t(178, 126, "sin oxígeno", { size: 11, color: "var(--red)" })}${t(178, 142, "mueren los peces", { size: 10, weight: 400 })}${fl(220, 62, 220, 84, "var(--muted)", 2)}</svg>`,
-    },
-    {
-      html: `<h3>Los nuevos materiales</h3><p>La química ha creado materiales que no existen en la naturaleza. Los <mark>plásticos</mark>, derivados del petróleo, son ligeros, baratos, aislantes y fáciles de moldear: se usan en envases, tuberías, juguetes, coches y equipos médicos. Las <b>fibras sintéticas</b>, como el nailon y el poliéster, se usan en la ropa. Los <b>materiales compuestos</b>, como la fibra de carbono, son a la vez ligeros y muy resistentes, y se usan en bicicletas, aviones y raquetas. Los <b>semiconductores</b> de silicio permiten fabricar los chips de ordenadores y móviles. Y la <b>nanotecnología</b> trabaja con materiales a escala de átomos, como el grafeno, una lámina de carbono de un átomo de grosor, más resistente que el acero y muy buen conductor.</p>`,
-    },
-    {
-      html: `<h3>La contaminación del aire</h3><p>La quema de combustibles fósiles en coches, calefacciones, centrales térmicas e industrias libera <b>contaminantes</b> al aire. Los principales son el <b>monóxido de carbono</b> (CO), venenoso; los <b>óxidos de nitrógeno</b> (NOₓ), que irritan los pulmones; el <b>dióxido de azufre</b> (SO₂); y las <mark>partículas en suspensión</mark>, polvo muy fino que entra hasta los pulmones. En días sin viento, sobre las grandes ciudades se forma una capa marrón de contaminación, la <b>boina</b> o <b>esmog</b>. Por eso muchas ciudades españolas han creado <b>zonas de bajas emisiones</b>, donde no pueden entrar los vehículos más contaminantes. La Organización Mundial de la Salud calcula que la contaminación del aire causa millones de muertes prematuras al año en el mundo.</p>`,
-    },
-    {
-      html: `<h3>El efecto invernadero y el cambio climático</h3><p>La atmósfera contiene <b>gases de efecto invernadero</b>, como el dióxido de carbono (CO₂), el metano (CH₄) y el vapor de agua, que dejan pasar la luz del Sol pero retienen parte del calor que la Tierra emite. Este <mark>efecto invernadero natural</mark> es beneficioso: sin él, la temperatura media sería de −18 °C en lugar de 15 °C. El problema es que, desde la Revolución Industrial, al quemar carbón, petróleo y gas, hemos aumentado la concentración de CO₂ en más de un 50 %. Así se refuerza el efecto invernadero y se produce el <b>calentamiento global</b>: suben las temperaturas, se funden los glaciares, sube el nivel del mar y aumentan las sequías y las olas de calor, que en España son cada vez más frecuentes.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Efecto invernadero: la luz del Sol atraviesa la atmósfera, la Tierra emite calor y los gases de efecto invernadero devuelven parte de ese calor hacia la superficie">${BG}
-        <circle cx="30" cy="30" r="16" fill="#ffd34d"/>
-        <path d="M14 90 Q 130 50 246 90" fill="none" stroke="var(--inf)" stroke-width="3" stroke-dasharray="6 4"/>${t(16, 108, "CO₂, CH₄", { size: 10, anchor: "start", color: "var(--inf)" })}
-        <path d="M0 160 Q 130 120 260 160 V 180 H 0 Z" fill="var(--leaf)" fill-opacity=".45"/>
-        ${fl(44, 42, 108, 136, "#e0a000", 2.5)}
-        <path d="M130 134 L 150 80" stroke="var(--red)" stroke-width="2.5"/>${fl(150, 80, 170, 130, "var(--red)", 2.5)}
-        ${fl(196, 136, 236, 40, "var(--red)", 1.5)}
-        ${t(64, 122, "luz", { size: 10, color: "#b8860b" })}${t(176, 112, "calor", { size: 10, color: "var(--red)" })}${t(130, 176, "Tierra", { size: 10 })}</svg>`,
-      video: { id: "uO_6oS4PUkU", titulo: "¿Qué es el efecto invernadero?", canal: "Smile and Learn - Español", vistas: 631016 },
-    },
-    {
-      html: `<h3>La lluvia ácida</h3><p>El <b>dióxido de azufre</b> y los <b>óxidos de nitrógeno</b> que se liberan al quemar combustibles reaccionan en la atmósfera con el agua y el oxígeno y forman <b>ácido sulfúrico</b> y <b>ácido nítrico</b>. Estos ácidos caen con la lluvia: es la <mark>lluvia ácida</mark>. Puede viajar cientos de kilómetros con el viento. Acidifica lagos y ríos, matando peces; daña las hojas de los árboles y empobrece los suelos; y corroe los edificios y monumentos de piedra caliza y mármol, como las catedrales. Se ha reducido mucho en Europa gracias a usar combustibles con menos azufre, filtros en las chimeneas de las fábricas y catalizadores en los coches.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Formación de la lluvia ácida: una fábrica y un coche emiten óxidos de azufre y nitrógeno, que en la nube forman ácidos que caen con la lluvia sobre bosques y lagos">${BG}
-        <rect x="20" y="110" width="40" height="50" fill="var(--muted)"/><rect x="40" y="76" width="10" height="34" fill="var(--muted)"/>
-        <circle cx="50" cy="66" r="8" fill="#999" fill-opacity=".6"/><circle cx="62" cy="54" r="10" fill="#999" fill-opacity=".5"/>
-        ${fl(70, 50, 120, 40)}${t(96, 64, "SO₂ · NOₓ", { size: 10, color: "var(--muted)" })}
-        <ellipse cx="170" cy="36" rx="54" ry="20" fill="#999" fill-opacity=".5"/>${t(170, 40, "+ agua → ácidos", { size: 10 })}
-        ${[140, 158, 176, 194].map(x => `<line x1="${x}" y1="62" x2="${x - 6}" y2="${100}" stroke="var(--pen)" stroke-width="2"/>`).join("")}
-        <path d="M150 160 l 10 -40 l 10 40 Z M178 160 l 10 -30 l 10 30 Z" fill="var(--leaf)" fill-opacity=".6"/><rect x="200" y="150" width="46" height="10" rx="4" fill="var(--water)"/>
-        ${t(176, 176, "bosques y lagos dañados", { size: 10, color: "var(--red)" })}</svg>`,
-      video: { id: "myad29yNm44", titulo: "¿Qué es la LLUVIA ÁCIDA? EFECTOS de la Lluvia Ácida", canal: "EcologíaVerde", vistas: 604664 },
-    },
-    {
-      html: `<h3>La capa de ozono</h3><p>En la <b>estratosfera</b>, entre 15 y 35 km de altura, hay una zona rica en <b>ozono</b> (O₃) que absorbe la mayor parte de la radiación <b>ultravioleta</b> del Sol, que produce quemaduras, cáncer de piel y cataratas. En los años ochenta se descubrió que se estaba formando un <mark>agujero en la capa de ozono</mark> sobre la Antártida. La causa eran los <b>CFC</b>, gases usados en neveras, aires acondicionados y aerosoles. En 1987, el <b>Protocolo de Montreal</b> los prohibió. Es el acuerdo ambiental de más éxito de la historia: la capa de ozono se está recuperando y se espera que vuelva a su estado de 1980 hacia mediados de este siglo. No hay que confundir este problema con el cambio climático, aunque a veces se mezclan.</p>`,
-    },
-    {
-      html: `<h3>Los plásticos y los residuos</h3><p>Los plásticos tardan <b>cientos de años</b> en degradarse. Cada año llegan al mar millones de toneladas, que forman enormes islas de basura flotante y matan tortugas, aves y peces que los confunden con comida. Con el sol y las olas, los plásticos se rompen en trozos de menos de 5 mm, los <mark>microplásticos</mark>, que ya se han encontrado en el agua del grifo, en la sal, en el pescado y hasta en la sangre humana. La solución sigue la regla de las <b>tres erres</b>, por orden de importancia: <b>reducir</b> (evitar envases innecesarios), <b>reutilizar</b> (usar botellas y bolsas muchas veces) y <b>reciclar</b> (separar los residuos en los contenedores adecuados: amarillo para envases, azul para papel, verde para vidrio y marrón para restos orgánicos).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cuatro contenedores de reciclaje: amarillo para envases, azul para papel y cartón, verde para vidrio y marrón para orgánico">${BG}
-        ${[["#f2c200", "envases"], ["#2f6fd6", "papel"], ["#2e9b4a", "vidrio"], ["#8a5a2a", "orgánico"]].map(([c, n], i) => { const x = 20 + i * 58; return `<rect x="${x}" y="60" width="46" height="70" rx="5" fill="${c}"/><rect x="${x - 3}" y="52" width="52" height="10" rx="3" fill="${c}"/><circle cx="${x + 10}" cy="134" r="5" fill="var(--ink)"/><circle cx="${x + 36}" cy="134" r="5" fill="var(--ink)"/>${t(x + 23, 158, n, { size: 10 })}`; }).join("")}
-        ${t(130, 30, "reducir · reutilizar · reciclar", { size: 12, color: "var(--leaf)" })}</svg>`,
-    },
-    {
-      html: `<h3>La química verde y el desarrollo sostenible</h3><p>La <mark>química verde</mark> o sostenible busca diseñar productos y procesos que reduzcan o eliminen las sustancias peligrosas. Algunos de sus principios son: <b>evitar residuos</b> mejor que limpiarlos después; usar <b>materias primas renovables</b>, como plantas, en lugar de petróleo; ahorrar <b>energía</b>; usar <b>catalizadores</b>; y fabricar productos que se <b>degraden</b> sin dañar el medio ambiente, como los plásticos biodegradables. La química también desarrolla soluciones: <b>baterías</b> para coches eléctricos, <b>paneles solares</b> más eficientes, <b>hidrógeno verde</b> como combustible limpio o técnicas para capturar CO₂. Estos esfuerzos forman parte de los <b>Objetivos de Desarrollo Sostenible</b> de la ONU para 2030.</p>`,
-    },
+    bloque({ h: "1.1 La química está en todas partes", p: [
+      "La <mark>química</mark> estudia la materia y sus transformaciones, y está presente en todo lo que nos rodea: en el aire que respiramos, en los alimentos, en la ropa, en el móvil o en nuestro propio cuerpo, donde se producen miles de reacciones por segundo. A veces se usa la palabra «químico» como sinónimo de «artificial» o «peligroso», pero es un error: el agua, el azúcar de la fruta o el oxígeno son tan químicos como un plástico o un medicamento. Lo que importa es qué sustancia es y en qué cantidad.",
+      "La <b>industria química</b> transforma materias primas, como el petróleo, el gas natural, los minerales, el aire, el agua o las plantas, en productos útiles: medicamentos, fertilizantes, plásticos, pinturas, detergentes, cosméticos, combustibles o materiales de construcción. Es uno de los sectores industriales más importantes de España y del mundo, y da trabajo a cientos de miles de personas. Gracias a la química, la esperanza de vida se ha duplicado en dos siglos y se produce comida para más de ocho mil millones de personas. Pero también ha causado problemas de contaminación, que hoy la propia química ayuda a resolver.",
+    ], svg: ficha("Productos de la industria química", "La química nos da…", ["Medicamentos y vacunas", "Abonos y alimentos", "Plásticos y nuevos materiales", "Agua potable y limpieza"], "var(--pen)") }),
+    bloque({ h: "1.2 La química y la salud", p: [
+      "La química ha transformado la medicina. Los <mark>medicamentos</mark> son sustancias que previenen, alivian o curan enfermedades. Muchos se obtuvieron al principio de plantas: la aspirina deriva de una sustancia de la corteza del sauce, y la morfina, de la adormidera. Hoy se diseñan y fabrican en laboratorios. Los <b>antibióticos</b>, como la penicilina, descubierta por Fleming en 1928, han salvado cientos de millones de vidas al combatir las infecciones bacterianas. Las <b>vacunas</b> preparan al sistema inmunitario para defenderse de virus y bacterias.",
+      "Los <b>desinfectantes</b> y <b>antisépticos</b>, como el alcohol, el agua oxigenada o la povidona yodada, evitan infecciones. La <b>potabilización</b> del agua con cloro acabó con epidemias como el cólera en muchos países. Los anestésicos permiten operar sin dolor, y la química de materiales fabrica prótesis, lentes de contacto o válvulas cardíacas. Pero los medicamentos deben usarse bien: solo con indicación médica, en la dosis y el tiempo adecuados. El abuso de antibióticos ha provocado la aparición de <b>bacterias resistentes</b>, uno de los grandes problemas sanitarios actuales, y los restos de medicamentos no deben tirarse por el desagüe, sino llevarse a los puntos SIGRE de las farmacias.",
+    ], svg: rejilla("Avances químicos en la salud", ["Producto", "Para qué sirve"], [["Antibióticos", "infecciones bacterianas"], ["Vacunas", "prevenir enfermedades"], ["Anestésicos", "operar sin dolor"], ["Cloro en el agua", "evitar epidemias"], ["Antisépticos", "desinfectar heridas"]], "var(--leaf)") }),
+    bloque({ h: "1.3 La química y la alimentación", p: [
+      "La química es clave para producir y conservar los alimentos. Los <mark>fertilizantes</mark> o abonos aportan a las plantas nitrógeno, fósforo y potasio, y han multiplicado las cosechas: la síntesis del amoníaco, base de los abonos nitrogenados, permite alimentar a la mitad de la humanidad. Los <b>fitosanitarios</b> protegen los cultivos de plagas y enfermedades. Pero su abuso contamina ríos y acuíferos con nitratos y puede dañar la biodiversidad, por eso hay que usarlos de forma controlada.",
+      "Los <mark>aditivos alimentarios</mark> son sustancias que se añaden a los alimentos para conservarlos, mejorar su color, su sabor o su textura. En la Unión Europea se identifican con un código que empieza por <b>E</b> y un número: los colorantes, E-100 a E-199; los conservantes, E-200 a E-299, que evitan que crezcan microbios; los antioxidantes, E-300 a E-399, como la vitamina C (E-300); y los espesantes y emulsionantes, a partir de E-400. Todos están estudiados y autorizados en cantidades seguras. Muchos son sustancias naturales: el E-330 es el ácido cítrico del limón. Gracias a los conservantes y a técnicas como la refrigeración o el envasado, se desperdician menos alimentos y hay menos intoxicaciones.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.4 Los nuevos materiales", p: [
+      "La química diseña continuamente materiales con propiedades nuevas. Los <mark>plásticos</mark> o polímeros, que se obtienen sobre todo del petróleo uniendo moléculas pequeñas en cadenas larguísimas, son ligeros, baratos, aislantes, impermeables y se moldean con facilidad. Hay muchos tipos: el polietileno de las bolsas, el PET de las botellas, el PVC de las tuberías o el nailon de la ropa. Las <b>fibras sintéticas</b>, como el poliéster o la lycra, han cambiado la forma de vestir.",
+      "Los <b>materiales compuestos</b> combinan varios materiales: la fibra de carbono, ligera y resistentísima, se usa en aviones, bicicletas y prótesis deportivas. Los <b>semiconductores</b> de silicio son la base de los chips, los móviles y las placas solares. El <b>grafeno</b>, una lámina de carbono de un átomo de grosor descubierta en 2004, es más resistente que el acero y conduce muy bien la electricidad. Los <b>nanomateriales</b>, con partículas de millonésimas de milímetro, se usan en cremas solares, tejidos que no se manchan o medicamentos que llegan directamente a las células enfermas. Las <b>cerámicas avanzadas</b> resisten temperaturas altísimas en los motores y las naves espaciales. Y los <b>bioplásticos</b>, hechos de almidón o caña de azúcar, buscan sustituir a los plásticos del petróleo.",
+    ], svg: rejilla("Nuevos materiales y sus usos", ["Material", "Propiedad", "Uso"], [["Fibra de carbono", "ligera, resistente", "aviones, bicis"], ["Silicio", "semiconductor", "chips, placas"], ["Grafeno", "fino, conductor", "electrónica"], ["Bioplástico", "renovable", "envases"]], "var(--pen)") }),
+    bloque({ h: "2.1 La contaminación del aire", p: [
+      "La <mark>contaminación atmosférica</mark> es la presencia en el aire de sustancias en cantidades que pueden dañar la salud o el medio ambiente. Los principales <b>contaminantes</b> proceden de las combustiones de los vehículos, las calefacciones, las centrales térmicas y la industria. El <b>monóxido de carbono</b> (CO) se forma en combustiones con poco oxígeno y es muy tóxico. Los <b>óxidos de nitrógeno</b> (NO y NO₂), que salen sobre todo de los motores diésel, irritan los pulmones y dan el color pardo a la «boina» de contaminación de las ciudades.",
+      "El <b>dióxido de azufre</b> (SO₂) procede de quemar carbón y gasóleo con azufre. Las <b>partículas en suspensión</b> (PM10 y PM2,5), diminutas partículas de hollín y polvo, penetran en los pulmones y la sangre. Y el <b>ozono troposférico</b>, que se forma a ras de suelo en días soleados a partir de otros contaminantes, irrita las vías respiratorias. La Organización Mundial de la Salud calcula que la contaminación del aire causa millones de muertes prematuras cada año en el mundo. Para reducirla se usan catalizadores en los coches, filtros en las chimeneas, combustibles más limpios, transporte público, vehículos eléctricos y zonas de bajas emisiones en las ciudades.",
+    ], svg: rejilla("Contaminantes del aire y su origen", ["Contaminante", "Origen", "Efecto"], [["CO", "combustión mala", "tóxico"], ["NOₓ", "motores diésel", "pulmones, boina"], ["SO₂", "carbón, gasóleo", "lluvia ácida"], ["Partículas", "hollín, polvo", "pulmones"], ["Ozono bajo", "sol + NOₓ", "irritante"]], "var(--muted)") }),
+    bloque({ h: "2.2 El efecto invernadero y el cambio climático", p: [
+      "La Tierra recibe energía del Sol en forma de luz y la devuelve al espacio en forma de radiación infrarroja (calor). Algunos gases de la atmósfera, llamados <mark>gases de efecto invernadero</mark>, como el vapor de agua, el dióxido de carbono (CO₂), el metano (CH₄) y el óxido de dinitrógeno (N₂O), absorben parte de ese calor y lo reenvían hacia la superficie. Este <b>efecto invernadero natural</b> es imprescindible: sin él, la temperatura media sería de unos −18 °C en lugar de 15 °C.",
+      "El problema es que, desde la Revolución Industrial, la quema de <b>combustibles fósiles</b> (carbón, petróleo y gas) y la deforestación han aumentado la concentración de CO₂ en la atmósfera de unas 280 a más de 420 partes por millón. Al haber más gases que retienen calor, la temperatura media ha subido ya más de 1,2 °C: es el <mark>calentamiento global</mark>, que provoca el <b>cambio climático</b>: olas de calor más intensas, sequías, lluvias torrenciales, deshielo de glaciares y polos, subida del nivel del mar y pérdida de biodiversidad. Para frenarlo hay que reducir las emisiones con energías renovables, eficiencia energética, transporte sostenible y la protección de los bosques, que absorben CO₂.",
+    ], svg: S.svg[1], video: S.bvideos[0] }),
+    bloque({ h: "2.3 La lluvia ácida", p: [
+      "El <b>dióxido de azufre</b> (SO₂) y los <b>óxidos de nitrógeno</b> (NOₓ) que se emiten al quemar combustibles reaccionan en la atmósfera con el oxígeno y el vapor de agua y forman <b>ácido sulfúrico</b> y <b>ácido nítrico</b>. Estos ácidos se disuelven en las gotas de las nubes y caen con la lluvia, la nieve o la niebla: es la <mark>lluvia ácida</mark>, que tiene un pH inferior a 5,6, más ácido que la lluvia normal. Las reacciones simplificadas son: 2 SO₂ + O₂ → 2 SO₃ y SO₃ + H₂O → H₂SO₄.",
+      "La lluvia ácida puede caer a cientos de kilómetros de donde se emitieron los contaminantes. <b>Acidifica</b> lagos y ríos, matando peces y otros seres vivos; daña las hojas de los árboles y empobrece los suelos, y fue la causa de la muerte de grandes extensiones de bosques en el centro de Europa en los años ochenta. También <b>corroe</b> los metales y disuelve la piedra caliza y el mármol de edificios y monumentos históricos, porque los ácidos reaccionan con el carbonato de calcio. Gracias a los filtros de las centrales, a combustibles con menos azufre y a los catalizadores de los coches, la lluvia ácida se ha reducido mucho en Europa, aunque sigue siendo un problema en otras regiones.",
+    ], extra: formula("SO₃ + H₂O → H₂SO₄"), svg: S.svg[2], video: S.bvideos[1] }),
+    bloque({ h: "2.4 La capa de ozono", p: [
+      "En la estratosfera, entre 15 y 35 km de altura, hay una capa con una concentración relativamente alta de <b>ozono</b> (O₃), un gas formado por tres átomos de oxígeno. Esta <mark>capa de ozono</mark> absorbe la mayor parte de la radiación <b>ultravioleta</b> del Sol, que es dañina para los seres vivos: causa quemaduras, cáncer de piel, cataratas y daños en el plancton y los cultivos.",
+      "A partir de los años setenta se descubrió que unos gases muy usados en frigoríficos, aires acondicionados, aerosoles y espumas, los <b>clorofluorocarbonos</b> (CFC), subían hasta la estratosfera, donde la radiación solar liberaba sus átomos de <b>cloro</b>, que destruían el ozono en una reacción en cadena: un solo átomo de cloro puede destruir miles de moléculas de ozono. Así se formó el <mark>agujero de la capa de ozono</mark> sobre la Antártida. El <b>Protocolo de Montreal</b> (1987) prohibió los CFC y, gracias a ello, la capa se está recuperando. No hay que confundir este problema con el efecto invernadero: son fenómenos distintos, aunque algunos gases, como los CFC, contribuyen a los dos. El ozono es bueno allá arriba, pero a ras de suelo es un contaminante.",
+    ], svg: compara("Diferencias entre el ozono de la estratosfera y el de ras de suelo", ["Estratosfera", ["15-35 km", "filtra rayos UV", "lo dañan los CFC", "es beneficioso"]], ["Ras de suelo", ["en las ciudades", "se forma con sol", "y contaminantes", "es irritante"]], "var(--pen)", "var(--red)") }),
+    bloque({ h: "3.1 La contaminación del agua y del suelo", p: [
+      "El agua se contamina con <b>vertidos</b> de aguas residuales urbanas sin depurar, que aportan materia orgánica y microbios; con <b>vertidos industriales</b>, que pueden contener metales pesados como el mercurio, el plomo o el cadmio; con los <b>nitratos y fosfatos</b> de los abonos y de los detergentes, que provocan la <mark>eutrofización</mark>: las algas crecen sin control, al morir se descomponen y consumen el oxígeno del agua, y los peces mueren; y con los <b>hidrocarburos</b> de las mareas negras.",
+      "El suelo se contamina con residuos industriales y mineros, vertederos mal controlados, el exceso de fitosanitarios y abonos, y las fugas de combustibles. Algunos contaminantes, como los metales pesados, se acumulan en los seres vivos y pasan de unos a otros en la cadena alimentaria, de modo que los depredadores finales, como el atún o las personas, reciben las mayores concentraciones: es la <b>bioacumulación</b>. Para proteger el agua y el suelo se construyen <b>depuradoras</b>, que combinan procesos físicos, químicos y biológicos; se controlan los vertidos; se usan abonos con moderación y se gestionan correctamente los residuos peligrosos, como pilas, aceites o medicamentos, que nunca deben tirarse al desagüe ni a la basura normal.",
+    ], svg: pasos("Cómo se produce la eutrofización de un lago", ["Llegan nitratos y fosfatos", "Las algas crecen sin control", "Mueren y se descomponen", "Falta oxígeno: mueren los peces"], "var(--leaf)") }),
+    bloque({ h: "3.2 Los plásticos y los residuos", p: [
+      "Cada año se fabrican en el mundo más de 400 millones de toneladas de <mark>plásticos</mark>, y la mitad son de un solo uso: bolsas, envases, pajitas o botellas que se usan unos minutos. El problema es que la mayoría no son biodegradables y pueden tardar cientos de años en degradarse. Solo una pequeña parte se recicla; el resto acaba en vertederos, incinerado o en la naturaleza. Se calcula que cada año llegan al mar millones de toneladas de plástico, que forman grandes acumulaciones flotantes en los océanos y causan la muerte de tortugas, aves y peces que los ingieren o quedan atrapados.",
+      "Con el tiempo, el sol y las olas rompen los plásticos en fragmentos diminutos, los <b>microplásticos</b>, que ya se han encontrado en el agua del grifo, la sal, el pescado e incluso en la sangre humana. La solución es seguir la <mark>regla de las tres erres</mark>: <b>reducir</b> el consumo, sobre todo de plásticos de un solo uso; <b>reutilizar</b> envases y bolsas; y <b>reciclar</b>, separando bien los residuos en los contenedores: amarillo para envases, azul para papel, verde para vidrio y marrón para orgánico. A ellas se añaden otras, como reparar y recuperar. La <b>economía circular</b> busca que los residuos de un proceso sean la materia prima de otro.",
+    ], svg: S.svg[3], video: S.bvideos[2] }),
+    bloque({ h: "3.3 La química verde", p: [
+      "La <mark>química verde</mark> o química sostenible es una forma de diseñar los productos y los procesos químicos para reducir o eliminar el uso y la producción de sustancias peligrosas. No se trata de limpiar la contaminación cuando ya se ha producido, sino de <b>evitarla desde el principio</b>. Sus principios, formulados por los químicos Paul Anastas y John Warner en 1998, incluyen: prevenir los residuos en lugar de tratarlos, aprovechar al máximo los átomos de los reactivos, usar sustancias menos tóxicas, utilizar disolventes inocuos como el agua, ahorrar energía trabajando a temperatura ambiente, usar materias primas renovables y emplear catalizadores.",
+      "Ya hay muchos ejemplos de química verde: detergentes que lavan en frío gracias a enzimas, pinturas al agua en lugar de con disolventes tóxicos, plásticos biodegradables a partir de maíz, biocombustibles a partir de residuos, o medicamentos como el ibuprofeno, cuya fabricación se rediseñó para generar muchos menos residuos. También forman parte de este enfoque el <b>reciclaje químico</b> de plásticos y la captura del CO₂ de las chimeneas para convertirlo en productos útiles. La química verde demuestra que es posible producir lo que necesitamos sin hipotecar el planeta.",
+    ], svg: ficha("Principios de la química verde", "Química verde", ["Prevenir residuos", "Sustancias menos tóxicas", "Ahorrar energía", "Materias primas renovables"], "var(--leaf)") }),
+    bloque({ h: "3.4 El desarrollo sostenible", p: [
+      "El <mark>desarrollo sostenible</mark> es el que satisface las necesidades del presente sin comprometer la capacidad de las generaciones futuras para satisfacer las suyas. En 2015, la ONU aprobó la <b>Agenda 2030</b>, con 17 Objetivos de Desarrollo Sostenible (ODS), como garantizar agua limpia y saneamiento (ODS 6), energía asequible y no contaminante (ODS 7), producción y consumo responsables (ODS 12) o acción por el clima (ODS 13). La química participa en casi todos.",
+      "Cada persona puede contribuir con su forma de consumir: ahorrar agua y energía, usar el transporte público o la bicicleta, evitar los productos de un solo uso, separar los residuos, comprar productos locales y de temporada, alargar la vida de los aparatos electrónicos y llevar los residuos peligrosos a los puntos limpios. También es importante estar bien informado y desconfiar de mensajes que presentan lo «natural» como bueno y lo «químico» como malo sin pruebas, la llamada <b>quimiofobia</b>: la dosis y la sustancia concreta son lo que determina si algo es peligroso. Los problemas ambientales son globales, y su solución exige ciencia, tecnología, leyes y la participación de toda la sociedad.",
+    ], svg: ciclo("Las tres erres y la economía circular", ["Reducir", "Reutilizar", "Reciclar", "Recuperar"], "var(--leaf)", "Economía circular") }),
   ],
-  figura: {
-    titulo: "La química: beneficios y retos",
-    svg: `<svg viewBox="0 0 640 240" role="img" aria-label="Balanza con beneficios de la química a la izquierda, como medicamentos, fertilizantes, materiales y agua potable, y retos a la derecha, como cambio climático, lluvia ácida, ozono y plásticos; en el centro, la química verde">
-      <rect width="640" height="240" rx="16" fill="var(--paper)"/>
-      ${caja(20, 20, 260, 44, "BENEFICIOS", "var(--leaf)", { size: 16 })}${caja(360, 20, 260, 44, "RETOS", "var(--red)", { size: 16 })}
-      ${["medicamentos y vacunas", "fertilizantes", "nuevos materiales", "agua potable"].map((n, i) => t(150, 94 + i * 26, n, { size: 14, weight: 400 })).join("")}
-      ${["cambio climático", "lluvia ácida", "capa de ozono", "plásticos y residuos"].map((n, i) => t(490, 94 + i * 26, n, { size: 14, weight: 400 })).join("")}
-      ${caja(200, 192, 240, 36, "química verde y sostenible", "var(--pen)", { size: 14 })}
-    </svg>`,
-  },
-  video: { id: "2mn1dnBbOuI", titulo: "Química verde: una ciencia sostenible ambiental y económicamente", canal: "FRANCE 24 Español", vistas: 27037, megusta: 0, busqueda: "química sostenible plásticos reciclaje" },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Explica por qué la lluvia ácida daña una catedral de piedra caliza.",
-      pasos: ["La caliza es carbonato de calcio.", "Los ácidos de la lluvia reaccionan con el carbonato de calcio.", "Se forman sustancias solubles y CO₂: la piedra se va disolviendo."],
-      resultado: "los ácidos reaccionan con la caliza y la desgastan." },
-    { enunciado: "Una familia gasta 300 bolsas de plástico al año. Si cada bolsa pesa 5 g, ¿cuánto plástico evitarían con bolsas reutilizables?",
-      pasos: ["Masa total = 300 · 5 g.", "= 1500 g.", "= 1,5 kg al año."],
-      resultado: "1,5 kg de plástico al año." },
-    { enunciado: "¿Es lo mismo el agujero de la capa de ozono que el cambio climático?",
-      pasos: ["El agujero lo causan los CFC, que destruyen el ozono y dejan pasar más rayos UV.", "El cambio climático lo causa el aumento de gases de efecto invernadero, sobre todo CO₂.", "Son problemas distintos, con causas y soluciones distintas."],
-      resultado: "no; son dos problemas diferentes." },
+    { enunciado: "Explica por qué la frase «este producto no tiene químicos» es incorrecta.", pasos: ["Toda la materia está formada por sustancias químicas.", "El agua, el azúcar o las vitaminas son sustancias químicas.", "Lo que importa es qué sustancia es y en qué dosis."], resultado: "Todo producto tiene sustancias químicas; la frase pretende decir «sin sustancias sintéticas», lo que no implica que sea más seguro." },
+    { enunciado: "Escribe y ajusta las reacciones de formación del ácido sulfúrico de la lluvia ácida a partir de SO₂.", pasos: ["El SO₂ se oxida: SO₂ + O₂ → SO₃.", "Ajuste: 2 SO₂ + O₂ → 2 SO₃.", "El SO₃ reacciona con el agua: SO₃ + H₂O → H₂SO₄ (ya ajustada)."], resultado: "2 SO₂ + O₂ → 2 SO₃; SO₃ + H₂O → H₂SO₄." },
+    { enunciado: "¿Por qué la lluvia ácida daña las estatuas de mármol?", pasos: ["El mármol es carbonato de calcio, CaCO₃.", "Los ácidos reaccionan con los carbonatos: CaCO₃ + H₂SO₄ → CaSO₄ + H₂O + CO₂.", "Se forma yeso, que se disuelve y se desprende."], resultado: "El ácido reacciona con el carbonato de calcio y la piedra se va disolviendo." },
+    { enunciado: "La combustión de 1 L de gasolina emite unos 2,3 kg de CO₂. Un coche consume 6 L cada 100 km y recorre 15.000 km al año. ¿Cuánto CO₂ emite al año?", pasos: ["Litros al año: 15.000 / 100 · 6 = 900 L.", "CO₂: 900 · 2,3 = 2.070 kg."], resultado: "Unas 2,1 toneladas de CO₂ al año." },
+    { enunciado: "Diferencia el efecto invernadero del agujero de la capa de ozono.", pasos: ["Efecto invernadero: gases como el CO₂ retienen calor; su aumento causa el calentamiento global.", "Agujero de ozono: los CFC destruyen el ozono que filtra los rayos UV.", "Causas, efectos y soluciones distintas."], resultado: "Son problemas diferentes: uno calienta el planeta y el otro deja pasar más radiación ultravioleta." },
+    { enunciado: "Un champú lleva E-202 y E-330. ¿Qué tipo de aditivos son?", pasos: ["E-200 a E-299: conservantes → E-202 (sorbato de potasio).", "E-330: ácido cítrico, regulador de acidez y antioxidante."], resultado: "Un conservante y el ácido cítrico, presente en el limón." },
   ],
   errores: [
-    "Pensar que «químico» significa «tóxico»: todo está formado por sustancias químicas.",
-    "Creer que el efecto invernadero es malo en sí: el natural permite la vida; el problema es su aumento.",
-    "Confundir el agujero de la capa de ozono con el cambio climático.",
-    "Pensar que reciclar es lo más importante: primero reducir y reutilizar.",
-    "Usar antibióticos para un catarro: no sirven contra virus y crean resistencias.",
+    "Pensar que «químico» significa siempre artificial o peligroso: todo está hecho de sustancias químicas.",
+    "Confundir el efecto invernadero con el agujero de la capa de ozono.",
+    "Creer que el efecto invernadero es malo en sí mismo: el natural es imprescindible para la vida.",
+    "Pensar que el ozono siempre es beneficioso: a ras de suelo es un contaminante.",
+    "Tirar medicamentos, aceite o pilas por el desagüe o a la basura normal.",
+    "Creer que reciclar basta: lo más importante es reducir el consumo.",
   ],
   ejercicios: [
-    { q: "Cita cuatro productos químicos que uses en un día y para qué sirven.", sol: "Por ejemplo: jabón (higiene), pasta de dientes (proteger el esmalte), plástico del móvil (aislar y proteger), medicamento (curar), combustible del autobús (energía)." },
-    { q: "¿Cómo ha contribuido la química a aumentar la esperanza de vida?", sol: "Con medicamentos, antibióticos, vacunas, desinfectantes y la potabilización del agua." },
-    { q: "¿Qué son los fertilizantes y qué problema causa su abuso?", sol: "Sustancias que aportan nutrientes al suelo (N, P, K). Su exceso contamina el agua y causa eutrofización." },
-    { q: "Nombra tres materiales creados por la química y una aplicación de cada uno.", sol: "Plástico (envases), fibra de carbono (bicicletas), silicio (chips), nailon (ropa)." },
-    { q: "Explica la diferencia entre efecto invernadero natural y calentamiento global.", sol: "El natural mantiene la Tierra a unos 15 °C; el calentamiento global es su refuerzo por el aumento de CO₂ y otros gases de origen humano." },
-    { q: "¿Cómo se forma la lluvia ácida y qué efectos tiene?", sol: "SO₂ y NOₓ reaccionan con agua y oxígeno en la atmósfera y forman ácidos que caen con la lluvia; dañan lagos, bosques y monumentos." },
-    { q: "¿Por qué es importante la capa de ozono y qué la dañaba?", sol: "Absorbe la radiación ultravioleta; la dañaban los CFC, prohibidos por el Protocolo de Montreal." },
-    { q: "¿Qué son los microplásticos y dónde se han encontrado?", sol: "Trozos de plástico de menos de 5 mm; se han encontrado en el mar, el agua del grifo, la sal, el pescado y la sangre humana." },
-    { q: "Ordena y explica las tres erres.", sol: "Reducir (consumir menos), reutilizar (dar más usos) y reciclar (separar para fabricar nuevos productos)." },
-    { q: "Explica dos principios de la química verde.", sol: "Evitar residuos en lugar de tratarlos; usar materias primas renovables; ahorrar energía; fabricar productos biodegradables." },
+    B("Nombra cinco productos de la industria química que uses a diario.", "Por ejemplo: pasta de dientes, champú, ropa de poliéster, el plástico del móvil, medicamentos, detergente."),
+    B("¿Qué son los antibióticos? ¿Quién descubrió la penicilina?", "Medicamentos que combaten las infecciones causadas por bacterias. Alexander Fleming, en 1928."),
+    B("¿Qué indica el código E en los alimentos? ¿Qué son los E-200?", "Que es un aditivo autorizado en la Unión Europea. Los E-200 a E-299 son conservantes."),
+    B("Nombra tres nuevos materiales y un uso de cada uno.", "Fibra de carbono (bicicletas), silicio (chips y placas solares), grafeno (electrónica), bioplásticos (envases)."),
+    B("Nombra cuatro contaminantes del aire y su origen.", "CO (combustiones con poco oxígeno), NOₓ (motores diésel), SO₂ (carbón y gasóleo), partículas (hollín, polvo)."),
+    B("¿Qué gases producen el efecto invernadero?", "Vapor de agua, dióxido de carbono, metano, óxido de dinitrógeno y otros como los CFC."),
+    B("¿Por qué el efecto invernadero natural es necesario?", "Porque sin él la temperatura media de la Tierra sería de unos −18 °C y no habría agua líquida ni vida tal como la conocemos."),
+    B("¿Qué gases causan la lluvia ácida?", "El dióxido de azufre y los óxidos de nitrógeno."),
+    B("¿Para qué sirve la capa de ozono y qué gases la destruyeron?", "Filtra la radiación ultravioleta del Sol. La destruyeron los CFC."),
+    B("Explica la regla de las tres erres.", "Reducir el consumo, reutilizar los objetos y reciclar los materiales."),
+    B("¿En qué contenedor van: una botella de plástico, un periódico, un tarro de cristal, una cáscara de plátano?", "Amarillo, azul, verde y marrón (orgánico)."),
+    B("¿Qué es la química verde?", "Una forma de diseñar productos y procesos químicos que reduzca o elimine el uso y la producción de sustancias peligrosas."),
+    M("Explica cómo se produce el aumento del efecto invernadero y tres consecuencias del cambio climático.", "La quema de combustibles fósiles y la deforestación aumentan el CO₂ atmosférico, que retiene más calor. Consecuencias: olas de calor, sequías, subida del nivel del mar, deshielo, pérdida de biodiversidad."),
+    M("Escribe y ajusta la reacción del NO₂ con el agua sabiendo que forma ácido nítrico (HNO₃) y NO.", "3 NO₂ + H₂O → 2 HNO₃ + NO."),
+    M("¿Por qué la lluvia ácida puede afectar a un bosque situado a cientos de kilómetros de una fábrica?", "Porque los contaminantes son arrastrados por el viento antes de transformarse en ácidos y caer con la lluvia."),
+    M("Explica qué es la eutrofización y cómo se puede evitar.", "El exceso de nitratos y fosfatos provoca un crecimiento descontrolado de algas; al morir se descomponen y consumen el oxígeno, y mueren los peces. Se evita depurando las aguas y usando abonos y detergentes con moderación."),
+    M("¿Qué son los microplásticos y por qué preocupan?", "Fragmentos de plástico de menos de 5 mm que se forman al degradarse los plásticos o se fabrican así. Se acumulan en el mar, entran en la cadena alimentaria y se han encontrado en el cuerpo humano."),
+    M("¿Por qué el abuso de antibióticos es un problema?", "Porque favorece la aparición de bacterias resistentes, contra las que los antibióticos dejan de funcionar."),
+    M("Distingue el ozono estratosférico del troposférico.", "El estratosférico está a 15-35 km y nos protege de los rayos UV. El troposférico se forma a ras de suelo con el sol y otros contaminantes y es irritante para las vías respiratorias."),
+    M("¿Qué es la bioacumulación? Pon un ejemplo.", "La acumulación de un contaminante en los seres vivos, que aumenta a lo largo de la cadena alimentaria. Ejemplo: el mercurio en los peces grandes como el atún o el pez espada."),
+    M("Propón cinco acciones personales para reducir tu huella de carbono.", "Ir andando, en bici o en transporte público; ahorrar energía en casa; reducir el consumo de carne y de productos de un solo uso; comprar productos locales; alargar la vida de los aparatos."),
+    M("¿Por qué el Protocolo de Montreal se considera un éxito?", "Porque casi todos los países acordaron prohibir los CFC, la industria encontró sustitutos y la capa de ozono se está recuperando."),
+    A("La quema de 1 kg de carbón (100 % C) produce CO₂ según C + O₂ → CO₂. ¿Cuánto CO₂ se emite? (C = 12, O = 16)", "12 g de C dan 44 g de CO₂: 1.000 · 44 / 12 ≈ 3.667 g ≈ 3,7 kg de CO₂. Pesa más que el carbón porque incorpora el oxígeno del aire."),
+    A("Una central térmica quema al día 5.000 t de carbón con un 2 % de azufre. Si todo el azufre forma SO₂ (S + O₂ → SO₂; S = 32, O = 16), ¿cuánto SO₂ emite al día?", "Azufre: 100 t. 32 t de S dan 64 t de SO₂: se emiten 200 t de SO₂ al día (si no hay filtros)."),
+    A("Busca la etiqueta de un alimento procesado, identifica sus aditivos E y explica la función de cada uno.", "Respuesta abierta: por ejemplo E-300 (ácido ascórbico, antioxidante), E-330 (ácido cítrico, acidulante), E-202 (sorbato de potasio, conservante), E-322 (lecitina, emulsionante)."),
+    A("Debate: ¿deberían prohibirse todos los plásticos de un solo uso? Da argumentos a favor y en contra.", "A favor: reducen residuos y contaminación marina; hay alternativas reutilizables. En contra: algunos son necesarios en medicina e higiene; las alternativas pueden tener mayor impacto si no se reutilizan; afecta a empleos y costes."),
+    A("Explica cómo funciona una depuradora de aguas residuales relacionándolo con los métodos de separación de mezclas.", "Rejas y tamices separan objetos grandes; desarenadores y decantadores separan sólidos por densidad; se eliminan grasas por flotación; bacterias descomponen la materia orgánica disuelta (tratamiento biológico); a veces se filtra y desinfecta antes de devolver el agua al río."),
+    A("¿Por qué un átomo de cloro de los CFC puede destruir miles de moléculas de ozono?", "Porque actúa como un catalizador: reacciona con el ozono y queda libre de nuevo al final del ciclo, así que puede repetir la reacción una y otra vez."),
+    A("Aplica tres principios de la química verde a la fabricación de un detergente.", "Usar materias primas renovables (aceites vegetales); enzimas que permitan lavar en frío (ahorro de energía y catálisis); sustancias biodegradables y sin fosfatos para evitar la eutrofización; envases reciclables y concentrados para reducir residuos."),
+    A("Explica por qué decir que algo «es natural, así que es inocuo» es un error. Pon ejemplos.", "Porque la peligrosidad depende de la sustancia y la dosis, no de su origen: hay sustancias naturales muy tóxicas (la cicuta, el veneno de algunas setas, el arsénico) y sustancias sintéticas seguras (muchos medicamentos)."),
   ],
   quiz: [
-    { q: "La penicilina la descubrió…", o: ["Fleming", "Lavoisier", "Haber"], a: 0, e: "Alexander Fleming, en 1928." },
-    { q: "El principal gas de efecto invernadero de origen humano es…", o: ["el oxígeno", "el CO₂", "el nitrógeno"], a: 1, e: "El CO₂." },
-    { q: "Sin efecto invernadero, la temperatura media sería…", o: ["−18 °C", "15 °C", "40 °C"], a: 0, e: "−18 °C." },
-    { q: "La lluvia ácida la causan sobre todo…", o: ["SO₂ y NOₓ", "O₂ y N₂", "CFC"], a: 0, e: "Óxidos de azufre y nitrógeno." },
-    { q: "La capa de ozono nos protege de…", o: ["la radiación ultravioleta", "el frío", "los meteoritos"], a: 0, e: "Los rayos UV." },
-    { q: "Los CFC se prohibieron con el…", o: ["Protocolo de Kioto", "Protocolo de Montreal", "Acuerdo de París"], a: 1, e: "Montreal, 1987." },
-    { q: "Un microplástico mide menos de…", o: ["5 mm", "5 cm", "5 m"], a: 0, e: "5 mm." },
-    { q: "Los envases de plástico van al contenedor…", o: ["azul", "amarillo", "verde"], a: 1, e: "Amarillo." },
-    { q: "La eutrofización la causa el exceso de…", o: ["nutrientes", "sal", "oxígeno"], a: 0, e: "Nutrientes como los nitratos." },
-    { q: "La química verde busca…", o: ["más residuos", "evitar sustancias peligrosas", "usar solo petróleo"], a: 1, e: "Reducir sustancias peligrosas." },
+    q4("¿Cuál de estas sustancias es química?", ["El agua", "El azúcar", "El oxígeno", "Todas"], 3, "Todo es química."),
+    q4("La penicilina es un…", ["analgésico", "antibiótico", "aditivo", "plástico"], 1, "Fleming, 1928."),
+    q4("Los aditivos E-200 a E-299 son…", ["colorantes", "conservantes", "espesantes", "edulcorantes"], 1, "Evitan microbios."),
+    q4("La fibra de carbono es…", ["un metal", "un material compuesto", "un gas", "un aditivo"], 1, "Ligera y resistente."),
+    q4("El silicio se usa para fabricar…", ["bolsas", "chips y placas solares", "medicamentos", "abonos"], 1, "Semiconductor."),
+    q4("El monóxido de carbono se forma…", ["con mucho oxígeno", "en combustiones con poco oxígeno", "en la fotosíntesis", "en la lluvia"], 1, "Muy tóxico."),
+    q4("El principal gas de efecto invernadero emitido por el ser humano es…", ["el oxígeno", "el nitrógeno", "el CO₂", "el helio"], 2, "Combustibles fósiles."),
+    q4("Sin efecto invernadero, la temperatura media de la Tierra sería de unos…", ["15 °C", "−18 °C", "30 °C", "0 °C"], 1, "Es necesario."),
+    q4("La lluvia ácida la producen…", ["CO₂ y O₂", "SO₂ y NOₓ", "CFC", "metano"], 1, "Forman ácidos."),
+    q4("La lluvia ácida daña el mármol porque…", ["lo moja", "el ácido reacciona con el carbonato", "lo enfría", "lo funde"], 1, "CaCO₃ + ácido."),
+    q4("La capa de ozono nos protege de…", ["el calor", "los rayos ultravioleta", "la lluvia ácida", "el CO₂"], 1, "Radiación UV."),
+    q4("La capa de ozono fue dañada por…", ["el CO₂", "los CFC", "el agua", "el oxígeno"], 1, "Protocolo de Montreal."),
+    q4("La eutrofización la causan…", ["metales pesados", "nitratos y fosfatos", "plásticos", "CFC"], 1, "Exceso de nutrientes."),
+    q4("Los microplásticos son…", ["plásticos biodegradables", "fragmentos diminutos de plástico", "plásticos reciclados", "plásticos de colores"], 1, "Menos de 5 mm."),
+    q4("La «erre» más importante es…", ["reciclar", "reutilizar", "reducir", "recoger"], 2, "Mejor no generar residuo."),
+    q4("Los envases de plástico van al contenedor…", ["azul", "verde", "amarillo", "marrón"], 2, "Amarillo."),
+    q4("La química verde busca…", ["pintar de verde", "evitar la contaminación desde el diseño", "usar solo plantas", "prohibir la química"], 1, "Prevenir mejor que limpiar."),
+    q4("Los medicamentos caducados se llevan…", ["al desagüe", "a la basura", "al punto SIGRE de la farmacia", "al contenedor amarillo"], 2, "Gestión segura."),
+    q4("La Agenda 2030 tiene…", ["5 objetivos", "10 objetivos", "17 objetivos", "30 objetivos"], 2, "ODS."),
+    q4("El ozono a ras de suelo es…", ["beneficioso", "un contaminante", "inexistente", "un gas noble"], 1, "Irrita las vías respiratorias."),
   ],
   examen: [
-    { q: "La primera de las tres erres es…", o: ["reciclar", "reducir", "reutilizar"], a: 1, e: "Reducir." },
-    { q: "El grafeno es una lámina de…", o: ["silicio", "carbono", "hierro"], a: 1, e: "Carbono." },
-    { q: "Las zonas de bajas emisiones buscan reducir…", o: ["la contaminación del aire", "el ruido de los aviones", "la lluvia"], a: 0, e: "La contaminación del aire." },
+    q4("¿Qué reacción forma el ácido de la lluvia ácida?", ["SO₃ + H₂O → H₂SO₄", "CO₂ + H₂O → glucosa", "2 H₂ + O₂ → 2 H₂O", "N₂ + 3 H₂ → 2 NH₃"], 0, "Ácido sulfúrico."),
+    q4("¿Qué problema NO está causado principalmente por el CO₂?", ["Calentamiento global", "Subida del nivel del mar", "Agujero de ozono", "Acidificación del océano"], 2, "Lo causan los CFC."),
+    q4("Un coche que consume 900 L de gasolina al año (2,3 kg de CO₂ por litro) emite…", ["390 kg", "2.070 kg", "900 kg", "23 kg"], 1, "900 · 2,3."),
+    q4("La bioacumulación hace que el mercurio sea más alto en…", ["algas", "pequeños peces", "grandes depredadores", "el agua"], 2, "Final de la cadena."),
+    q4("¿Cuál es un principio de la química verde?", ["Tratar los residuos al final", "Usar disolventes tóxicos", "Prevenir residuos", "Usar más energía"], 2, "Prevenir."),
+    q4("El Protocolo de Montreal prohibió…", ["el CO₂", "los CFC", "los plásticos", "los abonos"], 1, "1987."),
+    q4("Los nitratos de los abonos en exceso provocan…", ["lluvia ácida", "eutrofización", "agujero de ozono", "smog"], 1, "Algas sin control."),
+    q4("La afirmación «lo natural es siempre inocuo» es…", ["cierta", "falsa", "cierta solo en plantas", "una ley química"], 1, "Depende de la sustancia y la dosis."),
   ],
-  feynman: ["Cómo ha mejorado la química nuestra salud y alimentación", "Qué diferencia hay entre efecto invernadero, lluvia ácida y agujero de ozono", "Qué puedo hacer yo para reducir los residuos"],
-  mapa: mapa("QUÍMICA Y SOCIEDAD", "var(--eso)", [
-    ["Beneficios", "salud · alimentos · materiales", "var(--leaf)"],
-    ["Aire", "efecto invernadero · lluvia ácida", "var(--red)"],
-    ["Ozono y residuos", "CFC · plásticos · microplásticos", "#b8860b"],
-    ["Soluciones", "química verde · tres erres", "var(--pen)"],
-  ], 300),
+  feynman: ["Por qué todo lo que nos rodea es química", "Qué aporta la química a la salud y la alimentación", "Cómo se produce el aumento del efecto invernadero", "Qué es la lluvia ácida y qué daños causa", "Qué diferencia hay entre el efecto invernadero y el agujero de ozono", "Qué es la química verde y cómo ayuda al desarrollo sostenible"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Fertilizante", "Aporta nitrógeno, fósforo y potasio al suelo."],
-    ["Eutrofización", "Exceso de nutrientes en el agua: algas y falta de oxígeno."],
-    ["Efecto invernadero", "Los gases retienen calor; su aumento calienta el planeta."],
-    ["Lluvia ácida", "Lluvia con ácidos formados por SO₂ y NOₓ."],
-    ["Capa de ozono", "Capa de O₃ que absorbe la radiación ultravioleta."],
-    ["CFC", "Gases que destruían el ozono; prohibidos en 1987."],
-    ["Microplásticos", "Fragmentos de plástico de menos de 5 mm."],
-    ["Química verde", "Diseñar procesos que eviten sustancias peligrosas."],
+    ["Industria química", "Transforma materias primas en productos útiles."],
+    ["Antibiótico", "Medicamento contra las bacterias; no abusar."],
+    ["Aditivo E", "Sustancia autorizada que se añade a los alimentos."],
+    ["Nuevos materiales", "Fibra de carbono, grafeno, silicio, bioplásticos."],
+    ["Contaminantes del aire", "CO, NOₓ, SO₂, partículas, ozono bajo."],
+    ["Efecto invernadero", "Gases como el CO₂ retienen el calor."],
+    ["Cambio climático", "Calentamiento por el aumento de CO₂."],
+    ["Lluvia ácida", "SO₂ y NOₓ forman ácidos que caen con la lluvia."],
+    ["Capa de ozono", "Filtra los rayos UV; la dañaron los CFC."],
+    ["Eutrofización", "Exceso de nutrientes, algas y falta de oxígeno."],
+    ["Tres erres", "Reducir, reutilizar, reciclar."],
+    ["Química verde", "Diseñar procesos que eviten la contaminación."],
   ],
-  familias: ["Durante una semana, anotad cuántos envases de plástico de un solo uso entran en casa y buscad alternativas.", "Revisad las etiquetas de productos de limpieza y buscad los pictogramas de peligro.", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "El cambio: la química en la sociedad, industria química, impacto ambiental de las reacciones, contaminación, residuos y química sostenible (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Medir el pH del agua de lluvia y de distintos líquidos con indicador de col lombarda.", "Auditoría de residuos del aula durante una semana.", "Debate por roles sobre una zona de bajas emisiones en la ciudad."],
+  glosario: [
+    ["Industria química", "Sector que transforma materias primas en productos químicos."],
+    ["Medicamento", "Sustancia que previene, alivia o cura enfermedades."],
+    ["Antibiótico", "Medicamento que combate las infecciones bacterianas."],
+    ["Aditivo alimentario", "Sustancia que se añade a los alimentos para conservarlos o mejorarlos."],
+    ["Polímero", "Molécula muy grande formada por la unión de muchas moléculas pequeñas."],
+    ["Material compuesto", "Material formado por la combinación de otros para mejorar sus propiedades."],
+    ["Contaminante", "Sustancia que, en cierta cantidad, daña la salud o el medio ambiente."],
+    ["Gas de efecto invernadero", "Gas que absorbe la radiación infrarroja y retiene el calor."],
+    ["Calentamiento global", "Aumento de la temperatura media de la Tierra."],
+    ["Lluvia ácida", "Precipitación con pH menor que 5,6 por la presencia de ácidos."],
+    ["Capa de ozono", "Zona de la estratosfera rica en ozono que filtra los rayos UV."],
+    ["CFC", "Clorofluorocarbonos, gases que destruyen el ozono."],
+    ["Eutrofización", "Exceso de nutrientes en el agua que provoca falta de oxígeno."],
+    ["Bioacumulación", "Acumulación de un contaminante en los seres vivos a lo largo de la cadena alimentaria."],
+    ["Microplástico", "Fragmento de plástico de menos de 5 mm."],
+    ["Economía circular", "Modelo en el que los residuos se convierten en recursos."],
+    ["Química verde", "Diseño de productos y procesos químicos que reducen las sustancias peligrosas."],
+    ["Desarrollo sostenible", "El que cubre las necesidades actuales sin comprometer las futuras."],
+  ],
+  situacion: {
+    titulo: "Auditoría ambiental del instituto",
+    reto: "El consejo escolar quiere que el centro reduzca su impacto ambiental. Vuestra clase debe hacer una auditoría química y ambiental del instituto (residuos, energía, agua, productos de limpieza) y presentar un plan de mejora con medidas concretas y medibles.",
+    pasos: [
+      "Pesad durante una semana los residuos de una clase separados por tipos y calculad el total anual del centro.",
+      "Revisad las facturas de luz y gas o los contadores y estimad las emisiones de CO₂ asociadas.",
+      "Analizad las etiquetas de los productos de limpieza: pictogramas, sustancias y alternativas más sostenibles.",
+      "Investigad cómo afectan estos datos al efecto invernadero, la contaminación del agua y los plásticos.",
+      "Proponed al menos cinco medidas con su coste, su beneficio y un indicador para medir el éxito.",
+      "Presentad el plan al consejo escolar y difundidlo en el centro.",
+    ],
+    producto: "Un informe de auditoría con datos y gráficas y un plan de mejora ambiental presentado al consejo escolar.",
+    evaluacion: ["Los datos se recogen y se analizan con rigor.", "Se relacionan correctamente con los problemas ambientales estudiados.", "Las medidas son realistas, concretas y medibles.", "La presentación es clara y convincente."],
   },
-  fuentes: [RD, wiki("Lluvia ácida", "Lluvia_%C3%A1cida"), wiki("Química verde", "Qu%C3%ADmica_verde")],
-  revisado: "2026-11-12",
+  familias: [
+    "Revisad juntos los contenedores de casa y comprobad si separáis bien los residuos.",
+    "Leed las etiquetas de los productos de limpieza y buscad sus pictogramas de peligro.",
+    "Calculad cuánto CO₂ emite el coche familiar al año y buscad alternativas para algunos trayectos.",
+    "Llevad los medicamentos caducados al punto SIGRE y las pilas al punto limpio.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «El cambio»: la química en la sociedad (medicamentos, alimentación, materiales), contaminación del aire, el agua y el suelo, efecto invernadero y cambio climático, lluvia ácida, capa de ozono, residuos y plásticos, química verde y desarrollo sostenible.`,
+    ideas: [
+      "Simulación de la lluvia ácida: efecto del vinagre sobre trozos de tiza o mármol y sobre una planta.",
+      "Medida del pH del agua de lluvia, del grifo y de un río cercano.",
+      "Auditoría de residuos del aula durante una semana.",
+      "Análisis de etiquetas de alimentos para identificar aditivos E.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Química verde", "Qu%C3%ADmica_verde"),
+    wiki("Lluvia ácida", "Lluvia_%C3%A1cida"),
+    { t: "Objetivos de Desarrollo Sostenible, Naciones Unidas", url: "https://www.un.org/sustainabledevelopment/es/" },
+  ],
+  revisado: "2026-11-13",
 };
