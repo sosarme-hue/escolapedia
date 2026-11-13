@@ -78,4 +78,10 @@ module.exports = {
   "9V8KublOYtw": ["7.  Juegos tradicionales, populares y autóctonos", "Adolfo Rodríguez", 314999], // ef-juegos-populares
   "FlO1UbqaPpo": ["Juegos tradicionales", "Educación Física Elena", 28796], // ef-juegos-populares
   "eQ8tm3KXQso": ["Juegos infantiles tradicionales | 🎲 ¡Descubre los Juegos Tradicionales! 🏃‍♂️🤹‍♀️ | Diversión niños", "Learn with Socrates", 64516], // ef-juegos-populares
+  "Sd0hdP4giYI": ["KOKOLEOKO Percusión Corporal PARA NIÑOS #musicograma #percusion #niños", "Merequetengue Musical", 492900], // ef-ritmo-danza
+  "whvpNSgzPmk": ["Canciones & Coreografías Infantiles  | 🥁 Aprende a Bailar SUENAN LOS TAMBORES 🥁 | Coreografía Fácil para Niños con Pictogramas", "Diverplay", 1494993], // ef-ritmo-danza
+  "pnc3MJLNqc8": ["Juego corporal y baile: Canción Estatuas de El Pequeño Caracolito", "El Pequeño Caracolito", 65943], // ef-ritmo-danza
+  "qhwyGwNj06E": ["Hábitos Saludables - salud física y mental | Aula chachi - Vídeos educativos para niños", "Aula chachi", 759024], // ef-habitos-saludables
+  "VMbRdSe8avs": ["Hábitos saludables para niños", "Efy de Belfia", 355936], // ef-habitos-saludables
+  "rZr8geozI_s": ["Hábitos de higiene para niños - Recopilación - Lavado de manos, higiene corporal y lavado de dientes", "Smile and Learn - Español", 2359671], // ef-habitos-saludables
 };
