@@ -30,4 +30,13 @@ module.exports = {
   "3FHuwGzCPHE": ["Las máquinas simples", "Profa. Kempis", 298405], // cn-maquinas-inventos
   "ixH0OqAPanY": ["🔩 Máquinas Simples 🔧 ¿Qué son? / Características [Fácil y Rápido] | FÍSICA |", "A Cierta Ciencia", 176159], // cn-maquinas-inventos
   "Ob_Tnu66_Gs": ["GRANDES INVENTOS para niños ✔👩‍🏫 PRIMARIA", "La BiBlioTHeKa", 73494], // cn-maquinas-inventos
+  "e07dXmHUspU": ["El Sistema Solar para niños - EL Sol y los Planetas", "Happy Okapi", 3062988], // cs-sistema-solar
+  "wANko2eM_uY": ["El sol | Videos Educativos para Niños", "Happy Learning Español", 3184766], // cs-sistema-solar
+  "ma0kKMc9PbE": ["Las Fases de la Luna | Videos Educativos Aula365", "FlexFlix Kids en Español", 4601749], // cs-sistema-solar
+  "6Ey_qqjjv5s": ["LA TIERRA Y SUS MOVIMIENTOS | ROTACIÓN Y TRASLACIÓN | Happy Learning 🌏 🔁🌍", "Happy Learning Español", 1192619], // cs-tierra-movimientos
+  "OKgjFlVy2Go": ["EL ECUADOR Y LOS HEMISFERIOS  | Vídeos Educativos para Niños", "Happy Learning Español", 415838], // cs-tierra-movimientos
+  "qNEO0fnN28k": ["EL AÑO Y LAS 4 ESTACIONES. EL MOVIMIENTO DE TRASLACIÓN | Vídeos Educativos para Niños", "Happy Learning Español", 909398], // cs-tierra-movimientos
+  "DaBWWjsReeQ": ["Los Mapas y Los Planos | Aula chachi - Vídeos educativos para niños", "Aula chachi", 308096], // cs-mapas-planos
+  "CTUhpEBLeWw": ["🗾 Los PLANOS y sus ELEMENTOS para NIÑOS | GEOGRAFIA", "Clases Particulares en Ávila", 94155], // cs-mapas-planos
+  "qxwNRos9Jb8": ["Los PUNTOS CARDINALES. 𝓝𝓸𝓻𝓽𝓮 𝓢𝓾𝓻 𝓔𝓼𝓽𝓮 𝔂 𝓞𝓮𝓼𝓽𝓮. Para niños de primaria.", "soy Alba", 842813], // cs-mapas-planos
 };
