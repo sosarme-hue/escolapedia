@@ -51,9 +51,9 @@ function flujo(aria, pasos, { t = "" } = {}) {
     pasos.map((p, i) => {
       const y = top + i * (bh + gap), c = COL[i % COL.length];
       const fl = i < n - 1 ? `<path d="M130 ${y + bh + 1} V ${y + bh + gap - 1}" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl${aria.length}${n})"/>` : "";
-      return `<rect x="30" y="${y}" width="200" height="${bh}" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/>
-        <circle cx="30" cy="${y + bh / 2}" r="${Math.min(10, bh / 2)}" fill="${c}"/>${tx(30, y + bh / 2 + 4, i + 1, { fs: 11, maxW: 14, bold: true, color: "#fff" })}
-        ${tx(134, y + bh / 2 + 4, p, { fs: 11.5, maxW: 184 })}${fl}`;
+      return `<rect x="20" y="${y}" width="220" height="${bh}" rx="8" fill="var(--card)" stroke="${c}" stroke-width="2"/>
+        <circle cx="36" cy="${y + bh / 2}" r="${Math.min(10, bh / 2 - 1)}" fill="${c}"/>${tx(36, y + bh / 2 + 4, i + 1, { fs: 11, maxW: 14, bold: true, color: "#fff" })}
+        ${tx(141, y + bh / 2 + 4, p, { fs: 11.5, maxW: 186 })}${fl}`;
     }).join(""));
 }
 
