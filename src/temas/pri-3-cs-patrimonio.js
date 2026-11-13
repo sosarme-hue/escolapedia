@@ -41,7 +41,7 @@ module.exports = {
     {
       html: `<h3>Los museos</h3><p>Un <mark>museo</mark> es un lugar donde se <b>guardan</b>, se <b>cuidan</b>, se <b>estudian</b> y se <b>exponen</b> objetos de gran valor para que todo el mundo pueda verlos y aprender con ellos.</p><p>Hay museos de muchos tipos: de <b>arte</b> (pinturas y esculturas), como el <b>Museo del Prado</b> de Madrid, uno de los más famosos del mundo; de <b>ciencias naturales</b>, con fósiles, minerales y animales; de <b>historia</b> y arqueología; de la <b>ciencia</b> y la tecnología, donde se puede experimentar; del <b>ferrocarril</b>, del <b>juguete</b>, etnográficos (sobre la vida en el campo)…</p><p>En los museos trabajan muchas personas: los <b>conservadores</b> estudian y cuidan las piezas; los <b>restauradores</b> las reparan con mucho cuidado; los <b>guías</b> las explican a los visitantes, y los <b>vigilantes</b> las protegen.</p><p>Normas para visitar un museo:</p><p>• No tocar las obras, salvo que se indique que se puede.<br>• Hablar en voz baja y caminar sin correr.<br>• No comer ni beber en las salas.<br>• No usar el flash al hacer fotos, porque estropea los colores.<br>• Escuchar al guía y preguntar las dudas.</p>`,
       svg: svg("Normas del museo: no tocar, hablar bajo, no correr y sin flash", `${tit("En el museo")}${columna([["no toques las obras", COL.rojo], ["habla en voz baja", COL.azul], ["camina sin correr", COL.verde], ["sin flash en las fotos", COL.morado]], 130, 210, 36, 24, 10)}`),
-      video: vid("i4zrvX7Tpfc"),
+      video: vid("x6jiM2wqsDI"),
     },
     {
       html: `<h3>Cuidamos el patrimonio</h3><p>El patrimonio puede estropearse por muchas causas:</p><p>• Por el <b>paso del tiempo</b>, la lluvia, el viento, la humedad y los cambios de temperatura.<br>• Por la <b>contaminación</b> del aire, que ennegrece y desgasta las piedras.<br>• Por el <b>abandono</b>: cuando nadie usa ni cuida un edificio, se derrumba.<br>• Por el <b>vandalismo</b>: pintadas, golpes, robos o basura.<br>• Por el exceso de <b>turismo</b> mal organizado.<br>• Por los incendios en los espacios naturales.</p><p>Para protegerlo, las <b>administraciones</b> (ayuntamientos, comunidades autónomas y Estado) aprueban leyes, vigilan y pagan la <mark>restauración</mark>: arreglar los monumentos y las obras de arte con mucho cuidado para que vuelvan a estar como eran, sin cambiarlos.</p><p>Y tú también puedes ayudar a <mark>conservar</mark> el patrimonio:</p><p>• No hagas pintadas ni rayes paredes, árboles o monumentos.<br>• No tires basura ni arranques plantas.<br>• Respeta las normas cuando visites un monumento, un museo o un espacio natural.<br>• Participa en las fiestas y tradiciones de tu localidad.<br>• Aprende y cuenta a otros lo que sabes de tu patrimonio.</p>`,
@@ -69,7 +69,7 @@ module.exports = {
       ["Conservar", "cuidar y restaurar", COL.verde],
     ], 4, 86, "Resumen de monumentos y patrimonio"),
   },
-  video: vgen("Sm5Mn4j3yJc", "patrimonio natural y cultural para niños"),
+  video: vgen("5OHRVnOeSR0", "patrimonio natural y cultural para niños"),
   ejemplos: [
     { enunciado: "Clasifica: el Teide, la Alhambra y las Fallas.",
       pasos: ["El Teide es un volcán, no lo hizo el ser humano: patrimonio natural.", "La Alhambra es un edificio: patrimonio cultural material.", "Las Fallas son una fiesta, no se pueden tocar: patrimonio cultural inmaterial."],

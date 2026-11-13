@@ -70,7 +70,7 @@ module.exports = {
       ["Mapa del tiempo", "símbolos", COL.morado],
     ], 4, 86, "Resumen del tiempo y el clima"),
   },
-  video: vgen("65mS782mCLQ", "el tiempo atmosférico y el clima para niños"),
+  video: vgen("_ry4On4yvF0", "el tiempo atmosférico y el clima para niños"),
   ejemplos: [
     { enunciado: "¿Hablan del tiempo o del clima? a) «Mañana nevará en Burgos». b) «En Canarias las temperaturas son suaves todo el año».",
       pasos: ["a) Habla de un día concreto: tiempo.", "b) Habla de lo que suele pasar siempre: clima."],

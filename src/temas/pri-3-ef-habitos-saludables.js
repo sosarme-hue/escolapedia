@@ -50,7 +50,7 @@ module.exports = {
     {
       html: `<h3>Mente sana, cuerpo sano</h3><p>Los romanos ya decían «<i>mens sana in corpore sano</i>»: mente sana en cuerpo sano. Cuidar la mente y las emociones también es un hábito saludable.</p><p>La actividad física nos ayuda a sentirnos mejor: cuando nos movemos, el cerebro fabrica unas sustancias que nos ponen <b>contentos</b> y nos quitan los nervios. Además, al jugar con otros hacemos <b>amigos</b>.</p><p>Otros hábitos para cuidar la mente:</p><p>• <b>Relajarse</b>: hacer respiraciones lentas cuando estamos nerviosos o enfadados.<br>• <b>Expresar</b> lo que sentimos y hablar con alguien de confianza cuando algo nos preocupa.<br>• <b>Jugar al aire libre</b> y estar en contacto con la naturaleza.<br>• Ser <b>amables</b> con los demás y con nosotros mismos.<br>• Tener <b>tiempo libre</b> para jugar, leer, dibujar o no hacer nada.<br>• Usar las pantallas con <b>moderación</b>.</p><p>En Educación Física también cuidamos la salud social: respetamos a todos, ayudamos al que lo necesita, aceptamos ganar y perder y nadie se queda solo.</p>`,
       svg: svg("Mente sana en cuerpo sano: niños jugando al aire libre, contentos", `${tit("Mente sana")}${sol(220, 50, 12)}${suelo(150)}${nino(70, 150, { pose: "salta", s: 1.1, nina: true })}${nino(140, 150, { pose: "arriba", s: 1.1 })}${corazon(196, 110, 1.4)}${tx(130, 172, "moverse nos pone contentos", 200)}`),
-      video: vid("rZr8geozI_s"),
+      video: vid("cByEdyUcxO0"),
     },
     {
       html: `<h3>Mi semana saludable</h3><p>Ahora vamos a poner en práctica todo lo aprendido con un <b>reto de una semana</b>. Cada día apunta en una tabla si has cumplido estos hábitos, con una marca o un dibujo:</p><p>• He hecho al menos <b>60 minutos</b> de actividad física.<br>• He comido <b>fruta</b> y verdura.<br>• He bebido <b>agua</b> y no refrescos.<br>• He <b>desayunado</b> bien.<br>• Me he <b>lavado</b> las manos antes de comer y me he duchado después del ejercicio.<br>• He dormido al menos <b>9 horas</b>.<br>• He estado <b>menos de dos horas</b> con pantallas.</p><p>Al final de la semana, cuenta las marcas. ¿Qué hábito te ha resultado más fácil? ¿Cuál más difícil? Piensa en <b>un hábito que quieres mejorar</b> la próxima semana y escríbelo como objetivo: por ejemplo, «Voy a ir andando al colegio» o «Voy a llevar fruta para el recreo».</p><p>Compartid los resultados en clase y con las familias: ¡los hábitos saludables son más fáciles si se hacen en equipo!</p><p><b>Repaso:</b> ¿cuántos minutos de actividad física al día se recomiendan? → Al menos 60. ¿Cuándo hay que beber agua al hacer ejercicio? → Antes, durante y después.</p>`,
@@ -70,7 +70,7 @@ module.exports = {
       ["Seguridad", "calentar y estirar", COL.marron],
     ], 4, 86, "Resumen de hábitos saludables"),
   },
-  video: vgen("qhwyGwNj06E", "hábitos saludables para niños"),
+  video: vgen("E-P4KQ-aLmM", "hábitos saludables para niños"),
   ejemplos: [
     { enunciado: "En 15 segundos cuentas 22 latidos después de correr. ¿Cuántas pulsaciones por minuto tienes?",
       pasos: ["Un minuto tiene cuatro veces 15 segundos.", "Multiplicamos 22 × 4.", "22 × 4 = 88."],

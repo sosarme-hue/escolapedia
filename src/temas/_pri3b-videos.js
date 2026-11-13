@@ -26,7 +26,6 @@ module.exports = {
   "JXv643OKCB4": ["Estados del agua | Camaleón", "CNTV Infantil", 3141132], // cn-materia-estados
   "FL0taZbSqj0": ["¿Qué es la luz? La luz y los materiales | Aprende con Dani", "Happy Learning Español", 747582], // cn-luz-sonido
   "xZa7EphfGEE": ["La Luz y sus propiedades | Aula chachi - Vídeos educativos para niños", "Aula chachi", 402694], // cn-luz-sonido
-  "NtuuPcuFaBg": ["El sonido y sus propiedades | Aula chachi - Vídeos educativos para niños", "Aula chachi", 250838], // cn-luz-sonido
   "3FHuwGzCPHE": ["Las máquinas simples", "Profa. Kempis", 298405], // cn-maquinas-inventos
   "ixH0OqAPanY": ["🔩 Máquinas Simples 🔧 ¿Qué son? / Características [Fácil y Rápido] | FÍSICA |", "A Cierta Ciencia", 176159], // cn-maquinas-inventos
   "Ob_Tnu66_Gs": ["GRANDES INVENTOS para niños ✔👩‍🏫 PRIMARIA", "La BiBlioTHeKa", 73494], // cn-maquinas-inventos
@@ -45,26 +44,19 @@ module.exports = {
   "oJykj5nHD2Y": ["¿QUÉ ES EL RELIEVE? | Videos Educativos para Niños", "Happy Learning Español", 403938], // cs-relieve
   "n7saInzFOYs": ["El relieve y sus formas | Videos Educativos Para Niños", "GuerrerosPlanet", 1652523], // cs-relieve
   "nOl9y1OeL9k": ["Los ACCIDENTES GEOGRÁFICOS para niños - El relieve - Montaña, cordillera, meseta, río, lago, isla", "Smile and Learn - Español", 488548], // cs-relieve
-  "65mS782mCLQ": ["La Eduteca - El tiempo atmosférico", "La Eduteca", 917866], // cs-tiempo-clima
   "C21VJ75bvUY": ["VELETA y ANEMÓMETRO 🍃​⛵ Instrumentos meteorológicos para niños 🌀 Episodio 2", "Smile and Learn - Español", 92182], // cs-tiempo-clima
   "8gII_aUzwn8": ["Instrumentos meteorológicos | Camaleón", "CNTV Infantil", 1194615], // cs-tiempo-clima
   "jGmM_ZIG6vM": ["Mi localidad y el AYUNTAMIENTO ✔👩‍🏫 PRIMARIA", "La BiBlioTHeKa", 22285], // cs-municipio
   "X-EN9DGe3DM": ["🏛 El AYUNTAMIENTO 🏛 - CÓMO se ORGANIZA el MUNICIPIO - Para NIÑOS de PRIMARIA - 2º EP - CC.SS 2.1", "Maestro EP Online", 26114], // cs-municipio
-  "cgCZwyvb1V0": ["LOS SERVICIOS PÚBLICOS | Videos Educativos para Niños", "Happy Learning Español", 64400], // cs-municipio
   "NsJfgkBl9Xo": ["Sector PRIMARIO, SECUNDARIO y TERCIARIO 🥕🏭🩺 La ACTIVIDAD ECONÓMICA para niños", "Smile and Learn - Español", 168173], // cs-sectores
   "C6sXOX5vfC0": ["El Sector Primario Secundario y Terciario (Videos Educativos para Niños)", "Mundo Divertido de Niños", 403370], // cs-sectores
   "SMNQ3S0a16E": ["LA ACTIVIDAD ECONÓMICA explicada a niños de PRIMARIA", "MaestraSuperIsa", 399628], // cs-sectores
   "LPha22TK1n0": ["⚒ Qué SON las FUENTES HISTÓRICAS para NIÑOS", "Clases Particulares en Ávila", 127703], // cs-fuentes-historia
   "51OO5kyufSM": ["La Eduteca - La Historia", "La Eduteca", 617478], // cs-fuentes-historia
   "SLd-OshkqfA": ["LINEA DE TIEMPO - Explicación y ejemplos:", "NiboKids en el Cole!", 640434], // cs-fuentes-historia
-  "Sm5Mn4j3yJc": ["🎭 PATRIMONIO NATURAL y CULTURAL para NIÑOS", "Clases Particulares en Ávila", 111391], // cs-patrimonio
-  "i4zrvX7Tpfc": ["¿QUÉ ES UN MUSEO?| Vídeos Educativos para Niños", "Happy Learning Español", 160658], // cs-patrimonio
   "qrxOa3HS24o": ["¿Cuáles son los lugares Patrimonio de la Humanidad en España?", "Europa Press", 36664], // cs-patrimonio
-  "-ClFOuXkiMc": ["¿Qué es el ESQUEMA CORPORAL🏃‍♂️ en EDUCACIÓN FÍSICA?😲 | APRENDE EN CASA🏡 en 4 MINUTOS⏱", "El Tío Kevin Mora - Vlogs", 76328], // ef-conocer-cuerpo
   "BNINGhbFCeE": ["Esquema Corporal - Imagen corporal - Conciencia Corporal - #PARANUESTROSESTUDIANTES #ELFORTACHÓNEF", "EL FORTACHÓN DE EDUCACIÓN FÍSICA", 36445], // ef-conocer-cuerpo
   "bFD9X9BJnDc": ["CABEZA, HOMBRO, RODILLA Y PIE- ESQUEMA CORPORAL- ACTIVIDAD FÍSICA", "TÍOARIEL", 215947], // ef-conocer-cuerpo
-  "u9-mrzrNHNo": ["¿Qué son las HABILIDADES MOTRICES BÁSICAS? Tipos y características👶", "Astraway", 90500], // ef-habilidades-basicas
-  "1TcMR-lNkN0": ["Habilidades Motrices Básicas-Desplazamientos,Giros y Manipulación/ Primaria/Educación Física/Parte 2", "Lezama Sports TV", 163518], // ef-habilidades-basicas
   "JZyhM-vdzY0": ["Giros. Unidad didáctica de giros en educación física", "Francisco J. Vázquez -kisco-", 56283], // ef-habilidades-basicas
   "xG7nyNvnR1M": ["Juegos Educación Física - El Balón Que Persigue", "Educación Física Para Todos", 135403], // ef-manejo-balones
   "9gwlktJaa9k": ["Ejercicios de Educación Física con pelota", "Carolina Núñez", 97995], // ef-manejo-balones
@@ -81,7 +73,15 @@ module.exports = {
   "Sd0hdP4giYI": ["KOKOLEOKO Percusión Corporal PARA NIÑOS #musicograma #percusion #niños", "Merequetengue Musical", 492900], // ef-ritmo-danza
   "whvpNSgzPmk": ["Canciones & Coreografías Infantiles  | 🥁 Aprende a Bailar SUENAN LOS TAMBORES 🥁 | Coreografía Fácil para Niños con Pictogramas", "Diverplay", 1494993], // ef-ritmo-danza
   "pnc3MJLNqc8": ["Juego corporal y baile: Canción Estatuas de El Pequeño Caracolito", "El Pequeño Caracolito", 65943], // ef-ritmo-danza
-  "qhwyGwNj06E": ["Hábitos Saludables - salud física y mental | Aula chachi - Vídeos educativos para niños", "Aula chachi", 759024], // ef-habitos-saludables
   "VMbRdSe8avs": ["Hábitos saludables para niños", "Efy de Belfia", 355936], // ef-habitos-saludables
-  "rZr8geozI_s": ["Hábitos de higiene para niños - Recopilación - Lavado de manos, higiene corporal y lavado de dientes", "Smile and Learn - Español", 2359671], // ef-habitos-saludables
+  "AH4QUsktYVc": ["✅11 ACTIVIDADES de ESQUEMA CORPORAL para NIÑOS y NIÑAS✅/BODILY SCHEMA/CONHEÇO MEU CORPO", "MOTRI APRENDIZAJE", 43368], // ef-conocer-cuerpo
+  "0mqORNMFaXM": ["1.- Técnica de carrera: Introducción", "Carlos Alberto Cordente Martínez", 315805], // ef-habilidades-basicas
+  "_ry4On4yvF0": ["⚡🌧️ La ATMÓSFERA, el TIEMPO y el CLIMA ⚡🌪️ para NIÑOS de PRIMARIA [DIFERENCIA entre CLIMA y TIEMPO]", "Clases Particulares en Ávila", 109499], // cs-tiempo-clima
+  "bIu6zFwHa8o": ["La Luz y el Sonido – Ciencias para niños 📡 🧠 🔉", "123 Andrés", 70646], // cn-luz-sonido
+  "5OHRVnOeSR0": ["Patrimonio Cultural y Riqueza Natural - Video Educativo 3° Primaria", "Instituto Canadiense", 25625], // cs-patrimonio
+  "F6dvMu2sZSM": ["QUÉ SON LOS SERVICIOS PÚBLICOS Y PARA QUÉ SIRVEN | Happy Learning #happy #serviciospúblicos", "Happy Learning Español", 51477], // cs-municipio
+  "x6jiM2wqsDI": ["Que es un museo + tipos de museos( para niños).", "DETODOCURIOSO", 146036], // cs-patrimonio
+  "E-P4KQ-aLmM": ["♥ HÁBITOS SALUDABLES ♥ para NIÑOS de PRIMARIA", "Clases Particulares en Ávila", 89171], // ef-habitos-saludables
+  "cByEdyUcxO0": ["Higiene y Educación Física / VIDA SALUDABLE (TODO DE EDUCACIÓN FÍSICA) ⚽💧⛹️‍♂️🚿", "Educación Física y SALUD", 62578], // ef-habitos-saludables
+  "ZvB5QiH9Mdc": ["Habilidades motrices básicas de saltos y giros en la educación primaria.", "Sor Rosa Larrabure_Académico", 16152], // ef-habilidades-basicas
 };
