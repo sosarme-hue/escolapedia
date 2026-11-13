@@ -1,151 +1,226 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
-
-// Mini tabla periódica: celdas coloreadas por bloques.
-const celda = (x, y, s, c) => `<rect x="${x}" y="${y}" width="13" height="13" rx="2" fill="${c}" fill-opacity=".55"/>${s ? `<text x="${x + 6.5}" y="${y + 10}" text-anchor="middle" font-size="7" font-weight="700" fill="var(--ink)" ${F}>${s}</text>` : ""}`;
+// Física y Química 3º ESO · Elementos y compuestos: la tabla periódica (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, rejilla, barras, escala, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["elementos-compuestos-tabla"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "Elementos y compuestos: la tabla periódica",
-  minutos: 55,
-  objetivos: ["Distinguir elementos y compuestos, átomos, moléculas y cristales", "Conocer la organización de la tabla periódica en grupos y periodos", "Diferenciar metales, no metales y gases nobles por su posición y propiedades", "Relacionar la regla del octeto con la formación de enlaces"],
-  claves: ["elemento", "compuesto", "molécula", "cristal", "tabla periódica", "grupo", "periodo", "enlace químico"],
+  minutos: 105,
+  objetivos: [
+    "Diferenciar elementos y compuestos y escribir los símbolos de los elementos más comunes",
+    "Conocer la historia y la organización de la tabla periódica en grupos y periodos",
+    "Relacionar la posición de un elemento en la tabla con sus electrones de valencia y sus propiedades",
+    "Distinguir metales, no metales, semimetales y gases nobles",
+    "Explicar cómo se unen los átomos: moléculas, cristales y tipos de enlace",
+    "Calcular masas moleculares y reconocer los elementos esenciales para la vida",
+  ],
+  claves: ["elemento", "compuesto", "símbolo químico", "tabla periódica", "grupo", "periodo", "metal", "no metal", "gas noble", "regla del octeto", "enlace químico", "masa molecular"],
   pregunta: {
-    texto: "Con solo 118 elementos distintos se forman millones de sustancias: el agua, el ADN, el plástico, el acero o el chocolate. ¿Cómo es posible, y cómo se organizan esos 118 ladrillos?",
-    respuesta: "Los elementos se combinan entre sí como las letras forman palabras: con 27 letras hay millones de palabras. Para ordenarlos, en 1869 <mark>Mendeléiev</mark> creó la <mark>tabla periódica</mark>, que agrupa los elementos con propiedades parecidas y que incluso le permitió predecir elementos que aún no se habían descubierto.",
+    texto: "El sodio es un metal que arde al tocar el agua y el cloro es un gas verde venenoso. ¿Cómo es posible que, unidos, formen la sal que echamos a la comida?",
+    respuesta: "Porque al unirse forman un <mark>compuesto</mark>, el cloruro de sodio (NaCl), una sustancia nueva con <b>propiedades totalmente distintas</b> a las de los elementos que la forman. El sodio cede un electrón al cloro y los dos quedan como iones estables, Na⁺ y Cl⁻, unidos por <b>enlace iónico</b>. En un compuesto, los elementos no conservan sus propiedades: por eso no es una mezcla.",
+  },
+  lectura: {
+    titulo: "El solitario de Mendeléiev",
+    html: `<p>En 1869 se conocían 63 elementos químicos, y nadie había encontrado una forma satisfactoria de ordenarlos. El químico ruso Dmitri Mendeléiev, que estaba escribiendo un libro de texto para sus alumnos, tuvo una idea: escribió el nombre de cada elemento en una cartulina, con su masa atómica y sus propiedades principales, y se puso a ordenarlas como si fueran las cartas de un solitario.</p><p>Las colocó por orden de masa atómica y vio que, cada cierto número de elementos, las propiedades se repetían: el litio, el sodio y el potasio, por ejemplo, eran metales blandos que reaccionaban violentamente con el agua. Así que fue formando filas y colocando en la misma columna los elementos parecidos. Pero lo genial vino después. Cuando un elemento no encajaba, Mendeléiev se atrevió a dejar huecos en la tabla y a afirmar que correspondían a elementos todavía desconocidos. Incluso predijo sus propiedades: para el que llamó «eka-silicio» anunció una masa de unos 72 y una densidad de 5,5 g/cm³.</p><p>Muchos químicos se mostraron escépticos. Pero en 1875 se descubrió el galio, en 1879 el escandio y en 1886 el germanio, el eka-silicio, con una masa de 72,6 y una densidad de 5,35 g/cm³. Las predicciones se cumplían. La tabla periódica dejó de ser una simple lista para convertirse en una herramienta capaz de anunciar lo que aún no se había descubierto. Hoy tiene 118 elementos y sigue organizada según la idea de Mendeléiev.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Elementos y compuestos</h3><p>Un <mark>elemento químico</mark> es una sustancia pura formada por átomos con el <b>mismo número atómico</b>. No se puede descomponer en otras sustancias más sencillas por métodos químicos. Hoy se conocen <b>118 elementos</b>; unos 90 existen en la naturaleza y el resto se han fabricado en laboratorios. Un <mark>compuesto</mark> es una sustancia pura formada por átomos de <b>dos o más elementos</b> unidos en una proporción fija. Se puede descomponer en sus elementos por métodos químicos, como la electrólisis del agua, que la separa en hidrógeno y oxígeno. Las propiedades de un compuesto son muy distintas de las de sus elementos: el sodio es un metal que explota en agua, el cloro es un gas venenoso, y juntos forman la sal de mesa.</p>`,
-    },
-    {
-      html: `<h3>Los símbolos químicos</h3><p>Cada elemento se representa con un <b>símbolo</b>, propuesto por el químico sueco <b>Berzelius</b> en 1814. El símbolo es la <mark>primera letra en mayúscula</mark> del nombre del elemento, normalmente en latín, y, si hace falta distinguirlo de otro, una segunda letra en <b>minúscula</b>. Así, C es el carbono, Ca el calcio, Cl el cloro y Co el cobalto. Algunos símbolos vienen del nombre latino y no se parecen al español: Na (sodio, de <i>natrium</i>), K (potasio, de <i>kalium</i>), Fe (hierro, de <i>ferrum</i>), Cu (cobre, de <i>cuprum</i>), Ag (plata, de <i>argentum</i>), Au (oro, de <i>aurum</i>), Pb (plomo, de <i>plumbum</i>) y Hg (mercurio, de <i>hydrargyrum</i>). Escribir «CO» en lugar de «Co» cambia totalmente el significado.</p>${tabla(["Símbolo", "Elemento", "Símbolo", "Elemento"], [["H", "hidrógeno", "Na", "sodio"], ["C", "carbono", "Mg", "magnesio"], ["N", "nitrógeno", "Fe", "hierro"], ["O", "oxígeno", "Cu", "cobre"], ["Cl", "cloro", "Au", "oro"]])}`,
-    },
-    {
-      html: `<h3>La historia de la tabla periódica</h3><p>En el siglo XIX se conocían unos 60 elementos y los químicos buscaban una forma de ordenarlos. En 1869, el ruso <b>Dmitri Mendeléiev</b> los ordenó por su <b>masa atómica</b> en filas y columnas, de modo que los elementos con propiedades parecidas quedaran en la misma columna. Su genialidad fue dejar <mark>huecos</mark> para elementos que aún no se conocían y predecir sus propiedades. Años después se descubrieron el galio y el germanio, y sus propiedades coincidían con las predichas. En 1913, Henry Moseley demostró que el orden correcto es por <b>número atómico</b>, y así se ordena la tabla actual. En España se descubrieron dos elementos: el <b>platino</b>, estudiado por Antonio de Ulloa, y el <b>wolframio</b>, aislado por los hermanos Elhuyar en 1783.</p>`,
-    },
-    {
-      html: `<h3>Grupos y periodos</h3><p>La tabla periódica actual ordena los elementos por su <mark>número atómico</mark> creciente. Las filas horizontales son los <mark>periodos</mark>: hay 7, y el número del periodo indica cuántas capas de electrones tiene el átomo. Las columnas verticales son los <mark>grupos</mark>: hay 18, y los elementos de un mismo grupo tienen el mismo número de electrones en la última capa y por eso <b>propiedades químicas parecidas</b>. Algunos grupos tienen nombre propio: el 1, <b>alcalinos</b> (Li, Na, K); el 2, <b>alcalinotérreos</b> (Be, Mg, Ca); el 17, <b>halógenos</b> (F, Cl, Br, I); y el 18, <b>gases nobles</b> (He, Ne, Ar). Los grupos del 3 al 12 son los <b>metales de transición</b>, como el hierro, el cobre o el oro.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Esquema de la tabla periódica con los grupos 1 y 2 a la izquierda, metales de transición en el centro, el bloque de la derecha con los halógenos y los gases nobles al final">${BG}
-        ${(() => { let s = ""; for (let p = 0; p < 7; p++) for (let g = 0; g < 18; g++) { if (p === 0 && g > 0 && g < 17) continue; if (p < 3 && g > 1 && g < 12) continue; const c = g === 0 ? "var(--red)" : g === 1 ? "#e0a000" : g < 12 ? "var(--pen)" : g === 16 ? "var(--leaf)" : g === 17 ? "var(--inf)" : "var(--muted)"; s += celda(10 + g * 13.4, 30 + p * 15, "", c); } return s; })()}
-        ${t(16, 22, "1", { size: 9 })}${t(30, 22, "2", { size: 9 })}${t(238, 22, "18", { size: 9 })}${t(224, 22, "17", { size: 9 })}
-        ${t(10, 150, "alcalinos", { size: 9, anchor: "start", color: "var(--red)" })}${t(90, 150, "transición", { size: 9, color: "var(--pen)" })}${t(212, 150, "halógenos", { size: 9, anchor: "end", color: "var(--leaf)" })}
-        ${t(250, 166, "gases nobles", { size: 9, anchor: "end", color: "var(--inf)" })}${t(10, 166, "alcalinotérreos", { size: 9, anchor: "start", color: "#b8860b" })}</svg>`,
-      video: { id: "FqZ3BSeu1d0", titulo: "Entendiendo la tabla periódica", canal: "UBUinvestiga y El electrón perdido", vistas: 2428572 },
-    },
-    {
-      html: `<h3>Metales, no metales y semimetales</h3><p>Una línea en escalera divide la tabla en dos zonas. A la izquierda y en el centro están los <mark>metales</mark>, que son la mayoría (unos 90). Tienen brillo metálico, conducen bien el calor y la electricidad, son dúctiles y maleables, y a temperatura ambiente son sólidos, salvo el mercurio, que es líquido. Tienden a <b>perder electrones</b> y formar cationes. A la derecha están los <mark>no metales</mark>, como el carbono, el nitrógeno, el oxígeno, el azufre o el cloro: no tienen brillo, conducen mal y pueden ser sólidos, líquidos (el bromo) o gases. Tienden a <b>ganar electrones</b>. Junto a la escalera están los <b>semimetales</b>, como el silicio, con propiedades intermedias; el silicio es la base de los chips de los ordenadores. El hidrógeno, aunque está arriba a la izquierda, es un no metal.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tabla periódica dividida por una escalera: metales a la izquierda y en el centro, semimetales junto a la escalera y no metales a la derecha">${BG}
-        ${(() => { let s = ""; for (let p = 0; p < 7; p++) for (let g = 0; g < 18; g++) { if (p === 0 && g > 0 && g < 17) continue; if (p < 3 && g > 1 && g < 12) continue; const stair = g - 12; const nm = (p === 0 && g === 0) || g === 17 || (g >= 12 && stair > p) ; const semi = g >= 12 && g < 17 && stair === p; const c = nm ? "var(--leaf)" : semi ? "#e0a000" : "var(--pen)"; s += celda(10 + g * 13.4, 22 + p * 15, "", c); } return s; })()}
-        ${caja(10, 136, 76, 26, "metales", "var(--pen)", { size: 11 })}${caja(92, 136, 80, 26, "semimetales", "#e0a000", { size: 10 })}${caja(178, 136, 74, 26, "no metales", "var(--leaf)", { size: 10 })}</svg>`,
-    },
-    {
-      html: `<h3>Los gases nobles y la regla del octeto</h3><p>Los <b>gases nobles</b> (helio, neón, argón, kriptón, xenón y radón) casi nunca reaccionan con otras sustancias: son muy <b>estables</b>. Se debe a que tienen su última capa de electrones completa, con <mark>8 electrones</mark> (el helio, con 2). Los demás átomos tienden a ganar, perder o compartir electrones para conseguir esa misma configuración estable: es la <mark>regla del octeto</mark>. Así, el sodio, con 1 electrón en su última capa, tiende a perderlo, y el cloro, con 7, tiende a ganar uno. Por esta estabilidad, el helio se usa en globos sin riesgo de que arda, el argón dentro de las bombillas y el neón en los letreros luminosos.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="El sodio pierde su único electrón externo y el cloro, con siete, lo gana; ambos quedan con ocho electrones en la última capa">${BG}
-        ${[[60, 1, "Na", "pierde 1 e⁻"], [190, 7, "Cl", "gana 1 e⁻"]].map(([x, n, s, d]) => `<circle cx="${x}" cy="84" r="16" fill="var(--red)" fill-opacity=".25"/>${t(x, 89, s, { size: 13 })}<circle cx="${x}" cy="84" r="42" fill="none" stroke="var(--muted)" stroke-width="1.5"/>${Array.from({ length: n }, (_, i) => { const a = (i / 8) * 2 * Math.PI - Math.PI / 2; return `<circle cx="${(x + 42 * Math.cos(a)).toFixed(1)}" cy="${(84 + 42 * Math.sin(a)).toFixed(1)}" r="5" fill="var(--pen)"/>`; }).join("")}${t(x, 148, d, { size: 11, color: "var(--pen)" })}`).join("")}
-        ${fl(110, 64, 140, 64, "var(--pen)", 2)}${t(130, 22, "objetivo: 8 e⁻ en la última capa", { size: 11, color: "var(--leaf)" })}${t(130, 170, "como un gas noble", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>Átomos, moléculas y cristales</h3><p>Los átomos casi nunca están solos; se unen formando estructuras mayores. Una <mark>molécula</mark> es un grupo de átomos unidos de forma independiente, con un número fijo de átomos. Puede ser de un elemento, como el oxígeno que respiramos (O₂) o el ozono (O₃), o de un compuesto, como el agua (H₂O) o el dióxido de carbono (CO₂). Un <mark>cristal</mark> es una red ordenada de miles de millones de átomos o iones que se repite en las tres direcciones del espacio, como la sal (NaCl), el diamante (C) o los metales. Solo los gases nobles existen como <b>átomos aislados</b>. La <b>fórmula química</b> indica qué elementos forman la sustancia y en qué proporción: en H₂O hay 2 átomos de hidrógeno por cada uno de oxígeno.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres formas: un átomo aislado de helio, una molécula de agua con un oxígeno y dos hidrógenos, y un cristal de sal con iones de sodio y cloro alternados">${BG}
-        <circle cx="40" cy="80" r="14" fill="var(--inf)"/>${t(40, 85, "He", { size: 10, color: "#fff" })}${t(40, 136, "átomo", { size: 11 })}${t(40, 150, "aislado", { size: 10, weight: 400 })}
-        <circle cx="120" cy="80" r="18" fill="var(--red)"/><circle cx="98" cy="98" r="11" fill="#ccc" stroke="var(--muted)"/><circle cx="142" cy="98" r="11" fill="#ccc" stroke="var(--muted)"/>${t(120, 85, "O", { size: 12, color: "#fff" })}${t(98, 102, "H", { size: 10 })}${t(142, 102, "H", { size: 10 })}${t(120, 136, "molécula", { size: 11 })}${t(120, 150, "H₂O", { size: 10, weight: 400 })}
-        ${Array.from({ length: 16 }, (_, i) => { const x = 180 + (i % 4) * 18, y = 54 + Math.floor(i / 4) * 18; const na = (i % 4 + Math.floor(i / 4)) % 2 === 0; return `<circle cx="${x}" cy="${y}" r="${na ? 6 : 8}" fill="${na ? "var(--pen)" : "var(--leaf)"}"/>`; }).join("")}${t(207, 136, "cristal", { size: 11 })}${t(207, 150, "NaCl", { size: 10, weight: 400 })}</svg>`,
-    },
-    {
-      html: `<h3>El enlace químico</h3><p>La fuerza que mantiene unidos los átomos se llama <mark>enlace químico</mark>. Hay tres tipos principales. El <b>enlace iónico</b> se forma entre un metal y un no metal: el metal cede electrones al no metal, se forman un catión y un anión que se atraen, y se crea un <b>cristal iónico</b>, como la sal; estas sustancias son duras, tienen temperaturas de fusión altas y, disueltas en agua, conducen la electricidad. El <b>enlace covalente</b> se forma entre no metales que <b>comparten</b> electrones, y da lugar a moléculas, como el agua o el CO₂, o a cristales covalentes muy duros, como el diamante. El <b>enlace metálico</b> une átomos de metales que dejan sus electrones externos libres formando una «nube», lo que explica que conduzcan tan bien la electricidad.</p>${tabla(["Enlace", "Entre", "Ejemplo"], [["Iónico", "metal + no metal", "NaCl, sal"], ["Covalente", "no metal + no metal", "H₂O, CO₂, diamante"], ["Metálico", "metal + metal", "cobre, hierro"]])}`,
-    },
-    {
-      html: `<h3>Los elementos de la vida y del planeta</h3><p>Aunque hay 118 elementos, unos pocos son los protagonistas. Los seres vivos estamos formados sobre todo por <mark>C, H, O y N</mark>, junto con fósforo y azufre: son los <b>bioelementos</b> principales. El oxígeno es el elemento más abundante en nuestro cuerpo (un 65 % de la masa), sobre todo en forma de agua. Necesitamos también calcio para los huesos, hierro para la hemoglobina de la sangre, yodo para la tiroides o sodio y potasio para los nervios. En la <b>corteza terrestre</b> abundan el oxígeno y el silicio, que forman las rocas, seguidos del aluminio y el hierro. En el <b>universo</b>, el elemento más abundante es el hidrógeno, seguido del helio: forman las estrellas.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Elementos más abundantes en el cuerpo humano en masa: oxígeno 65 por ciento, carbono 18, hidrógeno 10, nitrógeno 3 y otros 4">${BG}
-        ${[["O", 65, "var(--red)"], ["C", 18, "var(--ink)"], ["H", 10, "var(--muted)"], ["N", 3, "var(--pen)"], ["otros", 4, "#b8860b"]].map(([s, v, c], i) => `${t(44, 46 + i * 26, s, { size: 12, anchor: "end", color: c })}<rect x="50" y="${34 + i * 26}" width="${v * 2.4}" height="16" rx="3" fill="${c}" fill-opacity=".6"/>${t(56 + v * 2.4, 47 + i * 26, v + " %", { size: 11, anchor: "start" })}`).join("")}
-        ${t(130, 20, "el cuerpo humano, en masa", { size: 11, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>Masa molecular y uso de la tabla</h3><p>La tabla periódica da para cada elemento su símbolo, su número atómico y su <b>masa atómica</b>, medida en <b>unidades de masa atómica (u)</b>. A partir de ella se calcula la <mark>masa molecular</mark> de un compuesto sumando las masas de todos los átomos de su fórmula. Por ejemplo, para el agua, H₂O: 2 · 1 u + 16 u = <b>18 u</b>. Para el dióxido de carbono, CO₂: 12 u + 2 · 16 u = <b>44 u</b>. Saber leer la tabla periódica permite prever cómo se comportará un elemento: si está en el grupo 1, será un metal muy reactivo que formará iones +1; si está en el 17, un no metal que formará iones −1; si está en el 18, apenas reaccionará.</p>`,
-    },
+    bloque({ h: "1.1 Elementos y compuestos", p: [
+      "Las sustancias puras pueden ser de dos tipos. Un <mark>elemento</mark> es una sustancia formada por una sola clase de átomos, todos con el mismo número de protones, y no se puede descomponer en otras más sencillas por métodos químicos: el oxígeno, el hierro, el carbono o el oro son elementos. Hoy se conocen <b>118 elementos</b>; unos 90 se encuentran en la naturaleza y el resto se han fabricado en laboratorios.",
+      "Un <mark>compuesto</mark> es una sustancia pura formada por <b>dos o más elementos</b> unidos químicamente en una <b>proporción fija</b>, como el agua (H₂O: dos de hidrógeno por cada uno de oxígeno), la sal (NaCl) o el dióxido de carbono (CO₂). Los compuestos sí se pueden descomponer en sus elementos, pero solo mediante <b>reacciones químicas</b>: el agua se descompone en hidrógeno y oxígeno con electricidad (electrólisis). A diferencia de las mezclas, en un compuesto los elementos <b>pierden sus propiedades</b> y aparecen otras nuevas: el hidrógeno es un gas inflamable y el oxígeno mantiene la combustión, pero el agua apaga el fuego. Con solo 118 elementos se forman millones de compuestos, igual que con 27 letras se escriben todas las palabras.",
+    ], svg: compara("Diferencias entre elemento y compuesto", ["Elemento", ["un tipo de átomo", "no se descompone", "O₂, Fe, C", "118 conocidos"]], ["Compuesto", ["varios elementos", "proporción fija", "H₂O, NaCl", "millones"]], "var(--pen)", "var(--leaf)") }),
+    bloque({ h: "1.2 Los símbolos químicos", p: [
+      "Para nombrar los elementos de forma abreviada y universal se usan los <mark>símbolos químicos</mark>, propuestos por el químico sueco Berzelius en 1813. Cada símbolo se forma con la <b>inicial en mayúscula</b> del nombre del elemento, normalmente en latín o griego, y, si hace falta, una segunda letra en <b>minúscula</b>: C (carbono), Ca (calcio), Cl (cloro), Co (cobalto). Escribir CO en lugar de Co es un error importante: CO es el monóxido de carbono, un compuesto, y Co es el cobalto, un elemento.",
+      "Algunos símbolos no parecen tener relación con el nombre en castellano porque vienen del latín: Na de <i>natrium</i> (sodio), K de <i>kalium</i> (potasio), Fe de <i>ferrum</i> (hierro), Cu de <i>cuprum</i> (cobre), Ag de <i>argentum</i> (plata), Au de <i>aurum</i> (oro), Pb de <i>plumbum</i> (plomo), Hg de <i>hydrargyrum</i> (mercurio) o S de <i>sulphur</i> (azufre). Otros elementos llevan nombres de científicos (einstenio, curio, mendelevio), de lugares (germanio, galio, polonio, americio) o de astros (helio, por el Sol; uranio, por Urano). Los símbolos se combinan en las <b>fórmulas químicas</b>, que indican qué elementos forman una sustancia y en qué proporción: el subíndice 2 de H₂O indica dos átomos de hidrógeno.",
+    ], svg: rejilla("Símbolos que vienen del latín", ["Elemento", "Símbolo", "Latín"], [["Sodio", "Na", "natrium"], ["Potasio", "K", "kalium"], ["Hierro", "Fe", "ferrum"], ["Plata", "Ag", "argentum"], ["Oro", "Au", "aurum"]], "#b45309") }),
+    bloque({ h: "1.3 La historia de la tabla periódica", p: [
+      "A lo largo del siglo XIX se descubrieron muchos elementos y los químicos buscaron formas de ordenarlos. Döbereiner agrupó elementos parecidos de tres en tres (las tríadas) y Newlands observó que las propiedades se repetían cada ocho elementos (ley de las octavas). En 1869, el ruso <b>Dmitri Mendeléiev</b> y, casi a la vez, el alemán Lothar Meyer, publicaron una tabla ordenando los elementos por su masa atómica y colocando en la misma columna los de propiedades parecidas.",
+      "La genialidad de <mark>Mendeléiev</mark> fue dejar <b>huecos</b> para elementos aún no descubiertos y predecir sus propiedades, que se confirmaron después con el galio, el escandio y el germanio. Su tabla tenía algunos problemas: en unos pocos casos había que alterar el orden de masas para que las propiedades encajaran. En 1913, el inglés <b>Henry Moseley</b> descubrió que el criterio correcto no era la masa, sino el <b>número atómico</b>, y así se resolvieron las anomalías. Además, en 1894 se descubrieron los gases nobles, que formaron una columna nueva. La <mark>ley periódica</mark> actual dice que, si se ordenan los elementos por su número atómico, sus propiedades se repiten periódicamente.",
+    ], svg: escala("Historia de la tabla periódica", "De las tríadas a Moseley", [["Döbereiner", "1829", "var(--muted)"], ["Newlands", "1864", "var(--leaf)"], ["Mendeléiev", "1869", "var(--red)"], ["Moseley", "1913", "var(--pen)"]], "por masa", "por número atómico") }),
+    bloque({ h: "1.4 Grupos y periodos", p: [
+      "En la <mark>tabla periódica</mark> actual, los elementos están ordenados por <b>número atómico creciente</b>. Las filas horizontales se llaman <mark>periodos</mark> y hay siete; las columnas verticales se llaman <mark>grupos</mark> y hay dieciocho, numerados del 1 al 18. Debajo se colocan aparte dos filas, los lantánidos y los actínidos, para que la tabla no sea demasiado ancha.",
+      "El número del <b>periodo</b> indica el número de <b>capas</b> de electrones que tiene el átomo: el sodio, en el periodo 3, tiene tres capas (2, 8, 1). Los elementos de un mismo <b>grupo</b> tienen el mismo número de <b>electrones en la última capa</b> (electrones de valencia) y por eso tienen <b>propiedades químicas parecidas</b>. Algunos grupos tienen nombre propio: el grupo 1, los <b>alcalinos</b> (litio, sodio, potasio), metales muy reactivos con un electrón de valencia; el grupo 2, los <b>alcalinotérreos</b> (magnesio, calcio), con dos; el 17, los <b>halógenos</b> (flúor, cloro, bromo, yodo), no metales muy reactivos con siete; y el 18, los <b>gases nobles</b> (helio, neón, argón). Los grupos centrales, del 3 al 12, son los <b>metales de transición</b>, como el hierro, el cobre, la plata o el oro.",
+    ], svg: S.svg[0], video: S.bvideos[0] }),
+    bloque({ h: "2.1 Metales, no metales y semimetales", p: [
+      "Una línea en forma de escalera divide la tabla periódica en dos zonas. A la izquierda y en el centro están los <mark>metales</mark>, que son la gran mayoría de los elementos (más de 90). Tienen brillo metálico, son buenos conductores del calor y la electricidad, son dúctiles y maleables, y todos son sólidos a temperatura ambiente excepto el mercurio, que es líquido. Tienden a <b>perder electrones</b> y formar cationes.",
+      "A la derecha están los <mark>no metales</mark>, como el carbono, el nitrógeno, el oxígeno, el azufre o el cloro, además del hidrógeno, que se coloca arriba a la izquierda pero es un no metal. No tienen brillo, conducen mal el calor y la electricidad (salvo el grafito), los sólidos son frágiles, y muchos son gases a temperatura ambiente; el bromo es líquido. Tienden a <b>ganar electrones</b> y formar aniones. Junto a la escalera están los <b>semimetales</b> o metaloides, como el silicio, el germanio o el arsénico, con propiedades intermedias: el silicio, por ejemplo, es un <b>semiconductor</b>, que conduce la electricidad solo en ciertas condiciones, y gracias a eso se fabrican los chips de ordenadores y móviles y las placas solares.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "2.2 Los gases nobles y la regla del octeto", p: [
+      "Los <mark>gases nobles</mark> (helio, neón, argón, kriptón, xenón y radón) forman el grupo 18. Son gases incoloros que casi <b>no reaccionan</b> con nada: en la naturaleza se encuentran como átomos sueltos, sin unirse a otros. La razón es su configuración electrónica: tienen la <b>última capa completa</b>, con 8 electrones (o 2 el helio), una situación de gran estabilidad.",
+      "Los demás átomos tienden a ganar, perder o compartir electrones para conseguir esa misma configuración estable: es la <mark>regla del octeto</mark>. Los metales del grupo 1 pierden su único electrón de valencia; los del grupo 2, sus dos electrones; los halógenos ganan uno; los del grupo 16, como el oxígeno, ganan dos. Así se forman los iones y los enlaces. Aunque no reaccionen, los gases nobles son muy útiles: el helio llena los globos y enfría los imanes de las resonancias magnéticas; el neón brilla en los rótulos luminosos; el argón protege los filamentos de las bombillas y las soldaduras; y el xenón se usa en los faros de algunos coches. El radón, en cambio, es radiactivo y puede acumularse en sótanos mal ventilados de algunas zonas graníticas.",
+    ], svg: S.svg[2] }),
+    bloque({ h: "2.3 Propiedades periódicas", p: [
+      "Como la tabla está ordenada según la estructura electrónica, muchas propiedades cambian de forma regular al recorrerla. El <b>tamaño de los átomos</b> aumenta al bajar en un grupo, porque se añaden capas de electrones, y disminuye al avanzar en un periodo hacia la derecha, porque el núcleo tiene más protones y atrae con más fuerza a los electrones. El átomo más grande es el del cesio, abajo a la izquierda, y el más pequeño, el del helio.",
+      "El <b>carácter metálico</b>, la tendencia a perder electrones, aumenta hacia la izquierda y hacia abajo: el cesio y el francio son los metales más reactivos. La tendencia a ganar electrones, el <b>carácter no metálico</b>, aumenta hacia la derecha y hacia arriba (sin contar los gases nobles): el flúor es el no metal más reactivo. Por eso, dentro del grupo de los alcalinos, la reactividad con el agua aumenta al bajar: el litio burbujea, el sodio corre por el agua y el potasio arde con una llama violeta. Conocer estas tendencias permite predecir cómo se comportará un elemento solo por su posición, como hizo Mendeléiev.",
+    ], svg: ficha("Tendencias en la tabla periódica", "Propiedades periódicas", ["Tamaño: ↑ al bajar, ↓ a la derecha", "Metálico: ↑ a la izquierda y abajo", "No metálico: ↑ a la derecha y arriba", "Mismo grupo: química parecida"], "var(--pen)") }),
+    bloque({ h: "3.1 Átomos, moléculas y cristales", p: [
+      "En la naturaleza, los átomos casi nunca están sueltos; solo los gases nobles lo están. Los demás se unen formando dos tipos de estructuras. Las <mark>moléculas</mark> son grupos de un número fijo y pequeño de átomos unidos: la molécula de oxígeno, O₂, tiene dos átomos iguales; la de agua, H₂O, tres átomos de dos elementos; la de glucosa, C₆H₁₂O₆, veinticuatro. Las sustancias moleculares suelen ser gases o líquidos, o sólidos con puntos de fusión bajos.",
+      "Los <mark>cristales</mark> o redes cristalinas son agrupaciones de un número enorme e indefinido de átomos o iones colocados de forma ordenada y repetida en las tres dimensiones. En ellos, la fórmula no indica cuántos átomos hay, sino la <b>proporción</b> entre ellos: NaCl significa que hay un ion Na⁺ por cada ion Cl⁻. Son cristales la sal, el cuarzo (SiO₂), el diamante (solo carbono) o los metales. Así, hay <b>elementos moleculares</b> (O₂, N₂, H₂, Cl₂), <b>elementos cristalinos</b> (Fe, Cu, C diamante), <b>compuestos moleculares</b> (H₂O, CO₂, NH₃) y <b>compuestos cristalinos</b> (NaCl, CaCO₃, SiO₂). Las formas regulares de los cristales de sal o de cuarzo reflejan su orden interno.",
+    ], svg: S.svg[3] }),
+    bloque({ h: "3.2 El enlace químico", p: [
+      "La fuerza que mantiene unidos a los átomos se llama <mark>enlace químico</mark>. Los átomos se unen porque así consiguen una configuración más estable, normalmente la del octeto. Hay tres tipos principales. El <b>enlace iónico</b> se forma entre un <b>metal</b> y un <b>no metal</b>: el metal cede electrones al no metal y se forman iones de carga opuesta que se atraen, formando un cristal. Es el caso de la sal, NaCl. Los compuestos iónicos son sólidos duros con puntos de fusión altos, frágiles, y muchos se disuelven en agua; disueltos o fundidos conducen la electricidad.",
+      "El <b>enlace covalente</b> se forma entre <b>no metales</b>, que <b>comparten</b> pares de electrones: en la molécula de H₂ cada átomo aporta un electrón y los dos comparten el par. Forma moléculas (agua, oxígeno, CO₂) y también algunos cristales muy duros (diamante, cuarzo). El <b>enlace metálico</b> une los átomos de los <b>metales</b>: los átomos ceden sus electrones de valencia, que forman una «nube» que se mueve libremente entre los cationes. Esa nube de electrones libres explica por qué los metales conducen tan bien la electricidad y el calor, y por qué se pueden doblar y estirar sin romperse.",
+    ], svg: rejilla("Tipos de enlace químico", ["Enlace", "Entre", "Ejemplo"], [["Iónico", "metal + no metal", "NaCl"], ["Covalente", "no metales", "H₂O, CO₂"], ["Metálico", "metales", "Fe, Cu"]], "var(--leaf)"), video: S.bvideos[1] }),
+    bloque({ h: "3.3 La masa molecular", p: [
+      "La tabla periódica indica la <b>masa atómica</b> de cada elemento, la masa media de sus átomos en <b>unidades de masa atómica</b> (u): H = 1 u, C = 12 u, N = 14 u, O = 16 u, Na = 23 u, Cl = 35,5 u. A partir de ellas se puede calcular la <mark>masa molecular</mark> de un compuesto, que es la suma de las masas atómicas de todos los átomos de su fórmula, teniendo en cuenta los subíndices.",
+      "Por ejemplo, la masa molecular del agua, H₂O, es 2 · 1 + 16 = 18 u; la del dióxido de carbono, CO₂, es 12 + 2 · 16 = 44 u; la de la glucosa, C₆H₁₂O₆, es 6 · 12 + 12 · 1 + 6 · 16 = 180 u. Cuando hay paréntesis, el subíndice exterior multiplica todo lo de dentro: en el hidróxido de calcio, Ca(OH)₂, hay 1 Ca, 2 O y 2 H, así que su masa es 40 + 2 · (16 + 1) = 74 u. En los compuestos iónicos, que no forman moléculas, se habla de <b>masa fórmula</b>, pero se calcula igual. Con la masa molecular se puede saber, además, qué porcentaje de la masa de un compuesto corresponde a cada elemento: en el agua, el oxígeno es 16 / 18 · 100 ≈ 89 % de la masa.",
+    ], extra: formula("M (H₂O) = 2 · 1 + 16 = 18 u"), svg: pasos("Cómo calcular una masa molecular", ["Leer los átomos de la fórmula", "Buscar sus masas en la tabla", "Multiplicar por los subíndices", "Sumar: M en u"], "var(--pen)"), video: S.bvideos[2] }),
+    bloque({ h: "3.4 Los elementos de la vida y del planeta", p: [
+      "No todos los elementos son igual de abundantes. En el <b>universo</b>, casi toda la materia normal es hidrógeno (unos tres cuartos) y helio; los demás elementos se fabricaron en el interior de las estrellas y en sus explosiones: somos, literalmente, polvo de estrellas. En la <b>corteza terrestre</b> predominan el oxígeno (46 %) y el silicio (28 %), que forman las rocas de silicatos, seguidos del aluminio y el hierro. El aire está formado sobre todo por nitrógeno (78 %) y oxígeno (21 %).",
+      "Los seres vivos están formados principalmente por seis elementos, los <mark>bioelementos</mark> principales: <b>carbono, hidrógeno, oxígeno, nitrógeno, fósforo y azufre</b> (CHONPS), que forman el 99 % de nuestra masa. El oxígeno es el más abundante en masa, sobre todo por el agua, que es dos tercios de nuestro cuerpo. Además, necesitamos otros en menor cantidad: calcio para los huesos, hierro para la hemoglobina de la sangre, sodio y potasio para los nervios, yodo para el tiroides o flúor para los dientes. Una dieta variada nos los proporciona. El carbono es especial: puede formar cadenas larguísimas y millones de compuestos distintos, y por eso es la base de toda la química de la vida.",
+    ], svg: S.svg[4] }),
   ],
-  figura: {
-    titulo: "Leer la tabla periódica",
-    svg: `<svg viewBox="0 0 640 250" role="img" aria-label="Tabla periódica esquemática con flechas: los periodos son filas e indican el número de capas; los grupos son columnas con propiedades parecidas; metales a la izquierda y no metales a la derecha">
-      <rect width="640" height="250" rx="16" fill="var(--paper)"/>
-      ${(() => { let s = ""; for (let p = 0; p < 7; p++) for (let g = 0; g < 18; g++) { if (p === 0 && g > 0 && g < 17) continue; if (p < 3 && g > 1 && g < 12) continue; const stair = g - 12; const nm = (p === 0 && g === 0) || g === 17 || (g >= 12 && stair > p); const c = g === 17 ? "var(--inf)" : nm ? "var(--leaf)" : "var(--pen)"; s += `<rect x="${40 + g * 24}" y="${30 + p * 26}" width="22" height="24" rx="3" fill="${c}" fill-opacity=".45"/>`; } return s; })()}
-      ${fl(40, 222, 470, 222, "var(--red)", 3)}${t(255, 244, "periodo: fila (capas de electrones)", { size: 13, color: "var(--red)" })}
-      ${fl(500, 30, 500, 210, "var(--leaf)", 3)}${t(512, 110, "grupo: columna", { size: 13, anchor: "start", color: "var(--leaf)" })}${t(512, 128, "(propiedades", { size: 13, anchor: "start", color: "var(--leaf)" })}${t(512, 146, "parecidas)", { size: 13, anchor: "start", color: "var(--leaf)" })}
-      ${t(140, 22, "metales", { size: 14, color: "var(--pen)", font: D })}${t(400, 22, "no metales", { size: 14, color: "var(--leaf)", font: D })}
-    </svg>`,
-  },
-  video: { id: "-2ymBr8LYSs", titulo: "Aprende la TABLA PERIÓDICA en 7 minutos", canal: "Amigos de la Química", vistas: 7378544, megusta: 0, busqueda: "tabla periódica explicación" },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Calcula la masa molecular del ácido sulfúrico, H₂SO₄ (H = 1 u, S = 32 u, O = 16 u).",
-      pasos: ["Hidrógeno: 2 · 1 = 2 u.", "Azufre: 1 · 32 = 32 u; oxígeno: 4 · 16 = 64 u.", "Sumamos: 2 + 32 + 64 = 98 u."],
-      resultado: "98 u." },
-    { enunciado: "El potasio está en el grupo 1 y el periodo 4. ¿Qué puedes deducir?",
-      pasos: ["Periodo 4: sus electrones ocupan 4 capas.", "Grupo 1: tiene 1 electrón en la última capa; es un metal alcalino.", "Tenderá a perder ese electrón para cumplir el octeto."],
-      resultado: "es un metal muy reactivo que forma el ion K⁺." },
-    { enunciado: "Indica el tipo de enlace en: KCl, CH₄ y Al.",
-      pasos: ["KCl: potasio (metal) y cloro (no metal).", "CH₄: carbono e hidrógeno, dos no metales.", "Al: solo átomos de un metal."],
-      resultado: "iónico, covalente y metálico." },
+    { enunciado: "Clasifica en elemento o compuesto: O₂, H₂O, Fe, NaCl, N₂, CO₂, Au.", pasos: ["Un solo tipo de átomo → elemento: O₂, Fe, N₂, Au.", "Varios elementos → compuesto: H₂O, NaCl, CO₂."], resultado: "Elementos: O₂, Fe, N₂, Au. Compuestos: H₂O, NaCl, CO₂." },
+    { enunciado: "El fósforo tiene Z = 15. ¿En qué grupo y periodo está? ¿Es metal o no metal?", pasos: ["Distribución en capas: 2, 8, 5.", "Tres capas → periodo 3.", "Cinco electrones de valencia → grupo 15.", "Está a la derecha de la escalera."], resultado: "Periodo 3, grupo 15; no metal." },
+    { enunciado: "Indica qué ion tiende a formar cada elemento: K (grupo 1), Ca (grupo 2), S (grupo 16), Br (grupo 17).", pasos: ["Grupo 1: pierde 1 e⁻ → K⁺.", "Grupo 2: pierde 2 e⁻ → Ca²⁺.", "Grupo 16: gana 2 e⁻ → S²⁻.", "Grupo 17: gana 1 e⁻ → Br⁻."], resultado: "K⁺, Ca²⁺, S²⁻, Br⁻." },
+    { enunciado: "¿Qué tipo de enlace tienen: KCl, Cl₂, Cu, CH₄?", pasos: ["KCl: metal + no metal → iónico.", "Cl₂: no metal + no metal → covalente.", "Cu: metal → metálico.", "CH₄: no metales → covalente."], resultado: "Iónico, covalente, metálico y covalente." },
+    { enunciado: "Calcula la masa molecular del ácido sulfúrico, H₂SO₄ (H = 1, S = 32, O = 16).", pasos: ["H: 2 · 1 = 2.", "S: 1 · 32 = 32.", "O: 4 · 16 = 64.", "Suma: 2 + 32 + 64."], resultado: "98 u." },
+    { enunciado: "Calcula la masa de Al₂(SO₄)₃ y el porcentaje de aluminio (Al = 27, S = 32, O = 16).", pasos: ["Al: 2 · 27 = 54.", "S: 3 · 32 = 96.", "O: 3 · 4 · 16 = 192.", "M = 54 + 96 + 192 = 342 u.", "% Al = 54 / 342 · 100."], resultado: "342 u; ≈ 15,8 % de aluminio." },
   ],
   errores: [
-    "Escribir los símbolos con dos mayúsculas: Co (cobalto) no es CO (monóxido de carbono).",
+    "Escribir mal los símbolos: CO (monóxido de carbono) no es Co (cobalto).",
+    "Pensar que en un compuesto los elementos conservan sus propiedades, como en una mezcla.",
     "Confundir grupos (columnas) con periodos (filas).",
-    "Creer que la tabla se ordena por masa atómica: se ordena por número atómico.",
-    "Pensar que todas las sustancias de un elemento son átomos sueltos: el oxígeno forma moléculas O₂.",
-    "Situar el hidrógeno entre los metales porque está en el grupo 1.",
+    "Creer que la tabla actual se ordena por masa atómica: se ordena por número atómico.",
+    "Olvidar multiplicar por el subíndice que hay fuera de un paréntesis al calcular masas moleculares.",
+    "Pensar que el hidrógeno es un metal por estar en el grupo 1.",
   ],
   ejercicios: [
-    { q: "Diferencia elemento y compuesto. Pon dos ejemplos de cada uno.", sol: "Elemento: átomos de un solo tipo, no se descompone (hierro, oxígeno). Compuesto: dos o más elementos en proporción fija (agua, sal)." },
-    { q: "Escribe el símbolo: sodio, potasio, hierro, plata, oro, plomo.", sol: "Na, K, Fe, Ag, Au, Pb." },
-    { q: "¿Por qué fue tan importante que Mendeléiev dejara huecos en su tabla?", sol: "Porque predijo elementos aún no descubiertos y sus propiedades; cuando se descubrieron, coincidían, lo que demostró que la tabla era correcta." },
-    { q: "¿Qué tienen en común los elementos de un mismo grupo? ¿Y los de un mismo periodo?", sol: "Grupo: el mismo número de electrones en la última capa y propiedades parecidas. Periodo: el mismo número de capas." },
-    { q: "Nombra el grupo: Li, Na, K; F, Cl, Br; He, Ne, Ar.", sol: "Alcalinos (1), halógenos (17) y gases nobles (18)." },
-    { q: "Compara tres propiedades de metales y no metales.", sol: "Metales: brillo, buenos conductores, dúctiles. No metales: sin brillo, malos conductores, frágiles si son sólidos." },
-    { q: "Explica la regla del octeto con el ejemplo del magnesio (2 electrones en la última capa).", sol: "Los átomos tienden a tener 8 electrones en la última capa; el magnesio pierde 2 y forma Mg²⁺." },
-    { q: "Clasifica en átomos aislados, moléculas o cristales: Ne, O₂, NaCl, H₂O, Fe.", sol: "Átomo aislado: Ne. Moléculas: O₂, H₂O. Cristales: NaCl (iónico) y Fe (metálico)." },
-    { q: "Calcula la masa molecular de NH₃ y de CaCO₃ (N = 14, H = 1, Ca = 40, C = 12, O = 16).", sol: "NH₃: 14 + 3 = 17 u. CaCO₃: 40 + 12 + 48 = 100 u." },
-    { q: "¿Qué tipo de enlace tiene el agua y cómo se forma?", sol: "Covalente: el oxígeno comparte un par de electrones con cada hidrógeno." },
+    B("Define elemento y compuesto y pon tres ejemplos de cada uno.", "Elemento: sustancia con un solo tipo de átomo (O₂, Fe, C). Compuesto: sustancia formada por varios elementos unidos en proporción fija (H₂O, NaCl, CO₂)."),
+    B("Escribe el símbolo de: sodio, potasio, hierro, cobre, plata, oro, plomo, mercurio, azufre, fósforo.", "Na, K, Fe, Cu, Ag, Au, Pb, Hg, S, P."),
+    B("Escribe el nombre de: Ca, Cl, Mg, Zn, N, He, Si, I, Al, Sn.", "Calcio, cloro, magnesio, cinc, nitrógeno, helio, silicio, yodo, aluminio, estaño."),
+    B("¿Qué son los grupos y los periodos de la tabla periódica?", "Grupos: las 18 columnas, con elementos de propiedades químicas parecidas. Periodos: las 7 filas; su número indica las capas de electrones."),
+    B("Nombra los grupos 1, 2, 17 y 18 y pon un elemento de cada uno.", "1: alcalinos (sodio). 2: alcalinotérreos (calcio). 17: halógenos (cloro). 18: gases nobles (neón)."),
+    B("Indica cuatro propiedades de los metales y cuatro de los no metales.", "Metales: brillo, buenos conductores, dúctiles y maleables, sólidos (salvo Hg). No metales: sin brillo, malos conductores, frágiles, muchos son gases."),
+    B("¿Quién ordenó por primera vez los elementos dejando huecos para los no descubiertos?", "Dmitri Mendeléiev, en 1869."),
+    B("¿Por qué los gases nobles casi no reaccionan?", "Porque tienen la última capa de electrones completa (8, o 2 el helio), una configuración muy estable."),
+    B("Enuncia la regla del octeto.", "Los átomos tienden a ganar, perder o compartir electrones hasta tener 8 electrones en su última capa, como los gases nobles."),
+    B("Calcula la masa molecular de: O₂, CO₂, NH₃ (N = 14, H = 1, C = 12, O = 16).", "O₂: 32 u. CO₂: 44 u. NH₃: 17 u."),
+    B("Nombra los seis bioelementos principales.", "Carbono, hidrógeno, oxígeno, nitrógeno, fósforo y azufre."),
+    B("¿Qué diferencia hay entre una molécula y un cristal?", "La molécula es un grupo de un número fijo y pequeño de átomos; el cristal es una red ordenada de un número enorme de átomos o iones."),
+    M("Distribuye en capas los electrones del cloro (Z = 17) e indica su grupo, su periodo y el ion que forma.", "2, 8, 7: periodo 3, grupo 17 (halógeno). Forma Cl⁻."),
+    M("Un elemento tiene la distribución 2, 8, 8, 2. ¿Cuál es su Z, su grupo y su periodo? ¿Es metal o no metal?", "Z = 20 (calcio); grupo 2; periodo 4; metal alcalinotérreo."),
+    M("¿Por qué el sodio y el potasio tienen propiedades químicas parecidas?", "Porque están en el mismo grupo (1): tienen un solo electrón de valencia, que pierden con facilidad."),
+    M("Ordena por tamaño atómico creciente: Na, K, Cl, Li.", "Cl < Li < Na < K (el tamaño disminuye hacia la derecha y aumenta hacia abajo)."),
+    M("Indica el tipo de enlace: MgO, O₂, Al, HCl, CaF₂, diamante.", "MgO: iónico. O₂: covalente. Al: metálico. HCl: covalente. CaF₂: iónico. Diamante: covalente (cristal)."),
+    M("Explica por qué los metales conducen la electricidad.", "Porque en el enlace metálico los electrones de valencia forman una nube de electrones libres que se pueden mover por todo el metal."),
+    M("Calcula la masa molecular de Ca(OH)₂ y de CaCO₃ (Ca = 40, O = 16, H = 1, C = 12).", "Ca(OH)₂: 40 + 2 · 17 = 74 u. CaCO₃: 40 + 12 + 48 = 100 u."),
+    M("Calcula la masa de la glucosa, C₆H₁₂O₆, y el porcentaje de carbono.", "72 + 12 + 96 = 180 u. %C = 72 / 180 · 100 = 40 %."),
+    M("¿Qué diferencia hay entre la tabla de Mendeléiev y la actual?", "Mendeléiev ordenó por masa atómica; Moseley demostró que el criterio correcto es el número atómico, que resolvió algunas anomalías. Además, la actual incluye los gases nobles y 118 elementos."),
+    M("El silicio es un semimetal. ¿Por qué es tan importante en la tecnología?", "Porque es semiconductor: conduce la electricidad solo en ciertas condiciones, lo que permite fabricar chips, transistores y placas solares."),
+    M("¿Por qué el agua no tiene las propiedades del hidrógeno ni del oxígeno?", "Porque es un compuesto: al unirse químicamente, los elementos pierden sus propiedades y se forma una sustancia nueva con propiedades distintas."),
+    A("Un elemento X está en el periodo 3 y forma iones X²⁻. ¿Cuál es su distribución electrónica, su Z y su nombre?", "Gana 2 electrones → tiene 6 de valencia → grupo 16; periodo 3 → 2, 8, 6; Z = 16: azufre."),
+    A("Predice cómo será la reacción del rubidio (grupo 1, periodo 5) con el agua comparada con la del sodio. Justifícalo.", "Más violenta: está más abajo en el grupo, su átomo es mayor, su electrón de valencia está más lejos del núcleo y lo pierde con más facilidad."),
+    A("Mendeléiev predijo para el eka-silicio una masa de 72. Sabiendo que el silicio tiene 28 y el estaño 119, y que el germanio está entre ambos en el grupo, ¿por qué hizo esa estimación?", "Porque las propiedades varían de forma regular en un grupo: estimó valores intermedios entre los vecinos (y los de sus vecinos de periodo, galio y arsénico, de masas 70 y 75)."),
+    A("Calcula el porcentaje de nitrógeno en el nitrato de amonio, NH₄NO₃, un abono (N = 14, H = 1, O = 16).", "M = 2 · 14 + 4 · 1 + 3 · 16 = 80 u. %N = 28 / 80 · 100 = 35 %."),
+    A("Compara las propiedades de la sal (NaCl), el azúcar (C₁₂H₂₂O₁₁) y el cobre y relaciónalas con su tipo de enlace.", "Sal: iónica; sólido duro, frágil, punto de fusión alto, conduce disuelta. Azúcar: covalente molecular; funde a baja temperatura (carameliza) y no conduce disuelta. Cobre: metálico; brilla, conduce y es dúctil."),
+    A("¿Cuántas veces más pesada es una molécula de CO₂ que una de H₂O?", "44 / 18 ≈ 2,4 veces."),
+    A("Explica por qué decimos que «somos polvo de estrellas».", "Porque los elementos más pesados que el helio, como el carbono, el oxígeno o el hierro de nuestro cuerpo, se formaron por fusión nuclear en el interior de estrellas y se esparcieron al explotar estas como supernovas."),
   ],
   quiz: [
-    { q: "El símbolo del hierro es…", o: ["Hi", "Fe", "Ir"], a: 1, e: "Fe, de ferrum." },
-    { q: "La tabla actual se ordena por…", o: ["masa atómica", "número atómico", "orden alfabético"], a: 1, e: "Número atómico." },
-    { q: "Las columnas de la tabla son…", o: ["periodos", "grupos", "bloques de masa"], a: 1, e: "Grupos." },
-    { q: "Los halógenos están en el grupo…", o: ["1", "17", "18"], a: 1, e: "17." },
-    { q: "El único metal líquido a temperatura ambiente es…", o: ["el mercurio", "el sodio", "el bromo"], a: 0, e: "El mercurio." },
-    { q: "Los gases nobles son estables porque…", o: ["son ligeros", "tienen la última capa completa", "no tienen electrones"], a: 1, e: "Octeto completo." },
-    { q: "La molécula de oxígeno que respiramos es…", o: ["O", "O₂", "O₃"], a: 1, e: "O₂." },
-    { q: "La sal común tiene enlace…", o: ["iónico", "covalente", "metálico"], a: 0, e: "Iónico." },
-    { q: "La masa molecular del CO₂ es…", o: ["28 u", "44 u", "32 u"], a: 1, e: "12 + 32 = 44 u." },
-    { q: "El elemento más abundante del universo es…", o: ["el oxígeno", "el hidrógeno", "el carbono"], a: 1, e: "El hidrógeno." },
+    q4("Una sustancia formada por un solo tipo de átomo es…", ["un compuesto", "un elemento", "una mezcla", "una disolución"], 1, "Como el oro."),
+    q4("El agua es…", ["un elemento", "un compuesto", "una mezcla", "un gas noble"], 1, "H₂O."),
+    q4("El símbolo del hierro es…", ["H", "Hi", "Fe", "F"], 2, "Del latín ferrum."),
+    q4("El símbolo K corresponde al…", ["calcio", "potasio", "kriptón", "cobalto"], 1, "Kalium."),
+    q4("Mendeléiev ordenó los elementos por…", ["número atómico", "masa atómica", "color", "estado"], 1, "Moseley usó Z."),
+    q4("La tabla actual se ordena por…", ["masa atómica", "número atómico", "densidad", "fecha de descubrimiento"], 1, "Moseley, 1913."),
+    q4("Las columnas de la tabla se llaman…", ["periodos", "grupos", "capas", "familias de masa"], 1, "Hay 18."),
+    q4("El número del periodo indica…", ["los electrones de valencia", "el número de capas", "los neutrones", "la masa"], 1, "Filas."),
+    q4("Los elementos de un mismo grupo tienen…", ["la misma masa", "propiedades químicas parecidas", "el mismo número de capas", "el mismo Z"], 1, "Mismos electrones de valencia."),
+    q4("Los halógenos están en el grupo…", ["1", "2", "17", "18"], 2, "Flúor, cloro, bromo, yodo."),
+    q4("¿Cuál es un gas noble?", ["Oxígeno", "Neón", "Nitrógeno", "Cloro"], 1, "Grupo 18."),
+    q4("El único metal líquido a temperatura ambiente es…", ["el sodio", "el mercurio", "el bromo", "el galio"], 1, "Hg."),
+    q4("Los metales tienden a…", ["ganar electrones", "perder electrones", "compartir protones", "no reaccionar"], 1, "Forman cationes."),
+    q4("El silicio es un…", ["metal", "no metal", "semimetal", "gas noble"], 2, "Semiconductor."),
+    q4("La regla del octeto dice que los átomos tienden a tener … electrones en la última capa.", ["2", "4", "8", "18"], 2, "Como los gases nobles."),
+    q4("El enlace entre un metal y un no metal es…", ["covalente", "iónico", "metálico", "nuclear"], 1, "Transferencia de electrones."),
+    q4("En el enlace covalente los átomos…", ["ceden electrones", "comparten electrones", "pierden protones", "forman una nube libre"], 1, "Entre no metales."),
+    q4("La masa molecular del CO₂ (C = 12, O = 16) es…", ["28 u", "44 u", "32 u", "40 u"], 1, "12 + 32."),
+    q4("La sal común forma…", ["moléculas", "cristales iónicos", "átomos sueltos", "un gas"], 1, "Red de Na⁺ y Cl⁻."),
+    q4("El elemento más abundante del cuerpo humano en masa es…", ["el carbono", "el oxígeno", "el hierro", "el calcio"], 1, "Por el agua."),
   ],
   examen: [
-    { q: "El wolframio lo aislaron por primera vez…", o: ["los hermanos Elhuyar", "Mendeléiev", "Marie Curie"], a: 0, e: "Los hermanos Elhuyar, en 1783." },
-    { q: "Un elemento del periodo 3 tiene…", o: ["3 electrones", "3 capas de electrones", "3 protones"], a: 1, e: "3 capas." },
-    { q: "El silicio es un…", o: ["metal", "semimetal", "gas noble"], a: 1, e: "Semimetal." },
+    q4("Un elemento con distribución 2, 8, 6 está en…", ["periodo 2, grupo 16", "periodo 3, grupo 16", "periodo 3, grupo 6", "periodo 6, grupo 3"], 1, "Tres capas y seis de valencia."),
+    q4("¿Qué par de elementos tiene propiedades parecidas?", ["Na y Cl", "Li y K", "O y Ne", "C y Ca"], 1, "Mismo grupo."),
+    q4("La masa de H₂SO₄ (H = 1, S = 32, O = 16) es…", ["49 u", "96 u", "98 u", "100 u"], 2, "2 + 32 + 64."),
+    q4("El MgCl₂ tiene enlace…", ["covalente", "iónico", "metálico", "ninguno"], 1, "Metal + no metal."),
+    q4("¿Qué átomo es más grande?", ["Li", "Na", "K", "H"], 2, "Más abajo en el grupo."),
+    q4("El calcio (grupo 2) forma el ion…", ["Ca⁺", "Ca²⁺", "Ca²⁻", "Ca⁻"], 1, "Pierde dos electrones."),
+    q4("¿Cuál es un compuesto molecular?", ["NaCl", "Fe", "H₂O", "Ne"], 2, "Moléculas de tres átomos."),
+    q4("Mendeléiev dejó huecos en su tabla porque…", ["se equivocó", "predijo elementos por descubrir", "no tenía espacio", "eran gases"], 1, "Galio, escandio, germanio."),
   ],
-  feynman: ["Qué diferencia hay entre un elemento, un compuesto, una molécula y un cristal", "Cómo se organiza la tabla periódica en grupos y periodos", "Por qué los átomos se unen: la regla del octeto"],
-  mapa: mapa("TABLA PERIÓDICA", "var(--eso)", [
-    ["Sustancias", "elementos · compuestos", "var(--pen)"],
-    ["Orden", "número atómico · grupos · periodos", "var(--red)"],
-    ["Zonas", "metales · no metales · gases nobles", "var(--leaf)"],
-    ["Enlace", "iónico · covalente · metálico", "#b8860b"],
-  ], 300),
+  feynman: ["Qué diferencia hay entre un elemento, un compuesto y una mezcla", "Cómo se escriben los símbolos y las fórmulas químicas", "Cómo está organizada la tabla periódica y qué indican grupos y periodos", "Por qué los gases nobles no reaccionan y qué es la regla del octeto", "Qué diferencia hay entre los enlaces iónico, covalente y metálico", "Cómo se calcula una masa molecular"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Elemento", "Sustancia formada por átomos con el mismo Z."],
-    ["Compuesto", "Sustancia de dos o más elementos en proporción fija."],
-    ["Grupo", "Columna de la tabla; propiedades parecidas."],
-    ["Periodo", "Fila de la tabla; número de capas."],
-    ["Metales", "Brillo, conducen, dúctiles; pierden electrones."],
-    ["Regla del octeto", "Los átomos tienden a tener 8 electrones en la última capa."],
-    ["Molécula", "Grupo independiente de átomos unidos: H₂O, O₂."],
-    ["Masa molecular", "Suma de las masas atómicas de la fórmula."],
+    ["Elemento", "Un solo tipo de átomo; 118 conocidos."],
+    ["Compuesto", "Varios elementos unidos en proporción fija."],
+    ["Símbolo", "Mayúscula + minúscula: Co (cobalto) ≠ CO."],
+    ["Mendeléiev", "Ordenó por masas y predijo elementos (1869)."],
+    ["Grupo", "Columna: mismos electrones de valencia."],
+    ["Periodo", "Fila: número de capas."],
+    ["Metales", "Brillo, conducen, pierden electrones."],
+    ["No metales", "Sin brillo, aislantes, ganan electrones."],
+    ["Gases nobles", "Última capa completa: no reaccionan."],
+    ["Regla del octeto", "Tendencia a tener 8 electrones en la última capa."],
+    ["Enlaces", "Iónico (metal + no metal), covalente (no metales), metálico."],
+    ["Masa molecular", "Suma de masas atómicas por sus subíndices."],
   ],
-  familias: ["Buscad en casa objetos hechos de elementos (papel de aluminio, cable de cobre, mina de grafito) y localizadlos en la tabla.", "Jugad a las adivinanzas de símbolos químicos con nombres latinos.", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "La materia: elementos y compuestos, sistema periódico, sustancias atómicas, moleculares y cristalinas, enlace químico y masa molecular (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Construir una tabla periódica mural en la que cada estudiante investigue un elemento.", "Juego de cartas de Mendeléiev: ordenar elementos por propiedades y descubrir huecos.", "Modelos de moléculas con plastilina y palillos."],
+  glosario: [
+    ["Elemento químico", "Sustancia formada por átomos con el mismo número de protones."],
+    ["Compuesto", "Sustancia formada por varios elementos unidos químicamente en proporción fija."],
+    ["Símbolo químico", "Abreviatura de una o dos letras que representa un elemento."],
+    ["Fórmula química", "Representación de una sustancia con símbolos y subíndices."],
+    ["Tabla periódica", "Ordenación de los elementos por número atómico en grupos y periodos."],
+    ["Ley periódica", "Las propiedades de los elementos se repiten periódicamente al ordenarlos por Z."],
+    ["Grupo", "Columna de la tabla periódica."],
+    ["Periodo", "Fila de la tabla periódica."],
+    ["Alcalinos", "Metales del grupo 1, muy reactivos."],
+    ["Halógenos", "No metales del grupo 17."],
+    ["Gases nobles", "Elementos del grupo 18, muy estables."],
+    ["Metal de transición", "Elemento de los grupos 3 a 12."],
+    ["Semimetal", "Elemento con propiedades intermedias entre metales y no metales."],
+    ["Regla del octeto", "Tendencia de los átomos a completar con 8 electrones su última capa."],
+    ["Molécula", "Grupo de un número fijo de átomos unidos."],
+    ["Cristal", "Red ordenada de un número enorme de átomos o iones."],
+    ["Enlace químico", "Fuerza que mantiene unidos a los átomos."],
+    ["Masa molecular", "Suma de las masas atómicas de los átomos de una fórmula."],
+  ],
+  situacion: {
+    titulo: "Adopta un elemento",
+    reto: "La clase va a construir una gran tabla periódica mural para el pasillo del centro. Cada alumno «adopta» uno o dos elementos y diseña su casilla con información científica, curiosidades y usos, de forma que la tabla completa permita descubrir las regularidades periódicas.",
+    pasos: [
+      "Elegid los elementos y buscad su Z, masa atómica, distribución en capas, grupo, periodo y si es metal, no metal o semimetal.",
+      "Investigad su descubrimiento, el origen de su nombre y dos usos o compuestos importantes.",
+      "Diseñad la casilla con un código de colores común para metales, no metales, semimetales y gases nobles.",
+      "Montad la tabla y buscad en grupo regularidades: tamaño, carácter metálico, iones que forman.",
+      "Preparad un juego de pistas para que otros cursos adivinen elementos a partir de su posición.",
+    ],
+    producto: "Una tabla periódica mural con casillas ilustradas y un juego de pistas para otros cursos.",
+    evaluacion: ["Los datos de cada elemento son correctos y están bien situados en la tabla.", "Se relaciona la posición con la estructura electrónica y las propiedades.", "Se identifican correctamente las tendencias periódicas.", "El diseño es claro y el juego funciona."],
   },
-  fuentes: [RD, wiki("Tabla periódica de los elementos", "Tabla_peri%C3%B3dica_de_los_elementos"), wiki("Elemento químico", "Elemento_qu%C3%ADmico")],
-  revisado: "2026-11-12",
+  familias: [
+    "Buscad en casa objetos hechos de distintos elementos (cobre de los cables, aluminio, hierro, plata) y localizadlos en la tabla periódica.",
+    "Leed la etiqueta de un agua mineral o de unos cereales y buscad qué elementos aparecen.",
+    "Jugad a adivinar elementos por pistas (grupo, periodo, si es metal…).",
+    "Mirad juntos una tabla periódica ilustrada con los usos de cada elemento.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La materia»: elementos y compuestos, símbolos y fórmulas, la tabla periódica (historia, grupos y periodos), relación entre configuración electrónica y posición, metales, no metales y gases nobles, regla del octeto, tipos de enlace, sustancias moleculares y cristalinas y masa molecular.`,
+    ideas: [
+      "Construcción de una tabla periódica mural en la que cada alumno adopta un elemento.",
+      "Comparación de propiedades de sustancias iónicas, covalentes y metálicas (dureza, conductividad, solubilidad).",
+      "Modelos de moléculas y cristales con bolas y varillas o plastilina.",
+      "Juego de cartas tipo «solitario de Mendeléiev» con propiedades de los elementos.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Tabla periódica de los elementos", "Tabla_peri%C3%B3dica_de_los_elementos"),
+    wiki("Enlace químico", "Enlace_qu%C3%ADmico"),
+    { t: "Tabla periódica de la IUPAC", url: "https://iupac.org/what-we-do/periodic-table-of-elements/" },
+  ],
+  revisado: "2026-11-13",
 };

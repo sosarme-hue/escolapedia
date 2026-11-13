@@ -1,160 +1,238 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
+// Física y Química 3º ESO · La materia y sus propiedades (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, graf, rejilla, barras, escala, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["materia-propiedades"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "La materia y sus propiedades",
-  minutos: 50,
-  objetivos: ["Distinguir propiedades generales y características de la materia", "Medir la masa y el volumen de sólidos y líquidos", "Calcular la densidad y usarla para identificar sustancias", "Explicar la flotación a partir de la densidad"],
-  claves: ["materia", "masa", "volumen", "densidad", "propiedad general", "propiedad característica", "temperatura de fusión", "flotación"],
+  minutos: 100,
+  objetivos: [
+    "Distinguir las propiedades generales de la materia de las propiedades características",
+    "Medir masas y volúmenes de sólidos y líquidos con los instrumentos adecuados",
+    "Calcular densidades, masas y volúmenes y cambiar sus unidades",
+    "Explicar la flotación a partir de la densidad y del modelo de partículas",
+    "Utilizar las escalas Celsius y Kelvin y los puntos de fusión y ebullición para identificar sustancias",
+    "Relacionar las propiedades de los materiales con sus usos",
+  ],
+  claves: ["materia", "masa", "volumen", "densidad", "propiedad general", "propiedad característica", "flotación", "temperatura", "kelvin", "punto de fusión", "punto de ebullición", "material"],
   pregunta: {
-    texto: "Un barco de acero de 100.000 toneladas flota, pero un tornillo de acero de 5 gramos se hunde. ¿Cómo es posible?",
-    respuesta: "No depende de cuánto pesa, sino de la <mark>densidad</mark>: de cuánta masa hay en cada litro de volumen. El tornillo es acero macizo, mucho más denso que el agua. El barco es una gran caja hueca llena de aire, y su densidad media (acero más aire) es menor que la del agua.",
+    texto: "¿Qué pesa más, un kilo de plomo o un kilo de paja? Y, si los dos pesan lo mismo, ¿por qué la paja ocupa tantísimo más sitio?",
+    respuesta: "Pesan <mark>lo mismo</mark>: un kilo es un kilo. Pero el plomo tiene una <b>densidad</b> muy alta (11,3 g/cm³): su masa está muy concentrada en poco volumen. La paja tiene una densidad muy baja, así que ese mismo kilo ocupa un volumen enorme. La densidad, el cociente entre masa y volumen, es una <b>propiedad característica</b> que permite distinguir unas sustancias de otras.",
+  },
+  lectura: {
+    titulo: "¡Eureka!",
+    html: `<p>Cuenta la tradición que Hierón, rey de Siracusa, encargó a un orfebre una corona de oro puro. Cuando la recibió, sospechó que el artesano se había quedado parte del oro y lo había sustituido por plata, más barata. La corona pesaba lo mismo que el oro entregado, así que la balanza no servía para descubrir el engaño. El rey pidió ayuda al sabio Arquímedes, con una condición: no podía estropear la corona.</p><p>Arquímedes le dio vueltas al problema durante días. Un día, al meterse en una bañera llena, vio cómo el agua se desbordaba y comprendió que un cuerpo sumergido desplaza un volumen de agua igual al suyo. La leyenda dice que salió corriendo desnudo por las calles gritando «¡Eureka!», que en griego significa «¡lo encontré!». La plata es menos densa que el oro: para tener la misma masa, una corona con plata necesita más volumen y desplaza más agua. Al sumergir la corona y un bloque de oro puro de igual masa, la corona desbordó más agua. El orfebre había hecho trampa.</p><p>Quizá la historia no ocurrió exactamente así, pero la idea es genial: sin romper nada, solo con una balanza y un recipiente con agua, se puede saber de qué está hecho un objeto. Esa es la fuerza de las propiedades características de la materia.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Qué es la materia</h3><p><b>Materia</b> es todo lo que tiene <mark>masa</mark> y ocupa un lugar en el espacio, es decir, tiene <mark>volumen</mark>. Son materia el agua, el aire, una roca, tu cuerpo o una estrella. No son materia la luz, el sonido, el calor o las ideas, porque no tienen masa. Cada clase concreta de materia es una <b>sustancia</b>: el agua, el hierro, la sal o el oxígeno. Un <b>sistema material</b> es la porción de materia que aislamos para estudiarla, como el agua de un vaso. Aunque no lo parezca, el aire también es materia: un balón inflado pesa más que uno desinflado, y un vaso «vacío» metido boca abajo en agua no se llena porque el aire ocupa su sitio.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un vaso boca abajo dentro de agua conserva aire dentro: el aire ocupa espacio y es materia">${BG}
-        <rect x="30" y="70" width="200" height="90" rx="6" fill="var(--water)" fill-opacity=".4" stroke="var(--muted)" stroke-width="2"/>
-        <path d="M100 40 V 120 H 160 V 40" fill="#fff" fill-opacity=".9" stroke="var(--ink)" stroke-width="2.5"/>
-        <rect x="102" y="102" width="56" height="16" fill="var(--water)" fill-opacity=".4"/>
-        ${t(130, 84, "aire", { size: 13, color: "var(--pen)" })}${t(130, 30, "vaso boca abajo", { size: 11 })}${t(200, 146, "agua", { size: 12, color: "var(--pen)" })}
-        ${t(130, 174, "el aire ocupa su sitio: es materia", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>Propiedades generales y características</h3><p>Las <b>propiedades generales</b> las tiene toda la materia, sea cual sea: la masa, el volumen, la temperatura. Sirven para describir una porción de materia, pero <b>no para identificar</b> de qué sustancia se trata, porque 1 kg de hierro y 1 kg de madera tienen la misma masa. Las <mark>propiedades características</mark> o específicas tienen un valor propio de cada sustancia y sirven para <b>identificarla</b>: la <b>densidad</b>, la <b>temperatura de fusión</b> y la de <b>ebullición</b>, la <b>solubilidad</b>, la conductividad eléctrica, la dureza o el color. Si una sustancia funde a 0 °C, hierve a 100 °C y tiene una densidad de 1 g/cm³, es agua.</p>`,
-    },
-    {
-      html: `<h3>La masa y cómo se mide</h3><p>La <mark>masa</mark> es la cantidad de materia que tiene un cuerpo. Su unidad en el SI es el <b>kilogramo (kg)</b>, aunque se usan mucho el gramo (g) y la tonelada (t). Se mide con la <b>balanza</b>. Antes de usarla hay que comprobar que marca cero (tarar) y, para pesar un líquido, se pesa primero el recipiente vacío y después lleno, y se restan. No hay que confundir masa con <b>peso</b>: el peso es la fuerza con la que la Tierra atrae a un cuerpo y se mide en newtons. En la Luna tu masa sería la misma, pero pesarías seis veces menos.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Pesada por diferencia: el vaso vacío pesa 80 gramos, lleno 230; la masa del líquido es 150 gramos">${BG}
-        ${[[66, "80 g", false], [194, "230 g", true]].map(([x, m, full]) => `<rect x="${x - 50}" y="110" width="100" height="40" rx="6" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><rect x="${x - 26}" y="122" width="52" height="18" rx="3" fill="#e8f3e8" stroke="var(--leaf)"/>${t(x, 136, m, { size: 12, color: "var(--leaf)" })}<path d="M${x - 20} 60 V 104 H ${x + 20} V 60" fill="${full ? "var(--water)" : "none"}" fill-opacity=".35" stroke="var(--ink)" stroke-width="2"/>`).join("")}
-        ${t(66, 50, "vacío", { size: 11 })}${t(194, 50, "lleno", { size: 11 })}
-        ${t(130, 28, "líquido = 230 − 80 = 150 g", { size: 12, color: "var(--pen)" })}${t(130, 170, "balanza: tara a cero", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>El volumen y cómo se mide</h3><p>El <mark>volumen</mark> es el espacio que ocupa un cuerpo. Su unidad en el SI es el <b>metro cúbico (m³)</b>, pero en la vida diaria usamos el litro: <b>1 L = 1 dm³</b> y <b>1 mL = 1 cm³</b>. El volumen de un sólido regular se calcula con fórmulas: el de un cubo es lado al cubo, el de un prisma es largo por ancho por alto. El de un líquido se mide con la <b>probeta</b>, leyendo con los ojos a la altura del <b>menisco</b>, la superficie curva del líquido. El de un sólido irregular, como una piedra, se mide por <b>inmersión</b>: se mete en una probeta con agua y el aumento de volumen es el volumen de la piedra.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Medida de volumen por inmersión: la probeta pasa de 50 a 65 mililitros al meter una piedra; la piedra ocupa 15 mililitros">${BG}
-        ${[[70, 90, false, "50 mL"], [190, 72, true, "65 mL"]].map(([x, y, st, v]) => `<path d="M${x - 18} 30 V 150 H ${x + 18} V 30" fill="none" stroke="var(--ink)" stroke-width="2"/><rect x="${x - 17}" y="${y}" width="34" height="${150 - y}" fill="var(--water)" fill-opacity=".45"/>${st ? `<path d="M${x - 10} 146 L ${x - 4} 128 L ${x + 10} 130 L ${x + 12} 146 Z" fill="#8a7a6a"/>` : ""}${t(x + 26, y + 4, v, { size: 11, anchor: "start", color: "var(--pen)" })}`).join("")}
-        ${fl(110, 100, 150, 100)}${t(130, 22, "piedra = 65 − 50 = 15 mL", { size: 12, color: "var(--red)" })}${t(130, 172, "1 mL = 1 cm³", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>La densidad</h3><p>La <mark>densidad</mark> es la masa que hay en cada unidad de volumen de una sustancia: <b>d = m / V</b>. Indica lo «apretada» que está la materia. Su unidad en el SI es el <b>kg/m³</b>, pero se usa mucho el <b>g/cm³</b>, que equivale a kg/L; para pasar de g/cm³ a kg/m³ se multiplica por 1000. Es una <b>propiedad característica</b>: un clavo y una viga de hierro tienen masas muy distintas, pero la misma densidad, 7,9 g/cm³. Despejando de la fórmula se pueden calcular la masa (<b>m = d · V</b>) o el volumen (<b>V = m / d</b>) si conocemos la densidad.</p>${tabla(["Sustancia", "Densidad (g/cm³)"], [["Aire", "0,0012"], ["Aceite de oliva", "0,92"], ["Hielo", "0,92"], ["Agua", "1,00"], ["Agua de mar", "1,03"], ["Aluminio", "2,7"], ["Hierro", "7,9"], ["Mercurio", "13,6"], ["Oro", "19,3"]])}`,
-      video: { id: "1yxYjQmTpVI", titulo: "CALCULAR DENSIDAD [Fácil y Rápido]", canal: "A Cierta Ciencia", vistas: 928166 },
-    },
-    {
-      html: `<h3>Densidad y partículas</h3><p>¿Por qué unas sustancias son más densas que otras? Toda la materia está formada por <b>partículas</b> muy pequeñas. La densidad depende de <b>la masa de cada partícula</b> y de lo <b>juntas</b> que estén. El oro es muy denso porque sus átomos son pesados y están muy apretados. Los gases tienen densidades unas mil veces menores que los líquidos porque sus partículas están muy separadas. Por eso, en general, una sustancia es más densa en estado sólido que en líquido, y mucho más que en gas. El agua es una excepción famosa: el <mark>hielo es menos denso que el agua líquida</mark>, y por eso flota y los lagos se congelan solo por arriba, lo que permite que los peces sobrevivan debajo.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Mismo volumen con partículas muy juntas, en un sólido denso, y muy separadas, en un gas poco denso">${BG}
-        <rect x="20" y="40" width="96" height="96" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        ${Array.from({ length: 36 }, (_, i) => `<circle cx="${30 + (i % 6) * 15}" cy="${50 + Math.floor(i / 6) * 15}" r="6" fill="#d4a017"/>`).join("")}
-        <rect x="144" y="40" width="96" height="96" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        ${[[160, 60], [210, 52], [186, 96], [224, 118], [158, 122]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="6" fill="var(--inf)"/>`).join("")}
-        ${t(68, 28, "muy denso", { size: 12, color: "#b8860b" })}${t(192, 28, "poco denso", { size: 12, color: "var(--inf)" })}
-        ${t(68, 158, "sólido (oro)", { size: 11 })}${t(192, 158, "gas (aire)", { size: 11 })}</svg>`,
-    },
-    {
-      html: `<h3>Flotar o hundirse</h3><p>Un cuerpo <mark>flota</mark> en un líquido si su densidad media es <b>menor</b> que la del líquido, y se <b>hunde</b> si es mayor. La madera (unos 0,6 g/cm³) flota en agua; una piedra (unos 2,5 g/cm³) se hunde. El aceite flota sobre el agua y no se mezcla. Si se echan en un vaso miel, agua y aceite, se ordenan en capas de más a menos densa. En el agua del mar Muerto, muy salada y densa (1,24 g/cm³), las personas flotan sin esfuerzo. Los submarinos llenan o vacían sus tanques de agua para cambiar su densidad media y así bajar o subir, y los peces hacen algo parecido con su vejiga natatoria.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Vaso con tres capas: aceite arriba, agua en medio y miel abajo; un corcho flota en el aceite, un tomate cherry en el agua y una tuerca en el fondo">${BG}
-        <path d="M70 26 V 160 H 190 V 26" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
-        <rect x="71" y="50" width="118" height="36" fill="#f2d675" fill-opacity=".7"/><rect x="71" y="86" width="118" height="40" fill="var(--water)" fill-opacity=".45"/><rect x="71" y="126" width="118" height="33" fill="#c47a1a" fill-opacity=".7"/>
-        <rect x="114" y="42" width="26" height="14" rx="4" fill="#b88a5a"/><circle cx="130" cy="98" r="10" fill="var(--red)"/><path d="M118 152 l 8 -8 h 10 l 4 8 Z" fill="var(--muted)"/>
-        ${t(200, 72, "aceite 0,9", { size: 10, anchor: "start" })}${t(200, 110, "agua 1,0", { size: 10, anchor: "start", color: "var(--pen)" })}${t(200, 146, "miel 1,4", { size: 10, anchor: "start", color: "#a0560a" })}
-        ${t(60, 48, "corcho", { size: 10, anchor: "end" })}${t(60, 102, "tomate", { size: 10, anchor: "end" })}${t(60, 152, "tuerca", { size: 10, anchor: "end" })}</svg>`,
-    },
-    {
-      html: `<h3>Las temperaturas de fusión y ebullición</h3><p>La <b>temperatura de fusión</b> es la temperatura a la que una sustancia pura pasa de sólido a líquido, y la de <b>ebullición</b>, la temperatura a la que hierve, pasando de líquido a gas en todo su volumen. Ambas son <mark>propiedades características</mark>. El agua funde a 0 °C y hierve a 100 °C (a nivel del mar); el hierro funde a 1538 °C; el oxígeno hierve a −183 °C. Si una sustancia no es pura, estas temperaturas cambian: el agua con sal se congela por debajo de 0 °C, por eso se echa sal en las carreteras heladas. La temperatura de ebullición también depende de la presión: en la cima del Everest el agua hierve a unos 70 °C.</p>`,
-    },
-    {
-      html: `<h3>Otras propiedades características</h3><p>La <b>solubilidad</b> es la cantidad máxima de una sustancia que se puede disolver en una cantidad de disolvente: la sal es muy soluble en agua, la arena no. La <b>conductividad eléctrica</b> y la <b>térmica</b> indican si la sustancia deja pasar la electricidad y el calor: los metales son buenos conductores; el plástico, la madera y el vidrio son aislantes. La <b>dureza</b> es la resistencia a ser rayado: el diamante es el material natural más duro. La <b>elasticidad</b>, la <b>fragilidad</b>, la <b>maleabilidad</b> (formar láminas) y la <b>ductilidad</b> (formar hilos) explican para qué sirve cada material. Por ejemplo, el cobre es dúctil y buen conductor, y por eso se usa en los cables.</p>`,
-    },
-    {
-      html: `<h3>La temperatura y las escalas</h3><p>La <mark>temperatura</mark> es una propiedad general que mide lo caliente o frío que está un cuerpo y está relacionada con la <b>agitación de sus partículas</b>: cuanto más rápido se mueven, mayor es la temperatura. Se mide con el termómetro. En la vida diaria usamos la escala <b>Celsius</b> (°C), con el 0 en la fusión del hielo y el 100 en la ebullición del agua. En ciencia se usa la escala <b>Kelvin</b> (K), la del SI, que empieza en el <b>cero absoluto</b>, la temperatura más baja posible, en la que las partículas casi no se mueven. Para pasar de una a otra: <mark>T(K) = t(°C) + 273</mark>. Así, 25 °C son 298 K.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos termómetros comparados: 100 grados Celsius son 373 kelvin, 0 grados son 273 kelvin y el cero absoluto, menos 273 grados, es 0 kelvin">${BG}
-        ${[[80, "°C", ["100", "0", "−273"]], [180, "K", ["373", "273", "0"]]].map(([x, u, v]) => `<rect x="${x - 8}" y="24" width="16" height="132" rx="8" fill="#fff" stroke="var(--ink)" stroke-width="2"/><circle cx="${x}" cy="156" r="12" fill="var(--red)"/><rect x="${x - 4}" y="60" width="8" height="96" fill="var(--red)"/>${t(x, 18, u, { size: 12 })}${v.map((n, i) => t(x + (u === "K" ? 18 : -18), [40, 90, 140][i], n, { size: 11, anchor: u === "K" ? "start" : "end", color: "var(--pen)" })).join("")}`).join("")}
-        ${[40, 90, 140].map(y => `<line x1="92" y1="${y - 4}" x2="168" y2="${y - 4}" stroke="var(--muted)" stroke-dasharray="3 3"/>`).join("")}
-        ${t(130, 174, "K = °C + 273", { size: 11, color: "var(--leaf)" })}</svg>`,
-    },
+    bloque({ h: "1.1 ¿Qué es la materia?", p: [
+      "<mark>Materia</mark> es todo lo que tiene <b>masa</b> y ocupa un <b>volumen</b>, es decir, un lugar en el espacio. Son materia el agua, el aire, una piedra, nuestro cuerpo o una estrella. No son materia la luz, el sonido, el calor, las ideas o los sentimientos: no tienen masa ni ocupan espacio. El aire, aunque no se vea, sí es materia: un balón inflado pesa más que desinflado, y una jeringuilla tapada no se puede apretar del todo porque el aire ocupa sitio.",
+      "La materia se presenta en forma de <b>sistemas materiales</b>, porciones de materia que se aíslan para estudiarlas, como el agua de un vaso o el aire de una habitación. Cada tipo de materia con unas propiedades concretas se llama <b>sustancia</b>: el agua, la sal o el oxígeno. Cuando hablamos de un objeto pensando en para qué sirve, hablamos de un <b>material</b>: la madera, el vidrio o el acero. Según el modelo de partículas, toda la materia está formada por partículas diminutas, átomos y moléculas, que están en continuo movimiento y entre las que hay espacio vacío.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.2 Propiedades generales y características", p: [
+      "Las <mark>propiedades generales</mark> o extensivas son las que tiene cualquier tipo de materia y cuyo valor depende de la cantidad de materia: la <b>masa</b>, el <b>volumen</b>, la temperatura o el peso. Sirven para saber cuánta materia hay, pero no qué sustancia es: un litro de agua y un litro de aceite tienen el mismo volumen.",
+      "Las <mark>propiedades características</mark> o intensivas tienen un valor propio de cada sustancia y no dependen de la cantidad: la <b>densidad</b>, el <b>punto de fusión</b>, el <b>punto de ebullición</b>, la <b>solubilidad</b>, la conductividad eléctrica y térmica, la dureza, el color o el olor. Una gota de agua y un océano tienen la misma densidad y hierven a la misma temperatura (100 °C a nivel del mar). Por eso las propiedades características permiten <b>identificar</b> sustancias, igual que una huella dactilar identifica a una persona. Unas se aprecian con los sentidos (color, olor, brillo) y otras hay que medirlas con instrumentos (densidad, temperaturas de cambio de estado).",
+    ], svg: compara("Propiedades generales frente a propiedades características", ["Generales", ["masa", "volumen", "dependen de", "la cantidad"]], ["Características", ["densidad", "p. de fusión", "identifican", "la sustancia"]], "var(--pen)", "var(--leaf)") }),
+    bloque({ h: "1.3 La masa y cómo se mide", p: [
+      "La <mark>masa</mark> es la cantidad de materia que tiene un cuerpo. Su unidad en el SI es el <b>kilogramo</b> (kg), aunque en el laboratorio se usa mucho el gramo (1 kg = 1.000 g) y para grandes cantidades la tonelada (1 t = 1.000 kg). La masa de un cuerpo es la misma en cualquier lugar: un astronauta tiene la misma masa en la Tierra que en la Luna.",
+      "La masa se mide con la <b>balanza</b>. Las balanzas clásicas de dos platos comparan la masa del objeto con masas conocidas, llamadas pesas; las balanzas electrónicas dan directamente la lectura en una pantalla. Para medir la masa de un líquido o de un polvo se usa la <b>tara</b>: se coloca el recipiente vacío, se pone la balanza a cero y después se añade la sustancia. No hay que confundir masa con <b>peso</b>: el peso es la fuerza con la que la Tierra atrae un cuerpo, se mide en newtons con un dinamómetro y cambia según el lugar. En la Luna pesamos unas seis veces menos, aunque nuestra masa sea la misma.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "1.4 El volumen y cómo se mide", p: [
+      "El <mark>volumen</mark> es el espacio que ocupa un cuerpo. Su unidad en el SI es el <b>metro cúbico</b> (m³), pero en la vida diaria y en el laboratorio se usan el <b>litro</b> (L) y el mililitro (mL). Conviene recordar las equivalencias: 1 m³ = 1.000 L, 1 L = 1 dm³ y 1 mL = 1 cm³.",
+      "El volumen de un <b>líquido</b> se mide con material volumétrico: probeta, pipeta, bureta o matraz aforado. Al leer hay que poner los ojos a la altura del <b>menisco</b>, la superficie curva del líquido, y mirar su parte baja. El volumen de un <b>sólido regular</b> se calcula con fórmulas geométricas: un cubo de arista a tiene V = a³, y un prisma, largo × ancho × alto. Para un <b>sólido irregular</b>, como una piedra, se usa el método de <b>inmersión</b>: se echa agua en una probeta, se anota el volumen, se sumerge el sólido y se vuelve a leer; la diferencia es el volumen del sólido, porque desplaza tanta agua como su propio volumen. Es la idea de Arquímedes.",
+    ], svg: S.svg[2], video: S.bvideos[0] }),
+    bloque({ h: "2.1 La densidad", p: [
+      "La <mark>densidad</mark> (d o ρ) es la masa que hay en cada unidad de volumen de una sustancia. Se calcula dividiendo la masa entre el volumen: d = m / V. Su unidad en el SI es el kg/m³, pero se usan mucho el g/cm³ y el g/mL, que son iguales entre sí. Para pasar de g/cm³ a kg/m³ basta multiplicar por 1.000: el agua tiene 1 g/cm³ = 1.000 kg/m³.",
+      "La densidad indica lo «apretada» que está la materia. Es una propiedad característica: todos los trozos de hierro, grandes o pequeños, tienen 7,9 g/cm³. Si duplicamos la masa, el volumen también se duplica y el cociente no cambia. La densidad depende de la temperatura, porque casi todas las sustancias se dilatan al calentarse, y, en los gases, también de la presión. Algunos valores a 20 °C: aire, 0,0012 g/cm³; corcho, 0,25; aceite, 0,92; hielo, 0,92; agua, 1,00; agua de mar, 1,03; aluminio, 2,7; hierro, 7,9; plomo, 11,3; mercurio, 13,6; y oro, 19,3 g/cm³.",
+    ], extra: formula("d = m / V"), svg: barras("Densidad de algunas sustancias en g/cm³", "Densidad (g/cm³)", [["Corcho", 0.25, "#b45309", "0,25"], ["Agua", 1, "var(--pen)", "1,0"], ["Aluminio", 2.7, "var(--muted)", "2,7"], ["Hierro", 7.9, "var(--ink)", "7,9"], ["Oro", 19.3, "#d4a017", "19,3"]]), video: S.bvideos[1] }),
+    bloque({ h: "2.2 Cálculos con la densidad", p: [
+      "La fórmula d = m / V tiene tres magnitudes. Si conocemos dos, podemos calcular la tercera despejando: la masa es m = d · V y el volumen es V = m / d. Lo más importante es que las <b>unidades sean coherentes</b>: si la densidad está en g/cm³, la masa debe ir en gramos y el volumen en cm³; si está en kg/m³, en kilogramos y metros cúbicos.",
+      "Por ejemplo, ¿cuánto pesa (qué masa tiene) un litro de aceite de densidad 0,92 g/cm³? Como 1 L = 1.000 cm³, m = 0,92 · 1.000 = 920 g. Y ¿qué volumen ocupan 500 g de hierro? V = 500 / 7,9 ≈ 63 cm³, menos que un vasito. Un procedimiento ordenado ayuda a no equivocarse: anotar los datos con sus unidades, pasarlos a unidades coherentes, escribir la fórmula, despejar, sustituir y dar el resultado con su unidad y con las cifras significativas adecuadas. Por último, conviene preguntarse si el resultado es razonable: un litro de aceite no puede tener una masa de 920 kg.",
+    ], svg: pasos("Pasos para resolver un problema de densidad", ["Datos con sus unidades", "Unidades coherentes", "Fórmula y despeje", "Resultado con unidad"], "var(--leaf)") }),
+    bloque({ h: "2.3 Densidad y partículas", p: [
+      "¿Por qué unas sustancias son más densas que otras? El modelo de partículas lo explica con dos factores. El primero es la <b>masa de cada partícula</b>: los átomos de plomo u oro son mucho más pesados que los de aluminio o carbono. El segundo es lo <b>juntas</b> que estén las partículas: cuanto más apretadas, más masa cabe en el mismo volumen.",
+      "Por eso, en general, una sustancia es más densa en estado <b>sólido</b> que en <b>líquido</b>, y mucho más que en <b>gas</b>: en los gases las partículas están muy separadas y casi todo es espacio vacío. El vapor de agua es unas mil veces menos denso que el agua líquida. El agua es una excepción muy importante: el <mark>hielo es menos denso que el agua líquida</mark> (0,92 frente a 1,00 g/cm³), porque al congelarse sus moléculas se ordenan en una red hexagonal con huecos. Gracias a ello el hielo flota, los lagos se congelan solo por la superficie y los peces sobreviven debajo en invierno. También por eso una botella llena de agua revienta en el congelador: el agua aumenta de volumen al congelarse.",
+    ], svg: S.svg[3] }),
+    bloque({ h: "2.4 Flotar o hundirse", p: [
+      "Un objeto <mark>flota</mark> en un líquido si su densidad es <b>menor</b> que la del líquido, y se <b>hunde</b> si es mayor. Si son iguales, queda suspendido en el interior. El corcho y la madera flotan en agua; una piedra o una moneda se hunden. En el aceite, que es menos denso, se hunden cosas que en agua flotarían. Y en el mercurio, tan denso, flota incluso un trozo de hierro.",
+      "La explicación está en el <b>empuje</b>: todo cuerpo sumergido en un fluido recibe una fuerza hacia arriba igual al peso del fluido que desaloja (principio de Arquímedes). Si el empuje es mayor que el peso, el cuerpo sube. Un barco de acero flota porque su forma hueca, llena de aire, hace que su <b>densidad media</b> sea menor que la del agua: desplaza muchísima agua. Los submarinos llenan o vacían sus tanques de agua para cambiar su densidad media y sumergirse o salir. Los líquidos que no se mezclan se colocan en capas por densidad, con el más denso abajo: la miel, el agua y el aceite forman una torre de colores. Y en el mar Muerto, con agua muy salada y densa, una persona flota sin esfuerzo.",
+    ], svg: S.svg[4], video: S.bvideos[2] }),
+    bloque({ h: "3.1 La temperatura y sus escalas", p: [
+      "La <mark>temperatura</mark> es una magnitud que indica lo caliente o frío que está un cuerpo. Según el modelo de partículas, mide la <b>energía cinética media</b> de las partículas: cuanto más deprisa se mueven, mayor es la temperatura. No hay que confundirla con el calor, que es la energía que pasa de un cuerpo caliente a otro frío. Se mide con <b>termómetros</b>, que aprovechan alguna propiedad que cambia con la temperatura, como la dilatación de un líquido.",
+      "En la vida diaria usamos la escala <b>Celsius</b> (°C), que asigna 0 °C a la fusión del hielo y 100 °C a la ebullición del agua a nivel del mar. En ciencia se usa la escala <mark>Kelvin</mark> (K), la del SI, que empieza en el <b>cero absoluto</b>, la temperatura más baja posible (−273 °C), a la que las partículas estarían prácticamente quietas. Un grado Celsius y un kelvin son igual de «grandes», así que el cambio de escala es una simple suma: T(K) = t(°C) + 273. El agua se congela a 273 K y hierve a 373 K. En Estados Unidos se usa la escala Fahrenheit, en la que el agua se congela a 32 °F y hierve a 212 °F.",
+    ], extra: formula("T (K) = t (°C) + 273"), svg: S.svg[5] }),
+    bloque({ h: "3.2 Los puntos de fusión y de ebullición", p: [
+      "El <mark>punto de fusión</mark> es la temperatura a la que una sustancia pura pasa de sólido a líquido, y el <mark>punto de ebullición</mark>, aquella a la que hierve, es decir, pasa de líquido a gas en toda su masa. Para cada sustancia pura y a una presión dada, estos valores son fijos y característicos: el agua funde a 0 °C y hierve a 100 °C; el etanol funde a −114 °C y hierve a 78 °C; el hierro funde a 1.538 °C.",
+      "Conociendo estas temperaturas se puede saber en qué <b>estado</b> está una sustancia a una temperatura dada: si está por debajo de su punto de fusión es sólida; entre el de fusión y el de ebullición, líquida; y por encima del de ebullición, gas. A 20 °C el mercurio (funde a −39 °C, hierve a 357 °C) es líquido y el oxígeno (hierve a −183 °C) es gas. El punto de ebullición depende de la <b>presión</b>: en lo alto de una montaña, donde la presión es menor, el agua hierve por debajo de 100 °C, y en una olla exprés, con más presión, hierve a unos 120 °C, por lo que los alimentos se cocinan antes. Las <b>impurezas</b> también los modifican: el agua con sal se congela por debajo de 0 °C.",
+    ], svg: rejilla("Puntos de fusión y ebullición de algunas sustancias", ["Sustancia", "Fusión", "Ebullición"], [["Agua", "0 °C", "100 °C"], ["Etanol", "−114 °C", "78 °C"], ["Mercurio", "−39 °C", "357 °C"], ["Oxígeno", "−218 °C", "−183 °C"], ["Hierro", "1.538 °C", "2.862 °C"]], "var(--red)") }),
+    bloque({ h: "3.3 Otras propiedades características", p: [
+      "La <b>solubilidad</b> es la cantidad máxima de una sustancia que se puede disolver en una cantidad de disolvente a una temperatura: el azúcar es muy soluble en agua, y la arena, nada. La <b>conductividad eléctrica</b> indica si un material deja pasar la corriente: los metales son buenos conductores y el plástico, la madera o el vidrio son aislantes. La <b>conductividad térmica</b> indica si transmite bien el calor: por eso las sartenes son de metal y sus mangos, de plástico o madera.",
+      "La <mark>dureza</mark> es la resistencia a ser rayado. Se mide con la escala de Mohs, del 1 (talco, que se raya con la uña) al 10 (diamante, que raya a todos). Otras propiedades útiles son la <b>tenacidad</b> (resistencia a romperse por un golpe; el vidrio es duro pero frágil), la <b>elasticidad</b> (recuperar la forma tras deformarse, como la goma), la <b>plasticidad</b> (quedar deformado, como la plastilina), la <b>ductilidad</b> (formar hilos, como el cobre de los cables) y la <b>maleabilidad</b> (formar láminas, como el papel de aluminio). También el color, el brillo, el olor o la transparencia ayudan a reconocer sustancias.",
+    ], svg: escala("Escala de dureza de Mohs con algunos minerales", "Escala de Mohs", [["Talco", "1", "var(--leaf)"], ["Yeso", "2", "var(--leaf)"], ["Calcita", "3", "var(--pen)"], ["Cuarzo", "7", "#b45309"], ["Diamante", "10", "var(--red)"]], "blando", "duro") }),
+    bloque({ h: "3.4 Los materiales y sus usos", p: [
+      "Los <mark>materiales</mark> son las sustancias o mezclas que usamos para fabricar objetos. Se eligen según sus propiedades: el cobre para los cables, porque es dúctil y buen conductor; el vidrio para las ventanas, porque es transparente y duro; el acero para los puentes, porque es tenaz y resistente; el corcho para los tapones, porque es ligero, elástico e impermeable.",
+      "Se suelen clasificar en <b>metales</b> (hierro, aluminio, cobre), <b>plásticos</b> (polietileno, PVC), <b>cerámicos</b> (ladrillo, porcelana), <b>vidrios</b>, <b>textiles</b> (algodón, poliéster), <b>maderas</b> y <b>materiales compuestos</b>, que combinan varios para mejorar sus propiedades, como la fibra de carbono de las bicicletas de competición o el hormigón armado. Hoy también importa su impacto ambiental: cuánta energía cuesta fabricarlos, si son renovables y si se pueden <b>reciclar</b>. El aluminio, por ejemplo, se recicla una y otra vez ahorrando el 95 % de la energía que costaría producirlo desde el mineral. Elegir bien un material es un problema de ciencia, de técnica y de sostenibilidad a la vez.",
+    ], svg: rejilla("Materiales, una propiedad y un uso", ["Material", "Propiedad", "Uso"], [["Cobre", "conductor", "cables"], ["Vidrio", "transparente", "ventanas"], ["Acero", "tenaz", "puentes"], ["Corcho", "ligero", "tapones"], ["Plástico", "aislante", "enchufes"]], "var(--leaf)") }),
+    bloque({ h: "3.5 Cómo identificar una sustancia", p: [
+      "Imagina que en el laboratorio encuentras un frasco sin etiqueta con un líquido transparente. ¿Es agua, alcohol, acetona? Nunca se debe probar ni oler directamente. Lo correcto es <b>medir sus propiedades características</b> y compararlas con los valores de las tablas. Una sola propiedad puede no bastar, porque dos sustancias distintas pueden coincidir en una (el aceite y el hielo tienen casi la misma densidad), pero es muy improbable que coincidan en varias.",
+      "Un procedimiento sencillo: primero se mide la <b>masa</b> de un volumen conocido con la balanza y la probeta y se calcula la <b>densidad</b>; después se calienta con cuidado una pequeña muestra y se mide su <b>punto de ebullición</b> con un termómetro; por último, se comprueba si es <b>soluble</b> en agua o si conduce la electricidad. Si el líquido tiene 0,79 g/cm³ y hierve a 78 °C, es etanol. Los químicos, los geólogos y la policía científica identifican sustancias así, aunque hoy usan también técnicas instrumentales muy precisas. Si la sustancia es una mezcla, las temperaturas de cambio de estado no son fijas, lo que también da una pista.",
+    ], svg: pasos("Cómo identificar un líquido desconocido", ["Medir masa y volumen", "Calcular la densidad", "Medir el punto de ebullición", "Comparar con una tabla"], "var(--pen)") }),
   ],
-  figura: {
-    titulo: "Qué propiedad sirve para qué",
-    svg: `<svg viewBox="0 0 640 240" role="img" aria-label="Dos columnas: propiedades generales, como masa, volumen y temperatura, que no identifican la sustancia; y propiedades características, como densidad, temperaturas de fusión y ebullición, solubilidad y conductividad, que sí la identifican">
-      <rect width="640" height="240" rx="16" fill="var(--paper)"/>
-      ${caja(20, 20, 290, 44, "GENERALES", "var(--muted)", { size: 16 })}${caja(330, 20, 290, 44, "CARACTERÍSTICAS", "var(--leaf)", { size: 16 })}
-      ${["masa", "volumen", "temperatura"].map((n, i) => t(165, 98 + i * 30, n, { size: 15, weight: 400 })).join("")}
-      ${["densidad", "temperatura de fusión y ebullición", "solubilidad · conductividad", "dureza · color"].map((n, i) => t(475, 98 + i * 30, n, { size: 15, weight: 400 })).join("")}
-      ${t(165, 222, "describen, no identifican", { size: 14, color: "var(--muted)", font: D })}${t(475, 222, "identifican la sustancia", { size: 14, color: "var(--leaf)", font: D })}
-    </svg>`,
-  },
-  video: { id: "hKrDXOqGvBA", titulo: "Calcular la DENSIDAD, MASA y VOLUMEN con Fórmula y Factores de Conversión", canal: "Susi Profe", vistas: 1713620, megusta: 0, busqueda: "propiedades de la materia masa volumen densidad" },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Un anillo tiene una masa de 38,6 g y, al meterlo en una probeta, el agua sube de 20,0 mL a 22,0 mL. ¿Es de oro?",
-      pasos: ["Volumen del anillo: 22,0 − 20,0 = 2,0 mL = 2,0 cm³.", "Densidad: d = m / V = 38,6 / 2,0 = 19,3 g/cm³.", "Comparamos con la tabla: la densidad del oro es 19,3 g/cm³."],
-      resultado: "sí, su densidad coincide con la del oro." },
-    { enunciado: "¿Qué masa tienen 5 L de aceite de oliva (d = 0,92 g/cm³)?",
-      pasos: ["5 L = 5000 cm³.", "m = d · V = 0,92 · 5000.", "m = 4600 g."],
-      resultado: "4,6 kg." },
-    { enunciado: "Expresa 2,7 g/cm³ (aluminio) en kg/m³.",
-      pasos: ["2,7 g/cm³ · (1 kg / 1000 g) · (10⁶ cm³ / 1 m³).", "2,7 · 10⁶ / 1000 = 2700.", "Regla rápida: g/cm³ × 1000 = kg/m³."],
-      resultado: "2700 kg/m³." },
+    { enunciado: "Un cubo de 3 cm de arista tiene una masa de 72,9 g. Calcula su densidad e identifica el material (aluminio 2,7 g/cm³; hierro 7,9 g/cm³).", pasos: ["Volumen: V = a³ = 3³ = 27 cm³.", "Densidad: d = m / V = 72,9 / 27 = 2,7 g/cm³.", "Comparamos con la tabla."], resultado: "d = 2,7 g/cm³: es aluminio." },
+    { enunciado: "En una probeta hay 50 mL de agua. Al sumergir una piedra de 39 g, el nivel sube a 65 mL. ¿Cuál es la densidad de la piedra?", pasos: ["Volumen de la piedra: 65 − 50 = 15 mL = 15 cm³.", "d = 39 / 15 = 2,6 g/cm³."], resultado: "2,6 g/cm³ (2.600 kg/m³)." },
+    { enunciado: "¿Qué masa tienen 2 L de aceite de densidad 0,92 g/cm³?", pasos: ["2 L = 2.000 cm³.", "m = d · V = 0,92 · 2.000 = 1.840 g."], resultado: "1.840 g = 1,84 kg." },
+    { enunciado: "¿Qué volumen ocupa 1 kg de oro (19,3 g/cm³)? ¿Y 1 kg de corcho (0,25 g/cm³)?", pasos: ["1 kg = 1.000 g.", "Oro: V = 1.000 / 19,3 ≈ 51,8 cm³.", "Corcho: V = 1.000 / 0,25 = 4.000 cm³ = 4 L."], resultado: "El oro ocupa unos 52 cm³ (menos que una caja de cerillas) y el corcho, 4 L." },
+    { enunciado: "Pasa a kelvin: 25 °C, −10 °C y 100 °C. Pasa a Celsius: 300 K y 77 K.", pasos: ["T = t + 273.", "25 °C → 298 K; −10 °C → 263 K; 100 °C → 373 K.", "t = T − 273: 300 K → 27 °C; 77 K → −196 °C."], resultado: "298 K, 263 K, 373 K; 27 °C y −196 °C." },
+    { enunciado: "¿En qué estado están a 20 °C el etanol (fusión −114 °C, ebullición 78 °C), el nitrógeno (fusión −210 °C, ebullición −196 °C) y el azufre (fusión 115 °C)?", pasos: ["Etanol: 20 °C está entre −114 y 78 → líquido.", "Nitrógeno: 20 °C está por encima de −196 → gas.", "Azufre: 20 °C está por debajo de 115 → sólido."], resultado: "Etanol líquido, nitrógeno gas, azufre sólido." },
   ],
   errores: [
-    "Pensar que lo que pesa más es más denso: un kilo de paja y uno de plomo pesan igual, pero el plomo es mucho más denso.",
-    "Usar la masa o el volumen para identificar una sustancia: son propiedades generales.",
-    "Confundir masa (kg, con balanza) con peso (N, una fuerza).",
-    "Leer la probeta desde arriba o desde abajo, en lugar de a la altura del menisco.",
-    "Olvidar que 1 mL = 1 cm³ y que 1 L = 1 dm³ = 1000 cm³.",
+    "Confundir masa (cantidad de materia, en kg) con peso (fuerza, en N).",
+    "Pensar que la densidad de un objeto cambia si se parte por la mitad: es característica, no depende de la cantidad.",
+    "Mezclar unidades al calcular densidades: g con m³ o kg con cm³.",
+    "Creer que lo que pesa mucho siempre se hunde: un barco flota por su densidad media.",
+    "Restar 273 en vez de sumarlo al pasar de °C a K.",
+    "Leer la probeta desde arriba o por la parte alta del menisco.",
   ],
   ejercicios: [
-    { q: "Explica si son materia: el aire, la luz, una nube, el sonido, el humo.", sol: "Son materia el aire, la nube y el humo porque tienen masa y volumen. La luz y el sonido no lo son." },
-    { q: "Clasifica en generales o características: masa, densidad, volumen, temperatura de ebullición, solubilidad, temperatura.", sol: "Generales: masa, volumen, temperatura. Características: densidad, temperatura de ebullición, solubilidad." },
-    { q: "Calcula la densidad de un cubo de 2 cm de arista y 21,6 g de masa. ¿De qué metal puede ser?", sol: "V = 2³ = 8 cm³; d = 21,6 / 8 = 2,7 g/cm³: aluminio." },
-    { q: "¿Qué volumen ocupan 500 g de mercurio (d = 13,6 g/cm³)?", sol: "V = m / d = 500 / 13,6 ≈ 36,8 cm³." },
-    { q: "Una piedra hace subir el agua de una probeta de 40 mL a 52 mL. Si su masa es 30 g, ¿cuál es su densidad?", sol: "V = 12 cm³; d = 30 / 12 = 2,5 g/cm³." },
-    { q: "¿Flotará en agua un objeto de 600 g y 800 cm³? Razona.", sol: "d = 600 / 800 = 0,75 g/cm³, menor que la del agua (1 g/cm³), así que flota." },
-    { q: "¿Por qué el hielo flota en el agua y por qué es importante para la vida?", sol: "Porque es menos denso que el agua líquida. Los lagos se congelan por arriba y la capa de hielo aísla el agua de debajo, donde sobreviven los seres vivos." },
-    { q: "Pasa a kelvin: 0 °C, 37 °C y −20 °C.", sol: "273 K, 310 K y 253 K." },
-    { q: "¿Por qué los cables eléctricos son de cobre y están recubiertos de plástico?", sol: "El cobre es dúctil y buen conductor eléctrico; el plástico es aislante y evita descargas." },
-    { q: "Explica cómo medirías la densidad de una llave.", sol: "Mido su masa con una balanza; mido su volumen por inmersión en una probeta con agua; divido la masa entre el volumen." },
+    B("Clasifica en materia o no materia: aire, luz, agua, sonido, una idea, una nube, el calor.", "Materia: aire, agua, nube. No materia: luz, sonido, idea, calor."),
+    B("Clasifica en propiedades generales o características: masa, densidad, volumen, punto de fusión, temperatura, solubilidad, color.", "Generales: masa, volumen, temperatura. Características: densidad, punto de fusión, solubilidad, color."),
+    B("Pasa a gramos: 2,5 kg; 0,3 kg; 450 mg. Pasa a mL: 1,5 L; 0,25 L; 3 cm³.", "2.500 g; 300 g; 0,45 g. 1.500 mL; 250 mL; 3 mL."),
+    B("¿Qué instrumento usarías para medir la masa de una manzana y el volumen de un vaso de leche?", "Una balanza y una probeta (o una jarra medidora)."),
+    B("Calcula la densidad de un objeto de 60 g y 20 cm³.", "d = 60 / 20 = 3 g/cm³."),
+    B("Pasa a kg/m³: 1 g/cm³; 2,7 g/cm³; 0,8 g/cm³.", "1.000 kg/m³; 2.700 kg/m³; 800 kg/m³."),
+    B("Indica si flotan o se hunden en agua (1 g/cm³): corcho (0,25), hierro (7,9), hielo (0,92), aceite (0,92), plomo (11,3).", "Flotan: corcho, hielo, aceite. Se hunden: hierro, plomo."),
+    B("Pasa a kelvin: 0 °C, 37 °C, −273 °C.", "273 K; 310 K; 0 K."),
+    B("¿Por qué el hielo flota en el agua?", "Porque es menos denso (0,92 g/cm³) que el agua líquida (1 g/cm³): al congelarse, las moléculas forman una red con huecos."),
+    B("Pon un ejemplo de material dúctil, uno maleable, uno elástico y uno frágil.", "Dúctil: cobre. Maleable: aluminio. Elástico: goma. Frágil: vidrio."),
+    B("¿Qué diferencia hay entre masa y peso?", "La masa es la cantidad de materia, se mide en kg con una balanza y no cambia; el peso es la fuerza con que la Tierra atrae el cuerpo, se mide en N con un dinamómetro y depende del lugar."),
+    B("Explica cómo medirías el volumen de una llave.", "Por inmersión: echar agua en una probeta, anotar el volumen, sumergir la llave y volver a leer; la diferencia es el volumen de la llave."),
+    M("Un bloque de 10 cm × 5 cm × 2 cm tiene una masa de 790 g. Calcula su densidad e identifícalo.", "V = 100 cm³; d = 790 / 100 = 7,9 g/cm³: hierro."),
+    M("¿Qué masa tiene una barra de oro de 500 cm³ (19,3 g/cm³)?", "m = 19,3 · 500 = 9.650 g ≈ 9,65 kg."),
+    M("¿Qué volumen ocupan 270 g de aluminio (2,7 g/cm³)?", "V = 270 / 2,7 = 100 cm³."),
+    M("Un recipiente vacío pesa 150 g; lleno de un líquido, 340 g. Su capacidad es 250 mL. Calcula la densidad del líquido.", "m = 340 − 150 = 190 g; d = 190 / 250 = 0,76 g/mL."),
+    M("¿Qué masa de aire hay en un aula de 8 m × 6 m × 3 m? (densidad del aire 1,2 kg/m³)", "V = 144 m³; m = 1,2 · 144 ≈ 173 kg."),
+    M("Ordena de abajo arriba cómo se colocan en un vaso: aceite (0,92), miel (1,4), agua (1,0) y alcohol (0,79), suponiendo que no se mezclan.", "De abajo arriba: miel, agua, aceite, alcohol."),
+    M("Explica con el modelo de partículas por qué un gas es mucho menos denso que un sólido.", "En el gas las partículas están muy separadas y casi todo es espacio vacío, así que hay muy poca masa por unidad de volumen; en el sólido están muy juntas."),
+    M("¿En qué estado está el mercurio (fusión −39 °C, ebullición 357 °C) a −50 °C, a 25 °C y a 400 °C?", "Sólido, líquido y gas."),
+    M("¿Por qué el agua hierve a menos de 100 °C en la cima del Everest?", "Porque la presión atmosférica es mucho menor y el punto de ebullición disminuye al bajar la presión (allí hierve a unos 70 °C)."),
+    M("Explica cómo flota un barco de acero, si el acero tiene 7,9 g/cm³.", "Por su forma hueca llena de aire, su densidad media (masa total / volumen total) es menor que la del agua; además desplaza un gran volumen de agua, cuyo peso es el empuje que lo sostiene."),
+    M("¿Por qué no se debe meter en el congelador una botella de vidrio llena de agua?", "Porque el agua aumenta de volumen al congelarse (el hielo es menos denso) y rompería la botella."),
+    M("Una persona de 70 kg tiene un volumen de 68 L. ¿Flota en agua dulce? ¿Y en el mar Muerto (1,24 g/cm³)?", "d = 70 / 68 ≈ 1,03 kg/L: en agua dulce tiende a hundirse un poco (los pulmones llenos ayudan a flotar). En el mar Muerto flota con facilidad, porque 1,03 < 1,24."),
+    M("Clasifica: cobre, ladrillo, PVC, fibra de carbono, algodón, vidrio, en metales, cerámicos, plásticos, textiles, vidrios y compuestos.", "Metal: cobre. Cerámico: ladrillo. Plástico: PVC. Compuesto: fibra de carbono. Textil: algodón. Vidrio: vidrio."),
+    A("Una corona de 1.000 g desplaza 60 cm³ de agua. ¿Es de oro puro (19,3 g/cm³)? ¿Qué volumen desplazaría si lo fuera?", "d = 1.000 / 60 ≈ 16,7 g/cm³ < 19,3: no es oro puro (tiene un metal menos denso). Si fuera de oro desplazaría 1.000 / 19,3 ≈ 51,8 cm³."),
+    A("Mezclamos 100 cm³ de agua (1 g/cm³) y 100 cm³ de alcohol (0,79 g/cm³) y el volumen final es 194 cm³. Calcula la densidad de la mezcla. ¿Por qué no salen 200 cm³?", "m = 100 + 79 = 179 g; d = 179 / 194 ≈ 0,92 g/cm³. Las moléculas pequeñas se colocan en los huecos entre las otras, así que el volumen total disminuye."),
+    A("Una bola de hierro (7,9 g/cm³) tiene 3,95 kg de masa. ¿Cuál es su volumen? ¿Cuál sería la masa de una bola igual de aluminio (2,7 g/cm³)?", "V = 3.950 / 7,9 = 500 cm³. Aluminio: m = 2,7 · 500 = 1.350 g = 1,35 kg."),
+    A("Tienes tres líquidos transparentes sin etiqueta. Propón un procedimiento para identificarlos sin olerlos ni probarlos.", "Medir la masa de un volumen conocido de cada uno (balanza y probeta) y calcular su densidad; medir su punto de ebullición calentando con cuidado; comprobar su solubilidad en agua o su conductividad; comparar con tablas de propiedades características."),
+    A("¿Por qué los lagos se congelan por arriba y no por abajo? ¿Qué consecuencias tiene para la vida?", "Porque el hielo es menos denso que el agua y flota; además el agua más densa (a 4 °C) queda en el fondo. La capa de hielo aísla el agua de debajo, que sigue líquida, y los seres vivos pueden sobrevivir al invierno."),
+    A("En una gráfica masa-volumen se representan tres sustancias A, B y C como rectas que pasan por el origen; la de A es la más inclinada y la de C la menos. ¿Cuál es la más densa? Explícalo.", "A: la pendiente de la recta m-V es m/V, que es la densidad. Cuanto más inclinada, más masa por unidad de volumen."),
+    A("Calcula cuántos litros de agua caben en una piscina de 25 m × 10 m × 2 m y cuál es la masa del agua en toneladas.", "V = 500 m³ = 500.000 L. m = 1.000 kg/m³ · 500 m³ = 500.000 kg = 500 t."),
+    A("Un globo de helio sube y uno de aire cae. Explícalo con la densidad.", "El helio es mucho menos denso que el aire (0,18 frente a 1,2 kg/m³): la densidad media del globo de helio es menor que la del aire y el empuje supera su peso. El globo de aire tiene casi la densidad del aire más el peso de la goma, así que cae."),
+    A("Explica por qué una olla exprés cocina más rápido. Relaciónalo con el punto de ebullición.", "Al cerrar herméticamente, el vapor aumenta la presión dentro de la olla y el agua hierve a más temperatura (unos 120 °C). Los alimentos están en contacto con agua más caliente y se cocinan antes."),
   ],
   quiz: [
-    { q: "Materia es todo lo que tiene…", o: ["color", "masa y volumen", "temperatura alta"], a: 1, e: "Masa y volumen." },
-    { q: "Una propiedad característica es…", o: ["la masa", "la densidad", "el volumen"], a: 1, e: "La densidad identifica la sustancia." },
-    { q: "1 mL equivale a…", o: ["1 cm³", "1 dm³", "1 m³"], a: 0, e: "1 cm³." },
-    { q: "La fórmula de la densidad es…", o: ["d = m · V", "d = m / V", "d = V / m"], a: 1, e: "Masa entre volumen." },
-    { q: "Un cuerpo flota en agua si su densidad es…", o: ["mayor que 1 g/cm³", "menor que 1 g/cm³", "igual a 0"], a: 1, e: "Menor que la del agua." },
-    { q: "El volumen de una piedra se mide…", o: ["con una regla", "por inmersión en una probeta", "con la balanza"], a: 1, e: "Por inmersión." },
-    { q: "1 g/cm³ son…", o: ["1 kg/m³", "100 kg/m³", "1000 kg/m³"], a: 2, e: "Se multiplica por 1000." },
-    { q: "25 °C en kelvin son…", o: ["248 K", "298 K", "25 K"], a: 1, e: "25 + 273 = 298 K." },
-    { q: "El hielo flota porque…", o: ["es más denso que el agua", "es menos denso que el agua", "tiene aire dentro siempre"], a: 1, e: "Es menos denso." },
-    { q: "La capacidad de formar hilos es la…", o: ["maleabilidad", "ductilidad", "dureza"], a: 1, e: "Ductilidad." },
+    q4("Es materia…", ["la luz", "el aire", "el sonido", "el calor"], 1, "Tiene masa y ocupa volumen."),
+    q4("Una propiedad característica es…", ["la masa", "el volumen", "la densidad", "la longitud"], 2, "No depende de la cantidad."),
+    q4("La unidad de masa en el SI es…", ["g", "kg", "N", "L"], 1, "Kilogramo."),
+    q4("1 L equivale a…", ["1 cm³", "100 cm³", "1.000 cm³", "1 m³"], 2, "1 L = 1 dm³."),
+    q4("El volumen de una piedra se mide…", ["con una regla", "por inmersión en una probeta", "con una balanza", "con un termómetro"], 1, "Agua desplazada."),
+    q4("La densidad se calcula…", ["m · V", "m / V", "V / m", "m + V"], 1, "Masa entre volumen."),
+    q4("Un objeto de 40 g y 10 cm³ tiene una densidad de…", ["0,25 g/cm³", "4 g/cm³", "400 g/cm³", "50 g/cm³"], 1, "40 / 10."),
+    q4("1 g/cm³ equivale a…", ["1 kg/m³", "10 kg/m³", "100 kg/m³", "1.000 kg/m³"], 3, "Se multiplica por 1.000."),
+    q4("Si partimos un trozo de hierro por la mitad, su densidad…", ["se reduce a la mitad", "se duplica", "no cambia", "se anula"], 2, "Es característica."),
+    q4("Un objeto flota en agua si su densidad es…", ["mayor que 1 g/cm³", "menor que 1 g/cm³", "igual a 10", "cualquiera"], 1, "Menor que la del líquido."),
+    q4("El hielo flota porque…", ["pesa poco", "es menos denso que el agua", "tiene aire dentro", "está frío"], 1, "0,92 < 1."),
+    q4("Un barco de acero flota porque…", ["el acero flota", "su densidad media es menor que la del agua", "el agua lo empuja hacia abajo", "es muy ligero"], 1, "Forma hueca con aire."),
+    q4("25 °C son…", ["248 K", "298 K", "25 K", "273 K"], 1, "25 + 273."),
+    q4("El cero absoluto es…", ["0 °C", "−100 °C", "−273 °C", "−373 °C"], 2, "0 K."),
+    q4("La temperatura mide…", ["la cantidad de calor", "la energía cinética media de las partículas", "la masa", "la densidad"], 1, "Movimiento de las partículas."),
+    q4("A 20 °C, una sustancia que funde a 80 °C está…", ["sólida", "líquida", "gaseosa", "en plasma"], 0, "Por debajo de su punto de fusión."),
+    q4("En la montaña, el agua hierve…", ["a más de 100 °C", "a menos de 100 °C", "a 100 °C justos", "no hierve"], 1, "Menos presión."),
+    q4("El material más duro de la escala de Mohs es…", ["el cuarzo", "el talco", "el diamante", "el hierro"], 2, "Dureza 10."),
+    q4("Un material que forma hilos es…", ["maleable", "dúctil", "frágil", "elástico"], 1, "Como el cobre."),
+    q4("El peso se mide con…", ["una balanza", "un dinamómetro", "una probeta", "un termómetro"], 1, "Es una fuerza."),
   ],
   examen: [
-    { q: "La masa se mide con…", o: ["la probeta", "la balanza", "el dinamómetro"], a: 1, e: "La balanza." },
-    { q: "Si dos objetos son del mismo material, tienen la misma…", o: ["masa", "densidad", "volumen"], a: 1, e: "Densidad." },
-    { q: "La unidad de volumen del SI es…", o: ["el litro", "el metro cúbico", "el mililitro"], a: 1, e: "m³." },
+    q4("Una piedra de 52 g hace subir el agua de una probeta de 30 a 50 mL. Su densidad es…", ["1,04 g/cm³", "2,6 g/cm³", "26 g/cm³", "0,38 g/cm³"], 1, "52 / 20."),
+    q4("La masa de 3 L de agua es…", ["3 g", "30 g", "300 g", "3 kg"], 3, "1 kg por litro."),
+    q4("¿Qué volumen ocupan 158 g de hierro (7,9 g/cm³)?", ["20 cm³", "1.248 cm³", "0,05 cm³", "150 cm³"], 0, "158 / 7,9."),
+    q4("¿Qué líquido quedará más abajo en un vaso?", ["Aceite (0,92)", "Alcohol (0,79)", "Agua (1,0)", "Glicerina (1,26)"], 3, "El más denso."),
+    q4("350 K son…", ["77 °C", "623 °C", "−77 °C", "350 °C"], 0, "350 − 273."),
+    q4("A 100 °C, el etanol (ebullición 78 °C) está…", ["sólido", "líquido", "gaseoso", "congelado"], 2, "Por encima del punto de ebullición."),
+    q4("Una propiedad general es…", ["el punto de ebullición", "la masa", "la dureza", "la solubilidad"], 1, "Depende de la cantidad."),
+    q4("Las sartenes tienen mango de plástico porque el plástico…", ["es buen conductor térmico", "es mal conductor térmico", "es muy denso", "es dúctil"], 1, "Aislante del calor."),
   ],
-  feynman: ["Por qué la masa no sirve para identificar una sustancia y la densidad sí", "Cómo medir la densidad de un objeto irregular", "Por qué un barco de acero flota"],
-  mapa: mapa("MATERIA", "var(--eso)", [
-    ["Generales", "masa · volumen · temperatura", "var(--muted)"],
-    ["Características", "densidad · fusión · ebullición", "var(--leaf)"],
-    ["Densidad", "d = m / V · g/cm³ · kg/m³", "var(--pen)"],
-    ["Flotación", "flota si es menos denso", "#b8860b"],
-  ], 300),
+  feynman: ["Qué es la materia y qué no lo es", "Qué diferencia hay entre propiedades generales y características", "Cómo se miden la masa y el volumen de un sólido irregular", "Qué es la densidad y cómo se calcula", "Por qué unos objetos flotan y otros se hunden", "Cómo se pasa de grados Celsius a kelvin"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Materia", "Todo lo que tiene masa y volumen."],
-    ["Masa", "Cantidad de materia; se mide en kg con la balanza."],
-    ["Volumen", "Espacio que ocupa un cuerpo; m³, L, mL."],
-    ["Densidad", "d = m / V; masa por unidad de volumen."],
-    ["Propiedad característica", "Tiene un valor propio de cada sustancia."],
-    ["Inmersión", "Medir el volumen de un sólido por el agua que desplaza."],
-    ["Flotación", "Flota lo que es menos denso que el líquido."],
-    ["Kelvin", "T(K) = t(°C) + 273."],
+    ["Materia", "Todo lo que tiene masa y ocupa volumen."],
+    ["Propiedad general", "Depende de la cantidad: masa, volumen."],
+    ["Propiedad característica", "Propia de cada sustancia: densidad, puntos de fusión y ebullición."],
+    ["Masa", "Cantidad de materia; kg; balanza."],
+    ["Volumen", "Espacio que ocupa; m³, L; probeta."],
+    ["Densidad", "d = m / V; g/cm³ o kg/m³."],
+    ["Flotación", "Flota si su densidad es menor que la del líquido."],
+    ["Hielo", "Menos denso que el agua líquida: flota."],
+    ["Temperatura", "Mide la energía cinética media de las partículas."],
+    ["Kelvin", "T(K) = t(°C) + 273; 0 K = cero absoluto."],
+    ["Punto de ebullición", "Temperatura a la que hierve; depende de la presión."],
+    ["Dureza", "Resistencia a ser rayado (escala de Mohs)."],
   ],
-  familias: ["Torre de densidades: en un vaso alto, añadid con cuidado miel, agua con colorante y aceite, y probad qué objetos flotan en cada capa.", "Meted un huevo en agua y añadid sal poco a poco hasta que flote.", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "La materia: propiedades generales y características, medida de masa y volumen, densidad y su relación con la estructura de partículas (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Identificar metales desconocidos midiendo su densidad.", "Torre de densidades con líquidos de colores.", "Ludión casero con una botella y un capuchón de bolígrafo."],
+  glosario: [
+    ["Materia", "Todo lo que tiene masa y ocupa un lugar en el espacio."],
+    ["Sustancia", "Tipo de materia con unas propiedades características concretas."],
+    ["Material", "Materia que se usa para fabricar objetos."],
+    ["Masa", "Cantidad de materia de un cuerpo."],
+    ["Peso", "Fuerza con la que un planeta atrae a un cuerpo."],
+    ["Volumen", "Espacio que ocupa un cuerpo."],
+    ["Menisco", "Superficie curva de un líquido en un recipiente estrecho."],
+    ["Densidad", "Masa por unidad de volumen de una sustancia."],
+    ["Empuje", "Fuerza hacia arriba que ejerce un fluido sobre un cuerpo sumergido."],
+    ["Temperatura", "Magnitud relacionada con la energía cinética media de las partículas."],
+    ["Cero absoluto", "Temperatura más baja posible: 0 K = −273 °C."],
+    ["Punto de fusión", "Temperatura a la que una sustancia pura pasa de sólido a líquido."],
+    ["Punto de ebullición", "Temperatura a la que una sustancia pura hierve."],
+    ["Solubilidad", "Cantidad máxima de soluto que se disuelve en una cantidad de disolvente."],
+    ["Dureza", "Resistencia de un material a ser rayado."],
+    ["Ductilidad", "Capacidad de un material para formar hilos."],
+    ["Maleabilidad", "Capacidad de un material para formar láminas."],
+    ["Fragilidad", "Facilidad de un material para romperse con un golpe."],
+  ],
+  situacion: {
+    titulo: "El caso de la corona falsa",
+    reto: "Un museo ha recibido varias «monedas antiguas de oro» y sospecha que algunas son falsas. No se pueden rayar ni fundir. Vuestro laboratorio debe descubrir cuáles son auténticas midiendo solo propiedades no destructivas.",
+    pasos: [
+      "Investigad la densidad del oro y de otros metales que podrían usarse para falsificar (latón, plomo, cobre, wolframio).",
+      "Practicad con objetos del aula: medid masas con la balanza y volúmenes por inmersión, y calculad densidades.",
+      "Analizad los errores: ¿qué precisión necesita la probeta para medir el volumen de una moneda pequeña?",
+      "Medid las «monedas» (piezas preparadas por el profesor), calculad su densidad y comparadla con la tabla.",
+      "Redactad un informe pericial con los datos, los cálculos y una conclusión justificada para cada pieza.",
+    ],
+    producto: "Un informe pericial con tablas de medidas, cálculos de densidad con sus errores y el veredicto sobre cada pieza.",
+    evaluacion: ["Las medidas de masa y volumen se hacen correctamente y con sus unidades.", "Los cálculos de densidad son correctos y coherentes en unidades.", "Se tienen en cuenta los errores de medida al concluir.", "El informe es claro y las conclusiones están justificadas."],
   },
-  fuentes: [RD, wiki("Densidad", "Densidad"), wiki("Materia", "Materia")],
-  revisado: "2026-11-12",
+  familias: [
+    "Construid una torre de líquidos con miel, agua con colorante y aceite en un vaso alto, y comentad por qué se ordenan así.",
+    "Meted un huevo en agua y luego id añadiendo sal: ¿cuándo empieza a flotar? ¿Por qué?",
+    "Calculad la densidad de una fruta midiendo su masa en la báscula de cocina y su volumen en una jarra medidora.",
+    "Mirad el prospecto de la olla exprés o hablad de por qué se cocina distinto en la montaña.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La materia»: propiedades generales y características, medida de masa y volumen, densidad y su cálculo, interpretación con el modelo cinético-molecular, temperatura y escalas, puntos de fusión y ebullición, y propiedades y usos de los materiales.`,
+    ideas: [
+      "Determinación de densidades de sólidos regulares e irregulares y de líquidos, con gráfica masa-volumen.",
+      "Torre de densidades con líquidos coloreados y objetos que quedan en distintas capas.",
+      "El huevo que flota en agua salada: variación de la densidad del líquido.",
+      "Identificación de un líquido problema por su densidad y su punto de ebullición.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Densidad", "Densidad"),
+    wiki("Escala de Mohs", "Escala_de_Mohs"),
+    { t: "Simulación «Densidad», PhET", url: "https://phet.colorado.edu/es/simulations/density" },
+  ],
+  revisado: "2026-11-13",
 };

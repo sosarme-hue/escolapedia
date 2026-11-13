@@ -1,160 +1,231 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
+// Física y Química 3º ESO · Las fuerzas y sus efectos (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, graf, rejilla, fuerzas, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["fuerzas-efectos"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "Las fuerzas y sus efectos",
-  minutos: 55,
-  objetivos: ["Definir fuerza y reconocer sus efectos deformadores y dinámicos", "Representar fuerzas como vectores y calcular la resultante de fuerzas en la misma dirección o perpendiculares", "Aplicar la ley de Hooke y usar el dinamómetro", "Explicar el rozamiento y las leyes de Newton con ejemplos cotidianos"],
-  claves: ["fuerza", "newton", "vector", "fuerza resultante", "ley de Hooke", "dinamómetro", "rozamiento", "leyes de Newton"],
+  minutos: 105,
+  objetivos: [
+    "Identificar las fuerzas como interacciones entre cuerpos y reconocer sus efectos",
+    "Representar las fuerzas como vectores y calcular la fuerza resultante en casos sencillos",
+    "Aplicar la ley de Hooke y utilizar el dinamómetro",
+    "Explicar la fuerza de rozamiento y sus consecuencias",
+    "Enunciar y aplicar las tres leyes de Newton a situaciones cotidianas",
+    "Relacionar las fuerzas con la seguridad vial y el deporte",
+  ],
+  claves: ["fuerza", "interacción", "newton", "vector", "fuerza resultante", "deformación", "ley de Hooke", "dinamómetro", "rozamiento", "inercia", "F = m · a", "acción y reacción"],
   pregunta: {
-    texto: "En el espacio, un astronauta empuja una nave de 10 toneladas y la nave se mueve. Él también sale disparado hacia atrás. ¿Por qué se mueve él si es la nave la que recibe el empujón?",
-    respuesta: "Porque las fuerzas siempre aparecen <mark>por parejas</mark>. Cuando el astronauta empuja la nave, la nave le empuja a él con una fuerza igual y de sentido contrario. Es la <mark>tercera ley de Newton</mark>, la ley de acción y reacción. Como él tiene mucha menos masa, sale despedido mucho más rápido que la nave.",
+    texto: "En una nave espacial lejos de cualquier planeta, un astronauta da una patada a una pelota. ¿Se detendrá la pelota en algún momento?",
+    respuesta: "No. Allí no hay <mark>rozamiento</mark> con el aire ni gravedad apreciable, así que ninguna fuerza la frena: seguirá moviéndose en línea recta y a la misma velocidad para siempre, hasta que choque con algo. Es la <b>primera ley de Newton</b> o principio de inercia. En la Tierra las cosas se paran porque siempre hay fuerzas, como el rozamiento, que se oponen al movimiento.",
+  },
+  lectura: {
+    titulo: "El año prodigioso de un joven granjero",
+    html: `<p>En 1665, una epidemia de peste obligó a cerrar la Universidad de Cambridge. Un estudiante de 22 años, Isaac Newton, volvió a la granja de su familia en Woolsthorpe y pasó allí casi dos años. Sin profesores ni clases, se dedicó a pensar. En ese tiempo inventó una nueva rama de las matemáticas, el cálculo, descubrió que la luz blanca está formada por todos los colores y empezó a desarrollar sus ideas sobre el movimiento y la gravedad.</p><p>Newton partía del trabajo de Galileo, que había demostrado que un cuerpo en movimiento no se para solo, sino porque algo lo frena. Durante casi dos mil años se había creído, con Aristóteles, que para mantener algo en movimiento había que empujarlo continuamente. Galileo, haciendo rodar bolas por planos inclinados cada vez más lisos, se dio cuenta de que cuanto menos rozamiento había, más lejos llegaban. Sin rozamiento, no se pararían nunca.</p><p>Veinte años después, en 1687, Newton publicó los «Principios matemáticos de la filosofía natural», uno de los libros más importantes de la historia de la ciencia. En él enunciaba tres leyes que explican cómo se mueven todos los cuerpos, desde una manzana hasta la Luna. Con ellas se calculan hoy las trayectorias de los satélites, se diseñan los puentes y se estudian los choques de los coches. En su honor, la unidad de fuerza se llama newton.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Qué es una fuerza</h3><p>Una <mark>fuerza</mark> es toda causa capaz de <b>deformar</b> un cuerpo o de <b>cambiar su estado de movimiento</b>: ponerlo en marcha, frenarlo, acelerarlo o cambiar su dirección. Las fuerzas siempre aparecen por la <b>interacción</b> entre dos cuerpos. Pueden actuar <b>por contacto</b>, como al empujar un carro o chutar un balón, o <b>a distancia</b>, como la gravedad que atrae una manzana hacia el suelo o la fuerza de un imán sobre un clip. La unidad de fuerza en el SI es el <b>newton (N)</b>, en honor a Isaac Newton. Para hacerte una idea, 1 N es aproximadamente lo que pesa una manzana pequeña de 100 g.</p>`,
-    },
-    {
-      html: `<h3>Los efectos de las fuerzas</h3><p>Las fuerzas producen dos tipos de efectos. Los <mark>efectos deformadores</mark> cambian la forma del cuerpo. Según cómo responda el material, puede ser <b>elástico</b>, si recupera su forma cuando deja de actuar la fuerza (un muelle, una goma, una pelota); <b>plástico</b>, si queda deformado (la plastilina, el barro, una lata aplastada); o <b>frágil</b>, si se rompe (el vidrio, una tiza). Los <mark>efectos dinámicos</mark> cambian el movimiento: un portero que para un balón lo frena; un ciclista que pedalea acelera; el volante de un coche cambia su dirección. A menudo una misma fuerza produce los dos efectos: al chutar, el balón se deforma un instante y sale disparado.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Efectos de las fuerzas: un muelle estirado, una plastilina aplastada y un balón que cambia de movimiento al ser chutado">${BG}
-        <path d="M20 40 H 30 l 5 -8 l 10 16 l 10 -16 l 10 16 l 10 -16 l 10 16 l 5 -8 H 100" stroke="var(--pen)" stroke-width="2.5" fill="none"/>${fl(100, 40, 120, 40, "var(--red)", 2.5)}${t(60, 70, "elástico", { size: 11, color: "var(--pen)" })}
-        <ellipse cx="190" cy="44" rx="40" ry="12" fill="#e08a5a"/>${fl(190, 10, 190, 28, "var(--red)", 2.5)}${t(190, 74, "plástico", { size: 11, color: "#b5653a" })}
-        <circle cx="70" cy="132" r="18" fill="#fff" stroke="var(--ink)" stroke-width="2"/><path d="M62 124 l 8 -4 l 8 4 l -3 9 h -10 Z" fill="var(--ink)"/>${fl(96, 132, 150, 132, "var(--red)", 2.5)}
-        ${[0, 1, 2].map(i => `<circle cx="${170 + i * 26}" cy="${132 - i * 10}" r="10" fill="none" stroke="var(--muted)" stroke-dasharray="3 3"/>`).join("")}${t(130, 170, "dinámico: cambia el movimiento", { size: 11, color: "var(--red)" })}</svg>`,
-    },
-    {
-      html: `<h3>Las fuerzas son vectores</h3><p>Para describir una fuerza no basta con decir cuánto vale: hay que indicar hacia dónde actúa. Empujar una mesa con 50 N hacia la derecha no tiene el mismo efecto que hacia la izquierda. Por eso las fuerzas son <mark>magnitudes vectoriales</mark> y se representan con <b>flechas</b> llamadas vectores, que tienen cuatro elementos: el <b>punto de aplicación</b>, donde empieza la flecha; el <b>módulo</b> o intensidad, que es su valor en newtons y se representa por la longitud de la flecha; la <b>dirección</b>, que es la recta sobre la que actúa (horizontal, vertical, inclinada); y el <b>sentido</b>, indicado por la punta de la flecha. Las magnitudes que solo necesitan un número, como la masa o la temperatura, se llaman <b>escalares</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Vector fuerza sobre una caja: punto de aplicación, módulo como longitud de la flecha, dirección como la recta y sentido como la punta">${BG}
-        <rect x="24" y="80" width="60" height="50" rx="4" fill="#c9a37a" stroke="#8a6a4a" stroke-width="2"/>
-        <line x1="14" y1="105" x2="250" y2="105" stroke="var(--muted)" stroke-dasharray="4 4"/>
-        <circle cx="84" cy="105" r="5" fill="var(--ink)"/>${fl(84, 105, 210, 105, "var(--red)", 4)}
-        ${t(84, 150, "punto de aplicación", { size: 10 })}${t(147, 92, "módulo: 50 N", { size: 11, color: "var(--red)" })}
-        ${t(244, 124, "dirección", { size: 10, anchor: "end", color: "var(--muted)" })}${t(216, 80, "sentido", { size: 10, color: "var(--red)" })}${fl(216, 84, 210, 98, "var(--red)", 1.5)}</svg>`,
-    },
-    {
-      html: `<h3>La fuerza resultante</h3><p>Cuando sobre un cuerpo actúan varias fuerzas, su efecto conjunto equivale al de una sola fuerza, la <mark>resultante</mark>. Si las fuerzas tienen la <b>misma dirección y sentido</b>, la resultante es su <b>suma</b>: dos personas que empujan un coche con 300 N y 200 N hacia delante ejercen 500 N. Si tienen la <b>misma dirección y sentido contrario</b>, la resultante es su <b>diferencia</b> y tiene el sentido de la mayor: en el juego de la cuerda, si un equipo tira con 800 N y el otro con 700 N, la resultante es de 100 N hacia el primero. Si las fuerzas son <b>perpendiculares</b>, la resultante se calcula con el <b>teorema de Pitágoras</b>: R = √(F₁² + F₂²). Si la resultante es cero, las fuerzas están <b>equilibradas</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres casos de resultante: fuerzas en el mismo sentido se suman, en sentido contrario se restan y perpendiculares se combinan con Pitágoras">${BG}
-        <rect x="16" y="22" width="20" height="20" fill="var(--muted)"/>${fl(36, 32, 96, 32, "var(--pen)", 3)}${fl(36, 38, 76, 38, "var(--leaf)", 3)}${t(170, 38, "300 + 200 = 500 N", { size: 11 })}
-        <rect x="56" y="72" width="20" height="20" fill="var(--muted)"/>${fl(76, 82, 136, 82, "var(--pen)", 3)}${fl(56, 82, 18, 82, "var(--leaf)", 3)}${t(196, 88, "800 − 700 = 100 N", { size: 11 })}
-        <rect x="16" y="140" width="20" height="20" fill="var(--muted)"/>${fl(36, 150, 96, 150, "var(--pen)", 3)}${fl(26, 140, 26, 112, "var(--leaf)", 3)}${fl(36, 140, 96, 112, "var(--red)", 3)}${t(176, 140, "√(3² + 4²) = 5 N", { size: 11, color: "var(--red)" })}</svg>`,
-    },
-    {
-      html: `<h3>La ley de Hooke</h3><p>En el siglo XVII, el científico inglés <b>Robert Hooke</b> estudió cómo se estiran los muelles al colgarles pesos. Descubrió que el <b>alargamiento</b> es <mark>directamente proporcional a la fuerza</mark> aplicada: si colgamos el doble de peso, el muelle se estira el doble. Es la <b>ley de Hooke</b>: <b>F = k · Δl</b>, donde F es la fuerza en newtons, Δl es el alargamiento en metros (la longitud final menos la inicial) y k es la <b>constante elástica</b> del muelle, en N/m, que indica lo duro que es: cuanto mayor es k, más cuesta estirarlo. La ley solo se cumple hasta un valor, el <b>límite de elasticidad</b>: si se tira más, el muelle queda deformado para siempre.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres muelles colgados: sin peso, con 1 newton se estira 2 centímetros y con 2 newtons se estira 4 centímetros">${BG}
-        <rect x="14" y="14" width="232" height="8" fill="var(--muted)"/>
-        ${[[50, 0, ""], [130, 1, "1 N"], [210, 2, "2 N"]].map(([x, n, w]) => { const L = 50 + n * 30; let d = `M${x} 22 v 6`; const seg = 8; for (let i = 0; i < seg; i++) d += ` l ${i % 2 ? -8 : 8} ${L / seg / 2} l ${i % 2 ? 8 : -8} ${L / seg / 2}`; return `<path d="${d} v 6" stroke="var(--pen)" stroke-width="2" fill="none"/>${n ? `<rect x="${x - 14}" y="${34 + L}" width="28" height="22" fill="var(--red)" fill-opacity=".6"/>${t(x, 50 + L, w, { size: 10 })}` : ""}`; }).join("")}
-        <line x1="20" y1="84" x2="250" y2="84" stroke="var(--muted)" stroke-dasharray="3 3"/>${t(178, 112, "+2 cm", { size: 10, color: "var(--red)", anchor: "end" })}${t(198, 140, "+4 cm", { size: 10, color: "var(--red)", anchor: "end" })}
-        ${t(50, 120, "F = k · Δl", { size: 12, color: "var(--leaf)" })}</svg>`,
-      video: { id: "npxZ-A2WSTo", titulo: "LEY de HOOKE: Fuerza ELÁSTICA del Muelle o Resorte", canal: "Susi Profe", vistas: 1027226 },
-    },
-    {
-      html: `<h3>El dinamómetro</h3><p>La ley de Hooke permite medir fuerzas. El <mark>dinamómetro</mark> es un instrumento formado por un <b>muelle</b> dentro de un tubo con una <b>escala graduada</b> en newtons. Al colgarle un objeto o tirar de su gancho, el muelle se estira de forma proporcional a la fuerza, y una aguja marca su valor. Antes de usarlo hay que comprobar que marca cero sin carga. Cada dinamómetro tiene un <b>alcance</b> o fuerza máxima que puede medir: si lo superamos, el muelle se deforma y deja de medir bien. Las básculas de baño mecánicas y las balanzas de los mercados antiguos, las romanas, funcionan con el mismo principio.</p>`,
-    },
-    {
-      html: `<h3>El rozamiento</h3><p>Si empujas un libro sobre la mesa y lo sueltas, acaba parándose. Lo frena la <mark>fuerza de rozamiento</mark>, que aparece cuando dos superficies están en contacto y una se desliza o intenta deslizarse sobre la otra. Siempre se <b>opone al movimiento</b>. Se debe a que las superficies, aunque parezcan lisas, tienen pequeñas irregularidades que se enganchan. Es mayor cuanto más rugosas son las superficies y cuanto más se aprietan entre sí. El rozamiento a veces es <b>útil</b>: sin él no podríamos andar, los coches no frenarían y los nudos se desharían. Otras veces es un <b>inconveniente</b>: desgasta las piezas de las máquinas y produce calor; para reducirlo se usan lubricantes, rodamientos y formas aerodinámicas.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Bloque sobre una superficie: la fuerza aplicada empuja hacia la derecha y el rozamiento actúa hacia la izquierda; ampliación de las superficies rugosas que se enganchan">${BG}
-        <rect x="80" y="40" width="80" height="50" rx="4" fill="#c9a37a" stroke="#8a6a4a" stroke-width="2"/><rect x="14" y="90" width="232" height="14" fill="var(--muted)" fill-opacity=".4"/>
-        ${fl(160, 64, 230, 64, "var(--pen)", 3)}${fl(80, 86, 30, 86, "var(--red)", 3)}${t(196, 52, "empuje", { size: 11, color: "var(--pen)" })}${t(76, 76, "rozamiento", { size: 11, anchor: "end", color: "var(--red)" })}
-        <path d="M50 140 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8" stroke="#8a6a4a" stroke-width="2" fill="none"/>
-        <path d="M50 146 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8 l 10 8 l 10 -8" stroke="var(--muted)" stroke-width="2" fill="none"/>
-        ${t(130, 174, "las irregularidades se enganchan", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>La primera ley de Newton: inercia</h3><p>Antes de Galileo y Newton se pensaba que, para que un cuerpo se moviera, había que empujarlo continuamente. Newton demostró que no es así. Su <mark>primera ley</mark>, o <b>principio de inercia</b>, dice: <b>si sobre un cuerpo no actúa ninguna fuerza, o la resultante es cero, el cuerpo permanece en reposo o sigue moviéndose en línea recta a velocidad constante</b>. Los objetos se paran porque actúa el rozamiento; en el espacio, sin rozamiento, una sonda sigue viajando durante años sin motor, como las Voyager. La inercia explica por qué te vas hacia delante cuando el autobús frena de golpe: tu cuerpo tiende a seguir moviéndose. Por eso son tan importantes los cinturones de seguridad.</p>`,
-    },
-    {
-      html: `<h3>La segunda ley de Newton: F = m · a</h3><p>La <mark>segunda ley</mark>, o <b>principio fundamental de la dinámica</b>, relaciona la fuerza resultante con el cambio de velocidad que produce: <b>F = m · a</b>. La fuerza (en N) es igual a la masa del cuerpo (en kg) por la <b>aceleración</b> que adquiere (en m/s²), es decir, lo rápido que cambia su velocidad. A igual fuerza, un cuerpo con más masa acelera menos: es más fácil empujar un carro del súper vacío que lleno. A igual masa, más fuerza produce más aceleración. De esta ley se obtiene la definición de newton: <b>1 N es la fuerza que, aplicada a un cuerpo de 1 kg, le produce una aceleración de 1 m/s²</b>.</p>${tabla(["Fuerza", "Masa", "Aceleración"], [["10 N", "2 kg", "5 m/s²"], ["10 N", "5 kg", "2 m/s²"], ["20 N", "5 kg", "4 m/s²"], ["600 N", "1200 kg", "0,5 m/s²"]])}`,
-    },
-    {
-      html: `<h3>La tercera ley de Newton: acción y reacción</h3><p>La <mark>tercera ley</mark>, o <b>principio de acción y reacción</b>, dice que <b>si un cuerpo ejerce una fuerza sobre otro, este ejerce sobre el primero una fuerza igual y de sentido contrario</b>. Las dos fuerzas actúan sobre cuerpos <b>distintos</b>, por eso no se anulan. Al andar, empujamos el suelo hacia atrás y el suelo nos empuja hacia delante. Un nadador empuja el agua hacia atrás y avanza. Un cohete expulsa gases a gran velocidad hacia abajo y los gases lo empujan hacia arriba; por eso funciona en el vacío, sin aire en el que apoyarse. Y al disparar una escopeta, el arma retrocede contra el hombro.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Acción y reacción: un patinador empuja una pared hacia la derecha y la pared le empuja con la misma fuerza hacia la izquierda; un cohete expulsa gases hacia abajo y sube">${BG}
-        <rect x="120" y="20" width="14" height="110" fill="var(--muted)"/>
-        <circle cx="80" cy="44" r="10" fill="var(--ink)"/><line x1="80" y1="54" x2="80" y2="92" stroke="var(--ink)" stroke-width="4"/><line x1="80" y1="64" x2="118" y2="64" stroke="var(--ink)" stroke-width="4"/><line x1="80" y1="92" x2="70" y2="120" stroke="var(--ink)" stroke-width="4"/><line x1="80" y1="92" x2="92" y2="120" stroke="var(--ink)" stroke-width="4"/>
-        ${fl(100, 76, 132, 76, "var(--red)", 3)}${fl(80, 104, 34, 104, "var(--pen)", 3)}${t(140, 70, "acción", { size: 10, anchor: "start", color: "var(--red)" })}${t(40, 96, "reacción", { size: 10, color: "var(--pen)" })}
-        <path d="M206 30 l 14 22 v 50 h -28 v -50 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><path d="M196 104 l 10 30 l 10 -30 Z" fill="#f08a24"/>
-        ${fl(206, 26, 206, 8, "var(--pen)", 2.5)}${fl(206, 138, 206, 164, "var(--red)", 2.5)}${t(230, 174, "gases", { size: 10, color: "var(--red)" })}</svg>`,
-      video: { id: "86ZNmoAdlNg", titulo: "¿Cómo funcionan las Leyes de Newton?", canal: "CuriosaMente", vistas: 4742292 },
-    },
+    bloque({ h: "1.1 ¿Qué es una fuerza?", p: [
+      "Una <mark>fuerza</mark> es toda causa capaz de cambiar el estado de movimiento de un cuerpo o de deformarlo. Las fuerzas aparecen siempre como resultado de una <b>interacción</b> entre dos cuerpos: cuando empujas una puerta, tu mano ejerce una fuerza sobre la puerta y la puerta ejerce otra sobre tu mano. No se puede ejercer una fuerza sobre «nada». La unidad de fuerza en el Sistema Internacional es el <mark>newton</mark> (N): aproximadamente, la fuerza que hace falta para sostener en la mano una manzana pequeña de 100 g.",
+      "Las fuerzas pueden actuar <b>por contacto</b>, cuando los cuerpos se tocan, como al empujar un carro, chutar un balón, el rozamiento del suelo o la tensión de una cuerda; o <b>a distancia</b>, sin que los cuerpos se toquen, como la fuerza de la gravedad, que hace caer los objetos, la fuerza eléctrica, que hace que un globo frotado atraiga papelitos, o la fuerza magnética de un imán sobre un clip. Las fuerzas a distancia se estudiarán en otro tema. En nuestra vida diaria estamos rodeados de fuerzas: la gravedad nos atrae hacia el suelo, el suelo nos sostiene, el aire nos frena al correr y nuestros músculos nos permiten movernos.",
+    ], svg: compara("Fuerzas por contacto y fuerzas a distancia", ["Por contacto", ["empujar, tirar", "rozamiento", "tensión", "golpe"]], ["A distancia", ["gravedad", "eléctrica", "magnética", "sin tocarse"]], "var(--pen)", "var(--red)") }),
+    bloque({ h: "1.2 Los efectos de las fuerzas", p: [
+      "Las fuerzas producen dos tipos de efectos. El primero son los <mark>efectos dinámicos</mark>: cambiar el estado de movimiento de un cuerpo. Una fuerza puede poner en movimiento un cuerpo en reposo (chutar un balón parado), detenerlo (un portero que para el balón), cambiar su velocidad (un ciclista que pedalea más fuerte) o cambiar la dirección de su movimiento (un tenista que devuelve la pelota o la Luna que gira alrededor de la Tierra).",
+      "El segundo son los <mark>efectos estáticos</mark> o deformaciones: cambiar la forma de un cuerpo. Según cómo responden, los cuerpos pueden ser <b>elásticos</b>, que recuperan su forma cuando deja de actuar la fuerza, como un muelle, una goma o la cuerda de un arco; <b>plásticos</b>, que quedan deformados de forma permanente, como la plastilina o la chapa de un coche tras un choque; o <b>rígidos</b>, que apenas se deforman, aunque si la fuerza es muy grande pueden <b>romperse</b>, como el vidrio. Muchos materiales son elásticos para fuerzas pequeñas y plásticos para fuerzas grandes: si estiras demasiado un muelle, ya no vuelve a su forma. A menudo una fuerza produce los dos efectos a la vez: al chutar, el balón se deforma un instante y sale disparado.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.3 Las fuerzas son vectores", p: [
+      "Para describir una fuerza no basta con decir su valor. No es lo mismo empujar una mesa con 50 N hacia la derecha que hacia arriba. Las fuerzas son <mark>magnitudes vectoriales</mark> y se representan con un <b>vector</b>, una flecha que tiene cuatro elementos: el <b>punto de aplicación</b>, que es el punto del cuerpo donde actúa la fuerza (el origen de la flecha); el <b>módulo</b> o intensidad, que es su valor numérico en newtons y se representa con la longitud de la flecha; la <b>dirección</b>, que es la recta sobre la que actúa (horizontal, vertical, inclinada); y el <b>sentido</b>, hacia dónde apunta la flecha dentro de esa dirección.",
+      "Para dibujar fuerzas se elige una <b>escala</b>, por ejemplo 1 cm = 10 N, de modo que una fuerza de 30 N se dibuja con una flecha de 3 cm. Las magnitudes que quedan definidas solo con un número y una unidad, como la masa, la temperatura o el tiempo, se llaman <b>escalares</b>. Otras magnitudes vectoriales son la velocidad, la aceleración o el desplazamiento. En los dibujos de fuerzas de un cuerpo, llamados <b>diagramas de fuerzas</b>, se representan todas las fuerzas que actúan sobre él, cada una con su flecha y su nombre: el peso (P), la normal (N), el rozamiento (Fr) o una fuerza aplicada (F).",
+    ], svg: S.svg[1] }),
+    bloque({ h: "1.4 La fuerza resultante", p: [
+      "Normalmente sobre un cuerpo actúan <b>varias fuerzas a la vez</b>. La <mark>fuerza resultante</mark> es una única fuerza que produce el mismo efecto que todas juntas. Se calcula sumando las fuerzas como vectores. Si las fuerzas tienen la <b>misma dirección y sentido</b>, la resultante tiene esa dirección y sentido y su módulo es la suma: dos personas que empujan un coche hacia delante con 300 N y 200 N equivalen a una que empuja con 500 N.",
+      "Si tienen la <b>misma dirección y sentidos opuestos</b>, el módulo de la resultante es la diferencia, y su sentido es el de la fuerza mayor: en un juego de tirar de la cuerda, si un equipo tira con 800 N y el otro con 650 N, la resultante es de 150 N hacia el primer equipo. Si las dos fuerzas son iguales y opuestas, la resultante es <b>cero</b> y el cuerpo está en <b>equilibrio</b>. Si las fuerzas son <b>perpendiculares</b>, la resultante es la diagonal del rectángulo que forman, y su módulo se calcula con el teorema de Pitágoras: con 3 N y 4 N perpendiculares, R = √(3² + 4²) = 5 N. Si son de otras direcciones, se usa la <b>regla del paralelogramo</b>.",
+    ], extra: formula("R = √(F₁² + F₂²)  (fuerzas perpendiculares)"), svg: S.svg[2] }),
+    bloque({ h: "2.1 El peso y la fuerza normal", p: [
+      "Hay dos fuerzas que aparecen en casi todos los problemas. El <mark>peso</mark> (P) es la fuerza con la que la Tierra atrae a un cuerpo. Se dirige siempre <b>verticalmente hacia abajo</b>, hacia el centro de la Tierra, y se calcula multiplicando la masa por la aceleración de la gravedad: P = m · g, con g = 9,8 m/s² en la superficie terrestre. Un cuerpo de 10 kg pesa 98 N. No hay que confundir masa (kg) y peso (N): la masa no cambia, pero el peso depende del lugar; en la Luna, donde g = 1,6 m/s², ese cuerpo pesaría solo 16 N.",
+      "Cuando un cuerpo está apoyado en una superficie, no cae porque la superficie ejerce sobre él una fuerza hacia arriba, <b>perpendicular a la superficie</b>, llamada <mark>fuerza normal</mark> (N). Sobre una mesa horizontal, la normal es igual y opuesta al peso, y la resultante es cero: el libro está en equilibrio. Si la superficie no aguanta, como una tabla demasiado fina, se rompe. Cuando un cuerpo cuelga de una cuerda, la fuerza que hace la cuerda se llama <b>tensión</b> (T), y en reposo también equilibra al peso. Dibujar el peso, la normal y las demás fuerzas es siempre el primer paso para resolver un problema de dinámica.",
+    ], extra: formula("P = m · g  (g = 9,8 m/s²)"), svg: fuerzas("Libro sobre una mesa: el peso hacia abajo y la normal hacia arriba se equilibran", "libro", [[90, 38, "N", "var(--leaf)"], [270, 38, "P", "var(--red)"]]) }),
+    bloque({ h: "2.2 La ley de Hooke", p: [
+      "Si colgamos pesos cada vez mayores de un muelle, vemos que se alarga cada vez más. El físico inglés <b>Robert Hooke</b> descubrió en 1678 que, dentro de ciertos límites, el alargamiento es <b>directamente proporcional</b> a la fuerza: si la fuerza se duplica, el alargamiento también. Es la <mark>ley de Hooke</mark>: F = k · Δl, donde Δl es el alargamiento (la longitud final menos la inicial, Δl = l − l₀) y k es la <b>constante elástica</b> del muelle, que se mide en N/m.",
+      "La constante k indica lo «duro» que es el muelle: un muelle con k grande, como el de la suspensión de un coche, necesita mucha fuerza para alargarse poco; uno con k pequeña, como el de un bolígrafo, se estira con facilidad. Por ejemplo, si un muelle de k = 200 N/m se estira con 10 N, se alarga Δl = F / k = 10 / 200 = 0,05 m = 5 cm. La gráfica de la fuerza frente al alargamiento es una <b>recta que pasa por el origen</b>, y su pendiente es k. Pero la ley solo se cumple hasta el <b>límite de elasticidad</b>: si se supera, el muelle queda deformado para siempre o se rompe. La ley de Hooke se aplica también a gomas, cables o vigas, y es fundamental en ingeniería.",
+    ], extra: formula("F = k · Δl"), svg: S.svg[3], video: S.bvideos[0] }),
+    bloque({ h: "2.3 El dinamómetro", p: [
+      "Gracias a la ley de Hooke podemos <b>medir fuerzas</b>. El <mark>dinamómetro</mark> es un instrumento formado por un muelle dentro de un tubo, con un gancho en un extremo y una escala graduada en newtons. Al colgar un objeto o tirar del gancho, el muelle se alarga proporcionalmente a la fuerza, y un indicador marca su valor en la escala. Las básculas de baño mecánicas y las balanzas de cocina de muelle funcionan con el mismo principio, aunque su escala esté graduada en kilogramos.",
+      "Cada dinamómetro tiene un <b>alcance</b> (la fuerza máxima que puede medir sin deformarse) y una <b>sensibilidad</b> (la menor fuerza que aprecia). Antes de usarlo hay que comprobar que marca cero sin carga, colocarlo vertical si se mide un peso y no superar su alcance, porque se estropearía el muelle. Con un dinamómetro podemos medir el peso de un objeto, la fuerza necesaria para arrastrar una caja sobre una mesa (y así estudiar el rozamiento) o la fuerza de un imán. Hoy existen también <b>sensores de fuerza</b> electrónicos, que se conectan a un ordenador y registran la fuerza en cada instante, muy usados en los laboratorios y en el estudio del deporte.",
+    ], svg: pasos("Cómo usar un dinamómetro", ["Elegir el alcance adecuado", "Comprobar que marca cero", "Colgar o tirar en línea recta", "Leer la escala en newtons"], "var(--leaf)") }),
+    bloque({ h: "2.4 La fuerza de rozamiento", p: [
+      "Si empujamos un libro sobre una mesa y lo soltamos, se detiene enseguida. La fuerza que lo frena es el <mark>rozamiento</mark> o fricción: una fuerza que aparece cuando dos superficies en contacto deslizan o intentan deslizar una sobre otra, y que <b>se opone siempre al movimiento</b>. Se debe a que las superficies, incluso las que parecen lisas, tienen pequeñas irregularidades que se enganchan entre sí.",
+      "El rozamiento depende del <b>tipo de superficies</b> (es mayor entre goma y asfalto que entre patín y hielo) y de la <b>fuerza con que se aprietan</b>, la normal: una caja llena cuesta más de arrastrar que una vacía. Curiosamente, casi no depende del área de contacto. Cuesta más poner un cuerpo en movimiento que mantenerlo moviéndose: el rozamiento estático es mayor que el dinámico. El rozamiento a veces es <b>útil</b>: gracias a él podemos andar sin resbalar, los coches frenan, sujetamos objetos, los clavos y tornillos no se salen y podemos escribir con un lápiz. Otras veces es <b>perjudicial</b>: desgasta las piezas de las máquinas, gasta energía y produce calor. Para reducirlo se usan lubricantes, rodamientos y formas aerodinámicas; para aumentarlo, neumáticos con dibujo, suelas de goma o arena en el hielo. El aire y el agua también ejercen rozamiento.",
+    ], svg: S.svg[4], video: S.bvideos[1] }),
+    bloque({ h: "3.1 La primera ley de Newton: la inercia", p: [
+      "Durante siglos se creyó que para que un cuerpo se moviera había que empujarlo continuamente. <b>Galileo</b> y después <b>Newton</b> demostraron que no es así. La <mark>primera ley de Newton</mark>, o <b>principio de inercia</b>, dice: si sobre un cuerpo no actúa ninguna fuerza, o la resultante de las fuerzas es cero, el cuerpo permanece en reposo si estaba en reposo, o sigue moviéndose en línea recta con velocidad constante si estaba en movimiento.",
+      "La <mark>inercia</mark> es la tendencia de los cuerpos a mantener su estado de movimiento, y es mayor cuanto mayor es su masa: cuesta más poner en marcha o detener un camión que una bicicleta. La notamos continuamente: al arrancar un autobús, nuestro cuerpo se va hacia atrás porque tiende a seguir en reposo; al frenar, nos vamos hacia delante porque tendemos a seguir moviéndonos. Por eso es imprescindible el <b>cinturón de seguridad</b>: en un choque, el coche se detiene de golpe, pero los ocupantes siguen a la misma velocidad hasta que algo los para. Si en la Tierra las cosas acaban parándose es porque siempre hay fuerzas que las frenan, como el rozamiento; en el espacio, una sonda puede viajar durante décadas sin motores.",
+    ], svg: compara("Ejemplos de inercia en un autobús", ["Al arrancar", ["el bus acelera", "el cuerpo tiende", "a quedarse quieto", "nos vamos atrás"]], ["Al frenar", ["el bus se para", "el cuerpo tiende", "a seguir moviéndose", "nos vamos adelante"]], "var(--leaf)", "var(--red)") }),
+    bloque({ h: "3.2 La segunda ley de Newton: F = m · a", p: [
+      "¿Qué ocurre cuando la fuerza resultante <b>no es cero</b>? Entonces el cuerpo <b>acelera</b>: cambia su velocidad o su dirección. La <mark>segunda ley de Newton</mark>, o principio fundamental de la dinámica, dice que la aceleración que adquiere un cuerpo es directamente proporcional a la fuerza resultante e inversamente proporcional a su masa: F = m · a. La aceleración tiene la misma dirección y sentido que la fuerza resultante.",
+      "Esta ley significa dos cosas. Con la <b>misma masa</b>, cuanto mayor es la fuerza, mayor es la aceleración: un coche acelera más pisando más el acelerador. Con la <b>misma fuerza</b>, cuanto mayor es la masa, menor es la aceleración: un coche cargado acelera menos que vacío. De la ley sale la definición del newton: 1 N es la fuerza que comunica a una masa de 1 kg una aceleración de 1 m/s². Por ejemplo, para que un coche de 1.000 kg acelere a 2 m/s² hace falta una fuerza resultante de 1.000 · 2 = 2.000 N. Y si sobre un balón de 0,5 kg actúa una resultante de 10 N, su aceleración es a = F / m = 10 / 0,5 = 20 m/s². El peso es un caso particular: P = m · g, donde g es la aceleración de caída.",
+    ], extra: formula("F = m · a"), svg: rejilla("Segunda ley: la misma fuerza produce menos aceleración si la masa es mayor", ["Fuerza", "Masa", "Aceleración"], [["10 N", "1 kg", "10 m/s²"], ["10 N", "2 kg", "5 m/s²"], ["20 N", "2 kg", "10 m/s²"], ["2.000 N", "1.000 kg", "2 m/s²"]], "var(--pen)"), video: S.bvideos[2] }),
+    bloque({ h: "3.3 La tercera ley de Newton: acción y reacción", p: [
+      "La <mark>tercera ley de Newton</mark>, o principio de acción y reacción, dice que cuando un cuerpo ejerce una fuerza sobre otro (acción), el segundo ejerce sobre el primero una fuerza <b>igual en módulo y dirección y de sentido contrario</b> (reacción). Las fuerzas siempre aparecen <b>por parejas</b>: si empujas una pared, la pared te empuja a ti con la misma fuerza; por eso, si llevas patines, sales hacia atrás.",
+      "Es muy importante darse cuenta de que la acción y la reacción actúan sobre <b>cuerpos distintos</b>, por eso no se anulan entre sí. Este principio explica muchísimos movimientos. Al <b>andar</b>, empujamos el suelo hacia atrás con el pie y el suelo nos empuja hacia delante. Al <b>nadar</b>, empujamos el agua hacia atrás y el agua nos impulsa hacia delante. Un <b>cohete</b> expulsa gases a gran velocidad hacia abajo y los gases empujan el cohete hacia arriba, incluso en el vacío del espacio. Al disparar una escopeta, la culata golpea el hombro (retroceso). Un globo hinchado que se suelta sale volando en sentido contrario al aire que escapa. Y la Tierra atrae a una manzana con la misma fuerza con que la manzana atrae a la Tierra; lo que pasa es que la Tierra, con su enorme masa, apenas acelera.",
+    ], svg: S.svg[5] }),
+    bloque({ h: "3.4 Las fuerzas en la vida diaria", p: [
+      "Las leyes de Newton explican muchas situaciones cotidianas y son la base de la <b>seguridad vial</b>. Por la inercia, en un choque a 50 km/h los ocupantes salen despedidos con una fuerza enorme: el <b>cinturón</b> y el <b>airbag</b> aumentan el tiempo de frenado del cuerpo y reparten la fuerza sobre una superficie mayor, reduciendo las lesiones. Los <b>reposacabezas</b> evitan el latigazo cervical en los choques por detrás. La distancia de frenado depende del rozamiento entre neumáticos y asfalto, que disminuye con la lluvia o con ruedas gastadas.",
+      "En el <b>deporte</b>, los atletas aprovechan la tercera ley al impulsarse en los tacos de salida; los esquiadores enceran los esquís para reducir el rozamiento; los ciclistas adoptan posturas aerodinámicas para disminuir el rozamiento con el aire; y los cascos y protecciones absorben la energía de los golpes deformándose. En <b>ingeniería</b>, los puentes y los edificios se diseñan para que todas las fuerzas estén en equilibrio y ningún material supere su límite de elasticidad. Y en el <b>cuerpo humano</b>, los músculos tiran de los huesos como si fueran palancas. Las fuerzas están detrás de casi todo lo que se mueve o se sostiene.",
+    ], svg: ficha("Elementos de seguridad y la física que los explica", "Seguridad vial", ["Cinturón: frena la inercia", "Airbag: más tiempo de frenado", "Reposacabezas: evita latigazos", "Neumáticos: más rozamiento"], "var(--red)") }),
   ],
-  figura: {
-    titulo: "Las tres leyes de Newton",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Las tres leyes de Newton en tres tarjetas: inercia, si no hay fuerza neta el cuerpo mantiene su estado; F igual a m por a; y acción y reacción, fuerzas iguales y opuestas sobre cuerpos distintos">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["1ª · Inercia", "sin fuerza neta:", "reposo o MRU", "var(--pen)"], ["2ª · Dinámica", "F = m · a", "más masa, menos a", "var(--red)"], ["3ª · Acción-reacción", "fuerzas iguales", "y opuestas", "var(--leaf)"]].map(([n, a, b, c], i) => { const x = 20 + i * 206; return `<rect x="${x}" y="24" width="190" height="180" rx="14" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>${t(x + 95, 60, n, { size: 16, color: c, font: D })}${t(x + 95, 116, a, { size: 17 })}${t(x + 95, 148, b, { size: 14, weight: 400 })}`; }).join("")}
-    </svg>`,
-  },
-  video: { id: "9lgVjHJqTZc", titulo: "Las Leyes de Newton en menos de cinco minutos", canal: "AprendemosJuntos", vistas: 1794828, megusta: 0, busqueda: "fuerza de la gravedad Newton" },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Un muelle de 20 cm se alarga hasta 26 cm al colgarle un peso de 3 N. ¿Cuál es su constante elástica?",
-      pasos: ["Alargamiento: Δl = 26 − 20 = 6 cm = 0,06 m.", "F = k · Δl → k = F / Δl.", "k = 3 / 0,06 = 50 N/m."],
-      resultado: "k = 50 N/m." },
-    { enunciado: "Dos fuerzas perpendiculares de 6 N y 8 N actúan sobre un cuerpo. ¿Cuál es la resultante?",
-      pasos: ["Al ser perpendiculares, usamos Pitágoras.", "R = √(6² + 8²) = √(36 + 64).", "R = √100 = 10 N."],
-      resultado: "10 N." },
-    { enunciado: "¿Qué aceleración adquiere un carro de 40 kg si se empuja con una fuerza neta de 60 N?",
-      pasos: ["Segunda ley: F = m · a.", "a = F / m = 60 / 40.", "a = 1,5 m/s²."],
-      resultado: "1,5 m/s²." },
+    { enunciado: "Dos fuerzas de 30 N y 50 N actúan sobre un cuerpo en la misma dirección. Calcula la resultante si tienen el mismo sentido y si tienen sentidos opuestos.", pasos: ["Mismo sentido: se suman, 30 + 50 = 80 N.", "Sentidos opuestos: se restan, 50 − 30 = 20 N, en el sentido de la de 50 N."], resultado: "80 N; 20 N en el sentido de la fuerza mayor." },
+    { enunciado: "Calcula la resultante de dos fuerzas perpendiculares de 6 N y 8 N.", pasos: ["Son perpendiculares: se usa Pitágoras.", "R = √(6² + 8²) = √(36 + 64) = √100."], resultado: "R = 10 N." },
+    { enunciado: "Un muelle de 20 cm se alarga hasta 26 cm al colgarle un peso de 12 N. Calcula su constante elástica.", pasos: ["Δl = 26 − 20 = 6 cm = 0,06 m.", "k = F / Δl = 12 / 0,06."], resultado: "k = 200 N/m." },
+    { enunciado: "Con el muelle anterior (k = 200 N/m, l₀ = 20 cm), ¿qué longitud tendrá al colgarle 5 N?", pasos: ["Δl = F / k = 5 / 200 = 0,025 m = 2,5 cm.", "l = l₀ + Δl = 20 + 2,5."], resultado: "22,5 cm." },
+    { enunciado: "Calcula el peso de una persona de 60 kg en la Tierra (g = 9,8 m/s²) y en la Luna (g = 1,6 m/s²).", pasos: ["P = m · g.", "Tierra: 60 · 9,8 = 588 N.", "Luna: 60 · 1,6 = 96 N.", "La masa sigue siendo 60 kg en los dos sitios."], resultado: "588 N en la Tierra y 96 N en la Luna." },
+    { enunciado: "Sobre un carrito de 20 kg se ejerce una fuerza de 100 N y el rozamiento es de 40 N. Calcula la aceleración.", pasos: ["Resultante: 100 − 40 = 60 N.", "a = F / m = 60 / 20."], resultado: "a = 3 m/s²." },
   ],
   errores: [
+    "Confundir masa (kg) y peso (N): la masa no cambia y el peso depende de la gravedad.",
     "Pensar que hace falta una fuerza para mantener un movimiento: solo para cambiarlo.",
     "Creer que acción y reacción se anulan: actúan sobre cuerpos distintos.",
-    "Usar la longitud total del muelle en la ley de Hooke en lugar del alargamiento.",
-    "Olvidar pasar los centímetros a metros al calcular k en N/m.",
-    "Sumar siempre las fuerzas: si tienen sentidos contrarios, se restan.",
+    "Sumar siempre los módulos de las fuerzas sin tener en cuenta su dirección y sentido.",
+    "Usar la longitud total del muelle en lugar del alargamiento en la ley de Hooke.",
+    "Pensar que el rozamiento siempre es perjudicial: sin él no podríamos andar ni frenar.",
   ],
   ejercicios: [
-    { q: "Define fuerza y cita su unidad en el SI.", sol: "Toda causa capaz de deformar un cuerpo o cambiar su estado de movimiento. Se mide en newtons (N)." },
-    { q: "Clasifica como elástico, plástico o frágil: una goma, un vaso de cristal, la arcilla, un trampolín.", sol: "Elásticos: goma y trampolín. Plástico: arcilla. Frágil: vaso de cristal." },
-    { q: "Nombra los cuatro elementos de un vector fuerza.", sol: "Punto de aplicación, módulo, dirección y sentido." },
-    { q: "Calcula la resultante de 40 N y 25 N en la misma dirección: a) mismo sentido; b) sentidos contrarios.", sol: "a) 65 N; b) 15 N en el sentido de la de 40 N." },
-    { q: "Un muelle de constante 200 N/m se estira 5 cm. ¿Qué fuerza se ha aplicado?", sol: "F = 200 · 0,05 = 10 N." },
-    { q: "Un muelle de k = 80 N/m mide 15 cm. ¿Cuánto medirá al colgarle 4 N?", sol: "Δl = 4 / 80 = 0,05 m = 5 cm; medirá 20 cm." },
-    { q: "Pon dos ejemplos de rozamiento útil y dos de rozamiento perjudicial.", sol: "Útil: andar, frenar. Perjudicial: desgaste de piezas, pérdida de energía en forma de calor." },
-    { q: "¿Por qué es importante llevar el cinturón de seguridad? Relaciónalo con una ley de Newton.", sol: "Por la inercia (primera ley): al frenar el coche, el cuerpo tiende a seguir moviéndose y saldría despedido." },
-    { q: "¿Qué fuerza hace falta para que una moto de 150 kg acelere a 2 m/s²?", sol: "F = 150 · 2 = 300 N." },
-    { q: "Explica cómo avanza un cohete en el espacio.", sol: "Expulsa gases hacia atrás (acción) y los gases lo empujan hacia delante (reacción), según la tercera ley de Newton." },
+    B("Define fuerza e indica su unidad en el SI.", "Toda causa capaz de cambiar el estado de movimiento de un cuerpo o de deformarlo. Se mide en newtons (N)."),
+    B("Clasifica en fuerzas por contacto o a distancia: el peso, el empujón a un carro, la atracción de un imán, el rozamiento, la tensión de una cuerda.", "Contacto: empujón, rozamiento, tensión. A distancia: peso, imán."),
+    B("Indica el efecto de la fuerza: chutar un balón parado, aplastar plastilina, desviar una pelota con la cabeza, estirar una goma.", "Poner en movimiento (dinámico); deformación plástica (estático); cambio de dirección (dinámico); deformación elástica (estático)."),
+    B("Clasifica en elásticos, plásticos o rígidos: un muelle, la plastilina, una goma elástica, un ladrillo, la arcilla.", "Elásticos: muelle, goma. Plásticos: plastilina, arcilla. Rígido: ladrillo."),
+    B("Nombra los cuatro elementos de un vector fuerza.", "Punto de aplicación, módulo, dirección y sentido."),
+    B("Calcula la resultante de 20 N y 15 N en la misma dirección y sentido, y en sentidos opuestos.", "35 N; 5 N en el sentido de la de 20 N."),
+    B("Calcula el peso de una mochila de 5 kg (g = 9,8 m/s²).", "P = 5 · 9,8 = 49 N."),
+    B("Enuncia la ley de Hooke.", "El alargamiento de un cuerpo elástico es directamente proporcional a la fuerza aplicada: F = k · Δl."),
+    B("¿Para qué sirve un dinamómetro y en qué ley se basa?", "Para medir fuerzas; se basa en la ley de Hooke."),
+    B("Pon dos ejemplos de rozamiento útil y dos de rozamiento perjudicial.", "Útil: andar sin resbalar, frenar un coche. Perjudicial: desgaste de piezas, pérdida de energía en las máquinas."),
+    B("Enuncia las tres leyes de Newton.", "1.ª: sin fuerza resultante, un cuerpo sigue en reposo o con movimiento rectilíneo uniforme. 2.ª: F = m · a. 3.ª: a toda acción le corresponde una reacción igual y de sentido contrario."),
+    B("¿Por qué nos vamos hacia delante cuando frena un autobús?", "Por la inercia: nuestro cuerpo tiende a seguir moviéndose a la misma velocidad."),
+    M("Calcula la resultante de dos fuerzas perpendiculares de 9 N y 12 N.", "R = √(81 + 144) = √225 = 15 N."),
+    M("Sobre una caja actúan 40 N hacia la derecha, 25 N hacia la izquierda y 10 N hacia la derecha. ¿Cuál es la resultante?", "40 + 10 − 25 = 25 N hacia la derecha."),
+    M("Un muelle de k = 150 N/m se alarga 8 cm. ¿Qué fuerza actúa?", "F = 150 · 0,08 = 12 N."),
+    M("Un muelle mide 15 cm sin carga y 18 cm con 6 N. ¿Cuánto medirá con 10 N?", "k = 6 / 0,03 = 200 N/m. Con 10 N: Δl = 10 / 200 = 0,05 m = 5 cm → 20 cm."),
+    M("Con estos datos de un muelle, comprueba si cumple la ley de Hooke y calcula k: 2 N → 1 cm; 4 N → 2 cm; 6 N → 3 cm; 8 N → 4 cm.", "F / Δl = 2 N/cm = 200 N/m en todos los casos: se cumple la ley de Hooke."),
+    M("¿Qué masa tiene un objeto que pesa 49 N en la Tierra? ¿Cuánto pesaría en Marte (g = 3,7 m/s²)?", "m = 49 / 9,8 = 5 kg. En Marte: 5 · 3,7 = 18,5 N."),
+    M("Calcula la aceleración de una moto de 200 kg sobre la que actúa una fuerza resultante de 1.000 N.", "a = 1.000 / 200 = 5 m/s²."),
+    M("¿Qué fuerza hay que aplicar a un carro de 50 kg para que acelere a 1,5 m/s² si no hay rozamiento? ¿Y si el rozamiento es de 30 N?", "Sin rozamiento: 50 · 1,5 = 75 N. Con rozamiento: 75 + 30 = 105 N."),
+    M("Explica con la tercera ley cómo avanza un nadador y cómo despega un cohete.", "El nadador empuja el agua hacia atrás y el agua lo empuja hacia delante. El cohete expulsa gases hacia abajo y los gases lo empujan hacia arriba."),
+    M("Un libro está en reposo sobre una mesa. Dibuja las fuerzas que actúan sobre él y explica por qué no se mueve.", "Peso hacia abajo y normal hacia arriba, de igual módulo: la resultante es cero y, por la primera ley, sigue en reposo."),
+    A("Una caja de 30 kg se arrastra con una fuerza de 150 N y se mueve con velocidad constante. ¿Cuánto vale el rozamiento? ¿Y si la fuerza fuera de 210 N, cuál sería la aceleración?", "Velocidad constante → resultante nula → rozamiento = 150 N. Con 210 N: resultante 60 N, a = 60 / 30 = 2 m/s²."),
+    A("Dos personas tiran de una caja con cuerdas perpendiculares, con 60 N y 80 N. Si la caja tiene 25 kg y no hay rozamiento, ¿qué aceleración adquiere?", "R = √(3.600 + 6.400) = 100 N. a = 100 / 25 = 4 m/s², en la dirección de la diagonal."),
+    A("Un ascensor de 500 kg sube acelerando a 2 m/s². ¿Qué tensión hace el cable? (g = 9,8 m/s²)", "T − P = m · a → T = 500 · 9,8 + 500 · 2 = 4.900 + 1.000 = 5.900 N."),
+    A("Explica por qué en un choque frontal a 50 km/h es tan peligroso no llevar cinturón, usando la primera y la segunda ley.", "Por la inercia, el ocupante sigue a 50 km/h cuando el coche se para. Sin cinturón, se detiene de golpe contra el volante o el cristal en muy poco tiempo: la aceleración (deceleración) es enorme y, por F = m · a, también la fuerza sobre su cuerpo. El cinturón alarga el tiempo de frenado y reduce la fuerza."),
+    A("Si la Tierra atrae a una manzana con la misma fuerza que la manzana a la Tierra, ¿por qué cae la manzana y no se mueve la Tierra?", "Porque la aceleración es a = F / m: la masa de la Tierra es enorme, así que su aceleración es despreciable, mientras que la manzana, de masa pequeña, acelera 9,8 m/s²."),
+    A("Diseña un experimento para calcular la constante elástica de una goma y comprobar si cumple la ley de Hooke.", "Colgar la goma, medir su longitud inicial, añadir pesas de masa conocida (calculando P = m · g), medir el alargamiento cada vez, hacer una tabla y una gráfica F-Δl. Si es una recta por el origen, cumple la ley; su pendiente es k. Repetir medidas y no superar el límite elástico."),
+    A("Un coche de 1.200 kg que va a 20 m/s frena hasta pararse en 4 s. ¿Qué aceleración tiene y qué fuerza de frenado actúa? ¿Qué fuerza recibe un pasajero de 70 kg?", "a = (0 − 20) / 4 = −5 m/s². Fuerza sobre el coche: 1.200 · 5 = 6.000 N en sentido contrario al movimiento. Pasajero: 70 · 5 = 350 N, que debe ejercer el cinturón."),
+    A("Un patinador de 50 kg empuja a otro de 75 kg con una fuerza de 150 N. Calcula la aceleración de cada uno.", "Por la tercera ley, ambos reciben 150 N en sentidos opuestos. a₁ = 150 / 50 = 3 m/s²; a₂ = 150 / 75 = 2 m/s²."),
   ],
   quiz: [
-    { q: "La unidad de fuerza en el SI es…", o: ["el kilogramo", "el newton", "el julio"], a: 1, e: "El newton." },
-    { q: "Un material que recupera su forma es…", o: ["plástico", "elástico", "frágil"], a: 1, e: "Elástico." },
-    { q: "La fuerza es una magnitud…", o: ["escalar", "vectorial", "sin unidad"], a: 1, e: "Vectorial." },
-    { q: "Resultante de 3 N y 4 N perpendiculares:", o: ["7 N", "1 N", "5 N"], a: 2, e: "√(9 + 16) = 5 N." },
-    { q: "En la ley de Hooke, k se mide en…", o: ["N/m", "m/N", "N·m"], a: 0, e: "N/m." },
-    { q: "Para medir fuerzas se usa…", o: ["la balanza", "el dinamómetro", "el termómetro"], a: 1, e: "El dinamómetro." },
-    { q: "El rozamiento siempre…", o: ["ayuda al movimiento", "se opone al movimiento", "es cero"], a: 1, e: "Se opone." },
-    { q: "Al frenar el autobús te vas hacia delante por…", o: ["la inercia", "la gravedad", "el rozamiento"], a: 0, e: "La inercia." },
-    { q: "F = m · a es la ley…", o: ["primera", "segunda", "tercera"], a: 1, e: "La segunda." },
-    { q: "Al andar, el suelo te empuja…", o: ["hacia atrás", "hacia delante", "hacia abajo"], a: 1, e: "Hacia delante: reacción." },
+    q4("La unidad de fuerza en el SI es el…", ["kilogramo", "newton", "julio", "vatio"], 1, "N."),
+    q4("Las fuerzas aparecen siempre…", ["solas", "como interacción entre dos cuerpos", "solo en los metales", "solo a distancia"], 1, "Siempre hay dos cuerpos."),
+    q4("Es una fuerza a distancia…", ["el rozamiento", "el peso", "un empujón", "la tensión"], 1, "Gravedad."),
+    q4("Un material que recupera su forma es…", ["plástico", "elástico", "rígido", "frágil"], 1, "Como un muelle."),
+    q4("La longitud de la flecha de un vector fuerza representa…", ["la dirección", "el módulo", "el sentido", "el punto de aplicación"], 1, "Su valor."),
+    q4("Dos fuerzas de 10 N en sentidos opuestos dan una resultante de…", ["20 N", "10 N", "0 N", "5 N"], 2, "Equilibrio."),
+    q4("La resultante de 3 N y 4 N perpendiculares es…", ["7 N", "1 N", "5 N", "12 N"], 2, "Pitágoras."),
+    q4("El peso de un cuerpo de 2 kg es aproximadamente…", ["2 N", "9,8 N", "19,6 N", "0,2 N"], 2, "P = m · g."),
+    q4("La fuerza que hace una mesa sobre un libro apoyado es la…", ["tensión", "normal", "rozamiento", "inercia"], 1, "Perpendicular a la superficie."),
+    q4("En la ley de Hooke, k es…", ["la masa", "la constante elástica", "la aceleración", "la longitud"], 1, "N/m."),
+    q4("Un muelle de k = 100 N/m con 5 N se alarga…", ["5 cm", "500 cm", "0,5 cm", "20 cm"], 0, "5 / 100 = 0,05 m."),
+    q4("El dinamómetro sirve para medir…", ["masas", "fuerzas", "longitudes", "tiempos"], 1, "En newtons."),
+    q4("El rozamiento se opone…", ["al peso", "al movimiento", "a la normal", "a la masa"], 1, "Siempre frena."),
+    q4("Sin rozamiento…", ["no podríamos andar", "andaríamos mejor", "no habría peso", "no habría masa"], 0, "Resbalaríamos."),
+    q4("La primera ley de Newton se llama principio de…", ["acción y reacción", "inercia", "Hooke", "Arquímedes"], 1, "Tendencia a seguir igual."),
+    q4("Si la resultante es cero, un cuerpo en movimiento…", ["se para", "sigue con velocidad constante", "acelera", "cae"], 1, "Primera ley."),
+    q4("Según F = m · a, con la misma fuerza, más masa supone…", ["más aceleración", "menos aceleración", "la misma aceleración", "ninguna"], 1, "Inversa."),
+    q4("Una fuerza de 20 N sobre 4 kg produce una aceleración de…", ["80 m/s²", "5 m/s²", "24 m/s²", "0,2 m/s²"], 1, "20 / 4."),
+    q4("Acción y reacción actúan…", ["sobre el mismo cuerpo", "sobre cuerpos distintos", "solo en el espacio", "solo con imanes"], 1, "Por eso no se anulan."),
+    q4("Un cohete avanza en el espacio porque…", ["empuja el aire", "los gases que expulsa lo empujan", "lo atrae la Luna", "no tiene masa"], 1, "Tercera ley."),
   ],
   examen: [
-    { q: "Si la resultante de fuerzas es cero, un cuerpo en movimiento…", o: ["se para", "sigue a velocidad constante", "acelera"], a: 1, e: "Sigue con MRU." },
-    { q: "Con la misma fuerza, un cuerpo de más masa acelera…", o: ["más", "menos", "igual"], a: 1, e: "Menos." },
-    { q: "Si colgamos el triple de peso a un muelle, se estira…", o: ["igual", "el triple", "la tercera parte"], a: 1, e: "El triple." },
+    q4("Sobre un cuerpo actúan 50 N a la derecha y 20 N a la izquierda. La resultante es…", ["70 N a la derecha", "30 N a la derecha", "30 N a la izquierda", "0 N"], 1, "50 − 20."),
+    q4("Un muelle de 10 cm mide 14 cm con 8 N. Su k es…", ["2 N/m", "200 N/m", "80 N/m", "57 N/m"], 1, "8 / 0,04."),
+    q4("Un cuerpo pesa 196 N en la Tierra. Su masa es…", ["196 kg", "20 kg", "1.921 kg", "9,8 kg"], 1, "196 / 9,8."),
+    q4("¿Qué fuerza acelera un coche de 800 kg a 3 m/s²?", ["267 N", "2.400 N", "803 N", "240 N"], 1, "800 · 3."),
+    q4("Un objeto se mueve con velocidad constante. La fuerza resultante es…", ["mayor que el peso", "cero", "igual al peso", "negativa"], 1, "Primera ley."),
+    q4("Al andar, ¿qué fuerza nos impulsa hacia delante?", ["El peso", "La que el suelo ejerce sobre el pie", "El aire", "La inercia"], 1, "Reacción del suelo."),
+    q4("El airbag reduce las lesiones porque…", ["aumenta la masa", "alarga el tiempo de frenado del cuerpo", "elimina la inercia", "acelera el coche"], 1, "Menos fuerza."),
+    q4("¿Cuál NO depende del lugar?", ["El peso", "La masa", "La gravedad", "La fuerza normal"], 1, "Siempre igual."),
   ],
-  feynman: ["Qué efectos producen las fuerzas y cómo se representan", "Cómo funciona un dinamómetro gracias a la ley de Hooke", "Qué dicen las tres leyes de Newton con ejemplos"],
-  mapa: mapa("FUERZAS", "var(--eso)", [
-    ["Efectos", "deformadores · dinámicos", "var(--pen)"],
-    ["Vectores", "módulo · dirección · sentido · resultante", "var(--red)"],
-    ["Hooke", "F = k · Δl · dinamómetro", "#b8860b"],
-    ["Newton", "inercia · F = m·a · acción-reacción", "var(--leaf)"],
-  ], 300),
+  feynman: ["Qué es una fuerza y qué efectos produce", "Por qué las fuerzas son vectores y cómo se suman", "Qué diferencia hay entre masa y peso", "Qué dice la ley de Hooke y cómo funciona un dinamómetro", "Qué es el rozamiento y cuándo es útil", "Qué dicen las tres leyes de Newton con ejemplos"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Fuerza", "Causa que deforma o cambia el movimiento; se mide en N."],
-    ["Vector", "Flecha con punto de aplicación, módulo, dirección y sentido."],
-    ["Resultante", "Fuerza única equivalente a todas las que actúan."],
+    ["Fuerza", "Causa que cambia el movimiento o deforma; en N."],
+    ["Efectos", "Dinámicos (movimiento) y estáticos (deformación)."],
+    ["Vector", "Punto de aplicación, módulo, dirección y sentido."],
+    ["Resultante", "Fuerza única equivalente a todas."],
+    ["Peso", "P = m · g, vertical hacia abajo."],
+    ["Normal", "Fuerza de una superficie, perpendicular a ella."],
     ["Ley de Hooke", "F = k · Δl."],
-    ["Dinamómetro", "Muelle graduado para medir fuerzas."],
-    ["Rozamiento", "Fuerza que se opone al deslizamiento."],
-    ["Inercia", "Tendencia a mantener el reposo o el MRU."],
-    ["Acción y reacción", "Fuerzas iguales y opuestas sobre cuerpos distintos."],
+    ["Dinamómetro", "Mide fuerzas con un muelle."],
+    ["Rozamiento", "Se opone al movimiento entre superficies."],
+    ["1.ª ley", "Inercia: sin fuerza resultante, nada cambia."],
+    ["2.ª ley", "F = m · a."],
+    ["3.ª ley", "Acción y reacción: iguales, opuestas, en cuerpos distintos."],
   ],
-  familias: ["Fabricad un dinamómetro casero con una goma, un vaso de yogur y monedas, y graduadlo.", "Arrastrad un libro sobre distintas superficies (mesa, toalla, papel) y comparad lo que cuesta moverlo.", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "La interacción: las fuerzas y sus efectos, representación vectorial, ley de Hooke, rozamiento y leyes de Newton (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Práctica de la ley de Hooke con muelles y pesas, y gráfica F frente a Δl.", "Carrito con globo para ilustrar acción y reacción.", "Medir el rozamiento con un dinamómetro arrastrando un bloque sobre distintas superficies."],
+  glosario: [
+    ["Fuerza", "Causa capaz de cambiar el estado de movimiento de un cuerpo o deformarlo."],
+    ["Newton", "Unidad de fuerza del SI: fuerza que da a 1 kg una aceleración de 1 m/s²."],
+    ["Interacción", "Acción mutua entre dos cuerpos."],
+    ["Cuerpo elástico", "El que recupera su forma al dejar de actuar la fuerza."],
+    ["Cuerpo plástico", "El que queda deformado de forma permanente."],
+    ["Magnitud vectorial", "La que necesita módulo, dirección y sentido."],
+    ["Fuerza resultante", "Fuerza que equivale a todas las que actúan sobre un cuerpo."],
+    ["Equilibrio", "Situación en la que la fuerza resultante es cero."],
+    ["Peso", "Fuerza con la que un planeta atrae a un cuerpo."],
+    ["Fuerza normal", "Fuerza perpendicular que ejerce una superficie sobre un cuerpo apoyado."],
+    ["Tensión", "Fuerza que ejerce una cuerda o un cable tenso."],
+    ["Constante elástica", "Fuerza necesaria para alargar un muelle un metro."],
+    ["Límite de elasticidad", "Fuerza máxima a partir de la cual un cuerpo deja de ser elástico."],
+    ["Dinamómetro", "Instrumento que mide fuerzas mediante un muelle."],
+    ["Rozamiento", "Fuerza que se opone al deslizamiento entre superficies."],
+    ["Inercia", "Tendencia de un cuerpo a mantener su estado de movimiento."],
+    ["Aceleración", "Cambio de la velocidad por unidad de tiempo."],
+    ["Acción y reacción", "Pareja de fuerzas iguales y opuestas que se ejercen dos cuerpos."],
+  ],
+  situacion: {
+    titulo: "Diseñamos una báscula casera",
+    reto: "Una ONG necesita básculas baratas para pesar paquetes de ayuda en lugares sin electricidad. Vuestro equipo debe construir y calibrar un dinamómetro con materiales sencillos, comprobar su precisión y redactar el manual de uso.",
+    pasos: [
+      "Elegid muelles o gomas y medid su alargamiento al colgar masas conocidas.",
+      "Representad la gráfica F-Δl, comprobad si cumplen la ley de Hooke y calculad k.",
+      "Construid el dinamómetro con un tubo, un muelle, un gancho y una escala graduada a partir de la calibración.",
+      "Comprobad su precisión pesando objetos con una balanza de referencia y calculad los errores.",
+      "Determinad el alcance y el límite de elasticidad para no estropearlo.",
+      "Redactad un manual de uso con instrucciones y advertencias.",
+    ],
+    producto: "Un dinamómetro calibrado, su gráfica de calibración y un manual de uso.",
+    evaluacion: ["La calibración se hace con datos fiables y una gráfica correcta.", "Se aplica bien la ley de Hooke y se calcula k con sus unidades.", "Se analizan los errores y el alcance del instrumento.", "El manual es claro y útil."],
   },
-  fuentes: [RD, wiki("Fuerza", "Fuerza"), wiki("Leyes de Newton", "Leyes_de_Newton")],
-  revisado: "2026-11-12",
+  familias: [
+    "En el coche o el autobús, comentad qué notáis al arrancar y al frenar y relacionadlo con la inercia.",
+    "Colgad objetos de una goma elástica y medid cuánto se estira: ¿se cumple la ley de Hooke?",
+    "Hinchad un globo y soltadlo sin atar: hablad de la tercera ley de Newton.",
+    "Comparad lo fácil que es arrastrar una caja sobre el suelo de madera y sobre una alfombra.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La interacción»: las fuerzas como interacciones, efectos de las fuerzas, carácter vectorial y fuerza resultante, ley de Hooke, peso y fuerza normal, rozamiento y leyes de Newton aplicadas a situaciones cotidianas y a la seguridad vial.`,
+    ideas: [
+      "Comprobación de la ley de Hooke con muelles y gomas, y gráfica F-Δl.",
+      "Medida del rozamiento arrastrando bloques sobre distintas superficies con un dinamómetro.",
+      "Carritos y globos de reacción para la tercera ley de Newton.",
+      "Análisis de vídeos de pruebas de choque (crash tests) y del papel del cinturón.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Leyes de Newton", "Leyes_de_Newton"),
+    wiki("Ley de elasticidad de Hooke", "Ley_de_elasticidad_de_Hooke"),
+    { t: "Simulación «Fuerzas y movimiento: fundamentos», PhET", url: "https://phet.colorado.edu/es/simulations/forces-and-motion-basics" },
+  ],
+  revisado: "2026-11-13",
 };

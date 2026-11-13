@@ -1,164 +1,230 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
+// Física y Química 3º ESO · Las reacciones químicas (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, graf, rejilla, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["reacciones-quimicas"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "Las reacciones químicas",
-  minutos: 55,
-  objetivos: ["Diferenciar cambios físicos y químicos", "Explicar una reacción química con el modelo de colisiones", "Ajustar ecuaciones químicas sencillas aplicando la ley de conservación de la masa", "Identificar los factores que influyen en la velocidad de reacción y la energía de las reacciones"],
-  claves: ["cambio químico", "reactivo", "producto", "ecuación química", "ley de Lavoisier", "ajuste", "velocidad de reacción", "reacción exotérmica"],
+  minutos: 110,
+  objetivos: [
+    "Diferenciar cambios físicos y químicos y reconocer las señales de una reacción química",
+    "Explicar una reacción química con la teoría de colisiones como una reorganización de átomos",
+    "Aplicar la ley de conservación de la masa y la de proporciones definidas",
+    "Ajustar ecuaciones químicas sencillas por tanteo e interpretarlas",
+    "Resolver cálculos sencillos de masas en reacciones químicas",
+    "Explicar los factores que influyen en la velocidad de reacción y la energía de las reacciones, y reconocer reacciones de interés",
+  ],
+  claves: ["cambio químico", "reactivo", "producto", "ecuación química", "teoría de colisiones", "ley de Lavoisier", "ley de Proust", "ajuste", "velocidad de reacción", "catalizador", "reacción exotérmica", "reacción endotérmica"],
   pregunta: {
     texto: "Cuando un tronco de 10 kg arde en una chimenea, al final solo quedan unos cientos de gramos de ceniza. ¿Dónde está el resto de la masa? ¿Ha desaparecido?",
     respuesta: "No. Según la <mark>ley de conservación de la masa</mark>, en una reacción química la masa total no cambia. La madera ha reaccionado con el oxígeno del aire y se ha transformado en <b>dióxido de carbono</b> y <b>vapor de agua</b>, que son gases y se han ido por la chimenea. Si pudiéramos recogerlos y pesarlos, junto con la ceniza, saldría exactamente la masa de la madera más la del oxígeno gastado.",
   },
-  bloques: [
-    {
-      html: `<h3>Cambios físicos y cambios químicos</h3><p>La materia cambia continuamente, pero no todos los cambios son iguales. En un <mark>cambio físico</mark> las sustancias siguen siendo las mismas: solo cambian su forma, su tamaño o su estado. Romper un vaso, fundir hielo, disolver azúcar en agua o estirar un muelle son cambios físicos. En un <mark>cambio químico</mark> o <b>reacción química</b>, unas sustancias desaparecen y se forman otras <b>nuevas</b>, con propiedades distintas. Quemar papel, oxidarse un clavo, cocinar un huevo, la fermentación del mosto en vino o la digestión de los alimentos son cambios químicos. Una pista: los cambios químicos suelen ser difíciles de revertir; no se puede «desquemar» un papel.</p>`,
-    },
-    {
-      html: `<h3>Cómo reconocer una reacción química</h3><p>A veces se puede saber que ha ocurrido una reacción química observando algunas <b>señales</b>: un <mark>cambio de color</mark>, como cuando una manzana cortada se oscurece; el <b>desprendimiento de un gas</b>, que forma burbujas, como al echar vinagre sobre bicarbonato; la formación de un <b>sólido</b> nuevo en una disolución, llamado <b>precipitado</b>; la <b>emisión de luz o calor</b>, como en una combustión; o la <b>aparición de un olor</b>, como en la comida que se pudre. Ninguna señal es una prueba definitiva: también hay burbujas cuando hierve el agua, que es un cambio físico. La prueba real es comprobar que se han formado sustancias nuevas.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cuatro señales de reacción química: cambio de color, burbujas de gas, precipitado sólido y emisión de luz y calor">${BG}
-        ${[[40, "color"], [100, "gas"], [160, "precipitado"], [220, "luz y calor"]].map(([x, n]) => t(x, 158, n, { size: 9 })).join("")}
-        <path d="M20 60 V 130 H 60 V 60" fill="none" stroke="var(--ink)" stroke-width="2"/><rect x="21" y="90" width="38" height="39" fill="#9b59b6" fill-opacity=".5"/><rect x="21" y="76" width="38" height="14" fill="var(--water)" fill-opacity=".4"/>
-        <path d="M80 60 V 130 H 120 V 60" fill="none" stroke="var(--ink)" stroke-width="2"/><rect x="81" y="84" width="38" height="45" fill="var(--water)" fill-opacity=".4"/>${[[92, 110], [104, 98], [96, 88], [110, 116], [100, 74], [108, 64]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3.5" fill="none" stroke="var(--pen)" stroke-width="1.5"/>`).join("")}
-        <path d="M140 60 V 130 H 180 V 60" fill="none" stroke="var(--ink)" stroke-width="2"/><rect x="141" y="84" width="38" height="45" fill="#f2d675" fill-opacity=".4"/><rect x="141" y="118" width="38" height="11" fill="#e0a000"/>
-        <path d="M220 130 q -22 -24 0 -66 q 22 42 0 66 Z" fill="#f08a24"/><path d="M220 130 q -10 -14 0 -36 q 10 22 0 36 Z" fill="#ffd34d"/>
-        ${t(130, 30, "señales de un cambio químico", { size: 11, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>Reactivos y productos</h3><p>En una reacción química, las sustancias iniciales se llaman <mark>reactivos</mark> y las que se forman, <mark>productos</mark>. Por ejemplo, en la combustión del metano, el gas de las cocinas, los reactivos son el metano y el oxígeno, y los productos son el dióxido de carbono y el agua. Las reacciones se representan con una <b>ecuación química</b>: a la izquierda las fórmulas de los reactivos, a la derecha las de los productos, y entre ambos una <b>flecha</b> que indica el sentido del cambio: <b>CH₄ + 2 O₂ → CO₂ + 2 H₂O</b>. A veces se indica el estado de cada sustancia entre paréntesis: (s) sólido, (l) líquido, (g) gas y (aq) disuelto en agua.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Ecuación de la combustión del metano: los reactivos, metano y dos de oxígeno, a la izquierda de la flecha; los productos, dióxido de carbono y dos de agua, a la derecha">${BG}
-        ${t(130, 82, "CH₄ + 2 O₂ → CO₂ + 2 H₂O", { size: 17 })}
-        <path d="M18 96 V 106 H 112 V 96" fill="none" stroke="var(--red)" stroke-width="2"/>${t(65, 126, "reactivos", { size: 12, color: "var(--red)" })}
-        <path d="M144 96 V 106 H 246 V 96" fill="none" stroke="var(--leaf)" stroke-width="2"/>${t(195, 126, "productos", { size: 12, color: "var(--leaf)" })}
-        ${fl(110, 40, 92, 64, "var(--pen)", 2)}${t(130, 34, "coeficiente", { size: 11, color: "var(--pen)" })}
-        ${t(130, 160, "se lee: «se transforma en»", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>La teoría de colisiones</h3><p>¿Qué ocurre con los átomos durante una reacción? Según la <mark>teoría de colisiones</mark>, para que dos sustancias reaccionen, sus partículas tienen que <b>chocar</b>. Pero no basta cualquier choque: tiene que ser lo bastante <b>energético</b> y con la <b>orientación adecuada</b>. En los choques eficaces, se <b>rompen los enlaces</b> que unían los átomos de los reactivos y esos mismos átomos se <b>reorganizan</b> formando enlaces nuevos, que dan lugar a los productos. Los átomos no se crean ni se destruyen ni cambian de elemento: solo cambian de compañero, como en un baile en el que las parejas se intercambian.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una molécula de hidrógeno y una de cloro chocan, se rompen sus enlaces y los átomos se reorganizan en dos moléculas de cloruro de hidrógeno">${BG}
-        <circle cx="30" cy="60" r="10" fill="#ccc" stroke="var(--muted)"/><circle cx="48" cy="60" r="10" fill="#ccc" stroke="var(--muted)"/>
-        <circle cx="30" cy="110" r="14" fill="var(--leaf)"/><circle cx="54" cy="110" r="14" fill="var(--leaf)"/>
-        ${fl(72, 84, 100, 84)}${t(130, 60, "choque", { size: 11, color: "var(--red)" })}
-        <path d="M122 70 l 8 10 l -6 4 l 10 12" stroke="var(--red)" stroke-width="3" fill="none"/>
-        ${fl(150, 84, 176, 84)}
-        <circle cx="196" cy="60" r="10" fill="#ccc" stroke="var(--muted)"/><circle cx="218" cy="60" r="14" fill="var(--leaf)"/>
-        <circle cx="196" cy="110" r="10" fill="#ccc" stroke="var(--muted)"/><circle cx="218" cy="110" r="14" fill="var(--leaf)"/>
-        ${t(44, 148, "H₂ + Cl₂", { size: 12 })}${t(210, 148, "2 HCl", { size: 12 })}${t(130, 172, "los átomos se reorganizan", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>La ley de conservación de la masa</h3><p>A finales del siglo XVIII, el químico francés <b>Antoine Lavoisier</b> hizo reaccionar sustancias en <b>recipientes cerrados</b> y las pesó con balanzas muy precisas antes y después. Comprobó que la masa total no cambiaba. Así enunció la <mark>ley de conservación de la masa</mark>: <b>en una reacción química, la masa total de los reactivos es igual a la masa total de los productos</b>. Se resume en la frase «la materia no se crea ni se destruye, solo se transforma». La teoría de colisiones lo explica: si los átomos solo se reorganizan, su número y su masa total no varían. Si una reacción parece ganar o perder masa, es porque algún gas ha entrado o salido del recipiente.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Balanza con un recipiente cerrado antes y después de la reacción: marca 150 gramos en los dos casos">${BG}
-        ${[[66, "antes", "150 g"], [194, "después", "150 g"]].map(([x, n, m], i) => `<rect x="${x - 46}" y="120" width="92" height="30" rx="6" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${t(x, 140, m, { size: 13, color: "var(--leaf)" })}<path d="M${x - 18} 70 Q ${x - 22} 116 ${x} 116 Q ${x + 22} 116 ${x + 18} 70 Z" fill="${i ? "#9b59b6" : "var(--water)"}" fill-opacity=".4" stroke="var(--ink)" stroke-width="2"/><rect x="${x - 8}" y="60" width="16" height="10" fill="var(--red)"/>${t(x, 46, n, { size: 11 })}`).join("")}
-        ${fl(116, 96, 144, 96)}${t(130, 172, "recipiente cerrado: la masa se conserva", { size: 10, color: "var(--muted)" })}</svg>`,
-      video: { id: "aXtsG9RmvXM", titulo: "Ley de LAVOISIER o de conservación de la masa", canal: "unicoos", vistas: 367876 },
-    },
-    {
-      html: `<h3>Ajustar una ecuación química</h3><p>Como los átomos se conservan, una ecuación química debe tener el <b>mismo número de átomos de cada elemento</b> a ambos lados de la flecha. Para conseguirlo se colocan <mark>coeficientes</mark> delante de las fórmulas: indican cuántas moléculas de cada sustancia intervienen. <b>Nunca se cambian los subíndices</b>, porque eso cambiaría la sustancia: H₂O es agua, pero H₂O₂ es agua oxigenada. Por ejemplo, en la formación del agua, H₂ + O₂ → H₂O, a la izquierda hay 2 oxígenos y a la derecha 1. Ponemos un 2 delante del agua: H₂ + O₂ → 2 H₂O. Ahora hay 4 hidrógenos a la derecha, así que ponemos un 2 delante del H₂: <b>2 H₂ + O₂ → 2 H₂O</b>. Ya está ajustada.</p>`,
-      video: { id: "wl_HCBxpBs0", titulo: "BALANCEO de ecuaciones por TANTEO [Fácil y Rápido]", canal: "A Cierta Ciencia", vistas: 6620620 },
-    },
-    {
-      html: `<h3>Cálculos con masas</h3><p>La ley de Lavoisier permite hacer <b>cálculos sencillos</b>. Si sabemos que 4 g de hidrógeno reaccionan con 32 g de oxígeno, sabremos que se forman <b>36 g de agua</b>. Además, el químico Joseph Proust descubrió que, en un compuesto, los elementos se combinan siempre en la <mark>misma proporción en masa</mark> (ley de las proporciones definidas): en el agua, siempre 1 g de hidrógeno por cada 8 g de oxígeno. Con estas dos leyes podemos predecir cuánto producto obtendremos o cuánto reactivo necesitamos. Si ponemos 1 g de hidrógeno con 10 g de oxígeno, solo reaccionarán 8 g de oxígeno, se formarán 9 g de agua y sobrarán 2 g de oxígeno.</p>${tabla(["Hidrógeno", "Oxígeno", "Agua formada", "Sobra"], [["1 g", "8 g", "9 g", "nada"], ["2 g", "16 g", "18 g", "nada"], ["1 g", "10 g", "9 g", "2 g de O"], ["3 g", "16 g", "18 g", "1 g de H"]])}`,
-    },
-    {
-      html: `<h3>La velocidad de las reacciones</h3><p>Algunas reacciones son rapidísimas, como una explosión, y otras muy lentas, como la oxidación del hierro. La <mark>velocidad de reacción</mark> depende de varios factores, y todos se explican con la teoría de colisiones. La <b>temperatura</b>: al calentar, las partículas se mueven más rápido y chocan más y con más energía; por eso guardamos los alimentos en la nevera. La <b>concentración</b> de los reactivos: con más partículas, hay más choques. La <b>superficie de contacto</b>: un sólido troceado o en polvo reacciona antes, porque tiene más partículas expuestas; una astilla arde antes que un tronco. Y los <b>catalizadores</b>: sustancias que aceleran una reacción sin gastarse, como las <b>enzimas</b> de nuestro cuerpo o el catalizador de los coches.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cuatro factores que aceleran una reacción: más temperatura, más concentración, más superficie de contacto y uso de catalizadores">${BG}
-        ${[["temperatura ↑", "var(--red)"], ["concentración ↑", "var(--pen)"], ["superficie ↑", "#b8860b"], ["catalizador", "var(--leaf)"]].map(([n, c], i) => caja(14 + (i % 2) * 120, 30 + Math.floor(i / 2) * 60, 112, 48, n, c, { size: 12 })).join("")}
-        ${t(130, 20, "más choques eficaces = más rápida", { size: 11, color: "var(--muted)" })}${t(130, 166, "ejemplos: nevera, polvo, enzimas", { size: 10, weight: 400 })}</svg>`,
-    },
-    {
-      html: `<h3>La energía en las reacciones</h3><p>Romper enlaces cuesta energía y formar enlaces la libera. Según el balance, las reacciones pueden ser de dos tipos. Las <mark>exotérmicas</mark> desprenden energía, normalmente en forma de calor o luz: las combustiones, la respiración celular o las bolsas de calor instantáneo que se usan en la montaña. Las <mark>endotérmicas</mark> absorben energía del entorno, por lo que este se enfría: la fotosíntesis, que absorbe la energía de la luz; la descomposición de la piedra caliza al calentarla para obtener cal; o las bolsas de frío instantáneo de los botiquines. Además, casi todas las reacciones necesitan un pequeño empujón inicial de energía, la <b>energía de activación</b>: por eso una cerilla no arde hasta que la frotamos.</p>`,
-    },
-    {
-      html: `<h3>Reacciones importantes</h3><p>Algunas reacciones son especialmente importantes. En la <mark>combustión</mark>, una sustancia combustible reacciona con el oxígeno y desprende mucha energía; si el combustible tiene carbono, se forman CO₂ y agua. En la <b>oxidación</b> de los metales, estos reaccionan lentamente con el oxígeno: el hierro forma herrumbre; por eso se pintan los barcos y se galvanizan las vallas. En las reacciones <b>ácido-base</b>, un ácido y una base se neutralizan formando sal y agua: así actúan los antiácidos en el estómago. La <b>fotosíntesis</b> y la <b>respiración celular</b> son reacciones opuestas que mantienen la vida: las plantas fabrican glucosa y oxígeno con CO₂, agua y luz, y todos los seres vivos queman esa glucosa para obtener energía.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Fotosíntesis y respiración como reacciones opuestas: dióxido de carbono más agua más luz dan glucosa y oxígeno, y la respiración hace lo contrario liberando energía">${BG}
-        ${caja(14, 64, 90, 52, "", "var(--muted)")}${t(59, 86, "CO₂ + H₂O", { size: 12 })}${caja(156, 64, 90, 52, "", "var(--leaf)")}${t(201, 86, "glucosa + O₂", { size: 11 })}
-        <path d="M104 74 Q 130 40 156 74" fill="none" stroke="var(--leaf)" stroke-width="2.5"/>${fl(150, 66, 156, 74, "var(--leaf)", 2.5)}
-        <path d="M156 106 Q 130 140 104 106" fill="none" stroke="var(--red)" stroke-width="2.5"/>${fl(110, 114, 104, 106, "var(--red)", 2.5)}
-        ${t(130, 28, "fotosíntesis (+ luz)", { size: 11, color: "var(--leaf)" })}${t(130, 164, "respiración (→ energía)", { size: 11, color: "var(--red)" })}
-        ${t(59, 104, "reactivos", { size: 9, weight: 400 })}${t(201, 104, "productos", { size: 9, weight: 400 })}</svg>`,
-    },
-  ],
-  figura: {
-    titulo: "Qué pasa en una reacción química",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Esquema en tres pasos: reactivos que chocan, enlaces que se rompen y átomos que se reorganizan en productos; la masa total y el número de átomos se conservan">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["1. reactivos chocan", "2 H₂ + O₂", "var(--red)"], ["2. se rompen enlaces", "H H H H O O", "#b8860b"], ["3. se forman productos", "2 H₂O", "var(--leaf)"]].map(([n, f, c], i) => { const x = 20 + i * 210; return `<rect x="${x}" y="30" width="180" height="110" rx="14" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>${t(x + 90, 62, n, { size: 14, color: c, font: D })}${t(x + 90, 106, f, { size: 18 })}`; }).join("")}
-      ${fl(202, 85, 228, 85, "var(--muted)", 3)}${fl(412, 85, 438, 85, "var(--muted)", 3)}
-      ${t(320, 186, "mismos átomos, misma masa: 4 H y 2 O a cada lado", { size: 15, color: "var(--pen)", font: D })}
-    </svg>`,
+  lectura: {
+    titulo: "La balanza de Lavoisier",
+    html: `<p>En el siglo XVIII, los químicos explicaban la combustión con la teoría del flogisto: las cosas que arden contienen una sustancia misteriosa, el flogisto, que se escapa en forma de llama. La ceniza era lo que quedaba al perder el flogisto. Pero había algo que no encajaba: cuando se calentaban algunos metales, como el estaño o el plomo, se convertían en un polvo que pesaba más que el metal inicial. ¿Cómo podía pesar más algo que había perdido flogisto?</p><p>El francés Antoine Lavoisier, que tenía las balanzas más precisas de su época, decidió resolverlo pesándolo todo. Calentó estaño en un recipiente de vidrio cerrado y comprobó que el recipiente, con todo su contenido, pesaba exactamente lo mismo antes y después. Al abrirlo, entraba aire: el metal había tomado una parte del aire del recipiente. Esa parte era un gas que acababa de descubrirse y que Lavoisier llamó oxígeno. La combustión no era una pérdida de flogisto, sino una combinación con el oxígeno.</p><p>Con su esposa, Marie-Anne Paulze, que tomaba las notas, dibujaba los aparatos y traducía los trabajos de otros científicos, Lavoisier convirtió la química en una ciencia de medidas exactas. Su conclusión es una de las leyes más importantes de la ciencia: en una reacción química, nada se pierde y nada se crea. Por desgracia, Lavoisier fue guillotinado durante la Revolución Francesa en 1794. Un colega dijo: «Bastó un instante para cortar esa cabeza, y quizá un siglo no baste para producir otra igual».</p>`,
   },
-  video: { id: "4Okc_cqvex8", titulo: "AJUSTAR o BALANCEAR REACCIONES por TANTEO", canal: "Susi Profe", vistas: 1326837, megusta: 0, busqueda: "reacciones químicas ajuste de ecuaciones" },
+  bloques: [
+    bloque({ h: "1.1 Cambios físicos y cambios químicos", p: [
+      "La materia cambia continuamente, pero no todos los cambios son iguales. En un <mark>cambio físico</mark> las sustancias siguen siendo las mismas: solo cambian su forma, su tamaño, su estado o su posición. Romper un vaso, fundir hielo, disolver azúcar en agua, estirar un muelle o hervir agua son cambios físicos: el agua hervida sigue siendo agua.",
+      "En un <mark>cambio químico</mark> o <b>reacción química</b>, unas sustancias desaparecen y se forman otras <b>nuevas</b>, con propiedades distintas. Quemar papel, oxidarse un clavo, cocinar un huevo, la fermentación del mosto en vino, la digestión de los alimentos o la fotosíntesis son cambios químicos. Una pista: los cambios químicos suelen ser difíciles de revertir; no se puede «desquemar» un papel ni «descocinar» un huevo. Pero la diferencia de verdad no está en si se puede revertir o no, sino en si se forman sustancias con una composición diferente. Las reacciones químicas están en todas partes: en nuestro cuerpo se producen millones cada segundo, y la industria las usa para fabricar medicamentos, plásticos, abonos o materiales de construcción.",
+    ], svg: compara("Diferencias entre cambio físico y cambio químico", ["Cambio físico", ["mismas sustancias", "fundir, romper", "disolver, hervir", "suele revertirse"]], ["Cambio químico", ["sustancias nuevas", "arder, oxidarse", "cocinar, digerir", "difícil revertir"]], "var(--pen)", "var(--red)") }),
+    bloque({ h: "1.2 Cómo reconocer una reacción química", p: [
+      "A veces se puede saber que ha ocurrido una reacción química observando algunas <b>señales</b>: un <mark>cambio de color</mark>, como cuando una manzana cortada se oscurece o el cobre de un tejado se vuelve verde; el <b>desprendimiento de un gas</b>, que forma burbujas, como al echar vinagre sobre bicarbonato; la formación de un <b>sólido</b> nuevo en una disolución, llamado <b>precipitado</b>; la <b>emisión de luz o calor</b>, como en una combustión o en una barrita luminosa; o la <b>aparición de un olor</b>, como en la comida que se pudre o en la leche que se agria.",
+      "Ninguna señal es una prueba definitiva: también hay burbujas cuando hierve el agua o se abre un refresco, que son cambios físicos, y el hielo cambia de aspecto al fundirse. La prueba real es comprobar que se han formado <b>sustancias nuevas</b> con propiedades distintas, por ejemplo midiendo su punto de fusión o su densidad. Por eso los químicos combinan varias observaciones: si se mezclan dos líquidos transparentes y aparece un sólido amarillo y además la mezcla se calienta, es casi seguro que ha habido una reacción química.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.3 Reactivos, productos y ecuaciones químicas", p: [
+      "En una reacción química, las sustancias iniciales se llaman <mark>reactivos</mark> y las que se forman, <mark>productos</mark>. Por ejemplo, en la combustión del metano, el gas de las cocinas, los reactivos son el metano y el oxígeno, y los productos son el dióxido de carbono y el agua. Las reacciones se representan con una <b>ecuación química</b>: a la izquierda las fórmulas de los reactivos, a la derecha las de los productos, y entre ambos una <b>flecha</b> que se lee «da» o «se transforma en»: CH₄ + 2 O₂ → CO₂ + 2 H₂O.",
+      "Los números delante de las fórmulas son los <b>coeficientes estequiométricos</b> e indican cuántas moléculas de cada sustancia intervienen; el 1 no se escribe. No hay que confundirlos con los <b>subíndices</b>, que forman parte de la fórmula: 2 H₂O son dos moléculas de agua, y cada una tiene dos átomos de hidrógeno. A veces se indica el estado de cada sustancia entre paréntesis: (s) sólido, (l) líquido, (g) gas y (aq) disuelto en agua. También puede indicarse sobre la flecha una condición necesaria, como calor (Δ), luz o un catalizador. Una ecuación química es como una frase en el idioma de la química: en una línea dice qué reacciona, qué se forma y en qué proporción.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "1.4 La teoría de colisiones", p: [
+      "¿Qué ocurre con los átomos durante una reacción? Según la <mark>teoría de colisiones</mark>, para que las sustancias reaccionen, sus partículas tienen que <b>chocar</b>. En el choque se <b>rompen</b> los enlaces que unían los átomos de los reactivos, y los átomos se <b>reorganizan</b> formando enlaces nuevos, los de los productos. Los átomos no se crean ni se destruyen: siguen siendo los mismos, solo cambian de «pareja». En la formación del agua, las moléculas de H₂ y O₂ chocan, se rompen sus enlaces y se forman moléculas de H₂O.",
+      "No todos los choques producen una reacción. Para que un choque sea <b>eficaz</b>, las partículas deben chocar con <b>energía suficiente</b> para romper los enlaces, la llamada <mark>energía de activación</mark>, y con la <b>orientación adecuada</b>. Es como intentar romper una nuez lanzando otra: si se lanza flojo o de lado, no se rompe. Por eso muchas reacciones necesitan un «empujón» inicial: el papel no arde solo a temperatura ambiente, pero al acercar una cerilla se le aporta la energía de activación; una vez empieza, el calor que desprende la propia combustión mantiene la reacción.",
+    ], svg: S.svg[2] }),
+    bloque({ h: "2.1 La ley de conservación de la masa", p: [
+      "A finales del siglo XVIII, Antoine <b>Lavoisier</b> hizo experimentos pesando con gran precisión los reactivos y los productos de muchas reacciones en <b>recipientes cerrados</b>. Comprobó que la masa total siempre era la misma y enunció la <mark>ley de conservación de la masa</mark>: en una reacción química, la masa total de los reactivos es igual a la masa total de los productos. Se suele resumir con la frase «en la naturaleza nada se crea ni se destruye, todo se transforma».",
+      "La teoría de colisiones explica por qué: si los átomos solo se reorganizan, al final hay los mismos átomos que al principio, y por tanto la misma masa. A veces parece que no se cumple. Al quemar papel, la ceniza pesa menos, porque el CO₂ y el vapor de agua se escapan al aire. Al oxidarse un clavo, pesa más, porque se le ha unido oxígeno del aire. Si se hace la reacción en un recipiente cerrado, la balanza marca lo mismo antes y después. Esta ley permite calcular masas: si 56 g de hierro reaccionan con 32 g de azufre, se forman exactamente 88 g de sulfuro de hierro.",
+    ], extra: formula("m reactivos = m productos"), svg: S.svg[3], video: S.bvideos[0] }),
+    bloque({ h: "2.2 La ley de las proporciones definidas", p: [
+      "Poco después de Lavoisier, el químico francés <b>Joseph Proust</b>, que trabajó muchos años en España, en Segovia y Madrid, comprobó otra regularidad: cuando dos elementos se combinan para formar un compuesto, siempre lo hacen en una <mark>proporción de masas fija</mark>. Es la <b>ley de las proporciones definidas</b>. Por ejemplo, el agua siempre tiene 1 g de hidrógeno por cada 8 g de oxígeno, venga de un río, de la lluvia o de un laboratorio.",
+      "Esto tiene una consecuencia práctica: si mezclamos los reactivos en otra proporción, uno de ellos <b>sobra</b> y queda sin reaccionar. Si juntamos 2 g de hidrógeno con 8 g de oxígeno, solo reacciona 1 g de hidrógeno (con los 8 g de oxígeno), se forman 9 g de agua y sobra 1 g de hidrógeno. El reactivo que se gasta por completo se llama <b>reactivo limitante</b>, porque limita la cantidad de producto que se forma, y el que sobra, <b>reactivo en exceso</b>. La teoría atómica de Dalton explicó esta ley: si un compuesto tiene siempre los mismos átomos en la misma proporción, y cada átomo tiene su masa, la proporción de masas también es fija.",
+    ], svg: rejilla("Proporción fija de masas en el agua: 1 g de hidrógeno por cada 8 g de oxígeno", ["Hidrógeno", "Oxígeno", "Agua"], [["1 g", "8 g", "9 g"], ["2 g", "16 g", "18 g"], ["5 g", "40 g", "45 g"], ["10 g", "80 g", "90 g"]], "var(--pen)") }),
+    bloque({ h: "2.3 Ajustar una ecuación química", p: [
+      "Como los átomos se conservan, una ecuación química tiene que tener el <b>mismo número de átomos de cada elemento</b> a los dos lados de la flecha: tiene que estar <mark>ajustada</mark>. Para ajustarla se cambian solo los <b>coeficientes</b>, nunca los subíndices, porque cambiar un subíndice cambiaría la sustancia: H₂O es agua, pero H₂O₂ es agua oxigenada.",
+      "El método más sencillo es el <b>tanteo</b>. Se cuentan los átomos de cada elemento a cada lado y se van poniendo coeficientes hasta que coincidan. Conviene empezar por los elementos que aparecen en una sola sustancia de cada lado y dejar para el final los que aparecen solos, como O₂ o H₂. Ejemplo: H₂ + O₂ → H₂O. Hay 2 O a la izquierda y 1 a la derecha: ponemos un 2 delante del agua, H₂ + O₂ → 2 H₂O. Ahora hay 4 H a la derecha y 2 a la izquierda: ponemos un 2 delante del hidrógeno, 2 H₂ + O₂ → 2 H₂O. Comprobación: 4 H y 2 O a cada lado. La ecuación ajustada se lee: dos moléculas de hidrógeno reaccionan con una de oxígeno y dan dos de agua.",
+    ], svg: pasos("Pasos para ajustar una ecuación por tanteo", ["Contar átomos a cada lado", "Empezar por metales y no metales", "Dejar O y H para el final", "Comprobar átomo a átomo"], "var(--leaf)") }),
+    bloque({ h: "2.4 Cálculos con masas", p: [
+      "Una ecuación ajustada permite hacer <b>cálculos</b>: como las sustancias reaccionan siempre en la misma proporción, si conocemos la masa de un reactivo podemos calcular la de los demás. Basta con conocer una pareja de masas que reaccionan y aplicar una <b>regla de tres</b> o un factor de conversión. Las masas de cada sustancia en la ecuación se pueden obtener de sus <b>masas moleculares</b> multiplicadas por los coeficientes.",
+      "Por ejemplo, en 2 H₂ + O₂ → 2 H₂O, las masas moleculares son H₂ = 2 u, O₂ = 32 u y H₂O = 18 u. Por tanto, 2 · 2 = 4 g de hidrógeno reaccionan con 32 g de oxígeno y dan 2 · 18 = 36 g de agua (4 + 32 = 36: se cumple Lavoisier). Si quisiéramos saber cuánta agua se forma con 10 g de hidrógeno: 10 g H₂ · (36 g H₂O / 4 g H₂) = 90 g de agua. Este tipo de cálculo, llamado <b>estequiometría</b>, es la base de la industria química: permite saber cuánta materia prima hace falta para fabricar una cantidad de producto sin desperdiciar nada. En 4º de ESO se hará con una magnitud nueva, el mol.",
+    ], extra: formula("4 g H₂ + 32 g O₂ → 36 g H₂O"), svg: ficha("Masas que reaccionan en la formación del agua", "2 H₂ + O₂ → 2 H₂O", ["4 g + 32 g → 36 g", "1 g + 8 g → 9 g", "10 g + 80 g → 90 g"], "var(--pen)") }),
+    bloque({ h: "3.1 La velocidad de las reacciones", p: [
+      "Algunas reacciones son rapidísimas, como la explosión de la pólvora o la de un airbag, que dura milésimas de segundo. Otras son muy lentas, como la oxidación de un coche, que tarda años, o la formación del petróleo, que tarda millones de años. La <mark>velocidad de reacción</mark> indica la cantidad de reactivo que se consume, o de producto que se forma, en cada unidad de tiempo.",
+      "Conocer y controlar la velocidad es muy importante: queremos que algunas reacciones sean rápidas, como la de un medicamento en el cuerpo o la fabricación de un producto, y que otras sean lo más lentas posible, como la descomposición de los alimentos o la corrosión de los puentes. Según la teoría de colisiones, una reacción es más rápida cuantos más <b>choques eficaces</b> se producen cada segundo. Por eso, todo lo que aumenta el número de choques o su energía aumenta la velocidad. Si se mide el producto formado a lo largo del tiempo, se ve que la reacción es rápida al principio y se va frenando a medida que se gastan los reactivos, hasta detenerse cuando se agota uno de ellos.",
+    ], svg: S.svg[4] }),
+    bloque({ h: "3.2 Los factores que modifican la velocidad", p: [
+      "La <mark>temperatura</mark> es el factor más importante: al calentar, las partículas se mueven más rápido, chocan más veces y con más energía, y más choques superan la energía de activación. Por eso los alimentos duran más en la nevera, y la comida se cocina antes a más temperatura. La <mark>concentración</mark> de los reactivos también influye: si hay más partículas en el mismo volumen, chocan más a menudo. Una astilla encendida arde mucho más deprisa en oxígeno puro que en el aire.",
+      "El <mark>grado de división</mark> o superficie de contacto de los sólidos es otro factor: cuanto más triturado está un sólido, más partículas quedan expuestas y pueden chocar. Un terrón de azúcar se disuelve más despacio que el azúcar en polvo, y una pastilla efervescente entera tarda más que machacada. Por último, los <mark>catalizadores</mark> son sustancias que aceleran una reacción sin gastarse en ella, porque ofrecen un camino con menor energía de activación. Los coches llevan un catalizador en el tubo de escape que transforma gases tóxicos en otros menos dañinos, y en nuestro cuerpo las <b>enzimas</b> son catalizadores biológicos que hacen posible la digestión.",
+    ], svg: ficha("Factores que aumentan la velocidad de reacción", "Más velocidad si…", ["Más temperatura", "Más concentración", "Más superficie (triturar)", "Hay un catalizador"], "var(--red)"), video: S.bvideos[1] }),
+    bloque({ h: "3.3 La energía en las reacciones", p: [
+      "En todas las reacciones químicas hay un intercambio de energía con el entorno, porque romper enlaces cuesta energía y formar enlaces nuevos la libera. Las reacciones <mark>exotérmicas</mark> <b>desprenden</b> energía, normalmente en forma de calor y a veces de luz: el entorno se calienta. Son exotérmicas las combustiones, la respiración celular, la oxidación del hierro de los calentadores de manos o la reacción del cemento al fraguar.",
+      "Las reacciones <mark>endotérmicas</mark> <b>absorben</b> energía del entorno, que se enfría, o necesitan un aporte continuo de calor, luz o electricidad para producirse. Son endotérmicas la fotosíntesis, que absorbe la luz del Sol; la cocción de los alimentos; la descomposición del agua por electrólisis; o la de la caliza en los hornos de cal. Las bolsas de frío instantáneo de los botiquines contienen sustancias que, al mezclarse con agua, absorben calor. La energía se puede representar en un <b>diagrama de energía</b>: en una reacción exotérmica los productos quedan más abajo que los reactivos, y en una endotérmica, más arriba. En ambos casos hay que superar primero la «montaña» de la energía de activación.",
+    ], svg: graf("Diagrama de energía de una reacción exotérmica: los productos tienen menos energía que los reactivos", "avance de la reacción", "energía", [{ p: [[0, 0.55], [0.2, 0.57], [0.4, 0.92], [0.6, 0.5], [0.8, 0.22], [1, 0.22]], c: "var(--red)", t: "exotérmica" }]), video: S.bvideos[2] }),
+    bloque({ h: "3.4 Reacciones importantes", p: [
+      "Algunas reacciones tienen una importancia especial. En la <mark>combustión</mark>, un combustible reacciona con el oxígeno y desprende mucha energía; si el combustible tiene carbono e hidrógeno, se forman CO₂ y agua: es la fuente de energía de coches, centrales térmicas y calefacciones. La <mark>fotosíntesis</mark> (6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂) permite a las plantas fabricar glucosa con la luz del Sol, y produce el oxígeno que respiramos. La <b>respiración celular</b> es la reacción inversa, con la que obtenemos energía de los alimentos.",
+      "En la <mark>neutralización</mark>, un ácido reacciona con una base y se forman una sal y agua, como cuando tomamos un antiácido. La <b>oxidación</b> de los metales, como la herrumbre del hierro, causa enormes pérdidas económicas. La <b>fermentación</b> transforma azúcares en alcohol y CO₂, y se usa para hacer pan, vino o yogur. En la industria, la síntesis del amoníaco permite fabricar abonos que alimentan a media humanidad, y la <b>polimerización</b> une moléculas pequeñas para fabricar plásticos. Pero también hay reacciones dañinas para el medio ambiente: las que producen la lluvia ácida o destruyen la capa de ozono.",
+    ], svg: S.svg[5] }),
+  ],
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Ajusta: N₂ + H₂ → NH₃.",
-      pasos: ["Nitrógeno: 2 a la izquierda, 1 a la derecha → 2 NH₃.", "Hidrógeno: ahora hay 6 a la derecha y 2 a la izquierda → 3 H₂.", "Comprobamos: 2 N y 6 H a cada lado."],
-      resultado: "N₂ + 3 H₂ → 2 NH₃." },
-    { enunciado: "Ajusta la combustión del metano: CH₄ + O₂ → CO₂ + H₂O.",
-      pasos: ["Carbono: 1 y 1, ya está.", "Hidrógeno: 4 a la izquierda → 2 H₂O.", "Oxígeno: a la derecha hay 2 + 2 = 4 → 2 O₂."],
-      resultado: "CH₄ + 2 O₂ → CO₂ + 2 H₂O." },
-    { enunciado: "Al quemar 12 g de carbono se forman 44 g de CO₂. ¿Cuánto oxígeno ha reaccionado?",
-      pasos: ["Ley de Lavoisier: masa de reactivos = masa de productos.", "12 g + m(O₂) = 44 g.", "m(O₂) = 44 − 12."],
-      resultado: "32 g de oxígeno." },
+    { enunciado: "Clasifica en cambio físico o químico: fundir mantequilla, quemar gas, disolver sal, oxidarse una bici, hacer un yogur, triturar hielo.", pasos: ["¿Se forman sustancias nuevas?", "Quemar gas, oxidarse la bici y hacer yogur (fermentación): sí.", "Fundir, disolver y triturar: no."], resultado: "Químicos: quemar gas, oxidarse la bici, hacer yogur. Físicos: fundir mantequilla, disolver sal, triturar hielo." },
+    { enunciado: "Ajusta: N₂ + H₂ → NH₃.", pasos: ["N: 2 a la izquierda, 1 a la derecha → 2 NH₃.", "H: 6 a la derecha → 3 H₂.", "Comprobación: 2 N y 6 H a cada lado."], resultado: "N₂ + 3 H₂ → 2 NH₃." },
+    { enunciado: "Ajusta: Fe + O₂ → Fe₂O₃.", pasos: ["O: 2 y 3; mínimo común múltiplo 6 → 3 O₂ y 2 Fe₂O₃.", "Fe: 4 a la derecha → 4 Fe.", "Comprobación: 4 Fe y 6 O a cada lado."], resultado: "4 Fe + 3 O₂ → 2 Fe₂O₃." },
+    { enunciado: "Ajusta la combustión del propano: C₃H₈ + O₂ → CO₂ + H₂O.", pasos: ["C: 3 → 3 CO₂.", "H: 8 → 4 H₂O.", "O a la derecha: 6 + 4 = 10 → 5 O₂."], resultado: "C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O." },
+    { enunciado: "Al calentar 100 g de carbonato de calcio se forman 56 g de óxido de calcio y dióxido de carbono. ¿Cuánto CO₂ se forma? ¿Y si se calientan 250 g?", pasos: ["CaCO₃ → CaO + CO₂.", "Lavoisier: 100 = 56 + m(CO₂) → 44 g.", "Proporción fija: 250 g · (44 / 100) = 110 g."], resultado: "44 g de CO₂; con 250 g, 110 g." },
+    { enunciado: "En 2 H₂ + O₂ → 2 H₂O, ¿cuánto oxígeno se necesita para que reaccionen 12 g de hidrógeno y cuánta agua se forma? (H = 1, O = 16)", pasos: ["Masas: 4 g H₂ + 32 g O₂ → 36 g H₂O.", "Oxígeno: 12 · 32 / 4 = 96 g.", "Agua: 12 + 96 = 108 g (o 12 · 36 / 4)."], resultado: "96 g de O₂ y 108 g de agua." },
   ],
   errores: [
-    "Cambiar los subíndices para ajustar: se cambian solo los coeficientes.",
-    "Pensar que en una combustión la materia desaparece: se convierte en gases.",
-    "Confundir la disolución del azúcar (cambio físico) con una reacción química.",
-    "Creer que un catalizador se gasta en la reacción.",
-    "Decir que una reacción endotérmica desprende calor: lo absorbe.",
+    "Cambiar los subíndices para ajustar una ecuación: solo se cambian los coeficientes.",
+    "Pensar que en una reacción se crean o destruyen átomos: solo se reorganizan.",
+    "Creer que al quemar algo se pierde masa: los gases se escapan al aire.",
+    "Pensar que cualquier burbuja o cambio de color demuestra una reacción química.",
+    "Creer que un catalizador se gasta o cambia los productos: solo acelera la reacción.",
+    "Confundir exotérmica (desprende energía) con endotérmica (absorbe energía).",
   ],
   ejercicios: [
-    { q: "Clasifica en físicos o químicos: hervir agua, oxidarse una bicicleta, triturar pimienta, hacer un bizcocho, disolver sal, quemar gas.", sol: "Físicos: hervir agua, triturar pimienta, disolver sal. Químicos: oxidarse la bicicleta, hacer un bizcocho, quemar gas." },
-    { q: "Cita tres señales que indican que puede haber ocurrido una reacción química.", sol: "Cambio de color, desprendimiento de gas, formación de precipitado, emisión de luz o calor, aparición de olor." },
-    { q: "En la reacción Zn + 2 HCl → ZnCl₂ + H₂, identifica reactivos y productos.", sol: "Reactivos: cinc y cloruro de hidrógeno. Productos: cloruro de cinc y dihidrógeno." },
-    { q: "Explica con la teoría de colisiones qué ocurre en una reacción.", sol: "Las partículas chocan con energía y orientación adecuadas, se rompen sus enlaces y los átomos se reorganizan formando sustancias nuevas." },
-    { q: "Ajusta: Mg + O₂ → MgO.", sol: "2 Mg + O₂ → 2 MgO." },
-    { q: "Ajusta: Fe + O₂ → Fe₂O₃.", sol: "4 Fe + 3 O₂ → 2 Fe₂O₃." },
-    { q: "Ajusta: C₃H₈ + O₂ → CO₂ + H₂O.", sol: "C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O." },
-    { q: "Si 56 g de hierro reaccionan con 32 g de azufre, ¿cuánto sulfuro de hierro se forma? ¿Y si usamos 112 g de hierro y 80 g de azufre?", sol: "88 g. En el segundo caso reaccionan 112 g de Fe con 64 g de S, se forman 176 g y sobran 16 g de azufre." },
-    { q: "¿Por qué los alimentos se conservan más en la nevera?", sol: "Porque a menor temperatura las partículas chocan menos y con menos energía, y las reacciones de descomposición son más lentas." },
-    { q: "Diferencia reacción exotérmica y endotérmica con un ejemplo de cada una.", sol: "Exotérmica: desprende energía (combustión). Endotérmica: absorbe energía (fotosíntesis)." },
+    B("Clasifica en cambios físicos o químicos: hervir leche, encender una cerilla, hacer zumo, oxidarse una verja, cocer pan, congelar agua.", "Físicos: hervir leche, hacer zumo, congelar agua. Químicos: encender una cerilla, oxidarse una verja, cocer pan."),
+    B("Nombra cinco señales que pueden indicar una reacción química.", "Cambio de color, desprendimiento de gas, formación de precipitado, emisión de luz o calor, aparición de olor."),
+    B("Identifica reactivos y productos: C + O₂ → CO₂; 2 Mg + O₂ → 2 MgO.", "Reactivos: carbono y oxígeno → producto: dióxido de carbono. Reactivos: magnesio y oxígeno → producto: óxido de magnesio."),
+    B("¿Qué diferencia hay entre un coeficiente y un subíndice?", "El coeficiente indica cuántas moléculas intervienen y se puede cambiar al ajustar; el subíndice indica cuántos átomos hay en cada molécula y no se puede cambiar."),
+    B("Enuncia la ley de conservación de la masa.", "En una reacción química, la masa total de los reactivos es igual a la masa total de los productos."),
+    B("Si 24 g de magnesio reaccionan con 16 g de oxígeno, ¿cuánto óxido de magnesio se forma?", "24 + 16 = 40 g."),
+    B("Ajusta: H₂ + Cl₂ → HCl.", "H₂ + Cl₂ → 2 HCl."),
+    B("Ajusta: Mg + O₂ → MgO.", "2 Mg + O₂ → 2 MgO."),
+    B("¿Qué dice la teoría de colisiones?", "Para reaccionar, las partículas deben chocar con energía suficiente y orientación adecuada; en el choque se rompen enlaces y se forman otros nuevos."),
+    B("¿Por qué los alimentos se conservan mejor en la nevera?", "Porque a baja temperatura las reacciones de descomposición son más lentas: hay menos choques y menos energía."),
+    B("Clasifica en exotérmicas o endotérmicas: combustión de butano, fotosíntesis, respiración, cocer un huevo.", "Exotérmicas: combustión, respiración. Endotérmicas: fotosíntesis, cocer un huevo."),
+    B("¿Qué es un catalizador? Pon un ejemplo.", "Una sustancia que acelera una reacción sin gastarse; por ejemplo, las enzimas digestivas o el catalizador de los coches."),
+    M("Ajusta: Al + O₂ → Al₂O₃.", "4 Al + 3 O₂ → 2 Al₂O₃."),
+    M("Ajusta: CH₄ + O₂ → CO₂ + H₂O.", "CH₄ + 2 O₂ → CO₂ + 2 H₂O."),
+    M("Ajusta: Zn + HCl → ZnCl₂ + H₂.", "Zn + 2 HCl → ZnCl₂ + H₂."),
+    M("Ajusta: H₂O₂ → H₂O + O₂.", "2 H₂O₂ → 2 H₂O + O₂."),
+    M("Ajusta: Na + Cl₂ → NaCl y Fe + Cl₂ → FeCl₃.", "2 Na + Cl₂ → 2 NaCl. 2 Fe + 3 Cl₂ → 2 FeCl₃."),
+    M("Un clavo de 10 g se oxida y su masa pasa a 10,5 g. ¿Se incumple la ley de Lavoisier?", "No: el hierro se ha combinado con 0,5 g de oxígeno del aire. La masa de reactivos (hierro + oxígeno) es igual a la del producto."),
+    M("El agua tiene 1 g de hidrógeno por cada 8 g de oxígeno. ¿Cuánta agua se forma con 3 g de hidrógeno y 30 g de oxígeno? ¿Qué sobra?", "3 g de H reaccionan con 24 g de O: se forman 27 g de agua y sobran 6 g de oxígeno (el hidrógeno es el limitante)."),
+    M("Explica con la teoría de colisiones por qué una pastilla efervescente se disuelve antes machacada.", "Al machacarla aumenta la superficie de contacto: hay más partículas expuestas, más choques por segundo y la reacción es más rápida."),
+    M("¿Por qué una cerilla necesita frotarse para arder si la combustión es exotérmica?", "Porque hay que aportar la energía de activación para iniciar la reacción; después, el calor desprendido mantiene la combustión."),
+    M("Dibuja el diagrama de energía de una reacción endotérmica e indica reactivos, productos y energía de activación.", "Los productos quedan más altos que los reactivos; entre ambos hay una «montaña» cuya altura desde los reactivos es la energía de activación; la diferencia de altura es la energía absorbida."),
+    A("Ajusta la combustión del butano: C₄H₁₀ + O₂ → CO₂ + H₂O.", "2 C₄H₁₀ + 13 O₂ → 8 CO₂ + 10 H₂O."),
+    A("Ajusta la fotosíntesis: CO₂ + H₂O → C₆H₁₂O₆ + O₂.", "6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂."),
+    A("En C + O₂ → CO₂ reaccionan 12 g de carbono con 32 g de oxígeno. ¿Cuánto CO₂ se forma al quemar 1 kg de carbón (100 % carbono)?", "12 g C dan 44 g CO₂. 1.000 · 44 / 12 ≈ 3.667 g ≈ 3,7 kg de CO₂."),
+    A("Calcula las masas que intervienen en N₂ + 3 H₂ → 2 NH₃ (N = 14, H = 1) y comprueba la ley de Lavoisier. ¿Cuánto amoníaco se obtiene con 56 g de nitrógeno?", "28 g N₂ + 6 g H₂ → 34 g NH₃ (28 + 6 = 34). Con 56 g de N₂: el doble, 68 g de NH₃."),
+    A("Diseña un experimento para comprobar la ley de conservación de la masa con bicarbonato y vinagre.", "Poner vinagre en una botella y bicarbonato dentro de un globo ajustado a la boca; pesar el conjunto; volcar el bicarbonato; observar que el globo se hincha (CO₂) y volver a pesar: la masa no cambia. Si se hiciera en un vaso abierto, la masa disminuiría porque el gas escapa."),
+    A("Explica por qué el serrín o la harina en suspensión pueden explotar, mientras que un tronco arde despacio.", "Porque el polvo tiene una superficie de contacto enorme con el oxígeno: con una chispa, la reacción es tan rápida que se produce una explosión."),
+    A("Una pastilla tarda 60 s en disolverse a 20 °C. Si la velocidad se duplica por cada 10 °C, ¿cuánto tardará a 40 °C?", "De 20 a 40 °C, la velocidad se multiplica por 4: tardará 60 / 4 = 15 s."),
+    A("Una bolsa de frío instantáneo se enfría al apretarla. ¿Es una reacción exotérmica o endotérmica? ¿De dónde sale la energía?", "Endotérmica: el proceso absorbe energía del entorno, que es el agua de la bolsa y nuestra mano; por eso se enfría."),
   ],
   quiz: [
-    { q: "Es un cambio químico…", o: ["fundir chocolate", "freír un huevo", "romper un plato"], a: 1, e: "Se forman sustancias nuevas." },
-    { q: "Las sustancias iniciales de una reacción son…", o: ["productos", "reactivos", "catalizadores"], a: 1, e: "Reactivos." },
-    { q: "La ley de conservación de la masa es de…", o: ["Lavoisier", "Dalton", "Newton"], a: 0, e: "Lavoisier." },
-    { q: "Para ajustar una ecuación se cambian…", o: ["los subíndices", "los coeficientes", "los símbolos"], a: 1, e: "Los coeficientes." },
-    { q: "2 H₂ + O₂ → 2 H₂O tiene a cada lado…", o: ["2 H y 2 O", "4 H y 2 O", "4 H y 1 O"], a: 1, e: "4 H y 2 O." },
-    { q: "Al triturar un sólido, la reacción va…", o: ["más rápida", "más lenta", "igual"], a: 0, e: "Más superficie de contacto." },
-    { q: "Un catalizador…", o: ["se gasta", "acelera sin gastarse", "frena la reacción"], a: 1, e: "Acelera sin gastarse." },
-    { q: "La combustión es una reacción…", o: ["endotérmica", "exotérmica", "sin energía"], a: 1, e: "Exotérmica." },
-    { q: "Si 10 g de A reaccionan con 5 g de B, se forman…", o: ["5 g", "15 g", "50 g"], a: 1, e: "10 + 5 = 15 g." },
-    { q: "Las burbujas al mezclar vinagre y bicarbonato indican…", o: ["ebullición", "desprendimiento de un gas", "fusión"], a: 1, e: "Se forma CO₂." },
+    q4("¿Cuál es un cambio químico?", ["Fundir hielo", "Disolver azúcar", "Quemar madera", "Romper un vaso"], 2, "Se forman sustancias nuevas."),
+    q4("Las sustancias iniciales de una reacción se llaman…", ["productos", "reactivos", "catalizadores", "precipitados"], 1, "A la izquierda de la flecha."),
+    q4("Un sólido que aparece en una disolución al reaccionar es un…", ["catalizador", "precipitado", "reactivo", "gas"], 1, "Señal de reacción."),
+    q4("En 3 H₂O, el número 3 es…", ["un subíndice", "un coeficiente", "un número de oxidación", "una masa"], 1, "Tres moléculas."),
+    q4("Según la teoría de colisiones, en una reacción los átomos…", ["se crean", "se destruyen", "se reorganizan", "cambian de elemento"], 2, "Cambian de pareja."),
+    q4("La energía mínima para que un choque sea eficaz es la…", ["energía cinética", "energía de activación", "energía nuclear", "energía térmica"], 1, "La «montaña»."),
+    q4("La ley de conservación de la masa la enunció…", ["Proust", "Lavoisier", "Dalton", "Mendeléiev"], 1, "Siglo XVIII."),
+    q4("Si 6 g de A reaccionan con 10 g de B, se forman…", ["4 g", "16 g", "60 g", "10 g"], 1, "6 + 10."),
+    q4("La ley de las proporciones definidas dice que…", ["la masa se conserva", "los elementos se combinan en proporción fija", "todo reacciona", "el calor se conserva"], 1, "Proust."),
+    q4("Para ajustar una ecuación se cambian…", ["los subíndices", "los coeficientes", "los símbolos", "las flechas"], 1, "Nunca los subíndices."),
+    q4("La ecuación ajustada de la formación del agua es…", ["H₂ + O₂ → H₂O", "2 H₂ + O₂ → 2 H₂O", "H₂ + O → H₂O", "H + O₂ → H₂O"], 1, "4 H y 2 O."),
+    q4("En CH₄ + 2 O₂ → CO₂ + 2 H₂O, ¿cuántos átomos de O hay a la derecha?", ["2", "3", "4", "6"], 2, "2 + 2."),
+    q4("Al aumentar la temperatura, la velocidad de reacción…", ["disminuye", "aumenta", "no cambia", "se anula"], 1, "Más choques eficaces."),
+    q4("¿Qué disminuye la velocidad de reacción?", ["Triturar el sólido", "Enfriar", "Añadir un catalizador", "Concentrar"], 1, "Menos energía."),
+    q4("Un catalizador…", ["se gasta", "acelera la reacción sin gastarse", "cambia los productos", "frena la reacción"], 1, "Baja la energía de activación."),
+    q4("Las enzimas son…", ["reactivos", "catalizadores biológicos", "productos", "ácidos"], 1, "Proteínas."),
+    q4("Una reacción que desprende calor es…", ["endotérmica", "exotérmica", "nula", "física"], 1, "Exo = fuera."),
+    q4("La fotosíntesis es una reacción…", ["exotérmica", "endotérmica", "de combustión", "de neutralización"], 1, "Absorbe luz."),
+    q4("En la combustión completa del metano se forman…", ["CO y H₂", "CO₂ y H₂O", "C y O₂", "CH₄ y O₂"], 1, "Y energía."),
+    q4("Ácido + base da…", ["sal y agua", "óxido y gas", "metal y agua", "nada"], 0, "Neutralización."),
   ],
   examen: [
-    { q: "La fotosíntesis es una reacción…", o: ["endotérmica", "exotérmica", "física"], a: 0, e: "Absorbe la energía de la luz." },
-    { q: "Las enzimas son…", o: ["catalizadores biológicos", "productos", "combustibles"], a: 0, e: "Catalizadores biológicos." },
-    { q: "La energía de activación es…", o: ["la energía inicial necesaria", "la energía que sobra", "el calor desprendido"], a: 0, e: "El empujón inicial." },
+    q4("¿Cuál está bien ajustada?", ["N₂ + H₂ → NH₃", "N₂ + 3 H₂ → 2 NH₃", "N₂ + 3 H₂ → NH₃", "2 N₂ + H₂ → 2 NH₃"], 1, "2 N y 6 H."),
+    q4("Si 56 g de Fe reaccionan con 32 g de S, se forman…", ["24 g", "56 g", "88 g", "32 g"], 2, "Lavoisier."),
+    q4("Con 3 g de H y 32 g de O (proporción 1:8) se forma agua y sobra…", ["nada", "8 g de O", "1 g de H", "5 g de O"], 1, "3 g de H gastan 24 g de O."),
+    q4("¿Qué hace más rápida la reacción de una pastilla efervescente?", ["Agua fría", "Pastilla entera", "Agua caliente y pastilla machacada", "Menos agua fría"], 2, "Temperatura y superficie."),
+    q4("En una reacción exotérmica, los productos tienen…", ["más energía que los reactivos", "menos energía que los reactivos", "la misma energía", "energía nula"], 1, "Se desprende energía."),
+    q4("4 Fe + 3 O₂ → 2 Fe₂O₃. ¿Cuántos átomos de O hay a cada lado?", ["3", "6", "2", "5"], 1, "3 · 2 = 2 · 3."),
+    q4("Al quemar papel en un recipiente abierto, la masa de las cenizas es menor porque…", ["se destruyen átomos", "los gases se escapan", "el papel no tenía masa", "la balanza falla"], 1, "CO₂ y vapor."),
+    q4("La energía de activación se puede reducir con…", ["frío", "un catalizador", "más producto", "agua"], 1, "Camino alternativo."),
   ],
-  feynman: ["Qué diferencia hay entre un cambio físico y uno químico", "Por qué la masa se conserva y cómo se ajusta una ecuación", "Qué factores aceleran una reacción y por qué"],
-  mapa: mapa("REACCIÓN QUÍMICA", "var(--eso)", [
-    ["Qué es", "reactivos → productos", "var(--red)"],
-    ["Ley", "Lavoisier · ajuste con coeficientes", "var(--pen)"],
-    ["Velocidad", "T · concentración · superficie · catalizador", "#b8860b"],
-    ["Energía", "exotérmica · endotérmica", "var(--leaf)"],
-  ], 300),
+  feynman: ["Qué diferencia hay entre un cambio físico y uno químico", "Qué ocurre con los átomos según la teoría de colisiones", "Por qué se conserva la masa en una reacción", "Cómo se ajusta una ecuación química", "Qué factores modifican la velocidad de una reacción", "Qué diferencia hay entre una reacción exotérmica y una endotérmica"],
+  mapa: S.mapa,
   tarjetas: [
     ["Cambio químico", "Se forman sustancias nuevas."],
-    ["Reactivos y productos", "Sustancias iniciales y finales."],
-    ["Ecuación química", "Reactivos → productos, con fórmulas y coeficientes."],
-    ["Ley de Lavoisier", "Masa de reactivos = masa de productos."],
-    ["Ajustar", "Igualar átomos con coeficientes, sin tocar subíndices."],
-    ["Teoría de colisiones", "Reaccionan las partículas que chocan con energía y orientación."],
-    ["Catalizador", "Acelera la reacción sin gastarse."],
-    ["Exotérmica", "Desprende energía; la endotérmica la absorbe."],
+    ["Reactivos → productos", "Sustancias iniciales y finales de una reacción."],
+    ["Ecuación química", "Fórmulas, coeficientes y flecha."],
+    ["Teoría de colisiones", "Choques con energía y orientación adecuadas."],
+    ["Energía de activación", "Energía mínima para que un choque sea eficaz."],
+    ["Ley de Lavoisier", "m reactivos = m productos."],
+    ["Ley de Proust", "Los elementos se combinan en proporción de masas fija."],
+    ["Ajustar", "Igualar átomos cambiando solo coeficientes."],
+    ["Velocidad", "Aumenta con temperatura, concentración, superficie y catalizador."],
+    ["Catalizador", "Acelera sin gastarse; enzimas."],
+    ["Exotérmica", "Desprende energía: combustión."],
+    ["Endotérmica", "Absorbe energía: fotosíntesis."],
   ],
-  familias: ["Echad vinagre sobre bicarbonato dentro de una botella con un globo en la boca y observad cómo se hincha.", "Partid una manzana y dejad la mitad con limón y la otra sin él: ¿cuál se oscurece antes?", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "El cambio: cambios físicos y químicos, reacciones químicas, teoría de colisiones, ley de conservación de la masa, ajuste de ecuaciones y factores que influyen en la velocidad (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Comprobar la ley de Lavoisier con vinagre y bicarbonato en un recipiente abierto y en uno cerrado.", "Ajustar ecuaciones con modelos de bolas y palillos.", "Pastillas efervescentes enteras y en polvo, en agua fría y caliente, para estudiar la velocidad."],
+  glosario: [
+    ["Cambio físico", "Cambio en el que las sustancias siguen siendo las mismas."],
+    ["Reacción química", "Proceso en el que unas sustancias se transforman en otras nuevas."],
+    ["Reactivo", "Sustancia inicial de una reacción."],
+    ["Producto", "Sustancia que se forma en una reacción."],
+    ["Precipitado", "Sólido insoluble que se forma en una disolución."],
+    ["Ecuación química", "Representación simbólica de una reacción."],
+    ["Coeficiente estequiométrico", "Número que indica cuántas moléculas de una sustancia intervienen."],
+    ["Teoría de colisiones", "Modelo que explica las reacciones como choques eficaces entre partículas."],
+    ["Energía de activación", "Energía mínima para que una reacción comience."],
+    ["Ley de conservación de la masa", "La masa total no cambia en una reacción química."],
+    ["Ley de las proporciones definidas", "Los elementos se combinan siempre en la misma proporción de masas."],
+    ["Reactivo limitante", "El que se gasta por completo y limita la cantidad de producto."],
+    ["Estequiometría", "Cálculo de las cantidades de sustancias que intervienen en una reacción."],
+    ["Velocidad de reacción", "Cantidad de sustancia que reacciona o se forma por unidad de tiempo."],
+    ["Catalizador", "Sustancia que acelera una reacción sin consumirse."],
+    ["Enzima", "Catalizador biológico."],
+    ["Reacción exotérmica", "La que desprende energía."],
+    ["Reacción endotérmica", "La que absorbe energía."],
+  ],
+  situacion: {
+    titulo: "Química en la cocina",
+    reto: "Un programa de cocina quiere una sección científica para explicar qué reacciones químicas ocurren al cocinar. Vuestro equipo debe investigar tres recetas, identificar los cambios físicos y químicos y grabar un vídeo corto con un experimento casero seguro.",
+    pasos: [
+      "Elegid tres procesos de cocina (hacer pan o bizcocho, caramelizar azúcar, cocer un huevo, hacer yogur) y buscad qué reacciones ocurren.",
+      "Clasificad cada paso de las recetas como cambio físico o químico y anotad las señales observables.",
+      "Escribid y ajustad al menos una ecuación química, como la del bicarbonato con un ácido.",
+      "Diseñad un experimento sobre la velocidad: la levadura a distintas temperaturas o la pastilla efervescente entera y machacada.",
+      "Grabad el vídeo explicando el experimento con la teoría de colisiones y la conservación de la masa.",
+    ],
+    producto: "Un vídeo de 3 minutos y una ficha con las reacciones de cocina, sus ecuaciones y las conclusiones del experimento.",
+    evaluacion: ["Distinguen correctamente cambios físicos y químicos.", "Las ecuaciones están bien escritas y ajustadas.", "El experimento controla variables y se explica con la teoría de colisiones.", "El vídeo es claro, riguroso y seguro."],
   },
-  fuentes: [RD, wiki("Reacción química", "Reacci%C3%B3n_qu%C3%ADmica"), wiki("Ley de conservación de la materia", "Ley_de_conservaci%C3%B3n_de_la_materia")],
-  revisado: "2026-11-12",
+  familias: [
+    "Echad vinagre sobre bicarbonato dentro de una botella con un globo en la boca y observad cómo se hincha.",
+    "Partid una manzana y dejad la mitad con limón y la otra sin él: ¿cuál se oscurece antes?",
+    "Comparad cuánto tarda una pastilla efervescente en agua fría y en agua caliente.",
+    "Al cocinar, buscad juntos señales de reacciones químicas: cambios de color, olor, burbujas.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «El cambio»: cambios físicos y químicos, interpretación macroscópica y microscópica de las reacciones (teoría de colisiones), ley de conservación de la masa y de proporciones definidas, ajuste de ecuaciones químicas, cálculos sencillos de masas, factores que afectan a la velocidad de reacción y energía de las reacciones.`,
+    ideas: [
+      "Comprobación de la ley de Lavoisier con bicarbonato y vinagre en una botella cerrada con globo sobre una balanza.",
+      "Ajuste de ecuaciones con modelos moleculares de bolas o piezas de construcción.",
+      "Estudio de la velocidad con pastillas efervescentes a distintas temperaturas y grados de división.",
+      "Descomposición del agua oxigenada con patata cruda y cocida (catalizador biológico).",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Reacción química", "Reacci%C3%B3n_qu%C3%ADmica"),
+    wiki("Ley de conservación de la materia", "Ley_de_conservaci%C3%B3n_de_la_materia"),
+    { t: "Simulación «Balanceo de ecuaciones químicas», PhET", url: "https://phet.colorado.edu/es/simulations/balancing-chemical-equations" },
+  ],
+  revisado: "2026-11-13",
 };

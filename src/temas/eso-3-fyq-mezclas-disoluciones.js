@@ -1,166 +1,235 @@
-// Física y Química 3º ESO. Dibujos propios en SVG.
-const { F, D, mapa, BG, t, fl, caja, tabla, RD, wiki } = require("./_eso3ct");
+// Física y Química 3º ESO · Mezclas y disoluciones (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, graf, rejilla, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD, wiki } = require("./_eso3L3");
+const S = BASE["mezclas-disoluciones"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "3-eso",
   titulo: "Mezclas y disoluciones",
-  minutos: 55,
-  objetivos: ["Clasificar la materia en sustancias puras y mezclas", "Distinguir mezclas homogéneas, heterogéneas y coloides", "Calcular la concentración de una disolución en g/L y en porcentaje", "Elegir el método adecuado para separar los componentes de una mezcla"],
-  claves: ["sustancia pura", "mezcla homogénea", "mezcla heterogénea", "disolución", "soluto", "disolvente", "concentración", "solubilidad"],
+  minutos: 105,
+  objetivos: [
+    "Clasificar los sistemas materiales en sustancias puras y mezclas homogéneas y heterogéneas",
+    "Identificar el soluto y el disolvente de una disolución y describir el proceso de disolución",
+    "Calcular la concentración de una disolución en g/L, en porcentaje en masa y en porcentaje en volumen",
+    "Interpretar curvas de solubilidad y explicar los factores que influyen en la solubilidad",
+    "Elegir y describir el método adecuado para separar los componentes de una mezcla",
+    "Reconocer la importancia de las mezclas en la vida diaria, la salud y la industria",
+  ],
+  claves: ["sustancia pura", "mezcla", "mezcla homogénea", "mezcla heterogénea", "coloide", "disolución", "soluto", "disolvente", "concentración", "solubilidad", "filtración", "destilación"],
   pregunta: {
-    texto: "En Canarias y en muchos barcos se bebe agua que antes era agua de mar. ¿Cómo se le quita la sal a 50.000 metros cúbicos de agua al día?",
-    respuesta: "El agua de mar es una <mark>disolución</mark>: la sal está repartida de forma uniforme y no se ve. No se puede filtrar. Las desaladoras empujan el agua a muy alta presión contra una membrana que deja pasar el agua pero no la sal: es la <b>ósmosis inversa</b>. Separar mezclas es una de las tareas más importantes de la química.",
+    texto: "El agua del grifo, el agua del mar y el agua destilada parecen iguales: transparentes e incoloras. ¿Son la misma sustancia?",
+    respuesta: "No. Solo el <mark>agua destilada</mark> es casi una <b>sustancia pura</b>. El agua del grifo y la del mar son <b>mezclas homogéneas</b> o <b>disoluciones</b>: llevan sales y gases disueltos que no se ven. La del mar tiene unos 35 g de sales por litro. Si evaporas un poco de cada una en un plato, la destilada no deja nada, la del grifo deja una mancha blanca y la del mar, una capa de sal.",
+  },
+  lectura: {
+    titulo: "Agua potable para mil millones",
+    html: `<p>Más de dos mil millones de personas en el mundo no tienen acceso a agua potable segura en su casa. Cada año, el agua contaminada causa cientos de miles de muertes por enfermedades como el cólera o la diarrea, sobre todo de niños pequeños. Y, sin embargo, el 97 % del agua del planeta está en el mar, a menudo a pocos kilómetros de las zonas con sed. El problema es que el agua de mar es una disolución: unos 35 gramos de sal por cada litro, demasiada para beberla o regar.</p><p>Separar la sal del agua es un problema clásico de química. La forma más antigua es la destilación: calentar el agua para que se evapore, dejando la sal, y condensar el vapor. Funciona, pero gasta muchísima energía. Hoy la mayoría de las desaladoras usan la ósmosis inversa: empujan el agua de mar a gran presión contra unas membranas con poros tan pequeños que dejan pasar las moléculas de agua pero no los iones de la sal. España es uno de los países con más desaladoras del mundo, y en Canarias o en Almería buena parte del agua del grifo viene del mar.</p><p>En lugares sin recursos se usan métodos más sencillos: filtros de arena y carbón, pastillas de cloro o incluso botellas de plástico expuestas al sol durante seis horas, cuya radiación ultravioleta mata los microbios. Separar mezclas, que parece un tema de laboratorio, salva vidas cada día.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Sustancias puras y mezclas</h3><p>Toda la materia que nos rodea se puede clasificar en dos grandes grupos. Una <mark>sustancia pura</mark> tiene una composición fija y unas propiedades características constantes, como el agua destilada, el oxígeno, la sal o el oro. Puede ser un <b>elemento</b>, si no se puede descomponer en otras sustancias más sencillas (el oro, el oxígeno), o un <b>compuesto</b>, formado por varios elementos combinados en proporción fija (el agua, la sal). Una <mark>mezcla</mark> está formada por dos o más sustancias que conservan sus propiedades y que se pueden juntar en cualquier proporción: el aire, el agua del grifo, la leche, el granito o una ensalada.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Clasificación de la materia: sustancias puras, divididas en elementos y compuestos, y mezclas, divididas en homogéneas y heterogéneas">${BG}
-        ${caja(80, 10, 100, 30, "MATERIA", "var(--ink)", { size: 12 })}${fl(110, 42, 70, 62)}${fl(150, 42, 190, 62)}
-        ${caja(8, 64, 118, 30, "sustancias puras", "var(--pen)", { size: 11 })}${caja(134, 64, 118, 30, "mezclas", "#b8860b", { size: 11 })}
-        ${fl(40, 96, 36, 116)}${fl(94, 96, 98, 116)}${fl(166, 96, 162, 116)}${fl(220, 96, 224, 116)}
-        ${caja(4, 118, 62, 28, "elemento", "var(--pen)", { size: 10, op: 0.08 })}${caja(68, 118, 62, 28, "compuesto", "var(--pen)", { size: 10, op: 0.08 })}${caja(132, 118, 60, 28, "homog.", "#b8860b", { size: 10, op: 0.08 })}${caja(194, 118, 62, 28, "heterog.", "#b8860b", { size: 10, op: 0.08 })}
-        ${t(35, 166, "oro", { size: 10, weight: 400 })}${t(99, 166, "agua", { size: 10, weight: 400 })}${t(162, 166, "aire", { size: 10, weight: 400 })}${t(225, 166, "granito", { size: 10, weight: 400 })}</svg>`,
-    },
-    {
-      html: `<h3>Mezclas heterogéneas y homogéneas</h3><p>En una <mark>mezcla heterogénea</mark> se distinguen sus componentes a simple vista o con una lupa, y su composición no es igual en todos los puntos: el granito, con sus granos de cuarzo, feldespato y mica; el agua con arena; una pizza o el agua con aceite. En una <mark>mezcla homogénea</mark>, también llamada <b>disolución</b>, no se distinguen los componentes ni siquiera con un microscopio, y su composición y sus propiedades son iguales en todos los puntos: el agua con sal, el aire, el vinagre o el bronce. Entre ambas están los <b>coloides</b>, que parecen homogéneos a simple vista pero no lo son al microscopio, como la leche, la mayonesa, la niebla o la gelatina.</p>`,
-      video: { id: "GxVCHRX20_A", titulo: "MEZCLAS HOMOGÉNEAS Y HETEROGÉNEAS [Fácil y Rápido]", canal: "A Cierta Ciencia", vistas: 1347312 },
-    },
-    {
-      html: `<h3>Las disoluciones: soluto y disolvente</h3><p>Una <b>disolución</b> tiene al menos dos componentes. El <mark>disolvente</mark> es el que está en mayor cantidad y en el que se reparte el otro; el <mark>soluto</mark> es el que está en menor cantidad. En el agua con azúcar, el agua es el disolvente y el azúcar el soluto. El agua se llama el <b>disolvente universal</b> porque disuelve muchísimas sustancias. Las disoluciones pueden estar en cualquier estado: <b>gaseosas</b>, como el aire (oxígeno en nitrógeno); <b>líquidas</b>, como el refresco con gas (CO₂ en agua) o el alcohol de farmacia; y <b>sólidas</b>, como las <b>aleaciones</b>: el bronce es estaño disuelto en cobre, y el acero, carbono en hierro.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Azúcar, el soluto, más agua, el disolvente, da una disolución en la que no se distinguen las partículas de azúcar">${BG}
-        <rect x="14" y="70" width="44" height="40" rx="4" fill="#fff" stroke="var(--muted)" stroke-width="2"/>${[0, 1, 2, 3].map(i => `<rect x="${22 + (i % 2) * 14}" y="${78 + Math.floor(i / 2) * 14}" width="10" height="10" fill="#e8d8b0"/>`).join("")}
-        ${t(36, 130, "soluto", { size: 11, color: "var(--red)" })}${t(36, 144, "azúcar", { size: 10, weight: 400 })}${t(70, 96, "+", { size: 18 })}
-        <path d="M84 60 V 120 H 128 V 60" fill="var(--water)" fill-opacity=".4" stroke="var(--ink)" stroke-width="2"/>${t(106, 140, "disolvente", { size: 11, color: "var(--pen)" })}${t(106, 154, "agua", { size: 10, weight: 400 })}
-        ${fl(136, 92, 160, 92)}
-        <path d="M172 60 V 120 H 236 V 60" fill="var(--water)" fill-opacity=".5" stroke="var(--ink)" stroke-width="2"/>${t(204, 140, "disolución", { size: 11, color: "var(--leaf)" })}${t(204, 154, "agua con azúcar", { size: 10, weight: 400 })}
-        ${t(130, 28, "no se ve el azúcar: se ha repartido", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>La concentración en g/L</h3><p>La <mark>concentración</mark> indica cuánto soluto hay en una cantidad de disolución. Una disolución es <b>diluida</b> si tiene poco soluto y <b>concentrada</b> si tiene mucho, pero estas palabras son imprecisas, así que se usan números. La forma más sencilla es la <b>concentración en masa</b>, que da los gramos de soluto en cada litro de disolución: <b>c = masa de soluto (g) / volumen de disolución (L)</b>. Se mide en <b>g/L</b>. El suero fisiológico tiene 9 g/L de sal; el agua del mar, unos 35 g/L. No hay que confundirla con la densidad: aunque ambas se pueden expresar en g/L, la concentración usa solo la masa del soluto, y la densidad, la masa de toda la disolución.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos vasos de un litro: con 5 gramos de sal la disolución es diluida, 5 gramos por litro; con 35 gramos es concentrada, 35 gramos por litro">${BG}
-        ${[[70, 6, "5 g/L", "diluida"], [190, 30, "35 g/L", "concentrada"]].map(([x, n, c, w]) => `<path d="M${x - 40} 40 V 140 H ${x + 40} V 40" fill="var(--water)" fill-opacity=".35" stroke="var(--ink)" stroke-width="2"/>${Array.from({ length: n }, (_, i) => `<circle cx="${x - 30 + (n > 10 ? (i % 6) * 12 + (Math.floor(i / 6) % 2) * 5 : (i * 23) % 60)}" cy="${n > 10 ? 52 + Math.floor(i / 6) * 18 + (i % 3) * 4 : 56 + i * 15}" r="3" fill="var(--red)"/>`).join("")}${t(x, 158, c, { size: 13, color: "var(--red)" })}${t(x, 26, w, { size: 11 })}`).join("")}
-        ${t(130, 174, "c = g de soluto / L de disolución", { size: 10, color: "var(--muted)" })}</svg>`,
-    },
-    {
-      html: `<h3>La concentración en porcentaje</h3><p>También se puede expresar la concentración en <b>porcentaje</b>. El <mark>porcentaje en masa</mark> indica los gramos de soluto que hay en 100 g de disolución: <b>% masa = masa de soluto / masa de disolución · 100</b>. Recuerda que la masa de la disolución es la del soluto más la del disolvente. El <mark>porcentaje en volumen</mark> se usa cuando soluto y disolvente son líquidos, e indica los mL de soluto en 100 mL de disolución: <b>% volumen = volumen de soluto / volumen de disolución · 100</b>. La graduación de las bebidas alcohólicas es un porcentaje en volumen: un vino de 12 % vol contiene 12 mL de alcohol en cada 100 mL. El alcohol de farmacia suele ser del 96 %.</p>${tabla(["Forma", "Fórmula", "Ejemplo"], [["g/L", "g soluto / L disolución", "suero: 9 g/L"], ["% en masa", "g soluto / g disolución · 100", "salmuera: 20 %"], ["% en volumen", "mL soluto / mL disolución · 100", "vino: 12 % vol"]])}`,
-      video: { id: "xkVs6Fwy0-c", titulo: "Concentración GRAMO POR LITRO. Disoluciones", canal: "Susi Profe", vistas: 573655 },
-    },
-    {
-      html: `<h3>La solubilidad</h3><p>No se puede disolver una cantidad ilimitada de soluto. La <mark>solubilidad</mark> es la <b>máxima cantidad de soluto</b> que se puede disolver en una cantidad dada de disolvente a una temperatura determinada; se suele dar en gramos de soluto por 100 g de agua. Cuando una disolución ya no admite más soluto, se dice que está <b>saturada</b>, y lo que añadamos se queda en el fondo. La solubilidad es una propiedad característica y depende de la <b>temperatura</b>: en la mayoría de los sólidos aumenta al calentar (por eso el azúcar se disuelve mejor en leche caliente), mientras que en los <b>gases disminuye</b>: un refresco caliente pierde el gas antes, y en verano los peces de los ríos sufren porque el agua caliente tiene menos oxígeno disuelto.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráfica de solubilidad: la del azúcar y la sal sube con la temperatura y la del oxígeno baja">${BG}
-        <path d="M40 16 V 150 H 246" stroke="var(--muted)" stroke-width="2" fill="none"/>
-        ${t(246, 168, "temperatura", { size: 10, anchor: "end", color: "var(--muted)" })}${t(44, 14, "solubilidad", { size: 10, anchor: "start", color: "var(--muted)" })}
-        <path d="M40 110 Q 140 90 236 26" stroke="var(--red)" stroke-width="3" fill="none"/>${t(176, 36, "azúcar", { size: 10, anchor: "end", color: "var(--red)" })}
-        <path d="M40 100 L 236 92" stroke="#b8860b" stroke-width="3" fill="none"/>${t(236, 84, "sal", { size: 10, anchor: "end", color: "#b8860b" })}
-        <path d="M40 60 Q 120 110 236 136" stroke="var(--inf)" stroke-width="3" fill="none"/>${t(60, 52, "oxígeno (gas)", { size: 10, anchor: "start", color: "var(--inf)" })}</svg>`,
-    },
-    {
-      html: `<h3>Separar mezclas heterogéneas</h3><p>Los componentes de una mezcla conservan sus propiedades, y eso permite separarlos por <b>métodos físicos</b>, sin cambiar las sustancias. Para las mezclas heterogéneas: la <mark>filtración</mark> separa un sólido no disuelto de un líquido con un papel de filtro, como la arena del agua o el café de sus posos; la <b>decantación</b> separa líquidos que no se mezclan, como el agua y el aceite, con un <b>embudo de decantación</b>, o deja que un sólido se deposite en el fondo; la <b>separación magnética</b> extrae con un imán los materiales de hierro, como en las plantas de reciclaje; y el <b>tamizado</b> separa sólidos de distinto tamaño con un colador o tamiz, como la grava de la arena.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos métodos: filtración, en la que el papel retiene la arena y pasa el agua, y decantación, en la que el aceite queda arriba y el agua sale por la llave">${BG}
-        <path d="M30 40 H 110 L 76 90 V 110 H 64 V 90 Z" fill="none" stroke="var(--ink)" stroke-width="2"/><path d="M40 46 H 100 L 70 86 Z" fill="#c9a37a" fill-opacity=".7"/>
-        <path d="M46 120 V 160 H 94 V 120" fill="var(--water)" fill-opacity=".4" stroke="var(--ink)" stroke-width="2"/>
-        ${t(70, 26, "filtración", { size: 11, color: "var(--pen)" })}${t(70, 174, "arena / agua", { size: 10, weight: 400 })}
-        <path d="M190 24 Q 150 60 166 110 H 214 Q 230 60 190 24 Z" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        <path d="M176 56 Q 162 74 164 90 H 216 Q 218 74 204 56 Z" fill="#f2d675" fill-opacity=".8"/><path d="M164 90 Q 165 104 166 110 H 214 Q 215 104 216 90 Z" fill="var(--water)" fill-opacity=".5"/>
-        <rect x="186" y="110" width="8" height="30" fill="var(--muted)"/><rect x="180" y="120" width="20" height="6" fill="var(--red)"/>
-        ${t(150, 76, "aceite", { size: 10, anchor: "end" })}${t(150, 102, "agua", { size: 10, anchor: "end", color: "var(--pen)" })}${t(190, 160, "decantación", { size: 11, color: "var(--pen)" })}</svg>`,
-    },
-    {
-      html: `<h3>Separar mezclas homogéneas</h3><p>En las disoluciones, los componentes están tan bien repartidos que no sirven el filtro ni el imán. La <mark>cristalización</mark> separa un sólido disuelto evaporando el disolvente lentamente; así se obtiene la sal en las <b>salinas</b>, como las de Torrevieja o las del Cabo de Gata. La <mark>destilación</mark> separa líquidos con distinta temperatura de ebullición: se calienta la mezcla, el líquido más volátil hierve antes, su vapor pasa por un tubo refrigerante, se condensa y se recoge aparte. Así se fabrican los licores y los perfumes, y se separan los componentes del petróleo. La <b>cromatografía</b> separa sustancias que avanzan a distinta velocidad por un papel, como los pigmentos de la tinta de un rotulador.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Montaje de destilación: matraz calentado, el vapor sube, pasa por el refrigerante inclinado, se condensa y gotea en otro recipiente">${BG}
-        <circle cx="54" cy="110" r="28" fill="var(--water)" fill-opacity=".35" stroke="var(--ink)" stroke-width="2"/><rect x="48" y="58" width="12" height="28" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        <path d="M44 150 l 10 -12 l 10 12 Z" fill="#f08a24"/>${t(54, 172, "calor", { size: 10, color: "var(--red)" })}
-        <path d="M60 66 L 196 116" stroke="var(--ink)" stroke-width="3"/><path d="M90 66 L 196 106 L 192 124 L 84 86 Z" fill="var(--inf)" fill-opacity=".15" stroke="var(--inf)" stroke-width="2"/>
-        ${t(150, 72, "refrigerante", { size: 10, color: "var(--inf)" })}
-        <path d="M184 130 V 160 H 226 V 130" fill="var(--water)" fill-opacity=".4" stroke="var(--ink)" stroke-width="2"/><circle cx="200" cy="124" r="2.5" fill="var(--pen)"/>
-        ${t(54, 40, "hierve el volátil", { size: 10, color: "var(--red)" })}${t(205, 174, "destilado", { size: 10, color: "var(--pen)" })}</svg>`,
-      video: { id: "UQO88zoMC9Q", titulo: "Métodos de separación de mezclas con ejemplos [Fácil y Rápido]", canal: "A Cierta Ciencia", vistas: 1717584 },
-    },
-    {
-      html: `<h3>Cómo elegir el método</h3><p>Para elegir el método de separación hay que fijarse en la <b>propiedad diferente</b> de los componentes. Si uno es <b>magnético</b>: imán. Si tienen distinto <b>tamaño</b>: tamizado. Si un sólido <b>no se disuelve</b> en el líquido: filtración. Si son dos líquidos que <b>no se mezclan</b>: decantación. Si un sólido está <b>disuelto</b>: cristalización o evaporación. Si son líquidos con distinta <b>temperatura de ebullición</b>: destilación. Muchas veces hay que <mark>encadenar varios métodos</mark>. Por ejemplo, para separar arena, sal y limaduras de hierro: primero el imán saca el hierro; después se añade agua, que disuelve la sal; se filtra para separar la arena; y por último se evapora el agua para recuperar la sal.</p>`,
-    },
-    {
-      html: `<h3>Las mezclas en la vida diaria y la industria</h3><p>Separar mezclas es esencial en nuestra sociedad. En las <b>potabilizadoras</b>, el agua de un embalse pasa por rejas que retienen ramas (tamizado), balsas donde se depositan los lodos (decantación), filtros de arena (filtración) y, al final, se desinfecta con cloro. Las <b>depuradoras</b> limpian el agua residual antes de devolverla al río. Las <b>refinerías</b> destilan el petróleo para obtener gasolina, gasóleo, queroseno y asfalto. En medicina, la <b>diálisis</b> filtra la sangre de las personas cuyos riñones no funcionan. Y en la cocina usamos coladores, filtros de café y centrifugadoras sin darnos cuenta de que hacemos química.</p>`,
-    },
+    bloque({ h: "1.1 Sustancias puras y mezclas", p: [
+      "Los sistemas materiales se clasifican según su composición. Una <mark>sustancia pura</mark> tiene una composición fija y unas propiedades características constantes: el agua destilada, la sal común, el oxígeno o el oro de 24 quilates. Una sustancia pura no se puede separar en otras por métodos físicos. Puede ser un <b>elemento</b>, formado por una sola clase de átomos (hierro, oxígeno), o un <b>compuesto</b>, formado por varios elementos unidos en una proporción fija (agua, H₂O; sal, NaCl).",
+      "Una <mark>mezcla</mark> está formada por dos o más sustancias que conservan sus propiedades y que se pueden separar por <b>métodos físicos</b>. Su composición es <b>variable</b>: un café puede llevar más o menos azúcar y sigue siendo café con azúcar. Por eso las mezclas no tienen puntos de fusión o ebullición fijos: el agua con sal empieza a hervir por encima de 100 °C y la temperatura sigue subiendo mientras hierve. La mayoría de los materiales que nos rodean son mezclas: el aire, el agua del grifo, la leche, el granito, la madera, el bronce o la sangre. Las sustancias puras son en realidad bastante raras en la naturaleza.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.2 Mezclas heterogéneas y homogéneas", p: [
+      "En una <mark>mezcla heterogénea</mark> se distinguen sus componentes a simple vista o con una lupa, y su composición no es la misma en todos los puntos: el granito, con sus granos de cuarzo, feldespato y mica; la arena con piedrecitas; el agua con aceite; o una ensalada. Algunas mezclas heterogéneas con partículas sólidas en un líquido se llaman <b>suspensiones</b>: las partículas acaban depositándose en el fondo si se deja reposar, como el barro en agua o algunos jarabes que hay que agitar antes de usar.",
+      "En una <mark>mezcla homogénea</mark> no se distinguen los componentes ni siquiera con un microscopio, y la composición es la misma en todos sus puntos: el agua con azúcar disuelto, el aire limpio o el bronce. Las mezclas homogéneas se llaman también <b>disoluciones</b>. A veces no es fácil saber si una mezcla es homogénea: la leche parece homogénea a simple vista, pero al microscopio se ven gotitas de grasa. Para distinguirlas se usan la observación con lupa o microscopio y el comportamiento al dejarlas en reposo o al iluminarlas con un haz de luz.",
+    ], svg: compara("Mezclas heterogéneas frente a homogéneas", ["Heterogénea", ["se ven las partes", "composición variable", "granito, ensalada", "agua y aceite"]], ["Homogénea", ["aspecto uniforme", "igual en todo punto", "agua con azúcar", "aire, bronce"]], "#b45309", "var(--pen)"), video: S.bvideos[0] }),
+    bloque({ h: "1.3 Los coloides", p: [
+      "Entre las disoluciones y las suspensiones hay un tipo de mezcla intermedio: los <mark>coloides</mark>. Tienen partículas más grandes que las moléculas de una disolución, pero tan pequeñas que no se ven y no se depositan en el fondo. A simple vista parecen homogéneos, pero son heterogéneos al microscopio. La leche, la mayonesa, la niebla, el humo, la gelatina, la espuma de afeitar o la sangre son coloides.",
+      "Una forma de reconocerlos es el <b>efecto Tyndall</b>: si se ilumina un coloide con un haz de luz, como un puntero láser, el rayo se ve atravesándolo, porque las partículas dispersan la luz. En una disolución verdadera, como el agua con sal, el rayo no se ve. Es el mismo efecto por el que vemos los rayos de sol que entran por una ventana en una habitación con polvo, o los haces de los faros de un coche en la niebla. Muchos coloides se forman mezclando dos sustancias que normalmente no se mezclan con ayuda de un <b>emulsionante</b>: en la mayonesa, la yema de huevo mantiene unidas las gotitas de aceite dentro del agua del limón o el vinagre.",
+    ], svg: rejilla("Tipos de mezclas según el tamaño de sus partículas", ["Tipo", "Partículas", "Ejemplo"], [["Disolución", "invisibles", "agua salada"], ["Coloide", "muy pequeñas", "leche, niebla"], ["Suspensión", "visibles, sedimentan", "barro en agua"]], "var(--leaf)") }),
+    bloque({ h: "2.1 Las disoluciones: soluto y disolvente", p: [
+      "Una <mark>disolución</mark> es una mezcla homogénea de dos o más sustancias. El componente que está en mayor cantidad se llama <mark>disolvente</mark>, y el que está en menor cantidad, <mark>soluto</mark>. Puede haber varios solutos: un refresco tiene azúcar, gas, ácidos y aromas disueltos en agua. El agua es el disolvente más común; por eso se la llama «disolvente universal», y las disoluciones en agua se llaman <b>acuosas</b>.",
+      "Hay disoluciones en los tres estados. Son <b>líquidas</b> el agua con sal, el alcohol de farmacia (alcohol y agua) o el agua con gas (CO₂ en agua). Son <b>gaseosas</b> el aire, en el que el oxígeno y otros gases están disueltos en nitrógeno. Y son <b>sólidas</b> las <b>aleaciones</b>, mezclas de metales fundidos que se solidifican juntos: el bronce (cobre y estaño), el latón (cobre y cinc) o el acero (hierro y un poco de carbono). Al disolverse, las partículas del soluto se separan unas de otras y se rodean de partículas del disolvente, repartiéndose de manera uniforme. Por eso una disolución, una vez bien mezclada, no se separa sola aunque la dejemos en reposo durante años.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "2.2 La concentración en gramos por litro", p: [
+      "No es lo mismo un café con una cucharada de azúcar que con cinco. La <mark>concentración</mark> de una disolución indica la cantidad de soluto que hay en una cantidad determinada de disolución. Decimos que una disolución está <b>diluida</b> si tiene poco soluto, <b>concentrada</b> si tiene mucho y <b>saturada</b> si no admite más soluto a esa temperatura. Pero estas palabras son imprecisas: en ciencia se expresa la concentración con un número.",
+      "La forma más sencilla es la concentración en <mark>masa por volumen</mark>, en gramos por litro (g/L): la masa de soluto, en gramos, dividida entre el volumen de disolución, en litros. Si disolvemos 20 g de sal en agua hasta tener 0,5 L de disolución, c = 20 / 0,5 = 40 g/L. Ojo: se divide entre el volumen de la <b>disolución</b>, no del disolvente. Despejando, la masa de soluto es m = c · V. Una bebida isotónica tiene unos 60 g/L de azúcar; el suero fisiológico, 9 g/L de sal, la misma concentración que la sangre. Para preparar una disolución en el laboratorio se pesa el soluto, se disuelve en un poco de agua y se completa con agua hasta el volumen deseado en un matraz aforado.",
+    ], extra: formula("c (g/L) = masa de soluto (g) / volumen de disolución (L)"), svg: S.svg[2], video: S.bvideos[1] }),
+    bloque({ h: "2.3 La concentración en porcentaje", p: [
+      "La concentración también se puede expresar en <mark>porcentaje en masa</mark> (% m/m): los gramos de soluto que hay en cada 100 gramos de disolución. Se calcula dividiendo la masa de soluto entre la masa de la disolución y multiplicando por 100. La masa de la disolución es la suma de la masa del soluto y la del disolvente. Si disolvemos 10 g de azúcar en 90 g de agua, tenemos 100 g de disolución al 10 % en masa.",
+      "Cuando el soluto y el disolvente son líquidos se usa el <mark>porcentaje en volumen</mark> (% v/v): los mililitros de soluto en cada 100 mL de disolución. Es lo que indican los <b>grados</b> de las bebidas alcohólicas: un vino de 12 % vol tiene 12 mL de alcohol en cada 100 mL. El alcohol de farmacia suele ser de 96 % vol o de 70 % vol, que desinfecta mejor. En las etiquetas de alimentos, cosméticos y medicamentos aparecen muchas concentraciones: el vinagre tiene un 5 % de ácido acético; el agua oxigenada de farmacia, un 3 %. Saber interpretarlas ayuda a usar los productos con seguridad y a comparar.",
+    ], extra: formula("% masa = m soluto / m disolución · 100  ·  % volumen = V soluto / V disolución · 100"), svg: ficha("Formas de expresar la concentración", "Concentración", ["g/L = m soluto (g) / V disolución (L)", "% masa = m soluto / m disolución · 100", "% volumen = V soluto / V disolución · 100"], "var(--pen)") }),
+    bloque({ h: "2.4 Diluir una disolución", p: [
+      "<b>Diluir</b> es añadir disolvente a una disolución para que su concentración disminuya. Al diluir, la cantidad de soluto no cambia: solo aumenta el volumen de disolución en el que está repartido. Por eso, si duplicamos el volumen añadiendo agua, la concentración se reduce a la mitad. Se cumple que c₁ · V₁ = c₂ · V₂, porque las dos expresiones son la masa de soluto, que es la misma.",
+      "Diluimos continuamente sin darnos cuenta: al preparar un zumo a partir de un concentrado, al rebajar la lejía para limpiar o al echar agua a un refresco con mucho hielo. En el laboratorio y en los hospitales hay que hacerlo con precisión, porque una dosis demasiado concentrada puede ser peligrosa. Por ejemplo, para preparar 500 mL de una disolución de 10 g/L a partir de otra de 50 g/L, se necesita V₁ = c₂ · V₂ / c₁ = 10 · 0,5 / 50 = 0,1 L: se toman 100 mL de la disolución concentrada y se añade agua hasta 500 mL. Una norma de seguridad importante: los ácidos concentrados se diluyen echando el ácido sobre el agua, poco a poco, y nunca al revés, porque se desprende mucho calor.",
+    ], extra: formula("c₁ · V₁ = c₂ · V₂"), svg: pasos("Cómo diluir una disolución", ["Calcular el volumen inicial", "Medirlo con pipeta", "Pasarlo a un matraz aforado", "Enrasar con agua y agitar"], "var(--leaf)") }),
+    bloque({ h: "3.1 La solubilidad", p: [
+      "Si echamos sal en un vaso de agua y removemos, se disuelve. Pero si seguimos añadiendo, llega un momento en que ya no se disuelve más y se acumula en el fondo: la disolución está <mark>saturada</mark>. La <mark>solubilidad</mark> es la cantidad máxima de soluto que se puede disolver en una cantidad dada de disolvente a una temperatura determinada. Se suele expresar en gramos de soluto por cada 100 g de agua.",
+      "Cada sustancia tiene su solubilidad, que es una propiedad característica: a 20 °C, en 100 g de agua se disuelven unos 36 g de sal común, unos 200 g de azúcar y solo 0,2 g de cal. Hay sustancias prácticamente <b>insolubles</b> en agua, como la arena o el aceite, que en cambio se disuelven en otros disolventes. Una regla útil es que «lo semejante disuelve a lo semejante»: el agua disuelve bien la sal y el azúcar, mientras que la gasolina o la acetona disuelven grasas, pinturas y esmaltes. Por eso una mancha de grasa no sale solo con agua y hace falta jabón, cuyas moléculas tienen una parte que se une al agua y otra que se une a la grasa.",
+    ], svg: S.svg[3] }),
+    bloque({ h: "3.2 Las curvas de solubilidad", p: [
+      "La solubilidad depende de la <b>temperatura</b>. Si representamos la solubilidad frente a la temperatura obtenemos una <mark>curva de solubilidad</mark>. En la mayoría de los sólidos, la solubilidad <b>aumenta</b> con la temperatura: el azúcar se disuelve mucho mejor en leche caliente. En algunos, como la sal común, apenas cambia. Cada punto de la curva representa una disolución saturada; por debajo, la disolución no está saturada, y por encima habría soluto sin disolver.",
+      "Si una disolución saturada en caliente se <b>enfría</b>, el soluto que sobra se separa formando <b>cristales</b>. Así se obtienen el azúcar o muchos medicamentos. Por ejemplo, si a 60 °C se disuelven 110 g de nitrato de potasio en 100 g de agua y se enfría hasta 20 °C, donde solo caben unos 32 g, cristalizan unos 78 g. En los <b>gases</b> ocurre al revés: su solubilidad <b>disminuye</b> al aumentar la temperatura y aumenta con la presión. Por eso un refresco caliente pierde antes el gas, y al abrir la botella, al bajar la presión, salen burbujas. Y por eso cuando el agua de un río se calienta por un vertido industrial tiene menos oxígeno disuelto y los peces pueden morir.",
+    ], svg: graf("Curvas de solubilidad: el nitrato de potasio aumenta mucho con la temperatura y la sal común casi no cambia", "temperatura", "solubilidad", [{ p: [[0, 0.12], [0.2, 0.22], [0.4, 0.4], [0.6, 0.63], [0.8, 0.85], [0.95, 1]], c: "var(--red)", t: "KNO₃" }, { p: [[0, 0.3], [0.5, 0.32], [1, 0.35]], c: "var(--pen)", t: "NaCl" }]), video: S.bvideos[2] }),
+    bloque({ h: "4.1 Separar mezclas heterogéneas", p: [
+      "Como los componentes de una mezcla conservan sus propiedades, se pueden separar aprovechando que son distintas. Para mezclas heterogéneas se usan métodos mecánicos sencillos. La <mark>filtración</mark> separa un sólido no disuelto de un líquido haciendo pasar la mezcla por un papel de filtro o un tejido con poros: el líquido atraviesa el filtro y el sólido queda retenido. Así se prepara el café o se limpia el agua de una piscina.",
+      "La <b>decantación</b> separa líquidos que no se mezclan (inmiscibles) y de distinta densidad, como agua y aceite: se dejan reposar en un embudo de decantación hasta que se forman dos capas y se abre la llave para dejar salir el más denso. También sirve para separar un sólido pesado que se ha depositado en el fondo de un líquido. El <b>tamizado</b> separa sólidos de distinto tamaño con un tamiz o un colador, como al cribar arena. La <b>separación magnética</b> usa un imán para separar materiales de hierro, como las limaduras mezcladas con arena; se usa en las plantas de reciclaje. La <b>centrifugación</b> hace girar la mezcla muy deprisa para que los componentes más densos se vayan al fondo: así se separan los glóbulos de la sangre o se escurre la ropa en la lavadora.",
+    ], svg: S.svg[4] }),
+    bloque({ h: "4.2 Separar mezclas homogéneas", p: [
+      "Las disoluciones no se pueden separar filtrando, porque el soluto atraviesa el filtro junto con el disolvente. Se usan métodos basados en otras propiedades. La <mark>evaporación</mark> o <b>cristalización</b> sirve para recuperar un sólido disuelto: se calienta la disolución, o se deja al sol, hasta que el disolvente se evapora y el soluto queda en forma de cristales. Así se obtiene la sal en las salinas, a partir del agua de mar.",
+      "La <mark>destilación</mark> separa líquidos miscibles con distinto punto de ebullición, o recupera el disolvente de una disolución: se calienta la mezcla, el componente más volátil hierve primero, su vapor pasa por un tubo refrigerante donde se condensa y se recoge en otro recipiente. Así se obtiene el agua destilada, los perfumes, los licores o los distintos combustibles del petróleo en las refinerías, mediante una destilación fraccionada. La <b>cromatografía</b> separa sustancias que se mueven a distinta velocidad arrastradas por un disolvente a lo largo de un papel o una columna: con una tira de papel y alcohol se pueden separar los distintos pigmentos de la tinta de un rotulador. La policía científica y los laboratorios antidopaje usan versiones muy avanzadas de esta técnica.",
+    ], svg: S.svg[5] }),
+    bloque({ h: "4.3 Cómo elegir el método de separación", p: [
+      "Para separar una mezcla hay que pensar primero <b>qué tipo de mezcla es</b> y <b>en qué propiedad se diferencian</b> sus componentes: el tamaño de las partículas (tamizado, filtración), la densidad (decantación, centrifugación), el magnetismo (imán), la solubilidad (disolución y filtración), la temperatura de ebullición (destilación) o la volatilidad (evaporación).",
+      "A menudo hay que combinar varios métodos en un orden lógico. Por ejemplo, para separar una mezcla de arena, sal y limaduras de hierro: primero se pasa un <b>imán</b> para retirar el hierro; después se añade agua y se remueve para que la sal se <b>disuelva</b>; luego se <b>filtra</b> para retener la arena; y por último se <b>evapora</b> el agua del líquido filtrado para recuperar la sal. Para obtener agua potable de un río, las plantas potabilizadoras dejan decantar los sólidos, añaden sustancias que agrupan las partículas pequeñas, filtran el agua con arena y la desinfectan con cloro. Diseñar una buena separación es como resolver un rompecabezas: cada paso debe aprovechar una propiedad que distingue a un componente de los demás.",
+    ], svg: pasos("Separar una mezcla de hierro, sal y arena", ["Imán: retira el hierro", "Agua: disuelve la sal", "Filtrar: queda la arena", "Evaporar: queda la sal"], "var(--pen)") }),
+    bloque({ h: "4.4 Las mezclas en la vida diaria y la industria", p: [
+      "Las mezclas y sus separaciones están detrás de muchísimos productos y procesos. En la <b>cocina</b> preparamos disoluciones (caldo, almíbar), coloides (mayonesa, nata montada) y suspensiones (zumo con pulpa), y separamos con coladores, filtros de café o al escurrir la pasta. En <b>medicina</b> se usan sueros intravenosos con concentraciones exactas, se centrifuga la sangre para analizarla y se preparan jarabes que hay que agitar antes de usar.",
+      "En la <b>industria</b>, las refinerías destilan el petróleo para obtener gasolina, gasóleo y queroseno; las salinas evaporan el agua de mar; las plantas de reciclaje separan metales con imanes y corrientes de aire; y las desaladoras y potabilizadoras convierten agua no apta en agua de consumo. En el <b>medio ambiente</b>, la contaminación es muchas veces una mezcla no deseada: sustancias disueltas en ríos y acuíferos, partículas en suspensión en el aire. Las depuradoras de aguas residuales combinan rejas, decantadores, filtros y bacterias para devolver el agua limpia a los ríos. Cuidar el agua empieza en casa: no tirar aceite ni productos químicos por el fregadero.",
+    ], svg: rejilla("Separaciones en la vida diaria y la industria", ["Proceso", "Método"], [["Salinas", "evaporación"], ["Refinería", "destilación"], ["Análisis de sangre", "centrifugación"], ["Reciclaje de latas", "separación magnética"], ["Cafetera", "filtración"]], "#b45309") }),
   ],
-  figura: {
-    titulo: "Qué método para qué mezcla",
-    svg: `<svg viewBox="0 0 640 260" role="img" aria-label="Tabla visual: imán para el hierro, tamizado para distinto tamaño, filtración para sólido no disuelto, decantación para líquidos que no se mezclan, cristalización para sólido disuelto y destilación para líquidos con distinta ebullición">
-      <rect width="640" height="260" rx="16" fill="var(--paper)"/>
-      ${[["imán", "hierro + arena", "var(--muted)"], ["tamizado", "grava + arena", "#8a6a4a"], ["filtración", "arena + agua", "var(--pen)"], ["decantación", "aceite + agua", "#b8860b"], ["cristalización", "sal disuelta en agua", "var(--leaf)"], ["destilación", "alcohol + agua", "var(--red)"]].map(([m, e, c], i) => { const x = 20 + (i % 3) * 204, y = 24 + Math.floor(i / 3) * 116; return `<rect x="${x}" y="${y}" width="190" height="100" rx="12" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>${t(x + 95, y + 42, m, { size: 18, color: c, font: D })}${t(x + 95, y + 72, e, { size: 13, weight: 400 })}`; }).join("")}
-    </svg>`,
-  },
-  video: { id: "2FPaXer7AN0", titulo: "MEZCLAS Y SEPARACIONES", canal: "Elesapiens", vistas: 2818447, megusta: 0, busqueda: "mezclas homogéneas y heterogéneas métodos de separación" },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Disolvemos 15 g de sal en agua hasta tener 250 mL de disolución. ¿Cuál es su concentración en g/L?",
-      pasos: ["Pasamos el volumen a litros: 250 mL = 0,25 L.", "c = masa de soluto / volumen de disolución.", "c = 15 / 0,25 = 60 g/L."],
-      resultado: "60 g/L." },
-    { enunciado: "Disolvemos 20 g de azúcar en 180 g de agua. Calcula el porcentaje en masa.",
-      pasos: ["Masa de disolución = 20 + 180 = 200 g.", "% = 20 / 200 · 100.", "% = 10 %."],
-      resultado: "10 % en masa de azúcar." },
-    { enunciado: "¿Cuántos gramos de sal hacen falta para preparar 2 L de suero fisiológico (9 g/L)?",
-      pasos: ["Despejamos la masa: m = c · V.", "m = 9 g/L · 2 L.", "m = 18 g."],
-      resultado: "18 g de sal." },
+    { enunciado: "Clasifica: agua destilada, granito, aire, leche, oro puro, agua con aceite, bronce.", pasos: ["Sustancias puras: composición fija → agua destilada, oro puro.", "Heterogéneas: se distinguen las partes → granito, agua con aceite.", "Homogéneas (disoluciones): aspecto uniforme → aire, bronce.", "Coloide: parece homogénea pero no lo es → leche."], resultado: "Puras: agua destilada, oro. Heterogéneas: granito, agua y aceite. Disoluciones: aire, bronce. Coloide: leche." },
+    { enunciado: "Se disuelven 15 g de azúcar en agua hasta obtener 250 mL de disolución. Calcula la concentración en g/L.", pasos: ["V = 250 mL = 0,25 L.", "c = m / V = 15 / 0,25."], resultado: "60 g/L." },
+    { enunciado: "¿Qué masa de sal hay que pesar para preparar 2 L de suero fisiológico de 9 g/L?", pasos: ["m = c · V.", "m = 9 · 2 = 18 g."], resultado: "18 g de sal." },
+    { enunciado: "Se disuelven 25 g de sal en 175 g de agua. Calcula el porcentaje en masa.", pasos: ["Masa de disolución: 25 + 175 = 200 g.", "% = 25 / 200 · 100."], resultado: "12,5 % en masa." },
+    { enunciado: "¿Cuántos mL de alcohol hay en una botella de 750 mL de vino de 13 % vol?", pasos: ["V soluto = % · V disolución / 100.", "V = 13 · 750 / 100 = 97,5 mL."], resultado: "97,5 mL de alcohol." },
+    { enunciado: "La solubilidad del nitrato de potasio es 110 g/100 g de agua a 60 °C y 32 g/100 g a 20 °C. Si una disolución saturada con 200 g de agua se enfría de 60 a 20 °C, ¿cuánto sólido cristaliza?", pasos: ["A 60 °C, en 200 g de agua hay 2 · 110 = 220 g disueltos.", "A 20 °C solo caben 2 · 32 = 64 g.", "Cristalizan 220 − 64 = 156 g."], resultado: "156 g de cristales." },
   ],
   errores: [
-    "Pensar que «puro» significa «natural»: el agua de un manantial es una mezcla, no una sustancia pura.",
-    "Usar como masa de disolución solo la del disolvente: es soluto más disolvente.",
-    "Dividir entre el volumen en mL cuando la concentración se pide en g/L.",
-    "Intentar separar una disolución con un filtro: el soluto disuelto pasa a través.",
-    "Creer que todas las sustancias se disuelven mejor en caliente: los gases, al revés.",
+    "Dividir entre el volumen de disolvente en vez de entre el volumen de disolución.",
+    "Calcular el % en masa dividiendo entre la masa de disolvente y no entre la de disolución (soluto + disolvente).",
+    "Pensar que una disolución se puede separar filtrando: el soluto atraviesa el filtro.",
+    "Creer que toda mezcla de aspecto uniforme es una disolución: la leche es un coloide.",
+    "Pensar que los gases se disuelven mejor en agua caliente: es al revés.",
+    "Confundir disolver (mezclar) con fundir (pasar de sólido a líquido).",
   ],
   ejercicios: [
-    { q: "Clasifica: agua del mar, oro, granito, aire, agua destilada, leche.", sol: "Sustancias puras: oro, agua destilada. Mezclas homogéneas: agua del mar, aire. Heterogénea: granito. Coloide: leche." },
-    { q: "Diferencia elemento y compuesto con un ejemplo de cada uno.", sol: "Un elemento no se descompone en sustancias más simples (hierro). Un compuesto está formado por varios elementos en proporción fija (agua)." },
-    { q: "Indica soluto y disolvente: a) agua con sal; b) aire; c) bronce.", sol: "a) Soluto sal, disolvente agua; b) soluto oxígeno y otros, disolvente nitrógeno; c) soluto estaño, disolvente cobre." },
-    { q: "Calcula la concentración en g/L de 30 g de azúcar en 500 mL de disolución.", sol: "30 / 0,5 = 60 g/L." },
-    { q: "¿Qué masa de soluto hay en 300 mL de una disolución de 40 g/L?", sol: "m = 40 · 0,3 = 12 g." },
-    { q: "Una colonia tiene 80 mL de alcohol en 100 mL. ¿Cuál es su porcentaje en volumen? ¿Y si tuviéramos 250 mL de colonia, cuánto alcohol habría?", sol: "80 %; 250 · 0,80 = 200 mL de alcohol." },
-    { q: "¿Qué es una disolución saturada?", sol: "La que contiene la máxima cantidad de soluto que se puede disolver a esa temperatura; si se añade más, no se disuelve." },
-    { q: "¿Por qué un refresco caliente tiene menos gas?", sol: "Porque la solubilidad de los gases disminuye al aumentar la temperatura." },
-    { q: "Propón un método para separar: a) agua y aceite; b) agua y alcohol; c) sal del agua de mar.", sol: "a) Decantación; b) destilación; c) cristalización o evaporación." },
-    { q: "Explica cómo separarías una mezcla de serrín, sal y limaduras de hierro.", sol: "Imán para el hierro; añadir agua: el serrín flota y la sal se disuelve; filtrar el serrín; evaporar el agua para obtener la sal." },
+    B("Define sustancia pura y mezcla y pon dos ejemplos de cada una.", "Sustancia pura: composición fija y propiedades constantes (agua destilada, oro). Mezcla: dos o más sustancias en proporción variable que se separan por métodos físicos (aire, granito)."),
+    B("Clasifica en heterogéneas u homogéneas: arena y agua, agua con sal, aire, ensalada, acero, agua con aceite.", "Heterogéneas: arena y agua, ensalada, agua con aceite. Homogéneas: agua con sal, aire, acero."),
+    B("Identifica soluto y disolvente: agua con azúcar; alcohol de 70 % vol; aire.", "Agua con azúcar: soluto azúcar, disolvente agua. Alcohol de 70 %: soluto agua, disolvente alcohol (el que está en mayor cantidad). Aire: solutos oxígeno y otros gases, disolvente nitrógeno."),
+    B("¿Qué es una aleación? Nombra dos.", "Una disolución sólida de metales: bronce (cobre y estaño), latón (cobre y cinc), acero (hierro y carbono)."),
+    B("Calcula la concentración en g/L de 40 g de sal en 2 L de disolución.", "c = 40 / 2 = 20 g/L."),
+    B("Calcula el % en masa de 5 g de azúcar en 45 g de agua.", "5 / 50 · 100 = 10 %."),
+    B("¿Qué significa que una cerveza tiene 5 % vol?", "Que hay 5 mL de alcohol en cada 100 mL de cerveza."),
+    B("¿Qué es una disolución saturada?", "La que contiene la máxima cantidad de soluto que se puede disolver a esa temperatura."),
+    B("¿Qué método usarías para separar: agua y aceite; arena y agua; hierro y azufre; sal del agua de mar?", "Decantación; filtración; separación magnética; evaporación o cristalización."),
+    B("¿Qué es el efecto Tyndall y para qué sirve?", "La dispersión de un haz de luz al atravesar un coloide, que lo hace visible. Sirve para distinguir un coloide de una disolución verdadera."),
+    B("Pon tres ejemplos de coloides.", "Leche, mayonesa, niebla, gelatina, humo, espuma."),
+    B("¿Por qué un refresco pierde antes el gas si está caliente?", "Porque la solubilidad de los gases disminuye al aumentar la temperatura."),
+    M("¿Qué masa de azúcar hay en 330 mL de un refresco de 105 g/L?", "m = 105 · 0,33 ≈ 34,7 g."),
+    M("¿Qué volumen de disolución de 25 g/L contiene 10 g de soluto?", "V = 10 / 25 = 0,4 L = 400 mL."),
+    M("¿Qué masa de sal y de agua necesitas para preparar 300 g de disolución al 4 % en masa?", "Sal: 4 · 300 / 100 = 12 g. Agua: 300 − 12 = 288 g."),
+    M("Una disolución tiene 18 g de soluto y una densidad de 1,08 g/mL; su volumen es 500 mL. Calcula su concentración en g/L y en % en masa.", "g/L: 18 / 0,5 = 36 g/L. Masa de disolución: 1,08 · 500 = 540 g; % = 18 / 540 · 100 ≈ 3,3 %."),
+    M("Se toman 50 mL de una disolución de 80 g/L y se diluyen con agua hasta 200 mL. ¿Cuál es la nueva concentración?", "c₂ = 80 · 50 / 200 = 20 g/L."),
+    M("¿Cuántos mL de alcohol puro hacen falta para preparar 500 mL de alcohol de 70 % vol?", "70 · 500 / 100 = 350 mL de alcohol, completando con agua hasta 500 mL."),
+    M("Explica cómo prepararías en el laboratorio 250 mL de una disolución de sulfato de cobre de 20 g/L.", "Pesar 20 · 0,25 = 5 g de sulfato de cobre, disolverlos en un vaso con un poco de agua, pasarlo a un matraz aforado de 250 mL, enjuagar el vaso, completar con agua hasta el enrase y agitar."),
+    M("Describe cómo separarías una mezcla de arena, sal y limaduras de hierro.", "Imán para retirar el hierro; añadir agua para disolver la sal; filtrar para retener la arena; evaporar el agua para recuperar la sal."),
+    M("La solubilidad del azúcar a 20 °C es 200 g/100 g de agua. ¿Qué ocurre si echas 300 g de azúcar en 100 g de agua a 20 °C?", "Se disuelven 200 g y quedan 100 g sin disolver en el fondo: la disolución está saturada."),
+    M("¿Por qué no sirve la filtración para quitar la sal del agua de mar?", "Porque la sal está disuelta: sus partículas son tan pequeñas que atraviesan los poros del filtro junto con el agua."),
+    M("Explica por qué los vertidos de agua caliente de una central pueden matar a los peces.", "Al aumentar la temperatura del río disminuye la solubilidad del oxígeno; hay menos oxígeno disuelto y los peces pueden asfixiarse."),
+    A("Mezclamos 200 mL de una disolución de 30 g/L con 300 mL de otra del mismo soluto de 10 g/L. ¿Cuál es la concentración final?", "Masa: 30 · 0,2 + 10 · 0,3 = 6 + 3 = 9 g. Volumen: 0,5 L. c = 9 / 0,5 = 18 g/L."),
+    A("El agua de mar tiene 35 g/L de sales. ¿Cuántos litros hay que evaporar para obtener 1 kg de sal? ¿Cuánta agua de mar hace falta para obtener 1 t?", "V = 1.000 / 35 ≈ 28,6 L. Para 1 t: 28.600 L ≈ 28,6 m³."),
+    A("Con una curva de solubilidad, a 40 °C la solubilidad de una sal es 60 g/100 g de agua. ¿Cuál es la concentración en % en masa de la disolución saturada?", "Masa de disolución: 160 g. % = 60 / 160 · 100 = 37,5 %."),
+    A("Diseña un procedimiento para separar los pigmentos de la tinta de un rotulador negro y explica en qué propiedad se basa.", "Cromatografía en papel: poner un punto de tinta sobre una tira de papel de filtro a 2 cm del borde, sumergir el borde en alcohol o agua sin mojar el punto y esperar. El disolvente sube y arrastra cada pigmento a distinta velocidad según su afinidad por el papel y por el disolvente, de modo que se separan en bandas de colores."),
+    A("Explica cómo funciona una destilación y por qué permite separar alcohol (78 °C) y agua (100 °C).", "Al calentar, el alcohol, con menor punto de ebullición, se evapora antes; el vapor pasa por el refrigerante, se condensa y se recoge aparte. Si se controla la temperatura cerca de 78 °C, se obtiene un líquido muy rico en alcohol."),
+    A("Una pastilla efervescente contiene 1 g de vitamina C y se disuelve en 200 mL de agua. Calcula la concentración en g/L y en mg/mL. ¿Cambia si se bebe solo la mitad?", "c = 1 / 0,2 = 5 g/L = 5 mg/mL. No cambia: la concentración es la misma en toda la disolución; solo se toma la mitad de la vitamina (0,5 g)."),
+    A("¿Cómo comprobarías si un líquido transparente es una sustancia pura o una disolución?", "Evaporando una muestra: si deja residuo, es una disolución. También midiendo su temperatura de ebullición: si es constante es pura; si sube mientras hierve, es una mezcla. Y comprobando el efecto Tyndall para descartar un coloide."),
+    A("Una potabilizadora recibe agua de río con barro, arena y microbios. Propón el orden de los tratamientos y justifícalo.", "Rejas y tamices para objetos grandes; decantación para que sedimente la arena; adición de coagulantes y nueva decantación para el barro fino; filtración con arena; desinfección con cloro o luz ultravioleta para los microbios. Se va de lo más grueso a lo más fino."),
   ],
   quiz: [
-    { q: "El agua del mar es…", o: ["una sustancia pura", "una mezcla homogénea", "una mezcla heterogénea"], a: 1, e: "Una disolución." },
-    { q: "El granito es una mezcla…", o: ["homogénea", "heterogénea", "pura"], a: 1, e: "Se ven sus granos." },
-    { q: "En una disolución, el componente mayoritario es…", o: ["el soluto", "el disolvente", "el coloide"], a: 1, e: "El disolvente." },
-    { q: "El bronce es…", o: ["un elemento", "una aleación", "un coloide"], a: 1, e: "Disolución sólida de estaño en cobre." },
-    { q: "10 g de sal en 0,5 L dan…", o: ["5 g/L", "20 g/L", "10 g/L"], a: 1, e: "10 / 0,5 = 20 g/L." },
-    { q: "La solubilidad de los gases al calentar…", o: ["aumenta", "disminuye", "no cambia"], a: 1, e: "Disminuye." },
-    { q: "Para separar arena y agua se usa…", o: ["destilación", "filtración", "imán"], a: 1, e: "Filtración." },
-    { q: "Para separar agua y aceite se usa…", o: ["decantación", "cristalización", "tamizado"], a: 0, e: "Decantación." },
-    { q: "La sal se obtiene en las salinas por…", o: ["destilación", "cristalización", "filtración"], a: 1, e: "Evaporación y cristalización." },
-    { q: "La leche es…", o: ["un coloide", "una sustancia pura", "un elemento"], a: 0, e: "Un coloide." },
+    q4("Es una sustancia pura…", ["el aire", "el agua destilada", "el agua de mar", "el granito"], 1, "Composición fija."),
+    q4("En una mezcla heterogénea…", ["no se distinguen los componentes", "se distinguen los componentes", "solo hay un componente", "la composición es fija"], 1, "Como el granito."),
+    q4("Una disolución es una mezcla…", ["heterogénea", "homogénea", "coloidal", "en suspensión"], 1, "Aspecto uniforme."),
+    q4("La leche es…", ["una sustancia pura", "una disolución", "un coloide", "un elemento"], 2, "Gotitas de grasa."),
+    q4("El efecto Tyndall permite reconocer…", ["disoluciones", "coloides", "elementos", "compuestos"], 1, "Dispersan la luz."),
+    q4("En el agua con sal, el soluto es…", ["el agua", "la sal", "el vaso", "los dos"], 1, "Está en menor cantidad."),
+    q4("El bronce es una disolución…", ["líquida", "gaseosa", "sólida", "coloidal"], 2, "Aleación de cobre y estaño."),
+    q4("La concentración en g/L se calcula…", ["m soluto / V disolvente", "m soluto / V disolución", "V / m", "m soluto · V"], 1, "Volumen de disolución."),
+    q4("10 g de sal en 0,5 L de disolución tienen…", ["5 g/L", "20 g/L", "10 g/L", "50 g/L"], 1, "10 / 0,5."),
+    q4("20 g de soluto en 80 g de agua: % en masa…", ["25 %", "20 %", "80 %", "16 %"], 1, "20 / 100 · 100."),
+    q4("Un vino de 12 % vol tiene en 100 mL…", ["12 g de alcohol", "12 mL de alcohol", "88 mL de alcohol", "1,2 mL de alcohol"], 1, "Porcentaje en volumen."),
+    q4("Al diluir una disolución, la masa de soluto…", ["aumenta", "disminuye", "no cambia", "se anula"], 2, "Solo aumenta el volumen."),
+    q4("Una disolución que no admite más soluto está…", ["diluida", "concentrada", "saturada", "evaporada"], 2, "Ha alcanzado la solubilidad."),
+    q4("La solubilidad de la mayoría de los sólidos al calentar…", ["aumenta", "disminuye", "no cambia", "se anula"], 0, "Azúcar en leche caliente."),
+    q4("La solubilidad de los gases al calentar…", ["aumenta", "disminuye", "no cambia", "se duplica"], 1, "El refresco caliente pierde gas."),
+    q4("Para separar agua y aceite se usa la…", ["filtración", "decantación", "destilación", "imantación"], 1, "Embudo de decantación."),
+    q4("Para separar arena del agua se usa la…", ["filtración", "destilación", "evaporación", "cromatografía"], 0, "La arena queda en el papel."),
+    q4("Para separar dos líquidos miscibles se usa la…", ["decantación", "destilación", "filtración", "tamización"], 1, "Distinto punto de ebullición."),
+    q4("En las salinas se obtiene la sal por…", ["destilación", "evaporación", "filtración", "decantación"], 1, "El sol evapora el agua."),
+    q4("Los pigmentos de una tinta se separan por…", ["cromatografía", "imantación", "tamizado", "decantación"], 0, "Avanzan a distinta velocidad."),
   ],
   examen: [
-    { q: "La destilación separa líquidos por su…", o: ["densidad", "temperatura de ebullición", "color"], a: 1, e: "Temperatura de ebullición." },
-    { q: "Un vino de 13 % vol tiene en 100 mL…", o: ["13 g de alcohol", "13 mL de alcohol", "87 mL de alcohol"], a: 1, e: "13 mL." },
-    { q: "Una disolución saturada…", o: ["no admite más soluto", "no tiene soluto", "es heterogénea"], a: 0, e: "No admite más soluto." },
+    q4("¿Qué masa de soluto hay en 400 mL de una disolución de 50 g/L?", ["20 g", "125 g", "8 g", "200 g"], 0, "50 · 0,4."),
+    q4("Se disuelven 30 g de azúcar en 120 g de agua. El % en masa es…", ["25 %", "20 %", "30 %", "15 %"], 1, "30 / 150 · 100."),
+    q4("100 mL de una disolución de 60 g/L se diluyen hasta 300 mL. La nueva concentración es…", ["180 g/L", "20 g/L", "60 g/L", "30 g/L"], 1, "60 · 100 / 300."),
+    q4("Para separar sal, arena y hierro, el primer paso más lógico es…", ["evaporar", "pasar un imán", "destilar", "centrifugar"], 1, "Retirar el hierro primero."),
+    q4("¿Cuál NO es una disolución?", ["Aire", "Acero", "Agua con azúcar", "Mayonesa"], 3, "Es un coloide."),
+    q4("Al enfriar una disolución saturada de un sólido, normalmente…", ["no pasa nada", "cristaliza soluto", "se evapora", "se diluye"], 1, "Disminuye la solubilidad."),
+    q4("La centrifugación separa según…", ["el punto de ebullición", "la densidad", "el magnetismo", "el color"], 1, "Lo más denso va al fondo."),
+    q4("Un líquido que al hervir mantiene su temperatura constante es…", ["una mezcla", "una sustancia pura", "un coloide", "una suspensión"], 1, "Punto de ebullición fijo."),
   ],
-  feynman: ["Qué diferencia hay entre sustancia pura, mezcla homogénea y heterogénea", "Cómo se calcula la concentración de una disolución", "Qué método elegir para separar cada mezcla y por qué"],
-  mapa: mapa("MEZCLAS", "var(--eso)", [
-    ["Tipos", "homogénea · heterogénea · coloide", "#b8860b"],
-    ["Disolución", "soluto · disolvente · saturada", "var(--pen)"],
-    ["Concentración", "g/L · % masa · % volumen", "var(--red)"],
-    ["Separación", "filtrar · decantar · destilar", "var(--leaf)"],
-  ], 300),
+  feynman: ["Qué diferencia hay entre una sustancia pura y una mezcla", "Cómo se distinguen mezclas heterogéneas, coloides y disoluciones", "Qué son el soluto y el disolvente", "Cómo se calcula la concentración en g/L y en porcentaje", "Qué es la solubilidad y cómo cambia con la temperatura", "Qué método se usa para separar cada tipo de mezcla"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Sustancia pura", "Composición fija y propiedades constantes."],
-    ["Mezcla homogénea", "Disolución: no se distinguen los componentes."],
-    ["Coloide", "Parece homogéneo, pero no lo es al microscopio: leche."],
-    ["Soluto y disolvente", "Soluto: en menor cantidad. Disolvente: en mayor cantidad."],
-    ["Concentración en g/L", "Gramos de soluto por litro de disolución."],
-    ["Solubilidad", "Máximo de soluto que se disuelve a una temperatura."],
+    ["Sustancia pura", "Composición fija; no se separa por métodos físicos."],
+    ["Mezcla", "Varias sustancias en proporción variable."],
+    ["Heterogénea", "Se distinguen sus componentes."],
+    ["Disolución", "Mezcla homogénea de soluto y disolvente."],
+    ["Coloide", "Parece homogéneo; efecto Tyndall."],
+    ["g/L", "m soluto (g) / V disolución (L)."],
+    ["% en masa", "m soluto / m disolución · 100."],
+    ["Dilución", "c₁ · V₁ = c₂ · V₂."],
+    ["Solubilidad", "Máximo de soluto disuelto a una temperatura."],
     ["Filtración", "Separa un sólido no disuelto de un líquido."],
-    ["Destilación", "Separa líquidos por su temperatura de ebullición."],
+    ["Decantación", "Separa líquidos inmiscibles por densidad."],
+    ["Destilación", "Separa líquidos por su punto de ebullición."],
   ],
-  familias: ["Haced cromatografía con un rotulador negro, papel de cocina y agua y ved los colores escondidos.", "Preparad agua con sal, dejadla al sol en un plato y observad los cristales al cabo de unos días.", "Repasad las tarjetas del paso 6 dos minutos al día."],
-  profesores: {
-    saberes: "La materia: sustancias puras y mezclas, disoluciones, concentración en masa y en porcentaje, solubilidad y técnicas de separación (RD 217/2022, Física y Química 2º y 3º).",
-    ideas: ["Reto por equipos: separar una mezcla de arena, sal, hierro y serrín.", "Preparar disoluciones de concentración conocida y comparar el color con permanganato o colorante.", "Curva de solubilidad del nitrato potásico con baño de agua."],
+  glosario: [
+    ["Sistema material", "Porción de materia que se aísla para estudiarla."],
+    ["Sustancia pura", "Materia de composición fija y propiedades constantes."],
+    ["Mezcla", "Combinación de sustancias que conservan sus propiedades."],
+    ["Mezcla heterogénea", "Mezcla en la que se distinguen sus componentes."],
+    ["Suspensión", "Mezcla con partículas sólidas que acaban sedimentando."],
+    ["Coloide", "Mezcla con partículas muy pequeñas que no sedimentan y dispersan la luz."],
+    ["Disolución", "Mezcla homogénea."],
+    ["Soluto", "Componente de una disolución que está en menor cantidad."],
+    ["Disolvente", "Componente de una disolución que está en mayor cantidad."],
+    ["Aleación", "Disolución sólida de metales."],
+    ["Concentración", "Cantidad de soluto en una cantidad de disolución."],
+    ["Disolución saturada", "La que no admite más soluto a esa temperatura."],
+    ["Solubilidad", "Cantidad máxima de soluto que se disuelve en una cantidad de disolvente."],
+    ["Cristalización", "Formación de cristales de soluto al evaporar o enfriar una disolución."],
+    ["Filtración", "Separación de un sólido y un líquido con un filtro."],
+    ["Decantación", "Separación de líquidos inmiscibles o de un sólido sedimentado."],
+    ["Destilación", "Separación por evaporación y condensación de líquidos con distinto punto de ebullición."],
+    ["Cromatografía", "Separación de sustancias que avanzan a distinta velocidad arrastradas por un disolvente."],
+  ],
+  situacion: {
+    titulo: "Agua segura para un campamento",
+    reto: "Vuestro grupo organiza un campamento junto a un río. Hay que diseñar un sistema sencillo y barato para obtener agua apta para lavarse y, si es posible, para beber, y preparar una bebida isotónica casera para las excursiones.",
+    pasos: [
+      "Analizad qué puede llevar el agua del río: arena, barro, hojas, sales disueltas y microbios, y clasificad cada componente.",
+      "Diseñad un filtro casero con botella, grava, arena y carbón, y probadlo con agua turbia en el laboratorio.",
+      "Investigad métodos de desinfección (hervir, cloro, radiación solar) y sus ventajas e inconvenientes.",
+      "Calculad las cantidades de azúcar y sal para preparar 1,5 L de bebida isotónica de 60 g/L de azúcar y 1 g/L de sal.",
+      "Preparad un cartel con las instrucciones y los avisos de seguridad.",
+    ],
+    producto: "Un prototipo de filtro probado, un informe con los resultados y un cartel de instrucciones para el campamento.",
+    evaluacion: ["Clasifican correctamente los componentes de la mezcla y eligen métodos adecuados.", "El filtro está bien diseñado y se evalúa con criterios objetivos.", "Los cálculos de concentración son correctos.", "El cartel es claro e incluye avisos de seguridad."],
   },
-  fuentes: [RD, wiki("Disolución", "Disoluci%C3%B3n"), wiki("Mezcla", "Mezcla")],
-  revisado: "2026-11-12",
+  familias: [
+    "Preparad mayonesa casera y comentad por qué la yema hace que el aceite y el limón no se separen.",
+    "Haced una cromatografía con una tira de papel de cocina, un rotulador y un vaso con un poco de agua.",
+    "Leed las etiquetas de bebidas y productos de limpieza y buscad concentraciones en g/L o en porcentaje.",
+    "Dejad un plato con agua del grifo y otro con agua con sal al sol y observad qué queda.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La materia»: sustancias puras y mezclas, mezclas homogéneas y heterogéneas, disoluciones y su concentración (g/L, % en masa y en volumen), solubilidad y curvas de solubilidad, métodos de separación de mezclas y su aplicación en la vida cotidiana y la industria.`,
+    ideas: [
+      "Preparación de disoluciones de concentración conocida con balanza y matraz aforado.",
+      "Curva de solubilidad del nitrato de potasio midiendo la temperatura de cristalización.",
+      "Separación de una mezcla de arena, sal y limaduras de hierro.",
+      "Cromatografía de pigmentos de rotuladores o de hojas de espinaca.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    wiki("Disolución", "Disoluci%C3%B3n"),
+    wiki("Separación de mezclas", "Separaci%C3%B3n_de_mezclas"),
+    { t: "Simulación «Concentración», PhET", url: "https://phet.colorado.edu/es/simulations/concentration" },
+  ],
+  revisado: "2026-11-13",
 };
