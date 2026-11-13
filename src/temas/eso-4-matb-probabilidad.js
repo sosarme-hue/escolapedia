@@ -1,162 +1,249 @@
-// Matemáticas B 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
+// Matemáticas B 4º ESO · Tema 14. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, arbol, graf } = require("./_eso4L3");
+
+// Diagrama de Venn con dos conjuntos; som: qué zona se sombrea ("union", "inter", "contrario", "") .
+const venn = (aria, som, pie, extra = "") => {
+  const zona = { union: `<circle cx="100" cy="88" r="52" fill="var(--pen)" fill-opacity=".25"/><circle cx="160" cy="88" r="52" fill="var(--pen)" fill-opacity=".25"/>`, inter: `<clipPath id="vi14"><circle cx="100" cy="88" r="52"/></clipPath><circle cx="160" cy="88" r="52" fill="var(--red)" fill-opacity=".35" clip-path="url(#vi14)"/>`, contrario: `<rect x="14" y="20" width="232" height="136" rx="8" fill="var(--leaf)" fill-opacity=".22"/><circle cx="100" cy="88" r="52" fill="var(--paper)"/>`, "": "" }[som];
+  return lienzo(aria, `<rect x="14" y="20" width="232" height="136" rx="8" fill="none" stroke="var(--ink)" stroke-width="2"/>${zona}<circle cx="100" cy="88" r="52" fill="none" stroke="var(--pen)" stroke-width="2.4"/>${som !== "contrario" ? `<circle cx="160" cy="88" r="52" fill="none" stroke="var(--red)" stroke-width="2.4"/>${t(196, 44, "B", { c: "var(--red)", s: 14, b: 1 })}` : ""}${t(64, 44, "A", { c: "var(--pen)", s: 14, b: 1 })}${t(28, 38, "E", { s: 13, b: 1 })}${t(130, 174, pie, { s: 12, b: 1 })}${extra}`);
+};
 
 module.exports = {
   materia: "Matemáticas B",
   curso: "4-eso",
   titulo: "Probabilidad",
-  minutos: 45,
-  objetivos: ["Aplicar la regla de Laplace y las propiedades de la probabilidad", "Calcular probabilidades de experimentos compuestos con diagramas de árbol y tablas de contingencia", "Distinguir sucesos dependientes e independientes y usar la probabilidad condicionada"],
-  claves: ["suceso", "regla de Laplace", "suceso contrario", "diagrama de árbol", "probabilidad condicionada", "independencia"],
+  minutos: 115,
+  objetivos: [
+    "Describir experimentos aleatorios, su espacio muestral y operar con sucesos",
+    "Relacionar frecuencia relativa y probabilidad mediante la ley de los grandes números",
+    "Aplicar la regla de Laplace, con ayuda de la combinatoria cuando haga falta",
+    "Usar las propiedades de la probabilidad, el suceso contrario y la probabilidad de la unión",
+    "Calcular probabilidades condicionadas con tablas de contingencia y diagramas de árbol",
+    "Resolver experimentos compuestos, con y sin reemplazamiento, y aplicar la probabilidad total",
+  ],
+  claves: ["experimento aleatorio", "espacio muestral", "suceso", "regla de Laplace", "frecuencia relativa", "suceso contrario", "incompatibles", "tabla de contingencia", "probabilidad condicionada", "independientes", "diagrama de árbol", "probabilidad total"],
+  lectura: {
+    titulo: "Una partida interrumpida",
+    html: `<p>En 1654, un jugador francés llamado Antoine Gombaud, el caballero de Méré, planteó un problema a su amigo, el matemático Blaise Pascal. Dos jugadores apuestan 32 monedas a ver quién gana primero tres partidas de un juego de azar. Cuando uno lleva dos victorias y el otro una, la partida se interrumpe. ¿Cómo se debe repartir el dinero de forma justa?</p>
+    <p>Pascal se lo contó por carta a otro gran matemático, Pierre de Fermat, y entre los dos encontraron la respuesta razonando sobre todo lo que <b>podría haber pasado</b> si el juego hubiera continuado: el primer jugador tenía 3 posibilidades de 4 de ganar, así que le correspondían 24 monedas y al otro 8. Esa correspondencia se considera el nacimiento de la <b>teoría de la probabilidad</b>.</p>
+    <p>Lo que empezó con dados y naipes es hoy una de las herramientas más poderosas de la ciencia. Con probabilidad se calculan las primas de los seguros, se interpretan las pruebas médicas, se predice el tiempo («70 % de probabilidad de lluvia»), se diseñan los filtros de correo basura y los sistemas de recomendación, y se evalúan los riesgos de una inversión o de una catástrofe natural. Aprender a razonar con probabilidades te protegerá también de muchos engaños: desde los juegos de apuestas hasta las estadísticas mal interpretadas de las noticias.</p>`,
+  },
   pregunta: {
     texto: "En una clase de 23 alumnos, ¿qué es más probable: que dos cumplan años el mismo día o que no?",
     respuesta: "¡Que sí coincidan! La probabilidad es de un <mark>50,7 %</mark>. Se calcula con el <b>suceso contrario</b>: la probabilidad de que nadie coincida es 365/365 · 364/365 · … · 343/365 ≈ 0,493, así que la de coincidir es 1 − 0,493.",
   },
   bloques: [
     {
-      html: `<h3>Experimentos aleatorios y regla de Laplace</h3><p>Un experimento es <b>aleatorio</b> si no se puede predecir el resultado. El conjunto de resultados es el <b>espacio muestral</b> E. Si todos los resultados son <mark>igual de probables</mark>:</p><div class="formula"><span>P(A) = casos favorables / casos posibles</span></div><p>Sacar un número par en un dado: P = 3/6 = 0,5.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Seis caras de un dado; las caras pares 2, 4 y 6 están resaltadas: probabilidad 3 de 6">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[1, 2, 3, 4, 5, 6].map((n, i) => { const x = 22 + (i % 3) * 76, y = 22 + Math.floor(i / 3) * 70; const par = n % 2 === 0; const dots = { 1: [[0, 0]], 2: [[-1, -1], [1, 1]], 3: [[-1, -1], [0, 0], [1, 1]], 4: [[-1, -1], [1, -1], [-1, 1], [1, 1]], 5: [[-1, -1], [1, -1], [0, 0], [-1, 1], [1, 1]], 6: [[-1, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [1, 1]] }[n];
-          return `<rect x="${x}" y="${y}" width="56" height="56" rx="10" fill="${par ? "var(--hl)" : "var(--card)"}" stroke="var(--ink)" stroke-width="2"/>${dots.map(([a, b]) => `<circle cx="${x + 28 + a * 14}" cy="${y + 28 + b * 14}" r="4.5" fill="var(--ink)"/>`).join("")}`; }).join("")}
-        <text x="130" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)" ${F}>P(par) = 3/6 = 1/2</text></svg>`,
+      html: `<h3>14.1 Experimentos aleatorios y sucesos</h3><p>Un <b>experimento aleatorio</b> es aquel cuyo resultado <mark>no se puede predecir</mark> aunque se repita en las mismas condiciones: lanzar un dado, sacar una carta, observar si mañana llueve. Los experimentos cuyo resultado se conoce de antemano (soltar una piedra y ver si cae) se llaman <b>deterministas</b>.</p><p>Vocabulario básico:</p><ul><li>El <b>espacio muestral</b>, E, es el conjunto de todos los resultados posibles. Al lanzar un dado, E = {1, 2, 3, 4, 5, 6}.</li><li>Un <b>suceso</b> es cualquier subconjunto del espacio muestral. «Sacar par» es A = {2, 4, 6}.</li><li>Un <b>suceso elemental</b> tiene un solo resultado, como {5}.</li><li>El <b>suceso seguro</b> es E (siempre ocurre) y el <b>suceso imposible</b> es ∅ (nunca ocurre), como «sacar un 7».</li></ul><p>Cuando el experimento es <b>compuesto</b>, el espacio muestral se puede describir con una tabla o un diagrama de árbol. Al lanzar dos monedas, E = {CC, CX, XC, XX}; al lanzar dos dados, E tiene 6 · 6 = 36 resultados, que se organizan en una tabla de doble entrada.</p><p>Describir bien el espacio muestral es el primer paso de cualquier problema de probabilidad, y uno de los que más errores provoca: por ejemplo, al lanzar dos monedas, «una cara y una cruz» corresponde a dos resultados, CX y XC, no a uno.</p>`,
+      svg: lienzo("Espacio muestral de lanzar dos dados: tabla de 36 resultados con los 6 de suma 7 resaltados", `${[1, 2, 3, 4, 5, 6].map((i) => `${t(54 + i * 26, 30, String(i), { s: 11, b: 1, c: "var(--red)" })}${t(52, 33 + i * 20, String(i), { s: 11, b: 1, c: "var(--pen)" })}${[1, 2, 3, 4, 5, 6].map((j) => `<rect x="${42 + j * 26}" y="${20 + i * 20}" width="24" height="18" rx="4" fill="${i + j === 7 ? "var(--leaf)" : "var(--card)"}" fill-opacity="${i + j === 7 ? ".35" : "1"}" stroke="var(--line)"/>${t(54 + j * 26, 33 + i * 20, String(i + j), { s: 10, b: i + j === 7 ? 1 : 0 })}`).join("")}`).join("")}${t(130, 174, "36 resultados; suma 7 en 6 de ellos", { c: "var(--leaf)", s: 11, b: 1 })}`),
     },
     {
-      html: `<h3>Propiedades básicas</h3><p>La probabilidad está <b>entre 0 y 1</b> (0 = imposible, 1 = seguro). El <b>suceso contrario</b> Ā ocurre cuando no ocurre A: <mark>P(Ā) = 1 − P(A)</mark>. Para la unión de dos sucesos:</p><div class="formula"><span>P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</span></div><p>Se resta la intersección para no contarla dos veces.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de Venn con dos sucesos A y B que se solapan; la zona común es la intersección">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="14" y="14" width="232" height="140" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
-        <circle cx="100" cy="84" r="50" fill="var(--pen)" fill-opacity=".25" stroke="var(--pen)" stroke-width="2.5"/><circle cx="160" cy="84" r="50" fill="var(--red)" fill-opacity=".25" stroke="var(--red)" stroke-width="2.5"/>
-        <g ${F} font-size="14" font-weight="700"><text x="74" y="88" fill="var(--pen)">A</text><text x="178" y="88" fill="var(--red)">B</text><text x="130" y="88" text-anchor="middle" font-size="12" fill="var(--ink)">A∩B</text><text x="24" y="32" font-size="12" fill="var(--muted)">E</text>
-        <text x="130" y="172" text-anchor="middle" font-size="12" fill="var(--ink)">P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</text></g></svg>`,
+      html: `<h3>14.2 Operaciones con sucesos</h3><p>Con los sucesos se puede operar como con los conjuntos, y los <b>diagramas de Venn</b> ayudan a visualizarlo:</p><ul><li><b>Unión</b> A ∪ B: ocurre A <b>o</b> B (o ambos). Con un dado, si A = «par» = {2, 4, 6} y B = «mayor que 3» = {4, 5, 6}, entonces A ∪ B = {2, 4, 5, 6}.</li><li><b>Intersección</b> A ∩ B: ocurren A <b>y</b> B a la vez. A ∩ B = {4, 6}.</li><li><b>Suceso contrario</b> Ā (o A′): ocurre cuando <b>no</b> ocurre A. Ā = {1, 3, 5}.</li><li><b>Diferencia</b> A − B: ocurre A pero no B. A − B = {2}.</li></ul><p>Dos sucesos son <b>incompatibles</b> si <mark>no pueden ocurrir a la vez</mark>: A ∩ B = ∅. «Sacar un 2» y «sacar impar» son incompatibles. En cambio, «par» y «mayor que 3» son <b>compatibles</b>, porque comparten el 4 y el 6.</p><p>Un suceso y su contrario son siempre incompatibles y, además, entre los dos cubren todo el espacio: A ∪ Ā = E. Las <b>leyes de De Morgan</b> relacionan las operaciones: el contrario de «A o B» es «ni A ni B» (Ā ∩ B̄), y el contrario de «A y B» es «no A o no B» (Ā ∪ B̄). Son muy útiles para traducir frases como «al menos uno» o «ninguno».</p>`,
+      svg: venn("Diagrama de Venn con dos sucesos compatibles A y B y su intersección sombreada", "inter", "A ∩ B: ocurren los dos a la vez", `${t(66, 92, "2", { s: 13, b: 1 })}${t(130, 82, "4", { s: 13, b: 1 })}${t(130, 104, "6", { s: 13, b: 1 })}${t(194, 92, "5", { s: 13, b: 1 })}${t(34, 140, "1 · 3", { s: 12, c: "var(--muted)" })}`),
+      video: { id: "kPfL3wSZWmE", titulo: "Sucesos compatibles e incompatibles", canal: "Susi Profe", vistas: 212279, busqueda: "sucesos compatibles e incompatibles" },
     },
     {
-      html: `<h3>Experimentos compuestos: el diagrama de árbol</h3><p>Cuando el experimento tiene varias etapas, se dibuja un árbol con la probabilidad en cada rama. La probabilidad de un camino es el <mark>producto</mark> de sus ramas, y si varios caminos dan el mismo resultado, se <mark>suman</mark>.</p><p>Sacar dos bolas rojas sin devolución de una urna con 3 rojas y 2 azules: 3/5 · 2/4 = <b>3/10</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Árbol de dos extracciones sin devolución de una urna con 3 rojas y 2 azules; el camino rojo-rojo tiene probabilidad 3/5 por 2/4">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <circle cx="20" cy="90" r="5" fill="var(--ink)"/>
-        <path d="M20 90 L 100 46 M20 90 L 100 134" stroke="var(--muted)" stroke-width="2"/><path d="M20 90 L 100 46" stroke="var(--red)" stroke-width="3.5"/>
-        <circle cx="108" cy="46" r="9" fill="var(--red)"/><circle cx="108" cy="134" r="9" fill="var(--pen)"/>
-        ${[[46, -1, "2/4", "var(--red)"], [46, 1, "2/4", "var(--pen)"], [134, -1, "3/4", "var(--red)"], [134, 1, "1/4", "var(--pen)"]].map(([y, s, p, c], i) => `<path d="M117 ${y} L 196 ${y + s * 20}" stroke="${i === 0 ? "var(--red)" : "var(--muted)"}" stroke-width="${i === 0 ? 3.5 : 2}"/><circle cx="204" cy="${y + s * 20}" r="8" fill="${c}"/><text x="150" y="${y + s * 20 + (s < 0 ? -2 : 14)}" font-size="11" font-weight="700" fill="var(--ink)" ${F}>${p}</text>`).join("")}
-        <g ${F} font-size="12" font-weight="700"><text x="40" y="58" fill="var(--red)">3/5</text><text x="40" y="132" fill="var(--pen)">2/5</text><text x="216" y="30" fill="var(--red)">3/10</text></g></svg>`,
+      html: `<h3>14.3 Frecuencia relativa y ley de los grandes números</h3><p>Si repetimos un experimento n veces y el suceso A ocurre nₐ veces, su <b>frecuencia relativa</b> es fᵣ(A) = nₐ / n, un número entre 0 y 1.</p><p>Con pocas repeticiones, la frecuencia relativa varía mucho: al lanzar una moneda 10 veces pueden salir 7 caras (0,7). Pero al aumentar el número de lanzamientos, la frecuencia relativa <mark>se estabiliza alrededor de un valor fijo</mark>. Este hecho experimental se conoce como <b>ley de los grandes números</b>, y ese valor es la <b>probabilidad</b> del suceso, P(A).</p><p>El naturalista francés Buffon lanzó una moneda 4.040 veces y obtuvo 2.048 caras (0,507). El estadístico Karl Pearson la lanzó 24.000 veces y obtuvo 12.012 caras (0,5005). Hoy un ordenador puede simular un millón de lanzamientos en un instante y la frecuencia queda pegadísima a 0,5.</p><p>Esta forma de entender la probabilidad, llamada <b>frecuentista</b> o experimental, es la única posible cuando no hay simetría: ¿cuál es la probabilidad de que una chincheta caiga con la punta hacia arriba? ¿Y de que un recién nacido sea niña (≈ 0,486 en España)? Solo se puede estimar repitiendo muchas veces. Las compañías de seguros usan frecuencias de millones de casos para estimar la probabilidad de un accidente.</p>`,
+      svg: graf("Frecuencia relativa de caras al lanzar una moneda: oscila al principio y se estabiliza en 0,5 al aumentar los lanzamientos", { x0: 0, x1: 100, y0: 0, y1: 1, paso: 10, pasoY: 0.25, pasoEt: 20, m: 20 }, (E) => { const pts = []; let c = 0; for (let n = 1; n <= 100; n++) { c += [1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0][n % 20] ^ (n % 7 === 0 ? 1 : 0); pts.push([n, c / n]); } return `${E.seg(0, 0.5, 100, 0.5, "var(--red)", 1.8, 'stroke-dasharray="6 4"')}<path d="M${pts.map(([x, y]) => `${E.X(x)} ${E.Y(y)}`).join(" L ")}" fill="none" stroke="var(--pen)" stroke-width="2.2"/>${t(E.X(70), E.Y(0.5) + 20, "P = 0,5", { c: "var(--red)", s: 11, b: 1 })}${t(E.w - 8, 14, "lanzamientos", { c: "var(--muted)", s: 9, a: "end" })}`; }),
     },
     {
-      html: `<h3>Probabilidad condicionada</h3><p>P(A | B) es la probabilidad de A <mark>sabiendo que ha ocurrido B</mark>. Restringe el espacio muestral a B:</p><div class="formula"><span>P(A | B) = P(A ∩ B) / P(B)</span></div><p>Las <b>tablas de contingencia</b> ayudan mucho: si de 30 alumnos, 12 son chicas y 8 de ellas llevan gafas, P(gafas | chica) = 8/12.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tabla de contingencia de 30 alumnos por sexo y gafas; la fila de chicas está resaltada: 8 de 12 llevan gafas">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="16" y="76" width="228" height="34" fill="var(--hl)"/>
-        <g ${F} font-size="13" text-anchor="middle"><g font-weight="700" fill="var(--muted)"><text x="120" y="56">gafas</text><text x="180" y="56">sin gafas</text><text x="228" y="56">total</text></g>
-          <text x="52" y="98" font-weight="700" fill="var(--ink)">chicas</text><text x="120" y="98" font-weight="700" fill="var(--red)">8</text><text x="180" y="98" fill="var(--ink)">4</text><text x="228" y="98" font-weight="700" fill="var(--red)">12</text>
-          <text x="52" y="134" font-weight="700" fill="var(--ink)">chicos</text><text x="120" y="134" fill="var(--ink)">5</text><text x="180" y="134" fill="var(--ink)">13</text><text x="228" y="134" fill="var(--ink)">18</text>
-          <text x="130" y="170" font-weight="700" fill="var(--ink)">P(gafas | chica) = 8/12 = 2/3</text></g>
-        <path d="M16 66 H 244 M16 146 H 244" stroke="var(--line)" stroke-width="2"/></svg>`,
+      html: `<h3>14.4 La regla de Laplace</h3><p>Cuando todos los resultados de un experimento tienen <b>la misma posibilidad</b> de salir (son <b>equiprobables</b>), como en un dado no trucado o una baraja bien mezclada, la probabilidad se puede calcular sin repetir el experimento, con la <b>regla de Laplace</b>:</p><div class="formula"><span>P(A) = número de casos favorables / número de casos posibles</span></div><p>Ejemplos:</p><ul><li>Sacar un número primo con un dado: favorables {2, 3, 5}, P = 3/6 = 1/2.</li><li>Sacar un as de una baraja española de 40 cartas: P = 4/40 = 1/10.</li><li>Que la suma de dos dados sea 7: 6 casos de 36, P = 6/36 = <mark>1/6</mark>. Es la suma más probable.</li></ul><p>De la regla se deduce que toda probabilidad está entre 0 (suceso imposible) y 1 (suceso seguro). A menudo se expresa en <b>porcentaje</b>: 1/6 ≈ 16,7 %.</p><p>Hay que tener mucho cuidado con la condición de <b>equiprobabilidad</b>. Al lanzar dos monedas, los resultados «dos caras», «dos cruces» y «una de cada» no son equiprobables: el último tiene probabilidad 2/4 = 1/2 y los otros, 1/4. El propio D'Alembert, un gran matemático del siglo XVIII, se equivocó en este punto. Lo seguro es usar siempre un espacio muestral de resultados elementales equiprobables.</p>`,
+      svg: tarjeta("Regla de Laplace: casos favorables entre casos posibles; ejemplo, suma 7 con dos dados, 6 entre 36 igual a un sexto", "Regla de Laplace", [["P(A) = favorables / posibles", "var(--pen)", 15, 1], ["solo si los casos son equiprobables", "var(--muted)", 12], ["suma 7 con dos dados", "var(--leaf)", 13, 1], ["6 / 36 = 1/6 ≈ 16,7 %", "var(--red)", 16, 1]]),
+      video: { id: "52dHFBQCgnk", titulo: "Regla de Laplace", canal: "Archimedes Tube", vistas: 188845, busqueda: "regla de Laplace probabilidad" },
     },
     {
-      html: `<h3>Sucesos independientes</h3><p>A y B son <b>independientes</b> si que ocurra uno <mark>no cambia</mark> la probabilidad del otro: P(A | B) = P(A). Entonces:</p><div class="formula"><span>P(A ∩ B) = P(A) · P(B)</span></div><p>Lanzar dos monedas es independiente; sacar cartas sin devolverlas, no. Error típico: tras 5 caras seguidas, la probabilidad de cara sigue siendo 1/2 (la moneda no tiene memoria).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cinco caras seguidas y la sexta tirada sigue teniendo probabilidad un medio: la moneda no tiene memoria">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[0, 1, 2, 3, 4].map((i) => `<circle cx="${30 + i * 40}" cy="70" r="16" fill="var(--hl)" stroke="var(--hl-ink)" stroke-width="2"/><text x="${30 + i * 40}" y="75" text-anchor="middle" font-size="13" font-weight="700" fill="var(--hl-ink)" ${F}>C</text>`).join("")}
-        <circle cx="230" cy="70" r="16" fill="var(--card)" stroke="var(--ink)" stroke-width="2" stroke-dasharray="4 3"/><text x="230" y="76" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" ${F}>?</text>
-        <text x="130" y="124" text-anchor="middle" font-size="16" font-weight="700" fill="var(--red)" ${F}>P(cara) = 1/2</text><text x="130" y="150" text-anchor="middle" font-size="12" fill="var(--muted)" ${F}>la moneda no tiene memoria</text></svg>`,
+      html: `<h3>14.5 Laplace y combinatoria</h3><p>Cuando los casos posibles son muchos, no se pueden escribir uno a uno: se cuentan con las técnicas del tema anterior.</p><ul><li><b>Lotería Primitiva</b>: hay C₄₉,₆ = 13.983.816 combinaciones y solo una gana. P(acertar los 6) = 1/13.983.816 ≈ 0,00000007. Es más probable que te caiga un rayo a lo largo de tu vida.</li><li><b>Contraseña</b>: si alguien intenta adivinar un PIN de 4 cifras al azar, P = 1/10.000 en cada intento.</li><li><b>Póquer o mus</b>: la probabilidad de recibir 5 cartas de oros de una baraja de 40 es C₁₀,₅ / C₄₀,₅ = 252/658.008 ≈ 0,00038.</li><li><b>Comités</b>: en una clase de 10 chicas y 8 chicos se elige al azar una comisión de 3. La probabilidad de que sean todas chicas es C₁₀,₃ / C₁₈,₃ = 120/816 ≈ <mark>0,147</mark>.</li></ul><p>El esquema es siempre el mismo: contar los casos posibles con la fórmula adecuada (¿importa el orden? ¿hay repetición?) y contar los favorables <b>con el mismo criterio</b>. Si los posibles se cuentan como combinaciones, los favorables también. Mezclar criterios (contar los posibles con orden y los favorables sin orden) es uno de los errores más frecuentes en este tipo de problemas.</p>`,
+      svg: lienzo("Probabilidad de acertar la Primitiva: 1 entre casi 14 millones, comparada con otras probabilidades", `${[["sacar un 6", 1 / 6, "1/6"], ["as de 40 cartas", 0.1, "1/10"], ["PIN al azar", 1e-4, "1/10⁴"], ["Primitiva", 7.15e-8, "1/1,4·10⁷"]].map(([n, p, v], i) => { const y = 26 + i * 34; const L = Math.max(4, (8 + Math.log10(p)) * 16); return `${t(100, y + 15, n, { s: 11, b: 1, a: "end" })}<rect x="106" y="${y}" width="${L.toFixed(1)}" height="20" rx="5" fill="${["var(--leaf)", "var(--pen)", "var(--inf)", "var(--red)"][i]}"/>${t(112 + L, y + 15, v, { s: 11, b: 1, a: "start" })}`; }).join("")}${t(130, 170, "escala logarítmica", { s: 10, c: "var(--muted)" })}`),
+    },
+    {
+      html: `<h3>14.6 Propiedades de la probabilidad</h3><p>Las probabilidades, se calculen como se calculen, cumplen siempre estas propiedades:</p><ol><li>0 ≤ P(A) ≤ 1; P(E) = 1 y P(∅) = 0.</li><li><b>Suceso contrario</b>: <mark>P(Ā) = 1 − P(A)</mark>.</li><li><b>Unión de incompatibles</b>: si A ∩ B = ∅, P(A ∪ B) = P(A) + P(B).</li><li><b>Unión en general</b>: <mark>P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</mark>. Se resta la intersección porque, al sumar, se ha contado dos veces.</li></ol><p>Ejemplo: con un dado, A = «par» y B = «mayor que 3». P(A) = 1/2, P(B) = 1/2, P(A ∩ B) = P({4, 6}) = 1/3. Entonces P(A ∪ B) = 1/2 + 1/2 − 1/3 = 2/3. Se comprueba directamente: A ∪ B = {2, 4, 5, 6}, 4/6 = 2/3.</p><p>La propiedad del contrario es especialmente útil en los problemas de «<b>al menos uno</b>». ¿Cuál es la probabilidad de sacar al menos un 6 en 4 lanzamientos de un dado? Contar todos los casos favorables es largo; es mucho más fácil calcular la del contrario, «ningún 6»: (5/6)⁴ ≈ 0,482. Por tanto, P(al menos un 6) = 1 − 0,482 = <b>0,518</b>. Este fue precisamente uno de los problemas que el caballero de Méré planteó a Pascal: había observado que apostar a favor le hacía ganar dinero a la larga.</p>`,
+      svg: venn("Probabilidad de la unión: se suman las de A y B y se resta la de la intersección, que se ha contado dos veces", "union", "P(A ∪ B) = P(A) + P(B) − P(A ∩ B)"),
+    },
+    {
+      html: `<h3>14.7 Tablas de contingencia</h3><p>Cuando los individuos de una población se clasifican según <b>dos características</b>, los datos se organizan en una <b>tabla de contingencia</b> (de doble entrada) con los totales de cada fila y cada columna. A partir de ella se calculan muchas probabilidades con la regla de Laplace.</p><p>Ejemplo: en una clase de 30 alumnos se observa quién usa gafas:</p><table><tr><th></th><th>Gafas</th><th>Sin gafas</th><th>Total</th></tr><tr><th>Chicas</th><td>6</td><td>10</td><td>16</td></tr><tr><th>Chicos</th><td>4</td><td>10</td><td>14</td></tr><tr><th>Total</th><td>10</td><td>20</td><td>30</td></tr></table><p>Si se elige un alumno al azar:</p><ul><li>P(gafas) = 10/30 = 1/3.</li><li>P(chica y gafas) = 6/30 = 1/5. Es una probabilidad de <b>intersección</b>: se mira la casilla.</li><li>P(chica o gafas) = (16 + 10 − 6)/30 = 20/30 = 2/3.</li></ul><p>Las tablas de contingencia son muy útiles porque evitan muchos errores: cada número tiene su sitio y los totales permiten comprobar las cuentas. También se pueden construir con <b>porcentajes</b> o con probabilidades en lugar de frecuencias. Si un problema da datos del tipo «el 40 % de… y de ellos el 25 %…», a menudo conviene imaginar una población de 100 o de 1.000 personas y rellenar la tabla.</p>`,
+      svg: lienzo("Tabla de contingencia de 30 alumnos por sexo y uso de gafas", `${[["", "Gafas", "Sin", "Total"], ["Chicas", "6", "10", "16"], ["Chicos", "4", "10", "14"], ["Total", "10", "20", "30"]].map((f, i) => f.map((v, j) => `<rect x="${12 + j * 60}" y="${24 + i * 32}" width="58" height="30" rx="4" fill="${i === 1 && j === 1 ? "var(--red)" : i === 0 || j === 0 ? "var(--grid)" : "var(--card)"}" fill-opacity="${i === 1 && j === 1 ? ".25" : "1"}" stroke="var(--line)"/>${t(41 + j * 60, 44 + i * 32, v, { s: 12, b: i === 0 || j === 0 || i === 3 || j === 3 ? 1 : 0, c: i === 1 && j === 1 ? "var(--red)" : "var(--ink)" })}`).join("")).join("")}${t(130, 172, "P(chica y gafas) = 6/30 = 0,2", { c: "var(--red)", s: 12, b: 1 })}`),
+      video: { id: "swOYG7bg3Lk", titulo: "Probabilidad: tablas de contingencia, ejercicios resueltos", canal: "profesor10demates", vistas: 257278, busqueda: "tablas de contingencia probabilidad" },
+    },
+    {
+      html: `<h3>14.8 Probabilidad condicionada</h3><p>A veces tenemos una <b>información previa</b> que cambia la probabilidad. ¿Cuál es la probabilidad de que un alumno use gafas <b>sabiendo que es chica</b>? Ya no elegimos entre los 30 alumnos, sino solo entre las 16 chicas: P(gafas | chica) = 6/16 = <mark>0,375</mark>, distinta de P(gafas) = 1/3.</p><p>Se llama <b>probabilidad de A condicionada a B</b>, y se escribe P(A | B), a la probabilidad de que ocurra A sabiendo que ha ocurrido B:</p><div class="formula"><span>P(A | B) = P(A ∩ B) / P(B)</span></div><p>En el ejemplo: P(gafas | chica) = (6/30)/(16/30) = 6/16. Con la tabla es muy sencillo: <b>la condición indica qué fila o columna hay que mirar</b>, y en ella se aplica Laplace.</p><p>Cuidado: P(A | B) y P(B | A) son <b>distintas</b>. P(chica | gafas) = 6/10 = 0,6 (de los 10 que llevan gafas, 6 son chicas), mientras que P(gafas | chica) = 0,375. Confundirlas es un error muy común, con consecuencias graves en medicina o en los juicios: no es lo mismo «la probabilidad de dar positivo si se está enfermo» que «la probabilidad de estar enfermo si se da positivo».</p><p>Despejando en la fórmula se obtiene la <b>regla del producto</b>: P(A ∩ B) = P(B) · P(A | B), que es la base de los diagramas de árbol.</p>`,
+      svg: lienzo("Probabilidad condicionada: sabiendo que es chica, se mira solo la fila de chicas; gafas condicionado a chica es 6 entre 16", `${[["", "Gafas", "Sin", "Total"], ["Chicas", "6", "10", "16"], ["Chicos", "4", "10", "14"]].map((f, i) => f.map((v, j) => `<rect x="${12 + j * 60}" y="${24 + i * 32}" width="58" height="30" rx="4" fill="${i === 1 && j > 0 ? "var(--pen)" : i === 0 || j === 0 ? "var(--grid)" : "var(--card)"}" fill-opacity="${i === 1 && j > 0 ? ".2" : i === 2 ? ".4" : "1"}" stroke="${i === 1 ? "var(--pen)" : "var(--line)"}" stroke-width="${i === 1 ? 2 : 1}"/>${t(41 + j * 60, 44 + i * 32, v, { s: 12, b: i === 1 || i === 0 || j === 0 ? 1 : 0, c: i === 2 ? "var(--muted)" : "var(--ink)" })}`).join("")).join("")}${t(130, 140, "P(gafas | chica) = 6/16 = 0,375", { c: "var(--pen)", s: 13, b: 1 })}${t(130, 164, "P(chica | gafas) = 6/10 = 0,6", { c: "var(--red)", s: 12, b: 1 })}`),
+    },
+    {
+      html: `<h3>14.9 Sucesos dependientes e independientes</h3><p>Dos sucesos son <b>independientes</b> si saber que ha ocurrido uno <mark>no cambia la probabilidad del otro</mark>: P(A | B) = P(A). En ese caso, la regla del producto se simplifica:</p><div class="formula"><span>A y B independientes ⇔ P(A ∩ B) = P(A) · P(B)</span></div><p>Si no se cumple, los sucesos son <b>dependientes</b>.</p><p>Ejemplos de independencia: los resultados de dos lanzamientos de un dado; sacar una carta, devolverla y volver a sacar otra. La probabilidad de sacar dos seises seguidos es 1/6 · 1/6 = 1/36.</p><p>Ejemplos de dependencia: en la clase anterior, «gafas» y «chica» son dependientes, porque P(gafas | chica) = 0,375 ≠ P(gafas) ≈ 0,333. También lo son sacar dos cartas seguidas <b>sin devolver</b> la primera, porque la composición de la baraja cambia.</p><p>No hay que confundir <b>independientes</b> con <b>incompatibles</b>. Dos sucesos incompatibles (con probabilidades no nulas) son siempre dependientes: si ocurre uno, el otro ya es imposible.</p><p>Un error muy extendido es la <b>falacia del jugador</b>: creer que, si en la ruleta han salido 8 rojos seguidos, «ya toca» negro. Cada tirada es independiente de las anteriores: la ruleta no tiene memoria, y la probabilidad de negro sigue siendo la misma. En 1913, en el casino de Montecarlo, salió negro 26 veces seguidas y muchos jugadores perdieron fortunas apostando al rojo.</p>`,
+      svg: lienzo("La ruleta no tiene memoria: tras ocho rojos seguidos, la probabilidad de negro sigue siendo la misma", `${[0, 1, 2, 3, 4, 5, 6, 7].map((i) => `<circle cx="${24 + i * 26}" cy="60" r="11" fill="var(--red)"/>`).join("")}<circle cx="236" cy="60" r="11" fill="none" stroke="var(--ink)" stroke-width="2" stroke-dasharray="3 3"/>${t(236, 65, "?", { s: 14, b: 1 })}${t(130, 104, "P(negro) = 18/37 siempre", { s: 14, b: 1 })}${t(130, 128, "cada tirada es independiente", { c: "var(--muted)", s: 12 })}${t(130, 160, "P(A ∩ B) = P(A) · P(B)", { c: "var(--pen)", s: 14, b: 1 })}`),
+    },
+    {
+      html: `<h3>14.10 Experimentos compuestos y diagramas de árbol</h3><p>Un <b>experimento compuesto</b> está formado por varios experimentos simples realizados uno tras otro: lanzar una moneda y luego un dado, sacar dos bolas de una urna, jugar tres partidos. La herramienta ideal para resolverlos es el <b>diagrama de árbol</b> con probabilidades en las ramas. Se usan dos reglas:</p><ol><li><b>Regla del producto</b>: la probabilidad de un camino es el <mark>producto de las probabilidades de sus ramas</mark>.</li><li><b>Regla de la suma</b>: si un suceso está formado por varios caminos, su probabilidad es la <mark>suma de las probabilidades de esos caminos</mark>.</li></ol><p>Además, las probabilidades de las ramas que salen de un mismo punto siempre suman 1, lo que sirve de comprobación.</p><p>Ejemplo: un jugador de baloncesto acierta un tiro libre con probabilidad 0,8 y lanza dos. Suponiendo independencia:</p><ul><li>P(acierta los dos) = 0,8 · 0,8 = 0,64.</li><li>P(falla los dos) = 0,2 · 0,2 = 0,04.</li><li>P(acierta exactamente uno) = 0,8 · 0,2 + 0,2 · 0,8 = 0,32.</li></ul><p>Comprobación: 0,64 + 0,04 + 0,32 = 1. En las ramas de la segunda etapa, las probabilidades pueden depender de lo que pasó en la primera: entonces son probabilidades condicionadas, y el árbol las maneja con total naturalidad.</p>`,
+      svg: arbol("Diagrama de árbol de dos tiros libres con probabilidad de acierto 0,8: acertar los dos 0,64, uno 0,32 y ninguno 0,04; A es acierto y F es fallo", [["A", "0,8", [["acierta", "0,8", "0,64"], ["falla", "0,2", "0,16"]]], ["F", "0,2", [["acierta", "0,8", "0,16"], ["falla", "0,2", "0,04"]]]])
+    },
+    {
+      html: `<h3>14.11 Extracciones con y sin reemplazamiento</h3><p>Un caso típico de experimento compuesto es sacar varios objetos de una urna, una baraja o un grupo de personas. Hay dos situaciones:</p><ul><li><b>Con reemplazamiento</b>: cada objeto se devuelve antes de sacar el siguiente. La composición no cambia y las extracciones son <b>independientes</b>.</li><li><b>Sin reemplazamiento</b>: los objetos no se devuelven. La composición cambia y las extracciones son <b>dependientes</b>.</li></ul><p>Ejemplo: una urna tiene 5 bolas rojas y 3 azules. Se sacan dos bolas.</p><ul><li>Con reemplazamiento: P(dos rojas) = 5/8 · 5/8 = 25/64 ≈ 0,39.</li><li>Sin reemplazamiento: P(dos rojas) = 5/8 · <mark>4/7</mark> = 20/56 = 5/14 ≈ 0,357. En la segunda extracción quedan 7 bolas, de las que 4 son rojas.</li></ul><p>Sin reemplazamiento, la probabilidad de «una de cada color» es P(R, A) + P(A, R) = 5/8 · 3/7 + 3/8 · 5/7 = 15/56 + 15/56 = 30/56 ≈ 0,536. También se puede calcular con combinatoria: C₅,₁ · C₃,₁ / C₈,₂ = 15/28, que da lo mismo.</p><p>Las extracciones sin reemplazamiento modelan situaciones reales como el control de calidad (se sacan piezas de un lote y no se devuelven), los sorteos de premios o el reparto de cartas.</p>`,
+      svg: arbol("Extracción de dos bolas sin reemplazamiento de una urna con 5 rojas y 3 azules: dos rojas 20 de 56", [["roja", "5/8", [["roja", "4/7", "20/56"], ["azul", "3/7", "15/56"]]], ["azul", "3/8", [["roja", "5/7", "15/56"], ["azul", "2/7", "6/56"]]]]),
+    },
+    {
+      html: `<h3>14.12 Probabilidad total</h3><p>A veces un suceso puede ocurrir por <b>varios caminos</b> distintos, que dependen de una primera etapa. La <b>fórmula de la probabilidad total</b> dice que su probabilidad es la suma de las de todos esos caminos:</p><div class="formula"><span>P(B) = P(A₁) · P(B | A₁) + P(A₂) · P(B | A₂) + …</span></div><p>donde A₁, A₂… son las posibilidades de la primera etapa (incompatibles y que cubren todo el espacio).</p><p>Ejemplo: una fábrica tiene dos máquinas. La máquina M₁ produce el 60 % de las piezas, con un 2 % de defectuosas; la M₂ produce el 40 %, con un 5 % de defectuosas. ¿Qué porcentaje de las piezas es defectuoso?</p><div class="formula"><span>P(D) = 0,6 · 0,02 + 0,4 · 0,05 = 0,012 + 0,020 = 0,032</span></div><p>Un <mark>3,2 %</mark> de las piezas son defectuosas. En el árbol: se multiplican las ramas de cada camino que acaba en «defectuosa» y se suman.</p><p>Una forma muy intuitiva de hacerlo es imaginar <b>1.000 piezas</b>: 600 vienen de M₁ y de ellas 12 son defectuosas; 400 vienen de M₂ y de ellas 20 son defectuosas. En total, 32 de 1.000. Este método de las «frecuencias naturales» es el que recomiendan muchos médicos y psicólogos, porque las personas entendemos mucho mejor «32 de cada 1.000» que «0,032».</p>`,
+      svg: arbol("Probabilidad total: el 60 por ciento de las piezas sale de la máquina 1 con un 2 por ciento defectuosas y el 40 por ciento de la máquina 2 con un 5 por ciento; en total 3,2 por ciento defectuosas", [["M₁", "0,6", [["defect.", "0,02", "0,012"], ["buena", "0,98", "0,588"]]], ["M₂", "0,4", [["defect.", "0,05", "0,020"], ["buena", "0,95", "0,380"]]]]),
+    },
+    {
+      html: `<h3>14.13 Invertir el árbol: pruebas médicas</h3><p>Una de las aplicaciones más importantes y sorprendentes de la probabilidad es la interpretación de las <b>pruebas diagnósticas</b>. Supón una enfermedad que afecta al 1 % de la población. Hay un test que da positivo en el 90 % de los enfermos (<b>sensibilidad</b>) y, por error, en el 5 % de los sanos (<b>falsos positivos</b>). Si a una persona le sale positivo, ¿qué probabilidad tiene de estar enferma?</p><p>Imaginemos <b>10.000 personas</b>:</p><ul><li>100 están enfermas; de ellas, 90 dan positivo.</li><li>9.900 están sanas; de ellas, el 5 %, es decir, 495, dan positivo.</li><li>En total dan positivo 90 + 495 = 585 personas.</li></ul><p>De los 585 positivos, solo 90 están enfermos: P(enfermo | positivo) = 90/585 ≈ <mark>0,154</mark>. ¡Solo un 15 %! Es decir, la mayoría de los positivos son falsos.</p><p>El resultado sorprende porque la enfermedad es <b>rara</b>: aunque el test se equivoque poco con cada sano, hay tantos sanos que sus errores superan a los aciertos con los enfermos. Este razonamiento, conocido como <b>teorema de Bayes</b>, calcula una probabilidad condicionada «al revés»: P(A | B) a partir de P(B | A). Por eso, tras un positivo en una prueba de cribado, los médicos siempre piden una segunda prueba más precisa antes de dar un diagnóstico.</p>`,
+      svg: lienzo("De 10 000 personas, 100 enfermas de las que 90 dan positivo y 9900 sanas de las que 495 dan positivo: solo el 15 por ciento de los positivos están enfermos", `<rect x="96" y="8" width="68" height="26" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${t(130, 26, "10 000", { s: 12, b: 1 })}<path d="M112 34 L 60 58 M148 34 L 200 58" stroke="var(--muted)" stroke-width="1.8"/><rect x="18" y="58" width="84" height="26" rx="8" fill="var(--red)" fill-opacity=".14" stroke="var(--red)" stroke-width="2"/>${t(60, 76, "100 enfermos", { c: "var(--red)", s: 11, b: 1 })}<rect x="150" y="58" width="100" height="26" rx="8" fill="var(--leaf)" fill-opacity=".14" stroke="var(--leaf)" stroke-width="2"/>${t(200, 76, "9 900 sanos", { c: "var(--leaf)", s: 11, b: 1 })}<path d="M60 84 V 104 M200 84 V 104" stroke="var(--muted)" stroke-width="1.8"/><rect x="18" y="104" width="84" height="26" rx="8" fill="var(--red)" fill-opacity=".3" stroke="var(--red)" stroke-width="2"/>${t(60, 122, "90 positivos", { c: "var(--red)", s: 11, b: 1 })}<rect x="150" y="104" width="100" height="26" rx="8" fill="var(--leaf)" fill-opacity=".3" stroke="var(--leaf)" stroke-width="2"/>${t(200, 122, "495 positivos", { c: "var(--leaf)", s: 11, b: 1 })}${t(130, 154, "P(enfermo | +) = 90 / 585", { s: 13, b: 1 })}${t(130, 172, "≈ 0,154 (15 %)", { c: "var(--red)", s: 13, b: 1 })}`),
+    },
+    {
+      html: `<h3>14.14 La probabilidad en la vida real</h3><p>La probabilidad está presente en muchas decisiones cotidianas, aunque no siempre nos demos cuenta:</p><ul><li><b>El problema del cumpleaños</b>. En un grupo de 23 personas, la probabilidad de que dos cumplan años el mismo día es del 50,7 %; con 40 personas, del 89 %; con 57, del 99 %. Nuestra intuición falla porque no pensamos en todas las parejas posibles: con 23 personas hay C₂₃,₂ = 253 parejas.</li><li><b>Juegos de azar</b>. En todos los juegos de casino y loterías, la <b>esperanza</b> del jugador es negativa: a la larga, siempre gana la banca. En la ruleta europea, por cada euro apostado al rojo se pierden de media 1/37 ≈ 2,7 céntimos.</li><li><b>Meteorología</b>. «Probabilidad de lluvia del 70 %» significa que, en situaciones atmosféricas como la de hoy, llueve en 7 de cada 10 casos.</li><li><b>Seguros</b>. Las aseguradoras calculan sus precios con las probabilidades de accidente, enfermedad o incendio de millones de clientes.</li><li><b>Genética</b>. Si los dos progenitores son portadores de un gen recesivo, cada hijo tiene probabilidad 1/4 de heredar la enfermedad asociada.</li></ul><p>Razonar con probabilidades nos ayuda a <mark>tomar mejores decisiones con incertidumbre</mark>: evaluar riesgos reales frente a miedos exagerados, desconfiar de las «rachas» y entender que un suceso muy improbable, entre millones de personas, acaba ocurriéndole a alguien.</p>`,
+      svg: graf("Problema del cumpleaños: probabilidad de que al menos dos personas coincidan según el tamaño del grupo; supera el 50 por ciento con 23 personas", { x0: 0, x1: 60, y0: 0, y1: 1, paso: 10, pasoY: 0.25, pasoEt: 10, m: 20 }, (E) => { const f = (n) => { let q = 1; for (let i = 0; i < n; i++) q *= (365 - i) / 365; return 1 - q; }; return `${E.curva((x) => f(Math.round(x)), "var(--pen)", 1, 60)}${E.seg(23, 0, 23, 0.507, "var(--red)", 1.5, 'stroke-dasharray="4 3"')}${E.seg(0, 0.507, 23, 0.507, "var(--red)", 1.5, 'stroke-dasharray="4 3"')}${E.punto(23, 0.507, "var(--red)", "23 personas: 50,7 %", 8, 14)}${t(E.w - 8, E.h - 4, "personas", { c: "var(--muted)", s: 9, a: "end" })}`; }),
     },
   ],
-  figura: {
-    titulo: "Caja de herramientas de la probabilidad",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Resumen de fórmulas: Laplace, contrario, unión, intersección de independientes y condicionada">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["Laplace", "P(A) = favorables / posibles", "var(--pen)"], ["Contrario", "P(Ā) = 1 − P(A)", "var(--leaf)"], ["Unión", "P(A∪B) = P(A) + P(B) − P(A∩B)", "var(--inf)"], ["Independientes", "P(A∩B) = P(A) · P(B)", "var(--bac)"], ["Condicionada", "P(A|B) = P(A∩B) / P(B)", "var(--red)"]].map(([n, f, c], i) => `<rect x="20" y="${14 + i * 42}" width="600" height="36" rx="10" fill="var(--card)" stroke="${c}" stroke-width="2.5"/><text x="36" y="${38 + i * 42}" font-size="16" font-weight="700" fill="${c}" ${D}>${n}</text><text x="220" y="${38 + i * 42}" font-size="16" fill="var(--ink)" ${F}>${f}</text>`).join("")}
-    </svg>`,
+  ejemplos: [
+    { enunciado: "Se lanzan dos dados. Calcula la probabilidad de que la suma sea 8 y la de que salgan dos números iguales.", pasos: ["Casos posibles: 36.", "Suma 8: (2,6), (3,5), (4,4), (5,3), (6,2): 5 casos.", "Dobles: (1,1)…(6,6): 6 casos."], resultado: "P(suma 8) = 5/36 ≈ 0,139; P(dobles) = 6/36 = 1/6." },
+    { enunciado: "Si P(A) = 0,5, P(B) = 0,4 y P(A ∩ B) = 0,2, calcula P(A ∪ B), P(Ā) y P(A | B). ¿Son independientes?", pasos: ["P(A ∪ B) = 0,5 + 0,4 − 0,2 = 0,7.", "P(Ā) = 1 − 0,5 = 0,5.", "P(A | B) = 0,2/0,4 = 0,5.", "P(A) · P(B) = 0,2 = P(A ∩ B)."], resultado: "0,7; 0,5; 0,5. Sí son independientes." },
+    { enunciado: "¿Cuál es la probabilidad de obtener al menos una cara al lanzar 3 monedas?", pasos: ["Contrario: ninguna cara = tres cruces.", "P(tres cruces) = (1/2)³ = 1/8.", "P(al menos una cara) = 1 − 1/8."], resultado: "7/8 = 0,875." },
+    { enunciado: "De una baraja española de 40 cartas se sacan dos sin devolver. ¿Cuál es la probabilidad de que las dos sean de oros?", pasos: ["Primera de oros: 10/40.", "Segunda de oros, sabiendo que la primera lo era: 9/39.", "Producto: 10/40 · 9/39 = 90/1560."], resultado: "3/52 ≈ 0,058." },
+    { enunciado: "El 30 % de los alumnos de un instituto va en bici. De los que van en bici, el 80 % llega puntual; de los demás, el 90 %. ¿Qué probabilidad hay de que un alumno elegido al azar llegue puntual?", pasos: ["Probabilidad total: 0,3 · 0,8 + 0,7 · 0,9.", "= 0,24 + 0,63."], resultado: "P(puntual) = 0,87." },
+    { enunciado: "Con los datos anteriores, si un alumno ha llegado tarde, ¿qué probabilidad hay de que haya ido en bici?", pasos: ["P(tarde) = 1 − 0,87 = 0,13.", "P(bici y tarde) = 0,3 · 0,2 = 0,06.", "P(bici | tarde) = 0,06/0,13."], resultado: "≈ 0,46: casi la mitad de los que llegan tarde van en bici." },
+  ],
+  errores: [
+    "Aplicar la regla de Laplace con resultados que no son equiprobables.",
+    "Sumar P(A) + P(B) para la unión de sucesos compatibles sin restar la intersección.",
+    "Confundir P(A | B) con P(B | A).",
+    "Confundir sucesos incompatibles (no pueden ocurrir a la vez) con independientes (uno no influye en el otro).",
+    "Olvidar que, sin reemplazamiento, en la segunda extracción hay un objeto menos.",
+    "Creer en la «ley de las compensaciones»: tras muchos rojos no es más probable el negro.",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Escribe el espacio muestral al lanzar una moneda y un dado. ¿Cuántos resultados tiene?", sol: "E = {C1, C2, C3, C4, C5, C6, X1, X2, X3, X4, X5, X6}: 2 · 6 = 12 resultados." },
+    { nivel: "básico", q: "Con un dado, A = «sacar múltiplo de 3» y B = «sacar menos de 4». Halla A ∪ B, A ∩ B, Ā y di si A y B son incompatibles.", sol: "A = {3, 6}, B = {1, 2, 3}. A ∪ B = {1, 2, 3, 6}; A ∩ B = {3}; Ā = {1, 2, 4, 5}. No son incompatibles (comparten el 3)." },
+    { nivel: "básico", q: "En una bolsa hay 4 bolas rojas, 5 verdes y 3 blancas. Se saca una. Calcula la probabilidad de que sea verde y la de que no sea roja.", sol: "P(verde) = 5/12. P(no roja) = 1 − 4/12 = 8/12 = 2/3." },
+    { nivel: "básico", q: "Se saca una carta de una baraja española de 40. Probabilidad de que sea una figura (sota, caballo o rey) y de que sea una figura de copas.", sol: "Figuras: 12; P = 12/40 = 0,3. Figuras de copas: 3; P = 3/40 = 0,075." },
+    { nivel: "básico", q: "Una chincheta se lanza 500 veces y cae con la punta hacia arriba 320 veces. Estima la probabilidad de ese resultado.", sol: "Frecuencia relativa: 320/500 = 0,64. Por la ley de los grandes números, P ≈ 0,64." },
+    { nivel: "básico", q: "Si P(A) = 0,35, ¿cuánto vale P(Ā)?", sol: "El contrario ocurre justo cuando no ocurre A, y entre los dos suman 1: P(Ā) = 1 − 0,35 = 0,65." },
+    { nivel: "básico", q: "Se lanzan dos dados. ¿Cuál es la probabilidad de que la suma sea 10 o más?", sol: "Suma 10: 3 casos; 11: 2; 12: 1. Total 6 de 36: P = 1/6." },
+    { nivel: "básico", q: "Se lanza una moneda tres veces. Calcula la probabilidad de obtener exactamente dos caras.", sol: "Casos posibles: 8. Favorables: CCX, CXC, XCC: 3. P = 3/8." },
+    { nivel: "básico", q: "Si A y B son incompatibles, P(A) = 0,3 y P(B) = 0,45, calcula P(A ∪ B) y P(A ∩ B).", sol: "P(A ∩ B) = 0 por ser incompatibles. P(A ∪ B) = 0,3 + 0,45 = 0,75." },
+    { nivel: "básico", q: "En la tabla de gafas de la clase (6 chicas con gafas, 10 sin; 4 chicos con gafas, 10 sin), calcula P(chico) y P(chico y sin gafas).", sol: "P(chico) = 14/30 ≈ 0,467. P(chico y sin gafas) = 10/30 = 1/3." },
+    { nivel: "básico", q: "Se lanzan dos monedas. Juan dice que P(una cara y una cruz) = 1/3, porque hay tres resultados: dos caras, dos cruces o una de cada. ¿Tiene razón?", sol: "No. Los resultados equiprobables son CC, CX, XC, XX. «Una de cada» corresponde a 2 de ellos: P = 2/4 = 1/2." },
+    { nivel: "básico", q: "Un jugador de tenis gana el 60 % de sus partidos. Si juega dos partidos independientes, ¿cuál es la probabilidad de que gane los dos?", sol: "Al ser independientes se multiplican: P(gana los dos) = 0,6 · 0,6 = 0,36, es decir, un 36 %." },
+    { nivel: "medio", q: "Si P(A) = 0,6, P(B) = 0,5 y P(A ∪ B) = 0,8, calcula P(A ∩ B), P(A | B) y P(B | A). ¿Son independientes?", sol: "P(A ∩ B) = 0,6 + 0,5 − 0,8 = 0,3. P(A | B) = 0,3/0,5 = 0,6. P(B | A) = 0,3/0,6 = 0,5. Como P(A | B) = P(A) = 0,6, sí son independientes." },
+    { nivel: "medio", q: "En un grupo de 100 personas, 60 practican deporte, 40 leen habitualmente y 25 hacen ambas cosas. Construye la tabla de contingencia y calcula la probabilidad de que una persona elegida al azar no haga ninguna de las dos cosas.", sol: "Deporte y lee: 25; deporte y no lee: 35; no deporte y lee: 15; ninguna: 100 − 25 − 35 − 15 = 25. P(ninguna) = 0,25." },
+    { nivel: "medio", q: "Con la tabla anterior, calcula P(lee | practica deporte) y P(practica deporte | lee).", sol: "P(lee | deporte) = 25/60 ≈ 0,417. P(deporte | lee) = 25/40 = 0,625." },
+    { nivel: "medio", q: "Una urna tiene 6 bolas blancas y 4 negras. Se sacan dos bolas sin reemplazamiento. Calcula la probabilidad de que sean del mismo color.", sol: "P(BB) = 6/10 · 5/9 = 30/90; P(NN) = 4/10 · 3/9 = 12/90. Total 42/90 = 7/15 ≈ 0,467." },
+    { nivel: "medio", q: "Repite el ejercicio anterior con reemplazamiento.", sol: "P(BB) = 0,6² = 0,36; P(NN) = 0,4² = 0,16. Total 0,52." },
+    { nivel: "medio", q: "¿Cuál es la probabilidad de sacar al menos un 6 al lanzar un dado 3 veces?", sol: "P(ningún 6) = (5/6)³ = 125/216. P(al menos uno) = 91/216 ≈ 0,421." },
+    { nivel: "medio", q: "En una clase de 12 chicas y 8 chicos se eligen 2 delegados al azar. ¿Cuál es la probabilidad de que sean un chico y una chica?", sol: "Casos favorables: 12 · 8 = 96. Posibles: C₂₀,₂ = 190. P = 96/190 ≈ 0,505." },
+    { nivel: "medio", q: "Una caja A tiene 3 bolas rojas y 2 azules; otra caja B, 1 roja y 4 azules. Se lanza una moneda: si sale cara se saca de A y si sale cruz, de B. ¿Cuál es la probabilidad de sacar una bola roja?", sol: "P(R) = 0,5 · 3/5 + 0,5 · 1/5 = 0,3 + 0,1 = 0,4." },
+    { nivel: "medio", q: "El 70 % de los días un autobús llega a su hora. Si llega a su hora, Marta llega puntual a clase con probabilidad 0,95; si no, con probabilidad 0,6. ¿Qué porcentaje de días llega puntual?", sol: "0,7 · 0,95 + 0,3 · 0,6 = 0,665 + 0,18 = 0,845: el 84,5 % de los días." },
+    { nivel: "medio", q: "¿Son independientes los sucesos «sacar un as» y «sacar una carta de oros» al extraer una carta de una baraja de 40?", sol: "P(as) = 4/40 = 0,1; P(oros) = 10/40 = 0,25; P(as de oros) = 1/40 = 0,025 = 0,1 · 0,25. Sí son independientes." },
+    { nivel: "medio", q: "Se elige al azar un número del 1 al 100. ¿Cuál es la probabilidad de que sea múltiplo de 3 o de 5?", sol: "Múltiplos de 3: 33; de 5: 20; de 15: 6. P = (33 + 20 − 6)/100 = 47/100." },
+    { nivel: "medio", q: "Un examen tipo test tiene 4 preguntas con 3 opciones cada una. Si un alumno responde todas al azar, ¿cuál es la probabilidad de que acierte todas? ¿Y de que no acierte ninguna?", sol: "P(todas) = (1/3)⁴ = 1/81 ≈ 0,012. P(ninguna) = (2/3)⁴ = 16/81 ≈ 0,198." },
+    { nivel: "avanzado", q: "Calcula la probabilidad de que en un grupo de 5 personas al menos dos cumplan años el mismo día (año de 365 días).", sol: "P(ninguna coincidencia) = 365/365 · 364/365 · 363/365 · 362/365 · 361/365 ≈ 0,973. P(al menos una) ≈ 0,027." },
+    { nivel: "avanzado", q: "Una enfermedad afecta al 2 % de la población. Un test da positivo en el 95 % de los enfermos y en el 10 % de los sanos. Si alguien da positivo, ¿qué probabilidad tiene de estar enfermo?", sol: "En 10.000 personas: 200 enfermos, 190 positivos; 9.800 sanos, 980 positivos. P(enfermo | +) = 190/1.170 ≈ 0,162." },
+    { nivel: "avanzado", q: "En una fábrica, las máquinas A, B y C producen el 50 %, 30 % y 20 % de las piezas, con un 1 %, 2 % y 3 % de defectuosas. Calcula la probabilidad de que una pieza sea defectuosa y, si lo es, la de que venga de C.", sol: "P(D) = 0,005 + 0,006 + 0,006 = 0,017. P(C | D) = 0,006/0,017 ≈ 0,353." },
+    { nivel: "avanzado", q: "Dos jugadores, A y B, lanzan alternativamente un dado, empezando A. Gana el primero que saque un 6. ¿Cuál es la probabilidad de que A gane en su primer o en su segundo turno?", sol: "Gana en el 1.er turno: 1/6. En el 2.º: falla A, falla B y acierta A: (5/6)² · 1/6 = 25/216. Total 36/216 + 25/216 = 61/216 ≈ 0,282." },
+    { nivel: "avanzado", q: "Demuestra que si A y B son independientes, también lo son A y B̄.", sol: "P(A ∩ B̄) = P(A) − P(A ∩ B) = P(A) − P(A)P(B) = P(A)(1 − P(B)) = P(A) · P(B̄). Por tanto, son independientes." },
+    { nivel: "avanzado", q: "Se reparten 5 cartas de una baraja de 40. ¿Cuál es la probabilidad de que haya al menos un as?", sol: "Contrario: ningún as, C₃₆,₅/C₄₀,₅ = 376.992/658.008 ≈ 0,573. P(al menos un as) ≈ 0,427." },
+    { nivel: "avanzado", q: "En el problema del caballero de Méré (1654): ¿qué es más probable, sacar al menos un 6 en 4 tiradas de un dado o sacar al menos un doble 6 en 24 tiradas de dos dados?", sol: "Primero: 1 − (5/6)⁴ ≈ 0,518. Segundo: 1 − (35/36)²⁴ ≈ 0,491. Es más probable el primero; De Méré lo había notado jugando, y Pascal lo explicó." },
+    { nivel: "avanzado", q: "En la partida interrumpida de la lectura, el jugador A necesita 1 victoria y B necesita 2. Cada partida la gana cualquiera con probabilidad 1/2. ¿Qué probabilidad tiene A de ganar? ¿Cómo se repartirían 32 monedas?", sol: "B solo gana si gana las dos siguientes: (1/2)² = 1/4. A gana con probabilidad 3/4. Reparto: 24 monedas para A y 8 para B." },
+    { nivel: "avanzado", q: "Un test de detección de spam marca como spam el 98 % de los correos basura y el 3 % de los correos legítimos. Si el 40 % del correo que recibes es spam, ¿qué proporción de los correos marcados es realmente spam?", sol: "P(marcado) = 0,4 · 0,98 + 0,6 · 0,03 = 0,392 + 0,018 = 0,41. P(spam | marcado) = 0,392/0,41 ≈ 0,956." },
+    { nivel: "avanzado", q: "En una ruleta europea (37 números: 18 rojos, 18 negros y el 0), un jugador apuesta 1 € al rojo: si sale rojo gana 1 € y si no, lo pierde. Calcula su ganancia media por apuesta.", sol: "Ganancia media = 18/37 · 1 + 19/37 · (−1) = −1/37 ≈ −0,027 €. Pierde de media unos 2,7 céntimos por euro apostado." },
+  ],
+  quiz: reparte([
+    { q: "Un experimento aleatorio es aquel cuyo resultado…", o: ["se conoce de antemano", "no se puede predecir", "siempre es el mismo", "depende del observador"], a: 1, e: "Puede variar aunque se repita igual." },
+    { q: "El espacio muestral de lanzar dos monedas tiene… resultados.", o: ["2", "3", "4", "6"], a: 2, e: "CC, CX, XC, XX." },
+    { q: "Dos sucesos son incompatibles si…", o: ["A ∩ B = ∅", "A ∪ B = E", "P(A) = P(B)", "son independientes"], a: 0, e: "No pueden ocurrir a la vez." },
+    { q: "La ley de los grandes números dice que la frecuencia relativa…", o: ["siempre vale 0,5", "se estabiliza en torno a la probabilidad", "crece sin límite", "es igual a la absoluta"], a: 1, e: "Con muchas repeticiones." },
+    { q: "La regla de Laplace solo se puede aplicar si los resultados son…", o: ["muchos", "equiprobables", "independientes", "incompatibles"], a: 1, e: "Todos igual de posibles." },
+    { q: "La probabilidad de sacar un 5 o un 6 con un dado es…", o: ["1/6", "1/3", "1/2", "2/3"], a: 1, e: "2/6." },
+    { q: "P(Ā) =", o: ["P(A)", "1 − P(A)", "1/P(A)", "−P(A)"], a: 1, e: "Suceso contrario." },
+    { q: "P(A ∪ B) = P(A) + P(B) − …", o: ["P(A ∩ B)", "P(A | B)", "1", "P(Ā)"], a: 0, e: "Se resta la intersección." },
+    { q: "La suma más probable con dos dados es…", o: ["6", "7", "8", "12"], a: 1, e: "6 casos de 36." },
+    { q: "P(A | B) =", o: ["P(A ∩ B)/P(B)", "P(A) · P(B)", "P(A ∩ B)/P(A)", "P(A) + P(B)"], a: 0, e: "Definición." },
+    { q: "Si A y B son independientes, P(A ∩ B) =", o: ["0", "P(A) + P(B)", "P(A) · P(B)", "P(A | B)"], a: 2, e: "Regla del producto simplificada." },
+    { q: "Tras 8 rojos seguidos en la ruleta, la probabilidad de negro…", o: ["aumenta", "disminuye", "es la misma", "es 1"], a: 2, e: "Las tiradas son independientes." },
+    { q: "En un diagrama de árbol, la probabilidad de un camino se obtiene…", o: ["sumando sus ramas", "multiplicando sus ramas", "restando", "dividiendo"], a: 1, e: "Regla del producto." },
+    { q: "Las probabilidades de las ramas que salen de un mismo nudo suman…", o: ["0", "1", "la del camino", "depende"], a: 1, e: "Cubren todas las posibilidades." },
+    { q: "Al sacar dos cartas sin devolver la primera, las extracciones son…", o: ["independientes", "dependientes", "incompatibles", "imposibles"], a: 1, e: "La baraja cambia." },
+    { q: "Urna con 3 rojas y 2 azules; dos extracciones sin reemplazamiento. P(dos azules) =", o: ["4/25", "1/10", "2/5", "1/5"], a: 1, e: "2/5 · 1/4." },
+    { q: "Para calcular P(al menos un 6 en 3 tiradas) conviene usar…", o: ["la unión", "el suceso contrario", "Laplace directamente", "la intersección"], a: 1, e: "1 − P(ningún 6)." },
+    { q: "La fórmula de la probabilidad total suma…", o: ["las probabilidades de todos los caminos que llevan al suceso", "las ramas de la primera etapa", "las condicionadas", "las intersecciones de contrarios"], a: 0, e: "Producto en cada camino y suma." },
+    { q: "Si la enfermedad es rara, un positivo en un test bastante fiable…", o: ["implica casi seguro la enfermedad", "puede ser falso con mucha frecuencia", "nunca es falso", "no sirve de nada"], a: 1, e: "Muchos sanos producen muchos falsos positivos." },
+    { q: "Con 23 personas, la probabilidad de que dos cumplan años el mismo día es aproximadamente…", o: ["6 %", "23 %", "50 %", "100 %"], a: 2, e: "50,7 %." },
+  ]),
+  examen: reparte([
+    { q: "Se lanzan dos dados. P(suma 5) =", o: ["4/36", "5/36", "1/6", "1/12"], a: 0, e: "(1,4), (2,3), (3,2), (4,1)." },
+    { q: "Si P(A) = 0,4, P(B) = 0,3 y P(A ∩ B) = 0,1, P(A ∪ B) =", o: ["0,6", "0,7", "0,8", "0,12"], a: 0, e: "0,4 + 0,3 − 0,1." },
+    { q: "Con los datos anteriores, P(A | B) =", o: ["1/3", "0,25", "0,1", "0,4"], a: 0, e: "0,1/0,3." },
+    { q: "Probabilidad de 3 caras al lanzar 3 monedas:", o: ["1/8", "3/8", "1/3", "1/6"], a: 0, e: "(1/2)³." },
+    { q: "Urna con 4 blancas y 6 negras, dos extracciones con reemplazamiento. P(dos negras) =", o: ["0,36", "1/3", "0,6", "0,24"], a: 0, e: "0,6²." },
+    { q: "P(al menos una cruz en 4 lanzamientos de moneda) =", o: ["15/16", "1/16", "1/2", "3/4"], a: 0, e: "1 − (1/2)⁴." },
+    { q: "Si el 20 % usa A (éxito 0,9) y el 80 % usa B (éxito 0,5), P(éxito) =", o: ["0,58", "0,7", "1,4", "0,45"], a: 0, e: "0,18 + 0,40." },
+    { q: "Dos sucesos incompatibles con probabilidad positiva son…", o: ["dependientes", "independientes", "contrarios siempre", "imposibles"], a: 0, e: "Si ocurre uno, el otro no puede." },
+  ], 2),
+  feynman: ["Qué es un espacio muestral y cómo se describe en un experimento compuesto", "Por qué la frecuencia relativa se acerca a la probabilidad", "Cuándo se puede aplicar la regla de Laplace", "Qué diferencia hay entre P(A | B) y P(B | A) y por qué importa", "Por qué un positivo en una prueba médica puede ser falso con frecuencia"],
+  glosario: [
+    ["Experimento aleatorio", "Aquel cuyo resultado no se puede predecir."],
+    ["Espacio muestral", "Conjunto de todos los resultados posibles, E."],
+    ["Suceso", "Subconjunto del espacio muestral."],
+    ["Suceso contrario", "Ā: ocurre cuando no ocurre A."],
+    ["Sucesos incompatibles", "No pueden ocurrir a la vez: A ∩ B = ∅."],
+    ["Frecuencia relativa", "Número de veces que ocurre un suceso dividido entre el número de repeticiones."],
+    ["Ley de los grandes números", "La frecuencia relativa se estabiliza en torno a la probabilidad."],
+    ["Regla de Laplace", "P(A) = casos favorables / casos posibles, con resultados equiprobables."],
+    ["Tabla de contingencia", "Tabla de doble entrada con las frecuencias de dos características."],
+    ["Probabilidad condicionada", "P(A | B) = P(A ∩ B)/P(B)."],
+    ["Sucesos independientes", "Uno no influye en el otro: P(A ∩ B) = P(A) · P(B)."],
+    ["Experimento compuesto", "Formado por varios experimentos simples sucesivos."],
+    ["Con reemplazamiento", "Extracciones en las que se devuelve el objeto antes de la siguiente."],
+    ["Probabilidad total", "Suma de las probabilidades de todos los caminos que llevan a un suceso."],
+    ["Teorema de Bayes", "Permite calcular P(A | B) a partir de P(B | A)."],
+    ["Falso positivo", "Resultado positivo de una prueba en alguien que no tiene la condición."],
+  ],
+  situacion: {
+    titulo: "¿Juegas o te la juegan?",
+    reto: "La asociación de madres y padres quiere organizar una tómbola benéfica y os pide diseñar tres juegos de azar que sean divertidos, justos para la asociación (que gane algo de dinero) y transparentes para los participantes. Además, prepararéis una pequeña exposición sobre por qué, a la larga, los juegos de apuestas siempre hacen perder dinero a los jugadores.",
+    pasos: [
+      "Diseñad tres juegos con dados, cartas, monedas o ruletas y describid su espacio muestral.",
+      "Calculad la probabilidad de ganar en cada juego con Laplace, árboles o combinatoria.",
+      "Simulad cada juego al menos 100 veces y comparad la frecuencia relativa con la probabilidad teórica.",
+      "Fijad el precio y los premios para que la ganancia media de la asociación sea positiva pero pequeña.",
+      "Calculad la ganancia media de un jugador en la ruleta y en la Primitiva y preparad la exposición.",
+    ],
+    producto: "Las fichas de los tres juegos con sus probabilidades y un cartel sobre los riesgos de las apuestas.",
+    evaluacion: [
+      "Describe correctamente los espacios muestrales y calcula probabilidades con el método adecuado.",
+      "Relaciona los resultados experimentales con las probabilidades teóricas.",
+      "Usa la probabilidad para tomar decisiones (precios, premios) y las justifica.",
+      "Comunica de forma crítica los riesgos de los juegos de azar.",
+    ],
   },
+  figura: require("./_matb-base-probabilidad").figura,
   video: { id: "AjDK3NQZdPc", titulo: "Diagrama de árbol de probabilidad, súper fácil", canal: "Daniel Carreón", vistas: 1769997, megusta: 0, busqueda: "probabilidad diagrama de árbol" },
-  quiz: [
-    { q: "En una baraja española de 40 cartas, P(sacar un oro) =", o: ["1/4", "1/10", "4/40"], a: 0, e: "Hay 10 oros: 10/40 = 1/4." },
-    { q: "Si P(llueva) = 0,3, P(no llueva) =", o: ["0,3", "0,7", "1,3"], a: 1, e: "Suceso contrario: 1 − 0,3." },
-    { q: "P(dos seises al lanzar dos dados) =", o: ["1/6", "1/12", "1/36"], a: 2, e: "Independientes: 1/6 · 1/6." },
-    { q: "Una urna tiene 4 bolas blancas y 6 negras. Sacas dos sin devolver. P(dos blancas) =", o: ["4/10 · 3/9 = 2/15", "4/10 · 4/10", "4/10 + 3/9"], a: 0, e: "Sin devolución cambia la segunda: 4/10 · 3/9 = 12/90 = 2/15." },
-    { q: "Has sacado cruz 4 veces seguidas. La probabilidad de cara en la siguiente es…", o: ["Mayor de 1/2", "1/2", "Menor de 1/2"], a: 1, e: "Las tiradas son independientes." },
-  ],
-  examen: [
-    { q: "P(A) = 0,5, P(B) = 0,4 y P(A ∩ B) = 0,2. P(A ∪ B) =", o: ["0,9", "0,7", "0,2"], a: 1, e: "0,5 + 0,4 − 0,2 = 0,7." },
-    { q: "Con P(A ∩ B) = 0,12 y P(B) = 0,4, P(A | B) =", o: ["0,3", "0,048", "0,52"], a: 0, e: "0,12 / 0,4 = 0,3." },
-    { q: "¿Son independientes A y B si P(A) = 0,5, P(B) = 0,4 y P(A ∩ B) = 0,2?", o: ["Sí", "No", "No se puede saber"], a: 0, e: "0,5 · 0,4 = 0,2 = P(A ∩ B)." },
-  ],
-  feynman: ["Cuándo se puede usar la regla de Laplace", "Por qué se resta la intersección en la probabilidad de la unión", "Cómo se usa un diagrama de árbol en un experimento sin devolución", "Qué significa que dos sucesos sean independientes"],
   mapa: mapa("PROBABILIDAD", "var(--bac)", [
-    ["Laplace", "favorables / posibles", "var(--pen)"],
-    ["Propiedades", "contrario · unión", "var(--leaf)"],
-    ["Compuestos", "árbol: × por ramas, + caminos", "var(--inf)"],
-    ["Condicionada", "P(A|B) · independencia", "var(--red)"],
-  ], 260),
+    ["Sucesos", "E · unión · intersección · contrario", "var(--pen)"],
+    ["Laplace", "favorables / posibles · frecuencias", "var(--leaf)"],
+    ["Condicionada", "tablas · P(A | B) · independencia", "var(--red)"],
+    ["Árboles", "producto · suma · probabilidad total", "var(--inf)"],
+  ], 270),
   tarjetas: [
-    ["Regla de Laplace", "P(A) = casos favorables / casos posibles (si son equiprobables)."],
-    ["Probabilidad del suceso contrario", "P(Ā) = 1 − P(A)"],
-    ["En un diagrama de árbol…", "se multiplican las probabilidades de cada rama del camino y se suman los caminos."],
-    ["Probabilidad condicionada", "P(A | B) = P(A ∩ B) / P(B)"],
-    ["Sucesos independientes", "P(A ∩ B) = P(A) · P(B)"],
+    ["Espacio muestral", "Conjunto de todos los resultados posibles."],
+    ["Suceso contrario", "P(Ā) = 1 − P(A)"],
+    ["Incompatibles", "A ∩ B = ∅: no ocurren a la vez."],
+    ["Regla de Laplace", "Favorables / posibles (si son equiprobables)."],
+    ["Ley de los grandes números", "La frecuencia relativa tiende a la probabilidad."],
+    ["Unión", "P(A ∪ B) = P(A) + P(B) − P(A ∩ B)"],
+    ["Condicionada", "P(A | B) = P(A ∩ B)/P(B)"],
+    ["Independientes", "P(A ∩ B) = P(A) · P(B)"],
+    ["Árbol", "Se multiplica a lo largo del camino y se suman los caminos."],
+    ["Sin reemplazamiento", "En cada extracción hay un objeto menos."],
+    ["«Al menos uno»", "1 − P(ninguno)"],
+    ["Probabilidad total", "P(B) = Σ P(Aᵢ) · P(B | Aᵢ)"],
   ],
-  familias: ["Haced la prueba de los cumpleaños con familiares y amigos (en grupos de 23 o más).", "Calculad juntos la probabilidad de acertar una quiniela o un sorteo y hablad de por qué el juego no es buena inversión.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  familias: ["Lanzad juntos una moneda 50 veces y anotad cómo cambia la frecuencia relativa de caras.", "Calculad la probabilidad de ganar la Primitiva y comentad por qué no es una buena inversión.", "Leed una noticia sobre una prueba médica o un sondeo y comentad qué significa el porcentaje.", "Repasad las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "Sentido estocástico: probabilidad de Laplace, experimentos compuestos, diagramas de árbol, tablas de contingencia y probabilidad condicionada (RD 217/2022, Matemáticas B 4º).",
-    ideas: ["Simular 1.000 lanzamientos con hoja de cálculo y comparar frecuencia y probabilidad.", "Tabla de contingencia con datos reales de la clase.", "Debate sobre la falacia del jugador y la publicidad de apuestas."],
+    saberes: "Sentido estocástico: experimentos aleatorios y sucesos, frecuencia relativa y ley de los grandes números, regla de Laplace con técnicas de recuento, probabilidad condicionada con tablas de contingencia y diagramas de árbol, independencia, experimentos compuestos y probabilidad total, y toma de decisiones en situaciones de incertidumbre (RD 217/2022, Matemáticas B de 4º, saberes básicos E. Sentido estocástico).",
+    ideas: ["Simulaciones con dados, monedas o una hoja de cálculo para comparar frecuencia y probabilidad.", "El problema del cumpleaños comprobado con las fechas reales de la clase.", "Frecuencias naturales (1.000 personas) para trabajar la probabilidad condicionada y las pruebas médicas.", "Debate sobre los juegos de azar y las apuestas en línea, en colaboración con el departamento de orientación."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
+    { t: "Probabilidad, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Probabilidad" },
     { t: "Paradoja del cumpleaños, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Paradoja_del_cumplea%C3%B1os" },
   ],
-  revisado: "2026-11-12",
+  revisado: "2026-11-13",
 };
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Calcular probabilidades con tablas de contingencia y con la probabilidad total", "Usar la combinatoria y la frecuencia relativa para estimar probabilidades"],
-  tras: {
-    "Experimentos aleatorios y regla de Laplace": [
-      { html: `<h3>Frecuencia relativa y ley de los grandes números</h3><p>No todos los experimentos tienen resultados igual de probables: una chincheta puede caer de punta o de lado, y no sabemos de antemano con qué probabilidad. En esos casos se repite el experimento muchas veces y se calcula la <b>frecuencia relativa</b>: veces que ocurre el suceso dividido entre el número de pruebas. La <b>ley de los grandes números</b> dice que, al aumentar las repeticiones, la frecuencia relativa <mark>se estabiliza</mark> alrededor de la probabilidad. Así se calculan las probabilidades de los seguros, las predicciones del tiempo o la eficacia de un medicamento.</p>` },
-      { html: `<h3>Probabilidad y combinatoria</h3><p>Cuando los casos son muchos, la regla de Laplace necesita la <b>combinatoria</b> para contarlos. Por ejemplo, la probabilidad de acertar los 6 números de la lotería primitiva (de 49) es 1 entre C(49, 6) = 13.983.816 combinaciones posibles, es decir, <mark>menos de una entre trece millones</mark>. Y la probabilidad de que al repartir 5 cartas de una baraja española salgan los 4 ases se calcula dividiendo las manos favorables entre el total de manos posibles, C(40, 5). Contar bien los casos posibles y los favorables es la clave.</p>` },
-    ],
-    "Probabilidad condicionada": [
-      { html: `<h3>Tablas de contingencia</h3><p>Una <b>tabla de contingencia</b> organiza los datos de una población según dos características, con los totales en la última fila y columna. Es la herramienta más cómoda para calcular probabilidades de intersecciones y condicionadas. Por ejemplo, en un instituto se clasifica a 200 alumnos según si practican deporte y si son de ESO o de Bachillerato. La probabilidad de que un alumno practique deporte <b>sabiendo</b> que es de Bachillerato se calcula dentro de la columna de Bachillerato: <mark>casos de la casilla entre el total de esa columna</mark>.</p>${AMP.tabla(["", "ESO", "Bachillerato", "Total"], [["Deporte", "90", "30", "120"], ["No deporte", "50", "30", "80"], ["Total", "140", "60", "200"]])}`, video: { id: "swOYG7bg3Lk", titulo: "Probabilidad: tablas de contingencia, ejercicios resueltos", canal: "profesor10demates", vistas: 257278 } },
-    ],
-    "Sucesos independientes": [
-      { html: `<h3>Probabilidad total</h3><p>A veces un suceso puede ocurrir por varios caminos. Si una fábrica tiene dos máquinas, A produce el 60 % de las piezas con un 2 % de defectuosas y B el 40 % con un 5 %, la probabilidad de que una pieza cualquiera sea defectuosa se calcula sumando los caminos del diagrama de árbol: <mark>P(D) = P(A) · P(D|A) + P(B) · P(D|B)</mark> = 0,6 · 0,02 + 0,4 · 0,05 = 0,032. Es el <b>teorema de la probabilidad total</b>: se multiplican las probabilidades a lo largo de cada rama y se suman las ramas que llevan al suceso.</p>` },
-    ],
-  },
-  ejemplos: [
-    { enunciado: "Con la tabla de contingencia de la teoría, calcula P(deporte), P(deporte y Bachillerato) y P(deporte | Bachillerato).", pasos: ["P(deporte) = 120/200 = 0,6.", "P(deporte ∩ Bach.) = 30/200 = 0,15.", "P(deporte | Bach.) = 30/60 = 0,5, mirando solo la columna de Bachillerato."], resultado: "0,6; 0,15 y 0,5." },
-    { enunciado: "Una urna tiene 3 bolas rojas y 2 azules. Se sacan dos sin devolución. ¿Probabilidad de que sean de distinto color?", pasos: ["Roja y luego azul: 3/5 · 2/4 = 6/20.", "Azul y luego roja: 2/5 · 3/4 = 6/20.", "Se suman las dos ramas: 12/20."], resultado: "P = 3/5 = 0,6." },
-    { enunciado: "En un grupo de 10 alumnos (6 chicas y 4 chicos) se eligen 3 al azar. ¿Probabilidad de que sean todas chicas?", pasos: ["Casos posibles: C(10, 3) = 120.", "Casos favorables: C(6, 3) = 20.", "Laplace: 20/120."], resultado: "P = 1/6 ≈ 0,17." },
-  ],
-  errores: [
-    "Aplicar la regla de Laplace cuando los resultados no son equiprobables.",
-    "Confundir P(A|B) con P(B|A): no son iguales.",
-    "Dividir entre el total general en vez del total de la fila o columna en una probabilidad condicionada.",
-    "Olvidar que sin devolución cambian las probabilidades de la segunda extracción.",
-    "Pensar que tras varias caras seguidas es más probable que salga cruz (falacia del jugador).",
-  ],
-  ejercicios: [
-    { q: "Se lanza un dado. Calcula P(par), P(mayor que 4) y P(par o mayor que 4).", sol: "3/6, 2/6 y 4/6 (los resultados 2, 4, 5 y 6)." },
-    { q: "Si P(A) = 0,3, ¿cuánto vale P(no A)?", sol: "0,7." },
-    { q: "Se lanzan dos monedas. Calcula P(dos caras) y P(al menos una cara).", sol: "1/4 y 3/4." },
-    { q: "Una chincheta cae de punta 312 veces en 800 lanzamientos. Estima su probabilidad.", sol: "312/800 = 0,39." },
-    { q: "Se extraen dos cartas de una baraja de 40 sin devolución. ¿Probabilidad de dos oros?", sol: "10/40 · 9/39 = 90/1.560 ≈ 0,058." },
-    { q: "Con la tabla de la teoría, calcula P(ESO | no deporte).", sol: "50/80 = 0,625." },
-    { q: "¿Son independientes «deporte» y «Bachillerato» en la tabla de la teoría?", sol: "P(deporte | Bach.) = 0,5 ≠ P(deporte) = 0,6: no son independientes." },
-    { q: "El 70 % de los días hace sol; si hay sol, llego tarde con probabilidad 0,1, y si no, 0,3. ¿Probabilidad de llegar tarde?", sol: "0,7 · 0,1 + 0,3 · 0,3 = 0,16." },
-    { q: "¿Qué probabilidad hay de acertar un PIN de 4 cifras al primer intento?", sol: "1/10.000." },
-    { q: "Se lanza un dado 3 veces. ¿Probabilidad de que no salga ningún 6?", sol: "(5/6)³ = 125/216 ≈ 0,58." },
-  ],
-  quiz: [
-    { q: "La ley de los grandes números dice que la frecuencia relativa…", o: ["se acerca a la probabilidad", "siempre vale 0,5", "crece sin límite"], a: 0, e: "Con muchas repeticiones." },
-    { q: "En una tabla de contingencia, P(A|B) se calcula dividiendo entre…", o: ["el total general", "el total de B", "el total de A"], a: 1, e: "Solo se mira el grupo B." },
-    { q: "La probabilidad total suma…", o: ["las ramas que llevan al suceso", "todas las ramas", "solo la rama mayor"], a: 0, e: "Cada rama es un producto." },
-    { q: "Tras 5 caras seguidas, la probabilidad de cara es…", o: ["mayor", "menor", "la misma, 1/2"], a: 2, e: "La moneda no tiene memoria." },
-    { q: "Para contar casos en la primitiva se usan…", o: ["combinaciones", "permutaciones", "variaciones con repetición"], a: 0, e: "El orden no importa." },
-  ],
-  tarjetas: [
-    ["Ley de los grandes números", "Al repetir mucho un experimento, la frecuencia relativa se acerca a la probabilidad."],
-    ["Tabla de contingencia", "Tabla de doble entrada para calcular probabilidades de intersecciones y condicionadas."],
-    ["Probabilidad total", "Suma de los productos de las ramas que llevan al suceso."],
-  ],
-});
