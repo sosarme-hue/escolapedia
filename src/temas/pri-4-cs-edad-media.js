@@ -1,0 +1,140 @@
+// Ciencias Sociales 4º de Primaria: la Edad Media en la península. Dibujos propios en SVG.
+const { C, REV, svg, tit, tx, t, fl, cj, cj2, et, COL, rejilla, wiki, mapa, flujo, columna, filas, fichas, linea, vid, vgen, RD, PROF, suelo, castillo, casa, arbol, estrella } = require("./_pri4b");
+
+const peninsula = (o = "") => `<path d="M38 52 L72 40 L120 44 L168 50 L204 56 L222 70 L206 92 L196 118 L176 140 L146 156 L110 162 L84 150 L60 156 L40 140 L46 116 L34 96 L30 72z" fill="${COL.verde}" fill-opacity=".12" stroke="${COL.verde}" stroke-width="2" ${o}/>`;
+
+module.exports = {
+  materia: "Ciencias Sociales",
+  curso: C,
+  titulo: "La Edad Media en la Península",
+  minutos: 45,
+  objetivos: ["Situar la Edad Media en el tiempo", "Conocer el reino visigodo", "Explicar qué fue al-Ándalus y cómo era su cultura", "Conocer los reinos cristianos y la Reconquista", "Describir la sociedad medieval, la vida en el castillo, el campo y la ciudad, y la convivencia de tres culturas"],
+  claves: ["Edad Media", "visigodos", "al-Ándalus", "califato", "reinos cristianos", "Reconquista", "feudalismo", "nobleza", "clero", "campesinos", "castillo", "monasterio", "gremio", "Reyes Católicos"],
+  pregunta: {
+    texto: "En muchas ciudades españolas conviven una catedral, un barrio llamado «la judería» y palabras como «aceite», «almohada» o «azúcar». ¿Qué tienen en común?",
+    respuesta: "Que son huellas de la <mark>Edad Media</mark>, cuando en la península convivieron durante siglos <b>tres culturas</b>: la <b>cristiana</b>, la <b>musulmana</b> y la <b>judía</b>. Las catedrales son cristianas, las juderías eran los barrios judíos y muchas palabras que empiezan por «al-» o «a-» vienen del <b>árabe</b>, la lengua de al-Ándalus.",
+  },
+  bloques: [
+    {
+      html: `<h3>¿Qué es la Edad Media?</h3><p>La <mark>Edad Media</mark> es la etapa de la historia que va desde la caída del Imperio romano de Occidente, en el año <b>476</b>, hasta el descubrimiento de América, en <b>1492</b>. Duró casi mil años.</p><p>En la península ibérica fue una época muy movida, con varios pueblos y culturas distintas. Podemos dividirla en estas etapas:</p><p>• El <b>reino visigodo</b>, del siglo V al año 711.<br>• La llegada de los <b>musulmanes</b> en el 711 y la formación de <b>al-Ándalus</b>.<br>• El nacimiento de los <b>reinos cristianos</b> en el norte y su avance hacia el sur, que se llama la <b>Reconquista</b>.<br>• El final de la Edad Media, con los <b>Reyes Católicos</b>, que conquistaron Granada en 1492.</p><p>En esa época aparecieron muchas cosas que todavía vemos hoy: castillos, catedrales, monasterios, puentes, murallas y los cascos antiguos de muchas ciudades. También nacieron lenguas como el castellano, el catalán y el gallego, y las primeras universidades, como la de Salamanca.</p><p>Muchas personas creen que la Edad Media fue una época oscura, pero también fue un tiempo de grandes obras de arte, de inventos, de viajes y de intercambio entre culturas.</p>`,
+      svg: svg("Línea del tiempo de la Edad Media en la península", `${tit("La Edad Media")}${linea([["476", "cae Roma", COL.gris], ["711", "llegan los musulmanes", COL.verde], ["1212", "Navas de Tolosa", COL.rojo], ["1492", "toma de Granada", COL.morado]], { y: 96 })}`),
+    },
+    {
+      html: `<h3>El reino visigodo</h3><p>Los <mark>visigodos</mark> eran un pueblo germánico que llegó del centro de Europa. Tras la caída del Imperio romano, se instalaron en la península y crearon un <b>reino</b> con capital en <b>Toledo</b>.</p><p>Al principio eran pocos y tenían costumbres y leyes distintas de las de los hispanorromanos, que eran la mayoría de la población. Poco a poco se fueron mezclando:</p><p>• Adoptaron el <b>latín</b> como lengua.<br>• El rey <b>Recaredo</b> se convirtió al <b>catolicismo</b>, la religión de los hispanorromanos, en el año 589.<br>• El rey Recesvinto aprobó un código de leyes común para todos.<br>• Lograron unificar casi toda la península bajo un solo reino.</p><p>El rey tenía mucho poder, pero no era hereditario: lo elegían los nobles. Por eso había muchas luchas y conspiraciones para conseguir el trono. Esta debilidad facilitó su caída.</p><p>Los visigodos fueron buenos <b>orfebres</b>: hacían coronas, cruces y broches de oro con piedras preciosas. El <b>tesoro de Guarrazar</b>, encontrado cerca de Toledo, tiene coronas votivas que los reyes ofrecían a las iglesias. También construyeron pequeñas iglesias con arcos de herradura, como San Juan de Baños, en Palencia.</p>`,
+      svg: svg("Corona votiva visigoda", `${tit("Los visigodos")}<path d="M90 48 V60 M130 44 V60 M170 48 V60" stroke="${COL.gris}" stroke-width="2"/><rect x="80" y="60" width="100" height="30" rx="4" fill="${COL.sol}" stroke="${COL.marron}" stroke-width="2"/>${[96, 118, 142, 164].map((x, i) => `<circle cx="${x}" cy="75" r="5" fill="${[COL.rojo, COL.azul, COL.verde, COL.rojo][i]}"/>`).join("")}${[90, 104, 118, 132, 146, 160, 174].map((x) => `<path d="M${x} 90 V108" stroke="${COL.sol}" stroke-width="2"/><circle cx="${x}" cy="112" r="3.5" fill="${COL.rojo}"/>`).join("")}${tx(130, 136, "capital: Toledo", 120, { weight: 700 })}${tx(130, 156, "orfebrería de oro", 140)}`),
+    },
+    {
+      html: `<h3>Al-Ándalus</h3><p>En el año <b>711</b>, un ejército de <mark>musulmanes</mark> llegó desde el norte de África cruzando el estrecho de Gibraltar. Su jefe era <b>Tariq</b>; de ahí viene el nombre de Gibraltar: «la montaña de Tariq». Vencieron al rey visigodo Rodrigo en la batalla de Guadalete y, en pocos años, dominaron casi toda la península.</p><p>Al territorio musulmán de la península lo llamaron <mark>al-Ándalus</mark>. Duró casi <b>800 años</b>, hasta 1492. Pasó por varias etapas:</p><p>• Primero fue un <b>emirato</b>, que dependía del califa de Damasco y luego se hizo independiente con Abderramán I.<br>• En el año 929, <b>Abderramán III</b> se proclamó califa y creó el <mark>Califato de Córdoba</mark>. Fue la época de mayor esplendor: <b>Córdoba</b> llegó a ser una de las ciudades más grandes y ricas del mundo, con calles iluminadas, bibliotecas, baños y mercados.<br>• Después, el califato se dividió en pequeños reinos llamados <b>reinos de taifas</b>, que estaban enfrentados entre sí y fueron más débiles.<br>• El último territorio musulmán fue el <b>reino nazarí de Granada</b>, que duró hasta 1492.</p><p>Los musulmanes siguen la religión del <b>islam</b>, cuyo libro sagrado es el Corán, y rezan en las mezquitas.</p>`,
+      svg: svg("Arcos de herradura bicolores como los de la Mezquita de Córdoba", `${tit("Al-Ándalus", COL.verde)}${[0, 1, 2].map((i) => { const x = 46 + i * 64, d = `M${x} 100 A30 30 0 1 1 ${x + 52} 100`; return `<path d="M${x + 4} 104 V156 M${x + 48} 104 V156" stroke="${COL.marron}" stroke-width="5"/><path d="${d}" fill="none" stroke="#f5f5f4" stroke-width="11"/><path d="${d}" fill="none" stroke="${COL.rojo}" stroke-width="11" stroke-dasharray="9 9"/>`; }).join("")}${et(130, 172, "Mezquita de Córdoba", 160, { size: 10.5 })}`),
+      video: vid("ORNTC9GB7_Y"),
+    },
+    {
+      html: `<h3>La cultura de al-Ándalus</h3><p>Al-Ándalus fue un lugar de gran riqueza cultural, donde se reunían sabios de muchos lugares. Los musulmanes trajeron a la península conocimientos de Oriente, de Grecia y de la India:</p><p>• En <b>ciencia</b>, destacaron en matemáticas, astronomía y medicina. Trajeron los <mark>números arábigos</mark> que usamos hoy, incluido el cero, y el álgebra. Sabios como <b>Averroes</b>, en Córdoba, estudiaron filosofía y medicina.<br>• En <b>agricultura</b>, mejoraron el regadío con <b>norias</b> y acequias, y trajeron nuevos cultivos: el arroz, la naranja, el limón, la caña de azúcar, la berenjena o el algodón.<br>• En <b>artesanía</b>, trabajaron el cuero, la cerámica, los tejidos de seda y el papel.<br>• En el <b>arte</b>, construyeron mezquitas y palacios con arcos de herradura, columnas, patios con fuentes y jardines, y paredes decoradas con yeserías y azulejos con dibujos geométricos y letras árabes.</p><p>Monumentos famosos de al-Ándalus son la <b>Mezquita de Córdoba</b>, la <b>Alhambra</b> de Granada, la <b>Giralda</b> de Sevilla, que era el alminar de una mezquita, y la Aljafería de Zaragoza.</p><p>Hoy usamos unas 4.000 palabras que vienen del árabe: aceite, aceituna, alcalde, almohada, azotea, azúcar, ojalá…</p>`,
+      svg: svg("Aportaciones de al-Ándalus", `${tit("Herencia andalusí", COL.verde)}${fichas([["Números", "0, 1, 2, 3…", COL.azul], ["Cultivos", "arroz, naranja", COL.naranja], ["Palabras", "aceite, azúcar", COL.morado], ["Arte", "Alhambra, Mezquita", COL.rojo]], 2, 34)}`),
+    },
+    {
+      html: `<h3>Los reinos cristianos y la Reconquista</h3><p>En el norte de la península, en las montañas, quedaron pequeños grupos cristianos que no se sometieron a los musulmanes. Allí fueron naciendo los <mark>reinos cristianos</mark>.</p><p>Según la tradición, en el año 722 el noble <b>Pelayo</b> venció a un ejército musulmán en la batalla de <b>Covadonga</b>, en Asturias. Así nació el <b>reino de Asturias</b>, que luego se convirtió en el reino de León. Con el tiempo aparecieron otros: el reino de <b>Pamplona</b> (Navarra), los condados catalanes, el reino de <b>Aragón</b> y el de <b>Castilla</b>. En el oeste nació también el reino de <b>Portugal</b>.</p><p>Poco a poco, estos reinos fueron avanzando hacia el sur, conquistando territorios a los musulmanes y repoblándolos con cristianos. A este proceso, que duró casi 800 años, se le llama la <mark>Reconquista</mark>.</p><p>Algunos momentos importantes:</p><p>• En 1085, Alfonso VI de Castilla conquistó <b>Toledo</b>.<br>• En 1212, varios reinos cristianos unidos vencieron en la batalla de <b>las Navas de Tolosa</b>, en Jaén. Desde entonces, avanzaron muy deprisa.<br>• En el siglo XIII se conquistaron Valencia, Mallorca, Córdoba y Sevilla.</p><p>Un personaje famoso de esta época es <b>Rodrigo Díaz de Vivar</b>, el <b>Cid</b>, que conquistó Valencia.</p>`,
+      svg: svg("Avance de los reinos cristianos del norte hacia el sur", `${tit("La Reconquista")}${peninsula()}<path d="M38 52 L72 40 L120 44 L168 50 L204 56 L210 66 L40 70z" fill="${COL.azul}" fill-opacity=".35"/><path d="M40 70 L210 66 L206 92 L196 118 L176 140 L60 120 L46 116 L34 96z" fill="${COL.azul}" fill-opacity=".15"/><path d="M84 150 L110 162 L146 156 L150 138 L100 136z" fill="${COL.verde}" fill-opacity=".45"/>${[70, 120, 170].map((x) => fl(x, 70, x, 112, COL.azul, 3)).join("")}${et(126, 56, "reinos cristianos (norte)", 150, { size: 9.5, color: COL.azul })}${et(122, 150, "Granada", 60, { size: 9.5, color: "#15803d" })}`),
+    },
+    {
+      html: `<h3>La sociedad medieval</h3><p>En la Edad Media, la sociedad de los reinos cristianos se organizaba en <b>estamentos</b>: grupos de personas a los que se pertenecía por nacimiento y de los que era casi imposible salir. Era una sociedad muy desigual, como una <b>pirámide</b>:</p><p>• En lo más alto estaba el <mark>rey</mark>, que gobernaba el reino.<br>• La <mark>nobleza</mark>: los señores, dueños de grandes tierras y castillos. Su función era <b>defender</b> el reino con sus caballeros. No pagaban impuestos.<br>• El <mark>clero</mark>: obispos, sacerdotes, monjes y monjas. Su función era <b>rezar</b> y cuidar la vida religiosa. Tampoco pagaban impuestos y tenían muchas tierras.<br>• El <mark>pueblo llano</mark>: la gran mayoría. Eran sobre todo <b>campesinos</b>, que trabajaban las tierras de los señores y debían pagarles impuestos y darles parte de su cosecha. Más tarde, también artesanos y comerciantes de las ciudades.</p><p>Este sistema, en el que los campesinos dependían de un señor que les daba protección a cambio de trabajo e impuestos, se llama <mark>feudalismo</mark>.</p><p>Se decía que la sociedad estaba formada por «los que rezan, los que luchan y los que trabajan».</p>`,
+      svg: svg("Pirámide de la sociedad medieval: rey, nobleza, clero y campesinos", `${tit("Sociedad medieval")}<path d="M130 34 L234 164 H26z" fill="${COL.sol}" fill-opacity=".15" stroke="var(--line)" stroke-width="2"/><path d="M110 60 H150 M86 90 H174 M62 120 H198" stroke="var(--line)" stroke-width="2"/>${et(130, 54, "rey", 30, { size: 10, color: COL.morado })}${et(130, 80, "nobleza: lucha", 80, { size: 10, color: COL.rojo })}${et(130, 110, "clero: reza", 100, { size: 10, color: COL.azul })}${et(130, 146, "campesinos: trabajan", 150, { size: 10.5, color: "#15803d" })}`),
+    },
+    {
+      html: `<h3>La vida en el castillo y en el monasterio</h3><p>En el campo, los dos edificios más importantes eran el castillo y el monasterio.</p><p>El <mark>castillo</mark> era la residencia del señor y su familia, y servía para <b>defender</b> el territorio. Se construía en lo alto de colinas, para ver llegar al enemigo. Tenía:</p><p>• Gruesas <b>murallas</b> con almenas, para que los soldados se protegieran al disparar.<br>• El <b>foso</b>, una zanja llena de agua alrededor, y el <b>puente levadizo</b>, que se subía para cerrar el paso.<br>• La <b>torre del homenaje</b>, la más alta y fuerte, donde vivía el señor.<br>• El <b>patio de armas</b>, con establos, cocinas, almacenes y la capilla.</p><p>España tiene tantos castillos que a una región se le dio el nombre de <b>Castilla</b>.</p><p>El <mark>monasterio</mark> era el lugar donde vivían los <b>monjes</b> o las monjas, dedicados a rezar y a trabajar. Tenía una iglesia, un claustro (un patio rodeado de galerías), huertos y talleres. Los monasterios fueron muy importantes para la cultura: en sus bibliotecas los monjes <b>copiaban libros a mano</b>, uno a uno, en un lugar llamado <b>scriptorium</b>, y los decoraban con dibujos de colores. Así se salvaron muchos libros antiguos. En un monasterio de La Rioja, San Millán de la Cogolla, se conservan unas de las primeras palabras escritas en castellano.</p>`,
+      svg: svg("Partes de un castillo medieval", `${tit("El castillo")}${suelo(150)}<rect x="40" y="92" width="180" height="58" fill="${COL.gris}" fill-opacity=".45"/>${[...Array(12)].map((_, i) => `<rect x="${40 + i * 15}" y="84" width="9" height="9" fill="${COL.gris}" fill-opacity=".45"/>`).join("")}<rect x="104" y="46" width="52" height="104" fill="${COL.gris}" fill-opacity=".7"/>${[0, 1, 2, 3].map((i) => `<rect x="${104 + i * 14}" y="38" width="9" height="9" fill="${COL.gris}" fill-opacity=".7"/>`).join("")}<path d="M120 150 V128 a10 10 0 0 1 20 0 V150z" fill="${COL.marron}"/><path d="M20 155 H240" stroke="var(--water)" stroke-width="5"/>${et(130, 66, "torre del", 46, { size: 9.5, color: "#fff" })}${et(130, 79, "homenaje", 46, { size: 9.5, color: "#fff" })}${et(70, 118, "muralla", 50, { size: 10 })}${et(190, 118, "almenas", 50, { size: 10 })}${tx(130, 170, "foso", 40, { color: COL.azul, weight: 700 })}`),
+      video: vid("EBJOFF4JDaI"),
+    },
+    {
+      html: `<h3>La vida en las ciudades</h3><p>A partir del siglo XI, las <b>ciudades</b> volvieron a crecer. Estaban rodeadas de <b>murallas</b> con puertas que se cerraban por la noche. Las calles eran estrechas y torcidas, sin asfaltar y sin alcantarillado. En el centro solía estar la <b>plaza mayor</b>, con el mercado, la <b>catedral</b> y el ayuntamiento.</p><p>En las ciudades vivían los <mark>artesanos</mark> (zapateros, herreros, carpinteros, tejedores…) y los <mark>comerciantes</mark>. Poco a poco formaron un nuevo grupo social: la <b>burguesía</b>, llamada así porque vivían en los burgos o ciudades.</p><p>Los artesanos de un mismo oficio se agrupaban en <mark>gremios</mark>, que fijaban los precios, la calidad de los productos y cómo se aprendía el oficio. Un niño empezaba como <b>aprendiz</b>, luego era <b>oficial</b> y, si aprobaba un examen, llegaba a <b>maestro</b> y podía abrir su propio taller. Muchas calles todavía se llaman como el gremio que había en ellas: calle de la Cuchillería, de Herreros, de Plateros…</p><p>Se celebraban <b>ferias</b> y mercados, a los que llegaban comerciantes de lejos. Y se construyeron grandes <b>catedrales</b>, primero de estilo <b>románico</b>, con muros gruesos y pocas ventanas, y luego <b>gótico</b>, muy altas, con grandes vidrieras de colores, como las de León, Burgos o Toledo.</p>`,
+      svg: svg("Arte románico y gótico: arco redondo y arco apuntado", `${tit("Románico y gótico")}<path d="M30 148 V88 A40 40 0 0 1 110 88 V148" fill="${COL.marron}" fill-opacity=".2" stroke="${COL.marron}" stroke-width="4"/><path d="M150 148 V92 Q150 54 190 38 Q230 54 230 92 V148" fill="${COL.azul}" fill-opacity=".15" stroke="${COL.azul}" stroke-width="4"/><circle cx="190" cy="82" r="13" fill="${COL.morado}" fill-opacity=".4" stroke="${COL.morado}"/>${et(70, 166, "románico", 80, { size: 11, color: COL.marron })}${et(190, 166, "gótico", 80, { size: 11, color: COL.azul })}${tx(70, 120, "arco redondo", 70)}${tx(190, 120, "arco apuntado", 70)}`),
+    },
+    {
+      html: `<h3>Tres culturas y el final de la Edad Media</h3><p>Durante la Edad Media, en la península convivieron <b>tres culturas</b> con tres religiones distintas:</p><p>• Los <b>cristianos</b>, que rezaban en iglesias y catedrales.<br>• Los <b>musulmanes</b>, que rezaban en mezquitas. Los que vivían en territorio cristiano se llamaban mudéjares.<br>• Los <b>judíos</b>, que rezaban en sinagogas y vivían en barrios llamados <b>juderías</b>. Muchos eran médicos, comerciantes o traductores.</p><p>No siempre se llevaron bien, pero en muchos momentos convivieron y compartieron conocimientos. En <b>Toledo</b>, por ejemplo, la <mark>Escuela de Traductores</mark> reunía a sabios de las tres culturas que traducían libros del árabe al latín y al castellano. El rey <b>Alfonso X el Sabio</b> la impulsó y escribió en castellano. Del arte mudéjar, mezcla de lo cristiano y lo musulmán, quedan torres de ladrillo muy bonitas en Teruel.</p><p>Al final de la Edad Media, <mark>Isabel de Castilla</mark> y <mark>Fernando de Aragón</mark>, los <b>Reyes Católicos</b>, se casaron y unieron sus dos reinos. En <b>1492</b> conquistaron el reino nazarí de <b>Granada</b>, el último territorio musulmán. Ese mismo año ordenaron expulsar a los judíos que no se convirtieran al cristianismo, y Cristóbal Colón llegó a América. Terminaba la Edad Media y empezaba la Edad Moderna.</p>`,
+      svg: svg("Las tres culturas medievales y sus templos", `${tit("Tres culturas")}${fichas([["Cristianos", "iglesia", COL.azul], ["Musulmanes", "mezquita", COL.verde], ["Judíos", "sinagoga", COL.morado]], 3, 36, 76)}${tx(130, 140, "1492: Reyes Católicos toman Granada", 230, { weight: 700 })}${tx(130, 160, "y Colón llega a América", 200)}`),
+    },
+  ],
+  figura: {
+    titulo: "La Edad Media en ocho ideas",
+    svg: rejilla([
+      ["Edad Media", "476 → 1492", COL.marron],
+      ["Visigodos", "reino de Toledo", COL.gris],
+      ["Al-Ándalus", "desde el 711", COL.verde],
+      ["Califato", "Córdoba esplendor", COL.naranja],
+      ["Reinos cristianos", "Reconquista", COL.azul],
+      ["Estamentos", "nobleza, clero, pueblo", COL.rojo],
+      ["Castillo y ciudad", "murallas y gremios", COL.morado],
+      ["1492", "Reyes Católicos", COL.sol],
+    ], 4, 86, "Resumen de la Edad Media"),
+  },
+  video: vgen("3kQoewZgf-U", "Edad Media para niños"),
+  ejemplos: [
+    { enunciado: "¿Cuántos años duró al-Ándalus, desde el 711 hasta 1492?",
+      pasos: ["1492 − 711 = 781."],
+      resultado: "Unos 781 años, casi ocho siglos." },
+    { enunciado: "¿En qué siglo fue la batalla de las Navas de Tolosa (1212)?",
+      pasos: ["Quitamos las dos últimas cifras: 12.", "12 + 1 = 13."],
+      resultado: "Siglo XIII." },
+    { enunciado: "Una persona que reza y vive en un monasterio, ¿a qué estamento pertenece?",
+      pasos: ["Rezar era la función del clero."],
+      resultado: "Al clero." },
+  ],
+  errores: [
+    "Pensar que la Edad Media empieza con los visigodos y termina con los musulmanes: va del 476 a 1492.",
+    "Creer que al-Ándalus duró poco: casi 800 años.",
+    "Confundir mezquita (musulmana) con sinagoga (judía).",
+    "Pensar que todos pagaban impuestos: la nobleza y el clero no los pagaban.",
+    "Confundir románico (arcos redondos, muros gruesos) con gótico (arcos apuntados, vidrieras, muy alto).",
+  ],
+  ejercicios: [
+    { q: "¿Qué dos hechos marcan el principio y el final de la Edad Media?", sol: "La caída del Imperio romano de Occidente (476) y el descubrimiento de América (1492)." },
+    { q: "¿Cuál fue la capital de los visigodos?", sol: "Toledo." },
+    { q: "¿Qué pasó en el año 711?", sol: "Llegaron los musulmanes desde el norte de África y comenzó al-Ándalus." },
+    { q: "¿Qué fue el Califato de Córdoba?", sol: "La época de mayor esplendor de al-Ándalus, desde el 929, con Abderramán III." },
+    { q: "Escribe tres cosas que nos dejó al-Ándalus.", sol: "Números arábigos, cultivos como el arroz o la naranja, palabras como aceite, la Alhambra (tres)." },
+    { q: "¿Qué fue la Reconquista?", sol: "El avance de los reinos cristianos hacia el sur, conquistando territorios musulmanes durante casi 800 años." },
+    { q: "Escribe los estamentos de la sociedad medieval y su función.", sol: "Nobleza (luchar), clero (rezar) y pueblo llano (trabajar)." },
+    { q: "Nombra cuatro partes de un castillo.", sol: "Muralla, almenas, foso, puente levadizo, torre del homenaje, patio de armas (cuatro)." },
+    { q: "¿Qué era un gremio?", sol: "Una asociación de artesanos del mismo oficio." },
+    { q: "¿Qué hicieron los Reyes Católicos en 1492?", sol: "Conquistaron Granada; ese año también Colón llegó a América." },
+  ],
+  quiz: [
+    { q: "La Edad Media empieza en…", o: ["476", "711", "1492"], a: 0, e: "476." },
+    { q: "Los visigodos tenían su capital en…", o: ["Córdoba", "Toledo", "Oviedo"], a: 1, e: "Toledo." },
+    { q: "Los musulmanes llegaron en el…", o: ["711", "1212", "476"], a: 0, e: "711." },
+    { q: "La capital del califato fue…", o: ["Granada", "Córdoba", "Sevilla"], a: 1, e: "Córdoba." },
+    { q: "La Alhambra está en…", o: ["Granada", "Toledo", "Zaragoza"], a: 0, e: "Granada." },
+    { q: "Los números que usamos los trajeron…", o: ["los visigodos", "los musulmanes", "los romanos"], a: 1, e: "Los musulmanes: números arábigos." },
+    { q: "Según la tradición, la Reconquista empezó en…", o: ["Covadonga", "Granada", "Córdoba"], a: 0, e: "Covadonga, en 722." },
+    { q: "Los que luchaban eran…", o: ["el clero", "la nobleza", "los campesinos"], a: 1, e: "La nobleza." },
+    { q: "Los judíos rezaban en la…", o: ["mezquita", "sinagoga", "catedral"], a: 1, e: "Sinagoga." },
+    { q: "Granada fue conquistada en…", o: ["1085", "1212", "1492"], a: 2, e: "1492." },
+  ],
+  examen: [
+    { q: "Las catedrales con grandes vidrieras son de estilo…", o: ["gótico", "románico", "visigodo"], a: 0, e: "Gótico." },
+    { q: "La torre más fuerte del castillo es la…", o: ["torre del homenaje", "almena", "barbacana"], a: 0, e: "Torre del homenaje." },
+    { q: "Un artesano que empieza a aprender es un…", o: ["aprendiz", "maestro", "burgués"], a: 0, e: "Aprendiz." },
+    { q: "La Escuela de Traductores estaba en…", o: ["Toledo", "León", "Valencia"], a: 0, e: "Toledo." },
+  ],
+  feynman: ["Qué pueblos y culturas vivieron en la península durante la Edad Media", "Cómo fue al-Ándalus y qué fue la Reconquista", "Cómo era la sociedad medieval y la vida en el castillo, el monasterio y la ciudad"],
+  mapa: mapa("LA EDAD MEDIA", "var(--pri)", [
+    ["Visigodos", "Toledo · 476-711", COL.gris],
+    ["Al-Ándalus", "Córdoba · Alhambra", COL.verde],
+    ["Reinos cristianos", "Reconquista · 1492", COL.azul],
+    ["Sociedad", "nobleza · clero · pueblo", COL.rojo],
+  ], 250),
+  tarjetas: [
+    ["Visigodos", "Pueblo germánico con reino en Toledo."],
+    ["Al-Ándalus", "Territorio musulmán de la península (711-1492)."],
+    ["Califato de Córdoba", "Época de esplendor de al-Ándalus."],
+    ["Reconquista", "Avance de los reinos cristianos hacia el sur."],
+    ["Feudalismo", "Campesinos que dependen de un señor."],
+    ["Estamento", "Grupo social al que se pertenece por nacimiento."],
+    ["Gremio", "Asociación de artesanos del mismo oficio."],
+    ["Reyes Católicos", "Isabel y Fernando; tomaron Granada en 1492."],
+  ],
+  familias: ["Visitad un castillo, una catedral o un monasterio cercano.", "Buscad palabras que empiecen por al- y comprobad si vienen del árabe.", "Construid un castillo con cajas de cartón con sus partes.", "Buscad si vuestra ciudad tiene murallas o calles con nombres de gremios."],
+  profesores: PROF("Ciencias Sociales: la Edad Media en la península: reino visigodo, al-Ándalus, reinos cristianos y Reconquista; sociedad estamental y feudalismo; castillo, monasterio y ciudad; convivencia de las tres culturas", ["Maqueta de un castillo con sus partes rotuladas.", "Escritura de un pergamino con letra capitular decorada.", "Mapa de la Reconquista en etapas con colores."]),
+  fuentes: [RD, { t: "Museo Arqueológico Nacional: Edad Media", url: "https://www.man.es/" }, wiki("Edad Media", "Edad_Media"), wiki("Al-Ándalus", "Al-Ándalus")],
+  revisado: REV,
+};
