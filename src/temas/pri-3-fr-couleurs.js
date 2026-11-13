@@ -1,0 +1,97 @@
+// Francés 3º de Primaria: los colores. Explicaciones en español, ejemplos en francés. Dibujos propios en SVG.
+const P = require("./_pri3a");
+const { svg, t, AZ, RO, VE, NA, SO, MO } = P;
+
+// Colores reales para pintar (no dependen del tema claro u oscuro, porque representan el color nombrado).
+const COL = { rouge: "#e03131", bleu: "#1c64f2", jaune: "#f5c518", vert: "#2f9e44", orange: "#f08c00", rose: "#f783ac", violet: "#7048e8", marron: "#8d5524", noir: "#222", blanc: "#fff", gris: "#999" };
+// Mancha de pintura con su nombre debajo.
+const mancha = (x, y, c, nombre, r = 16) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${COL[c]}" stroke="var(--ink)" stroke-width="1.4"/>${t(x, y + r + 14, nombre || c, { s: 11 })}`;
+
+module.exports = P.tema({
+  materia: "Francés",
+  titulo: "Les couleurs",
+  minutos: 45,
+  objetivos: ["Nombrar los colores principales en francés", "Preguntar y decir de qué color es algo", "Decir cuál es tu color favorito", "Saber que algunos colores cambian en femenino y colocar el color después del nombre"],
+  claves: ["la couleur", "rouge", "bleu", "jaune", "vert", "orange", "rose", "violet", "marron", "noir", "blanc", "gris", "de quelle couleur ?", "c'est…", "ma couleur préférée"],
+  pregunta: ["Si un niño francés te dice «Mon sac est bleu», ¿de qué color es su mochila?", "¡Es <mark>azul</mark>! <i>Bleu</i> («blö») significa azul. Muchos colores en francés se parecen al español o los has visto en etiquetas y en las cajas de lápices. Hoy aprenderás a decir los colores y a describir las cosas que te rodean."],
+  bloques: [
+    ["Los colores del arco iris", `<p>Empecemos por los colores del <b>arc-en-ciel</b> (arco iris):</p><ul><li><b>rouge</b> («ruch»): rojo.</li><li><b>orange</b> («oransh»): naranja.</li><li><b>jaune</b> («yon»): amarillo.</li><li><b>vert</b> («ver»): verde.</li><li><b>bleu</b> («blö»): azul.</li><li><b>violet</b> («violé»): morado, violeta.</li></ul><p>Truco para recordarlos: <i>rouge</i> se parece a «rojo» y a «rubí», <i>vert</i> a «verde» y <i>violet</i> a «violeta». ¡Los más difíciles son <b>jaune</b> y <b>bleu</b>!</p>`,
+      svg("Arco iris con los colores en francés", `${["rouge", "orange", "jaune", "vert", "bleu", "violet"].map((c, i) => `<path d="M${30 + i * 9} 120 A ${100 - i * 9} ${100 - i * 9} 0 0 1 ${230 - i * 9} 120" fill="none" stroke="${COL[c]}" stroke-width="9"/>`).join("")}${t(130, 148, "l'arc-en-ciel", { s: 15, d: true, c: AZ })}${t(130, 168, "rouge · orange · jaune · vert · bleu · violet", { s: 9.5, c: "var(--muted)" })}`)],
+    ["Más colores", `<p>Otros colores muy útiles:</p>${P.tb(["français", "español", "se dice"], [["rose", "rosa", "«ros»"], ["marron", "marrón", "«marón»"], ["noir", "negro", "«nuar»"], ["blanc", "blanco", "«blan»"], ["gris", "gris", "«grí»"]])}<p>Fíjate en que en <i>blanc</i> y <i>gris</i> la última letra <mark>no se pronuncia</mark>. Y <i>noir</i> tiene el sonido «ua», como <i>au revoir</i>.</p><p>Para decir que un color es claro u oscuro: <b>bleu clair</b> (azul claro) y <b>bleu foncé</b> (azul oscuro).</p>`,
+      svg("Manchas de color: rose, marron, noir, blanc y gris", `${[["rose", 34], ["marron", 82], ["noir", 130], ["blanc", 178], ["gris", 226]].map(([c, x]) => mancha(x, 60, c)).join("")}${t(130, 140, "bleu clair · bleu foncé", { s: 13, c: AZ })}`)],
+    ["¿De qué color es?", `<p>Para preguntar el color de algo decimos:</p><p style="text-align:center"><b>De quelle couleur est… ?</b> — ¿De qué color es…?</p><p>Y respondemos con <b>Il est…</b> (si es masculino) o <b>Elle est…</b> (si es femenino), o simplemente <b>C'est…</b>:</p><ul><li><i>De quelle couleur est la pomme ?</i> — <i>Elle est rouge.</i> (La manzana es roja.)</li><li><i>De quelle couleur est le ciel ?</i> — <i>Il est bleu.</i> (El cielo es azul.)</li></ul><p>También se usa mucho: <i>C'est quelle couleur ?</i> — <i>C'est vert !</i></p>`,
+      P.dialogo("Preguntar el color de una manzana", [["Zoé", "De quelle couleur est la pomme ?", AZ], ["Lucas", "Elle est rouge !", RO]]),
+      P.V("couB")],
+    ["El color va después", `<p>En francés, como en español, el color va normalmente <mark>detrás</mark> de la cosa que describe:</p><ul><li><i>un chat noir</i> — un gato negro.</li><li><i>une fleur jaune</i> — una flor amarilla.</li><li><i>un ballon vert</i> — un balón verde.</li></ul><p>Recuerda las palabras <b>un</b> (para masculino) y <b>une</b> (para femenino), que significan «un» y «una».</p><p>En inglés es al revés (<i>a black cat</i>), pero en francés lo decimos igual que en español. ¡Qué suerte!</p>`,
+      svg("Un gato negro, una flor amarilla y un balón verde", `<ellipse cx="50" cy="86" rx="24" ry="18" fill="${COL.noir}"/><circle cx="66" cy="64" r="13" fill="${COL.noir}"/><path d="M58 54 l 3 -10 l 6 8 M70 52 l 6 -8 l 2 10" fill="${COL.noir}"/><path d="M28 92 q -14 -14 -4 -28" fill="none" stroke="${COL.noir}" stroke-width="4"/>${t(50, 132, "un chat noir", { s: 11 })}${[0, 72, 144, 216, 288].map((a) => `<circle cx="${130 + 12 * Math.cos((a * Math.PI) / 180)}" cy="${70 + 12 * Math.sin((a * Math.PI) / 180)}" r="9" fill="${COL.jaune}" stroke="var(--ink)" stroke-width="1"/>`).join("")}<circle cx="130" cy="70" r="6" fill="${COL.orange}"/><path d="M130 88 V 112" stroke="${COL.vert}" stroke-width="3"/>${t(130, 132, "une fleur jaune", { s: 11 })}<circle cx="210" cy="82" r="24" fill="${COL.vert}" stroke="var(--ink)" stroke-width="1.5"/><path d="M186 82 H 234 M210 58 V 106" stroke="#fff" stroke-width="2"/>${t(210, 132, "un ballon vert", { s: 11 })}`)],
+    ["Colores en masculino y en femenino", `<p>En francés, las palabras son <b>masculinas</b> o <b>femeninas</b>, y algunos colores <mark>cambian</mark> en femenino añadiendo una <b>-e</b>:</p>${P.tb(["masculino", "femenino"], [["un crayon vert", "une gomme verte"], ["un pull noir", "une robe noire"], ["un livre bleu", "une chaise bleue"], ["un chien gris", "une souris grise"]])}<p>Otros colores ya terminan en <b>-e</b> y no cambian: <b>rouge, jaune, rose, orange</b>. <i>Un crayon rouge, une gomme rouge.</i></p><p>Y <b>blanc</b> cambia de forma especial: <i>une maison <b>blanche</b></i>.</p>`,
+      P.filas("Colores en masculino y femenino", [["vert → verte", "une gomme verte", VE], ["noir → noire", "une robe noire", "var(--ink)"], ["blanc → blanche", "maison blanche", AZ], ["rouge → rouge", "no cambia", RO]])],
+    ["Mi color favorito", `<p>Para hablar de tu color favorito:</p><ul><li><b>Quelle est ta couleur préférée ?</b> — ¿Cuál es tu color favorito?</li><li><b>Ma couleur préférée, c'est le bleu.</b> — Mi color favorito es el azul.</li></ul><p>También puedes decir lo que te gusta y lo que no:</p><ul><li><b>J'aime le vert.</b> — Me gusta el verde.</li><li><b>Je n'aime pas le marron.</b> — No me gusta el marrón.</li></ul><p>Cuando hablamos del color en sí (no de un objeto), va con <b>le</b>: <i>le rouge, le jaune</i>, porque los colores son masculinos.</p>`,
+      P.dialogo("Preguntar el color favorito", [["Emma", "Quelle est ta couleur préférée ?", MO], ["Hugo", "C'est le bleu ! Et toi ?", AZ], ["Emma", "Moi, j'aime le violet.", MO]])],
+    ["Mezclar colores", `<p>¿Sabías que mezclando colores salen otros nuevos? Lo decimos en francés con <b>plus</b> (más) y <b>égale</b> (igual a):</p><ul><li><i>jaune + bleu = vert</i></li><li><i>rouge + jaune = orange</i></li><li><i>rouge + bleu = violet</i></li><li><i>rouge + blanc = rose</i></li><li><i>noir + blanc = gris</i></li></ul><p>Los colores <b>rouge, jaune</b> y <b>bleu</b> son los <mark>colores primarios</mark>: con ellos se pueden hacer casi todos los demás. ¡Pruébalo con témperas en clase de plástica!</p>`,
+      svg("Mezclas de colores: amarillo más azul es verde, rojo más amarillo es naranja, rojo más azul es violeta", `${[["jaune", "bleu", "vert"], ["rouge", "jaune", "orange"], ["rouge", "bleu", "violet"]].map(([a, b, c], i) => { const y = 34 + i * 46; return `<circle cx="40" cy="${y}" r="13" fill="${COL[a]}" stroke="var(--ink)" stroke-width="1"/>${t(70, y + 5, "+", { s: 16 })}<circle cx="100" cy="${y}" r="13" fill="${COL[b]}" stroke="var(--ink)" stroke-width="1"/>${t(130, y + 5, "=", { s: 16 })}<circle cx="160" cy="${y}" r="13" fill="${COL[c]}" stroke="var(--ink)" stroke-width="1"/>${t(214, y + 5, c, { s: 13, d: true })}`; }).join("")}`)],
+    ["Colores y objetos de la clase", `<p>Vamos a practicar describiendo los objetos de la clase. Lee y piensa de qué color es cada uno:</p><ul><li><i>La trousse est rose.</i> — El estuche es rosa.</li><li><i>Le cahier est orange.</i> — El cuaderno es naranja.</li><li><i>Le tableau est noir… ou blanc !</i> — La pizarra es negra… ¡o blanca!</li><li><i>Les crayons sont de toutes les couleurs.</i> — Los lápices son de todos los colores.</li></ul><p>Juego <b>«Je vois quelque chose de…»</b> (Veo, veo algo de color…): un niño dice <i>Je vois quelque chose de jaune</i> y los demás adivinan qué es.</p>`,
+      svg("Estuche rosa, cuaderno naranja y lápices de colores", `<rect x="16" y="50" width="70" height="34" rx="14" fill="${COL.rose}" stroke="var(--ink)" stroke-width="1.5"/><path d="M22 54 H 80" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3 2"/>${t(51, 108, "la trousse", { s: 11 })}<rect x="100" y="36" width="52" height="62" rx="4" fill="${COL.orange}" stroke="var(--ink)" stroke-width="1.5"/><path d="M108 36 V 98" stroke="var(--ink)" stroke-width="1"/>${t(126, 116, "le cahier", { s: 11 })}${["rouge", "bleu", "vert", "jaune", "violet"].map((c, i) => `<path d="M${174 + i * 14} 100 V 46 l 4 -10 l 4 10 V 100 Z" fill="${COL[c]}" stroke="var(--ink)" stroke-width="1"/>`).join("")}${t(210, 116, "les crayons", { s: 11 })}${t(130, 156, "Je vois quelque chose de…", { s: 13, c: AZ })}`)],
+    ["Colores en la vida diaria", `<p>Los colores también tienen significados:</p><ul><li>En los semáforos: <i>rouge</i> = parar, <i>orange</i> = cuidado, <i>vert</i> = pasar.</li><li>La bandera de Francia es <b>bleu, blanc, rouge</b>. Por eso se la llama <i>le drapeau tricolore</i> (la bandera tricolor).</li><li>El equipo de fútbol de Francia se llama <i>les Bleus</i> (los Azules) por el color de su camiseta.</li></ul><p>Y una expresión divertida: cuando alguien pasa mucho miedo, en francés dicen que ha pasado <i>une peur bleue</i>, ¡un miedo azul!</p>`,
+      svg("Semáforo con rojo, naranja y verde y la bandera bleu blanc rouge", `<rect x="40" y="20" width="44" height="120" rx="10" fill="var(--ink)" fill-opacity=".85"/>${[["rouge", 44], ["orange", 80], ["vert", 116]].map(([c, y]) => `<circle cx="62" cy="${y}" r="13" fill="${COL[c]}"/>${t(110, y + 4, c, { s: 12, a: "start" })}`).join("")}<rect x="166" y="40" width="22" height="60" fill="${COL.bleu}"/><rect x="188" y="40" width="22" height="60" fill="#fff" stroke="var(--line)" stroke-width="1"/><rect x="210" y="40" width="22" height="60" fill="${COL.rouge}"/>${t(199, 124, "bleu, blanc, rouge", { s: 10.5 })}`)],
+  ],
+  figura: ["Les couleurs", P.columnas("Resumen: colores del arco iris, otros colores, preguntar el color y femenino", [["arc-en-ciel", "COULEURS", ["rouge, jaune, bleu", "vert, orange, violet"], RO], ["más colores", "AUTRES", ["rose, marron, gris", "noir, blanc"], "var(--ink)"], ["De quelle couleur… ?", "QUESTION", ["Il est bleu.", "C'est vert !"], AZ], ["femenino: + e", "ACCORD", ["vert → verte", "blanc → blanche"], VE]])],
+  video: P.V("couV", true),
+  ejemplos: [
+    ["Traduce: un perro marrón y una casa blanca.", ["Perro = chien, masculino: marron.", "Casa = maison, femenino: blanc → blanche.", "El color va detrás."], "un chien marron, une maison blanche"],
+    ["Responde: De quelle couleur est la banane ?", ["La banana es amarilla: jaune.", "Banane es femenino: elle."], "Elle est jaune."],
+    ["Escribe tu color favorito en francés.", ["Usamos: Ma couleur préférée, c'est…", "Con le delante del color."], "Ma couleur préférée, c'est le vert."],
+  ],
+  errores: [
+    "Pronunciar la última letra de blanc o gris.",
+    "Poner el color delante del nombre como en inglés: un noir chat.",
+    "Olvidar la -e del femenino: une gomme vert (es verte).",
+    "Añadir otra -e a colores que ya acaban en e: rougee.",
+    "Confundir jaune (amarillo) con «junio» o con verde.",
+  ],
+  ejercicios: [
+    ["Escribe en francés los colores del arco iris.", "Rouge, orange, jaune, vert, bleu, violet."],
+    ["¿Qué significan noir, blanc y gris?", "Negro, blanco y gris."],
+    ["¿Cómo se pregunta de qué color es algo?", "De quelle couleur est… ? (o C'est quelle couleur ?)"],
+    ["Traduce: El cielo es azul.", "Le ciel est bleu."],
+    ["Traduce: un lápiz rojo y una goma roja.", "Un crayon rouge et une gomme rouge."],
+    ["Escribe el femenino de vert, noir y gris.", "Verte, noire y grise."],
+    ["¿Qué color sale de jaune + bleu?", "Vert."],
+    ["Escribe los colores de la bandera de Francia.", "Bleu, blanc, rouge."],
+    ["¿Cómo dices «Me gusta el rosa» en francés?", "J'aime le rose."],
+    ["Describe tres objetos de tu mochila con su color en francés.", "Respuesta libre, por ejemplo: une trousse bleue, un cahier vert, un crayon jaune."],
+  ],
+  quiz: [
+    ["«Rouge» es…", ["rojo", "rosa", "naranja"], "Ruch."],
+    ["«Azul» en francés es…", ["bleu", "blanc", "vert"], "Blö."],
+    ["«Jaune» significa…", ["amarillo", "verde", "negro"], "Yon."],
+    ["«Noir» es…", ["negro", "blanco", "gris"], "Nuar."],
+    ["¿Cómo se dice verde?", ["vert", "violet", "gris"], "Ver."],
+    ["«Un chat noir» es…", ["un gato negro", "un perro negro", "un gato blanco"], "Chat = gato."],
+    ["El femenino de «vert» es…", ["verte", "vert", "vertie"], "Se añade -e."],
+    ["El femenino de «blanc» es…", ["blanche", "blance", "blanc"], "Cambio especial."],
+    ["«De quelle couleur est… ?» significa…", ["¿De qué color es…?", "¿Cuál es tu color?", "¿Qué es…?"], "Pregunta por el color."],
+    ["rouge + jaune =", ["orange", "vert", "violet"], "Naranja."],
+  ],
+  examen: [
+    ["«Une fleur rose» es…", ["una flor rosa", "una flor roja", "un pez rosa"], "Fleur = flor."],
+    ["Mi color favorito es el azul:", ["Ma couleur préférée, c'est le bleu.", "J'ai le bleu.", "Je suis bleu."], "C'est le…"],
+    ["¿Qué color NO cambia en femenino?", ["jaune", "vert", "noir"], "Ya acaba en -e."],
+    ["noir + blanc =", ["gris", "rose", "marron"], "Gris."],
+  ],
+  feynman: ["Cómo se dicen los colores del arco iris en francés", "Cómo se pregunta de qué color es algo", "Dónde se coloca el color en la frase", "Qué colores cambian en femenino y cómo", "Cómo dices tu color favorito"],
+  mapa: ["LES COULEURS", [["Arco iris", "rouge, jaune, bleu, vert…", RO], ["Más colores", "rose, marron, noir, blanc", MO], ["Preguntar", "De quelle couleur… ?", AZ], ["Femenino", "vert → verte", VE]]],
+  tarjetas: [
+    ["rouge · orange · jaune", "Rojo, naranja, amarillo."],
+    ["vert · bleu · violet", "Verde, azul, morado."],
+    ["rose · marron · gris", "Rosa, marrón, gris."],
+    ["noir · blanc", "Negro, blanco."],
+    ["De quelle couleur est… ?", "¿De qué color es…?"],
+    ["Il est… / Elle est…", "Es… (masculino / femenino)."],
+    ["Femenino de los colores", "+ e: verte, noire, bleue, grise; blanc → blanche."],
+    ["Ma couleur préférée, c'est…", "Mi color favorito es…"],
+  ],
+  familias: ["Jugad a «Je vois quelque chose de…» (veo, veo) por casa o en el coche.", "Al vestiros, decid el color de la ropa en francés.", "Pintad juntos un arco iris y escribid los colores en francés.", "Cantad una canción de los colores en francés."],
+  saberes: "Léxico básico en lengua extranjera: los colores; preguntar y responder por el color de un objeto; posición del adjetivo; concordancia de género en los colores; expresar preferencias (j'aime, ma couleur préférée); aspectos socioculturales (bandera de Francia)",
+  ideas: ["Bingo de colores en francés.", "Mezclas de témperas nombrando el resultado en francés.", "Veo, veo en francés con objetos de la clase."],
+});
