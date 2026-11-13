@@ -44,10 +44,11 @@ module.exports = {
   graB2: ["9Qj_DmIca8k", "4º Primaria: sucesos seguros, posibles e imposibles", "Matecitos", 93511],
   // Francés
   bonV: ["mNDjR4GuQ6k", "Los saludos en francés (formales e informales)", "Academia de Francés Online", 295788, "saludos en francés para niños"],
+  bonB2: ["2JifXSsao1Q", "¿Sabes saludar en francés?", "Como digo", 288822],
   bonB: ["txnUUcGbOxQ", "Bonjour, Salut, Bonsoir! Comment ça va?", "kidAllo", 328855],
   colV: ["A7Rqd8XRrXI", "Los colores en francés: francés para niños", "guiainfantil", 239015, "colores en francés para niños"],
+  colB3: ["xH4KuPuXdUY", "Los colores en francés: básicos", "Petit Monde Français", 39644],
   colB: ["-ViYdvK52Vg", "Los números en francés para niños, del 1 al 20", "Zumbers Internacional", 135644],
-  colB2: ["O_4ZgUX7g6Q", "French 1 to 20 children's song", "3 Minute Languages", 437202],
   claV: ["xuXtxIgU71A", "Los objetos de la clase en francés", "Pédago FLE con Gladys Mambié", 48004, "objetos de la clase en francés para niños"],
   claB: ["1dw5cwie2Rk", "Los útiles escolares en francés", "coucoulafrance", 105189],
   famV: ["bjzscOUda4w", "Ratounet enseña el vocabulario de la familia en francés", "Aprenda Francés con Pascal", 194289, "la familia en francés para niños"],
