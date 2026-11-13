@@ -51,7 +51,7 @@ module.exports = {
       ${CA.map((t, i) => { const x = 60 + i * 104; return `<rect x="${x - 46}" y="24" width="92" height="252" rx="14" fill="var(--card)" stroke="${COL[i]}" stroke-width="3"/>${dado(x, 82, i + 1, 60, COL[i])}<text x="${x}" y="180" text-anchor="middle" font-size="44" font-weight="800" fill="${COL[i]}">${i + 1}</text><text x="${x}" y="240" text-anchor="middle" font-size="22" font-weight="800" fill="var(--ink)">${t}</text>`; }).join("")}
     </svg>`,
   },
-  video: { ...vid("-apX6TxWycA", "Els números de l'1 al 10 en català: aprèn a comptar", "Smile and Learn - Català", 94004), busqueda: "els números cançó infantil català" },
+  video: { ...vid("dj3XGzKL8PI", "Els números: cinc cançons per comptar", "Titelles Pamipipa", 106320), busqueda: "els números cançó infantil català" },
   ejemplosTitulo: "Ho fem junts",
   ejemplos: [
     { enunciado: "Quants gots hi ha a taula? N'hi ha tres.", pasos: ["Assenyalem cada got.", "Comptem en català: un, dos, tres."], resultado: "hi ha tres gots." },

@@ -43,7 +43,7 @@ module.exports = {
     titulo: "Les salutacions",
     svg: mural("Quatre targetes: hola, bon dia amb el sol, bona nit amb la lluna i adéu", [["feliz", "Hola!", "quan arribem", A], ["sol", "Bon dia!", "al matí", M], ["luna", "Bona nit!", "per dormir", N], ["mano", "Adéu!", "quan marxem", R]], "Saludem en català"),
   },
-  video: { ...vid("BF7w-xJUlwM", "Bon dia! (videoclip oficial)", "Dàmaris Gelabert", 42541176), busqueda: "cançó bon dia català infantil" },
+  video: { ...vid("L6b7COYuVEU", "Bon dia!!! (videoclip oficial)", "Els Atrapasomnis", 2154617), busqueda: "cançó bon dia català infantil" },
   ejemplosTitulo: "Ho fem junts",
   ejemplos: [
     { enunciado: "Són les nou del matí i arribes a l'escola. Què dius?", pasos: ["És al matí: hi ha sol.", "Saludem la mestra amb un somriure."], resultado: "Bon dia!" },

@@ -40,7 +40,7 @@ module.exports = {
     },
     {
       html: `<h3>Juego: montamos el belén</h3><p>Con figuras, plastilina o dibujos, montamos un <mark>belén</mark>.</p><p>¿Dónde va María? ¿Y José? ¿Y el niño Jesús?</p><p>No olvides la estrella arriba, los pastores y la mula y el buey.</p>`,
-      svg: svg("Un niño coloca la estrella encima de un belén de juguete", `${portal(150, 156, 0.7)}${estrella(150, 56, 10)}${nino(40, 156, { c: R, pose: "arriba" })}${rot(190, 26, "¡Montamos el belén!", { color: R })}`),
+      svg: svg("Un niño coloca la estrella encima de un belén de juguete", `${portal(150, 156, 0.7)}${estrella(150, 56, 10)}${nino(40, 156, { c: R, pose: "arriba" })}${rot(160, 26, "¡Montamos el belén!", { color: R })}`),
     },
   ],
   figura: {
