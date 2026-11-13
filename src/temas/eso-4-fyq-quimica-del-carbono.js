@@ -1,172 +1,238 @@
-// Física y Química 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-
-// Cadena de carbonos en zigzag con hidrógenos implícitos.
-function zigzag(x, y, n, dx = 30, dy = 18, color = "var(--ink)") {
-  const pts = Array.from({ length: n }, (_, i) => [x + i * dx, y + (i % 2 ? -dy : 0)]);
-  return `<path d="M${pts.map((p) => p.join(" ")).join(" L ")}" fill="none" stroke="${color}" stroke-width="3" stroke-linejoin="round"/>`;
-}
+// Física y Química 4º ESO · Química del carbono (nivel libro). Dibujos propios en SVG.
+const { BASE, ficha, pasos, compara, barras, rejilla, bloque, formula, B, M, A, q4, PROFE, FUENTE_RD } = require("./_eso4L5");
+const S = BASE["quimica-del-carbono"];
 
 module.exports = {
   materia: "Física y Química",
   curso: "4-eso",
   titulo: "Química del carbono",
-  minutos: 40,
-  objetivos: ["Explicar por qué el carbono forma tantos compuestos", "Nombrar y formular hidrocarburos sencillos", "Reconocer los grupos funcionales más importantes"],
-  claves: ["tetravalente", "hidrocarburo", "alcano", "alqueno", "alquino", "grupo funcional"],
+  minutos: 110,
+  objetivos: [
+    "Explicar por qué el carbono forma millones de compuestos a partir de su estructura electrónica",
+    "Representar moléculas orgánicas con fórmulas moleculares, desarrolladas, semidesarrolladas y de esqueleto",
+    "Formular y nombrar hidrocarburos sencillos: alcanos, alquenos, alquinos, cíclicos y aromáticos",
+    "Reconocer los grupos funcionales de alcoholes, aldehídos, cetonas, ácidos, ésteres y aminas",
+    "Valorar la importancia de los compuestos del carbono en la vida, la energía y los plásticos, y su impacto ambiental",
+  ],
+  claves: ["química orgánica", "tetravalencia", "cadena carbonada", "fórmula semidesarrollada", "hidrocarburo", "alcano", "alqueno", "alquino", "grupo funcional", "isomería", "polímero", "biomolécula"],
   pregunta: {
-    texto: "Se conocen unos 120 000 compuestos inorgánicos, pero más de 20 millones con carbono. ¿Qué tiene de especial este átomo?",
-    respuesta: "El carbono tiene <mark>4 electrones de valencia</mark> y forma cuatro enlaces covalentes muy estables, también <b>con otros carbonos</b>. Así se construyen cadenas largas, ramificadas y anillos casi sin límite: de ahí el plástico, la gasolina, el azúcar y tu propio ADN.",
+    texto: "¿Qué tienen en común la gasolina, el azúcar, el plástico de una botella, el ADN y el ibuprofeno?",
+    respuesta: "Que todos son <mark>compuestos del carbono</mark>. Se conocen más de 100 millones de compuestos de carbono, muchos más que de todos los demás elementos juntos. La química que los estudia se llama <b>química orgánica</b>, porque al principio se creía que solo los seres vivos podían fabricarlos.",
+  },
+  lectura: {
+    titulo: "Wöhler y la orina de laboratorio",
+    html: `<p>A principios del siglo XIX, los químicos estaban convencidos de que las sustancias de los seres vivos, como el azúcar, la grasa o la urea de la orina, contenían una misteriosa «fuerza vital» y que era imposible fabricarlas en un laboratorio. Por eso las llamaban sustancias orgánicas, para distinguirlas de las minerales o inorgánicas.</p><p>En 1828, el químico alemán Friedrich Wöhler intentaba obtener cianato de amonio, una sal inorgánica, calentando dos compuestos minerales. Al analizar los cristales blancos que se formaron, descubrió con sorpresa que eran urea, exactamente la misma sustancia que expulsan los riñones. Escribió emocionado a su maestro: «Puedo fabricar urea sin necesidad de riñones, ni de un animal, ya sea hombre o perro». Aquel experimento abrió una puerta enorme. En pocas décadas, los químicos sintetizaron colorantes, perfumes, medicamentos como la aspirina y, en el siglo XX, los plásticos y las fibras sintéticas. Hoy sabemos que no existe ninguna fuerza vital: los compuestos de los seres vivos siguen las mismas leyes que el resto de la materia. Lo que los hace especiales es un elemento con una capacidad única para enlazarse: el carbono. Mantenemos el nombre de química orgánica por tradición, pero hoy la definimos como la química de los compuestos del carbono.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>El átomo de carbono</h3><p>El carbono (Z = 6) es <b>tetravalente</b>: forma <mark>cuatro enlaces</mark>. Puede unirse a otros carbonos con enlaces <b>simples</b> (C–C), <b>dobles</b> (C=C) o <b>triples</b> (C≡C) y formar cadenas abiertas, ramificadas o cerradas en anillo. Con el hidrógeno, el oxígeno y el nitrógeno da lugar a toda la <b>química orgánica</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Molécula de metano: un carbono en el centro con cuatro enlaces a hidrógenos">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g stroke="var(--ink)" stroke-width="3"><path d="M130 90 V 40 M130 90 V 140 M130 90 H 70 M130 90 H 190"/></g>
-        <circle cx="130" cy="90" r="20" fill="var(--ink)"/><text x="130" y="97" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" ${D}>C</text>
-        ${[[130, 36], [130, 144], [64, 90], [196, 90]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="13" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/><text x="${x}" y="${y + 5}" text-anchor="middle" font-size="14" font-weight="700" fill="var(--pen)" ${F}>H</text>`).join("")}
-        <text x="214" y="40" font-size="14" font-weight="700" fill="var(--red)" ${F}>CH₄</text><text x="200" y="160" font-size="12" fill="var(--muted)" ${F}>metano</text>
-      </svg>`,
-    },
-    {
-      html: `<h3>Formas de escribir una molécula</h3><p>La <b>fórmula molecular</b> dice cuántos átomos hay (C₄H₁₀). La <b>semidesarrollada</b> muestra los enlaces entre carbonos (CH₃–CH₂–CH₂–CH₃) y es la que más se usa. La <b>desarrollada</b> dibuja todos los enlaces. En la <b>fórmula de esqueleto</b> cada vértice es un carbono y los hidrógenos no se dibujan.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Butano escrito como fórmula molecular, semidesarrollada y de esqueleto">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F}><text x="20" y="36" font-size="12" fill="var(--muted)">molecular</text><text x="110" y="36" font-size="18" font-weight="700" fill="var(--ink)">C₄H₁₀</text>
-        <text x="20" y="84" font-size="12" fill="var(--muted)">semidesarrollada</text><text x="20" y="108" font-size="16" font-weight="700" fill="var(--pen)">CH₃–CH₂–CH₂–CH₃</text>
-        <text x="20" y="150" font-size="12" fill="var(--muted)">esqueleto</text></g>
-        ${zigzag(120, 160, 4, 32, 22, "var(--leaf)")}
-      </svg>`,
-    },
-    {
-      html: `<h3>Hidrocarburos</h3><p>Solo tienen <b>carbono e hidrógeno</b>. Se nombran con un <b>prefijo</b> según el número de carbonos (<mark>met-, et-, prop-, but-, pent-, hex-…</mark>) y una <b>terminación</b> según el enlace: <mark>-ano</mark> si todos son simples (alcanos), <mark>-eno</mark> si hay uno doble (alquenos) y <mark>-ino</mark> si hay uno triple (alquinos). El número indica dónde está el enlace múltiple: CH₂=CH–CH₂–CH₃ es el <b>but-1-eno</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Etano, eteno y etino: enlace simple, doble y triple">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[["CH₃–CH₃", "etano (-ano)", "var(--pen)"], ["CH₂=CH₂", "eteno (-eno)", "var(--leaf)"], ["CH≡CH", "etino (-ino)", "var(--red)"]]
-          .map(([f, n, c], i) => `<text x="24" y="${50 + i * 48}" font-size="20" font-weight="700" fill="${c}" ${D}>${f}</text><text x="236" y="${50 + i * 48}" text-anchor="end" font-size="13" font-weight="700" fill="var(--ink)" ${F}>${n}</text>`).join("")}
-      </svg>`,
-    },
-    {
-      html: `<h3>Grupos funcionales</h3><p>Un <b>grupo funcional</b> es un átomo o grupo de átomos que da a la molécula sus propiedades. Los más comunes:</p>
-      <p><b>Alcoholes</b> –OH (<mark>-ol</mark>): etanol, CH₃–CH₂OH. <b>Aldehídos</b> –CHO (<mark>-al</mark>): metanal. <b>Cetonas</b> –CO– (<mark>-ona</mark>): propanona o acetona. <b>Ácidos carboxílicos</b> –COOH (<mark>ácido -oico</mark>): ácido etanoico, el del vinagre. <b>Aminas</b> –NH₂ (<mark>-amina</mark>).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Ejemplos de grupos funcionales: alcohol, cetona y ácido carboxílico">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[["CH₃–CH₂–OH", "etanol", "alcohol", "var(--pen)"], ["CH₃–CO–CH₃", "propanona", "cetona", "var(--leaf)"], ["CH₃–COOH", "ácido etanoico", "ácido", "var(--red)"]]
-          .map(([f, n, g, c], i) => `<rect x="12" y="${14 + i * 54}" width="236" height="46" rx="10" fill="var(--card)" stroke="${c}" stroke-width="2"/><text x="24" y="${42 + i * 54}" font-size="17" font-weight="700" fill="${c}" ${D}>${f}</text><text x="236" y="${34 + i * 54}" text-anchor="end" font-size="12" font-weight="700" fill="var(--ink)" ${F}>${n}</text><text x="236" y="${50 + i * 54}" text-anchor="end" font-size="11" fill="var(--muted)" ${F}>${g}</text>`).join("")}
-      </svg>`,
-    },
-    {
-      html: `<h3>Compuestos de interés</h3><p>Los <b>hidrocarburos</b> del petróleo y el gas natural son combustibles (butano, octano de la gasolina) y la materia prima de los <b>plásticos</b> o <mark>polímeros</mark>: moléculas gigantes hechas de una unidad que se repite, como el polietileno a partir del eteno. En los seres vivos están las <b>biomoléculas</b>: glúcidos, lípidos, proteínas y ácidos nucleicos. Quemar combustibles fósiles libera CO₂, que contribuye al cambio climático.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Polimerización: muchas moléculas de eteno se unen formando una cadena de polietileno">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[0, 1, 2, 3].map((i) => `<g transform="translate(${18 + i * 60} 30)"><circle cx="10" cy="16" r="9" fill="var(--ink)"/><circle cx="34" cy="16" r="9" fill="var(--ink)"/><path d="M19 13 H 25 M19 19 H 25" stroke="var(--ink)" stroke-width="2.5"/></g>`).join("")}
-        <text x="130" y="88" text-anchor="middle" font-size="22" fill="var(--muted)" ${F}>↓</text>
-        <path d="M14 124 H 246" stroke="var(--ink)" stroke-width="3"/>${Array.from({ length: 10 }, (_, i) => `<circle cx="${24 + i * 24}" cy="124" r="7" fill="var(--leaf)"/>`).join("")}
-        <g ${F} font-size="12" font-weight="700" fill="var(--ink)" text-anchor="middle"><text x="130" y="24">eteno (monómero)</text><text x="130" y="160">polietileno (polímero)</text></g>
-      </svg>`,
-    },
+    bloque({ h: "1.1 El átomo de carbono", p: [
+      "El carbono (Z = 6) tiene la configuración 1s² 2s² 2p² y, por tanto, <b>4 electrones de valencia</b>. Para completar el octeto no gana ni pierde electrones, sino que forma <mark>cuatro enlaces covalentes</mark>: decimos que es <b>tetravalente</b>. En el metano, CH₄, el carbono se une a cuatro hidrógenos, y los enlaces se dirigen hacia los vértices de un tetraedro, separados unos 109°.",
+      "Lo que hace único al carbono es que puede <mark>unirse a otros átomos de carbono</mark> formando enlaces fuertes y estables, y construir así <b>cadenas</b> de cualquier longitud: lineales, ramificadas o cerradas en anillos. Además, puede formar enlaces simples, dobles y triples, y unirse a otros elementos como el hidrógeno, el oxígeno, el nitrógeno, el azufre o los halógenos. Esta versatilidad explica la enorme variedad de compuestos orgánicos. El silicio, en el mismo grupo, también tiene 4 electrones de valencia, pero sus cadenas son mucho menos estables, y por eso la vida en la Tierra se basa en el carbono.",
+    ], svg: S.svg[0] }),
+    bloque({ h: "1.2 Formas de representar las moléculas", p: [
+      "Una misma molécula orgánica se puede escribir de varias formas. La <b>fórmula molecular</b> solo indica el número de átomos de cada elemento: el butano es C₄H₁₀. La <b>fórmula desarrollada</b> dibuja todos los átomos y todos los enlaces en el plano. La <mark>fórmula semidesarrollada</mark>, la más usada en este curso, muestra solo los enlaces entre carbonos y agrupa los hidrógenos de cada carbono: CH₃–CH₂–CH₂–CH₃.",
+      "En química avanzada se usa también la <b>fórmula de esqueleto</b> o de líneas: una línea en zigzag en la que cada vértice y cada extremo es un carbono, y los hidrógenos no se dibujan. Es muy rápida para moléculas grandes. Y para ver la forma real en tres dimensiones se usan <b>modelos moleculares</b> de bolas y varillas o de esferas, que hoy se dibujan con programas de ordenador. Saber pasar de una representación a otra es fundamental, porque la fórmula molecular sola no basta: como verás, varias moléculas distintas pueden tener la misma fórmula molecular.",
+    ], svg: S.svg[1] }),
+    bloque({ h: "2.1 Los hidrocarburos", p: [
+      "Los <mark>hidrocarburos</mark> son los compuestos orgánicos más sencillos: solo contienen <b>carbono e hidrógeno</b>. Son la base de la química orgánica, porque el resto de los compuestos se pueden ver como hidrocarburos en los que se han sustituido hidrógenos por otros átomos. Se obtienen sobre todo del <b>petróleo</b> y del <b>gas natural</b>, y se usan principalmente como combustibles y como materia prima de la industria química.",
+      "Según el tipo de enlace entre carbonos se clasifican en <b>alcanos</b>, con solo enlaces simples, como el etano, CH₃–CH₃; <b>alquenos</b>, con algún doble enlace, como el eteno, CH₂=CH₂; y <b>alquinos</b>, con algún triple enlace, como el etino, CH≡CH. Los alcanos se llaman <b>saturados</b> porque cada carbono tiene el máximo número posible de hidrógenos; los alquenos y alquinos son <b>insaturados</b> y más reactivos, porque sus enlaces dobles y triples pueden abrirse para unir otros átomos. Sus fórmulas generales son CₙH₂ₙ₊₂ para los alcanos, CₙH₂ₙ para los alquenos con un doble enlace y CₙH₂ₙ₋₂ para los alquinos con un triple enlace.",
+    ], svg: S.svg[2] }),
+    bloque({ h: "2.2 Nombrar hidrocarburos de cadena lineal", p: [
+      "El nombre de un hidrocarburo tiene dos partes: un <mark>prefijo</mark> que indica el número de carbonos de la cadena y una <mark>terminación</mark> que indica el tipo de enlace. Los prefijos son: <b>met-</b> (1), <b>et-</b> (2), <b>prop-</b> (3), <b>but-</b> (4), <b>pent-</b> (5), <b>hex-</b> (6), <b>hept-</b> (7), <b>oct-</b> (8), <b>non-</b> (9) y <b>dec-</b> (10). Las terminaciones son <b>-ano</b> para los alcanos, <b>-eno</b> para los alquenos e <b>-ino</b> para los alquinos.",
+      "Así, CH₃–CH₂–CH₃ es el propano, y CH₃–CH₂–CH₂–CH₂–CH₃, el pentano. Cuando hay un doble o triple enlace a partir de cuatro carbonos, hay que indicar su posición: se numera la cadena desde el extremo más cercano al enlace múltiple y se escribe el número del primer carbono del enlace delante de la terminación. CH₂=CH–CH₂–CH₃ es el but-1-eno, y CH₃–CH=CH–CH₃, el but-2-eno. CH≡C–CH₃ es el propino (no hace falta número, porque solo hay una posición posible). Para formular a partir del nombre, se dibuja la cadena de carbonos, se colocan los enlaces múltiples y se completan los hidrógenos hasta que cada carbono tenga cuatro enlaces.",
+    ], svg: rejilla("Prefijos según el número de carbonos", ["Prefijo", "C", "Alcano"], [["met-", "1", "metano"], ["et-", "2", "etano"], ["prop-", "3", "propano"], ["but-", "4", "butano"], ["pent-", "5", "pentano"]], "var(--pen)"), video: S.bvideos[0] }),
+    bloque({ h: "2.3 Hidrocarburos ramificados", p: [
+      "Muchos hidrocarburos tienen <mark>ramificaciones</mark>: cadenas laterales unidas a la cadena principal. Estas ramas se llaman <b>radicales alquilo</b> y se nombran con el prefijo del número de carbonos y la terminación <b>-il</b> o <b>-ilo</b>: metil (–CH₃), etil (–CH₂–CH₃), propil. Para nombrar un hidrocarburo ramificado se siguen cuatro pasos.",
+      "Primero, se elige la <b>cadena principal</b>, la más larga (si hay enlaces múltiples, la que los contiene). Segundo, se <b>numera</b> desde el extremo que da los números más bajos a los radicales. Tercero, se escriben los radicales por orden alfabético con su posición delante, y si hay varios iguales se usan los prefijos di-, tri-, tetra-. Cuarto, se termina con el nombre de la cadena principal. Por ejemplo, CH₃–CH(CH₃)–CH₂–CH₃ tiene una cadena de 4 carbonos y un metilo en el carbono 2: es el <b>2-metilbutano</b>. El «isooctano» de las gasolinas, que da nombre al índice de octano, es el 2,2,4-trimetilpentano.",
+    ], svg: pasos("Pasos para nombrar un hidrocarburo ramificado", ["Busca la cadena más larga", "Numera: radicales bajos", "Radicales en orden alfabético", "Nombre de la cadena"], "var(--leaf)") }),
+    bloque({ h: "2.4 Hidrocarburos cíclicos y aromáticos", p: [
+      "Cuando los extremos de una cadena se unen, se forma un anillo y obtenemos un <mark>hidrocarburo cíclico</mark>. Se nombran anteponiendo el prefijo <b>ciclo-</b> al nombre del hidrocarburo con el mismo número de carbonos: ciclopropano, ciclopentano, ciclohexano (C₆H₁₂). El ciclohexano se usa como disolvente y para fabricar el nailon.",
+      "Un caso muy especial es el <mark>benceno</mark>, C₆H₆: un anillo de seis carbonos con tres dobles enlaces alternados. En realidad, los electrones de esos dobles enlaces no están fijos, sino repartidos por todo el anillo, lo que le da una estabilidad excepcional; por eso se dibuja a menudo como un hexágono con un círculo dentro. Los compuestos que contienen anillos de benceno se llaman <b>aromáticos</b>, porque los primeros que se descubrieron tenían olores intensos, como la vainillina de la vainilla. El tolueno, el naftaleno de las bolas antipolillas y muchos medicamentos y colorantes son aromáticos. El benceno es tóxico y cancerígeno, así que hoy su uso está muy restringido. Su estructura en anillo la propuso Kekulé en 1865, quien contaba que se le ocurrió soñando con una serpiente que se mordía la cola.",
+    ], svg: compara("Diferencias entre ciclohexano y benceno", ["Ciclohexano", ["C₆H₁₂", "enlaces simples", "anillo saturado", "disolvente"]], ["Benceno", ["C₆H₆", "3 dobles alternos", "aromático", "muy estable"]], "var(--pen)", "var(--red)") }),
+    bloque({ h: "2.5 La isomería", p: [
+      "Los <mark>isómeros</mark> son compuestos que tienen la <b>misma fórmula molecular</b> pero <b>distinta estructura</b> y, por tanto, distintas propiedades. Por ejemplo, la fórmula C₄H₁₀ corresponde a dos compuestos: el butano, de cadena lineal, que hierve a −1 °C, y el metilpropano (isobutano), ramificado, que hierve a −12 °C. Cuantos más carbonos, más isómeros posibles: el C₈H₁₈ tiene 18 y el C₂₀H₄₂, más de 366.000.",
+      "Hay varios tipos de isomería estructural. En la <b>isomería de cadena</b>, cambia la forma del esqueleto carbonado (lineal o ramificado), como en el butano y el metilpropano. En la <b>isomería de posición</b>, cambia la posición de un enlace múltiple o de un grupo funcional, como en el but-1-eno y el but-2-eno, o en el propan-1-ol y el propan-2-ol. En la <b>isomería de función</b>, cambia el grupo funcional: el etanol (CH₃–CH₂OH), un líquido que bebemos en las bebidas alcohólicas, y el dimetiléter (CH₃–O–CH₃), un gas, tienen ambos la fórmula C₂H₆O. La isomería es la razón por la que en química orgánica no basta con la fórmula molecular.",
+    ], svg: compara("Dos isómeros de fórmula C₄H₁₀", ["Butano", ["C₄H₁₀", "cadena lineal", "hierve a −1 °C"]], ["Metilpropano", ["C₄H₁₀", "ramificado", "hierve a −12 °C"]], "var(--leaf)", "#b45309"), video: S.bvideos[1] }),
+    bloque({ h: "3.1 Los grupos funcionales", p: [
+      "Un <mark>grupo funcional</mark> es un átomo o grupo de átomos que da a una molécula orgánica sus propiedades químicas características. Los compuestos con el mismo grupo funcional forman una <b>familia</b> y reaccionan de forma parecida, aunque su cadena sea distinta. Por eso, para conocer una molécula orgánica basta con identificar su esqueleto de carbonos y su grupo funcional.",
+      "Los más importantes, además de los dobles y triples enlaces, son: el grupo <b>hidroxilo</b>, –OH, de los <b>alcoholes</b>; el grupo <b>carbonilo</b>, C=O, que en un extremo de la cadena (–CHO) forma los <b>aldehídos</b> y en medio forma las <b>cetonas</b>; el grupo <b>carboxilo</b>, –COOH, de los <b>ácidos carboxílicos</b>; el grupo –COO– de los <b>ésteres</b>; y el grupo <b>amino</b>, –NH₂, de las <b>aminas</b>. También hay derivados halogenados, con cloro o flúor, y éteres, con un oxígeno entre dos cadenas (–O–). Cada grupo tiene su terminación en el nombre: -ol, -al, -ona, ácido -oico, -ato de -ilo y -amina.",
+    ], svg: S.svg[3], video: { id: "E9NOL1c7EOg", titulo: "Grupos funcionales (química orgánica)", canal: "Cápsula Channel", vistas: 572913 } }),
+    bloque({ h: "3.2 Alcoholes, aldehídos y cetonas", p: [
+      "Los <mark>alcoholes</mark> tienen el grupo –OH y se nombran con la terminación <b>-ol</b>, indicando su posición: CH₃OH es el metanol, muy tóxico, que puede causar ceguera; CH₃–CH₂OH es el <b>etanol</b>, el alcohol de las bebidas, del gel desinfectante y de algunos combustibles, que se obtiene por fermentación de azúcares; y CH₂OH–CHOH–CH₂OH es el propano-1,2,3-triol o <b>glicerina</b>, que se usa en cosmética. El grupo –OH forma puentes de hidrógeno, por lo que los alcoholes pequeños se mezclan bien con el agua.",
+      "Los <mark>aldehídos</mark> tienen el grupo –CHO al final de la cadena y terminan en <b>-al</b>: el <b>metanal</b>, HCHO, o formaldehído, disuelto en agua es el formol, que se usa para conservar muestras biológicas; y el benzaldehído da el olor a almendras amargas. Las <mark>cetonas</mark> tienen el grupo C=O en un carbono intermedio y terminan en <b>-ona</b>: la más conocida es la <b>propanona</b>, CH₃–CO–CH₃, o acetona, el quitaesmalte, que es un disolvente excelente. Muchos aldehídos y cetonas son responsables de olores y sabores: la vainillina, el cinamaldehído de la canela o la carvona de la menta.",
+    ], svg: rejilla("Ejemplos de alcoholes, aldehídos y cetonas", ["Familia", "Ejemplo", "Uso"], [["Alcohol -ol", "etanol", "desinfectante"], ["Alcohol -ol", "glicerina", "cosmética"], ["Aldehído -al", "metanal", "formol"], ["Cetona -ona", "propanona", "quitaesmalte"]], "var(--red)") }),
+    bloque({ h: "3.3 Ácidos, ésteres y aminas", p: [
+      "Los <mark>ácidos carboxílicos</mark> tienen el grupo –COOH y se nombran «ácido» + nombre de la cadena + <b>-oico</b>. El <b>ácido metanoico</b>, HCOOH o ácido fórmico, es el que inyectan las hormigas y las ortigas al picar. El <b>ácido etanoico</b>, CH₃–COOH o ácido acético, da su sabor al vinagre, que es una disolución al 5 %. Otros son el ácido cítrico de los limones, el láctico del yogur y de las agujetas y los ácidos grasos de los aceites.",
+      "Cuando un ácido reacciona con un alcohol se forma un <mark>éster</mark> y agua. Los ésteres, con el grupo –COO–, tienen olores agradables a fruta y flores: el etanoato de pentilo huele a plátano, y el butanoato de etilo, a piña. Se usan como aromas en alimentos y perfumes, y las grasas y los aceites son ésteres de la glicerina. Las <mark>aminas</mark> tienen el grupo –NH₂ y derivan del amoníaco: la metilamina huele a pescado, y aminas como la adrenalina o la dopamina actúan en nuestro cuerpo como hormonas y neurotransmisores. Los <b>aminoácidos</b>, que forman las proteínas, tienen a la vez un grupo amino y un grupo ácido.",
+    ], svg: ficha("Ácidos, ésteres y aminas de la vida diaria", "En la vida diaria", ["Ácido acético: vinagre", "Ácido fórmico: hormigas", "Ésteres: aromas de frutas", "Aminas: dopamina, adrenalina"], "var(--leaf)") }),
+    bloque({ h: "4.1 Combustibles fósiles e hidrocarburos", p: [
+      "El <b>petróleo</b> y el <b>gas natural</b> son mezclas de hidrocarburos formadas durante millones de años a partir de restos de plancton enterrados en el fondo de mares antiguos. El <mark>gas natural</mark> es sobre todo metano, CH₄. El butano y el propano de las bombonas se obtienen del petróleo. El petróleo crudo se separa en una <b>refinería</b> mediante destilación fraccionada: se calienta y sus componentes se separan según su punto de ebullición, de los gases a la gasolina, el queroseno de los aviones, el gasóleo, los aceites lubricantes y el asfalto.",
+      "Al arder, los hidrocarburos reaccionan con el oxígeno y producen <mark>dióxido de carbono y agua</mark>, liberando mucha energía: CH₄ + 2 O₂ → CO₂ + 2 H₂O. Si falta oxígeno, se forma también monóxido de carbono, muy tóxico, y hollín. El problema es que el CO₂ liberado por la quema de combustibles fósiles es la principal causa del aumento del <b>efecto invernadero</b> y del cambio climático. Además, son recursos no renovables. Por eso la transición energética busca sustituirlos por fuentes renovables y usar el petróleo sobre todo como materia prima para fabricar materiales.",
+    ], extra: formula("CH₄ + 2 O₂ → CO₂ + 2 H₂O + energía"), svg: barras("Fracciones del petróleo por temperatura de ebullición aproximada", "Destilación del petróleo (°C)", [["Gases", 5, "var(--leaf)", "< 20"], ["Gasolina", 30, "#b45309", "40–180"], ["Queroseno", 50, "var(--pen)", "180–250"], ["Gasóleo", 70, "var(--red)", "250–350"], ["Asfalto", 100, "var(--ink)", "> 400"]]) }),
+    bloque({ h: "4.2 Los polímeros y los plásticos", p: [
+      "Los <mark>polímeros</mark> son moléculas gigantes, llamadas macromoléculas, formadas por la unión de miles de moléculas pequeñas iguales, llamadas <b>monómeros</b>, como los eslabones de una cadena. La reacción por la que se unen se llama <b>polimerización</b>. Por ejemplo, el eteno, CH₂=CH₂, abre su doble enlace y se une a miles de moléculas iguales para formar el <b>polietileno</b>, el plástico más fabricado del mundo, con el que se hacen bolsas, envases y tuberías.",
+      "Hay polímeros naturales, como la celulosa de la madera y el algodón, el almidón, las proteínas, la seda, el caucho y el ADN; y polímeros sintéticos, como el <b>PVC</b> de las tuberías y ventanas, el <b>PET</b> de las botellas, el <b>poliestireno</b> (el «corcho blanco»), el <b>nailon</b> y el <b>poliéster</b> de la ropa. Los plásticos son ligeros, baratos, resistentes y fáciles de moldear, pero su gran estabilidad tiene una cara oscura: tardan siglos en degradarse. Cada año acaban en el mar millones de toneladas de plástico, que se fragmentan en <b>microplásticos</b> que llegan a los peces y a nuestro cuerpo. Reducir, reutilizar y reciclar es imprescindible.",
+    ], svg: S.svg[4] }),
+    bloque({ h: "4.3 Las biomoléculas y la química de la vida", p: [
+      "Los seres vivos están formados por compuestos del carbono llamados <mark>biomoléculas orgánicas</mark>, que se agrupan en cuatro familias. Los <b>glúcidos</b> o hidratos de carbono, como la glucosa (C₆H₁₂O₆), el almidón y la celulosa, aportan energía y forman estructuras; son ricos en grupos –OH. Los <b>lípidos</b>, como las grasas, los aceites y el colesterol, almacenan energía y forman las membranas celulares; muchos son ésteres de ácidos grasos.",
+      "Las <b>proteínas</b> son polímeros de aminoácidos y realizan casi todas las funciones de la célula: forman músculos y pelo, transportan oxígeno (la hemoglobina), defienden del exterior (los anticuerpos) y aceleran las reacciones (las enzimas). Los <b>ácidos nucleicos</b>, ADN y ARN, son polímeros que guardan y transmiten la información genética. Muchos medicamentos también son compuestos orgánicos diseñados por químicos: la aspirina (ácido acetilsalicílico), el paracetamol, el ibuprofeno o los antibióticos como la penicilina. La química orgánica es, por tanto, la química de la vida, de la salud y de buena parte de la tecnología.",
+    ], svg: rejilla("Las cuatro familias de biomoléculas orgánicas", ["Familia", "Ejemplo"], [["Glúcidos", "glucosa, almidón"], ["Lípidos", "grasas, colesterol"], ["Proteínas", "hemoglobina, enzimas"], ["Ácidos nucleicos", "ADN, ARN"]], "var(--leaf)") }),
   ],
-  figura: {
-    titulo: "Prefijos y terminaciones",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Prefijos según el número de carbonos y terminaciones según el enlace o el grupo funcional">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      <text x="170" y="38" text-anchor="middle" font-size="16" font-weight="700" fill="var(--pen)" ${F}>Número de carbonos</text>
-      ${["met-", "et-", "prop-", "but-", "pent-", "hex-", "hept-", "oct-"].map((p, i) => `<rect x="${30 + (i % 4) * 72}" y="${54 + Math.floor(i / 4) * 74}" width="64" height="62" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="${62 + (i % 4) * 72}" y="${80 + Math.floor(i / 4) * 74}" text-anchor="middle" font-size="22" font-weight="700" fill="var(--pen)" ${D}>${i + 1}</text><text x="${62 + (i % 4) * 72}" y="${102 + Math.floor(i / 4) * 74}" text-anchor="middle" font-size="14" fill="var(--ink)" ${F}>${p}</text>`).join("")}
-      <text x="480" y="38" text-anchor="middle" font-size="16" font-weight="700" fill="var(--red)" ${F}>Terminación</text>
-      ${[["-ano", "solo enlaces simples"], ["-eno / -ino", "doble / triple"], ["-ol", "alcohol (–OH)"], ["-al / -ona", "aldehído / cetona"], ["ácido -oico", "–COOH"]].map(([t, d], i) => `<text x="350" y="${74 + i * 32}" font-size="17" font-weight="700" fill="var(--red)" ${D}>${t}</text><text x="470" y="${74 + i * 32}" font-size="14" fill="var(--ink)" ${F}>${d}</text>`).join("")}
-    </svg>`,
-  },
-  video: { id: "wxcFaTPi03Y", titulo: "Alcanos, alquenos y alquinos", canal: "Profesor Particular Puebla", vistas: 4562663, megusta: 0, busqueda: "química del carbono hidrocarburos" },
-  quiz: [
-    { q: "¿Cuántos enlaces forma el carbono?", o: ["2", "4", "6"], a: 1, e: "Tiene 4 electrones de valencia y comparte los cuatro: es tetravalente." },
-    { q: "¿Cómo se llama CH₃–CH₂–CH₃?", o: ["Propano", "Propeno", "Butano"], a: 0, e: "Tres carbonos (prop-) y solo enlaces simples (-ano)." },
-    { q: "Un alquino tiene al menos…", o: ["un enlace doble", "un enlace triple", "un grupo –OH"], a: 1, e: "Alquinos: -ino, enlace triple C≡C." },
-    { q: "¿A qué grupo funcional pertenece el etanol?", o: ["Ácido carboxílico", "Alcohol", "Cetona"], a: 1, e: "La terminación -ol indica el grupo hidroxilo –OH: es un alcohol." },
-    { q: "¿Qué es un polímero?", o: ["Una molécula muy pequeña", "Una molécula gigante formada por unidades que se repiten", "Un tipo de átomo de carbono"], a: 1, e: "Los polímeros, como los plásticos o las proteínas, son cadenas de muchos monómeros unidos." },
-  ],
-  examen: [
-    { q: "Formula el pent-2-eno.", o: ["CH₃–CH=CH–CH₂–CH₃", "CH₂=CH–CH₂–CH₂–CH₃", "CH₃–C≡C–CH₂–CH₃"], a: 0, e: "Cinco carbonos (pent-), doble enlace (-eno) que empieza en el carbono 2." },
-    { q: "¿Cuál es la fórmula molecular del butano?", o: ["C₄H₈", "C₄H₁₀", "C₄H₆"], a: 1, e: "Los alcanos siguen CₙH₂ₙ₊₂: con n = 4, C₄H₁₀." },
-    { q: "La acetona del quitaesmalte es una…", o: ["cetona (propanona)", "amina", "aldehído"], a: 0, e: "CH₃–CO–CH₃: tres carbonos con el grupo carbonilo en medio, propanona." },
-  ],
-  feynman: ["Por qué el carbono forma millones de compuestos", "Las distintas formas de escribir una fórmula orgánica", "Cómo se nombra un hidrocarburo: prefijo y terminación", "Qué es un grupo funcional, con dos ejemplos", "Qué es un polímero y de dónde salen los plásticos"],
-  mapa: mapa("QUÍMICA DEL CARBONO", "var(--eso)", [
-    ["Carbono", "4 enlaces · cadenas y anillos", "var(--ink)"],
-    ["Hidrocarburos", "-ano · -eno · -ino", "var(--pen)"],
-    ["Grupos funcionales", "-ol · -al · -ona · -oico", "var(--red)"],
-    ["Interés", "combustibles · plásticos · vida", "var(--leaf)"],
-  ], 250),
-  tarjetas: [
-    ["¿Por qué se dice que el carbono es tetravalente?", "Porque forma cuatro enlaces covalentes."],
-    ["Fórmula general de los alcanos", "CₙH₂ₙ₊₂."],
-    ["Prefijos de 1 a 5 carbonos", "met-, et-, prop-, but-, pent-."],
-    ["Terminación de los alcoholes", "-ol (grupo –OH). Ejemplo: etanol."],
-    ["¿Qué ácido contiene el vinagre?", "El ácido etanoico (acético), CH₃–COOH."],
-  ],
-  familias: ["Buscad en casa productos con nombres de química orgánica: butano, acetona, etanol, ácido acético.", "Mirad el triángulo de reciclaje de los envases de plástico y averiguad qué polímero es (PET, PE, PP).", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
-  profesores: {
-    saberes: "La materia: compuestos del carbono, hidrocarburos y grupos funcionales sencillos, y su importancia (RD 217/2022, Física y Química 4º).",
-    ideas: ["Kits de modelos moleculares (o plastilina y palillos) para construir isómeros del butano.", "Identificar polímeros por su código de reciclaje y debatir sobre su impacto.", "Síntesis de un bioplástico con almidón, vinagre y glicerina."],
-  },
-  fuentes: [
-    { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
-    { t: "Química orgánica, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Qu%C3%ADmica_org%C3%A1nica" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: más teoría, ejemplos resueltos, errores típicos y ejercicios con solución.
-const AMP = require("./_amplia");
-AMP.amplia(module.exports, {
-  minutos: 60,
-  objetivos: ["Nombrar y formular hidrocarburos sencillos, también ramificados", "Reconocer isómeros y relacionar los polímeros con su impacto ambiental"],
-  tras: {
-    "Hidrocarburos": [
-      { html: `<h3>Nombrar hidrocarburos</h3><p>El nombre de un hidrocarburo tiene un <b>prefijo</b> que dice cuántos carbonos tiene la cadena (met- 1, et- 2, prop- 3, but- 4, pent- 5, hex- 6, hept- 7, oct- 8) y un <b>sufijo</b> que dice el tipo de enlace: <mark>-ano</mark> si todos son sencillos, <mark>-eno</mark> si hay un doble y <mark>-ino</mark> si hay un triple. Los pasos son: elegir la cadena más larga que contenga el enlace múltiple; numerarla para que el doble o triple enlace tenga el número más bajo; indicar su posición delante del sufijo. Así, CH₂=CH–CH₂–CH₃ es <b>but-1-eno</b>. Las ramificaciones se nombran como <b>radicales</b> terminados en -il (metil, etil) delante del nombre de la cadena, con el número del carbono al que se unen: CH₃–CH(CH₃)–CH₃ es <b>metilpropano</b>.</p>`, video: { id: "RmLf2gU5tIQ", titulo: "Alcanos, alquenos y alquinos (y radicales)", canal: "Amigos de la Química", vistas: 3165762 } },
-      { html: `<h3>Hidrocarburos cíclicos y aromáticos</h3><p>Las cadenas pueden cerrarse en un anillo: son los <b>cicloalcanos</b>, que se nombran con el prefijo ciclo-, como el ciclohexano (C₆H₁₂). Un caso especial es el <b>benceno</b>, C₆H₆: un anillo de seis carbonos con enlaces que se reparten por todo el anillo, lo que le da una gran estabilidad. Se dibuja como un hexágono con un círculo dentro. Los compuestos que contienen este anillo se llaman <mark>aromáticos</mark>, porque los primeros que se conocieron tenían olor intenso. Muchos medicamentos, colorantes y plásticos tienen anillos de benceno, aunque el benceno puro es tóxico.</p>` },
-    ],
-    "Grupos funcionales": [
-      { html: `<h3>Isomería</h3><p>Los <b>isómeros</b> son compuestos con la <mark>misma fórmula molecular pero distinta estructura</mark>, y por eso tienen propiedades diferentes. Hay varios tipos: de <b>cadena</b> (butano, con la cadena recta, y metilpropano, ramificado, son los dos C₄H₁₀); de <b>posición</b> (but-1-eno y but-2-eno, con el doble enlace en sitios distintos); y de <b>función</b> (el etanol, CH₃–CH₂OH, un alcohol, y el dimetil éter, CH₃–O–CH₃, tienen la misma fórmula C₂H₆O pero el primero es líquido y se bebe en las bebidas alcohólicas, y el segundo es un gas). La isomería explica en parte la enorme variedad de compuestos del carbono.</p>`, video: { id: "fMllRfO7eII", titulo: "Tipos de isómeros. Química orgánica", canal: "Breaking Vlad", vistas: 643087 } },
-    ],
-    "Compuestos de interés": [
-      { html: `<h3>Polímeros y plásticos</h3><p>Los <b>polímeros</b> son moléculas gigantes formadas por la unión de miles de moléculas pequeñas llamadas <b>monómeros</b>. Hay polímeros naturales (almidón, celulosa, proteínas, ADN) y sintéticos, los <b>plásticos</b>: el polietileno (bolsas) se obtiene uniendo moléculas de eteno; el PVC, el PET de las botellas o el nailon son otros ejemplos. Son ligeros, baratos y duraderos, pero esa misma durabilidad es un problema: tardan cientos de años en degradarse y se fragmentan en <mark>microplásticos</mark> que llegan al mar y a la cadena alimentaria. Reducir su uso, reutilizarlos, reciclarlos y desarrollar <b>bioplásticos</b> biodegradables son parte de la solución.</p>` },
-    ],
-  },
+  figura: S.figura,
+  video: S.video,
   ejemplos: [
-    { enunciado: "Nombra CH₃–CH₂–CH=CH–CH₃.", pasos: ["La cadena tiene 5 carbonos: prefijo pent-.", "Hay un doble enlace: sufijo -eno.", "Numerando desde la derecha, el doble enlace empieza en el carbono 2 (desde la izquierda sería el 3)."], resultado: "Pent-2-eno." },
-    { enunciado: "Formula el hex-1-ino y escribe su fórmula molecular.", pasos: ["Hex-: 6 carbonos. -ino: un triple enlace entre los carbonos 1 y 2.", "Fórmula: CH≡C–CH₂–CH₂–CH₂–CH₃.", "Cuenta los hidrógenos: 1 + 2 + 2 + 2 + 3 = 10."], resultado: "CH≡C–CH₂–CH₂–CH₂–CH₃, C₆H₁₀." },
-    { enunciado: "Escribe la reacción ajustada de combustión completa del propano, C₃H₈.", pasos: ["Combustión completa: el hidrocarburo reacciona con O₂ y da CO₂ y H₂O.", "Ajusta C: 3 CO₂. Ajusta H: 8 hidrógenos dan 4 H₂O.", "Cuenta los O de la derecha: 3·2 + 4 = 10, es decir, 5 O₂."], resultado: "C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O." },
+    { enunciado: "Escribe la fórmula semidesarrollada y la molecular del hexano.", pasos: ["Hex- indica 6 carbonos; -ano, solo enlaces simples.", "Cadena: C–C–C–C–C–C.", "Extremos con 3 H y carbonos intermedios con 2 H.", "CH₃–CH₂–CH₂–CH₂–CH₂–CH₃.", "Molecular: C₆H₁₄ (CₙH₂ₙ₊₂)."], resultado: "CH₃–(CH₂)₄–CH₃; C₆H₁₄." },
+    { enunciado: "Nombra el compuesto CH₃–CH₂–CH=CH–CH₃.", pasos: ["Cadena de 5 carbonos con un doble enlace: penteno.", "Numerar desde el extremo más cercano al doble enlace (el derecho).", "El doble enlace empieza en el carbono 2."], resultado: "Pent-2-eno." },
+    { enunciado: "Formula el 2-metilpropano y escribe un isómero suyo.", pasos: ["Propano: 3 carbonos.", "Un metilo en el carbono 2: CH₃–CH(CH₃)–CH₃.", "Fórmula molecular: C₄H₁₀.", "Isómero de cadena: el butano, CH₃–CH₂–CH₂–CH₃."], resultado: "CH₃–CH(CH₃)–CH₃; su isómero es el butano." },
+    { enunciado: "Identifica el grupo funcional y la familia: a) CH₃–CH₂–CH₂OH; b) CH₃–CO–CH₃; c) CH₃–COOH; d) CH₃–CHO.", pasos: ["a) –OH: alcohol (propan-1-ol).", "b) C=O en medio: cetona (propanona).", "c) –COOH: ácido carboxílico (ácido etanoico).", "d) –CHO: aldehído (etanal)."], resultado: "Alcohol, cetona, ácido carboxílico y aldehído." },
+    { enunciado: "Escribe y ajusta la combustión completa del propano, C₃H₈.", pasos: ["C₃H₈ + O₂ → CO₂ + H₂O.", "3 C: 3 CO₂.", "8 H: 4 H₂O.", "O a la derecha: 6 + 4 = 10 → 5 O₂."], resultado: "C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O." },
+    { enunciado: "Explica cómo se forma el polietileno a partir del eteno.", pasos: ["El eteno tiene un doble enlace C=C.", "Uno de los enlaces se abre y cada carbono queda con un enlace libre.", "Las moléculas se unen en cadena: –CH₂–CH₂–CH₂–CH₂–…", "Se repite miles de veces."], resultado: "n CH₂=CH₂ → (–CH₂–CH₂–)ₙ, polimerización por adición." },
   ],
   errores: [
-    "Elegir una cadena que no es la más larga o que no contiene el doble enlace.",
-    "Numerar la cadena desde el extremo equivocado y dar al doble enlace un número más alto del necesario.",
-    "Dibujar un carbono con 5 enlaces: el carbono siempre forma 4.",
-    "Confundir los sufijos -ol (alcohol), -al (aldehído) y -ona (cetona).",
-    "Pensar que todos los compuestos con la misma fórmula molecular son la misma sustancia (olvidar los isómeros).",
+    "Olvidar que el carbono siempre forma cuatro enlaces: cada carbono debe tener 4 rayas o hidrógenos.",
+    "Contar mal los carbonos: el prefijo indica la longitud de la cadena principal (but- = 4).",
+    "No indicar la posición del doble o triple enlace cuando hay varias posibles (but-1-eno y but-2-eno).",
+    "Elegir mal la cadena principal: es la más larga, aunque no esté dibujada en línea recta.",
+    "Confundir aldehídos (C=O al final, -al) con cetonas (C=O en medio, -ona).",
+    "Pensar que isómeros son el mismo compuesto: tienen la misma fórmula molecular pero distinta estructura y propiedades.",
   ],
   ejercicios: [
-    { q: "Escribe la fórmula semidesarrollada del butano y del propeno.", sol: "Butano: CH₃–CH₂–CH₂–CH₃. Propeno: CH₂=CH–CH₃." },
-    { q: "Nombra: CH₃–CH₂–CH₂–CH₂–CH₃ y CH≡C–CH₃.", sol: "Pentano y propino." },
-    { q: "Nombra CH₃–CH(CH₃)–CH₂–CH₃.", sol: "Cadena más larga: 4 carbonos (butano). Un metil en el carbono 2: 2-metilbutano (o metilbutano)." },
-    { q: "Calcula la fórmula molecular de un alcano de 7 carbonos usando CₙH₂ₙ₊₂.", sol: "n = 7: C₇H₁₆ (heptano)." },
-    { q: "Identifica el grupo funcional: CH₃–CH₂OH, CH₃–COOH, CH₃–CO–CH₃, CH₃–NH₂.", sol: "Alcohol (etanol), ácido carboxílico (ácido etanoico o acético), cetona (propanona o acetona) y amina (metilamina)." },
-    { q: "¿Son isómeros el pentano y el 2-metilbutano? ¿De qué tipo?", sol: "Sí: los dos son C₅H₁₂. Son isómeros de cadena (uno lineal y otro ramificado)." },
-    { q: "Escribe dos isómeros de posición de fórmula C₄H₈ con un doble enlace en cadena lineal.", sol: "But-1-eno (CH₂=CH–CH₂–CH₃) y but-2-eno (CH₃–CH=CH–CH₃)." },
-    { q: "Ajusta la combustión del metano.", sol: "CH₄ + 2 O₂ → CO₂ + 2 H₂O." },
-    { q: "¿Qué es un monómero? Pon un ejemplo de polímero natural y otro sintético.", sol: "La molécula pequeña que se repite en un polímero. Natural: almidón (monómero glucosa). Sintético: polietileno (monómero eteno)." },
-    { q: "Explica dos problemas ambientales de los plásticos y dos soluciones.", sol: "Problemas: tardan siglos en degradarse y forman microplásticos que contaminan mares y seres vivos; se fabrican a partir del petróleo. Soluciones: reducir los de un solo uso y reciclar; usar bioplásticos biodegradables." },
+    B("¿Por qué el carbono puede formar tantos compuestos?", "Porque forma 4 enlaces covalentes, puede unirse a otros carbonos formando cadenas y anillos, y puede formar enlaces simples, dobles y triples con varios elementos."),
+    B("Escribe la fórmula molecular y la semidesarrollada del propano y del pentano.", "Propano: C₃H₈, CH₃–CH₂–CH₃. Pentano: C₅H₁₂, CH₃–CH₂–CH₂–CH₂–CH₃."),
+    B("Nombra: CH₄, CH₃–CH₃, CH₃–CH₂–CH₂–CH₃, CH₃–(CH₂)₅–CH₃.", "Metano, etano, butano y heptano."),
+    B("Clasifica como alcano, alqueno o alquino: C₂H₆, C₂H₄, C₂H₂, C₃H₆, C₄H₁₀.", "Alcanos: C₂H₆, C₄H₁₀. Alquenos: C₂H₄, C₃H₆. Alquino: C₂H₂."),
+    B("Formula: eteno, propeno, etino y propino.", "CH₂=CH₂; CH₂=CH–CH₃; CH≡CH; CH≡C–CH₃."),
+    B("Escribe la fórmula desarrollada del etano.", "Dos C unidos por un enlace simple, cada uno con tres H unidos con enlaces simples (H₃C–CH₃ con todos los enlaces dibujados)."),
+    B("¿Qué es un grupo funcional? Escribe el de los alcoholes y el de los ácidos carboxílicos.", "Un átomo o grupo de átomos que da a la molécula sus propiedades químicas. Alcoholes: –OH. Ácidos: –COOH."),
+    B("Indica la terminación del nombre de: alcoholes, aldehídos, cetonas y ácidos carboxílicos.", "-ol; -al; -ona; ácido …-oico."),
+    B("¿Qué son los isómeros?", "Compuestos con la misma fórmula molecular y distinta estructura y propiedades."),
+    B("Nombra tres productos que se obtienen del petróleo.", "Gasolina, gasóleo, queroseno, butano, asfalto, plásticos (cualquiera de ellos)."),
+    B("¿Qué es un polímero? Pon dos ejemplos naturales y dos sintéticos.", "Una macromolécula formada por muchos monómeros unidos. Naturales: celulosa, almidón, proteínas, ADN. Sintéticos: polietileno, PVC, PET, nailon."),
+    B("Nombra las cuatro familias de biomoléculas orgánicas.", "Glúcidos, lípidos, proteínas y ácidos nucleicos."),
+    M("Escribe la fórmula semidesarrollada de: but-1-eno, but-2-eno, but-1-ino y pent-2-ino.", "CH₂=CH–CH₂–CH₃; CH₃–CH=CH–CH₃; CH≡C–CH₂–CH₃; CH₃–C≡C–CH₂–CH₃."),
+    M("Nombra: CH₃–CH=CH–CH₂–CH₃; CH≡C–CH₂–CH₂–CH₃; CH₂=CH–CH₂–CH₂–CH₂–CH₃.", "Pent-2-eno; pent-1-ino; hex-1-eno."),
+    M("Formula el 2-metilbutano y el 2,3-dimetilbutano.", "CH₃–CH(CH₃)–CH₂–CH₃; CH₃–CH(CH₃)–CH(CH₃)–CH₃."),
+    M("Nombra: CH₃–CH(CH₃)–CH₂–CH₂–CH₃ y CH₃–CH₂–CH(CH₂–CH₃)–CH₂–CH₃.", "2-metilpentano; 3-etilpentano."),
+    M("Comprueba con la fórmula general que el C₈H₁₈ es un alcano y escribe la fórmula del alqueno y del alquino de 8 carbonos.", "CₙH₂ₙ₊₂ con n = 8: C₈H₁₈. Alqueno: C₈H₁₆. Alquino: C₈H₁₄."),
+    M("Escribe los dos isómeros de fórmula C₄H₁₀ y di de qué tipo de isomería se trata.", "Butano, CH₃–CH₂–CH₂–CH₃, y metilpropano, CH₃–CH(CH₃)–CH₃. Isomería de cadena."),
+    M("Formula: metanol, etanol, propan-2-ol y propanona.", "CH₃OH; CH₃–CH₂OH; CH₃–CHOH–CH₃; CH₃–CO–CH₃."),
+    M("Formula: metanal, etanal, ácido metanoico y ácido etanoico.", "HCHO; CH₃–CHO; HCOOH; CH₃–COOH."),
+    M("Nombra e identifica la familia: CH₃–CH₂–CHO, CH₃–CH₂–COOH, CH₃–CH₂–CH₂–NH₂, CH₃–CO–CH₂–CH₃.", "Propanal (aldehído); ácido propanoico (ácido); propilamina o propan-1-amina (amina); butanona (cetona)."),
+    M("El etanol (C₂H₆O) y el dimetiléter (C₂H₆O) son isómeros. Escribe sus fórmulas y explica el tipo de isomería.", "CH₃–CH₂OH y CH₃–O–CH₃. Isomería de función: tienen grupos funcionales distintos (alcohol y éter)."),
+    M("Escribe y ajusta la combustión del metano y del butano.", "CH₄ + 2 O₂ → CO₂ + 2 H₂O. 2 C₄H₁₀ + 13 O₂ → 8 CO₂ + 10 H₂O."),
+    M("¿Por qué los combustibles fósiles contribuyen al cambio climático?", "Porque al quemarse liberan CO₂, que estaba almacenado bajo tierra desde hace millones de años; este gas aumenta el efecto invernadero."),
+    M("¿Qué es la destilación fraccionada del petróleo y en qué propiedad se basa?", "Es la separación de los componentes del petróleo calentándolo en una torre; se basa en sus distintos puntos de ebullición."),
+    M("Formula el ciclopentano y el ciclohexano y escribe su fórmula molecular. ¿Son isómeros de algún alqueno?", "Anillos de 5 y 6 grupos CH₂: C₅H₁₀ y C₆H₁₂. Sí: tienen la misma fórmula que el penteno y el hexeno (CₙH₂ₙ)."),
+    A("Escribe todos los isómeros de fórmula C₅H₁₂ y nómbralos.", "Pentano, CH₃–(CH₂)₃–CH₃; 2-metilbutano, CH₃–CH(CH₃)–CH₂–CH₃; 2,2-dimetilpropano, C(CH₃)₄."),
+    A("Escribe tres isómeros de fórmula C₄H₈ con doble enlace y nómbralos.", "But-1-eno, CH₂=CH–CH₂–CH₃; but-2-eno, CH₃–CH=CH–CH₃; metilpropeno, CH₂=C(CH₃)–CH₃."),
+    A("Corrige el nombre y justifícalo: a) 1-metilpropano; b) 3-metilbutano; c) 2-etilpropano.", "a) Es butano (el metilo alarga la cadena). b) 2-metilbutano (se numera para dar el número más bajo). c) 2-metilbutano (la cadena más larga tiene 4 C)."),
+    A("Calcula la masa de CO₂ que se produce al quemar 1 mol de octano (C₈H₁₈), sabiendo que C = 12 y O = 16.", "2 C₈H₁₈ + 25 O₂ → 16 CO₂ + 18 H₂O. 1 mol de octano da 8 mol de CO₂ = 8 · 44 = 352 g."),
+    A("Explica por qué el etanol se disuelve en agua en cualquier proporción y el hexano no.", "El etanol tiene un grupo –OH que forma puentes de hidrógeno con el agua y su cadena es corta. El hexano es apolar y no puede formar puentes de hidrógeno."),
+    A("Escribe la reacción de esterificación entre el ácido etanoico y el etanol. ¿Qué tipo de compuesto se forma y qué propiedad tiene?", "CH₃–COOH + CH₃–CH₂OH → CH₃–COO–CH₂–CH₃ + H₂O. Se forma un éster, el etanoato de etilo, con olor afrutado (se usa en quitaesmaltes y aromas)."),
+    A("El PVC se obtiene del cloruro de vinilo, CH₂=CHCl. Escribe el fragmento del polímero y explica por qué es un problema quemarlo.", "–CH₂–CHCl–CH₂–CHCl–… Al quemarlo se libera cloruro de hidrógeno y otros compuestos clorados tóxicos (dioxinas)."),
+    A("Una bolsa de plástico se usa 20 minutos y tarda unos 150 años en degradarse. Propón y justifica tres medidas para reducir el problema de los plásticos.", "Reducir el uso de plásticos de un solo uso (bolsas reutilizables); reciclar correctamente en el contenedor amarillo; fomentar bioplásticos degradables y sistemas de depósito de envases. Razonamiento sobre su estabilidad y los microplásticos."),
+    A("Calcula el porcentaje en masa de carbono en el metano (CH₄) y en el benceno (C₆H₆). C = 12, H = 1.", "Metano: 12/16 = 75 %. Benceno: 72/78 = 92,3 %."),
+    A("¿Por qué la vida se basa en el carbono y no en el silicio, si los dos tienen 4 electrones de valencia?", "Los enlaces C–C son fuertes y estables y el carbono forma enlaces múltiples y cadenas largas con facilidad; las cadenas Si–Si son inestables y el silicio tiende a unirse al oxígeno formando sílice sólida, mientras que el CO₂ es un gas que circula en los seres vivos."),
   ],
   quiz: [
-    { q: "El sufijo -ino indica…", o: ["un doble enlace", "un triple enlace", "solo enlaces sencillos"], a: 1, e: "Alquinos: C≡C." },
-    { q: "¿Cuántos carbonos indica el prefijo hex-?", o: ["5", "6", "8"], a: 1, e: "Met 1, et 2, prop 3, but 4, pent 5, hex 6." },
-    { q: "Los isómeros tienen…", o: ["la misma fórmula molecular y distinta estructura", "distinta fórmula y la misma estructura", "las mismas propiedades"], a: 0, e: "Por eso son sustancias distintas." },
-    { q: "El benceno es un hidrocarburo…", o: ["aromático", "lineal", "gaseoso de cadena larga"], a: 0, e: "Anillo de 6 carbonos muy estable." },
-    { q: "El polietileno se obtiene uniendo moléculas de…", o: ["metano", "eteno", "benceno"], a: 1, e: "El eteno es su monómero." },
+    q4("El carbono forma … enlaces covalentes.", ["2", "3", "4", "6"], 2, "Tetravalente."),
+    q4("La química orgánica estudia…", ["los seres vivos", "los compuestos del carbono", "los metales", "los gases"], 1, "Definición actual."),
+    q4("Los hidrocarburos están formados por…", ["C y O", "C y H", "C, H y O", "H y O"], 1, "Solo carbono e hidrógeno."),
+    q4("El prefijo «but-» indica … carbonos.", ["2", "3", "4", "5"], 2, "Butano, C₄H₁₀."),
+    q4("Un alqueno tiene…", ["solo enlaces simples", "algún doble enlace", "algún triple enlace", "un anillo aromático"], 1, "Terminación -eno."),
+    q4("La fórmula general de los alcanos es…", ["CₙH₂ₙ", "CₙH₂ₙ₊₂", "CₙH₂ₙ₋₂", "CₙHₙ"], 1, "Saturados."),
+    q4("El CH≡CH se llama…", ["etano", "eteno", "etino", "metino"], 2, "Triple enlace."),
+    q4("El CH₃–CH=CH–CH₃ es el…", ["but-1-eno", "but-2-eno", "buteno-3", "butino"], 1, "Doble enlace en el C2."),
+    q4("Los isómeros tienen…", ["la misma estructura", "la misma fórmula molecular", "las mismas propiedades", "distinta fórmula molecular"], 1, "Distinta estructura."),
+    q4("El benceno es un hidrocarburo…", ["alcano", "aromático", "alquino", "lineal"], 1, "C₆H₆."),
+    q4("El grupo funcional –OH corresponde a…", ["ácidos", "alcoholes", "aldehídos", "aminas"], 1, "Terminación -ol."),
+    q4("La acetona es una…", ["cetona", "amina", "alcohol", "ácido"], 0, "Propanona."),
+    q4("El vinagre contiene ácido…", ["metanoico", "etanoico", "cítrico", "sulfúrico"], 1, "Ácido acético."),
+    q4("El grupo –COOH es el de los…", ["ésteres", "ácidos carboxílicos", "aldehídos", "alcoholes"], 1, "Carboxilo."),
+    q4("Los ésteres se caracterizan por…", ["ser explosivos", "sus olores afrutados", "ser bases", "ser gases nobles"], 1, "Aromas."),
+    q4("Las aminas tienen el grupo…", ["–OH", "–NH₂", "–CHO", "–COOH"], 1, "Derivan del amoníaco."),
+    q4("En la combustión completa de un hidrocarburo se forma…", ["CO y H₂", "CO₂ y H₂O", "C y H₂O", "O₂ y H₂"], 1, "Y energía."),
+    q4("El gas natural es sobre todo…", ["butano", "metano", "propano", "hidrógeno"], 1, "CH₄."),
+    q4("El polietileno se fabrica a partir de…", ["metano", "eteno", "benceno", "etanol"], 1, "Polimerización."),
+    q4("Las proteínas son polímeros de…", ["glucosa", "aminoácidos", "ácidos grasos", "nucleótidos"], 1, "Unidos por enlaces peptídicos."),
   ],
+  examen: [
+    q4("La fórmula molecular del pentano es…", ["C₅H₁₀", "C₅H₁₂", "C₅H₈", "C₅H₅"], 1, "CₙH₂ₙ₊₂."),
+    q4("El CH₂=CH–CH₂–CH₃ se llama…", ["but-2-eno", "but-1-eno", "butano", "but-1-ino"], 1, "Doble enlace en el C1."),
+    q4("El CH₃–CH(CH₃)–CH₃ se llama…", ["butano", "2-metilpropano", "1-metilpropano", "propano"], 1, "Isómero del butano."),
+    q4("¿Cuál es un aldehído?", ["CH₃–CHO", "CH₃–CO–CH₃", "CH₃–COOH", "CH₃–CH₂OH"], 0, "–CHO al final."),
+    q4("El CH₃–CH₂OH es el…", ["metanol", "etanol", "etanal", "ácido etanoico"], 1, "Alcohol de las bebidas."),
+    q4("El butano y el metilpropano son isómeros de…", ["función", "posición", "cadena", "no son isómeros"], 2, "Lineal y ramificado."),
+    q4("La combustión del metano ajustada es…", ["CH₄ + O₂ → CO₂ + H₂O", "CH₄ + 2 O₂ → CO₂ + 2 H₂O", "CH₄ + 3 O₂ → CO₂ + 2 H₂O", "2 CH₄ + O₂ → 2 CO₂ + H₂O"], 1, "Contar átomos."),
+    q4("Un problema ambiental de los plásticos es que…", ["son muy pesados", "tardan siglos en degradarse", "se disuelven en agua", "son radiactivos"], 1, "Microplásticos."),
+  ],
+  feynman: ["Por qué el carbono forma tantos compuestos", "Qué diferencia hay entre alcanos, alquenos y alquinos", "Cómo se nombra un hidrocarburo ramificado", "Qué es un grupo funcional y cuáles son los principales", "Qué son los isómeros y por qué importa la estructura", "Cómo se forma un polímero y qué problema causan los plásticos"],
+  mapa: S.mapa,
   tarjetas: [
-    ["Sufijos -ano, -eno, -ino", "Enlaces sencillos, doble y triple."],
+    ["Tetravalencia", "El carbono forma 4 enlaces covalentes."],
+    ["Prefijos", "met-, et-, prop-, but-, pent-, hex-, hept-, oct-."],
+    ["Alcanos", "Solo enlaces simples, -ano, CₙH₂ₙ₊₂."],
+    ["Alquenos", "Doble enlace, -eno, CₙH₂ₙ."],
+    ["Alquinos", "Triple enlace, -ino, CₙH₂ₙ₋₂."],
+    ["Radical alquilo", "Rama: metil, etil, propil."],
     ["Isómeros", "Misma fórmula molecular, distinta estructura."],
-    ["Polímero", "Molécula gigante formada por la unión de muchos monómeros."],
+    ["Alcohol y aldehído", "–OH (-ol) y –CHO (-al)."],
+    ["Cetona y ácido", "C=O intermedio (-ona) y –COOH (ácido -oico)."],
+    ["Éster y amina", "–COO– (aromas) y –NH₂."],
+    ["Combustión", "Hidrocarburo + O₂ → CO₂ + H₂O + energía."],
+    ["Polímero", "Macromolécula de muchos monómeros: polietileno, ADN."],
   ],
-});
+  glosario: [
+    ["Química orgánica", "Química de los compuestos del carbono."],
+    ["Tetravalente", "Que forma cuatro enlaces."],
+    ["Cadena carbonada", "Esqueleto de átomos de carbono unidos entre sí."],
+    ["Fórmula semidesarrollada", "Fórmula que muestra los enlaces entre carbonos y agrupa los hidrógenos."],
+    ["Hidrocarburo", "Compuesto formado solo por carbono e hidrógeno."],
+    ["Alcano", "Hidrocarburo con solo enlaces simples."],
+    ["Alqueno", "Hidrocarburo con al menos un doble enlace."],
+    ["Alquino", "Hidrocarburo con al menos un triple enlace."],
+    ["Saturado", "Compuesto con solo enlaces simples entre carbonos."],
+    ["Radical alquilo", "Ramificación derivada de un alcano, como el metil."],
+    ["Aromático", "Compuesto que contiene un anillo de benceno."],
+    ["Isómero", "Compuesto con la misma fórmula molecular que otro y distinta estructura."],
+    ["Grupo funcional", "Átomo o grupo de átomos que determina las propiedades químicas de una molécula orgánica."],
+    ["Éster", "Compuesto que resulta de la reacción de un ácido con un alcohol."],
+    ["Polímero", "Macromolécula formada por la unión de muchos monómeros."],
+    ["Monómero", "Molécula pequeña que se repite en un polímero."],
+    ["Biomolécula", "Molécula que forma parte de los seres vivos."],
+    ["Refinería", "Instalación donde se separan y transforman los componentes del petróleo."],
+  ],
+  situacion: {
+    titulo: "Una semana sin plástico de un solo uso",
+    reto: "El instituto quiere reducir los residuos plásticos de la cafetería y de los recreos. Vuestro grupo debe medir cuánto plástico se genera, explicar su química y proponer alternativas realistas.",
+    pasos: [
+      "Durante una semana, recoged y clasificad los envases de un aula por tipo de plástico usando el número del triángulo de reciclaje (PET, PEAD, PVC, PP, PS…).",
+      "Investigad el monómero de cada tipo de plástico, su fórmula y cuánto tarda en degradarse.",
+      "Pesad el plástico recogido y calculad cuánto generaría todo el centro en un curso.",
+      "Comparad alternativas (vidrio, acero, bioplásticos, envases reutilizables) con sus ventajas e inconvenientes.",
+      "Presentad una propuesta a la dirección y al consejo escolar con datos y gráficos.",
+    ],
+    producto: "Un informe con los datos de la auditoría, fichas químicas de cada plástico y una propuesta de reducción.",
+    evaluacion: ["Los plásticos están bien identificados y se explica su estructura química.", "Los cálculos y los gráficos son correctos y claros.", "Las alternativas se comparan con criterios científicos y económicos.", "La propuesta es realista y está bien argumentada."],
+  },
+  familias: [
+    "Mirad el número del triángulo de reciclaje de los envases de casa y separadlos bien.",
+    "Buscad en la cocina compuestos orgánicos conocidos: vinagre (ácido acético), azúcar, aceite, alcohol.",
+    "Comparad el olor de distintas frutas y averiguad qué ésteres los producen.",
+    "Construid con plastilina y palillos moléculas de metano, etano y eteno.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «La materia»: compuestos del carbono, hidrocarburos y grupos funcionales sencillos, formulación y nomenclatura IUPAC de compuestos orgánicos, y su importancia en la vida, la industria y el medio ambiente.`,
+    ideas: [
+      "Kits de modelos moleculares para construir isómeros del C₄H₁₀ y C₅H₁₂.",
+      "Práctica de síntesis de un éster (aroma de plátano) en el laboratorio con precaución, o demostración.",
+      "Fabricación de «moco» de PVA y bórax para trabajar los polímeros.",
+      "Auditoría de plásticos del centro en colaboración con el área de Biología.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    { t: "Química orgánica, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Qu%C3%ADmica_org%C3%A1nica" },
+    { t: "Nomenclatura de química orgánica IUPAC, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Nomenclatura_de_qu%C3%ADmica_org%C3%A1nica" },
+  ],
+  revisado: "2026-11-13",
+};
