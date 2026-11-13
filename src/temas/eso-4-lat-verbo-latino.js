@@ -1,140 +1,262 @@
-// Latín 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-const { filas, dos, rueda } = require("./_hum");
+// Latín 4º ESO · El verbo latino. Tema a nivel libro. Dibujos propios en SVG.
+const L = require("./_eso4L9");
+const t = L.tabla;
 
-const PERS = ["1.ª sing.", "2.ª sing.", "3.ª sing.", "1.ª pl.", "2.ª pl.", "3.ª pl."];
-const AMO = ["am-o", "ama-s", "ama-t", "ama-mus", "ama-tis", "ama-nt"];
-const AMABAM = ["amaba-m", "amaba-s", "amaba-t", "amaba-mus", "amaba-tis", "amaba-nt"];
-const SUM = ["sum", "es", "est", "sumus", "estis", "sunt"];
-const ES = ["yo amo", "tú amas", "él ama", "nosotros amamos", "vosotros amáis", "ellos aman"];
-
-module.exports = {
+module.exports = L.libro({
   materia: "Latín",
-  curso: "4-eso",
   titulo: "El verbo latino",
-  minutos: 40,
-  objetivos: ["Reconocer las cuatro conjugaciones a partir del enunciado", "Identificar las desinencias personales de la voz activa", "Conjugar el presente y el pretérito imperfecto de indicativo y el verbo sum"],
+  minutos: 110,
+  objetivos: [
+    "Reconocer los accidentes del verbo latino: persona, número, tiempo, modo y voz",
+    "Leer el enunciado de un verbo y deducir su conjugación y sus temas",
+    "Conjugar en indicativo activo los tiempos del tema de presente y del tema de perfecto",
+    "Conjugar el verbo sum y reconocer el infinitivo, el imperativo y la voz pasiva",
+    "Analizar y traducir formas verbales y explicar cómo pasaron al español",
+  ],
   claves: ["conjugación", "enunciado verbal", "desinencia personal", "tema de presente", "infinitivo", "verbo sum"],
   pregunta: {
     texto: "«Veni, vidi, vici»: «llegué, vi, vencí». Con solo tres palabras Julio César contó una victoria. ¿Cómo caben sujeto, tiempo y significado en una sola palabra?",
     respuesta: "Porque el <mark>verbo latino</mark>, como el español, lleva en su terminación la persona y el número (<i>-i</i> = yo) y en su forma el tiempo (perfecto). Aprender a separar <b>tema</b>, <b>marca de tiempo</b> y <b>desinencia</b> permite traducir cualquier verbo.",
   },
+  lectura: {
+    titulo: "Tres palabras para una victoria",
+    html: `<p>En el año 47 a. C., Julio César derrotó en apenas cinco días al rey Farnaces del Ponto, en la actual Turquía. Para comunicarlo al Senado no escribió un largo informe: envió tres palabras, <i>Veni, vidi, vici</i>. Llegué, vi, vencí. Es probablemente el mensaje más famoso de la historia antigua, y su fuerza está en el verbo.</p><p>En cada una de esas palabras hay un significado (llegar, ver, vencer), una persona (yo), un número (singular) y un tiempo (pasado acabado). Todo eso cabe en dos sílabas porque el verbo latino es una máquina de precisión: con piezas pequeñas que se combinan expresa quién hace la acción, cuándo, si es real o deseada, y si el sujeto la hace o la recibe.</p><p>Nuestro verbo español funciona igual, porque lo heredamos del latín. Cuando dices «cantábamos», tu cerebro une sin esfuerzo la raíz «cant-», la marca de pasado «-aba-» y la persona «-mos». En latín, <i>cantabamus</i>. En este tema aprenderás a desmontar esas piezas para leer los verbos latinos como César los escribía.</p>`,
+  },
   bloques: [
-    {
-      html: `<h3>El enunciado del verbo</h3><p>Los diccionarios dan cinco formas, el <mark>enunciado</mark>: 1.ª persona del presente, 2.ª del presente, infinitivo, 1.ª del perfecto y supino. Por ejemplo: <b>amo, amas, amare, amavi, amatum</b> (amar). Del infinitivo sale la <b>conjugación</b>, y del presente y el perfecto salen los dos grandes temas: el <b>tema de presente</b> (<i>ama-</i>) y el <b>tema de perfecto</b> (<i>amav-</i>).</p>`,
-      svg: filas("Enunciado del verbo amar", [["amo", "presente, 1.ª persona", "var(--red)"], ["amas", "presente, 2.ª persona", "var(--red)"], ["amare", "infinitivo → conjugación", "var(--pen)"], ["amavi", "perfecto → tema de perfecto", "var(--leaf)"], ["amatum", "supino", "var(--muted)"]]),
-    },
-    {
-      html: `<h3>Las cuatro conjugaciones</h3><p>Según la terminación del infinitivo hay cuatro <mark>conjugaciones</mark>: 1.ª en <b>-āre</b> (<i>amo, amāre</i>), 2.ª en <b>-ēre</b> (<i>moneo, monēre</i>, aconsejar), 3.ª en <b>-ĕre</b> (<i>lego, legĕre</i>, leer) y 4.ª en <b>-īre</b> (<i>audio, audīre</i>, oír). Hay además una conjugación mixta (<i>capio, capĕre</i>, coger). Fíjate en la cantidad: la 2.ª tiene la e larga y la 3.ª, breve.</p>`,
-      svg: rueda("Las cuatro conjugaciones por su infinitivo", "INFINITIVO", [["1.ª -āre", "var(--red)"], ["2.ª -ēre", "var(--pen)"], ["3.ª -ĕre", "var(--leaf)"], ["4.ª -īre", "var(--sun)"]], "var(--ink)"),
-    },
-    {
-      html: `<h3>Las desinencias personales</h3><p>La terminación indica persona y número. En la voz activa las <mark>desinencias personales</mark> son: <b>-o/-m</b> (yo), <b>-s</b> (tú), <b>-t</b> (él, ella), <b>-mus</b> (nosotros), <b>-tis</b> (vosotros) y <b>-nt</b> (ellos). Como el verbo ya indica el sujeto, el pronombre suele omitirse: <i>cantamus</i> = (nosotros) cantamos. El perfecto usa desinencias propias: <i>-i, -isti, -it, -imus, -istis, -erunt</i>.</p>`,
-      svg: dos("Desinencias de presente y de perfecto", ["Presente", ["-o / -m", "-s", "-t", "-mus", "-tis · -nt"], "var(--red)"], ["Perfecto", ["-i", "-isti", "-it", "-imus", "-istis · -erunt"], "var(--leaf)"]),
-    },
-    {
-      html: `<h3>Presente, imperfecto y el verbo sum</h3><p>El <b>presente</b> se forma con tema de presente + desinencia: <i>ama-t</i>, él ama. El <mark>pretérito imperfecto</mark> añade la marca <b>-ba-</b>: <i>ama-ba-t</i>, él amaba. El verbo <b>sum</b> (ser, estar), enunciado <i>sum, es, esse, fui</i>, es irregular y muy frecuente: <i>sum, es, est, sumus, estis, sunt</i>; imperfecto <i>eram, eras, erat…</i></p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="La forma amabat dividida en tema ama, marca ba y desinencia t">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        ${[[30, 86, "ama", "tema", "var(--pen)"], [116, 60, "ba", "imperf.", "var(--sun)"], [176, 54, "t", "él", "var(--red)"]].map(([x, w, t, l, c]) => `<rect x="${x}" y="50" width="${w}" height="54" rx="10" fill="var(--card)" stroke="${c}" stroke-width="3"/><text x="${x + w / 2}" y="87" text-anchor="middle" font-size="28" font-weight="700" fill="${c}" ${D}>${t}</text><text x="${x + w / 2}" y="126" text-anchor="middle" font-size="11.5" font-weight="700" fill="${c}" ${F}>${l}</text>`).join("")}
-        <text x="130" y="160" text-anchor="middle" font-size="13" fill="var(--ink)" ${F}>amabat = él amaba</text>
-      </svg>`,
-    },
+    [
+      "1.1 Los accidentes del verbo",
+      `<p>El verbo es la palabra más importante de la oración latina: a menudo basta él solo para formar una frase completa (<i>pluit</i>, llueve; <i>amo</i>, amo). Como en español, el verbo latino varía su forma para expresar cinco informaciones, llamadas <mark>accidentes verbales</mark>. La <b>persona</b> indica quién realiza la acción: primera (yo, nosotros), segunda (tú, vosotros) o tercera (él, ellos). El <b>número</b>, si es uno o varios: singular o plural.</p><p>El <b>tiempo</b> sitúa la acción: presente, pasado o futuro, y además si está acabada (perfectiva) o en desarrollo (imperfectiva). El latín tiene seis tiempos en indicativo. El <b>modo</b> expresa la actitud del hablante: el <b>indicativo</b> presenta hechos reales; el <b>subjuntivo</b>, deseos, posibilidades u órdenes indirectas; y el <b>imperativo</b>, órdenes directas. Por último, la <b>voz</b> indica si el sujeto hace la acción (voz <b>activa</b>: <i>amo</i>, amo) o la recibe (voz <b>pasiva</b>: <i>amor</i>, soy amado). En este curso trabajaremos sobre todo el indicativo de la voz activa.</p>`,
+      L.rueda("Los accidentes del verbo", "VERBO", [["persona", "var(--red)"], ["número", "var(--pen)"], ["tiempo", "var(--leaf)"], ["modo", "var(--sun)"], ["voz", "var(--muted)"]], "var(--red)"),
+    ],
+    [
+      "1.2 El enunciado del verbo",
+      `<p>Los diccionarios presentan los verbos con su <mark>enunciado</mark>, que en latín tiene cinco formas (los diccionarios escolares suelen dar cuatro o cinco): la <b>1.ª persona del presente</b>, la <b>2.ª persona del presente</b>, el <b>infinitivo</b>, la <b>1.ª persona del perfecto</b> y el <b>supino</b>. Por ejemplo: <i>amo, amas, amare, amavi, amatum</i> (amar); <i>video, vides, videre, vidi, visum</i> (ver); <i>venio, venis, venire, veni, ventum</i> (venir).</p><p>Cada forma da una información esencial. El <b>infinitivo</b> indica la <b>conjugación</b>. La primera y la segunda forma permiten obtener el <b>tema de presente</b> (<i>ama-</i>, <i>vide-</i>), sobre el que se construyen el presente, el imperfecto y el futuro. La 1.ª persona del perfecto da el <b>tema de perfecto</b> (<i>amav-</i>, <i>vid-</i>, <i>ven-</i>), que no se puede adivinar desde el presente. Y el supino da el <b>tema de supino</b> (<i>amat-</i>, <i>vis-</i>), del que salen los participios. Por eso, como con los sustantivos, el vocabulario latino debe aprenderse siempre con el enunciado completo.</p>`,
+      L.filas("Enunciado de amar", [["amo", "presente, 1.ª persona", "var(--red)"], ["amas", "presente, 2.ª persona", "var(--red)"], ["amare", "infinitivo → conjugación", "var(--pen)"], ["amavi", "perfecto → tema de perfecto", "var(--leaf)"], ["amatum", "supino → participio", "var(--muted)"]]),
+    ],
+    [
+      "1.3 Las cuatro conjugaciones",
+      `<p>Según la terminación del infinitivo y la vocal del tema, los verbos latinos se agrupan en cuatro <mark>conjugaciones</mark>. La <b>1.ª</b> tiene el infinitivo en <b>-āre</b>: <i>amo, amāre</i> (amar), <i>laudo, laudāre</i> (alabar), <i>porto, portāre</i> (llevar). La <b>2.ª</b>, en <b>-ēre</b> con e larga: <i>moneo, monēre</i> (aconsejar), <i>habeo, habēre</i> (tener), <i>video, vidēre</i>. La <b>3.ª</b>, en <b>-ĕre</b> con e breve: <i>lego, legĕre</i> (leer), <i>duco, ducĕre</i> (conducir), <i>mitto, mittĕre</i> (enviar). La <b>4.ª</b>, en <b>-īre</b>: <i>audio, audīre</i> (oír), <i>venio, venīre</i>.</p><p>Existe además una <b>conjugación mixta</b>, que mezcla la 3.ª y la 4.ª: verbos como <i>capio, capis, capĕre</i> (coger) o <i>facio, facis, facĕre</i> (hacer), con infinitivo de la 3.ª pero presente en <i>-io</i> como la 4.ª. Para distinguir la 2.ª de la 3.ª hay que fijarse en la <b>cantidad</b> de la e del infinitivo o, más fácil, en la primera forma: los de la 2.ª acaban en <b>-eo</b> (<i>moneo</i>) y los de la 3.ª, en <b>-o</b> sin e (<i>lego</i>).</p>`,
+      L.rueda("Las cuatro conjugaciones por su infinitivo", "INFINITIVO", [["1.ª -āre", "var(--red)"], ["2.ª -ēre", "var(--pen)"], ["3.ª -ĕre", "var(--leaf)"], ["4.ª -īre", "var(--sun)"]], "var(--ink)"),
+    ],
+    [
+      "1.4 Las desinencias personales",
+      `<p>La terminación del verbo indica persona y número. Son las <mark>desinencias personales</mark>, y en la voz activa (salvo en el perfecto) son siempre las mismas: <b>-o/-m</b> (yo), <b>-s</b> (tú), <b>-t</b> (él, ella), <b>-mus</b> (nosotros), <b>-tis</b> (vosotros) y <b>-nt</b> (ellos, ellas). La 1.ª persona usa -o en el presente y en el futuro de la 1.ª y 2.ª conjugación (<i>amo</i>, <i>amabo</i>) y -m en los demás tiempos (<i>amabam</i>, <i>legam</i>).</p><p>Como el verbo ya indica el sujeto, el pronombre personal se omite casi siempre: <i>cantamus</i> = (nosotros) cantamos. Solo se expresa cuando se quiere destacar o contrastar: <i>Ego canto, tu dormis</i> (yo canto, tú duermes). Compara con el español: <i>amo / amo</i>, <i>amas / amas</i>, <i>amat / ama</i>, <i>amamus / amamos</i>, <i>amatis / amáis</i>, <i>amant / aman</i>. El parecido no es casualidad: nuestras desinencias son las latinas un poco desgastadas (se perdió la -t final y <i>-mus</i> pasó a «-mos»). El <b>perfecto</b> tiene desinencias propias: <b>-i, -isti, -it, -imus, -istis, -erunt</b>.</p>`,
+      L.dos("Desinencias de presente y de perfecto", ["Presente", ["-o / -m", "-s", "-t", "-mus", "-tis · -nt"], "var(--red)"], ["Perfecto", ["-i", "-isti", "-it", "-imus", "-istis · -erunt"], "var(--leaf)"]),
+    ],
+    [
+      "1.5 El presente de indicativo",
+      `<p>El <mark>presente</mark> se forma con el <b>tema de presente</b> + las desinencias personales. En la 1.ª, 2.ª y 4.ª conjugación es casi automático; en la 3.ª aparece una <b>vocal de unión</b> (i, u) entre la raíz y la desinencia.</p>${t(["Persona", "1.ª amo", "2.ª moneo", "3.ª lego", "4.ª audio"], [["1.ª sg.", "amo", "moneo", "lego", "audio"], ["2.ª sg.", "amas", "mones", "legis", "audis"], ["3.ª sg.", "amat", "monet", "legit", "audit"], ["1.ª pl.", "amamus", "monemus", "legimus", "audimus"], ["2.ª pl.", "amatis", "monetis", "legitis", "auditis"], ["3.ª pl.", "amant", "monent", "legunt", "audiunt"]])}<p>Fíjate en que en la 1.ª conjugación la vocal <i>a</i> del tema desaparece en la 1.ª persona (<i>amo</i>, no <i>amao</i>). El presente latino se traduce normalmente por el presente español, pero también puede equivaler a «estoy + gerundio»: <i>legit</i> = lee, está leyendo. En las narraciones, los historiadores usaban a veces el <b>presente histórico</b> para dar viveza a un hecho pasado, como hacemos nosotros: «En 1492 Colón llega a América».</p>`,
+      L.partes("Presente de lego: raíz, vocal y desinencia", [["leg", "raíz", "var(--pen)"], ["i", "unión", "var(--sun)"], ["mus", "nosotros", "var(--red)"]], "legimus = leemos"),
+    ],
+    [
+      "1.6 El pretérito imperfecto",
+      `<p>El <mark>pretérito imperfecto</mark> expresa acciones pasadas en desarrollo, habituales o descripciones: «leía», «solía leer». Se forma con el tema de presente + la marca <b>-ba-</b> + las desinencias personales (con -m en la 1.ª persona). En la 3.ª y la 4.ª conjugación se añade una <b>-e-</b> antes de la marca: <b>-eba-</b>.</p>${t(["Persona", "1.ª amo", "2.ª moneo", "3.ª lego", "4.ª audio"], [["1.ª sg.", "amabam", "monebam", "legebam", "audiebam"], ["2.ª sg.", "amabas", "monebas", "legebas", "audiebas"], ["3.ª sg.", "amabat", "monebat", "legebat", "audiebat"], ["1.ª pl.", "amabamus", "monebamus", "legebamus", "audiebamus"], ["2.ª pl.", "amabatis", "monebatis", "legebatis", "audiebatis"], ["3.ª pl.", "amabant", "monebant", "legebant", "audiebant"]])}<p>El parecido con el español es enorme en la 1.ª conjugación: <i>amabam</i> > amaba, <i>cantabamus</i> > cantábamos. En la 2.ª, 3.ª y 4.ª, la <i>b</i> se perdió en español: <i>habebam</i> > había, <i>legebam</i> > leía. Cuando encuentres <b>-ba-</b> antes de la desinencia, piensa siempre en un imperfecto.</p>`,
+      L.partes("Desmontar amabat", [["ama", "tema", "var(--pen)"], ["ba", "imperf.", "var(--sun)"], ["t", "él", "var(--red)"]], "amabat = él amaba"),
+    ],
+    [
+      "1.7 El futuro imperfecto",
+      `<p>El <mark>futuro imperfecto</mark> se forma de dos maneras distintas según la conjugación, y aquí está una de las trampas más frecuentes. En la <b>1.ª y 2.ª conjugación</b> se añade <b>-b-</b> + vocal de unión: <i>ama-bo, ama-bi-s, ama-bi-t, ama-bi-mus, ama-bi-tis, ama-bu-nt</i> (amaré, amarás…); <i>mone-bo, mone-bi-s</i>…</p><p>En la <b>3.ª y 4.ª conjugación</b> no hay -b-: se usa <b>-a-</b> en la 1.ª persona del singular y <b>-e-</b> en las demás: <i>leg-a-m, leg-e-s, leg-e-t, leg-e-mus, leg-e-tis, leg-e-nt</i> (leeré, leerás…); <i>audi-a-m, audi-e-s, audi-e-t</i>… Cuidado con las confusiones: <i>leges</i> puede ser el futuro de <i>lego</i> («leerás») o el acusativo plural de <i>lex, legis</i> («las leyes»), y <i>legit</i> (presente, «lee») se distingue de <i>leget</i> (futuro, «leerá») solo por una vocal. También hay que diferenciar <i>amabit</i> (futuro, «amará») de <i>amabat</i> (imperfecto, «amaba»). Una regla para memorizar: «1.ª y 2.ª, <b>bo-bi-bu</b>; 3.ª y 4.ª, <b>a-e-e</b>».</p>`,
+      L.dos("Dos maneras de formar el futuro", ["1.ª y 2.ª", ["-bo, -bis, -bit", "-bimus, -bitis", "-bunt", "amabo: amaré"], "var(--red)"], ["3.ª y 4.ª", ["-am, -es, -et", "-emus, -etis", "-ent", "legam: leeré"], "var(--pen)"]),
+    ],
+    [
+      "1.8 El verbo sum",
+      `<p>El verbo <mark>sum</mark> (ser, estar, existir, haber) es irregular y el más frecuente del latín. Su enunciado es <i>sum, es, esse, fui</i>. Sirve como verbo copulativo (<i>Roma magna est</i>, Roma es grande), para indicar existencia (<i>est in urbe templum</i>, hay un templo en la ciudad) y como auxiliar de muchos tiempos de la voz pasiva.</p>${t(["Persona", "Presente", "Imperfecto", "Futuro", "Perfecto"], [["1.ª sg.", "sum", "eram", "ero", "fui"], ["2.ª sg.", "es", "eras", "eris", "fuisti"], ["3.ª sg.", "est", "erat", "erit", "fuit"], ["1.ª pl.", "sumus", "eramus", "erimus", "fuimus"], ["2.ª pl.", "estis", "eratis", "eritis", "fuistis"], ["3.ª pl.", "sunt", "erant", "erunt", "fuerunt"]])}<p>Con <i>sum</i> se forman muchos <b>compuestos</b>: <i>possum</i> (poder: <i>pot-</i> + <i>sum</i>), <i>absum</i> (estar ausente), <i>adsum</i> (estar presente), <i>prosum</i> (ser útil). De <i>adsum</i> viene la respuesta tradicional al pasar lista en latín: «<i>Adsum!</i>», ¡presente! El español «ser» procede en realidad de otro verbo, <i>sedere</i> (estar sentado), que se mezcló con <i>esse</i>: por eso decimos «soy» (de <i>sum</i>) pero «ser» (de <i>sedere</i>).</p>`,
+      L.cita("Una frase con sum", "Roma caput|mundi est", "Roma es la capital del mundo", "var(--pen)"),
+      { id: "8FboNFb4HZc", titulo: "El presente de indicativo del verbo sum", canal: "Un Profe de Latín", vistas: 8793 },
+    ],
+    [
+      "1.9 El tema de perfecto y el pretérito perfecto",
+      `<p>El <mark>pretérito perfecto</mark> expresa una acción pasada y terminada: «amé» o «he amado». Se forma sobre el <b>tema de perfecto</b>, que se obtiene quitando la -i final a la cuarta forma del enunciado: <i>amavi</i> → <i>amav-</i>; <i>vidi</i> → <i>vid-</i>; <i>scripsi</i> → <i>scrips-</i>. A ese tema se le añaden las desinencias propias del perfecto: <b>-i, -isti, -it, -imus, -istis, -erunt</b>.</p>${t(["Persona", "amo → amav-", "video → vid-", "sum → fu-"], [["1.ª sg.", "amavi (amé)", "vidi (vi)", "fui"], ["2.ª sg.", "amavisti", "vidisti", "fuisti"], ["3.ª sg.", "amavit", "vidit", "fuit"], ["1.ª pl.", "amavimus", "vidimus", "fuimus"], ["2.ª pl.", "amavistis", "vidistis", "fuistis"], ["3.ª pl.", "amaverunt", "viderunt", "fuerunt"]])}<p>El tema de perfecto se forma de maneras muy variadas: con <b>-v-</b> (<i>amav-</i>, <i>audiv-</i>), con <b>-u-</b> (<i>monu-</i>, <i>habu-</i>), con <b>-s-</b> (<i>scrips-</i>, <i>dux-</i> de <i>duco</i>), alargando la vocal (<i>vēn-</i> de <i>vĕnio</i>, <i>lēg-</i> de <i>lĕgo</i>) o duplicando la primera sílaba (<i>dedi</i> de <i>do</i>). Por eso no hay que intentar adivinarlo: se aprende con el enunciado. «<i>Veni, vidi, vici</i>» son tres perfectos: <i>venio</i>, <i>video</i> y <i>vinco</i>.</p>`,
+      L.partes("Desmontar amaverunt", [["amav", "tema perf.", "var(--leaf)"], ["erunt", "ellos", "var(--red)"]], "amaverunt = amaron"),
+      { id: "mkuyG1DXriw", titulo: "Verbos: pretérito perfecto en latín", canal: "Raescou", vistas: 53952 },
+    ],
+    [
+      "1.10 Pluscuamperfecto y futuro perfecto",
+      `<p>Con el mismo tema de perfecto se forman otros dos tiempos que expresan anterioridad. El <mark>pretérito pluscuamperfecto</mark> indica una acción pasada anterior a otra también pasada («había amado»). Se forma con el tema de perfecto + <b>-era-</b> + desinencias: <i>amav-era-m, amav-era-s, amav-era-t, amav-era-mus, amav-era-tis, amav-era-nt</i>. Fíjate en que <b>-era-</b> coincide con el imperfecto de <i>sum</i> (<i>eram, eras…</i>): es como decir «era habiendo amado».</p><p>El <mark>futuro perfecto</mark> indica una acción futura anterior a otra futura («habré amado»): tema de perfecto + <b>-er-/-eri-</b> + desinencias: <i>amav-ero, amav-eri-s, amav-eri-t, amav-eri-mus, amav-eri-tis, amav-eri-nt</i>. Recuerda que también aquí aparecen formas del futuro de <i>sum</i> (<i>ero, eris…</i>), salvo en la 3.ª del plural, que es <i>-erint</i> y no <i>-erunt</i>. Con estos seis tiempos (presente, imperfecto, futuro, perfecto, pluscuamperfecto y futuro perfecto) se completa el modo indicativo de la voz activa: tres sobre el tema de presente y tres sobre el tema de perfecto.</p>`,
+      L.dos("Los seis tiempos del indicativo", ["T. presente", ["presente", "amo", "imperfecto", "amabam", "futuro: amabo"], "var(--red)"], ["T. perfecto", ["perfecto", "amavi", "pluscuamp.", "amaveram", "fut. p.: amavero"], "var(--leaf)"]),
+    ],
+    [
+      "1.11 El infinitivo y el imperativo",
+      `<p>El <mark>infinitivo de presente activo</mark> es la tercera forma del enunciado y termina en <b>-re</b>: <i>amare</i>, <i>monere</i>, <i>legere</i>, <i>audire</i>, y el de <i>sum</i> es <i>esse</i>. Funciona como un sustantivo: puede ser sujeto (<i>Errare humanum est</i>, equivocarse es humano) o complemento de verbos como <i>possum</i>, <i>volo</i> o <i>debeo</i> (<i>legere possum</i>, puedo leer). También existe un infinitivo de perfecto: <i>amavisse</i> (haber amado).</p><p>El <mark>imperativo</mark> expresa órdenes directas. En presente tiene solo la 2.ª persona del singular, que es el tema de presente (<i>ama!</i>, ¡ama!; <i>mone!</i>; <i>audi!</i>), salvo en la 3.ª, que añade -e (<i>lege!</i>, ¡lee!), y la 2.ª del plural, con <b>-te</b>: <i>amate!</i>, <i>monete!</i>, <i>legite!</i>, <i>audite!</i>. El de <i>sum</i> es <i>es!</i>, <i>este!</i> Algunos verbos muy frecuentes tienen el imperativo breve: <i>dic!</i> (¡di!), <i>duc!</i> (¡conduce!), <i>fac!</i> (¡haz!). Son conocidos lemas como <i>Carpe diem</i> (aprovecha el día, de <i>carpo</i>) o <i>Sapere aude</i> (atrévete a saber, de <i>audeo</i>), el lema de la Ilustración.</p>`,
+      L.cita("Un imperativo famoso", "Carpe diem", "«aprovecha el día» (Horacio)", "var(--red)"),
+    ],
+    [
+      "1.12 La voz pasiva: una primera mirada",
+      `<p>En la <mark>voz pasiva</mark> el sujeto no realiza la acción, sino que la recibe: «la ciudad es atacada por los romanos». El latín forma la pasiva de los tiempos del tema de presente cambiando las desinencias: <b>-or/-r, -ris, -tur, -mur, -mini, -ntur</b>. Así, <i>amo</i> (amo) → <i>amor</i> (soy amado); <i>amat</i> → <i>amatur</i> (es amado); <i>amant</i> → <i>amantur</i> (son amados); <i>amabat</i> → <i>amabatur</i> (era amado).</p><p>El que realiza la acción en una oración pasiva (el <b>complemento agente</b>) va en <b>ablativo</b> con la preposición <i>a/ab</i> si es una persona: <i>Urbs a Romanis oppugnatur</i> (la ciudad es atacada por los romanos). Si es una cosa, va en ablativo sin preposición: <i>Urbs flammis deletur</i> (la ciudad es destruida por las llamas). Los tiempos del tema de perfecto forman la pasiva con el <b>participio</b> + el verbo <i>sum</i>: <i>amatus est</i> (fue amado). Existen además los <b>verbos deponentes</b>, con forma pasiva y significado activo: <i>loquor</i> (hablo), <i>sequor</i> (sigo), <i>nascor</i> (nazco). Estudiarás todo esto con detalle en Bachillerato.</p>`,
+      L.dos("Activa y pasiva", ["Activa", ["amo: amo", "amat: ama", "amant: aman", "sujeto que actúa"], "var(--red)"], ["Pasiva", ["amor: soy amado", "amatur: es amado", "amantur: son amados", "a/ab + ablativo"], "var(--pen)"]),
+    ],
+    [
+      "1.13 Del verbo latino al verbo español",
+      `<p>Muchas formas verbales españolas vienen directamente del latín: <i>amo</i> > amo, <i>amas</i> > amas, <i>amat</i> > ama, <i>amabam</i> > amaba, <i>amavi</i> > <i>amai</i> > amé, <i>amavit</i> > <i>amaut</i> > amó. Pero otras se crearon de nuevo en el latín vulgar, porque las formas clásicas se desgastaban o se confundían. El <b>futuro</b> latino (<i>amabo</i>) desapareció porque, al pronunciarse la b como v, se confundía con el perfecto (<i>amavi</i>). En su lugar se usó una perífrasis: <i>amare habeo</i> («tengo que amar») > <i>amar he</i> > «amaré». Por eso en castellano antiguo podía separarse: «decir vos he» (os diré).</p><p>Del mismo modo nacieron los <b>tiempos compuestos</b>: <i>habeo epistulam scriptam</i> («tengo la carta escrita») dio «he escrito la carta», y el <b>condicional</b> procede de <i>amare habebam</i> > «amaría». La voz pasiva sintética (<i>amor</i>) desapareció y fue sustituida por «ser + participio» (soy amado). Así, al estudiar el verbo latino entiendes por qué el español tiene las formas que tiene, y por qué «amaré», «amaría» y «he amado» se parecen tanto a «he», «había» y «haber».</p>`,
+      L.escalera("Del latín amare habeo al español amaré", ["amare|habeo", "amar he", "amaré"], "var(--red)"),
+    ],
+    [
+      "1.14 Cómo analizar una forma verbal",
+      `<p>Para analizar y traducir un verbo conviene seguir siempre el mismo orden. <b>1)</b> Busca el verbo en el diccionario y anota su <b>enunciado</b>. <b>2)</b> Decide la <b>conjugación</b> por el infinitivo. <b>3)</b> Mira si la forma del texto se construye sobre el <b>tema de presente</b> o sobre el <b>tema de perfecto</b>. <b>4)</b> Busca la <b>marca de tiempo</b> (-ba-, -b-, -a-/-e-, -era-, -eri-). <b>5)</b> Identifica la <b>desinencia</b> personal y, si es <b>-r, -ris, -tur…</b>, piensa en la voz pasiva. <b>6)</b> Traduce respetando persona, número, tiempo y voz.</p><p>Ejemplo: <i>audiebant</i>. Enunciado: <i>audio, audis, audire, audivi, auditum</i> (4.ª). Se forma sobre el tema de presente <i>audi-</i>; lleva <b>-eba-</b>, marca de imperfecto en la 4.ª; desinencia <b>-nt</b>, 3.ª persona del plural. Análisis: 3.ª persona del plural del pretérito imperfecto de indicativo activo. Traducción: «oían». Otro ejemplo: <i>miserat</i>, de <i>mitto, mittis, mittere, misi, missum</i>: tema de perfecto <i>mis-</i> + <i>-era-</i> + <i>-t</i>: 3.ª singular del pluscuamperfecto: «había enviado».</p>`,
+      L.flujo("Analizar un verbo", ["enunciado", "conjuga-|ción", "tema", "marca de|tiempo", "desinencia", "traducir"], "var(--pen)"),
+    ],
   ],
   figura: {
     titulo: "Presente e imperfecto de amo y presente de sum",
     svg: `<svg viewBox="0 0 680 250" role="img" aria-label="Tabla con el presente y el imperfecto de amo, el presente de sum y su traducción">
       <rect width="680" height="250" rx="16" fill="var(--paper)"/>
-      <g ${F} font-size="14" text-anchor="middle">
-        ${["persona", "presente", "imperfecto", "sum", "traducción"].map((t, i) => `<text x="${[70, 200, 320, 430, 570][i]}" y="34" font-weight="700" fill="var(--muted)" font-size="12.5">${t}</text>`).join("")}
-        ${PERS.map((p, i) => { const y = 66 + i * 30; return `<rect x="20" y="${y - 20}" width="640" height="28" rx="6" fill="${i % 2 ? "var(--card)" : "transparent"}"/><text x="70" y="${y}" fill="var(--ink)" font-weight="700">${p}</text>${[AMO[i], AMABAM[i]].map((f, j) => { const [t, d] = f.split("-"); return `<text x="${[200, 320][j]}" y="${y}" fill="var(--ink)">${t}<tspan font-weight="700" fill="var(--red)">${d}</tspan></text>`; }).join("")}<text x="430" y="${y}" fill="var(--pen)" font-weight="700">${SUM[i]}</text><text x="570" y="${y}" fill="var(--muted)">${ES[i]}</text>`; }).join("")}
+      <g ${L.F} font-size="14" text-anchor="middle">
+        ${["persona", "presente", "imperfecto", "sum", "traducción"].map((x, i) => `<text x="${[70, 200, 320, 430, 570][i]}" y="34" font-weight="700" fill="var(--muted)" font-size="12.5">${x}</text>`).join("")}
+        ${["1.ª sing.", "2.ª sing.", "3.ª sing.", "1.ª pl.", "2.ª pl.", "3.ª pl."].map((p, i) => { const y = 66 + i * 30; const A = ["am-o", "ama-s", "ama-t", "ama-mus", "ama-tis", "ama-nt"][i], B = ["amaba-m", "amaba-s", "amaba-t", "amaba-mus", "amaba-tis", "amaba-nt"][i]; return `<rect x="20" y="${y - 20}" width="640" height="28" rx="6" fill="${i % 2 ? "var(--card)" : "transparent"}"/><text x="70" y="${y}" fill="var(--ink)" font-weight="700">${p}</text>${[A, B].map((f, j) => { const [a, d] = f.split("-"); return `<text x="${[200, 320][j]}" y="${y}" fill="var(--ink)">${a}<tspan font-weight="700" fill="var(--red)">${d}</tspan></text>`; }).join("")}<text x="430" y="${y}" fill="var(--pen)" font-weight="700">${["sum", "es", "est", "sumus", "estis", "sunt"][i]}</text><text x="570" y="${y}" fill="var(--muted)">${["yo amo", "tú amas", "él ama", "nosotros amamos", "vosotros amáis", "ellos aman"][i]}</text>`; }).join("")}
       </g>
     </svg>`,
   },
   video: { id: "B43yxoHHSd4", titulo: "Latín: clasificar verbos en conjugaciones", canal: "Paco Álvarez philologus", vistas: 76652, megusta: 1402, busqueda: "conjugaciones latinas" },
+  ejemplos: [
+    ["Analiza <i>audiebant</i>.", ["Enunciado: <i>audio, -is, -ire, audivi</i>: 4.ª conjugación.", "Tema de presente <i>audi-</i> + <i>-eba-</i>: imperfecto.", "<i>-nt</i>: 3.ª persona del plural."], "3.ª pl. del pretérito imperfecto de indicativo activo: «oían»."],
+    ["Conjuga el futuro de <i>laudo, -as, -are</i> (alabar).", ["1.ª conjugación: futuro con -b-.", "lauda-bo, lauda-bi-s, lauda-bi-t…", "…lauda-bi-mus, lauda-bi-tis, lauda-bu-nt."], "laudabo, laudabis, laudabit, laudabimus, laudabitis, laudabunt (alabaré…)."],
+    ["Traduce y analiza <i>Romani vicerunt</i>.", ["<i>Romani</i>: nominativo plural, sujeto.", "<i>vicerunt</i>: tema de perfecto <i>vic-</i> (de <i>vinco, -is, -ere, vici</i>) + <i>-erunt</i>.", "3.ª persona del plural del perfecto."], "«Los romanos vencieron»."],
+    ["Distingue <i>leget</i>, <i>legit</i> y <i>legebat</i>.", ["<i>legit</i>: raíz + vocal de unión + -t: presente, «lee».", "<i>leget</i>: raíz + -e- + -t: futuro de la 3.ª, «leerá».", "<i>legebat</i>: raíz + -eba- + -t: imperfecto, «leía»."], "Presente, futuro e imperfecto: solo cambian una o dos letras."],
+    ["Pasa a pasiva <i>Milites urbem oppugnant</i>.", ["El CD <i>urbem</i> pasa a sujeto: <i>urbs</i>.", "El verbo toma desinencia pasiva en singular: <i>oppugnatur</i>.", "El sujeto pasa a agente: <i>a militibus</i>."], "<i>Urbs a militibus oppugnatur</i>: «la ciudad es atacada por los soldados»."],
+    ["Explica el origen de «cantaré».", ["El futuro latino <i>cantabo</i> se confundía con <i>cantavi</i>.", "El latín vulgar dijo <i>cantare habeo</i>, «tengo que cantar».", "Con el uso se unió: <i>cantar he</i> > cantaré."], "«Cantaré» procede de la perífrasis <i>cantare habeo</i>."],
+  ],
+  errores: [
+    "Formar el perfecto desde el presente: hay que usar la cuarta forma del enunciado (<i>scribo</i> → <i>scripsi</i>).",
+    "Usar -b- en el futuro de la 3.ª y 4.ª conjugación: es <i>legam, leges</i>, no <i>*legebo</i>.",
+    "Confundir <i>amabit</i> (futuro) con <i>amabat</i> (imperfecto).",
+    "Tomar por 2.ª conjugación un verbo de la 3.ª: <i>lego</i> no lleva e en la 1.ª persona, a diferencia de <i>moneo</i>.",
+    "Traducir <i>-erunt</i> (perfecto, «amaron») como futuro: el futuro perfecto es <i>-erint</i>.",
+    "Olvidar la vocal de unión de la 3.ª conjugación: <i>legimus</i>, <i>legunt</i>, no <i>*legmus</i>, <i>*legnt</i>.",
+  ],
+  ejercicios: {
+    basico: [
+      ["Escribe el enunciado de «amar» y explica qué indica cada forma.", "<i>amo, amas, amare, amavi, amatum</i>: 1.ª sg. presente, 2.ª sg. presente, infinitivo (conjugación), 1.ª sg. perfecto (tema de perfecto) y supino."],
+      ["Indica la conjugación de: <i>porto, -are</i>; <i>habeo, -ere</i>; <i>duco, -ere</i>; <i>venio, -ire</i>.", "1.ª; 2.ª; 3.ª; 4.ª."],
+      ["Escribe las desinencias personales activas.", "-o/-m, -s, -t, -mus, -tis, -nt."],
+      ["Conjuga el presente de <i>porto</i> (llevar).", "porto, portas, portat, portamus, portatis, portant."],
+      ["Conjuga el presente de <i>moneo</i>.", "moneo, mones, monet, monemus, monetis, monent."],
+      ["Conjuga el presente de <i>sum</i>.", "sum, es, est, sumus, estis, sunt."],
+      ["Traduce: <i>amamus</i>, <i>vides</i>, <i>legunt</i>, <i>audit</i>.", "Amamos; ves; leen; oye."],
+      ["¿Cuál es la marca del imperfecto?", "<b>-ba-</b> (y <b>-eba-</b> en la 3.ª y 4.ª conjugación)."],
+      ["Conjuga el imperfecto de <i>sum</i>.", "eram, eras, erat, eramus, eratis, erant."],
+      ["Escribe el infinitivo de <i>amo</i>, <i>video</i>, <i>lego</i>, <i>audio</i> y <i>sum</i>.", "amare, videre, legere, audire, esse."],
+      ["Traduce: <i>puella cantat</i>; <i>pueri legunt</i>; <i>Roma magna est</i>.", "La niña canta; los niños leen; Roma es grande."],
+      ["¿Qué significa <i>Veni, vidi, vici</i>? Di de qué verbos son.", "«Llegué, vi, vencí». Son perfectos de <i>venio</i>, <i>video</i> y <i>vinco</i>."],
+    ],
+    medio: [
+      ["Conjuga el imperfecto de <i>lego</i> y de <i>audio</i>.", "legebam, legebas, legebat, legebamus, legebatis, legebant; audiebam, audiebas, audiebat, audiebamus, audiebatis, audiebant."],
+      ["Conjuga el futuro de <i>moneo</i> y de <i>audio</i>.", "monebo, monebis, monebit, monebimus, monebitis, monebunt; audiam, audies, audiet, audiemus, audietis, audient."],
+      ["Conjuga el futuro de <i>sum</i>.", "ero, eris, erit, erimus, eritis, erunt."],
+      ["Forma el perfecto de <i>video, -es, -ere, vidi</i> en todas las personas.", "vidi, vidisti, vidit, vidimus, vidistis, viderunt."],
+      ["Analiza: <i>amabimus</i>, <i>audiam</i>, <i>monebant</i>, <i>fuit</i>.", "1.ª pl. futuro de amo (amaremos); 1.ª sg. futuro de audio (oiré); 3.ª pl. imperfecto de moneo (aconsejaban); 3.ª sg. perfecto de sum (fue)."],
+      ["Saca el tema de perfecto de: <i>scribo, scripsi</i>; <i>duco, duxi</i>; <i>moneo, monui</i>; <i>do, dedi</i>.", "scrips-, dux-, monu-, ded-."],
+      ["Traduce: <i>puellae cantabant</i>.", "«Las niñas cantaban»."],
+      ["Traduce: <i>Caesar Galliam vicit</i>.", "«César venció a la Galia» (<i>vicit</i>: perfecto de <i>vinco</i>)."],
+      ["Escribe el imperativo singular y plural de <i>amo</i>, <i>lego</i> y <i>audio</i>.", "ama / amate; lege / legite; audi / audite."],
+      ["¿Qué significa <i>Errare humanum est</i>? Analiza <i>errare</i>.", "«Equivocarse es humano». <i>Errare</i> es infinitivo de presente activo de <i>erro, -are</i> y funciona como sujeto."],
+      ["Pasa a voz pasiva: <i>amat</i>, <i>laudant</i>, <i>monebat</i>.", "amatur (es amado), laudantur (son alabados), monebatur (era aconsejado)."],
+      ["Distingue y traduce: <i>legit</i>, <i>leget</i>, <i>legebat</i>, <i>legerat</i>.", "Lee (presente); leerá (futuro); leía (imperfecto); había leído (pluscuamperfecto, sobre el tema <i>leg-</i> con e larga)."],
+      ["Conjuga el pluscuamperfecto de <i>amo</i>.", "amaveram, amaveras, amaverat, amaveramus, amaveratis, amaverant."],
+      ["¿De dónde viene el futuro español «cantaré»?", "De la perífrasis del latín vulgar <i>cantare habeo</i> («tengo que cantar»), que se unió en una sola palabra."],
+    ],
+    avanzado: [
+      ["Analiza y traduce: <i>Milites Romani urbem diu oppugnabant, sed non expugnaverunt</i>.", "<i>oppugnabant</i>: 3.ª pl. imperfecto de <i>oppugno</i>; <i>expugnaverunt</i>: 3.ª pl. perfecto de <i>expugno</i>. «Los soldados romanos atacaban la ciudad durante mucho tiempo, pero no la conquistaron». El imperfecto indica acción prolongada; el perfecto, resultado."],
+      ["Explica la diferencia de significado entre <i>legebam</i> y <i>legi</i> con un ejemplo en español.", "<i>Legebam</i> (imperfecto) presenta la acción en desarrollo o habitual: «leía (cada noche)». <i>Legi</i> (perfecto) la presenta terminada: «leí (el libro entero)»."],
+      ["Traduce al latín: «Los niños leían libros; el maestro los aconsejará».", "<i>Pueri libros legebant; magister eos monebit</i>."],
+      ["Pasa a pasiva y traduce: <i>Romani Carthaginem delebant</i>.", "<i>Carthago a Romanis delebatur</i>: «Cartago era destruida por los romanos». CD → sujeto en nominativo; sujeto → <i>a</i> + ablativo; verbo con desinencia pasiva."],
+      ["Explica por qué desapareció el futuro latino <i>amabo</i> en las lenguas romances.", "Porque al pronunciarse la b intervocálica como v, <i>amabit</i> (amará) se confundía con <i>amavit</i> (amó). Para evitarlo, el latín vulgar usó perífrasis como <i>amare habeo</i>, origen de «amaré»."],
+      ["Construye una tabla con los seis tiempos del indicativo activo de <i>moneo</i> en 3.ª persona del singular y su traducción.", "monet (aconseja), monebat (aconsejaba), monebit (aconsejará), monuit (aconsejó), monuerat (había aconsejado), monuerit (habrá aconsejado)."],
+      ["Busca en la vida diaria cinco lemas latinos con imperativo o infinitivo y analízalos.", "Ejemplos: <i>Carpe diem</i> (imperativo de <i>carpo</i>); <i>Sapere aude</i> (inf. + imperativo de <i>audeo</i>); <i>Ora et labora</i> (imperativos de <i>oro</i> y <i>laboro</i>); <i>Citius, altius, fortius</i> (adverbios, lema olímpico); <i>Errare humanum est</i> (infinitivo sujeto)."],
+      ["Explica qué es un verbo deponente y pon dos ejemplos que hayan dejado huella en español.", "Verbo con forma pasiva y significado activo: <i>loquor</i> (hablo) > locutor, locuaz; <i>nascor</i> (nazco) > nacer, nación; <i>sequor</i> (sigo) > seguir, secuencia."],
+    ],
+  },
   quiz: [
-    { q: "¿Qué forma del enunciado indica la conjugación?", o: ["La 1.ª persona del presente", "El infinitivo", "El supino"], a: 1, e: "-āre 1.ª, -ēre 2.ª, -ĕre 3.ª, -īre 4.ª." },
-    { q: "Audio, audire pertenece a la…", o: ["1.ª conjugación", "3.ª conjugación", "4.ª conjugación"], a: 2, e: "El infinitivo en -īre indica la cuarta." },
-    { q: "La desinencia -mus indica…", o: ["yo", "nosotros", "ellos"], a: 1, e: "Amamus = (nosotros) amamos." },
-    { q: "«Amabant» significa…", o: ["aman", "amaban", "amaron"], a: 1, e: "-ba- marca el imperfecto y -nt la 3.ª persona del plural." },
-    { q: "«Sunt» significa…", o: ["soy", "somos", "son"], a: 2, e: "Es la 3.ª persona del plural del presente de sum." },
+    ["¿Cuál NO es un accidente del verbo?", ["persona", "tiempo", "caso", "voz"], 2, "El caso es propio del sustantivo."],
+    ["El infinitivo del enunciado indica…", ["el tiempo", "la conjugación", "la persona", "el caso"], 1, "-āre, -ēre, -ĕre, -īre."],
+    ["Un infinitivo en -īre es de la…", ["1.ª conjugación", "2.ª conjugación", "3.ª conjugación", "4.ª conjugación"], 3, "<i>audio, audīre</i>."],
+    ["<i>Lego, legĕre</i> es de la…", ["1.ª", "2.ª", "3.ª", "4.ª"], 2, "E breve y presente sin -eo."],
+    ["La desinencia -mus indica…", ["yo", "nosotros", "ellos", "vosotros"], 1, "<i>amamus</i> = amamos."],
+    ["La desinencia -nt indica…", ["él", "nosotros", "ellos", "tú"], 2, "<i>amant</i> = aman."],
+    ["«Amabant» significa…", ["aman", "amaban", "amaron", "amarán"], 1, "-ba- marca el imperfecto."],
+    ["«Sunt» significa…", ["soy", "somos", "son", "eran"], 2, "3.ª pl. del presente de sum."],
+    ["El futuro de la 1.ª conjugación lleva…", ["-b-", "-a-/-e-", "-ba-", "-era-"], 0, "<i>amabo</i>."],
+    ["<i>Legam</i> es…", ["presente", "imperfecto", "futuro", "perfecto"], 2, "Futuro de la 3.ª: -am."],
+    ["El tema de perfecto se saca de…", ["el infinitivo", "la 4.ª forma del enunciado", "la 2.ª persona", "el supino"], 1, "<i>amavi</i> → <i>amav-</i>."],
+    ["Las desinencias del perfecto son…", ["-o, -s, -t…", "-i, -isti, -it…", "-r, -ris, -tur…", "-bo, -bis, -bit…"], 1, "Exclusivas del perfecto."],
+    ["«Fuerunt» es…", ["perfecto de sum", "futuro de sum", "imperfecto de sum", "presente de sum"], 0, "Fueron / estuvieron."],
+    ["«Veni, vidi, vici» está en…", ["presente", "pretérito perfecto", "futuro", "imperfecto"], 1, "Llegué, vi, vencí."],
+    ["<i>Amaveram</i> se traduce…", ["amaba", "había amado", "habré amado", "amé"], 1, "Pluscuamperfecto: tema de perfecto + -era-."],
+    ["El infinitivo de <i>sum</i> es…", ["sumere", "esse", "fuisse", "sumare"], 1, "<i>sum, es, esse, fui</i>."],
+    ["<i>Audite!</i> es…", ["imperativo plural", "infinitivo", "futuro", "perfecto"], 0, "¡Oíd!"],
+    ["<i>Amatur</i> significa…", ["ama", "es amado", "amará", "amaron"], 1, "Desinencia pasiva -tur."],
+    ["En pasiva, el agente persona va en…", ["dativo", "a/ab + ablativo", "acusativo", "genitivo"], 1, "<i>a Romanis</i>."],
+    ["«Amaré» procede de…", ["amabo", "amare habeo", "amavero", "amarem"], 1, "Perífrasis del latín vulgar."],
   ],
   examen: [
-    { q: "En «Veni, vidi, vici», la desinencia -i indica…", o: ["presente, nosotros", "perfecto, yo", "imperfecto, él"], a: 1, e: "Es la desinencia de la 1.ª persona del singular del perfecto." },
-    { q: "Moneo, monēre y lego, legĕre se distinguen por…", o: ["la cantidad de la e del infinitivo", "el supino", "nada, son iguales"], a: 0, e: "La 2.ª tiene e larga; la 3.ª, e breve." },
-    { q: "«Erat» es…", o: ["presente de sum", "imperfecto de sum: era/estaba", "perfecto de amo"], a: 1, e: "El imperfecto de sum es eram, eras, erat…" },
+    ["En «Veni, vidi, vici», la desinencia -i indica…", ["presente, nosotros", "perfecto, yo", "imperfecto, él", "futuro, tú"], 1, "1.ª persona del singular del perfecto."],
+    ["Moneo, monēre y lego, legĕre se distinguen por…", ["la cantidad de la e del infinitivo", "el supino", "nada, son iguales", "la desinencia -o"], 0, "La 2.ª tiene e larga; la 3.ª, breve."],
+    ["«Erat» es…", ["presente de sum", "imperfecto de sum: era/estaba", "perfecto de amo", "futuro de sum"], 1, "eram, eras, erat…"],
+    ["¿Qué forma es futuro?", ["amabat", "amabit", "amavit", "amaverat"], 1, "-bi- marca el futuro en la 1.ª."],
+    ["<i>Duxerunt</i> procede de <i>duco, duxi</i> y significa…", ["conducen", "condujeron", "conducirán", "conducían"], 1, "Tema de perfecto <i>dux-</i> + -erunt."],
+    ["¿Qué tiempo NO se forma sobre el tema de perfecto?", ["perfecto", "pluscuamperfecto", "futuro perfecto", "imperfecto"], 3, "El imperfecto usa el tema de presente."],
+    ["<i>Possum</i> es un compuesto de…", ["sum", "pono", "do", "eo"], 0, "<i>pot-</i> + <i>sum</i>: poder."],
+    ["Los tiempos compuestos españoles («he escrito») proceden de…", ["el perfecto latino", "habeo + participio", "el futuro perfecto", "el verbo sum"], 1, "<i>habeo scriptum</i>."],
   ],
-  feynman: ["Las cinco formas del enunciado y para qué sirve cada una", "Cómo se reconoce la conjugación", "Las desinencias personales de la voz activa", "Cómo se forma el imperfecto y cómo se conjuga sum"],
-  mapa: mapa("VERBO LATINO", "var(--red)", [
+  feynman: ["Las cinco formas del enunciado y para qué sirve cada una", "Cómo se reconoce la conjugación", "Las desinencias personales y las marcas de imperfecto y futuro", "Cómo se forma el perfecto y cómo se conjuga sum"],
+  mapa: L.mapa("VERBO LATINO", "var(--red)", [
     ["Enunciado", "amo, amas, amare, amavi, amatum", "var(--ink)"],
     ["Conjugaciones", "-āre · -ēre · -ĕre · -īre", "var(--pen)"],
-    ["Desinencias", "-o/m · -s · -t · -mus · -tis · -nt", "var(--red)"],
-    ["Tiempos", "presente · -ba- · sum", "var(--leaf)"],
+    ["Tema de presente", "presente · -ba- · -bo/-am", "var(--red)"],
+    ["Tema de perfecto", "-i, -isti… · -era- · -er-", "var(--leaf)"],
   ], 270),
   tarjetas: [
     ["Enunciado de amar", "amo, amas, amare, amavi, amatum."],
     ["Infinitivos de las cuatro conjugaciones", "-āre, -ēre, -ĕre, -īre."],
     ["Desinencias personales activas", "-o/-m, -s, -t, -mus, -tis, -nt."],
-    ["Marca del pretérito imperfecto", "-ba- (amabam, amabas…)."],
+    ["Marca del pretérito imperfecto", "-ba- (amabam) y -eba- en 3.ª y 4.ª."],
+    ["Futuro de 1.ª y 2.ª", "-bo, -bis, -bit, -bimus, -bitis, -bunt."],
+    ["Futuro de 3.ª y 4.ª", "-am, -es, -et, -emus, -etis, -ent."],
     ["Presente de sum", "sum, es, est, sumus, estis, sunt."],
+    ["Imperfecto de sum", "eram, eras, erat, eramus, eratis, erant."],
+    ["Desinencias de perfecto", "-i, -isti, -it, -imus, -istis, -erunt."],
+    ["Pluscuamperfecto", "Tema de perfecto + -era-: amaveram."],
+    ["Desinencias pasivas", "-or/-r, -ris, -tur, -mur, -mini, -ntur."],
+    ["Origen de «amaré»", "<i>amare habeo</i>, «tengo que amar»."],
   ],
-  familias: ["Pedidle que os traduzca «Veni, vidi, vici» y que os explique la terminación.", "Jugad a decir un verbo español y que adivine de qué verbo latino viene (cantar, canto; leer, lego).", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
+  glosario: [
+    ["Accidentes verbales", "Persona, número, tiempo, modo y voz."],
+    ["Enunciado verbal", "Formas con que el diccionario presenta un verbo: amo, amas, amare, amavi, amatum."],
+    ["Conjugación", "Cada uno de los grupos de verbos según su infinitivo; también, el conjunto de sus formas."],
+    ["Tema de presente", "Base de presente, imperfecto y futuro: ama-."],
+    ["Tema de perfecto", "Base de perfecto, pluscuamperfecto y futuro perfecto: amav-."],
+    ["Desinencia personal", "Terminación que indica persona y número."],
+    ["Vocal de unión", "Vocal entre raíz y desinencia en la 3.ª conjugación: leg-i-t."],
+    ["Indicativo", "Modo de los hechos reales."],
+    ["Subjuntivo", "Modo del deseo, la posibilidad o la subordinación."],
+    ["Imperativo", "Modo de las órdenes directas: ama!, amate!"],
+    ["Infinitivo", "Forma no personal que funciona como sustantivo: amare."],
+    ["Voz pasiva", "Forma en la que el sujeto recibe la acción: amor, soy amado."],
+    ["Complemento agente", "En pasiva, quien realiza la acción: a/ab + ablativo."],
+    ["Verbo deponente", "Verbo de forma pasiva y significado activo: loquor."],
+    ["Verbo copulativo", "Verbo que une sujeto y atributo, como sum."],
+    ["Perífrasis", "Expresión de varias palabras con valor de una forma verbal: amare habeo."],
+  ],
+  situacion: {
+    titulo: "Lemas latinos para nuestro instituto",
+    reto: "El centro quiere elegir un lema latino para sus camisetas de graduación. Vuestro equipo debe proponer tres lemas con verbos, analizarlos y defender uno ante la clase.",
+    pasos: [
+      "Recopilad diez lemas o frases latinas famosas con verbos (<i>Carpe diem</i>, <i>Sapere aude</i>, <i>Veni, vidi, vici</i>, <i>Ora et labora</i>…).",
+      "Analizad cada verbo: enunciado, conjugación, tiempo, modo, persona y número.",
+      "Elegid tres lemas y cread uno nuevo propio, gramaticalmente correcto, sobre el esfuerzo o la amistad.",
+      "Diseñad la camiseta o el cartel con el lema y su traducción.",
+      "Defended vuestra propuesta en dos minutos y votad en clase el mejor lema.",
+    ],
+    producto: "Un dosier con el análisis de los lemas y un diseño de camiseta o cartel con el lema elegido.",
+    evaluacion: ["El análisis morfológico de los verbos es correcto.", "El lema inventado es gramaticalmente correcto y tiene sentido.", "La traducción es fiel y natural en español.", "La defensa oral es convincente y bien argumentada."],
+  },
+  familias: ["Pedidle que os traduzca «Veni, vidi, vici» y que os explique la terminación.", "Jugad a decir un verbo español y que adivine de qué verbo latino viene (cantar, <i>canto</i>; leer, <i>lego</i>).", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
   profesores: {
-    saberes: "El sistema de la lengua latina: flexión verbal, conjugaciones, desinencias, presente e imperfecto, verbo sum (RD 217/2022, Latín 4º).",
-    ideas: ["Dado de personas y dado de verbos para conjugar en voz alta.", "Comparar las desinencias latinas con las españolas (amamus/amamos).", "Traducción de frases breves con sum y un verbo de la 1.ª."],
+    saberes: "El sistema de la lengua latina: flexión verbal, enunciado, conjugaciones, desinencias, tiempos del tema de presente y de perfecto, sum, infinitivo, imperativo y nociones de voz pasiva; evolución al castellano (RD 217/2022, Latín 4º ESO; Decret 175/2022 de Catalunya).",
+    ideas: ["Dado de personas y dado de tiempos para conjugar en voz alta.", "Comparar las desinencias latinas con las españolas (amamus/amamos).", "Traducción de frases breves con sum y verbos de las cuatro conjugaciones."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Conjugación latina, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Conjugaci%C3%B3n_latina" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: nivel de libro de texto.
-const { ampliar, tabla } = require("./_hum");
-ampliar(module.exports, {
-  minutos: 60,
-  objetivos: ["Conjugar el presente, el imperfecto y el futuro de indicativo", "Formar el perfecto a partir del enunciado"],
-  bloques: [
-    { tras: "Las cuatro conjugaciones", html: `<h3>Presente de indicativo de las cuatro conjugaciones</h3>${tabla(["Persona", "1.ª amo", "2.ª moneo", "3.ª lego", "4.ª audio"], [["1.ª sg.", "amo", "moneo", "lego", "audio"], ["2.ª sg.", "amas", "mones", "legis", "audis"], ["3.ª sg.", "amat", "monet", "legit", "audit"], ["1.ª pl.", "amamus", "monemus", "legimus", "audimus"], ["2.ª pl.", "amatis", "monetis", "legitis", "auditis"], ["3.ª pl.", "amant", "monent", "legunt", "audiunt"]])}<p>En la 3.ª conjugación aparece una <mark>vocal de unión</mark> (i, u) entre la raíz y la desinencia: <i>leg-i-t</i>, <i>leg-u-nt</i>.</p>`, video: { id: "8FboNFb4HZc", titulo: "El presente de indicativo del verbo sum", canal: "Un Profe de Latín", vistas: 8793, megusta: 0 } },
-    { tras: "Presente, imperfecto", html: `<h3>El futuro imperfecto</h3><p>El futuro se forma de dos maneras. En la <b>1.ª y 2.ª conjugación</b> se añade <b>-b-</b> + vocal: <i>ama-b-o, ama-bi-s, ama-bi-t, ama-bi-mus, ama-bi-tis, ama-bu-nt</i> (amaré, amarás…). En la <b>3.ª y 4.ª</b> se usa <b>-a-</b> en la 1.ª persona y <b>-e-</b> en las demás: <i>leg-a-m, leg-e-s, leg-e-t, leg-e-mus, leg-e-tis, leg-e-nt</i> (leeré, leerás…); <i>audi-a-m, audi-e-s</i>… El verbo <b>sum</b> hace <i>ero, eris, erit, erimus, eritis, erunt</i>. Cuidado: <mark>leges</mark> puede ser futuro de <i>lego</i> («leerás») o acusativo plural de <i>lex</i> («leyes»).</p>` },
-    { tras: "Presente, imperfecto", html: `<h3>El tema de perfecto</h3><p>El enunciado de un verbo tiene cuatro formas: <i>amo, amas, amare, amavi</i>. La cuarta, la 1.ª persona del <b>pretérito perfecto</b>, da el <mark>tema de perfecto</mark>: quitando la -i final (<i>amav-</i>). A él se añaden unas desinencias propias:</p>${tabla(["Persona", "Desinencia", "amo → amav-", "sum → fu-"], [["1.ª sg.", "-i", "amavi (amé)", "fui"], ["2.ª sg.", "-isti", "amavisti", "fuisti"], ["3.ª sg.", "-it", "amavit", "fuit"], ["1.ª pl.", "-imus", "amavimus", "fuimus"], ["2.ª pl.", "-istis", "amavistis", "fuistis"], ["3.ª pl.", "-erunt", "amaverunt", "fuerunt"]])}<p>Por eso es imprescindible aprender el enunciado completo: <i>lego, -is, -ere, legi</i>; <i>video, -es, -ere, vidi</i>; <i>venio, -is, -ire, veni</i>.</p>` },
-    { tras: "Presente, imperfecto", html: `<h3>Del latín al español</h3><p>Muchas formas verbales españolas vienen casi directamente del latín: <i>amo</i> > amo, <i>amas</i> > amas, <i>amat</i> > ama, <i>amabam</i> > amaba, <i>amavi</i> > amé. Otras se crearon nuevas: el <b>futuro</b> español nace de una perífrasis del latín vulgar, <i>amare habeo</i> («tengo que amar») > amaré, y los <b>tiempos compuestos</b> (he amado) proceden de <i>habeo amatum</i>. La famosa frase de César, <mark>«Veni, vidi, vici»</mark> («llegué, vi, vencí»), son tres perfectos de 1.ª persona: <i>venio</i>, <i>video</i> y <i>vinco</i>.</p>` },
-  ],
-  ejemplos: [
-    { enunciado: "Analiza «audiebant».", pasos: ["Raíz: audi- (audio, 4.ª conjugación).", "-eba-: marca de imperfecto en la 3.ª y 4.ª.", "-nt: 3.ª persona del plural."], resultado: "3.ª pl. del pretérito imperfecto de indicativo: «oían»." },
-    { enunciado: "Conjuga el futuro de «laudo, -as, -are» (alabar).", pasos: ["Es de la 1.ª conjugación: futuro con -b-.", "lauda-bo, lauda-bis, lauda-bit, lauda-bimus, lauda-bitis, lauda-bunt."], resultado: "laudabo, laudabis, laudabit, laudabimus, laudabitis, laudabunt (alabaré…)." },
-    { enunciado: "Traduce y analiza «Romani vicerunt».", pasos: ["Romani: nominativo plural, sujeto (los romanos).", "Vicerunt: tema de perfecto vic- (de vinco, vincis, vincere, vici) + -erunt.", "3.ª persona del plural del perfecto."], resultado: "«Los romanos vencieron»." },
-  ],
-  errores: [
-    "Formar el perfecto desde el presente: hay que usar el cuarto término del enunciado.",
-    "Usar -b- en el futuro de la 3.ª conjugación: legam, leges, no *legebo.",
-    "Confundir legit (presente, «lee») con lēgit (perfecto, «leyó»): solo cambia la cantidad de la e.",
-    "Confundir amabit (futuro) con amabat (imperfecto).",
-    "Olvidar la vocal de unión de la 3.ª conjugación: legimus, no *legmus.",
-  ],
-  ejercicios: [
-    { q: "Escribe el enunciado de «amar» y explica qué indica cada forma.", sol: "amo, amas, amare, amavi: 1.ª sg. presente, 2.ª sg. presente, infinitivo y 1.ª sg. perfecto." },
-    { q: "Conjuga el presente de «moneo».", sol: "moneo, mones, monet, monemus, monetis, monent." },
-    { q: "Conjuga el imperfecto de «lego».", sol: "legebam, legebas, legebat, legebamus, legebatis, legebant." },
-    { q: "Analiza «amabimus».", sol: "1.ª pl. del futuro imperfecto de indicativo de amo: «amaremos»." },
-    { q: "Analiza «audiam».", sol: "1.ª sg. del futuro de audio: «oiré»." },
-    { q: "Conjuga el futuro de «sum».", sol: "ero, eris, erit, erimus, eritis, erunt." },
-    { q: "Forma el perfecto de «video, -es, -ere, vidi» en todas las personas.", sol: "vidi, vidisti, vidit, vidimus, vidistis, viderunt." },
-    { q: "Traduce: «puellae cantabant».", sol: "«Las niñas cantaban»." },
-    { q: "Traduce: «Caesar Galliam vicit».", sol: "«César venció a la Galia»." },
-    { q: "¿De dónde viene el futuro español «cantaré»?", sol: "De la perífrasis del latín vulgar cantare habeo («tengo que cantar»)." },
-  ],
-  quiz: [
-    { q: "«legunt» es…", o: ["presente, 3.ª pl.", "futuro, 3.ª pl.", "perfecto, 3.ª pl."], a: 0, e: "Leen." },
-    { q: "El futuro de la 1.ª conjugación lleva…", o: ["-b-", "-a-/-e-", "-ba-"], a: 0, e: "Amabo." },
-    { q: "«fuerunt» es…", o: ["perfecto de sum", "futuro de sum", "imperfecto de sum"], a: 0, e: "Fueron / estuvieron." },
-    { q: "El tema de perfecto se toma de…", o: ["la cuarta forma del enunciado", "el infinitivo", "la 2.ª persona"], a: 0, e: "Amavi → amav-." },
-    { q: "«Veni, vidi, vici» está en…", o: ["pretérito perfecto", "presente", "futuro"], a: 0, e: "Llegué, vi, vencí." },
-  ],
-  tarjetas: [
-    ["Vocal de unión", "Vocal entre raíz y desinencia en la 3.ª conjugación: leg-i-t."],
-    ["Futuro de la 3.ª y 4.ª", "-am, -es, -et, -emus, -etis, -ent."],
-    ["Desinencias de perfecto", "-i, -isti, -it, -imus, -istis, -erunt."],
+    { t: "Verbo deponente, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Verbo_deponente" },
   ],
 });

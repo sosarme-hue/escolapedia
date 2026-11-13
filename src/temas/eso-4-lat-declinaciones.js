@@ -1,145 +1,257 @@
-// Latín 4º ESO. Dibujos propios en SVG.
-const { F, D, mapa } = require("./_util");
-const { filas, dos, rueda } = require("./_hum");
+// Latín 4º ESO · Las declinaciones. Tema a nivel libro. Dibujos propios en SVG.
+const L = require("./_eso4L9");
+const t = L.tabla;
 
-const CASOS = ["nominativo", "vocativo", "acusativo", "genitivo", "dativo", "ablativo"];
-const ROSA = [["ros-a", "ros-ae"], ["ros-a", "ros-ae"], ["ros-am", "ros-as"], ["ros-ae", "ros-arum"], ["ros-ae", "ros-is"], ["ros-ā", "ros-is"]];
-const DOM = [["domin-us", "domin-i"], ["domin-e", "domin-i"], ["domin-um", "domin-os"], ["domin-i", "domin-orum"], ["domin-o", "domin-is"], ["domin-o", "domin-is"]];
-
-module.exports = {
+module.exports = L.libro({
   materia: "Latín",
-  curso: "4-eso",
   titulo: "Las declinaciones",
-  minutos: 40,
-  objetivos: ["Entender qué son los casos y para qué sirven", "Identificar la declinación de un sustantivo por su enunciado", "Declinar sustantivos de la primera y la segunda declinación"],
+  minutos: 110,
+  objetivos: [
+    "Entender qué es un caso y relacionar cada caso con su función sintáctica",
+    "Leer el enunciado de un sustantivo y deducir su declinación por el genitivo",
+    "Declinar sustantivos de las cinco declinaciones y reconocer sus desinencias",
+    "Aplicar la regla de los neutros y declinar adjetivos concertando con el sustantivo",
+    "Analizar morfológicamente cualquier sustantivo de un texto sencillo",
+  ],
   claves: ["caso", "declinación", "enunciado", "genitivo", "desinencia", "tema"],
   pregunta: {
-    texto: "En español, «el perro muerde al hombre» y «el hombre muerde al perro» significan cosas muy distintas solo por el orden. En latín, «canis hominem mordet» y «hominem canis mordet» significan lo mismo. ¿Cómo sabe un romano quién muerde a quién?",
-    respuesta: "Por la terminación de cada palabra. El latín es una lengua <mark>flexiva</mark>: los sustantivos cambian su final según la función que tienen en la oración. Esos finales son los <b>casos</b>, y cada grupo de palabras que se declina igual forma una <b>declinación</b>.",
+    texto: "En español, «el perro muerde al hombre» y «el hombre muerde al perro» significan cosas muy distintas solo por el orden. En latín, «canis hominem mordet» y «hominem canis mordet» significan lo mismo. ¿Cómo es posible?",
+    respuesta: "Porque en latín la <mark>terminación</mark> de cada palabra indica su función: <i>canis</i> (nominativo) es el sujeto y <i>hominem</i> (acusativo), el complemento directo, estén donde estén. Esas terminaciones se llaman <b>casos</b>, y el conjunto de formas de una palabra es su <b>declinación</b>.",
+  },
+  lectura: {
+    titulo: "Palabras con etiqueta",
+    html: `<p>Imagina un mundo en el que cada palabra llevase pegada una etiqueta con su función: «yo soy el sujeto», «yo soy a quien se dirige la acción», «yo indico el lugar». Podrías desordenar la frase como quisieras y seguiría entendiéndose. Ese mundo existió: era el latín.</p><p>Los poetas romanos aprovechaban esta libertad para jugar con el orden y crear efectos: colocar al principio la palabra más importante, rodear un sustantivo con su adjetivo o terminar el verso con una sorpresa. Horacio podía escribir una frase en la que el sujeto aparecía al final y nadie se perdía, porque las terminaciones decían quién hacía qué.</p><p>En español queda un rastro de aquel sistema en los pronombres: decimos «yo», pero «me», «mí» y «conmigo»; «él», pero «lo», «le» y «se». Son restos de casos. En este tema aprenderás a leer esas etiquetas en latín: las seis funciones que puede tener una palabra y las cinco familias, o declinaciones, en las que se agrupan todos los sustantivos. Es la llave que abre cualquier texto latino.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>Los seis casos</h3><p>Un <mark>caso</mark> es la forma que toma una palabra según su función. El latín tiene seis: <b>nominativo</b> (sujeto), <b>vocativo</b> (para llamar a alguien), <b>acusativo</b> (complemento directo), <b>genitivo</b> (complemento del nombre, «de»), <b>dativo</b> (complemento indirecto, «a, para») y <b>ablativo</b> (complementos circunstanciales: con, en, desde, por…).</p>`,
-      svg: filas("Los seis casos y su función principal", [["Nom.", "sujeto", "var(--red)"], ["Voc.", "llamada: ¡oh, señor!", "var(--sun)"], ["Ac.", "complemento directo", "var(--pen)"], ["Gen.", "complemento del nombre", "var(--leaf)"], ["Dat./Abl.", "c. indirecto / circunstancial", "var(--muted)"]]),
-    },
-    {
-      html: `<h3>Tema y desinencia</h3><p>Cada forma tiene dos partes: el <b>tema</b> o raíz, que lleva el significado (<i>ros-</i>), y la <mark>desinencia</mark>, que indica caso y número (<i>-am</i> = acusativo singular). Declinar es recorrer todas las formas: 6 casos × 2 números = 12 formas. Muchas desinencias se repiten, por eso el contexto ayuda a distinguirlas.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="La palabra rosam dividida en tema ros y desinencia am">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <rect x="40" y="50" width="100" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/>
-        <rect x="140" y="50" width="80" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
-        <text x="90" y="88" text-anchor="middle" font-size="30" font-weight="700" fill="var(--pen)" ${D}>ros</text>
-        <text x="180" y="88" text-anchor="middle" font-size="30" font-weight="700" fill="var(--red)" ${D}>am</text>
-        <text x="90" y="132" text-anchor="middle" font-size="12" font-weight="700" fill="var(--pen)" ${F}>tema: significado</text>
-        <text x="180" y="132" text-anchor="middle" font-size="12" font-weight="700" fill="var(--red)" ${F}>desinencia</text>
-        <text x="180" y="148" text-anchor="middle" font-size="11" fill="var(--muted)" ${F}>acusativo sing.</text>
-      </svg>`,
-    },
-    {
-      html: `<h3>El enunciado y las cinco declinaciones</h3><p>Los diccionarios dan cada sustantivo con su <mark>enunciado</mark>: nominativo y genitivo singular, más el género. La terminación del <b>genitivo singular</b> indica la declinación: <b>-ae</b> 1.ª (<i>rosa, rosae</i>), <b>-i</b> 2.ª (<i>dominus, domini</i>), <b>-is</b> 3.ª (<i>rex, regis</i>), <b>-us</b> 4.ª (<i>manus, manus</i>) y <b>-ei</b> 5.ª (<i>dies, diei</i>).</p>`,
-      svg: rueda("Genitivo singular de las cinco declinaciones", "GENITIVO|SINGULAR", [["1.ª -ae", "var(--red)"], ["2.ª -i", "var(--pen)"], ["3.ª -is", "var(--leaf)"], ["4.ª -us", "var(--sun)"], ["5.ª -ei", "var(--bac)"]], "var(--ink)"),
-    },
-    {
-      html: `<h3>Primera y segunda declinación</h3><p>La <b>primera</b> agrupa sobre todo sustantivos <b>femeninos</b> en <i>-a</i> (<i>puella</i>, niña; <i>terra</i>, tierra), aunque hay algunos masculinos de oficios (<i>nauta</i>, marinero; <i>agricola</i>, agricultor). La <b>segunda</b> tiene masculinos en <i>-us</i> o <i>-er</i> (<i>dominus</i>, <i>puer</i>) y neutros en <i>-um</i> (<i>templum</i>). Regla de los <mark>neutros</mark>: nominativo, vocativo y acusativo son iguales, y en plural terminan en <b>-a</b> (<i>templa</i>).</p>`,
-      svg: dos("Ejemplos de primera y segunda declinación", ["1.ª", ["puella, -ae", "terra, -ae", "aqua, -ae", "nauta, -ae (m.)", "femeninos"], "var(--red)"], ["2.ª", ["dominus, -i", "puer, -i", "templum, -i (n.)", "bellum, -i (n.)", "masc. y neutros"], "var(--pen)"]),
-    },
+    [
+      "1.1 Una lengua con casos",
+      `<p>El latín es una <mark>lengua flexiva</mark>: las palabras cambian su terminación para indicar su función en la oración. En el sustantivo, esa terminación, la <b>desinencia</b>, señala a la vez el <b>caso</b> (la función), el <b>número</b> (singular o plural) y, a menudo, el <b>género</b>. Por eso una sola palabra, <i>rosarum</i>, quiere decir «de las rosas»: <i>ros-</i> da el significado y <i>-arum</i>, la función y el número.</p><p>El español funciona de otra manera: usa sobre todo el <b>orden</b> de las palabras y las <b>preposiciones</b>. Comparamos: «el libro <b>del</b> niño» frente a <i>liber puer<b>i</b></i>; «doy un regalo <b>a la</b> niña» frente a <i>donum puell<b>ae</b> do</i>. Lo que nosotros decimos con «de» o «a», el latín lo dice con la terminación. Por eso, en latín, el orden es más libre y sirve para destacar palabras, no para indicar su función. Al traducir, lo primero no es mirar dónde está una palabra, sino <b>en qué termina</b>.</p>`,
+      L.partes("Raíz y desinencia en rosarum", [["ros", "raíz: rosa", "var(--pen)"], ["arum", "gen. plural", "var(--red)"]], "rosarum = de las rosas"),
+    ],
+    [
+      "1.2 Los seis casos y sus funciones",
+      `<p>El latín clásico tiene <mark>seis casos</mark>. Cada uno se asocia a unas funciones principales:</p>${t(["Caso", "Función principal", "Ejemplo", "Traducción"], [["Nominativo", "sujeto y atributo", "<i>puella</i> cantat", "la niña canta"], ["Vocativo", "llamar a alguien", "<i>puella</i>, veni!", "¡niña, ven!"], ["Acusativo", "complemento directo; dirección", "rosam video; ad <i>Romam</i>", "veo la rosa; hacia Roma"], ["Genitivo", "complemento del nombre", "liber <i>puellae</i>", "el libro de la niña"], ["Dativo", "complemento indirecto", "rosam <i>puellae</i> do", "doy una rosa a la niña"], ["Ablativo", "complementos circunstanciales", "<i>gladio</i>; in <i>silva</i>", "con la espada; en el bosque"]])}<p>Una regla nemotécnica para recordar el orden tradicional en España es la sigla <b>N-V-A-G-D-Ab</b>. El <b>ablativo</b> es el caso más versátil: expresa instrumento, modo, causa, compañía (con <i>cum</i>), lugar «en donde» (con <i>in</i>), procedencia (con <i>ab</i>, <i>ex</i>, <i>de</i>) y tiempo. Muchas preposiciones latinas rigen acusativo o ablativo, nunca los otros casos.</p>`,
+      L.rueda("Los seis casos latinos", "CASOS", [["Nominativo", "var(--red)"], ["Vocativo", "var(--sun)"], ["Acusativo", "var(--pen)"], ["Genitivo", "var(--leaf)"], ["Dativo", "var(--muted)"], ["Ablativo", "var(--ink)"]], "var(--red)"),
+    ],
+    [
+      "1.3 El enunciado del sustantivo",
+      `<p>En el diccionario un sustantivo no aparece solo en nominativo, sino con su <mark>enunciado</mark>: el <b>nominativo singular</b>, el <b>genitivo singular</b> (a menudo abreviado) y el <b>género</b>. Por ejemplo: <i>rosa, -ae</i> f. (rosa); <i>dominus, -i</i> m. (señor); <i>rex, regis</i> m. (rey); <i>manus, -us</i> f. (mano); <i>res, rei</i> f. (cosa).</p><p>El genitivo es la pieza clave por dos motivos. Primero, su terminación indica la <b>declinación</b> a la que pertenece la palabra. Segundo, al quitarle la desinencia obtenemos el <b>tema</b> o raíz sobre la que se forman todos los demás casos: <i>regis</i> → <i>reg-</i>; <i>corporis</i> → <i>corpor-</i>. Esto es fundamental en la tercera declinación, donde el nominativo puede ser muy distinto del resto: de <i>rex</i> no se podría adivinar <i>regem</i>, <i>regi</i> o <i>rege</i> sin saber el genitivo. Por eso, al aprender vocabulario latino, siempre hay que memorizar el enunciado completo.</p>`,
+      L.filas("Enunciado de rex", [["rex", "nominativo singular", "var(--red)"], ["regis", "genitivo → tema reg-", "var(--pen)"], ["m.", "género masculino", "var(--leaf)"], ["rey", "significado", "var(--muted)"]]),
+    ],
+    [
+      "1.4 Las cinco declinaciones",
+      `<p>Todos los sustantivos latinos se reparten en <mark>cinco declinaciones</mark> o grupos de flexión, y se reconocen por la terminación del <b>genitivo singular</b>:</p>${t(["Declinación", "Genitivo sg.", "Ejemplo", "Género más frecuente"], [["1.ª", "-ae", "rosa, -ae", "femenino"], ["2.ª", "-i", "dominus, -i / templum, -i", "masculino y neutro"], ["3.ª", "-is", "rex, regis / corpus, corporis", "los tres géneros"], ["4.ª", "-us", "manus, -us / cornu, -us", "masculino"], ["5.ª", "-ei", "res, rei / dies, diei", "femenino"]])}<p>La 1.ª, la 2.ª y la 3.ª concentran la gran mayoría de las palabras; la 4.ª y la 5.ª tienen pocas, aunque algunas muy frecuentes (<i>manus</i>, <i>exercitus</i>, <i>res</i>, <i>dies</i>). Fíjate en que el <b>nominativo no basta</b>: <i>dominus</i> (2.ª) y <i>manus</i> (4.ª) acaban igual en nominativo, pero sus genitivos, <i>domini</i> y <i>manus</i>, son distintos.</p><p>¿Por qué cinco grupos? Porque en origen cada declinación correspondía a un tipo de <b>tema</b>: la 1.ª, a los temas en <b>-a</b>; la 2.ª, a los temas en <b>-o</b> (<i>dominus</i> era antiguamente <i>dominos</i>); la 3.ª, a los temas en <b>consonante</b> y en <b>-i</b>; la 4.ª, a los temas en <b>-u</b>; y la 5.ª, a los temas en <b>-e</b>. Con el tiempo, la vocal del tema se fundió con la desinencia y hoy las estudiamos juntas, como terminaciones completas. Por eso hablamos de desinencias como <i>-arum</i> o <i>-orum</i>, aunque en realidad contienen la vocal del tema.</p>`,
+      L.barras("Genitivo singular de cada declinación", [["1.ª", 1, "var(--red)", "-ae"], ["2.ª", 1, "var(--pen)", "-i"], ["3.ª", 1, "var(--leaf)", "-is"], ["4.ª", 1, "var(--sun)", "-us"], ["5.ª", 1, "var(--muted)", "-ei"]], 1.4),
+    ],
+    [
+      "1.5 La primera declinación",
+      `<p>La <mark>primera declinación</mark> agrupa sustantivos con el nominativo en <b>-a</b> y el genitivo en <b>-ae</b>. Casi todos son <b>femeninos</b> (<i>rosa</i>, <i>puella</i>, <i>silva</i>, <i>Roma</i>), pero hay algunos masculinos que designan oficios propios de hombres en Roma: <i>nauta</i> (marinero), <i>agricola</i> (agricultor), <i>poeta</i>, <i>incola</i> (habitante).</p>${t(["Caso", "Singular", "Plural"], [["Nom.", "ros-a", "ros-ae"], ["Voc.", "ros-a", "ros-ae"], ["Acus.", "ros-am", "ros-as"], ["Gen.", "ros-ae", "ros-arum"], ["Dat.", "ros-ae", "ros-is"], ["Abl.", "ros-ā", "ros-is"]])}<p>Atención a las coincidencias: la forma <b>rosae</b> puede ser genitivo singular, dativo singular, nominativo plural o vocativo plural; <b>rosis</b> es dativo o ablativo plural. Para saber cuál es, hay que mirar el contexto: el verbo (si está en plural, <i>rosae</i> será probablemente sujeto plural), las preposiciones o el sentido de la frase. Esta ambigüedad es normal y se resuelve al traducir.</p>`,
+      L.dos("Formas que coinciden en la 1.ª", ["rosae", ["gen. sg.", "dat. sg.", "nom. pl.", "voc. pl."], "var(--red)"], ["rosis", ["dat. pl.", "abl. pl.", "", "→ mira el contexto"], "var(--pen)"]),
+      { id: "vkxHZmNqjio", titulo: "Latín: primera declinación. Tabla y explicación teórica", canal: "Paco Álvarez philologus", vistas: 122915 },
+    ],
+    [
+      "1.6 La segunda declinación",
+      `<p>La <mark>segunda declinación</mark> tiene el genitivo en <b>-i</b> e incluye tres tipos: masculinos en <b>-us</b> (<i>dominus</i>, <i>lupus</i>, <i>amicus</i>), masculinos en <b>-er</b> (<i>puer, pueri</i>, niño; <i>ager, agri</i>, campo) y neutros en <b>-um</b> (<i>templum</i>, <i>bellum</i>, <i>donum</i>). Hay algunos femeninos en -us, sobre todo nombres de árboles (<i>pinus</i>) y de ciudades.</p>${t(["Caso", "dominus (m.) sg.", "pl.", "templum (n.) sg.", "pl."], [["Nom.", "domin-us", "domin-i", "templ-um", "templ-a"], ["Voc.", "domin-e", "domin-i", "templ-um", "templ-a"], ["Acus.", "domin-um", "domin-os", "templ-um", "templ-a"], ["Gen.", "domin-i", "domin-orum", "templ-i", "templ-orum"], ["Dat.", "domin-o", "domin-is", "templ-o", "templ-is"], ["Abl.", "domin-o", "domin-is", "templ-o", "templ-is"]])}<p>Es la única declinación con un <b>vocativo singular</b> distinto del nominativo en los masculinos en -us: <i>domine</i> («¡señor!»). Recuerda la famosa frase de César a Bruto, <i>Tu quoque, fili mi</i> («tú también, hijo mío»): los terminados en <i>-ius</i> hacen el vocativo en <i>-i</i>. En los terminados en -er, unos conservan la e (<i>puer, pueri</i>) y otros la pierden (<i>ager, agri</i>): el genitivo lo indica.</p>`,
+      L.arbol("Tres tipos de la segunda declinación", [["2.ª declinación", ["dominus, -i", "templum, -i"], "var(--pen)", ["masc. -us / -er", "neutro -um"]]]),
+      { id: "Q4-hKFM1kq0", titulo: "Latín: segunda declinación. Tablas y teoría", canal: "Paco Álvarez philologus", vistas: 75292 },
+    ],
+    [
+      "1.7 La regla de los neutros",
+      `<p>Los sustantivos <mark>neutros</mark> (ni masculinos ni femeninos) siguen siempre una regla que funciona en todas las declinaciones y ahorra mucho esfuerzo: tienen <b>iguales el nominativo, el vocativo y el acusativo</b>, y en <b>plural esos tres casos acaban en -a</b>.</p><p>Así, <i>templum</i> es nominativo, vocativo y acusativo singular, y <i>templa</i>, los mismos casos en plural. En la tercera declinación: <i>corpus</i> (cuerpo) → plural <i>corpora</i>; <i>nomen</i> (nombre) → <i>nomina</i>; <i>mare</i> (mar) → <i>maria</i>. Y en la cuarta, <i>cornu</i> (cuerno) → <i>cornua</i>. Por tanto, cuando encuentres una palabra terminada en -a, no supongas que es de la 1.ª declinación: puede ser un neutro plural (<i>bella</i>, las guerras; <i>tempora</i>, los tiempos). Cicerón exclamó <i>O tempora, o mores!</i> («¡oh tiempos, oh costumbres!»): <i>tempora</i> es el plural neutro de <i>tempus, temporis</i>. El latín creó muchos plurales que el español tomó como singulares: de <i>folia</i> (las hojas) viene «hoja», y de <i>ligna</i> (los leños), «leña».</p>`,
+      L.filas("Regla de los neutros", [["N = V = Ac", "en singular y en plural", "var(--red)"], ["plural -a", "templa, corpora, cornua", "var(--pen)"], ["folia", "las hojas → hoja", "var(--leaf)"], ["tempora", "los tiempos", "var(--sun)"]]),
+    ],
+    [
+      "1.8 La tercera declinación",
+      `<p>La <mark>tercera declinación</mark> es la más numerosa y variada. Su genitivo singular termina en <b>-is</b> y el nominativo puede ser casi de cualquier forma: <i>rex, regis</i>; <i>consul, consulis</i>; <i>miles, militis</i> (soldado); <i>homo, hominis</i>; <i>corpus, corporis</i>; <i>civis, civis</i> (ciudadano). Por eso aquí es imprescindible el enunciado: el tema se saca siempre del genitivo.</p>${t(["Caso", "rex (m.) sg.", "pl.", "corpus (n.) sg.", "pl."], [["Nom.", "rex", "reg-es", "corpus", "corpor-a"], ["Voc.", "rex", "reg-es", "corpus", "corpor-a"], ["Acus.", "reg-em", "reg-es", "corpus", "corpor-a"], ["Gen.", "reg-is", "reg-um", "corpor-is", "corpor-um"], ["Dat.", "reg-i", "reg-ibus", "corpor-i", "corpor-ibus"], ["Abl.", "reg-e", "reg-ibus", "corpor-e", "corpor-ibus"]])}<p>Hay dos grandes grupos: los <b>temas en consonante</b> (como <i>rex</i>, genitivo plural en <b>-um</b>) y los <b>temas en -i</b> (como <i>civis</i>, <i>urbs</i> o <i>mare</i>), que tienen el genitivo plural en <b>-ium</b> (<i>civium</i>, <i>urbium</i>) y los neutros, el ablativo singular en -i (<i>mari</i>). Un truco: son temas en -i los parisílabos (<i>civis, civis</i>: igual número de sílabas en nominativo y genitivo) y los que tienen dos consonantes antes de la desinencia (<i>urbs, urbis</i>).</p>`,
+      L.arbol("Dos grupos de la tercera", [["3.ª declinación", ["tema consonante", "tema en -i"], "var(--leaf)", ["rex, regis → regum", "civis, civis → civium"]]]),
+    ],
+    [
+      "1.9 Cuarta y quinta declinación",
+      `<p>La <mark>cuarta declinación</mark> tiene el genitivo singular en <b>-us</b> (con u larga). La mayoría son masculinos en -us (<i>exercitus</i>, ejército; <i>senatus</i>, senado; <i>fructus</i>, fruto), con alguna excepción femenina muy usada, <i>manus</i> (mano) y <i>domus</i> (casa), y unos pocos neutros en -u (<i>cornu</i>, <i>genu</i>, rodilla). Sus desinencias: -us, -us, -um, -us, -ui, -u; plural -us, -us, -us, -uum, -ibus, -ibus.</p><p>La <mark>quinta declinación</mark> es la más pequeña. Su genitivo es <b>-ei</b> y casi todos sus sustantivos son femeninos, con la excepción de <i>dies</i> (día), que suele ser masculino. Las dos palabras más frecuentes son <i>res, rei</i> (cosa, asunto) y <i>dies, diei</i>. Desinencias: -es, -es, -em, -ei, -ei, -e; plural -es, -es, -es, -erum, -ebus, -ebus. Con <i>res</i> se forman expresiones muy conocidas: <i>res publica</i> (la cosa pública: el Estado, de donde viene «república»), <i>res gestae</i> (las hazañas) o <i>res novae</i> (una revolución).</p>${t(["Caso", "manus sg.", "manus pl.", "res sg.", "res pl."], [["Nom.", "man-us", "man-us", "r-es", "r-es"], ["Acus.", "man-um", "man-us", "r-em", "r-es"], ["Gen.", "man-us", "man-uum", "r-ei", "r-erum"], ["Dat.", "man-ui", "man-ibus", "r-ei", "r-ebus"], ["Abl.", "man-u", "man-ibus", "r-e", "r-ebus"]])}`,
+      L.dos("Cuarta y quinta declinación", ["4.ª (-us)", ["manus, -us", "exercitus, -us", "senatus, -us", "cornu, -us (n.)"], "var(--sun)"], ["5.ª (-ei)", ["res, rei", "dies, diei", "fides, fidei", "spes, spei"], "var(--muted)"]),
+    ],
+    [
+      "1.10 Los adjetivos y la concordancia",
+      `<p>Los adjetivos latinos también se declinan y deben <mark>concordar</mark> con su sustantivo en <b>género, número y caso</b> (no necesariamente en terminación). Hay dos grandes clases. Los adjetivos de la <b>primera clase</b> (2-1-2) se declinan por la 2.ª declinación en masculino y neutro, y por la 1.ª en femenino: <i>bonus, bona, bonum</i> (bueno); <i>pulcher, pulchra, pulchrum</i> (hermoso). Los de la <b>segunda clase</b> siguen la 3.ª declinación: <i>fortis, forte</i> (valiente; masculino y femenino iguales), <i>felix, felicis</i> (feliz) o <i>acer, acris, acre</i> (agudo).</p><p>La concordancia es en caso, no en letras: <i>agricola bonus</i> (el buen agricultor) es correcto aunque uno termine en -a y otro en -us, porque <i>agricola</i> es masculino y ambos están en nominativo singular. Del mismo modo, <i>nauta fortis</i>, <i>manus dextra</i> (la mano derecha, femenino) o <i>rem publicam</i>. Al traducir, el adjetivo nos ayuda a confirmar el caso del sustantivo: si dudamos entre dativo y ablativo en <i>rosis</i>, un adjetivo como <i>pulchris</i> no lo resuelve, pero una preposición como <i>cum</i> (que rige ablativo) sí.</p>`,
+      L.partes("Concordancia agricola bonus", [["agricola", "masc. nom. sg.", "var(--pen)"], ["bonus", "masc. nom. sg.", "var(--red)"]], "igual caso, distinta terminación"),
+    ],
+    [
+      "1.11 Cómo analizar un sustantivo paso a paso",
+      `<p>Para analizar (y luego traducir) un sustantivo en un texto conviene seguir siempre el mismo método. <b>Primero</b>, busca la palabra en el diccionario y fíjate en su <b>enunciado</b>: nominativo, genitivo y género. <b>Segundo</b>, deduce la <b>declinación</b> por el genitivo y saca el <b>tema</b>. <b>Tercero</b>, separa la <b>desinencia</b> de la forma del texto. <b>Cuarto</b>, enumera los <b>casos posibles</b> de esa desinencia en esa declinación. <b>Quinto</b>, elige el caso por el <b>contexto</b>: concordancia con el verbo (sujeto), con adjetivos, preposiciones y sentido.</p><p>Por ejemplo, en <i>Milites urbem oppugnant</i>: <i>milites</i> viene de <i>miles, militis</i> (3.ª), tema <i>milit-</i>, desinencia <i>-es</i>: nominativo, vocativo o acusativo plural. Como el verbo <i>oppugnant</i> está en 3.ª persona del plural y necesita un sujeto, <i>milites</i> es nominativo: «los soldados». <i>Urbem</i>, de <i>urbs, urbis</i>, es acusativo singular: complemento directo. Traducción: «Los soldados atacan la ciudad».</p>`,
+      L.flujo("Analizar un sustantivo", ["enunciado", "declina-|ción", "tema", "desinencia", "casos|posibles", "contexto"], "var(--red)"),
+    ],
+    [
+      "1.12 Restos de los casos en español",
+      `<p>Las declinaciones desaparecieron en el paso del latín vulgar a las lenguas romances. Al perderse las consonantes finales (-m) y las diferencias de cantidad vocálica, muchas desinencias acabaron sonando igual: <i>rosa</i>, <i>rosam</i> y <i>rosā</i> se confundían. Para no perder información, el latín hablado empezó a usar más <b>preposiciones</b> (<i>de</i>, <i>ad</i>) y un <b>orden fijo</b>. Al final sobrevivió casi solo el <b>acusativo</b>, del que vienen la mayoría de nuestros sustantivos: <i>montem</i> > monte, <i>civitatem</i> > ciudad, <i>panem</i> > pan.</p><p>Pero los casos no se fueron del todo. Siguen vivos en los <b>pronombres personales</b>: <i>yo</i> viene del nominativo <i>ego</i>, <i>me</i> del acusativo <i>me</i>, <i>mí</i> del dativo <i>mihi</i>; <i>él</i>, <i>lo</i> y <i>le</i> proceden de formas de <i>ille</i>. Algunos nombres conservan otros casos: <i>Dios</i> y <i>Carlos</i> vienen del nominativo; <i>jueves</i> (<i>Iovis dies</i>, el día de Júpiter) conserva un genitivo; y el rumano todavía tiene un sistema de casos reducido. Por eso, cuando dudas entre «le» y «lo», en el fondo estás resolviendo un problema de casos latino.</p>`,
+      L.filas("Casos que sobreviven en español", [["ego", "nominativo → yo", "var(--red)"], ["me", "acusativo → me", "var(--pen)"], ["mihi", "dativo → mí", "var(--leaf)"], ["Iovis dies", "genitivo → jueves", "var(--sun)"], ["montem", "acusativo → monte", "var(--muted)"]]),
+    ],
+    [
+      "1.13 Las preposiciones: acusativo o ablativo",
+      `<p>Además de las desinencias, el latín usa <mark>preposiciones</mark> para precisar las circunstancias, sobre todo de lugar y tiempo. Cada preposición <b>rige</b> un caso concreto, y solo hay dos posibilidades: el acusativo o el ablativo. Saber cuál rige cada una ayuda muchísimo a identificar el caso de la palabra que la sigue.</p><p>Rigen <b>acusativo</b>, entre otras: <i>ad</i> (hacia, a), <i>ante</i> (delante de), <i>post</i> (detrás de, después de), <i>per</i> (a través de), <i>apud</i> (junto a, en casa de), <i>contra</i> (contra), <i>inter</i> (entre), <i>propter</i> (a causa de) y <i>trans</i> (al otro lado de). Rigen <b>ablativo</b>: <i>a/ab</i> (desde, por), <i>e/ex</i> (de, desde dentro), <i>de</i> (de, acerca de), <i>cum</i> (con), <i>sine</i> (sin), <i>pro</i> (delante de, en favor de) y <i>prae</i> (delante de). Algunas, como <i>in</i> y <i>sub</i>, admiten los dos casos con distinto significado: con acusativo indican <b>movimiento</b> (<i>in urbem</i>, hacia dentro de la ciudad) y con ablativo, <b>situación</b> (<i>in urbe</i>, en la ciudad). Muchas expresiones que usamos hoy conservan estas construcciones: <i>ante meridiem</i> (a. m.), <i>post meridiem</i> (p. m.), <i>per capita</i>, <i>ex aequo</i>, <i>sine qua non</i> o <i>pro bono</i>.</p>`,
+      L.dos("Qué caso rige cada preposición", ["Acusativo", ["ad, ante, post", "per, apud", "inter, contra", "in + ac.: hacia"], "var(--pen)"], ["Ablativo", ["a/ab, e/ex, de", "cum, sine", "pro, prae", "in + abl.: en"], "var(--red)"]),
+    ],
   ],
   figura: {
-    titulo: "Rosa, rosae (1.ª) y dominus, domini (2.ª)",
-    svg: `<svg viewBox="0 0 680 270" role="img" aria-label="Tabla de declinación de rosa y dominus en singular y plural">
-      <rect width="680" height="270" rx="16" fill="var(--paper)"/>
-      <g ${F} font-size="14" text-anchor="middle">
-        <text x="250" y="30" font-weight="700" fill="var(--red)" ${D} font-size="17">rosa, rosae</text>
-        <text x="510" y="30" font-weight="700" fill="var(--pen)" ${D} font-size="17">dominus, domini</text>
-        ${["singular", "plural", "singular", "plural"].map((t, i) => `<text x="${[190, 310, 450, 570][i]}" y="54" font-size="12" fill="var(--muted)">${t}</text>`).join("")}
-        ${CASOS.map((c, i) => { const y = 82 + i * 30; return `<rect x="20" y="${y - 20}" width="640" height="28" rx="6" fill="${i % 2 ? "var(--card)" : "transparent"}"/><text x="76" y="${y}" font-weight="700" fill="var(--ink)">${c}</text>${[ROSA[i][0], ROSA[i][1], DOM[i][0], DOM[i][1]].map((f, j) => { const [t, d] = f.split("-"); return `<text x="${[190, 310, 450, 570][j]}" y="${y}" fill="var(--ink)">${t}<tspan font-weight="700" fill="${j < 2 ? "var(--red)" : "var(--pen)"}">${d}</tspan></text>`; }).join("")}`; }).join("")}
+    titulo: "Las cinco declinaciones de un vistazo",
+    svg: `<svg viewBox="0 0 680 230" role="img" aria-label="Tabla con nominativo, genitivo, acusativo singular y genitivo plural de las cinco declinaciones">
+      <rect width="680" height="230" rx="16" fill="var(--paper)"/>
+      <g ${L.F} font-size="14" text-anchor="middle">
+        ${["", "1.ª rosa", "2.ª dominus", "3.ª rex", "4.ª manus", "5.ª res"].map((h, i) => `<text x="${50 + i * 116}" y="34" font-weight="700" fill="${["var(--muted)", "var(--red)", "var(--pen)", "var(--leaf)", "var(--sun)", "var(--muted)"][i]}">${h}</text>`).join("")}
+        ${[["Nom. sg.", "rosa", "dominus", "rex", "manus", "res"], ["Gen. sg.", "rosae", "domini", "regis", "manus", "rei"], ["Ac. sg.", "rosam", "dominum", "regem", "manum", "rem"], ["Gen. pl.", "rosarum", "dominorum", "regum", "manuum", "rerum"], ["Dat./Abl. pl.", "rosis", "dominis", "regibus", "manibus", "rebus"]].map((r, j) => `<rect x="14" y="${50 + j * 34}" width="652" height="30" rx="6" fill="${j % 2 ? "transparent" : "var(--card)"}"/>${r.map((c, i) => `<text x="${50 + i * 116}" y="${70 + j * 34}" fill="${i ? "var(--ink)" : "var(--muted)"}" font-weight="${i ? 400 : 700}" font-size="${i ? 14 : 12}">${c}</text>`).join("")}`).join("")}
       </g>
     </svg>`,
   },
   video: { id: "2gn8de1QxKk", titulo: "Latín: declinaciones y cómo clasificar los sustantivos", canal: "Paco Álvarez philologus", vistas: 122994, megusta: 2496, busqueda: "declinaciones latinas explicación" },
+  ejemplos: [
+    ["¿A qué declinación pertenece <i>miles, militis</i> y cuál es su tema?", ["Miramos el genitivo: <i>militis</i>, terminado en -is.", "-is es el genitivo de la 3.ª declinación.", "Quitamos -is: tema <i>milit-</i>."], "3.ª declinación; tema <i>milit-</i> (milit-em, milit-ibus…)."],
+    ["Analiza <i>puellis</i> en <i>Magistra puellis fabulam narrat</i>.", ["<i>Puella, -ae</i>: 1.ª declinación.", "-is: dativo o ablativo plural.", "El verbo <i>narrat</i> (cuenta) pide a quién se cuenta: dativo."], "Dativo plural, complemento indirecto: «La maestra cuenta una fábula a las niñas»."],
+    ["Declina <i>bellum, -i</i> n. en plural.", ["2.ª declinación, neutro: tema <i>bell-</i>.", "Regla de los neutros: N, V, Ac plural en -a.", "Resto como <i>dominus</i>: -orum, -is, -is."], "bella, bella, bella, bellorum, bellis, bellis."],
+    ["Escribe en latín «los ejércitos del cónsul».", ["Ejércitos: <i>exercitus, -us</i> (4.ª), nominativo plural: <i>exercitus</i>.", "Del cónsul: <i>consul, consulis</i> (3.ª), genitivo singular: <i>consulis</i>."], "<i>exercitus consulis</i>."],
+    ["Concierta <i>magnus, -a, -um</i> con <i>urbs</i> en acusativo singular.", ["<i>Urbs, urbis</i> es femenino, 3.ª: acusativo <i>urbem</i>.", "El adjetivo debe ir en femenino, acusativo, singular: <i>magnam</i>."], "<i>urbem magnam</i> (la gran ciudad)."],
+    ["Traduce <i>Dominus servo donum dat</i>.", ["<i>Dominus</i>: nominativo singular, sujeto.", "<i>servo</i>: dativo o ablativo singular de <i>servus</i>; con <i>dat</i>, dativo: CI.", "<i>donum</i>: neutro, nominativo o acusativo; como ya hay sujeto, es CD."], "«El señor da un regalo al esclavo»."],
+  ],
+  errores: [
+    "Deducir la declinación por el nominativo: <i>dominus</i> y <i>manus</i> acaban igual, pero son de la 2.ª y de la 4.ª. Hay que mirar el genitivo.",
+    "Pensar que toda palabra en -a es de la 1.ª declinación: puede ser un neutro plural (<i>templa</i>, <i>corpora</i>).",
+    "Creer que concordar es acabar igual: <i>agricola bonus</i> concuerda en caso, número y género aunque las terminaciones sean distintas.",
+    "Sacar el tema de la 3.ª declinación del nominativo: de <i>corpus</i> no sale <i>corpus-</i>, sino <i>corpor-</i> (del genitivo <i>corporis</i>).",
+    "Traducir el genitivo sin «de» o el dativo sin «a/para»: <i>liber pueri</i> es «el libro del niño».",
+    "Olvidar que una misma forma puede tener varios casos (<i>rosae</i>, <i>rosis</i>) y elegir sin mirar el contexto.",
+  ],
+  ejercicios: {
+    basico: [
+      ["Escribe los seis casos latinos y una función de cada uno.", "Nominativo (sujeto), vocativo (llamada), acusativo (CD), genitivo (complemento del nombre), dativo (CI), ablativo (complementos circunstanciales)."],
+      ["Indica la declinación por el genitivo: <i>silva, -ae</i>; <i>lupus, -i</i>; <i>pax, pacis</i>; <i>fructus, -us</i>; <i>spes, spei</i>.", "1.ª; 2.ª; 3.ª; 4.ª; 5.ª."],
+      ["Declina en singular <i>puella, -ae</i>.", "puella, puella, puellam, puellae, puellae, puellā."],
+      ["Declina en plural <i>amicus, -i</i>.", "amici, amici, amicos, amicorum, amicis, amicis."],
+      ["Escribe el genitivo plural de <i>rosa</i>, <i>dominus</i>, <i>rex</i> y <i>res</i>.", "rosarum, dominorum, regum, rerum."],
+      ["Di el caso y número de: <i>silvam</i>, <i>lupos</i>, <i>regis</i>, <i>rebus</i>.", "silvam: acusativo singular; lupos: acusativo plural; regis: genitivo singular; rebus: dativo o ablativo plural."],
+      ["Escribe el enunciado completo de «rosa», «señor» y «rey».", "<i>rosa, -ae</i> f.; <i>dominus, -i</i> m.; <i>rex, regis</i> m."],
+      ["Enuncia la regla de los neutros.", "Nominativo, vocativo y acusativo son iguales, y en plural terminan en -a."],
+      ["Escribe el vocativo singular de <i>dominus</i> y de <i>Marcus</i>.", "<i>domine</i>; <i>Marce</i>."],
+      ["Traduce: <i>liber magistri</i>, <i>silva magna</i>, <i>dona deorum</i>.", "El libro del maestro; el gran bosque; los regalos de los dioses."],
+      ["¿Qué significa <i>res publica</i> y qué palabra española viene de ahí?", "«La cosa pública», el Estado. De ahí viene «república»."],
+      ["¿Qué caso indican las terminaciones -am, -um, -em en singular?", "El <b>acusativo singular</b> de la 1.ª, 2.ª/4.ª y 3.ª/5.ª declinación."],
+    ],
+    medio: [
+      ["Saca el tema de: <i>homo, hominis</i>; <i>corpus, corporis</i>; <i>nomen, nominis</i>; <i>iter, itineris</i>.", "homin-, corpor-, nomin-, itiner-."],
+      ["Declina completo <i>templum, -i</i> n.", "Sg.: templum, templum, templum, templi, templo, templo. Pl.: templa, templa, templa, templorum, templis, templis."],
+      ["Declina completo <i>consul, consulis</i> m.", "Sg.: consul, consul, consulem, consulis, consuli, consule. Pl.: consules, consules, consules, consulum, consulibus, consulibus."],
+      ["Indica todos los casos posibles de <i>rosae</i> y de <i>reges</i>.", "<i>rosae</i>: gen. sg., dat. sg., nom. pl., voc. pl. <i>reges</i>: nom., voc. y ac. plural."],
+      ["Concierta <i>bonus, -a, -um</i> con: <i>agricolam</i>, <i>templi</i>, <i>urbibus</i>.", "agricolam bonum (masc.); templi boni (neutro); urbibus bonis (fem.)."],
+      ["Declina en singular <i>nauta bonus</i>.", "nauta bonus, nauta bone, nautam bonum, nautae boni, nautae bono, nautā bono."],
+      ["¿Por qué <i>civis, civis</i> tiene genitivo plural <i>civium</i> y <i>rex, regis</i>, <i>regum</i>?", "Porque <i>civis</i> es un tema en -i (parisílabo) y <i>rex</i> un tema en consonante. Los temas en -i hacen el genitivo plural en -ium."],
+      ["Traduce: <i>Agricolae filiis fabulas narrant</i>.", "«Los agricultores cuentan fábulas a sus hijos». <i>Agricolae</i>: nom. pl.; <i>filiis</i>: dat. pl.; <i>fabulas</i>: ac. pl."],
+      ["Traduce: <i>Puer cum amicis in silva ambulat</i>.", "«El niño pasea con sus amigos por el bosque». <i>cum amicis</i>: abl. de compañía; <i>in silva</i>: abl. de lugar."],
+      ["Pasa al plural: <i>servus domini</i>, <i>manus militis</i>, <i>dies festus</i>.", "servi dominorum; manus militum; dies festi."],
+      ["Explica la diferencia entre <i>exercitus</i> (nominativo singular) y <i>exercitus</i> (genitivo singular).", "Se escriben igual, pero en el genitivo la u es larga (<i>exercitūs</i>). El contexto decide: «el ejército» o «del ejército»."],
+      ["Declina en plural <i>res, rei</i> f. y <i>dies, diei</i>.", "res, res, res, rerum, rebus, rebus; dies, dies, dies, dierum, diebus, diebus."],
+      ["Explica por qué «hoja» y «leña» proceden de plurales neutros latinos.", "Vienen de <i>folia</i> y <i>ligna</i>, neutros plurales en -a, que el latín vulgar reinterpretó como femeninos singulares de la 1.ª declinación."],
+      ["Escribe en latín: «la mano del soldado», «a los cónsules», «con la espada».", "<i>manus militis</i>; <i>consulibus</i> (dativo); <i>gladio</i> (ablativo instrumental)."],
+    ],
+    avanzado: [
+      ["Analiza y traduce: <i>Romani urbem magnam militibus fortibus oppugnant</i>.", "<i>Romani</i>: nom. pl., sujeto; <i>urbem magnam</i>: ac. sg. fem., CD; <i>militibus fortibus</i>: abl. pl., instrumento; <i>oppugnant</i>: verbo. «Los romanos atacan la gran ciudad con valientes soldados»."],
+      ["Explica por qué en latín el orden de las palabras es libre y en español no, y qué ganaban los poetas con esa libertad.", "En latín la función la marca la desinencia; en español, el orden y las preposiciones. Los poetas podían colocar las palabras para destacar, crear simetrías o rodear un sustantivo con su adjetivo sin perder el sentido."],
+      ["Encuentra el error y corrígelo: «<i>Puella bonus rosas amat</i>».", "<i>Puella</i> es femenino: el adjetivo debe ser <i>bona</i>. Correcto: <i>Puella bona rosas amat</i> («La buena niña ama las rosas»)."],
+      ["Declina completo el sintagma <i>res publica</i>.", "Sg.: res publica, res publica, rem publicam, rei publicae, rei publicae, re publica. Pl.: res publicae, res publicae, res publicas, rerum publicarum, rebus publicis, rebus publicis."],
+      ["Explica cómo se perdieron las declinaciones del latín al español y qué recursos las sustituyeron.", "La caída de la -m final y de la cantidad vocálica hizo que muchas desinencias sonaran igual. El latín vulgar compensó con <b>preposiciones</b> (<i>de</i>, <i>ad</i>), <b>orden fijo</b> y <b>artículos</b> (de <i>ille</i>). Quedó sobre todo el acusativo como forma única."],
+      ["Traduce al latín: «El maestro da libros a los niños del agricultor».", "<i>Magister pueris agricolae libros dat</i>. Magister (nom.), pueris (dat. pl.), agricolae (gen. sg.), libros (ac. pl.)."],
+      ["Busca cinco palabras españolas que procedan de genitivos o nominativos latinos (y no de acusativos) y explica su origen.", "Ejemplos: Dios (<i>Deus</i>), Carlos (<i>Carolus</i>), Marcos (<i>Marcus</i>), jueves (<i>Iovis</i>, genitivo), martes y miércoles (<i>Martis</i>, <i>Mercurii dies</i>), virus, tórax, cráter (nominativos cultos)."],
+      ["Crea una tabla comparando cómo expresa el latín y cómo el español cada uno de los seis casos.", "Nominativo: sujeto sin preposición / igual. Vocativo: igual / entre comas. Acusativo: -m / CD sin prep. o con «a». Genitivo: -ae, -i, -is / «de». Dativo: -ae, -o, -i / «a, para». Ablativo: -a, -o, -e / «con, en, por, desde»."],
+    ],
+  },
   quiz: [
-    { q: "¿Qué caso se usa para el sujeto?", o: ["Acusativo", "Nominativo", "Dativo"], a: 1, e: "El nominativo marca el sujeto y el atributo." },
-    { q: "¿Qué indica el genitivo singular del enunciado?", o: ["El género", "La declinación", "El significado"], a: 1, e: "-ae 1.ª, -i 2.ª, -is 3.ª, -us 4.ª, -ei 5.ª." },
-    { q: "«Rosam» es…", o: ["nominativo singular", "acusativo singular", "genitivo plural"], a: 1, e: "La desinencia -am marca el acusativo singular de la 1.ª." },
-    { q: "Rex, regis pertenece a la…", o: ["2.ª declinación", "3.ª declinación", "4.ª declinación"], a: 1, e: "El genitivo en -is indica tercera declinación." },
-    { q: "El complemento indirecto va en…", o: ["dativo", "ablativo", "vocativo"], a: 0, e: "El dativo responde a «a quién, para quién»." },
+    ["Una lengua flexiva indica la función de las palabras mediante…", ["el orden", "las terminaciones", "el acento", "las mayúsculas"], 1, "Las desinencias marcan caso y número."],
+    ["¿Cuántos casos tiene el latín clásico?", ["cuatro", "cinco", "seis", "ocho"], 2, "Nominativo, vocativo, acusativo, genitivo, dativo y ablativo."],
+    ["El caso del sujeto es el…", ["acusativo", "nominativo", "dativo", "genitivo"], 1, "<i>Puella cantat</i>."],
+    ["El complemento directo va en…", ["acusativo", "ablativo", "genitivo", "vocativo"], 0, "<i>Rosam video</i>."],
+    ["El complemento del nombre («de…») va en…", ["dativo", "genitivo", "ablativo", "nominativo"], 1, "<i>Liber pueri</i>."],
+    ["El complemento indirecto va en…", ["dativo", "acusativo", "ablativo", "vocativo"], 0, "<i>Puellae rosam do</i>."],
+    ["La declinación se reconoce por…", ["el nominativo singular", "el genitivo singular", "el acusativo plural", "el género"], 1, "Cada declinación tiene un genitivo propio."],
+    ["Un genitivo en -is indica la…", ["1.ª", "2.ª", "3.ª", "4.ª"], 2, "<i>Rex, regis</i>."],
+    ["<i>Res, rei</i> es de la…", ["2.ª", "3.ª", "4.ª", "5.ª"], 3, "Genitivo en -ei."],
+    ["<i>Manus, -us</i> es de la…", ["2.ª", "3.ª", "4.ª", "5.ª"], 2, "Genitivo en -us, y es femenino."],
+    ["<i>Rosarum</i> es…", ["acusativo plural", "genitivo plural", "dativo singular", "ablativo plural"], 1, "«De las rosas»."],
+    ["El vocativo de <i>dominus</i> es…", ["dominus", "domine", "domini", "domino"], 1, "Los masculinos en -us hacen el vocativo en -e."],
+    ["Los neutros plurales terminan en N, V, Ac en…", ["-i", "-es", "-a", "-os"], 2, "<i>templa</i>, <i>corpora</i>."],
+    ["El plural de <i>corpus</i> es…", ["corpi", "corpora", "corpusa", "corpores"], 1, "Tema <i>corpor-</i> + -a."],
+    ["<i>Agricola</i> es…", ["femenino", "masculino", "neutro", "no tiene género"], 1, "Masculino de la 1.ª, por su significado."],
+    ["El adjetivo concierta con el sustantivo en…", ["terminación", "género, número y caso", "solo número", "solo caso"], 1, "<i>agricola bonus</i>."],
+    ["El tema de <i>miles, militis</i> es…", ["mil-", "miles-", "milit-", "milites-"], 2, "Se saca del genitivo."],
+    ["El genitivo plural de <i>civis</i> (tema en -i) es…", ["civum", "civium", "civorum", "civis"], 1, "Los temas en -i hacen -ium."],
+    ["En <i>cum amicis</i>, <i>amicis</i> está en…", ["dativo", "ablativo", "genitivo", "acusativo"], 1, "<i>Cum</i> rige ablativo: «con los amigos»."],
+    ["En español los casos se conservan sobre todo en…", ["los verbos", "los pronombres personales", "los adjetivos", "los artículos"], 1, "yo / me / mí."],
   ],
   examen: [
-    { q: "El genitivo plural de dominus es…", o: ["dominis", "dominorum", "dominos"], a: 1, e: "La 2.ª declinación hace el genitivo plural en -orum." },
-    { q: "El plural de templum (neutro) en nominativo es…", o: ["templi", "templa", "templos"], a: 1, e: "Los neutros hacen el nominativo, vocativo y acusativo plural en -a." },
-    { q: "«Puellis» puede ser…", o: ["dativo o ablativo plural", "acusativo singular", "nominativo plural"], a: 0, e: "En la 1.ª, dativo y ablativo plural coinciden en -is." },
+    ["En <i>Hominem canis mordet</i>, el sujeto es…", ["hominem", "canis", "mordet", "no hay sujeto"], 1, "<i>Canis</i> está en nominativo; <i>hominem</i>, en acusativo."],
+    ["¿Qué forma puede ser dativo o ablativo plural?", ["rosae", "rosis", "rosas", "rosarum"], 1, "-is en la 1.ª y 2.ª."],
+    ["<i>Bella</i> puede ser…", ["solo nominativo singular femenino", "nominativo o acusativo plural de <i>bellum</i>", "genitivo singular", "dativo plural"], 1, "Neutro plural de <i>bellum</i>, «las guerras»."],
+    ["¿Qué sintagma concuerda bien?", ["nauta bona", "nauta bonus", "nauta bonum", "nautae bonus"], 1, "<i>Nauta</i> es masculino nominativo singular."],
+    ["El ablativo expresa sobre todo…", ["el sujeto", "complementos circunstanciales", "el complemento del nombre", "la llamada"], 1, "Instrumento, lugar, modo, compañía…"],
+    ["La palabra «hoja» viene de…", ["folium (sg.)", "folia (neutro pl.)", "foliae", "folii"], 1, "Plural neutro reinterpretado como femenino."],
+    ["La sigla del orden tradicional de los casos es…", ["N-A-G-D-V-Ab", "N-V-A-G-D-Ab", "N-G-D-A-V-Ab", "A-N-V-G-D-Ab"], 1, "Nominativo, vocativo, acusativo, genitivo, dativo, ablativo."],
+    ["¿De qué caso proceden la mayoría de los sustantivos españoles?", ["nominativo", "genitivo", "acusativo", "dativo"], 2, "<i>montem</i> > monte."],
   ],
-  feynman: ["Por qué el latín necesita casos y el español no", "Qué función expresa cada uno de los seis casos", "Cómo se averigua la declinación con el enunciado", "La regla de los neutros"],
-  mapa: mapa("DECLINACIONES", "var(--red)", [
-    ["Casos", "nom · voc · ac · gen · dat · abl", "var(--pen)"],
-    ["Palabra", "tema + desinencia", "var(--ink)"],
-    ["Enunciado", "genitivo → declinación", "var(--leaf)"],
-    ["1.ª y 2.ª", "rosa, -ae · dominus, -i", "var(--sun)"],
+  feynman: ["Qué es un caso y por qué el orden de las palabras es libre en latín", "Qué datos da el enunciado y por qué el genitivo es la clave", "Las cinco declinaciones y su genitivo", "La regla de los neutros y la concordancia del adjetivo"],
+  mapa: L.mapa("DECLINACIONES", "var(--red)", [
+    ["Casos", "N · V · Ac · G · D · Ab", "var(--red)"],
+    ["Enunciado", "nom. + gen. + género", "var(--pen)"],
+    ["Cinco grupos", "-ae · -i · -is · -us · -ei", "var(--leaf)"],
+    ["Reglas", "neutros en -a · concordancia", "var(--sun)"],
   ], 260),
   tarjetas: [
-    ["Los seis casos latinos", "Nominativo, vocativo, acusativo, genitivo, dativo y ablativo."],
-    ["Genitivo singular de cada declinación", "1.ª -ae, 2.ª -i, 3.ª -is, 4.ª -us, 5.ª -ei."],
-    ["Acusativo singular de la 1.ª", "-am (rosam)."],
-    ["Genitivo plural de la 2.ª", "-orum (dominorum)."],
-    ["Regla de los neutros", "Nom., voc. y ac. iguales; en plural terminan en -a."],
+    ["Caso", "Forma de una palabra que indica su función en la oración."],
+    ["Nominativo", "Sujeto y atributo."],
+    ["Acusativo", "Complemento directo y dirección («hacia»)."],
+    ["Genitivo", "Complemento del nombre («de»)."],
+    ["Dativo", "Complemento indirecto («a, para»)."],
+    ["Ablativo", "Complementos circunstanciales (con, en, por, desde)."],
+    ["Enunciado del sustantivo", "Nominativo, genitivo y género: <i>rex, regis</i> m."],
+    ["Genitivos de las 5 declinaciones", "-ae, -i, -is, -us, -ei."],
+    ["Regla de los neutros", "N = V = Ac; en plural, -a."],
+    ["Tema de la 3.ª", "Se saca del genitivo: <i>corporis</i> → <i>corpor-</i>."],
+    ["Adjetivos 2-1-2", "<i>bonus, bona, bonum</i>."],
+    ["Concordancia", "En género, número y caso, no en terminación."],
   ],
-  familias: ["Pedidle que «recite» la declinación de rosa como una canción y comprobad con la tabla.", "Buscad en español palabras derivadas de los sustantivos del tema (terrestre, dominio, acuático).", "Repasad las tarjetas del paso 6 dos minutos al día durante la semana."],
+  glosario: [
+    ["Lengua flexiva", "Lengua que indica las funciones cambiando las terminaciones de las palabras."],
+    ["Desinencia", "Terminación que indica caso y número."],
+    ["Caso", "Cada una de las formas que adopta una palabra según su función."],
+    ["Declinación", "Conjunto de formas de un sustantivo o adjetivo; también, cada uno de los cinco grupos."],
+    ["Enunciado", "Forma en que el diccionario presenta una palabra: nominativo, genitivo y género."],
+    ["Tema", "Parte de la palabra sobre la que se añaden las desinencias."],
+    ["Nominativo", "Caso del sujeto y del atributo."],
+    ["Vocativo", "Caso para llamar o dirigirse a alguien."],
+    ["Acusativo", "Caso del complemento directo."],
+    ["Genitivo", "Caso del complemento del nombre."],
+    ["Dativo", "Caso del complemento indirecto."],
+    ["Ablativo", "Caso de los complementos circunstanciales."],
+    ["Neutro", "Género que no es masculino ni femenino."],
+    ["Parisílabo", "Sustantivo con el mismo número de sílabas en nominativo y genitivo."],
+    ["Concordancia", "Coincidencia de género, número y caso entre adjetivo y sustantivo."],
+    ["Sincretismo", "Coincidencia de varios casos en una misma forma (<i>rosae</i>)."],
+  ],
+  situacion: {
+    titulo: "El generador de frases latinas",
+    reto: "Vuestro grupo va a crear un juego de cartas para practicar las declinaciones en clase: con cartas de sustantivos, adjetivos y verbos, los jugadores deben construir oraciones latinas correctas y traducirlas.",
+    pasos: [
+      "Elegid 15 sustantivos de las cinco declinaciones y 6 adjetivos, con su enunciado completo.",
+      "Haced cartas con el sustantivo en distintos casos (por delante) y su análisis (por detrás).",
+      "Escribid las reglas: cada jugador debe formar una oración con sujeto, verbo y al menos un complemento, con concordancias correctas.",
+      "Probad el juego con otro grupo y anotad los errores más frecuentes.",
+      "Elaborad una hoja resumen con las tablas de las cinco declinaciones para acompañar el juego.",
+    ],
+    producto: "Un juego de cartas con sus reglas y una hoja resumen de las declinaciones.",
+    evaluacion: ["Las formas de las cartas están bien declinadas y analizadas.", "Las reglas obligan a usar al menos cuatro casos distintos.", "Las oraciones construidas en la prueba son correctas y están bien traducidas.", "El grupo detecta y explica los errores más frecuentes."],
+  },
+  familias: ["Pedidle que os explique por qué en latín «el perro muerde al hombre» puede escribirse en cualquier orden.", "Jugad a decir pronombres españoles (yo, me, mí, conmigo) y que os explique qué caso latino recuerdan.", "Repasad juntos las tarjetas del paso 6 dos minutos al día."],
   profesores: {
-    saberes: "El sistema de la lengua latina: flexión nominal, casos y sus funciones, primera y segunda declinación (RD 217/2022, Latín 4º).",
-    ideas: ["Tarjetas de desinencias para juegos de emparejar caso y función.", "Comparar con el alemán o el ruso, lenguas que conservan casos.", "Declinar sintagmas sustantivo + adjetivo (puella bona)."],
+    saberes: "El sistema de la lengua latina: flexión nominal, casos y funciones, las cinco declinaciones, enunciado, regla de los neutros, adjetivos y concordancia; comparación con el castellano y otras lenguas (RD 217/2022, Latín 4º ESO; Decret 175/2022 de Catalunya).",
+    ideas: ["Oraciones «desordenadas» en tiras de papel que el alumnado debe traducir sin cambiar el orden.", "Dado de casos y dado de declinaciones para declinar en voz alta.", "Comparar los casos latinos con el alemán o el ruso si hay alumnado que los conozca."],
   },
   fuentes: [
     { t: "Real Decreto 217/2022, enseñanzas mínimas de la ESO (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975" },
     { t: "Declinación latina, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Declinaci%C3%B3n_latina" },
-  ],
-  revisado: "2026-11-12",
-};
-
-// Ampliación: nivel de libro de texto.
-const { ampliar, tabla } = require("./_hum");
-ampliar(module.exports, {
-  minutos: 60,
-  objetivos: ["Declinar sustantivos y adjetivos de la 1.ª y 2.ª declinación", "Reconocer la tercera declinación y concertar adjetivos con sustantivos"],
-  bloques: [
-    { tras: "Primera y segunda declinación", html: `<h3>Los paradigmas completos: rosa, dominus y templum</h3>${tabla(["Caso", "rosa, -ae (f.)", "dominus, -i (m.)", "templum, -i (n.)"], [["Nom. sg.", "rosa", "dominus", "templum"], ["Voc. sg.", "rosa", "domine", "templum"], ["Ac. sg.", "rosam", "dominum", "templum"], ["Gen. sg.", "rosae", "domini", "templi"], ["Dat. sg.", "rosae", "domino", "templo"], ["Abl. sg.", "rosā", "domino", "templo"], ["Nom./Voc. pl.", "rosae", "domini", "templa"], ["Ac. pl.", "rosas", "dominos", "templa"], ["Gen. pl.", "rosarum", "dominorum", "templorum"], ["Dat./Abl. pl.", "rosis", "dominis", "templis"]])}<p>Fíjate en la <mark>regla del neutro</mark>: el nominativo, el vocativo y el acusativo son siempre iguales, y en plural terminan en <b>-a</b>.</p>`, video: { id: "vkxHZmNqjio", titulo: "Latín: primera declinación. Tabla y explicación teórica", canal: "Paco Álvarez philologus", vistas: 122915, megusta: 0 } },
-    { tras: "Primera y segunda declinación", html: `<h3>Casos especiales de la segunda declinación</h3><p>Algunos sustantivos de la 2.ª declinación terminan en <b>-er</b> en nominativo: <i>puer, pueri</i> (niño), que conserva la e, y <i>ager, agri</i> (campo), que la pierde. El enunciado (el genitivo) indica el tema: por eso es importante aprenderlo. También hay palabras de la 1.ª declinación que son <b>masculinas</b> porque designan hombres: <i>poeta, nauta</i> (marinero), <i>agricola</i> (campesino). Los <b>nombres de árboles</b> de la 2.ª son femeninos (<i>pinus, fagus</i>).</p>` },
-    { tras: "Primera y segunda declinación", html: `<h3>Adjetivos de la 1.ª y 2.ª declinación</h3><p>Los adjetivos como <i>bonus, bona, bonum</i> (bueno) se declinan como <i>dominus</i> en masculino, como <i>rosa</i> en femenino y como <i>templum</i> en neutro. El adjetivo <mark>concierta</mark> con el sustantivo en <b>género, número y caso</b>, pero no tiene por qué tener la misma terminación: <i>agricola bonus</i> (un buen campesino) es masculino aunque <i>agricola</i> acabe en -a. Otros adjetivos: <i>magnus, -a, -um</i> (grande), <i>parvus</i> (pequeño), <i>longus</i> (largo), <i>liber, libera, liberum</i> (libre), <i>pulcher, pulchra, pulchrum</i> (hermoso).</p>` },
-    { tras: "Primera y segunda declinación", html: `<h3>Una mirada a la tercera declinación</h3><p>La 3.ª declinación es la más numerosa y variada: su genitivo singular acaba en <b>-is</b>. El nominativo puede ser muy distinto del resto de la palabra, por eso el tema se saca del genitivo: <i>rex, regis</i> (rey) → tema <i>reg-</i>; <i>miles, militis</i> (soldado) → <i>milit-</i>; <i>corpus, corporis</i> (cuerpo, neutro) → <i>corpor-</i>.</p>${tabla(["Caso", "Singular", "Plural"], [["Nom.", "rex", "reges"], ["Ac.", "regem", "reges"], ["Gen.", "regis", "regum"], ["Dat.", "regi", "regibus"], ["Abl.", "rege", "regibus"]])}<p>Muchas palabras españolas vienen del acusativo de la 3.ª: <i>regem</i> > rey, <i>militem</i> > «militar», <i>lucem</i> > luz.</p>` },
-  ],
-  ejemplos: [
-    { enunciado: "Analiza y traduce «rosas».", pasos: ["Rosa, -ae: 1.ª declinación, femenino.", "-as: acusativo plural.", "Función habitual: complemento directo."], resultado: "Acusativo plural: «las rosas» (CD)." },
-    { enunciado: "Declina en singular «magnum templum».", pasos: ["Ambos son neutros de la 2.ª.", "Nom., voc. y ac. iguales: magnum templum.", "Gen.: magni templi. Dat. y abl.: magno templo."], resultado: "N/V/Ac. magnum templum; G. magni templi; D/Abl. magno templo." },
-    { enunciado: "Concierta «bonus» con «nauta» en acusativo singular.", pasos: ["Nauta es masculino aunque sea de la 1.ª.", "El adjetivo va en masculino: bonus.", "Acusativo singular de nauta: nautam; de bonus: bonum."], resultado: "nautam bonum (al buen marinero)." },
-  ],
-  errores: [
-    "Sacar el tema del nominativo en la 3.ª declinación: se saca del genitivo (rex → reg-is).",
-    "Pensar que el adjetivo debe acabar igual que el sustantivo: concierta en género, número y caso.",
-    "Olvidar la regla del neutro: nominativo, vocativo y acusativo iguales.",
-    "Confundir el genitivo singular y el nominativo plural en -ae o -i: hay que mirar el contexto.",
-    "Creer que todos los sustantivos en -a son femeninos: poeta, nauta y agricola son masculinos.",
-  ],
-  ejercicios: [
-    { q: "Declina «puella, -ae» en plural.", sol: "Nom./Voc. puellae; Ac. puellas; Gen. puellarum; Dat./Abl. puellis." },
-    { q: "Declina «servus, -i» en singular.", sol: "Nom. servus; Voc. serve; Ac. servum; Gen. servi; Dat./Abl. servo." },
-    { q: "Analiza «templa».", sol: "Nominativo, vocativo o acusativo plural de templum, neutro de la 2.ª." },
-    { q: "¿En qué casos puede estar «dominis»?", sol: "Dativo o ablativo plural." },
-    { q: "Analiza «agri» y di de qué palabra viene.", sol: "Genitivo singular o nominativo/vocativo plural de ager, agri (campo)." },
-    { q: "Concierta «magnus» con «insula» en nominativo singular.", sol: "insula magna (la isla grande)." },
-    { q: "¿Por qué decimos «poeta clarus» y no «poeta clara»?", sol: "Porque poeta es masculino y el adjetivo concierta en género." },
-    { q: "¿Cuál es el tema de «miles, militis»?", sol: "milit-." },
-    { q: "Declina «rex» en acusativo y genitivo singular.", sol: "Ac. regem; Gen. regis." },
-    { q: "Traduce: «templum magnum», «servi boni», «rosae pulchrae» (nominativo plural).", sol: "El gran templo; los buenos esclavos; las rosas hermosas." },
-  ],
-  quiz: [
-    { q: "El genitivo singular de la 3.ª declinación acaba en…", o: ["-is", "-ae", "-i"], a: 0, e: "Rex, regis." },
-    { q: "En los neutros, el nominativo y el acusativo…", o: ["son iguales", "son distintos", "no existen"], a: 0, e: "Regla del neutro." },
-    { q: "«Agricola» es…", o: ["masculino", "femenino", "neutro"], a: 0, e: "Designa a un hombre." },
-    { q: "«Dominorum» es…", o: ["genitivo plural", "dativo plural", "acusativo singular"], a: 0, e: "De los señores." },
-    { q: "El tema de «corpus, corporis» es…", o: ["corpor-", "corp-", "corpus-"], a: 0, e: "Se toma del genitivo." },
-  ],
-  tarjetas: [
-    ["Regla del neutro", "Nom., voc. y ac. iguales; en plural, -a."],
-    ["Concordancia", "Adjetivo y sustantivo coinciden en género, número y caso."],
-    ["3.ª declinación", "Genitivo singular en -is; tema sacado del genitivo."],
+    { t: "Caso gramatical, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Caso_gramatical" },
   ],
 });
