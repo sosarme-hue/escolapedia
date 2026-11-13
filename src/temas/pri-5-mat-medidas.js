@@ -5,7 +5,7 @@ const { svg, t, AZ, RO, VE, NA, SO, MO, AG } = P;
 // Escalera de unidades: 7 peldaños con sus nombres; la unidad principal en el centro.
 const escalera = (u, c, nota) => {
   const n = u.length;
-  return `${u.map((x, i) => { const X = 12 + i * 34, Y = 30 + i * 18; return `<rect x="${X}" y="${Y}" width="32" height="${150 - Y}" fill="${c}" fill-opacity="${i === 3 ? 0.45 : 0.15}" stroke="${c}" stroke-width="1.5"/>${t(X + 16, Y + 16, x, { s: x.length > 3 ? 9 : 11, c: i === 3 ? "var(--ink)" : c })}`; }).join("")}${P.flecha(36, 164, 220, 164, VE, 2)}${t(128, 176, nota || "bajar: × 10 · subir: : 10", { s: 10, c: "var(--muted)" })}`;
+  return `${u.map((x, i) => { const X = 12 + i * 34, Y = 30 + i * 14; return `<rect x="${X}" y="${Y}" width="32" height="${150 - Y}" fill="${c}" fill-opacity="${i === 3 ? 0.45 : 0.15}" stroke="${c}" stroke-width="1.5"/>${t(X + 16, Y + 16, x, { s: x.length > 3 ? 9 : 11, c: i === 3 ? "var(--ink)" : c })}`; }).join("")}${P.flecha(36, 164, 220, 164, VE, 2)}${t(128, 176, nota || "bajar: × 10 · subir: : 10", { s: 10, c: "var(--muted)" })}`;
 };
 
 module.exports = P.tema({
