@@ -171,3 +171,160 @@ AMP.amplia(module.exports, {
     ["Monitor serie", "Ventana donde la placa envía datos al ordenador; útil para depurar."],
   ],
 });
+
+// Nivel libro (4º ESO): lectura, más apartados con dibujo, ejercicios por niveles, glosario y situación de aprendizaje.
+const L = require("./_eso4L11");
+L.libro(module.exports, {
+  minutos: 110,
+  revisado: "2026-11-13",
+  lectura: {
+    titulo: "Treinta líneas que salvaron una cosecha",
+    html: `<p>Un grupo de alumnos de un instituto rural se dio cuenta de que el huerto escolar se secaba cada verano porque nadie podía regarlo en vacaciones. Con una placa Arduino, un sensor de humedad del suelo, un relé y una pequeña bomba de agua escribieron un programa de unas treinta líneas: leer la humedad, compararla con un umbral, regar unos segundos si la tierra estaba seca y esperar. Ese septiembre, las tomateras seguían vivas.</p>
+      <p>Programar es dar a una máquina instrucciones tan precisas que pueda ejecutarlas sola. En Tecnología, la programación sale de la pantalla y llega al mundo físico: enciende luces, mueve motores, lee sensores y toma decisiones. En este tema repasarás algoritmos, variables y operadores, aprenderás a usar vectores, condiciones múltiples y funciones, descubrirás cómo controlar el tiempo sin bloquear la placa y cómo comunicarse con ella, y programarás proyectos completos como un semáforo o un sistema de riego. Verás que un buen programa no es el más largo, sino el que es claro, fiable y fácil de mejorar.</p>`,
+  },
+  svgs: {
+    "Operadores": L.rejilla("Operadores de programación por tipo", ["Tipo", "Operadores", "Ejemplo"], [["Aritméticos", "+ − * / %", "17 % 5 = 2"], ["Comparación", "== != < > <= >=", "x >= 10"], ["Lógicos", "&& || !", "a && b"], ["Asignación", "= += ++", "i++"]], { t: "Operadores" }),
+    "Los bucles en detalle": L.cajas("Partes de un bucle for", [["Inicio", "int i = 0"], ["Condición", "i < 10"], ["Incremento", "i++"], ["Cuerpo", "lo que|se repite"]], { t: "for (inicio; condición; incremento)" }),
+    "Del programa a la placa": L.flujo("Pasos para cargar un programa en Arduino", ["Escribir el código en el IDE", "Verificar y compilar", "Conectar la placa por USB", "Elegir placa y puerto", "Subir y probar"], { t: "Del código a la placa" }),
+    "Probar y depurar": L.cajas("Tipos de errores de un programa", [["Sintaxis", "falta ; o llave|no compila"], ["Lógica", "compila pero|hace otra cosa"], ["Ejecución", "valores imposibles|o se cuelga"], ["Montaje", "cable o pin|equivocado"]], { t: "Tipos de errores" }),
+  },
+  tras: {
+    "Algoritmos y diagramas de flujo": [
+      {
+        html: `<h3>Lenguajes de programación</h3><p>El procesador solo entiende el <b>código máquina</b>: secuencias de ceros y unos que indican operaciones muy simples. Escribir así sería larguísimo, así que usamos <b>lenguajes de programación</b>. Los de <b>bajo nivel</b>, como el ensamblador, están muy cerca del hardware: son rápidos, pero difíciles de leer. Los de <b>alto nivel</b>, como C++, Python, Java o JavaScript, se parecen más al lenguaje humano y sirven para cualquier procesador. Los lenguajes por <b>bloques</b> (Scratch, mBlock, MakeCode) evitan los errores de escritura y son ideales para empezar.</p>
+          <p>Para que el ordenador ejecute un programa de alto nivel hay que traducirlo. Un <b>compilador</b> traduce todo el programa de una vez a código máquina antes de ejecutarlo (C++ en Arduino): el resultado es rápido, pero cada cambio exige volver a compilar. Un <b>intérprete</b> traduce y ejecuta línea a línea mientras el programa funciona (Python, JavaScript): es más cómodo para probar, aunque algo más lento. Cada lenguaje tiene su <mark>sintaxis</mark>, sus reglas de escritura: en C++ las instrucciones terminan en punto y coma y los bloques van entre llaves; en Python se usa la sangría. La lógica, en cambio, es la misma en todos: secuencia, decisión y repetición.</p>`,
+        svg: L.capas("Niveles de los lenguajes de programación", [["Bloques", "Scratch, mBlock"], ["Alto nivel", "C++, Python, JS"], ["Ensamblador", "bajo nivel"], ["Código máquina", "ceros y unos"]], { t: "De los bloques al hardware" }),
+      },
+    ],
+    "Variables y tipos de datos": [
+      {
+        html: `<h3>Vectores (arrays)</h3><p>Si un semáforo tiene tres LED en las patillas 11, 12 y 13, podríamos crear tres variables, pero es más práctico un <b>vector</b> o <i>array</i>: una lista de datos del mismo tipo con un solo nombre. En C++ se declara así: <code>int leds[3] = {11, 12, 13};</code>. Cada elemento se identifica por su <b>índice</b>, que <mark>empieza en 0</mark>: <code>leds[0]</code> vale 11 y <code>leds[2]</code> vale 13. Intentar leer <code>leds[3]</code> es un error, porque ese elemento no existe, y en Arduino no avisa: devuelve un valor sin sentido.</p>
+          <p>La gran ventaja de los vectores es que se recorren con un bucle: <code>for (int i = 0; i &lt; 3; i++) { pinMode(leds[i], OUTPUT); }</code> configura los tres LED con una sola instrucción repetida. También sirven para guardar varias lecturas de un sensor y calcular su media, lo que reduce el «ruido» de las medidas; para almacenar las notas de una melodía y sus duraciones; o para guardar los ángulos de un brazo robótico en una secuencia de movimientos. Los textos, por cierto, también son vectores: de caracteres.</p>`,
+        svg: L.rejilla("Vector de patillas de LED con sus índices", ["Índice", "0", "1", "2"], [["Valor", "11", "12", "13"], ["Acceso", "leds[0]", "leds[1]", "leds[2]"], ["LED", "rojo", "ámbar", "verde"]], { t: "int leds[3] = {11, 12, 13};" }),
+      },
+    ],
+    "Los bucles en detalle": [
+      {
+        html: `<h3>Condiciones múltiples: else if y switch</h3><p>Muchas veces hay más de dos caminos. Con <code>if … else if … else</code> se encadenan condiciones que se comprueban en orden; en cuanto una se cumple, se ejecuta su bloque y se ignoran las demás. Por ejemplo, con un sensor de temperatura: si supera 30 °C, ventilador al máximo; <i>si no</i>, si supera 25 °C, ventilador a media velocidad; <i>en cualquier otro caso</i>, apagado. El <mark>orden importa</mark>: si se comprobara primero «más de 25», una temperatura de 32 °C entraría ahí y nunca llegaría a la condición de 30.</p>
+          <p>Cuando una variable entera puede tomar varios valores concretos, es más claro usar <code>switch</code>: <code>switch (modo) { case 1: … break; case 2: … break; default: … }</code>. Cada <code>case</code> es un valor posible y <code>default</code> recoge los demás. Hay que acordarse del <code>break</code>: sin él, el programa sigue ejecutando el caso siguiente. Es muy útil para menús, para los botones de un mando a distancia o para las máquinas de estados de un robot, en las que una variable <code>estado</code> indica qué está haciendo el sistema en cada momento.</p>`,
+        svg: L.flujo("Condiciones encadenadas para controlar un ventilador según la temperatura", ["¿Temperatura > 30 °C?  sí → máximo", "si no, ¿> 25 °C?  sí → medio", "en otro caso → apagado", "Se ejecuta solo un camino", "Orden: de la más exigente a la menos"], { t: "if … else if … else" }),
+      },
+    ],
+    "Funciones": [
+      {
+        html: `<h3>Controlar el tiempo sin bloquear: millis()</h3><p>La función <code>delay(1000)</code> detiene el programa un segundo. Es cómoda, pero mientras espera la placa <mark>no hace nada más</mark>: no lee pulsadores ni sensores. Si un LED parpadea con <code>delay</code> y a la vez queremos detectar un botón, muchas pulsaciones se perderán. La alternativa es <code>millis()</code>, que devuelve los milisegundos transcurridos desde que se encendió la placa, sin detener nada.</p>
+          <p>La técnica consiste en guardar el momento del último cambio y comprobar en cada vuelta del <code>loop</code> si ha pasado el tiempo deseado: <code>if (millis() - anterior &gt;= 500) { anterior = millis(); cambiarLED(); }</code>. Así el <code>loop</code> sigue girando miles de veces por segundo y puede atender varias tareas «a la vez»: hacer parpadear dos LED a ritmos distintos, leer sensores y responder a botones. Como <code>millis()</code> crece mucho, se guarda en una variable de tipo <code>unsigned long</code>. Esta forma de programar, por eventos de tiempo en lugar de esperas, es la que usan los sistemas reales: una lavadora o un microondas nunca se quedan sordos mientras esperan.</p>`,
+        svg: L.comparar("delay frente a millis para controlar el tiempo", ["delay()", ["detiene la placa", "no lee sensores", "fácil de usar", "pierde pulsaciones"]], ["millis()", ["no detiene nada", "varias tareas", "compara tiempos", "unsigned long"]]),
+      },
+    ],
+    "Del programa a la placa": [
+      {
+        html: `<h3>Comunicación serie</h3><p>La placa y el ordenador se comunican por el cable USB mediante la <b>comunicación serie</b>, que envía los datos bit a bit, uno detrás de otro. En <code>setup()</code> se inicia con <code>Serial.begin(9600)</code>, donde 9600 es la velocidad en <b>baudios</b> (bits por segundo), que debe coincidir en la placa y en el <b>monitor serie</b>. Con <code>Serial.print()</code> y <code>Serial.println()</code> la placa envía texto y valores al ordenador: es la mejor herramienta para ver qué está pasando dentro del programa.</p>
+          <p>La comunicación también funciona al revés: con <code>Serial.available()</code> se comprueba si han llegado datos y con <code>Serial.read()</code> se leen, de modo que se pueden enviar órdenes desde el teclado («e» para encender, «a» para apagar). El <b>trazador serie</b> dibuja gráficas en tiempo real de las lecturas, ideal para calibrar un sensor. Existen otros protocolos para conectar sensores y pantallas: <b>I2C</b>, que usa solo dos cables para muchos dispositivos, y <b>SPI</b>, más rápido. Con módulos Bluetooth o wifi (como la placa ESP32), la misma idea permite controlar un proyecto desde el móvil o enviar sus datos a Internet: el primer paso hacia el Internet de las cosas.</p>`,
+        svg: L.flujo("Comunicación serie entre la placa y el ordenador", ["Serial.begin(9600)", "La placa mide un sensor", "Serial.println(valor)", "El monitor serie lo muestra", "El usuario envía una orden"], { t: "Hablar con la placa" }),
+      },
+      {
+        html: `<h3>Un proyecto completo: el semáforo con pulsador</h3><p>Veamos cómo se organiza un programa real. Un semáforo de peatones tiene tres LED para coches (rojo, ámbar y verde), dos para peatones y un pulsador. <b>Análisis</b>: normalmente los coches tienen verde; cuando un peatón pulsa, tras unos segundos el semáforo de coches pasa a ámbar y luego a rojo, los peatones tienen verde 10 segundos, su verde parpadea y todo vuelve al principio. <b>Diseño</b>: se dibuja el diagrama de flujo y se definen los estados: «coches», «ámbar», «peatones», «parpadeo».</p>
+          <p><b>Programación</b>: las patillas se guardan en <mark>constantes con nombre</mark> (<code>const int ROJO = 13;</code>), así el código se entiende y, si se cambia un cable, solo hay que tocar una línea. Cada fase se escribe como una función (<code>fasePeatones()</code>), y el <code>loop</code> solo lee el pulsador y llama a la función que toca. <b>Pruebas</b>: se comprueba cada LED, después el pulsador mostrando su estado en el monitor serie y, al final, la secuencia completa, cronometrando los tiempos. Esta forma de trabajar, analizar, diseñar, programar por partes y probar, es la misma que siguen los equipos profesionales de software.</p>`,
+        svg: L.ciclo("Ciclo de estados de un semáforo con pulsador", "semáforo", ["verde coches", "ámbar", "verde peatones", "parpadeo"]),
+      },
+    ],
+  },
+  secciones: [5, 5, 5],
+  niveles: "bbbbmbbmmm",
+  ejercicios: [
+    { nivel: "básico", q: "¿Qué diferencia hay entre un compilador y un intérprete?", sol: "El compilador traduce todo el programa a código máquina antes de ejecutarlo; el intérprete traduce y ejecuta línea a línea mientras funciona." },
+    { nivel: "básico", q: "En int notas[5] = {7, 4, 9, 6, 8}; ¿cuánto vale notas[2]? ¿Y cuál es el último índice válido?", sol: "notas[2] vale 9 (los índices empiezan en 0). El último índice válido es 4." },
+    { nivel: "básico", q: "¿Para qué sirve Serial.begin(9600)?", sol: "Inicia la comunicación serie entre la placa y el ordenador a 9.600 baudios (bits por segundo)." },
+    { nivel: "básico", q: "¿Qué hace la instrucción break dentro de un switch?", sol: "Termina el caso actual y sale del switch; sin ella el programa seguiría ejecutando el caso siguiente." },
+    { nivel: "básico", q: "¿Qué devuelve la función millis()?", sol: "Los milisegundos que han pasado desde que se encendió o reinició la placa." },
+    { nivel: "básico", q: "Pon un ejemplo de lenguaje de bajo nivel, uno de alto nivel y uno por bloques.", sol: "Bajo nivel: ensamblador. Alto nivel: C++ o Python. Bloques: Scratch, mBlock o MakeCode." },
+    { nivel: "medio", q: "Escribe un bucle que configure como salida las patillas guardadas en int leds[4] = {8, 9, 10, 11};", sol: "for (int i = 0; i < 4; i++) {\n  pinMode(leds[i], OUTPUT);\n}" },
+    { nivel: "medio", q: "Escribe con else if: si la luz (0-1023) es menor que 200, «noche»; si es menor que 600, «nublado»; si no, «sol».", sol: "if (luz < 200) {\n  Serial.println(\"noche\");\n} else if (luz < 600) {\n  Serial.println(\"nublado\");\n} else {\n  Serial.println(\"sol\");\n}" },
+    { nivel: "medio", q: "¿Por qué fallaría este orden: if (t > 25) {medio} else if (t > 30) {máximo}?", sol: "Una temperatura de 32 °C cumple ya t > 25 y entra en «medio»; la condición t > 30 nunca se alcanza. Hay que poner primero la más exigente." },
+    { nivel: "medio", q: "Escribe un switch que, según la variable modo (1, 2 o 3), encienda el LED rojo, ámbar o verde, y apague todo en otro caso.", sol: "switch (modo) {\n  case 1: digitalWrite(ROJO, HIGH); break;\n  case 2: digitalWrite(AMBAR, HIGH); break;\n  case 3: digitalWrite(VERDE, HIGH); break;\n  default: apagarTodo();\n}" },
+    { nivel: "medio", q: "Explica por qué un programa con delay(5000) dentro del loop no detecta bien un pulsador.", sol: "Durante los 5 segundos de espera la placa no ejecuta nada más; si el pulsador se pulsa y se suelta en ese tiempo, nunca se lee." },
+    { nivel: "medio", q: "Calcula la media de 10 lecturas de A0 usando un bucle.", sol: "long suma = 0;\nfor (int i = 0; i < 10; i++) {\n  suma = suma + analogRead(A0);\n  delay(10);\n}\nint media = suma / 10;" },
+    { nivel: "medio", q: "¿Por qué conviene usar const int ROJO = 13; en lugar de escribir 13 en todo el programa?", sol: "El código se entiende mejor (ROJO dice qué es) y si se cambia el LED de patilla solo hay que modificar una línea." },
+    { nivel: "medio", q: "Escribe el programa que encienda el LED 13 si se recibe «e» por el monitor serie y lo apague si se recibe «a».", sol: "void loop() {\n  if (Serial.available() > 0) {\n    char c = Serial.read();\n    if (c == 'e') digitalWrite(13, HIGH);\n    if (c == 'a') digitalWrite(13, LOW);\n  }\n}" },
+    { nivel: "medio", q: "¿Qué ventaja tiene el protocolo I2C para conectar muchos sensores?", sol: "Solo necesita dos cables (datos y reloj) compartidos por todos los dispositivos, cada uno con su dirección, lo que ahorra patillas de la placa." },
+    { nivel: "medio", q: "Traza este código y di qué muestra: int x = 0; for (int i = 1; i <= 4; i++) { x = x + i * i; } Serial.println(x);", sol: "Suma 1 + 4 + 9 + 16 = 30. Muestra 30." },
+    { nivel: "avanzado", q: "Escribe un programa que haga parpadear el LED 13 cada 500 ms con millis(), sin delay.", sol: "unsigned long anterior = 0;\nbool estado = false;\nvoid setup() {\n  pinMode(13, OUTPUT);\n}\nvoid loop() {\n  if (millis() - anterior >= 500) {\n    anterior = millis();\n    estado = !estado;\n    digitalWrite(13, estado);\n  }\n}" },
+    { nivel: "avanzado", q: "Programa una melodía: guarda 4 notas en un vector y sus duraciones en otro y tócalas con tone() en la patilla 8.", sol: "int notas[4] = {262, 294, 330, 349};\nint dur[4] = {300, 300, 300, 600};\nvoid setup() {\n  for (int i = 0; i < 4; i++) {\n    tone(8, notas[i], dur[i]);\n    delay(dur[i] + 50);\n  }\n}\nvoid loop() {}" },
+    { nivel: "avanzado", q: "Escribe una función que devuelva true si la temperatura está entre 18 y 24 °C (ambos incluidos).", sol: "bool confortable(float t) {\n  return t >= 18 && t <= 24;\n}" },
+    { nivel: "avanzado", q: "Diseña la máquina de estados del semáforo con pulsador: estados, qué hace cada uno y qué provoca el cambio.", sol: "COCHES: verde coches, rojo peatones; si se pulsa → ÁMBAR. ÁMBAR: 3 s → PEATONES. PEATONES: verde peatones 10 s → PARPADEO. PARPADEO: verde peatones parpadea 4 s → COCHES." },
+    { nivel: "avanzado", q: "Dos LED deben parpadear a la vez, uno cada 300 ms y otro cada 700 ms. Explica por qué es imposible con delay y cómo hacerlo con millis.", sol: "Con delay el programa espera a uno y bloquea al otro. Con millis se usan dos variables de tiempo (anterior1, anterior2): en cada vuelta del loop se comprueba por separado si han pasado 300 ms o 700 ms y se cambia solo el LED que toca." },
+    { nivel: "avanzado", q: "Un sensor da lecturas que saltan mucho (ruido). Propón dos soluciones de programación.", sol: "Hacer la media de varias lecturas con un vector o un acumulador; usar histéresis en la decisión (dos umbrales distintos para encender y apagar) para que no cambie por pequeñas variaciones." },
+    { nivel: "avanzado", q: "Programa el riego del huerto: si la humedad (A0) es menor que 400, activa el relé (patilla 7) 5 segundos; luego espera una hora sin bloquear la lectura de un botón de parada.", sol: "Usar millis(): si humedad < 400 y no se está regando, digitalWrite(7, HIGH) y guardar inicio = millis(); si millis() − inicio >= 5000, apagar el relé y guardar ultimoRiego = millis(); no volver a regar hasta que millis() − ultimoRiego >= 3600000. En cada vuelta se lee el botón y, si se pulsa, se apaga el relé." },
+    { nivel: "avanzado", q: "¿Por qué la variable que guarda millis() debe ser unsigned long y no int?", sol: "En Arduino UNO un int llega solo hasta 32.767 (unos 32 segundos en milisegundos) y luego se desborda. Un unsigned long llega a más de 4.000 millones (unos 49 días)." },
+    { nivel: "avanzado", q: "Compara programar un proyecto con bloques y con código C++: ventajas de cada uno y cuándo elegirías cada opción.", sol: "Bloques: sin errores de sintaxis, visual y rápido para aprender y prototipos sencillos. Código: más potente y flexible, permite librerías y programas largos y es lo que se usa profesionalmente. Bloques para empezar o enseñar; código para proyectos complejos." },
+  ],
+  ejemplos: [
+    { enunciado: "Configura con un vector y un bucle los tres LED de un semáforo (patillas 11, 12 y 13) y enciéndelos uno tras otro.", pasos: ["Declarar el vector: int leds[3] = {11, 12, 13};", "En setup(), recorrerlo con for para poner cada patilla como OUTPUT.", "En loop(), recorrerlo otra vez encendiendo cada LED, esperando y apagándolo.", "El índice i va de 0 a 2."], resultado: "int leds[3] = {11, 12, 13};\nvoid setup() {\n  for (int i = 0; i < 3; i++) pinMode(leds[i], OUTPUT);\n}\nvoid loop() {\n  for (int i = 0; i < 3; i++) {\n    digitalWrite(leds[i], HIGH);\n    delay(1000);\n    digitalWrite(leds[i], LOW);\n  }\n}" },
+    { enunciado: "Clasifica una lectura de temperatura con else if: frío (< 15), agradable (15-25) o calor (> 25), para t = 27.", pasos: ["Primera condición: t < 15 → falso.", "Segunda: t <= 25 → falso.", "Ninguna se cumple → se ejecuta el else.", "Resultado: «calor»."], resultado: "calor" },
+    { enunciado: "Calcula cuánto vale millis() a los 2 minutos y medio y si cabe en un int de Arduino UNO.", pasos: ["2,5 min = 150 s.", "150 s · 1.000 = 150.000 ms.", "Un int llega hasta 32.767.", "150.000 > 32.767 → no cabe: hay que usar unsigned long."], resultado: "150.000 ms; necesita unsigned long." },
+  ],
+  errores: [],
+  cuarta: ["Triángulo", "Un bucle infinito", "while (false)", "pinMode()", "0 y 255", "dividir", "0", "ninguna es verdadera", "condicional", "un potenciómetro"],
+  quiz: [
+    { q: "El lenguaje que entiende directamente el procesador es…", o: ["Python", "el código máquina", "Scratch", "C++"], a: 1, e: "Ceros y unos." },
+    { q: "Arduino se programa en C++, que es un lenguaje…", o: ["interpretado", "compilado", "de bloques", "de marcas"], a: 1, e: "Se compila antes de subirlo a la placa." },
+    { q: "En int v[4], el último elemento es…", o: ["v[4]", "v[3]", "v[0]", "v[5]"], a: 1, e: "Los índices van de 0 a 3." },
+    { q: "En un switch, el caso que recoge los valores no previstos es…", o: ["case 0", "default", "else", "break"], a: 1, e: "Se ejecuta si ningún case coincide." },
+    { q: "La diferencia principal entre delay() y millis() es que…", o: ["millis no detiene el programa", "delay es más preciso", "millis apaga la placa", "no hay diferencia"], a: 0, e: "millis solo informa del tiempo transcurrido." },
+    { q: "Para guardar el valor de millis() se usa…", o: ["bool", "char", "unsigned long", "float"], a: 2, e: "Es un número muy grande y siempre positivo." },
+    { q: "La velocidad de la comunicación serie se mide en…", o: ["hercios", "baudios", "voltios", "píxeles"], a: 1, e: "Bits por segundo." },
+    { q: "El protocolo que conecta muchos sensores con solo dos cables es…", o: ["I2C", "USB", "HDMI", "PWM"], a: 0, e: "Cada dispositivo tiene su dirección." },
+    { q: "En una cadena if … else if, se ejecuta…", o: ["todas las condiciones verdaderas", "solo la primera condición verdadera", "siempre el else", "ninguna"], a: 1, e: "Por eso importa el orden." },
+    { q: "Usar const int ROJO = 13; sirve para…", o: ["que el LED brille más", "dar nombre claro a una patilla fija", "acelerar el programa", "crear un bucle"], a: 1, e: "El código se lee mejor y se cambia en un solo sitio." },
+  ],
+  cuartaEx: ["char", "Pone el pin 13 a 5 V", "Para ocupar más memoria"],
+  examen: [
+    { q: "¿Qué hace Serial.available()?", o: ["Indica si han llegado datos por el puerto serie", "Enciende un LED", "Mide la luz", "Borra la memoria"], a: 0, e: "Devuelve cuántos caracteres hay esperando." },
+    { q: "¿Qué muestra for (int i = 0; i < 3; i++) Serial.print(i);?", o: ["123", "012", "0123", "3"], a: 1, e: "i toma los valores 0, 1 y 2." },
+    { q: "Un error de lógica…", o: ["impide compilar", "hace que el programa haga algo distinto de lo esperado", "solo aparece en Python", "lo corrige el compilador"], a: 1, e: "El programa funciona, pero mal." },
+    { q: "El trazador serie sirve para…", o: ["dibujar gráficas de las lecturas en tiempo real", "soldar componentes", "compilar más rápido", "cargar la batería"], a: 0, e: "Muy útil para calibrar sensores." },
+    { q: "Un intérprete…", o: ["traduce todo antes de ejecutar", "traduce y ejecuta línea a línea", "es un sensor", "es una placa"], a: 1, e: "Como en Python." },
+  ],
+  tarjetas: [
+    ["Compilador e intérprete", "Traduce todo antes frente a traducir línea a línea."],
+    ["Vector (array)", "Lista de datos del mismo tipo; índices desde 0."],
+    ["millis()", "Tiempo desde el encendido; permite esperar sin bloquear."],
+    ["switch", "Elige entre varios casos de una variable; no olvidar break."],
+  ],
+  glosario: [
+    ["Algoritmo", "Secuencia ordenada y finita de pasos que resuelve un problema."],
+    ["Diagrama de flujo", "Representación gráfica de un algoritmo con símbolos normalizados."],
+    ["Código máquina", "Instrucciones en binario que ejecuta directamente el procesador."],
+    ["Lenguaje de alto nivel", "Lenguaje cercano al humano e independiente del procesador."],
+    ["Compilador", "Programa que traduce todo el código fuente a código máquina."],
+    ["Intérprete", "Programa que traduce y ejecuta el código línea a línea."],
+    ["Sintaxis", "Reglas de escritura de un lenguaje de programación."],
+    ["Variable", "Espacio con nombre donde se guarda un dato que puede cambiar."],
+    ["Constante", "Dato con nombre que no cambia durante el programa."],
+    ["Vector (array)", "Conjunto de datos del mismo tipo identificados por un índice."],
+    ["Condicional", "Estructura que ejecuta instrucciones solo si se cumple una condición."],
+    ["Bucle", "Estructura que repite instrucciones."],
+    ["Función", "Bloque de código con nombre que realiza una tarea."],
+    ["millis()", "Función de Arduino que da el tiempo desde el encendido."],
+    ["Comunicación serie", "Envío de datos bit a bit entre la placa y otro dispositivo."],
+    ["Baudio", "Unidad de velocidad de transmisión: bits por segundo."],
+    ["Depurar", "Buscar y corregir los errores de un programa."],
+    ["Máquina de estados", "Programa organizado en estados que cambian según las entradas."],
+  ],
+  situacion: {
+    titulo: "Riego inteligente para el huerto escolar",
+    reto: "Programad un sistema que mantenga regadas las plantas del huerto o de una maceta del aula cuando no hay nadie, que muestre sus datos y que se pueda controlar a mano.",
+    pasos: [
+      "Analizad el problema: qué sensores (humedad del suelo, luz, temperatura) y actuadores (relé y bomba, LED, zumbador) necesitáis.",
+      "Dibujad el diagrama de flujo y definid los estados del sistema (vigilar, regar, esperar, manual).",
+      "Programad por partes con constantes, vectores para las lecturas, funciones para cada tarea y millis() para los tiempos.",
+      "Mostrad los datos en el monitor o el trazador serie y permitid órdenes por teclado (regar ahora, modo automático).",
+      "Probad el sistema durante varios días, ajustad umbrales y tiempos y documentad los resultados.",
+    ],
+    producto: "El sistema funcionando, el programa comentado, el diagrama de flujo y un informe con los datos recogidos.",
+    evaluacion: ["El algoritmo y el diagrama resuelven el problema y contemplan todos los casos.", "El código usa correctamente constantes, vectores, funciones, condiciones y millis().", "El sistema funciona de forma fiable y segura (agua y electricidad separadas).", "El informe interpreta los datos y propone mejoras."],
+  },
+  objetivos: ["Usar vectores, else if, switch y millis() en programas para placas", "Comunicar la placa con el ordenador y desarrollar un proyecto completo"],
+  fuentes: [{ t: "Referencia del lenguaje de Arduino", url: "https://docs.arduino.cc/language-reference/" }],
+});
