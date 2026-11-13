@@ -51,4 +51,13 @@ module.exports = {
   "jGmM_ZIG6vM": ["Mi localidad y el AYUNTAMIENTO ✔👩‍🏫 PRIMARIA", "La BiBlioTHeKa", 22285], // cs-municipio
   "X-EN9DGe3DM": ["🏛 El AYUNTAMIENTO 🏛 - CÓMO se ORGANIZA el MUNICIPIO - Para NIÑOS de PRIMARIA - 2º EP - CC.SS 2.1", "Maestro EP Online", 26114], // cs-municipio
   "cgCZwyvb1V0": ["LOS SERVICIOS PÚBLICOS | Videos Educativos para Niños", "Happy Learning Español", 64400], // cs-municipio
+  "NsJfgkBl9Xo": ["Sector PRIMARIO, SECUNDARIO y TERCIARIO 🥕🏭🩺 La ACTIVIDAD ECONÓMICA para niños", "Smile and Learn - Español", 168173], // cs-sectores
+  "C6sXOX5vfC0": ["El Sector Primario Secundario y Terciario (Videos Educativos para Niños)", "Mundo Divertido de Niños", 403370], // cs-sectores
+  "SMNQ3S0a16E": ["LA ACTIVIDAD ECONÓMICA explicada a niños de PRIMARIA", "MaestraSuperIsa", 399628], // cs-sectores
+  "LPha22TK1n0": ["⚒ Qué SON las FUENTES HISTÓRICAS para NIÑOS", "Clases Particulares en Ávila", 127703], // cs-fuentes-historia
+  "51OO5kyufSM": ["La Eduteca - La Historia", "La Eduteca", 617478], // cs-fuentes-historia
+  "SLd-OshkqfA": ["LINEA DE TIEMPO - Explicación y ejemplos:", "NiboKids en el Cole!", 640434], // cs-fuentes-historia
+  "Sm5Mn4j3yJc": ["🎭 PATRIMONIO NATURAL y CULTURAL para NIÑOS", "Clases Particulares en Ávila", 111391], // cs-patrimonio
+  "i4zrvX7Tpfc": ["¿QUÉ ES UN MUSEO?| Vídeos Educativos para Niños", "Happy Learning Español", 160658], // cs-patrimonio
+  "qrxOa3HS24o": ["¿Cuáles son los lugares Patrimonio de la Humanidad en España?", "Europa Press", 36664], // cs-patrimonio
 };
