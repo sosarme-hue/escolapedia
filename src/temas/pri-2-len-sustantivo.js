@@ -18,16 +18,16 @@ module.exports = {
   },
   bloques: [
     {
-      html: `<h3>Palabras que nombran</h3><p>Todo lo que nos rodea tiene un <mark>nombre</mark>. Esas palabras se llaman <b>sustantivos</b>.</p><p>Nombran <b>personas</b> (niña, abuelo), <b>animales</b> (gato, pez), <b>cosas</b> (mesa, libro) y <b>lugares</b> (casa, escuela).</p><p>Si puedes señalarlo o imaginarlo, ¡seguro que tiene un sustantivo!</p>`,
+      html: `<h3>Palabras que nombran</h3><p>Todo lo que nos rodea tiene un <mark>nombre</mark>. Esas palabras se llaman <b>sustantivos</b>.</p><p>Nombran <b>personas</b> (niña, abuelo), <b>animales</b> (gato, pez), <b>cosas</b> (mesa, libro) y <b>lugares</b> (casa, escuela).</p><p>Si puedes señalarlo o imaginarlo, ¡seguro que tiene un sustantivo!</p><p>Tu nombre, tu calle y tu juguete favorito también son sustantivos.</p>`,
       svg: dibujos("Una niña, un gato, un libro y una escuela: persona, animal, cosa y lugar", [["nina", "niña", R], ["gato", "gato", A], ["libro", "libro", Ve], ["escuela", "escuela", N]], { titulo: "Persona · animal · cosa · lugar", nota: "Todos son sustantivos" }),
       video: V("susV", "el sustantivo para niños"),
     },
     {
-      html: `<h3>Un truco para encontrarlos</h3><p>Delante de un sustantivo podemos poner <mark>el, la, un o una</mark>.</p><p><i>el</i> sol, <i>la</i> luna, <i>un</i> árbol, <i>una</i> flor. ¡Funciona!</p><p>Con otras palabras no funciona: «el corre» o «la bonito» suenan mal. Así sabemos que <i>corre</i> y <i>bonito</i> no son sustantivos.</p>`,
+      html: `<h3>Un truco para encontrarlos</h3><p>Delante de un sustantivo podemos poner <mark>el, la, un o una</mark>.</p><p><i>el</i> sol, <i>la</i> luna, <i>un</i> árbol, <i>una</i> flor. ¡Funciona!</p><p>Con otras palabras no funciona: «el corre» o «la bonito» suenan mal. Así sabemos que <i>corre</i> y <i>bonito</i> no son sustantivos.</p><p>Prueba tú con <i>lápiz</i>, <i>salta</i> y <i>nube</i>. ¿Cuáles encajan?</p>`,
       svg: frase("El sol, la luna, un árbol, una flor", [["el", "var(--muted)"], ["sol", R], ["la", "var(--muted)"], ["luna", R], ["/"], ["un", "var(--muted)"], ["árbol", R], ["una", "var(--muted)"], ["flor", R]], { titulo: "el, la, un, una + sustantivo", nota: "Si encaja, es un sustantivo", fs: 22 }),
     },
     {
-      html: `<h3>Nombres comunes</h3><p>Los <mark>nombres comunes</mark> sirven para nombrar a <b>todos</b> los de una clase.</p><p><i>Perro</i> vale para cualquier perro: grande, pequeño, blanco o negro. <i>Ciudad</i> vale para cualquier ciudad. <i>Niño</i>, para cualquier niño.</p><p>Se escriben con <b>minúscula</b>, salvo al empezar una frase.</p>`,
+      html: `<h3>Nombres comunes</h3><p>Los <mark>nombres comunes</mark> sirven para nombrar a <b>todos</b> los de una clase.</p><p><i>Perro</i> vale para cualquier perro: grande, pequeño, blanco o negro. <i>Ciudad</i> vale para cualquier ciudad. <i>Niño</i>, para cualquier niño.</p><p>Se escriben con <b>minúscula</b>, salvo al empezar una frase.</p><p>Más nombres comunes: <i>mesa</i>, <i>montaña</i>, <i>pájaro</i>, <i>amiga</i>, <i>calle</i>.</p>`,
       svg: dibujos("Perro, ciudad y niño: nombres comunes para todos los de su clase", [["perro", "perro", A], ["casa", "ciudad", A], ["nino", "niño", A]], { titulo: "Nombres comunes", nota: "Para todos · con minúscula" }),
     },
     {
