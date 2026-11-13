@@ -74,7 +74,7 @@ function ciclo(label, centro, etapas, color = "var(--leaf)") {
 
 // Línea del tiempo: hitos = [[fecha, texto], …] (3 a 5).
 function linea(label, hitos, titulo) {
-  const n = hitos.length, x0 = 24, x1 = 236, y = 92;
+  const n = hitos.length, x0 = 38, x1 = 222, y = 92;
   let s = titulo ? txt(130, 16, titulo, { n: 40, fs: 12 }) : "";
   s += `<path d="M${x0 - 8} ${y} H ${x1 + 8}" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>`;
   hitos.forEach(([f, t], i) => {
@@ -82,7 +82,7 @@ function linea(label, hitos, titulo) {
     s += `<circle cx="${x}" cy="${y}" r="7" fill="${c}" stroke="var(--paper)" stroke-width="2"/>`;
     s += `<path d="M${x} ${arriba ? y - 8 : y + 8} V ${arriba ? y - 18 : y + 18}" stroke="${c}" stroke-width="2"/>`;
     s += txt(x, arriba ? y - 28 : y + 28, f, { n: 12, fs: 11, fill: c });
-    s += txt(x, arriba ? y - 52 : y + 52, t, { n: 13, fs: 9.5, bold: false });
+    s += txt(x, arriba ? y - 52 : y + 52, t, { n: 12, fs: 9.5, bold: false });
   });
   const ok = hitos.every(([, t]) => partir(t, 13).length <= 2);
   return svg(label, ok ? s : s, uid());
