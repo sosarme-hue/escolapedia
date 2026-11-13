@@ -133,4 +133,26 @@ const escalera = (label, items, titulo) => {
 // Marco de cuadro (para obras de arte inventadas): contenido dentro de un marco dorado.
 const cuadro = (label, inner, pie) => svg(label, `<rect x="30" y="14" width="200" height="136" fill="#c9a24a" stroke="#8a6a24" stroke-width="2"/><rect x="40" y="24" width="180" height="116" fill="var(--card)"/>${inner}${pie ? tx(130, 170, pie, { s: 11, c: "var(--muted)" }) : ""}`);
 
-module.exports = { ...B, RD, preg, vid, tema, esfera, reloj, relojes, DEDOS, flautaV, flautas, pueblo, corro, pentaClave, escalera, cuadro, AZ, RO, VE, NA, AM, AG, MO };
+// Melodía larga en dos pentagramas (se corta en la barra más cercana a la mitad) para que las notas no se amontonen.
+const melodia = (label, notas, o = {}) => {
+  const g = o.g || 10, x0 = 16, x1 = 244, barras = notas.map((n, i) => (n[1] && n[1].barra ? i : -1)).filter((i) => i > 0);
+  const corte = notas.length > 9 && barras.length ? barras.reduce((a, b) => (Math.abs(b - notas.length / 2) < Math.abs(a - notas.length / 2) ? b : a)) : -1;
+  const lineas = corte > 0 ? [notas.slice(0, corte), notas.slice(corte + 1)] : [notas];
+  let s = "";
+  lineas.forEach((ns, l) => {
+    const y0 = 50 + l * 84, P = penta(x0, x1, y0, g), xi = l === 0 && o.compas ? 66 : 50, paso = (x1 - 14 - xi) / Math.max(1, ns.length);
+    s += P.s + (o.clave === false ? "" : claveSol(x0 + 12, y0, g));
+    if (l === 0 && o.compas) s += t(x0 + 36, y0 + 1.7 * g, o.compas[0], { s: 15, d: true }) + t(x0 + 36, y0 + 3.7 * g, o.compas[1], { s: 15, d: true });
+    ns.forEach(([p, op = {}], i) => {
+      const x = xi + paso * (i + 0.5);
+      if (op.barra) s += P.barra(x);
+      else if (op.silencio) s += B.silencio(x, y0, g, op.silencio);
+      else s += P.nota(x, p, op);
+    });
+    if (l === lineas.length - 1 && o.fin) s += `<path d="M${x1 - 6} ${y0} V ${y0 + 4 * g}" stroke="var(--ink)" stroke-width="1.4"/><path d="M${x1 - 2} ${y0} V ${y0 + 4 * g}" stroke="var(--ink)" stroke-width="3"/>`;
+    else s += P.barra(x1);
+  });
+  return svg(label, s + (o.extra || ""), lineas.length > 1 ? 200 : 140);
+};
+
+module.exports = { ...B, melodia, RD, preg, vid, tema, esfera, reloj, relojes, DEDOS, flautaV, flautas, pueblo, corro, pentaClave, escalera, cuadro, AZ, RO, VE, NA, AM, AG, MO };
