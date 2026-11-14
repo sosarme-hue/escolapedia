@@ -1,6 +1,7 @@
-// Ciencias Sociales 1º de Primaria. Formato ampliado de 1º: frases cortas y un dibujo propio en cada bloque.
+// Ciencias Sociales 1º de Primaria. Nivel libro: lectura, apartados numerados, ejercicios por niveles, glosario y situación.
 const { mapa } = require("./_util");
 const { F, D, BG, txt, persona, sol, nube, arbol, casa, coche, check, RD } = require("./_peques");
+const L3 = require("./_pri1L3");
 
 const monte = (x, y, w, h, c = "#8a9a6a", nieve = true) => `<path d="M${x - w / 2} ${y} L ${x} ${y - h} L ${x + w / 2} ${y} Z" fill="${c}"/>${nieve ? `<path d="M${x - w * 0.12} ${y - h * 0.76} L ${x} ${y - h} L ${x + w * 0.12} ${y - h * 0.76} L ${x + w * 0.04} ${y - h * 0.7} L ${x - w * 0.04} ${y - h * 0.78} Z" fill="#fff"/>` : ""}`;
 const olas = (x1, x2, y, c = "var(--water)") => `<path d="M${x1} ${y} ${[...Array(Math.floor((x2 - x1) / 20))].map((_, i) => `q 5 -5 10 0 t 10 0`).join(" ")}" stroke="${c}" stroke-width="2.5" fill="none"/>`;
@@ -11,16 +12,17 @@ module.exports = {
   materia: "Ciencias Sociales",
   curso: "1-primaria",
   titulo: "El paisaje: el agua, el aire y el suelo",
-  minutos: 25,
+  minutos: 50,
   objetivos: ["Saber qué es un paisaje y distinguir paisaje natural y transformado", "Reconocer paisajes de montaña, de llanura y de costa", "Conocer el agua, el aire y el suelo y por qué son importantes", "Cuidar el paisaje y no contaminar"],
   claves: ["paisaje", "montaña", "llanura", "costa", "agua", "aire", "suelo"],
   pregunta: {
     texto: "Mira por la ventana. ¿Qué ves: montañas, edificios, árboles, el mar?",
     respuesta: "Todo lo que ves al mirar a lo lejos es un <mark>paisaje</mark>. En él hay agua, aire, suelo, plantas, animales y, a veces, cosas hechas por las personas.",
   },
+  lectura: L3.lect("La excursión al río", `<p>La clase de 1.º sale de excursión al río. Desde el autobús ven montañas, campos y un pueblo pequeño.</p><p>Al llegar, Alba mete la mano en el agua. «¡Está fría y muy limpia!»</p><p>Rubén mira el cielo. Las nubes se mueven deprisa. «Hace viento», dice, y su gorra sale volando.</p><p>Todos se ríen y corren a buscarla.</p><p>Junto a la orilla, Nerea encuentra una lata tirada. «¿Quién ha ensuciado el río?», pregunta triste.</p><p>La maestra le da una bolsa. Entre todos recogen la basura que encuentran.</p><p>¿Qué hay en un paisaje? ¿Cómo lo cuidamos? En este tema lo vas a aprender.</p>`),
   bloques: [
     {
-      html: `<h3>¿Qué es un paisaje?</h3><p>Mira un lugar a lo lejos. Todo lo que ves es un <mark>paisaje</mark>.</p><p>En un paisaje puede haber montañas, ríos, árboles y cielo. También puede haber casas, carreteras y puentes.</p><p>Todos los paisajes tienen <b>agua</b>, <b>aire</b> y <b>suelo</b>. ¿Cómo es el paisaje de tu localidad?</p>`,
+      html: `<h3>1. ¿Qué es un paisaje?</h3><p>Mira un lugar a lo lejos. Todo lo que ves es un <mark>paisaje</mark>.</p><p>En un paisaje puede haber montañas, ríos, árboles y cielo. También puede haber casas, carreteras y puentes.</p><p>Todos los paisajes tienen <b>agua</b>, <b>aire</b> y <b>suelo</b>. ¿Cómo es el paisaje de tu localidad?</p><p>Un mismo paisaje cambia con las estaciones. En invierno puede estar blanco de nieve y en primavera, lleno de flores.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un paisaje con montañas, un río, árboles, un pueblo y el sol">${BG}
         <rect x="14" y="14" width="232" height="100" rx="8" fill="var(--water)" fill-opacity=".14"/>
         ${sol(212, 40, 13)}${nube(70, 40, 0.8)}
@@ -30,7 +32,7 @@ module.exports = {
         ${arbol(40, 150, 0.6)}${arbol(64, 156, 0.5)}${casa(206, 156, 0.6)}</svg>`,
     },
     {
-      html: `<h3>Natural o transformado</h3><p>Algunos paisajes están casi como los hizo la naturaleza. Son <mark>paisajes naturales</mark>: un bosque, una playa sin casas, una montaña.</p><p>Otros paisajes los han cambiado las personas. Son <mark>paisajes transformados</mark>. Tienen casas, carreteras, campos de cultivo o fábricas. Las ciudades son paisajes transformados.</p>`,
+      html: `<h3>2. Natural o transformado</h3><p>Algunos paisajes están casi como los hizo la naturaleza. Son <mark>paisajes naturales</mark>: un bosque, una playa sin casas, una montaña.</p><p>Otros paisajes los han cambiado las personas. Son <mark>paisajes transformados</mark>. Tienen casas, carreteras, campos de cultivo o fábricas. Las ciudades son paisajes transformados.</p><p>Las personas cambian el paisaje para vivir: hacen casas, caminos y huertos. Debemos hacerlo con cuidado.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="A la izquierda un bosque natural; a la derecha una ciudad con carretera">${BG}
         <rect x="14" y="20" width="112" height="128" rx="10" fill="var(--leaf)" fill-opacity=".14"/><rect x="134" y="20" width="112" height="128" rx="10" fill="var(--muted)" fill-opacity=".14"/>
         ${monte(70, 110, 90, 60)}${arbol(34, 140, 0.6)}${arbol(60, 140, 0.7)}${arbol(92, 140, 0.6)}
@@ -39,7 +41,7 @@ module.exports = {
         ${txt(70, 166, "natural", { size: 13, color: "var(--leaf)" })}${txt(190, 166, "transformado", { size: 13, color: "var(--muted)" })}</svg>`,
     },
     {
-      html: `<h3>Montaña, llanura y costa</h3><p>En la <mark>montaña</mark> el suelo sube y baja mucho. Hace frío y en invierno puede nevar.</p><p>En la <mark>llanura</mark> el suelo es casi plano. Hay muchos campos de cultivo.</p><p>En la <mark>costa</mark> la tierra se junta con el mar. Hay playas de arena y acantilados.</p>`,
+      html: `<h3>3. Montaña, llanura y costa</h3><p>En la <mark>montaña</mark> el suelo sube y baja mucho. Hace frío y en invierno puede nevar.</p><p>En la <mark>llanura</mark> el suelo es casi plano. Hay muchos campos de cultivo.</p><p>En la <mark>costa</mark> la tierra se junta con el mar. Hay playas de arena y acantilados.</p><p>Hay paisajes muy secos, como el desierto, donde casi no llueve. ¡Allí viven pocas plantas y animales!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres dibujos: montaña con nieve, llanura con campos y costa con mar y playa">${BG}
         ${[0, 1, 2].map((i) => `<rect x="${14 + i * 80}" y="30" width="72" height="104" rx="8" fill="var(--water)" fill-opacity=".1" stroke="var(--line)" stroke-width="2"/>`).join("")}
         ${monte(50, 134, 64, 84)}
@@ -48,7 +50,7 @@ module.exports = {
         ${txt(50, 154, "montaña", { size: 12 })}${txt(130, 154, "llanura", { size: 12 })}${txt(210, 154, "costa", { size: 12 })}</svg>`,
     },
     {
-      html: `<h3>El agua</h3><p>En los paisajes hay mucha <mark>agua</mark>. Está en los ríos, los lagos, los mares y la lluvia.</p><p>El agua de los ríos y los lagos es <b>dulce</b>. El agua del mar es <b>salada</b>.</p><p>Todos los seres vivos necesitan agua. Sin agua no hay vida.</p>`,
+      html: `<h3>4. El agua</h3><p>En los paisajes hay mucha <mark>agua</mark>. Está en los ríos, los lagos, los mares y la lluvia.</p><p>El agua de los ríos y los lagos es <b>dulce</b>. El agua del mar es <b>salada</b>.</p><p>Todos los seres vivos necesitan agua. Sin agua no hay vida.</p><p>El agua que bebemos viene de ríos y embalses. Se limpia antes de llegar a nuestros grifos.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un río que baja de la montaña hasta el mar">${BG}
         ${monte(50, 110, 80, 80)}
         <path d="M54 70 Q 60 100 90 110 T 160 140 L 246 150" stroke="var(--water)" stroke-width="9" fill="none" stroke-linecap="round"/>
@@ -58,7 +60,7 @@ module.exports = {
       video: { id: "QU4PFZ8J8mQ", titulo: "El Agua de la Tierra", canal: "Aula chachi", vistas: 354423, megusta: 0 },
     },
     {
-      html: `<h3>El agua cambia</h3><p>El agua puede estar de <mark>tres formas</mark>.</p><p>Si hace mucho frío, se congela y es <b>hielo</b>, como la nieve. Normalmente es <b>líquida</b>, como la del grifo. Si se calienta mucho, es <b>vapor</b>, como el de la olla.</p><p>Con el sol, el agua sube y forma nubes. Después vuelve a caer como lluvia.</p>`,
+      html: `<h3>5. El agua cambia</h3><p>El agua puede estar de <mark>tres formas</mark>.</p><p>Si hace mucho frío, se congela y es <b>hielo</b>, como la nieve. Normalmente es <b>líquida</b>, como la del grifo. Si se calienta mucho, es <b>vapor</b>, como el de la olla.</p><p>Con el sol, el agua sube y forma nubes. Después vuelve a caer como lluvia.</p><p>El agua siempre se mueve: del mar a las nubes, de las nubes a la lluvia y de la lluvia al río. Es el ciclo del agua.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un cubito de hielo, un vaso de agua y una olla con vapor">${BG}
         <rect x="26" y="74" width="46" height="46" rx="6" fill="#d6ecff" stroke="var(--water)" stroke-width="2.5"/><path d="M34 84 L 44 82" stroke="#fff" stroke-width="3"/>
         <path d="M110 70 H 150 L 146 124 H 114 Z" fill="var(--water)" fill-opacity=".4" stroke="var(--ink)" stroke-width="2"/><path d="M112 88 H 148" stroke="var(--water)" stroke-width="2"/>
@@ -66,7 +68,7 @@ module.exports = {
         ${txt(49, 146, "hielo", { size: 13, color: "var(--water)" })}${txt(130, 146, "líquida", { size: 13, color: "var(--pen)" })}${txt(212, 146, "vapor", { size: 13, color: "var(--muted)" })}</svg>`,
     },
     {
-      html: `<h3>El aire</h3><p>El <mark>aire</mark> está en todas partes, pero no lo vemos. No tiene color ni olor.</p><p>Notamos el aire cuando hace <b>viento</b>. El viento mueve las hojas, las nubes y las cometas.</p><p>Los seres vivos necesitan aire para <b>respirar</b>. Por eso es importante que esté limpio.</p>`,
+      html: `<h3>6. El aire</h3><p>El <mark>aire</mark> está en todas partes, pero no lo vemos. No tiene color ni olor.</p><p>Notamos el aire cuando hace <b>viento</b>. El viento mueve las hojas, las nubes y las cometas.</p><p>Los seres vivos necesitan aire para <b>respirar</b>. Por eso es importante que esté limpio.</p><p>Las plantas limpian el aire. Por eso los árboles de los parques son tan importantes para la ciudad.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="El viento mueve una cometa, las hojas de un árbol y la ropa tendida">${BG}
         <g stroke="var(--muted)" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M20 60 q 20 -10 40 0 t 40 0"/><path d="M30 90 q 16 -8 32 0 t 32 0"/></g>
         <path d="M190 30 L 214 54 L 190 78 L 166 54 Z" fill="var(--red)"/><path d="M190 78 Q 170 120 120 150" stroke="var(--ink)" stroke-width="1.5" fill="none"/><path d="M190 78 q -4 10 4 16 q -8 6 0 14" stroke="var(--sun)" stroke-width="3" fill="none"/>
@@ -76,7 +78,7 @@ module.exports = {
       video: { id: "m0ppScatiyA", titulo: "Necesitamos Aire Limpio | Contaminación Ambiental", canal: "JunyTony en Español", vistas: 473698, megusta: 1562 },
     },
     {
-      html: `<h3>El suelo</h3><p>El <mark>suelo</mark> es la tierra que pisamos. Está formado por tierra, arena, piedras y rocas.</p><p>En el suelo crecen las <b>plantas</b>. Sus raíces toman el agua de la tierra.</p><p>Muchos animales viven bajo el suelo: lombrices, hormigas y topos. Hacen túneles y galerías. ¡Debemos cuidar el suelo!</p>`,
+      html: `<h3>7. El suelo</h3><p>El <mark>suelo</mark> es la tierra que pisamos. Está formado por tierra, arena, piedras y rocas.</p><p>En el suelo crecen las <b>plantas</b>. Sus raíces toman el agua de la tierra.</p><p>Muchos animales viven bajo el suelo: lombrices, hormigas y topos. Hacen túneles y galerías. ¡Debemos cuidar el suelo!</p><p>Hay suelos de distintos colores: marrón, rojizo o casi negro. ¡Busca tierra en el parque y mírala con una lupa!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Corte del suelo con una planta arriba, raíces, una lombriz, hormigas y piedras">${BG}
         <rect x="14" y="60" width="232" height="106" rx="6" fill="#c98a4a" fill-opacity=".45"/><rect x="14" y="120" width="232" height="46" fill="#a8702e" fill-opacity=".45"/>
         <path d="M14 60 H 246" stroke="var(--leaf)" stroke-width="5"/>
@@ -87,7 +89,7 @@ module.exports = {
         ${txt(150, 36, "tierra · piedras · seres vivos", { size: 12, color: "#8a5a2b" })}</svg>`,
     },
     {
-      html: `<h3>Cuidamos el paisaje</h3><p>A veces las personas <mark>ensuciamos</mark> el paisaje. Es la <b>contaminación</b>.</p><p>El humo de los coches y las fábricas ensucia el aire. La basura ensucia el suelo y el agua.</p><p>Podemos ayudar. Usamos menos el coche. No tiramos basura al campo ni al mar. Reciclamos.</p>`,
+      html: `<h3>8. Cuidamos el paisaje</h3><p>A veces las personas <mark>ensuciamos</mark> el paisaje. Es la <b>contaminación</b>.</p><p>El humo de los coches y las fábricas ensucia el aire. La basura ensucia el suelo y el agua.</p><p>Podemos ayudar. Usamos menos el coche. No tiramos basura al campo ni al mar. Reciclamos.</p><p>En algunos lugares se protege la naturaleza. Son los parques naturales. Allí no se puede construir ni ensuciar.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="A la izquierda un río sucio con basura y humo; a la derecha un río limpio con peces">${BG}
         <rect x="14" y="20" width="112" height="140" rx="10" fill="var(--muted)" fill-opacity=".18"/><rect x="134" y="20" width="112" height="140" rx="10" fill="var(--leaf)" fill-opacity=".12"/>
         <rect x="30" y="50" width="30" height="40" fill="#6b7385"/><g fill="var(--muted)"><circle cx="50" cy="40" r="9"/><circle cx="62" cy="30" r="11"/></g>
@@ -96,7 +98,7 @@ module.exports = {
         ${check(70, 152, false)}${check(190, 152)}</svg>`,
     },
     {
-      html: `<h3>¿Para qué sirve?</h3><p>Conocer el agua, el aire y el suelo nos ayuda a <mark>cuidarlos</mark>. Son de todos y los necesitamos para vivir.</p><p>En casa podemos ahorrar agua. Cerramos el grifo al lavarnos los dientes. Nos duchamos en vez de bañarnos.</p><p>Así ayudamos a nuestro planeta.</p>`,
+      html: `<h3>9. ¿Para qué sirve?</h3><p>Conocer el agua, el aire y el suelo nos ayuda a <mark>cuidarlos</mark>. Son de todos y los necesitamos para vivir.</p><p>En casa podemos ahorrar agua. Cerramos el grifo al lavarnos los dientes. Nos duchamos en vez de bañarnos.</p><p>Así ayudamos a nuestro planeta.</p><p>También podemos plantar árboles, ir en bici y apagar las luces que no usamos. ¡Cada gesto cuenta!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un niño cierra el grifo mientras se cepilla los dientes">${BG}
         ${persona(80, 166, 130, "var(--pen)")}<rect x="96" y="58" width="30" height="5" rx="2" fill="var(--red)"/>
         <rect x="140" y="110" width="100" height="16" rx="6" fill="var(--line)"/><path d="M190 110 V 86 H 172 V 94" stroke="var(--muted)" stroke-width="6" fill="none"/>
@@ -105,7 +107,7 @@ module.exports = {
         ${txt(190, 150, "¡Cierro el grifo!", { size: 13, color: "var(--leaf)" })}</svg>`,
     },
     {
-      html: `<h3>Experimento: el aire existe</h3><p>No vemos el aire, pero podemos <mark>comprobar</mark> que está ahí.</p><p>1. Infla un globo. ¿Qué hay dentro? ¡Aire!</p><p>2. Sopla un molinillo de papel. El aire lo hace girar.</p><p>3. Mete un vaso boca abajo en agua. El agua no entra porque dentro hay aire.</p>`,
+      html: `<h3>10. Experimento: el aire existe</h3><p>No vemos el aire, pero podemos <mark>comprobar</mark> que está ahí.</p><p>1. Infla un globo. ¿Qué hay dentro? ¡Aire!</p><p>2. Sopla un molinillo de papel. El aire lo hace girar.</p><p>3. Mete un vaso boca abajo en agua. El agua no entra porque dentro hay aire.</p><p>Apunta lo que pasa en cada prueba con un dibujo. ¿Ya sabes explicar por qué?</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un globo inflado, un molinillo girando y un vaso boca abajo en agua">${BG}
         <ellipse cx="50" cy="70" rx="26" ry="32" fill="var(--red)"/><path d="M50 102 l -4 6 h 8 Z M50 108 q -6 20 4 40" fill="var(--red)" stroke="var(--muted)" stroke-width="1.5"/>
         ${molinillo(130, 70, 1.2)}<g stroke="var(--muted)" stroke-width="2" fill="none"><path d="M90 60 q 8 -4 16 0 M90 72 q 8 -4 16 0"/></g>
@@ -113,6 +115,7 @@ module.exports = {
         <path d="M198 76 H 228 L 226 124 H 200 Z" fill="var(--card)" fill-opacity=".6" stroke="var(--ink)" stroke-width="2" transform="rotate(180 213 100)"/>
         ${txt(50, 168, "globo", { size: 12 })}${txt(130, 168, "molinillo", { size: 12 })}${txt(213, 168, "vaso", { size: 12 })}</svg>`,
     },
+    L3.B("11. Repaso: lo que ya sabes", `<p>Un <mark>paisaje</mark> es todo lo que vemos en un lugar. Puede ser natural o transformado.</p><p>Hay paisajes de montaña, de llanura y de costa.</p><p>Todos los paisajes tienen <b>agua</b>, <b>aire</b> y <b>suelo</b>. El agua puede ser hielo, líquida o vapor.</p><p>Los necesitamos para vivir. Por eso no contaminamos y cuidamos la naturaleza.</p>`, "Un paisaje con montaña, río, árbol, sol y nubes", `<path d="M10 120 L70 50 L120 110 L170 60 L250 120 Z" fill="var(--leaf)" opacity=".7"/><path d="M60 62 L70 50 L80 62 Z" fill="var(--card)"/><path d="M10 150 q60 -20 120 0 t120 0 V170 H10 Z" fill="var(--water)" opacity=".8"/>${L3.sol(220, 34)}${L3.nube(110, 34, 0.8)}${L3.arbol(40, 140, 0.8)}${L3.t(130, 136, "agua · aire · suelo", "var(--pen)", 14)}`),
   ],
   figura: {
     titulo: "Agua, aire y suelo en el paisaje",
@@ -139,6 +142,7 @@ module.exports = {
     { enunciado: "¿Cómo sabemos que hay viento si el aire no se ve?",
       pasos: ["Miramos los árboles: sus hojas se mueven.", "Notamos el aire en la cara.", "Una cometa sube y vuela."],
       resultado: "lo notamos por lo que mueve y en nuestra piel." },
+    { enunciado: "¿Por qué se seca un charco cuando sale el sol?", pasos: ["El sol calienta el agua del charco.", "El agua caliente se convierte en vapor.", "El vapor sube al cielo y ayuda a formar nubes."], resultado: "el charco se seca porque el agua se convierte en vapor." },
   ],
   errores: [
     "Pensar que el aire no existe porque no se ve: está en todas partes.",
@@ -147,16 +151,28 @@ module.exports = {
     "Tirar basura al campo o al mar: contamina el suelo y el agua.",
   ],
   ejercicios: [
-    { q: "Describe el paisaje que ves desde tu ventana.", sol: "Respuesta libre." },
-    { q: "¿Tu localidad tiene montaña, llanura o costa?", sol: "Respuesta libre." },
-    { q: "Di un paisaje natural y otro transformado.", sol: "Por ejemplo: un bosque y una ciudad." },
-    { q: "¿El agua del mar es dulce o salada?", sol: "Salada." },
-    { q: "Di las tres formas del agua.", sol: "Hielo, líquida y vapor." },
-    { q: "¿Cómo notamos el aire?", sol: "Con el viento: mueve las hojas y lo notamos en la cara." },
-    { q: "Di dos animales que viven bajo el suelo.", sol: "Por ejemplo: la lombriz y la hormiga." },
-    { q: "Infla un globo y suelta el aire en tu mano. ¿Qué notas?", sol: "Notas el aire que sale." },
-    { q: "Dibuja un paisaje de montaña.", sol: "Respuesta libre: montañas, quizá nieve, árboles y un río." },
-    { q: "Di dos formas de cuidar el agua.", sol: "Cerrar el grifo y no tirar basura al río." },
+    { nivel: "básico", q: "Describe el paisaje que ves desde tu ventana.", sol: "Respuesta libre." },
+    { nivel: "básico", q: "¿Tu localidad tiene montaña, llanura o costa?", sol: "Respuesta libre." },
+    { nivel: "medio", q: "Di un paisaje natural y otro transformado.", sol: "Por ejemplo: un bosque y una ciudad." },
+    { nivel: "básico", q: "¿El agua del mar es dulce o salada?", sol: "Salada." },
+    { nivel: "básico", q: "Di las tres formas del agua.", sol: "Hielo, líquida y vapor." },
+    { nivel: "básico", q: "¿Cómo notamos el aire?", sol: "Con el viento: mueve las hojas y lo notamos en la cara." },
+    { nivel: "básico", q: "Di dos animales que viven bajo el suelo.", sol: "Por ejemplo: la lombriz y la hormiga." },
+    { nivel: "medio", q: "Infla un globo y suelta el aire en tu mano. ¿Qué notas?", sol: "Notas el aire que sale." },
+    { nivel: "básico", q: "Dibuja un paisaje de montaña.", sol: "Respuesta libre: montañas, quizá nieve, árboles y un río." },
+    { nivel: "medio", q: "Di dos formas de cuidar el agua.", sol: "Cerrar el grifo y no tirar basura al río." },
+    L3.b("Rodea lo que hay en un paisaje natural: bosque, fábrica, río, autopista.", "Bosque y río."),
+    L3.b("¿El agua de la lluvia es dulce o salada?", "Dulce."),
+    L3.m("Une: hielo, agua del grifo, vapor. Líquida, sólida, gas.", "Hielo-sólida; agua del grifo-líquida; vapor-gas."),
+    L3.m("Di una diferencia entre la montaña y la costa.", "La montaña tiene el suelo alto; la costa está junto al mar."),
+    L3.m("¿Qué hace el viento en una cometa?", "La mueve y la hace volar."),
+    L3.m("Mete hielo en un vaso al sol. ¿Qué pasa?", "Se derrite y se convierte en agua líquida."),
+    L3.a("Explica con dibujos el ciclo del agua.", "Mar, vapor que sube, nube, lluvia y río que vuelve al mar."),
+    L3.a("¿Por qué los árboles son importantes en las ciudades?", "Porque limpian el aire, dan sombra y son casa de pájaros."),
+    L3.a("Observa tierra con una lupa. Di qué encuentras.", "Por ejemplo: arena, piedrecitas, restos de hojas o un bichito."),
+    L3.a("Di tres cosas que contaminan y cómo evitarlas.", "Humo de coches (ir andando), basura en el campo (recogerla), agua sucia (no tirar aceite)."),
+    L3.a("Compara el paisaje de tu localidad con el de una playa.", "Respuesta personal: diferencias de suelo, agua y construcciones."),
+    L3.a("Inventa un cartel para cuidar un río.", "Por ejemplo: «No tires basura. El río es de todos»."),
   ],
   quiz: [
     { q: "Un paisaje es…", o: ["lo que vemos al mirar un lugar", "una casa", "un animal"], a: 0, e: "Todo lo que vemos a lo lejos." },
@@ -169,12 +185,16 @@ module.exports = {
     { q: "El aire en movimiento es…", o: ["el viento", "la lluvia", "el suelo"], a: 0, e: "El viento." },
     { q: "Las lombrices viven…", o: ["en el aire", "bajo el suelo", "en el mar"], a: 1, e: "Bajo tierra." },
     { q: "El humo de los coches…", o: ["limpia el aire", "ensucia el aire", "riega las plantas"], a: 1, e: "Contamina el aire." },
+    L3.Q("Un parque natural es un lugar…", ["donde se protege la naturaleza", "lleno de fábricas", "sin plantas"], 0, "Allí no se construye."),
+    L3.Q("El ciclo del agua va…", ["del mar a las nubes y a la lluvia", "solo del grifo a la bañera", "de la nieve al fuego"], 0, "El agua siempre se mueve."),
   ],
   examen: [
     { q: "¿Qué tienen todos los paisajes?", o: ["Agua, aire y suelo", "Casas", "Fábricas"], a: 0, e: "Agua, aire y suelo." },
     { q: "La llanura es…", o: ["casi plana", "muy alta", "de agua"], a: 0, e: "Casi plana, con campos." },
     { q: "El agua caliente se convierte en…", o: ["vapor", "hielo", "piedra"], a: 0, e: "En vapor." },
     { q: "Para cuidar el agua…", o: ["cierro el grifo", "tiro basura al río", "dejo el grifo abierto"], a: 0, e: "Cerramos el grifo." },
+    L3.Q("El agua del mar es…", ["salada", "dulce", "dulce y caliente"], 0, "Es salada."),
+    L3.Q("El suelo está formado por…", ["tierra, arena y piedras", "nubes", "humo"], 0, "Es la tierra que pisamos."),
   ],
   feynman: ["Qué es un paisaje y sus tipos", "Las formas del agua", "Cómo cuidar el agua, el aire y el suelo"],
   mapa: mapa("EL PAISAJE", "var(--pri)", [
@@ -192,7 +212,21 @@ module.exports = {
     ["¿Cuáles son las formas del agua?", "Hielo, líquida y vapor"],
     ["¿Qué es el viento?", "Aire que se mueve"],
     ["¿Qué es la contaminación?", "Ensuciar el agua, el aire o el suelo"],
+    ["¿Qué es un parque natural?", "Un lugar donde se protege la naturaleza"],
+    ["¿Qué es el ciclo del agua?", "El camino del agua: mar, nube, lluvia y río"],
   ],
+  glosario: [
+    ["Paisaje", "Todo lo que vemos en un lugar."],
+    ["Paisaje natural", "Paisaje casi sin cambios de las personas."],
+    ["Paisaje transformado", "Paisaje cambiado por las personas."],
+    ["Montaña", "Lugar donde el suelo es muy alto."],
+    ["Llanura", "Lugar donde el suelo es casi plano."],
+    ["Costa", "Lugar donde la tierra se junta con el mar."],
+    ["Vapor", "El agua cuando se calienta y sube como gas."],
+    ["Viento", "El aire que se mueve."],
+    ["Contaminación", "Suciedad que estropea el agua, el aire o el suelo."],
+  ],
+  situacion: L3.sit("Guardianes del paisaje", "Vamos a ser guardianes del paisaje del colegio y a hacer una campaña para cuidarlo.", ["Salimos al patio y miramos: ¿qué agua, aire y suelo hay?", "Buscamos cosas que ensucian el paisaje y las recogemos con guantes.", "Hacemos carteles con consejos para cuidar el agua, el aire y el suelo.", "Colgamos los carteles por el colegio y se los explicamos a otra clase."], "Una campaña con carteles para cuidar el paisaje.", ["Distingue agua, aire y suelo en el paisaje.", "Propone formas de no contaminar.", "Participa en la recogida con cuidado."]),
   familias: [
     "En una excursión, describid juntos el paisaje: ¿hay montaña, río, casas?",
     "Haced cubitos de hielo y dejadlos derretir para ver cómo cambia el agua.",
@@ -204,5 +238,5 @@ module.exports = {
     ideas: ["Observación del paisaje desde la ventana del aula con una ficha de dibujo.", "Experimentos con el aire (globo, molinillo, vaso en agua) y los estados del agua.", "Maqueta de montaña, llanura y costa con plastilina."],
   },
   fuentes: [RD],
-  revisado: "2026-11-12",
+  revisado: "2026-11-14",
 };
