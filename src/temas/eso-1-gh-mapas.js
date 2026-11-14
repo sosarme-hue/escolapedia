@@ -1,115 +1,215 @@
-// Geografía e Historia 1º ESO. Dibujos propios en SVG.
-const { tema, H, F, tabla } = require("./_eso1d");
-const V = require("./_eso1d-videos");
+// Geografía e Historia 1º ESO · tema nivel libro (capítulo completo). Contenido y dibujos SVG propios.
+// Los dibujos de los apartados se generan con src/temas/_eso1L4.js.
+const { linea, cajas, flujo, barras, versus, rueda, H, B, QS, EJ, EX, V, VL, MAPA, SIT, FIG, RD, WIKI, tb } = require("./_eso1L4");
 
-// Red de paralelos y meridianos con un punto localizado.
-const red = `<svg viewBox="0 0 260 180" role="img" aria-label="Paralelos y meridianos: el punto P está a 40 grados norte y 20 grados este">
-  <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-  <g ${F} font-size="10.5">
-    <rect x="40" y="18" width="190" height="140" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
-    ${[0, 1, 2, 3, 4].map((i) => `<path d="M40 ${18 + i * 35} H 230" stroke="${i === 2 ? "var(--red)" : "var(--line)"}" stroke-width="${i === 2 ? 2.5 : 1.2}"/><text x="34" y="${22 + i * 35}" text-anchor="end" fill="var(--muted)">${["80° N", "40° N", "0°", "40° S", "80° S"][i]}</text>`).join("")}
-    ${[0, 1, 2, 3, 4].map((i) => `<path d="M${40 + i * 47.5} 18 V 158" stroke="${i === 2 ? "var(--pen)" : "var(--line)"}" stroke-width="${i === 2 ? 2.5 : 1.2}"/><text x="${40 + i * 47.5}" y="172" text-anchor="middle" fill="var(--muted)">${["40° O", "20° O", "0°", "20° E", "40° E"][i]}</text>`).join("")}
-    <circle cx="182.5" cy="53" r="6" fill="var(--sun)" stroke="var(--ink)" stroke-width="1.5"/><text x="192" y="49" font-weight="700" fill="var(--ink)">P</text>
-    <text x="226" y="100" text-anchor="end" font-weight="700" fill="var(--red)">ecuador</text>
-    <text x="139" y="30" font-weight="700" fill="var(--pen)">Greenwich</text>
-  </g>
-</svg>`;
-
-module.exports = tema({
+module.exports = {
   materia: "Geografía e Historia",
+  curso: "1-eso",
   titulo: "La representación de la Tierra: mapas",
-  objetivos: ["Distinguir globo terráqueo, mapa y plano", "Usar paralelos, meridianos, latitud y longitud para localizar un lugar", "Interpretar la escala, la leyenda y la orientación de un mapa", "Reconocer los principales tipos de mapas y las nuevas tecnologías de localización"],
-  claves: ["globo terráqueo", "mapa", "plano", "proyección", "paralelo", "meridiano", "latitud", "longitud", "escala", "leyenda", "rosa de los vientos", "GPS"],
-  pregunta: [
-    "Un barco pide ayuda en mitad del océano, donde no hay calles ni carteles. ¿Cómo le dice al equipo de rescate dónde está exactamente?",
-    "Dando sus <mark>coordenadas geográficas</mark>: dos números, la <b>latitud</b> y la <b>longitud</b>, que indican la posición de cualquier punto de la Tierra sobre una red imaginaria de líneas. Por ejemplo, «36° N, 6° O» está frente a la costa de Cádiz. Hoy el GPS calcula esos números en segundos, pero la idea es la misma que usaban los navegantes hace siglos.",
+  minutos: 100,
+  objetivos: [
+    "Diferenciar el globo terráqueo, el mapa y el plano",
+    "Usar la red de paralelos y meridianos para localizar lugares",
+    "Calcular distancias reales con la escala numérica y gráfica",
+    "Conocer las proyecciones cartográficas y sus deformaciones",
+    "Leer la leyenda y distinguir tipos de mapas",
+    "Orientarse con los puntos cardinales, la brújula, el GPS y los mapas digitales",
   ],
+  claves: ["globo terráqueo", "mapa", "plano", "paralelo", "meridiano", "ecuador", "Greenwich", "latitud", "longitud", "coordenadas", "escala", "proyección", "leyenda", "curvas de nivel", "GPS"],
+  pregunta: {
+    texto: "Groenlandia aparece en muchos mapas del mundo casi tan grande como África. En realidad, África es unas 14 veces más grande. ¿Por qué nos engañan los mapas?",
+    respuesta: "Porque es imposible pasar una esfera a una hoja plana sin deformarla. Cada <mark>proyección cartográfica</mark> elige qué conservar: la de Mercator mantiene las formas y las direcciones (muy útil para navegar), pero <b>agranda las tierras cercanas a los polos</b>. Por eso Groenlandia parece gigante.",
+  },
+  lectura: {
+    titulo: "El mapa que cabe en tu bolsillo",
+    html: `<p>Hace quinientos años, un buen mapa era un tesoro. Los reyes de Portugal y Castilla guardaban sus cartas de navegación bajo llave, porque quien sabía cómo llegar a las islas de las especias o a América tenía una enorme ventaja. Los cartógrafos dibujaban a mano cada costa con la información que traían los marinos, y muchos mapas tenían zonas en blanco con la palabra «desconocido» o dibujos de monstruos marinos.</p><p>Hoy llevas en el bolsillo un mapa de todo el planeta. Con el móvil puedes ver tu calle desde un satélite, saber cuánto se tarda en llegar al instituto o descubrir dónde está exactamente un volcán de Islandia. Detrás de esa pantalla hay las mismas ideas que usaban aquellos cartógrafos: una <mark>red de coordenadas</mark>, una <b>escala</b>, una <b>proyección</b> y una <b>leyenda</b>.</p><p>En este tema vas a aprender a leer mapas como un geógrafo: a localizar cualquier punto de la Tierra con dos números, a medir distancias reales y a no dejarte engañar por las deformaciones. Son herramientas que usarás toda la vida, desde una excursión por la montaña hasta un viaje al extranjero.</p>`,
+  },
   bloques: [
-    ["Globos, mapas y planos", `<p>Para representar la Tierra usamos dos tipos de modelos. El <mark>globo terráqueo</mark> es una esfera que reproduce la forma real del planeta; es el más fiel, pero no se puede llevar en el bolsillo ni ver todo el mundo de golpe. El <b>mapa</b> es una representación de la Tierra, o de una parte, sobre una superficie <b>plana</b>, como un papel o una pantalla.</p><p>Cuando lo que se dibuja es un espacio pequeño, como una ciudad, un barrio o un edificio, se llama <b>plano</b>. Los mapas y planos simplifican la realidad: eligen qué mostrar (carreteras, ríos, fronteras…) y lo dibujan con símbolos. Por eso son tan útiles para orientarse y para estudiar el territorio.</p>`,
-      H.figCols("Formas de representar la Tierra", [["Globo", ["esfera", "forma real", "poco práctico"], "var(--inf)"], ["Mapa", ["superficie plana", "zona grande", "algo deformado"], "var(--leaf)"], ["Plano", ["superficie plana", "zona pequeña", "mucho detalle"], "var(--sun)"]])],
-    ["Las proyecciones", `<p>Pasar una esfera a un papel plano es imposible sin deformarla: piensa en lo que pasa si intentas aplanar la piel de una naranja. Para hacerlo, los cartógrafos usan <mark>proyecciones</mark>, sistemas matemáticos que trasladan cada punto del globo al plano.</p><p>Hay tres tipos básicos. La <b>cilíndrica</b> envuelve el globo con un cilindro; representa bien la zona del ecuador, pero agranda mucho las zonas polares (en la proyección de Mercator, Groenlandia parece tan grande como África, que es 14 veces mayor). La <b>cónica</b> usa un cono y sirve para latitudes medias, como Europa. La <b>azimutal</b> o plana toca el globo en un punto y se usa para las regiones polares. Ningún mapa es perfecto: cada proyección conserva unas cosas y deforma otras.</p>`,
-      H.filas("Tipos de proyección", [["Cilíndrica", "mapamundis; agranda los polos", "var(--inf)"], ["Cónica", "latitudes medias: Europa", "var(--leaf)"], ["Azimutal", "regiones polares", "var(--pen)"]])],
-    ["Paralelos y meridianos", `<p>Para localizar lugares se dibuja sobre la Tierra una red de líneas imaginarias. Los <mark>paralelos</mark> son círculos horizontales paralelos al ecuador. El más importante es el <b>ecuador</b>, que divide la Tierra en dos mitades: el <b>hemisferio norte</b> y el <b>hemisferio sur</b>. Otros paralelos destacados son los trópicos de Cáncer y de Capricornio y los círculos polares ártico y antártico.</p><p>Los <mark>meridianos</mark> son semicírculos que van de polo a polo. El meridiano de referencia es el de <b>Greenwich</b>, que pasa por un observatorio cerca de Londres y por el este de España (por Castellón). Divide la Tierra en <b>hemisferio oriental</b> (este) y <b>hemisferio occidental</b> (oeste).</p>`,
-      H.dos("Las líneas imaginarias", ["Paralelos", ["horizontales", "referencia:", "el ecuador", "norte / sur"], "var(--red)"], ["Meridianos", ["de polo a polo", "referencia:", "Greenwich", "este / oeste"], "var(--pen)"])],
-    ["Latitud y longitud", `<p>Las <mark>coordenadas geográficas</mark> son dos medidas en grados que localizan cualquier punto. La <b>latitud</b> es la distancia de un lugar al ecuador; va de 0° (ecuador) a 90° (polos) y se indica si es <b>norte (N)</b> o <b>sur (S)</b>. Todos los puntos de un mismo paralelo tienen la misma latitud.</p><p>La <b>longitud</b> es la distancia de un lugar al meridiano de Greenwich; va de 0° a 180° y se indica si es <b>este (E)</b> u <b>oeste (O)</b>. Todos los puntos de un mismo meridiano tienen la misma longitud. Por ejemplo, Madrid está aproximadamente a <b>40° N, 4° O</b>. Para escribir las coordenadas se da primero la latitud y después la longitud.</p>`,
-      red],
-    ["La escala", `<p>Los mapas reducen la realidad. La <mark>escala</mark> indica cuántas veces se ha reducido. Puede ser <b>numérica</b>, como 1:100 000, que significa que 1 cm del mapa equivale a 100 000 cm (1 km) en la realidad. O puede ser <b>gráfica</b>: una barra dividida en tramos que indica directamente a cuántos kilómetros equivale cada tramo.</p><p>Cuanto más pequeño es el número de la derecha, más <b>grande</b> es la escala y más detalle se ve: un plano de un pueblo puede estar a 1:5000; un mapa de España, a 1:6 000 000. Para calcular una distancia real se mide en el mapa con una regla y se multiplica por la escala. Después conviene pasar los centímetros a kilómetros dividiendo entre 100 000.</p>`,
-      tabla(["Escala", "1 cm en el mapa son…", "Uso"], [["1:5000", "50 metros", "plano de un pueblo"], ["1:50 000", "500 metros", "mapa de excursiones"], ["1:1 000 000", "10 kilómetros", "mapa de una región"], ["1:6 000 000", "60 kilómetros", "mapa de España"]]), V.gh2b],
-    ["La leyenda y la orientación", `<p>Los mapas usan <mark>signos convencionales</mark>: dibujos, colores y líneas que representan elementos reales. Una línea azul es un río; un punto rojo, una ciudad; un avión, un aeropuerto. La <b>leyenda</b> es el recuadro que explica qué significa cada símbolo; siempre hay que leerla antes de interpretar un mapa.</p><p>Para <b>orientarse</b> hay que saber dónde están los puntos cardinales: <b>norte, sur, este y oeste</b>. Casi todos los mapas tienen el norte arriba, y lo indican con una flecha o una <b>rosa de los vientos</b>, que muestra también los puntos intermedios (noreste, sureste…). En el campo se puede encontrar el norte con una <b>brújula</b> o, de día, sabiendo que el Sol sale por el este.</p>`,
-      `<svg viewBox="0 0 260 180" role="img" aria-label="Rosa de los vientos: norte arriba, sur abajo, este a la derecha y oeste a la izquierda">
-        <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-        <g ${F} text-anchor="middle" font-weight="700">
-          <path d="M130 22 L142 78 L130 90 L118 78 Z" fill="var(--red)"/><path d="M130 158 L142 102 L130 90 L118 102 Z" fill="var(--ink)"/>
-          <path d="M60 90 L116 78 L130 90 L116 102 Z" fill="var(--muted)"/><path d="M200 90 L144 78 L130 90 L144 102 Z" fill="var(--muted)"/>
-          <path d="M98 58 L126 86 M162 58 L134 86 M98 122 L126 94 M162 122 L134 94" stroke="var(--line)" stroke-width="3"/>
-          <text x="130" y="16" font-size="13" fill="var(--red)">N</text><text x="130" y="175" font-size="13" fill="var(--ink)">S</text>
-          <text x="46" y="94" font-size="13" fill="var(--ink)">O</text><text x="214" y="94" font-size="13" fill="var(--ink)">E</text>
-          <text x="92" y="54" font-size="10" fill="var(--muted)">NO</text><text x="168" y="54" font-size="10" fill="var(--muted)">NE</text>
-          <text x="92" y="134" font-size="10" fill="var(--muted)">SO</text><text x="168" y="134" font-size="10" fill="var(--muted)">SE</text>
-          <text x="46" y="110" font-size="9.5" font-weight="400" fill="var(--muted)">se pone el Sol</text><text x="214" y="110" font-size="9.5" font-weight="400" fill="var(--muted)">sale el Sol</text>
-        </g></svg>`],
-    ["Tipos de mapas", `<p>Según lo que representan, hay dos grandes familias. Los <mark>mapas topográficos</mark> muestran el terreno con detalle: el relieve, los ríos, los caminos y los pueblos. El relieve se dibuja con <b>curvas de nivel</b>, líneas que unen puntos de la misma altitud; si están muy juntas, la pendiente es fuerte.</p><p>Los <mark>mapas temáticos</mark> tratan un tema concreto. Los <b>físicos</b> muestran el relieve, los ríos y las costas, con colores (verde para las llanuras, marrón para las montañas, azul para el agua). Los <b>políticos</b> muestran países, fronteras y capitales. Y hay mapas de clima, de población, de carreteras o de turismo, entre otros muchos.</p>`,
-      H.arbol("Tipos de mapas", [["Mapas", ["Topográficos", "Temáticos"], "var(--leaf)", ["terreno con detalle", "físico, político…"]]])],
-    ["Las nuevas tecnologías", `<p>Hoy casi todos llevamos un mapa en el móvil. El <mark>GPS</mark> (sistema de posicionamiento global) usa una red de satélites que envían señales; el receptor calcula su distancia a varios de ellos y obtiene su latitud y longitud con un error de pocos metros. Europa tiene su propio sistema, llamado <b>Galileo</b>.</p><p>Los <b>Sistemas de Información Geográfica (SIG)</b> combinan mapas con bases de datos: permiten, por ejemplo, ver dónde hay más tráfico o riesgo de incendios. Y las <b>imágenes de satélite</b> y los visores como el del Instituto Geográfico Nacional muestran cualquier rincón del mundo. Aun así, saber leer un mapa en papel sigue siendo útil cuando no hay cobertura.</p>`,
-      H.flujo("Cómo funciona el GPS", ["satélites|emiten", "el móvil|recibe", "calcula|distancias", "latitud y|longitud"], "var(--inf)")],
+    B("1.1 Globos, mapas y planos", `<p>Para representar la Tierra usamos distintos instrumentos. El <mark>globo terráqueo</mark> es una esfera que reproduce la forma real de la Tierra. Es la representación más exacta, porque no deforma ni las formas ni las distancias, pero tiene inconvenientes: no podemos ver todo el planeta a la vez, es difícil de transportar y no permite ver detalles.</p><p>Un <mark>mapa</mark> es una representación de la Tierra, o de una parte de ella, sobre una superficie plana y reducida. Es cómodo, se puede doblar, ampliar y llevar, y puede mostrar desde el mundo entero hasta una comarca. Su problema es que, al pasar la esfera al plano, siempre hay alguna <b>deformación</b>.</p><p>Un <b>plano</b> es un mapa de una zona muy pequeña, como una ciudad, un barrio o un edificio, con mucho detalle: calles, parques, edificios. Como la zona es tan pequeña, la curvatura de la Tierra no se nota. La ciencia que elabora mapas se llama <b>cartografía</b>, y quienes los hacen, cartógrafos.</p>`,
+      cajas("Formas de representar la Tierra", [["Globo terráqueo", "esfera: sin deformar"], ["Mapa", "plano: el mundo o una región"], ["Plano", "ciudad o edificio, con detalle"]])),
+    B("1.2 Paralelos y meridianos", `<p>Para localizar cualquier lugar, los geógrafos imaginaron una red de líneas sobre la Tierra. Los <mark>paralelos</mark> son círculos imaginarios que rodean la Tierra de este a oeste, paralelos entre sí. El más importante es el <b>ecuador</b>, el más largo, que divide la Tierra en dos mitades: el <b>hemisferio norte</b> y el <b>hemisferio sur</b>. Otros paralelos destacados son los trópicos de Cáncer y Capricornio y los círculos polares ártico y antártico.</p><p>Los <mark>meridianos</mark> son semicírculos imaginarios que van de polo a polo. Todos miden lo mismo. Por acuerdo internacional (1884), el meridiano de referencia es el que pasa por el observatorio de <b>Greenwich</b>, en Londres: es el <b>meridiano 0°</b>. Divide la Tierra en el <b>hemisferio este</b> u oriental y el <b>hemisferio oeste</b> u occidental. El meridiano opuesto, el 180°, está en medio del océano Pacífico.</p><p>Juntos, paralelos y meridianos forman una cuadrícula llamada <b>red geográfica</b>.</p>`,
+      versus("Las líneas de la red geográfica", ["Paralelos", ["círculos este-oeste", "ecuador = 0°", "norte y sur"]], ["Meridianos", ["de polo a polo", "Greenwich = 0°", "este y oeste"]])),
+    B("1.3 Latitud y longitud", `<p>Con la red geográfica podemos dar la dirección exacta de cualquier punto con dos números, sus <mark>coordenadas geográficas</mark>, que se miden en grados (°).</p><p>La <b>latitud</b> es la distancia que hay desde un punto hasta el <b>ecuador</b>. Se mide sobre los meridianos, va de <b>0° a 90°</b> y siempre se indica si es <b>norte (N)</b> o <b>sur (S)</b>. El ecuador tiene latitud 0° y los polos, 90° N y 90° S.</p><p>La <b>longitud</b> es la distancia que hay desde un punto hasta el <b>meridiano de Greenwich</b>. Se mide sobre los paralelos, va de <b>0° a 180°</b> y se indica si es <b>este (E)</b> u <b>oeste (O)</b>.</p><p>Por ejemplo, Madrid está aproximadamente a <b>40° N y 4° O</b>: 40 grados al norte del ecuador y 4 grados al oeste de Greenwich. Para más precisión, cada grado se divide en 60 minutos (′) y cada minuto en 60 segundos (″). Un truco para no confundirse: la latitud dice si un lugar está más «arriba» o más «abajo» en el mapa, y la longitud, si está más a la izquierda o a la derecha.</p>` + tb(["Lugar", "Latitud", "Longitud"], [["Madrid", "40° N", "4° O"], ["Buenos Aires", "35° S", "58° O"], ["Tokio", "36° N", "140° E"], ["Ciudad del Cabo", "34° S", "18° E"]]),
+      versus("Coordenadas geográficas", ["Latitud", ["desde el ecuador", "0° a 90°", "N o S"]], ["Longitud", ["desde Greenwich", "0° a 180°", "E u O"]])),
+    B("1.4 Cómo localizar un punto paso a paso", `<p>Localizar un punto en un mapa con coordenadas es como jugar a «hundir la flota». Sigue estos pasos:</p><p><b>1.</b> Mira la <b>latitud</b>: ¿es norte o sur? Busca el ecuador y cuenta paralelos hacia arriba (N) o hacia abajo (S) hasta llegar al número indicado. <b>2.</b> Mira la <b>longitud</b>: ¿es este u oeste? Busca el meridiano de Greenwich y cuenta meridianos hacia la derecha (E) o hacia la izquierda (O). <b>3.</b> El punto está donde se cruzan ese paralelo y ese meridiano.</p><p>Si tienes que hacer lo contrario, es decir, averiguar las coordenadas de un lugar, primero busca en qué paralelo está (latitud) y luego en qué meridiano (longitud). Recuerda escribir siempre <b>primero la latitud y después la longitud</b>, y no olvides las letras N, S, E u O: sin ellas, la coordenada podría referirse a cuatro lugares distintos del planeta.</p><p>Los móviles y los navegadores usan este mismo sistema, aunque escriben las coordenadas con decimales: 40,42 y −3,70 (el signo menos indica sur u oeste).</p>`,
+      flujo("Localizar un punto", ["Latitud: ¿N o S?", "Contar desde el ecuador", "Longitud: ¿E u O?", "Contar desde Greenwich", "Cruce = el lugar"])),
+    B("1.5 La escala", `<p>Un mapa siempre es más pequeño que la realidad. La <mark>escala</mark> indica cuántas veces se ha reducido. Hay dos tipos.</p><p>La <b>escala numérica</b> se escribe como una división, por ejemplo <b>1 : 100 000</b>. Significa que 1 cm en el mapa equivale a 100 000 cm en la realidad, es decir, a 1 km. La <b>escala gráfica</b> es una barra dividida en segmentos que indica cuántos kilómetros corresponden a cada trozo; se usa con una regla o un trozo de papel. Tiene una ventaja: si amplías o reduces el mapa con una fotocopiadora o en la pantalla, la barra cambia de tamaño con él y sigue siendo correcta.</p><p>Según la escala, los mapas pueden ser de <b>escala grande</b> (como 1 : 5000), que muestran una zona pequeña con mucho detalle, como un plano de ciudad, o de <b>escala pequeña</b> (como 1 : 50 000 000), que muestran zonas enormes, como un continente, con poco detalle. Parece al revés, pero piensa que 1/5000 es un número mayor que 1/50 000 000.</p>`,
+      versus("Tipos de mapas según la escala", ["Escala grande", ["1 : 5000", "zona pequeña", "mucho detalle"]], ["Escala pequeña", ["1 : 50 000 000", "zona enorme", "poco detalle"]]),
+      VL("gh2b")),
+    B("1.6 Calcular distancias reales", `<p>Para saber la distancia real entre dos lugares con la <b>escala numérica</b> hay tres pasos sencillos. <b>1.</b> Mide con una regla la distancia en el mapa, en centímetros. <b>2.</b> Multiplica esa medida por el número de la escala. Obtendrás la distancia real en centímetros. <b>3.</b> Pasa los centímetros a kilómetros dividiendo entre 100 000 (porque 1 km = 1000 m = 100 000 cm).</p><p>Ejemplo: en un mapa a escala 1 : 200 000, dos pueblos están separados 6 cm. 6 × 200 000 = 1 200 000 cm. 1 200 000 ÷ 100 000 = <b>12 km</b>.</p><p>Un atajo útil: <mark>tacha cinco ceros</mark> del número de la escala y sabrás cuántos kilómetros vale 1 cm. En 1 : 200 000, tachando cinco ceros queda 2: cada centímetro son 2 km.</p><p>Con la <b>escala gráfica</b> es todavía más fácil: pon el borde de un papel entre los dos puntos, marca la distancia y llévala a la barra para leer los kilómetros. Recuerda que el resultado es la distancia en línea recta, «a vuelo de pájaro»: por carretera casi siempre es mayor.</p>`,
+      flujo("Distancia real con la escala", ["Medir en el mapa (cm)", "Multiplicar por la escala", "Dividir entre 100 000", "Resultado en km"])),
+    B("1.7 Las proyecciones cartográficas", `<p>¿Has intentado alguna vez aplanar la piel de una naranja sin romperla? Es imposible. Lo mismo ocurre con la Tierra: para dibujarla en un papel hay que usar un sistema matemático llamado <mark>proyección cartográfica</mark>, y todas deforman algo.</p><p>Las más usadas son tres. En la <b>proyección cilíndrica</b> se imagina un cilindro de papel que envuelve la Tierra. La más famosa es la de <b>Mercator</b> (1569): conserva las formas de los continentes y las direcciones, por lo que fue perfecta para los navegantes, pero <b>agranda muchísimo las zonas cercanas a los polos</b>. En la <b>proyección cónica</b>, el papel forma un cono apoyado sobre la Tierra; es buena para representar países de latitudes medias, como España. En la <b>proyección azimutal o plana</b>, el papel toca la Tierra en un solo punto; se usa para los polos.</p><p>Hay otras proyecciones, como la de <b>Peters</b>, que respeta el tamaño real de los continentes aunque deforma sus formas. Ningún mapa del mundo es perfecto: hay que elegir el más adecuado para cada uso.</p>`,
+      cajas("Tipos de proyección", [["Cilíndrica", "Mercator: todo el mundo"], ["Cónica", "latitudes medias"], ["Azimutal", "zonas polares"]]),
+      V("7UzC0M0O6yQ", "Proyecciones cartográficas", "MARIO CARREÓN", 169401)),
+    B("1.8 La leyenda y los signos convencionales", `<p>Para que un mapa se entienda, utiliza un lenguaje de <b>símbolos</b>: colores, líneas, puntos y dibujos. La <mark>leyenda</mark> es el recuadro que explica qué significa cada símbolo. Por eso, lo primero que hay que hacer al leer un mapa es mirar su <b>título</b> (de qué trata), su <b>escala</b> y su <b>leyenda</b>.</p><p>Muchos símbolos se usan en casi todos los mapas y se llaman <b>signos convencionales</b>: el <b>azul</b> para el agua (ríos, lagos, mares), el <b>verde</b> para las tierras bajas o la vegetación, los tonos <b>marrones</b> para las montañas, las líneas rojas o amarillas para las carreteras, la línea con rayitas para el ferrocarril, los puntos de distinto tamaño para las ciudades según su población y las líneas discontinuas para las fronteras.</p><p>En los mapas topográficos, el relieve se representa con <b>curvas de nivel</b>: líneas que unen puntos situados a la misma altitud. Si las curvas están muy juntas, la pendiente es muy fuerte; si están separadas, el terreno es suave.</p>`,
+      rueda("Lo primero al leer un mapa", ["título", "escala", "leyenda", "orientación", "colores", "fuente y fecha"])),
+    B("1.9 Tipos de mapas", `<p>Según lo que representan, los mapas se dividen en dos grandes grupos. Los <mark>mapas topográficos</mark> representan con detalle el terreno de una zona: el relieve con curvas de nivel, los ríos, los caminos, los pueblos, los bosques. En España, el Instituto Geográfico Nacional (IGN) publica el Mapa Topográfico Nacional a escala 1 : 50 000, muy usado por excursionistas.</p><p>Los <mark>mapas temáticos</mark> representan un tema concreto sobre un territorio. Pueden ser <b>físicos</b>, que muestran el relieve, los ríos y las costas; <b>políticos</b>, que muestran países, fronteras, capitales y comunidades autónomas; <b>climáticos</b>, de <b>población</b>, de <b>vegetación</b>, económicos, históricos…</p><p>Los mapas temáticos usan distintos recursos: colores más o menos intensos según la cantidad (por ejemplo, la densidad de población), puntos, flechas para los movimientos (como las migraciones o las corrientes) o círculos de tamaño proporcional. En historia, un mapa puede mostrar la extensión de un imperio o las rutas de los descubridores.</p>`,
+      cajas("Mapas temáticos frecuentes", [["Físico", "relieve, ríos, costas"], ["Político", "países y fronteras"], ["Climático", "climas y temperaturas"], ["De población", "dónde vive la gente"], ["Histórico", "imperios y rutas"], ["Económico", "cultivos e industria"]])),
+    B("1.10 La orientación", `<p>Orientarse es saber dónde estamos y hacia dónde vamos. Para ello usamos los <mark>puntos cardinales</mark>: <b>norte (N)</b>, <b>sur (S)</b>, <b>este (E)</b> y <b>oeste (O)</b>. Entre ellos están los intermedios: noreste (NE), sureste (SE), suroeste (SO) y noroeste (NO). Todos juntos forman la <b>rosa de los vientos</b>, que suele dibujarse en los mapas.</p><p>Casi todos los mapas se dibujan con el <b>norte arriba</b>. Si un mapa tiene otra orientación, debe indicarlo con una flecha que señala el norte.</p><p>Para orientarnos en la naturaleza podemos usar el <b>Sol</b>: sale aproximadamente por el este y se pone por el oeste, y a mediodía, en España, está hacia el sur. De noche, en el hemisferio norte, la <b>estrella Polar</b> señala el norte. La <b>brújula</b>, inventada en China, tiene una aguja imantada que siempre apunta al norte magnético. Hoy el <b>GPS</b> calcula nuestra posición exacta gracias a una red de satélites que envían señales a nuestro móvil.</p>`,
+      cajas("Formas de orientarse", [["Sol", "sale por el este"], ["Estrella Polar", "señala el norte"], ["Brújula", "aguja imantada"], ["GPS", "satélites y móvil"]])),
+    B("1.11 Nuevas tecnologías: SIG, satélites y mapas digitales", `<p>La cartografía ha cambiado muchísimo en las últimas décadas. Los <mark>satélites</mark> fotografían continuamente la superficie terrestre y permiten hacer mapas muy exactos y actualizados, vigilar incendios, inundaciones o el deshielo de los glaciares. Las fotos tomadas desde aviones o drones se llaman <b>ortofotos</b> cuando se corrigen para que coincidan con un mapa.</p><p>Los <b>Sistemas de Información Geográfica (SIG)</b> son programas que combinan mapas con bases de datos: por ejemplo, superponen en un mismo mapa las carreteras, los hospitales, la población y los ríos para decidir dónde construir un nuevo centro de salud. Los usan ayuntamientos, empresas y servicios de emergencia.</p><p>Los <b>mapas digitales</b> de los móviles combinan todo esto con el GPS: nos dicen dónde estamos, calculan rutas y muestran el tráfico en tiempo real. Pero conviene usarlos con espíritu crítico: a veces fallan, se quedan sin cobertura o nos guían por caminos peligrosos. Saber leer un mapa en papel sigue siendo útil.</p>`,
+      flujo("Cómo se hace un mapa digital", ["Satélites y drones toman imágenes", "Se corrigen y se georreferencian", "Se añaden datos (SIG)", "Lo consultamos con GPS"])),
+    B("1.12 Cómo comentar un mapa", `<p>En Geografía e Historia comentarás muchos mapas. Para hacerlo bien, sigue siempre el mismo orden.</p><p><b>1. Identificar el mapa:</b> qué tipo de mapa es (físico, político, temático…), cuál es su título, qué territorio representa, qué escala tiene y, si se indica, la fecha y el autor. <b>2. Describir:</b> qué información muestra la leyenda y cómo se distribuye por el territorio. ¿Dónde hay más y dónde menos? ¿Hay contrastes entre zonas? Usa los puntos cardinales y los nombres de lugares. <b>3. Explicar:</b> por qué se produce esa distribución. Relaciona el mapa con lo que has estudiado: el relieve, el clima, la historia, la economía. <b>4. Concluir:</b> resume en una o dos frases la idea principal.</p><p>Por ejemplo, ante un mapa de densidad de población de España dirías: es un mapa temático de población; las mayores densidades están en la costa y en Madrid, y las menores en el interior; se explica por la industria, el turismo y los servicios; conclusión: España tiene una población muy desigualmente repartida.</p>`,
+      flujo("Comentario de un mapa", ["Identificar", "Describir", "Explicar", "Concluir"])),
   ],
+  figura: FIG("Cómo localizar y leer un mapa", H.figCols("Cómo leer un mapa", [["Coordenadas", ["latitud: N o S", "longitud: E u O", "paralelos", "meridianos"], "var(--red)"], ["Escala", ["numérica 1:100 000", "gráfica (barra)", "cm × escala", "÷ 100 000 = km"], "var(--sun)"], ["Leyenda", ["signos", "colores", "líneas", "¡leer primero!"], "var(--leaf)"], ["Orientación", ["norte arriba", "rosa de vientos", "brújula", "GPS"], "var(--pen)"]])),
+  video: VL("gh2v"),
   ejemplos: [
-    ["En un mapa a escala 1:200 000, dos pueblos están a 4 cm. ¿Qué distancia real los separa?", ["Multiplica la distancia del mapa por la escala: 4 × 200 000 = 800 000 cm.", "Pasa a kilómetros dividiendo entre 100 000: 800 000 ÷ 100 000 = 8."], "8 km."],
-    ["Un punto está a 0° de latitud y 30° E de longitud. ¿Dónde se encuentra?", ["0° de latitud significa que está sobre el ecuador.", "30° E indica que está al este de Greenwich."], "En el ecuador, en el hemisferio oriental (en África oriental)."],
-    ["En un mapa topográfico, en la ladera A las curvas de nivel están muy juntas y en la B muy separadas. ¿Cuál es más empinada?", ["Las curvas unen puntos de igual altura.", "Si están juntas, se sube mucha altura en poca distancia."], "La ladera A."],
+    EX("En un mapa a escala 1 : 50 000, dos fuentes están a 8 cm. ¿Qué distancia real las separa?", ["8 × 50 000 = 400 000 cm.", "400 000 ÷ 100 000 = 4 km."], "4 km en línea recta."),
+    EX("En un mapa a escala 1 : 2 000 000, Madrid y Toledo están a unos 3,5 cm. ¿Cuántos km hay?", ["Tachando cinco ceros: 1 cm = 20 km.", "3,5 × 20 = 70 km."], "Unos 70 km."),
+    EX("Dos ciudades están a 150 km. ¿A cuántos cm aparecerán en un mapa a escala 1 : 5 000 000?", ["En esa escala 1 cm = 50 km.", "150 ÷ 50 = 3 cm."], "A 3 cm."),
+    EX("¿En qué hemisferios está un lugar de coordenadas 35° S, 58° O?", ["La latitud S indica hemisferio sur.", "La longitud O indica hemisferio oeste."], "Hemisferio sur y hemisferio occidental (es Buenos Aires)."),
+    EX("Estás perdido en el campo a las 9 de la mañana y ves el Sol. ¿Hacia dónde está el norte?", ["Por la mañana el Sol está hacia el este.", "Si miras al Sol, el este está delante.", "El norte estará a tu izquierda."], "El norte está a la izquierda cuando miras al Sol de la mañana."),
+    EX("Explica por qué en el mapa de Mercator Groenlandia parece tan grande como África.", ["Mercator es una proyección cilíndrica.", "Conserva las formas, pero estira las zonas cercanas a los polos.", "Groenlandia está muy al norte, así que aparece muy agrandada."], "Es una deformación de la proyección: en realidad África es unas 14 veces mayor."),
   ],
   errores: [
-    "Escribir primero la longitud: las coordenadas se dan con la latitud delante (40° N, 4° O).",
-    "Olvidar indicar N, S, E u O: «40°» solo no localiza ningún punto.",
-    "Creer que un mapa con escala 1:6 000 000 es de escala grande: cuanto mayor es el número, más pequeña es la escala.",
-    "Pensar que los mapamundis muestran el tamaño real de los países: todas las proyecciones deforman.",
-    "Confundir paralelos (horizontales, latitud) con meridianos (de polo a polo, longitud).",
+    "Confundir latitud (distancia al ecuador, N o S) con longitud (distancia a Greenwich, E u O).",
+    "Olvidar las letras N, S, E u O en las coordenadas: sin ellas el punto no queda definido.",
+    "Pensar que una escala 1 : 50 000 000 es «grande»: es pequeña, porque muestra una zona enorme con poco detalle.",
+    "Olvidar pasar los centímetros a kilómetros al usar la escala numérica.",
+    "Creer que existe un mapa del mundo sin deformaciones: todas las proyecciones deforman algo.",
+    "No leer la leyenda antes de interpretar un mapa.",
   ],
-  ejercicios: [
-    ["¿Qué diferencia hay entre un mapa y un plano?", "El mapa representa una zona grande; el plano, una zona pequeña como una ciudad, con mucho detalle."],
-    ["¿Por qué todos los mapas deforman la realidad?", "Porque es imposible pasar una superficie esférica a una plana sin estirarla o cortarla."],
-    ["¿Qué paralelo divide la Tierra en hemisferio norte y sur?", "El ecuador."],
-    ["¿Qué es la longitud de un lugar?", "La distancia en grados entre ese lugar y el meridiano de Greenwich, hacia el este o el oeste."],
-    ["Escala 1:50 000. Mides 6 cm entre dos puntos. ¿Cuál es la distancia real?", "6 × 50 000 = 300 000 cm = 3 km."],
-    ["¿Qué escala tiene más detalle, 1:10 000 o 1:1 000 000? ¿Por qué?", "1:10 000, porque reduce menos la realidad (escala más grande)."],
-    ["¿Para qué sirve la leyenda?", "Para saber qué significa cada símbolo, color o línea del mapa."],
-    ["¿Qué son las curvas de nivel?", "Líneas que unen puntos de igual altitud en un mapa topográfico."],
-    ["Pon un ejemplo de mapa temático distinto del físico y del político.", "Un mapa del clima, de población, de carreteras o turístico."],
-    ["¿Cómo sabe el GPS dónde estás?", "Calcula la distancia a varios satélites a partir de sus señales y con ello obtiene tu latitud y longitud."],
+  ejercicios: EJ(
+    [
+      ["¿Qué diferencia hay entre un globo terráqueo y un mapa?", "El globo es esférico y no deforma la Tierra, pero no se ve entera. El mapa es plano, cómodo y muestra todo a la vez, pero siempre deforma algo."],
+      ["¿Qué es un plano?", "Un mapa de una zona muy pequeña (ciudad, barrio, edificio) con mucho detalle."],
+      ["¿Qué son los paralelos? ¿Cuál es el más importante?", "Círculos imaginarios que rodean la Tierra de este a oeste. El más importante es el ecuador."],
+      ["¿Qué son los meridianos? ¿Cuál es el meridiano 0°?", "Semicírculos imaginarios que van de polo a polo. El meridiano 0° es el de Greenwich (Londres)."],
+      ["Define latitud y di sus valores máximos.", "Distancia de un punto al ecuador. Va de 0° a 90° norte o sur."],
+      ["Define longitud y di sus valores máximos.", "Distancia de un punto al meridiano de Greenwich. Va de 0° a 180° este u oeste."],
+      ["¿Qué significa la escala 1 : 100 000?", "Que 1 cm del mapa equivale a 100 000 cm (1 km) en la realidad."],
+      ["¿Qué es la leyenda de un mapa?", "El recuadro que explica el significado de los símbolos y colores del mapa."],
+      ["¿Qué color se usa en los mapas para el agua?", "El azul."],
+      ["Nombra los cuatro puntos cardinales y los cuatro intermedios.", "Norte, sur, este y oeste; noreste, sureste, suroeste y noroeste."],
+      ["¿Para qué sirve una brújula?", "Para orientarse: su aguja imantada apunta siempre al norte magnético."],
+      ["¿Qué significan las siglas GPS y cómo funciona?", "Sistema de Posicionamiento Global: calcula nuestra posición con señales de varios satélites."],
+    ],
+    [
+      ["Escala 1 : 25 000. Distancia en el mapa: 12 cm. Calcula la distancia real.", "12 × 25 000 = 300 000 cm = 3 km."],
+      ["Escala 1 : 1 000 000. Dos ciudades están a 9 cm. ¿Cuántos km hay?", "1 cm = 10 km. 9 × 10 = 90 km."],
+      ["Entre dos pueblos hay 24 km. ¿A cuántos cm estarán en un mapa 1 : 200 000?", "1 cm = 2 km. 24 ÷ 2 = 12 cm."],
+      ["Explica la ventaja de la escala gráfica sobre la numérica.", "Si se amplía o reduce el mapa (fotocopia, pantalla), la barra cambia con él y sigue siendo válida; la numérica dejaría de ser correcta."],
+      ["¿Qué diferencia hay entre un mapa de escala grande y uno de escala pequeña? Pon ejemplos.", "Escala grande (1 : 5000): zona pequeña con mucho detalle, como un plano de ciudad. Escala pequeña (1 : 50 000 000): zona enorme con poco detalle, como un mapamundi."],
+      ["¿Por qué la proyección de Mercator fue tan útil para los navegantes?", "Porque conserva las formas y las direcciones: una línea recta en el mapa es un rumbo constante de brújula."],
+      ["¿Qué proyección usarías para un mapa de la Antártida? ¿Y para uno de España?", "Para la Antártida, la azimutal o plana; para España, la cónica (adecuada para latitudes medias)."],
+      ["¿Qué son las curvas de nivel? ¿Qué indica que estén muy juntas?", "Líneas que unen puntos de la misma altitud. Si están muy juntas, la pendiente es muy fuerte."],
+      ["Diferencia mapa topográfico y mapa temático.", "El topográfico representa con detalle el terreno (relieve, ríos, caminos, pueblos). El temático representa un tema concreto (clima, población, política…)."],
+      ["¿Qué es un SIG y para qué se usa?", "Un Sistema de Información Geográfica: programa que combina mapas y bases de datos. Sirve, por ejemplo, para planificar dónde construir un hospital o gestionar emergencias."],
+      ["Escribe las coordenadas aproximadas de Madrid y explica qué significa cada número.", "40° N, 4° O: Madrid está 40 grados al norte del ecuador y 4 grados al oeste del meridiano de Greenwich."],
+    ],
+    [
+      ["En un mapa 1 : 50 000 un sendero mide 14 cm, pero tiene curvas. ¿Crees que la distancia real es 7 km, más o menos? Explica.", "14 × 50 000 = 700 000 cm = 7 km si se midiera la línea recta. Pero si se ha medido siguiendo las curvas con un hilo, 7 km es la longitud real del sendero; si se midió en línea recta, el camino real será mayor."],
+      ["Un mapa digital indica que hay 150 km de Madrid a Valladolid por carretera, pero en línea recta son unos 160 cm en un mapa 1 : 10 000 000… ¿Es posible? Razona.", "En 1 : 10 000 000, 1 cm = 100 km, así que 160 cm serían 16 000 km: es imposible. El dato del mapa está mal leído: seguramente son 1,6 cm (160 km en línea recta). Además, la carretera nunca puede ser más corta que la línea recta, así que algún dato es erróneo."],
+      ["¿Qué coordenadas tiene un punto situado exactamente en el ecuador y en el meridiano de Greenwich? ¿Qué hay allí?", "0° de latitud y 0° de longitud. Es un punto del océano Atlántico, en el golfo de Guinea, frente a África."],
+      ["Compara las proyecciones de Mercator y Peters: ventajas, inconvenientes y para qué usarías cada una.", "Mercator: conserva formas y direcciones; agranda las zonas polares. Útil para navegar. Peters: conserva el tamaño real de los continentes; deforma las formas. Útil para comparar superficies o mostrar la importancia de los países del sur."],
+      ["Diseña la leyenda de un plano de tu barrio con al menos 8 símbolos.", "Respuesta abierta. Por ejemplo: instituto, parque, parada de autobús, farmacia, hospital, calles principales, carril bici, río o fuente, con símbolos y colores claros."],
+      ["Comenta un mapa de densidad de población de España siguiendo los cuatro pasos.", "Identificar: mapa temático de población de España. Describir: más densidad en la costa, Madrid, valle del Guadalquivir; menos en el interior (Soria, Teruel, Cuenca). Explicar: industria, turismo, servicios y comunicaciones en la costa y Madrid; despoblación rural en el interior. Concluir: reparto muy desigual."],
+      ["¿Por qué crees que hasta el siglo XIX muchos mapas ponían Europa en el centro? ¿Es una visión neutral?", "Porque se hacían en Europa y reflejaban la visión de quien los dibujaba. No es neutral: el centro y el tamaño dan sensación de importancia. Hay mapas con el Pacífico en el centro (Asia) o con el sur arriba (Australia)."],
+    ]
+  ),
+  quiz: QS([
+    ["La representación más exacta de la Tierra es…", ["el globo terráqueo", "el mapa de Mercator", "el plano", "la brújula"], "No deforma formas ni distancias."],
+    ["Un plano representa…", ["una zona muy pequeña con detalle", "el mundo entero", "un continente", "el sistema solar"], "Una ciudad, un barrio, un edificio."],
+    ["El ecuador es un…", ["paralelo", "meridiano", "trópico", "huso"], "El paralelo 0°, el más largo."],
+    ["El meridiano 0° pasa por…", ["Greenwich (Londres)", "Madrid", "París", "el ecuador"], "Acordado en 1884."],
+    ["Los meridianos van…", ["de polo a polo", "de este a oeste", "en círculos paralelos", "solo por el hemisferio norte"], "Todos miden lo mismo."],
+    ["La latitud se mide desde…", ["el ecuador", "Greenwich", "el polo norte", "Madrid"], "De 0° a 90° N o S."],
+    ["La longitud máxima es…", ["180°", "90°", "360°", "45°"], "Este u oeste."],
+    ["Madrid está aproximadamente en…", ["40° N, 4° O", "4° N, 40° O", "40° S, 4° E", "0°, 0°"], "Hemisferio norte y occidental."],
+    ["Escala 1 : 100 000: 1 cm equivale a…", ["1 km", "100 m", "10 km", "100 km"], "100 000 cm = 1 km."],
+    ["En escala 1 : 300 000, 5 cm son…", ["15 km", "1,5 km", "150 km", "3 km"], "1 cm = 3 km."],
+    ["¿Qué escala es más grande?", ["1 : 10 000", "1 : 1 000 000", "1 : 50 000 000", "1 : 500 000"], "Muestra zona pequeña con mucho detalle."],
+    ["La escala gráfica es…", ["una barra dividida en segmentos", "una fracción", "un color", "una flecha al norte"], "Sigue valiendo si se amplía el mapa."],
+    ["La proyección de Mercator agranda…", ["las zonas cercanas a los polos", "el ecuador", "los océanos", "África"], "Por eso Groenlandia parece enorme."],
+    ["Para representar los polos se usa la proyección…", ["azimutal", "cilíndrica", "cónica", "de Mercator"], "El papel toca la Tierra en un punto."],
+    ["La leyenda explica…", ["los símbolos del mapa", "la escala", "las proyecciones", "el título"], "Hay que leerla primero."],
+    ["Las curvas de nivel unen puntos de igual…", ["altitud", "temperatura", "población", "longitud"], "Muy juntas = pendiente fuerte."],
+    ["Un mapa que muestra países y fronteras es…", ["político", "físico", "climático", "topográfico"], "Es un mapa temático."],
+    ["La estrella Polar señala…", ["el norte", "el sur", "el este", "el oeste"], "En el hemisferio norte."],
+    ["El Sol sale aproximadamente por el…", ["este", "oeste", "norte", "sur"], "Y se pone por el oeste."],
+    ["Un SIG combina…", ["mapas y bases de datos", "brújulas y relojes", "planos y novelas", "satélites y telescopios"], "Sistema de Información Geográfica."],
+  ]),
+  examen: QS([
+    ["Un punto a 20° S y 30° E está en los hemisferios…", ["sur y oriental", "norte y occidental", "sur y occidental", "norte y oriental"], "S = sur; E = este u oriental."],
+    ["Escala 1 : 50 000; 6 cm en el mapa son…", ["3 km", "30 km", "300 m", "0,3 km"], "6 × 0,5 km."],
+    ["Entre dos ciudades hay 80 km. En un mapa 1 : 4 000 000 estarán a…", ["2 cm", "20 cm", "8 cm", "0,5 cm"], "1 cm = 40 km."],
+    ["La proyección cónica es adecuada para…", ["latitudes medias, como España", "los polos", "todo el mundo", "el espacio"], "El papel forma un cono."],
+    ["La proyección que respeta el tamaño real de los continentes es la de…", ["Peters", "Mercator", "Greenwich", "Ptolomeo"], "Aunque deforma sus formas."],
+    ["Si las curvas de nivel están muy separadas, el terreno es…", ["suave", "muy empinado", "un acantilado", "un río"], "Pendiente suave."],
+    ["Lo primero al comentar un mapa es…", ["identificarlo (tipo, título, escala)", "concluir", "explicar", "dibujar otro"], "Después: describir, explicar, concluir."],
+    ["El GPS funciona gracias a…", ["satélites", "la estrella Polar", "la brújula", "las mareas"], "Calculan la posición del receptor."],
+  ]),
+  feynman: [
+    "Qué diferencia hay entre globo, mapa y plano",
+    "Cómo se localiza un lugar con latitud y longitud",
+    "Cómo se calcula una distancia real con la escala",
+    "Por qué todos los mapas del mundo deforman algo",
   ],
-  figura: ["Cómo localizar y leer un mapa", H.figCols("Cómo leer un mapa", [["Coordenadas", ["latitud: N o S", "longitud: E u O", "paralelos", "meridianos"], "var(--red)"], ["Escala", ["numérica 1:100 000", "gráfica (barra)", "cm × escala", "÷ 100 000 = km"], "var(--sun)"], ["Leyenda", ["signos", "colores", "líneas", "¡leer primero!"], "var(--leaf)"], ["Orientación", ["norte arriba", "rosa de vientos", "brújula", "GPS"], "var(--pen)"]])],
-  video: V.gh2v,
-  quiz: [
-    ["La representación más fiel de la Tierra es…", ["el globo terráqueo", "el mapamundi", "el plano"], "Tiene su misma forma."],
-    ["El ecuador es un…", ["paralelo", "meridiano", "trópico"], "Divide norte y sur."],
-    ["El meridiano 0° es el de…", ["Greenwich", "Madrid", "París"], "Pasa cerca de Londres."],
-    ["La latitud se mide desde…", ["el ecuador", "Greenwich", "el polo sur"], "De 0° a 90° N o S."],
-    ["La longitud máxima es…", ["180°", "90°", "360°"], "Hacia el este o el oeste."],
-    ["En la escala 1:100 000, 1 cm son…", ["1 km", "100 m", "10 km"], "100 000 cm = 1 km."],
-    ["El recuadro que explica los símbolos es…", ["la leyenda", "la escala", "la rosa de los vientos"], "Hay que leerlo primero."],
-    ["La proyección que agranda los polos es la…", ["cilíndrica", "cónica", "azimutal"], "Como la de Mercator."],
-    ["Las curvas de nivel indican…", ["la altitud", "la temperatura", "las fronteras"], "Unen puntos de igual altura."],
-    ["El sistema europeo de navegación por satélite es…", ["Galileo", "Apolo", "Mercator"], "Similar al GPS."],
-  ],
-  examen: [
-    ["Madrid está aproximadamente en…", ["40° N, 4° O", "4° N, 40° O", "40° S, 4° E"], "Latitud primero."],
-    ["Un mapa político muestra sobre todo…", ["países y fronteras", "el relieve", "las nubes"], "Es un mapa temático."],
-    ["Si las curvas de nivel están muy juntas, el terreno es…", ["muy empinado", "llano", "un lago"], "Mucha altura en poca distancia."],
-  ],
-  feynman: ["Qué diferencia hay entre globo, mapa y plano", "Cómo se localiza un punto con latitud y longitud", "Cómo se calcula una distancia real con la escala", "Qué tipos de mapas existen y para qué sirven"],
-  mapa: ["LOS MAPAS", "var(--leaf)", [["Representar", "globo · mapa · plano", "var(--inf)"], ["Localizar", "paralelos · meridianos", "var(--red)"], ["Leer", "escala · leyenda · norte", "var(--sun)"], ["Tipos", "topográfico · temático", "var(--leaf)"]], 230],
+  mapa: MAPA("LOS MAPAS", [["Coordenadas", "red geográfica · latitud · longitud"], ["Escala", "numérica · gráfica · distancias"], ["Proyecciones", "cilíndrica · cónica · azimutal"], ["Leer mapas", "leyenda · orientación · tipos"]]),
   tarjetas: [
-    ["Mapa", "Representación plana de la Tierra o de una parte."],
-    ["Proyección", "Sistema para pasar la esfera terrestre a un plano."],
-    ["Paralelo", "Círculo imaginario paralelo al ecuador."],
-    ["Meridiano", "Semicírculo de polo a polo. El 0° es Greenwich."],
-    ["Latitud", "Distancia al ecuador: 0° a 90° N o S."],
-    ["Longitud", "Distancia a Greenwich: 0° a 180° E u O."],
-    ["Escala", "Proporción entre el mapa y la realidad (1:100 000)."],
-    ["Leyenda", "Explicación de los símbolos de un mapa."],
+    ["Globo terráqueo", "Esfera que representa la Tierra sin deformarla."],
+    ["Mapa", "Representación plana y reducida de la Tierra."],
+    ["Paralelo", "Círculo imaginario este-oeste; ecuador = 0°."],
+    ["Meridiano", "Semicírculo de polo a polo; Greenwich = 0°."],
+    ["Latitud", "Distancia al ecuador: 0°-90° N o S."],
+    ["Longitud", "Distancia a Greenwich: 0°-180° E u O."],
+    ["Escala numérica", "1 : 100 000 → 1 cm = 1 km."],
+    ["Escala gráfica", "Barra con segmentos en km."],
+    ["Proyección", "Sistema para pasar la esfera al plano."],
+    ["Leyenda", "Explica los símbolos del mapa."],
+    ["Curvas de nivel", "Unen puntos de igual altitud."],
+    ["Rosa de los vientos", "N, S, E, O y puntos intermedios."],
   ],
-  familias: ["Buscad la casa en un visor de mapas y anotad sus coordenadas; después buscad las del colegio y comparad.", "En la próxima excursión, usad un mapa en papel con escala para calcular la distancia antes de salir."],
-  saberes: "Representación del espacio: proyecciones, coordenadas geográficas, escala, leyenda y tipos de mapas; tecnologías de la información geográfica (Geografía e Historia, 1º ESO, RD 217/2022).",
-  ideas: ["Juego de «hundir la flota» con coordenadas reales sobre un mapamundi.", "Pelar una mandarina para ver por qué todo mapa deforma.", "Calcular distancias entre pueblos de la comarca con un mapa del IGN."],
-  fuentes: [["Instituto Geográfico Nacional: visor IBERPIX", "https://www.ign.es/iberpix/visor/"], ["IGN: recursos educativos de cartografía", "https://www.ign.es/web/ign/portal/recursos-educativos"]],
-});
+  glosario: [
+    ["Cartografía", "Ciencia que elabora mapas."],
+    ["Globo terráqueo", "Esfera que reproduce la forma de la Tierra."],
+    ["Mapa", "Representación reducida y plana de la superficie terrestre."],
+    ["Plano", "Mapa de una zona muy pequeña y detallada."],
+    ["Paralelo", "Círculo imaginario que rodea la Tierra de este a oeste."],
+    ["Meridiano", "Semicírculo imaginario que va de polo a polo."],
+    ["Hemisferio", "Cada una de las dos mitades en que se divide la Tierra."],
+    ["Latitud", "Distancia en grados entre un punto y el ecuador."],
+    ["Longitud", "Distancia en grados entre un punto y el meridiano de Greenwich."],
+    ["Coordenadas geográficas", "Latitud y longitud de un punto."],
+    ["Escala", "Relación entre las medidas del mapa y las reales."],
+    ["Proyección cartográfica", "Sistema matemático para representar la esfera en un plano."],
+    ["Leyenda", "Explicación de los símbolos de un mapa."],
+    ["Curva de nivel", "Línea que une puntos con la misma altitud."],
+    ["Orientación", "Determinación de la posición respecto a los puntos cardinales."],
+  ],
+  situacion: SIT(
+    "Una gincana con mapas por el instituto",
+    "Vais a organizar una gincana para los compañeros de otro grupo usando un plano del instituto y su entorno, con pistas basadas en coordenadas, escalas y orientación.",
+    [
+      "Dibujad un plano del instituto con su escala gráfica, la flecha del norte y una leyenda.",
+      "Dividid el plano en una cuadrícula con letras y números, como coordenadas.",
+      "Escribid 6 pistas: una con coordenadas, otra con una distancia a escala, otra con puntos cardinales…",
+      "Probad la gincana vosotros mismos y corregid errores.",
+      "Organizad la gincana con el otro grupo y recoged sus opiniones.",
+    ],
+    "Un plano del instituto y una gincana de orientación.",
+    [
+      "El plano tiene título, escala, orientación y leyenda correctos.",
+      "Las pistas usan bien coordenadas, escala y puntos cardinales.",
+      "La gincana funciona y se puede completar.",
+      "El equipo coopera y reparte el trabajo.",
+    ]
+  ),
+  familias: [
+    "Buscad vuestra casa en un mapa digital y apuntad sus coordenadas.",
+    "Con un mapa de carreteras, calculad la distancia real entre dos ciudades usando la escala.",
+    "En una excursión, intentad orientaros con el Sol o con una brújula del móvil.",
+    "Repasad las tarjetas del paso 6 dos minutos al día durante la semana.",
+  ],
+  profesores: {
+    saberes: "Representación del espacio: orientación, escala, coordenadas geográficas, proyecciones y tipos de mapas; tecnologías de la información geográfica (RD 217/2022, Geografía e Historia 1º-2º ESO).",
+    ideas: [
+      "Comparar en clase un globo y un mapa de Mercator con la web «The True Size Of».",
+      "Medir distancias reales con el visor del IGN (Iberpix) y comprobar con la escala.",
+      "Gincana de orientación en el patio con brújula y coordenadas.",
+    ],
+  },
+  fuentes: [RD, { t: "Instituto Geográfico Nacional (IGN)", url: "https://www.ign.es/" }, WIKI("Proyección cartográfica", "Proyección_cartográfica"), WIKI("Coordenadas geográficas", "Coordenadas_geográficas")],
+  revisado: "2026-11-14",
+};
