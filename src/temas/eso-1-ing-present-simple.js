@@ -212,6 +212,6 @@ module.exports = {
       "Comparar rutinas de adolescentes de varios países con vídeos cortos.",
     ],
   },
-  fuentes: [RD, BC, CAM("Present simple", "present-simple")],
+  fuentes: [RD, BC, CAM("Present simple", "present-simple-i-work"), CAM("Adverbs: position", "adverbs-and-adverb-phrases-position")],
   revisado: "2026-11-14",
 };
