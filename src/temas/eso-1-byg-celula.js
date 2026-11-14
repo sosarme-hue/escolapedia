@@ -1,162 +1,236 @@
-// Biología y Geología 1º ESO: la célula. Dibujos propios en SVG.
-const { mapa, BG, t, fl, tabla, RD, wiki, C, REV, cj, rejilla, et, COL } = require("./_eso1a");
-
-// Rótulo con línea guía: de (x1,y1) en el dibujo a (x2,y2) donde va el texto.
-const guia = (x1, y1, x2, y2, s, anchor = "start") => `<path d="M${x1} ${y1} L ${x2} ${y2}" stroke="var(--ink)" stroke-width="1"/>${t(x2 + (anchor === "start" ? 3 : -3), y2 + 3.5, s, { size: 9.5, anchor })}`;
+// Biología y Geología 1º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso1L3 y dibujos de la versión anterior del tema.
+const H = require("./_eso1L3");
+const S = "byg-celula";
+const [vEuc, vMic] = H.videos(S);
 
 module.exports = {
   materia: "Biología y Geología",
-  curso: C,
+  curso: H.CURSO,
   titulo: "La célula",
-  minutos: 55,
-  objetivos: ["Enunciar la teoría celular y conocer su historia", "Identificar las partes comunes de todas las células", "Distinguir células procariotas y eucariotas, y células animales y vegetales", "Conocer las partes del microscopio óptico y cómo se usa"],
-  claves: ["célula", "teoría celular", "microscopio", "membrana", "citoplasma", "núcleo", "ADN", "procariota", "eucariota", "mitocondria", "cloroplasto", "pared celular", "vacuola"],
+  minutos: 100,
+  objetivos: [
+    "Contar cómo se descubrió la célula y enunciar la teoría celular",
+    "Reconocer las partes comunes a todas las células y su función",
+    "Distinguir células procariotas y eucariotas, y células animales y vegetales",
+    "Explicar las funciones vitales de la célula y cómo se divide",
+    "Relacionar células, tejidos, órganos y aparatos en los seres pluricelulares",
+    "Usar el microscopio óptico y preparar una muestra sencilla",
+  ],
+  claves: ["célula", "teoría celular", "microscopio", "membrana", "citoplasma", "núcleo", "ADN", "procariota", "eucariota", "mitocondria", "cloroplasto", "pared celular", "vacuola", "tejido"],
   pregunta: {
     texto: "Tu cuerpo tiene unos 30 billones de células. ¿Cómo es posible que todas procedan de una sola?",
-    respuesta: "Todo empezó con una única célula, el <b>cigoto</b>, que se formó al unirse un óvulo y un espermatozoide. Esa célula se <b>dividió en dos</b>, cada una de ellas en otras dos, y así una y otra vez. Con unas 45 divisiones seguidas ya se superan los 30 billones. Por el camino, las células se fueron <b>especializando</b>: unas se convirtieron en neuronas, otras en células musculares, otras en glóbulos rojos… pero todas guardan el mismo ADN.",
+    respuesta: "Todo empezó con una única célula, el <b>cigoto</b>, que se formó al unirse un óvulo y un espermatozoide. Esa célula se <b>dividió en dos</b>, cada una de ellas en otras dos, y así una y otra vez. Con unas 45 divisiones seguidas ya se superan los 30 billones. Por el camino, las células se fueron <mark>especializando</mark>: unas se convirtieron en neuronas, otras en células musculares y otras en glóbulos rojos, pero todas guardan el mismo ADN.",
+  },
+  lectura: {
+    titulo: "Un comerciante de telas que descubrió un mundo invisible",
+    html: `<p>Anton van Leeuwenhoek vivía en Delft, una ciudad de Holanda, hace unos 350 años. No era científico: vendía telas. Para comprobar la calidad de los hilos usaba lupas, y poco a poco aprendió a pulir sus propias lentes, tan pequeñas como una lenteja y mucho más potentes que las de su época. Un día de 1674 miró con una de ellas una gota de agua de un charco. Lo que vio le dejó boquiabierto: el agua estaba llena de «animálculos», seres diminutos que nadaban, giraban y chocaban entre sí.</p>
+<p>Siguió mirando todo lo que tenía a mano: la saliva, la sangre, el sarro de sus propios dientes. En todas partes encontraba vida invisible. Escribió cientos de cartas a la Royal Society de Londres, donde al principio no le creyeron. Tuvieron que ir a verlo con sus propios ojos.</p>
+<p>Leeuwenhoek había descubierto las bacterias y los protozoos, los seres vivos más pequeños. Hoy sabemos que todos los seres vivos, desde una bacteria hasta una ballena, están formados por <b>células</b>. En este tema aprenderás cómo son, qué hacen y cómo se pueden observar.</p>`,
   },
   bloques: [
     {
-      html: `<h3>El descubrimiento de la célula</h3><p>Las células son tan pequeñas que no se pueden ver a simple vista: la mayoría mide entre 10 y 100 <b>micrómetros</b> (milésimas de milímetro). Por eso no se descubrieron hasta que se inventó el <mark>microscopio</mark>. En 1665, el científico inglés <b>Robert Hooke</b> observó una lámina finísima de corcho con un microscopio construido por él y vio que estaba formada por pequeñas celdas vacías, como las de un panal; las llamó <b>células</b>, que en latín significa «celdillas». En realidad, lo que vio eran las paredes de células muertas. Pocos años después, el comerciante holandés <b>Anton van Leeuwenhoek</b>, que fabricaba sus propias lentes, observó por primera vez seres vivos microscópicos en una gota de agua de un charco y en la placa de sus dientes, a los que llamó «animálculos». Durante los siglos siguientes, los microscopios mejoraron y se observaron células en todo tipo de seres vivos.</p>`,
+      html: `<h3>1.1 El descubrimiento de la célula</h3><p>Las células son tan pequeñas que no se ven a simple vista. La mayoría mide entre 10 y 100 <b>micrómetros</b> (µm): un micrómetro es la milésima parte de un milímetro. Por eso no se descubrieron hasta que se inventó el <mark>microscopio</mark>, a finales del siglo XVI.</p><p>En 1665, el inglés <b>Robert Hooke</b> observó una lámina muy fina de corcho y vio pequeñas celdas vacías, como las de un panal. Las llamó <b>células</b>, que en latín significa «celdillas». En realidad veía las paredes de células muertas. Pocos años después, <b>Anton van Leeuwenhoek</b> observó por primera vez seres vivos microscópicos en una gota de agua. Durante los siglos siguientes, los microscopios mejoraron y se encontraron células en todos los seres vivos.</p>`,
+      svg: H.linea("Línea del tiempo del descubrimiento de la célula", [["1590", "primer microscopio"], ["1665", "Hooke ve el corcho"], ["1674", "Leeuwenhoek ve microbios"], ["1839", "teoría celular"], ["1931", "microscopio electrónico"]], "De las celdillas a la teoría celular"),
     },
     {
-      html: `<h3>La teoría celular</h3><p>En el siglo XIX, los científicos alemanes <b>Matthias Schleiden</b> (estudiando plantas) y <b>Theodor Schwann</b> (estudiando animales) llegaron a la conclusión de que todos los seres vivos están formados por células. Más tarde, <b>Rudolf Virchow</b> afirmó que toda célula procede de otra célula. Y a finales de siglo, el español <b>Santiago Ramón y Cajal</b> demostró que el sistema nervioso también está formado por células independientes, las neuronas, lo que le valió el Premio Nobel en 1906. Así se completó la <mark>teoría celular</mark>, uno de los pilares de la biología, que dice: 1) <b>todos los seres vivos están formados por una o más células</b>; 2) la célula es la <b>unidad estructural</b> de los seres vivos (todos están hechos de células) y la <b>unidad funcional</b> (cada célula realiza las funciones vitales: nutrición, relación y reproducción); 3) <b>toda célula procede de otra célula</b> ya existente, por división; y 4) la célula contiene la <b>información hereditaria</b> y la transmite a sus células hijas.</p>`,
+      html: `<h3>1.2 La teoría celular</h3><p>En el siglo XIX, el botánico <b>Matthias Schleiden</b>, que estudiaba plantas, y el zoólogo <b>Theodor Schwann</b>, que estudiaba animales, llegaron a la misma conclusión: todos los seres vivos están hechos de células. Más tarde, el médico <b>Rudolf Virchow</b> añadió que toda célula procede de otra célula. Así nació la <mark>teoría celular</mark>, una de las ideas más importantes de la biología. Dice cuatro cosas:</p><p>1. Todos los seres vivos están formados por una o más células.<br>2. La célula es la unidad más pequeña que realiza las funciones vitales: es la <b>unidad funcional</b>.<br>3. La célula es la pieza con la que se construyen los seres vivos: es la <b>unidad estructural</b>.<br>4. Toda célula procede de otra célula que ya existía.</p><p>En el siglo XX, el español <b>Santiago Ramón y Cajal</b> demostró que el sistema nervioso también está formado por células independientes, las neuronas, y recibió el Premio Nobel en 1906.</p>`,
+      svg: H.radial("Los cuatro principios de la teoría celular", "TEORÍA CELULAR", ["Todo ser vivo tiene células", "Unidad funcional", "Unidad estructural", "Toda célula viene de otra"], "var(--leaf)"),
     },
     {
-      html: `<h3>Las partes comunes de las células</h3><p>Existen células de formas y tamaños muy diversos, pero todas tienen tres partes en común. La <mark>membrana plasmática</mark> es una envoltura muy fina que rodea la célula, la separa del exterior y <b>controla qué sustancias entran y salen</b>, como la aduana de un país. El <mark>citoplasma</mark> es el contenido de la célula: un medio acuoso y gelatinoso donde flotan los <b>orgánulos</b> (pequeñas estructuras con funciones concretas) y donde se producen muchas de las reacciones químicas de la vida. Y el <mark>material genético</mark>, el <b>ADN</b>, que contiene las instrucciones para fabricar y hacer funcionar la célula y que se copia y se transmite cuando la célula se divide. Según dónde esté ese ADN, se distinguen dos grandes tipos de células: las <b>procariotas</b> y las <b>eucariotas</b>. Una comparación útil: si la célula fuera una fábrica, la membrana sería la valla con sus puertas, el citoplasma, la nave donde se trabaja, y el ADN, el libro de instrucciones.</p>`,
+      html: `<h3>1.3 Las partes comunes de todas las células</h3><p>Hay células de formas y tamaños muy distintos, pero todas tienen tres partes en común:</p><p>• La <mark>membrana plasmática</mark> es una envoltura muy fina que rodea la célula. La separa del exterior y controla qué sustancias entran y salen, como la puerta de una casa.<br>• El <mark>citoplasma</mark> es el interior de la célula. Está formado por un líquido gelatinoso donde flotan pequeñas estructuras llamadas <b>orgánulos</b>, y allí ocurren muchas reacciones químicas.<br>• El <mark>material genético</mark> o <b>ADN</b> guarda las instrucciones para que la célula funcione y para fabricar células hijas iguales. Es como el libro de instrucciones de la célula.</p><p>Además, todas las células tienen <b>ribosomas</b>, unos orgánulos diminutos que fabrican proteínas.</p>`,
+      svg: H.capas("Partes comunes de las células: membrana, citoplasma con ribosomas y ADN", [["Membrana: controla lo que entra y sale", "var(--pen)", 1], ["Citoplasma: líquido con orgánulos", "var(--leaf)", 1.3], ["Ribosomas: fabrican proteínas", "var(--sun)", 1], ["ADN: las instrucciones", "var(--red)", 1]], "Lo que tienen todas las células"),
     },
     {
-      html: `<h3>Células procariotas</h3><p>Las <mark>células procariotas</mark> son las más <b>sencillas y antiguas</b>: los primeros seres vivos, hace unos 3.500 millones de años, eran de este tipo. Su característica principal es que <b>no tienen núcleo</b>: el ADN está libre en el citoplasma, en una zona llamada nucleoide. Además, son muy pequeñas (de 1 a 10 micrómetros) y tienen muy pocos orgánulos, casi solo <b>ribosomas</b>, que fabrican proteínas. Por fuera de la membrana tienen una <b>pared celular</b> rígida que les da forma y protección, y muchas tienen <b>flagelos</b>, largos filamentos que mueven como hélices para desplazarse. Todas las <b>bacterias</b> son procariotas y unicelulares. Aunque no las veamos, están por todas partes: en el suelo, el agua, el aire y dentro de nuestro cuerpo, donde la mayoría son beneficiosas, como las de la flora intestinal.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Célula procariota: pared celular, membrana, citoplasma con ribosomas, ADN libre sin núcleo y un flagelo">${BG}
-        <rect x="40" y="56" width="140" height="70" rx="35" fill="#86efac" fill-opacity=".5" stroke="#15803d" stroke-width="4"/>
-        <rect x="46" y="62" width="128" height="58" rx="29" fill="none" stroke="#2f9e44" stroke-width="1.5"/>
-        <path d="M80 90 c 10 -14 20 12 30 -2 s 18 14 28 0 s -10 -14 -24 -6 s -22 18 -34 8" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
-        ${[[64, 76], [70, 104], [150, 74], [158, 102], [128, 108], [96, 70]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="2.2" fill="var(--ink)"/>`).join("")}
-        <path d="M180 91 c 14 -10 22 10 36 0 s 18 10 30 0" fill="none" stroke="#15803d" stroke-width="2.5"/>
-        ${guia(110, 86, 136, 30, "ADN sin núcleo")}${guia(42, 100, 16, 124, "pared")}${guia(70, 104, 64, 150, "ribosoma", "end")}${guia(150, 124, 160, 150, "membrana")}${guia(226, 92, 214, 60, "flagelo", "start")}</svg>`,
+      html: `<h3>1.4 Las células procariotas</h3><p>Las <mark>células procariotas</mark> son las más <b>sencillas y antiguas</b>. Los primeros seres vivos, que aparecieron hace unos 3.500 millones de años, eran así. Su nombre significa «antes del núcleo», porque <b>no tienen núcleo</b>: su ADN está suelto en el citoplasma, en una zona llamada nucleoide.</p><p>Son muy pequeñas, de 1 a 10 micrómetros. Por fuera de la membrana tienen una <b>pared celular</b> rígida que las protege, y algunas tienen un <b>flagelo</b>, una especie de cola que gira para moverse. Casi no tienen orgánulos: solo ribosomas. Las <b>bacterias</b> son células procariotas. Aunque sean sencillas, tienen un éxito enorme: viven en el suelo, en el agua, en el aire y dentro de nuestro cuerpo.</p>`,
+      svg: H.viejo(S, 3),
     },
     {
-      html: `<h3>Células eucariotas</h3><p>Las <mark>células eucariotas</mark> son <b>más grandes y complejas</b> (de 10 a 100 micrómetros) y aparecieron más tarde en la historia de la vida. Su característica principal es que tienen un <mark>núcleo</mark>: una estructura rodeada por una doble membrana que guarda el ADN y que dirige toda la actividad de la célula. Además, su citoplasma contiene muchos <b>orgánulos</b> especializados, cada uno con su función. Los más importantes son: las <mark>mitocondrias</mark>, las «centrales de energía», donde se realiza la respiración celular y se obtiene la energía de los alimentos; los <b>ribosomas</b>, que fabrican las proteínas; el <b>retículo endoplasmático</b> y el <b>aparato de Golgi</b>, que fabrican, transforman y empaquetan sustancias; y las <b>vacuolas</b>, que almacenan agua y otras sustancias. Están formados por células eucariotas los animales, las plantas, los hongos, las algas y los protozoos.</p>`,
-      video: { id: "FJx0auAdQsw", titulo: "Las células procariotas y eucariotas - Ciencias Naturales - Vídeo educativo", canal: "Smile and Learn - Español", vistas: 2504106 },
+      html: `<h3>1.5 Las células eucariotas</h3><p>Las <mark>células eucariotas</mark> son <b>más grandes y complejas</b>, de 10 a 100 micrómetros. Aparecieron hace unos 2.000 millones de años. Su nombre significa «núcleo verdadero», porque su ADN está dentro de un <b>núcleo</b> rodeado por una membrana. Así queda protegido, como un documento valioso dentro de una caja fuerte.</p><p>Su citoplasma está lleno de orgánulos, cada uno con una tarea, como los departamentos de una fábrica. Las <b>mitocondrias</b> obtienen energía de los alimentos: son las centrales eléctricas. El <b>retículo endoplasmático</b> y el <b>aparato de Golgi</b> fabrican, empaquetan y reparten sustancias. Las <b>vacuolas</b> almacenan agua y otras sustancias. Tienen células eucariotas los animales, las plantas, los hongos, los protozoos y las algas.</p>`,
+      svg: H.compara("Diferencias entre células procariotas y eucariotas", ["Procariota", "var(--red)", ["sin núcleo", "ADN suelto", "1 a 10 µm", "bacterias"]], ["Eucariota", "var(--pen)", ["con núcleo", "muchos orgánulos", "10 a 100 µm", "animales, plantas, hongos"]]),
+      video: vEuc,
     },
     {
-      html: `<h3>Célula animal y célula vegetal</h3><p>Las células de los animales y las de las plantas son eucariotas, pero tienen algunas diferencias. La <mark>célula vegetal</mark> tiene una <b>pared celular</b> rígida de <b>celulosa</b> por fuera de la membrana, que le da una forma poligonal y fija (por eso las plantas se mantienen erguidas); tiene <mark>cloroplastos</mark>, orgánulos verdes con <b>clorofila</b> donde se realiza la <b>fotosíntesis</b>; y suele tener <b>una vacuola muy grande</b> que ocupa casi todo el interior y empuja el citoplasma contra la pared. La <mark>célula animal</mark> no tiene pared celular ni cloroplastos, por lo que su forma es más variable y redondeada; sus vacuolas son pequeñas y numerosas; y tiene un orgánulo llamado <b>centrosoma</b>, que interviene en la división celular. Las dos tienen membrana, citoplasma, núcleo, mitocondrias, ribosomas, retículo y aparato de Golgi. ¡Ojo! Las plantas también tienen mitocondrias: necesitan obtener energía igual que los animales.</p>${tabla(["Característica", "Célula animal", "Célula vegetal"], [["Pared celular", "no", "sí, de celulosa"], ["Cloroplastos", "no", "sí: fotosíntesis"], ["Vacuolas", "pequeñas y numerosas", "una muy grande"], ["Forma", "variable, redondeada", "poligonal y fija"], ["Centrosoma", "sí", "no"], ["Núcleo y mitocondrias", "sí", "sí"]])}`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Célula animal redondeada con núcleo y mitocondrias; célula vegetal poligonal con pared celular, gran vacuola, cloroplastos y núcleo">${BG}
-        <ellipse cx="66" cy="88" rx="54" ry="46" fill="#fecaca" fill-opacity=".6" stroke="#d6332a" stroke-width="2"/>
-        <circle cx="66" cy="88" r="14" fill="#c4b5fd" stroke="#6d28d9" stroke-width="2"/><circle cx="66" cy="88" r="4" fill="#6d28d9"/>
-        <ellipse cx="38" cy="70" rx="9" ry="5" fill="#fdba74" stroke="#c2410c" stroke-width="1.5"/><ellipse cx="96" cy="108" rx="9" ry="5" fill="#fdba74" stroke="#c2410c" stroke-width="1.5"/><circle cx="92" cy="70" r="4" fill="#bae6fd"/><circle cx="40" cy="108" r="3.5" fill="#bae6fd"/>
-        ${t(66, 152, "animal", { size: 11, color: COL.rojo })}
-        <rect x="140" y="38" width="108" height="100" rx="4" fill="#bbf7d0" stroke="#15803d" stroke-width="5"/>
-        <rect x="160" y="52" width="70" height="64" rx="10" fill="#bae6fd" stroke="#0369a1" stroke-width="1.5"/>
-        <circle cx="152" cy="124" r="9" fill="#c4b5fd" stroke="#6d28d9" stroke-width="1.5"/>
-        ${[[150, 50], [240, 64], [238, 118], [196, 128], [148, 96]].map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="6" ry="3.5" fill="#22c55e" stroke="#15803d"/>`).join("")}
-        ${t(195, 88, "vacuola", { size: 10, color: "#0369a1" })}
-        ${t(194, 152, "vegetal", { size: 11, color: COL.verde })}${t(194, 26, "pared + cloroplastos", { size: 9.5, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.6 Célula animal y célula vegetal</h3><p>Las células de los animales y las de las plantas son eucariotas, pero tienen diferencias que se ven bien al microscopio.</p><p>La <b>célula vegetal</b> tiene una <mark>pared celular</mark> de celulosa por fuera de la membrana. Esta pared es rígida y por eso las células vegetales suelen tener forma de polígono, como baldosas. También tiene <mark>cloroplastos</mark>, los orgánulos verdes donde se hace la <b>fotosíntesis</b>, y una gran <b>vacuola</b> central llena de agua que ocupa casi toda la célula.</p><p>La <b>célula animal</b> no tiene pared ni cloroplastos. Tiene formas más variadas, a menudo redondeadas, y vacuolas pequeñas. En cambio, tiene <b>centriolos</b>, que ayudan cuando la célula se divide. Ambas tienen núcleo, membrana, citoplasma y mitocondrias.</p>`,
+      svg: H.viejo(S, 5),
     },
     {
-      html: `<h3>Seres unicelulares y pluricelulares</h3><p>Según el número de células, los seres vivos pueden ser <mark>unicelulares</mark> o <mark>pluricelulares</mark>. En los unicelulares, como las bacterias, las amebas, los paramecios o las levaduras, <b>una sola célula realiza todas las funciones vitales</b>: se alimenta, se relaciona con su medio y se reproduce. Casi todos son microscópicos. En los pluricelulares, como las plantas, los animales y la mayoría de los hongos, el organismo está formado por muchas células que se <b>especializan</b> en distintas tareas y adoptan formas adaptadas a ellas, de modo que dependen unas de otras. Por ejemplo, las <b>neuronas</b> tienen largas prolongaciones para transmitir mensajes a distancia; las <b>células musculares</b> son alargadas y pueden contraerse; los <b>glóbulos rojos</b> tienen forma de disco y llevan oxígeno; y las <b>células de la raíz</b> forman pelos absorbentes para tomar agua del suelo. A cambio de especializarse, estas células ya no pueden vivir solas.</p>`,
+      html: `<h3>1.7 Las funciones vitales de la célula</h3><p>Cada célula es un ser vivo en miniatura: realiza las tres <b>funciones vitales</b>.</p><p>• <mark>Nutrición</mark>: la célula toma sustancias del exterior a través de la membrana y las transforma. En las mitocondrias, con oxígeno, «quema» los alimentos para obtener energía: es la <b>respiración celular</b>. Las células vegetales, además, fabrican su propio alimento en los cloroplastos.<br>• <mark>Relación</mark>: la célula percibe lo que pasa a su alrededor y responde. Por ejemplo, algunas bacterias nadan hacia el alimento y se alejan de sustancias peligrosas.<br>• <mark>Reproducción</mark>: la célula forma nuevas células. La forma más común es la <b>división celular</b>: una célula madre copia su ADN y se parte en dos células hijas iguales.</p>`,
+      svg: H.radial("Las tres funciones vitales de la célula", "CÉLULA", ["Nutrición: toma y transforma sustancias", "Relación: percibe y responde", "Reproducción: se divide en dos", "Energía en las mitocondrias"], "var(--pen)"),
     },
     {
-      html: `<h3>El microscopio óptico</h3><p>El instrumento básico para observar células en el laboratorio escolar es el <mark>microscopio óptico</mark>, que usa la luz y un sistema de lentes para aumentar la imagen. Sus partes principales son: el <b>ocular</b>, la lente por la que se mira; los <b>objetivos</b>, lentes de distintos aumentos (por ejemplo, 4×, 10× y 40×) montadas en un <b>revólver</b> que gira; la <b>platina</b>, donde se coloca la muestra, con unas pinzas; la <b>fuente de luz</b> y el <b>diafragma</b>, que regula la cantidad de luz; y los <b>tornillos macrométrico y micrométrico</b>, que suben o bajan la platina para enfocar, el primero de forma rápida y el segundo con precisión. El <b>aumento total</b> se calcula multiplicando el del ocular por el del objetivo: con un ocular de 10× y un objetivo de 40×, la imagen se ve <b>400 veces</b> más grande. Para estudiar estructuras aún más pequeñas, como los virus o el interior de los orgánulos, los científicos usan el <b>microscopio electrónico</b>, que puede aumentar cientos de miles de veces.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Microscopio óptico con sus partes: ocular, revólver con objetivos, platina, tornillos de enfoque, luz y pie">${BG}
-        <rect x="70" y="150" width="90" height="14" rx="4" fill="#475569"/>
-        <path d="M120 150 V 60 Q 120 40 100 30" fill="none" stroke="#475569" stroke-width="12" stroke-linecap="round"/>
-        <rect x="82" y="16" width="16" height="30" rx="3" fill="#334155" transform="rotate(-25 90 30)"/>
-        <rect x="74" y="66" width="22" height="12" rx="3" fill="#334155"/><rect x="78" y="78" width="6" height="16" fill="#64748b"/><rect x="88" y="78" width="6" height="12" fill="#64748b"/>
-        <rect x="56" y="104" width="64" height="7" rx="2" fill="#1e293b"/>
-        <circle cx="86" cy="134" r="6" fill="#fde68a" stroke="#c98a00" stroke-width="1.5"/>
-        <circle cx="128" cy="98" r="7" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/><circle cx="128" cy="118" r="4.5" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
-        ${guia(84, 20, 40, 18, "ocular", "end")}${guia(76, 86, 58, 70, "objetivos", "end")}${guia(58, 107, 40, 104, "platina", "end")}${guia(80, 134, 40, 136, "luz", "end")}
-        ${guia(135, 98, 170, 86, "macrométrico")}${guia(132, 118, 170, 118, "micrométrico")}${guia(150, 157, 170, 150, "pie")}</svg>`,
-      video: { id: "omBqFwX-Wx4", titulo: "LAS PARTES DEL MICROSCOPIO ÓPTICO Y SUS FUNCIONES", canal: "Astraway", vistas: 251645 },
+      html: `<h3>1.8 La división celular</h3><p>Cuando una célula crece lo suficiente, se divide. Primero <b>copia su ADN</b> para tener dos juegos de instrucciones. Después, en las eucariotas, el núcleo se divide en dos: es la <mark>mitosis</mark>. Finalmente, el citoplasma se reparte y la membrana se estrangula hasta formar <b>dos células hijas</b> con el mismo ADN que la madre.</p><p>Gracias a la división celular, un ser unicelular se reproduce y un ser pluricelular <b>crece</b> y <b>repara</b> sus heridas. Cuando te haces un corte, las células de la piel de alrededor se dividen hasta cerrar la herida. Algunas bacterias se dividen cada 20 minutos: si tuvieran alimento ilimitado, una sola formaría millones en unas horas.</p>`,
+      svg: H.flujo("Pasos de la división celular", ["La célula crece", "Copia su ADN", "Se divide el núcleo (mitosis)", "Se forman dos células hijas"], "Una célula se convierte en dos"),
     },
     {
-      html: `<h3>Cómo se hace una preparación</h3><p>Para observar células al microscopio hay que preparar la muestra. Un ejemplo clásico es la <b>epidermis de cebolla</b>. 1) Se arranca con unas pinzas la <b>capa finísima y transparente</b> de la cara interna de una hoja de cebolla. 2) Se coloca extendida sobre un <b>portaobjetos</b>, una lámina de vidrio rectangular, con una gota de agua. 3) Se añade una gota de un <b>colorante</b>, como el azul de metileno, para que se distingan mejor el núcleo y la pared, se espera un minuto y se lava el sobrante. 4) Se cubre con un <b>cubreobjetos</b>, un cristal muy fino, bajándolo inclinado para que no queden burbujas. 5) Se observa siempre <b>empezando por el objetivo de menos aumentos</b>, se enfoca con el macrométrico y después se pasa a más aumento y se ajusta con el micrométrico. Se verán células alargadas, ordenadas como ladrillos, con su pared y un núcleo bien visible. Las normas de seguridad son importantes: manejar el vidrio con cuidado, no tocar las lentes con los dedos y llevar el microscopio con las dos manos.</p>`,
+      html: `<h3>1.9 Seres unicelulares y pluricelulares</h3><p>Según su número de células, los seres vivos pueden ser <mark>unicelulares</mark> o <mark>pluricelulares</mark>. Los unicelulares están formados por <b>una sola célula</b>, que hace todas las funciones vitales: las bacterias, los protozoos como la ameba o el paramecio, y algunas algas y hongos, como la levadura del pan.</p><p>Los pluricelulares tienen <b>muchas células</b> que se reparten el trabajo. Cada tipo de célula se especializa en una tarea y su forma se adapta a ella. Las <b>neuronas</b> son largas y ramificadas para transmitir mensajes; los <b>glóbulos rojos</b> tienen forma de disco para transportar oxígeno; las células musculares son alargadas y se contraen. Por eso una neurona no puede hacer el trabajo de una célula del músculo.</p>`,
+      svg: H.tabla("Células especializadas del cuerpo humano y su función", ["Célula", "Forma", "Función"], [["Neurona", "larga y ramificada", "transmitir mensajes"], ["Glóbulo rojo", "disco sin núcleo", "llevar oxígeno"], ["Muscular", "alargada", "contraerse"], ["Espermatozoide", "con cola", "nadar hasta el óvulo"]]),
+    },
+    {
+      html: `<h3>1.10 De la célula al organismo: niveles de organización</h3><p>En los seres pluricelulares, las células se organizan en niveles cada vez más complejos. Un <mark>tejido</mark> es un grupo de células parecidas que hacen la misma función, como el tejido muscular o el tejido nervioso. Varios tejidos juntos forman un <mark>órgano</mark>, como el corazón, el estómago o una hoja. Varios órganos que trabajan coordinados forman un <b>aparato</b> o <b>sistema</b>, como el aparato digestivo. Y todos los aparatos juntos forman el <b>organismo</b>.</p><p>Esta organización funciona como un equipo de fútbol: cada jugador (célula) tiene su puesto, los jugadores de la misma línea forman la defensa o el ataque (tejidos) y todo el equipo juega coordinado. Si una parte falla, todo el organismo lo nota.</p>`,
+      svg: H.piramide("Niveles de organización: célula, tejido, órgano, aparato y organismo", [["célula", "var(--pen)"], ["tejido", "var(--leaf)"], ["órgano", "var(--sun)"], ["aparato", "var(--red)"], ["organismo", "var(--inf)"]], "De lo más simple a lo más complejo"),
+    },
+    {
+      html: `<h3>1.11 El microscopio óptico</h3><p>El instrumento básico para observar células en el laboratorio es el <mark>microscopio óptico</mark>. Usa la luz y un sistema de lentes para ver objetos muy aumentados. Sus partes principales son el <b>ocular</b>, la lente por la que miras; los <b>objetivos</b>, lentes de distintos aumentos colocadas en el <b>revólver</b>; la <b>platina</b>, donde se apoya la muestra; los <b>tornillos</b> macrométrico y micrométrico, que sirven para enfocar; y la <b>fuente de luz</b>.</p><p>Para saber cuántas veces se amplía la imagen se <b>multiplican</b> los aumentos del ocular por los del objetivo. Con un ocular de 10× y un objetivo de 40×, la imagen se ve 400 veces más grande. Para ver detalles más pequeños, como los virus, se usa el <b>microscopio electrónico</b>, que funciona con electrones y puede aumentar más de un millón de veces.</p>`,
+      svg: H.viejo(S, 7),
+      video: vMic,
+    },
+    {
+      html: `<h3>1.12 Cómo se hace una preparación</h3><p>Para observar células hay que preparar la muestra. Un ejemplo clásico es la <b>epidermis de cebolla</b>:</p><p>1. Se separa una capa de la cebolla y se arranca con pinzas la piel finísima y transparente de su cara interna.<br>2. Se coloca extendida sobre un <b>portaobjetos</b> con una gota de agua.<br>3. Se añade una gota de un colorante, como el <b>azul de metileno</b>, para que se vean mejor el núcleo y la pared.<br>4. Se cubre con un <b>cubreobjetos</b>, bajándolo inclinado para que no queden burbujas.<br>5. Se observa empezando por el objetivo de <b>menor aumento</b> y se enfoca con el tornillo macrométrico; después se cambia a más aumento y se ajusta con el micrométrico.</p><p>Verás células con forma de ladrillo, unidas como un muro, cada una con su núcleo. Para ver células animales se pueden raspar con un palillo limpio las células de la cara interna de la mejilla.</p>`,
+      svg: H.flujo("Pasos para preparar la epidermis de cebolla", ["Arrancar la piel fina de la cebolla", "Extenderla en el portaobjetos con agua", "Teñir con azul de metileno", "Cubrir y observar con poco aumento"], "Preparación de cebolla"),
     },
   ],
-  figura: {
-    titulo: "La célula en ocho ideas",
-    svg: rejilla([
-      ["Teoría celular", "todo ser vivo tiene células", COL.azul],
-      ["Membrana", "controla qué entra y sale", COL.rojo],
-      ["Citoplasma", "medio con orgánulos", COL.agua],
-      ["ADN", "las instrucciones", COL.morado],
-      ["Procariota", "sin núcleo: bacterias", COL.gris],
-      ["Eucariota", "con núcleo y orgánulos", COL.naranja],
-      ["Vegetal", "pared y cloroplastos", COL.verde],
-      ["Microscopio", "ocular × objetivo", COL.marron],
-    ], 4, 86, "Resumen: teoría celular, partes de la célula, tipos de células y microscopio"),
-  },
-  video: { id: "Ps54eXe8YHY", titulo: "La célula y sus partes. Vídeos educativos para niños.", canal: "Happy Learning Español", vistas: 4576549, megusta: 0, busqueda: "la célula animal y vegetal partes" },
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    { enunciado: "Observas una muestra con un ocular de 10× y el objetivo de 40×. ¿Cuántos aumentos tiene la imagen? Si una célula se ve de 20 mm, ¿cuánto mide de verdad?",
-      pasos: ["Aumento total: 10 · 40 = 400 aumentos.", "Tamaño real = tamaño de la imagen ÷ aumentos = 20 mm ÷ 400 = 0,05 mm.", "0,05 mm = 50 micrómetros."],
-      resultado: "400 aumentos; la célula mide 0,05 mm (50 µm)." },
-    { enunciado: "Una célula tiene pared celular, núcleo y cloroplastos. ¿Es procariota o eucariota? ¿Animal o vegetal?",
-      pasos: ["Tiene núcleo: es eucariota.", "Tiene cloroplastos y pared: es vegetal (o de un alga)."],
-      resultado: "Eucariota vegetal." },
-    { enunciado: "Una célula tiene pared celular, ribosomas y ADN libre en el citoplasma, pero no tiene núcleo ni mitocondrias. ¿Qué tipo de célula es?",
-      pasos: ["No tiene núcleo: es procariota.", "Las procariotas con pared y flagelo, como esta, son bacterias."],
-      resultado: "Procariota: una bacteria." },
+    { enunciado: "Un microscopio tiene un ocular de 10× y objetivos de 4×, 10× y 40×. ¿Qué aumentos se consiguen?", pasos: ["Se multiplica el aumento del ocular por el del objetivo.", "10 × 4 = 40; 10 × 10 = 100; 10 × 40 = 400."], resultado: "40, 100 y 400 aumentos." },
+    { enunciado: "Al microscopio ves una célula con pared, núcleo y cloroplastos verdes. ¿Qué tipo de célula es?", pasos: ["Tiene núcleo: es eucariota.", "Tiene pared celular y cloroplastos: es vegetal."], resultado: "una célula eucariota vegetal." },
+    { enunciado: "Una bacteria se divide cada 20 minutos. Si empezamos con una, ¿cuántas habrá al cabo de 2 horas?", pasos: ["En 2 horas hay 120 / 20 = 6 divisiones.", "Cada división duplica el número: 1 → 2 → 4 → 8 → 16 → 32 → 64."], resultado: "64 bacterias." },
+    { enunciado: "Ordena de menor a mayor complejidad: estómago, célula muscular, aparato digestivo, tejido muscular, ser humano.", pasos: ["La célula es la unidad más simple.", "Las células forman tejidos; los tejidos, órganos; los órganos, aparatos; y los aparatos, el organismo."], resultado: "célula muscular, tejido muscular, estómago, aparato digestivo, ser humano." },
+    { enunciado: "Una célula mide 0,02 mm. ¿Cuántos micrómetros son? ¿Se puede ver a simple vista?", pasos: ["1 mm = 1.000 µm.", "0,02 × 1.000 = 20 µm.", "El ojo humano distingue objetos de unos 100 µm como mínimo."], resultado: "20 µm; no se ve a simple vista, hace falta microscopio." },
+    { enunciado: "En la preparación de cebolla no se ven los núcleos. ¿Qué se ha podido hacer mal?", pasos: ["Los núcleos son casi transparentes.", "Si no se tiñe la muestra, no destacan.", "También puede estar mal enfocada o ser demasiado gruesa."], resultado: "probablemente falta el colorante o la capa es demasiado gruesa." },
   ],
   errores: [
-    "Decir que las plantas no tienen mitocondrias: las tienen, igual que los animales.",
-    "Pensar que las bacterias tienen núcleo: son procariotas.",
-    "Confundir la pared celular (vegetal, rígida) con la membrana (todas las células).",
-    "Enfocar directamente con el objetivo de más aumentos y romper el portaobjetos.",
-    "Sumar los aumentos del ocular y el objetivo en lugar de multiplicarlos.",
+    "Pensar que las células de las plantas no tienen mitocondrias: las tienen, igual que las animales.",
+    "Creer que Hooke vio células vivas: vio las paredes de células muertas de corcho.",
+    "Confundir membrana y pared celular: todas las células tienen membrana; solo algunas tienen pared.",
+    "Sumar los aumentos del ocular y del objetivo en lugar de multiplicarlos.",
+    "Decir que las bacterias no tienen ADN: lo tienen, pero suelto en el citoplasma, sin núcleo.",
+    "Empezar a observar con el objetivo de mayor aumento: siempre se empieza por el menor.",
   ],
-  ejercicios: [
-    { q: "¿Quién usó por primera vez la palabra «célula» y qué observó?", sol: "Robert Hooke, en 1665, al observar una lámina de corcho." },
-    { q: "Escribe los principios de la teoría celular.", sol: "Todos los seres vivos están formados por células; la célula es la unidad estructural y funcional; toda célula procede de otra; contiene la información hereditaria." },
-    { q: "¿Qué aportó Santiago Ramón y Cajal?", sol: "Demostró que el sistema nervioso está formado por células independientes, las neuronas." },
-    { q: "Nombra las tres partes comunes a todas las células y su función.", sol: "Membrana (controla lo que entra y sale), citoplasma (medio donde están los orgánulos) y ADN (instrucciones de la célula)." },
-    { q: "¿Cuál es la principal diferencia entre una célula procariota y una eucariota?", sol: "La eucariota tiene núcleo; la procariota no, y su ADN está libre en el citoplasma." },
-    { q: "¿Qué función tienen las mitocondrias? ¿Y los cloroplastos?", sol: "Las mitocondrias obtienen energía (respiración celular); los cloroplastos hacen la fotosíntesis." },
-    { q: "Escribe tres diferencias entre la célula animal y la vegetal.", sol: "La vegetal tiene pared celular, cloroplastos y una vacuola grande; la animal no tiene pared ni cloroplastos y tiene centrosoma." },
-    { q: "¿Qué ventaja y qué inconveniente tiene que las células de un ser pluricelular se especialicen?", sol: "Ventaja: cada una hace muy bien su tarea; inconveniente: ya no pueden vivir solas." },
-    { q: "¿Para qué sirven los tornillos macrométrico y micrométrico?", sol: "Para enfocar: el macrométrico de forma rápida y el micrométrico con precisión." },
-    { q: "¿Por qué se añade azul de metileno a una preparación?", sol: "Para teñir y distinguir mejor estructuras como el núcleo." },
-  ],
-  quiz: [
-    { q: "Las células se descubrieron gracias al…", o: ["telescopio", "microscopio", "termómetro"], a: 1, e: "Microscopio." },
-    { q: "Toda célula procede de…", o: ["otra célula", "la materia inerte", "un virus"], a: 0, e: "De otra célula." },
-    { q: "La parte que controla lo que entra y sale es la…", o: ["membrana", "vacuola", "pared"], a: 0, e: "Membrana plasmática." },
-    { q: "Las bacterias son células…", o: ["eucariotas", "procariotas", "vegetales"], a: 1, e: "Procariotas." },
-    { q: "Las «centrales de energía» de la célula son…", o: ["los cloroplastos", "las mitocondrias", "los ribosomas"], a: 1, e: "Mitocondrias." },
-    { q: "Los cloroplastos están en las células…", o: ["animales", "vegetales", "de todas las bacterias"], a: 1, e: "Vegetales y algas." },
-    { q: "La pared celular de las plantas es de…", o: ["celulosa", "proteína", "calcio"], a: 0, e: "Celulosa." },
-    { q: "Un paramecio es un ser…", o: ["unicelular", "pluricelular", "inerte"], a: 0, e: "Unicelular." },
-    { q: "Con un ocular de 10× y un objetivo de 10× se obtienen…", o: ["20 aumentos", "100 aumentos", "1.000 aumentos"], a: 1, e: "10 · 10 = 100." },
-    { q: "La muestra se coloca en la…", o: ["platina", "ocular", "revólver"], a: 0, e: "Platina." },
-  ],
-  examen: [
-    { q: "El ADN de las eucariotas está en el…", o: ["núcleo", "citoplasma libre", "pared"], a: 0, e: "Núcleo." },
-    { q: "Siempre se empieza a observar con el objetivo…", o: ["de menos aumentos", "de más aumentos", "de inmersión"], a: 0, e: "El de menos aumentos." },
-    { q: "Los ribosomas fabrican…", o: ["proteínas", "energía", "celulosa"], a: 0, e: "Proteínas." },
-  ],
-  feynman: ["Qué dice la teoría celular", "Qué diferencia una célula procariota de una eucariota", "En qué se diferencian la célula animal y la vegetal"],
-  mapa: mapa("LA CÉLULA", "var(--eso)", [
-    ["Teoría celular", "Hooke · Schwann · Cajal", COL.azul],
-    ["Partes", "membrana · citoplasma · ADN", COL.rojo],
-    ["Tipos", "procariota · eucariota", COL.morado],
-    ["Observación", "microscopio · preparación", COL.verde],
-  ], 280),
+  ejercicios: H.niveles([
+    ["¿Quién usó por primera vez la palabra «célula» y qué observó?", "Robert Hooke, en 1665. Observó una lámina de corcho con celdillas vacías, que eran las paredes de células muertas."],
+    ["Escribe los cuatro principios de la teoría celular.", "Todos los seres vivos están formados por células; la célula es la unidad funcional; es la unidad estructural; toda célula procede de otra célula."],
+    ["¿Cuáles son las tres partes comunes a todas las células?", "Membrana plasmática, citoplasma y material genético (ADN)."],
+    ["¿Qué función tiene la membrana plasmática?", "Separa la célula del exterior y controla qué sustancias entran y salen."],
+    ["¿Qué diferencia principal hay entre una célula procariota y una eucariota?", "La procariota no tiene núcleo y su ADN está suelto en el citoplasma; la eucariota tiene el ADN dentro de un núcleo."],
+    ["Nombra dos estructuras que tiene la célula vegetal y no la animal.", "La pared celular y los cloroplastos. También tiene una gran vacuola central."],
+    ["¿Qué orgánulo obtiene energía de los alimentos?", "La mitocondria, mediante la respiración celular."],
+    ["¿Qué es un ser unicelular? Pon dos ejemplos.", "El formado por una sola célula. Por ejemplo, una bacteria y un paramecio (o la levadura)."],
+    ["Define tejido y pon un ejemplo.", "Grupo de células parecidas que hacen la misma función. Ejemplo: el tejido muscular."],
+    ["Nombra cinco partes del microscopio óptico.", "Ocular, objetivos, revólver, platina, tornillos de enfoque, fuente de luz y pie."],
+    ["¿Qué es un micrómetro?", "La milésima parte de un milímetro."],
+    ["¿Para qué sirve el azul de metileno en una preparación?", "Es un colorante que tiñe la muestra para que se vean mejor el núcleo y otras partes."],
+  ], [
+    ["Explica por qué la célula es la unidad funcional de los seres vivos.", "Porque es la parte más pequeña capaz de realizar las funciones vitales: nutrición, relación y reproducción."],
+    ["Compara la célula animal y la vegetal en una tabla de cuatro filas.", "Pared: vegetal sí, animal no. Cloroplastos: vegetal sí, animal no. Vacuola: vegetal grande, animal pequeñas. Forma: vegetal poligonal, animal variada. Ambas tienen núcleo y mitocondrias."],
+    ["¿Por qué las células vegetales tienen forma de polígono?", "Porque la pared celular es rígida y las células, muy juntas, se aprietan unas contra otras."],
+    ["Describe la nutrición de una célula vegetal y la de una animal.", "La vegetal fabrica su alimento en los cloroplastos por fotosíntesis y lo usa en las mitocondrias. La animal toma el alimento del exterior y obtiene energía en las mitocondrias."],
+    ["Explica los pasos de la división celular.", "La célula crece, copia su ADN, divide el núcleo (mitosis) y reparte el citoplasma para formar dos células hijas iguales."],
+    ["¿Para qué le sirve la división celular a un ser pluricelular?", "Para crecer, reparar tejidos dañados (como una herida) y sustituir células viejas."],
+    ["Calcula los aumentos con un ocular de 15× y un objetivo de 40×.", "15 × 40 = 600 aumentos."],
+    ["Relaciona cada célula con su forma: neurona, glóbulo rojo, espermatozoide.", "Neurona: larga y ramificada para transmitir mensajes. Glóbulo rojo: disco para llevar oxígeno. Espermatozoide: con cola para nadar."],
+    ["¿Por qué se empieza a observar con el objetivo de menor aumento?", "Porque abarca más campo y es más fácil localizar la muestra y enfocar; después se pasa a más aumento."],
+    ["¿Qué aportó Ramón y Cajal a la teoría celular?", "Demostró que el sistema nervioso está formado por células independientes, las neuronas."],
+    ["Ordena los niveles de organización: órgano, organismo, célula, aparato, tejido.", "Célula, tejido, órgano, aparato y organismo."],
+  ], [
+    ["Un compañero dice: «Las bacterias son tan simples que no son seres vivos». Rebátelo usando la teoría celular.", "Las bacterias son células y realizan las tres funciones vitales: se nutren, se relacionan y se reproducen. Según la teoría celular, son seres vivos unicelulares."],
+    ["Una bacteria se divide cada 30 minutos. ¿Cuántas habrá tras 4 horas si empezamos con una? ¿Qué limitaría su crecimiento en la realidad?", "4 h = 8 divisiones: 2⁸ = 256 bacterias. En la realidad se acaban el alimento y el espacio, y se acumulan sus residuos."],
+    ["Observas una célula sin núcleo, con pared y flagelo. ¿Qué es? ¿Podría ser un glóbulo rojo? Razónalo.", "Es una bacteria (procariota). No es un glóbulo rojo: aunque este pierde el núcleo, no tiene pared ni flagelo y es una célula eucariota animal."],
+    ["Explica con una comparación por qué el núcleo protege al ADN.", "El núcleo es como una caja fuerte: su membrana separa el ADN del resto del citoplasma, donde hay muchas reacciones químicas, y controla qué entra y sale."],
+    ["¿Por qué una planta puede vivir sin comer y un animal no? Usa los orgánulos en tu respuesta.", "Porque sus células tienen cloroplastos y fabrican su alimento con luz, agua y CO₂. Las células animales no tienen cloroplastos y necesitan tomar alimento ya fabricado."],
+    ["Diseña una experiencia para comparar células vegetales y animales al microscopio.", "Preparar epidermis de cebolla y células de mejilla, teñir ambas con azul de metileno, observar con el mismo aumento y dibujar la forma, la pared, el núcleo y el tamaño de cada una."],
+    ["Si los virus no tienen células, ¿son seres vivos según la teoría celular? Razónalo.", "No del todo: no están hechos de células y solo se reproducen dentro de una célula ajena. Por eso muchos científicos no los consideran seres vivos."],
+  ]),
+  quiz: H.test([
+    ["La palabra «célula» significa…", ["celdilla", "vida", "núcleo", "lente"], 0, "Del latín; la usó Hooke."],
+    ["Observó por primera vez seres microscópicos en una gota de agua…", ["Hooke", "Leeuwenhoek", "Virchow", "Cajal"], 1, "Los llamó animálculos."],
+    ["Según la teoría celular, toda célula procede de…", ["la materia inerte", "un virus", "otra célula", "el agua"], 2, "Lo afirmó Virchow."],
+    ["Un micrómetro es la milésima parte de un…", ["centímetro", "metro", "kilómetro", "milímetro"], 3, "1 mm = 1.000 µm."],
+    ["Todas las células tienen…", ["membrana, citoplasma y ADN", "pared y núcleo", "cloroplastos", "flagelo"], 0, "Las tres partes comunes."],
+    ["Las células procariotas no tienen…", ["ADN", "núcleo", "membrana", "ribosomas"], 1, "Su ADN está suelto."],
+    ["Son células procariotas las…", ["neuronas", "levaduras", "bacterias", "amebas"], 2, "Las más sencillas."],
+    ["El orgánulo que obtiene energía de los alimentos es la…", ["vacuola", "pared", "membrana", "mitocondria"], 3, "Respiración celular."],
+    ["Los cloroplastos están en las células…", ["vegetales", "animales", "bacterianas", "de todos los seres"], 0, "Hacen la fotosíntesis."],
+    ["La pared celular de las plantas está hecha de…", ["proteína", "celulosa", "grasa", "calcio"], 1, "Es rígida."],
+    ["La célula vegetal tiene una vacuola…", ["pequeña", "inexistente", "grande y central", "con ADN"], 2, "Llena de agua."],
+    ["La división del núcleo de una célula eucariota se llama…", ["respiración", "fotosíntesis", "nutrición", "mitosis"], 3, "Forma dos núcleos iguales."],
+    ["Un grupo de células parecidas con la misma función es un…", ["tejido", "órgano", "aparato", "organismo"], 0, "Como el tejido muscular."],
+    ["El corazón es un…", ["tejido", "órgano", "aparato", "orgánulo"], 1, "Formado por varios tejidos."],
+    ["Es un ser unicelular el…", ["helecho", "gusano", "paramecio", "champiñón"], 2, "Una sola célula."],
+    ["En el microscopio, la lente por la que miras es el…", ["objetivo", "revólver", "diafragma", "ocular"], 3, "Está arriba."],
+    ["Ocular 10× y objetivo 40× dan…", ["400 aumentos", "50 aumentos", "4 aumentos", "4.000 aumentos"], 0, "Se multiplican."],
+    ["Para enfocar con precisión se usa el tornillo…", ["macrométrico", "micrométrico", "del revólver", "de la platina"], 1, "Ajuste fino."],
+    ["Para que no queden burbujas, el cubreobjetos se baja…", ["de golpe", "boca abajo", "inclinado", "mojado por fuera"], 2, "Despacio y en ángulo."],
+    ["Demostró que el sistema nervioso está formado por células…", ["Schwann", "Hooke", "Schleiden", "Ramón y Cajal"], 3, "Premio Nobel en 1906."],
+  ]),
+  examen: H.test([
+    ["La unidad estructural y funcional de los seres vivos es…", ["el tejido", "la célula", "el órgano", "el ADN"], 1, "Teoría celular."],
+    ["El ADN de una célula eucariota está en…", ["la pared", "la vacuola", "el núcleo", "el cloroplasto"], 2, "Protegido por una membrana."],
+    ["Una diferencia de la célula animal es que tiene…", ["centriolos", "cloroplastos", "pared", "gran vacuola"], 0, "Ayudan en la división."],
+    ["Las células procariotas miden aproximadamente…", ["1 a 10 µm", "10 a 100 µm", "1 mm", "1 cm"], 0, "Más pequeñas que las eucariotas."],
+    ["Una herida se cierra gracias a…", ["la fotosíntesis", "la respiración", "la división celular", "la pared celular"], 2, "Se forman células nuevas."],
+    ["El orden correcto es…", ["órgano, tejido, célula", "célula, órgano, tejido", "tejido, célula, órgano", "célula, tejido, órgano"], 3, "De simple a complejo."],
+    ["Para ver un virus hace falta un microscopio…", ["óptico", "electrónico", "de lupa", "de bolsillo"], 1, "Aumenta más de un millón de veces."],
+    ["En una preparación se empieza con el objetivo…", ["de menor aumento", "de mayor aumento", "de inmersión", "que sea"], 0, "Para localizar la muestra."],
+  ]),
+  feynman: ["Qué dice la teoría celular", "Qué diferencia una célula procariota de una eucariota", "En qué se diferencian la célula animal y la vegetal", "Cómo se divide una célula", "Cómo se calcula el aumento de un microscopio"],
+  mapa: H.mapa("LA CÉLULA", "var(--eso)", [
+    ["Teoría celular", "Hooke · Schleiden · Schwann · Virchow", "var(--leaf)"],
+    ["Partes", "membrana · citoplasma · ADN", "#b8860b"],
+    ["Tipos", "procariota · eucariota animal y vegetal", "var(--red)"],
+    ["Microscopio", "ocular × objetivo · preparaciones", "var(--pen)"],
+  ], 300),
   tarjetas: [
-    ["Teoría celular", "Todo ser vivo está formado por células, que proceden de otras células."],
-    ["Membrana plasmática", "Envoltura que controla lo que entra y sale de la célula."],
-    ["Célula procariota", "Sin núcleo; ADN libre en el citoplasma. Ej.: bacterias."],
-    ["Célula eucariota", "Con núcleo y orgánulos. Ej.: animales y plantas."],
-    ["Mitocondria", "Orgánulo que obtiene energía: respiración celular."],
-    ["Cloroplasto", "Orgánulo verde de las plantas donde se hace la fotosíntesis."],
-    ["Pared celular", "Capa rígida de celulosa de las células vegetales."],
-    ["Aumento total", "Aumento del ocular × aumento del objetivo."],
+    ["Célula", "Unidad más pequeña de los seres vivos."],
+    ["Teoría celular", "Todo ser vivo tiene células y toda célula viene de otra."],
+    ["Membrana plasmática", "Envoltura que controla lo que entra y sale."],
+    ["Citoplasma", "Interior de la célula con sus orgánulos."],
+    ["Núcleo", "Estructura que guarda el ADN en las eucariotas."],
+    ["Procariota", "Célula sin núcleo, como las bacterias."],
+    ["Eucariota", "Célula con núcleo y muchos orgánulos."],
+    ["Mitocondria", "Orgánulo que obtiene energía de los alimentos."],
+    ["Cloroplasto", "Orgánulo verde donde se hace la fotosíntesis."],
+    ["Pared celular", "Capa rígida de las células vegetales."],
+    ["Mitosis", "División del núcleo que forma dos núcleos iguales."],
+    ["Tejido", "Grupo de células parecidas con la misma función."],
   ],
-  familias: ["Observad con una lupa una hoja, la piel de la mano o la sal y comentad qué se ve.", "Haced una maqueta de una célula con gelatina y frutas como orgánulos.", "Buscad juntos imágenes de neuronas, glóbulos rojos y células musculares y comparad sus formas."],
-  profesores: {
-    saberes: "La célula: teoría celular, estructura básica, células procariotas y eucariotas, animales y vegetales, organismos unicelulares y pluricelulares, uso del microscopio óptico y preparación de muestras (RD 217/2022, Biología y Geología, bloques Proyecto científico y Seres vivos).",
-    ideas: ["Práctica de epidermis de cebolla y de mucosa bucal con azul de metileno.", "Comparar a escala el tamaño de una bacteria, una célula y un virus.", "Biografía ilustrada de Ramón y Cajal con sus dibujos de neuronas (dominio público)."],
+  glosario: [
+    ["Célula", "Unidad más pequeña de los seres vivos, capaz de realizar las funciones vitales."],
+    ["Micrómetro (µm)", "Milésima parte de un milímetro."],
+    ["Teoría celular", "Conjunto de principios que dicen que todos los seres vivos están formados por células."],
+    ["Membrana plasmática", "Envoltura fina que rodea la célula y controla el paso de sustancias."],
+    ["Citoplasma", "Interior de la célula, con un líquido y orgánulos."],
+    ["Orgánulo", "Estructura del citoplasma que tiene una función concreta."],
+    ["ADN", "Material genético con las instrucciones de la célula."],
+    ["Núcleo", "Estructura rodeada de membrana que contiene el ADN."],
+    ["Procariota", "Célula sin núcleo, sencilla y pequeña."],
+    ["Eucariota", "Célula con núcleo y orgánulos."],
+    ["Mitocondria", "Orgánulo donde se obtiene energía por la respiración celular."],
+    ["Cloroplasto", "Orgánulo de las células vegetales donde se realiza la fotosíntesis."],
+    ["Vacuola", "Orgánulo que almacena agua y otras sustancias."],
+    ["Mitosis", "División del núcleo de una célula eucariota."],
+    ["Tejido", "Conjunto de células parecidas que realizan la misma función."],
+  ],
+  situacion: {
+    titulo: "Somos un museo de células",
+    reto: "La clase prepara una pequeña exposición para alumnos de 6º de Primaria que explique qué es una célula, qué tipos hay y cómo se observan.",
+    pasos: [
+      "Observad al microscopio epidermis de cebolla y células de mejilla, y dibujad lo que veis indicando los aumentos.",
+      "Construid en grupos maquetas de una célula procariota, una animal y una vegetal con materiales reciclados.",
+      "Preparad una cartela para cada maqueta con sus partes y la función de cada una.",
+      "Escribid un guion de dos minutos para explicar la teoría celular a los visitantes.",
+      "Montad la exposición y recoged en un buzón las preguntas de los visitantes.",
+    ],
+    producto: "Exposición con tres maquetas, dibujos de microscopio y cartelas explicativas.",
+    evaluacion: [
+      "Las maquetas incluyen las partes correctas de cada tipo de célula.",
+      "Los dibujos de microscopio son fieles e indican los aumentos.",
+      "Las cartelas explican la función de cada parte con palabras propias.",
+      "La explicación oral es clara y adaptada al público.",
+    ],
   },
-  fuentes: [RD, wiki("Célula", "Célula"), wiki("Teoría celular", "Teoría_celular"), { t: "Instituto Cajal (CSIC)", url: "https://www.cajal.csic.es/" }],
-  revisado: REV,
+  familias: ["Observad con una lupa una hoja, la piel de la mano o un grano de sal y comentad qué se ve.", "Haced una maqueta comestible de una célula con gelatina y frutas como orgánulos.", "Buscad juntos imágenes de células de distintos seres vivos y comparadlas.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "La célula como unidad estructural y funcional de los seres vivos; teoría celular; célula procariota y eucariota, animal y vegetal; niveles de organización; manejo del microscopio y preparaciones sencillas (RD 217/2022, Biología y Geología 1º a 3º, bloque «Seres vivos» y «Proyecto científico»). En Cataluña, saberes equivalentes de Biologia i Geologia del Decret 175/2022.",
+    ideas: [
+      "Práctica de microscopio con epidermis de cebolla y células de mejilla.",
+      "Maquetas de células con materiales reciclados y exposición en el centro.",
+      "Calcular aumentos con distintas combinaciones de ocular y objetivo.",
+      "Leer fragmentos de las cartas de Leeuwenhoek y debatir cómo trabaja la ciencia.",
+      "Simular el crecimiento de bacterias doblando cantidades en una hoja de cálculo.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Célula", "C%C3%A9lula"), H.wiki("Teoría celular", "Teor%C3%ADa_celular"), { t: "Instituto Cajal (CSIC)", url: "https://www.cajal.csic.es/" }],
+  revisado: H.REV,
 };
