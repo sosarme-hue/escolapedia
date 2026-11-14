@@ -1,157 +1,236 @@
-// Biología y Geología 1º ESO: las plantas. Dibujos propios en SVG.
-const { mapa, BG, t, fl, tabla, RD, wiki, C, REV, cj, rejilla, et, COL } = require("./_eso1a");
-
-const guia = (x1, y1, x2, y2, s, anchor = "start") => `<path d="M${x1} ${y1} L ${x2} ${y2}" stroke="var(--ink)" stroke-width="1"/>${t(x2 + (anchor === "start" ? 3 : -3), y2 + 3.5, s, { size: 9.5, anchor })}`;
+// Biología y Geología 1º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso1L3 y dibujos de la versión anterior del tema.
+const H = require("./_eso1L3");
+const S = "byg-plantas";
+const [vFoto, vRepro] = H.videos(S);
 
 module.exports = {
   materia: "Biología y Geología",
-  curso: C,
+  curso: H.CURSO,
   titulo: "Las plantas",
-  minutos: 60,
-  objetivos: ["Describir las características del reino Plantas y las partes de una planta", "Clasificar las plantas en musgos, helechos, gimnospermas y angiospermas", "Explicar la nutrición de las plantas y la fotosíntesis", "Describir la relación y la reproducción de las plantas, y valorar su importancia"],
-  claves: ["planta", "raíz", "tallo", "hoja", "musgo", "helecho", "gimnosperma", "angiosperma", "fotosíntesis", "savia", "estoma", "tropismo", "flor", "polinización", "semilla", "fruto"],
+  minutos: 100,
+  objetivos: [
+    "Describir las características del reino plantas y sus órganos: raíz, tallo y hojas",
+    "Clasificar las plantas en musgos, helechos, gimnospermas y angiospermas",
+    "Explicar la nutrición de las plantas: absorción, fotosíntesis, respiración y transporte de savia",
+    "Reconocer la función de relación en las plantas: tropismos y nastias",
+    "Describir la reproducción sexual (flor, polinización, fecundación, semilla y fruto) y la asexual",
+    "Valorar la importancia de las plantas para la vida y para las personas",
+  ],
+  claves: ["planta", "raíz", "tallo", "hoja", "estoma", "musgo", "helecho", "gimnosperma", "angiosperma", "fotosíntesis", "savia bruta", "savia elaborada", "tropismo", "polinización", "fecundación", "semilla", "fruto"],
   pregunta: {
-    texto: "Un roble de 20 metros pesa varias toneladas, pero el suelo que hay a su alrededor apenas ha disminuido. ¿De dónde ha sacado el árbol toda esa materia?",
-    respuesta: "Sorprendentemente, ¡casi todo viene del <b>aire</b>! La madera está hecha sobre todo de carbono, y el árbol lo toma del <b>dióxido de carbono</b> del aire por los pequeños poros de sus hojas. Con él y con el <b>agua</b> que absorben las raíces, usando la <b>energía de la luz</b>, fabrica azúcares en la <b>fotosíntesis</b>. Del suelo solo toma agua y una pequeña cantidad de sales minerales.",
+    texto: "Una semilla de encina pesa unos gramos y la encina adulta puede pesar varias toneladas. ¿De dónde sale toda esa materia? ¿Del suelo?",
+    respuesta: "Sobre todo, <b>del aire</b>. La mayor parte de la madera se fabrica con el <mark>dióxido de carbono</mark> que la planta toma del aire por las hojas, junto con el agua que absorben las raíces y la energía de la luz. Es la <b>fotosíntesis</b>. Del suelo, la planta solo toma agua y una pequeña cantidad de sales minerales.",
+  },
+  lectura: {
+    titulo: "El árbol que sobrevivió a la bomba",
+    html: `<p>El 6 de agosto de 1945, una bomba atómica destruyó la ciudad japonesa de Hiroshima. Casi todo quedó arrasado en kilómetros a la redonda. Los científicos pensaron que en esa tierra no crecería nada durante décadas.</p>
+<p>Sin embargo, la primavera siguiente, entre las ruinas, varios árboles quemados empezaron a echar brotes verdes. Uno de ellos era un ginkgo, una especie tan antigua que ya existía en tiempos de los dinosaurios. Sus troncos estaban carbonizados, pero sus raíces, protegidas bajo tierra, seguían vivas. Hoy siguen en pie y los japoneses los llaman <i>hibakujumoku</i>, «árboles supervivientes».</p>
+<p>Las plantas no pueden huir de los peligros, pero tienen formas sorprendentes de resistir: rebrotan desde la raíz, guardan reservas, forman semillas que esperan años para germinar. Además, fabrican su propio alimento y el oxígeno que respiramos. En este tema descubrirás cómo funcionan estos seres vivos de los que dependemos todos.</p>`,
   },
   bloques: [
     {
-      html: `<h3>El reino de las plantas</h3><p>Las <mark>plantas</mark> son seres vivos <b>eucariotas</b>, <b>pluricelulares</b> y con <b>tejidos</b>, cuyas células tienen una <b>pared de celulosa</b> y <b>cloroplastos</b>. Son <b>autótrofas</b>: fabrican su propio alimento mediante la fotosíntesis. Viven <b>fijas al suelo</b>, aunque pueden mover algunas partes, como las hojas o los pétalos. Se conocen unas 400.000 especies, desde musgos de pocos milímetros hasta secuoyas de más de 100 metros, y viven en casi todos los ambientes terrestres y en muchos acuáticos. Las plantas son fundamentales para la vida: producen el <b>oxígeno</b> que respiramos, son la base de casi todas las <b>cadenas alimentarias</b> terrestres, retienen el suelo con sus raíces, absorben dióxido de carbono y nos proporcionan alimentos, madera, fibras como el algodón, medicinas y combustibles. Las plantas más complejas tienen tres órganos principales: la raíz, el tallo y las hojas; y muchas tienen además flores, frutos y semillas.</p>`,
+      html: `<h3>1.1 El reino de las plantas</h3><p>Las plantas son seres vivos <b>pluricelulares</b> y <b>eucariotas</b>, con células que tienen <b>pared de celulosa</b> y <b>cloroplastos</b>. Son <b>autótrofas</b>: fabrican su propio alimento con la luz del Sol mediante la fotosíntesis. Tienen <b>tejidos</b> y viven <b>fijas</b> al suelo, por lo que no pueden desplazarse.</p><p>Se conocen unas 390.000 especies, desde musgos de pocos milímetros hasta secuoyas de más de 100 metros de altura. Fueron de los primeros seres vivos en colonizar la tierra firme, hace unos 470 millones de años. Para lograrlo tuvieron que adaptarse: desarrollaron raíces para sujetarse y absorber agua, una cubierta impermeable para no secarse y vasos para transportar el agua hasta las hojas.</p>`,
+      svg: H.radial("Características del reino plantas", "PLANTAS", ["pluricelulares", "células con pared", "cloroplastos", "autótrofas", "fijas al suelo", "con tejidos"], "var(--leaf)"),
     },
     {
-      html: `<h3>Raíz, tallo y hojas</h3><p>La <mark>raíz</mark> crece normalmente bajo tierra. Sus funciones son <b>sujetar</b> la planta al suelo y <b>absorber agua y sales minerales</b> a través de los <b>pelos absorbentes</b>, unas prolongaciones finísimas de las células de su extremo. Algunas raíces almacenan sustancias de reserva, como la zanahoria o la remolacha. El <mark>tallo</mark> <b>sostiene</b> las hojas, las flores y los frutos, y <b>transporta</b> la savia por unos tubos llamados <b>vasos conductores</b>. Puede ser <b>herbáceo</b> (verde y flexible, como el del trigo) o <b>leñoso</b> (duro, con madera y corteza, como el tronco de los árboles). Las <mark>hojas</mark> son los órganos donde se realiza la <b>fotosíntesis</b>. Tienen una parte plana y ancha, el <b>limbo</b>, unida al tallo por el <b>peciolo</b>, y están recorridas por <b>nervios</b>, que son vasos conductores. En su superficie, sobre todo en el envés, hay unos poros microscópicos, los <mark>estomas</mark>, por los que entran y salen gases y se pierde vapor de agua.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Partes de una planta con flor: raíz con pelos absorbentes bajo el suelo, tallo, hojas con limbo y peciolo, flor y fruto">${BG}
-        <rect x="10" y="122" width="240" height="50" fill="#c08457" fill-opacity=".5"/>
-        <path d="M110 122 V 40" stroke="#2f9e44" stroke-width="5"/>
-        <path d="M110 122 l -20 22 l -10 8 M110 122 l 18 26 M110 122 l 2 36 M96 140 l -12 4 M124 140 l 10 6" stroke="#a16207" stroke-width="2.5" fill="none"/>
-        <path d="M110 92 l 22 -10" stroke="#2f9e44" stroke-width="2.5"/><ellipse cx="148" cy="76" rx="20" ry="9" fill="#4ade80" stroke="#15803d" transform="rotate(-20 148 76)"/><path d="M132 82 L 164 70" stroke="#15803d" stroke-width="1"/>
-        <path d="M110 70 l -20 -8" stroke="#2f9e44" stroke-width="2.5"/><ellipse cx="74" cy="56" rx="18" ry="8" fill="#4ade80" stroke="#15803d" transform="rotate(20 74 56)"/>
-        ${[0, 1, 2, 3, 4].map((i) => { const a = (i / 5) * Math.PI * 2 - Math.PI / 2; return `<ellipse cx="${(110 + 9 * Math.cos(a)).toFixed(1)}" cy="${(32 + 9 * Math.sin(a)).toFixed(1)}" rx="6" ry="4" fill="#f472b6" transform="rotate(${(a * 180) / Math.PI} ${(110 + 9 * Math.cos(a)).toFixed(1)} ${(32 + 9 * Math.sin(a)).toFixed(1)})"/>`; }).join("")}<circle cx="110" cy="32" r="4" fill="#facc15"/>
-        ${guia(118, 30, 170, 22, "flor")}${guia(160, 72, 196, 60, "hoja (limbo)")}${guia(124, 87, 196, 94, "peciolo")}${guia(110, 108, 60, 102, "tallo", "end")}${guia(126, 148, 190, 150, "raíz")}${guia(84, 152, 50, 160, "pelos", "end")}</svg>`,
+      html: `<h3>1.2 Raíz, tallo y hojas</h3><p>La mayoría de las plantas tiene tres órganos principales:</p><p>• La <mark>raíz</mark> crece bajo tierra. <b>Sujeta</b> la planta al suelo y <b>absorbe</b> agua y sales minerales a través de unos <b>pelos absorbentes</b> muy finos. Algunas raíces almacenan reservas, como la zanahoria.<br>• El <mark>tallo</mark> <b>sostiene</b> las hojas, flores y frutos, y <b>transporta</b> las sustancias por unos tubos llamados <b>vasos conductores</b>. Puede ser herbáceo, verde y flexible, o leñoso, duro y con corteza, como el tronco de los árboles.<br>• Las <mark>hojas</mark> son los órganos donde se realiza la <b>fotosíntesis</b>. Tienen una parte plana, el <b>limbo</b>, unida al tallo por el <b>peciolo</b>. En su superficie, sobre todo por debajo, hay unos poros diminutos, los <b>estomas</b>, por donde entran y salen gases.</p>`,
+      svg: H.viejo(S, 1),
     },
     {
-      html: `<h3>Plantas sin semillas: musgos y helechos</h3><p>Las plantas se clasifican en dos grandes grupos según tengan semillas o no. Las <b>plantas sin semillas</b> se reproducen por <b>esporas</b>, células que se dispersan con el aire o el agua y que necesitan humedad para desarrollarse. Los <mark>musgos</mark> (briófitos) son plantas pequeñas, de pocos centímetros, que forman alfombras verdes en lugares húmedos y sombríos, como rocas, troncos o muros. Son las plantas más sencillas: <b>no tienen vasos conductores</b> ni verdaderas raíces, tallos y hojas; en lugar de raíces tienen unos filamentos llamados <b>rizoides</b> que los sujetan, y absorben el agua por toda su superficie. Por eso no pueden crecer mucho. Los <mark>helechos</mark> (pteridófitos) ya tienen <b>vasos conductores</b> y verdaderas raíces, tallo y hojas. Su tallo suele ser subterráneo (un <b>rizoma</b>) y sus hojas, llamadas <b>frondes</b>, nacen enrolladas como un báculo y son grandes y divididas. En el envés de las hojas tienen unos puntitos marrones, los <b>soros</b>, donde se forman las esporas. Hace unos 300 millones de años había bosques de helechos gigantes, cuyos restos formaron el carbón.</p>`,
+      html: `<h3>1.3 Las plantas sin semillas: musgos y helechos</h3><p>Las <mark>briofitas</mark> o <b>musgos</b> son las plantas más sencillas. Son pequeñas y <b>no tienen vasos conductores</b>, ni raíces, tallos u hojas verdaderos: tienen estructuras parecidas. Absorben el agua por toda su superficie, por eso viven en lugares muy <b>húmedos</b> y sombríos, formando alfombras verdes sobre rocas y troncos. Se reproducen por <b>esporas</b>.</p><p>Los <mark>helechos</mark> ya tienen <b>vasos conductores</b>, raíz, tallo y hojas verdaderas. Su tallo suele ser subterráneo, y sus hojas, llamadas <b>frondes</b>, nacen enrolladas como un muelle. Tampoco tienen semillas: se reproducen por <b>esporas</b> que se forman en unos puntitos marrones bajo las hojas, los <b>soros</b>. Hace 300 millones de años, había bosques de helechos gigantes; sus restos formaron gran parte del <b>carbón</b> que usamos hoy.</p>`,
+      svg: H.compara("Musgos y helechos", ["Musgos", "var(--leaf)", ["sin vasos", "muy pequeños", "lugares húmedos", "esporas"]], ["Helechos", "var(--pen)", ["con vasos", "raíz, tallo y frondes", "soros bajo la hoja", "esporas"]]),
     },
     {
-      html: `<h3>Plantas con semillas</h3><p>Las <b>plantas con semillas</b> (espermatófitas) son las más abundantes y evolucionadas. Tienen raíz, tallo y hojas con vasos conductores, producen <b>flores</b> y se reproducen mediante <mark>semillas</mark>: estructuras que contienen un <b>embrión</b> (una plantita en miniatura) y una reserva de alimento, protegidos por una cubierta; gracias a ellas pueden vivir en lugares secos. Se dividen en dos grupos. Las <mark>gimnospermas</mark> («semilla desnuda») tienen flores sencillas y sin pétalos, agrupadas en conos, y sus semillas <b>no están encerradas en un fruto</b>: se forman en <b>piñas</b>. Casi todas son árboles o arbustos de hoja perenne, a menudo en forma de aguja o escama, como los <b>pinos</b>, los abetos, los cipreses o el enebro. Las <mark>angiospermas</mark> («semilla en un recipiente») tienen <b>flores vistosas</b>, muchas veces con pétalos de colores, y sus semillas están protegidas dentro de un <b>fruto</b>. Son el grupo más numeroso e incluyen casi todas las plantas que conocemos: rosales, encinas, naranjos, trigo, tomateras, girasoles o césped.</p>${tabla(["Grupo", "Vasos", "Se reproduce por", "Ejemplos"], [["Musgos", "no", "esporas", "musgo de los muros"], ["Helechos", "sí", "esporas (en soros)", "helecho común"], ["Gimnospermas", "sí", "semillas sin fruto (piñas)", "pino, abeto, ciprés"], ["Angiospermas", "sí", "semillas dentro de un fruto", "encina, rosal, trigo"]])}`,
+      html: `<h3>1.4 Las plantas con semillas</h3><p>Las plantas con semillas, o <b>espermatofitas</b>, son las más abundantes. Tienen vasos conductores y se reproducen por <b>semillas</b>, que contienen un embrión con reservas y una cubierta protectora. Gracias a las semillas pudieron colonizar lugares secos. Se dividen en dos grupos:</p><p>• Las <mark>gimnospermas</mark> tienen las semillas <b>desnudas</b>, sin fruto que las envuelva. Sus flores son poco vistosas y se agrupan en <b>conos</b> o piñas. Suelen tener hojas en forma de aguja y perennes. Ejemplos: pinos, abetos, cipreses, tejos y sabinas.<br>• Las <mark>angiospermas</mark> tienen flores vistosas y las semillas <b>protegidas dentro de un fruto</b>. Son el grupo más numeroso: unas 300.000 especies. Incluyen casi todos los árboles de hoja ancha, como la encina o el roble, las hierbas, los cereales, las hortalizas y los árboles frutales.</p>`,
+      svg: H.compara("Gimnospermas y angiospermas", ["Gimnospermas", "#8a6a4a", ["semilla desnuda", "flores en piñas", "hojas en aguja", "pino, abeto"]], ["Angiospermas", "var(--red)", ["semilla en un fruto", "flores vistosas", "hojas variadas", "encina, trigo, manzano"]]),
     },
     {
-      html: `<h3>La nutrición de las plantas: la fotosíntesis</h3><p>La nutrición de las plantas es <b>autótrofa</b> y tiene varias etapas. 1) <b>Absorción</b>: las raíces toman <b>agua y sales minerales</b> del suelo; esta mezcla se llama <mark>savia bruta</mark>. 2) <b>Transporte</b>: la savia bruta sube por los vasos leñosos del tallo hasta las hojas. 3) <b>Intercambio de gases</b>: por los estomas de las hojas entra <b>dióxido de carbono</b> del aire. 4) <mark>Fotosíntesis</mark>: en los cloroplastos, la <b>clorofila</b> capta la <b>energía de la luz</b> y la usa para transformar el agua y el dióxido de carbono en <b>materia orgánica</b> (glucosa y otros azúcares), liberando <b>oxígeno</b> al aire. 5) La materia orgánica, disuelta en agua, forma la <mark>savia elaborada</mark>, que se reparte por toda la planta por los vasos liberianos para crecer y obtener energía; el sobrante se almacena como reserva, por ejemplo en forma de almidón en la patata. 6) <b>Respiración</b>: como todos los seres vivos, las plantas respiran día y noche, toman oxígeno y desprenden dióxido de carbono; pero de día hacen mucha más fotosíntesis, así que, en total, <b>producen más oxígeno del que consumen</b>. Además, por los estomas pierden mucho vapor de agua: es la <b>transpiración</b>, que ayuda a que la savia bruta suba.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Fotosíntesis en la hoja: entran luz, dióxido de carbono y agua; salen oxígeno y azúcares (savia elaborada)">${BG}
-        <circle cx="26" cy="26" r="13" fill="#f6b417"/>${fl(40, 36, 88, 70, COL.sol, 2.5)}${t(56, 44, "luz", { size: 10, color: COL.sol, anchor: "start" })}
-        <ellipse cx="130" cy="92" rx="62" ry="28" fill="#4ade80" stroke="#15803d" stroke-width="2"/><path d="M68 92 H 192" stroke="#15803d" stroke-width="1.5"/>
-        ${t(130, 86, "clorofila", { size: 10, color: "#14532d" })}
-        ${fl(14, 100, 64, 96, "var(--muted)", 2)}${t(14, 116, "CO₂", { size: 11, anchor: "start", color: "var(--muted)" })}
-        ${fl(130, 168, 130, 124, COL.azul, 2)}${t(138, 164, "agua (savia bruta)", { size: 9.5, anchor: "start", color: COL.azul })}
-        ${fl(176, 66, 214, 34, COL.verde, 2)}${t(220, 28, "O₂", { size: 12, color: COL.verde })}
-        ${fl(194, 100, 240, 120, COL.naranja, 2)}${t(242, 138, "azúcares", { size: 9.5, anchor: "end", color: COL.naranja })}</svg>`,
-      video: { id: "tdDg1uSKyns", titulo: "LA FOTOSÍNTESIS | Vídeos Educativos para Niños", canal: "Happy Learning Español", vistas: 2677959 },
+      html: `<h3>1.5 La nutrición: absorción y transporte</h3><p>La nutrición de las plantas empieza en la raíz. Los <b>pelos absorbentes</b> toman del suelo <b>agua</b> y <b>sales minerales</b>. Esta mezcla se llama <mark>savia bruta</mark>. Sube por unos vasos del tallo llamados <b>vasos leñosos</b> o xilema hasta las hojas. ¿Cómo sube el agua hasta la copa de un árbol de 100 metros sin bomba? Porque en las hojas se evapora agua continuamente por los estomas (la <b>transpiración</b>), y esa pérdida «tira» del agua desde abajo, como cuando sorbes por una pajita.</p><p>Después de la fotosíntesis, las hojas fabrican azúcares que se disuelven en agua y forman la <mark>savia elaborada</mark>. Esta se reparte a todas las partes de la planta por otros vasos, los <b>vasos liberianos</b> o floema. Lo que sobra se almacena como reserva, por ejemplo en forma de <b>almidón</b> en las patatas.</p>`,
+      svg: H.compara("Savia bruta y savia elaborada", ["Savia bruta", "var(--inf)", ["agua y sales", "de la raíz a las hojas", "vasos leñosos", "sube"]], ["Savia elaborada", "var(--sun)", ["agua y azúcares", "de las hojas a todo", "vasos liberianos", "baja y se reparte"]]),
     },
     {
-      html: `<h3>La relación de las plantas</h3><p>Aunque no se desplacen, las plantas también <b>captan estímulos y responden</b> a ellos, normalmente con movimientos lentos de crecimiento. Los <mark>tropismos</mark> son crecimientos orientados según la dirección del estímulo. El <b>fototropismo</b> es la respuesta a la luz: los tallos crecen hacia ella (por eso las plantas de interior se inclinan hacia la ventana). El <b>geotropismo</b> es la respuesta a la gravedad: las raíces crecen hacia abajo y los tallos hacia arriba, aunque pongas la semilla del revés. El <b>hidrotropismo</b> hace que las raíces crezcan hacia donde hay agua, y el <b>tigmotropismo</b> hace que los zarcillos de la vid o del guisante se enrollen al tocar un soporte. Las <mark>nastias</mark> son respuestas que no dependen de la dirección del estímulo, como las flores que se abren con la luz y se cierran de noche, las hojas de la mimosa que se pliegan al tocarlas o las hojas de la planta carnívora atrapamoscas, que se cierran en un instante. Además, muchas plantas responden a los cambios de estación: florecen en primavera, y los árboles caducifolios pierden sus hojas en otoño para ahorrar agua durante el invierno.</p>`,
+      html: `<h3>1.6 La fotosíntesis</h3><p>La <mark>fotosíntesis</mark> es el proceso por el que las plantas fabrican su alimento. Ocurre en los <b>cloroplastos</b> de las hojas, gracias a un pigmento verde, la <b>clorofila</b>, que capta la energía de la luz. Con esa energía, la planta combina el <b>agua</b> que llega de la raíz y el <b>dióxido de carbono</b> que entra del aire por los estomas, y fabrica <b>azúcares</b> (materia orgánica). Como resultado, libera <b>oxígeno</b> al aire.</p><p>Se puede resumir así: agua + dióxido de carbono + luz → azúcares + oxígeno.</p><p>La fotosíntesis es la base de casi toda la vida en la Tierra: los azúcares que fabrican las plantas alimentan a los herbívoros, y estos a los carnívoros. Además, produce el oxígeno que respiramos y retira CO₂ de la atmósfera.</p>`,
+      svg: H.viejo(S, 4),
+      video: vFoto,
     },
     {
-      html: `<h3>La flor y la polinización</h3><p>La <mark>flor</mark> es el órgano de la <b>reproducción sexual</b> de las plantas con semillas. Una flor completa tiene: el <b>cáliz</b>, formado por los <b>sépalos</b>, hojitas verdes que la protegen cuando es un capullo; la <b>corola</b>, formada por los <b>pétalos</b>, a menudo de colores llamativos y perfumados, que atraen a los insectos; los <mark>estambres</mark>, el aparato reproductor masculino, en cuyas <b>anteras</b> se produce el <b>polen</b>, que contiene los gametos masculinos; y el <mark>pistilo</mark>, el aparato reproductor femenino, con forma de botella, cuya parte superior pegajosa es el <b>estigma</b> y cuya base ensanchada es el <b>ovario</b>, que contiene los <b>óvulos</b>. La <mark>polinización</mark> es el transporte del polen desde los estambres hasta el estigma de otra flor (o de la misma). Puede hacerse por el <b>viento</b>, en flores pequeñas y poco vistosas que producen mucho polen, como las del pino, el olivo o las gramíneas, que causan muchas alergias; o por los <b>animales</b>, sobre todo insectos como las abejas, que visitan las flores atraídos por los colores y el néctar y se llevan el polen pegado a su cuerpo. Sin las abejas y otros polinizadores, muchas plantas cultivadas no darían fruto.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Partes de la flor en corte: sépalos, pétalos, estambres con anteras y polen, y pistilo con estigma y ovario con óvulos">${BG}
-        <path d="M130 170 V 132" stroke="#2f9e44" stroke-width="5"/>
-        <path d="M130 132 l -40 -10 q 10 16 40 14 Z M130 132 l 40 -10 q -10 16 -40 14 Z" fill="#22c55e"/>
-        <path d="M130 128 C 70 120 56 60 84 40 C 96 70 110 100 130 120 Z" fill="#f9a8d4" stroke="#db2777" stroke-width="1.5"/><path d="M130 128 C 190 120 204 60 176 40 C 164 70 150 100 130 120 Z" fill="#f9a8d4" stroke="#db2777" stroke-width="1.5"/>
-        <path d="M120 128 q -6 -26 10 -52 q 16 26 10 52 Z" fill="#a7f3d0" stroke="#15803d" stroke-width="1.5"/><path d="M130 76 V 50" stroke="#15803d" stroke-width="3"/><ellipse cx="130" cy="48" rx="8" ry="4" fill="#15803d"/>
-        <circle cx="126" cy="114" r="3" fill="#fde68a" stroke="#a16207"/><circle cx="134" cy="106" r="3" fill="#fde68a" stroke="#a16207"/><circle cx="127" cy="98" r="3" fill="#fde68a" stroke="#a16207"/>
-        <path d="M116 122 Q 104 96 102 70 M144 122 Q 156 96 158 70" stroke="#ca8a04" stroke-width="2" fill="none"/><ellipse cx="102" cy="66" rx="5" ry="7" fill="#facc15"/><ellipse cx="158" cy="66" rx="5" ry="7" fill="#facc15"/>
-        ${guia(134, 46, 196, 18, "estigma")}${guia(160, 62, 212, 50, "antera")}${guia(140, 110, 212, 100, "ovario")}${guia(86, 50, 40, 36, "pétalo", "end")}${guia(98, 126, 40, 140, "sépalo", "end")}${guia(126, 104, 40, 88, "óvulos", "end")}</svg>`,
-      video: { id: "5-CLWbeBkrs", titulo: "LA REPRODUCCIÓN SEXUAL DE LAS PLANTAS. Las partes de una flor", canal: "Happy Learning Español", vistas: 2662328 },
+      html: `<h3>1.7 La respiración de las plantas</h3><p>Las plantas también <b>respiran</b>, igual que los animales. En las mitocondrias de todas sus células, los azúcares se combinan con <b>oxígeno</b> para obtener la <b>energía</b> que necesitan para crecer y vivir. En la respiración se desprende <b>dióxido de carbono</b> y agua. Respiran <b>de día y de noche</b>, en todas las células, incluidas las de la raíz: por eso las raíces necesitan un suelo con aire y se pudren si se encharcan.</p><p>Durante el día, la fotosíntesis es mucho más intensa que la respiración, así que las plantas, en conjunto, <b>absorben CO₂ y desprenden oxígeno</b>. De noche, sin luz, no hay fotosíntesis y solo respiran: toman un poco de oxígeno y desprenden un poco de CO₂. La cantidad es tan pequeña que no es peligroso dormir con plantas en la habitación.</p>`,
+      svg: H.tabla("Comparación entre fotosíntesis y respiración", ["", "Fotosíntesis", "Respiración"], [["Dónde", "cloroplastos", "mitocondrias"], ["Cuándo", "con luz", "siempre"], ["Toma", "CO₂ y agua", "oxígeno y azúcar"], ["Desprende", "oxígeno", "CO₂ y agua"], ["Para qué", "fabricar alimento", "obtener energía"]]),
     },
     {
-      html: `<h3>Fecundación, semillas y frutos</h3><p>Cuando un grano de polen llega al estigma, forma un <b>tubo polínico</b> que crece por el interior del pistilo hasta llegar a un óvulo. Allí se produce la <mark>fecundación</mark>: el gameto masculino se une con el femenino y se forma un cigoto. Después, la flor cambia por completo: los pétalos y los estambres se secan y caen; cada óvulo fecundado se transforma en una <mark>semilla</mark>, con el embrión y su reserva de alimento; y el ovario crece y se transforma en el <mark>fruto</mark>, que protege las semillas y ayuda a dispersarlas. Los frutos pueden ser <b>carnosos</b>, como el melocotón, la uva o el tomate, o <b>secos</b>, como la nuez, la almendra o la vaina de las judías. La <b>dispersión</b> de las semillas es importante para que la nueva planta no compita con su madre: unas viajan con el <b>viento</b> gracias a alas o pelos (como el diente de león), otras con los <b>animales</b> que comen el fruto y expulsan las semillas en sus excrementos o que las llevan enganchadas en el pelo, y otras con el agua. Cuando una semilla encuentra humedad y temperatura adecuadas, se produce la <b>germinación</b>: el embrión se hincha, sale primero la raíz y después el tallo con las primeras hojas.</p>`,
+      html: `<h3>1.8 La relación de las plantas</h3><p>Las plantas perciben estímulos como la luz, la gravedad, el agua o el contacto, y responden aunque no tengan sistema nervioso. Lo hacen gracias a unas sustancias llamadas <b>hormonas vegetales</b>. Sus respuestas son de dos tipos:</p><p>• Los <mark>tropismos</mark> son respuestas de <b>crecimiento</b> hacia el estímulo o en su contra. El <b>fototropismo</b> hace que el tallo crezca hacia la luz; el <b>geotropismo</b>, que la raíz crezca hacia abajo, a favor de la gravedad; el <b>hidrotropismo</b>, que la raíz crezca hacia el agua; y el <b>tigmotropismo</b> hace que los zarcillos de la vid o la hiedra se enrollen al tocar un soporte.<br>• Las <mark>nastias</mark> son <b>movimientos</b> rápidos y pasajeros que no dependen de la dirección del estímulo: las flores de la margarita se abren con la luz y se cierran de noche, y la mimosa púdica pliega sus hojas al tocarla.</p><p>Además, muchos árboles pierden las hojas en otoño para ahorrar agua en invierno: son <b>caducifolios</b>.</p>`,
+      svg: H.tabla("Tipos de tropismos y nastias", ["Respuesta", "Estímulo", "Ejemplo"], [["Fototropismo", "luz", "tallo hacia la ventana"], ["Geotropismo", "gravedad", "raíz hacia abajo"], ["Tigmotropismo", "contacto", "zarcillos de la vid"], ["Nastia", "tacto o luz", "mimosa, margarita"]]),
     },
     {
-      html: `<h3>Reproducción asexual de las plantas</h3><p>Muchas plantas también pueden reproducirse de forma <mark>asexual</mark>, a partir de un fragmento de la planta madre, sin flores ni semillas. Las nuevas plantas son <b>idénticas</b> a la madre. Algunas formas naturales son los <b>estolones</b>, tallos que crecen por el suelo y echan raíces en algunos puntos, como en la fresa; los <b>tubérculos</b>, tallos subterráneos con reservas y yemas («ojos»), como la patata; los <b>bulbos</b>, como la cebolla o el tulipán; y los <b>rizomas</b>, como el lirio o el jengibre. Los agricultores y jardineros aprovechan esta capacidad con técnicas como los <b>esquejes</b> (cortar un trozo de tallo y ponerlo en agua o tierra hasta que echa raíces, como se hace con el geranio o el potos) o los <b>injertos</b> (unir una rama de una variedad buena al tronco de otra planta resistente, muy usado en frutales y viñas). Así se consiguen rápidamente muchas plantas iguales a una que tiene buenas características.</p>`,
+      html: `<h3>1.9 La flor</h3><p>La <mark>flor</mark> es el órgano de <b>reproducción sexual</b> de las plantas con semillas. Una flor completa tiene cuatro verticilos o anillos de piezas:</p><p>• Los <b>sépalos</b>, verdes, que protegen la flor cuando es un capullo. Juntos forman el <b>cáliz</b>.<br>• Los <b>pétalos</b>, de colores y a menudo perfumados, que atraen a los insectos. Juntos forman la <b>corola</b>.<br>• Los <mark>estambres</mark>, la parte masculina. En su extremo, la <b>antera</b>, se forman los granos de <b>polen</b>, que contienen los gametos masculinos.<br>• El <mark>pistilo</mark>, la parte femenina. Tiene forma de botella: arriba está el <b>estigma</b>, pegajoso, para atrapar el polen; en medio, el <b>estilo</b>; y abajo, el <b>ovario</b>, que contiene los <b>óvulos</b>.</p>`,
+      svg: H.viejo(S, 6),
+      video: vRepro,
+    },
+    {
+      html: `<h3>1.10 Polinización y fecundación</h3><p>La <mark>polinización</mark> es el transporte del polen desde los estambres hasta el estigma de una flor de la misma especie. Puede hacerse de dos formas principales:</p><p>• Por los <b>animales</b>, sobre todo insectos como las abejas, pero también aves o murciélagos. Las flores que polinizan los animales son vistosas, perfumadas y tienen <b>néctar</b> dulce. Al buscarlo, el insecto se llena de polen y lo lleva a otra flor.<br>• Por el <b>viento</b>, como en el pino, el trigo o el olivo. Sus flores son pequeñas y poco llamativas, pero producen enormes cantidades de polen ligero. Es el polen que causa muchas alergias en primavera.</p><p>Cuando un grano de polen llega al estigma, forma un tubo que baja por el estilo hasta el ovario. Allí el gameto masculino se une al óvulo: es la <mark>fecundación</mark>, de la que se forma el embrión de una nueva planta.</p>`,
+      svg: H.flujo("De la flor a la nueva planta", ["El polen sale de los estambres", "Un insecto o el viento lo lleva al estigma", "El tubo polínico baja hasta el óvulo", "Fecundación: se forma el embrión"], "Polinización y fecundación"),
+    },
+    {
+      html: `<h3>1.11 Semillas y frutos</h3><p>Tras la fecundación, la flor se transforma. Los pétalos y estambres se caen. Cada <b>óvulo</b> fecundado se convierte en una <mark>semilla</mark>, que contiene el <b>embrión</b> de la nueva planta, unas <b>reservas</b> de alimento y una cubierta protectora. El <b>ovario</b> crece y se convierte en el <mark>fruto</mark>, que protege las semillas y ayuda a dispersarlas.</p><p>La <b>dispersión</b> aleja las semillas de la planta madre para que no compitan con ella. Los frutos carnosos, como las cerezas, los comen los animales, que dejan las semillas lejos con sus excrementos. Otros tienen «alas» o pelillos para volar con el viento, como el diente de león o el arce; otros se enganchan al pelo de los animales; y el coco flota en el mar. Cuando una semilla encuentra agua, calor y oxígeno, <b>germina</b>: el embrión crece usando sus reservas hasta que forma sus primeras hojas y puede hacer la fotosíntesis.</p>`,
+      svg: H.tabla("Formas de dispersión de las semillas", ["Medio", "Adaptación", "Ejemplo"], [["Animales que comen", "fruto carnoso", "cereza, tomate"], ["Viento", "alas o pelillos", "arce, diente de león"], ["Pelo de animales", "ganchos", "lampazo"], ["Agua", "flota", "coco"]]),
+    },
+    {
+      html: `<h3>1.12 La reproducción asexual y la importancia de las plantas</h3><p>Muchas plantas también se reproducen de forma <b>asexual</b>, a partir de un trozo de la planta madre, sin flores ni semillas. Los descendientes son <b>idénticos</b> a la madre. Algunas formas son: los <b>estolones</b>, tallos que crecen por el suelo y echan raíces, como los de la fresa; los <b>tubérculos</b>, como la patata, que brota por sus «ojos»; los <b>bulbos</b>, como la cebolla o el tulipán; y los <b>esquejes</b>, trozos de tallo que se plantan y echan raíces. Los agricultores también usan el <b>injerto</b>.</p><p>Las plantas son imprescindibles: producen el <b>oxígeno</b> que respiramos, son la base de las redes tróficas, sujetan el suelo frente a la erosión y nos dan <b>alimentos</b>, madera, papel, algodón y medicinas. Muchos medicamentos, como la aspirina, se descubrieron en plantas.</p>`,
+      svg: H.tabla("Formas de reproducción asexual de las plantas", ["Forma", "Qué es", "Ejemplo"], [["Estolón", "tallo rastrero", "fresa"], ["Tubérculo", "tallo con reservas", "patata"], ["Bulbo", "yema con hojas de reserva", "cebolla, tulipán"], ["Esqueje", "trozo de tallo", "geranio, rosal"]]),
     },
   ],
-  figura: {
-    titulo: "Las plantas en ocho ideas",
-    svg: rejilla([
-      ["Raíz", "sujeta y absorbe agua", COL.marron],
-      ["Tallo", "sostiene y transporta savia", COL.verde],
-      ["Hoja", "fotosíntesis y estomas", COL.agua],
-      ["Sin semillas", "musgos y helechos: esporas", COL.gris],
-      ["Gimnospermas", "semillas en piñas", COL.azul],
-      ["Angiospermas", "flores y frutos", COL.rojo],
-      ["Fotosíntesis", "CO₂ + agua + luz → azúcar + O₂", COL.sol],
-      ["Flor", "polinización y fecundación", COL.morado],
-    ], 4, 86, "Resumen: órganos, grupos de plantas, fotosíntesis y flor"),
-  },
-  video: { id: "gNS9Im61baQ", titulo: "PARTES de una PLANTA + sus FUNCIONES", canal: "EcologíaVerde", vistas: 377428, megusta: 0, busqueda: "partes de la planta raíz tallo hoja" },
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    { enunciado: "Una planta tiene vasos conductores, hojas grandes y divididas con puntitos marrones en el envés y no tiene flores. ¿Qué tipo de planta es?",
-      pasos: ["Tiene vasos: no es un musgo.", "No tiene flores ni semillas: no es gimnosperma ni angiosperma.", "Los puntitos marrones son soros con esporas."],
-      resultado: "Es un helecho." },
-    { enunciado: "Pones dos plantas iguales, una junto a la ventana y otra en un armario oscuro, con el mismo riego. ¿Qué ocurrirá al cabo de dos semanas y por qué?",
-      pasos: ["Sin luz, la segunda planta no puede hacer la fotosíntesis.", "Gasta sus reservas al respirar y no fabrica alimento nuevo.", "Se pone amarillenta y débil, mientras la otra crece inclinada hacia la ventana (fototropismo)."],
-      resultado: "La de la ventana crece hacia la luz; la del armario se debilita." },
-    { enunciado: "Ordena estos pasos de la reproducción sexual de una angiosperma: fruto, polinización, germinación, fecundación, formación de la semilla.",
-      pasos: ["Primero el polen llega al estigma (polinización).", "Se unen los gametos (fecundación) y el óvulo se convierte en semilla mientras el ovario forma el fruto.", "Cuando la semilla cae en un buen lugar, germina."],
-      resultado: "Polinización, fecundación, semilla y fruto, germinación." },
+    { enunciado: "Una planta tiene semillas dentro de un fruto y flores de colores. ¿A qué grupo pertenece?", pasos: ["Tiene semillas: es una espermatofita.", "Las semillas están dentro de un fruto: angiosperma."], resultado: "es una angiosperma." },
+    { enunciado: "Escribe qué entra y qué sale de una hoja durante la fotosíntesis.", pasos: ["Entran: agua (por los vasos), CO₂ (por los estomas) y luz.", "Salen: oxígeno (por los estomas) y azúcares (savia elaborada)."], resultado: "entran agua, CO₂ y luz; salen oxígeno y azúcares." },
+    { enunciado: "Pones una planta en una caja con un agujero lateral. ¿Qué ocurrirá en una semana y por qué?", pasos: ["La luz solo entra por el agujero.", "El tallo responde creciendo hacia la luz.", "Es una respuesta de crecimiento: un tropismo."], resultado: "el tallo se curvará hacia el agujero: fototropismo." },
+    { enunciado: "Ordena el proceso: fruto, polinización, flor, fecundación, germinación, semilla.", pasos: ["La flor produce polen.", "La polinización lleva el polen al estigma.", "La fecundación forma el embrión.", "El óvulo da la semilla y el ovario, el fruto; la semilla germina."], resultado: "flor, polinización, fecundación, semilla y fruto, germinación." },
+    { enunciado: "Un melocotón tiene un hueso dentro. ¿Qué parte de la flor es cada cosa?", pasos: ["La parte carnosa procede del ovario: es el fruto.", "Dentro del hueso está la semilla, que procede del óvulo."], resultado: "la carne es el ovario transformado; la semilla, el óvulo fecundado." },
+    { enunciado: "Un agricultor quiere naranjos exactamente iguales a uno que da naranjas excelentes. ¿Qué método debe usar?", pasos: ["Con semillas, los hijos mezclan caracteres de dos progenitores.", "Con reproducción asexual (injerto o esqueje), son idénticos."], resultado: "reproducción asexual, por ejemplo injertos." },
   ],
   errores: [
-    "Pensar que las plantas «comen» tierra: del suelo solo toman agua y sales; la materia viene del CO₂.",
-    "Decir que las plantas no respiran o que solo respiran de noche.",
-    "Confundir polinización (transporte de polen) con fecundación (unión de gametos).",
-    "Creer que el fruto procede del pétalo: procede del ovario.",
-    "Llamar «hojas» a las acículas del pino y pensar que no son hojas: sí lo son, en forma de aguja.",
+    "Pensar que las plantas sacan su materia del suelo: casi toda procede del CO₂ del aire.",
+    "Creer que las plantas no respiran o que solo respiran de noche: respiran siempre.",
+    "Confundir savia bruta (agua y sales, sube) con savia elaborada (azúcares, se reparte).",
+    "Pensar que todas las plantas tienen flores: musgos y helechos no las tienen.",
+    "Decir que el fruto procede del óvulo: el fruto procede del ovario y la semilla, del óvulo.",
+    "Creer que polinización y fecundación son lo mismo: primero llega el polen y después se unen los gametos.",
   ],
-  ejercicios: [
-    { q: "Escribe cuatro características del reino Plantas.", sol: "Eucariotas, pluricelulares con tejidos, con pared de celulosa y cloroplastos, autótrofas y fijas al suelo." },
-    { q: "¿Qué funciones tiene la raíz? ¿Qué son los pelos absorbentes?", sol: "Sujetar la planta y absorber agua y sales; prolongaciones finas que absorben el agua." },
-    { q: "¿Qué son los estomas y para qué sirven?", sol: "Poros microscópicos de las hojas por los que entran y salen gases y se pierde vapor de agua." },
-    { q: "¿Por qué los musgos son siempre pequeños?", sol: "Porque no tienen vasos conductores para transportar el agua a cierta altura." },
-    { q: "Diferencia entre gimnospermas y angiospermas.", sol: "Las gimnospermas tienen semillas desnudas (en piñas); las angiospermas tienen flores vistosas y semillas dentro de un fruto." },
-    { q: "Escribe qué entra y qué sale en la fotosíntesis.", sol: "Entran agua, dióxido de carbono y energía de la luz; salen azúcares (materia orgánica) y oxígeno." },
-    { q: "Diferencia entre savia bruta y savia elaborada.", sol: "La bruta es agua con sales que sube de la raíz; la elaborada lleva la materia orgánica fabricada en las hojas." },
-    { q: "Pon un ejemplo de fototropismo y otro de nastia.", sol: "El tallo crece hacia la ventana; la mimosa pliega las hojas al tocarla." },
-    { q: "¿Qué partes de la flor son los aparatos reproductores masculino y femenino?", sol: "Los estambres (masculino) y el pistilo (femenino)." },
-    { q: "Escribe tres formas de reproducción asexual de las plantas con un ejemplo.", sol: "Estolones (fresa), tubérculos (patata), esquejes (geranio); también bulbos e injertos." },
-  ],
-  quiz: [
-    { q: "Las plantas son…", o: ["heterótrofas", "autótrofas", "procariotas"], a: 1, e: "Autótrofas." },
-    { q: "Los musgos no tienen…", o: ["clorofila", "vasos conductores", "células"], a: 1, e: "No tienen vasos." },
-    { q: "Los helechos se reproducen por…", o: ["semillas", "esporas", "frutos"], a: 1, e: "Esporas en los soros." },
-    { q: "El pino es una…", o: ["angiosperma", "gimnosperma", "briófita"], a: 1, e: "Gimnosperma." },
-    { q: "La fotosíntesis se hace en los…", o: ["cloroplastos", "pelos absorbentes", "estambres"], a: 0, e: "Cloroplastos." },
-    { q: "En la fotosíntesis se libera…", o: ["oxígeno", "nitrógeno", "dióxido de carbono"], a: 0, e: "Oxígeno." },
-    { q: "Las raíces que crecen hacia abajo muestran…", o: ["fototropismo", "geotropismo", "una nastia"], a: 1, e: "Geotropismo." },
-    { q: "El polen se produce en las…", o: ["anteras", "raíces", "semillas"], a: 0, e: "Anteras de los estambres." },
-    { q: "El fruto se forma a partir del…", o: ["ovario", "pétalo", "tallo"], a: 0, e: "Ovario." },
-    { q: "La patata es un…", o: ["tubérculo", "fruto", "bulbo"], a: 0, e: "Tallo subterráneo: tubérculo." },
-  ],
-  examen: [
-    { q: "La materia de la madera de un árbol procede sobre todo…", o: ["del CO₂ del aire", "de la tierra", "del abono"], a: 0, e: "Del CO₂ captado en la fotosíntesis." },
-    { q: "La pérdida de vapor de agua por los estomas se llama…", o: ["transpiración", "respiración", "germinación"], a: 0, e: "Transpiración." },
-    { q: "Las flores que se polinizan por el viento suelen ser…", o: ["pequeñas y poco vistosas", "grandes y perfumadas", "rojas"], a: 0, e: "Producen mucho polen." },
-  ],
-  feynman: ["Cómo fabrica una planta su alimento", "Qué diferencia a musgos, helechos, gimnospermas y angiospermas", "Cómo se pasa de una flor a un fruto con semillas"],
-  mapa: mapa("PLANTAS", "var(--eso)", [
-    ["Órganos", "raíz · tallo · hojas", COL.marron],
-    ["Grupos", "musgos · helechos · con semillas", COL.verde],
-    ["Nutrición", "savia · fotosíntesis · respiración", COL.sol],
-    ["Reproducción", "flor · semilla · fruto", COL.rojo],
-  ], 290),
+  ejercicios: H.niveles([
+    ["Escribe cuatro características de las plantas.", "Pluricelulares, eucariotas con pared de celulosa y cloroplastos, autótrofas y fijas al suelo."],
+    ["¿Cuáles son las funciones de la raíz?", "Sujetar la planta y absorber agua y sales minerales."],
+    ["¿Qué son los estomas?", "Poros diminutos de las hojas por los que entran y salen gases."],
+    ["¿Cómo se reproducen musgos y helechos?", "Por esporas."],
+    ["Diferencia gimnospermas y angiospermas.", "Gimnospermas: semillas desnudas, sin fruto (pino). Angiospermas: semillas dentro de un fruto y flores vistosas (manzano)."],
+    ["¿Qué es la savia bruta?", "La mezcla de agua y sales minerales que sube de la raíz a las hojas."],
+    ["¿Qué necesita una planta para hacer la fotosíntesis?", "Agua, dióxido de carbono, luz y clorofila."],
+    ["¿Qué gas desprenden las plantas en la fotosíntesis?", "Oxígeno."],
+    ["¿Qué es un tropismo? Pon un ejemplo.", "Una respuesta de crecimiento hacia un estímulo o en contra; por ejemplo, el tallo que crece hacia la luz."],
+    ["Nombra las partes de la flor.", "Sépalos (cáliz), pétalos (corola), estambres y pistilo."],
+    ["¿Qué es la polinización?", "El transporte del polen de los estambres al estigma."],
+    ["Pon dos ejemplos de reproducción asexual de plantas.", "Los estolones de la fresa y los tubérculos de la patata (también bulbos y esquejes)."],
+  ], [
+    ["¿Por qué los musgos viven en lugares húmedos?", "Porque no tienen vasos conductores ni raíces verdaderas y absorben el agua por toda su superficie."],
+    ["Explica cómo sube el agua hasta la copa de un árbol.", "Por los vasos leñosos; la transpiración de las hojas evapora agua y «tira» del agua desde la raíz, como una pajita."],
+    ["Escribe la ecuación de la fotosíntesis con palabras y explica dónde ocurre.", "Agua + dióxido de carbono + luz → azúcares + oxígeno. Ocurre en los cloroplastos de las hojas gracias a la clorofila."],
+    ["Compara fotosíntesis y respiración en tres aspectos.", "Fotosíntesis: en cloroplastos, solo con luz, toma CO₂ y desprende O₂. Respiración: en mitocondrias, siempre, toma O₂ y desprende CO₂."],
+    ["¿Por qué se pudren las raíces si se riega en exceso?", "Porque el agua ocupa los huecos del suelo, falta oxígeno y las células de la raíz no pueden respirar."],
+    ["Diferencia tropismo y nastia con ejemplos.", "Tropismo: crecimiento orientado por el estímulo (raíz hacia abajo). Nastia: movimiento rápido que no depende de la dirección (mimosa que cierra sus hojas)."],
+    ["¿Qué diferencia una flor polinizada por insectos de una polinizada por el viento?", "La de insectos es vistosa, perfumada y con néctar; la del viento es pequeña, poco llamativa y produce mucho polen ligero."],
+    ["Explica qué ocurre en la fecundación de una planta.", "El polen forma un tubo que baja por el estilo hasta el ovario, y el gameto masculino se une al óvulo para formar el embrión."],
+    ["¿En qué se transforman el óvulo y el ovario después de la fecundación?", "El óvulo, en la semilla; el ovario, en el fruto."],
+    ["¿Para qué sirve la dispersión de semillas? Pon dos ejemplos.", "Para alejar las semillas de la planta madre y colonizar nuevos lugares. Ejemplos: el diente de león vuela con el viento y las cerezas las comen los pájaros."],
+    ["¿Qué condiciones necesita una semilla para germinar?", "Agua, temperatura adecuada y oxígeno (algunas, también luz)."],
+  ], [
+    ["Un científico del siglo XVII, Van Helmont, plantó un sauce de 2 kg en 90 kg de tierra. Cinco años después, el sauce pesaba 77 kg y la tierra casi 90 kg. ¿De dónde salió la materia del árbol?", "Del agua con la que lo regaba y, sobre todo, del dióxido de carbono del aire, que la planta transformó en azúcares y madera mediante la fotosíntesis. La tierra solo aportó unos gramos de sales."],
+    ["Diseña un experimento para demostrar que las plantas necesitan luz para crecer.", "Plantar semillas iguales en dos macetas con la misma tierra y agua; una a la luz y otra en un armario oscuro. Comparar color y crecimiento durante dos semanas. La de la oscuridad quedará amarilla y débil."],
+    ["Si desaparecieran las abejas, ¿qué consecuencias tendría para la alimentación humana?", "Muchas plantas cultivadas que dependen de insectos para polinizarse (frutales, almendros, tomates, girasoles) producirían muchos menos frutos y semillas; habría menos alimentos y más caros."],
+    ["¿Por qué los pinos aguantan mejor la sequía que los helechos?", "Porque tienen semillas protegidas que no necesitan agua para la fecundación, raíces profundas y hojas en aguja con poca superficie que pierden poca agua; los helechos necesitan humedad para reproducirse."],
+    ["Explica por qué es un error decir «las plantas respiran al revés que nosotros».", "Las plantas respiran igual que nosotros (toman O₂ y desprenden CO₂). Lo que hacen además es la fotosíntesis, que de día es más intensa y hace que, en conjunto, desprendan oxígeno."],
+    ["¿Qué ventajas e inconvenientes tiene para un agricultor reproducir sus plantas por esqueje?", "Ventajas: plantas idénticas a la mejor, más rápido. Inconvenientes: todas tienen la misma sensibilidad a las plagas y enfermedades; una sola plaga puede destruir toda la cosecha."],
+    ["Explica por qué la deforestación aumenta el CO₂ de la atmósfera y la erosión del suelo.", "Sin árboles, se deja de absorber CO₂ por la fotosíntesis, y si se queman se libera el carbono guardado. Además, sin raíces que sujeten el suelo, la lluvia y el viento se lo llevan."],
+  ]),
+  quiz: H.test([
+    ["Las plantas son…", ["autótrofas", "heterótrofas", "unicelulares", "procariotas"], 0, "Hacen la fotosíntesis."],
+    ["La pared de las células vegetales es de…", ["quitina", "celulosa", "calcio", "proteína"], 1, "Rígida."],
+    ["Los pelos absorbentes están en la…", ["hoja", "flor", "raíz", "semilla"], 2, "Toman agua y sales."],
+    ["Los poros de las hojas se llaman…", ["soros", "anteras", "pecíolos", "estomas"], 3, "Intercambian gases."],
+    ["Las plantas sin vasos conductores son los…", ["musgos", "helechos", "pinos", "rosales"], 0, "Viven en lugares húmedos."],
+    ["Las esporas de los helechos se forman en los…", ["estambres", "soros", "frutos", "conos"], 1, "Bajo las hojas."],
+    ["El pino es una…", ["angiosperma", "briofita", "gimnosperma", "alga"], 2, "Semillas desnudas en piñas."],
+    ["Las angiospermas tienen las semillas…", ["desnudas", "en soros", "en esporas", "dentro de un fruto"], 3, "Protegidas."],
+    ["La savia bruta está formada por…", ["agua y sales minerales", "azúcares", "oxígeno", "polen"], 0, "Sube de la raíz."],
+    ["El pigmento que capta la luz es la…", ["celulosa", "clorofila", "savia", "almidón"], 1, "Verde."],
+    ["En la fotosíntesis se toma del aire…", ["oxígeno", "nitrógeno", "dióxido de carbono", "vapor"], 2, "Entra por los estomas."],
+    ["Las plantas respiran…", ["solo de día", "solo de noche", "nunca", "de día y de noche"], 3, "Siempre."],
+    ["La raíz que crece hacia abajo es un ejemplo de…", ["geotropismo", "fototropismo", "nastia", "polinización"], 0, "Gravedad."],
+    ["La mimosa púdica pliega sus hojas al tocarla: es una…", ["fotosíntesis", "nastia", "germinación", "polinización"], 1, "Movimiento rápido."],
+    ["La parte masculina de la flor es el…", ["pistilo", "sépalo", "estambre", "ovario"], 2, "Produce polen."],
+    ["El polen se atrapa en el…", ["ovario", "estilo", "pétalo", "estigma"], 3, "Es pegajoso."],
+    ["El transporte del polen al estigma es la…", ["polinización", "fecundación", "germinación", "dispersión"], 0, "Por insectos o viento."],
+    ["El fruto procede del…", ["óvulo", "ovario", "pétalo", "estambre"], 1, "Crece tras la fecundación."],
+    ["El diente de león dispersa sus semillas con el…", ["agua", "pelo de animales", "viento", "suelo"], 2, "Pelillos voladores."],
+    ["La patata es un…", ["bulbo", "estolón", "fruto", "tubérculo"], 3, "Tallo con reservas."],
+  ]),
+  examen: H.test([
+    ["Las hojas son los órganos donde se realiza sobre todo la…", ["fotosíntesis", "absorción", "polinización", "germinación"], 0, "Tienen cloroplastos."],
+    ["Los helechos tienen…", ["semillas", "vasos conductores", "flores", "frutos"], 1, "Pero no semillas."],
+    ["La savia elaborada lleva…", ["agua y sales", "solo agua", "azúcares", "oxígeno"], 2, "De las hojas a toda la planta."],
+    ["De día, en conjunto, una planta…", ["solo respira", "no hace nada", "toma oxígeno", "desprende oxígeno"], 3, "La fotosíntesis domina."],
+    ["Los zarcillos que se enrollan en un soporte muestran…", ["tigmotropismo", "geotropismo", "fototropismo", "hidrotropismo"], 0, "Respuesta al contacto."],
+    ["El ovario de la flor contiene los…", ["granos de polen", "óvulos", "estambres", "sépalos"], 1, "Parte femenina."],
+    ["La semilla procede del…", ["ovario", "estigma", "óvulo fecundado", "pétalo"], 2, "Contiene el embrión."],
+    ["Un esqueje produce plantas…", ["diferentes", "sin raíz", "con semillas", "idénticas a la madre"], 3, "Reproducción asexual."],
+  ]),
+  feynman: ["Qué órganos tiene una planta y para qué sirve cada uno", "Cómo se clasifican las plantas", "Cómo fabrica su alimento una planta", "Cómo responden las plantas a los estímulos", "Cómo se forma una semilla y un fruto"],
+  mapa: H.mapa("PLANTAS", "var(--eso)", [
+    ["Grupos", "musgos · helechos · con semillas", "var(--leaf)"],
+    ["Nutrición", "savia · fotosíntesis · respiración", "#b8860b"],
+    ["Relación", "tropismos · nastias", "var(--pen)"],
+    ["Reproducción", "flor · polinización · semilla · fruto", "var(--red)"],
+  ], 300),
   tarjetas: [
-    ["Estoma", "Poro de la hoja para el intercambio de gases."],
-    ["Musgos", "Plantas sin vasos ni semillas; viven en lugares húmedos."],
-    ["Gimnospermas", "Plantas con semillas sin fruto, en piñas: pino, abeto."],
-    ["Angiospermas", "Plantas con flores vistosas y semillas dentro de un fruto."],
-    ["Fotosíntesis", "CO₂ + agua + luz → materia orgánica + oxígeno."],
-    ["Savia bruta", "Agua y sales que sube desde la raíz."],
-    ["Tropismo", "Crecimiento orientado hacia un estímulo: luz, gravedad, agua."],
-    ["Polinización", "Transporte del polen desde los estambres al estigma."],
+    ["Raíz", "Sujeta la planta y absorbe agua y sales."],
+    ["Estoma", "Poro de la hoja por donde entran y salen gases."],
+    ["Musgo", "Planta sencilla sin vasos, de lugares húmedos."],
+    ["Helecho", "Planta con vasos que se reproduce por esporas."],
+    ["Gimnosperma", "Planta con semillas desnudas, como el pino."],
+    ["Angiosperma", "Planta con flores y semillas dentro de un fruto."],
+    ["Savia bruta", "Agua y sales que suben de la raíz."],
+    ["Savia elaborada", "Agua y azúcares que se reparten desde las hojas."],
+    ["Fotosíntesis", "Agua + CO₂ + luz → azúcares + oxígeno."],
+    ["Tropismo", "Crecimiento hacia un estímulo o en contra."],
+    ["Polinización", "Transporte del polen al estigma."],
+    ["Fruto", "Ovario transformado que protege las semillas."],
   ],
-  familias: ["Germinad unas lentejas en algodón húmedo y observad cada día cómo salen la raíz y el tallo.", "Haced un esqueje de potos o geranio en un vaso de agua y comprobad cuándo echa raíces.", "En un paseo, buscad un musgo, un helecho, un pino y una planta con flor."],
-  profesores: {
-    saberes: "Las plantas: características, órganos, clasificación (briófitos, pteridófitos, gimnospermas y angiospermas), nutrición y fotosíntesis, relación (tropismos y nastias), reproducción sexual y asexual, importancia ecológica y económica (RD 217/2022, Biología y Geología, bloque Seres vivos).",
-    ideas: ["Disección de una flor (lirio, tulipán) e identificación de sus partes.", "Experimento de almidón en hojas tapadas y destapadas con lugol.", "Herbario de la clase con hojas de árboles del entorno y su nombre científico."],
+  glosario: [
+    ["Pelo absorbente", "Prolongación fina de la raíz que absorbe agua y sales."],
+    ["Vaso conductor", "Tubo que transporta la savia por la planta."],
+    ["Estoma", "Poro de la hoja que permite el paso de gases."],
+    ["Fronde", "Hoja de los helechos."],
+    ["Soro", "Grupo de estructuras con esporas bajo la hoja del helecho."],
+    ["Gimnosperma", "Planta con semillas desnudas."],
+    ["Angiosperma", "Planta con flores y semillas protegidas por un fruto."],
+    ["Savia bruta", "Agua con sales minerales que sube desde la raíz."],
+    ["Savia elaborada", "Agua con azúcares fabricados en la fotosíntesis."],
+    ["Clorofila", "Pigmento verde que capta la energía de la luz."],
+    ["Transpiración", "Pérdida de vapor de agua por los estomas."],
+    ["Nastia", "Movimiento rápido de una planta que no depende de la dirección del estímulo."],
+    ["Estambre", "Órgano masculino de la flor que produce polen."],
+    ["Pistilo", "Órgano femenino de la flor: estigma, estilo y ovario."],
+    ["Germinación", "Desarrollo del embrión de la semilla hasta formar una plántula."],
+  ],
+  situacion: {
+    titulo: "Huerto escolar científico",
+    reto: "Diseñad y cuidad un pequeño huerto en macetas para investigar qué necesitan las plantas para germinar y crecer.",
+    pasos: [
+      "Elegid una planta de crecimiento rápido (lentejas, judías o rábanos) y plantead una pregunta: ¿influye la luz?, ¿y el riego?",
+      "Preparad macetas iguales cambiando solo una condición (luz, agua o tipo de suelo).",
+      "Medid y fotografiad la altura y el número de hojas cada dos días durante tres semanas.",
+      "Representad los datos en gráficas y relacionadlos con la fotosíntesis y la nutrición.",
+      "Presentad las conclusiones en un póster científico y cosechad lo que hayáis plantado.",
+    ],
+    producto: "Póster científico con la pregunta, el experimento, las gráficas y las conclusiones.",
+    evaluacion: [
+      "El experimento cambia una sola condición y controla las demás.",
+      "Las mediciones son regulares y están bien registradas.",
+      "Las conclusiones se explican con los conceptos del tema.",
+      "El grupo cuida las plantas con responsabilidad durante todo el proceso.",
+    ],
   },
-  fuentes: [RD, wiki("Plantae", "Plantae"), wiki("Fotosíntesis", "Fotosíntesis"), { t: "Real Jardín Botánico (CSIC)", url: "https://www.rjb.csic.es/" }],
-  revisado: REV,
+  familias: ["Poned lentejas en algodón húmedo y observad cada día cómo germinan.", "Abrid una flor y una fruta juntos e identificad sus partes.", "Plantad un esqueje de una planta de casa en un vaso de agua y observad cómo echa raíces.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "El reino plantas: características, órganos, clasificación (briofitas, pteridofitas, gimnospermas y angiospermas), nutrición (absorción, transporte, fotosíntesis y respiración), relación (tropismos y nastias) y reproducción sexual y asexual; importancia de las plantas (RD 217/2022, Biología y Geología 1º a 3º, bloque «Seres vivos»). En Cataluña, saberes equivalentes de Biologia i Geologia del Decret 175/2022.",
+    ideas: [
+      "Disección de una flor grande (lirio, tulipán) e identificación de sus partes.",
+      "Observar estomas al microscopio con una capa de esmalte de uñas transparente sobre el envés de una hoja.",
+      "Apio en agua con colorante para ver el ascenso de la savia.",
+      "Experimentos de germinación con distintas condiciones.",
+      "Herbario del entorno con clave dicotómica de hojas.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Plantae", "Plantae"), H.wiki("Fotosíntesis", "Fotos%C3%ADntesis"), { t: "Real Jardín Botánico (CSIC)", url: "https://www.rjb.csic.es/" }],
+  revisado: H.REV,
 };
