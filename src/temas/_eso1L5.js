@@ -26,7 +26,7 @@ const dibujo = (s) => (Array.isArray(s) ? fil(...s) : s);
 const NIV = { b: "básico", m: "medio", a: "avanzado" };
 const vid = L.vid;
 const V = {
-  dialeg: vid("Hk_SlCXuRyI", "L'estil directe i indirecte: transforma diàlegs al discurs indirecte", "Parlem d'escriure en català", 11990),
+  entrevista: vid("oGDyLjR5C2o", "L'entrevista de feina", "Llengua catalana", 16665),
 };
 const DECRETS = {
   "Lengua Catalana y Literatura": "Decret 175/2022 de Catalunya (Llengua catalana i literatura, 1r d'ESO): ",
