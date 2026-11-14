@@ -1,151 +1,237 @@
-// Biología y Geología 1º ESO: la atmósfera. Dibujos propios en SVG.
-const { mapa, BG, t, fl, tabla, RD, wiki, C, REV, cj, rejilla, et, COL } = require("./_eso1a");
+// Biología y Geología 1º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso1L3 y dibujos de la versión anterior del tema.
+const H = require("./_eso1L3");
+const S = "byg-atmosfera";
+const [vCapas, vInv, vCont] = H.videos(S);
 
 module.exports = {
   materia: "Biología y Geología",
-  curso: C,
+  curso: H.CURSO,
   titulo: "La atmósfera",
-  minutos: 55,
-  objetivos: ["Conocer la composición del aire y el origen de la atmósfera", "Describir las capas de la atmósfera y sus características", "Explicar las funciones protectoras de la atmósfera: capa de ozono y efecto invernadero", "Diferenciar tiempo y clima, e identificar las causas y soluciones de la contaminación del aire"],
-  claves: ["atmósfera", "aire", "nitrógeno", "oxígeno", "troposfera", "estratosfera", "capa de ozono", "efecto invernadero", "presión atmosférica", "tiempo", "clima", "contaminación"],
+  minutos: 100,
+  objetivos: [
+    "Describir la composición del aire y el origen de la atmósfera",
+    "Nombrar y caracterizar las capas de la atmósfera",
+    "Explicar cómo nos protege la atmósfera: capa de ozono y efecto invernadero",
+    "Distinguir tiempo atmosférico y clima e interpretar datos meteorológicos",
+    "Identificar los contaminantes del aire y sus efectos",
+    "Proponer medidas para mejorar la calidad del aire",
+  ],
+  claves: ["atmósfera", "nitrógeno", "oxígeno", "dióxido de carbono", "troposfera", "estratosfera", "capa de ozono", "efecto invernadero", "presión atmosférica", "tiempo", "clima", "contaminación", "lluvia ácida", "cambio climático"],
   pregunta: {
-    texto: "Si en el espacio hace un frío de −270 °C, ¿por qué la Tierra no está congelada como la Luna, que está a la misma distancia del Sol?",
-    respuesta: "Por la <b>atmósfera</b>. Funciona como una manta: deja pasar la luz del Sol, pero <b>retiene parte del calor</b> que el suelo devuelve hacia el espacio. Es el <b>efecto invernadero natural</b>, y gracias a él la temperatura media de la Tierra es de unos 15 °C. Sin atmósfera, como le pasa a la Luna, la temperatura media sería de unos −18 °C, con días abrasadores y noches heladas.",
+    texto: "En la Luna, de día, el suelo alcanza 120 °C y de noche baja a −170 °C. En la Tierra, que está a la misma distancia del Sol, no ocurre. ¿Por qué?",
+    respuesta: "Porque la Luna no tiene <mark>atmósfera</mark>. En la Tierra, la capa de gases que nos rodea actúa como una manta: filtra parte de la radiación del Sol durante el día y retiene el calor durante la noche gracias al <b>efecto invernadero</b> natural. Sin ella, nuestro planeta tendría una temperatura media de unos −18 °C en lugar de 15 °C.",
+  },
+  lectura: {
+    titulo: "El salto desde el borde del espacio",
+    html: `<p>El 14 de octubre de 2012, millones de personas siguieron en directo una imagen increíble: el paracaidista austriaco Felix Baumgartner, de pie en la puerta de una cápsula colgada de un globo, a 39 kilómetros de altura. Bajo sus pies, la Tierra se veía curva y el cielo, negro.</p>
+<p>A esa altura, en la estratosfera, el aire es tan escaso que un ser humano perdería el conocimiento en segundos. Por eso llevaba un traje presurizado, como el de un astronauta. Saltó y, como casi no había aire que lo frenara, cayó cada vez más deprisa hasta superar la velocidad del sonido: más de 1.300 km/h. Al llegar a capas más bajas, el aire más denso lo fue frenando, y a unos 2.500 metros abrió el paracaídas.</p>
+<p>Su salto mostró que la <b>atmósfera</b> no es igual a todas las alturas: cambian la cantidad de aire, la temperatura y la presión. En este tema conocerás cómo es esta capa de gases que nos permite respirar y nos protege.</p>`,
   },
   bloques: [
     {
-      html: `<h3>¿Qué es la atmósfera?</h3><p>La <mark>atmósfera</mark> es la <b>capa de gases que rodea la Tierra</b> y que se mantiene unida al planeta gracias a la gravedad. La mezcla de gases que la forma se llama <b>aire</b>. Aunque no lo veamos, el aire tiene masa y ocupa espacio, y su peso sobre nosotros es la <mark>presión atmosférica</mark>. A medida que subimos, hay menos aire por encima y la presión disminuye: por eso en lo alto de una montaña se respira peor y el agua hierve a menos de 100 °C. La atmósfera actual no siempre fue así. La primera atmósfera se formó con los gases que expulsaban los volcanes, y no tenía apenas oxígeno. Fueron unos seres vivos microscópicos, las <b>cianobacterias</b>, los que empezaron a liberar oxígeno al hacer la fotosíntesis hace unos 2.500 millones de años, y poco a poco transformaron el aire hasta hacerlo respirable.</p>`,
+      html: `<h3>1.1 ¿Qué es la atmósfera?</h3><p>La <mark>atmósfera</mark> es la capa de gases que rodea la Tierra. Se mantiene unida al planeta gracias a la <b>gravedad</b>. Tiene unos 10.000 km de espesor, pero la mayor parte del aire está concentrada cerca del suelo: en los primeros 12 km se encuentra alrededor del 80 % de toda la masa de la atmósfera. A medida que subimos, el aire es cada vez más <b>escaso</b>; por eso los alpinistas que suben al Everest suelen llevar botellas de oxígeno.</p><p>La atmósfera es imprescindible para la vida: contiene el oxígeno que respiramos y el dióxido de carbono que usan las plantas, nos protege de las radiaciones del Sol y de los meteoritos, mantiene una temperatura adecuada y reparte el calor y el agua por el planeta.</p>`,
+      svg: H.radial("Funciones de la atmósfera", "ATMÓSFERA", ["oxígeno para respirar", "CO₂ para las plantas", "filtra rayos UV", "frena meteoritos", "temperatura suave", "reparte agua y calor"], "var(--inf)"),
     },
     {
-      html: `<h3>La composición del aire</h3><p>El aire seco es una mezcla de gases. El más abundante es el <mark>nitrógeno</mark> (N₂), que forma el <b>78 %</b>; no lo usamos al respirar, pero es necesario para las plantas, que lo toman del suelo gracias a ciertas bacterias. Le sigue el <mark>oxígeno</mark> (O₂), con el <b>21 %</b>, imprescindible para la respiración de casi todos los seres vivos y para las combustiones. El 1 % restante incluye el <b>argón</b>, un gas noble, y pequeñas cantidades de <mark>dióxido de carbono</mark> (CO₂), que, aunque solo sea el 0,04 %, es fundamental: las plantas lo usan para la fotosíntesis y ayuda a retener el calor. Además, el aire contiene cantidades variables de <b>vapor de agua</b>, que forma las nubes y la lluvia, y de partículas sólidas como polvo, polen, cenizas o sal marina.</p>${tabla(["Gas", "Proporción", "Importancia"], [["Nitrógeno (N₂)", "78 %", "nutriente de las plantas a través del suelo"], ["Oxígeno (O₂)", "21 %", "respiración y combustión"], ["Argón (Ar)", "0,9 %", "gas inerte"], ["Dióxido de carbono (CO₂)", "0,04 %", "fotosíntesis y efecto invernadero"], ["Vapor de agua", "variable", "nubes y precipitaciones"]])}`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Composición del aire en una barra: 78 por ciento nitrógeno, 21 por ciento oxígeno y 1 por ciento otros gases">${BG}
-        <rect x="20" y="60" width="171.6" height="46" fill="#2b8ad8" fill-opacity=".8"/><rect x="191.6" y="60" width="46.2" height="46" fill="var(--leaf)"/><rect x="237.8" y="60" width="4" height="46" fill="#e8892c"/>
-        ${t(105, 89, "nitrógeno 78 %", { size: 12, color: "#fff" })}${t(214, 89, "O₂ 21 %", { size: 10, color: "#fff" })}
-        ${fl(240, 130, 240, 110, "var(--ink)", 1.5)}${t(236, 144, "otros 1 %", { size: 10, anchor: "end" })}
-        ${t(130, 40, "100 partes de aire", { size: 12, color: COL.azul })}</svg>`,
+      html: `<h3>1.2 La composición del aire</h3><p>El <b>aire</b> es una mezcla de gases. Los más abundantes son:</p><p>• El <mark>nitrógeno</mark> (N₂), un <b>78 %</b>. Es poco reactivo, pero los seres vivos lo necesitan para fabricar proteínas; lo obtienen gracias a bacterias del suelo.<br>• El <mark>oxígeno</mark> (O₂), un <b>21 %</b>. Lo usamos para la respiración celular y es necesario para que algo arda.<br>• Otros gases, en total un <b>1 %</b>: argón, <b>dióxido de carbono</b> (CO₂), que usan las plantas en la fotosíntesis y que retiene calor, y <b>vapor de agua</b>, cuya cantidad varía mucho según el lugar.</p><p>Además, en el aire flotan partículas sólidas muy pequeñas, como polvo, polen, sal marina o ceniza volcánica. Sobre ellas se condensa el vapor de agua para formar las gotitas de las nubes.</p>`,
+      svg: H.viejo(S, 1),
     },
     {
-      html: `<h3>Las capas de la atmósfera</h3><p>La atmósfera tiene unos <b>10.000 km</b> de espesor, pero la mayor parte del aire está concentrado cerca del suelo. Se divide en capas según cómo cambia la temperatura con la altura. La <mark>troposfera</mark> es la capa más baja: llega hasta unos 12 km (unos 8 km en los polos y 18 km en el ecuador) y contiene el 80 % del aire y casi todo el vapor de agua; en ella se forman las nubes y ocurren los fenómenos del tiempo, y la temperatura <b>baja</b> al subir, hasta unos −55 °C. La <mark>estratosfera</mark> llega hasta unos 50 km; en ella se encuentra la <b>capa de ozono</b>, y la temperatura sube porque el ozono absorbe radiación del Sol; los aviones de largo recorrido vuelan en su parte baja, donde no hay turbulencias. La <b>mesosfera</b>, hasta unos 80 km, es la más fría, y en ella se queman los meteoritos (estrellas fugaces). La <b>termosfera</b> o ionosfera, hasta unos 600 km, tiene temperaturas altísimas y en ella se forman las <b>auroras polares</b>; por ella orbita la Estación Espacial Internacional. Por encima está la <b>exosfera</b>, que se va perdiendo en el espacio.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Capas de la atmósfera desde el suelo: troposfera con nubes, estratosfera con la capa de ozono y un avión, mesosfera con estrellas fugaces y termosfera con auroras">${BG}
-        <rect x="10" y="132" width="170" height="36" fill="#bfdbfe"/><rect x="10" y="92" width="170" height="40" fill="#93c5fd"/><rect x="10" y="52" width="170" height="40" fill="#60a5fa"/><rect x="10" y="12" width="170" height="40" fill="#1e3a8a"/>
-        <rect x="10" y="100" width="170" height="8" fill="#a78bfa" fill-opacity=".7"/>
-        <ellipse cx="50" cy="152" rx="16" ry="7" fill="#fff"/><ellipse cx="62" cy="148" rx="12" ry="7" fill="#fff"/>
-        <path d="M120 118 l 14 -3 l 6 -6 l 3 1 l -3 7 l 10 -2 l 2 2 l -30 6 Z" fill="#334155"/>
-        ${fl(70, 62, 58, 80, "#fde68a", 1.8)}
-        <path d="M30 34 q 25 -18 50 0 q 25 18 50 0" fill="none" stroke="#4ade80" stroke-width="3" opacity=".9"/>
-        ${t(218, 154, "troposfera", { size: 10 })}${t(218, 114, "estratosfera", { size: 10 })}${t(218, 76, "mesosfera", { size: 10 })}${t(218, 36, "termosfera", { size: 10 })}
-        ${t(150, 106, "ozono", { size: 8.5, color: "#fff" })}</svg>`,
-      video: { id: "l8rlX0cSUU8", titulo: "¿Cuáles son las capas de la atmósfera y sus funciones? | Animación", canal: "Hidden Nature", vistas: 488362 },
+      html: `<h3>1.3 El origen de la atmósfera</h3><p>La atmósfera de la Tierra no siempre fue como ahora. Hace unos 4.500 millones de años, la primera atmósfera estaba formada por los gases que expulsaban los volcanes: vapor de agua, dióxido de carbono y nitrógeno, pero <b>casi nada de oxígeno</b>. Al enfriarse el planeta, el vapor de agua se condensó y formó lluvias que llenaron los océanos.</p><p>Hace unos 2.500 millones de años, unas bacterias del mar, las <b>cianobacterias</b>, empezaron a hacer la fotosíntesis y a liberar oxígeno. Poco a poco, el oxígeno se acumuló en el agua y en el aire. Parte de él formó la capa de ozono, que permitió a los seres vivos salir del agua y colonizar la tierra firme. Es decir, la atmósfera que respiramos la han fabricado los propios seres vivos.</p>`,
+      svg: H.linea("Historia de la atmósfera", [["4.500 Ma", "gases de volcanes"], ["4.000 Ma", "lluvias y océanos"], ["2.500 Ma", "cianobacterias: oxígeno"], ["500 Ma", "capa de ozono"], ["hoy", "21 % de oxígeno"]], "Historia del aire (Ma: millones de años)"),
     },
     {
-      html: `<h3>La atmósfera nos protege: la capa de ozono</h3><p>El Sol emite luz visible, pero también <b>radiación ultravioleta</b> (UV), que es muy dañina para los seres vivos: produce quemaduras, envejecimiento de la piel, cáncer de piel y problemas en los ojos, y destruye el material genético de las células. En la estratosfera, entre unos 15 y 35 km de altura, hay una zona con más cantidad de un gas llamado <mark>ozono</mark> (O₃), formado por tres átomos de oxígeno. Esta <mark>capa de ozono</mark> absorbe la mayor parte de los rayos UV y actúa como un <b>filtro solar</b> para todo el planeta. En los años ochenta se descubrió que ciertos gases fabricados por el ser humano, los <b>CFC</b> (usados en aerosoles y frigoríficos), estaban destruyendo el ozono y abriendo un «agujero» sobre la Antártida. En 1987 los países firmaron el <b>Protocolo de Montreal</b> para prohibirlos, y hoy la capa se está recuperando poco a poco: un ejemplo de que la cooperación internacional funciona.</p>`,
+      html: `<h3>1.4 Las capas de la atmósfera</h3><p>Según cómo cambia la temperatura con la altura, la atmósfera se divide en capas:</p><p>• La <mark>troposfera</mark> va desde el suelo hasta unos 12 km. Contiene la mayor parte del aire y del vapor de agua. Aquí se forman las nubes, la lluvia y el viento, y la temperatura baja al subir: unos 6,5 °C cada kilómetro.<br>• La <mark>estratosfera</mark> llega hasta unos 50 km. En ella está la <b>capa de ozono</b>. Hay poco movimiento de aire, por eso vuelan por su parte baja los aviones comerciales.<br>• La <b>mesosfera</b>, hasta unos 85 km, es la más fría: puede bajar a −90 °C. Allí se queman la mayoría de los meteoritos y se ven las estrellas fugaces.<br>• La <b>termosfera</b> o ionosfera, donde se forman las auroras polares.<br>• La <b>exosfera</b>, la más externa, donde orbitan muchos satélites.</p>`,
+      svg: H.viejo(S, 2),
+      video: vCapas,
     },
     {
-      html: `<h3>El efecto invernadero</h3><p>La luz del Sol atraviesa la atmósfera y calienta el suelo; el suelo, a su vez, emite calor (radiación infrarroja) hacia el espacio. Algunos gases de la atmósfera, como el <b>vapor de agua</b>, el <b>dióxido de carbono</b> y el <b>metano</b>, absorben parte de ese calor y lo devuelven hacia la superficie. Es el <mark>efecto invernadero</mark>, llamado así porque funciona como el plástico de un invernadero. Es un fenómeno <b>natural y necesario</b>: sin él, la temperatura media de la Tierra sería de unos −18 °C en lugar de 15 °C. El problema es que, desde hace unos 200 años, las actividades humanas, sobre todo la <b>quema de combustibles fósiles</b> (carbón, petróleo y gas) y la deforestación, han aumentado mucho la cantidad de estos gases. El resultado es un <mark>efecto invernadero reforzado</mark>, que retiene más calor del necesario y provoca el <b>calentamiento global</b> y el cambio climático.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Efecto invernadero: la luz del Sol llega al suelo, el suelo emite calor y los gases de la atmósfera devuelven parte de ese calor a la superficie">${BG}
-        <circle cx="26" cy="26" r="16" fill="#f6b417"/>
-        <path d="M10 70 Q 130 40 250 70" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 4"/>${t(210, 48, "gases", { size: 10, color: "var(--muted)" })}
-        <rect x="10" y="140" width="240" height="30" fill="#86efac"/>
-        ${fl(40, 40, 96, 136, COL.sol, 2.5)}${t(48, 100, "luz", { size: 10, color: COL.sol })}
-        ${fl(120, 136, 150, 64, COL.rojo, 2.5)}${fl(160, 66, 186, 136, COL.rojo, 2.5)}${fl(200, 136, 228, 30, COL.rojo, 1.5)}
-        ${t(148, 116, "calor", { size: 10, color: COL.rojo })}${et(196, 100, "vuelve", 50, { size: 10, color: COL.rojo })}${et(236, 22, "escapa", 40, { size: 9, color: COL.rojo })}
-        ${t(130, 160, "suelo", { size: 10 })}</svg>`,
-      video: { id: "YLFLxQ0t07A", titulo: "¿Qué es el efecto invernadero? | Sostenibilidad - ACCIONA", canal: "ACCIONA", vistas: 5823698 },
+      html: `<h3>1.5 La presión atmosférica</h3><p>Aunque no lo notemos, el aire pesa. La fuerza que hace el peso del aire sobre cada superficie se llama <mark>presión atmosférica</mark>. Sobre cada uno de nosotros hay una columna de aire de muchos kilómetros que nos empuja, pero no la sentimos porque el aire de dentro de nuestro cuerpo empuja igual hacia fuera.</p><p>La presión se mide con el <b>barómetro</b> y su unidad es el <b>hectopascal</b> (hPa) o el milibar. Al nivel del mar es de unos <b>1.013 hPa</b>. Cuanto más alto subimos, menos aire tenemos encima y <b>menor</b> es la presión: por eso se taponan los oídos en un avión o al subir un puerto de montaña. En los mapas del tiempo, las zonas de <b>altas presiones</b> o anticiclones suelen traer buen tiempo, y las de <b>bajas presiones</b> o borrascas, nubes y lluvia.</p>`,
+      svg: H.compara("Anticiclón y borrasca", ["Anticiclón (A)", "var(--sun)", ["altas presiones", "aire que baja", "cielo despejado", "buen tiempo"]], ["Borrasca (B)", "var(--pen)", ["bajas presiones", "aire que sube", "nubes", "lluvia y viento"]]),
     },
     {
-      html: `<h3>Tiempo y clima</h3><p>En la troposfera, el aire está en continuo movimiento: el Sol calienta de forma desigual la superficie, el aire caliente sube, el frío baja, y se forman vientos, nubes y precipitaciones. El estado de la atmósfera en un lugar y un momento concretos se llama <mark>tiempo atmosférico</mark>: «hoy hace sol y 25 °C» o «mañana lloverá». Se describe con varias variables que se miden en las <b>estaciones meteorológicas</b>: la <b>temperatura</b> (termómetro), la <b>presión atmosférica</b> (barómetro), la <b>humedad</b> (higrómetro), las <b>precipitaciones</b> (pluviómetro) y la velocidad y dirección del <b>viento</b> (anemómetro y veleta). El <mark>clima</mark>, en cambio, es el tiempo <b>habitual</b> de una zona, calculado a partir de los datos de al menos <b>30 años</b>: «en Sevilla los veranos son muy calurosos y secos». Una manera fácil de recordarlo: el tiempo es lo que te pones hoy; el clima, lo que tienes en el armario.</p>`,
+      html: `<h3>1.6 La capa de ozono</h3><p>El <b>ozono</b> (O₃) es un gas formado por tres átomos de oxígeno. En la estratosfera, entre los 15 y los 35 km de altura, forma la <mark>capa de ozono</mark>, que absorbe la mayor parte de los <b>rayos ultravioleta</b> (UV) del Sol. Estos rayos son peligrosos: queman la piel, dañan los ojos, pueden causar cáncer de piel y perjudican a las plantas y al plancton.</p><p>En los años ochenta se descubrió que la capa de ozono se estaba haciendo más fina sobre la Antártida: era el «<b>agujero de la capa de ozono</b>». La causa eran unos gases, los <b>CFC</b>, que se usaban en aerosoles y frigoríficos. En 1987, casi todos los países firmaron el <b>Protocolo de Montreal</b> para prohibirlos. Gracias a ello, la capa se está recuperando y se espera que vuelva a su estado normal hacia 2066. Es un ejemplo de que los acuerdos internacionales funcionan.</p>`,
+      svg: H.flujo("Historia del agujero de la capa de ozono", ["Los CFC de aerosoles suben a la estratosfera", "Destruyen el ozono: aparece el agujero", "1987: Protocolo de Montreal prohíbe los CFC", "La capa se recupera poco a poco"], "Un problema que se está resolviendo"),
     },
     {
-      html: `<h3>La contaminación atmosférica</h3><p>La <mark>contaminación atmosférica</mark> es la presencia en el aire de sustancias o formas de energía en cantidades que resultan perjudiciales para la salud o el medio ambiente. Puede tener causas <b>naturales</b>, como las erupciones volcánicas o los incendios, pero la mayor parte procede de las <b>actividades humanas</b>: el tráfico, las calefacciones, las centrales térmicas, la industria y la agricultura. Los principales contaminantes son el <b>dióxido de carbono</b> y el <b>metano</b>, que refuerzan el efecto invernadero; los <b>óxidos de nitrógeno y de azufre</b>, que causan la <b>lluvia ácida</b> al mezclarse con el agua de las nubes y dañan bosques, lagos y monumentos; las <b>partículas</b> finas, que penetran en los pulmones; y el ozono a nivel del suelo, que se forma en las ciudades en días de mucho sol. La boina marrón que a veces se ve sobre las grandes ciudades se llama <b>esmog</b>. La contaminación del aire causa enfermedades respiratorias y cardíacas, y es uno de los mayores riesgos ambientales para la salud.</p>`,
-      video: { id: "ZzxyIuzjbms", titulo: "CONTAMINACIÓN ATMOSFÉRICA - Contaminación ambiental", canal: "EcologíaVerde", vistas: 502432 },
+      html: `<h3>1.7 El efecto invernadero</h3><p>La luz del Sol atraviesa la atmósfera y calienta el suelo. El suelo caliente emite <b>calor</b> hacia el espacio, pero algunos gases de la atmósfera, como el <b>vapor de agua</b>, el <b>dióxido de carbono</b> y el <b>metano</b>, absorben parte de ese calor y lo devuelven hacia la superficie. Es como lo que ocurre en un invernadero de plantas, donde el plástico deja pasar la luz pero retiene el calor. Por eso se llama <mark>efecto invernadero</mark>.</p><p>El efecto invernadero <b>natural</b> es beneficioso: gracias a él la temperatura media de la Tierra es de unos 15 °C. Sin él, sería de −18 °C y el planeta estaría helado. El problema aparece cuando aumentan demasiado los gases de efecto invernadero, como verás en el apartado 1.10.</p>`,
+      svg: H.viejo(S, 4),
+      video: vInv,
     },
     {
-      html: `<h3>Cuidar el aire que respiramos</h3><p>Reducir la contaminación del aire es tarea de todos. Los gobiernos aprueban leyes que limitan las emisiones de fábricas y coches, crean <b>zonas de bajas emisiones</b> en las ciudades y fomentan las <b>energías renovables</b> (solar, eólica, hidráulica), que no queman combustibles. Las empresas pueden instalar filtros y procesos más limpios. Y cada persona puede ayudar con gestos cotidianos: <b>caminar, ir en bici o en transporte público</b> en lugar de usar el coche para trayectos cortos; <b>ahorrar energía</b> apagando luces y aparatos que no se usan y sin abusar de la calefacción o el aire acondicionado; consumir productos <b>locales y de temporada</b>, que necesitan menos transporte; y <b>plantar y cuidar árboles</b>, que absorben CO₂ y filtran partículas. Además, las ciudades miden la calidad del aire en tiempo real, y se puede consultar su <b>índice de calidad del aire</b> para evitar hacer deporte al aire libre en los días de más contaminación.</p>`,
+      html: `<h3>1.8 El tiempo y el clima</h3><p>Es frecuente confundir estos dos conceptos. El <mark>tiempo atmosférico</mark> es el estado de la atmósfera en un lugar y un momento concretos: «hoy en Sevilla hace sol y 25 °C». Cambia de un día a otro, e incluso de una hora a otra. El <mark>clima</mark> es el tiempo que suele hacer en un lugar a lo largo de muchos años (al menos 30): «Sevilla tiene veranos muy calurosos y secos e inviernos suaves».</p><p>Los científicos que estudian el tiempo son los <b>meteorólogos</b>, y lo predicen con datos de estaciones meteorológicas, globos, radares y satélites. En España, se encarga la Agencia Estatal de Meteorología (<b>AEMET</b>). En nuestro país hay varios climas: el <b>mediterráneo</b>, el más extendido, con veranos secos y calurosos; el <b>oceánico</b> del norte, lluvioso y suave; el de <b>montaña</b>, frío; y el <b>subtropical</b> de Canarias.</p>`,
+      svg: H.compara("Diferencias entre tiempo atmosférico y clima", ["Tiempo", "var(--inf)", ["un momento", "cambia a diario", "«hoy llueve»", "lo predice el parte"]], ["Clima", "var(--leaf)", ["muchos años", "cambia muy despacio", "«aquí llueve mucho»", "media de 30 años"]]),
+    },
+    {
+      html: `<h3>1.9 Los elementos del tiempo y cómo se miden</h3><p>Para describir el tiempo se miden varios <b>elementos</b> con instrumentos de una <b>estación meteorológica</b>:</p><p>• La <b>temperatura</b> del aire, con el termómetro, en grados Celsius (°C).<br>• La <b>presión</b> atmosférica, con el barómetro, en hectopascales (hPa).<br>• La <b>humedad</b>, la cantidad de vapor de agua del aire, con el higrómetro, en porcentaje (%).<br>• Las <b>precipitaciones</b>, con el pluviómetro, en litros por metro cuadrado (L/m²) o milímetros.<br>• El <b>viento</b>: su velocidad con el anemómetro, en km/h, y su dirección con la veleta.</p><p>Con los datos de un año se pueden dibujar gráficas llamadas <b>climogramas</b>, que muestran la temperatura y la lluvia de cada mes y permiten reconocer el clima de un lugar.</p>`,
+      svg: H.tabla("Elementos del tiempo e instrumentos", ["Elemento", "Instrumento", "Unidad"], [["Temperatura", "termómetro", "°C"], ["Presión", "barómetro", "hPa"], ["Humedad", "higrómetro", "%"], ["Lluvia", "pluviómetro", "L/m²"], ["Viento", "anemómetro", "km/h"]]),
+    },
+    {
+      html: `<h3>1.10 El cambio climático</h3><p>Desde la Revolución Industrial, hace unos 200 años, el ser humano quema enormes cantidades de <b>combustibles fósiles</b> (carbón, petróleo y gas) en fábricas, coches, calefacciones y centrales eléctricas. Al quemarlos se libera <b>dióxido de carbono</b>. Además, la tala de bosques y la ganadería intensiva aumentan el CO₂ y el metano. Al haber más gases de efecto invernadero, la atmósfera retiene más calor: es el <b>efecto invernadero intensificado</b>.</p><p>La consecuencia es el <mark>cambio climático</mark>: la temperatura media del planeta ya ha subido más de 1 °C. Se derriten los glaciares y el hielo de los polos, sube el nivel del mar, y son más frecuentes las olas de calor, las sequías y las lluvias torrenciales. Para frenarlo hay que reducir las emisiones: usar <b>energías renovables</b>, como la solar y la eólica, el transporte público y la bicicleta, y ahorrar energía.</p>`,
+      svg: H.flujo("Causas y consecuencias del cambio climático", ["Quemamos carbón, petróleo y gas", "Aumentan el CO₂ y el metano", "La atmósfera retiene más calor", "Sube la temperatura y el nivel del mar"], "Del tubo de escape al deshielo"),
+    },
+    {
+      html: `<h3>1.11 La contaminación atmosférica</h3><p>La <mark>contaminación atmosférica</mark> es la presencia en el aire de sustancias que perjudican a los seres vivos o a los materiales. Las principales fuentes son el <b>tráfico</b>, las <b>industrias</b>, las <b>calefacciones</b> y la quema de residuos. También hay causas naturales, como los volcanes o los incendios.</p><p>Algunos contaminantes son el <b>dióxido de nitrógeno</b> de los motores, las <b>partículas</b> finas de humo, que penetran en los pulmones, y el <b>dióxido de azufre</b> del carbón. Sus efectos son graves: enfermedades respiratorias como el asma, y en Europa causan cientos de miles de muertes prematuras al año. En las ciudades forman la <b>boina</b> marrón que se ve en días sin viento. Además, el dióxido de azufre y el de nitrógeno se combinan con el agua de las nubes y forman la <b>lluvia ácida</b>, que daña bosques, lagos y monumentos de piedra.</p>`,
+      svg: H.tabla("Contaminantes del aire, de dónde vienen y qué causan", ["Contaminante", "Fuente", "Efecto"], [["Dióxido de nitrógeno", "coches", "asma, boina"], ["Partículas finas", "humo, diésel", "daño pulmonar"], ["Dióxido de azufre", "carbón", "lluvia ácida"], ["CO₂", "combustión", "cambio climático"]]),
+      video: vCont,
+    },
+    {
+      html: `<h3>1.12 Cuidar el aire que respiramos</h3><p>Mejorar la calidad del aire depende de todos. Las <b>administraciones</b> pueden crear zonas de bajas emisiones en las ciudades, ampliar el transporte público y los carriles bici, controlar las emisiones de las fábricas y plantar árboles, que absorben CO₂ y retienen partículas.</p><p>Cada persona también puede ayudar:</p><p>• Ir <b>andando, en bici o en transporte público</b> al colegio siempre que se pueda.<br>• <b>Ahorrar energía</b>: apagar luces y aparatos, no abusar de la calefacción ni del aire acondicionado.<br>• No quemar rastrojos ni basura.<br>• Consumir productos locales, que viajan menos kilómetros.<br>• Consultar el <b>índice de calidad del aire</b> y evitar hacer deporte junto a calles con mucho tráfico en los días de contaminación alta.</p>`,
+      svg: H.radial("Acciones para cuidar el aire", "AIRE LIMPIO", ["andar, bici, bus", "ahorrar energía", "plantar árboles", "energías renovables", "no quemar basura", "productos locales"], "var(--leaf)"),
     },
   ],
-  figura: {
-    titulo: "La atmósfera en ocho ideas",
-    svg: rejilla([
-      ["Aire", "78 % N₂ · 21 % O₂ · 1 % otros", COL.azul],
-      ["Troposfera", "nubes y fenómenos del tiempo", COL.agua],
-      ["Estratosfera", "capa de ozono y aviones", COL.morado],
-      ["Ozono", "filtra los rayos ultravioleta", COL.verde],
-      ["Invernadero", "retiene calor: media de 15 °C", COL.rojo],
-      ["Tiempo", "estado del aire hoy", COL.sol],
-      ["Clima", "tiempo habitual en 30 años", COL.marron],
-      ["Contaminación", "tráfico, industria, lluvia ácida", COL.gris],
-    ], 4, 86, "Resumen: composición del aire, capas, ozono, efecto invernadero, tiempo, clima y contaminación"),
-  },
-  video: { id: "enbHn4vxY34", titulo: "La atmósfera | Videos Educativos para niños.", canal: "Happy Learning Español", vistas: 3661525, megusta: 0, busqueda: "la atmósfera capas y composición" },
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    { enunciado: "En una habitación hay unos 1.000 litros de aire. ¿Cuántos litros son de oxígeno y cuántos de nitrógeno, aproximadamente?",
-      pasos: ["Oxígeno: 21 % de 1.000 = 0,21 · 1.000 = 210 litros.", "Nitrógeno: 78 % de 1.000 = 780 litros.", "El resto, unos 10 litros, son otros gases."],
-      resultado: "Unos 210 L de oxígeno y 780 L de nitrógeno." },
-    { enunciado: "Clasifica como tiempo o clima: a) «Hoy hay niebla en Burgos». b) «En Galicia llueve mucho en invierno». c) «Mañana soplará viento del norte».",
-      pasos: ["a) Describe un momento concreto: tiempo.", "b) Describe lo habitual de una zona durante años: clima.", "c) Es una previsión para un día concreto: tiempo."],
-      resultado: "a) tiempo; b) clima; c) tiempo." },
-    { enunciado: "Un avión vuela a 11 km de altura y un globo meteorológico llega a 30 km. ¿En qué capa está cada uno?",
-      pasos: ["La troposfera llega hasta unos 12 km en latitudes medias.", "El avión, a 11 km, está en la parte alta de la troposfera, cerca del límite.", "El globo, a 30 km, está en la estratosfera, en plena capa de ozono."],
-      resultado: "Avión: troposfera (cerca de su límite). Globo: estratosfera." },
+    { enunciado: "En un aula hay unos 200 m³ de aire. ¿Cuántos metros cúbicos son de oxígeno?", pasos: ["El oxígeno es el 21 % del aire.", "21 % de 200 = 0,21 × 200 = 42."], resultado: "unos 42 m³ de oxígeno." },
+    { enunciado: "Al pie de una montaña hay 20 °C. Si la temperatura baja 6,5 °C por kilómetro, ¿qué temperatura habrá a 2 km más de altura?", pasos: ["En 2 km baja 2 × 6,5 = 13 °C.", "20 − 13 = 7 °C."], resultado: "unos 7 °C." },
+    { enunciado: "Clasifica como tiempo o clima: «Mañana nevará en Burgos» y «En Burgos los inviernos son largos y fríos».", pasos: ["La primera habla de un momento concreto.", "La segunda describe lo habitual durante años."], resultado: "la primera es tiempo; la segunda, clima." },
+    { enunciado: "¿Por qué se taponan los oídos al subir en coche a un puerto de montaña?", pasos: ["Al subir disminuye la presión atmosférica.", "El aire dentro del oído sigue a la presión de abajo.", "La diferencia empuja el tímpano hacia fuera."], resultado: "por la bajada de presión con la altura." },
+    { enunciado: "Un coche emite unos 120 g de CO₂ por kilómetro. ¿Cuánto emite en un trayecto de ida y vuelta de 5 km cada uno, durante 180 días de curso?", pasos: ["Al día recorre 10 km: 10 × 120 = 1.200 g.", "En 180 días: 1.200 × 180 = 216.000 g."], resultado: "216 kg de CO₂; ir andando o en bici lo evitaría." },
+    { enunciado: "¿Por qué la troposfera es la capa donde ocurren los fenómenos meteorológicos?", pasos: ["Contiene casi todo el vapor de agua.", "Es la que se calienta desde el suelo, y el aire caliente sube.", "Al subir, el aire se enfría y forma nubes."], resultado: "porque tiene el vapor de agua y movimientos de aire." },
   ],
   errores: [
-    "Pensar que el gas más abundante del aire es el oxígeno: es el nitrógeno.",
-    "Decir que el efecto invernadero es malo en sí mismo: el natural es imprescindible; el problema es su refuerzo.",
+    "Pensar que el gas más abundante del aire es el oxígeno: es el nitrógeno (78 %).",
     "Confundir el agujero de la capa de ozono con el cambio climático: son problemas distintos.",
-    "Usar «clima» para hablar del tiempo de hoy.",
-    "Creer que la temperatura siempre baja al subir: en la estratosfera sube.",
+    "Creer que el efecto invernadero es malo en sí: el natural permite la vida; el problema es su aumento.",
+    "Confundir tiempo (un momento) con clima (lo habitual durante muchos años).",
+    "Pensar que al subir una montaña hace más calor por estar más cerca del Sol: en la troposfera la temperatura baja con la altura.",
+    "Creer que la presión atmosférica aumenta al subir: disminuye, porque hay menos aire encima.",
   ],
-  ejercicios: [
-    { q: "¿Qué es la atmósfera y qué la mantiene unida a la Tierra?", sol: "La capa de gases que rodea la Tierra; la mantiene la gravedad." },
-    { q: "¿Qué seres vivos llenaron de oxígeno la atmósfera primitiva?", sol: "Las cianobacterias, al hacer la fotosíntesis." },
-    { q: "Escribe los dos gases más abundantes del aire y su porcentaje.", sol: "Nitrógeno, 78 %, y oxígeno, 21 %." },
-    { q: "¿En qué capa se forman las nubes? ¿Por qué?", sol: "En la troposfera, porque contiene casi todo el vapor de agua." },
-    { q: "¿Por qué en lo alto de una montaña el agua hierve a menos de 100 °C?", sol: "Porque la presión atmosférica es menor." },
-    { q: "¿Qué hace la capa de ozono y qué gases la dañaban?", sol: "Absorbe la radiación ultravioleta del Sol; la dañaban los CFC." },
-    { q: "Explica con tus palabras el efecto invernadero natural.", sol: "La luz calienta el suelo, que emite calor; algunos gases retienen parte de ese calor y mantienen la Tierra templada." },
-    { q: "¿Qué actividades humanas refuerzan el efecto invernadero?", sol: "La quema de combustibles fósiles, la deforestación y algunas actividades agrícolas y ganaderas." },
-    { q: "¿Qué es la lluvia ácida y qué daños causa?", sol: "Lluvia con ácidos formados por óxidos de azufre y nitrógeno; daña bosques, lagos y monumentos." },
-    { q: "Propón tres acciones personales para reducir la contaminación del aire.", sol: "Ir andando, en bici o en transporte público; ahorrar energía en casa; consumir productos locales y plantar árboles." },
-  ],
-  quiz: [
-    { q: "El gas más abundante del aire es…", o: ["el oxígeno", "el nitrógeno", "el CO₂"], a: 1, e: "Nitrógeno, 78 %." },
-    { q: "El oxígeno es aproximadamente el…", o: ["21 %", "50 %", "1 %"], a: 0, e: "21 %." },
-    { q: "Los fenómenos del tiempo ocurren en la…", o: ["troposfera", "mesosfera", "exosfera"], a: 0, e: "Troposfera." },
-    { q: "La capa de ozono está en la…", o: ["troposfera", "estratosfera", "termosfera"], a: 1, e: "Estratosfera." },
-    { q: "La capa de ozono nos protege de…", o: ["la lluvia", "los rayos ultravioleta", "los meteoritos"], a: 1, e: "Rayos UV." },
-    { q: "Las estrellas fugaces se queman en la…", o: ["mesosfera", "troposfera", "hidrosfera"], a: 0, e: "Mesosfera." },
-    { q: "Sin efecto invernadero, la temperatura media sería…", o: ["15 °C", "−18 °C", "40 °C"], a: 1, e: "Unos −18 °C." },
-    { q: "La presión atmosférica se mide con…", o: ["un barómetro", "un pluviómetro", "una veleta"], a: 0, e: "Barómetro." },
-    { q: "El clima se calcula con datos de al menos…", o: ["1 año", "30 años", "1 semana"], a: 1, e: "30 años." },
-    { q: "La lluvia ácida la causan sobre todo…", o: ["óxidos de azufre y nitrógeno", "el oxígeno", "el argón"], a: 0, e: "Óxidos de S y N." },
-  ],
-  examen: [
-    { q: "El tratado que prohibió los CFC fue el…", o: ["Protocolo de Montreal", "Acuerdo de París", "Tratado de Roma"], a: 0, e: "Montreal, 1987." },
-    { q: "La humedad del aire se mide con un…", o: ["higrómetro", "anemómetro", "termómetro"], a: 0, e: "Higrómetro." },
-    { q: "Las auroras polares se forman en la…", o: ["termosfera", "troposfera", "estratosfera"], a: 0, e: "Termosfera o ionosfera." },
-  ],
-  feynman: ["De qué está hecho el aire y para qué sirve cada gas", "Cuáles son las capas de la atmósfera", "Por qué el efecto invernadero es necesario pero su aumento es un problema"],
-  mapa: mapa("ATMÓSFERA", "var(--eso)", [
-    ["Composición", "N₂ 78 % · O₂ 21 % · CO₂", COL.azul],
-    ["Capas", "troposfera · estratosfera…", COL.morado],
-    ["Protección", "ozono · efecto invernadero", COL.verde],
-    ["Problemas", "contaminación · lluvia ácida", COL.rojo],
-  ], 280),
+  ejercicios: H.niveles([
+    ["Define atmósfera.", "La capa de gases que rodea la Tierra y que se mantiene unida a ella por la gravedad."],
+    ["Escribe los tres componentes principales del aire con sus porcentajes.", "Nitrógeno 78 %, oxígeno 21 % y otros gases 1 % (argón, CO₂, vapor de agua)."],
+    ["Nombra las capas de la atmósfera de abajo arriba.", "Troposfera, estratosfera, mesosfera, termosfera y exosfera."],
+    ["¿En qué capa se forman las nubes y la lluvia?", "En la troposfera."],
+    ["¿En qué capa está la capa de ozono?", "En la estratosfera."],
+    ["¿De qué nos protege la capa de ozono?", "De los rayos ultravioleta del Sol."],
+    ["¿Qué es la presión atmosférica y con qué se mide?", "La fuerza que hace el peso del aire sobre las superficies; se mide con el barómetro."],
+    ["Nombra tres gases de efecto invernadero.", "Vapor de agua, dióxido de carbono y metano."],
+    ["Diferencia tiempo y clima.", "Tiempo: estado de la atmósfera en un momento y lugar. Clima: tiempo habitual de un lugar durante muchos años."],
+    ["¿Con qué instrumento se mide la lluvia? ¿Y la velocidad del viento?", "La lluvia, con el pluviómetro; el viento, con el anemómetro."],
+    ["Nombra tres fuentes de contaminación atmosférica.", "El tráfico, las industrias y las calefacciones (también la quema de residuos)."],
+    ["Escribe tres acciones personales para cuidar el aire.", "Ir andando o en bici, ahorrar energía y no quemar basura."],
+  ], [
+    ["¿Por qué los alpinistas del Everest llevan oxígeno embotellado?", "Porque a gran altura el aire es escaso y cada respiración aporta poco oxígeno."],
+    ["Explica cómo se formó el oxígeno de la atmósfera.", "Lo liberaron las cianobacterias al hacer la fotosíntesis, desde hace unos 2.500 millones de años; se fue acumulando poco a poco."],
+    ["¿Por qué los aviones comerciales vuelan en la parte baja de la estratosfera?", "Porque hay poco movimiento de aire y menos turbulencias, y el aire menos denso ofrece menos resistencia."],
+    ["¿Qué tiempo suele traer un anticiclón y cuál una borrasca?", "El anticiclón, cielos despejados y buen tiempo; la borrasca, nubes, lluvia y viento."],
+    ["Explica qué eran los CFC y qué se hizo para resolver el problema del ozono.", "Gases de aerosoles y frigoríficos que destruían el ozono; en 1987 se prohibieron con el Protocolo de Montreal y la capa se está recuperando."],
+    ["Explica el efecto invernadero natural con la comparación del invernadero de plantas.", "La luz del Sol atraviesa la atmósfera como el plástico del invernadero y calienta el suelo; ciertos gases retienen parte del calor que emite el suelo, igual que el plástico."],
+    ["¿Qué pasaría si no hubiera efecto invernadero?", "La temperatura media de la Tierra sería de unos −18 °C y el planeta estaría helado."],
+    ["Explica qué es el cambio climático y dos de sus consecuencias.", "El aumento de la temperatura media del planeta por el exceso de gases de efecto invernadero. Consecuencias: deshielo de glaciares y subida del nivel del mar, más olas de calor y sequías."],
+    ["¿Cómo se forma la lluvia ácida y qué daña?", "El dióxido de azufre y el de nitrógeno se combinan con el agua de las nubes; daña bosques, lagos y monumentos de piedra."],
+    ["Explica qué es un climograma y para qué sirve.", "Una gráfica con la temperatura y la lluvia de cada mes de un lugar; sirve para conocer y comparar climas."],
+    ["Describe dos climas de España.", "Mediterráneo: veranos secos y calurosos, inviernos suaves. Oceánico: lluvioso todo el año y temperaturas suaves."],
+  ], [
+    ["Explica por qué la Luna tiene temperaturas tan extremas y la Tierra no.", "La Luna no tiene atmósfera: de día recibe toda la radiación solar y de noche pierde el calor. La atmósfera terrestre filtra la radiación y retiene el calor por el efecto invernadero."],
+    ["¿Por qué el problema de la capa de ozono se está resolviendo y el cambio climático cuesta más?", "Los CFC eran fáciles de sustituir y los fabricaban pocas industrias. El CO₂ procede de casi toda la energía que usamos: transporte, industria, electricidad; reducirlo exige cambiar toda la economía."],
+    ["Diseña un experimento para comprobar que el aire ocupa espacio y ejerce presión.", "Por ejemplo, meter un vaso boca abajo en un barreño de agua: el agua no entra porque el aire ocupa el espacio. O llenar un vaso de agua, taparlo con un cartón y darle la vuelta: la presión del aire sujeta el cartón."],
+    ["Una ciudad crea una zona de bajas emisiones. ¿Qué efectos esperas en la salud y en el clima? ¿Qué inconvenientes puede tener?", "Menos dióxido de nitrógeno y partículas, menos asma y menos CO₂. Inconvenientes: molestias para quien necesita el coche; hay que mejorar el transporte público."],
+    ["Calcula cuántos kg de CO₂ se ahorrarían si 20 alumnos dejaran de ir en coche 4 km diarios (ida y vuelta 8 km, 120 g/km, 180 días).", "Por alumno: 8 × 120 × 180 = 172.800 g = 172,8 kg. Por 20 alumnos: 3.456 kg, casi 3,5 toneladas."],
+    ["¿Por qué en días sin viento la contaminación de las ciudades es mayor?", "Porque el aire no se renueva y los contaminantes se acumulan sobre la ciudad formando la boina; a veces, el aire frío queda atrapado bajo una capa de aire más caliente."],
+    ["Explica por qué los bosques ayudan a frenar el cambio climático y qué ocurre con los incendios forestales.", "Absorben CO₂ en la fotosíntesis y lo guardan en la madera. Un incendio libera de golpe ese carbono, y además destruye un sumidero de CO₂."],
+  ]),
+  quiz: H.test([
+    ["La atmósfera se mantiene unida a la Tierra por la…", ["gravedad", "rotación", "capa de ozono", "luz"], 0, "La atrae el planeta."],
+    ["El gas más abundante del aire es el…", ["oxígeno", "nitrógeno", "CO₂", "argón"], 1, "Un 78 %."],
+    ["El oxígeno forma del aire un…", ["78 %", "1 %", "21 %", "50 %"], 2, "Lo respiramos."],
+    ["Fabricaron el oxígeno de la atmósfera las…", ["volcanes", "lluvias", "rocas", "cianobacterias"], 3, "Con la fotosíntesis."],
+    ["La capa donde se forman las nubes es la…", ["troposfera", "estratosfera", "mesosfera", "exosfera"], 0, "La más baja."],
+    ["La capa de ozono está en la…", ["troposfera", "estratosfera", "mesosfera", "termosfera"], 1, "Entre 15 y 35 km."],
+    ["Las estrellas fugaces se ven al quemarse meteoritos en la…", ["troposfera", "exosfera", "mesosfera", "estratosfera"], 2, "La capa más fría."],
+    ["Al subir en la troposfera, la temperatura…", ["sube", "no cambia", "se duplica", "baja"], 3, "Unos 6,5 °C por km."],
+    ["La presión atmosférica se mide con el…", ["barómetro", "termómetro", "pluviómetro", "anemómetro"], 0, "En hectopascales."],
+    ["Al nivel del mar, la presión es de unos…", ["100 hPa", "1.013 hPa", "10.000 hPa", "50 hPa"], 1, "Disminuye al subir."],
+    ["Un anticiclón suele traer…", ["lluvia", "tormentas", "buen tiempo", "nieve"], 2, "Altas presiones."],
+    ["La capa de ozono absorbe los rayos…", ["de luz visible", "X", "de calor", "ultravioleta"], 3, "Dañan la piel."],
+    ["Los gases que destruían el ozono eran los…", ["CFC", "CO₂", "nitrógeno", "oxígeno"], 0, "Prohibidos en 1987."],
+    ["Sin efecto invernadero, la Tierra tendría una media de…", ["15 °C", "−18 °C", "40 °C", "0 °C"], 1, "Estaría helada."],
+    ["Es un gas de efecto invernadero el…", ["nitrógeno", "oxígeno", "metano", "argón"], 2, "También el CO₂."],
+    ["El tiempo que hace en un lugar durante muchos años es el…", ["tiempo atmosférico", "parte", "frente", "clima"], 3, "Al menos 30 años."],
+    ["La humedad del aire se mide con el…", ["higrómetro", "barómetro", "anemómetro", "pluviómetro"], 0, "En porcentaje."],
+    ["El cambio climático lo causa sobre todo…", ["la capa de ozono", "la quema de combustibles fósiles", "los volcanes", "la Luna"], 1, "Libera CO₂."],
+    ["La lluvia ácida la producen sobre todo los óxidos de…", ["oxígeno", "hierro", "azufre y nitrógeno", "calcio"], 2, "Del carbón y los motores."],
+    ["Mejora la calidad del aire…", ["quemar rastrojos", "usar más el coche", "dejar luces encendidas", "ir en bici"], 3, "Sin emisiones."],
+  ]),
+  examen: H.test([
+    ["El aire está formado por…", ["una mezcla de gases", "un solo gas", "vapor de agua", "oxígeno puro"], 0, "Nitrógeno, oxígeno y otros."],
+    ["Los aviones comerciales vuelan en la parte baja de la…", ["troposfera", "estratosfera", "mesosfera", "exosfera"], 1, "Poco movimiento de aire."],
+    ["Las borrascas son zonas de…", ["altas presiones", "aire seco", "bajas presiones", "ozono"], 2, "Traen lluvia."],
+    ["El Protocolo de Montreal sirvió para…", ["reducir el CO₂", "crear la AEMET", "medir la lluvia", "proteger la capa de ozono"], 3, "Prohibió los CFC."],
+    ["El efecto invernadero natural…", ["permite la vida", "destruye el ozono", "causa lluvia ácida", "no existe"], 0, "Media de 15 °C."],
+    ["«Mañana lloverá en Bilbao» describe…", ["el clima", "el tiempo", "un climograma", "la presión"], 1, "Un momento concreto."],
+    ["Una consecuencia del cambio climático es…", ["el agujero de ozono", "menos olas de calor", "la subida del nivel del mar", "más hielo polar"], 2, "Se derrite el hielo."],
+    ["La boina marrón de las ciudades se debe a…", ["la niebla", "el polen", "la sal marina", "la contaminación del tráfico"], 3, "Dióxido de nitrógeno y partículas."],
+  ]),
+  feynman: ["De qué está formado el aire", "Cuáles son las capas de la atmósfera", "Para qué sirve la capa de ozono", "Por qué el efecto invernadero es necesario pero su aumento es un problema", "Qué diferencia hay entre tiempo y clima"],
+  mapa: H.mapa("ATMÓSFERA", "var(--eso)", [
+    ["Composición", "78 % N₂ · 21 % O₂ · 1 % otros", "var(--inf)"],
+    ["Capas", "troposfera · estratosfera · mesosfera…", "#b8860b"],
+    ["Protección", "ozono · efecto invernadero", "var(--leaf)"],
+    ["Problemas", "contaminación · cambio climático", "var(--red)"],
+  ], 300),
   tarjetas: [
     ["Atmósfera", "Capa de gases que rodea la Tierra."],
-    ["Aire", "Mezcla de gases: 78 % nitrógeno y 21 % oxígeno."],
+    ["Nitrógeno", "Gas más abundante del aire: 78 %."],
+    ["Oxígeno", "21 % del aire; lo usamos para respirar."],
     ["Troposfera", "Capa más baja: nubes, lluvia y viento."],
-    ["Capa de ozono", "Zona de la estratosfera que filtra los rayos UV."],
-    ["Efecto invernadero", "Retención de calor por algunos gases de la atmósfera."],
-    ["Presión atmosférica", "Peso del aire; disminuye con la altura."],
-    ["Tiempo y clima", "Tiempo: estado actual. Clima: tiempo habitual en 30 años."],
-    ["Lluvia ácida", "Lluvia con ácidos por óxidos de azufre y nitrógeno."],
+    ["Estratosfera", "Capa con la capa de ozono."],
+    ["Capa de ozono", "Absorbe los rayos ultravioleta del Sol."],
+    ["Presión atmosférica", "Fuerza del peso del aire; baja con la altura."],
+    ["Efecto invernadero", "Algunos gases retienen el calor del suelo."],
+    ["Tiempo atmosférico", "Estado de la atmósfera en un momento y lugar."],
+    ["Clima", "Tiempo habitual de un lugar durante muchos años."],
+    ["Cambio climático", "Aumento de la temperatura por el exceso de gases de efecto invernadero."],
+    ["Lluvia ácida", "Lluvia con ácidos formados por óxidos de azufre y nitrógeno."],
   ],
-  familias: ["Consultad juntos el índice de calidad del aire de vuestra ciudad durante una semana.", "Haced un pluviómetro casero con una botella y anotad la lluvia de cada día.", "Planificad un trayecto habitual a pie o en bici en lugar de en coche."],
-  profesores: {
-    saberes: "La atmósfera: composición, origen, estructura en capas, funciones (protección UV, regulación térmica), tiempo y clima, contaminación atmosférica, efecto invernadero y cambio climático; hábitos sostenibles (RD 217/2022, Biología y Geología, bloques Geología y Ecología y sostenibilidad).",
-    ideas: ["Estación meteorológica escolar con instrumentos caseros y registro en hoja de cálculo.", "Experimento de efecto invernadero con dos tarros, uno tapado con plástico, y dos termómetros al sol.", "Análisis de datos de calidad del aire de la red municipal."],
+  glosario: [
+    ["Atmósfera", "Capa de gases que rodea la Tierra."],
+    ["Aire", "Mezcla de gases de la atmósfera."],
+    ["Troposfera", "Capa más baja de la atmósfera, donde ocurren los fenómenos meteorológicos."],
+    ["Estratosfera", "Capa situada encima de la troposfera, donde está la capa de ozono."],
+    ["Ozono", "Gas formado por tres átomos de oxígeno."],
+    ["Radiación ultravioleta", "Parte de la luz del Sol que puede dañar a los seres vivos."],
+    ["Presión atmosférica", "Fuerza que ejerce el peso del aire sobre las superficies."],
+    ["Anticiclón", "Zona de altas presiones, normalmente con buen tiempo."],
+    ["Borrasca", "Zona de bajas presiones, normalmente con nubes y lluvia."],
+    ["Efecto invernadero", "Retención del calor por algunos gases de la atmósfera."],
+    ["Tiempo atmosférico", "Estado de la atmósfera en un lugar y momento concretos."],
+    ["Clima", "Conjunto de condiciones atmosféricas habituales de un lugar durante muchos años."],
+    ["Climograma", "Gráfica de las temperaturas y lluvias medias de cada mes."],
+    ["Combustible fósil", "Carbón, petróleo o gas formados por restos de seres vivos hace millones de años."],
+    ["Lluvia ácida", "Precipitación con ácidos que dañan bosques, lagos y monumentos."],
+  ],
+  situacion: {
+    titulo: "Nuestra estación meteorológica",
+    reto: "Construid instrumentos meteorológicos sencillos, tomad datos durante dos semanas y comparadlos con los de la AEMET y con la calidad del aire de vuestra localidad.",
+    pasos: [
+      "Construid un pluviómetro con una botella, una veleta con cartulina y un anemómetro con vasos de plástico.",
+      "Instaladlos en el patio y registrad cada día temperatura, lluvia, dirección del viento y estado del cielo.",
+      "Consultad los datos de la estación de la AEMET más cercana y el índice de calidad del aire.",
+      "Representad vuestros datos en gráficas y comparadlos con los oficiales.",
+      "Redactad un parte meteorológico y presentadlo como si fuera un informativo.",
+    ],
+    producto: "Diario meteorológico con gráficas y un parte del tiempo grabado o presentado en clase.",
+    evaluacion: [
+      "Los instrumentos están bien construidos y colocados.",
+      "Los datos se toman con regularidad y precisión.",
+      "Las gráficas y la comparación con los datos oficiales son correctas.",
+      "El parte meteorológico es claro y usa el vocabulario del tema.",
+    ],
   },
-  fuentes: [RD, wiki("Atmósfera terrestre", "Atmósfera_terrestre"), { t: "Agencia Estatal de Meteorología (AEMET)", url: "https://www.aemet.es/" }, { t: "Ministerio para la Transición Ecológica: calidad del aire", url: "https://www.miteco.gob.es/es/calidad-y-evaluacion-ambiental/temas/atmosfera-y-calidad-del-aire.html" }],
-  revisado: REV,
+  familias: ["Ved juntos el parte del tiempo y comentad qué significan las A y las B del mapa.", "Consultad la calidad del aire de vuestra ciudad en una aplicación oficial.", "Planificad un trayecto habitual a pie, en bici o en transporte público en lugar de en coche.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "La atmósfera: composición, origen, estructura en capas, presión atmosférica, capa de ozono, efecto invernadero, tiempo y clima, contaminación atmosférica y cambio climático; actitudes para la mejora de la calidad del aire (RD 217/2022, Biología y Geología 1º a 3º, bloques «Geología» y «Ecología y sostenibilidad»). En Cataluña, saberes equivalentes de Biologia i Geologia del Decret 175/2022.",
+    ideas: [
+      "Construir instrumentos meteorológicos caseros y llevar un diario del tiempo.",
+      "Experimentos de presión atmosférica: vaso con cartón, botella que se aplasta al enfriarse.",
+      "Simular el efecto invernadero con dos frascos con termómetro, uno tapado y otro no, al sol.",
+      "Interpretar climogramas de distintas ciudades españolas.",
+      "Medir partículas con tarjetas adhesivas colocadas en distintos puntos del barrio.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Atmósfera terrestre", "Atm%C3%B3sfera_terrestre"), H.wiki("Capa de ozono", "Capa_de_ozono"), { t: "Agencia Estatal de Meteorología (AEMET)", url: "https://www.aemet.es/" }],
+  revisado: H.REV,
 };
