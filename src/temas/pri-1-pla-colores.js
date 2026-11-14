@@ -1,139 +1,152 @@
-// Educación Plástica 1º de Primaria: los colores.
-const { mapa } = require("./_util");
-const { svg, txt, PROF, FUENTES } = require("./_pri1");
+// Educación Plástica 1º de Primaria: los colores. Tema a nivel libro. Dibujos propios en SVG.
+const { tema, C, dibujos, lista, mural, vid, manchas, mezcla, lienzo, texto } = require("./_pri1L2");
+const { R, A, V, N, M, G, K } = C;
 
 // Colores pintados (no dependen del tema claro/oscuro: son pinturas).
-const P = { rojo: "#e53935", amarillo: "#fdd835", azul: "#1e88e5", verde: "#43a047", naranja: "#fb8c00", morado: "#8e24aa", blanco: "#ffffff", negro: "#212121", marron: "#795548", rosa: "#f48fb1", gris: "#9e9e9e", celeste: "#81d4fa" };
-const mancha = (x, y, r, c) => `<path d="M${x - r} ${y} q 0 ${-r} ${r} ${-r} q ${r * 1.1} 0 ${r} ${r} q 0 ${r * 0.9} ${-r} ${r} q ${-r * 1.05} 0 ${-r} ${-r} Z" fill="${c}" stroke="var(--ink)" stroke-width="1"/>`;
+const P = { rojo: "#e53935", amarillo: "#fdd835", azul: "#1e88e5", verde: "#43a047", naranja: "#fb8c00", morado: "#8e24aa", blanco: "#ffffff", negro: "#212121", marron: "#795548", rosa: "#f48fb1", gris: "#9e9e9e", celeste: "#81d4fa", marino: "#0d47a1" };
 
-module.exports = {
+// Escalera de un color de claro a oscuro.
+const escalera = lienzo("Cinco cuadrados azules: de muy claro a muy oscuro", ["#e3f2fd", "#90caf9", P.azul, "#1565c0", P.marino].map((c, i) =>
+  `<rect x="${18 + i * 46}" y="56" width="40" height="56" rx="8" fill="${c}" stroke="var(--line)" stroke-width="2"/>`).join("") +
+  texto(40, 136, "+ blanco", { size: 14, color: "var(--muted)", max: 80 }) + texto(220, 136, "+ negro", { size: 14, color: "var(--muted)", max: 80 }) +
+  "", { titulo: "Claro → oscuro", nota: "El mismo azul, más claro o más oscuro" });
+
+// Semáforo.
+const semaforo = lienzo("Un semáforo con luz roja, ámbar y verde", `<rect x="95" y="30" width="70" height="140" rx="14" fill="var(--ink)"/>` +
+  [[P.rojo, "para"], [P.naranja, "cuidado"], [P.verde, "pasa"]].map(([c, t], i) =>
+    `<circle cx="130" cy="${55 + i * 44}" r="17" fill="${c}"/>${texto(i === 1 ? 52 : 210, 61 + i * 44, t, { size: 15, max: 80, color: c })}`).join(""), { titulo: "Colores que avisan" });
+
+module.exports = tema({
   materia: "Educación Plástica",
-  curso: "1-primaria",
   titulo: "Los colores",
-  minutos: 25,
-  objetivos: ["Conocer los colores primarios y cómo se mezclan", "Distinguir colores cálidos y fríos", "Usar los colores para expresar ideas y emociones"],
-  claves: ["primarios", "secundarios", "mezclar", "cálidos", "fríos", "claro", "oscuro"],
-  pregunta: {
-    texto: "Si solo tienes pintura amarilla y azul, ¿cómo puedes pintar la hierba verde?",
-    respuesta: "<mark>Mezclando amarillo y azul</mark>. Al juntarlos sale el verde. ¡Con pocos colores se pueden hacer muchos!",
-  },
+  minutos: 50,
+  objetivos: ["Conocer los colores primarios: rojo, amarillo y azul", "Mezclar colores para conseguir otros nuevos", "Hacer un color más claro o más oscuro", "Distinguir colores cálidos y fríos", "Usar los colores para expresar emociones"],
+  claves: ["primarios", "secundarios", "mezclar", "claro", "oscuro", "cálidos", "fríos"],
+  pregunta: ["Si solo tienes pintura amarilla y azul, ¿cómo puedes pintar la hierba verde?", "<mark>Mezclando amarillo y azul</mark>. Al juntarlos sale el verde. ¡Con pocos colores se pueden hacer muchos!"],
+  lectura: ["La pintora que solo tenía tres botes", `<p>Nora quería pintar un mural en la pared del cole.</p><p>Pero en el armario solo quedaban tres botes de pintura: rojo, amarillo y azul.</p><p>—¡Así no puedo pintar la hierba verde! —dijo, triste.</p><p>Su abuelo sonrió y le dio un plato viejo.</p><p>—Pon un poco de amarillo. Ahora, un poco de azul. Remueve con el pincel.</p><p>¡Apareció el verde! Luego Nora mezcló rojo y amarillo, y salió el naranja. Con rojo y azul hizo el morado.</p><p>Al final, el mural tenía un arcoíris entero.</p><p>—Tres botes eran muchos colores —rió Nora.</p>`],
   bloques: [
-    {
-      html: `<h3>Un mundo de colores</h3><p>Mira a tu alrededor: el cielo es azul, las fresas son rojas y el sol es amarillo. Los <mark>colores</mark> nos ayudan a reconocer las cosas.</p><p>Los artistas usan los colores para que sus dibujos sean <b>alegres, tranquilos o misteriosos</b>. ¡Tú también puedes!</p>`,
-      svg: svg("Un arcoíris sobre una pradera verde con un sol amarillo", `${[P.rojo, P.naranja, P.amarillo, P.verde, P.azul, P.morado].map((c, i) => `<path d="M${30 + i * 9} 140 A ${100 - i * 9} ${100 - i * 9} 0 0 1 ${230 - i * 9} 140" stroke="${c}" stroke-width="9" fill="none"/>`).join("")}<rect x="10" y="140" width="240" height="30" rx="8" fill="${P.verde}" opacity=".6"/><circle cx="225" cy="35" r="16" fill="${P.amarillo}"/>`),
-    },
-    {
-      html: `<h3>Los colores primarios</h3><p>Hay tres colores muy importantes: el <mark>rojo</mark>, el <mark>amarillo</mark> y el <mark>azul</mark>. Se llaman <b>primarios</b>.</p><p>No se pueden hacer mezclando otros colores. Con ellos, en cambio, podemos conseguir <b>casi todos los demás</b>. ¡Son como los ingredientes básicos de una receta!</p>`,
-      svg: svg("Tres manchas de pintura: rojo, amarillo y azul", `${mancha(55, 80, 32, P.rojo)}${mancha(130, 80, 32, P.amarillo)}${mancha(205, 80, 32, P.azul)}${txt(55, 145, "rojo")}${txt(130, 145, "amarillo")}${txt(205, 145, "azul")}`),
-      video: { id: "lvCrwRFWpPw", titulo: "Los colores primarios, secundarios y terciarios", canal: "Smile and Learn - Español", vistas: 3858629, megusta: 0 },
-    },
-    {
-      html: `<h3>Mezclar colores</h3><p>Si mezclamos dos primarios, sale un color nuevo, un <mark>color secundario</mark>:</p><p><b>amarillo + azul = verde</b>. <b>rojo + amarillo = naranja</b>. <b>rojo + azul = morado</b>. Pruébalo con témperas y un pincel: ¡es casi magia!</p>`,
-      svg: svg("Tres sumas de colores: amarillo y azul dan verde, rojo y amarillo dan naranja, rojo y azul dan morado", `${[[P.amarillo, P.azul, P.verde], [P.rojo, P.amarillo, P.naranja], [P.rojo, P.azul, P.morado]].map(([a, b, c], i) => `<circle cx="40" cy="${35 + i * 50}" r="16" fill="${a}"/><text x="68" y="${41 + i * 50}" font-size="20" font-weight="800" fill="var(--ink)">+</text><circle cx="100" cy="${35 + i * 50}" r="16" fill="${b}"/><text x="128" y="${41 + i * 50}" font-size="20" font-weight="800" fill="var(--ink)">=</text><circle cx="168" cy="${35 + i * 50}" r="20" fill="${c}"/>`).join("")}`),
-    },
-    {
-      html: `<h3>El círculo de colores</h3><p>Podemos poner los colores en un <mark>círculo</mark>, como una rueda. Entre dos primarios colocamos el color que sale al mezclarlos.</p><p>Así vemos que el verde está entre el amarillo y el azul, y el naranja entre el rojo y el amarillo.</p>`,
-      svg: svg("Un círculo cromático con seis colores: rojo, naranja, amarillo, verde, azul y morado", `<g transform="translate(130 90)">${[P.rojo, P.naranja, P.amarillo, P.verde, P.azul, P.morado].map((c, i) => { const a1 = (i * 60 - 120) * Math.PI / 180, a2 = ((i + 1) * 60 - 120) * Math.PI / 180, r = 70; return `<path d="M0 0 L ${(Math.cos(a1) * r).toFixed(1)} ${(Math.sin(a1) * r).toFixed(1)} A ${r} ${r} 0 0 1 ${(Math.cos(a2) * r).toFixed(1)} ${(Math.sin(a2) * r).toFixed(1)} Z" fill="${c}" stroke="var(--card)" stroke-width="3"/>`; }).join("")}<circle r="18" fill="var(--card)"/></g>`),
-    },
-    {
-      html: `<h3>Colores cálidos y fríos</h3><p>El <b>rojo, el naranja y el amarillo</b> nos recuerdan al fuego y al sol: son <mark>colores cálidos</mark>. Dan sensación de calor y alegría.</p><p>El <b>azul, el verde y el morado</b> nos recuerdan al agua, al hielo y a la noche: son <mark>colores fríos</mark>. Dan sensación de calma.</p>`,
-      svg: svg("A la izquierda una hoguera con colores cálidos y a la derecha una ola con colores fríos", `<rect x="10" y="20" width="115" height="120" rx="12" fill="${P.amarillo}" opacity=".25"/><path d="M67 125 q -35 -30 -5 -75 q 0 30 15 30 q 5 -20 -2 -35 q 35 35 18 80 Z" fill="${P.rojo}"/><path d="M67 125 q -18 -20 0 -45 q 5 20 15 20 q 5 15 -15 25 Z" fill="${P.amarillo}"/><rect x="135" y="20" width="115" height="120" rx="12" fill="${P.celeste}" opacity=".35"/><path d="M145 110 q 25 -50 55 -20 q -25 0 -15 20 q 25 -10 55 0 V 130 H 145 Z" fill="${P.azul}"/>${txt(67, 160, "cálidos", P.rojo)}${txt(192, 160, "fríos", P.azul)}`),
-      video: { id: "nvOA3D184q0", titulo: "Fríos y cálidos: clases de artes para niños", canal: "CNTV Infantil", vistas: 523955, megusta: 0 },
-    },
-    {
-      html: `<h3>Claro y oscuro</h3><p>Si a un color le añadimos <b>blanco</b>, se vuelve más <mark>claro</mark>: el rojo con blanco se vuelve rosa.</p><p>Si le añadimos <b>negro</b>, se vuelve más <mark>oscuro</mark>. Con poquito negro basta: ¡el negro es muy fuerte!</p>`,
-      svg: svg("Una escala de azul que va de claro con blanco a oscuro con negro", `${["#e3f2fd", "#90caf9", "#1e88e5", "#1565c0", "#0d2a59"].map((c, i) => `<rect x="${20 + i * 45}" y="55" width="40" height="55" rx="6" fill="${c}" stroke="var(--line)"/>`).join("")}${txt(45, 140, "+ blanco", "var(--muted)", 13)}${txt(130, 140, "azul", P.azul, 13)}${txt(215, 140, "+ negro", "var(--muted)", 13)}`),
-    },
-    {
-      html: `<h3>Los colores y las emociones</h3><p>Los colores también <mark>expresan cómo nos sentimos</mark>. Mucha gente pinta la alegría de amarillo, la calma de azul y el enfado de rojo.</p><p>No hay una única respuesta: cada persona puede elegir sus colores. ¿De qué color pintarías tú la felicidad?</p>`,
-      svg: svg("Tres caras: una amarilla alegre, una azul tranquila y una roja enfadada", `${[[P.amarillo, "M-12 6 q 12 12 24 0"], [P.celeste, "M-10 8 h 20"], [P.rojo, "M-12 12 q 12 -10 24 0"]].map(([c, b], i) => `<g transform="translate(${50 + i * 80} 80)"><circle r="30" fill="${c}"/><circle cx="-10" cy="-6" r="4" fill="${P.negro}"/><circle cx="10" cy="-6" r="4" fill="${P.negro}"/><path d="${b}" stroke="${P.negro}" stroke-width="3" fill="none"/>${i === 2 ? `<path d="M-16 -16 l 10 5 M16 -16 l -10 5" stroke="${P.negro}" stroke-width="3"/>` : ""}</g>`).join("")}${txt(50, 140, "alegría", "var(--ink)", 13)}${txt(130, 140, "calma", "var(--ink)", 13)}${txt(210, 140, "enfado", "var(--ink)", 13)}`),
-    },
-    {
-      html: `<h3>Materiales para colorear</h3><p>Podemos pintar con <mark>lápices de colores</mark>, <mark>ceras</mark>, <mark>rotuladores</mark> y <mark>témperas</mark>.</p><p>Con los lápices coloreamos <b>sin salirnos</b> y en la misma dirección. Las témperas se ponen con pincel y luego lo lavamos con agua antes de cambiar de color.</p>`,
-      svg: svg("Un lápiz, una cera, un rotulador y un pincel con un bote de témpera", `<rect x="20" y="40" width="16" height="90" rx="3" fill="${P.rojo}"/><path d="M20 130 L 28 150 L 36 130 Z" fill="#f5deb3"/><rect x="65" y="60" width="20" height="70" rx="4" fill="${P.azul}"/><rect x="65" y="75" width="20" height="30" fill="var(--card)" opacity=".6"/><rect x="110" y="40" width="18" height="95" rx="6" fill="${P.verde}"/><rect x="110" y="40" width="18" height="22" rx="6" fill="${P.negro}"/><rect x="170" y="100" width="55" height="45" rx="6" fill="${P.amarillo}" stroke="var(--ink)"/><path d="M200 105 L 230 30" stroke="#a1887f" stroke-width="6"/><path d="M196 110 l 6 -18 l 8 4 Z" fill="${P.amarillo}"/>`),
-    },
-    {
-      html: `<h3>Juego: el laboratorio de colores</h3><p>Pon en un plato tres gotas de témpera: <b>roja, amarilla y azul</b>. Mezcla de dos en dos con un pincel y <mark>descubre los secundarios</mark>.</p><p>Después añade un poco de blanco a cada mezcla. Pinta una fila con todos los colores que hayas conseguido. ¿Cuántos tienes?</p>`,
-      svg: svg("Un plato con gotas de pintura y mezclas", `<ellipse cx="130" cy="90" rx="110" ry="65" fill="var(--card)" stroke="var(--line)" stroke-width="3"/>${[[70, 70, P.rojo], [130, 50, P.amarillo], [190, 70, P.azul], [100, 60, P.naranja], [160, 60, P.verde], [130, 110, P.morado], [80, 115, P.rosa], [180, 115, P.celeste]].map(([x, y, c]) => `<circle cx="${x}" cy="${y}" r="13" fill="${c}"/>`).join("")}`),
-    },
+    ["Un mundo de colores", `<p>Mira a tu alrededor. El cielo es <b>azul</b>, la hierba es <b>verde</b> y las fresas son <b>rojas</b>.</p><p>Los <mark>colores</mark> nos ayudan a reconocer las cosas. Una manzana verde está aún sin madurar. Una roja ya se puede comer.</p><p>Los artistas usan los colores para que sus dibujos sean alegres, tranquilos o misteriosos.</p><p>¡Tú también eres artista! En este tema aprenderás a usar los colores como los pintores.</p>`,
+      dibujos("Cosas de colores: sol amarillo, manzana roja, árbol verde y pez azul", [["sol", "amarillo", "#f9a825"], ["manzana", "rojo", P.rojo], ["arbol", "verde", P.verde], ["pez", "azul", P.azul]], { titulo: "¿De qué color es?" })],
+    ["Los colores primarios", `<p>Hay tres colores muy importantes: el <mark>rojo</mark>, el <mark>amarillo</mark> y el <mark>azul</mark>.</p><p>Se llaman <b>colores primarios</b>. No se pueden conseguir mezclando otros colores.</p><p>En cambio, con ellos podemos hacer <b>casi todos los demás</b>.</p><p>Son como los ingredientes básicos de una receta. Con harina, huevos y leche puedes hacer muchos postres. Con rojo, amarillo y azul, ¡muchísimos colores!</p>`,
+      manchas("Tres manchas de pintura: rojo, amarillo y azul", [[P.rojo, "rojo"], [P.amarillo, "amarillo"], [P.azul, "azul"]], { titulo: "Los tres primarios" })],
+    ["Mezclamos: los secundarios", `<p>Si mezclamos <b>dos colores primarios</b>, sale un color nuevo. Se llama <mark>color secundario</mark>.</p><p><b>Amarillo + azul = verde.</b></p><p><b>Rojo + amarillo = naranja.</b></p><p><b>Rojo + azul = morado.</b></p><p>Para mezclar, pon un poco de cada color en un plato y remueve con el pincel.</p><p>Si pones más amarillo, el verde sale más clarito. Si pones más azul, sale más oscuro. ¡Prueba!</p>`,
+      mezcla("Amarillo más azul es verde; rojo más amarillo es naranja; rojo más azul es morado", [[[P.amarillo, "amarillo"], [P.azul, "azul"], [P.verde, "verde"]], [[P.rojo, "rojo"], [P.amarillo, "amarillo"], [P.naranja, "naranja"]], [[P.rojo, "rojo"], [P.azul, "azul"], [P.morado, "morado"]]]),
+      vid("lvCrwRFWpPw", "Los colores primarios, secundarios y terciarios", "Smile and Learn - Español", 3858629)],
+    ["Más mezclas", `<p>Con otras mezclas conseguimos todavía más colores.</p><p><b>Rojo + blanco = rosa.</b> El blanco hace los colores más suaves.</p><p><b>Negro + blanco = gris</b>, como las nubes de tormenta.</p><p>Si mezclamos <b>los tres primarios</b>, sale el <b>marrón</b>, el color de la tierra y de los troncos.</p><p>Mezcla poco a poco. Si echas demasiado, ¡el color puede salir muy distinto! Lava el pincel antes de cambiar de color.</p>`,
+      mezcla("Rojo más blanco es rosa; negro más blanco es gris", [[[P.rojo, "rojo"], [P.blanco, "blanco"], [P.rosa, "rosa"]], [[P.negro, "negro"], [P.blanco, "blanco"], [P.gris, "gris"]]], { titulo: "Más colores" })],
+    ["Claro y oscuro", `<p>Un mismo color puede ser <mark>claro</mark> u <mark>oscuro</mark>.</p><p>Para hacerlo <b>más claro</b>, le añadimos un poco de <b>blanco</b>. El azul se vuelve azul cielo.</p><p>Para hacerlo <b>más oscuro</b>, le añadimos una gotita de <b>negro</b>. El azul se vuelve azul marino.</p><p>Con el negro hay que tener cuidado: ¡una gota es mucho!</p><p>Así podemos pintar el cielo de día, clarito, y el cielo de noche, oscuro.</p>`,
+      escalera],
+    ["Colores cálidos", `<p>El <b>rojo</b>, el <b>naranja</b> y el <b>amarillo</b> son <mark>colores cálidos</mark>.</p><p>Nos recuerdan el <b>sol</b>, el <b>fuego</b> y el verano. Dan sensación de calor.</p><p>También son colores con mucha energía y alegría.</p><p>Si pintas una fiesta, un día de playa o una hoguera, usa colores cálidos.</p><p>Las hojas de los árboles en otoño también tienen colores cálidos: amarillas, naranjas y rojizas.</p>`,
+      manchas("Colores cálidos: rojo, naranja y amarillo", [[P.rojo, "rojo"], [P.naranja, "naranja"], [P.amarillo, "amarillo"]], { titulo: "Cálidos: como el fuego" })],
+    ["Colores fríos", `<p>El <b>azul</b>, el <b>verde</b> y el <b>morado</b> son <mark>colores fríos</mark>.</p><p>Nos recuerdan el <b>agua</b>, el <b>hielo</b> y la noche. Dan sensación de frescor.</p><p>También transmiten calma y tranquilidad.</p><p>Si pintas el mar, la nieve o un bosque en silencio, usa colores fríos.</p><p>Compara un dibujo con colores cálidos y otro con fríos. ¿Cuál te parece más alegre? ¿Cuál más tranquilo?</p>`,
+      manchas("Colores fríos: azul, verde y morado", [[P.azul, "azul"], [P.verde, "verde"], [P.morado, "morado"]], { titulo: "Fríos: como el agua" }),
+      vid("nvOA3D184q0", "Fríos y cálidos: clases de artes para niños", "CNTV Infantil", 523955)],
+    ["Colores y emociones", `<p>Los colores también pueden expresar <mark>emociones</mark>.</p><p>Muchas personas usan el <b>amarillo</b> para la alegría y el <b>azul</b> para la tristeza o la calma.</p><p>El <b>rojo</b> puede ser enfado, pero también amor.</p><p>No hay una única respuesta: cada persona siente los colores a su manera.</p><p>¿De qué color estás tú hoy? Pinta una cara con el color de tu emoción y explica por qué lo has elegido.</p>`,
+      dibujos("Caras de emociones con colores: feliz en amarillo, triste en azul y amor en rojo", [["feliz", "alegre", "#f9a825"], ["triste", "triste", P.azul], ["corazon", "amor", P.rojo]], { titulo: "¿De qué color me siento?" })],
+    ["Los colores de la naturaleza", `<p>La <mark>naturaleza</mark> está llena de colores.</p><p>Hay flores rojas, amarillas y moradas. Hay mariposas de muchos colores y peces naranjas.</p><p>Los colores ayudan a los animales. La rana verde se esconde entre las hojas. La mariquita roja avisa: ¡no me comas!</p><p>Los colores cambian con las estaciones: el campo es verde en primavera y dorado en verano.</p><p>Sal al patio y busca cinco colores distintos.</p>`,
+      dibujos("Colores en la naturaleza: rana verde, flor roja, mariposa morada y pez naranja", [["rana", "verde", P.verde], ["flor", "roja", P.rojo], ["mariposa", "morada", P.morado], ["pez", "naranja", P.naranja]], { titulo: "Busca colores" })],
+    ["¿Para qué sirven?", `<p>Los colores no solo sirven para pintar bonito. También nos <mark>dan información</mark>.</p><p>El <b>semáforo</b> usa colores: rojo para parar, ámbar para tener cuidado y verde para pasar.</p><p>Las papeleras de reciclar tienen colores: amarillo para envases, azul para papel y verde para vidrio.</p><p>Los colores también nos ayudan a ordenar. En clase, cada grupo puede tener su color.</p><p>¡Fíjate en los colores que te avisan por la calle!</p>`,
+      semaforo],
+    ["Juego: el veo veo de colores", `<p>Vamos a jugar al <mark>veo veo de colores</mark>.</p><p>Una persona dice: «Veo veo una cosa de color… ¡verde!».</p><p>Los demás miran a su alrededor y buscan cosas verdes: la pizarra, una hoja, una mochila.</p><p>Quien acierte, elige el siguiente color.</p><p>Para hacerlo más difícil, di también si es claro u oscuro, cálido o frío.</p><p>¡Con este juego entrenas los ojos de artista!</p>`,
+      dibujos("Veo veo: cosas verdes", [["arbol", "árbol", P.verde], ["rana", "rana", P.verde], ["pera", "pera", P.verde]], { titulo: "Veo veo… ¡verde!" })],
+    ["Repaso: lo que ya sé", `<p>Los <mark>primarios</mark> son rojo, amarillo y azul.</p><p>Mezclando dos primarios salen los <mark>secundarios</mark>: verde, naranja y morado.</p><p>Con <b>blanco</b> un color se aclara. Con <b>negro</b>, se oscurece.</p><p>Los colores <b>cálidos</b> recuerdan el fuego. Los <b>fríos</b> recuerdan el agua.</p><p>Y los colores sirven para expresar emociones y para dar avisos.</p><p>¡Ya puedes pintar como un artista de verdad!</p>`,
+      lista("Repaso de los colores", [["Primarios: rojo, amarillo, azul", R], ["Secundarios: verde, naranja, morado", V], ["Claro con blanco, oscuro con negro", G], ["Cálidos y fríos", A]], { titulo: "Ya sé…" })],
   ],
-  figura: {
-    titulo: "Primarios y secundarios",
-    svg: `<svg viewBox="0 0 640 280" role="img" aria-label="Arriba los tres colores primarios. Abajo los secundarios: rojo y amarillo dan naranja, amarillo y azul dan verde, rojo y azul dan morado">
-      <rect width="640" height="280" rx="16" fill="var(--paper)"/>
-      ${txt(320, 28, "PRIMARIOS", "var(--muted)", 14)}
-      ${[[P.rojo, "rojo"], [P.amarillo, "amarillo"], [P.azul, "azul"]].map(([c, t], i) => `<circle cx="${130 + i * 190}" cy="75" r="32" fill="${c}"/>${txt(130 + i * 190, 128, t, "var(--ink)", 15)}`).join("")}
-      ${txt(320, 160, "SECUNDARIOS", "var(--muted)", 14)}
-      ${[[P.naranja, "naranja", P.rojo, P.amarillo], [P.verde, "verde", P.amarillo, P.azul], [P.morado, "morado", P.rojo, P.azul]].map(([c, t, a, b], i) => `<circle cx="${95 + i * 190}" cy="205" r="11" fill="${a}"/><circle cx="${120 + i * 190}" cy="205" r="11" fill="${b}"/><text x="${140 + i * 190}" y="211" font-size="18" font-weight="800" fill="var(--ink)">=</text><circle cx="${180 + i * 190}" cy="205" r="26" fill="${c}"/>${txt(180 + i * 190, 255, t, "var(--ink)", 15)}`).join("")}
-    </svg>`,
-  },
-  video: { id: "oVr7NhOJOn0", titulo: "Aprende los colores primarios con Mon el dragón", canal: "Babyradio", vistas: 1013031, megusta: 0, busqueda: "colores primarios para niños" },
-  ejemplosTitulo: "Lo hacemos juntos",
+  figura: ["El círculo de los colores", mural("Primarios, secundarios, cálidos y fríos", [["manzana", "Primarios", "rojo · amarillo · azul", R], ["arbol", "Secundarios", "verde · naranja · morado", V], ["sol", "Cálidos", "rojo · naranja · amarillo", M], ["pez", "Fríos", "azul · verde · morado", A]], "Los colores")],
+  video: { ...vid("oVr7NhOJOn0", "Aprende los colores primarios con Mon el dragón", "Babyradio", 1013031), busqueda: "colores primarios para niños" },
   ejemplos: [
-    { enunciado: "¿Cómo conseguimos el naranja?", pasos: ["Ponemos un poco de amarillo en el plato.", "Añadimos un poquito de rojo.", "Mezclamos con el pincel hasta que no se vean rayas."], resultado: "rojo + amarillo = naranja." },
-    { enunciado: "Pinta un paisaje que dé sensación de frío.", pasos: ["Elegimos colores fríos: azules, verdes y morados.", "Pintamos montañas con nieve y un cielo azul.", "Evitamos el rojo y el naranja."], resultado: "un paisaje tranquilo y frío." },
-    { enunciado: "¿Cómo hago un verde más claro?", pasos: ["Primero preparo el verde: amarillo + azul.", "Añado un poco de blanco.", "Mezclo bien."], resultado: "un verde claro, como el de las hojas nuevas." },
+    ["¿Cómo conseguimos el color verde?", ["Busco dos primarios.", "Pongo amarillo en el plato.", "Añado azul y remuevo."], "amarillo + azul = verde."],
+    ["Quiero pintar un cielo de noche. ¿Qué hago con el azul?", ["El cielo de noche es oscuro.", "Para oscurecer añado negro.", "Solo una gotita."], "azul + un poco de negro = azul oscuro."],
+    ["¿El naranja es cálido o frío?", ["Pienso en qué me recuerda.", "Me recuerda al fuego y al sol.", "Esos colores dan calor."], "el naranja es un color cálido."],
+    ["Pinta un mar tranquilo.", ["Elijo colores fríos.", "Uso azul y verde.", "Hago el agua de cerca más oscura."], "un mar con azules y verdes."],
   ],
   errores: [
-    "Mezclar todos los colores a la vez: sale un marrón oscuro. Mejor de dos en dos.",
-    "No lavar el pincel al cambiar de color: ensucia la pintura.",
-    "Poner mucho negro para oscurecer: basta una gota.",
-    "Colorear con rayas en todas las direcciones: se ve mejor en una sola dirección.",
+    "Pensar que el verde es primario: se consigue con amarillo y azul.",
+    "Echar mucho negro para oscurecer: basta una gotita.",
+    "No lavar el pincel entre colores: los colores se ensucian.",
+    "Creer que un color solo significa una emoción: cada persona lo siente a su manera.",
   ],
-  ejercicios: [
-    { q: "Di los tres colores primarios.", sol: "Rojo, amarillo y azul." },
-    { q: "¿Qué color sale con amarillo y azul?", sol: "Verde." },
-    { q: "¿Qué color sale con rojo y azul?", sol: "Morado." },
-    { q: "¿Qué color sale con rojo y amarillo?", sol: "Naranja." },
-    { q: "Nombra dos colores cálidos.", sol: "Por ejemplo, rojo y naranja." },
-    { q: "Nombra dos colores fríos.", sol: "Por ejemplo, azul y verde." },
-    { q: "¿Qué añado para hacer un color más claro?", sol: "Blanco." },
-    { q: "Dibuja un sol con colores cálidos.", sol: "Un sol amarillo, naranja o rojo." },
-    { q: "Pinta tu cara de hoy con el color de cómo te sientes.", sol: "Respuesta libre: lo importante es poder explicar por qué." },
-    { q: "Busca en casa tres cosas de colores primarios.", sol: "Por ejemplo, un tomate rojo, un plátano amarillo y una toalla azul." },
+  basico: [
+    ["Nombra los tres colores primarios.", "Rojo, amarillo y azul."],
+    ["¿De qué color es el sol en tus dibujos?", "Amarillo (o naranja)."],
+    ["Pinta una manzana roja y una hoja verde.", "Dibujo libre con esos colores."],
+    ["Amarillo + azul = …", "Verde."],
+    ["Rojo + amarillo = …", "Naranja."],
+    ["Rojo + azul = …", "Morado."],
+    ["¿Qué color usas para el cielo de día?", "Azul claro."],
+    ["Busca tres cosas rojas en clase.", "Respuesta libre."],
+  ],
+  medio: [
+    ["¿Qué añades para hacer un color más claro?", "Blanco."],
+    ["¿Qué añades para hacer un color más oscuro?", "Un poco de negro."],
+    ["Nombra tres colores cálidos.", "Rojo, naranja y amarillo."],
+    ["Nombra tres colores fríos.", "Azul, verde y morado."],
+    ["Rojo + blanco = …", "Rosa."],
+    ["Negro + blanco = …", "Gris."],
+    ["¿Qué significa la luz roja del semáforo?", "Parar."],
+    ["Pinta una cara alegre con el color que elijas y explica por qué.", "Respuesta libre."],
+    ["¿Por qué la rana es verde?", "Para esconderse entre las hojas."],
+  ],
+  avanzado: [
+    ["Mezcla los tres primarios. ¿Qué color sale?", "Marrón."],
+    ["Pinta un mismo árbol dos veces: con colores cálidos y con colores fríos.", "Dibujo libre; uno da calor y otro calma."],
+    ["Haz una escalera de un color: de muy claro a muy oscuro.", "Cuadrados con más blanco a un lado y más negro al otro."],
+    ["Inventa un semáforo de emociones con tres colores.", "Respuesta libre con colores y emociones."],
+    ["Busca en una obra de arte colores cálidos y fríos.", "Respuesta libre señalando colores de la obra."],
   ],
   quiz: [
-    { q: "¿Cuál es un color primario?", o: ["verde", "azul", "naranja"], a: 1, e: "Los primarios son rojo, amarillo y azul." },
-    { q: "Amarillo + azul =", o: ["verde", "morado", "rosa"], a: 0, e: "Sale verde." },
-    { q: "Rojo + amarillo =", o: ["naranja", "marrón", "azul"], a: 0, e: "Sale naranja." },
-    { q: "Rojo + azul =", o: ["verde", "morado", "gris"], a: 1, e: "Sale morado." },
-    { q: "¿Qué color es cálido?", o: ["azul", "rojo", "verde"], a: 1, e: "Recuerda al fuego." },
-    { q: "¿Qué color es frío?", o: ["naranja", "amarillo", "azul"], a: 2, e: "Recuerda al agua." },
-    { q: "Para aclarar un color añado…", o: ["negro", "blanco", "marrón"], a: 1, e: "El blanco aclara." },
-    { q: "Rojo + blanco =", o: ["rosa", "verde", "negro"], a: 0, e: "Un rojo claro: rosa." },
-    { q: "Antes de cambiar de color, el pincel…", o: ["se tira", "se lava", "se seca al sol"], a: 1, e: "Se lava con agua." },
-    { q: "¿Cuántos colores primarios hay?", o: ["2", "3", "7"], a: 1, e: "Rojo, amarillo y azul." },
+    ["¿Cuál es un color primario?", ["verde", "azul", "morado"], 1, "Azul es primario."],
+    ["Amarillo + azul =", ["verde", "naranja", "rosa"], 0, "Verde."],
+    ["Rojo + amarillo =", ["morado", "naranja", "gris"], 1, "Naranja."],
+    ["Rojo + azul =", ["morado", "verde", "marrón"], 0, "Morado."],
+    ["Para aclarar un color añado…", ["negro", "blanco", "rojo"], 1, "Blanco."],
+    ["Para oscurecer un color añado…", ["negro", "amarillo", "blanco"], 0, "Negro."],
+    ["¿Qué color es cálido?", ["azul", "naranja", "verde"], 1, "Naranja: recuerda al fuego."],
+    ["¿Qué color es frío?", ["rojo", "amarillo", "azul"], 2, "Azul: recuerda al agua."],
+    ["Negro + blanco =", ["gris", "rosa", "verde"], 0, "Gris."],
+    ["En el semáforo, verde significa…", ["parar", "pasar", "correr"], 1, "Pasar."],
+    ["¿Cuántos colores primarios hay?", ["tres", "dos", "diez"], 0, "Tres."],
+    ["Rojo + blanco =", ["rosa", "morado", "naranja"], 0, "Rosa."],
   ],
   examen: [
-    { q: "El verde es un color…", o: ["primario", "secundario", "negro"], a: 1, e: "Sale de mezclar amarillo y azul." },
-    { q: "¿Qué grupo es de colores cálidos?", o: ["rojo, naranja, amarillo", "azul, verde, morado", "blanco y negro"], a: 0, e: "Fuego y sol." },
-    { q: "Para oscurecer un color añado…", o: ["blanco", "agua", "un poco de negro"], a: 2, e: "El negro oscurece." },
-    { q: "El morado sale de…", o: ["rojo y azul", "rojo y amarillo", "azul y amarillo"], a: 0, e: "Rojo + azul." },
+    ["Los primarios son rojo, amarillo y…", ["azul", "verde", "negro"], 0, "Azul."],
+    ["El verde se consigue con…", ["amarillo y azul", "rojo y azul", "blanco y negro"], 0, "Amarillo y azul."],
+    ["Los colores fríos recuerdan…", ["el agua", "el fuego", "el sol"], 0, "El agua y el hielo."],
+    ["El morado sale de…", ["rojo y azul", "rojo y amarillo", "azul y blanco"], 0, "Rojo y azul."],
+    ["Un azul con blanco se vuelve…", ["más claro", "más oscuro", "rojo"], 0, "Más claro."],
+    ["¿Qué color es cálido?", ["amarillo", "azul", "morado"], 0, "Amarillo."],
   ],
-  feynman: ["Cuáles son los colores primarios", "Cómo se consiguen los secundarios", "Qué diferencia hay entre colores cálidos y fríos"],
-  mapa: mapa("LOS COLORES", "var(--pri)", [
-    ["Primarios", "rojo · amarillo · azul", "var(--red)"],
-    ["Secundarios", "naranja · verde · morado", "var(--leaf)"],
-    ["Cálidos y fríos", "fuego y sol · agua y hielo", "var(--sun)"],
-    ["Claro y oscuro", "+ blanco · + negro", "var(--pen)"],
-  ], 220),
+  feynman: ["Qué son los colores primarios", "Cómo se consigue el verde", "La diferencia entre colores cálidos y fríos"],
+  mapa: ["LOS COLORES", [["Primarios", "rojo · amarillo · azul", R], ["Secundarios", "verde · naranja · morado", V], ["Claro / oscuro", "+ blanco · + negro", G], ["Cálidos / fríos", "fuego · agua", A]], 230],
   tarjetas: [
     ["Colores primarios", "Rojo, amarillo y azul"],
     ["Amarillo + azul", "Verde"],
     ["Rojo + amarillo", "Naranja"],
     ["Rojo + azul", "Morado"],
+    ["Para aclarar", "Añado blanco"],
+    ["Para oscurecer", "Añado un poco de negro"],
     ["Colores cálidos", "Rojo, naranja, amarillo"],
     ["Colores fríos", "Azul, verde, morado"],
-    ["¿Qué aclara un color?", "El blanco"],
-    ["¿Qué oscurece un color?", "Un poco de negro"],
+    ["Negro + blanco", "Gris"],
+    ["Los tres primarios juntos", "Marrón"],
   ],
+  glosario: [
+    ["Color primario", "Rojo, amarillo o azul: no se hacen mezclando."],
+    ["Color secundario", "El que sale al mezclar dos primarios."],
+    ["Mezclar", "Juntar dos pinturas y removerlas."],
+    ["Paleta", "Plato o tabla donde se mezclan las pinturas."],
+    ["Pincel", "Palo con pelos para pintar."],
+    ["Cálido", "Color que recuerda al calor, como el rojo."],
+    ["Frío", "Color que recuerda al frescor, como el azul."],
+    ["Tono", "Si un color es más claro o más oscuro."],
+  ],
+  situacion: ["El mural de los tres botes", "Como Nora, vamos a pintar un mural de clase solo con rojo, amarillo, azul, blanco y negro.", ["Mezclamos en platos los colores secundarios.", "Preparamos tonos claros y oscuros.", "Pintamos por grupos: una parte cálida (el sol, el fuego) y otra fría (el mar, la noche).", "Contamos a otra clase qué mezclas hemos usado."], "un mural de clase pintado con mezclas propias.", ["Consigue verde, naranja y morado mezclando.", "Aclara y oscurece un color.", "Usa colores cálidos y fríos con intención."]],
   familias: [
-    "Pintad juntos con témperas en un plato y descubrid las mezclas.",
-    "Al pasear, buscad colores cálidos y fríos en escaparates, flores y coches.",
-    "Preguntad «¿de qué color te sientes hoy?» y dejad que lo dibuje.",
-    "Proteged la mesa con papel de periódico: la pintura se disfruta más sin miedo a manchar.",
+    "Jugad al veo veo de colores en casa o por la calle.",
+    "Mezclad pinturas en un plato: ¿qué sale con amarillo y azul?",
+    "Al vestir, preguntadle si la ropa es de colores cálidos o fríos.",
+    "Buscad juntos colores que avisan: semáforos, señales, papeleras.",
   ],
-  profesores: PROF("Educación Plástica y Visual: elementos del lenguaje visual (el color), colores primarios y secundarios, gama cálida y fría, y expresión de emociones con el color", ["Laboratorio de mezclas con témperas en pequeños grupos.", "Mural de clase dividido en zona cálida y zona fría.", "Termómetro de emociones con colores."]),
-  fuentes: FUENTES,
-  revisado: "2026-11-12",
-};
+  saberes: "Elementos del lenguaje plástico: el color. Colores primarios y secundarios, mezclas, claro y oscuro, colores cálidos y fríos y el color para expresar emociones",
+  ideas: ["Taller de mezclas con témperas en platos de plástico.", "Mural colectivo dividido en zona cálida y zona fría.", "Caja de emociones de colores para la asamblea.", "Paseo por el patio buscando colores de la naturaleza."],
+});

@@ -19,10 +19,10 @@ const texto = (x, y, t, { size = 16, color = "var(--ink)", w = 700, max = 240 } 
 const manchas = (label, items, opts = {}) => P.muestras(label, items.map(([c, n, d = ""]) => ["", n, d, c]), opts);
 // Mezcla: color1 + color2 = color3.
 const mezcla = (label, filas, opts = {}) => {
-  const n = filas.length, top = opts.titulo ? 34 : 12, h = (172 - top) / n, r = Math.min(20, h / 2 - 6);
+  const n = filas.length, top = opts.titulo ? 34 : 12, h = (172 - top) / n, r = Math.min(20, h / 2 - 11);
   const out = filas.map(([[c1, n1], [c2, n2], [c3, n3]], i) => {
     const cy = top + h * (i + 0.5) - (n === 1 ? 10 : 6);
-    const ty = cy + r + 15;
+    const ty = cy + r + 14;
     return `<circle cx="45" cy="${cy}" r="${r}" fill="${c1}" stroke="var(--line)" stroke-width="2"/>${texto(45, ty, n1, { size: 13, max: 70 })}
       <text x="88" y="${cy + 7}" text-anchor="middle" font-size="22" font-weight="800" fill="var(--muted)">+</text>
       <circle cx="130" cy="${cy}" r="${r}" fill="${c2}" stroke="var(--line)" stroke-width="2"/>${texto(130, ty, n2, { size: 13, max: 70 })}
