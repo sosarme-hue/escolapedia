@@ -16,6 +16,7 @@ module.exports = libro(require("./_eso1L6-base-fr-famille"), {
     [11, "Los oficios de la familia", `<p>Para hablar de las profesiones se usa <b>être</b> + profesión sin artículo: <i>Mon père est médecin</i>, <i>Ma mère est professeure</i>. Con adjetivo sí se pone: <i>C'est un bon médecin</i>. Algunas profesiones tienen femenino regular: <i>infirmier / infirmière</i>, <i>boulanger / boulangère</i>. Otras cambian poco: <i>médecin</i> (válido para los dos), <i>professeur(e)</i>.</p><p>Para preguntar la profesión se dice <b>Quel est son métier ?</b> o <b>Qu'est-ce qu'il / elle fait dans la vie ?</b>. Y para hablar de las tuyas: <i>Quand je serai grand(e), je voudrais être…</i> (cuando sea mayor, me gustaría ser…).</p>`,
       L.columnas("Profesiones", [["salud", "MÉDECIN", ["infirmier / ière"], L.AZ], ["enseñanza", "PROFESSEUR", ["instituteur / trice"], L.VE], ["oficio", "BOULANGER", ["boulangère"], L.RO]])],
   ],
+  dibujos: { 2: L.tabla("Le verbe avoir", ["Persona", "Forma"], [["j'", "ai"], ["tu", "as"], ["il / elle", "a"], ["ils / elles", "ont"]]) },
   ejemplos: [
     ["Describe a tu madre en francés en tres frases.", ["Físico con être.", "Pelo u ojos con avoir.", "Carácter con être."], "Elle est grande. Elle a les yeux marron. Elle est très gentille."],
     ["Completa: «____ parents (ellos) habitent à Lyon».", ["El poseedor son varios (ellos): leur / leurs.", "Parents es plural: leurs."], "Leurs parents habitent à Lyon."],

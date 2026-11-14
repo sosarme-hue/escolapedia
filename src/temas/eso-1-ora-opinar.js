@@ -16,6 +16,7 @@ module.exports = libro(require("./_eso1L6-base-ora-opinar"), {
     [11, "Opinar en internet", `<p>En las redes y los chats cuesta más opinar con respeto porque no vemos la cara de quien nos lee. Algunas reglas útiles:</p><ul><li><b>Piensa antes de escribir</b>: lo que publicas queda guardado y puede copiarse.</li><li><b>Usa razones</b>, igual que en voz alta.</li><li><b>Respeta</b>: si no lo dirías a la cara, no lo escribas.</li><li><b>Comprueba las fuentes</b>: antes de compartir una noticia, mira quién la publica y si otros medios la confirman.</li></ul><p>Si alguien te insulta, no respondas con otro insulto: puedes ignorarlo, bloquearlo o avisar a un adulto.</p>`,
       L.filas("Opinar en la red", [["Piensa", "antes de publicar", L.AZ], ["Razona", "como en voz alta", L.VE], ["Respeta", "como a la cara", L.RO], ["Comprueba", "las fuentes", L.MO]])],
   ],
+  videos: { 6: V("Nc8Dlf7oHwc", "Tipos de falacias y sus ejemplos", "Angel Francisco Martinez Doniz", 160144) },
   ejemplos: [
     ["Detecta la falacia: «No hagas caso a Marta, que no sabe de fútbol porque es una chica».", ["No se rebate lo que dice, sino a la persona y por su género.", "Es un ataque personal y, además, un prejuicio."], "Ataque personal con prejuicio."],
     ["Matiza: «Los móviles distraen».", ["Aceptar la parte cierta: en clase pueden distraer.", "Añadir la parte matizada: sirven para buscar información si el profesor lo permite."], "«Los móviles pueden distraer en clase, pero también ayudan si se usan con permiso.»"],

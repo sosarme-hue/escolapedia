@@ -16,6 +16,7 @@ module.exports = libro(require("./_eso1L6-base-fr-gouts"), {
     [11, "Una encuesta de gustos", `<p>Para hacer una encuesta a tu clase, necesitas pocas preguntas y un cuadro para anotar las respuestas:</p><ul><li><i>Qu'est-ce que tu aimes faire ?</i> (¿qué te gusta hacer?)</li><li><i>Tu joues à quel sport ?</i> / <i>Tu joues d'un instrument ?</i></li><li><i>Pourquoi ?</i> (¿por qué?)</li></ul><p>Anota las respuestas con ayuda de un cuadro y presenta los resultados: <i>Sur dix élèves, six aiment le football. Quatre préfèrent la musique</i>. Para decir proporciones se usan expresiones como <b>la plupart</b> (la mayoría), <b>quelques-uns</b> (algunos) y <b>personne</b> (nadie).</p>`,
       L.pasos("Hacer la encuesta", [["Preguntar", ["qu'est-ce que…"], L.AZ], ["Anotar", ["en un cuadro"], L.VE], ["Contar", ["sur dix élèves"], L.MO], ["Presentar", ["la plupart…"], L.RO]])],
   ],
+  dibujos: { 2: L.tabla("Verbos en -er", ["Persona", "Final"], [["je", "-e"], ["tu", "-es"], ["nous", "-ons"], ["ils", "-ent"]]) },
   ejemplos: [
     ["Completa: «Je joue ____ tennis» y «Je joue ____ guitare».", ["Deporte: jouer à + le → au.", "Instrumento: jouer de + la → de la."], "Je joue au tennis. Je joue de la guitare."],
     ["Responde «Pourquoi tu aimes la natation ?» con tres frases.", ["Parce que + adjetivo.", "Añadir un matiz."], "Parce que c'est amusant. J'adore l'eau. Et c'est bon pour la santé."],

@@ -16,6 +16,7 @@ module.exports = libro(require("./_eso1L6-base-ora-anecdota"), {
     [11, "Ficha de revisión", `<p>Antes de contar tu anécdota ante la clase, revísala con esta lista de comprobación:</p><ul><li>¿Se entiende en <b>un minuto</b> o dos?</li><li>¿Tiene <b>planteamiento, nudo y desenlace</b>?</li><li>¿El comienzo engancha?</li><li>¿Hay <b>detalles concretos</b> (colores, sonidos, nombres)?</li><li>¿Hay <b>diálogo</b> en algún momento?</li><li>¿El final se recuerda?</li></ul><p>Cuéntasela a una persona de confianza y pídele una opinión. Si se pierde, es que sobran detalles; si se aburre, faltan.</p>`,
       L.filas("¿Lista para contar?", [["Dura 1 minuto", "ni más ni menos", L.AZ], ["Tiene 3 partes", "principio, nudo, final", L.VE], ["Engancha", "buen comienzo", L.RO], ["Tiene remate", "final claro", L.MO]])],
   ],
+  videos: { 3: V("wYD0XjNtSOs", "Cómo contar una historia desde cero", "Edgardoodles", 486659) },
   ejemplos: [
     ["Clasifica: «El ayuntamiento abrirá una nueva biblioteca el lunes», «Una vez me quedé encerrado en el ascensor con el director» y «Érase una vez un dragón que no sabía volar».", ["La primera informa de un hecho de actualidad: noticia.", "La segunda es real, breve y personal: anécdota.", "La tercera es inventada: cuento."], "Noticia, anécdota y cuento."],
     ["Pasa a presente para dar viveza: «Abrí la puerta y vi un pato en el sofá».", ["Abro la puerta.", "Veo un pato en el sofá."], "«Abro la puerta y veo un pato en el sofá.»"],

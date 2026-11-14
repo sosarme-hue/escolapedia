@@ -16,6 +16,7 @@ module.exports = libro(require("./_eso1L6-base-ora-cuerpo"), {
     [11, "Observar y mejorar", `<p>Para mejorar tu lenguaje corporal puedes usar tres herramientas: el <b>espejo</b> (practicas la exposición frente a él), el <b>vídeo</b> (grabarte con el móvil y verte con el sonido apagado: ¿qué mensaje da tu cuerpo?) y la <b>observación entre compañeros</b> con una ficha.</p><p>Al verte, no busques que todo sea perfecto: fíjate en <b>una sola cosa</b> (la mirada, las manos, la postura) y cámbiala en la siguiente prueba. Un truco de actores: grabarse sin sonido y ver si se entiende la emoción solo con la imagen.</p>`,
       L.filas("Tres herramientas", [["Espejo", "ensayar y corregir", L.AZ], ["Vídeo sin sonido", "ver tu mensaje", L.VE], ["Compañero", "ficha de observación", L.RO]])],
   ],
+  videos: { 4: V("SRXWrMbE1jw", "12 gestos corporales para exponer y ser más atractivo | Lenguaje no verbal", "Nacho Tellez", 255363) },
   ejemplos: [
     ["Un alumno dice «estoy muy contento de estar aquí» con la cabeza gacha y las manos en los bolsillos. ¿Qué falla y cómo se arregla?", ["Las palabras y el cuerpo no coinciden: falta coherencia.", "Levantar la cabeza, mirar al público y sonreír.", "Sacar las manos de los bolsillos."], "Cuerpo y palabras deben decir lo mismo."],
     ["Diseña el gesto para decir «hay tres razones».", ["Levantar la mano a la altura del pecho.", "Mostrar tres dedos.", "Mantener el gesto mientras se dice la frase."], "Un gesto ilustrador sencillo y visible."],

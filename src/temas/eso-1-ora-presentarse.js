@@ -16,6 +16,7 @@ module.exports = libro(require("./_eso1L6-base-ora-presentarse"), {
     [11, "Ensayar y recibir comentarios", `<p>Ninguna presentación sale bien a la primera sin práctica. El esquema ideal: <b>ensayo solo</b> (ante el espejo), <b>ensayo con público</b> (una persona de confianza) y <b>ensayo cronometrado</b>.</p><p>Cuando recibas comentarios, escucha sin discutir y toma nota. Pregunta: «¿qué ha sido lo mejor?» y «¿qué cambiarías?». La <b>retroalimentación</b> es un regalo: no es una crítica a tu persona, sino información para mejorar. Elige solo uno o dos cambios para la siguiente vez y ponlos en práctica.</p>`,
       L.filas("Ensayar", [["Ante el espejo", "primero solo", L.AZ], ["Con público", "alguien de confianza", L.VE], ["Cronometrado", "ajustar el tiempo", L.RO]])],
   ],
+  videos: { 4: V("Gl6GX7VMHG4", "Cómo presentarse ante un grupo de personas", "formacion REKAPP", 456432) },
   ejemplos: [
     ["Escribe un saludo, un dato y un cierre para presentar a tu equipo de baloncesto.", ["Saludo: «Hola, somos los Dragones».", "Dato: «Llevamos tres años juntos y ganamos el torneo de Navidad».", "Cierre: «Os esperamos en el próximo partido»."], "«Hola, somos los Dragones. Llevamos tres años juntos y ganamos el torneo de Navidad. ¡Os esperamos en el próximo partido!»"],
     ["Prepara el relevo entre dos compañeros al presentar un proyecto de reciclaje.", ["Cierra tu parte.", "Presenta al siguiente por su nombre.", "Anuncia qué contará."], "«Esto es todo por mi parte. Ahora Julia os explicará cómo separamos el papel.»"],
