@@ -31,7 +31,7 @@ function fig(titulo, aria, cols) {
     const x = 20 + i * (w + gap), cx = x + w / 2;
     return `<rect x="${n2(x)}" y="20" width="${n2(w)}" height="180" rx="14" fill="var(--card)" stroke="${c}" stroke-width="2.5"/>
       <rect x="${n2(x)}" y="20" width="${n2(w)}" height="34" rx="14" fill="${c}"/><rect x="${n2(x)}" y="40" width="${n2(w)}" height="14" fill="${c}"/>
-      ${t(cx, 43, cab, { c: "#fff", s: 14, b: 1 })}${ls.map((l, j) => t(cx, 80 + j * 24, l, { s: 12.5, b: j === 0 ? 1 : 0 })).join("")}`;
+      ${t(cx, 43, cab, { c: "#fff", s: 14, b: 1 })}${ls.map((l, j) => t(cx, 80 + j * 24, l, { s: Math.min(12.5, (w - 14) / (l.length * 0.56)), b: j === 0 ? 1 : 0 })).join("")}`;
   }).join("");
   return { titulo, svg: `<svg viewBox="0 0 640 220" role="img" aria-label="${aria}"><rect width="640" height="220" rx="16" fill="var(--paper)"/>${cajas}</svg>` };
 }
