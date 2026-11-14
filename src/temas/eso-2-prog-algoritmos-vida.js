@@ -1,142 +1,290 @@
-// Programación y robótica 2º ESO: algoritmos en la vida diaria. Dibujos propios en SVG.
-const { D, mapa, BG, t, fl, caja, tabla, RD, wiki, C, REV } = require("./_eso2a");
-const M = "Programación y robótica";
+// Programación y robótica 2º ESO · Algoritmos en la vida diaria. Tema nivel libro (lote 8).
+// Contenido y dibujos propios: esquemas de _eso2L8 y dibujos de la versión anterior del tema.
+const H = require("./_eso2L8");
+const S = "prog-algoritmos-vida";
+const vPseudo = { id: "NJavXHU5MW8", titulo: "¿Qué es el pseudocódigo en programación? Ejemplos básicos para empezar", canal: "Conquer Blocks", vistas: 64159, busqueda: "pseudocódigo para principiantes" };
+const vDesc = { id: "AeoMyotXSm8", titulo: "Descomposición de problemas", canal: "Pensamiento Computacional", vistas: 1325, busqueda: "pensamiento computacional descomposición patrones abstracción" };
+
+const rasgos = H.radial("Características de un buen algoritmo: preciso, ordenado, finito, con entrada, con salida y eficaz", "ALGORITMO", ["Preciso", "Ordenado", "Finito", "Con entrada", "Con salida", "Eficaz"], "var(--pen)");
+const diarios = H.cajas("Algoritmos de la vida diaria: receta, ruta del navegador, lavadora, montaje de un mueble, primeros auxilios y búsqueda en internet", [
+  ["Receta", "pasos de cocina", "var(--red)"],
+  ["Navegador GPS", "calcula la ruta", "var(--pen)"],
+  ["Lavadora", "programa de lavado", "var(--inf)"],
+  ["Montar un mueble", "hoja de instrucciones", "var(--sun)"],
+  ["Primeros auxilios", "protocolo PAS", "var(--leaf)"],
+  ["Buscador", "ordena resultados", "var(--bac)"],
+], "Algoritmos por todas partes");
+const formas = H.cajas("Cuatro formas de representar un algoritmo: lenguaje natural, pseudocódigo, diagrama de flujo y bloques o código", [
+  ["Lenguaje natural", "frases normales", "var(--muted)"],
+  ["Pseudocódigo", "frases cortas y reglas", "var(--pen)"],
+  ["Diagrama de flujo", "símbolos y flechas", "var(--sun)"],
+  ["Programa", "bloques o código", "var(--leaf)"],
+], "¿Cómo se escribe?");
+const pseudo = H.codigo("Pseudocódigo para preparar un vaso de cacao: inicio, calentar la leche, si está muy caliente esperar, echar cacao, repetir remover diez veces y fin", [
+  ["INICIO", 0, H.PS.clave],
+  ["calentar leche 1 minuto", 1],
+  ["SI leche muy caliente ENTONCES", 1, H.PS.clave],
+  ["esperar 2 minutos", 2],
+  ["FIN SI", 1, H.PS.clave],
+  ["echar 2 cucharadas de cacao", 1],
+  ["REPETIR 10 VECES", 1, H.PS.clave],
+  ["remover una vuelta", 2],
+  ["FIN REPETIR", 1, H.PS.clave],
+  ["FIN", 0, H.PS.clave],
+], "Pseudocódigo: un vaso de cacao");
+const simbolos = H.tablaSvg("Símbolos del diagrama de flujo: óvalo para inicio y fin, rectángulo para acciones, rombo para decisiones, paralelogramo para entrada y salida, y flechas para el orden", ["Símbolo", "Significa"], [["Óvalo", "inicio o fin"], ["Rectángulo", "acción o proceso"], ["Rombo", "pregunta: sí o no"], ["Paralelogramo", "entrada o salida de datos"], ["Flecha", "orden de los pasos"]]);
+const secuencia = H.flujo("Diagrama de flujo de una secuencia: inicio, coger el cepillo, poner pasta, cepillar dos minutos, enjuagar y fin", [["Inicio", "ini"], ["Coger el cepillo", "proc"], ["Poner pasta", "proc"], ["Cepillar 2 minutos", "proc"], ["Enjuagar", "proc"], ["Fin", "ini"]], "Secuencia: lavarse los dientes");
+const repeticion = H.flujo("Diagrama de flujo con repetición: inicio, ¿quedan platos?, si sí lavar un plato y volver a preguntar, si no fin", [["Inicio", "ini"], ["¿Quedan platos sucios?", "dec", "no: fin", "sí ↓"], ["Lavar un plato", "proc"], ["Dejarlo en el escurridor", "proc"]], "Repetición: fregar los platos", { vuelta: [3, 1], etiqueta: "" });
+const variables = H.codigo("Algoritmo con variables: contar los pasos de un paseo con un contador que empieza en cero y suma uno en cada paso hasta llegar a casa", [
+  ["pasos ← 0", 0, H.PS.ini],
+  ["REPETIR HASTA llegar a casa", 0, H.PS.clave],
+  ["dar un paso", 1],
+  ["pasos ← pasos + 1", 1, H.PS.ok],
+  ["FIN REPETIR", 0, H.PS.clave],
+  ["MOSTRAR pasos", 0, H.PS.ini],
+  ["# pasos es una variable: guarda un dato", 0, H.PS.com],
+], "Datos que cambian: variables");
+const buscar = H.compara("Dos algoritmos para encontrar una palabra en el diccionario: mirar página a página o abrir por la mitad y descartar la mitad cada vez", ["Página a página", "var(--red)", ["empieza en la 1", "mira una a una", "hasta 1.000 pasos", "lento pero sencillo"]], ["Por la mitad", "var(--leaf)", ["abre por el centro", "¿antes o después?", "descarta la mitad", "unos 10 pasos"]], "Mismo problema, distinta eficiencia");
+const ordenar = H.flechas("Ordenar cartas por inserción: coger una carta, compararla con las de la mano, colocarla en su sitio y repetir con la siguiente", ["Coge la siguiente carta del montón", "Compárala con las de tu mano, de derecha a izquierda", "Insértala en su sitio", "Repite hasta que no queden cartas"], "Algoritmo de ordenación");
+const decisiones = H.comparar("Algoritmos que deciden por nosotros: ventajas como ahorrar tiempo y riesgos como los sesgos o la burbuja de filtros", [
+  ["Ventajas", ["recomiendan rápido", "detectan fraudes", "ayudan a médicos"], "var(--leaf)"],
+  ["Riesgos", ["sesgos injustos", "burbuja de filtros", "enganche"], "var(--red)"],
+], "Algoritmos en las redes");
 
 module.exports = {
-  materia: M,
-  curso: C,
+  materia: H.MATERIA,
+  curso: H.CURSO,
   titulo: "Algoritmos en la vida diaria",
-  minutos: 45,
-  objetivos: ["Definir algoritmo y sus características", "Reconocer algoritmos en situaciones cotidianas", "Representar algoritmos con lenguaje natural, pseudocódigo y diagramas de flujo", "Aplicar las estrategias del pensamiento computacional a problemas sencillos"],
-  claves: ["algoritmo", "secuencia", "decisión", "repetición", "entrada", "salida", "diagrama de flujo", "pseudocódigo", "descomposición", "patrón", "abstracción"],
+  minutos: 105,
+  objetivos: [
+    "Definir qué es un algoritmo y reconocer sus características",
+    "Identificar algoritmos en situaciones de la vida cotidiana",
+    "Representar algoritmos en lenguaje natural, pseudocódigo y diagramas de flujo",
+    "Usar las estructuras de secuencia, decisión y repetición, y las variables",
+    "Aplicar las estrategias del pensamiento computacional para resolver problemas",
+    "Comparar algoritmos por su eficiencia y reflexionar sobre los algoritmos que deciden por nosotros",
+  ],
+  claves: ["algoritmo", "secuencia", "decisión", "repetición", "variable", "pseudocódigo", "diagrama de flujo", "descomposición", "patrones", "abstracción", "eficiencia", "búsqueda", "ordenación", "sesgo"],
   pregunta: {
-    texto: "¿Qué tienen en común una receta de tortilla, las instrucciones de un mueble de IKEA y la forma en que TikTok decide qué vídeo enseñarte después?",
-    respuesta: "Todas son <b>algoritmos</b>: listas de pasos ordenados para conseguir un resultado. La receta y las instrucciones las sigue una persona; el de la red social lo ejecuta un ordenador, que analiza qué vídeos has visto, cuánto tiempo y cuáles te han gustado, para elegir el siguiente. La idea es la misma: <b>entrada, pasos y salida</b>.",
+    texto: "¿Has seguido hoy algún algoritmo sin darte cuenta?",
+    respuesta: "Casi seguro que sí. Un <mark>algoritmo</mark> es una lista ordenada de pasos para conseguir algo: la forma en que te vistes, el camino al instituto, la receta del desayuno o cómo resuelves una suma con llevadas. Además, muchos algoritmos de ordenador trabajan para ti: el que calcula la ruta del autobús, el que ordena los mensajes del móvil o el que te recomienda canciones.",
+  },
+  lectura: {
+    titulo: "El algoritmo de las vacunas y el del cubo de Rubik",
+    html: `<p>En 1974, el profesor húngaro <b>Ernő Rubik</b> inventó un cubo de colores para explicar a sus alumnos cómo se mueven las piezas en el espacio. Tardó un mes entero en resolverlo él mismo. Hoy hay jóvenes que lo resuelven en menos de cinco segundos. ¿Son genios? En parte, pero sobre todo han aprendido <b>algoritmos</b>: secuencias de giros que, aplicadas en el orden correcto, colocan las piezas sin desordenar las demás.</p>
+<p>Los algoritmos también salvan vidas. Cuando alguien se desmaya en la calle, los servicios de emergencia siguen un protocolo: comprobar si responde, llamar al 112, comprobar si respira y, si no respira, empezar las compresiones en el pecho a un ritmo de 100 a 120 por minuto. Ese protocolo está diseñado para que cualquier persona, incluso nerviosa, sepa qué hacer en cada momento.</p>
+<p>Un algoritmo, en el fondo, es <b>conocimiento empaquetado</b>: alguien pensó una vez cómo resolver un problema y lo escribió paso a paso para que otros, personas o máquinas, puedan repetirlo. En este tema aprenderás a descubrir algoritmos a tu alrededor y a escribir los tuyos.</p>`,
   },
   bloques: [
     {
-      html: `<h3>¿Qué es un algoritmo?</h3><p>Un <mark>algoritmo</mark> es un <b>conjunto de instrucciones ordenadas y finitas que permiten resolver un problema o realizar una tarea</b>. La palabra viene del nombre de <b>al-Juarismi</b>, un matemático persa del siglo IX que escribió libros con métodos paso a paso para hacer cálculos. Seguimos algoritmos todos los días sin darnos cuenta: al lavarnos los dientes, al preparar la mochila, al seguir una receta, al hacer una división larga o al ir de casa al instituto. Todo algoritmo tiene tres partes: unos <b>datos de entrada</b> (los ingredientes, los números de la operación), un <b>proceso</b> (los pasos que se siguen) y un <b>resultado o salida</b> (el plato preparado, la solución). Los ordenadores funcionan gracias a algoritmos: cada programa es un algoritmo, o muchos, escritos en un lenguaje que la máquina entiende.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Algoritmo de una receta: entrada huevos, patatas y aceite; proceso pelar, freír, batir y cuajar; salida una tortilla">${BG}
-        ${caja(8, 50, 72, 70, "", "var(--pen)")}${t(44, 42, "entrada", { size: 10, color: "var(--pen)" })}${t(44, 74, "huevos", { size: 9.5 })}${t(44, 90, "patatas", { size: 9.5 })}${t(44, 106, "aceite", { size: 9.5 })}
-        ${caja(94, 50, 72, 70, "", "var(--red)")}${t(130, 42, "proceso", { size: 10, color: "var(--red)" })}${t(130, 70, "1. pelar", { size: 9 })}${t(130, 84, "2. freír", { size: 9 })}${t(130, 98, "3. batir", { size: 9 })}${t(130, 112, "4. cuajar", { size: 9 })}
-        ${caja(180, 50, 72, 70, "", "var(--leaf)")}${t(216, 42, "salida", { size: 10, color: "var(--leaf)" })}<ellipse cx="216" cy="86" rx="26" ry="16" fill="#f2c94c" stroke="#b8860b" stroke-width="2"/>${t(216, 112, "tortilla", { size: 9.5 })}
-        ${fl(80, 85, 92, 85, "var(--ink)", 2)}${fl(166, 85, 178, 85, "var(--ink)", 2)}${t(130, 150, "una receta es un algoritmo", { size: 10, color: "var(--muted)" })}</svg>`,
+      html: `<h3>2.1 ¿Qué es un algoritmo?</h3><p>Un <mark>algoritmo</mark> es una <b>secuencia ordenada y finita de pasos</b> que permite resolver un problema o realizar una tarea. La palabra viene del nombre del matemático persa <b>al-Juarismi</b>, que en el siglo IX escribió libros con métodos paso a paso para hacer cálculos.</p><p>Todo algoritmo tiene tres partes:</p><p>• <b>Entrada</b>: los datos o materiales de los que partimos (los ingredientes de una receta, los números de una suma).<br>• <b>Proceso</b>: los pasos que transforman la entrada (pelar, freír, batir; sumar las unidades, llevar…).<br>• <b>Salida</b>: el resultado final (la tortilla, el resultado de la suma).</p><p>Un algoritmo no es todavía un programa: es la <b>idea</b> de cómo resolver el problema. Se puede escribir en un papel, explicar con palabras o dibujar. Cuando lo traducimos a un lenguaje que entiende una máquina, se convierte en un <b>programa</b>.</p>`,
+      svg: H.viejo(S, 0),
     },
     {
-      html: `<h3>Características de un buen algoritmo</h3><p>No cualquier lista de pasos es un buen algoritmo. Tiene que cumplir varias condiciones. Debe ser <mark>preciso</mark>: cada paso tiene que estar claro y no admitir dos interpretaciones; «echa un poco de sal» es poco preciso para una máquina, mientras que «echa 5 gramos de sal» sí lo es. Debe ser <mark>ordenado</mark>: los pasos tienen un orden y, si se cambia, el resultado puede ser otro; no es lo mismo «ponerse los calcetines y luego los zapatos» que al revés. Debe ser <mark>finito</mark>: tiene que terminar en algún momento; un algoritmo que dice «remover hasta que esté bien» puede no terminar nunca si no se sabe qué es «bien». Y debe ser <b>definido</b>: con los mismos datos de entrada, siempre debe dar el mismo resultado. Además, para un mismo problema puede haber <b>varios algoritmos</b> distintos, y algunos son más rápidos o eficientes que otros.</p>`,
+      html: `<h3>2.2 Las características de un buen algoritmo</h3><p>No cualquier lista de pasos es un buen algoritmo. Debe cumplir estas características:</p><p>• <b>Preciso</b>: cada paso se entiende de una sola manera. «Echa un poco de sal» no es preciso; «echa media cucharadita de sal» sí.<br>• <b>Ordenado</b>: los pasos tienen un orden concreto. No se puede freír la patata antes de pelarla.<br>• <b>Finito</b>: termina después de un número limitado de pasos. Un algoritmo que no acaba nunca no resuelve nada.<br>• <b>Definido</b>: si se repite con los mismos datos de entrada, da siempre el mismo resultado.<br>• Tiene <b>entrada</b> y <b>salida</b> claras.<br>• Es <b>eficaz</b>: resuelve de verdad el problema.</p><p>Además, se valora que sea <b>eficiente</b> (que use pocos pasos o pocos recursos) y <b>legible</b> (que otra persona lo entienda). Cuando escribas un algoritmo, repasa esta lista como si fueras un inspector de calidad.</p>`,
+      svg: rasgos,
     },
     {
-      html: `<h3>Secuencia, decisión y repetición</h3><p>Todos los algoritmos, desde una receta hasta un videojuego, se construyen combinando solo tres estructuras. La <mark>secuencia</mark>: pasos que se siguen uno detrás de otro, en orden (abrir la puerta, entrar, cerrar la puerta). La <mark>decisión</mark> o condición: el algoritmo elige qué hacer según si algo se cumple o no (si llueve, coger el paraguas; si no, coger la gorra). Y la <mark>repetición</mark> o bucle: un grupo de pasos que se repite varias veces o hasta que se cumple una condición (batir los huevos 30 veces; seguir remando hasta llegar a la orilla). Con estas tres piezas se puede describir cualquier proceso. Cuando aprendas Scratch verás que corresponden a los bloques en fila, a los bloques «si… entonces» y a los bloques «repetir» o «por siempre».</p>${tabla(["Estructura", "Palabra clave", "Ejemplo cotidiano"], [["Secuencia", "primero… después…", "vestirse: camiseta, pantalón, calcetines, zapatos"], ["Decisión", "si… entonces… si no", "si el semáforo está en verde, cruzar; si no, esperar"], ["Repetición", "repetir… / mientras…", "mientras haya platos sucios, fregar uno"]])}`,
+      html: `<h3>2.3 Algoritmos en la vida diaria</h3><p>Estamos rodeados de algoritmos, aunque no siempre se llamen así:</p><p>• Una <b>receta de cocina</b> indica ingredientes (entrada), pasos (proceso) y plato (salida).<br>• Las <b>instrucciones de montaje</b> de un mueble son un algoritmo con dibujos.<br>• El <b>programa de la lavadora</b> sigue pasos fijos: llenar, lavar, aclarar, centrifugar.<br>• El <b>navegador GPS</b> usa un algoritmo para calcular el camino más corto entre dos puntos.<br>• Los <b>protocolos de primeros auxilios</b>, como el PAS (proteger, avisar, socorrer), son algoritmos para emergencias.<br>• Los <b>buscadores de internet</b> usan algoritmos para ordenar millones de páginas en una fracción de segundo.</p><p>Incluso las operaciones que aprendiste en Primaria (sumar con llevadas, dividir) son algoritmos: métodos que funcionan siempre, con cualquier número, si sigues los pasos. Descubrir algoritmos a tu alrededor es el primer paso para aprender a diseñarlos.</p>`,
+      svg: diarios,
     },
     {
-      html: `<h3>Formas de representar un algoritmo</h3><p>Un algoritmo se puede escribir de varias formas. En <b>lenguaje natural</b>, con frases normales: es fácil de entender, pero a veces es largo o ambiguo. En <mark>pseudocódigo</mark>, con frases cortas y palabras clave parecidas a las de los lenguajes de programación (INICIO, LEER, SI, ENTONCES, SI NO, MIENTRAS, ESCRIBIR, FIN): es más preciso y está a un paso del código. Y con un <mark>diagrama de flujo</mark>, un dibujo con símbolos unidos por flechas: el óvalo para el inicio y el final, el rectángulo para las acciones, el rombo para las decisiones (con dos salidas, sí y no) y el paralelogramo para pedir o mostrar datos. El diagrama permite ver de un vistazo el camino que sigue el algoritmo y descubrir errores, como una decisión que no lleva a ninguna parte o un bucle que no termina nunca.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de flujo para cruzar un semáforo: mirar el semáforo, decisión está en verde, si no esperar y volver a mirar, si sí cruzar">${BG}
-        <ellipse cx="80" cy="18" rx="30" ry="11" fill="var(--leaf)" fill-opacity=".2" stroke="var(--leaf)" stroke-width="2"/>${t(80, 22, "inicio", { size: 10 })}
-        ${caja(36, 38, 88, 24, "mirar semáforo", "var(--pen)", { size: 9.5 })}
-        <path d="M80 74 L 124 98 L 80 122 L 36 98 Z" fill="#e6a100" fill-opacity=".18" stroke="#b8860b" stroke-width="2"/>${t(80, 102, "¿verde?", { size: 10 })}
-        ${caja(160, 86, 70, 24, "esperar", "var(--red)", { size: 9.5 })}${caja(46, 134, 68, 24, "cruzar", "var(--leaf)", { size: 9.5 })}
-        ${fl(80, 29, 80, 37, "var(--ink)", 1.5)}${fl(80, 62, 80, 73, "var(--ink)", 1.5)}${fl(124, 98, 159, 98, "var(--ink)", 1.5)}${fl(80, 122, 80, 133, "var(--ink)", 1.5)}
-        <path d="M195 86 V 50 H 126" fill="none" stroke="var(--ink)" stroke-width="1.5"/>${fl(140, 50, 126, 50, "var(--ink)", 1.5)}
-        ${t(140, 92, "no", { size: 9, color: "var(--red)" })}${t(90, 131, "sí", { size: 9, color: "var(--leaf)", anchor: "start" })}${t(200, 140, "repite hasta verde", { size: 9, color: "var(--muted)" })}</svg>`,
+      html: `<h3>2.4 Cómo se representa un algoritmo</h3><p>Un mismo algoritmo se puede escribir de varias formas, cada una con sus ventajas:</p><p>• En <b>lenguaje natural</b>: con frases normales, como una receta. Es fácil de entender, pero a veces resulta ambiguo o demasiado largo.<br>• En <mark>pseudocódigo</mark>: frases cortas con unas pocas palabras clave (SI, ENTONCES, REPETIR, MIENTRAS…). Es casi un programa, pero sin las reglas estrictas de un lenguaje concreto.<br>• Con un <mark>diagrama de flujo</mark>: un dibujo con símbolos unidos por flechas. Permite ver de un vistazo el camino que siguen los pasos y las decisiones.<br>• Como <b>programa</b>: con bloques de Scratch o con código de texto, listo para que lo ejecute una máquina.</p><p>Los programadores suelen empezar con lenguaje natural o pseudocódigo para aclarar sus ideas, dibujar un diagrama si hay muchas decisiones y, por último, escribir el programa.</p>`,
+      svg: formas,
     },
     {
-      html: `<h3>Algoritmos en casa y en la calle</h3><p>Si te fijas, verás algoritmos en todas partes. <b>Las instrucciones de montaje</b> de un mueble o de un juguete son una secuencia de pasos con dibujos. <b>Una receta</b> tiene ingredientes (entrada), pasos (proceso) y un plato final (salida); además incluye decisiones («si la masa está muy seca, añade agua») y repeticiones («remover cada 5 minutos»). <b>Un semáforo</b> sigue un algoritmo de cambio de luces, con tiempos fijos o con sensores. <b>La lavadora</b> ejecuta programas distintos según la ropa: llenar de agua, calentar, girar, aclarar, centrifugar. <b>Las normas de un juego de mesa</b> son también un algoritmo: en cada turno, tira el dado, avanza, si caes en una casilla especial haz lo que dice, y repite hasta que alguien llegue a la meta. Incluso para resolver el cubo de Rubik existen algoritmos: secuencias de giros que se aprenden de memoria.</p>`,
+      html: `<h3>2.5 El pseudocódigo</h3><p>El <mark>pseudocódigo</mark> («falso código») es una forma de escribir algoritmos a medio camino entre el idioma humano y un lenguaje de programación. No lo ejecuta ninguna máquina: sirve para <b>pensar y comunicar</b> la solución.</p><p>Se escribe con frases cortas, una acción por línea, y usa palabras clave en mayúsculas para las estructuras:</p><p>• <b>INICIO</b> y <b>FIN</b> marcan el principio y el final.<br>• <b>SI</b> … <b>ENTONCES</b> … <b>SI NO</b> … <b>FIN SI</b>, para las decisiones.<br>• <b>REPETIR</b> n <b>VECES</b> o <b>MIENTRAS</b> … <b>FIN MIENTRAS</b>, para las repeticiones.<br>• <b>LEER</b> o <b>PEDIR</b> para la entrada de datos y <b>MOSTRAR</b> o <b>ESCRIBIR</b> para la salida.</p><p>Las líneas que están «dentro» de una estructura se escriben con <b>sangría</b>, desplazadas a la derecha, para que se vea qué pasos se repiten o dependen de una condición. Esta costumbre es la misma que se usa en Python.</p>`,
+      svg: pseudo,
+      video: vPseudo,
     },
     {
-      html: `<h3>Algoritmos en el mundo digital</h3><p>Los ordenadores usan algoritmos constantemente, y algunos influyen mucho en nuestra vida. El <b>GPS</b> usa algoritmos para calcular la ruta más corta o más rápida entre dos puntos, teniendo en cuenta el tráfico. Los <b>buscadores</b> ordenan millones de páginas para mostrarte primero las más relevantes. Las <b>redes sociales</b> y las plataformas de vídeo o música usan <mark>algoritmos de recomendación</mark>: analizan lo que miras, cuánto tiempo, lo que te gusta y lo que comparten personas parecidas a ti, para decidir qué contenido mostrarte. Esto puede ser útil, pero también puede encerrarte en una «burbuja» en la que solo ves lo que ya piensas y hacer que pases más tiempo del que querías. Conocer cómo funcionan nos ayuda a usarlos con <b>sentido crítico</b>: buscar otras fuentes, controlar el tiempo de uso y recordar que lo que vemos lo ha elegido una máquina.</p>`,
-      video: { id: "ti315UlVtS4", titulo: "Microaprendizaje: ¿qué es el pensamiento computacional?", canal: "Educar Portal", vistas: 269551 },
+      html: `<h3>2.6 Los diagramas de flujo</h3><p>Un <mark>diagrama de flujo</mark> representa un algoritmo con símbolos geométricos unidos por flechas. Cada símbolo tiene un significado:</p><p>• <b>Óvalo</b>: inicio y fin del algoritmo.<br>• <b>Rectángulo</b>: una acción o proceso («calentar la leche»).<br>• <b>Rombo</b>: una decisión, una pregunta que se responde con sí o no («¿está muy caliente?»). Del rombo salen dos flechas.<br>• <b>Paralelogramo</b>: entrada o salida de datos («pedir la edad», «mostrar el resultado»).<br>• <b>Flechas</b>: indican el orden en que se recorren los pasos.</p><p>Para dibujarlo bien: empieza siempre con un óvalo de inicio, escribe dentro de cada símbolo una frase corta, haz que el recorrido vaya de arriba abajo, comprueba que cada rombo tiene sus dos salidas etiquetadas y termina con un óvalo de fin. Si las flechas vuelven hacia atrás, hay una repetición.</p>`,
+      svg: simbolos,
     },
     {
-      html: `<h3>El pensamiento computacional</h3><p>El <mark>pensamiento computacional</mark> es la forma de pensar que usan los programadores para resolver problemas, y sirve para cualquier situación. Tiene cuatro estrategias. La <b>descomposición</b>: dividir un problema grande en partes más pequeñas y fáciles; organizar una fiesta se divide en invitaciones, comida, música y decoración. El <b>reconocimiento de patrones</b>: buscar cosas que se repiten o se parecen a problemas que ya sabemos resolver; si ya organizaste un cumpleaños, puedes aprovechar lo que hiciste. La <b>abstracción</b>: quedarse con lo importante e ignorar los detalles que no influyen; para el plano del metro no importa el color de los edificios, solo el orden de las estaciones. Y el <b>diseño de algoritmos</b>: escribir los pasos ordenados para resolver cada parte. Después se <b>evalúa</b> la solución: ¿funciona?, ¿se puede mejorar?</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Las cuatro estrategias del pensamiento computacional: descomposición, patrones, abstracción y algoritmos">${BG}
-        ${[["descomposición", "dividir en partes", 10, 20, "var(--pen)"], ["patrones", "buscar lo que se repite", 134, 20, "#b8860b"], ["abstracción", "quedarse con lo importante", 10, 96, "var(--red)"], ["algoritmos", "pasos ordenados", 134, 96, "var(--leaf)"]].map(([a, b, x, y, c]) => `<rect x="${x}" y="${y}" width="116" height="64" rx="10" fill="${c}" fill-opacity=".12" stroke="${c}" stroke-width="2"/>${t(x + 58, y + 26, a, { size: 11, color: c })}${t(x + 58, y + 46, b, { size: 8.5, weight: 400 })}`).join("")}</svg>`,
+      html: `<h3>2.7 La secuencia</h3><p>La estructura más sencilla es la <mark>secuencia</mark>: los pasos se ejecutan <b>uno detrás de otro</b>, en el orden en que están escritos, y cada uno solo una vez. En un diagrama de flujo se ve como una columna de rectángulos unidos por flechas.</p><p>En una secuencia, el <b>orden es fundamental</b>. «Ponerse los calcetines» y «ponerse los zapatos» son las mismas dos acciones, pero si cambias el orden el resultado es absurdo. En programación pasa igual: si un personaje primero dice «¡He llegado!» y después camina, el mensaje sale antes de tiempo.</p><p>Muchos errores de los programas son simplemente <b>pasos desordenados</b> o <b>pasos que faltan</b>. Para comprobar una secuencia, sigue los pasos uno a uno imaginando que eres la máquina y pregúntate: ¿tengo todo lo necesario para hacer este paso?, ¿he olvidado algo?</p>`,
+      svg: secuencia,
     },
     {
-      html: `<h3>Practicar sin ordenador: actividades desenchufadas</h3><p>Se puede aprender mucho sobre algoritmos <b>sin usar el ordenador</b>. En el juego del <b>robot humano</b>, un alumno hace de robot en una cuadrícula pintada en el suelo y otro le da órdenes solo con flechas (avanzar, girar a la izquierda, girar a la derecha) para llegar a una meta evitando obstáculos. Así se ve enseguida si falta un paso o hay un giro equivocado. Otra actividad es <b>ordenar una baraja</b> de cartas siguiendo un método fijo y contar cuántos pasos hace falta con cada método. También se puede escribir el algoritmo para <b>dibujar una figura</b> y que otro compañero la dibuje sin verla; si el dibujo no sale igual, el algoritmo no era lo bastante preciso. Estas actividades se llaman <b>desenchufadas</b> y ayudan a entender las ideas antes de programarlas en Scratch o en un robot.</p>`,
+      html: `<h3>2.8 La decisión</h3><p>A veces lo que hay que hacer depende de cómo esté la situación. La estructura de <mark>decisión</mark> o <b>condicional</b> hace una pregunta, la <b>condición</b>, y elige un camino u otro según la respuesta sea sí (verdadera) o no (falsa).</p><p>En pseudocódigo se escribe: SI el semáforo está en verde ENTONCES cruzar; SI NO esperar. En un diagrama de flujo, la condición va en un <b>rombo</b> del que salen dos flechas.</p><p>Hay tres formas habituales:</p><p>• <b>Simple</b>: si se cumple, se hace algo; si no, no se hace nada («si llueve, coge el paraguas»).<br>• <b>Doble</b>: un camino para el sí y otro para el no («si tienes 12 años o más, entrada normal; si no, entrada infantil»).<br>• <b>Múltiple</b> o encadenada: varias preguntas seguidas («si la nota es menor que 5, suspenso; si no, si es menor que 7, aprobado…»).</p><p>Las condiciones se construyen con comparaciones (mayor que, menor que, igual a) y se pueden combinar con <b>y</b>, <b>o</b> y <b>no</b>.</p>`,
+      svg: H.viejo(S, 3),
+    },
+    {
+      html: `<h3>2.9 La repetición</h3><p>Cuando un paso o un grupo de pasos se hace varias veces, en lugar de escribirlo una y otra vez usamos una estructura de <mark>repetición</mark>, también llamada <b>bucle</b>. Hay dos tipos principales:</p><p>• <b>Repetir un número fijo de veces</b>: «remueve 10 veces», «da 4 vueltas a la pista». Sabemos de antemano cuántas repeticiones hay.<br>• <b>Repetir mientras (o hasta que) se cumpla una condición</b>: «friega platos mientras queden platos sucios», «camina hasta llegar a la puerta». No sabemos cuántas veces se repetirá: depende de la situación.</p><p>En un diagrama de flujo, la repetición se reconoce porque hay una <b>flecha que vuelve hacia atrás</b>, hasta un rombo que pregunta si hay que seguir. Es muy importante que dentro del bucle pase algo que acabe haciendo falsa la condición; si no, el bucle no terminaría nunca y el algoritmo no sería finito. Fregar un plato hace que quede un plato menos: por eso el bucle acaba.</p>`,
+      svg: repeticion,
+    },
+    {
+      html: `<h3>2.10 Datos que cambian: las variables</h3><p>Muchos algoritmos necesitan <b>recordar datos</b> mientras se ejecutan: cuántos pasos llevamos, cuántos puntos tiene un jugador, cuál es el número más alto encontrado. Para eso se usan las <mark>variables</mark>.</p><p>Una variable es como una <b>caja con nombre</b> donde se guarda un valor que puede cambiar. En pseudocódigo se suele escribir con una flecha: <b>pasos ← 0</b> significa «guarda 0 en la caja llamada pasos». Después, <b>pasos ← pasos + 1</b> significa «coge lo que hay en pasos, súmale 1 y vuelve a guardarlo».</p><p>Una variable que aumenta de uno en uno se llama <b>contador</b>. Una variable que va sumando cantidades (como el total de la compra) se llama <b>acumulador</b>. Antes de usar una variable hay que darle un <b>valor inicial</b>; si olvidas poner el contador a 0 al principio, el resultado será incorrecto.</p>`,
+      svg: variables,
+    },
+    {
+      html: `<h3>2.11 El pensamiento computacional</h3><p>El <mark>pensamiento computacional</mark> es la forma de pensar que usan los programadores para resolver problemas, y sirve también fuera de la informática. Se basa en cuatro estrategias:</p><p>• <b>Descomposición</b>: dividir un problema grande en partes más pequeñas y fáciles. Organizar una fiesta se divide en invitaciones, comida, música y decoración.<br>• <b>Reconocimiento de patrones</b>: buscar lo que se repite o se parece a algo que ya conocemos. Si ya sabes calcular el área de un rectángulo, puedes usarlo para muchas figuras.<br>• <b>Abstracción</b>: quedarse con lo importante e ignorar los detalles que no influyen. Un mapa del metro no muestra las calles, solo las estaciones y las líneas.<br>• <b>Algoritmos</b>: escribir los pasos ordenados de la solución.</p><p>Estas estrategias no se usan en orden fijo: se combinan y se repiten. Cuanto más practiques, más fácil te resultará enfrentarte a problemas nuevos, en programación, en matemáticas o en la vida diaria.</p>`,
+      svg: H.viejo(S, 6),
+      video: vDesc,
+    },
+    {
+      html: `<h3>2.12 Algoritmos de búsqueda</h3><p>Buscar información es una de las tareas más frecuentes de los ordenadores. Imagina que tienes que encontrar la palabra «murciélago» en un diccionario de 1.000 páginas. Hay dos algoritmos posibles:</p><p>• <b>Búsqueda secuencial</b>: mirar página a página desde el principio. Es sencillo y funciona aunque la lista esté desordenada, pero puede necesitar hasta 1.000 pasos.<br>• <b>Búsqueda binaria</b>: abrir por la mitad, mirar si la palabra está antes o después, descartar la mitad que no sirve y repetir con la otra mitad. Como cada paso elimina la mitad de las páginas, bastan unos <b>10 pasos</b> (1.000 → 500 → 250 → 125 → … → 1).</p><p>La búsqueda binaria es muchísimo más rápida, pero solo funciona si los datos están <b>ordenados</b>, como en un diccionario o una lista de nombres por orden alfabético. Es la estrategia del juego «adivina el número del 1 al 100»: si preguntas siempre por el número del medio, lo aciertas en 7 intentos como mucho.</p>`,
+      svg: buscar,
+    },
+    {
+      html: `<h3>2.13 Algoritmos de ordenación y eficiencia</h3><p>Para poder buscar rápido, primero hay que <b>ordenar</b>. Hay muchos algoritmos de ordenación. Uno muy natural es el de <b>inserción</b>, el que usamos al ordenar las cartas de una baraja en la mano: se coge cada carta nueva y se coloca en su sitio entre las que ya están ordenadas. Otro es el de la <b>burbuja</b>: se comparan los elementos de dos en dos y se intercambian si están desordenados, repitiendo hasta que no haya cambios.</p><p>Un mismo problema puede resolverse con varios algoritmos correctos, pero no todos son igual de buenos. La <mark>eficiencia</mark> mide cuántos pasos o cuántos recursos (tiempo, memoria, energía) necesita un algoritmo. Con 10 datos casi no se nota la diferencia; con millones de datos, como los que maneja un buscador, un algoritmo eficiente puede tardar un segundo y otro ineficiente, días.</p><p>Una forma sencilla de comparar es <b>contar los pasos</b> en el peor caso: en una lista de 1.000 nombres, la búsqueda secuencial puede necesitar 1.000 comparaciones y la binaria, unas 10. Por eso los informáticos no se conforman con que un algoritmo funcione: también buscan que sea rápido y ahorre recursos.</p>`,
+      svg: ordenar,
+    },
+    {
+      html: `<h3>2.14 Algoritmos que deciden por nosotros</h3><p>Hoy muchos algoritmos toman decisiones que nos afectan: qué vídeos aparecen en una red social, qué anuncios vemos, qué ruta nos recomienda el navegador o qué canciones suenan en una lista automática. Algunos aprenden de nuestros datos: son los sistemas de <b>inteligencia artificial</b>.</p><p>Tienen ventajas: ahorran tiempo, detectan fraudes con tarjetas o ayudan a los médicos a analizar radiografías. Pero también tienen <b>riesgos</b>:</p><p>• <b>Sesgos</b>: si un algoritmo aprende de datos injustos, repetirá esas injusticias.<br>• <b>Burbuja de filtros</b>: si solo te muestran lo que ya te gusta, dejas de ver otras opiniones.<br>• <b>Enganche</b>: algunos están diseñados para que pases el máximo tiempo posible en la pantalla.</p><p>Detrás de cada algoritmo hay personas que deciden qué es importante. Por eso es bueno preguntarse: ¿por qué me muestra esto?, ¿qué datos usa?, ¿quién gana con ello? Entender los algoritmos te ayuda a usarlos con espíritu crítico.</p>`,
+      svg: decisiones,
     },
   ],
-  figura: {
-    titulo: "Las tres estructuras de todo algoritmo",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Secuencia: pasos uno tras otro. Decisión: un rombo con dos caminos, sí y no. Repetición: un grupo de pasos que vuelve atrás hasta cumplir una condición">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${t(110, 34, "Secuencia", { size: 17, color: "var(--pen)", font: D })}${[0, 1, 2].map((i) => `<rect x="60" y="${52 + i * 46}" width="100" height="30" rx="8" fill="var(--pen)" fill-opacity=".14" stroke="var(--pen)" stroke-width="2"/>${t(110, 72 + i * 46, "paso " + (i + 1), { size: 12 })}${i < 2 ? fl(110, 82 + i * 46, 110, 96 + i * 46, "var(--ink)", 1.8) : ""}`).join("")}
-      ${t(320, 34, "Decisión", { size: 17, color: "#b8860b", font: D })}<path d="M320 56 L 372 92 L 320 128 L 268 92 Z" fill="#e6a100" fill-opacity=".18" stroke="#b8860b" stroke-width="2"/>${t(320, 97, "¿se cumple?", { size: 11 })}
-      ${fl(290, 113, 266, 160, "var(--ink)", 1.8)}${fl(350, 113, 374, 160, "var(--ink)", 1.8)}${caja(226, 162, 80, 28, "sí: A", "var(--leaf)", { size: 12 })}${caja(334, 162, 80, 28, "no: B", "var(--red)", { size: 12 })}
-      ${t(530, 34, "Repetición", { size: 17, color: "var(--leaf)", font: D })}<rect x="480" y="62" width="100" height="30" rx="8" fill="var(--leaf)" fill-opacity=".14" stroke="var(--leaf)" stroke-width="2"/>${t(530, 82, "paso", { size: 12 })}
-      <path d="M530 92 V 112" stroke="var(--ink)" stroke-width="1.8"/><path d="M530 112 L 566 134 L 530 156 L 494 134 Z" fill="#e6a100" fill-opacity=".18" stroke="#b8860b" stroke-width="2"/>${t(530, 138, "¿fin?", { size: 11 })}
-      <path d="M494 134 H 462 V 77 H 478" fill="none" stroke="var(--red)" stroke-width="1.8"/>${fl(470, 77, 479, 77, "var(--red)", 1.8)}${t(452, 110, "no", { size: 11, color: "var(--red)", anchor: "end" })}${t(530, 190, "sí: seguir", { size: 11, color: "var(--leaf)" })}
-    </svg>`,
-  },
-  video: { id: "U3CGMyjzlvM", titulo: "¿Qué es un algoritmo?", canal: "Magic Markers", vistas: 2505958, megusta: 0, busqueda: "qué es un algoritmo ejemplos vida diaria" },
+  figura: H.figura(S),
+  video: { id: "FS9u9cIGf3o", titulo: "Definición y tipos | Introducción a los algoritmos", canal: "Programación Para Todos", vistas: 139883, busqueda: "algoritmo explicación sencilla ejemplos" },
   ejemplos: [
-    { enunciado: "Escribe en pseudocódigo el algoritmo para decidir si llevar abrigo.",
-      pasos: ["INICIO. LEER temperatura.", "SI temperatura < 15 ENTONCES ESCRIBIR «lleva abrigo».", "SI NO ESCRIBIR «no hace falta abrigo». FIN."],
-      resultado: "Una decisión con dos caminos." },
-    { enunciado: "Algoritmo para fregar los platos usando repetición.",
-      pasos: ["Llenar el fregadero con agua y jabón.", "MIENTRAS queden platos sucios: coger uno, frotarlo, aclararlo y dejarlo en el escurridor.", "Vaciar el fregadero."],
-      resultado: "Secuencia con una repetición dentro." },
-    { enunciado: "Aplica la descomposición a «preparar una excursión de clase».",
-      pasos: ["Dividir en partes: destino, transporte, comida, permisos, presupuesto.", "Repartir cada parte a un grupo.", "Para cada parte, escribir los pasos (algoritmo)."],
-      resultado: "Un problema grande convertido en varios pequeños." },
+    { enunciado: "Escribe en pseudocódigo un algoritmo para regar una planta solo si la tierra está seca.", pasos: ["Entrada: tocar la tierra.", "Decisión simple: SI la tierra está seca ENTONCES regar con un vaso de agua.", "FIN SI. Si no está seca, no se hace nada."], resultado: "INICIO · tocar la tierra · SI está seca ENTONCES regar · FIN SI · FIN." },
+    { enunciado: "Dibuja con palabras el diagrama de flujo para saber si un número es positivo, negativo o cero.", pasos: ["Óvalo de inicio y paralelogramo «pedir número n».", "Rombo «¿n > 0?»: si sí, «mostrar positivo».", "Si no, otro rombo «¿n < 0?»: si sí, «mostrar negativo»; si no, «mostrar cero».", "Óvalo de fin."], resultado: "Decisión múltiple con dos rombos encadenados." },
+    { enunciado: "Calcula la suma de los números del 1 al 5 con un algoritmo con contador y acumulador.", pasos: ["n ← 1, suma ← 0.", "REPETIR 5 VECES: suma ← suma + n; n ← n + 1.", "Traza: suma vale 1, 3, 6, 10, 15.", "MOSTRAR suma."], resultado: "La suma es 15." },
+    { enunciado: "Aplica la descomposición al problema «organizar una excursión de clase».", pasos: ["Parte 1: elegir el destino y la fecha.", "Parte 2: transporte y presupuesto.", "Parte 3: autorizaciones de las familias.", "Parte 4: comida y material.", "Cada parte se resuelve con su propio algoritmo."], resultado: "Un problema grande dividido en cuatro subproblemas más fáciles." },
+    { enunciado: "Adivina un número del 1 al 100 con búsqueda binaria. El número secreto es 37.", pasos: ["¿Es 50? Más bajo → 1-49.", "¿Es 25? Más alto → 26-49.", "¿Es 37? ¡Sí!"], resultado: "Se acierta en 3 preguntas; nunca hacen falta más de 7." },
+    { enunciado: "Este algoritmo no termina: «n ← 1; MIENTRAS n ≠ 10: n ← n + 2». ¿Por qué? Corrígelo.", pasos: ["Traza: n vale 1, 3, 5, 7, 9, 11, 13…", "n siempre es impar y nunca vale 10, así que la condición nunca deja de cumplirse.", "Corrección: MIENTRAS n < 10, o empezar con n ← 0."], resultado: "Bucle infinito; se corrige cambiando la condición a n < 10." },
   ],
   errores: [
-    "Escribir pasos poco precisos como «un poco» o «hasta que esté bien».",
-    "Olvidar que el orden de los pasos cambia el resultado.",
-    "Hacer una repetición sin condición de fin: el algoritmo no termina nunca.",
-    "Dibujar un rombo con una sola salida: las decisiones tienen dos (sí y no).",
-    "Pensar que los algoritmos solo existen en los ordenadores.",
+    "Escribir pasos ambiguos como «echa un poco» o «espera un rato»: el algoritmo debe ser preciso.",
+    "Olvidar pasos que a una persona le parecen evidentes, como abrir la tapa o encender el fuego.",
+    "Dibujar un rombo de decisión con una sola salida: siempre tiene dos, sí y no.",
+    "Crear bucles que no terminan porque dentro no cambia nada que haga falsa la condición.",
+    "Usar una variable sin darle un valor inicial, como un contador que no empieza en 0.",
+    "Pensar que solo hay una forma correcta de resolver un problema: puede haber varios algoritmos, unos más eficientes que otros.",
   ],
-  ejercicios: [
-    { q: "Define algoritmo y di de dónde viene la palabra.", sol: "Conjunto de instrucciones ordenadas y finitas para resolver un problema; del matemático al-Juarismi." },
-    { q: "Identifica entrada, proceso y salida en el algoritmo de hacer un batido.", sol: "Entrada: fruta, leche. Proceso: cortar, echar en la batidora, batir. Salida: el batido." },
-    { q: "¿Por qué «añade sal al gusto» no es una instrucción precisa para un robot?", sol: "Porque no dice cuánta sal; un robot necesita una cantidad exacta." },
-    { q: "Nombra las tres estructuras de un algoritmo con un ejemplo de cada una.", sol: "Secuencia (vestirse), decisión (si llueve, paraguas), repetición (fregar mientras haya platos)." },
-    { q: "Escribe en pseudocódigo: si la nota es 5 o más, aprobado; si no, suspenso.", sol: "INICIO; LEER nota; SI nota ≥ 5 ENTONCES ESCRIBIR aprobado; SI NO ESCRIBIR suspenso; FIN." },
-    { q: "¿Qué forma tiene en un diagrama de flujo una decisión? ¿Y una acción?", sol: "Rombo; rectángulo." },
-    { q: "Escribe un algoritmo de 5 pasos para ir de clase a la biblioteca del centro.", sol: "Respuesta abierta: salir del aula, girar a la derecha, bajar la escalera, avanzar por el pasillo, entrar en la puerta de la izquierda." },
-    { q: "¿Qué es un algoritmo de recomendación? Pon un ejemplo.", sol: "El que decide qué contenido mostrarte según lo que has visto: el de una plataforma de vídeos." },
-    { q: "Explica la abstracción con un ejemplo.", sol: "Quedarse con lo importante: un plano de metro solo muestra el orden de las estaciones, no la forma real de las calles." },
-    { q: "¿Qué es una actividad desenchufada?", sol: "Una actividad para aprender programación o algoritmos sin ordenador, como el robot humano." },
-  ],
-  quiz: [
-    { q: "Un algoritmo es…", o: ["un conjunto de pasos ordenados y finitos", "un ordenador", "un tipo de cable"], a: 0, e: "Pasos ordenados." },
-    { q: "La palabra «algoritmo» viene de…", o: ["al-Juarismi", "Arquímedes", "Algol"], a: 0, e: "Matemático persa." },
-    { q: "Una receta es…", o: ["un algoritmo", "un programa informático", "un periférico"], a: 0, e: "Pasos ordenados." },
-    { q: "«Si llueve, coge el paraguas» es una…", o: ["secuencia", "decisión", "repetición"], a: 1, e: "Decisión." },
-    { q: "«Bate 30 veces» es una…", o: ["repetición", "decisión", "salida"], a: 0, e: "Repetición." },
-    { q: "Un algoritmo debe ser…", o: ["infinito", "finito", "secreto"], a: 1, e: "Tiene que terminar." },
-    { q: "En un diagrama de flujo el inicio y el fin son…", o: ["óvalos", "rombos", "rectángulos"], a: 0, e: "Óvalos." },
-    { q: "El GPS usa algoritmos para…", o: ["calcular rutas", "cargar la batería", "hacer fotos"], a: 0, e: "La ruta más rápida." },
-    { q: "Dividir un problema en partes es…", o: ["descomposición", "abstracción", "patrón"], a: 0, e: "Descomposición." },
-    { q: "El pseudocódigo es…", o: ["un lenguaje máquina", "frases cortas con palabras clave", "un dibujo"], a: 1, e: "A medio camino entre lenguaje natural y código." },
-  ],
-  examen: [
-    { q: "Con los mismos datos, un algoritmo debe dar…", o: ["el mismo resultado", "resultados al azar", "ningún resultado"], a: 0, e: "Es definido." },
-    { q: "Fijarse en lo que se repite es…", o: ["reconocer patrones", "depurar", "descomponer"], a: 0, e: "Patrones." },
-    { q: "Las «burbujas» en redes sociales se deben a…", o: ["algoritmos de recomendación", "virus", "el router"], a: 0, e: "Te muestran lo que ya te gusta." },
-  ],
-  feynman: ["Qué es un algoritmo y qué características debe tener", "Cuáles son las tres estructuras de todo algoritmo", "Qué son las cuatro estrategias del pensamiento computacional"],
-  mapa: mapa("ALGORITMO", "var(--eso)", [
-    ["Características", "preciso · ordenado · finito", "var(--pen)"],
+  ejercicios: H.nivelar([
+    ["Define algoritmo y explica de dónde viene la palabra.", "Un algoritmo es una secuencia ordenada y finita de pasos que resuelve un problema. Viene del nombre del matemático persa al-Juarismi (siglo IX)."],
+    ["Escribe cuatro algoritmos que uses en tu vida diaria.", "Por ejemplo: preparar el desayuno, ir al instituto, lavarse las manos y hacer una división. Todos son pasos ordenados con un resultado."],
+    ["Identifica entrada, proceso y salida en el algoritmo de hacer palomitas de microondas.", "Entrada: bolsa de palomitas. Proceso: meterla en el microondas, programar 3 minutos y esperar. Salida: palomitas hechas."],
+    ["¿Qué significa que un algoritmo sea finito? Pon un ejemplo de algo que no lo es.", "Que termina después de un número limitado de pasos. No es finito, por ejemplo, «cuenta números de uno en uno para siempre»: nunca llega a un final ni da un resultado."],
+    ["Dibuja los símbolos del diagrama de flujo y escribe para qué sirve cada uno.", "Óvalo: inicio y fin. Rectángulo: acción. Rombo: decisión (sí/no). Paralelogramo: entrada o salida de datos. Flechas: orden."],
+    ["Reescribe de forma precisa: «hierve agua un rato y echa algo de pasta».", "«Pon 1 litro de agua en una olla, caliéntala hasta que hierva, echa 100 g de pasta y cuécela 10 minutos»."],
+    ["Nombra las tres estructuras básicas de los algoritmos.", "Secuencia (pasos en orden), decisión (elegir según una condición) y repetición (repetir pasos)."],
+    ["¿Qué es el pseudocódigo y para qué sirve?", "Una forma de escribir algoritmos con frases cortas y palabras clave (SI, REPETIR…). Sirve para pensar y comunicar la solución antes de programarla."],
+    ["Nombra las cuatro estrategias del pensamiento computacional.", "Descomposición, reconocimiento de patrones, abstracción y algoritmos."],
+    ["¿Qué es una variable? Pon un ejemplo de un juego.", "Una caja con nombre que guarda un dato que puede cambiar. Ejemplo: «vidas», que empieza en 3 y baja al chocar con un enemigo."],
+    ["Escribe en pseudocódigo un algoritmo para cruzar un paso de peatones con semáforo.", "INICIO · MIENTRAS el semáforo esté en rojo: esperar · FIN MIENTRAS · mirar a ambos lados · cruzar · FIN."],
+    ["Ordena estos pasos para enviar una carta: escribir la dirección, echar al buzón, escribir la carta, meterla en el sobre, pegar el sello.", "Escribir la carta, meterla en el sobre, escribir la dirección, pegar el sello y echarla al buzón."],
+    ["Escribe un algoritmo con decisión doble para decidir qué ponerte según la temperatura (umbral 18 °C).", "LEER temperatura · SI temperatura < 18 ENTONCES ponerse chaqueta · SI NO ponerse camiseta · FIN SI."],
+    ["Escribe un algoritmo con repetición fija para dibujar un triángulo equilátero.", "REPETIR 3 VECES: avanzar 10 cm, girar 120°. FIN REPETIR. Los giros suman 360°."],
+    ["Haz la traza: «x ← 2; REPETIR 4 VECES: x ← x · 2; MOSTRAR x».", "x vale 2 → 4 → 8 → 16 → 32. Se muestra 32."],
+    ["Diferencia entre contador y acumulador con un ejemplo de cada uno.", "Un contador suma de uno en uno (número de clientes que entran). Un acumulador suma cantidades variables (dinero total de la caja)."],
+    ["Describe en lenguaje natural el diagrama de flujo de «fregar los platos mientras queden sucios».", "Inicio; rombo «¿quedan platos sucios?»; si sí: lavar un plato, dejarlo en el escurridor y volver al rombo; si no: fin."],
+    ["Escribe una decisión múltiple para poner la nota en palabras (suspenso, aprobado, notable, sobresaliente).", "SI nota < 5 ENTONCES suspenso · SI NO SI nota < 7 ENTONCES aprobado · SI NO SI nota < 9 ENTONCES notable · SI NO sobresaliente."],
+    ["Aplica la abstracción: ¿qué datos necesita una app para calcular el tiempo de un viaje en bici y cuáles sobran?", "Necesita la distancia y la velocidad media (y quizá los desniveles). Sobran el color de la bici, la marca o el nombre del ciclista."],
+    ["Busca el patrón: ¿qué se repite al dibujar un cuadrado, un pentágono y un hexágono con un robot?", "Siempre se repite «avanzar un lado y girar». Solo cambian las veces (4, 5, 6) y el ángulo (360 entre el número de lados)."],
+    ["¿Cuántas preguntas hacen falta como máximo para adivinar un número del 1 al 1.000 con búsqueda binaria? Explica.", "Unas 10, porque cada pregunta divide la lista por la mitad: 1.000 → 500 → 250 → 125 → 63 → 32 → 16 → 8 → 4 → 2 → 1."],
+    ["Ordena por inserción estas cartas y escribe cómo queda la mano tras cada paso: 7, 3, 9, 1.", "7 → 3 7 → 3 7 9 → 1 3 7 9."],
+    ["Escribe en pseudocódigo un algoritmo que pida 5 números y muestre cuál es el mayor.", "LEER n; mayor ← n · REPETIR 4 VECES: LEER n; SI n > mayor ENTONCES mayor ← n · FIN REPETIR · MOSTRAR mayor."],
+    ["Diseña un algoritmo de primeros auxilios PAS con decisiones (¿responde?, ¿respira?).", "Proteger la zona · Avisar al 112 · SI no responde ENTONCES comprobar si respira · SI respira ENTONCES posición lateral de seguridad · SI NO compresiones torácicas hasta que llegue ayuda."],
+    ["Encuentra el error: «suma ← 0; REPETIR 3 VECES: suma ← 0; LEER n; suma ← suma + n». ¿Qué muestra si los números son 2, 4 y 6?", "Muestra 6, porque suma se pone a 0 dentro del bucle en cada vuelta. El valor inicial debe ir antes del bucle; así daría 12."],
+    ["Compara la búsqueda secuencial y la binaria: ventajas, inconvenientes y cuándo usar cada una.", "Secuencial: sencilla y vale para listas desordenadas, pero lenta. Binaria: rapidísima, pero necesita datos ordenados. Usa la binaria en listas grandes ordenadas y la secuencial en listas cortas o desordenadas."],
+    ["Diseña un algoritmo para que un robot aspirador limpie una habitación rectangular sin obstáculos.", "Ir a una esquina · REPETIR hasta llegar a la pared opuesta: avanzar hasta la pared, girar 90°, avanzar un ancho de robot, girar 90° (alternando derecha e izquierda). Es un recorrido en zigzag."],
+    ["Explica qué es la «burbuja de filtros» y propón dos hábitos para evitarla.", "Es cuando un algoritmo solo te muestra contenidos parecidos a los que ya te gustan, y dejas de ver otras opiniones. Hábitos: seguir fuentes variadas y buscar activamente puntos de vista distintos."],
+    ["Con 1.000.000 de datos ordenados, ¿cuántos pasos necesita la búsqueda binaria? Razónalo con potencias de 2.", "Unos 20, porque 2²⁰ = 1.048.576, que supera el millón: dividiendo por la mitad 20 veces se llega a un solo dato."],
+    ["Inventa un algoritmo para repartir equipos justos en clase y explica cómo comprobarías que es eficaz.", "Por ejemplo: ordenar por habilidad y repartir alternando (1.º al A, 2.º al B, 3.º al B, 4.º al A…). Se comprueba sumando la habilidad de cada equipo y viendo que los totales son parecidos."],
+  ]),
+  quiz: H.test([
+    ["Un algoritmo es…", ["una secuencia ordenada y finita de pasos", "un ordenador muy rápido", "un lenguaje de programación", "un error del programa"], "Resuelve un problema paso a paso."],
+    ["La palabra algoritmo viene de…", ["al-Juarismi, matemático persa", "un dios griego", "el inglés «algorithm», inventado en 1990", "un científico alemán"], "Siglo IX."],
+    ["Un algoritmo debe ser finito, es decir…", ["terminar en algún momento", "ser muy corto", "tener pocas variables", "usar números"], "No puede durar para siempre."],
+    ["Los ingredientes de una receta son su…", ["entrada", "salida", "proceso", "bucle"], "Los datos de partida."],
+    ["En un diagrama de flujo, una decisión se dibuja con un…", ["rombo", "óvalo", "rectángulo", "círculo"], "Tiene dos salidas: sí y no."],
+    ["El inicio y el fin se dibujan con un…", ["óvalo", "rombo", "paralelogramo", "triángulo"], "Forma redondeada."],
+    ["Una entrada o salida de datos se dibuja con un…", ["paralelogramo", "rombo", "óvalo", "rectángulo"], "Por ejemplo, pedir un número."],
+    ["La estructura que ejecuta los pasos uno tras otro es la…", ["secuencia", "decisión", "repetición", "variable"], "Cada paso una vez, en orden."],
+    ["«Si llueve, coge el paraguas» es una decisión…", ["simple", "doble", "múltiple", "infinita"], "Si no llueve, no se hace nada."],
+    ["En un diagrama de flujo, una repetición se reconoce por…", ["una flecha que vuelve hacia atrás", "un óvalo", "dos rectángulos", "un paralelogramo"], "Vuelve al rombo."],
+    ["El pseudocódigo…", ["no lo ejecuta ninguna máquina", "es un lenguaje como Python", "solo se usa en Scratch", "se escribe en binario"], "Sirve para pensar y comunicar."],
+    ["Una variable es…", ["un dato con nombre que puede cambiar", "un bucle infinito", "un símbolo del diagrama", "un error"], "Como una caja con nombre."],
+    ["pasos ← pasos + 1 significa…", ["sumar 1 a la variable pasos", "comparar pasos con 1", "borrar pasos", "dar pasos 1 vez"], "Es un contador."],
+    ["Dividir un problema grande en partes pequeñas es…", ["descomposición", "abstracción", "patrones", "ordenación"], "Pensamiento computacional."],
+    ["Quedarse con lo importante e ignorar detalles es…", ["abstracción", "descomposición", "depuración", "búsqueda"], "Como un mapa del metro."],
+    ["La búsqueda binaria necesita que los datos estén…", ["ordenados", "desordenados", "en binario", "repetidos"], "Si no, no se puede descartar la mitad."],
+    ["Para adivinar un número del 1 al 100 con búsqueda binaria bastan como mucho…", ["7 preguntas", "50 preguntas", "100 preguntas", "2 preguntas"], "2⁷ = 128."],
+    ["Ordenar cartas colocando cada una en su sitio entre las anteriores es el método de…", ["inserción", "burbuja", "búsqueda binaria", "abstracción"], "Como hacemos con la mano."],
+    ["La eficiencia de un algoritmo mide…", ["cuántos pasos o recursos necesita", "lo bonito que es", "cuántas líneas tiene el dibujo", "el color de los bloques"], "Tiempo, memoria, energía."],
+    ["Un sesgo en un algoritmo es…", ["un trato injusto aprendido de datos injustos", "un error de sintaxis", "un tipo de bucle", "una variable vacía"], "Repite las injusticias de los datos."],
+  ], 2),
+  examen: H.test([
+    ["x ← 3; REPETIR 3 VECES: x ← x + 2. Al final x vale…", ["9", "6", "5", "11"], "3 + 2 + 2 + 2."],
+    ["«MIENTRAS n ≠ 10: n ← n + 2», empezando con n = 1…", ["no termina nunca", "termina con n = 10", "termina con n = 11", "no se ejecuta"], "n siempre es impar."],
+    ["Del rombo de un diagrama de flujo salen…", ["dos flechas, sí y no", "una flecha", "tres flechas", "ninguna flecha"], "Decisión."],
+    ["La búsqueda secuencial en una lista de 500 puede necesitar…", ["hasta 500 pasos", "como mucho 9 pasos", "1 paso", "250.000 pasos"], "Mira uno a uno."],
+    ["¿Qué estructura usarías para «remueve 10 veces»?", ["repetición fija", "decisión doble", "secuencia sin bucle", "búsqueda"], "Número conocido."],
+    ["Un acumulador sirve para…", ["ir sumando cantidades", "contar de uno en uno", "decidir", "ordenar"], "Como el total de una compra."],
+    ["Si un contador se pone a 0 dentro del bucle…", ["se reinicia en cada vuelta y el resultado falla", "funciona mejor", "se convierte en acumulador", "el bucle no se ejecuta"], "El valor inicial va fuera."],
+    ["Ver que dibujar polígonos siempre es «avanzar y girar» es…", ["reconocer un patrón", "abstraer", "descomponer", "depurar"], "Algo que se repite."],
+  ], 3),
+  feynman: ["Qué es un algoritmo y qué características debe tener", "Cómo se representa un algoritmo con pseudocódigo y con un diagrama de flujo", "Qué diferencia hay entre secuencia, decisión y repetición", "Qué son las cuatro estrategias del pensamiento computacional", "Por qué la búsqueda binaria es más rápida que la secuencial"],
+  mapa: H.mapa("ALGORITMOS", "var(--eso)", [
+    ["Qué es", "pasos ordenados, precisos y finitos", "var(--pen)"],
+    ["Cómo se escribe", "pseudocódigo · diagrama de flujo", "#b8860b"],
     ["Estructuras", "secuencia · decisión · repetición", "var(--red)"],
-    ["Representar", "pseudocódigo · diagrama de flujo", "#b8860b"],
-    ["Pensamiento", "descomponer · patrones · abstraer", "var(--leaf)"],
-  ], 290),
+    ["Pensar", "descomponer · patrones · eficiencia", "var(--leaf)"],
+  ], 260),
   tarjetas: [
-    ["Algoritmo", "Instrucciones ordenadas y finitas para resolver un problema."],
-    ["Secuencia", "Pasos uno detrás de otro."],
-    ["Decisión", "Si… entonces… si no."],
-    ["Repetición", "Pasos que se repiten: bucle."],
+    ["Algoritmo", "Secuencia ordenada y finita de pasos que resuelve un problema."],
+    ["Entrada · proceso · salida", "Datos de partida, pasos y resultado."],
     ["Pseudocódigo", "Algoritmo escrito con frases cortas y palabras clave."],
-    ["Diagrama de flujo", "Dibujo del algoritmo con símbolos y flechas."],
-    ["Descomposición", "Dividir un problema en partes pequeñas."],
-    ["Abstracción", "Quedarse con lo importante."],
+    ["Diagrama de flujo", "Algoritmo dibujado con símbolos y flechas."],
+    ["Rombo", "Decisión con dos salidas: sí y no."],
+    ["Secuencia", "Pasos uno tras otro, en orden."],
+    ["Decisión", "Elegir un camino según una condición."],
+    ["Repetición", "Repetir pasos un número de veces o mientras se cumpla algo."],
+    ["Variable", "Caja con nombre que guarda un dato que cambia."],
+    ["Pensamiento computacional", "Descomponer, buscar patrones, abstraer y crear algoritmos."],
+    ["Búsqueda binaria", "Descartar la mitad cada vez; necesita datos ordenados."],
+    ["Eficiencia", "Resolver el problema con pocos pasos y recursos."],
   ],
-  familias: ["Escribid juntos el algoritmo de una receta familiar con decisiones y repeticiones.", "Jugad al robot humano en el pasillo de casa con órdenes de flechas.", "Comentad cómo os recomiendan vídeos o canciones las aplicaciones que usáis."],
-  profesores: {
-    saberes: "Pensamiento computacional: concepto y características de algoritmo, estructuras de secuencia, selección e iteración, representación con pseudocódigo y diagramas de flujo, descomposición, patrones y abstracción (RD 217/2022 y currículos autonómicos de Programación y robótica).",
-    ideas: ["Robot humano en cuadrícula con tarjetas de flechas.", "Diagrama de flujo de una rutina diaria en cartulina.", "Debate sobre algoritmos de recomendación y burbujas informativas."],
+  glosario: [
+    ["Algoritmo", "Secuencia ordenada y finita de pasos precisos que resuelve un problema."],
+    ["Entrada", "Datos o materiales de los que parte un algoritmo."],
+    ["Salida", "Resultado que produce un algoritmo."],
+    ["Pseudocódigo", "Forma de escribir algoritmos con frases cortas y palabras clave, sin las reglas de un lenguaje concreto."],
+    ["Diagrama de flujo", "Representación gráfica de un algoritmo con símbolos unidos por flechas."],
+    ["Secuencia", "Estructura en la que los pasos se ejecutan uno detrás de otro."],
+    ["Condición", "Pregunta que solo puede ser verdadera o falsa."],
+    ["Decisión", "Estructura que elige qué pasos hacer según una condición."],
+    ["Bucle", "Estructura que repite un grupo de pasos."],
+    ["Variable", "Espacio con nombre que guarda un dato que puede cambiar."],
+    ["Contador", "Variable que aumenta o disminuye de uno en uno."],
+    ["Descomposición", "Dividir un problema complejo en partes más pequeñas."],
+    ["Abstracción", "Quedarse con la información importante e ignorar los detalles irrelevantes."],
+    ["Búsqueda binaria", "Algoritmo que busca en una lista ordenada descartando la mitad en cada paso."],
+    ["Eficiencia", "Cantidad de pasos o recursos que necesita un algoritmo."],
+    ["Sesgo algorítmico", "Resultado injusto de un algoritmo que aprende de datos con prejuicios."],
+  ],
+  situacion: {
+    titulo: "Manual de algoritmos del instituto",
+    reto: "Los alumnos de 1º ESO llegan nuevos al instituto y se pierden con las rutinas. Vuestro equipo elaborará un manual con los algoritmos más útiles del centro: desde pedir un libro en la biblioteca hasta actuar en un simulacro de evacuación.",
+    pasos: [
+      "Haced una lluvia de ideas con las situaciones que más dudas generan a los alumnos nuevos y elegid cuatro.",
+      "Descomponed cada situación en partes y escribid su algoritmo en lenguaje natural.",
+      "Pasad cada algoritmo a pseudocódigo y dibujad su diagrama de flujo, con al menos una decisión y una repetición en el manual.",
+      "Probad los algoritmos con compañeros de 1º y anotad dónde se equivocan o tienen dudas.",
+      "Corregid el manual y presentadlo como un folleto o una página web con ilustraciones.",
+    ],
+    producto: "Manual ilustrado con cuatro algoritmos del instituto en pseudocódigo y diagrama de flujo.",
+    evaluacion: [
+      "Los algoritmos son precisos, ordenados y finitos.",
+      "Los diagramas de flujo usan bien los símbolos y las estructuras.",
+      "Se aplica la descomposición y se mejora el manual con las pruebas.",
+      "El manual es claro, útil y está bien presentado.",
+    ],
   },
-  fuentes: [RD, wiki("Algoritmo", "Algoritmo"), wiki("Pensamiento computacional", "Pensamiento_computacional")],
-  revisado: REV,
+  familias: ["Escribid juntos la receta de un plato familiar como si fuera para un robot.", "Jugad a adivinar un número del 1 al 100 usando la búsqueda binaria.", "Ordenad una baraja de cartas por inserción y contad cuántos movimientos hacéis.", "Comentad qué os recomiendan las aplicaciones y por qué creéis que lo hacen."],
+  profesores: {
+    saberes: H.saberes("Algoritmos: concepto, características y representación (lenguaje natural, pseudocódigo y diagramas de flujo); estructuras de control (secuencia, selección e iteración); variables, contadores y acumuladores; estrategias del pensamiento computacional (descomposición, patrones, abstracción y algoritmos); búsqueda y ordenación y nociones de eficiencia; impacto social de los algoritmos", "pensament computacional, disseny d'algorismes i representació mitjançant diagrames, i anàlisi crítica de l'impacte de la tecnologia."),
+    ideas: [
+      "Actividades desenchufadas de CS Unplugged: ordenar con redes de ordenación y búsqueda de barcos.",
+      "Concurso de diagramas de flujo de rutinas del centro.",
+      "Carrera de ordenación con cartas: inserción frente a burbuja, contando comparaciones.",
+      "Adivina el número con búsqueda binaria y registro del número de preguntas.",
+      "Debate guiado sobre los algoritmos de recomendación de las redes sociales.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Algoritmo", "Algoritmo"), H.wiki("Diagrama de flujo", "Diagrama_de_flujo"), H.wiki("Búsqueda binaria", "B%C3%BAsqueda_binaria"), { t: "CS Unplugged: actividades de informática sin ordenador", url: "https://www.csunplugged.org/es/" }],
+  revisado: H.REV,
 };
