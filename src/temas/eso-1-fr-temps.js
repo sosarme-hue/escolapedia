@@ -1,0 +1,63 @@
+// Francés 1º ESO · tema nivel libro. Parte de _eso1L6-base-fr-temps.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-fr-temps"), {
+  grupos: [4, 4, 4],
+  objetivos: ["Elegir la ropa y las actividades según el tiempo y la estación", "Presentar un parte meteorológico sencillo"],
+  claves: ["le manteau", "le parapluie", "il faut", "je mets", "en hiver, je fais…", "la région", "la prévision"],
+  lectura: ["La fiesta bajo la lluvia", `<p>Era el 14 de julio, fiesta nacional de Francia, y Pablo estaba en Bretaña con su familia de acogida. Por la mañana, el cielo estaba azul y todos se pusieron camiseta y gafas de sol. Pero a mediodía, el viento levantó nubes negras y empezó a llover. «Il pleut !», gritó Camille. «Rapide, les parapluies !». Pablo se rió: ¡habían salido sin paraguas!</p><p>Camille le explicó una verdad de Bretaña: <mark>«Ici, il fait beau cinq fois par jour»</mark> (aquí hace bueno cinco veces al día), porque el tiempo cambia sin parar. En el sur de Francia, en cambio, el sol brilla casi todo el año. Cada región tiene su clima, y saber hablar del tiempo es una de las mejores formas de empezar una conversación con alguien: en Francia, como en España, «Quel temps il fait ?» es una pregunta casi obligatoria.</p><p>En este tema ya sabes preguntar y decir el tiempo, las estaciones y los meses, la fecha y tu cumpleaños. Ahora vamos a ampliar con la ropa según el tiempo, las actividades de cada estación y los climas de Francia, para que puedas planificar un fin de semana o preparar un parte meteorológico como un presentador.</p>`],
+  nuevos: [
+    [1, "El clima de Francia", `<p>Francia es un país con varios climas. Fíjate en cuatro zonas:</p><ul><li>La <b>Bretagne</b> y el norte: clima oceánico, con lluvia frecuente y temperaturas suaves.</li><li>El <b>sud</b> o <b>Midi</b> (cerca del Mediterráneo): clima mediterráneo, con veranos calurosos y secos.</li><li>Las <b>montagnes</b> (los Alpes y los Pirineos): frío intenso y nieve en invierno.</li><li>El <b>centre</b> y el este: clima continental, con inviernos fríos y veranos calurosos.</li></ul><p>Para describirlo se usan frases como <i>En Bretagne, il pleut souvent</i>, <i>Dans le Midi, il fait chaud en été</i> o <i>Dans les Alpes, il neige en hiver</i>. Observa que se dice <i>en Bretagne</i> (regiones femeninas) pero <i>dans les Alpes</i> (montañas, plural).</p>`,
+      L.columnas("Climas de Francia", [["norte", "BRETAGNE", ["il pleut souvent"], L.AZ], ["sur", "LE MIDI", ["il fait chaud"], L.RO], ["montañas", "LES ALPES", ["il neige"], L.VE]])],
+    [6, "La ropa según el tiempo", `<p>Para decidir qué ponerte, usa el verbo <b>mettre</b> (poner, ponerse): <i>Quand il pleut, je mets un imperméable</i>. También se usa <b>porter</b> (llevar): <i>Il porte un manteau</i>. Estas son las prendas más comunes:</p><ul><li><b>Un manteau</b> (abrigo), <b>un pull</b> (jersey), <b>une écharpe</b> (bufanda), <b>des gants</b> (guantes): para el frío.</li><li><b>Un imperméable</b> (impermeable), <b>un parapluie</b> (paraguas), <b>des bottes</b> (botas): para la lluvia.</li><li><b>Un t-shirt</b>, <b>un short</b> (pantalón corto), <b>des lunettes de soleil</b>, <b>un chapeau</b>: para el calor.</li></ul><p>Para dar un consejo se usa <b>il faut</b>: <i>Il faut mettre un manteau, il fait froid</i>.</p>`,
+      L.filas("Ropa y tiempo", [["Il fait froid", "un manteau, des gants", L.AZ], ["Il pleut", "un parapluie, des bottes", L.VE], ["Il fait chaud", "un short, un chapeau", L.RO]])],
+    [9, "Actividades de cada estación", `<p>Para hablar de lo que se hace en cada estación se usa <b>faire</b> o <b>jouer</b>:</p><ul><li><b>En hiver</b>: <i>je fais du ski, je fais un bonhomme de neige</i> (muñeco de nieve), <i>je joue dans la neige</i>.</li><li><b>Au printemps</b>: <i>je fais du vélo, je me promène dans le parc</i>.</li><li><b>En été</b>: <i>je nage, je vais à la plage, je mange des glaces</i>.</li><li><b>En automne</b>: <i>je ramasse des feuilles, je rentre à l'école</i>.</li></ul><p>Recuerda que <i>au printemps</i> es la única estación con <b>au</b>; las demás van con <b>en</b>: <i>en été, en automne, en hiver</i>. Es un detalle que muchos alumnos olvidan, pero que se usa mucho.</p>`,
+      L.tabla("Estación + actividad", ["Estación", "Actividad"], [["en hiver", "faire du ski"], ["au printemps", "faire du vélo"], ["en été", "aller à la plage"], ["en automne", "ramasser les feuilles"]])],
+    [11, "Presentar el tiempo", `<p>Para presentar un parte meteorológico, sigue este esquema: saludo, estado general, temperaturas y consejos. Frases útiles:</p><ul><li><i>Bonjour ! Voici la météo pour demain.</i></li><li><i>Dans le nord, il y a des nuages et il pleut.</i></li><li><i>Dans le sud, il fait beau, il fait 28 degrés.</i></li><li><i>N'oubliez pas votre parapluie !</i></li></ul><p>Los términos clave: <b>le nord, le sud, l'est, l'ouest</b> (los puntos cardinales), <b>les nuages</b> (las nubes), <b>le soleil</b> (el sol), <b>l'orage</b> (la tormenta) y <b>le brouillard</b> (la niebla). Un buen presentador habla despacio, mira a la cámara y señala el mapa.</p>`,
+      L.pasos("Parte del tiempo", [["Saludo", ["bonjour"], L.AZ], ["Norte y sur", ["le temps"], L.VE], ["Temperatura", ["degrés"], L.MO], ["Consejo", ["parapluie"], L.RO]])],
+  ],
+  ejemplos: [
+    ["Elige la ropa: «Il neige et il fait −2 degrés».", ["Frío intenso y nieve.", "Prendas de abrigo."], "Il faut mettre un manteau, une écharpe et des gants."],
+    ["Presenta el tiempo de mañana en Marsella: sol y 30 grados.", ["Saludo.", "Tiempo en el Midi.", "Consejo."], "Demain à Marseille, il fait beau et chaud : 30 degrés. N'oubliez pas vos lunettes de soleil !"],
+  ],
+  errores: ["Decir «en printemps» en lugar de «au printemps».", "Confundir «il fait froid» con «il est froid»."],
+  ejercicios: [
+    ["b", "Escribe tres frases del tiempo en francés.", "Il pleut. Il fait chaud. Il neige."],
+    ["b", "¿Cómo se dice «invierno, primavera, verano y otoño»?", "L'hiver, le printemps, l'été, l'automne."],
+    ["b", "Escribe tres prendas para el frío.", "Un manteau, une écharpe, des gants."],
+    ["b", "Escribe los puntos cardinales en francés.", "Le nord, le sud, l'est, l'ouest."],
+    ["m", "Une cada estación con una actividad.", "Hiver: ski; printemps: vélo; été: plage; automne: ramasser les feuilles."],
+    ["m", "Escribe qué te pones cuando llueve y cuando hace calor.", "Quand il pleut, je mets un imperméable. Quand il fait chaud, je mets un short."],
+    ["m", "Describe el clima de tu ciudad en tres frases en francés.", "Respuesta personal."],
+    ["m", "Escribe tu cumpleaños y el tiempo que suele hacer.", "Respuesta personal."],
+    ["a", "Prepara un parte meteorológico de cinco frases para el fin de semana.", "Respuesta personal."],
+    ["a", "Compara el clima de Bretaña y el del Midi con tres frases.", "Respuesta personal."],
+    ["a", "Escribe un diálogo entre dos amigos que planean una excursión según el tiempo.", "Respuesta personal."],
+    ["a", "Explica por qué se dice «au printemps» pero «en été».", "Printemps empieza por consonante (au printemps); été, automne e hiver empiezan por vocal y llevan en."],
+  ],
+  quiz: [
+    ["«Il faut mettre un manteau» significa…", ["hay que ponerse un abrigo", "no hace frío", "tengo un abrigo"], "Consejo."],
+    ["Se dice…", ["au printemps", "en printemps", "à printemps"], "Excepción."],
+    ["«Le brouillard» es…", ["la niebla", "la tormenta", "la nieve"], "Fenómeno."],
+    ["«Un parapluie» sirve para…", ["la lluvia", "el sol", "el frío"], "Paraguas."],
+    ["«Le Midi» es…", ["el sur de Francia", "el norte", "una montaña"], "Mediterráneo."],
+    ["«Il neige dans les Alpes» significa…", ["nieva en los Alpes", "llueve en los Alpes", "hace calor"], "Montañas."],
+  ],
+  examen: [
+    ["«Des lunettes de soleil» son…", ["gafas de sol", "guantes", "botas"], "Calor."],
+    ["Para dar un consejo se usa…", ["il faut", "il fait", "il est"], "Obligación."],
+    ["«L'orage» es…", ["la tormenta", "el viento", "el rocío"], "Con relámpagos."],
+  ],
+  tarjetas: [["le manteau", "el abrigo."], ["le parapluie", "el paraguas."], ["au printemps", "en primavera."], ["la météo", "el parte del tiempo."]],
+  glosario: [["la météo", "El tiempo."], ["la saison", "La estación."], ["le nuage", "La nube."], ["le soleil", "El sol."], ["l'orage", "La tormenta."], ["le brouillard", "La niebla."], ["le manteau", "El abrigo."], ["le parapluie", "El paraguas."], ["mettre", "Poner(se)."], ["porter", "Llevar puesto."], ["il faut", "Hay que."], ["le degré", "El grado."]],
+  situacion: SIT("Présentateur météo", "La televisión escolar quiere un espacio de «météo» en francés. Vuestro grupo prepara y graba un parte de 90 segundos.", [
+    "Elegid una región y consultad su tiempo en un mapa.",
+    "Escribid el guion con saludo, tiempo, temperaturas y consejo.",
+    "Dibujad un mapa con símbolos del tiempo.",
+    "Grabad el parte con voz clara y gestos.",
+    "Proyectadlo en clase y valorad la pronunciación.",
+  ], "Un vídeo de 90 segundos con un mapa del tiempo en francés.", ["El vocabulario es correcto.", "Se usan consejos con il faut.", "La pronunciación es clara.", "El mapa apoya el mensaje."]),
+  familias: ["Mirad la previsión del tiempo y comentadla en francés cada mañana."],
+  ideas: ["Termómetro y calendario meteorológico en francés en el aula."],
+  fuentes: [WIKI("Clima de Francia", "Clima_de_Francia")],
+});

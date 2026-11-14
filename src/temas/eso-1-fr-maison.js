@@ -1,0 +1,63 @@
+// Francés 1º ESO · tema nivel libro. Parte de _eso1L6-base-fr-maison.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-fr-maison"), {
+  grupos: [4, 4, 4],
+  objetivos: ["Distinguir los tipos de vivienda en Francia", "Hablar de las tareas de casa y de la ayuda familiar"],
+  claves: ["l'immeuble", "le pavillon", "ranger", "faire la vaisselle", "mettre la table", "aider", "les tâches ménagères"],
+  lectura: ["La maison de la rue des Lilas", `<p>Pablo llegó a casa de su familia de intercambio en un barrio tranquilo de Toulouse. Era una casa pequeña de dos plantas con un jardín delante y un garaje. «Bienvenue chez nous !», dijo Camille. «Voici le salon, la cuisine, et en haut, les chambres.» Pablo notó que no había ascensor: <mark>en Francia muchas familias viven en casas individuales con jardín</mark>, a diferencia de España, donde mucha gente vive en pisos. Aunque en las grandes ciudades como París, la mayoría vive en apartamentos.</p><p>Aquella noche, la madre de Camille puso la mesa y dijo: «Pablo, tu peux aider à débarrasser ?». Pablo entendió «ayudar» y «mesa», pero no «débarrasser». Camille le explicó: «Quitar los platos». Ese pequeño momento le enseñó algo importante: en una casa francesa, <b>todos colaboran</b>, y para vivir con una familia hay que conocer el vocabulario de la casa y de las tareas domésticas.</p><p>Este tema te da el vocabulario de la casa, los muebles y las habitaciones, y cómo localizar las cosas. Ahora añadiremos los diferentes tipos de vivienda, las tareas y los verbos de colaboración, para que puedas moverte con comodidad en cualquier casa francófona.</p>`],
+  nuevos: [
+    [1, "Tipos de vivienda", `<p>En francés se distinguen varios tipos de vivienda:</p><ul><li><b>Un appartement</b>: vivienda en un edificio. Si el edificio es grande, se llama <b>un immeuble</b>; si es de protección social, <b>un HLM</b>.</li><li><b>Une maison</b>: casa independiente. Si está en las afueras de la ciudad con jardín, se llama a menudo <b>un pavillon</b>.</li><li><b>Un studio</b>: apartamento de una sola habitación.</li><li><b>Une ferme</b>: casa de campo con tierras.</li><li><b>Un château</b>: castillo (no muy habitual para vivir…).</li></ul><p>Para decir dónde vives: <i>J'habite dans un appartement au troisième étage</i> o <i>J'habite dans une maison avec un jardin</i>. Y para preguntar: <i>Tu habites où ?</i> o <i>Tu habites dans une maison ou dans un appartement ?</i></p>`,
+      L.filas("Tipos de vivienda", [["Appartement", "en un immeuble", L.AZ], ["Maison", "con jardín", L.VE], ["Studio", "una sola pieza", L.RO], ["Ferme", "en el campo", L.MO]])],
+    [6, "Las tareas de casa", `<p>Colaborar en casa se dice <b>aider à la maison</b>. Las tareas domésticas (<i>les tâches ménagères</i>) más habituales son:</p><ul><li><b>Faire la vaisselle</b>: fregar los platos.</li><li><b>Mettre la table</b> / <b>débarrasser la table</b>: poner / quitar la mesa.</li><li><b>Ranger sa chambre</b>: ordenar la habitación.</li><li><b>Faire son lit</b>: hacer la cama.</li><li><b>Passer l'aspirateur</b>: pasar la aspiradora.</li><li><b>Sortir les poubelles</b>: sacar la basura.</li></ul><p>Para preguntar: <i>Tu aides à la maison ?</i> y para responder: <i>Oui, je range ma chambre tous les jours</i> (todos los días). Observa que <i>faire</i> es el verbo más usado en las tareas: <i>faire la vaisselle, faire le lit, faire les courses</i>.</p>`,
+      L.tabla("Tareas", ["Francés", "Español"], [["faire la vaisselle", "fregar"], ["ranger", "ordenar"], ["mettre la table", "poner mesa"], ["sortir la poubelle", "sacar basura"]])],
+    [9, "La frecuencia: tous les jours, parfois", `<p>Para decir cuántas veces haces algo se usan expresiones de frecuencia:</p><ul><li><b>Toujours</b> (siempre), <b>souvent</b> (a menudo), <b>parfois</b> (a veces), <b>rarement</b> (raramente), <b>jamais</b> (nunca).</li><li><b>Tous les jours</b> (cada día), <b>une fois par semaine</b> (una vez por semana), <b>le week-end</b> (el fin de semana).</li></ul><p>Se colocan <b>después del verbo</b>: <i>Je range souvent ma chambre</i>, <i>Je fais la vaisselle une fois par semaine</i>. Con <b>jamais</b> se usa la negación: <i>Je ne fais jamais mon lit</i> (nunca hago la cama). Es muy útil para hablar de rutinas y hábitos.</p>`,
+      L.columnas("Frecuencia", [["100 %", "TOUJOURS", ["siempre"], L.VE], ["a veces", "PARFOIS", ["de vez en cuando"], L.AZ], ["0 %", "JAMAIS", ["ne… jamais"], L.RO]])],
+    [11, "Describir una casa en un anuncio", `<p>Los anuncios de alquiler y venta usan un vocabulario muy concreto. Aprende a leerlos:</p><ul><li><b>Un T3</b> o <b>un trois-pièces</b>: apartamento con tres habitaciones (más cocina y baño).</li><li><b>Lumineux</b>: luminoso. <b>Calme</b>: tranquilo. <b>Meublé</b>: amueblado.</li><li><b>Le loyer</b>: el alquiler. <b>Les charges</b>: los gastos.</li><li><b>Une cave</b>: trastero. <b>Un parking</b>: garaje.</li></ul><p>Ejemplo: <i>Appartement T3 au 2e étage, lumineux et calme, avec un balcon. Loyer : 650 euros par mois</i>. Si lo lees despacio, entenderás casi todo. Escribir un anuncio es un excelente ejercicio para repasar vocabulario y números.</p>`,
+      L.frase("Un anuncio", [["T3", "3 piezas", L.AZ], ["lumineux", "con luz", L.VE], ["650 €", "al mes", L.RO]], "Appartement lumineux et calme")],
+  ],
+  ejemplos: [
+    ["Describe en francés tu casa en cuatro frases.", ["Tipo de vivienda.", "Piso o planta.", "Habitaciones.", "Cómo es."], "J'habite dans un appartement. C'est au quatrième étage. Il y a trois chambres. Il est lumineux."],
+    ["Escribe tres tareas que haces y con qué frecuencia.", ["Tarea + frecuencia.", "La frecuencia después del verbo."], "Je range ma chambre souvent. Je fais la vaisselle parfois. Je ne sors jamais les poubelles."],
+  ],
+  errores: ["Colocar «souvent» antes del verbo como en español.", "Olvidar la negación «ne» con «jamais»."],
+  ejercicios: [
+    ["b", "Escribe en francés cinco habitaciones de una casa.", "La cuisine, le salon, la chambre, la salle de bains, le garage."],
+    ["b", "Traduce: «Pongo la mesa y friego los platos».", "Je mets la table et je fais la vaisselle."],
+    ["b", "Escribe el nombre en francés de un edificio de pisos y de una casa independiente.", "Un immeuble; une maison."],
+    ["b", "¿Cómo se dice «a veces» y «nunca»?", "Parfois y jamais."],
+    ["m", "Describe tu habitación con cinco objetos y su lugar usando «sur», «sous», «dans», «à côté de».", "Respuesta personal."],
+    ["m", "Pasa a negativo: «Je fais mon lit».", "Je ne fais pas mon lit / Je ne fais jamais mon lit."],
+    ["m", "Escribe tu rutina de tareas de la semana en francés.", "Respuesta personal."],
+    ["m", "Interpreta un anuncio: «T2, 40 m², loyer 500 euros».", "Apartamento de dos piezas, 40 metros cuadrados, 500 euros de alquiler."],
+    ["a", "Escribe un anuncio de alquiler de una casa ideal en seis frases.", "Respuesta personal."],
+    ["a", "Compara tu casa con una casa francesa en tres frases.", "Respuesta personal."],
+    ["a", "Prepara un diálogo en el que invitas a un amigo y le enseñas la casa.", "Respuesta personal."],
+    ["a", "Explica qué diferencia hay entre «le loyer» y «les charges».", "Loyer: alquiler; charges: gastos."],
+  ],
+  quiz: [
+    ["Un «immeuble» es…", ["un edificio de pisos", "una casa con jardín", "una cocina"], "Varios apartamentos."],
+    ["«Faire la vaisselle» es…", ["fregar los platos", "cocinar", "poner la mesa"], "Tarea."],
+    ["«Souvent» significa…", ["a menudo", "nunca", "siempre"], "Frecuencia."],
+    ["«Ne… jamais» expresa…", ["nunca", "siempre", "a veces"], "Negación."],
+    ["«Le loyer» es…", ["el alquiler", "el trastero", "la calefacción"], "Se paga al mes."],
+    ["«Lumineux» describe una casa…", ["con mucha luz", "ruidosa", "pequeña"], "Anuncio."],
+  ],
+  examen: [
+    ["Un studio es…", ["apartamento de una pieza", "casa con jardín", "castillo"], "Pequeño."],
+    ["«Tous les jours» significa…", ["cada día", "nunca", "una vez"], "Frecuencia."],
+    ["«Débarrasser la table» es…", ["quitar la mesa", "poner la mesa", "limpiar la mesa"], "Recoger."],
+  ],
+  tarjetas: [["l'appartement", "el apartamento."], ["ranger", "ordenar."], ["souvent / parfois / jamais", "a menudo / a veces / nunca."], ["le loyer", "el alquiler."]],
+  glosario: [["la maison", "La casa."], ["l'appartement", "El apartamento."], ["l'immeuble", "El edificio."], ["le studio", "Estudio."], ["la chambre", "Dormitorio."], ["la cuisine", "Cocina."], ["ranger", "Ordenar."], ["la vaisselle", "La vajilla."], ["souvent", "A menudo."], ["jamais", "Nunca."], ["le loyer", "Alquiler."], ["lumineux", "Luminoso."]],
+  situacion: SIT("La maison idéale", "Vais a diseñar la casa ideal para una familia francesa que viene a vivir a vuestra ciudad, con planos, vocabulario y reparto de tareas.", [
+    "Decidid qué tipo de vivienda será y cuántas habitaciones tendrá.",
+    "Dibujad un plano con los nombres de las habitaciones en francés.",
+    "Escribid un anuncio con descripción, precio y servicios.",
+    "Repartid las tareas de casa entre los miembros de la familia con la frecuencia.",
+    "Presentad la casa a otro grupo.",
+  ], "Un plano etiquetado, un anuncio y un cuadro de tareas en francés.", ["El vocabulario es correcto.", "El anuncio es comprensible.", "El reparto usa expresiones de frecuencia.", "La presentación es clara."]),
+  familias: ["Poned etiquetas en francés en los objetos de la casa durante una semana."],
+  ideas: ["Maqueta de una casa con etiquetas en francés."],
+  fuentes: [WIKI("Vivienda", "Vivienda")],
+});
