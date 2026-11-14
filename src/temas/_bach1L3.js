@@ -19,6 +19,9 @@ function figura(aria, items) {
 </svg>`;
 }
 
+const PRE = "overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px";
+// Un texto con saltos de línea es código: se muestra en <pre> conservando la sangría.
+const codigo = (s) => (typeof s === "string" && s.includes("\n") ? `<pre style="${PRE}">${s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</pre>` : s);
 const strip = (s) => s.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 
 function tema(o) {
@@ -39,9 +42,9 @@ function tema(o) {
     feynman: o.feynman,
     mapa: mapa(o.mapa[0], "var(--pen)", o.mapa[1].map(([t, d], i) => [t, d, COL[i]]), o.mapa[2] || 250),
     tarjetas: o.tarjetas,
-    ejemplos: o.ejemplos.map(([enunciado, pasos, resultado]) => ({ enunciado, pasos, resultado })),
+    ejemplos: o.ejemplos.map(([enunciado, pasos, resultado]) => ({ enunciado, pasos, resultado: codigo(resultado) })),
     errores: o.errores,
-    ejercicios: ["b", "m", "a"].flatMap((n) => o.ejercicios[n].map(([q, sol]) => ({ q, sol, nivel: NIV[n] }))),
+    ejercicios: ["b", "m", "a"].flatMap((n) => o.ejercicios[n].map(([q, sol]) => ({ q, sol: codigo(sol), nivel: NIV[n] }))),
     glosario: o.glosario,
     situacion: o.situacion,
     familias: o.familias,
@@ -73,4 +76,4 @@ function tema(o) {
   return T;
 }
 
-module.exports = { tema, figura, ...L, F, D };
+module.exports = { tema, figura, PRE, ...L, F, D };
