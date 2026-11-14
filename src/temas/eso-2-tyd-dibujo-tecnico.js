@@ -1,156 +1,237 @@
-// Tecnología y Digitalización 2º ESO: dibujo técnico, vistas y escalas. Dibujos propios en SVG.
-const { D, mapa, BG, t, fl, caja, tabla, RD, wiki, C, REV } = require("./_eso2a");
+// Tecnología y Digitalización 2º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso2L7 y dibujos de la versión anterior del tema.
+const H = require("./_eso2L7");
+const S = "tyd-dibujo-tecnico";
 
 module.exports = {
-  materia: "Tecnología y Digitalización",
-  curso: C,
+  materia: H.MATERIA,
+  curso: H.CURSO,
   titulo: "Dibujo técnico: vistas y escalas",
-  minutos: 55,
-  objetivos: ["Conocer los instrumentos de dibujo y los tipos de líneas normalizadas", "Dibujar las vistas principales (alzado, planta y perfil) de piezas sencillas", "Aplicar escalas de ampliación y reducción y acotar correctamente", "Representar objetos en perspectiva isométrica y caballera y usar programas de diseño"],
-  claves: ["boceto", "croquis", "alzado", "planta", "perfil", "escala", "acotación", "perspectiva isométrica", "perspectiva caballera", "CAD"],
+  minutos: 110,
+  objetivos: [
+    "Reconocer la utilidad del dibujo técnico y distinguir boceto, croquis y plano",
+    "Usar correctamente los útiles de dibujo y las normas básicas: formatos, cajetín y tipos de línea",
+    "Obtener y colocar las vistas de una pieza (alzado, planta y perfil) en el sistema europeo",
+    "Aplicar escalas de ampliación y de reducción y trabajar con escalas gráficas",
+    "Acotar piezas sencillas siguiendo las normas",
+    "Dibujar piezas en perspectiva isométrica y caballera, a mano y con programas de diseño",
+  ],
+  claves: ["dibujo técnico", "boceto", "croquis", "plano", "normalización", "formato", "cajetín", "tipos de línea", "vistas", "alzado", "planta", "perfil", "escala", "acotación", "cota", "perspectiva isométrica", "perspectiva caballera", "CAD"],
   pregunta: {
-    texto: "Un plano de una casa cabe en un folio, pero la casa mide 12 metros de largo. ¿Cómo sabe el albañil cuánto mide cada pared de verdad?",
-    respuesta: "Gracias a la <mark>escala</mark> y a las <mark>cotas</mark>. Si el plano está dibujado a escala 1:100, cada centímetro del papel son 100 cm (1 m) de la realidad. Además, las medidas reales se escriben sobre el dibujo con cotas. Así, cualquiera puede construir la casa sin ver al arquitecto.",
+    texto: "Si un fabricante de muebles sueco envía las instrucciones de un armario a todo el mundo sin palabras, ¿cómo consigue que cualquier persona lo entienda?",
+    respuesta: "Porque usa el <mark>dibujo técnico</mark>, un lenguaje gráfico con reglas comunes: vistas, perspectivas, símbolos, flechas y medidas que significan lo mismo en cualquier país. Gracias a la <b>normalización</b>, un plano dibujado en Suecia se interpreta igual en España o en Japón, sin necesidad de traducirlo.",
+  },
+  lectura: {
+    titulo: "El plano que viajó sin palabras",
+    html: `<p>Marta y su padre abrieron la caja de la estantería que acababan de comprar. Dentro había tablas, tornillos, unas llaves pequeñas y un cuadernillo de instrucciones sin una sola palabra. Solo había dibujos: piezas vistas en perspectiva, flechas que indicaban cómo encajarlas, números que decían cuántos tornillos usar en cada paso y una figura de una persona que llamaba por teléfono si algo salía mal.</p>
+<p>Al principio les pareció un jeroglífico, pero en media hora la estantería estaba montada. Marta se dio cuenta de que aquellos dibujos seguían unas reglas muy claras: todas las piezas se veían desde el mismo ángulo, las medidas estaban en milímetros y cada símbolo significaba siempre lo mismo.</p>
+<p>Ese es el poder del <b>dibujo técnico</b>: un lenguaje universal que usan ingenieros, arquitectos, diseñadores y técnicos para comunicar con precisión cómo es un objeto y cómo se fabrica. Una mala medida o una vista mal dibujada puede hacer que una pieza no encaje o que un edificio tenga problemas. En este tema aprenderás a leer y dibujar ese lenguaje: vistas, escalas, cotas y perspectivas, a mano y con el ordenador.</p>`,
   },
   bloques: [
     {
-      html: `<h3>El dibujo, el lenguaje de la técnica</h3><p>Para explicar cómo es un objeto que queremos fabricar, las palabras no bastan: hace falta un dibujo. El <mark>dibujo técnico</mark> es un lenguaje gráfico, común en todo el mundo, que representa los objetos con <b>precisión</b>, siguiendo unas <b>normas</b> (en España, las normas UNE, basadas en las internacionales ISO). Así, un plano hecho en Japón se entiende en España. En un proyecto se usan tres tipos de dibujo. El <mark>boceto</mark> es un dibujo rápido a mano alzada para expresar una idea. El <mark>croquis</mark> también se hace a mano alzada, pero con las proporciones cuidadas y todas las medidas. El <mark>plano</mark> se hace con instrumentos o con ordenador, a escala, con precisión, y sirve para fabricar.</p>`,
+      html: `<h3>1.1 El dibujo técnico</h3><p>El <mark>dibujo técnico</mark> es un sistema de representación gráfica que sirve para describir objetos con exactitud: su forma, sus medidas, sus materiales y cómo se fabrican o se montan. A diferencia del dibujo artístico, que expresa emociones o ideas personales, el dibujo técnico debe ser <b>preciso</b>, <b>claro</b> y <b>objetivo</b>, para que cualquier persona que lo lea entienda lo mismo.</p><p>Se usa en muchos campos: en arquitectura (planos de casas y edificios), en ingeniería (piezas de máquinas, instalaciones eléctricas, puentes), en diseño industrial (muebles, electrodomésticos, envases), en topografía (mapas) y, por supuesto, en el aula de Tecnología, donde es imprescindible en la fase de diseño de un proyecto.</p><p>Para que el dibujo técnico sea un lenguaje universal, sigue unas <b>normas</b> que fijan cómo se dibujan las líneas, cómo se colocan las vistas o cómo se escriben las medidas. En España se usan las normas <b>UNE</b>, que coinciden con las internacionales <b>ISO</b>.</p>`,
+      svg: H.radial("Usos del dibujo técnico", "DIBUJO TÉCNICO", ["Arquitectura: planos", "Ingeniería: piezas", "Diseño de muebles", "Instrucciones de montaje", "Mapas y topografía", "Proyectos de Tecnología"], "var(--pen)"),
     },
     {
-      html: `<h3>Instrumentos y tipos de línea</h3><p>Para dibujar con precisión se usan varios <mark>instrumentos</mark>: <b>lápices</b> de distinta dureza (los duros, como el 2H, para líneas finas y auxiliares; los blandos, como el HB o el B, para el trazado final), la <b>escuadra</b> y el <b>cartabón</b> para trazar paralelas y perpendiculares, la <b>regla</b> graduada para medir, el <b>compás</b> para circunferencias y arcos, y la goma de borrar. El papel normalizado tiene formatos <b>DIN A</b>: el A4 es el folio (210 × 297 mm) y cada formato es la mitad del anterior. En los planos se usan distintos <mark>tipos de línea</mark>, cada una con un significado: la <b>línea gruesa continua</b> para las aristas que se ven; la <b>línea discontinua</b> para las aristas ocultas; la <b>línea fina de trazo y punto</b> para los ejes de simetría y los centros; y la <b>línea fina continua</b> para las cotas.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tipos de línea normalizados: gruesa continua para aristas vistas, discontinua para aristas ocultas, trazo y punto para ejes y fina continua para cotas">${BG}
-        ${[[34, "", 4, "aristas vistas"], [72, "8 5", 2.5, "aristas ocultas"], [110, "16 4 2 4", 1.2, "ejes de simetría"], [148, "", 1, "cotas"]].map(([y, d, w, s]) => `<line x1="16" y1="${y}" x2="110" y2="${y}" stroke="var(--ink)" stroke-width="${w}" ${d ? `stroke-dasharray="${d}"` : ""}/>${t(122, y + 4, s, { size: 11, anchor: "start" })}`).join("")}
-        ${fl(20, 156, 20, 150, "var(--ink)", 1)}</svg>`,
+      html: `<h3>1.2 Boceto, croquis y plano</h3><p>Durante el diseño de un objeto se hacen dibujos cada vez más precisos:</p><p>• El <mark>boceto</mark> es un dibujo rápido a mano alzada, sin instrumentos ni medidas, que sirve para plasmar una idea y explorar soluciones. Se hacen muchos bocetos al principio de un proyecto. Suelen dibujarse en perspectiva y pueden llevar anotaciones.<br>• El <mark>croquis</mark> es un dibujo a mano alzada, pero más cuidado, que representa el objeto con sus <b>vistas</b> y todas sus <b>medidas</b>, respetando aproximadamente las proporciones. Sirve para tomar datos de una pieza real o para preparar el plano.<br>• El <mark>plano</mark> es el dibujo definitivo, hecho con instrumentos o con ordenador, a <b>escala</b>, con todas las medidas, las vistas necesarias y un cajetín con los datos. Es el documento con el que se fabrica el objeto.</p><p>Pasar del boceto al plano es como pasar de una idea a una orden de fabricación: cada paso añade precisión.</p>`,
+      svg: H.flujo("Del boceto al plano", ["Boceto: idea rápida a mano alzada", "Croquis: vistas y medidas a mano", "Plano: a escala, con instrumentos o CAD"], "Cada vez más preciso"),
     },
     {
-      html: `<h3>Las vistas de un objeto</h3><p>Un objeto tiene tres dimensiones (largo, ancho y alto), pero el papel solo tiene dos. Una forma de representarlo sin ambigüedades es dibujar sus <mark>vistas</mark>: lo que veríamos mirándolo de frente, desde arriba y desde un lado, siempre de forma perpendicular. Las tres vistas principales son el <mark>alzado</mark>, que es la vista de frente o vista principal (se elige la que mejor muestra la forma del objeto); la <mark>planta</mark>, que es la vista desde arriba; y el <mark>perfil</mark>, que es la vista desde la izquierda o desde la derecha. Cada vista muestra solo dos dimensiones: el alzado, el largo y el alto; la planta, el largo y el ancho; y el perfil, el ancho y el alto. Juntas, permiten conocer la forma completa del objeto.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Pieza en forma de L vista en perspectiva con tres flechas que indican las direcciones de observación: alzado de frente, planta desde arriba y perfil desde la izquierda">${BG}
-        <path d="M100 120 L 100 80 L 130 80 L 130 100 L 180 100 L 180 120 Z" fill="var(--pen)" fill-opacity=".35" stroke="var(--ink)" stroke-width="2"/>
-        <path d="M100 80 L 124 64 L 154 64 L 130 80 M154 64 L 154 84 L 130 100 M154 84 L 204 84 L 180 100 M204 84 L 204 104 L 180 120" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        <path d="M100 80 L 124 64 L 154 64 L 130 80 Z" fill="var(--pen)" fill-opacity=".15"/><path d="M130 100 L 154 84 L 204 84 L 180 100 Z" fill="var(--pen)" fill-opacity=".15"/>
-        ${fl(140, 162, 140, 126, "var(--red)", 2.5)}${t(140, 176, "alzado", { size: 10, color: "var(--red)" })}
-        ${fl(160, 22, 160, 60, "var(--leaf)", 2.5)}${t(160, 16, "planta", { size: 10, color: "var(--leaf)" })}
-        ${fl(40, 100, 94, 100, "#b8860b", 2.5)}${t(40, 90, "perfil", { size: 10, color: "#b8860b" })}</svg>`,
-      video: { id: "7JU-sObizA8", titulo: "Dibujo. Vistas: alzado, planta y perfil", canal: "Aprendo", vistas: 144486 },
+      html: `<h3>1.3 Los útiles de dibujo</h3><p>Para dibujar con precisión se usan unos instrumentos básicos:</p><p>• Los <b>lápices</b> de distinta dureza: los duros (H, 2H) hacen trazos finos y claros para líneas auxiliares; los blandos (B, 2B) hacen trazos gruesos y oscuros; el HB es intermedio. También se usan portaminas de 0,5 mm.<br>• La <b>escuadra</b> (triángulo con ángulos de 90°, 45° y 45°) y el <b>cartabón</b> (90°, 60° y 30°). Combinándolos se trazan paralelas, perpendiculares y ángulos de 15° en 15°.<br>• La <b>regla graduada</b> o el escalímetro, para medir.<br>• El <b>compás</b>, para circunferencias y arcos y para trasladar medidas.<br>• El <b>transportador</b> de ángulos, para medir y dibujar ángulos.<br>• La <b>goma de borrar</b> blanda, que no ensucie el papel.</p><p>Consejos: mantén los útiles limpios, afila bien el lápiz, sujeta el papel con cinta para que no se mueva y traza las líneas de una sola vez, sin repasarlas.</p>`,
+      svg: H.tabla("Útiles de dibujo y para qué sirven", ["Útil", "Para qué sirve"], [["Lápiz H / B", "Trazo fino / grueso"], ["Escuadra", "Paralelas, 45° y 90°"], ["Cartabón", "30° y 60°"], ["Compás", "Circunferencias y arcos"], ["Regla", "Medir"]]),
     },
     {
-      html: `<h3>Cómo se colocan las vistas</h3><p>Las vistas no se dibujan en cualquier sitio del papel: siguen una colocación normalizada para que se relacionen entre sí. En el <b>sistema europeo</b>, el que se usa en España, el <b>alzado</b> va arriba a la izquierda; la <b>planta</b> va justo <b>debajo</b> del alzado; y el <b>perfil izquierdo</b> va a la <b>derecha</b> del alzado. Las vistas están <b>alineadas</b>: el alzado y la planta tienen el mismo largo y están uno encima del otro; el alzado y el perfil tienen la misma altura y están a la misma altura. Así, un punto del objeto se puede seguir de una vista a otra con líneas auxiliares. Las aristas que no se ven desde esa dirección se dibujan con <b>línea discontinua</b>. Para dibujar las vistas a partir de una pieza, conviene imaginar que la miramos desde muy lejos, de forma que todos los rayos de visión sean paralelos.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Vistas de la pieza en L en el sistema europeo: alzado arriba a la izquierda, planta debajo y perfil izquierdo a la derecha, alineadas con líneas auxiliares">${BG}
-        <path d="M30 64 L 30 24 L 60 24 L 60 44 L 110 44 L 110 64 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${t(70, 80, "alzado", { size: 10, color: "var(--red)" })}
-        <rect x="30" y="100" width="80" height="40" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><line x1="60" y1="100" x2="60" y2="140" stroke="var(--ink)" stroke-width="2"/>${t(70, 158, "planta", { size: 10, color: "var(--leaf)" })}
-        <path d="M150 64 L 150 24 L 190 24 L 190 64 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><line x1="150" y1="44" x2="190" y2="44" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 3"/>${t(170, 80, "perfil izq.", { size: 10, color: "#b8860b" })}
-        <path d="M30 64 V 100 M110 64 V 100 M110 24 H 150 M110 64 H 150" stroke="var(--muted)" stroke-dasharray="2 3"/></svg>`,
+      html: `<h3>1.4 La normalización: formatos, cajetín y líneas</h3><p>La <mark>normalización</mark> es el conjunto de reglas que unifican la forma de dibujar. Algunas de las más importantes son:</p><p>• Los <b>formatos</b> de papel de la serie A: el A4 mide 210 × 297 mm y es el de los folios; el A3 es el doble (297 × 420 mm) y el A5, la mitad. Cada formato se obtiene doblando por la mitad el anterior.<br>• El <b>margen</b> y el <b>cajetín</b>: los planos llevan un recuadro de margen y, en la esquina inferior derecha, el cajetín, una tabla con el título, el autor, la fecha, la escala y el número de plano.<br>• Los <b>tipos de línea</b>: la <b>gruesa continua</b> se usa para las aristas y contornos visibles; la <b>fina discontinua</b>, para las aristas ocultas; la <b>fina de trazo y punto</b>, para los ejes de simetría y los centros de circunferencias; y la <b>fina continua</b>, para las líneas de cota y auxiliares.</p><p>Respetar estos tipos de línea es fundamental: una arista oculta dibujada con línea continua confunde a quien lee el plano.</p>`,
+      svg: H.viejo(S, 1),
     },
     {
-      html: `<h3>La escala</h3><p>Muchas veces los objetos son demasiado grandes o demasiado pequeños para dibujarlos a su tamaño real. Entonces se usa una <mark>escala</mark>: la relación entre la medida en el dibujo y la medida real. Se escribe como <b>E = dibujo : realidad</b>. Hay tres tipos. La escala <b>natural</b>, 1:1, en la que el dibujo mide lo mismo que el objeto. La escala de <b>reducción</b>, como 1:2, 1:10, 1:50 o 1:100, en la que el dibujo es más pequeño: en 1:100, 1 cm del dibujo son 100 cm reales; se usa para casas, muebles o mapas. Y la escala de <b>ampliación</b>, como 2:1, 5:1 o 10:1, en la que el dibujo es más grande: en 5:1, 5 cm del dibujo son 1 cm real; se usa para piezas pequeñas como engranajes de reloj o componentes electrónicos.</p>${tabla(["Escala", "Tipo", "1 cm del dibujo son…", "Uso"], [["1:1", "natural", "1 cm real", "piezas de tamaño cómodo"], ["1:50", "reducción", "50 cm reales", "planos de viviendas"], ["1:50 000", "reducción", "500 m reales", "mapas topográficos"], ["5:1", "ampliación", "0,2 cm reales", "piezas pequeñas"]])}`,
-      video: { id: "o0DL20Os34k", titulo: "Escalas: concepto, tipos y ejercicios", canal: "Ruben Sebastian", vistas: 2648814 },
+      html: `<h3>1.5 Las vistas de un objeto</h3><p>Un objeto tiene tres dimensiones, pero el papel solo dos. Una forma de representarlo con exactitud es dibujar lo que se ve desde distintas direcciones, mirando de frente cada cara: son las <mark>vistas</mark>. Este método se llama <b>sistema diédrico</b>.</p><p>Las tres vistas principales son:</p><p>• El <mark>alzado</mark> o vista frontal: lo que se ve mirando el objeto de frente. Se elige como alzado la cara que da más información sobre la forma.<br>• La <mark>planta</mark> o vista superior: lo que se ve mirando desde arriba.<br>• El <mark>perfil</mark> o vista lateral: lo que se ve mirando desde un lado, normalmente desde la izquierda.</p><p>Cada vista muestra solo dos de las tres dimensiones: el alzado muestra el <b>ancho</b> y el <b>alto</b>; la planta, el <b>ancho</b> y el <b>fondo</b>; y el perfil, el <b>fondo</b> y el <b>alto</b>. Por eso hacen falta varias vistas para conocer el objeto completo. En las vistas no se dibuja ninguna perspectiva: las caras se ven planas, de frente.</p>`,
+      svg: H.viejo(S, 2),
     },
     {
-      html: `<h3>Calcular con escalas</h3><p>Los cálculos de escalas son una <b>proporción</b>. Para pasar de la medida del dibujo a la real, se <b>multiplica</b> por el denominador y se divide por el numerador: en un plano a escala 1:50, una pared que mide 8 cm en el papel mide 8 · 50 = 400 cm = 4 m en la realidad. Para pasar de la real a la del dibujo, se hace al revés: una mesa de 120 cm se dibujará a 1:20 con 120 / 20 = 6 cm. Para averiguar a qué escala está un dibujo, se divide la medida del dibujo entre la real, usando las mismas unidades: si un coche de 4 m (400 cm) mide 8 cm en el dibujo, la escala es 8 : 400 = 1 : 50. Muchos planos y mapas incluyen también una <b>escala gráfica</b>: una barra dividida que indica a qué distancia real equivale cada tramo.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Escala gráfica de un mapa: una barra dividida en tramos de 1 centímetro donde cada tramo son 500 metros, de 0 a 2 kilómetros">${BG}
-        ${t(130, 34, "escala gráfica 1:50 000", { size: 12 })}
-        ${[0, 1, 2, 3].map((i) => `<rect x="${30 + i * 50}" y="70" width="50" height="14" fill="${i % 2 ? "var(--card)" : "var(--ink)"}" stroke="var(--ink)" stroke-width="1.5"/>${t(30 + i * 50, 104, ["0", "500 m", "1 km", "1,5 km"][i], { size: 10 })}`).join("")}${t(230, 104, "2 km", { size: 10 })}
-        ${t(130, 140, "cada tramo de 1 cm = 500 m reales", { size: 11, color: "var(--red)" })}${t(130, 162, "real = dibujo · 50 000", { size: 11, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.6 La colocación de las vistas</h3><p>Las vistas no se colocan de cualquier manera, sino en posiciones fijas para que se sepa cuál es cuál sin escribir sus nombres. En Europa se usa el <mark>sistema europeo</mark>:</p><p>• El <b>alzado</b> se coloca arriba a la izquierda.<br>• La <b>planta</b> se coloca <b>debajo</b> del alzado.<br>• El <b>perfil izquierdo</b> se coloca a la <b>derecha</b> del alzado.</p><p>Las vistas deben estar <b>alineadas</b>: el alzado y la planta tienen el mismo ancho y se corresponden en vertical; el alzado y el perfil tienen la misma altura y se corresponden en horizontal. La planta y el perfil comparten el fondo. Para dibujarlas se usan líneas auxiliares finas que llevan las medidas de una vista a otra.</p><p>En Estados Unidos se usa el <b>sistema americano</b>, en el que la planta se coloca encima del alzado y el perfil derecho a su derecha. Por eso los planos indican con un pequeño símbolo qué sistema usan. Recuerda: en el europeo, «lo que se ve desde arriba va abajo».</p>`,
+      svg: H.viejo(S, 3),
     },
     {
-      html: `<h3>La acotación</h3><p>Aunque el plano esté a escala, las medidas reales se escriben sobre el dibujo para que no haya que medir con regla: es la <mark>acotación</mark>. Cada <b>cota</b> tiene varios elementos: las <b>líneas auxiliares</b>, finas, que prolongan las aristas que se van a medir; la <b>línea de cota</b>, fina y paralela a la medida, que termina en dos flechas; y la <b>cifra de cota</b>, que indica la medida real, normalmente en <b>milímetros</b> sin escribir la unidad. Las normas básicas son: cada medida se acota <b>una sola vez</b>, en la vista donde mejor se vea; las cifras se escriben encima de la línea de cota y se leen desde abajo o desde la derecha; las cotas no deben cruzarse entre sí; y los círculos se acotan con el símbolo Ø de diámetro, y los arcos con R de radio.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Rectángulo acotado: líneas auxiliares, línea de cota con flechas y cifra 80 para el largo, y 40 para el alto; círculo con cota de diámetro 20">${BG}
-        <rect x="50" y="50" width="140" height="70" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/><circle cx="150" cy="85" r="18" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/>
-        <path d="M50 120 V 150 M190 120 V 150" stroke="var(--ink)" stroke-width="1"/>${fl(120, 144, 52, 144, "var(--ink)", 1)}${fl(120, 144, 188, 144, "var(--ink)", 1)}${t(120, 140, "80", { size: 11 })}
-        <path d="M190 50 H 222 M190 120 H 222" stroke="var(--ink)" stroke-width="1"/>${fl(216, 85, 216, 52, "var(--ink)", 1)}${fl(216, 85, 216, 118, "var(--ink)", 1)}${t(232, 89, "40", { size: 11 })}
-        ${fl(150, 85, 137, 72, "var(--ink)", 1)}${t(116, 70, "Ø20", { size: 11, anchor: "end" })}<line x1="118" y1="66" x2="138" y2="73" stroke="var(--ink)"/>
-        ${t(66, 36, "medidas en mm", { size: 10, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.7 Cómo dibujar las vistas de una pieza</h3><p>Para obtener las vistas de una pieza conviene seguir un orden:</p><p>1. <b>Observa</b> la pieza y elige el alzado: la cara más característica, la que mejor muestra su forma.<br>2. <b>Mide</b> las tres dimensiones generales: ancho, alto y fondo.<br>3. Dibuja con líneas finas los <b>rectángulos</b> que encierran cada vista, alineados según el sistema europeo.<br>4. Dibuja dentro de cada rectángulo los <b>detalles</b>: escalones, ranuras, agujeros. Usa líneas auxiliares para llevar las medidas de una vista a otra.<br>5. Dibuja con línea <b>discontinua</b> las aristas que no se ven desde esa dirección y con <b>trazo y punto</b> los ejes de los agujeros.<br>6. <b>Repasa</b> con línea gruesa las aristas visibles y borra las líneas auxiliares que sobren.</p><p>Un truco: si una arista se ve en una vista, se dibuja continua; si está tapada por otra parte de la pieza, discontinua. Comprueba siempre que cada detalle aparece en las tres vistas en posiciones coherentes.</p>`,
+      svg: H.flujo("Pasos para dibujar las vistas", ["Elegir alzado y medir", "Rectángulos alineados", "Detalles, ocultas y ejes", "Repasar visibles y borrar auxiliares"], "Dibujar vistas paso a paso"),
     },
     {
-      html: `<h3>Las perspectivas</h3><p>Las vistas son precisas, pero cuesta imaginar el objeto. Las <mark>perspectivas</mark> lo representan en un solo dibujo con sus tres dimensiones, como si lo viéramos en el espacio. En el dibujo técnico se usan sobre todo dos. La <mark>perspectiva isométrica</mark> usa tres ejes que forman entre sí <b>120°</b>: uno vertical y dos inclinados 30° respecto a la horizontal. Las medidas se llevan sobre los tres ejes con su tamaño real. Se dibuja fácilmente con la escuadra y el cartabón o con papel isométrico (con una trama de triángulos). La <mark>perspectiva caballera</mark> dibuja la cara frontal en su forma verdadera (con un eje vertical y otro horizontal), y la profundidad con un tercer eje inclinado <b>45°</b>, en el que las medidas se reducen, normalmente a la mitad, para que no parezca demasiado alargado.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un cubo en perspectiva isométrica con tres ejes a 120 grados y el mismo cubo en perspectiva caballera con la cara frontal real y la profundidad a 45 grados reducida a la mitad">${BG}
-        <path d="M66 140 L 26 117 L 26 71 L 66 94 Z" fill="var(--pen)" fill-opacity=".3" stroke="var(--ink)" stroke-width="2"/><path d="M66 140 L 106 117 L 106 71 L 66 94 Z" fill="var(--pen)" fill-opacity=".5" stroke="var(--ink)" stroke-width="2"/><path d="M66 94 L 26 71 L 66 48 L 106 71 Z" fill="var(--pen)" fill-opacity=".15" stroke="var(--ink)" stroke-width="2"/>
-        ${t(66, 166, "isométrica (120°)", { size: 10 })}
-        <rect x="150" y="80" width="54" height="54" fill="var(--red)" fill-opacity=".3" stroke="var(--ink)" stroke-width="2"/><path d="M150 80 L 169 61 L 223 61 L 204 80 Z" fill="var(--red)" fill-opacity=".15" stroke="var(--ink)" stroke-width="2"/><path d="M204 80 L 223 61 L 223 115 L 204 134 Z" fill="var(--red)" fill-opacity=".45" stroke="var(--ink)" stroke-width="2"/>
-        ${t(190, 166, "caballera (45°, ½)", { size: 10 })}</svg>`,
-      video: { id: "7n53T63Koe8", titulo: "Dibujar perspectiva isométrica conocidos el alzado, planta y perfil", canal: "Curso de dibujo", vistas: 395559 },
+      html: `<h3>1.8 La escala</h3><p>Muchos objetos son demasiado grandes (una casa) o demasiado pequeños (un chip) para dibujarlos a su tamaño real. Por eso se usa la <mark>escala</mark>: la relación entre la medida del dibujo y la medida real del objeto.</p><p style="text-align:center"><b>Escala = medida en el dibujo / medida real</b></p><p>Se escribe como una división de dos números: <b>E 1:50</b> significa que 1 unidad en el dibujo equivale a 50 unidades en la realidad. Hay tres tipos:</p><p>• <b>Escala natural</b> (1:1): el dibujo tiene el mismo tamaño que el objeto.<br>• <b>Escala de reducción</b> (1:2, 1:10, 1:100…): el dibujo es más pequeño. Se usa en planos de casas (1:50, 1:100) y mapas.<br>• <b>Escala de ampliación</b> (2:1, 5:1, 10:1…): el dibujo es más grande. Se usa en piezas pequeñas, como los componentes de un reloj.</p><p>Para calcular la medida del dibujo se multiplica la medida real por la escala; para calcular la real, se divide la del dibujo entre la escala. Las medidas que se escriben en las cotas son siempre las <b>reales</b>.</p>`,
+      svg: H.formula("Fórmula de la escala", "La escala", "E = dibujo / realidad", ["1:100 → 1 cm del plano son 100 cm reales", "Reducción 1:n · Ampliación n:1", "Las cotas indican siempre la medida real"], "var(--leaf)"),
+      video: H.vid(S, 4),
     },
     {
-      html: `<h3>El dibujo con ordenador</h3><p>Hoy la mayoría de los planos se hacen con programas de <mark>diseño asistido por ordenador (CAD)</mark>. Hay programas de <b>dibujo en 2D</b>, que sustituyen al papel y los instrumentos (LibreCAD, QCAD, el dibujo vectorial de Inkscape o Draw), y programas de <b>modelado en 3D</b>, en los que se construye el objeto como si fuera de arcilla virtual y el programa genera automáticamente las vistas y las perspectivas (Tinkercad, FreeCAD, SketchUp, Onshape). Las ventajas son muchas: precisión total, facilidad para corregir y copiar, acotación automática, trabajo en equipo en la nube y la posibilidad de enviar el modelo directamente a una <b>impresora 3D</b> o a una cortadora láser para fabricarlo. <b>Tinkercad</b>, gratuito y en el navegador, es una buena forma de empezar: se combinan formas básicas (cubos, cilindros, esferas) sumándolas o restándolas como «huecos».</p>`,
+      html: `<h3>1.9 Cálculos con escalas y escala gráfica</h3><p>Veamos algunos ejemplos de cálculos con escalas:</p><p>• Una habitación de 4 m de largo se dibuja a escala 1:50. Pasamos a centímetros: 400 cm. Medida en el plano: 400 / 50 = <b>8 cm</b>.<br>• En un plano a escala 1:100, una pared mide 6,5 cm. Medida real: 6,5 · 100 = 650 cm = <b>6,5 m</b>.<br>• Un tornillo de 4 mm se dibuja a escala 5:1. Medida en el dibujo: 4 · 5 = <b>20 mm</b>.<br>• Para saber la escala: si un coche de 4 m mide 8 cm en el dibujo, E = 8 / 400 = 1 / 50, es decir, <b>1:50</b>.</p><p>En los mapas y planos que pueden ampliarse o reducirse (por ejemplo, al imprimir o en una pantalla) se usa también la <mark>escala gráfica</mark>: una barra dividida en tramos, cada uno de los cuales indica la distancia real que representa. Tiene una gran ventaja: si el mapa se amplía o se reduce, la barra cambia de tamaño con él y sigue siendo válida. Para medir, basta con comparar una distancia del mapa con la barra.</p>`,
+      svg: H.viejo(S, 5),
+    },
+    {
+      html: `<h3>1.10 La acotación</h3><p><mark>Acotar</mark> es indicar en el dibujo las medidas reales del objeto para poder fabricarlo. Cada medida se llama <b>cota</b>. Los elementos de una cota son:</p><p>• Las <b>líneas auxiliares</b> de cota: líneas finas que salen perpendiculares a la pieza, sin tocarla, desde los extremos de lo que se mide.<br>• La <b>línea de cota</b>: línea fina paralela a la arista que se mide, terminada en dos flechas que tocan las líneas auxiliares.<br>• La <b>cifra de cota</b>: el número que indica la medida, escrito encima de la línea de cota, centrado y legible desde abajo o desde la derecha.</p><p>Normas básicas: las medidas se expresan en <b>milímetros</b> sin escribir la unidad; cada medida se acota <b>una sola vez</b>, en la vista donde mejor se vea; las cotas se colocan <b>fuera</b> de la pieza siempre que se pueda; no se acota sobre aristas ocultas; y en las circunferencias se indica el diámetro con el símbolo <b>Ø</b> y en los arcos, el radio con la letra <b>R</b>. Un plano bien acotado tiene todas las medidas necesarias, sin repetirlas.</p>`,
+      svg: H.viejo(S, 6),
+    },
+    {
+      html: `<h3>1.11 Las perspectivas</h3><p>Las vistas son muy precisas, pero cuesta imaginar el objeto con ellas. Las <mark>perspectivas</mark> representan el objeto en un solo dibujo que muestra a la vez sus tres dimensiones, tal como lo veríamos. Las más usadas en Tecnología son dos:</p><p>• La <mark>perspectiva isométrica</mark> se dibuja sobre tres ejes que forman entre sí <b>ángulos de 120°</b>: uno vertical y dos inclinados 30° respecto a la horizontal (se trazan con el cartabón). Las medidas se llevan sobre los ejes <b>sin reducir</b>. Las tres caras visibles se ven igual de deformadas. Es muy útil para dibujar piezas con aspecto realista.<br>• La <mark>perspectiva caballera</mark> dibuja la cara frontal en su <b>verdadera forma</b>, de frente, y la profundidad con líneas inclinadas, normalmente a <b>45°</b> (con la escuadra), reduciendo esas medidas a la <b>mitad</b> para que no parezca demasiado alargada. Es más rápida y muy útil cuando la cara frontal tiene círculos o formas complicadas.</p><p>Para dibujarlas a mano es útil el papel de trama isométrica, con puntos o líneas ya colocados.</p>`,
+      svg: H.viejo(S, 7),
+      video: H.vid(S, 7),
+    },
+    {
+      html: `<h3>1.12 El dibujo asistido por ordenador</h3><p>Hoy la mayoría de los planos se hacen con programas de <mark>diseño asistido por ordenador</mark>, conocidos por sus siglas en inglés: <b>CAD</b> (Computer Aided Design). Permiten dibujar con una precisión perfecta, modificar el diseño sin empezar de cero, copiar elementos, acotar automáticamente, imprimir a cualquier escala y compartir los archivos.</p><p>Hay dos tipos de programas:</p><p>• Los de <b>dibujo en 2D</b>, para hacer planos con vistas, como LibreCAD o QCAD.<br>• Los de <b>modelado en 3D</b>, en los que se construye un modelo virtual del objeto que se puede girar y observar desde cualquier ángulo, y del que el programa obtiene automáticamente las vistas y las perspectivas. Para empezar, Tinkercad (gratuito y en línea) permite crear piezas combinando formas básicas; FreeCAD o SketchUp son más avanzados.</p><p>Los modelos 3D se pueden fabricar directamente con una <b>impresora 3D</b>, que construye la pieza capa a capa con plástico fundido (normalmente PLA), o con una cortadora láser. Así, el diseño pasa del ordenador a un objeto real en pocas horas.</p>`,
+      svg: H.flujo("Del diseño por ordenador a la pieza real", ["Boceto de la idea", "Modelo 3D en un programa CAD", "Vistas, cotas y plano automático", "Fabricación: impresora 3D o láser"], "Diseño asistido por ordenador"),
     },
   ],
-  figura: {
-    titulo: "Formas de representar un objeto",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Resumen: vistas (alzado, planta y perfil), escala (dibujo entre realidad), acotación (medidas en milímetros) y perspectivas (isométrica y caballera)">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["Vistas", "alzado · planta", "perfil", "var(--pen)"], ["Escala", "E = dibujo : real", "1:50 · 2:1", "var(--red)"], ["Cotas", "medidas reales", "en milímetros", "#b8860b"], ["Perspectiva", "isométrica", "caballera", "var(--leaf)"]].map(([a, b, c, col], i) => { const x = 20 + i * 152; return `<rect x="${x}" y="40" width="140" height="160" rx="14" fill="var(--card)" stroke="${col}" stroke-width="2.5"/>${t(x + 70, 82, a, { size: 17, color: col, font: D })}${t(x + 70, 126, b, { size: 13, weight: 400 })}${t(x + 70, 156, c, { size: 13, weight: 400 })}`; }).join("")}
-    </svg>`,
-  },
-  video: { id: "rM3-D-b4Ga8", titulo: "Alzado, planta y perfil de una pieza: ejercicios de vistas", canal: "CursoTutorial", vistas: 142530, megusta: 1448, busqueda: "vistas alzado planta perfil escalas" },
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    { enunciado: "En un plano a escala 1:50, una habitación mide 8 cm × 6 cm. ¿Cuáles son sus medidas reales?",
-      pasos: ["Real = dibujo · 50.", "8 · 50 = 400 cm = 4 m; 6 · 50 = 300 cm = 3 m.", "La habitación mide 4 m × 3 m (12 m²)."],
-      resultado: "4 m × 3 m." },
-    { enunciado: "Quieres dibujar a escala 5:1 un tornillo de 6 mm de largo. ¿Cuánto medirá en el dibujo?",
-      pasos: ["Escala de ampliación: dibujo = real · 5.", "6 · 5 = 30 mm.", "En el dibujo medirá 3 cm."],
-      resultado: "30 mm." },
-    { enunciado: "Un coche de 4,5 m aparece en un dibujo con 9 cm. ¿A qué escala está?",
-      pasos: ["Misma unidad: 4,5 m = 450 cm.", "E = 9 : 450.", "Dividimos entre 9: 1 : 50."],
-      resultado: "Escala 1:50." },
+    { enunciado: "Una mesa de 1,2 m de largo se dibuja a escala 1:20. ¿Cuánto mide en el plano?", pasos: ["Pasamos a la misma unidad: 1,2 m = 120 cm.", "Medida en el plano = medida real / 20.", "120 / 20 = 6 cm."], resultado: "6 cm." },
+    { enunciado: "En un plano a escala 1:200 una calle mide 7,5 cm. ¿Cuál es su longitud real?", pasos: ["Medida real = medida del plano · 200.", "7,5 · 200 = 1.500 cm.", "1.500 cm = 15 m."], resultado: "15 m." },
+    { enunciado: "Una pieza de un reloj mide 3 mm. Se quiere dibujar de 30 mm. ¿Qué escala se usa?", pasos: ["E = dibujo / realidad = 30 / 3.", "E = 10, es decir, 10:1.", "Es una escala de ampliación."], resultado: "10:1." },
+    { enunciado: "Una pieza es un prisma de 60 mm de ancho, 40 mm de alto y 20 mm de fondo. ¿Qué dimensiones tiene cada vista?", pasos: ["Alzado: ancho × alto = 60 × 40 mm.", "Planta: ancho × fondo = 60 × 20 mm.", "Perfil: fondo × alto = 20 × 40 mm."], resultado: "Alzado 60 × 40; planta 60 × 20; perfil 20 × 40." },
+    { enunciado: "En una pieza con un agujero que la atraviesa de arriba abajo, ¿cómo se ve el agujero en la planta y en el alzado?", pasos: ["En la planta (desde arriba) el agujero se ve: circunferencia con línea gruesa continua y ejes de trazo y punto.", "En el alzado (de frente) el agujero está dentro de la pieza y no se ve.", "Se dibuja con dos líneas discontinuas verticales y su eje de trazo y punto."], resultado: "Circunferencia continua en planta; líneas discontinuas en alzado." },
+    { enunciado: "Dibuja un cubo de 30 mm en perspectiva caballera. ¿Qué medidas se llevan sobre cada eje?", pasos: ["La cara frontal se dibuja en verdadera magnitud: cuadrado de 30 × 30 mm.", "La profundidad se dibuja con líneas a 45°.", "Sobre el eje a 45° se lleva la mitad de la medida: 15 mm.", "Se unen los extremos y se repasan las aristas visibles."], resultado: "Frente de 30 × 30 mm y profundidad de 15 mm a 45°." },
   ],
   errores: [
     "Colocar la planta encima del alzado: en el sistema europeo va debajo.",
     "Dibujar las aristas ocultas con línea continua: van con línea discontinua.",
-    "Acotar con la medida del dibujo en lugar de la medida real.",
-    "Calcular la escala sin pasar antes las dos medidas a la misma unidad.",
-    "Confundir isométrica y caballera: la caballera tiene la cara frontal sin deformar y la profundidad a 45°.",
+    "Escribir en las cotas la medida del dibujo en lugar de la medida real.",
+    "Confundir escala de reducción y de ampliación: en 1:50 el dibujo es más pequeño; en 5:1, más grande.",
+    "Acotar la misma medida en varias vistas o meter las cotas dentro de la pieza sin necesidad.",
+    "En perspectiva caballera, llevar la profundidad completa en lugar de reducirla a la mitad.",
   ],
-  ejercicios: [
-    { q: "¿Qué diferencia hay entre boceto, croquis y plano?", sol: "Boceto: a mano alzada, sin medidas. Croquis: a mano alzada, con medidas y proporciones. Plano: con instrumentos o CAD, preciso y a escala." },
-    { q: "¿Qué tipo de línea usarías para: una arista visible, un eje de simetría, una arista oculta?", sol: "Gruesa continua, fina de trazo y punto, y discontinua." },
-    { q: "¿Qué dimensiones muestra cada vista?", sol: "Alzado: largo y alto. Planta: largo y ancho. Perfil: ancho y alto." },
-    { q: "Dibuja en tu cuaderno el alzado, la planta y el perfil de un dado y de una pieza en forma de escalón de dos peldaños.", sol: "Dado: tres cuadrados iguales. Escalón: alzado en forma de escalera, planta un rectángulo dividido por una línea, perfil un rectángulo." },
-    { q: "Clasifica las escalas en natural, reducción o ampliación: 1:1, 1:200, 10:1, 1:5.", sol: "1:1 natural; 1:200 y 1:5 de reducción; 10:1 de ampliación." },
-    { q: "En un mapa 1:25 000, dos pueblos están a 8 cm. ¿Qué distancia real los separa?", sol: "8 · 25 000 = 200 000 cm = 2 km." },
-    { q: "Una mesa mide 160 cm × 80 cm. ¿Cuánto medirá dibujada a 1:20?", sol: "8 cm × 4 cm." },
-    { q: "Un insecto de 12 mm se dibuja con 6 cm. ¿A qué escala?", sol: "60 mm : 12 mm = 5 : 1 (ampliación)." },
-    { q: "Escribe tres normas de acotación.", sol: "Cada medida se acota una sola vez, las cifras van encima de la línea de cota y en mm, las cotas no se cruzan (también: Ø para diámetros y R para radios)." },
-    { q: "¿Qué ángulos forman los ejes en la perspectiva isométrica? ¿Y en la caballera?", sol: "Isométrica: 120° entre sí (30° con la horizontal). Caballera: 90° entre el vertical y el horizontal y el tercer eje a 45°, con reducción." },
-  ],
-  quiz: [
-    { q: "La vista de frente se llama…", o: ["planta", "alzado", "perfil"], a: 1, e: "Alzado." },
-    { q: "La vista desde arriba es la…", o: ["planta", "alzado", "perfil"], a: 0, e: "Planta." },
-    { q: "En el sistema europeo, la planta va…", o: ["encima del alzado", "debajo del alzado", "a la izquierda"], a: 1, e: "Debajo." },
-    { q: "Las aristas ocultas se dibujan con línea…", o: ["continua gruesa", "discontinua", "de trazo y punto"], a: 1, e: "Discontinua." },
-    { q: "La escala 1:100 es de…", o: ["ampliación", "reducción", "tamaño natural"], a: 1, e: "Reducción." },
-    { q: "En escala 1:100, 3 cm del plano son…", o: ["3 m", "30 cm", "300 m"], a: 0, e: "300 cm = 3 m." },
-    { q: "Las cotas se expresan normalmente en…", o: ["cm", "mm", "m"], a: 1, e: "Milímetros." },
-    { q: "El símbolo Ø indica…", o: ["radio", "diámetro", "ángulo"], a: 1, e: "Diámetro." },
-    { q: "En la isométrica los ejes forman…", o: ["90°", "120°", "45°"], a: 1, e: "120°." },
-    { q: "Un programa de modelado 3D gratuito en el navegador es…", o: ["Tinkercad", "Word", "Excel"], a: 0, e: "Tinkercad." },
-  ],
-  examen: [
-    { q: "El formato A4 mide…", o: ["210 × 297 mm", "297 × 420 mm", "100 × 150 mm"], a: 0, e: "210 × 297 mm." },
-    { q: "Para acotar el radio de un arco se usa…", o: ["Ø", "R", "A"], a: 1, e: "R." },
-    { q: "En la perspectiva caballera, las medidas del eje a 45° se…", o: ["duplican", "reducen", "mantienen siempre"], a: 1, e: "Se reducen, normalmente a la mitad." },
-  ],
-  feynman: ["Qué son el alzado, la planta y el perfil y cómo se colocan", "Cómo se calcula una medida real con la escala", "Qué diferencia hay entre la perspectiva isométrica y la caballera"],
-  mapa: mapa("DIBUJO TÉCNICO", "var(--eso)", [
-    ["Vistas", "alzado · planta · perfil", "var(--pen)"],
-    ["Escala", "natural · reducción · ampliación", "var(--red)"],
-    ["Acotación", "líneas · flechas · cifras en mm", "#b8860b"],
+  ejercicios: H.niveles([
+    ["¿En qué se diferencia el dibujo técnico del dibujo artístico?", "El técnico describe objetos con precisión y objetividad siguiendo normas, para que todos lo interpreten igual. El artístico expresa ideas o emociones de forma personal."],
+    ["Define boceto, croquis y plano.", "Boceto: dibujo rápido a mano alzada de una idea, sin medidas. Croquis: dibujo a mano alzada con vistas y medidas. Plano: dibujo definitivo a escala, con instrumentos o con ordenador, con todas las medidas y cajetín."],
+    ["¿Qué ángulos tienen la escuadra y el cartabón?", "La escuadra: 90°, 45° y 45°. El cartabón: 90°, 60° y 30°."],
+    ["¿Cuánto mide un folio A4? ¿Y un A3?", "A4: 210 × 297 mm. A3: 297 × 420 mm (el doble de un A4)."],
+    ["¿Qué tipo de línea se usa para las aristas visibles, las ocultas y los ejes?", "Visibles: gruesa continua. Ocultas: fina discontinua. Ejes: fina de trazo y punto."],
+    ["Nombra las tres vistas principales y la dirección desde la que se mira cada una.", "Alzado: de frente. Planta: desde arriba. Perfil: desde un lado (normalmente desde la izquierda)."],
+    ["¿Dónde se coloca la planta en el sistema europeo? ¿Y el perfil izquierdo?", "La planta, debajo del alzado. El perfil izquierdo, a la derecha del alzado."],
+    ["¿Qué significa escala 1:100?", "Que 1 unidad en el dibujo equivale a 100 unidades reales: 1 cm del plano son 100 cm (1 m) en la realidad. Es una escala de reducción."],
+    ["Escribe los tres elementos de una cota.", "Líneas auxiliares de cota, línea de cota con flechas y cifra de cota."],
+    ["¿Qué significan las siglas CAD?", "Diseño asistido por ordenador (Computer Aided Design)."],
+  ], [
+    ["Una puerta de 2,1 m de alto se dibuja a escala 1:50. ¿Cuánto mide en el plano?", "2,1 m = 210 cm. 210 / 50 = 4,2 cm."],
+    ["En un mapa a escala 1:25.000, dos pueblos están a 8 cm. ¿Qué distancia real los separa?", "8 · 25.000 = 200.000 cm = 2.000 m = 2 km."],
+    ["Un insecto de 12 mm se dibuja a escala 5:1. ¿Cuánto mide en el dibujo?", "12 · 5 = 60 mm = 6 cm."],
+    ["Un campo de fútbol de 100 m mide 20 cm en un plano. ¿Qué escala tiene?", "100 m = 10.000 cm. E = 20 / 10.000 = 1 / 500. Escala 1:500."],
+    ["¿Qué dimensiones del objeto aparecen en el alzado, en la planta y en el perfil?", "Alzado: ancho y alto. Planta: ancho y fondo. Perfil: fondo y alto."],
+    ["Explica por qué las vistas deben estar alineadas.", "Porque comparten dimensiones: el alzado y la planta tienen el mismo ancho; el alzado y el perfil, la misma altura. Al alinearlas, se pueden llevar las medidas de una a otra con líneas auxiliares y se ve la correspondencia de cada detalle."],
+    ["¿Qué ventaja tiene la escala gráfica frente a la numérica?", "Que si el plano o el mapa se amplía o se reduce (al fotocopiarlo o verlo en pantalla), la barra cambia de tamaño con él y sigue siendo correcta; la escala numérica dejaría de ser válida."],
+    ["Escribe cuatro normas de acotación.", "Las medidas en milímetros sin escribir la unidad; cada medida se acota una sola vez; las cotas fuera de la pieza si es posible; no acotar sobre aristas ocultas; usar Ø para diámetros y R para radios."],
+    ["Diferencia entre perspectiva isométrica y caballera.", "Isométrica: tres ejes a 120°, dos inclinados 30°, y todas las medidas sin reducir. Caballera: cara frontal en verdadera forma y profundidad a 45° reducida a la mitad."],
+    ["¿Por qué en la caballera se reduce la profundidad a la mitad?", "Porque si se dibujara completa, el objeto parecería mucho más alargado de lo que es. Reducirla da un aspecto más realista."],
+    ["Explica qué contiene el cajetín de un plano.", "El título de la pieza o del plano, el nombre del autor, la fecha, la escala, el número de plano y, a veces, el centro o la empresa y el sistema de representación."],
+    ["Nombra dos programas de CAD y di si son de 2D o 3D.", "Por ejemplo: LibreCAD (2D), Tinkercad (3D), FreeCAD (3D) o SketchUp (3D)."],
+  ], [
+    ["El plano de una habitación a escala 1:50 mide 9 × 7 cm. Calcula sus medidas reales y su superficie.", "9 · 50 = 450 cm = 4,5 m; 7 · 50 = 350 cm = 3,5 m. Superficie: 4,5 · 3,5 = 15,75 m²."],
+    ["Quieres dibujar en un A4 (dejando márgenes, unos 250 × 180 mm útiles) la planta de una clase de 10 × 7 m. ¿Qué escala de las normalizadas (1:20, 1:50, 1:100) elegirías?", "Con 1:20: 500 × 350 mm, no cabe. Con 1:50: 200 × 140 mm, cabe bien. Con 1:100: 100 × 70 mm, cabe pero queda pequeño. Se elige 1:50."],
+    ["Una pieza en forma de L tiene 60 mm de ancho, 40 mm de alto y 30 mm de fondo; el escalón superior mide 20 mm de ancho. Describe sus tres vistas.", "Alzado: una L de 60 × 40 mm con la parte alta de 20 mm de ancho. Planta: rectángulo de 60 × 30 mm con una línea que separa la zona alta (20 mm) de la baja. Perfil izquierdo: rectángulo de 30 × 40 mm con una línea horizontal a la altura del escalón."],
+    ["Explica por qué con dos vistas a veces no basta para definir una pieza. Pon un ejemplo.", "Porque piezas distintas pueden tener dos vistas iguales. Por ejemplo, un cilindro y un prisma cuadrado pueden tener el mismo alzado y el mismo perfil (rectángulos); solo la planta (círculo o cuadrado) los distingue."],
+    ["Un modelo de tren a escala 1:87 mide 23 cm. ¿Cuánto mide el tren real? ¿Y una persona de 1,74 m a esa escala?", "Tren real: 23 · 87 = 2.001 cm ≈ 20 m. Persona: 174 / 87 = 2 cm."],
+    ["Compara las ventajas e inconvenientes de dibujar a mano y con CAD.", "A mano: rápido para bocetos, no necesita ordenador y desarrolla la visión espacial; pero es lento para planos definitivos y difícil de modificar. CAD: precisión perfecta, fácil de modificar y compartir, vistas y cotas automáticas y conexión con la impresión 3D; pero exige aprender el programa y tener un ordenador."],
+    ["Se dibuja en isométrica un cubo de 40 mm. ¿Qué longitud tienen sus aristas en el dibujo y qué ángulos forman los ejes?", "Las aristas se dibujan con 40 mm, sin reducir, sobre tres ejes que forman 120° entre sí: uno vertical y dos a 30° de la horizontal."],
+    ["Diseña el proceso para fabricar un llavero con impresión 3D desde la idea hasta la pieza.", "1) Bocetos de varias ideas. 2) Croquis acotado del elegido (por ejemplo 50 × 30 × 4 mm con un agujero de Ø5). 3) Modelado en Tinkercad combinando formas y restando el agujero. 4) Exportar el archivo y prepararlo para la impresora. 5) Imprimir en PLA. 6) Comprobar medidas y mejorar."],
+  ]),
+  quiz: H.test([
+    ["El dibujo técnico debe ser…", ["preciso y objetivo", "personal y expresivo", "siempre en color", "sin medidas"], "Todos deben entenderlo igual."],
+    ["Un dibujo rápido a mano alzada de una idea es un…", ["boceto", "plano", "croquis acotado", "cajetín"], "Se hace al principio del diseño."],
+    ["El dibujo definitivo a escala y con cajetín es el…", ["plano", "boceto", "croquis", "esbozo"], "Con él se fabrica el objeto."],
+    ["El cartabón tiene ángulos de…", ["90°, 60° y 30°", "90°, 45° y 45°", "120° y 60°", "90° y 90°"], "La escuadra tiene 45° y 45°."],
+    ["Un folio A4 mide…", ["210 × 297 mm", "297 × 420 mm", "148 × 210 mm", "200 × 300 mm"], "El A3 es el doble."],
+    ["Las aristas ocultas se dibujan con línea…", ["discontinua", "gruesa continua", "de trazo y punto", "ondulada"], "No se ven desde esa dirección."],
+    ["Los ejes de simetría se dibujan con línea…", ["de trazo y punto", "discontinua", "gruesa continua", "doble"], "Línea fina."],
+    ["La vista desde arriba se llama…", ["planta", "alzado", "perfil", "sección"], "El alzado es de frente."],
+    ["En el sistema europeo, la planta va…", ["debajo del alzado", "encima del alzado", "a la izquierda del alzado", "en cualquier lugar"], "Lo de arriba va abajo."],
+    ["El alzado muestra…", ["el ancho y el alto", "el ancho y el fondo", "el fondo y el alto", "solo el fondo"], "Es la vista de frente."],
+    ["Una escala 1:50 es de…", ["reducción", "ampliación", "natural", "gráfica"], "El dibujo es 50 veces menor."],
+    ["Una escala 10:1 es de…", ["ampliación", "reducción", "natural", "mapa"], "Para piezas pequeñas."],
+    ["A escala 1:100, 3 cm del plano son…", ["3 m reales", "30 cm reales", "300 m reales", "0,3 m reales"], "3 · 100 = 300 cm."],
+    ["La ventaja de la escala gráfica es que…", ["sigue valiendo si se amplía el mapa", "es más bonita", "no necesita medir", "solo sirve en planos"], "Cambia de tamaño con el dibujo."],
+    ["Las cotas se expresan normalmente en…", ["milímetros", "metros", "centímetros", "pulgadas"], "Y no se escribe la unidad."],
+    ["El símbolo Ø indica…", ["diámetro", "radio", "ángulo", "escala"], "R indica el radio."],
+    ["En la perspectiva isométrica los ejes forman…", ["120°", "90°", "45°", "60°"], "Uno vertical y dos a 30°."],
+    ["En la perspectiva caballera, la profundidad se dibuja…", ["a 45° y reducida a la mitad", "a 30° sin reducir", "vertical", "a 90°"], "La cara frontal va en verdadera forma."],
+    ["Tinkercad es un programa de…", ["modelado 3D", "hojas de cálculo", "edición de vídeo", "navegación web"], "Gratuito y en línea."],
+    ["Las medidas que se escriben en las cotas son…", ["las reales", "las del dibujo", "las de la escala", "aproximadas"], "Aunque el dibujo esté a escala."],
+  ], 3),
+  examen: H.test([
+    ["Una mesa de 1,5 m a escala 1:25 mide en el plano…", ["6 cm", "37,5 cm", "60 cm", "1,5 cm"], "150 / 25."],
+    ["En un plano 1:50 una pared mide 12 cm. En la realidad mide…", ["6 m", "60 cm", "0,24 m", "600 m"], "12 · 50 = 600 cm."],
+    ["Un dibujo de 40 mm de una pieza de 8 mm está a escala…", ["5:1", "1:5", "1:32", "32:1"], "40 / 8 = 5."],
+    ["El perfil muestra…", ["el fondo y el alto", "el ancho y el alto", "el ancho y el fondo", "las tres dimensiones"], "Se mira de lado."],
+    ["Un agujero oculto en el alzado se representa con…", ["líneas discontinuas y su eje", "una circunferencia gruesa", "nada", "una línea ondulada"], "No se ve desde delante."],
+    ["En el sistema europeo, el perfil izquierdo se coloca…", ["a la derecha del alzado", "a la izquierda del alzado", "debajo de la planta", "encima del alzado"], "Se mira desde la izquierda y se dibuja a la derecha."],
+    ["La norma de acotación correcta es…", ["acotar cada medida una sola vez", "acotar sobre aristas ocultas", "escribir siempre «mm»", "repetir las cotas en todas las vistas"], "Sin repetir."],
+    ["Un cubo de 20 mm en caballera tiene una profundidad dibujada de…", ["10 mm", "20 mm", "40 mm", "5 mm"], "La mitad."],
+  ], 1),
+  feynman: ["Para qué sirve el dibujo técnico y qué diferencia hay entre boceto, croquis y plano", "Qué tipos de línea se usan y qué significa cada uno", "Cómo se colocan las vistas en el sistema europeo", "Cómo se calcula una medida con una escala de reducción y de ampliación", "En qué se diferencian la perspectiva isométrica y la caballera"],
+  mapa: H.mapa("DIBUJO TÉCNICO", "var(--eso)", [
+    ["Normas", "formatos · cajetín · líneas", "var(--pen)"],
+    ["Vistas", "alzado · planta · perfil", "var(--red)"],
+    ["Escalas y cotas", "1:50 · 5:1 · medidas reales", "#b8860b"],
     ["Perspectivas", "isométrica · caballera · CAD", "var(--leaf)"],
-  ], 300),
+  ], 260),
   tarjetas: [
-    ["Alzado", "Vista de frente; muestra largo y alto."],
-    ["Planta", "Vista desde arriba; va debajo del alzado."],
-    ["Perfil", "Vista lateral; el izquierdo va a la derecha del alzado."],
-    ["Escala", "Relación dibujo : realidad."],
-    ["Escala 1:100", "1 cm del dibujo son 100 cm reales."],
-    ["Cota", "Medida real escrita sobre el dibujo, en mm."],
-    ["Isométrica", "Perspectiva con tres ejes a 120° y medidas reales."],
-    ["CAD", "Diseño asistido por ordenador, en 2D o 3D."],
+    ["Boceto", "Idea rápida a mano alzada, sin medidas."],
+    ["Croquis", "A mano alzada, con vistas y medidas."],
+    ["Plano", "Definitivo, a escala, con cajetín."],
+    ["A4", "210 × 297 mm."],
+    ["Línea discontinua", "Aristas ocultas."],
+    ["Trazo y punto", "Ejes y centros."],
+    ["Alzado, planta, perfil", "De frente, desde arriba, de lado."],
+    ["Sistema europeo", "Planta debajo; perfil izquierdo a la derecha."],
+    ["Escala", "Dibujo / realidad; 1:50 reduce, 5:1 amplía."],
+    ["Cota", "Medida real en mm: auxiliares, línea y cifra."],
+    ["Isométrica", "Ejes a 120°; medidas sin reducir."],
+    ["Caballera", "Frente real; fondo a 45° y a la mitad."],
   ],
-  familias: ["Dibujad juntos el alzado, la planta y el perfil de un objeto de la cocina (una caja de cereales, una taza).", "Buscad la escala de un mapa de carreteras o de la app de mapas y calculad la distancia a un pueblo cercano.", "Probad Tinkercad y diseñad un llavero con vuestro nombre."],
-  profesores: {
-    saberes: "Comunicación y difusión de ideas: expresión gráfica, bocetos, croquis, vistas, escalas, acotación, perspectivas y aplicaciones CAD (RD 217/2022, Tecnología y Digitalización, bloque B).",
-    ideas: ["Piezas de madera o bloques de construcción reales para dibujar sus vistas.", "Plano a escala del aula con medidas tomadas por grupos.", "Diseño en Tinkercad de una pieza sencilla y obtención de sus vistas."],
+  glosario: [
+    ["Dibujo técnico", "Representación gráfica precisa de objetos siguiendo normas comunes."],
+    ["Boceto", "Dibujo rápido a mano alzada que plasma una idea."],
+    ["Croquis", "Dibujo a mano alzada con las vistas y las medidas de un objeto."],
+    ["Plano", "Dibujo definitivo a escala con todas las medidas y el cajetín."],
+    ["Normalización", "Conjunto de reglas que unifican la forma de dibujar y fabricar."],
+    ["Cajetín", "Recuadro del plano con el título, el autor, la fecha y la escala."],
+    ["Vista", "Dibujo de lo que se ve de un objeto mirándolo de frente desde una dirección."],
+    ["Alzado", "Vista frontal de un objeto."],
+    ["Planta", "Vista superior de un objeto."],
+    ["Perfil", "Vista lateral de un objeto."],
+    ["Escala", "Relación entre la medida del dibujo y la medida real."],
+    ["Escala gráfica", "Barra dividida en tramos que indica la distancia real que representa cada uno."],
+    ["Cota", "Indicación de una medida real del objeto en el dibujo."],
+    ["Perspectiva isométrica", "Representación con tres ejes a 120° y medidas sin reducir."],
+    ["Perspectiva caballera", "Representación con la cara frontal real y la profundidad a 45° reducida."],
+    ["CAD", "Diseño asistido por ordenador."],
+  ],
+  situacion: {
+    titulo: "El plano de nuestra aula ideal",
+    reto: "El centro quiere reorganizar el mobiliario de un aula para que sea más cómoda y permita trabajar en equipo. Vuestro equipo medirá el aula y sus muebles y presentará un plano a escala con una propuesta de distribución, además de un mueble nuevo diseñado en 3D.",
+    pasos: [
+      "Haced un croquis acotado del aula midiendo paredes, puertas, ventanas y muebles con un metro.",
+      "Elegid la escala adecuada para que el plano quepa en un A3 y dibujad la planta con útiles de dibujo y cajetín.",
+      "Recortad a la misma escala las mesas y armarios en cartulina y probad distintas distribuciones.",
+      "Diseñad un mueble nuevo (estantería o mesa de equipo) con sus vistas acotadas y una perspectiva.",
+      "Modelad el mueble en Tinkercad y, si es posible, imprimid una maqueta en 3D.",
+      "Presentad la propuesta a la clase justificando las decisiones.",
+    ],
+    producto: "Un plano a escala del aula con la distribución propuesta y el diseño de un mueble con vistas, cotas, perspectiva y modelo 3D.",
+    evaluacion: [
+      "El plano respeta la escala, los tipos de línea, el cajetín y las normas de acotación.",
+      "Las vistas del mueble están bien colocadas y son coherentes entre sí.",
+      "La propuesta de distribución está justificada y es realista.",
+      "El modelo 3D corresponde al diseño acotado.",
+    ],
   },
-  fuentes: [RD, wiki("Dibujo técnico", "Dibujo_técnico"), wiki("Escala (cartografía)", "Escala_(cartografía)")],
-  revisado: REV,
+  familias: ["Buscad en casa unas instrucciones de montaje de un mueble y comentad qué tipos de dibujo usan.", "Medid juntos una habitación y dibujad su planta a escala 1:50 en papel cuadriculado.", "Mirad un mapa con escala gráfica y calculad la distancia real entre dos lugares conocidos.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "Expresión gráfica: boceto, croquis y plano; normalización (formatos, líneas, acotación); sistema diédrico (vistas) y perspectivas isométrica y caballera; escalas; diseño asistido por ordenador y fabricación digital (RD 217/2022, Tecnología y Digitalización 1º a 3º, bloque A «Proceso de resolución de problemas»: expresión gráfica, aplicaciones CAD en 2D y 3D y fabricación digital). En Cataluña, saberes equivalentes de Tecnologia i Digitalització del Decret 175/2022.",
+    ideas: [
+      "Dibujar las vistas de piezas reales de madera o de piezas de construcción.",
+      "Juego de adivinar la pieza a partir de sus vistas.",
+      "Uso de papel isométrico para perspectivas a mano.",
+      "Modelado en Tinkercad e impresión 3D de un llavero o un pequeño objeto útil.",
+      "Medición del aula y elaboración del plano a escala por equipos.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Dibujo técnico", "Dibujo_t%C3%A9cnico"), H.wiki("Sistema diédrico", "Sistema_di%C3%A9drico"), { t: "Tinkercad: diseño 3D en línea", url: "https://www.tinkercad.com/" }],
+  revisado: H.REV,
 };
