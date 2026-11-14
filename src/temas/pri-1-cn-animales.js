@@ -1,6 +1,7 @@
-// Ciencias de la Naturaleza 1º de Primaria. Formato ampliado de 1º: frases cortas y un dibujo propio en cada bloque.
+// Ciencias de la Naturaleza 1º de Primaria. Nivel libro: lectura, apartados numerados, ejercicios por niveles, glosario y situación.
 const { mapa } = require("./_util");
 const { F, D, BG, txt, persona, sol, nube, arbol, casa, RD } = require("./_peques");
+const L3 = require("./_pri1L3");
 
 // Animales sencillos. (x, y) = donde apoyan las patas; s = escala.
 const g = (x, y, s, body) => `<g transform="translate(${x} ${y}) scale(${s})">${body}</g>`;
@@ -22,23 +23,24 @@ module.exports = {
   materia: "Ciencias de la Naturaleza",
   curso: "1-primaria",
   titulo: "Los animales",
-  minutos: 25,
+  minutos: 50,
   objetivos: ["Distinguir animales domésticos y salvajes", "Saber cómo nacen, cómo se mueven y qué comen los animales", "Reconocer si un animal tiene pelo, plumas o escamas", "Respetar y cuidar a los animales"],
   claves: ["doméstico", "salvaje", "huevo", "pelo", "plumas", "escamas"],
   pregunta: {
     texto: "Un perro y un león tienen cuatro patas y pelo. ¿Por qué uno vive en casa y el otro no?",
     respuesta: "El perro es un animal <mark>doméstico</mark>: vive con las personas y lo cuidamos. El león es un animal <mark>salvaje</mark>: vive libre en la naturaleza y busca su propia comida.",
   },
+  lectura: L3.lect("Una visita a la granja", `<p>La clase de 1.º va de excursión a una granja. Todos bajan del autobús muy contentos.</p><p>Primero ven las vacas. Una vaca come hierba y dice «muuu». Daniel se tapa la nariz y todos se ríen.</p><p>Después entran en el gallinero. Hay gallinas y unos pollitos amarillos. «Han salido de un huevo», explica el granjero.</p><p>Junto al estanque, Aisha ve una rana que salta. «¿La rana también vive en la granja?», pregunta.</p><p>«No, la rana es salvaje. Vive libre en el estanque», responde el granjero.</p><p>¿Qué animales viven con nosotros? ¿Cuáles viven libres? Vamos a descubrirlo.</p>`),
   bloques: [
     {
-      html: `<h3>Hay animales en todas partes</h3><p>Los animales son <mark>seres vivos</mark>. Nacen, crecen, comen, respiran y mueren.</p><p>Hay animales muy grandes, como el elefante. Hay animales muy pequeños, como la hormiga.</p><p>Viven en casas, granjas, bosques, mares o selvas. Hay millones de animales distintos. ¡Ninguno es igual a otro!</p>`,
+      html: `<h3>1. Hay animales en todas partes</h3><p>Los animales son <mark>seres vivos</mark>. Nacen, crecen, comen, respiran y mueren.</p><p>Hay animales muy grandes, como el elefante. Hay animales muy pequeños, como la hormiga.</p><p>Viven en casas, granjas, bosques, mares o selvas. Hay millones de animales distintos. ¡Ninguno es igual a otro!</p><p>Los animales se parecen y se diferencian en muchas cosas. Vamos a ver cómo nacen, cómo se mueven y qué comen.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un elefante grande, un perro, un pájaro y un pez pequeño">${BG}
         ${elefante(66, 146, 1.6)}${perro(170, 146, 1)}${pajaro(210, 70, 1.1)}${pez(230, 146, 0.8)}
         <path d="M14 148 H 246" stroke="var(--leaf)" stroke-width="3"/>
         ${txt(70, 168, "grande", { size: 12, color: "var(--muted)" })}${txt(196, 168, "pequeños", { size: 12, color: "var(--muted)" })}</svg>`,
     },
     {
-      html: `<h3>Animales domésticos</h3><p>Los <mark>animales domésticos</mark> viven con las personas. Nosotros les damos comida, agua y un lugar para vivir.</p><p>Algunos son <b>mascotas</b>, como el perro, el gato o el hámster.</p><p>Otros viven en la <b>granja</b>: la vaca, la gallina o la oveja. Nos dan leche, huevos o lana.</p>`,
+      html: `<h3>2. Animales domésticos</h3><p>Los <mark>animales domésticos</mark> viven con las personas. Nosotros les damos comida, agua y un lugar para vivir.</p><p>Algunos son <b>mascotas</b>, como el perro, el gato o el hámster.</p><p>Otros viven en la <b>granja</b>: la vaca, la gallina o la oveja. Nos dan leche, huevos o lana.</p><p>Cuidar a un animal doméstico es una gran responsabilidad. Necesita atención todos los días, no solo cuando nos apetece.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Animales domésticos: un perro y un gato junto a la casa, y una vaca y una gallina en la granja">${BG}
         ${casa(40, 120, 1)}${perro(78, 150, 0.75)}${gato(124, 150, 0.8)}
         <path d="M152 150 V 120 M152 126 H 248 M152 140 H 248" stroke="#8a5a2b" stroke-width="3"/>
@@ -48,14 +50,14 @@ module.exports = {
       video: { id: "O5aibKRLz0o", titulo: "Los animales de la granja para niños - Vocabulario para niños", canal: "Smile and Learn - Español", vistas: 34343421, megusta: 0 },
     },
     {
-      html: `<h3>Animales salvajes</h3><p>Los <mark>animales salvajes</mark> viven libres en la naturaleza. Buscan su comida y su refugio ellos solos.</p><p>Viven en la selva, el bosque, el desierto o el mar. El león, el elefante, el lobo y el delfín son salvajes.</p><p>No debemos tocarlos ni darles de comer.</p>`,
+      html: `<h3>3. Animales salvajes</h3><p>Los <mark>animales salvajes</mark> viven libres en la naturaleza. Buscan su comida y su refugio ellos solos.</p><p>Viven en la selva, el bosque, el desierto o el mar. El león, el elefante, el lobo y el delfín son salvajes.</p><p>No debemos tocarlos ni darles de comer.</p><p>Cuando vamos al campo, miramos a los animales desde lejos y en silencio. Así no los asustamos.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un león y un elefante en la sabana, con árboles y sol">${BG}
         ${sol(220, 38, 14)}${arbol(30, 150, 0.9)}${leon(100, 150, 1.2)}${elefante(196, 150, 1.2)}
         <path d="M14 152 H 246" stroke="var(--sun)" stroke-width="3"/>
         ${txt(110, 34, "libres en la naturaleza", { size: 13, color: "var(--inf)" })}</svg>`,
     },
     {
-      html: `<h3>¿Cómo nacen?</h3><p>Algunos animales nacen de la <mark>tripa de su madre</mark>. Así nacen el perro, la vaca y el elefante. De pequeños toman leche de su madre.</p><p>Otros animales nacen de un <mark>huevo</mark>. Así nacen las gallinas, los peces, las ranas y las tortugas. La mamá cuida los huevos.</p>`,
+      html: `<h3>4. ¿Cómo nacen?</h3><p>Algunos animales nacen de la <mark>tripa de su madre</mark>. Así nacen el perro, la vaca y el elefante. De pequeños toman leche de su madre.</p><p>Otros animales nacen de un <mark>huevo</mark>. Así nacen las gallinas, los peces, las ranas y las tortugas. La mamá cuida los huevos.</p><p>Algunas crías nacen muy pequeñas y necesitan a sus padres. Otras, como los peces, se valen solas muy pronto.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una perra con su cachorro y una gallina con un huevo y un pollito">${BG}
         ${perro(54, 140, 1.1)}${perro(100, 140, 0.55)}
         <path d="M130 30 V 160" stroke="var(--line)" stroke-width="2" stroke-dasharray="5 5"/>
@@ -65,7 +67,7 @@ module.exports = {
       video: { id: "L6_evGHFhJE", titulo: "Animales ovíparos y vivíparos para niños", canal: "Heiditablox", vistas: 775439, megusta: 0 },
     },
     {
-      html: `<h3>¿Cómo se mueven?</h3><p>Los animales se mueven de <mark>muchas formas</mark>.</p><p>El perro y el caballo <b>andan</b> y corren con sus patas. El pájaro y la mariposa <b>vuelan</b> con sus alas. El pez <b>nada</b> con sus aletas.</p><p>La serpiente <b>repta</b>: se arrastra por el suelo. La rana y el canguro <b>saltan</b>.</p>`,
+      html: `<h3>5. ¿Cómo se mueven?</h3><p>Los animales se mueven de <mark>muchas formas</mark>.</p><p>El perro y el caballo <b>andan</b> y corren con sus patas. El pájaro y la mariposa <b>vuelan</b> con sus alas. El pez <b>nada</b> con sus aletas.</p><p>La serpiente <b>repta</b>: se arrastra por el suelo. La rana y el canguro <b>saltan</b>.</p><p>Algunos animales se mueven de varias formas. El pato anda, nada y vuela. ¡Qué animal tan completo!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un pájaro vuela, un perro anda, un pez nada, una serpiente repta y una rana salta">${BG}
         ${pajaro(50, 58, 1.2)}${mariposa(110, 48, 0.9)}${perro(46, 132, 0.9)}${serpiente(130, 136, 0.8)}${rana(214, 102, 1)}
         <path d="M196 120 q 16 -30 32 0" stroke="var(--muted)" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
@@ -73,7 +75,7 @@ module.exports = {
         ${txt(160, 46, "vuelan", { size: 12, color: "var(--water)" })}${txt(46, 162, "anda", { size: 12 })}${txt(130, 162, "repta", { size: 12 })}${txt(214, 64, "salta", { size: 12, color: "var(--leaf)" })}</svg>`,
     },
     {
-      html: `<h3>¿Qué comen?</h3><p>Todos los animales necesitan <mark>comer</mark>.</p><p>Algunos comen solo <b>plantas</b>: hierba, hojas o frutas. La vaca y el conejo comen plantas.</p><p>Otros comen <b>carne</b> de otros animales, como el león o el tiburón.</p><p>Otros comen <b>de todo</b>: el oso, la gallina o las personas.</p>`,
+      html: `<h3>6. ¿Qué comen?</h3><p>Todos los animales necesitan <mark>comer</mark>.</p><p>Algunos comen solo <b>plantas</b>: hierba, hojas o frutas. La vaca y el conejo comen plantas.</p><p>Otros comen <b>carne</b> de otros animales, como el león o el tiburón.</p><p>Otros comen <b>de todo</b>: el oso, la gallina o las personas.</p><p>Los dientes nos dan pistas. Los animales que comen carne tienen dientes afilados. Los que comen hierba los tienen planos.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una vaca come hierba, un león come carne y un oso come de todo">${BG}
         ${vaca(50, 136, 0.95)}<g stroke="var(--leaf)" stroke-width="3">${[0, 1, 2, 3].map((i) => `<path d="M${20 + i * 12} 140 l 3 -10"/>`).join("")}</g>
         ${leon(132, 136, 0.9)}
@@ -82,7 +84,7 @@ module.exports = {
         ${txt(50, 162, "plantas", { size: 13, color: "var(--leaf)" })}${txt(132, 162, "carne", { size: 13, color: "var(--red)" })}${txt(212, 162, "de todo", { size: 13, color: "var(--inf)" })}</svg>`,
     },
     {
-      html: `<h3>Pelo, plumas o escamas</h3><p>El cuerpo de los animales está <mark>cubierto</mark> de distintas formas.</p><p>El perro, el gato y la vaca tienen <b>pelo</b>. Las gallinas y los pájaros tienen <b>plumas</b>. Los peces y las serpientes tienen <b>escamas</b>.</p><p>La rana tiene la piel <b>desnuda</b> y húmeda.</p>`,
+      html: `<h3>7. Pelo, plumas o escamas</h3><p>El cuerpo de los animales está <mark>cubierto</mark> de distintas formas.</p><p>El perro, el gato y la vaca tienen <b>pelo</b>. Las gallinas y los pájaros tienen <b>plumas</b>. Los peces y las serpientes tienen <b>escamas</b>.</p><p>La rana tiene la piel <b>desnuda</b> y húmeda.</p><p>La tortuga lleva un caparazón duro. Le sirve de casa y la protege de los peligros.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres cuadros: pelo de gato, pluma de pájaro y escamas de pez">${BG}
         ${[0, 1, 2].map((i) => `<rect x="${14 + i * 80}" y="40" width="72" height="90" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>`).join("")}
         <g stroke="#6b7385" stroke-width="2.5" stroke-linecap="round">${[...Array(12)].map((_, i) => `<path d="M${26 + (i % 4) * 14} ${56 + Math.floor(i / 4) * 22} q 4 8 0 14"/>`).join("")}</g>
@@ -91,7 +93,7 @@ module.exports = {
         ${txt(50, 150, "pelo", { size: 13 })}${txt(130, 150, "plumas", { size: 13 })}${txt(210, 150, "escamas", { size: 13 })}</svg>`,
     },
     {
-      html: `<h3>¿Dónde viven?</h3><p>Cada animal vive en el lugar que le va bien.</p><p>Muchos viven en la <mark>tierra</mark>: el conejo, el caballo o la hormiga.</p><p>Otros viven en el <mark>agua</mark>: los peces, los pulpos y las ballenas.</p><p>Los pájaros vuelan por el <mark>aire</mark>. Hacen sus nidos en los árboles.</p>`,
+      html: `<h3>8. ¿Dónde viven?</h3><p>Cada animal vive en el lugar que le va bien.</p><p>Muchos viven en la <mark>tierra</mark>: el conejo, el caballo o la hormiga.</p><p>Otros viven en el <mark>agua</mark>: los peces, los pulpos y las ballenas.</p><p>Los pájaros vuelan por el <mark>aire</mark>. Hacen sus nidos en los árboles.</p><p>La rana vive un tiempo en el agua y otro en la tierra. ¡Puede estar en los dos sitios!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un paisaje con aire, tierra y agua: un pájaro en el cielo, un gato en la tierra y un pez en el mar">${BG}
         <rect x="14" y="14" width="232" height="70" rx="10" fill="var(--water)" opacity=".12"/>
         <rect x="14" y="88" width="110" height="78" rx="10" fill="var(--leaf)" opacity=".2"/><rect x="128" y="88" width="118" height="78" rx="10" fill="var(--water)" opacity=".35"/>
@@ -99,7 +101,7 @@ module.exports = {
         ${txt(232, 34, "aire", { size: 13, color: "var(--water)", anchor: "end" })}${txt(28, 108, "tierra", { size: 13, color: "var(--leaf)", anchor: "start" })}${txt(232, 108, "agua", { size: 13, color: "var(--pen)", anchor: "end" })}</svg>`,
     },
     {
-      html: `<h3>¿Para qué sirve?</h3><p>Los animales nos <mark>ayudan</mark> mucho. Nos dan leche, huevos, lana y miel. Algunos perros ayudan a personas ciegas.</p><p>Por eso los cuidamos y los <b>respetamos</b>. Si tienes una mascota, dale comida, agua y cariño. Llévala al veterinario.</p><p>No maltratamos a ningún animal.</p>`,
+      html: `<h3>9. ¿Para qué sirve?</h3><p>Los animales nos <mark>ayudan</mark> mucho. Nos dan leche, huevos, lana y miel. Algunos perros ayudan a personas ciegas.</p><p>Por eso los cuidamos y los <b>respetamos</b>. Si tienes una mascota, dale comida, agua y cariño. Llévala al veterinario.</p><p>No maltratamos a ningún animal.</p><p>Algunos animales están en peligro. Pocos quedan, como el lince ibérico. Cuidar la naturaleza los ayuda a vivir.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una niña da agua a su perro y lo acaricia, junto a una vaca y una abeja">${BG}
         ${persona(60, 156, 110, "var(--red)")}${perro(120, 156, 1)}
         <path d="M144 156 h 22 l -3 -8 h -16 Z" fill="var(--pen)"/>
@@ -109,11 +111,12 @@ module.exports = {
         <path d="M14 158 H 246" stroke="var(--line)" stroke-width="2"/></svg>`,
     },
     {
-      html: `<h3>Juego: ¿quién soy?</h3><p>Escucha las pistas y adivina el <mark>animal</mark>.</p><p>1. Tengo plumas, pongo huevos y digo «cocoricó». ¿Quién soy?</p><p>2. Tengo escamas, vivo en el agua y nado con aletas. ¿Quién soy?</p><p>3. Tengo pelo, vivo en casa y digo «miau». ¿Quién soy?</p><p>Soluciones: el gallo, el pez y el gato.</p>`,
+      html: `<h3>10. Juego: ¿quién soy?</h3><p>Escucha las pistas y adivina el <mark>animal</mark>.</p><p>1. Tengo plumas, pongo huevos y digo «cocoricó». ¿Quién soy?</p><p>2. Tengo escamas, vivo en el agua y nado con aletas. ¿Quién soy?</p><p>3. Tengo pelo, vivo en casa y digo «miau». ¿Quién soy?</p><p>Soluciones: el gallo, el pez y el gato.</p><p>Ahora inventa tú las pistas. Di cómo es, dónde vive y qué come. ¿Adivinan tu animal?</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres tarjetas con signos de interrogación y debajo un gallo, un pez y un gato">${BG}
         ${[0, 1, 2].map((i) => `<rect x="${18 + i * 78}" y="20" width="68" height="70" rx="10" fill="var(--pen)"/>${txt(52 + i * 78, 70, "?", { size: 40, color: "#fff", font: D, weight: 800 })}`).join("")}
         ${gallina(48, 160, 1)}${pez(140, 150, 1, "var(--water)")}${gato(204, 160, 1.1)}</svg>`,
     },
+    L3.B("11. Repaso: lo que ya sabes", `<p>Los animales son <mark>seres vivos</mark>. Unos son <b>domésticos</b> y viven con nosotros. Otros son <b>salvajes</b> y viven libres.</p><p>Unos nacen de la tripa de su madre y otros de un huevo.</p><p>Andan, vuelan, nadan, reptan o saltan. Comen plantas, carne o de todo.</p><p>Tienen pelo, plumas o escamas. Viven en la tierra, en el agua o en el aire. ¡Y los cuidamos siempre!</p>`, "Dos columnas de repaso: animales domésticos y salvajes", `<rect x="16" y="20" width="108" height="140" rx="12" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/><rect x="136" y="20" width="108" height="140" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>${L3.t(70, 44, "domésticos", "var(--leaf)")}${L3.t(190, 44, "salvajes", "var(--red)")}${["perro", "gato", "vaca", "gallina"].map((s, i) => L3.t(70, 76 + i * 22, s, "var(--ink)", 13)).join("")}${["león", "lobo", "delfín", "elefante"].map((s, i) => L3.t(190, 76 + i * 22, s, "var(--ink)", 13)).join("")}`),
   ],
   figura: {
     titulo: "Cómo son los animales",
@@ -137,6 +140,7 @@ module.exports = {
     { enunciado: "¿Cómo se mueve un delfín?",
       pasos: ["El delfín vive en el mar.", "No tiene patas.", "Mueve la cola y las aletas en el agua."],
       resultado: "el delfín nada." },
+    { enunciado: "¿Qué come el conejo y cómo nace?", pasos: ["El conejo come hierba, zanahorias y hojas: solo plantas.", "Las crías del conejo nacen de la tripa de su madre.", "Al nacer, toman leche de su madre."], resultado: "el conejo come plantas y nace de su madre." },
   ],
   errores: [
     "Pensar que todos los animales nacen de un huevo: muchos nacen de la tripa de su madre.",
@@ -145,16 +149,28 @@ module.exports = {
     "Creer que una mascota es un juguete: es un ser vivo que necesita cuidados cada día.",
   ],
   ejercicios: [
-    { q: "Di tres animales domésticos.", sol: "Por ejemplo: perro, gato y gallina." },
-    { q: "Di tres animales salvajes.", sol: "Por ejemplo: león, elefante y lobo." },
-    { q: "¿Qué animal nos da la leche?", sol: "La vaca (también la cabra y la oveja)." },
-    { q: "Di un animal que nace de un huevo.", sol: "Por ejemplo: la gallina, el pez o la tortuga." },
-    { q: "Imita cómo se mueve una serpiente, un pájaro y una rana.", sol: "Repta, vuela y salta." },
-    { q: "¿Qué tiene el pájaro en el cuerpo: pelo, plumas o escamas?", sol: "Plumas." },
-    { q: "¿Dónde vive un pulpo?", sol: "En el agua, en el mar." },
-    { q: "¿La vaca come plantas o carne?", sol: "Plantas: come hierba." },
-    { q: "Dibuja tu animal favorito y di si es doméstico o salvaje.", sol: "Respuesta libre: comprueba que lo clasifica bien." },
-    { q: "Di dos cosas que necesita una mascota.", sol: "Por ejemplo: comida y agua (y cariño)." },
+    { nivel: "básico", q: "Di tres animales domésticos.", sol: "Por ejemplo: perro, gato y gallina." },
+    { nivel: "básico", q: "Di tres animales salvajes.", sol: "Por ejemplo: león, elefante y lobo." },
+    { nivel: "básico", q: "¿Qué animal nos da la leche?", sol: "La vaca (también la cabra y la oveja)." },
+    { nivel: "básico", q: "Di un animal que nace de un huevo.", sol: "Por ejemplo: la gallina, el pez o la tortuga." },
+    { nivel: "básico", q: "Imita cómo se mueve una serpiente, un pájaro y una rana.", sol: "Repta, vuela y salta." },
+    { nivel: "básico", q: "¿Qué tiene el pájaro en el cuerpo: pelo, plumas o escamas?", sol: "Plumas." },
+    { nivel: "medio", q: "¿Dónde vive un pulpo?", sol: "En el agua, en el mar." },
+    { nivel: "básico", q: "¿La vaca come plantas o carne?", sol: "Plantas: come hierba." },
+    { nivel: "medio", q: "Dibuja tu animal favorito y di si es doméstico o salvaje.", sol: "Respuesta libre: comprueba que lo clasifica bien." },
+    { nivel: "básico", q: "Di dos cosas que necesita una mascota.", sol: "Por ejemplo: comida y agua (y cariño)." },
+    L3.b("¿Cómo se mueve un pez?", "Nada con sus aletas."),
+    L3.b("Rodea los animales que vuelan: pájaro, perro, mariposa, pez.", "Pájaro y mariposa."),
+    L3.m("Une cada animal con su cuerpo: gato, gallina, serpiente. Pelo, plumas o escamas.", "Gato-pelo; gallina-plumas; serpiente-escamas."),
+    L3.m("Di dos animales que comen carne y dos que comen plantas.", "Por ejemplo: león y tiburón; vaca y conejo."),
+    L3.m("¿Qué nos dan la vaca, la gallina y la oveja?", "Leche, huevos y lana."),
+    L3.m("Di un animal que vive en el agua y otro que vive en la tierra.", "Por ejemplo: el pulpo y el caballo."),
+    L3.m("¿Por qué no debemos dar de comer a los animales salvajes?", "Porque buscan su comida solos y podemos hacerles daño."),
+    L3.a("Clasifica: león, perro, lobo, vaca, delfín, gato. ¿Domésticos o salvajes?", "Domésticos: perro, vaca, gato. Salvajes: león, lobo, delfín."),
+    L3.a("Elige un animal y di cómo nace, cómo se mueve y qué come.", "Por ejemplo: la gallina nace de un huevo, anda y come semillas y gusanos."),
+    L3.a("Inventa una adivinanza de un animal con tres pistas.", "Debe decir cómo es, dónde vive y qué come."),
+    L3.a("¿Qué tiene de especial la rana?", "Nace de un huevo en el agua, tiene la piel desnuda y vive en el agua y en la tierra."),
+    L3.a("Haz una lista de lo que necesita una mascota cada día.", "Comida, agua, un lugar limpio, paseos o juegos y cariño."),
   ],
   quiz: [
     { q: "¿Cuál es un animal doméstico?", o: ["El león", "El gato", "El lobo"], a: 1, e: "El gato vive con las personas." },
@@ -167,12 +183,16 @@ module.exports = {
     { q: "El león come…", o: ["hierba", "carne", "fruta"], a: 1, e: "Come otros animales." },
     { q: "¿Qué animal nos da miel?", o: ["La abeja", "La vaca", "El pez"], a: 0, e: "Las abejas fabrican miel." },
     { q: "¿Dónde viven las ballenas?", o: ["En el aire", "En el agua", "En la selva"], a: 1, e: "Viven en el mar." },
+    L3.Q("¿Qué animal anda, nada y vuela?", ["El pato", "El perro", "El pez"], 0, "El pato hace las tres cosas."),
+    L3.Q("Las crías de los animales que nacen de su madre toman…", ["leche", "piedras", "zumo"], 0, "Leche de su madre."),
   ],
   examen: [
     { q: "Los animales domésticos…", o: ["viven con las personas", "viven en la selva", "no comen"], a: 0, e: "Viven con nosotros y los cuidamos." },
     { q: "¿Qué animal tiene plumas?", o: ["El gato", "El pájaro", "El pez"], a: 1, e: "Los pájaros tienen plumas." },
     { q: "La rana se mueve…", o: ["saltando", "volando", "reptando"], a: 0, e: "Salta con sus patas largas." },
     { q: "¿Qué animal nace de un huevo?", o: ["La vaca", "La tortuga", "El perro"], a: 1, e: "Las tortugas salen de huevos." },
+    L3.Q("¿Cuál es un animal salvaje?", ["El lobo", "El gato", "La oveja"], 0, "Vive libre en la naturaleza."),
+    L3.Q("¿Qué animal come de todo?", ["El oso", "La vaca", "El conejo"], 0, "Come plantas y carne."),
   ],
   feynman: ["Qué diferencia hay entre animales domésticos y salvajes", "Cómo nacen los animales", "Cómo se mueven y de qué se cubren"],
   mapa: mapa("LOS ANIMALES", "var(--pri)", [
@@ -190,7 +210,21 @@ module.exports = {
     ["¿Qué tienen los peces?", "Escamas"],
     ["¿Cómo se mueve la serpiente?", "Repta"],
     ["¿Qué come la vaca?", "Plantas: hierba"],
+    ["¿Dónde viven los pájaros?", "En el aire y en los árboles, donde hacen sus nidos"],
+    ["¿Qué come el león?", "Carne de otros animales"],
   ],
+  glosario: [
+    ["Animal doméstico", "El que vive con las personas, como el perro."],
+    ["Animal salvaje", "El que vive libre en la naturaleza, como el lobo."],
+    ["Mascota", "Animal doméstico que vive en casa con la familia."],
+    ["Cría", "El hijo pequeño de un animal."],
+    ["Huevo", "De donde nacen las aves, los peces y otros animales."],
+    ["Reptar", "Moverse arrastrándose por el suelo."],
+    ["Plumas", "Lo que cubre el cuerpo de las aves."],
+    ["Escamas", "Placas pequeñas que cubren a peces y serpientes."],
+    ["Granja", "Lugar donde se crían animales domésticos."],
+  ],
+  situacion: L3.sit("El álbum de los animales", "Vamos a hacer entre todos un álbum de animales para la biblioteca de clase.", ["Cada niño elige un animal y busca una foto o lo dibuja.", "Escribimos o decimos su ficha: doméstico o salvaje, cómo nace, cómo se mueve y qué come.", "Juntamos todas las fichas en un álbum por grupos: tierra, agua y aire.", "Presentamos nuestro animal a la clase con un juego de pistas."], "Un álbum de clase con una ficha de cada animal.", ["Dice si su animal es doméstico o salvaje.", "Explica cómo nace, se mueve y come.", "Cuenta las pistas con frases claras."]),
   familias: [
     "En un paseo o en la granja escuela, nombrad los animales y decid si son domésticos o salvajes.",
     "Jugad a «¿quién soy?» dando tres pistas: cómo nace, cómo se mueve y de qué se cubre.",
@@ -202,5 +236,5 @@ module.exports = {
     ideas: ["Clasificación con fotos en una tabla: cómo nace, cómo se mueve y de qué se cubre.", "Visita a una granja escuela o a un centro de recuperación de fauna.", "Terrario de gusanos de seda o caracoles con observación diaria."],
   },
   fuentes: [RD],
-  revisado: "2026-11-12",
+  revisado: "2026-11-14",
 };
