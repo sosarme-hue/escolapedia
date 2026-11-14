@@ -1,6 +1,7 @@
 // Educación Física 1º de Primaria: juegos con reglas y en equipo.
 const { mapa } = require("./_util");
 const { svg, rot, big, nino, pelota, estrella, corazon, suelo, flechaR, tick, equis, bocadillo, PROF, FUENTES } = require("./_pri1-dib");
+const L3 = require("./_pri1L3");
 
 const etq = (x, y, t, c = "var(--muted)", size = 12) => rot(x, y, t, { size, color: c });
 const silbato = (x, y) => `<g transform="translate(${x} ${y})"><rect x="-10" y="-6" width="20" height="12" rx="6" fill="var(--sun)" stroke="var(--ink)" stroke-width="1.5"/><rect x="8" y="-4" width="10" height="6" fill="var(--sun)" stroke="var(--ink)" stroke-width="1.5"/></g>`;
@@ -10,51 +11,55 @@ module.exports = {
   materia: "Educación Física",
   curso: "1-primaria",
   titulo: "Juegos con reglas y en equipo",
-  minutos: 20,
+  minutos: 50,
   objetivos: ["Entender para qué sirven las reglas de un juego", "Jugar en equipo y cooperar con los compañeros", "Saber ganar y saber perder con juego limpio"],
   claves: ["reglas", "equipo", "cooperar", "turno", "juego limpio", "árbitro"],
   pregunta: {
     texto: "¿Qué pasaría si en un partido cada jugador hiciera lo que quisiera?",
     respuesta: "¡Sería un lío! Por eso los juegos tienen <mark>reglas</mark>. Así todos saben qué hacer y el juego es justo y divertido.",
   },
+  lectura: L3.lect("El partido de los gritos", `<p>Es la hora de Educación Física. El profe Andrés hace dos equipos para jugar con el balón.</p><p>Daniel coge la pelota y no la pasa a nadie. Corre solo hasta la portería y falla.</p><p>«¡Pásala!», le gritan sus compañeros. Pero Daniel la vuelve a coger.</p><p>El profe para el juego. «¿Qué es un equipo?», pregunta.</p><p>Yasmin responde: «Un grupo que juega junto y se ayuda».</p><p>En la segunda parte, Daniel pasa la pelota a Yasmin, que la pasa a Hugo. ¡Gol!</p><p>Todos se abrazan. ¿Por qué es mejor jugar en equipo? Lo vas a descubrir.</p>`),
   bloques: [
     {
-      html: `<h3>Las reglas del juego</h3><p>Todos los juegos tienen <mark>reglas</mark>. Las reglas dicen qué se puede hacer y qué no.</p><p>Por ejemplo, en el pilla pilla <b>se toca</b>, no se empuja.</p><p>Antes de empezar, escuchamos bien las reglas. Si no entendemos algo, <b>preguntamos</b>. Las reglas son iguales para todos los jugadores.</p><p>Si todos las cumplen, jugamos mejor.</p>`,
+      html: `<h3>1. Las reglas del juego</h3><p>Todos los juegos tienen <mark>reglas</mark>. Las reglas dicen qué se puede hacer y qué no.</p><p>Por ejemplo, en el pilla pilla <b>se toca</b>, no se empuja.</p><p>Antes de empezar, escuchamos bien las reglas. Si no entendemos algo, <b>preguntamos</b>. Las reglas son iguales para todos los jugadores.</p><p>Si todos las cumplen, jugamos mejor.</p><p>Algunas reglas son de seguridad: no empujar, no poner zancadillas y jugar sin hacer daño.</p>`,
       svg: svg("Una pizarra con dos reglas: tocar sí, empujar no", `<rect x="40" y="24" width="180" height="110" rx="10" fill="var(--leaf)" stroke="#8a5a2b" stroke-width="6"/>${rot(130, 50, "REGLAS", { color: "#fff", size: 15, font: 'font-family="Baloo 2, sans-serif"' })}${tick(70, 76, "#fff")}${rot(140, 82, "Tocar", { color: "#fff", size: 15 })}${equis(70, 110, "#ffd1cc")}${rot(140, 116, "Empujar", { color: "#fff", size: 15 })}${rot(130, 164, "Iguales para todos", { color: "var(--pen)", size: 15 })}`),
     },
     {
-      html: `<h3>¿Para qué sirven las reglas?</h3><p>Las reglas hacen que el juego sea <mark>justo</mark>: todos tienen las mismas oportunidades.</p><p>También hacen que sea <b>seguro</b>, para que nadie se haga daño.</p><p>Y hacen que sea <b>divertido</b>. Si alguien hace trampas, los demás se enfadan. Entonces el juego se estropea para todos.</p><p>Por eso cumplirlas es cosa de todos.</p>`,
+      html: `<h3>2. ¿Para qué sirven las reglas?</h3><p>Las reglas hacen que el juego sea <mark>justo</mark>: todos tienen las mismas oportunidades.</p><p>También hacen que sea <b>seguro</b>, para que nadie se haga daño.</p><p>Y hacen que sea <b>divertido</b>. Si alguien hace trampas, los demás se enfadan. Entonces el juego se estropea para todos.</p><p>Por eso cumplirlas es cosa de todos.</p><p>Las reglas también se pueden cambiar, pero solo si todos están de acuerdo antes de jugar.</p>`,
       svg: svg("Tres dibujos: una balanza equilibrada, un escudo y una cara sonriente", `<g transform="translate(50 100)"><path d="M0 -40 V20 M-30 -30 H30" stroke="var(--ink)" stroke-width="3"/><path d="M-40 -10 l10 -20 l10 20z M20 -10 l10 -20 l10 20z" fill="var(--sun)"/><rect x="-14" y="20" width="28" height="6" fill="var(--ink)"/></g><path d="M110 60 h40 v30 q0 24 -20 34 q-20 -10 -20 -34z" fill="var(--water)"/>${tick(130, 88, "#fff")}<circle cx="210" cy="92" r="28" fill="var(--sun)"/><circle cx="200" cy="84" r="3.5" fill="var(--ink)"/><circle cx="220" cy="84" r="3.5" fill="var(--ink)"/><path d="M196 100 q14 14 28 0" stroke="var(--ink)" stroke-width="3" fill="none"/>${etq(50, 150, "justo", "var(--inf)", 14)}${etq(130, 150, "seguro", "var(--water)", 14)}${etq(210, 150, "divertido", "#c48a00", 14)}`),
     },
     {
-      html: `<h3>Jugar en equipo</h3><p>Un <mark>equipo</mark> es un grupo que juega junto. Todos quieren lo mismo.</p><p>Los compañeros de equipo se <b>pasan</b> la pelota y se ayudan.</p><p>No hace falta ser el mejor. Cada uno <b>aporta</b> algo: uno corre, otro pasa, otro anima. ¡Juntos somos más fuertes!</p><p>Y cuando alguien falla, le damos ánimo.</p>`,
+      html: `<h3>3. Jugar en equipo</h3><p>Un <mark>equipo</mark> es un grupo que juega junto. Todos quieren lo mismo.</p><p>Los compañeros de equipo se <b>pasan</b> la pelota y se ayudan.</p><p>No hace falta ser el mejor. Cada uno <b>aporta</b> algo: uno corre, otro pasa, otro anima. ¡Juntos somos más fuertes!</p><p>Y cuando alguien falla, le damos ánimo.</p><p>Para formar equipos, el profe los hace mezclados. Así nadie se siente mal por quedarse el último.</p>`,
       svg: svg("Tres niños con camiseta azul se pasan una pelota formando un triángulo", `${nino(50, 150, { c: "var(--pen)", pose: "palmas" })}${nino(130, 110, { c: "var(--pen)", pose: "palmas", nina: true, s: 0.85 })}${nino(210, 150, { c: "var(--pen)", pose: "palmas" })}${pelota(92, 100, 7, "var(--sun)")}${flechaR(66, 112, 112, 74)}${flechaR(146, 74, 192, 112)}${flechaR(190, 132, 72, 132)}${suelo(150)}${rot(130, 172, "Nos pasamos la pelota", { color: "var(--pen)" })}`),
     },
     {
-      html: `<h3>Cooperar: todos juntos</h3><p>En algunos juegos <mark>no hay rivales</mark>. Todos jugamos juntos para conseguir algo.</p><p>Con el <b>paracaídas</b> de colores, lanzamos una pelota hacia arriba. ¡Sin que se caiga!</p><p>O llevamos un aro entre todos sin soltar las manos. A esto se le llama <b>cooperar</b>. Si uno falla, todos lo intentamos otra vez.</p>`,
+      html: `<h3>4. Cooperar: todos juntos</h3><p>En algunos juegos <mark>no hay rivales</mark>. Todos jugamos juntos para conseguir algo.</p><p>Con el <b>paracaídas</b> de colores, lanzamos una pelota hacia arriba. ¡Sin que se caiga!</p><p>O llevamos un aro entre todos sin soltar las manos. A esto se le llama <b>cooperar</b>. Si uno falla, todos lo intentamos otra vez.</p><p>Los juegos de cooperar nos enseñan a escuchar y a ponernos de acuerdo.</p>`,
       svg: svg("Cuatro niños sujetan un paracaídas de colores con una pelota encima", `<path d="M30 104 Q130 62 230 104 Q130 118 30 104z" fill="var(--water)"/><path d="M80 90 Q130 70 130 70 L130 112 Q100 110 80 90z" fill="var(--sun)"/><path d="M180 90 Q130 70 130 70 L130 112 Q160 110 180 90z" fill="var(--red)"/>${pelota(130, 54, 9, "var(--leaf)")}${nino(30, 150, { c: "var(--pen)", pose: "palmas", s: 0.85 })}${nino(90, 150, { c: "var(--inf)", nina: true, pose: "palmas", s: 0.75 })}${nino(170, 150, { c: "var(--leaf)", pose: "palmas", s: 0.75 })}${nino(230, 150, { c: "var(--red)", nina: true, pose: "palmas", s: 0.85 })}${suelo(150)}${rot(130, 172, "Cooperamos", { color: "var(--pen)" })}`),
       video: { id: "iUADZsQ08mA", titulo: "Juegos cooperativos: recopilatorio", canal: "Antonio Méndez-Giménez", vistas: 786112 },
     },
     {
-      html: `<h3>Ganar y perder</h3><p>En algunos juegos un equipo <b>gana</b> y otro <b>pierde</b>. ¡Es normal!</p><p>Si ganamos, no nos burlamos. Si perdemos, no nos enfadamos.</p><p>Al final, nos damos la mano y decimos <mark>«¡Buen partido!»</mark>. Esto se llama <b>juego limpio</b>. Lo más importante es haber jugado y aprendido.</p><p>¡La próxima vez puede ser distinto!</p>`,
+      html: `<h3>5. Ganar y perder</h3><p>En algunos juegos un equipo <b>gana</b> y otro <b>pierde</b>. ¡Es normal!</p><p>Si ganamos, no nos burlamos. Si perdemos, no nos enfadamos.</p><p>Al final, nos damos la mano y decimos <mark>«¡Buen partido!»</mark>. Esto se llama <b>juego limpio</b>. Lo más importante es haber jugado y aprendido.</p><p>¡La próxima vez puede ser distinto!</p><p>Si alguien gana, le felicitamos. Si alguien pierde, le animamos. ¡Eso es ser buen compañero!</p>`,
       svg: svg("Dos niños de equipos distintos se dan la mano junto a una copa", `${nino(80, 150, { c: "var(--pen)", s: 1.05 })}${nino(180, 150, { c: "var(--red)", nina: true, s: 1.05 })}<path d="M94 118 L130 106 L166 118" stroke="var(--muted)" stroke-width="4" stroke-linecap="round" fill="none"/>${copa(130, 70)}${suelo(150)}${rot(130, 172, "¡Buen partido!", { color: "var(--leaf)", size: 15 })}`),
     },
     {
-      html: `<h3>Esperar el turno</h3><p>Muchas veces jugamos <mark>por turnos</mark>: primero uno y luego otro.</p><p>Hacemos una <b>fila</b> y esperamos sin empujar.</p><p>Mientras esperamos, miramos cómo lo hacen los demás y les <b>animamos</b>. Así aprendemos y nos toca antes de lo que pensamos. ¡Esperar también es parte del juego!</p><p>Nadie se cuela.</p>`,
+      html: `<h3>6. Esperar el turno</h3><p>Muchas veces jugamos <mark>por turnos</mark>: primero uno y luego otro.</p><p>Hacemos una <b>fila</b> y esperamos sin empujar.</p><p>Mientras esperamos, miramos cómo lo hacen los demás y les <b>animamos</b>. Así aprendemos y nos toca antes de lo que pensamos. ¡Esperar también es parte del juego!</p><p>Nadie se cuela.</p><p>Si te cuelas, otro se queda sin turno. ¡Eso no es justo!</p>`,
       svg: svg("Cuatro niños en fila esperando su turno para saltar un aro", `${["var(--pen)", "var(--inf)", "var(--leaf)", "var(--red)"].map((c, i) => nino(40 + i * 36, 150, { c, nina: i % 2 === 1, s: 0.8 })).join("")}<ellipse cx="220" cy="146" rx="22" ry="7" fill="none" stroke="var(--red)" stroke-width="4"/>${flechaR(170, 120, 206, 130)}${big(40, 52, "1", "var(--pen)", 16)}${big(76, 52, "2", "var(--inf)", 16)}${big(112, 52, "3", "var(--leaf)", 16)}${big(148, 52, "4", "var(--red)", 16)}${suelo(150)}${rot(130, 172, "Esperamos sin empujar", { color: "var(--pen)" })}`),
     },
     {
-      html: `<h3>El árbitro y las señales</h3><p>En muchos juegos hay un <mark>árbitro</mark>. En clase, suele ser el profe.</p><p>El árbitro hace que se cumplan las reglas.</p><p>Usa <b>señales</b>: un silbato o una palmada. Un pitido puede ser «¡empieza!». Dos pitidos, «¡para!». Cuando oímos la señal, paramos y escuchamos. Así jugamos seguros.</p><p>Hay que respetar sus decisiones.</p>`,
+      html: `<h3>7. El árbitro y las señales</h3><p>En muchos juegos hay un <mark>árbitro</mark>. En clase, suele ser el profe.</p><p>El árbitro hace que se cumplan las reglas.</p><p>Usa <b>señales</b>: un silbato o una palmada. Un pitido puede ser «¡empieza!». Dos pitidos, «¡para!». Cuando oímos la señal, paramos y escuchamos. Así jugamos seguros.</p><p>Hay que respetar sus decisiones.</p><p>Si el árbitro se equivoca, no le gritamos. Le preguntamos con respeto.</p>`,
       svg: svg("Una profesora con un silbato levanta el brazo y dos niños se paran a escuchar", `${nino(70, 150, { c: "var(--water)", nina: true, pose: "lanza", s: 1.15 })}${silbato(96, 86)}<path d="M112 80 q8 -6 14 0 M114 72 q12 -10 22 0" stroke="var(--muted)" stroke-width="2" fill="none"/>${nino(170, 150, { c: "var(--pen)", s: 0.85 })}${nino(214, 150, { c: "var(--red)", nina: true, s: 0.85 })}${suelo(150)}${rot(190, 44, "¡Piii!", { color: "var(--inf)", size: 16 })}${rot(130, 172, "Escuchamos la señal", { color: "var(--pen)" })}`),
     },
     {
-      html: `<h3>¿Para qué sirve? En el recreo</h3><p>En el recreo, a veces no hay árbitro. Entonces <mark>decidimos juntos</mark> las reglas.</p><p>Si hay un problema, lo <b>hablamos</b>. No gritamos ni empujamos.</p><p>Para decidir quién empieza, podemos echar a <b>piedra, papel o tijera</b>. Y siempre dejamos jugar a todos los que quieran.</p><p>Así nadie se queda fuera.</p>`,
+      html: `<h3>8. ¿Para qué sirve? En el recreo</h3><p>En el recreo, a veces no hay árbitro. Entonces <mark>decidimos juntos</mark> las reglas.</p><p>Si hay un problema, lo <b>hablamos</b>. No gritamos ni empujamos.</p><p>Para decidir quién empieza, podemos echar a <b>piedra, papel o tijera</b>. Y siempre dejamos jugar a todos los que quieran.</p><p>Así nadie se queda fuera.</p><p>Una buena idea es preguntar: «¿Puedo jugar?». Y la respuesta siempre debería ser: «¡Claro!».</p>`,
       svg: svg("Dos niños echan a piedra, papel o tijera para decidir quién empieza", `${nino(70, 150, { c: "var(--pen)", pose: "palmas" })}${nino(190, 150, { c: "var(--inf)", nina: true, pose: "palmas" })}<circle cx="104" cy="104" r="9" fill="#f3c9a1" stroke="var(--ink)" stroke-width="1.5"/><rect x="146" y="94" width="16" height="22" rx="4" fill="#f3c9a1" stroke="var(--ink)" stroke-width="1.5"/>${bocadillo(130, 36, 200, "¡Piedra, papel o tijera!", 13)}${suelo(150)}${rot(130, 172, "Decidimos juntos", { color: "var(--pen)" })}`),
+      video: L3.V("38dN3JqojvI", "10 juegos divertidos y entretenidos para niños", "Las mil y una actividades", 3261435),
     },
+    L3.B("9. Hablamos en el equipo", `<p>Para jugar bien en equipo hay que <mark>comunicarse</mark>.</p><p>Decimos el nombre del compañero antes de pasar: «¡Lucía, toma!». Así sabe que la pelota va para él.</p><p>Pedimos la pelota levantando la mano. Y nos ponemos de acuerdo antes de empezar: «Tú defiendes y yo ataco».</p><p>También animamos: «¡Muy bien!», «¡Ánimo!». ¡Las palabras dan fuerza!</p>`, "Dos niños se pasan una pelota y uno dice el nombre del otro", `${L3.nino(60, 150, { c: "var(--pen)", pose: "lanza", s: 1.2 })}${L3.nino(200, 150, { c: "var(--leaf)", pose: "arriba", s: 1.2, nina: true })}${L3.pelota(130, 70, 9)}<path d="M80 80 Q130 40 180 80" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 4" fill="none"/>${L3.bocadillo(70, 30, 100, "¡Lucía, toma!", 13)}${L3.suelo(152)}`),
     {
-      html: `<h3>Juego: la cadena</h3><p>Es un pilla pilla <mark>en equipo</mark>. Uno la liga.</p><p>Cuando pilla a alguien, se dan la mano y forman una <b>cadena</b>.</p><p>La cadena crece y crece. Solo pueden pillar los de las puntas. ¡Y sin soltarse! Hay que <b>ponerse de acuerdo</b> para correr hacia el mismo lado.</p><p>Gana el último en ser pillado.</p>`,
+      html: `<h3>10. Juego: la cadena</h3><p>Es un pilla pilla <mark>en equipo</mark>. Uno la liga.</p><p>Cuando pilla a alguien, se dan la mano y forman una <b>cadena</b>.</p><p>La cadena crece y crece. Solo pueden pillar los de las puntas. ¡Y sin soltarse! Hay que <b>ponerse de acuerdo</b> para correr hacia el mismo lado.</p><p>Gana el último en ser pillado.</p><p>Después probad la cadena con un solo brazo libre. ¿Es más difícil pillar así?</p>`,
       svg: svg("Tres niños de la mano forman una cadena que persigue a una niña", `${["var(--red)", "var(--red)", "var(--red)"].map((c, i) => nino(40 + i * 40, 150, { c, pose: "brazos", s: 0.85, nina: i === 1 })).join("")}${nino(210, 150, { c: "var(--inf)", nina: true, pose: "corre", s: 0.9 })}${flechaR(150, 100, 186, 100, "var(--red)")}${suelo(150)}${rot(130, 40, "¡La cadena crece!", { color: "var(--red)", size: 15 })}${rot(130, 172, "Juego de la cadena", { color: "var(--pen)" })}`),
     },
+    L3.B("11. Repaso: lo que ya sabes", `<p>Todos los juegos tienen <mark>reglas</mark>. Hacen que el juego sea justo, seguro y divertido.</p><p>En un <b>equipo</b> nos pasamos la pelota, hablamos y nos ayudamos.</p><p>Al <b>cooperar</b>, todos jugamos juntos para conseguir algo.</p><p>Respetamos el turno y al árbitro. Ganemos o perdamos, decimos: «¡Buen partido!». Eso es juego limpio.</p>`, "Dos niños se dan la mano al final del partido", `${L3.nino(95, 150, { c: "var(--pen)", s: 1.4 })}${L3.nino(165, 150, { c: "var(--red)", s: 1.4, nina: true })}<path d="M113 108 L147 108" stroke="#f3c9a1" stroke-width="6" stroke-linecap="round"/>${L3.bocadillo(130, 30, 140, "¡Buen partido!", 14)}${L3.suelo(152)}`),
   ],
   figura: {
     titulo: "Jugar con reglas y en equipo",
@@ -78,6 +83,7 @@ module.exports = {
     { enunciado: "Suena el silbato dos veces. ¿Qué hacemos?",
       pasos: ["Recordamos la señal acordada.", "Dos pitidos significan «¡para!».", "Nos paramos y miramos al profe."],
       resultado: "paramos y escuchamos." },
+    { enunciado: "Un compañero no ha jugado nunca al pañuelo. ¿Qué hacéis?", pasos: ["Antes de empezar, le explicamos las reglas despacio.", "Le hacemos un ejemplo: dicen un número y corren los dos.", "Jugamos una ronda de prueba para que lo entienda."], resultado: "le explicamos las reglas y hacemos una prueba." },
   ],
   errores: [
     "Cambiar las reglas a mitad del juego porque vas perdiendo: las reglas se deciden antes.",
@@ -86,16 +92,28 @@ module.exports = {
     "Seguir jugando cuando suena la señal de parar: hay que escuchar al árbitro.",
   ],
   ejercicios: [
-    { q: "Di una regla del pilla pilla.", sol: "Por ejemplo: se pilla tocando, sin empujar." },
-    { q: "¿Para qué sirven las reglas? Di dos cosas.", sol: "Para que el juego sea justo y seguro (y divertido)." },
-    { q: "Pásate una pelota con dos compañeros sin que caiga.", sol: "Deben mirar a quién pasan y tener las manos preparadas." },
-    { q: "¿Qué dices al final de un partido?", sol: "«¡Buen partido!», y das la mano." },
-    { q: "Haz una fila con tu familia y respeta el turno para lanzar una pelota.", sol: "Cada uno lanza cuando le toca, sin colarse." },
-    { q: "Juega a piedra, papel o tijera con alguien.", sol: "Piedra gana a tijera, tijera a papel y papel a piedra." },
-    { q: "¿Qué es cooperar?", sol: "Jugar juntos para conseguir algo, sin rivales." },
-    { q: "¿Quién hace cumplir las reglas en clase?", sol: "El árbitro, normalmente el profe." },
-    { q: "¿Qué haces si un compañero no conoce las reglas?", sol: "Se las explico con paciencia." },
-    { q: "Inventa un juego con una regla nueva y enséñaselo a alguien.", sol: "Respuesta libre: debe tener al menos una regla clara." },
+    { nivel: "básico", q: "Di una regla del pilla pilla.", sol: "Por ejemplo: se pilla tocando, sin empujar." },
+    { nivel: "básico", q: "¿Para qué sirven las reglas? Di dos cosas.", sol: "Para que el juego sea justo y seguro (y divertido)." },
+    { nivel: "básico", q: "Pásate una pelota con dos compañeros sin que caiga.", sol: "Deben mirar a quién pasan y tener las manos preparadas." },
+    { nivel: "básico", q: "¿Qué dices al final de un partido?", sol: "«¡Buen partido!», y das la mano." },
+    { nivel: "básico", q: "Haz una fila con tu familia y respeta el turno para lanzar una pelota.", sol: "Cada uno lanza cuando le toca, sin colarse." },
+    { nivel: "básico", q: "Juega a piedra, papel o tijera con alguien.", sol: "Piedra gana a tijera, tijera a papel y papel a piedra." },
+    { nivel: "básico", q: "¿Qué es cooperar?", sol: "Jugar juntos para conseguir algo, sin rivales." },
+    { nivel: "medio", q: "¿Quién hace cumplir las reglas en clase?", sol: "El árbitro, normalmente el profe." },
+    { nivel: "medio", q: "¿Qué haces si un compañero no conoce las reglas?", sol: "Se las explico con paciencia." },
+    { nivel: "medio", q: "Inventa un juego con una regla nueva y enséñaselo a alguien.", sol: "Respuesta libre: debe tener al menos una regla clara." },
+    L3.b("¿Qué decimos antes de pasar la pelota?", "El nombre del compañero."),
+    L3.m("Rodea lo que es juego limpio: burlarse, dar la mano, animar, hacer trampas.", "Dar la mano y animar."),
+    L3.m("Di una regla de seguridad para jugar.", "Por ejemplo: no empujar o no poner zancadillas."),
+    L3.m("Haz un pase de pelota con alguien diciendo su nombre.", "Decir el nombre y pasar suave al pecho."),
+    L3.m("¿Qué haces si el árbitro se equivoca?", "Le pregunto con respeto, sin gritar."),
+    L3.a("Inventa un juego cooperativo para tres personas.", "Por ejemplo: llevar un globo entre todos sin usar las manos."),
+    L3.a("Explica qué es el juego limpio con un ejemplo.", "Felicitar al otro equipo aunque hayamos perdido."),
+    L3.a("Organiza con tu familia una partida con turnos.", "Fila ordenada y cada uno espera su turno."),
+    L3.a("¿Qué pasaría si cada jugador tuviera sus propias reglas?", "Habría peleas y el juego no funcionaría."),
+    L3.a("Di cómo invitarías a jugar a alguien que está solo.", "«¿Quieres jugar con nosotros?»."),
+    L3.a("Juega a la cadena y explica cómo os poníais de acuerdo.", "Hablando para correr todos hacia el mismo lado."),
+    L3.a("Di dos palabras para animar a tu equipo.", "Por ejemplo: «¡Ánimo!» y «¡Muy bien!»."),
   ],
   quiz: [
     { q: "Las reglas dicen…", o: ["qué se puede hacer y qué no", "quién es el más alto", "qué comer"], a: 0, e: "Ordenan el juego." },
@@ -108,12 +126,16 @@ module.exports = {
     { q: "En la fila…", o: ["espero sin empujar", "me cuelo", "me siento"], a: 0, e: "Respetamos el turno." },
     { q: "Al oír la señal de parar…", o: ["paramos y escuchamos", "seguimos corriendo", "nos escondemos"], a: 0, e: "La señal es una regla." },
     { q: "Para decidir quién empieza, podemos…", o: ["echar a piedra, papel o tijera", "pelearnos", "gritar más fuerte"], a: 0, e: "Es justo y rápido." },
+    L3.Q("Antes de pasar la pelota…", ["digo el nombre del compañero", "cierro los ojos", "me siento"], 0, "Así sabe que va para él."),
+    L3.Q("Si alguien quiere jugar…", ["le dejamos jugar", "le decimos que no", "nos vamos"], 0, "Nadie se queda fuera."),
   ],
   examen: [
     { q: "¿Para qué sirven las reglas?", o: ["Para que el juego sea justo y seguro", "Para aburrirnos", "Para que gane siempre el mismo"], a: 0, e: "Justo, seguro y divertido." },
     { q: "Un equipo es…", o: ["un grupo que juega junto", "un jugador solo", "una pelota"], a: 0, e: "Todos quieren lo mismo." },
     { q: "Juego limpio es…", o: ["respetar las reglas y a los demás", "ganar como sea", "no jugar"], a: 0, e: "Y felicitar al final." },
     { q: "En el juego de la cadena, quien es pillado…", o: ["se une a la cadena", "se va a casa", "se esconde"], a: 0, e: "La cadena crece." },
+    L3.Q("Las reglas de seguridad sirven para…", ["que nadie se haga daño", "ganar siempre", "hacer trampas"], 0, "Jugar seguros."),
+    L3.Q("Si ganamos…", ["no nos burlamos", "nos reímos de los otros", "no damos la mano"], 0, "Juego limpio."),
   ],
   feynman: ["Para qué sirven las reglas", "Qué es jugar en equipo y cooperar", "Qué es el juego limpio"],
   mapa: mapa("REGLAS Y EQUIPO", "var(--pri)", [
@@ -131,7 +153,21 @@ module.exports = {
     ["¿Qué hago en la fila?", "Espero mi turno sin empujar."],
     ["¿Quién hace cumplir las reglas?", "El árbitro."],
     ["¿Cómo decidimos quién empieza?", "Con piedra, papel o tijera."],
+    ["¿Cómo nos comunicamos en el equipo?", "Diciendo nombres, pidiendo la pelota y animando"],
+    ["¿Qué es una regla de seguridad?", "Una regla para que nadie se haga daño"],
   ],
+  glosario: [
+    ["Regla", "Lo que se puede y no se puede hacer en un juego."],
+    ["Equipo", "Grupo que juega junto para lo mismo."],
+    ["Cooperar", "Jugar juntos para conseguir algo."],
+    ["Rival", "El jugador o equipo contrario."],
+    ["Turno", "El momento que le toca a cada uno."],
+    ["Árbitro", "Quien hace cumplir las reglas."],
+    ["Juego limpio", "Jugar sin trampas y respetando a todos."],
+    ["Trampa", "Saltarse las reglas para ganar."],
+    ["Pase", "Dar la pelota a un compañero."],
+  ],
+  situacion: L3.sit("Inventamos un juego", "Vamos a inventar un juego nuevo en equipo, con sus reglas, para enseñarlo a otra clase.", ["Por grupos, elegimos el material: pelotas, aros, conos o pañuelos.", "Decidimos las reglas: cómo se juega, qué no se puede hacer y cómo se gana.", "Probamos el juego y cambiamos lo que no funciona.", "Enseñamos el juego a otra clase y hacemos de árbitros."], "Un juego nuevo con sus reglas dibujadas en un cartel.", ["Propone reglas justas y seguras.", "Escucha las ideas de su equipo.", "Juega limpio y respeta al árbitro."]),
   familias: [
     "Jugad en casa a juegos de mesa sencillos y practicad ganar y perder con buen humor.",
     "Antes de un juego en el parque, pedidle que explique las reglas a los demás.",
@@ -140,5 +176,5 @@ module.exports = {
   ],
   profesores: PROF("Educación Física: juegos reglados sencillos, juegos cooperativos y de oposición, respeto a las normas, deportividad y resolución dialogada de conflictos", ["Juegos de paracaídas y transporte cooperativo de objetos.", "Asamblea al final de la sesión: ¿se cumplieron las reglas?", "Señales acordadas (silbato, palmada) para empezar y parar."]),
   fuentes: FUENTES,
-  revisado: "2026-11-12",
+  revisado: "2026-11-14",
 };
