@@ -1,143 +1,161 @@
-// Educación Plástica 1º de Primaria: mirar obras de arte.
-// Los cuadros se representan con dibujos propios sencillos «al estilo de», nunca con reproducciones.
-const { mapa } = require("./_util");
-const { svg, txt, PROF, FUENTES } = require("./_pri1");
+// Educación Plástica 1º de Primaria: mirar obras de arte. Tema a nivel libro. Dibujos propios en SVG (versiones sencillas, no copias de las obras).
+const { tema, C, dibujos, lista, mural, vid, lienzo, texto } = require("./_pri1L2");
+const { R, A, V, N, M, G, K } = C;
 
-const P = { rojo: "#e53935", amarillo: "#fdd835", azul: "#1e88e5", azulOsc: "#1a237e", verde: "#43a047", naranja: "#fb8c00", morado: "#8e24aa", negro: "#212121", marron: "#8d6e63", oro: "#c9a227", piel: "#ffcc80", gris: "#9e9e9e" };
-const marco = (x, y, w, h, dentro) => `<g><rect x="${x - 7}" y="${y - 7}" width="${w + 14}" height="${h + 14}" rx="3" fill="${P.oro}"/><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#fffde7"/><g transform="translate(${x} ${y}) scale(${(w / 100).toFixed(3)} ${(h / 70).toFixed(3)})">${dentro}</g></g>`;
-const nocheEstrellada = `<rect width="100" height="70" fill="${P.azulOsc}"/>${[[20, 15], [45, 10], [70, 20], [85, 8]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="${P.amarillo}" opacity=".9"/><circle cx="${x}" cy="${y}" r="8" fill="none" stroke="${P.amarillo}" stroke-width="1.2"/>`).join("")}<path d="M5 35 q 20 -12 40 0 t 40 0" stroke="#90caf9" stroke-width="2.5" fill="none"/><path d="M10 45 q 20 -12 40 0 t 40 0" stroke="#90caf9" stroke-width="2" fill="none"/><path d="M15 70 q 3 -40 8 -55 q 5 15 8 55 Z" fill="${P.negro}"/><path d="M40 70 v -10 h 50 v 10 Z" fill="#3949ab"/>`;
-const girasoles = `<rect width="100" height="70" fill="#ffe082"/><path d="M30 70 l 5 -20 h 30 l 5 20 Z" fill="${P.naranja}"/>${[[40, 25], [55, 18], [65, 32], [35, 40], [50, 38]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="8" fill="${P.amarillo}"/><circle cx="${x}" cy="${y}" r="3.5" fill="${P.marron}"/>`).join("")}`;
-const miro = `<rect width="100" height="70" fill="#fffde7"/><path d="M10 55 q 25 -45 45 -10 t 35 -20" stroke="${P.negro}" stroke-width="2" fill="none"/><circle cx="25" cy="18" r="7" fill="${P.rojo}"/><circle cx="75" cy="50" r="5" fill="${P.azul}"/><path d="M80 10 v 12 M74 16 h 12 M76 12 l 8 8 M84 12 l -8 8" stroke="${P.negro}" stroke-width="1.5"/><circle cx="50" cy="60" r="4" fill="${P.amarillo}" stroke="${P.negro}"/>`;
-const retrato = `<rect width="100" height="70" fill="#5d4037"/><path d="M22 70 q 0 -24 28 -24 q 28 0 28 24 Z" fill="${P.negro}"/><circle cx="50" cy="32" r="14" fill="${P.piel}"/><path d="M36 30 q 14 -25 28 0 q -2 -16 -14 -16 q -12 0 -14 16 Z" fill="#3e2723"/><circle cx="45" cy="31" r="1.5" fill="${P.negro}"/><circle cx="55" cy="31" r="1.5" fill="${P.negro}"/><path d="M46 38 q 4 3 8 0" stroke="${P.negro}" fill="none"/>`;
-const paisaje = `<rect width="100" height="40" fill="#bbdefb"/><rect y="40" width="100" height="30" fill="#aed581"/><path d="M0 40 l 25 -22 l 20 22 Z M35 40 l 25 -25 l 25 25 Z" fill="#8d6e63"/><circle cx="85" cy="12" r="6" fill="${P.amarillo}"/><path d="M15 70 q 20 -15 40 -30" stroke="#90caf9" stroke-width="5" fill="none"/>`;
-const bodegon = `<rect width="100" height="70" fill="#d7ccc8"/><rect y="45" width="100" height="25" fill="#8d6e63"/><circle cx="30" cy="42" r="8" fill="${P.rojo}"/><circle cx="45" cy="44" r="7" fill="${P.verde}"/><path d="M60 47 l 3 -25 h 10 l 3 25 Z" fill="${P.azul}" opacity=".7"/><ellipse cx="80" cy="46" rx="10" ry="4" fill="${P.amarillo}"/>`;
+const B = `stroke="var(--ink)" stroke-width="2"`;
+// Marco dorado con un dibujo dentro; (x, y) esquina, w × h tamaño.
+const marco = (x, y, w, h, inner, fondo = "#fffde7") => `<rect x="${x - 6}" y="${y - 6}" width="${w + 12}" height="${h + 12}" rx="3" fill="#c9a227" ${B}/><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fondo}"/>${inner}`;
+// Mini cuadros de cada género (dentro de una caja de 64 × 64 con esquina en x, y).
+const g = {
+  retrato: (x, y) => `<path d="M${x + 10} ${y + 64} q 0 -20 22 -20 q 22 0 22 20 z" fill="#5c6bc0"/><circle cx="${x + 32}" cy="${y + 30}" r="14" fill="#ffcc80"/><path d="M${x + 18} ${y + 26} q 14 -20 28 0" fill="#6d4c41"/><circle cx="${x + 27}" cy="${y + 30}" r="1.6" fill="#333"/><circle cx="${x + 37}" cy="${y + 30}" r="1.6" fill="#333"/><path d="M${x + 28} ${y + 37} q 4 3 8 0" fill="none" stroke="#333" stroke-width="1.4"/>`,
+  paisaje: (x, y) => `<rect x="${x}" y="${y}" width="64" height="40" fill="#bbdefb"/><path d="M${x} ${y + 40} L${x + 18} ${y + 18} L${x + 36} ${y + 40} L${x + 50} ${y + 24} L${x + 64} ${y + 40} Z" fill="#8d6e63"/><rect x="${x}" y="${y + 40}" width="64" height="24" fill="#81c784"/><circle cx="${x + 52}" cy="${y + 12}" r="6" fill="#fdd835"/>`,
+  bodegon: (x, y) => `<rect x="${x}" y="${y + 44}" width="64" height="20" fill="#a1887f"/><path d="M${x + 10} ${y + 46} q 0 -26 14 -26 q 14 0 14 26 z" fill="#4fc3f7" ${B}/><circle cx="${x + 46}" cy="${y + 38}" r="9" fill="#e53935"/><circle cx="${x + 54}" cy="${y + 42}" r="6" fill="#fdd835"/>`,
+  noche: (x, y) => `<rect x="${x}" y="${y}" width="64" height="64" fill="#1a237e"/>${[[14, 14], [40, 10], [26, 30], [54, 26]].map(([a, b]) => `<circle cx="${x + a}" cy="${y + b}" r="4" fill="#fdd835"/><circle cx="${x + a}" cy="${y + b}" r="8" fill="none" stroke="#fff59d" stroke-width="1.5"/>`).join("")}<path d="M${x} ${y + 46} q 16 -10 32 0 t 32 0" fill="none" stroke="#64b5f6" stroke-width="3"/><path d="M${x + 8} ${y + 64} q 4 -40 10 -50 q 4 20 6 50 z" fill="#1b5e20"/><rect x="${x + 34}" y="${y + 52}" width="22" height="12" fill="#5d4037"/>`,
+};
 
-module.exports = {
+const generos = lienzo("Tres tipos de cuadros: retrato, paisaje y bodegón", [["retrato", "retrato"], ["paisaje", "paisaje"], ["bodegon", "bodegón"]].map(([k, n], i) => marco(16 + i * 82, 48, 64, 64, g[k](16 + i * 82, 48)) + texto(48 + i * 82, 148, n, { size: 15, max: 78 })).join(""), { titulo: "Tipos de cuadros" });
+const cuadro = (k, label, titulo, nota) => lienzo(label, marco(90, 40, 80, 80, `<g transform="translate(90 40) scale(1.25) translate(${-0} ${-0})">${g[k](0, 0)}</g>`), { titulo, nota });
+
+const museo = lienzo("Una sala de museo con cuadros en la pared y una niña mirando", `<rect x="10" y="30" width="240" height="110" fill="#f5f5f5" ${B}/><rect x="10" y="140" width="240" height="20" fill="#d7ccc8"/>
+  ${marco(34, 52, 40, 40, `<g transform="translate(34 52) scale(.625)">${g.paisaje(0, 0)}</g>`)}${marco(110, 52, 40, 40, `<g transform="translate(110 52) scale(.625)">${g.retrato(0, 0)}</g>`)}${marco(186, 52, 40, 40, `<g transform="translate(186 52) scale(.625)">${g.noche(0, 0)}</g>`)}
+  <path d="M60 140 v-18 m-10 18 v-14" stroke="#c62828" stroke-width="3"/><circle cx="56" cy="114" r="7" fill="#ffcc80"/><rect x="48" y="120" width="16" height="16" rx="4" fill="#e53935"/>`, { titulo: "En el museo", nota: "Miro con los ojos, no con las manos" });
+
+const escultura = lienzo("Una escultura sobre un pedestal y otra en una plaza", `<rect x="40" y="110" width="60" height="40" fill="#bdbdbd" ${B}/><circle cx="70" cy="62" r="12" fill="#e0e0e0" ${B}/><path d="M58 108 q 0 -30 12 -34 q 12 4 12 34 z" fill="#e0e0e0" ${B}/>${texto(70, 168, "en el museo", { size: 13, max: 100 })}
+  <rect x="150" y="140" width="80" height="10" fill="#a1887f"/><path d="M168 140 c 0 -50 44 -50 44 0" fill="none" stroke="#ef5350" stroke-width="10"/><circle cx="190" cy="70" r="10" fill="#42a5f5" ${B}/>${texto(190, 168, "en la plaza", { size: 13, max: 100 })}`, { titulo: "Esculturas" });
+
+const mirar = lista("Tres preguntas para mirar un cuadro: qué veo, qué pienso y qué siento", [["👀 ¿Qué veo?", A], ["💭 ¿Qué pienso?", V], ["❤️ ¿Qué siento?", R]], { titulo: "Mirar un cuadro", marca: "n" });
+
+module.exports = tema({
   materia: "Educación Plástica",
-  curso: "1-primaria",
   titulo: "Mirar obras de arte",
-  minutos: 25,
-  objetivos: ["Observar con calma una obra de arte y describirla", "Conocer qué es un museo y cómo nos comportamos en él", "Distinguir retrato, paisaje y bodegón y conocer algunos artistas"],
-  claves: ["obra de arte", "museo", "pintor", "retrato", "paisaje", "bodegón", "escultura"],
-  pregunta: {
-    texto: "Si miras un cuadro durante un minuto entero, ¿crees que verás cosas que no veías al principio?",
-    respuesta: "¡Seguro que sí! Al <mark>mirar despacio</mark> descubrimos colores, personajes y detalles escondidos. Mirar arte es como jugar a encontrar tesoros.",
-  },
+  minutos: 55,
+  objetivos: ["Saber qué es una obra de arte y dónde se guardan", "Mirar un cuadro con atención: qué veo, qué pienso, qué siento", "Distinguir retrato, paisaje y bodegón", "Conocer a Van Gogh y a Velázquez", "Respetar las normas del museo"],
+  claves: ["obra de arte", "museo", "cuadro", "retrato", "paisaje", "bodegón", "escultura", "artista"],
+  pregunta: ["¿Por qué hay cuadros que la gente va a ver desde muy lejos?", "Porque son <mark>obras de arte</mark>: nos cuentan historias, nos sorprenden y nos hacen sentir cosas."],
+  lectura: ["Marta en el museo", `<p>El sábado, Marta fue al museo con su abuelo.</p><p>Las salas eran enormes y silenciosas. En las paredes había cuadros con marcos dorados.</p><p>Marta se paró delante de uno muy azul, lleno de estrellas que daban vueltas.</p><p>—Abuelo, ¡el cielo se mueve!</p><p>—Lo pintó Van Gogh —dijo el abuelo—. ¿Qué te hace sentir?</p><p>Marta lo pensó. —Me hace sentir que estoy soñando.</p><p>Después vieron un cuadro de una niña con un vestido enorme. —¡Parece una princesa!</p><p>Al salir, Marta dijo: —Los cuadros también hablan. Solo hay que mirarlos despacio.</p>`],
   bloques: [
-    {
-      html: `<h3>¿Qué es una obra de arte?</h3><p>Una <mark>obra de arte</mark> es algo que una persona crea para expresar ideas, contar historias o hacer sentir emociones.</p><p>Pueden ser <b>pinturas</b>, <b>esculturas</b>, edificios, fotografías… Las personas que las hacen son <b>artistas</b>: pintores, escultores, arquitectos.</p>`,
-      svg: svg("Un cuadro enmarcado y una escultura sobre un pedestal", `${marco(25, 40, 110, 80, paisaje)}<rect x="175" y="110" width="50" height="45" fill="var(--line)"/><path d="M200 110 q -20 -15 -10 -45 q 5 -15 10 -15 q 5 0 10 15 q 10 30 -10 45 Z" fill="${P.gris}"/><circle cx="200" cy="45" r="11" fill="${P.gris}"/>${txt(80, 160, "pintura", "var(--ink)", 13)}${txt(200, 170, "escultura", "var(--ink)", 13)}`),
-    },
-    {
-      html: `<h3>El museo</h3><p>Muchas obras de arte se guardan en los <mark>museos</mark>, para que todo el mundo pueda verlas. En España hay museos muy famosos, como el <b>Museo del Prado</b> en Madrid.</p><p>En el museo <b>miramos sin tocar</b>, hablamos bajito y no corremos. Así cuidamos las obras para que las vean también otros niños dentro de muchos años.</p>`,
-      svg: svg("La sala de un museo con cuadros en la pared y un niño mirando", `<rect x="10" y="20" width="240" height="110" fill="#efebe9"/><rect x="10" y="130" width="240" height="30" fill="#bcaaa4"/>${marco(30, 45, 60, 45, retrato)}${marco(120, 40, 90, 55, nocheEstrellada)}<circle cx="170" cy="118" r="9" fill="${P.piel}"/><rect x="161" y="127" width="18" height="22" rx="5" fill="${P.verde}"/><path d="M60 125 H 230" stroke="${P.rojo}" stroke-width="2" stroke-dasharray="6 4"/>`),
-    },
-    {
-      html: `<h3>Mirar despacio</h3><p>Para mirar un cuadro, nos hacemos <mark>preguntas</mark>: ¿Qué veo? ¿Qué colores hay? ¿Hay personas o animales? ¿Qué están haciendo? ¿Es de día o de noche?</p><p>Y la pregunta más importante: <b>¿qué siento al mirarlo?</b> Todas las respuestas valen si las explicamos.</p>`,
-      svg: svg("Una lupa sobre un cuadro y bocadillos con preguntas", `${marco(30, 45, 120, 85, girasoles)}<circle cx="125" cy="80" r="26" fill="none" stroke="var(--ink)" stroke-width="5"/><path d="M144 99 l 22 22" stroke="var(--ink)" stroke-width="8" stroke-linecap="round"/>${txt(215, 50, "¿qué veo?", P.azul, 13)}${txt(215, 85, "¿colores?", P.rojo, 13)}${txt(215, 120, "¿qué siento?", P.verde, 13)}`),
-    },
-    {
-      html: `<h3>El retrato</h3><p>Un <mark>retrato</mark> es una obra que muestra a una <b>persona</b>. Puede ser solo la cara o el cuerpo entero.</p><p>Si el artista se pinta a sí mismo, se llama <b>autorretrato</b>. Antes de que existieran las fotos, los retratos eran la forma de recordar cómo era alguien.</p>`,
-      svg: svg("Un retrato de una persona en un marco dorado", `${marco(70, 25, 120, 115, retrato)}`),
-    },
-    {
-      html: `<h3>El paisaje y el bodegón</h3><p>Un <mark>paisaje</mark> muestra la <b>naturaleza</b> o una ciudad: montañas, ríos, árboles, cielo, casas.</p><p>Un <mark>bodegón</mark> muestra <b>objetos quietos</b> sobre una mesa: frutas, jarras, flores, platos. Los pintores los colocan con cuidado antes de pintarlos.</p>`,
-      svg: svg("Un paisaje con montañas y un río, y un bodegón con frutas y una jarra", `${marco(20, 40, 100, 75, paisaje)}${marco(145, 40, 100, 75, bodegon)}${txt(70, 145, "paisaje", "var(--ink)", 13)}${txt(195, 145, "bodegón", "var(--ink)", 13)}`),
-    },
-    {
-      html: `<h3>Vincent van Gogh</h3><p><b>Vincent van Gogh</b> fue un pintor que usaba <mark>colores muy vivos</mark> y pinceladas gruesas, como remolinos.</p><p>Pintó un cielo de noche lleno de estrellas que giran y muchos cuadros de <b>girasoles</b> amarillos. Sus cuadros parecen moverse.</p>`,
-      svg: svg("Dibujo al estilo de Van Gogh: un cielo nocturno con estrellas y remolinos, y un jarrón con girasoles", `${marco(15, 40, 120, 85, nocheEstrellada)}${marco(160, 40, 85, 85, girasoles)}${txt(130, 160, "dibujos «al estilo de» Van Gogh", "var(--muted)", 11)}`),
-      video: { id: "N7DHaAqfKwE", titulo: "¿Sabes qué pintó Vincent van Gogh?", canal: "FlexFlix Kids en Español", vistas: 344925, megusta: 0 },
-    },
-    {
-      html: `<h3>Joan Miró y Diego Velázquez</h3><p><b>Joan Miró</b>, de Barcelona, pintaba con <mark>formas sencillas</mark>, líneas negras y colores primarios: parecen dibujos de niños, ¡y por eso nos encantan!</p><p><b>Diego Velázquez</b>, de Sevilla, pintó hace casi 400 años <b>Las Meninas</b>, con una princesa niña y su gente alrededor. Está en el Museo del Prado.</p>`,
-      svg: svg("Dibujo al estilo de Miró con formas y colores primarios, y una niña con vestido ancho al estilo de Las Meninas", `${marco(15, 40, 110, 80, miro)}<rect x="152" y="33" width="96" height="94" fill="${P.oro}"/><rect x="159" y="40" width="82" height="80" fill="#4e342e"/><path d="M200 75 l -26 42 h 52 Z" fill="#eceff1"/><circle cx="200" cy="65" r="10" fill="${P.piel}"/><path d="M190 63 q 10 -16 20 0" fill="#ffe082"/>${txt(70, 160, "al estilo de Miró", "var(--muted)", 11)}${txt(200, 160, "una menina", "var(--muted)", 11)}`),
-      video: { id: "bZ1XFmi44PA", titulo: "Lunnis de Leyenda: Velázquez", canal: "Clan TVE", vistas: 116542, megusta: 0 },
-    },
-    {
-      html: `<h3>¿Para qué sirve el arte?</h3><p>El arte sirve para <mark>expresar</mark> lo que sentimos y pensamos, para recordar personas y momentos y para que el mundo sea más <b>bonito</b>.</p><p>También nos enseña cómo vivía la gente hace mucho tiempo: su ropa, sus casas, sus juegos. ¡Los cuadros son ventanas al pasado!</p>`,
-      svg: svg("Un cuadro como una ventana abierta al pasado con una casa antigua", `<rect x="55" y="25" width="150" height="120" fill="${P.oro}"/><rect x="65" y="35" width="130" height="100" fill="#bbdefb"/><rect x="65" y="100" width="130" height="35" fill="#aed581"/><path d="M95 100 v -30 l 25 -20 l 25 20 v 30 Z" fill="#d7ccc8" stroke="var(--ink)"/><rect x="113" y="80" width="14" height="20" fill="#5d4037"/><path d="M65 35 l 25 15 M195 35 l -25 15" stroke="var(--card)" stroke-width="3"/>`),
-    },
-    {
-      html: `<h3>Juego: soy un artista</h3><p>Elige un cuadro que te guste y haz <mark>tu propia versión</mark>. Puedes cambiar los colores, añadir tu mascota o ponerte tú dentro del cuadro.</p><p>Después, monta una <b>exposición</b> en casa: cuelga los dibujos, ponles un título y tu nombre, e invita a tu familia a visitarla con el «billete» de entrada.</p>`,
-      svg: svg("Una pared con tres dibujos infantiles enmarcados y cartelas con su título", `<rect x="10" y="20" width="240" height="140" fill="#efebe9"/>${[[25, nocheEstrellada], [100, girasoles], [175, miro]].map(([x, d]) => `${marco(x, 45, 60, 50, d)}<rect x="${x + 8}" y="112" width="44" height="12" fill="var(--card)" stroke="var(--line)"/>`).join("")}`),
-    },
+    ["¿Qué es una obra de arte?", `<p>Una <mark>obra de arte</mark> es algo que una persona crea para expresar ideas, sentimientos o belleza.</p><p>Son obras de arte los <b>cuadros</b>, las <b>esculturas</b>, los <b>dibujos</b> y muchas cosas más.</p><p>La persona que las hace se llama <b>artista</b>: pintor, pintora, escultor o escultora.</p><p>Algunas obras tienen cientos de años. Otras se hicieron ayer.</p><p>Tus dibujos también son pequeñas obras de arte. ¡Tú eres artista!</p>`,
+      generos],
+    ["Los museos", `<p>Las obras de arte más importantes se guardan en los <mark>museos</mark>.</p><p>Un museo es un edificio donde se cuidan las obras para que todo el mundo pueda verlas.</p><p>En el museo tenemos <b>normas</b>: miramos sin tocar, hablamos bajito y no corremos.</p><p>Así las obras duran muchos años y todos las disfrutan.</p><p>En España hay museos muy famosos, como el <b>Museo del Prado</b> de Madrid. ¡Puedes visitarlo también por internet!</p>`,
+      museo],
+    ["Cómo mirar un cuadro", `<p>Para disfrutar de un cuadro hay que <mark>mirarlo despacio</mark>.</p><p>Nos hacemos tres preguntas.</p><p><b>¿Qué veo?</b> Personas, animales, colores, formas.</p><p><b>¿Qué pienso?</b> ¿Qué está pasando? ¿Dónde es? ¿Es de día o de noche?</p><p><b>¿Qué siento?</b> Alegría, calma, miedo, curiosidad.</p><p>No hay respuestas equivocadas. Cada persona ve cosas distintas en el mismo cuadro.</p><p>Por eso es tan divertido mirar juntos y compartir.</p>`,
+      mirar],
+    ["Los retratos", `<p>Un <mark>retrato</mark> es un cuadro de una persona.</p><p>Normalmente vemos su <b>cara</b> y a veces su cuerpo entero.</p><p>Antes no había fotos. Las familias pedían a los pintores que los retrataran para recordarlos.</p><p>Cuando un pintor se pinta a sí mismo, se llama <b>autorretrato</b>. Se mira en un espejo y se pinta.</p><p>Mira un retrato: ¿cómo crees que es esa persona? ¿Está contenta o seria?</p>`,
+      cuadro("retrato", "Un retrato sencillo de una persona sonriente", "Un retrato", "una persona")],
+    ["Los paisajes", `<p>Un <mark>paisaje</mark> es un cuadro de un lugar: el campo, la montaña, el mar o una ciudad.</p><p>En un paisaje vemos el <b>cielo</b>, la <b>tierra</b> y a veces el <b>agua</b>.</p><p>Algunos pintores salían al aire libre con su caballete para pintar lo que veían.</p><p>Los paisajes pueden ser de día o de noche, en verano o en invierno.</p><p>¿Qué paisaje pintarías tú? ¿El que ves desde tu ventana?</p>`,
+      cuadro("paisaje", "Un paisaje con montañas, prado verde y sol", "Un paisaje", "montañas, prado y sol")],
+    ["Los bodegones", `<p>Un <mark>bodegón</mark> es un cuadro de cosas que no se mueven: fruta, jarras, flores o platos.</p><p>El pintor coloca los objetos encima de una mesa y los pinta con mucho cuidado.</p><p>En los bodegones se ven muy bien los <b>colores</b>, las <b>formas</b> y las <b>luces</b>.</p><p>Algunos parecen tan reales que dan ganas de coger la fruta.</p><p>Prueba en casa: pon tres frutas en la mesa y píntalas.</p>`,
+      cuadro("bodegon", "Un bodegón con una jarra azul y frutas sobre una mesa", "Un bodegón", "jarra y frutas")],
+    ["Van Gogh y su noche estrellada", `<p><mark>Vincent van Gogh</mark> fue un pintor de Holanda que vivió hace más de cien años.</p><p>Pintaba con pinceladas gruesas y colores muy fuertes.</p><p>Uno de sus cuadros más famosos es <b>La noche estrellada</b>. El cielo es azul oscuro y las estrellas parecen remolinos de luz.</p><p>También pintó girasoles amarillos y su habitación.</p><p>Mirando sus cuadros parece que todo se mueve. ¡Como dijo Marta, es como soñar!</p>`,
+      cuadro("noche", "Un cielo nocturno con estrellas en remolino, inspirado en Van Gogh", "Una noche de estrellas", "al estilo de Van Gogh"),
+      vid("N7DHaAqfKwE", "¿Sabes qué pintó Vincent van Gogh?", "FlexFlix Kids en Español", 344925)],
+    ["Velázquez y Las Meninas", `<p><mark>Diego Velázquez</mark> fue un pintor español muy importante. Pintaba para el rey.</p><p>Su cuadro más famoso es <b>Las Meninas</b>. Está en el Museo del Prado.</p><p>En el centro hay una niña, la infanta Margarita, con un vestido enorme.</p><p>A su alrededor hay damas, un perro y ¡el propio Velázquez pintando!</p><p>Al fondo hay un espejo con dos personas. ¿Quiénes serán? Mira el cuadro y búscalas.</p>`,
+      dibujos("Personajes de Las Meninas: una niña, un perro y un pintor", [["nina", "la infanta", R], ["perro", "el perro", G], ["lapiz", "el pintor", A]], { titulo: "¿Quién sale?" }),
+      vid("bZ1XFmi44PA", "Lunnis de Leyenda: Velázquez", "Clan TVE", 116542)],
+    ["Las esculturas", `<p>No todo el arte se cuelga en la pared. Las <mark>esculturas</mark> son obras con volumen.</p><p>Se pueden mirar por delante, por detrás y por los lados.</p><p>Se hacen de piedra, madera, metal o barro.</p><p>Hay esculturas en los museos y también en la calle: en las plazas, los parques y las fuentes.</p><p>La próxima vez que pasees, busca esculturas. ¿De qué material son? ¿Qué representan?</p>`,
+      escultura],
+    ["¿Para qué sirve el arte?", `<p>El arte sirve para <mark>expresar</mark> lo que sentimos y pensamos.</p><p>También nos cuenta cómo vivía la gente hace mucho tiempo: cómo vestían, qué comían, qué les gustaba.</p><p>El arte nos hace <b>disfrutar</b> y nos enseña a mirar con atención.</p><p>Y nos da ideas. Después de ver un cuadro, ¡dan ganas de pintar!</p><p>Por eso cuidamos las obras de arte: son un tesoro de todos.</p>`,
+      dibujos("El arte expresa, enseña y hace disfrutar", [["corazon", "siento", R], ["libro", "aprendo", A], ["feliz", "disfruto", M]], { titulo: "El arte sirve para…" })],
+    ["Juego: el cuadro vivo", `<p>Vamos a jugar al <mark>cuadro vivo</mark>.</p><p>La maestra enseña un cuadro con personas. Un grupo de niños y niñas lo imita: se colocan igual y se quedan quietos como estatuas.</p><p>Los demás miran el cuadro y el grupo. ¿Se parecen?</p><p>Después, los del cuadro pueden «despertar» y contar qué estaban haciendo sus personajes.</p><p>Así entramos dentro de las obras de arte. ¡Es como viajar en el tiempo!</p>`,
+      dibujos("Niños imitando un cuadro como estatuas", [["nina", "quieta", R], ["nino", "quieto", A], ["estrella", "¡estatuas!", M]], { titulo: "El cuadro vivo" })],
+    ["Repaso: lo que ya sé", `<p>Una <mark>obra de arte</mark> expresa ideas y sentimientos. La hace un <b>artista</b>.</p><p>Las obras se guardan en los <b>museos</b>, donde miramos sin tocar.</p><p>Para mirar un cuadro pregunto: ¿qué veo?, ¿qué pienso?, ¿qué siento?</p><p>Hay <b>retratos</b>, <b>paisajes</b> y <b>bodegones</b>. Y también <b>esculturas</b>.</p><p>Conozco a <b>Van Gogh</b> y a <b>Velázquez</b>.</p><p>¡Ya sé mirar el arte como un experto!</p>`,
+      lista("Repaso de mirar obras de arte", [["Museo: miro sin tocar", A], ["Veo, pienso, siento", V], ["Retrato, paisaje, bodegón", R], ["Van Gogh y Velázquez", N]], { titulo: "Ya sé…" })],
   ],
-  figura: {
-    titulo: "Tres tipos de cuadros",
-    svg: `<svg viewBox="0 0 640 260" role="img" aria-label="Un retrato con una persona, un paisaje con montañas y un bodegón con frutas">
-      <rect width="640" height="260" rx="16" fill="var(--paper)"/>
-      ${marco(45, 35, 160, 150, retrato)}${marco(240, 50, 165, 120, paisaje)}${marco(440, 50, 165, 120, bodegon)}
-      ${txt(125, 225, "retrato: personas", "var(--ink)", 16)}${txt(322, 225, "paisaje: naturaleza", "var(--ink)", 16)}${txt(522, 225, "bodegón: objetos", "var(--ink)", 16)}
-    </svg>`,
-  },
-  video: { id: "3cqdOhuboC4", titulo: "Obra comentada: Las meninas, de Velázquez", canal: "Museo Nacional del Prado", vistas: 653495, megusta: 0, busqueda: "Las Meninas para niños" },
-  ejemplosTitulo: "Lo hacemos juntos",
+  figura: ["Tipos de obras de arte", mural("Retrato, paisaje, bodegón y escultura", [["cara_a", "Retrato", "una persona", R], ["arbol", "Paisaje", "un lugar", V], ["manzana", "Bodegón", "cosas quietas", M], ["mano", "Escultura", "con volumen", A]], "Mirar obras de arte")],
+  video: { ...vid("3cqdOhuboC4", "Obra comentada: Las meninas, de Velázquez", "Museo Nacional del Prado", 653731), busqueda: "Las Meninas para niños" },
   ejemplos: [
-    { enunciado: "Mira un cuadro de girasoles y descríbelo.", pasos: ["¿Qué veo? Flores amarillas en un jarrón.", "¿Qué colores? Sobre todo amarillos y naranjas: colores cálidos.", "¿Qué siento? Alegría, como si hiciera sol."], resultado: "es un bodegón de flores, alegre y luminoso." },
-    { enunciado: "¿Es un retrato, un paisaje o un bodegón? Un cuadro con montañas y un río.", pasos: ["¿Hay personas en primer plano? No.", "¿Hay objetos sobre una mesa? No.", "Hay naturaleza: montañas y río."], resultado: "es un paisaje." },
-    { enunciado: "Haz tu autorretrato.", pasos: ["Mírate en un espejo: forma de la cara, color de ojos y pelo.", "Dibuja primero las formas grandes y luego los detalles.", "Colorea y fírmalo como los artistas."], resultado: "un autorretrato firmado." },
+    ["Un cuadro muestra a una señora sentada. ¿Qué tipo es?", ["Miro qué sale: una persona.", "Un cuadro de una persona es un retrato.", "Lo digo."], "un retrato."],
+    ["Un cuadro muestra un río y montañas. ¿Qué tipo es?", ["Miro qué sale: un lugar.", "Un cuadro de un lugar es un paisaje.", "Lo digo."], "un paisaje."],
+    ["Mira La noche estrellada con las tres preguntas.", ["Veo: estrellas, un pueblo, un árbol.", "Pienso: es de noche y todos duermen.", "Siento: calma, o que sueño."], "veo, pienso y siento."],
+    ["Estás en el museo y quieres tocar un cuadro. ¿Qué haces?", ["Recuerdo las normas.", "En el museo miramos sin tocar.", "Me acerco solo con los ojos."], "no lo toco: lo miro."],
   ],
   errores: [
-    "Mirar un cuadro solo un segundo: hay que mirar despacio para descubrir detalles.",
-    "Pensar que solo hay una respuesta correcta sobre lo que hace sentir un cuadro.",
-    "Tocar las obras en el museo: el sudor de las manos las estropea.",
-    "Confundir retrato (personas) con bodegón (objetos).",
+    "Tocar los cuadros en el museo: se estropean.",
+    "Pensar que solo hay una forma correcta de ver un cuadro: cada persona ve cosas distintas.",
+    "Confundir paisaje y retrato: el retrato es de una persona; el paisaje, de un lugar.",
+    "Creer que el arte solo está en los museos: también en la calle y en tus dibujos.",
   ],
-  ejercicios: [
-    { q: "¿Qué es un museo?", sol: "Un lugar donde se guardan y se enseñan obras de arte." },
-    { q: "Di tres normas para visitar un museo.", sol: "No tocar, hablar bajito y no correr." },
-    { q: "¿Qué muestra un retrato?", sol: "A una persona." },
-    { q: "¿Qué muestra un paisaje?", sol: "La naturaleza o una ciudad." },
-    { q: "¿Qué muestra un bodegón?", sol: "Objetos quietos, como frutas, flores o jarras." },
-    { q: "Dibuja un bodegón con tres frutas de tu casa.", sol: "Respuesta libre: tres frutas colocadas sobre una mesa." },
-    { q: "¿Qué pintor pintó girasoles y cielos con remolinos?", sol: "Vincent van Gogh." },
-    { q: "¿En qué museo está Las Meninas?", sol: "En el Museo del Prado, en Madrid." },
-    { q: "Dibuja tu autorretrato y fírmalo.", sol: "Respuesta libre." },
-    { q: "Elige un cuadro y di qué sientes al mirarlo.", sol: "Respuesta libre, explicando por qué." },
+  basico: [
+    ["¿Dónde se guardan las obras de arte?", "En los museos."],
+    ["¿Qué es un retrato?", "Un cuadro de una persona."],
+    ["¿Qué es un paisaje?", "Un cuadro de un lugar."],
+    ["¿Se pueden tocar los cuadros del museo?", "No."],
+    ["¿Cómo se llama quien pinta cuadros?", "Pintor o pintora, artista."],
+    ["Dibuja tu propio retrato.", "Autorretrato libre."],
+    ["¿De qué color es el cielo de La noche estrellada?", "Azul oscuro."],
+    ["Nombra un museo famoso de España.", "El Museo del Prado."],
+  ],
+  medio: [
+    ["¿Qué es un bodegón?", "Un cuadro de cosas que no se mueven: fruta, jarras."],
+    ["¿Cuáles son las tres preguntas para mirar un cuadro?", "¿Qué veo? ¿Qué pienso? ¿Qué siento?"],
+    ["¿Quién pintó Las Meninas?", "Diego Velázquez."],
+    ["¿Quién pintó La noche estrellada?", "Vincent van Gogh."],
+    ["¿Qué es un autorretrato?", "Un retrato que el artista hace de sí mismo."],
+    ["Dibuja un paisaje de tu barrio.", "Dibujo libre."],
+    ["Pinta un bodegón con tres frutas.", "Dibujo libre."],
+    ["¿En qué se diferencia una escultura de un cuadro?", "La escultura tiene volumen."],
+    ["Nombra dos normas del museo.", "Mirar sin tocar, hablar bajito, no correr."],
+  ],
+  avanzado: [
+    ["Elige un cuadro y explícalo con veo, pienso y siento.", "Respuesta libre en tres partes."],
+    ["Juega al cuadro vivo con tu grupo.", "Imitar la postura de los personajes."],
+    ["Pinta una noche estrellada a tu manera.", "Dibujo libre con estrellas en remolino."],
+    ["Busca esculturas en tu barrio y di de qué material son.", "Respuesta libre."],
+    ["Organiza un museo de clase con vuestros dibujos.", "Exposición con cartelas y normas."],
   ],
   quiz: [
-    { q: "En un museo…", o: ["tocamos los cuadros", "miramos sin tocar", "corremos"], a: 1, e: "Para cuidar las obras." },
-    { q: "Un retrato muestra…", o: ["una persona", "frutas", "montañas"], a: 0, e: "Personas." },
-    { q: "Un paisaje muestra…", o: ["objetos en una mesa", "la naturaleza", "solo una cara"], a: 1, e: "Naturaleza o ciudad." },
-    { q: "Un bodegón muestra…", o: ["objetos quietos", "animales corriendo", "el mar"], a: 0, e: "Frutas, jarras, flores." },
-    { q: "Si el pintor se pinta a sí mismo es un…", o: ["autorretrato", "paisaje", "bodegón"], a: 0, e: "Autorretrato." },
-    { q: "Van Gogh pintó…", o: ["girasoles", "Las Meninas", "fotos"], a: 0, e: "Girasoles y cielos estrellados." },
-    { q: "Las Meninas las pintó…", o: ["Miró", "Velázquez", "Van Gogh"], a: 1, e: "Diego Velázquez." },
-    { q: "Miró pintaba con…", o: ["formas sencillas y colores vivos", "solo gris", "solo fotos"], a: 0, e: "Líneas negras y colores primarios." },
-    { q: "El Museo del Prado está en…", o: ["Madrid", "París", "Sevilla"], a: 0, e: "En Madrid." },
-    { q: "Al mirar un cuadro, la pregunta más importante es…", o: ["¿cuánto cuesta?", "¿qué siento?", "¿cuánto pesa?"], a: 1, e: "Lo que nos hace sentir." },
+    ["Un cuadro de una persona es un…", ["retrato", "paisaje", "bodegón"], 0, "Retrato."],
+    ["Un cuadro de un lugar es un…", ["paisaje", "retrato", "bodegón"], 0, "Paisaje."],
+    ["Un cuadro de fruta y jarras es un…", ["bodegón", "paisaje", "retrato"], 0, "Bodegón."],
+    ["En el museo, los cuadros…", ["no se tocan", "se tocan", "se mueven"], 0, "No se tocan."],
+    ["Velázquez pintó…", ["Las Meninas", "La noche estrellada", "los girasoles"], 0, "Las Meninas."],
+    ["Van Gogh pintó…", ["La noche estrellada", "Las Meninas", "la Gioconda"], 0, "La noche estrellada."],
+    ["Las Meninas está en el…", ["Museo del Prado", "cole", "parque"], 0, "Museo del Prado."],
+    ["Una obra con volumen es una…", ["escultura", "pintura", "foto"], 0, "Escultura."],
+    ["Al mirar un cuadro pregunto: ¿qué veo, qué pienso y qué…?", ["siento", "como", "compro"], 0, "Siento."],
+    ["Quien crea una obra de arte es…", ["un artista", "un cartero", "un médico"], 0, "Un artista."],
+    ["En el museo hablamos…", ["bajito", "gritando", "nunca"], 0, "Bajito."],
+    ["Un autorretrato es cuando el pintor…", ["se pinta a sí mismo", "pinta un perro", "no pinta"], 0, "Se pinta a sí mismo."],
   ],
   examen: [
-    { q: "Las personas que hacen esculturas son…", o: ["escultores", "cocineros", "pilotos"], a: 0, e: "Escultores." },
-    { q: "Un cuadro con un jarrón y manzanas es un…", o: ["retrato", "bodegón", "paisaje"], a: 1, e: "Objetos quietos." },
-    { q: "¿Qué pintor era de Barcelona?", o: ["Joan Miró", "Van Gogh", "Velázquez"], a: 0, e: "Joan Miró." },
-    { q: "En el museo hablamos…", o: ["bajito", "gritando", "nunca"], a: 0, e: "Bajito, para no molestar." },
+    ["¿Dónde se cuidan las obras de arte?", ["en los museos", "en la basura", "en el río"], 0, "En los museos."],
+    ["Un paisaje muestra…", ["un lugar", "una persona", "una jarra"], 0, "Un lugar."],
+    ["¿Quién sale en el centro de Las Meninas?", ["una niña", "un caballo", "un barco"], 0, "La infanta Margarita."],
+    ["Van Gogh pintaba con colores…", ["muy fuertes", "solo gris", "transparentes"], 0, "Muy fuertes."],
+    ["Las esculturas pueden estar…", ["en las plazas", "solo en libros", "en ningún sitio"], 0, "En museos y plazas."],
+    ["Al mirar un cuadro, las respuestas…", ["pueden ser distintas", "son todas iguales", "están prohibidas"], 0, "Cada persona ve cosas distintas."],
   ],
-  feynman: ["Qué es una obra de arte", "Cómo se mira un cuadro despacio", "Qué diferencia hay entre retrato, paisaje y bodegón"],
-  mapa: mapa("MIRAR ARTE", "var(--pri)", [
-    ["Obras", "pintura · escultura · edificio", "var(--pen)"],
-    ["Museo", "mirar sin tocar · hablar bajito", "var(--red)"],
-    ["Tipos de cuadro", "retrato · paisaje · bodegón", "var(--sun)"],
-    ["Artistas", "Van Gogh · Miró · Velázquez", "var(--leaf)"],
-  ], 220),
+  feynman: ["Qué es una obra de arte", "Cómo mirar un cuadro con tres preguntas", "La diferencia entre retrato, paisaje y bodegón"],
+  mapa: ["OBRAS DE ARTE", [["Museo", "miro sin tocar", A], ["Mirar", "veo · pienso · siento", V], ["Tipos", "retrato · paisaje · bodegón", R], ["Artistas", "Van Gogh · Velázquez", N]], 230],
   tarjetas: [
-    ["¿Dónde se guardan las obras de arte?", "En los museos"],
-    ["Cuadro de una persona", "Retrato"],
-    ["Cuadro de la naturaleza", "Paisaje"],
-    ["Cuadro de objetos quietos", "Bodegón"],
-    ["Pintor de los girasoles", "Vincent van Gogh"],
-    ["Pintor de Las Meninas", "Diego Velázquez"],
-    ["Pintor de formas sencillas y colores vivos, de Barcelona", "Joan Miró"],
-    ["Norma de oro del museo", "Mirar sin tocar"],
+    ["Obra de arte", "Expresa ideas y sentimientos"],
+    ["Museo", "Edificio donde se cuidan las obras"],
+    ["Retrato", "Cuadro de una persona"],
+    ["Paisaje", "Cuadro de un lugar"],
+    ["Bodegón", "Cuadro de cosas quietas"],
+    ["Escultura", "Obra con volumen"],
+    ["Autorretrato", "El pintor se pinta a sí mismo"],
+    ["Van Gogh", "La noche estrellada"],
+    ["Velázquez", "Las Meninas"],
+    ["Mirar un cuadro", "Veo, pienso, siento"],
   ],
+  glosario: [
+    ["Obra de arte", "Creación que expresa ideas, sentimientos o belleza."],
+    ["Artista", "Persona que crea obras de arte."],
+    ["Museo", "Edificio donde se guardan y se enseñan obras."],
+    ["Cuadro", "Pintura sobre un lienzo o una tabla."],
+    ["Retrato", "Cuadro de una persona."],
+    ["Paisaje", "Cuadro de un lugar."],
+    ["Bodegón", "Cuadro de objetos que no se mueven."],
+    ["Escultura", "Obra de arte con volumen."],
+  ],
+  situacion: ["El museo de la clase", "Vamos a convertir la clase en un museo para que nos visiten las familias.", ["Cada uno pinta una obra: un retrato, un paisaje o un bodegón.", "Escribimos una cartela con el título y el nombre del artista.", "Preparamos las normas del museo.", "Hacemos de guías y explicamos las obras con veo, pienso y siento."], "un museo de clase con visitas guiadas.", ["Distingue retrato, paisaje y bodegón.", "Explica una obra con las tres preguntas.", "Respeta y hace respetar las normas del museo."]],
   familias: [
-    "Visitad un museo cercano: muchos tienen talleres para niños y entrada gratuita algunos días.",
-    "Mirad juntos un cuadro en internet durante un minuto y contad cada uno tres cosas que veis.",
-    "Montad una exposición en casa con sus dibujos, con título y firma.",
-    "Buscad en la web del Museo del Prado obras con niños o animales y comentadlas.",
+    "Visitad un museo o una exposición, o hacedlo por internet (el Prado tiene visita virtual).",
+    "Mirad juntos un cuadro y preguntaos: ¿qué veo, qué pienso, qué siento?",
+    "Buscad esculturas en vuestro barrio y hablad de ellas.",
+    "Colgad sus dibujos en casa como en un museo, con su título.",
   ],
-  profesores: PROF("Educación Plástica y Visual: observación y descripción de obras de arte, géneros pictóricos (retrato, paisaje, bodegón), artistas relevantes del patrimonio y normas de comportamiento en museos", ["Rutina de pensamiento «Veo, pienso, me pregunto» ante una obra.", "Visita virtual al Museo del Prado proyectada en clase.", "Exposición de aula con versiones propias de obras famosas."]),
-  fuentes: [...FUENTES, { t: "Museo Nacional del Prado", url: "https://www.museodelprado.es/" }],
-  revisado: "2026-11-12",
-};
+  saberes: "Apreciación artística: obras de arte, museos y normas de visita, géneros pictóricos (retrato, paisaje, bodegón), escultura y artistas (Van Gogh, Velázquez). Estrategia veo, pienso, siento",
+  ideas: ["Rutina de pensamiento veo-pienso-siento con obras proyectadas.", "Juego del cuadro vivo con Las Meninas.", "Museo de aula con cartelas y guías.", "Visita virtual al Museo del Prado."],
+});

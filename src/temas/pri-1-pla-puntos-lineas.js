@@ -1,136 +1,177 @@
-// Educación Plástica 1º de Primaria: puntos y líneas.
-const { mapa } = require("./_util");
-const { svg, txt, PROF, FUENTES } = require("./_pri1");
+// Educación Plástica 1º de Primaria: puntos y líneas. Tema a nivel libro. Dibujos propios en SVG.
+const { tema, C, dibujos, lista, mural, vid, lienzo, texto } = require("./_pri1L2");
+const { R, A, V, N, M, G, K } = C;
 
-const P = { rojo: "#e53935", amarillo: "#fdd835", azul: "#1e88e5", verde: "#43a047", naranja: "#fb8c00", morado: "#8e24aa", negro: "#212121" };
+const trazo = (d, c = K, w = 4) => `<path d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;
+const punto = (x, y, r, c = K) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/>`;
+// Tres muestras en columna con su nombre debajo.
+const tres = (label, items, opts) => lienzo(label, items.map(([d, n, c], i) => `<g transform="translate(${8 + i * 82} 0)">${d(c)}</g>${texto(48 + i * 82, 150, n, { size: 15, max: 78, color: c })}`).join(""), opts);
 
-module.exports = {
+// Formas de línea dentro de una caja de 80 de ancho, entre y=50 y y=125.
+const L = {
+  horizontal: (c) => trazo("M8 88 H72", c),
+  vertical: (c) => trazo("M40 52 V124", c),
+  inclinada: (c) => trazo("M12 122 L68 54", c),
+  curva: (c) => trazo("M10 115 Q40 30 70 115", c),
+  ondulada: (c) => trazo("M6 88 q 9 -18 17 0 t 17 0 t 17 0 t 17 0", c),
+  espiral: (c) => trazo("M40 88 m0 0 a4 4 0 0 1 8 0 a8 8 0 0 1 -16 0 a12 12 0 0 1 24 0 a16 16 0 0 1 -32 0 a20 20 0 0 1 40 0", c, 3.5),
+  quebrada: (c) => trazo("M6 110 L20 64 L34 110 L48 64 L62 110 L74 70", c),
+  fina: (c) => trazo("M8 88 H72", c, 1.5),
+  media: (c) => trazo("M8 88 H72", c, 5),
+  gruesa: (c) => trazo("M8 88 H72", c, 14),
+};
+
+const puntos = lienzo("Puntos grandes, medianos y pequeños", [[50, 80, 26, R], [125, 90, 14, A], [185, 72, 8, V], [220, 110, 4, K], [90, 125, 5, N], [160, 125, 10, M]].map(([x, y, r, c]) => punto(x, y, r, c)).join(""), { titulo: "Puntos de muchos tamaños", nota: "grande · mediano · pequeño" });
+
+const puntillismo = lienzo("Una flor y un sol dibujados solo con puntos", (() => {
+  let o = "";
+  for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6; o += punto(80 + Math.cos(a) * 26, 82 + Math.sin(a) * 26, 7, R); }
+  o += punto(80, 82, 10, M);
+  for (let y = 112; y < 160; y += 9) o += punto(80, y, 3.5, V);
+  for (let i = 0; i < 16; i++) { const a = i * Math.PI / 8; o += punto(190 + Math.cos(a) * 22, 70 + Math.sin(a) * 22, 4, M); }
+  for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4; o += punto(190 + Math.cos(a) * 36, 70 + Math.sin(a) * 36, 3, M); }
+  return o;
+})(), { titulo: "Dibujos de puntos" });
+
+const nace = lienzo("Un punto que se mueve deja una línea", punto(40, 95, 8, A) + trazo("M40 95 C 90 40, 140 150, 215 85", A, 4) + `<text x="225" y="92" font-size="22" fill="${A}">✎</text>` + texto(40, 130, "punto", { size: 15, max: 80, color: A }) + texto(150, 150, "…se mueve y hace una línea", { size: 15, max: 200 }), { titulo: "El punto echa a andar" });
+
+const caras = lienzo("Una línea ondulada tranquila y una línea en zigzag nerviosa", `<g transform="translate(14 0)">${trazo("M0 80 q 14 -22 28 0 t 28 0 t 28 0 t 28 0", A, 4)}</g>${texto(70, 120, "tranquila", { size: 16, max: 110, color: A })}
+  <g transform="translate(140 0)">${trazo("M0 98 L12 60 L24 98 L36 60 L48 98 L60 60 L72 98 L84 60 L96 98", R, 4)}</g>${texto(190, 120, "nerviosa", { size: 16, max: 110, color: R })}`, { titulo: "¿Cómo se siente la línea?" });
+
+const miro = lienzo("Un cuadro inventado al estilo de Miró, con puntos, líneas y formas de colores", `${trazo("M20 140 C 70 40, 120 160, 170 70 S 230 50, 240 120", K, 3)}${punto(60, 60, 16, R)}${punto(205, 45, 10, M)}${punto(130, 120, 7, K)}
+  <path d="M150 140 l12 -26 l12 26 z" fill="${A}"/>${trazo("M196 98 l14 14 m0 -14 l-14 14", K, 3)}<circle cx="95" cy="140" r="9" fill="none" stroke="${V}" stroke-width="4"/>${trazo("M100 40 l8 -10 l8 10", K, 3)}`, { titulo: "Al estilo de Miró" });
+
+const contorno = lienzo("El contorno de una casa hecho con líneas rectas y un sol con líneas curvas", `${trazo("M40 140 V90 L90 50 L140 90 V140 Z", A, 4)}${trazo("M78 140 V112 H102 V140", A, 3)}<circle cx="205" cy="62" r="18" fill="none" stroke="${M}" stroke-width="4"/>${[0, 1, 2, 3, 4, 5, 6, 7].map((i) => { const a = i * Math.PI / 4; return trazo(`M${205 + Math.cos(a) * 25} ${62 + Math.sin(a) * 25} L${205 + Math.cos(a) * 35} ${62 + Math.sin(a) * 35}`, M, 3); }).join("")}${trazo("M170 140 q 10 -14 20 0 t 20 0 t 20 0", V, 3)}`, { titulo: "Líneas que dibujan", nota: "contornos con rectas y curvas" });
+
+module.exports = tema({
   materia: "Educación Plástica",
-  curso: "1-primaria",
   titulo: "Puntos y líneas",
-  minutos: 25,
-  objetivos: ["Reconocer el punto y la línea como elementos para dibujar", "Distinguir líneas rectas, curvas, en zigzag y en espiral", "Hacer dibujos solo con puntos y líneas"],
-  claves: ["punto", "línea recta", "línea curva", "zigzag", "espiral", "contorno"],
-  pregunta: {
-    texto: "¿Se puede hacer un dibujo usando solo puntitos?",
-    respuesta: "¡Sí! Si ponemos muchos <mark>puntos</mark> juntos, forman manchas y figuras. Algunos pintores famosos pintaban así, con miles de puntos de colores.",
-  },
+  minutos: 50,
+  objetivos: ["Reconocer el punto como la marca más pequeña", "Dibujar con puntos", "Distinguir líneas rectas, curvas, onduladas, quebradas y en espiral", "Hacer líneas gruesas y finas", "Usar puntos y líneas para crear y expresar"],
+  claves: ["punto", "línea", "recta", "curva", "ondulada", "quebrada", "espiral", "contorno"],
+  pregunta: ["¿Qué pasa si pones la punta del lápiz en el papel y la mueves sin levantarla?", "¡Que el <mark>punto</mark> se convierte en una <mark>línea</mark>! Todos los dibujos empiezan con un punto."],
+  lectura: ["El punto que quería pasear", `<p>En una hoja blanca vivía un punto muy pequeño y muy negro.</p><p>Se aburría siempre en el mismo sitio.</p><p>Un día, el lápiz le dijo: —¿Vamos de paseo?</p><p>El punto echó a andar. Primero fue recto, recto, como un tren.</p><p>Luego subió y bajó como las olas del mar. Después saltó en zigzag como un rayo.</p><p>Al final dio vueltas y más vueltas, como la concha de un caracol.</p><p>Cuando se paró, miró hacia atrás. ¡Había dejado un camino precioso!</p><p>—Soy un punto —dijo—, pero cuando paseo, me convierto en línea.</p>`],
   bloques: [
-    {
-      html: `<h3>El punto</h3><p>El <mark>punto</mark> es la marca más pequeña que podemos hacer. Lo hacemos al apoyar la punta del lápiz en el papel.</p><p>Los puntos pueden ser <b>grandes o pequeños</b>, de muchos colores. Con un rotulador, con el dedo mojado en pintura o con un bastoncillo de algodón.</p>`,
-      svg: svg("Puntos de distintos tamaños y colores", `${[[40, 50, 6, P.rojo], [80, 70, 12, P.azul], [130, 45, 4, P.negro], [170, 80, 18, P.amarillo], [215, 50, 9, P.verde], [60, 120, 15, P.naranja], [120, 110, 8, P.morado], [200, 130, 5, P.rojo], [160, 140, 10, P.azul]].map(([x, y, r, c]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/>`).join("")}`),
-    },
-    {
-      html: `<h3>Muchos puntos juntos</h3><p>Si ponemos los puntos <mark>muy juntos</mark>, se ve una mancha oscura. Si los separamos, la zona se ve más clara.</p><p>Con puntos podemos rellenar un dibujo: un pez, una flor o una mariquita. ¡Ten paciencia y verás qué bonito queda!</p>`,
-      svg: svg("Un pez relleno con puntos de colores", `<path d="M40 90 Q 110 20 180 90 Q 110 160 40 90 Z M180 90 L 225 60 L 225 120 Z" fill="none" stroke="var(--ink)" stroke-width="2.5"/>${[...Array(80)].map((_, i) => { const x = 55 + (i % 16) * 8.5, y = 70 + Math.floor(i / 16) * 10, ok = ((x - 110) / 62) ** 2 + ((y - 90) / 30) ** 2 < 0.8; return ok ? `<circle cx="${x}" cy="${y}" r="3" fill="${[P.azul, P.verde, P.naranja][i % 3]}"/>` : ""; }).join("")}<circle cx="70" cy="82" r="5" fill="${P.negro}"/>`),
-    },
-    {
-      html: `<h3>La línea</h3><p>Si movemos el lápiz sin levantarlo, el punto <mark>se pone a caminar</mark> y deja un rastro: eso es una <b>línea</b>.</p><p>Las líneas pueden ser <b>largas o cortas</b>, <b>gruesas o finas</b>. Con ellas dibujamos el borde de las cosas.</p>`,
-      svg: svg("Un punto que se convierte en una línea ondulada, y líneas gruesas y finas", `<circle cx="30" cy="60" r="6" fill="${P.rojo}"/><path d="M30 60 q 30 -30 60 0 t 60 0 t 60 0" stroke="${P.rojo}" stroke-width="3" fill="none"/><path d="M30 110 H 230" stroke="var(--ink)" stroke-width="10" stroke-linecap="round"/><path d="M30 145 H 230" stroke="var(--ink)" stroke-width="1.5"/>`),
-      video: { id: "kR-4tyRsQ1c", titulo: "Las líneas para niños", canal: "Smile and Learn - Español", vistas: 1903534, megusta: 0 },
-    },
-    {
-      html: `<h3>Líneas rectas</h3><p>Las <mark>líneas rectas</mark> no se tuercen. Pueden ser <b>horizontales</b> (tumbadas, como el horizonte del mar), <b>verticales</b> (de pie, como un árbol) o <b>inclinadas</b> (como un tobogán).</p><p>Para hacerlas muy rectas podemos usar una regla.</p>`,
-      svg: svg("Una línea horizontal, una vertical y una inclinada", `<path d="M20 120 H 90" stroke="${P.azul}" stroke-width="5" stroke-linecap="round"/><path d="M130 50 V 125" stroke="${P.verde}" stroke-width="5" stroke-linecap="round"/><path d="M175 125 L 240 55" stroke="${P.rojo}" stroke-width="5" stroke-linecap="round"/>${txt(55, 150, "horizontal", P.azul, 12)}${txt(130, 150, "vertical", P.verde, 12)}${txt(208, 150, "inclinada", P.rojo, 12)}`),
-    },
-    {
-      html: `<h3>Líneas curvas, zigzag y espiral</h3><p>Las <mark>líneas curvas</mark> se doblan suavemente, como una ola. Las líneas en <mark>zigzag</mark> suben y bajan con picos, como un rayo.</p><p>La <mark>espiral</mark> da vueltas y vueltas, como un caracol. ¡Cada línea transmite algo distinto: calma, energía o movimiento!</p>`,
-      svg: svg("Una línea curva, una en zigzag y una espiral", `<path d="M15 40 q 20 -30 40 0 t 40 0" stroke="${P.azul}" stroke-width="4" fill="none"/><path d="M15 125 l 15 -25 l 15 25 l 15 -25 l 15 25 l 15 -25" stroke="${P.naranja}" stroke-width="4" fill="none"/><path d="M190 90 m 0 0 a 5 5 0 0 1 10 0 a 10 10 0 0 1 -20 0 a 15 15 0 0 1 30 0 a 20 20 0 0 1 -40 0 a 25 25 0 0 1 50 0" stroke="${P.morado}" stroke-width="4" fill="none"/>${txt(55, 68, "curva", P.azul, 12)}${txt(60, 150, "zigzag", P.naranja, 12)}${txt(190, 140, "espiral", P.morado, 12)}`),
-    },
-    {
-      html: `<h3>Líneas abiertas y cerradas</h3><p>Una línea es <mark>cerrada</mark> si termina donde empezó: deja un espacio dentro, como un corral.</p><p>Una línea es <mark>abierta</mark> si sus extremos no se tocan. Las líneas cerradas forman el <b>contorno</b> de las figuras, que luego podemos colorear.</p>`,
-      svg: svg("Una línea abierta y una línea cerrada con un color dentro", `<path d="M30 120 q 20 -80 50 -40 t 40 -30" stroke="var(--ink)" stroke-width="4" fill="none"/><path d="M160 90 q 0 -50 40 -40 q 45 10 30 50 q -15 40 -45 30 q -25 -8 -25 -40 Z" fill="${P.amarillo}" opacity=".6" stroke="var(--ink)" stroke-width="4"/>${txt(75, 150, "abierta", "var(--ink)", 13)}${txt(195, 150, "cerrada", "var(--ink)", 13)}`),
-    },
-    {
-      html: `<h3>Las líneas en la naturaleza</h3><p>Si te fijas, hay <mark>líneas por todas partes</mark>: las rayas de una cebra, las vetas de la madera, los surcos de un campo o las ondas del agua cuando tiras una piedra.</p><p>Los artistas observan bien estas líneas para luego dibujarlas.</p>`,
-      svg: svg("Ondas en el agua alrededor de una piedra y las rayas de una cebra", `${[12, 25, 38, 51].map((r) => `<ellipse cx="75" cy="95" rx="${r}" ry="${r * 0.5}" fill="none" stroke="${P.azul}" stroke-width="3"/>`).join("")}<rect x="150" y="45" width="90" height="90" rx="12" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${[0, 1, 2, 3, 4].map((i) => `<path d="M${160 + i * 17} 50 q 8 40 -2 80" stroke="${P.negro}" stroke-width="7" fill="none"/>`).join("")}`),
-    },
-    {
-      html: `<h3>Artistas de puntos y líneas</h3><p>El pintor <b>Joan Miró</b> usaba muchas <mark>líneas negras y puntos de colores</mark> en sus cuadros: estrellas, pájaros y lunas muy sencillos.</p><p>Otros artistas pintaban con miles de puntitos de colores. Mira de lejos y de cerca: ¡el dibujo cambia!</p>`,
-      svg: svg("Un dibujo al estilo de Miró con líneas negras, una estrella y puntos de colores", `<path d="M30 130 q 50 -100 100 -40 t 100 -30" stroke="${P.negro}" stroke-width="4" fill="none"/><path d="M190 40 l 0 30 M175 55 l 30 0 M180 45 l 20 20 M200 45 l -20 20" stroke="${P.negro}" stroke-width="3"/><circle cx="70" cy="60" r="14" fill="${P.rojo}"/><circle cx="150" cy="130" r="10" fill="${P.amarillo}" stroke="${P.negro}" stroke-width="2"/><circle cx="215" cy="125" r="8" fill="${P.azul}"/><circle cx="110" cy="45" r="5" fill="${P.verde}"/>`),
-      video: { id: "-Zp7Du1ckaY", titulo: "Joan Miró: biografía para niños", canal: "Anakronismos", vistas: 650554, megusta: 0 },
-    },
-    {
-      html: `<h3>Juego: el punto que camina</h3><p>Pon un punto en un papel. Ahora, sin levantar el lápiz, <mark>hazlo caminar</mark>: recto, curvo, en zigzag, en espiral… hasta volver al principio.</p><p>Te saldrá una forma cerrada con muchos huecos. Rellena cada hueco con <b>puntos o rayas</b> de colores diferentes. ¡Es tu obra de arte!</p>`,
-      svg: svg("Un garabato cerrado con huecos rellenos de puntos, rayas y color", `<path d="M40 90 q 20 -60 70 -40 l 20 30 l 20 -30 q 50 -10 60 30 q 10 50 -40 60 q -40 10 -60 -20 q -20 30 -50 10 q -30 -15 -20 -40 Z" fill="none" stroke="var(--ink)" stroke-width="3"/><path d="M110 90 V 120 M60 90 H 110 M150 90 h 50" stroke="var(--ink)" stroke-width="3"/>${[...Array(12)].map((_, i) => `<circle cx="${62 + (i % 4) * 12}" cy="${70 + Math.floor(i / 4) * 8}" r="2.5" fill="${P.rojo}"/>`).join("")}${[0, 1, 2, 3, 4].map((i) => `<path d="M${155 + i * 9} 95 v 25" stroke="${P.azul}" stroke-width="2.5"/>`).join("")}<path d="M115 95 h 30 v 30 h -30 Z" fill="${P.amarillo}" opacity=".7"/>`),
-    },
+    ["El punto", `<p>El <mark>punto</mark> es la marca más pequeña que podemos hacer.</p><p>Para hacerlo, apoyamos la punta del lápiz en el papel y lo levantamos. ¡Ya está!</p><p>Los puntos pueden ser <b>grandes</b> o <b>pequeños</b>, de muchos colores.</p><p>Con un rotulador gordo salen puntos grandes. Con un lápiz fino, puntos pequeñitos.</p><p>Mira a tu alrededor: hay puntos en las mariquitas, en la ropa y en los dados.</p>`,
+      puntos],
+    ["Dibujar con puntos", `<p>Si ponemos muchos puntos juntos, podemos hacer un <mark>dibujo de puntos</mark>.</p><p>Puntos rojos en círculo forman una flor. Puntos amarillos forman un sol.</p><p>Si los puntos están muy <b>juntos</b>, el color se ve fuerte. Si están <b>separados</b>, se ve suave.</p><p>Puedes hacer puntos con rotuladores, con el dedo mojado en pintura o con bastoncillos.</p><p>¡Hay pintores famosos que hacían cuadros enteros solo con puntos!</p>`,
+      puntillismo],
+    ["La línea", `<p>Si ponemos la punta del lápiz en el papel y la <b>movemos</b>, el punto deja un camino.</p><p>Ese camino es una <mark>línea</mark>.</p><p>Una línea es como un punto que se ha ido de paseo.</p><p>Las líneas pueden ir hacia muchos sitios: hacia arriba, hacia abajo, hacia los lados.</p><p>Pueden ser largas o cortas. Con líneas dibujamos casi todo: personas, casas, árboles y letras.</p>`,
+      nace, vid("kR-4tyRsQ1c", "Las líneas para niños", "Smile and Learn - Español", 1903534)],
+    ["Líneas rectas", `<p>Una <mark>línea recta</mark> va siempre en la misma dirección, sin torcerse.</p><p>La línea <b>horizontal</b> está tumbada, como el horizonte del mar o una persona dormida.</p><p>La línea <b>vertical</b> está de pie, como un árbol o una farola.</p><p>La línea <b>inclinada</b> está torcida, como un tobogán.</p><p>Para hacer rectas muy derechas podemos usar una regla. ¡Pero también salen bien a mano alzada!</p>`,
+      tres("Línea horizontal, vertical e inclinada", [[L.horizontal, "horizontal", A], [L.vertical, "vertical", R], [L.inclinada, "inclinada", V]], { titulo: "Líneas rectas" })],
+    ["Líneas curvas", `<p>Una <mark>línea curva</mark> se dobla suavemente, sin esquinas.</p><p>La línea <b>ondulada</b> sube y baja como las olas del mar.</p><p>La línea en <b>espiral</b> da vueltas y vueltas, como la concha de un caracol.</p><p>Hay curvas en el arcoíris, en una sonrisa y en las ruedas.</p><p>Para dibujar una curva, mueve la mano despacio y sin parar. Se nota más suave que una recta.</p>`,
+      tres("Línea curva, ondulada y en espiral", [[L.curva, "curva", A], [L.ondulada, "ondulada", N], [L.espiral, "espiral", V]], { titulo: "Líneas curvas" })],
+    ["Líneas quebradas", `<p>Una <mark>línea quebrada</mark> está hecha de trozos rectos que cambian de dirección.</p><p>Tiene <b>picos</b> o esquinas. También la llamamos línea en <b>zigzag</b>.</p><p>Es como el rayo de una tormenta, los dientes de una sierra o las montañas.</p><p>Para hacerla, sube y baja con el lápiz haciendo puntas.</p><p>Si juntas una quebrada y una ondulada, tienes montañas y mar en el mismo dibujo.</p>`,
+      tres("Línea quebrada, ondulada y recta para comparar", [[L.quebrada, "quebrada", R], [L.ondulada, "ondulada", A], [L.horizontal, "recta", G]], { titulo: "Con picos o sin picos" })],
+    ["Gruesas y finas", `<p>Las líneas pueden ser <mark>gruesas</mark> o <mark>finas</mark>.</p><p>Una línea <b>fina</b> es delgadita, como un pelo. La hacemos con un lápiz bien afilado.</p><p>Una línea <b>gruesa</b> es ancha y fuerte. La hacemos con un rotulador gordo, una cera o un pincel.</p><p>También cambia si aprietas más o menos.</p><p>Las líneas gruesas destacan mucho. Las finas sirven para los detalles, como los bigotes de un gato.</p>`,
+      tres("Línea fina, mediana y gruesa", [[L.fina, "fina", K], [L.media, "mediana", A], [L.gruesa, "gruesa", R]], { titulo: "Del pelo a la carretera" })],
+    ["Líneas que expresan", `<p>Las líneas también pueden <mark>expresar sentimientos</mark>.</p><p>Una línea <b>ondulada</b> y suave parece tranquila, como el mar en calma.</p><p>Una línea en <b>zigzag</b> parece nerviosa o enfadada, como un rayo.</p><p>Una línea <b>horizontal</b> parece descansar. Una línea <b>vertical</b> parece fuerte y firme.</p><p>Escucha una música y dibuja las líneas que te inspire. ¿Te salen suaves o con picos?</p>`,
+      caras],
+    ["Un artista de puntos y líneas", `<p><mark>Joan Miró</mark> fue un pintor de Barcelona.</p><p>Le encantaba pintar con <b>puntos</b>, <b>líneas</b> y formas de colores muy vivos: rojo, amarillo, azul y negro.</p><p>Sus cuadros parecen juegos: estrellas, lunas, pájaros y personajes inventados.</p><p>Sus líneas negras son finas y largas, y dan vueltas por todo el cuadro.</p><p>Mira sus obras y busca puntos y líneas. ¡Después inventa tu propio cuadro como él!</p>`,
+      miro, vid("-Zp7Du1ckaY", "Joan Miró: biografía para niños", "Anakronismos", 650554)],
+    ["¿Para qué sirven?", `<p>Los puntos y las líneas sirven para muchas cosas.</p><p>Con líneas dibujamos el <mark>contorno</mark>: el borde de las cosas. Primero hacemos el contorno de la casa y luego la pintamos.</p><p>Con líneas escribimos las <b>letras</b> y los <b>números</b>.</p><p>En los mapas, las líneas son caminos y ríos. En la carretera, las líneas nos dicen por dónde ir.</p><p>¡Y con puntos ponemos los ojos a nuestros dibujos!</p>`,
+      contorno],
+    ["Juego: el dictado de líneas", `<p>Vamos a jugar al <mark>dictado de líneas</mark>.</p><p>Necesitas una hoja y un lápiz. La maestra dice una línea y tú la dibujas.</p><p>«¡Una línea recta horizontal!» «¡Ahora una ondulada!» «¡Una espiral muy grande!»</p><p>Después, compara tu hoja con la de tu compañero. ¿Se parecen?</p><p>Al final, convierte tus líneas en un dibujo. La ondulada puede ser el mar. La espiral, un caracol. ¡Tú decides!</p>`,
+      dibujos("Líneas convertidas en dibujos: ondulada en mar, espiral en caracol, vertical en árbol", [["pez", "mar", A], ["caracol", "caracol", V], ["arbol", "árbol", N]], { titulo: "De línea a dibujo" })],
+    ["Repaso: lo que ya sé", `<p>El <mark>punto</mark> es la marca más pequeña. Con muchos puntos hacemos dibujos.</p><p>La <mark>línea</mark> es un punto que se mueve.</p><p>Hay líneas <b>rectas</b>: horizontales, verticales e inclinadas.</p><p>Hay líneas <b>curvas</b>: onduladas y en espiral. Y líneas <b>quebradas</b>, en zigzag.</p><p>Las líneas pueden ser gruesas o finas, tranquilas o nerviosas.</p><p>¡Con puntos y líneas empieza cualquier dibujo!</p>`,
+      lista("Repaso de puntos y líneas", [["El punto: la marca más pequeña", R], ["Rectas: tumbada, de pie, torcida", A], ["Curvas: ondulada, espiral", V], ["Quebrada: en zigzag", N]], { titulo: "Ya sé…" })],
   ],
-  figura: {
-    titulo: "Tipos de líneas",
-    svg: `<svg viewBox="0 0 640 260" role="img" aria-label="Seis tipos de líneas: horizontal, vertical, inclinada, curva, zigzag y espiral">
-      <rect width="640" height="260" rx="16" fill="var(--paper)"/>
-      <path d="M40 80 H 170" stroke="${P.azul}" stroke-width="6" stroke-linecap="round"/><path d="M320 40 V 115" stroke="${P.verde}" stroke-width="6" stroke-linecap="round"/><path d="M470 115 L 600 45" stroke="${P.rojo}" stroke-width="6" stroke-linecap="round"/>
-      <path d="M40 185 q 30 -40 65 0 t 65 0" stroke="${P.azul}" stroke-width="6" fill="none"/><path d="M255 205 l 22 -40 l 22 40 l 22 -40 l 22 40 l 22 -40" stroke="${P.naranja}" stroke-width="6" fill="none"/><path d="M535 185 a 6 6 0 0 1 12 0 a 12 12 0 0 1 -24 0 a 18 18 0 0 1 36 0 a 24 24 0 0 1 -48 0 a 30 30 0 0 1 60 0" stroke="${P.morado}" stroke-width="5" fill="none"/>
-      ${[["horizontal", 105, 130], ["vertical", 320, 140], ["inclinada", 535, 140], ["curva", 105, 240], ["zigzag", 320, 240], ["espiral", 535, 240]].map(([t, x, y]) => txt(x, y, t, "var(--ink)", 15)).join("")}
-    </svg>`,
-  },
-  video: { id: "X5rGFxkT7TY", titulo: "El punto y la línea: cómo hacer un dibujo solo con líneas", canal: "Adriana Arunima", vistas: 786632, megusta: 0, busqueda: "el punto y la línea para niños" },
-  ejemplosTitulo: "Lo hacemos juntos",
+  figura: ["Puntos y líneas", mural("Punto, línea recta, línea curva y línea quebrada", [["sol", "Punto", "la marca más pequeña", R], ["lapiz", "Recta", "tumbada · de pie · torcida", A], ["caracol", "Curva", "ondulada · espiral", V], ["estrella", "Quebrada", "en zigzag, con picos", N]], "Así empieza un dibujo")],
+  video: { ...vid("X5rGFxkT7TY", "El punto y la línea: cómo hacer un dibujo solo con líneas", "Adriana Arunima", 786632), busqueda: "el punto y la línea para niños" },
   ejemplos: [
-    { enunciado: "Dibuja una mariquita con puntos.", pasos: ["Dibuja un círculo grande con una línea cerrada.", "Haz una línea recta en medio: son las alas.", "Pinta el círculo de rojo y pon puntos negros grandes."], resultado: "una mariquita hecha con líneas y puntos." },
-    { enunciado: "Dibuja la lluvia y un rayo.", pasos: ["Para la lluvia, haz rayitas cortas inclinadas.", "Para el rayo, haz una línea en zigzag.", "Dibuja una nube arriba con una línea curva cerrada."], resultado: "una tormenta con líneas rectas, zigzag y curvas." },
-    { enunciado: "Haz un caracol.", pasos: ["Dibuja una espiral grande: es la concha.", "Debajo, una línea curva larga: el cuerpo.", "Añade dos líneas cortas con un punto al final: los cuernos."], resultado: "un caracol hecho con una espiral." },
+    ["Dibuja el mar con líneas.", ["Pienso cómo se mueven las olas.", "Suben y bajan.", "Uso líneas onduladas azules."], "varias líneas onduladas una debajo de otra."],
+    ["Dibuja una montaña.", ["Las montañas tienen picos.", "Necesito una línea con puntas.", "Hago una línea quebrada."], "una línea en zigzag."],
+    ["¿Qué línea es una farola?", ["La farola está de pie.", "Va de arriba abajo.", "Es una recta vertical."], "línea vertical."],
+    ["Dibuja una mariquita con puntos.", ["Hago un círculo rojo.", "Le pongo puntos negros grandes.", "Añado los ojos con puntos pequeños."], "una mariquita de puntos."],
   ],
   errores: [
-    "Apretar mucho el lápiz: la línea sale muy oscura y no se puede borrar.",
-    "Hacer los puntos con rayitas: el punto se hace apoyando y levantando la punta.",
-    "Dejar huecos en una línea que debería ser cerrada: luego el color se escapa.",
-    "Pensar que solo vale la línea recta: las curvas y los zigzag también dan vida al dibujo.",
+    "Pensar que una línea quebrada es curva: la quebrada tiene picos.",
+    "Confundir horizontal y vertical: horizontal está tumbada; vertical, de pie.",
+    "Apretar siempre igual: apretando más o menos cambia el grosor.",
+    "Creer que un punto no sirve para nada: ¡con puntos se hacen cuadros enteros!",
   ],
-  ejercicios: [
-    { q: "Llena un círculo con puntos de tres colores.", sol: "Un círculo relleno de puntos sin dejar grandes huecos." },
-    { q: "Dibuja tres líneas horizontales y tres verticales.", sol: "Líneas tumbadas y líneas de pie." },
-    { q: "Dibuja una línea en zigzag. ¿A qué se parece?", sol: "A un rayo, a los dientes de una sierra o a unas montañas." },
-    { q: "Dibuja una espiral. ¿Qué animal tiene esa forma?", sol: "El caracol." },
-    { q: "Dibuja una línea abierta y otra cerrada.", sol: "La cerrada termina donde empezó." },
-    { q: "Busca en casa algo con rayas.", sol: "Por ejemplo, una camiseta de rayas, una persiana o un paso de cebra en la calle." },
-    { q: "Dibuja el mar con líneas curvas.", sol: "Olas con líneas curvas azules." },
-    { q: "Haz un camino con puntos que vaya de una casa a un árbol.", sol: "Una fila de puntos entre los dos dibujos." },
-    { q: "Dibuja una cebra y ponle rayas.", sol: "Una cebra con rayas negras." },
-    { q: "Haz una línea gruesa y otra fina.", sol: "La gruesa con un rotulador gordo o apretando la cera; la fina con lápiz." },
+  basico: [
+    ["Haz cinco puntos grandes y cinco pequeños.", "Dibujo libre con puntos de dos tamaños."],
+    ["Dibuja una línea recta.", "Una línea sin curvas."],
+    ["Dibuja una línea ondulada.", "Una línea que sube y baja suave."],
+    ["Dibuja una línea en zigzag.", "Una línea quebrada con picos."],
+    ["Dibuja una espiral.", "Una línea que da vueltas."],
+    ["¿Qué línea parece una persona dormida?", "La horizontal."],
+    ["¿Qué línea parece un árbol de pie?", "La vertical."],
+    ["Busca puntos en tu ropa o en clase.", "Respuesta libre."],
+  ],
+  medio: [
+    ["Haz una línea fina y una gruesa.", "Una delgada y otra ancha."],
+    ["¿Qué línea parece un tobogán?", "La inclinada."],
+    ["¿Qué línea parece un rayo?", "La quebrada."],
+    ["¿Qué línea parece la concha de un caracol?", "La espiral."],
+    ["Dibuja una flor solo con puntos.", "Puntos de colores formando una flor."],
+    ["Dibuja el contorno de una casa con rectas.", "Cuadrado y triángulo hechos con líneas rectas."],
+    ["Haz una línea tranquila y otra nerviosa.", "Ondulada suave y zigzag."],
+    ["¿Qué es un contorno?", "El borde de una cosa dibujado con una línea."],
+    ["¿Quién fue Joan Miró?", "Un pintor que usaba puntos, líneas y colores vivos."],
+  ],
+  avanzado: [
+    ["Dibuja un paisaje usando cinco tipos de línea.", "Dibujo con recta, ondulada, quebrada, espiral y curva."],
+    ["Escucha una música y dibuja sus líneas.", "Respuesta libre según la música."],
+    ["Inventa un cuadro al estilo de Miró.", "Dibujo con puntos, líneas negras y colores vivos."],
+    ["Explica a un compañero cómo nace una línea.", "Un punto que se mueve deja un camino."],
+    ["Haz un dibujo con puntos juntos y otro con puntos separados. ¿Qué cambia?", "Juntos se ve más fuerte; separados, más suave."],
   ],
   quiz: [
-    { q: "La marca más pequeña que podemos hacer es…", o: ["la línea", "el punto", "la mancha"], a: 1, e: "El punto." },
-    { q: "Una línea tumbada es…", o: ["vertical", "horizontal", "espiral"], a: 1, e: "Como el horizonte." },
-    { q: "Una línea de pie es…", o: ["vertical", "horizontal", "curva"], a: 0, e: "Como un árbol." },
-    { q: "Un rayo se dibuja con una línea…", o: ["curva", "en zigzag", "en espiral"], a: 1, e: "Con picos." },
-    { q: "La concha de un caracol es una…", o: ["espiral", "recta", "zigzag"], a: 0, e: "Da vueltas." },
-    { q: "Las olas del mar son líneas…", o: ["rectas", "curvas", "en zigzag"], a: 1, e: "Se doblan suavemente." },
-    { q: "Una línea que termina donde empezó es…", o: ["abierta", "cerrada", "fina"], a: 1, e: "Deja un espacio dentro." },
-    { q: "Muchos puntos muy juntos se ven…", o: ["más oscuros", "más claros", "invisibles"], a: 0, e: "Forman una mancha." },
-    { q: "Miró usaba muchas…", o: ["líneas negras y puntos de colores", "fotos", "esculturas de hielo"], a: 0, e: "Formas sencillas y colores." },
-    { q: "La línea es un punto que…", o: ["se para", "camina", "se borra"], a: 1, e: "Deja un rastro." },
+    ["¿Cuál es la marca más pequeña?", ["el punto", "la línea", "la espiral"], 0, "El punto."],
+    ["Una línea es un punto que…", ["se mueve", "se borra", "duerme"], 0, "Se mueve."],
+    ["La línea tumbada es…", ["horizontal", "vertical", "espiral"], 0, "Horizontal."],
+    ["La línea de pie es…", ["vertical", "ondulada", "quebrada"], 0, "Vertical."],
+    ["La línea que sube y baja como las olas es…", ["ondulada", "recta", "quebrada"], 0, "Ondulada."],
+    ["La línea en zigzag es…", ["quebrada", "curva", "horizontal"], 0, "Quebrada."],
+    ["La concha de un caracol es una…", ["espiral", "recta", "inclinada"], 0, "Espiral."],
+    ["Una línea con un rotulador gordo es…", ["gruesa", "fina", "invisible"], 0, "Gruesa."],
+    ["¿Qué línea parece más tranquila?", ["ondulada suave", "zigzag", "ninguna"], 0, "La ondulada suave."],
+    ["El borde de un dibujo es el…", ["contorno", "punto", "color"], 0, "Contorno."],
+    ["Joan Miró pintaba con…", ["puntos y líneas", "solo gris", "solo fotos"], 0, "Puntos, líneas y colores vivos."],
+    ["Un tobogán es una línea…", ["inclinada", "espiral", "ondulada"], 0, "Inclinada."],
   ],
   examen: [
-    { q: "Un tobogán es una línea…", o: ["inclinada", "horizontal", "espiral"], a: 0, e: "Inclinada." },
-    { q: "Para colorear sin salirse necesito una línea…", o: ["abierta", "cerrada", "en zigzag"], a: 1, e: "Cerrada." },
-    { q: "Las rayas de la cebra son…", o: ["puntos", "líneas", "círculos"], a: 1, e: "Líneas." },
-    { q: "Con puntos de colores se puede…", o: ["solo escribir", "hacer un dibujo", "nada"], a: 1, e: "Muchos puntos forman figuras." },
+    ["¿Qué hace un punto cuando se mueve?", ["una línea", "un color", "nada"], 0, "Una línea."],
+    ["¿Qué línea tiene picos?", ["quebrada", "ondulada", "curva"], 0, "Quebrada."],
+    ["La línea del horizonte del mar es…", ["horizontal", "vertical", "espiral"], 0, "Horizontal."],
+    ["Una línea fina es…", ["delgadita", "muy ancha", "un punto"], 0, "Delgadita."],
+    ["La espiral da…", ["vueltas", "saltos", "picos"], 0, "Vueltas."],
+    ["Con muchos puntos juntos puedo…", ["hacer un dibujo", "borrar", "nada"], 0, "Hacer un dibujo."],
   ],
-  feynman: ["Qué es un punto y qué es una línea", "Qué tipos de líneas conozco", "Para qué sirven las líneas cerradas"],
-  mapa: mapa("PUNTOS Y LÍNEAS", "var(--pri)", [
-    ["Punto", "grande · pequeño · de colores", "var(--red)"],
-    ["Rectas", "horizontal · vertical · inclinada", "var(--pen)"],
-    ["Curvas", "zigzag · espiral · ondas", "var(--sun)"],
-    ["Abierta y cerrada", "la cerrada hace contorno", "var(--leaf)"],
-  ], 220),
+  feynman: ["Qué es un punto y qué es una línea", "Los tipos de líneas", "Cómo una línea puede expresar algo"],
+  mapa: ["PUNTOS Y LÍNEAS", [["Punto", "grande · pequeño", R], ["Rectas", "horizontal · vertical · inclinada", A], ["Curvas", "ondulada · espiral", V], ["Quebrada", "zigzag", N]], 230],
   tarjetas: [
     ["¿Qué es un punto?", "La marca más pequeña"],
-    ["¿Qué es una línea?", "Un punto que camina"],
-    ["Línea tumbada", "Horizontal"],
-    ["Línea de pie", "Vertical"],
-    ["Línea con picos", "Zigzag"],
-    ["Línea que da vueltas", "Espiral"],
-    ["Línea que acaba donde empezó", "Cerrada"],
-    ["Pintor de líneas negras y puntos de colores", "Joan Miró"],
+    ["¿Qué es una línea?", "Un punto que se mueve"],
+    ["Línea horizontal", "Tumbada, como el mar"],
+    ["Línea vertical", "De pie, como un árbol"],
+    ["Línea inclinada", "Torcida, como un tobogán"],
+    ["Línea ondulada", "Sube y baja como las olas"],
+    ["Línea quebrada", "En zigzag, con picos"],
+    ["Espiral", "Da vueltas como un caracol"],
+    ["Contorno", "El borde de una cosa"],
+    ["Joan Miró", "Pintor de puntos, líneas y colores"],
   ],
+  glosario: [
+    ["Punto", "La marca más pequeña que se puede hacer."],
+    ["Línea", "El camino que deja un punto al moverse."],
+    ["Recta", "Línea que no se tuerce."],
+    ["Curva", "Línea que se dobla suave, sin esquinas."],
+    ["Ondulada", "Línea que sube y baja como las olas."],
+    ["Quebrada", "Línea con picos, en zigzag."],
+    ["Espiral", "Línea que da vueltas alrededor de un centro."],
+    ["Contorno", "Línea que marca el borde de una cosa."],
+  ],
+  situacion: ["El paseo del punto", "Vamos a hacer un gran dibujo colectivo contando el paseo del punto de la lectura.", ["Cada grupo elige un tipo de línea: recta, ondulada, quebrada o espiral.", "En un papel largo, dibujamos el camino del punto con nuestra línea.", "Convertimos las líneas en cosas: el mar, montañas, caracoles.", "Contamos la historia del paseo a otra clase."], "un papel continuo con el paseo del punto.", ["Dibuja los tipos de línea correctos.", "Usa líneas gruesas y finas.", "Convierte las líneas en un dibujo con sentido."]],
   familias: [
-    "Dibujad juntos con bastoncillos de algodón mojados en pintura: solo puntos.",
-    "En la playa o el parque, haced líneas en la arena con un palo: rectas, curvas, espirales.",
-    "Buscad líneas y rayas en la ropa, los suelos y los edificios.",
-    "Mirad cuadros de Miró en internet y copiad uno con ceras.",
+    "Buscad juntos líneas en casa y en la calle: rectas, curvas, en zigzag.",
+    "Haced dibujos de puntos con bastoncillos y pintura.",
+    "Jugad al dictado de líneas en un folio.",
+    "Mirad juntos algún cuadro de Joan Miró y buscad puntos y líneas.",
   ],
-  profesores: PROF("Educación Plástica y Visual: elementos básicos del lenguaje visual (punto y línea), tipos de líneas y su expresividad; observación de obras de artistas", ["Puntillismo con bastoncillos y témpera.", "Dictado de líneas: el docente dice el tipo y todos dibujan.", "Observación de una obra de Miró y creación de una versión propia."]),
-  fuentes: FUENTES,
-  revisado: "2026-11-12",
-};
+  saberes: "Elementos del lenguaje plástico: el punto y la línea. Tipos de línea (recta, curva, ondulada, quebrada, espiral), grosor, contorno y expresividad de la línea. Joan Miró",
+  ideas: ["Dictado de líneas con música de fondo.", "Puntillismo con bastoncillos y témpera.", "Papel continuo con el paseo del punto.", "Mirar una obra de Miró y crear una propia."],
+});
