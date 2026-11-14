@@ -1,6 +1,7 @@
 // Religión 1º de Primaria: la creación, regalo de Dios.
 const { mapa } = require("./_util");
 const { svg, rot, big, nino, sol, luna, nube, arbol, flor, estrella, corazon, pez, pajaro, suelo, PROF, FUENTES } = require("./_pri1-dib");
+const L3 = require("./_pri1L3");
 
 // Iconos pequeños de cada día de la creación.
 const dia = (n, x, y, dib) => `<g><rect x="${x}" y="${y}" width="36" height="52" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>${dib}${big(x + 18, y + 48, n, "var(--pen)", 14)}</g>`;
@@ -9,51 +10,55 @@ module.exports = {
   materia: "Religión",
   curso: "1-primaria",
   titulo: "La creación, regalo de Dios",
-  minutos: 20,
+  minutos: 50,
   objetivos: ["Conocer el relato de la creación de la Biblia", "Descubrir que el mundo es un regalo de Dios", "Aprender a cuidar la naturaleza y a dar gracias"],
   claves: ["creación", "Dios", "regalo", "Biblia", "cuidar", "gracias"],
   pregunta: {
     texto: "Mira por la ventana. ¿Qué cosas bonitas ves? ¿Quién las hizo?",
     respuesta: "Los cristianos creemos que <mark>Dios creó el mundo</mark> por amor. El sol, los árboles y los animales son un regalo para todos.",
   },
+  lectura: L3.lect("El paseo de las preguntas", `<p>Un domingo, Irene sale al campo con su abuelo. Hace sol y el cielo está muy azul.</p><p>Irene ve una mariposa amarilla que vuela sobre las flores.</p><p>«Abuelo, ¿quién ha pintado las mariposas?», pregunta.</p><p>El abuelo sonríe. «Los cristianos creemos que Dios hizo el mundo con mucho cariño. Es un regalo para todos.»</p><p>Irene mira el río, los árboles y un pájaro que canta. «¡Cuántos regalos!», dice.</p><p>Antes de irse, recoge un papel del suelo y lo tira a la papelera. «Así cuidamos el regalo», dice el abuelo.</p><p>En este tema vas a conocer la historia de la creación.</p>`),
   bloques: [
     {
-      html: `<h3>Un mundo lleno de regalos</h3><p>El sol, el mar, las flores y los animales son <mark>regalos</mark>.</p><p>Los cristianos creemos que <b>Dios</b> los hizo con mucho amor.</p><p>Crear es hacer algo nuevo. Por eso decimos que el mundo es <b>la creación</b> de Dios.</p><p>Nadie nos los ha vendido. Están ahí para que todos podamos <b>disfrutarlos</b>.</p>`,
+      html: `<h3>1. Un mundo lleno de regalos</h3><p>El sol, el mar, las flores y los animales son <mark>regalos</mark>.</p><p>Los cristianos creemos que <b>Dios</b> los hizo con mucho amor.</p><p>Crear es hacer algo nuevo. Por eso decimos que el mundo es <b>la creación</b> de Dios.</p><p>Nadie nos los ha vendido. Están ahí para que todos podamos <b>disfrutarlos</b>.</p><p>Cuando miramos el cielo de noche o el mar, sentimos alegría. ¡El mundo es precioso!</p>`,
       svg: svg("Un niño con los brazos abiertos bajo el sol, junto a un árbol y unas flores", `${sol(210, 40)}${nube(80, 36)}${arbol(50, 150)}${flor(170, 150)}${flor(195, 150, "var(--inf)")}${nino(120, 150, { pose: "brazos" })}${suelo(150)}${rot(130, 172, "¡Todo es un regalo!", { color: "var(--pen)" })}`),
     },
     {
-      html: `<h3>La Biblia nos lo cuenta</h3><p>La <b>Biblia</b> es el libro más importante para los cristianos.</p><p>Su primera parte cuenta cómo Dios <mark>creó el mundo</mark>.</p><p>Lo explica como si Dios trabajara <b>seis días</b>. Cada día hizo cosas nuevas. Al final, vio que todo era <mark>muy bueno</mark>.</p><p>Este relato no es un libro de ciencias. Nos enseña algo muy importante: <b>Dios nos quiere</b>.</p>`,
+      html: `<h3>2. La Biblia nos lo cuenta</h3><p>La <b>Biblia</b> es el libro más importante para los cristianos.</p><p>Su primera parte cuenta cómo Dios <mark>creó el mundo</mark>.</p><p>Lo explica como si Dios trabajara <b>seis días</b>. Cada día hizo cosas nuevas. Al final, vio que todo era <mark>muy bueno</mark>.</p><p>Este relato no es un libro de ciencias. Nos enseña algo muy importante: <b>Dios nos quiere</b>.</p><p>La Biblia tiene muchos libros. El primero se llama Génesis, que quiere decir «origen».</p>`,
       svg: svg("Una Biblia abierta con una estrella encima", `<path d="M130 60 Q95 46 50 52 V140 Q95 134 130 148 Q165 134 210 140 V52 Q165 46 130 60z" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/><path d="M130 60 V148" stroke="var(--ink)" stroke-width="2"/>${[0, 1, 2, 3].map((i) => `<path d="M64 ${74 + i * 16} H118 M142 ${74 + i * 16} H196" stroke="var(--line)" stroke-width="3"/>`).join("")}${estrella(130, 30, 14)}${rot(130, 170, "La Biblia", { color: "var(--pen)", size: 15 })}`),
     },
     {
-      html: `<h3>La luz, el día y la noche</h3><p>Primero, Dios hizo <mark>la luz</mark>.</p><p>Separó la luz de la oscuridad. Así nacieron <b>el día</b> y <b>la noche</b>.</p><p>Más tarde puso el <b>sol</b> para el día. Y puso la <b>luna</b> y las <b>estrellas</b> para la noche.</p><p>De día jugamos y vamos al cole. De noche, el cielo se oscurece y <b>dormimos</b> para descansar.</p>`,
+      html: `<h3>3. La luz, el día y la noche</h3><p>Primero, Dios hizo <mark>la luz</mark>.</p><p>Separó la luz de la oscuridad. Así nacieron <b>el día</b> y <b>la noche</b>.</p><p>Más tarde puso el <b>sol</b> para el día. Y puso la <b>luna</b> y las <b>estrellas</b> para la noche.</p><p>De día jugamos y vamos al cole. De noche, el cielo se oscurece y <b>dormimos</b> para descansar.</p><p>Por eso cada mañana, al ver la luz, podemos decir: «¡Gracias por este nuevo día!».</p>`,
       svg: svg("A la izquierda el día con el sol; a la derecha la noche con la luna y estrellas", `<rect x="14" y="14" width="114" height="130" rx="10" fill="#bfe3ff"/><rect x="132" y="14" width="114" height="130" rx="10" fill="#1c2550"/>${sol(70, 70, 20)}${luna(185, 50, 18)}${estrella(220, 90, 7, "#ffe9a0")}${estrella(160, 110, 6, "#ffe9a0")}${estrella(215, 125, 5, "#ffe9a0")}${rot(71, 166, "el día", { color: "var(--pen)" })}${rot(189, 166, "la noche", { color: "var(--pen)" })}`),
     },
     {
-      html: `<h3>El cielo, el agua y la tierra</h3><p>Después, Dios separó <b>el cielo</b> de <b>las aguas</b>.</p><p>Juntó el agua en los <mark>mares</mark> y apareció la <mark>tierra seca</mark>.</p><p>En la tierra hay montañas, campos y caminos. En el mar hay olas y mucha agua salada.</p><p>El agua es muy necesaria. Sin agua no podrían vivir las plantas, los animales ni las personas.</p>`,
+      html: `<h3>4. El cielo, el agua y la tierra</h3><p>Después, Dios separó <b>el cielo</b> de <b>las aguas</b>.</p><p>Juntó el agua en los <mark>mares</mark> y apareció la <mark>tierra seca</mark>.</p><p>En la tierra hay montañas, campos y caminos. En el mar hay olas y mucha agua salada.</p><p>El agua es muy necesaria. Sin agua no podrían vivir las plantas, los animales ni las personas.</p><p>Por eso no malgastamos el agua. Es un regalo que tenemos que compartir con todos.</p>`,
       svg: svg("Paisaje con cielo y nubes, una montaña verde y el mar azul con olas", `<rect x="14" y="14" width="232" height="70" rx="10" fill="#bfe3ff"/>${nube(70, 40)}${nube(190, 44, 0.8)}<path d="M14 120 L80 62 L140 120z" fill="var(--leaf)"/><rect x="14" y="118" width="120" height="30" fill="#c99a5b"/><rect x="134" y="100" width="112" height="48" fill="var(--water)"/><path d="M144 116 q8 -6 16 0 q8 6 16 0 q8 -6 16 0 q8 6 16 0 q8 -6 16 0" stroke="#fff" stroke-width="2.5" fill="none"/>${rot(74, 170, "la tierra", { color: "var(--leaf)" })}${rot(190, 170, "el mar", { color: "var(--water)" })}`),
     },
     {
-      html: `<h3>Las plantas y los animales</h3><p>Dios llenó la tierra de <mark>plantas</mark>: árboles, flores y hierba.</p><p>Luego hizo los <b>peces</b> del mar y los <b>pájaros</b> del cielo.</p><p>Por último, hizo los animales de la tierra. Hay animales grandes, como el elefante, y pequeños, como la hormiga.</p><p>Las plantas dan sombra, flores y frutas. Los animales viven en el campo, en el mar y en el aire.</p>`,
+      html: `<h3>5. Las plantas y los animales</h3><p>Dios llenó la tierra de <mark>plantas</mark>: árboles, flores y hierba.</p><p>Luego hizo los <b>peces</b> del mar y los <b>pájaros</b> del cielo.</p><p>Por último, hizo los animales de la tierra. Hay animales grandes, como el elefante, y pequeños, como la hormiga.</p><p>Las plantas dan sombra, flores y frutas. Los animales viven en el campo, en el mar y en el aire.</p><p>Cada animal y cada planta tiene su sitio. Todos son importantes en el mundo.</p>`,
       svg: svg("Un árbol, flores, pájaros volando y peces en el agua", `${arbol(45, 120)}${flor(90, 120)}${flor(110, 120, "var(--inf)")}${pajaro(150, 40)}${pajaro(185, 30)}${pajaro(215, 48)}<rect x="130" y="96" width="116" height="52" rx="8" fill="var(--water)" opacity=".35"/>${pez(165, 120, "var(--inf)")}${pez(215, 112)}${suelo(122)}${rot(130, 170, "plantas · pájaros · peces", { color: "var(--pen)", size: 13 })}`),
       video: { id: "_I-wzwOb3sA", titulo: "Dios hace todo | Historia de la Biblia | Mi primera biblia", canal: "Mi Primera Biblia", vistas: 2883033 },
     },
     {
-      html: `<h3>Las personas, lo más especial</h3><p>El último día, Dios creó a <b>las personas</b>.</p><p>La Biblia dice que nos hizo <mark>a su imagen</mark>: podemos pensar, querer y elegir.</p><p>Cada persona es <b>única</b>. Nadie es igual que tú. ¡Dios te quiere tal como eres!</p><p>Dios nos pidió algo importante: <mark>cuidar el mundo</mark> y querernos unos a otros.</p>`,
+      html: `<h3>6. Las personas, lo más especial</h3><p>El último día, Dios creó a <b>las personas</b>.</p><p>La Biblia dice que nos hizo <mark>a su imagen</mark>: podemos pensar, querer y elegir.</p><p>Cada persona es <b>única</b>. Nadie es igual que tú. ¡Dios te quiere tal como eres!</p><p>Dios nos pidió algo importante: <mark>cuidar el mundo</mark> y querernos unos a otros.</p><p>Tú también eres un regalo para tu familia y para tus amigos.</p>`,
       svg: svg("Dos niños diferentes de la mano con un corazón entre ellos", `${nino(95, 150, { c: "var(--pen)" })}${nino(165, 150, { c: "var(--red)", nina: true, pelo: "#8a5a2b" })}<path d="M108 108 Q130 118 152 108" stroke="var(--muted)" stroke-width="3" fill="none"/>${corazon(130, 50, 2)}${suelo(150)}${rot(130, 172, "Cada persona es única", { color: "var(--pen)" })}`),
+      video: L3.V("WsAuZzJw7cc", "Historia de la creación para niños", "Su Presencia Kids", 945210),
     },
     {
-      html: `<h3>El día de descanso</h3><p>Al séptimo día, Dios <mark>descansó</mark>.</p><p>Por eso los cristianos tienen un día para descansar: <b>el domingo</b>. Es un día para la familia y para Dios.</p><p>Descansar también es bueno. Después de trabajar y estudiar, necesitamos tiempo para jugar y estar juntos.</p><p>Muchas familias van a misa el domingo. Allí dan <b>gracias</b> a Dios por todo lo bueno.</p>`,
+      html: `<h3>7. El día de descanso</h3><p>Al séptimo día, Dios <mark>descansó</mark>.</p><p>Por eso los cristianos tienen un día para descansar: <b>el domingo</b>. Es un día para la familia y para Dios.</p><p>Descansar también es bueno. Después de trabajar y estudiar, necesitamos tiempo para jugar y estar juntos.</p><p>Muchas familias van a misa el domingo. Allí dan <b>gracias</b> a Dios por todo lo bueno.</p><p>¿Qué haces tú el domingo con tu familia? ¡Cuéntalo en clase!</p>`,
       svg: svg("Una semana de siete casillas: las seis primeras con una herramienta y la séptima con un corazón", `${[...Array(7)].map((_, i) => `<rect x="${12 + i * 34}" y="40" width="32" height="56" rx="6" fill="${i === 6 ? "var(--sun)" : "var(--card)"}" stroke="var(--ink)" stroke-width="1.5"/>${big(28 + i * 34, 64, i + 1, i === 6 ? "var(--ink)" : "var(--pen)", 18)}${i === 6 ? corazon(28 + i * 34, 82, 0.8) : `<circle cx="${28 + i * 34}" cy="82" r="5" fill="var(--leaf)"/>`}`).join("")}${rot(110, 130, "6 días de trabajo", { color: "var(--leaf)", size: 13 })}${rot(214, 130, "descanso", { color: "var(--red)", size: 13 })}`),
     },
     {
-      html: `<h3>¿Para qué sirve? Cuidar la creación</h3><p>Dios nos dejó el mundo para <mark>cuidarlo</mark>.</p><p>Tú también puedes ayudar: <b>riega</b> las plantas, no tires papeles al suelo y <b>cierra el grifo</b>.</p><p>Trata bien a los animales. Si cuidamos la naturaleza, todos podremos disfrutarla mucho tiempo.</p><p>Así también damos <mark>gracias</mark> a Dios por su regalo.</p>`,
+      html: `<h3>8. ¿Para qué sirve? Cuidar la creación</h3><p>Dios nos dejó el mundo para <mark>cuidarlo</mark>.</p><p>Tú también puedes ayudar: <b>riega</b> las plantas, no tires papeles al suelo y <b>cierra el grifo</b>.</p><p>Trata bien a los animales. Si cuidamos la naturaleza, todos podremos disfrutarla mucho tiempo.</p><p>Así también damos <mark>gracias</mark> a Dios por su regalo.</p><p>Hasta un gesto pequeño, como apagar la luz, ayuda a cuidar el mundo.</p>`,
       svg: svg("Una niña riega una flor y un papel va a la papelera", `${nino(70, 150, { pose: "palmas", nina: true, c: "var(--leaf)" })}<path d="M84 104 l26 8 l-4 10 l-22 -4z" fill="var(--water)"/><path d="M112 118 q4 6 2 14 M118 116 q6 8 4 16" stroke="var(--water)" stroke-width="2" fill="none"/>${flor(125, 150)}<path d="M190 118 h34 l-4 32 h-26z" fill="var(--leaf)"/><circle cx="180" cy="80" r="7" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/><path d="M188 84 q14 6 18 26" stroke="var(--muted)" stroke-width="2" fill="none" stroke-dasharray="4 3"/>${suelo(150)}${rot(130, 172, "Cuidamos el mundo", { color: "var(--pen)" })}`),
     },
+    L3.B("9. Damos gracias", `<p>Cuando alguien nos hace un regalo, decimos <mark>«gracias»</mark>.</p><p>Los cristianos dan gracias a Dios por la creación. Lo hacen <b>rezando</b> o cantando.</p><p>San Francisco de Asís quería mucho a la naturaleza. Llamaba «hermano» al sol y «hermana» a la luna.</p><p>Tú también puedes dar gracias: «Gracias, Dios, por el sol, el agua y mi familia».</p>`, "Una niña con las manos juntas da gracias junto a un sol, una flor y un pájaro", `${L3.nino(80, 150, { c: "var(--leaf)", pose: "reza", s: 1.4, nina: true })}${L3.sol(200, 46, 18)}${L3.flor(170, 150, "var(--red)")}${L3.flor(220, 150, "var(--inf)")}${L3.pajaro(160, 70)}${L3.pajaro(180, 84)}${L3.suelo(152)}${L3.t(150, 172, "¡Gracias!", "var(--pen)", 15)}`),
     {
-      html: `<h3>Juego: los días de la creación</h3><p>Vamos a <mark>repasar</mark>. Mira cada casilla y di qué hizo Dios ese día.</p><p>1 la luz · 2 el cielo · 3 la tierra y las plantas · 4 el sol y la luna · 5 peces y pájaros · 6 animales y personas.</p><p>¿Y el día 7? ¡Descansó!</p><p>Ahora tapa los números con la mano. ¿Te acuerdas del orden? Pide a un amigo que te pregunte.</p>`,
+      html: `<h3>10. Juego: los días de la creación</h3><p>Vamos a <mark>repasar</mark>. Mira cada casilla y di qué hizo Dios ese día.</p><p>1 la luz · 2 el cielo · 3 la tierra y las plantas · 4 el sol y la luna · 5 peces y pájaros · 6 animales y personas.</p><p>¿Y el día 7? ¡Descansó!</p><p>Ahora tapa los números con la mano. ¿Te acuerdas del orden? Pide a un amigo que te pregunte.</p><p>También podéis representarlo: cada niño hace de una cosa creada. ¡Sol, mar, árbol o pez!</p>`,
       svg: svg("Seis casillas numeradas con un dibujo de cada día de la creación", `${dia(1, 10, 40, `<circle cx="28" cy="62" r="8" fill="var(--sun)"/>`)}${dia(2, 50, 40, nube(68, 62, 0.45))}${dia(3, 90, 40, `<path d="M98 72 L108 56 L118 72z" fill="var(--leaf)"/>`)}${dia(4, 130, 40, luna(146, 52, 8))}${dia(5, 170, 40, pez(188, 62, "var(--water)").replace("translate(188 62)", "translate(186 62) scale(.6)"))}${dia(6, 210, 40, corazon(228, 64, 0.7))}${rot(130, 130, "¿Qué hizo Dios cada día?", { color: "var(--pen)" })}${rot(130, 154, "Día 7: descanso", { color: "var(--muted)", size: 13 })}`),
     },
+    L3.B("11. Repaso: lo que ya sabes", `<p>Los cristianos creemos que el mundo es <mark>un regalo de Dios</mark>. Es la creación.</p><p>La Biblia lo cuenta en siete días: la luz, el cielo, la tierra y las plantas, el sol y la luna, los peces y los pájaros, los animales y las personas. El séptimo día, Dios descansó.</p><p>Las personas somos únicas. Nuestra tarea es cuidar el mundo y dar gracias.</p>`, "Siete casillas con los números de los días de la creación", `${[1, 2, 3, 4, 5, 6, 7].map((n, i) => `<rect x="${12 + i * 34}" y="62" width="30" height="40" rx="6" fill="${n === 7 ? "var(--sun)" : "var(--card)"}" stroke="var(--pen)" stroke-width="2"/>${L3.big(27 + i * 34, 90, n, "var(--pen)", 18)}`).join("")}${L3.t(130, 40, "Los días de la creación", "var(--pen)", 15)}${L3.t(130, 136, "El día 7, Dios descansó", "#c48a00", 14)}`),
   ],
   figura: {
     titulo: "Los siete días de la creación",
@@ -78,6 +83,7 @@ module.exports = {
     { enunciado: "Ves un papel en el suelo del parque. ¿Qué haces?",
       pasos: ["Pensamos: el parque es parte de la creación.", "Cuidar la creación es mantenerla limpia.", "Recogemos el papel y lo echamos a la papelera."],
       resultado: "lo tiro a la papelera para cuidar la naturaleza." },
+    { enunciado: "¿Qué hizo Dios el cuarto día?", pasos: ["Recordamos el orden: 1 la luz, 2 el cielo, 3 la tierra y las plantas.", "Después del tercer día viene el cuarto.", "El cuarto día puso el sol, la luna y las estrellas."], resultado: "el cuarto día creó el sol, la luna y las estrellas." },
   ],
   errores: [
     "Pensar que las cosas de la naturaleza no son de nadie y se pueden romper: son un regalo para todos y hay que cuidarlas.",
@@ -86,16 +92,28 @@ module.exports = {
     "Pensar que descansar es perder el tiempo: el descanso también es bueno.",
   ],
   ejercicios: [
-    { q: "Di tres cosas de la naturaleza que te gusten.", sol: "Por ejemplo: el mar, los perros y las flores. Cualquier respuesta de la naturaleza vale." },
-    { q: "¿Qué hizo Dios el primer día?", sol: "La luz, y separó el día de la noche." },
-    { q: "Dibuja el día y la noche en dos partes de una hoja.", sol: "En el día debe haber sol; en la noche, luna y estrellas." },
-    { q: "¿Dónde viven los peces? ¿Y los pájaros?", sol: "Los peces, en el agua. Los pájaros, en el cielo y en los árboles." },
-    { q: "¿Qué creó Dios en último lugar?", sol: "A las personas." },
-    { q: "¿Qué hizo Dios el séptimo día?", sol: "Descansó." },
-    { q: "Di dos cosas que puedes hacer para cuidar la naturaleza.", sol: "Por ejemplo: regar las plantas y no tirar papeles al suelo." },
-    { q: "¿Por qué decimos que cada persona es única?", sol: "Porque no hay nadie igual a otra persona; Dios nos quiere a cada uno." },
-    { q: "Rodea lo que hizo Dios: el sol · un coche · un árbol · un pez.", sol: "El sol, el árbol y el pez. El coche lo hicieron las personas." },
-    { q: "Inventa una frase para dar gracias por la naturaleza.", sol: "Por ejemplo: «Gracias, Dios, por el sol y los árboles»." },
+    { nivel: "básico", q: "Di tres cosas de la naturaleza que te gusten.", sol: "Por ejemplo: el mar, los perros y las flores. Cualquier respuesta de la naturaleza vale." },
+    { nivel: "básico", q: "¿Qué hizo Dios el primer día?", sol: "La luz, y separó el día de la noche." },
+    { nivel: "medio", q: "Dibuja el día y la noche en dos partes de una hoja.", sol: "En el día debe haber sol; en la noche, luna y estrellas." },
+    { nivel: "básico", q: "¿Dónde viven los peces? ¿Y los pájaros?", sol: "Los peces, en el agua. Los pájaros, en el cielo y en los árboles." },
+    { nivel: "básico", q: "¿Qué creó Dios en último lugar?", sol: "A las personas." },
+    { nivel: "básico", q: "¿Qué hizo Dios el séptimo día?", sol: "Descansó." },
+    { nivel: "medio", q: "Di dos cosas que puedes hacer para cuidar la naturaleza.", sol: "Por ejemplo: regar las plantas y no tirar papeles al suelo." },
+    { nivel: "medio", q: "¿Por qué decimos que cada persona es única?", sol: "Porque no hay nadie igual a otra persona; Dios nos quiere a cada uno." },
+    { nivel: "básico", q: "Rodea lo que hizo Dios: el sol · un coche · un árbol · un pez.", sol: "El sol, el árbol y el pez. El coche lo hicieron las personas." },
+    { nivel: "medio", q: "Inventa una frase para dar gracias por la naturaleza.", sol: "Por ejemplo: «Gracias, Dios, por el sol y los árboles»." },
+    L3.b("¿Cómo se llama el primer libro de la Biblia?", "Génesis."),
+    L3.b("¿Qué decimos cuando recibimos un regalo?", "Gracias."),
+    L3.m("Ordena: peces y pájaros, la luz, el sol y la luna.", "La luz, el sol y la luna, peces y pájaros."),
+    L3.m("¿Quién llamaba «hermano sol» al sol?", "San Francisco de Asís."),
+    L3.m("Dibuja tu parte favorita de la creación.", "Dibujo libre: un animal, una planta, el mar…"),
+    L3.a("Escribe o di una oración corta para dar gracias por la naturaleza.", "Por ejemplo: «Gracias, Dios, por las flores y los animales»."),
+    L3.a("Haz una lista de tres cosas que harás esta semana para cuidar el mundo.", "Por ejemplo: cerrar el grifo, reciclar y no pisar las plantas."),
+    L3.a("Explica por qué cada persona es única.", "Porque nadie es igual que otro: cada uno piensa, siente y es distinto."),
+    L3.a("Representa con tu clase los siete días de la creación.", "Cada grupo hace un día con gestos o dibujos."),
+    L3.a("¿Por qué es bueno tener un día de descanso?", "Para estar con la familia, jugar y recuperar fuerzas."),
+    L3.a("Cuenta con tus palabras la historia de la creación.", "Debe nombrar varios días en orden y el descanso."),
+    L3.a("Di cómo puedes dar gracias por la naturaleza.", "Rezando, cantando o cuidándola."),
   ],
   quiz: [
     { q: "¿Qué libro nos cuenta la creación?", o: ["La Biblia", "Un cuento de hadas", "El diccionario"], a: 0, e: "La Biblia cuenta cómo Dios creó el mundo." },
@@ -108,12 +126,16 @@ module.exports = {
     { q: "¿Cómo cuidamos la creación?", o: ["Tirando papeles", "Regando las plantas", "Rompiendo ramas"], a: 1, e: "Regar las plantas es cuidar la naturaleza." },
     { q: "Las personas somos…", o: ["todas iguales", "únicas", "cosas"], a: 1, e: "Cada persona es única." },
     { q: "¿Qué decimos al recibir un regalo?", o: ["Gracias", "Nada", "¡Quiero más!"], a: 0, e: "Damos gracias, también a Dios por el mundo." },
+    L3.Q("¿Quién llamaba «hermana» a la luna?", ["San Francisco de Asís", "José", "Zaqueo"], 0, "Quería mucho a la naturaleza."),
+    L3.Q("Génesis quiere decir…", ["origen", "final", "dinero"], 0, "Es el primer libro de la Biblia."),
   ],
   examen: [
     { q: "¿Quién creó el mundo, según la Biblia?", o: ["Los animales", "Dios", "El sol"], a: 1, e: "Dios creó el mundo por amor." },
     { q: "¿Dónde viven los peces?", o: ["En el agua", "En el cielo", "En los árboles"], a: 0, e: "Dios hizo los peces del mar." },
     { q: "¿Qué es cuidar la creación?", o: ["Ensuciar el río", "No tirar basura", "Pisar las flores"], a: 1, e: "Mantener limpio el mundo es cuidarlo." },
     { q: "¿Qué día descansan muchos cristianos?", o: ["El domingo", "El lunes", "El miércoles"], a: 0, e: "El domingo es el día del Señor." },
+    L3.Q("¿Qué hizo Dios el cuarto día?", ["El sol, la luna y las estrellas", "Los peces", "Las personas"], 0, "Para alumbrar el día y la noche."),
+    L3.Q("Damos gracias por la creación…", ["rezando y cuidándola", "rompiendo cosas", "tirando basura"], 0, "Así cuidamos el regalo."),
   ],
   feynman: ["Qué cuenta la Biblia sobre la creación", "Por qué el mundo es un regalo", "Cómo puedo cuidar la naturaleza"],
   mapa: mapa("LA CREACIÓN", "var(--pri)", [
@@ -131,7 +153,21 @@ module.exports = {
     ["¿Cómo somos las personas?", "Únicas y queridas por Dios."],
     ["¿Cómo cuido la creación?", "Riego, no ensucio y trato bien a los animales."],
     ["¿Qué le decimos a Dios por el mundo?", "¡Gracias!"],
+    ["¿Cómo se llama el primer libro de la Biblia?", "Génesis"],
+    ["¿Quién quería mucho a la naturaleza?", "San Francisco de Asís"],
   ],
+  glosario: [
+    ["Crear", "Hacer algo nuevo."],
+    ["Creación", "Todo lo que Dios hizo, según los cristianos."],
+    ["Biblia", "El libro más importante para los cristianos."],
+    ["Génesis", "El primer libro de la Biblia."],
+    ["Regalo", "Algo que nos dan con cariño."],
+    ["Único", "Que no hay otro igual."],
+    ["Descanso", "Parar para recuperar fuerzas."],
+    ["Domingo", "El día de descanso de los cristianos."],
+    ["Dar gracias", "Decir gracias por algo bueno."],
+  ],
+  situacion: L3.sit("El mural de la creación", "Vamos a hacer un mural gigante con los siete días de la creación y un compromiso para cuidar el mundo.", ["Dividimos un papel largo en siete partes, una por día.", "Por grupos, pintamos lo que Dios creó cada día.", "En el séptimo día escribimos nuestros compromisos para cuidar la naturaleza.", "Presentamos el mural y rezamos o cantamos una canción de gracias."], "Un mural con los siete días de la creación y los compromisos de la clase.", ["Ordena los días de la creación.", "Propone una forma de cuidar el mundo.", "Participa en el trabajo de su grupo."]),
   familias: [
     "Dad un paseo por un parque y nombrad juntos las cosas de la naturaleza que veáis.",
     "Cuidad una planta en casa: que el niño o la niña se encargue de regarla.",
@@ -140,5 +176,5 @@ module.exports = {
   ],
   profesores: PROF("Religión Católica, primer ciclo: el mundo y la vida como don de Dios; el relato de la creación (Gn 1) y el cuidado de la casa común. Área de opción dentro del marco del RD 157/2022", ["Mural de los siete días con dibujos del alumnado.", "Paseo por el patio para descubrir seres vivos e inertes.", "Rincón de la planta: turnos para regarla y oración de gracias."]),
   fuentes: FUENTES,
-  revisado: "2026-11-12",
+  revisado: "2026-11-14",
 };

@@ -1,6 +1,7 @@
-// Ciencias de la Naturaleza 1º de Primaria. Formato ampliado de 1º: frases cortas y un dibujo propio en cada bloque.
+// Ciencias de la Naturaleza 1º de Primaria. Nivel libro: lectura, apartados numerados, ejercicios por niveles, glosario y situación.
 const { mapa } = require("./_util");
 const { F, D, BG, txt, persona, luna, check, RD } = require("./_peques");
+const L3 = require("./_pri1L3");
 
 // Alimentos sencillos (centrados en x, y).
 const manzana = (x, y, r = 13) => `<g transform="translate(${x} ${y})"><circle r="${r}" fill="var(--red)"/><path d="M0 ${-r + 1} q2 -7 6 -9" stroke="var(--ink)" stroke-width="2" fill="none"/><ellipse cx="6" cy="${-r - 5}" rx="5" ry="3" fill="var(--leaf)"/></g>`;
@@ -21,16 +22,17 @@ module.exports = {
   materia: "Ciencias de la Naturaleza",
   curso: "1-primaria",
   titulo: "Comer sano y cuidarse",
-  minutos: 25,
+  minutos: 50,
   objetivos: ["Saber que los alimentos nos dan energía y nos ayudan a crecer", "Reconocer frutas, verduras, cereales, lácteos, carne, pescado y huevos", "Saber que los dulces se toman de vez en cuando", "Practicar hábitos sanos: agua, higiene, descanso y ejercicio"],
   claves: ["alimento", "fruta", "verdura", "agua", "higiene", "descanso"],
   pregunta: {
     texto: "¿Por qué no podemos comer solo chuches y galletas todos los días?",
     respuesta: "Porque el cuerpo necesita <mark>alimentos variados</mark> para crecer y estar fuerte: frutas, verduras, pan, leche, huevos, pescado… Los dulces solo se toman <b>de vez en cuando</b>.",
   },
+  lectura: L3.lect("El almuerzo de Lucía", `<p>Suena el timbre del recreo. Lucía abre su mochila con hambre.</p><p>Hoy lleva un bocadillo de queso y una manzana roja. También una botella de agua.</p><p>Su amigo Mario saca una bolsa de chuches y un refresco. «¡Qué rico!», dice.</p><p>Al rato, Mario está cansado. No tiene ganas de correr. Lucía juega al pilla-pilla sin parar.</p><p>«¿Por qué tienes tanta energía?», pregunta Mario.</p><p>«Mi almuerzo me da fuerza para jugar», responde Lucía. Y le da media manzana.</p><p>¿Qué alimentos nos dan energía? ¿Cómo nos cuidamos? En este tema lo descubrirás.</p>`),
   bloques: [
     {
-      html: `<h3>Comemos para crecer</h3><p>Los alimentos nos dan <mark>energía</mark> para jugar, aprender y crecer.</p><p>Unos alimentos vienen de las <b>plantas</b>: la fruta, la verdura, el pan o las lentejas. Otros vienen de los <b>animales</b>: la leche, los huevos, la carne o el pescado.</p><p>Comer de todo un poco es <b>comer sano</b>.</p>`,
+      html: `<h3>1. Comemos para crecer</h3><p>Los alimentos nos dan <mark>energía</mark> para jugar, aprender y crecer.</p><p>Unos alimentos vienen de las <b>plantas</b>: la fruta, la verdura, el pan o las lentejas. Otros vienen de los <b>animales</b>: la leche, los huevos, la carne o el pescado.</p><p>Comer de todo un poco es <b>comer sano</b>.</p><p>Ningún alimento tiene todo lo que necesitamos. Por eso hay que comer variado: un poco de cada grupo.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Alimentos de las plantas a la izquierda y de los animales a la derecha">${BG}
         <rect x="14" y="44" width="112" height="100" rx="12" fill="var(--ok-bg)"/><rect x="134" y="44" width="112" height="100" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
         ${manzana(42, 80)}${zanahoria(78, 80)}${pan(56, 122)}${platano(100, 120)}
@@ -39,14 +41,14 @@ module.exports = {
         ${txt(130, 166, "Comer de todo un poco", { size: 13, color: "var(--pen)" })}</svg>`,
     },
     {
-      html: `<h3>Frutas y verduras</h3><p>Las <mark>frutas y las verduras</mark> son muy sanas. Tienen vitaminas que nos protegen de las enfermedades.</p><p>Hay que comerlas <b>todos los días</b>. Mejor si son de muchos colores: manzana roja, plátano amarillo, zanahoria naranja, brócoli verde.</p><p>Las frutas son un buen postre y un buen almuerzo.</p>`,
+      html: `<h3>2. Frutas y verduras</h3><p>Las <mark>frutas y las verduras</mark> son muy sanas. Tienen vitaminas que nos protegen de las enfermedades.</p><p>Hay que comerlas <b>todos los días</b>. Mejor si son de muchos colores: manzana roja, plátano amarillo, zanahoria naranja, brócoli verde.</p><p>Las frutas son un buen postre y un buen almuerzo.</p><p>Antes de comer la fruta, la lavamos con agua. Así quitamos la suciedad. ¿Cuál es tu fruta favorita?</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Manzana, plátano, zanahoria y brócoli de colores">${BG}
         ${manzana(40, 96, 18)}${platano(100, 96)}${zanahoria(160, 96)}${brocoli(218, 100)}
         ${txt(40, 146, "manzana", { size: 12 })}${txt(100, 146, "plátano", { size: 12 })}${txt(160, 146, "zanahoria", { size: 12 })}${txt(218, 146, "brócoli", { size: 12 })}
         ${txt(130, 34, "¡Todos los días!", { size: 16, color: "var(--leaf)", font: D, weight: 800 })}</svg>`,
     },
     {
-      html: `<h3>Alimentos que dan energía</h3><p>El <mark>pan</mark>, el <mark>arroz</mark>, la pasta y las patatas nos dan <b>energía</b>. Son como la gasolina de un coche.</p><p>Las <b>legumbres</b> también son muy sanas. Son las lentejas, los garbanzos y las alubias.</p><p>Nos ayudan a correr, saltar y pensar en clase.</p>`,
+      html: `<h3>3. Alimentos que dan energía</h3><p>El <mark>pan</mark>, el <mark>arroz</mark>, la pasta y las patatas nos dan <b>energía</b>. Son como la gasolina de un coche.</p><p>Las <b>legumbres</b> también son muy sanas. Son las lentejas, los garbanzos y las alubias.</p><p>Nos ayudan a correr, saltar y pensar en clase.</p><p>Si desayunas bien, tienes energía hasta el recreo. Si no desayunas, te cansas antes y te cuesta atender.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Pan, un plato de arroz y lentejas, con un rayo de energía">${BG}
         ${pan(50, 100)}${arroz(130, 96)}
         <g transform="translate(210 100)"><path d="M-20 0 Q 0 22 20 0 Z" fill="var(--inf)"/><g fill="#8a5a2b">${[...Array(7)].map((_, i) => `<circle cx="${-12 + (i % 4) * 8}" cy="${-2 - Math.floor(i / 4) * 5}" r="3"/>`).join("")}</g></g>
@@ -54,14 +56,14 @@ module.exports = {
         ${txt(50, 146, "pan", { size: 12 })}${txt(130, 146, "arroz", { size: 12 })}${txt(210, 146, "lentejas", { size: 12 })}</svg>`,
     },
     {
-      html: `<h3>Alimentos para crecer fuertes</h3><p>La <mark>leche</mark>, el yogur y el queso tienen calcio. El calcio pone fuertes los huesos y los dientes.</p><p>La carne, el pescado y los huevos ayudan a crecer. Hacen fuertes los músculos.</p><p>Hay que comer pescado varias veces a la semana.</p>`,
+      html: `<h3>4. Alimentos para crecer fuertes</h3><p>La <mark>leche</mark>, el yogur y el queso tienen calcio. El calcio pone fuertes los huesos y los dientes.</p><p>La carne, el pescado y los huevos ayudan a crecer. Hacen fuertes los músculos.</p><p>Hay que comer pescado varias veces a la semana.</p><p>Los frutos secos, como las nueces, también son sanos. Los comemos con cuidado y siempre con un adulto.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Leche, queso, huevo, pescado y carne">${BG}
         ${leche(34, 96)}<path d="M66 110 L 104 110 L 104 90 Z" fill="var(--sun)" stroke="#c99a10" stroke-width="2"/>${huevo(130, 96)}${pez(176, 96)}${muslo(228, 96)}
         ${txt(34, 140, "leche", { size: 12 })}${txt(88, 140, "queso", { size: 12 })}${txt(130, 140, "huevo", { size: 12 })}${txt(180, 140, "pescado", { size: 12 })}${txt(228, 140, "carne", { size: 12 })}
         ${txt(130, 34, "Huesos y músculos fuertes", { size: 15, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
     },
     {
-      html: `<h3>Dulces poco, agua mucho</h3><p>Los <mark>dulces</mark>, los refrescos y las chuches tienen mucho azúcar. Están ricos, pero se toman <b>de vez en cuando</b>. Por ejemplo, en un cumpleaños.</p><p>La mejor bebida es el <mark>agua</mark>. Bebemos agua cuando tenemos sed. También después de jugar o hacer deporte.</p>`,
+      html: `<h3>5. Dulces poco, agua mucho</h3><p>Los <mark>dulces</mark>, los refrescos y las chuches tienen mucho azúcar. Están ricos, pero se toman <b>de vez en cuando</b>. Por ejemplo, en un cumpleaños.</p><p>La mejor bebida es el <mark>agua</mark>. Bebemos agua cuando tenemos sed. También después de jugar o hacer deporte.</p><p>El azúcar daña los dientes. Si tomas un dulce, después te cepillas bien. ¡Tus dientes te lo agradecerán!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un pastel con la etiqueta de vez en cuando y un vaso de agua con la etiqueta todos los días">${BG}
         ${pastel(70, 94)}${vaso(190, 94)}
         ${txt(70, 140, "de vez en cuando", { size: 13, color: "var(--inf)" })}${txt(190, 140, "todos los días", { size: 13, color: "var(--water)" })}
@@ -69,7 +71,7 @@ module.exports = {
         <g transform="translate(70 44)"><circle r="12" fill="var(--sun)"/><path d="M-5 0 H 5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g></svg>`,
     },
     {
-      html: `<h3>El plato saludable</h3><p>Un plato sano tiene <mark>de todo</mark>.</p><p>La mitad del plato es de <b>frutas y verduras</b>. Un trozo es de pan, arroz o pasta. Otro trozo es de pescado, carne, huevo o legumbres.</p><p>Para beber, agua. Y comemos despacio, sentados a la mesa y sin pantallas.</p>`,
+      html: `<h3>6. El plato saludable</h3><p>Un plato sano tiene <mark>de todo</mark>.</p><p>La mitad del plato es de <b>frutas y verduras</b>. Un trozo es de pan, arroz o pasta. Otro trozo es de pescado, carne, huevo o legumbres.</p><p>Para beber, agua. Y comemos despacio, sentados a la mesa y sin pantallas.</p><p>Comer en familia es muy bonito. Hablamos, nos reímos y probamos comidas nuevas sin prisa.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Plato dividido: la mitad verduras, un cuarto cereales y un cuarto proteínas, con un vaso de agua">${BG}
         <circle cx="110" cy="96" r="70" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
         <path d="M110 96 V 26 A 70 70 0 0 0 110 166 Z" fill="var(--leaf)" opacity=".3"/><path d="M110 96 V 26 A 70 70 0 0 1 180 96 Z" fill="var(--sun)" opacity=".35"/><path d="M110 96 H 180 A 70 70 0 0 1 110 166 Z" fill="var(--red)" opacity=".25"/>
@@ -77,7 +79,7 @@ module.exports = {
         ${vaso(222, 110)}${txt(222, 148, "agua", { size: 12, color: "var(--water)" })}</svg>`,
     },
     {
-      html: `<h3>Limpios y sanos</h3><p>La <mark>higiene</mark> también nos cuida. Nos lavamos las manos con agua y jabón. Lo hacemos antes de comer y después de ir al baño.</p><p>Nos cepillamos los <b>dientes</b> después de cada comida. Así no salen caries.</p><p>Nos duchamos a menudo y llevamos ropa limpia.</p>`,
+      html: `<h3>7. Limpios y sanos</h3><p>La <mark>higiene</mark> también nos cuida. Nos lavamos las manos con agua y jabón. Lo hacemos antes de comer y después de ir al baño.</p><p>Nos cepillamos los <b>dientes</b> después de cada comida. Así no salen caries.</p><p>Nos duchamos a menudo y llevamos ropa limpia.</p><p>Lavarse las manos dura lo mismo que cantar «Cumpleaños feliz» dos veces. ¡Frota bien entre los dedos!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Manos con jabón y burbujas, y un cepillo de dientes con un diente sano">${BG}
         <g transform="translate(70 100)"><ellipse rx="34" ry="22" fill="#f2c9a0" stroke="#c48a60" stroke-width="2"/><path d="M-30 -6 Q 0 -20 30 -6" stroke="#c48a60" stroke-width="2" fill="none"/></g>
         <g fill="none" stroke="var(--water)" stroke-width="2">${[[40, 64, 9], [64, 54, 7], [92, 66, 10], [104, 92, 6], [36, 128, 7]].map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}"/>`).join("")}</g>
@@ -86,7 +88,7 @@ module.exports = {
         ${txt(70, 160, "agua y jabón", { size: 12 })}${txt(196, 160, "dientes limpios", { size: 12 })}</svg>`,
     },
     {
-      html: `<h3>Descansar y moverse</h3><p>Para estar sanos también necesitamos <mark>dormir</mark>. Los niños deben dormir unas <b>10 horas</b> cada noche. Así crecen y aprenden mejor.</p><p>Y necesitamos <mark>movernos</mark>. Correr, saltar, nadar o ir en bici nos hace fuertes.</p><p>Jugar al aire libre es mejor que estar mucho rato con pantallas.</p>`,
+      html: `<h3>8. Descansar y moverse</h3><p>Para estar sanos también necesitamos <mark>dormir</mark>. Los niños deben dormir unas <b>10 horas</b> cada noche. Así crecen y aprenden mejor.</p><p>Y necesitamos <mark>movernos</mark>. Correr, saltar, nadar o ir en bici nos hace fuertes.</p><p>Jugar al aire libre es mejor que estar mucho rato con pantallas.</p><p>Antes de dormir, apagamos las pantallas. Leemos un cuento o hablamos tranquilos. Así dormimos mejor.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un niño durmiendo en la cama con la luna y otro niño corriendo al sol">${BG}
         <rect x="16" y="104" width="104" height="30" rx="6" fill="var(--pen)"/><rect x="16" y="90" width="10" height="56" fill="#8a5a2b"/><circle cx="40" cy="96" r="11" fill="#f2c9a0"/><rect x="50" y="94" width="66" height="14" rx="6" fill="var(--card)"/>
         ${luna(80, 46, 16)}${txt(100, 80, "z z", { size: 14, color: "var(--muted)", anchor: "start" })}
@@ -96,7 +98,7 @@ module.exports = {
       video: { id: "jsqONxiLcYM", titulo: "Actividad física y alimentación | Camaleón", canal: "CNTV Infantil", vistas: 3104980, megusta: 0 },
     },
     {
-      html: `<h3>¿Para qué sirve?</h3><p>Comer sano y cuidarnos nos ayuda a <mark>tener energía</mark> todo el día.</p><p>Un buen <b>desayuno</b> es muy importante. Por ejemplo: leche, pan con tomate y una fruta. Así llegamos al cole con fuerzas para aprender.</p><p>Si nos cuidamos, nos ponemos menos enfermos.</p>`,
+      html: `<h3>9. ¿Para qué sirve?</h3><p>Comer sano y cuidarnos nos ayuda a <mark>tener energía</mark> todo el día.</p><p>Un buen <b>desayuno</b> es muy importante. Por ejemplo: leche, pan con tomate y una fruta. Así llegamos al cole con fuerzas para aprender.</p><p>Si nos cuidamos, nos ponemos menos enfermos.</p><p>Comer sano no es comer mucho. Es comer variado y lo justo. Para cuando ya no tienes hambre.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Desayuno sano: leche, pan con tomate y una naranja">${BG}
         <rect x="20" y="120" width="220" height="10" rx="5" fill="#c98a4a"/>
         <g transform="translate(60 110)"><path d="M-16 -36 h 32 l -4 36 h -24 Z" fill="#fff" stroke="var(--ink)" stroke-width="2"/></g>
@@ -106,13 +108,15 @@ module.exports = {
         ${txt(130, 34, "Un buen desayuno", { size: 16, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
     },
     {
-      html: `<h3>Juego: el semáforo</h3><p>Jugamos al <mark>semáforo de los alimentos</mark>.</p><p><b>Verde</b>: todos los días. Frutas, verduras, agua, legumbres y pan.</p><p><b>Amarillo</b>: algunas veces por semana. Carne, huevos y pescado.</p><p><b>Rojo</b>: de vez en cuando. Chuches, refrescos y bollos.</p><p>Un adulto dice un alimento. ¿De qué color es?</p>`,
+      html: `<h3>10. Juego: el semáforo</h3><p>Jugamos al <mark>semáforo de los alimentos</mark>.</p><p><b>Verde</b>: todos los días. Frutas, verduras, agua, legumbres y pan.</p><p><b>Amarillo</b>: algunas veces por semana. Carne, huevos y pescado.</p><p><b>Rojo</b>: de vez en cuando. Chuches, refrescos y bollos.</p><p>Un adulto dice un alimento. ¿De qué color es?</p><p>Ahora mira tu merienda de hoy. ¿Qué colores del semáforo tiene? ¿Podrías cambiar algo para que sea más sana?</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Semáforo: verde con manzana, amarillo con huevo y rojo con pastel">${BG}
         <rect x="30" y="16" width="56" height="150" rx="14" fill="var(--ink)"/>
         <circle cx="58" cy="44" r="18" fill="var(--leaf)"/><circle cx="58" cy="91" r="18" fill="var(--sun)"/><circle cx="58" cy="138" r="18" fill="var(--red)"/>
         ${manzana(120, 46)}${brocoli(150, 48)}${huevo(118, 92)}${pez(150, 92)}${pastel(124, 140)}
         ${txt(218, 50, "a diario", { size: 13, color: "var(--leaf)" })}${txt(218, 96, "a veces", { size: 13, color: "#b8860b" })}${txt(218, 144, "poco", { size: 13, color: "var(--red)" })}</svg>`,
+      video: L3.V("OkjtI6Umevk", "Comer sano, ¡me gusta! Alimentación saludable", "Bichikids", 3935730),
     },
+    L3.B("11. Repaso: lo que ya sabes", `<p>Para estar sanos, <mark>comemos de todo un poco</mark>. Frutas y verduras, todos los días.</p><p>El pan, el arroz y las legumbres dan energía. La leche, el pescado y los huevos nos hacen crecer.</p><p>Los dulces, solo de vez en cuando. La mejor bebida es el <b>agua</b>.</p><p>También nos lavamos las manos y los dientes, dormimos bien y nos movemos mucho.</p>`, "Un semáforo con los colores verde, amarillo y rojo y una frase de repaso", `<rect x="40" y="22" width="56" height="140" rx="14" fill="var(--ink)"/><circle cx="68" cy="52" r="17" fill="var(--leaf)"/><circle cx="68" cy="92" r="17" fill="var(--sun)"/><circle cx="68" cy="132" r="17" fill="var(--red)"/>${L3.t(175, 57, "todos los días", "var(--leaf)")}${L3.t(175, 97, "algunas veces", "#c48a00")}${L3.t(175, 137, "de vez en cuando", "var(--red)")}`),
   ],
   figura: {
     titulo: "Hábitos para crecer sanos",
@@ -137,6 +141,7 @@ module.exports = {
     { enunciado: "Has jugado al fútbol y tienes sed. ¿Qué bebes?",
       pasos: ["Al correr, el cuerpo pierde agua al sudar.", "Hay que recuperar esa agua.", "La mejor bebida es el agua."],
       resultado: "bebo agua." },
+    { enunciado: "¿Este desayuno es sano? Bollo de chocolate y refresco.", pasos: ["El bollo tiene mucho azúcar: es del color rojo.", "El refresco también tiene mucho azúcar: rojo.", "No hay fruta, ni leche, ni pan."], resultado: "no es sano; mejor leche, pan con tomate y una fruta." },
   ],
   errores: [
     "Pensar que comer sano es comer solo verdura: hay que comer de todo un poco.",
@@ -145,16 +150,28 @@ module.exports = {
     "Pensar que dormir poco no importa: el cuerpo crece y descansa mientras dormimos.",
   ],
   ejercicios: [
-    { q: "Di tres frutas.", sol: "Por ejemplo: manzana, plátano y naranja." },
-    { q: "Di dos verduras.", sol: "Por ejemplo: zanahoria y lechuga." },
-    { q: "¿Qué alimento viene de la vaca y pone fuertes los huesos?", sol: "La leche." },
-    { q: "¿Las lentejas vienen de una planta o de un animal?", sol: "De una planta: son legumbres." },
-    { q: "Dibuja tu plato saludable.", sol: "La mitad con frutas y verduras, un trozo con pan, arroz o pasta y otro con pescado, carne, huevo o legumbres." },
-    { q: "¿Cuándo debes lavarte las manos?", sol: "Antes de comer y después de ir al baño." },
-    { q: "Di de qué color del semáforo es la manzana.", sol: "Verde: se puede comer todos los días." },
-    { q: "Di de qué color del semáforo son las chuches.", sol: "Rojo: solo de vez en cuando." },
-    { q: "¿Cuántas horas tienen que dormir los niños más o menos?", sol: "Unas 10 horas." },
-    { q: "Di un juego o deporte que te guste para moverte.", sol: "Por ejemplo: pillar, saltar a la comba o montar en bici." },
+    { nivel: "básico", q: "Di tres frutas.", sol: "Por ejemplo: manzana, plátano y naranja." },
+    { nivel: "básico", q: "Di dos verduras.", sol: "Por ejemplo: zanahoria y lechuga." },
+    { nivel: "básico", q: "¿Qué alimento viene de la vaca y pone fuertes los huesos?", sol: "La leche." },
+    { nivel: "básico", q: "¿Las lentejas vienen de una planta o de un animal?", sol: "De una planta: son legumbres." },
+    { nivel: "medio", q: "Dibuja tu plato saludable.", sol: "La mitad con frutas y verduras, un trozo con pan, arroz o pasta y otro con pescado, carne, huevo o legumbres." },
+    { nivel: "básico", q: "¿Cuándo debes lavarte las manos?", sol: "Antes de comer y después de ir al baño." },
+    { nivel: "básico", q: "Di de qué color del semáforo es la manzana.", sol: "Verde: se puede comer todos los días." },
+    { nivel: "básico", q: "Di de qué color del semáforo son las chuches.", sol: "Rojo: solo de vez en cuando." },
+    { nivel: "básico", q: "¿Cuántas horas tienen que dormir los niños más o menos?", sol: "Unas 10 horas." },
+    { nivel: "medio", q: "Di un juego o deporte que te guste para moverte.", sol: "Por ejemplo: pillar, saltar a la comba o montar en bici." },
+    L3.b("Rodea la bebida más sana: refresco, agua, batido.", "El agua."),
+    L3.m("Clasifica: leche, manzana, huevo, lechuga. ¿Vienen de plantas o de animales?", "Plantas: manzana y lechuga. Animales: leche y huevo."),
+    L3.m("Di tres alimentos que dan energía.", "Por ejemplo: pan, arroz y pasta."),
+    L3.m("Completa: la mitad del plato saludable es de… y de…", "Frutas y verduras."),
+    L3.m("Ordena los pasos para lavarse las manos: secar, mojar, frotar con jabón, aclarar.", "Mojar, frotar con jabón, aclarar y secar."),
+    L3.m("Di dos cosas que haces antes de dormir para descansar bien.", "Por ejemplo: apagar las pantallas y leer un cuento."),
+    L3.m("Pinta un plato con una comida sana de tu casa.", "Debe tener verdura, un alimento de energía y otro para crecer."),
+    L3.a("Inventa un menú sano para un día: desayuno, comida y cena.", "Por ejemplo: leche y fruta; lentejas y pescado; verdura y tortilla. Agua para beber."),
+    L3.a("¿Por qué no podemos comer solo chuches?", "Porque tienen mucho azúcar y no nos dan lo que necesitamos para crecer."),
+    L3.a("Explica a tu familia el juego del semáforo de los alimentos.", "Verde: todos los días. Amarillo: algunas veces. Rojo: de vez en cuando."),
+    L3.a("Busca en la cocina tres alimentos verdes del semáforo.", "Por ejemplo: fruta, verdura y legumbres."),
+    L3.a("¿Qué pasa si no te cepillas los dientes?", "Pueden salir caries y dolor de muelas."),
   ],
   quiz: [
     { q: "¿Cuál es la mejor bebida?", o: ["El refresco", "El agua", "El batido"], a: 1, e: "El agua es la más sana." },
@@ -167,12 +184,16 @@ module.exports = {
     { q: "La mitad del plato saludable es de…", o: ["pasta", "frutas y verduras", "dulces"], a: 1, e: "La mitad son frutas y verduras." },
     { q: "Las lentejas son…", o: ["legumbres", "lácteos", "dulces"], a: 0, e: "Como los garbanzos y las alubias." },
     { q: "Para estar sanos también hay que…", o: ["dormir y moverse", "ver mucha tele", "no beber agua"], a: 0, e: "Descanso y ejercicio." },
+    L3.Q("¿Qué alimento tiene calcio?", ["El yogur", "Las chuches", "El refresco"], 0, "El calcio pone fuertes los huesos."),
+    L3.Q("Antes de dormir, mejor…", ["apagar las pantallas", "jugar a la consola", "comer chuches"], 0, "Así dormimos mejor."),
   ],
   examen: [
     { q: "¿Qué alimento da energía?", o: ["El pan", "El agua", "La sal"], a: 0, e: "El pan, el arroz y la pasta dan energía." },
     { q: "Un desayuno sano es…", o: ["refresco y bollo", "leche, pan y fruta", "solo galletas"], a: 1, e: "Leche, pan y fruta." },
     { q: "¿De qué color del semáforo son las chuches?", o: ["Verde", "Amarillo", "Rojo"], a: 2, e: "Solo de vez en cuando." },
     { q: "¿Por qué nos cepillamos los dientes?", o: ["Para que no salgan caries", "Para dormir más", "Para crecer"], a: 0, e: "Así quitamos los restos de comida." },
+    L3.Q("¿Qué alimento viene de una planta?", ["La manzana", "El huevo", "La leche"], 0, "Viene de un árbol, el manzano."),
+    L3.Q("Comer sano es…", ["comer variado", "comer solo pasta", "no comer fruta"], 0, "Un poco de todo."),
   ],
   feynman: ["Por qué hay que comer de todo", "Cómo es un plato saludable", "Qué hábitos nos mantienen sanos"],
   mapa: mapa("COMER SANO Y CUIDARSE", "var(--pri)", [
@@ -190,7 +211,21 @@ module.exports = {
     ["¿Cuándo nos lavamos las manos?", "Antes de comer y después del baño"],
     ["¿Cuántas horas duerme un niño?", "Unas 10 horas"],
     ["¿Cómo es un desayuno sano?", "Leche, pan y fruta"],
+    ["¿Qué son las legumbres?", "Lentejas, garbanzos y alubias"],
+    ["¿Cuánto tiempo nos lavamos las manos?", "Lo que dura cantar «Cumpleaños feliz» dos veces"],
   ],
+  glosario: [
+    ["Alimento", "Lo que comemos para vivir y crecer."],
+    ["Energía", "La fuerza que nos dan los alimentos para movernos y pensar."],
+    ["Vitaminas", "Lo que tienen frutas y verduras para protegernos."],
+    ["Calcio", "Lo que tiene la leche para fortalecer huesos y dientes."],
+    ["Legumbres", "Lentejas, garbanzos y alubias."],
+    ["Dieta variada", "Comer un poco de cada tipo de alimento."],
+    ["Higiene", "Lo que hacemos para estar limpios."],
+    ["Caries", "Un agujero en el diente por el azúcar y la suciedad."],
+    ["Descanso", "Dormir y estar tranquilos para recuperar fuerzas."],
+  ],
+  situacion: L3.sit("La frutería de la clase", "Vamos a organizar una semana de almuerzos sanos y a montar una frutería de juguete en clase.", ["Hacemos un calendario: cada día del recreo tiene una fruta o un alimento sano.", "Traemos envases vacíos y frutas de juguete para montar la frutería.", "Clasificamos los alimentos con el semáforo: verde, amarillo y rojo.", "Al final de la semana contamos cuántos almuerzos sanos hemos traído."], "Una frutería de clase y un calendario de almuerzos sanos.", ["Distingue alimentos de cada color del semáforo.", "Trae almuerzos sanos durante la semana.", "Explica por qué un alimento es sano."]),
   familias: [
     "Haced la compra juntos y pedidle que elija frutas de tres colores distintos.",
     "Preparad juntos un plato saludable y que diga qué parte es cada alimento.",
@@ -202,5 +237,5 @@ module.exports = {
     ideas: ["Mural del plato saludable con recortes de folletos del supermercado.", "Registro semanal del almuerzo del recreo con pegatinas.", "Taller de lavado de manos con purpurina para ver los «microbios»."],
   },
   fuentes: [RD],
-  revisado: "2026-11-12",
+  revisado: "2026-11-14",
 };

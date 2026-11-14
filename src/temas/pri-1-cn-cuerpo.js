@@ -1,6 +1,7 @@
-// Ciencias de la Naturaleza 1º de Primaria. Formato ampliado de 1º: frases cortas y un dibujo propio en cada bloque.
+// Ciencias de la Naturaleza 1º de Primaria. Nivel libro: lectura, apartados numerados, ejercicios por niveles, glosario y situación.
 const { mapa } = require("./_util");
 const { F, D, BG, txt, persona, check, RD } = require("./_peques");
+const L3 = require("./_pri1L3");
 
 // Etiqueta con línea que apunta a una parte del dibujo.
 const etiqueta = (x1, y1, x2, y2, t, color = "var(--pen)", anchor = "start") =>
@@ -22,16 +23,17 @@ module.exports = {
   materia: "Ciencias de la Naturaleza",
   curso: "1-primaria",
   titulo: "Mi cuerpo",
-  minutos: 25,
+  minutos: 50,
   objetivos: ["Nombrar las partes del cuerpo: cabeza, tronco y extremidades", "Señalar las partes de la cara, la mano y el pie", "Saber que por dentro tenemos huesos, músculos y un corazón", "Respetar que todos los cuerpos son diferentes"],
   claves: ["cabeza", "tronco", "extremidades", "articulación", "huesos", "músculos"],
   pregunta: {
     texto: "Ponte de pie y toca tu cabeza, tu barriga y tus rodillas. ¿Cuántas partes grandes tiene tu cuerpo?",
     respuesta: "Tu cuerpo tiene <mark>tres partes</mark>: la <b>cabeza</b>, el <b>tronco</b> y las <b>extremidades</b> (los brazos y las piernas).",
   },
+  lectura: L3.lect("La sombra de Martina", `<p>Es por la mañana. Martina juega en el patio con su amigo Pablo.</p><p>El sol brilla mucho. En el suelo aparece una sombra con forma de niña.</p><p>«¡Mira, es mi sombra!», dice Martina. Levanta un brazo y la sombra también lo levanta.</p><p>Pablo se ríe. «Tu sombra tiene cabeza, brazos y piernas, como tú.»</p><p>Martina dobla una rodilla y salta a la pata coja. La sombra hace lo mismo.</p><p>«Mi cuerpo hace muchas cosas», piensa Martina. «¿Cómo se llama cada parte?»</p><p>En este tema vas a conocer tu cuerpo, por fuera y por dentro.</p>`),
   bloques: [
     {
-      html: `<h3>Las partes del cuerpo</h3><p>Nuestro cuerpo tiene <mark>tres partes</mark>: la cabeza, el tronco y las extremidades.</p><p>La <b>cabeza</b> está arriba. El <b>tronco</b> está en el centro. Las <b>extremidades</b> son los dos brazos y las dos piernas.</p><p>Todas las partes trabajan juntas. Así podemos jugar, comer y aprender.</p>`,
+      html: `<h3>1. Las partes del cuerpo</h3><p>Nuestro cuerpo tiene <mark>tres partes</mark>: la cabeza, el tronco y las extremidades.</p><p>La <b>cabeza</b> está arriba. El <b>tronco</b> está en el centro. Las <b>extremidades</b> son los dos brazos y las dos piernas.</p><p>Todas las partes trabajan juntas. Así podemos jugar, comer y aprender.</p><p>Mira tu cuerpo en un espejo. Busca la cabeza, el tronco, los brazos y las piernas. ¿Las encuentras todas?</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un niño con la cabeza, el tronco y las extremidades señaladas">${BG}
         ${persona(110, 170, 158, "var(--pen)")}
         ${etiqueta(122, 46, 160, 30, "cabeza", "var(--red)")}
@@ -40,7 +42,7 @@ module.exports = {
         ${etiqueta(102, 158, 60, 160, "pierna", "var(--leaf)", "end")}</svg>`,
     },
     {
-      html: `<h3>La cabeza y la cara</h3><p>En la cabeza tenemos el <mark>pelo</mark>, las orejas y la cara.</p><p>En la cara están los <b>ojos</b>, la <b>nariz</b> y la <b>boca</b>. También las cejas y las mejillas.</p><p>Con los ojos vemos. Con la nariz olemos y respiramos. Con la boca comemos y hablamos.</p>`,
+      html: `<h3>2. La cabeza y la cara</h3><p>En la cabeza tenemos el <mark>pelo</mark>, las orejas y la cara.</p><p>En la cara están los <b>ojos</b>, la <b>nariz</b> y la <b>boca</b>. También las cejas y las mejillas.</p><p>Con los ojos vemos. Con la nariz olemos y respiramos. Con la boca comemos y hablamos.</p><p>Las cejas protegen los ojos del sudor. Las pestañas los protegen del polvo. ¡Tu cara está muy bien pensada!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una cara grande con los ojos, la nariz, la boca y las orejas señalados">${BG}
         ${cara(110, 98, 52)}
         ${etiqueta(126, 94, 186, 52, "ojo", "var(--pen)")}
@@ -50,7 +52,7 @@ module.exports = {
         ${txt(110, 28, "pelo", { size: 13, color: "var(--muted)" })}</svg>`,
     },
     {
-      html: `<h3>El tronco</h3><p>El <mark>tronco</mark> es la parte del medio del cuerpo. Une la cabeza con los brazos y las piernas.</p><p>Por delante tiene el <b>pecho</b> y la <b>barriga</b>. Por detrás tiene la <b>espalda</b>.</p><p>El <b>cuello</b> une la cabeza con el tronco. Por eso puedes girar la cabeza.</p>`,
+      html: `<h3>3. El tronco</h3><p>El <mark>tronco</mark> es la parte del medio del cuerpo. Une la cabeza con los brazos y las piernas.</p><p>Por delante tiene el <b>pecho</b> y la <b>barriga</b>. Por detrás tiene la <b>espalda</b>.</p><p>El <b>cuello</b> une la cabeza con el tronco. Por eso puedes girar la cabeza.</p><p>Dentro del tronco hay partes muy importantes, como el corazón. El tronco las guarda y las protege.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Niño visto de frente y de espaldas: pecho, barriga y espalda">${BG}
         ${persona(56, 150, 120, "var(--inf)")}${persona(160, 150, 120, "var(--inf)", "var(--ink)")}
         <circle cx="160" cy="54" r="19" fill="#6b3f1f"/>
@@ -60,14 +62,14 @@ module.exports = {
         ${txt(130, 22, "el tronco", { size: 15, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
     },
     {
-      html: `<h3>Brazos y manos</h3><p>Los <mark>brazos</mark> son extremidades. Cada brazo termina en una <b>mano</b>.</p><p>Cada mano tiene <b>cinco dedos</b>. El dedo gordo se llama pulgar.</p><p>Con las manos cogemos, dibujamos, escribimos y aplaudimos. También saludamos y damos abrazos.</p><p>Lávate las manos antes de comer. Así quitas los microbios.</p>`,
+      html: `<h3>4. Brazos y manos</h3><p>Los <mark>brazos</mark> son extremidades. Cada brazo termina en una <b>mano</b>.</p><p>Cada mano tiene <b>cinco dedos</b>. El dedo gordo se llama pulgar.</p><p>Con las manos cogemos, dibujamos, escribimos y aplaudimos. También saludamos y damos abrazos.</p><p>Lávate las manos antes de comer. Así quitas los microbios.</p><p>El brazo tiene hombro, codo y muñeca. Toca cada parte de tu brazo y di su nombre en voz alta.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una mano abierta con cinco dedos; el pulgar está señalado">${BG}
         ${mano(105, 135, 2.1)}
         ${etiqueta(170, 98, 196, 70, "pulgar", "var(--red)")}
         ${txt(205, 140, "5 dedos", { size: 15, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
     },
     {
-      html: `<h3>Piernas y pies</h3><p>Las <mark>piernas</mark> también son extremidades. Cada pierna termina en un <b>pie</b>.</p><p>Cada pie tiene cinco dedos. Detrás está el talón.</p><p>Con las piernas y los pies andamos, corremos y saltamos. También damos patadas al balón. Nos ayudan a no caernos.</p><p>Los pies llevan calcetines y zapatos. Así no se hacen daño.</p>`,
+      html: `<h3>5. Piernas y pies</h3><p>Las <mark>piernas</mark> también son extremidades. Cada pierna termina en un <b>pie</b>.</p><p>Cada pie tiene cinco dedos. Detrás está el talón.</p><p>Con las piernas y los pies andamos, corremos y saltamos. También damos patadas al balón. Nos ayudan a no caernos.</p><p>Los pies llevan calcetines y zapatos. Así no se hacen daño.</p><p>Ponte de puntillas. Ahora apoya solo los talones. ¿Qué parte del pie te cuesta más?</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un pie grande con los dedos y el talón señalados, y un balón">${BG}
         ${pie(70, 140, 2)}
         ${etiqueta(92, 128, 120, 46, "dedos", "var(--pen)")}
@@ -76,7 +78,7 @@ module.exports = {
         ${txt(205, 166, "¡patada!", { size: 13, color: "var(--leaf)" })}</svg>`,
     },
     {
-      html: `<h3>Nos doblamos</h3><p>El cuerpo se dobla por unos sitios. Se llaman <mark>articulaciones</mark>.</p><p>El <b>codo</b> dobla el brazo. La <b>rodilla</b> dobla la pierna. La muñeca y el tobillo también se doblan.</p><p>Gracias a ellas podemos sentarnos, agacharnos y coger cosas del suelo.</p><p>Un robot de juguete no se dobla bien. ¡Nosotros sí!</p>`,
+      html: `<h3>6. Nos doblamos</h3><p>El cuerpo se dobla por unos sitios. Se llaman <mark>articulaciones</mark>.</p><p>El <b>codo</b> dobla el brazo. La <b>rodilla</b> dobla la pierna. La muñeca y el tobillo también se doblan.</p><p>Gracias a ellas podemos sentarnos, agacharnos y coger cosas del suelo.</p><p>Un robot de juguete no se dobla bien. ¡Nosotros sí!</p><p>Prueba a coger un lápiz sin doblar los dedos. ¡Es muy difícil! Las articulaciones nos ayudan a movernos.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Brazo doblado por el codo y pierna doblada por la rodilla">${BG}
         <g stroke="#f2c9a0" stroke-width="14" stroke-linecap="round" fill="none"><path d="M30 120 L 80 120 L 100 70"/><path d="M160 50 L 186 100 L 160 150"/></g>
         <circle cx="80" cy="120" r="9" fill="var(--red)"/><circle cx="186" cy="100" r="9" fill="var(--red)"/>
@@ -84,7 +86,7 @@ module.exports = {
         ${txt(130, 28, "Las articulaciones", { size: 15, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
     },
     {
-      html: `<h3>Por dentro</h3><p>Dentro del cuerpo tenemos <mark>huesos</mark>. Los huesos son duros y nos sostienen. Todos juntos forman el esqueleto.</p><p>Encima tenemos <b>músculos</b>. Los músculos mueven los huesos.</p><p>En el pecho está el <b>corazón</b>. Late sin parar y mueve la sangre por todo tu cuerpo, día y noche.</p>`,
+      html: `<h3>7. Por dentro</h3><p>Dentro del cuerpo tenemos <mark>huesos</mark>. Los huesos son duros y nos sostienen. Todos juntos forman el esqueleto.</p><p>Encima tenemos <b>músculos</b>. Los músculos mueven los huesos.</p><p>En el pecho está el <b>corazón</b>. Late sin parar y mueve la sangre por todo tu cuerpo, día y noche.</p><p>Para tener huesos fuertes, bebemos leche y comemos bien. Para tener músculos fuertes, jugamos y nos movemos.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Esqueleto sencillo, un brazo con músculo y un corazón">${BG}
         <g stroke="var(--muted)" stroke-width="5" stroke-linecap="round" fill="none"><circle cx="60" cy="40" r="15" fill="var(--card)"/><path d="M60 56 V 110 M60 66 L 34 98 M60 66 L 86 98 M60 110 L 44 156 M60 110 L 76 156"/><path d="M48 74 H 72 M48 84 H 72 M50 94 H 70"/></g>
         <g transform="translate(140 100)"><path d="M-20 20 L 0 -20 L 30 -20" stroke="#f2c9a0" stroke-width="14" stroke-linecap="round" fill="none"/><ellipse cx="-6" cy="-6" rx="12" ry="9" fill="var(--red)" opacity=".7"/></g>
@@ -93,7 +95,7 @@ module.exports = {
       video: { id: "k1UZ4Lz1PHE", titulo: "Los sistemas del cuerpo humano para niños - Recopilación", canal: "Smile and Learn - Español", vistas: 9279685, megusta: 0 },
     },
     {
-      html: `<h3>Todos somos diferentes</h3><p>Todos tenemos las mismas partes del cuerpo. Pero <mark>cada cuerpo es distinto</mark>.</p><p>Hay personas altas y bajas. Hay pelo rizado, liso, rubio o moreno. Hay pieles de muchos colores.</p><p>Algunas personas usan gafas o silla de ruedas. Todos los cuerpos merecen <b>respeto</b>.</p>`,
+      html: `<h3>8. Todos somos diferentes</h3><p>Todos tenemos las mismas partes del cuerpo. Pero <mark>cada cuerpo es distinto</mark>.</p><p>Hay personas altas y bajas. Hay pelo rizado, liso, rubio o moreno. Hay pieles de muchos colores.</p><p>Algunas personas usan gafas o silla de ruedas. Todos los cuerpos merecen <b>respeto</b>.</p><p>Fíjate en tu clase. ¿Hay dos niños iguales? Seguro que no. ¡Cada persona es única y especial!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cuatro niños distintos: alto, bajo, con gafas y en silla de ruedas">${BG}
         ${persona(40, 160, 130, "var(--red)", "#e3b04b")}${persona(95, 160, 100, "var(--leaf)", "var(--ink)")}${persona(150, 160, 118, "var(--sun)", "#6b3f1f")}
         <g fill="none" stroke="var(--ink)" stroke-width="2"><circle cx="146" cy="96" r="5"/><circle cx="157" cy="96" r="5"/></g>
@@ -101,7 +103,7 @@ module.exports = {
         <path d="M14 162 H 246" stroke="var(--line)" stroke-width="2"/></svg>`,
     },
     {
-      html: `<h3>¿Para qué sirve?</h3><p>Conocer tu cuerpo te ayuda a <mark>cuidarlo</mark>. También te ayuda a explicar lo que te pasa.</p><p>Si te duele algo, puedes decir dónde: «Me duele la rodilla». Así el médico te ayuda mejor.</p><p>También sirve para jugar. En Educación Física el maestro dice: «Tocaos los tobillos».</p>`,
+      html: `<h3>9. ¿Para qué sirve?</h3><p>Conocer tu cuerpo te ayuda a <mark>cuidarlo</mark>. También te ayuda a explicar lo que te pasa.</p><p>Si te duele algo, puedes decir dónde: «Me duele la rodilla». Así el médico te ayuda mejor.</p><p>También sirve para jugar. En Educación Física el maestro dice: «Tocaos los tobillos».</p><p>Tu cuerpo es tuyo. Nadie debe tocarlo si a ti no te gusta. Si pasa, cuéntaselo a un adulto de confianza.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un niño se toca la rodilla y dice al médico que le duele">${BG}
         ${persona(70, 166, 120, "var(--pen)")}${persona(196, 166, 110, "#fff", "var(--muted)")}
         <circle cx="64" cy="146" r="9" fill="none" stroke="var(--red)" stroke-width="3"/>
@@ -109,12 +111,14 @@ module.exports = {
         ${txt(100, 33, "Me duele la rodilla", { size: 14 })}</svg>`,
     },
     {
-      html: `<h3>Juego: el maestro dice</h3><p>Vamos a jugar a <mark>«El maestro dice»</mark>. Un adulto da órdenes y tú las haces.</p><p>«El maestro dice: tócate la nariz». «El maestro dice: dobla las rodillas». «El maestro dice: levanta un brazo».</p><p>Si no dice «el maestro dice», ¡no te muevas! Así repasas las partes del cuerpo.</p>`,
+      html: `<h3>10. Juego: el maestro dice</h3><p>Vamos a jugar a <mark>«El maestro dice»</mark>. Un adulto da órdenes y tú las haces.</p><p>«El maestro dice: tócate la nariz». «El maestro dice: dobla las rodillas». «El maestro dice: levanta un brazo».</p><p>Si no dice «el maestro dice», ¡no te muevas! Así repasas las partes del cuerpo.</p><p>Después cambia de papel. Ahora tú das las órdenes. ¿Sabes nombrar diez partes del cuerpo sin equivocarte?</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres niños jugando: uno se toca la nariz, otro levanta un brazo">${BG}
         ${persona(60, 162, 120, "var(--leaf)")}${persona(130, 162, 120, "var(--inf)")}${persona(200, 162, 120, "var(--pen)")}
         ${check(230, 40)}
         ${txt(110, 30, "¡Toca la nariz!", { size: 15, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
+      video: L3.V("SzC6MxWXoTo", "Aprendiendo las partes del cuerpo: canción infantil", "Little Angel Español", 46350055),
     },
+    L3.B("11. Repaso: lo que ya sabes", `<p>Tu cuerpo tiene <mark>tres partes</mark>: cabeza, tronco y extremidades.</p><p>En la cara están los ojos, la nariz y la boca. Las extremidades son dos brazos y dos piernas.</p><p>El cuerpo se dobla por las <b>articulaciones</b>: codo, rodilla, muñeca y tobillo.</p><p>Por dentro tenemos huesos, músculos y un corazón que late sin parar. Todos los cuerpos son distintos y merecen respeto.</p>`, "Un niño con los brazos abiertos y las palabras cabeza, tronco y extremidades", `${L3.nino(90, 160, { pose: "brazos", s: 1.6, c: "var(--pen)" })}${L3.t(200, 50, "cabeza", "var(--red)")}${L3.t(200, 95, "tronco", "var(--pen)")}${L3.t(200, 140, "extremidades", "var(--leaf)")}<path d="M110 52 H170 M110 95 H175 M130 130 H155" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 3"/>${L3.suelo(162)}`),
   ],
   figura: {
     titulo: "Las tres partes del cuerpo",
@@ -143,6 +147,7 @@ module.exports = {
     { enunciado: "¿Por dónde se dobla la pierna?",
       pasos: ["Siéntate en una silla.", "Mira por dónde se dobla tu pierna.", "Ese sitio se llama rodilla. Es una articulación."],
       resultado: "la pierna se dobla por la rodilla." },
+    { enunciado: "¿Qué partes del cuerpo usas para dar una patada al balón?", pasos: ["Piensa: el balón está en el suelo.", "Para darle, mueves una pierna.", "Golpeas con el pie y doblas la rodilla."], resultado: "usas la pierna, la rodilla y el pie." },
   ],
   errores: [
     "Pensar que el cuello es parte de la cabeza: el cuello une la cabeza con el tronco.",
@@ -151,16 +156,28 @@ module.exports = {
     "Reírse de un cuerpo diferente: todos los cuerpos son distintos y merecen respeto.",
   ],
   ejercicios: [
-    { q: "Di en voz alta las tres partes del cuerpo.", sol: "Cabeza, tronco y extremidades." },
-    { q: "Toca tu nariz, tus orejas y tu barbilla.", sol: "Comprueba que señala cada parte bien." },
-    { q: "¿Cuántos brazos y cuántas piernas tienes?", sol: "Dos brazos y dos piernas: cuatro extremidades." },
-    { q: "Dibuja una cara con ojos, nariz, boca y orejas.", sol: "Deben aparecer las cuatro partes." },
-    { q: "¿Qué parte del cuerpo usas para oler?", sol: "La nariz." },
-    { q: "Dobla el brazo. ¿Por dónde se dobla?", sol: "Por el codo." },
-    { q: "Pon la mano en el pecho y salta un rato. ¿Qué notas?", sol: "El corazón late más deprisa." },
-    { q: "¿Qué hay dentro del cuerpo que es duro?", sol: "Los huesos." },
-    { q: "Di una parte del tronco que está detrás.", sol: "La espalda." },
-    { q: "Di una cosa que haces con los pies y otra con las manos.", sol: "Por ejemplo: con los pies corro y con las manos dibujo." },
+    { nivel: "básico", q: "Di en voz alta las tres partes del cuerpo.", sol: "Cabeza, tronco y extremidades." },
+    { nivel: "básico", q: "Toca tu nariz, tus orejas y tu barbilla.", sol: "Comprueba que señala cada parte bien." },
+    { nivel: "básico", q: "¿Cuántos brazos y cuántas piernas tienes?", sol: "Dos brazos y dos piernas: cuatro extremidades." },
+    { nivel: "básico", q: "Dibuja una cara con ojos, nariz, boca y orejas.", sol: "Deben aparecer las cuatro partes." },
+    { nivel: "básico", q: "¿Qué parte del cuerpo usas para oler?", sol: "La nariz." },
+    { nivel: "medio", q: "Dobla el brazo. ¿Por dónde se dobla?", sol: "Por el codo." },
+    { nivel: "medio", q: "Pon la mano en el pecho y salta un rato. ¿Qué notas?", sol: "El corazón late más deprisa." },
+    { nivel: "medio", q: "¿Qué hay dentro del cuerpo que es duro?", sol: "Los huesos." },
+    { nivel: "básico", q: "Di una parte del tronco que está detrás.", sol: "La espalda." },
+    { nivel: "medio", q: "Di una cosa que haces con los pies y otra con las manos.", sol: "Por ejemplo: con los pies corro y con las manos dibujo." },
+    L3.b("Señala tus dos codos y tus dos rodillas.", "Codos en los brazos; rodillas en las piernas."),
+    L3.b("¿Con qué parte del cuerpo hablamos?", "Con la boca."),
+    L3.m("Rodea las extremidades: brazo, nariz, pierna, espalda.", "Brazo y pierna."),
+    L3.m("Completa: el brazo termina en la…; la pierna termina en el…", "Mano; pie."),
+    L3.m("Dibuja tu cuerpo entero y escribe cabeza, tronco y extremidades.", "Dibujo con las tres partes marcadas."),
+    L3.m("¿Por qué no te caes cuando estás de pie?", "Porque los huesos te sostienen y los músculos te mantienen firme."),
+    L3.m("Di dos cosas en que te pareces a un amigo y dos en que eres distinto.", "Por ejemplo: los dos tenemos dos brazos; él tiene el pelo rizado y yo liso."),
+    L3.a("Siéntate en el suelo. ¿Qué articulaciones has doblado?", "Las rodillas, las caderas y los tobillos."),
+    L3.a("¿Qué pasaría si no tuviéramos huesos?", "No podríamos estar de pie: el cuerpo estaría blando."),
+    L3.a("Explica a tu familia qué hace el corazón.", "Late sin parar y mueve la sangre por todo el cuerpo."),
+    L3.a("Inventa una orden de «El maestro dice» con tres partes del cuerpo.", "Por ejemplo: «Toca la nariz, el codo y el tobillo»."),
+    L3.a("Di cómo cuidas tu cuerpo cada día.", "Me lavo, como bien, duermo y hago ejercicio."),
   ],
   quiz: [
     { q: "¿Cuántas partes tiene el cuerpo?", o: ["2", "3", "5"], a: 1, e: "Cabeza, tronco y extremidades." },
@@ -173,12 +190,16 @@ module.exports = {
     { q: "¿Qué late sin parar en el pecho?", o: ["El corazón", "El estómago", "La nariz"], a: 0, e: "El corazón mueve la sangre." },
     { q: "La espalda está…", o: ["delante", "detrás", "en la cabeza"], a: 1, e: "En la parte de atrás del tronco." },
     { q: "Los cuerpos de las personas…", o: ["son todos iguales", "son diferentes", "no tienen huesos"], a: 1, e: "Cada cuerpo es distinto." },
+    L3.Q("¿Qué parte del brazo se dobla en medio?", ["El codo", "La rodilla", "El talón"], 0, "El codo dobla el brazo."),
+    L3.Q("¿Qué forman todos los huesos juntos?", ["El esqueleto", "La piel", "El pelo"], 0, "El esqueleto nos sostiene."),
   ],
   examen: [
     { q: "¿Qué parte del cuerpo es la barriga?", o: ["La cabeza", "El tronco", "Una extremidad"], a: 1, e: "Está en el tronco." },
     { q: "¿Con qué olemos?", o: ["Con la boca", "Con la nariz", "Con las orejas"], a: 1, e: "Con la nariz." },
     { q: "¿Qué mueven los músculos?", o: ["Los huesos", "El pelo", "Las uñas"], a: 0, e: "Los músculos mueven los huesos." },
     { q: "El codo y la rodilla son…", o: ["huesos", "articulaciones", "dedos"], a: 1, e: "Por ahí se dobla el cuerpo." },
+    L3.Q("Cada pie tiene…", ["cinco dedos", "dos dedos", "diez dedos"], 0, "Cinco en cada pie."),
+    L3.Q("El talón está…", ["detrás del pie", "en la cara", "en la mano"], 0, "Es la parte de atrás del pie."),
   ],
   feynman: ["Las tres partes del cuerpo", "Qué son las articulaciones", "Qué hay dentro del cuerpo"],
   mapa: mapa("MI CUERPO", "var(--pri)", [
@@ -196,7 +217,21 @@ module.exports = {
     ["¿Qué es el esqueleto?", "Todos los huesos juntos"],
     ["¿Qué hace el corazón?", "Mueve la sangre por el cuerpo"],
     ["¿Son todos los cuerpos iguales?", "No, cada cuerpo es distinto"],
+    ["¿Qué protege las pestañas?", "Los ojos, del polvo"],
+    ["¿Qué une la cabeza con el tronco?", "El cuello"],
   ],
+  glosario: [
+    ["Cabeza", "La parte de arriba del cuerpo, donde está la cara."],
+    ["Tronco", "La parte del medio del cuerpo: pecho, barriga y espalda."],
+    ["Extremidades", "Los brazos y las piernas."],
+    ["Articulación", "Sitio por donde se dobla el cuerpo, como la rodilla."],
+    ["Hueso", "Parte dura de dentro del cuerpo que nos sostiene."],
+    ["Esqueleto", "Todos los huesos juntos."],
+    ["Músculo", "Parte de dentro que mueve los huesos."],
+    ["Corazón", "Órgano del pecho que late y mueve la sangre."],
+    ["Pulgar", "El dedo gordo de la mano."],
+  ],
+  situacion: L3.sit("Mi silueta gigante", "Vamos a dibujar nuestro cuerpo a tamaño real y a poner el nombre de cada parte.", ["Por parejas, uno se tumba sobre un papel grande y el otro dibuja su contorno.", "Pintamos la cara: ojos, nariz, boca y orejas.", "Pegamos etiquetas: cabeza, tronco, brazos, piernas, codo, rodilla.", "Colgamos las siluetas en el pasillo y las comparamos."], "Una silueta gigante de cada niño con las partes del cuerpo nombradas.", ["Nombra bien las tres partes del cuerpo.", "Coloca las etiquetas en su sitio.", "Respeta las diferencias entre las siluetas."]),
   familias: [
     "En el baño, nombrad juntos las partes del cuerpo mientras se lava.",
     "Jugad a «El maestro dice» con partes del cuerpo y articulaciones.",
@@ -208,5 +243,5 @@ module.exports = {
     ideas: ["Silueta a tamaño real en papel continuo con etiquetas.", "Canción de las partes del cuerpo con gestos.", "Escucha del corazón en reposo y tras correr con la mano en el pecho."],
   },
   fuentes: [RD],
-  revisado: "2026-11-12",
+  revisado: "2026-11-14",
 };

@@ -1,6 +1,7 @@
 // Ciencias de la Naturaleza 1º de Primaria. Formato de 1º: frases cortas y un dibujo propio en cada bloque.
 const { mapa } = require("./_util");
 const { F, D, BG, txt, persona, sol, arbol, flor, coche, check, RD } = require("./_peques");
+const L3 = require("./_pri1L3");
 
 // Piedra sencilla.
 const piedra = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-22 0 Q -26 -16 -10 -20 Q 6 -28 18 -16 Q 28 -6 20 0 Z" fill="#9aa3b5" stroke="var(--ink)" stroke-width="1.5"/></g>`;
@@ -15,16 +16,17 @@ module.exports = {
   materia: "Ciencias de la Naturaleza",
   curso: "1-primaria",
   titulo: "Seres vivos y seres inertes",
-  minutos: 20,
+  minutos: 50,
   objetivos: ["Distinguir un ser vivo de un objeto que no tiene vida", "Saber que los seres vivos nacen, crecen, se alimentan y mueren", "Poner ejemplos de animales, plantas y personas"],
   claves: ["ser vivo", "ser inerte", "nacer", "crecer", "alimentarse", "morir"],
   pregunta: {
     texto: "Una piedra y un gato están en el jardín. ¿Cuál de los dos ha nacido? ¿Cuál come?",
     respuesta: "El <mark>gato</mark>: nació de su madre, come y crece. La piedra no nace, no come y no crece. El gato es un <b>ser vivo</b> y la piedra es un <b>ser inerte</b>.",
   },
+  lectura: L3.lect("La caja de Leo", `<p>Leo trae una caja misteriosa a clase. «Dentro hay cosas vivas y cosas sin vida», dice la maestra.</p><p>Sara saca una piedra. «¡Es dura y fría! No se mueve», dice.</p><p>Iván saca una maceta con una planta. Tiene hojas verdes y una flor pequeña.</p><p>«Esta planta no anda. ¿Está viva?», pregunta Iván.</p><p>La maestra sonríe. «Nació de una semilla. Crece y bebe agua. ¡Claro que está viva!»</p><p>Al final, Leo saca un caracol en un bote con hojas. El caracol saca los cuernos.</p><p>Todos aplauden. ¿Cómo sabemos qué está vivo? En este tema lo vas a descubrir.</p>`),
   bloques: [
     {
-      html: `<h3>Seres vivos</h3><p>Mira a tu alrededor. Hay personas, animales y plantas. Todos son <mark>seres vivos</mark>: tienen vida.</p><p>Los seres vivos nacen y crecen. Necesitan comida, agua y aire. Tú también eres un ser vivo. Naciste siendo un bebé y sigues creciendo.</p><p>Hay tres grupos: <b>personas</b>, <b>animales</b> y <b>plantas</b>.</p>`,
+      html: `<h3>1. Seres vivos</h3><p>Mira a tu alrededor. Hay personas, animales y plantas. Todos son <mark>seres vivos</mark>: tienen vida.</p><p>Los seres vivos nacen y crecen. Necesitan comida, agua y aire. Tú también eres un ser vivo. Naciste siendo un bebé y sigues creciendo.</p><p>Hay tres grupos: <b>personas</b>, <b>animales</b> y <b>plantas</b>.</p><p>Los seres vivos son muy distintos. Hay seres enormes, como una ballena. Y hay seres muy pequeños, como una hormiga.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una niña, un perro y una flor: los tres son seres vivos">${BG}
         ${persona(55, 140, 92, "var(--red)")}${perro(135, 140, 1.3)}${flor(215, 140, "var(--inf)")}
         <path d="M14 146 H 246" stroke="var(--leaf)" stroke-width="3"/>
@@ -32,7 +34,7 @@ module.exports = {
         ${txt(130, 26, "¡Tienen vida!", { size: 16, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
     },
     {
-      html: `<h3>Seres inertes</h3><p>Una piedra, una pelota o una silla <mark>no tienen vida</mark>. Son <b>seres inertes</b>. Inerte quiere decir «sin vida».</p><p>No nacen ni crecen. No comen, no beben y no respiran. Si nadie los mueve, se quedan quietos.</p><p>Unos están en la naturaleza: piedras, agua o arena. Otros los fabricamos: juguetes, lápices o mesas.</p>`,
+      html: `<h3>2. Seres inertes</h3><p>Una piedra, una pelota o una silla <mark>no tienen vida</mark>. Son <b>seres inertes</b>. Inerte quiere decir «sin vida».</p><p>No nacen ni crecen. No comen, no beben y no respiran. Si nadie los mueve, se quedan quietos.</p><p>Unos están en la naturaleza: piedras, agua o arena. Otros los fabricamos: juguetes, lápices o mesas.</p><p>Las cosas inertes no necesitan comer. Si las guardamos bien, duran mucho tiempo. Una piedra puede durar años y años.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una piedra, una pelota y una silla: no tienen vida">${BG}
         ${piedra(55, 120, 1.4)}${pelota(130, 106, 18)}
         <g stroke="#8a5a2b" stroke-width="5" stroke-linecap="round" fill="none"><path d="M190 70 V 124 M190 98 H 222 V 124"/></g>
@@ -41,7 +43,7 @@ module.exports = {
         ${txt(130, 30, "No tienen vida", { size: 16, color: "var(--muted)", font: D, weight: 800 })}</svg>`,
     },
     {
-      html: `<h3>Nacen y crecen</h3><p>Todos los seres vivos <mark>nacen</mark>. Los perros y las personas nacen de la tripa de su madre. Los pollitos y las tortugas salen de un <b>huevo</b>. Las plantas nacen de una <b>semilla</b>.</p><p>Después, los seres vivos <b>crecen</b>. Un pollito se convierte en gallina. Una semilla se convierte en árbol.</p>`,
+      html: `<h3>3. Nacen y crecen</h3><p>Todos los seres vivos <mark>nacen</mark>. Los perros y las personas nacen de la tripa de su madre. Los pollitos y las tortugas salen de un <b>huevo</b>. Las plantas nacen de una <b>semilla</b>.</p><p>Después, los seres vivos <b>crecen</b>. Un pollito se convierte en gallina. Una semilla se convierte en árbol.</p><p>Tú también has crecido. Mira tus fotos de bebé. ¡Qué pequeño eras! Ahora eres más alto y más fuerte.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un huevo, un pollito y una gallina: el pollito nace del huevo y crece">${BG}
         <ellipse cx="45" cy="104" rx="16" ry="21" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
         ${pollito(125, 125)}
@@ -51,7 +53,7 @@ module.exports = {
         ${txt(45, 152, "huevo")}${txt(125, 152, "nace")}${txt(205, 152, "crece")}</svg>`,
     },
     {
-      html: `<h3>Se alimentan y se mueven</h3><p>Los seres vivos necesitan <mark>alimento y agua</mark>. Las personas y los animales comen. Las plantas toman agua con sus raíces. Con la luz del sol fabrican su comida.</p><p>Los animales se mueven solos: andan, vuelan, nadan o saltan. Las plantas no andan, pero giran sus hojas hacia la luz.</p>`,
+      html: `<h3>4. Se alimentan y se mueven</h3><p>Los seres vivos necesitan <mark>alimento y agua</mark>. Las personas y los animales comen. Las plantas toman agua con sus raíces. Con la luz del sol fabrican su comida.</p><p>Los animales se mueven solos: andan, vuelan, nadan o saltan. Las plantas no andan, pero giran sus hojas hacia la luz.</p><p>Unos animales comen plantas, como la vaca. Otros comen carne, como el león. ¡Todos necesitan comer!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un perro come de su cuenco y una planta recibe agua y sol">${BG}
         ${perro(70, 128, 1.2)}<path d="M98 128 h 34 l -5 -12 h -24 Z" fill="var(--pen)"/>
         ${sol(220, 40, 14)}${flor(200, 128, "var(--red)")}
@@ -60,7 +62,7 @@ module.exports = {
         ${txt(80, 160, "come")}${txt(200, 160, "agua y sol")}</svg>`,
     },
     {
-      html: `<h3>¿Vivo o inerte?</h3><p>Si dudamos, nos hacemos <mark>tres preguntas</mark>: ¿Ha nacido? ¿Crece? ¿Necesita comer, beber y respirar?</p><p>Si las respuestas son <b>sí</b>, es un ser vivo. Si son <b>no</b>, es inerte.</p><p>Un árbol nació de una semilla, crece y bebe. ¡Está vivo! Una pelota no nace ni crece. Es inerte.</p>`,
+      html: `<h3>5. ¿Vivo o inerte?</h3><p>Si dudamos, nos hacemos <mark>tres preguntas</mark>: ¿Ha nacido? ¿Crece? ¿Necesita comer, beber y respirar?</p><p>Si las respuestas son <b>sí</b>, es un ser vivo. Si son <b>no</b>, es inerte.</p><p>Un árbol nació de una semilla, crece y bebe. ¡Está vivo! Una pelota no nace ni crece. Es inerte.</p><p>Prueba con una hormiga y con un lápiz. ¿Qué respuestas te salen? Haz las tres preguntas cada vez que dudes.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tabla: el árbol ha nacido, crece y bebe; la pelota no">${BG}
         ${arbol(52, 82, 0.8)}${pelota(52, 136, 16)}
         <g font-size="12" font-weight="700" fill="var(--muted)" text-anchor="middle" ${F}><text x="125" y="24">¿nace?</text><text x="175" y="24">¿crece?</text><text x="225" y="24">¿come?</text></g>
@@ -69,7 +71,7 @@ module.exports = {
       video: { id: "_W2NuihVz2M", titulo: "Seres Vivos e Inertes", canal: "Proyecto Investic", vistas: 1314808, megusta: 7116 },
     },
     {
-      html: `<h3>Respiran</h3><p>Todos los seres vivos <mark>respiran</mark>. Necesitan aire para vivir. Nosotros tomamos aire por la nariz.</p><p>Pon la mano delante de la nariz. ¿Notas el aire? ¡Estás respirando!</p><p>Los peces respiran el aire que hay dentro del agua. Las plantas respiran por sus hojas. Una piedra no respira.</p>`,
+      html: `<h3>6. Respiran</h3><p>Todos los seres vivos <mark>respiran</mark>. Necesitan aire para vivir. Nosotros tomamos aire por la nariz.</p><p>Pon la mano delante de la nariz. ¿Notas el aire? ¡Estás respirando!</p><p>Los peces respiran el aire que hay dentro del agua. Las plantas respiran por sus hojas. Una piedra no respira.</p><p>Cuando corres mucho, respiras más deprisa. Tu cuerpo necesita más aire. Después descansas y respiras más despacio.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un niño respira por la nariz y un pez respira dentro del agua">${BG}
         ${persona(70, 160, 110, "var(--leaf)")}
         <g stroke="var(--water)" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M88 80 q 10 -4 18 0 M88 88 q 12 -2 22 4"/></g>
@@ -77,9 +79,10 @@ module.exports = {
         <g transform="translate(192 108)"><ellipse rx="22" ry="12" fill="var(--inf)"/><path d="M20 0 L 34 -10 V 10 Z" fill="var(--inf)"/><circle cx="-12" cy="-3" r="2" fill="#1b2235"/></g>
         <g fill="none" stroke="var(--pen)" stroke-width="2"><circle cx="170" cy="86" r="4"/><circle cx="164" cy="74" r="3"/></g>
         ${txt(70, 30, "aire", { color: "var(--water)" })}${txt(198, 40, "aire en el agua", { size: 12, color: "var(--water)" })}</svg>`,
+      video: L3.V("lMF5_FL0b6Q", "El ciclo de la vida | Camaleón", "CNTV Infantil", 3391737),
     },
     {
-      html: `<h3>Todos mueren</h3><p>Los seres vivos nacen, crecen y, al final, <mark>mueren</mark>. Una flor se seca. Un árbol muy viejo se cae.</p><p>Antes, muchos tienen <b>crías</b> o dejan semillas. Así nacen seres vivos nuevos. Es el <b>ciclo de la vida</b>: nacer, crecer, tener crías y morir.</p><p>Una piedra no nace ni muere. Solo se rompe.</p>`,
+      html: `<h3>7. Todos mueren</h3><p>Los seres vivos nacen, crecen y, al final, <mark>mueren</mark>. Una flor se seca. Un árbol muy viejo se cae.</p><p>Antes, muchos tienen <b>crías</b> o dejan semillas. Así nacen seres vivos nuevos. Es el <b>ciclo de la vida</b>: nacer, crecer, tener crías y morir.</p><p>Una piedra no nace ni muere. Solo se rompe.</p><p>Las crías se parecen a sus padres. Un gatito se parece a su madre gata. Un pollito, a la gallina.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Ciclo de vida de una planta: semilla, planta pequeña, planta con flor y flor seca">${BG}
         <ellipse cx="40" cy="120" rx="8" ry="5" fill="#8a5a2b"/>
         <g transform="translate(100 124)"><path d="M0 0 V -22" stroke="var(--leaf)" stroke-width="3"/><ellipse cx="-7" cy="-18" rx="7" ry="3.5" fill="var(--leaf)"/><ellipse cx="7" cy="-22" rx="7" ry="3.5" fill="var(--leaf)"/></g>
@@ -90,7 +93,7 @@ module.exports = {
         ${txt(130, 32, "El ciclo de la vida", { size: 16, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
     },
     {
-      html: `<h3>Cuidamos a los seres vivos</h3><p>Cada ser vivo necesita un <mark>lugar para vivir</mark>. Los peces viven en el agua. Los pájaros hacen nidos en los árboles.</p><p>Podemos ayudarlos. Regamos las plantas y damos agua a las mascotas. En el parque no arrancamos flores ni pisamos hormigueros. Si cuidamos a los seres vivos, todos vivimos mejor.</p>`,
+      html: `<h3>8. Cuidamos a los seres vivos</h3><p>Cada ser vivo necesita un <mark>lugar para vivir</mark>. Los peces viven en el agua. Los pájaros hacen nidos en los árboles.</p><p>Podemos ayudarlos. Regamos las plantas y damos agua a las mascotas. En el parque no arrancamos flores ni pisamos hormigueros. Si cuidamos a los seres vivos, todos vivimos mejor.</p><p>También cuidamos su casa. No tiramos basura al río ni al bosque. Así los animales y las plantas viven felices.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una niña riega una flor con una regadera">${BG}
         ${persona(70, 150, 100, "var(--red)")}
         <g transform="translate(110 92)"><path d="M0 0 h 28 v 22 h -28 Z" fill="var(--pen)"/><path d="M28 6 L 52 -6" stroke="var(--pen)" stroke-width="5" stroke-linecap="round"/></g>
@@ -100,7 +103,7 @@ module.exports = {
         ${txt(130, 30, "Los cuidamos", { size: 16, color: "var(--leaf)", font: D, weight: 800 })}</svg>`,
     },
     {
-      html: `<h3>¿Para qué sirve?</h3><p>Saber qué está vivo nos ayuda a <mark>cuidar bien las cosas</mark>. Una tortuga necesita comida y agua limpia. Un juguete solo necesita que lo guardes.</p><p>También nos ayuda a respetar la naturaleza. Una planta del parque está viva. Si la arrancamos, se muere. Veterinarios y jardineros cuidan seres vivos.</p>`,
+      html: `<h3>9. ¿Para qué sirve?</h3><p>Saber qué está vivo nos ayuda a <mark>cuidar bien las cosas</mark>. Una tortuga necesita comida y agua limpia. Un juguete solo necesita que lo guardes.</p><p>También nos ayuda a respetar la naturaleza. Una planta del parque está viva. Si la arrancamos, se muere. Veterinarios y jardineros cuidan seres vivos.</p><p>En casa, también sirve para saber qué cuidar cada día. ¿Tienes una planta o una mascota? ¡Necesita tu ayuda!</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un niño da de comer a una tortuga y guarda un juguete en una caja">${BG}
         ${persona(60, 150, 100, "var(--pen)")}
         <g transform="translate(120 146)"><ellipse cy="-12" rx="22" ry="13" fill="var(--leaf)"/><circle cx="24" cy="-12" r="6" fill="var(--leaf)"/><circle cx="26" cy="-14" r="1.5" fill="#1b2235"/><path d="M-14 -2 V 2 M14 -2 V 2" stroke="var(--leaf)" stroke-width="5"/></g>
@@ -112,7 +115,7 @@ module.exports = {
         ${txt(130, 30, "Cada cosa, su cuidado", { size: 16, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
     },
     {
-      html: `<h3>Juego: ¿vivo o no vivo?</h3><p>Un adulto dice una cosa. Si es un <mark>ser vivo</mark>, te pones de pie. Si es <b>inerte</b>, te sientas.</p><p>Prueba: gato, lápiz, rosa, nube, caracol, zapato, abuela, roca.</p><p>Vivos: gato, rosa, caracol y abuela. Inertes: lápiz, nube, zapato y roca. Si dudas, haz las tres preguntas.</p>`,
+      html: `<h3>10. Juego: ¿vivo o no vivo?</h3><p>Un adulto dice una cosa. Si es un <mark>ser vivo</mark>, te pones de pie. Si es <b>inerte</b>, te sientas.</p><p>Prueba: gato, lápiz, rosa, nube, caracol, zapato, abuela, roca.</p><p>Vivos: gato, rosa, caracol y abuela. Inertes: lápiz, nube, zapato y roca. Si dudas, haz las tres preguntas.</p><p>Ahora inventa tú la lista. Di cuatro cosas y pide a tu familia que se levante o se siente.</p>`,
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Dos aros: en el verde van los seres vivos y en el gris los inertes">${BG}
         <ellipse cx="70" cy="100" rx="58" ry="50" fill="var(--ok-bg)" stroke="var(--leaf)" stroke-width="3"/>
         <ellipse cx="190" cy="100" rx="58" ry="50" fill="var(--card)" stroke="var(--muted)" stroke-width="3"/>
@@ -120,6 +123,7 @@ module.exports = {
         ${piedra(175, 124, 0.9)}${pelota(210, 104, 12)}
         ${txt(70, 30, "VIVO", { size: 16, color: "var(--leaf)", font: D, weight: 800 })}${txt(190, 30, "NO VIVO", { size: 16, color: "var(--muted)", font: D, weight: 800 })}</svg>`,
     },
+    L3.B("11. Repaso: lo que ya sabes", `<p>Ya sabes que hay <mark>seres vivos</mark> y <b>seres inertes</b>.</p><p>Los seres vivos nacen, crecen, se alimentan, respiran y mueren. Son las personas, los animales y las plantas.</p><p>Los seres inertes no tienen vida. No nacen, no crecen y no comen.</p><p>Si dudas, recuerda las tres preguntas: ¿ha nacido?, ¿crece?, ¿come, bebe y respira? ¡Y cuida siempre a los seres vivos!</p>`, "Lista de repaso con marcas: nacen, crecen, comen, respiran y mueren", `${L3.lista(["Nacen", "Crecen", "Comen y beben", "Respiran", "Mueren"], 70, 34, 28)}${L3.flor(40, 170, "var(--red)")}${L3.estrella(215, 60, 22)}`),
   ],
   figura: {
     titulo: "Seres vivos y seres inertes",
@@ -145,6 +149,7 @@ module.exports = {
     { enunciado: "¿Un pez es un ser vivo? Vive dentro del agua.",
       pasos: ["¿Ha nacido? Sí, salió de un huevo.", "¿Crece? Sí, de pequeño es muy chiquito.", "¿Come y respira? Sí, come y respira el aire que hay en el agua."],
       resultado: "el pez es un ser vivo." },
+    { enunciado: "¿Una piña de pino es un ser vivo?", pasos: ["La piña cayó de un pino, que es un ser vivo.", "Dentro de la piña hay semillas que pueden dar un pino nuevo.", "La piña seca no crece ni bebe, pero sus semillas pueden nacer."], resultado: "la piña seca es inerte, pero guarda semillas que pueden dar vida." },
   ],
   errores: [
     "Pensar que todo lo que se mueve está vivo: un coche o el viento se mueven, pero no tienen vida.",
@@ -153,16 +158,28 @@ module.exports = {
     "Pensar que el sol o el fuego están vivos porque se mueven o cambian: no nacen ni comen.",
   ],
   ejercicios: [
-    { q: "Di en voz alta tres seres vivos que veas en tu casa o en la calle.", sol: "Por ejemplo: mi hermano, un pájaro y una planta." },
-    { q: "Di tres seres inertes que haya en tu clase.", sol: "Por ejemplo: la mesa, el lápiz y la pizarra." },
-    { q: "¿La lombriz es un ser vivo? ¿Por qué?", sol: "Sí: nace, crece, come y se mueve." },
-    { q: "¿El agua de un vaso es un ser vivo?", sol: "No. El agua no nace ni crece. Es un ser inerte que los seres vivos necesitan." },
-    { q: "Dibuja un ser vivo y un ser inerte. Rodea el ser vivo de color verde.", sol: "El dibujo vivo puede ser un animal, una planta o una persona." },
-    { q: "Ordena: árbol grande, semilla, árbol pequeño.", sol: "Semilla, árbol pequeño, árbol grande." },
-    { q: "¿Una mesa de madera está viva?", sol: "No. La madera vino de un árbol, pero la mesa ya no crece ni bebe." },
-    { q: "Pon la mano delante de la nariz y respira. ¿Qué notas?", sol: "Notas el aire que sale. Respirar es una señal de vida." },
-    { q: "Di dos cosas que puedes hacer para cuidar a un ser vivo.", sol: "Por ejemplo: regar una planta y poner agua a una mascota." },
-    { q: "Completa: los seres vivos nacen, crecen y…", sol: "…mueren." },
+    { nivel: "básico", q: "Di en voz alta tres seres vivos que veas en tu casa o en la calle.", sol: "Por ejemplo: mi hermano, un pájaro y una planta." },
+    { nivel: "básico", q: "Di tres seres inertes que haya en tu clase.", sol: "Por ejemplo: la mesa, el lápiz y la pizarra." },
+    { nivel: "medio", q: "¿La lombriz es un ser vivo? ¿Por qué?", sol: "Sí: nace, crece, come y se mueve." },
+    { nivel: "básico", q: "¿El agua de un vaso es un ser vivo?", sol: "No. El agua no nace ni crece. Es un ser inerte que los seres vivos necesitan." },
+    { nivel: "básico", q: "Dibuja un ser vivo y un ser inerte. Rodea el ser vivo de color verde.", sol: "El dibujo vivo puede ser un animal, una planta o una persona." },
+    { nivel: "medio", q: "Ordena: árbol grande, semilla, árbol pequeño.", sol: "Semilla, árbol pequeño, árbol grande." },
+    { nivel: "medio", q: "¿Una mesa de madera está viva?", sol: "No. La madera vino de un árbol, pero la mesa ya no crece ni bebe." },
+    { nivel: "básico", q: "Pon la mano delante de la nariz y respira. ¿Qué notas?", sol: "Notas el aire que sale. Respirar es una señal de vida." },
+    { nivel: "medio", q: "Di dos cosas que puedes hacer para cuidar a un ser vivo.", sol: "Por ejemplo: regar una planta y poner agua a una mascota." },
+    { nivel: "básico", q: "Completa: los seres vivos nacen, crecen y…", sol: "…mueren." },
+    L3.b("Rodea los seres vivos: perro, mesa, rosa, piedra.", "Perro y rosa."),
+    L3.b("¿De dónde nace un pollito?", "De un huevo."),
+    L3.m("Une cada ser vivo con cómo nace: perro, pollito, girasol.", "Perro: de la tripa de su madre. Pollito: de un huevo. Girasol: de una semilla."),
+    L3.m("Haz las tres preguntas con una mariposa. ¿Está viva?", "Ha nacido, crece y come: sí, está viva."),
+    L3.m("Di tres cosas que necesita un ser vivo para vivir.", "Alimento, agua y aire."),
+    L3.m("¿Una nube es un ser vivo? Explica por qué.", "No. Se mueve y cambia, pero no nace ni come."),
+    L3.m("Dibuja el ciclo de la vida de una planta: semilla, planta pequeña, planta con flor.", "Tres dibujos en orden, unidos con flechas."),
+    L3.a("Clasifica en dos columnas: gato, pelota, árbol, silla, pez, lápiz.", "Vivos: gato, árbol, pez. Inertes: pelota, silla, lápiz."),
+    L3.a("Un robot habla y se mueve. ¿Es un ser vivo? ¿Por qué?", "No. Lo fabricaron, no nace, no crece y no come."),
+    L3.a("Inventa una adivinanza de un ser vivo para tu familia.", "Por ejemplo: «Tengo hojas y no soy libro. ¿Quién soy?». El árbol."),
+    L3.a("¿Qué pasaría si una planta se queda sin agua muchos días?", "Se seca y se muere, porque es un ser vivo."),
+    L3.a("Busca en casa un ser vivo y explica cómo lo cuidáis.", "Por ejemplo: regamos la planta o damos de comer al perro."),
   ],
   quiz: [
     { q: "¿Cuál es un ser vivo?", o: ["Una piedra", "Un gato", "Una silla"], a: 1, e: "El gato nace, crece y come." },
@@ -175,12 +192,16 @@ module.exports = {
     { q: "¿Qué es una mesa?", o: ["Un ser vivo", "Un ser inerte", "Una planta"], a: 1, e: "No nace ni crece." },
     { q: "¿Qué pasa al final del ciclo de la vida?", o: ["Nacen", "Mueren", "Crecen"], a: 1, e: "Nacer, crecer y, al final, morir." },
     { q: "¿Cómo cuidamos a una planta?", o: ["La regamos", "La pisamos", "La dejamos sin luz"], a: 0, e: "Necesita agua y luz." },
+    L3.Q("¿Qué tres preguntas hacemos si dudamos?", ["¿Nace, crece y come?", "¿Es grande, bonito y caro?", "¿Es rojo, azul o verde?"], 0, "Si todas son sí, está vivo."),
+    L3.Q("Las crías se parecen…", ["a sus padres", "a una piedra", "a un coche"], 0, "Un gatito se parece a la gata."),
   ],
   examen: [
     { q: "¿Qué hacen todos los seres vivos?", o: ["Nacen y crecen", "Vuelan", "Hablan"], a: 0, e: "Todos nacen y crecen." },
     { q: "¿Qué es un ser inerte?", o: ["Algo que tiene vida", "Algo que no tiene vida", "Un animal pequeño"], a: 1, e: "Inerte quiere decir sin vida." },
     { q: "Una planta nace de…", o: ["un huevo", "una semilla", "una roca"], a: 1, e: "Las plantas nacen de semillas." },
     { q: "¿Cuál de estos NO es un ser vivo?", o: ["Un caracol", "Una nube", "Una rosa"], a: 1, e: "La nube no nace ni come." },
+    L3.Q("¿Qué respiran los seres vivos?", ["Aire", "Arena", "Zumo"], 0, "Todos necesitan aire."),
+    L3.Q("¿Cómo cuidamos a los seres vivos?", ["Tirando basura", "Regando y dando agua", "Pisando hormigueros"], 1, "Así viven mejor."),
   ],
   feynman: ["Qué es un ser vivo", "Qué es un ser inerte", "Las tres preguntas para saber si algo está vivo"],
   mapa: mapa("SERES VIVOS E INERTES", "var(--pri)", [
@@ -198,7 +219,21 @@ module.exports = {
     ["¿Qué quiere decir «inerte»?", "Que no tiene vida"],
     ["¿Los peces respiran?", "Sí, el aire que hay en el agua"],
     ["¿Cuál es el ciclo de la vida?", "Nacer, crecer, tener crías y morir"],
+    ["¿Una nube está viva?", "No: no nace, no crece y no come"],
+    ["¿Qué tres preguntas hago si dudo?", "¿Ha nacido? ¿Crece? ¿Come, bebe y respira?"],
   ],
+  glosario: [
+    ["Ser vivo", "Lo que nace, crece, se alimenta, respira y muere."],
+    ["Ser inerte", "Lo que no tiene vida, como una piedra."],
+    ["Nacer", "Empezar a vivir."],
+    ["Crecer", "Hacerse más grande con el tiempo."],
+    ["Semilla", "La parte pequeña de la que nace una planta."],
+    ["Cría", "El hijo pequeño de un animal."],
+    ["Respirar", "Tomar aire para vivir."],
+    ["Alimento", "Lo que comemos para crecer y tener fuerza."],
+    ["Ciclo de la vida", "Nacer, crecer, tener crías y morir."],
+  ],
+  situacion: L3.sit("El rincón de la vida", "Vamos a montar en clase un rincón con seres vivos y seres inertes para que otros grupos aprendan a distinguirlos.", ["En casa, buscamos un objeto inerte o una foto de un ser vivo.", "En clase, ponemos dos aros en el suelo: «vivo» e «inerte».", "Cada niño coloca su objeto o foto y explica por qué con las tres preguntas.", "Plantamos lentejas en algodón y miramos cómo crecen cada día."], "Un rincón con dos aros clasificados y un semillero de lentejas.", ["Clasifica bien los objetos y las fotos.", "Usa las tres preguntas para explicarlo.", "Cuida el semillero cada día."]),
   familias: [
     "En un paseo, jugad a «¿vivo o no vivo?»: señalad cosas y que diga cuál es cuál y por qué.",
     "Plantad una lenteja en un algodón húmedo y mirad juntos cómo nace y crece.",
@@ -210,5 +245,5 @@ module.exports = {
     ideas: ["Caja misteriosa con objetos y fotos de seres vivos para clasificar en dos aros.", "Semillero de lentejas en clase con dibujo diario de su crecimiento.", "Paseo por el patio con una lista: tres seres vivos y tres inertes."],
   },
   fuentes: [RD],
-  revisado: "2026-11-12",
+  revisado: "2026-11-14",
 };
