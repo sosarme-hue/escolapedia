@@ -3,6 +3,7 @@
 const { mapa } = require("./_util");
 const P1 = require("./_pri1");
 const DB = require("./_pri1-dib");
+const PQ = require("./_peque");
 const { F, D, svg, num, txt } = P1;
 const { rot } = DB;
 
@@ -78,7 +79,7 @@ const FUENTES = P1.FUENTES;
 const PROF = (saberes, ideas) => ({ saberes: `${saberes} (RD 157/2022, primer ciclo de Educación Primaria).`, ideas });
 
 module.exports = {
-  ...P1, ...DB, mapa, F, D, svg, num, txt, rot, FUENTES, PROF,
+  ...P1, ...DB, ic: PQ.ic, I: PQ.I, vocab: PQ.vocab, charla: PQ.charla, mural: PQ.mural, dibujos: PQ.dibujos, lista: PQ.lista, parejas: PQ.parejas, cuantos: PQ.cuantos, frase: PQ.frase, mapa, F, D, svg, num, txt, rot, FUENTES, PROF,
   B, Q, b, m, a, lect, sit, fig, V,
   caja, recta, circulo, cuadrado, triangulo, rectangulo, cubo, esfera, cilindro, cono, regla, balanza, vaso, calendario, signo,
   gato, perro, conejo, platano, pan, leche, huevo, camiseta, pantalon, gorro, lluvia, libro, lapiz, mochila, adulto,
