@@ -58,7 +58,7 @@ function cierra(filas, i) {
 
 // Diagrama de flujo vertical: nodos = [[texto, tipo]], tipo: ini | proc | dec | es.
 // En un nodo «dec» se puede dar [texto, "dec", "sí →", "no ↓"] y se marca la salida lateral.
-function flujo(label, nodos, titulo = "") {
+function flujo(label, nodos, titulo = "", o = {}) {
   const top = titulo ? 30 : 12, paso = 40, alto = 28;
   const h = Math.max(150, top + nodos.length * paso + 4);
   let g = titulo ? tx(130, 21, titulo, { fs: 13, c: "var(--muted)" }) : "";
@@ -70,9 +70,14 @@ function flujo(label, nodos, titulo = "") {
     else if (tipo === "es") g += `<polygon points="${cx - 58},${y} ${cx + 70},${y} ${cx + 58},${y + alto} ${cx - 70},${y + alto}" fill="var(--card)" stroke="var(--inf)" stroke-width="2.4"/>`;
     else g += `<rect x="${cx - 70}" y="${y}" width="140" height="${alto}" rx="4" fill="var(--card)" stroke="${c}" stroke-width="2.2"/>`;
     g += tx(cx, y + 18, s, { fs: 11.5, max: tipo === "dec" ? 112 : 130 });
-    if (tipo === "dec" && si) g += `<path d="M${cx + 78} ${y + alto / 2} H${244}" stroke="var(--muted)" stroke-width="2"/>${tx(222, y + alto / 2 - 5, si, { fs: 10, c: "var(--leaf)", max: 40 })}`;
+    if (tipo === "dec" && si) g += `<path d="M${cx + 78} ${y + alto / 2} H${244}" stroke="var(--muted)" stroke-width="2"/>${tx(216, y + alto / 2 - 5, si, { fs: 10, c: "var(--leaf)", max: 54 })}`;
     if (tipo === "dec" && no) g += tx(cx + 22, y + alto + 11, no, { fs: 10, c: "var(--red)", max: 40 });
   });
+  // Flecha de vuelta (bucle) por la izquierda: del nodo a al nodo b.
+  if (o.vuelta) {
+    const [a, b] = o.vuelta, ya = top + a * paso + alto / 2, yb = top + b * paso + alto / 2, xb = nodos[b][1] === "dec" ? 32 : 40;
+    g += `<path d="M40 ${ya} H18 V${yb} H${xb}" fill="none" stroke="var(--pen)" stroke-width="2"/><path d="M${xb - 6} ${yb - 4} L${xb} ${yb} L${xb - 6} ${yb + 4}" fill="none" stroke="var(--pen)" stroke-width="2"/>`;
+  }
   return lienzo(label, g, h);
 }
 
@@ -89,8 +94,19 @@ function escenario(label, puntos = [], o = {}) {
   return lienzo(label, defs + g, 190);
 }
 
+// Ventana de código o pseudocódigo: lineas = [[texto, sangría, color]].
+function codigo(label, lineas, titulo = "") {
+  const top = titulo ? 30 : 14, paso = 18, h = Math.max(150, top + lineas.length * paso + 26);
+  let g = titulo ? tx(130, 21, titulo, { fs: 13, c: "var(--muted)" }) : "";
+  g += `<rect x="12" y="${top}" width="236" height="${lineas.length * paso + 16}" rx="8" fill="#1e293b"/>`;
+  lineas.forEach(([s, n = 0, c = "#e2e8f0"], i) => { g += tx(24 + n * 18, top + 20 + i * paso, s, { fs: 11, c, a: "start", fam: "ui-monospace,Menlo,Consolas,monospace", max: 216 - n * 18 }); });
+  return lienzo(label, g, h);
+}
+const PS = { clave: "#fcd34d", ini: "#93c5fd", ok: "#86efac", mal: "#fca5a5", txt: "#e2e8f0", com: "#94a3b8" };
+const { wiki } = require("./_eso2a");
+
 const DECRET_MAT = base.DECRET;
 // Figura resumen con la columna de texto más ancha.
 const resumen = (label, rows, x2 = 160) => base.resumen(label, rows, x2);
 
-module.exports = { ...base, C, REV, vb, vg, CAT, scratch, flujo, escenario, resumen, DECRET: DECRET_MAT, D };
+module.exports = { ...base, C, REV, vb, vg, CAT, scratch, flujo, escenario, codigo, PS, wiki, resumen, DECRET: DECRET_MAT, D };
