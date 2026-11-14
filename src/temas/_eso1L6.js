@@ -17,11 +17,12 @@ const SIT = (titulo, reto, pasos, producto, evaluacion) => ({ titulo, reto, paso
 const RD = L.BOE;
 const WIKI = (t, slug) => ({ t: `${t}, Wikipedia en español`, url: `https://es.wikipedia.org/wiki/${slug}` });
 
+// extra.dibujos: {índice del bloque antiguo: svg} para los bloques que no lo tenían.
 // libro(base, extra): devuelve el tema ampliado.
 // extra.grupos: tamaños de los grupos de apartados (1.x, 2.x…); extra.nuevos: [posición, título, html, svg?, vídeo?].
 function libro(base, x) {
   const T = { ...base };
-  const bl = base.bloques.map((b) => ({ ...b }));
+  const bl = base.bloques.map((b, i) => ({ ...b, ...(!b.svg && x.dibujos && x.dibujos[i] ? { svg: x.dibujos[i] } : {}) }));
   [...(x.nuevos || [])].sort((a, b) => a[0] - b[0]).forEach(([pos, h, html, svg, video]) => {
     bl.splice(pos, 0, { html: `<h3>${h}</h3>${html}`, ...(svg ? { svg } : {}), ...(video ? { video } : {}) });
   });
