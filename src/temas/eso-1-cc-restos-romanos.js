@@ -1,106 +1,237 @@
-// Cultura Clásica 1º ESO. Dibujos propios en SVG.
-const { tema, H, tabla } = require("./_eso1d");
-const V = require("./_eso1d-videos");
+// Cultura Clásica 1º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso1L3 y dibujos de la versión anterior del tema.
+const H = require("./_eso1L3");
+const S = "cc-restos-romanos";
+const [vHisp] = H.videos(S);
+const vSeg = { id: "2LqjGKSFu60", titulo: "El acueducto romano de Segovia historia y leyenda", canal: "EGIPTOAROMA HISTORIA ANTIGUA", vistas: 291076 };
 
-// Arcos de un acueducto (dibujo propio).
-const acueducto = `<svg viewBox="0 0 260 180" role="img" aria-label="Esquema de un acueducto romano con dos pisos de arcos y el canal de agua arriba">
-  <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-  <rect x="14" y="30" width="232" height="10" fill="var(--pen)" opacity=".85"/>
-  <rect x="14" y="40" width="232" height="8" fill="var(--muted)"/>
-  ${[0, 1, 2, 3, 4, 5, 6, 7].map((i) => `<path d="M${14 + i * 29} 48 h29 v26 a14.5 14.5 0 0 0 -29 0 z" fill="var(--muted)" opacity=".75"/>`).join("")}
-  <rect x="14" y="74" width="232" height="6" fill="var(--muted)"/>
-  ${[0, 1, 2, 3].map((i) => `<path d="M${14 + i * 58} 80 h58 v70 a29 29 0 0 0 -58 0 z" fill="var(--muted)" opacity=".75"/>`).join("")}
-  <rect x="8" y="150" width="244" height="6" fill="var(--line)"/>
-  <g font-family="system-ui,sans-serif" font-size="11" fill="var(--ink)" font-weight="700">
-    <text x="130" y="22" text-anchor="middle">canal con agua (specus)</text>
-    <text x="130" y="172" text-anchor="middle">pilares y arcos de piedra sin argamasa</text>
-  </g>
-</svg>`;
-
-module.exports = tema({
+module.exports = {
   materia: "Cultura Clásica",
+  curso: H.CURSO,
   titulo: "Restos romanos en España",
-  objetivos: ["Explicar cómo Hispania pasó a formar parte de Roma", "Identificar los tipos de restos romanos que se conservan", "Localizar los principales yacimientos y monumentos romanos de España", "Valorar la importancia de conservar el patrimonio"],
-  claves: ["Hispania", "romanización", "provincia", "Emerita Augusta", "Tarraco", "Itálica", "acueducto", "calzada", "puente", "teatro", "muralla", "villa", "mosaico", "patrimonio de la humanidad"],
-  pregunta: [
-    "Por Segovia pasa un acueducto de casi dos mil años que se sostiene sin cemento, y en Mérida cada verano se representan obras en un teatro del siglo I a. C. ¿Cómo es posible que aún sigan en pie?",
-    "Porque los romanos fueron unos <mark>ingenieros</mark> extraordinarios. El acueducto de Segovia se mantiene por el peso perfectamente equilibrado de sus bloques de granito, encajados unos con otros. Además, muchos edificios se siguieron usando durante siglos, y hoy se protegen como <b>patrimonio</b>. España es uno de los países con más restos romanos fuera de Italia.",
+  minutos: 95,
+  objetivos: [
+    "Explicar cómo conquistaron y organizaron los romanos Hispania",
+    "Conocer a algunos hispanos famosos de época romana",
+    "Reconocer las grandes obras públicas romanas de España: calzadas, acueductos, puentes y faros",
+    "Describir las principales ciudades romanas de Hispania y sus monumentos",
+    "Explicar qué eran las villas y las minas romanas",
+    "Valorar y proteger el patrimonio arqueológico romano",
   ],
+  claves: ["Hispania", "romanización", "provincia", "calzada", "miliario", "acueducto", "puente", "faro", "Emerita Augusta", "Tarraco", "Itálica", "villa", "mosaico", "Las Médulas", "patrimonio"],
+  pregunta: {
+    texto: "¿Has cruzado alguna vez un puente de piedra muy antiguo o has visto unas ruinas cerca de tu casa? ¿Sabías que algunas obras de los romanos en España se siguen usando hoy?",
+    respuesta: "Sí. El <b>puente de Alcántara</b> (Cáceres), de casi 2.000 años, todavía soporta coches; la <b>Torre de Hércules</b> de A Coruña es el faro romano más antiguo del mundo que sigue funcionando; y el <b>acueducto de Segovia</b> llevó agua a la ciudad hasta el siglo XX. Durante seis siglos, <mark>Hispania</mark> fue una de las provincias más importantes del Imperio romano, y sus restos están por todo el país.",
+  },
+  lectura: {
+    titulo: "El tesoro bajo el aparcamiento",
+    html: `<p>Hace unos años, unos obreros excavaban en el centro de Mérida para construir un edificio. De repente, sus máquinas tocaron algo duro: eran muros de piedra y suelos de mosaico. Las obras se pararon y llegaron los arqueólogos. Bajo la tierra apareció una casa romana entera, con sus habitaciones, pinturas en las paredes y restos de vasijas.</p>
+<p>No era la primera vez. En Mérida, la antigua <b>Emerita Augusta</b>, casi cada vez que se cava un agujero aparecen restos romanos. Por eso la ciudad tiene un consorcio de arqueólogos que vigila todas las obras. Hoy, muchos de esos hallazgos se pueden ver en el sótano de edificios modernos o en el Museo Nacional de Arte Romano.</p>
+<p>Lo mismo pasa en Tarragona, Zaragoza, Barcelona, Córdoba o León. Debajo de muchas ciudades españolas hay otra ciudad: la romana. Solo hay que saber mirar, y a veces excavar con cuidado, para encontrarla.</p>`,
+  },
   bloques: [
-    ["Hispania, parte de Roma", `<p>Los romanos llegaron a la península ibérica en el año <b>218 a. C.</b>, durante la segunda guerra púnica contra Cartago. La conquista fue lenta y duró unos <mark>doscientos años</mark>: algunos pueblos resistieron con fuerza, como los celtíberos de <b>Numancia</b> o los cántabros y astures del norte. Terminó en el 19 a. C., en tiempos de Augusto.</p><p>Los romanos llamaron a la península <b>Hispania</b> y la dividieron en <b>provincias</b>; con Augusto fueron tres: la <b>Tarraconense</b> (capital, Tarraco), la <b>Bética</b> (capital, Corduba) y la <b>Lusitania</b> (capital, Emerita Augusta). Hispania se convirtió en una de las provincias más ricas del imperio, gracias a sus minas, su aceite, su vino y su trigo.</p>`,
-      H.linea("Hispania romana", [["218 a. C.", "llegan los|romanos"], ["133 a. C.", "cae|Numancia"], ["19 a. C.", "fin de la|conquista"], ["s. V d. C.", "llegan los|germanos"]], "var(--red)")],
-    ["La romanización y sus huellas", `<p>La <mark>romanización</mark> fue el proceso por el que los pueblos de Hispania adoptaron la forma de vida romana: la lengua latina, el derecho, la religión, la moneda, la forma de vestir y, sobre todo, la vida en <b>ciudades</b>. Los romanos fundaron muchas ciudades nuevas y transformaron las existentes, y las unieron con una red de calzadas.</p><p>Hispania dio a Roma personajes muy importantes: los emperadores <b>Trajano</b> y <b>Adriano</b>, nacidos en Itálica (junto a Sevilla), y <b>Teodosio</b>; el filósofo <b>Séneca</b>, de Córdoba; y escritores como el poeta <b>Marcial</b> o el maestro de oratoria <b>Quintiliano</b>. Las huellas de la romanización están en los monumentos, pero también en nuestra lengua, en nuestras leyes y en muchos nombres de ciudades.</p>`,
-      H.filas("Hispanos famosos", [["Trajano", "emperador, de Itálica", "var(--red)"], ["Adriano", "emperador, de Itálica", "var(--sun)"], ["Séneca", "filósofo, de Córdoba", "var(--pen)"], ["Marcial", "poeta, de Bílbilis", "var(--leaf)"]])],
-    ["Obras públicas: calzadas y puentes", `<p>Los romanos construyeron una red de <mark>calzadas</mark>, caminos empedrados de varias capas que unían las ciudades y permitían mover ejércitos, mercancías y correos. La más larga de Hispania era la <b>Vía Augusta</b>, que iba desde los Pirineos hasta Cádiz siguiendo la costa mediterránea. La <b>Vía de la Plata</b> unía Mérida con Astorga. Cada milla (unos 1480 metros) se colocaba un <b>miliario</b>, una columna que indicaba la distancia.</p><p>Para cruzar los ríos levantaron <b>puentes</b> de piedra, muchos de los cuales siguen en uso. El más impresionante es el <b>puente de Alcántara</b> (Cáceres), sobre el río Tajo, de unos 50 metros de altura. También destacan el puente romano de <b>Mérida</b>, sobre el Guadiana, y el de <b>Córdoba</b>, sobre el Guadalquivir.</p>`,
-      H.filas("Obras públicas en Hispania", [["Vía Augusta", "Pirineos a Cádiz", "var(--red)"], ["Vía Plata", "Mérida a Astorga", "var(--sun)"], ["Alcántara", "puente sobre el Tajo", "var(--pen)"], ["Miliarios", "marcan las millas", "var(--muted)"]])],
-    ["Acueductos, presas y faros", `<p>Para llevar agua a las ciudades se construían <mark>acueductos</mark>: canales con una ligera pendiente que transportaban el agua desde manantiales o presas, a veces a decenas de kilómetros. Casi siempre iban por el suelo o enterrados; solo cuando había que salvar un valle se elevaban sobre arcos.</p><p>El más famoso es el <b>acueducto de Segovia</b>, de finales del siglo I, con más de 160 arcos y casi 29 metros de altura en su punto más alto, construido con bloques de granito sin argamasa. Otros ejemplos son el de <b>Los Milagros</b> en Mérida, el de <b>Las Ferreras</b> en Tarragona, y presas como las de Proserpina y Cornalbo, que aún almacenan agua. En A Coruña sigue funcionando un faro romano, la <b>Torre de Hércules</b>.</p>`,
-      acueducto, V.cc7b],
-    ["Mérida, una pequeña Roma", `<p><mark>Emerita Augusta</mark>, la actual Mérida, fue fundada en el año 25 a. C. por orden de Augusto para que vivieran en ella los soldados veteranos (los «eméritos», ya retirados) de las guerras contra cántabros y astures. Llegó a ser capital de la Lusitania y una de las ciudades más importantes de Hispania.</p><p>Su conjunto arqueológico es Patrimonio de la Humanidad y uno de los más completos del mundo: conserva el <b>teatro</b> y el <b>anfiteatro</b>, el <b>circo</b>, el templo llamado «de Diana», el puente sobre el Guadiana, el acueducto de Los Milagros, casas con mosaicos y el <b>Museo Nacional de Arte Romano</b>, con esculturas, mosaicos y objetos de la vida diaria.</p>`,
-      H.rueda("Emerita Augusta", "MÉRIDA", [["teatro", "var(--red)"], ["anfiteatro", "var(--sun)"], ["puente", "var(--pen)"], ["acueducto", "var(--leaf)"]], "var(--bac)")],
-    ["Tarraco, Itálica y otras ciudades", `<p><mark>Tarraco</mark> (Tarragona) fue capital de la provincia más grande, la Tarraconense. Conserva murallas, un <b>anfiteatro</b> junto al mar, restos del circo y del foro provincial, y en las afueras el acueducto de Les Ferreres y un gran arco, el de Berà. <b>Itálica</b> (Santiponce, Sevilla), cuna de Trajano y Adriano, tiene uno de los mayores anfiteatros del imperio y calles con casas y mosaicos.</p><p>Hay muchos más lugares: las murallas de <b>Lugo</b>, completas y transitables (Patrimonio de la Humanidad); la ciudad de <b>Baelo Claudia</b>, junto a la playa de Bolonia (Cádiz), con sus fábricas de salazón de pescado; el teatro de <b>Cartagena</b>; <b>Clunia</b> (Burgos) o <b>Segóbriga</b> (Cuenca).</p>`,
-      tabla(["Lugar", "Qué ver"], [["Tarragona", "anfiteatro, murallas, circo"], ["Itálica (Sevilla)", "anfiteatro, mosaicos"], ["Lugo", "murallas completas"], ["Baelo Claudia (Cádiz)", "foro, fábricas de salazón"], ["Cartagena", "teatro"], ["Segovia", "acueducto"]])],
-    ["Villas y mosaicos", `<p>En el campo, los romanos ricos tenían <mark>villas</mark>: grandes explotaciones agrícolas con una lujosa casa para el dueño (la parte urbana) y edificios para los trabajadores, almacenes, molinos y bodegas (la parte rústica). Desde el siglo III, muchos ricos prefirieron vivir en sus villas en lugar de en las ciudades.</p><p>Los suelos de estas casas se decoraban con <b>mosaicos</b>, imágenes formadas por miles de pequeñas piezas de piedra o vidrio llamadas <b>teselas</b>. Representaban mitos, escenas de caza, el mar, las estaciones o retratos. En España se conservan villas magníficas, como <b>La Olmeda</b> (Palencia), <b>Carranque</b> (Toledo) o <b>Almenara-Puras</b> (Valladolid), y muchos museos exhiben mosaicos.</p>`,
-      H.dos("Partes de una villa romana", ["Parte urbana", ["casa del dueño", "mosaicos", "termas", "jardín"], "var(--sun)"], ["Parte rústica", ["trabajadores", "almacenes", "molinos", "bodegas"], "var(--leaf)"])],
-    ["Conservar el patrimonio", `<p>Los restos romanos forman parte de nuestro <mark>patrimonio histórico</mark>: son una herencia de todos que nos ayuda a conocer el pasado. Muchos han llegado hasta hoy porque se siguieron usando (puentes, murallas), pero otros se perdieron porque sus piedras se reutilizaron para nuevas construcciones o por el abandono.</p><p>Hoy los protegen las leyes. Los <b>arqueólogos</b> excavan con método, documentan cada hallazgo y lo llevan a museos. Algunos conjuntos, como Mérida, Tarragona, Lugo, el acueducto de Segovia o la Torre de Hércules, son <b>Patrimonio de la Humanidad</b> de la UNESCO. Todos podemos ayudar: respetar los monumentos, no llevarse piezas de un yacimiento y avisar a las autoridades si se encuentra algo antiguo.</p>`,
-      H.flujo("Del hallazgo al museo", ["hallazgo", "excavación|con método", "estudio|y registro", "museo y|protección"], "var(--leaf)")],
+    {
+      html: `<h3>1.1 La conquista de Hispania</h3><p>Los romanos llamaban <mark>Hispania</mark> a la península ibérica. Llegaron en el año <b>218 a. C.</b>, durante la segunda guerra contra Cartago, la gran potencia del norte de África que dominaba el sur y el este de la península. Desembarcaron en <b>Emporion</b> (Ampurias, Girona) para cortar el paso al general cartaginés <b>Aníbal</b>, que había salido de Cartago Nova (Cartagena) hacia Italia con un ejército y elefantes.</p><p>Tras vencer a los cartagineses, los romanos se quedaron y fueron conquistando la península poco a poco. Fue una conquista muy larga, de casi <b>doscientos años</b>, porque los pueblos indígenas resistieron con fuerza. Son famosas la resistencia de los lusitanos dirigidos por <b>Viriato</b> y la de la ciudad celtíbera de <b>Numancia</b> (Soria), que soportó un asedio de casi un año en el 133 a. C. antes de que sus habitantes prefirieran morir a rendirse. Augusto completó la conquista en el 19 a. C., tras vencer a cántabros y astures.</p>`,
+      svg: H.viejo(S, 0),
+    },
+    {
+      html: `<h3>1.2 Provincias y romanización</h3><p>Para gobernar Hispania, los romanos la dividieron en <mark>provincias</mark>, cada una dirigida por un gobernador. Al principio fueron dos, Citerior y Ulterior. Con Augusto fueron tres: la <b>Tarraconense</b>, la más grande, con capital en Tarraco (Tarragona); la <b>Bética</b>, en el valle del Guadalquivir, con capital en Corduba (Córdoba); y la <b>Lusitania</b>, en el oeste, con capital en Emerita Augusta (Mérida). Más tarde se crearon otras, como la Gallaecia y la Cartaginense.</p><p>Poco a poco, los pueblos de Hispania adoptaron la lengua latina, las leyes, la religión, la moneda, la forma de vestir y de construir de los romanos. Este proceso se llama <mark>romanización</mark>. Se produjo sobre todo a través de las ciudades, el ejército, el comercio y las calzadas. Fue más rápida en el sur y el este, que ya conocían a fenicios y griegos, y más lenta en el norte montañoso.</p>`,
+      svg: H.tabla("Las provincias de Augusto", ["Provincia", "Capital", "Hoy"], [["Tarraconense", "Tarraco", "Tarragona"], ["Bética", "Corduba", "Córdoba"], ["Lusitania", "Emerita", "Mérida"]]),
+    },
+    {
+      html: `<h3>1.3 Hispanos famosos</h3><p>Hispania no solo recibió la cultura romana: también le dio grandes personajes. Dos de los mejores emperadores nacieron en <b>Itálica</b>, junto a Sevilla: <b>Trajano</b>, el primer emperador nacido fuera de Italia, con quien el Imperio alcanzó su mayor extensión, y su sucesor <b>Adriano</b>, gran viajero y constructor. También era hispano el emperador <b>Teodosio</b>, nacido en Coca (Segovia).</p><p>De Hispania eran algunos de los escritores más importantes del latín: el filósofo <b>Séneca</b>, de Córdoba, maestro del emperador Nerón; su sobrino, el poeta <b>Lucano</b>; el poeta <b>Marcial</b>, de Bílbilis (Calatayud), famoso por sus epigramas llenos de humor; el maestro de oratoria <b>Quintiliano</b>, de Calagurris (Calahorra); y el agrónomo <b>Columela</b>, de Gades (Cádiz), que escribió un tratado de agricultura. Y el auriga Diocles, el deportista más rico de Roma, era lusitano.</p>`,
+      svg: H.viejo(S, 1),
+    },
+    {
+      html: `<h3>1.4 Calzadas: los caminos del Imperio</h3><p>Los romanos construyeron en Hispania una red de unos <b>30.000 km</b> de <mark>calzadas</mark>, carreteras de piedra que unían las ciudades, los puertos y las minas. Servían para mover rápidamente a los ejércitos, para el comercio, para los viajeros y para el correo oficial. La más larga era la <b>Vía Augusta</b>, que recorría la costa mediterránea desde los Pirineos hasta Cádiz; otra famosa es la <b>Vía de la Plata</b>, que unía Mérida con Astorga.</p><p>Las calzadas se construían por capas, con una base de piedras grandes, capas de grava y arena y, en las zonas importantes, losas encima. Tenían una ligera curva para que escurriera el agua. Cada milla romana (unos 1.480 metros) se colocaba un <mark>miliario</mark>, una columna de piedra que indicaba la distancia y el emperador que había construido o reparado la vía. Muchas autovías y carreteras actuales siguen el trazado de las calzadas romanas.</p>`,
+      svg: H.viejo(S, 2),
+    },
+    {
+      html: `<h3>1.5 El acueducto de Segovia</h3><p>El <b>acueducto de Segovia</b> es uno de los monumentos romanos mejor conservados del mundo. Se construyó probablemente a finales del siglo I o principios del II d. C., para llevar el agua del río Frío, en la sierra de Guadarrama, hasta la ciudad, a unos 15 km. La mayor parte del recorrido va por un canal bajo tierra o a ras del suelo; solo al llegar a la ciudad, para salvar un valle, se levanta la famosa arquería.</p><p>Esa parte mide unos 800 metros de largo y casi <b>29 metros</b> de altura máxima, con 167 arcos en dos pisos. Está hecho con unos 20.000 bloques de granito colocados <b>sin argamasa</b> ni cemento: se sostienen por su propio peso y por el equilibrio de los arcos. Según una leyenda, lo construyó el diablo en una sola noche a cambio del alma de una joven que no quería acarrear agua; pero, al cantar el gallo, le faltaba una piedra y perdió la apuesta. Funcionó hasta el siglo XX y es Patrimonio de la Humanidad.</p>`,
+      svg: H.viejo(S, 3),
+      video: vSeg,
+    },
+    {
+      html: `<h3>1.6 Puentes, faros y presas</h3><p>Los ingenieros romanos dejaron en Hispania obras extraordinarias que aún hoy se usan:</p><p>• El <b>puente de Alcántara</b> (Cáceres), sobre el río Tajo, construido en tiempos de Trajano (hacia el 104-106 d. C.). Tiene seis arcos y más de 45 metros de altura, y en él se puede leer una inscripción del ingeniero que lo hizo: «Hice un puente que durará por siempre».<br>• El <b>puente romano de Mérida</b>, sobre el Guadiana, uno de los más largos que se conservan del mundo romano, con unos 790 metros.<br>• La <b>Torre de Hércules</b> de A Coruña, construida en el siglo I o II d. C. Es el faro romano más antiguo que sigue funcionando y es Patrimonio de la Humanidad.<br>• Las <b>presas</b> de Proserpina y Cornalvo, cerca de Mérida, que guardaban el agua para la ciudad y todavía embalsan agua.</p>`,
+      svg: H.barras("Alturas de obras romanas", [["Torre de Hércules", 55, "55 m"], ["Alcántara", 46, "+45 m"], ["Segovia", 29, "29 m"]], "Altura aproximada (metros)", 60),
+    },
+    {
+      html: `<h3>1.7 Emerita Augusta, una pequeña Roma</h3><p><b>Emerita Augusta</b>, la actual <b>Mérida</b>, fue fundada por Augusto en el año <b>25 a. C.</b> para dar tierras a los soldados veteranos (<i>emeriti</i>) de las guerras contra cántabros y astures. Fue capital de la Lusitania y una de las ciudades más importantes de Hispania. Por eso se la llamó «la pequeña Roma».</p><p>Conserva un conjunto arqueológico impresionante, Patrimonio de la Humanidad: el <b>teatro</b>, regalado por Agripa, con su gran frente escénico de columnas, donde cada verano se celebra el Festival de Teatro Clásico; el <b>anfiteatro</b>, para combates de gladiadores, con capacidad para unas 15.000 personas; el <b>circo</b>, uno de los mejor conservados del mundo; el templo llamado de Diana; el arco de Trajano; el puente sobre el Guadiana; el acueducto de los Milagros; y casas con mosaicos. El Museo Nacional de Arte Romano, diseñado por Rafael Moneo, guarda miles de piezas.</p>`,
+      svg: H.viejo(S, 4),
+      video: vHisp,
+    },
+    {
+      html: `<h3>1.8 Otras ciudades romanas de Hispania</h3><p>Además de Mérida, muchas ciudades españolas conservan restos romanos importantes:</p><p>• <b>Tarraco</b> (Tarragona), capital de la Tarraconense: anfiteatro junto al mar, circo, murallas y foro. Es Patrimonio de la Humanidad.<br>• <b>Itálica</b> (Santiponce, Sevilla), patria de Trajano y Adriano: uno de los anfiteatros más grandes del Imperio y calles con mosaicos.<br>• <b>Baelo Claudia</b> (Tarifa, Cádiz): una ciudad junto al mar dedicada a la pesca y a la salazón de pescado, con foro, templos y teatro.<br>• <b>Lucus Augusti</b> (Lugo): la única muralla romana que se conserva entera, de más de 2 km, que se puede recorrer a pie por arriba.<br>• <b>Caesaraugusta</b> (Zaragoza), con su teatro y su foro; <b>Barcino</b> (Barcelona), con restos de murallas y templo; y <b>Segobriga</b> (Cuenca), <b>Clunia</b> (Burgos) o <b>Carthago Nova</b> (Cartagena), con espléndidos teatros.</p>`,
+      svg: H.tabla("Ciudades romanas de Hispania", ["Romana", "Hoy", "Destaca"], [["Tarraco", "Tarragona", "anfiteatro"], ["Itálica", "Sevilla", "anfiteatro"], ["Lucus Augusti", "Lugo", "muralla"], ["Baelo Claudia", "Tarifa", "salazones"], ["Carthago Nova", "Cartagena", "teatro"]]),
+    },
+    {
+      html: `<h3>1.9 Las villas: la vida en el campo</h3><p>No todos los romanos vivían en ciudades. En el campo, los ricos propietarios construían <mark>villas</mark>, grandes explotaciones agrícolas. Una villa tenía dos partes: la <b>parte urbana</b>, la vivienda del dueño, con patios, termas privadas y salas decoradas con <mark>mosaicos</mark> y pinturas; y la <b>parte rústica</b>, con almacenes, establos, prensas de aceite y vino, hornos y viviendas de los trabajadores y esclavos.</p><p>Las villas producían trigo, aceite y vino, la tríada mediterránea, y criaban ganado. El aceite de la Bética era famoso en todo el Imperio: se exportaba a Roma en ánforas, y en Roma hay una colina artificial, el monte Testaccio, formada por millones de trozos de ánforas, muchas de ellas béticas. En España se conservan villas magníficas, como la de <b>La Olmeda</b> (Palencia), con unos mosaicos espectaculares, la de <b>Almenara-Puras</b> (Valladolid) o la de <b>Carranque</b> (Toledo).</p>`,
+      svg: H.viejo(S, 6),
+    },
+    {
+      html: `<h3>1.10 Las minas: el oro de Las Médulas</h3><p>Hispania era muy rica en metales: oro, plata, cobre, hierro y plomo. Para el Imperio, sus <b>minas</b> eran uno de sus mayores tesoros. La más famosa es la mina de oro de <mark>Las Médulas</mark>, en León. Para extraer el oro, los romanos utilizaron una técnica llamada <i>ruina montium</i>, «derrumbe de montes»: excavaban galerías dentro de la montaña y después soltaban de golpe enormes cantidades de agua traída por canales desde muy lejos. La fuerza del agua hacía derrumbarse la montaña y arrastraba la tierra, que luego se lavaba para separar el oro.</p><p>Así, durante unos dos siglos, se removieron millones de metros cúbicos de tierra. El resultado es un paisaje fantástico de picos rojizos y cuevas, rodeado de castaños, que hoy es Patrimonio de la Humanidad. El trabajo en las minas era durísimo y lo hacían sobre todo esclavos y trabajadores pobres. También fueron muy importantes las minas de plata de Cartagena y las de cobre de Riotinto (Huelva).</p>`,
+      svg: H.flujo("Ruina montium: así se sacaba el oro", ["Traer agua por canales", "Excavar galerías en el monte", "Soltar el agua: el monte se derrumba", "Lavar la tierra y sacar el oro"], "La técnica de Las Médulas"),
+    },
+    {
+      html: `<h3>1.11 Del hallazgo al museo</h3><p>Cuando aparecen restos romanos, empieza un trabajo largo y minucioso. Los <b>arqueólogos</b> excavan con paletas y pinceles, capa a capa, y registran la posición de cada objeto con fotografías, dibujos y planos. Todo lo que se encuentra en suelo español pertenece por ley al <b>Estado</b>, no a quien lo encuentra: por eso hay que avisar a las autoridades y no llevarse nada.</p><p>Después, los objetos se limpian y se <b>restauran</b> en un laboratorio. Se estudian para saber de cuándo son, para qué servían y quién los usaba. Algunos se exponen en <b>museos</b>, como el Museo Nacional de Arte Romano de Mérida, el Museo Arqueológico Nacional de Madrid o el Museo Nacional Arqueológico de Tarragona. Otras veces, los restos se conservan en su lugar y se protegen como <b>yacimiento visitable</b>, con pasarelas y carteles para el público.</p>`,
+      svg: H.viejo(S, 7),
+    },
+    {
+      html: `<h3>1.12 Un patrimonio que hay que cuidar</h3><p>Los restos romanos son parte de nuestro <mark>patrimonio</mark>, la herencia común que recibimos del pasado y que debemos transmitir a quienes vengan después. España tiene varios conjuntos romanos declarados <b>Patrimonio de la Humanidad</b> por la UNESCO: el acueducto de Segovia (1985), el conjunto arqueológico de Mérida (1993), Las Médulas (1997), la muralla de Lugo (2000), Tarraco (2000) y la Torre de Hércules (2009).</p><p>Este patrimonio sufre amenazas: el paso del tiempo, la contaminación, las obras sin control, el vandalismo y el expolio de quienes buscan objetos con detectores de metales para venderlos. Protegerlo es responsabilidad de todos: visitar los yacimientos con respeto, no tocar ni pintar los monumentos, avisar si encontramos restos y valorar lo que significan. Además, el patrimonio atrae turismo y crea empleo en muchas ciudades y pueblos.</p>`,
+      svg: H.linea("Patrimonio de la Humanidad romano", [["1985", "acueducto de Segovia"], ["1993", "Mérida"], ["1997", "Las Médulas"], ["2000", "Lugo y Tarraco"], ["2009", "Torre de Hércules"]], "Declaraciones de la UNESCO"),
+    },
   ],
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    ["¿Por qué se fundó Emerita Augusta y de dónde viene su nombre?", ["Augusto la fundó en el 25 a. C.", "Era para los soldados veteranos, los «eméritos»."], "Para asentar a soldados retirados; «Emerita» por ellos y «Augusta» por el emperador."],
-    ["Un acueducto pasa sobre arcos solo en un tramo. ¿Por qué no en todo su recorrido?", ["El agua debe bajar con una pendiente suave y constante.", "Solo se elevaba para salvar un valle o una hondonada."], "Porque casi siempre iba por el suelo o enterrado; los arcos solo salvaban desniveles."],
-    ["Relaciona: Lugo, Alcántara, A Coruña, Segovia.", ["Lugo: murallas.", "Alcántara: puente.", "A Coruña: faro.", "Segovia: acueducto."], "Murallas, puente, faro (Torre de Hércules) y acueducto."],
+    { enunciado: "¿Cuántos años duró la conquista romana de Hispania (218-19 a. C.)?", pasos: ["Las dos fechas son a. C.: se restan.", "218 − 19 = 199."], resultado: "unos 200 años." },
+    { enunciado: "Un viajero va de Tarraco a Corduba. ¿Qué provincias atraviesa al salir y al llegar?", pasos: ["Tarraco es capital de la Tarraconense.", "Corduba es capital de la Bética."], resultado: "sale de la Tarraconense y llega a la Bética." },
+    { enunciado: "¿Por qué se llama Emerita Augusta a Mérida?", pasos: ["Augusto la fundó en el 25 a. C.", "Para sus soldados veteranos o eméritos."], resultado: "por los veteranos (emeriti) y por su fundador, Augusto." },
+    { enunciado: "Un miliario indica «M P XII». ¿A cuántos kilómetros aproximadamente está la ciudad?", pasos: ["M P significa milia passuum, millas.", "XII = 12 millas.", "12 × 1,48 km ≈ 17,8 km."], resultado: "a unos 18 km." },
+    { enunciado: "Encuentras una moneda romana en el campo. ¿Qué debes hacer?", pasos: ["Los restos arqueológicos pertenecen al Estado.", "Moverlos destruye información sobre su contexto."], resultado: "no llevártela, anotar el lugar y avisar a las autoridades o al museo." },
+    { enunciado: "¿Por qué el acueducto de Segovia se mantiene en pie sin argamasa?", pasos: ["Los bloques están tallados con precisión.", "El peso de las piedras y la forma de los arcos reparten las fuerzas."], resultado: "por el equilibrio de los arcos y el propio peso de los bloques." },
   ],
   errores: [
-    "Creer que la conquista de Hispania fue rápida: duró unos 200 años.",
-    "Pensar que los acueductos siempre iban sobre arcos: casi siempre iban por el suelo.",
-    "Confundir la Vía Augusta (costa mediterránea) con la Vía de la Plata (Mérida-Astorga).",
-    "Pensar que el acueducto de Segovia lleva cemento: sus bloques están encajados sin argamasa.",
-    "Creer que se puede llevar una pieza de un yacimiento como recuerdo: está prohibido y daña el patrimonio.",
+    "Pensar que los romanos conquistaron Hispania rápidamente: tardaron unos doscientos años.",
+    "Creer que el acueducto de Segovia es todo de arcos: la mayor parte del recorrido va bajo tierra o a ras de suelo.",
+    "Pensar que si encuentras un resto romano es tuyo: por ley pertenece al Estado.",
+    "Confundir Itálica con Italia: Itálica es una ciudad romana junto a Sevilla.",
+    "Creer que Las Médulas son un paisaje natural: lo crearon los romanos al extraer oro.",
+    "Pensar que todos los hispanos romanos vivían en ciudades: muchos vivían en villas y aldeas del campo.",
   ],
-  ejercicios: [
-    ["¿Cuándo llegaron los romanos a Hispania y por qué?", "En el 218 a. C., durante la segunda guerra púnica contra Cartago."],
-    ["Nombra las tres provincias de Hispania en tiempos de Augusto y sus capitales.", "Tarraconense (Tarraco), Bética (Corduba) y Lusitania (Emerita Augusta)."],
+  ejercicios: H.niveles([
+    ["¿Cómo llamaban los romanos a la península ibérica?", "Hispania."],
+    ["¿En qué año llegaron los romanos a Hispania y dónde desembarcaron?", "En el 218 a. C., en Emporion (Ampurias)."],
+    ["¿Qué ciudad celtíbera resistió a Roma hasta el final?", "Numancia."],
+    ["Nombra las tres provincias de Hispania en tiempos de Augusto.", "Tarraconense, Bética y Lusitania."],
     ["¿Qué emperadores nacieron en Itálica?", "Trajano y Adriano."],
-    ["¿Qué era un miliario?", "Una columna que marcaba las millas en las calzadas."],
-    ["¿Dónde está el puente de Alcántara y sobre qué río?", "En Cáceres, sobre el río Tajo."],
-    ["¿Qué tiene de especial el acueducto de Segovia?", "Más de 160 arcos y casi 29 m de altura, con bloques de granito sin argamasa."],
-    ["Nombra cuatro monumentos romanos de Mérida.", "Teatro, anfiteatro, circo, puente, acueducto de Los Milagros, templo de Diana."],
-    ["¿Qué ciudad conserva sus murallas romanas completas?", "Lugo."],
-    ["¿Qué son las teselas?", "Las pequeñas piezas de piedra o vidrio que forman un mosaico."],
-    ["¿Qué podemos hacer para proteger el patrimonio?", "Respetar los monumentos, no llevarse piezas y avisar si se encuentra algo antiguo."],
-  ],
-  figura: ["El legado romano en España", H.figCols("Restos romanos en España", [["Obras públicas", ["calzadas", "puente de Alcántara", "acueducto de Segovia", "Torre de Hércules"], "var(--pen)"], ["Espectáculos", ["teatro de Mérida", "anfiteatro de Tarraco", "Itálica", "Cartagena"], "var(--red)"], ["Ciudades", ["Emerita Augusta", "Tarraco", "murallas de Lugo", "Baelo Claudia"], "var(--sun)"], ["Campo", ["villas", "La Olmeda", "mosaicos", "teselas"], "var(--leaf)"]])],
-  video: V.cc7v,
-  quiz: [
-    ["Los romanos llegaron a Hispania en…", ["218 a. C.", "476 d. C.", "753 a. C."], "Segunda guerra púnica."],
-    ["La capital de la Lusitania era…", ["Emerita Augusta", "Tarraco", "Corduba"], "Mérida."],
-    ["Trajano y Adriano nacieron en…", ["Itálica", "Roma", "Segovia"], "Junto a Sevilla."],
-    ["La Vía Augusta iba…", ["por la costa mediterránea", "de Mérida a Astorga", "por el Cantábrico"], "Pirineos-Cádiz."],
-    ["El puente de Alcántara cruza el…", ["Tajo", "Ebro", "Guadalquivir"], "Cáceres."],
-    ["El acueducto de Segovia está hecho de…", ["granito sin argamasa", "ladrillo y cemento", "mármol"], "Bloques encajados."],
-    ["La Torre de Hércules es…", ["un faro", "un templo", "una muralla"], "A Coruña."],
-    ["Las murallas completas están en…", ["Lugo", "Madrid", "Valencia"], "Patrimonio de la Humanidad."],
-    ["Una villa romana era…", ["una explotación agrícola con casa", "una ciudad pequeña", "un templo"], "Campo."],
-    ["Las piezas de un mosaico se llaman…", ["teselas", "miliarios", "sillares"], "Piedra o vidrio."],
-  ],
-  examen: [
-    ["Numancia es famosa por…", ["su resistencia a Roma", "su acueducto", "ser capital de la Bética"], "Celtíberos."],
-    ["Mérida se fundó para…", ["soldados veteranos", "comerciantes griegos", "gladiadores"], "Eméritos."],
-    ["Baelo Claudia es conocida por…", ["sus fábricas de salazón", "su faro", "su acueducto"], "Junto a Bolonia."],
-  ],
-  feynman: ["Cómo y cuándo Hispania pasó a ser romana", "Qué obras públicas dejaron los romanos", "Qué se puede ver en Mérida, Tarragona e Itálica", "Por qué hay que proteger el patrimonio"],
-  mapa: ["HISPANIA ROMANA", "var(--red)", [["Conquista", "218-19 a. C. · provincias", "var(--red)"], ["Obras", "calzadas · puentes · acueductos", "var(--pen)"], ["Ciudades", "Mérida · Tarragona · Itálica", "var(--sun)"], ["Patrimonio", "villas · mosaicos · UNESCO", "var(--leaf)"]], 250],
+    ["¿De dónde era el filósofo Séneca?", "De Córdoba."],
+    ["¿Qué es una calzada?", "Una carretera romana de piedra."],
+    ["¿Qué es un miliario?", "Una columna de piedra que marcaba las millas en las calzadas."],
+    ["¿De qué material está hecho el acueducto de Segovia?", "De bloques de granito sin argamasa."],
+    ["¿Qué es la Torre de Hércules?", "Un faro romano en A Coruña que sigue funcionando."],
+    ["¿Qué ciudad era Emerita Augusta?", "Mérida."],
+    ["¿Qué se extraía en Las Médulas?", "Oro."],
+  ], [
+    ["¿Por qué llegaron los romanos a Hispania?", "Para luchar contra los cartagineses en la segunda guerra púnica y cortar el paso a Aníbal."],
+    ["¿Por qué crees que la conquista de Hispania fue tan larga?", "Por la resistencia de los pueblos indígenas, como lusitanos, celtíberos, cántabros y astures, y por el relieve montañoso."],
+    ["Explica qué es la romanización y por qué medios se produjo.", "La adopción de la lengua, leyes, costumbres y religión romanas; a través de las ciudades, el ejército, el comercio y las calzadas."],
+    ["Nombra tres escritores hispanos de época romana y de dónde eran.", "Séneca (Córdoba), Marcial (Bílbilis, Calatayud) y Quintiliano (Calagurris, Calahorra); también Lucano y Columela."],
+    ["¿Para qué servían las calzadas y cómo se construían?", "Para el ejército, el comercio y los viajeros; por capas de piedras, grava y arena, con losas encima y una ligera curva para el agua."],
+    ["Describe el acueducto de Segovia: función, longitud de la arquería y altura.", "Llevaba agua del río Frío; la arquería mide unos 800 m y casi 29 m de altura, con 167 arcos."],
+    ["Nombra tres obras públicas romanas de España que se sigan usando hoy.", "El puente de Alcántara, la Torre de Hércules y el puente de Mérida (también las presas de Proserpina y Cornalvo)."],
+    ["Nombra cinco monumentos romanos de Mérida.", "Teatro, anfiteatro, circo, templo de Diana y puente sobre el Guadiana (también arco de Trajano y acueducto de los Milagros)."],
+    ["Describe las dos partes de una villa romana.", "La parte urbana, vivienda del dueño con mosaicos y termas; y la parte rústica, con almacenes, establos, prensas y viviendas de trabajadores."],
+    ["Explica la técnica de la ruina montium.", "Se excavaban galerías en la montaña y se soltaba agua en grandes cantidades para derrumbarla; luego se lavaba la tierra para separar el oro."],
+    ["¿Qué hacen los arqueólogos con un objeto desde que lo encuentran hasta que llega al museo?", "Lo excavan y registran su posición, lo limpian y restauran, lo estudian y lo exponen en un museo o lo dejan protegido en el yacimiento."],
+  ], [
+    ["Compara la resistencia de Numancia con la de Viriato. ¿Qué tenían en común?", "Ambos se enfrentaron durante años a Roma: Viriato con guerrillas lusitanas y Numancia resistiendo un largo asedio; ambos fueron vencidos, pero se convirtieron en símbolos de resistencia."],
+    ["¿Por qué crees que tantas carreteras actuales siguen el trazado de las calzadas romanas?", "Porque los romanos eligieron los recorridos más directos y fáciles entre ciudades, y esas ciudades siguen existiendo."],
+    ["Busca un resto romano cerca de donde vives y prepara una ficha: nombre, tipo, época y estado de conservación.", "Respuesta abierta según la localidad: debe incluir los cuatro datos y una foto o dibujo."],
+    ["¿Qué te parece que los restos arqueológicos sean del Estado y no de quien los encuentra? Razona tu respuesta.", "Respuesta razonada: así se protegen y se estudian para todos, se evita el expolio y la venta, y se conserva la información del contexto."],
+    ["Las Médulas son hoy un paisaje bello, pero fueron un lugar de trabajo durísimo. ¿Qué nos enseña eso sobre cómo valorar el patrimonio?", "Que debemos valorar su belleza y su valor histórico, pero también recordar a las personas que lo hicieron posible y el impacto que tuvo en la naturaleza."],
+    ["Diseña una ruta turística de tres días por la España romana. Justifica el orden.", "Por ejemplo: día 1, Segovia (acueducto); día 2, Mérida (conjunto arqueológico); día 3, Itálica (anfiteatro); ordenadas por cercanía y con lo que se ve en cada una."],
+    ["Explica tres amenazas para el patrimonio romano y propón una medida para cada una.", "Vandalismo: vigilancia y educación; expolio con detectores: leyes y control; obras sin control: excavaciones previas obligatorias. También contaminación: limpieza y restauración."],
+  ]),
+  quiz: H.test([
+    ["Los romanos llamaban a la península…", ["Hispania", "Galia", "Iberia Magna", "Lusitania"], 0, "Toda la península."],
+    ["Los romanos llegaron en el…", ["19 a. C.", "218 a. C.", "476 d. C.", "753 a. C."], 1, "Segunda guerra púnica."],
+    ["Desembarcaron en…", ["Cádiz", "Mérida", "Emporion", "Segovia"], 2, "Ampurias, Girona."],
+    ["El jefe lusitano que resistió a Roma fue…", ["Aníbal", "Trajano", "Séneca", "Viriato"], 3, "Guerrillero."],
+    ["La ciudad que resistió el asedio en el 133 a. C. fue…", ["Numancia", "Itálica", "Tarraco", "Barcino"], 0, "En Soria."],
+    ["La capital de la Bética era…", ["Tarraco", "Corduba", "Emerita", "Gades"], 1, "Córdoba."],
+    ["La capital de la Lusitania era…", ["Corduba", "Tarraco", "Emerita Augusta", "Lucus"], 2, "Mérida."],
+    ["Trajano y Adriano nacieron en…", ["Roma", "Córdoba", "Mérida", "Itálica"], 3, "Junto a Sevilla."],
+    ["Séneca fue un…", ["filósofo", "emperador", "gladiador", "ingeniero"], 0, "De Córdoba."],
+    ["La columna que marcaba las millas era el…", ["obelisco", "miliario", "arco", "faro"], 1, "En las calzadas."],
+    ["La calzada de la costa mediterránea era la…", ["Vía de la Plata", "Vía Apia", "Vía Augusta", "Vía Láctea"], 2, "De los Pirineos a Cádiz."],
+    ["El acueducto de Segovia está hecho de…", ["ladrillo", "mármol", "hormigón", "granito"], 3, "Sin argamasa."],
+    ["La Torre de Hércules es un…", ["faro", "templo", "puente", "acueducto"], 0, "A Coruña."],
+    ["El puente de Alcántara cruza el río…", ["Ebro", "Tajo", "Guadiana", "Duero"], 1, "En Cáceres."],
+    ["Mérida fue fundada para…", ["comerciantes", "esclavos", "soldados veteranos", "gladiadores"], 2, "Los emeriti."],
+    ["La única muralla romana entera está en…", ["Tarragona", "Mérida", "Segovia", "Lugo"], 3, "Más de 2 km."],
+    ["Una gran explotación agrícola romana era una…", ["villa", "ínsula", "domus", "calzada"], 0, "En el campo."],
+    ["La villa de La Olmeda destaca por sus…", ["minas", "mosaicos", "puentes", "anfiteatros"], 1, "En Palencia."],
+    ["En Las Médulas se sacaba…", ["plata", "hierro", "oro", "cobre"], 2, "Ruina montium."],
+    ["Un resto arqueológico encontrado en España pertenece a…", ["quien lo encuentra", "el dueño del campo", "un museo extranjero", "el Estado"], 3, "Por ley."],
+  ]),
+  examen: H.test([
+    ["La conquista de Hispania la completó…", ["Augusto", "Trajano", "Aníbal", "Viriato"], 0, "En el 19 a. C."],
+    ["La romanización fue más rápida en…", ["el norte", "el sur y el este", "las montañas", "las islas"], 1, "Ya conocían fenicios y griegos."],
+    ["El poeta Marcial era de…", ["Córdoba", "Cádiz", "Bílbilis", "Itálica"], 2, "Calatayud."],
+    ["Una milla romana medía unos…", ["10 km", "100 m", "5 km", "1.480 m"], 3, "Mil pasos."],
+    ["El aceite de la Bética se exportaba en…", ["ánforas", "barriles", "botellas", "sacos"], 0, "Monte Testaccio."],
+    ["Baelo Claudia vivía sobre todo de…", ["el oro", "la salazón de pescado", "el vino", "el teatro"], 1, "En Tarifa."],
+    ["La técnica minera de Las Médulas se llama…", ["opus caementicium", "hipocausto", "ruina montium", "groma"], 2, "Derrumbe de montes."],
+    ["El primer monumento romano español declarado Patrimonio de la Humanidad fue…", ["Mérida", "Lugo", "la Torre de Hércules", "el acueducto de Segovia"], 3, "En 1985."],
+  ]),
+  feynman: ["Cómo y por qué conquistaron los romanos Hispania", "Qué es la romanización", "Para qué servían las calzadas y los miliarios", "Qué monumentos romanos tiene Mérida", "Por qué debemos proteger el patrimonio arqueológico"],
+  mapa: H.mapa("HISPANIA ROMANA", "var(--eso)", [
+    ["Conquista", "218 a. C. · Numancia · Augusto", "var(--red)"],
+    ["Obras públicas", "calzadas · acueductos · faros", "var(--inf)"],
+    ["Ciudades", "Mérida · Tarraco · Itálica", "var(--pen)"],
+    ["Campo y minas", "villas · Las Médulas", "#b8860b"],
+  ], 300),
   tarjetas: [
     ["Hispania", "Nombre romano de la península ibérica."],
-    ["Romanización", "Adopción de la lengua y forma de vida romanas."],
-    ["Calzada", "Camino empedrado romano; Vía Augusta."],
-    ["Miliario", "Columna que marcaba las millas."],
-    ["Acueducto de Segovia", "Más de 160 arcos sin argamasa."],
-    ["Emerita Augusta", "Mérida: teatro, anfiteatro, puente."],
-    ["Villa", "Explotación agrícola con casa señorial."],
-    ["Tesela", "Pieza de un mosaico."],
+    ["218 a. C.", "Llegada de los romanos a Emporion."],
+    ["Numancia", "Ciudad celtíbera que resistió hasta el final."],
+    ["Provincias de Augusto", "Tarraconense, Bética y Lusitania."],
+    ["Trajano", "Emperador nacido en Itálica."],
+    ["Calzada", "Carretera romana de piedra."],
+    ["Miliario", "Columna que marca las millas."],
+    ["Acueducto de Segovia", "Arquería de granito sin argamasa."],
+    ["Torre de Hércules", "Faro romano en funcionamiento (A Coruña)."],
+    ["Emerita Augusta", "Mérida, fundada para veteranos en el 25 a. C."],
+    ["Villa", "Explotación agrícola romana."],
+    ["Las Médulas", "Antigua mina de oro romana en León."],
   ],
-  familias: ["Buscad el resto romano más cercano a vuestra casa y planead una visita.", "Mirad juntos la web de un museo romano y elegid el objeto más curioso."],
-  saberes: "La romanización de Hispania y su pervivencia en el patrimonio arqueológico: obras públicas, ciudades, villas y mosaicos; conservación del patrimonio (Cultura Clásica, optativa de 1º ESO, según la normativa autonómica).",
-  ideas: ["Mapa de España con los restos romanos de cada comunidad.", "Guía turística de un yacimiento cercano hecha por la clase.", "Mosaico colectivo con teselas de papel."],
-  fuentes: [["Museo Nacional de Arte Romano (Mérida)", "https://www.culturaydeporte.gob.es/mnromano/"], ["UNESCO: Conjunto arqueológico de Mérida", "https://whc.unesco.org/es/list/664"]],
-});
+  glosario: [
+    ["Ánfora", "Vasija de cerámica para transportar aceite, vino o salsas."],
+    ["Argamasa", "Mezcla de cal, arena y agua para unir piedras."],
+    ["Calzada", "Vía romana pavimentada."],
+    ["Expolio", "Robo de bienes del patrimonio arqueológico."],
+    ["Hispania", "Nombre romano de la península ibérica."],
+    ["Miliario", "Columna que indicaba las distancias en las calzadas."],
+    ["Mosaico", "Decoración hecha con pequeñas piezas de piedra o vidrio."],
+    ["Patrimonio", "Herencia cultural recibida del pasado."],
+    ["Presa", "Muro que retiene el agua de un río."],
+    ["Provincia", "Territorio conquistado por Roma con su gobernador."],
+    ["Romanización", "Adopción de la cultura romana por los pueblos conquistados."],
+    ["Ruina montium", "Técnica minera romana de derrumbar montes con agua."],
+    ["Salazón", "Conservación de alimentos con sal."],
+    ["Villa", "Casa y explotación agrícola romana en el campo."],
+    ["Yacimiento", "Lugar donde hay restos arqueológicos."],
+  ],
+  situacion: {
+    titulo: "Guías de la Hispania romana",
+    reto: "Cread una guía turística de la España romana para que las familias de vuestro centro puedan visitar los principales restos.",
+    pasos: [
+      "Elegid entre todos diez lugares romanos de España, incluyendo alguno cercano a vuestra localidad.",
+      "Repartid los lugares y preparad una ficha de cada uno: nombre romano y actual, qué es, cuándo se hizo y qué se puede visitar.",
+      "Situad todos los lugares en un mapa de Hispania con sus provincias y las calzadas principales.",
+      "Añadid consejos para visitar los yacimientos con respeto y una curiosidad de cada sitio.",
+      "Montad la guía (en papel o digital) y presentadla a las familias.",
+    ],
+    producto: "Guía turística de diez lugares romanos con mapa y normas de visita.",
+    evaluacion: [
+      "La información histórica de cada lugar es correcta.",
+      "El mapa sitúa bien los lugares y las provincias.",
+      "Se incluyen normas para proteger el patrimonio.",
+      "La guía es clara, atractiva y útil.",
+    ],
+  },
+  familias: ["Planead una visita a un resto romano cercano y preparad juntos unas preguntas.", "Buscad en el mapa el recorrido de la Vía de la Plata o la Vía Augusta.", "Mirad juntos el escudo de España y buscad las Columnas de Hércules.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "Hispania romana: conquista, organización provincial y romanización, hispanos ilustres, obras públicas (calzadas, acueductos, puentes, faros, presas), ciudades y conjuntos arqueológicos, villas y minería, la arqueología y la protección del patrimonio (Cultura Clásica, materia optativa que ofertan las comunidades autónomas en el marco del RD 217/2022; en Cataluña, Cultura Clàssica del Decret 175/2022).",
+    ideas: [
+      "Mapa mural de Hispania con provincias, calzadas y ciudades.",
+      "Investigar los restos romanos de la propia comunidad autónoma.",
+      "Visita, real o virtual, a un conjunto arqueológico.",
+      "Debate sobre el expolio y los detectores de metales.",
+      "Maqueta de un arco del acueducto de Segovia sin pegamento.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Hispania", "Hispania"), H.wiki("Acueducto de Segovia", "Acueducto_de_Segovia"), { t: "Patrimonio Mundial en España (UNESCO)", url: "https://whc.unesco.org/es/statesparties/es" }],
+  revisado: H.REV,
+};
