@@ -1,160 +1,236 @@
-// Biología y Geología 1º ESO: el universo y el sistema solar. Dibujos propios en SVG.
-const { mapa, BG, t, fl, tabla, RD, wiki, C, REV, cj, rejilla, et, COL } = require("./_eso1a");
+// Biología y Geología 1º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso1L3 y dibujos de la versión anterior del tema.
+const H = require("./_eso1L3");
+const S = "byg-universo-sistema-solar";
+const [vUni, vMov] = H.videos(S);
 
 module.exports = {
   materia: "Biología y Geología",
-  curso: C,
+  curso: H.CURSO,
   titulo: "El universo y el sistema solar",
-  minutos: 55,
-  objetivos: ["Describir qué es el universo y cuáles son sus componentes principales", "Explicar cómo está formado el sistema solar y distinguir planetas interiores y exteriores", "Relacionar los movimientos de la Tierra con el día, la noche y las estaciones", "Explicar las fases de la Luna y los eclipses"],
-  claves: ["universo", "galaxia", "Vía Láctea", "estrella", "año luz", "sistema solar", "planeta", "satélite", "rotación", "traslación", "fases lunares", "eclipse"],
+  minutos: 100,
+  objetivos: [
+    "Describir el universo, su origen y sus componentes: galaxias, estrellas y nebulosas",
+    "Usar las unidades de distancia astronómicas: unidad astronómica y año luz",
+    "Conocer la evolución de las ideas sobre el universo: geocentrismo y heliocentrismo",
+    "Describir el sistema solar y las características de sus planetas y cuerpos menores",
+    "Explicar los movimientos de la Tierra y sus consecuencias: día y noche, estaciones",
+    "Explicar las fases de la Luna, los eclipses y las mareas",
+  ],
+  claves: ["universo", "big bang", "galaxia", "Vía Láctea", "estrella", "año luz", "unidad astronómica", "geocentrismo", "heliocentrismo", "sistema solar", "planeta", "satélite", "rotación", "traslación", "estaciones", "fases de la Luna", "eclipse"],
   pregunta: {
-    texto: "Cuando miras una estrella por la noche, ¿la estás viendo tal como es ahora mismo?",
-    respuesta: "No. La luz tarda en viajar. La luz del Sol tarda unos <b>8 minutos</b> en llegar a la Tierra, y la de las estrellas que vemos de noche tarda <b>años, siglos o miles de años</b>. Así que ves cada estrella como era cuando salió esa luz: mirar al cielo es, literalmente, <b>mirar al pasado</b>. Alguna de esas estrellas podría incluso haber dejado de existir.",
+    texto: "Cuando miras una estrella por la noche, ¿estás viendo cómo es ahora?",
+    respuesta: "No: ves la luz que salió de ella hace mucho tiempo. La luz viaja muy deprisa, a unos 300.000 km por segundo, pero las estrellas están tan lejos que tarda años, siglos o milenios en llegar. Si una estrella está a 500 <mark>años luz</mark>, la ves como era hace 500 años. Mirar al cielo es <b>mirar al pasado</b>; algunas de esas estrellas pueden incluso haber dejado de existir.",
+  },
+  lectura: {
+    titulo: "El punto azul pálido",
+    html: `<p>En 1977, la NASA lanzó la sonda Voyager 1 para estudiar Júpiter y Saturno. Cumplió su misión y siguió alejándose hacia los confines del sistema solar. El 14 de febrero de 1990, cuando estaba a unos 6.000 millones de kilómetros de casa, los científicos le ordenaron girar sus cámaras y hacer una última fotografía de la Tierra.</p>
+<p>En la imagen, nuestro planeta aparece como un puntito diminuto, más pequeño que un píxel, flotando en un rayo de luz solar. El astrónomo Carl Sagan, que propuso hacer la foto, escribió: «Mira de nuevo ese punto. Eso es aquí. Eso es nuestro hogar. Eso somos nosotros. Todas las personas que has querido, todas las que has conocido, vivieron ahí».</p>
+<p>La Voyager 1 sigue viajando. Hoy es el objeto humano más lejano: ha salido del sistema solar y viaja por el espacio entre las estrellas. Aun así, tardaría decenas de miles de años en llegar a la estrella más cercana. En este tema conocerás el inmenso <b>universo</b> y nuestro rincón en él.</p>`,
   },
   bloques: [
     {
-      html: `<h3>¿Qué es el universo?</h3><p>El <mark>universo</mark> es todo lo que existe: la materia, la energía, el espacio y el tiempo. Según la teoría más aceptada, la del <b>Big Bang</b>, se originó hace unos <b>13.800 millones de años</b> a partir de un estado muy caliente y muy denso, y desde entonces no ha dejado de <b>expandirse</b> y enfriarse. Al principio solo había partículas; después se formaron los primeros átomos (sobre todo hidrógeno y helio) y, con el tiempo, la gravedad fue reuniendo esa materia en <b>nubes de gas</b> que dieron lugar a las estrellas y a las galaxias. Las pruebas de esta teoría son, entre otras, que las galaxias se alejan unas de otras y que existe una débil radiación que llena todo el espacio, como un «eco» de aquel origen. El universo es tan grande que no sabemos si tiene límite.</p>`,
+      html: `<h3>1.1 ¿Qué es el universo?</h3><p>El <mark>universo</mark> es todo lo que existe: toda la materia, la energía, el espacio y el tiempo. Es inmensamente grande y está casi vacío: entre estrellas y galaxias hay enormes distancias.</p><p>Según la teoría más aceptada, la del <mark>big bang</mark>, el universo se originó hace unos <b>13.800 millones de años</b> a partir de un estado muy pequeño, denso y caliente que empezó a <b>expandirse</b> y a enfriarse. Con el tiempo se formaron los átomos, las primeras estrellas y las galaxias. Hoy sabemos que el universo <b>sigue expandiéndose</b>: las galaxias lejanas se alejan unas de otras, como los puntos dibujados en un globo que se infla. El sistema solar y la Tierra se formaron mucho después, hace unos <b>4.600 millones de años</b>.</p>`,
+      svg: H.linea("Historia del universo", [["13.800 Ma", "big bang"], ["13.400 Ma", "primeras estrellas"], ["10.000 Ma", "Vía Láctea"], ["4.600 Ma", "Sol y Tierra"], ["hoy", "sigue creciendo"]], "Del big bang a hoy (Ma: millón de años)"),
     },
     {
-      html: `<h3>Los componentes del universo</h3><p>La materia del universo está organizada en distintos niveles. Las <mark>galaxias</mark> son enormes agrupaciones de <b>estrellas, gas y polvo</b> unidas por la gravedad; pueden ser <b>espirales</b>, <b>elípticas</b> o <b>irregulares</b>, y se agrupan a su vez en cúmulos. Nuestra galaxia es la <mark>Vía Láctea</mark>, una espiral con más de 100.000 millones de estrellas; el Sol está en uno de sus brazos, lejos del centro. Las <b>estrellas</b> son esferas de gas muy caliente que producen luz y calor gracias a reacciones nucleares en su interior. Las <b>nebulosas</b> son nubes de gas y polvo donde nacen estrellas. Alrededor de muchas estrellas giran <b>planetas</b>, y alrededor de los planetas, <b>satélites</b>. Además hay <b>asteroides</b> (rocas), <b>cometas</b> (bolas de hielo y polvo que forman una cola al acercarse al Sol) y <b>meteoroides</b>; cuando uno de estos entra en la atmósfera y se ve brillar, lo llamamos <b>estrella fugaz</b>.</p>`,
-      video: { id: "8oyPWLVv3_4", titulo: "El universo, estrellas y galaxias. Vídeos educativos para niños", canal: "Happy Learning Español", vistas: 813521 },
+      html: `<h3>1.2 Los componentes del universo</h3><p>El universo contiene muchos tipos de cuerpos:</p><p>• Las <mark>galaxias</mark> son enormes agrupaciones de estrellas, gas y polvo que se mantienen unidas por la gravedad. Pueden ser <b>espirales</b>, con brazos que giran; <b>elípticas</b>, con forma de balón de rugby; o <b>irregulares</b>. Nuestra galaxia es la <b>Vía Láctea</b>, una espiral con más de 100.000 millones de estrellas. El Sol está en uno de sus brazos.<br>• Las <mark>estrellas</mark> son bolas gigantes de gas muy caliente que producen luz y calor. Las vemos como puntos porque están muy lejos.<br>• Las <b>nebulosas</b> son nubes de gas y polvo donde nacen nuevas estrellas.<br>• Los <b>planetas</b> giran alrededor de las estrellas, y los <b>satélites</b>, alrededor de los planetas.<br>• Los <b>agujeros negros</b> son zonas con una gravedad tan grande que ni la luz puede escapar.</p>`,
+      svg: H.tabla("Tipos de galaxias", ["Tipo", "Forma", "Ejemplo"], [["Espiral", "disco con brazos", "Vía Láctea, Andrómeda"], ["Elíptica", "óvalo sin brazos", "M87"], ["Irregular", "sin forma definida", "Nubes de Magallanes"]]),
+      video: vUni,
     },
     {
-      html: `<h3>Las distancias en el universo</h3><p>Las distancias en el espacio son tan grandes que los kilómetros se quedan pequeños. Dentro del sistema solar se usa la <mark>unidad astronómica</mark> (<b>ua</b>), que es la distancia media entre la Tierra y el Sol: unos <b>150 millones de kilómetros</b>. Para las estrellas y galaxias se usa el <mark>año luz</mark>, que es la <b>distancia que recorre la luz en un año</b>. Como la luz viaja a unos 300.000 km por segundo, un año luz equivale a unos <b>9,5 billones de kilómetros</b>. Ojo: aunque se llame «año», el año luz <b>mide distancias, no tiempo</b>. La estrella más cercana al Sol, Próxima Centauri, está a unos 4,2 años luz; la Vía Láctea mide unos 100.000 años luz de un extremo a otro; y la galaxia grande más cercana, Andrómeda, está a unos 2,5 millones de años luz.</p>${tabla(["Objeto", "Distancia aproximada"], [["Luna", "384.000 km (poco más de 1 segundo luz)"], ["Sol", "150 millones de km = 1 ua (8 minutos luz)"], ["Neptuno", "30 ua"], ["Próxima Centauri", "4,2 años luz"], ["Andrómeda", "2,5 millones de años luz"]])}`,
+      html: `<h3>1.3 La vida de las estrellas</h3><p>Las estrellas nacen en las <b>nebulosas</b>: la gravedad junta el gas y el polvo, que se calientan hasta que en su centro empiezan reacciones nucleares que liberan una enorme cantidad de energía. Así brillan durante millones o miles de millones de años.</p><p>Las estrellas tienen distintos colores según su temperatura: las <b>azules</b> son las más calientes y las <b>rojas</b>, las más frías. El Sol es una estrella <b>amarilla</b> mediana. Cuando una estrella como el Sol agota su combustible, se hincha y se convierte en una <b>gigante roja</b>; después expulsa sus capas externas y queda una <b>enana blanca</b>, pequeña y muy densa. Las estrellas mucho más grandes acaban en una gran explosión, una <b>supernova</b>, que puede dejar un agujero negro. En esas explosiones se forman elementos como el hierro o el oro: los átomos de tu cuerpo se fabricaron en estrellas antiguas.</p>`,
+      svg: H.flujo("Vida de una estrella como el Sol", ["Nace en una nebulosa", "Brilla miles de millones de años", "Se hincha: gigante roja", "Queda una enana blanca"], "Del gas a la enana blanca"),
     },
     {
-      html: `<h3>El sistema solar</h3><p>El <mark>sistema solar</mark> está formado por el <b>Sol</b> y todos los cuerpos que giran a su alrededor atraídos por su gravedad. Se formó hace unos <b>4.600 millones de años</b> a partir de una nube de gas y polvo que empezó a girar y a contraerse: en el centro se formó el Sol y, con el material sobrante, los planetas. El Sol es una <b>estrella mediana</b> que concentra más del 99 % de la masa del sistema solar. A su alrededor giran <b>ocho planetas</b> en órbitas casi circulares y en el mismo sentido. Además hay <b>planetas enanos</b>, como Plutón o Ceres; <b>satélites</b>, como la Luna; el <b>cinturón de asteroides</b>, entre Marte y Júpiter; y <b>cometas</b>, que vienen de las zonas más lejanas. Recuerda: el Sol <b>emite luz propia</b>; los planetas y los satélites solo <b>reflejan</b> la luz del Sol.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="El Sol y los ocho planetas en orden: Mercurio, Venus, Tierra y Marte, el cinturón de asteroides, y Júpiter, Saturno, Urano y Neptuno">${BG}
-        <circle cx="-6" cy="90" r="40" fill="#f6b417"/>${t(16, 94, "Sol", { size: 11 })}
-        ${[[48, 3, "#9a8f86"], [62, 5, "#e3b26b"], [78, 5.5, "#2b8ad8"], [93, 4, "#d6553a"]].map(([x, r, c]) => `<circle cx="${x}" cy="90" r="${r}" fill="${c}"/>`).join("")}
-        ${[0, 1, 2, 3, 4, 5, 6].map((i) => `<circle cx="${104 + (i % 2) * 3}" cy="${70 + i * 6}" r="1.4" fill="var(--muted)"/>`).join("")}
-        <circle cx="128" cy="90" r="13" fill="#c99a6b"/><circle cx="168" cy="90" r="10" fill="#e5c98a"/><ellipse cx="168" cy="90" rx="18" ry="4" fill="none" stroke="#b8945a" stroke-width="2"/>
-        <circle cx="203" cy="90" r="7.5" fill="#7fd1d8"/><circle cx="232" cy="90" r="7.5" fill="#3f6fd8"/>
-        ${et(70, 128, "interiores: rocosos", 95, { color: COL.rojo })}${et(180, 128, "exteriores: gaseosos", 110, { color: COL.azul })}
-        ${t(106, 56, "asteroides", { size: 9, color: "var(--muted)" })}
-        ${t(130, 160, "distancias no a escala", { size: 9.5, weight: 400, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.4 Las distancias en el universo</h3><p>Las distancias en el espacio son tan grandes que los kilómetros se quedan pequeños. Por eso los astrónomos usan otras unidades:</p><p>• La <mark>unidad astronómica</mark> (UA) es la distancia media entre la Tierra y el Sol: unos <b>150 millones de kilómetros</b>. Se usa dentro del sistema solar. Neptuno, por ejemplo, está a unas 30 UA del Sol.<br>• El <mark>año luz</mark> es la distancia que recorre la luz en un año, viajando a 300.000 km por segundo: unos <b>9,5 billones de kilómetros</b>. Ojo: aunque se llame «año», es una unidad de <b>distancia</b>, no de tiempo.</p><p>La luz del Sol tarda unos <b>8 minutos</b> en llegar a la Tierra. La estrella más cercana después del Sol, Próxima Centauri, está a unos <b>4,2 años luz</b>. La Vía Láctea mide unos 100.000 años luz de un extremo a otro, y la galaxia grande más cercana, Andrómeda, está a 2,5 millones de años luz.</p>`,
+      svg: H.tabla("Distancias en el universo", ["Desde aquí hasta…", "Distancia", "La luz tarda"], [["la Luna", "384.000 km", "1 segundo"], ["el Sol", "1 UA", "8 minutos"], ["Neptuno", "30 UA", "4 horas"], ["Próxima Centauri", "4,2 años luz", "4,2 años"], ["Andrómeda", "2,5 millones a. l.", "2,5 millones de años"]]),
     },
     {
-      html: `<h3>Los planetas</h3><p>Un <mark>planeta</mark> es un cuerpo que <b>gira alrededor de una estrella</b>, tiene <b>forma casi esférica</b> por su propia gravedad y ha <b>limpiado su órbita</b> de otros objetos. Plutón no cumple esta última condición y por eso desde 2006 es un <b>planeta enano</b>. Los ocho planetas se dividen en dos grupos. Los <mark>planetas interiores</mark> (Mercurio, Venus, la Tierra y Marte) están cerca del Sol, son <b>pequeños y rocosos</b>, densos y con pocos o ningún satélite. Los <mark>planetas exteriores</mark> (Júpiter, Saturno, Urano y Neptuno) están lejos, son <b>gigantes formados sobre todo por gases</b> y hielos, tienen muchos satélites y <b>anillos</b>, aunque solo los de Saturno se ven fácilmente con un telescopio pequeño. Una regla para recordar el orden: «<b>Mi Vecino Tiene Muchas Jaulas Sin Unos Nidos</b>». Júpiter es el más grande; Mercurio, el más pequeño; y Venus, el más caliente por su densa atmósfera.</p>${tabla(["Planeta", "Tipo", "Un dato"], [["Mercurio", "rocoso", "el más cercano al Sol y el más pequeño"], ["Venus", "rocoso", "el más caliente: unos 460 °C"], ["Tierra", "rocoso", "el único con vida conocida"], ["Marte", "rocoso", "rojo por el óxido de hierro"], ["Júpiter", "gaseoso", "el más grande, con una tormenta gigante"], ["Saturno", "gaseoso", "anillos muy visibles de hielo y roca"], ["Urano", "helado", "gira «tumbado» de lado"], ["Neptuno", "helado", "el más lejano, con vientos fortísimos"]])}`,
+      html: `<h3>1.5 Del geocentrismo al heliocentrismo</h3><p>Durante siglos se creyó que la Tierra estaba quieta en el centro del universo y que el Sol, la Luna, los planetas y las estrellas giraban a su alrededor. Es el modelo <mark>geocéntrico</mark>, que el astrónomo griego <b>Ptolomeo</b> describió en el siglo II. Parecía lógico: desde la Tierra vemos el Sol moverse por el cielo.</p><p>En 1543, el astrónomo polaco <b>Nicolás Copérnico</b> propuso el modelo <mark>heliocéntrico</mark>: el Sol está en el centro y la Tierra y los demás planetas giran a su alrededor. A principios del siglo XVII, <b>Galileo Galilei</b> apuntó al cielo con un telescopio y descubrió cuatro lunas girando alrededor de Júpiter y las fases de Venus: pruebas de que no todo gira alrededor de la Tierra. <b>Johannes Kepler</b> demostró que las órbitas de los planetas son elipses. Hoy sabemos que el Sol tampoco es el centro del universo: es una estrella más de una galaxia entre miles de millones.</p>`,
+      svg: H.compara("Modelos geocéntrico y heliocéntrico", ["Geocéntrico", "var(--muted)", ["Tierra en el centro", "Ptolomeo, siglo II", "todo gira alrededor", "parecía lógico"]], ["Heliocéntrico", "var(--sun)", ["Sol en el centro", "Copérnico, 1543", "Galileo lo apoyó", "es el correcto"]]),
     },
     {
-      html: `<h3>La Tierra, un planeta especial</h3><p>La Tierra es el tercer planeta y el único en el que, de momento, sabemos que hay vida. Esto es posible por una combinación de condiciones: está a la <b>distancia adecuada del Sol</b>, ni tan cerca que el agua hierva ni tan lejos que se congele, de modo que puede haber <mark>agua líquida</mark>; tiene una <b>atmósfera</b> que contiene oxígeno, regula la temperatura y nos protege de la radiación ultravioleta; y tiene un <b>campo magnético</b> que desvía las partículas que llegan del Sol. Su forma es casi esférica, algo achatada por los polos, y su radio mide unos 6.370 km. La Tierra tiene un satélite, la <mark>Luna</mark>, cuatro veces más pequeña, sin atmósfera ni agua líquida y cubierta de cráteres producidos por impactos. La Luna tarda lo mismo en girar sobre sí misma que en dar una vuelta a la Tierra, por eso siempre nos muestra <b>la misma cara</b>.</p>`,
+      html: `<h3>1.6 El sistema solar</h3><p>El <mark>sistema solar</mark> está formado por el <b>Sol</b> y todos los cuerpos que giran a su alrededor atraídos por su gravedad: ocho planetas con sus satélites, planetas enanos, asteroides y cometas. Se formó hace unos 4.600 millones de años a partir de una nube de gas y polvo que giraba.</p><p>El <b>Sol</b> es una estrella mediana. Su diámetro es unas 109 veces el de la Tierra, y concentra el 99,8 % de toda la masa del sistema solar. Su superficie está a unos 5.500 °C y su centro, a 15 millones de grados. Nos da la luz y el calor necesarios para la vida. Los <b>planetas</b> son cuerpos grandes, redondeados, que giran alrededor del Sol y han «limpiado» su órbita de otros cuerpos. En orden desde el Sol: Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano y Neptuno. Un truco para recordarlo: «<b>Me V</b>oy <b>T</b>ranquilo <b>M</b>añana <b>J</b>unto <b>S</b>u <b>U</b>niversidad <b>N</b>ueva».</p>`,
+      svg: H.viejo(S, 3),
     },
     {
-      html: `<h3>Los movimientos de la Tierra</h3><p>La Tierra tiene dos movimientos principales. En el de <mark>rotación</mark> gira sobre sí misma, alrededor de un eje imaginario que pasa por los polos, de oeste a este; tarda <b>24 horas</b> (un día) y produce la <b>sucesión del día y la noche</b>: la mitad iluminada por el Sol está de día y la otra mitad, de noche. Por eso el Sol «sale» por el este y «se pone» por el oeste. En el de <mark>traslación</mark> gira alrededor del Sol en una órbita casi circular; tarda <b>365 días y unas 6 horas</b> (un año). Esas 6 horas sobrantes se juntan cada cuatro años en un día más, el 29 de febrero de los <b>años bisiestos</b>. El eje de la Tierra está <b>inclinado unos 23,5°</b> y siempre apunta en la misma dirección; esa inclinación, junto con la traslación, es la causa de las estaciones.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Rotación: la Tierra gira sobre su eje inclinado en 24 horas y produce el día y la noche; traslación: da una vuelta al Sol en 365 días">${BG}
-        <circle cx="70" cy="86" r="38" fill="#2b8ad8"/><path d="M70 48 A 38 38 0 0 1 70 124 Z" fill="#0d2a55" fill-opacity=".75"/>
-        <path d="M58 46 L 82 126" stroke="var(--ink)" stroke-width="2" stroke-dasharray="4 3"/>
-        ${fl(10, 86, 32, 86, COL.sol, 2.5)}${t(18, 74, "Sol", { size: 10, color: COL.sol })}
-        ${t(52, 84, "día", { size: 10, color: "#fff" })}${t(90, 100, "noche", { size: 9, color: "#fff" })}
-        ${t(70, 146, "rotación: 24 h", { size: 11, color: COL.azul })}
-        <ellipse cx="190" cy="86" rx="56" ry="32" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <circle cx="190" cy="86" r="11" fill="#f6b417"/><circle cx="246" cy="86" r="6" fill="#2b8ad8"/>
-        ${fl(190, 54, 210, 55, "var(--muted)", 1.8)}
-        ${t(190, 146, "traslación: 365 días", { size: 11, color: COL.sol })}</svg>`,
-      video: { id: "6kBlgCozIQc", titulo: "Rotación y Traslación de la Tierra - Los movimientos del planeta Tierra", canal: "Smile and Learn - Español", vistas: 4775481 },
+      html: `<h3>1.7 Los planetas interiores y exteriores</h3><p>Los planetas se dividen en dos grupos separados por el <b>cinturón de asteroides</b>:</p><p>• Los <b>planetas interiores</b> o <b>rocosos</b> son Mercurio, Venus, la Tierra y Marte. Son pequeños, densos, con superficie sólida de roca y pocos satélites. <b>Mercurio</b> es el más pequeño y cercano al Sol. <b>Venus</b> es el más caliente, a unos 460 °C, por su densa atmósfera de CO₂ que provoca un enorme efecto invernadero. <b>Marte</b>, el planeta rojo, tiene el volcán más alto del sistema solar, el monte Olimpo, y hielo en sus polos.<br>• Los <b>planetas exteriores</b> o <b>gigantes</b> son Júpiter, Saturno, Urano y Neptuno. Son enormes, formados sobre todo por <b>gases</b> y hielos, tienen <b>anillos</b> y muchos satélites. <b>Júpiter</b> es el mayor: cabrían dentro más de 1.300 Tierras; tiene una tormenta, la Gran Mancha Roja, mayor que nuestro planeta. <b>Saturno</b> tiene los anillos más espectaculares, hechos de hielo y roca.</p>`,
+      svg: H.compara("Planetas interiores y exteriores", ["Interiores", "#b8860b", ["Mercurio, Venus, Tierra, Marte", "rocosos y pequeños", "pocos satélites", "sin anillos"]], ["Exteriores", "var(--inf)", ["Júpiter, Saturno, Urano, Neptuno", "gaseosos y gigantes", "muchos satélites", "con anillos"]]),
     },
     {
-      html: `<h3>Las estaciones del año</h3><p>Un error muy común es pensar que en verano hace calor porque la Tierra está más cerca del Sol. No es así: en el hemisferio norte, la Tierra está más cerca del Sol a principios de enero, ¡en pleno invierno! Las <mark>estaciones</mark> se deben a la <b>inclinación del eje terrestre</b>. Durante una parte del año, el hemisferio norte está inclinado hacia el Sol: los rayos llegan <b>más perpendiculares</b>, calientan más, y los días son <b>más largos</b> que las noches; es el verano. Seis meses después ocurre lo contrario: los rayos llegan <b>más inclinados</b>, se reparten en más superficie y calientan menos, y los días son cortos; es el invierno. Por eso, cuando en España es verano, en Argentina o Australia es invierno. Los <b>solsticios</b> (hacia el 21 de junio y el 21 de diciembre) marcan el día más largo y el más corto; en los <b>equinoccios</b> (hacia el 21 de marzo y el 23 de septiembre) el día y la noche duran lo mismo.</p>`,
+      html: `<h3>1.8 Otros cuerpos del sistema solar</h3><p>Además del Sol y los planetas, hay otros cuerpos:</p><p>• Los <b>satélites</b> giran alrededor de los planetas. La Tierra tiene uno, la Luna; Saturno y Júpiter tienen decenas.<br>• Los <b>planetas enanos</b> son redondeados pero no han limpiado su órbita. El más conocido es <b>Plutón</b>, que fue considerado planeta hasta 2006.<br>• Los <b>asteroides</b> son rocas de formas irregulares, de metros a cientos de kilómetros. La mayoría está en el cinturón de asteroides, entre Marte y Júpiter.<br>• Los <b>cometas</b> son bolas de hielo y polvo que vienen de las afueras del sistema solar. Al acercarse al Sol, el hielo se evapora y forman una <b>cola</b> brillante. El cometa Halley se ve cada 76 años.<br>• Los <b>meteoroides</b> son fragmentos pequeños. Si entran en la atmósfera, arden y forman las <b>estrellas fugaces</b> o <b>meteoros</b>; si llegan al suelo, se llaman <b>meteoritos</b>.</p>`,
+      svg: H.tabla("Cuerpos menores del sistema solar", ["Cuerpo", "Cómo es", "Ejemplo"], [["Satélite", "gira alrededor de un planeta", "la Luna"], ["Planeta enano", "redondo, órbita compartida", "Plutón"], ["Asteroide", "roca irregular", "Ceres, Vesta"], ["Cometa", "hielo y polvo con cola", "Halley"], ["Meteorito", "roca que llega al suelo", "meteorito de Molina"]]),
     },
     {
-      html: `<h3>Las fases de la Luna y los eclipses</h3><p>La Luna tarda unos <b>29,5 días</b> en pasar por todas sus formas. La mitad de la Luna siempre está iluminada por el Sol, pero, según su posición alrededor de la Tierra, vemos una parte mayor o menor de esa mitad. Son las <mark>fases lunares</mark>: <b>luna nueva</b> (no se ve, está entre la Tierra y el Sol), <b>cuarto creciente</b> (se ve la mitad derecha, con forma de D en el hemisferio norte), <b>luna llena</b> (se ve entera) y <b>cuarto menguante</b> (forma de C). Un truco: la Luna es «mentirosa», porque cuando parece una C está decreciendo. A veces el Sol, la Tierra y la Luna se alinean del todo y se produce un <mark>eclipse</mark>. En un <b>eclipse de Sol</b>, la Luna se pone entre el Sol y la Tierra y tapa el Sol; solo puede ocurrir en luna nueva. En un <b>eclipse de Luna</b>, la Tierra se pone entre el Sol y la Luna, y su sombra oscurece la Luna; ocurre en luna llena. Nunca mires al Sol directamente, ni siquiera durante un eclipse: hacen falta gafas homologadas.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cuatro fases de la Luna vistas desde la Tierra: luna nueva, cuarto creciente, luna llena y cuarto menguante">${BG}
-        ${[["nueva", 0], ["creciente", 1], ["llena", 2], ["menguante", 3]].map(([n, k], i) => {
-          const x = 36 + i * 63, y = 76;
-          const base = `<circle cx="${x}" cy="${y}" r="22" fill="#2b3245" stroke="var(--muted)" stroke-width="1.5"/>`;
-          const luz = k === 2 ? `<circle cx="${x}" cy="${y}" r="22" fill="#f3e6b0"/>` : k === 1 ? `<path d="M${x} ${y - 22} A 22 22 0 0 1 ${x} ${y + 22} Z" fill="#f3e6b0"/>` : k === 3 ? `<path d="M${x} ${y - 22} A 22 22 0 0 0 ${x} ${y + 22} Z" fill="#f3e6b0"/>` : "";
-          return base + luz + t(x, 122, n, { size: 10 });
-        }).join("")}
-        ${t(130, 30, "29,5 días de una luna nueva a otra", { size: 10, weight: 400, color: "var(--muted)" })}
-        ${t(130, 152, "creciente: D · menguante: C", { size: 10.5, color: COL.azul })}</svg>`,
+      html: `<h3>1.9 La Tierra, un planeta especial</h3><p>La Tierra es el tercer planeta desde el Sol y el único donde sabemos que hay vida. Esto se debe a una combinación de condiciones:</p><p>• Está a la <b>distancia adecuada</b> del Sol, en la llamada <b>zona habitable</b>: ni tan cerca que el agua hierva ni tan lejos que se congele toda. Por eso tiene <b>agua líquida</b>.<br>• Tiene una <b>atmósfera</b> que contiene oxígeno, nos protege de los rayos ultravioleta y de los meteoritos y mantiene una temperatura suave gracias al efecto invernadero natural.<br>• Tiene un <b>campo magnético</b> que desvía las partículas peligrosas del viento solar.<br>• Su tamaño le permite retener la atmósfera.</p><p>La Tierra tiene forma casi esférica, un poco achatada por los polos, y un radio de unos 6.370 km. La <b>Luna</b>, su satélite, tiene un tamaño de un cuarto del de la Tierra y siempre nos muestra la misma cara.</p>`,
+      svg: H.radial("Por qué la Tierra tiene vida", "TIERRA", ["zona habitable", "agua líquida", "atmósfera protectora", "campo magnético", "temperatura suave", "tamaño adecuado"], "var(--inf)"),
+    },
+    {
+      html: `<h3>1.10 Los movimientos de la Tierra</h3><p>La Tierra realiza dos movimientos principales:</p><p>• La <mark>rotación</mark>: la Tierra gira sobre sí misma, alrededor de un eje imaginario que pasa por los polos, de oeste a este. Da una vuelta completa cada <b>24 horas</b>. Su consecuencia es la sucesión del <b>día y la noche</b>: la mitad de la Tierra que mira al Sol está iluminada y la otra mitad está a oscuras. Por eso el Sol parece salir por el este y ponerse por el oeste, y por eso hay diferentes horas en distintos países: cuando en España es mediodía, en Japón es de noche.<br>• La <mark>traslación</mark>: la Tierra gira alrededor del Sol siguiendo una órbita en forma de <b>elipse</b>, casi circular. Tarda <b>365 días y 6 horas</b> en dar una vuelta: es un <b>año</b>. Como cada año sobran unas 6 horas, cada cuatro años se añade un día, el 29 de febrero: son los <b>años bisiestos</b>.</p>`,
+      svg: H.viejo(S, 6),
+      video: vMov,
+    },
+    {
+      html: `<h3>1.11 Las estaciones del año</h3><p>Muchas personas creen que en verano hace calor porque la Tierra está más cerca del Sol. ¡No es así! De hecho, la Tierra está más cerca del Sol a principios de enero. Las estaciones se deben a que el <b>eje de la Tierra está inclinado</b> unos <b>23,5 grados</b> y mantiene siempre esa inclinación mientras gira alrededor del Sol.</p><p>Por eso, durante una parte del año, el hemisferio norte está inclinado hacia el Sol: los rayos llegan más <b>verticales</b>, calientan más, y los días son más largos que las noches. Es el <b>verano</b>. Seis meses después, el hemisferio norte está inclinado en sentido contrario: los rayos llegan más <b>inclinados</b>, calientan menos y los días son más cortos. Es el <b>invierno</b>. Mientras en España es verano, en Argentina o Australia es invierno. Los <b>solsticios</b> (21 de junio y 21 de diciembre) marcan el día más largo y el más corto, y los <b>equinoccios</b> (marzo y septiembre), los días en que el día y la noche duran lo mismo.</p>`,
+      svg: H.tabla("Las estaciones en el hemisferio norte", ["Fecha", "Momento", "Empieza"], [["20-21 marzo", "equinoccio", "primavera"], ["21 junio", "solsticio", "verano"], ["22-23 sept.", "equinoccio", "otoño"], ["21 diciembre", "solsticio", "invierno"]]),
+    },
+    {
+      html: `<h3>1.12 La Luna: fases, eclipses y mareas</h3><p>La Luna no tiene luz propia: refleja la del Sol. Gira alrededor de la Tierra en unos <b>29,5 días</b>, y según su posición vemos iluminada una parte distinta: son las <mark>fases lunares</mark>. En la <b>luna nueva</b> no se ve; en el <b>cuarto creciente</b> se ve la mitad derecha iluminada (en el hemisferio norte); en la <b>luna llena</b>, toda la cara; y en el <b>cuarto menguante</b>, la mitad izquierda. Un truco: si tiene forma de C, «miente», porque está menguando.</p><p>Un <b>eclipse</b> ocurre cuando el Sol, la Tierra y la Luna se alinean. En un <b>eclipse de Sol</b>, la Luna se pone entre el Sol y la Tierra y tapa el Sol. En un <b>eclipse de Luna</b>, la Tierra se pone entre el Sol y la Luna y su sombra oscurece la Luna. Además, la gravedad de la Luna atrae el agua de los océanos y produce las <b>mareas</b>: el mar sube y baja dos veces al día.</p>`,
+      svg: H.viejo(S, 8),
     },
   ],
-  figura: {
-    titulo: "Del universo a la Tierra",
-    svg: rejilla([
-      ["Universo", "todo lo que existe; Big Bang", COL.morado],
-      ["Galaxias", "estrellas, gas y polvo", COL.azul],
-      ["Vía Láctea", "nuestra galaxia espiral", COL.agua],
-      ["Sol", "estrella mediana con luz propia", COL.sol],
-      ["Interiores", "Mercurio, Venus, Tierra, Marte", COL.rojo],
-      ["Exteriores", "Júpiter, Saturno, Urano, Neptuno", COL.naranja],
-      ["Rotación", "24 h: día y noche", COL.verde],
-      ["Traslación", "365 días: el año", COL.marron],
-    ], 4, 86, "Resumen: universo, galaxias, Vía Láctea, Sol, planetas interiores y exteriores, rotación y traslación"),
-  },
-  video: { id: "wSFeXHW3KhU", titulo: "¿Cómo es el Sistema Solar realmente? Imágenes reales", canal: "Astronomiaweb", vistas: 2423963, megusta: 0, busqueda: "sistema solar planetas explicación" },
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    { enunciado: "La luz recorre unos 300.000 km cada segundo. ¿Cuánto tarda en llegar la luz del Sol a la Tierra, que está a 150 millones de km?",
-      pasos: ["Divide la distancia entre la velocidad: 150.000.000 ÷ 300.000 = 500 segundos.", "Pasa a minutos: 500 ÷ 60 ≈ 8,3 minutos."],
-      resultado: "Unos 8 minutos: vemos el Sol como era hace 8 minutos." },
-    { enunciado: "Clasifica Marte, Saturno, Venus y Neptuno en planetas interiores o exteriores y di qué tienen en común los de cada grupo.",
-      pasos: ["Interiores (antes del cinturón de asteroides): Marte y Venus.", "Exteriores (después): Saturno y Neptuno.", "Interiores: pequeños, rocosos y con pocos satélites. Exteriores: gigantes de gas y hielo, con muchos satélites y anillos."],
-      resultado: "Interiores: Venus y Marte. Exteriores: Saturno y Neptuno." },
-    { enunciado: "Lucía, que vive en Madrid, dice que en julio hace calor porque la Tierra está más cerca del Sol. ¿Tiene razón?",
-      pasos: ["La distancia al Sol cambia muy poco a lo largo del año y la Tierra está más cerca en enero.", "La causa es la inclinación del eje: en julio el hemisferio norte se inclina hacia el Sol.", "Los rayos llegan más perpendiculares y los días son más largos, así que se calienta más."],
-      resultado: "No: el verano se debe a la inclinación del eje, no a la distancia." },
+    { enunciado: "La luz recorre 300.000 km cada segundo. ¿Cuánto tarda en llegar del Sol a la Tierra (150 millones de km)?", pasos: ["150.000.000 / 300.000 = 500 segundos.", "500 / 60 ≈ 8,3 minutos."], resultado: "unos 8 minutos." },
+    { enunciado: "Una estrella está a 300 años luz. ¿Cuándo salió la luz que vemos hoy?", pasos: ["Un año luz es lo que recorre la luz en un año.", "Si está a 300 años luz, la luz tarda 300 años."], resultado: "hace unos 300 años: vemos la estrella como era entonces." },
+    { enunciado: "Neptuno está a 30 UA del Sol. ¿Cuántos kilómetros son?", pasos: ["1 UA ≈ 150 millones de km.", "30 × 150 = 4.500 millones de km."], resultado: "unos 4.500 millones de kilómetros." },
+    { enunciado: "Si en Madrid son las 12 del mediodía, ¿qué parte de la Tierra está de noche?", pasos: ["La Tierra gira y siempre tiene una mitad iluminada.", "Madrid está mirando al Sol.", "La parte opuesta del planeta, como el océano Pacífico y Nueva Zelanda, está a oscuras."], resultado: "la mitad opuesta, por ejemplo Nueva Zelanda, donde es medianoche." },
+    { enunciado: "¿Por qué en diciembre hace calor en Australia?", pasos: ["En diciembre, el hemisferio sur está inclinado hacia el Sol.", "Allí los rayos llegan más verticales y los días son largos."], resultado: "porque en el hemisferio sur es verano." },
+    { enunciado: "Si hoy hay luna llena, ¿qué fase habrá dentro de una semana y dentro de dos?", pasos: ["El ciclo dura unos 29,5 días: cada fase principal, unos 7 días.", "Después de la llena viene el cuarto menguante.", "Después, la luna nueva."], resultado: "cuarto menguante en una semana y luna nueva en dos." },
   ],
   errores: [
-    "Pensar que el año luz es una medida de tiempo: es una distancia.",
-    "Creer que las estaciones se deben a que la Tierra se acerca o se aleja del Sol.",
-    "Decir que la Luna tiene luz propia: solo refleja la del Sol.",
-    "Confundir rotación (día y noche) con traslación (año y estaciones).",
-    "Pensar que las fases de la Luna se deben a la sombra de la Tierra: eso es un eclipse.",
-    "Llamar «planeta» al Sol: es una estrella.",
+    "Pensar que el año luz es una unidad de tiempo: es una unidad de distancia.",
+    "Creer que en verano hace calor porque estamos más cerca del Sol: se debe a la inclinación del eje.",
+    "Confundir rotación (sobre sí misma, 24 h) con traslación (alrededor del Sol, un año).",
+    "Pensar que la Luna tiene luz propia: refleja la luz del Sol.",
+    "Creer que las fases de la Luna se deben a la sombra de la Tierra: se deben a la parte iluminada que vemos desde aquí.",
+    "Llamar estrella fugaz a una estrella: es un trocito de roca que arde en la atmósfera.",
   ],
-  ejercicios: [
-    { q: "¿Qué es el universo y cuándo se originó según la teoría del Big Bang?", sol: "Todo lo que existe (materia, energía, espacio y tiempo). Hace unos 13.800 millones de años, y desde entonces se expande." },
-    { q: "Ordena de mayor a menor: planeta, galaxia, sistema solar, satélite.", sol: "Galaxia > sistema solar > planeta > satélite." },
-    { q: "¿Qué es una unidad astronómica? ¿Y un año luz?", sol: "La ua es la distancia media Tierra-Sol (150 millones de km). El año luz es la distancia que recorre la luz en un año (unos 9,5 billones de km)." },
-    { q: "¿Por qué Plutón ya no se considera un planeta?", sol: "Porque no ha limpiado su órbita de otros objetos; es un planeta enano." },
-    { q: "Escribe los ocho planetas en orden desde el Sol.", sol: "Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano y Neptuno." },
-    { q: "Di tres diferencias entre los planetas interiores y los exteriores.", sol: "Interiores: pequeños, rocosos y con pocos satélites. Exteriores: grandes, gaseosos o helados, con muchos satélites y anillos." },
-    { q: "¿Qué condiciones hacen posible la vida en la Tierra?", sol: "Agua líquida por estar a la distancia adecuada del Sol, una atmósfera con oxígeno que regula la temperatura y protege, y un campo magnético protector." },
-    { q: "¿Qué movimiento produce el día y la noche? ¿Cuánto dura?", sol: "La rotación, que dura 24 horas." },
-    { q: "Si es invierno en España, ¿qué estación es en Australia? ¿Por qué?", sol: "Verano, porque están en hemisferios distintos: cuando el norte se inclina lejos del Sol, el sur se inclina hacia él." },
-    { q: "¿En qué fase debe estar la Luna para que haya un eclipse de Sol? ¿Por qué?", sol: "En luna nueva, porque la Luna tiene que estar entre el Sol y la Tierra." },
-  ],
-  quiz: [
-    { q: "Según el Big Bang, el universo se formó hace unos…", o: ["13.800 millones de años", "4.600 millones de años", "6.000 años"], a: 0, e: "13.800 millones de años." },
-    { q: "Nuestra galaxia se llama…", o: ["Andrómeda", "Vía Láctea", "Orión"], a: 1, e: "La Vía Láctea, una espiral." },
-    { q: "El año luz mide…", o: ["tiempo", "distancia", "temperatura"], a: 1, e: "Una distancia." },
-    { q: "¿Cuál es un planeta interior?", o: ["Júpiter", "Marte", "Urano"], a: 1, e: "Marte es rocoso e interior." },
-    { q: "El planeta más grande es…", o: ["Saturno", "Júpiter", "la Tierra"], a: 1, e: "Júpiter." },
-    { q: "El cinturón de asteroides está entre…", o: ["Marte y Júpiter", "la Tierra y Marte", "Saturno y Urano"], a: 0, e: "Entre Marte y Júpiter." },
-    { q: "La rotación de la Tierra dura…", o: ["24 horas", "365 días", "29,5 días"], a: 0, e: "Un día." },
-    { q: "Las estaciones se deben a…", o: ["la distancia al Sol", "la inclinación del eje", "la Luna"], a: 1, e: "A la inclinación del eje y la traslación." },
-    { q: "En luna llena la Luna se ve…", o: ["entera", "la mitad", "nada"], a: 0, e: "Entera." },
-    { q: "En un eclipse de Luna…", o: ["la Luna tapa el Sol", "la sombra de la Tierra cubre la Luna", "el Sol tapa la Luna"], a: 1, e: "La Tierra está entre el Sol y la Luna." },
-  ],
-  examen: [
-    { q: "La luz del Sol tarda en llegar a la Tierra unos…", o: ["8 segundos", "8 minutos", "8 horas"], a: 1, e: "Unos 8 minutos." },
-    { q: "Un año bisiesto existe porque la traslación dura…", o: ["365 días y unas 6 horas", "364 días", "366 días justos"], a: 0, e: "Las 6 horas se juntan cada cuatro años." },
-    { q: "Plutón es…", o: ["un planeta enano", "un satélite", "una estrella"], a: 0, e: "Planeta enano desde 2006." },
-  ],
-  feynman: ["Qué es un año luz y por qué se usa", "Por qué hay día y noche y por qué hay estaciones", "Cómo se producen las fases de la Luna y los eclipses"],
-  mapa: mapa("UNIVERSO", "var(--eso)", [
-    ["Universo", "Big Bang · galaxias · estrellas", COL.morado],
-    ["Sistema solar", "Sol · 8 planetas · asteroides", COL.sol],
-    ["Tierra", "agua · atmósfera · Luna", COL.agua],
-    ["Movimientos", "rotación · traslación · fases", COL.verde],
-  ], 280),
+  ejercicios: H.niveles([
+    ["Define universo.", "Todo lo que existe: materia, energía, espacio y tiempo."],
+    ["¿Qué es el big bang y hace cuánto ocurrió?", "La teoría que explica el origen del universo a partir de un estado muy denso y caliente que empezó a expandirse hace unos 13.800 millones de años."],
+    ["¿Qué es una galaxia? ¿Cómo se llama la nuestra?", "Una gran agrupación de estrellas, gas y polvo unida por la gravedad. La nuestra es la Vía Láctea."],
+    ["¿Qué es una nebulosa?", "Una nube de gas y polvo donde nacen estrellas."],
+    ["¿Qué es una unidad astronómica?", "La distancia media entre la Tierra y el Sol, unos 150 millones de km."],
+    ["Escribe los ocho planetas en orden desde el Sol.", "Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano y Neptuno."],
+    ["¿Qué separa los planetas interiores de los exteriores?", "El cinturón de asteroides."],
+    ["¿Cuál es el planeta más grande? ¿Y el más caliente?", "El más grande es Júpiter; el más caliente, Venus."],
+    ["¿Qué es un cometa?", "Una bola de hielo y polvo que, al acercarse al Sol, forma una cola brillante."],
+    ["¿Cuánto dura la rotación de la Tierra y qué produce?", "24 horas; produce el día y la noche."],
+    ["¿Cuánto dura la traslación de la Tierra?", "365 días y 6 horas: un año."],
+    ["Nombra las cuatro fases principales de la Luna.", "Luna nueva, cuarto creciente, luna llena y cuarto menguante."],
+  ], [
+    ["¿Por qué decimos que mirar al cielo es mirar al pasado?", "Porque la luz de las estrellas tarda años en llegar; vemos las estrellas como eran cuando salió su luz."],
+    ["Explica qué es un año luz y por qué no es una unidad de tiempo.", "Es la distancia que recorre la luz en un año (unos 9,5 billones de km); mide longitud, aunque se defina con un tiempo."],
+    ["Describe la vida de una estrella como el Sol.", "Nace en una nebulosa, brilla miles de millones de años, se hincha y se convierte en gigante roja, y termina como enana blanca."],
+    ["Diferencia el modelo geocéntrico y el heliocéntrico.", "Geocéntrico: la Tierra está quieta en el centro y todo gira a su alrededor (Ptolomeo). Heliocéntrico: el Sol está en el centro y los planetas giran a su alrededor (Copérnico)."],
+    ["¿Qué descubrió Galileo con su telescopio que apoyaba el heliocentrismo?", "Cuatro lunas que giraban alrededor de Júpiter y las fases de Venus."],
+    ["Compara los planetas interiores y exteriores en cuatro aspectos.", "Interiores: rocosos, pequeños, pocos satélites, sin anillos. Exteriores: gaseosos, gigantes, muchos satélites, con anillos."],
+    ["¿Por qué Venus es más caliente que Mercurio si está más lejos del Sol?", "Porque tiene una atmósfera muy densa de CO₂ que produce un enorme efecto invernadero."],
+    ["Diferencia meteoroide, meteoro y meteorito.", "Meteoroide: fragmento en el espacio. Meteoro (estrella fugaz): el destello cuando arde en la atmósfera. Meteorito: el trozo que llega al suelo."],
+    ["¿Qué condiciones hacen posible la vida en la Tierra?", "Distancia adecuada al Sol (agua líquida), atmósfera protectora con oxígeno, campo magnético y temperatura suave."],
+    ["¿Por qué hay años bisiestos?", "Porque la traslación dura 365 días y unas 6 horas; cada cuatro años esas horas suman un día, que se añade el 29 de febrero."],
+    ["Explica la diferencia entre un eclipse de Sol y uno de Luna.", "En el de Sol, la Luna se pone entre el Sol y la Tierra y tapa el Sol. En el de Luna, la Tierra se pone entre el Sol y la Luna y su sombra la oscurece."],
+  ], [
+    ["Explica por qué existen las estaciones. ¿Qué pasaría si el eje de la Tierra no estuviera inclinado?", "Por la inclinación del eje, cada hemisferio recibe los rayos más verticales y días más largos durante una parte del año. Sin inclinación, no habría estaciones: cada lugar tendría casi el mismo clima todo el año."],
+    ["La Voyager 1 está a unos 24.000 millones de km. ¿Cuánto tarda su señal de radio en llegar a la Tierra, si viaja a la velocidad de la luz?", "24.000.000.000 / 300.000 = 80.000 segundos ≈ 22 horas."],
+    ["Próxima Centauri está a 4,2 años luz. Si una nave viajara a 60.000 km/h, ¿llegaría en una vida humana? Estima.", "4,2 años luz ≈ 40 billones de km. 40.000.000.000.000 / 60.000 ≈ 670 millones de horas ≈ 76.000 años. No llegaría ni en mil vidas."],
+    ["¿Por qué crees que tardó tanto en aceptarse el modelo heliocéntrico?", "Porque contradecía lo que vemos cada día (el Sol se mueve en el cielo), porque no notamos que la Tierra se mueva y porque chocaba con las ideas religiosas y filosóficas de la época."],
+    ["Explica por qué siempre vemos la misma cara de la Luna.", "Porque tarda lo mismo en girar sobre sí misma que en dar una vuelta alrededor de la Tierra (unos 27 días)."],
+    ["Diseña un modelo con una lámpara y una pelota para explicar las fases de la Luna a un compañero.", "La lámpara es el Sol, tu cabeza la Tierra y la pelota la Luna. Al girar sobre ti con la pelota en la mano, verás iluminada una parte distinta: nueva, creciente, llena y menguante."],
+    ["¿Por qué Plutón dejó de ser planeta en 2006?", "Porque, aunque gira alrededor del Sol y es redondo, comparte su órbita con muchos otros cuerpos del cinturón de Kuiper: no la ha limpiado. Se clasificó como planeta enano."],
+  ]),
+  quiz: H.test([
+    ["El universo se originó hace unos…", ["13.800 millones de años", "4.600 millones de años", "1 millón de años", "10.000 años"], 0, "Big bang."],
+    ["Nuestra galaxia es la…", ["Andrómeda", "Vía Láctea", "Nube de Magallanes", "Osa Mayor"], 1, "Espiral."],
+    ["Las estrellas nacen en las…", ["galaxias elípticas", "enanas blancas", "nebulosas", "lunas"], 2, "Nubes de gas y polvo."],
+    ["Las estrellas más calientes son de color…", ["rojo", "naranja", "amarillo", "azul"], 3, "Las rojas son más frías."],
+    ["La unidad astronómica es la distancia entre la Tierra y…", ["el Sol", "la Luna", "Marte", "Neptuno"], 0, "150 millones de km."],
+    ["El año luz es una unidad de…", ["tiempo", "distancia", "velocidad", "masa"], 1, "Lo que recorre la luz en un año."],
+    ["La luz del Sol tarda en llegar a la Tierra unos…", ["8 segundos", "8 horas", "8 minutos", "8 días"], 2, "500 segundos."],
+    ["Propuso el modelo heliocéntrico…", ["Ptolomeo", "Galileo", "Kepler", "Copérnico"], 3, "En 1543."],
+    ["El modelo geocéntrico sitúa en el centro a la…", ["Tierra", "Luna", "Vía Láctea", "estrella Polar"], 0, "Ptolomeo."],
+    ["El Sol concentra de la masa del sistema solar el…", ["50 %", "99,8 %", "10 %", "1 %"], 1, "Casi toda."],
+    ["El planeta más cercano al Sol es…", ["Venus", "Marte", "Mercurio", "la Tierra"], 2, "Y el más pequeño."],
+    ["El planeta más grande es…", ["Saturno", "Neptuno", "Urano", "Júpiter"], 3, "Caben 1.300 Tierras."],
+    ["Los planetas interiores son…", ["rocosos", "gaseosos", "de hielo", "estrellas"], 0, "Pequeños y densos."],
+    ["El cinturón de asteroides está entre…", ["la Tierra y Marte", "Marte y Júpiter", "Saturno y Urano", "Venus y la Tierra"], 1, "Separa los dos grupos."],
+    ["Plutón es un…", ["planeta", "satélite", "planeta enano", "cometa"], 2, "Desde 2006."],
+    ["El movimiento que produce el día y la noche es la…", ["traslación", "precesión", "órbita", "rotación"], 3, "24 horas."],
+    ["Las estaciones se deben a…", ["la inclinación del eje terrestre", "la distancia al Sol", "la Luna", "las nubes"], 0, "23,5 grados."],
+    ["El día más largo del año en el hemisferio norte es el solsticio de…", ["diciembre", "junio", "marzo", "septiembre"], 1, "Empieza el verano."],
+    ["Cuando la Luna se pone entre el Sol y la Tierra hay un eclipse de…", ["Luna", "Tierra", "Sol", "estrellas"], 2, "Tapa el Sol."],
+    ["Las mareas las produce sobre todo la gravedad de…", ["Marte", "el viento", "las nubes", "la Luna"], 3, "El mar sube y baja."],
+  ]),
+  examen: H.test([
+    ["El universo, según el big bang…", ["se está expandiendo", "es estático", "se encoge", "siempre fue igual"], 0, "Las galaxias se alejan."],
+    ["Próxima Centauri está a unos…", ["4 UA", "4,2 años luz", "4 millones de km", "40 minutos luz"], 1, "La estrella más cercana tras el Sol."],
+    ["Galileo descubrió lunas alrededor de…", ["Marte", "Venus", "Júpiter", "la Tierra"], 2, "Prueba contra el geocentrismo."],
+    ["Venus es el planeta más caliente por…", ["estar cerca del Sol", "sus volcanes", "su tamaño", "su efecto invernadero"], 3, "Atmósfera densa de CO₂."],
+    ["Una estrella fugaz es…", ["un meteoroide que arde en la atmósfera", "una estrella que cae", "un cometa", "un satélite"], 0, "Se llama meteoro."],
+    ["La traslación de la Tierra dura…", ["24 horas", "365 días y 6 horas", "29,5 días", "un mes"], 1, "Un año."],
+    ["En diciembre, en Australia es…", ["invierno", "otoño", "verano", "primavera"], 2, "Hemisferio sur."],
+    ["La Luna llena se ve cuando la Luna está…", ["entre el Sol y la Tierra", "junto al Sol", "detrás de Marte", "al otro lado de la Tierra respecto al Sol"], 3, "Vemos toda su cara iluminada."],
+  ]),
+  feynman: ["Cómo se originó el universo", "Qué es un año luz y por qué se usa", "Cómo es el sistema solar", "Qué produce el día, la noche y las estaciones", "Por qué la Luna tiene fases"],
+  mapa: H.mapa("UNIVERSO", "var(--eso)", [
+    ["Universo", "big bang · galaxias · estrellas", "var(--pen)"],
+    ["Sistema solar", "Sol · 8 planetas · cuerpos menores", "#b8860b"],
+    ["Tierra", "rotación · traslación · estaciones", "var(--inf)"],
+    ["Luna", "fases · eclipses · mareas", "var(--muted)"],
+  ], 300),
   tarjetas: [
-    ["Universo", "Todo lo que existe; se originó con el Big Bang."],
-    ["Galaxia", "Agrupación de estrellas, gas y polvo; la nuestra es la Vía Láctea."],
-    ["Año luz", "Distancia que recorre la luz en un año: unos 9,5 billones de km."],
-    ["Planeta", "Gira alrededor de una estrella, es casi esférico y limpia su órbita."],
-    ["Planetas interiores", "Mercurio, Venus, Tierra y Marte: pequeños y rocosos."],
-    ["Rotación", "Giro de la Tierra sobre su eje en 24 h: día y noche."],
-    ["Traslación", "Vuelta de la Tierra al Sol en 365 días y 6 h."],
-    ["Eclipse de Sol", "La Luna se interpone entre el Sol y la Tierra."],
+    ["Universo", "Todo lo que existe: materia, energía, espacio y tiempo."],
+    ["Big bang", "Origen del universo hace 13.800 millones de años."],
+    ["Galaxia", "Gran agrupación de estrellas, gas y polvo."],
+    ["Vía Láctea", "Nuestra galaxia, espiral."],
+    ["Año luz", "Distancia que recorre la luz en un año."],
+    ["Unidad astronómica", "Distancia Tierra-Sol: 150 millones de km."],
+    ["Heliocentrismo", "Modelo con el Sol en el centro (Copérnico)."],
+    ["Planetas interiores", "Mercurio, Venus, Tierra y Marte: rocosos."],
+    ["Planetas exteriores", "Júpiter, Saturno, Urano y Neptuno: gigantes gaseosos."],
+    ["Rotación", "Giro de la Tierra sobre sí misma en 24 h: día y noche."],
+    ["Traslación", "Vuelta de la Tierra al Sol en un año."],
+    ["Fases lunares", "Partes iluminadas de la Luna que vemos en 29,5 días."],
   ],
-  familias: ["Salid una noche despejada lejos de las luces y buscad la Luna y algún planeta brillante (Venus o Júpiter).", "Anotad durante un mes la forma de la Luna cada noche y comprobad el ciclo de las fases.", "Con una linterna (el Sol) y una naranja (la Tierra) explicad por qué hay día y noche."],
-  profesores: {
-    saberes: "La Tierra en el universo: origen y componentes del universo, sistema solar, características de la Tierra que permiten la vida, movimientos terrestres, estaciones, fases lunares y eclipses (RD 217/2022, Biología y Geología de 1º a 3º de ESO, bloque Geología y planeta Tierra).",
-    ideas: ["Modelo a escala del sistema solar en el patio (1 m = 10 millones de km).", "Simulación de fases lunares con una pelota blanca y una lámpara.", "Diario de observación del cielo con una aplicación de planetario gratuita."],
+  glosario: [
+    ["Universo", "Conjunto de todo lo que existe."],
+    ["Big bang", "Teoría que explica el origen y la expansión del universo."],
+    ["Galaxia", "Agrupación enorme de estrellas, gas y polvo unida por la gravedad."],
+    ["Estrella", "Cuerpo celeste de gas muy caliente que produce luz."],
+    ["Nebulosa", "Nube de gas y polvo donde nacen estrellas."],
+    ["Año luz", "Distancia que recorre la luz en un año."],
+    ["Unidad astronómica", "Distancia media entre la Tierra y el Sol."],
+    ["Geocentrismo", "Modelo que sitúa la Tierra en el centro del universo."],
+    ["Heliocentrismo", "Modelo que sitúa el Sol en el centro del sistema solar."],
+    ["Planeta", "Cuerpo redondeado que gira alrededor de una estrella y ha limpiado su órbita."],
+    ["Satélite", "Cuerpo que gira alrededor de un planeta."],
+    ["Órbita", "Trayectoria de un cuerpo alrededor de otro."],
+    ["Solsticio", "Momento del año con el día más largo o más corto."],
+    ["Equinoccio", "Momento del año en que el día y la noche duran lo mismo."],
+    ["Eclipse", "Ocultación de un astro por la sombra o la interposición de otro."],
+  ],
+  situacion: {
+    titulo: "El sistema solar a escala en el patio",
+    reto: "Construid un modelo del sistema solar a escala en el patio o en la calle para comprender las distancias y los tamaños reales.",
+    pasos: [
+      "Elegid una escala: por ejemplo, 1 metro para cada 10 millones de km (la Tierra quedará a 15 m del Sol).",
+      "Calculad la distancia de cada planeta al Sol con esa escala y medidla con una cinta métrica.",
+      "Calculad el tamaño de cada planeta con otra escala y representadlo con objetos (una pelota, un garbanzo, un grano de arena).",
+      "Colocad un cartel en cada planeta con sus datos principales.",
+      "Haced el recorrido con otra clase y explicad lo que habéis descubierto sobre las distancias.",
+    ],
+    producto: "Modelo del sistema solar a escala con carteles informativos y una visita guiada.",
+    evaluacion: [
+      "Los cálculos de escala son correctos.",
+      "Los carteles tienen datos precisos y bien explicados.",
+      "El modelo muestra claramente la diferencia entre planetas interiores y exteriores.",
+      "La visita guiada es clara y usa el vocabulario del tema.",
+    ],
   },
-  fuentes: [RD, wiki("Sistema solar", "Sistema_solar"), wiki("Año luz", "Año_luz"), { t: "Instituto Geográfico Nacional: astronomía", url: "https://www.ign.es/web/ign/portal/astronomia" }],
-  revisado: REV,
+  familias: ["Observad juntos la Luna durante un mes y dibujad su forma cada noche.", "Usad una aplicación del cielo nocturno para localizar planetas y constelaciones.", "Fijaos en a qué hora sale y se pone el Sol en distintas épocas del año.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "El universo: origen, componentes y unidades de distancia; evolución de los modelos (geocentrismo y heliocentrismo); el sistema solar y sus componentes; la Tierra como planeta habitable; movimientos de la Tierra y sus consecuencias; la Luna, sus fases, los eclipses y las mareas (RD 217/2022, Biología y Geología 1º a 3º, bloque «Geología: la Tierra en el universo»). En Cataluña, saberes equivalentes de Biologia i Geologia del Decret 175/2022.",
+    ideas: [
+      "Modelo del sistema solar a escala en el patio o en una calle del barrio.",
+      "Simular las fases de la Luna y los eclipses con una lámpara y pelotas.",
+      "Medir la sombra de un palo (gnomon) a mediodía en distintos meses.",
+      "Observación nocturna con aplicación de astronomía o salida a un observatorio.",
+      "Debate histórico: Galileo y el juicio por defender el heliocentrismo.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Sistema solar", "Sistema_solar"), H.wiki("Universo", "Universo"), { t: "Instituto de Astrofísica de Canarias (IAC)", url: "https://www.iac.es/" }],
+  revisado: H.REV,
 };
