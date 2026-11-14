@@ -1,162 +1,236 @@
-// Física y Química 2º ESO: el átomo y los elementos. Dibujos propios en SVG.
-const { D, mapa, BG, t, fl, caja, tabla, RD, wiki, C, REV } = require("./_eso2a");
+// Física y Química 2º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso2L3 y dibujos de la versión anterior del tema.
+const H = require("./_eso2L3");
+const S = "fyq-atomo-elementos";
+const [vMod, vNum] = H.videos(S);
 
 module.exports = {
-  materia: "Física y Química",
-  curso: C,
+  materia: H.MATERIA,
+  curso: H.CURSO,
   titulo: "El átomo y los elementos",
-  minutos: 55,
-  objetivos: ["Describir la evolución de los modelos atómicos de Dalton, Thomson, Rutherford y Bohr", "Conocer las partículas del átomo y calcular protones, neutrones y electrones a partir de Z y A", "Explicar qué son los isótopos y los iones", "Manejar la tabla periódica y distinguir metales, no metales y gases nobles, átomos y moléculas"],
-  claves: ["átomo", "protón", "neutrón", "electrón", "número atómico", "número másico", "isótopo", "ion", "tabla periódica", "molécula"],
+  minutos: 110,
+  objetivos: [
+    "Explicar cómo ha cambiado la idea de átomo a lo largo de la historia",
+    "Describir los modelos atómicos de Dalton, Thomson, Rutherford y Bohr",
+    "Conocer las partículas del átomo y calcular protones, neutrones y electrones",
+    "Distinguir isótopos e iones",
+    "Usar los símbolos de los elementos y localizar metales, no metales y gases nobles en la tabla periódica",
+    "Diferenciar átomos, moléculas y cristales e interpretar fórmulas sencillas",
+  ],
+  claves: ["átomo", "modelo atómico", "protón", "neutrón", "electrón", "núcleo", "número atómico", "número másico", "isótopo", "ion", "catión", "anión", "elemento", "tabla periódica", "molécula", "cristal", "fórmula"],
   pregunta: {
-    texto: "Si pudieras ampliar un átomo hasta que su núcleo fuera del tamaño de una canica en el centro de un estadio de fútbol, ¿dónde estarían los electrones?",
-    respuesta: "En las gradas más lejanas. Un átomo es casi todo <mark>espacio vacío</mark>: el <b>núcleo</b>, donde está casi toda la masa, es unas 100 000 veces más pequeño que el átomo entero. Los <b>electrones</b>, mucho más ligeros, se mueven alrededor a gran distancia. Esto lo descubrió Rutherford en 1911 disparando partículas contra una lámina de oro.",
+    texto: "Si un átomo fuera del tamaño de un estadio de fútbol, ¿qué tamaño tendría su núcleo?",
+    respuesta: "El de una <b>canica</b> en el centro del campo. Los electrones serían como mosquitos volando por las gradas. Todo lo demás estaría <mark>vacío</mark>. Y, sin embargo, casi toda la masa del átomo está en esa canica. La materia que parece tan sólida, como una mesa o tu mano, está hecha casi por completo de espacio vacío.",
+  },
+  lectura: {
+    titulo: "Las balas que rebotaron en un papel",
+    html: `<p>En 1909, en un laboratorio de Manchester, dos jóvenes ayudantes del físico <b>Ernest Rutherford</b>, Hans Geiger y Ernest Marsden, lanzaban partículas diminutas, llamadas partículas alfa, contra una lámina de oro finísima, más delgada que un papel de fumar. Alrededor colocaron una pantalla que brillaba con un destello cada vez que una partícula la golpeaba.</p>
+<p>En aquella época se pensaba que el átomo era como un pudin: una masa blanda de carga positiva con electrones incrustados. Si era así, las partículas alfa, muy rápidas, debían atravesar la lámina sin apenas desviarse, como balas a través de un papel. Y casi todas lo hicieron. Pero, de vez en cuando, una partícula salía rebotada hacia atrás.</p>
+<p>Rutherford dijo años después que fue «tan increíble como si disparas un proyectil contra una hoja de papel y vuelve para golpearte». Solo había una explicación: dentro del átomo hay un <b>núcleo</b> diminuto, muy denso y con carga positiva, y el resto es casi todo <b>espacio vacío</b>. Aquel experimento cambió para siempre la idea de átomo. En este tema conocerás cómo es por dentro y cómo se organizan los elementos que forman todo lo que existe.</p>`,
   },
   bloques: [
     {
-      html: `<h3>La idea de átomo</h3><p>Hace unos 2400 años, el filósofo griego <b>Demócrito</b> se preguntó qué pasaría si partiéramos un trozo de materia en trozos cada vez más pequeños. Pensó que llegaría un momento en que no se podría dividir más, y llamó a esas partículas <mark>átomos</mark>, que en griego significa «indivisible». Era solo una idea filosófica, sin experimentos. A principios del siglo XIX, el químico inglés <b>John Dalton</b> recuperó la idea para explicar las leyes de las reacciones químicas. Su <mark>teoría atómica</mark> decía que: la materia está formada por átomos indivisibles; todos los átomos de un mismo elemento son iguales en masa y propiedades; los átomos de elementos distintos son diferentes; y los compuestos se forman al unirse átomos de distintos elementos en proporciones fijas. Para Dalton, el átomo era una esfera maciza.</p>`,
+      html: `<h3>1.1 La idea de átomo</h3><p>Hace unos 2.400 años, en la antigua Grecia, el filósofo <b>Demócrito</b> se preguntó qué pasaría si cortásemos un trozo de materia en pedazos cada vez más pequeños. Pensó que llegaría un momento en que no se podría dividir más, y llamó a esas partículas <mark>átomos</mark>, que en griego significa «indivisible». Pero era solo una idea filosófica, sin experimentos que la apoyasen, y el gran pensador Aristóteles la rechazó. Durante casi 2.000 años se aceptó que la materia era continua y estaba formada por cuatro elementos: tierra, agua, aire y fuego.</p><p>A finales del siglo XVIII, los químicos empezaron a medir con balanzas las masas de las sustancias que reaccionaban. Antoine Lavoisier descubrió que la masa se conserva y Joseph Proust, que los compuestos tienen siempre la misma proporción de elementos. Para explicar estas leyes, en 1808 el profesor inglés <b>John Dalton</b> recuperó la idea de átomo, esta vez apoyada en datos experimentales. Desde entonces, el modelo del átomo se ha ido mejorando con cada nuevo descubrimiento.</p>`,
+      svg: H.linea("Historia de la idea de átomo", [["400 a. C.", "Demócrito: átomos"], ["1808", "Dalton: esferas"], ["1897", "Thomson: electrón"], ["1911", "Rutherford: núcleo"], ["1913", "Bohr: órbitas"]], "Del átomo filosófico al científico"),
     },
     {
-      html: `<h3>Los modelos atómicos</h3><p>Hoy sabemos que el átomo sí se puede dividir. Los científicos fueron proponiendo <mark>modelos</mark> cada vez mejores. En 1897, <b>J. J. Thomson</b> descubrió el <b>electrón</b>, una partícula con carga negativa, y propuso que el átomo era una esfera de carga positiva con los electrones incrustados, como las pasas en un bizcocho. En 1911, <b>Ernest Rutherford</b> bombardeó una lámina finísima de oro con partículas positivas: casi todas la atravesaban, pero unas pocas rebotaban. Dedujo que el átomo tiene un <b>núcleo</b> diminuto, positivo y con casi toda la masa, y una <b>corteza</b> donde giran los electrones; el resto es vacío. En 1913, <b>Niels Bohr</b> propuso que los electrones solo pueden girar en ciertas <b>órbitas</b> o niveles de energía. El modelo actual, el cuántico, habla de <b>orbitales</b>: zonas donde es probable encontrar al electrón.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Cuatro modelos atómicos: Dalton, esfera maciza; Thomson, esfera positiva con electrones incrustados; Rutherford, núcleo y electrones girando; Bohr, electrones en órbitas fijas">${BG}
-        ${[[36, 1803, "Dalton"], [100, 1897, "Thomson"], [164, 1911, "Rutherford"], [226, 1913, "Bohr"]].map(([x, a, n]) => `${t(x, 140, n, { size: 10 })}${t(x, 156, String(a), { size: 10, color: "var(--muted)" })}`).join("")}
-        <circle cx="36" cy="80" r="24" fill="#9aa0a6"/>
-        <circle cx="100" cy="80" r="24" fill="var(--red)" fill-opacity=".35" stroke="var(--red)"/>${[[-10, -10], [8, -12], [-12, 8], [10, 8], [0, -2]].map(([a, b]) => `<circle cx="${100 + a}" cy="${80 + b}" r="3.5" fill="var(--pen)"/>`).join("")}
-        <circle cx="164" cy="80" r="4" fill="var(--red)"/><ellipse cx="164" cy="80" rx="26" ry="10" fill="none" stroke="var(--muted)"/><ellipse cx="164" cy="80" rx="26" ry="10" fill="none" stroke="var(--muted)" transform="rotate(60 164 80)"/><ellipse cx="164" cy="80" rx="26" ry="10" fill="none" stroke="var(--muted)" transform="rotate(-60 164 80)"/><circle cx="190" cy="80" r="3" fill="var(--pen)"/><circle cx="151" cy="58" r="3" fill="var(--pen)"/>
-        <circle cx="226" cy="80" r="5" fill="var(--red)"/><circle cx="226" cy="80" r="14" fill="none" stroke="var(--muted)"/><circle cx="226" cy="80" r="24" fill="none" stroke="var(--muted)"/><circle cx="240" cy="80" r="3" fill="var(--pen)"/><circle cx="226" cy="56" r="3" fill="var(--pen)"/><circle cx="209" cy="97" r="3" fill="var(--pen)"/>
-        ${t(130, 30, "evolución de los modelos →", { size: 11, color: "var(--muted)" })}</svg>`,
-      video: { id: "8lX8FjjLKhc", titulo: "Modelos atómicos (Dalton, Thomson, Rutherford, Bohr y Chadwick)", canal: "Es Ciencia", vistas: 2514366 },
+      html: `<h3>1.2 Los modelos atómicos</h3><p>Como los átomos son demasiado pequeños para verlos, los científicos proponen <mark>modelos atómicos</mark>: representaciones que explican los experimentos conocidos. Cuando un experimento nuevo no encaja, el modelo se cambia.</p><p>• <b>Dalton (1808)</b>: los átomos son esferas macizas e indivisibles. Los de un mismo elemento son iguales y los de elementos distintos se diferencian en su masa.<br>• <b>Thomson (1904)</b>: descubrió el <b>electrón</b>, una partícula con carga negativa. Propuso que el átomo es una esfera de carga positiva con los electrones incrustados, como las pasas en un bizcocho.<br>• <b>Rutherford (1911)</b>: tras el experimento de la lámina de oro, propuso que el átomo tiene un <b>núcleo</b> pequeño y positivo donde está casi toda la masa, y una <b>corteza</b> donde los electrones giran alrededor, como planetas alrededor del Sol.<br>• <b>Bohr (1913)</b>: los electrones solo pueden girar en ciertas <b>órbitas</b> o niveles de energía fijos.</p><p>Hoy usamos un modelo más complejo, pero el de Bohr sigue siendo muy útil para entender la química básica.</p>`,
+      svg: H.viejo(S, 1),
+      video: vMod,
     },
     {
-      html: `<h3>Las partículas del átomo</h3><p>Según el modelo actual, el átomo tiene dos zonas. En el <mark>núcleo</mark> están los <b>protones</b>, con carga eléctrica positiva (+), y los <b>neutrones</b>, sin carga, descubiertos por James Chadwick en 1932. Los dos tienen casi la misma masa, y juntos reúnen casi toda la masa del átomo. En la <mark>corteza</mark> se mueven los <b>electrones</b>, con carga negativa (−) y una masa unas 1840 veces menor que la del protón. Un átomo es <b>eléctricamente neutro</b>: tiene el mismo número de protones que de electrones, así que las cargas positivas y negativas se compensan. Las masas de estas partículas son tan pequeñas que se usa una unidad especial, la <b>unidad de masa atómica (u)</b>: un protón o un neutrón tienen aproximadamente 1 u.</p>${tabla(["Partícula", "Dónde está", "Carga", "Masa aproximada"], [["Protón", "núcleo", "+1", "1 u"], ["Neutrón", "núcleo", "0", "1 u"], ["Electrón", "corteza", "−1", "1/1840 u"]])}`,
+      html: `<h3>1.3 Las partículas del átomo</h3><p>Según el modelo actual, el átomo está formado por tres tipos de partículas subatómicas:</p><p>• Los <mark>protones</mark> tienen <b>carga eléctrica positiva</b> (+1) y están en el <b>núcleo</b>.<br>• Los <mark>neutrones</mark> <b>no tienen carga</b> y también están en el núcleo. Los descubrió James Chadwick en 1932.<br>• Los <mark>electrones</mark> tienen <b>carga negativa</b> (−1) y se mueven en la <b>corteza</b>, alrededor del núcleo.</p><p>Los protones y los neutrones tienen una masa parecida, que se toma como unidad: la <b>unidad de masa atómica</b> (u). Los electrones son unas 1.840 veces más ligeros, así que casi toda la masa del átomo está en el núcleo.</p><p>Un átomo es <b>eléctricamente neutro</b>: tiene el mismo número de protones que de electrones, así que las cargas positivas y negativas se compensan. El núcleo es diminuto: si el átomo tuviera el tamaño de un estadio, el núcleo sería una canica. El resto es espacio vacío por donde se mueven los electrones.</p>`,
+      svg: H.tabla("Partículas del átomo: carga, masa y localización", ["Partícula", "Carga", "Masa", "Lugar"], [["Protón", "+1", "1 u", "núcleo"], ["Neutrón", "0", "1 u", "núcleo"], ["Electrón", "−1", "casi 0", "corteza"]]),
     },
     {
-      html: `<h3>Número atómico y número másico</h3><p>Cada elemento se identifica por su <mark>número atómico (Z)</mark>, que es el <b>número de protones</b> de su núcleo. Todos los átomos con 6 protones son carbono; todos los que tienen 8 son oxígeno. Si el átomo es neutro, Z también es el número de electrones. El <mark>número másico (A)</mark> es la <b>suma de protones y neutrones</b>: A = Z + N. Por tanto, el número de neutrones es N = A − Z. Para representar un átomo se escribe el símbolo del elemento con A arriba a la izquierda y Z abajo a la izquierda. Por ejemplo, el sodio-23 tiene Z = 11 y A = 23: tiene 11 protones, 11 electrones y 23 − 11 = 12 neutrones.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Representación de un átomo de sodio: número másico 23 arriba a la izquierda, número atómico 11 abajo a la izquierda y símbolo Na; tiene 11 protones, 11 electrones y 12 neutrones">${BG}
-        ${t(40, 64, "23", { size: 20, color: "var(--red)" })}${t(40, 116, "11", { size: 20, color: "var(--pen)" })}${t(92, 104, "Na", { size: 48, font: D })}
-        ${t(136, 40, "A = protones + neutrones", { size: 9, color: "var(--red)", anchor: "start" })}${fl(132, 36, 58, 56, "var(--red)", 1.5)}
-        ${t(136, 140, "Z = protones", { size: 10, color: "var(--pen)", anchor: "start" })}${fl(132, 136, 58, 114, "var(--pen)", 1.5)}
-        ${t(150, 80, "p⁺ = 11", { size: 12, anchor: "start" })}${t(150, 98, "e⁻ = 11", { size: 12, anchor: "start" })}${t(150, 116, "n = 23 − 11 = 12", { size: 12, anchor: "start" })}</svg>`,
-      video: { id: "5-jW1Tppdgs", titulo: "Calcular protones, neutrones y electrones: número másico y atómico", canal: "Susi Profe", vistas: 2996954 },
+      html: `<h3>1.4 Número atómico y número másico</h3><p>Cada átomo se identifica con dos números:</p><p>• El <mark>número atómico</mark> (<b>Z</b>) es el número de <b>protones</b> del núcleo. Es la «huella dactilar» de cada elemento: todos los átomos de carbono tienen 6 protones y todos los de oxígeno, 8. Si cambiara el número de protones, sería otro elemento. En un átomo neutro, Z también indica el número de electrones.</p><p>• El <mark>número másico</mark> (<b>A</b>) es la suma de <b>protones y neutrones</b>. Como cada uno pesa aproximadamente 1 u, A indica la masa aproximada del átomo.</p><p>Por tanto, el número de <b>neutrones</b> es <b>N = A − Z</b>. Un átomo se representa con su símbolo, el número másico arriba a la izquierda y el número atómico abajo a la izquierda. Por ejemplo, el sodio-23 tiene Z = 11 y A = 23: tiene 11 protones, 11 electrones y 23 − 11 = 12 neutrones.</p><p>Para resolver estos ejercicios, conviene hacer siempre una pequeña tabla con Z, A, protones, neutrones y electrones.</p>`,
+      svg: H.viejo(S, 3),
+      video: vNum,
     },
     {
-      html: `<h3>Los isótopos</h3><p>Los átomos de un mismo elemento siempre tienen el mismo número de protones, pero pueden tener <b>distinto número de neutrones</b>. Se llaman <mark>isótopos</mark>: tienen el mismo Z y distinto A. El hidrógeno tiene tres: el protio (sin neutrones), el deuterio (1 neutrón) y el tritio (2 neutrones). El carbono más abundante es el carbono-12, pero también existe el <b>carbono-14</b>, que es radiactivo y se desintegra poco a poco; midiendo cuánto queda en un hueso o en una madera, los científicos calculan su edad (<b>datación por carbono-14</b>). Otros isótopos radiactivos se usan en medicina para diagnosticar y tratar enfermedades, como el yodo-131 en el tiroides, o en las centrales nucleares, como el uranio-235. Los isótopos de un elemento tienen las mismas propiedades químicas, porque tienen los mismos electrones.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Isótopos del hidrógeno: protio con un protón, deuterio con un protón y un neutrón, tritio con un protón y dos neutrones; los tres tienen un electrón">${BG}
-        ${[[46, 0, "protio", "¹H"], [130, 1, "deuterio", "²H"], [214, 2, "tritio", "³H"]].map(([x, n, s, f]) => `<circle cx="${x}" cy="80" r="34" fill="none" stroke="var(--muted)" stroke-dasharray="3 3"/><circle cx="${x + 24}" cy="56" r="4" fill="var(--pen)"/><circle cx="${x - (n ? 5 : 0)}" cy="80" r="7" fill="var(--red)"/>${n > 0 ? `<circle cx="${x + 6}" cy="${n === 2 ? 74 : 80}" r="7" fill="#9aa0a6"/>` : ""}${n === 2 ? `<circle cx="${x + 4}" cy="88" r="7" fill="#9aa0a6"/>` : ""}${t(x, 136, s, { size: 11 })}${t(x, 156, f, { size: 13, color: "var(--muted)" })}`).join("")}
-        ${t(130, 174, "mismo Z = 1, distinto número de neutrones", { size: 9, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.5 Los isótopos</h3><p>Todos los átomos de un elemento tienen el mismo número de protones, pero no siempre el mismo número de neutrones. Los <mark>isótopos</mark> son átomos de un mismo elemento (igual Z) con distinto número de neutrones (distinto A). Tienen las mismas propiedades químicas, pero distinta masa.</p><p>El hidrógeno tiene tres isótopos: el <b>protio</b> (1 protón, 0 neutrones), el más abundante; el <b>deuterio</b> (1 protón, 1 neutrón); y el <b>tritio</b> (1 protón, 2 neutrones). El carbono tiene dos isótopos estables, carbono-12 y carbono-13, y uno inestable, el <b>carbono-14</b>.</p><p>Algunos isótopos son <b>radiactivos</b>: su núcleo es inestable y se desintegra emitiendo radiación. Tienen usos muy importantes. El carbono-14 permite calcular la edad de restos de seres vivos de hasta unos 50.000 años, como huesos o madera de yacimientos. En medicina, el yodo-131 se usa para tratar enfermedades de la glándula tiroides y otros isótopos sirven para hacer diagnósticos por imagen. El uranio-235 es el combustible de las centrales nucleares.</p>`,
+      svg: H.viejo(S, 4),
     },
     {
-      html: `<h3>Los iones</h3><p>Los protones están muy sujetos en el núcleo, pero los electrones de la corteza pueden ganarse o perderse. Cuando un átomo gana o pierde electrones, deja de ser neutro y se convierte en un <mark>ion</mark>, una partícula con carga eléctrica. Si <b>pierde electrones</b>, le quedan más protones que electrones y su carga es positiva: es un <b>catión</b>. Por ejemplo, el sodio pierde un electrón y forma Na⁺. Los metales tienden a formar cationes. Si <b>gana electrones</b>, su carga es negativa: es un <b>anión</b>. Por ejemplo, el cloro gana un electrón y forma Cl⁻. Los no metales tienden a formar aniones. Los iones están en todas partes: la sal común está formada por iones Na⁺ y Cl⁻; las bebidas isotónicas reponen iones que se pierden con el sudor, y nuestros nervios funcionan gracias a iones de sodio y potasio.</p>`,
+      html: `<h3>1.6 Los iones</h3><p>Los electrones de la capa más externa de un átomo no están muy sujetos: un átomo puede <b>ganarlos</b> o <b>perderlos</b>. Cuando esto ocurre, deja de ser neutro y se convierte en un <mark>ion</mark>, una partícula con carga eléctrica. El número de protones no cambia nunca en estos procesos: si cambiara, sería otro elemento.</p><p>• Si el átomo <b>pierde electrones</b>, queda con más protones que electrones y su carga es positiva. Se llama <mark>catión</mark>. Por ejemplo, el sodio pierde un electrón y forma Na⁺; el calcio pierde dos y forma Ca²⁺. Los metales suelen formar cationes.<br>• Si el átomo <b>gana electrones</b>, queda con más electrones que protones y su carga es negativa. Se llama <mark>anión</mark>. El cloro gana un electrón y forma Cl⁻; el oxígeno gana dos y forma O²⁻. Los no metales suelen formar aniones.</p><p>Los iones son muy importantes: la sal común está formada por iones Na⁺ y Cl⁻, y en nuestro cuerpo los iones de sodio, potasio y calcio permiten que funcionen los nervios y los músculos. Las bebidas isotónicas reponen esos iones al hacer deporte.</p>`,
+      svg: H.compara("Diferencias entre catión y anión", ["Catión (+)", "var(--red)", ["pierde electrones", "más protones que electrones", "Na⁺, Ca²⁺", "suelen ser metales"]], ["Anión (−)", "var(--pen)", ["gana electrones", "más electrones que protones", "Cl⁻, O²⁻", "suelen ser no metales"]], "Los protones no cambian nunca"),
     },
     {
-      html: `<h3>Los elementos y sus símbolos</h3><p>Un <mark>elemento químico</mark> es una sustancia formada por átomos con el mismo número atómico. Se conocen 118: unos 90 existen en la naturaleza y el resto se han fabricado en laboratorios. Cada elemento tiene un <mark>símbolo</mark> de una o dos letras, la primera en mayúscula y la segunda en minúscula. Muchos vienen de su nombre en latín o griego: Fe (hierro, de <i>ferrum</i>), Au (oro, de <i>aurum</i>), Ag (plata, de <i>argentum</i>), Na (sodio, de <i>natrium</i>), Pb (plomo, de <i>plumbum</i>). Otros homenajean a científicos (Es, einstenio; Cm, curio), lugares (Ge, germanio; Po, polonio) o planetas (U, uranio). En el universo, los más abundantes son el hidrógeno y el helio; en la corteza terrestre, el oxígeno y el silicio; y en nuestro cuerpo, el oxígeno, el carbono, el hidrógeno y el nitrógeno.</p>${tabla(["Elemento", "Símbolo", "Elemento", "Símbolo"], [["Hidrógeno", "H", "Sodio", "Na"], ["Carbono", "C", "Hierro", "Fe"], ["Nitrógeno", "N", "Cobre", "Cu"], ["Oxígeno", "O", "Plata", "Ag"], ["Cloro", "Cl", "Oro", "Au"], ["Calcio", "Ca", "Mercurio", "Hg"]])}`,
+      html: `<h3>1.7 Los elementos y sus símbolos</h3><p>Un <mark>elemento químico</mark> es el conjunto de todos los átomos que tienen el mismo número atómico. Hoy se conocen <b>118 elementos</b>: unos 90 se encuentran en la naturaleza y el resto se han fabricado en laboratorios.</p><p>Cada elemento se representa con un <mark>símbolo</mark>, un sistema que propuso el químico sueco Jöns Jacob Berzelius en 1814. El símbolo tiene una o dos letras: la primera siempre en <b>mayúscula</b> y la segunda, si la hay, en <b>minúscula</b>. Así, Co es el cobalto y CO es otra cosa: el monóxido de carbono, un compuesto de carbono y oxígeno.</p><p>Muchos símbolos vienen del nombre en latín o en griego, por eso no siempre coinciden con el nombre en español: Na (sodio) viene de <i>natrium</i>; K (potasio), de <i>kalium</i>; Fe (hierro), de <i>ferrum</i>; Au (oro), de <i>aurum</i>; Ag (plata), de <i>argentum</i>; Pb (plomo), de <i>plumbum</i>; y Hg (mercurio), de <i>hydrargyrum</i>, «plata líquida». Otros nombres recuerdan a planetas (uranio), países (germanio, polonio) o científicos (einstenio, curio).</p>`,
+      svg: H.tabla("Algunos elementos con símbolo de origen latino", ["Elemento", "Símbolo", "Origen"], [["Sodio", "Na", "natrium"], ["Potasio", "K", "kalium"], ["Hierro", "Fe", "ferrum"], ["Oro", "Au", "aurum"], ["Plata", "Ag", "argentum"]]),
     },
     {
-      html: `<h3>La tabla periódica</h3><p>En 1869, el químico ruso <b>Dmitri Mendeléiev</b> ordenó los 63 elementos conocidos en una tabla según sus propiedades y dejó huecos para elementos que aún no se conocían, prediciendo cómo serían. Cuando se descubrieron, acertó. Hoy la <mark>tabla periódica</mark> ordena los elementos por su <b>número atómico creciente</b>. Tiene 7 filas horizontales, los <mark>periodos</mark>, y 18 columnas, los <mark>grupos</mark> o familias. Los elementos de un mismo grupo tienen <b>propiedades químicas parecidas</b> porque tienen el mismo número de electrones en su última capa. Algunos grupos tienen nombre propio: los <b>alcalinos</b> (grupo 1: Li, Na, K), muy reactivos; los <b>alcalinotérreos</b> (grupo 2: Mg, Ca); los <b>halógenos</b> (grupo 17: F, Cl, Br, I); y los <b>gases nobles</b> (grupo 18: He, Ne, Ar), que casi no reaccionan.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tabla periódica simplificada con 18 grupos y 7 periodos: metales a la izquierda y en el centro, no metales a la derecha arriba, gases nobles en la última columna e hidrógeno arriba a la izquierda">${BG}
-        ${(() => { let s = ""; const w = 12.6, h = 13, x0 = 16, y0 = 26; const noMet = { 1: [14, 15, 16, 17], 2: [15, 16, 17], 3: [16, 17], 4: [17] }; for (let p = 0; p < 7; p++) for (let g = 0; g < 18; g++) { let ok = (p === 0 && (g === 0 || g === 17)) || (p < 3 && (g < 2 || g > 11)) || p >= 3; if (!ok) continue; let c = "var(--pen)"; if (g === 17) c = "#7b3fc4"; else if (p === 0 && g === 0) c = "var(--leaf)"; else if ((noMet[p] || []).includes(g + 1) || (p === 1 && g === 13)) c = "var(--leaf)"; s += `<rect x="${x0 + g * w}" y="${y0 + p * h}" width="${w - 1.5}" height="${h - 1.5}" rx="1.5" fill="${c}" fill-opacity=".7"/>`; } return s; })()}
-        <rect x="16" y="130" width="10" height="10" fill="var(--pen)" fill-opacity=".7"/>${t(30, 139, "metales", { size: 10, anchor: "start" })}
-        <rect x="96" y="130" width="10" height="10" fill="var(--leaf)" fill-opacity=".7"/>${t(110, 139, "no metales", { size: 10, anchor: "start" })}
-        <rect x="186" y="130" width="10" height="10" fill="#7b3fc4" fill-opacity=".7"/>${t(200, 139, "nobles", { size: 10, anchor: "start" })}
-        ${t(20, 20, "grupos →", { size: 9, color: "var(--muted)", anchor: "start" })}${t(130, 164, "periodos: filas · grupos: columnas", { size: 10, color: "var(--muted)" })}</svg>`,
-      video: { id: "FqZ3BSeu1d0", titulo: "Entendiendo la tabla periódica", canal: "UBUinvestiga", vistas: 2428612 },
+      html: `<h3>1.8 La tabla periódica</h3><p>En 1869, el químico ruso <b>Dmitri Mendeléiev</b> ordenó los 63 elementos conocidos en una tabla según su masa y sus propiedades. Su genialidad fue dejar <b>huecos</b> para elementos que todavía no se conocían y predecir sus propiedades. Años después se descubrieron el galio y el germanio, y encajaron perfectamente.</p><p>Hoy la <mark>tabla periódica</mark> ordena los elementos por su <b>número atómico</b> creciente. Tiene dos tipos de líneas:</p><p>• Las filas horizontales se llaman <mark>periodos</mark>. Hay 7, y los elementos de un mismo periodo tienen el mismo número de capas de electrones.<br>• Las columnas verticales se llaman <mark>grupos</mark>. Hay 18, y los elementos de un mismo grupo tienen <b>propiedades químicas parecidas</b> porque tienen el mismo número de electrones en la capa externa.</p><p>Algunos grupos tienen nombre propio: el grupo 1 son los <b>alcalinos</b> (litio, sodio, potasio), metales muy reactivos; el 2, los <b>alcalinotérreos</b> (magnesio, calcio); el 17, los <b>halógenos</b> (flúor, cloro, bromo, yodo); y el 18, los <b>gases nobles</b>.</p>`,
+      svg: H.viejo(S, 7),
     },
     {
-      html: `<h3>Metales, no metales y gases nobles</h3><p>Una línea en escalera divide la tabla periódica. A la izquierda y en el centro están los <mark>metales</mark>, que son la mayoría: tienen <b>brillo metálico</b>, son sólidos a temperatura ambiente (excepto el mercurio), <b>conducen bien</b> el calor y la electricidad, y son dúctiles (se estiran en hilos) y maleables (se laminan). Tienden a perder electrones y formar cationes. A la derecha están los <mark>no metales</mark>: no tienen brillo, conducen mal el calor y la electricidad, y muchos son gases (oxígeno, nitrógeno, cloro); los sólidos, como el azufre o el carbono, son frágiles. Tienden a ganar electrones. Junto a la escalera están los <b>semimetales</b>, como el silicio, con propiedades intermedias, muy usados en electrónica. En la última columna están los <mark>gases nobles</mark>, muy estables, usados en carteles luminosos (neón) y globos (helio).</p>`,
+      html: `<h3>1.9 Metales, no metales y gases nobles</h3><p>En la tabla periódica, una línea en escalera separa dos grandes tipos de elementos.</p><p>Los <mark>metales</mark> están a la izquierda y en el centro, y son la mayoría, más de 90. Tienen <b>brillo</b> metálico, son buenos <b>conductores</b> del calor y la electricidad, son <b>dúctiles</b> (se estiran en hilos) y <b>maleables</b> (se aplastan en láminas). Casi todos son sólidos a temperatura ambiente, excepto el mercurio, que es líquido. Tienden a formar cationes. Ejemplos: hierro, cobre, aluminio, oro.</p><p>Los <mark>no metales</mark> están a la derecha, arriba. No tienen brillo, conducen mal el calor y la electricidad, y los sólidos son frágiles. Pueden ser gases (oxígeno, nitrógeno, cloro), sólidos (carbono, azufre, fósforo) o líquidos (bromo). Tienden a formar aniones.</p><p>Los <mark>gases nobles</mark> (helio, neón, argón, kriptón, xenón y radón) ocupan la última columna. Son gases que casi no reaccionan con nada, porque su capa externa de electrones está completa. El <b>hidrógeno</b> es un caso especial: está arriba a la izquierda, pero es un no metal.</p>`,
+      svg: H.compara("Propiedades de los metales y los no metales", ["Metales", "var(--pen)", ["brillo metálico", "conducen bien", "dúctiles y maleables", "forman cationes"]], ["No metales", "var(--leaf)", ["sin brillo", "conducen mal", "frágiles si son sólidos", "forman aniones"]]),
     },
     {
-      html: `<h3>Átomos, moléculas y cristales</h3><p>En la naturaleza, casi ningún átomo está solo: los átomos se unen mediante <mark>enlaces químicos</mark>. Solo los gases nobles existen como átomos aislados. Cuando unos pocos átomos se unen formando una agrupación independiente, se forma una <mark>molécula</mark>. Puede ser de un elemento, como el oxígeno que respiramos (O₂), el nitrógeno (N₂) o el ozono (O₃), o de un compuesto, como el agua (H₂O), el dióxido de carbono (CO₂) o el amoniaco (NH₃). Otras veces, millones de átomos o iones se unen ordenadamente formando una red tridimensional llamada <mark>cristal</mark>: así son la sal común, formada por iones Na⁺ y Cl⁻ que se alternan, el diamante, formado solo por átomos de carbono, y los metales. La <b>fórmula química</b> indica qué elementos forman una sustancia y en qué proporción.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Moléculas de oxígeno O2 y agua H2O, y un cristal de sal con iones de sodio y cloro alternados en una red">${BG}
-        <circle cx="34" cy="60" r="12" fill="#e04a3a" stroke="var(--ink)"/><circle cx="56" cy="60" r="12" fill="#e04a3a" stroke="var(--ink)"/>${t(45, 96, "O₂", { size: 13 })}
-        <circle cx="100" cy="60" r="12" fill="#e04a3a" stroke="var(--ink)"/><circle cx="86" cy="74" r="8" fill="#fff" stroke="var(--ink)"/><circle cx="114" cy="74" r="8" fill="#fff" stroke="var(--ink)"/>${t(100, 106, "H₂O", { size: 13 })}
-        ${[0, 1, 2, 3].map((i) => [0, 1, 2, 3].map((j) => `<circle cx="${160 + i * 22}" cy="${30 + j * 22}" r="${(i + j) % 2 ? 9 : 6}" fill="${(i + j) % 2 ? "var(--leaf)" : "#9a66e0"}"/>`).join("")).join("")}
-        ${t(193, 136, "cristal de NaCl", { size: 11 })}${t(70, 136, "moléculas", { size: 11 })}
-        <circle cx="160" cy="160" r="5" fill="#9a66e0"/>${t(170, 164, "Na⁺", { size: 10, anchor: "start" })}<circle cx="206" cy="160" r="7" fill="var(--leaf)"/>${t(218, 164, "Cl⁻", { size: 10, anchor: "start" })}</svg>`,
+      html: `<h3>1.10 Los elementos de la Tierra y de la vida</h3><p>Aunque existen 118 elementos, unos pocos forman casi toda la materia que nos rodea.</p><p>En el <b>universo</b>, el elemento más abundante con diferencia es el <b>hidrógeno</b> (unos tres cuartos de la materia), seguido del <b>helio</b>. Los demás elementos se fabricaron en el interior de las estrellas y se dispersaron cuando estas explotaron. Por eso se dice que estamos hechos de «polvo de estrellas».</p><p>En la <b>corteza terrestre</b> predominan el <b>oxígeno</b> (casi la mitad de la masa) y el <b>silicio</b>, que forman las rocas y la arena, seguidos del aluminio, el hierro y el calcio.</p><p>En los <b>seres vivos</b>, cuatro elementos forman el 96 % de la masa: <b>oxígeno, carbono, hidrógeno y nitrógeno</b>. El oxígeno es el más abundante en nuestro cuerpo porque estamos formados en gran parte por agua. El carbono es la base de todas las moléculas de la vida. Además necesitamos pequeñas cantidades de otros, como el calcio de los huesos, el hierro de la sangre, el fósforo, el sodio o el yodo, que tomamos con la alimentación.</p>`,
+      svg: H.barras("Elementos más abundantes en el cuerpo humano, en tanto por ciento de masa", [["Oxígeno", 65, "65 %"], ["Carbono", 18, "18 %"], ["Hidrógeno", 10, "10 %"], ["Nitrógeno", 3, "3 %"], ["Otros", 4, "4 %"]], "Cuerpo humano (% en masa)"),
+    },
+    {
+      html: `<h3>1.11 Átomos, moléculas y cristales</h3><p>Los átomos casi nunca están sueltos. Solo los gases nobles existen como átomos aislados. El resto se <b>une</b> con otros átomos de dos formas principales:</p><p>• Formando <mark>moléculas</mark>: grupos de un número fijo y pequeño de átomos unidos. Pueden ser moléculas de un elemento, como el oxígeno que respiramos (O₂, dos átomos de oxígeno) o el ozono (O₃), o moléculas de un compuesto, como el agua (H₂O) o el dióxido de carbono (CO₂). Las sustancias moleculares suelen ser gases o líquidos, o sólidos blandos, como el azúcar.</p><p>• Formando <mark>cristales</mark>: redes ordenadas de millones de átomos o iones que se repiten en las tres direcciones del espacio. La sal común es un cristal de iones Na⁺ y Cl⁻ alternados; los metales son cristales de átomos metálicos; el diamante es un cristal de átomos de carbono. Los cristales suelen ser sólidos con puntos de fusión altos.</p><p>El carbono muestra lo importante que es cómo se unen los átomos: ordenado de una forma es diamante, durísimo y transparente; de otra, es grafito, negro y blando, la mina de los lápices.</p>`,
+      svg: H.viejo(S, 9),
+    },
+    {
+      html: `<h3>1.12 Qué nos dice una fórmula química</h3><p>Igual que los elementos tienen símbolos, las sustancias tienen <mark>fórmulas químicas</mark>. La fórmula indica qué elementos forman la sustancia y en qué proporción. Se escriben los símbolos de los elementos y, como <b>subíndice</b>, el número de átomos de cada uno. Si no hay subíndice, se entiende que es 1.</p><p>Así, <b>H₂O</b> indica que la molécula de agua tiene 2 átomos de hidrógeno y 1 de oxígeno. <b>CO₂</b>, el dióxido de carbono, tiene 1 átomo de carbono y 2 de oxígeno. <b>NH₃</b>, el amoníaco, tiene 1 de nitrógeno y 3 de hidrógeno. <b>C₆H₁₂O₆</b>, la glucosa, tiene 6 de carbono, 12 de hidrógeno y 6 de oxígeno: 24 átomos en total.</p><p>En los cristales, la fórmula indica la proporción: <b>NaCl</b> significa que hay un ion sodio por cada ion cloruro. No hay que confundir el subíndice con un número delante de la fórmula: 2 H₂O significa dos moléculas de agua. Las fórmulas son el idioma común de los químicos de todo el mundo, y las usarás en el tema de los cambios químicos.</p>`,
+      svg: H.tabla("Fórmulas de sustancias conocidas y lo que significan", ["Fórmula", "Sustancia", "Átomos"], [["H₂O", "agua", "2 H + 1 O"], ["CO₂", "dióxido de carbono", "1 C + 2 O"], ["O₂", "oxígeno", "2 O"], ["NH₃", "amoníaco", "1 N + 3 H"], ["NaCl", "sal común", "1 Na : 1 Cl"]]),
     },
   ],
-  figura: {
-    titulo: "Cómo es un átomo",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Átomo de carbono: núcleo con 6 protones y 6 neutrones y corteza con 6 electrones; número atómico 6 y número másico 12">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      <circle cx="170" cy="115" r="90" fill="none" stroke="var(--muted)" stroke-dasharray="4 4"/><circle cx="170" cy="115" r="50" fill="none" stroke="var(--muted)" stroke-dasharray="4 4"/>
-      ${[[-7, -7, 1], [7, -7, 0], [-7, 7, 0], [7, 7, 1], [0, -14, 0], [0, 14, 1], [-14, 0, 1], [14, 0, 0], [0, 0, 1], [-10, -16, 0], [10, 16, 1], [16, -10, 0]].map(([a, b, p]) => `<circle cx="${170 + a}" cy="${115 + b}" r="8" fill="${p ? "var(--red)" : "#9aa0a6"}" stroke="var(--paper)"/>`).join("")}
-      ${[[220, 115], [120, 115], [170, 25], [234, 178], [106, 52], [106, 178]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="7" fill="var(--pen)"/>`).join("")}
-      <circle cx="320" cy="60" r="8" fill="var(--red)"/>${t(338, 65, "protón (+) en el núcleo", { size: 15, anchor: "start" })}
-      <circle cx="320" cy="100" r="8" fill="#9aa0a6"/>${t(338, 105, "neutrón (sin carga) en el núcleo", { size: 15, anchor: "start" })}
-      <circle cx="320" cy="140" r="7" fill="var(--pen)"/>${t(338, 145, "electrón (−) en la corteza", { size: 15, anchor: "start" })}
-      ${t(320, 192, "Carbono: Z = 6, A = 12", { size: 17, color: "var(--leaf)", anchor: "start", font: D })}
-    </svg>`,
-  },
-  video: { id: "D0V-N3TrAkY", titulo: "¿Qué son los átomos?", canal: "FlexFlix Kids en Español", vistas: 2187555, megusta: 42168, busqueda: "el átomo y sus partes" },
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    { enunciado: "El átomo de aluminio tiene Z = 13 y A = 27. ¿Cuántos protones, electrones y neutrones tiene?",
-      pasos: ["Protones = Z = 13.", "Al ser neutro, electrones = protones = 13.", "Neutrones = A − Z = 27 − 13 = 14."],
-      resultado: "13 protones, 13 electrones y 14 neutrones." },
-    { enunciado: "Un ion tiene 20 protones, 18 electrones y 20 neutrones. ¿De qué elemento es? ¿Qué carga tiene?",
-      pasos: ["Z = 20: es calcio (Ca).", "Carga = protones − electrones = 20 − 18 = +2.", "A = 20 + 20 = 40."],
-      resultado: "Es el catión Ca²⁺ (calcio-40)." },
-    { enunciado: "El cloro-35 y el cloro-37 son isótopos. ¿En qué se parecen y en qué se diferencian? (Z = 17)",
-      pasos: ["Los dos tienen 17 protones y, si son neutros, 17 electrones.", "Cloro-35: 35 − 17 = 18 neutrones.", "Cloro-37: 37 − 17 = 20 neutrones."],
-      resultado: "Mismos protones y electrones; distinto número de neutrones (18 y 20)." },
+    { enunciado: "Un átomo de aluminio tiene Z = 13 y A = 27. ¿Cuántos protones, electrones y neutrones tiene?", pasos: ["Protones = Z = 13.", "Átomo neutro: electrones = protones = 13.", "Neutrones = A − Z = 27 − 13 = 14."], resultado: "13 protones, 13 electrones y 14 neutrones." },
+    { enunciado: "Un átomo tiene 17 protones y 18 neutrones. ¿Cuáles son Z y A? ¿Qué elemento es?", pasos: ["Z = número de protones = 17.", "A = protones + neutrones = 17 + 18 = 35.", "En la tabla periódica, Z = 17 es el cloro."], resultado: "Z = 17, A = 35: cloro-35." },
+    { enunciado: "¿Cuántas partículas tiene el ion Mg²⁺ (Z = 12, A = 24)?", pasos: ["Protones = 12; neutrones = 24 − 12 = 12.", "Carga 2+: ha perdido 2 electrones.", "Electrones = 12 − 2 = 10."], resultado: "12 protones, 12 neutrones y 10 electrones." },
+    { enunciado: "¿Cuántos electrones tiene el ion S²⁻ (Z = 16)?", pasos: ["Átomo neutro: 16 electrones.", "Carga 2−: ha ganado 2 electrones.", "16 + 2 = 18."], resultado: "18 electrones." },
+    { enunciado: "El carbono-12 y el carbono-14, ¿son el mismo elemento? ¿En qué se diferencian?", pasos: ["Los dos son carbono: tienen Z = 6, 6 protones.", "Neutrones: 12 − 6 = 6 y 14 − 6 = 8.", "Son isótopos."], resultado: "Mismo elemento; se diferencian en 2 neutrones." },
+    { enunciado: "¿Cuántos átomos de cada elemento hay en 3 moléculas de CO₂?", pasos: ["Una molécula: 1 C y 2 O.", "Tres moléculas: 3 · 1 = 3 C y 3 · 2 = 6 O."], resultado: "3 átomos de carbono y 6 de oxígeno (9 átomos)." },
   ],
   errores: [
-    "Pensar que el número másico es el número de neutrones: es protones más neutrones.",
-    "Creer que un ion positivo ha ganado protones: ha perdido electrones.",
-    "Escribir los símbolos con las dos letras en mayúscula: es Co (cobalto), no CO (monóxido de carbono).",
-    "Confundir periodos (filas) con grupos (columnas) en la tabla periódica.",
+    "Pensar que el número másico es el número de neutrones: es la suma de protones y neutrones.",
+    "Creer que al formar un ion cambian los protones: solo se ganan o pierden electrones.",
+    "Decir que un catión ha ganado electrones: el catión es positivo porque los ha perdido.",
+    "Escribir los símbolos con las dos letras en mayúscula, como «CA» para el calcio: es Ca.",
     "Pensar que los isótopos son elementos distintos: son el mismo elemento con distinto número de neutrones.",
+    "Confundir el subíndice con el coeficiente: H₂O es una molécula con 2 H; 2 H₂O son dos moléculas.",
   ],
-  ejercicios: [
-    { q: "Ordena cronológicamente los modelos de Bohr, Dalton, Rutherford y Thomson y di qué aportó cada uno.", sol: "Dalton (átomo indivisible), Thomson (electrones en una esfera positiva), Rutherford (núcleo y corteza, mucho vacío), Bohr (electrones en órbitas fijas)." },
-    { q: "¿Qué descubrió Rutherford con su experimento de la lámina de oro?", sol: "Que el átomo es casi todo vacío y tiene un núcleo pequeño, positivo y con casi toda la masa." },
-    { q: "Completa: el oxígeno-16 (Z = 8) tiene … protones, … neutrones y … electrones.", sol: "8 protones, 8 neutrones y 8 electrones." },
-    { q: "Un átomo tiene 26 protones y 30 neutrones. Calcula Z y A y di qué elemento es.", sol: "Z = 26, A = 56. Es el hierro." },
-    { q: "Indica protones y electrones de: Na⁺ (Z = 11), O²⁻ (Z = 8), Al³⁺ (Z = 13).", sol: "Na⁺: 11 p, 10 e. O²⁻: 8 p, 10 e. Al³⁺: 13 p, 10 e." },
-    { q: "¿Qué es un catión y qué es un anión? Pon un ejemplo de cada.", sol: "Catión: ion positivo, ha perdido electrones (Na⁺). Anión: ion negativo, ha ganado electrones (Cl⁻)." },
-    { q: "Escribe el símbolo de: potasio, azufre, plomo, cinc y helio.", sol: "K, S, Pb, Zn y He." },
-    { q: "¿Por qué el sodio y el potasio tienen propiedades parecidas?", sol: "Porque están en el mismo grupo (alcalinos) y tienen el mismo número de electrones en la última capa." },
-    { q: "Clasifica en metal o no metal: cobre, azufre, oxígeno, hierro, carbono, oro.", sol: "Metales: cobre, hierro, oro. No metales: azufre, oxígeno, carbono." },
-    { q: "Explica la diferencia entre una molécula y un cristal y pon un ejemplo de cada.", sol: "Una molécula es una agrupación pequeña de átomos (H₂O, O₂). Un cristal es una red ordenada de muchísimos átomos o iones (sal común, diamante)." },
-  ],
-  quiz: [
-    { q: "La palabra «átomo» significa…", o: ["pequeño", "indivisible", "partícula"], a: 1, e: "Indivisible, en griego." },
-    { q: "El electrón lo descubrió…", o: ["Dalton", "Thomson", "Bohr"], a: 1, e: "Thomson, en 1897." },
-    { q: "En el núcleo del átomo hay…", o: ["protones y electrones", "protones y neutrones", "solo electrones"], a: 1, e: "Protones y neutrones." },
-    { q: "El número atómico Z indica el número de…", o: ["neutrones", "protones", "protones y neutrones"], a: 1, e: "Protones." },
-    { q: "Un átomo con Z = 6 y A = 14 tiene…", o: ["6 neutrones", "8 neutrones", "14 neutrones"], a: 1, e: "14 − 6 = 8." },
-    { q: "Los isótopos tienen distinto número de…", o: ["protones", "neutrones", "electrones"], a: 1, e: "Neutrones." },
-    { q: "Un átomo que gana electrones forma un…", o: ["catión", "anión", "isótopo"], a: 1, e: "Anión, negativo." },
-    { q: "El símbolo del hierro es…", o: ["Hi", "Fe", "H"], a: 1, e: "Fe, de ferrum." },
-    { q: "Las columnas de la tabla periódica son…", o: ["periodos", "grupos", "capas"], a: 1, e: "Grupos." },
-    { q: "Los gases nobles están en el grupo…", o: ["1", "17", "18"], a: 2, e: "El 18." },
-  ],
-  examen: [
-    { q: "La tabla periódica actual ordena los elementos por…", o: ["su masa", "su número atómico", "su descubrimiento"], a: 1, e: "Por Z creciente." },
-    { q: "¿Cuál es un no metal?", o: ["El sodio", "El azufre", "El cobre"], a: 1, e: "El azufre." },
-    { q: "La molécula de agua tiene…", o: ["2 H y 1 O", "1 H y 2 O", "2 H y 2 O"], a: 0, e: "H₂O." },
-  ],
-  feynman: ["Cómo fue cambiando la idea de átomo de Dalton a Bohr", "Cómo se calculan protones, neutrones y electrones con Z y A", "Cómo está organizada la tabla periódica"],
-  mapa: mapa("EL ÁTOMO", "var(--eso)", [
+  ejercicios: H.niveles([
+    ["¿Qué significa la palabra «átomo» y quién la propuso?", "Significa «indivisible» en griego. La propuso el filósofo griego Demócrito hace unos 2.400 años."],
+    ["Describe el modelo atómico de Thomson.", "El átomo es una esfera de carga positiva con los electrones, negativos, incrustados en ella, como las pasas en un bizcocho."],
+    ["Completa: el protón tiene carga ___ y está en el ___; el electrón tiene carga ___ y está en la ___.", "Positiva, núcleo; negativa, corteza."],
+    ["¿Qué es el número atómico? ¿Y el número másico?", "Z es el número de protones. A es la suma de protones y neutrones."],
+    ["Un átomo tiene Z = 8 y A = 16. Calcula sus protones, electrones y neutrones.", "8 protones, 8 electrones y 16 − 8 = 8 neutrones. Es el oxígeno."],
+    ["¿Qué son los isótopos? Pon un ejemplo.", "Átomos del mismo elemento (mismo Z) con distinto número de neutrones (distinto A). Ejemplo: carbono-12 y carbono-14."],
+    ["¿Qué es un catión? ¿Y un anión?", "Catión: ion positivo que ha perdido electrones. Anión: ion negativo que ha ganado electrones."],
+    ["Escribe el símbolo de: hierro, sodio, oro, calcio, oxígeno y cloro.", "Fe, Na, Au, Ca, O y Cl."],
+    ["¿Qué son los periodos y los grupos de la tabla periódica?", "Periodos: las 7 filas horizontales. Grupos: las 18 columnas verticales, con elementos de propiedades parecidas."],
+    ["Escribe tres propiedades de los metales.", "Tienen brillo metálico, conducen bien el calor y la electricidad, y son dúctiles y maleables."],
+  ], [
+    ["¿Qué observación del experimento de Rutherford le llevó a proponer el núcleo?", "Que algunas partículas alfa rebotaban hacia atrás al chocar con la lámina de oro. Eso solo se explicaba si había una zona muy pequeña, densa y positiva: el núcleo."],
+    ["Completa la tabla para el potasio (Z = 19, A = 39): protones, neutrones, electrones.", "Protones 19, electrones 19, neutrones 39 − 19 = 20."],
+    ["Un átomo tiene 26 protones y 30 neutrones. Calcula Z y A y busca qué elemento es.", "Z = 26, A = 56. Es el hierro (Fe-56)."],
+    ["Calcula los protones, neutrones y electrones del ion Ca²⁺ (Z = 20, A = 40).", "20 protones, 20 neutrones y 20 − 2 = 18 electrones."],
+    ["Calcula los protones, neutrones y electrones del ion F⁻ (Z = 9, A = 19).", "9 protones, 10 neutrones y 9 + 1 = 10 electrones."],
+    ["¿Por qué el átomo es eléctricamente neutro?", "Porque tiene el mismo número de protones (positivos) que de electrones (negativos), y sus cargas se compensan."],
+    ["Explica por qué Co y CO no son lo mismo.", "Co, con la o minúscula, es el símbolo del elemento cobalto. CO, con dos mayúsculas, es la fórmula del monóxido de carbono, un compuesto de un carbono y un oxígeno."],
+    ["¿Por qué los elementos de un mismo grupo tienen propiedades parecidas?", "Porque tienen el mismo número de electrones en su capa más externa, que es la que interviene en las reacciones químicas."],
+    ["Indica cuántos átomos de cada elemento hay en: H₂SO₄, CaCO₃ y C₆H₁₂O₆.", "H₂SO₄: 2 H, 1 S y 4 O. CaCO₃: 1 Ca, 1 C y 3 O. C₆H₁₂O₆: 6 C, 12 H y 6 O."],
+    ["Clasifica como átomos aislados, moléculas o cristales: helio, agua, sal común, oxígeno del aire, hierro.", "Átomos aislados: helio. Moléculas: agua (H₂O) y oxígeno (O₂). Cristales: sal común (iónico) y hierro (metálico)."],
+    ["¿Por qué los gases nobles casi no reaccionan?", "Porque su capa externa de electrones está completa y no tienden a ganar, perder ni compartir electrones."],
+    ["¿Por qué decimos que estamos hechos de «polvo de estrellas»?", "Porque los elementos de nuestro cuerpo, como el carbono o el oxígeno, se formaron en el interior de estrellas que después explotaron y dispersaron esa materia."],
+  ], [
+    ["Explica por qué el modelo de Dalton tuvo que ser sustituido por el de Thomson, y este por el de Rutherford.", "El de Dalton decía que el átomo era indivisible, pero Thomson descubrió el electrón, una partícula más pequeña que el átomo. El de Thomson no explicaba que algunas partículas alfa rebotaran en la lámina de oro; para ello hacía falta un núcleo pequeño y denso, como propuso Rutherford."],
+    ["Completa: un ion de Z = 16 y A = 32 tiene 18 electrones. ¿Qué elemento es, qué carga tiene y cuántos neutrones?", "Es el azufre (Z = 16). Tiene 18 − 16 = 2 electrones de más: carga 2−, S²⁻. Neutrones: 32 − 16 = 16."],
+    ["Dos átomos tienen: A) 6 protones y 6 neutrones; B) 6 protones y 7 neutrones; C) 7 protones y 7 neutrones. ¿Cuáles son el mismo elemento? ¿Cuáles tienen el mismo número de neutrones?", "A y B son el mismo elemento (Z = 6, carbono): son isótopos, carbono-12 y carbono-13. B y C tienen el mismo número de neutrones (7), pero son elementos distintos porque tienen distinto número de protones: carbono-13 y nitrógeno-14."],
+    ["El cloro natural tiene un 75 % de cloro-35 y un 25 % de cloro-37. Calcula la masa media de un átomo de cloro.", "Masa media = 0,75 · 35 + 0,25 · 37 = 26,25 + 9,25 = 35,5 u. Es el valor que aparece en la tabla periódica."],
+    ["Si un átomo tuviera el tamaño de un estadio de 100 m, ¿qué tamaño tendría el núcleo, sabiendo que es unas 100.000 veces más pequeño?", "100 m / 100.000 = 0,001 m = 1 mm: como la cabeza de un alfiler en el centro del campo."],
+    ["Un elemento es brillante, conduce la electricidad y forma iones X²⁺. ¿Es metal o no metal? ¿En qué grupo podría estar?", "Es un metal: tiene brillo, conduce y forma cationes. Si pierde dos electrones, probablemente está en el grupo 2 (alcalinotérreos), como el magnesio o el calcio."],
+    ["Explica por qué el diamante y el grafito son tan distintos si los dos son solo carbono.", "Porque sus átomos de carbono se unen de forma distinta: en el diamante forman una red muy rígida en tres dimensiones (durísimo); en el grafito forman capas planas que se deslizan unas sobre otras (blando, mancha el papel)."],
+    ["Mendeléiev dejó huecos en su tabla. ¿Por qué fue esto tan importante para la ciencia?", "Porque le permitió predecir la existencia y las propiedades de elementos aún no descubiertos. Cuando se encontraron el galio y el germanio con las propiedades previstas, se demostró que la tabla reflejaba una regularidad real de la naturaleza."],
+  ]),
+  quiz: H.test([
+    ["La palabra «átomo» significa…", ["indivisible", "pequeño", "partícula", "elemento"], "Del griego, idea de Demócrito."],
+    ["Descubrió el electrón…", ["Thomson", "Dalton", "Rutherford", "Bohr"], "En 1897."],
+    ["El modelo con núcleo y electrones girando alrededor es el de…", ["Rutherford", "Dalton", "Thomson", "Demócrito"], "Tras el experimento de la lámina de oro."],
+    ["En el modelo de Bohr los electrones giran en…", ["órbitas fijas", "cualquier sitio", "el núcleo", "una esfera positiva"], "Niveles de energía."],
+    ["El protón tiene carga…", ["positiva", "negativa", "nula", "variable"], "+1."],
+    ["El neutrón está en…", ["el núcleo", "la corteza", "fuera del átomo", "las órbitas"], "Junto a los protones."],
+    ["Casi toda la masa del átomo está en…", ["el núcleo", "la corteza", "los electrones", "el vacío"], "Protones y neutrones."],
+    ["El número atómico Z indica el número de…", ["protones", "neutrones", "partículas del núcleo", "átomos"], "Identifica al elemento."],
+    ["El número másico A es…", ["protones + neutrones", "solo neutrones", "protones + electrones", "solo protones"], "N = A − Z."],
+    ["Un átomo con Z = 11 y A = 23 tiene…", ["12 neutrones", "11 neutrones", "23 neutrones", "34 neutrones"], "23 − 11."],
+    ["Los isótopos tienen igual número de…", ["protones", "neutrones", "masa", "partículas"], "Cambian los neutrones."],
+    ["Un catión se forma al…", ["perder electrones", "ganar electrones", "perder protones", "ganar neutrones"], "Queda positivo."],
+    ["El ion Cl⁻ tiene, respecto al átomo de cloro…", ["un electrón más", "un protón menos", "un electrón menos", "un neutrón más"], "Anión."],
+    ["El símbolo del hierro es…", ["Fe", "H", "Hi", "Fr"], "De ferrum."],
+    ["El símbolo Na corresponde al…", ["sodio", "nitrógeno", "neón", "níquel"], "De natrium."],
+    ["Las filas de la tabla periódica se llaman…", ["periodos", "grupos", "familias", "bloques"], "Hay 7."],
+    ["Los elementos de un mismo grupo tienen…", ["propiedades parecidas", "la misma masa", "el mismo Z", "el mismo color"], "Igual capa externa."],
+    ["Los gases nobles están en el grupo…", ["18", "1", "2", "17"], "La última columna."],
+    ["El único metal líquido a temperatura ambiente es el…", ["mercurio", "sodio", "bromo", "hierro"], "El bromo es líquido pero no metal."],
+    ["La fórmula CO₂ indica…", ["1 carbono y 2 oxígenos", "2 carbonos y 1 oxígeno", "1 cobalto y 2 oxígenos", "2 moléculas de CO"], "El subíndice va detrás."],
+  ], 2),
+  examen: H.test([
+    ["Un átomo de Z = 20 y A = 40 tiene…", ["20 p, 20 n, 20 e", "20 p, 40 n, 20 e", "40 p, 20 n, 40 e", "20 p, 20 n, 40 e"], "N = 40 − 20."],
+    ["El ion O²⁻ (Z = 8) tiene…", ["10 electrones", "6 electrones", "8 electrones", "16 electrones"], "Ha ganado 2."],
+    ["El deuterio y el protio son…", ["isótopos del hidrógeno", "elementos distintos", "iones", "moléculas"], "1 protón cada uno."],
+    ["En la tabla actual, los elementos se ordenan por…", ["número atómico", "masa", "color", "orden de descubrimiento"], "Z creciente."],
+    ["Es un no metal…", ["el azufre", "el cobre", "el sodio", "el aluminio"], "Sólido amarillo y frágil."],
+    ["Una propiedad de los metales es…", ["ser buenos conductores", "ser frágiles", "no tener brillo", "formar aniones"], "Por eso los cables son de cobre."],
+    ["La molécula de oxígeno que respiramos es…", ["O₂", "O", "O₃", "H₂O"], "Dos átomos de oxígeno."],
+    ["La sal común es…", ["un cristal de iones", "una molécula", "un átomo", "un gas noble"], "Na⁺ y Cl⁻ alternados."],
+  ], 3),
+  feynman: ["Cómo cambió el modelo atómico de Dalton a Bohr", "Qué partículas tiene un átomo y dónde están", "Cómo se calculan protones, neutrones y electrones", "Qué diferencia hay entre isótopo e ion", "Cómo está organizada la tabla periódica"],
+  mapa: H.mapa("EL ÁTOMO", "var(--eso)", [
     ["Modelos", "Dalton · Thomson · Rutherford · Bohr", "var(--pen)"],
-    ["Partículas", "protón · neutrón · electrón", "var(--red)"],
-    ["Z y A", "isótopos · iones", "#b8860b"],
-    ["Tabla periódica", "grupos · periodos · metales", "var(--leaf)"],
-  ], 300),
+    ["Partículas", "protón · neutrón · electrón", "#b8860b"],
+    ["Z y A", "isótopos · iones (cationes, aniones)", "var(--red)"],
+    ["Tabla periódica", "metales · no metales · gases nobles", "var(--leaf)"],
+  ], 270),
   tarjetas: [
-    ["Átomo", "Partícula más pequeña de un elemento que conserva sus propiedades."],
-    ["Protón", "Partícula del núcleo con carga positiva."],
-    ["Neutrón", "Partícula del núcleo sin carga."],
-    ["Electrón", "Partícula de la corteza con carga negativa y masa muy pequeña."],
-    ["Número atómico (Z)", "Número de protones; identifica al elemento."],
+    ["Átomo", "Partícula más pequeña de un elemento."],
+    ["Protón", "Carga +1, en el núcleo."],
+    ["Neutrón", "Sin carga, en el núcleo."],
+    ["Electrón", "Carga −1, en la corteza; casi sin masa."],
+    ["Número atómico (Z)", "Número de protones."],
     ["Número másico (A)", "Protones + neutrones."],
-    ["Isótopos", "Átomos del mismo elemento con distinto número de neutrones."],
-    ["Ion", "Átomo con carga por haber ganado (anión) o perdido (catión) electrones."],
+    ["Isótopos", "Mismo Z, distinto número de neutrones."],
+    ["Catión", "Ion positivo: ha perdido electrones."],
+    ["Anión", "Ion negativo: ha ganado electrones."],
+    ["Periodo / grupo", "Fila / columna de la tabla periódica."],
+    ["Molécula", "Grupo pequeño de átomos unidos: H₂O, O₂."],
+    ["Cristal", "Red ordenada de átomos o iones: NaCl."],
   ],
-  familias: ["Buscad en etiquetas de alimentos y medicamentos nombres de elementos (calcio, hierro, sodio…) y escribid su símbolo.", "Construid modelos de moléculas (H₂O, CO₂, O₂) con plastilina y palillos.", "Jugad a adivinar elementos por su símbolo con tarjetas."],
-  profesores: {
-    saberes: "La materia: modelos atómicos, partículas subatómicas, número atómico y másico, isótopos, iones, tabla periódica, elementos, moléculas y cristales (RD 217/2022, Física y Química, bloque «La materia»).",
-    ideas: ["Línea del tiempo de los modelos atómicos con maquetas por grupos.", "Simulación del experimento de Rutherford con canicas lanzadas contra objetos ocultos bajo una tabla.", "Concurso de la tabla periódica: cada alumno «adopta» un elemento y presenta su ficha."],
+  glosario: [
+    ["Átomo", "Partícula más pequeña de un elemento que conserva sus propiedades."],
+    ["Modelo atómico", "Representación simplificada de cómo es un átomo, basada en experimentos."],
+    ["Núcleo", "Zona central del átomo donde están los protones y los neutrones."],
+    ["Corteza", "Zona del átomo alrededor del núcleo donde se mueven los electrones."],
+    ["Protón", "Partícula del núcleo con carga positiva."],
+    ["Neutrón", "Partícula del núcleo sin carga eléctrica."],
+    ["Electrón", "Partícula de la corteza con carga negativa y masa muy pequeña."],
+    ["Número atómico", "Número de protones de un átomo; se representa con Z."],
+    ["Número másico", "Suma de protones y neutrones de un átomo; se representa con A."],
+    ["Isótopo", "Átomo de un elemento con un número de neutrones distinto al de otros átomos del mismo elemento."],
+    ["Ion", "Átomo o grupo de átomos con carga eléctrica por haber ganado o perdido electrones."],
+    ["Elemento químico", "Conjunto de todos los átomos con el mismo número atómico."],
+    ["Tabla periódica", "Ordenación de los elementos por número atómico en periodos y grupos."],
+    ["Molécula", "Grupo de un número fijo de átomos unidos."],
+    ["Fórmula química", "Representación de una sustancia con los símbolos de sus elementos y el número de átomos de cada uno."],
+  ],
+  situacion: {
+    titulo: "El elemento que me representa",
+    reto: "El centro organiza una «tabla periódica gigante» en el pasillo. Cada alumno debe adoptar un elemento y preparar su ficha para que todo el instituto aprenda química al pasar.",
+    pasos: [
+      "Elegid un elemento (sin repetir) y buscad su símbolo, número atómico, masa atómica, grupo y periodo.",
+      "Dibujad su átomo con el modelo de Bohr, indicando protones, neutrones y electrones del isótopo más común.",
+      "Clasificadlo como metal, no metal o gas noble y explicad sus propiedades principales.",
+      "Investigad dónde se encuentra en la naturaleza, para qué se usa y una curiosidad sobre su descubrimiento o su nombre.",
+      "Colocad la ficha en su casilla de la tabla gigante y presentad vuestro elemento en un minuto.",
+    ],
+    producto: "Ficha ilustrada del elemento para la tabla periódica gigante del pasillo y presentación oral de un minuto.",
+    evaluacion: [
+      "Los datos del elemento (Z, A, símbolo, grupo, periodo) son correctos.",
+      "El dibujo del átomo tiene el número correcto de cada partícula.",
+      "Las propiedades y usos están bien explicados y con fuentes fiables.",
+      "La presentación es clara, breve y despierta el interés.",
+    ],
   },
-  fuentes: [RD, wiki("Átomo", "Átomo"), wiki("Tabla periódica de los elementos", "Tabla_periódica_de_los_elementos")],
-  revisado: REV,
+  familias: ["Buscad en casa objetos hechos de un solo elemento (papel de aluminio, una joya de oro, la mina de un lápiz) y localizadlos en la tabla periódica.", "Leed las etiquetas de agua mineral o de bebidas isotónicas y buscad qué iones contienen.", "Jugad a adivinar elementos a partir de su símbolo.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "La materia: estructura atómica, modelos atómicos y su evolución histórica, partículas subatómicas, número atómico y másico, isótopos e iones, elementos químicos y su ordenación en la tabla periódica, metales y no metales, sustancias moleculares y cristalinas, y fórmulas sencillas (RD 217/2022, Física y Química 1º a 3º, bloque B «La materia»). En Cataluña, saberes equivalentes de Física i Química del Decret 175/2022.",
+    ideas: [
+      "Simulación del experimento de Rutherford con canicas lanzadas contra objetos escondidos bajo un cartón.",
+      "Construcción de modelos de Bohr con bolas de plastilina de colores.",
+      "Tabla periódica gigante del centro con fichas elaboradas por el alumnado.",
+      "Juego de cartas de elementos y de iones para practicar Z, A y cargas.",
+      "Uso del simulador PhET «Construye un átomo».",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Átomo", "%C3%81tomo"), H.wiki("Tabla periódica de los elementos", "Tabla_peri%C3%B3dica_de_los_elementos"), { t: "Simulación «Construye un átomo», PhET (Universidad de Colorado)", url: "https://phet.colorado.edu/es/simulations/build-an-atom" }],
+  revisado: H.REV,
 };
