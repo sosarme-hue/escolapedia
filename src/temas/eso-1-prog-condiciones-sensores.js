@@ -1,142 +1,241 @@
-// Programación y robótica 1º ESO: condiciones y sensores en Scratch. Dibujos propios en SVG.
-const { mapa, BG, t, fl, tabla, RD, wiki, C, REV, cj, rejilla, et, COL } = require("./_eso1a");
+// Programación y robótica 1º ESO · Condiciones y sensores. Tema nivel libro (lote 2). Contenido y dibujos propios.
+const { D, mapa, tabla, tx, lienzo, pasos, cajas, comparar, resumen, scratch, flujo, escenario, CAT, wiki, C, RD, REV } = require("./_eso1L2");
 
-const bq = (x, y, w, s, c) => `<rect x="${x}" y="${y}" width="${w}" height="20" rx="4" fill="${c}"/>${et(x + 7, y + 14, s, w - 12, { anchor: "start", color: "#fff", size: 10 })}`;
-const hex = (x, y, w, s, c = "#2ea8d8") => `<path d="M${x + 8} ${y} H ${x + w - 8} l 8 9 l -8 9 H ${x + 8} l -8 -9 Z" fill="${c}" stroke="rgba(0,0,0,.2)"/>${et(x + w / 2, y + 13, s, w - 18, { color: "#fff", size: 9.5 })}`;
-const NA = "#e8892c", AZ = "#4c97ff", MO = "#9966ff", SO = "#cf63cf";
+const puerta = flujo("Diagrama de flujo de una puerta automática: si detecta a alguien, se abre; si no, se cierra; y vuelve a comprobar", [
+  ["Inicio", "ini"], ["Leer el sensor", "proc"], ["¿Hay alguien cerca?", "dec", "sí: abrir", "no ↓"], ["Cerrar la puerta", "proc"],
+], "La puerta automática", { vuelta: [3, 1] });
+
+const verdadero = comparar("Una condición solo puede ser verdadera o falsa", [
+  ["Verdadero", ["5 > 3", "toco el borde", "pulso espacio"], "var(--leaf)"],
+  ["Falso", ["2 > 7", "no toco nada", "no pulso nada"], "var(--red)"],
+], "Sí o no, nada más");
+
+const siEntonces = scratch("Bloque si entonces dentro de por siempre: si toca el borde, decir ay", [
+  ["al hacer clic en ⚑", "eventos"], ["por siempre", "control"], ["mover 5 pasos", "movimiento", 1], ["si ¿tocando borde? entonces", "control", 1], ["decir ¡Ay!", "apariencia", 2], ["girar ↻ 180 grados", "movimiento", 2],
+], "Si… entonces");
+
+const siSino = scratch("Bloque si entonces si no: si la tecla espacio está presionada cambiar disfraz a saltar; si no, a quieto", [
+  ["al hacer clic en ⚑", "eventos"], ["por siempre", "control"], ["si ¿tecla espacio presionada? entonces", "control", 1], ["cambiar disfraz a Saltando", "apariencia", 2], ["si no", "control", 1], ["cambiar disfraz a Quieto", "apariencia", 2],
+], "Si… entonces… si no");
+
+const flujoSiNo = flujo("Diagrama de flujo de si entonces si no: dos caminos según la condición, que se juntan después", [
+  ["Inicio", "ini"], ["¿Nota ≥ 5?", "dec", "sí: aprobado", "no ↓"], ["Decir «suspenso»", "proc"], ["Seguir el programa", "proc"], ["Fin", "ini"],
+], "Dos caminos");
+
+const sensores = cajas("Bloques sensores de Scratch: tocando, tocando color, tecla presionada, ratón y distancia", [
+  ["¿tocando …?", "borde, objeto, ratón", CAT.sensores],
+  ["¿tocando color?", "detecta un color", "var(--red)"],
+  ["¿tecla presionada?", "espacio, flechas…", "var(--pen)"],
+  ["distancia a …", "cuánto falta", "var(--leaf)"],
+], "Los sentidos del objeto");
+
+const laberinto = lienzo("Laberinto: si el objeto toca el color de la pared vuelve al inicio; si toca el verde de la meta, gana", `
+  <rect x="20" y="20" width="220" height="130" rx="6" fill="var(--card)" stroke="var(--muted)" stroke-width="1.6"/>
+  <path d="M20 60 H160 M80 100 H240 M20 130 H120" stroke="var(--pen)" stroke-width="8" stroke-linecap="round"/>
+  <rect x="200" y="112" width="34" height="32" rx="4" fill="var(--leaf)" fill-opacity=".7"/>${tx(217, 133, "meta", { fs: 10, c: "#fff", max: 32 })}
+  <circle cx="34" cy="36" r="8" fill="var(--red)"/>${tx(52, 40, "jugador", { fs: 10, c: "var(--red)", a: "start", max: 60 })}
+  ${tx(130, 170, "azul = pared · verde = meta", { fs: 12, fam: D })}`, 180);
+
+const flechas = scratch("Mover con las flechas del teclado: si tecla flecha derecha sumar 5 a x; si flecha izquierda sumar menos 5; si toca azul volver al inicio", [
+  ["al hacer clic en ⚑", "eventos"], ["ir a x: −200 y: 150", "movimiento"], ["por siempre", "control"], ["si ¿tecla → presionada? entonces", "control", 1], ["sumar 5 a x", "movimiento", 2], ["si ¿tecla ← presionada? entonces", "control", 1], ["sumar −5 a x", "movimiento", 2], ["si ¿tocando color azul? entonces", "control", 1], ["ir a x: −200 y: 150", "movimiento", 2],
+], "Mover con flechas");
+
+const preguntar = scratch("Preguntar y responder: preguntar cuánto es 7 por 8, y si la respuesta es 56 decir correcto, si no decir inténtalo otra vez", [
+  ["al hacer clic en ⚑", "eventos"], ["preguntar ¿Cuánto es 7 × 8? y esperar", "sensores"], ["si (respuesta) = 56 entonces", "control"], ["decir ¡Correcto!", "apariencia", 1], ["si no", "control"], ["decir Inténtalo otra vez", "apariencia", 1],
+], "Un examen en Scratch");
+
+const operadores = tabla(["Operador", "Es verdadero si…", "Ejemplo"], [["a > b", "a es mayor que b", "puntos > 10"], ["a < b", "a es menor que b", "vidas < 1"], ["a = b", "a es igual a b", "respuesta = 56"], ["… y …", "se cumplen las dos", "x > 0 y x < 100"], ["… o …", "se cumple al menos una", "tecla a o tecla ←"], ["no …", "no se cumple", "no ¿tocando borde?"]]);
+
+const yo = comparar("Operadores lógicos y, o, no: y exige las dos condiciones, o basta con una, no invierte", [
+  ["y", ["las dos a la vez", "V y V = V", "V y F = F"], "var(--pen)"],
+  ["o", ["basta con una", "V o F = V", "F o F = F"], "var(--sun)"],
+], "Combinar condiciones");
+
+const manzanas = escenario("Juego de atrapar manzanas: la manzana cae desde arriba en una x al azar y la cesta se mueve abajo con las flechas", [[60, 150, "manzana", "var(--red)"], [60, -150, "cesta", "var(--sun)"]], { flechas: [[60, 140, 60, -130, "var(--red)"]] });
+
+const codigoManzana = scratch("Programa de la manzana: ir arriba a una x al azar, caer; si toca la cesta sumar un punto; si toca el suelo volver arriba", [
+  ["al hacer clic en ⚑", "eventos"], ["dar a puntos el valor 0", "variables"], ["ir a x: (azar −200 a 200) y: 170", "movimiento"], ["por siempre", "control"], ["sumar −5 a y", "movimiento", 1], ["si ¿tocando Cesta? entonces", "control", 1], ["sumar a puntos 1", "variables", 2], ["ir a x: (azar) y: 170", "movimiento", 2], ["si (posición y) < −170 entonces", "control", 1], ["ir a x: (azar) y: 170", "movimiento", 2],
+], "La manzana que cae");
+
+const sensoresReales = cajas("Sensores en el mundo real: proximidad, luz, temperatura y contacto", [
+  ["Proximidad", "puertas, aparcar", "var(--pen)"],
+  ["Luz", "farolas, móviles", "var(--sun)"],
+  ["Temperatura", "termostatos", "var(--red)"],
+  ["Contacto", "botones, robots", "var(--leaf)"],
+], "Sensores de verdad");
 
 module.exports = {
   materia: "Programación y robótica",
   curso: C,
   titulo: "Condiciones y sensores",
-  minutos: 55,
-  objetivos: ["Explicar qué es una condición y que solo puede ser verdadera o falsa", "Usar los bloques «si… entonces» y «si… entonces… si no»", "Utilizar los bloques sensores para detectar teclas, contactos, colores y distancias", "Combinar condiciones con operadores lógicos y comparaciones para crear interacción"],
-  claves: ["condición", "verdadero", "falso", "si entonces", "si no", "sensor", "tocando", "tocando color", "tecla presionada", "ratón", "distancia", "preguntar y respuesta", "operadores", "y, o, no", "comparar"],
+  minutos: 105,
+  objetivos: [
+    "Explicar qué es una condición y por qué solo puede ser verdadera o falsa",
+    "Usar los bloques si… entonces y si… entonces… si no",
+    "Detectar choques, colores, teclas y el ratón con los bloques sensores",
+    "Hacer preguntas al usuario y reaccionar a su respuesta",
+    "Comparar valores y combinar condiciones con y, o, no",
+    "Programar un juego sencillo que combine bucles, condiciones y sensores",
+  ],
+  claves: ["condición", "verdadero", "falso", "si entonces", "si no", "sensor", "tocando", "tecla", "preguntar", "respuesta", "operador", "y", "o", "no"],
   pregunta: {
     texto: "Las puertas automáticas de un supermercado se abren cuando te acercas y se cierran cuando te alejas. ¿Qué «piensa» la puerta?",
-    respuesta: "En realidad no piensa: tiene un <b>sensor</b> que detecta si hay alguien cerca y un <b>programa</b> que comprueba una y otra vez una <b>condición</b>: «<b>si</b> hay alguien delante, <b>entonces</b> abrir; <b>si no</b>, cerrar». La respuesta a la pregunta «¿hay alguien?» solo puede ser sí o no. Este esquema, sensor más condición repetida, está en casi todas las máquinas automáticas: termostatos, farolas, alarmas, robots… y también en los videojuegos.",
+    respuesta: "La puerta tiene un <b>sensor</b> que detecta si hay alguien cerca, y su programa repite sin parar una <mark>condición</mark>: «<b>si</b> hay alguien cerca, <b>entonces</b> abrir; <b>si no</b>, cerrar». No piensa como nosotros: solo comprueba una pregunta de sí o no muchas veces por segundo y actúa según la respuesta. Así funcionan también los videojuegos y los robots.",
+  },
+  lectura: {
+    titulo: "George Boole y la lógica del sí y el no",
+    html: `<p>En 1854, un profesor inglés llamado <b>George Boole</b> publicó un libro con un título muy ambicioso: «Las leyes del pensamiento». Boole había aprendido matemáticas casi solo, porque su familia no podía pagarle estudios, y se le ocurrió algo sorprendente: tratar las ideas lógicas como si fueran números.</p><p>Para Boole, cualquier afirmación era <b>verdadera</b> o <b>falsa</b>, y las afirmaciones se podían combinar con tres palabras: <b>y</b>, <b>o</b>, <b>no</b>. «Llueve y hace frío» solo es verdad si las dos cosas son ciertas; «llueve o hace frío» es verdad si al menos una lo es. Con estas reglas se podían hacer «cuentas» con razonamientos.</p><p>En su época, casi nadie le encontró utilidad. Pero ochenta años después, el ingeniero Claude Shannon se dio cuenta de que los circuitos eléctricos funcionaban exactamente así: un interruptor está encendido o apagado, verdadero o falso. Hoy, cada vez que un ordenador, un móvil o un robot toma una decisión, está usando la lógica de Boole. En este tema aprenderás a programar decisiones con sus tres palabras mágicas.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>¿Qué es una condición?</h3><p>Hasta ahora, los programas hacían siempre lo mismo. Pero los programas interesantes <b>toman decisiones</b>: hacen una cosa u otra según lo que ocurra. Para eso se usan las <mark>condiciones</mark>. Una condición es una <b>pregunta que solo puede responderse con sí o no</b>, es decir, que solo puede ser <mark>verdadera</mark> o <mark>falsa</mark>. Por ejemplo: «¿está tocando el borde?», «¿se ha pulsado la tecla espacio?», «¿los puntos son más de 10?». En Scratch, las condiciones tienen forma <b>hexagonal</b> (con puntas a los lados), y solo encajan en los huecos con esa misma forma. Se encuentran sobre todo en las categorías <b>Sensores</b> (azul claro) y <b>Operadores</b> (verde). Las condiciones se usan dentro de los bloques de control «si… entonces», «si… entonces… si no», «esperar hasta que…» y «repetir hasta que…». Combinando condiciones con bucles se consigue que los programas <b>reaccionen</b> a lo que pasa: eso es la interactividad.</p>`,
-    },
-    {
-      html: `<h3>Si… entonces</h3><p>El bloque <mark>«si… entonces»</mark> (categoría Control) tiene forma de C con un hueco hexagonal arriba. Funciona así: el programa comprueba la condición; si es <b>verdadera</b>, ejecuta los bloques de su interior; si es <b>falsa</b>, se los salta y sigue con lo que haya debajo. Por ejemplo: «si ¿tocando Manzana? entonces: sumar a puntos 1; tocar sonido mordisco». Un detalle muy importante: el bloque «si» comprueba la condición <b>una sola vez</b>, en el instante en que se ejecuta. Si en ese momento no se cumple, ya no vuelve a mirar. Por eso casi siempre se coloca <b>dentro de un bucle «por siempre»</b>, para que la condición se compruebe continuamente, muchas veces por segundo. Es el error más frecuente al empezar: poner un «si» suelto después de la bandera verde y preguntarse por qué no funciona. Dentro de un mismo bucle se pueden poner varios «si», uno debajo de otro, para comprobar varias cosas: si toca la manzana, si toca la bomba, si toca el borde…</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Programa: al hacer clic en la bandera, por siempre, si tocando Manzana entonces sumar a puntos 1 y tocar sonido">${BG}
-        <rect x="30" y="16" width="200" height="22" rx="4" fill="#c98a00"/>${et(38, 31, "al hacer clic en 🏁", 180, { anchor: "start", color: "#fff", size: 10.5 })}
-        <path d="M30 40 h 200 v 22 H 50 v 88 h 180 v 12 H 30 Z" fill="${NA}"/>${et(38, 55, "por siempre", 150, { anchor: "start", color: "#fff", size: 10.5 })}
-        <path d="M50 66 h 176 v 26 H 70 v 44 h 156 v 12 H 50 Z" fill="#f0a35e"/>${t(58, 83, "si", { size: 10.5, anchor: "start", color: "#fff" })}${hex(74, 70, 104, "¿tocando Manzana?")}${t(182, 83, "entonces", { size: 9.5, anchor: "start", color: "#fff", weight: 400 })}
-        ${bq(70, 96, 150, "sumar a puntos 1", NA)}${bq(70, 116, 150, "tocar sonido mordisco", SO)}
-        ${t(130, 176, "el «si» va dentro del «por siempre»", { size: 9.5, weight: 400, color: "var(--muted)" })}</svg>`,
-      video: { id: "hhj41bbp9BQ", titulo: "Condicionales en Scratch 3.0: bloque si entonces si no", canal: "Cosas de Informatica", vistas: 5743 },
-    },
-    {
-      html: `<h3>Si… entonces… si no</h3><p>El bloque <mark>«si… entonces… si no»</mark> tiene dos huecos: si la condición es verdadera, se ejecutan los bloques del primer hueco; si es falsa, los del segundo. Siempre se ejecuta <b>uno de los dos caminos, y solo uno</b>. Es ideal cuando hay dos posibilidades opuestas. Por ejemplo, en un juego de preguntas: «si respuesta = 12 entonces: decir ¡Correcto!; sumar a puntos 1; si no: decir Casi, era 12». O en un personaje que cambia de cara: «si ¿tocando Fantasma? entonces: cambiar disfraz a asustado; si no: cambiar disfraz a normal». Si hay <b>más de dos posibilidades</b>, se pueden <b>anidar</b> varios «si… si no»: dentro del «si no» se pone otro «si… si no», y así sucesivamente. Por ejemplo, para dar una calificación: si nota ≥ 9, «sobresaliente»; si no, si nota ≥ 7, «notable»; si no, si nota ≥ 5, «aprobado»; si no, «suspenso». El orden de las preguntas importa: hay que empezar por la condición más exigente.</p>${tabla(["Bloque", "Si la condición es verdadera", "Si es falsa"], [["si… entonces", "ejecuta su interior", "no hace nada"], ["si… entonces… si no", "ejecuta el primer hueco", "ejecuta el segundo hueco"], ["esperar hasta que…", "continúa", "se queda esperando"], ["repetir hasta que…", "sale del bucle", "repite el interior"]])}`,
-    },
-    {
-      html: `<h3>Los bloques sensores</h3><p>Los <mark>sensores</mark> son los «sentidos» del programa: permiten saber qué está pasando en el escenario o qué hace el usuario. Están en la categoría <b>Sensores</b> (azul claro). Los hexagonales dan una respuesta verdadero/falso y sirven como condiciones: <b>«¿tocando [borde / puntero del ratón / otro objeto]?»</b> detecta si el objeto está tocando algo; <mark>«¿tocando el color…?»</mark> detecta si toca un color concreto del fondo o de otro objeto (muy útil para paredes de laberintos, suelos o meta); <b>«¿color… tocando color…?»</b> comprueba si un color del propio objeto toca otro color; <mark>«¿tecla espacio presionada?»</mark> detecta si se está pulsando una tecla; y <b>«¿ratón presionado?»</b>, si se hace clic. Los redondeados dan un valor: <b>«distancia a puntero del ratón»</b> o a otro objeto, «posición x del ratón», «cronómetro» (segundos desde que empezó), «volumen» (del micrófono) y «respuesta». Combinados con «si», permiten programar casi cualquier juego.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Bloques sensores hexagonales: tocando borde, tocando el color, tecla espacio presionada, ratón presionado; y redondeados: distancia a, cronómetro y respuesta">${BG}
-        ${t(70, 22, "dan verdadero o falso", { size: 10, color: COL.azul })}
-        ${hex(10, 32, 120, "¿tocando borde?")}${hex(10, 58, 120, "¿tocando el color ■?")}${hex(10, 84, 120, "¿tecla espacio presionada?")}${hex(10, 110, 120, "¿ratón presionado?")}
-        ${t(196, 22, "dan un valor", { size: 10, color: COL.verde })}
-        ${["distancia a ratón", "cronómetro", "respuesta", "volumen"].map((s, i) => `<rect x="142" y="${32 + i * 26}" width="108" height="18" rx="9" fill="#2ea8d8" stroke="rgba(0,0,0,.2)"/>${et(196, 45 + i * 26, s, 96, { color: "#fff", size: 9.5 })}`).join("")}
-        ${t(130, 160, "condiciones en los huecos hexagonales", { size: 9.5, weight: 400, color: "var(--muted)" })}</svg>`,
-      video: { id: "lTvFvWNnO5s", titulo: "Sensores en Scratch 3.0: juego del laberinto paso a paso", canal: "Cosas de Informatica", vistas: 4091 },
-    },
-    {
-      html: `<h3>Preguntar y responder</h3><p>Un sensor muy útil para crear programas que dialogan con el usuario es <mark>«preguntar … y esperar»</mark>. Al ejecutarse, el objeto muestra la pregunta en un bocadillo y aparece un cuadro de texto en la parte de abajo del escenario donde el usuario escribe su respuesta; el programa <b>se detiene</b> hasta que se pulsa Intro o el botón de confirmar. Lo que se ha escrito se guarda en el bloque redondeado <mark>«respuesta»</mark>, que se puede usar en otros bloques: «decir (unir Hola respuesta)» saluda por el nombre, y «si respuesta = 8 entonces…» comprueba si se ha acertado. Con estos bloques se pueden hacer <b>cuestionarios, calculadoras, juegos de adivinanzas o conversaciones</b>. Un detalle: «respuesta» solo guarda la última respuesta; si queremos recordar varias, hay que guardarlas en variables. Y, al comparar textos, Scratch no distingue entre mayúsculas y minúsculas: «Madrid» y «madrid» se consideran iguales.</p>`,
-    },
-    {
-      html: `<h3>Operadores: comparar y combinar</h3><p>La categoría <b>Operadores</b> (verde) tiene bloques para construir condiciones más elaboradas. Los de <mark>comparación</mark> comparan dos valores: <b>«&gt;»</b> (mayor que), <b>«&lt;»</b> (menor que) y <b>«=»</b> (igual a). Por ejemplo, «puntos &gt; 9», «posición y &lt; −170» o «respuesta = 12». Los <mark>operadores lógicos</mark> combinan varias condiciones. <b>«… y …»</b> es verdadero solo si <b>las dos</b> condiciones son verdaderas: «¿tocando Llave? y ¿tecla espacio presionada?» (para abrir una puerta hay que tener la llave y pulsar la tecla). <b>«… o …»</b> es verdadero si <b>al menos una</b> es verdadera: «¿tocando Lava? o ¿tocando Pinchos?» (cualquiera de las dos hace perder una vida). Y <b>«no …»</b> invierte la condición: «no ¿tocando suelo?» es verdadero cuando el personaje está en el aire. Para comprobar «mayor o igual», como no hay bloque, se combina: «nota &gt; 4» con números enteros, o «(nota &gt; 5) o (nota = 5)».</p>${tabla(["Operador", "Es verdadero cuando…", "Ejemplo"], [["A y B", "las dos son verdaderas", "tiene la llave y pulsa espacio"], ["A o B", "al menos una es verdadera", "toca lava o toca pinchos"], ["no A", "A es falsa", "no toca el suelo: está en el aire"]])}`,
-    },
-    {
-      html: `<h3>Un ejemplo: atrapar manzanas</h3><p>Veamos un pequeño juego que combina todo. Hay una <b>cesta</b> abajo y una <b>manzana</b> que cae. Programa de la cesta: al hacer clic en la bandera, ir a x: 0 y: −150; por siempre: <b>si</b> ¿tecla flecha derecha presionada? <b>entonces</b> sumar 10 a x; <b>si</b> ¿tecla flecha izquierda presionada? <b>entonces</b> sumar −10 a x. Programa de la manzana: al hacer clic en la bandera, dar a puntos el valor 0, ir a x: (número al azar entre −220 y 220) y: 170; por siempre: sumar −5 a y; <b>si</b> ¿tocando Cesta? <b>entonces</b> sumar a puntos 1, tocar sonido, volver arriba a una x al azar; <b>si</b> posición y &lt; −170 <b>entonces</b> decir «¡Se escapó!» y detener todo. Con un sensor más, «si puntos = 10 entonces cambiar fondo a Victoria», el juego ya tiene un objetivo. Se puede mejorar haciendo que la manzana caiga cada vez más rápido o añadiendo una bomba que reste puntos.</p>`,
-      video: { id: "vfs-7tkPH8c", titulo: "Juego en Scratch 1: captura manzanas", canal: "Profe Blas", vistas: 121266 },
-    },
+    { html: `<h3>1.1 ¿Qué es una condición?</h3><p>Una <mark>condición</mark> es una <b>pregunta</b> que solo puede responderse con <b>sí o no</b>, es decir, con <b>verdadero o falso</b>. «¿El gato toca el borde?», «¿has pulsado la tecla espacio?», «¿la puntuación es mayor que 10?».</p><p>Las condiciones permiten que los programas <b>tomen decisiones</b>: hacer una cosa u otra según lo que ocurra. Sin ellas, un programa haría siempre lo mismo, pasara lo que pasara. Con ellas, puede reaccionar al jugador, al entorno o a los datos.</p><p>En Scratch, las condiciones tienen forma <b>hexagonal</b> (con puntas a los lados). Están sobre todo en las categorías <b>Sensores</b> (celeste) y <b>Operadores</b> (verde), y encajan en los huecos hexagonales de bloques como «si… entonces» o «repetir hasta que». Una pregunta como «¿qué tiempo hace?» no es una condición, porque su respuesta no es sí o no.</p>`, svg: verdadero },
+    { html: `<h3>1.2 Las decisiones en la vida diaria y en las máquinas</h3><p>Tomamos decisiones con condiciones constantemente: <i>si</i> llueve, cojo el paraguas; <i>si</i> el semáforo está en rojo, espero; <i>si</i> tengo hambre, como algo. Las máquinas automáticas hacen lo mismo, pero con sensores en lugar de sentidos.</p><p>Una <b>puerta automática</b> tiene un sensor de presencia. Su programa repite sin parar: leer el sensor; <b>si</b> hay alguien cerca, abrir; <b>si no</b>, cerrar. Un <b>termostato</b>: si la temperatura es menor que 20 °C, encender la calefacción. Una <b>farola</b>: si hay poca luz, encenderse.</p><p>Fíjate en un detalle importante: la puerta no comprueba la condición una sola vez, sino <b>continuamente</b>, muchas veces por segundo. Por eso las condiciones suelen ir dentro de un bucle «por siempre»: así el programa está siempre atento a lo que pasa. Una condición fuera de un bucle solo se comprueba una vez, en el momento en que se ejecuta.</p>`, svg: puerta },
+    { html: `<h3>1.3 Si… entonces</h3><p>El bloque <b>«si &lt;condición&gt; entonces»</b> (Control, naranja) ejecuta los bloques de dentro <b>solo si la condición es verdadera</b>. Si es falsa, se los salta y el programa continúa por debajo.</p><p>Ejemplo: dentro de un «por siempre», «mover 5 pasos» y «si ¿tocando borde? entonces: decir ¡Ay! y girar 180 grados». El objeto avanza y, cada vez que llega al borde, se queja y se da la vuelta.</p><p>Fíjate en la estructura: el «por siempre» hace que el objeto se mueva sin parar y que se compruebe la condición en cada vuelta. Si quitáramos el bucle, la condición solo se comprobaría una vez, al principio, y probablemente el objeto no estaría tocando el borde en ese instante.</p><p>Dentro de un «si» puede haber cualquier bloque, incluso otros «si» o bucles. Es como una puerta que solo se abre cuando se cumple la condición.</p>`, svg: siEntonces, video: { id: "hhj41bbp9BQ", titulo: "Condicionales en Scratch 3.0: bloque si entonces si no", canal: "Cosas de Informatica", vistas: 5743 } },
+    { html: `<h3>1.4 Si… entonces… si no</h3><p>El bloque <b>«si &lt;condición&gt; entonces … si no …»</b> tiene <b>dos huecos</b>: los bloques del primero se ejecutan si la condición es verdadera, y los del segundo («si no»), si es falsa. Siempre se ejecuta <b>uno de los dos</b>, nunca ambos ni ninguno.</p><p>Ejemplo: «si ¿tecla espacio presionada? entonces cambiar disfraz a Saltando; si no, cambiar disfraz a Quieto». El personaje muestra un disfraz u otro según se pulse o no la tecla.</p><p>Otro ejemplo: «si nota ≥ 5 entonces decir aprobado; si no, decir suspenso». Aquí se nota la ventaja del «si no»: no hace falta escribir una segunda condición «si nota &lt; 5», porque el «si no» ya cubre todos los demás casos.</p><p>Se pueden encadenar decisiones poniendo un «si… si no» dentro del hueco «si no» de otro: si nota ≥ 9, sobresaliente; si no, si nota ≥ 5, aprobado; si no, suspenso.</p>`, svg: siSino },
+    { html: `<h3>1.5 Dibujar las decisiones</h3><p>En un <b>diagrama de flujo</b>, una decisión se dibuja con un <b>rombo</b>. Del rombo salen dos caminos, el del «sí» y el del «no», que después se <b>vuelven a juntar</b> para seguir con el resto del programa.</p><p>Comparar el diagrama con los bloques ayuda a entender qué pasa:</p><ul><li>«si… entonces» es un rombo en el que el camino del «no» no hace nada: va directo al punto de unión.</li><li>«si… entonces… si no» es un rombo con acciones en los dos caminos.</li></ul><p>Antes de programar un juego, conviene escribir o dibujar sus decisiones: ¿qué pasa si el jugador toca un enemigo?, ¿y si toca una moneda?, ¿y si se le acaban las vidas? Pensar todos los casos posibles, incluidos los raros, evita muchos errores. Un buen programador siempre se pregunta: «¿y si no?».</p>`, svg: flujoSiNo },
+    { html: `<h3>1.6 Los bloques sensores</h3><p>Los <mark>sensores</mark> son los «sentidos» de los objetos de Scratch. Están en la categoría <b>Sensores</b> (celeste) y responden preguntas sobre lo que ocurre:</p><ul><li><b>«¿tocando …?»</b>: si el objeto toca el borde, el puntero del ratón u otro objeto.</li><li><b>«¿tocando el color …?»</b>: si toca un color concreto. Muy útil para paredes, lava o metas.</li><li><b>«¿color … tocando …?»</b>: si un color del objeto toca otro color.</li><li><b>«¿tecla … presionada?»</b>: si se está pulsando una tecla.</li><li><b>«¿ratón presionado?»</b>, «posición x del ratón», «posición y del ratón».</li><li><b>«distancia a …»</b>: cuántos pasos hay hasta otro objeto o el ratón.</li><li><b>«cronómetro»</b>: segundos desde que empezó.</li></ul><p>Los sensores hexagonales devuelven verdadero o falso y van dentro de condiciones. Los redondeados devuelven un número.</p>`, svg: sensores, video: { id: "lTvFvWNnO5s", titulo: "Sensores en Scratch 3.0: juego del laberinto paso a paso", canal: "Cosas de Informatica", vistas: 4091 } },
+    { html: `<h3>1.7 Un laberinto con sensores de color</h3><p>El sensor <b>«¿tocando el color …?»</b> permite crear juegos de laberinto muy fácilmente. Se dibuja el laberinto en el <b>fondo</b>, con las paredes de un color (por ejemplo, azul) y la meta de otro (verde).</p><p>El programa del jugador, dentro de un «por siempre», tiene varias condiciones:</p><ul><li>Si se pulsa una flecha, moverse en esa dirección.</li><li>Si toca el color <b>azul</b> (pared), volver a la posición de salida.</li><li>Si toca el color <b>verde</b> (meta), decir «¡He ganado!» y detener todo.</li></ul><p>Para elegir el color exacto, se hace clic en el cuadradito de color del bloque y se usa el <b>cuentagotas</b> para tocar la pared en el escenario. Si el color no es exactamente el mismo, el sensor no lo detecta. Por eso conviene dibujar las paredes con un color uniforme que no aparezca en el personaje.</p>`, svg: laberinto },
+    { html: `<h3>1.8 Mover con el teclado</h3><p>Hay dos formas de mover un personaje con las teclas:</p><ul><li>Con el evento <b>«al presionar tecla →»</b>: es sencillo, pero el movimiento va a saltos y con un pequeño retraso, porque depende de la repetición del teclado.</li><li>Con <b>condiciones dentro de un «por siempre»</b>: «si ¿tecla → presionada? entonces sumar 5 a x». El movimiento es suave y se pueden pulsar dos teclas a la vez (por ejemplo, derecha y arriba en diagonal).</li></ul><p>La segunda forma es la que usan casi todos los juegos. Un programa típico tiene, dentro del mismo bucle, un «si» por cada tecla y otros «si» para detectar choques. Fíjate en que se usan varios «si… entonces» independientes, no un «si… si no»: así se pueden cumplir varias condiciones en la misma vuelta.</p>`, svg: flechas },
+    { html: `<h3>2.1 Preguntar y responder</h3><p>El bloque <b>«preguntar … y esperar»</b> (Sensores) muestra una pregunta y una caja de texto en el escenario. El programa se detiene hasta que el usuario escribe algo y pulsa Intro. Lo que ha escrito queda guardado en el bloque redondeado <b>«respuesta»</b>.</p><p>Con «preguntar» y una condición se pueden hacer programas que <b>conversan</b> o que <b>examinan</b>: «preguntar ¿Cuánto es 7 × 8? y esperar; si respuesta = 56 entonces decir ¡Correcto!; si no, decir Inténtalo otra vez».</p><p>Ideas para usarlo: un quiz de preguntas, un personaje que te saluda por tu nombre (decir «unir Hola y respuesta»), una calculadora o un juego de adivinar un número. Ten en cuenta que «respuesta» solo guarda la <b>última</b> respuesta: si haces otra pregunta, se sustituye. Si necesitas recordarla, guárdala en una variable.</p>`, svg: preguntar },
+    { html: `<h3>2.2 Operadores: comparar</h3><p>Los bloques de <b>Operadores</b> (verde) permiten crear condiciones comparando valores:</p>${operadores}<p>Los operadores de comparación <b>&gt;</b>, <b>&lt;</b> e <b>=</b> devuelven verdadero o falso. Por ejemplo, «puntos &gt; 10» es verdadero cuando los puntos pasan de 10.</p><p>¡Cuidado con los límites! «puntos &gt; 10» es falso cuando los puntos valen exactamente 10. Si quieres incluir el 10, usa «puntos &gt; 9» o combina «puntos &gt; 10 o puntos = 10». Y al comparar con «=», ten en cuenta que Scratch no distingue mayúsculas de minúsculas: «Hola» = «hola» es verdadero.</p>` },
+    { html: `<h3>2.3 Combinar condiciones: y, o, no</h3><p>Los operadores lógicos permiten combinar varias condiciones en una sola:</p><ul><li><b>«… y …»</b>: es verdadero solo si <b>las dos</b> condiciones son verdaderas. «x &gt; 0 y x &lt; 100» comprueba que x está entre 0 y 100.</li><li><b>«… o …»</b>: es verdadero si <b>al menos una</b> es verdadera. «¿tecla a presionada? o ¿tecla ← presionada?» permite usar dos teclas para lo mismo.</li><li><b>«no …»</b>: <b>invierte</b> el resultado. «no ¿tocando borde?» es verdadero cuando no toca el borde.</li></ul><p>Estas tres palabras son la <b>lógica de Boole</b>, la base de todos los circuitos de los ordenadores. Para comprobar una condición combinada, se puede hacer una <b>tabla de verdad</b> con todas las posibilidades: con «y», solo V y V da V; con «o», solo F o F da F.</p>`, svg: yo },
+    { html: `<h3>2.4 Un ejemplo completo: atrapar manzanas</h3><p>Vamos a juntarlo todo en un juego: una <b>cesta</b> abajo atrapa <b>manzanas</b> que caen.</p><ol><li><b>Cesta</b>: por siempre, si se pulsa → sumar 8 a x; si se pulsa ← sumar −8 a x.</li><li><b>Manzana</b>: dar a puntos el valor 0; ir a una x al azar arriba del todo (y = 170); por siempre: sumar −5 a y.</li><li>Si la manzana toca la cesta: sumar 1 a puntos, tocar un sonido y volver arriba a una x al azar.</li><li>Si la posición y de la manzana es menor que −170 (ha llegado al suelo): volver arriba. Para más reto, restar una vida.</li><li>Si vidas = 0: decir «Fin del juego» y detener todo.</li></ol><p>Has usado bucles, condiciones, sensores de contacto y de teclado, operadores, números al azar y variables. Puedes mejorarlo haciendo que las manzanas caigan más deprisa a medida que sube la puntuación.</p>`, svg: codigoManzana, video: { id: "vfs-7tkPH8c", titulo: "Juego en Scratch 1: captura manzanas", canal: "Profe Blas", vistas: 121266 } },
   ],
-  figura: {
-    titulo: "Condiciones y sensores en ocho ideas",
-    svg: rejilla([
-      ["Condición", "verdadera o falsa", COL.sol],
-      ["Si… entonces", "solo si se cumple", COL.naranja],
-      ["Si… si no", "uno de dos caminos", COL.rojo],
-      ["Por siempre + si", "comprobar sin parar", COL.morado],
-      ["Tocando", "objeto, borde o color", COL.agua],
-      ["Teclas y ratón", "detectan al jugador", COL.azul],
-      ["Preguntar", "guarda la respuesta", COL.gris],
-      ["y · o · no", "combinar condiciones", COL.verde],
-    ], 4, 86, "Resumen: condición, si entonces, si no, bucle con condición, sensores de contacto, teclas, preguntar y operadores lógicos"),
-  },
-  video: { id: "Friweqkc35Q", titulo: "Tutorial Scratch: «Si entonces si no»", canal: "Harold Rodríguez", vistas: 12159, megusta: 0, busqueda: "scratch condicionales sensores si entonces" },
   ejemplos: [
-    { enunciado: "Un personaje debe decir «¡Ay!» cada vez que toque al murciélago. Escribe el programa.",
-      pasos: ["Evento: al hacer clic en la bandera.", "Por siempre:", "si ¿tocando Murciélago? entonces decir «¡Ay!» durante 1 segundo."],
-      resultado: "Bandera → por siempre [si tocando Murciélago → decir ¡Ay!]." },
-    { enunciado: "Cuestionario: el gato pregunta «¿Cuántas patas tiene una araña?». Si se responde 8, dice «¡Correcto!»; si no, «Son 8».",
-      pasos: ["preguntar «¿Cuántas patas tiene una araña?» y esperar.", "si respuesta = 8 entonces decir «¡Correcto!».", "si no, decir «Son 8»."],
-      resultado: "Preguntar + si… si no con respuesta = 8." },
-    { enunciado: "En un laberinto, el personaje debe volver a la salida si toca una pared negra, y ganar si toca la meta verde.",
-      pasos: ["Por siempre:", "si ¿tocando el color negro? entonces ir a la posición de salida.", "si ¿tocando el color verde? entonces decir «¡Has ganado!» y detener todo."],
-      resultado: "Dos condiciones con «tocando el color» dentro de por siempre." },
+    { enunciado: "Haz que el gato diga «¡Miau!» cuando le toque el ratón.", pasos: ["por siempre:", "si ¿tocando puntero del ratón? entonces decir ¡Miau! 1 s."], resultado: "Condición con sensor dentro de un bucle." },
+    { enunciado: "Pregunta la edad y di si puede ver una película para mayores de 12.", pasos: ["preguntar ¿Cuántos años tienes? y esperar.", "si respuesta > 11 entonces decir Puedes verla; si no, decir Aún no."], resultado: "«> 11» incluye a quien tiene 12." },
+    { enunciado: "¿Es verdadera «x > 0 y x < 10» si x = 10?", pasos: ["x > 0: verdadero.", "x < 10: falso (10 no es menor que 10).", "V y F = F."], resultado: "Falsa." },
+    { enunciado: "¿Es verdadera «tecla a o tecla ←» si solo se pulsa ←?", pasos: ["tecla a: falso; tecla ←: verdadero.", "F o V = V."], resultado: "Verdadera." },
+    { enunciado: "Clasifica la nota: sobresaliente (≥ 9), aprobado (≥ 5) o suspenso.", pasos: ["si nota > 8,99 → sobresaliente.", "si no: si nota > 4,99 → aprobado; si no → suspenso."], resultado: "Dos «si… si no» encadenados." },
+    { enunciado: "En un laberinto, el jugador atraviesa las paredes. ¿Qué puede fallar?", pasos: ["El color del sensor no es exactamente el de la pared.", "O la condición está fuera del «por siempre»."], resultado: "Usar el cuentagotas y meter la condición en el bucle." },
   ],
   errores: [
-    "Poner un «si» fuera de un bucle: solo comprueba la condición una vez.",
-    "Confundir «si… entonces» con «esperar hasta que».",
-    "Elegir mal el color en «tocando el color» (hay que usar el cuentagotas).",
-    "Usar «y» cuando debería ser «o», o al revés.",
-    "Ordenar mal varias condiciones anidadas: hay que empezar por la más exigente.",
+    "Poner la condición fuera del bucle «por siempre», de modo que solo se comprueba una vez.",
+    "Elegir un color parecido, pero no idéntico, en «¿tocando el color?».",
+    "Confundir «>» con «≥» y olvidar el caso del límite.",
+    "Usar «y» cuando hace falta «o» (o al revés).",
+    "Usar un «si… si no» cuando se necesitan varios «si» independientes (dos teclas a la vez).",
+    "Olvidar que «respuesta» solo guarda la última respuesta.",
   ],
   ejercicios: [
-    { q: "¿Qué es una condición en programación?", sol: "Una pregunta que solo puede ser verdadera o falsa." },
-    { q: "¿Qué forma tienen los bloques de condición en Scratch?", sol: "Hexagonal." },
-    { q: "¿Qué diferencia hay entre «si… entonces» y «si… entonces… si no»?", sol: "El primero hace algo solo si se cumple; el segundo hace una cosa si se cumple y otra si no." },
-    { q: "¿Por qué un «si» suele ir dentro de un «por siempre»?", sol: "Porque el «si» solo comprueba una vez; el bucle hace que se compruebe continuamente." },
-    { q: "Escribe tres bloques sensores que sean condiciones.", sol: "¿Tocando borde?, ¿tocando el color…?, ¿tecla espacio presionada?" },
-    { q: "¿Para qué sirve el bloque «preguntar y esperar»?", sol: "Para pedir un dato al usuario, que queda guardado en «respuesta»." },
-    { q: "¿Cuándo es verdadera la condición «A y B»? ¿Y «A o B»?", sol: "«A y B» si las dos son verdaderas; «A o B» si al menos una lo es." },
-    { q: "Escribe la condición para «el personaje está en el aire».", sol: "no ¿tocando suelo? (o no tocando el color del suelo)." },
-    { q: "Escribe el programa para mover un objeto a la izquierda con la flecha izquierda usando «si».", sol: "Por siempre: si ¿tecla flecha izquierda presionada? entonces sumar −10 a x." },
-    { q: "Pon un ejemplo de condición con comparación.", sol: "puntos > 9." },
+    { nivel: "básico", q: "¿Qué es una condición?", sol: "Una pregunta que se responde con verdadero o falso." },
+    { nivel: "básico", q: "¿Qué forma tienen las condiciones en Scratch?", sol: "Hexagonal." },
+    { nivel: "básico", q: "¿Qué diferencia hay entre «si… entonces» y «si… entonces… si no»?", sol: "El primero solo actúa si es verdadera; el segundo tiene también acciones para cuando es falsa." },
+    { nivel: "básico", q: "Di si son condiciones: «¿tocando borde?», «¿qué hora es?», «puntos > 5».", sol: "Sí; no (no es sí o no); sí." },
+    { nivel: "básico", q: "Nombra cuatro bloques sensores.", sol: "¿tocando…?, ¿tocando el color…?, ¿tecla… presionada?, distancia a…" },
+    { nivel: "básico", q: "¿Por qué las condiciones suelen ir dentro de «por siempre»?", sol: "Para comprobarlas continuamente y no solo una vez." },
+    { nivel: "básico", q: "¿Dónde se guarda lo que escribe el usuario tras «preguntar»?", sol: "En el bloque «respuesta»." },
+    { nivel: "básico", q: "¿Es verdadero o falso? 8 > 3; 4 = 5; 2 < 9.", sol: "V; F; V." },
+    { nivel: "básico", q: "¿Cuándo es verdadera una condición con «y»?", sol: "Cuando las dos partes son verdaderas." },
+    { nivel: "básico", q: "¿Cuándo es verdadera una condición con «o»?", sol: "Cuando al menos una parte es verdadera." },
+    { nivel: "básico", q: "¿Qué hace «no»?", sol: "Invierte el resultado: verdadero pasa a falso y al revés." },
+    { nivel: "básico", q: "Pon dos ejemplos de sensores del mundo real.", sol: "El de presencia de una puerta automática y el de luz de una farola." },
+    { nivel: "medio", q: "Programa que el gato maúlle si se pulsa la tecla m.", sol: "por siempre: si ¿tecla m presionada? entonces tocar sonido Miau hasta que termine." },
+    { nivel: "medio", q: "Programa un objeto que cambie a un disfraz «asustado» cuando esté a menos de 100 pasos del ratón.", sol: "por siempre: si distancia a puntero < 100 entonces disfraz asustado; si no, disfraz normal." },
+    { nivel: "medio", q: "Haz una pregunta de capitales y responde si es correcta.", sol: "preguntar ¿Capital de Francia?; si respuesta = París entonces ¡Correcto!; si no, Era París." },
+    { nivel: "medio", q: "Escribe una condición que sea verdadera si x está entre −100 y 100.", sol: "x > −100 y x < 100." },
+    { nivel: "medio", q: "Escribe una condición para moverse a la derecha con la tecla d o con la flecha derecha.", sol: "¿tecla d presionada? o ¿tecla → presionada?" },
+    { nivel: "medio", q: "¿Por qué para mover con flechas se usan varios «si» y no un «si… si no»?", sol: "Para que se puedan cumplir varias condiciones a la vez (por ejemplo, dos teclas)." },
+    { nivel: "medio", q: "Programa que el juego termine cuando las vidas lleguen a 0.", sol: "por siempre: si vidas = 0 entonces decir Fin del juego; detener todos." },
+    { nivel: "medio", q: "Completa la tabla de verdad de «A y B» para las cuatro combinaciones.", sol: "V y V = V; V y F = F; F y V = F; F y F = F." },
+    { nivel: "medio", q: "Haz la traza: puntos = 10. ¿Se cumple «puntos > 10»? ¿Y «no puntos < 10»?", sol: "No (es igual); sí (10 no es menor que 10, y no F = V)." },
+    { nivel: "medio", q: "En un laberinto, ¿qué haces cuando el jugador toca la pared? ¿Y la meta?", sol: "Pared: volver al inicio. Meta: decir ¡He ganado! y detener." },
+    { nivel: "medio", q: "Explica cómo funciona la puerta automática con un «si… si no».", sol: "Por siempre: si hay alguien cerca, abrir; si no, cerrar." },
+    { nivel: "avanzado", q: "Programa un quiz de 3 preguntas que cuente los aciertos en una variable y al final diga la nota.", sol: "aciertos = 0; para cada pregunta: preguntar; si respuesta correcta, sumar 1; al final decir unir «Aciertos: » y aciertos." },
+    { nivel: "avanzado", q: "Programa un termostato en Scratch: pregunta la temperatura y di si se enciende la calefacción (< 19), el aire (> 26) o nada.", sol: "si respuesta < 19 → calefacción; si no: si respuesta > 26 → aire; si no → nada." },
+    { nivel: "avanzado", q: "Diseña el juego de atrapar manzanas con vidas: ¿qué condiciones necesitas y dónde van?", sol: "En la manzana: si toca cesta (+1 punto, volver arriba); si y < −170 (−1 vida, volver arriba); si vidas = 0 (fin). En la cesta: si flecha → / ←." },
+    { nivel: "avanzado", q: "¿Qué diferencia hay entre «no (x > 5)» y «x < 5»? Pon un valor en el que den resultados distintos.", sol: "Con x = 5: no (5 > 5) = no F = V, pero 5 < 5 = F." },
+    { nivel: "avanzado", q: "Un compañero escribe «si respuesta = 56» y el programa dice «incorrecto» aunque escribe 56. ¿Qué puede pasar?", sol: "Quizá ha escrito un espacio, o la pregunta está después de la condición, o usa otra respuesta anterior." },
+    { nivel: "avanzado", q: "Crea un personaje que solo pueda saltar si está tocando el suelo (color marrón) y se pulsa espacio.", sol: "si ¿tecla espacio presionada? y ¿tocando color marrón? entonces saltar." },
+    { nivel: "avanzado", q: "Investiga y explica qué relación hay entre la lógica de Boole y los circuitos de un ordenador.", sol: "Los circuitos usan interruptores encendido/apagado como verdadero/falso y puertas lógicas Y, O, NO." },
   ],
   quiz: [
-    { q: "Una condición solo puede ser…", o: ["verdadera o falsa", "un número", "un texto"], a: 0, e: "Verdadera o falsa." },
-    { q: "Los bloques de condición tienen forma…", o: ["hexagonal", "redonda", "de C"], a: 0, e: "Hexagonal." },
-    { q: "Con «si… si no» se ejecuta…", o: ["uno de los dos caminos", "los dos", "ninguno"], a: 0, e: "Uno de los dos." },
-    { q: "Para detectar una pared de color se usa…", o: ["¿tocando el color?", "¿ratón presionado?", "cronómetro"], a: 0, e: "Tocando el color." },
-    { q: "Lo que escribe el usuario se guarda en…", o: ["respuesta", "cronómetro", "volumen"], a: 0, e: "Respuesta." },
-    { q: "«A o B» es verdadero si…", o: ["al menos una es verdadera", "las dos son falsas", "solo A"], a: 0, e: "Al menos una." },
-    { q: "«no ¿tocando suelo?» es verdadero cuando…", o: ["no toca el suelo", "toca el suelo", "siempre"], a: 0, e: "En el aire." },
-    { q: "Los sensores están en la categoría de color…", o: ["azul claro", "morado", "amarillo"], a: 0, e: "Azul claro." },
-    { q: "Un «si» fuera de un bucle comprueba la condición…", o: ["una vez", "siempre", "nunca"], a: 0, e: "Una vez." },
-    { q: "Los operadores de comparación son…", o: [">, < e =", "y, o, no", "+, −"], a: 0, e: "Mayor, menor e igual." },
+    { q: "Una condición puede ser…", o: ["un número cualquiera", "verdadera o falsa", "un color", "un disfraz"], a: 1, e: "Sí o no." },
+    { q: "Las condiciones en Scratch tienen forma…", o: ["redonda", "hexagonal", "de C", "de sombrero"], a: 1, e: "Puntas a los lados." },
+    { q: "«si … entonces» ejecuta su interior cuando la condición es…", o: ["falsa", "verdadera", "cero", "siempre"], a: 1, e: "Verdadera." },
+    { q: "En «si… si no» se ejecuta…", o: ["los dos huecos", "uno de los dos", "ninguno", "el último"], a: 1, e: "Siempre uno." },
+    { q: "Para comprobar continuamente una condición se pone dentro de…", o: ["un evento", "por siempre", "un disfraz", "un fondo"], a: 1, e: "Bucle." },
+    { q: "Los bloques sensores son de color…", o: ["verde", "celeste", "morado", "rosa"], a: 1, e: "Sensores." },
+    { q: "Para detectar una pared de color se usa…", o: ["¿tecla presionada?", "¿tocando el color …?", "preguntar", "cronómetro"], a: 1, e: "Sensor de color." },
+    { q: "El bloque que mide pasos hasta otro objeto es…", o: ["cronómetro", "distancia a", "respuesta", "posición x"], a: 1, e: "Distancia." },
+    { q: "Lo que escribe el usuario se guarda en…", o: ["pregunta", "respuesta", "puntos", "disfraz"], a: 1, e: "Respuesta." },
+    { q: "Los operadores son de color…", o: ["azul", "verde", "naranja", "amarillo"], a: 1, e: "Operadores." },
+    { q: "«5 > 5» es…", o: ["verdadero", "falso", "error", "5"], a: 1, e: "No es mayor." },
+    { q: "V y F =", o: ["V", "F", "depende", "error"], a: 1, e: "Hacen falta las dos." },
+    { q: "V o F =", o: ["F", "V", "depende", "error"], a: 1, e: "Basta con una." },
+    { q: "no V =", o: ["V", "F", "0", "1"], a: 1, e: "Invierte." },
+    { q: "«x > 0 y x < 10» con x = 5 es…", o: ["falsa", "verdadera", "error", "5"], a: 1, e: "Las dos se cumplen." },
+    { q: "Para mover con dos teclas a la vez se usan…", o: ["un si… si no", "varios si independientes", "un solo evento", "preguntar"], a: 1, e: "Independientes." },
+    { q: "Una puerta automática usa un sensor de…", o: ["sabor", "presencia", "sonido de música", "color"], a: 1, e: "Detecta personas." },
+    { q: "George Boole creó la lógica del…", o: ["color", "verdadero y falso", "sonido", "movimiento"], a: 1, e: "Álgebra de Boole." },
+    { q: "Para elegir el color exacto de una pared se usa el…", o: ["lápiz", "cuentagotas", "borrador", "pincel"], a: 1, e: "Selector de color." },
+    { q: "Scratch al comparar «Hola» = «hola» da…", o: ["falso", "verdadero", "error", "0"], a: 1, e: "No distingue mayúsculas." },
   ],
   examen: [
-    { q: "Para «tener la llave y pulsar espacio» se usa el operador…", o: ["y", "o", "no"], a: 0, e: "Las dos a la vez." },
-    { q: "Para «tocar lava o pinchos» se usa…", o: ["o", "y", "no"], a: 0, e: "Cualquiera de las dos." },
-    { q: "Si nota = 8, con «si nota > 8 entonces A si no B» se ejecuta…", o: ["B", "A", "los dos"], a: 0, e: "8 no es mayor que 8." },
+    { q: "puntos = 10. «puntos > 10» es…", o: ["verdadero", "falso", "error", "10"], a: 1, e: "Igual, no mayor." },
+    { q: "Para «x entre 0 y 50» se usa…", o: ["x > 0 o x < 50", "x > 0 y x < 50", "no x > 0", "x = 50"], a: 1, e: "Las dos a la vez." },
+    { q: "F o F =", o: ["V", "F", "depende", "error"], a: 1, e: "Ninguna se cumple." },
+    { q: "Si la condición está fuera del bucle, se comprueba…", o: ["siempre", "una vez", "nunca", "dos veces"], a: 1, e: "Solo al ejecutarse." },
+    { q: "Para «suspenso si nota < 5» basta con…", o: ["dos si", "el si no de «si nota ≥ 5»", "un bucle", "un sensor"], a: 1, e: "Si no cubre el resto." },
+    { q: "La manzana ha llegado al suelo cuando…", o: ["posición y > 170", "posición y < −170", "posición x < 0", "toca la cesta"], a: 1, e: "Abajo del todo." },
+    { q: "Edad 12 para «mayores de 12 incluidos»:", o: ["edad > 12", "edad > 11", "edad < 12", "edad = 11"], a: 1, e: "Incluye el 12." },
+    { q: "no (¿tocando borde?) es verdadero cuando…", o: ["toca el borde", "no toca el borde", "siempre", "nunca"], a: 1, e: "Invierte." },
   ],
-  feynman: ["Qué es una condición y por qué solo puede ser verdadera o falsa", "Por qué el bloque «si» suele ir dentro de un bucle «por siempre»", "Cómo funcionan los operadores y, o, no"],
-  mapa: mapa("CONDICIONES", "var(--eso)", [
-    ["Decidir", "si · si no · anidados", COL.naranja],
-    ["Sensores", "tocando · teclas · ratón · color", COL.agua],
-    ["Diálogo", "preguntar · respuesta", COL.gris],
-    ["Operadores", "> < = · y · o · no", COL.verde],
-  ], 300),
-  tarjetas: [
-    ["Condición", "Pregunta que es verdadera o falsa."],
-    ["Si… entonces", "Ejecuta su interior solo si la condición es verdadera."],
-    ["Si… si no", "Ejecuta un camino u otro según la condición."],
-    ["Sensor", "Bloque que obtiene información del escenario o del usuario."],
-    ["¿Tocando el color?", "Detecta si el objeto toca un color concreto."],
-    ["Respuesta", "Guarda lo que escribe el usuario al preguntar."],
-    ["Operador «y»", "Verdadero si las dos condiciones lo son."],
-    ["Operador «o»", "Verdadero si al menos una lo es."],
-  ],
-  familias: ["Buscad en casa aparatos que tomen decisiones con sensores: frigorífico, termostato, luz con detector.", "Jugad al juego de las preguntas de sí o no y fijaos en cómo se va descartando.", "Probad juntos el juego de atrapar manzanas que hayan programado."],
-  profesores: {
-    saberes: "Estructuras condicionales: condiciones booleanas, si-entonces, si-entonces-si no, condiciones anidadas, bloques sensores (contacto, color, teclado, ratón, distancia, cronómetro), preguntar y respuesta, operadores relacionales y lógicos (materia optativa de Programación y robótica, en el marco del RD 217/2022).",
-    ideas: ["Laberinto con paredes de color y meta.", "Cuestionario de cinco preguntas con puntuación.", "Juego de atrapar objetos con condición de victoria y de derrota."],
+  feynman: ["Qué es una condición y por qué solo puede ser verdadera o falsa", "Qué diferencia hay entre si… entonces y si… entonces… si no", "Cómo funcionan los operadores y, o, no con ejemplos", "Por qué las condiciones suelen ir dentro de un bucle por siempre"],
+  figura: {
+    titulo: "Condiciones y sensores en un vistazo",
+    svg: resumen("Resumen: condiciones, si entonces, si no, sensores, preguntar y operadores", [
+      ["Condición", "pregunta de sí o no · verdadero o falso", "var(--leaf)"],
+      ["si… entonces", "solo si es verdadera · si no: si es falsa", CAT.control],
+      ["Sensores", "tocando · color · tecla · distancia", CAT.sensores],
+      ["Preguntar", "preguntar y esperar · respuesta", "var(--inf)"],
+      ["Operadores", "> < = · y · o · no", CAT.operadores],
+    ]),
   },
-  fuentes: [RD, wiki("Sentencia condicional", "Sentencia_condicional"), { t: "Scratch (web oficial)", url: "https://scratch.mit.edu/" }, { t: "INTEF: Escuela de Pensamiento Computacional", url: "https://code.intef.es/" }],
+  video: { id: "Friweqkc35Q", titulo: "Tutorial Scratch: «Si entonces si no»", canal: "Harold Rodríguez", vistas: 12159, megusta: 0, busqueda: "scratch condicionales sensores si entonces" },
+  mapa: mapa("DECIDIR", CAT.control, [
+    ["Condición", "verdadero o falso", "var(--leaf)"],
+    ["Si… si no", "uno de dos caminos", CAT.control],
+    ["Sensores", "tocar · teclas · preguntar", CAT.sensores],
+    ["Operadores", "comparar · y · o · no", CAT.operadores],
+  ], 250),
+  glosario: [
+    ["Condición", "Pregunta que se responde con verdadero o falso."],
+    ["Verdadero / falso", "Los dos únicos valores que puede tener una condición."],
+    ["Si… entonces", "Bloque que ejecuta su interior solo si la condición es verdadera."],
+    ["Si no", "Parte que se ejecuta cuando la condición es falsa."],
+    ["Sensor", "Bloque o dispositivo que detecta lo que ocurre."],
+    ["Preguntar", "Bloque que pide un dato al usuario y espera."],
+    ["Respuesta", "Bloque que guarda lo último que escribió el usuario."],
+    ["Operador de comparación", "Bloque que compara dos valores: >, <, =."],
+    ["Operador lógico", "Bloque que combina condiciones: y, o, no."],
+    ["Tabla de verdad", "Tabla con el resultado de una condición en todos los casos."],
+    ["Lógica de Boole", "Sistema de razonamiento con verdadero, falso, y, o, no."],
+    ["Cuentagotas", "Herramienta para elegir un color tocándolo en el escenario."],
+  ],
+  situacion: {
+    titulo: "El laberinto de la clase",
+    reto: "Vais a diseñar un juego de laberinto en Scratch con paredes, trampas, premios y una meta, usando sensores y condiciones.",
+    pasos: [
+      "Dibujad el laberinto como fondo, con colores distintos para paredes, trampas y meta.",
+      "Programad el movimiento del jugador con flechas y condiciones en un «por siempre».",
+      "Añadid las condiciones de choque: pared, trampa (perder vida) y meta (ganar).",
+      "Incluid una pregunta al empezar (nombre del jugador) y usadla en el mensaje final.",
+      "Intercambiad el juego con otro grupo, anotad fallos y depurad.",
+    ],
+    producto: "Un juego de laberinto en Scratch con al menos tres tipos de condiciones.",
+    evaluacion: ["Usa correctamente si… entonces y si… si no.", "Los sensores detectan bien colores y teclas.", "Combina condiciones con operadores cuando hace falta.", "El juego está probado y depurado."],
+  },
+  tarjetas: [
+    ["Condición", "Verdadero o falso"], ["si… entonces", "Solo si se cumple"], ["si no", "Si no se cumple"],
+    ["Forma hexagonal", "Condición"], ["¿tocando…?", "Choques"], ["¿tocando el color?", "Paredes y metas"],
+    ["¿tecla presionada?", "Teclado"], ["preguntar", "Pedir un dato"], ["respuesta", "Lo que escribió"],
+    ["y", "Las dos"], ["o", "Al menos una"], ["no", "Invierte"],
+  ],
+  familias: ["Buscad juntos aparatos de casa que tomen decisiones con sensores (frigorífico, luces, alarma).", "Jugad a «Simón dice» con condiciones: «si llevas algo azul, levanta la mano».", "Pedid que os enseñe un quiz hecho en Scratch.", "Comentad situaciones del día con «si… entonces… si no»."],
+  profesores: {
+    saberes: "Estructuras de selección: condiciones booleanas, condicionales simples y dobles, sensores de contacto, color, teclado, ratón y distancia, entrada de datos, operadores de comparación y lógicos (materia optativa de Programación y robótica, en el marco del RD 217/2022).",
+    ideas: ["Tablas de verdad con tarjetas V y F.", "Diagramas de flujo de aparatos automáticos.", "Laberinto con sensores de color por grupos.", "Quiz de repaso de otras materias hecho en Scratch."],
+  },
+  fuentes: [RD, { t: "Scratch (MIT): página oficial", url: "https://scratch.mit.edu/" }, wiki("Sentencia condicional", "Sentencia_condicional"), wiki("George Boole", "George_Boole"), wiki("Álgebra de Boole", "Álgebra_de_Boole")],
   revisado: REV,
 };
