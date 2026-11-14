@@ -19,10 +19,12 @@ const CAT = {
 function scratch(label, filas, titulo = "") {
   const top = titulo ? 30 : 14, paso = 27, x0 = 16, dent = 16;
   const extra = filas.reduce((s, f, i) => s + (cierra(filas, i) ? 1 : 0), 0);
-  const h = Math.max(150, top + (filas.length + extra) * paso + 12);
+  const hueco = filas.filter((f, i) => i > 0 && esHat(f)).length * 14;
+  const h = Math.max(150, top + (filas.length + extra) * paso + hueco + 12);
   let g = titulo ? tx(130, 21, titulo, { fs: 13, c: "var(--muted)" }) : "";
   let y = top, ys = [];
   filas.forEach(([s, cat, n = 0], i) => {
+    if (i > 0 && esHat(filas[i])) y += 14;
     ys[i] = y;
     y += paso;
     for (let k = 0; k < cierra(filas, i); k++) y += paso;
@@ -37,11 +39,13 @@ function scratch(label, filas, titulo = "") {
   });
   filas.forEach(([s, cat, n = 0], i) => {
     const c = CAT[cat] || "var(--pen)", x = x0 + n * dent, w = 228 - n * dent;
-    const sombrero = cat === "eventos" && i === 0;
+    const sombrero = esHat(filas[i]);
     g += `<rect x="${x}" y="${ys[i]}" width="${w}" height="23" rx="${sombrero ? 10 : 5}" fill="${c}"/>${tx(x + 9, ys[i] + 16, s, { fs: 11.5, c: "#fff", a: "start", max: w - 16 })}`;
   });
   return lienzo(label, g, h);
 }
+// Bloque sombrero: evento que empieza un programa («al …», «cuando …»).
+const esHat = ([s, cat]) => cat === "eventos" && /^(al |cuando )/.test(s);
 function ultimoDentro(filas, i) {
   const [, cat, n = 0] = filas[i];
   if (cat !== "control" && cat !== "robot") return i;
