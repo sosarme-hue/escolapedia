@@ -1,0 +1,63 @@
+// Francés 1º ESO · tema nivel libro. Parte de _eso1L6-base-fr-alphabet.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-fr-alphabet"), {
+  grupos: [4, 4, 4],
+  objetivos: ["Reconocer los sonidos más difíciles del francés", "Usar los números ordinales y hacer cálculos sencillos en francés"],
+  claves: ["les sons", "nasales", "premier / première", "deuxième", "plus / moins", "fois", "combien ça coûte ?", "un euro"],
+  lectura: ["Un número de teléfono en el tren", `<p>Camille viajaba en tren de París a Lyon cuando conoció a Pablo, un chico español que iba de intercambio. Al despedirse, quiso darle su número de teléfono. Pablo le pidió: «¿Me lo puedes repetir?». Camille lo dijo despacio: «Zéro six, quarante-cinq, soixante-douze, dix-huit, quatre-vingt-treize». Pablo se quedó mirándola. ¿Setenta y dos? ¿Cuatro veintes y trece? No entendía nada.</p><p>Esa tarde, en el hotel, Pablo se dio cuenta de que le faltaba lo básico: <mark>contar bien en francés</mark> y deletrear su propio nombre sin que le preguntasen tres veces «comment ça s'écrit ?». Al día siguiente practicó con un juego: leyó en voz alta las matrículas de los coches y las páginas de su libro. En pocos días, ya sabía dar su correo electrónico (con «arobase» y «point»), decir su edad y entender precios en los mercados.</p><p>En este tema vas a aprender el alfabeto, los acentos y los números del 0 al 100, pero también cómo suenan, cómo se usan en la vida real y cómo hacer cuentas sencillas. Lo importante es practicar en voz alta: los números franceses se aprenden con el oído.</p>`],
+  nuevos: [
+    [1, "Sonidos que cuestan", `<p>Algunos sonidos del francés no existen en español y conviene entrenarlos desde el principio:</p><ul><li><b>R</b>: se pronuncia al fondo de la garganta, como una «j» suave (<i>rouge, rue</i>).</li><li><b>U</b>: labios redondeados como para decir «u» pero diciendo «i» (<i>tu, rue</i>). Distínguela de <b>ou</b>, que suena como nuestra «u» (<i>vous, rouge</i>).</li><li><b>Vocales nasales</b>: <i>an/en</i> (<i>enfant</i>), <i>on</i> (<i>bonjour</i>), <i>in/ain</i> (<i>matin</i>). El aire sale también por la nariz y no se pronuncia la <i>n</i>.</li><li><b>CH</b> suena «sh» (<i>chat</i>) y <b>J</b> suena «yh» sonora (<i>jour</i>).</li><li><b>H</b> no se pronuncia nunca (<i>hôtel</i>).</li></ul><p>Además, la mayoría de las consonantes finales son <b>mudas</b>: en <i>trois, petit, grand</i> no suenan la s, la t ni la d.</p>`,
+      L.tabla("Sonidos del francés", ["Escrito", "Suena"], [["u", "i con labios"], ["ou", "u española"], ["on", "o nasal"], ["ch", "sh"]])],
+    [6, "Los números ordinales", `<p>Los números <b>ordinales</b> dicen el orden: primero, segundo… Se forman añadiendo <b>-ième</b> al número: <i>deux → deuxième</i>, <i>trois → troisième</i>, <i>cinq → cinquième</i> (con <i>u</i>), <i>neuf → neuvième</i> (la <i>f</i> pasa a <i>v</i>) y <i>dix → dixième</i>. El primero es especial: <b>premier</b> (masculino) y <b>première</b> (femenino).</p><p>Los usamos para los <b>pisos</b> (<i>au deuxième étage</i>), las <b>clases de Francia</b> (6e, 5e, 4e, 3e) y las posiciones en una carrera (<i>Il est arrivé troisième</i>). Para abreviar se escribe 1er, 1re, 2e, 3e…</p>`,
+      L.columnas("Ordinales", [["1º", "PREMIER / PREMIÈRE", ["irregular"], L.RO], ["2º a 10º", "NÚMERO + IÈME", ["deuxième, troisième"], L.AZ], ["5º y 9º", "CAMBIOS", ["cinquième", "neuvième"], L.VE]])],
+    [9, "Hacer cuentas en francés", `<p>Con los números también se puede calcular. Estas son las palabras clave:</p><ul><li><b>plus</b> (más): <i>trois plus deux font cinq</i> (3 + 2 = 5).</li><li><b>moins</b> (menos): <i>dix moins quatre font six</i> (10 − 4 = 6).</li><li><b>fois</b> (por): <i>trois fois quatre font douze</i> (3 × 4 = 12).</li><li><b>divisé par</b> (dividido entre): <i>vingt divisé par cinq font quatre</i> (20 : 5 = 4).</li></ul><p>El resultado se dice con <b>font</b> (hacen) o <b>égale</b> (es igual a). Una forma divertida de practicar es resolver en voz alta las tablas de multiplicar, o jugar a «le compte est bon»: el que dice más rápido el resultado correcto, gana.</p>`,
+      L.filas("Las cuatro operaciones", [["+", "plus", L.AZ], ["−", "moins", L.RO], ["×", "fois", L.VE], ["÷", "divisé par", L.MO]])],
+    [11, "Números en el supermercado", `<p>Los números aparecen sin parar: en los <b>precios</b>, en las <b>horas</b> y en los <b>teléfonos</b>. La moneda de Francia es el <b>euro</b>, y los céntimos se dicen <i>centimes</i>. Se lee así: <i>2,50 €</i> = <i>deux euros cinquante</i>; <i>1 €</i> = <i>un euro</i>.</p><p>Para preguntar el precio se dice <b>Ça coûte combien ?</b> o <b>C'est combien ?</b>. Y para dar las gracias o pagar: <i>Voilà, merci !</i> Una buena actividad es escribir una lista de cinco productos y decir en francés cuánto cuestan: <i>Le pain coûte un euro vingt</i>.</p>`,
+      L.dialogo("En la panadería", [["Cliente", "C'est combien ?", L.AZ], ["Vendeur", "Un euro vingt.", L.RO], ["Cliente", "Voilà ! Merci.", L.AZ]])],
+  ],
+  ejemplos: [
+    ["Escribe en francés el resultado: 6 × 7.", ["Se lee «six fois sept».", "6 × 7 = 42.", "42 = quarante-deux."], "Six fois sept font quarante-deux."],
+    ["Di en francés el piso 3.º de un edificio y el precio 4,75 €.", ["Piso: troisième étage.", "Precio: quatre euros soixante-quinze."], "Au troisième étage; quatre euros soixante-quinze."],
+  ],
+  errores: ["Pronunciar la ou francesa como la u del francés (son distintas).", "Decir «je suis douze ans» en lugar de «j'ai douze ans»."],
+  ejercicios: [
+    ["b", "Escribe en francés los números 11, 14 y 19.", "Onze, quatorze, dix-neuf."],
+    ["b", "Escribe el 21, el 31 y el 41 en francés.", "Vingt et un, trente et un, quarante et un."],
+    ["b", "¿Cómo se dice «tengo trece años»?", "J'ai treize ans."],
+    ["b", "Deletrea en francés tu nombre.", "Respuesta personal, por ejemplo A-N-A (a, ène, a)."],
+    ["m", "Forma el ordinal de: 2, 3, 5 y 9.", "Deuxième, troisième, cinquième, neuvième."],
+    ["m", "Resuelve en francés: 12 + 8, 30 − 5, 4 × 9 y 20 ÷ 4.", "Douze plus huit font vingt; trente moins cinq font vingt-cinq; quatre fois neuf font trente-six; vingt divisé par quatre font cinq."],
+    ["m", "Escribe en cifras: soixante-quinze, quatre-vingt-trois y quatre-vingt-dix-sept.", "75, 83 y 97."],
+    ["m", "Di este teléfono en parejas: 07 56 82 34 90.", "Zéro sept, cinquante-six, quatre-vingt-deux, trente-quatre, quatre-vingt-dix."],
+    ["a", "Escribe tres preguntas con «Quel âge…?» y sus respuestas sobre tu familia.", "Respuesta personal con avoir + ans."],
+    ["a", "Inventa un diálogo de compra en el mercado con tres productos y sus precios en francés.", "Respuesta personal."],
+    ["a", "Explica por qué el 80 es «quatre-vingts» y el 81 es «quatre-vingt-un».", "Cuatro veintes; pierde la «s» porque ya no está solo."],
+    ["a", "Prepara una lista de diez números de teléfono ficticios y léelos a un compañero que los escriba.", "Respuesta personal."],
+  ],
+  quiz: [
+    ["En francés, 5º se dice…", ["cinquième", "cinqième", "cinquiéme"], "Lleva «u»."],
+    ["La palabra «fois» significa…", ["por (multiplicar)", "más", "menos"], "Trois fois quatre."],
+    ["Un número de teléfono francés tiene…", ["diez cifras", "siete cifras", "doce cifras"], "Se lee en parejas."],
+    ["«Ça coûte combien ?» pregunta…", ["el precio", "la hora", "la edad"], "En el comercio."],
+    ["El sonido «ou» francés equivale a…", ["la u española", "la i", "la o"], "Vous, rouge."],
+    ["Las vocales nasales son…", ["an, on, in", "ou, oi, eu", "ch, j, h"], "Sin pronunciar la n."],
+  ],
+  examen: [
+    ["Premier es el ordinal masculino de…", ["primero", "segundo", "cuarto"], "Femenino: première."],
+    ["Con 3 + 2 = 5 se dice «trois plus deux…»", ["font cinq", "est cinquante", "ont cinq"], "Resultado."],
+    ["La moneda de Francia es…", ["el euro", "la libra", "el franco"], "Hoy."],
+  ],
+  tarjetas: [["premier / première", "primero / primera."], ["deuxième", "segundo."], ["plus / moins", "más / menos."], ["fois", "por, en una multiplicación."]],
+  glosario: [["l'alphabet", "El alfabeto."], ["épeler", "Deletrear."], ["accent", "Signo sobre una vocal."], ["cédille", "Signo de la ç."], ["les nombres", "Los números."], ["premier", "Primero."], ["deuxième", "Segundo."], ["plus", "Más."], ["moins", "Menos."], ["fois", "Por."], ["l'euro", "La moneda."], ["le prix", "El precio."]],
+  situacion: SIT("Bingo en francés", "Vuestra clase de Francés organizará un bingo con números del 0 al 100 para practicar la comprensión oral.", [
+    "Cada alumno prepara un cartón de doce números.",
+    "Un alumno canta los números en francés y otro anota los que van saliendo.",
+    "Se inventan tres rondas: simples, con operaciones y con teléfonos.",
+    "Se premia con puntos la corrección en la pronunciación.",
+    "Al final, cada alumno escribe en francés los cinco números que más le costaron.",
+  ], "Un cartón de bingo y una hoja con los cinco números más difíciles y su pronunciación.", ["Los números se dicen y se entienden bien.", "Se usan los ordinales y las operaciones.", "Se aplican las reglas de et y de las decenas.", "El grupo coopera y respeta los turnos."]),
+  familias: ["Contad en francés hasta cien mientras hacéis cualquier tarea de la casa.", "Jugad a las operaciones: uno propone «sept fois huit» y los demás contestan."],
+  ideas: ["Compra en una tienda simulada con precios en euros y francés."],
+  fuentes: [WIKI("Francés", "Idioma_francés")],
+});

@@ -1,0 +1,63 @@
+// Francés 1º ESO · tema nivel libro. Parte de _eso1L6-base-fr-famille.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-fr-famille"), {
+  grupos: [4, 4, 5],
+  objetivos: ["Describir el físico y el carácter de una persona", "Usar los posesivos plurales notre, votre y leur y nombrar profesiones"],
+  claves: ["grand / petit", "blond / brun / roux", "les yeux", "les cheveux", "gentil", "notre / votre / leur", "le métier"],
+  lectura: ["La foto de la familia Dubois", `<p>Hugo enseña a su compañero Pablo una foto de su familia en el móvil. «Voici mon père, il est grand et brun. Voici ma mère, elle est blonde, elle a les yeux bleus. Et ça, c'est ma sœur Léa: elle est petite, elle a douze ans.» Pablo pregunta: «Et ton grand-père ?». Hugo sonríe: «Mon grand-père s'appelle Henri. Il est très drôle et il a une moustache blanche».</p><p>Con pocas palabras, Hugo ha hecho algo muy importante: <mark>ha descrito a las personas que quiere</mark>, con su físico y su carácter. Para eso hacen falta los miembros de la familia, los verbos <i>être</i> y <i>avoir</i>, los posesivos y algunos adjetivos de descripción. Todo eso lo tienes ya en este tema; ahora vamos a ampliar con lo que falta para hablar de tu familia como si estuvieras en un salón francés: los tipos de familia, la descripción física y de carácter, los posesivos de varias personas (<i>notre</i>, <i>votre</i>, <i>leur</i>) y las profesiones.</p><p>Al final del tema, serás capaz de presentar a toda tu familia en un minuto, con mucho detalle y sin leer.</p>`],
+  nuevos: [
+    [1, "Los tipos de familia", `<p>Hay muchos tipos de familia, y en francés se nombran con palabras sencillas:</p><ul><li><b>La famille nucléaire</b>: padres e hijos.</li><li><b>La famille monoparentale</b>: un solo progenitor con sus hijos.</li><li><b>La famille recomposée</b>: la que se forma cuando una pareja con hijos se une a otra persona. Aparecen los <b>demi-frères</b> y <b>demi-sœurs</b> (medio hermanos) y el <b>beau-père</b> / la <b>belle-mère</b> (padrastro/madrastra o suegros).</li><li><b>La famille nombreuse</b>: con muchos hijos.</li></ul><p>Observa que <i>beau-père</i> significa tanto «padrastro» como «suegro», según el contexto; y que <i>le fils unique</i> y <i>la fille unique</i> son los hijos únicos. Cada familia es diferente, y todas se pueden presentar con las mismas estructuras.</p>`,
+      L.filas("Tipos de familia", [["Nucléaire", "padres e hijos", L.AZ], ["Monoparentale", "un solo adulto", L.VE], ["Recomposée", "demi-frères", L.RO], ["Nombreuse", "muchos hijos", L.MO]])],
+    [6, "Describir a una persona", `<p>Para el <b>físico</b> se usa <i>être</i> con adjetivos como <i>grand(e)</i> (alto), <i>petit(e)</i> (bajo), <i>mince</i> (delgado) o <i>fort(e)</i> (fuerte). Para pelo y ojos se usa <i>avoir</i>: <i>Il a les cheveux courts et bruns</i>, <i>Elle a les yeux verts</i>. Los colores de pelo son <b>blond, brun, roux</b> (pelirrojo), <b>noir</b> y <b>gris</b>.</p><p>Para el <b>carácter</b> se usa <i>être</i> + adjetivo: <i>gentil(le)</i> (amable), <i>drôle</i> (gracioso), <i>timide</i>, <i>sympa</i>, <i>sérieux/sérieuse</i>, <i>généreux/généreuse</i>. Los adjetivos concuerdan: <i>mon frère est sérieux, ma sœur est sérieuse</i>. Cuidado: <b>sympa</b> no cambia en femenino ni en plural.</p>`,
+      L.tabla("Describir", ["Se usa", "Ejemplo"], [["être", "il est grand"], ["avoir", "elle a les yeux bleus"], ["être + carácter", "il est drôle"], ["avoir + pelo", "il a les cheveux noirs"]])],
+    [9, "Notre, votre, leur", `<p>Ya conoces <i>mon, ma, mes</i>, <i>ton, ta, tes</i> y <i>son, sa, ses</i>. Cuando el poseedor son varias personas, se usan otras formas, que concuerdan solo en singular o plural (no en género):</p><ul><li><b>notre</b> (nuestro/a) / <b>nos</b> (nuestros/as): <i>notre maison, nos amis</i>.</li><li><b>votre</b> (vuestro/a) / <b>vos</b>: <i>votre famille, vos parents</i>.</li><li><b>leur</b> (su, de ellos/as) / <b>leurs</b>: <i>leur chien, leurs enfants</i>.</li></ul><p>Observa que <i>leur</i> y <i>leurs</i> equivalen a «su/sus» cuando hay varios poseedores. Es un error típico escribir «leurs» con un solo objeto: <i>leur père</i>, pero <i>leurs parents</i>.</p>`,
+      L.tabla("Posesivos plurales", ["Uno", "Varios"], [["notre", "nos"], ["votre", "vos"], ["leur", "leurs"]])],
+    [11, "Los oficios de la familia", `<p>Para hablar de las profesiones se usa <b>être</b> + profesión sin artículo: <i>Mon père est médecin</i>, <i>Ma mère est professeure</i>. Con adjetivo sí se pone: <i>C'est un bon médecin</i>. Algunas profesiones tienen femenino regular: <i>infirmier / infirmière</i>, <i>boulanger / boulangère</i>. Otras cambian poco: <i>médecin</i> (válido para los dos), <i>professeur(e)</i>.</p><p>Para preguntar la profesión se dice <b>Quel est son métier ?</b> o <b>Qu'est-ce qu'il / elle fait dans la vie ?</b>. Y para hablar de las tuyas: <i>Quand je serai grand(e), je voudrais être…</i> (cuando sea mayor, me gustaría ser…).</p>`,
+      L.columnas("Profesiones", [["salud", "MÉDECIN", ["infirmier / ière"], L.AZ], ["enseñanza", "PROFESSEUR", ["instituteur / trice"], L.VE], ["oficio", "BOULANGER", ["boulangère"], L.RO]])],
+  ],
+  ejemplos: [
+    ["Describe a tu madre en francés en tres frases.", ["Físico con être.", "Pelo u ojos con avoir.", "Carácter con être."], "Elle est grande. Elle a les yeux marron. Elle est très gentille."],
+    ["Completa: «____ parents (ellos) habitent à Lyon».", ["El poseedor son varios (ellos): leur / leurs.", "Parents es plural: leurs."], "Leurs parents habitent à Lyon."],
+  ],
+  errores: ["Poner artículo después de «être» con una profesión.", "Confundir «leur» con «leurs» al usarlo con un nombre singular."],
+  ejercicios: [
+    ["b", "Escribe en francés tres miembros de la familia con su artículo.", "Le père, la mère, la sœur."],
+    ["b", "Conjuga avoir en presente.", "J'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont."],
+    ["b", "Escribe tres adjetivos de carácter en francés.", "Gentil, drôle, timide."],
+    ["b", "Traduce: «Mi hermano es alto y moreno».", "Mon frère est grand et brun."],
+    ["m", "Pon en femenino: «sérieux», «gentil» y «infirmier».", "Sérieuse, gentille, infirmière."],
+    ["m", "Completa con notre/votre/leur: «____ maison (de nosotros)», «____ amis (de ellos)».", "Notre maison; leurs amis."],
+    ["m", "Escribe cuatro frases sobre las profesiones de tu familia.", "Mon père est…, ma mère est…, etc."],
+    ["m", "Dibuja un árbol genealógico simple con cinco personas y escribe su relación en francés.", "Respuesta personal."],
+    ["a", "Describe a una persona de la familia con seis frases (físico, carácter, profesión).", "Respuesta personal."],
+    ["a", "Explica la diferencia entre «famille recomposée» y «famille monoparentale».", "Recomposée une pareja se une con hijos; monoparentale un solo adulto con hijos."],
+    ["a", "Escribe un diálogo entre dos amigos que hablan de sus familias.", "Respuesta personal."],
+    ["a", "Prepara una exposición de un minuto «Ma famille» con una foto.", "Respuesta personal."],
+  ],
+  quiz: [
+    ["«Leur» se usa cuando…", ["hay varios poseedores y un objeto", "hay un poseedor", "hablamos de tú"], "Su, de ellos."],
+    ["«Demi-frère» significa…", ["medio hermano", "cuñado", "primo"], "Comparten un progenitor."],
+    ["«Elle a les yeux verts» describe…", ["los ojos", "el carácter", "la profesión"], "Avoir."],
+    ["Con una profesión se dice…", ["Il est médecin", "Il est un médecin", "Il a médecin"], "Sin artículo."],
+    ["El femenino de «infirmier» es…", ["infirmière", "infirmiere", "infirmièr"], "-ière."],
+    ["«Vos» es…", ["vuestros", "nuestros", "sus"], "Plural de votre."],
+  ],
+  examen: [
+    ["«Sympa» en femenino es…", ["sympa", "sympate", "sympe"], "Invariable."],
+    ["«Roux» describe…", ["el pelo pelirrojo", "el carácter", "la altura"], "Color de pelo."],
+    ["«Notre» corresponde a…", ["nuestro/a", "vuestro/a", "su"], "Singular."],
+  ],
+  tarjetas: [["blond / brun / roux", "rubio / moreno / pelirrojo."], ["gentil", "amable."], ["notre / votre / leur", "nuestro / vuestro / su."], ["le métier", "la profesión."]],
+  glosario: [["la famille", "La familia."], ["le beau-père", "Padrastro o suegro."], ["le demi-frère", "Medio hermano."], ["le fils unique", "Hijo único."], ["grand / petit", "Alto / bajo."], ["les cheveux", "El pelo."], ["les yeux", "Los ojos."], ["gentil", "Amable."], ["drôle", "Gracioso."], ["le métier", "La profesión."], ["notre", "Nuestro."], ["leur", "Su (de ellos)."]],
+  situacion: SIT("Mon arbre généalogique", "Para la exposición «Nuestras familias del mundo», cada alumno prepara un árbol genealógico en francés.", [
+    "Dibujad vuestro árbol con al menos seis personas.",
+    "Escribid una frase de descripción física y una de carácter para tres personas.",
+    "Añadid la profesión de cada adulto.",
+    "Preparad una exposición oral de un minuto.",
+    "Corregid con la ayuda de un compañero.",
+  ], "Un árbol genealógico ilustrado con descripciones y una exposición de un minuto.", ["Se nombra bien a los miembros.", "Se usan correctamente être y avoir.", "Los posesivos concuerdan.", "La exposición es fluida."]),
+  familias: ["Pedid que describan en francés a un familiar mientras los demás adivinan quién es."],
+  ideas: ["Juego «Qui est-ce ?» con tarjetas de personajes."],
+  fuentes: [WIKI("Familia", "Familia")],
+});

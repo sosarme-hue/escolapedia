@@ -1,0 +1,63 @@
+// Francés 1º ESO · tema nivel libro. Parte de _eso1L6-base-fr-gouts.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-fr-gouts"), {
+  grupos: [4, 4, 5],
+  objetivos: ["Usar jouer à, jouer de y faire de con deportes y música", "Justificar un gusto con parce que y adjetivos de opinión"],
+  claves: ["jouer au / à la", "jouer du / de la", "faire du sport", "parce que", "amusant", "ennuyeux", "au / aux / du / des"],
+  lectura: ["La encuesta del patio", `<p>En el patio de su colegio, Inès tiene una libreta y un bolígrafo. Está haciendo una encuesta para el periódico escolar: «Qu'est-ce que tu aimes faire pendant ton temps libre ?». Lucas responde: «J'adore le football, parce que c'est amusant». Sofía dice: «Moi, je joue de la guitare et je fais de la danse». Y Hugo confiesa: «Je n'aime pas le sport, je préfère lire».</p><p>Inès anota todo y descubre algo curioso: los chicos y chicas de su edad tienen muchas aficiones diferentes, pero casi todos las explican con las mismas estructuras: <i>j'aime</i>, <i>je préfère</i>, <i>je joue</i>, <i>je fais</i>. <mark>Con muy pocas frases, uno puede contar qué le gusta y por qué</mark>, y esa es una de las conversaciones más naturales entre adolescentes de cualquier país.</p><p>En este tema te vamos a dar las herramientas para hacerlo: ya conoces el verbo <i>aimer</i> y los verbos en <i>-er</i>; ahora aprenderás a hablar de deportes y de música con las preposiciones adecuadas, a justificar tu opinión con <i>parce que</i> y a contraer los artículos con <i>à</i> y <i>de</i>. Con eso podrás hacer tu propia encuesta.</p>`],
+  nuevos: [
+    [1, "Deportes y música: jouer y faire", `<p>En francés, para hablar de deportes y música se usan <b>tres verbos</b> diferentes y hay que elegir bien:</p><ul><li><b>Jouer à</b> + deporte o juego de equipo o con pelota: <i>jouer au football, au tennis, aux cartes</i>.</li><li><b>Jouer de</b> + instrumento: <i>jouer de la guitare, du piano, de la flûte</i>.</li><li><b>Faire de</b> + actividad física o artística: <i>faire du judo, de la natation, de la danse</i>.</li></ul><p>Observa la diferencia: <i>je joue <b>au</b> foot</i> pero <i>je joue <b>du</b> piano</i>. En español usamos «jugar al fútbol» y «tocar el piano»; en francés el verbo es el mismo (<i>jouer</i>), pero la preposición cambia.</p>`,
+      L.columnas("Tres verbos", [["deportes", "JOUER À", ["au foot", "aux cartes"], L.AZ], ["instrumentos", "JOUER DE", ["du piano", "de la flûte"], L.RO], ["actividades", "FAIRE DE", ["du judo", "de la danse"], L.VE]])],
+    [6, "Parce que: dar razones", `<p>Para explicar por qué te gusta algo se usa <b>parce que</b> (porque): <i>J'aime le tennis parce que c'est rapide</i>. Delante de una vocal se escribe <i>parce qu'</i>: <i>J'adore la plage parce qu'il y a du soleil</i>. Para preguntar «¿por qué?» se usa <b>pourquoi</b>: <i>Pourquoi tu aimes le foot ?</i>.</p><p>Algunos adjetivos de opinión muy útiles: <b>amusant</b> (divertido), <b>intéressant</b>, <b>facile</b>, <b>difficile</b>, <b>ennuyeux</b> (aburrido), <b>génial</b> (genial), <b>fatigant</b> (cansado). Se dicen con <i>c'est</i>: <i>C'est génial !</i>, <i>C'est ennuyeux</i>.</p>`,
+      L.tabla("Opinar con adjetivos", ["Francés", "Español"], [["amusant", "divertido"], ["ennuyeux", "aburrido"], ["facile", "fácil"], ["difficile", "difícil"]])],
+    [9, "Au, à la, aux: las contracciones", `<p>La preposición <b>à</b> se junta con el artículo definido, y la preposición <b>de</b> también. Estas fusiones se llaman <b>contracciones</b>:</p><ul><li><b>à + le = au</b> (<i>au cinéma</i>), <b>à + les = aux</b> (<i>aux sports</i>). Con <i>la</i> y <i>l'</i> no cambia: <i>à la piscine</i>, <i>à l'école</i>.</li><li><b>de + le = du</b> (<i>du piano</i>), <b>de + les = des</b> (<i>des amis</i>). Con <i>la</i> y <i>l'</i> no cambia: <i>de la guitare</i>, <i>de l'eau</i>.</li></ul><p>Es el mismo mecanismo de nuestro «al» y «del», pero en francés también se aplica en plural. Si lo memorizas bien, hablarás de gustos con soltura.</p>`,
+      L.tabla("Contracciones", ["Forma", "Resultado"], [["à + le", "au"], ["à + les", "aux"], ["de + le", "du"], ["de + les", "des"]])],
+    [11, "Una encuesta de gustos", `<p>Para hacer una encuesta a tu clase, necesitas pocas preguntas y un cuadro para anotar las respuestas:</p><ul><li><i>Qu'est-ce que tu aimes faire ?</i> (¿qué te gusta hacer?)</li><li><i>Tu joues à quel sport ?</i> / <i>Tu joues d'un instrument ?</i></li><li><i>Pourquoi ?</i> (¿por qué?)</li></ul><p>Anota las respuestas con ayuda de un cuadro y presenta los resultados: <i>Sur dix élèves, six aiment le football. Quatre préfèrent la musique</i>. Para decir proporciones se usan expresiones como <b>la plupart</b> (la mayoría), <b>quelques-uns</b> (algunos) y <b>personne</b> (nadie).</p>`,
+      L.pasos("Hacer la encuesta", [["Preguntar", ["qu'est-ce que…"], L.AZ], ["Anotar", ["en un cuadro"], L.VE], ["Contar", ["sur dix élèves"], L.MO], ["Presentar", ["la plupart…"], L.RO]])],
+  ],
+  ejemplos: [
+    ["Completa: «Je joue ____ tennis» y «Je joue ____ guitare».", ["Deporte: jouer à + le → au.", "Instrumento: jouer de + la → de la."], "Je joue au tennis. Je joue de la guitare."],
+    ["Responde «Pourquoi tu aimes la natation ?» con tres frases.", ["Parce que + adjetivo.", "Añadir un matiz."], "Parce que c'est amusant. J'adore l'eau. Et c'est bon pour la santé."],
+  ],
+  errores: ["Decir «je joue le piano» en lugar de «je joue du piano».", "Usar «parce que» delante de una vocal sin apóstrofo."],
+  ejercicios: [
+    ["b", "Escribe tres deportes que practicas con «jouer à».", "Jouer au foot, au tennis, au basket."],
+    ["b", "Escribe tres instrumentos con «jouer de».", "De la guitare, du piano, de la flûte."],
+    ["b", "Traduce: «Me gusta el cine porque es divertido».", "J'aime le cinéma parce que c'est amusant."],
+    ["b", "Completa: «J'adore ____ musique».", "La."],
+    ["m", "Elige la preposición correcta: «Je joue ____ handball / ____ batterie».", "Au / de la."],
+    ["m", "Haz el contraste entre au y du con una frase de cada.", "Je joue au foot. Je joue du violon."],
+    ["m", "Escribe cinco frases con aimer, adorer, préférer, détester y ne pas aimer.", "Respuesta personal."],
+    ["m", "Haz tres preguntas para una encuesta sobre aficiones.", "Qu'est-ce que tu aimes ? Tu joues d'un instrument ? Pourquoi ?"],
+    ["a", "Realiza una encuesta a cinco compañeros y presenta los resultados en francés.", "Respuesta personal."],
+    ["a", "Escribe un párrafo de seis frases sobre tus gustos con parce que.", "Respuesta personal."],
+    ["a", "Explica la diferencia entre «jouer à», «jouer de» y «faire de».", "À para deportes; de para instrumentos; faire de para actividades."],
+    ["a", "Prepara un diálogo entre dos amigos que descubren sus gustos comunes con «moi aussi» y «moi non plus».", "Respuesta personal."],
+  ],
+  quiz: [
+    ["Con un instrumento se usa…", ["jouer de", "jouer à", "faire à"], "Du piano."],
+    ["«À + les» se convierte en…", ["aux", "à les", "au"], "Contracción."],
+    ["«Parce que» significa…", ["porque", "por qué", "pero"], "Razón."],
+    ["«Ennuyeux» significa…", ["aburrido", "divertido", "difícil"], "Opinión negativa."],
+    ["«Faire du judo» es…", ["hacer judo", "tocar el judo", "jugar al judo"], "Faire de."],
+    ["«Pourquoi» sirve para…", ["preguntar el motivo", "contestar", "mandar"], "Por qué."],
+  ],
+  examen: [
+    ["«De + le» da…", ["du", "de le", "des"], "Contracción."],
+    ["«La plupart» significa…", ["la mayoría", "nadie", "alguno"], "Cantidad."],
+    ["«Moi aussi» significa…", ["yo también", "yo tampoco", "yo no"], "Coincidir."],
+  ],
+  tarjetas: [["jouer à / jouer de", "deportes / instrumentos."], ["parce que", "porque."], ["amusant", "divertido."], ["au / aux", "al / a los."]],
+  glosario: [["le goût", "El gusto."], ["le loisir", "El ocio."], ["jouer", "Jugar o tocar."], ["faire", "Hacer."], ["aimer", "Gustar, querer."], ["préférer", "Preferir."], ["détester", "Detestar."], ["parce que", "Porque."], ["pourquoi", "Por qué."], ["amusant", "Divertido."], ["ennuyeux", "Aburrido."], ["la plupart", "La mayoría."]],
+  situacion: SIT("Le journal de la classe", "El periódico escolar publicará una página en francés sobre las aficiones de los alumnos de 1º. Vuestro grupo prepara la encuesta y el artículo.", [
+    "Decidid cuatro preguntas y entrevistad a 10 compañeros.",
+    "Anotad las respuestas y calculad proporciones.",
+    "Redactad un artículo de ocho frases con los resultados.",
+    "Añadid una ilustración o gráfico.",
+    "Leed el artículo a otro grupo y recoged su opinión.",
+  ], "Un artículo breve con resultados de la encuesta y un gráfico.", ["Se usan bien jouer à, jouer de y faire de.", "Hay frases con parce que.", "Los resultados son coherentes.", "La lectura es clara."]),
+  familias: ["Preguntad a cada miembro de la familia «Qu'est-ce que tu aimes ?» y anotad sus respuestas en francés."],
+  ideas: ["Mural de «gustos de la clase» con gráficos y frases en francés."],
+  fuentes: [WIKI("Ocio", "Ocio")],
+});

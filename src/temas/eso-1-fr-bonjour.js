@@ -1,0 +1,63 @@
+// Francés 1º ESO · tema nivel libro. Parte de _eso1L6-base-fr-bonjour.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-fr-bonjour"), {
+  grupos: [4, 4, 4],
+  objetivos: ["Conocer la francofonía y los países donde se habla francés", "Presentarse y hacer una pequeña conversación de acogida"],
+  claves: ["la francophonie", "enchanté", "d'où viens-tu ?", "je viens de", "je suis espagnol(e)", "la bise"],
+  lectura: ["Cinco besos en París", `<p>Cuando Marta llegó a su familia de acogida en Francia, sonrió y extendió la mano. Pero la madre de familia, Élodie, se inclinó hacia ella y le dio dos besos, uno en cada mejilla. Marta se quedó sorprendida y no supo qué hacer con las manos. Después, el hermano pequeño, Louis, le dijo: «Salut ! Ça va ?». Y Marta, que solo recordaba «bonjour», contestó: «Bonjour… ça va». Todos sonrieron, y Élodie le puso la mano en el hombro: «Bienvenue ! Tu peux nous tutoyer».</p><p>Aquella tarde, Marta entendió que saludar no es solo decir una palabra: es una <b>costumbre</b> con sus propias reglas. En Francia se dan dos besos (<i>la bise</i>) entre amigos y familia, un apretón de manos en situaciones formales y se dice <i>bonjour</i> al entrar en cualquier tienda. Si no lo dices, parece mala educación. <mark>Aprender un idioma es también aprender a comportarse en ese idioma.</mark></p><p>En este tema aprenderás a saludar, despedirte, presentarte y preguntar por los demás, pero también conocerás los países donde se habla francés: son más de veinte y están en cinco continentes.</p>`],
+  nuevos: [
+    [1, "El mundo francófono", `<p>El francés no se habla solo en Francia. Más de <b>300 millones de personas</b> lo hablan en todo el mundo, y es lengua oficial en más de veinte países. Es el conjunto que se llama <b>la francophonie</b>:</p><ul><li><b>Europa</b>: Francia, Bélgica, Suiza, Luxemburgo y Mónaco.</li><li><b>América</b>: Canadá (sobre todo la provincia de Quebec) y Haití.</li><li><b>África</b>: Senegal, Costa de Marfil, Camerún, Marruecos (como segunda lengua), Argelia, Túnez, Madagascar y muchos más.</li></ul><p>El francés de cada lugar tiene su acento y sus palabras propias: en Quebec se dice <i>un char</i> para «un coche» y en Bélgica <i>septante</i> para el 70. Pero un francófono de cualquier lugar entiende a los demás.</p>`,
+      L.columnas("La francofonía", [["Europa", "FRANCIA", ["Bélgica, Suiza", "Luxemburgo"], L.AZ], ["América", "CANADÁ", ["Quebec, Haití"], L.RO], ["África", "SENEGAL", ["Camerún, Túnez", "Madagascar"], L.VE]])],
+    [6, "¿De dónde eres?", `<p>Para decir de dónde eres se usa <b>venir de</b>: <i>Je viens d'Espagne</i> (vengo de España), <i>Je viens de Madrid</i>. Delante de un nombre que empieza por vocal, <i>de</i> se convierte en <i>d'</i>. Para preguntar: <b>D'où viens-tu ?</b> (de forma informal) o <b>D'où venez-vous ?</b> (más formal).</p><p>También se puede decir la nacionalidad con el verbo <i>être</i>: <i>Je suis espagnol</i> (chico) o <i>Je suis espagnole</i> (chica), <i>Je suis français / française</i>. La nacionalidad en francés se escribe con <b>minúscula</b>, y en femenino casi siempre añade una <b>e</b>.</p>`,
+      L.tabla("Nacionalidades", ["Chico", "Chica"], [["espagnol", "espagnole"], ["français", "française"], ["italien", "italienne"], ["anglais", "anglaise"]])],
+    [9, "La bise y los saludos de cada situación", `<p>Saludar en francés depende de la <b>situación</b>. Con amigos y familia, se da la <b>bise</b>: uno o dos besos (a veces tres o cuatro, según la región) y se dice <i>Salut !</i>. En situaciones formales, con un adulto que no conoces o un profesor, se da un <b>apretón de manos</b> y se dice <i>Bonjour, monsieur / madame</i>.</p><p>Además, en Francia es costumbre decir <i>bonjour</i> al entrar en una tienda o en un autobús, y <i>au revoir</i> al salir. No hacerlo se considera descortés. Y si te piden que tutees a alguien, se usa <i>tu</i>: <i>on peut se tutoyer</i>.</p>`,
+      L.filas("Cada saludo en su lugar", [["Con amigos", "salut + la bise", L.AZ], ["Con adultos", "bonjour + mano", L.VE], ["En una tienda", "bonjour, au revoir", L.RO]])],
+    [11, "Una conversación de acogida", `<p>Imagina que llega un alumno francés a tu clase. Puedes conversar con estas preguntas y respuestas básicas:</p><ul><li><i>Bienvenue ! Comment tu t'appelles ?</i> — <i>Je m'appelle Théo.</i></li><li><i>D'où viens-tu ?</i> — <i>Je viens de Lyon.</i></li><li><i>Quel âge as-tu ?</i> — <i>J'ai douze ans.</i></li><li><i>Tu parles espagnol ?</i> — <i>Un peu. Et toi, tu parles français ?</i></li></ul><p>Si no entiendes algo, di <b>Pardon ? Tu peux répéter, s'il te plaît ?</b> (¿Perdón? ¿Puedes repetir, por favor?). Pedir ayuda es una señal de inteligencia, no de debilidad.</p>`,
+      L.dialogo("Bienvenue !", [["Léa", "Salut ! Je m'appelle Léa.", L.AZ], ["Théo", "Enchanté ! Je viens de Lyon.", L.RO], ["Léa", "Bienvenue ! Tu parles espagnol ?", L.AZ]])],
+  ],
+  ejemplos: [
+    ["Escribe cómo saludarías a tu profesora de Francés por la mañana y a tu mejor amigo.", ["Profesora: formal, con «vous» y mano.", "Amigo: informal, con «salut» y la bise."], "«Bonjour, madame» y «Salut, ça va ?»."],
+    ["Preséntate completo: nombre, edad y origen.", ["Saludo.", "Nombre.", "Edad.", "Origen."], "«Bonjour ! Je m'appelle Marta. J'ai douze ans. Je viens d'Espagne.»"],
+  ],
+  errores: ["Escribir las nacionalidades en mayúscula en francés.", "Olvidar el «bonjour» al entrar en una tienda."],
+  ejercicios: [
+    ["b", "Escribe tres saludos informales y tres formales en francés.", "Salut, coucou, ça va ? / Bonjour, bonsoir, enchanté."],
+    ["b", "¿Cómo se dice «adiós» y «hasta pronto»?", "Au revoir y à bientôt."],
+    ["b", "Escribe en francés: «Me llamo… y vengo de…».", "Je m'appelle… Je viens de…"],
+    ["b", "Nombra tres países donde se hable francés.", "Francia, Bélgica y Senegal."],
+    ["m", "Completa el diálogo: «— D'où viens-tu ? — Je ____ de Valence».", "Viens."],
+    ["m", "Pon en femenino: «espagnol», «italien», «français».", "Espagnole, italienne, française."],
+    ["m", "Escribe una conversación de cuatro intercambios entre dos chicos que se conocen.", "Respuesta personal."],
+    ["m", "Explica con tus palabras la diferencia entre tu y vous.", "Tu: amigos, familia, niños. Vous: adultos desconocidos o respeto."],
+    ["a", "Busca información de un país francófono y escribe tres frases en español.", "Respuesta personal."],
+    ["a", "Representa con un compañero una llegada a una familia francesa con saludo, presentación y una pregunta.", "Respuesta personal."],
+    ["a", "Compara cómo se saluda en España y en Francia.", "Respuesta personal: ambas usan dos besos, pero en Francia varían según la región."],
+    ["a", "Escribe una nota de bienvenida de cinco líneas para un alumno francés.", "Respuesta personal con saludo, presentación, deseo y despedida."],
+  ],
+  quiz: [
+    ["La francofonía es…", ["el conjunto de países que hablan francés", "una comida", "una región de España"], "Más de 20 países."],
+    ["«D'où viens-tu ?» pregunta…", ["de dónde eres", "cuántos años tienes", "cómo te llamas"], "Origen."],
+    ["La nacionalidad femenina de «espagnol» es…", ["espagnole", "espagnolle", "espagnola"], "Añade -e."],
+    ["En Francia, al entrar en una tienda, se dice…", ["bonjour", "salut", "adiós"], "Cortesía."],
+    ["La «bise» es…", ["un beso en la mejilla", "una comida", "un baile"], "Saludo."],
+    ["Para pedir que repitan se dice…", ["Tu peux répéter ?", "Tu peux courir ?", "Tu peux sauter ?"], "Ayuda."],
+  ],
+  examen: [
+    ["«Je viens d'Espagne» significa…", ["vengo de España", "voy a España", "vivo en España"], "Venir de."],
+    ["Quebec está en…", ["Canadá", "Suiza", "Senegal"], "Francofonía."],
+    ["Con un profesor se usa…", ["vous", "tu", "toi"], "Formal."],
+  ],
+  tarjetas: [["la bise", "el beso de saludo."], ["bienvenue", "bienvenido."], ["je viens de…", "vengo de…"], ["la francophonie", "los países francófonos."]],
+  glosario: [["bonjour", "Hola, buenos días."], ["salut", "Hola / adiós (informal)."], ["au revoir", "Adiós."], ["enchanté(e)", "Encantado/a."], ["tu", "Tú."], ["vous", "Usted / vosotros."], ["la bise", "El beso de saludo."], ["bienvenue", "Bienvenido."], ["venir de", "Proceder de."], ["la nationalité", "La nacionalidad."], ["la francophonie", "El mundo francófono."], ["répéter", "Repetir."]],
+  situacion: SIT("Bienvenue au collège !", "Un grupo de alumnos franceses visitará el instituto. Vuestro grupo prepara una recepción en francés con saludos, presentaciones y un pequeño mapa.", [
+    "Preparad un diálogo de bienvenida con saludos y presentaciones.",
+    "Dibujad un mapa de la francofonía con tres países.",
+    "Ensayad el diálogo cambiando roles y registros (tu y vous).",
+    "Recibid a un grupo «visitante» (otro grupo) y completad la conversación.",
+    "Evaluad la pronunciación y la cortesía.",
+  ], "Un diálogo de dos minutos y un mapa de la francofonía.", ["Los saludos son adecuados.", "Se usa bien tu/vous.", "La pronunciación es comprensible.", "El mapa muestra tres países."]),
+  familias: ["Saludad en francés a la hora de comer o al volver del colegio durante una semana."],
+  ideas: ["Intercambio de postales o vídeos con un centro francófono."],
+  fuentes: [WIKI("Francofonía", "Francofonía")],
+});

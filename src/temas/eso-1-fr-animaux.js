@@ -1,0 +1,63 @@
+// Francés 1º ESO · tema nivel libro. Parte de _eso1L6-base-fr-animaux.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-fr-animaux"), {
+  grupos: [4, 4, 5],
+  objetivos: ["Ampliar el vocabulario con animales marinos, aves e insectos", "Describir el hábitat y la alimentación de un animal"],
+  claves: ["la mer", "les oiseaux", "les insectes", "il vit", "il mange", "grand / petit", "la forêt"],
+  lectura: ["La visita al zoo de Beauval", `<p>La clase de 1º de ESO visitó con su intercambio francés el zoo de Beauval. Mientras Pablo y su compañero Léo recorrían los senderos, Léo señaló un animal grande y gris: «C'est un éléphant ! Il est énorme». Pablo respondió: «¡Y mira esos pájaros rosas!». «Ce sont des flamants roses», contestó Léo. En el siguiente recinto vieron <i>des tigres</i>, <i>des pandas</i> y <i>des singes</i>.</p><p>Al final del día, el guía les propuso un juego: describir un animal sin decir su nombre, y que los demás lo adivinaran. Pablo dijo: «Il est grand, il est gris, il a une trompe». Todos gritaron: «L'éléphant !». Entonces se dio cuenta de que describir era mucho más útil que nombrar: <mark>con unas pocas palabras y los colores, se puede hablar de cualquier animal</mark>, aunque no sepamos su nombre.</p><p>En este tema vas a aprender los animales más comunes, los colores, cómo se forman los plurales y cómo describirlos con el verbo <i>être</i> y <i>avoir</i>. Además, ampliarás el vocabulario con aves, insectos y animales marinos, y aprenderás a decir dónde viven y qué comen.</p>`],
+  nuevos: [
+    [1, "Animales marinos, aves e insectos", `<p>Hay muchos más animales que los de casa y la granja. Aprende estos, con su género y artículo:</p><ul><li><b>Marinos</b>: <i>le poisson</i> (pez), <i>la baleine</i> (ballena), <i>le dauphin</i> (delfín), <i>le requin</i> (tiburón), <i>la tortue</i> (tortuga), <i>la méduse</i> (medusa).</li><li><b>Aves</b>: <i>l'oiseau</i> (pájaro), <i>le canard</i> (pato), <i>l'aigle</i> (águila), <i>la poule</i> (gallina), <i>le pingouin</i> (pingüino).</li><li><b>Insectos</b>: <i>l'abeille</i> (abeja), <i>le papillon</i> (mariposa), <i>la fourmi</i> (hormiga), <i>la mouche</i> (mosca).</li></ul><p>Observa que <i>le poisson</i> es masculino, aunque en español «el pez» también lo es, y que <i>la baleine</i> es femenino aunque el animal sea un macho: el género es gramatical y se aprende con el artículo.</p>`,
+      L.columnas("Más animales", [["l'eau", "MARINOS", ["le dauphin", "la baleine"], L.AZ], ["le ciel", "AVES", ["l'aigle", "le canard"], L.VE], ["la terre", "INSECTOS", ["l'abeille", "la fourmi"], L.RO]])],
+    [6, "¿Dónde vive? ¿Qué come?", `<p>Para hablar del hábitat se usa el verbo <b>vivre</b> (vivir): <i>Le lion vit en Afrique</i>, <i>Les pingouins vivent dans l'Antarctique</i>. Para la comida se usa <b>manger</b>: <i>Le panda mange du bambou</i>, <i>Les vaches mangent de l'herbe</i>.</p><p>Los lugares más comunes son <b>la forêt</b> (el bosque), <b>la mer</b> (el mar), <b>la montagne</b> (la montaña), <b>la savane</b> (la sabana), <b>la ferme</b> (la granja) y <b>le désert</b> (el desierto). Observa que se dice <i>dans la forêt</i>, <i>dans la mer</i>, pero <i>en Afrique</i>, <i>en France</i> (con países femeninos).</p>`,
+      L.filas("Hábitat y comida", [["vit dans", "la forêt, la mer", L.AZ], ["mange", "de l'herbe, du bambou", L.VE], ["vit en", "Afrique, France", L.RO]])],
+    [9, "Los verbos del animal", `<p>Para describir qué hacen los animales se usan pocos verbos muy útiles: <b>manger</b> (comer), <b>dormir</b> (dormir), <b>courir</b> (correr), <b>voler</b> (volar), <b>nager</b> (nadar) y <b>chasser</b> (cazar).</p><p>Para decir «el X + verbo» solo hay que conjugar en 3.ª persona: <i>Le chat dort</i>, <i>L'oiseau vole</i>, <i>Les poissons nagent</i>. Los plurales de los verbos regulares en -er suenan igual: <i>nage</i> y <i>nagent</i> se dicen igual, aunque se escriban distinto. Para decir que un animal <b>puede</b> hacer algo, se usa <i>pouvoir</i>: <i>Le dauphin peut nager très vite</i>.</p>`,
+      L.tabla("Verbos de animales", ["Verbo", "Ejemplo"], [["nager", "le poisson nage"], ["voler", "l'oiseau vole"], ["courir", "le chien court"], ["dormir", "le chat dort"]])],
+    [11, "Ficha de un animal", `<p>Para presentar un animal en francés puedes seguir este esquema de fichas:</p><ol><li><b>Nombre</b>: <i>Le tigre</i>.</li><li><b>Descripción</b>: <i>Il est grand et fort. Il est orange avec des rayures noires.</i></li><li><b>Dónde vive</b>: <i>Il vit en Asie, dans la forêt.</i></li><li><b>Qué come</b>: <i>Il mange de la viande.</i></li><li><b>Un dato curioso</b>: <i>Il peut nager très bien.</i></li></ol><p>Al final se puede añadir tu opinión: <i>J'adore les tigres !</i> Usa siempre una frase corta para cada idea: es la forma más segura de no cometer errores.</p>`,
+      L.pasos("Ficha del animal", [["Nombre", ["le tigre"], L.AZ], ["Descripción", ["grand, orange"], L.VE], ["Hábitat", ["vit en Asie"], L.MO], ["Comida", ["mange de la viande"], L.RO]])],
+  ],
+  ejemplos: [
+    ["Escribe una ficha de «le dauphin» con cuatro frases.", ["Nombre y descripción.", "Hábitat.", "Comida y un dato."], "Le dauphin est gris. Il vit dans la mer. Il mange du poisson. Il peut nager très vite."],
+    ["Pon en plural: «le cheval blanc» y «l'oiseau bleu».", ["Cambiar el artículo: les.", "Los nombres en -al forman plural en -aux: chevaux.", "Al plural se añade -x a oiseau."], "Les chevaux blancs; les oiseaux bleus."],
+  ],
+  errores: ["Olvidar el artículo al decir el nombre del animal.", "Decir «dans la Afrique» en lugar de «en Afrique»."],
+  ejercicios: [
+    ["b", "Escribe en francés tres animales marinos con su artículo.", "Le dauphin, la baleine, le requin."],
+    ["b", "Escribe en francés tres colores y un animal de cada color.", "Rouge: le cardinal; vert: la grenouille; noir: le corbeau."],
+    ["b", "Traduce: «El perro corre. Los peces nadan».", "Le chien court. Les poissons nagent."],
+    ["b", "Escribe el plural de «l'animal» y «le cheval».", "Les animaux; les chevaux."],
+    ["m", "Describe en francés a un gato con cuatro frases.", "Il est petit. Il est noir. Il a les yeux verts. Il dort beaucoup."],
+    ["m", "Completa: «Les pingouins ____ dans l'Antarctique».", "Vivent."],
+    ["m", "Escribe una frase con «manger» para tres animales.", "Le lion mange de la viande. Le lapin mange des carottes. Le panda mange du bambou."],
+    ["m", "Haz el juego «qui suis-je ?» con un animal: tres pistas en francés.", "Ejemplo: Il est grand. Il est gris. Il a une trompe."],
+    ["a", "Escribe una ficha completa de un animal de tu elección con cinco frases.", "Respuesta personal siguiendo el esquema del tema."],
+    ["a", "Compara dos animales usando «plus… que» y «moins… que».", "Le lion est plus fort que le chat."],
+    ["a", "Prepara una exposición oral de un minuto sobre tu animal favorito.", "Respuesta personal."],
+    ["a", "Escribe una adivinanza en francés sobre un animal sin nombrarlo.", "Respuesta personal con descripción."],
+  ],
+  quiz: [
+    ["«La baleine» significa…", ["la ballena", "la gallina", "la abeja"], "Animal marino."],
+    ["«Les poissons nagent» significa…", ["los peces nadan", "los pájaros vuelan", "los gatos duermen"], "Nager."],
+    ["Se dice…", ["en Afrique", "dans Afrique", "au Afrique"], "Países femeninos."],
+    ["«L'abeille» es un…", ["insecto", "ave", "pez"], "Hace miel."],
+    ["Para preguntar qué come un animal se usa el verbo…", ["manger", "nager", "voler"], "Comer."],
+    ["El plural de «cheval» es…", ["chevaux", "chevals", "chevales"], "Plural en -aux."],
+  ],
+  examen: [
+    ["«Il vit dans la forêt» significa…", ["vive en el bosque", "come en el bosque", "corre por el bosque"], "Vivre."],
+    ["El pingüino en francés es…", ["le pingouin", "la poule", "le canard"], "Ave."],
+    ["Para decir «puede nadar» se usa…", ["peut nager", "veut nager", "doit nager"], "Pouvoir."],
+  ],
+  tarjetas: [["le dauphin", "el delfín."], ["l'abeille", "la abeja."], ["il vit en…", "vive en…"], ["il mange…", "come…"]],
+  glosario: [["l'animal", "El animal."], ["le poisson", "El pez."], ["l'oiseau", "El pájaro."], ["l'insecte", "El insecto."], ["la forêt", "El bosque."], ["la mer", "El mar."], ["vivre", "Vivir."], ["manger", "Comer."], ["nager", "Nadar."], ["voler", "Volar."], ["la couleur", "El color."], ["grand / petit", "Grande / pequeño."]],
+  situacion: SIT("El zoo de la clase", "Vuestra clase organiza un «zoo de cartón» para visitantes franceses. Cada grupo presenta un animal con su ficha y un cartel.", [
+    "Elegid un animal y buscad datos básicos en francés.",
+    "Escribid la ficha con nombre, descripción, hábitat y comida.",
+    "Preparad un cartel con dibujo, colores y frases cortas.",
+    "Presentadlo oralmente con ayuda del cartel.",
+    "Escuchad las otras fichas y rellenad un cuadro de comprensión.",
+  ], "Un cartel de animal con ficha de cuatro frases y una exposición oral de un minuto.", ["La ficha usa avoir y être correctamente.", "Hay concordancia de colores y plurales.", "La pronunciación es clara.", "El cartel es ordenado y comprensible."]),
+  familias: ["Ved un documental de animales con subtítulos o jugad a decir los animales en francés."],
+  ideas: ["Concurso de «Qui suis-je ?» con tarjetas de animales."],
+  fuentes: [WIKI("Fauna", "Fauna")],
+});

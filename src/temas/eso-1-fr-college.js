@@ -1,0 +1,63 @@
+// Francés 1º ESO · tema nivel libro. Parte de _eso1L6-base-fr-college.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-fr-college"), {
+  grupos: [4, 4, 5],
+  objetivos: ["Decir y preguntar la hora en francés", "Leer y escribir un horario escolar sencillo"],
+  claves: ["quelle heure est-il ?", "il est… heures", "et quart", "et demie", "moins le quart", "l'emploi du temps", "la cantine"],
+  lectura: ["Un día en un collège de Burdeos", `<p>Théo se levanta a las siete, desayuna rápidamente y toma el autobús hasta su <i>collège</i>. A las ocho y cuarto, suena el timbre y los alumnos de <i>cinquième</i> entran en fila. La primera clase es Matemáticas, con madame Dubois. A las diez menos cuarto suena de nuevo el timbre: es la <i>récréation</i>. A las doce y media, Théo va a la <i>cantine</i> con sus amigos, donde comen un menú de tres platos: entrada, plato principal y postre.</p><p>Por la tarde tienen Educación Física y Francés. Las clases terminan a las cinco menos veinte. Cuando Pablo, su compañero de intercambio español, escucha la rutina de Théo, se sorprende: «¡Comen en el colegio y hay una hora y media para la comida!». Théo ríe: «Sí, ¡y vosotros salís a las tres, ¿no?». <mark>Cada país organiza su día escolar a su manera</mark>, y conocer esas diferencias ayuda a entenderlos mejor.</p><p>En este tema aprenderás el vocabulario de la clase y del instituto, las asignaturas y los días de la semana, y ahora también a decir la hora y a leer un horario: dos habilidades que necesitarás si algún día visitas un colegio francés.</p>`],
+  nuevos: [
+    [1, "El collège francés", `<p>En Francia la escuela se organiza distinto. Entre los 11 y los 15 años se estudia en el <b>collège</b>, que dura cuatro cursos y se cuentan <b>al revés</b>: <i>sixième</i> (6e, 11 años), <i>cinquième</i> (5e), <i>quatrième</i> (4e) y <i>troisième</i> (3e). Después se pasa al <i>lycée</i>.</p><p>Algunas diferencias con España: las notas se ponen sobre <b>20</b> (un 10 es un aprobado justo); los alumnos suelen comer en la <b>cantine</b>; muchos colegios tienen la <i>pause déjeuner</i> de más de una hora; y las clases duran unos <b>55 minutos</b>. El patio se llama <b>la cour</b> y el recreo, <b>la récréation</b>. El profesor de tutoría se llama <i>le professeur principal</i> y hay un responsable de disciplina, <i>le surveillant</i>.</p>`,
+      L.eje("Cursos del collège", [["11 años", "6e", ["sixième"], L.AZ], ["12 años", "5e", ["cinquième"], L.VE], ["13 años", "4e", ["quatrième"], L.MO], ["14 años", "3e", ["troisième"], L.RO]])],
+    [6, "¿Qué hora es?", `<p>Para preguntar la hora se dice <b>Quelle heure est-il ?</b> Se responde <b>Il est… heure(s)</b>. Con la hora en punto: <i>Il est huit heures</i> (8:00), <i>Il est une heure</i> (la 1:00). Los cuartos y medias se añaden con <b>et</b>:</p><ul><li><i>Il est huit heures <b>et quart</b></i> (8:15).</li><li><i>Il est huit heures <b>et demie</b></i> (8:30).</li><li><i>Il est neuf heures <b>moins le quart</b></i> (8:45).</li><li><i>Il est dix heures <b>dix</b></i> (10:10).</li></ul><p>Casos especiales: <b>midi</b> (las 12 del día) y <b>minuit</b> (medianoche). Para la hora de un horario (de 0 a 24) se dice así: <i>Le cours commence à quatorze heures</i> (a las 14:00).</p>`,
+      L.tabla("La hora", ["Hora", "En francés"], [["8:00", "huit heures"], ["8:15", "et quart"], ["8:30", "et demie"], ["8:45", "moins le quart"]])],
+    [9, "Mi horario (l'emploi du temps)", `<p>El horario de clase se llama <b>l'emploi du temps</b>. Para decir qué tienes y cuándo se usan estas fórmulas: <i>Le lundi, j'ai maths à huit heures</i>; <i>Le mercredi, j'ai sport l'après-midi</i>. Los días de la semana no llevan mayúscula en francés ni artículo si hablas de un día concreto: <i>lundi</i> (este lunes) pero <i>le lundi</i> (todos los lunes).</p><p>Para decir qué asignatura te gusta o te cuesta: <i>J'aime l'histoire</i>, <i>Je déteste les maths</i>, <i>Le français est difficile</i>. Y para preguntar por el horario: <i>Qu'est-ce que tu as le lundi matin ?</i> (¿qué tienes el lunes por la mañana?).</p>`,
+      L.filas("Frases del horario", [["le lundi", "todos los lunes", L.AZ], ["lundi", "este lunes", L.VE], ["à huit heures", "a las ocho", L.RO]])],
+    [11, "El reglamento del collège", `<p>Los centros franceses tienen un <b>règlement intérieur</b> (reglamento interno). Algunas reglas habituales, escritas en imperativo o con <i>il faut</i>:</p><ul><li><i>Il faut arriver à l'heure.</i> (Hay que llegar a la hora.)</li><li><i>Il faut respecter les professeurs et les camarades.</i></li><li><i>Il est interdit d'utiliser son portable en classe.</i> (Está prohibido usar el móvil en clase.)</li><li><i>Il ne faut pas courir dans les couloirs.</i> (No hay que correr por los pasillos.)</li></ul><p>Observa que <b>il faut</b> + infinitivo sirve para expresar obligación general, y <b>il est interdit de</b> + infinitivo para decir que algo está prohibido. Son estructuras muy útiles para escribir cualquier norma.</p>`,
+      L.columnas("Normas", [["obligación", "IL FAUT", ["+ infinitivo"], L.AZ], ["prohibido", "IL EST INTERDIT DE", ["+ infinitivo"], L.RO], ["no hacer", "IL NE FAUT PAS", ["+ infinitivo"], L.VE]])],
+  ],
+  ejemplos: [
+    ["Escribe en francés: 9:15, 12:30, 14:45 y 17:00.", ["9:15 → neuf heures et quart.", "12:30 → midi et demi.", "14:45 → trois heures moins le quart.", "17:00 → cinq heures."], "Neuf heures et quart; midi et demi; trois heures moins le quart; cinq heures."],
+    ["Escribe una norma de clase con «il faut» y una con «il est interdit de».", ["Il faut + infinitivo.", "Il est interdit de + infinitivo."], "Il faut écouter le professeur. Il est interdit de manger en classe."],
+  ],
+  errores: ["Escribir los días de la semana con mayúscula en francés.", "Decir «il est huit heure» sin la s final en las horas plurales."],
+  ejercicios: [
+    ["b", "Escribe tres objetos que hay en tu mochila en francés.", "Le cahier, le stylo, la trousse."],
+    ["b", "Escribe los días de la semana en francés.", "Lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche."],
+    ["b", "¿Cómo se dice «¿Qué hora es?»", "Quelle heure est-il ?"],
+    ["b", "Escribe en francés: «Hay un libro en la mesa».", "Il y a un livre sur la table."],
+    ["m", "Escribe en francés las horas: 7:45, 10:30, 13:15.", "Huit heures moins le quart; dix heures et demie; une heure et quart."],
+    ["m", "Escribe tu horario del lunes con tres asignaturas y su hora.", "Respuesta personal: «Le lundi, j'ai maths à huit heures…»"],
+    ["m", "Pasa a francés: «No hay que correr en los pasillos».", "Il ne faut pas courir dans les couloirs."],
+    ["m", "Explica la diferencia entre «lundi» y «le lundi».", "Lundi es este lunes; le lundi, todos los lunes."],
+    ["a", "Escribe cinco normas de tu aula en francés con «il faut» o «il est interdit de».", "Respuesta personal."],
+    ["a", "Compara el horario de tu instituto con el de un collège francés: dos semejanzas y dos diferencias.", "Respuesta personal."],
+    ["a", "Prepara un diálogo en la secretaría: preguntas la hora, la clase y el profesor.", "Respuesta personal."],
+    ["a", "Describe tu día escolar en seis frases en francés.", "Respuesta personal."],
+  ],
+  quiz: [
+    ["El collège francés tiene cursos…", ["que se cuentan al revés (6e a 3e)", "de 1º a 4º", "de 5º a 8º"], "Sixième a troisième."],
+    ["Las notas en Francia son sobre…", ["20", "10", "100"], "Un 10 es aprobar."],
+    ["«Il est neuf heures et demie» es…", ["9:30", "9:15", "8:30"], "Media."],
+    ["«Il faut» + infinitivo expresa…", ["obligación", "prohibición", "gusto"], "Regla general."],
+    ["«Le lundi» significa…", ["todos los lunes", "este lunes", "el lunes pasado"], "Costumbre."],
+    ["La cantine es…", ["el comedor", "la biblioteca", "el patio"], "Se come allí."],
+  ],
+  examen: [
+    ["El recreo se llama…", ["la récréation", "la cantine", "la cour"], "Patio es la cour."],
+    ["«Il est interdit de» expresa…", ["prohibición", "obligación", "deseo"], "No se puede."],
+    ["Midi es…", ["las 12 del día", "las 12 de la noche", "las 6"], "Minuit es medianoche."],
+  ],
+  tarjetas: [["l'emploi du temps", "el horario."], ["la cantine", "el comedor."], ["il faut", "hay que."], ["il est interdit de", "está prohibido."]],
+  glosario: [["le collège", "Instituto francés de 11 a 15 años."], ["la cantine", "Comedor escolar."], ["la récréation", "Recreo."], ["l'emploi du temps", "Horario."], ["la note", "Calificación."], ["le professeur", "Profesor."], ["l'élève", "Alumno."], ["le règlement", "Reglamento."], ["il faut", "Hay que."], ["interdit", "Prohibido."], ["midi", "Mediodía."], ["minuit", "Medianoche."]],
+  situacion: SIT("Mon emploi du temps idéal", "El instituto francés hermanado con el vuestro os ha pedido que les enviéis vuestro horario y las normas de clase en francés.", [
+    "Escribid vuestro horario de lunes a viernes con horas y asignaturas.",
+    "Redactad cinco normas del aula con il faut y il est interdit de.",
+    "Preparad un diálogo para explicar el horario por teléfono.",
+    "Ensayad el diálogo con un compañero.",
+    "Grabad un vídeo corto de presentación del instituto.",
+  ], "Un documento con horario y reglamento en francés y un diálogo grabado.", ["El horario es correcto y completo.", "Las normas usan bien las estructuras.", "La hora se dice correctamente.", "La pronunciación es clara."]),
+  familias: ["Preguntad cada día la hora en francés y respondedla correctamente durante una semana."],
+  ideas: ["Reloj de cartón en el aula para practicar la hora en francés."],
+  fuentes: [WIKI("Educación en Francia", "Educación_en_Francia")],
+});
