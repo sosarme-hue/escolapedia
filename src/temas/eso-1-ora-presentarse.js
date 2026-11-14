@@ -1,0 +1,63 @@
+// Oratoria y debate 1º ESO · tema nivel libro. Parte de _eso1L6-base-ora-presentarse.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-ora-presentarse"), {
+  grupos: [4, 4, 4],
+  objetivos: ["Presentar un grupo o un proyecto ante el público", "Ensayar, recibir comentarios y mejorar la presentación"],
+  claves: ["presentación por escrito", "frases modelo", "presentar un proyecto", "ensayo", "retroalimentación"],
+  lectura: ["Treinta segundos para ser recordado", `<p>El primer día en el instituto, la tutora pidió que cada alumno se presentase en treinta segundos. Hugo, nervioso, dijo: «Me llamo Hugo y… ya». Dos asientos más allá, Ainhoa se levantó, sonrió y dijo: «Me llamo Ainhoa, tengo doce años y tengo un récord: he comido nueve helados en una tarde. Si alguien quiere batirlo, el verano que viene tiene la oportunidad». Todos se rieron y, al terminar el día, casi nadie recordaba el nombre de Hugo, pero <mark>todos recordaban a Ainhoa</mark>.</p><p>La diferencia no estaba en la timidez, sino en la preparación. Ainhoa pensó antes <b>qué quería que supieran de ella</b> y lo contó con un dato curioso y una sonrisa. Presentarse es la primera oportunidad que tienes de hablar en público; si la aprovechas, se abren muchas puertas: nuevos amigos, un equipo, un grupo de teatro o incluso, algún día, una entrevista. En este tema aprenderás a diseñar tu presentación, a presentar a otros y a presentar un proyecto con soltura.</p>`],
+  nuevos: [
+    [1, "Presentarse hablando y por escrito", `<p>Podemos presentarnos <b>por escrito</b> (en una carta, un correo o el perfil de una aplicación) o <b>hablando</b>. Cambian bastantes cosas:</p><ul><li>Por escrito se puede <b>revisar</b> con calma y se lee cuando uno quiere. Hay que cuidar la ortografía.</li><li>Hablando es <b>inmediato</b>: no se puede borrar lo dicho, pero se cuenta con la voz, la mirada y los gestos, que dan calidez.</li></ul><p>Una buena práctica es escribir primero un guion con las ideas, y luego decirlo en voz alta con otras palabras, sin leer. Así la presentación suena <b>natural</b> y no como un texto aprendido de memoria.</p>`,
+      L.columnas("Dos formas", [["se revisa", "POR ESCRITO", ["ortografía", "tiempo"], L.AZ], ["inmediata", "HABLADA", ["voz y gestos", "calidez"], L.RO]])],
+    [6, "Frases modelo para presentarse", `<p>Tener algunas frases a mano ayuda a no quedarse en blanco. Algunos modelos:</p><ul><li><b>Saludo</b>: «Buenos días, me llamo…», «Hola a todos, soy…».</li><li><b>Datos</b>: «Tengo doce años y vivo en…», «Este curso empiezo 1º de ESO».</li><li><b>Gustos</b>: «Lo que más me gusta es…», «En mi tiempo libre suelo…».</li><li><b>Gancho</b>: «Un dato curioso sobre mí es…».</li><li><b>Cierre</b>: «Encantado de conoceros», «Gracias por escucharme».</li></ul><p>Cambia las frases por tus palabras, para que suenen a ti y no a un libro. Una presentación auténtica es más recordada que una perfecta.</p>`,
+      L.pasos("Estructura", [["Saludo", ["me llamo…"], L.AZ], ["Datos", ["edad, lugar"], L.VE], ["Gancho", ["dato curioso"], L.MO], ["Cierre", ["gracias"], L.RO]])],
+    [9, "Presentar un grupo o un proyecto", `<p>A veces no te presentas tú, sino un <b>equipo</b> o un <b>proyecto</b>. En ese caso, la presentación tiene un esquema parecido, pero más ordenado:</p><ol><li><b>Saludo</b> y nombre del grupo.</li><li><b>Qué es el proyecto</b> en una frase («hemos construido un huerto en el patio»).</li><li><b>Quiénes lo hacen</b> y qué hace cada uno.</li><li><b>Qué esperamos conseguir</b>.</li><li><b>Cierre</b> con una pregunta o invitación al público.</li></ol><p>Cuando hablan varias personas, hay que ensayar los <b>relevos</b>: «Ahora mi compañera Julia os contará cómo lo hicimos». Un buen relevo hace que parezca un solo discurso.</p>`,
+      L.pasos("Presentar un proyecto", [["Saludo", ["y nombre"], L.AZ], ["Qué es", ["en una frase"], L.VE], ["Quiénes", ["y qué hacen"], L.MO], ["Cierre", ["invitación"], L.RO]])],
+    [11, "Ensayar y recibir comentarios", `<p>Ninguna presentación sale bien a la primera sin práctica. El esquema ideal: <b>ensayo solo</b> (ante el espejo), <b>ensayo con público</b> (una persona de confianza) y <b>ensayo cronometrado</b>.</p><p>Cuando recibas comentarios, escucha sin discutir y toma nota. Pregunta: «¿qué ha sido lo mejor?» y «¿qué cambiarías?». La <b>retroalimentación</b> es un regalo: no es una crítica a tu persona, sino información para mejorar. Elige solo uno o dos cambios para la siguiente vez y ponlos en práctica.</p>`,
+      L.filas("Ensayar", [["Ante el espejo", "primero solo", L.AZ], ["Con público", "alguien de confianza", L.VE], ["Cronometrado", "ajustar el tiempo", L.RO]])],
+  ],
+  ejemplos: [
+    ["Escribe un saludo, un dato y un cierre para presentar a tu equipo de baloncesto.", ["Saludo: «Hola, somos los Dragones».", "Dato: «Llevamos tres años juntos y ganamos el torneo de Navidad».", "Cierre: «Os esperamos en el próximo partido»."], "«Hola, somos los Dragones. Llevamos tres años juntos y ganamos el torneo de Navidad. ¡Os esperamos en el próximo partido!»"],
+    ["Prepara el relevo entre dos compañeros al presentar un proyecto de reciclaje.", ["Cierra tu parte.", "Presenta al siguiente por su nombre.", "Anuncia qué contará."], "«Esto es todo por mi parte. Ahora Julia os explicará cómo separamos el papel.»"],
+  ],
+  errores: ["Memorizar la presentación palabra por palabra y quedarse en blanco.", "Aceptar comentarios sin querer cambiar nada."],
+  ejercicios: [
+    ["b", "Escribe tres frases modelo para saludar.", "«Hola, me llamo…», «Buenos días, soy…», «Hola a todos»."],
+    ["b", "¿Qué diferencia hay entre presentarse por escrito y hablando?", "Por escrito se revisa; hablando es inmediato y usa voz y gestos."],
+    ["b", "Nombra las partes de la presentación de un proyecto.", "Saludo, qué es, quiénes lo hacen, qué se espera y cierre."],
+    ["b", "¿Para qué sirve ensayar con un cronómetro?", "Para ajustar la duración."],
+    ["m", "Escribe tu presentación por escrito en 60 palabras y luego di otra versión en voz alta.", "Respuesta personal."],
+    ["m", "Prepara una presentación de un minuto de un grupo (por ejemplo, tu equipo) con un relevo.", "Respuesta personal."],
+    ["m", "Escribe tres preguntas para pedir comentarios después de tu presentación.", "«¿Qué ha sido lo mejor?», «¿Se oía bien?», «¿Qué cambiarías?»."],
+    ["m", "Convierte «Me llamo Pablo y ya» en una presentación de cuatro frases.", "Con edad, aficiones, un dato curioso y un cierre."],
+    ["a", "Escribe un perfil de presentación para una aplicación de clase en 50 palabras.", "Respuesta personal."],
+    ["a", "Ensaya tu presentación ante un familiar y anota los comentarios en una tabla de «mantener» y «cambiar».", "Respuesta personal."],
+    ["a", "Presenta a un compañero tras una entrevista cruzada de cinco preguntas.", "Respuesta personal."],
+    ["a", "Justifica por qué una presentación auténtica es mejor que una perfecta.", "Se recuerda más y transmite confianza."],
+  ],
+  quiz: [
+    ["Un buen relevo entre compañeros consiste en…", ["presentar al siguiente y anunciar su parte", "irse sin avisar", "interrumpir"], "Parece un solo discurso."],
+    ["Al recibir un comentario conviene…", ["escuchar y tomar nota", "discutir cada punto", "enfadarse"], "Es información."],
+    ["Una presentación escrita se diferencia de una hablada en que…", ["se puede revisar", "no necesita ortografía", "es siempre más corta"], "Más tiempo."],
+    ["El gancho de una presentación es…", ["un dato curioso que llama la atención", "la despedida", "el título"], "Engancha."],
+    ["Un buen ensayo incluye…", ["practicar con tiempo y público", "no ensayar", "solo leer"], "Gradual."],
+    ["En la presentación de un proyecto conviene decir…", ["qué es en una frase", "todos los detalles técnicos", "nada"], "Claridad."],
+  ],
+  examen: [
+    ["Para sonar natural conviene…", ["decir las ideas con tus palabras", "recitar de memoria", "leer sin mirar"], "Autenticidad."],
+    ["Presentar a un grupo implica…", ["decir quiénes son y qué hacen", "hablar solo de ti", "no decir el nombre"], "Equipo."],
+    ["La retroalimentación sirve para…", ["mejorar", "castigar", "criticar a la persona"], "Información útil."],
+  ],
+  tarjetas: [["Relevo", "Paso de la palabra de un compañero a otro."], ["Retroalimentación", "Comentarios que ayudan a mejorar."]],
+  glosario: [["Presentación", "Dar a conocer quién eres o qué presentas."], ["Primera impresión", "Idea que se forma de ti al principio."], ["Saludo", "Palabras con las que se inicia el encuentro."], ["Gancho", "Frase que capta la atención."], ["Cierre", "Final de la presentación."], ["Relevo", "Cambio de orador en un grupo."], ["Ensayo", "Práctica previa de una exposición."], ["Guion", "Esquema de lo que se va a decir."], ["Contexto", "Situación en que se habla."], ["Público", "Personas que escuchan."], ["Retroalimentación", "Información para mejorar."], ["Autenticidad", "Ser uno mismo al hablar."]],
+  situacion: SIT("Feria de grupos y clubes", "El instituto celebra una feria en la que los clubes y grupos se presentan a los nuevos alumnos de 1º. Vuestro grupo presentará un club inventado (por ejemplo, de cine o de ajedrez).", [
+    "Elegid un club y escribid su presentación en una frase.",
+    "Repartid partes y ensayad los relevos con un cronómetro.",
+    "Presentad ante otro grupo y recoged comentarios.",
+    "Corregid y volved a presentar en la feria.",
+    "Votad qué club resulta más convincente.",
+  ], "Una presentación de dos minutos de un club con relevo entre al menos tres personas.", ["Hay saludo, qué es, quiénes lo hacen y cierre.", "Los relevos son fluidos.", "Se cumple el tiempo.", "Se aplican las mejoras sugeridas."]),
+  familias: ["Pedid a vuestro hijo o hija que presente a un familiar en un minuto, con un dato curioso."],
+  ideas: ["Concurso «mi presentación en 30 segundos» con votación del público."],
+  fuentes: [WIKI("Presentación personal", "Presentación_personal")],
+});

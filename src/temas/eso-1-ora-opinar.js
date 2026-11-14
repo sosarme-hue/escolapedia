@@ -1,0 +1,63 @@
+// Oratoria y debate 1º ESO · tema nivel libro. Parte de _eso1L6-base-ora-opinar.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-ora-opinar"), {
+  grupos: [4, 4, 4],
+  objetivos: ["Reconocer razones que no valen y evitarlas", "Opinar con respeto en conversaciones y en internet"],
+  claves: ["matizar", "generalización", "ataque personal", "fuente fiable", "opinar en internet"],
+  lectura: ["«Eso es así porque lo digo yo»", `<p>Dani y Sara discutían sobre si los gatos son mejores que los perros. Dani dijo: «Los perros son mejores y punto, porque lo digo yo». Sara contestó: «Qué sabrás tú, si tienes un pez». Y a partir de ahí la conversación acabó en un grito.</p><p>Ninguno dio una sola razón. Dani <mark>afirmó sin explicar</mark> y Sara <mark>atacó a la persona</mark> en lugar de a la idea. Su discusión, que podía haber sido interesante, quedó en nada. Ahora imagina esta versión: «Creo que los perros son mejores porque se pueden sacar a pasear y eso me hace hacer ejercicio». «Yo prefiero los gatos porque son más independientes y no necesitan que los saque nadie. ¿Tú qué ejercicio haces?». Sin gritos: dos opiniones, dos razones y ganas de entenderse.</p><p>Opinar bien es una de las habilidades más valiosas de la vida: sirve en clase, en casa, con los amigos y, cada vez más, en internet. Este tema te enseña a opinar con razones y a respetar las de los demás.</p>`],
+  nuevos: [
+    [1, "Opinión, creencia y gusto", `<p>No todo lo que decimos es una opinión del mismo tipo. Conviene distinguir tres cosas:</p><ul><li>El <b>gusto</b>: lo que nos agrada o no («me gusta el chocolate»). No hace falta justificarlo ni se puede discutir.</li><li>La <b>creencia</b>: algo que damos por cierto sin tener pruebas («mi equipo ganará la liga»).</li><li>La <b>opinión razonada</b>: un juicio apoyado en razones («creo que debería haber más árboles en el patio porque dan sombra y mejoran el aire»).</li></ul><p>En un debate o en una conversación seria lo que cuenta es la opinión razonada: aquella que se puede explicar y defender con argumentos.</p>`,
+      L.filas("Tres tipos", [["Gusto", "me gusta el chocolate", L.AZ], ["Creencia", "mi equipo ganará", L.VE], ["Opinión razonada", "tiene razones", L.RO]])],
+    [6, "Razones que no valen", `<p>Algunas «razones» parecen buenas, pero no lo son. Se llaman <b>falacias</b>. Aprende a reconocer las más habituales:</p><ul><li><b>Ataque personal</b>: criticar a quien habla en lugar de lo que dice («qué sabrás tú»).</li><li><b>Generalización</b>: decir «todos» o «nunca» con un solo ejemplo («mi vecino conduce mal, todos los jóvenes conducen mal»).</li><li><b>Porque lo dice todo el mundo</b>: «todos lo hacen» no prueba que esté bien.</li><li><b>Autoridad falsa</b>: «lo dijo un famoso», aunque no sepa del tema.</li></ul><p>Cuando detectes una falacia en un debate, puedes señalarla con educación: «Eso es un ejemplo, pero no prueba que siempre sea así».</p>`,
+      L.tabla("Falacias", ["Falacia", "Ejemplo"], [["Ataque personal", "qué sabrás tú"], ["Generalización", "todos son así"], ["Lo hace todo el mundo", "todos lo hacen"], ["Autoridad falsa", "lo dijo un famoso"]])],
+    [9, "Matizar: ni todo ni nada", `<p>Muchas opiniones no son blancas o negras. <b>Matizar</b> es explicar que algo es cierto <b>solo en parte</b> o <b>en ciertos casos</b>. En lugar de «los videojuegos son malos», puedes decir «los videojuegos pueden ser malos si se juega muchas horas, pero también entrenan los reflejos y la cooperación».</p><p>Palabras que matizan: <i>a veces, en general, casi siempre, depende de, en parte, sin embargo, aunque</i>. Matizar no es quedar mal ni dudar: es mostrar que has pensado en varios lados. Las opiniones más respetadas son las que reconocen sus propios límites.</p>`,
+      L.columnas("Matizar", [["absoluto", "TODOS · NUNCA", ["suena a prejuicio"], L.RO], ["matizado", "A VECES · DEPENDE", ["suena a pensado"], L.VE]])],
+    [11, "Opinar en internet", `<p>En las redes y los chats cuesta más opinar con respeto porque no vemos la cara de quien nos lee. Algunas reglas útiles:</p><ul><li><b>Piensa antes de escribir</b>: lo que publicas queda guardado y puede copiarse.</li><li><b>Usa razones</b>, igual que en voz alta.</li><li><b>Respeta</b>: si no lo dirías a la cara, no lo escribas.</li><li><b>Comprueba las fuentes</b>: antes de compartir una noticia, mira quién la publica y si otros medios la confirman.</li></ul><p>Si alguien te insulta, no respondas con otro insulto: puedes ignorarlo, bloquearlo o avisar a un adulto.</p>`,
+      L.filas("Opinar en la red", [["Piensa", "antes de publicar", L.AZ], ["Razona", "como en voz alta", L.VE], ["Respeta", "como a la cara", L.RO], ["Comprueba", "las fuentes", L.MO]])],
+  ],
+  ejemplos: [
+    ["Detecta la falacia: «No hagas caso a Marta, que no sabe de fútbol porque es una chica».", ["No se rebate lo que dice, sino a la persona y por su género.", "Es un ataque personal y, además, un prejuicio."], "Ataque personal con prejuicio."],
+    ["Matiza: «Los móviles distraen».", ["Aceptar la parte cierta: en clase pueden distraer.", "Añadir la parte matizada: sirven para buscar información si el profesor lo permite."], "«Los móviles pueden distraer en clase, pero también ayudan si se usan con permiso.»"],
+  ],
+  errores: ["Usar «todos» y «nunca» sin pensar.", "Contestar a un insulto con otro en internet."],
+  ejercicios: [
+    ["b", "Escribe un ejemplo de gusto, uno de creencia y uno de opinión razonada.", "Gusto: me encanta el verano. Creencia: mañana lloverá. Opinión razonada: deberíamos tener más recreo porque rendimos mejor."],
+    ["b", "Define falacia con tus palabras.", "Razonamiento que parece válido pero no lo es."],
+    ["b", "Nombra tres palabras que sirven para matizar.", "A veces, depende, en parte."],
+    ["b", "Escribe una regla para opinar bien en internet.", "Respetar como si fuera a la cara."],
+    ["m", "Identifica la falacia: «Todos los alumnos de ese colegio son unos creídos».", "Generalización."],
+    ["m", "Matiza esta frase: «Los deberes son inútiles».", "«Algunos deberes son inútiles, pero otros ayudan a repasar.»"],
+    ["m", "Transforma «Eres un pesado, no digas más» en una frase respetuosa.", "«No estoy de acuerdo y prefiero cambiar de tema.»"],
+    ["m", "Escribe una opinión razonada de tres líneas sobre el patio del instituto.", "Respuesta personal con tesis, razón y ejemplo."],
+    ["a", "Busca una noticia dudosa y explica cómo comprobarías si es fiable.", "Mirar la fuente, la fecha y si otros medios la confirman."],
+    ["a", "Reescribe un mensaje agresivo para un chat grupal en forma de opinión razonada.", "Respuesta personal."],
+    ["a", "Prepara una intervención de un minuto con una opinión, dos razones y un matiz.", "Respuesta personal."],
+    ["a", "Explica por qué «todo el mundo lo hace» no es un buen argumento, con un ejemplo.", "Que muchos hagan algo no prueba que esté bien, como saltarse una cola."],
+  ],
+  quiz: [
+    ["Una creencia es…", ["algo que damos por cierto sin pruebas", "un dato comprobado", "un gusto"], "Sin pruebas."],
+    ["«Qué sabrás tú» es un…", ["ataque personal", "argumento", "dato"], "No rebate la idea."],
+    ["«Todos los jóvenes conducen mal» es una…", ["generalización", "razón válida", "norma"], "Con un solo caso."],
+    ["Matizar sirve para…", ["decir que algo es cierto solo en parte", "no opinar nunca", "insultar"], "Muestra reflexión."],
+    ["Antes de compartir una noticia hay que…", ["comprobar la fuente", "compartirla ya", "borrarla"], "Fiable."],
+    ["Si alguien te insulta en internet puedes…", ["ignorarlo o avisar a un adulto", "insultar más fuerte", "publicar su dirección"], "No responder."],
+  ],
+  examen: [
+    ["Una opinión razonada se apoya en…", ["razones", "gritos", "silencio"], "Argumentos."],
+    ["Una palabra que matiza es…", ["depende", "siempre", "nunca"], "Reconoce casos."],
+    ["Un gusto personal…", ["no necesita justificarse", "debe probarse", "se vota"], "Es subjetivo."],
+  ],
+  tarjetas: [["Falacia", "Razón que parece buena pero no lo es."], ["Matizar", "Decir que algo es cierto solo en parte."]],
+  glosario: [["Opinión", "Juicio personal sobre algo."], ["Hecho", "Dato que se puede comprobar."], ["Gusto", "Preferencia personal."], ["Creencia", "Idea que se da por cierta sin pruebas."], ["Tesis", "Idea que se defiende."], ["Argumento", "Razón que apoya la tesis."], ["Falacia", "Razonamiento falso con apariencia de válido."], ["Ataque personal", "Criticar a la persona, no a la idea."], ["Generalización", "Afirmar algo de todos por un caso."], ["Matizar", "Explicar los límites de una afirmación."], ["Fuente", "Origen de una información."], ["Prejuicio", "Juicio previo sin conocer."]],
+  situacion: SIT("El muro de opiniones", "El instituto crea un «muro de opiniones» en el que cada semana se propone una pregunta (por ejemplo, «¿más tiempo de recreo?»). Vuestro grupo moderará la sección.", [
+    "Elegid la pregunta de la semana y recopilad opiniones con razones.",
+    "Clasificadlas en gusto, creencia y opinión razonada.",
+    "Detectad falacias y proponed una versión mejorada.",
+    "Redactad un resumen con las dos posturas más sólidas.",
+    "Presentadlo en tutoría con una votación.",
+  ], "Un panel con las opiniones clasificadas y mejoradas.", ["Se distinguen gustos, creencias y opiniones razonadas.", "Las falacias se identifican bien.", "El resumen refleja varios puntos de vista.", "El trato es respetuoso."]),
+  familias: ["Debatid una cuestión cotidiana pidiendo siempre «¿por qué?» y «¿puedes poner un ejemplo?»."],
+  ideas: ["Juego de «detective de falacias» con titulares y anuncios."],
+  fuentes: [WIKI("Falacia", "Falacia")],
+});

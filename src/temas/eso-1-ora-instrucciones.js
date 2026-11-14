@@ -1,0 +1,63 @@
+// Oratoria y debate 1º ESO · tema nivel libro. Parte de _eso1L6-base-ora-instrucciones.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-ora-instrucciones"), {
+  grupos: [4, 4, 4],
+  objetivos: ["Distinguir tipos de instrucciones y elegir el más adecuado", "Dar instrucciones de seguridad claras y calmadas"],
+  claves: ["instrucciones de seguridad", "texto instructivo", "frases cortas", "verbo en imperativo", "guion"],
+  lectura: ["Cómo llegar al gimnasio sin perderse", `<p>El primer día de curso, un alumno nuevo preguntó a un compañero cómo llegar al gimnasio. «Pues sigue por ahí, giras un poco y luego, al fondo, es ahí.» El alumno nuevo sonrió, dio las gracias… y veinte minutos más tarde apareció en el laboratorio de Ciencias, perdido.</p><p>¿Qué falló? Nadie mintió ni se equivocó con mala intención. Simplemente, las instrucciones eran <mark>vagas</mark>: «por ahí», «un poco», «al fondo». Compáralas con estas: «Sal por la puerta del patio, camina cincuenta metros hasta el edificio azul y entra por la puerta de la izquierda». Mucho más clara, ¿verdad?</p><p>Dar instrucciones es una de las cosas más útiles que hacemos con las palabras: explicar cómo se juega a un juego, cómo se llega a un sitio, cómo se hace una receta o qué hacer en caso de incendio. En este tema aprenderás a hacerlo de forma ordenada, precisa y amable, para que nadie se pierda por el camino.</p>`],
+  nuevos: [
+    [1, "Tipos de instrucciones", `<p>Hay instrucciones para casi todo, y cada tipo tiene sus propias características:</p><ul><li>Las <b>recetas</b>: ingredientes y pasos con tiempos y cantidades.</li><li>Las <b>reglas de un juego</b>: objetivo, materiales, turnos y cómo se gana.</li><li>Las <b>indicaciones de ruta</b>: puntos de referencia, direcciones y distancias.</li><li>Los <b>manuales de uso</b>: cómo funciona un aparato.</li><li>Las <b>normas de seguridad</b>: qué hacer y qué no hacer ante un peligro.</li></ul><p>En todas, lo importante es que quien las escucha pueda <b>hacer lo que se le pide</b> sin dudar.</p>`,
+      L.filas("Tipos de instrucciones", [["Receta", "pasos y cantidades", L.AZ], ["Juego", "reglas y turnos", L.VE], ["Ruta", "referencias y giros", L.RO], ["Seguridad", "qué hacer en peligro", L.MO]])],
+    [6, "Frases cortas y palabras sencillas", `<p>Una instrucción larga y enrevesada confunde. Es mejor dar <b>una acción por frase</b>. Compara: «Coge el vaso, llénalo hasta la mitad, ponlo en la mesa y mira cómo baja el nivel» → «1. Coge el vaso. 2. Llénalo hasta la mitad. 3. Ponlo en la mesa. 4. Observa cómo baja el nivel».</p><p>También conviene usar palabras que todos conozcan y <b>explicar</b> las técnicas si el público no las sabe («escurrir» = quitar el agua con un colador). Evita las palabras vagas («un poco», «más o menos», «por ahí») y cambia las ambiguas por medidas concretas: «unos 200 mililitros», «tres pasos a la derecha».</p>`,
+      L.columnas("Hacerlo claro", [["una acción", "FRASE CORTA", ["un paso, una frase"], L.AZ], ["sin «por ahí»", "MEDIDAS", ["200 ml", "3 pasos"], L.VE], ["conocidas", "PALABRAS", ["explica las nuevas"], L.RO]])],
+    [9, "Instrucciones de seguridad", `<p>Cuando hay un peligro (un simulacro de incendio, una evacuación, un accidente en el laboratorio) las instrucciones deben ser <b>muy claras, muy breves y dichas con calma</b>. Se usan órdenes cortas en imperativo: «Salid en fila. No corráis. No cojáis las mochilas».</p><p>Quien da instrucciones de seguridad debe mantener la voz firme pero tranquila, repetir lo esencial y mostrar la salida con el brazo. En un peligro real, el miedo vuelve a las personas torpes: cuanto más sencillo y seguro sea el mensaje, mejor. Si tienes que dar instrucciones en una emergencia, llama siempre al <b>112</b> y di dónde estás, qué ocurre y cuántas personas hay.</p>`,
+      L.pasos("Llamar al 112", [["Di dónde", ["lugar exacto"], L.AZ], ["Di qué ocurre", ["qué y a quién"], L.RO], ["Escucha", ["sigue las órdenes"], L.VE]])],
+    [11, "Del guion a la explicación", `<p>Cuando tienes que explicar algo a un grupo, conviene preparar un <b>guion</b> breve: objetivo, materiales, pasos numerados y una comprobación final. Lo ensayas en voz alta una vez, cronometrando: si pasas de tres minutos, <b>recorta</b>.</p><p>Al explicar, usa los tres canales a la vez: <b>palabras</b> (los pasos), <b>voz</b> (pausas entre paso y paso) y <b>cuerpo</b> (mostrar con las manos). Y deja un momento para preguntas: es la mejor forma de saber si te han entendido de verdad.</p>`,
+      L.pasos("Mi explicación", [["Objetivo", ["¿qué vamos a hacer?"], L.AZ], ["Pasos", ["numerados"], L.VE], ["Muestra", ["con las manos"], L.MO], ["Pregunta", ["¿se ha entendido?"], L.RO]])],
+  ],
+  ejemplos: [
+    ["Mejora: «Mezcla un poco de harina con leche y espera un rato».", ["Cantidad concreta: 100 gramos de harina y 200 mililitros de leche.", "Tiempo concreto: remueve dos minutos."], "«Mezcla 100 g de harina con 200 ml de leche y remueve dos minutos.»"],
+    ["Escribe tres órdenes breves para un simulacro de incendio.", ["Una acción por frase.", "Imperativo plural."], "«Dejad todo. Salid en fila. No corráis.»"],
+  ],
+  errores: ["Dar demasiados pasos en una misma frase.", "Usar «por ahí» o «un poco» en lugar de medidas concretas."],
+  ejercicios: [
+    ["b", "Nombra cuatro tipos de instrucciones.", "Receta, reglas de un juego, ruta y manual o seguridad."],
+    ["b", "¿Cuántas acciones debe tener cada frase de una instrucción?", "Una sola."],
+    ["b", "¿Qué se dice al llamar al 112?", "Dónde estás, qué ocurre y cuántas personas hay."],
+    ["b", "Escribe el imperativo plural de «sentarse, callar y escuchar».", "Sentaos, callad y escuchad."],
+    ["m", "Reescribe con precisión: «Camina un poco y gira por ahí».", "«Camina 20 metros y gira a la derecha en la farmacia.»"],
+    ["m", "Divide en cuatro frases cortas: «Coge el cuaderno, ábrelo por la página tres y copia el ejercicio y luego tráelo».", "Coge el cuaderno. Ábrelo por la página tres. Copia el ejercicio. Tráelo."],
+    ["m", "Explica en seis pasos como máximo cómo se lava uno las manos.", "Mojar, jabón, frotar 20 segundos, aclarar, secar y cerrar el grifo con papel."],
+    ["m", "Escribe las reglas de un juego que conozcas en menos de 100 palabras.", "Respuesta personal con objetivo, materiales y turnos."],
+    ["a", "Prepara las instrucciones de un simulacro de evacuación de tu clase.", "Pasos: dejar las cosas, formar fila, seguir al delegado, salir por la puerta, ir al punto de encuentro."],
+    ["a", "Da las instrucciones para llegar desde tu casa al instituto sin nombrar calles.", "Respuesta personal con puntos de referencia."],
+    ["a", "Practica el juego del dibujo a ciegas con tres figuras y mide los aciertos.", "Respuesta personal."],
+    ["a", "Evalúa tu propia explicación con la ficha: objetivo, pasos, muestra y pregunta.", "Respuesta personal."],
+  ],
+  quiz: [
+    ["Las instrucciones de seguridad deben ser…", ["breves y calmadas", "largas y detalladas", "gritando"], "Evitan el pánico."],
+    ["«Un poco de sal» es una instrucción…", ["vaga", "precisa", "imposible"], "Falta medida."],
+    ["El número de emergencias en España es…", ["112", "091", "900"], "Teléfono único europeo."],
+    ["Un guion para explicar incluye…", ["objetivo, pasos y comprobación", "solo adornos", "un chiste"], "Estructura."],
+    ["Los pasos de una instrucción se numeran para…", ["mantener el orden", "que se vea bonito", "alargar el texto"], "Claridad."],
+    ["Un manual de uso explica…", ["cómo funciona un aparato", "una historia", "una opinión"], "Instrucciones."],
+  ],
+  examen: [
+    ["Para que no se pierdan, una ruta debe tener…", ["puntos de referencia", "adornos", "adivinanzas"], "Referencias."],
+    ["La comprobación final sirve para…", ["ver si te han entendido", "terminar antes", "ocultar fallos"], "Preguntas."],
+    ["«Salid en fila» es un imperativo…", ["plural", "singular", "pasado"], "Dirigido a varios."],
+  ],
+  tarjetas: [["Texto instructivo", "Texto que explica cómo hacer algo paso a paso."], ["112", "Número de emergencias en España y la UE."]],
+  glosario: [["Instrucción", "Indicación de cómo hacer algo."], ["Texto instructivo", "Texto con pasos ordenados."], ["Imperativo", "Forma verbal de la orden."], ["Conector de orden", "Palabra que ordena: primero, luego."], ["Precisión", "Dar datos exactos."], ["Punto de referencia", "Lugar conocido que sirve de guía."], ["Guion", "Esquema de lo que se va a explicar."], ["Simulacro", "Ensayo de una situación de emergencia."], ["Evacuación", "Salida ordenada de un lugar."], ["Manual", "Libro de instrucciones de uso."], ["Ingrediente", "Elemento de una receta."], ["Demostración", "Mostrar cómo se hace."]],
+  situacion: SIT("Manual para nuevos alumnos", "Para ayudar a los que llegan nuevos, vuestro grupo elaborará un «manual de supervivencia» oral para moverse por el instituto.", [
+    "Elegid cuatro tareas: llegar al gimnasio, sacar un libro de la biblioteca, usar la fotocopiadora y actuar en un simulacro.",
+    "Escribid las instrucciones con pasos numerados y datos concretos.",
+    "Probadlas con un compañero que no conozca el centro.",
+    "Corregid lo que no se entendió.",
+    "Presentad el manual en una sesión con alumnos nuevos.",
+  ], "Un guion con cuatro instrucciones y una prueba real con un compañero.", ["Los pasos están ordenados y son precisos.", "Las frases son cortas.", "Se ha probado con un oyente real.", "La presentación es clara y amable."]),
+  familias: ["Pedid que os expliquen, con pasos, cómo se hace su plato favorito o cómo se usa un aparato de casa."],
+  ideas: ["Juegos de «robot»: un alumno da órdenes exactas y otro las ejecuta al pie de la letra."],
+  fuentes: [WIKI("Texto instructivo", "Texto_instructivo")],
+});

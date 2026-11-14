@@ -1,0 +1,63 @@
+// Oratoria y debate 1º ESO · tema nivel libro. Parte de _eso1L6-base-ora-debate.js y lo amplía.
+const { libro, SIT, WIKI, V, L } = require("./_eso1L6");
+
+module.exports = libro(require("./_eso1L6-base-ora-debate"), {
+  grupos: [4, 4, 4],
+  objetivos: ["Conocer distintos tipos de debate y sus reglas de tiempo", "Evaluar un debate con una rúbrica sencilla"],
+  claves: ["debate formal", "contraargumento", "cronometrador", "rúbrica", "postura"],
+  lectura: ["¿Deberían los móviles entrar en clase?", `<p>El lunes, la tutora lanzó una pregunta a su clase de 1º: «¿Deberían permitirse los móviles en el instituto?». En dos minutos el aula era un mercado: todos hablaban a la vez y nadie escuchaba. Cuando por fin se calmaron, la tutora dijo algo curioso: «Habéis opinado mucho, pero no habéis debatido. Un debate tiene reglas, y las reglas sirven para <mark>escucharnos y convencernos con razones, no con gritos</mark>».</p><p>Esa tarde organizaron el primer debate de la clase: dos equipos, un moderador, un cronometrador y un público que votaría al final. Cada equipo tuvo que defender la postura que le tocó, aunque no fuera la suya. El resultado fue sorprendente: muchos cambiaron de opinión, o al menos entendieron mejor por qué otros pensaban distinto. En este tema aprenderás cómo se prepara y se desarrolla un debate organizado, de modo que sea un juego inteligente y no una pelea.</p>`],
+  nuevos: [
+    [1, "Tipos de debate", `<p>Hay varias formas de debatir, y cada una tiene reglas distintas:</p><ul><li>El <b>debate informal</b>: charla libre entre amigos o en clase; sin turnos fijos.</li><li>El <b>debate formal</b>: dos equipos, tiempos medidos, moderador y jueces. Es el de los concursos escolares.</li><li>El <b>debate parlamentario</b>: el de los parlamentos, donde hay un gobierno y una oposición.</li><li>La <b>asamblea</b>: un grupo discute un asunto para tomar una decisión en común.</li></ul><p>En 1º ESO empezaremos con un formato formal sencillo: dos equipos de tres personas, turnos de uno o dos minutos y un moderador.</p>`,
+      L.filas("Formas de debatir", [["Informal", "charla libre", L.AZ], ["Formal", "equipos y tiempos", L.VE], ["Parlamentario", "gobierno y oposición", L.RO], ["Asamblea", "decidir en común", L.MO]])],
+    [6, "Argumentos y contraargumentos", `<p>Un <b>argumento</b> es una razón que apoya tu postura. Un <b>contraargumento</b> es lo que dice el otro equipo para rebatirlo. Un buen debatiente se prepara para los dos: sus propios argumentos y los de los demás.</p><p>Para rebatir hay cuatro caminos: <b>negar el hecho</b> («eso no es verdad»), <b>cuestionar el dato</b> («¿de dónde sale esa cifra?»), <b>mostrar una consecuencia peor</b> («eso traería otro problema») o <b>aceptar y matizar</b> («es cierto, pero solo en parte»). Rebatir no es atacar a la persona: se critica la idea, nunca a quien la dice.</p>`,
+      L.pasos("Rebatir con razones", [["Escuchar", ["la idea"], L.AZ], ["Elegir", ["cómo rebatir"], L.VE], ["Responder", ["con razones"], L.RO]])],
+    [9, "Moderador y cronometrador", `<p>Un debate bien llevado necesita dos figuras clave. El <b>moderador</b> abre y cierra el debate, presenta el tema y los equipos, da la palabra, reparte los turnos y pide silencio. Debe ser <b>neutral</b>: no da su opinión ni favorece a nadie.</p><p>El <b>cronometrador</b> controla el tiempo de cada intervención con un reloj y avisa con una señal (por ejemplo, una tarjeta amarilla a los 30 segundos finales y una roja cuando se acaba el tiempo). Respetar el tiempo es una forma de respetar a los demás: nadie puede hablar el doble y dejar sin turno al contrario.</p>`,
+      L.columnas("Dos papeles clave", [["neutral", "MODERADOR", ["da la palabra", "pide orden"], L.AZ], ["reloj en mano", "CRONOMETRADOR", ["avisa", "respeta tiempos"], L.RO]])],
+    [11, "Valorar el debate", `<p>Al terminar, el público o un pequeño jurado puede valorar el debate con una <b>rúbrica</b>, una tabla con criterios sencillos y una puntuación de 1 a 4. Se valora la <b>calidad de las razones</b>, el <b>orden</b> de la intervención, el <b>uso de la voz y el cuerpo</b>, la <b>escucha</b> y la <b>respuesta al contrario</b>, y el <b>respeto</b> a las reglas.</p><p>La valoración no es para decidir quién tiene razón en la vida real, sino quién ha <b>debatido mejor</b>. A veces gana el equipo que defendía la postura con la que menos coincidíamos, pero que la defendió con mejores argumentos. Y siempre se acaba con un apretón de manos.</p>`,
+      L.filas("Rúbrica de debate", [["Razones", "claras y ordenadas", L.AZ], ["Escucha y réplica", "responden al otro", L.VE], ["Voz y cuerpo", "claros y seguros", L.RO], ["Respeto", "turnos y trato", L.MO]])],
+  ],
+  ejemplos: [
+    ["El equipo contrario dice: «Los deberes no sirven porque nadie aprende nada». ¿Cómo lo rebates sin atacar?", ["Cuestionar el dato: «¿Quién dice que nadie aprende?».", "Aportar una razón: «Practicar en casa fija lo aprendido».", "Aceptar y matizar: «Es cierto que demasiados deberes cansan, pero algunos son útiles»."], "Se critica la idea, no a la persona."],
+    ["Un cronometrador tiene que organizar un debate con dos equipos, tres turnos por equipo de dos minutos. ¿Cuánto durará la parte de argumentación?", ["Seis turnos de dos minutos.", "6 × 2 = 12 minutos."], "12 minutos, más los de réplica y conclusión."],
+  ],
+  errores: ["Confundir debatir con ganar a toda costa.", "Criticar al contrario en lugar de rebatir su argumento."],
+  ejercicios: [
+    ["b", "Nombra los cuatro tipos de debate del tema.", "Informal, formal, parlamentario y asamblea."],
+    ["b", "¿Qué es un contraargumento?", "Una razón que se opone a un argumento del otro equipo."],
+    ["b", "¿Qué hace el cronometrador?", "Controla el tiempo de cada intervención y avisa."],
+    ["b", "Escribe tres criterios de una rúbrica de debate.", "Razones, escucha y respeto, voz y cuerpo."],
+    ["m", "Escribe un argumento y un contraargumento sobre «Los uniformes mejoran el ambiente escolar».", "A favor: igualan a todos. En contra: limitan la libertad de expresión."],
+    ["m", "Convierte «Eso es una tontería» en una frase respetuosa para rebatir.", "«No estoy de acuerdo porque…»"],
+    ["m", "Reparte los papeles de un debate de seis alumnos y explica la función de cada uno.", "Equipo A (3), equipo B (3), moderador y cronometrador entre el público."],
+    ["m", "Prepara dos preguntas para el equipo contrario sobre «¿Hay que dar menos deberes?».", "Respuesta personal con preguntas basadas en datos."],
+    ["a", "Escribe una réplica de 30 segundos a «Los videojuegos solo sirven para perder el tiempo».", "Aceptar parte, aportar razones (reflejos, trabajo en equipo) y matizar."],
+    ["a", "Completa una rúbrica para evaluar un debate de la clase y justifica la puntuación.", "Respuesta personal basada en la observación."],
+    ["a", "Prepara una postura en contra de la tuya y explica por qué conviene hacerlo.", "Ayuda a anticipar contraargumentos y a comprender a los demás."],
+    ["a", "Explica por qué un moderador debe ser neutral.", "Si favorece a un equipo, el debate pierde justicia."],
+  ],
+  quiz: [
+    ["Un debate parlamentario enfrenta a…", ["gobierno y oposición", "dos amigos", "familia y colegio"], "Es el de los parlamentos."],
+    ["Rebatir consiste en…", ["responder con razones a un argumento", "atacar a la persona", "callarse"], "Se critica la idea."],
+    ["El moderador debe ser…", ["neutral", "el que más habla", "juez de su equipo"], "No da su opinión."],
+    ["El cronometrador avisa…", ["cuando queda poco tiempo", "cuando termina el recreo", "cuando alguien se equivoca"], "Tarjeta amarilla y roja."],
+    ["Una rúbrica sirve para…", ["valorar con criterios", "decidir quién ríe más", "castigar"], "Criterios claros."],
+    ["El debate formal se caracteriza por…", ["equipos y tiempos medidos", "no tener reglas", "gritos"], "Reglas."],
+  ],
+  examen: [
+    ["Aceptar y matizar es una forma de…", ["rebatir", "interrumpir", "rendirse"], "Es válido."],
+    ["Al terminar el debate se debe…", ["felicitar al equipo contrario", "insultar", "irse sin hablar"], "Juego limpio."],
+    ["Un argumento sin datos suele ser…", ["más débil", "más fuerte", "indiferente"], "Mejor con ejemplos."],
+  ],
+  tarjetas: [["Contraargumento", "Razón con la que se rebate un argumento del contrario."], ["Rúbrica", "Tabla de criterios para evaluar con puntuación."]],
+  glosario: [["Debate", "Intercambio ordenado de argumentos sobre un tema."], ["Postura", "Opinión que se defiende."], ["Argumento", "Razón que apoya una postura."], ["Contraargumento", "Razón en contra de un argumento."], ["Réplica", "Respuesta a lo dicho por el contrario."], ["Moderador", "Persona que dirige el debate."], ["Cronometrador", "Persona que controla el tiempo."], ["Turno", "Momento en que a cada uno le toca hablar."], ["Rúbrica", "Tabla de criterios de evaluación."], ["Tesis", "Idea principal que se defiende."], ["Neutral", "Que no toma partido."], ["Juego limpio", "Respetar las normas y a los demás."]],
+  situacion: SIT("Gran debate de 1º", "El instituto organiza un torneo de debates entre grupos de 1º. Vuestro equipo debe preparar un debate formal sobre «¿Deberían tener los alumnos más voz en las decisiones del centro?».", [
+    "Sorteo de postura (a favor o en contra) y de papeles.",
+    "Lluvia de ideas y elección de tres argumentos por equipo.",
+    "Preparación de la réplica y la conclusión.",
+    "Debate con moderador y cronometrador.",
+    "Valoración con la rúbrica y comentarios finales.",
+  ], "Un debate de 15 minutos y las rúbricas rellenadas por el público.", ["Los argumentos son claros y razonados.", "Se respeta el turno y el tiempo.", "Se responde al contrario con respeto.", "La rúbrica se rellena con criterio."]),
+  familias: ["Proponed en casa un debate de cinco minutos sobre un tema ligero, como «¿Pizza o pasta?», con turnos y un cronometrador."],
+  ideas: ["Liga interna de debates con rúbrica compartida y diario del equipo."],
+  fuentes: [WIKI("Debate", "Debate")],
+});
