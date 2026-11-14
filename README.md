@@ -77,4 +77,6 @@ Es el tema ampliado al máximo, como un capítulo de libro de texto. Se reescrib
 
 ## Publicación
 
+`build.js` también genera `dist/sitemap.xml` (todas las páginas salvo las fichas) y `dist/robots.txt`, así que se actualizan solos en cada publicación.
+
 escolapedia.com se publica desde la rama `claude/project-thread-d876yp` con `hosting_git_deploy-website-repository` (sin despliegue automático: solo cambia cuando se vuelve a lanzar). El `.htaccess` de la raíz sirve la carpeta `dist/`. Solo se publica lo que hay en `dist/` cuando se sube: generar con `node build.js && node tools/pdfs.js` y subir `dist/` únicamente cuando Alex haya dado el visto bueno.

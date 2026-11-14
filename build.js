@@ -84,7 +84,9 @@ ${scripts}
 </body></html>`;
 }
 
+const PAGINAS = [];
 function write(rel, html) {
+  PAGINAS.push(rel);
   // Vista previa (PREVIEW=1): enlaces a carpeta → index.html, para verla sin servidor web.
   if (process.env.PREVIEW) html = html.replace(/href="((?!https?:|#)[^"]*\/)"/g, 'href="$1index.html"');
   const f = path.join(OUT, rel, "index.html");
@@ -382,5 +384,14 @@ legalPage("privacidad", "Privacidad", "Escolapedia no te pide datos personales. 
 fs.mkdirSync(path.join(OUT, "assets"), { recursive: true });
 for (const f of ["base.css", "extra.css", "app.js"]) fs.copyFileSync(path.join(__dirname, "src/assets", f), path.join(OUT, "assets", f));
 fs.writeFileSync(path.join(OUT, "assets/indice.js"), `window.INDICE=${JSON.stringify(indice)};`);
+
+// ---------- sitemap.xml y robots.txt (se rehacen en cada publicación) ----------
+const SITIO = "https://escolapedia.com";
+const urls = [...new Set(PAGINAS.map((r) => r.replace(/\\/g, "/").replace(/^\/+|\/+$/g, "")))]
+  .filter((r) => !/(^|\/)ficha$/.test(r))
+  .sort()
+  .map((r) => `<url><loc>${SITIO}/${r ? r + "/" : ""}</loc></url>`);
+fs.writeFileSync(path.join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`);
+fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITIO}/sitemap.xml\n`);
 
 console.log(`Hecho: ${ETAPAS.length} etapas, ${nMaterias} materias, ${nTemas} temas en lista, ${nListos} temas completos.`);
