@@ -1,117 +1,215 @@
-// Geografía e Historia 1º ESO. Dibujos propios en SVG.
-const { tema, H, F, tabla } = require("./_eso1d");
-const V = require("./_eso1d-videos");
+// Geografía e Historia 1º ESO · tema nivel libro (capítulo completo). Contenido y dibujos SVG propios.
+// Los dibujos de los apartados se generan con src/temas/_eso1L4.js.
+const { linea, cajas, flujo, barras, versus, rueda, H, B, QS, EJ, EX, V, VL, MAPA, SIT, FIG, RD, WIKI } = require("./_eso1L4");
 
-// Corte de la Tierra: corteza, manto y núcleo.
-const capas = `<svg viewBox="0 0 260 180" role="img" aria-label="Capas internas de la Tierra: corteza, manto, núcleo externo y núcleo interno">
-  <rect width="260" height="180" rx="14" fill="var(--paper)"/>
-  <circle cx="92" cy="90" r="76" fill="var(--leaf)"/>
-  <circle cx="92" cy="90" r="70" fill="var(--sun)"/>
-  <circle cx="92" cy="90" r="38" fill="var(--red)"/>
-  <circle cx="92" cy="90" r="18" fill="var(--ink)"/>
-  <g ${F} font-size="11.5" font-weight="700" fill="var(--ink)">
-    <path d="M150 42 L 178 30" stroke="var(--ink)" stroke-width="1.5"/><text x="182" y="34">corteza</text>
-    <path d="M150 74 L 178 70" stroke="var(--ink)" stroke-width="1.5"/><text x="182" y="74">manto</text>
-    <path d="M118 100 L 178 110" stroke="var(--ink)" stroke-width="1.5"/><text x="182" y="108">núcleo</text><text x="182" y="121" font-weight="400" font-size="10.5">externo</text>
-    <path d="M100 92 L 178 146" stroke="var(--ink)" stroke-width="1.5"/><text x="182" y="146">núcleo</text><text x="182" y="159" font-weight="400" font-size="10.5">interno</text>
-  </g>
-</svg>`;
-
-// Perfil de costa con sus formas.
-const costa = `<svg viewBox="0 0 260 180" role="img" aria-label="Formas del relieve costero: cabo, golfo, península, isla y playa">
-  <rect width="260" height="180" rx="14" fill="var(--pen)" opacity=".22"/>
-  <path d="M0 0 H260 V60 C 230 60 220 95 200 100 C 180 104 172 70 150 70 C 130 70 132 120 110 130 C 92 138 70 110 50 112 C 30 114 20 70 0 70 Z" fill="var(--leaf)"/>
-  <ellipse cx="190" cy="148" rx="26" ry="12" fill="var(--leaf)"/>
-  <path d="M42 108 C 52 104 62 110 70 116" stroke="var(--sun)" stroke-width="6" fill="none" stroke-linecap="round"/>
-  <g ${F} font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">
-    <text x="200" y="124">cabo</text><text x="150" y="98">golfo</text><text x="112" y="152">península</text><text x="190" y="152">isla</text><text x="46" y="134">playa</text><text x="130" y="30" fill="#fff">continente</text>
-  </g>
-</svg>`;
-
-module.exports = tema({
+module.exports = {
   materia: "Geografía e Historia",
+  curso: "1-eso",
   titulo: "El relieve terrestre",
-  objetivos: ["Describir la estructura interna de la Tierra", "Explicar cómo actúan las fuerzas internas y externas que forman el relieve", "Reconocer las principales formas del relieve continental, costero y oceánico", "Situar los grandes conjuntos del relieve de los continentes"],
-  claves: ["corteza", "manto", "núcleo", "placa tectónica", "volcán", "terremoto", "erosión", "montaña", "llanura", "meseta", "cabo", "golfo", "plataforma continental"],
-  pregunta: [
-    "En lo alto del Himalaya, a más de 5000 metros, los escaladores encuentran fósiles de animales marinos. ¿Cómo llegaron conchas del mar a la montaña más alta del mundo?",
-    "Porque esas rocas se formaron en el <mark>fondo de un mar</mark> hace millones de años. La placa de la India avanzó lentamente hacia el norte y chocó con la de Asia: el choque plegó y levantó los sedimentos marinos hasta formar el Himalaya. Las <b>fuerzas internas</b> de la Tierra mueven los continentes unos centímetros al año, pero con el tiempo suficiente pueden levantar montañas enteras.",
+  minutos: 100,
+  objetivos: [
+    "Describir las capas de la Tierra y la teoría de las placas tectónicas",
+    "Explicar cómo las fuerzas internas forman el relieve: pliegues, fallas, volcanes y terremotos",
+    "Explicar cómo los agentes externos desgastan y modelan el relieve",
+    "Identificar las principales formas del relieve continental, costero y oceánico",
+    "Localizar las grandes unidades del relieve de los continentes",
+    "Valorar los riesgos naturales y cómo prevenirlos",
   ],
+  claves: ["corteza", "manto", "núcleo", "placa tectónica", "pliegue", "falla", "volcán", "terremoto", "erosión", "sedimentación", "montaña", "llanura", "meseta", "costa", "plataforma continental"],
+  pregunta: {
+    texto: "En la cima del Everest, a más de 8800 metros de altura, se han encontrado fósiles de animales marinos. ¿Cómo llegaron conchas del fondo del mar al techo del mundo?",
+    respuesta: "Porque hace millones de años esas rocas estaban en el fondo de un océano. La <mark>placa de la India</mark> chocó contra la de Eurasia y fue empujando y levantando los sedimentos marinos hasta formar el <b>Himalaya</b>. Y sigue subiendo unos milímetros cada año: el relieve terrestre está siempre cambiando.",
+  },
+  lectura: {
+    titulo: "La isla que nació en el mar",
+    html: `<p>En octubre de 2011, los pescadores de El Hierro, la isla más pequeña de Canarias, vieron algo extraño: una enorme mancha verde y burbujeante en el mar, cerca del pueblo de La Restinga. Olía a azufre y aparecían peces muertos flotando. Un <b>volcán submarino</b> había entrado en erupción a pocos kilómetros de la costa.</p><p>Diez años después, en septiembre de 2021, la tierra se abrió en <b>La Palma</b>. Durante 85 días, el volcán de Tajogaite expulsó ríos de lava que sepultaron más de 1600 casas, carreteras y plantaciones de plátanos, y llegaron hasta el mar, donde crearon una nueva península: la isla se hizo más grande.</p><p>Estos acontecimientos nos recuerdan que la Tierra está viva. Las montañas que parecen eternas se levantan y se desgastan; los continentes se mueven; el suelo tiembla. En este tema descubrirás qué hay bajo nuestros pies, qué fuerzas construyen y destruyen el relieve y qué formas tiene la superficie terrestre, en los continentes y bajo los océanos.</p>`,
+  },
   bloques: [
-    ["El interior de la Tierra", `<p>La Tierra está formada por capas, como una cebolla. La más externa es la <mark>corteza</mark>, una capa rocosa y fina: mide entre 5 km bajo los océanos y unos 70 km bajo las grandes cordilleras. Sobre ella vivimos.</p><p>Debajo está el <b>manto</b>, la capa más gruesa (casi 2900 km). Está formado por rocas muy calientes que, aunque parecen sólidas, se mueven muy despacio, como una pasta. En el centro está el <b>núcleo</b>, de hierro y níquel, con temperaturas de más de 5000 °C: la parte exterior es líquida y la interior, sólida. El calor del interior es el motor de muchos cambios del relieve.</p>`,
-      capas],
-    ["Las placas tectónicas", `<p>La corteza y la parte más alta del manto forman la <b>litosfera</b>, que no es una pieza única: está rota en grandes fragmentos llamados <mark>placas tectónicas</mark>. Hay unas quince grandes, como la Euroasiática, la Africana, la Pacífica o la Sudamericana.</p><p>Las placas flotan sobre el manto y se mueven unos pocos centímetros al año, más o menos lo que crecen tus uñas. En sus bordes ocurren los fenómenos más intensos: cuando dos placas <b>chocan</b>, se forman cordilleras; cuando se <b>separan</b>, sale magma y se forma nueva corteza, como en el centro del océano Atlántico. Hace unos 250 millones de años todos los continentes estaban unidos en uno solo, <b>Pangea</b>.</p>`,
-      H.filas("Qué pasa en los bordes de las placas", [["Chocan", "se levantan cordilleras", "var(--red)"], ["Se separan", "sale magma: nueva corteza", "var(--sun)"], ["Rozan", "terremotos frecuentes", "var(--pen)"]]), V.gh3b],
-    ["Volcanes y terremotos", `<p>Las <mark>fuerzas internas</mark> de la Tierra crean relieve de forma brusca. Un <b>volcán</b> es una abertura por la que sale <b>magma</b> (roca fundida) del interior; cuando llega a la superficie se llama <b>lava</b>. Al enfriarse, la lava y las cenizas forman montañas con forma de cono. En 2021 el volcán de La Palma, en Canarias, creó tierra nueva que se adentró en el mar.</p><p>Los <b>terremotos</b> o seísmos son movimientos bruscos de la corteza causados por el roce o el choque de las placas. El punto del interior donde se originan se llama <b>hipocentro</b>, y el de la superficie situado justo encima, <b>epicentro</b>. Si ocurren bajo el mar pueden provocar olas gigantes, los <b>tsunamis</b>.</p>`,
-      H.dos("Fuerzas internas bruscas", ["Volcán", ["sale magma", "lava y cenizas", "forma conos", "La Palma, 2021"], "var(--red)"], ["Terremoto", ["sacudida brusca", "hipocentro", "epicentro", "puede dar tsunami"], "var(--ink)"])],
-    ["Las fuerzas externas: la erosión", `<p>Mientras las fuerzas internas levantan el relieve, las <mark>fuerzas externas</mark> lo desgastan poco a poco. Son los <b>agentes</b> que actúan desde fuera: el agua de los ríos y la lluvia, el hielo de los glaciares, el viento, el mar y también los seres vivos y las personas.</p><p>Actúan en tres pasos. Primero, la <b>erosión</b> arranca trozos de roca. Después, el <b>transporte</b> los lleva a otros lugares. Por último, la <b>sedimentación</b> los deposita en zonas bajas, donde se acumulan. Así, los ríos excavan valles y forman deltas, el viento talla rocas en el desierto y el mar crea acantilados. Es un trabajo muy lento, pero constante.</p>`,
-      H.flujo("Cómo trabajan las fuerzas externas", ["erosión|arranca", "transporte|lleva", "sedimen-|tación"], "var(--leaf)")],
-    ["El relieve de los continentes", `<p>En la superficie de los continentes hay formas elevadas y formas llanas. Las <mark>montañas</mark> son elevaciones del terreno; cuando se agrupan en línea forman una <b>cordillera</b> o <b>sierra</b>. La parte alta es la cima y las laderas son sus lados.</p><p>Entre las montañas hay <b>valles</b>, zonas hundidas por donde suelen correr ríos. Las <b>llanuras</b> son extensiones planas y bajas, muchas veces junto a ríos o costas. Las <b>mesetas</b> también son llanas pero están elevadas sobre el nivel del mar, como la Meseta Central de España. Las <b>depresiones</b> son zonas hundidas rodeadas de terrenos más altos, como la del Guadalquivir.</p>`,
-      tabla(["Forma", "Cómo es", "Ejemplo"], [["Cordillera", "conjunto de montañas en línea", "los Pirineos"], ["Valle", "zona hundida entre montañas", "el valle de Arán"], ["Llanura", "terreno plano y bajo", "la llanura del Po"], ["Meseta", "terreno plano y elevado", "la Meseta Central"], ["Depresión", "zona hundida entre relieves", "depresión del Guadalquivir"]])],
-    ["El relieve de las costas", `<p>La <mark>costa</mark> es el lugar donde la tierra se encuentra con el mar. Tiene formas propias. Un <b>cabo</b> es un saliente de tierra que se adentra en el mar, como el cabo de Finisterre. Un <b>golfo</b> es lo contrario: una entrada grande del mar en la tierra; si es pequeña se llama <b>bahía</b> o cala.</p><p>Una <b>península</b> es una porción de tierra rodeada de agua por todas partes menos por una, el <b>istmo</b>, que la une al continente. Una <b>isla</b> está rodeada de agua por completo; varias islas juntas forman un <b>archipiélago</b>, como Canarias. Las costas pueden ser altas, con <b>acantilados</b>, o bajas, con <b>playas</b> de arena.</p>`,
-      costa],
-    ["El relieve del fondo del mar", `<p>Bajo los océanos también hay relieve, y es más grande que el de los continentes. Junto a la costa está la <mark>plataforma continental</mark>, una zona poco profunda (hasta unos 200 m) donde hay mucha pesca. Después viene el <b>talud continental</b>, una pendiente fuerte que baja hacia las profundidades.</p><p>Más allá se extiende la <b>llanura abisal</b>, entre 3000 y 6000 m de profundidad. En medio de los océanos hay grandes cordilleras submarinas, las <b>dorsales</b>, donde las placas se separan. Y en algunos lugares hay <b>fosas</b> marinas muy profundas: la de las Marianas, en el Pacífico, supera los 11 000 m, más que la altura del Everest.</p>`,
-      H.flujo("Del litoral al fondo oceánico", ["plataforma|0-200 m", "talud", "llanura|abisal", "dorsal", "fosa|11 000 m"], "var(--pen)")],
-    ["Los grandes relieves del mundo", `<p>Cada continente tiene grandes conjuntos de relieve. En <b>Asia</b> está el <mark>Himalaya</mark>, con el Everest (8849 m), la montaña más alta del planeta. En <b>América</b> destacan los <b>Andes</b>, la cordillera más larga (unos 7000 km), y las Montañas Rocosas. En <b>África</b> está el Kilimanjaro, un volcán, y el gran desierto del Sáhara.</p><p>En <b>Europa</b> sobresalen los <b>Alpes</b>, con el Mont Blanc, los Pirineos y los Cárpatos, además de la gran llanura europea. En <b>Oceanía</b> predominan las mesetas y desiertos de Australia, y la <b>Antártida</b> está cubierta por una capa de hielo de hasta 4 km de espesor. En España, el pico más alto es el <b>Teide</b> (3715 m), un volcán de Tenerife.</p>`,
-      H.barras("Montañas más altas de Asia, América, África y Europa, y el Teide (metros)", [["Everest", 8849, "var(--red)", "8849"], ["Aconcagua", 6961, "var(--sun)", "6961"], ["Kilimanjaro", 5895, "var(--leaf)", "5895"], ["Elbrús", 5642, "var(--pen)", "5642"], ["Teide", 3715, "var(--muted)", "3715"]], 8849)],
+    B("1.1 El interior de la Tierra", `<p>Si pudiéramos cortar la Tierra como una manzana, veríamos que está formada por tres grandes capas. La <mark>corteza</mark> es la capa exterior, sólida y muy fina en comparación con el resto: como la piel de la manzana. Mide entre 5 km bajo los océanos (<b>corteza oceánica</b>) y unos 70 km bajo las grandes cordilleras (<b>corteza continental</b>). Sobre ella vivimos.</p><p>Debajo está el <mark>manto</mark>, la capa más gruesa, de unos 2900 km. Está formado por rocas a muy alta temperatura que, aunque son sólidas, se mueven muy lentamente, como una plastilina caliente. En su parte superior hay zonas parcialmente fundidas: el <b>magma</b>.</p><p>En el centro está el <mark>núcleo</mark>, formado sobre todo por hierro y níquel, con temperaturas de más de 5000 °C, tan calientes como la superficie del Sol. El núcleo externo es líquido y el interno, sólido por la enorme presión. Nadie ha llegado hasta allí: el pozo más profundo excavado mide unos 12 km. Lo conocemos estudiando cómo viajan las ondas de los terremotos.</p>`,
+      cajas("Las capas de la Tierra", [["Corteza", "5-70 km, sólida"], ["Manto", "2900 km, rocas calientes"], ["Núcleo", "hierro y níquel, > 5000 °C"]])),
+    B("1.2 Las placas tectónicas", `<p>La corteza y la parte superior del manto no forman una pieza única, sino que están rotas en grandes fragmentos llamados <mark>placas tectónicas</mark>, como las piezas de un puzle. Hay siete placas grandes (Pacífica, Norteamericana, Sudamericana, Euroasiática, Africana, Indoaustraliana y Antártica) y muchas más pequeñas.</p><p>Las placas <b>flotan y se desplazan</b> sobre el manto, empujadas por las corrientes de calor del interior, a una velocidad de unos pocos centímetros al año, lo que crecen tus uñas. Parece poco, pero en millones de años supone miles de kilómetros. Hace unos 250 millones de años, todos los continentes estaban unidos en un supercontinente llamado <b>Pangea</b>, que se fue rompiendo. A esta idea se le llamó <b>deriva continental</b> y la propuso el científico alemán <b>Alfred Wegener</b> en 1912: se dio cuenta de que las costas de América del Sur y África encajaban como piezas de un puzle y de que en ambas aparecían los mismos fósiles.</p><p>En los <b>bordes</b> de las placas, donde chocan, se separan o rozan, se concentran los volcanes, los terremotos y las grandes cordilleras.</p>`,
+      linea("La deriva de los continentes", [["250 M", "Pangea"], ["200 M", "se rompe en dos"], ["65 M", "continentes casi actuales"], ["hoy", "siguen moviéndose"]])),
+    B("1.3 Las fuerzas internas: pliegues y fallas", `<p>Las fuerzas que vienen del interior de la Tierra y forman el relieve se llaman <mark>agentes internos</mark>. Su motor es el movimiento de las placas. Cuando dos placas chocan, las rocas reciben enormes presiones. Si las rocas son <b>flexibles</b>, como las capas de sedimentos, se doblan y forman <b>pliegues</b>: ondulaciones con partes elevadas (anticlinales) y hundidas (sinclinales). Así se forman las grandes <b>cordilleras de plegamiento</b>, como el Himalaya, los Alpes, los Andes o los Pirineos.</p><p>Si las rocas son <b>rígidas</b>, no se doblan: se rompen y forman <b>fallas</b>. A lo largo de la fractura, un bloque se levanta y otro se hunde. El bloque levantado se llama <b>horst</b> y el hundido, <b>fosa</b> o graben. Muchas sierras españolas, como la sierra de Guadarrama, son bloques levantados por fallas, y el valle del Rift, en África, es una enorme fosa.</p><p>Estos movimientos son muy lentos, de millones de años, pero a veces se liberan de golpe y producen terremotos.</p>`,
+      versus("Pliegues y fallas", ["Pliegues", ["rocas flexibles", "se doblan", "cordilleras: Alpes"]], ["Fallas", ["rocas rígidas", "se rompen", "bloques y fosas"]])),
+    B("1.4 Los volcanes", `<p>Un <mark>volcán</mark> es un lugar por donde sale a la superficie el <b>magma</b> del interior de la Tierra. Cuando el magma sale al exterior se llama <b>lava</b>. Un volcán tiene varias partes: la <b>cámara magmática</b>, depósito de magma bajo tierra; la <b>chimenea</b>, conducto por el que sube; el <b>cráter</b>, abertura por donde sale, y el <b>cono volcánico</b>, la montaña que se forma con los materiales acumulados.</p><p>En una erupción salen tres tipos de materiales: <b>lava</b> (roca fundida a más de 1000 °C), <b>gases</b> (vapor de agua, dióxido de carbono, azufre) y <b>piroclastos</b>, fragmentos sólidos de distinto tamaño, desde la ceniza hasta grandes bombas volcánicas. Algunas erupciones son tranquilas, con coladas de lava que fluyen; otras son explosivas y forman enormes columnas de ceniza.</p><p>En España hay volcanes en las <b>islas Canarias</b>, que son de origen volcánico (el Teide, en Tenerife, es el pico más alto de España, con 3715 m), y volcanes apagados en la Garrotxa (Girona) y Campo de Calatrava (Ciudad Real).</p>`,
+      flujo("Cómo funciona un volcán", ["Magma en la cámara", "Sube por la chimenea", "Sale por el cráter", "Lava, gases y piroclastos", "Crece el cono"]),
+      VL("gh3b")),
+    B("1.5 Los terremotos", `<p>Un <mark>terremoto</mark> o seísmo es una sacudida brusca de la corteza terrestre. Se produce cuando las rocas, sometidas a presión por el movimiento de las placas, se rompen o se desplazan de repente y liberan una enorme energía en forma de <b>ondas sísmicas</b>.</p><p>El punto del interior donde se origina se llama <b>hipocentro</b>, y el punto de la superficie situado justo encima, donde el temblor es más fuerte, se llama <b>epicentro</b>. Los terremotos se registran con un aparato llamado <b>sismógrafo</b>, y su fuerza se mide con escalas: la <b>magnitud</b> mide la energía liberada (escala de Richter o de magnitud de momento), y la <b>intensidad</b> mide los daños que causa.</p><p>Si el terremoto ocurre bajo el mar, puede desplazar una gran masa de agua y provocar un <b>tsunami</b>: olas gigantes que arrasan las costas, como el del océano Índico en 2004. Los terremotos y volcanes se concentran en los bordes de placas; la zona más activa es el <b>cinturón de fuego del Pacífico</b>. En España, el sureste (Murcia, Granada, Almería) es la zona con más actividad sísmica.</p>`,
+      cajas("Partes de un terremoto", [["Hipocentro", "origen bajo tierra"], ["Epicentro", "en la superficie"], ["Ondas sísmicas", "transmiten la energía"], ["Sismógrafo", "las registra"]])),
+    B("1.6 Las fuerzas externas: erosión, transporte y sedimentación", `<p>Mientras las fuerzas internas levantan el relieve, otras fuerzas lo van desgastando poco a poco desde fuera. Son los <mark>agentes externos</mark>: la temperatura, el agua, el viento, el hielo, los seres vivos y también los seres humanos. Trabajan en cuatro fases.</p><p>Primero, la <b>meteorización</b>: las rocas se rompen o se descomponen sin moverse de su sitio, por ejemplo por los cambios de temperatura o porque el agua se mete en las grietas, se congela, aumenta de volumen y las parte. Después, la <b>erosión</b>: el agua, el viento o el hielo arrancan los materiales. Luego, el <b>transporte</b>: esos materiales son arrastrados a otros lugares. Por último, la <b>sedimentación</b>: cuando el agente pierde fuerza, deposita los materiales, llamados sedimentos, en zonas bajas, como el fondo de los valles, los deltas o el mar.</p><p>Así, poco a poco, las montañas se van rebajando y las zonas bajas se rellenan. Es un proceso lentísimo, pero constante. Los Montes de Toledo, por ejemplo, fueron montañas muy altas hace cientos de millones de años.</p>`,
+      flujo("Cómo trabajan los agentes externos", ["Meteorización", "Erosión", "Transporte", "Sedimentación"])),
+    B("1.7 Los agentes que modelan el paisaje", `<p>Cada agente externo deja su huella. El <mark>agua de los ríos</mark> es el agente más importante: excava <b>valles en forma de V</b> en las montañas, forma cañones y gargantas, y deposita sedimentos en llanuras y deltas. El <b>agua del mar</b> golpea la costa con las olas, forma acantilados y playas. El <b>agua subterránea</b> disuelve las rocas calizas y crea cuevas, simas y paisajes kársticos, como la Ciudad Encantada de Cuenca.</p><p>El <mark>hielo</mark> de los glaciares, en las altas montañas y en las zonas polares, es muy poderoso: arrastra rocas enormes y excava <b>valles en forma de U</b>. El <b>viento</b> transporta arena en los desiertos, forma dunas y pule las rocas dándoles formas curiosas, como setas de piedra.</p><p>Los <b>seres vivos</b> también actúan: las raíces de las plantas rompen rocas y los animales excavan galerías. Y el <b>ser humano</b> es hoy un agente muy poderoso: construye carreteras, excava minas y canteras, rellena costas y levanta presas que cambian el curso de los ríos.</p>`,
+      cajas("Agentes externos y sus huellas", [["Ríos", "valles en V, deltas"], ["Mar", "acantilados y playas"], ["Hielo", "valles en U"], ["Viento", "dunas"], ["Agua subterránea", "cuevas"], ["Ser humano", "minas, presas"]])),
+    B("1.8 Las formas del relieve continental", `<p>En los continentes, el relieve presenta formas muy variadas. Las <mark>montañas</mark> son elevaciones del terreno de más de 600 m de altura sobre su entorno. Cuando se agrupan forman <b>sierras</b>, y varias sierras juntas forman una <b>cordillera</b>, como los Pirineos. Entre las montañas se abren los <b>valles</b>, zonas hundidas por donde suelen pasar los ríos.</p><p>Las <mark>llanuras</mark> son terrenos extensos y planos, a poca altura sobre el nivel del mar, como la llanura del Danubio o la de los ríos de Europa del norte. Las <mark>mesetas</mark> son también terrenos llanos, pero <b>elevados</b>, situados a más de 500 m de altitud; la <b>Meseta Central</b> ocupa el centro de la península ibérica. Las <b>depresiones</b> son zonas hundidas respecto a lo que las rodea; algunas están incluso por debajo del nivel del mar, como la del mar Muerto (−430 m).</p><p>Otras formas son las <b>colinas</b> u oteros (elevaciones suaves de poca altura), los <b>cerros</b>, los <b>cañones</b> (valles muy profundos y estrechos) y los <b>volcanes</b>.</p>`,
+      cajas("Formas del relieve continental", [["Montaña", "> 600 m"], ["Cordillera", "conjunto de sierras"], ["Valle", "zona hundida con río"], ["Llanura", "plana y baja"], ["Meseta", "llana y elevada"], ["Depresión", "hundida"]])),
+    B("1.9 El relieve de las costas", `<p>La <mark>costa</mark> es la franja de tierra en contacto con el mar. Su forma depende de la acción de las olas, las mareas y los ríos, y del tipo de roca. Las costas pueden ser <b>altas y escarpadas</b>, con <b>acantilados</b> (paredes verticales de roca que el mar va socavando), o <b>bajas y arenosas</b>, con <b>playas</b> formadas por arena que acumula el mar.</p><p>Hay muchas formas costeras con nombre propio. Un <b>cabo</b> es una punta de tierra que entra en el mar, como el cabo de Finisterre. Un <b>golfo</b> es una gran entrada del mar en la tierra, como el golfo de Vizcaya; si es pequeña, se llama <b>bahía</b> o ensenada. Una <b>península</b> es una tierra rodeada de agua por todas partes menos por una, el <b>istmo</b>, que la une al continente. Una <b>isla</b> está rodeada de agua por todas partes, y un conjunto de islas forma un <b>archipiélago</b>.</p><p>Otras formas son el <b>estrecho</b> (paso estrecho de mar entre dos tierras, como el de Gibraltar), la <b>ría</b> (antiguo valle fluvial invadido por el mar, típico de Galicia), el <b>delta</b> y la <b>albufera</b> (laguna junto al mar separada por un cordón de arena, como la de Valencia).</p>`,
+      cajas("Formas de la costa", [["Cabo", "tierra que entra en el mar"], ["Golfo", "mar que entra en la tierra"], ["Península", "unida por un istmo"], ["Isla", "rodeada de agua"], ["Estrecho", "paso entre tierras"], ["Ría", "valle invadido por el mar"]])),
+    B("1.10 El relieve del fondo oceánico", `<p>Bajo los océanos también hay montañas, llanuras y fosas, incluso más impresionantes que en los continentes. Junto a la costa está la <mark>plataforma continental</mark>, una prolongación suave del continente bajo el mar, hasta unos 200 m de profundidad. Es una zona muy rica en peces y en ella se encuentran yacimientos de petróleo y gas. Después viene el <b>talud continental</b>, una pendiente muy fuerte que baja hasta unos 3000 o 4000 m.</p><p>A continuación se extienden las <b>llanuras abisales</b>, enormes superficies planas a unos 4000 o 6000 m de profundidad, en completa oscuridad. Las atraviesan las <mark>dorsales oceánicas</mark>, gigantescas cordilleras submarinas de miles de kilómetros donde dos placas se separan y sale magma. La dorsal atlántica recorre el océano de norte a sur, e Islandia es un trozo de ella que asoma sobre el mar.</p><p>Las <b>fosas oceánicas</b> son estrechas y profundísimas hendiduras donde una placa se hunde bajo otra. La más profunda es la fosa de las <b>Marianas</b>, en el Pacífico, de unos 11 000 m: si pusiéramos el Everest en su interior, aún quedarían 2 km de agua por encima.</p>`,
+      barras("Profundidad del fondo oceánico", [["Plataforma", 200], ["Talud", 3000], ["Llanura abisal", 5000], ["Fosa Marianas", 11000]], " m")),
+    B("1.11 El relieve de los continentes", `<p>Cada continente tiene grandes unidades de relieve. En <b>Asia</b>, el continente más alto, está el <mark>Himalaya</mark>, con el <b>Everest</b> (8849 m), la montaña más alta del mundo, además de grandes mesetas como el Tíbet y llanuras como la de Siberia. En <b>América</b>, una larga cordillera recorre el oeste de norte a sur: las Montañas Rocosas y los <b>Andes</b>, con el Aconcagua (6961 m); en el este hay llanuras inmensas, como las Grandes Llanuras y la Amazonia.</p><p><b>África</b> es un continente de mesetas, con el macizo del Atlas al norte, el valle del Rift al este y el <b>Kilimanjaro</b> (5895 m), un volcán. <b>Europa</b> tiene la gran llanura europea en el centro y el norte, y cordilleras al sur, como los <b>Alpes</b> (Mont Blanc, 4805 m), los Pirineos y los Cárpatos; el Elbrús, en el Cáucaso, es su punto más alto. <b>Oceanía</b> es un continente bajo, con desiertos en el interior de Australia y numerosas islas. La <b>Antártida</b> está cubierta por una capa de hielo de más de 2 km de espesor.</p>`,
+      barras("Montañas más altas de cada continente", [["Everest", 8849], ["Aconcagua", 6961], ["Kilimanjaro", 5895], ["Elbrús", 5642], ["Mont Blanc", 4805]], " m"),
+      V("TwgUAzn9N_U", "La cordillera de los Andes: una maravilla geológica", "Elip Inspire", 307736)),
+    B("1.12 Los riesgos naturales: convivir con un planeta activo", `<p>Volcanes, terremotos, tsunamis y deslizamientos de tierra son <mark>riesgos naturales</mark>: fenómenos de la naturaleza que pueden causar daños a las personas. No podemos evitarlos, pero sí <b>reducir sus efectos</b> con la prevención.</p><p>Los científicos <b>vigilan</b> los volcanes con sensores que detectan pequeños temblores, deformaciones del suelo o emisiones de gases, lo que permite evacuar a la población a tiempo, como ocurrió en La Palma en 2021, donde no hubo víctimas directas por la lava. En las zonas sísmicas se aplican normas de <b>construcción antisísmica</b>: edificios con estructuras flexibles y cimientos especiales. Existen <b>sistemas de alerta</b> de tsunamis y se hacen <b>simulacros</b> en colegios y empresas.</p><p>También es importante la <b>ordenación del territorio</b>: no construir en cauces de ríos, laderas inestables o junto a volcanes activos. ¿Sabes qué hacer en un terremoto? Agacharse, cubrirse bajo una mesa resistente y agarrarse; alejarse de ventanas y no usar ascensores. En España, el Instituto Geográfico Nacional informa en directo de todos los terremotos.</p>`,
+      rueda("Prevenir los riesgos", ["vigilancia científica", "construcción antisísmica", "alertas", "simulacros", "planes de evacuación", "no construir en zonas de riesgo"])),
   ],
+  figura: FIG("El relieve terrestre", H.figCols("Cómo se forma el relieve", [["Interior", ["corteza", "manto", "núcleo", "placas"], "var(--red)"], ["Fuerzas internas", ["levantan", "volcanes", "terremotos", "cordilleras"], "var(--sun)"], ["Fuerzas externas", ["desgastan", "erosión", "transporte", "sedimentación"], "var(--leaf)"], ["Formas", ["montaña, valle", "llanura, meseta", "cabo, golfo", "plataforma, fosa"], "var(--pen)"]])),
+  video: VL("gh3v"),
   ejemplos: [
-    ["¿Por qué en Japón hay tantos terremotos y volcanes?", ["Japón está en el borde entre varias placas tectónicas.", "Las placas chocan y se rozan allí con frecuencia.", "En los bordes de las placas se concentran los fenómenos internos."], "Porque está sobre el límite de varias placas tectónicas."],
-    ["Un río arrastra piedras desde la montaña y las deja en su desembocadura. ¿Qué procesos ha realizado?", ["Arrancar las piedras: erosión.", "Llevarlas río abajo: transporte.", "Dejarlas en la desembocadura: sedimentación."], "Erosión, transporte y sedimentación."],
-    ["La Meseta Central y la llanura del Guadalquivir son planas. ¿Qué las diferencia?", ["Las dos son terrenos llanos.", "La Meseta está elevada (unos 600-800 m).", "La depresión del Guadalquivir está baja, cerca del nivel del mar."], "La altitud: la meseta es llana y alta; la llanura, llana y baja."],
+    EX("Si la placa de la India se mueve 5 cm al año, ¿cuántos kilómetros ha avanzado en 10 millones de años?", ["5 cm × 10 000 000 = 50 000 000 cm.", "50 000 000 cm ÷ 100 000 = 500 km."], "Unos 500 km."),
+    EX("Explica por qué hay fósiles marinos en el Himalaya.", ["Hace millones de años había un mar entre la India y Asia.", "En su fondo se acumularon sedimentos con conchas.", "La placa india chocó con la euroasiática y plegó y levantó esos sedimentos."], "Los fósiles son restos de aquel fondo marino elevado por el choque de placas."),
+    EX("Identifica: «Tierra rodeada de agua por todas partes menos por una». ¿Qué ejemplo hay en España?", ["Rodeada de agua menos por un lado → península.", "Ejemplo: la península ibérica, unida a Europa por los Pirineos."], "Es una península, como la ibérica."),
+    EX("Un valle tiene forma de U, con paredes verticales y fondo plano. ¿Qué agente lo formó?", ["Los ríos forman valles en V.", "Los glaciares, al arrastrar enormes masas de hielo, excavan valles en U."], "Un glaciar."),
+    EX("¿Por qué en las Canarias hay volcanes y en Galicia no?", ["Canarias se formó por magma que salió del fondo del océano (actividad volcánica).", "Galicia tiene rocas muy antiguas y está lejos de zonas activas."], "Canarias es una zona volcánica activa; Galicia no."),
+    EX("Ordena de menor a mayor profundidad: llanura abisal, plataforma continental, fosa oceánica, talud.", ["Plataforma: hasta 200 m.", "Talud: hasta 3000-4000 m.", "Llanura abisal: 4000-6000 m.", "Fosa: hasta 11 000 m."], "Plataforma, talud, llanura abisal, fosa."),
   ],
   errores: [
-    "Pensar que el manto es líquido como el agua: es roca muy caliente que fluye lentísimamente.",
-    "Confundir hipocentro (en el interior) y epicentro (en la superficie).",
-    "Llamar meseta a cualquier llanura: la meseta está elevada.",
+    "Pensar que el centro de la Tierra está hueco o que el manto es lava líquida: el manto es roca sólida muy caliente que se mueve lentamente.",
+    "Confundir magma (bajo tierra) y lava (cuando sale al exterior).",
+    "Confundir hipocentro (bajo tierra) y epicentro (en la superficie).",
+    "Creer que los continentes están quietos: se mueven unos centímetros al año.",
+    "Confundir meseta (llana y elevada) con llanura (llana y baja).",
     "Confundir cabo (tierra que entra en el mar) con golfo (mar que entra en la tierra).",
-    "Creer que el relieve no cambia: cambia siempre, aunque muy despacio.",
   ],
-  ejercicios: [
-    ["Nombra las tres capas de la Tierra de fuera a dentro.", "Corteza, manto y núcleo."],
-    ["¿Qué son las placas tectónicas?", "Los grandes fragmentos en que está dividida la litosfera, que se mueven lentamente sobre el manto."],
-    ["¿Qué ocurre cuando chocan dos placas?", "Se pliegan y elevan los materiales y se forman cordilleras; también hay terremotos."],
-    ["Diferencia entre magma y lava.", "El magma es roca fundida en el interior; cuando sale a la superficie se llama lava."],
-    ["¿Qué agentes externos modelan el relieve?", "El agua (ríos y lluvia), el hielo, el viento, el mar y los seres vivos, incluidas las personas."],
-    ["Define valle y depresión.", "Valle: zona hundida entre montañas, a menudo con un río. Depresión: zona hundida rodeada de terrenos más altos."],
-    ["¿Qué diferencia hay entre una península y una isla?", "La isla está rodeada de agua por completo; la península, por todas partes menos por el istmo."],
-    ["¿Qué es la plataforma continental y por qué es importante?", "La zona del fondo marino poco profunda junto a la costa; en ella hay mucha pesca."],
-    ["¿Cuál es la montaña más alta del mundo y dónde está?", "El Everest (8849 m), en el Himalaya, Asia."],
-    ["¿Cuál es el pico más alto de España y de qué tipo es?", "El Teide (3715 m), en Tenerife; es un volcán."],
+  ejercicios: EJ(
+    [
+      ["Nombra las tres capas de la Tierra de fuera hacia dentro.", "Corteza, manto y núcleo."],
+      ["¿Qué son las placas tectónicas?", "Grandes fragmentos en que está dividida la parte exterior de la Tierra, que se desplazan lentamente sobre el manto."],
+      ["¿Qué era Pangea?", "El supercontinente que reunía todas las tierras hace unos 250 millones de años."],
+      ["¿Qué diferencia hay entre un pliegue y una falla?", "El pliegue es una deformación (doblez) de rocas flexibles; la falla es una rotura de rocas rígidas."],
+      ["Nombra cuatro partes de un volcán.", "Cámara magmática, chimenea, cráter y cono volcánico."],
+      ["¿Qué es el epicentro?", "El punto de la superficie situado sobre el hipocentro, donde el terremoto se siente con más fuerza."],
+      ["¿Qué es un tsunami?", "Una ola gigante provocada por un terremoto o erupción bajo el mar."],
+      ["Ordena las fases de la acción de los agentes externos.", "Meteorización, erosión, transporte y sedimentación."],
+      ["¿Qué diferencia hay entre una llanura y una meseta?", "Las dos son llanas, pero la llanura está a poca altitud y la meseta está elevada (más de 500 m)."],
+      ["Define cabo y golfo.", "Cabo: punta de tierra que entra en el mar. Golfo: gran entrada del mar en la tierra."],
+      ["¿Qué es la plataforma continental?", "La prolongación suave del continente bajo el mar, hasta unos 200 m de profundidad."],
+      ["¿Cuál es la montaña más alta del mundo y dónde está?", "El Everest (8849 m), en el Himalaya (Asia)."],
+    ],
+    [
+      ["¿Qué pruebas encontró Wegener de la deriva continental?", "Que las costas de América del Sur y África encajan como piezas de un puzle y que en ambas aparecen los mismos fósiles y tipos de rocas."],
+      ["Explica cómo se forma una cordillera de plegamiento.", "Cuando dos placas chocan, las capas de sedimentos flexibles se comprimen, se doblan en pliegues y se elevan, formando cordilleras como los Alpes o el Himalaya."],
+      ["Explica los tres tipos de materiales que expulsa un volcán.", "Lava (roca fundida), gases (vapor de agua, CO₂, azufre) y piroclastos (fragmentos sólidos: ceniza, lapilli, bombas)."],
+      ["¿Qué diferencia hay entre magnitud e intensidad de un terremoto?", "La magnitud mide la energía liberada; la intensidad mide los daños causados en un lugar."],
+      ["¿Por qué los volcanes y terremotos se concentran en ciertas zonas?", "Porque se localizan en los bordes de las placas tectónicas, donde chocan, se separan o rozan; por ejemplo, el cinturón de fuego del Pacífico."],
+      ["Explica cómo el hielo puede romper una roca.", "El agua entra en las grietas, se congela y aumenta de volumen; empuja las paredes de la grieta hasta partir la roca (meteorización por gelifracción)."],
+      ["Compara los valles fluviales y los glaciares.", "Los ríos excavan valles estrechos en forma de V; los glaciares, valles anchos de paredes verticales y fondo plano, en forma de U."],
+      ["¿Qué es una ría? ¿Dónde son típicas en España?", "Un antiguo valle de río invadido por el mar. Son típicas de Galicia (Rías Baixas)."],
+      ["Describe el relieve del fondo oceánico desde la costa hacia el centro del océano.", "Plataforma continental (hasta 200 m), talud (fuerte pendiente), llanura abisal (4000-6000 m), con dorsales oceánicas (cordilleras submarinas) y fosas oceánicas (las zonas más profundas)."],
+      ["¿Por qué el ser humano es también un agente externo?", "Porque modifica el relieve: excava minas y canteras, construye carreteras y presas, rellena costas y desvía ríos."],
+      ["Explica qué hacer durante un terremoto.", "Agacharse, cubrirse bajo una mesa resistente y agarrarse; alejarse de ventanas; no usar ascensores; al salir, ir a espacios abiertos lejos de edificios."],
+    ],
+    [
+      ["La dorsal atlántica separa América de Europa unos 2,5 cm al año. ¿Cuántos metros se habrán separado desde que Colón llegó a América (1492) hasta 2026?", "Pasaron 2026 − 1492 = 534 años. 534 × 2,5 cm = 1335 cm ≈ 13,35 m."],
+      ["¿Por qué Islandia tiene tantos volcanes y géiseres?", "Porque está sobre la dorsal atlántica, donde las placas Norteamericana y Euroasiática se separan y sale magma; además hay un punto caliente bajo la isla."],
+      ["La erupción de La Palma (2021) no causó víctimas por la lava. ¿Qué medidas lo hicieron posible?", "La vigilancia científica detectó los temblores y deformaciones previos; se activó un plan de emergencia y se evacuó a la población a tiempo; se informó constantemente a los vecinos."],
+      ["¿Qué ocurriría con el relieve si solo actuaran los agentes externos durante millones de años? ¿Y si solo actuaran los internos?", "Solo externos: las montañas se desgastarían hasta formar llanuras y los sedimentos rellenarían las zonas bajas. Solo internos: el relieve sería cada vez más alto y abrupto. El relieve real es el equilibrio entre ambos."],
+      ["Busca en un mapa físico de España un ejemplo de cada forma: cabo, golfo, península, isla, estrecho, ría y delta.", "Ejemplos: cabo de Finisterre o de Gata; golfo de Vizcaya o de Cádiz; península ibérica; Mallorca; estrecho de Gibraltar; ría de Vigo; delta del Ebro."],
+      ["Elabora un breve plan de emergencia ante un terremoto para tu aula (5 puntos).", "Respuesta abierta. Por ejemplo: punto de reunión exterior; agacharse bajo las mesas; alejarse de ventanas; evacuar en orden sin ascensor tras el temblor; el profesor revisa la lista de alumnos."],
+      ["Si pudieras viajar al centro de la Tierra, ¿qué encontrarías por el camino? Escribe un breve relato (8-10 líneas) con datos del tema.", "Respuesta abierta. Debe recorrer en orden la corteza (5-70 km), el manto (rocas calientes, magma), el núcleo externo líquido y el interno sólido de hierro y níquel, con temperaturas cada vez mayores (más de 5000 °C)."],
+    ]
+  ),
+  quiz: QS([
+    ["La capa más externa de la Tierra es la…", ["corteza", "manto", "núcleo", "atmósfera"], "Muy fina en proporción."],
+    ["La capa más gruesa es el…", ["manto", "núcleo interno", "corteza oceánica", "corteza continental"], "Unos 2900 km."],
+    ["El núcleo está formado sobre todo por…", ["hierro y níquel", "agua y hielo", "arena y arcilla", "oxígeno"], "A más de 5000 °C."],
+    ["El supercontinente de hace 250 millones de años se llamaba…", ["Pangea", "Atlántida", "Gondwana", "Laurasia"], "Se fue fragmentando."],
+    ["La teoría de la deriva continental la propuso…", ["Wegener", "Darwin", "Newton", "Copérnico"], "En 1912."],
+    ["Las rocas flexibles, al presionarlas, forman…", ["pliegues", "fallas", "volcanes", "deltas"], "Las rígidas forman fallas."],
+    ["El magma que sale al exterior se llama…", ["lava", "ceniza", "piroclasto", "granito"], "A más de 1000 °C."],
+    ["El pico más alto de España es…", ["el Teide", "el Mulhacén", "el Aneto", "el Everest"], "3715 m, en Tenerife."],
+    ["El punto de la superficie donde un terremoto es más fuerte es el…", ["epicentro", "hipocentro", "cráter", "sismógrafo"], "Está sobre el hipocentro."],
+    ["El aparato que registra los terremotos es el…", ["sismógrafo", "termómetro", "barómetro", "anemómetro"], "Registra las ondas sísmicas."],
+    ["Un tsunami es…", ["una ola gigante", "un volcán submarino", "un tipo de roca", "un río subterráneo"], "Provocado por un terremoto bajo el mar."],
+    ["Arrancar materiales de las rocas es la…", ["erosión", "sedimentación", "meteorización", "rotación"], "Luego vienen el transporte y la sedimentación."],
+    ["Un valle en forma de U lo forma…", ["un glaciar", "un río", "el viento", "un volcán"], "Los ríos forman valles en V."],
+    ["Las dunas las forma…", ["el viento", "el hielo", "el mar", "las raíces"], "En desiertos y playas."],
+    ["Un terreno llano y elevado es una…", ["meseta", "llanura", "depresión", "cordillera"], "Como la Meseta Central."],
+    ["Un antiguo valle fluvial invadido por el mar es una…", ["ría", "albufera", "isla", "dorsal"], "Típica de Galicia."],
+    ["Un conjunto de islas es un…", ["archipiélago", "istmo", "estrecho", "cabo"], "Como Canarias o Baleares."],
+    ["La prolongación del continente bajo el mar es la…", ["plataforma continental", "llanura abisal", "fosa", "dorsal"], "Hasta unos 200 m."],
+    ["La fosa más profunda es la de las…", ["Marianas", "Azores", "Canarias", "Antillas"], "Unos 11 000 m."],
+    ["El Aconcagua está en…", ["los Andes", "el Himalaya", "los Alpes", "el Atlas"], "6961 m, el más alto de América."],
+  ]),
+  examen: QS([
+    ["Las placas tectónicas se mueven…", ["unos centímetros al año", "varios metros al día", "nunca", "solo en los terremotos"], "Como crecen las uñas."],
+    ["Las dorsales oceánicas son…", ["cordilleras submarinas", "fosas profundas", "islas de coral", "corrientes marinas"], "Donde se separan las placas."],
+    ["La sedimentación consiste en…", ["depositar los materiales transportados", "romper las rocas", "levantar montañas", "fundir rocas"], "Ocurre cuando el agente pierde fuerza."],
+    ["Las cuevas en rocas calizas las forma…", ["el agua subterránea", "el viento", "el hielo", "los volcanes"], "Disuelve la caliza: relieve kárstico."],
+    ["Una tierra rodeada de agua menos por un istmo es una…", ["península", "isla", "bahía", "meseta"], "Como la ibérica."],
+    ["El cinturón de fuego está en el océano…", ["Pacífico", "Atlántico", "Índico", "Ártico"], "Concentra volcanes y terremotos."],
+    ["La construcción antisísmica sirve para…", ["reducir los daños de los terremotos", "evitar que haya terremotos", "apagar volcanes", "frenar las placas"], "Prevención."],
+    ["El continente con la mayor altitud media es…", ["Asia", "Europa", "Oceanía", "África"], "Himalaya y Tíbet."],
+  ]),
+  feynman: [
+    "Cómo es el interior de la Tierra y qué son las placas tectónicas",
+    "Cómo forman el relieve los pliegues, las fallas, los volcanes y los terremotos",
+    "Cómo los agentes externos desgastan y modelan el relieve",
+    "Qué formas tiene el relieve en los continentes, las costas y los océanos",
   ],
-  figura: ["El relieve terrestre", H.figCols("Cómo se forma el relieve", [["Interior", ["corteza", "manto", "núcleo", "placas"], "var(--red)"], ["Fuerzas internas", ["levantan", "volcanes", "terremotos", "cordilleras"], "var(--sun)"], ["Fuerzas externas", ["desgastan", "erosión", "transporte", "sedimentación"], "var(--leaf)"], ["Formas", ["montaña, valle", "llanura, meseta", "cabo, golfo", "plataforma, fosa"], "var(--pen)"]])],
-  video: V.gh3v,
-  quiz: [
-    ["La capa más externa de la Tierra es…", ["la corteza", "el manto", "el núcleo"], "Sobre ella vivimos."],
-    ["El núcleo está formado sobre todo por…", ["hierro y níquel", "agua", "arena"], "A más de 5000 °C."],
-    ["Las placas tectónicas se mueven…", ["unos centímetros al año", "kilómetros al día", "nada"], "Como crecen las uñas."],
-    ["El supercontinente antiguo se llamaba…", ["Pangea", "Atlántida", "Gondwana Sur"], "Hace unos 250 millones de años."],
-    ["El punto de la superficie sobre el origen de un terremoto es…", ["el epicentro", "el hipocentro", "el cráter"], "Justo encima del hipocentro."],
-    ["Depositar materiales en zonas bajas es…", ["sedimentación", "erosión", "transporte"], "El último paso."],
-    ["Un terreno llano y elevado es una…", ["meseta", "llanura", "depresión"], "Como la Meseta Central."],
-    ["Un saliente de tierra en el mar es un…", ["cabo", "golfo", "istmo"], "Como Finisterre."],
-    ["La zona del fondo marino junto a la costa es…", ["la plataforma continental", "la fosa", "la dorsal"], "Hasta unos 200 m."],
-    ["La cordillera más larga del mundo son…", ["los Andes", "los Alpes", "los Pirineos"], "Unos 7000 km."],
-  ],
-  examen: [
-    ["Las dorsales son…", ["cordilleras submarinas", "fosas profundas", "islas"], "Donde las placas se separan."],
-    ["Canarias es un…", ["archipiélago", "istmo", "golfo"], "Conjunto de islas."],
-    ["El Himalaya se formó por…", ["el choque de dos placas", "la erosión del viento", "un volcán"], "India contra Asia."],
-  ],
-  feynman: ["Cómo es el interior de la Tierra", "Qué son las placas y qué pasa en sus bordes", "Cómo las fuerzas externas desgastan el relieve", "Qué formas tiene el relieve en continentes, costas y océanos"],
-  mapa: ["EL RELIEVE", "var(--red)", [["Interior", "corteza · manto · núcleo", "var(--red)"], ["Internas", "placas · volcanes · seísmos", "var(--sun)"], ["Externas", "erosión · sedimentación", "var(--leaf)"], ["Formas", "continente · costa · océano", "var(--inf)"]], 230],
+  mapa: MAPA("EL RELIEVE", [["Interior", "corteza · manto · núcleo · placas"], ["Fuerzas internas", "pliegues · fallas · volcanes"], ["Fuerzas externas", "erosión · transporte"], ["Formas", "continentes · costas · océanos"]]),
   tarjetas: [
-    ["Corteza", "Capa rocosa exterior de la Tierra (5-70 km)."],
-    ["Placa tectónica", "Fragmento de la litosfera que se mueve sobre el manto."],
-    ["Epicentro", "Punto de la superficie justo encima del origen de un terremoto."],
-    ["Erosión", "Desgaste de las rocas por el agua, el hielo, el viento o el mar."],
-    ["Meseta", "Terreno llano y elevado."],
-    ["Cabo / golfo", "Tierra que entra en el mar / mar que entra en la tierra."],
-    ["Península", "Tierra rodeada de agua salvo por el istmo."],
-    ["Plataforma continental", "Fondo marino poco profundo junto a la costa."],
+    ["Corteza", "Capa externa y sólida: 5-70 km."],
+    ["Manto", "Capa intermedia de rocas calientes."],
+    ["Núcleo", "Centro de hierro y níquel."],
+    ["Placa tectónica", "Fragmento de la corteza que se mueve."],
+    ["Pliegue", "Doblez de rocas flexibles."],
+    ["Falla", "Rotura de rocas rígidas."],
+    ["Volcán", "Salida del magma a la superficie."],
+    ["Epicentro", "Punto de la superficie sobre el hipocentro."],
+    ["Erosión", "Desgaste y arranque de materiales."],
+    ["Meseta", "Llanura elevada (> 500 m)."],
+    ["Ría", "Valle fluvial invadido por el mar."],
+    ["Plataforma continental", "Continente bajo el mar (0-200 m)."],
   ],
-  familias: ["En una excursión, buscad juntos ejemplos de erosión: piedras redondeadas en un río, rocas talladas o tierra arrastrada por la lluvia.", "Con plastilina de varios colores, haced las capas de la Tierra y cortad la bola por la mitad."],
-  saberes: "El relieve terrestre: estructura interna, tectónica de placas, agentes internos y externos, y formas del relieve continental, costero y oceánico (Geografía e Historia, 1º ESO, RD 217/2022).",
-  ideas: ["Modelar placas con galletas sobre nata para ver choques y separaciones.", "Mapa mudo de los grandes relieves de cada continente.", "Consultar en directo el mapa de terremotos del Instituto Geográfico Nacional."],
-  fuentes: [["Instituto Geográfico Nacional: últimos terremotos", "https://www.ign.es/web/ign/portal/sis-catalogo-terremotos"], ["IGN: volcanología", "https://www.ign.es/web/ign/portal/vlc-area-volcanologia"]],
-});
+  glosario: [
+    ["Corteza terrestre", "Capa sólida y externa de la Tierra."],
+    ["Manto", "Capa intermedia de la Tierra, de rocas a alta temperatura."],
+    ["Núcleo", "Parte central de la Tierra, de hierro y níquel."],
+    ["Placa tectónica", "Fragmento de la parte externa de la Tierra que se desplaza sobre el manto."],
+    ["Magma", "Roca fundida del interior de la Tierra."],
+    ["Lava", "Magma que sale a la superficie."],
+    ["Pliegue", "Ondulación de las rocas producida por la presión."],
+    ["Falla", "Fractura de las rocas con desplazamiento de los bloques."],
+    ["Seísmo", "Terremoto, sacudida brusca de la corteza."],
+    ["Erosión", "Desgaste de las rocas por los agentes externos."],
+    ["Sedimento", "Material depositado por el agua, el viento o el hielo."],
+    ["Cordillera", "Conjunto de sierras unidas."],
+    ["Meseta", "Terreno llano situado a cierta altura."],
+    ["Istmo", "Franja estrecha de tierra que une una península al continente."],
+    ["Dorsal oceánica", "Cordillera submarina donde se separan dos placas."],
+  ],
+  situacion: SIT(
+    "Maqueta de un paisaje vivo",
+    "Vais a construir maquetas que expliquen cómo se forma y cambia el relieve, para exponerlas en el vestíbulo del instituto durante la semana de la ciencia.",
+    [
+      "Repartid los temas por equipos: capas de la Tierra, choque de placas y pliegues, volcán, formas de la costa, fondo oceánico.",
+      "Diseñad la maqueta en papel con sus partes y nombres.",
+      "Construidla con materiales reciclados, plastilina o arcilla.",
+      "Preparad una cartela con una explicación breve y un ejemplo real (en España o en el mundo).",
+      "Explicad la maqueta a los visitantes en un minuto.",
+    ],
+    "Una maqueta etiquetada con cartela explicativa.",
+    [
+      "La maqueta representa correctamente el proceso o las formas.",
+      "Las partes están bien nombradas con el vocabulario del tema.",
+      "Se incluye un ejemplo real bien localizado.",
+      "La explicación oral es clara y breve.",
+    ]
+  ),
+  familias: [
+    "Buscad en un mapa físico de España montañas, mesetas, cabos, golfos e islas.",
+    "Consultad juntos en la web del IGN los últimos terremotos registrados en España.",
+    "Si vais a la costa o a la montaña, fijaos en las formas del relieve y ponedles nombre.",
+    "Repasad las tarjetas del paso 6 dos minutos al día durante la semana.",
+  ],
+  profesores: {
+    saberes: "El relieve terrestre: estructura interna de la Tierra, tectónica de placas, agentes internos y externos, formas del relieve continental, costero y oceánico; riesgos naturales (RD 217/2022, Geografía e Historia 1º-2º ESO).",
+    ideas: [
+      "Simular pliegues con capas de plastilina de colores comprimidas.",
+      "Seguir en directo la sismicidad en la web del IGN y localizarla en un mapa.",
+      "Simulacro de evacuación por terremoto en coordinación con el centro.",
+    ],
+  },
+  fuentes: [RD, { t: "Instituto Geográfico Nacional: terremotos", url: "https://www.ign.es/web/ign/portal/sis-catalogo-terremotos" }, WIKI("Tectónica de placas", "Tectónica_de_placas"), WIKI("Relieve terrestre", "Relieve_terrestre")],
+  revisado: "2026-11-14",
+};
