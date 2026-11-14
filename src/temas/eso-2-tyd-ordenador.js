@@ -1,146 +1,235 @@
-// Tecnología y Digitalización 2º ESO: el ordenador y sus componentes. Dibujos propios en SVG.
-const { D, mapa, BG, t, fl, caja, tabla, RD, wiki, C, REV } = require("./_eso2a");
+// Tecnología y Digitalización 2º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso2L7 y dibujos de la versión anterior del tema.
+const H = require("./_eso2L7");
+const S = "tyd-ordenador";
 
 module.exports = {
-  materia: "Tecnología y Digitalización",
-  curso: C,
+  materia: H.MATERIA,
+  curso: H.CURSO,
   titulo: "El ordenador y sus componentes",
-  minutos: 50,
-  objetivos: ["Distinguir hardware y software y explicar cómo funciona un ordenador", "Identificar los componentes internos y su función", "Clasificar periféricos de entrada, salida y almacenamiento", "Usar las unidades de información y conocer los tipos de software"],
-  claves: ["hardware", "software", "bit", "byte", "placa base", "procesador", "memoria RAM", "almacenamiento", "periférico", "sistema operativo", "aplicación", "software libre"],
+  minutos: 105,
+  objetivos: [
+    "Explicar qué es un ordenador y cómo procesa la información (entrada, proceso, salida y almacenamiento)",
+    "Comprender el sistema binario y usar las unidades de información",
+    "Identificar los componentes internos del ordenador y su función",
+    "Clasificar los periféricos y reconocer los principales puertos y conexiones",
+    "Distinguir hardware y software, sistema operativo y aplicaciones, software libre y propietario",
+    "Mantener un ordenador en buen estado y gestionar de forma responsable los residuos electrónicos",
+  ],
+  claves: ["ordenador", "hardware", "software", "bit", "byte", "placa base", "procesador", "memoria RAM", "almacenamiento", "SSD", "periférico", "puerto USB", "sistema operativo", "aplicación", "software libre"],
   pregunta: {
-    texto: "Un móvil, una consola, un reloj inteligente y el ordenador de clase parecen aparatos muy distintos. ¿Tienen algo en común por dentro?",
-    respuesta: "Sí: todos son <b>ordenadores</b>. Todos tienen un <b>procesador</b> que ejecuta instrucciones, <b>memoria RAM</b> para trabajar, <b>almacenamiento</b> para guardar datos, dispositivos de <b>entrada y salida</b> (pantalla táctil, botones, altavoz) y un <b>sistema operativo</b>. Cambian el tamaño, la potencia y la forma, pero la arquitectura básica es la misma.",
+    texto: "Tu móvil, la consola, el televisor inteligente y hasta la lavadora tienen algo en común con el ordenador del aula. ¿Qué es?",
+    respuesta: "Todos llevan dentro un <mark>ordenador</mark>: un <b>procesador</b> que ejecuta instrucciones, una <b>memoria</b> donde guarda datos y programas, y <b>dispositivos de entrada y salida</b> para comunicarse con nosotros. Todos funcionan con el mismo esquema de <b>entrada, proceso y salida</b> y trabajan con información codificada en ceros y unos. Cambian el tamaño, la potencia y los programas, pero la idea es la misma.",
+  },
+  lectura: {
+    titulo: "Del ENIAC al bolsillo",
+    html: `<p>En 1946 se presentó en Estados Unidos el <b>ENIAC</b>, uno de los primeros ordenadores electrónicos. Ocupaba una sala entera de unos 160 metros cuadrados, pesaba unas 27 toneladas y tenía casi 18.000 válvulas de vidrio que se fundían a menudo. Consumía tanta electricidad que, según la leyenda, cuando se encendía bajaba la luz en el barrio. Para programarlo había que cambiar a mano cientos de cables, y entre las personas que lo hacían había un grupo de mujeres matemáticas que fueron pioneras de la programación.</p>
+<p>El ENIAC podía hacer unas 5.000 sumas por segundo, una velocidad asombrosa para la época. Hoy, el móvil que llevas en el bolsillo hace miles de millones de operaciones por segundo, cabe en la mano, funciona con una pequeña batería y además tiene cámara, GPS y conexión a internet.</p>
+<p>¿Cómo se ha podido llegar hasta aquí en menos de ochenta años? Gracias a la miniaturización: los transistores, los chips y los circuitos integrados han permitido meter cada vez más componentes en menos espacio. En este tema descubrirás qué hay dentro de un ordenador, cómo trabaja con la información y cómo cuidarlo.</p>`,
   },
   bloques: [
     {
-      html: `<h3>¿Qué es un ordenador?</h3><p>Un <mark>ordenador</mark> es una máquina electrónica que <b>recibe datos</b>, los <b>procesa</b> siguiendo las instrucciones de un programa, los <b>almacena</b> y <b>muestra resultados</b>. Todo lo que hace se puede resumir en este esquema: <b>entrada → proceso → salida</b>, con el almacenamiento para guardar la información. Por ejemplo, cuando escribes una letra en el teclado (entrada), el procesador la interpreta (proceso), aparece en la pantalla (salida) y, al guardar el documento, queda en el disco (almacenamiento). En un ordenador distinguimos dos partes que no pueden funcionar la una sin la otra. El <mark>hardware</mark> es la parte <b>física</b>, lo que se puede tocar: la carcasa, los chips, los cables, el teclado o la pantalla. El <mark>software</mark> es la parte <b>lógica</b>, los programas: las instrucciones que le dicen al hardware qué tiene que hacer.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Esquema de funcionamiento de un ordenador: entrada, proceso y salida, con almacenamiento debajo del proceso">${BG}
-        ${caja(10, 40, 70, 46, "entrada", "var(--pen)", { size: 11 })}${caja(95, 40, 70, 46, "proceso", "var(--red)", { size: 11 })}${caja(180, 40, 70, 46, "salida", "var(--leaf)", { size: 11 })}
-        ${fl(80, 63, 93, 63, "var(--ink)", 2)}${fl(165, 63, 178, 63, "var(--ink)", 2)}
-        ${caja(85, 116, 90, 40, "almacenamiento", "#b8860b", { size: 10 })}<path d="M124 88 V 114 M136 114 V 88" stroke="var(--ink)" stroke-width="2"/>
-        ${t(45, 104, "teclado", { size: 9, color: "var(--muted)" })}${t(215, 104, "pantalla", { size: 9, color: "var(--muted)" })}${t(130, 26, "CPU + RAM", { size: 9, color: "var(--muted)" })}</svg>`,
-      video: { id: "gVaE2F0jOJs", titulo: "Hardware y software: ¿qué es el hardware?", canal: "El Salón de Informática", vistas: 551579 },
+      html: `<h3>1.1 ¿Qué es un ordenador?</h3><p>Un <mark>ordenador</mark> es una máquina electrónica que <b>recibe datos</b>, los <b>procesa</b> siguiendo las instrucciones de un programa, los <b>almacena</b> y <b>devuelve resultados</b>. Su gran ventaja es que es programable: el mismo aparato sirve para escribir, dibujar, jugar, comunicarse o controlar una máquina, según el programa que ejecute.</p><p>En todo ordenador se distinguen dos partes inseparables:</p><p>• El <mark>hardware</mark>: los componentes físicos, todo lo que se puede tocar, como el procesador, la memoria, la pantalla o el teclado.<br>• El <mark>software</mark>: los programas, es decir, las instrucciones que indican al hardware qué debe hacer. No se pueden tocar.</p><p>Existen muchos tipos de ordenadores: los de <b>sobremesa</b>, los <b>portátiles</b>, las <b>tabletas</b>, los <b>teléfonos inteligentes</b>, las <b>consolas</b>, los <b>servidores</b>, que dan servicio a muchos usuarios a través de una red, y los <b>superordenadores</b>, que hacen cálculos científicos enormes. También hay ordenadores muy pequeños, llamados <b>microcontroladores</b>, dentro de electrodomésticos, coches o juguetes.</p>`,
+      svg: H.radial("Tipos de ordenadores", "ORDENADOR", ["Sobremesa", "Portátil", "Tableta y móvil", "Consola", "Servidor", "Microcontrolador"], "var(--pen)"),
+      video: H.vid(S, 0),
     },
     {
-      html: `<h3>Bits y bytes: cómo guarda la información</h3><p>Un ordenador solo entiende dos estados eléctricos: <b>hay corriente o no hay corriente</b>, que representamos con <b>1 y 0</b>. Por eso se dice que trabaja en <mark>sistema binario</mark>. Cada uno de esos ceros o unos es un <mark>bit</mark>, la unidad mínima de información. Con 8 bits se forma un <mark>byte</mark>, que permite 256 combinaciones distintas, suficientes para representar una letra, un número o un signo. Por ejemplo, la letra A se guarda como 01000001. Todo lo que ves en un ordenador, ya sean textos, fotos, música o vídeos, son en el fondo millones de bits. Como los archivos son grandes, se usan múltiplos del byte. En informática cada unidad suele ser 1024 veces la anterior, aunque en el uso cotidiano y en la publicidad se redondea a 1000.</p>${tabla(["Unidad", "Equivale a", "Ejemplo"], [["1 bit", "0 o 1", "un interruptor"], ["1 byte (B)", "8 bits", "una letra"], ["1 kilobyte (KB)", "1024 B", "un texto corto"], ["1 megabyte (MB)", "1024 KB", "una foto, una canción"], ["1 gigabyte (GB)", "1024 MB", "una película"], ["1 terabyte (TB)", "1024 GB", "un disco duro grande"]])}`,
+      html: `<h3>1.2 Cómo funciona un ordenador</h3><p>Cualquier ordenador, desde un superordenador hasta un reloj inteligente, sigue el mismo esquema de funcionamiento:</p><p>• <b>Entrada</b>: los datos llegan al ordenador a través de los dispositivos de entrada, como el teclado, el ratón, el micrófono, la cámara o los sensores.<br>• <b>Proceso</b>: el procesador trabaja con esos datos siguiendo las instrucciones del programa: hace cálculos, compara, ordena, decide.<br>• <b>Salida</b>: los resultados se muestran a través de los dispositivos de salida, como la pantalla, los altavoces o la impresora.<br>• <b>Almacenamiento</b>: los datos y los programas se guardan en la memoria para poder usarlos más tarde.</p><p>Por ejemplo, cuando escribes un mensaje en el móvil: tocas la pantalla (entrada), el procesador interpreta qué letra has pulsado y la añade al texto (proceso), la letra aparece en pantalla (salida) y el mensaje queda guardado en la memoria (almacenamiento). Todo esto ocurre en milésimas de segundo.</p>`,
+      svg: H.viejo(S, 0),
     },
     {
-      html: `<h3>La placa base y el procesador</h3><p>Al abrir la caja de un ordenador lo primero que se ve es la <mark>placa base</mark>: una gran placa de circuito impreso en la que se conectan todos los demás componentes. Tiene zócalos para el procesador y la memoria, ranuras de expansión para tarjetas, conectores para los discos y la fuente de alimentación, y los puertos traseros (USB, red, sonido). Las pistas de cobre de la placa comunican unos componentes con otros. El <mark>procesador</mark> o <b>CPU</b> (unidad central de proceso) es el «cerebro» del ordenador: ejecuta las instrucciones de los programas y hace los cálculos. Es un chip de silicio con miles de millones de transistores diminutos. Su velocidad se mide en <b>gigahercios (GHz)</b>, es decir, miles de millones de operaciones por segundo, y los actuales tienen varios <b>núcleos</b>, como si fueran varios procesadores trabajando a la vez. Como se calienta mucho, lleva encima un <b>disipador</b> y un ventilador.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Placa base vista desde arriba con el procesador, los módulos de memoria RAM, una ranura para la tarjeta gráfica y los puertos">${BG}
-        <rect x="20" y="16" width="220" height="150" rx="6" fill="#2f7d4f" fill-opacity=".85" stroke="var(--ink)" stroke-width="1.5"/>
-        <rect x="40" y="34" width="54" height="54" rx="4" fill="#c9ccd3" stroke="var(--ink)"/>${t(67, 66, "CPU", { size: 12 })}
-        ${[110, 120, 130, 140].map((x) => `<rect x="${x}" y="30" width="6" height="66" fill="#1d2a52"/>`).join("")}${t(128, 110, "RAM", { size: 10, color: "#fff" })}
-        <rect x="40" y="124" width="130" height="10" fill="#1d1d1d"/>${t(105, 150, "ranura de tarjeta gráfica", { size: 9, color: "#fff" })}
-        <rect x="190" y="30" width="36" height="60" rx="3" fill="#888" stroke="var(--ink)"/>${t(208, 104, "puertos", { size: 9, color: "#fff" })}
-        <path d="M94 61 H 108" stroke="#e6c200" stroke-width="1.5"/></svg>`,
-      video: { id: "d86ws7mQYIg", titulo: "¿Cómo funciona el hardware de una computadora?", canal: "Branch Education", vistas: 3982005 },
+      html: `<h3>1.3 El lenguaje del ordenador: bits y bytes</h3><p>Los ordenadores funcionan con circuitos electrónicos que solo distinguen dos estados: hay corriente o no hay corriente. Por eso toda la información se codifica en el <mark>sistema binario</mark>, que solo usa dos cifras: el <b>0</b> y el <b>1</b>.</p><p>Cada una de esas cifras es un <mark>bit</mark>, la unidad mínima de información. Con un bit solo se pueden representar dos posibilidades, pero al combinar varios aumentan muchísimo: con 8 bits hay 2⁸ = 256 combinaciones. Un grupo de 8 bits forma un <mark>byte</mark>, que permite representar, por ejemplo, un carácter de texto: la letra A se codifica como 01000001.</p><p>Como las cantidades de información son enormes, se usan múltiplos del byte:</p><p>• 1 <b>kilobyte</b> (KB) ≈ 1.000 bytes: una página de texto.<br>• 1 <b>megabyte</b> (MB) ≈ 1.000 KB: una canción o una foto.<br>• 1 <b>gigabyte</b> (GB) ≈ 1.000 MB: una película.<br>• 1 <b>terabyte</b> (TB) ≈ 1.000 GB: el disco duro de un ordenador.</p><p>En informática estos múltiplos a veces se calculan con 1.024 en lugar de 1.000, porque 1.024 = 2¹⁰.</p>`,
+      svg: H.tabla("Unidades de información", ["Unidad", "Equivale a", "Ejemplo"], [["Bit", "0 o 1", "Un interruptor"], ["Byte", "8 bits", "Una letra"], ["Megabyte", "≈ 1.000 KB", "Una foto"], ["Gigabyte", "≈ 1.000 MB", "Una película"], ["Terabyte", "≈ 1.000 GB", "Un disco duro"]]),
     },
     {
-      html: `<h3>La memoria: RAM y ROM</h3><p>La <mark>memoria RAM</mark> es la <b>memoria de trabajo</b> del ordenador. Mientras usas un programa, el procesador carga en la RAM las instrucciones y los datos que necesita, porque desde ahí los lee muchísimo más rápido que desde el disco. Es <b>volátil</b>: cuando se apaga el ordenador, se borra todo lo que contiene. Por eso, si no guardas un documento y se va la luz, lo pierdes. Cuanta más RAM tiene un ordenador, más programas y pestañas puede tener abiertos a la vez sin ir lento; hoy lo habitual son 8 o 16 GB. La <mark>memoria ROM</mark> (memoria de solo lectura) es <b>permanente</b>: no se borra al apagar. Guarda el pequeño programa de arranque del ordenador (la BIOS o UEFI), que comprueba el hardware al encenderlo y carga el sistema operativo. Una forma de recordarlo: la RAM es como la mesa en la que trabajas y el disco es la estantería donde guardas los libros.</p>`,
+      html: `<h3>1.4 La placa base</h3><p>La <mark>placa base</mark> es una gran placa de circuito impreso donde se conectan todos los componentes del ordenador. Es como el «sistema nervioso» que los comunica entre sí. Sus partes principales son:</p><p>• El <b>zócalo</b> o socket, donde se coloca el procesador.<br>• Las <b>ranuras de memoria</b>, donde se insertan los módulos de RAM.<br>• Las <b>ranuras de expansión</b> (PCI Express), para añadir tarjetas como la gráfica.<br>• Los <b>conectores</b> de almacenamiento (SATA y M.2) y de la fuente de alimentación.<br>• El <b>chipset</b>, un conjunto de chips que controla la comunicación entre los componentes.<br>• Los <b>puertos</b> traseros, donde se conectan los periféricos.<br>• Una pequeña memoria con el programa de arranque (<b>BIOS</b> o UEFI) y una pila que conserva la configuración y la hora.</p><p>Por la placa base viajan los datos a través de unas pistas de cobre llamadas <b>buses</b>. En un portátil o en un móvil, la placa base es mucho más pequeña y muchos componentes van soldados directamente a ella.</p>`,
+      svg: H.viejo(S, 2),
+      video: H.vid(S, 2),
     },
     {
-      html: `<h3>El almacenamiento</h3><p>Los <mark>dispositivos de almacenamiento</mark> guardan la información de forma <b>permanente</b>, aunque se apague el ordenador: el sistema operativo, los programas y tus archivos. El <b>disco duro</b> (HDD) guarda los datos magnéticamente en discos que giran a gran velocidad; es barato y tiene mucha capacidad, pero es lento y delicado ante los golpes. La <b>unidad de estado sólido</b> (SSD) usa chips de memoria flash, sin piezas móviles: es mucho más rápida, silenciosa y resistente, y es la que llevan hoy casi todos los portátiles. La memoria flash también está en los <b>pendrives</b> y las <b>tarjetas de memoria</b> de cámaras y móviles. Por último, el <b>almacenamiento en la nube</b> guarda los archivos en servidores de internet, a los que puedes acceder desde cualquier dispositivo. Una buena costumbre es hacer <b>copias de seguridad</b> en dos sitios distintos.</p>`,
+      html: `<h3>1.5 El procesador</h3><p>El <mark>procesador</mark> o <b>CPU</b> (unidad central de proceso) es el «cerebro» del ordenador: ejecuta las instrucciones de los programas y coordina el funcionamiento de todos los componentes. Es un chip de silicio de pocos centímetros que contiene miles de millones de <b>transistores</b>, interruptores microscópicos que se encienden y apagan.</p><p>Sus características principales son:</p><p>• La <b>frecuencia de reloj</b>: el número de ciclos que hace por segundo, medido en <b>gigahercios</b> (GHz). Un procesador de 3 GHz hace 3.000 millones de ciclos por segundo.<br>• El número de <b>núcleos</b>: cada núcleo es como un procesador independiente; con varios núcleos el ordenador puede hacer varias tareas a la vez. Hoy son habituales los de 4, 8 o más núcleos.<br>• La <b>memoria caché</b>: una memoria muy rápida dentro del propio procesador que guarda los datos que más usa.</p><p>Como trabaja tanto, el procesador se calienta mucho, y por eso lleva encima un <b>disipador</b> metálico y un <b>ventilador</b> que lo refrigeran.</p>`,
+      svg: H.radial("Características del procesador", "CPU", ["Frecuencia en GHz", "Número de núcleos", "Memoria caché", "Miles de millones de transistores"], "var(--red)"),
     },
     {
-      html: `<h3>Otros componentes internos</h3><p>Además de la placa, el procesador, la memoria y el almacenamiento, un ordenador tiene otros componentes. La <mark>fuente de alimentación</mark> transforma la corriente alterna del enchufe (230 V) en corriente continua de pocos voltios que necesitan los componentes. En los portátiles y los móviles esta función la cumple el cargador, junto con una <b>batería</b>. La <mark>tarjeta gráfica</mark> (GPU) se encarga de calcular las imágenes que se ven en la pantalla; es fundamental para los videojuegos, la edición de vídeo y la inteligencia artificial. Puede ir integrada en el procesador o ser una tarjeta aparte. La <b>tarjeta de red</b> y la de <b>wifi</b> permiten conectarse a internet, y la <b>tarjeta de sonido</b> procesa el audio. El <b>sistema de refrigeración</b> (ventiladores, disipadores o líquido) evita que los componentes se calienten demasiado.</p>`,
+      html: `<h3>1.6 La memoria RAM y la ROM</h3><p>La <mark>memoria RAM</mark> (memoria de acceso aleatorio) es la memoria de trabajo del ordenador. Allí se cargan los programas que están abiertos y los datos con los que se está trabajando, para que el procesador pueda leerlos muy deprisa. Tiene dos características importantes: es muy <b>rápida</b> y es <b>volátil</b>, es decir, se borra cuando se apaga el ordenador. Por eso hay que guardar los trabajos antes de apagar.</p><p>La cantidad de RAM se mide en gigabytes: hoy son habituales 8 o 16 GB. Con poca RAM, el ordenador se vuelve lento al abrir varios programas a la vez, porque tiene que usar el disco como memoria auxiliar.</p><p>La <mark>memoria ROM</mark> (memoria de solo lectura) es una memoria <b>no volátil</b>, que conserva los datos sin corriente. Guarda el programa básico de arranque, la BIOS o UEFI, que comprueba el hardware al encender el ordenador y carga el sistema operativo. Hoy se usa memoria flash que se puede actualizar.</p>`,
+      svg: H.compara("Memoria RAM frente a ROM", ["RAM", "var(--pen)", ["Memoria de trabajo", "Muy rápida", "Volátil: se borra", "8 o 16 GB"]], ["ROM", "var(--leaf)", ["Programa de arranque", "No volátil", "Guarda la BIOS", "Muy pequeña"]], "Guarda antes de apagar"),
     },
     {
-      html: `<h3>Los periféricos</h3><p>Los <mark>periféricos</mark> son los dispositivos que se conectan al ordenador para comunicarse con él. Se clasifican según el sentido en que circula la información. Los <b>de entrada</b> introducen datos en el ordenador: teclado, ratón, micrófono, escáner, cámara web, lector de huellas o mando de juegos. Los <b>de salida</b> muestran o sacan los resultados: monitor, impresora, altavoces, auriculares o proyector. Los <b>de entrada y salida</b> hacen las dos cosas: la pantalla táctil, que muestra imágenes y recibe toques; los cascos con micrófono; o una impresora multifunción con escáner. Y los <b>de almacenamiento</b>, como el disco externo o el pendrive, guardan datos y también se consideran de entrada y salida. La mayoría se conectan por <b>USB</b>, aunque cada vez más lo hacen sin cables, por <b>Bluetooth</b> o wifi.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Periféricos: de entrada, como teclado y ratón; de salida, como monitor e impresora; de entrada y salida, como la pantalla táctil">${BG}
-        ${caja(10, 20, 74, 34, "entrada", "var(--pen)", { size: 11 })}${caja(93, 20, 74, 34, "salida", "var(--leaf)", { size: 11 })}${caja(176, 20, 74, 34, "entrada/salida", "var(--red)", { size: 9.5 })}
-        ${t(47, 76, "teclado", { size: 9.5 })}${t(47, 94, "ratón", { size: 9.5 })}${t(47, 112, "micrófono", { size: 9.5 })}${t(47, 130, "escáner", { size: 9.5 })}${t(47, 148, "cámara web", { size: 9.5 })}
-        ${t(130, 76, "monitor", { size: 9.5 })}${t(130, 94, "impresora", { size: 9.5 })}${t(130, 112, "altavoces", { size: 9.5 })}${t(130, 130, "proyector", { size: 9.5 })}${t(130, 148, "auriculares", { size: 9.5 })}
-        ${t(213, 76, "pantalla táctil", { size: 9.5 })}${t(213, 94, "multifunción", { size: 9.5 })}${t(213, 112, "cascos con mic.", { size: 9.5 })}${t(213, 130, "pendrive", { size: 9.5 })}${t(213, 148, "disco externo", { size: 9.5 })}</svg>`,
+      html: `<h3>1.7 El almacenamiento</h3><p>Los <mark>dispositivos de almacenamiento</mark> guardan los programas, el sistema operativo y nuestros archivos de forma permanente, aunque se apague el ordenador. Los más usados son:</p><p>• El <b>disco duro</b> (HDD): guarda la información magnéticamente en unos discos que giran a gran velocidad, leídos por un brazo con un cabezal. Tiene mucha capacidad y es barato, pero es más lento, hace ruido y es sensible a los golpes.<br>• La <b>unidad de estado sólido</b> (SSD): guarda la información en chips de memoria flash, sin piezas móviles. Es mucho más rápida, silenciosa y resistente, y por eso los ordenadores actuales arrancan en pocos segundos.<br>• Las <b>memorias USB</b> y las <b>tarjetas de memoria</b> (SD, microSD): pequeñas y portátiles, también de memoria flash.<br>• El <b>almacenamiento en la nube</b>: los archivos se guardan en servidores de empresas a los que accedemos por internet desde cualquier dispositivo.</p><p>Es muy recomendable hacer <b>copias de seguridad</b> de los archivos importantes en dos lugares distintos, por ejemplo en un disco externo y en la nube.</p>`,
+      svg: H.tabla("Dispositivos de almacenamiento", ["Dispositivo", "Ventaja", "Inconveniente"], [["Disco duro HDD", "Barato, mucha capacidad", "Lento, frágil"], ["SSD", "Muy rápido, silencioso", "Más caro"], ["Memoria USB", "Portátil", "Se pierde fácil"], ["Nube", "Acceso desde todo", "Necesita internet"]]),
     },
     {
-      html: `<h3>El software: sistema operativo y aplicaciones</h3><p>Sin software, el hardware no sirve para nada. El <mark>sistema operativo</mark> es el programa principal: se carga al encender el ordenador, controla el hardware, gestiona los archivos y la memoria, y permite que funcionen los demás programas. Muestra una interfaz gráfica con ventanas, iconos y menús para que lo usemos con facilidad. Los más usados en ordenadores son <b>Windows</b>, <b>macOS</b> y <b>Linux</b> (y ChromeOS en muchos centros educativos); en móviles, <b>Android</b> e <b>iOS</b>. Las <mark>aplicaciones</mark> son los programas que usamos para tareas concretas: procesadores de texto, hojas de cálculo, navegadores, editores de fotos, videojuegos o programas de programación como Scratch. Según su licencia, el software puede ser <b>propietario</b>, cuyo código está cerrado y suele ser de pago, o <b>libre</b>, que se puede usar, estudiar, modificar y compartir, como Linux, LibreOffice o GIMP.</p>`,
+      html: `<h3>1.8 Otros componentes internos</h3><p>Además del procesador, la memoria y el almacenamiento, un ordenador tiene otros componentes internos importantes:</p><p>• La <mark>tarjeta gráfica</mark> o GPU procesa las imágenes que se muestran en la pantalla. Tiene su propio procesador y su propia memoria. En los ordenadores sencillos va integrada en el procesador; en los de videojuegos, diseño o inteligencia artificial se usa una tarjeta independiente muy potente.<br>• La <mark>fuente de alimentación</mark> transforma la corriente alterna de 230 V del enchufe en corriente continua de bajo voltaje (12 V, 5 V, 3,3 V) que necesitan los componentes. Su potencia se mide en vatios.<br>• El sistema de <b>refrigeración</b>: ventiladores, disipadores o incluso circuitos de líquido que evitan que los componentes se sobrecalienten.<br>• La <b>tarjeta de red</b> y la de <b>sonido</b>, que hoy suelen ir integradas en la placa base.<br>• La <b>caja</b> o carcasa, que protege y sujeta todos los componentes.</p><p>En un portátil, además, está la <b>batería</b>, que permite usarlo sin enchufe.</p>`,
+      svg: H.flujo("Recorrido de la energía en el ordenador", ["Enchufe: 230 V de corriente alterna", "Fuente: la pasa a continua de 12, 5 y 3,3 V", "Placa base reparte la energía", "Componentes funcionan y se calientan: refrigeración"], "La fuente de alimentación"),
     },
     {
-      html: `<h3>Elegir y cuidar un ordenador</h3><p>Para elegir un ordenador hay que pensar en <b>para qué se va a usar</b>. Para estudiar, navegar y hacer trabajos basta con un procesador sencillo, 8 GB de RAM y un SSD de 256 GB. Para editar vídeo o jugar hace falta más RAM y una buena tarjeta gráfica. En la ficha técnica conviene mirar: procesador, RAM, tipo y capacidad de almacenamiento, tamaño y resolución de pantalla, autonomía de la batería y peso. Para que dure: mantén el sistema operativo y los programas <b>actualizados</b>, usa un <b>antivirus</b>, no lo dejes al sol ni bloquees las rejillas de ventilación, y no comas ni bebas encima del teclado. Cuando ya no sirva, llévalo a un <b>punto limpio</b>: los aparatos electrónicos contienen metales valiosos y sustancias contaminantes que deben reciclarse correctamente.</p>`,
+      html: `<h3>1.9 Puertos y conexiones</h3><p>Los <mark>puertos</mark> son los conectores que permiten unir los periféricos y otros dispositivos al ordenador. Los más habituales son:</p><p>• <b>USB</b>: el más común, para teclados, ratones, memorias, impresoras o cargar el móvil. El <b>USB-C</b>, reversible, transmite datos, vídeo y energía a la vez y se está convirtiendo en el conector universal.<br>• <b>HDMI</b> y <b>DisplayPort</b>: para conectar monitores, televisores y proyectores, con imagen y sonido.<br>• <b>Ethernet</b> (RJ45): para conectarse por cable a una red o al router.<br>• <b>Clavija de audio</b> (minijack): para auriculares y altavoces.</p><p>También hay conexiones <b>inalámbricas</b>, sin cables:</p><p>• El <b>wifi</b>, para conectarse a una red local y a internet.<br>• El <b>Bluetooth</b>, para conectar a poca distancia auriculares, ratones o altavoces.<br>• El <b>NFC</b>, para comunicaciones a pocos centímetros, como el pago con el móvil.</p><p>La velocidad de las conexiones se mide en bits por segundo: megabits por segundo (Mbps) o gigabits por segundo (Gbps).</p>`,
+      svg: H.tabla("Puertos y conexiones", ["Conexión", "Para qué sirve"], [["USB / USB-C", "Periféricos, datos y carga"], ["HDMI", "Monitor o proyector"], ["Ethernet", "Red por cable"], ["Wifi", "Red e internet sin cable"], ["Bluetooth", "Auriculares, ratón"]]),
+    },
+    {
+      html: `<h3>1.10 Los periféricos</h3><p>Los <mark>periféricos</mark> son los dispositivos que se conectan al ordenador para introducir o extraer información. Se clasifican en tres grupos:</p><p>• <b>Periféricos de entrada</b>: introducen datos en el ordenador. Son el teclado, el ratón, el micrófono, la cámara web, el escáner, el lector de códigos de barras, el mando de juegos o los sensores.<br>• <b>Periféricos de salida</b>: muestran o extraen los resultados. Son el monitor, los altavoces, los auriculares, la impresora, el proyector o la impresora 3D.<br>• <b>Periféricos de entrada y salida</b>: hacen las dos cosas. Son la pantalla táctil, que muestra imágenes y recibe toques; la impresora multifunción, que imprime y escanea; los cascos con micrófono, o las gafas de realidad virtual.</p><p>Algunos autores consideran también periféricos de almacenamiento las memorias USB y los discos externos. Los periféricos se conectan mediante puertos o de forma inalámbrica y necesitan un pequeño programa llamado <b>controlador</b> o driver para que el sistema operativo sepa manejarlos.</p>`,
+      svg: H.viejo(S, 6),
+    },
+    {
+      html: `<h3>1.11 El software</h3><p>El hardware no sirve de nada sin el <mark>software</mark>. Se distinguen dos grandes tipos:</p><p>• El <mark>sistema operativo</mark> es el programa principal. Se carga al encender el ordenador y gestiona todo: controla el hardware, organiza los archivos en carpetas, reparte la memoria y el procesador entre los programas y ofrece una interfaz para que el usuario se comunique con la máquina. Ejemplos: Windows, macOS y Linux en ordenadores; Android e iOS en móviles.<br>• Las <mark>aplicaciones</mark> o programas de usuario sirven para tareas concretas: procesadores de texto, hojas de cálculo, navegadores, editores de fotos, juegos o programas de diseño.</p><p>Según su licencia, el software puede ser <b>propietario</b>, cuando su código está cerrado y su uso está limitado por la empresa que lo crea (a menudo de pago), o <b>libre</b>, cuando se puede usar, estudiar, modificar y compartir, como Linux, LibreOffice o GIMP. El software <b>gratuito</b> no siempre es libre: puede no costar dinero pero tener el código cerrado.</p>`,
+      svg: H.capas("Capas del ordenador", [["Usuario", "var(--sun)", 1], ["Aplicaciones: navegador, juegos", "var(--leaf)", 1], ["Sistema operativo: Windows, Linux", "var(--pen)", 1], ["Hardware: CPU, RAM, disco", "var(--red)", 1]], "Del usuario al hardware"),
+    },
+    {
+      html: `<h3>1.12 Cuidar el ordenador y sus residuos</h3><p>Un ordenador bien cuidado dura más y funciona mejor. Algunas pautas de <mark>mantenimiento</mark>:</p><p>• Mantenlo limpio y ventilado: el polvo tapa los ventiladores y provoca sobrecalentamiento. No lo uses sobre la cama o el sofá.<br>• Apágalo correctamente desde el sistema operativo, sin desenchufarlo de golpe.<br>• Instala las <b>actualizaciones</b> del sistema y de los programas, que corrigen fallos de seguridad.<br>• Usa un <b>antivirus</b> y no instales programas de fuentes desconocidas.<br>• Haz <b>copias de seguridad</b> periódicas.<br>• Cuida la batería: evita el calor excesivo y no la dejes descargarse del todo a menudo.</p><p>Cuando un ordenador o un móvil ya no sirve, se convierte en un <mark>residuo electrónico</mark>. Contiene metales valiosos que se pueden recuperar, pero también sustancias tóxicas, por lo que nunca debe tirarse a la basura: se lleva al <b>punto limpio</b> o a la tienda. Antes, conviene <b>borrar los datos personales</b>. Y siempre que se pueda es mejor <b>repararlo</b>, ampliarlo (por ejemplo, con más RAM o un SSD) o donarlo para alargar su vida.</p>`,
+      svg: H.flujo("Cuidado del ordenador", ["Limpio, ventilado y apagado correctamente", "Actualizaciones, antivirus y copias", "Reparar o ampliar antes que tirar", "Al final: borrar datos y punto limpio"], "Mantenimiento responsable"),
     },
   ],
-  figura: {
-    titulo: "Las partes de un ordenador",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Hardware: componentes internos como placa base, procesador, RAM, almacenamiento, fuente y gráfica, y periféricos de entrada, salida y entrada y salida. Software: sistema operativo y aplicaciones">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      <rect x="16" y="16" width="400" height="198" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>${t(216, 44, "HARDWARE (lo que se toca)", { size: 16, color: "var(--pen)", font: D })}
-      ${t(116, 80, "Componentes internos", { size: 13, color: "var(--red)" })}${["placa base · procesador", "memoria RAM · ROM", "SSD · disco duro", "fuente · tarjeta gráfica"].map((s, i) => t(116, 108 + i * 24, s, { size: 12, weight: 400 })).join("")}
-      ${t(316, 80, "Periféricos", { size: 13, color: "var(--leaf)" })}${["entrada: teclado, ratón", "salida: monitor, impresora", "E/S: pantalla táctil", "almacenamiento: pendrive"].map((s, i) => t(316, 108 + i * 24, s, { size: 12, weight: 400 })).join("")}
-      <rect x="432" y="16" width="192" height="198" rx="14" fill="var(--card)" stroke="#b8860b" stroke-width="2.5"/>${t(528, 44, "SOFTWARE", { size: 16, color: "#b8860b", font: D })}${t(528, 62, "(los programas)", { size: 12, weight: 400 })}
-      ${t(528, 100, "Sistema operativo", { size: 13 })}${t(528, 120, "Windows · Linux · Android", { size: 11, weight: 400 })}${t(528, 160, "Aplicaciones", { size: 13 })}${t(528, 180, "navegador · Scratch", { size: 11, weight: 400 })}
-    </svg>`,
-  },
-  video: { id: "-1clqsilLQ0", titulo: "Explicación de los componentes de un PC", canal: "Alberto Gálvez", vistas: 1208179, megusta: 0, busqueda: "componentes del ordenador hardware software" },
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    { enunciado: "¿Cuántos bits tiene un archivo de 4 KB?",
-      pasos: ["4 KB = 4 · 1024 = 4096 bytes.", "Cada byte son 8 bits.", "4096 · 8 = 32 768 bits."],
-      resultado: "32 768 bits." },
-    { enunciado: "Un pendrive de 32 GB. ¿Cuántas fotos de 4 MB caben aproximadamente?",
-      pasos: ["32 GB = 32 · 1024 = 32 768 MB.", "32 768 / 4 = 8192.", "Unas 8000 fotos (algo menos por el espacio del sistema)."],
-      resultado: "Unas 8000 fotos." },
-    { enunciado: "Clasifica: impresora, micrófono, pantalla táctil, altavoz, escáner.",
-      pasos: ["Entrada: micrófono, escáner.", "Salida: impresora, altavoz.", "Entrada y salida: pantalla táctil."],
-      resultado: "2 de entrada, 2 de salida, 1 de E/S." },
+    { enunciado: "Clasifica en hardware o software: teclado, navegador, procesador, Windows, memoria USB y juego.", pasos: ["Hardware (se puede tocar): teclado, procesador, memoria USB.", "Software (programas): navegador, Windows, juego."], resultado: "Hardware: teclado, procesador, USB. Software: navegador, Windows, juego." },
+    { enunciado: "¿Cuántas combinaciones distintas se pueden formar con 3 bits? Escríbelas.", pasos: ["Cada bit tiene 2 posibilidades: 2 · 2 · 2 = 2³ = 8.", "Combinaciones: 000, 001, 010, 011, 100, 101, 110, 111."], resultado: "8 combinaciones." },
+    { enunciado: "Una memoria USB de 32 GB, ¿cuántas fotos de 4 MB caben aproximadamente?", pasos: ["32 GB = 32 · 1.000 MB = 32.000 MB.", "32.000 / 4 = 8.000 fotos."], resultado: "Unas 8.000 fotos." },
+    { enunciado: "Describe las fases de entrada, proceso, salida y almacenamiento al hacer una foto con el móvil.", pasos: ["Entrada: la cámara capta la luz y el botón da la orden.", "Proceso: el procesador convierte la imagen en datos, ajusta colores y la comprime.", "Salida: la foto aparece en la pantalla.", "Almacenamiento: se guarda en la memoria del móvil o en la nube."], resultado: "Cámara → procesador → pantalla → memoria." },
+    { enunciado: "Clasifica los periféricos: impresora, micrófono, pantalla táctil, altavoz, escáner y multifunción.", pasos: ["Entrada: micrófono, escáner.", "Salida: impresora, altavoz.", "Entrada y salida: pantalla táctil, multifunción."], resultado: "Entrada: micrófono y escáner; salida: impresora y altavoz; E/S: táctil y multifunción." },
+    { enunciado: "Un ordenador va muy lento cuando abres varios programas a la vez. ¿Qué componente probablemente conviene ampliar y por qué?", pasos: ["Los programas abiertos se cargan en la memoria RAM.", "Si la RAM se llena, el ordenador usa el disco como memoria auxiliar, mucho más lento.", "Ampliar la RAM (por ejemplo de 4 a 8 GB) permite tener más programas abiertos con fluidez.", "Cambiar un disco duro por un SSD también acelera el arranque."], resultado: "Ampliar la memoria RAM (y, si es un HDD, cambiarlo por un SSD)." },
   ],
   errores: [
-    "Llamar «CPU» a toda la torre del ordenador: la CPU es solo el procesador.",
-    "Confundir RAM y almacenamiento: la RAM es de trabajo y se borra al apagar.",
-    "Pensar que un byte y un bit son lo mismo: 1 byte = 8 bits.",
-    "Creer que el software libre es siempre gratis o de peor calidad: se refiere a la libertad de uso.",
-    "Tirar los aparatos electrónicos a la basura normal en vez de al punto limpio.",
+    "Confundir memoria RAM con almacenamiento: la RAM es la memoria de trabajo y se borra al apagar; el disco guarda los archivos.",
+    "Confundir bit con byte: un byte son 8 bits.",
+    "Pensar que el monitor es el ordenador: es un periférico de salida.",
+    "Creer que el software gratuito y el software libre son lo mismo.",
+    "Pensar que más GHz significa siempre un ordenador más rápido: también cuentan los núcleos, la RAM y el tipo de almacenamiento.",
+    "Tirar móviles u ordenadores viejos a la basura: son residuos electrónicos y van al punto limpio.",
   ],
-  ejercicios: [
-    { q: "Define hardware y software y pon dos ejemplos de cada.", sol: "Hardware: parte física (teclado, procesador). Software: programas (Windows, navegador)." },
-    { q: "¿Qué significa entrada, proceso y salida? Pon un ejemplo.", sol: "Recibir datos, procesarlos y mostrar el resultado: escribir en el teclado, el procesador lo interpreta y aparece en pantalla." },
-    { q: "¿Cuántos bytes son 3 KB?", sol: "3 · 1024 = 3072 bytes." },
-    { q: "Ordena de menor a mayor: 1 GB, 1 bit, 1 MB, 1 byte, 1 TB, 1 KB.", sol: "1 bit, 1 byte, 1 KB, 1 MB, 1 GB, 1 TB." },
-    { q: "¿Qué función tiene la placa base?", sol: "Conectar y comunicar todos los componentes del ordenador." },
-    { q: "¿Por qué se pierde un documento no guardado si se va la luz?", sol: "Porque estaba en la RAM, que es volátil." },
-    { q: "Compara el disco duro (HDD) y el SSD.", sol: "El HDD es magnético, con discos que giran, barato y lento; el SSD es de memoria flash, sin piezas móviles, más rápido y resistente." },
-    { q: "Clasifica: ratón, proyector, cascos con micrófono, cámara web, auriculares.", sol: "Entrada: ratón, cámara web. Salida: proyector, auriculares. E/S: cascos con micrófono." },
-    { q: "¿Qué hace el sistema operativo? Nombra tres.", sol: "Controla el hardware y permite usar los programas: Windows, Linux, Android." },
-    { q: "Explica qué es el software libre y nombra un ejemplo.", sol: "Software que se puede usar, estudiar, modificar y compartir: LibreOffice." },
-  ],
-  quiz: [
-    { q: "El hardware es…", o: ["la parte física", "los programas", "internet"], a: 0, e: "Lo que se puede tocar." },
-    { q: "Un byte tiene…", o: ["2 bits", "8 bits", "1024 bits"], a: 1, e: "8 bits." },
-    { q: "El «cerebro» del ordenador es…", o: ["la RAM", "el procesador", "el disco"], a: 1, e: "La CPU." },
-    { q: "La RAM es…", o: ["permanente", "volátil", "un periférico"], a: 1, e: "Se borra al apagar." },
-    { q: "El SSD usa…", o: ["discos magnéticos", "memoria flash", "cintas"], a: 1, e: "Memoria flash." },
-    { q: "Convierte 230 V en corriente continua…", o: ["la fuente de alimentación", "la gráfica", "la ROM"], a: 0, e: "La fuente." },
-    { q: "El escáner es un periférico de…", o: ["entrada", "salida", "almacenamiento"], a: 0, e: "Entrada." },
-    { q: "La pantalla táctil es de…", o: ["entrada", "salida", "entrada y salida"], a: 2, e: "Muestra y recibe." },
-    { q: "Android es…", o: ["una aplicación", "un sistema operativo", "un procesador"], a: 1, e: "Sistema operativo." },
-    { q: "La velocidad del procesador se mide en…", o: ["GB", "GHz", "W"], a: 1, e: "Gigahercios." },
-  ],
-  examen: [
-    { q: "Lo que arranca el ordenador al encenderlo está en…", o: ["la ROM (BIOS/UEFI)", "la RAM", "el monitor"], a: 0, e: "Es permanente." },
-    { q: "Para tener muchas pestañas abiertas sin que vaya lento, conviene más…", o: ["RAM", "pantalla", "altavoces"], a: 0, e: "Memoria de trabajo." },
-    { q: "Un ordenador viejo se debe llevar a…", o: ["la basura", "un punto limpio", "el contenedor amarillo"], a: 1, e: "Para reciclarlo bien." },
-  ],
-  feynman: ["Qué diferencia hay entre hardware y software", "Para qué sirve la RAM y por qué se borra", "Cómo se clasifican los periféricos"],
-  mapa: mapa("ORDENADOR", "var(--eso)", [
-    ["Información", "bit · byte · KB · MB · GB", "#b8860b"],
-    ["Componentes", "placa · CPU · RAM · SSD", "var(--red)"],
+  ejercicios: H.niveles([
+    ["Define ordenador.", "Es una máquina electrónica programable que recibe datos, los procesa siguiendo las instrucciones de un programa, los almacena y devuelve resultados."],
+    ["Diferencia entre hardware y software con dos ejemplos de cada.", "Hardware: componentes físicos, como el procesador o el ratón. Software: programas, como el sistema operativo o un navegador."],
+    ["Escribe las cuatro fases del funcionamiento de un ordenador.", "Entrada, proceso, salida y almacenamiento."],
+    ["¿Qué es un bit? ¿Y un byte?", "Un bit es la unidad mínima de información: un 0 o un 1. Un byte es un grupo de 8 bits."],
+    ["Ordena de menor a mayor: GB, KB, TB, MB, byte.", "Byte, KB, MB, GB, TB."],
+    ["¿Qué componente se considera el «cerebro» del ordenador?", "El procesador o CPU, que ejecuta las instrucciones de los programas."],
+    ["¿Qué significa que la memoria RAM es volátil?", "Que pierde su contenido al apagar el ordenador."],
+    ["Nombra tres periféricos de entrada y tres de salida.", "Entrada: teclado, ratón, micrófono. Salida: monitor, impresora, altavoces."],
+    ["Escribe tres sistemas operativos.", "Windows, macOS, Linux, Android o iOS."],
+    ["¿Dónde se llevan los ordenadores y móviles viejos?", "Al punto limpio o a una tienda que los recoja, porque son residuos electrónicos."],
+  ], [
+    ["¿Cuántas combinaciones se pueden hacer con 8 bits? ¿Qué relación tiene con el byte?", "2⁸ = 256 combinaciones. Un byte tiene 8 bits, así que puede representar 256 valores distintos, suficientes para letras, números y símbolos."],
+    ["Un disco de 1 TB, ¿cuántas películas de 4 GB caben aproximadamente?", "1 TB ≈ 1.000 GB. 1.000 / 4 = 250 películas."],
+    ["Explica qué función tiene la placa base y nombra cuatro elementos que se conectan a ella.", "Conecta y comunica todos los componentes. Se conectan el procesador, la memoria RAM, la tarjeta gráfica, el almacenamiento, la fuente de alimentación y los periféricos."],
+    ["Compara un disco duro HDD con un SSD.", "El HDD guarda los datos magnéticamente en discos que giran: barato y de mucha capacidad, pero lento, ruidoso y frágil. El SSD usa memoria flash sin piezas móviles: mucho más rápido, silencioso y resistente, pero algo más caro."],
+    ["¿Qué hace la fuente de alimentación?", "Transforma la corriente alterna de 230 V del enchufe en corriente continua de bajo voltaje (12, 5 y 3,3 V) que necesitan los componentes."],
+    ["¿Para qué sirve la tarjeta gráfica? ¿Quién necesita una potente?", "Procesa las imágenes que se muestran en pantalla. La necesitan quienes juegan a videojuegos exigentes, diseñan en 3D, editan vídeo o trabajan con inteligencia artificial."],
+    ["Explica qué significan 4 núcleos a 3,2 GHz en un procesador.", "Que tiene 4 unidades de proceso independientes que pueden trabajar en paralelo y que cada una hace 3.200 millones de ciclos por segundo."],
+    ["¿Qué diferencia hay entre el USB y el Bluetooth?", "El USB es una conexión por cable que transmite datos y energía. El Bluetooth es una conexión inalámbrica de corto alcance para auriculares, ratones o altavoces."],
+    ["¿Qué es un controlador o driver?", "Un pequeño programa que permite al sistema operativo comunicarse con un periférico y manejarlo correctamente."],
+    ["Explica las funciones del sistema operativo.", "Controla el hardware, gestiona los archivos y carpetas, reparte la memoria y el procesador entre los programas y ofrece una interfaz al usuario."],
+    ["Diferencia entre software libre, propietario y gratuito.", "Libre: se puede usar, estudiar, modificar y compartir (Linux). Propietario: código cerrado y uso limitado por la empresa (Windows). Gratuito: no cuesta dinero, pero puede ser propietario."],
+    ["Escribe cinco consejos de mantenimiento de un ordenador.", "Mantenerlo limpio y ventilado, apagarlo correctamente, instalar actualizaciones, usar antivirus y no instalar programas dudosos, y hacer copias de seguridad."],
+  ], [
+    ["Pasa a binario el número 13 y a decimal el binario 10110.", "13 = 8 + 4 + 1 = 1101 en binario. 10110 = 16 + 4 + 2 = 22 en decimal."],
+    ["Tienes un vídeo de 2,5 GB y una conexión de 100 Mbps. ¿Cuánto tarda aproximadamente en descargarse? (1 byte = 8 bits)", "2,5 GB = 2.500 MB = 20.000 Mb (megabits). 20.000 / 100 = 200 s, unos 3 minutos y 20 segundos."],
+    ["Elige los componentes de un ordenador para un estudiante que hace trabajos, ve vídeos y programa, con presupuesto ajustado. Justifica.", "Procesador de 4 a 6 núcleos de gama media, 8 o 16 GB de RAM, SSD de 512 GB (arranque rápido), gráfica integrada (no necesita una dedicada), pantalla de 14 a 15 pulgadas y sistema operativo libre o el que ya use el centro."],
+    ["¿Por qué un ordenador con un procesador muy potente pero un disco duro antiguo y 4 GB de RAM puede ir lento?", "Porque el rendimiento depende del componente más lento. Con poca RAM tiene que usar el disco como memoria y, si el disco es un HDD lento, todo espera por él. Es un cuello de botella."],
+    ["Explica la regla de copias de seguridad 3-2-1.", "Tener 3 copias de los datos, en 2 tipos de soporte distintos (por ejemplo, el ordenador y un disco externo) y 1 de ellas fuera de casa o en la nube, para no perderlo todo ante un robo, incendio o avería."],
+    ["Compara el ENIAC de 1946 con un móvil actual en tamaño, velocidad y consumo, y explica qué tecnología ha permitido el cambio.", "El ENIAC ocupaba una sala, pesaba 27 toneladas, hacía unas 5.000 sumas por segundo y consumía muchísima electricidad. Un móvil cabe en la mano, hace miles de millones de operaciones por segundo y funciona con una batería. Lo han permitido los transistores y los circuitos integrados cada vez más pequeños."],
+    ["Analiza las ventajas e inconvenientes de guardar tus archivos solo en la nube.", "Ventajas: acceso desde cualquier dispositivo, copia automática y no se pierde si se rompe el móvil. Inconvenientes: necesita conexión a internet, los datos están en servidores de una empresa (privacidad), el espacio gratuito es limitado y si pierdes la contraseña puedes perder el acceso."],
+    ["Propón un plan para dar una segunda vida a los ordenadores viejos del instituto.", "Revisarlos, borrar los datos, ampliarlos con SSD y más RAM si es posible, instalar un sistema operativo libre y ligero, y usarlos en el aula de robótica, en la biblioteca o donarlos a asociaciones. Los irrecuperables se desmontan para piezas y el resto se lleva al punto limpio."],
+  ]),
+  quiz: H.test([
+    ["El conjunto de componentes físicos del ordenador se llama…", ["hardware", "software", "sistema operativo", "aplicación"], "Lo que se puede tocar."],
+    ["Los programas forman el…", ["software", "hardware", "periférico", "puerto"], "No se pueden tocar."],
+    ["El orden del funcionamiento de un ordenador es…", ["entrada, proceso, salida", "salida, proceso, entrada", "proceso, entrada, salida", "almacenamiento, salida, entrada"], "Más el almacenamiento."],
+    ["Un bit puede valer…", ["0 o 1", "de 0 a 9", "de 0 a 255", "solo 1"], "Es la unidad mínima."],
+    ["Un byte tiene…", ["8 bits", "2 bits", "10 bits", "1.000 bits"], "Permite 256 valores."],
+    ["Una película ocupa aproximadamente…", ["unos GB", "unos KB", "unos bits", "unos TB"], "Gigabytes."],
+    ["La placa base sirve para…", ["conectar todos los componentes", "mostrar imágenes", "imprimir", "dar corriente alterna"], "Es el sistema nervioso del ordenador."],
+    ["El procesador se llama también…", ["CPU", "RAM", "SSD", "USB"], "Unidad central de proceso."],
+    ["La velocidad del procesador se mide en…", ["GHz", "GB", "vatios", "Mbps"], "Ciclos por segundo."],
+    ["La memoria que se borra al apagar es la…", ["RAM", "ROM", "SSD", "nube"], "Es volátil."],
+    ["La BIOS o UEFI se guarda en…", ["la ROM o memoria flash de la placa", "la RAM", "el monitor", "la impresora"], "Es el programa de arranque."],
+    ["El almacenamiento sin piezas móviles y muy rápido es el…", ["SSD", "disco duro HDD", "disquete", "CD"], "Usa memoria flash."],
+    ["La tarjeta gráfica procesa…", ["las imágenes", "el sonido", "la corriente", "los archivos de texto"], "También llamada GPU."],
+    ["La fuente de alimentación transforma…", ["alterna de 230 V en continua de bajo voltaje", "continua en alterna", "datos en imágenes", "bits en bytes"], "Alimenta los componentes."],
+    ["Para conectar un proyector se usa normalmente el puerto…", ["HDMI", "Ethernet", "minijack", "SATA"], "Imagen y sonido."],
+    ["La pantalla táctil es un periférico de…", ["entrada y salida", "solo entrada", "solo salida", "almacenamiento"], "Muestra y recibe toques."],
+    ["El escáner es un periférico de…", ["entrada", "salida", "entrada y salida", "proceso"], "Introduce imágenes."],
+    ["Android es…", ["un sistema operativo", "un procesador", "un periférico", "un puerto"], "Para móviles y tabletas."],
+    ["El software que se puede estudiar, modificar y compartir es…", ["libre", "propietario", "gratuito siempre", "pirata"], "Como Linux o LibreOffice."],
+    ["Un móvil roto se debe llevar…", ["al punto limpio", "al contenedor amarillo", "a la basura orgánica", "al contenedor de vidrio"], "Es un residuo electrónico."],
+  ], 1),
+  examen: H.test([
+    ["Con 4 bits se pueden formar…", ["16 combinaciones", "8 combinaciones", "4 combinaciones", "32 combinaciones"], "2⁴."],
+    ["En un disco de 500 GB caben unas … fotos de 5 MB.", ["100.000", "10.000", "1.000", "2.500"], "500.000 / 5."],
+    ["Si un ordenador va lento con muchos programas abiertos, conviene ampliar la…", ["RAM", "pantalla", "fuente", "caja"], "Memoria de trabajo."],
+    ["¿Qué componente NO va dentro de la caja del ordenador de sobremesa?", ["el monitor", "la fuente", "la placa base", "la RAM"], "Es un periférico."],
+    ["El número binario 101 vale en decimal…", ["5", "101", "3", "6"], "4 + 0 + 1."],
+    ["Un procesador con 8 núcleos puede…", ["hacer varias tareas a la vez", "almacenar más fotos", "conectarse por wifi", "imprimir en color"], "Cada núcleo trabaja en paralelo."],
+    ["La impresora multifunción es un periférico de…", ["entrada y salida", "solo salida", "solo entrada", "almacenamiento"], "Imprime y escanea."],
+    ["El software gratuito…", ["no siempre es libre", "siempre es libre", "nunca tiene licencia", "es siempre propietario"], "Puede ser de código cerrado."],
+  ], 2),
+  feynman: ["Qué diferencia hay entre hardware y software", "Cómo funciona un ordenador con el esquema entrada, proceso, salida y almacenamiento", "Qué son los bits y los bytes", "Para qué sirven el procesador, la RAM y el SSD", "Qué hace el sistema operativo"],
+  mapa: H.mapa("EL ORDENADOR", "var(--eso)", [
+    ["Funcionamiento", "entrada · proceso · salida", "var(--pen)"],
+    ["Componentes", "CPU · RAM · SSD · placa", "var(--red)"],
     ["Periféricos", "entrada · salida · E/S", "var(--leaf)"],
-    ["Software", "sistema operativo · aplicaciones", "var(--pen)"],
-  ], 280),
+    ["Software", "sistema operativo · apps", "#b8860b"],
+  ], 260),
   tarjetas: [
-    ["Hardware", "Parte física del ordenador."],
-    ["Software", "Programas que dicen al hardware qué hacer."],
+    ["Hardware", "Componentes físicos del ordenador."],
+    ["Software", "Programas: instrucciones para el hardware."],
     ["Bit", "Unidad mínima de información: 0 o 1."],
-    ["Byte", "8 bits."],
-    ["Procesador (CPU)", "Ejecuta las instrucciones; se mide en GHz."],
-    ["RAM", "Memoria de trabajo, volátil."],
-    ["Periférico", "Dispositivo de entrada, salida o E/S."],
-    ["Sistema operativo", "Programa principal que controla el ordenador."],
+    ["Byte", "8 bits; una letra."],
+    ["Placa base", "Conecta todos los componentes."],
+    ["CPU", "Procesador; ejecuta instrucciones; GHz y núcleos."],
+    ["RAM", "Memoria de trabajo, rápida y volátil."],
+    ["SSD", "Almacenamiento flash, rápido y silencioso."],
+    ["Fuente", "Pasa 230 V alterna a continua de bajo voltaje."],
+    ["Periférico de E/S", "Entrada y salida: pantalla táctil."],
+    ["Sistema operativo", "Gestiona hardware, archivos y programas."],
+    ["Software libre", "Se puede usar, estudiar, modificar y compartir."],
   ],
-  familias: ["Mirad juntos la capacidad de almacenamiento y la RAM de vuestro móvil u ordenador.", "Haced una lista de los periféricos de casa y clasificadlos.", "Buscad el punto limpio más cercano para los aparatos viejos."],
-  profesores: {
-    saberes: "Digitalización del entorno personal de aprendizaje: dispositivos digitales, elementos del hardware y del software, sistemas operativos, periféricos y mantenimiento básico (RD 217/2022, Tecnología y Digitalización, bloque D).",
-    ideas: ["Desmontaje guiado de un ordenador viejo para identificar componentes.", "Comparativa de fichas técnicas de tres portátiles con un presupuesto.", "Prueba de un sistema operativo libre en una memoria USB."],
+  glosario: [
+    ["Ordenador", "Máquina electrónica programable que recibe, procesa, almacena y devuelve información."],
+    ["Hardware", "Conjunto de componentes físicos de un ordenador."],
+    ["Software", "Conjunto de programas que indican al ordenador qué hacer."],
+    ["Bit", "Unidad mínima de información, que puede valer 0 o 1."],
+    ["Byte", "Grupo de 8 bits."],
+    ["Placa base", "Placa de circuito impreso que conecta todos los componentes del ordenador."],
+    ["Procesador", "Chip que ejecuta las instrucciones de los programas; también CPU."],
+    ["Memoria RAM", "Memoria de trabajo rápida y volátil."],
+    ["Memoria ROM", "Memoria no volátil que guarda el programa de arranque."],
+    ["SSD", "Unidad de almacenamiento con memoria flash y sin piezas móviles."],
+    ["Tarjeta gráfica", "Componente que procesa las imágenes que se ven en pantalla."],
+    ["Periférico", "Dispositivo que se conecta al ordenador para introducir o extraer información."],
+    ["Puerto", "Conector para unir periféricos y otros dispositivos al ordenador."],
+    ["Sistema operativo", "Programa principal que gestiona el hardware y los demás programas."],
+    ["Software libre", "Programa que se puede usar, estudiar, modificar y compartir libremente."],
+  ],
+  situacion: {
+    titulo: "Segunda vida para los ordenadores del instituto",
+    reto: "El instituto tiene varios ordenadores viejos guardados en un almacén. Vuestro equipo los analizará y propondrá cómo reutilizarlos en un aula o donarlos, en lugar de tirarlos.",
+    pasos: [
+      "Abrid un ordenador viejo con ayuda del profesorado y con el cable desenchufado, e identificad sus componentes.",
+      "Haced una ficha técnica: procesador, RAM, almacenamiento, puertos y estado general.",
+      "Investigad qué mejoras baratas (SSD, más RAM, sistema operativo ligero) lo harían útil otra vez y su precio.",
+      "Proponed un uso para cada equipo (biblioteca, robótica, donación) y un plan para borrar los datos y reciclar lo irrecuperable.",
+      "Presentad el plan a la dirección con una infografía.",
+    ],
+    producto: "Las fichas técnicas de los equipos, un plan de reutilización con presupuesto y una infografía sobre residuos electrónicos.",
+    evaluacion: [
+      "Se identifican correctamente los componentes y su función.",
+      "Las mejoras propuestas son adecuadas y están presupuestadas.",
+      "El plan contempla la protección de datos y el reciclaje responsable.",
+      "La infografía es clara y usa el vocabulario técnico del tema.",
+    ],
   },
-  fuentes: [RD, wiki("Computadora", "Computadora"), wiki("Hardware", "Hardware")],
-  revisado: REV,
+  familias: ["Mirad juntos en la configuración del móvil o del ordenador cuánta RAM y almacenamiento tiene.", "Revisad qué periféricos hay en casa y clasificadlos en entrada, salida o entrada y salida.", "Haced juntos una copia de seguridad de las fotos familiares en dos lugares distintos.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "Digitalización del entorno personal de aprendizaje: dispositivos digitales, elementos del hardware y del software, sistemas operativos, configuración y mantenimiento de equipos, almacenamiento y copias de seguridad, sostenibilidad y residuos electrónicos (RD 217/2022, Tecnología y Digitalización 1º a 3º, bloque D «Digitalización del entorno personal de aprendizaje» y bloque E «Tecnología sostenible»). En Cataluña, saberes equivalentes de Tecnologia i Digitalització del Decret 175/2022.",
+    ideas: [
+      "Desmontar y montar un ordenador viejo por equipos identificando cada componente.",
+      "Juego de cartas con componentes y su función.",
+      "Convertir números a binario con tarjetas de puntos (actividades «desenchufadas»).",
+      "Instalar un sistema operativo libre ligero en un equipo antiguo.",
+      "Campaña de recogida de móviles viejos para su reciclaje.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Computadora", "Computadora"), H.wiki("Sistema binario", "Sistema_binario"), H.wiki("Software libre", "Software_libre")],
+  revisado: H.REV,
 };

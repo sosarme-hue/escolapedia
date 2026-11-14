@@ -1,149 +1,237 @@
-// Tecnología y Digitalización 2º ESO: programación por bloques. Dibujos propios en SVG.
-const { D, mapa, BG, t, fl, caja, tabla, RD, wiki, C, REV, bl, SC } = require("./_eso2a");
+// Tecnología y Digitalización 2º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso2L7 (incluidos programas en bloques) y dibujos de la versión anterior del tema.
+const H = require("./_eso2L7");
+const S = "tyd-programacion-bloques";
+const EV = "var(--sun)", MOV = "var(--pen)", CTR = "#d9902b", APA = "var(--inf)", SEN = "var(--water)", VAR = "var(--red)";
 
 module.exports = {
-  materia: "Tecnología y Digitalización",
-  curso: C,
+  materia: H.MATERIA,
+  curso: H.CURSO,
   titulo: "Programación por bloques",
-  minutos: 55,
-  objetivos: ["Explicar qué es un algoritmo y representarlo con un diagrama de flujo", "Conocer el entorno de un lenguaje de programación por bloques", "Usar secuencias, bucles, condicionales, variables y eventos", "Diseñar, probar y depurar programas sencillos"],
-  claves: ["algoritmo", "programa", "diagrama de flujo", "pseudocódigo", "Scratch", "objeto", "evento", "bucle", "condicional", "variable", "depurar"],
+  minutos: 115,
+  objetivos: [
+    "Explicar qué es programar y qué es un algoritmo",
+    "Representar algoritmos con diagramas de flujo",
+    "Conocer el entorno de Scratch y crear programas con eventos y secuencias",
+    "Usar bucles, condicionales, operadores, sensores y variables para resolver problemas",
+    "Coordinar varios objetos con mensajes y localizar y corregir errores en los programas",
+    "Relacionar la programación por bloques con el control de placas, robots y objetos físicos",
+  ],
+  claves: ["programa", "algoritmo", "diagrama de flujo", "lenguaje de programación", "Scratch", "objeto", "escenario", "evento", "secuencia", "bucle", "condicional", "operador", "sensor", "variable", "mensaje", "depurar", "micro:bit"],
   pregunta: {
-    texto: "Los programadores profesionales escriben código con palabras y símbolos. ¿Por qué entonces se aprende a programar con bloques de colores que encajan como piezas?",
-    respuesta: "Porque los bloques permiten centrarse en <b>lo importante: la lógica</b>. No hay errores de escritura (una coma o un paréntesis olvidados) y la forma de cada pieza indica dónde puede encajar. Las ideas que se aprenden, como <b>secuencia, bucle, condición, variable y evento</b>, son exactamente las mismas que se usan en Python, JavaScript o cualquier otro lenguaje.",
+    texto: "Un ordenador puede ganar al campeón del mundo de ajedrez. ¿Significa eso que el ordenador es más listo que una persona?",
+    respuesta: "No exactamente. El ordenador solo hace lo que dice su <mark>programa</mark>: una lista de instrucciones escrita por personas. Es muy rápido y no se cansa, pero no entiende lo que hace. Detrás de cada programa hay alguien que pensó un <b>algoritmo</b>, es decir, una forma ordenada de resolver el problema paso a paso. Aprender a programar es aprender a pensar de esa manera, y eso sí es cosa de personas.",
+  },
+  lectura: {
+    titulo: "La primera programadora",
+    html: `<p>En 1843, mucho antes de que existieran los ordenadores electrónicos, una joven matemática inglesa llamada <b>Ada Lovelace</b> estudió los planos de una máquina que su amigo Charles Babbage quería construir: la máquina analítica, una calculadora mecánica gigantesca con engranajes y tarjetas perforadas. Babbage nunca llegó a terminarla, pero Ada escribió unas notas en las que describía, paso a paso, cómo la máquina podría calcular una serie de números muy complicada.</p>
+<p>Aquellas notas se consideran hoy el <b>primer programa</b> de la historia. Pero Ada fue aún más lejos: imaginó que una máquina así podría trabajar no solo con números, sino también con letras, símbolos e incluso música, si se le daban las instrucciones adecuadas. Era una idea adelantada a su tiempo.</p>
+<p>Hoy los programas están en todas partes: en los móviles, en los videojuegos, en los semáforos, en los coches y en las lavadoras. Programar ya no requiere engranajes: basta con un ordenador y, para empezar, un lenguaje de bloques como Scratch, en el que las instrucciones encajan como piezas de un puzle. En este tema aprenderás a pensar como una programadora y a crear tus propios programas, juegos y animaciones.</p>`,
   },
   bloques: [
     {
-      html: `<h3>Algoritmos y programas</h3><p>Un <mark>algoritmo</mark> es una <b>secuencia ordenada y finita de instrucciones</b> que resuelve un problema o realiza una tarea. Las recetas de cocina, las instrucciones de montaje de un mueble o los pasos para resolver una ecuación son algoritmos. Un buen algoritmo debe ser <b>preciso</b> (cada paso claro, sin ambigüedades), <b>ordenado</b> y <b>finito</b> (tiene que terminar). Un <mark>programa</mark> es un algoritmo escrito en un <b>lenguaje de programación</b> para que lo ejecute un ordenador. El ordenador no piensa ni adivina: hace exactamente lo que se le dice, en el orden en que se le dice. Si las instrucciones están mal o en mal orden, el resultado será incorrecto. Por eso antes de programar conviene pensar bien el algoritmo, escribirlo en lenguaje natural o dibujarlo.</p>`,
+      html: `<h3>1.1 ¿Qué es programar?</h3><p><mark>Programar</mark> es escribir instrucciones para que un ordenador u otra máquina realice una tarea. El conjunto de esas instrucciones, escritas en un orden concreto, forma un <mark>programa</mark>. Las aplicaciones del móvil, los videojuegos, las páginas web o el sistema que controla un ascensor son programas.</p><p>Un ordenador es muy rápido, pero no piensa por sí mismo: hace exactamente lo que le decimos, ni más ni menos. Si una instrucción está mal o falta, el resultado será incorrecto. Por eso, antes de programar hay que pensar bien cómo resolver el problema.</p><p>Esta forma de pensar se llama <b>pensamiento computacional</b>, y consiste en:</p><p>• <b>Descomponer</b> un problema grande en partes pequeñas.<br>• <b>Reconocer patrones</b> que se repiten.<br>• <b>Abstraer</b>: quedarse con lo importante y olvidar los detalles que no influyen.<br>• Diseñar un <b>algoritmo</b>: los pasos ordenados para resolverlo.</p><p>El pensamiento computacional no solo sirve para programar: ayuda a organizar cualquier tarea, desde preparar un examen hasta planificar un viaje.</p>`,
+      svg: H.radial("Pensamiento computacional", "PENSAMIENTO", ["Descomponer", "Reconocer patrones", "Abstraer", "Diseñar el algoritmo"], "var(--pen)"),
+      video: { id: "7vbi-OCFZEY", titulo: "¿Qué es programar y para qué sirve?", canal: "Maestro de la Computación", vistas: 239243 },
     },
     {
-      html: `<h3>Diagramas de flujo y pseudocódigo</h3><p>Para planificar un algoritmo se usan dos herramientas. El <mark>diagrama de flujo</mark> es un dibujo con <b>símbolos normalizados</b> unidos por flechas que indican el orden: el <b>óvalo</b> marca el inicio y el fin; el <b>rectángulo</b>, una acción o proceso; el <b>rombo</b>, una decisión con dos salidas (sí o no); y el <b>paralelogramo</b>, una entrada o salida de datos (pedir un número, mostrar un mensaje). El <mark>pseudocódigo</mark> es una forma de escribir el algoritmo con palabras sencillas, parecidas a las de un lenguaje de programación, pero sin preocuparse por las reglas exactas: «pedir edad; si edad ≥ 18 entonces decir "mayor de edad"; si no, decir "menor de edad"». Ambas herramientas ayudan a detectar errores antes de programar y a explicar a otras personas cómo funciona un programa.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de flujo: inicio, pedir edad, decisión edad mayor o igual que 18, sí: mayor de edad, no: menor de edad, fin">${BG}
-        <ellipse cx="70" cy="18" rx="34" ry="11" fill="var(--leaf)" fill-opacity=".2" stroke="var(--leaf)" stroke-width="2"/>${t(70, 22, "inicio", { size: 10 })}
-        <path d="M38 38 H 112 L 102 58 H 28 Z" fill="var(--pen)" fill-opacity=".14" stroke="var(--pen)" stroke-width="2"/>${t(70, 52, "pedir edad", { size: 10 })}
-        <path d="M70 70 L 112 94 L 70 118 L 28 94 Z" fill="#e6a100" fill-opacity=".18" stroke="#b8860b" stroke-width="2"/>${t(70, 98, "edad ≥ 18", { size: 10 })}
-        ${caja(140, 80, 96, 28, "mayor de edad", "var(--red)", { size: 9.5 })}${caja(22, 130, 96, 26, "menor de edad", "var(--red)", { size: 9.5 })}
-        ${fl(70, 29, 70, 37, "var(--ink)", 1.5)}${fl(70, 58, 70, 69, "var(--ink)", 1.5)}${fl(112, 94, 139, 94, "var(--ink)", 1.5)}${fl(70, 118, 70, 129, "var(--ink)", 1.5)}
-        ${t(124, 88, "sí", { size: 9, color: "var(--leaf)" })}${t(80, 127, "no", { size: 9, color: "var(--red)", anchor: "start" })}
-        <ellipse cx="200" cy="148" rx="30" ry="11" fill="var(--leaf)" fill-opacity=".2" stroke="var(--leaf)" stroke-width="2"/>${t(200, 152, "fin", { size: 10 })}
-        <path d="M188 108 V 136 M118 143 H 169" stroke="var(--ink)" stroke-width="1.5" fill="none"/></svg>`,
-      video: { id: "qDttSc3RQBc", titulo: "Diagramas de flujo: simbología y construcción", canal: "Estudia Con Marisol", vistas: 1345352 },
+      html: `<h3>1.2 Algoritmos y diagramas de flujo</h3><p>Un <mark>algoritmo</mark> es una secuencia ordenada y finita de pasos que resuelve un problema. Una receta de cocina, las instrucciones para montar un mueble o el camino para llegar al instituto son algoritmos de la vida diaria. Un buen algoritmo debe ser <b>preciso</b> (cada paso claro, sin ambigüedades), <b>ordenado</b> y <b>finito</b> (debe terminar).</p><p>Para representar un algoritmo de forma visual se usan los <mark>diagramas de flujo</mark>, con símbolos normalizados unidos por flechas:</p><p>• <b>Óvalo</b>: inicio y fin.<br>• <b>Rectángulo</b>: una acción o proceso («sumar los puntos»).<br>• <b>Romboide</b> o paralelogramo: entrada o salida de datos («pedir la edad», «mostrar el resultado»).<br>• <b>Rombo</b>: una decisión o pregunta con dos salidas, sí o no («¿edad ≥ 18?»).<br>• <b>Flechas</b>: indican el orden en que se siguen los pasos.</p><p>Dibujar el diagrama de flujo antes de programar ayuda a detectar errores y a pensar con claridad. Después, cada símbolo se traduce a instrucciones del lenguaje de programación.</p>`,
+      svg: H.viejo(S, 1),
     },
     {
-      html: `<h3>Los lenguajes por bloques</h3><p>En los <mark>lenguajes de programación por bloques</mark> las instrucciones son piezas de colores que se arrastran y se encajan como un puzle. El más conocido es <b>Scratch</b>, creado en el MIT, gratuito y que se usa en el navegador; también hay otros como <b>MakeCode</b> (para placas micro:bit), <b>mBlock</b> (para robots), <b>App Inventor</b> (para crear aplicaciones de móvil) o <b>Blockly</b>. En Scratch, la pantalla tiene tres zonas: a la izquierda, la <b>paleta de bloques</b>, ordenada por categorías de colores (movimiento, apariencia, sonido, eventos, control, sensores, operadores y variables); en el centro, el <b>área de programación</b>, donde se montan los programas; y a la derecha, el <b>escenario</b>, donde se mueven los <b>objetos</b> o personajes. Cada objeto tiene sus propios programas, disfraces y sonidos, y el escenario puede tener varios fondos.</p>${tabla(["Categoría", "Color", "Para qué sirve"], [["Movimiento", "Azul", "Mover, girar, ir a x, y"], ["Apariencia", "Morado", "Decir, cambiar disfraz, tamaño"], ["Sonido", "Rosa", "Tocar sonidos"], ["Eventos", "Amarillo", "Empezar programas"], ["Control", "Naranja", "Esperar, repetir, si…"], ["Sensores", "Azul claro", "¿Tocando?, preguntar"], ["Operadores", "Verde", "Sumas, comparaciones, azar"], ["Variables", "Naranja oscuro", "Guardar datos"]])}`,
+      html: `<h3>1.3 Los lenguajes de programación</h3><p>Los ordenadores, por dentro, solo entienden el <b>código máquina</b>: largas secuencias de ceros y unos, muy difíciles de manejar para las personas. Por eso se crearon los <mark>lenguajes de programación</mark>, que permiten escribir las instrucciones de una forma más comprensible y que luego se traducen al código máquina.</p><p>Hay dos grandes tipos:</p><p>• Los <b>lenguajes de texto</b>, en los que se escriben las instrucciones con palabras y símbolos siguiendo unas reglas muy estrictas (la <b>sintaxis</b>). Por ejemplo, Python, JavaScript, Java o C. Son los que usan los profesionales.<br>• Los <b>lenguajes de bloques</b> o visuales, en los que las instrucciones son piezas de colores que se arrastran y encajan como un puzle. Como las piezas solo encajan si tienen sentido, es imposible cometer errores de sintaxis. Son ideales para aprender. Los más conocidos son <b>Scratch</b>, creado en el MIT, MakeCode o App Inventor.</p><p>Las ideas fundamentales (secuencias, bucles, condicionales, variables) son las mismas en todos los lenguajes. Lo que se aprende con bloques sirve después para programar con texto.</p>`,
+      svg: H.compara("Lenguajes de bloques y de texto", ["Bloques", "var(--sun)", ["Piezas que encajan", "Sin errores de sintaxis", "Scratch, MakeCode", "Para aprender"]], ["Texto", "var(--pen)", ["Palabras y símbolos", "Sintaxis estricta", "Python, JavaScript", "Profesionales"]], "Las mismas ideas en los dos"),
     },
     {
-      html: `<h3>Eventos y secuencias</h3><p>Todo programa en Scratch empieza con un <mark>evento</mark>: un bloque amarillo con forma de «sombrero» que indica <b>cuándo</b> se ejecuta el programa. Los más usados son «al hacer clic en la bandera verde», «al presionar la tecla espacio», «al hacer clic en este objeto» o «al recibir mensaje». Debajo del evento se encajan las instrucciones en <mark>secuencia</mark>: se ejecutan <b>una detrás de otra, de arriba abajo</b>, en el orden en que están colocadas. Por ejemplo: al hacer clic en la bandera, ir a x: 0, y: 0; decir «¡Hola!» durante 2 segundos; mover 100 pasos; tocar sonido «miau». El orden importa: si pones «mover» antes de «ir a x: 0, y: 0», el gato se moverá pero volverá al centro enseguida y no verás el movimiento. Además, un mismo objeto puede tener varios programas que se ejecutan a la vez, cada uno con su evento.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Programa en bloques de Scratch: al hacer clic en la bandera, ir a x 0 y 0, decir Hola durante 2 segundos, mover 100 pasos, tocar sonido miau">${BG}
-        <path d="M30 24 q 30 -16 60 0 h 110 v 22 h -146 l -4 4 h -10 l -4 -4 h -6 Z" fill="${SC.eve}" stroke="var(--ink)" stroke-opacity=".25"/>${t(38, 40, "al hacer clic en ⚑", { size: 10, color: "#fff", anchor: "start" })}
-        ${bl(30, 50, 150, SC.mov, "ir a x: 0  y: 0")}${bl(30, 74, 190, SC.apa, "decir ¡Hola! durante 2 s")}${bl(30, 98, 130, SC.mov, "mover 100 pasos")}${bl(30, 122, 170, SC.son, "tocar sonido miau")}
-        ${fl(236, 56, 236, 136, "var(--muted)", 1.5)}${t(244, 166, "de arriba abajo", { size: 9, color: "var(--muted)", anchor: "end" })}</svg>`,
+      html: `<h3>1.4 El entorno de Scratch</h3><p><mark>Scratch</mark> es un lenguaje de programación por bloques gratuito que se usa en el navegador o instalado en el ordenador. Su pantalla tiene varias zonas:</p><p>• El <b>escenario</b>: el rectángulo donde ocurre la acción. Mide 480 × 360 pasos y usa coordenadas: el centro es el punto (0, 0); la x va de −240 a 240 y la y, de −180 a 180.<br>• Los <b>objetos</b> o <i>sprites</i>: los personajes y elementos que se mueven en el escenario. Cada objeto tiene sus propios programas, <b>disfraces</b> (imágenes) y <b>sonidos</b>. El escenario también puede tener <b>fondos</b> y programas.<br>• La <b>paleta de bloques</b>, organizada por categorías y colores: Movimiento (azul), Apariencia (morado), Sonido (rosa), Eventos (amarillo), Control (naranja), Sensores (azul claro), Operadores (verde) y Variables (naranja oscuro).<br>• El <b>área de programas</b>: donde se arrastran y encajan los bloques.</p><p>Los proyectos se pueden guardar en la cuenta de Scratch y <b>compartir</b> con la comunidad, donde otras personas pueden verlos, comentarlos y hacer «remezclas» citando el original.</p>`,
+      svg: H.tabla("Categorías de bloques de Scratch", ["Categoría", "Color", "Ejemplo"], [["Movimiento", "Azul", "mover 10 pasos"], ["Apariencia", "Morado", "decir Hola"], ["Eventos", "Amarillo", "al hacer clic"], ["Control", "Naranja", "repetir 10"], ["Sensores", "Celeste", "¿tocando borde?"]]),
     },
     {
-      html: `<h3>Bucles: repetir instrucciones</h3><p>Muchas veces hay que repetir lo mismo varias veces. En lugar de copiar los bloques, se usa un <mark>bucle</mark>, un bloque de <b>control</b> (naranja) con forma de C que abraza las instrucciones que se repiten. Hay tres tipos. <b>«Repetir 10»</b> repite un número fijo de veces; por ejemplo, para dibujar un cuadrado con el lápiz: repetir 4 veces { mover 100 pasos; girar 90 grados }. <b>«Por siempre»</b> repite sin fin, mientras el programa esté en marcha; es el que se usa en los videojuegos para comprobar constantemente si se pulsa una tecla o si hay un choque. <b>«Repetir hasta que…»</b> repite mientras no se cumpla una condición; por ejemplo, avanzar hasta tocar el borde. Los bucles hacen los programas más <b>cortos</b>, más fáciles de leer y de cambiar: si quieres un hexágono, solo cambias 4 por 6 y 90 por 60.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Bucle repetir 4 veces que contiene mover 100 pasos y girar 90 grados, y el cuadrado que dibuja">${BG}
-        <path d="M20 30 h 140 v 22 h -110 v 50 h 110 v 18 h -140 Z" fill="${SC.con}" stroke="var(--ink)" stroke-opacity=".25"/>${t(28, 45, "repetir 4", { size: 10, color: "#fff", anchor: "start" })}
-        ${bl(50, 54, 110, SC.mov, "mover 100 pasos")}${bl(50, 78, 110, SC.mov, "girar ↻ 90 grados")}
-        <rect x="186" y="44" width="56" height="56" fill="none" stroke="var(--pen)" stroke-width="3"/>${fl(186, 44, 230, 44, "var(--red)", 2)}
-        ${t(214, 120, "cuadrado", { size: 10 })}${t(130, 152, "4 lados · 4 giros de 90°", { size: 10, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.5 Eventos y secuencias</h3><p>Todo programa en Scratch empieza con un <mark>evento</mark>: algo que ocurre y pone en marcha las instrucciones. Los bloques de eventos tienen forma de sombrero, porque van siempre arriba. Los más usados son «al hacer clic en la bandera verde», «al presionar la tecla espacio», «al hacer clic en este objeto» o «al recibir mensaje».</p><p>Debajo del evento se encajan las instrucciones, que se ejecutan una detrás de otra, de arriba abajo: es una <mark>secuencia</mark>. El orden es fundamental: no es lo mismo «mover 100 pasos y luego girar» que «girar y luego mover».</p><p>Un ejemplo de secuencia: al hacer clic en la bandera, el gato va a la posición (0, 0), dice «¡Hola!» durante 2 segundos, se mueve 100 pasos y maúlla. Es buena costumbre empezar los programas <b>inicializando</b>: colocando cada objeto en su posición, con su disfraz y su tamaño iniciales, para que el programa funcione igual cada vez que se ejecute.</p><p>Un mismo objeto puede tener varios programas, cada uno con su evento, que funcionan a la vez.</p>`,
+      svg: H.viejo(S, 3),
     },
     {
-      html: `<h3>Condicionales: tomar decisiones</h3><p>Un programa necesita a veces decidir qué hacer según lo que ocurra. Para eso están los <mark>condicionales</mark>, también bloques de control con forma de C. El bloque <b>«si… entonces»</b> ejecuta las instrucciones de dentro solo si se cumple una <b>condición</b>; si no se cumple, se las salta. El bloque <b>«si… entonces… si no»</b> tiene dos huecos: uno para cuando la condición es verdadera y otro para cuando es falsa. Las condiciones son bloques con forma hexagonal que solo pueden valer <b>verdadero o falso</b>: preguntas de sensores, como «¿tocando borde?», «¿tecla espacio presionada?», «¿tocando color rojo?»; o comparaciones de operadores, como «puntos > 10» o «respuesta = 7». Se pueden combinar con «y», «o» y «no». Un condicional casi siempre va dentro de un bucle «por siempre», para que la pregunta se haga continuamente.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Bucle por siempre con un condicional: si tocando borde entonces rebotar y decir Ay">${BG}
-        <path d="M14 20 h 200 v 22 h -170 v 96 h 170 v 14 h -200 Z" fill="${SC.con}" stroke="var(--ink)" stroke-opacity=".25"/>${t(22, 35, "por siempre", { size: 10, color: "#fff", anchor: "start" })}
-        ${bl(44, 44, 130, SC.mov, "mover 5 pasos")}
-        <path d="M44 70 h 190 v 22 h -160 v 22 h 160 v 14 h -190 Z" fill="${SC.con}" stroke="var(--ink)" stroke-opacity=".25"/>${t(52, 85, "si", { size: 10, color: "#fff", anchor: "start" })}
-        <path d="M70 75 h 100 l 6 6 l -6 6 h -100 l -6 -6 Z" fill="${SC.sen}" stroke="#fff" stroke-opacity=".6"/>${t(120, 85, "¿tocando borde?", { size: 9, color: "#fff" })}${t(184, 85, "entonces", { size: 9, color: "#fff", anchor: "start" })}
-        ${bl(74, 93, 140, SC.mov, "rebotar si toca un borde")}</svg>`,
+      html: `<h3>1.6 Los bucles</h3><p>Muchas veces hay que repetir las mismas instrucciones. En lugar de copiarlas una y otra vez, se usa un <mark>bucle</mark>: un bloque que repite lo que tiene dentro. Los bloques de bucle tienen forma de C y están en la categoría Control. Scratch tiene tres:</p><p>• <b>Repetir n veces</b>: repite las instrucciones un número fijo de veces. Por ejemplo, para dibujar un cuadrado con el lápiz: repetir 4 veces «mover 100 pasos» y «girar 90 grados». Para un triángulo, repetir 3 veces girando 120 grados; para un hexágono, 6 veces girando 60 grados. El ángulo es siempre 360 dividido entre el número de lados.<br>• <b>Por siempre</b>: repite sin parar mientras el programa esté en marcha. Se usa en los juegos para comprobar continuamente lo que pasa, por ejemplo, si el personaje toca un enemigo.<br>• <b>Repetir hasta que</b>: repite hasta que se cumpla una condición, por ejemplo, «hasta que toque el borde».</p><p>Los bucles hacen los programas más cortos, más claros y más fáciles de modificar: para hacer un cuadrado más grande, basta con cambiar un número.</p>`,
+      svg: H.viejo(S, 4),
+      video: { id: "rNY5eWogl18", titulo: "Estructuras de programación: secuencia, condicional y ciclo", canal: "LearnFree en Español", vistas: 77869 },
     },
     {
-      html: `<h3>Variables y operadores</h3><p>Una <mark>variable</mark> es como una <b>caja con nombre</b> en la que el programa guarda un dato que puede cambiar: los puntos de un juego, las vidas, el tiempo, la velocidad o la respuesta del usuario. En Scratch se crean en la categoría «Variables» y se usan con tres bloques: <b>«dar a puntos el valor 0»</b> (al empezar el juego), <b>«sumar a puntos 1»</b> (cada vez que se consigue algo) y el bloque redondo <b>«puntos»</b>, que se puede colocar dentro de otros bloques para usar su valor. Las variables pueden mostrarse en el escenario como un marcador. Los <mark>operadores</mark> (verdes) permiten hacer cálculos (+, −, ×, ÷), comparar (&gt;, &lt;, =), elegir un número al azar o unir textos. Por ejemplo, «si puntos = 10 entonces decir "¡Has ganado!"». Con un bloque «preguntar» y la variable «respuesta» se pueden hacer programas que dialogan con el usuario, como un juego de preguntas.</p>`,
+      html: `<h3>1.7 Los condicionales</h3><p>Los programas necesitan tomar <b>decisiones</b> según lo que ocurra. Para eso están los <mark>condicionales</mark>, que ejecutan unas instrucciones solo si se cumple una <b>condición</b>. Una condición es una pregunta cuya respuesta solo puede ser verdadero o falso, y en Scratch se representa con bloques de forma hexagonal.</p><p>Hay dos bloques condicionales:</p><p>• <b>Si … entonces</b>: si la condición es verdadera, ejecuta lo que tiene dentro; si es falsa, no hace nada.<br>• <b>Si … entonces … si no</b>: si la condición es verdadera, ejecuta el primer grupo de instrucciones; si es falsa, ejecuta el segundo. Siempre se hace una de las dos cosas.</p><p>Los condicionales casi siempre van dentro de un bucle «por siempre», para comprobar la condición continuamente. Por ejemplo: por siempre, si el gato toca el borde, entonces rebota y dice «¡Ay!». O bien: si la respuesta es igual a 12, entonces decir «¡Correcto!», si no, decir «Inténtalo otra vez». Corresponden al rombo de los diagramas de flujo.</p>`,
+      svg: H.viejo(S, 5),
     },
     {
-      html: `<h3>Probar y depurar</h3><p>Casi ningún programa funciona bien a la primera, ni siquiera los de los programadores profesionales. Los errores se llaman <mark>bugs</mark> («bichos» en inglés) y el proceso de encontrarlos y corregirlos se llama <mark>depurar</mark>. Algunas estrategias útiles: <b>probar a menudo</b>, después de añadir cada pocos bloques, en vez de escribir todo el programa y probarlo al final; <b>leer el programa paso a paso</b> como si fueras el ordenador; añadir bloques «decir» o mostrar variables para ver qué valor tienen; probar casos raros (¿qué pasa si el jugador pulsa dos teclas a la vez?); y <b>pedir a un compañero</b> que lo pruebe, porque encontrará fallos que tú no ves. Los errores más frecuentes en Scratch son olvidar el evento, colocar los bloques en mal orden, no reiniciar las variables al empezar o poner un condicional fuera del bucle «por siempre».</p>`,
+      html: `<h3>1.8 Sensores y operadores</h3><p>Los bloques de <mark>sensores</mark> permiten que el programa «perciba» lo que pasa: si un objeto toca a otro, toca un color o el borde; si se presiona una tecla o el ratón; dónde está el puntero; cuánto tiempo ha pasado (cronómetro); o el volumen del micrófono. También permiten <b>preguntar</b> algo al usuario y guardar su <b>respuesta</b>.</p><p>Los <mark>operadores</mark> (en verde) permiten hacer cálculos y construir condiciones más complejas:</p><p>• <b>Aritméticos</b>: sumar, restar, multiplicar y dividir.<br>• <b>De comparación</b>: mayor que (&gt;), menor que (&lt;) e igual a (=).<br>• <b>Lógicos</b>: «y» (se cumplen las dos condiciones), «o» (se cumple al menos una) y «no» (lo contrario).<br>• <b>Números al azar</b>: «número aleatorio entre 1 y 10», muy útil en los juegos para que no sean siempre iguales.<br>• De <b>texto</b>: unir palabras, contar letras.</p><p>Por ejemplo, para que un juego termine cuando el personaje toca un enemigo <b>y</b> no tiene vidas, se combinan dos condiciones con el operador «y».</p>`,
+      svg: H.programa("Programa con sensores y operadores", [["al hacer clic en la bandera", EV, 0], ["preguntar ¿Cuánto es 7 × 8?", SEN, 0], ["si respuesta = 56 entonces", CTR, 0], ["decir ¡Correcto!", APA, 1], ["si no", CTR, 0], ["decir Era 56", APA, 1], ["ir a x: (número al azar entre −200 y 200)", MOV, 0]], "Preguntar y comprobar"),
     },
     {
-      html: `<h3>Del bloque al código y la programación en la vida real</h3><p>Lo que aprendes con bloques sirve después en cualquier lenguaje escrito. Por ejemplo, el bucle «repetir 4 { mover 100; girar 90 }» se escribe en Python así: <code>for i in range(4): forward(100); right(90)</code>. Y el condicional «si puntos &gt; 10 entonces decir "¡Bien!"» se escribe <code>if puntos &gt; 10: print("¡Bien!")</code>. La programación está en todas partes: en los móviles, los electrodomésticos, los coches, los semáforos, los videojuegos, la medicina y la ciencia. Además, programar desarrolla el <mark>pensamiento computacional</mark>: la capacidad de <b>descomponer</b> un problema grande en partes pequeñas, <b>reconocer patrones</b> que se repiten, <b>abstraer</b> lo importante y diseñar <b>algoritmos</b> para resolverlo. Esa forma de pensar es útil en cualquier profesión, no solo en la informática.</p>`,
+      html: `<h3>1.9 Las variables</h3><p>Una <mark>variable</mark> es un espacio de la memoria con un <b>nombre</b> que guarda un <b>valor</b> que puede cambiar mientras funciona el programa. Es como una caja con una etiqueta: la etiqueta es el nombre («puntos») y lo de dentro, el valor (0, 1, 2…).</p><p>En Scratch, las variables se crean en la categoría Variables y se manejan con tres bloques:</p><p>• <b>Dar a</b> la variable un valor: se usa al principio para inicializarla, por ejemplo, «dar a puntos el valor 0».<br>• <b>Sumar a</b> la variable una cantidad: «sumar 1 a puntos» cada vez que el jugador atrapa una manzana. Para restar, se suma un número negativo.<br>• <b>Mostrar</b> u ocultar la variable en el escenario.</p><p>Las variables sirven para contar puntos, vidas, tiempo, nivel, velocidad o para guardar la respuesta de un usuario. Hay que darles un <b>nombre descriptivo</b> y no olvidar <b>inicializarlas</b>: si no se pone a 0 al empezar, la puntuación de la partida anterior seguirá ahí. Además, las <b>listas</b> permiten guardar muchos valores bajo un mismo nombre, como los nombres de los jugadores.</p>`,
+      svg: H.programa("Programa con una variable de puntos", [["al hacer clic en la bandera", EV, 0], ["dar a puntos el valor 0", VAR, 0], ["por siempre", CTR, 0], ["si ¿tocando Manzana? entonces", CTR, 1], ["sumar 1 a puntos", VAR, 2], ["tocar sonido Pop", APA, 2], ["si puntos = 10 entonces decir ¡Ganaste!", CTR, 1]], "Contar puntos"),
+    },
+    {
+      html: `<h3>1.10 Varios objetos y mensajes</h3><p>En un juego o una historia suele haber varios objetos que deben actuar de forma <b>coordinada</b>: un personaje habla y otro le responde, o al acabar la partida todos los enemigos desaparecen. Para comunicarlos se usan los <mark>mensajes</mark>.</p><p>Un objeto puede <b>enviar</b> un mensaje con el bloque «enviar mensaje», y todos los objetos que tengan un programa que empiece por «al recibir» ese mensaje se ponen en marcha. Es como un aviso por megafonía: quien lo emite no sabe quién lo escucha, pero quien debe reaccionar, reacciona. Por ejemplo, cuando la variable vidas llega a 0, el escenario envía el mensaje «fin del juego»; al recibirlo, el personaje dice «¡Oh, no!», los enemigos se esconden y el fondo cambia a una pantalla de final.</p><p>También se pueden crear <b>clones</b>: copias de un objeto que se generan mientras funciona el programa, muy útiles para hacer muchas gotas de lluvia, disparos o enemigos sin tener que dibujarlos uno a uno. Cada clon funciona con sus propios programas «al comenzar como clon».</p>`,
+      svg: H.programa("Coordinar objetos con mensajes", [["si vidas = 0 entonces", CTR, 0], ["enviar mensaje fin del juego", EV, 1], ["detener este programa", CTR, 1], ["al recibir fin del juego", EV, 0], ["cambiar fondo a Final", APA, 0], ["decir ¡Oh, no! durante 2 segundos", APA, 0], ["detener todos", CTR, 0]], "Enviar y recibir mensajes"),
+    },
+    {
+      html: `<h3>1.11 Depurar: encontrar y corregir errores</h3><p>Es muy raro que un programa funcione bien a la primera. A los errores de programación se les llama <i>bugs</i> («bichos», en inglés), y el proceso de buscarlos y corregirlos se llama <mark>depurar</mark>. Es una parte normal del trabajo de cualquier programador.</p><p>Errores frecuentes en Scratch: olvidar el evento de inicio, no inicializar posiciones o variables, poner los bloques en el orden equivocado, colocar una instrucción fuera del bucle en lugar de dentro, usar «repetir» en lugar de «por siempre», confundir el nombre de un mensaje o hacer movimientos tan rápidos que no se ven (falta un bloque «esperar»).</p><p>Estrategias para depurar:</p><p>• <b>Ejecutar el programa por partes</b>: hacer clic en un bloque para ver qué hace solo.<br>• <b>Leer el código en voz alta</b> paso a paso, como si fueras el ordenador.<br>• <b>Mostrar las variables</b> en el escenario para ver cómo cambian.<br>• <b>Añadir bloques «decir»</b> que indiquen por dónde va el programa.<br>• <b>Cambiar una cosa cada vez</b> y volver a probar.<br>• Explicárselo a un compañero: a menudo, al contarlo, se descubre el fallo.</p>`,
+      svg: H.flujo("Cómo depurar un programa", ["Probar y describir el fallo", "Leer el código paso a paso", "Mostrar variables y añadir «decir»", "Cambiar una sola cosa y volver a probar"], "Depurar sin agobios"),
+    },
+    {
+      html: `<h3>1.12 Programar objetos del mundo real</h3><p>La programación por bloques no solo sirve para juegos en la pantalla: también permite controlar objetos físicos. Para ello se usan <mark>placas programables</mark>, pequeños ordenadores con entradas y salidas, como la <b>micro:bit</b>, Arduino o las placas de los kits de robótica.</p><p>Estos sistemas tienen tres partes:</p><p>• Los <b>sensores</b> o entradas, que recogen información del entorno: botones, sensores de luz, de temperatura, de distancia, de movimiento (acelerómetro) o de sonido.<br>• La <b>placa</b>, que ejecuta el programa y decide qué hacer.<br>• Los <b>actuadores</b> o salidas, que actúan sobre el entorno: LED, pantallas, zumbadores, motores o servomotores.</p><p>Con un programa de bloques (por ejemplo, MakeCode para la micro:bit) se pueden crear un termómetro que muestre la temperatura, un podómetro, una alarma que suene si alguien abre una caja, un semáforo con LED o un pequeño robot que esquive obstáculos. Es el mismo esquema de entrada, proceso y salida que en un ordenador. Así funcionan los electrodomésticos inteligentes, los coches modernos o la domótica de las casas.</p>`,
+      svg: H.flujo("Un sistema programable", ["Sensores: luz, temperatura, distancia", "Placa: el programa decide", "Actuadores: LED, motor, zumbador"], "Entrada, proceso y salida"),
     },
   ],
-  figura: {
-    titulo: "Las estructuras básicas de la programación",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Cinco estructuras básicas: evento, que empieza el programa; secuencia, un bloque tras otro; bucle, que repite; condicional, que decide; y variable, que guarda datos">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["Evento", "cuándo empieza", "al hacer clic en ⚑", SC.eve], ["Secuencia", "en orden", "uno tras otro", SC.mov], ["Bucle", "repetir", "repetir 10 · por siempre", SC.con], ["Condicional", "decidir", "si… entonces… si no", "#c86a00"], ["Variable", "guardar datos", "puntos · vidas", SC.var]].map(([a, b, c, col], i) => { const x = 16 + i * 124; return `<rect x="${x}" y="30" width="112" height="150" rx="14" fill="${col}" fill-opacity=".14" stroke="${col}" stroke-width="2.5"/>${t(x + 56, 68, a, { size: 15, font: D })}${t(x + 56, 108, b, { size: 12 })}${t(x + 56, 146, c, { size: 9.5, weight: 400 })}`; }).join("")}
-      ${t(320, 210, "con estas cinco piezas se puede construir cualquier programa", { size: 13, color: "var(--muted)" })}
-    </svg>`,
-  },
-  video: { id: "a5DOIvjxiQ0", titulo: "Curso de Scratch 3.0 desde cero para principiantes", canal: "NecroDev", vistas: 908425, megusta: 11239, busqueda: "programación por bloques Scratch" },
+  figura: H.figura(S),
+  video: { id: "F0yXwOhxRus", titulo: "Cómo hacer un juego en Scratch para principiantes (Flappy Bird)", canal: "NecroDev", vistas: 1017169 },
   ejemplos: [
-    { enunciado: "Escribe el programa de Scratch para dibujar un triángulo equilátero.",
-      pasos: ["Al hacer clic en la bandera: bajar lápiz.", "Repetir 3: mover 100 pasos; girar 120 grados.", "Subir lápiz."],
-      resultado: "3 lados y giros de 120° (360 / 3)." },
-    { enunciado: "Haz que el gato diga «¡Ay!» cada vez que toque el borde, sin parar de moverse.",
-      pasos: ["Al hacer clic en la bandera: por siempre.", "Dentro: mover 5 pasos; rebotar si toca un borde.", "Dentro: si ¿tocando borde? entonces decir «¡Ay!» 1 s."],
-      resultado: "Bucle por siempre con un condicional dentro." },
-    { enunciado: "Diseña un contador de puntos que sume 1 al hacer clic en una manzana.",
-      pasos: ["En la bandera: dar a puntos el valor 0.", "En la manzana: al hacer clic en este objeto, sumar a puntos 1.", "Ir a una posición al azar."],
-      resultado: "Variable puntos reiniciada y sumada con un evento." },
+    { enunciado: "Escribe el algoritmo para saber si un número es par o impar y dibuja sus símbolos de diagrama de flujo.", pasos: ["Inicio (óvalo).", "Pedir el número (romboide).", "¿El resto de dividir entre 2 es 0? (rombo).", "Sí: mostrar «par»; no: mostrar «impar» (romboides).", "Fin (óvalo)."], resultado: "Inicio → pedir número → ¿resto 0? → par / impar → fin." },
+    { enunciado: "Programa en Scratch que el objeto dibuje un triángulo equilátero de lado 100.", pasos: ["Evento: al hacer clic en la bandera.", "Bajar lápiz.", "Repetir 3 veces: mover 100 pasos y girar 120 grados (360 / 3).", "Subir lápiz."], resultado: "Bucle de 3 repeticiones con giro de 120°." },
+    { enunciado: "Haz que el gato se mueva con las flechas izquierda y derecha.", pasos: ["Al presionar la tecla flecha derecha: apuntar en dirección 90 y mover 10 pasos.", "Al presionar la tecla flecha izquierda: apuntar en dirección −90 y mover 10 pasos.", "Opcional: estilo de rotación izquierda-derecha para que no se ponga boca abajo."], resultado: "Dos programas, uno por tecla." },
+    { enunciado: "Crea un juego en el que se suma un punto cada vez que el gato toca una manzana, y la manzana aparece en otro sitio.", pasos: ["Al hacer clic en la bandera: dar a puntos el valor 0.", "En la manzana: por siempre, si ¿tocando Gato? entonces sumar 1 a puntos.", "Ir a x: número al azar entre −220 y 220, y: número al azar entre −160 y 160.", "Mostrar la variable puntos en el escenario."], resultado: "Variable puntos + condicional + posición aleatoria." },
+    { enunciado: "¿Qué hace este programa? Al hacer clic en la bandera: dar a n el valor 1; repetir 5 veces: decir n durante 1 segundo, sumar 1 a n.", pasos: ["n empieza en 1.", "Primera vuelta: dice 1 y n pasa a 2.", "Así hasta la quinta vuelta: dice 5 y n pasa a 6.", "El bucle termina."], resultado: "Cuenta en voz alta del 1 al 5." },
+    { enunciado: "Un programa debería hacer que el gato rebote en los bordes, pero solo rebota una vez. Programa: al hacer clic en la bandera, mover 10 pasos, si tocando borde entonces rebotar. ¿Dónde está el error?", pasos: ["Las instrucciones se ejecutan una sola vez.", "Falta un bucle que las repita continuamente.", "Solución: meter «mover 10 pasos» y el condicional dentro de un bucle «por siempre»."], resultado: "Falta el bucle «por siempre»." },
   ],
   errores: [
-    "Olvidar el bloque de evento: el programa nunca empieza.",
-    "No reiniciar las variables al empezar: los puntos siguen de la partida anterior.",
-    "Poner un condicional sin bucle «por siempre»: solo se comprueba una vez.",
-    "Copiar los mismos bloques muchas veces en lugar de usar un bucle.",
-    "Pensar que el ordenador entiende lo que queremos decir: hace exactamente lo que está escrito.",
+    "Olvidar el bloque de evento al principio: el programa nunca se pone en marcha.",
+    "No inicializar posiciones, disfraces o variables, de modo que el programa empieza distinto cada vez.",
+    "Colocar una instrucción fuera del bucle cuando debía repetirse, o dentro cuando debía ejecutarse una sola vez.",
+    "Poner un condicional sin bucle: la condición solo se comprueba una vez.",
+    "Confundir «repetir n veces», «por siempre» y «repetir hasta que».",
+    "Pensar que un programa que no funciona a la primera es un fracaso: depurar es parte de programar.",
   ],
-  ejercicios: [
-    { q: "Define algoritmo y pon un ejemplo de la vida diaria.", sol: "Secuencia ordenada y finita de instrucciones para resolver un problema: una receta." },
-    { q: "¿Qué símbolos usa un diagrama de flujo para inicio/fin, proceso y decisión?", sol: "Óvalo, rectángulo y rombo." },
-    { q: "Escribe en pseudocódigo: si llueve, coger paraguas; si no, coger gorra.", sol: "si llueve entonces coger paraguas; si no coger gorra; fin si." },
-    { q: "Nombra las tres zonas de la pantalla de Scratch.", sol: "Paleta de bloques, área de programación y escenario." },
-    { q: "¿Qué hace un bloque de evento y de qué color es?", sol: "Indica cuándo empieza el programa; es amarillo." },
-    { q: "¿Cuántas veces hay que repetir y cuántos grados girar para un hexágono?", sol: "6 veces, 60 grados." },
-    { q: "Diferencia «repetir 10» y «por siempre».", sol: "El primero repite un número fijo de veces; el segundo repite sin fin." },
-    { q: "¿Qué valores puede tomar una condición?", sol: "Verdadero o falso." },
-    { q: "¿Para qué sirve una variable? Pon un ejemplo en un juego.", sol: "Para guardar un dato que cambia: los puntos o las vidas." },
-    { q: "¿Qué es depurar y nombra dos estrategias?", sol: "Encontrar y corregir errores: probar a menudo y leer el programa paso a paso." },
-  ],
-  quiz: [
-    { q: "Un algoritmo debe ser…", o: ["infinito", "preciso, ordenado y finito", "secreto"], a: 1, e: "Preciso, ordenado y finito." },
-    { q: "En un diagrama de flujo la decisión es un…", o: ["óvalo", "rombo", "rectángulo"], a: 1, e: "Rombo." },
-    { q: "Scratch se creó en el…", o: ["MIT", "CERN", "NASA"], a: 0, e: "MIT." },
-    { q: "Los bloques de eventos son…", o: ["azules", "amarillos", "verdes"], a: 1, e: "Amarillos." },
-    { q: "Las instrucciones en secuencia se ejecutan…", o: ["a la vez", "de arriba abajo", "al azar"], a: 1, e: "Una tras otra." },
-    { q: "Para dibujar un cuadrado se repite…", o: ["3 veces 120°", "4 veces 90°", "6 veces 60°"], a: 1, e: "4 · 90° = 360°." },
-    { q: "Los videojuegos usan mucho el bucle…", o: ["repetir 2", "por siempre", "ninguno"], a: 1, e: "Comprueban todo el rato." },
-    { q: "Una condición vale…", o: ["un número", "verdadero o falso", "un texto"], a: 1, e: "Booleana." },
-    { q: "Los puntos de un juego se guardan en…", o: ["una variable", "un disfraz", "un fondo"], a: 0, e: "Variable." },
-    { q: "Un bug es…", o: ["un error", "un bloque", "un objeto"], a: 0, e: "Un fallo del programa." },
-  ],
-  examen: [
-    { q: "Si quieres que algo pase solo cuando se toca el borde, usas…", o: ["un bucle", "un condicional", "un evento de bandera"], a: 1, e: "Si… entonces." },
-    { q: "Descomponer un problema en partes es parte del…", o: ["pensamiento computacional", "hardware", "sistema operativo"], a: 0, e: "Pensamiento computacional." },
-    { q: "Para un pentágono se gira…", o: ["60°", "72°", "90°"], a: 1, e: "360 / 5 = 72°." },
-  ],
-  feynman: ["Qué es un algoritmo y cómo se dibuja un diagrama de flujo", "Para qué sirven los bucles y los condicionales", "Qué es una variable y cómo se usa en un juego"],
-  mapa: mapa("PROGRAMAR", "var(--eso)", [
-    ["Planificar", "algoritmo · diagrama · pseudocódigo", "var(--pen)"],
-    ["Bloques", "Scratch · MakeCode · mBlock", "#b8860b"],
-    ["Estructuras", "evento · bucle · si · variable", "var(--red)"],
-    ["Depurar", "probar · leer · corregir", "var(--leaf)"],
-  ], 290),
+  ejercicios: H.niveles([
+    ["Define programa y algoritmo.", "Un programa es un conjunto de instrucciones ordenadas que un ordenador ejecuta para realizar una tarea. Un algoritmo es una secuencia ordenada y finita de pasos que resuelve un problema; el programa es un algoritmo escrito en un lenguaje de programación."],
+    ["Escribe un algoritmo de la vida diaria con al menos cinco pasos.", "Ejemplo, lavarse los dientes: 1) coger el cepillo, 2) poner pasta, 3) abrir el grifo y mojar el cepillo, 4) cepillar dos minutos, 5) enjuagarse, 6) lavar el cepillo y guardarlo."],
+    ["Dibuja y nombra los símbolos del diagrama de flujo para inicio, acción, entrada de datos y decisión.", "Inicio y fin: óvalo. Acción: rectángulo. Entrada o salida de datos: romboide. Decisión: rombo."],
+    ["Escribe dos lenguajes de bloques y dos de texto.", "Bloques: Scratch y MakeCode. Texto: Python y JavaScript."],
+    ["¿Qué son el escenario y los objetos en Scratch?", "El escenario es la zona donde ocurre la acción. Los objetos o sprites son los personajes y elementos que se mueven en él, cada uno con sus programas, disfraces y sonidos."],
+    ["¿Para qué sirve un bloque de evento? Escribe dos ejemplos.", "Para poner en marcha un programa cuando ocurre algo. Ejemplos: «al hacer clic en la bandera verde» y «al presionar la tecla espacio»."],
+    ["¿Qué es un bucle? Nombra los tres bucles de Scratch.", "Es una estructura que repite instrucciones. En Scratch: repetir n veces, por siempre y repetir hasta que."],
+    ["¿Qué es un condicional?", "Una estructura que ejecuta unas instrucciones solo si se cumple una condición (si … entonces), o unas u otras según se cumpla o no (si … entonces … si no)."],
+    ["¿Qué es una variable? Pon dos ejemplos de uso en un juego.", "Un espacio de memoria con nombre que guarda un valor que puede cambiar. Ejemplos: puntos, vidas, tiempo o nivel."],
+    ["¿Qué significa depurar un programa?", "Buscar y corregir los errores (bugs) para que funcione correctamente."],
+  ], [
+    ["Programa en Scratch un cuadrado de lado 80 y un hexágono de lado 50. Indica los giros.", "Cuadrado: bajar lápiz, repetir 4 veces mover 80 y girar 90°. Hexágono: repetir 6 veces mover 50 y girar 60° (360 / 6)."],
+    ["Dibuja el diagrama de flujo de un programa que pregunta la nota de un examen y dice «aprobado» si es 5 o más y «suspenso» si no.", "Inicio → pedir nota (romboide) → ¿nota ≥ 5? (rombo) → sí: mostrar «aprobado» / no: mostrar «suspenso» → fin."],
+    ["Traduce el diagrama anterior a bloques de Scratch.", "Al hacer clic en la bandera: preguntar «¿Qué nota has sacado?» y esperar; si respuesta < 5 entonces decir «Suspenso» si no decir «Aprobado» (Scratch no tiene el bloque ≥, así que se pregunta al revés)."],
+    ["Explica la diferencia entre «repetir 10 veces» y «por siempre», con un ejemplo de cuándo usar cada uno.", "Repetir 10 veces hace un número fijo de repeticiones y luego sigue con el programa: dibujar un polígono o dar 10 saltos. Por siempre no termina nunca: comprobar continuamente si el personaje toca un enemigo."],
+    ["¿Qué hacen los operadores lógicos «y», «o» y «no»? Pon un ejemplo de cada uno.", "«y»: verdadero si se cumplen las dos condiciones (tocando enemigo y vidas = 1). «o»: verdadero si se cumple al menos una (tecla espacio o clic del ratón). «no»: invierte la condición (no tocando suelo → está saltando)."],
+    ["¿Por qué hay que inicializar las variables al principio del programa?", "Porque si no, conservan el valor de la ejecución anterior: los puntos empezarían, por ejemplo, en 15 en lugar de en 0."],
+    ["Programa que la variable tiempo empiece en 30 y baje 1 cada segundo hasta llegar a 0, y entonces se diga «¡Se acabó!».", "Al hacer clic en la bandera: dar a tiempo el valor 30; repetir hasta que tiempo = 0: esperar 1 segundo y sumar −1 a tiempo; decir «¡Se acabó!»."],
+    ["Explica para qué sirven los mensajes con un ejemplo.", "Sirven para que un objeto avise a otros y se coordinen. Ejemplo: cuando el gato llega a la meta, envía el mensaje «nivel 2»; al recibirlo, el escenario cambia de fondo y los enemigos se colocan en sus nuevas posiciones."],
+    ["¿Qué son los clones en Scratch y cuándo son útiles?", "Copias de un objeto creadas mientras funciona el programa. Son útiles cuando se necesitan muchos elementos iguales: gotas de lluvia, estrellas, disparos o enemigos."],
+    ["Escribe cuatro estrategias para depurar un programa.", "Ejecutar por partes haciendo clic en los bloques, leer el código paso a paso en voz alta, mostrar las variables, añadir bloques «decir» para ver por dónde va y cambiar una sola cosa cada vez."],
+    ["Explica qué son los sensores y los actuadores en una placa como la micro:bit.", "Los sensores son entradas que recogen información del entorno (botones, luz, temperatura, acelerómetro). Los actuadores son salidas que actúan sobre el entorno (LED, pantalla, zumbador, motores)."],
+    ["Describe el pensamiento computacional aplicado a organizar una fiesta de cumpleaños.", "Descomponer: invitaciones, comida, música, juegos. Patrones: cada invitación lleva lo mismo. Abstracción: lo importante es la fecha, el lugar y el número de invitados. Algoritmo: los pasos ordenados con fechas."],
+  ], [
+    ["Diseña un juego de atrapar: una manzana cae desde arriba en una posición aleatoria y el jugador mueve una cesta con las flechas. Cada manzana atrapada suma un punto; si cae al suelo, se pierde una vida. Describe los programas.", "Cesta: al pulsar flechas, cambiar x en ±10. Manzana: al hacer clic en la bandera, dar a puntos 0 y a vidas 3; por siempre: ir a x aleatoria e y = 180; repetir hasta que tocando cesta o y < −170: cambiar y en −5; si tocando cesta sumar 1 a puntos, si no sumar −1 a vidas; si vidas = 0 enviar «fin del juego»."],
+    ["Escribe un programa que pregunte cinco tablas de multiplicar al azar y cuente los aciertos.", "Dar a aciertos 0; repetir 5 veces: dar a a un número al azar entre 1 y 10, dar a b otro; preguntar unir(a, «×», b); si respuesta = a · b, sumar 1 a aciertos y decir «Bien», si no decir el resultado correcto; al final decir unir(«Aciertos: », aciertos)."],
+    ["Dibuja el diagrama de flujo de un semáforo que repite: verde 5 s, ámbar 2 s, rojo 5 s.", "Inicio → [bucle] encender verde → esperar 5 s → apagar verde, encender ámbar → esperar 2 s → apagar ámbar, encender rojo → esperar 5 s → apagar rojo → volver al principio (flecha hacia arriba, sin fin)."],
+    ["Un programa debería contar los puntos, pero siempre muestra 1. Programa: por siempre, si tocando estrella entonces dar a puntos el valor 1. Encuentra el error y corrígelo. ¿Hay otro problema?", "Usa «dar a puntos el valor 1» en lugar de «sumar 1 a puntos». Otro problema: mientras el objeto toque la estrella, sumará muchas veces seguidas; hay que mover la estrella a otro sitio o esconderla después de sumar, o esperar hasta que deje de tocarla."],
+    ["Programa con bloques una micro:bit como termómetro que muestre una cara feliz si la temperatura está entre 18 y 25 °C y una triste en otro caso.", "Por siempre: si (temperatura > 17) y (temperatura < 26) entonces mostrar icono feliz, si no mostrar icono triste; esperar 1 segundo. Opcional: al pulsar el botón A, mostrar el número de la temperatura."],
+    ["Explica por qué los programadores dividen un programa grande en partes (bloques personalizados o funciones).", "Porque así cada parte es más fácil de entender, probar y corregir; las partes se pueden reutilizar varias veces sin copiarlas; y varias personas pueden trabajar a la vez. Es aplicar la descomposición del pensamiento computacional."],
+    ["Compara un algoritmo de un videojuego con el de un robot aspirador: ¿qué entradas, procesos y salidas tiene cada uno?", "Videojuego: entradas, teclas y ratón; proceso, mover personajes, comprobar colisiones y puntos; salidas, imagen y sonido. Robot aspirador: entradas, sensores de choque, de distancia y de suciedad; proceso, decidir hacia dónde ir; salidas, motores de las ruedas y del cepillo."],
+    ["Reflexiona: ¿qué cuestiones éticas plantean los programas que deciden por las personas (por ejemplo, qué vídeos vemos o quién consigue un trabajo)?", "Pueden tener sesgos si se han diseñado o entrenado con datos injustos; pueden manipular nuestra atención para que pasemos más tiempo en una aplicación; no siempre explican cómo deciden; y la responsabilidad de sus errores no está clara. Por eso hay que programar de forma responsable, transparente y pensando en todas las personas."],
+  ]),
+  quiz: H.test([
+    ["Un programa es…", ["un conjunto de instrucciones para un ordenador", "un componente del ordenador", "una red de ordenadores", "un tipo de pantalla"], "Software."],
+    ["Un algoritmo es…", ["una secuencia ordenada y finita de pasos", "un virus informático", "un lenguaje de bloques", "una placa programable"], "Como una receta."],
+    ["En un diagrama de flujo, la decisión se dibuja con un…", ["rombo", "óvalo", "rectángulo", "círculo"], "Tiene dos salidas: sí o no."],
+    ["El inicio y el fin se representan con un…", ["óvalo", "rombo", "rectángulo", "romboide"], "Forma redondeada."],
+    ["Scratch es un lenguaje…", ["de bloques", "de texto", "de código máquina", "de hojas de cálculo"], "Creado en el MIT."],
+    ["En Scratch, el centro del escenario es el punto…", ["(0, 0)", "(240, 180)", "(−240, −180)", "(100, 100)"], "x de −240 a 240; y de −180 a 180."],
+    ["Los personajes de Scratch se llaman…", ["objetos o sprites", "fondos", "variables", "mensajes"], "Tienen disfraces y sonidos."],
+    ["Los bloques de eventos son de color…", ["amarillo", "azul", "verde", "rosa"], "Tienen forma de sombrero."],
+    ["Una secuencia es…", ["instrucciones que se ejecutan una tras otra", "una repetición", "una decisión", "una variable"], "De arriba abajo."],
+    ["Para dibujar un cuadrado se usa repetir 4 veces mover y girar…", ["90 grados", "45 grados", "60 grados", "120 grados"], "360 / 4."],
+    ["Para un hexágono se gira…", ["60 grados", "90 grados", "30 grados", "120 grados"], "360 / 6."],
+    ["El bucle que no termina nunca es…", ["por siempre", "repetir 10", "repetir hasta que", "si … entonces"], "Típico de los juegos."],
+    ["El bloque «si … entonces … si no»…", ["siempre ejecuta una de las dos opciones", "no hace nada nunca", "repite instrucciones", "crea variables"], "Según la condición sea verdadera o falsa."],
+    ["Una condición solo puede valer…", ["verdadero o falso", "cualquier número", "un texto", "un color"], "Bloques hexagonales."],
+    ["El operador «y» es verdadero si…", ["se cumplen las dos condiciones", "se cumple una de ellas", "no se cumple ninguna", "siempre"], "«o» basta con una."],
+    ["Una variable sirve para…", ["guardar un valor que puede cambiar", "dibujar con el lápiz", "cambiar de fondo", "tocar sonidos"], "Por ejemplo, los puntos."],
+    ["Al empezar un juego, la variable puntos debe…", ["inicializarse a 0", "borrarse", "ocultarse siempre", "valer 100"], "Si no, conserva el valor anterior."],
+    ["Para que un objeto avise a otros se usan los…", ["mensajes", "disfraces", "sonidos", "lápices"], "Enviar y recibir mensaje."],
+    ["Buscar y corregir errores se llama…", ["depurar", "compilar", "descargar", "clonar"], "Los errores se llaman bugs."],
+    ["En una micro:bit, un LED es un…", ["actuador", "sensor", "algoritmo", "evento"], "Es una salida."],
+  ], 1),
+  examen: H.test([
+    ["Para dibujar un triángulo equilátero se repite 3 veces mover y girar…", ["120 grados", "60 grados", "90 grados", "180 grados"], "360 / 3."],
+    ["Si n vale 2 y se ejecuta «sumar 3 a n», n vale…", ["5", "3", "6", "23"], "2 + 3."],
+    ["Un condicional fuera de un bucle…", ["solo se comprueba una vez", "se comprueba siempre", "no funciona nunca", "crea un clon"], "Por eso suele ir dentro de «por siempre»."],
+    ["«Repetir hasta que tocando borde» termina cuando…", ["el objeto toca el borde", "pasan 10 segundos", "se pulsa espacio", "nunca"], "La condición se hace verdadera."],
+    ["Para que algo aparezca en un sitio distinto cada vez se usa…", ["número al azar", "por siempre", "enviar mensaje", "esperar 1 segundo"], "Operador aleatorio."],
+    ["El romboide en un diagrama de flujo indica…", ["entrada o salida de datos", "una decisión", "el inicio", "un bucle"], "Pedir o mostrar datos."],
+    ["Un sensor de luz en una placa programable es…", ["una entrada", "una salida", "un actuador", "un mensaje"], "Recoge información del entorno."],
+    ["Si un juego muestra siempre 1 punto aunque se coman muchas estrellas, probablemente…", ["se usa «dar a puntos 1» en vez de «sumar 1»", "falta el fondo", "sobra el evento", "el gato es muy pequeño"], "Hay que sumar, no fijar el valor."],
+  ], 2),
+  feynman: ["Qué es un algoritmo y cómo se dibuja un diagrama de flujo", "Para qué sirven los eventos y las secuencias en Scratch", "Qué diferencia hay entre un bucle y un condicional", "Para qué sirve una variable y por qué hay que inicializarla", "Cómo se depura un programa que no funciona"],
+  mapa: H.mapa("PROGRAMACIÓN POR BLOQUES", "var(--eso)", [
+    ["Algoritmos", "pasos · diagramas de flujo", "var(--pen)"],
+    ["Scratch", "escenario · objetos · eventos", "#b8860b"],
+    ["Estructuras", "secuencia · bucle · condicional", "var(--red)"],
+    ["Datos y control", "variables · mensajes · placas", "var(--leaf)"],
+  ], 270),
   tarjetas: [
-    ["Algoritmo", "Instrucciones ordenadas y finitas para resolver un problema."],
-    ["Diagrama de flujo", "Dibujo del algoritmo con símbolos y flechas."],
-    ["Evento", "Bloque que indica cuándo empieza un programa."],
-    ["Secuencia", "Instrucciones una tras otra, de arriba abajo."],
-    ["Bucle", "Repite instrucciones: repetir, por siempre, hasta que."],
-    ["Condicional", "Si… entonces… si no: decide."],
-    ["Variable", "Caja con nombre que guarda un dato que cambia."],
-    ["Depurar", "Encontrar y corregir errores (bugs)."],
+    ["Programa", "Instrucciones ordenadas para un ordenador."],
+    ["Algoritmo", "Pasos ordenados y finitos para resolver un problema."],
+    ["Diagrama de flujo", "Óvalo inicio, rectángulo acción, rombo decisión."],
+    ["Scratch", "Lenguaje de bloques: escenario, objetos y programas."],
+    ["Evento", "Pone en marcha el programa: bandera, tecla, mensaje."],
+    ["Secuencia", "Instrucciones una tras otra; el orden importa."],
+    ["Bucle", "Repetir n veces, por siempre, repetir hasta que."],
+    ["Condicional", "Si … entonces (… si no)."],
+    ["Operadores", "Cálculos, comparaciones, y / o / no, azar."],
+    ["Variable", "Caja con nombre y valor que cambia; inicializarla."],
+    ["Mensaje", "Aviso para coordinar varios objetos."],
+    ["Depurar", "Buscar y corregir errores (bugs)."],
   ],
-  familias: ["Escribid juntos el algoritmo de una tarea de casa, como poner la lavadora.", "Probad en familia un programa de Scratch hecho en clase.", "Buscad objetos de casa que tengan programas: lavadora, microondas, termostato."],
-  profesores: {
-    saberes: "Pensamiento computacional, programación y robótica: algoritmos, diagramas de flujo, programación por bloques, estructuras de control, variables y depuración (RD 217/2022, Tecnología y Digitalización, bloque C).",
-    ideas: ["Reto de figuras geométricas con el lápiz de Scratch.", "Diagrama de flujo en papel antes de programar un juego de preguntas.", "Sesión de depuración por parejas con programas con errores preparados."],
+  glosario: [
+    ["Programa", "Conjunto de instrucciones ordenadas que ejecuta un ordenador."],
+    ["Algoritmo", "Secuencia ordenada y finita de pasos que resuelve un problema."],
+    ["Pensamiento computacional", "Forma de resolver problemas descomponiéndolos, buscando patrones, abstrayendo y diseñando algoritmos."],
+    ["Diagrama de flujo", "Representación gráfica de un algoritmo con símbolos y flechas."],
+    ["Lenguaje de programación", "Conjunto de reglas y símbolos para escribir programas."],
+    ["Objeto (sprite)", "Personaje o elemento de Scratch con sus propios programas, disfraces y sonidos."],
+    ["Evento", "Suceso que pone en marcha un programa."],
+    ["Secuencia", "Serie de instrucciones que se ejecutan una detrás de otra."],
+    ["Bucle", "Estructura que repite un grupo de instrucciones."],
+    ["Condicional", "Estructura que ejecuta instrucciones según se cumpla o no una condición."],
+    ["Operador", "Bloque que realiza cálculos, comparaciones u operaciones lógicas."],
+    ["Variable", "Espacio de memoria con nombre que guarda un valor que puede cambiar."],
+    ["Mensaje", "Aviso que un objeto envía para que otros reaccionen."],
+    ["Depurar", "Buscar y corregir los errores de un programa."],
+    ["Actuador", "Elemento de salida que actúa sobre el entorno, como un motor o un LED."],
+  ],
+  situacion: {
+    titulo: "Un videojuego educativo para Primaria",
+    reto: "Una escuela de Primaria del barrio nos pide videojuegos sencillos para repasar contenidos (tablas de multiplicar, animales, ortografía, reciclaje). Vuestro equipo programará uno en Scratch pensado para niños de 8 años.",
+    pasos: [
+      "Elegid el tema y el tipo de juego (preguntas, atrapar, laberinto) y describid sus reglas.",
+      "Dibujad el diagrama de flujo del funcionamiento principal y haced un boceto de las pantallas.",
+      "Programad el juego en Scratch usando eventos, bucles, condicionales, variables (puntos, vidas o tiempo) y mensajes.",
+      "Probad el juego con compañeros, anotad los errores y depuradlos.",
+      "Añadid instrucciones claras, una pantalla de inicio y una de final, y citad los recursos usados.",
+      "Compartid el proyecto y presentadlo a los niños de Primaria para recoger su opinión.",
+    ],
+    producto: "Un videojuego educativo en Scratch que funciona, con su diagrama de flujo, instrucciones y una breve memoria del proceso.",
+    evaluacion: [
+      "El juego funciona sin errores y cumple sus reglas.",
+      "Se usan correctamente secuencias, bucles, condicionales, variables y mensajes.",
+      "El diseño es adecuado para el público de Primaria y tiene un objetivo educativo claro.",
+      "El equipo documenta el proceso, depura los errores y respeta los derechos de autor.",
+    ],
   },
-  fuentes: [RD, wiki("Scratch (lenguaje de programación)", "Scratch_(lenguaje_de_programación)"), wiki("Diagrama de flujo", "Diagrama_de_flujo")],
-  revisado: REV,
+  familias: ["Pedid que os enseñe un proyecto de Scratch y jugad juntos.", "Escribid entre todos el algoritmo de una tarea de casa (poner la lavadora, preparar un bocadillo) y comprobad si se puede seguir al pie de la letra.", "Buscad en casa aparatos que funcionen con sensores y actuadores (termostato, luz con detector).", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "Pensamiento computacional, programación y robótica: algoritmos y diagramas de flujo, lenguajes de programación por bloques, secuencias, bucles, condicionales, operadores, variables y eventos; depuración; sistemas de control programado con sensores y actuadores; implicaciones éticas (RD 217/2022, Tecnología y Digitalización 1º a 3º, bloque C «Pensamiento computacional, programación y robótica»). En Cataluña, saberes equivalentes de Tecnologia i Digitalització del Decret 175/2022.",
+    ideas: [
+      "Actividades desenchufadas: un alumno «robot» sigue el algoritmo que le dictan los compañeros.",
+      "Retos de Scratch de dificultad creciente con insignias.",
+      "Concurso de depuración: proyectos con errores preparados para encontrarlos.",
+      "Programación de la micro:bit con MakeCode: termómetro, podómetro o piedra, papel o tijera.",
+      "Proyecto colaborativo con Primaria: videojuegos educativos.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, { t: "Scratch (MIT): crear y compartir proyectos", url: "https://scratch.mit.edu/" }, { t: "Microsoft MakeCode para micro:bit", url: "https://makecode.microbit.org/" }, H.wiki("Algoritmo", "Algoritmo")],
+  revisado: H.REV,
 };

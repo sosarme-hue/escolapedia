@@ -1,159 +1,235 @@
-// Tecnología y Digitalización 2º ESO: circuitos eléctricos. Dibujos propios en SVG.
-const { D, mapa, BG, t, fl, caja, tabla, RD, wiki, C, REV, pila, bombilla, resis } = require("./_eso2a");
-
-// interruptor abierto en horizontal: de x a x+24
-const inter = (x, y) => `<circle cx="${x}" cy="${y}" r="2.5" fill="var(--ink)"/><circle cx="${x + 24}" cy="${y}" r="2.5" fill="var(--ink)"/><path d="M${x} ${y} L ${x + 21} ${y - 11}" stroke="var(--ink)" stroke-width="2"/>`;
-const hueco = (x, y, w, h) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="var(--paper)"/>`;
+// Tecnología y Digitalización 2º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso2L7 y dibujos de la versión anterior del tema.
+const H = require("./_eso2L7");
+const S = "tyd-circuitos";
 
 module.exports = {
-  materia: "Tecnología y Digitalización",
-  curso: C,
+  materia: H.MATERIA,
+  curso: H.CURSO,
   titulo: "Circuitos eléctricos",
-  minutos: 55,
-  objetivos: ["Identificar los elementos de un circuito eléctrico y su función", "Dibujar esquemas con la simbología normalizada", "Distinguir circuitos en serie, en paralelo y mixtos y predecir su comportamiento", "Calcular resistencias equivalentes, intensidades y voltajes en circuitos sencillos"],
-  claves: ["circuito", "generador", "receptor", "conductor", "interruptor", "fusible", "esquema", "serie", "paralelo", "mixto", "resistencia equivalente", "cortocircuito"],
+  minutos: 110,
+  objetivos: [
+    "Identificar los elementos de un circuito eléctrico y la función de cada uno",
+    "Dibujar e interpretar esquemas con la simbología normalizada",
+    "Distinguir circuito abierto, cerrado y cortocircuito",
+    "Diferenciar circuitos en serie, en paralelo y mixtos y predecir cómo se comportan",
+    "Calcular resistencias equivalentes, intensidades y voltajes en circuitos sencillos",
+    "Montar y comprobar circuitos con seguridad y relacionarlos con la instalación de una vivienda",
+  ],
+  claves: ["circuito", "generador", "receptor", "conductor", "interruptor", "pulsador", "conmutador", "fusible", "esquema", "cortocircuito", "serie", "paralelo", "mixto", "resistencia equivalente", "placa de pruebas"],
   pregunta: {
     texto: "En el árbol de Navidad de tu abuela, si se funde una bombilla se apagan todas. En el de tu casa, si se funde una, las demás siguen encendidas. ¿Qué diferencia hay entre los dos?",
-    respuesta: "La forma de conectar las bombillas. En el de la abuela están <b>en serie</b>: hay un solo camino para la corriente y, si una bombilla se funde, el camino se corta para todas. En el tuyo están <b>en paralelo</b> (o por grupos): cada bombilla tiene su propio camino y las demás siguen funcionando. Por eso en las casas todos los enchufes y lámparas se conectan en paralelo.",
+    respuesta: "La forma de conectar las bombillas. En el de la abuela están <b>en serie</b>: hay un solo camino para la corriente y, si una bombilla se funde, el camino se corta para todas. En el tuyo están <b>en paralelo</b> (o por grupos): cada bombilla tiene su propio camino y las demás siguen funcionando. Por eso en las casas todos los enchufes y lámparas se conectan <mark>en paralelo</mark>.",
+  },
+  lectura: {
+    titulo: "Una linterna para la noche del apagón",
+    html: `<p>Una tarde de primavera, a media clase, se apagaron las luces del instituto. Y no solo allí: el apagón afectó a toda la península durante horas. Sin semáforos, sin ascensores, sin cobertura y sin enchufes, mucha gente descubrió lo que dependemos de la electricidad. En muchas casas, la noche se pasó a la luz de velas y linternas.</p>
+<p>Una linterna es uno de los circuitos más sencillos que existen: unas pilas, un interruptor, una bombilla o un LED y unas láminas de metal que lo unen todo. Pero su funcionamiento esconde las mismas ideas que el circuito de un coche, de un ordenador o de toda una ciudad: la corriente necesita un <b>camino cerrado</b>, alguien que la empuje y algo que transforme su energía en luz, calor o movimiento.</p>
+<p>Después de aquel día, la profesora de Tecnología propuso un reto: diseñar una luz de emergencia para el aula que se encendiera con un pulsador y que siguiera funcionando aunque se fundiera uno de sus LED. Para conseguirlo hay que saber elegir los componentes, dibujar el esquema y decidir cómo se conectan: en serie o en paralelo. Eso es justo lo que aprenderás en este tema.</p>`,
   },
   bloques: [
     {
-      html: `<h3>¿Qué es un circuito eléctrico?</h3><p>Un <mark>circuito eléctrico</mark> es un <b>camino cerrado</b> por el que circula la corriente eléctrica desde un generador, a través de distintos elementos, hasta volver al generador. Si el camino se interrumpe en algún punto, la corriente deja de circular: decimos que el circuito está <b>abierto</b>. Si el camino está completo, el circuito está <b>cerrado</b> y funciona. Un circuito sirve para <b>transformar la energía eléctrica</b> en otras formas de energía útiles: luz en una lámpara, movimiento en un motor, sonido en un timbre o calor en una estufa. Todos los aparatos eléctricos, desde una linterna hasta un ordenador, son en el fondo circuitos, más o menos complicados, formados por los mismos tipos de elementos básicos.</p>`,
+      html: `<h3>1.1 ¿Qué es un circuito eléctrico?</h3><p>Un <mark>circuito eléctrico</mark> es un <b>camino cerrado</b> por el que circula la corriente eléctrica: sale de un generador, recorre distintos elementos y vuelve al generador. Si el camino se interrumpe en algún punto, la corriente deja de circular.</p><p>La función de un circuito es <b>transformar la energía eléctrica</b> en otras formas de energía útiles: luz en una lámpara, movimiento en un motor, sonido en un timbre o calor en una estufa. También puede servir para transmitir información, como ocurre en los ordenadores, donde la presencia o ausencia de corriente representa ceros y unos.</p><p>Todos los aparatos eléctricos, desde una linterna hasta una lavadora o un satélite, son en el fondo circuitos más o menos complicados construidos con los mismos tipos de elementos básicos. Si entiendes un circuito sencillo con una pila, un interruptor y una bombilla, tienes la base para entender los demás. En este tema aprenderás a reconocer esos elementos, a dibujarlos y a combinarlos.</p>`,
+      svg: H.circuito("Circuito sencillo: una pila y una bombilla unidas por un camino cerrado", "serie", 1, "Camino cerrado: pila → cable → bombilla → pila"),
     },
     {
-      html: `<h3>Elementos de un circuito</h3><p>Todo circuito tiene cuatro tipos de elementos. El <mark>generador</mark> proporciona la energía y crea el voltaje: pilas, baterías, dinamos o la red eléctrica. Los <mark>receptores</mark> transforman la energía eléctrica en otra forma de energía: bombillas y LED (luz), motores (movimiento), timbres y zumbadores (sonido) o resistencias de calefacción (calor). Los <mark>conductores</mark> son los cables, normalmente de cobre recubierto de plástico, que unen los elementos y por los que circula la corriente. Los <mark>elementos de maniobra</mark> permiten abrir o cerrar el circuito a voluntad: el <b>interruptor</b> mantiene su posición (como el de la luz de tu cuarto); el <b>pulsador</b> solo cierra mientras lo apretamos (como el timbre); y el <b>conmutador</b> permite elegir entre dos caminos. Además, muchos circuitos llevan <b>elementos de protección</b>, como los fusibles y los diferenciales.</p>`,
-      video: { id: "PFP9LsBdnLA", titulo: "El circuito eléctrico y sus componentes", canal: "Clases Particulares en Ávila", vistas: 196373 },
+      html: `<h3>1.2 Los elementos de un circuito</h3><p>Todo circuito está formado por cuatro tipos de elementos:</p><p>• El <mark>generador</mark> proporciona la energía y crea el voltaje que empuja a las cargas: pilas, baterías, dinamos, placas solares o la red eléctrica.<br>• Los <mark>receptores</mark> transforman la energía eléctrica en otra forma de energía: bombillas y LED (luz), motores (movimiento), timbres y zumbadores (sonido), resistencias calefactoras (calor).<br>• Los <mark>conductores</mark> son los cables, normalmente de cobre recubierto de plástico, que unen los elementos y permiten el paso de la corriente.<br>• Los <mark>elementos de control y protección</mark> permiten abrir y cerrar el circuito o protegerlo: interruptores, pulsadores, conmutadores y fusibles.</p><p>En un circuito bien diseñado cada elemento tiene su función. Si falta el generador, no hay energía; si falta un receptor, la energía no se aprovecha y además puede producirse un cortocircuito; si falta el elemento de control, no podemos encender ni apagar el aparato.</p>`,
+      svg: H.radial("Los cuatro tipos de elementos de un circuito", "CIRCUITO", ["Generador: pila", "Receptor: bombilla", "Conductor: cable", "Control: interruptor"], "var(--pen)"),
+      video: H.vid(S, 1),
     },
     {
-      html: `<h3>Los esquemas eléctricos</h3><p>Dibujar un circuito tal como es, con todos sus cables y aparatos, sería lento y confuso. Por eso los técnicos usan <mark>esquemas eléctricos</mark>: dibujos simplificados en los que cada elemento se representa con un <b>símbolo normalizado</b>, el mismo en todo el mundo. Los cables se dibujan como <b>líneas rectas</b>, horizontales o verticales, con esquinas en ángulo recto. Cuando dos cables se cruzan y están conectados, se marca un punto gordo en el cruce; si no hay punto, solo se cruzan sin tocarse. Saber leer esquemas permite entender cómo funciona cualquier aparato y montarlo en el taller sin equivocarse. En los esquemas se suele indicar también el valor de cada elemento: el voltaje de la pila (por ejemplo 4,5 V) o la resistencia de cada receptor (por ejemplo 10 Ω).</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Símbolos eléctricos: pila, bombilla, resistencia, interruptor, motor y LED">${BG}
-        <path d="M20 40 H 42 M50 40 H 72" stroke="var(--ink)" stroke-width="2"/>${pila(42, 40)}${t(46, 68, "pila", { size: 10 })}
-        <path d="M110 40 H 122 M142 40 H 154" stroke="var(--ink)" stroke-width="2"/>${bombilla(132, 40)}${t(132, 68, "bombilla", { size: 10 })}
-        <path d="M188 40 H 199 M229 40 H 240" stroke="var(--ink)" stroke-width="2"/>${resis(214, 40)}${t(214, 68, "resistencia", { size: 10 })}
-        <path d="M20 112 H 34 M58 112 H 72" stroke="var(--ink)" stroke-width="2"/>${inter(34, 112)}${t(46, 140, "interruptor", { size: 10 })}
-        <path d="M110 112 H 120 M144 112 H 154" stroke="var(--ink)" stroke-width="2"/><circle cx="132" cy="112" r="12" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${t(132, 117, "M", { size: 13 })}${t(132, 140, "motor", { size: 10 })}
-        <path d="M188 112 H 204 M224 112 H 240" stroke="var(--ink)" stroke-width="2"/><path d="M204 102 L 220 112 L 204 122 Z M220 102 V 122" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${fl(214, 100, 224, 90, "var(--red)", 1.5)}${fl(208, 98, 218, 88, "var(--red)", 1.5)}${t(214, 140, "LED", { size: 10 })}</svg>`,
+      html: `<h3>1.3 Elementos de control y de protección</h3><p>Los elementos de control deciden cuándo y por dónde circula la corriente:</p><p>• El <b>interruptor</b> abre o cierra el circuito y se queda en la posición elegida, como el de la luz de tu habitación.<br>• El <b>pulsador</b> solo cierra (o abre) el circuito mientras lo mantienes apretado; al soltarlo vuelve a su posición. Es el del timbre de casa o el de un mando.<br>• El <b>conmutador</b> desvía la corriente por un camino u otro. Con dos conmutadores se puede encender y apagar una misma luz desde dos sitios, como en un pasillo o una escalera.</p><p>Los elementos de protección evitan daños cuando algo va mal. El <b>fusible</b> contiene un hilo fino que se funde si pasa demasiada corriente, cortando el circuito. En las viviendas se usan <b>magnetotérmicos</b>, que se pueden rearmar, y el <b>interruptor diferencial</b>, que protege a las personas de las descargas.</p>`,
+      svg: H.tabla("Elementos de control y protección", ["Elemento", "Qué hace", "Ejemplo"], [["Interruptor", "Abre y cierra; se queda", "Luz del cuarto"], ["Pulsador", "Solo mientras aprietas", "Timbre"], ["Conmutador", "Elige un camino", "Luz de pasillo"], ["Fusible", "Se funde si hay exceso", "Coche, enchufe"]]),
     },
     {
-      html: `<h3>Circuito en serie</h3><p>En un <mark>circuito en serie</mark> los receptores se conectan <b>uno detrás de otro</b>, de modo que solo hay <b>un camino</b> para la corriente. Sus características son: la <b>intensidad es la misma</b> en todos los receptores, porque la corriente no tiene por dónde desviarse; el <b>voltaje del generador se reparte</b> entre los receptores, por lo que cada bombilla brilla menos que si estuviera sola; la <b>resistencia equivalente</b> es la suma de todas: <b>R<sub>T</sub> = R<sub>1</sub> + R<sub>2</sub> + …</b>; y si un receptor se funde o se desconecta, <b>todos dejan de funcionar</b>, porque el circuito queda abierto. Cuantas más bombillas pongamos en serie, menos brilla cada una. Se usa, por ejemplo, para colocar un interruptor que controle un receptor, o en las pilas de un mando, que se ponen en serie para sumar sus voltajes: dos pilas de 1,5 V dan 3 V.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Circuito en serie: una pila y dos bombillas una detrás de otra en un único camino; la intensidad es la misma y el voltaje se reparte">${BG}
-        <path d="M40 40 H 220 V 130 H 40 Z" fill="none" stroke="var(--ink)" stroke-width="2"/>${hueco(118, 120, 24, 20)}<path d="M40 130 H 126 M134 130 H 220" stroke="var(--ink)" stroke-width="2"/>${pila(126, 130)}${t(130, 156, "4,5 V", { size: 10 })}
-        ${hueco(88, 30, 24, 20)}${bombilla(100, 40)}${hueco(148, 30, 24, 20)}${bombilla(160, 40)}
-        ${fl(60, 54, 80, 54, "var(--red)", 2)}${t(130, 22, "un solo camino", { size: 10, color: "var(--red)" })}
-        ${t(130, 86, "R = R₁ + R₂", { size: 13, color: "var(--pen)" })}${t(130, 104, "misma I · V repartido", { size: 10, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.4 Símbolos y esquemas eléctricos</h3><p>Dibujar un circuito con todo detalle sería lento y confuso. Por eso los técnicos de todo el mundo usan <mark>esquemas eléctricos</mark>: dibujos simplificados en los que cada elemento se representa con un <b>símbolo normalizado</b>, igual en cualquier país.</p><p>Algunos símbolos que debes conocer: la <b>pila</b> se dibuja con dos rayas paralelas, la larga es el polo positivo y la corta el negativo; la <b>bombilla</b>, con un círculo con un aspa; la <b>resistencia</b>, con un rectángulo (o una línea en zigzag en el sistema americano); el <b>motor</b>, con un círculo con una M; el <b>interruptor</b>, con una línea inclinada entre dos puntos; y el <b>LED</b>, con un triángulo, una raya y dos flechitas que indican la luz.</p><p>Al dibujar un esquema, los cables se representan con <b>líneas rectas</b> horizontales y verticales, y las uniones entre cables con un punto gordo. Un buen esquema permite a cualquier persona montar el circuito sin haberlo visto nunca.</p>`,
+      svg: H.viejo(S, 2),
     },
     {
-      html: `<h3>Circuito en paralelo</h3><p>En un <mark>circuito en paralelo</mark> cada receptor se conecta <b>directamente a los dos polos del generador</b>, en ramas distintas, de modo que hay <b>varios caminos</b> para la corriente. Sus características son: todos los receptores tienen <b>el mismo voltaje</b>, el del generador, y por eso cada bombilla brilla igual que si estuviera sola; la <b>intensidad total se reparte</b> entre las ramas: I<sub>T</sub> = I<sub>1</sub> + I<sub>2</sub> + …; la <b>resistencia equivalente es menor</b> que la más pequeña de las resistencias: 1/R<sub>T</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + …; y si un receptor se funde, <b>los demás siguen funcionando</b>. Esta es la conexión de las instalaciones de las viviendas: todas las lámparas y enchufes están en paralelo, a 230 V, y puedes encender o apagar cada aparato sin afectar a los demás. Su inconveniente es que la pila se gasta antes, porque entrega más intensidad.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Circuito en paralelo: dos bombillas en ramas distintas conectadas a la pila; el voltaje es el mismo y la intensidad se reparte">${BG}
-        <path d="M40 30 H 200 V 140 H 40 Z M120 30 V 140" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        ${hueco(30, 74, 20, 24)}<path d="M28 86 H 52" stroke="var(--paper)" stroke-width="1"/><path d="M40 74 V 82 M40 90 V 98" stroke="var(--ink)" stroke-width="2"/><path d="M28 82 H 52 M34 90 H 46" stroke="var(--ink)" stroke-width="2.5"/>${t(60, 90, "4,5 V", { size: 10, anchor: "start" })}
-        ${hueco(110, 73, 20, 26)}${bombilla(120, 86)}${hueco(190, 73, 20, 26)}${bombilla(200, 86)}
-        <circle cx="120" cy="30" r="3.5" fill="var(--ink)"/><circle cx="120" cy="140" r="3.5" fill="var(--ink)"/>
-        ${t(160, 20, "dos caminos", { size: 10, color: "var(--red)" })}${t(160, 162, "mismo V · I repartida", { size: 10, color: "var(--muted)" })}</svg>`,
-      video: { id: "UQqSrMOpC-c", titulo: "Circuito en paralelo: intensidad de corriente y resistencia", canal: "Algebraticos", vistas: 975087 },
+      html: `<h3>1.5 Circuito abierto, cerrado y cortocircuito</h3><p>Un circuito está <mark>cerrado</mark> cuando el camino de la corriente está completo y los receptores funcionan. Está <mark>abierto</mark> cuando el camino se interrumpe en algún punto: un interruptor apagado, un cable suelto o una bombilla fundida. En un circuito abierto no circula corriente.</p><p>Un <mark>cortocircuito</mark> se produce cuando los dos polos del generador se unen directamente por un conductor, sin pasar por ningún receptor. Como la resistencia del camino es casi nula, la intensidad se dispara (recuerda: I = V / R). Los cables se calientan mucho, pueden fundirse o provocar un incendio, y la pila se agota en poco tiempo.</p><p>Los cortocircuitos suelen deberse a cables pelados que se tocan, a agua que entra en un aparato o a errores de montaje. Por eso en las instalaciones hay fusibles y magnetotérmicos, y por eso al montar un circuito en el taller hay que revisar las conexiones antes de conectar la pila.</p>`,
+      svg: H.compara("Circuito abierto frente a cortocircuito", ["Abierto", "var(--pen)", ["Camino cortado", "No pasa corriente", "Interruptor apagado", "Es seguro"]], ["Cortocircuito", "var(--red)", ["Polos unidos sin receptor", "Intensidad enorme", "Cables muy calientes", "Peligro de incendio"]], "Cerrado: camino completo"),
     },
     {
-      html: `<h3>Comparar serie y paralelo</h3><p>Un experimento sencillo en el taller lo muestra muy bien: monta dos bombillas iguales en serie con una pila de 4,5 V y verás que brillan poco; móntalas en paralelo con la misma pila y brillarán como una sola, pero la pila durará la mitad. Quita una bombilla de cada montaje: en serie se apaga la otra; en paralelo, la otra sigue encendida. Esta tabla resume las diferencias.</p>${tabla(["", "Serie", "Paralelo"], [["Caminos para la corriente", "Uno", "Varios"], ["Intensidad", "La misma en todos", "Se reparte entre las ramas"], ["Voltaje", "Se reparte", "El mismo en todos"], ["Resistencia equivalente", "R₁ + R₂ (mayor)", "Menor que la menor"], ["Si un receptor se funde", "Se apagan todos", "Los demás siguen"], ["Brillo de las bombillas", "Menor", "Igual que si estuviera sola"]])}`,
+      html: `<h3>1.6 El circuito en serie</h3><p>En un <mark>circuito en serie</mark> los receptores se conectan <b>uno detrás de otro</b>, de modo que hay un único camino para la corriente. Sus características son:</p><p>• La <b>intensidad es la misma</b> en todos los receptores, porque la corriente no tiene otro camino.<br>• El <b>voltaje del generador se reparte</b> entre los receptores. Con dos bombillas iguales en serie a 4,5 V, cada una recibe 2,25 V.<br>• Por eso las bombillas <b>brillan menos</b> que si estuvieran solas, y cuantas más se añaden, menos brillan.<br>• Si un receptor se funde o se desconecta, el circuito se abre y <b>se apagan todos</b>.</p><p>Los circuitos en serie se usan cuando queremos que todos los elementos funcionen a la vez o ninguno, por ejemplo al poner un interruptor o un fusible en serie con lo que controla. También se ponen pilas en serie para sumar sus voltajes: dos pilas de 1,5 V en serie dan 3 V.</p>`,
+      svg: H.viejo(S, 3),
     },
     {
-      html: `<h3>Circuitos mixtos y cálculo</h3><p>Un <mark>circuito mixto</mark> combina tramos en serie y tramos en paralelo. Para resolverlo se van <b>simplificando por partes</b>: primero se calcula la resistencia equivalente de cada grupo en paralelo, luego se suman las que quedan en serie, y así hasta obtener una sola resistencia equivalente. Con ella y la ley de Ohm se calcula la intensidad total. Para dos resistencias en paralelo hay un atajo muy útil: <b>R<sub>T</sub> = (R<sub>1</sub> · R<sub>2</sub>) / (R<sub>1</sub> + R<sub>2</sub>)</b>, es decir, «producto partido por suma». Y si las dos son iguales, la equivalente es la mitad de una. Por ejemplo, dos resistencias de 6 Ω en paralelo equivalen a 3 Ω; si en serie con ellas hay otra de 3 Ω, la total es 3 + 3 = 6 Ω; con una pila de 12 V circulan I = 12 / 6 = 2 A.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Circuito mixto: dos resistencias de 6 ohmios en paralelo, en serie con una de 3 ohmios; se simplifica a 3 más 3 igual a 6 ohmios">${BG}
-        <path d="M20 60 H 50 M50 40 V 80 M50 40 H 75 M105 40 H 130 M50 80 H 75 M105 80 H 130 M130 40 V 80 M130 60 H 160 M190 60 H 230" stroke="var(--ink)" stroke-width="2" fill="none"/>
-        ${resis(90, 40)}${resis(90, 80)}${resis(175, 60)}<circle cx="50" cy="60" r="3" fill="var(--ink)"/><circle cx="130" cy="60" r="3" fill="var(--ink)"/>
-        ${t(90, 28, "6 Ω", { size: 10 })}${t(90, 100, "6 Ω", { size: 10 })}${t(175, 48, "3 Ω", { size: 10 })}
-        ${t(130, 128, "paralelo: 6 · 6 / (6 + 6) = 3 Ω", { size: 10, color: "var(--pen)" })}${t(130, 148, "serie: 3 + 3 = 6 Ω", { size: 10, color: "var(--red)" })}${t(130, 168, "con 12 V: I = 12 / 6 = 2 A", { size: 10, color: "var(--leaf)" })}</svg>`,
+      html: `<h3>1.7 Cálculos en el circuito en serie</h3><p>En serie, las resistencias se <b>suman</b>. La <mark>resistencia equivalente</mark> es la de una única resistencia que produciría el mismo efecto que todas juntas: <b>Req = R1 + R2 + R3 + …</b></p><p>Para resolver un circuito en serie se siguen estos pasos:</p><p>1. Se calcula la resistencia equivalente sumando todas.<br>2. Con la ley de Ohm se calcula la intensidad total: I = V / Req. Es la misma en todos los receptores.<br>3. Se calcula el voltaje de cada receptor: V1 = I · R1, V2 = I · R2…<br>4. Se comprueba que la suma de voltajes es igual al del generador.</p><p>Ejemplo: una pila de 9 V con dos resistencias de 10 Ω y 20 Ω en serie. Req = 10 + 20 = 30 Ω. I = 9 / 30 = 0,3 A. V1 = 0,3 · 10 = 3 V; V2 = 0,3 · 20 = 6 V. Comprobación: 3 + 6 = 9 V. Observa que la resistencia mayor se queda con más voltaje.</p>`,
+      svg: H.formula("Resistencia equivalente en serie", "Circuito en serie", "Req = R1 + R2", ["La intensidad es la misma en todo el circuito", "Los voltajes se reparten: V = V1 + V2", "10 Ω + 20 Ω = 30 Ω"], "var(--pen)"),
     },
     {
-      html: `<h3>El cortocircuito y la protección</h3><p>Un <mark>cortocircuito</mark> ocurre cuando los dos polos del generador se unen directamente por un conductor sin ningún receptor en medio, por ejemplo si se pelan dos cables y se tocan. Como la resistencia es casi cero, la intensidad se dispara (según la ley de Ohm, I = V / R) y los cables se calientan muchísimo: pueden fundirse, quemar el aislante y provocar un incendio. Una pila en cortocircuito se calienta y se agota en minutos. Para evitar daños, las instalaciones llevan <b>elementos de protección</b>. El <mark>fusible</mark> es un hilo fino que se funde y abre el circuito si pasa demasiada corriente. El <b>interruptor magnetotérmico</b> (los «plomos» del cuadro eléctrico) hace lo mismo pero se puede volver a subir. Y el <b>interruptor diferencial</b> corta la corriente si detecta una fuga, por ejemplo cuando una persona recibe una descarga: salva vidas.</p>`,
+      html: `<h3>1.8 El circuito en paralelo</h3><p>En un <mark>circuito en paralelo</mark> cada receptor está conectado directamente a los dos polos del generador, en una <b>rama</b> distinta. La corriente se divide en los nudos y luego vuelve a juntarse. Sus características son:</p><p>• Todos los receptores reciben el <b>mismo voltaje</b>, el del generador.<br>• La <b>intensidad total se reparte</b> entre las ramas: la del generador es la suma de las de cada rama.<br>• Cada bombilla <b>brilla igual</b> que si estuviera sola.<br>• Si un receptor se funde, <b>los demás siguen funcionando</b>, porque su camino no se ha cortado.<br>• Cuantos más receptores se añaden, más intensidad sale del generador y antes se gasta la pila.</p><p>Por estas ventajas, las instalaciones de las viviendas se hacen en paralelo: todas las lámparas y enchufes reciben 230 V y puedes encender una sin depender de las demás. Las pilas en paralelo mantienen el voltaje pero duran más tiempo.</p>`,
+      svg: H.viejo(S, 4),
+      video: H.vid(S, 4),
     },
     {
-      html: `<h3>Montar circuitos en el taller y con simuladores</h3><p>En el taller de Tecnología se montan circuitos con pilas de petaca (4,5 V), portalámparas, bombillas, interruptores, motores pequeños y cables con pinzas de cocodrilo, o sobre una <b>placa de prototipos</b> (protoboard), en la que los componentes se pinchan sin soldar. Antes de montar, siempre se dibuja el esquema. Después se comprueba con el <b>polímetro</b> que los voltajes y las intensidades son los esperados. También se pueden diseñar y probar circuitos en <mark>simuladores</mark> gratuitos por internet, como <b>Tinkercad Circuits</b> o los de PhET, que dejan ver cómo circula la corriente y medir sin riesgo de quemar nada. Una buena costumbre: monta el circuito con el interruptor abierto, revísalo y solo entonces ciérralo. Si algo se calienta o huele a quemado, desconecta la pila enseguida.</p>`,
+      html: `<h3>1.9 Cálculos en el circuito en paralelo</h3><p>En paralelo, la resistencia equivalente es <b>menor que la más pequeña</b> de las resistencias, porque la corriente tiene más caminos. Se calcula con la fórmula <b>1 / Req = 1 / R1 + 1 / R2 + …</b> Para solo dos resistencias hay un atajo: <b>Req = (R1 · R2) / (R1 + R2)</b>. Y si son n resistencias iguales de valor R, Req = R / n.</p><p>Pasos para resolver un circuito en paralelo:</p><p>1. Todas las ramas tienen el voltaje del generador.<br>2. Se calcula la intensidad de cada rama: I1 = V / R1, I2 = V / R2…<br>3. La intensidad total es la suma: I = I1 + I2 + …<br>4. Se comprueba con la resistencia equivalente: I = V / Req.</p><p>Ejemplo: una pila de 6 V con dos resistencias de 6 Ω y 3 Ω en paralelo. I1 = 6 / 6 = 1 A; I2 = 6 / 3 = 2 A; I total = 3 A. Req = (6 · 3) / (6 + 3) = 2 Ω, y 6 / 2 = 3 A. Por la resistencia menor pasa más corriente.</p>`,
+      svg: H.formula("Resistencia equivalente en paralelo", "Circuito en paralelo", "Req = R1·R2 / (R1+R2)", ["El voltaje es el mismo en todas las ramas", "Las intensidades se suman: I = I1 + I2", "6 Ω y 3 Ω en paralelo: 2 Ω"], "var(--leaf)"),
+    },
+    {
+      html: `<h3>1.10 Circuitos mixtos</h3><p>Un <mark>circuito mixto</mark> combina partes en serie y partes en paralelo. Casi todos los circuitos reales son mixtos: por ejemplo, un interruptor en serie que controla varias bombillas conectadas en paralelo.</p><p>Para resolverlo se va <b>simplificando por partes</b>, de dentro hacia fuera:</p><p>1. Se buscan grupos de resistencias que estén claramente en serie o en paralelo y se sustituyen por su equivalente.<br>2. Se vuelve a dibujar el circuito simplificado.<br>3. Se repite hasta que quede una sola resistencia equivalente.<br>4. Se calcula la intensidad total y se «deshace» el camino para hallar voltajes e intensidades de cada parte.</p><p>Ejemplo: dos resistencias de 6 Ω en paralelo, en serie con una de 3 Ω, conectadas a 12 V. Las dos de 6 Ω en paralelo equivalen a 3 Ω. Sumadas a la de 3 Ω en serie: Req = 6 Ω. I total = 12 / 6 = 2 A. La de 3 Ω tiene 2 · 3 = 6 V; el grupo en paralelo, los otros 6 V, y por cada rama pasa 6 / 6 = 1 A.</p>`,
+      svg: H.viejo(S, 6),
+    },
+    {
+      html: `<h3>1.11 Montar y comprobar circuitos</h3><p>En el taller, los circuitos se montan primero en una <mark>placa de pruebas</mark> o protoboard: una placa con agujeros conectados por dentro en filas, en la que se pinchan los componentes y los cables sin necesidad de soldar. Así se pueden probar y corregir fácilmente.</p><p>Un buen procedimiento de montaje es:</p><p>1. Dibujar el esquema y hacer los cálculos (por ejemplo, la resistencia de protección de cada LED).<br>2. Reunir los componentes y comprobar sus valores.<br>3. Montar con la pila <b>desconectada</b>, siguiendo el esquema paso a paso.<br>4. Revisar que no haya cortocircuitos y que los LED estén bien orientados: la patilla larga es el ánodo (+).<br>5. Conectar la pila y medir con el polímetro voltajes e intensidades.<br>6. Si algo falla, buscar la avería por partes.</p><p>Cuando el circuito funciona, se puede pasar a una placa definitiva soldando los componentes. Hoy también existen <b>simuladores</b> en línea, como Tinkercad Circuits, para probar el circuito en el ordenador antes de montarlo.</p>`,
+      svg: H.flujo("Pasos para montar un circuito", ["Esquema y cálculos", "Montaje con la pila desconectada", "Revisión: cortocircuitos y polaridad", "Conectar, medir y corregir"], "Montaje en la placa de pruebas"),
+    },
+    {
+      html: `<h3>1.12 La instalación eléctrica de una vivienda</h3><p>La electricidad llega a casa por la <b>acometida</b> desde la red de la compañía, pasa por el <b>contador</b>, que mide los kWh consumidos, y entra en el <mark>cuadro eléctrico</mark> o cuadro de protección. Desde ahí sale en varios <b>circuitos</b> independientes: uno para la iluminación, otro para los enchufes de uso general, otro para la cocina y el horno, otro para la lavadora y el baño…</p><p>Todos los puntos de luz y enchufes de cada circuito están conectados <b>en paralelo</b>, y los interruptores, <b>en serie</b> con la lámpara que controlan. Cada circuito tiene su propio <b>magnetotérmico</b>, con un cable de grosor adecuado a la potencia que debe soportar.</p><p>Además, los enchufes tienen un tercer contacto, la <b>toma de tierra</b>, que se une a una pica clavada en el suelo del edificio. Si un aparato metálico tiene una fuga, la corriente se va por tierra en lugar de por tu cuerpo, y el <b>diferencial</b> corta el suministro al instante.</p>`,
+      svg: H.flujo("Recorrido de la electricidad en una vivienda", ["Red eléctrica y acometida", "Contador: mide los kWh", "Cuadro: diferencial y magnetotérmicos", "Circuitos en paralelo: luces y enchufes"], "La instalación de casa"),
     },
   ],
-  figura: {
-    titulo: "Serie frente a paralelo",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="A la izquierda, dos bombillas en serie: un camino, brillan menos y si una se funde se apagan las dos. A la derecha, dos bombillas en paralelo: varios caminos, brillan igual y si una se funde la otra sigue">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      <rect x="20" y="16" width="290" height="198" rx="14" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>${t(165, 44, "SERIE", { size: 18, color: "var(--red)", font: D })}
-      <path d="M60 70 H 270 V 150 H 60 Z" fill="none" stroke="var(--ink)" stroke-width="2"/><rect x="153" y="140" width="24" height="20" fill="var(--card)"/><path d="M153 150 H 161 M169 150 H 177" stroke="var(--ink)" stroke-width="2"/>${pila(161, 150)}
-      <rect x="111" y="58" width="24" height="24" fill="var(--card)"/>${bombilla(123, 70, 11)}<rect x="195" y="58" width="24" height="24" fill="var(--card)"/>${bombilla(207, 70, 11)}
-      ${t(165, 186, "un camino · brillan menos", { size: 13 })}${t(165, 204, "si una se funde, se apagan las dos", { size: 11, weight: 400 })}
-      <rect x="330" y="16" width="290" height="198" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>${t(475, 44, "PARALELO", { size: 18, color: "var(--pen)", font: D })}
-      <path d="M370 60 H 580 V 156 H 370 Z M475 60 V 156" fill="none" stroke="var(--ink)" stroke-width="2"/><rect x="360" y="96" width="20" height="24" fill="var(--card)"/><path d="M370 96 V 104 M370 112 V 120 M358 104 H 382 M364 112 H 376" stroke="var(--ink)" stroke-width="2.5"/>
-      <rect x="463" y="96" width="24" height="24" fill="var(--card)"/>${bombilla(475, 108, 11)}<rect x="568" y="96" width="24" height="24" fill="var(--card)"/>${bombilla(580, 108, 11)}
-      ${t(475, 186, "varios caminos · brillan igual", { size: 13 })}${t(475, 204, "si una se funde, la otra sigue", { size: 11, weight: 400 })}
-    </svg>`,
-  },
-  video: { id: "GUESpG6inds", titulo: "¿Qué son los circuitos eléctricos? Y sus tipos: serie y paralelo", canal: "A Cierta Ciencia", vistas: 882593, megusta: 0, busqueda: "circuitos eléctricos serie y paralelo" },
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    { enunciado: "Dos resistencias de 10 Ω y 20 Ω se conectan en serie a una pila de 9 V. Calcula la resistencia equivalente y la intensidad.",
-      pasos: ["En serie se suman: R = 10 + 20 = 30 Ω.", "Ley de Ohm: I = V / R = 9 / 30.", "I = 0,3 A, la misma en las dos resistencias."],
-      resultado: "30 Ω y 0,3 A." },
-    { enunciado: "Dos bombillas de 12 Ω se conectan en paralelo a 6 V. ¿Cuál es la resistencia equivalente y la intensidad total?",
-      pasos: ["Iguales en paralelo: la mitad, R = 12 / 2 = 6 Ω.", "I total = 6 / 6 = 1 A.", "Por cada rama: 6 / 12 = 0,5 A (0,5 + 0,5 = 1 A)."],
-      resultado: "6 Ω y 1 A." },
-    { enunciado: "Una resistencia de 4 Ω está en serie con un grupo en paralelo de 3 Ω y 6 Ω, todo a 12 V. Calcula la intensidad total.",
-      pasos: ["Paralelo: (3 · 6) / (3 + 6) = 18 / 9 = 2 Ω.", "Serie: 4 + 2 = 6 Ω.", "I = 12 / 6 = 2 A."],
-      resultado: "2 A." },
+    { enunciado: "Dos resistencias de 4 Ω y 8 Ω se conectan en serie a una pila de 6 V. Calcula la resistencia equivalente, la intensidad y el voltaje de cada una.", pasos: ["Req = 4 + 8 = 12 Ω.", "I = V / Req = 6 / 12 = 0,5 A, igual en las dos.", "V1 = 0,5 · 4 = 2 V; V2 = 0,5 · 8 = 4 V.", "Comprobación: 2 + 4 = 6 V."], resultado: "12 Ω; 0,5 A; 2 V y 4 V." },
+    { enunciado: "Tres bombillas iguales de 9 Ω se conectan en serie a 9 V. ¿Qué intensidad circula y qué voltaje tiene cada bombilla?", pasos: ["Req = 9 + 9 + 9 = 27 Ω.", "I = 9 / 27 ≈ 0,33 A.", "Cada bombilla: V = 0,33 · 9 = 3 V (el voltaje se reparte en tres partes iguales)."], resultado: "Unos 0,33 A y 3 V cada bombilla." },
+    { enunciado: "Dos resistencias de 12 Ω y 6 Ω en paralelo a 12 V. Calcula la intensidad de cada rama, la total y la resistencia equivalente.", pasos: ["Las dos ramas tienen 12 V.", "I1 = 12 / 12 = 1 A; I2 = 12 / 6 = 2 A.", "I total = 1 + 2 = 3 A.", "Req = (12 · 6) / (12 + 6) = 72 / 18 = 4 Ω. Comprobación: 12 / 4 = 3 A."], resultado: "1 A, 2 A, 3 A en total y 4 Ω." },
+    { enunciado: "Cuatro bombillas iguales de 20 Ω en paralelo. ¿Cuál es la resistencia equivalente?", pasos: ["Son n = 4 resistencias iguales en paralelo.", "Req = R / n = 20 / 4."], resultado: "5 Ω." },
+    { enunciado: "Una resistencia de 2 Ω en serie con un grupo de dos resistencias de 4 Ω en paralelo, a 8 V. Resuelve el circuito.", pasos: ["Paralelo: 4 Ω y 4 Ω → 4 / 2 = 2 Ω.", "Serie: Req = 2 + 2 = 4 Ω.", "I total = 8 / 4 = 2 A.", "Resistencia de 2 Ω: V = 2 · 2 = 4 V. Grupo en paralelo: 8 − 4 = 4 V, y por cada rama 4 / 4 = 1 A."], resultado: "Req = 4 Ω; I = 2 A; 4 V en cada parte; 1 A por rama." },
+    { enunciado: "¿Qué pasa si en un circuito en paralelo con dos bombillas se funde una? ¿Y si están en serie?", pasos: ["En paralelo, cada bombilla tiene su propia rama; la otra rama sigue cerrada.", "La otra bombilla sigue luciendo igual.", "En serie hay un solo camino; al fundirse una, el circuito se abre.", "Se apagan las dos."], resultado: "En paralelo la otra sigue encendida; en serie se apagan las dos." },
   ],
   errores: [
-    "Dibujar los cables torcidos o en diagonal en un esquema: van rectos y en ángulo recto.",
-    "Pensar que en serie cada bombilla recibe todo el voltaje: se reparte.",
-    "Sumar las resistencias en paralelo: la equivalente es menor que la menor.",
-    "Creer que en paralelo se reparte el voltaje: lo que se reparte es la intensidad.",
-    "Pensar que un fusible fundido se arregla con un trozo de cable: se elimina la protección.",
+    "Pensar que la corriente «se gasta» al pasar por la primera bombilla de una serie: la intensidad es la misma en todo el circuito.",
+    "Sumar las resistencias en paralelo como si estuvieran en serie: en paralelo la equivalente es menor que la menor.",
+    "Olvidar que en paralelo todas las ramas tienen el mismo voltaje del generador.",
+    "Dibujar los esquemas con cables curvos o símbolos inventados: hay que usar líneas rectas y símbolos normalizados.",
+    "Conectar un cable directamente entre los polos de la pila «para probar»: es un cortocircuito.",
+    "Poner el LED al revés: solo funciona si el ánodo (patilla larga) va hacia el polo positivo.",
   ],
-  ejercicios: [
-    { q: "Nombra los cuatro tipos de elementos de un circuito y pon un ejemplo de cada uno.", sol: "Generador (pila), receptor (bombilla), conductor (cable), maniobra (interruptor)." },
-    { q: "¿Qué diferencia hay entre un interruptor y un pulsador?", sol: "El interruptor mantiene su posición; el pulsador solo cierra mientras se aprieta." },
-    { q: "¿Qué significa un punto gordo en el cruce de dos cables en un esquema?", sol: "Que los cables están conectados en ese punto." },
-    { q: "Tres resistencias de 5, 10 y 15 Ω en serie. Calcula la resistencia equivalente.", sol: "5 + 10 + 15 = 30 Ω." },
-    { q: "Con las resistencias anteriores y una pila de 6 V, ¿qué intensidad circula?", sol: "I = 6 / 30 = 0,2 A." },
-    { q: "Dos resistencias de 20 Ω en paralelo. ¿Cuánto vale la equivalente?", sol: "10 Ω (la mitad, por ser iguales)." },
-    { q: "Calcula la equivalente de 4 Ω y 12 Ω en paralelo.", sol: "(4 · 12) / (4 + 12) = 48 / 16 = 3 Ω." },
-    { q: "¿Por qué las lámparas de una casa se conectan en paralelo?", sol: "Para que todas reciban 230 V y se puedan encender y apagar por separado; si una se funde, las demás siguen." },
-    { q: "¿Qué es un cortocircuito y por qué es peligroso?", sol: "La unión directa de los polos sin receptor; la intensidad se dispara, los cables se calientan y puede haber un incendio." },
-    { q: "¿Para qué sirve el interruptor diferencial?", sol: "Corta la corriente si detecta una fuga, por ejemplo una descarga a una persona." },
-  ],
-  quiz: [
-    { q: "Un circuito abierto…", o: ["funciona", "no deja pasar la corriente", "está en cortocircuito"], a: 1, e: "El camino está cortado." },
-    { q: "Un motor es un…", o: ["generador", "receptor", "elemento de maniobra"], a: 1, e: "Receptor: produce movimiento." },
-    { q: "El timbre de casa usa un…", o: ["interruptor", "pulsador", "fusible"], a: 1, e: "Pulsador." },
-    { q: "En serie, la intensidad…", o: ["es la misma en todos", "se reparte", "es cero"], a: 0, e: "Hay un solo camino." },
-    { q: "En paralelo, el voltaje…", o: ["se reparte", "es el mismo en todos", "se suma"], a: 1, e: "Igual al del generador." },
-    { q: "10 Ω y 30 Ω en serie equivalen a…", o: ["40 Ω", "20 Ω", "7,5 Ω"], a: 0, e: "Se suman." },
-    { q: "Dos de 8 Ω en paralelo equivalen a…", o: ["16 Ω", "4 Ω", "8 Ω"], a: 1, e: "La mitad." },
-    { q: "Si se funde una bombilla en serie…", o: ["se apagan todas", "las demás siguen", "brillan más"], a: 0, e: "Se abre el circuito." },
-    { q: "Los enchufes de casa están en…", o: ["serie", "paralelo", "mixto"], a: 1, e: "Paralelo." },
-    { q: "Protege contra el exceso de corriente…", o: ["el conmutador", "el fusible", "el pulsador"], a: 1, e: "El fusible." },
-  ],
-  examen: [
-    { q: "Al añadir bombillas en serie, cada una…", o: ["brilla más", "brilla menos", "brilla igual"], a: 1, e: "El voltaje se reparte entre más bombillas." },
-    { q: "La resistencia equivalente en paralelo es…", o: ["mayor que la mayor", "menor que la menor", "la suma"], a: 1, e: "Menor que la menor." },
-    { q: "Dos pilas de 1,5 V en serie dan…", o: ["1,5 V", "3 V", "0,75 V"], a: 1, e: "Los voltajes se suman." },
-  ],
-  feynman: ["Qué elementos tiene un circuito y para qué sirve cada uno", "En qué se diferencian un circuito en serie y uno en paralelo", "Qué es un cortocircuito y cómo nos protegemos"],
-  mapa: mapa("CIRCUITOS", "var(--eso)", [
-    ["Elementos", "generador · receptor · cable · interruptor", "var(--pen)"],
-    ["Serie", "un camino · R = R₁ + R₂", "var(--red)"],
-    ["Paralelo", "varios caminos · mismo V", "var(--leaf)"],
-    ["Protección", "fusible · magnetotérmico · diferencial", "#b8860b"],
-  ], 290),
+  ejercicios: H.niveles([
+    ["Define circuito eléctrico.", "Es un camino cerrado por el que circula la corriente desde un generador, a través de receptores y otros elementos, hasta volver al generador."],
+    ["Nombra los cuatro tipos de elementos de un circuito con un ejemplo de cada uno.", "Generador (pila), receptor (bombilla), conductor (cable de cobre) y elemento de control o protección (interruptor o fusible)."],
+    ["¿Qué diferencia hay entre un interruptor y un pulsador?", "El interruptor se queda en la posición en la que lo dejas (abierto o cerrado). El pulsador solo actúa mientras lo mantienes apretado y vuelve solo a su posición."],
+    ["¿Para qué sirve un fusible?", "Para proteger el circuito: tiene un hilo fino que se funde si pasa demasiada corriente, y así abre el circuito antes de que se dañen los cables o los aparatos."],
+    ["Dibuja los símbolos de la pila, la bombilla, el interruptor, el motor y la resistencia.", "Pila: dos rayas paralelas, una larga (+) y otra corta (−). Bombilla: círculo con un aspa. Interruptor: línea inclinada entre dos puntos. Motor: círculo con una M. Resistencia: rectángulo."],
+    ["¿Qué es un cortocircuito y por qué es peligroso?", "Es la unión directa de los dos polos del generador sin pasar por un receptor. Como la resistencia es casi nula, la intensidad es enorme: los cables se calientan, pueden fundirse o provocar un incendio, y la pila se agota."],
+    ["En un circuito en serie, ¿qué magnitud es igual en todos los receptores? ¿Y en uno en paralelo?", "En serie, la intensidad. En paralelo, el voltaje."],
+    ["Calcula la resistencia equivalente de 5 Ω, 10 Ω y 15 Ω en serie.", "Req = 5 + 10 + 15 = 30 Ω."],
+    ["¿Por qué las casas tienen las lámparas y enchufes en paralelo?", "Porque así todos reciben los 230 V, funcionan con su potencia normal y cada uno se puede encender o apagar sin depender de los demás. Si uno se estropea, los otros siguen funcionando."],
+    ["¿Cuál es la patilla positiva de un LED y qué ocurre si se conecta al revés?", "La patilla larga es el ánodo (+). Si se conecta al revés no se enciende, porque el LED solo deja pasar la corriente en un sentido."],
+  ], [
+    ["Dos resistencias de 30 Ω y 60 Ω en serie a 9 V. Calcula la intensidad y el voltaje de cada una.", "Req = 90 Ω. I = 9 / 90 = 0,1 A. V1 = 0,1 · 30 = 3 V; V2 = 0,1 · 60 = 6 V. Suma: 9 V."],
+    ["Calcula la resistencia equivalente de 10 Ω y 40 Ω en paralelo.", "Req = (10 · 40) / (10 + 40) = 400 / 50 = 8 Ω. Es menor que 10 Ω, como debe ser."],
+    ["Tres resistencias de 30 Ω en paralelo a 6 V. Calcula la intensidad de cada rama, la total y la Req.", "Cada rama: 6 / 30 = 0,2 A. Total: 0,6 A. Req = 30 / 3 = 10 Ω; comprobación: 6 / 10 = 0,6 A."],
+    ["Dos bombillas iguales están en serie a 4,5 V. ¿Qué voltaje recibe cada una? ¿Y si estuvieran en paralelo?", "En serie se reparte: 2,25 V cada una (brillan menos). En paralelo cada una recibe los 4,5 V completos (brillan normal)."],
+    ["Explica cómo se encienden y apagan las luces de un pasillo desde dos puntos.", "Con dos conmutadores unidos por dos cables. Cada conmutador elige uno de los dos cables; la lámpara se enciende cuando los dos eligen el mismo camino. Al cambiar cualquiera de ellos, el camino se abre o se cierra."],
+    ["Una pila de 9 V alimenta dos ramas en paralelo: una de 90 Ω y otra de 45 Ω. ¿Cuánta corriente da la pila?", "I1 = 9 / 90 = 0,1 A; I2 = 9 / 45 = 0,2 A. Total: 0,3 A."],
+    ["Dibuja el esquema de un circuito con una pila, un interruptor y dos bombillas en paralelo controladas por el mismo interruptor.", "La pila en un lado; desde un polo, un cable al interruptor; del interruptor a un nudo del que salen dos ramas, una con cada bombilla; las dos ramas se juntan en otro nudo que vuelve al otro polo. El interruptor queda en serie con el conjunto."],
+    ["¿Por qué en un circuito en paralelo la pila se gasta antes al añadir bombillas?", "Porque cada nueva rama pide su propia intensidad y la intensidad total que sale de la pila es la suma de todas. Más intensidad significa más energía por segundo y la pila se agota antes."],
+    ["Ordena de mayor a menor la resistencia equivalente: dos resistencias de 10 Ω en serie, una de 10 Ω sola, dos de 10 Ω en paralelo.", "Serie: 20 Ω. Sola: 10 Ω. Paralelo: 5 Ω. Orden: serie > sola > paralelo."],
+    ["Con dos pilas de 1,5 V, ¿cómo las conectarías para obtener 3 V? ¿Y para que duren más con 1,5 V?", "En serie (positivo de una con negativo de la otra) se suman los voltajes: 3 V. En paralelo (positivos juntos y negativos juntos) se mantienen 1,5 V pero la carga disponible es doble y duran más."],
+    ["Explica la función de la toma de tierra de los enchufes.", "Une las partes metálicas de los aparatos con el suelo. Si hay una fuga, la corriente se va por tierra en lugar de atravesar a la persona, y el diferencial detecta la fuga y corta la corriente."],
+    ["En un circuito con una pila y una bombilla, la bombilla no luce. Escribe cuatro posibles causas ordenadas para comprobarlas.", "1) La pila está gastada (medir su voltaje). 2) Hay un cable suelto o mal conectado. 3) El interruptor está abierto o roto. 4) La bombilla está fundida (comprobar su continuidad con el polímetro)."],
+  ], [
+    ["Una resistencia de 4 Ω en serie con un grupo de 6 Ω y 12 Ω en paralelo, conectado a 16 V. Calcula Req, la intensidad total y la de cada rama.", "Paralelo: (6 · 12) / 18 = 4 Ω. Req = 4 + 4 = 8 Ω. I = 16 / 8 = 2 A. Resistencia de 4 Ω: 8 V. Grupo: 8 V. Ramas: 8 / 6 ≈ 1,33 A y 8 / 12 ≈ 0,67 A; suman 2 A."],
+    ["Un grupo de dos resistencias de 10 Ω en serie está en paralelo con otra de 20 Ω, todo a 10 V. Resuelve el circuito.", "La rama en serie vale 20 Ω. Dos ramas de 20 Ω en paralelo: Req = 10 Ω. I total = 10 / 10 = 1 A, 0,5 A por rama. En la rama en serie, cada resistencia de 10 Ω tiene 0,5 · 10 = 5 V."],
+    ["Diseña una luz de emergencia con tres LED de 2 V y 20 mA en paralelo, alimentados con 6 V y controlados por un pulsador. Calcula la resistencia de cada LED y la corriente total.", "Cada LED con su resistencia en serie: R = (6 − 2) / 0,02 = 200 Ω (se usaría 220 Ω). Las tres ramas en paralelo: 3 · 20 mA = 60 mA = 0,06 A. El pulsador va en serie con la pila, antes de las ramas."],
+    ["Un alumno conecta en serie una bombilla de 6 V y otra de 12 V a una pila de 12 V. ¿Qué crees que ocurrirá con su brillo? Razona.", "Ninguna recibe su voltaje nominal, porque los 12 V se reparten según sus resistencias. Las dos lucirán menos de lo normal, y la que tenga más resistencia se quedará con más voltaje. Para que funcionen bien deberían ir en paralelo, y la de 6 V necesitaría su propia fuente o una resistencia en serie."],
+    ["Una regleta tiene conectados en paralelo un calefactor de 2.000 W, una tostadora de 900 W y un cargador de 20 W, a 230 V. Calcula la intensidad de cada aparato y la total. ¿Es seguro si la regleta admite 10 A?", "Calefactor: 2.000 / 230 ≈ 8,7 A. Tostadora: 900 / 230 ≈ 3,9 A. Cargador: 20 / 230 ≈ 0,09 A. Total ≈ 12,7 A. Supera los 10 A: la regleta se recalentaría. No es seguro."],
+    ["Demuestra con números que en paralelo la resistencia equivalente es siempre menor que la más pequeña, usando 5 Ω y 100 Ω.", "Req = (5 · 100) / 105 ≈ 4,76 Ω. Es menor que 5 Ω, porque añadir un camino, aunque sea muy resistente, siempre facilita algo el paso de la corriente."],
+    ["Un circuito tiene un fusible de 1 A en serie con una pila de 12 V. ¿Cuántas resistencias de 60 Ω en paralelo se pueden conectar sin que se funda?", "Cada resistencia pide 12 / 60 = 0,2 A. Con 5 resistencias: 1 A, justo el límite. Para no fundirlo se podrían poner 4 (0,8 A) con margen de seguridad."],
+    ["Explica por qué el circuito de un horno en casa lleva un cable más grueso y un magnetotérmico de más amperios que el de la iluminación.", "El horno tiene mucha potencia (unos 2.000 a 3.000 W), así que pide más intensidad (I = P / V ≈ 13 A). Un cable fino se calentaría demasiado; con más sección tiene menos resistencia. El magnetotérmico debe permitir esa intensidad (por ejemplo 25 A) sin saltar, mientras que la iluminación usa uno de 10 A."],
+  ]),
+  quiz: H.test([
+    ["Un circuito eléctrico es…", ["un camino cerrado para la corriente", "un cable suelto", "una pila sola", "un aparato apagado"], "La corriente sale del generador y vuelve a él."],
+    ["¿Qué elemento proporciona la energía?", ["el generador", "el receptor", "el interruptor", "el cable"], "Pilas, baterías o la red eléctrica."],
+    ["Un motor es un…", ["receptor", "generador", "conductor", "elemento de protección"], "Transforma la energía eléctrica en movimiento."],
+    ["El pulsador…", ["solo actúa mientras lo aprietas", "se queda en la posición elegida", "protege de sobrecargas", "genera corriente"], "Como el timbre de casa."],
+    ["Para encender una luz desde dos sitios se usan…", ["dos conmutadores", "dos fusibles", "dos pilas", "un pulsador"], "Cada uno elige entre dos caminos."],
+    ["El fusible…", ["se funde si pasa demasiada corriente", "aumenta el voltaje", "enciende la luz", "almacena energía"], "Abre el circuito para protegerlo."],
+    ["El símbolo de la bombilla es…", ["un círculo con un aspa", "un círculo con una M", "dos rayas paralelas", "un rectángulo"], "La M es del motor; las rayas, de la pila."],
+    ["En el símbolo de la pila, la raya larga es…", ["el polo positivo", "el polo negativo", "el interruptor", "la toma de tierra"], "La corta es el negativo."],
+    ["Un cortocircuito es…", ["unir los polos sin pasar por un receptor", "un circuito abierto", "un cable muy largo", "un receptor fundido"], "La intensidad se dispara."],
+    ["En serie, la intensidad…", ["es la misma en todos los receptores", "se reparte", "es cero", "depende del orden"], "Solo hay un camino."],
+    ["En paralelo, el voltaje…", ["es el mismo en todas las ramas", "se reparte entre las ramas", "es cero", "se duplica"], "Cada rama está unida a los polos."],
+    ["Si se funde una bombilla en serie…", ["se apagan todas", "las demás brillan más", "no pasa nada", "se produce un cortocircuito"], "El único camino queda abierto."],
+    ["Si se funde una bombilla en paralelo…", ["las demás siguen encendidas", "se apagan todas", "se funde el fusible", "la pila explota"], "Su rama se abre, pero no las otras."],
+    ["La Req de 20 Ω y 30 Ω en serie es…", ["50 Ω", "12 Ω", "10 Ω", "600 Ω"], "Se suman."],
+    ["La Req de dos resistencias de 10 Ω en paralelo es…", ["5 Ω", "20 Ω", "10 Ω", "100 Ω"], "R / n = 10 / 2."],
+    ["Dos pilas de 1,5 V en serie dan…", ["3 V", "1,5 V", "0,75 V", "4,5 V"], "En serie los voltajes se suman."],
+    ["Las lámparas de una casa se conectan…", ["en paralelo", "en serie", "en cortocircuito", "sin interruptor"], "Todas reciben 230 V."],
+    ["La patilla larga de un LED es…", ["el ánodo (+)", "el cátodo (−)", "la toma de tierra", "indiferente"], "Debe ir hacia el positivo."],
+    ["La placa de pruebas sirve para…", ["montar circuitos sin soldar", "medir el voltaje", "proteger de cortocircuitos", "generar corriente"], "Sus filas están conectadas por dentro."],
+    ["Un circuito mixto tiene…", ["partes en serie y partes en paralelo", "solo receptores en serie", "solo receptores en paralelo", "dos generadores"], "Se resuelve simplificando por partes."],
+  ], 2),
+  examen: H.test([
+    ["Tres resistencias de 10 Ω en serie a 6 V: la intensidad es…", ["0,2 A", "0,6 A", "1,8 A", "2 A"], "6 / 30."],
+    ["Resistencias de 6 Ω y 3 Ω en paralelo: la Req es…", ["2 Ω", "9 Ω", "4,5 Ω", "18 Ω"], "18 / 9."],
+    ["En paralelo a 12 V, por una rama de 4 Ω pasan…", ["3 A", "48 A", "0,33 A", "16 A"], "12 / 4."],
+    ["Dos resistencias en serie de 5 Ω y 15 Ω a 10 V: el voltaje en la de 15 Ω es…", ["7,5 V", "2,5 V", "10 V", "5 V"], "I = 0,5 A; 0,5 · 15."],
+    ["Un grupo de dos resistencias de 8 Ω en paralelo en serie con una de 6 Ω da…", ["10 Ω", "22 Ω", "14 Ω", "4 Ω"], "4 + 6."],
+    ["Al añadir bombillas en serie, el brillo de cada una…", ["disminuye", "aumenta", "no cambia", "se hace infinito"], "El voltaje se reparte entre más."],
+    ["El elemento que corta la corriente si hay una fuga a tierra es…", ["el diferencial", "el contador", "el pulsador", "el conmutador"], "Protege a las personas."],
+    ["Antes de conectar la pila a un montaje hay que…", ["revisar cortocircuitos y polaridad", "tocar los cables", "quitar las resistencias", "mojar la placa"], "Así se evitan averías y accidentes."],
+  ], 1),
+  feynman: ["Qué elementos tiene un circuito y para qué sirve cada uno", "Cómo se reconoce un cortocircuito y por qué es peligroso", "En qué se diferencian un circuito en serie y uno en paralelo", "Cómo se calcula la resistencia equivalente en cada caso", "Cómo está hecha la instalación eléctrica de una casa"],
+  mapa: H.mapa("CIRCUITOS ELÉCTRICOS", "var(--eso)", [
+    ["Elementos", "generador · receptor · control", "var(--pen)"],
+    ["Esquemas", "símbolos normalizados", "#b8860b"],
+    ["Serie", "misma I · V se reparte", "var(--red)"],
+    ["Paralelo", "mismo V · I se reparte", "var(--leaf)"],
+  ], 260),
   tarjetas: [
-    ["Circuito eléctrico", "Camino cerrado por el que circula la corriente."],
-    ["Generador", "Da energía y crea el voltaje: pila, batería."],
-    ["Receptor", "Transforma la energía eléctrica: bombilla, motor."],
-    ["Interruptor", "Abre o cierra el circuito y mantiene su posición."],
-    ["Serie", "Un solo camino: misma I, se reparte V."],
-    ["Paralelo", "Varios caminos: mismo V, se reparte I."],
-    ["Cortocircuito", "Unión directa de los polos: peligro."],
-    ["Fusible", "Hilo que se funde si pasa demasiada corriente."],
+    ["Circuito", "Camino cerrado por el que circula la corriente."],
+    ["Generador", "Da la energía: pila, batería, red."],
+    ["Receptor", "Transforma la electricidad: bombilla, motor, timbre."],
+    ["Pulsador", "Solo actúa mientras se aprieta."],
+    ["Conmutador", "Desvía la corriente por uno u otro camino."],
+    ["Fusible", "Se funde y abre el circuito si hay exceso de corriente."],
+    ["Cortocircuito", "Unión de los polos sin receptor: intensidad enorme."],
+    ["Serie", "Un camino; misma intensidad; Req = R1 + R2."],
+    ["Paralelo", "Varias ramas; mismo voltaje; Req menor que la menor."],
+    ["Req en paralelo (2)", "(R1 · R2) / (R1 + R2)."],
+    ["Mixto", "Combina serie y paralelo; se simplifica por partes."],
+    ["Toma de tierra", "Lleva las fugas al suelo y protege a las personas."],
   ],
-  familias: ["Mirad juntos el cuadro eléctrico de casa e identificad el diferencial y los magnetotérmicos.", "Revisad cómo están colocadas las pilas de un mando: en serie.", "Probad un simulador de circuitos gratuito y montad serie y paralelo."],
-  profesores: {
-    saberes: "Electricidad: circuitos eléctricos, elementos y simbología, conexiones en serie, paralelo y mixtas, cálculo de magnitudes, protección y montaje en el taller y con simuladores (RD 217/2022, Tecnología y Digitalización, bloque A).",
-    ideas: ["Montaje comparado de bombillas en serie y en paralelo con medidas de polímetro.", "Diseño en Tinkercad Circuits de la instalación de una habitación.", "Construcción de un juego de pulso eléctrico con zumbador."],
+  glosario: [
+    ["Circuito eléctrico", "Camino cerrado por el que circula la corriente desde un generador y de vuelta a él."],
+    ["Generador", "Elemento que proporciona la energía eléctrica, como una pila."],
+    ["Receptor", "Elemento que transforma la energía eléctrica en luz, calor, sonido o movimiento."],
+    ["Interruptor", "Elemento de control que abre o cierra el circuito y se mantiene en esa posición."],
+    ["Pulsador", "Elemento de control que solo actúa mientras se mantiene apretado."],
+    ["Conmutador", "Elemento que dirige la corriente por uno de dos caminos posibles."],
+    ["Fusible", "Protección con un hilo fino que se funde si la corriente es excesiva."],
+    ["Esquema eléctrico", "Dibujo de un circuito con símbolos normalizados."],
+    ["Cortocircuito", "Conexión directa de los polos del generador sin receptor, con intensidad muy alta."],
+    ["Circuito en serie", "Circuito con un único camino en el que los receptores van uno tras otro."],
+    ["Circuito en paralelo", "Circuito en el que cada receptor está en una rama unida a los polos del generador."],
+    ["Resistencia equivalente", "Resistencia única que produce el mismo efecto que un conjunto de resistencias."],
+    ["Placa de pruebas", "Placa con agujeros conectados para montar circuitos sin soldar."],
+    ["Magnetotérmico", "Interruptor automático que corta la corriente si hay sobrecarga o cortocircuito."],
+    ["Toma de tierra", "Conexión de las partes metálicas al suelo para desviar las fugas de corriente."],
+  ],
+  situacion: {
+    titulo: "Luz de emergencia para el aula",
+    reto: "Tras un apagón, el aula necesita una luz de emergencia con pilas que se encienda con un pulsador y siga funcionando aunque se funda uno de sus LED. Vuestro equipo la diseñará, calculará y montará.",
+    pasos: [
+      "Analizad el problema y decidid cómo conectar los LED para que funcionen aunque uno falle (en paralelo).",
+      "Dibujad el esquema con símbolos normalizados: pila, pulsador, interruptor general, LED y resistencias.",
+      "Calculad con la ley de Ohm la resistencia de cada LED y la corriente total que dará la pila.",
+      "Montad el circuito en la placa de pruebas, comprobadlo con el polímetro y corregid errores.",
+      "Pasadlo a una caja reciclada con los mandos accesibles y redactad una ficha de uso seguro.",
+    ],
+    producto: "Una luz de emergencia que funciona, con su esquema, sus cálculos, las medidas tomadas y la ficha de uso.",
+    evaluacion: [
+      "El esquema usa símbolos normalizados y es correcto.",
+      "Los cálculos de resistencias e intensidades son correctos y llevan unidades.",
+      "El montaje funciona, los LED tienen la polaridad correcta y la luz sigue si se quita uno.",
+      "El equipo explica las decisiones y respeta las normas de seguridad del taller.",
+    ],
   },
-  fuentes: [RD, wiki("Circuito eléctrico", "Circuito_eléctrico"), wiki("Circuitos en serie y en paralelo", "Circuitos_en_serie_y_paralelo")],
-  revisado: REV,
+  familias: ["Buscad en casa un aparato con pulsador, otro con interruptor y otro con conmutador.", "Mirad el cuadro eléctrico y contad cuántos circuitos (magnetotérmicos) tiene y qué indica cada etiqueta.", "Abrid juntos una linterna vieja e identificad el generador, el control, el receptor y los conductores.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "Electricidad y electrónica básica: elementos de un circuito, simbología normalizada, circuitos en serie, paralelo y mixtos, cálculo con la ley de Ohm, montaje y simulación de circuitos, instalaciones domésticas y seguridad (RD 217/2022, Tecnología y Digitalización 1º a 3º, bloque B «Tecnología sostenible» y bloque A «Proceso de resolución de problemas»). En Cataluña, saberes equivalentes de Tecnologia i Digitalització del Decret 175/2022.",
+    ideas: [
+      "Montar en placa de pruebas el mismo par de bombillas en serie y en paralelo y comparar brillos y medidas.",
+      "Simular circuitos en Tinkercad Circuits antes de montarlos.",
+      "Juego de detectives: encontrar la avería en circuitos preparados con un fallo.",
+      "Construir el circuito de una escalera con dos conmutadores.",
+      "Visita virtual o real al cuadro eléctrico del instituto con el conserje o el mantenimiento.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Circuito eléctrico", "Circuito_el%C3%A9ctrico"), H.wiki("Circuito en serie", "Circuito_en_serie"), { t: "Tinkercad Circuits: simulador de circuitos", url: "https://www.tinkercad.com/circuits" }],
+  revisado: H.REV,
 };
