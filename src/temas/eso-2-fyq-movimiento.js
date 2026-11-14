@@ -1,152 +1,237 @@
-// Física y Química 2º ESO: el movimiento, velocidad y aceleración. Dibujos propios en SVG.
-const { D, mapa, BG, t, fl, caja, tabla, RD, wiki, C, REV } = require("./_eso2a");
+// Física y Química 2º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso2L3 y dibujos de la versión anterior del tema.
+const H = require("./_eso2L3");
+const S = "fyq-movimiento";
+const [vVel] = H.videos(S);
+const vMru = { id: "7X2A7wq8Zow", titulo: "Cómo calcular la distancia (parte 1): movimiento rectilíneo uniforme", canal: "Daniel Carreón", vistas: 2162132, megusta: 52215, busqueda: "movimiento rectilíneo uniforme explicación" };
 
 module.exports = {
-  materia: "Física y Química",
-  curso: C,
+  materia: H.MATERIA,
+  curso: H.CURSO,
   titulo: "El movimiento: velocidad y aceleración",
-  minutos: 55,
-  objetivos: ["Explicar que el movimiento es relativo y elegir un sistema de referencia", "Distinguir trayectoria, posición, distancia recorrida y desplazamiento", "Calcular velocidades medias y resolver problemas de movimiento rectilíneo uniforme", "Interpretar gráficas posición-tiempo y calcular aceleraciones sencillas"],
-  claves: ["movimiento", "sistema de referencia", "trayectoria", "desplazamiento", "velocidad media", "MRU", "aceleración", "gráfica posición-tiempo"],
+  minutos: 110,
+  objetivos: [
+    "Explicar que el movimiento es relativo y elegir un sistema de referencia",
+    "Distinguir posición, trayectoria, distancia recorrida y desplazamiento",
+    "Calcular velocidades medias y cambiar entre km/h y m/s",
+    "Resolver problemas de movimiento rectilíneo uniforme (MRU)",
+    "Construir e interpretar gráficas posición-tiempo",
+    "Calcular aceleraciones y aplicar lo aprendido a la seguridad vial",
+  ],
+  claves: ["movimiento", "reposo", "sistema de referencia", "posición", "trayectoria", "distancia recorrida", "desplazamiento", "velocidad media", "velocidad instantánea", "MRU", "gráfica posición-tiempo", "aceleración", "MRUA", "distancia de detención"],
   pregunta: {
     texto: "Vas sentado en un tren que va a 200 km/h. ¿Estás quieto o te mueves?",
-    respuesta: "Depende de con qué te compares. Respecto a tu asiento y a los otros pasajeros, estás <b>en reposo</b>. Respecto a las vías y a los árboles de fuera, te mueves a <b>200 km/h</b>. El movimiento es <mark>relativo</mark>: para describirlo siempre hay que indicar un <mark>sistema de referencia</mark>.",
+    respuesta: "Depende de con qué te compares. Respecto a tu asiento y a los otros pasajeros, estás <b>en reposo</b>. Respecto a las vías y a los árboles de fuera, te mueves a <b>200 km/h</b>. Y respecto al Sol, te mueves con la Tierra a unos 107.000 km/h. El movimiento es <mark>relativo</mark>: para describirlo siempre hay que indicar un <mark>sistema de referencia</mark>.",
+  },
+  lectura: {
+    titulo: "Nueve segundos y cincuenta y ocho centésimas",
+    html: `<p>El 16 de agosto de 2009, en el estadio olímpico de Berlín, el atleta jamaicano <b>Usain Bolt</b> recorrió 100 metros en 9,58 segundos. Es el récord del mundo, y todavía nadie lo ha batido. Si dividimos la distancia entre el tiempo, sale una velocidad media de unos 10,4 metros por segundo, es decir, unos 37,6 km/h.</p>
+<p>Pero Bolt no corrió todo el tiempo a la misma velocidad. Al salir de los tacos estaba parado y tuvo que <b>acelerar</b>: en los primeros 20 metros fue ganando velocidad cada segundo. Entre los metros 60 y 80 alcanzó su velocidad máxima, más de 44 km/h, más rápido que un coche por una calle de la ciudad. En los últimos metros, incluso él empezó a perder un poco de velocidad por el cansancio.</p>
+<p>Los entrenadores analizan las carreras con cámaras de alta velocidad y sensores que miden la posición del atleta cada centésima de segundo. Con esos datos dibujan gráficas, calculan velocidades y aceleraciones y deciden cómo mejorar la salida o la zancada. La física del movimiento, que vas a estudiar en este tema, se usa en el deporte, en el diseño de coches y aviones, en los GPS y en la seguridad vial.</p>`,
   },
   bloques: [
     {
-      html: `<h3>El movimiento es relativo</h3><p>Un cuerpo está en <mark>movimiento</mark> cuando <b>cambia de posición</b> con el tiempo respecto a otro cuerpo que tomamos como referencia. Si su posición no cambia, está en <b>reposo</b>. Pero la misma persona puede estar en reposo y en movimiento a la vez, según con qué la comparemos: el conductor de un autobús está quieto respecto a su asiento y se mueve respecto a la parada. Por eso decimos que el movimiento es <mark>relativo</mark>. Para describirlo hay que elegir un <mark>sistema de referencia</mark>: un punto o un cuerpo que consideramos fijo, con unos ejes para medir posiciones. En la vida diaria solemos tomar como referencia el suelo, aunque en realidad la Tierra gira sobre sí misma y viaja alrededor del Sol a unos 107 000 km/h.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un pasajero sentado en un tren: está en reposo respecto al tren y se mueve a 200 kilómetros por hora respecto a un árbol del andén">${BG}
-        <rect x="20" y="52" width="170" height="64" rx="12" fill="var(--pen)" fill-opacity=".2" stroke="var(--pen)" stroke-width="2"/><rect x="36" y="64" width="40" height="26" rx="4" fill="var(--card)" stroke="var(--pen)"/><rect x="90" y="64" width="40" height="26" rx="4" fill="var(--card)" stroke="var(--pen)"/>
-        <circle cx="110" cy="74" r="6" fill="var(--ink)"/><rect x="104" y="80" width="12" height="10" fill="var(--ink)"/>
-        <circle cx="50" cy="122" r="8" fill="var(--ink)"/><circle cx="160" cy="122" r="8" fill="var(--ink)"/><line x1="10" y1="132" x2="250" y2="132" stroke="var(--muted)" stroke-width="3"/>
-        ${fl(140, 40, 190, 40, "var(--red)", 3)}${t(110, 36, "200 km/h", { size: 11, color: "var(--red)", anchor: "end" })}
-        <rect x="222" y="90" width="6" height="40" fill="#8a6a4a"/><circle cx="225" cy="80" r="16" fill="var(--leaf)"/>
-        ${t(70, 156, "respecto al tren: reposo", { size: 10, color: "var(--pen)" })}${t(186, 172, "respecto al árbol: se mueve", { size: 10, color: "var(--red)" })}</svg>`,
+      html: `<h3>1.1 El movimiento es relativo</h3><p>Un cuerpo está en <mark>movimiento</mark> cuando <b>cambia de posición</b> con el tiempo respecto a otro cuerpo que tomamos como referencia. Si su posición no cambia, está en <mark>reposo</mark>.</p><p>Pero la misma persona puede estar en reposo y en movimiento a la vez, según con qué la comparemos. El conductor de un autobús está quieto respecto a su asiento y se mueve respecto a la parada. Un pasajero que camina por el pasillo de un tren hacia delante se mueve respecto al tren a 5 km/h, y respecto a la vía a la velocidad del tren más esos 5 km/h. Por eso decimos que el movimiento es <b>relativo</b>.</p><p>El cuerpo o punto que tomamos como referencia, junto con unos ejes para medir posiciones, se llama <mark>sistema de referencia</mark>. Normalmente elegimos uno que nos parezca quieto, como el suelo. Pero el suelo tampoco está quieto: la Tierra gira sobre sí misma y alrededor del Sol. No existe un sistema de referencia absolutamente en reposo.</p>`,
+      svg: H.viejo(S, 0),
     },
     {
-      html: `<h3>Trayectoria, posición y desplazamiento</h3><p>La <mark>trayectoria</mark> es la línea que describe un cuerpo al moverse: el rastro de un avión en el cielo o las huellas en la nieve. Puede ser <b>rectilínea</b> (un ascensor, una bola de bolos) o <b>curvilínea</b>: circular (la punta de las agujas del reloj, una noria), elíptica (los planetas) o parabólica (un balón lanzado a canasta). La <mark>posición</mark> (x) indica dónde está el cuerpo respecto al origen del sistema de referencia, y se mide en metros. La <mark>distancia recorrida</mark> es la longitud de la trayectoria. El <mark>desplazamiento</mark> es la distancia en línea recta entre la posición inicial y la final. No siempre coinciden: si das una vuelta completa a una pista de atletismo de 400 m, has recorrido 400 m, pero tu desplazamiento es cero, porque terminas donde empezaste.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Camino curvo de casa al instituto: la distancia recorrida es la longitud del camino, 900 metros; el desplazamiento es la recta entre los dos puntos, 600 metros">${BG}
-        <rect x="18" y="116" width="34" height="28" fill="#c26a3d"/><path d="M14 118 l 21 -18 l 21 18 Z" fill="var(--red)"/>${t(35, 162, "casa", { size: 10 })}
-        <rect x="208" y="104" width="40" height="40" fill="var(--muted)"/><rect x="214" y="112" width="8" height="8" fill="var(--card)"/><rect x="232" y="112" width="8" height="8" fill="var(--card)"/>${t(228, 162, "instituto", { size: 10 })}
-        <path d="M54 130 C 80 30, 140 20, 160 70 S 190 140, 206 128" stroke="var(--pen)" stroke-width="3" fill="none" stroke-dasharray="6 4"/>${t(124, 26, "distancia: 900 m", { size: 11, color: "var(--pen)" })}
-        ${fl(54, 140, 204, 140, "var(--red)", 2.5)}${t(130, 174, "desplazamiento: 600 m", { size: 11, color: "var(--red)" })}</svg>`,
+      html: `<h3>1.2 La posición</h3><p>Para describir un movimiento necesitamos saber dónde está el cuerpo en cada momento. La <mark>posición</mark> es el lugar que ocupa un cuerpo respecto al sistema de referencia. Si el cuerpo se mueve en línea recta, basta con un solo eje, como una recta numérica.</p><p>Para fijar la posición se hacen tres cosas: 1) se elige un punto como <b>origen</b> (posición 0), por ejemplo, la puerta de casa; 2) se elige un <b>sentido positivo</b>, por ejemplo, hacia el instituto; 3) se mide la <b>distancia</b> al origen y se le pone signo: positivo si está en el sentido elegido y negativo si está en el contrario.</p><p>La posición se representa con la letra <b>x</b> y en el Sistema Internacional se mide en <b>metros</b>. Si un ciclista está en x = 300 m, está a 300 metros del origen en el sentido positivo; si está en x = −50 m, está a 50 metros al otro lado.</p>`,
+      svg: H.flujo("Cómo se fija la posición en un movimiento rectilíneo", ["Elegir el origen: x = 0", "Elegir el sentido positivo", "Medir la distancia al origen", "Poner signo: x = +300 m o x = −50 m"], "La posición (x)"),
     },
     {
-      html: `<h3>La velocidad</h3><p>No todos los cuerpos se mueven igual de deprisa. La <mark>velocidad</mark> indica la rapidez con la que un cuerpo cambia de posición. La <b>velocidad media</b> es la distancia recorrida dividida entre el tiempo empleado: <b>v = d / t</b>. En el SI se mide en <b>metros por segundo (m/s)</b>, aunque en la vida diaria usamos mucho los kilómetros por hora (km/h). Para pasar de km/h a m/s se divide entre 3,6, y para pasar de m/s a km/h se multiplica por 3,6. Si un coche tarda 2 horas en recorrer 180 km, su velocidad media es de 90 km/h, aunque en algunos tramos haya ido a 120 y en otros haya estado parado en un semáforo. El velocímetro del coche marca la <b>velocidad instantánea</b>, la que lleva en cada momento.</p>${tabla(["Movimiento", "Velocidad aproximada"], [["Caracol", "0,001 m/s"], ["Persona andando", "1,4 m/s (5 km/h)"], ["Usain Bolt (récord de 100 m)", "10,4 m/s (37,6 km/h)"], ["Guepardo", "30 m/s (110 km/h)"], ["Tren AVE", "83 m/s (300 km/h)"], ["Sonido en el aire", "340 m/s"], ["Luz", "300 000 km/s"]])}`,
-      video: { id: "qJOdLbMi5hU", titulo: "Calcular velocidad, distancia y tiempo [Fácil y Rápido]", canal: "A Cierta Ciencia", vistas: 3009053 },
+      html: `<h3>1.3 Trayectoria, distancia y desplazamiento</h3><p>La <mark>trayectoria</mark> es la línea formada por todas las posiciones que ocupa un cuerpo al moverse: el rastro de un avión en el cielo o las huellas en la nieve.</p><p>Hay que distinguir dos magnitudes que se confunden a menudo:</p><p>• La <mark>distancia recorrida</mark> es la longitud de la trayectoria, es decir, todo lo que se ha andado. Es lo que marca el cuentakilómetros de un coche o el podómetro de un reloj.<br>• El <mark>desplazamiento</mark> es la distancia en <b>línea recta</b> entre la posición inicial y la final, con su sentido. Se calcula restando posiciones: Δx = x_final − x_inicial.</p><p>Solo coinciden si el cuerpo se mueve en línea recta y sin volver atrás. Si vas de casa al instituto por un camino con curvas de 900 m, pero en línea recta están a 600 m, la distancia recorrida es 900 m y el desplazamiento, 600 m. Si das una vuelta completa a una pista de atletismo de 400 m, has recorrido 400 m, pero tu desplazamiento es <b>cero</b>, porque acabas donde empezaste.</p>`,
+      svg: H.viejo(S, 1),
     },
     {
-      html: `<h3>Calcular distancias y tiempos</h3><p>La fórmula de la velocidad se puede despejar para calcular cualquiera de las tres magnitudes. Si conocemos la velocidad y el tiempo, la <b>distancia</b> es <b>d = v · t</b>. Si conocemos la distancia y la velocidad, el <b>tiempo</b> es <b>t = d / v</b>. Un truco para recordarlo es el triángulo de la velocidad: se escribe d arriba y v y t abajo; tapando la magnitud que buscas, lo que queda te dice si hay que multiplicar o dividir. Antes de calcular, comprueba que las unidades sean <b>coherentes</b>: si la velocidad está en km/h, el tiempo debe ir en horas y la distancia saldrá en kilómetros; si la velocidad está en m/s, el tiempo debe ir en segundos y la distancia saldrá en metros. Mezclar minutos con km/h es uno de los errores más habituales.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Triángulo de la velocidad: d arriba, v y t abajo; d igual a v por t, v igual a d entre t, t igual a d entre v">${BG}
-        <path d="M70 20 L 128 140 L 12 140 Z" fill="var(--pen)" fill-opacity=".12" stroke="var(--pen)" stroke-width="2.5" stroke-linejoin="round"/><line x1="40" y1="90" x2="100" y2="90" stroke="var(--pen)" stroke-width="2"/><line x1="70" y1="90" x2="70" y2="140" stroke="var(--pen)" stroke-width="2"/>
-        ${t(70, 76, "d", { size: 22, font: D })}${t(48, 126, "v", { size: 20, font: D })}${t(92, 126, "t", { size: 20, font: D })}
-        ${t(196, 54, "d = v · t", { size: 15, color: "var(--red)" })}${t(196, 90, "v = d / t", { size: 15, color: "var(--red)" })}${t(196, 126, "t = d / v", { size: 15, color: "var(--red)" })}
-        ${t(130, 168, "km/h con horas · m/s con segundos", { size: 10, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.4 Tipos de trayectorias</h3><p>Según la forma de su trayectoria, los movimientos se clasifican en:</p><p>• <mark>Rectilíneos</mark>: la trayectoria es una línea recta. Por ejemplo, un ascensor, una bola de bolos o un objeto que cae verticalmente.<br>• <mark>Curvilíneos</mark>: la trayectoria es una línea curva. Dentro de estos hay varios tipos importantes:<br>– <b>Circulares</b>: la trayectoria es una circunferencia, como la punta de las agujas del reloj, una noria o las aspas de un molino.<br>– <b>Elípticos</b>: la trayectoria es una elipse, una especie de óvalo, como la de los planetas alrededor del Sol.<br>– <b>Parabólicos</b>: la trayectoria es una parábola, como la de un balón lanzado a canasta, un chorro de agua de una fuente o una pelota de golf.</p><p>La trayectoria, como el movimiento, también depende del sistema de referencia. Si un ciclista deja caer una botella mientras pedalea, él la ve caer en línea recta junto a su pie; una persona parada en la acera la ve describir una curva hacia delante. Las dos tienen razón, cada una en su sistema de referencia.</p>`,
+      svg: H.tabla("Tipos de trayectorias con ejemplos", ["Trayectoria", "Forma", "Ejemplo"], [["Rectilínea", "recta", "ascensor"], ["Circular", "circunferencia", "noria"], ["Elíptica", "óvalo", "planetas"], ["Parabólica", "parábola", "tiro a canasta"]]),
     },
     {
-      html: `<h3>El movimiento rectilíneo uniforme (MRU)</h3><p>El movimiento más sencillo es el <mark>movimiento rectilíneo uniforme (MRU)</mark>: el cuerpo sigue una trayectoria <b>recta</b> con <b>velocidad constante</b>, es decir, recorre distancias iguales en tiempos iguales. Un ejemplo es un coche en una autopista recta con el control de crucero puesto, una escalera mecánica o una cinta transportadora. En un MRU, la posición en cada instante se calcula con la ecuación <b>x = x₀ + v · t</b>, donde x₀ es la posición inicial. Si el cuerpo sale del origen (x₀ = 0), la ecuación queda x = v · t. Por ejemplo, un ciclista que sale del kilómetro 10 de una carretera y avanza a 20 km/h estará en el kilómetro 10 + 20 · 2 = 50 al cabo de 2 horas.</p>`,
-      video: { id: "XE9UXxtep6M", titulo: "MRU Movimiento Rectilíneo Uniforme: explicación, fórmulas y ejercicios", canal: "Susi Profe", vistas: 2375580 },
+      html: `<h3>1.5 La velocidad</h3><p>No todos los cuerpos se mueven igual de deprisa. La <mark>velocidad</mark> indica la rapidez con la que un cuerpo cambia de posición.</p><p>La <mark>velocidad media</mark> es la distancia recorrida dividida entre el tiempo empleado: <b>v = d / t</b>. Si un autobús recorre 240 km en 3 horas, su velocidad media es 240 / 3 = 80 km/h. Eso no significa que haya ido siempre a 80 km/h: habrá parado en semáforos y habrá ido más rápido en la autovía. La velocidad media es como un «reparto» del recorrido en partes iguales.</p><p>La <mark>velocidad instantánea</mark> es la que lleva el cuerpo en un momento concreto. Es la que marca el velocímetro del coche o la que mide un radar de tráfico.</p><p>Para comparar velocidades hay que usar las mismas unidades. Un guepardo puede correr a 110 km/h, pero solo durante unos segundos; un ser humano camina a unos 5 km/h; el sonido viaja por el aire a unos 340 m/s; y la luz, la más rápida de todas, a 300.000 km/s.</p>`,
+      svg: H.formula("Fórmula de la velocidad media", "La velocidad media", "v = d / t", ["d: distancia recorrida · t: tiempo empleado", "En el SI se mide en m/s", "También en km/h (vida diaria)"], "var(--red)"),
+      video: vVel,
     },
     {
-      html: `<h3>Gráficas posición-tiempo</h3><p>Los movimientos se pueden representar en una <mark>gráfica posición-tiempo</mark> (x-t), con el tiempo en el eje horizontal y la posición en el vertical. Si el cuerpo está <b>parado</b>, la gráfica es una <b>línea horizontal</b>: pasa el tiempo y la posición no cambia. Si se mueve con <b>MRU</b>, la gráfica es una <b>línea recta inclinada</b>. Cuanto más <b>inclinada</b> está la recta, mayor es la velocidad, porque recorre más metros en cada segundo. Si la recta baja, el cuerpo vuelve hacia el origen. La velocidad se puede calcular en la gráfica como la pendiente: lo que sube la recta entre lo que avanza. Si la gráfica es una curva, la velocidad está cambiando: el movimiento tiene aceleración.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Gráfica posición tiempo con tres tramos: recta inclinada, el cuerpo avanza; tramo horizontal, está parado; recta que baja, vuelve al origen">${BG}
-        ${fl(36, 150, 246, 150, "var(--ink)", 2)}${fl(36, 156, 36, 14, "var(--ink)", 2)}${t(244, 168, "t (s)", { size: 10, anchor: "end" })}${t(42, 20, "x (m)", { size: 10, anchor: "start" })}
-        <path d="M36 150 L 106 60 L 166 60 L 226 150" stroke="var(--red)" stroke-width="3" fill="none"/>
-        ${t(58, 92, "avanza", { size: 10, color: "var(--pen)", anchor: "end" })}${t(136, 52, "parado", { size: 10, color: "var(--pen)" })}${t(206, 92, "vuelve", { size: 10, color: "var(--pen)", anchor: "start" })}
-        ${[0, 1, 2, 3].map((i) => `<line x1="${36 + i * 60}" y1="150" x2="${36 + i * 60}" y2="154" stroke="var(--ink)"/>`).join("")}</svg>`,
+      html: `<h3>1.6 Las unidades de velocidad</h3><p>En el Sistema Internacional, la velocidad se mide en <mark>metros por segundo</mark> (<b>m/s</b>): una velocidad de 5 m/s significa que el cuerpo recorre 5 metros cada segundo. En la vida diaria se usan mucho los <b>kilómetros por hora</b> (km/h), por ejemplo, en las señales de tráfico.</p><p>Para pasar de una a otra se usan factores de conversión. Como 1 km = 1.000 m y 1 h = 3.600 s:</p><p>• De <b>km/h a m/s</b> se <b>divide entre 3,6</b>. Por ejemplo, 72 km/h · (1.000 m / 1 km) · (1 h / 3.600 s) = 20 m/s, que es lo mismo que 72 / 3,6.<br>• De <b>m/s a km/h</b> se <b>multiplica por 3,6</b>. Por ejemplo, 10 m/s · 3,6 = 36 km/h.</p><p>Al resolver problemas hay que usar unidades coherentes: si la velocidad está en km/h, el tiempo debe ir en horas y la distancia saldrá en km; si la velocidad está en m/s, el tiempo debe ir en segundos y la distancia saldrá en metros. Mezclar unidades es uno de los errores más frecuentes.</p>`,
+      svg: H.tabla("Velocidades aproximadas en kilómetros por hora y metros por segundo", ["Móvil", "km/h", "m/s"], [["Persona andando", "5", "1,4"], ["Ciclista", "18", "5"], ["Coche en ciudad", "36", "10"], ["Tren AVE", "300", "83"], ["Sonido en el aire", "1.224", "340"]]),
     },
     {
-      html: `<h3>La aceleración</h3><p>En la mayoría de los movimientos la velocidad no es constante: el coche arranca, frena, toma curvas. La <mark>aceleración</mark> indica lo rápido que <b>cambia la velocidad</b>. Se calcula como el cambio de velocidad dividido entre el tiempo que tarda en producirse: <b>a = (v − v₀) / t</b>, donde v₀ es la velocidad inicial y v la final. Se mide en <b>metros por segundo al cuadrado (m/s²)</b>. Una aceleración de 2 m/s² significa que la velocidad aumenta 2 m/s cada segundo. Si la velocidad <b>aumenta</b>, la aceleración es positiva; si <b>disminuye</b>, el cuerpo frena y la aceleración es negativa (también se llama deceleración). Un coche deportivo puede pasar de 0 a 100 km/h en unos 3 segundos; un cuerpo que cae libremente aumenta su velocidad 9,8 m/s cada segundo.</p>`,
-      video: { id: "XpfCaJw-0hc", titulo: "Velocidad, rapidez y aceleración: diferencias y ejemplos", canal: "LearnFree en Español", vistas: 250251 },
+      html: `<h3>1.7 Calcular distancias y tiempos</h3><p>La fórmula de la velocidad relaciona tres magnitudes, así que se puede despejar para calcular cualquiera de ellas si conocemos las otras dos:</p><p>• Para calcular la <b>velocidad</b>: v = d / t.<br>• Para calcular la <b>distancia</b>: d = v · t.<br>• Para calcular el <b>tiempo</b>: t = d / v.</p><p>Un truco para recordarlo es el <b>triángulo de la velocidad</b>: se escribe d arriba y v y t abajo. Se tapa con el dedo la magnitud que se quiere calcular y se ve la operación: si tapas d, quedan v y t uno al lado del otro, que se multiplican; si tapas t, queda d encima de v, que se dividen.</p><p>Por ejemplo, ¿cuánto tarda la luz del Sol en llegar a la Tierra, si la distancia es de 150 millones de km y la luz viaja a 300.000 km/s? t = d / v = 150.000.000 / 300.000 = 500 s, unos 8 minutos y 20 segundos. Es decir, cuando miras el Sol, lo ves como era hace más de 8 minutos.</p>`,
+      svg: H.viejo(S, 3),
     },
     {
-      html: `<h3>El movimiento uniformemente acelerado</h3><p>Cuando la aceleración es constante y la trayectoria es recta, el movimiento se llama <mark>rectilíneo uniformemente acelerado (MRUA)</mark>. La velocidad cambia la misma cantidad en cada segundo. Ejemplos son un coche que arranca en un semáforo pisando el acelerador siempre igual, una bola que rueda por una rampa o una piedra que cae al vacío. La velocidad en cada instante es <b>v = v₀ + a · t</b>. En una gráfica velocidad-tiempo, el MRU es una línea horizontal y el MRUA es una recta inclinada. En cambio, en la gráfica posición-tiempo el MRUA da una <b>curva</b>, una parábola, porque en cada segundo se recorre más distancia que en el anterior. Galileo estudió este movimiento dejando rodar bolas por planos inclinados y midiendo los tiempos con relojes de agua.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Coche que acelera: cada segundo recorre más distancia; marcas de su posición separadas cada vez más; la velocidad pasa de 0 a 2, 4 y 6 metros por segundo">${BG}
-        <line x1="14" y1="120" x2="250" y2="120" stroke="var(--muted)" stroke-width="3"/>
-        ${[[20, 0], [44, 2], [108, 4], [214, 6]].map(([x, v], i) => `<rect x="${x}" y="100" width="22" height="14" rx="4" fill="var(--red)" fill-opacity="${(0.3 + i * 0.22).toFixed(2)}"/><circle cx="${x + 5}" cy="116" r="4" fill="var(--ink)"/><circle cx="${x + 17}" cy="116" r="4" fill="var(--ink)"/>${t(x + 11, 144, `${i} s`, { size: 9, color: "var(--muted)" })}${t(x + 11, 92, `${v}`, { size: 10, color: "var(--pen)" })}`).join("")}
-        ${t(130, 40, "a = 2 m/s²", { size: 15, color: "var(--leaf)" })}${t(130, 64, "velocidad (m/s) cada segundo", { size: 10, color: "var(--pen)" })}${t(130, 168, "cada segundo recorre más", { size: 10, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.8 El movimiento rectilíneo uniforme (MRU)</h3><p>El movimiento más sencillo es el <mark>movimiento rectilíneo uniforme</mark> (<b>MRU</b>): el cuerpo sigue una trayectoria <b>recta</b> con <b>velocidad constante</b>. Recorre distancias iguales en tiempos iguales. Son ejemplos aproximados un coche en una autopista recta con el control de crucero puesto, una escalera mecánica, una cinta transportadora o la luz en el vacío.</p><p>En un MRU, la posición en cada instante se calcula con la <b>ecuación del movimiento</b>: <b>x = x₀ + v · t</b>, donde x₀ es la posición inicial, v la velocidad y t el tiempo. Si el cuerpo sale del origen, x₀ = 0 y la ecuación queda x = v · t.</p><p>Por ejemplo, un ciclista que está en el kilómetro 5 de una carretera y avanza a 18 km/h estará al cabo de 2 horas en x = 5 + 18 · 2 = 41 km.</p><p>Una forma de estudiar un MRU es hacer una <b>tabla de valores</b> con la posición cada cierto tiempo. Si la posición aumenta siempre la misma cantidad en cada intervalo, el movimiento es uniforme. La tabla muestra un corredor que avanza 5 m cada segundo.</p>`,
+      svg: H.tabla("Tabla de posiciones de un corredor que avanza 5 metros cada segundo", ["t (s)", "x (m)", "Avanza"], [["0", "0", "—"], ["1", "5", "5 m"], ["2", "10", "5 m"], ["3", "15", "5 m"], ["4", "20", "5 m"]]),
+      video: vMru,
     },
     {
-      html: `<h3>Velocidad y seguridad vial</h3><p>Lo que hemos aprendido tiene aplicaciones muy prácticas. Cuando un conductor ve un peligro, tarda casi un segundo en reaccionar: es el <b>tiempo de reacción</b>. Durante ese tiempo el coche sigue a la misma velocidad: a 90 km/h (25 m/s) recorre 25 metros sin frenar. Después, al frenar, necesita otros muchos metros para parar, más aún si el suelo está mojado. La <mark>distancia de detención</mark> es la suma de las dos y crece muchísimo con la velocidad: a 50 km/h son unos 25 m; a 120 km/h, más de 100 m. Por eso hay que respetar los <b>límites de velocidad</b> y la <b>distancia de seguridad</b> con el vehículo de delante. El móvil, el alcohol y el cansancio alargan el tiempo de reacción y multiplican el riesgo. Los radares de tramo miden la velocidad media entre dos puntos con v = d / t.</p>`,
+      html: `<h3>1.9 Gráficas posición-tiempo</h3><p>Los movimientos se pueden representar en una <mark>gráfica posición-tiempo</mark> (<b>x-t</b>), con el tiempo en el eje horizontal y la posición en el eje vertical. La forma de la gráfica nos cuenta cómo ha sido el movimiento:</p><p>• Si el cuerpo está <b>parado</b>, la gráfica es una <b>línea horizontal</b>: pasa el tiempo y la posición no cambia.<br>• Si se mueve con <b>MRU</b>, la gráfica es una <b>línea recta inclinada</b>. Cuanto <b>más inclinada</b> (más pendiente), <b>mayor es la velocidad</b>.<br>• Si la recta <b>sube</b>, el cuerpo se aleja del origen; si <b>baja</b>, vuelve hacia él.<br>• Si la gráfica es una <b>curva</b>, la velocidad está cambiando: el cuerpo acelera o frena.</p><p>De una gráfica x-t se puede calcular la velocidad de cada tramo recto: se divide lo que cambia la posición entre lo que cambia el tiempo. Si en un tramo la posición pasa de 0 a 60 m en 20 s, la velocidad es 60 / 20 = 3 m/s. En la gráfica, el tramo horizontal significa parado, no «velocidad constante».</p>`,
+      svg: H.viejo(S, 5),
+    },
+    {
+      html: `<h3>1.10 La aceleración</h3><p>En la mayoría de los movimientos la velocidad no es constante: el coche arranca, frena y toma curvas. La <mark>aceleración</mark> indica lo rápido que <b>cambia la velocidad</b>.</p><p>Se calcula dividiendo el cambio de velocidad entre el tiempo que tarda en producirse: <b>a = (v − v₀) / t</b>, donde v₀ es la velocidad inicial y v la final. En el Sistema Internacional se mide en <b>metros por segundo al cuadrado</b> (<b>m/s²</b>). Una aceleración de 2 m/s² significa que la velocidad aumenta 2 m/s cada segundo.</p><p>• Si la velocidad <b>aumenta</b>, la aceleración es <b>positiva</b>: el cuerpo acelera.<br>• Si la velocidad <b>disminuye</b>, la aceleración es <b>negativa</b>: el cuerpo frena. A veces se le llama deceleración.<br>• Si la velocidad no cambia, la aceleración es <b>cero</b>, como en el MRU.</p><p>También hay aceleración cuando cambia la <b>dirección</b> del movimiento, aunque la rapidez sea la misma: al tomar una curva, notamos que el cuerpo «se va hacia fuera».</p>`,
+      svg: H.formula("Fórmula de la aceleración", "La aceleración", "a = (v − v₀) / t", ["Se mide en m/s²", "a > 0: acelera · a < 0: frena", "Ejemplo: de 10 a 30 m/s en 5 s → 4 m/s²"], "var(--leaf)"),
+    },
+    {
+      html: `<h3>1.11 El movimiento uniformemente acelerado</h3><p>Cuando la aceleración es constante y la trayectoria es recta, el movimiento se llama <mark>rectilíneo uniformemente acelerado</mark> (<b>MRUA</b>). La velocidad cambia <b>la misma cantidad en cada segundo</b>. Son ejemplos un coche que arranca en un semáforo pisando el acelerador siempre igual, una bola que rueda por una rampa o una piedra que cae.</p><p>La velocidad en cada instante se calcula con <b>v = v₀ + a · t</b>. Si un coche parte del reposo con una aceleración de 2 m/s², a los 1, 2 y 3 segundos su velocidad será 2, 4 y 6 m/s.</p><p>Como la velocidad aumenta, en cada segundo recorre <b>más distancia</b> que en el anterior. Si fotografiamos el coche cada segundo, las imágenes aparecen cada vez más separadas. Por eso la gráfica posición-tiempo de un MRUA no es una recta, sino una <b>curva</b> (una parábola) que se va empinando.</p><p>Un caso muy importante es la <b>caída libre</b>: sin rozamiento con el aire, todos los cuerpos caen cerca de la superficie de la Tierra con la misma aceleración, unos <b>9,8 m/s²</b>. Galileo lo estudió en el siglo XVII haciendo rodar bolas por planos inclinados.</p>`,
+      svg: H.viejo(S, 7),
+    },
+    {
+      html: `<h3>1.12 Velocidad y seguridad vial</h3><p>Lo que hemos aprendido tiene aplicaciones que salvan vidas. Cuando un conductor ve un peligro, tarda alrededor de un segundo en reaccionar y pisar el freno: es el <mark>tiempo de reacción</mark>. Durante ese tiempo el coche sigue a la misma velocidad. A 90 km/h (25 m/s), en un segundo recorre 25 metros sin frenar: es la <b>distancia de reacción</b>.</p><p>Después, al frenar, el coche necesita una <b>distancia de frenado</b> para pararse, que depende del estado de los frenos, de las ruedas y del suelo. La suma de las dos es la <mark>distancia de detención</mark>. Lo más importante es que la distancia de frenado <b>no crece igual que la velocidad, sino mucho más</b>: si la velocidad se duplica, la distancia de frenado se multiplica por cuatro.</p><p>Si el conductor mira el móvil, ha bebido alcohol o está cansado, el tiempo de reacción aumenta mucho, y con él la distancia recorrida sin frenar. Si el suelo está mojado, la distancia de frenado puede duplicarse. Por eso existen los límites de velocidad, hay que guardar la <b>distancia de seguridad</b> con el vehículo de delante y nunca se debe usar el móvil al volante, ni en el coche ni en la bici o el patinete.</p>`,
+      svg: H.barras("Distancia de detención aproximada de un coche en seco según la velocidad", [["50 km/h", 28, "28 m"], ["90 km/h", 70, "70 m"], ["120 km/h", 115, "115 m"], ["90 mojado", 100, "100 m"]], "Distancia de detención"),
     },
   ],
-  figura: {
-    titulo: "Describir un movimiento",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Resumen: para describir un movimiento se elige un sistema de referencia; la velocidad es distancia entre tiempo; en el MRU es constante; la aceleración es el cambio de velocidad entre el tiempo">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${[["Referencia", "el movimiento", "es relativo", "var(--pen)"], ["Velocidad", "v = d / t", "m/s · km/h", "var(--red)"], ["MRU", "velocidad constante", "x = x₀ + v · t", "#b8860b"], ["Aceleración", "a = (v − v₀) / t", "m/s²", "var(--leaf)"]].map(([a, b, c, col], i) => { const x = 20 + i * 152; return `<rect x="${x}" y="40" width="140" height="160" rx="14" fill="var(--card)" stroke="${col}" stroke-width="2.5"/>${t(x + 70, 82, a, { size: 16, color: col, font: D })}${t(x + 70, 128, b, { size: 13 })}${t(x + 70, 160, c, { size: 12, weight: 400 })}`; }).join("")}
-    </svg>`,
-  },
-  video: { id: "dKJLRk1VBOY", titulo: "Velocidad: concepto, fórmula y problemas", canal: "Susi Profe", vistas: 623770, megusta: 0, busqueda: "movimiento velocidad y aceleración" },
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    { enunciado: "Un autobús recorre 240 km en 3 horas. ¿Cuál es su velocidad media en km/h y en m/s?",
-      pasos: ["v = d / t = 240 km / 3 h = 80 km/h.", "Para pasar a m/s se divide entre 3,6.", "80 / 3,6 ≈ 22,2 m/s."],
-      resultado: "80 km/h ≈ 22,2 m/s." },
-    { enunciado: "¿Cuánto tarda la luz del Sol en llegar a la Tierra? (distancia: 150 000 000 km; velocidad de la luz: 300 000 km/s)",
-      pasos: ["t = d / v.", "t = 150 000 000 / 300 000 = 500 s.", "500 s = 8 min 20 s."],
-      resultado: "Unos 8 minutos y 20 segundos." },
-    { enunciado: "Una moto pasa de 10 m/s a 30 m/s en 5 s. ¿Cuál es su aceleración?",
-      pasos: ["a = (v − v₀) / t.", "a = (30 − 10) / 5.", "a = 20 / 5 = 4 m/s²."],
-      resultado: "4 m/s²." },
+    { enunciado: "Un autobús recorre 240 km en 3 horas. ¿Cuál es su velocidad media en km/h y en m/s?", pasos: ["v = d / t = 240 km / 3 h = 80 km/h.", "Para pasar a m/s se divide entre 3,6.", "80 / 3,6 ≈ 22,2 m/s."], resultado: "80 km/h ≈ 22,2 m/s." },
+    { enunciado: "¿Cuánto tarda la luz del Sol en llegar a la Tierra? (distancia: 150.000.000 km; velocidad de la luz: 300.000 km/s)", pasos: ["t = d / v.", "t = 150.000.000 / 300.000 = 500 s.", "500 s = 8 min 20 s."], resultado: "Unos 8 minutos y 20 segundos." },
+    { enunciado: "Das una vuelta y media a una pista circular de 400 m. ¿Cuál es la distancia recorrida? ¿Es igual al desplazamiento?", pasos: ["Distancia: 1,5 · 400 = 600 m.", "Tras una vuelta completa vuelves a la salida; la media vuelta te deja en el lado opuesto.", "El desplazamiento es la recta hasta el lado opuesto: el diámetro de la pista, 400 / π ≈ 127 m."], resultado: "600 m recorridos y unos 127 m de desplazamiento: no coinciden." },
+    { enunciado: "Un ciclista sale del km 12 con MRU a 20 km/h alejándose del origen. ¿Dónde estará a las 1,5 h?", pasos: ["x = x₀ + v · t.", "x = 12 + 20 · 1,5 = 12 + 30."], resultado: "En el km 42." },
+    { enunciado: "Una moto pasa de 10 m/s a 30 m/s en 5 s. ¿Cuál es su aceleración?", pasos: ["a = (v − v₀) / t.", "a = (30 − 10) / 5 = 20 / 5."], resultado: "4 m/s²." },
+    { enunciado: "Un coche va a 108 km/h y el conductor tarda 1,5 s en reaccionar porque estaba mirando el móvil. ¿Qué distancia recorre sin frenar?", pasos: ["Se pasa a m/s: 108 / 3,6 = 30 m/s.", "d = v · t = 30 · 1,5 = 45 m."], resultado: "45 m sin empezar a frenar." },
   ],
   errores: [
     "Olvidar el sistema de referencia: decir que algo está quieto sin indicar respecto a qué.",
     "Confundir distancia recorrida con desplazamiento: solo coinciden en línea recta sin volver atrás.",
-    "Mezclar unidades: usar km/h con minutos o con segundos sin convertir.",
-    "Pensar que un tramo horizontal en la gráfica x-t significa velocidad constante distinta de cero: significa que está parado.",
+    "Mezclar unidades: usar km/h con segundos o minutos sin convertir.",
+    "Pensar que la velocidad media es la media de las velocidades: es la distancia total entre el tiempo total.",
+    "Interpretar un tramo horizontal en una gráfica x-t como velocidad constante: significa que está parado.",
     "Creer que aceleración negativa siempre es ir hacia atrás: significa que la velocidad disminuye.",
   ],
-  ejercicios: [
-    { q: "Un niño va sentado en el coche de sus padres. ¿Está en reposo o en movimiento? Explícalo.", sol: "Depende del sistema de referencia: en reposo respecto al coche y en movimiento respecto a la carretera." },
-    { q: "Clasifica las trayectorias: la caída de una manzana, la Tierra alrededor del Sol, una noria, un tiro libre de baloncesto.", sol: "Rectilínea, elíptica, circular y parabólica." },
-    { q: "Das tres vueltas a una pista circular de 200 m y acabas en la salida. ¿Distancia recorrida y desplazamiento?", sol: "Distancia: 600 m. Desplazamiento: 0 m." },
-    { q: "Pasa 72 km/h a m/s y 15 m/s a km/h.", sol: "72 / 3,6 = 20 m/s; 15 · 3,6 = 54 km/h." },
-    { q: "Un atleta corre 400 m en 50 s. ¿Cuál es su velocidad media?", sol: "v = 400 / 50 = 8 m/s." },
-    { q: "¿Qué distancia recorre en 2,5 h un coche que va a 100 km/h?", sol: "d = 100 · 2,5 = 250 km." },
-    { q: "¿Cuánto tarda en recorrer 6 km una persona que anda a 1,5 m/s?", sol: "6 km = 6000 m; t = 6000 / 1,5 = 4000 s ≈ 1 h 7 min." },
-    { q: "Un ciclista sale del km 5 y avanza a 18 km/h con MRU. ¿Dónde estará a las 2 h?", sol: "x = 5 + 18 · 2 = 41 km." },
-    { q: "Un coche frena de 25 m/s a 0 en 5 s. Calcula su aceleración.", sol: "a = (0 − 25) / 5 = −5 m/s²: está frenando." },
-    { q: "Dibuja la gráfica x-t de un perro que corre 20 m en 4 s, se para 3 s y vuelve al origen en 4 s.", sol: "Recta que sube de (0, 0) a (4, 20), tramo horizontal de (4, 20) a (7, 20) y recta que baja hasta (11, 0)." },
-  ],
-  quiz: [
-    { q: "Para describir un movimiento hace falta un…", o: ["cronómetro", "sistema de referencia", "velocímetro"], a: 1, e: "Sistema de referencia." },
-    { q: "La línea que describe un cuerpo al moverse es la…", o: ["trayectoria", "posición", "velocidad"], a: 0, e: "La trayectoria." },
-    { q: "La unidad de velocidad en el SI es…", o: ["km/h", "m/s", "m/s²"], a: 1, e: "m/s." },
-    { q: "36 km/h equivalen a…", o: ["10 m/s", "36 m/s", "129,6 m/s"], a: 0, e: "36 / 3,6 = 10." },
-    { q: "Si v = 20 m/s y t = 10 s, la distancia es…", o: ["2 m", "30 m", "200 m"], a: 2, e: "d = v · t = 200 m." },
-    { q: "En un MRU la velocidad es…", o: ["constante", "creciente", "cero"], a: 0, e: "Constante." },
-    { q: "Una recta horizontal en una gráfica x-t indica que el cuerpo…", o: ["acelera", "está parado", "va muy rápido"], a: 1, e: "Está parado." },
-    { q: "La aceleración se mide en…", o: ["m/s", "m/s²", "N"], a: 1, e: "m/s²." },
-    { q: "Un coche que frena tiene aceleración…", o: ["positiva", "negativa", "nula"], a: 1, e: "Negativa." },
-    { q: "En la gráfica x-t, el MRUA es…", o: ["una recta", "una curva", "una línea horizontal"], a: 1, e: "Una curva (parábola)." },
-  ],
-  examen: [
-    { q: "Si un cuerpo pasa de 0 a 12 m/s en 4 s, su aceleración es…", o: ["3 m/s²", "48 m/s²", "8 m/s²"], a: 0, e: "12 / 4 = 3 m/s²." },
-    { q: "Cuanto más inclinada es la recta en una gráfica x-t…", o: ["menor es la velocidad", "mayor es la velocidad", "más tiempo pasa"], a: 1, e: "Mayor velocidad." },
-    { q: "La distancia de detención de un coche…", o: ["no depende de la velocidad", "crece mucho con la velocidad", "es siempre 25 m"], a: 1, e: "Crece mucho con la velocidad." },
-  ],
-  feynman: ["Por qué el movimiento es relativo", "Cómo se calculan la velocidad, la distancia y el tiempo en un MRU", "Qué es la aceleración y cómo se nota en una gráfica"],
-  mapa: mapa("MOVIMIENTO", "var(--eso)", [
-    ["Referencia", "reposo · movimiento relativo", "var(--pen)"],
+  ejercicios: H.niveles([
+    ["Un niño va sentado en el coche de sus padres. ¿Está en reposo o en movimiento? Explícalo.", "Depende del sistema de referencia: está en reposo respecto al coche y en movimiento respecto a la carretera."],
+    ["Clasifica las trayectorias: la caída de una manzana, la Tierra alrededor del Sol, una noria, un tiro libre de baloncesto.", "Rectilínea, elíptica, circular y parabólica."],
+    ["Das tres vueltas a una pista circular de 200 m y acabas en la salida. ¿Distancia recorrida y desplazamiento?", "Distancia: 600 m. Desplazamiento: 0 m, porque la posición final coincide con la inicial."],
+    ["Pasa 72 km/h a m/s y 15 m/s a km/h.", "72 / 3,6 = 20 m/s; 15 · 3,6 = 54 km/h."],
+    ["Un atleta corre 400 m en 50 s. ¿Cuál es su velocidad media?", "v = 400 / 50 = 8 m/s (28,8 km/h)."],
+    ["¿Qué distancia recorre en 2,5 h un coche que va a 100 km/h?", "d = v · t = 100 · 2,5 = 250 km."],
+    ["¿Cuánto tarda en recorrer 30 km un ciclista que va a 15 km/h?", "t = d / v = 30 / 15 = 2 h."],
+    ["¿Qué es un MRU? Pon dos ejemplos.", "Un movimiento con trayectoria recta y velocidad constante. Ejemplos: una escalera mecánica y un coche con el control de crucero en una autopista recta."],
+    ["¿Qué indica una línea horizontal en una gráfica posición-tiempo?", "Que la posición no cambia: el cuerpo está parado."],
+    ["Define aceleración y escribe su unidad.", "Es el cambio de velocidad por unidad de tiempo, a = (v − v₀) / t. Se mide en m/s²."],
+  ], [
+    ["¿Cuánto tarda en recorrer 6 km una persona que anda a 1,5 m/s?", "6 km = 6.000 m; t = 6.000 / 1,5 = 4.000 s ≈ 1 h 7 min."],
+    ["Un coche recorre 150 km en 1 h 30 min. Calcula su velocidad media en km/h y en m/s.", "1 h 30 min = 1,5 h. v = 150 / 1,5 = 100 km/h ≈ 27,8 m/s."],
+    ["Un tren sale del km 20 y avanza con MRU a 90 km/h alejándose del origen. ¿Dónde estará a las 2 h? ¿Cuánto tardará en llegar al km 290?", "x = 20 + 90 · 2 = 200 km. Para llegar al 290 debe recorrer 270 km: t = 270 / 90 = 3 h."],
+    ["Una persona va al instituto: anda 600 m en 10 min, espera 2 min en un semáforo y anda otros 300 m en 5 min. ¿Cuál es su velocidad media en m/s?", "Distancia total: 900 m. Tiempo total: 17 min = 1.020 s. v = 900 / 1.020 ≈ 0,88 m/s."],
+    ["Un coche frena de 25 m/s a 0 en 5 s. Calcula su aceleración e interpreta el signo.", "a = (0 − 25) / 5 = −5 m/s². El signo negativo indica que está frenando."],
+    ["Un coche parte del reposo con una aceleración de 3 m/s². ¿Qué velocidad tendrá a los 6 s? Exprésala en km/h.", "v = 0 + 3 · 6 = 18 m/s; 18 · 3,6 = 64,8 km/h."],
+    ["Dibuja la gráfica x-t de un perro que corre 20 m en 4 s, se para 3 s y vuelve al origen en 4 s.", "Recta que sube de (0, 0) a (4, 20), tramo horizontal de (4, 20) a (7, 20) y recta que baja hasta (11, 0)."],
+    ["En una gráfica x-t, el tramo A sube de 0 a 40 m en 10 s y el tramo B sube de 40 a 100 m en 10 s. ¿En qué tramo va más rápido? Calcula ambas velocidades.", "Tramo A: 40 / 10 = 4 m/s. Tramo B: 60 / 10 = 6 m/s. Va más rápido en el B, que es más inclinado."],
+    ["Un caracol avanza a 1 mm/s. ¿Cuánto tarda en recorrer 1 m? Expresa el resultado en minutos.", "1 m = 1.000 mm; t = 1.000 / 1 = 1.000 s ≈ 16,7 min."],
+    ["Desde una barca, un pescador ve que la orilla se aleja. ¿Se mueve la orilla? Explícalo.", "Respecto a la barca, sí: cambia de posición. Respecto al suelo, no. El movimiento depende del sistema de referencia; lo habitual es tomar el suelo como referencia, y en él es la barca la que se mueve."],
+    ["Explica por qué el velocímetro de un coche marca la velocidad instantánea y no la media.", "Porque indica la velocidad en cada momento, que cambia al acelerar o frenar. La media se calcula al final dividiendo toda la distancia entre todo el tiempo."],
+    ["Un conductor circula a 72 km/h y su tiempo de reacción es 0,8 s. ¿Qué distancia recorre antes de pisar el freno?", "72 km/h = 20 m/s; d = 20 · 0,8 = 16 m."],
+  ], [
+    ["Dos coches salen a la vez de dos ciudades separadas 300 km y van uno hacia el otro a 70 km/h y 80 km/h. ¿Cuándo y dónde se encuentran?", "Se acercan 70 + 80 = 150 km cada hora. t = 300 / 150 = 2 h. El primero habrá recorrido 70 · 2 = 140 km desde su ciudad; el segundo, 160 km."],
+    ["Un rayo cae a lo lejos y oyes el trueno 6 s después de ver el relámpago. ¿A qué distancia ha caído? (velocidad del sonido: 340 m/s)", "La luz llega casi al instante. d = 340 · 6 = 2.040 m, unos 2 km. Regla práctica: dividir los segundos entre 3 para obtener los kilómetros."],
+    ["Usain Bolt corrió 100 m en 9,58 s. Calcula su velocidad media en m/s y en km/h. ¿Por qué su velocidad máxima fue mayor?", "v = 100 / 9,58 ≈ 10,4 m/s ≈ 37,6 km/h. Su velocidad máxima fue mayor porque al principio estaba parado y tuvo que acelerar: en la media se incluyen los primeros metros, más lentos."],
+    ["Un coche pasa de 0 a 100 km/h en 10 s. Calcula su aceleración en m/s².", "100 km/h ≈ 27,8 m/s. a = 27,8 / 10 ≈ 2,8 m/s²."],
+    ["Se deja caer una piedra desde lo alto de un acantilado. Sin rozamiento, ¿qué velocidad lleva a los 3 s? ¿Por qué cada segundo recorre más distancia?", "v = 9,8 · 3 = 29,4 m/s. Como su velocidad aumenta 9,8 m/s cada segundo, en cada segundo va más deprisa que en el anterior y recorre más metros."],
+    ["Un conductor va a 90 km/h y frena con una aceleración de −5 m/s². Su tiempo de reacción es 1 s. ¿Cuánto tarda en parar desde que pisa el freno? ¿Qué distancia recorre durante la reacción?", "90 km/h = 25 m/s. Tiempo de frenado: t = (0 − 25) / (−5) = 5 s. Distancia de reacción: 25 · 1 = 25 m."],
+    ["Diseña una experiencia en el patio para comprobar si un compañero camina con MRU.", "Se marcan distancias cada 5 m con tiza a lo largo de 30 m. Varios alumnos con cronómetros anotan el tiempo en que pasa por cada marca. Se hace una tabla y una gráfica x-t: si los puntos forman una recta, el movimiento es aproximadamente uniforme; la pendiente es su velocidad."],
+    ["Explica con datos por qué si se duplica la velocidad de un coche, la distancia de detención aumenta mucho más del doble.", "La distancia de reacción se duplica (es proporcional a la velocidad), pero la de frenado se multiplica por cuatro. Por ejemplo, de 50 a 100 km/h la detención pasa de unos 28 m a más de 80 m, casi el triple."],
+  ]),
+  quiz: H.test([
+    ["Para describir un movimiento hace falta un…", ["sistema de referencia", "cronómetro", "velocímetro", "mapa"], "Todo movimiento es relativo."],
+    ["La línea que describe un cuerpo al moverse es la…", ["trayectoria", "posición", "velocidad", "distancia"], "Como las huellas en la nieve."],
+    ["La trayectoria de un balón lanzado a canasta es…", ["parabólica", "rectilínea", "circular", "elíptica"], "Una parábola."],
+    ["Si das una vuelta completa a una pista, tu desplazamiento es…", ["cero", "la longitud de la pista", "el doble de la pista", "negativo"], "Acabas donde empezaste."],
+    ["La unidad de velocidad en el SI es…", ["m/s", "km/h", "m/s²", "nudo"], "Metros por segundo."],
+    ["36 km/h equivalen a…", ["10 m/s", "36 m/s", "129,6 m/s", "100 m/s"], "36 / 3,6."],
+    ["10 m/s equivalen a…", ["36 km/h", "10 km/h", "2,8 km/h", "100 km/h"], "10 · 3,6."],
+    ["Si v = 20 m/s y t = 10 s, la distancia es…", ["200 m", "2 m", "30 m", "0,5 m"], "d = v · t."],
+    ["Para calcular el tiempo se usa…", ["t = d / v", "t = v / d", "t = d · v", "t = d − v"], "Triángulo de la velocidad."],
+    ["La velocidad que marca el velocímetro es la…", ["instantánea", "media", "máxima", "mínima"], "En cada momento."],
+    ["En un MRU la velocidad es…", ["constante", "creciente", "cero", "variable"], "Y la trayectoria, recta."],
+    ["La ecuación del MRU es…", ["x = x₀ + v · t", "v = a · t", "x = v / t", "a = v · t"], "Posición en cada instante."],
+    ["Una recta horizontal en una gráfica x-t indica que el cuerpo…", ["está parado", "acelera", "va muy rápido", "frena"], "La posición no cambia."],
+    ["Cuanto más inclinada es la recta en una gráfica x-t…", ["mayor es la velocidad", "menor es la velocidad", "más tiempo pasa", "más lejos está el origen"], "Más pendiente, más rapidez."],
+    ["La aceleración se mide en…", ["m/s²", "m/s", "N", "km/h"], "Metros por segundo al cuadrado."],
+    ["Un coche que frena tiene aceleración…", ["negativa", "positiva", "nula", "infinita"], "La velocidad disminuye."],
+    ["En el MRUA, la gráfica x-t es…", ["una curva", "una recta", "una línea horizontal", "un punto"], "Una parábola."],
+    ["Sin aire, todos los cuerpos caen con una aceleración de unos…", ["9,8 m/s²", "1 m/s²", "98 m/s²", "0 m/s²"], "Caída libre."],
+    ["El tiempo de reacción de un conductor aumenta si…", ["usa el móvil", "descansa", "va despacio", "lleva cinturón"], "Se distrae."],
+    ["Si se duplica la velocidad, la distancia de frenado…", ["se multiplica por cuatro", "se duplica", "no cambia", "se reduce a la mitad"], "Crece mucho más que la velocidad."],
+  ], 1),
+  examen: H.test([
+    ["Un cuerpo que pasa de 0 a 12 m/s en 4 s tiene una aceleración de…", ["3 m/s²", "48 m/s²", "8 m/s²", "16 m/s²"], "12 / 4."],
+    ["Un coche que recorre 180 km en 2 h tiene una velocidad media de…", ["90 km/h", "360 km/h", "180 km/h", "25 km/h"], "180 / 2."],
+    ["90 km/h son…", ["25 m/s", "90 m/s", "324 m/s", "2,5 m/s"], "90 / 3,6."],
+    ["La distancia recorrida y el desplazamiento coinciden si…", ["el movimiento es recto y sin volver atrás", "el movimiento es circular", "el cuerpo está parado", "siempre"], "Solo en ese caso."],
+    ["Un ciclista sale del km 3 a 15 km/h. Al cabo de 2 h está en el km…", ["33", "30", "17", "45"], "3 + 15 · 2."],
+    ["En una gráfica x-t, una recta que baja indica que el cuerpo…", ["vuelve hacia el origen", "está parado", "acelera", "sube una cuesta"], "La posición disminuye."],
+    ["En un MRUA, la velocidad…", ["cambia lo mismo cada segundo", "es constante", "es cero", "cambia al azar"], "Aceleración constante."],
+    ["La distancia de detención es la suma de las distancias de…", ["reacción y frenado", "frenado y seguridad", "reacción y seguridad", "aceleración y frenado"], "Antes de frenar y frenando."],
+  ], 2),
+  feynman: ["Por qué el movimiento es relativo", "Qué diferencia hay entre distancia recorrida y desplazamiento", "Cómo se calculan la velocidad, la distancia y el tiempo", "Cómo se lee una gráfica posición-tiempo", "Qué es la aceleración y por qué importa en seguridad vial"],
+  mapa: H.mapa("MOVIMIENTO", "var(--eso)", [
+    ["Referencia", "reposo · relativo · posición", "var(--pen)"],
     ["Trayectoria", "distancia · desplazamiento", "#b8860b"],
-    ["Velocidad", "v = d / t · MRU · gráficas", "var(--red)"],
-    ["Aceleración", "a = Δv / t · MRUA", "var(--leaf)"],
-  ], 280),
+    ["Velocidad", "v = d / t · MRU · gráficas x-t", "var(--red)"],
+    ["Aceleración", "a = (v − v₀) / t · MRUA", "var(--leaf)"],
+  ], 260),
   tarjetas: [
-    ["Sistema de referencia", "Punto que se considera fijo para describir un movimiento."],
+    ["Sistema de referencia", "Punto y ejes que se toman como fijos para describir un movimiento."],
     ["Trayectoria", "Línea que describe un cuerpo al moverse."],
-    ["Desplazamiento", "Distancia en línea recta entre la posición inicial y la final."],
+    ["Desplazamiento", "Recta entre la posición inicial y la final."],
     ["Velocidad media", "v = d / t; se mide en m/s."],
+    ["km/h ↔ m/s", "Dividir entre 3,6 / multiplicar por 3,6."],
     ["MRU", "Trayectoria recta con velocidad constante."],
-    ["Gráfica x-t", "Posición frente a tiempo; más inclinación, más velocidad."],
-    ["Aceleración", "Cambio de velocidad por unidad de tiempo; a = (v − v₀) / t."],
-    ["km/h ↔ m/s", "Para pasar de km/h a m/s se divide entre 3,6."],
+    ["Ecuación del MRU", "x = x₀ + v · t."],
+    ["Gráfica x-t", "Horizontal: parado; recta: MRU; curva: acelera."],
+    ["Aceleración", "a = (v − v₀) / t; m/s²."],
+    ["MRUA", "Recta con aceleración constante."],
+    ["Caída libre", "Aceleración de 9,8 m/s² sin aire."],
+    ["Distancia de detención", "Distancia de reacción + distancia de frenado."],
   ],
-  familias: ["Medid con el móvil cuánto tardáis en recorrer 100 m andando y corriendo y calculad vuestra velocidad.", "En un viaje en coche, calculad la velocidad media con los kilómetros y el tiempo.", "Comentad juntos por qué hay que guardar la distancia de seguridad."],
-  profesores: {
-    saberes: "La interacción: movimiento, sistemas de referencia, velocidad, MRU, aceleración y gráficas, con aplicación a la seguridad vial (RD 217/2022, Física y Química, bloque «La interacción»).",
-    ideas: ["Medida de velocidades en el patio con cintas métricas y cronómetros y elaboración de gráficas x-t.", "Planos inclinados con bolas para observar el MRUA, como Galileo.", "Análisis de distancias de detención con datos de la DGT."],
+  glosario: [
+    ["Movimiento", "Cambio de posición de un cuerpo respecto a un sistema de referencia."],
+    ["Reposo", "Estado de un cuerpo cuya posición no cambia respecto al sistema de referencia."],
+    ["Sistema de referencia", "Punto y ejes que se toman como fijos para describir un movimiento."],
+    ["Posición", "Lugar que ocupa un cuerpo respecto al origen del sistema de referencia."],
+    ["Trayectoria", "Línea formada por las posiciones sucesivas de un cuerpo en movimiento."],
+    ["Distancia recorrida", "Longitud de la trayectoria seguida por un cuerpo."],
+    ["Desplazamiento", "Distancia en línea recta y con sentido entre la posición inicial y la final."],
+    ["Velocidad media", "Distancia recorrida dividida entre el tiempo empleado."],
+    ["Velocidad instantánea", "Velocidad de un cuerpo en un momento concreto."],
+    ["MRU", "Movimiento rectilíneo uniforme: trayectoria recta y velocidad constante."],
+    ["Gráfica posición-tiempo", "Representación de la posición de un cuerpo en función del tiempo."],
+    ["Aceleración", "Cambio de la velocidad por unidad de tiempo."],
+    ["MRUA", "Movimiento rectilíneo con aceleración constante."],
+    ["Tiempo de reacción", "Tiempo que tarda una persona en responder ante un estímulo, como pisar el freno."],
+    ["Distancia de detención", "Distancia total que recorre un vehículo desde que se ve el peligro hasta que se para."],
+  ],
+  situacion: {
+    titulo: "Camino seguro al instituto",
+    reto: "El ayuntamiento quiere mejorar la seguridad de los alumnos que van andando o en bici al instituto y os pide un estudio con datos reales del movimiento por las calles del barrio.",
+    pasos: [
+      "Medid con cinta métrica un tramo recto de 50 m en el patio y cronometrad a compañeros andando, corriendo y en bici; calculad sus velocidades en m/s y km/h.",
+      "Haced las gráficas posición-tiempo de cada uno y comparad las pendientes.",
+      "Con un mapa digital, medid la distancia de casa al instituto y calculad cuánto se tarda andando y en bici.",
+      "Calculad la distancia que recorre un coche a 30 y 50 km/h durante un segundo de reacción y comparadlo con el ancho de un paso de peatones.",
+      "Proponed tres mejoras de seguridad (zonas 30, pasos elevados, carril bici) justificadas con vuestros cálculos.",
+    ],
+    producto: "Informe con tablas, gráficas y cálculos, y una carta al ayuntamiento con las propuestas de mejora.",
+    evaluacion: [
+      "Las medidas y los cálculos de velocidad, distancia y tiempo son correctos y con unidades.",
+      "Las gráficas posición-tiempo están bien construidas e interpretadas.",
+      "Las propuestas se justifican con datos de distancias de reacción y detención.",
+      "La carta es clara, respetuosa y convincente.",
+    ],
   },
-  fuentes: [RD, wiki("Movimiento (física)", "Movimiento_(física)"), wiki("Movimiento rectilíneo uniforme", "Movimiento_rectilíneo_uniforme")],
-  revisado: REV,
+  familias: ["Medid con el móvil cuánto tardáis en recorrer 100 m andando y corriendo y calculad vuestra velocidad.", "En un viaje en coche, calculad la velocidad media con los kilómetros recorridos y el tiempo.", "Comentad juntos por qué hay que guardar la distancia de seguridad y no usar el móvil al conducir.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "La interacción: descripción del movimiento con sistemas de referencia, posición, trayectoria, desplazamiento, velocidad media e instantánea, MRU, gráficas posición-tiempo y aceleración, con aplicación a la seguridad vial (RD 217/2022, Física y Química 1º a 3º, bloque D «La interacción»). En Cataluña, saberes equivalentes de Física i Química del Decret 175/2022.",
+    ideas: [
+      "Medida de velocidades en el patio con cintas métricas y cronómetros y elaboración de gráficas x-t.",
+      "Planos inclinados con bolas para observar el MRUA, como Galileo.",
+      "Análisis de distancias de detención con datos de la DGT.",
+      "Uso de aplicaciones de vídeo a cámara lenta para analizar el movimiento de una pelota.",
+      "Simuladores PhET de movimiento para relacionar gráficas y movimientos.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Movimiento (física)", "Movimiento_(f%C3%ADsica)"), H.wiki("Movimiento rectilíneo uniforme", "Movimiento_rectil%C3%ADneo_uniforme"), { t: "Dirección General de Tráfico (DGT): educación vial", url: "https://www.dgt.es/" }],
+  revisado: H.REV,
 };

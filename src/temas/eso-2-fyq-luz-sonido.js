@@ -1,161 +1,236 @@
-// Física y Química 2º ESO: la luz y el sonido. Dibujos propios en SVG.
-const { D, mapa, BG, t, fl, caja, tabla, RD, wiki, C, REV } = require("./_eso2a");
+// Física y Química 2º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso2L3 y dibujos de la versión anterior del tema.
+const H = require("./_eso2L3");
+const S = "fyq-luz-sonido";
+const [vSon, , vRef] = H.videos(S);
 
 module.exports = {
-  materia: "Física y Química",
-  curso: C,
+  materia: H.MATERIA,
+  curso: H.CURSO,
   titulo: "La luz y el sonido",
-  minutos: 55,
-  objetivos: ["Explicar qué es una onda y distinguir ondas mecánicas y electromagnéticas", "Describir cómo se produce y propaga el sonido y sus cualidades: intensidad, tono y timbre", "Explicar la propagación rectilínea de la luz, las sombras, la reflexión y la refracción", "Relacionar el color con la luz blanca y valorar la contaminación acústica y lumínica"],
-  claves: ["onda", "sonido", "eco", "decibelio", "intensidad", "tono", "timbre", "luz", "reflexión", "refracción", "espectro", "color"],
+  minutos: 110,
+  objetivos: [
+    "Describir qué es una onda y sus elementos: amplitud, longitud de onda y frecuencia",
+    "Explicar cómo se produce y se propaga el sonido y calcular distancias con su velocidad",
+    "Relacionar intensidad, tono y timbre con las características de la onda sonora",
+    "Valorar los efectos de la contaminación acústica y proponer medidas",
+    "Explicar la propagación rectilínea de la luz, las sombras y los eclipses",
+    "Describir la reflexión, la refracción y la dispersión de la luz y el color de los objetos",
+  ],
+  claves: ["onda", "amplitud", "longitud de onda", "frecuencia", "hercio", "sonido", "eco", "decibelio", "intensidad", "tono", "timbre", "luz", "sombra", "eclipse", "reflexión", "refracción", "lente", "dispersión", "color"],
   pregunta: {
-    texto: "En una tormenta ves el relámpago y, unos segundos después, oyes el trueno. Si los dos se producen a la vez, ¿por qué llegan separados?",
-    respuesta: "Porque la <mark>luz</mark> viaja a unos 300 000 km/s y llega casi al instante, mientras que el <mark>sonido</mark> viaja por el aire a unos 340 m/s, casi un millón de veces más despacio. Si cuentas los segundos entre el relámpago y el trueno y los divides entre 3, sabrás a cuántos kilómetros está la tormenta.",
+    texto: "En una tormenta, ¿por qué vemos el relámpago antes de oír el trueno, si se producen a la vez?",
+    respuesta: "Porque la <b>luz</b> viaja muchísimo más rápido que el <b>sonido</b>. La luz recorre unos 300.000 km cada segundo, así que nos llega casi al instante. El sonido, en cambio, recorre en el aire unos <mark>340 metros por segundo</mark>. Contando los segundos entre el relámpago y el trueno y dividiendo entre 3, sabemos aproximadamente a cuántos kilómetros ha caído el rayo.",
+  },
+  lectura: {
+    titulo: "Murciélagos que ven con los oídos",
+    html: `<p>En una noche sin luna, un murciélago vuela a toda velocidad entre las ramas de un bosque, esquiva cada hoja y atrapa en el aire un mosquito diminuto. No usa los ojos: usa el <b>sonido</b>. Mientras vuela, emite gritos muy agudos, tan agudos que los humanos no podemos oírlos: son <b>ultrasonidos</b>. Cuando esos sonidos chocan con un obstáculo o con un insecto, rebotan y vuelven en forma de <b>eco</b>.</p>
+<p>El murciélago escucha los ecos con sus grandes orejas. Por el tiempo que tarda en volver cada eco calcula a qué distancia está el objeto, y por pequeñas diferencias entre lo que oye cada oreja sabe hacia dónde está. Así construye un «mapa sonoro» del entorno. Este sistema se llama <b>ecolocalización</b>, y también lo usan los delfines y algunas ballenas.</p>
+<p>Los seres humanos hemos copiado la idea: los barcos usan el <b>sonar</b> para medir la profundidad del mar y localizar bancos de peces, y los médicos usan las <b>ecografías</b> para ver un bebé antes de nacer. En este tema descubrirás cómo viajan el sonido y la luz, dos formas de energía que nos permiten conocer el mundo.</p>`,
   },
   bloques: [
     {
-      html: `<h3>Las ondas</h3><p>Si tiras una piedra a un estanque, se forman círculos que se alejan: es una <mark>onda</mark>. Una onda es una <b>perturbación que se propaga transportando energía, pero no materia</b>: el agua sube y baja en su sitio, pero no viaja con la onda, como demuestra una hoja que flota y se mece sin avanzar. Las ondas se describen con la <b>longitud de onda</b> (λ), la distancia entre dos crestas; la <b>amplitud</b>, la altura máxima de la onda; y la <b>frecuencia</b> (f), el número de oscilaciones por segundo, que se mide en <b>hercios (Hz)</b>. Hay dos grandes tipos. Las <mark>ondas mecánicas</mark> necesitan un medio material para propagarse, como el sonido o las olas. Las <mark>ondas electromagnéticas</mark> no necesitan medio y viajan incluso por el vacío, como la luz, las ondas de radio o los rayos X.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Onda con sus elementos: la longitud de onda es la distancia entre dos crestas y la amplitud es la altura de la cresta respecto al centro">${BG}
-        <line x1="14" y1="90" x2="246" y2="90" stroke="var(--muted)" stroke-dasharray="3 3"/>
-        <path d="M14 90 C 34 30, 54 30, 74 90 S 114 150, 134 90 S 174 30, 194 90 S 234 150, 246 110" stroke="var(--pen)" stroke-width="3" fill="none"/>
-        <path d="M44 34 H 164" stroke="var(--red)" stroke-width="1.5"/><path d="M44 28 v 12 M164 28 v 12" stroke="var(--red)" stroke-width="1.5"/>${t(104, 26, "longitud de onda (λ)", { size: 10, color: "var(--red)" })}
-        ${fl(178, 90, 178, 48, "var(--leaf)", 1.5)}${t(184, 66, "amplitud", { size: 10, color: "var(--leaf)", anchor: "start" })}
-        ${t(44, 108, "cresta", { size: 10, color: "var(--muted)" })}${t(104, 164, "valle", { size: 10, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.1 Las ondas</h3><p>Si tiras una piedra a un estanque, se forman círculos que se alejan del punto donde ha caído. Si una hoja flota en el agua, sube y baja al paso de los círculos, pero no se desplaza con ellos. Es una <mark>onda</mark>: una perturbación que se propaga transportando <b>energía</b> de un lugar a otro, <b>sin transportar materia</b>.</p><p>Las ondas tienen unos elementos característicos:</p><p>• La <b>cresta</b> es el punto más alto y el <b>valle</b>, el más bajo.<br>• La <mark>amplitud</mark> es la altura de la cresta respecto a la posición de equilibrio. Indica la energía que transporta la onda.<br>• La <mark>longitud de onda</mark> (λ) es la distancia entre dos crestas seguidas. Se mide en metros.<br>• La <mark>frecuencia</mark> (f) es el número de ondas que pasan por un punto en un segundo. Se mide en <b>hercios</b> (Hz): 1 Hz es una onda por segundo.</p><p>Hay dos grandes tipos de ondas. Las <b>mecánicas</b>, como el sonido o las olas, necesitan un medio material para propagarse. Las <b>electromagnéticas</b>, como la luz, pueden viajar también por el vacío.</p>`,
+      svg: H.viejo(S, 0),
     },
     {
-      html: `<h3>Cómo se produce y se propaga el sonido</h3><p>El <mark>sonido</mark> se produce cuando un cuerpo <b>vibra</b>: las cuerdas de una guitarra, la membrana de un tambor o de un altavoz, nuestras cuerdas vocales. Esa vibración empuja las partículas del aire que hay al lado, estas empujan a las siguientes, y así la vibración se transmite en forma de <b>compresiones y expansiones</b> del aire hasta que llega a nuestro oído y hace vibrar el tímpano. El sonido es una <b>onda mecánica</b>: necesita un medio material para propagarse. Por eso <b>en el vacío no hay sonido</b>: en el espacio, una explosión sería silenciosa. El sonido viaja más rápido en los sólidos que en los líquidos, y más en los líquidos que en los gases, porque las partículas están más juntas. Por eso, si pegas la oreja a una vía, oyes el tren antes que por el aire.</p>${tabla(["Medio", "Velocidad del sonido"], [["Aire (20 °C)", "340 m/s"], ["Agua", "1500 m/s"], ["Madera", "≈ 3800 m/s"], ["Acero", "≈ 5900 m/s"], ["Vacío", "no se propaga"]])}`,
-      video: { id: "W7Z5S3wPKEQ", titulo: "¿Cómo viaja el sonido?", canal: "FlexFlix Kids en Español", vistas: 1753260 },
+      html: `<h3>1.2 Cómo se produce y se propaga el sonido</h3><p>El <mark>sonido</mark> es una onda mecánica que se produce cuando un cuerpo <b>vibra</b>. Si tocas tu garganta mientras hablas, notarás la vibración de las cuerdas vocales. Al golpear un tambor, su membrana vibra; al pulsar una guitarra, vibra la cuerda.</p><p>El cuerpo que vibra empuja a las partículas del aire que lo rodean, que se comprimen y empujan a las siguientes, y así sucesivamente. Se forman zonas de aire más apretado (<b>compresiones</b>) y más separado (<b>expansiones</b>) que avanzan en todas direcciones. Las partículas solo vibran adelante y atrás; lo que viaja es la energía. Cuando esa vibración llega a nuestro oído, hace vibrar el tímpano y el cerebro la interpreta como sonido.</p><p>Como necesita partículas que vibren, el sonido <b>necesita un medio material</b> para propagarse: sólido, líquido o gas. <b>En el vacío no hay sonido</b>. En el espacio, una gran explosión sería completamente silenciosa.</p>`,
+      svg: H.flujo("Cómo se produce y viaja el sonido", ["Un cuerpo vibra", "Empuja las partículas del medio", "Compresiones y expansiones avanzan", "El tímpano vibra y oímos"], "El sonido"),
+      video: vSon,
     },
     {
-      html: `<h3>Las cualidades del sonido</h3><p>Distinguimos los sonidos por tres cualidades. La <mark>intensidad</mark> o volumen nos dice si un sonido es <b>fuerte o débil</b>. Depende de la <b>amplitud</b> de la onda y se mide en <b>decibelios (dB)</b>. El <mark>tono</mark> nos dice si un sonido es <b>agudo o grave</b>. Depende de la <b>frecuencia</b>: cuanto más rápido vibra la fuente, más agudo es el sonido. El silbido de un pájaro es agudo y el de un contrabajo, grave. El oído humano percibe frecuencias entre unos 20 Hz y 20 000 Hz; por debajo están los <b>infrasonidos</b> (que oyen los elefantes) y por encima los <b>ultrasonidos</b> (que usan los murciélagos, los delfines y las ecografías). El <mark>timbre</mark> nos permite distinguir dos sonidos de la misma intensidad y tono emitidos por fuentes distintas: la misma nota suena diferente en un piano y en una flauta, y reconocemos la voz de cada persona.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Comparación de ondas: un sonido fuerte tiene más amplitud que uno débil; un sonido agudo tiene más frecuencia, ondas más juntas, que uno grave">${BG}
-        ${[[36, 26, 3, "fuerte"], [36, 8, 3, "débil"]].map(([y, a, n, s], i) => { let d = `M20 ${y + i * 40}`; for (let k = 0; k < n; k++) d += ` q 12 ${-a} 24 0 t 24 0`; return `<path d="${d}" stroke="var(--pen)" stroke-width="2" fill="none"/>${t(230, y + i * 40 + 4, s, { size: 10, anchor: "end", color: "var(--pen)" })}`; }).join("")}
-        ${[[126, 14, 10, 4.8, "agudo"], [126, 14, 3, 16, "grave"]].map(([y, a, n, w, s], i) => { let d = `M20 ${y + i * 34}`; for (let k = 0; k < n; k++) d += ` q ${w / 2} ${-a} ${w} 0 t ${w} 0`; return `<path d="${d}" stroke="var(--red)" stroke-width="2" fill="none"/>${t(230, y + i * 34 + 4, s, { size: 10, anchor: "end", color: "var(--red)" })}`; }).join("")}
-        ${t(110, 104, "intensidad: amplitud · tono: frecuencia", { size: 9, color: "var(--muted)" })}</svg>`,
-      video: { id: "xQBeSWXFVd8", titulo: "El sonido: intensidad, tono y timbre", canal: "Smile and Learn", vistas: 1139677 },
+      html: `<h3>1.3 La velocidad del sonido</h3><p>El sonido no llega de forma instantánea: tarda un tiempo en recorrer la distancia. En el aire, a unos 20 °C, viaja a unos <mark>340 m/s</mark>, es decir, más de 1.200 km/h. Parece mucho, pero es casi un millón de veces más lento que la luz.</p><p>La velocidad del sonido depende del medio: es <b>mayor en los sólidos</b>, menor en los líquidos y todavía menor en los gases, porque en los sólidos las partículas están más juntas y transmiten antes la vibración. En el agua viaja a unos 1.500 m/s y en el acero, a unos 5.000 m/s.</p><p>Como el sonido tiene una velocidad constante en un medio, podemos usar la fórmula del movimiento uniforme, <b>d = v · t</b>. Si oyes el trueno 6 segundos después de ver el relámpago, el rayo ha caído a 340 · 6 = 2.040 m, unos 2 km.</p>`,
+      svg: H.barras("Velocidad del sonido en distintos medios en metros por segundo", [["Aire", 340, "340 m/s"], ["Agua", 1500, "1.500 m/s"], ["Madera", 3800, "3.800 m/s"], ["Acero", 5000, "5.000 m/s"]], "Velocidad del sonido", 6800),
     },
     {
-      html: `<h3>El eco y la contaminación acústica</h3><p>Cuando el sonido choca contra un obstáculo, una parte rebota: es la <b>reflexión del sonido</b>. Si la superficie está lejos (a más de 17 m), oímos el sonido reflejado separado del original: es el <mark>eco</mark>. Si está más cerca, los dos sonidos se mezclan y se produce <b>reverberación</b>, como en una iglesia o una habitación vacía. Los murciélagos y los delfines se orientan por <b>ecolocalización</b>, y los barcos miden la profundidad del mar con el <b>sonar</b>. El ruido excesivo es un problema de salud: la <mark>contaminación acústica</mark>. A partir de 85 dB, una exposición prolongada puede dañar el oído, y por encima de 120 dB el sonido causa dolor. Escuchar música muy alta con auriculares durante horas puede provocar pérdida de audición permanente. Para reducir el ruido se usan aislantes, pantallas acústicas en las autopistas y ordenanzas municipales.</p>${tabla(["Fuente", "Nivel aproximado"], [["Respiración tranquila", "10 dB"], ["Conversación", "60 dB"], ["Tráfico intenso", "85 dB"], ["Concierto o discoteca", "110 dB"], ["Avión despegando cerca", "140 dB"]])}`,
+      html: `<h3>1.4 Las cualidades del sonido</h3><p>Distinguimos unos sonidos de otros por tres cualidades, que dependen de cómo es la onda:</p><p>• La <mark>intensidad</mark> o volumen nos permite distinguir los sonidos <b>fuertes</b> de los <b>débiles</b>. Depende de la <b>amplitud</b> de la onda: cuanto más amplia, más energía transporta y más fuerte suena. Se mide en <b>decibelios</b> (dB).</p><p>• El <mark>tono</mark> nos permite distinguir los sonidos <b>agudos</b> de los <b>graves</b>. Depende de la <b>frecuencia</b>: a mayor frecuencia, más agudo. El canto de un pájaro o la voz de un niño son agudos; un contrabajo o la voz de un hombre adulto, graves. En una guitarra, las cuerdas más finas y tensas vibran más deprisa y suenan más agudas.</p><p>• El <mark>timbre</mark> nos permite distinguir dos sonidos de la <b>misma intensidad y el mismo tono</b> emitidos por fuentes distintas. Por eso reconocemos si una nota la toca un piano o una flauta, o quién nos habla por teléfono sin verlo. Depende de la <b>forma</b> de la onda, que es diferente para cada instrumento o voz.</p><p>Es un error común confundir «alto» con «agudo»: subir el volumen aumenta la intensidad, no el tono.</p>`,
+      svg: H.viejo(S, 2),
     },
     {
-      html: `<h3>La luz y su propagación</h3><p>La <mark>luz</mark> es una <b>onda electromagnética</b>: no necesita un medio y viaja por el vacío a la enorme velocidad de <b>300 000 km/s</b>, lo más rápido que existe. Los cuerpos que emiten luz propia son <b>fuentes luminosas</b>: el Sol, una bombilla, una vela o una luciérnaga. Los demás los vemos porque reflejan la luz que les llega. La luz se propaga en <mark>línea recta</mark> en todas direcciones; por eso la representamos con <b>rayos</b>. Según cómo dejan pasar la luz, los materiales son <b>transparentes</b> (dejan pasar la luz y vemos a través: el vidrio, el agua), <b>translúcidos</b> (dejan pasar la luz pero no se ve con nitidez: el papel vegetal, el vidrio esmerilado) u <b>opacos</b> (no dejan pasar la luz: la madera, el metal, tu cuerpo).</p>`,
+      html: `<h3>1.5 Lo que oímos y lo que no</h3><p>El oído humano no capta todos los sonidos. Solo percibe los que tienen una frecuencia entre unos <b>20 Hz</b> y <b>20.000 Hz</b>. Es el <mark>rango audible</mark>, que se va reduciendo con la edad: muchas personas mayores no oyen los sonidos más agudos.</p><p>Los sonidos de frecuencia menor de 20 Hz se llaman <mark>infrasonidos</mark>. Los producen los terremotos, los volcanes o las grandes olas.</p><p>Los sonidos de frecuencia mayor de 20.000 Hz se llaman <mark>ultrasonidos</mark>. Los perros oyen hasta unos 45.000 Hz, por eso existen silbatos para perros que nosotros no oímos. Los murciélagos y los delfines los usan para orientarse.</p><p>Los ultrasonidos tienen muchas aplicaciones. En medicina, las <b>ecografías</b> envían ultrasonidos al cuerpo y forman una imagen con los ecos que rebotan en los órganos, sin radiaciones peligrosas. Los barcos usan el <b>sonar</b> para medir la profundidad del fondo marino.</p>`,
+      svg: H.tabla("Infrasonidos, sonidos audibles y ultrasonidos", ["Tipo", "Frecuencia", "Ejemplo"], [["Infrasonido", "menos de 20 Hz", "terremotos, elefantes"], ["Audible", "20 a 20.000 Hz", "voz, música"], ["Ultrasonido", "más de 20.000 Hz", "murciélagos, ecografía"]]),
     },
     {
-      html: `<h3>Sombras y eclipses</h3><p>Como la luz viaja en línea recta, cuando un cuerpo opaco se interpone en su camino, detrás de él queda una zona sin luz: la <mark>sombra</mark>. Si la fuente de luz es grande, alrededor de la sombra aparece una zona de semioscuridad llamada <b>penumbra</b>, que solo recibe luz de una parte de la fuente. Las sombras explican los <mark>eclipses</mark>. En un <b>eclipse de Sol</b>, la Luna se coloca entre el Sol y la Tierra y su sombra cae sobre una zona de nuestro planeta: allí se hace de noche en pleno día. En un <b>eclipse de Luna</b>, la Tierra se interpone entre el Sol y la Luna, y la Luna entra en la sombra de la Tierra y se ve rojiza. En España se vio un eclipse total de Sol el 12 de agosto de 2026, y habrá otro el 2 de agosto de 2027 en el sur peninsular.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Eclipse de Sol: el Sol a la izquierda, la Luna en medio y la Tierra a la derecha; la sombra de la Luna cae sobre una zona de la Tierra">${BG}
-        <circle cx="24" cy="90" r="40" fill="#ffd34d"/>
-        <path d="M34 52 L 230 84 L 230 96 L 34 128 Z" fill="#ffd34d" fill-opacity=".12"/>
-        <circle cx="130" cy="90" r="9" fill="#9aa0a6"/><path d="M130 81 L 220 88 L 220 92 L 130 99 Z" fill="var(--ink)" fill-opacity=".6"/>
-        <circle cx="226" cy="90" r="22" fill="var(--pen)" fill-opacity=".7"/><circle cx="206" cy="90" r="3" fill="var(--ink)"/>
-        ${t(24, 150, "Sol", { size: 11 })}${t(130, 120, "Luna", { size: 11 })}${t(226, 130, "Tierra", { size: 11 })}${t(170, 70, "sombra", { size: 10, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.6 El eco y la contaminación acústica</h3><p>Cuando el sonido choca contra un obstáculo, como una pared o una montaña, rebota: es la <b>reflexión del sonido</b>. Si el obstáculo está lejos, oímos el sonido repetido: es el <mark>eco</mark>. Para distinguir el eco del sonido original, nuestro oído necesita que lleguen separados al menos 0,1 s, así que el obstáculo debe estar a más de unos 17 m. Si está más cerca, el sonido reflejado se mezcla con el original y lo alarga: es la <b>reverberación</b>, que se oye en una iglesia o en un baño vacío.</p><p>El sonido molesto o excesivo se llama <b>ruido</b>. Cuando hay demasiado ruido en el ambiente hablamos de <mark>contaminación acústica</mark>. El tráfico, las obras, los aviones, el ocio nocturno o la música a todo volumen son sus principales causas. Por encima de unos <b>65 dB</b> el ruido resulta molesto; a partir de 85 dB, si dura mucho, puede dañar el oído; y por encima de 120 dB produce dolor.</p><p>El ruido causa estrés, dolor de cabeza, falta de concentración y problemas de sueño, y puede provocar sordera. Para reducirlo se usan pantallas acústicas, ventanas aislantes, materiales que absorben el sonido y límites de volumen.</p>`,
+      svg: H.barras("Nivel de intensidad de algunos sonidos en decibelios", [["Susurro", 30, "30 dB"], ["Conversación", 60, "60 dB"], ["Tráfico", 80, "80 dB"], ["Discoteca", 105, "105 dB"], ["Avión", 130, "130 dB"]], "Intensidad (dB)", 140),
     },
     {
-      html: `<h3>La reflexión de la luz</h3><p>Cuando la luz llega a una superficie y rebota, se produce la <mark>reflexión</mark>. Cumple una ley sencilla: el <b>ángulo de incidencia</b> (el del rayo que llega) es <b>igual al ángulo de reflexión</b> (el del rayo que sale), medidos respecto a la <b>normal</b>, una línea perpendicular a la superficie. Si la superficie es muy lisa y pulida, como un <b>espejo</b>, todos los rayos rebotan ordenadamente y se forma una imagen: es la <b>reflexión especular</b>. En un espejo plano la imagen es del mismo tamaño, está a la misma distancia detrás del espejo y tiene la izquierda y la derecha invertidas. Si la superficie es rugosa, como un papel o una pared, los rayos rebotan en todas direcciones: es la <b>reflexión difusa</b>, gracias a la cual vemos los objetos desde cualquier lugar. Los espejos curvos se usan en los retrovisores, los telescopios y los espejos de aumento.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Reflexión en un espejo: el rayo incidente y el reflejado forman el mismo ángulo con la normal">${BG}
-        <rect x="20" y="140" width="220" height="8" fill="var(--muted)"/><line x1="20" y1="150" x2="240" y2="150" stroke="var(--ink)" stroke-width="2"/>
-        <line x1="130" y1="30" x2="130" y2="140" stroke="var(--muted)" stroke-dasharray="4 3"/>${t(136, 40, "normal", { size: 10, color: "var(--muted)", anchor: "start" })}
-        ${fl(40, 50, 128, 138, "#e6a100", 3)}${fl(130, 140, 220, 50, "#e6a100", 3)}
-        <path d="M130 110 A 30 30 0 0 0 109 119" stroke="var(--red)" fill="none" stroke-width="2"/><path d="M130 110 A 30 30 0 0 1 151 119" stroke="var(--red)" fill="none" stroke-width="2"/>
-        ${t(104, 104, "i", { size: 12, color: "var(--red)" })}${t(156, 104, "r", { size: 12, color: "var(--red)" })}${t(130, 172, "ángulo i = ángulo r", { size: 11, color: "var(--red)" })}
-        ${t(46, 40, "incidente", { size: 10 })}${t(214, 40, "reflejado", { size: 10 })}</svg>`,
+      html: `<h3>1.7 La luz y su propagación</h3><p>La <mark>luz</mark> es una forma de energía que nos permite ver. A diferencia del sonido, es una <b>onda electromagnética</b>, así que puede propagarse por el <b>vacío</b>: así nos llega desde el Sol y las estrellas. Su velocidad en el vacío es de unos <mark>300.000 km/s</mark>, la mayor velocidad que existe. En el agua o el vidrio va algo más despacio.</p><p>Los cuerpos que emiten luz propia, como el Sol, una bombilla o una vela, se llaman <b>fuentes luminosas</b>. Los demás, como la Luna, una mesa o tú, solo los vemos porque <b>reflejan</b> la luz que les llega y parte de ella entra en nuestros ojos.</p><p>La luz se propaga en <b>línea recta</b> en todas direcciones. Por eso los haces de luz entre las nubes o en una habitación con polvo se ven rectos, y no podemos ver lo que hay detrás de una esquina.</p><p>Según cómo dejan pasar la luz, los materiales son <b>transparentes</b> (dejan pasar la luz y se ve claramente a través de ellos, como el vidrio), <b>translúcidos</b> (la dejan pasar, pero no se ve con claridad, como el papel vegetal) u <b>opacos</b> (no la dejan pasar, como la madera).</p>`,
+      svg: H.compara("Diferencias entre la luz y el sonido", ["Luz", "var(--sun)", ["onda electromagnética", "viaja por el vacío", "300.000 km/s", "la vemos"]], ["Sonido", "var(--pen)", ["onda mecánica", "necesita un medio", "340 m/s en el aire", "lo oímos"]]),
     },
     {
-      html: `<h3>La refracción de la luz</h3><p>Si metes un lápiz en un vaso de agua, parece que se quiebra. No se ha roto: la luz ha cambiado de dirección al pasar del agua al aire. Es la <mark>refracción</mark>, el cambio de dirección que sufre la luz al pasar de un medio transparente a otro, porque viaja a distinta velocidad en cada uno (en el agua, a unos 225 000 km/s; en el vidrio, a unos 200 000 km/s). La refracción explica que una piscina parezca menos profunda de lo que es y que veamos los espejismos en la carretera en verano. Gracias a ella funcionan las <b>lentes</b>: las <b>convergentes</b>, más gruesas en el centro, concentran los rayos en un punto (lupas, gafas para la vista cansada o la hipermetropía); las <b>divergentes</b>, más finas en el centro, los separan (gafas para la miopía). También los ojos, las cámaras, los microscopios y los telescopios usan lentes.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Refracción: un lápiz dentro de un vaso de agua parece quebrado en la superficie; un rayo de luz cambia de dirección al pasar del aire al agua">${BG}
-        <path d="M30 40 h 80 l -6 120 h -68 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><path d="M32 80 h 76 l -4 78 h -68 Z" fill="var(--pen)" fill-opacity=".3"/>
-        <line x1="50" y1="20" x2="74" y2="80" stroke="#e6a100" stroke-width="6" stroke-linecap="round"/><line x1="80" y1="80" x2="96" y2="150" stroke="#e6a100" stroke-width="6" stroke-linecap="round"/>
-        <line x1="140" y1="90" x2="250" y2="90" stroke="var(--ink)" stroke-width="1.5"/><rect x="140" y="90" width="110" height="70" fill="var(--pen)" fill-opacity=".2"/><line x1="196" y1="30" x2="196" y2="160" stroke="var(--muted)" stroke-dasharray="4 3"/>
-        ${fl(150, 30, 194, 88, "var(--red)", 2.5)}${fl(196, 92, 218, 156, "var(--red)", 2.5)}${t(160, 84, "aire", { size: 10, anchor: "start" })}${t(146, 112, "agua", { size: 10, anchor: "start" })}
-        ${t(70, 174, "lápiz «quebrado»", { size: 10, color: "var(--muted)" })}</svg>`,
-      video: { id: "khCrgi80IPU", titulo: "La diferencia entre la reflexión y la refracción de la luz", canal: "FlexFlix Kids en Español", vistas: 2043659 },
+      html: `<h3>1.8 Sombras y eclipses</h3><p>Como la luz viaja en línea recta, cuando encuentra un cuerpo opaco no puede rodearlo y se forma detrás una zona sin luz: la <mark>sombra</mark>. Si la fuente de luz es muy pequeña, la sombra tiene bordes nítidos. Si es grande, como el Sol o una lámpara ancha, alrededor de la sombra aparece una zona parcialmente iluminada, la <b>penumbra</b>.</p><p>Las sombras más espectaculares son los <mark>eclipses</mark>, que se producen cuando la Tierra, la Luna y el Sol se alinean:</p><p>• En un <b>eclipse de Sol</b>, la Luna se coloca entre el Sol y la Tierra y proyecta su sombra sobre una zona pequeña de nuestro planeta. Desde esa zona, la Luna tapa el Sol y se hace de noche durante unos minutos. Solo puede ocurrir en luna nueva. Nunca se debe mirar el Sol directamente, ni durante un eclipse: hay que usar gafas homologadas.<br>• En un <b>eclipse de Luna</b>, la Tierra se coloca entre el Sol y la Luna, y la Luna entra en la sombra de la Tierra. Se ve desde toda la mitad nocturna del planeta, y la Luna se vuelve rojiza. Solo ocurre en luna llena.</p>`,
+      svg: H.viejo(S, 5),
     },
     {
-      html: `<h3>La luz blanca y los colores</h3><p>En 1666, Isaac Newton hizo pasar un rayo de sol por un <b>prisma</b> de vidrio y vio que salía separado en una banda de colores: rojo, naranja, amarillo, verde, azul, añil y violeta. Es la <mark>dispersión de la luz</mark>. Descubrió así que la <b>luz blanca es una mezcla de todos los colores</b>, y que cada color se refracta un poco distinto. El <b>arcoíris</b> se forma igual: las gotas de lluvia actúan como pequeños prismas. ¿Por qué vemos los objetos de colores? Porque cada objeto <b>absorbe unos colores y refleja otros</b>: un tomate es rojo porque refleja la luz roja y absorbe las demás; una hoja es verde porque refleja la verde. Un objeto blanco refleja todos los colores, y uno negro los absorbe todos; por eso la ropa negra se calienta más al sol. La luz visible es solo una pequeña parte del <b>espectro electromagnético</b>, que incluye también las ondas de radio, las microondas, el infrarrojo, el ultravioleta y los rayos X.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Un rayo de luz blanca entra en un prisma y sale separado en los siete colores del arcoíris, de rojo a violeta">${BG}
-        <path d="M100 140 L 140 40 L 180 140 Z" fill="var(--pen)" fill-opacity=".15" stroke="var(--ink)" stroke-width="2"/>
-        <line x1="14" y1="104" x2="122" y2="92" stroke="#fff" stroke-width="5"/><line x1="14" y1="104" x2="122" y2="92" stroke="var(--muted)" stroke-width="1"/>${t(40, 92, "luz blanca", { size: 10 })}
-        ${["#e53935", "#fb8c00", "#fdd835", "#43a047", "#1e88e5", "#3949ab", "#8e24aa"].map((c, i) => `<line x1="158" y1="${94 + i * 2}" x2="248" y2="${84 + i * 12}" stroke="${c}" stroke-width="3"/>`).join("")}
-        ${t(236, 74, "rojo", { size: 9, anchor: "end" })}${t(236, 176, "violeta", { size: 9, anchor: "end" })}</svg>`,
+      html: `<h3>1.9 La reflexión de la luz</h3><p>Cuando la luz llega a la superficie de un objeto, una parte rebota y vuelve al mismo medio: es la <mark>reflexión</mark>. Gracias a ella vemos los objetos que no emiten luz propia.</p><p>La reflexión cumple dos <b>leyes</b>. Para enunciarlas se usa la <b>normal</b>, una línea imaginaria perpendicular a la superficie en el punto donde llega el rayo:<br>1. El rayo que llega (<b>incidente</b>), el rayo que sale (<b>reflejado</b>) y la normal están en el mismo plano.<br>2. El <b>ángulo de incidencia</b> es igual al <b>ángulo de reflexión</b>.</p><p>Si la superficie es muy lisa y pulida, como un espejo o el agua tranquila, todos los rayos se reflejan ordenados y vemos una imagen: es la <b>reflexión especular</b>. Si la superficie es rugosa, como un papel o una pared, los rayos se reflejan en todas direcciones: es la <b>reflexión difusa</b>. Por eso vemos el papel desde cualquier lugar, pero no nos vemos reflejados en él.</p><p>Los <b>espejos planos</b> forman imágenes del mismo tamaño, derechas e invertidas de izquierda a derecha.</p>`,
+      svg: H.viejo(S, 6),
+    },
+    {
+      html: `<h3>1.10 La refracción de la luz y las lentes</h3><p>Si metes un lápiz en un vaso de agua, parece que se rompe en la superficie. No se ha roto: la luz ha cambiado de dirección. La <mark>refracción</mark> es el cambio de dirección que experimenta la luz al pasar de un medio a otro en el que viaja a distinta velocidad, como del aire al agua o al vidrio.</p><p>Cuando la luz pasa a un medio en el que va <b>más despacio</b> (del aire al agua), se acerca a la normal; cuando pasa a uno en el que va <b>más rápido</b>, se aleja de ella.</p><p>Las <mark>lentes</mark> son piezas de vidrio o plástico transparentes con superficies curvas que aprovechan la refracción para desviar la luz. Las <b>lentes convergentes</b>, más gruesas en el centro, concentran los rayos en un punto: son las lupas y las gafas para la hipermetropía. Las <b>lentes divergentes</b>, más finas en el centro, separan los rayos: se usan para corregir la miopía. Nuestro ojo también tiene una lente, el <b>cristalino</b>.</p>`,
+      svg: H.viejo(S, 7),
+      video: vRef,
+    },
+    {
+      html: `<h3>1.11 La luz blanca y los colores</h3><p>En 1666, Isaac Newton hizo pasar un rayo de luz del Sol por un <b>prisma</b> de vidrio y vio que salía separado en una franja de colores: rojo, naranja, amarillo, verde, azul, añil y violeta. Es el <mark>espectro visible</mark>. Así demostró que la <b>luz blanca</b> es en realidad una mezcla de todos los colores. Cada color se refracta un poco distinto en el vidrio y por eso se separan: es la <mark>dispersión</mark> de la luz. El <b>arcoíris</b> es una dispersión natural: las gotas de lluvia actúan como pequeños prismas.</p><p>Cada color de luz corresponde a una frecuencia distinta: el rojo tiene la menor y el violeta, la mayor. Más allá del rojo está la radiación <b>infrarroja</b>, que notamos como calor; más allá del violeta, la <b>ultravioleta</b>, que broncea y quema la piel.</p><p>¿Por qué los objetos tienen color? Un objeto <b>absorbe</b> unos colores de la luz que recibe y <b>refleja</b> otros: vemos el color que refleja. Un tomate es rojo porque refleja la luz roja y absorbe las demás. Un objeto <b>blanco</b> refleja todos los colores, y uno <b>negro</b> los absorbe todos; por eso la ropa negra se calienta más al sol.</p>`,
+      svg: H.viejo(S, 8),
+    },
+    {
+      html: `<h3>1.12 Cuidar la vista y el oído</h3><p>La luz y el sonido nos permiten conocer el mundo gracias a dos órganos delicados que conviene cuidar.</p><p>En el <b>ojo</b>, la luz entra por la <b>pupila</b>, atraviesa el <b>cristalino</b>, que funciona como una lente convergente, y forma una imagen en la <b>retina</b>, donde unas células la convierten en señales nerviosas. Si la imagen no se forma justo en la retina, se ve borroso: en la <b>miopía</b> se ve mal de lejos y en la <b>hipermetropía</b>, de cerca. Se corrigen con gafas o lentillas. Para cuidar la vista: leer con buena luz, descansar la vista de las pantallas cada 20 minutos, usar gafas de sol homologadas y no mirar nunca directamente al Sol.</p><p>En el <b>oído</b>, el sonido hace vibrar el <b>tímpano</b>; tres huesecillos amplifican la vibración y la transmiten al oído interno, donde se convierte en señales nerviosas. Para cuidarlo: no escuchar música con auriculares por encima del 60 % del volumen ni más de una hora seguida, usar tapones en conciertos y ambientes muy ruidosos y no introducir bastoncillos en el conducto. La pérdida de audición por ruido no tiene cura.</p>`,
+      svg: H.compara("Cómo cuidar la vista y el oído", ["Vista", "var(--sun)", ["buena luz al leer", "descansos de pantallas", "gafas de sol", "no mirar al Sol"]], ["Oído", "var(--pen)", ["auriculares al 60 %", "tapones en conciertos", "sin bastoncillos", "evitar ruido largo"]]),
     },
   ],
-  figura: {
-    titulo: "Sonido y luz, cara a cara",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Comparación: el sonido es una onda mecánica que necesita un medio y viaja a 340 metros por segundo en el aire; la luz es una onda electromagnética que viaja por el vacío a 300 000 kilómetros por segundo">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      <rect x="24" y="24" width="282" height="182" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>${t(165, 58, "Sonido", { size: 18, color: "var(--pen)", font: D })}${t(165, 94, "onda mecánica", { size: 14, weight: 400 })}${t(165, 122, "necesita un medio", { size: 14, weight: 400 })}${t(165, 156, "340 m/s en el aire", { size: 14 })}${t(165, 186, "intensidad · tono · timbre", { size: 12, color: "var(--muted)" })}
-      <rect x="334" y="24" width="282" height="182" rx="14" fill="var(--card)" stroke="#e6a100" stroke-width="2.5"/>${t(475, 58, "Luz", { size: 18, color: "#b8860b", font: D })}${t(475, 94, "onda electromagnética", { size: 14, weight: 400 })}${t(475, 122, "viaja por el vacío", { size: 14, weight: 400 })}${t(475, 156, "300 000 km/s", { size: 14 })}${t(475, 186, "reflexión · refracción · color", { size: 12, color: "var(--muted)" })}
-    </svg>`,
-  },
-  video: { id: "6hhm552J_yI", titulo: "La luz: reflexión y refracción", canal: "Smile and Learn", vistas: 455222, megusta: 4088, busqueda: "propiedades de la luz y el sonido" },
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    { enunciado: "Ves un relámpago y oyes el trueno 6 s después. ¿A qué distancia está la tormenta? (sonido: 340 m/s)",
-      pasos: ["La luz llega casi al instante: los 6 s son lo que tarda el sonido.", "d = v · t = 340 · 6.", "d = 2040 m ≈ 2 km."],
-      resultado: "A unos 2 km." },
-    { enunciado: "Gritas frente a una montaña y oyes el eco 2 s después. ¿A qué distancia está la montaña?",
-      pasos: ["En 2 s el sonido va y vuelve.", "Distancia total: 340 · 2 = 680 m.", "La montaña está a la mitad: 680 / 2 = 340 m."],
-      resultado: "A 340 m." },
-    { enunciado: "Un rayo de luz llega a un espejo formando 35° con la normal. ¿Qué ángulo forma el rayo reflejado con la normal? ¿Y con el espejo?",
-      pasos: ["Ley de la reflexión: ángulo de incidencia = ángulo de reflexión.", "Con la normal: 35°.", "Con el espejo: 90° − 35° = 55°."],
-      resultado: "35° con la normal y 55° con el espejo." },
+    { enunciado: "Ves un relámpago y oyes el trueno 9 s después. ¿A qué distancia ha caído el rayo? (v sonido = 340 m/s)", pasos: ["La luz llega casi al instante.", "d = v · t = 340 · 9 = 3.060 m."], resultado: "Unos 3 km." },
+    { enunciado: "Un barco envía un ultrasonido al fondo y recibe el eco 2 s después. La velocidad del sonido en el agua es 1.500 m/s. ¿Qué profundidad hay?", pasos: ["En 2 s el sonido baja y sube.", "Distancia total: 1.500 · 2 = 3.000 m.", "Profundidad: la mitad, 3.000 / 2."], resultado: "1.500 m." },
+    { enunciado: "Gritas frente a una montaña y oyes el eco 3 s después. ¿A qué distancia está la montaña?", pasos: ["Ida y vuelta: 340 · 3 = 1.020 m.", "Distancia a la montaña: 1.020 / 2."], resultado: "510 m." },
+    { enunciado: "Un rayo de luz llega a un espejo con un ángulo de 35° respecto a la normal. ¿Con qué ángulo se refleja?", pasos: ["Ley de la reflexión: ángulo de incidencia = ángulo de reflexión."], resultado: "35° respecto a la normal." },
+    { enunciado: "¿Cuánto tarda la luz en recorrer los 384.000 km que hay de la Tierra a la Luna?", pasos: ["t = d / v.", "t = 384.000 / 300.000."], resultado: "1,28 s." },
+    { enunciado: "¿De qué color se ve una camiseta blanca iluminada solo con luz roja? ¿Y una verde?", pasos: ["La blanca refleja todos los colores que recibe: solo recibe rojo y refleja rojo.", "La verde solo refleja verde; como no le llega verde, absorbe el rojo y no refleja nada."], resultado: "La blanca se ve roja y la verde, negra." },
   ],
   errores: [
-    "Pensar que el sonido viaja por el vacío: necesita un medio material.",
-    "Confundir intensidad con tono: un sonido fuerte no es más agudo.",
-    "Olvidar dividir entre dos al calcular la distancia del eco: el sonido va y vuelve.",
-    "Medir el ángulo de reflexión respecto al espejo en lugar de respecto a la normal.",
+    "Pensar que las ondas transportan materia: transportan energía; las partículas solo vibran.",
+    "Creer que el sonido viaja por el vacío: necesita un medio material.",
+    "Confundir un sonido alto (agudo) con un sonido fuerte (intenso).",
+    "Pensar que el sonido va más rápido en el aire que en los sólidos: es al revés.",
+    "Olvidar dividir entre dos en los problemas de eco: el sonido va y vuelve.",
     "Creer que un objeto rojo «tiene» color rojo: refleja la luz roja y absorbe las demás.",
   ],
-  ejercicios: [
-    { q: "¿Qué transporta una onda: materia o energía?", sol: "Energía, no materia." },
-    { q: "Clasifica en ondas mecánicas o electromagnéticas: el sonido, la luz, las olas, las microondas, los rayos X.", sol: "Mecánicas: sonido y olas. Electromagnéticas: luz, microondas y rayos X." },
-    { q: "¿Por qué en el espacio no se oyen las explosiones?", sol: "Porque en el vacío no hay partículas que transmitan la vibración: el sonido no se propaga." },
-    { q: "Indica qué cualidad del sonido cambia: a) subir el volumen; b) pasar de un violín a una trompeta tocando la misma nota; c) cantar más agudo.", sol: "a) Intensidad; b) timbre; c) tono." },
-    { q: "¿Por qué es peligroso escuchar música muy alta con auriculares durante horas?", sol: "Porque los niveles altos (más de 85 dB) de forma prolongada dañan el oído y pueden causar pérdida de audición permanente." },
-    { q: "Clasifica en transparente, translúcido u opaco: cartón, vidrio de la ventana, papel de cocina, agua limpia, una puerta.", sol: "Transparentes: vidrio, agua. Translúcido: papel de cocina. Opacos: cartón y puerta." },
-    { q: "Explica qué pasa en un eclipse de Luna.", sol: "La Tierra se coloca entre el Sol y la Luna, y la Luna queda dentro de la sombra de la Tierra." },
-    { q: "Un rayo llega a un espejo con un ángulo de incidencia de 50°. ¿Cuál es el ángulo de reflexión?", sol: "50°." },
-    { q: "¿Por qué una piscina parece menos profunda de lo que es?", sol: "Por la refracción: la luz que sale del agua cambia de dirección y vemos el fondo más arriba de donde está." },
-    { q: "¿De qué color se verá un plátano iluminado solo con luz azul? ¿Por qué?", sol: "Casi negro: el plátano refleja la luz amarilla y absorbe la azul, así que no refleja casi nada." },
-  ],
-  quiz: [
-    { q: "Una onda transporta…", o: ["materia", "energía", "agua"], a: 1, e: "Energía." },
-    { q: "La frecuencia se mide en…", o: ["decibelios", "hercios", "metros"], a: 1, e: "Hercios (Hz)." },
-    { q: "El sonido no se propaga en…", o: ["el agua", "el acero", "el vacío"], a: 2, e: "El vacío." },
-    { q: "El sonido viaja más rápido en…", o: ["el aire", "el agua", "el acero"], a: 2, e: "En los sólidos." },
-    { q: "Un sonido agudo tiene…", o: ["alta frecuencia", "baja frecuencia", "mucha amplitud"], a: 0, e: "Alta frecuencia." },
-    { q: "La intensidad del sonido se mide en…", o: ["dB", "Hz", "km/s"], a: 0, e: "Decibelios." },
-    { q: "La velocidad de la luz es de unos…", o: ["340 m/s", "300 000 km/s", "1500 m/s"], a: 1, e: "300 000 km/s." },
-    { q: "Un material que no deja pasar la luz es…", o: ["transparente", "translúcido", "opaco"], a: 2, e: "Opaco." },
-    { q: "El lápiz «quebrado» en el agua se debe a la…", o: ["reflexión", "refracción", "difusión"], a: 1, e: "Refracción." },
-    { q: "La luz blanca es…", o: ["un solo color", "la mezcla de todos los colores", "luz amarilla"], a: 1, e: "La mezcla de todos." },
-  ],
-  examen: [
-    { q: "Para corregir la miopía se usan lentes…", o: ["convergentes", "divergentes", "planas"], a: 1, e: "Divergentes." },
-    { q: "Lo que nos permite distinguir un piano de una flauta es el…", o: ["tono", "timbre", "volumen"], a: 1, e: "El timbre." },
-    { q: "Un objeto negro…", o: ["refleja todos los colores", "absorbe todos los colores", "emite luz"], a: 1, e: "Absorbe todos." },
-  ],
-  feynman: ["Cómo se produce y se propaga el sonido", "Qué diferencia hay entre reflexión y refracción", "Por qué vemos los objetos de colores"],
-  mapa: mapa("LUZ Y SONIDO", "var(--eso)", [
-    ["Ondas", "mecánicas · electromagnéticas", "var(--pen)"],
-    ["Sonido", "vibración · dB · tono · timbre", "var(--red)"],
-    ["Luz", "línea recta · sombras · eclipses", "#b8860b"],
+  ejercicios: H.niveles([
+    ["¿Qué es una onda? ¿Transporta materia?", "Una perturbación que se propaga transportando energía de un lugar a otro, sin transportar materia."],
+    ["Define amplitud, longitud de onda y frecuencia.", "Amplitud: altura de la cresta respecto al equilibrio. Longitud de onda: distancia entre dos crestas seguidas. Frecuencia: número de ondas por segundo, en hercios."],
+    ["¿Cómo se produce el sonido?", "Cuando un cuerpo vibra y esa vibración se transmite a las partículas del medio que lo rodea."],
+    ["¿Puede propagarse el sonido en el vacío? ¿Y la luz?", "El sonido no, porque necesita un medio material. La luz sí, porque es una onda electromagnética."],
+    ["¿A qué velocidad viaja el sonido en el aire? ¿Y la luz en el vacío?", "El sonido, a unos 340 m/s. La luz, a unos 300.000 km/s."],
+    ["Escribe las tres cualidades del sonido y de qué depende cada una.", "Intensidad (amplitud), tono (frecuencia) y timbre (forma de la onda)."],
+    ["¿Qué son los ultrasonidos? Pon una aplicación.", "Sonidos de frecuencia mayor de 20.000 Hz, que no oímos. Se usan en las ecografías y en el sonar."],
+    ["Clasifica como transparentes, translúcidos u opacos: vidrio, madera, papel vegetal, agua clara, metal.", "Transparentes: vidrio y agua clara. Translúcido: papel vegetal. Opacos: madera y metal."],
+    ["¿Qué es la reflexión de la luz? ¿Y la refracción?", "Reflexión: la luz rebota en una superficie y vuelve al mismo medio. Refracción: la luz cambia de dirección al pasar a otro medio."],
+    ["¿Qué colores forman la luz blanca?", "Rojo, naranja, amarillo, verde, azul, añil y violeta."],
+  ], [
+    ["Oyes un trueno 5 s después del relámpago. ¿A qué distancia cayó el rayo?", "d = 340 · 5 = 1.700 m, unos 1,7 km."],
+    ["Un niño grita frente a un acantilado y oye el eco 2 s después. ¿A qué distancia está el acantilado?", "Ida y vuelta: 340 · 2 = 680 m. Distancia: 340 m."],
+    ["¿Por qué el sonido viaja más rápido en el acero que en el aire?", "Porque en los sólidos las partículas están mucho más juntas y unidas, y transmiten la vibración más deprisa."],
+    ["Dos notas tienen la misma intensidad y el mismo tono, pero una la toca un violín y otra una trompeta. ¿Por qué las distinguimos?", "Por el timbre: cada instrumento produce una onda de forma diferente."],
+    ["Explica la diferencia entre eco y reverberación.", "En el eco, el sonido reflejado llega más de 0,1 s después y se oye repetido (obstáculo a más de 17 m). En la reverberación llega antes, se mezcla con el original y lo prolonga."],
+    ["¿A partir de cuántos decibelios el ruido puede dañar el oído? Pon tres fuentes de contaminación acústica.", "A partir de unos 85 dB mantenidos. Fuentes: tráfico, obras y música a gran volumen (también aviones u ocio nocturno)."],
+    ["¿Por qué un eclipse de Sol solo puede ocurrir en luna nueva?", "Porque la Luna tiene que estar entre el Sol y la Tierra, que es la posición de luna nueva."],
+    ["Explica por qué podemos ver un libro aunque no emita luz.", "Porque refleja de forma difusa la luz que le llega, en todas direcciones, y parte de ella entra en nuestros ojos."],
+    ["¿Por qué el texto «AMBULANCIA» se escribe al revés en la parte delantera de las ambulancias?", "Porque los conductores de delante lo ven por el retrovisor, y los espejos invierten la imagen de izquierda a derecha; así lo leen correctamente."],
+    ["¿Por qué una piscina parece menos profunda de lo que es?", "Por la refracción: la luz que sale del fondo se desvía al pasar del agua al aire y nuestro cerebro sitúa el fondo más arriba de lo real."],
+    ["¿Qué tipo de lente corrige la miopía? ¿Y cuál funciona como una lupa?", "La miopía se corrige con lentes divergentes. La lupa es una lente convergente."],
+    ["¿Por qué una camiseta negra se calienta más al sol que una blanca?", "Porque la negra absorbe todos los colores de la luz (y su energía), mientras que la blanca los refleja."],
+  ], [
+    ["El sonar de un barco recibe el eco del fondo 4 s después de emitirlo. Si en el agua el sonido va a 1.500 m/s, ¿qué profundidad hay? ¿Qué error se cometería usando la velocidad del aire?", "Profundidad: 1.500 · 4 / 2 = 3.000 m. Con 340 m/s saldría 680 m: un error enorme, porque el sonido va mucho más rápido en el agua."],
+    ["La luz del Sol tarda 500 s en llegar a la Tierra. ¿Cuánto tardaría el sonido si pudiera viajar por el espacio a 340 m/s? (distancia: 150.000.000 km)", "150.000.000.000 m / 340 m/s ≈ 441.000.000 s, unos 14 años."],
+    ["Diseña un experimento para medir la velocidad del sonido en el patio con dos alumnos, una tabla de madera y un cronómetro.", "Un alumno se coloca a 340 m (o a la mayor distancia posible, medida con cinta) y golpea dos tablas a la vez que levanta el brazo. El otro pone en marcha el cronómetro al ver el golpe y lo para al oírlo. Se repite varias veces, se hace la media y se calcula v = d / t."],
+    ["¿De qué color se vería una bandera de España (roja y amarilla) iluminada solo con luz verde? Razónalo.", "La parte roja absorbe el verde y se vería negra. La amarilla refleja rojo y verde, así que reflejaría el verde y se vería verde."],
+    ["Explica cómo se forma el arcoíris y por qué siempre se ve con el Sol a la espalda.", "La luz del Sol entra en las gotas de lluvia, se refracta y se dispersa en colores, se refleja en el interior de la gota y vuelve a salir hacia el observador. Por la geometría de la reflexión, solo vemos el arcoíris si el Sol está detrás de nosotros y la lluvia delante."],
+    ["Los murciélagos emiten ultrasonidos de unos 50.000 Hz. ¿Por qué no los oímos? ¿Qué ventaja tienen para cazar insectos pequeños?", "Porque superan los 20.000 Hz, el límite de nuestro oído. Los ultrasonidos tienen una longitud de onda muy corta y rebotan en objetos muy pequeños, como insectos, lo que permite detectarlos con precisión."],
+    ["Propón un plan para reducir la contaminación acústica en el comedor del instituto, con medidas técnicas y de convivencia.", "Medir el ruido con una aplicación de sonómetro; poner paneles absorbentes en techo y paredes y tacos de goma en las sillas; establecer un semáforo de ruido; turnos para reducir el número de alumnos; campaña de concienciación. Volver a medir para comprobar la mejora."],
+    ["Una persona escucha música con auriculares a 100 dB dos horas al día. Explica qué riesgo corre y qué le recomendarías.", "100 dB supera con mucho los 85 dB a partir de los cuales hay riesgo; con exposición diaria puede sufrir pérdida de audición permanente y acúfenos. Recomendaciones: bajar el volumen al 60 %, descansar cada hora, usar auriculares que aíslen del ruido exterior para no tener que subir el volumen."],
+  ]),
+  quiz: H.test([
+    ["Una onda transporta…", ["energía", "materia", "partículas", "aire"], "Sin desplazar la materia."],
+    ["La distancia entre dos crestas seguidas es la…", ["longitud de onda", "amplitud", "frecuencia", "intensidad"], "Se representa con λ."],
+    ["La frecuencia se mide en…", ["hercios", "metros", "decibelios", "segundos"], "Ondas por segundo."],
+    ["El sonido se produce cuando un cuerpo…", ["vibra", "se calienta", "brilla", "se para"], "La vibración se transmite al medio."],
+    ["El sonido no se propaga en…", ["el vacío", "el agua", "el aire", "el acero"], "Necesita un medio material."],
+    ["En el aire, el sonido viaja a unos…", ["340 m/s", "300.000 km/s", "1.500 m/s", "34 m/s"], "A 20 °C."],
+    ["El sonido viaja más rápido en…", ["el acero", "el aire", "el agua", "el vacío"], "Los sólidos lo transmiten mejor."],
+    ["La intensidad del sonido depende de la…", ["amplitud", "frecuencia", "forma de la onda", "velocidad"], "Más amplitud, más fuerte."],
+    ["Un sonido agudo tiene…", ["frecuencia alta", "frecuencia baja", "mucha amplitud", "poca amplitud"], "Tono alto."],
+    ["Distinguimos un piano de una flauta por el…", ["timbre", "tono", "volumen", "eco"], "Forma de la onda."],
+    ["Los ultrasonidos tienen frecuencias…", ["mayores de 20.000 Hz", "menores de 20 Hz", "entre 20 y 20.000 Hz", "de 0 Hz"], "No los oímos."],
+    ["La intensidad del sonido se mide en…", ["decibelios", "hercios", "metros", "julios"], "dB."],
+    ["La luz viaja en el vacío a unos…", ["300.000 km/s", "340 m/s", "1.500 m/s", "3.000 km/s"], "La máxima velocidad."],
+    ["Un material que no deja pasar la luz es…", ["opaco", "transparente", "translúcido", "brillante"], "Forma sombras."],
+    ["En un eclipse de Luna, se interpone…", ["la Tierra entre el Sol y la Luna", "la Luna entre el Sol y la Tierra", "el Sol entre la Tierra y la Luna", "un planeta"], "Ocurre en luna llena."],
+    ["En la reflexión, el ángulo de incidencia es…", ["igual al de reflexión", "el doble", "la mitad", "siempre 90°"], "Ley de la reflexión."],
+    ["El lápiz que parece roto en el agua se debe a la…", ["refracción", "reflexión", "dispersión", "difracción"], "Cambio de dirección."],
+    ["La miopía se corrige con lentes…", ["divergentes", "convergentes", "planas", "de colores"], "Más finas en el centro."],
+    ["Al pasar por un prisma, la luz blanca…", ["se separa en colores", "se vuelve negra", "desaparece", "se convierte en sonido"], "Dispersión."],
+    ["Un objeto verde…", ["refleja la luz verde", "absorbe la luz verde", "emite luz verde", "refleja todos los colores"], "Absorbe las demás."],
+  ], 3),
+  examen: H.test([
+    ["Si oyes el trueno 3 s después del relámpago, el rayo cayó a unos…", ["1 km", "3 km", "340 m", "100 m"], "340 · 3 ≈ 1.020 m."],
+    ["Si el eco vuelve en 4 s, el obstáculo está a…", ["680 m", "1.360 m", "340 m", "85 m"], "340 · 4 / 2."],
+    ["El tono de un sonido depende de su…", ["frecuencia", "amplitud", "velocidad", "timbre"], "Agudo o grave."],
+    ["A partir de unos 85 dB mantenidos, el ruido…", ["puede dañar el oído", "es inaudible", "es agradable", "no afecta"], "Contaminación acústica."],
+    ["La penumbra aparece cuando la fuente de luz es…", ["grande", "muy pequeña", "de color", "lejana y puntual"], "Zona parcialmente iluminada."],
+    ["La reflexión que permite vernos en un espejo es…", ["especular", "difusa", "refractada", "dispersa"], "Superficie lisa."],
+    ["La lupa es una lente…", ["convergente", "divergente", "plana", "opaca"], "Concentra los rayos."],
+    ["Una camiseta blanca iluminada solo con luz azul se ve…", ["azul", "blanca", "negra", "roja"], "Refleja lo que recibe."],
+  ], 2),
+  feynman: ["Qué es una onda y qué elementos tiene", "Por qué el sonido no viaja por el vacío y la luz sí", "Qué diferencia hay entre intensidad, tono y timbre", "Cómo se calcula una distancia con el eco", "Por qué los objetos tienen color"],
+  mapa: H.mapa("LUZ Y SONIDO", "var(--eso)", [
+    ["Ondas", "amplitud · longitud · frecuencia", "var(--inf)"],
+    ["Sonido", "340 m/s · intensidad · tono", "var(--pen)"],
+    ["Luz", "300.000 km/s · sombras", "#b8860b"],
     ["Fenómenos", "reflexión · refracción · color", "var(--leaf)"],
-  ], 280),
+  ], 270),
   tarjetas: [
     ["Onda", "Perturbación que transporta energía sin transportar materia."],
-    ["Sonido", "Onda mecánica producida por una vibración; 340 m/s en el aire."],
-    ["Tono", "Agudo o grave; depende de la frecuencia."],
-    ["Eco", "Sonido reflejado que se oye separado del original."],
-    ["Luz", "Onda electromagnética que viaja a 300 000 km/s, incluso en el vacío."],
-    ["Reflexión", "La luz rebota; ángulo de incidencia = ángulo de reflexión."],
-    ["Refracción", "Cambio de dirección de la luz al pasar de un medio a otro."],
-    ["Dispersión", "Separación de la luz blanca en colores con un prisma."],
+    ["Frecuencia", "Ondas por segundo; hercios (Hz)."],
+    ["Sonido", "Onda mecánica; necesita un medio; 340 m/s en el aire."],
+    ["Intensidad", "Fuerte o débil; amplitud; decibelios."],
+    ["Tono", "Agudo o grave; frecuencia."],
+    ["Timbre", "Distingue fuentes; forma de la onda."],
+    ["Ultrasonido", "Más de 20.000 Hz: ecografías, sonar."],
+    ["Eco", "Sonido reflejado que se oye repetido."],
+    ["Luz", "Onda electromagnética; 300.000 km/s; viaja por el vacío."],
+    ["Reflexión", "Ángulo de incidencia = ángulo de reflexión."],
+    ["Refracción", "Cambio de dirección al cambiar de medio."],
+    ["Color", "El objeto refleja ese color y absorbe los demás."],
   ],
-  familias: ["En la próxima tormenta, contad los segundos entre el relámpago y el trueno y calculad la distancia.", "Meted un lápiz en un vaso de agua y miradlo desde distintos ángulos.", "Haced un arcoíris con un vaso de agua al sol o con un CD."],
-  profesores: {
-    saberes: "La energía: ondas, el sonido y sus cualidades, contaminación acústica, la luz, propagación rectilínea, reflexión, refracción, color y espectro (RD 217/2022, Física y Química, bloque «La energía»).",
-    ideas: ["Teléfono de vasos y cuerda para estudiar la propagación del sonido en sólidos.", "Medición de niveles de ruido en el centro con una app de sonómetro y propuesta de mejoras.", "Banco óptico con láser, espejos, prismas y lentes."],
+  glosario: [
+    ["Onda", "Perturbación que se propaga transportando energía sin transportar materia."],
+    ["Amplitud", "Altura máxima de una onda respecto a su posición de equilibrio."],
+    ["Longitud de onda", "Distancia entre dos crestas consecutivas de una onda."],
+    ["Frecuencia", "Número de ondas que pasan por un punto en un segundo; se mide en hercios."],
+    ["Sonido", "Onda mecánica producida por la vibración de un cuerpo que se propaga por un medio material."],
+    ["Intensidad sonora", "Cualidad que distingue sonidos fuertes y débiles; se mide en decibelios."],
+    ["Tono", "Cualidad que distingue sonidos agudos y graves; depende de la frecuencia."],
+    ["Timbre", "Cualidad que permite distinguir sonidos de igual intensidad y tono emitidos por fuentes distintas."],
+    ["Eco", "Repetición de un sonido por su reflexión en un obstáculo lejano."],
+    ["Contaminación acústica", "Exceso de ruido en el ambiente que perjudica la salud."],
+    ["Sombra", "Zona sin luz detrás de un cuerpo opaco iluminado."],
+    ["Reflexión", "Cambio de dirección de la luz o el sonido al rebotar en una superficie."],
+    ["Refracción", "Cambio de dirección de la luz al pasar de un medio a otro."],
+    ["Lente", "Pieza transparente con superficies curvas que desvía la luz por refracción."],
+    ["Dispersión", "Separación de la luz blanca en los colores del espectro."],
+  ],
+  situacion: {
+    titulo: "Mapa de ruido del instituto",
+    reto: "El equipo directivo quiere mejorar la convivencia y la concentración en el centro y os pide un estudio de la contaminación acústica con propuestas concretas.",
+    pasos: [
+      "Instalad una aplicación de sonómetro y calibradla comparando con un sonómetro del departamento si lo hay.",
+      "Medid el nivel de ruido en decibelios en distintos lugares (aula, pasillo, comedor, patio, biblioteca) y a distintas horas.",
+      "Representad los datos en un plano del instituto con colores según el nivel (verde, amarillo, rojo) y en un diagrama de barras.",
+      "Comparad con los límites recomendados y explicad los efectos del ruido en la salud y el aprendizaje.",
+      "Proponed y, si es posible, probad medidas (paneles absorbentes, tacos en las sillas, semáforo de ruido) y volved a medir.",
+    ],
+    producto: "Mapa de ruido del centro, informe con gráficas y una campaña de sensibilización con carteles.",
+    evaluacion: [
+      "Las medidas se toman de forma sistemática y con su unidad (dB).",
+      "El mapa y las gráficas representan los datos con claridad.",
+      "Las conclusiones relacionan el ruido con sus efectos en la salud.",
+      "Las propuestas son realistas y se comprueba su efecto.",
+    ],
   },
-  fuentes: [RD, wiki("Sonido", "Sonido"), wiki("Luz", "Luz")],
-  revisado: REV,
+  familias: ["Durante una tormenta, contad los segundos entre el relámpago y el trueno y calculad la distancia del rayo.", "Revisad juntos el volumen de los auriculares y activad el límite de volumen del móvil.", "Buscad un arcoíris con una manguera y el Sol a la espalda, o con un vaso de agua en una ventana soleada.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "La energía: las ondas como transporte de energía, el sonido (producción, propagación, velocidad, cualidades, eco y contaminación acústica) y la luz (propagación rectilínea, sombras y eclipses, reflexión, refracción, lentes, dispersión y color), con atención a la salud auditiva y visual (RD 217/2022, Física y Química 1º a 3º, bloques C «La energía» y D «La interacción»). En Cataluña, saberes equivalentes de Física i Química del Decret 175/2022.",
+    ideas: [
+      "Medida de la velocidad del sonido en el patio con cronómetros y cinta métrica.",
+      "Construcción de un teléfono de vasos y cuerda y de instrumentos con botellas de agua.",
+      "Práctica de reflexión con espejos, transportador y láser de baja potencia.",
+      "Dispersión de la luz con un prisma o un CD y mezcla de colores con linternas.",
+      "Mapa de ruido del centro con aplicaciones de sonómetro.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Sonido", "Sonido"), H.wiki("Luz", "Luz"), { t: "Organización Mundial de la Salud: escuchar sin riesgos", url: "https://www.who.int/es" }],
+  revisado: H.REV,
 };

@@ -1,148 +1,236 @@
-// Física y Química 2º ESO: el calor y la temperatura. Dibujos propios en SVG.
-const { D, mapa, BG, t, fl, caja, tabla, RD, wiki, C, REV } = require("./_eso2a");
+// Física y Química 2º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso2L3 y dibujos de la versión anterior del tema.
+const H = require("./_eso2L3");
+const S = "fyq-calor-temperatura";
+const [vCal, vPro] = H.videos(S);
 
 module.exports = {
-  materia: "Física y Química",
-  curso: C,
+  materia: H.MATERIA,
+  curso: H.CURSO,
   titulo: "El calor y la temperatura",
-  minutos: 55,
-  objetivos: ["Diferenciar calor, temperatura y energía térmica con la teoría cinético-molecular", "Usar las escalas Celsius, Kelvin y Fahrenheit y el termómetro", "Explicar el equilibrio térmico y las tres formas de propagación del calor", "Describir los efectos del calor (dilatación y cambios de estado) y distinguir conductores y aislantes"],
-  claves: ["temperatura", "calor", "energía térmica", "equilibrio térmico", "escala Celsius", "kelvin", "conducción", "convección", "radiación", "dilatación", "aislante"],
+  minutos: 100,
+  objetivos: [
+    "Explicar la temperatura con el modelo de partículas y medirla con termómetros",
+    "Convertir temperaturas entre las escalas Celsius, Kelvin y Fahrenheit",
+    "Distinguir calor y temperatura y explicar el equilibrio térmico",
+    "Calcular el calor necesario para calentar una sustancia con el calor específico",
+    "Describir la conducción, la convección y la radiación, y distinguir conductores y aislantes",
+    "Explicar la dilatación y los cambios de estado, y aplicar lo aprendido al ahorro de energía",
+  ],
+  claves: ["temperatura", "energía térmica", "calor", "termómetro", "Celsius", "kelvin", "Fahrenheit", "equilibrio térmico", "calor específico", "julio", "conducción", "convección", "radiación", "aislante", "dilatación"],
   pregunta: {
-    texto: "Por la mañana tocas una barandilla de hierro y la madera del banco que hay al lado. El hierro parece mucho más frío. ¿Lo está de verdad?",
-    respuesta: "No: los dos están a la <b>misma temperatura</b>, la del aire. Lo que pasa es que el hierro es un buen <mark>conductor del calor</mark> y se lleva rápidamente el calor de tu mano, que está más caliente. La madera es un <mark>aislante</mark> y apenas te quita calor. Tu piel no mide temperaturas: nota lo rápido que pierde o gana calor.",
+    texto: "Por la mañana, el suelo del baño parece mucho más frío que la alfombra, aunque los dos están en la misma habitación. ¿Están a distinta temperatura?",
+    respuesta: "No: después de toda la noche, los dos están a la <b>misma temperatura</b>, la de la habitación. La diferencia está en que la baldosa es un buen <mark>conductor del calor</mark> y se lleva rápidamente la energía de tu pie, que está más caliente. La alfombra es un <mark>aislante</mark>: apenas se lleva calor. Tu piel no mide la temperatura, sino lo deprisa que pierdes energía.",
+  },
+  lectura: {
+    titulo: "Un vaso de agua para medir el mundo",
+    html: `<p>Durante siglos, «caliente» y «frío» eran solo sensaciones. Lo que a una persona le parecía templado, a otra le parecía frío. Hacía falta una forma objetiva de medir. A principios del siglo XVII, <b>Galileo</b> construyó un aparato con un tubo de vidrio y agua que subía o bajaba con el calor, pero no tenía escala.</p>
+<p>En 1742, el astrónomo sueco <b>Anders Celsius</b> tuvo una idea práctica: usar dos fenómenos que siempre ocurren a la misma temperatura, la fusión del hielo y la ebullición del agua, y dividir la distancia entre ellos en cien partes iguales. Curiosamente, él puso el 100 en el hielo y el 0 en el agua hirviendo. Tras su muerte, otros científicos le dieron la vuelta y así nació la escala que usamos hoy.</p>
+<p>Un siglo después, el físico británico <b>lord Kelvin</b> se preguntó cuál sería la temperatura más baja posible y propuso una escala que empieza en ese punto, el cero absoluto. Hoy medimos temperaturas en el cuerpo, en los hornos, en las estrellas y en los laboratorios que enfrían átomos casi hasta ese cero. En este tema aprenderás qué es realmente la temperatura, en qué se diferencia del calor y cómo viaja la energía de un cuerpo a otro.</p>`,
   },
   bloques: [
     {
-      html: `<h3>La temperatura</h3><p>En el lenguaje de todos los días decimos que algo está «caliente» o «frío», pero en ciencia hay que precisar. Según la teoría cinético-molecular, las partículas de la materia están siempre en movimiento. La <mark>temperatura</mark> es una magnitud que mide la <b>energía cinética media</b> de esas partículas, es decir, lo rápido que se mueven por término medio. Cuanto más deprisa se mueven, mayor es la temperatura. En un vaso de agua caliente las moléculas se agitan más que en uno de agua fría. La temperatura no depende de la cantidad de sustancia: una taza de té y una olla llena del mismo té recién hecho pueden estar a la misma temperatura, aunque la olla tenga mucha más energía térmica. La temperatura se mide con el <b>termómetro</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Partículas de agua fría moviéndose despacio con flechas cortas y de agua caliente moviéndose deprisa con flechas largas">${BG}
-        ${[[20, "fría", "var(--pen)", 8], [140, "caliente", "var(--red)", 20]].map(([x, s, c, L]) => `<rect x="${x}" y="24" width="100" height="110" rx="8" fill="${c}" fill-opacity=".1" stroke="${c}" stroke-width="2"/>${[[20, 30, 0.5], [60, 40, 2.2], [36, 70, 4], [76, 84, 1], [24, 100, 3], [64, 60, 5.5]].map(([a, b, ang]) => `<circle cx="${x + a}" cy="${24 + b}" r="6" fill="${c}"/>${fl(x + a + 7 * Math.cos(ang), 24 + b + 7 * Math.sin(ang), x + a + (7 + L) * Math.cos(ang), 24 + b + (7 + L) * Math.sin(ang), "var(--ink)", 1.5)}`).join("")}${t(x + 50, 156, s, { size: 12, color: c })}`).join("")}
-        ${t(130, 174, "más temperatura = partículas más rápidas", { size: 10, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.1 La temperatura</h3><p>Ya sabes, por la teoría cinético-molecular, que las partículas de la materia están en continuo movimiento: en los sólidos vibran, en los líquidos se deslizan y en los gases se mueven libremente. Como se mueven, tienen energía cinética. La suma de la energía de todas las partículas de un cuerpo se llama <mark>energía térmica</mark> o energía interna.</p><p>La <mark>temperatura</mark> es una magnitud que mide lo deprisa que se mueven, <b>de media</b>, las partículas de un cuerpo: cuanto más rápido se mueven, mayor es la temperatura. Por eso, al calentar agua, sus moléculas se agitan cada vez más.</p><p>Es importante distinguir temperatura y energía térmica. Un vaso de agua hirviendo está a más temperatura que una piscina templada, pero la piscina tiene mucha más energía térmica porque tiene muchísimas más partículas. La temperatura no depende de la cantidad de materia; la energía térmica, sí.</p><p>Nuestros sentidos no son buenos termómetros: si metes una mano en agua fría y otra en agua caliente y después las dos en agua templada, una mano la notará caliente y la otra fría.</p>`,
+      svg: H.viejo(S, 0),
     },
     {
-      html: `<h3>Escalas de temperatura</h3><p>Para medir la temperatura se usan varias <mark>escalas</mark>. La <b>escala Celsius</b> (°C), creada por Anders Celsius en 1742, toma como referencia el punto de fusión del agua (0 °C) y su punto de ebullición a nivel del mar (100 °C), y divide ese intervalo en cien partes. Es la que usamos en España. La <b>escala Kelvin</b> (K) es la del Sistema Internacional. Empieza en el <mark>cero absoluto</mark> (0 K = −273 °C), la temperatura más baja posible, en la que las partículas casi no se moverían. No tiene valores negativos y sus grados son del mismo tamaño que los Celsius: <b>T(K) = T(°C) + 273</b>. La <b>escala Fahrenheit</b> (°F) se usa en Estados Unidos: el agua se congela a 32 °F y hierve a 212 °F. Se convierte con <b>T(°F) = 1,8 · T(°C) + 32</b>.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres termómetros comparan escalas: el agua se congela a 0 grados Celsius, 273 kelvin y 32 grados Fahrenheit, y hierve a 100 Celsius, 373 kelvin y 212 Fahrenheit">${BG}
-        ${[[50, "°C", "0", "100", "37"], [130, "K", "273", "373", "310"], [210, "°F", "32", "212", "98,6"]].map(([x, u, a, b, c]) => `<rect x="${x - 7}" y="20" width="14" height="120" rx="7" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><circle cx="${x}" cy="146" r="12" fill="var(--red)"/><rect x="${x - 3}" y="60" width="6" height="86" fill="var(--red)"/>${t(x, 172, u, { size: 13 })}
-          ${t(x + 12, 124, a, { size: 10, anchor: "start" })}${t(x + 12, 40, b, { size: 10, anchor: "start" })}${t(x + 12, 104, c, { size: 9, anchor: "start", color: "var(--muted)" })}`).join("")}
-        <line x1="20" y1="120" x2="246" y2="120" stroke="var(--pen)" stroke-dasharray="3 3"/><line x1="20" y1="36" x2="246" y2="36" stroke="var(--red)" stroke-dasharray="3 3"/></svg>`,
+      html: `<h3>1.2 Las escalas de temperatura</h3><p>Para medir temperaturas se usan varias escalas:</p><p>• La <mark>escala Celsius</mark> (°C) es la que usamos en España en la vida diaria. Asigna 0 °C a la fusión del hielo y 100 °C a la ebullición del agua a nivel del mar, y divide ese intervalo en 100 grados.</p><p>• La <mark>escala Kelvin</mark> (K) es la del Sistema Internacional. Empieza en el <b>cero absoluto</b> (0 K = −273 °C), la temperatura más baja posible, en la que las partículas tendrían el mínimo movimiento. No tiene valores negativos y se escribe sin el símbolo de grado. Sus divisiones son del mismo tamaño que las de Celsius, así que: <b>T (K) = T (°C) + 273</b>. El agua funde a 273 K y hierve a 373 K.</p><p>• La <mark>escala Fahrenheit</mark> (°F) se usa en Estados Unidos. En ella el agua funde a 32 °F y hierve a 212 °F, con 180 divisiones entre ambos puntos. Para pasar de Celsius a Fahrenheit: <b>T (°F) = 1,8 · T (°C) + 32</b>. Así, una temperatura corporal de 37 °C son 98,6 °F, y un día de 30 °C son 86 °F.</p>`,
+      svg: H.viejo(S, 1),
     },
     {
-      html: `<h3>El termómetro</h3><p>El <mark>termómetro</mark> aprovecha que muchas propiedades de la materia cambian con la temperatura. El termómetro clásico de líquido tiene un depósito y un tubo muy fino con alcohol coloreado (antes, mercurio): al calentarse, el líquido se <b>dilata</b> y sube por el tubo, que tiene una escala graduada. Los termómetros digitales usan sensores electrónicos cuya resistencia eléctrica cambia con la temperatura. Los de infrarrojos, como los que miden la fiebre en la frente sin tocar, captan la radiación térmica que emiten los cuerpos. Para medir bien hay que esperar a que el termómetro alcance la misma temperatura que el cuerpo. Los termómetros de mercurio se prohibieron en Europa en 2009 porque el mercurio es tóxico si se rompen.</p>`,
+      html: `<h3>1.3 El termómetro</h3><p>La temperatura se mide con el <mark>termómetro</mark>. Los termómetros se basan en alguna propiedad que cambia con la temperatura. Los clásicos de líquido tienen un depósito o bulbo lleno de alcohol coloreado (antes, de mercurio) unido a un tubo muy fino. Al calentarse, el líquido se <b>dilata</b> y sube por el tubo; al enfriarse, se contrae y baja. Una escala graduada indica la temperatura.</p><p>Hay muchos tipos: el <b>termómetro clínico</b>, para la temperatura corporal; los <b>digitales</b>, que usan un sensor electrónico cuya resistencia eléctrica cambia con la temperatura; los <b>infrarrojos</b>, que miden la radiación que emite un cuerpo sin tocarlo, como los que se usan en la frente; y los <b>termopares</b>, que miden temperaturas muy altas en hornos y motores.</p><p>Para medir bien hay que esperar a que el termómetro alcance la misma temperatura que el cuerpo que se mide, sin tocar el fondo ni las paredes del recipiente.</p>`,
+      svg: H.flujo("Cómo funciona un termómetro de líquido", ["El cuerpo calienta el bulbo", "El líquido se dilata", "Sube por el tubo fino", "Se lee la temperatura en la escala"], "El termómetro"),
     },
     {
-      html: `<h3>El calor</h3><p>Si pones una lata de refresco fría en la mesa, poco a poco se calienta, y el aire de alrededor se enfría un poquito. Ha pasado energía del aire a la lata. El <mark>calor</mark> es la <b>energía que se transfiere de un cuerpo a otro cuando están a distinta temperatura</b>. Siempre pasa del cuerpo <b>más caliente al más frío</b>, nunca al revés de forma espontánea. Como es energía, se mide en <b>julios</b>, aunque también se usa la <b>caloría</b> (cal), que es el calor necesario para subir 1 °C la temperatura de 1 g de agua; 1 cal = 4,18 J. Un error muy común es decir que un cuerpo «tiene calor»: los cuerpos tienen <b>energía térmica</b>, que es la energía total de sus partículas; el calor es solo la energía que pasa de uno a otro. Tampoco existe «el frío» como algo que entra: lo que ocurre es que sale calor.</p>`,
-      video: { id: "8R8fgvd6nTA", titulo: "La diferencia entre calor y temperatura", canal: "FlexFlix Kids en Español", vistas: 1563903 },
+      html: `<h3>1.4 El calor</h3><p>Cuando pones en contacto dos cuerpos a distinta temperatura, el caliente se enfría y el frío se calienta. Las partículas rápidas del cuerpo caliente chocan con las lentas del cuerpo frío y les transfieren parte de su energía. Esa energía que pasa de un cuerpo a otro por tener distinta temperatura se llama <mark>calor</mark>.</p><p>Por tanto, el calor <b>no es algo que tenga un cuerpo</b>: es energía <b>en tránsito</b>. Un cuerpo tiene energía térmica y temperatura, pero no «tiene calor». El calor fluye siempre <b>del cuerpo de mayor temperatura al de menor temperatura</b>, nunca al revés de forma espontánea.</p><p>Como es una forma de energía, el calor se mide en <mark>julios</mark> (J) en el Sistema Internacional. También se usa la <b>caloría</b> (cal), que es la energía necesaria para subir 1 °C la temperatura de 1 g de agua: 1 cal = 4,18 J. En las etiquetas de los alimentos aparecen las kilocalorías (kcal), que miden la energía que aportan al cuerpo.</p><p>Tampoco existe el «frío» como algo que entra: cuando abres la ventana en invierno, no entra frío, sino que sale calor de la casa.</p>`,
+      svg: H.compara("Diferencias entre calor y temperatura", ["Temperatura", "var(--red)", ["agitación media", "de las partículas", "se mide en °C o K", "con un termómetro"]], ["Calor", "var(--sun)", ["energía en tránsito", "de caliente a frío", "se mide en julios", "no se «tiene»"]]),
+      video: vCal,
     },
     {
-      html: `<h3>El equilibrio térmico</h3><p>Cuando dos cuerpos a distinta temperatura se ponen en contacto, el más caliente cede calor al más frío. El caliente se enfría y el frío se calienta, hasta que los dos alcanzan la <b>misma temperatura</b>. En ese momento deja de pasar calor y decimos que han llegado al <mark>equilibrio térmico</mark>. Así se enfría una sopa en el plato, se templa el agua de la bañera al mezclar agua fría y caliente, o funciona el termómetro, que se pone a la temperatura del cuerpo con el que está en contacto. La temperatura final depende de las masas y de las temperaturas iniciales: si mezclas la misma cantidad de agua a 20 °C y a 60 °C, el resultado estará a 40 °C. Si hay mucha más agua fría, la temperatura final estará más cerca de la fría.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Equilibrio térmico: un cuerpo a 80 grados y otro a 20 en contacto; el calor pasa del caliente al frío hasta que los dos quedan a 50 grados">${BG}
-        <rect x="20" y="30" width="60" height="50" rx="6" fill="var(--red)" fill-opacity=".7"/><rect x="80" y="30" width="60" height="50" rx="6" fill="var(--pen)" fill-opacity=".6"/>${t(50, 62, "80 °C", { size: 12, color: "#fff" })}${t(110, 62, "20 °C", { size: 12, color: "#fff" })}
-        ${fl(60, 96, 104, 96, "var(--red)", 3)}${t(82, 116, "calor", { size: 11, color: "var(--red)" })}
-        ${fl(150, 56, 170, 56, "var(--muted)", 2)}
-        <rect x="176" y="30" width="36" height="50" rx="6" fill="#9a66e0" fill-opacity=".6"/><rect x="212" y="30" width="36" height="50" rx="6" fill="#9a66e0" fill-opacity=".6"/>${t(212, 62, "50 °C", { size: 12, color: "#fff" })}
-        ${t(212, 108, "equilibrio", { size: 11, color: "#7b3fc4" })}${t(130, 160, "el calor va siempre del caliente al frío", { size: 10, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.5 El equilibrio térmico</h3><p>Si un cuerpo caliente y uno frío están en contacto, el calor pasa del caliente al frío. El caliente pierde energía y su temperatura baja; el frío gana energía y su temperatura sube. El proceso continúa hasta que los dos alcanzan la <b>misma temperatura</b>. En ese momento deja de pasar calor y se dice que han llegado al <mark>equilibrio térmico</mark>.</p><p>Lo vemos a diario: un café caliente se enfría hasta quedar a la temperatura de la cocina; un refresco sacado de la nevera se calienta hasta la temperatura ambiente; el hielo en un vaso de zumo enfría el zumo y se funde.</p><p>Si los dos cuerpos son de la misma sustancia y tienen la misma masa, la temperatura final es la media de las iniciales: mezclando 1 L de agua a 80 °C con 1 L de agua a 20 °C se obtienen 2 L a 50 °C. Si tienen masas distintas, la temperatura final queda más cerca de la del cuerpo con más masa.</p><p>El equilibrio térmico es la base del termómetro: el termómetro marca su propia temperatura, que, al llegar al equilibrio, es la misma que la del cuerpo que tocamos. Por eso hay que esperar unos minutos.</p>`,
+      svg: H.viejo(S, 4),
     },
     {
-      html: `<h3>Cómo se propaga el calor</h3><p>El calor se transmite de tres formas. En la <mark>conducción</mark>, el calor pasa a través de un material, de partícula en partícula, sin que la materia se desplace: si calientas el extremo de una cuchara metálica, al rato quema el otro extremo. Es típica de los sólidos. En la <mark>convección</mark>, el calor se transporta con el <b>movimiento de un fluido</b> (líquido o gas): el aire o el agua calientes, menos densos, suben, y los fríos bajan, formando <b>corrientes de convección</b>. Así se calienta el agua de una olla o una habitación con un radiador, y así se forman los vientos. En la <mark>radiación</mark>, el calor viaja en forma de <b>ondas electromagnéticas</b>, sin necesidad de materia, incluso a través del vacío: así nos llega el calor del Sol o el de una hoguera cuando estamos cerca.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Tres formas de propagación del calor: conducción por una cuchara metálica, convección con corrientes de agua en una olla y radiación desde el sol">${BG}
-        <path d="M14 70 L 70 40" stroke="var(--muted)" stroke-width="6" stroke-linecap="round"/><path d="M14 92 q 8 -14 0 -22 q 14 8 8 22 Z" fill="#f08a24"/>${fl(22, 58, 56, 38, "var(--red)", 2)}${t(42, 120, "conducción", { size: 10 })}
-        <path d="M100 50 h 60 v 60 h -60 Z" fill="var(--pen)" fill-opacity=".25" stroke="var(--ink)" stroke-width="2"/><path d="M116 102 v -40 M144 62 v 40" stroke="var(--red)" stroke-width="2"/>${fl(116, 70, 116, 56, "var(--red)", 2)}${fl(144, 94, 144, 106, "var(--pen)", 2)}<path d="M116 58 q 14 -6 28 0 M144 106 q -14 6 -28 0" stroke="var(--muted)" fill="none" stroke-width="1.5"/>
-        <path d="M112 128 q 6 -10 0 -14 q 10 6 6 14 M140 128 q 6 -10 0 -14 q 10 6 6 14" fill="#f08a24"/>${t(130, 150, "convección", { size: 10 })}
-        <circle cx="216" cy="44" r="14" fill="#ffd34d"/>${[0, 1, 2].map((i) => `<path d="M${200 - i * 6} ${66 + i * 14} q 6 -6 12 0 t 12 0 t 12 0" stroke="#e6a100" stroke-width="2" fill="none"/>`).join("")}${t(214, 130, "radiación", { size: 10 })}
-        ${t(130, 172, "sólidos · fluidos · vacío", { size: 10, color: "var(--muted)" })}</svg>`,
-      video: { id: "2Gvy8so9VCM", titulo: "Conducción, convección y radiación [Fácil y Rápido]", canal: "A Cierta Ciencia", vistas: 494457 },
+      html: `<h3>1.6 El calor específico</h3><p>Si calientas en el mismo fuego un cazo con agua y una sartén de hierro vacía, la sartén se pone ardiendo en poco tiempo y el agua tarda mucho más. No todas las sustancias necesitan el mismo calor para calentarse.</p><p>El <mark>calor específico</mark> (c) es la energía necesaria para elevar <b>1 °C</b> la temperatura de <b>1 kg</b> de una sustancia. Se mide en J/(kg·°C). El agua tiene un calor específico muy alto, 4.180 J/(kg·°C); el hierro, unos 450; el aluminio, 900. Por eso el agua tarda en calentarse, pero también en enfriarse.</p><p>El calor que gana o pierde un cuerpo al cambiar de temperatura se calcula con la fórmula <b>Q = m · c · ΔT</b>, donde m es la masa, c el calor específico y ΔT la variación de temperatura (temperatura final menos inicial). Si Q es positivo, el cuerpo ha ganado calor; si es negativo, lo ha perdido.</p><p>El alto calor específico del agua tiene consecuencias importantes: los mares se calientan y se enfrían despacio y suavizan el clima de las zonas costeras. Por eso en Valencia o Barcelona los inviernos son más suaves que en Teruel o Burgos.</p>`,
+      svg: H.formula("Fórmula del calor para cambiar la temperatura", "Calor para calentar", "Q = m · c · ΔT", ["Q en julios · m en kg · ΔT en °C", "Agua: c = 4.180 J/(kg·°C)", "Hierro: c ≈ 450 J/(kg·°C)"], "var(--red)"),
     },
     {
-      html: `<h3>Conductores y aislantes térmicos</h3><p>No todos los materiales transmiten el calor igual. Los <mark>conductores térmicos</mark> lo transmiten con facilidad: son los <b>metales</b>, como el cobre, el aluminio o el hierro. Por eso las ollas y sartenes son de metal. Los <mark>aislantes térmicos</mark> lo transmiten muy mal: la madera, el plástico, el corcho, la lana, el vidrio, el poliestireno (el «corcho blanco») y, sobre todo, el <b>aire quieto</b>. Por eso los mangos de las sartenes son de madera o plástico, los abrigos de plumas y la lana abrigan (atrapan aire), y las ventanas de doble cristal llevan una cámara de aire. Un termo mantiene el café caliente porque tiene doble pared con vacío en medio (sin conducción ni convección) y superficies plateadas (que reflejan la radiación). Aislar bien las casas ahorra mucha energía en calefacción y aire acondicionado.</p>`,
+      html: `<h3>1.7 Cómo se propaga el calor</h3><p>El calor puede viajar de un lugar a otro de tres formas:</p><p>• <mark>Conducción</mark>: el calor se transmite a través de un material sin que este se desplace. Las partículas de la zona caliente vibran más y van pasando la energía a sus vecinas por choques. Es lo que ocurre cuando una cuchara metálica dentro de una sopa caliente se calienta hasta el mango. Es típica de los <b>sólidos</b>.</p><p>• <mark>Convección</mark>: el calor se transmite por el <b>movimiento del propio fluido</b> (líquido o gas). La parte caliente se dilata, se vuelve menos densa y sube; la parte fría, más densa, baja y ocupa su lugar. Se forman así <b>corrientes de convección</b>, como en una olla de agua al fuego o en el aire de una habitación con un radiador. También originan los vientos y las corrientes marinas.</p><p>• <mark>Radiación</mark>: el calor viaja en forma de <b>ondas electromagnéticas</b>, sin necesidad de materia, incluso por el vacío. Así nos llega la energía del Sol a través del espacio y así notamos el calor de una hoguera en la cara. Los cuerpos oscuros absorben más radiación que los claros, por eso en verano conviene vestir de blanco.</p>`,
+      svg: H.viejo(S, 5),
+      video: vPro,
     },
     {
-      html: `<h3>Los efectos del calor: la dilatación</h3><p>Cuando un cuerpo recibe calor, su temperatura sube y sus partículas se mueven más y se separan un poco: el cuerpo aumenta de tamaño. Es la <mark>dilatación</mark>. Al enfriarse, ocurre lo contrario: se <b>contrae</b>. Los gases se dilatan mucho, los líquidos menos y los sólidos muy poco, aunque lo suficiente para tenerlo en cuenta. Por eso los puentes y las vías del tren tienen <b>juntas de dilatación</b>, pequeños huecos que dejan espacio para que el metal se alargue en verano sin deformarse; los cables eléctricos cuelgan más en verano que en invierno; y un tarro con la tapa metálica atascada se abre más fácilmente si se pone la tapa bajo el agua caliente. El agua es una excepción: entre 0 °C y 4 °C se contrae al calentarse, y al congelarse se dilata, por eso una botella llena de agua puede romperse en el congelador.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Junta de dilatación en un puente: en invierno el hueco es ancho y en verano el metal se dilata y el hueco casi se cierra">${BG}
-        ${[[40, "invierno", 18, "var(--pen)"], [110, "verano", 4, "var(--red)"]].map(([y, s, g, c]) => `<rect x="20" y="${y}" width="${110 - g / 2}" height="20" fill="${c}" fill-opacity=".5" stroke="${c}"/><rect x="${130 + g / 2}" y="${y}" width="${110 - g / 2}" height="20" fill="${c}" fill-opacity=".5" stroke="${c}"/>${t(130, y - 6, s, { size: 11, color: c })}${t(130, y + 36, `hueco: ${g === 18 ? "ancho" : "casi cerrado"}`, { size: 10, color: "var(--muted)" })}`).join("")}
-        ${fl(50, 100, 70, 100, "var(--red)", 1.5)}${fl(210, 100, 190, 100, "var(--red)", 1.5)}</svg>`,
+      html: `<h3>1.8 Conductores y aislantes térmicos</h3><p>No todos los materiales transmiten el calor igual. Los <mark>conductores térmicos</mark> lo transmiten con facilidad. Los mejores son los <b>metales</b>: plata, cobre, aluminio y hierro. Por eso las ollas y sartenes son de metal, y los radiadores son de hierro o aluminio.</p><p>Los <mark>aislantes térmicos</mark> transmiten muy mal el calor. Son aislantes la madera, el plástico, el corcho, la lana, el poliestireno expandido (corcho blanco) y, sobre todo, el <b>aire</b> quieto. Muchos aislantes funcionan porque atrapan aire en pequeños huecos: la lana, las plumas de un edredón, la nieve o el doble acristalamiento de las ventanas.</p><p>Por eso los mangos de las sartenes son de plástico o madera, las neveras portátiles son de corcho blanco y las casas se aíslan con lana de roca en las paredes. Un buen abrigo no da calor: simplemente <b>evita que perdamos</b> el nuestro.</p>`,
+      svg: H.compara("Conductores y aislantes térmicos", ["Conductores", "var(--red)", ["cobre, aluminio", "hierro, plata", "ollas, radiadores", "se notan fríos"]], ["Aislantes", "var(--pen)", ["madera, plástico", "lana, corcho", "aire quieto", "mangos, abrigos"]]),
     },
     {
-      html: `<h3>Calor y cambios de estado</h3><p>El calor no siempre sube la temperatura. Cuando una sustancia está cambiando de estado, todo el calor que recibe se usa para <b>separar sus partículas</b>, y la temperatura <b>se mantiene constante</b> hasta que el cambio termina. Por eso un cubito de hielo en un vaso se mantiene a 0 °C mientras se derrite, y el agua de una olla no pasa de 100 °C mientras hierve, aunque subamos el fuego. Este calor «escondido» explica fenómenos cotidianos. El <b>sudor</b> nos refresca porque, para evaporarse, toma calor de la piel. Los botijos enfrían el agua porque una parte se filtra por el barro y se evapora. Y una quemadura con vapor de agua a 100 °C es más grave que con agua a 100 °C, porque el vapor, al condensarse sobre la piel, cede además todo el calor que había absorbido al evaporarse.</p>`,
+      html: `<h3>1.9 Los efectos del calor: la dilatación</h3><p>Cuando un cuerpo se calienta, sus partículas se mueven más y necesitan más espacio: el cuerpo aumenta de tamaño. Es la <mark>dilatación</mark>. Al enfriarse, ocurre lo contrario: la <b>contracción</b>. Se dilatan los sólidos, los líquidos y, sobre todo, los gases.</p><p>La dilatación de los sólidos es pequeña, pero tiene efectos importantes. Los puentes y las vías del tren tienen <b>juntas de dilatación</b>, pequeños huecos que permiten que el metal se alargue en verano sin deformarse. Los cables de la luz cuelgan más en verano que en invierno. Si un bote de cristal tiene la tapa metálica muy apretada, se abre más fácilmente calentando la tapa bajo el grifo de agua caliente, porque el metal se dilata más que el vidrio.</p><p>El agua tiene un comportamiento <b>anómalo</b>: entre 0 y 4 °C, al enfriarse se dilata en lugar de contraerse, y al congelarse ocupa más volumen. Por eso el hielo flota y una botella de agua llena puede reventar en el congelador. Gracias a ello, los lagos se congelan solo por arriba y la vida sigue bajo el hielo.</p>`,
+      svg: H.viejo(S, 7),
+    },
+    {
+      html: `<h3>1.10 Calor y cambios de estado</h3><p>El calor no solo cambia la temperatura de los cuerpos: también puede cambiar su <b>estado</b>. Cuando una sustancia recibe calor y alcanza su punto de fusión o de ebullición, la energía se usa para separar las partículas, venciendo las fuerzas que las unen, y no para que se muevan más deprisa. Por eso, <b>mientras dura el cambio de estado, la temperatura no cambia</b>.</p><p>La energía necesaria para cambiar de estado 1 kg de una sustancia se llama <mark>calor latente</mark>. Para fundir 1 kg de hielo hacen falta unos 334.000 J, y para evaporar 1 kg de agua, unos 2.260.000 J: casi siete veces más. Por eso tarda tanto en evaporarse toda el agua de una olla aunque hierva.</p><p>Al revés, cuando una sustancia se condensa o se solidifica, <b>desprende</b> esa misma energía. Los agricultores lo aprovechan: en noches de helada riegan los frutales, porque al congelarse el agua desprende calor y protege las flores. Y por eso una quemadura con vapor de agua es más grave que con agua hirviendo: el vapor, al condensarse sobre la piel, libera mucha energía.</p>`,
+      svg: H.grafica("Gráfica de calentamiento: la temperatura sube, se mantiene constante en la fusión, sube, y se mantiene en la ebullición", ["tiempo", "T (°C)"], [[[[0, 0.05], [0.12, 0.25], [0.32, 0.25], [0.6, 0.75], [0.9, 0.75], [1, 0.95]], "var(--red)", "tramos planos: cambio de estado"]], "Calentar hielo hasta vapor"),
+    },
+    {
+      html: `<h3>1.11 El calor en la naturaleza y la tecnología</h3><p>Lo que hemos estudiado explica muchos fenómenos y aparatos que nos rodean.</p><p>Las <b>brisas marinas</b> se deben a la convección y al calor específico: de día, la tierra se calienta más deprisa que el mar, el aire sobre ella sube y entra aire fresco desde el mar; de noche ocurre al revés.</p><p>El <b>termo</b> mantiene la temperatura de una bebida porque bloquea las tres formas de propagación: tiene dos paredes de vidrio con vacío entre ellas (impide conducción y convección) y superficies plateadas que reflejan la radiación.</p><p>La <b>nevera</b> funciona sacando calor de su interior y expulsándolo por la rejilla de atrás, que por eso está caliente. Los <b>invernaderos</b> dejan pasar la luz del Sol, que calienta el interior, y dificultan que el calor escape.</p><p>Nuestro propio cuerpo regula su temperatura en torno a 37 °C: cuando hace calor sudamos y el sudor, al evaporarse, nos enfría; cuando hace frío tiritamos, y los músculos producen calor al contraerse.</p>`,
+      svg: H.radial("Aplicaciones del calor en la naturaleza y la tecnología", "CALOR", ["Brisas marinas", "Termo: vacío y espejo", "Nevera: saca calor", "Sudor: enfría"], "var(--sun)"),
+    },
+    {
+      html: `<h3>1.12 Ahorrar energía en casa</h3><p>Una gran parte de la energía que se gasta en los hogares se usa para la <b>calefacción</b> y el <b>aire acondicionado</b>, y mucha se pierde por las paredes, los techos y las ventanas mal aislados. Conocer cómo se propaga el calor nos ayuda a ahorrar energía y dinero, y a contaminar menos.</p><p>Algunas medidas eficaces son:</p><p>• <b>Aislar</b> paredes y techos con lana de roca o poliestireno, y usar ventanas de doble acristalamiento: reducen la conducción.<br>• Cerrar puertas y ventanas y poner burletes en las rendijas: evitan las corrientes de convección que sacan el aire caliente.<br>• Bajar las persianas por la noche en invierno y durante el día en verano.<br>• Ajustar el termostato a unos <b>20 °C en invierno</b> y <b>26 °C en verano</b>: cada grado de más en la calefacción supone un 7 % más de consumo.<br>• No tapar los radiadores con muebles o ropa, para que la convección reparta el calor.<br>• Pintar de colores claros las fachadas y los tejados en climas cálidos para reflejar la radiación solar.</p>`,
+      svg: H.tabla("Medidas de ahorro de energía en casa y forma de propagación que reducen", ["Medida", "Reduce", "Ahorro"], [["Aislar paredes", "conducción", "alto"], ["Doble ventana", "conducción", "alto"], ["Burletes", "convección", "medio"], ["Persianas", "radiación", "medio"], ["Termostato a 20 °C", "consumo", "7 % por grado"]]),
     },
   ],
-  figura: {
-    titulo: "Calor no es temperatura",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="Temperatura: mide la agitación de las partículas, en grados o kelvin, con el termómetro. Calor: energía que pasa del cuerpo caliente al frío, en julios, por conducción, convección o radiación">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      <rect x="24" y="24" width="282" height="182" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>${t(165, 58, "Temperatura", { size: 18, color: "var(--pen)", font: D })}${t(165, 96, "agitación de las partículas", { size: 13, weight: 400 })}${t(165, 126, "°C · K · °F", { size: 14 })}${t(165, 156, "se mide con el termómetro", { size: 12, color: "var(--muted)" })}
-      <rect x="334" y="24" width="282" height="182" rx="14" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>${t(475, 58, "Calor", { size: 18, color: "var(--red)", font: D })}${t(475, 96, "energía que pasa de caliente a frío", { size: 13, weight: 400 })}${t(475, 126, "julios · calorías", { size: 14 })}${t(475, 156, "conducción · convección · radiación", { size: 12, color: "var(--muted)" })}
-    </svg>`,
-  },
-  video: { id: "St8tvRdvghk", titulo: "Calor y temperatura: explicación", canal: "Profesor Particular Puebla", vistas: 889338, megusta: 11070, busqueda: "diferencia entre calor y temperatura" },
+  figura: H.figura(S),
+  video: { id: "YxSkljBNvoI", titulo: "Calor y temperatura: diferencias, transferencia, cómo se miden, ejemplos, instrumentos", canal: "Astraway", vistas: 208342, megusta: 4051, busqueda: "calor y temperatura diferencia" },
   ejemplos: [
-    { enunciado: "Pasa 25 °C a kelvin y a grados Fahrenheit.",
-      pasos: ["T(K) = 25 + 273 = 298 K.", "T(°F) = 1,8 · 25 + 32.", "T(°F) = 45 + 32 = 77 °F."],
-      resultado: "298 K y 77 °F." },
-    { enunciado: "¿Cuánto calor hace falta para subir 30 °C la temperatura de 200 g de agua? (1 cal sube 1 °C un gramo de agua)",
-      pasos: ["Calor = masa · aumento de temperatura · 1 cal/(g·°C).", "Q = 200 · 30 = 6000 cal.", "En julios: 6000 · 4,18 = 25 080 J."],
-      resultado: "6000 cal ≈ 25 kJ." },
-    { enunciado: "Mezclas 1 L de agua a 80 °C con 1 L de agua a 20 °C. ¿A qué temperatura quedará?",
-      pasos: ["Las dos cantidades son iguales.", "El calor que cede la caliente lo gana la fría.", "La temperatura final es la media: (80 + 20) / 2 = 50 °C."],
-      resultado: "50 °C." },
+    { enunciado: "Pasa 25 °C a kelvin y 310 K a grados Celsius.", pasos: ["T (K) = T (°C) + 273 → 25 + 273 = 298 K.", "T (°C) = T (K) − 273 → 310 − 273 = 37 °C."], resultado: "298 K y 37 °C." },
+    { enunciado: "Un turista en Nueva York oye que hay 59 °F. ¿Cuántos grados Celsius son?", pasos: ["T (°F) = 1,8 · T (°C) + 32.", "59 = 1,8 · T + 32 → 1,8 · T = 27.", "T = 27 / 1,8 = 15."], resultado: "15 °C." },
+    { enunciado: "Se mezclan 2 L de agua a 70 °C con 2 L de agua a 30 °C. ¿Cuál es la temperatura final?", pasos: ["Misma sustancia y misma masa.", "La temperatura final es la media: (70 + 30) / 2."], resultado: "50 °C." },
+    { enunciado: "¿Qué calor hace falta para calentar 2 kg de agua de 20 °C a 70 °C? (c = 4.180 J/(kg·°C))", pasos: ["Q = m · c · ΔT.", "ΔT = 70 − 20 = 50 °C.", "Q = 2 · 4.180 · 50 = 418.000 J."], resultado: "418.000 J = 418 kJ." },
+    { enunciado: "Se dan 9.000 J a 1 kg de hierro (c = 450 J/(kg·°C)) y a 1 kg de agua. ¿Cuánto sube la temperatura de cada uno?", pasos: ["ΔT = Q / (m · c).", "Hierro: 9.000 / 450 = 20 °C.", "Agua: 9.000 / 4.180 ≈ 2,2 °C."], resultado: "El hierro sube 20 °C y el agua solo unos 2 °C." },
+    { enunciado: "Explica cómo llega el calor de un radiador a toda la habitación.", pasos: ["El aire junto al radiador se calienta por conducción.", "El aire caliente se dilata, pesa menos por volumen y sube.", "El aire frío baja y ocupa su lugar: se forma una corriente de convección.", "Además, el radiador emite algo de radiación."], resultado: "Sobre todo por convección del aire." },
   ],
   errores: [
-    "Decir que un cuerpo «tiene calor»: tiene energía térmica; el calor es energía en tránsito.",
-    "Pensar que el frío «entra»: lo que ocurre es que sale calor.",
-    "Creer que un metal está más frío que la madera a la misma temperatura: solo conduce mejor el calor.",
-    "Escribir «°K»: los kelvin no llevan el símbolo de grado.",
+    "Confundir calor y temperatura: la temperatura se mide en °C o K; el calor es energía y se mide en julios.",
+    "Decir que un cuerpo «tiene calor»: tiene energía térmica; el calor es la energía que pasa de uno a otro.",
+    "Pensar que el frío entra en casa: es el calor el que sale.",
+    "Creer que un abrigo da calor: solo evita que perdamos el nuestro.",
     "Pensar que la temperatura sube mientras el agua hierve: se mantiene constante.",
+    "Poner el símbolo de grado en la escala Kelvin: se escribe 300 K, no 300 °K.",
   ],
-  ejercicios: [
-    { q: "Explica con la teoría cinético-molecular qué es la temperatura.", sol: "Es una medida de la energía cinética media de las partículas: cuanto más rápido se mueven, mayor es la temperatura." },
-    { q: "Pasa a kelvin: 0 °C, 100 °C y −40 °C.", sol: "273 K, 373 K y 233 K." },
-    { q: "Pasa a grados Celsius: 300 K y 0 K.", sol: "27 °C y −273 °C." },
-    { q: "La temperatura normal del cuerpo es 37 °C. ¿Cuánto es en °F?", sol: "1,8 · 37 + 32 = 98,6 °F." },
-    { q: "¿Qué diferencia hay entre calor y temperatura?", sol: "La temperatura mide la agitación de las partículas; el calor es la energía que pasa de un cuerpo a otro por estar a distinta temperatura." },
-    { q: "Indica la forma de propagación del calor: a) calentarse al sol; b) una cuchara que se calienta en la sopa; c) el aire caliente que sube desde el radiador.", sol: "a) Radiación; b) conducción; c) convección." },
-    { q: "¿Por qué los mangos de las sartenes son de madera o de plástico?", sol: "Porque son aislantes térmicos y no transmiten el calor a la mano." },
-    { q: "¿Por qué los raíles del tren tienen pequeños huecos entre tramos?", sol: "Son juntas de dilatación: dejan espacio para que el metal se dilate con el calor sin deformarse." },
-    { q: "¿Por qué una botella llena de agua puede romperse en el congelador?", sol: "Porque el agua, al congelarse, se dilata y ocupa más volumen." },
-    { q: "Explica por qué nos refresca sudar.", sol: "Porque el sudor, para evaporarse, absorbe calor de la piel, que se enfría." },
-  ],
-  quiz: [
-    { q: "La temperatura mide…", o: ["la cantidad de calor", "la agitación media de las partículas", "la masa"], a: 1, e: "La agitación de las partículas." },
-    { q: "La unidad de temperatura en el SI es el…", o: ["grado Celsius", "kelvin", "julio"], a: 1, e: "El kelvin." },
-    { q: "0 K equivalen a…", o: ["0 °C", "−273 °C", "273 °C"], a: 1, e: "El cero absoluto." },
-    { q: "El agua hierve a 212…", o: ["°C", "K", "°F"], a: 2, e: "En Fahrenheit." },
-    { q: "El calor pasa siempre…", o: ["del frío al caliente", "del caliente al frío", "en los dos sentidos"], a: 1, e: "Del caliente al frío." },
-    { q: "Cuando dos cuerpos llegan a la misma temperatura están en…", o: ["equilibrio térmico", "ebullición", "dilatación"], a: 0, e: "Equilibrio térmico." },
-    { q: "El calor del Sol nos llega por…", o: ["conducción", "convección", "radiación"], a: 2, e: "Radiación, a través del vacío." },
-    { q: "Un buen conductor térmico es…", o: ["el corcho", "el cobre", "la lana"], a: 1, e: "El cobre." },
-    { q: "Al calentarse, la mayoría de los cuerpos…", o: ["se contraen", "se dilatan", "no cambian"], a: 1, e: "Se dilatan." },
-    { q: "Mientras el hielo se funde, su temperatura…", o: ["sube", "baja", "se mantiene"], a: 2, e: "Se mantiene a 0 °C." },
-  ],
-  examen: [
-    { q: "1 caloría equivale a…", o: ["1 J", "4,18 J", "1000 J"], a: 1, e: "4,18 J." },
-    { q: "Las corrientes de aire caliente que suben son un ejemplo de…", o: ["conducción", "convección", "radiación"], a: 1, e: "Convección." },
-    { q: "Un termo tiene doble pared con vacío para evitar…", o: ["la conducción y la convección", "la dilatación", "la evaporación"], a: 0, e: "Sin materia no hay conducción ni convección." },
-  ],
-  feynman: ["Qué diferencia hay entre calor y temperatura", "Cómo se propaga el calor de tres formas distintas", "Por qué se dilatan los cuerpos al calentarse"],
-  mapa: mapa("CALOR", "var(--eso)", [
-    ["Temperatura", "°C · K · °F · termómetro", "var(--pen)"],
-    ["Calor", "energía en tránsito · equilibrio", "var(--red)"],
-    ["Propagación", "conducción · convección · radiación", "#b8860b"],
+  ejercicios: H.niveles([
+    ["¿Qué es la temperatura según el modelo de partículas?", "Una medida de la velocidad media (agitación) de las partículas de un cuerpo: cuanto más rápido se mueven, más temperatura."],
+    ["Pasa a kelvin: 0 °C, 37 °C y −20 °C.", "273 K, 310 K y 253 K."],
+    ["Pasa a grados Celsius: 373 K, 300 K y 200 K.", "100 °C, 27 °C y −73 °C."],
+    ["¿Qué es el calor y en qué unidad se mide?", "La energía que pasa de un cuerpo a otro por tener distinta temperatura. Se mide en julios (J)."],
+    ["¿En qué sentido fluye el calor entre dos cuerpos?", "Siempre del cuerpo de mayor temperatura al de menor temperatura."],
+    ["¿Qué es el equilibrio térmico?", "El estado en que dos cuerpos en contacto alcanzan la misma temperatura y deja de pasar calor entre ellos."],
+    ["Nombra las tres formas de propagación del calor y pon un ejemplo de cada una.", "Conducción (cuchara en la sopa), convección (agua de una olla al fuego) y radiación (calor del Sol)."],
+    ["Clasifica como conductores o aislantes: cobre, lana, aluminio, corcho, aire, hierro.", "Conductores: cobre, aluminio, hierro. Aislantes: lana, corcho, aire."],
+    ["¿Qué es la dilatación? Pon un ejemplo.", "El aumento de tamaño de un cuerpo al calentarse. Ejemplo: las vías del tren se alargan en verano."],
+    ["¿Cómo funciona un termómetro de alcohol?", "El alcohol del bulbo se dilata al calentarse y sube por un tubo fino; la altura se lee en una escala graduada."],
+  ], [
+    ["Pasa 20 °C y 100 °C a grados Fahrenheit.", "20 · 1,8 + 32 = 68 °F; 100 · 1,8 + 32 = 212 °F."],
+    ["¿Qué tiene más energía térmica, una taza de té a 80 °C o una bañera de agua a 40 °C? ¿Cuál tiene más temperatura?", "La bañera tiene más energía térmica porque tiene muchísimas más partículas; la taza tiene más temperatura."],
+    ["Se mezclan 1 L de agua a 90 °C y 1 L a 10 °C. ¿Temperatura final? ¿Y si fueran 3 L a 10 °C?", "Con 1 L: (90 + 10) / 2 = 50 °C. Con 3 L de agua fría, la temperatura final queda más cerca de 10 °C: (1 · 90 + 3 · 10) / 4 = 30 °C."],
+    ["Calcula el calor necesario para calentar 0,5 kg de agua de 20 °C a 100 °C.", "Q = 0,5 · 4.180 · 80 = 167.200 J."],
+    ["¿Qué calor pierde 1 kg de aluminio (c = 900 J/(kg·°C)) al enfriarse de 200 °C a 50 °C?", "Q = 1 · 900 · (50 − 200) = −135.000 J: pierde 135.000 J."],
+    ["¿Por qué las baldosas parecen más frías que la alfombra si están a la misma temperatura?", "Porque la baldosa es buena conductora y se lleva rápidamente el calor del pie; la alfombra es aislante y apenas se lo lleva."],
+    ["¿Por qué los radiadores se colocan abajo y los aparatos de aire acondicionado arriba?", "El aire caliente sube y el frío baja. El radiador abajo calienta el aire que asciende y reparte el calor por convección; el aire frío del acondicionador, desde arriba, baja y refresca toda la habitación."],
+    ["¿Por qué en verano conviene vestir ropa de colores claros?", "Porque los colores claros reflejan más la radiación del Sol y absorben menos, así que nos calentamos menos."],
+    ["Explica por qué una botella de agua llena puede reventar en el congelador.", "Porque el agua, al congelarse, aumenta de volumen (comportamiento anómalo) y el hielo empuja las paredes."],
+    ["¿Para qué sirven las juntas de dilatación de los puentes?", "Para dejar espacio al metal y al hormigón, que se alargan con el calor del verano; sin ellas el puente se deformaría o agrietaría."],
+    ["¿Por qué un abrigo de plumas abriga tanto?", "Porque las plumas atrapan mucho aire quieto, que es un excelente aislante, y así reducen la pérdida de calor del cuerpo."],
+    ["¿Por qué la temperatura del agua no sube mientras hierve?", "Porque la energía que recibe se usa para separar las moléculas y pasarlas a vapor (calor latente), no para aumentar su velocidad."],
+  ], [
+    ["¿A qué temperatura coinciden los valores de las escalas Celsius y Fahrenheit?", "Si T °C = T °F: T = 1,8 · T + 32 → −0,8 · T = 32 → T = −40. A −40 °C = −40 °F."],
+    ["Con 836.000 J, ¿cuánta agua puedes calentar de 20 °C a 70 °C?", "m = Q / (c · ΔT) = 836.000 / (4.180 · 50) = 4 kg (4 L)."],
+    ["Explica por qué los climas costeros tienen inviernos más suaves y veranos menos calurosos que los del interior.", "El agua del mar tiene un calor específico muy alto: se calienta y se enfría lentamente. En verano absorbe calor sin calentarse mucho y en invierno lo devuelve poco a poco, suavizando la temperatura de la costa."],
+    ["Explica cómo un termo impide las tres formas de propagación del calor.", "El vacío entre las dos paredes impide la conducción y la convección (no hay materia); las paredes plateadas reflejan la radiación; el tapón aislante evita la convección por arriba."],
+    ["Diseña un experimento para comparar qué material aísla mejor: lana, papel de periódico o papel de aluminio.", "Se envuelven tres botes iguales con agua a 60 °C en cada material (mismo grosor) y uno sin envolver como control. Se mide la temperatura cada 5 minutos durante media hora y se hace una gráfica. El que pierde temperatura más despacio es el mejor aislante."],
+    ["¿Por qué una quemadura con vapor de agua a 100 °C es peor que con agua líquida a 100 °C?", "Porque el vapor, al condensarse sobre la piel, desprende el calor latente de vaporización (unos 2.260 kJ por kg), mucha más energía que la que cede el agua líquida al enfriarse."],
+    ["Una familia baja el termostato de 23 °C a 20 °C. Si cada grado supone un 7 % de consumo, ¿cuánto ahorra aproximadamente en calefacción? ¿Qué otras medidas propondrías?", "3 grados · 7 % ≈ 21 % de ahorro. Además: aislar ventanas con burletes, bajar persianas por la noche, no tapar radiadores y cerrar las habitaciones que no se usan."],
+    ["Explica las brisas marinas usando el calor específico y la convección.", "De día la tierra se calienta antes que el mar (menor calor específico); el aire sobre la tierra se calienta, se vuelve menos denso y sube, y el aire más fresco del mar entra hacia la costa. De noche la tierra se enfría antes y la brisa sopla de tierra a mar."],
+  ]),
+  quiz: H.test([
+    ["La temperatura mide…", ["la agitación media de las partículas", "el calor de un cuerpo", "la masa de un cuerpo", "la energía total"], "Velocidad media de las partículas."],
+    ["La unidad de temperatura del SI es el…", ["kelvin", "grado Celsius", "julio", "grado Fahrenheit"], "Símbolo K."],
+    ["0 °C equivalen a…", ["273 K", "0 K", "−273 K", "32 K"], "Se suman 273."],
+    ["El agua hierve a nivel del mar a…", ["212 °F", "100 °F", "32 °F", "373 °F"], "Escala Fahrenheit."],
+    ["El cero absoluto es…", ["−273 °C", "0 °C", "−100 °C", "−32 °C"], "0 K."],
+    ["El calor es…", ["energía que pasa de un cuerpo a otro", "lo que tiene un cuerpo caliente", "lo mismo que la temperatura", "una sustancia"], "Energía en tránsito."],
+    ["El calor se mide en…", ["julios", "grados", "kelvin", "newtons"], "También en calorías."],
+    ["El calor pasa espontáneamente del cuerpo…", ["más caliente al más frío", "más frío al más caliente", "más grande al más pequeño", "más pesado al más ligero"], "Hasta el equilibrio."],
+    ["Al llegar al equilibrio térmico, los cuerpos tienen la misma…", ["temperatura", "energía", "masa", "densidad"], "Deja de pasar calor."],
+    ["El agua tarda en calentarse porque tiene…", ["un calor específico alto", "poca masa", "mucha densidad", "un punto de fusión bajo"], "4.180 J/(kg·°C)."],
+    ["La fórmula del calor para cambiar la temperatura es…", ["Q = m · c · ΔT", "Q = m / ΔT", "Q = c / m", "Q = m + c + ΔT"], "Masa, calor específico y variación."],
+    ["El mango de una cuchara metálica se calienta por…", ["conducción", "convección", "radiación", "dilatación"], "A través del metal."],
+    ["El agua de una olla se calienta sobre todo por…", ["convección", "conducción", "radiación", "evaporación"], "Corrientes de agua caliente."],
+    ["El calor del Sol nos llega por…", ["radiación", "conducción", "convección", "contacto"], "Atraviesa el vacío."],
+    ["Es un buen aislante térmico…", ["el aire quieto", "el cobre", "el aluminio", "el hierro"], "Por eso abrigan las plumas."],
+    ["Las juntas de los puentes evitan los efectos de la…", ["dilatación", "radiación", "convección", "evaporación"], "El metal se alarga en verano."],
+    ["El hielo flota porque el agua al congelarse…", ["aumenta de volumen", "pierde masa", "se vuelve más densa", "se calienta"], "Comportamiento anómalo."],
+    ["Mientras el hielo se funde, la temperatura…", ["no cambia", "sube", "baja", "oscila"], "Se usa calor latente."],
+    ["Un abrigo…", ["evita que perdamos calor", "produce calor", "absorbe frío", "aumenta la temperatura del aire"], "Es un aislante."],
+    ["Un termo impide la conducción y la convección gracias al…", ["vacío entre sus paredes", "color", "tapón de metal", "líquido"], "Sin materia no hay conducción."],
+  ], 3),
+  examen: H.test([
+    ["37 °C en kelvin son…", ["310 K", "236 K", "37 K", "273 K"], "37 + 273."],
+    ["Una bañera a 40 °C comparada con una taza a 80 °C tiene…", ["más energía térmica y menos temperatura", "más temperatura", "menos energía térmica", "la misma energía"], "Tiene muchas más partículas."],
+    ["Al mezclar masas iguales de agua a 60 °C y 20 °C, la temperatura final es…", ["40 °C", "80 °C", "60 °C", "20 °C"], "La media."],
+    ["Para calentar 1 kg de agua 10 °C hacen falta…", ["41.800 J", "4.180 J", "418 J", "10 J"], "1 · 4.180 · 10."],
+    ["El aire caliente sube porque…", ["es menos denso", "pesa más", "es más denso", "tiene más masa"], "Convección."],
+    ["Las ollas son de metal porque el metal es…", ["buen conductor", "aislante", "muy denso", "barato"], "Transmite el calor a los alimentos."],
+    ["Una botella llena de agua revienta en el congelador porque…", ["el hielo ocupa más volumen", "el agua se evapora", "el vidrio se dilata", "el frío la empuja"], "El agua se dilata al congelarse."],
+    ["Bajar el termostato de la calefacción 1 °C ahorra aproximadamente un…", ["7 %", "1 %", "50 %", "0 %"], "Pequeños gestos, gran ahorro."],
+  ], 2),
+  feynman: ["Qué diferencia hay entre calor y temperatura", "Cómo se pasa de grados Celsius a kelvin", "Qué es el equilibrio térmico", "Cómo se propaga el calor por conducción, convección y radiación", "Por qué el agua tarda en calentarse"],
+  mapa: H.mapa("CALOR Y TEMPERATURA", "var(--eso)", [
+    ["Temperatura", "°C · K · °F · termómetro", "var(--red)"],
+    ["Calor", "energía en tránsito · Q = m·c·ΔT", "#b8860b"],
+    ["Propagación", "conducción · convección · radiación", "var(--pen)"],
     ["Efectos", "dilatación · cambios de estado", "var(--leaf)"],
-  ], 300),
+  ], 270),
   tarjetas: [
-    ["Temperatura", "Mide la energía cinética media de las partículas."],
-    ["Calor", "Energía que pasa de un cuerpo caliente a uno frío."],
-    ["Kelvin", "T(K) = T(°C) + 273; empieza en el cero absoluto."],
-    ["Equilibrio térmico", "Estado en que dos cuerpos en contacto tienen la misma temperatura."],
-    ["Conducción", "Propagación del calor a través de un material, sin moverse la materia."],
-    ["Convección", "Propagación del calor con corrientes de un fluido."],
-    ["Radiación", "Propagación del calor por ondas, incluso en el vacío."],
-    ["Dilatación", "Aumento de tamaño de un cuerpo al calentarse."],
+    ["Temperatura", "Agitación media de las partículas; °C o K."],
+    ["Kelvin", "T (K) = T (°C) + 273; 0 K es el cero absoluto."],
+    ["Fahrenheit", "T (°F) = 1,8 · T (°C) + 32."],
+    ["Calor", "Energía que pasa de caliente a frío; julios."],
+    ["Equilibrio térmico", "Misma temperatura: deja de pasar calor."],
+    ["Calor específico", "Energía para subir 1 °C 1 kg; agua: 4.180 J/(kg·°C)."],
+    ["Q = m · c · ΔT", "Calor para cambiar la temperatura."],
+    ["Conducción", "A través de un sólido, sin que se mueva."],
+    ["Convección", "Corrientes en líquidos y gases."],
+    ["Radiación", "Ondas que viajan incluso por el vacío."],
+    ["Aislante", "Transmite mal el calor: lana, corcho, aire."],
+    ["Dilatación", "Aumento de tamaño al calentarse."],
   ],
-  familias: ["Tocad a la vez una cuchara metálica y una de madera que lleven horas en la mesa y comentad por qué parecen distintas.", "Poned un globo en la boca de una botella vacía y meted la botella en agua caliente.", "Mirad la previsión del tiempo y pasad algunas temperaturas a kelvin y a Fahrenheit."],
-  profesores: {
-    saberes: "La energía: calor y temperatura, escalas termométricas, equilibrio térmico, propagación del calor, conductores y aislantes, dilatación y cambios de estado (RD 217/2022, Física y Química, bloque «La energía»).",
-    ideas: ["Práctica de equilibrio térmico mezclando agua a distintas temperaturas y comparando con la predicción.", "Construcción de un termómetro casero con una botella, agua coloreada y una pajita.", "Reto de ingeniería: diseñar una caja aislante que mantenga más tiempo un cubito sin fundir."],
+  glosario: [
+    ["Energía térmica", "Energía total de las partículas de un cuerpo debida a su movimiento."],
+    ["Temperatura", "Magnitud que mide la agitación media de las partículas de un cuerpo."],
+    ["Termómetro", "Instrumento que mide la temperatura."],
+    ["Cero absoluto", "Temperatura más baja posible: 0 K o −273 °C."],
+    ["Calor", "Energía que se transfiere de un cuerpo a otro por diferencia de temperatura."],
+    ["Julio (J)", "Unidad de energía y de calor del Sistema Internacional."],
+    ["Caloría", "Energía para subir 1 °C la temperatura de 1 g de agua; 1 cal = 4,18 J."],
+    ["Equilibrio térmico", "Estado de dos cuerpos en contacto que han alcanzado la misma temperatura."],
+    ["Calor específico", "Energía necesaria para elevar 1 °C la temperatura de 1 kg de una sustancia."],
+    ["Conducción", "Propagación del calor a través de un material sin desplazamiento de materia."],
+    ["Convección", "Propagación del calor por el movimiento de un fluido."],
+    ["Radiación", "Propagación del calor mediante ondas electromagnéticas, incluso en el vacío."],
+    ["Aislante térmico", "Material que transmite mal el calor."],
+    ["Dilatación", "Aumento del tamaño de un cuerpo al aumentar su temperatura."],
+    ["Calor latente", "Energía necesaria para que 1 kg de una sustancia cambie de estado."],
+  ],
+  situacion: {
+    titulo: "Diseñamos la mejor fiambrera térmica",
+    reto: "La cantina del centro quiere que los alumnos que traen comida de casa la conserven caliente hasta la hora de comer sin usar electricidad. Vuestro equipo debe diseñar y probar una fiambrera térmica.",
+    pasos: [
+      "Investigad cómo se propaga el calor y qué materiales son buenos aislantes.",
+      "Diseñad tres prototipos con un bote de vidrio y distintos aislantes (lana, corcho blanco, papel de aluminio con aire, periódico).",
+      "Llenad los botes con agua a 70 °C y medid la temperatura cada 10 minutos durante una hora, con un bote sin aislar como control.",
+      "Representad las curvas de enfriamiento en una misma gráfica y calculad el calor perdido por cada bote con Q = m · c · ΔT.",
+      "Elegid el mejor diseño, explicad por qué funciona con las tres formas de propagación y proponed mejoras.",
+    ],
+    producto: "Prototipo de fiambrera, gráfica de enfriamiento comparada y un folleto para las familias con consejos para conservar la comida caliente.",
+    evaluacion: [
+      "El experimento controla las variables (mismo volumen, misma temperatura inicial, mismos tiempos).",
+      "La gráfica es correcta y el cálculo del calor perdido está bien hecho.",
+      "La explicación usa correctamente conducción, convección y radiación.",
+      "El folleto es claro, útil y está bien argumentado.",
+    ],
   },
-  fuentes: [RD, wiki("Temperatura", "Temperatura"), wiki("Calor", "Calor")],
-  revisado: REV,
+  familias: ["Comprobad con un termómetro de cocina la temperatura del agua del grifo, de la nevera y del agua hirviendo.", "Revisad juntos las ventanas y puertas de casa en busca de corrientes de aire y pensad cómo evitarlas.", "Mirad el termostato de la calefacción o del aire acondicionado y comentad la temperatura recomendada.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "La energía: el calor como transferencia de energía, diferencia entre calor y temperatura, escalas termométricas, equilibrio térmico, calor específico, mecanismos de propagación del calor, conductores y aislantes, efectos del calor (dilatación y cambios de estado) y uso responsable de la energía en el hogar (RD 217/2022, Física y Química 1º a 3º, bloque C «La energía»). En Cataluña, saberes equivalentes de Física i Química del Decret 175/2022.",
+    ideas: [
+      "Curvas de enfriamiento de agua con distintos aislantes y sondas de temperatura.",
+      "Experiencia de las tres manos (agua fría, templada y caliente) para mostrar que el tacto no mide temperatura.",
+      "Observación de corrientes de convección con colorante en agua caliente.",
+      "Auditoría energética sencilla del aula o de casa con termómetros.",
+      "Anillo y bola de dilatación o globo en el cuello de una botella calentada.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Calor", "Calor"), H.wiki("Temperatura", "Temperatura"), { t: "IDAE: guía práctica de la energía para el consumo eficiente", url: "https://www.idae.es/" }],
+  revisado: H.REV,
 };

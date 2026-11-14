@@ -1,149 +1,237 @@
-// Física y Química 2º ESO: la gravedad y el universo. Dibujos propios en SVG.
-const { D, mapa, BG, t, fl, caja, tabla, RD, wiki, C, REV } = require("./_eso2a");
+// Física y Química 2º ESO. Tema nivel libro (lectura, apartados, ejercicios por niveles, glosario y situación de aprendizaje).
+// Dibujos propios en SVG: esquemas de _eso2L3 y dibujos de la versión anterior del tema.
+const H = require("./_eso2L3");
+const S = "fyq-gravedad-universo";
+const [, vSis] = H.videos(S);
+const vGra = { id: "qPhxfuZLxfQ", titulo: "La fuerza de la gravedad y la ley de gravitación universal de Newton (con ejemplos)", canal: "Astraway", vistas: 332871, megusta: 0, busqueda: "ley de gravitación universal Newton explicación" };
 
 module.exports = {
-  materia: "Física y Química",
-  curso: C,
+  materia: H.MATERIA,
+  curso: H.CURSO,
   titulo: "La gravedad y el universo",
-  minutos: 55,
-  objetivos: ["Explicar la ley de la gravitación universal y de qué depende la fuerza gravitatoria", "Calcular el peso de un cuerpo en distintos astros", "Relacionar la gravedad con las órbitas, las mareas y la caída de los cuerpos", "Describir la evolución de las ideas sobre el universo y la estructura del sistema solar"],
-  claves: ["gravedad", "gravitación universal", "peso", "órbita", "satélite", "marea", "geocentrismo", "heliocentrismo", "sistema solar", "galaxia", "año luz"],
+  minutos: 100,
+  objetivos: [
+    "Explicar la gravedad como una fuerza de atracción entre todos los cuerpos con masa",
+    "Interpretar la ley de la gravitación universal de forma cualitativa",
+    "Calcular el peso de un cuerpo en distintos planetas",
+    "Explicar la caída de los cuerpos, las órbitas y las mareas",
+    "Describir la evolución de los modelos del universo, del geocentrismo al heliocentrismo",
+    "Conocer los componentes del sistema solar, las estrellas, las galaxias y las distancias astronómicas",
+  ],
+  claves: ["gravedad", "gravitación universal", "masa", "peso", "intensidad de la gravedad", "caída libre", "órbita", "satélite", "marea", "geocentrismo", "heliocentrismo", "sistema solar", "planeta", "estrella", "galaxia", "año luz"],
   pregunta: {
-    texto: "Si la Tierra atrae a la Luna, ¿por qué la Luna no se nos cae encima?",
-    respuesta: "En realidad la Luna <b>está cayendo</b> todo el rato hacia la Tierra, pero también se mueve de lado muy deprisa, a unos 3700 km/h. Mientras cae, la superficie de la Tierra «se curva» por debajo y nunca llega a chocar. La combinación de la <mark>gravedad</mark> y de esa velocidad lateral produce una <mark>órbita</mark>. Lo mismo les pasa a la Estación Espacial y a los satélites.",
+    texto: "Si la Tierra atrae a la Luna, ¿por qué la Luna no se cae sobre nosotros?",
+    respuesta: "En realidad, la Luna <b>está cayendo</b> continuamente hacia la Tierra. Pero a la vez avanza muy deprisa, a más de 3.600 km/h, en dirección casi perpendicular. Mientras cae, la superficie curva de la Tierra «se aparta» debajo de ella, así que nunca llega al suelo. El resultado es una <mark>órbita</mark>: una caída sin fin alrededor de la Tierra, gracias a la <mark>gravedad</mark>.",
+  },
+  lectura: {
+    titulo: "Un martillo y una pluma en la Luna",
+    html: `<p>El 2 de agosto de 1971, el astronauta <b>David Scott</b>, de la misión Apolo 15, estaba de pie sobre la superficie de la Luna frente a una cámara de televisión. En una mano sostenía un martillo de geólogo y en la otra, una pluma de halcón. Explicó que iba a repetir un experimento que Galileo había imaginado casi cuatro siglos antes. Soltó los dos objetos a la vez desde la misma altura.</p>
+<p>En la Tierra, la pluma habría bajado flotando despacio mientras el martillo caía de golpe. Pero en la Luna no hay aire. Millones de personas vieron en directo cómo el martillo y la pluma caían juntos, a la misma velocidad, y tocaban el suelo exactamente a la vez. «¿Qué os parece? El señor Galileo tenía razón», dijo Scott.</p>
+<p>Aquella demostración resumía siglos de ciencia: la gravedad atrae a todos los cuerpos con la misma aceleración, sea cual sea su masa, y lo que hace que en la Tierra caigan distinto es el rozamiento con el aire. En este tema estudiarás la fuerza de la gravedad, que hace caer las manzanas, mantiene a la Luna en su órbita y organiza los planetas, las estrellas y las galaxias de todo el universo.</p>`,
   },
   bloques: [
     {
-      html: `<h3>La fuerza de la gravedad</h3><p>Todos los cuerpos que tienen masa se atraen entre sí. Esta fuerza de atracción se llama <mark>fuerza gravitatoria</mark> o gravedad. Es la que hace caer al suelo una manzana, la que nos mantiene sobre la superficie de la Tierra, la que hace girar la Luna alrededor de la Tierra y los planetas alrededor del Sol, y la que mantiene unidas las estrellas en las galaxias. Es una fuerza <b>a distancia</b> y siempre es <b>atractiva</b>: nunca repele. Entre objetos pequeños, como dos personas o dos libros, es tan débil que no la notamos. Solo es importante cuando al menos uno de los cuerpos tiene una masa enorme, como un planeta o una estrella. Por eso es la fuerza que gobierna el universo a gran escala.</p>`,
+      html: `<h3>1.1 La fuerza de la gravedad</h3><p>Todos los cuerpos que tienen masa se atraen entre sí. Esta fuerza de atracción se llama <mark>fuerza gravitatoria</mark> o <b>gravedad</b>. Es una fuerza a distancia: actúa sin que los cuerpos se toquen, incluso a través del espacio vacío.</p><p>Tú atraes a tu compañero de mesa, y él te atrae a ti, pero la fuerza es tan pequeña que no la notamos. La gravedad solo es apreciable cuando al menos uno de los cuerpos tiene una masa enorme, como un planeta o una estrella. Por eso notamos la atracción de la Tierra, que nos mantiene pegados al suelo y hace caer los objetos.</p><p>La gravedad es la fuerza que <b>organiza el universo</b>: mantiene la atmósfera alrededor de la Tierra, hace girar la Luna, los planetas alrededor del Sol y las estrellas alrededor del centro de las galaxias. También reunió el gas y el polvo que formaron el Sol y los planetas hace unos 4.600 millones de años. Aunque es la más débil de las fuerzas de la naturaleza, siempre es atractiva y llega a distancias enormes.</p>`,
+      svg: H.radial("Qué hace la fuerza de la gravedad", "GRAVEDAD", ["Atrae toda masa", "Hace caer objetos", "Mantiene órbitas", "Forma estrellas"], "var(--inf)"),
     },
     {
-      html: `<h3>La ley de la gravitación universal</h3><p>Cuenta la historia que Isaac Newton, al ver caer una manzana, se preguntó si la fuerza que la hacía caer era la misma que mantenía a la Luna en su órbita. En 1687 publicó la <mark>ley de la gravitación universal</mark>: <b>dos cuerpos se atraen con una fuerza directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que los separa</b>. Se escribe <b>F = G · m₁ · m₂ / d²</b>, donde G es una constante muy pequeña (6,67 · 10⁻¹¹ N·m²/kg²). Esto significa que la fuerza es <b>mayor cuanto más masa</b> tienen los cuerpos y <b>menor cuanto más lejos</b> están: si la distancia se duplica, la fuerza se divide entre cuatro; si se triplica, entre nueve. Fue la primera vez que una misma ley explicaba lo que pasa en la Tierra y en el cielo.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Ley de gravitación: dos cuerpos se atraen con fuerzas iguales y opuestas; si la distancia se duplica, la fuerza se divide entre cuatro">${BG}
-        <circle cx="50" cy="56" r="20" fill="var(--pen)"/><circle cx="196" cy="56" r="12" fill="#b8860b"/>${fl(72, 56, 110, 56, "var(--red)", 3)}${fl(182, 56, 144, 56, "var(--red)", 3)}
-        ${t(50, 92, "m₁", { size: 12 })}${t(196, 92, "m₂", { size: 12 })}<path d="M50 100 H 196" stroke="var(--muted)" stroke-dasharray="3 3"/>${t(123, 112, "d → F", { size: 11, color: "var(--muted)" })}
-        <circle cx="30" cy="148" r="8" fill="var(--pen)"/><circle cx="70" cy="148" r="5" fill="#b8860b"/>${t(50, 172, "d", { size: 10 })}${t(110, 152, "→", { size: 14 })}
-        <circle cx="150" cy="148" r="8" fill="var(--pen)"/><circle cx="230" cy="148" r="5" fill="#b8860b"/>${t(190, 172, "2d → F/4", { size: 10, color: "var(--red)" })}</svg>`,
-      video: { id: "1ZeqDflo-SQ", titulo: "Ley de Gravitación Universal (+fórmulas) ejercicio de fuerza", canal: "Vitual", vistas: 974079 },
+      html: `<h3>1.2 La ley de la gravitación universal</h3><p>En 1687, Isaac Newton publicó la <mark>ley de la gravitación universal</mark>, que explica cómo es la fuerza con la que se atraen dos cuerpos. Dice que esa fuerza:</p><p>• Es <b>directamente proporcional al producto de sus masas</b>: si una de las masas se duplica, la fuerza se duplica.<br>• Es <b>inversamente proporcional al cuadrado de la distancia</b> que los separa: si la distancia se duplica, la fuerza se divide entre cuatro; si se triplica, entre nueve.</p><p>Se escribe <b>F = G · M · m / d²</b>, donde G es una constante universal, muy pequeña, que se midió por primera vez en 1798. Las dos fuerzas, la que hace un cuerpo sobre el otro y la que el otro hace sobre el primero, son iguales y de sentido contrario.</p><p>La palabra «universal» es la gran novedad: Newton demostró que la misma ley explica la caída de una manzana en Inglaterra y el movimiento de la Luna y de los planetas. Las leyes de la física son las mismas en la Tierra y en el cielo.</p>`,
+      svg: H.viejo(S, 1),
+      video: vGra,
     },
     {
-      html: `<h3>El peso en otros mundos</h3><p>El <mark>peso</mark> de un cuerpo es la fuerza gravitatoria con la que lo atrae el planeta en el que está. Se calcula con <b>P = m · g</b>, donde g es la <b>intensidad del campo gravitatorio</b> de ese lugar, en N/kg. Depende de la masa y del tamaño del astro. En la Tierra, g vale 9,8 N/kg; en la Luna, que tiene mucha menos masa, solo 1,6 N/kg; y en Júpiter, el gigante del sistema solar, 24,8 N/kg. Por eso un astronauta con su traje, que en la Tierra apenas puede moverse, en la Luna da saltos enormes. La masa, en cambio, es la misma en todas partes. La gravedad también cambia un poco dentro de la Tierra: es algo menor en lo alto de las montañas y en el ecuador que en los polos.</p>${tabla(["Astro", "g (N/kg)", "Peso de una persona de 50 kg"], [["Luna", "1,6", "80 N"], ["Marte", "3,7", "185 N"], ["Tierra", "9,8", "490 N"], ["Júpiter", "24,8", "1240 N"], ["Sol", "274", "13 700 N"]])}`,
+      html: `<h3>1.3 El peso en otros mundos</h3><p>El <mark>peso</mark> es la fuerza con la que un planeta atrae a un cuerpo situado en su superficie. Se calcula con <b>P = m · g</b>, donde m es la masa del cuerpo y g es la <mark>intensidad de la gravedad</mark> del planeta, que se mide en N/kg.</p><p>El valor de g depende de la masa y del radio de cada astro. En la Tierra es <b>9,8 N/kg</b>; en la Luna, que tiene mucha menos masa, solo <b>1,6 N/kg</b>, unas seis veces menos; en Marte, 3,7 N/kg; y en Júpiter, el planeta más grande, 24,8 N/kg.</p><p>Por eso un astronauta de 70 kg pesa 686 N en la Tierra, solo 112 N en la Luna y unos 1.736 N en Júpiter, aunque su <b>masa sigue siendo 70 kg</b> en todas partes. En la Luna podría saltar seis veces más alto que en la Tierra.</p><p>La intensidad de la gravedad también disminuye al alejarnos de la superficie de un planeta. En la Estación Espacial Internacional, a 400 km de altura, g sigue siendo casi un 90 % de la de la superficie: los astronautas flotan no porque no haya gravedad, sino porque están cayendo continuamente en órbita.</p>`,
+      svg: H.barras("Intensidad de la gravedad en distintos astros en newtons por kilogramo", [["Luna", 1.6, "1,6"], ["Marte", 3.7, "3,7"], ["Tierra", 9.8, "9,8"], ["Júpiter", 24.8, "24,8"]], "g (N/kg)"),
     },
     {
-      html: `<h3>La caída de los cuerpos</h3><p>Si dejas caer a la vez una piedra y una hoja de papel, la piedra llega antes. Durante casi 2000 años se pensó, siguiendo a <b>Aristóteles</b>, que los cuerpos pesados caen más rápido. En el siglo XVII, <b>Galileo Galilei</b> demostró que no es así: si no hubiera aire, <b>todos los cuerpos caerían con la misma aceleración</b>, sea cual sea su masa. Lo que frena la hoja es el <b>rozamiento con el aire</b>. Si arrugas el papel en una bola, cae casi a la vez que la piedra. En 1971, el astronauta David Scott lo comprobó en la Luna, donde no hay aire: soltó un martillo y una pluma y llegaron juntos al suelo. Cerca de la superficie terrestre, un cuerpo en caída libre aumenta su velocidad 9,8 m/s cada segundo: la aceleración de la gravedad es 9,8 m/s².</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="En la Tierra con aire, la pluma cae más despacio que el martillo; en la Luna sin aire, el martillo y la pluma llegan a la vez">${BG}
-        <line x1="130" y1="14" x2="130" y2="166" stroke="var(--line)" stroke-width="2"/>${t(66, 26, "con aire", { size: 11, color: "var(--pen)" })}${t(196, 26, "sin aire (Luna)", { size: 11, color: "var(--red)" })}
-        ${[[40, 130], [92, 70], [166, 130], [222, 130]].map(([x, y], i) => i % 2 === 0 ? `<rect x="${x - 4}" y="${y - 30}" width="8" height="24" fill="#8a6a4a"/><rect x="${x - 12}" y="${y - 38}" width="24" height="10" fill="var(--muted)"/>` : `<path d="M${x} ${y - 30} q 12 10 0 30 q -12 -10 0 -30 Z" fill="var(--card)" stroke="var(--ink)"/><line x1="${x}" y1="${y - 30}" x2="${x}" y2="${y + 4}" stroke="var(--ink)"/>`).join("")}
-        <line x1="12" y1="140" x2="120" y2="140" stroke="var(--muted)" stroke-width="3"/><line x1="140" y1="140" x2="248" y2="140" stroke="#9aa0a6" stroke-width="3"/>
-        ${t(66, 162, "el martillo llega antes", { size: 9, color: "var(--muted)" })}${t(194, 162, "llegan a la vez", { size: 9, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.4 La caída de los cuerpos</h3><p>Aristóteles pensaba que los cuerpos pesados caían más deprisa que los ligeros. Parece razonable: una piedra cae antes que una hoja de papel. Pero <b>Galileo Galilei</b>, a principios del siglo XVII, demostró con experimentos que estaba equivocado.</p><p>Si no hubiera aire, <b>todos los cuerpos caerían con la misma aceleración</b>, independientemente de su masa. Cerca de la superficie de la Tierra, esa aceleración es de unos <b>9,8 m/s²</b>: la velocidad de un cuerpo que cae aumenta 9,8 m/s cada segundo. Este movimiento se llama <mark>caída libre</mark>.</p><p>Lo que hace que una pluma caiga más despacio que una piedra es la <b>resistencia del aire</b>, que frena más a los objetos ligeros y de gran superficie. Si arrugas una hoja de papel en una bola y la sueltas junto a un libro, verás que caen casi a la vez. Los paracaidistas aprovechan la resistencia del aire: al abrir el paracaídas, la fuerza del aire aumenta mucho y bajan despacio.</p><p>En la Luna, sin atmósfera, el martillo y la pluma del astronauta David Scott llegaron juntos al suelo.</p>`,
+      svg: H.viejo(S, 3),
     },
     {
-      html: `<h3>Órbitas y satélites</h3><p>Newton imaginó un cañón en lo alto de una montaña altísima. Si dispara una bala despacio, cae cerca. Si la dispara más rápido, cae más lejos. Si la dispara a unos 28 000 km/h, la bala cae hacia la Tierra, pero la curvatura del planeta hace que nunca llegue a tocar el suelo: da vueltas sin parar. Está en <mark>órbita</mark>. Un <mark>satélite</mark> es cualquier cuerpo que gira alrededor de otro por efecto de la gravedad. La Luna es el satélite natural de la Tierra. Hoy hay miles de <b>satélites artificiales</b>: de comunicaciones, de televisión, meteorológicos, de posicionamiento (GPS y Galileo), de observación de la Tierra y telescopios espaciales. La <b>Estación Espacial Internacional</b> orbita a unos 400 km de altura y da una vuelta a la Tierra cada 90 minutos.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="El cañón de Newton: desde una montaña, balas disparadas cada vez más rápido caen más lejos hasta que una da la vuelta completa a la Tierra y queda en órbita">${BG}
-        <circle cx="130" cy="100" r="54" fill="var(--pen)" fill-opacity=".25" stroke="var(--pen)" stroke-width="2"/><path d="M120 50 l 10 -14 l 10 14 Z" fill="#8a6a4a"/>
-        <path d="M130 36 Q 160 36 168 66" stroke="var(--muted)" stroke-width="2" fill="none"/><path d="M130 36 Q 190 40 182 96" stroke="var(--muted)" stroke-width="2" fill="none"/>
-        <circle cx="130" cy="100" r="66" fill="none" stroke="var(--red)" stroke-width="2.5" stroke-dasharray="6 4"/>${fl(196, 96, 196, 108, "var(--red)", 2)}
-        ${t(130, 104, "Tierra", { size: 12 })}${t(130, 178, "a 28 000 km/h: órbita", { size: 11, color: "var(--red)" })}${t(40, 28, "cañón", { size: 10, color: "var(--muted)" })}${fl(60, 28, 116, 36, "var(--muted)", 1.2)}</svg>`,
+      html: `<h3>1.5 Órbitas y satélites</h3><p>Una <mark>órbita</mark> es la trayectoria curva que sigue un cuerpo alrededor de otro por efecto de la gravedad. La Luna gira alrededor de la Tierra, y la Tierra, alrededor del Sol.</p><p>Newton lo explicó con un experimento mental: el <b>cañón de Newton</b>. Imagina un cañón en lo alto de una montaña altísima, sin aire. Si disparas una bala despacio, cae cerca. Si la disparas más rápido, cae más lejos. Si la disparas a la velocidad justa, unos 28.000 km/h, la bala cae, pero la superficie curva de la Tierra se aleja al mismo ritmo, y la bala da la vuelta completa al planeta sin tocar nunca el suelo: está en órbita.</p><p>Así funcionan los <mark>satélites artificiales</mark>. Hay miles girando alrededor de la Tierra y los usamos a diario: los de <b>comunicaciones</b> transmiten la televisión e internet; los de <b>navegación</b> (GPS y el europeo Galileo) nos dicen dónde estamos; los <b>meteorológicos</b> vigilan las nubes y las tormentas; y los de <b>observación</b> estudian los bosques, los océanos o el hielo de los polos. La Luna es nuestro único satélite natural.</p>`,
+      svg: H.viejo(S, 4),
     },
     {
-      html: `<h3>Las mareas</h3><p>La gravedad de la Luna también atrae el agua de los océanos. En la cara de la Tierra que mira hacia la Luna, el agua es atraída con más fuerza y se forma un abultamiento; en la cara opuesta se forma otro. Mientras la Tierra gira, cada punto de la costa pasa por esos abultamientos: es la <mark>marea alta</mark> o pleamar; y entre ellos, la <mark>marea baja</mark> o bajamar. Por eso hay dos mareas altas y dos bajas cada día, aproximadamente cada 12 horas y 25 minutos. El Sol también influye, aunque menos. Cuando el Sol y la Luna están alineados (luna nueva y luna llena), sus efectos se suman y se producen las <b>mareas vivas</b>, más intensas. Cuando forman ángulo recto (cuarto creciente y menguante), las mareas son más suaves: <b>mareas muertas</b>.</p>`,
+      html: `<h3>1.6 Las mareas</h3><p>Si pasas un día en la playa, verás que el nivel del mar sube y baja: es la <mark>marea</mark>. En la mayoría de las costas hay dos <b>mareas altas</b> (pleamar) y dos <b>mareas bajas</b> (bajamar) cada día, separadas por unas seis horas.</p><p>Las mareas se deben sobre todo a la <b>atracción gravitatoria de la Luna</b>. Como la fuerza disminuye con la distancia, la Luna atrae más el agua del lado de la Tierra que está más cerca de ella que el centro de la Tierra, y este más que el agua del lado opuesto. Por eso el océano se «estira» y forma dos abultamientos: uno hacia la Luna y otro en el lado contrario. Al girar la Tierra cada día, cada costa pasa por los dos abultamientos.</p><p>El Sol también influye, aunque menos. Cuando el Sol, la Tierra y la Luna se alinean, en luna llena y luna nueva, sus efectos se suman y se producen las <b>mareas vivas</b>, más intensas. En cuarto creciente y menguante se producen las <b>mareas muertas</b>, más suaves. En la costa cantábrica la diferencia entre pleamar y bajamar puede superar los 4 metros; en el Mediterráneo apenas se nota.</p>`,
+      svg: H.flujo("Cómo se producen las mareas", ["La Luna atrae más el agua cercana", "El océano forma dos abultamientos", "La Tierra gira bajo ellos cada día", "Dos pleamares y dos bajamares al día"], "Las mareas"),
     },
     {
-      html: `<h3>Del geocentrismo al heliocentrismo</h3><p>Durante siglos se creyó que la Tierra estaba inmóvil en el centro del universo y que el Sol, la Luna, los planetas y las estrellas giraban a su alrededor. Es el <mark>modelo geocéntrico</mark>, perfeccionado por el astrónomo griego <b>Ptolomeo</b> en el siglo II. En 1543, <b>Nicolás Copérnico</b> propuso el <mark>modelo heliocéntrico</mark>: el Sol está en el centro y la Tierra es un planeta más que gira a su alrededor. Galileo lo apoyó con sus observaciones con el telescopio: vio las lunas de Júpiter girando alrededor de un planeta que no era la Tierra y las fases de Venus. <b>Johannes Kepler</b> descubrió que las órbitas de los planetas son <b>elipses</b> y no círculos. Y Newton explicó por qué: la gravedad del Sol mantiene a los planetas en sus órbitas.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Modelo geocéntrico con la Tierra en el centro y el Sol girando a su alrededor, frente al modelo heliocéntrico con el Sol en el centro y la Tierra girando">${BG}
-        ${[[66, "geocéntrico", "var(--pen)", "#ffd34d"], [194, "heliocéntrico", "#ffd34d", "var(--pen)"]].map(([x, s, c0, c1]) => `<circle cx="${x}" cy="80" r="50" fill="none" stroke="var(--muted)" stroke-dasharray="3 3"/><circle cx="${x}" cy="80" r="30" fill="none" stroke="var(--muted)" stroke-dasharray="3 3"/><circle cx="${x}" cy="80" r="12" fill="${c0}" stroke="var(--ink)"/><circle cx="${x + 35}" cy="${80 - 35}" r="8" fill="${c1}" stroke="var(--ink)"/><circle cx="${x - 30}" cy="80" r="5" fill="var(--red)"/>${t(x, 150, s, { size: 11 })}`).join("")}
-        ${t(66, 168, "Ptolomeo", { size: 10, color: "var(--muted)" })}${t(194, 168, "Copérnico", { size: 10, color: "var(--muted)" })}</svg>`,
+      html: `<h3>1.7 Del geocentrismo al heliocentrismo</h3><p>Durante casi 2.000 años, la mayoría de las personas creyó que la Tierra estaba quieta en el centro del universo y que el Sol, la Luna, los planetas y las estrellas giraban a su alrededor. Es el <mark>modelo geocéntrico</mark>, que el astrónomo griego <b>Ptolomeo</b> describió con detalle en el siglo II. Parecía lógico: no notamos que la Tierra se mueva y vemos al Sol cruzar el cielo.</p><p>En 1543, el astrónomo polaco <b>Nicolás Copérnico</b> propuso el <mark>modelo heliocéntrico</mark>: el Sol está en el centro y la Tierra es un planeta más que gira a su alrededor y sobre sí misma. A principios del siglo XVII, <b>Galileo</b> apuntó al cielo con un telescopio y encontró pruebas: descubrió cuatro lunas girando alrededor de Júpiter y vio que Venus tiene fases como la Luna, algo que solo se explicaba si giraba alrededor del Sol. Por defender estas ideas fue juzgado y condenado.</p><p>Al mismo tiempo, <b>Johannes Kepler</b> demostró que las órbitas de los planetas no son círculos, sino <b>elipses</b>. Y Newton explicó por qué con su ley de la gravitación.</p>`,
+      svg: H.viejo(S, 6),
     },
     {
-      html: `<h3>El sistema solar</h3><p>El <mark>sistema solar</mark> está formado por el <b>Sol</b>, una estrella mediana que contiene el 99,8 % de toda su masa, y por los cuerpos que giran a su alrededor atraídos por su gravedad. Hay ocho <b>planetas</b>. Los cuatro más cercanos, <b>Mercurio, Venus, la Tierra y Marte</b>, son <b>rocosos</b> y pequeños. Los cuatro exteriores, <b>Júpiter, Saturno, Urano y Neptuno</b>, son <b>gigantes gaseosos</b> o helados, con anillos y muchos satélites. Entre Marte y Júpiter está el <b>cinturón de asteroides</b>. Más allá de Neptuno están los <b>planetas enanos</b> como Plutón y el cinturón de Kuiper, y muy lejos, la nube de Oort, de donde vienen muchos <b>cometas</b>. La luz del Sol tarda unos 8 minutos en llegar a la Tierra y más de 4 horas en llegar a Neptuno.</p>`,
-      svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Sistema solar a escala aproximada de tamaños: el Sol a la izquierda y los ocho planetas en orden, Mercurio, Venus, Tierra, Marte, Júpiter, Saturno con anillos, Urano y Neptuno">${BG}
-        <circle cx="-30" cy="90" r="60" fill="#ffc83d"/>
-        ${[[42, 3, "#9aa0a6", "Me"], [56, 5, "#e8b04a", "V"], [72, 5, "var(--pen)", "T"], [86, 4, "var(--red)", "Ma"], [116, 18, "#d9a46a", "J"], [160, 15, "#e6c884", "S"], [198, 9, "#7fd3e0", "U"], [228, 9, "#4c7ee8", "N"]].map(([x, r, c, s]) => `<circle cx="${x}" cy="90" r="${r}" fill="${c}"/>${t(x, 128, s, { size: 9 })}`).join("")}
-        <ellipse cx="160" cy="90" rx="26" ry="5" fill="none" stroke="#b8860b" stroke-width="2"/>
-        ${t(150, 30, "rocosos · gigantes", { size: 11, color: "var(--muted)" })}${t(150, 160, "Sol → Neptuno: luz en 4 h", { size: 10, color: "var(--muted)" })}</svg>`,
-      video: { id: "fln82xudLMc", titulo: "El Sistema Solar y sus planetas explicados", canal: "Shackleton Kids", vistas: 4642871 },
+      html: `<h3>1.8 El sistema solar</h3><p>El <mark>sistema solar</mark> está formado por el <b>Sol</b> y todos los cuerpos que giran a su alrededor atrapados por su gravedad. Se formó hace unos 4.600 millones de años a partir de una nube de gas y polvo.</p><p>El Sol es una <b>estrella</b>: una enorme esfera de plasma muy caliente que produce luz y calor gracias a reacciones nucleares en su núcleo. Contiene el 99,8 % de la masa del sistema solar, y su diámetro es unas 109 veces el de la Tierra.</p><p>Alrededor del Sol giran ocho <mark>planetas</mark>. En orden de distancia son: <b>Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano y Neptuno</b>. Un truco para recordarlos es una frase cuyas palabras empiecen por esas letras. Todos giran en el mismo sentido y casi en el mismo plano, y cuanto más lejos están del Sol, más tardan en dar una vuelta: Mercurio tarda 88 días; la Tierra, un año; y Neptuno, 165 años.</p><p>Plutón fue considerado planeta hasta 2006, pero hoy se clasifica como <b>planeta enano</b>, porque no ha «limpiado» su órbita de otros cuerpos.</p>`,
+      svg: H.viejo(S, 7),
+      video: vSis,
     },
     {
-      html: `<h3>Galaxias y distancias enormes</h3><p>El Sol es solo una de los más de 100 000 millones de estrellas de nuestra <mark>galaxia</mark>, la <b>Vía Láctea</b>, que tiene forma de espiral; nosotros estamos en uno de sus brazos. En las noches oscuras la vemos como una franja blanquecina en el cielo. Y en el universo observable hay más de 100 000 millones de galaxias, agrupadas en cúmulos. Las distancias son tan grandes que los kilómetros se quedan cortos. Se usa el <mark>año luz</mark>, que <b>no es una unidad de tiempo, sino de distancia</b>: es lo que recorre la luz en un año, unos 9,46 billones de kilómetros. La estrella más cercana después del Sol, Próxima Centauri, está a 4,2 años luz. La galaxia de Andrómeda, a 2,5 millones. Cuando miramos el cielo, vemos la luz que salió de las estrellas hace años: miramos al pasado.</p>`,
+      html: `<h3>1.9 Planetas rocosos y planetas gigantes</h3><p>Los ocho planetas se dividen en dos grupos muy diferentes.</p><p>Los <mark>planetas interiores</mark> o <b>rocosos</b> son Mercurio, Venus, la Tierra y Marte. Son pequeños, densos y tienen una superficie sólida de rocas y metales. Tienen pocas lunas o ninguna. <b>Mercurio</b> es el más cercano al Sol y no tiene atmósfera. <b>Venus</b> es el más caliente, unos 460 °C, por su densa atmósfera de dióxido de carbono que provoca un enorme efecto invernadero. <b>Marte</b>, el planeta rojo, tiene volcanes gigantes y casquetes de hielo, y es el destino de muchas misiones de exploración.</p><p>Los <mark>planetas exteriores</mark> o <b>gigantes</b> son Júpiter, Saturno, Urano y Neptuno. Son enormes, poco densos y están formados sobre todo por gases (hidrógeno y helio) o hielos, sin una superficie sólida donde posarse. Todos tienen <b>anillos</b> y muchas lunas. <b>Júpiter</b> es el mayor, con una tormenta, la Gran Mancha Roja, más grande que la Tierra. <b>Saturno</b> tiene los anillos más espectaculares, de hielo y roca, y es tan poco denso que flotaría en agua.</p>`,
+      svg: H.compara("Diferencias entre planetas rocosos y gigantes", ["Rocosos", "var(--red)", ["Mercurio a Marte", "pequeños y densos", "superficie sólida", "pocas lunas"]], ["Gigantes", "var(--pen)", ["Júpiter a Neptuno", "grandes, poco densos", "gases y hielos", "anillos, muchas lunas"]]),
+    },
+    {
+      html: `<h3>1.10 Otros cuerpos del sistema solar</h3><p>Además del Sol y los planetas, el sistema solar contiene muchos otros cuerpos:</p><p>• Los <mark>satélites</mark> naturales o lunas giran alrededor de los planetas. Se conocen cientos. Algunos son muy interesantes: <b>Europa</b>, una luna de Júpiter, tiene un océano de agua bajo su superficie helada; <b>Titán</b>, de Saturno, tiene lagos de metano.<br>• Los <b>planetas enanos</b>, como Plutón o Ceres, son redondos pero comparten su órbita con otros cuerpos.<br>• Los <mark>asteroides</mark> son cuerpos rocosos de formas irregulares. La mayoría está en el <b>cinturón de asteroides</b>, entre Marte y Júpiter.<br>• Los <mark>cometas</mark> son bolas de hielo y polvo que vienen de las zonas más lejanas. Al acercarse al Sol, el hielo se evapora y forma una cabellera y una larga <b>cola</b> brillante. El más famoso es el Halley, que vuelve cada 76 años.<br>• Los <b>meteoroides</b> son fragmentos pequeños. Si entran en la atmósfera se ponen incandescentes y vemos una <b>estrella fugaz</b>; si llegan al suelo, se llaman <b>meteoritos</b>.</p>`,
+      svg: H.tabla("Otros cuerpos del sistema solar", ["Cuerpo", "Cómo es", "Ejemplo"], [["Satélite", "gira en torno a un planeta", "la Luna, Europa"], ["Planeta enano", "redondo y pequeño", "Plutón, Ceres"], ["Asteroide", "roca irregular", "Vesta, Eros"], ["Cometa", "hielo y polvo, con cola", "Halley"]]),
+    },
+    {
+      html: `<h3>1.11 Estrellas y galaxias</h3><p>Las estrellas que vemos de noche son soles como el nuestro, pero tan lejanos que parecen puntos. Las <mark>estrellas</mark> nacen en nubes de gas y polvo, las <b>nebulosas</b>, cuando la gravedad junta la materia hasta que su centro se calienta tanto que empiezan las reacciones nucleares. Hay estrellas de distintos colores según su temperatura: las rojas son las más frías y las azules, las más calientes. El Sol es una estrella amarilla mediana.</p><p>Las estrellas se agrupan, atraídas por la gravedad, en <mark>galaxias</mark>: enormes conjuntos de miles de millones de estrellas, gas y polvo. Nuestra galaxia es la <b>Vía Láctea</b>, una galaxia en espiral con unos 200.000 millones de estrellas. En noches muy oscuras, lejos de las ciudades, se ve como una franja blanquecina que cruza el cielo. El Sol está en uno de sus brazos, lejos del centro, y tarda unos 230 millones de años en dar una vuelta completa.</p><p>Las galaxias forman a su vez grupos y cúmulos. En el universo observable hay, según las estimaciones actuales, centenares de miles de millones de galaxias.</p>`,
+      svg: H.piramide("Escalas del universo, de la Tierra al universo observable", [["Universo", "var(--inf)"], ["Cúmulos de galaxias", "var(--pen)"], ["Vía Láctea", "var(--leaf)"], ["Sistema solar", "var(--sun)"], ["Tierra", "var(--red)"]], "Cada nivel contiene al de arriba"),
+    },
+    {
+      html: `<h3>1.12 Distancias enormes y exploración espacial</h3><p>Las distancias en el universo son tan grandes que los kilómetros se quedan pequeños. Dentro del sistema solar se usa la <b>unidad astronómica</b> (ua), que es la distancia media de la Tierra al Sol: unos 150 millones de km. Neptuno está a unas 30 ua.</p><p>Para las estrellas se usa el <mark>año luz</mark>: la <b>distancia</b> que recorre la luz en un año, a 300.000 km/s. Equivale a unos 9,5 billones de kilómetros. Ojo: aunque se llame «año», no es una unidad de tiempo. La estrella más cercana después del Sol, Próxima Centauri, está a 4,2 años luz. La Vía Láctea mide unos 100.000 años luz de diámetro, y la galaxia de Andrómeda está a 2,5 millones de años luz. Cuando miramos una estrella lejana, la vemos como era cuando salió su luz: mirar lejos es mirar al pasado.</p><p>La humanidad explora el espacio desde 1957, cuando se lanzó el Sputnik. En 1969 el ser humano pisó la Luna, y hoy hay robots en Marte y sondas, como las Voyager, que ya han salido del sistema solar. Los telescopios espaciales, como el James Webb, observan galaxias formadas poco después del origen del universo.</p>`,
+      svg: H.linea("Hitos de la exploración espacial", [["1957", "Sputnik"], ["1969", "Apolo 11 en la Luna"], ["1990", "telescopio Hubble"], ["2012", "Voyager 1 sale"], ["2021", "telescopio Webb"]], "La exploración del espacio"),
     },
   ],
-  figura: {
-    titulo: "La gravedad, del suelo a las galaxias",
-    svg: `<svg viewBox="0 0 640 230" role="img" aria-label="La gravedad actúa a todas las escalas: hace caer los objetos y da el peso, produce las mareas, mantiene la Luna y los satélites en órbita y une las estrellas en galaxias">
-      <rect width="640" height="230" rx="16" fill="var(--paper)"/>
-      ${t(320, 30, "F = G · m₁ · m₂ / d²", { size: 18, font: D })}
-      ${[["Peso", "P = m · g", "var(--pen)"], ["Mareas", "atracción de la Luna", "#b8860b"], ["Órbitas", "Luna · satélites", "var(--red)"], ["Universo", "planetas · galaxias", "var(--leaf)"]].map(([a, b, col], i) => { const x = 20 + i * 152; return `<rect x="${x}" y="54" width="140" height="150" rx="14" fill="var(--card)" stroke="${col}" stroke-width="2.5"/>${t(x + 70, 108, a, { size: 17, color: col, font: D })}${t(x + 70, 150, b, { size: 12, weight: 400 })}`; }).join("")}
-    </svg>`,
-  },
-  video: { id: "NoOAcEhFcsI", titulo: "Ley de gravitación universal: aprende en 5 minutos", canal: "Profesor Particular Puebla", vistas: 405701, megusta: 0, busqueda: "ley de gravitación universal" },
+  figura: H.figura(S),
+  video: H.video(S),
   ejemplos: [
-    { enunciado: "¿Cuánto pesa en Marte (g = 3,7 N/kg) un robot que en la Tierra pesa 980 N?",
-      pasos: ["Masa del robot: m = P / g = 980 / 9,8 = 100 kg.", "La masa es la misma en Marte.", "Peso en Marte: P = 100 · 3,7 = 370 N."],
-      resultado: "370 N." },
-    { enunciado: "Dos cuerpos se atraen con 36 N. ¿Con qué fuerza se atraerán si la distancia entre ellos se triplica?",
-      pasos: ["La fuerza es inversamente proporcional al cuadrado de la distancia.", "Si d se triplica, d² se multiplica por 3² = 9.", "F = 36 / 9 = 4 N."],
-      resultado: "4 N." },
-    { enunciado: "La luz recorre 300 000 km cada segundo. ¿Cuántos kilómetros recorre en un minuto?",
-      pasos: ["1 minuto = 60 s.", "d = v · t = 300 000 · 60.", "d = 18 000 000 km = 1,8 · 10⁷ km."],
-      resultado: "18 millones de km (un «minuto luz»)." },
+    { enunciado: "¿Cuánto pesa en la Tierra y en Marte un robot de 200 kg? (g Tierra = 9,8 N/kg; g Marte = 3,7 N/kg)", pasos: ["P = m · g.", "Tierra: 200 · 9,8 = 1.960 N.", "Marte: 200 · 3,7 = 740 N."], resultado: "1.960 N en la Tierra y 740 N en Marte; su masa sigue siendo 200 kg." },
+    { enunciado: "Un objeto pesa 80 N en la Luna (g = 1,6 N/kg). ¿Cuál es su masa? ¿Cuánto pesaría en la Tierra?", pasos: ["m = P / g = 80 / 1,6 = 50 kg.", "En la Tierra: P = 50 · 9,8 = 490 N."], resultado: "50 kg; 490 N en la Tierra." },
+    { enunciado: "Si la distancia entre dos cuerpos se triplica, ¿cómo cambia la fuerza gravitatoria?", pasos: ["La fuerza es inversamente proporcional al cuadrado de la distancia.", "3² = 9.", "La fuerza se divide entre 9."], resultado: "Se hace nueve veces menor." },
+    { enunciado: "Se deja caer una piedra desde un puente y tarda 2 s en llegar al agua. Sin rozamiento, ¿con qué velocidad llega?", pasos: ["Caída libre: v = g · t.", "v = 9,8 · 2 = 19,6 m/s.", "En km/h: 19,6 · 3,6 ≈ 70,6 km/h."], resultado: "Unos 19,6 m/s (≈ 71 km/h)." },
+    { enunciado: "¿Cuánto tarda la luz en llegar desde Próxima Centauri, a 4,2 años luz?", pasos: ["Un año luz es la distancia que la luz recorre en un año.", "4,2 años luz los recorre en 4,2 años."], resultado: "4,2 años: la vemos como era hace 4,2 años." },
+    { enunciado: "Ordena de menor a mayor: galaxia, planeta, universo, sistema solar, estrella.", pasos: ["Un planeta gira alrededor de una estrella.", "La estrella con sus planetas forma un sistema planetario.", "Las estrellas se agrupan en galaxias, y las galaxias forman el universo."], resultado: "Planeta, estrella, sistema solar, galaxia y universo." },
   ],
   errores: [
     "Pensar que en el espacio no hay gravedad: los astronautas flotan porque están cayendo en órbita.",
-    "Creer que los cuerpos pesados caen más rápido: sin aire, todos caen igual.",
-    "Confundir año luz con una unidad de tiempo: es una distancia.",
-    "Olvidar que la fuerza gravitatoria depende del cuadrado de la distancia, no de la distancia.",
-    "Decir que en la Luna cambia la masa: solo cambia el peso.",
+    "Creer que los cuerpos pesados caen antes: sin aire, todos caen con la misma aceleración.",
+    "Confundir masa y peso: la masa no cambia de un planeta a otro; el peso sí.",
+    "Decir que si la distancia se duplica la fuerza gravitatoria se reduce a la mitad: se reduce a la cuarta parte.",
+    "Pensar que el año luz es una unidad de tiempo: es una unidad de distancia.",
+    "Creer que las estrellas fugaces son estrellas: son pequeños fragmentos que arden en la atmósfera.",
   ],
-  ejercicios: [
-    { q: "¿Por qué no notamos la atracción gravitatoria entre dos personas?", sol: "Porque sus masas son muy pequeñas y la fuerza es tan débil que no se percibe." },
-    { q: "Explica con tus palabras la ley de la gravitación universal.", sol: "Todos los cuerpos con masa se atraen con una fuerza mayor cuanto más masa tienen y menor cuanto más lejos están (con el cuadrado de la distancia)." },
-    { q: "Calcula el peso en la Tierra y en la Luna de una persona de 60 kg.", sol: "Tierra: 60 · 9,8 = 588 N. Luna: 60 · 1,6 = 96 N." },
-    { q: "Si se duplica la masa de uno de los cuerpos, ¿qué le pasa a la fuerza gravitatoria?", sol: "Se duplica." },
-    { q: "¿Qué demostró el astronauta David Scott en la Luna?", sol: "Que sin aire un martillo y una pluma caen a la vez: todos los cuerpos caen con la misma aceleración." },
-    { q: "¿Por qué no se cae la Estación Espacial Internacional?", sol: "Porque se mueve de lado muy deprisa: cae continuamente pero la superficie de la Tierra se curva por debajo y queda en órbita." },
-    { q: "Explica por qué hay dos mareas altas cada día.", sol: "La Luna produce dos abultamientos de agua, uno en la cara que mira hacia ella y otro en la opuesta; al girar la Tierra, cada costa pasa por los dos." },
-    { q: "Compara el modelo geocéntrico y el heliocéntrico.", sol: "Geocéntrico: la Tierra en el centro y todo gira a su alrededor (Ptolomeo). Heliocéntrico: el Sol en el centro y la Tierra gira a su alrededor (Copérnico)." },
-    { q: "Ordena del Sol hacia fuera: Júpiter, Tierra, Mercurio, Neptuno, Marte, Venus, Urano, Saturno.", sol: "Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano y Neptuno." },
-    { q: "Si una estrella está a 50 años luz, ¿cuándo salió la luz que vemos hoy?", sol: "Hace 50 años: vemos la estrella como era entonces." },
-  ],
-  quiz: [
-    { q: "La fuerza gravitatoria siempre es…", o: ["atractiva", "repulsiva", "nula"], a: 0, e: "Siempre atrae." },
-    { q: "La ley de la gravitación universal es de…", o: ["Galileo", "Newton", "Kepler"], a: 1, e: "Newton, 1687." },
-    { q: "Si la distancia se duplica, la fuerza…", o: ["se duplica", "se divide entre 2", "se divide entre 4"], a: 2, e: "Entre 2² = 4." },
-    { q: "En la Luna, g vale…", o: ["9,8 N/kg", "1,6 N/kg", "24,8 N/kg"], a: 1, e: "1,6 N/kg." },
-    { q: "Sin aire, una pluma y un martillo…", o: ["caen a la vez", "cae antes el martillo", "no caen"], a: 0, e: "Caen a la vez." },
-    { q: "Un cuerpo que gira alrededor de otro por la gravedad es un…", o: ["cometa", "satélite", "asteroide"], a: 1, e: "Un satélite." },
-    { q: "Las mareas las produce sobre todo…", o: ["el viento", "la Luna", "Marte"], a: 1, e: "La gravedad de la Luna." },
-    { q: "El modelo heliocéntrico lo propuso…", o: ["Ptolomeo", "Copérnico", "Aristóteles"], a: 1, e: "Copérnico, 1543." },
-    { q: "El planeta más grande del sistema solar es…", o: ["Saturno", "Júpiter", "Neptuno"], a: 1, e: "Júpiter." },
-    { q: "El año luz es una unidad de…", o: ["tiempo", "distancia", "velocidad"], a: 1, e: "Distancia." },
-  ],
-  examen: [
-    { q: "Kepler descubrió que las órbitas de los planetas son…", o: ["círculos", "elipses", "rectas"], a: 1, e: "Elipses." },
-    { q: "Las mareas vivas se producen cuando…", o: ["Sol y Luna están alineados", "hay cuarto creciente", "llueve"], a: 0, e: "Luna nueva o llena." },
-    { q: "Nuestra galaxia se llama…", o: ["Andrómeda", "Vía Láctea", "Orión"], a: 1, e: "Vía Láctea." },
-  ],
-  feynman: ["De qué depende la fuerza con la que se atraen dos cuerpos", "Por qué la Luna no se cae a la Tierra", "Cómo cambió la idea de la posición de la Tierra en el universo"],
-  mapa: mapa("GRAVEDAD", "var(--eso)", [
-    ["Newton", "F = G · m₁ · m₂ / d²", "var(--pen)"],
-    ["Peso y caída", "P = m · g · Galileo", "var(--red)"],
-    ["Órbitas", "Luna · satélites · mareas", "#b8860b"],
-    ["Universo", "sistema solar · galaxias", "var(--leaf)"],
-  ], 280),
+  ejercicios: H.niveles([
+    ["¿Qué es la fuerza gravitatoria?", "La fuerza de atracción que existe entre todos los cuerpos que tienen masa."],
+    ["¿Por qué no notamos la atracción gravitatoria entre dos personas?", "Porque sus masas son muy pequeñas y la fuerza es diminuta; solo se nota cuando uno de los cuerpos tiene una masa enorme, como un planeta."],
+    ["¿De qué dos factores depende la fuerza gravitatoria entre dos cuerpos?", "De sus masas (a más masa, más fuerza) y de la distancia que los separa (a más distancia, menos fuerza)."],
+    ["Calcula el peso en la Tierra de una persona de 45 kg (g = 9,8 N/kg).", "P = 45 · 9,8 = 441 N."],
+    ["¿Qué es una órbita? Pon dos ejemplos.", "La trayectoria curva de un cuerpo alrededor de otro por la gravedad. Ejemplos: la Luna alrededor de la Tierra y la Tierra alrededor del Sol."],
+    ["Escribe tres usos de los satélites artificiales.", "Comunicaciones (televisión, internet), navegación (GPS, Galileo) y meteorología."],
+    ["¿Qué diferencia hay entre el modelo geocéntrico y el heliocéntrico?", "En el geocéntrico la Tierra está quieta en el centro y todo gira a su alrededor; en el heliocéntrico el Sol está en el centro y la Tierra gira a su alrededor."],
+    ["Escribe los ocho planetas en orden de distancia al Sol.", "Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano y Neptuno."],
+    ["¿Qué es una galaxia? ¿Cómo se llama la nuestra?", "Un enorme conjunto de miles de millones de estrellas, gas y polvo unidos por la gravedad. La nuestra es la Vía Láctea."],
+    ["¿Qué es un cometa?", "Un cuerpo de hielo y polvo que, al acercarse al Sol, forma una cabellera y una cola brillante."],
+  ], [
+    ["Si la masa de uno de los cuerpos se duplica, ¿qué le pasa a la fuerza gravitatoria? ¿Y si la distancia se duplica?", "Si la masa se duplica, la fuerza se duplica. Si la distancia se duplica, la fuerza se divide entre 4."],
+    ["Un astronauta tiene una masa de 80 kg. Calcula su peso en la Tierra, la Luna y Júpiter (9,8; 1,6 y 24,8 N/kg).", "Tierra: 784 N. Luna: 128 N. Júpiter: 1.984 N. La masa es 80 kg en todos."],
+    ["Un objeto pesa 37 N en Marte (g = 3,7 N/kg). ¿Cuál es su masa?", "m = 37 / 3,7 = 10 kg."],
+    ["¿Por qué una hoja de papel extendida cae más despacio que una piedra? ¿Qué pasa si arrugas la hoja?", "Por la resistencia del aire, que frena más a la hoja extendida por su gran superficie. Si la arrugas en una bola, la resistencia disminuye mucho y cae casi a la vez que la piedra."],
+    ["Una manzana cae desde un árbol y tarda 1 s en llegar al suelo. ¿Con qué velocidad llega?", "v = g · t = 9,8 · 1 = 9,8 m/s."],
+    ["Explica con el cañón de Newton por qué un satélite no cae a la Tierra.", "El satélite sí cae, pero avanza tan rápido que, mientras cae, la superficie curva de la Tierra se aleja al mismo ritmo, así que nunca llega al suelo: da vueltas en órbita."],
+    ["¿Por qué los astronautas flotan dentro de la Estación Espacial si allí la gravedad es casi un 90 % de la terrestre?", "Porque la estación y los astronautas caen juntos alrededor de la Tierra en órbita. Al caer todo a la vez, no notan su peso (ingravidez aparente)."],
+    ["Explica por qué hay dos mareas altas al día.", "La Luna atrae más el agua del lado cercano y menos la del lado opuesto, y se forman dos abultamientos de agua. Al girar la Tierra en 24 horas, cada costa pasa por los dos."],
+    ["¿Qué pruebas encontró Galileo a favor del modelo heliocéntrico?", "Vio con su telescopio cuatro lunas girando alrededor de Júpiter (no todo gira alrededor de la Tierra) y las fases de Venus, que solo se explican si Venus gira alrededor del Sol."],
+    ["Escribe tres diferencias entre los planetas rocosos y los gigantes.", "Los rocosos son pequeños, densos y con superficie sólida, y tienen pocas lunas; los gigantes son grandes, poco densos, formados por gases o hielos, con anillos y muchas lunas."],
+    ["¿Qué es un año luz? ¿Es una unidad de tiempo o de distancia?", "Es la distancia que recorre la luz en un año, unos 9,5 billones de km. Es una unidad de distancia."],
+    ["¿Qué diferencia hay entre un meteoroide, una estrella fugaz y un meteorito?", "El meteoroide es el fragmento en el espacio; la estrella fugaz es el destello cuando arde en la atmósfera; el meteorito es el trozo que llega al suelo."],
+  ], [
+    ["Si un satélite se aleja hasta el triple de su distancia al centro de la Tierra, ¿cuánto disminuye la fuerza con que la Tierra lo atrae? ¿Y si además su masa se duplica?", "Al triplicar la distancia, la fuerza se divide entre 9. Si además la masa se duplica, la fuerza es 2 / 9 de la inicial."],
+    ["En la Luna, un astronauta salta 3 m de altura. ¿Aproximadamente cuánto saltaría en la Tierra con el mismo impulso? Razónalo.", "La gravedad de la Tierra es unas 6 veces mayor (9,8 / 1,6 ≈ 6), así que con el mismo impulso saltaría unas 6 veces menos: unos 0,5 m."],
+    ["Explica qué demostró el experimento del martillo y la pluma en la Luna y por qué no sale igual en la Tierra.", "Demostró que, sin aire, todos los cuerpos caen con la misma aceleración, sea cual sea su masa, como predijo Galileo. En la Tierra, el aire frena mucho más a la pluma por su forma y poca masa."],
+    ["La luz del Sol tarda unos 8 minutos en llegar a la Tierra. Si el Sol se apagara de repente, ¿cuándo lo notaríamos? ¿Qué significa «mirar lejos es mirar al pasado»?", "Lo notaríamos unos 8 minutos después. Como la luz tarda en llegar, vemos los astros como eran cuando su luz salió: cuanto más lejos, más antigua es la imagen."],
+    ["Construye un modelo a escala del sistema solar: si el Sol fuera una pelota de 20 cm, la Tierra sería un grano de pimienta a 21 m. ¿Dónde pondrías Neptuno, que está a 30 ua?", "Si 1 ua son 21 m, 30 ua serían unos 630 m: más de medio kilómetro de distancia. El modelo muestra que el sistema solar está casi vacío."],
+    ["¿Por qué el cambio del modelo geocéntrico al heliocéntrico es un buen ejemplo de cómo funciona la ciencia?", "Porque un modelo aceptado durante siglos se sustituyó cuando nuevas observaciones (telescopio) y cálculos (Kepler, Newton) mostraron que otro modelo explicaba mejor los datos. La ciencia cambia sus ideas según las pruebas."],
+    ["Investiga y explica por qué Venus es más caliente que Mercurio aunque está más lejos del Sol.", "Venus tiene una atmósfera muy densa de dióxido de carbono que produce un efecto invernadero enorme y atrapa el calor (unos 460 °C). Mercurio casi no tiene atmósfera, así que su calor se escapa por la noche."],
+    ["La galaxia de Andrómeda está a 2,5 millones de años luz. ¿Qué estaba ocurriendo en la Tierra cuando salió la luz que hoy vemos?", "Esa luz salió hace 2,5 millones de años, cuando en la Tierra vivían los primeros homínidos del género Homo en África. La vemos como era entonces."],
+  ]),
+  quiz: H.test([
+    ["La fuerza gravitatoria actúa entre…", ["todos los cuerpos con masa", "solo los planetas", "solo los imanes", "cuerpos con carga"], "Es universal."],
+    ["La gravedad es una fuerza…", ["siempre atractiva", "siempre repulsiva", "de contacto", "solo en la Tierra"], "Atrae siempre."],
+    ["La ley de la gravitación universal la formuló…", ["Newton", "Galileo", "Copérnico", "Ptolomeo"], "En 1687."],
+    ["Si la distancia entre dos cuerpos se duplica, la fuerza…", ["se divide entre 4", "se divide entre 2", "se duplica", "no cambia"], "Inversa del cuadrado."],
+    ["La intensidad de la gravedad en la Tierra es…", ["9,8 N/kg", "1,6 N/kg", "24,8 N/kg", "3,7 N/kg"], "En la superficie."],
+    ["Una persona de 60 kg en la Luna tiene una masa de…", ["60 kg", "10 kg", "96 kg", "360 kg"], "La masa no cambia."],
+    ["Sin aire, un martillo y una pluma caen…", ["a la vez", "primero el martillo", "primero la pluma", "no caen"], "Misma aceleración."],
+    ["En caída libre, la velocidad aumenta cada segundo unos…", ["9,8 m/s", "1 m/s", "98 m/s", "0 m/s"], "g = 9,8 m/s²."],
+    ["Un satélite está en órbita porque…", ["cae mientras avanza muy rápido", "no le afecta la gravedad", "flota en el aire", "lo sujeta la atmósfera"], "Caída sin fin."],
+    ["Las mareas se deben sobre todo a la atracción de…", ["la Luna", "Marte", "las estrellas", "el viento"], "También influye el Sol."],
+    ["Las mareas vivas se producen en…", ["luna llena y luna nueva", "cuarto creciente", "cuarto menguante", "eclipses solo"], "Sol, Tierra y Luna alineados."],
+    ["El modelo con la Tierra en el centro es el…", ["geocéntrico", "heliocéntrico", "galáctico", "atómico"], "Ptolomeo."],
+    ["Propuso el modelo heliocéntrico en 1543…", ["Copérnico", "Ptolomeo", "Newton", "Aristóteles"], "El Sol en el centro."],
+    ["Las órbitas de los planetas son…", ["elipses", "círculos perfectos", "rectas", "espirales"], "Kepler."],
+    ["El planeta más cercano al Sol es…", ["Mercurio", "Venus", "Marte", "Tierra"], "Sin atmósfera."],
+    ["El planeta más grande del sistema solar es…", ["Júpiter", "Saturno", "Neptuno", "Urano"], "Gigante gaseoso."],
+    ["Es un planeta rocoso…", ["Marte", "Júpiter", "Saturno", "Urano"], "El planeta rojo."],
+    ["El cinturón de asteroides está entre…", ["Marte y Júpiter", "la Tierra y Marte", "Júpiter y Saturno", "Venus y la Tierra"], "Rocas de formas irregulares."],
+    ["Nuestra galaxia se llama…", ["Vía Láctea", "Andrómeda", "Orión", "Centauro"], "Galaxia espiral."],
+    ["El año luz es una unidad de…", ["distancia", "tiempo", "velocidad", "luz"], "Unos 9,5 billones de km."],
+  ], 2),
+  examen: H.test([
+    ["Un cuerpo de 10 kg pesa en Marte (g = 3,7 N/kg)…", ["37 N", "98 N", "10 N", "3,7 N"], "P = m · g."],
+    ["Un objeto pesa 16 N en la Luna (g = 1,6 N/kg). Su masa es…", ["10 kg", "16 kg", "25,6 kg", "1 kg"], "m = P / g."],
+    ["Si se triplica la distancia, la fuerza gravitatoria se divide entre…", ["9", "3", "6", "27"], "3²."],
+    ["Una pluma cae más despacio que una piedra en la Tierra por…", ["la resistencia del aire", "su menor masa", "la gravedad más débil", "su color"], "Sin aire, caen juntas."],
+    ["Galileo vio con su telescopio…", ["lunas girando alrededor de Júpiter", "galaxias lejanas", "agujeros negros", "la Vía Láctea en espiral"], "Prueba contra el geocentrismo."],
+    ["Los astronautas flotan en la Estación Espacial porque…", ["están cayendo en órbita", "no hay gravedad", "llevan trajes especiales", "el aire los sostiene"], "Ingravidez aparente."],
+    ["Una estrella fugaz es…", ["un fragmento que arde en la atmósfera", "una estrella que se mueve", "un cometa", "un satélite"], "Un meteoroide."],
+    ["Si una estrella está a 100 años luz, su luz tarda en llegar…", ["100 años", "100 días", "1 año", "100 segundos"], "Vemos su pasado."],
+  ], 1),
+  feynman: ["Qué dice la ley de la gravitación universal", "Por qué la masa no cambia y el peso sí", "Por qué todos los cuerpos caen igual sin aire", "Cómo funciona una órbita", "Cómo se pasó del geocentrismo al heliocentrismo"],
+  mapa: H.mapa("GRAVEDAD Y UNIVERSO", "var(--eso)", [
+    ["Gravitación", "masas · distancia² · peso", "var(--inf)"],
+    ["Efectos", "caída · órbitas · mareas", "#b8860b"],
+    ["Modelos", "geocéntrico → heliocéntrico", "var(--red)"],
+    ["Universo", "sistema solar · galaxias · año luz", "var(--leaf)"],
+  ], 270),
   tarjetas: [
-    ["Fuerza gravitatoria", "Atracción entre todos los cuerpos con masa."],
-    ["Gravitación universal", "F = G · m₁ · m₂ / d²."],
-    ["Intensidad gravitatoria (g)", "9,8 N/kg en la Tierra, 1,6 en la Luna."],
-    ["Caída libre", "Sin aire, todos los cuerpos caen con la misma aceleración."],
-    ["Órbita", "Trayectoria de un cuerpo que gira alrededor de otro por la gravedad."],
-    ["Marea", "Subida y bajada del mar por la atracción de la Luna y el Sol."],
-    ["Heliocentrismo", "Modelo con el Sol en el centro (Copérnico)."],
-    ["Año luz", "Distancia que recorre la luz en un año: 9,46 billones de km."],
+    ["Gravedad", "Atracción entre todos los cuerpos con masa."],
+    ["Gravitación universal", "F crece con las masas y baja con la distancia al cuadrado."],
+    ["Peso", "P = m · g; cambia de un astro a otro."],
+    ["g", "Tierra 9,8 · Luna 1,6 · Marte 3,7 N/kg."],
+    ["Caída libre", "Sin aire, todos caen con 9,8 m/s²."],
+    ["Órbita", "Caída sin fin alrededor de un astro."],
+    ["Marea", "Subida y bajada del mar por la atracción de la Luna."],
+    ["Heliocentrismo", "El Sol en el centro: Copérnico, Galileo, Kepler."],
+    ["Planetas rocosos", "Mercurio, Venus, Tierra y Marte."],
+    ["Planetas gigantes", "Júpiter, Saturno, Urano y Neptuno."],
+    ["Galaxia", "Miles de millones de estrellas: Vía Láctea."],
+    ["Año luz", "Distancia que recorre la luz en un año."],
   ],
-  familias: ["Dejad caer a la vez una hoja lisa y otra arrugada en bola y comparad.", "Buscad en el cielo la Luna varios días seguidos y apuntad su forma.", "Consultad la tabla de mareas de una playa y relacionadla con la fase lunar."],
-  profesores: {
-    saberes: "La interacción: fuerza gravitatoria, peso, caída de los cuerpos, órbitas y mareas; evolución de los modelos del universo y sistema solar (RD 217/2022, Física y Química, bloque «La interacción»).",
-    ideas: ["Experimento de caída con hojas lisas y arrugadas y vídeo del martillo y la pluma del Apolo 15.", "Maqueta a escala de distancias del sistema solar en el pasillo del centro.", "Cálculo del propio peso en distintos planetas y gráfico comparativo."],
+  glosario: [
+    ["Fuerza gravitatoria", "Fuerza de atracción entre todos los cuerpos que tienen masa."],
+    ["Ley de la gravitación universal", "Ley de Newton: la atracción es proporcional a las masas e inversamente proporcional al cuadrado de la distancia."],
+    ["Intensidad de la gravedad", "Valor g de cada astro que permite calcular el peso; en la Tierra, 9,8 N/kg."],
+    ["Peso", "Fuerza con la que un astro atrae a un cuerpo."],
+    ["Caída libre", "Movimiento de un cuerpo que cae solo por la acción de la gravedad, sin rozamiento."],
+    ["Órbita", "Trayectoria curva de un cuerpo alrededor de otro por efecto de la gravedad."],
+    ["Satélite", "Cuerpo que gira alrededor de un planeta; puede ser natural o artificial."],
+    ["Marea", "Ascenso y descenso periódico del nivel del mar por la atracción de la Luna y el Sol."],
+    ["Modelo geocéntrico", "Modelo antiguo con la Tierra inmóvil en el centro del universo."],
+    ["Modelo heliocéntrico", "Modelo con el Sol en el centro y los planetas girando a su alrededor."],
+    ["Planeta", "Astro que gira alrededor de una estrella, es casi esférico y ha limpiado su órbita."],
+    ["Estrella", "Esfera de gas muy caliente que emite luz gracias a reacciones nucleares."],
+    ["Galaxia", "Conjunto enorme de estrellas, gas y polvo unidos por la gravedad."],
+    ["Año luz", "Distancia que recorre la luz en un año, unos 9,5 billones de kilómetros."],
+    ["Unidad astronómica", "Distancia media entre la Tierra y el Sol, unos 150 millones de km."],
+  ],
+  situacion: {
+    titulo: "Un sistema solar a escala en el patio",
+    reto: "El centro celebra la Semana de la Ciencia y os pide montar un sistema solar a escala que los visitantes puedan recorrer, con información sobre la gravedad en cada planeta.",
+    pasos: [
+      "Buscad en fuentes fiables el diámetro, la distancia al Sol y la gravedad de cada planeta.",
+      "Elegid una escala para las distancias (por ejemplo, 1 ua = 5 m) y otra para los tamaños, y calculad dónde va cada planeta.",
+      "Fabricad los planetas con materiales reciclados y una cartela para cada uno.",
+      "Calculad en cada cartela cuánto pesaría allí un alumno de 50 kg y cuánto tardaría la luz del Sol en llegar.",
+      "Guiad a los visitantes por el recorrido explicando la gravedad, las órbitas y las diferencias entre planetas.",
+    ],
+    producto: "Recorrido a escala del sistema solar con planetas, cartelas con cálculos y una visita guiada.",
+    evaluacion: [
+      "Las escalas están bien calculadas y son coherentes.",
+      "Los cálculos de peso y tiempo de la luz son correctos y con unidades.",
+      "Las cartelas usan fuentes fiables y distinguen masa y peso.",
+      "La explicación oral es clara y adaptada a los visitantes.",
+    ],
   },
-  fuentes: [RD, wiki("Ley de gravitación universal", "Ley_de_gravitación_universal"), wiki("Sistema solar", "Sistema_solar")],
-  revisado: REV,
+  familias: ["Salid una noche despejada lejos de las luces y buscad la Luna, algún planeta brillante y la Vía Láctea con una aplicación del cielo.", "Soltad a la vez una hoja de papel extendida y otra arrugada y comentad por qué caen distinto.", "Consultad la tabla de mareas de una playa y comprobad su relación con las fases de la Luna.", "Repasad las tarjetas del tema dos minutos al día."],
+  profesores: {
+    saberes: "La interacción: la fuerza gravitatoria y la ley de la gravitación universal de forma cualitativa, peso e intensidad de la gravedad, caída de los cuerpos, órbitas y mareas; evolución de los modelos del universo y componentes del sistema solar y del universo (RD 217/2022, Física y Química 1º a 3º, bloque D «La interacción»). En Cataluña, saberes equivalentes de Física i Química del Decret 175/2022.",
+    ideas: [
+      "Recreación del experimento de Galileo con objetos de distinta forma y masa.",
+      "Sistema solar a escala en el patio o el pasillo.",
+      "Cálculo del peso en distintos planetas con calculadoras de la NASA o la ESA.",
+      "Observación astronómica con aplicaciones móviles o con una asociación local.",
+      "Debate dramatizado sobre el juicio a Galileo.",
+    ],
+  },
+  fuentes: [H.RD, H.DEC, H.wiki("Ley de gravitación universal", "Ley_de_gravitaci%C3%B3n_universal"), H.wiki("Sistema solar", "Sistema_solar"), { t: "Agencia Espacial Europea (ESA) en español", url: "https://www.esa.int/Space_in_Member_States/Spain" }],
+  revisado: H.REV,
 };
