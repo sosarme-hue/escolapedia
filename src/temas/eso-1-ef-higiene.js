@@ -1,119 +1,70 @@
-// Educación Física 1º ESO: higiene y hábitos saludables. Dibujos propios en SVG.
-const { mapa, C, RD, REV, svg, t, tabla, filas, persona, mezcla, vb, vg } = require("./_eso1c");
+// Educación Física 1º ESO · tema nivel libro. Parte de _eso1L6-base-ef-higiene.js y lo amplía.
+const { libro, SIT, WIKI, RD, L } = require("./_eso1L6");
 
-const M = "Educación Física";
-
-module.exports = {
-  materia: M,
-  curso: C,
-  titulo: "Higiene y hábitos saludables",
-  minutos: 45,
-  objetivos: ["Aplicar hábitos de higiene antes, durante y después de la actividad física", "Conocer las normas de higiene postural en la vida diaria", "Relacionar la alimentación, la hidratación y el descanso con la salud", "Identificar hábitos perjudiciales y proponer alternativas"],
-  claves: ["higiene", "higiene postural", "hidratación", "alimentación equilibrada", "descanso", "hábito"],
-  pregunta: {
-    texto: "¿Por qué después de clase de Educación Física hay que ducharse o al menos asearse y cambiarse de camiseta?",
-    respuesta: "Porque al hacer ejercicio sudamos para enfriar el cuerpo. El <b>sudor</b> en sí apenas huele, pero en la piel y la ropa húmeda <mark>las bacterias lo descomponen y producen mal olor</mark>, y pueden aparecer irritaciones u hongos. Asearse y cambiarse es un <b>hábito de higiene</b> que cuida tu salud y la convivencia con los demás.",
-  },
-  bloques: [
-    {
-      html: `<h3>Salud y hábitos</h3><p>La Organización Mundial de la Salud define la <b>salud</b> como un estado de completo <b>bienestar físico, mental y social</b>, y no solo como la ausencia de enfermedad.</p><p>Un <b>hábito</b> es una conducta que repetimos tanto que la hacemos casi sin pensar. Los hábitos pueden ser <b>saludables</b> o <b>perjudiciales</b>, y los que adquieres en la adolescencia suelen acompañarte toda la vida.</p><p>Los grandes pilares de un estilo de vida saludable son:</p><ul><li><b>Actividad física</b> regular.</li><li><b>Alimentación</b> equilibrada e <b>hidratación</b>.</li><li><b>Higiene</b> personal y postural.</li><li><b>Descanso</b> suficiente.</li><li><b>Bienestar emocional</b> y relaciones sanas.</li></ul>`,
-      svg: svg("Cinco pilares sosteniendo el tejado de la salud: actividad física, alimentación, higiene, descanso y bienestar emocional", `<path d="M20 52 L 130 16 L 240 52 Z" fill="var(--leaf)" fill-opacity=".35" stroke="var(--leaf)" stroke-width="2.5"/>${t(130, 44, "SALUD", { s: 13, c: "var(--ink)" })}${[["actividad", "var(--red)"], ["alimentación", "var(--sun)"], ["higiene", "var(--inf)"], ["descanso", "var(--pen)"], ["emociones", "var(--leaf)"]].map(([n, c], i) => `<rect x="${28 + i * 44}" y="58" width="28" height="80" rx="3" fill="${c}" fill-opacity=".35" stroke="${c}" stroke-width="2"/>${t(42 + i * 44, i % 2 ? 168 : 154, n, { s: 9, c })}`).join("")}<path d="M20 140 H 240" stroke="var(--ink)" stroke-width="3"/>`, 176),
-      video: vb("higB2"),
-    },
-    {
-      html: `<h3>Higiene en la actividad física</h3>${tabla(["Momento", "Qué hacer"], [["Antes", "ropa deportiva cómoda y transpirable; calzado deportivo bien atado; quitarse pendientes, anillos y relojes; pelo largo recogido"], ["Durante", "beber agua en pequeños sorbos; protegerse del sol si es al aire libre"], ["Después", "ducharse o, al menos, asearse; cambiarse de camiseta y de calcetines; secarse bien los pies"]])}<p>Lleva siempre en la bolsa de deporte: <b>toalla pequeña</b>, <b>camiseta de recambio</b>, desodorante, chanclas si hay ducha y una botella de agua <b>reutilizable</b> marcada con tu nombre. Lava la ropa deportiva después de cada uso.</p>`,
-    },
-    {
-      html: `<h3>Cuidado de los pies y del calzado</h3><p>Los pies soportan todo nuestro peso al correr y saltar. Para cuidarlos:</p><ul><li>Usar <b>calzado deportivo</b> adecuado a la actividad, de tu talla y con buena sujeción. Nunca deportes con zapatos de calle o con chanclas.</li><li>Calcetines de <b>algodón</b> o tejido técnico, limpios cada día.</li><li><b>Secar bien</b> entre los dedos para evitar hongos (pie de atleta).</li><li>Cortar las uñas <b>rectas</b>.</li><li>Usar <b>chanclas</b> en duchas y vestuarios comunes.</li><li>Airear las zapatillas después de usarlas.</li></ul><p>Las <b>ampollas</b> suelen aparecer por roce con calzado nuevo o calcetines arrugados: estrena las zapatillas poco a poco.</p>`,
-    },
-    {
-      html: `<h3>La higiene postural</h3><p>La <b>higiene postural</b> es el conjunto de normas para mantener posturas correctas en la vida diaria y proteger la <b>columna vertebral</b>, que tiene tres curvas naturales.</p><ul><li><b>Sentado</b>: espalda apoyada en el respaldo, pies en el suelo, pantalla a la altura de los ojos. Levántate cada 45-60 minutos.</li><li><b>De pie</b>: peso repartido en los dos pies; si estás mucho rato, apoya un pie en un escalón y alterna.</li><li><b>Con el móvil</b>: súbelo a la altura de los ojos en vez de bajar la cabeza.</li><li><b>Durmiendo</b>: de lado o boca arriba, mejor que boca abajo.</li></ul>`,
-      svg: svg("Postura sentada correcta con la espalda recta y apoyada frente a una incorrecta con la espalda curvada y la cabeza adelantada", `<g stroke="var(--leaf)" stroke-width="3.2" stroke-linecap="round" fill="none"><circle cx="60" cy="40" r="8" fill="var(--leaf)" fill-opacity=".2"/><path d="M60 48 V 92 H 92 V 124 M60 60 L 84 78"/></g><path d="M50 40 V 100 H 96" stroke="var(--muted)" stroke-width="3" fill="none"/><path d="M76 78 H 110" stroke="var(--ink)" stroke-width="3"/>${t(70, 148, "correcto", { s: 11, c: "var(--leaf)" })}<g stroke="var(--red)" stroke-width="3.2" stroke-linecap="round" fill="none"><circle cx="184" cy="54" r="8" fill="var(--red)" fill-opacity=".2"/><path d="M178 60 Q 166 76 172 96 H 204 V 124 M174 68 L 200 82"/></g><path d="M156 40 V 100 H 208" stroke="var(--muted)" stroke-width="3" fill="none"/><path d="M192 82 H 226" stroke="var(--ink)" stroke-width="3"/>${t(190, 148, "incorrecto", { s: 11, c: "var(--red)" })}`, 166),
-      video: vb("higB"),
-    },
-    {
-      html: `<h3>La mochila y el levantamiento de pesos</h3><ul><li>La <b>mochila</b> no debería pesar más del <b>10 %</b> de tu peso corporal (si pesas 45 kg, unos 4,5 kg como máximo).</li><li>Llévala con las <b>dos asas</b>, ajustada a la espalda y con lo más pesado pegado al cuerpo.</li><li>Lleva solo lo que necesites cada día.</li></ul><p>Para <b>levantar un objeto</b> del suelo:</p><ol><li>Acércate al objeto y separa los pies.</li><li><b>Flexiona las rodillas</b>, no la espalda.</li><li>Agarra el objeto pegado al cuerpo.</li><li>Levántate estirando las piernas con la espalda recta.</li><li>No gires el tronco con el peso en las manos: gira con los pies.</li></ol>`,
-      svg: svg("Forma correcta de levantar una caja: rodillas flexionadas y espalda recta; forma incorrecta: piernas rectas y espalda doblada", `<g stroke="var(--leaf)" stroke-width="3.2" stroke-linecap="round" fill="none"><circle cx="64" cy="46" r="7" fill="var(--leaf)" fill-opacity=".2"/><path d="M64 53 L 62 92 L 82 104 L 72 128 M62 92 L 48 108 L 50 128 M63 66 L 76 104"/></g><rect x="70" y="104" width="26" height="24" fill="var(--sun)" fill-opacity=".5" stroke="var(--sun)" stroke-width="2"/>${t(64, 152, "bien: dobla rodillas", { s: 10, c: "var(--leaf)" })}<g stroke="var(--red)" stroke-width="3.2" stroke-linecap="round" fill="none"><circle cx="212" cy="64" r="7" fill="var(--red)" fill-opacity=".2"/><path d="M206 68 Q 186 60 172 80 L 168 128 M172 80 L 180 128 M198 70 L 210 104"/></g><rect x="198" y="104" width="26" height="24" fill="var(--sun)" fill-opacity=".5" stroke="var(--sun)" stroke-width="2"/>${t(190, 152, "mal: dobla la espalda", { s: 10, c: "var(--red)" })}<path d="M14 130 H 246" stroke="var(--line)" stroke-width="2"/>`, 166),
-    },
-    {
-      html: `<h3>Alimentación e hidratación</h3><p>Una <b>alimentación equilibrada</b> aporta la energía y los nutrientes que necesitas para crecer y moverte:</p><ul><li>Base de <b>frutas, verduras</b>, legumbres y cereales integrales.</li><li><b>Proteínas</b> de calidad: legumbres, huevos, pescado, carne magra.</li><li><b>Lácteos</b> para el calcio de los huesos.</li><li>Pocos ultraprocesados, bollería, refrescos y comida rápida.</li><li>Un buen <b>desayuno</b> antes de ir a clase.</li></ul><p><b>Hidratación</b>: bebe agua a lo largo del día, antes, durante y después del ejercicio, aunque no tengas sed. El <b>agua</b> es la mejor bebida; las bebidas energéticas, con mucha cafeína y azúcar, <b>no son adecuadas</b> para adolescentes.</p>`,
-    },
-    {
-      html: `<h3>El descanso</h3><p>Durante el sueño el cuerpo crece, repara los músculos y el cerebro ordena lo aprendido. A tu edad se recomienda dormir entre <b>9 y 11 horas</b> diarias.</p><p>Consejos para dormir mejor:</p><ul><li>Acostarse y levantarse a <b>horas regulares</b>, también el fin de semana.</li><li><b>Apagar las pantallas</b> al menos una hora antes de dormir: su luz retrasa el sueño.</li><li>No tener el móvil en la habitación por la noche.</li><li>Cenar de forma ligera y no tarde.</li><li>Hacer ejercicio durante el día (pero no justo antes de dormir).</li></ul><p>Dormir poco provoca cansancio, falta de concentración, mal humor y más riesgo de lesiones.</p>`,
-    },
-    {
-      html: `<h3>Hábitos perjudiciales</h3>${tabla(["Hábito", "Consecuencias", "Alternativa"], [["Sedentarismo y exceso de pantallas", "pérdida de forma física, mala postura, peor sueño", "pausas activas, deporte, ocio al aire libre"], ["Tabaco y vapeadores", "adicción a la nicotina, daño pulmonar", "decir no, buscar amigos que no fumen"], ["Alcohol", "daño al cerebro en desarrollo, accidentes", "ocio sin alcohol"], ["Bebidas energéticas", "nerviosismo, insomnio, taquicardia", "agua"], ["Saltarse comidas", "falta de energía y concentración", "desayunar y comer a horas regulares"]])}<p>Pedir ayuda a la familia, al profesorado o al personal sanitario es siempre una buena decisión.</p>`,
-    },
+module.exports = libro(require("./_eso1L6-base-ef-higiene"), {
+  grupos: [4, 4, 4],
+  objetivos: ["Cuidar la higiene personal diaria", "Usar las pantallas con salud y planificar una agenda de hábitos"],
+  claves: ["higiene personal", "desayuno", "pantallas", "semáforo de hábitos", "agenda"],
+  lectura: ["La mochila de Hugo y el dolor de espalda", `<p>Hugo tiene doce años y, desde que empezó el instituto, le duele la espalda al final del día. Lleva una mochila con todos los libros de la semana, la cuelga de un solo hombro y se pasa tres horas sentado en el sofá con el móvil. En la revisión médica, la doctora le pregunta: «¿Haces deporte? ¿Cuántas horas duermes? ¿Qué desayunas?». Hugo responde: «No mucho, siete horas… y unas galletas, a veces».</p><p>La doctora sonríe y le dice algo que Hugo recordará toda su vida: <mark>«La salud no se arregla con una medicina: se construye con pequeños hábitos de cada día»</mark>. Le propone cambiar solo tres cosas: llevar la mochila en los dos hombros y con menos peso, dormir nueve horas y hacer deporte tres días a la semana. En un mes, Hugo notó la diferencia: tenía más energía, menos dolor y mejores notas.</p><p>En este tema aprenderás a cuidar tu cuerpo con hábitos sencillos: higiene antes y después del ejercicio, buena postura, alimentación, descanso y un uso responsable de las pantallas. Al final, harás tu propia agenda de hábitos saludables.</p>`],
+  nuevos: [
+    [1, "La higiene personal diaria", `<p>Además de la higiene durante el deporte, hay hábitos que debemos practicar <b>cada día</b>:</p><ul><li><b>Lavarse las manos</b> con agua y jabón durante 20 segundos antes de comer, después de ir al baño y al volver de la calle.</li><li><b>Cepillarse los dientes</b> tres veces al día, durante dos minutos, y usar hilo dental.</li><li><b>Ducharse</b> a diario, sobre todo tras el deporte y el calor, con jabón suave.</li><li><b>Lavar el pelo</b> con regularidad y mantener el <b>cabello</b> limpio y las <b>uñas</b> cortas.</li><li><b>Cambiarse la ropa interior</b> y los calcetines cada día.</li></ul><p>A tu edad, con los cambios de la pubertad, la higiene es todavía más importante: el sudor huele más y la piel produce más grasa. Cuidarla es una cuestión de salud, no solo de imagen.</p>`,
+      L.filas("Higiene de cada día", [["Manos", "20 segundos con jabón", L.AZ], ["Dientes", "3 veces al día, 2 minutos", L.VE], ["Ducha", "a diario", L.MO], ["Ropa limpia", "cada día", L.RO]])],
+    [6, "El desayuno y la merienda", `<p>El <b>desayuno</b> es la primera comida del día y da la energía para el colegio. Un buen desayuno incluye tres grupos: <b>lácteos</b> (leche, yogur), <b>cereales</b> (pan, copos sin azúcar) y <b>fruta</b>. Se puede añadir un poco de proteína (huevo, jamón o queso).</p><p>La <b>merienda</b> también es importante antes del deporte. Es mejor una pieza de fruta, un bocadillo pequeño o un yogur que bollería, galletas o zumos envasados. Además, a media mañana se recomienda un tentempié ligero. Evitar el desayuno se asocia con peor concentración y más cansancio durante las clases.</p>`,
+      L.pasos("Desayuno completo", [["Lácteo", ["leche, yogur"], L.AZ], ["Cereal", ["pan, copos"], L.VE], ["Fruta", ["entera o en trozos"], L.RO]])],
+    [9, "Pantallas sin pasarse", `<p>Los móviles, tabletas y ordenadores son útiles, pero usarlos demasiado perjudica la salud: dolor de cuello, vista cansada, peor sueño y menos actividad física. Las recomendaciones para tu edad son:</p><ul><li><b>Máximo dos horas</b> diarias de pantallas de ocio.</li><li>Hacer una <b>pausa activa</b> cada 45 minutos: levantarte, estirarte y mirar lejos.</li><li>Usar las pantallas con <b>buena postura</b>: espalda recta, pantalla a la altura de los ojos.</li><li><b>Apagarlas una hora antes de dormir</b>.</li><li>No usarlas durante las comidas.</li></ul><p>Una buena regla: <b>20-20-20</b>. Cada 20 minutos, mira un objeto a 20 pies (unos 6 metros) durante 20 segundos para descansar la vista.</p>`,
+      L.columnas("Pantallas", [["al día", "MÁX. 2 HORAS", ["de ocio"], L.AZ], ["cada 45 min", "PAUSA", ["moverse"], L.VE], ["antes de dormir", "APAGAR", ["1 hora"], L.RO]])],
+    [11, "Mi agenda de hábitos saludables", `<p>Para construir hábitos se puede usar un <b>semáforo de hábitos</b>. Haz una lista de cinco hábitos (por ejemplo: desayunar bien, hacer deporte, dormir nueve horas, llevar bien la mochila y lavarse los dientes) y colorea cada día:</p><ul><li><b>Verde</b>: lo he cumplido.</li><li><b>Amarillo</b>: lo he cumplido a medias.</li><li><b>Rojo</b>: no lo he cumplido.</li></ul><p>Al cabo de una semana, mira cuáles son los hábitos en rojo y elige <b>uno solo</b> para mejorar la semana siguiente. Cambiar de uno en uno es la forma más eficaz de conseguirlo, y celebrar los logros ayuda a mantener la motivación.</p>`,
+      L.filas("Semáforo de hábitos", [["Verde", "cumplido", L.VE], ["Amarillo", "a medias", L.SO || L.MO], ["Rojo", "pendiente", L.RO]])],
   ],
-  figura: {
-    titulo: "Higiene y hábitos saludables en un vistazo",
-    svg: filas("Resumen: salud como bienestar físico, mental y social; higiene antes, durante y después del ejercicio; cuidado de los pies; higiene postural y mochila; alimentación e hidratación; descanso de 9 a 11 horas", [["Salud", "bienestar físico · mental · social", "var(--leaf)"], ["Higiene en EF", "ropa · agua · asearse", "var(--inf)"], ["Postura", "espalda apoyada · móvil arriba", "var(--pen)"], ["Mochila", "máx. 10 % del peso · 2 asas", "var(--sun)"], ["Alimentación", "fruta · verdura · agua", "var(--red)"], ["Descanso", "9-11 h · sin pantallas", "var(--ink)"]], 200),
+  dibujos: {
+    1: L.columnas("Higiene en el deporte", [["antes", "PREPARARSE", ["ropa cómoda", "pelo recogido"], L.AZ], ["durante", "BEBER", ["sorbos de agua"], L.VE], ["después", "ASEARSE", ["ducha y ropa limpia"], L.RO]]),
+    2: L.filas("Cuidado de los pies", [["Calzado", "de tu talla y bien atado", L.AZ], ["Calcetines", "limpios cada día", L.VE], ["Secar", "entre los dedos", L.RO]]),
+    5: L.columnas("Comer bien", [["base", "FRUTA Y VERDURA", ["legumbres"], L.VE], ["con medida", "PROTEÍNAS", ["huevo, pescado"], L.AZ], ["pocos", "ULTRAPROCESADOS", ["bollería, refrescos"], L.RO]]),
+    6: L.filas("Dormir bien", [["Horas", "9 a 11 al día", L.AZ], ["Horario", "regular, también el fin de semana", L.VE], ["Pantallas", "apagarlas 1 hora antes", L.RO]]),
+    7: L.filas("Alternativas", [["Pantallas", "pausas activas y deporte", L.AZ], ["Tabaco", "decir no", L.VE], ["Alcohol", "ocio sin alcohol", L.MO], ["Energéticas", "agua", L.RO]]),
   },
-  video: vg("higV"),
-  quiz: mezcla([
-    { q: "Según la OMS, la salud es…", o: ["bienestar físico, mental y social", "no estar enfermo", "estar delgado"], a: 0, e: "Definición amplia." },
-    { q: "Después de EF conviene…", o: ["asearse y cambiarse de camiseta", "dejar la ropa húmeda puesta", "no beber agua"], a: 0, e: "Higiene." },
-    { q: "Para evitar hongos en los pies hay que…", o: ["secarlos bien entre los dedos", "llevar calcetines húmedos", "ir descalzo en las duchas"], a: 0, e: "Pie de atleta." },
-    { q: "La mochila no debería pesar más del…", o: ["10 % del peso corporal", "50 %", "30 %"], a: 0, e: "Y con dos asas." },
-    { q: "Para levantar un peso del suelo hay que doblar…", o: ["las rodillas", "la espalda", "los codos solo"], a: 0, e: "Espalda recta." },
-    { q: "Al usar el móvil conviene…", o: ["subirlo a la altura de los ojos", "bajar mucho la cabeza", "usarlo tumbado boca abajo"], a: 0, e: "Cuello." },
-    { q: "La mejor bebida para hidratarse es…", o: ["el agua", "un refresco", "una bebida energética"], a: 0, e: "Sin azúcar ni cafeína." },
-    { q: "A tu edad se recomienda dormir…", o: ["9-11 horas", "5-6 horas", "13-14 horas"], a: 0, e: "Descanso." },
-    { q: "Las pantallas antes de dormir…", o: ["retrasan el sueño", "ayudan a dormir", "no influyen"], a: 0, e: "Luz azul." },
-    { q: "Un hábito es…", o: ["una conducta que repetimos casi sin pensar", "algo que hacemos una vez", "una enfermedad"], a: 0, e: "Saludable o perjudicial." },
-  ]),
-  examen: mezcla([
-    { q: "Si pesas 50 kg, tu mochila debería pesar como máximo unos…", o: ["5 kg", "15 kg", "1 kg"], a: 0, e: "10 %." },
-    { q: "¿Por qué huele la ropa deportiva sudada?", o: ["porque las bacterias descomponen el sudor", "porque el sudor es tóxico", "por el detergente"], a: 0, e: "Ropa húmeda." },
-    { q: "Las bebidas energéticas en adolescentes…", o: ["no son adecuadas", "son lo mejor para entrenar", "sustituyen al agua"], a: 0, e: "Cafeína y azúcar." },
-  ]),
-  feynman: ["Qué es la salud y qué es un hábito", "Hábitos de higiene antes, durante y después de la actividad física", "Normas de higiene postural", "Qué es una alimentación equilibrada y por qué beber agua", "Por qué es tan importante dormir bien"],
-  mapa: mapa("HÁBITOS SALUDABLES", "var(--eso)", [
-    ["Higiene", "ropa · aseo · pies", "var(--inf)"],
-    ["Postura", "sentado · mochila · levantar", "var(--pen)"],
-    ["Alimentación", "equilibrio · agua", "var(--red)"],
-    ["Descanso", "9-11 h · sin pantallas", "var(--leaf)"],
-  ], 230),
-  tarjetas: [
-    ["Salud", "Bienestar físico, mental y social."],
-    ["Hábito", "Conducta repetida que se hace casi sin pensar."],
-    ["Higiene postural", "Normas para mantener posturas correctas y proteger la espalda."],
-    ["Mochila", "Máximo el 10 % del peso corporal, con las dos asas."],
-    ["Levantar pesos", "Rodillas flexionadas, espalda recta, objeto pegado al cuerpo."],
-    ["Hidratación", "Beber agua antes, durante y después del ejercicio."],
-    ["Descanso", "Dormir 9-11 horas a tu edad."],
-    ["Pie de atleta", "Infección por hongos que se evita secando bien los pies."],
-  ],
-  familias: ["Pesad juntos la mochila y comprobad que no supera el 10 % del peso.", "Acordad una hora de apagar pantallas para toda la familia.", "Repasad las tarjetas dos minutos al día."],
-  profesores: {
-    saberes: "Hábitos de vida saludable: higiene personal y en la actividad física, higiene postural, alimentación e hidratación, descanso, prevención de hábitos nocivos (RD 217/2022, Educación Física, vida activa y saludable).",
-    ideas: ["Registro semanal de hábitos (sueño, agua, actividad) con gráfica personal.", "Taller de higiene postural en el aula y con la mochila.", "Revisión de la bolsa de aseo para EF al inicio del curso."],
-  },
-  fuentes: [RD, { t: "Organización Mundial de la Salud", url: "https://www.who.int/es" }],
-  revisado: REV,
-  ejemplosTitulo: "Casos resueltos",
   ejemplos: [
-    { enunciado: "Lucía pesa 40 kg y su mochila 7 kg. ¿Es adecuado?", pasos: ["El 10 % de 40 kg es 4 kg.", "7 kg supera ese límite.", "Debe llevar solo lo necesario o usar taquilla."], resultado: "No: lleva casi el doble de lo recomendado." },
-    { enunciado: "Daniel se acuesta a la 1 con el móvil y se levanta a las 7:30. ¿Qué le recomiendas?", pasos: ["Duerme 6,5 horas; necesita 9-11.", "Las pantallas retrasan el sueño.", "Debe apagar el móvil una hora antes y acostarse hacia las 22:30."], resultado: "Adelantar la hora de dormir y dejar el móvil fuera del cuarto." },
-    { enunciado: "Prepara la bolsa de EF para un día de clase al aire libre en verano.", pasos: ["Ropa transpirable y zapatillas.", "Gorra y crema solar.", "Botella de agua, toalla y camiseta de recambio."], resultado: "Bolsa completa para practicar e higienizarse." },
+    ["Elabora un desayuno equilibrado con tres grupos de alimentos.", ["Lácteo.", "Cereal.", "Fruta."], "Un yogur, una tostada con aceite y una naranja."],
+    ["Un amigo pasa cuatro horas al día con el móvil y duerme siete horas. ¿Qué le recomiendas?", ["Reducir pantallas a dos horas.", "Apagarlas una hora antes de dormir.", "Dormir nueve horas."], "Reducir pantallas y alargar el sueño."],
   ],
-  errores: [
-    "Pensar que sudar es «sucio» y que mejor no moverse.",
-    "Beber solo cuando ya se tiene mucha sed.",
-    "Llevar la mochila colgada de un solo hombro.",
-    "Doblar la espalda para coger objetos del suelo.",
-    "Creer que dormir poco entre semana se recupera durmiendo mucho el sábado.",
-  ],
+  errores: ["Pensar que ducharse una vez a la semana es suficiente.", "Saltarse el desayuno para dormir más."],
   ejercicios: [
-    { q: "Define salud según la OMS.", sol: "Estado de completo bienestar físico, mental y social." },
-    { q: "Escribe tres hábitos de higiene para después de la clase de EF.", sol: "Ducharse o asearse, cambiarse de camiseta y calcetines, secarse bien los pies." },
-    { q: "¿Qué debe llevar tu bolsa de EF?", sol: "Toalla, camiseta de recambio, desodorante, chanclas y botella de agua." },
-    { q: "Escribe cuatro consejos para cuidar los pies.", sol: "Calzado adecuado, calcetines limpios, secar bien, uñas rectas, chanclas en duchas." },
-    { q: "Describe la postura correcta para estudiar sentado.", sol: "Espalda apoyada, pies en el suelo, pantalla a la altura de los ojos, pausas." },
-    { q: "Explica cómo levantar una caja pesada del suelo.", sol: "Acercarse, flexionar rodillas, espalda recta, caja pegada al cuerpo, levantar con las piernas." },
-    { q: "Calcula el peso máximo de tu mochila.", sol: "El 10 % de tu peso corporal." },
-    { q: "¿Por qué no son adecuadas las bebidas energéticas a tu edad?", sol: "Por su cafeína y azúcar: nerviosismo, insomnio, taquicardia." },
-    { q: "Escribe cinco consejos para dormir mejor.", sol: "Horario regular, sin pantallas antes, móvil fuera, cena ligera, ejercicio durante el día." },
-    { q: "Elige un hábito que quieras mejorar y escribe un plan de dos semanas.", sol: "Respuesta personal." },
+    ["b", "Escribe tres hábitos de higiene diarios.", "Lavarse las manos, los dientes y ducharse."],
+    ["b", "¿Cuántas horas debe dormir una persona de tu edad?", "Entre 9 y 11 horas."],
+    ["b", "Escribe tres alimentos de un buen desayuno.", "Leche, pan y fruta."],
+    ["b", "¿Qué postura es correcta delante del ordenador?", "Espalda recta y pantalla a la altura de los ojos."],
+    ["m", "Explica la regla 20-20-20.", "Cada 20 minutos, mirar a 6 metros durante 20 segundos."],
+    ["m", "Rellena un semáforo con cinco hábitos y evalúa una semana.", "Respuesta personal."],
+    ["m", "Escribe cinco consejos para llevar bien la mochila.", "Dos hombros, poco peso, pegada a la espalda, bien ajustada y sin sobrecargar."],
+    ["m", "Haz un menú de merienda saludable para antes del deporte.", "Un plátano y un yogur."],
+    ["a", "Analiza tu desayuno de esta semana y propón dos mejoras.", "Respuesta personal."],
+    ["a", "Redacta una campaña de cinco carteles sobre hábitos saludables.", "Respuesta personal."],
+    ["a", "Explica por qué el sueño forma parte de un estilo de vida saludable.", "El cuerpo crece y se repara, y el cerebro ordena lo aprendido."],
+    ["a", "Planifica una agenda semanal con deporte, descanso y pantallas.", "Respuesta personal."],
   ],
-};
+  quiz: [
+    ["Las manos se lavan durante…", ["20 segundos", "2 segundos", "5 minutos"], "Con jabón."],
+    ["El cepillado de dientes dura…", ["2 minutos", "10 segundos", "1 hora"], "Tres veces al día."],
+    ["Un buen desayuno incluye…", ["lácteo, cereal y fruta", "solo galletas", "nada"], "Equilibrio."],
+    ["Las pantallas se apagan…", ["una hora antes de dormir", "justo al dormirse", "nunca"], "Sueño."],
+    ["El semáforo de hábitos usa…", ["verde, amarillo y rojo", "solo azul", "negro"], "Evaluación."],
+    ["Se recomienda cambiar…", ["un hábito cada vez", "todos a la vez", "ninguno"], "Constancia."],
+  ],
+  examen: [
+    ["La regla 20-20-20 sirve para…", ["descansar la vista", "dormir mejor", "calentar"], "Pantallas."],
+    ["Una pausa activa es…", ["moverse y estirarse", "dormir", "comer"], "Cada 45 minutos."],
+    ["La merienda ideal antes del deporte es…", ["fruta o yogur", "bollería", "refresco"], "Ligera."],
+  ],
+  tarjetas: [["Semáforo de hábitos", "Registro de hábitos en verde, amarillo y rojo."], ["Pausa activa", "Movimiento breve entre periodos sentados."]],
+  glosario: [["Higiene", "Cuidado personal para la salud."], ["Hábito", "Costumbre diaria."], ["Higiene postural", "Posturas que cuidan la espalda."], ["Hidratación", "Beber agua."], ["Alimentación equilibrada", "Variada y suficiente."], ["Ultraprocesado", "Alimento con muchos aditivos."], ["Descanso", "Dormir lo necesario."], ["Pantalla", "Móvil, tableta u ordenador."], ["Pausa activa", "Moverse tras estar sentado."], ["Sedentarismo", "Falta de movimiento."], ["Desayuno", "Primera comida del día."], ["Semáforo", "Registro con colores."]],
+  situacion: SIT("Campaña de hábitos saludables", "Tu grupo lanza una campaña en el instituto para promover cinco hábitos saludables entre los alumnos de 1º.", [
+    "Elegid cinco hábitos y buscad datos fiables.",
+    "Diseñad carteles con dibujo, mensaje y fuente.",
+    "Preparad una encuesta de hábitos a diez compañeros.",
+    "Analizad los resultados con un gráfico.",
+    "Presentad la campaña y proponed un reto semanal.",
+  ], "Cinco carteles y un informe con los resultados de la encuesta.", ["Los datos son fiables.", "Los carteles son claros.", "El análisis es coherente.", "La presentación convence."]),
+  familias: ["Cenad sin pantallas durante una semana y comentad cómo os sentís."],
+  ideas: ["Agenda de hábitos con semáforo durante un mes."],
+  fuentes: [WIKI("Higiene", "Higiene")],
+});
