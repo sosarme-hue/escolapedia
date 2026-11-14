@@ -154,6 +154,7 @@ module.exports = {
     { nivel: "avanzado", q: "Crea un cuento interactivo de 3 escenas en el que, en cada una, haya al menos un personaje que reaccione al clic.", sol: "Respuesta abierta: comprobar eventos de clic, cambios de fondo y mensajes." },
     { nivel: "avanzado", q: "Evalúa el proyecto de un compañero con la tabla de revisión del tema y escribe dos propuestas de mejora.", sol: "Respuesta abierta: comentarios respetuosos y concretos sobre historia, interacción, programación, diseño, sonido y créditos." },
     { nivel: "avanzado", q: "Explica qué relación hay entre los libros de «Elige tu propia aventura» y un programa.", sol: "Cada página es una escena, cada elección una condición y cada «ve a la página» un salto o mensaje." },
+    { nivel: "avanzado", q: "Añade a tu historia un contador de decisiones: una variable que cuente cuántas veces el jugador ha elegido el camino «valiente» y que cambie el final según su valor.", sol: "Variable valentía = 0 al empezar; sumar 1 en cada elección valiente; al final, si valentía > 1 → final heroico; si no → final tranquilo." },
   ],
   quiz: [
     { q: "En una animación interactiva el usuario…", o: ["solo mira", "participa y decide", "no hace nada", "dibuja"], a: 1, e: "La historia responde." },

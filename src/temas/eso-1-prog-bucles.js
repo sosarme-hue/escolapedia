@@ -146,6 +146,7 @@ module.exports = {
     { nivel: "avanzado", q: "¿Por qué la estrella de 5 puntas gira 144° y no 72°? Calcula cuántas vueltas da.", sol: "Con 72° sale un pentágono; con 144° se salta un vértice: 5 · 144 = 720°, dos vueltas." },
     { nivel: "avanzado", q: "Diseña un bucle principal de un juego sencillo: ¿qué comprobarías en cada vuelta?", sol: "Leer teclas y mover, comprobar choques con enemigos y monedas, actualizar puntos y vidas." },
     { nivel: "avanzado", q: "Crea un arcoíris de 7 arcos concéntricos con bucles y cambio de color del lápiz.", sol: "repetir 7: dibujar semicírculo (repetir 18: mover R, girar 10), cambiar color del lápiz, reducir el radio y recolocar." },
+    { nivel: "avanzado", q: "Predice sin probarlo qué dibuja: repetir 12 [repetir 3 [mover 60, girar 120], girar 30]. ¿Cuántos lados se trazan en total?", sol: "Un rosetón de 12 triángulos girados 30° (12 · 30 = 360); 12 · 3 = 36 lados." },
   ],
   quiz: [
     { q: "Un bucle sirve para…", o: ["borrar bloques", "repetir instrucciones", "cambiar de fondo", "guardar"], a: 1, e: "Repetición." },

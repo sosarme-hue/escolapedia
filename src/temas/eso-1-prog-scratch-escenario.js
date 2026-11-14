@@ -144,6 +144,7 @@ module.exports = {
     { nivel: "avanzado", q: "Un objeto en (230, 0) mira a la derecha y avanza 50 pasos. ¿Qué crees que pasa? Compruébalo.", sol: "No puede salir del todo del escenario: Scratch lo deja en el borde, con una parte visible." },
     { nivel: "avanzado", q: "Remezcla un proyecto sencillo de la comunidad y escribe las notas de créditos.", sol: "Respuesta abierta: incluir autor original, enlace y cambios realizados." },
     { nivel: "avanzado", q: "Compara programar con bloques y programar escribiendo texto. Escribe una ventaja de cada uno.", sol: "Bloques: no hay errores de escritura y es más visual. Texto: más potente y rápido para programas grandes." },
+    { nivel: "avanzado", q: "Coloca cinco objetos formando una «X» en el escenario usando solo coordenadas. Escribe sus posiciones.", sol: "Por ejemplo (−150, 120), (150, 120), (0, 0), (−150, −120) y (150, −120)." },
   ],
   quiz: [
     { q: "Scratch se creó en…", o: ["Google", "el MIT", "Microsoft", "la NASA"], a: 1, e: "Equipo de Mitchel Resnick." },

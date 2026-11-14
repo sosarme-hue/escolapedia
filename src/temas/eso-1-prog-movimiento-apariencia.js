@@ -140,6 +140,7 @@ module.exports = {
     { nivel: "avanzado", q: "Un compañero dice que su personaje «no se mueve» aunque tiene «mover 10 pasos» dentro de «por siempre». Da dos causas posibles.", sol: "Falta el evento de inicio o el objeto está escondido/fuera del escenario o tiene otro objeto delante; o el programa está en otro objeto." },
     { nivel: "avanzado", q: "Crea un efecto de «teletransporte»: el objeto se desvanece, aparece en una posición aleatoria y vuelve a hacerse visible.", sol: "Repetir 10 desvanecer +10; ir a posición aleatoria; repetir 10 desvanecer −10." },
     { nivel: "avanzado", q: "Amplía el pez que nada: añade burbujas que suben desde el pez y desaparecen al llegar arriba.", sol: "Burbuja: ir a la posición del pez, mostrar, repetir hasta y > 170: sumar 3 a y; esconder." },
+    { nivel: "avanzado", q: "Programa un coche visto desde arriba que gire con las flechas izquierda y derecha y avance con la flecha arriba. ¿Qué estilo de rotación necesita?", sol: "Por siempre: si flecha ← girar ↺ 5; si flecha → girar ↻ 5; si flecha ↑ mover 5. Estilo «en todas direcciones»." },
   ],
   quiz: [
     { q: "«mover 10 pasos» mueve el objeto…", o: ["siempre a la derecha", "en la dirección en que mira", "hacia arriba", "al azar"], a: 1, e: "Según su dirección." },
