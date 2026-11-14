@@ -5,6 +5,7 @@ const { ETAPAS, FAM } = require("./src/curriculo");
 
 const OUT = path.join(__dirname, process.env.PREVIEW ? "preview" : "dist");
 const SITE = "Escolapedia";
+const GA_ID = "G-DXYJCCJC31";
 const CURSO_ESCOLAR = "2026-27";
 
 const ORD = ["1er", "2º", "3er"];
@@ -74,7 +75,9 @@ ${extraHead}
   </nav>
 </div></header>
 ${body}
-<footer class="foot"><div class="wrap">${SITE} · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso ${CURSO_ESCOLAR}. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.<br><small>Escolapedia es un refuerzo: no sustituye al profesorado ni a los centros. <a href="${r}quien-esta-detras/">Quién está detrás</a> · <a href="${r}aviso-legal/">Aviso legal</a> · <a href="${r}privacidad/">Privacidad</a></small></div></footer>
+<footer class="foot"><div class="wrap">${SITE} · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso ${CURSO_ESCOLAR}. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.<br><small>Escolapedia es un refuerzo: no sustituye al profesorado ni a los centros. <a href="${r}quien-esta-detras/">Quién está detrás</a> · <a href="${r}aviso-legal/">Aviso legal</a> · <a href="${r}privacidad/">Privacidad</a> · <a href="#" data-cookies>Cookies</a></small></div></footer>
+<div class="cookies" id="cookies" hidden><p>Usamos Google Analytics para saber cuántas personas visitan Escolapedia. Solo se activa si lo aceptas. <a href="${r}privacidad/">Más información</a></p><div><button type="button" data-ck="no">Rechazar</button><button type="button" data-ck="si">Aceptar</button></div></div>
+<script>(function(){var ID="${GA_ID}",K="ep-cookies",b=document.getElementById("cookies");function get(){try{return localStorage.getItem(K)}catch(e){return null}}function set(v){try{localStorage.setItem(K,v)}catch(e){}}function load(){if(window.gtag)return;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",ID,{anonymize_ip:true});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+ID;document.head.appendChild(s)}var v=get();if(v==="si")load();else if(v!=="no")b.hidden=false;b.addEventListener("click",function(e){var c=e.target.getAttribute("data-ck");if(!c)return;set(c);b.hidden=true;if(c==="si")load();else{document.cookie.split(";").forEach(function(x){var n=x.split("=")[0].trim();if(/^_ga/.test(n))document.cookie=n+"=;Max-Age=0;path=/;domain=."+location.hostname.replace(/^www\./,"")})}});document.querySelectorAll("[data-cookies]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();b.hidden=false})})})();</script>
 <script>window.BASE=${JSON.stringify(r)};window.IDX=${JSON.stringify(process.env.PREVIEW ? "index.html" : "")};</script>
 ${scripts}
 <script src="${r}assets/app.js"></script>
@@ -366,9 +369,10 @@ legalPage("aviso-legal", "Aviso legal", "Información del titular y condiciones 
   <div class="box"><h3>Propiedad intelectual</h3><p>Puedes usar los materiales en casa y en el aula, imprimirlos y compartir los enlaces, siempre sin fines comerciales y citando la fuente.</p></div>`,
   "Aviso legal de Escolapedia: titular, finalidad y condiciones de uso.");
 
-legalPage("privacidad", "Privacidad", "Escolapedia no te pide datos personales ni los guarda en ningún servidor.", `
+legalPage("privacidad", "Privacidad", "Escolapedia no te pide datos personales. Solo usa estadísticas de visitas si lo aceptas.", `
   <div class="box"><h3>Responsable</h3><p>${TITULAR}</p></div>
   <div class="box"><h3>Qué datos tratamos</h3><p>Ninguno que tú nos des: no hay registro, formularios ni boletines. El progreso de los temas y las tarjetas de repaso se guardan solo en tu navegador (almacenamiento local) y no se envían a ningún sitio. Puedes borrarlos limpiando los datos del sitio en tu navegador.</p></div>
+  <div class="box"><h3>Estadísticas de visitas (cookies)</h3><p>Si lo aceptas en el aviso de cookies, usamos Google Analytics 4 (Google Ireland Ltd.) para contar visitas y saber qué páginas se usan más. Instala las cookies <code>_ga</code> y <code>_ga_*</code> (duración máxima de 2 años) y la dirección IP se anonimiza. Si lo rechazas, no se carga nada de Google Analytics. Puedes cambiar tu elección cuando quieras con el enlace «Cookies» del pie de página. Base jurídica: tu consentimiento.</p></div>
   <div class="box"><h3>Vídeos</h3><p>Los vídeos se cargan desde youtube-nocookie.com, el modo de privacidad mejorada de YouTube. Al reproducir un vídeo, YouTube puede tratar datos técnicos según su propia política.</p></div>
   <div class="box"><h3>Registros del servidor</h3><p>Como cualquier web, el servidor de alojamiento (Hostinger) registra datos técnicos de acceso, como la dirección IP, por seguridad. Hostinger actúa como encargado del tratamiento.</p></div>
   <div class="box"><h3>Tus derechos</h3><p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo al email del responsable, y reclamar ante la Agencia Española de Protección de Datos.</p></div>`,
