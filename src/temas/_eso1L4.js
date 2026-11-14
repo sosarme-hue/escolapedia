@@ -3,7 +3,7 @@
 // Reutiliza los dibujos de _eso4L4.js (texto partido en líneas) y de _lenguas.js, y las figuras y vídeos del lote D de 1º.
 const { mapa: mapaBase } = require("./_util");
 const { linea, cajas, flujo, barras, versus, piramide, rueda } = require("./_eso4L4");
-const L = require("./_lenguas");
+const L = require("./_eso1d").L; // dialogo de 4 turnos en una línea por burbuja
 const { H, vid } = require("./_eso1d");
 const VD = require("./_eso1d-videos");
 
