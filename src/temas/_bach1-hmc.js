@@ -52,7 +52,13 @@ function mapa(t, zonas, flechas = [], nota = "") {
   s += t ? txt(t, 130, top / 2 + 2, 236, 12, 'font-weight="700"') : "";
   zonas.forEach(([x, y, rx, ry, n], i) => {
     const c = COL[i % COL.length];
-    s += `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="${c}" fill-opacity=".22" stroke="${c}" stroke-width="2"/>` + txt(n, x, y, Math.max(40, rx * 2 - 4), 9, 'font-weight="700"');
+    // Letra que cabe dentro de la elipse (la palabra más larga y todas las líneas).
+    let fs = 9.5, w = rx * 1.8;
+    for (; fs > 6; fs -= 0.5) {
+      const ls = partir(n, Math.max(3, Math.floor(w / (fs * 0.56))));
+      if (Math.max(...ls.map((l) => l.length)) * fs * 0.56 <= rx * 1.9 && ls.length * fs * 1.15 <= ry * 1.75) break;
+    }
+    s += `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="${c}" fill-opacity=".22" stroke="${c}" stroke-width="2"/>` + txt(n, x, y, w, fs, 'font-weight="700"');
   });
   flechas.forEach(([x1, y1, x2, y2, c = "var(--red)"]) => {
     s += `<path d="M${x1} ${y1} L ${x2} ${y2}" stroke="${c}" stroke-width="2.4" fill="none" marker-end="url(#${id})"/>`;
