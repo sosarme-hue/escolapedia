@@ -1,117 +1,224 @@
-// Matemáticas 1º ESO: los números decimales. Dibujos propios en SVG.
-const { mapa, C, RD, REV, svg, t, tabla, filas, recta, mezcla, rejilla, vb, vg } = require("./_eso1c");
+// Matemáticas 1º ESO · Los números decimales. Tema nivel libro (lote 2). Contenido y dibujos propios.
+const { D, mapa, tabla, tx, lienzo, pasos, cajas, recta, comparar, formula, resumen, C, RD, DECRET, REV, vb, vg } = require("./_eso1L2");
+
+const unidad = lienzo("Una unidad dividida en 10 décimas y en 100 centésimas: 0,37 son 37 centésimas", `
+  ${[...Array(100)].map((_, i) => `<rect x="${20 + (i % 10) * 12}" y="${22 + Math.floor(i / 10) * 12}" width="12" height="12" fill="${i < 37 ? "var(--pen)" : "var(--card)"}" fill-opacity="${i < 37 ? 0.45 : 1}" stroke="var(--line)" stroke-width=".8"/>`).join("")}
+  <rect x="20" y="22" width="120" height="120" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  ${tx(200, 60, "0,37", { fs: 24, fam: D, c: "var(--pen)" })}${tx(200, 86, "37 centésimas", { fs: 11.5, max: 100 })}${tx(200, 108, "3 décimas", { fs: 11, c: "var(--muted)", max: 100 })}${tx(200, 124, "y 7 centésimas", { fs: 11, c: "var(--muted)", max: 100 })}
+  ${tx(80, 164, "1 unidad = 100 centésimas", { fs: 11.5, c: "var(--muted)", max: 150 })}`, 176);
+
+const posiciones = lienzo("Órdenes de unidades decimales: unidades, coma, décimas, centésimas y milésimas en el número 25,307", `
+  ${[["D", "2"], ["U", "5"], [",", ","], ["d", "3"], ["c", "0"], ["m", "7"]].map(([n, v], i) => `${n === "," ? "" : `<rect x="${14 + i * 39}" y="28" width="35" height="28" rx="7" fill="var(--card)" stroke="${i < 2 ? "var(--pen)" : "var(--red)"}" stroke-width="2"/>`}${tx(31.5 + i * 39, 47, n, { fs: 13, c: i < 2 ? "var(--pen)" : "var(--red)" })}${tx(31.5 + i * 39, 92, v, { fs: 26, fam: D })}`).join("")}
+  ${tx(130, 128, "parte entera  |  parte decimal", { fs: 12, c: "var(--muted)" })}${tx(130, 156, "1 d = 0,1  ·  1 c = 0,01  ·  1 m = 0,001", { fs: 12 })}`);
+
+const orden = recta("Comparar decimales en la recta: 2,3 es mayor que 2,25 aunque tenga menos cifras", {
+  r: [2, 2.5], marcas: [[2, "2"], [2.1, "2,1"], [2.2, "2,2"], [2.3, "2,3"], [2.4, "2,4"], [2.5, "2,5"]], titulo: "2,25 < 2,3",
+  puntos: [{ x: 2.25, t: "2,25", c: "var(--pen)" }, { x: 2.3, t: "2,3", c: "var(--red)", abajo: true }],
+});
+
+const redondeo = recta("Redondear 3,476 a las centésimas: queda 3,48 porque la cifra siguiente, 6, es mayor o igual que 5", {
+  r: [3.47, 3.48], marcas: [[3.47, "3,47"], [3.475, "3,475"], [3.48, "3,48"]], titulo: "Redondeo a centésimas",
+  puntos: [{ x: 3.476, t: "3,476", c: "var(--red)" }],
+});
+
+const suma = pasos("Sumar decimales: colocar las comas en columna, rellenar con ceros, operar y bajar la coma", ["12,5 + 3,47 + 0,8", "Comas en columna", "12,50 + 3,47 + 0,80", "Sumar como naturales: 1677", "Bajar la coma: 16,77"], "Suma en columna");
+
+const mult = comparar("Multiplicar decimales: se multiplica sin comas y se separan tantas cifras decimales como tengan los dos factores juntos; por 10, 100 o 1000 se mueve la coma", [
+  ["2,4 · 1,3", ["24 · 13 = 312", "1 + 1 = 2 decimales", "= 3,12"], "var(--pen)"],
+  ["· 10, 100…", ["3,47 · 10 = 34,7", "3,47 · 100 = 347", "coma a la derecha"], "var(--leaf)"],
+], "Multiplicar");
+
+const div = cajas("Los tres casos de la división con decimales", [
+  ["Decimal : natural", ["7,5 : 3 = 2,5", "coma al bajar decimal"], "var(--pen)"],
+  ["Natural : natural", ["7 : 4 = 1,75", "añadir ,0 y seguir"], "var(--leaf)"],
+  ["… : decimal", ["7,5 : 0,25", "= 750 : 25 = 30"], "var(--red)"],
+  [": 10, 100…", ["34,7 : 100", "= 0,347"], "var(--sun)"],
+], "Dividir");
+
+const tipos = cajas("Tipos de decimales: exactos, periódicos puros y periódicos mixtos", [
+  ["Exacto", ["3/4 = 0,75", "se acaba"], "var(--pen)"], ["Periódico puro", ["1/3 = 0,333…", "periodo: 3"], "var(--leaf)"],
+  ["Periódico mixto", ["1/6 = 0,1666…", "periodo: 6"], "var(--red)"], ["No periódico", ["π = 3,14159…", "sin repetir"], "var(--sun)"],
+], "Expresión decimal");
+
+const fraccion = formula("Pasar un decimal exacto a fracción: se escribe sin coma en el numerador y una potencia de diez en el denominador", "0,45 = 45/100 = 9/20", ["Tantos ceros como decimales", "y después simplificar"], "var(--inf)");
+
+const ticket = lienzo("Tique de la compra con decimales: precios, cantidades y el total", `
+  <rect x="50" y="10" width="160" height="164" rx="6" fill="var(--card)" stroke="var(--muted)" stroke-width="1.5"/>
+  ${[["2 × leche", "1,98"], ["Pan", "0,85"], ["1,5 kg × 2,40", "3,60"], ["Fruta", "2,37"]].map(([a, b], i) => `${tx(62, 36 + i * 22, a, { fs: 11, a: "start", w: 400, max: 96 })}${tx(198, 36 + i * 22, b + " €", { fs: 11, a: "end", max: 50 })}`).join("")}
+  <path d="M60 126 H200" stroke="var(--ink)" stroke-dasharray="3 2"/>${tx(62, 148, "TOTAL", { fs: 13, a: "start" })}${tx(198, 148, "8,80 €", { fs: 14, a: "end", c: "var(--red)", fam: D })}
+  ${tx(130, 166, "pagas 10 € → vuelta 1,20 €", { fs: 10, c: "var(--muted)", max: 150 })}`, 184);
 
 module.exports = {
   materia: "Matemáticas",
   curso: C,
   titulo: "Los números decimales",
-  minutos: 55,
-  objetivos: ["Leer, escribir y descomponer números decimales", "Comparar, ordenar y aproximar decimales", "Sumar, restar, multiplicar y dividir decimales", "Pasar de fracción a decimal y resolver problemas con dinero y medidas"],
-  claves: ["parte entera", "décima", "centésima", "milésima", "redondeo", "decimal periódico"],
+  minutos: 100,
+  objetivos: [
+    "Leer, escribir y descomponer números decimales según el valor de posición",
+    "Comparar, ordenar y representar decimales en la recta",
+    "Redondear y truncar decimales y estimar resultados",
+    "Sumar, restar, multiplicar y dividir números decimales",
+    "Relacionar fracciones y decimales y reconocer decimales exactos y periódicos",
+    "Resolver problemas de compras, medidas y dinero con decimales",
+  ],
+  claves: ["número decimal", "décima", "centésima", "milésima", "redondeo", "decimal periódico"],
   pregunta: {
-    texto: "En una carrera, Marta hace 12,08 s y Lucía 12,1 s. Lucía dice que ha ganado porque 1 es menor que 08. ¿Tiene razón?",
-    respuesta: "No. Hay que comparar cifra a cifra con el mismo número de decimales: 12,08 y 12,10. Las décimas son 0 y 1, así que <mark>12,08 es menor</mark> y Marta ha sido más rápida, por dos centésimas.",
+    texto: "En una carrera de 100 metros, una atleta hace 10,85 s y otra 10,9 s. ¿Quién ha ganado?",
+    respuesta: "Ha ganado la de <mark>10,85 s</mark>. Aunque «85» parezca mayor que «9», hay que comparar cifra a cifra: 10,85 tiene 8 décimas y 10,9 tiene 9 décimas. Por tanto 10,85 &lt; 10,9: ha tardado menos.",
+  },
+  lectura: {
+    titulo: "Una centésima de segundo",
+    html: `<p>En los Juegos Olímpicos de Pekín de 2008, el nadador Michael Phelps ganó la final de 100 metros mariposa por una diferencia increíble: <b>una centésima de segundo</b>. Su rival tocó la pared en 50,59 s y él en 50,58 s. A simple vista parecía que habían llegado a la vez, pero los marcadores electrónicos lo midieron con precisión.</p><p>Los números decimales nos permiten medir con mucha más exactitud que los números enteros. En el deporte se usan décimas, centésimas y milésimas de segundo; en las tiendas, céntimos de euro; en la farmacia, miligramos; en la ciencia, cantidades con muchísimas cifras tras la coma.</p><p>La idea de escribir partes de la unidad con una coma se popularizó en Europa en el siglo XVI gracias al ingeniero flamenco Simon Stevin, que escribió un librito para explicar a comerciantes y agrimensores lo fácil que era calcular así. En algunos países se usa el punto en lugar de la coma (10.85), como en las calculadoras; en España usamos la coma, aunque también se acepta el punto. En este tema aprenderás a manejar estos números con soltura.</p>`,
   },
   bloques: [
-    {
-      html: `<h3>¿Qué es un número decimal?</h3><p>Los <b>números decimales</b> expresan cantidades que <b>no son enteras</b>: 2,5 kg, 1,75 m, 3,99 €. Tienen dos partes separadas por una <b>coma</b>:</p><ul><li>La <b>parte entera</b>, a la izquierda.</li><li>La <b>parte decimal</b>, a la derecha.</li></ul><p>Cada orden de la parte decimal es la décima parte del anterior:</p>${tabla(["Orden", "Equivale a"], [["1 décima (d)", "1/10 = 0,1"], ["1 centésima (c)", "1/100 = 0,01"], ["1 milésima (m)", "1/1 000 = 0,001"]])}<p>3,47 = 3 unidades + 4 décimas + 7 centésimas. Se lee «tres unidades y cuarenta y siete centésimas» o, más corto, «tres coma cuarenta y siete».</p>`,
-      svg: svg("Cuadrado dividido en 100 casillas con 47 coloreadas: cuarenta y siete centésimas", `<rect x="20" y="30" width="40" height="100" fill="var(--pen)" fill-opacity=".35"/><rect x="60" y="30" width="10" height="70" fill="var(--pen)" fill-opacity=".35"/>${rejilla(20, 30, 10, 10, 10, "var(--pen)")}${t(70, 150, "0,47", { s: 16, d: true, c: "var(--pen)" })}${t(190, 64, "4 décimas", { s: 12, c: "var(--pen)" })}${t(190, 86, "+ 7 centésimas", { s: 12 })}${t(190, 118, "47 de 100", { c: "var(--muted)", s: 11 })}`),
-    },
-    {
-      html: `<h3>Comparar y ordenar decimales</h3><p>Para comparar dos decimales:</p><ol><li>Se compara la <b>parte entera</b>: es mayor el que la tiene mayor.</li><li>Si es igual, se comparan las <b>décimas</b>, luego las <b>centésimas</b>, etc.</li></ol><p>Truco: añade <b>ceros a la derecha</b> para que tengan los mismos decimales. Los ceros al final de la parte decimal no cambian el valor: <mark>0,5 = 0,50 = 0,500</mark>.</p><p>Ejemplo: ordenar 2,3; 2,25; 2,307 → 2,300; 2,250; 2,307 → 2,25 &lt; 2,3 &lt; 2,307.</p><p>Entre dos decimales siempre hay otro: entre 1,4 y 1,5 está 1,45.</p>`,
-      svg: (() => { const r = recta(0, 10, 90, 20, 240, [[2.5, "", "var(--leaf)"], [8, "", "var(--red)"]], { num: false }); return svg("Recta entre 2 y 3 dividida en décimas: 2,25 y 2,8 marcados", `${r.s}${t(20, 114, "2", { s: 12 })}${t(240, 114, "3", { s: 12 })}${t(r.X(2.5), 70, "2,25", { c: "var(--leaf)", s: 12 })}${t(r.X(8), 70, "2,8", { c: "var(--red)", s: 12 })}${t(130, 148, "cada marca es una décima", { c: "var(--muted)", s: 11 })}`); })(),
-    },
-    {
-      html: `<h3>Aproximar decimales</h3><p>Como con los naturales, se puede <b>truncar</b> (cortar) o <b>redondear</b> a las unidades, décimas, centésimas…</p><p>Para <b>redondear</b>, se mira la cifra siguiente al orden pedido: si es <mark>5 o mayor, se sube una unidad</mark>; si no, se deja.</p><ul><li>4,736 redondeado a las décimas → 4,7 (la centésima es 3).</li><li>4,736 redondeado a las centésimas → 4,74 (la milésima es 6).</li><li>Precios: 2,995 € se redondea a 3,00 €.</li></ul><p>Las calculadoras dan muchos decimales: redondear a dos (céntimos) es lo habitual con el dinero.</p>`,
-    },
-    {
-      html: `<h3>Sumar y restar decimales</h3><p>Se colocan los números <b>en columna</b> con las <mark>comas alineadas</mark> (unidades bajo unidades, décimas bajo décimas…). Si hace falta, se rellenan con ceros. Después se opera como con los naturales y se baja la coma.</p><p style="text-align:center">12,5 + 3,48 → 12,50 + 3,48 = <b>15,98</b></p><p style="text-align:center">7 − 2,35 → 7,00 − 2,35 = <b>4,65</b></p><p>Error frecuente: alinear por la derecha como si fueran naturales. ¡Siempre por la coma!</p>`,
-      svg: svg("Suma en columna con las comas alineadas: 12,50 más 3,48 igual a 15,98", `${t(170, 50, "1 2 , 5 0", { s: 18, a: "end", d: true })}${t(170, 80, "+   3 , 4 8", { s: 18, a: "end", d: true })}<path d="M80 92 H 176" stroke="var(--ink)" stroke-width="2"/>${t(170, 120, "1 5 , 9 8", { s: 18, a: "end", d: true, c: "var(--leaf)" })}<path d="M136 30 V 130" stroke="var(--red)" stroke-width="1.5" stroke-dasharray="3 3"/>${t(136, 150, "comas en columna", { c: "var(--red)", s: 11 })}`),
-      video: vb("decB"),
-    },
-    {
-      html: `<h3>Multiplicar decimales</h3><p>Se multiplica <b>como si no hubiera comas</b> y, al final, se separan en el resultado tantas cifras decimales como tengan <mark>entre los dos factores</mark>.</p><p>2,4 · 1,3 → 24 · 13 = 312 → hay 1 + 1 = 2 decimales → <b>3,12</b>.</p><p><b>Por la unidad seguida de ceros</b> (10, 100, 1 000): la coma se desplaza a la <b>derecha</b> tantos lugares como ceros. 3,57 · 100 = 357; 0,8 · 1 000 = 800.</p><p>Comprueba siempre con una estimación: 2,4 · 1,3 está cerca de 2 · 1 = 2 y de 3 · 1,5 = 4,5; 3,12 encaja.</p>`,
-    },
-    {
-      html: `<h3>Dividir decimales</h3><ul><li><b>Decimal entre entero</b>: se divide normal y se pone la coma en el cociente al bajar la primera cifra decimal. 7,5 : 3 = 2,5.</li><li><b>Divisor decimal</b>: se multiplican dividendo y divisor por 10, 100… hasta que el divisor sea <b>entero</b>. El cociente no cambia. 4,5 : 0,15 → 450 : 15 = <b>30</b>.</li><li><b>Entre 10, 100, 1 000</b>: la coma se desplaza a la <b>izquierda</b>. 45,6 : 100 = 0,456.</li></ul><p>Si una división no es exacta, se puede seguir añadiendo ceros al dividendo para sacar decimales: 10 : 4 = 2,5.</p>`,
-      video: vb("decB2"),
-    },
-    {
-      html: `<h3>Fracciones y decimales</h3><p>Una fracción se pasa a decimal <b>dividiendo</b> el numerador entre el denominador:</p><ul><li><b>Decimal exacto</b>: la división termina. 3/4 = 0,75; 1/8 = 0,125.</li><li><b>Decimal periódico</b>: unas cifras se repiten sin fin. 1/3 = 0,333… = 0,3̂; 5/6 = 0,8333…</li></ul><p>Un decimal exacto se pasa a fracción poniendo el número sin coma en el numerador y en el denominador un 1 con tantos ceros como decimales: <mark>0,35 = 35/100 = 7/20</mark>.</p>${tabla(["Fracción", "1/2", "1/4", "3/4", "1/5", "1/10"], [["Decimal", "0,5", "0,25", "0,75", "0,2", "0,1"]])}`,
-    },
-    {
-      html: `<h3>Problemas con decimales</h3><p>Los decimales están en las <b>compras</b> y en las <b>medidas</b>:</p><ul><li>3 cuadernos a 1,85 € y un bolígrafo de 0,90 €: 3 · 1,85 + 0,90 = 5,55 + 0,90 = <b>6,45 €</b>. Si pago con 10 €, me devuelven 3,55 €.</li><li>Una cuerda de 7,2 m se corta en 6 trozos iguales: 7,2 : 6 = <b>1,2 m</b> cada uno.</li><li>Precio por kilo: 1,5 kg de manzanas cuestan 2,70 €; 1 kg cuesta 2,70 : 1,5 = <b>1,80 €</b>.</li></ul><p>Comprobar con una estimación evita errores con la coma: 3 cuadernos a casi 2 € son casi 6 €.</p>`,
-    },
+    { html: `<h3>1.1 ¿Qué es un número decimal?</h3><p>Un <b>número decimal</b> expresa una cantidad que no es entera, es decir, que tiene una parte de unidad. Tiene dos partes separadas por la <b>coma decimal</b>: la <b>parte entera</b>, a la izquierda, y la <b>parte decimal</b>, a la derecha. En 7,35 €, la parte entera son 7 euros y la decimal, 35 céntimos.</p><p>La parte decimal se basa en dividir la unidad entre 10 una y otra vez:</p><ul><li>1 <b>décima</b> (d) = 0,1 = 1/10 de unidad.</li><li>1 <b>centésima</b> (c) = 0,01 = 1/100.</li><li>1 <b>milésima</b> (m) = 0,001 = 1/1 000.</li></ul><p>En el dibujo, la unidad es el cuadrado grande, dividido en 100 cuadraditos. Cada fila es una décima y cada cuadradito una centésima. Las 37 casillas coloreadas son 0,37: 3 décimas y 7 centésimas, o lo que es lo mismo, 37 centésimas.</p>`, svg: unidad },
+    { html: `<h3>1.2 Leer, escribir y descomponer decimales</h3><p>Los decimales siguen el mismo sistema posicional que los naturales: cada lugar vale diez veces menos que el de su izquierda. Así, en 25,307 hay 2 decenas, 5 unidades, 3 décimas, 0 centésimas y 7 milésimas. Se puede <b>descomponer</b>: 25,307 = 20 + 5 + 0,3 + 0,007.</p><p>Para <b>leerlo</b> hay dos formas: «veinticinco <b>coma</b> trescientos siete» (la más habitual al hablar) o «veinticinco unidades y trescientas siete <b>milésimas</b>», nombrando la parte decimal por el orden de su última cifra.</p><p>Fíjate en los ceros: 0,5 y 0,50 son el mismo número (5 décimas = 50 centésimas), así que los <b>ceros a la derecha</b> de la parte decimal se pueden añadir o quitar. Pero los ceros intermedios sí importan: 0,05 (5 centésimas) es diez veces menor que 0,5. Y 3,07 es «tres coma cero siete», no «tres coma siete».</p>`, svg: posiciones },
+    { html: `<h3>1.3 Comparar y ordenar decimales</h3><p>Para comparar dos decimales, primero se mira la <b>parte entera</b>: es mayor el que la tiene mayor (12,1 &gt; 9,99). Si la parte entera es igual, se comparan las cifras decimales <b>de una en una</b>, empezando por las décimas, hasta encontrar la primera diferente.</p><p>Ejemplo: 2,3 y 2,25. La parte entera es igual. En las décimas: 3 &gt; 2. Por tanto, <mark>2,3 &gt; 2,25</mark>. Un truco para no liarse es igualar el número de decimales añadiendo ceros: 2,30 y 2,25; ahora es evidente que 230 centésimas son más que 225.</p><p>El error más común es pensar que el número con más cifras decimales es mayor. No es así: 0,9 es mayor que 0,123. Entre dos decimales cualesquiera siempre hay infinitos decimales: entre 2,2 y 2,3 están 2,21; 2,25; 2,256… Esto no pasaba con los naturales, donde entre 2 y 3 no hay ninguno.</p>`, svg: orden },
+    { html: `<h3>1.4 Aproximar decimales</h3><p>Muchas veces un decimal tiene demasiadas cifras para lo que necesitamos: el precio de la gasolina es 1,579 €/L, pero pagamos en céntimos. <b>Aproximar</b> es sustituirlo por otro con menos cifras.</p><ul><li><b>Truncar</b>: se eliminan las cifras a partir del orden elegido. 3,476 truncado a las centésimas es 3,47.</li><li><b>Redondear</b>: se mira la primera cifra que se elimina. Si es <b>5 o mayor</b>, se suma 1 a la anterior; si es menor que 5, se deja igual. 3,476 redondeado a las centésimas es <mark>3,48</mark> (porque 6 ≥ 5); a las décimas, 3,5 (porque 7 ≥ 5); a las unidades, 3.</li></ul><p>Atención al «efecto dominó»: 2,996 redondeado a las centésimas es 3,00, porque al sumar 1 a la cifra 9 se convierte en 10 y se lleva una. Se escribe 3,00 para indicar que la precisión es de centésimas. El redondeo es la forma de aproximar que comete menos error.</p>`, svg: redondeo },
+    { html: `<h3>2.1 Sumar y restar decimales</h3><p>Para sumar o restar decimales se colocan los números en columna de forma que <b>las comas queden alineadas</b>, es decir, unidades bajo unidades, décimas bajo décimas, etc. Si un número tiene menos decimales, se rellenan los huecos con ceros. Después se opera como con naturales y se <b>baja la coma</b> en el resultado.</p><p>Ejemplo: 12,5 + 3,47 + 0,8 → 12,50 + 3,47 + 0,80 = <b>16,77</b>. Resta: 9 − 3,26 → 9,00 − 3,26 = 5,74.</p><p>Para comprobar una resta, suma el resultado y el sustraendo: 5,74 + 3,26 = 9 ✓. Y antes de operar, <b>estima</b>: 12,5 + 3,47 + 0,8 es aproximadamente 12 + 3 + 1 = 16. Si te sale 4,82 o 160, has alineado mal. El cálculo mental también ayuda: para sumar 4,99 € suma 5 € y quita un céntimo.</p>`, svg: suma },
+    { html: `<h3>2.2 Multiplicar decimales</h3><p>Para multiplicar dos decimales se multiplican <b>como si no tuvieran coma</b> y, en el resultado, se separan con la coma <b>tantas cifras decimales como tengan entre los dos factores</b>. Ejemplo: 2,4 · 1,3 → 24 · 13 = 312; hay 1 + 1 = 2 decimales → <mark>3,12</mark>.</p><p>¿Por qué funciona? Porque 2,4 = 24/10 y 1,3 = 13/10, así que el producto es 312/100 = 3,12.</p><p>Multiplicar por la <b>unidad seguida de ceros</b> es muy fácil: se desplaza la coma a la derecha tantos lugares como ceros. 3,47 · 10 = 34,7; 3,47 · 100 = 347; 3,47 · 1 000 = 3 470 (si faltan cifras, se añaden ceros).</p><p>Un detalle que sorprende: al multiplicar por un número menor que 1, el resultado es <b>más pequeño</b> que el otro factor. 50 · 0,2 = 10. Tiene sentido: es como tomar dos décimas partes de 50.</p>`, svg: mult, video: vb("decB") },
+    { html: `<h3>2.3 Dividir con decimales</h3><p>Hay varios casos:</p><ul><li><b>Decimal entre natural</b>: se divide normalmente y, al bajar la primera cifra decimal, se pone la coma en el cociente. 7,5 : 3 = 2,5.</li><li><b>Natural entre natural con decimales en el cociente</b>: si la división no es exacta, se pone coma en el cociente, se añade un 0 al resto y se sigue dividiendo. 7 : 4 = 1,75.</li><li><b>Divisor decimal</b>: se quita la coma del divisor multiplicando dividendo y divisor por 10, 100… (el cociente no cambia). 7,5 : 0,25 = 750 : 25 = 30.</li></ul><p>Dividir entre 10, 100, 1 000 desplaza la coma a la <b>izquierda</b>: 34,7 : 100 = 0,347.</p><p>Igual que antes, dividir entre un número menor que 1 da un resultado <b>mayor</b>: 7,5 : 0,25 = 30, porque en 7,5 € caben 30 monedas de 25 céntimos.</p>`, svg: div },
+    { html: `<h3>2.4 Operaciones combinadas y estimación</h3><p>Con decimales se aplica la misma <b>jerarquía</b> que con naturales: paréntesis, potencias, multiplicaciones y divisiones, y por último sumas y restas. Ejemplo: 2,5 + 1,2 · (4 − 1,5) = 2,5 + 1,2 · 2,5 = 2,5 + 3 = <b>5,5</b>.</p><p>Con decimales es todavía más importante <b>estimar</b> antes de calcular, porque un despiste con la coma multiplica o divide el resultado por 10. Para estimar se redondea a números cómodos: 4,92 · 19,8 ≈ 5 · 20 = 100. Si la cuenta exacta (97,416) se aleja mucho de 100, revisa la coma.</p><p>También conviene saber algunos productos de memoria: · 0,5 es la mitad, · 0,25 es la cuarta parte, · 0,1 es dividir entre 10 y · 1,5 es «uno y medio». Así, 36 · 0,25 = 36 : 4 = 9, sin hacer la cuenta.</p>` },
+    { html: `<h3>3.1 Fracciones y decimales</h3><p>Toda fracción se puede escribir como decimal dividiendo el <b>numerador entre el denominador</b>: 3/4 = 3 : 4 = 0,75. Al hacerlo, pueden salir tres tipos de decimales:</p><ul><li><b>Exactos</b>: la división acaba. 3/4 = 0,75; 2/5 = 0,4.</li><li><b>Periódicos puros</b>: un grupo de cifras, el <b>periodo</b>, se repite justo después de la coma. 1/3 = 0,333… Se escribe con un arco o una raya encima del periodo: 0,<span style="text-decoration:overline">3</span>.</li><li><b>Periódicos mixtos</b>: antes del periodo hay cifras que no se repiten (el anteperiodo). 1/6 = 0,1666… = 0,1<span style="text-decoration:overline">6</span>.</li></ul><p>Una fracción simplificada da un decimal exacto solo si en su denominador no hay más factores primos que 2 y 5 (como 4, 5, 8, 20, 25…). Además, existen decimales con infinitas cifras que nunca se repiten, como π = 3,14159… o √2 = 1,41421…: no proceden de ninguna fracción y los estudiarás más adelante.</p>`, svg: tipos, video: vb("decB2") },
+    { html: `<h3>3.2 De decimal exacto a fracción</h3><p>Para pasar un decimal exacto a fracción se escribe en el <b>numerador</b> el número sin la coma y en el <b>denominador</b> la unidad seguida de tantos ceros como cifras decimales tenga. Después se <b>simplifica</b>.</p><ul><li>0,45 = 45/100 = 9/20.</li><li>2,5 = 25/10 = 5/2.</li><li>0,125 = 125/1 000 = 1/8.</li></ul><p>Esta relación es útil en la vida diaria: 0,5 es la mitad, 0,25 es un cuarto, 0,75 son tres cuartos y 0,2 es un quinto. Si una oferta dice «25 % de descuento», es lo mismo que pagar 0,75 del precio, es decir, tres cuartas partes.</p><p>Los decimales periódicos también se pueden convertir en fracciones, con un método que aprenderás en 3º de ESO. Por ahora, recuerda los más típicos: 0,<span style="text-decoration:overline">3</span> = 1/3 y 0,<span style="text-decoration:overline">6</span> = 2/3.</p>`, svg: fraccion },
+    { html: `<h3>3.3 Problemas con decimales</h3><p>Los decimales aparecen continuamente en problemas de dinero, medidas y tiempos. Algunos consejos:</p><ul><li>Escribe siempre las <b>unidades</b> (€, kg, m, s) y comprueba que todos los datos estén en la misma unidad.</li><li>Cuando el resultado sea dinero, <b>redondea a los céntimos</b> (dos decimales).</li><li><b>Estima</b> antes y comprueba después.</li></ul><p>Ejemplo: «Compras 2 bricks de leche a 0,99 €, una barra de pan a 0,85 €, 1,5 kg de manzanas a 2,40 €/kg y fruta por 2,37 €. Pagas con 10 €. ¿Cuánto te devuelven?». Leche: 2 · 0,99 = 1,98. Manzanas: 1,5 · 2,40 = 3,60. Total: 1,98 + 0,85 + 3,60 + 2,37 = 8,80 €. Vuelta: 10 − 8,80 = <mark>1,20 €</mark>. Estimación: 2 + 1 + 3,5 + 2,5 = 9 €, coherente.</p>`, svg: ticket, video: vg("decV") },
   ],
-  figura: {
-    titulo: "Los decimales en un vistazo",
-    svg: filas("Resumen: parte entera y decimal; décimas, centésimas y milésimas; comparar con los mismos decimales; sumar con comas alineadas; multiplicar contando decimales; dividir con divisor entero", [["Partes", "entera , décimas centésimas…", "var(--pen)"], ["Comparar", "igualar decimales con ceros", "var(--inf)"], ["Redondear", "cifra siguiente ≥ 5 sube", "var(--sun)"], ["+ y −", "comas alineadas", "var(--leaf)"], ["·", "decimales de los dos factores", "var(--red)"], [":", "hacer entero el divisor", "var(--ink)"]], 200),
-  },
-  video: vg("decV"),
-  quiz: mezcla([
-    { q: "En 5,763, la cifra de las centésimas es…", o: ["6", "7", "3"], a: 0, e: "Segunda tras la coma." },
-    { q: "0,4 es igual a…", o: ["0,40", "0,04", "4,0"], a: 0, e: "Ceros a la derecha." },
-    { q: "¿Cuál es mayor?", o: ["3,5", "3,45", "3,499"], a: 0, e: "3,500." },
-    { q: "6,281 redondeado a las décimas:", o: ["6,3", "6,2", "6,28"], a: 0, e: "La centésima es 8." },
-    { q: "4,5 + 2,35 =", o: ["6,85", "6,40", "2,80"], a: 0, e: "Comas alineadas." },
-    { q: "10 − 3,6 =", o: ["6,4", "7,6", "6,6"], a: 0, e: "10,0 − 3,6." },
-    { q: "0,3 · 0,2 =", o: ["0,06", "0,6", "6"], a: 0, e: "Dos decimales." },
-    { q: "2,47 · 100 =", o: ["247", "24,7", "0,0247"], a: 0, e: "Coma dos lugares a la derecha." },
-    { q: "3 : 0,5 =", o: ["6", "1,5", "0,6"], a: 0, e: "30 : 5." },
-    { q: "3/5 en decimal:", o: ["0,6", "0,35", "1,6"], a: 0, e: "3 : 5." },
-  ]),
-  examen: mezcla([
-    { q: "1/3 en decimal es…", o: ["periódico", "exacto", "entero"], a: 0, e: "0,333…" },
-    { q: "0,25 como fracción irreducible:", o: ["1/4", "25/10", "2/5"], a: 0, e: "25/100." },
-    { q: "Si 2,5 kg cuestan 5,50 €, 1 kg cuesta…", o: ["2,20 €", "2,75 €", "13,75 €"], a: 0, e: "5,50 : 2,5." },
-  ]),
-  feynman: ["Qué es una décima y una centésima", "Por qué 0,5 y 0,50 son iguales", "Por qué se alinean las comas al sumar", "Cómo se colocan los decimales al multiplicar", "Cómo se pasa una fracción a decimal"],
-  mapa: mapa("NÚMEROS DECIMALES", "var(--eso)", [
-    ["Lectura", "décimas · centésimas · milésimas", "var(--pen)"],
-    ["Orden", "comparar y redondear", "var(--sun)"],
-    ["Operaciones", "+ − · : con la coma", "var(--leaf)"],
-    ["Fracciones", "exactos · periódicos", "var(--red)"],
-  ], 230),
-  tarjetas: [
-    ["Décima", "0,1 = 1/10."],
-    ["Centésima", "0,01 = 1/100."],
-    ["Ceros a la derecha", "No cambian el valor: 0,5 = 0,50."],
-    ["Sumar decimales", "Con las comas en columna."],
-    ["Multiplicar", "Separar tantos decimales como sumen los factores."],
-    ["· 10, 100…", "La coma va a la derecha."],
-    ["Dividir por decimal", "Hacer entero el divisor multiplicando los dos."],
-    ["Periódico", "Decimal con cifras que se repiten sin fin."],
-  ],
-  familias: ["Comparad precios por kilo o por litro en el súper.", "Medid alturas de la familia en metros con dos decimales y ordenadlas.", "Repasad las tarjetas dos minutos al día."],
-  profesores: {
-    saberes: "Números decimales: orden, aproximación, operaciones, relación con las fracciones y problemas de contexto (RD 217/2022, Matemáticas, sentido numérico).",
-    ideas: ["Folletos de supermercado para calcular compras.", "Cronometrar carreras con centésimas y ordenar tiempos.", "Bloques base diez con la placa como unidad."],
-  },
-  fuentes: [RD, { t: "Proyecto Descartes (INTEF): números decimales", url: "https://proyectodescartes.org/" }],
-  revisado: REV,
-  ejemplosTitulo: "Ejemplos resueltos",
   ejemplos: [
-    { enunciado: "Calcula: 15,3 − 4,75 + 0,8.", pasos: ["Resta en columna: 15,30 − 4,75 = 10,55.", "Suma: 10,55 + 0,80 = 11,35.", "Estimación: 15 − 5 + 1 = 11. Encaja."], resultado: "11,35" },
-    { enunciado: "Calcula: 6,3 : 0,07.", pasos: ["El divisor tiene 2 decimales: multiplico los dos por 100.", "630 : 7.", "= 90."], resultado: "90" },
-    { enunciado: "Un litro de aceite cuesta 4,85 €. ¿Cuánto cuestan 3 litros y cuánto me devuelven si pago con 20 €?", pasos: ["3 · 4,85 = 14,55 €.", "20 − 14,55 = 5,45 €.", "Estimación: 3 · 5 = 15; cambio cerca de 5. Encaja."], resultado: "14,55 €; devuelven 5,45 €." },
+    { enunciado: "Descompón 40,608 y escribe cómo se lee.", pasos: ["4 D, 0 U, 6 d, 0 c, 8 m.", "40 + 0,6 + 0,008."], resultado: "«Cuarenta coma seiscientos ocho» o «cuarenta unidades y seiscientas ocho milésimas»." },
+    { enunciado: "Ordena de menor a mayor: 1,5; 1,45; 1,405; 1,054.", pasos: ["Igualar decimales: 1,500; 1,450; 1,405; 1,054.", "Comparar como milésimas."], resultado: "1,054 < 1,405 < 1,45 < 1,5." },
+    { enunciado: "Redondea 7,2849 a las décimas, centésimas y milésimas.", pasos: ["Décimas: mirar 8 ≥ 5 → 7,3.", "Centésimas: mirar 4 < 5 → 7,28.", "Milésimas: mirar 9 ≥ 5 → 7,285."], resultado: "7,3; 7,28; 7,285." },
+    { enunciado: "Calcula 3,25 · 0,4.", pasos: ["325 · 4 = 1 300.", "2 + 1 = 3 decimales → 1,300."], resultado: "1,3." },
+    { enunciado: "Calcula 9,6 : 0,32.", pasos: ["Quitar la coma del divisor: · 100.", "960 : 32 = 30."], resultado: "30." },
+    { enunciado: "Expresa 7/8 y 5/12 como decimal e indica el tipo.", pasos: ["7 : 8 = 0,875 (la división acaba).", "5 : 12 = 0,41666…"], resultado: "0,875 exacto; 0,41666… periódico mixto (periodo 6)." },
   ],
   errores: [
-    "Creer que 2,15 es mayor que 2,5 porque 15 es mayor que 5.",
-    "Alinear por la derecha al sumar, en lugar de por la coma.",
-    "Al multiplicar, poner en el resultado solo los decimales de un factor.",
-    "Dividir por un decimal sin multiplicar también el dividendo.",
+    "Creer que un decimal con más cifras es mayor: 0,9 > 0,123.",
+    "No alinear las comas al sumar o restar.",
+    "Poner en el producto los decimales de un solo factor: 2,4 · 1,3 = 3,12, no 31,2.",
     "Mover la coma hacia el lado equivocado al multiplicar o dividir por 10, 100…",
+    "Olvidar el cero intermedio: 3,07 no es 3,7.",
+    "Pensar que multiplicar siempre hace mayor: 50 · 0,2 = 10.",
   ],
   ejercicios: [
-    { q: "Escribe con cifras: doce unidades y siete milésimas.", sol: "12,007." },
-    { q: "Descompón 8,406.", sol: "8 unidades + 4 décimas + 0 centésimas + 6 milésimas." },
-    { q: "Ordena de mayor a menor: 0,9; 0,89; 0,099; 0,91.", sol: "0,91 > 0,9 > 0,89 > 0,099." },
-    { q: "Redondea 13,4682 a las unidades, las décimas y las centésimas.", sol: "13; 13,5; 13,47." },
-    { q: "Calcula: 7,08 + 12,9 + 0,35.", sol: "20,33." },
-    { q: "Calcula: 25 − 13,47.", sol: "11,53." },
-    { q: "Calcula: 3,25 · 4,2 y 0,07 · 1 000.", sol: "13,65 y 70." },
-    { q: "Calcula: 18,9 : 7 y 2,4 : 0,06.", sol: "2,7 y 40." },
-    { q: "Pasa a decimal 7/8 y 2/3. Di si son exactos o periódicos.", sol: "0,875 exacto; 0,666… periódico." },
-    { q: "Un paquete de 6 yogures cuesta 2,94 €. ¿Cuánto cuesta cada yogur? ¿Y 15 yogures?", sol: "0,49 €; 15 · 0,49 = 7,35 €." },
+    { nivel: "básico", q: "Escribe con cifras: a) tres unidades y cuatro centésimas; b) doce milésimas; c) cinco coma ciento siete.", sol: "a) 3,04 b) 0,012 c) 5,107." },
+    { nivel: "básico", q: "Indica el valor de la cifra 6 en: 6,2; 0,6; 0,06; 2,306.", sol: "6 unidades; 6 décimas; 6 centésimas; 6 milésimas." },
+    { nivel: "básico", q: "Descompón: 14,25 y 0,708.", sol: "10 + 4 + 0,2 + 0,05. 0,7 + 0,008." },
+    { nivel: "básico", q: "¿Cuántas centésimas hay en 1 unidad? ¿Y milésimas en 1 décima?", sol: "100 centésimas. 100 milésimas." },
+    { nivel: "básico", q: "Escribe < o >: 0,7 … 0,65; 3,09 … 3,1; 12,001 … 12,01.", sol: "0,7 > 0,65; 3,09 < 3,1; 12,001 < 12,01." },
+    { nivel: "básico", q: "Escribe un decimal entre 4,5 y 4,6 y otro entre 0,1 y 0,11.", sol: "Por ejemplo 4,55 y 0,105." },
+    { nivel: "básico", q: "Redondea a las décimas: 2,46; 8,95; 0,349.", sol: "2,5; 9,0; 0,3." },
+    { nivel: "básico", q: "Calcula: 4,7 + 12,35 + 0,08.", sol: "4,70 + 12,35 + 0,08 = 17,13." },
+    { nivel: "básico", q: "Calcula: 20 − 7,45.", sol: "20,00 − 7,45 = 12,55." },
+    { nivel: "básico", q: "Calcula: 5,63 · 10; 5,63 · 1 000; 5,63 : 10; 5,63 : 100.", sol: "56,3; 5 630; 0,563; 0,0563." },
+    { nivel: "básico", q: "Calcula: 1,2 · 0,3 y 2,5 · 4.", sol: "0,36 y 10." },
+    { nivel: "básico", q: "Pasa a fracción y simplifica: 0,5; 0,25; 0,04.", sol: "1/2; 1/4; 4/100 = 1/25." },
+    { nivel: "medio", q: "Ordena de mayor a menor: 0,3; 0,303; 0,033; 0,33.", sol: "0,33 > 0,303 > 0,3 > 0,033." },
+    { nivel: "medio", q: "Redondea 15,9963 a las unidades, décimas, centésimas y milésimas.", sol: "16; 16,0; 16,00; 15,996." },
+    { nivel: "medio", q: "Calcula: 3,6 · 2,05.", sol: "36 · 205 = 7 380; 3 decimales → 7,380 = 7,38." },
+    { nivel: "medio", q: "Calcula con dos decimales: 15 : 7.", sol: "2,14 (resto pequeño; 2,142…)." },
+    { nivel: "medio", q: "Calcula: 4,5 : 0,15 y 0,72 : 0,8.", sol: "450 : 15 = 30. 7,2 : 8 = 0,9." },
+    { nivel: "medio", q: "Calcula: 12,4 − 2 · (3,5 − 1,25).", sol: "3,5 − 1,25 = 2,25; 2 · 2,25 = 4,5; 12,4 − 4,5 = 7,9." },
+    { nivel: "medio", q: "Expresa como decimal e indica el tipo: 3/5, 2/3, 7/30.", sol: "0,6 exacto; 0,666… periódico puro; 0,2333… periódico mixto." },
+    { nivel: "medio", q: "Pasa a fracción irreducible: 1,6; 0,375; 2,25.", sol: "16/10 = 8/5; 375/1 000 = 3/8; 225/100 = 9/4." },
+    { nivel: "medio", q: "Un kilo de tomates cuesta 2,35 €. ¿Cuánto cuestan 3,2 kg?", sol: "3,2 · 2,35 = 7,52 €." },
+    { nivel: "medio", q: "Una botella de 1,5 L se reparte en vasos de 0,25 L. ¿Cuántos vasos se llenan?", sol: "1,5 : 0,25 = 6 vasos." },
+    { nivel: "medio", q: "Estima y luego calcula: 19,8 · 5,1.", sol: "Estimación 20 · 5 = 100. Exacto: 100,98." },
+    { nivel: "avanzado", q: "Cinco amigos pagan una cena de 87,45 € a partes iguales. ¿Cuánto paga cada uno? ¿Sobra algún céntimo?", sol: "87,45 : 5 = 17,49 € exactos. No sobra nada." },
+    { nivel: "avanzado", q: "Un coche gasta 6,4 L cada 100 km. ¿Cuánto gasta en un viaje de 385 km? Si el litro cuesta 1,58 €, ¿cuánto cuesta el viaje?", sol: "6,4 · 3,85 = 24,64 L. 24,64 · 1,58 ≈ 38,93 €." },
+    { nivel: "avanzado", q: "¿Qué número multiplicado por 0,4 da 3? ¿Y dividido entre 0,4 da 3?", sol: "3 : 0,4 = 7,5. 3 · 0,4 = 1,2." },
+    { nivel: "avanzado", q: "Halla el número que redondeado a las décimas da 4,5 y truncado a las décimas da 4,4. Da dos ejemplos.", sol: "Debe estar entre 4,45 y 4,4999…: por ejemplo 4,46 y 4,48." },
+    { nivel: "avanzado", q: "Sin hacer la división, ¿cuáles darán decimal exacto? 3/8, 4/15, 7/20, 5/6.", sol: "Denominadores con solo 2 y 5: 3/8 (2³) y 7/20 (2²·5) exactos. 4/15 y 5/6 periódicos." },
+    { nivel: "avanzado", q: "En una carrera, los tiempos son 12,08 s, 11,95 s, 12,1 s y 11,9 s. Ordénalos del ganador al último y calcula la diferencia entre el primero y el último.", sol: "11,9 < 11,95 < 12,08 < 12,1. Diferencia: 12,1 − 11,9 = 0,2 s." },
+    { nivel: "avanzado", q: "Encuentra el error: «0,3 · 0,2 = 0,6».", sol: "Hay 1 + 1 = 2 decimales: 3 · 2 = 6 → 0,06." },
   ],
+  quiz: [
+    { q: "Una centésima es…", o: ["0,1", "0,01", "0,001", "100"], a: 1, e: "1/100." },
+    { q: "En 3,482, la cifra 8 son…", o: ["8 décimas", "8 centésimas", "8 milésimas", "8 unidades"], a: 1, e: "Segundo lugar tras la coma." },
+    { q: "0,5 y 0,50 son…", o: ["distintos", "el mismo número", "0,50 mayor", "0,5 mayor"], a: 1, e: "Ceros a la derecha no cambian." },
+    { q: "¿Cuál es mayor?", o: ["0,123", "0,9", "0,89", "0,099"], a: 1, e: "9 décimas." },
+    { q: "Entre 2,2 y 2,3 hay…", o: ["ningún decimal", "uno", "nueve", "infinitos"], a: 3, e: "2,21; 2,215…" },
+    { q: "5,368 redondeado a centésimas:", o: ["5,36", "5,37", "5,4", "5,3"], a: 1, e: "8 ≥ 5." },
+    { q: "5,368 truncado a centésimas:", o: ["5,36", "5,37", "5,4", "5,3"], a: 0, e: "Se cortan las cifras." },
+    { q: "3,4 + 1,25 =", o: ["4,29", "4,65", "1,59", "15,9"], a: 1, e: "3,40 + 1,25." },
+    { q: "10 − 0,7 =", o: ["9,3", "3", "0,3", "9,7"], a: 0, e: "10,0 − 0,7." },
+    { q: "0,3 · 0,2 =", o: ["0,6", "0,06", "6", "0,006"], a: 1, e: "Dos decimales." },
+    { q: "4,56 · 100 =", o: ["0,0456", "45,6", "456", "4 560"], a: 2, e: "Coma dos lugares a la derecha." },
+    { q: "4,56 : 10 =", o: ["0,456", "45,6", "4,56", "0,0456"], a: 0, e: "Coma un lugar a la izquierda." },
+    { q: "6 : 0,5 =", o: ["3", "12", "0,3", "1,2"], a: 1, e: "60 : 5." },
+    { q: "36 · 0,25 =", o: ["9", "144", "90", "0,9"], a: 0, e: "Es la cuarta parte." },
+    { q: "3/4 en decimal:", o: ["0,34", "0,75", "1,33", "0,43"], a: 1, e: "3 : 4." },
+    { q: "1/3 = 0,333… es un decimal…", o: ["exacto", "periódico puro", "periódico mixto", "entero"], a: 1, e: "Se repite desde la coma." },
+    { q: "1/6 = 0,1666… es…", o: ["exacto", "periódico puro", "periódico mixto", "no periódico"], a: 2, e: "El 1 no se repite." },
+    { q: "0,4 en fracción irreducible:", o: ["4/10", "2/5", "1/4", "4/100"], a: 1, e: "4/10 = 2/5." },
+    { q: "Multiplicar por 0,5 es…", o: ["el doble", "la mitad", "sumar 0,5", "dividir entre 5"], a: 1, e: "0,5 = 1/2." },
+    { q: "Una buena estimación de 4,9 · 20,3 es…", o: ["10", "100", "1 000", "25"], a: 1, e: "5 · 20." },
+  ],
+  examen: [
+    { q: "Siete centésimas =", o: ["0,7", "0,07", "0,007", "7,00"], a: 1, e: "Segundo lugar decimal." },
+    { q: "Ordena: 0,6; 0,06; 0,66", o: ["0,06 < 0,6 < 0,66", "0,6 < 0,06 < 0,66", "0,66 < 0,6 < 0,06", "0,06 < 0,66 < 0,6"], a: 0, e: "Igualar decimales." },
+    { q: "2,996 redondeado a centésimas:", o: ["2,99", "3,00", "2,10", "3,10"], a: 1, e: "Se lleva una." },
+    { q: "7,2 − 3,85 =", o: ["3,35", "4,45", "3,45", "4,35"], a: 0, e: "7,20 − 3,85." },
+    { q: "1,5 · 2,4 =", o: ["3,6", "36", "0,36", "3,9"], a: 0, e: "15 · 24 = 360." },
+    { q: "8,4 : 0,04 =", o: ["2,1", "21", "210", "0,21"], a: 2, e: "840 : 4." },
+    { q: "0,125 =", o: ["1/8", "1/4", "1/125", "12/5"], a: 0, e: "125/1 000." },
+    { q: "Compras 3 libretas a 1,85 € y pagas con 10 €. Te devuelven…", o: ["4,45 €", "5,55 €", "8,15 €", "4,55 €"], a: 0, e: "10 − 5,55." },
+  ],
+  feynman: ["Qué significa cada cifra después de la coma", "Por qué 0,9 es mayor que 0,123", "Cómo se sabe dónde va la coma al multiplicar dos decimales", "Por qué dividir entre 0,5 da un número mayor"],
+  figura: {
+    titulo: "Los números decimales en un vistazo",
+    svg: resumen("Resumen del tema de los números decimales", [
+      ["Órdenes", "décima 0,1 · centésima 0,01 · milésima 0,001", "var(--pen)"],
+      ["Comparar", "parte entera y después cifra a cifra (igualar decimales)", "var(--leaf)"],
+      ["+ y −", "comas en columna, rellenar con ceros", "var(--sun)"],
+      ["· y :", "· sin coma y contar decimales · : quitar coma del divisor", "var(--inf)"],
+      ["Fracciones", "a/b = a : b · exactos, periódicos puros y mixtos", "var(--red)"],
+    ]),
+  },
+  video: vg("decV"),
+  mapa: mapa("DECIMALES", "var(--inf)", [
+    ["Leer y escribir", "d · c · m · descomponer", "var(--pen)"],
+    ["Comparar y aproximar", "recta · redondeo", "var(--leaf)"],
+    ["Operar", "+ − · : y estimar", "var(--sun)"],
+    ["Fracciones", "exactos · periódicos", "var(--red)"],
+  ], 250),
+  glosario: [
+    ["Número decimal", "Número con parte entera y parte decimal separadas por una coma."],
+    ["Coma decimal", "Signo que separa la parte entera de la decimal."],
+    ["Décima", "Cada una de las 10 partes iguales de la unidad: 0,1."],
+    ["Centésima", "Cada una de las 100 partes iguales de la unidad: 0,01."],
+    ["Milésima", "Cada una de las 1 000 partes iguales de la unidad: 0,001."],
+    ["Truncar", "Eliminar las cifras a partir de un orden."],
+    ["Redondear", "Aproximar al valor más cercano de un orden."],
+    ["Decimal exacto", "Decimal con un número finito de cifras."],
+    ["Decimal periódico puro", "Su periodo empieza justo después de la coma."],
+    ["Decimal periódico mixto", "Tiene cifras que no se repiten antes del periodo."],
+    ["Periodo", "Grupo de cifras que se repite indefinidamente."],
+    ["Estimación", "Cálculo aproximado con números redondeados."],
+  ],
+  situacion: {
+    titulo: "La lista de la compra más barata",
+    reto: "Con un presupuesto de 25 €, vuestro grupo tiene que preparar la compra para un desayuno saludable de seis personas comparando precios reales.",
+    pasos: [
+      "Haced la lista de productos y cantidades necesarias para seis personas.",
+      "Buscad los precios en dos supermercados (folleto o web) y anotadlos con sus unidades (€/kg, €/L).",
+      "Calculad el coste de cada producto según la cantidad (multiplicar decimales) y el total en cada tienda.",
+      "Estimad primero y comprobad después; redondead a los céntimos.",
+      "Decidid dónde comprar, cuánto sobra del presupuesto y cuánto cuesta por persona.",
+    ],
+    producto: "Un tique simulado de cada supermercado con los cálculos y la decisión razonada.",
+    evaluacion: ["Opera correctamente con decimales.", "Usa la estimación para controlar los resultados.", "Compara precios por unidad con criterio.", "Explica la decisión con claridad."],
+  },
+  tarjetas: [
+    ["0,1 / 0,01 / 0,001", "Décima / centésima / milésima"], ["Comparar", "Igualar decimales con ceros"], ["Redondear", "Si la cifra eliminada es ≥ 5, se sube"],
+    ["Sumar y restar", "Comas en columna"], ["Multiplicar", "Sin coma; contar decimales de los dos factores"], ["· 10, 100…", "Coma a la derecha"],
+    [": 10, 100…", "Coma a la izquierda"], ["Divisor decimal", "Multiplicar los dos por 10, 100…"], ["a/b a decimal", "Dividir a : b"],
+    ["0,333…", "Periódico puro (1/3)"], ["0,1666…", "Periódico mixto (1/6)"], ["0,45 a fracción", "45/100 = 9/20"],
+  ],
+  familias: ["Al comprar, estimad el total redondeando cada precio al euro y comparadlo con el tique.", "Medid juntos objetos de casa en metros con decimales (1,25 m).", "Comparad precios por kilo o por litro de dos marcas.", "Mirad resultados deportivos con décimas y centésimas y ordenadlos."],
+  profesores: {
+    saberes: "Sentido numérico: números decimales, orden, aproximación y estimación; operaciones con decimales; relación entre fracciones y decimales; resolución de problemas de consumo y medida (RD 217/2022, Matemáticas 1º ESO; en Cataluña, Decret 175/2022).",
+    ideas: ["Bloques multibase o cuadrícula de 100 para representar décimas y centésimas.", "Tiendas simuladas con tiques reales.", "Carreras cronometradas en Educación Física con décimas.", "Debate: ¿por qué algunas fracciones dan decimales periódicos?"],
+  },
+  fuentes: [RD, DECRET, { t: "Proyecto Descartes (INTEF): números decimales", url: "https://proyectodescartes.org/" }, { t: "RAE: Ortografía, el separador decimal", url: "https://www.rae.es/" }],
+  revisado: REV,
 };
