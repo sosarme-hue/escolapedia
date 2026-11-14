@@ -76,7 +76,8 @@ function flujo(label, nodos, titulo = "", o = {}) {
   // Flecha de vuelta (bucle) por la izquierda: del nodo a al nodo b.
   if (o.vuelta) {
     const [a, b] = o.vuelta, ya = top + a * paso + alto / 2, yb = top + b * paso + alto / 2, xb = nodos[b][1] === "dec" ? 32 : 40;
-    g += `<path d="M40 ${ya} H18 V${yb} H${xb}" fill="none" stroke="var(--pen)" stroke-width="2"/><path d="M${xb - 6} ${yb - 4} L${xb} ${yb} L${xb - 6} ${yb + 4}" fill="none" stroke="var(--pen)" stroke-width="2"/>`;
+    g += `<path d="M${nodos[a][1] === "dec" ? 32 : 40} ${ya} H18 V${yb} H${xb}" fill="none" stroke="var(--pen)" stroke-width="2"/><path d="M${xb - 6} ${yb - 4} L${xb} ${yb} L${xb - 6} ${yb + 4}" fill="none" stroke="var(--pen)" stroke-width="2"/>`;
+    if (o.etiqueta) g += tx(10, (ya + yb) / 2 + 4, o.etiqueta, { fs: 10, c: "var(--red)", a: "start", max: 20 });
   }
   return lienzo(label, g, h);
 }
