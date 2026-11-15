@@ -33,6 +33,7 @@ const VID = {
   modGen: vid("4GMU08J98MQ", "Complete guide to English modal verbs", "Oxford Online English", 894078, "modal verbs advanced english"),
   must: vid("7JrfNdptl24", "El verbo modal must: obligación, necesidad y certeza", "Francisco Ochoa Inglés Fácil", 993437, "verbos modales inglés deducción must can't"),
   pastMod: vid("WQpM0NVM0CM", "Past modals: could have, may have, might have, must have, should have, would have", "Arnel's Everyday English", 2026015, "modal perfects must have could have should have"),
+  shouldve: vid("bh_MxtaIkj4", "Should've, would've, could've: complete grammar & use", "English with Lucy", 975696, "modal perfects must have could have should have"),
   condGen: vid("vXp0ETWXbWo", "The conditionals: 0, 1, 2 & 3", "English with Lucy", 2222055, "conditionals zero first second third"),
   cond01: vid("ttUbJjKBncQ", "Condicionales: condicional cero y condicional de primer orden", "English with Ronnie · engVid", 2256894, "conditionals zero first second third"),
   mixed: vid("FuWk4lTt3UE", "Mixed conditionals: examples & practice", "mmmEnglish", 754665, "mixed conditionals english"),
@@ -68,7 +69,8 @@ function crono(aria, marks, o = {}) {
   if (o.titulo) s += T(130, 24, o.titulo, { fs: fit(o.titulo, 236, 13, true), b: true });
   s += `<path d="M14 ${ay} H 244" stroke="var(--muted)" stroke-width="2.4" marker-end="url(#${id})"/>`;
   if (!o.sin) s += `<path d="M${X(ah)} ${ay - 72} V ${ay + 8}" stroke="var(--red)" stroke-width="1.6" stroke-dasharray="4 3"/>${T(X(ah), ay + 22, "NOW", { fs: 11, b: true, c: "var(--red)" })}`;
-  s += T(18, ay + 22, "past", { fs: 11, a: "start", c: "var(--muted)" }) + T(244, ay + 22, "future", { fs: 11, a: "end", c: "var(--muted)" });
+  if (o.sin || ah > 0.2) s += T(18, ay + 22, "past", { fs: 11, a: "start", c: "var(--muted)" });
+  if (o.sin || ah < 0.72) s += T(244, ay + 22, "future", { fs: 11, a: "end", c: "var(--muted)" });
   const cols = [...new Set(marks.map((m) => m.c || "var(--pen)"))];
   const defs = flecha(id, "var(--muted)") + cols.map((c, i) => flecha(`${id}c${i}`, c)).join("");
   marks.forEach((m) => {

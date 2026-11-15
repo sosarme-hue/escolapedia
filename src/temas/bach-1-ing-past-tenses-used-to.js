@@ -85,7 +85,6 @@ module.exports = tema({
         { w: [0.22, 0.6], l: "it was snowing", c: "var(--pen)", r: 1 },
         { p: 0.42, l: "we knocked", c: "var(--red)" },
       ], { titulo: "Narrative tenses", nota: "before (past perfect) · background (continuous) · events (simple)", sin: true }),
-      v: "narrGen",
     },
     {
       h: "Used to: hábitos y estados pasados",

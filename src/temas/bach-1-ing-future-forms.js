@@ -64,7 +64,6 @@ module.exports = tema({
         "El present simple aparece además, obligatoriamente, en las <b>oraciones temporales</b> referidas al futuro (apartado 4.9): <i>I'll call you when I arrive.</i>",
       ],
       svg: K.compara("Present continuous para planes y present simple para horarios", ["Arrangement", ["We're meeting", "Sara at six.", "(in my diary)", "personal plan"]], ["Timetable", ["The train", "leaves at 7.15.", "(official)", "fixed schedule"]], "var(--leaf)", "var(--inf)"),
-      v: "futGen",
     },
     {
       h: "Future continuous",
