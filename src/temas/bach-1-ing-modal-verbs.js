@@ -1,5 +1,5 @@
 // Inglés I · 1º Bachillerato · Tema 5. Nivel libro. Explicación en castellano, ejemplos en inglés. Contenido propio.
-const { tema, crono, listas, fil, fra, dlg, tb, K } = require("./_bach1-ing");
+const { tema, crono, listas, fil, fra, dlg, escala, tb, K } = require("./_bach1-ing");
 
 module.exports = tema({
   num: 5,
@@ -51,7 +51,7 @@ module.exports = tema({
         "Para <b>pedir a otros</b> que hagan algo: <i>Can you…? / Could you…? / Will you…? / Would you…? / Would you mind + -ing?</i> <i>Could you</i> y <i>Would you mind closing the door?</i> son las más corteses. Ojo con <i>Would you mind…?</i>: para aceptar se responde en negativo (<i>No, not at all / No, of course not</i>), porque la pregunta es «¿te importaría?».",
         "Para ofrecerse: <i>Shall I…? Can I…? Would you like me to…?</i> y para sugerir: <i>Shall we…? We could…</i>",
       ],
-      svg: K.escala("Escala de formalidad para pedir permiso", "Asking for permission", [["Can I…?", "informal", "var(--leaf)"], ["Could I…?", "", "var(--pen)"], ["May I…?", "", "var(--inf)"], ["Would you mind if I…?", "formal", "var(--red)"]], "friends", "strangers"),
+      svg: escala("Escala de formalidad para pedir permiso", "Asking for permission", [["Can I…?", "informal", "var(--leaf)"], ["Could I…?", "", "var(--pen)"], ["May I…?", "", "var(--inf)"], ["Would you mind…?", "formal", "var(--red)"]], "friends", "strangers"),
     },
     {
       h: "Obligación: must y have to",
@@ -86,7 +86,7 @@ module.exports = tema({
         "Y en el pasado, la <b>crítica o el arrepentimiento</b> se expresan con <i>should have</i> + participio (apartado 5.10): <i>You should have told me!</i>",
         "En los textos formales, <i>should</i> aparece en recomendaciones: <i>The government should invest more in public transport.</i> Es una pieza clave en los ensayos de opinión (tema 11).",
       ],
-      svg: K.escala("Fuerza de los consejos de suave a fuerte", "Giving advice", [["could", "soft", "var(--leaf)"], ["should", "", "var(--pen)"], ["ought to", "", "var(--inf)"], ["had better", "", "var(--sun)"], ["must", "strong", "var(--red)"]], "suggestion", "warning"),
+      svg: escala("Fuerza de los consejos de suave a fuerte", "Giving advice", [["could", "soft", "var(--leaf)"], ["should", "", "var(--pen)"], ["ought to", "", "var(--inf)"], ["had better", "", "var(--sun)"], ["must", "strong", "var(--red)"]], "suggestion", "warning"),
     },
     {
       h: "Deducción y certeza sobre el presente",
@@ -97,7 +97,7 @@ module.exports = tema({
         "Para acciones en curso se usa el modal + <b>be + -ing</b>: <i>She must be working late. They might be watching the match.</i>",
         "<i>May</i> es algo más formal que <i>might</i>, y <i>might</i> suele indicar un poco menos de probabilidad, aunque en el uso diario son casi intercambiables. En preguntas no se usa <i>may</i> para deducir: <i>Could it be true?</i> (no *May it be true?).",
       ],
-      svg: K.escala("Escala de certeza de los modales de deducción", "How sure am I?", [["must", "100 %", "var(--leaf)"], ["should", "", "var(--leaf)"], ["might", "50 %", "var(--sun)"], ["might not", "", "var(--sun)"], ["can't", "0 %", "var(--red)"]], "it's true", "it's false"),
+      svg: escala("Escala de certeza de los modales de deducción", "How sure am I?", [["must", "100 %", "var(--leaf)"], ["should", "", "var(--leaf)"], ["might", "50 %", "var(--sun)"], ["might not", "", "var(--sun)"], ["can't", "0 %", "var(--red)"]], "it's true", "it's false"),
     },
     {
       h: "Modal perfects: la forma",
@@ -118,7 +118,7 @@ module.exports = tema({
         "En castellano estas ideas se expresan con «debe de haber…», «no puede haber…», «puede que haya…» o con el futuro de probabilidad («habrá salido»). Por eso es útil practicar la traducción en ambos sentidos.",
         "Para responder a una deducción ajena: <i>— He must have forgotten. — Yes, he must have.</i> (la respuesta corta repite modal + have).",
       ],
-      svg: K.escala("Escala de certeza de los modal perfects para el pasado", "What happened?", [["must have", "sure", "var(--leaf)"], ["may have", "", "var(--pen)"], ["might have", "", "var(--sun)"], ["can't have", "impossible", "var(--red)"]], "it happened", "it didn't"),
+      svg: escala("Escala de certeza de los modal perfects para el pasado", "What happened?", [["must have", "sure", "var(--leaf)"], ["may have", "", "var(--pen)"], ["might have", "", "var(--sun)"], ["can't have", "impossible", "var(--red)"]], "it happened", "it didn't"),
       v: "pastMod",
     },
     {

@@ -1,5 +1,5 @@
 // Inglés I · 1º Bachillerato · Tema 1. Nivel libro. Explicación en castellano, ejemplos en inglés. Contenido propio.
-const { tema, crono, listas, fil, fra, dlg, tb, L, K } = require("./_bach1-ing");
+const { tema, crono, listas, fil, fra, dlg, escala, tb, L, K } = require("./_bach1-ing");
 
 module.exports = tema({
   num: 1,
@@ -63,7 +63,7 @@ module.exports = tema({
         "<i>Rarely, seldom, hardly ever</i> y <i>never</i> ya son negativos, así que no se combinan con <i>not</i>: <i>I hardly ever watch TV</i> (no *I don't hardly ever). En registro formal pueden ir al principio con <b>inversión</b>: <i>Rarely do we see such talent.</i>",
         "Las <b>expresiones de frecuencia</b> de varias palabras van normalmente al final: <i>every day, once a week, twice a month, three times a year, on Mondays, from time to time, every now and then</i>. Ejemplo: <i>We have a test once a fortnight.</i>",
       ],
-      svg: K.escala("Escala de los adverbios de frecuencia de always a never", "How often?", [["always", "100 %", "var(--leaf)"], ["usually", "", "var(--leaf)"], ["often", "", "var(--pen)"], ["rarely", "", "var(--red)"], ["never", "0 %", "var(--red)"]], "before main verb", "after be / auxiliaries"),
+      svg: escala("Escala de los adverbios de frecuencia de always a never", "How often?", [["always", "100 %", "var(--leaf)"], ["usually", "", "var(--leaf)"], ["often", "", "var(--pen)"], ["rarely", "", "var(--red)"], ["never", "0 %", "var(--red)"]], "before main verb", "after be / auxiliaries"),
     },
     {
       h: "Present continuous: la forma",

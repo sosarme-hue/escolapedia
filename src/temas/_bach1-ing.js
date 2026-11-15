@@ -130,7 +130,35 @@ function figura(titulo, aria, cols) {
 const fil = (aria, rows, titulo) => L.filas(aria, rows.map(([t, d, c], i) => [t, d, c || COL[i % COL.length]]), titulo);
 // Frase troceada con colores automáticos: [[texto, función], …].
 const fra = (aria, partes, nota) => L.frase(aria, partes.map(([t, e, c], i) => [t, e, c || COL[i % COL.length]]), nota);
-const dlg = (aria, rows) => L.dialogo(aria, rows.map(([q, t], i) => [q, t, i % 2 ? "var(--leaf)" : "var(--pen)"]));
+// Diálogo en bocadillos alternos con la inicial del hablante en un círculo: [[quién, texto], …].
+function dlg(aria, rows) {
+  const n = rows.length, step = 164 / n;
+  let s = "";
+  rows.forEach(([q, t], i) => {
+    const c = i % 2 ? "var(--leaf)" : "var(--pen)", h = Math.min(40, step - 8), y = 8 + i * step + (step - 8 - h) / 2;
+    const fs = L.fz(t, 13, 190), w = Math.min(232, Number(fit(t, 999, 13)) * 0 + String(t).length * fs * 0.52 + 46), x = i % 2 ? 246 - w : 14;
+    s += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" rx="12" fill="var(--card)" stroke="${c}" stroke-width="2"/>`;
+    s += `<circle cx="${(x + 17).toFixed(1)}" cy="${(y + h / 2).toFixed(1)}" r="9" fill="${c}"/>${T(+(x + 17).toFixed(1), +(y + h / 2 + 4).toFixed(1), q, { fs: 10.5, b: true, c: "#fff" })}`;
+    s += T(+(x + 32).toFixed(1), +(y + h / 2 + fs * 0.36).toFixed(1), t, { fs, a: "start" });
+  });
+  return marco(aria, s);
+}
+
+// Escala horizontal con rótulos alternos arriba y abajo para que no se pisen: [[rótulo, subrótulo, color], …].
+function escala(aria, titulo, items, izq = "", der = "") {
+  const n = items.length, x0 = 22, x1 = 238, paso = (x1 - x0) / n, id = uid("es"), wmax = Math.min(2 * paso - 8, 200);
+  let s = T(130, 24, titulo, { fs: fit(titulo, 236, 14, true), b: true, f: D }) + `<path d="M${x0} 104 H ${x1}" stroke="var(--muted)" stroke-width="2.5" marker-end="url(#${id})"/>`;
+  items.forEach(([a, b, c = "var(--pen)"], i) => {
+    const x = x0 + paso * (i + 0.5), up = i % 2 === 0, fs = Number(fit(a, wmax, 12.5, true)), w = String(a).length * fs * 0.62;
+    const cx = Math.max(6 + w / 2, Math.min(254 - w / 2, x));
+    s += `<circle cx="${x.toFixed(1)}" cy="104" r="8" fill="${c}"/><path d="M${x.toFixed(1)} ${up ? 96 : 112} V ${up ? 84 : 120}" stroke="${c}" stroke-width="1.5"/>`;
+    s += T(+cx.toFixed(1), up ? 78 : 136, a, { fs, b: true, c });
+    if (b) s += T(+cx.toFixed(1), up ? 62 : 151, b, { fs: fit(b, wmax, 10.5), c: "var(--muted)" });
+  });
+  if (izq) s += T(x0 - 8, 172, izq, { fs: fit(izq, 110, 11), a: "start", c: "var(--muted)" });
+  if (der) s += T(x1 + 8, 172, der, { fs: fit(der, 110, 11), a: "end", c: "var(--muted)" });
+  return marco(aria, s, flecha(id, "var(--muted)"));
+}
 const tb = L.tb;
 
 // ---------- Montaje del tema ----------
@@ -197,4 +225,4 @@ function tema(o) {
   return T_;
 }
 
-module.exports = { tema, crono, listas, fil, fra, dlg, tb, L, K, T, fit, marco, COL, strip, CEFR };
+module.exports = { tema, crono, listas, fil, fra, dlg, escala, tb, L, K, T, fit, marco, COL, strip, CEFR };

@@ -1,5 +1,5 @@
 // Inglés I · 1º Bachillerato · Tema 6. Nivel libro. Explicación en castellano, ejemplos en inglés. Contenido propio.
-const { tema, crono, listas, fil, fra, dlg, tb, K } = require("./_bach1-ing");
+const { tema, crono, listas, fil, fra, dlg, escala, tb, K } = require("./_bach1-ing");
 
 module.exports = tema({
   num: 6,
@@ -32,7 +32,7 @@ module.exports = tema({
         "Recuerda que estos «tipos» son modelos: en la lengua real se combinan con modales (<i>might, could, should</i>), imperativos y otros tiempos. Lo esencial es la lógica: cuanto más «hacia atrás» va el tiempo verbal, más <b>distancia de la realidad</b> expresa. El past simple de <i>If I had a car</i> no indica tiempo pasado, sino irrealidad presente.",
         "Una regla compartida con las oraciones temporales del tema 4: en la condición no se usa <i>will</i> para el futuro: <i>If you come, I'll be happy</i> (no *If you will come).",
       ],
-      svg: K.escala("De lo real a lo imposible en las condicionales", "How real is the condition?", [["zero", "always true", "var(--leaf)"], ["first", "possible", "var(--pen)"], ["second", "unreal now", "var(--sun)"], ["third", "impossible", "var(--red)"]], "real", "unreal"),
+      svg: escala("De lo real a lo imposible en las condicionales", "How real is the condition?", [["zero", "always true", "var(--leaf)"], ["first", "possible", "var(--pen)"], ["second", "unreal now", "var(--sun)"], ["third", "impossible", "var(--red)"]], "real", "unreal"),
     },
     {
       h: "Zero conditional",

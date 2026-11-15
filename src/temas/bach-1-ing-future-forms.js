@@ -1,5 +1,5 @@
 // Inglés I · 1º Bachillerato · Tema 4. Nivel libro. Explicación en castellano, ejemplos en inglés. Contenido propio.
-const { tema, crono, listas, fil, fra, dlg, tb, K } = require("./_bach1-ing");
+const { tema, crono, listas, fil, fra, dlg, escala, tb, K } = require("./_bach1-ing");
 
 module.exports = tema({
   num: 4,
@@ -101,7 +101,7 @@ module.exports = tema({
         `<ul><li><b>be about to + base</b>: a punto de (futuro muy inmediato; no admite expresión de tiempo). <i>Hurry up! The train is about to leave.</i></li><li><b>be on the point / verge of + -ing</b>: a punto de, más formal. <i>The company is on the verge of collapsing.</i></li><li><b>be due to + base / be due + hora</b>: previsto según un horario. <i>The plane is due to land at 6. The baby is due in May.</i></li><li><b>be to + base</b>: planes oficiales, sobre todo en prensa. <i>The President is to visit Spain next week.</i></li><li><b>be likely / unlikely to + base</b>: probable, improbable. <i>Prices are likely to rise. He's unlikely to win.</i> También <i>It's likely that…</i></li><li><b>be bound / sure / certain to + base</b>: seguro que. <i>It's bound to rain at the weekend!</i></li></ul>`,
         "Con estas estructuras aumentas la variedad de tu expresión escrita sin recurrir siempre a <i>will</i>: compara <i>The government will probably raise taxes</i> con <i>The government is likely to raise taxes</i>, más propio de un ensayo.",
       ],
-      svg: K.escala("Escala de certeza de las estructuras de futuro", "How likely?", [["bound to", "certain", "var(--leaf)"], ["will", "", "var(--leaf)"], ["likely to", "", "var(--pen)"], ["may", "", "var(--sun)"], ["unlikely", "", "var(--red)"]], "very sure", "not sure"),
+      svg: escala("Escala de certeza de las estructuras de futuro", "How likely?", [["bound to", "certain", "var(--leaf)"], ["will", "", "var(--leaf)"], ["likely to", "", "var(--pen)"], ["may", "", "var(--sun)"], ["unlikely", "", "var(--red)"]], "very sure", "not sure"),
     },
     {
       h: "Oraciones temporales de futuro",
