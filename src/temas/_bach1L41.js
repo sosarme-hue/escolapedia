@@ -134,9 +134,9 @@ function canon(aria, n = 8) {
 
 // Rostro frontal con tercios.
 function rostro(aria) {
-  return marco(aria, `${el(90, 92, 48, 66, trazo("var(--ink)", 2))}${ln(30, 52, 150, 52, "var(--red)", 1.2)}${ln(30, 92, 150, 92, "var(--red)", 1.2)}${ln(30, 126, 150, 126, "var(--red)", 1.2)}${ln(90, 20, 90, 168, "var(--muted)", 1, 'stroke-dasharray="4 3"')}
-  ${el(72, 80, 9, 4, trazo("var(--pen)", 1.8))}${el(108, 80, 9, 4, trazo("var(--pen)", 1.8))}${pa("M90 82 V108 L84 112 M90 108 L96 112", trazo("var(--ink)", 1.6))}${pa("M74 136 Q90 142 106 136", trazo("var(--red)", 1.8))}
-  ${t(214, 46, "frente", { anchor: "end" })}${t(214, 88, "nariz", { anchor: "end" })}${t(214, 122, "boca-barbilla", { anchor: "end" })}${t(214, 146, "3 tercios iguales", { anchor: "end", bold: 1, maxW: 92 })}${t(214, 100, "ojos: 1/2 de la cabeza", { anchor: "end", maxW: 92, fs: 9.5 })}`);
+  return marco(aria, `<g transform="translate(-34 0)">${el(90, 92, 48, 66, trazo("var(--ink)", 2))}${ln(30, 52, 150, 52, "var(--red)", 1.2)}${ln(30, 92, 150, 92, "var(--red)", 1.2)}${ln(30, 126, 150, 126, "var(--red)", 1.2)}${ln(90, 20, 90, 168, "var(--muted)", 1, 'stroke-dasharray="4 3"')}
+  ${el(72, 80, 9, 4, trazo("var(--pen)", 1.8))}${el(108, 80, 9, 4, trazo("var(--pen)", 1.8))}${pa("M90 82 V108 L84 112 M90 108 L96 112", trazo("var(--ink)", 1.6))}${pa("M74 136 Q90 142 106 136", trazo("var(--red)", 1.8))}</g>
+  ${t(214, 46, "frente", { anchor: "end" })}${t(214, 76, "nariz", { anchor: "end" })}${t(214, 122, "boca-barbilla", { anchor: "end" })}${t(214, 146, "3 tercios iguales", { anchor: "end", bold: 1, maxW: 92 })}${t(214, 104, "ojos: 1/2 de la cabeza", { anchor: "end", maxW: 92, fs: 9.5 })}`);
 }
 
 // Marco con regla de los tercios y puntos fuertes.
@@ -157,7 +157,7 @@ function lineasMuestra(aria) {
 function encaje(aria) {
   return marco(aria, `${rc(30, 20, 120, 140, 'fill="none" stroke="var(--pen)" stroke-width="1.6" stroke-dasharray="6 4"')}${ln(90, 20, 90, 160, "var(--muted)", 1, 'stroke-dasharray="3 3"')}${ln(30, 90, 150, 90, "var(--muted)", 1, 'stroke-dasharray="3 3"')}
   ${rc(72, 30, 36, 24, 'fill="none" stroke="var(--ink)" stroke-width="1.8" rx="3"')}${pa("M72 54 Q40 70 40 110 Q40 150 90 150 Q140 150 140 110 Q140 70 108 54", trazo("var(--ink)", 2.2))}
-  ${t(205, 36, "1 caja total", { anchor: "end", bold: 1, color: "var(--pen)" })}${t(205, 58, "2 ejes y mitades", { anchor: "end", maxW: 90 })}${t(205, 80, "3 formas básicas", { anchor: "end", maxW: 90 })}${t(205, 102, "4 puntos de paso", { anchor: "end", maxW: 90 })}${t(205, 124, "5 contorno", { anchor: "end", maxW: 90, color: "var(--red)" })}`);
+  ${t(252, 36, "1 caja total", { anchor: "end", bold: 1, color: "var(--pen)" })}${t(252, 58, "2 ejes y mitades", { anchor: "end", maxW: 90 })}${t(252, 80, "3 formas básicas", { anchor: "end", maxW: 90 })}${t(252, 102, "4 puntos de paso", { anchor: "end", maxW: 90 })}${t(252, 124, "5 contorno", { anchor: "end", maxW: 90, color: "var(--red)" })}`);
 }
 
 module.exports = { tema, figura, PRE, ...L, F, D, W, H, marco, gris, ln, rc, ci, el, pa, trazo, escala, esfera, circulo, canon, rostro, tercios, lineasMuestra, encaje, t };
