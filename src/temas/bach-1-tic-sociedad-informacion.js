@@ -18,7 +18,7 @@ const crono = () => {
 const piramide = () => `<svg viewBox="0 0 260 180" role="img" aria-label="Pirámide: datos en la base, información, conocimiento y sabiduría en la cima">
   <rect width="260" height="180" rx="14" fill="var(--paper)"/>
   ${B.tx(130, 20, "De los datos al conocimiento", { fs: 13, maxW: 236, bold: true, font: B.D })}
-  <path d="M130 32 L 160 64 H 100 Z" fill="var(--sun)" opacity=".85"/>${B.tx(130, 58, "Sabiduría", { fs: 9.5, maxW: 54, bold: true, color: "#fff" })}
+  <path d="M130 32 L 160 64 H 100 Z" fill="var(--sun)" opacity=".85"/>${B.tx(130, 60, "Sabiduría", { fs: 8.5, maxW: 40, bold: true, color: "#fff" })}
   <path d="M98 68 H 162 L 192 102 H 68 Z" fill="var(--leaf)" opacity=".85"/>${B.tx(130, 90, "Conocimiento", { fs: 10.5, maxW: 100, bold: true, color: "#fff" })}
   <path d="M66 106 H 194 L 222 138 H 38 Z" fill="var(--red)" opacity=".85"/>${B.tx(130, 126, "Información: datos con contexto", { fs: 10, maxW: 160, bold: true, color: "#fff" })}
   <path d="M36 142 H 224 L 248 170 H 12 Z" fill="var(--pen)" opacity=".85"/>${B.tx(130, 161, "Datos: 21, «Lleida», 08:15", { fs: 10, maxW: 200, bold: true, color: "#fff" })}

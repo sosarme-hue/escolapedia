@@ -22,7 +22,7 @@ const casa = () => `<svg viewBox="0 0 260 180" role="img" aria-label="Red domés
   <rect x="10" y="74" width="46" height="28" rx="6" fill="var(--ink)" opacity=".8"/>${B.tx(33, 92, "Internet", { fs: 9.5, maxW: 40, bold: true, color: "#fff" })}
   <path d="M56 88 H 92" stroke="var(--sun)" stroke-width="3"/>${B.tx(74, 82, "fibra", { fs: 9, maxW: 30, color: "var(--sun)" })}
   <rect x="92" y="70" width="70" height="36" rx="8" fill="var(--pen)"/>${B.tx(127, 86, "Router", { fs: 11, maxW: 62, bold: true, color: "#fff" })}${B.tx(127, 99, "NAT · DHCP", { fs: 8.5, maxW: 62, color: "#fff" })}
-  <path d="M110 70 V 52 M144 70 V 52" stroke="var(--pen)" stroke-width="2"/><path d="M120 46 q7 -8 14 0 M116 40 q11 -14 22 0" stroke="var(--leaf)" stroke-width="2" fill="none"/>${B.tx(170, 42, "wifi", { fs: 10, maxW: 30, bold: true, color: "var(--leaf)" })}
+  <path d="M110 70 V 52 M144 70 V 52" stroke="var(--pen)" stroke-width="2"/><path d="M120 46 q7 -8 14 0 M116 40 q11 -14 22 0" stroke="var(--leaf)" stroke-width="2" fill="none"/>${B.tx(96, 46, "wifi", { fs: 10, maxW: 30, bold: true, color: "var(--leaf)" })}
   ${[["Portátil", 206, 40, "var(--leaf)"], ["Móvil", 222, 76, "var(--leaf)"], ["TV", 206, 112, "var(--red)"], ["Impresora", 120, 150, "var(--red)"]].map(([t, x, y, c]) => `<rect x="${x - 30}" y="${y - 12}" width="60" height="22" rx="6" fill="var(--card)" stroke="${c}" stroke-width="2"/>${B.tx(x, y + 3, t, { fs: 9.5, maxW: 54, bold: true, color: c })}`).join("")}
   <path d="M162 98 L 176 108 M127 106 V 138" stroke="var(--red)" stroke-width="2.5"/>${B.tx(60, 140, "cable RJ45", { fs: 9, maxW: 60, color: "var(--red)" })}
   <path d="M162 76 L 192 76 M150 70 L 178 44" stroke="var(--leaf)" stroke-width="1.5" stroke-dasharray="3 3"/>

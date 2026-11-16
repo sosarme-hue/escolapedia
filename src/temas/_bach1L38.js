@@ -14,6 +14,24 @@ const AEPD = { t: "Agencia Española de Protección de Datos", url: "https://www
 const INTEF = { t: "INTEF: Marco de Referencia de la Competencia Digital Docente y recursos", url: "https://intef.es/" };
 const DIGCOMP = { t: "Comisión Europea: DigComp 2.2, marco de competencia digital de la ciudadanía", url: "https://publications.jrc.ec.europa.eu/repository/handle/JRC128415" };
 
+// Escapa < > & en los textos que build.js inserta tal cual (quiz, examen, tarjetas, errores, ejercicios,
+// ejemplos y glosario), para poder escribir código HTML o de programación como texto. El código de varias
+// líneas ya lo escapa codigo() de _bach1L3, así que aquí solo se escapan los textos de una línea.
+const e1 = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const eL = (t) => (typeof t === "string" && t.includes("\n") ? t : e1(t));
+function textos(o) {
+  const par = ([a, b, ...r]) => [e1(a), Array.isArray(b) ? b.map(e1) : e1(b), ...r.map((x) => (typeof x === "string" ? e1(x) : x))];
+  return {
+    ...o,
+    quiz: o.quiz.map(par), examen: o.examen.map(par),
+    tarjetas: o.tarjetas.map(([a, b]) => [e1(a), e1(b)]),
+    errores: o.errores.map(e1),
+    glosario: o.glosario.map(([a, b]) => [e1(a), e1(b)]),
+    ejemplos: o.ejemplos.map(([en, pasos, res]) => [e1(en), pasos.map(e1), eL(res)]),
+    ejercicios: Object.fromEntries(Object.entries(o.ejercicios).map(([k, v]) => [k, v.map(([q, sol]) => [e1(q), eL(sol)])])),
+  };
+}
+
 function tema(o) {
   const T = B.tema(o);
   T.materia = MATERIA;
@@ -22,4 +40,4 @@ function tema(o) {
   return T;
 }
 
-module.exports = { ...B, MATERIA, code, INCIBE, AEPD, INTEF, DIGCOMP, tema };
+module.exports = { ...B, MATERIA, code, INCIBE, AEPD, INTEF, DIGCOMP, tema, textos };
