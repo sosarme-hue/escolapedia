@@ -12,6 +12,9 @@ const DICT = { t: "Diccionario de latín Gaffiot en línea (consulta de vocablos
 const PERSEUS = { t: "Perseus Digital Library: textos latinos con análisis morfológico", url: "https://www.perseus.tufts.edu/hopper/collection?collection=Perseus:collection:Greco-Roman" };
 const DLE = { t: "Diccionario de la lengua española (RAE): etimologías", url: "https://dle.rae.es/" };
 
+// Tabla HTML dentro del texto de un bloque: cabecera y filas (la primera celda de cada fila va en negrita).
+const tb = (cab, filas) => `<table class="tb"><tr>${cab.map((c) => `<th>${c}</th>`).join("")}</tr>${filas.map((f) => `<tr>${f.map((c, i) => (i ? `<td>${c}</td>` : `<th>${c}</th>`)).join("")}</tr>`).join("")}</table>`;
+
 const strip = (s) => String(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 
 function tema(o) {
@@ -35,4 +38,4 @@ function tema(o) {
   return T;
 }
 
-module.exports = { ...H, MATERIA, SAB, DICT, PERSEUS, DLE, tema };
+module.exports = { ...H, MATERIA, SAB, DICT, PERSEUS, DLE, tb, tema };

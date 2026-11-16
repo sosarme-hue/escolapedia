@@ -221,5 +221,5 @@ module.exports = tema({
       "Escribir el propio nombre en capital cuadrada sobre una tablilla de cera o de arcilla.",
     ],
   },
-  fuentes: [WIKI("Alfabeto latino", "Alfabeto_latino"), WIKI("Pronunciación del latín", "Pronunciación_del_latín"), PERSEUS],
+  fuentes: [WIKI("Alfabeto latino", "Alfabeto_latino"), WIKI("Latín clásico", "Latín_clásico"), PERSEUS],
 });
