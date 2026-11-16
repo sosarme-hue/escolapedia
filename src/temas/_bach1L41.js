@@ -100,25 +100,25 @@ function escala(aria, n, titulo = "") {
 // Esfera iluminada con sus zonas de luz y sombra.
 function esfera(aria) {
   return marco(aria, `<defs><radialGradient id="esf41" cx="35%" cy="32%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#bbb"/><stop offset=".85" stop-color="#444"/><stop offset="1" stop-color="#777"/></radialGradient></defs>
-  ${el(112, 142, 62, 9, 'fill="#000" fill-opacity=".28"')}${ci(100, 86, 54, 'fill="url(#esf41)" stroke="var(--ink)" stroke-width="1.5"')}
-  ${ln(20, 20, 62, 52, "var(--sun)", 2.5, 'stroke-dasharray="5 3"')}${t(30, 16, "luz", { color: "var(--sun)", bold: 1, maxW: 40 })}
-  ${t(214, 40, "1 luz", { anchor: "end", bold: 1 })}${t(214, 62, "2 penumbra", { anchor: "end" })}${t(214, 84, "3 sombra propia", { anchor: "end" })}${t(214, 106, "4 reflejo", { anchor: "end", color: "var(--pen)" })}${t(214, 128, "5 sombra proyectada", { anchor: "end", color: "var(--red)", maxW: 100 })}
-  ${t(214, 150, "6 núcleo de sombra", { anchor: "end", maxW: 100 })}`);
+  ${el(84, 150, 50, 8, 'fill="#000" fill-opacity=".28"')}${ci(66, 92, 46, 'fill="url(#esf41)" stroke="var(--ink)" stroke-width="1.5"')}
+  ${ln(10, 18, 40, 52, "var(--sun)", 2.5, 'stroke-dasharray="5 3"')}${t(22, 14, "luz", { color: "var(--sun)", bold: 1, maxW: 40 })}
+  ${t(254, 36, "1 luz", { anchor: "end", bold: 1 })}${t(254, 58, "2 penumbra", { anchor: "end" })}${t(254, 80, "3 sombra propia", { anchor: "end" })}${t(254, 102, "4 reflejo", { anchor: "end", color: "var(--pen)" })}${t(254, 124, "5 sombra proyectada", { anchor: "end", color: "var(--red)", maxW: 100 })}
+  ${t(254, 146, "6 núcleo de sombra", { anchor: "end", maxW: 100 })}`);
 }
 
 // Círculo cromático de 12 colores.
 function circulo(aria) {
   const col = ["#e8d31c", "#f0b021", "#ee7d1f", "#e0402a", "#c2185b", "#8e3b9a", "#4d4aa6", "#2a6bb8", "#1ea0c8", "#1ea58a", "#4cae4f", "#a3c93a"];
   const nom = ["amarillo", "", "naranja", "", "rojo", "", "violeta", "", "azul", "", "verde", ""];
-  const cx = 105, cy = 92, R = 70, r = 28, o = [];
+  const cx = 78, cy = 92, R = 62, r = 25, o = [];
   col.forEach((c, i) => { const a0 = (i * 30 - 105) * Math.PI / 180, a1 = a0 + Math.PI / 6;
     const p = (rr, a) => `${(cx + rr * Math.cos(a)).toFixed(1)} ${(cy + rr * Math.sin(a)).toFixed(1)}`;
     o.push(pa(`M${p(r, a0)} L${p(R, a0)} A${R} ${R} 0 0 1 ${p(R, a1)} L${p(r, a1)} A${r} ${r} 0 0 0 ${p(r, a0)}Z`, `fill="${c}" stroke="var(--paper)" stroke-width="1.5"`)); });
   return marco(aria, o.join("") + t(cx, cy + 4, "12 tonos", { fs: 9.5, maxW: 44, bold: 1 }) +
-    t(218, 30, "primarios", { anchor: "end", bold: 1 }) + t(218, 44, "amarillo · rojo · azul", { anchor: "end", maxW: 76, fs: 9.5 }) +
-    t(218, 70, "secundarios", { anchor: "end", bold: 1 }) + t(218, 84, "naranja · violeta · verde", { anchor: "end", maxW: 76, fs: 9.5 }) +
-    t(218, 110, "terciarios", { anchor: "end", bold: 1 }) + t(218, 124, "mezcla de vecinos", { anchor: "end", maxW: 76, fs: 9.5 }) +
-    t(218, 156, "opuestos = complementarios", { anchor: "end", maxW: 76, fs: 9.5, color: "var(--red)" }));
+    t(254, 30, "primarios", { anchor: "end", bold: 1 }) + t(254, 44, "amarillo · rojo · azul", { anchor: "end", maxW: 100, fs: 9.5 }) +
+    t(254, 70, "secundarios", { anchor: "end", bold: 1 }) + t(254, 84, "naranja · violeta · verde", { anchor: "end", maxW: 100, fs: 9.5 }) +
+    t(254, 110, "terciarios", { anchor: "end", bold: 1 }) + t(254, 124, "mezcla de vecinos", { anchor: "end", maxW: 100, fs: 9.5 }) +
+    t(254, 156, "opuestos = complementarios", { anchor: "end", maxW: 100, fs: 9.5, color: "var(--red)" }));
 }
 
 // Figura humana en ocho cabezas.
