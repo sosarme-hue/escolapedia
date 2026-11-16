@@ -135,7 +135,7 @@ module.exports = B.tema({
       <li><b>Marco dentro del marco</b>: una ventana o una puerta enmarca el motivo y refuerza la profundidad.</li></ul>
       <p>También cuentan el <b>espacio vacío</b> o <i>aire</i> (que dota de calma y centra la atención), el <b>peso visual</b> (los elementos oscuros, grandes o saturados pesan más) y el <b>contraste</b> (en valor, tamaño o forma) que dirige la mirada. Ante la duda, haz tres <b>miniaturas</b> de composición de 2 × 3 cm, juzga cuál es más clara y trabaja sobre esa.</p>`,
       svg: B.cajas("Esquemas de composición", [["Tercios", "puntos fuertes"], ["Simetría", "orden y quietud"], ["Diagonal", "dinamismo"], ["Triángulo", "estabilidad"]], { t: "Cuatro esquemas" }),
-      video: { id: "4OT4vj8mvY8", titulo: "5 reglas de composición", canal: "De Viaje con la Cámara", vistas: 1540167 },
+      video: { id: "NRqDVL11lXI", titulo: "Fundamentos de composición para artistas", canal: "Aleks Font", vistas: 84557 },
     },
     {
       h: "Puntos de vista",
