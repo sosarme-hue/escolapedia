@@ -44,7 +44,7 @@ module.exports = tema({
       h: "La regla de tres y la reducción a la unidad",
       html: `<p>La <b>regla de tres simple</b> resuelve problemas con dos magnitudes proporcionales en los que se conocen tres datos y se busca el cuarto. Lo primero, y lo más importante, es decidir si la proporcionalidad es <b>directa o inversa</b>, preguntándose: «si una magnitud se duplica, ¿la otra se duplica o se reduce a la mitad?».</p><p><b>Directa</b>: si un coche gasta 18 L en 300 km, ¿cuánto gastará en 450 km? Más kilómetros, más gasolina: 18/300 = x/450, x = 18 · 450/300 = 27 L.</p><p><b>Inversa</b>: un viaje dura 3 h a 80 km/h; ¿cuánto durará a 120 km/h? Más velocidad, menos tiempo: 3 · 80 = x · 120, x = 240/120 = 2 h.</p><p>Un método más seguro que memorizar esquemas es la <b>reducción a la unidad</b>: calcular primero el valor correspondiente a una unidad y después multiplicar. En el primer ejemplo, el coche gasta 18/300 = 0,06 L por km, de modo que en 450 km gasta 0,06 · 450 = 27 L. En el segundo, a 1 km/h tardaría 3 · 80 = 240 h, y a 120 km/h, 240/120 = 2 h. La constante de proporcionalidad es justamente ese «valor por unidad».</p><p>Este razonamiento se usa a diario para comparar precios: un paquete de 750 g de café a 6,90 € sale a 9,20 €/kg, y uno de 250 g a 2,40 €, a 9,60 €/kg. Los supermercados están obligados a indicar el <b>precio por unidad de medida</b> precisamente para facilitar esta comparación.</p>`,
       svg: compara("Regla de tres directa del consumo de gasolina e inversa de la velocidad y el tiempo", ["Directa", "var(--pen)", ["300 km → 18 L", "450 km → x", "x = 18 · 450/300", "x = 27 L"]], ["Inversa", "var(--leaf)", ["80 km/h → 3 h", "120 km/h → x", "x = 3 · 80/120", "x = 2 h"]], "Pregunta: ¿el doble da el doble o la mitad?"),
-      video: { id: "OyEcoAV3oFY", titulo: "Regla de 3: cómo identificar si es directa o inversa", canal: "Matemáticas profe Alex", vistas: 2403468, busqueda: "proporcionalidad directa e inversa problemas" },
+      video: { id: "QlEUICoxOT8", titulo: "Cómo saber si una proporcionalidad es directa o inversa", canal: "Clases Particulares en Ávila", vistas: 127307, busqueda: "proporcionalidad directa e inversa problemas" },
     },
     {
       h: "La proporcionalidad compuesta",
@@ -214,7 +214,7 @@ module.exports = tema({
     ["Repartos", ["directo: sumar partes", "inverso: usar 1/n", "reducir a la unidad", "compuesta: × razones"]],
     ["Porcentajes", ["IV = 1 ± r/100", "inicial = final / IV", "encadenar: multiplicar", "puntos ≠ %"]],
   ]],
-  video: { id: "DG8j4qDEeHQ", titulo: "Regla de tres simple directa e inversa", canal: "Aprendo", vistas: 1354139, busqueda: "proporcionalidad directa e inversa problemas" },
+  video: { id: "dHOBFb6SW-w", titulo: "Regla de tres simple directa e inversa", canal: "DelSaber", vistas: 309212, busqueda: "proporcionalidad directa e inversa problemas" },
   mapa: ["PROPORCIONALIDAD Y PORCENTAJES", [
     ["Proporciones", "razón · propiedad fundamental"],
     ["Proporcionalidad", "directa · inversa · compuesta"],
