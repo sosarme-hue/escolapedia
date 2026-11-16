@@ -1,0 +1,262 @@
+// Matemáticas Generales (1º de Bachillerato) · Tema 10. Nivel libro. Dibujos propios en SVG.
+const { tema, ficha, tabla, G, columnas, cadena, compara, flujo, radial, lienzo, t, wiki } = require("./_bach1L8");
+
+// Simulación de Monte Carlo: puntos pseudoaleatorios (siempre los mismos) en un cuadrado con un cuarto de círculo.
+let semilla = 3;
+const azar = () => { semilla = (semilla * 16807) % 2147483647; return semilla / 2147483647; };
+const L = 140, X0 = 26, Y0 = 20;
+let dentro = 0, puntos = "";
+for (let i = 0; i < 160; i++) {
+  const x = azar(), y = azar(), d = x * x + y * y <= 1;
+  if (d) dentro++;
+  puntos += `<circle cx="${(X0 + x * L).toFixed(1)}" cy="${(Y0 + L - y * L).toFixed(1)}" r="2.3" fill="${d ? "var(--pen)" : "var(--red)"}"/>`;
+}
+const montecarlo = `<rect x="${X0}" y="${Y0}" width="${L}" height="${L}" fill="var(--card)" stroke="var(--muted)" stroke-width="1.6"/><path d="M${X0} ${Y0} A ${L} ${L} 0 0 1 ${X0 + L} ${Y0 + L}" fill="none" stroke="var(--leaf)" stroke-width="2.4"/>${puntos}`
+  + t(214, 64, `${dentro} / 160`, { s: 13, b: 1, c: "var(--pen)" }) + t(214, 84, "dentro", { s: 10, c: "var(--muted)" }) + t(214, 118, "π ≈ 4 · " + dentro + "/160", { s: 10, b: 1, c: "var(--red)" }) + t(214, 136, "≈ " + ((4 * dentro) / 160).toFixed(2).replace(".", ","), { s: 13, b: 1, c: "var(--red)" });
+
+module.exports = tema({
+  n: 10,
+  titulo: "Matemáticas y tecnología digital",
+  minutos: 110,
+  objetivos: [
+    "Usar la calculadora y la hoja de cálculo de forma eficaz y crítica, con fórmulas, funciones y referencias",
+    "Representar e interpretar datos y funciones con hojas de cálculo y programas de geometría dinámica",
+    "Comprender el sistema binario y las unidades con las que se mide la información",
+    "Describir y aplicar algoritmos sencillos y las ideas básicas del pensamiento computacional",
+    "Utilizar simulaciones con números aleatorios para estimar resultados",
+    "Valorar las matemáticas que hay detrás de la seguridad digital y usar la tecnología de forma responsable",
+  ],
+  claves: ["hoja de cálculo", "fórmula", "referencia absoluta", "geometría dinámica", "sistema binario", "bit", "algoritmo", "pensamiento computacional", "simulación", "criptografía"],
+  lectura: {
+    titulo: "El primer programa",
+    html: `<p>En 1843, la matemática inglesa Ada Lovelace tradujo al inglés un artículo sobre la <i>máquina analítica</i>, una calculadora mecánica que Charles Babbage había diseñado pero nunca llegó a construir. Lovelace añadió tantas notas propias que el texto final triplicaba al original.</p>
+    <p>En la última nota describió, paso a paso, cómo la máquina podría calcular una serie de números muy complicados, los números de Bernoulli. Ese procedimiento detallado se considera hoy el primer programa de ordenador de la historia. Pero Lovelace fue más allá: intuyó que una máquina así podría manipular no solo números, sino cualquier símbolo, como notas musicales o letras.</p>
+    <p>Un siglo después, Alan Turing y otros matemáticos hicieron realidad esa intuición. Hoy todo lo que hacemos con un móvil, desde enviar una foto hasta pagar con una tarjeta, se basa en matemáticas: números binarios, algoritmos, probabilidad y criptografía. En este tema conocerás esas matemáticas y aprenderás a usar las herramientas digitales para pensar mejor, no para pensar menos.</p>`,
+  },
+  pregunta: {
+    texto: "Si piensas un número del 1 al 1.000.000, ¿cuántas preguntas de sí o no necesito para adivinarlo con seguridad?",
+    respuesta: "Basta con <mark>20 preguntas</mark>. Si cada pregunta («¿es mayor que…?») divide por la mitad los números posibles, tras 20 preguntas quedan 1.000.000 / 2²⁰ ≈ 0,95, es decir, uno solo. Es la búsqueda binaria, un algoritmo que usan los ordenadores para encontrar datos en listas ordenadas.",
+  },
+  bloques: [
+    {
+      h: "Matemáticas en la era digital",
+      html: `<p>Vivimos rodeados de tecnología digital: móviles, ordenadores, redes sociales, banca en línea, navegadores GPS, plataformas de vídeo. Todo ello funciona gracias a las matemáticas. Los mensajes viajan codificados en <b>números binarios</b>; los buscadores ordenan páginas con <b>álgebra</b> y <b>probabilidad</b>; los mapas calculan rutas con <b>algoritmos</b>; los pagos se protegen con <b>criptografía</b>, basada en los números primos.</p><p>A su vez, la tecnología ha cambiado la forma de hacer matemáticas. Las <b>calculadoras</b> liberan de los cálculos pesados; las <b>hojas de cálculo</b> permiten trabajar con miles de datos y simular escenarios; los programas de <b>geometría dinámica</b>, como GeoGebra, permiten experimentar con figuras y funciones; y los <b>lenguajes de programación</b> automatizan tareas repetitivas.</p><p>Esto no significa que las matemáticas «ya las haga la máquina». Las herramientas digitales calculan muy deprisa, pero no saben qué hay que calcular ni si el resultado tiene sentido. Hace falta una persona que plantee el problema, elija el modelo, introduzca bien los datos e interprete los resultados. Un error al escribir una fórmula en una hoja de cálculo puede propagarse a miles de celdas sin que nadie lo note.</p><p>En este tema aprenderás a usar estas herramientas con criterio y a entender algunas de las ideas matemáticas que hacen funcionar el mundo digital. El currículo las agrupa en lo que se llama <b>competencia digital</b> y <b>pensamiento computacional</b>.</p>`,
+      svg: radial("Herramientas e ideas de las matemáticas digitales: hoja de cálculo, geometría dinámica, binario y algoritmos", "Digital", ["Hoja de cálculo", "GeoGebra", "Binario y datos", "Algoritmos"]),
+    },
+    {
+      h: "La calculadora, con cabeza",
+      html: `<p>La calculadora científica es una herramienta imprescindible, pero hay que saber usarla. Las calculadoras actuales respetan la <b>jerarquía de las operaciones</b>: 2 + 3 · 4 da 14, no 20. Si se quiere sumar primero, hay que escribir el <b>paréntesis</b>: (2 + 3) · 4 = 20. Un error típico es calcular 12 / 2 · 3 esperando 2: la calculadora divide y multiplica de izquierda a derecha y da 18. Para dividir entre un producto hay que escribir 12 / (2 · 3).</p><p>Para números muy grandes o muy pequeños se usa la <b>notación científica</b>. La población mundial, unos 8.000.000.000 de personas, se escribe 8 · 10⁹ y la calculadora la muestra como 8E9. Al introducirla se usa la tecla EXP o ×10ˣ.</p><p>Las calculadoras y los ordenadores trabajan con un número limitado de cifras, así que cometen <b>errores de redondeo</b>. Al calcular 0,1 + 0,2 en muchos programas se obtiene 0,30000000000000004, porque 0,1 no tiene una expresión exacta en binario. Normalmente estos errores son despreciables, pero al encadenar millones de operaciones pueden acumularse.</p><p>La regla de oro es <b>estimar antes de teclear</b>. Si vas a calcular 48,7 · 21,3, piensa que es aproximadamente 50 · 20 = 1.000. Si la calculadora da 10.373, sabrás que te has equivocado al teclear (el resultado correcto es 1.037,31). La estimación mental es la mejor protección contra los errores de tecleo.</p>`,
+      svg: ficha("Uso correcto de la calculadora: jerarquía de operaciones, paréntesis, notación científica y estimación", "Calculadora", ["2 + 3 · 4 = 14", "(2 + 3) · 4 = 20", "8 · 10⁹ → 8E9", ["0,1 + 0,2 → 0,30000000000000004", "var(--red)", 0], ["Estimar antes de teclear", "var(--leaf)"]]),
+    },
+    {
+      h: "La hoja de cálculo: celdas y fórmulas",
+      html: `<p>Una <b>hoja de cálculo</b> (como LibreOffice Calc, Excel u Hojas de cálculo de Google) es una cuadrícula de <b>celdas</b>. Cada celda se identifica por su columna (una letra) y su fila (un número): A1, B3, D12. En una celda se puede escribir un texto, un número o una <b>fórmula</b>, que siempre empieza por el signo =.</p><p>La gran ventaja de las fórmulas es que se <b>recalculan solas</b>. Si en D2 escribimos =B2*C2 (precio por unidades), al cambiar el precio en B2 el importe se actualiza al instante. Los operadores son + − * / y ^ para las potencias; los paréntesis funcionan como en matemáticas.</p><p>Las hojas incluyen cientos de <b>funciones</b> ya programadas. Algunas muy útiles son:</p><ul><li>=SUMA(D2:D10): suma un rango de celdas (de D2 a D10).</li><li>=PROMEDIO(B2:B30), =MEDIANA(…), =MAX(…), =MIN(…).</li><li>=CONTAR(…) y =CONTAR.SI(B2:B30;"&gt;=5"): cuentan celdas, en este caso las de nota mayor o igual que 5.</li><li>=REDONDEAR(A1;2): redondea a dos decimales.</li><li>=SI(B2&gt;=5;"Aprobado";"Suspenso"): decide según una condición.</li><li>=ALEATORIO() y =ALEATORIO.ENTRE(1;6): generan números al azar.</li></ul><p>Con estas funciones se puede llevar la contabilidad de una excursión, calcular las notas de una evaluación o analizar los resultados de una encuesta. Es la herramienta matemática más usada en empresas y administraciones de todo el mundo.</p>`,
+      svg: tabla("Hoja de cálculo con productos, precios, unidades e importe calculado con fórmulas", [["", "A", "B", "C", "D"], ["1", "Producto", "Precio", "Unid.", "Importe"], ["2", "Libro", "18", "2", "36"], ["3", "Cuaderno", "3,5", "4", "14"], ["4", "Total", "", "", "50"]], { titulo: "D2 = B2*C2 · D4 = SUMA(D2:D3)", marca: [[2, 4], [3, 4], [4, 4]] }),
+    },
+    {
+      h: "Referencias relativas y absolutas",
+      html: `<p>La función más potente de una hoja de cálculo es <b>copiar fórmulas</b>: se escribe una vez y se arrastra hacia abajo o hacia la derecha. Al copiarla, las referencias cambian automáticamente. Si en D2 está =B2*C2 y se copia a D3, la fórmula se convierte en =B3*C3. Son <b>referencias relativas</b>: la hoja recuerda «la celda que está dos columnas a la izquierda», no «la celda B2».</p><p>A veces queremos que una referencia <b>no cambie</b> al copiar, por ejemplo cuando todas las filas usan el mismo tipo de interés o el mismo porcentaje de IVA. Para eso se usa una <b>referencia absoluta</b>, que se escribe con el signo $: $E$1. También existen referencias <b>mixtas</b>, como $E1 (fija la columna) o E$1 (fija la fila).</p><p><b>Ejemplo</b>: interés compuesto. En E1 escribimos el tipo de interés, 5 %. En A2 el año 0 y en B2 el capital inicial, 1.000 €. En B3 escribimos =B2*(1+$E$1) y la arrastramos hacia abajo. Cada fila multiplica el capital anterior por 1,05:</p><ul><li>Año 1: 1.050,00 €; año 2: 1.102,50 €; año 3: 1.157,63 €; año 5: 1.276,28 €.</li></ul><p>Si cambiamos E1 al 3 %, toda la tabla se recalcula. Si olvidáramos los $, al copiar la fórmula a B4 se convertiría en =B3*(1+E2) y E2 está vacía: la hoja daría un resultado erróneo sin avisar.</p>`,
+      svg: tabla("Hoja de cálculo de interés compuesto al 5 por ciento con referencia absoluta a la celda E1", [["", "A", "B"], ["1", "Año", "Capital (€)"], ["2", "0", "1.000,00"], ["3", "1", "1.050,00"], ["4", "2", "1.102,50"], ["5", "3", "1.157,63"]], { titulo: "B3 = B2*(1+$E$1), con E1 = 5 %", marca: [[3, 2]] }),
+      video: { id: "1u7VvwKQ-8k", titulo: "Referencias absolutas en Excel", canal: "Datly Educación, Julio C. Rendón", vistas: 151453, busqueda: "hoja de cálculo referencias absolutas" },
+    },
+    {
+      h: "Gráficos con la hoja de cálculo",
+      html: `<p>Las hojas de cálculo crean gráficos a partir de los datos en unos pocos clics: se seleccionan las celdas y se elige el tipo de gráfico. Lo difícil no es hacerlo, sino <b>elegir el gráfico adecuado</b> y presentarlo con honestidad.</p><ul><li><b>Barras o columnas</b>: para comparar cantidades entre categorías (votos por partido, ventas por mes).</li><li><b>Líneas</b>: para mostrar la evolución de una variable a lo largo del tiempo (temperatura, población, cotización).</li><li><b>Sectores</b>: para mostrar el reparto de un total en pocas partes (presupuesto familiar). Con muchas categorías se vuelven ilegibles.</li><li><b>Dispersión</b> (nube de puntos): para estudiar la relación entre dos variables numéricas. La hoja puede añadir la <b>línea de tendencia</b> y su ecuación, es decir, la recta de regresión.</li><li><b>Histograma</b>: para la distribución de una variable continua agrupada en intervalos.</li></ul><p>Un buen gráfico tiene <b>título</b>, <b>ejes rotulados con unidades</b> y una escala adecuada. Las hojas eligen automáticamente la escala del eje vertical y a veces no empiezan en cero, lo que exagera las diferencias. Conviene revisar siempre estas opciones.</p><p>Además de gráficos, las hojas calculan los <b>parámetros estadísticos</b> con funciones: =PROMEDIO, =MEDIANA, =DESVEST (desviación típica) o =COEF.DE.CORREL (coeficiente de correlación). Así, todo el análisis estadístico del tema 7 se puede hacer con miles de datos en pocos minutos.</p>`,
+      svg: compara("Elección de gráfico: barras para comparar categorías y líneas para mostrar la evolución en el tiempo", ["Barras", "var(--pen)", ["comparar categorías", "votos, ventas", "eje desde 0", ""]], ["Líneas", "var(--red)", ["evolución temporal", "temperatura, precios", "orden en el eje x", ""]], "Título, ejes y unidades siempre"),
+    },
+    {
+      h: "Geometría dinámica: GeoGebra",
+      html: `<p><b>GeoGebra</b> es un programa gratuito que combina geometría, álgebra, gráficas, estadística y cálculo. Se puede usar en el navegador o en el móvil. Su gran novedad es que es <b>dinámico</b>: las construcciones se pueden mover y deformar, y todo lo que depende de ellas se actualiza.</p><p>Algunos usos en este curso:</p><ul><li><b>Representar funciones</b>: basta escribir en la barra de entrada f(x) = x^2 − 4x + 3 para ver la parábola. Con las herramientas se calculan los cortes con los ejes, el vértice o la intersección de dos funciones.</li><li><b>Deslizadores</b>: si escribimos f(x) = a·x^2, GeoGebra crea un deslizador para a. Al moverlo vemos cómo se abre, se cierra o se invierte la parábola. Es la mejor forma de entender el papel de cada parámetro.</li><li><b>Geometría</b>: construir un triángulo, sus mediatrices y su circuncentro, y comprobar al mover los vértices que las mediatrices siempre se cortan en un punto. No es una demostración, pero ayuda a conjeturar.</li><li><b>Estadística y probabilidad</b>: calcular parámetros, dibujar diagramas y obtener probabilidades de la distribución normal.</li><li><b>Resolver ecuaciones</b> y sistemas, incluso de forma simbólica con la vista CAS.</li></ul><p>GeoGebra permite hacer conjeturas y comprobarlas visualmente: «¿qué pasa si…?». Pero, como siempre con la tecnología, hay que saber interpretar lo que muestra la pantalla: un zoom inadecuado puede ocultar cortes con los ejes o hacer que una curva parezca una recta.</p>`,
+      svg: G("Familia de parábolas y igual a por x al cuadrado para a igual a 1, 0,3 y menos 0,5, como al mover un deslizador", { x0: -4, x1: 4, y0: -4.5, y1: 5.5, paso: 1, pasoY: 1, etiquetas: true, pasoEt: 2, pasoEtY: 2 }, (E) => `${E.curva((x) => x * x, "var(--pen)")}${E.curva((x) => 0.3 * x * x, "var(--leaf)")}${E.curva((x) => -0.5 * x * x, "var(--red)")}${t(E.X(-2.6), E.Y(4.6), "a = 1", { s: 10, b: 1, c: "var(--pen)", a: "end" })}${t(E.X(3.9), E.Y(1.6), "a = 0,3", { s: 10, b: 1, c: "var(--leaf)", a: "end" })}${t(E.X(3.9), E.Y(-1.8), "a = −0,5", { s: 10, b: 1, c: "var(--red)", a: "end" })}`),
+      video: { id: "-uwDhkBm6CI", titulo: "Cómo usar GeoGebra para graficar funciones", canal: "MATEMENDI", vistas: 837036, busqueda: "geogebra graficar funciones" },
+    },
+    {
+      h: "El sistema binario",
+      html: `<p>Los ordenadores almacenan toda la información, ya sean textos, fotos, música o vídeos, como secuencias de ceros y unos. Cada cifra binaria se llama <b>bit</b> (de <i>binary digit</i>).</p><p>Nuestro sistema de numeración es <b>decimal</b> o de base 10: cada posición vale 10 veces más que la anterior (unidades, decenas, centenas…). El sistema <b>binario</b> funciona igual, pero en <b>base 2</b>: solo usa las cifras 0 y 1, y cada posición vale el doble que la anterior: 1, 2, 4, 8, 16, 32, 64, 128…</p><ul><li><b>De binario a decimal</b>: se suman los valores de las posiciones con un 1. 1101₂ = 8 + 4 + 0 + 1 = 13.</li><li><b>De decimal a binario</b>: se divide sucesivamente entre 2 y se leen los restos de abajo arriba. 13 : 2 = 6, resto 1; 6 : 2 = 3, resto 0; 3 : 2 = 1, resto 1; 1 : 2 = 0, resto 1. Leyendo de abajo arriba: 1101.</li></ul><p>Con n bits se pueden representar 2ⁿ valores distintos: con 8 bits (un <b>byte</b>), 2⁸ = 256 valores, del 0 al 255. Por eso cada color de una pantalla se da con tres bytes, uno para el rojo, otro para el verde y otro para el azul (RGB), lo que permite 256³ = 16.777.216 colores.</p>`,
+      svg: tabla("Conversión del número binario 1101 a decimal: 8 más 4 más 1 igual a 13", [["2⁴", "2³", "2²", "2¹", "2⁰"], ["16", "8", "4", "2", "1"], ["0", "1", "1", "0", "1"], ["", "8", "4", "", "1"]], { titulo: "1101₂ = 8 + 4 + 1 = 13", marca: [[2, 1], [2, 2], [2, 4]] }),
+      video: { id: "F1xB6oxmMWQ", titulo: "Números binarios: introducción", canal: "Matemáticas profe Alex", vistas: 532596, busqueda: "sistema binario explicación" },
+    },
+    {
+      h: "Medir la información",
+      html: `<p>La unidad básica de información es el <b>bit</b>, y 8 bits forman un <b>byte</b> (B), que basta para codificar una letra en los sistemas más sencillos. Para cantidades mayores se usan múltiplos:</p><ul><li>1 kilobyte (kB) = 1.000 bytes: una página de texto sencillo ocupa unos pocos kB.</li><li>1 megabyte (MB) = 10⁶ bytes: una foto del móvil, de 2 a 5 MB; una canción, unos 4 MB.</li><li>1 gigabyte (GB) = 10⁹ bytes: una película, de 1 a 5 GB.</li><li>1 terabyte (TB) = 10¹² bytes: un disco duro doméstico.</li></ul><p>En informática también se usan múltiplos basados en potencias de 2: 1 KiB = 2¹⁰ = 1.024 bytes, 1 MiB = 2²⁰ bytes. Por eso un disco «de 1 TB» aparece en el ordenador con unos 931 «GB»: el fabricante cuenta en potencias de 10 y el sistema operativo en potencias de 2.</p><p>Hay que distinguir entre <b>bytes</b> (B mayúscula), que miden capacidad, y <b>bits</b> (b minúscula), en los que se mide la velocidad de las conexiones. Una fibra de 100 Mb/s transmite 100 megabits por segundo, que son 100 : 8 = 12,5 MB/s. Descargar una película de 5 GB = 5.000 MB tarda 5.000 : 12,5 = 400 segundos, unos 7 minutos en condiciones ideales.</p>`,
+      svg: cadena("Unidades de información: el bit, el byte de 8 bits, el megabyte y el gigabyte", [["bit", "0 o 1"], ["byte", "8 bits"], ["MB", "10⁶ bytes"], ["GB", "10⁹ bytes"]], "100 Mb/s = 12,5 MB/s", ""),
+    },
+    {
+      h: "Algoritmos y pensamiento computacional",
+      html: `<p>Un <b>algoritmo</b> es una secuencia finita de instrucciones precisas que resuelve un problema. Una receta de cocina, las instrucciones para montar un mueble o el método para dividir con lápiz y papel son algoritmos. La palabra procede del nombre del matemático persa al-Juarismi, del siglo IX.</p><p>Uno de los algoritmos más antiguos que se siguen usando es el <b>algoritmo de Euclides</b> para calcular el máximo común divisor: se divide el mayor entre el menor; si el resto no es cero, se repite con el divisor y el resto; el último divisor es el mcd. Para mcd(252, 105): 252 = 2 · 105 + 42; 105 = 2 · 42 + 21; 42 = 2 · 21 + 0. El mcd es 21. Es mucho más rápido que descomponer en factores primos cuando los números son grandes.</p><p>El <b>pensamiento computacional</b> es la forma de abordar problemas inspirada en la informática. Tiene cuatro ideas clave:</p><ul><li><b>Descomposición</b>: dividir un problema complejo en partes más sencillas.</li><li><b>Reconocimiento de patrones</b>: detectar lo que se repite.</li><li><b>Abstracción</b>: quedarse con lo esencial e ignorar los detalles irrelevantes.</li><li><b>Diseño de algoritmos</b>: escribir los pasos de forma que los pueda seguir cualquiera, incluso una máquina.</li></ul><p>Un algoritmo debe ser <b>preciso</b> (sin ambigüedades), <b>finito</b> (terminar) y <b>correcto</b>. Los algoritmos se pueden escribir en lenguaje natural, en diagramas de flujo o en un lenguaje de programación como Scratch o Python.</p>`,
+      svg: flujo("Algoritmo de Euclides para el máximo común divisor de 252 y 105, que es 21", ["252 = 2 · 105 + 42", "105 = 2 · 42 + 21", "42 = 2 · 21 + 0", "mcd(252, 105) = 21"], "Algoritmo de Euclides"),
+      video: { id: "f10jKIslSUY", titulo: "Introducción a algoritmos: ideas y conceptos básicos", canal: "Manik", vistas: 111152, busqueda: "pensamiento computacional algoritmos" },
+    },
+    {
+      h: "Buscar y ordenar: la eficiencia",
+      html: `<p>No todos los algoritmos que resuelven un problema son igual de buenos: importa cuántos pasos necesitan. Es la <b>eficiencia</b>, y se estudia con matemáticas.</p><p><b>Búsqueda secuencial y binaria</b>. Para encontrar un nombre en una lista desordenada de 1.000 nombres hay que mirarlos uno a uno: en el peor caso, 1.000 comparaciones. Pero si la lista está <b>ordenada</b>, se puede usar la <b>búsqueda binaria</b>: se mira el elemento central, se decide en qué mitad está y se repite. Cada paso divide la lista por 2, así que bastan 10 comparaciones, porque 2¹⁰ = 1.024. Para un millón de datos bastan 20, y para mil millones, 30. El número de pasos crece como el <b>logaritmo en base 2</b> del tamaño.</p><p><b>Ordenar</b>. El método de la burbuja compara cada pareja de elementos vecinos e intercambia los que están desordenados. Para n elementos necesita del orden de n(n − 1)/2 comparaciones: para un millón de datos, unos 5 · 10¹¹. Un ordenador que haga 10⁹ comparaciones por segundo tardaría unos 8 minutos. Los algoritmos rápidos, como el de mezcla, necesitan del orden de n · log₂ n ≈ 2 · 10⁷ comparaciones: dos centésimas de segundo.</p><p>Por eso los informáticos estudian matemáticas: elegir bien el algoritmo puede ser la diferencia entre un programa que responde al instante y uno que no termina nunca.</p>`,
+      svg: columnas("Número de preguntas necesarias en la búsqueda binaria: 7 para 100 datos, 10 para mil, 20 para un millón y 30 para mil millones", [["100", 7, "var(--leaf)"], ["1.000", 10, "var(--pen)"], ["1 millón", 20, "var(--sun)"], ["mil mill.", 30, "var(--red)"]], { titulo: "Búsqueda binaria: pasos necesarios", max: 32 }),
+    },
+    {
+      h: "Simulación y números aleatorios",
+      html: `<p>Cuando un problema de probabilidad es demasiado complicado para calcularlo, se puede <b>simular</b>: repetir el experimento miles de veces con un ordenador y observar las frecuencias relativas. Por la ley de los grandes números, se acercarán a las probabilidades.</p><p>Las hojas de cálculo generan números al azar con =ALEATORIO(), que da un número entre 0 y 1, y =ALEATORIO.ENTRE(1;6), que simula un dado. Copiando la fórmula en 10.000 filas se simulan 10.000 lanzamientos en un segundo. En realidad, los ordenadores generan números <b>pseudoaleatorios</b>: se obtienen con una fórmula, pero se comportan como si fueran aleatorios.</p><p>El <b>método de Monte Carlo</b>, que debe su nombre al famoso casino, usa la simulación para calcular cantidades que no tienen nada de aleatorio. Por ejemplo, para estimar π:</p><ul><li>Se lanzan puntos al azar en un cuadrado de lado 1.</li><li>Se cuenta cuántos caen dentro del cuarto de círculo de radio 1, cuya área es π/4.</li><li>La proporción de puntos dentro se aproxima a π/4, así que π ≈ 4 · (puntos dentro / total).</li></ul><p>Con 10.000 puntos se suele obtener π con dos cifras correctas. Cuantas más repeticiones, más precisa es la estimación, pero la precisión mejora lentamente: para ganar una cifra hay que multiplicar las repeticiones por 100.</p>`,
+      svg: lienzo("Simulación de Monte Carlo: puntos al azar en un cuadrado; la proporción dentro del cuarto de círculo estima pi", montecarlo),
+      video: { id: "WJjDr67frtM", titulo: "¿En qué consiste el método Montecarlo?", canal: "Date un Voltio", vistas: 448491, busqueda: "método Montecarlo explicación" },
+    },
+    {
+      h: "Matemáticas de la seguridad digital",
+      html: `<p>La seguridad de nuestros datos depende de las matemáticas. Un ejemplo sencillo es la <b>fortaleza de una contraseña</b>, que se calcula con combinatoria. Si una contraseña tiene 8 caracteres en minúsculas (26 letras), hay 26⁸ ≈ 2 · 10¹¹ posibilidades. Un ordenador potente que pruebe 10.000 millones por segundo las agota en unos 21 segundos. Con mayúsculas, minúsculas y cifras (62 símbolos), 62⁸ ≈ 2 · 10¹⁴: unas 6 horas. Con 12 caracteres, 62¹² ≈ 3 · 10²¹: más de 10.000 años. La <b>longitud</b> es lo que más protege.</p><p>La <b>criptografía</b> es el arte de cifrar mensajes. Julio César desplazaba cada letra tres posiciones en el alfabeto: A pasaba a D, B a E… Los sistemas actuales, como el RSA que protege las compras en internet, se basan en que es muy fácil multiplicar dos números primos grandes, pero prácticamente imposible descomponer el resultado en factores si tiene cientos de cifras.</p><p>Las matemáticas también <b>detectan errores</b>. La letra del DNI es un <b>código de control</b>: se divide el número entre 23 y el resto indica la letra en una tabla. Para 12345678, el resto es 14, que corresponde a la Z. Si alguien se equivoca al teclear una cifra, la letra ya no coincide.</p><p>Entender estas ideas ayuda a usar la tecnología con responsabilidad: elegir contraseñas largas, desconfiar de mensajes que piden datos y proteger la privacidad.</p>`,
+      svg: tabla("Tiempo para probar todas las contraseñas posibles a diez mil millones de intentos por segundo", [["Contraseña", "Posibles", "Tiempo"], ["4 cifras", "10⁴", "instantáneo"], ["8 minúsculas", "2 · 10¹¹", "21 s"], ["8 mezcladas", "2 · 10¹⁴", "6 h"], ["12 mezcladas", "3 · 10²¹", "10.000 años"]], { titulo: "A 10¹⁰ intentos por segundo", marca: [[4, 2]] }),
+    },
+  ],
+  ejemplos: [
+    ["Pasa 45 a binario y comprueba el resultado.", ["45 : 2 = 22 r 1; 22 : 2 = 11 r 0; 11 : 2 = 5 r 1; 5 : 2 = 2 r 1; 2 : 2 = 1 r 0; 1 : 2 = 0 r 1.", "Restos de abajo arriba: 101101.", "Comprobación: 32 + 8 + 4 + 1 = 45."], "45 = 101101₂."],
+    ["En una hoja, B2 contiene 1.000 y E1 contiene 4 %. ¿Qué fórmula se escribe en B3 para el interés compuesto y qué valor tendrá B4?", ["B3: =B2*(1+$E$1) = 1.040.", "Al copiarla, B4: =B3*(1+$E$1) = 1.040 · 1,04."], "B4 = 1.081,60 €."],
+    ["Calcula mcd(1.071, 462) con el algoritmo de Euclides.", ["1.071 = 2 · 462 + 147.", "462 = 3 · 147 + 21.", "147 = 7 · 21 + 0."], "mcd = 21."],
+    ["¿Cuánto se tarda en descargar un archivo de 4 GB con una conexión de 50 Mb/s?", ["4 GB = 4.000 MB = 32.000 Mb.", "32.000 : 50 = 640 s."], "Unos 640 s, casi 11 minutos."],
+    ["Halla la letra del DNI 12345678. (Tabla: TRWAGMYFPDXBNJZSQVHLCKE, posiciones del 0 al 22.)", ["12.345.678 : 23 = 536.768, resto 14.", "La posición 14 de la tabla es la Z."], "12345678Z."],
+    ["En una simulación de Monte Carlo, 785 de 1.000 puntos caen dentro del cuarto de círculo. Estima π.", ["Proporción: 785/1.000 = 0,785 ≈ π/4.", "π ≈ 4 · 0,785."], "π ≈ 3,14."],
+  ],
+  errores: [
+    "Olvidar los paréntesis en la calculadora y obtener otra operación distinta.",
+    "Escribir una fórmula en la hoja de cálculo sin el signo = o copiarla sin fijar con $ las referencias que deben quedar fijas.",
+    "Confundir megabits (Mb) con megabytes (MB) al calcular velocidades de descarga.",
+    "Leer los restos de abajo arriba al revés al pasar un número a binario.",
+    "Fiarse de un resultado digital sin estimar antes si es razonable.",
+    "Tomar lo que muestra GeoGebra como demostración en lugar de como conjetura.",
+  ],
+  ejercicios: {
+    b: [
+      ["Pasa 13 a binario.", "1101."],
+      ["Pasa 101101₂ a decimal.", "32 + 8 + 4 + 1 = 45."],
+      ["¿Cuántos valores distintos se pueden representar con 8 bits?", "2⁸ = 256."],
+      ["En una hoja, A1 = 12 y A2 = 8. ¿Qué da la fórmula =A1*2+A2?", "32."],
+      ["¿Qué resultado da =PROMEDIO(4;6;8;10)?", "7."],
+      ["Calcula 2 + 3 · 4 y (2 + 3) · 4. ¿Por qué son distintos?", "14 y 20: la multiplicación tiene prioridad sobre la suma."],
+      ["Escribe en notación científica 0,000045 y 6.800.000.000.", "4,5 · 10⁻⁵ y 6,8 · 10⁹."],
+      ["¿Cuántos bytes son 3 KiB?", "3 · 1.024 = 3.072 bytes."],
+      ["Calcula mcd(48, 18) con el algoritmo de Euclides.", "48 = 2 · 18 + 12; 18 = 1 · 12 + 6; 12 = 2 · 6. mcd = 6."],
+      ["¿Cuántas preguntas de sí o no bastan para adivinar un número del 1 al 100?", "7, porque 2⁷ = 128 ≥ 100."],
+    ],
+    m: [
+      ["Pasa 200 a binario.", "11001000."],
+      ["Suma en binario 1011 + 110 y comprueba en decimal.", "10001₂ = 17 = 11 + 6."],
+      ["En B3 está =B2*$E$1. ¿Qué fórmula aparece al copiarla en B4? ¿Y si fuera =B2*E1?", "=B3*$E$1. Sin $: =B3*E2."],
+      ["Con una hoja, calcula el capital de 1.000 € al 5 % compuesto anual al cabo de 3 y 5 años.", "1.157,63 € y 1.276,28 €."],
+      ["¿Cuánto tarda en descargarse un archivo de 4 GB con una conexión de 50 Mb/s?", "32.000 Mb : 50 = 640 s ≈ 10,7 min."],
+      ["Calcula la letra del DNI 12345678.", "Resto de dividir entre 23: 14 → Z."],
+      ["¿Cuántos colores se pueden representar con 24 bits (3 bytes)?", "2²⁴ = 16.777.216."],
+      ["¿Qué es más seguro: un PIN de 6 cifras o una clave de 4 letras minúsculas?", "PIN: 10⁶ = 1.000.000; letras: 26⁴ = 456.976. Es más seguro el PIN."],
+      ["Cifra «HOLA» con el cifrado de César de desplazamiento 3 (alfabeto sin Ñ).", "KROD."],
+      ["En una simulación, 788 de 1.000 puntos caen dentro del cuarto de círculo. Estima π.", "4 · 0,788 = 3,152."],
+      ["Escribe un algoritmo para decidir si un año es bisiesto (múltiplo de 4, salvo los múltiplos de 100 que no lo son de 400). Aplícalo a 2024, 2100 y 2000.", "Si es múltiplo de 400: sí; si no, si es múltiplo de 100: no; si no, si es múltiplo de 4: sí; si no: no. 2024 sí, 2100 no, 2000 sí."],
+      ["¿Por qué un ordenador puede dar 0,30000000000000004 al sumar 0,1 + 0,2?", "Porque 0,1 y 0,2 no tienen expresión binaria finita y se guardan redondeados; el pequeño error aparece en la suma."],
+    ],
+    a: [
+      ["Calcula cuánto tardaría un ordenador que prueba 10¹⁰ claves por segundo en agotar todas las contraseñas de 8 y de 12 caracteres con 62 símbolos.", "62⁸ ≈ 2,18 · 10¹⁴ → 21.800 s ≈ 6 h. 62¹² ≈ 3,2 · 10²¹ → 3,2 · 10¹¹ s ≈ 10.000 años."],
+      ["Compara el número de comparaciones de la búsqueda secuencial y de la binaria en una lista ordenada de un millón de datos.", "Secuencial: hasta 1.000.000. Binaria: 20, porque 2²⁰ ≈ 1,05 millones."],
+      ["El sistema hexadecimal usa base 16, con las cifras 0-9 y A-F (A = 10, …, F = 15). Pasa 255 a hexadecimal y explica qué color web es #FF8000 (rojo, verde y azul).", "255 = 15 · 16 + 15 = FF. #FF8000: rojo 255, verde 128, azul 0: naranja."],
+      ["Diseña en una hoja de cálculo la sucesión de Fibonacci (A1 = 1, A2 = 1, A3 = A1 + A2…). ¿Cuánto vale el término 20?", "A3 = A1+A2 copiada hacia abajo; el término 20 es 6.765."],
+      ["Calcula mcd(1.071, 462) y mcm(1.071, 462).", "mcd = 21. mcm = 1.071 · 462 / 21 = 23.562."],
+      ["Diseña una simulación de 1.000 lanzamientos de dos dados con ALEATORIO.ENTRE y di cuántas sumas 7 esperas.", "C = ALEATORIO.ENTRE(1;6)+ALEATORIO.ENTRE(1;6); contar con CONTAR.SI(…;7). Esperadas: 1.000/6 ≈ 167."],
+      ["¿Cuántos bits hacen falta como mínimo para dar un código distinto a 1.000 alumnos?", "10 bits, porque 2⁹ = 512 &lt; 1.000 ≤ 2¹⁰ = 1.024."],
+      ["Un ordenador hace 10⁹ comparaciones por segundo. Compara el tiempo de ordenar un millón de datos con el método de la burbuja, n(n − 1)/2, y con uno de orden n · log₂ n.", "Burbuja: ≈ 5 · 10¹¹ → 500 s ≈ 8 min. Rápido: 10⁶ · 20 = 2 · 10⁷ → 0,02 s."],
+    ],
+  },
+  quiz: [
+    ["En una hoja de cálculo, una fórmula empieza siempre por…", ["=", "+", "$", "#"], "Signo igual."],
+    ["La calculadora da para 2 + 3 · 4…", ["14", "20", "24", "9"], "Jerarquía de operaciones."],
+    ["Para calcular 12 entre el producto de 2 y 3 se escribe…", ["12 / (2 · 3)", "12 / 2 · 3", "(12 / 2) · 3", "12 · 2 / 3"], "Con paréntesis."],
+    ["8 · 10⁹ aparece en la calculadora como…", ["8E9", "8·9", "89", "8^9E"], "Notación científica."],
+    ["=SUMA(A1:A5) suma…", ["de A1 a A5", "A1 y A5", "la columna A entera", "5 veces A1"], "Un rango."],
+    ["Una referencia absoluta se escribe…", ["$E$1", "E1", "#E1", "E1!"], "Con $."],
+    ["Si D2 = B2*C2 se copia a D3, queda…", ["=B3*C3", "=B2*C2", "=B3*C2", "=D2*D3"], "Referencias relativas."],
+    ["Para mostrar la evolución de la temperatura a lo largo del año conviene un gráfico de…", ["líneas", "sectores", "barras apiladas", "dispersión"], "Evolución temporal."],
+    ["En GeoGebra, un deslizador sirve para…", ["variar un parámetro y ver el efecto", "borrar objetos", "guardar el archivo", "escribir texto"], "Geometría dinámica."],
+    ["1101₂ en decimal es…", ["13", "11", "1.101", "14"], "8 + 4 + 1."],
+    ["12 en binario es…", ["1100", "1010", "1110", "1001"], "8 + 4."],
+    ["Con 8 bits se representan … valores.", ["256", "8", "64", "255"], "2⁸."],
+    ["Un byte tiene…", ["8 bits", "10 bits", "2 bits", "1.024 bits"], "Definición."],
+    ["Una conexión de 80 Mb/s descarga…", ["10 MB por segundo", "80 MB por segundo", "640 MB por segundo", "8 MB por segundo"], "80 : 8."],
+    ["Un algoritmo debe ser…", ["preciso y finito", "largo", "escrito en Python", "aleatorio"], "Sin ambigüedad y que termine."],
+    ["mcd(252, 105) es…", ["21", "7", "42", "105"], "Algoritmo de Euclides."],
+    ["La búsqueda binaria en un millón de datos ordenados necesita unos…", ["20 pasos", "1.000 pasos", "500.000 pasos", "100 pasos"], "2²⁰ ≈ 10⁶."],
+    ["El método de Monte Carlo usa…", ["simulaciones con números aleatorios", "fórmulas exactas", "solo geometría", "binario"], "Repetir al azar."],
+    ["Lo que más aumenta la seguridad de una contraseña es…", ["su longitud", "empezar por mayúscula", "usar tu nombre", "que sea fácil de recordar"], "Crecimiento exponencial."],
+    ["La letra del DNI se obtiene con el resto de dividir entre…", ["23", "26", "10", "11"], "Código de control."],
+  ],
+  examen: [
+    ["La calculadora da para 12 / 2 · 3…", ["18", "2", "6", "4"], "De izquierda a derecha."],
+    ["Si B2 = 500 y E1 = 10 %, =B2*(1+$E$1) da…", ["550", "510", "600", "50"], "500 · 1,1."],
+    ["101010₂ en decimal es…", ["42", "21", "40", "52"], "32 + 8 + 2."],
+    ["25 en binario es…", ["11001", "10011", "11010", "10101"], "16 + 8 + 1."],
+    ["Un archivo de 3 GB con una conexión de 100 Mb/s tarda…", ["240 s", "30 s", "3.000 s", "24 s"], "24.000 Mb : 100."],
+    ["mcd(48, 36) es…", ["12", "6", "4", "18"], "48 = 36 + 12; 36 = 3 · 12."],
+    ["Para adivinar un número del 1 al 1.000 bastan…", ["10 preguntas", "100 preguntas", "500 preguntas", "5 preguntas"], "2¹⁰ = 1.024."],
+    ["Con 10 caracteres de 26 letras hay … contraseñas.", ["26¹⁰", "10²⁶", "260", "26 · 10"], "Principio multiplicativo."],
+  ],
+  feynman: ["Por qué conviene estimar el resultado antes de usar la calculadora", "Qué diferencia hay entre una referencia relativa y una absoluta en una hoja de cálculo", "Cómo se pasa un número de decimal a binario y por qué los ordenadores usan el binario", "Por qué la búsqueda binaria es tan rápida", "Cómo se puede estimar π lanzando puntos al azar"],
+  glosario: [
+    ["Notación científica", "Forma de escribir un número como a · 10ⁿ, con 1 ≤ a &lt; 10."],
+    ["Hoja de cálculo", "Programa que organiza datos en celdas y calcula con fórmulas."],
+    ["Fórmula", "Expresión que empieza por = y calcula un valor a partir de otras celdas."],
+    ["Referencia relativa", "Referencia a una celda que cambia al copiar la fórmula."],
+    ["Referencia absoluta", "Referencia fijada con $ que no cambia al copiar la fórmula."],
+    ["Geometría dinámica", "Programas en los que las construcciones se pueden mover y se actualizan."],
+    ["Deslizador", "Control de GeoGebra que permite variar el valor de un parámetro."],
+    ["Sistema binario", "Sistema de numeración en base 2, con las cifras 0 y 1."],
+    ["Bit", "Unidad mínima de información: un 0 o un 1."],
+    ["Byte", "Grupo de 8 bits."],
+    ["Algoritmo", "Secuencia finita de instrucciones precisas que resuelve un problema."],
+    ["Pensamiento computacional", "Forma de resolver problemas basada en descomponer, buscar patrones, abstraer y diseñar algoritmos."],
+    ["Búsqueda binaria", "Algoritmo que busca en una lista ordenada dividiéndola por la mitad en cada paso."],
+    ["Número pseudoaleatorio", "Número generado con una fórmula que se comporta como si fuera aleatorio."],
+    ["Método de Monte Carlo", "Técnica que estima resultados mediante simulaciones aleatorias repetidas."],
+    ["Criptografía", "Disciplina que estudia cómo cifrar y descifrar mensajes."],
+    ["Código de control", "Dígito o letra calculado a partir de un número para detectar errores."],
+  ],
+  situacion: {
+    titulo: "Laboratorio digital de matemáticas",
+    reto: "El instituto quiere crear un «laboratorio digital» en la web del centro con herramientas útiles para el alumnado. Vuestro grupo debe diseñar tres recursos matemáticos con hoja de cálculo y GeoGebra y explicar las matemáticas que hay detrás.",
+    pasos: [
+      "Diseñad una hoja de cálculo de ahorro con interés compuesto y aportaciones mensuales, con el tipo de interés en una celda fija.",
+      "Cread en GeoGebra una construcción con deslizadores que muestre cómo cambian las funciones lineales, cuadráticas y exponenciales.",
+      "Programad una simulación de Monte Carlo en la hoja de cálculo para estimar π o una probabilidad del tema 8.",
+      "Preparad una ficha sobre contraseñas seguras con los cálculos de combinatoria y la letra del DNI como ejemplo de código de control.",
+      "Probad los recursos con compañeros de otros cursos y mejoradlos según sus comentarios.",
+    ],
+    producto: "Tres recursos digitales (hoja de ahorro, applet de GeoGebra y simulación) con una guía de uso y una ficha de seguridad digital.",
+    evaluacion: [
+      "Usa fórmulas, funciones y referencias de la hoja de cálculo correctamente.",
+      "Construye y explica modelos dinámicos y simulaciones.",
+      "Justifica matemáticamente los resultados y sus limitaciones.",
+      "Comunica con claridad y fomenta un uso responsable de la tecnología.",
+    ],
+  },
+  figura: ["Matemáticas digitales de un vistazo", "Resumen de calculadora, hoja de cálculo, binario y algoritmos", [
+    ["Calcular", ["jerarquía y ( )", "notación 8E9", "redondeo", "estimar antes"]],
+    ["Hoja", ["=B2*C2", "relativa / $E$1", "SUMA, PROMEDIO", "gráficos"]],
+    ["Binario", ["base 2", "1101₂ = 13", "byte = 8 bits", "Mb/s ÷ 8 = MB/s"]],
+    ["Algoritmos", ["Euclides", "búsqueda binaria", "Monte Carlo", "contraseñas"]],
+  ]],
+  video: { id: "0TFZfvvB67Y", titulo: "Pensamiento computacional", canal: "TEDx Talks (Alberto Cañas)", vistas: 66662, busqueda: "pensamiento computacional charla" },
+  mapa: ["MATEMÁTICAS DIGITALES", [
+    ["Herramientas", "calculadora · hoja de cálculo · GeoGebra"],
+    ["Información", "binario · bits y bytes · velocidad"],
+    ["Algoritmos", "Euclides · búsqueda · eficiencia"],
+    ["Aplicaciones", "simulación · contraseñas · códigos"],
+  ]],
+  tarjetas: [
+    ["Jerarquía", "Paréntesis, potencias, × y ÷, + y −."],
+    ["Fórmula", "Empieza por =; se recalcula sola."],
+    ["Referencia absoluta", "$E$1: no cambia al copiar."],
+    ["Elegir gráfico", "Barras: comparar. Líneas: evolución. Dispersión: relación."],
+    ["GeoGebra", "Deslizadores para ver el efecto de cada parámetro."],
+    ["Binario", "Base 2: posiciones 1, 2, 4, 8, 16…"],
+    ["Decimal a binario", "Dividir entre 2 y leer los restos de abajo arriba."],
+    ["Bit y byte", "1 byte = 8 bits; n bits dan 2ⁿ valores."],
+    ["Velocidad", "Mb/s : 8 = MB/s."],
+    ["Algoritmo de Euclides", "mcd(a, b) = mcd(b, resto)."],
+    ["Búsqueda binaria", "Pasos ≈ log₂ n."],
+    ["Monte Carlo", "π ≈ 4 · dentro / total."],
+  ],
+  familias: ["Revisad juntos la fortaleza de las contraseñas de casa con los cálculos del tema.", "Comprobad la letra de vuestros DNI con la regla del resto entre 23.", "Haced una hoja de cálculo con los gastos de un mes y un gráfico.", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  saberes: "Sentido numérico, algebraico y procesos transversales con herramientas digitales: calculadora, notación científica y errores de redondeo; hoja de cálculo (fórmulas, funciones, referencias relativas y absolutas, gráficos); geometría dinámica y representación de funciones; sistemas de numeración binario y hexadecimal y medida de la información; pensamiento computacional: algoritmos, eficiencia, búsqueda y ordenación; simulación con números aleatorios; matemáticas de la seguridad digital (RD 243/2022, Matemáticas Generales, saberes básicos D. Sentido algebraico: pensamiento computacional, y uso de herramientas digitales; Decret 171/2022, Matemàtiques generals, pensament computacional).",
+  ideas: ["Concurso de hojas de cálculo: el presupuesto más útil para una excursión.", "Applet de GeoGebra hecho por cada alumno para explicar una función.", "Juego de adivinar un número en 10 preguntas para descubrir la búsqueda binaria.", "Taller de cifrado: mensajes secretos con el cifrado de César entre equipos."],
+  fuentes: [wiki("Sistema binario", "Sistema binario"), wiki("Algoritmo de Euclides", "Algoritmo de Euclides"), wiki("Método de Montecarlo", "Método de Montecarlo")],
+});
