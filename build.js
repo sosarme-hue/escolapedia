@@ -72,6 +72,7 @@ ${extraHead}
   <nav class="nav" aria-label="Secciones">
     <a href="${r}familias/"${nav === "familias" ? ' class="on"' : ""}>${t.familias}</a>
     <a href="${r}profesores/"${nav === "profesores" ? ' class="on"' : ""}>${t.profesores}</a>
+    <a href="${r}blog/">Blog</a>
   </nav>
 </div></header>
 ${body}
@@ -392,6 +393,6 @@ const urls = [...new Set(PAGINAS.map((r) => r.replace(/\\/g, "/").replace(/^\/+|
   .sort()
   .map((r) => `<url><loc>${SITIO}/${r ? r + "/" : ""}</loc></url>`);
 fs.writeFileSync(path.join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`);
-fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITIO}/sitemap.xml\n`);
+fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITIO}/sitemap.xml\nSitemap: ${SITIO}/sitemap-blog.xml\n`);
 
 console.log(`Hecho: ${ETAPAS.length} etapas, ${nMaterias} materias, ${nTemas} temas en lista, ${nListos} temas completos.`);

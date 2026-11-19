@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://escolapedia.com/sitemap.xml
+Sitemap: https://escolapedia.com/sitemap-blog.xml
