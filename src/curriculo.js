@@ -46,7 +46,7 @@ const CT = "Modalidad de Ciencias y Tecnología", HCS = "Modalidad de Humanidade
 const BACH = {
   1: ["Lengua Castellana y Literatura I|len", "Filosofía|fil", "Educación Física|ef", `Inglés I|ing|${L}`,
       ...["Matemáticas I|mat", "Física y Química|fis", "Biología, Geología y Ciencias Ambientales|natu", "Dibujo Técnico I|art", "Tecnología e Ingeniería I|tec"].map((x) => `${x}|${M}|${CT}`),
-      ...["Matemáticas Aplicadas a las Ciencias Sociales I|mat", "Latín I|cla", "Griego I|cla", "Economía|eco", "Historia del Mundo Contemporáneo|soc", "Literatura Universal|len"].map((x) => `${x}|${M}|${HCS}`),
+      ...["Matemáticas Aplicadas a las Ciencias Sociales I|mat", "Latín I|cla", "Economía|eco", "Historia del Mundo Contemporáneo|soc", "Literatura Universal|len"].map((x) => `${x}|${M}|${HCS}`),
       ...["Dibujo Artístico I|art", "Cultura Audiovisual|art", "Proyectos Artísticos|art", "Volumen|art", "Análisis Musical I|mus", "Artes Escénicas I|mus", "Lenguaje y Práctica Musical|mus", "Coro y Técnica Vocal I|mus"].map((x) => `${x}|${M}|${ART}`),
       ...["Matemáticas Generales|mat", "Economía, Emprendimiento y Actividad Empresarial|eco"].map((x) => `${x}|${M}|${GEN}`)],
   2: ["Lengua Castellana y Literatura II|len", "Historia de España|soc", "Historia de la Filosofía|fil", `Inglés II|ing|${L}`,
