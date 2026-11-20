@@ -46,7 +46,7 @@ module.exports = B.tema({
       h: "Breve historia del cómic",
       html: `<p>Tras los precursores del siglo XIX, el cómic nace en la <b>prensa estadounidense</b> hacia 1895. En los años treinta surgen los <b>cuadernillos</b> y los superhéroes (Superman, 1938). En Europa destaca la escuela franco-belga: <i>Tintín</i> (Hergé, 1929) y <i>Astérix</i> (1959), con su estilo de <b>línea clara</b>.</p>
       <p>Desde los años sesenta aparecen el cómic <b>underground</b> y el cómic de autor, y en 1978 se populariza el término <b>novela gráfica</b> para obras largas y adultas, como <i>Maus</i> de Art Spiegelman, sobre el Holocausto.</p>`,
-      svg: B.cronologia("Cronología del cómic", [["1895", "prensa EE. UU."], ["1929", "Tintín"], ["1938", "Superman"], ["1947", "manga moderno"], ["1978", "novela gráfica"], ["1992", "Pulitzer a Maus"]]),
+      svg: B.cronologia("Cronología del cómic", [["1895", "prensa"], ["1929", "Tintín"], ["1938", "Superman"], ["1947", "manga moderno"], ["1978", "novela gráfica"], ["1992", "Maus"]]),
     },
     {
       h: "El manga y el cómic español",

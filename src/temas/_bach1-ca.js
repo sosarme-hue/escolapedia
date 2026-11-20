@@ -95,10 +95,10 @@ function pagina(aria) {
 
 // Línea del tiempo horizontal: hitos [año, texto].
 function cronologia(aria, hitos, titulo = "") {
-  const n = hitos.length, x0 = 22, x1 = 238, top = titulo ? 26 : 0;
+  const n = hitos.length, x0 = 40, x1 = 220, top = titulo ? 26 : 0;
   return marco(aria, (titulo ? t(130, 20, titulo, { fs: 12.5, bold: 1, maxW: 236 }) : "") + ln(x0, 92 + top / 2, x1, 92 + top / 2, "var(--ink)", 2.5) +
     hitos.map(([a, s], i) => { const x = x0 + (i * (x1 - x0)) / (n - 1), y = 92 + top / 2, arriba = i % 2 === 0, c = COL[i % 4];
-      return `${ci(x, y, 5.5, `fill="${c}"`)}${t(x, arriba ? y - 14 : y + 22, a, { fs: 11, bold: 1, color: c, maxW: 60 })}${t(x, arriba ? y - 30 : y + 37, s, { fs: 9, maxW: Math.min(70, 440 / n) })}`; }).join(""));
+      return `${ci(x, y, 5.5, `fill="${c}"`)}${t(x, arriba ? y - 14 : y + 22, a, { fs: 11, bold: 1, color: c, maxW: 60 })}${t(x, arriba ? y - 30 : y + 37, s, { fs: 9, maxW: Math.min(70, (2 * (x1 - x0)) / (n - 1) - 6) })}`; }).join(""));
 }
 
 // Esquema de la comunicación: emisor, mensaje, canal, receptor.
