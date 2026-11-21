@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ficha: Programación orientada a objetos · Escolapedia</title>
+<meta name="description" content="Ficha imprimible de Programación orientada a objetos, 2º de Bachillerato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../../familias/">Familias</a>
+    <a href="../../../../../profesores/">Profesores</a>
+    <a href="../../../../../blog/">Blog</a>
+  </nav>
+</div></header>
+<main class="ficha"><div class="wrap">
+  <div class="crumbs noprint"><a href="../">← Volver al tema</a></div>
+  <div class="ficha-tools noprint"><a class="dl" href="ficha.pdf" download>Descargar PDF</a><button type="button" id="t-print">Imprimir</button><span class="caption">También puedes usar Ctrl + P (Cmd + P en Mac).</span></div>
+  <header class="ficha-h"><div><span class="badge" style="background:#475569">2º de Bachillerato · Tecnologías de la Información y la Comunicación II · Tema 4</span><h1>Programación orientada a objetos</h1></div>
+    <div class="ficha-name">Nombre: ______________________ &nbsp; Fecha: ___________</div></header>
+  <section><h2>Qué vas a aprender</h2><ul><li>Distinguir los principales paradigmas de programación y las ideas de la programación orientada a objetos</li><li>Definir clases con atributos y métodos en Python y crear objetos a partir de ellas</li><li>Aplicar el encapsulamiento con atributos privados y propiedades</li><li>Representar clases y sus relaciones con diagramas de clases UML</li><li>Reutilizar código mediante herencia, sobrescritura de métodos y polimorfismo</li><li>Diseñar programas combinando clases por composición y aplicando buenos principios de diseño</li></ul></section>
+  <section><h2>Para pensar</h2><p class="question">En un videojuego hay cientos de enemigos, cada uno con su vida, su posición y su forma de atacar. ¿Escribe el programador el código de cada enemigo por separado?</p><div class="lines"></div></section>
+  <section><h2>Explicación</h2><div class="chunk"><div><h3>1.1 Los paradigmas de programación</h3><p>Un <mark>paradigma de programación</mark> es una forma de entender y organizar un programa. Los lenguajes se basan en uno o varios paradigmas, y conocerlos ayuda a elegir el enfoque adecuado para cada problema.</p>
+      <ul><li>La <b>programación imperativa</b> describe paso a paso las órdenes que modifican el estado del programa (las variables). La <b>programación estructurada</b> la ordena con tres estructuras: secuencia, selección y repetición, sin saltos desordenados.</li>
+      <li>La <b>programación modular</b> o procedimental divide el programa en funciones, como viste al principio del curso.</li>
+      <li>La <b>programación funcional</b> construye los programas combinando funciones puras, sin modificar variables; la usan lenguajes como Haskell y, en parte, Python con <code>map</code>, <code>filter</code> y las lambdas.</li>
+      <li>La <b>programación declarativa</b> describe <i>qué</i> se quiere obtener, no cómo: es el caso de SQL, que estudiarás en el tema de bases de datos, o de HTML.</li>
+      <li>La <mark>programación orientada a objetos</mark> (POO) organiza el programa como un conjunto de <b>objetos</b> que combinan datos y comportamiento y que colaboran enviándose mensajes (llamándose a sus métodos).</li></ul>
+      <p>En la programación modular, los datos y las funciones que los manejan están separados: una lista de alumnos por un lado y funciones como <code>calcular_media(alumno)</code> por otro. En la POO se juntan en una misma unidad: cada alumno es un objeto que guarda sus notas y sabe calcular su media, <code>alumno.media()</code>. Esto refleja mejor cómo pensamos el mundo real, en términos de cosas que tienen propiedades y hacen acciones. Python es un lenguaje <b>multiparadigma</b>: permite programar de forma estructurada, funcional u orientada a objetos, e incluso combinarlas.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Paradigmas de programación">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">Formas de programar</text><rect x="8" y="30" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+      <text x="67" y="54.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">Estructurado</text><text x="67" y="69.5" text-anchor="middle" font-size="9.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">secuencia, selección</text><text x="67" y="83" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">y repetición</text><rect x="134" y="30" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
+      <text x="193" y="61.25" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">Funcional</text><text x="193" y="76.25" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">funciones puras</text><rect x="8" y="104" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.5"/>
+      <text x="67" y="128.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">Declarativo</text><text x="67" y="143.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">qué, no cómo</text><text x="67" y="157" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">(SQL, HTML)</text><rect x="134" y="104" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2.5"/>
+      <text x="193" y="128.5" text-anchor="middle" font-size="9.3" font-weight="700" fill="var(--sun)" font-family="Atkinson Hyperlegible, sans-serif">Orientado a objetos</text><text x="193" y="143.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">datos + acciones</text><text x="193" y="157" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">en objetos</text></svg></div><div class="chunk"><div><h3>1.2 Clases y objetos</h3><p>Las dos ideas básicas de la POO son la clase y el objeto. Una <mark>clase</mark> es una plantilla o molde que define cómo serán los objetos de un tipo: qué datos tendrán (sus <b>atributos</b>) y qué podrán hacer (sus <b>métodos</b>). Un <mark>objeto</mark> o <b>instancia</b> es un ejemplar concreto creado a partir de una clase, con sus propios valores. La clase <code>Perro</code> describe que todos los perros tienen nombre y edad y saben ladrar; Toby, de 3 años, y Luna, de 7, son dos objetos de esa clase.</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Perro:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def ladrar(self):
+        return self.nombre + " dice: ¡Guau!"
+
+toby = Perro("Toby", 3)      # se crea un objeto
+luna = Perro("Luna", 7)
+print(toby.ladrar())         # Toby dice: ¡Guau!
+print(luna.edad)             # 7</pre>
+      <p>Por convenio, los nombres de las clases se escriben con mayúscula inicial en cada palabra (<code>CuentaBancaria</code>). Para crear un objeto se «llama» a la clase como si fuera una función, pasándole los datos iniciales. Se accede a los atributos y métodos de un objeto con el <b>operador punto</b>: <code>objeto.atributo</code>, <code>objeto.metodo()</code>.</p>
+      <p>En realidad, en Python todo es un objeto: los números, las cadenas y las listas también son instancias de clases (<code>int</code>, <code>str</code>, <code>list</code>), y por eso escribes <code>texto.upper()</code> o <code>lista.append(x)</code>. Cada objeto tiene una <b>identidad</b> (es único, aunque otro tenga los mismos valores), un <b>estado</b> (los valores de sus atributos en cada momento) y un <b>comportamiento</b> (lo que hacen sus métodos).</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Una clase Perro es como un molde; a partir de ella se crean varios objetos o instancias, cada uno con sus propios valores de nombre y edad">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+  <defs><marker id="mo1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker></defs>
+  <rect x="80" y="12" width="100" height="50" rx="8" fill="var(--pen)" fill-opacity=".15" stroke="var(--pen)" stroke-width="2.4" stroke-dasharray="6 4"/>
+  <text x="130" y="32" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">clase Perro</text><text x="130" y="50" text-anchor="middle" font-size="8.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif" textLength="92" lengthAdjust="spacingAndGlyphs">nombre · edad · ladrar()</text>
+  
+  <path d="M130 64 L 44 96" stroke="var(--muted)" stroke-width="1.8" marker-end="url(#mo1)"/>
+  <rect x="6" y="100" width="76" height="52" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.4"/>
+  <text x="44" y="120" text-anchor="middle" font-size="12.0" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">Toby</text><text x="44" y="138" text-anchor="middle" font-size="10.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">edad = 3</text>
+  <path d="M130 64 L 130 96" stroke="var(--muted)" stroke-width="1.8" marker-end="url(#mo1)"/>
+  <rect x="92" y="100" width="76" height="52" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.4"/>
+  <text x="130" y="120" text-anchor="middle" font-size="12.0" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">Luna</text><text x="130" y="138" text-anchor="middle" font-size="10.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">edad = 7</text>
+  <path d="M130 64 L 216 96" stroke="var(--muted)" stroke-width="1.8" marker-end="url(#mo1)"/>
+  <rect x="178" y="100" width="76" height="52" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2.4"/>
+  <text x="216" y="120" text-anchor="middle" font-size="12.0" font-weight="700" fill="var(--sun)" font-family="Atkinson Hyperlegible, sans-serif">Coco</text><text x="216" y="138" text-anchor="middle" font-size="10.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">edad = 1</text>
+  <text x="130" y="172" text-anchor="middle" font-size="10.4" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">una clase, muchos objetos (instancias)</text>
+</svg></div><div class="chunk"><div><h3>1.3 El constructor, self y los métodos</h3><p>El método especial <code>__init__</code> es el <mark>constructor</mark>: se ejecuta automáticamente cada vez que se crea un objeto y sirve para darle sus valores iniciales. Sus parámetros, salvo el primero, son los datos que se pasan al crear el objeto. Dentro de él, las asignaciones <code>self.nombre = nombre</code> crean los <b>atributos de instancia</b>, que tendrá cada objeto.</p>
+      <p>El primer parámetro de todos los métodos es <code>self</code>, que representa <b>al propio objeto</b> sobre el que se llama el método. Cuando escribes <code>toby.ladrar()</code>, Python ejecuta en realidad <code>Perro.ladrar(toby)</code>: <code>self</code> es <code>toby</code>. Gracias a <code>self</code>, un método puede leer y modificar los atributos de su objeto y llamar a otros métodos del mismo objeto (<code>self.otro_metodo()</code>). Es un error muy frecuente olvidar <code>self</code> en la definición del método o al usar un atributo.</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Cuenta:
+    def __init__(self, titular, saldo=0):
+        self.titular = titular
+        self.saldo = saldo
+
+    def ingresar(self, cantidad):
+        if cantidad &lt;= 0:
+            raise ValueError("Cantidad no válida")
+        self.saldo += cantidad
+
+    def retirar(self, cantidad):
+        if cantidad &gt; self.saldo:
+            raise ValueError("Saldo insuficiente")
+        self.saldo -= cantidad
+
+c = Cuenta("Eva", 100)
+c.ingresar(50); c.retirar(30)
+print(c.saldo)        # 120</pre>
+      <p>Los métodos son, en definitiva, funciones que pertenecen a una clase. Pueden recibir parámetros, devolver valores y lanzar excepciones como cualquier función. Unos <b>consultan</b> el estado del objeto (devuelven información sin cambiarla) y otros lo <b>modifican</b>. Observa que el objeto controla sus propios datos: es el método <code>retirar</code> quien decide si la operación es válida, y no el programa que lo usa.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Qué ocurre al crear un objeto">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">El constructor</text><defs><marker id="fl295" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker></defs><rect x="20" y="30" width="220" height="20.4" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+        <circle cx="36" cy="40.2" r="9.2" fill="var(--pen)"/><text x="36" y="44.2" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">1</text>
+        <text x="141" y="44.2" text-anchor="middle" font-size="11.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">c = Cuenta("Eva", 100)</text><path d="M130 51.4 V 59.4" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl295)"/><rect x="20" y="60.4" width="220" height="20.4" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+        <circle cx="36" cy="70.6" r="9.2" fill="var(--red)"/><text x="36" y="74.6" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">2</text>
+        <text x="141" y="74.6" text-anchor="middle" font-size="11.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Python crea un objeto vacío</text><path d="M130 81.8 V 89.8" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl295)"/><rect x="20" y="90.8" width="220" height="20.4" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+        <circle cx="36" cy="101" r="9.2" fill="var(--leaf)"/><text x="36" y="105" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">3</text>
+        <text x="141" y="105" text-anchor="middle" font-size="9.8" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Llama a __init__(self, "Eva", 100)</text><path d="M130 112.19999999999999 V 120.19999999999999" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl295)"/><rect x="20" y="121.19999999999999" width="220" height="20.4" rx="8" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/>
+        <circle cx="36" cy="131.39999999999998" r="9.2" fill="var(--sun)"/><text x="36" y="135.39999999999998" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">4</text>
+        <text x="141" y="135.39999999999998" text-anchor="middle" font-size="8.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif" textLength="186" lengthAdjust="spacingAndGlyphs">self.titular y self.saldo quedan guardados</text><path d="M130 142.6 V 150.6" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl295)"/><rect x="20" y="151.6" width="220" height="20.4" rx="8" fill="var(--card)" stroke="var(--inf)" stroke-width="2"/>
+        <circle cx="36" cy="161.79999999999998" r="9.2" fill="var(--inf)"/><text x="36" y="165.79999999999998" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">5</text>
+        <text x="141" y="165.79999999999998" text-anchor="middle" font-size="9.8" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">c apunta al objeto ya inicializado</text></svg></div><div class="chunk"><div><h3>1.4 Atributos de clase y métodos especiales</h3><p>Además de los atributos de instancia, una clase puede tener <b>atributos de clase</b>, definidos directamente en el cuerpo de la clase y compartidos por todos sus objetos. Son útiles para constantes o contadores comunes: por ejemplo, el tipo de interés de todas las cuentas o el número de objetos creados.</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Alumno:
+    total = 0                      # atributo de clase
+
+    def __init__(self, nombre, notas):
+        self.nombre = nombre       # atributos de instancia
+        self.notas = notas
+        Alumno.total += 1
+
+    def media(self):
+        return sum(self.notas) / len(self.notas)
+
+    def __str__(self):
+        return f"{self.nombre} ({self.media():.1f})"
+
+    def __lt__(self, otro):
+        return self.media() &lt; otro.media()</pre>
+      <p>Python reconoce una serie de <mark>métodos especiales</mark> o «mágicos», con dos guiones bajos delante y detrás, que permiten que los objetos se comporten como los tipos predefinidos:</p>
+      <ul><li><code>__str__</code> devuelve el texto que muestra <code>print(objeto)</code>; sin él, se ve algo poco útil como <code>&lt;Alumno object at 0x7f…&gt;</code>.</li>
+      <li><code>__eq__</code> y <code>__lt__</code> definen qué significa que dos objetos sean iguales (<code>==</code>) o que uno sea menor que otro (<code>&lt;</code>); con <code>__lt__</code>, una lista de alumnos se puede ordenar con <code>sorted</code>.</li>
+      <li><code>__len__</code> permite usar <code>len(objeto)</code> y <code>__add__</code>, el operador <code>+</code>.</li></ul>
+      <p>Esta posibilidad de redefinir el significado de los operadores se llama <b>sobrecarga de operadores</b>. Así, una clase <code>Fraccion</code> o <code>Vector</code> puede sumarse con <code>+</code> igual que los números.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Métodos especiales de Python">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">Métodos «mágicos»</text><rect x="8" y="30" width="244" height="23.666666666666668" rx="6" fill="var(--eso)"/><text x="69" y="45.833333333333336" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">Método</text><text x="191" y="45.833333333333336" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">Se usa con</text><rect x="8" y="53.66666666666667" width="244" height="23.666666666666668" fill="var(--paper)" stroke="var(--line)"/><text x="69" y="69.5" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">__init__</text><text x="191" y="69.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Clase(…)</text><rect x="8" y="77.33333333333334" width="244" height="23.666666666666668" fill="var(--card)" stroke="var(--line)"/><text x="69" y="93.16666666666667" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">__str__</text><text x="191" y="93.16666666666667" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">print(obj)</text><rect x="8" y="101" width="244" height="23.666666666666668" fill="var(--paper)" stroke="var(--line)"/><text x="69" y="116.83333333333333" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">__eq__</text><text x="191" y="116.83333333333333" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">a == b</text><rect x="8" y="124.66666666666667" width="244" height="23.666666666666668" fill="var(--card)" stroke="var(--line)"/><text x="69" y="140.5" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">__lt__</text><text x="191" y="140.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">a &lt; b, sorted</text><rect x="8" y="148.33333333333334" width="244" height="23.666666666666668" fill="var(--paper)" stroke="var(--line)"/><text x="69" y="164.16666666666669" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">__add__</text><text x="191" y="164.16666666666669" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">a + b</text></svg></div><div class="chunk"><div><h3>2.1 El encapsulamiento</h3><p>El <mark>encapsulamiento</mark> consiste en ocultar los detalles internos de un objeto y permitir que el resto del programa solo lo use a través de sus métodos públicos, su <b>interfaz</b>. Es como un cajero automático: puedes sacar dinero pulsando botones, pero no puedes abrirlo y tocar los billetes. Así se protege la integridad de los datos (nadie puede poner un saldo negativo saltándose las comprobaciones) y se puede cambiar la implementación interna sin afectar al código que usa la clase.</p>
+      <p>Lenguajes como Java tienen palabras clave para indicar si un atributo es público o privado. Python se basa en convenciones: un nombre que empieza por un guion bajo (<code>_saldo</code>) indica que es de uso interno y no debería tocarse desde fuera; con dos guiones bajos (<code>__saldo</code>), Python cambia el nombre internamente para dificultar el acceso. Para leer o modificar estos atributos de forma controlada se usan métodos de acceso (<i>getters</i> y <i>setters</i>) o, de forma más elegante, <b>propiedades</b>:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Termometro:
+    def __init__(self, celsius):
+        self.celsius = celsius        # usa el setter
+
+    @property
+    def celsius(self):                # getter
+        return self._celsius
+
+    @celsius.setter
+    def celsius(self, valor):         # setter con validación
+        if valor &lt; -273.15:
+            raise ValueError("Bajo el cero absoluto")
+        self._celsius = valor
+
+    @property
+    def fahrenheit(self):             # atributo calculado
+        return self._celsius * 9 / 5 + 32
+
+t = Termometro(25)
+t.celsius = 30           # pasa por la validación
+print(t.fahrenheit)      # 86.0</pre>
+      <p>Con <code>@property</code>, desde fuera se usa <code>t.celsius</code> como si fuera un atributo normal, pero por dentro se ejecutan métodos que validan o calculan el valor. Una regla útil: los atributos que deben cumplir alguna condición nunca deberían poder modificarse directamente.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Encapsulamiento: el exterior solo usa la interfaz pública">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">Por capas</text><rect x="8" y="30" width="244" height="31.75" rx="7" fill="var(--pen)" fill-opacity=".16" stroke="var(--pen)" stroke-width="2"/>
+      <text x="16" y="49.875" text-anchor="start" font-size="11.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">Programa</text><text x="244" y="49.875" text-anchor="end" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">usa el objeto</text><rect x="14" y="66.75" width="232" height="31.75" rx="7" fill="var(--red)" fill-opacity=".16" stroke="var(--red)" stroke-width="2"/>
+      <text x="22" y="86.625" text-anchor="start" font-size="9.2" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif" textLength="88" lengthAdjust="spacingAndGlyphs">Interfaz pública</text><text x="238" y="86.625" text-anchor="end" font-size="10.2" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">métodos y propiedades</text><rect x="20" y="103.5" width="220" height="31.75" rx="7" fill="var(--leaf)" fill-opacity=".16" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="28" y="123.375" text-anchor="start" font-size="11.5" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">Validaciones</text><text x="232" y="123.375" text-anchor="end" font-size="9.6" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">comprueban los datos</text><rect x="26" y="140.25" width="208" height="31.75" rx="7" fill="var(--sun)" fill-opacity=".16" stroke="var(--sun)" stroke-width="2"/>
+      <text x="34" y="160.125" text-anchor="start" font-size="10.5" font-weight="700" fill="var(--sun)" font-family="Atkinson Hyperlegible, sans-serif">Datos internos</text><text x="226" y="160.125" text-anchor="end" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">_celsius, _saldo</text></svg></div><div class="chunk"><div><h3>2.2 La abstracción y los diagramas de clases</h3><p>La <mark>abstracción</mark> consiste en quedarse con las características esenciales de un objeto del mundo real para el problema que se quiere resolver, e ignorar las demás. Un alumno real tiene altura, color de pelo y comida favorita, pero para la aplicación de notas del instituto solo importan su nombre, su curso y sus calificaciones. Diseñar bien las clases es, sobre todo, un ejercicio de abstracción.</p>
+      <p>Para diseñar y comunicar la estructura de un programa orientado a objetos se usa el <b>UML</b> (<i>Unified Modeling Language</i>), un lenguaje gráfico estándar. Su diagrama más usado es el <mark>diagrama de clases</mark>. Cada clase se dibuja como un rectángulo con tres partes: el <b>nombre</b> arriba, los <b>atributos</b> en el centro y los <b>métodos</b> abajo. Delante de cada miembro se indica su visibilidad: <code>+</code> público y <code>−</code> privado. También se pueden indicar los tipos: <code>saldo: float</code>, <code>consultar(): float</code>.</p>
+      <p>Las clases se unen con líneas que representan sus <b>relaciones</b>:</p>
+      <ul><li><b>Asociación</b>: una línea simple; un alumno está matriculado en varias asignaturas. Se puede indicar la <b>multiplicidad</b> en cada extremo (1, 0..1, *).</li>
+      <li><b>Agregación y composición</b>: una línea con un rombo, vacío o relleno, en el lado del «todo»; un coche tiene ruedas.</li>
+      <li><b>Herencia</b>: una flecha con la punta triangular vacía que apunta a la clase padre; un coche es un vehículo.</li></ul>
+      <p>Un método sencillo para encontrar las clases de un problema es leer su descripción y subrayar los <b>sustantivos</b> (candidatos a clases o atributos) y los <b>verbos</b> (candidatos a métodos). En «Una biblioteca presta libros a sus socios», aparecen las clases Biblioteca, Libro y Socio, y el método prestar.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de clase UML de la clase CuentaBancaria: en la parte superior el nombre, en la central los atributos titular y saldo (privado) y en la inferior los métodos ingresar, retirar y consultar">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+  <rect x="64" y="14" width="132" height="152" rx="6" fill="var(--card)" stroke="var(--pen)" stroke-width="2.4"/>
+  <rect x="64" y="14" width="132" height="30" rx="6" fill="var(--pen)"/><text x="130" y="34" text-anchor="middle" font-size="13.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">CuentaBancaria</text>
+  <path d="M64 92 H 196" stroke="var(--pen)" stroke-width="2"/>
+  <text x="72" y="62" text-anchor="start" font-size="11.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">+ titular: str</text><text x="72" y="80" text-anchor="start" font-size="11.0" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">− saldo: float</text>
+  <text x="72" y="110" text-anchor="start" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">+ __init__(titular)</text><text x="72" y="128" text-anchor="start" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">+ ingresar(cantidad)</text><text x="72" y="146" text-anchor="start" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">+ retirar(cantidad)</text><text x="72" y="162" text-anchor="start" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">+ consultar(): float</text>
+  <text x="228" y="70" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">atributos</text><text x="228" y="134" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">métodos</text>
+  <text x="33" y="80" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">− privado</text><text x="33" y="62" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">+ público</text>
+</svg></div><div class="chunk"><div><h3>2.3 La herencia</h3><p>La <mark>herencia</mark> permite crear una clase nueva a partir de otra existente. La clase nueva, llamada <b>subclase</b>, clase hija o derivada, hereda todos los atributos y métodos de la <b>superclase</b>, clase padre o base, y puede <b>añadir</b> otros nuevos o <b>modificar</b> los heredados. Así se reutiliza el código y se organizan las clases en jerarquías. La herencia expresa una relación «<b>es un</b>»: un coche eléctrico <i>es un</i> coche, que <i>es un</i> vehículo.</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Vehiculo:
+    def __init__(self, marca, ruedas):
+        self.marca = marca
+        self.ruedas = ruedas
+
+    def describir(self):
+        return f"{self.marca} con {self.ruedas} ruedas"
+
+class Coche(Vehiculo):
+    def __init__(self, marca, plazas):
+        super().__init__(marca, 4)      # constructor del padre
+        self.plazas = plazas
+
+    def describir(self):                # sobrescritura
+        return super().describir() + f" y {self.plazas} plazas"
+
+c = Coche("Seat", 5)
+print(c.describir())   # Seat con 4 ruedas y 5 plazas</pre>
+      <p>La clase padre se indica entre paréntesis tras el nombre de la subclase. La función <code>super()</code> da acceso a los métodos de la clase padre; se usa sobre todo en el constructor, para no repetir la inicialización común. Cuando una subclase define un método con el mismo nombre que uno heredado, lo <b>sobrescribe</b> (<i>override</i>): sus objetos usarán la versión nueva, que puede ampliar la original llamando a <code>super()</code>.</p>
+      <p>Todas las clases de Python heredan en último término de la clase <code>object</code>. La función <code>isinstance(c, Vehiculo)</code> devuelve <code>True</code>, porque un coche es también un vehículo. Python admite <b>herencia múltiple</b> (una clase con varios padres), aunque conviene usarla con prudencia. Un error de diseño frecuente es abusar de la herencia: si la relación no es claramente «es un», suele ser mejor la composición.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Jerarquía de herencia: Vehículo es la clase base; Coche y Bicicleta heredan de ella; CocheEléctrico hereda de Coche. Las flechas apuntan a la clase padre">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+  <defs><marker id="he1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--card)" stroke="var(--muted)" stroke-width="1.2"/></marker></defs>
+  <rect x="84" y="10" width="92" height="38" rx="7" fill="var(--card)" stroke="var(--pen)" stroke-width="2.2"/><text x="130" y="26" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">Vehiculo</text><text x="130" y="41" text-anchor="middle" font-size="9.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">ruedas · mover()</text>
+  <rect x="24" y="72" width="92" height="38" rx="7" fill="var(--card)" stroke="var(--red)" stroke-width="2.2"/><text x="70" y="88" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">Coche</text><text x="70" y="103" text-anchor="middle" font-size="9.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">repostar()</text><rect x="150" y="72" width="92" height="38" rx="7" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.2"/><text x="196" y="88" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">Bicicleta</text><text x="196" y="103" text-anchor="middle" font-size="9.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">pedalear()</text>
+  <rect x="24" y="134" width="92" height="38" rx="7" fill="var(--card)" stroke="var(--sun)" stroke-width="2.2"/><text x="70" y="150" text-anchor="middle" font-size="10.0" font-weight="700" fill="var(--sun)" font-family="Atkinson Hyperlegible, sans-serif" textLength="84" lengthAdjust="spacingAndGlyphs">CocheElectrico</text><text x="70" y="165" text-anchor="middle" font-size="9.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">cargar()</text>
+  <path d="M70 72 L 118 50" stroke="var(--muted)" stroke-width="1.8" marker-end="url(#he1)"/><path d="M196 72 L 144 50" stroke="var(--muted)" stroke-width="1.8" marker-end="url(#he1)"/><path d="M70 134 L 70 112" stroke="var(--muted)" stroke-width="1.8" marker-end="url(#he1)"/>
+  <text x="196" y="146" text-anchor="middle" font-size="10.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">las flechas apuntan</text><text x="196" y="160" text-anchor="middle" font-size="10.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">a la clase padre</text>
+</svg></div><div class="chunk"><div><h3>2.4 El polimorfismo</h3><p>El <mark>polimorfismo</mark> («muchas formas») es la capacidad de que objetos de clases distintas respondan al <b>mismo mensaje</b> (la misma llamada a un método) cada uno a su manera. El código que los usa no necesita saber de qué clase concreta es cada objeto: le basta con que tenga ese método.</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Figura:
+    def area(self):
+        raise NotImplementedError
+
+class Circulo(Figura):
+    def __init__(self, r):
+        self.r = r
+    def area(self):
+        return 3.1416 * self.r ** 2
+
+class Rectangulo(Figura):
+    def __init__(self, b, h):
+        self.b, self.h = b, h
+    def area(self):
+        return self.b * self.h
+
+figuras = [Circulo(1), Rectangulo(2, 3), Circulo(2)]
+total = sum(f.area() for f in figuras)   # cada una calcula la suya</pre>
+      <p>El bucle final funciona con cualquier figura, presente o futura: si mañana se añade una clase <code>Triangulo</code> con su método <code>area</code>, el código que calcula el total no cambia. Esta es la gran ventaja del polimorfismo: el programa es <b>extensible</b> sin tener que modificar lo que ya funciona, y se evitan largas cadenas de <code>if tipo == …: elif tipo == …</code>.</p>
+      <p>En Python el polimorfismo es todavía más flexible gracias al <b>tipado pato</b> (<i>duck typing</i>): «si camina como un pato y grazna como un pato, es un pato». No hace falta que las clases hereden de un padre común; basta con que tengan los métodos que se van a usar. Por ejemplo, <code>len()</code> funciona con listas, cadenas, diccionarios y con cualquier objeto que defina <code>__len__</code>, y un bucle <code>for</code> recorre cualquier objeto iterable. El operador <code>+</code> también es polimórfico: suma números, concatena cadenas y une listas.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Polimorfismo: el mismo mensaje area() con respuestas distintas">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">f.area(): cada una a su manera</text><rect x="8" y="30" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+      <text x="67" y="61.25" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">Círculo</text><text x="67" y="76.25" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">π · r²</text><rect x="134" y="30" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
+      <text x="193" y="61.25" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">Rectángulo</text><text x="193" y="76.25" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">b · h</text><rect x="8" y="104" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.5"/>
+      <text x="67" y="135.25" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">Triángulo</text><text x="67" y="150.25" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">b · h / 2</text><rect x="134" y="104" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2.5"/>
+      <text x="193" y="135.25" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--sun)" font-family="Atkinson Hyperlegible, sans-serif">Cuadrado</text><text x="193" y="150.25" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">l²</text></svg></div><div class="chunk"><div><h3>3.1 Composición y relaciones entre objetos</h3><p>Los objetos no viven aislados: colaboran entre sí. La forma más habitual de relacionarlos es la <mark>composición</mark>: un objeto contiene a otros como atributos. Expresa una relación «<b>tiene un</b>»: un coche tiene un motor, una biblioteca tiene libros, un pedido tiene líneas de pedido.</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Libro:
+    def __init__(self, titulo, autor):
+        self.titulo, self.autor = titulo, autor
+        self.prestado = False
+
+class Biblioteca:
+    def __init__(self):
+        self.libros = []                 # composición
+
+    def añadir(self, libro):
+        self.libros.append(libro)
+
+    def prestar(self, titulo):
+        for l in self.libros:
+            if l.titulo == titulo and not l.prestado:
+                l.prestado = True
+                return l
+        raise LookupError("No disponible")
+
+    def disponibles(self):
+        return [l.titulo for l in self.libros if not l.prestado]</pre>
+      <p>En sentido estricto, UML distingue la <b>composición</b>, en la que las partes no existen sin el todo (las habitaciones de una casa), de la <b>agregación</b>, en la que las partes tienen vida propia (los jugadores de un equipo pueden cambiar de equipo). En ambos casos, en Python se programan igual: guardando objetos en atributos, a menudo dentro de listas o diccionarios.</p>
+      <p>Una recomendación clásica del diseño orientado a objetos es <b>preferir la composición a la herencia</b>. La herencia crea un vínculo muy fuerte entre clases: cualquier cambio en el padre afecta a todos los hijos. La composición es más flexible: se pueden combinar piezas y sustituir una por otra. Un personaje de videojuego puede <i>tener</i> un arma, que se cambia durante la partida, en lugar de <i>ser</i> un «PersonajeConEspada». Las estructuras de datos de árboles y listas enlazadas también se construyen por composición: cada nodo es un objeto que tiene referencias a otros nodos.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Herencia frente a composición">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><rect x="8" y="12" width="118" height="156" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+    <rect x="8" y="12" width="118" height="28" rx="12" fill="var(--pen)"/><text x="67" y="31" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">Herencia</text>
+    <text x="67" y="62" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">relación «es un»</text><text x="67" y="86" text-anchor="middle" font-size="9.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">class Coche(Vehiculo)</text><text x="67" y="110" text-anchor="middle" font-size="8.2" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">reutiliza y especializa</text><text x="67" y="134" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">vínculo fuerte</text><rect x="134" y="12" width="118" height="156" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
+    <rect x="134" y="12" width="118" height="28" rx="12" fill="var(--red)"/><text x="193" y="31" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">Composición</text>
+    <text x="193" y="62" text-anchor="middle" font-size="10.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">relación «tiene un»</text><text x="193" y="86" text-anchor="middle" font-size="9.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">self.motor = Motor()</text><text x="193" y="110" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">combina piezas</text><text x="193" y="134" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">más flexible</text></svg></div><div class="chunk"><div><h3>3.2 Clases abstractas y excepciones propias</h3><p>A veces una clase representa un concepto general que no tiene sentido crear directamente: no existe una «figura» sin forma concreta, ni un «animal» que no sea de ninguna especie. Una <mark>clase abstracta</mark> define una interfaz común que sus subclases están <b>obligadas</b> a completar. En Python se crean con el módulo <code>abc</code>:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">from abc import ABC, abstractmethod
+
+class Figura(ABC):
+    @abstractmethod
+    def area(self):
+        ...
+
+class Cuadrado(Figura):
+    def __init__(self, l):
+        self.l = l
+    def area(self):
+        return self.l ** 2
+
+Figura()        # TypeError: no se puede instanciar
+Cuadrado(3)     # correcto</pre>
+      <p>Un método marcado con <code>@abstractmethod</code> no tiene implementación en la clase abstracta. Si una subclase no lo implementa, tampoco podrá instanciarse, de modo que el error aparece en cuanto se intenta crear el objeto y no más tarde, cuando se llame al método. Es una forma de garantizar el polimorfismo: todas las figuras tendrán <code>area()</code>. En otros lenguajes, como Java, existen además las <b>interfaces</b>, que solo declaran métodos.</p>
+      <p>La POO también se aplica a los errores. Las excepciones son clases organizadas en una jerarquía de herencia, y un programa puede definir las suyas heredando de <code>Exception</code>, para describir con precisión los problemas de su dominio:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class SaldoInsuficiente(Exception):
+    pass
+
+try:
+    raise SaldoInsuficiente("Faltan 20 €")
+except SaldoInsuficiente as e:
+    print("Operación rechazada:", e)</pre>
+      <p>Como <code>except</code> captura también las subclases, una aplicación puede crear una excepción base propia (<code>ErrorBanco</code>) y varias hijas, y decidir si las trata una a una o todas juntas.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Clase abstracta y subclases concretas">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">Contratos con abc</text><defs><marker id="fl374" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker></defs><rect x="20" y="30" width="220" height="28" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+        <circle cx="36" cy="44" r="10" fill="var(--pen)"/><text x="36" y="48" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">1</text>
+        <text x="141" y="48" text-anchor="middle" font-size="9.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Figura (abstracta): area() sin código</text><path d="M130 59 V 67" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl374)"/><rect x="20" y="68" width="220" height="28" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+        <circle cx="36" cy="82" r="10" fill="var(--red)"/><text x="36" y="86" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">2</text>
+        <text x="141" y="86" text-anchor="middle" font-size="11.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Cuadrado: implementa area()</text><path d="M130 97 V 105" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl374)"/><rect x="20" y="106" width="220" height="28" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+        <circle cx="36" cy="120" r="10" fill="var(--leaf)"/><text x="36" y="124" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">3</text>
+        <text x="141" y="124" text-anchor="middle" font-size="11.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Círculo: implementa area()</text><path d="M130 135 V 143" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl374)"/><rect x="20" y="144" width="220" height="28" rx="8" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/>
+        <circle cx="36" cy="158" r="10" fill="var(--sun)"/><text x="36" y="162" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">4</text>
+        <text x="141" y="162" text-anchor="middle" font-size="8.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif" textLength="186" lengthAdjust="spacingAndGlyphs">Figura() → TypeError; Cuadrado(3) → correcto</text></svg></div><div class="chunk"><div><h3>3.3 Buenas prácticas de diseño orientado a objetos</h3><p>Programar con clases no garantiza un buen programa. Con la experiencia, la comunidad ha reunido una serie de principios de diseño. Los más conocidos son los principios <b>SOLID</b>, de los que destacan tres ideas sencillas:</p>
+      <ul><li><b>Responsabilidad única</b>: cada clase debe tener un único motivo para cambiar. Una clase <code>Factura</code> calcula importes; imprimirla o guardarla en un fichero corresponde a otras clases.</li>
+      <li><b>Abierto a la extensión, cerrado a la modificación</b>: debe poder añadirse comportamiento nuevo (una figura más, un método de pago más) creando clases nuevas, sin cambiar las que ya funcionan. El polimorfismo lo hace posible.</li>
+      <li><b>Sustitución</b>: un objeto de una subclase debe poder usarse en cualquier lugar donde se espere uno de la clase padre sin que el programa falle.</li></ul>
+      <p>Otras pautas útiles son mantener las clases pequeñas, con nombres claros (sustantivos para las clases, verbos para los métodos), ocultar los datos internos, no repetir código y escribir pruebas para cada clase. Existen soluciones probadas para problemas de diseño frecuentes, llamadas <b>patrones de diseño</b>, como el patrón Observador, que usan las interfaces gráficas para avisar a varios objetos de que ha ocurrido un evento.</p>
+      <p>Python ofrece además atajos para clases que sobre todo guardan datos: con el decorador <code>@dataclass</code> del módulo <code>dataclasses</code>, basta con declarar los atributos y sus tipos, y Python genera automáticamente <code>__init__</code>, <code>__repr__</code> y <code>__eq__</code>. La POO está en la base de los motores de videojuegos como Godot o Unity, de los <i>frameworks</i> web como Django y de las aplicaciones para móviles, así que dominarla abre la puerta a casi cualquier campo del desarrollo de software.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Principios de buen diseño orientado a objetos">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">Diseñar bien</text><rect x="8" y="30" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+      <text x="67" y="54.5" text-anchor="middle" font-size="9.3" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">Una responsabilidad</text><text x="67" y="69.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">un motivo</text><text x="67" y="83" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">para cambiar</text><rect x="134" y="30" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
+      <text x="193" y="54.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">Extensible</text><text x="193" y="69.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">añadir sin</text><text x="193" y="83" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">modificar</text><rect x="8" y="104" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.5"/>
+      <text x="67" y="128.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">Sustituible</text><text x="67" y="143.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">la hija vale</text><text x="67" y="157" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">por el padre</text><rect x="134" y="104" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2.5"/>
+      <text x="193" y="128.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--sun)" font-family="Atkinson Hyperlegible, sans-serif">Encapsulado</text><text x="193" y="143.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">datos ocultos,</text><text x="193" y="157" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">interfaz clara</text></svg></div></section>
+  <section><h2>Los pilares de la programación orientada a objetos</h2><div class="figure"><svg viewBox="0 0 640 220" role="img" aria-label="Los pilares de la programación orientada a objetos">
+  <rect width="640" height="220" rx="16" fill="var(--paper)"/>
+  <rect x="16" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/>
+    <text x="89" y="60" text-anchor="middle" font-size="16.0" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">Abstracción</text>
+    <text x="89" y="106" text-anchor="middle" font-size="22.0" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">clase</text>
+    <text x="89" y="146" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">lo esencial del</text><text x="89" y="166" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">objeto real</text><rect x="170" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
+    <text x="243" y="60" text-anchor="middle" font-size="14.7" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">Encapsulamiento</text>
+    <text x="243" y="106" text-anchor="middle" font-size="22.0" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">_privado</text>
+    <text x="243" y="146" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">interfaz pública</text><text x="243" y="166" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">y @property</text><rect x="324" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/>
+    <text x="397" y="60" text-anchor="middle" font-size="16.0" font-weight="700" fill="var(--leaf)" font-family="Baloo 2, sans-serif">Herencia</text>
+    <text x="397" y="106" text-anchor="middle" font-size="22.0" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">super()</text>
+    <text x="397" y="146" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">«es un»:</text><text x="397" y="166" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">reutilizar código</text><rect x="478" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--sun)" stroke-width="3"/>
+    <text x="551" y="60" text-anchor="middle" font-size="16.0" font-weight="700" fill="var(--sun)" font-family="Baloo 2, sans-serif">Polimorfismo</text>
+    <text x="551" y="106" text-anchor="middle" font-size="22.0" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">f.area()</text>
+    <text x="551" y="146" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">mismo mensaje,</text><text x="551" y="166" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">distinta respuesta</text>
+</svg></div></section>
+  <section class="brk"><h2>Ejercicios</h2><ol class="fq"><li><p>Define clase y objeto y pon un ejemplo de cada uno.</p><div class="lines"></div></li><li><p>Indica qué paradigma describe cada frase: a) funciones puras sin modificar variables; b) objetos con datos y métodos; c) describir qué se quiere obtener.</p><div class="lines"></div></li><li><p>Escribe una clase Punto con atributos x e y y un método distancia_origen().</p><div class="lines"></div></li><li><p>Crea dos objetos de la clase Punto y muestra la distancia del primero al origen.</p><div class="lines"></div></li><li><p>¿Para qué sirve el método __init__? ¿Cuándo se ejecuta?</p><div class="lines"></div></li><li><p>¿Qué representa self? ¿Por qué Python lo necesita?</p><div class="lines"></div></li><li><p>Añade a Punto un método __str__ que devuelva "(x, y)".</p><div class="lines"></div></li><li><p>Explica con un ejemplo cotidiano qué es el encapsulamiento.</p><div class="lines"></div></li><li><p>Dibuja (o describe) el diagrama UML de una clase Libro con título, autor y método prestar().</p><div class="lines"></div></li><li><p>Indica si cada relación es de herencia o de composición: a) Perro – Animal; b) Coche – Rueda; c) Alumno – Persona; d) Clase – Alumno.</p><div class="lines"></div></li><li><p>¿Qué es el polimorfismo? Pon un ejemplo de Python sin clases propias.</p><div class="lines"></div></li><li><p>Escribe la cabecera de una clase Moto que herede de Vehiculo.</p><div class="lines"></div></li><li><p>Escribe una clase Contador con un método incrementar() y otro reiniciar(), y un atributo de clase que cuente cuántos contadores se han creado.</p><div class="lines"></div></li><li><p>Escribe una clase Alumno con nombre y lista de notas, métodos añadir_nota (que valide 0-10) y media (0 si no hay notas).</p><div class="lines"></div></li><li><p>Añade a Alumno el método __lt__ para ordenar alumnos por media y ordena una lista de tres alumnos.</p><div class="lines"></div></li><li><p>Explica qué está mal: class Equipo:
+    jugadores = []
+    def fichar(self, j): self.jugadores.append(j)</p><div class="lines"></div></li><li><p>Crea una clase Temperatura con una propiedad kelvin calculada a partir de celsius.</p><div class="lines"></div></li><li><p>Crea la jerarquía Figura (con nombre) → Circulo y Cuadrado, cada una con su área y un __str__ común heredado que use el área.</p><div class="lines"></div></li><li><p>¿Qué muestra? class A:
+    def f(self): return "A"
+class B(A): pass
+class C(B):
+    def f(self): return "C"
+print(B().f(), C().f())</p><div class="lines"></div></li><li><p>Escribe una subclase CuentaAhorro de Cuenta que no permita retirar más de 500 € de una vez, reutilizando el retirar del padre.</p><div class="lines"></div></li><li><p>Escribe una función total_areas(figuras) que funcione con cualquier lista de figuras. ¿Qué principio de la POO aprovecha?</p><div class="lines"></div></li><li><p>Diseña con composición una clase Equipo que tenga jugadores (objetos Jugador con nombre y dorsal) y un método buscar(dorsal).</p><div class="lines"></div></li><li><p>Define una excepción DorsalRepetido y haz que fichar() la lance si el dorsal ya existe.</p><div class="lines"></div></li><li><p>Subraya sustantivos y verbos para encontrar clases y métodos: «Un cine proyecta películas en varias salas; los clientes compran entradas para una sesión».</p><div class="lines"></div></li><li><p>Reescribe la clase Punto con @dataclass. ¿Qué genera Python automáticamente?</p><div class="lines"></div></li><li><p>Explica la diferencia entre sobrescritura y sobrecarga de operadores con un ejemplo de cada una.</p><div class="lines"></div></li><li><p>Implementa una pila como clase con métodos apilar, desapilar (excepción PilaVacia si está vacía), cima y __len__.</p><div class="lines"></div></li><li><p>Implementa una lista enlazada con una clase Nodo (dato y siguiente) y una clase Lista con añadir_al_principio y __str__.</p><div class="lines"></div></li><li><p>Crea una clase abstracta MetodoPago con pagar(importe) y dos subclases (Tarjeta, Bizum). Escribe una función cobrar(metodo, importe) que funcione con cualquiera. ¿Qué principio SOLID se cumple?</p><div class="lines"></div></li><li><p>Diseña el diagrama de clases (texto) de una aplicación de préstamos de la biblioteca del instituto con al menos cuatro clases, atributos, métodos y relaciones.</p><div class="lines"></div></li><li><p>Programa un pequeño juego de rol: clase Personaje (nombre, vida, atacar(otro)) y subclases Guerrero (más daño) y Mago (cura). Simula un combate por turnos.</p><div class="lines"></div></li><li><p>Explica por qué un Cuadrado que hereda de Rectangulo puede romper el principio de sustitución si se permite cambiar la base y la altura por separado.</p><div class="lines"></div></li><li><p>Crea una clase Vector2D con suma (+), producto por escalar (*), igualdad (==) y módulo (abs()).</p><div class="lines"></div></li><li><p>Reescribe con POO el programa de notas del primer tema (lista de diccionarios y funciones). Compara ventajas e inconvenientes.</p><div class="lines"></div></li><li><p>Investiga y explica qué es el patrón de diseño Observador y en qué tipo de aplicaciones se usa.</p><div class="lines"></div></li><li><p>Debate: ¿siempre es mejor programar con clases? Argumenta con ejemplos cuándo conviene la POO y cuándo no.</p><div class="lines"></div></li></ol></section>
+  <section class="brk"><h2>Practica</h2><ol class="fq"><li><p>Un paradigma de programación es…</p><ol class="abc"><li><span>A)</span> un lenguaje concreto</li><li><span>B)</span> una forma de entender y organizar los programas</li><li><span>C)</span> un tipo de error</li><li><span>D)</span> un editor de código</li></ol></li><li><p>SQL y HTML son ejemplos de lenguajes…</p><ol class="abc"><li><span>A)</span> orientados a objetos</li><li><span>B)</span> declarativos</li><li><span>C)</span> ensambladores</li><li><span>D)</span> funcionales puros</li></ol></li><li><p>Una clase es…</p><ol class="abc"><li><span>A)</span> un objeto concreto</li><li><span>B)</span> una plantilla que define atributos y métodos</li><li><span>C)</span> una variable global</li><li><span>D)</span> un módulo</li></ol></li><li><p>Un objeto creado a partir de una clase se llama también…</p><ol class="abc"><li><span>A)</span> método</li><li><span>B)</span> instancia</li><li><span>C)</span> atributo</li><li><span>D)</span> paquete</li></ol></li><li><p>El método que inicializa un objeto en Python es…</p><ol class="abc"><li><span>A)</span> __str__</li><li><span>B)</span> __init__</li><li><span>C)</span> __main__</li><li><span>D)</span> start</li></ol></li><li><p>self representa…</p><ol class="abc"><li><span>A)</span> la clase padre</li><li><span>B)</span> el propio objeto</li><li><span>C)</span> un módulo</li><li><span>D)</span> el programa principal</li></ol></li><li><p>Un atributo de clase…</p><ol class="abc"><li><span>A)</span> es distinto en cada objeto</li><li><span>B)</span> lo comparten todos los objetos</li><li><span>C)</span> es siempre privado</li><li><span>D)</span> no existe en Python</li></ol></li><li><p>El método que define lo que muestra print(objeto) es…</p><ol class="abc"><li><span>A)</span> __init__</li><li><span>B)</span> __str__</li><li><span>C)</span> __eq__</li><li><span>D)</span> __len__</li></ol></li><li><p>Para que sorted ordene objetos propios se puede definir…</p><ol class="abc"><li><span>A)</span> __lt__</li><li><span>B)</span> __init__</li><li><span>C)</span> __main__</li><li><span>D)</span> __del__</li></ol></li><li><p>El encapsulamiento consiste en…</p><ol class="abc"><li><span>A)</span> copiar código de otra clase</li><li><span>B)</span> ocultar los datos internos y usar una interfaz</li><li><span>C)</span> crear muchos objetos</li><li><span>D)</span> usar solo funciones</li></ol></li><li><p>En Python, un atributo que empieza por _ indica…</p><ol class="abc"><li><span>A)</span> que es una constante</li><li><span>B)</span> que es de uso interno</li><li><span>C)</span> que es un método</li><li><span>D)</span> un error</li></ol></li><li><p>@property permite…</p><ol class="abc"><li><span>A)</span> heredar</li><li><span>B)</span> usar un método como si fuera un atributo</li><li><span>C)</span> crear clases abstractas</li><li><span>D)</span> importar módulos</li></ol></li><li><p>En un diagrama de clases UML, el signo − indica…</p><ol class="abc"><li><span>A)</span> un método</li><li><span>B)</span> un miembro privado</li><li><span>C)</span> herencia</li><li><span>D)</span> una clase abstracta</li></ol></li><li><p>La herencia expresa una relación…</p><ol class="abc"><li><span>A)</span> «tiene un»</li><li><span>B)</span> «es un»</li><li><span>C)</span> «usa un»</li><li><span>D)</span> «crea un»</li></ol></li><li><p>super().__init__(…) sirve para…</p><ol class="abc"><li><span>A)</span> borrar el objeto</li><li><span>B)</span> llamar al constructor de la clase padre</li><li><span>C)</span> crear una clase abstracta</li><li><span>D)</span> importar la clase</li></ol></li><li><p>Si una subclase define un método con el mismo nombre que el heredado, lo…</p><ol class="abc"><li><span>A)</span> sobrecarga</li><li><span>B)</span> sobrescribe</li><li><span>C)</span> borra</li><li><span>D)</span> duplica con error</li></ol></li><li><p>El polimorfismo permite que…</p><ol class="abc"><li><span>A)</span> una clase tenga muchos atributos</li><li><span>B)</span> objetos distintos respondan al mismo método a su manera</li><li><span>C)</span> un objeto pertenezca a dos programas</li><li><span>D)</span> se oculten los datos</li></ol></li><li><p>La composición expresa una relación…</p><ol class="abc"><li><span>A)</span> «es un»</li><li><span>B)</span> «tiene un»</li><li><span>C)</span> «hereda de»</li><li><span>D)</span> «sobrescribe a»</li></ol></li><li><p>Una clase abstracta…</p><ol class="abc"><li><span>A)</span> se instancia normalmente</li><li><span>B)</span> no se puede instanciar y obliga a implementar ciertos métodos</li><li><span>C)</span> no tiene métodos</li><li><span>D)</span> es siempre privada</li></ol></li><li><p>Para crear una excepción propia se define una clase que hereda de…</p><ol class="abc"><li><span>A)</span> object</li><li><span>B)</span> Exception</li><li><span>C)</span> list</li><li><span>D)</span> ABC</li></ol></li></ol></section>
+  <section><h2>Explícalo con tus palabras</h2><p class="caption">Incluye: Qué es un paradigma de programación y en qué se diferencia la POO de la programación modular; Qué diferencia hay entre una clase y un objeto; Para qué sirven __init__ y self; Qué es el encapsulamiento y cómo se consigue en Python con propiedades; Cómo se dibuja una clase en un diagrama UML; Cómo funcionan la herencia, super() y la sobrescritura de métodos; Qué es el polimorfismo y por qué hace los programas extensibles; Cuándo conviene usar composición en lugar de herencia.</p><div class="lines tall"></div></section>
+  <section><h2>Resumen</h2><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: PROGRAMACIÓN ORIENTADA A OBJETOS">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="185" y="122" width="330" height="56" rx="28" fill="var(--pen)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="14.2" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">PROGRAMACIÓN ORIENTADA A OBJETOS</text>
+      <rect x="15" y="34" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--pen)">Clases y objetos</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">__init__ · self · métodos</text><rect x="435" y="34" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--red)">Encapsulamiento</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">_privado · @property</text><rect x="15" y="214" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--leaf)">Herencia</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">super() · sobrescritura</text><rect x="435" y="214" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--sun)">Polimorfismo</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">mismo método · duck typing</text>
+    </g></svg></div><div class="glosario"><h3>Glosario</h3><dl><dt>Paradigma de programación</dt><dd>Forma de entender y organizar un programa.</dd><dt>Programación orientada a objetos</dt><dd>Paradigma que organiza el programa en objetos con datos y comportamiento.</dd><dt>Clase</dt><dd>Plantilla que define los atributos y métodos de un tipo de objetos.</dd><dt>Objeto (instancia)</dt><dd>Ejemplar concreto de una clase.</dd><dt>Atributo</dt><dd>Dato que guarda un objeto o una clase.</dd><dt>Método</dt><dd>Función definida dentro de una clase.</dd><dt>Constructor</dt><dd>Método __init__ que inicializa un objeto al crearlo.</dd><dt>self</dt><dd>Parámetro que representa al propio objeto en sus métodos.</dd><dt>Encapsulamiento</dt><dd>Ocultación de los datos internos tras una interfaz de métodos.</dd><dt>Propiedad</dt><dd>Atributo controlado por métodos con @property.</dd><dt>Abstracción</dt><dd>Selección de las características esenciales de un objeto real.</dd><dt>UML</dt><dd>Lenguaje gráfico estándar para modelar software.</dd><dt>Herencia</dt><dd>Mecanismo por el que una clase hija recibe los miembros de la clase padre.</dd><dt>Sobrescritura</dt><dd>Redefinición en una subclase de un método heredado.</dd><dt>Polimorfismo</dt><dd>Capacidad de objetos distintos de responder al mismo mensaje a su manera.</dd><dt>Composición</dt><dd>Relación en la que un objeto contiene a otros como partes.</dd><dt>Clase abstracta</dt><dd>Clase que no puede instanciarse y obliga a implementar ciertos métodos.</dd></dl></div></section>
+  <section><h2>Tarjetas de repaso</h2><p class="caption">Recórtalas: pregunta delante, respuesta detrás.</p><div class="cut"><div><b>Paradigma</b><span>Forma de organizar un programa: estructurado, funcional, declarativo, POO.</span></div><div><b>Clase</b><span>Plantilla que define atributos (datos) y métodos (acciones).</span></div><div><b>Objeto o instancia</b><span>Ejemplar concreto de una clase con sus propios valores.</span></div><div><b>Constructor</b><span>__init__(self, …): inicializa los atributos al crear el objeto.</span></div><div><b>self</b><span>Referencia al propio objeto en los métodos.</span></div><div><b>Atributo de clase</b><span>Compartido por todos los objetos de la clase.</span></div><div><b>Métodos especiales</b><span>__str__ (print), __eq__ (==), __lt__ (&lt;), __add__ (+).</span></div><div><b>Encapsulamiento</b><span>Ocultar los datos internos; acceso por métodos o @property.</span></div><div><b>UML</b><span>Diagrama de clases: nombre, atributos (+/−) y métodos; flechas de relación.</span></div><div><b>Herencia</b><span>class Hija(Padre): «es un»; super() y sobrescritura.</span></div><div><b>Polimorfismo</b><span>Objetos distintos responden al mismo método a su manera.</span></div><div><b>Composición</b><span>Un objeto contiene a otros: «tiene un»; más flexible que la herencia.</span></div></div></section>
+  <section class="sol"><h2>Soluciones</h2><ol><li><b>B)</b> Estructurado, funcional, orientado a objetos…</li><li><b>B)</b> Describen qué se quiere, no cómo.</li><li><b>B)</b> Los objetos se crean a partir de ella.</li><li><b>B)</b> Ejemplar concreto.</li><li><b>B)</b> El constructor.</li><li><b>B)</b> Primer parámetro de los métodos.</li><li><b>B)</b> Se define en el cuerpo de la clase.</li><li><b>B)</b> Devuelve un texto.</li><li><b>A)</b> Menor que.</li><li><b>B)</b> Protege la integridad de los datos.</li><li><b>B)</b> Es una convención.</li><li><b>B)</b> Getter con validación o cálculo.</li><li><b>B)</b> + es público.</li><li><b>B)</b> Un coche es un vehículo.</li><li><b>B)</b> Evita repetir código.</li><li><b>B)</b> Override.</li><li><b>B)</b> Muchas formas.</li><li><b>B)</b> Un coche tiene un motor.</li><li><b>B)</b> Módulo abc.</li><li><b>B)</b> class MiError(Exception).</li></ol></section>
+  <section class="sol"><h2>Soluciones de los ejercicios</h2><ol><li>Clase: plantilla que define los atributos y métodos de un tipo de objetos (Coche). Objeto: ejemplar concreto de la clase con sus valores (mi coche, un Seat rojo de 2020).</li><li>a) Funcional. b) Orientado a objetos. c) Declarativo.</li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Punto:
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+    def distancia_origen(self):
+        return (self.x ** 2 + self.y ** 2) ** 0.5</pre></li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">p = Punto(3, 4)
+q = Punto(1, 1)
+print(p.distancia_origen())   # 5.0</pre></li><li>Es el constructor: inicializa los atributos del objeto. Se ejecuta automáticamente al crear cada objeto.</li><li>Representa el objeto sobre el que se llama el método. Lo necesita para saber a qué objeto pertenecen los atributos que se leen o modifican, ya que el mismo método sirve para todos los objetos.</li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">def __str__(self):
+    return f"({self.x}, {self.y})"</pre></li><li>Ocultar el funcionamiento interno y ofrecer solo una interfaz. Un microondas: usas los botones, pero no tocas el magnetrón; así no puedes estropearlo ni ponerlo en un estado peligroso.</li><li>Rectángulo de tres partes. Arriba: Libro. Centro: + titulo: str, + autor: str, − prestado: bool. Abajo: + prestar(), + devolver().</li><li>a) Herencia (es un). b) Composición (tiene). c) Herencia. d) Composición o agregación (una clase tiene alumnos).</li><li>Que objetos distintos respondan a la misma operación de forma diferente. Ejemplo: len() funciona con listas, cadenas y diccionarios; + suma números y concatena cadenas.</li><li>class Moto(Vehiculo):</li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Contador:
+    creados = 0
+    def __init__(self):
+        self.valor = 0
+        Contador.creados += 1
+    def incrementar(self):
+        self.valor += 1
+    def reiniciar(self):
+        self.valor = 0</pre></li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Alumno:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        self.notas = []
+    def añadir_nota(self, n):
+        if not 0 &lt;= n &lt;= 10:
+            raise ValueError("Nota fuera de rango")
+        self.notas.append(n)
+    def media(self):
+        return sum(self.notas) / len(self.notas) if self.notas else 0</pre></li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">def __lt__(self, otro):
+    return self.media() &lt; otro.media()
+
+ranking = sorted(alumnos, reverse=True)</pre></li><li>jugadores es un atributo de clase y es una lista: todos los equipos comparten la misma, así que un fichaje aparece en todos. Debe crearse en __init__: self.jugadores = [].</li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Temperatura:
+    def __init__(self, c):
+        self.celsius = c
+    @property
+    def kelvin(self):
+        return self.celsius + 273.15</pre></li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Figura:
+    nombre = "figura"
+    def area(self):
+        return 0
+    def __str__(self):
+        return f"{self.nombre}: {self.area():.2f}"
+
+class Circulo(Figura):
+    nombre = "círculo"
+    def __init__(self, r): self.r = r
+    def area(self): return 3.1416 * self.r ** 2
+
+class Cuadrado(Figura):
+    nombre = "cuadrado"
+    def __init__(self, l): self.l = l
+    def area(self): return self.l ** 2</pre></li><li>A C. B no define f y usa la de A; C la sobrescribe.</li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class CuentaAhorro(Cuenta):
+    def retirar(self, cantidad):
+        if cantidad &gt; 500:
+            raise ValueError("Máximo 500 €")
+        super().retirar(cantidad)</pre></li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">def total_areas(figuras):
+    return sum(f.area() for f in figuras)
+Aprovecha el polimorfismo: no necesita saber la clase de cada figura.</pre></li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Jugador:
+    def __init__(self, nombre, dorsal):
+        self.nombre, self.dorsal = nombre, dorsal
+
+class Equipo:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        self.jugadores = []
+    def fichar(self, j):
+        self.jugadores.append(j)
+    def buscar(self, dorsal):
+        for j in self.jugadores:
+            if j.dorsal == dorsal:
+                return j
+        return None</pre></li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class DorsalRepetido(Exception):
+    pass
+
+def fichar(self, j):
+    if self.buscar(j.dorsal):
+        raise DorsalRepetido(f"El {j.dorsal} ya está ocupado")
+    self.jugadores.append(j)</pre></li><li>Clases: Cine, Película, Sala, Cliente, Entrada, Sesión. Métodos: proyectar (Sesión o Sala), comprar (Cliente o Entrada). Relaciones: un cine tiene salas, una sesión es de una película en una sala, una entrada es para una sesión.</li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">from dataclasses import dataclass
+
+@dataclass
+class Punto:
+    x: float
+    y: float
+
+Genera __init__, __repr__ (texto legible) y __eq__ (comparar por valores).</pre></li><li>Sobrescritura: una subclase redefine un método heredado (Coche.describir sustituye a Vehiculo.describir). Sobrecarga de operadores: una clase define qué hace un operador con sus objetos (__add__ para sumar fracciones con +).</li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class PilaVacia(Exception):
+    pass
+
+class Pila:
+    def __init__(self):
+        self._datos = []
+    def apilar(self, x):
+        self._datos.append(x)
+    def desapilar(self):
+        if not self._datos:
+            raise PilaVacia("La pila está vacía")
+        return self._datos.pop()
+    def cima(self):
+        return self._datos[-1] if self._datos else None
+    def __len__(self):
+        return len(self._datos)</pre></li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Nodo:
+    def __init__(self, dato, siguiente=None):
+        self.dato, self.siguiente = dato, siguiente
+
+class Lista:
+    def __init__(self):
+        self.cabeza = None
+    def añadir_al_principio(self, x):
+        self.cabeza = Nodo(x, self.cabeza)
+    def __str__(self):
+        partes, n = [], self.cabeza
+        while n:
+            partes.append(str(n.dato)); n = n.siguiente
+        return " → ".join(partes)</pre></li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">from abc import ABC, abstractmethod
+
+class MetodoPago(ABC):
+    @abstractmethod
+    def pagar(self, importe): ...
+
+class Tarjeta(MetodoPago):
+    def pagar(self, importe):
+        return f"Cobrados {importe} € con tarjeta"
+
+class Bizum(MetodoPago):
+    def pagar(self, importe):
+        return f"Cobrados {importe} € por Bizum"
+
+def cobrar(m, importe):
+    return m.pagar(importe)
+
+Abierto/cerrado: un método de pago nuevo es una clase nueva, sin tocar cobrar().</pre></li><li>Biblioteca (− libros: list, − socios: list; + prestar(libro, socio), + devolver(libro)). Libro (+ isbn, + titulo, − disponible: bool). Socio (+ nombre, + curso, − prestamos: list; + puede_pedir(): bool). Prestamo (+ libro, + socio, + fecha, + devolucion; + vencido(): bool). Relaciones: Biblioteca tiene Libros y Socios (composición/agregación); Prestamo asocia 1 Libro y 1 Socio; un Socio tiene 0..3 Préstamos.</li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">import random
+class Personaje:
+    def __init__(self, nombre, vida=100):
+        self.nombre, self.vida = nombre, vida
+    def daño(self):
+        return random.randint(5, 10)
+    def atacar(self, otro):
+        otro.vida -= self.daño()
+    def vivo(self):
+        return self.vida &gt; 0
+
+class Guerrero(Personaje):
+    def daño(self):
+        return super().daño() + 5
+
+class Mago(Personaje):
+    def atacar(self, otro):
+        super().atacar(otro)
+        self.vida = min(100, self.vida + 3)
+
+g, m = Guerrero("Ruy"), Mago("Ixa")
+while g.vivo() and m.vivo():
+    g.atacar(m)
+    if m.vivo():
+        m.atacar(g)
+print("Gana", g.nombre if g.vivo() else m.nombre)</pre></li><li>Un programa que espera un rectángulo puede poner base = 5 y altura = 2 y esperar área 10. Si el objeto es un Cuadrado que obliga a que lados sean iguales, al cambiar uno cambia el otro y el área no es la esperada: la subclase no puede sustituir al padre sin alterar el comportamiento. Mejor que sean clases independientes de una abstracta Figura.</li><li><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">class Vector2D:
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+    def __add__(self, o):
+        return Vector2D(self.x + o.x, self.y + o.y)
+    def __mul__(self, k):
+        return Vector2D(self.x * k, self.y * k)
+    def __eq__(self, o):
+        return self.x == o.x and self.y == o.y
+    def __abs__(self):
+        return (self.x ** 2 + self.y ** 2) ** 0.5</pre></li><li>Clases Alumno (nombre, notas; media(), aprobado()) y Grupo (alumnos; añadir(), media_grupo(), aprobados(), mejor()). Ventajas: datos y comportamiento juntos, validación encapsulada, fácil de ampliar (AlumnoRepetidor). Inconvenientes: más código para un problema pequeño; para scripts sencillos las funciones bastan.</li><li>Un objeto (sujeto) mantiene una lista de observadores y les avisa automáticamente cuando cambia su estado, llamando a un método común (actualizar). Se usa en interfaces gráficas (un botón avisa a los objetos interesados al pulsarse), en hojas de cálculo (al cambiar una celda se actualizan los gráficos) y en notificaciones de redes sociales.</li><li>No siempre. La POO conviene en programas grandes, con muchas entidades con estado y comportamiento (juegos, aplicaciones de gestión, interfaces gráficas) y cuando se prevé ampliarlos. Para scripts cortos, cálculos o tratamiento de datos, las funciones (y el estilo funcional) son más simples. Python permite combinar ambos enfoques.</li></ol></section>
+  </div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.<br><small>Escolapedia es un refuerzo: no sustituye al profesorado ni a los centros. <a href="../../../../../quien-esta-detras/">Quién está detrás</a> · <a href="../../../../../aviso-legal/">Aviso legal</a> · <a href="../../../../../privacidad/">Privacidad</a> · <a href="#" data-cookies>Cookies</a></small><br><small>© 2026 Alejandro Rosàs · Contenido bajo licencia <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" rel="license noopener" style="display:inline">CC BY-NC 4.0</a>, salvo indicación en contrario</small></div></footer>
+<div class="cookies" id="cookies" hidden><p>Usamos Google Analytics para saber cuántas personas visitan Escolapedia. Solo se activa si lo aceptas. <a href="../../../../../privacidad/">Más información</a></p><div><button type="button" data-ck="no">Rechazar</button><button type="button" data-ck="si">Aceptar</button></div></div>
+<script>(function(){var ID="G-DXYJCCJC31",K="ep-cookies",b=document.getElementById("cookies");function get(){try{return localStorage.getItem(K)}catch(e){return null}}function set(v){try{localStorage.setItem(K,v)}catch(e){}}function load(){if(window.gtag)return;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",ID,{anonymize_ip:true});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+ID;document.head.appendChild(s)}var v=get();if(v==="si")load();else if(v!=="no")b.hidden=false;b.addEventListener("click",function(e){var c=e.target.getAttribute("data-ck");if(!c)return;set(c);b.hidden=true;if(c==="si")load();else{document.cookie.split(";").forEach(function(x){var n=x.split("=")[0].trim();if(/^_ga/.test(n))document.cookie=n+"=;Max-Age=0;path=/;domain=."+location.hostname.replace(/^www./,"")})}});document.querySelectorAll("[data-cookies]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();b.hidden=false})})})();</script>
+<script>window.BASE="../../../../../";window.IDX="";</script>
+<script>document.getElementById("t-print").addEventListener("click",()=>window.print());</script>
+<script src="../../../../../assets/app.js"></script>
+</body></html>
