@@ -1,6 +1,8 @@
 // Listas de temas de 2º de Bachillerato (LOMLOE, RD 243/2022). Orden habitual de los libros de texto y de la PAU.
 // Cada materia se añade aquí cuando empieza a escribirse (las demás salen como «próximamente»).
 module.exports = {
+  // Comunes
+  "Lengua Castellana y Literatura II": ["El texto: propiedades y mecanismos de cohesión", "Los textos expositivos y argumentativos", "El comentario crítico de textos", "Formación de palabras y léxico del español", "Semántica: el significado de las palabras", "La oración compuesta: coordinación y yuxtaposición", "La subordinación sustantiva y de relativo", "La subordinación adverbial", "El español en el mundo y sus variedades", "Modernismo y Generación del 98", "Novecentismo, vanguardias y Generación del 27", "La poesía española desde 1939", "La novela española desde 1939", "El teatro español desde 1939", "La narrativa hispanoamericana del siglo XX"],
   // Ciencias y Tecnología
   "Matemáticas II": ["Matrices", "Determinantes", "Sistemas de ecuaciones lineales", "Vectores en el espacio", "Rectas y planos en el espacio", "Problemas métricos en el espacio", "Límites y continuidad", "Derivabilidad y teoremas del cálculo diferencial", "Aplicaciones de la derivada", "Integral indefinida", "Integral definida y aplicaciones", "Probabilidad", "Distribuciones binomial y normal"],
   "Química": ["Estructura atómica de la materia", "El sistema periódico", "Enlace iónico y enlace metálico", "Enlace covalente y fuerzas intermoleculares", "Termodinámica química", "Cinética química", "Equilibrio químico", "Equilibrios de solubilidad", "Ácidos y bases", "Reacciones de oxidación-reducción", "Electroquímica: pilas y electrólisis", "Química orgánica: isomería y reactividad", "Polímeros y macromoléculas"],
