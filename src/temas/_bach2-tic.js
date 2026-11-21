@@ -33,6 +33,17 @@ const VID = {
   "bd-er": { id: "l5PDQtUVye8", canal: "Eliezer De León", vistas: 742731 },
   "bd-relaciones": { id: "AArIcStS0TU", canal: "TodoCode", vistas: 136730 },
   "bd-normalizacion": { id: "MdYvCMbQji4", canal: "Daniela Bohórquez Escovar", vistas: 322922 },
+  "sql-general": { id: "yLoh2sSDECw", canal: "The Coder Cave", vistas: 845526 },
+  "sql-join": { id: "0BstRqp6Svg", canal: "TodoCode", vistas: 303104 },
+  "sql-group": { id: "eVzmJv2B2wk", canal: "TodoCode", vistas: 93318 },
+  "web-general": { id: "EvKm8yhM7V8", canal: "Dot Dager", vistas: 302685 },
+  "web-flex": { id: "QFXSgGg-HWo", canal: "Victor Robles WEB", vistas: 217456 },
+  "web-grid": { id: "edEG0CoM5gw", canal: "Kiko Palomares", vistas: 56474 },
+  "web-media": { id: "yneuaVjotO8", canal: "AlexCG Design", vistas: 102287 },
+  "js-general": { id: "8GTaO9XhA5M", canal: "Programador X", vistas: 466890 },
+  "js-dom": { id: "4ILE0y58J00", canal: "TodoCode", vistas: 31875 },
+  "js-eventos": { id: "TzhpyFmSioY", canal: "Code Hive", vistas: 34128 },
+  "js-fetch": { id: "FJ-w0tf3d_w", canal: "midulive", vistas: 165186 },
 };
 const V = (k, titulo) => {
   if (!VID[k]) throw new Error(`vídeo ${k} no encontrado`);
