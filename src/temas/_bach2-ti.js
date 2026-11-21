@@ -44,6 +44,20 @@ const VID = {
   "ca-fp": { id: "nHcqTR3rryw", canal: "Pon un ingeniero en tu vida", vistas: 865194 },
   "ca-resonancia": { id: "WNOINqPEo0g", canal: "Electrónica FP", vistas: 165578 },
   "ca-trifasica": { id: "UXW_I_d5O5w", canal: "Mentalidad De Ingeniería", vistas: 1400168 },
+  "dc-puertas": { id: "RVGIXfC4Xeg", canal: "Nate Gentile", vistas: 1509979 },
+  "dc-boole": { id: "vOSCevaytLA", canal: "Electrónica FP", vistas: 662261 },
+  "dc-karnaugh": { id: "XeQR_5zDutM", canal: "unicoos", vistas: 461959 },
+  "dc-sumador": { id: "vdrRqimopt8", canal: "Electrónica FP", vistas: 315578 },
+  "dc-mux": { id: "V09LfIUTQ04", canal: "Electrónica FP", vistas: 297247 },
+  "dc-deco": { id: "uw4BWX6VhaY", canal: "Electrónica FP", vistas: 255123 },
+  "ds-flipflop": { id: "3xy9WDgfqJg", canal: "Les Ingenieurs", vistas: 464029 },
+  "ds-jk": { id: "M9toqPQghaA", canal: "Les Ingenieurs", vistas: 258200 },
+  "ds-contadores": { id: "-O3Ft6SYGWU", canal: "Electrónica FP", vistas: 315893 },
+  "ds-registros": { id: "Kaq59Z9Z7Us", canal: "Electrónica FP", vistas: 253746 },
+  "ct-lazo": { id: "2SHQTUvvVuM", canal: "STEM con Pablo", vistas: 44819 },
+  "ct-bloques": { id: "VUygVoSUJmA", canal: "Salvador FI Facultad de Ingeniería", vistas: 155447 },
+  "ct-pid": { id: "UR0hOmjaHp0", canal: "Brian Douglas", vistas: 1760406 },
+  "ct-routh": { id: "vKv3YG3Fq88", canal: "Sistemas Dinámicos y Control", vistas: 67931 },
 };
 const V = (k, titulo, busqueda) => {
   if (!VID[k]) throw new Error(`vídeo ${k} no encontrado`);
