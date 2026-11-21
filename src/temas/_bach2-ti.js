@@ -58,6 +58,15 @@ const VID = {
   "ct-bloques": { id: "VUygVoSUJmA", canal: "Salvador FI Facultad de Ingeniería", vistas: 155447 },
   "ct-pid": { id: "UR0hOmjaHp0", canal: "Brian Douglas", vistas: 1760406 },
   "ct-routh": { id: "vKv3YG3Fq88", canal: "Sistemas Dinámicos y Control", vistas: 67931 },
+  "au-plc": { id: "-6oG7QMmLwA", canal: "Capacitación Eléctrica Trafomex", vistas: 329066 },
+  "au-ladder": { id: "8WfHVmEUxX4", canal: "Neheyler Mecatrónico", vistas: 315391 },
+  "au-ejemplo": { id: "VC9vV5PeHlM", canal: "Neheyler Mecatrónico", vistas: 260040 },
+  "au-sensores": { id: "lZkuWqJbcZs", canal: "Clases con DiKa", vistas: 172175 },
+  "au-grafcet": { id: "BemisA7B8S4", canal: "Automatismos Para Todos", vistas: 114893 },
+  "em-cuantica": { id: "YpYuBEzfRlM", canal: "Derivando", vistas: 1027911 },
+  "em-redes": { id: "CU24iC3grq8", canal: "Ringa Tech", vistas: 413637 },
+  "em-nube": { id: "h4Af5bbFAq0", canal: "EDteam", vistas: 751615 },
+  "em-basura": { id: "FtS2fuveBIw", canal: "Tecnonauta", vistas: 341164 },
 };
 const V = (k, titulo, busqueda) => {
   if (!VID[k]) throw new Error(`vídeo ${k} no encontrado`);
