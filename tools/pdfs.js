@@ -1,5 +1,5 @@
 // Genera el PDF de cada ficha (dist/.../ficha/ficha.pdf) para que el alumno lo descargue directamente.
-// Uso: node build.js && node tools/pdfs.js   (necesita Playwright con Chromium)
+// Uso: node build.js && node tools/pdfs.js [filtro-de-ruta]   (necesita Playwright con Chromium)
 const { chromium } = require("playwright");
 const http = require("http");
 const fs = require("fs");
@@ -30,7 +30,7 @@ function fichas(dir, out = []) {
   const port = server.address().port;
   const browser = await chromium.launch();
   const page = await browser.newPage();
-  const list = fichas(DIST);
+  const list = fichas(DIST).filter((r) => r.includes(process.argv[2] || ""));
   for (const rel of list) {
     await page.goto(`http://localhost:${port}/${rel}/`, { waitUntil: "networkidle" });
     await page.pdf({ path: path.join(DIST, rel, "ficha.pdf"), format: "A4", margin: { top: "12mm", bottom: "12mm", left: "10mm", right: "10mm" } });

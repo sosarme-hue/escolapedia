@@ -102,3 +102,93 @@ module.exports = P.tema({
   saberes: "Sentido numérico: potencias de exponente natural como producto de factores iguales; cuadrados y cubos; potencias de base 10 y descomposición polinómica de números naturales",
   ideas: ["Construir cuadrados y cubos con cubitos encajables para ver 3² y 3³.", "Leyenda del tablero de ajedrez con calculadora para ver crecer las potencias de 2.", "Tarjetas de dominó con potencias y sus valores."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Comparar potencias y calcularlas dentro de operaciones combinadas", "Reconocer el crecimiento rápido de las potencias de base 2", "Relacionar el cuadrado de un número con su raíz cuadrada"],
+  lectura: { titulo: "El ajedrez y los granos de trigo", html: `<p>Cuenta una vieja leyenda de la India que un rey quedó tan encantado con el juego del ajedrez que quiso premiar a su inventor. «Pide lo que quieras», le dijo. El sabio contestó: «Solo quiero trigo: un grano por la primera casilla del tablero, dos por la segunda, cuatro por la tercera, y así, doblando cada vez, hasta la casilla 64».</p><p>El rey se rio: ¡qué premio tan pequeño! Mandó a sus sirvientes que contaran los granos. Pero al llegar a la casilla 20 ya necesitaban más de medio millón de granos, y en la casilla 30, más de quinientos millones. En la última casilla harían falta más granos de trigo que los que se han cosechado en toda la historia de la humanidad.</p><p>El sabio sabía algo que el rey ignoraba: cuando multiplicamos un número por sí mismo muchas veces, el resultado crece a una velocidad increíble. Esa multiplicación repetida tiene nombre: es una <b>potencia</b>. En este tema aprenderás a escribirlas, a calcularlas y a usarlas.</p>` },
+  tras: {
+    "El cubo de un número": [
+      ["Las potencias de base 2: doblar y doblar", `<p>Las potencias de <b>base 2</b> aparecen siempre que algo se <b>duplica</b> una y otra vez:</p><p style="text-align:center">2¹ = 2 · 2² = 4 · 2³ = 8 · 2⁴ = 16 · 2⁵ = 32 · 2⁶ = 64 · 2⁷ = 128 · 2⁸ = 256 · 2⁹ = 512 · 2¹⁰ = 1 024</p><p>Fíjate: cada resultado es el <b>doble</b> del anterior. Al principio los números son pequeños, pero enseguida crecen muchísimo. Es lo que pasaba con los granos del ajedrez.</p><p>Ejemplos de la vida real:</p><ul><li>Una bacteria se divide en dos cada 20 minutos. Después de 3 horas (9 divisiones) habrá 2⁹ = <b>512</b> bacterias.</li><li>Si doblas una hoja de papel por la mitad 5 veces, tendrás 2⁵ = <b>32</b> capas.</li><li>Los ordenadores guardan la información en <b>bits</b> que solo pueden valer 0 o 1. Con 8 bits se pueden formar 2⁸ = 256 combinaciones distintas.</li></ul>`,
+        P.svg("Las potencias de base dos crecen muy rápido: barras que se duplican, dos, cuatro, ocho, dieciséis y treinta y dos", `${[2, 4, 8, 16, 32].map((v, i) => `<rect x="${28 + i * 44}" y="${150 - v * 3.8}" width="30" height="${v * 3.8}" rx="4" fill="${[AZ, VE, NA, MO, RO][i]}" fill-opacity=".55" stroke="${[AZ, VE, NA, MO, RO][i]}" stroke-width="1.5"/>${t(43 + i * 44, 166, `2${["¹", "²", "³", "⁴", "⁵"][i]}`, { s: 12 })}${t(43 + i * 44, 144 - v * 3.8, v, { s: 11, d: true })}`).join("")}<path d="M20 150 H 240" stroke="var(--muted)" stroke-width="2"/>`)],
+      ["Comparar potencias", `<p>Para saber qué potencia es mayor hay tres casos:</p><ul><li><b>Misma base</b>: es mayor la de <b>mayor exponente</b>. 3⁵ &gt; 3⁴, porque multiplicamos el 3 más veces.</li><li><b>Mismo exponente</b>: es mayor la de <b>mayor base</b>. 7² &gt; 5², porque 49 &gt; 25.</li><li><b>Base y exponente distintos</b>: hay que <b>calcularlas</b>. ¿2⁵ o 5²? 2⁵ = 32 y 5² = 25, así que 2⁵ &gt; 5².</li></ul><p>¡Cuidado con una trampa muy común! Cambiar la base por el exponente <b>sí cambia</b> el resultado: 2³ = 8, pero 3² = 9. Y 2⁴ = 16 y 4² = 16 son de las pocas parejas que coinciden.</p><p>Dos casos especiales que debes recordar:</p><ul><li>Cualquier número elevado a <b>1</b> es el mismo número: 8¹ = 8.</li><li>El <b>1</b> elevado a cualquier exponente vale 1: 1⁵⁰ = 1, porque 1 × 1 × 1… siempre da 1.</li></ul>`,
+        P.svg("Comparar potencias: tres elevado a cinco es mayor que tres elevado a cuatro; siete al cuadrado es mayor que cinco al cuadrado", `${t(130, 24, "misma base", { s: 12, c: VE })}${caja(18, 32, 100, 40, "3⁵ = 243", VE, { s: 15 })}${t(130, 58, ">", { s: 20, d: true })}${caja(142, 32, 100, 40, "3⁴ = 81", VE, { s: 15 })}${t(130, 98, "mismo exponente", { s: 12, c: MO })}${caja(18, 106, 100, 40, "7² = 49", MO, { s: 15 })}${t(130, 132, ">", { s: 20, d: true })}${caja(142, 106, 100, 40, "5² = 25", MO, { s: 15 })}${t(130, 168, "si no, ¡calcula las dos!", { s: 12, d: true })}`)],
+    ],
+    "Descomponer números con potencias de 10": [
+      ["Las potencias en las operaciones combinadas", `<p>Las potencias también pueden aparecer en una operación combinada. Entonces el orden de cálculo es:</p><ol><li><b>Paréntesis</b>.</li><li><b>Potencias</b>.</li><li><b>Multiplicaciones y divisiones</b>, de izquierda a derecha.</li><li><b>Sumas y restas</b>, de izquierda a derecha.</li></ol><p>Ejemplo: 3 × 2³ − 4 = 3 × 8 − 4 = 24 − 4 = <b>20</b>. Primero la potencia (2³ = 8), después la multiplicación y, al final, la resta.</p><p>Otro ejemplo con paréntesis: (5 − 2)² + 10 = 3² + 10 = 9 + 10 = <b>19</b>. Pero si no hubiera paréntesis, 5 − 2² + 10 = 5 − 4 + 10 = 11. ¡Los paréntesis cambian el resultado!</p><p>Un error frecuente es multiplicar la base por el exponente: 2³ <b>no</b> es 2 × 3 = 6, sino 2 × 2 × 2 = 8.</p>`,
+        P.svg("Orden de las operaciones: paréntesis, potencias, multiplicaciones y divisiones, sumas y restas", `${[["( )", "paréntesis", AZ], ["aⁿ", "potencias", RO], ["× :", "multiplicar y dividir", MO], ["+ −", "sumar y restar", VE]].map(([s, n, c], i) => `${caja(20, 14 + i * 40, 54, 32, s, c, { s: 15 })}${t(88, 35 + i * 40, n, { s: 12, a: "start", c })}`).join("")}${t(214, 100, "1→4", { s: 18, d: true, c: "var(--muted)" })}`)],
+    ],
+    "Potencias en la vida diaria": [
+      ["Un adelanto: la raíz cuadrada", `<p>Si sabemos que 6² = 36, podemos hacernos la pregunta al revés: <b>¿qué número multiplicado por sí mismo da 36?</b> La respuesta es 6, y decimos que 6 es la <b>raíz cuadrada</b> de 36. Se escribe así: √36 = 6.</p><p>La raíz cuadrada es la operación <b>inversa</b> del cuadrado, igual que la resta es la inversa de la suma. Con la tabla de los cuadrados perfectos la puedes calcular de memoria:</p><p style="text-align:center">√1 = 1 · √4 = 2 · √9 = 3 · √16 = 4 · √25 = 5 · √49 = 7 · √64 = 8 · √81 = 9 · √100 = 10</p><p>Tiene una utilidad muy práctica: si un huerto cuadrado tiene un área de <b>49 m²</b>, cada lado mide √49 = <b>7 m</b>. En 6º de Primaria estudiarás las raíces de números que no son cuadrados perfectos, como √50.</p>`,
+        P.svg("Raíz cuadrada: un cuadrado de cuarenta y nueve cuadraditos tiene siete de lado", `${rejilla(30, 22, 7, 7, 18)}<rect x="30" y="22" width="126" height="126" fill="${VE}" fill-opacity=".2" stroke="${VE}" stroke-width="2.5"/>${t(93, 166, "lado 7", { s: 12, c: VE })}${t(210, 74, "7² = 49", { s: 16, d: true, c: AZ })}${t(210, 110, "√49 = 7", { s: 16, d: true, c: RO })}`)],
+    ],
+  },
+  final: [
+    ["Una historia de potencias: del gúgol a los ordenadores", `<p>Las potencias se usan desde hace miles de años. Los matemáticos de la antigua Grecia, como <b>Pitágoras</b>, llamaban «números cuadrados» a 1, 4, 9, 16… porque se pueden colocar con piedrecitas formando un cuadrado. Y <b>Arquímedes</b>, hace más de 2 200 años, intentó calcular cuántos granos de arena cabrían en todo el universo; para escribir ese número inventó un sistema parecido a nuestras potencias de 10.</p><p>En 1938, un niño estadounidense de nueve años, Milton Sirotta, puso nombre a un número enorme que le propuso su tío matemático: un 1 seguido de cien ceros, es decir, <b>10¹⁰⁰</b>. Lo llamó <b>gúgol</b> («googol» en inglés). Años después, los creadores de un famoso buscador de internet se inspiraron en esa palabra para bautizar su empresa.</p><p>Hoy las potencias están dentro de todos los aparatos electrónicos: la memoria de los móviles y ordenadores se mide con potencias de 2. Por eso las tarjetas de memoria tienen tamaños como 32, 64, 128 o 256 gigas. ¡Mira la próxima vez la caja de un móvil o de un pendrive y descubre la potencia de 2 escondida!</p>`,
+      P.svg("Números cuadrados de Pitágoras con piedrecitas: uno, cuatro, nueve y dieciséis", `${[1, 2, 3, 4].map((n, k) => { const x0 = [18, 46, 92, 156][k]; return [...Array(n * n)].map((_, i) => `<circle cx="${x0 + (i % n) * 18}" cy="${40 + Math.floor(i / n) * 18}" r="6.5" fill="${[AZ, VE, NA, RO][k]}" fill-opacity=".7"/>`).join("") + t(x0 + (n - 1) * 9, 128, String(n * n), { s: 14, d: true, c: [AZ, VE, NA, RO][k] }); }).join("")}${t(130, 160, "gúgol = 10¹⁰⁰", { s: 14, d: true, c: MO })}`)],
+  ],
+  ejemplos: [
+    ["Calcula: 4 + 3² × 2.", ["Primero la potencia: 3² = 9.", "Después la multiplicación: 9 × 2 = 18.", "Por último la suma: 4 + 18 = 22."], "22"],
+    ["Ordena de menor a mayor: 2⁴, 3³ y 5².", ["2⁴ = 16.", "3³ = 27.", "5² = 25."], "2⁴ < 5² < 3³"],
+  ],
+  errores: ["Pensar que 1 elevado a un número grande es un número grande: 1¹⁰ = 1."],
+  nivelesBase: "bbbbbmmmmm",
+  ejercicios: [
+    ["b", "Escribe las potencias de base 2 desde 2¹ hasta 2⁸.", "2, 4, 8, 16, 32, 64, 128 y 256. Cada una es el doble de la anterior."],
+    ["b", "Calcula: 1⁹, 9¹ y 0³.", "1⁹ = 1; 9¹ = 9; 0³ = 0 × 0 × 0 = 0."],
+    ["b", "Calcula la raíz cuadrada: √16, √64 y √100.", "4, 8 y 10, porque 4² = 16, 8² = 64 y 10² = 100."],
+    ["b", "¿Qué es mayor, 6³ o 6⁴? Explícalo sin calcular.", "6⁴, porque tienen la misma base y 6⁴ tiene mayor exponente: el 6 se multiplica una vez más."],
+    ["m", "Calcula: 2³ + 3² − 4.", "8 + 9 − 4 = 13."],
+    ["m", "Calcula: (2 + 3)² y 2² + 3². ¿Dan lo mismo?", "(2 + 3)² = 5² = 25. 2² + 3² = 4 + 9 = 13. No dan lo mismo."],
+    ["m", "Ordena de mayor a menor: 4³, 3⁴, 2⁶.", "4³ = 64, 3⁴ = 81, 2⁶ = 64. Orden: 3⁴ > 4³ = 2⁶."],
+    ["m", "Una bacteria se divide en dos cada hora. Empezamos con una. ¿Cuántas habrá a las 6 horas? Escríbelo como potencia.", "2⁶ = 64 bacterias."],
+    ["m", "Un mosaico cuadrado tiene 81 baldosas. ¿Cuántas baldosas hay en cada lado?", "√81 = 9 baldosas."],
+    ["a", "Calcula: 5 × 10³ − 2 × 10².", "5 × 1 000 − 2 × 100 = 5 000 − 200 = 4 800."],
+    ["a", "Encuentra dos potencias distintas que den 64.", "Por ejemplo, 8² = 64, 4³ = 64 y 2⁶ = 64."],
+    ["a", "Cada persona envía un mensaje a 3 amigos, y cada uno lo reenvía a otros 3. En el cuarto envío, ¿cuántas personas lo reciben?", "3⁴ = 81 personas en el cuarto envío."],
+    ["a", "Un cubo grande está hecho con 125 cubitos. ¿Cuántos cubitos tiene en cada arista?", "Buscamos un número que elevado al cubo dé 125: 5³ = 125. Cada arista tiene 5 cubitos."],
+    ["a", "¿Es cierto que 2⁵ = 5²? Justifícalo calculando.", "No: 2⁵ = 32 y 5² = 25."],
+    ["a", "Halla el valor de la casilla: □² = 144.", "12, porque 12 × 12 = 144."],
+    ["a", "Inventa un problema de la vida real que se resuelva con 10³.", "Ejemplo: «Un almacén tiene 10 estanterías, cada una con 10 cajas, y cada caja con 10 libros. ¿Cuántos libros hay?». 10³ = 1 000 libros."],
+  ],
+  quiz: [
+    ["2⁸ es igual a…", ["256", "16", "64"], "2 multiplicado por sí mismo 8 veces."],
+    ["¿Qué potencia es mayor: 3⁵ o 3⁴?", ["3⁵", "3⁴", "Son iguales"], "Misma base: gana la de mayor exponente."],
+    ["En 2 + 3² se calcula primero…", ["La potencia", "La suma", "Da igual"], "Las potencias van antes que las sumas."],
+    ["√36 es…", ["6", "18", "72"], "Porque 6 × 6 = 36."],
+    ["1¹⁰⁰ vale…", ["1", "100", "101"], "1 multiplicado por 1 siempre da 1."],
+  ],
+  examen: [
+    ["El resultado de 2³ es…", ["8", "6", "9"], "2 × 2 × 2 = 8; no se multiplica la base por el exponente."],
+    ["(4 − 1)² vale…", ["9", "15", "3"], "Primero el paréntesis: 3² = 9."],
+    ["La raíz cuadrada es la operación inversa de…", ["Elevar al cuadrado", "Sumar", "Dividir entre 2"], "Si 7² = 49, √49 = 7."],
+    ["Si doblas un papel 4 veces, ¿cuántas capas tienes?", ["16", "8", "4"], "2⁴ = 16."],
+  ],
+  tarjetas: [
+    ["Potencias de 2", "2, 4, 8, 16, 32, 64, 128, 256, 512, 1 024."],
+    ["Comparar potencias", "Misma base: mayor exponente. Mismo exponente: mayor base."],
+    ["Orden de operaciones", "Paréntesis, potencias, × y :, + y −."],
+    ["Raíz cuadrada", "√49 = 7 porque 7² = 49."],
+  ],
+  glosario: [
+    ["Potencia", "Multiplicación de un número por sí mismo varias veces."],
+    ["Base", "Número que se multiplica en una potencia."],
+    ["Exponente", "Número pequeño que indica cuántas veces se multiplica la base."],
+    ["Cuadrado", "Potencia de exponente 2: 5² = 25."],
+    ["Cubo", "Potencia de exponente 3: 2³ = 8."],
+    ["Cuadrado perfecto", "Número que es el cuadrado de otro: 1, 4, 9, 16, 25…"],
+    ["Potencia de base 10", "Un 1 seguido de tantos ceros como indica el exponente."],
+    ["Raíz cuadrada", "Número que multiplicado por sí mismo da el número dado."],
+    ["Operación inversa", "Operación que deshace otra: la raíz deshace el cuadrado."],
+    ["Duplicar", "Multiplicar por 2, hacer el doble."],
+    ["Bit", "Unidad mínima de información de un ordenador; vale 0 o 1."],
+  ],
+  situacion: {
+    titulo: "La cadena de mensajes",
+    reto: "¿Cuánto tarda un rumor en llegar a todo el colegio si cada persona se lo cuenta a otras dos? Lo investigamos con potencias.",
+    pasos: ["Simulad en clase la cadena: uno cuenta un mensaje inventado a dos compañeros, cada uno a otros dos, y así.", "Anotad en una tabla cuántas personas lo reciben en cada ronda y escribidlo como potencia de 2.", "Averiguad cuántos alumnos tiene el colegio y calculad en qué ronda lo sabría todo el mundo.", "Debatid qué pasa con los bulos en internet, donde cada persona reenvía a muchos más contactos."],
+    producto: "Una tabla y un gráfico de barras con el crecimiento del mensaje y una conclusión escrita sobre los bulos.",
+    evaluacion: ["Escribe y calcula potencias correctamente.", "Relaciona el duplicado con las potencias de base 2.", "Interpreta el crecimiento rápido en una situación real.", "Argumenta una conclusión crítica sobre la difusión de información."],
+  },
+});

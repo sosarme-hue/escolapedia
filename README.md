@@ -80,3 +80,14 @@ Es el tema ampliado al máximo, como un capítulo de libro de texto. Se reescrib
 `build.js` también genera `dist/sitemap.xml` (todas las páginas salvo las fichas) y `dist/robots.txt`, así que se actualizan solos en cada publicación.
 
 escolapedia.com se publica desde la rama `claude/project-thread-d876yp` con `hosting_git_deploy-website-repository` (sin despliegue automático: solo cambia cuando se vuelve a lanzar). El `.htaccess` de la raíz sirve la carpeta `dist/`. Solo se publica lo que hay en `dist/` cuando se sube: generar con `node build.js && node tools/pdfs.js` y subir `dist/` únicamente cuando Alex haya dado el visto bueno.
+
+## Tema nivel libro de 5º y 6º de Primaria
+
+Se amplía el tema que ya existe sin reescribirlo: al final del fichero se llama a `require("./_priL").libro(module.exports, { … })` (ver `src/temas/pri-5-mat-naturales-operaciones.js`). Lenguaje para niños de 10 a 12 años.
+
+- `lectura`: «Para empezar», 120 a 230 palabras.
+- Apartados nuevos (`tras` / `final`, cada uno con `svg` propio) hasta tener **12 a 16 apartados numerados** y **1.600 a 2.800 palabras**; al menos 2 vídeos de apartado (`videos`, sin repetir ninguno ya usado en `dist/`).
+- `ejemplos`: 5 o más; `errores`: 6 o más.
+- `ejercicios`: 24 a 30 con nivel (`nivelesBase` para los 10 que ya había y `[b|m|a, q, sol]` para los nuevos).
+- `quiz`: 15; `examen`: 6 o más; `tarjetas`: 10 o más; `glosario`: 10 a 14; `situacion` con 4 o más pasos.
+- Después: `node build.js && node tools/desbordes.js 5-primaria` (0 desbordes) y `node tools/pdfs.js`.

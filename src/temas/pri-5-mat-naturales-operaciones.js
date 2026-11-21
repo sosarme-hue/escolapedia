@@ -102,3 +102,98 @@ module.exports = P.tema({
   saberes: "Sentido numérico: lectura, escritura, descomposición, comparación y redondeo de números naturales; sistema de numeración romano; propiedades de las operaciones; jerarquía de las operaciones y uso del paréntesis; resolución de problemas",
   ideas: ["Tabla de valor posicional gigante en el suelo para colocar cifras con tarjetas.", "Buscar en internet datos reales de población de ciudades y ordenarlas.", "Carrera de operaciones combinadas por parejas con comprobación cruzada."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Estimar el resultado de una operación antes de calcularla", "Usar las propiedades de las operaciones para calcular mejor", "Seguir un plan de cuatro pasos para resolver problemas de varias operaciones"],
+  lectura: { titulo: "Un estadio lleno de números", html: `<p>Marta y su abuelo van al estadio a ver un partido. En la pantalla gigante aparece un mensaje: «Asistencia de hoy: <b>67 482</b> espectadores». Marta lo lee en voz alta y se equivoca: «¡Seis mil setecientos!». Su abuelo se ríe y le enseña un truco: separar las cifras de tres en tres desde la derecha.</p><p>Al volver a casa, Marta busca más números grandes. En las noticias descubre que en España viven unos <b>48 millones</b> de personas y que la Luna está a <b>384 400</b> kilómetros. «¿Cuántos estadios como el de hoy harían falta para meter a todos los españoles?», se pregunta. Para contestarlo no necesita la cuenta exacta: basta con <b>redondear y estimar</b>.</p><p>En este tema aprenderás a leer y escribir números de hasta nueve cifras, a compararlos y redondearlos, y a hacer operaciones combinadas sin equivocarte en el orden. Son las herramientas que usan los periodistas, los arquitectos y los organizadores de cualquier gran evento.</p>` },
+  tras: {
+    "Comparar, ordenar y redondear": [
+      ["Estimar antes de calcular", `<p><b>Estimar</b> es calcular un resultado <b>aproximado</b> de forma rápida, redondeando los números antes de operar. Sirve para dos cosas: saber si una cuenta exacta es razonable y decidir sin papel ni calculadora.</p><p>Ejemplo: en una excursión van 4 autobuses con 52, 48, 61 y 39 alumnos. ¿Cuántos van, más o menos? Redondeamos a las decenas: 50 + 50 + 60 + 40 = <b>200 alumnos</b>. La cuenta exacta da 200, ¡muy cerca!</p><p>En la multiplicación también funciona: 198 × 5 se parece a 200 × 5 = <b>1 000</b>. Si con la cuenta exacta te sale 9 900, sabes enseguida que te has equivocado al colocar alguna cifra.</p><p>Consejo: redondea a la cifra que te permita calcular de cabeza. Para sumar precios de 3 a 9 €, redondea a las unidades; para sumar habitantes de ciudades, a los millares o a los millones. Después, compara siempre la estimación con el resultado exacto: si están muy lejos, revisa la cuenta.</p>`,
+        P.svg("Estimar: cincuenta y dos más cuarenta y ocho más sesenta y uno más treinta y nueve es aproximadamente doscientos", `${[["52", "50"], ["48", "50"], ["61", "60"], ["39", "40"]].map(([a, b], i) => `${caja(14 + i * 60, 22, 50, 32, a, AZ, { s: 15 })}${t(39 + i * 60, 76, "≈", { s: 16, c: "var(--muted)" })}${caja(14 + i * 60, 86, 50, 32, b, VE, { s: 15 })}`).join("")}${t(130, 150, "50 + 50 + 60 + 40 ≈ 200", { s: 15, d: true, c: VE })}${t(130, 170, "exacto: 200", { s: 11, c: "var(--muted)" })}`),
+        ["wT6UeTQF8-0", "Aproximaciones de números naturales para niños de primaria", "Clases Particulares en Ávila", 267618]],
+    ],
+    "Los números romanos": [
+      ["Sistemas aditivos y sistemas posicionales", `<p>A lo largo de la historia las personas han inventado distintas maneras de escribir los números. Se pueden agrupar en dos grandes tipos:</p><ul><li><b>Sistemas aditivos</b>: cada símbolo vale siempre lo mismo y se suman. Los egipcios dibujaban un bastón para el 1, un arco para el 10 y una cuerda enrollada para el 100. Para escribir 300 repetían tres veces la cuerda. El sistema romano es casi aditivo.</li><li><b>Sistemas posicionales</b>: el valor de una cifra depende del <b>lugar</b> que ocupa. Es nuestro sistema decimal, que nació en la India, lo trajeron los árabes y llegó a Europa a través de al-Ándalus. Por eso a nuestras cifras las llamamos <b>indoarábigas</b>.</li></ul><p>La gran ventaja del sistema posicional es el <b>cero</b>: permite dejar un lugar vacío. En 305, el 0 dice que no hay decenas. Con solo diez cifras (0 al 9) podemos escribir cualquier número, por grande que sea, y hacer cuentas en columna. ¡Intenta multiplicar CCCXLV por XXVII y verás por qué los romanos usaban ábacos!</p>`,
+        P.svg("Comparación del número trescientos cinco escrito en sistema egipcio, romano y decimal", `${t(60, 30, "egipcio", { s: 11, c: "var(--muted)" })}${[0, 1, 2].map((i) => `<circle cx="${30 + i * 22}" cy="58" r="9" fill="none" stroke="${NA}" stroke-width="2.4"/><circle cx="${30 + i * 22}" cy="58" r="4" fill="none" stroke="${NA}" stroke-width="2"/>`).join("")}${[0, 1, 2, 3, 4].map((i) => `<path d="M${98 + i * 7} 48 V 70" stroke="${NA}" stroke-width="2.6"/>`).join("")}${t(200, 30, "romano", { s: 11, c: "var(--muted)" })}${t(200, 66, "CCCV", { s: 22, d: true, c: RO })}${t(130, 110, "decimal (posicional)", { s: 11, c: "var(--muted)" })}${caja(70, 120, 40, 40, "3", AZ, { s: 20 })}${caja(110, 120, 40, 40, "0", MO, { s: 20 })}${caja(150, 120, 40, 40, "5", AZ, { s: 20 })}${t(130, 174, "el 0 guarda el sitio de las decenas", { s: 10, c: MO })}`)],
+    ],
+    "Multiplicación y división": [
+      ["Propiedades que ayudan a calcular", `<p>Las operaciones tienen <b>propiedades</b>: reglas que se cumplen siempre y que nos permiten calcular de forma más cómoda.</p><ul><li><b>Conmutativa</b> (suma y multiplicación): el orden no cambia el resultado. 4 × 25 = 25 × 4.</li><li><b>Asociativa</b>: si hay tres números, puedo agruparlos como quiera. (7 × 5) × 2 = 7 × (5 × 2) = 7 × 10 = 70. Es más fácil buscar primero el 10.</li><li><b>Distributiva</b>: multiplicar un número por una suma es lo mismo que multiplicarlo por cada sumando y sumar. 6 × (10 + 3) = 6 × 10 + 6 × 3 = 60 + 18 = 78.</li><li><b>Elemento neutro</b>: sumar 0 o multiplicar por 1 no cambia el número.</li></ul><p>La distributiva es la base del <b>cálculo mental</b>: para hacer 8 × 99 piensa 8 × 100 − 8 = 792. Y para hacer 15 × 12 piensa 15 × 10 + 15 × 2 = 150 + 30 = 180.</p><p>Ojo: la resta y la división <b>no</b> son conmutativas. 10 − 4 no es igual que 4 − 10, y 20 : 5 no es igual que 5 : 20.</p>`,
+        P.svg("Propiedad distributiva: seis por trece es seis por diez más seis por tres, setenta y ocho", `${P.rejilla(20, 30, 13, 6, 14)}<rect x="20" y="30" width="140" height="84" fill="${AZ}" fill-opacity=".25"/><rect x="160" y="30" width="42" height="84" fill="${RO}" fill-opacity=".3"/>${t(90, 78, "6 × 10 = 60", { s: 12, c: AZ })}${t(181, 132, "6 × 3", { s: 11, c: RO })}${t(130, 160, "6 × 13 = 60 + 18 = 78", { s: 15, d: true })}`)],
+    ],
+    "Resolver problemas": [
+      ["Un plan en cuatro pasos", `<p>Los problemas de varias operaciones se resuelven mejor con un <b>plan</b>. Úsalo siempre, aunque el problema parezca fácil:</p><ol><li><b>Comprender</b>: lee dos veces, subraya los datos y escribe la pregunta con tus palabras.</li><li><b>Pensar</b>: decide qué operaciones necesitas y en qué orden. Ayuda hacer un dibujo o un esquema.</li><li><b>Calcular</b>: haz las operaciones con cuidado. Puedes escribir una sola operación combinada con paréntesis.</li><li><b>Comprobar</b>: ¿el resultado tiene sentido? Estímalo y escribe la respuesta con la unidad (euros, personas, metros…).</li></ol><p>Ejemplo: «Un colegio compra 12 cajas de 24 lápices. Reparte 250 lápices entre las clases. ¿Cuántos le quedan?». Pensar: primero el total (multiplicar) y luego lo que queda (restar). Calcular: 12 × 24 − 250 = 288 − 250 = <b>38 lápices</b>. Comprobar: 10 × 25 = 250, así que debían quedar pocos. ¡Tiene sentido!</p>`,
+        P.svg("Plan de cuatro pasos para resolver problemas: comprender, pensar, calcular y comprobar", `${[["1 Comprender", AZ], ["2 Pensar", MO], ["3 Calcular", RO], ["4 Comprobar", VE]].map(([x, c], i) => `${caja(14 + (i % 2) * 122, 22 + Math.floor(i / 2) * 70, 110, 52, x, c, { s: 13 })}`).join("")}${t(130, 168, "lee, decide, opera, revisa", { s: 12, c: "var(--muted)" })}`)],
+    ],
+  },
+  final: [
+    ["Los números grandes en el mundo real", `<p>Los números de millones aparecen cada día en las noticias. Algunos ejemplos aproximados:</p><ul><li>España tiene unos <b>48 000 000</b> de habitantes y el mundo, más de <b>8 000 000 000</b> (¡ocho mil millones!, un número de diez cifras).</li><li>El corazón de una persona late unas <b>100 000</b> veces al día.</li><li>La Luna está a <b>384 400 km</b> de la Tierra y el Sol, a unos <b>150 000 000 km</b>.</li></ul><p>Cuando un número es muy grande, los periódicos lo escriben mezclando cifras y palabras: «48 millones», «2,5 millones». Es más fácil de leer, pero debes saber pasarlo a cifras: 48 millones = 48 000 000.</p><p>Para entender lo grandes que son, compáralos con algo conocido. Si un estadio tiene 60 000 asientos, para sentar a 48 millones de personas harían falta 48 000 000 : 60 000 = <b>800 estadios</b>. Así, un número que parecía imposible se vuelve fácil de imaginar.</p>`,
+      P.svg("Comparar cantidades grandes: cuarenta y ocho millones de personas son ochocientos estadios de sesenta mil", `<ellipse cx="74" cy="80" rx="54" ry="34" fill="${VE}" fill-opacity=".25" stroke="${VE}" stroke-width="2.5"/><ellipse cx="74" cy="80" rx="30" ry="16" fill="${VE}" fill-opacity=".35"/>${t(74, 132, "1 estadio", { s: 12 })}${t(74, 150, "60 000", { s: 14, d: true, c: VE })}${t(190, 64, "48 000 000", { s: 16, d: true, c: AZ })}${t(190, 86, "personas", { s: 11 })}${t(190, 120, "= 800", { s: 20, d: true, c: RO })}${t(190, 142, "estadios", { s: 12, c: RO })}`)],
+  ],
+  ejemplos: [
+    ["Estima y después calcula: 312 + 489 + 198.", ["Redondeo a las centenas: 300 + 500 + 200 = 1 000.", "Cuenta exacta: 312 + 489 = 801; 801 + 198 = 999.", "La estimación y el resultado están muy cerca."], "999 (estimación: 1 000)"],
+    ["Calcula de cabeza 25 × 36 usando las propiedades.", ["Descompongo 36 = 4 × 9.", "Asociativa: 25 × 4 × 9 = (25 × 4) × 9.", "25 × 4 = 100 y 100 × 9 = 900."], "900"],
+  ],
+  errores: [
+    "Escribir mal los ceros intermedios: «dos millones treinta mil» es 2 030 000, no 2 300 000 ni 230 000.",
+  ],
+  nivelesBase: "bbbmmbmmma",
+  ejercicios: [
+    ["b", "Escribe el número anterior y el siguiente de 1 000 000.", "Anterior: 999 999. Siguiente: 1 000 001."],
+    ["b", "Descompón 4 052 300 en millones, millares y unidades.", "4 millones + 52 millares + 300 unidades: 4 000 000 + 52 000 + 300."],
+    ["b", "Escribe en cifras: «quinientos mil cinco».", "500 005. Hay que poner ceros en los lugares vacíos."],
+    ["b", "Escribe en números romanos: 14, 90 y 400.", "XIV, XC y CD."],
+    ["b", "Calcula usando la conmutativa y la asociativa: 5 × 9 × 2.", "Agrupo 5 × 2 = 10 y después 10 × 9 = 90."],
+    ["m", "Redondea 7 549 800 a los millones y a las centenas de millar.", "A los millones: 8 000 000 (la cifra siguiente, 5, redondea hacia arriba). A las centenas de millar: 7 500 000 (la siguiente cifra es 4)."],
+    ["m", "Estima y calcula: 41 × 19.", "Estimación: 40 × 20 = 800. Exacto: 41 × 19 = 779. Están cerca, el resultado es razonable."],
+    ["m", "Calcula: (36 − 12) : 4 + 3 × 5.", "Paréntesis: 24. Divisiones y multiplicaciones: 24 : 4 = 6 y 3 × 5 = 15. Suma: 6 + 15 = 21."],
+    ["m", "Calcula de cabeza 7 × 99 con la propiedad distributiva.", "7 × 100 − 7 × 1 = 700 − 7 = 693."],
+    ["m", "Lee el número romano MCMLXXXIV y escríbelo en cifras.", "M = 1 000, CM = 900, LXXX = 80, IV = 4. Total: 1 984."],
+    ["m", "Una ciudad tiene 1 245 300 habitantes y otra 1 254 030. ¿Cuál tiene más? Explica cómo lo sabes.", "Las dos tienen 7 cifras y el mismo millón. En las centenas de millar empatan (2). En las decenas de millar, 5 > 4: la segunda tiene más."],
+    ["a", "Escribe una sola operación combinada para este problema y resuélvela: «Compro 3 libros de 12 € y pago con 50 €. ¿Cuánto me devuelven?».", "50 − 3 × 12 = 50 − 36 = 14 €."],
+    ["a", "Un tren lleva 8 vagones con 64 asientos cada uno. En la primera parada bajan 129 personas y suben 87. Si iba lleno, ¿cuántas personas lleva ahora?", "8 × 64 = 512 personas. 512 − 129 + 87 = 470 personas."],
+    ["a", "¿Cuántos estadios de 50 000 personas harían falta para meter a 2 000 000 de habitantes?", "2 000 000 : 50 000 = 40 estadios."],
+    ["a", "Coloca paréntesis para que la igualdad sea cierta: 4 + 6 × 5 − 2 = 48.", "(4 + 6) × (5 − 2) no da 48 (da 30). (4 + 6) × 5 − 2 = 50 − 2 = 48. ¡Correcto!"],
+    ["a", "Inventa un problema que se resuelva con la operación 200 − 6 × 25 y resuélvelo.", "Ejemplo: «Tengo 200 € y compro 6 entradas de 25 €. ¿Cuánto me queda?». 6 × 25 = 150; 200 − 150 = 50 €."],
+  ],
+  quiz: [
+    ["¿Qué es estimar?", ["Calcular un resultado aproximado redondeando", "Hacer la cuenta exacta con calculadora", "Escribir el número en romanos"], "Estimar es aproximar rápido para saber si un resultado es razonable."],
+    ["¿Qué propiedad dice que 6 × (10 + 2) = 6 × 10 + 6 × 2?", ["Distributiva", "Conmutativa", "Asociativa"], "Se reparte la multiplicación entre los sumandos."],
+    ["En nuestro sistema decimal, el valor de una cifra depende de…", ["Su posición en el número", "Su color", "Cuántas veces se repite"], "Es un sistema posicional."],
+    ["¿Cuál es el primer paso para resolver un problema?", ["Comprender el enunciado", "Calcular deprisa", "Escribir la solución"], "Antes de operar hay que entender qué se pregunta."],
+    ["48 millones escrito en cifras es…", ["48 000 000", "4 800 000", "480 000"], "Un millón tiene seis ceros detrás."],
+  ],
+  examen: [
+    ["El número 2 030 000 se lee…", ["Dos millones treinta mil", "Dos millones trescientos mil", "Doscientos tres mil"], "Separando de tres en tres: 2 | 030 | 000."],
+    ["¿Qué operación NO es conmutativa?", ["La resta", "La suma", "La multiplicación"], "10 − 4 no es igual a 4 − 10."],
+    ["Una buena estimación de 49 × 21 es…", ["1 000", "100", "10 000"], "50 × 20 = 1 000."],
+    ["¿Qué usaban los romanos para hacer cálculos con comodidad?", ["El ábaco", "La calculadora", "Las cuentas en columna"], "Con números romanos no se pueden hacer cuentas en columna."],
+  ],
+  tarjetas: [
+    ["Estimar", "Calcular de forma aproximada redondeando antes de operar."],
+    ["Sistema posicional", "El valor de cada cifra depende del lugar que ocupa. Necesita el 0."],
+    ["Propiedad asociativa", "(a × b) × c = a × (b × c). Puedo agrupar como me convenga."],
+    ["Plan para problemas", "Comprender, pensar, calcular y comprobar."],
+  ],
+  glosario: [
+    ["Número natural", "Cada uno de los números que sirven para contar: 0, 1, 2, 3…"],
+    ["Cifra", "Cada uno de los diez signos con los que escribimos los números (del 0 al 9)."],
+    ["Valor posicional", "Lo que vale una cifra según el lugar que ocupa en el número."],
+    ["Millón", "Mil millares: 1 000 000."],
+    ["Redondear", "Sustituir un número por otro cercano terminado en ceros."],
+    ["Estimar", "Calcular un resultado aproximado."],
+    ["Operación combinada", "Expresión con varias operaciones que se resuelven en un orden fijo."],
+    ["Jerarquía de las operaciones", "Orden de cálculo: paréntesis, multiplicaciones y divisiones, sumas y restas."],
+    ["Propiedad distributiva", "a × (b + c) = a × b + a × c."],
+    ["Sistema aditivo", "Sistema en que los símbolos suman su valor, como el egipcio."],
+    ["Cifras indoarábigas", "Nuestras cifras, inventadas en la India y traídas por los árabes."],
+  ],
+  situacion: {
+    titulo: "Organizamos la gran fiesta del colegio",
+    reto: "El colegio celebra su aniversario y vuestra clase organiza el presupuesto: sillas, bocadillos, bebidas y decoración para todas las familias.",
+    pasos: ["Averiguad cuántos alumnos tiene el colegio y estimad cuántas personas vendrán (alumnos, familias y profesorado).", "Pedid precios reales (o usad un folleto) y redondeadlos para hacer una primera estimación del gasto.", "Calculad el presupuesto exacto con operaciones combinadas y comparadlo con la estimación.", "Presentad el presupuesto en un cartel con los números bien escritos y explicad cómo lo habéis calculado."],
+    producto: "Un cartel con el presupuesto de la fiesta y las operaciones que lo justifican.",
+    evaluacion: ["Lee, escribe y redondea correctamente números grandes.", "Usa la estimación para comprobar los resultados.", "Plantea y resuelve operaciones combinadas respetando la jerarquía.", "Explica su razonamiento de forma ordenada."],
+  },
+});

@@ -98,3 +98,100 @@ module.exports = P.tema({
   saberes: "Sentido numérico: múltiplos y divisores; criterios de divisibilidad por 2, 3, 5 y 10; números primos y compuestos; mínimo común múltiplo y máximo común divisor en contextos de resolución de problemas",
   ideas: ["Cuadrícula del 1 al 100 para colorear múltiplos con distintos colores y descubrir patrones.", "Construir rectángulos con fichas para ver qué números solo forman una fila (primos).", "Problemas de horarios reales (autobuses, semáforos) para el m.c.m."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Aplicar los criterios de divisibilidad por 9 y por 6", "Descomponer un número en factores primos con un árbol", "Distinguir cuándo un problema se resuelve con el m.c.m. y cuándo con el m.c.d."],
+  lectura: { titulo: "Las cigarras que sabían matemáticas", html: `<p>En los bosques de Estados Unidos vive un insecto asombroso: una cigarra que pasa casi toda su vida bajo tierra. Algunas especies salen a la superficie cada <b>13 años</b> y otras cada <b>17 años</b>. Ese día aparecen millones a la vez, cantan durante unas semanas, ponen sus huevos y desaparecen.</p><p>¿Por qué 13 y 17, y no 12 o 16? Los científicos creen que tiene que ver con los <b>números primos</b>. Si una cigarra saliera cada 12 años, coincidiría a menudo con depredadores que aparecen cada 2, 3, 4 o 6 años, porque todos ellos son divisores de 12. En cambio, 13 y 17 solo se pueden dividir entre 1 y entre sí mismos, así que las coincidencias con sus enemigos son mucho más raras.</p><p>Las cigarras no saben contar, claro, pero la naturaleza ha «elegido» los números que mejor las protegen. En este tema descubrirás qué son los múltiplos, los divisores y los números primos, y cómo usarlos para resolver problemas de coincidencias y repartos.</p>` },
+  tras: {
+    "Los divisores de un número": [
+      ["Múltiplos y divisores: dos caras de la misma moneda", `<p>Las palabras <b>múltiplo</b> y <b>divisor</b> describen la misma relación, pero vista desde lados distintos. Como 3 × 4 = 12, podemos decir cuatro cosas a la vez:</p><ul><li>12 es <b>múltiplo</b> de 3 y también de 4.</li><li>3 y 4 son <b>divisores</b> de 12.</li><li>12 es <b>divisible</b> entre 3 y entre 4: la división es exacta (resto 0).</li></ul><p>Para comprobar si un número es múltiplo de otro, haz la división: si el resto es 0, sí lo es. ¿Es 84 múltiplo de 7? 84 : 7 = 12, resto 0. <b>Sí</b>. ¿Y 85? 85 : 7 = 12, resto 1. <b>No</b>.</p><p>Fíjate en estas diferencias importantes:</p><ul><li>Un número tiene <b>infinitos múltiplos</b> (puedes seguir multiplicando siempre), pero un número <b>limitado de divisores</b>.</li><li>El 1 es divisor de todos los números, y todo número es divisor y múltiplo de sí mismo.</li></ul>`,
+        P.svg("Tres por cuatro es doce: doce es múltiplo de tres y de cuatro; tres y cuatro son divisores de doce", `${puntos(28, 40, 3, 4, AZ, 6, 22)}${t(61, 112, "3 × 4 = 12", { s: 13, d: true })}${caja(130, 26, 118, 40, "12 múltiplo de 3", VE, { s: 12 })}${caja(130, 76, 118, 40, "3 divisor de 12", RO, { s: 12 })}${t(130, 156, "12 : 3 = 4, resto 0 → divisible", { s: 12, c: MO })}`)],
+    ],
+    "Criterio de divisibilidad por 3": [
+      ["Más criterios: divisibilidad por 9 y por 6", `<p>Además de los criterios del 2, 3, 5 y 10, hay otros dos muy útiles:</p><ul><li><b>Por 9</b>: un número es divisible por 9 si la <b>suma de sus cifras</b> es múltiplo de 9. ¿4 158? 4 + 1 + 5 + 8 = 18, y 18 es múltiplo de 9: <b>sí</b>. ¿2 017? 2 + 0 + 1 + 7 = 10: <b>no</b>.</li><li><b>Por 6</b>: un número es divisible por 6 si lo es a la vez <b>por 2 y por 3</b>. ¿312? Es par (termina en 2) y 3 + 1 + 2 = 6 es múltiplo de 3: <b>sí</b>. ¿315? No es par: <b>no</b>.</li></ul><p>Observa que todo número divisible por 9 también es divisible por 3, porque 9 = 3 × 3. Pero al revés no siempre: 12 es divisible por 3 y no por 9.</p><p>Los criterios ahorran mucho tiempo: sin hacer la división sabemos si 7 236 caramelos se pueden repartir en bolsas de 9 sin que sobre ninguno (7 + 2 + 3 + 6 = 18: ¡sí!).</p>`,
+        P.svg("Criterio del nueve: cuatro mil ciento cincuenta y ocho, sus cifras suman dieciocho, múltiplo de nueve", `${["4", "1", "5", "8"].map((c, i) => caja(30 + i * 52, 24, 42, 44, c, AZ, { s: 20 })).join("")}${t(130, 96, "4 + 1 + 5 + 8 = 18", { s: 15, d: true })}${t(130, 122, "18 es múltiplo de 9 → divisible por 9", { s: 11, c: VE })}${t(130, 156, "por 6 = por 2 y por 3", { s: 13, d: true, c: MO })}`)],
+    ],
+    "La criba de Eratóstenes": [
+      ["Descomponer en factores primos", `<p>Todo número compuesto se puede escribir como una <b>multiplicación de números primos</b>. A eso lo llamamos <b>descomponer en factores primos</b>, y es como encontrar los «ladrillos» con los que está construido el número.</p><p>Una forma fácil es el <b>árbol de factores</b>:</p><ol><li>Escribe el número arriba: 60.</li><li>Divídelo en dos factores cualesquiera: 60 = 6 × 10.</li><li>Sigue partiendo los que no sean primos: 6 = 2 × 3 y 10 = 2 × 5.</li><li>Cuando todas las ramas terminan en primos, has acabado.</li></ol><p>Resultado: 60 = 2 × 2 × 3 × 5 = <b>2² × 3 × 5</b>. Da igual cómo empieces (60 = 4 × 15 o 60 = 2 × 30): los factores primos siempre son los mismos.</p><p>También se puede hacer dividiendo entre los primos en orden (2, 3, 5, 7…) en una columna, que es lo que harás en cursos siguientes para calcular el m.c.m. y el m.c.d. de números grandes.</p>`,
+        P.svg("Árbol de factores de sesenta: seis por diez, dos por tres y dos por cinco", `${caja(108, 12, 44, 30, "60", AZ, { s: 15 })}<path d="M120 42 L 76 66 M140 42 L 184 66" stroke="var(--muted)" stroke-width="2"/>${caja(56, 66, 40, 28, "6", MO, { s: 14 })}${caja(164, 66, 40, 28, "10", MO, { s: 14 })}<path d="M66 94 L 46 116 M86 94 L 106 116 M174 94 L 154 116 M194 94 L 214 116" stroke="var(--muted)" stroke-width="2"/>${[["2", 32], ["3", 92], ["2", 140], ["5", 200]].map(([n, x]) => caja(x, 116, 30, 28, n, RO, { s: 14 })).join("")}${t(130, 168, "60 = 2² × 3 × 5", { s: 14, d: true, c: RO })}`)],
+    ],
+    "El máximo común divisor": [
+      ["¿m.c.m. o m.c.d.? Cómo saber cuál usar", `<p>En los problemas, lo difícil no es calcular, sino <b>saber qué hay que calcular</b>. Esta pista te ayudará:</p><ul><li>Usa el <b>m.c.m.</b> cuando algo se <b>repite</b> y buscas cuándo <b>vuelve a coincidir</b>: autobuses que salen cada cierto tiempo, luces que parpadean, turnos, calendarios… La respuesta es un número <b>mayor o igual</b> que los datos.</li><li>Usa el <b>m.c.d.</b> cuando quieres <b>repartir o cortar</b> en partes iguales lo más grandes posible, sin que sobre nada: cintas, baldosas, bolsas, grupos… La respuesta es un número <b>menor o igual</b> que los datos.</li></ul><p>Ejemplo m.c.m.: Ana va a la piscina cada 4 días y Luis cada 6. Hoy coinciden. ¿Cuándo volverán a coincidir? m.c.m.(4, 6) = <b>12 días</b>.</p><p>Ejemplo m.c.d.: tengo dos cuerdas de 12 m y 18 m y quiero cortarlas en trozos iguales lo más largos posible. m.c.d.(12, 18) = <b>6 m</b>.</p>`,
+        P.svg("Cuándo usar el m.c.m., para coincidencias, y el m.c.d., para repartos", `${caja(14, 24, 110, 46, "m.c.m.", VE, { s: 16 })}${t(69, 92, "¿cuándo coinciden?", { s: 11, c: VE })}${t(69, 112, "resultado ≥ datos", { s: 11 })}${caja(136, 24, 110, 46, "m.c.d.", RO, { s: 16 })}${t(191, 92, "repartir sin que sobre", { s: 11, c: RO })}${t(191, 112, "resultado ≤ datos", { s: 11 })}${t(130, 156, "cada 4 y cada 6 días → 12 días", { s: 12, c: "var(--muted)" })}`)],
+    ],
+  },
+  final: [
+    ["Curiosidades: números perfectos y primos gemelos", `<p>Los números esconden propiedades sorprendentes que han fascinado a los matemáticos durante siglos:</p><ul><li>Un <b>número perfecto</b> es el que es igual a la suma de sus divisores (sin contarse a sí mismo). El primero es el 6: sus divisores son 1, 2 y 3, y 1 + 2 + 3 = 6. El siguiente es el 28: 1 + 2 + 4 + 7 + 14 = 28. ¡Son rarísimos! El cuarto ya es el 8 128.</li><li>Los <b>primos gemelos</b> son parejas de primos que se diferencian en 2: (3, 5), (11, 13), (17, 19), (29, 31)… Nadie ha conseguido demostrar todavía si hay infinitas parejas: es uno de los grandes misterios de las matemáticas.</li><li>Ya en la antigua Grecia, <b>Euclides</b> demostró que los números primos <b>nunca se acaban</b>: por muy grande que sea un primo, siempre hay otro mayor.</li></ul><p>Hoy los números primos muy grandes se usan para proteger los mensajes y las compras por internet, porque es muy difícil descubrir qué dos primos enormes se han multiplicado para formar un número.</p>`,
+      P.svg("El seis es un número perfecto: uno más dos más tres es seis; primos gemelos once y trece", `${caja(20, 24, 100, 40, "6", AZ, { s: 20 })}${t(70, 88, "1 + 2 + 3 = 6", { s: 13, d: true, c: AZ })}${t(70, 108, "número perfecto", { s: 11 })}${caja(146, 24, 42, 40, "11", RO, { s: 16 })}${caja(200, 24, 42, 40, "13", RO, { s: 16 })}${t(194, 88, "primos gemelos", { s: 11, c: RO })}${t(130, 154, "los primos nunca se acaban (Euclides)", { s: 11, c: MO })}`)],
+  ],
+  videos: {
+    "El mínimo común múltiplo": ["txLlA_fyL5g", "Mínimo común múltiplo: súper fácil", "Daniel Carreón", 12581111],
+    "El máximo común divisor": ["nyf0TC0vjW8", "Máximo común divisor: ¿cómo se calcula?", "Smile and Learn - Español", 356915],
+  },
+  ejemplos: [
+    ["Descompón 36 en factores primos.", ["36 = 6 × 6.", "6 = 2 × 3, así que 36 = 2 × 3 × 2 × 3.", "Ordenando: 2 × 2 × 3 × 3."], "36 = 2² × 3²"],
+    ["¿Es 5 418 divisible por 9? ¿Y por 6?", ["Suma de cifras: 5 + 4 + 1 + 8 = 18, múltiplo de 9 → divisible por 9.", "Es par → divisible por 2.", "18 es múltiplo de 3 → divisible por 3. Por 2 y por 3 → divisible por 6."], "Sí es divisible por 9 y por 6"],
+  ],
+  errores: ["Usar el m.c.d. en un problema de coincidencias (o el m.c.m. en uno de repartos): piensa si la respuesta debe ser mayor o menor que los datos."],
+  nivelesBase: "bmbbmmmmaa",
+  ejercicios: [
+    ["b", "Completa: como 5 × 9 = 45, 45 es ___ de 5 y 9 es ___ de 45.", "45 es múltiplo de 5 y 9 es divisor de 45."],
+    ["b", "Escribe los múltiplos de 12 menores que 70.", "12, 24, 36, 48 y 60."],
+    ["b", "¿Cuáles de estos números son divisibles por 9? 117, 243, 520, 801.", "117 (1+1+7=9), 243 (2+4+3=9) y 801 (8+0+1=9). 520 no (5+2+0=7)."],
+    ["b", "¿Es el 1 un número primo? Explícalo.", "No. Un número primo tiene exactamente dos divisores, y el 1 solo tiene uno."],
+    ["m", "Descompón en factores primos: 24 y 45.", "24 = 2 × 2 × 2 × 3 = 2³ × 3. 45 = 3 × 3 × 5 = 3² × 5."],
+    ["m", "¿Cuáles son divisibles por 6? 132, 246, 315, 400.", "132 y 246 (pares y sus cifras suman múltiplo de 3). 315 no es par. 400: 4+0+0 = 4, no es múltiplo de 3."],
+    ["m", "Un autobús sale cada 15 minutos y otro cada 20. Salen juntos a las 9:00. ¿A qué hora vuelven a coincidir?", "m.c.m.(15, 20) = 60 minutos. Coinciden a las 10:00."],
+    ["m", "Hay 24 chicos y 36 chicas. Queremos formar equipos iguales, lo más grandes posible, todos del mismo tamaño y sin mezclar. ¿De cuántos miembros será cada equipo?", "m.c.d.(24, 36) = 12 miembros por equipo."],
+    ["a", "Escribe todos los divisores de 28 y comprueba que es un número perfecto.", "Divisores: 1, 2, 4, 7, 14 y 28. Sin el 28: 1 + 2 + 4 + 7 + 14 = 28. Es perfecto."],
+    ["a", "Escribe tres parejas de primos gemelos mayores que 10.", "(11, 13), (17, 19) y (29, 31). También (41, 43)."],
+    ["a", "Un número es divisible por 2, 3 y 5. ¿Cuál es el menor posible distinto de 0? ¿Por qué?", "30, que es el m.c.m. de 2, 3 y 5 (2 × 3 × 5)."],
+    ["a", "Unas baldosas cuadradas cubren un suelo de 120 cm × 180 cm sin cortar ninguna. ¿Cuál es el lado mayor posible de cada baldosa?", "m.c.d.(120, 180) = 60 cm."],
+    ["a", "Encuentra la cifra que falta para que 3 4_2 sea divisible por 9.", "3 + 4 + 2 = 9; la cifra debe ser 0 o 9: 3 402 o 3 492."],
+    ["a", "Explica por qué todo número divisible por 9 lo es también por 3, pero no al revés. Pon un ejemplo.", "Porque 9 = 3 × 3: si cabe el 9 un número exacto de veces, también cabe el 3. Al revés no: 15 es divisible por 3 pero no por 9."],
+    ["m", "Una luz parpadea cada 8 segundos y otra cada 12. ¿Cada cuántos segundos parpadean a la vez?", "m.c.m.(8, 12) = 24 segundos."],
+    ["b", "Rodea los números compuestos: 9, 13, 21, 23, 27.", "Compuestos: 9 (3 × 3), 21 (3 × 7) y 27 (3 × 9). 13 y 23 son primos."],
+  ],
+  quiz: [
+    ["Un número es divisible por 9 si…", ["La suma de sus cifras es múltiplo de 9", "Termina en 9", "Es impar"], "Ejemplo: 828 → 8 + 2 + 8 = 18."],
+    ["Para ser divisible por 6, un número debe ser divisible por…", ["2 y 3", "2 y 6", "3 y 9"], "6 = 2 × 3."],
+    ["La descomposición en factores primos de 12 es…", ["2² × 3", "3 × 4", "2 × 6"], "4 y 6 no son primos; 2 × 2 × 3 sí."],
+    ["Dos trenes coinciden y buscas cuándo vuelven a coincidir. Usas…", ["El m.c.m.", "El m.c.d.", "La suma"], "Las coincidencias que se repiten se resuelven con el m.c.m."],
+    ["El primer número perfecto es…", ["6", "10", "12"], "1 + 2 + 3 = 6."],
+  ],
+  examen: [
+    ["¿Cuántos múltiplos tiene un número?", ["Infinitos", "Diez", "Los mismos que divisores"], "Siempre se puede seguir multiplicando."],
+    ["¿Es 2 025 divisible por 9?", ["Sí", "No", "Solo por 5"], "2 + 0 + 2 + 5 = 9."],
+    ["Para cortar dos cintas en trozos iguales lo más largos posible usas…", ["El m.c.d.", "El m.c.m.", "La multiplicación"], "Repartir sin que sobre: m.c.d."],
+    ["¿Quién demostró que los números primos nunca se acaban?", ["Euclides", "Pitágoras", "Arquímedes"], "Lo demostró hace más de 2 000 años."],
+  ],
+  tarjetas: [
+    ["Divisible por 9", "La suma de sus cifras es múltiplo de 9."],
+    ["Divisible por 6", "Divisible a la vez por 2 y por 3."],
+    ["Factores primos", "60 = 2² × 3 × 5. Se obtienen con un árbol de factores."],
+    ["¿m.c.m. o m.c.d.?", "Coincidencias: m.c.m. Repartos sin sobrar: m.c.d."],
+  ],
+  glosario: [
+    ["Múltiplo", "Número que se obtiene al multiplicar otro por un natural."],
+    ["Divisor", "Número que divide a otro de forma exacta."],
+    ["Divisible", "Que se puede dividir de forma exacta, con resto 0."],
+    ["Criterio de divisibilidad", "Regla para saber si un número es divisible por otro sin dividir."],
+    ["Número primo", "Número que solo tiene dos divisores: el 1 y él mismo."],
+    ["Número compuesto", "Número que tiene más de dos divisores."],
+    ["Factor primo", "Número primo que forma parte de una multiplicación."],
+    ["Árbol de factores", "Esquema para descomponer un número en factores primos."],
+    ["m.c.m.", "Mínimo común múltiplo: el menor múltiplo común a varios números, sin contar el 0."],
+    ["m.c.d.", "Máximo común divisor: el mayor divisor común a varios números."],
+    ["Número perfecto", "El que es igual a la suma de sus divisores menores que él."],
+    ["Primos gemelos", "Pareja de primos que se diferencian en 2."],
+  ],
+  situacion: {
+    titulo: "Organizamos la sala de juegos",
+    reto: "Hay que repartir el material de la sala de juegos del colegio en lotes iguales y organizar los turnos de uso de cada clase.",
+    pasos: ["Contad el material real (pelotas, cuerdas, aros, conos) o usad unos datos que os dé el profesorado.", "Calculad con el m.c.d. cuántos lotes iguales se pueden hacer sin que sobre nada.", "Cada clase usa la sala cada cierto número de días: calculad con el m.c.m. cuándo coinciden dos clases.", "Preparad un calendario de un mes con los turnos y señalad las coincidencias."],
+    producto: "Un cartel con los lotes de material y un calendario mensual de turnos.",
+    evaluacion: ["Calcula múltiplos, divisores, m.c.m. y m.c.d. correctamente.", "Elige la herramienta adecuada (m.c.m. o m.c.d.) para cada situación.", "Comprueba que los resultados tienen sentido.", "Presenta la información de forma clara y ordenada."],
+  },
+});
