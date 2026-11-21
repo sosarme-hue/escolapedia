@@ -1,0 +1,103 @@
+// Dibujo Artístico II · La retentiva, la memoria visual y la transformación de la forma (formato ligero).
+const B = require("./_bach2-da");
+const { tema, cajas, flujo, comparar, estrella, capas, rejilla, encaje } = B;
+
+module.exports = tema({
+  titulo: "La retentiva, la memoria visual y la transformación de la forma",
+  minutos: 75,
+  objetivos: [
+    "Entrenar la retentiva y la memoria visual con ejercicios progresivos",
+    "Entender la forma como una estructura de elementos y relaciones",
+    "Aplicar transformaciones a una forma: simplificar, deformar, fragmentar, combinar y metamorfosear",
+    "Relacionar la forma con el espacio que la rodea (espacio positivo y negativo)",
+  ],
+  claves: ["retentiva", "memoria visual", "observación activa", "estructura", "forma", "espacio negativo", "transformación", "metamorfosis", "anamorfosis", "estilización"],
+  pregunta: {
+    texto: "Mira tu mochila diez segundos, cierra los ojos y dibújala de memoria. ¿Por qué casi nadie recuerda dónde está la cremallera o cuántos bolsillos tiene?",
+    respuesta: "Porque <mark>mirar no es lo mismo que observar</mark>. El cerebro guarda una idea general («mochila») y no los detalles. La <b>retentiva</b> se entrena: si te fijas en la estructura, las proporciones y las relaciones entre partes, recuerdas mucho más.",
+  },
+  bloques: [
+    { h: "Qué es la retentiva y para qué sirve", html: `<p>La <b>retentiva</b> es la capacidad de guardar en la memoria una imagen observada y poder dibujarla después sin tenerla delante. Es fundamental para el dibujante: los modelos se mueven, la luz cambia, una escena callejera dura segundos.</p><p>Grandes dibujantes como Daumier, Degas o los ilustradores de reportaje entrenaban la memoria. Degas proponía a sus alumnos observar un modelo en un piso, subir a otro y dibujarlo allí. Hoy la retentiva es clave en la ilustración, el cómic, la animación y el diseño de personajes.</p><p>No es un don: es una <b>habilidad entrenable</b>, como un músculo. Cuanto más se practica, más rápida y fiable es.</p>`, svg: estrella("Usos de la retentiva", "retentiva", ["apunte rápido", "cómic", "animación", "reportaje", "diseño"]), video: { id: "u5n_tdJ8u64", titulo: "La clave para dibujar cualquier cosa de memoria", canal: "Jako Del Bueno", vistas: 215727 } },
+    { h: "Cómo entrenar la memoria visual", html: `<p>Un entrenamiento eficaz combina <b>observación activa</b> y repetición:</p><ol><li><b>Observa con intención</b>: forma general, proporción (alto y ancho), ejes y partes principales.</li><li><b>Verbaliza</b>: «es un rectángulo vertical, el asa ocupa un tercio…». Las palabras ayudan a fijar.</li><li><b>Dibuja de memoria</b> sin mirar.</li><li><b>Compara</b> con el modelo y anota los errores.</li><li><b>Repite</b> aumentando la dificultad: más detalles, menos tiempo de observación.</li></ol><p>Empieza con objetos sencillos durante 30 segundos de observación y llega a figuras humanas en movimiento con solo 5 segundos.</p>`, svg: flujo("Ciclo de entrenamiento de la memoria visual", ["observar con intención", "nombrar lo que ves", "dibujar sin mirar", "comparar y corregir", "repetir más difícil"]) },
+    { h: "La forma como estructura", html: `<p>Cualquier forma puede entenderse como una <b>estructura</b>: un conjunto de elementos (líneas, ejes, volúmenes) y de <b>relaciones</b> entre ellos (proporción, dirección, simetría, ritmo). Cuando entiendes la estructura, la forma se recuerda y se transforma mejor.</p><p>Por ejemplo, una silla es un plano horizontal (asiento), uno vertical (respaldo) y cuatro ejes (patas). Si cambias las relaciones (patas más largas, respaldo inclinado) obtienes otra silla, pero la estructura sigue siendo reconocible.</p><p>Por eso, antes de dibujar los detalles, conviene <b>encajar</b>: caja general, ejes, formas básicas y puntos de paso.</p>`, svg: encaje("Encaje: la estructura antes que los detalles") },
+    { h: "Espacio positivo y espacio negativo", html: `<p>Toda forma crea un <b>espacio positivo</b> (lo que ocupa la figura) y un <b>espacio negativo</b> (el hueco que queda alrededor y entre sus partes). Dibujar el espacio negativo es un truco excelente: el cerebro no lo reconoce como «objeto», así que lo dibuja como lo ve, sin ideas previas.</p><p>Prueba a dibujar los huecos entre las patas de una silla o entre los dedos de tu mano: la forma aparece sola y con proporciones más correctas.</p><p>El juego entre positivo y negativo es también un recurso expresivo: la figura y el fondo pueden intercambiarse, como en el famoso jarrón de Rubin o en los mosaicos de Escher.</p>`, svg: comparar("Espacio positivo y negativo", ["Positivo", ["la figura", "lo lleno", "lo que conocemos", "tendemos a idealizar"]], ["Negativo", ["el hueco", "lo vacío", "forma nueva", "se dibuja tal cual"]]) },
+    { h: "Transformar la forma", html: `<p>A partir de una forma conocida, el dibujante puede transformarla de muchas maneras:</p>${"<ul><li><b>Simplificar o estilizar</b>: quitar detalles hasta quedarse con lo esencial (pictogramas, logotipos).</li><li><b>Deformar</b>: alargar, ensanchar o exagerar partes (caricatura, expresionismo).</li><li><b>Fragmentar</b>: romper la forma en partes y reordenarlas (cubismo).</li><li><b>Combinar</b>: unir dos formas en una nueva (seres fantásticos, surrealismo).</li><li><b>Metamorfosear</b>: pasar gradualmente de una forma a otra en una secuencia (Escher).</li><li><b>Anamorfosis</b>: deformar la imagen para que solo se vea bien desde un punto concreto (Holbein, arte urbano 3D).</li></ul>"}<p>Cada transformación tiene una intención: comunicar, sorprender, criticar o explicar.</p>`, svg: cajas("Seis maneras de transformar una forma", [["Estilizar", "lo esencial"], ["Deformar", "exagerar"], ["Fragmentar", "romper y|reordenar"], ["Combinar", "dos en una"], ["Metamorfosis", "de A a B"], ["Anamorfosis", "verla desde|un punto"]], { cols: 2 }), video: { id: "LoKDmir8hhg", titulo: "Aprende a dibujar: ¿cuáles son los fundamentos del dibujo?", canal: "neo VIVE", vistas: 211087 } },
+    { h: "La metamorfosis en una secuencia", html: `<p>La <b>metamorfosis gráfica</b> muestra cómo una forma se convierte en otra en varios pasos intermedios. <b>M. C. Escher</b> la llevó a la perfección en obras como <i>Metamorfosis</i>, donde un mosaico de cuadrados se transforma en lagartos, pájaros y una ciudad.</p><p>Para hacer una metamorfosis:</p><ol><li>Elige dos formas con alguna relación (una pera y una bombilla, una hoja y un pez).</li><li>Dibuja la primera y la última en los extremos de una tira.</li><li>Busca los <b>rasgos comunes</b> (contorno, eje, simetría).</li><li>Dibuja los pasos intermedios cambiando un poco cada vez.</li></ol><p>Este ejercicio entrena a la vez la memoria, el análisis de la estructura y la creatividad.</p>`, svg: rejilla("Metamorfosis en cinco pasos", ["Paso", "Qué cambia"], [["1", "forma A completa"], ["2", "se ajusta el contorno"], ["3", "mitad A, mitad B"], ["4", "aparecen rasgos de B"], ["5", "forma B completa"]]) },
+  ],
+  figura: { titulo: "Memoria y transformación de la forma", items: [["Observar", "mirar", "estructura,", "proporción"], ["Recordar", "memoria", "dibujar", "sin mirar"], ["Estructura", "⊞", "elementos y", "relaciones"], ["Transformar", "A→B", "estilizar,", "metamorfosis"]] },
+  video: { id: "u5n_tdJ8u64", titulo: "La clave para dibujar cualquier cosa de memoria", canal: "Jako Del Bueno", vistas: 215727 },
+  ejemplos: [
+    ["Dibujar de memoria una botella tras 20 segundos de observación.", ["Observa: proporción alto/ancho (unos 3 a 1), cuello un tercio del total.", "Nombra: «cilindro largo, hombro curvo, cuello estrecho, tapón».", "Dibuja sin mirar, empezando por la caja y el eje.", "Compara y anota: ¿era el cuello más largo?"], "Un dibujo con <b>proporciones correctas</b> aunque falten detalles: eso es buena retentiva."],
+    ["Estilizar una mano hasta convertirla en un pictograma.", ["Dibujo del natural con dedos y pliegues.", "Contorno simplificado sin uñas ni arrugas.", "Formas geométricas: palma rectangular y dedos como bastones.", "Silueta plana de un solo color."], "Un <b>pictograma</b> legible a pequeño tamaño, como los de las señales."],
+    ["Dibujar una silla dibujando solo el espacio negativo.", ["Mira solo los huecos entre patas, travesaños y respaldo.", "Dibuja cada hueco como una forma cerrada.", "Rellena los huecos de gris."], "La silla aparece en blanco con <b>proporciones más fieles</b> que si la dibujas directamente."],
+  ],
+  errores: [
+    ["Mirar mucho rato sin una estrategia.", "Observar con intención: forma general, proporción y partes."],
+    ["Empezar el dibujo de memoria por un detalle.", "Empezar por la caja, el eje y la proporción general."],
+    ["Confundir deformar con dibujar mal.", "La deformación es intencionada y mantiene la estructura reconocible."],
+    ["Hacer una metamorfosis con saltos bruscos.", "Cada paso debe cambiar solo un poco respecto al anterior."],
+  ],
+  ejercicios: {
+    b: [
+      ["Define retentiva.", "Capacidad de guardar en la memoria una imagen observada y dibujarla después sin verla."],
+      ["¿Qué es el espacio negativo?", "El hueco que queda alrededor de una figura y entre sus partes."],
+      ["Nombra cuatro maneras de transformar una forma.", "Estilizar, deformar, fragmentar, combinar (también metamorfosis y anamorfosis)."],
+      ["Observa una taza 30 segundos y dibújala de memoria. Anota dos errores.", "Respuesta abierta. Errores frecuentes: el asa demasiado grande y la elipse de la boca demasiado redonda o plana."],
+    ],
+    m: [
+      ["Dibuja de memoria la fachada de tu instituto y compárala después con una foto.", "Fíjate en el número de plantas, la posición de la puerta y el ritmo de ventanas. Anota qué recordaste bien y qué no."],
+      ["Dibuja tu mano solo mediante los espacios negativos entre los dedos.", "Coloca la mano abierta sobre el papel con luz lateral y dibuja únicamente los huecos. Corrige las proporciones comparando."],
+      ["Haz tres versiones de un perro: estilizada, deformada y fragmentada.", "Estilizada: silueta simple. Deformada: cabeza enorme y patas cortas. Fragmentada: partes separadas y reordenadas en planos."],
+      ["Observa a un compañero cinco segundos en una postura y dibújalo de memoria en un minuto.", "Prioriza la línea de acción (la curva que recorre el cuerpo) y la inclinación de hombros y caderas."],
+    ],
+    a: [
+      ["Realiza una metamorfosis de seis pasos entre una hoja y un pez.", "Ambas tienen eje central y contorno ovalado: la nervadura se convierte en espina y el peciolo en cola. Cambia poco a poco el contorno y las texturas."],
+      ["Diseña una anamorfosis sencilla en un folio que solo se lea bien mirando desde un lado.", "Dibuja la imagen en una cuadrícula normal y trasládala a una cuadrícula alargada en perspectiva. Al mirar el papel en ángulo rasante la imagen se corrige."],
+    ],
+  },
+  quiz: [
+    ["La retentiva es…", ["copiar de una foto", "dibujar de memoria lo observado", "dibujar con regla", "un tipo de lápiz"], 1, "Guardar la imagen y dibujarla sin verla."],
+    ["La retentiva…", ["es un don innato", "se puede entrenar", "solo sirve en el cómic", "no sirve al dibujante"], 1, "Es una habilidad entrenable."],
+    ["Al dibujar de memoria conviene empezar por…", ["los detalles", "la proporción general y el eje", "la sombra", "el color"], 1, "Primero la estructura."],
+    ["Entender una forma como estructura es ver…", ["solo su color", "elementos y relaciones entre ellos", "su precio", "su textura"], 1, "Elementos, ejes y relaciones."],
+    ["El hueco entre las patas de una silla es…", ["espacio positivo", "espacio negativo", "anamorfosis", "textura"], 1, "Es espacio negativo."],
+    ["Un pictograma es el resultado de…", ["deformar", "estilizar", "fragmentar", "combinar"], 1, "Se simplifica hasta lo esencial."],
+    ["¿Qué artista es famoso por sus metamorfosis gráficas?", ["Escher", "Degas", "Goya", "Matisse"], 0, "M. C. Escher."],
+    ["Una imagen que solo se ve bien desde un punto concreto es una…", ["metamorfosis", "anamorfosis", "estilización", "textura"], 1, "La anamorfosis."],
+    ["La caricatura se basa sobre todo en…", ["deformar", "fragmentar", "metamorfosear", "estilizar"], 0, "Exagera rasgos reconocibles."],
+    ["Dibujar el espacio negativo ayuda porque…", ["es más rápido", "el cerebro no tiene ideas previas sobre él", "no necesita lápiz", "da color"], 1, "Se dibuja lo que se ve."],
+  ],
+  examen: [
+    ["En una metamorfosis gráfica, cada paso…", ["cambia por completo", "cambia un poco respecto al anterior", "es igual", "no tiene relación"], 1, "La transición es gradual."],
+    ["Fragmentar una forma es propio del…", ["cubismo", "impresionismo", "academicismo", "romanticismo"], 0, "El cubismo rompe y reordena."],
+    ["Verbalizar lo que ves («cilindro largo…») sirve para…", ["perder tiempo", "fijar la imagen en la memoria", "colorear", "sombrear"], 1, "Las palabras ayudan a recordar."],
+    ["El jarrón de Rubin muestra…", ["la ambigüedad entre figura y fondo", "la perspectiva cónica", "un canon", "una textura"], 0, "Figura y fondo se intercambian."],
+  ],
+  feynman: ["qué es la retentiva", "cómo se entrena la memoria visual", "forma como estructura", "espacio positivo y negativo", "seis transformaciones de la forma", "metamorfosis y anamorfosis"],
+  mapa: ["Memoria visual y forma", [["Retentiva", "observar, recordar"], ["Estructura", "elementos y relaciones"], ["Espacio", "positivo y negativo"], ["Transformar", "estilizar, metamorfosis"]]],
+  tarjetas: [
+    ["Retentiva", "Capacidad de dibujar de memoria lo observado."],
+    ["Cinco pasos del entrenamiento", "Observar, nombrar, dibujar sin mirar, comparar, repetir."],
+    ["Forma como estructura", "Conjunto de elementos y de relaciones entre ellos."],
+    ["Espacio negativo", "Hueco alrededor de la figura y entre sus partes."],
+    ["Estilizar", "Simplificar una forma hasta lo esencial."],
+    ["Metamorfosis gráfica", "Transformación gradual de una forma en otra."],
+    ["Anamorfosis", "Imagen deformada que se ve bien solo desde un punto."],
+    ["Artista de las metamorfosis", "M. C. Escher."],
+  ],
+  glosario: [
+    ["Retentiva", "Memoria visual aplicada al dibujo."],
+    ["Observación activa", "Mirar con intención, buscando estructura y proporción."],
+    ["Estructura", "Organización interna de una forma."],
+    ["Espacio negativo", "Zona vacía alrededor de la figura."],
+    ["Estilización", "Simplificación de la forma."],
+    ["Deformación", "Alteración intencionada de proporciones."],
+    ["Metamorfosis", "Paso gradual de una forma a otra."],
+    ["Anamorfosis", "Deformación que se corrige desde un punto de vista concreto."],
+  ],
+  situacion: { titulo: "Diario visual de una semana", reto: "Entrenar la retentiva durante una semana dibujando cada día de memoria algo visto en el trayecto al instituto.", pasos: ["Elige cada día un elemento (una farola, un perro, una persona esperando).", "Obsérvalo con intención 10 segundos.", "Dibújalo de memoria al llegar a clase en 3 minutos.", "Si puedes, compáralo con una foto y anota los errores."], producto: "Cuaderno con siete dibujos de memoria y notas de mejora.", evaluacion: ["Constancia en los siete días", "Mejora visible en proporción", "Notas de autocorrección útiles", "Variedad de motivos"] },
+  familias: ["Jugad a observar una habitación 20 segundos y decir de memoria qué hay.", "Pedidle que os dibuje de memoria la cara de un familiar.", "Buscad juntos obras de Escher en internet.", "Valorad sus cuadernos de bocetos aunque estén «inacabados»."],
+  saberes: "B. La expresión gráfica y sus recursos elementales: la retentiva y la memoria visual; las formas y su transformación, la forma entendida como una estructura de elementos y relaciones; espacios",
+  ideas: ["Empezar las clases con un calentamiento de memoria de 3 minutos.", "Usar el ejercicio de Degas: observar en un aula y dibujar en otra.", "Hacer una metamorfosis colectiva: cada alumno dibuja un paso intermedio."],
+  fuentes: [{ t: "M. C. Escher: colección oficial", url: "https://mcescher.com/" }],
+});

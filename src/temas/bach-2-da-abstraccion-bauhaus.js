@@ -1,0 +1,103 @@
+// Dibujo Artístico II · De la figuración a la abstracción: la Bauhaus y el dibujo contemporáneo (formato ligero).
+const B = require("./_bach2-da");
+const { tema, cajas, flujo, comparar, estrella, capas, abstraccion } = B;
+
+module.exports = tema({
+  titulo: "De la figuración a la abstracción: la Bauhaus y el dibujo contemporáneo",
+  minutos: 75,
+  objetivos: [
+    "Distinguir la representación objetiva de la subjetiva y lo figurativo de lo abstracto",
+    "Explicar el proceso de abstracción de una forma a partir del natural",
+    "Conocer el papel de la Bauhaus y de sus profesores (Kandinsky, Klee, Itten) en la enseñanza del dibujo y el diseño",
+    "Reconocer prácticas actuales del dibujo: dibujar en el espacio, dibujo expandido e instalación",
+  ],
+  claves: ["figuración", "abstracción", "representación objetiva", "representación subjetiva", "síntesis", "Bauhaus", "curso preliminar", "punto, línea y plano", "dibujo expandido", "dibujar en el espacio"],
+  pregunta: {
+    texto: "Mondrian pintó un árbol muy realista y, unos años después, solo líneas negras y rectángulos de color. ¿Se olvidó de dibujar o hizo algo más difícil?",
+    respuesta: "Hizo algo más difícil: <mark>abstraer</mark>. En su serie de árboles fue quitando lo accesorio hasta quedarse con la estructura, el ritmo y el equilibrio. La abstracción no nace de no saber dibujar, sino de <b>analizar</b> la forma hasta su esencia.",
+  },
+  bloques: [
+    { h: "Representación objetiva y subjetiva", html: `<p>Una <b>representación objetiva</b> intenta mostrar las cosas como son: proporciones exactas, luz coherente y detalles reconocibles. Es la actitud del dibujo científico, del estudio académico o de la ilustración botánica.</p><p>Una <b>representación subjetiva</b> muestra las cosas como las siente o las piensa el artista. Puede exagerar, deformar, cambiar colores o eliminar partes. No es «menos verdadera»: cuenta otra verdad, la de la experiencia personal.</p><p>Entre los dos extremos hay muchas posiciones. Un mismo artista puede pasar de una a otra según lo que quiera comunicar, y eso es lo que ocurre a lo largo del siglo XX.</p>`, svg: comparar("Representación objetiva y subjetiva", ["Objetiva", ["como es", "proporción exacta", "luz coherente", "reconocible"]], ["Subjetiva", ["como la siento", "exagera, deforma", "color libre", "personal"]]) },
+    { h: "De lo figurativo a lo abstracto", html: `<p>Un dibujo es <b>figurativo</b> cuando reconocemos en él figuras del mundo real, aunque estén deformadas. Es <b>abstracto</b> cuando no representa objetos reconocibles y se basa solo en los elementos del lenguaje visual: punto, línea, plano, textura, color y composición.</p><p>Hay dos caminos hacia la abstracción:</p><ul><li><b>Abstracción por síntesis</b>: se parte del natural y se simplifica poco a poco, como hizo Mondrian con sus árboles o Theo van Doesburg con su vaca.</li><li><b>Abstracción pura</b>: se crea directamente con formas y colores, sin modelo, como en muchas obras de Kandinsky o Malévich.</li></ul><p>La primera abstracción suele fecharse hacia 1910-1915, con Kandinsky, Malévich, Mondrian y, antes que ellos, la sueca Hilma af Klint.</p>`, svg: abstraccion("Un árbol pasa de natural a abstracto en cuatro pasos") },
+    { h: "Cómo se abstrae una forma", html: `<p>Abstraer es un proceso que se puede aprender. Un método práctico:</p><ol><li><b>Dibuja del natural</b> el objeto con cierta fidelidad.</li><li><b>Busca la estructura</b>: ejes, direcciones principales y formas básicas.</li><li><b>Quédate con el ritmo</b>: repite y simplifica líneas y curvas dominantes.</li><li><b>Reduce a planos</b>: convierte las zonas en formas geométricas o manchas.</li><li><b>Reorganiza</b> la composición pensando solo en el equilibrio, el contraste y el color.</li></ol><p>En cada paso pierdes parecido pero ganas <b>fuerza visual</b>. Lo importante es decidir qué conservas: el movimiento, la tensión, el equilibrio o el color.</p>`, svg: flujo("Método de abstracción en cinco pasos", ["dibujo del natural", "estructura y ejes", "ritmo de líneas", "planos y manchas", "nueva composición"]) },
+    { h: "La Bauhaus: una escuela que cambió el diseño", html: `<p>La <b>Bauhaus</b> fue una escuela de arte, arquitectura y diseño fundada por <b>Walter Gropius</b> en Weimar (Alemania) en 1919. Se trasladó a Dessau y después a Berlín, donde el nazismo la cerró en 1933. Sus profesores y alumnos emigraron y extendieron sus ideas por todo el mundo.</p><p>Su idea central: <b>unir arte, artesanía e industria</b>. No había diferencia entre el pintor y el diseñador de una silla o de una tipografía; todos debían dominar la forma, el material y la función. De ahí salen el diseño industrial moderno, la tipografía sin adornos y muchos muebles que todavía se fabrican.</p><p>El lema «la forma sigue a la función» resume su pensamiento: un objeto bien diseñado es bello porque funciona bien.</p>`, svg: estrella("La Bauhaus une disciplinas", "Bauhaus", ["arte", "artesanía", "industria", "arquitectura", "tipografía"]), video: { id: "Y69wOKg6yp4", titulo: "Bauhaus en 7 minutos: explicación del movimiento revolucionario del diseño", canal: "Curious Muse", vistas: 650775 } },
+    { h: "El dibujo en la Bauhaus: Itten, Kandinsky y Klee", html: `<p>Todos los alumnos empezaban con el <b>curso preliminar</b> (<i>Vorkurs</i>), creado por <b>Johannes Itten</b>. En él se dibujaba con todo el cuerpo, se estudiaban los contrastes de color, las texturas y los materiales, y se olvidaban los hábitos académicos.</p><p><b>Vasili Kandinsky</b> enseñó el análisis de los elementos visuales y escribió <i>Punto y línea sobre el plano</i> (1926): el punto es tensión concentrada, la línea es el rastro de un punto en movimiento y el plano es el soporte con sus tensiones propias. <b>Paul Klee</b> explicó el dibujo como movimiento y crecimiento, comparándolo con las plantas.</p><p>Gracias a ellos, el dibujo se convirtió en una herramienta de <b>análisis y proyecto</b>, base de cualquier diseño.</p>`, svg: cajas("Profesores de la Bauhaus y sus aportaciones", [["Itten", "curso preliminar|contrastes de color"], ["Kandinsky", "punto, línea|y plano"], ["Klee", "línea en|movimiento"], ["Albers", "interacción|del color"]]), video: { id: "oH9oPXpjzP8", titulo: "Así se entiende a Kandinsky (biografía y análisis de obras)", canal: "Te Explico Un Cuadro", vistas: 133250 } },
+    { h: "El dibujo contemporáneo: dibujar en el espacio", html: `<p>Desde los años sesenta el dibujo sale del papel. Algunos ejemplos:</p><ul><li><b>Dibujo mural</b>: Sol LeWitt escribía instrucciones para que otras personas dibujaran directamente en la pared.</li><li><b>Dibujar en el espacio</b>: Alexander Calder hizo «dibujos» con alambre; Gego o Monika Grzymala usan hilos y cintas que atraviesan salas enteras.</li><li><b>Dibujo de luz</b>: fotografías de larga exposición en las que se dibuja con una linterna, como hizo Picasso en 1949.</li><li><b>Dibujo performativo</b>: Tony Orrico dibuja con los dos brazos a la vez y el cuerpo deja su huella en el papel.</li></ul><p>Hoy hablamos de <b>dibujo expandido</b>: cualquier línea, huella o trazo, en cualquier soporte o material, puede ser dibujo.</p>`, svg: capas("Del papel al espacio", [["Papel", "dibujo tradicional"], ["Pared", "dibujo mural"], ["Aire", "alambre, hilo, luz"], ["Cuerpo", "dibujo performativo"]]) },
+  ],
+  figura: { titulo: "Del natural a la abstracción y al espacio", items: [["Figurativo", "árbol", "se reconoce", "el modelo"], ["Síntesis", "ejes", "estructura y", "ritmo"], ["Abstracto", "▢ ▬", "planos, línea", "y color"], ["Expandido", "hilo", "dibujar en", "el espacio"]] },
+  video: { id: "Y69wOKg6yp4", titulo: "Bauhaus en 7 minutos: explicación del movimiento revolucionario del diseño", canal: "Curious Muse", vistas: 650775 },
+  ejemplos: [
+    ["Abstrae una taza en cuatro pasos.", ["Dibujo del natural: taza con asa, sombra y reflejo.", "Estructura: un cilindro, una elipse arriba y una C para el asa.", "Ritmo: repetir la curva del asa y las elipses como líneas de fuerza.", "Planos: un rectángulo, un semicírculo y una mancha de color."], "Una composición abstracta que conserva el <b>ritmo curvo</b> y la relación entre cuerpo y asa."],
+    ["¿Es abstracto un retrato cubista de Picasso?", ["Se reconoce una cabeza, ojos y nariz.", "Las formas están muy deformadas y fragmentadas.", "Pero sigue representando a una persona."], "No: es <b>figurativo</b>, aunque con una representación muy subjetiva."],
+    ["Explica qué significa «la forma sigue a la función» con una silla.", ["Primero se piensa para qué sirve: sentarse cómodamente.", "Después se eligen material y estructura que lo permiten.", "La belleza nace de la claridad de esa solución."], "La silla de tubo de acero de Marcel Breuer, alumno de la Bauhaus, es un ejemplo clásico."],
+  ],
+  errores: [
+    ["Pensar que lo abstracto es «hacer garabatos».", "La abstracción organiza punto, línea, plano y color con intención."],
+    ["Confundir figurativo con realista.", "Un dibujo deformado sigue siendo figurativo si se reconoce el modelo."],
+    ["Creer que la Bauhaus era solo una escuela de pintura.", "Unía arte, artesanía, arquitectura y diseño industrial."],
+    ["Pensar que el dibujo solo existe en el papel.", "El dibujo contemporáneo usa el espacio, la luz, el cuerpo y otros materiales."],
+  ],
+  ejercicios: {
+    b: [
+      ["Define figurativo y abstracto con un ejemplo de cada uno.", "Figurativo: se reconocen figuras reales (un retrato de Schiele). Abstracto: no se reconocen objetos, solo elementos visuales (una composición de Mondrian)."],
+      ["¿Quién fundó la Bauhaus, cuándo y dónde?", "Walter Gropius, en 1919, en Weimar (Alemania)."],
+      ["Según Kandinsky, ¿qué es una línea?", "El rastro que deja un punto en movimiento."],
+      ["Nombra dos artistas que dibujen en el espacio.", "Alexander Calder (alambre) y Gego o Monika Grzymala (hilos y cintas)."],
+    ],
+    m: [
+      ["Haz una serie de cuatro dibujos que abstraigan una hoja de árbol.", "Natural, estructura de nervios, ritmo de líneas y composición de planos. Conserva una idea (la simetría, el crecimiento) en todos."],
+      ["Dibuja una composición con solo un punto, una línea y un plano que transmita tensión.", "Coloca el punto cerca de un borde, una línea diagonal que lo empuje y un plano grande desequilibrado. La diagonal y la asimetría generan tensión."],
+      ["Compara en una tabla la representación objetiva y la subjetiva (tres rasgos de cada una).", "Objetiva: proporción exacta, luz coherente, detalle. Subjetiva: exageración, color expresivo, deformación."],
+      ["Haz un dibujo de luz con el móvil en modo larga exposición y una linterna.", "En una habitación oscura, con el móvil apoyado, traza una figura sencilla en el aire en pocos segundos. Valora la línea continua resultante."],
+    ],
+    a: [
+      ["Diseña una instrucción de dibujo al estilo de Sol LeWitt y pide a un compañero que la realice.", "Ejemplo: «Líneas rectas de 10 cm en cuatro direcciones, sin tocarse, cubriendo un cuadrado de 30 cm». Comparad cómo cambia la obra según quién la ejecute."],
+      ["Construye un dibujo en el espacio con alambre a partir de un dibujo previo de tu mano.", "Traslada el contorno principal a un único alambre doblado, sin cortarlo. Fotografíalo sobre fondo blanco con luz lateral para ver la sombra como segundo dibujo."],
+    ],
+  },
+  quiz: [
+    ["Un dibujo que muestra las cosas como el artista las siente es…", ["objetivo", "subjetivo", "técnico", "académico"], 1, "La representación subjetiva parte de la experiencia personal."],
+    ["Un dibujo es abstracto cuando…", ["tiene colores vivos", "no representa objetos reconocibles", "está deformado", "es pequeño"], 1, "Se basa solo en los elementos del lenguaje visual."],
+    ["La serie de árboles de Mondrian es un ejemplo de abstracción…", ["pura", "por síntesis", "automática", "fotográfica"], 1, "Parte del natural y simplifica."],
+    ["¿En qué año se fundó la Bauhaus?", ["1909", "1919", "1933", "1945"], 1, "En 1919, en Weimar."],
+    ["La idea central de la Bauhaus era…", ["volver a la academia", "unir arte, artesanía e industria", "pintar paisajes", "rechazar la tecnología"], 1, "Sin separar artista y diseñador."],
+    ["El curso preliminar de la Bauhaus lo creó…", ["Itten", "Gropius", "Mondrian", "Picasso"], 0, "Johannes Itten."],
+    ["«Punto y línea sobre el plano» es un libro de…", ["Klee", "Kandinsky", "Albers", "Malévich"], 1, "Kandinsky, 1926."],
+    ["¿Qué régimen cerró la Bauhaus en 1933?", ["El franquismo", "El nazismo", "El estalinismo", "El fascismo italiano"], 1, "Los nazis la consideraban un arte «degenerado»."],
+    ["Calder hizo «dibujos en el espacio» con…", ["hilo", "alambre", "luz", "arena"], 1, "Esculturas lineales de alambre."],
+    ["El dibujo expandido es…", ["el dibujo en tamaño grande", "cualquier trazo o huella en cualquier soporte", "el dibujo técnico", "el dibujo digital"], 1, "Amplía el dibujo más allá del papel."],
+  ],
+  examen: [
+    ["¿Qué artista sueca hizo abstracción antes que Kandinsky?", ["Hilma af Klint", "Sonia Delaunay", "Käthe Kollwitz", "Gego"], 0, "Hilma af Klint, desde 1906."],
+    ["«La forma sigue a la función» significa que…", ["la forma es lo primero", "el diseño parte del uso del objeto", "no importa la forma", "solo importa el color"], 1, "La función guía la forma."],
+    ["Sol LeWitt es conocido por…", ["dibujos murales hechos a partir de instrucciones", "retratos a pastel", "grabados de guerra", "carteles"], 0, "Escribía instrucciones que otros ejecutaban."],
+    ["Un retrato cubista de Picasso es…", ["abstracto", "figurativo", "objetivo", "técnico"], 1, "Se sigue reconociendo la figura."],
+  ],
+  feynman: ["objetivo frente a subjetivo", "figurativo frente a abstracto", "abstracción por síntesis y pura", "la Bauhaus une arte e industria", "Itten, Kandinsky y Klee", "dibujar en el espacio"],
+  mapa: ["Figuración, abstracción y Bauhaus", [["Representar", "objetiva o subjetiva"], ["Abstraer", "síntesis o pura"], ["Bauhaus", "arte + diseño (1919)"], ["Hoy", "dibujo expandido"]]],
+  tarjetas: [
+    ["Representación subjetiva", "Muestra las cosas como el artista las siente o piensa."],
+    ["Abstracción por síntesis", "Simplificar el natural paso a paso hasta su estructura."],
+    ["Abstracción pura", "Crear directamente con formas y colores, sin modelo."],
+    ["Fundador de la Bauhaus", "Walter Gropius (1919)."],
+    ["Lema de la Bauhaus", "La forma sigue a la función."],
+    ["Curso preliminar", "Primer curso de la Bauhaus, creado por Itten."],
+    ["Línea según Kandinsky", "El rastro de un punto en movimiento."],
+    ["Dibujo expandido", "Dibujo fuera del papel: espacio, luz, cuerpo, materiales."],
+  ],
+  glosario: [
+    ["Figuración", "Representación de figuras reconocibles del mundo real."],
+    ["Abstracción", "Lenguaje visual que no representa objetos reconocibles."],
+    ["Síntesis", "Simplificación de una forma a lo esencial."],
+    ["Bauhaus", "Escuela alemana de arte y diseño (1919-1933)."],
+    ["Vorkurs", "Curso preliminar de la Bauhaus."],
+    ["Plano básico", "Para Kandinsky, la superficie que recibe la obra."],
+    ["Dibujo mural", "Dibujo hecho directamente sobre la pared."],
+    ["Dibujo expandido", "Práctica que amplía el dibujo a cualquier soporte o material."],
+  ],
+  situacion: { titulo: "Del objeto al cartel", reto: "Convertir un objeto del instituto en una composición abstracta al estilo Bauhaus y usarla en un cartel tipográfico.", pasos: ["Dibuja el objeto del natural.", "Haz la serie de abstracción en cuatro pasos.", "Elige la versión más clara y combínala con una tipografía sin adornos.", "Presenta el proceso completo en una lámina."], producto: "Lámina con la serie de abstracción y un cartel final.", evaluacion: ["Se ve un proceso lógico de síntesis", "La composición final es equilibrada", "La tipografía se integra con la forma", "La presentación es limpia"] },
+  familias: ["Mirad juntos muebles o lámparas de inspiración Bauhaus en tiendas o catálogos.", "Pregúntale por qué Mondrian dejó de pintar árboles realistas.", "Probad a hacer un dibujo de luz con el móvil.", "Visitad la colección de arte abstracto de un museo cercano."],
+  saberes: "A. Concepto e historia del dibujo: de la representación objetiva a la subjetiva; de lo figurativo a la abstracción; la Bauhaus y el diseño; el dibujo como expresión artística contemporánea, dibujar en el espacio",
+  ideas: ["Mostrar en secuencia la serie de árboles de Mondrian antes de explicar la abstracción.", "Replicar un ejercicio del Vorkurs: dibujar con la mano no dominante y con todo el brazo.", "Organizar un dibujo colectivo en el espacio con hilo en un rincón del aula."],
+  fuentes: [{ t: "Bauhaus Kooperation: historia de la escuela", url: "https://www.bauhauskooperation.com/" }],
+});

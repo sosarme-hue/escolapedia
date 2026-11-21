@@ -1,0 +1,103 @@
+// Dibujo Artístico II · El encuadre, el dibujo del natural y los espacios (formato ligero).
+const B = require("./_bach2-da");
+const { tema, cajas, flujo, comparar, rejilla, tercios, estrella, capas } = B;
+
+module.exports = tema({
+  titulo: "El encuadre, el dibujo del natural y los espacios",
+  minutos: 80,
+  objetivos: [
+    "Elegir y justificar un encuadre: formato, plano, punto de vista y composición",
+    "Relacionar el encuadre del dibujo con el de la fotografía",
+    "Dibujar del natural espacios interiores, exteriores, urbanos y naturales",
+    "Descubrir la geometría que esconde la naturaleza (simetrías, espirales, fractales)",
+  ],
+  claves: ["encuadre", "formato", "plano", "punto de vista", "regla de los tercios", "visor", "dibujo del natural", "urban sketching", "planos de profundidad", "proporción áurea"],
+  pregunta: {
+    texto: "Dos personas dibujan la misma plaza desde el mismo banco. Una obtiene un dibujo aburrido y la otra uno lleno de fuerza. ¿Qué ha cambiado si el lugar es el mismo?",
+    respuesta: "El <mark>encuadre</mark>: qué parte de la plaza eligió, el formato del papel, dónde colocó el horizonte y el motivo principal. Encuadrar es <b>decidir qué se cuenta y qué se deja fuera</b>, igual que hace un fotógrafo.",
+  },
+  bloques: [
+    { h: "Encuadrar es elegir", html: `<p>El <b>encuadre</b> es la porción de la realidad que decidimos representar y la forma en que la colocamos dentro del soporte. Antes de empezar un dibujo del natural hay que decidir:</p><ul><li><b>El formato</b>: horizontal (calma, paisaje), vertical (altura, retrato) o cuadrado (equilibrio).</li><li><b>El plano</b>: general, de conjunto, medio, detalle.</li><li><b>El punto de vista</b>: normal, picado (desde arriba) o contrapicado (desde abajo).</li><li><b>El centro de interés</b>: el elemento principal y su posición.</li></ul><p>Un buen truco es usar un <b>visor</b>: un cartón con una ventana rectangular. Mirando a través de él aislamos el encuadre y vemos el motivo como una imagen plana.</p>`, svg: cajas("Decisiones de encuadre", [["Formato", "horizontal,|vertical, cuadrado"], ["Plano", "general|o detalle"], ["Punto de vista", "normal, picado,|contrapicado"], ["Centro", "dónde va|lo importante"]]) },
+    { h: "Composición dentro del encuadre", html: `<p>Una vez elegido el encuadre, hay que organizar los elementos. Algunos recursos clásicos:</p><ul><li><b>Regla de los tercios</b>: dividir el formato en tres partes en horizontal y en vertical y situar el centro de interés en uno de los cuatro <b>puntos fuertes</b>.</li><li><b>Línea de horizonte</b> en un tercio, no en el centro, para evitar que el dibujo quede partido.</li><li><b>Líneas directrices</b>: caminos, ríos o calles que llevan la mirada hacia el centro de interés.</li><li><b>Equilibrio</b> de masas: compensar una zona llena con otra vacía.</li><li><b>Aire</b>: dejar espacio en la dirección hacia la que mira o se mueve una figura.</li></ul><p>Las reglas ayudan, pero también se pueden romper con intención: un horizonte muy alto puede dar sensación de agobio; uno muy bajo, de inmensidad.</p>`, svg: tercios("Regla de los tercios y puntos fuertes") },
+    { h: "Dibujo y fotografía", html: `<p>Desde su invención en 1839, la <b>fotografía</b> influyó en el dibujo. Degas tomó de ella los encuadres cortados y los puntos de vista inesperados. Muchos pintores realistas usaron fotos como referencia.</p><p>Pero dibujar del natural y copiar una foto no es lo mismo:</p><ul><li>La foto <b>aplana</b> el espacio y deforma las perspectivas según el objetivo.</li><li>La foto registra todo por igual; el dibujante <b>selecciona</b> lo importante.</li><li>Del natural se perciben el volumen, el movimiento y la atmósfera reales.</li></ul><p>La fotografía es útil para estudiar encuadres (haz varias fotos y elige la mejor composición) o para completar un dibujo empezado del natural. Pero conviene que no sustituya a la observación directa.</p>`, svg: comparar("Del natural o de una foto", ["Del natural", ["volumen real", "selección", "atmósfera", "más lento"]], ["De una foto", ["espacio plano", "todo igual", "congelado", "cómodo"]]), video: { id: "ppfZkGO_uXA", titulo: "Dibujo y pintura: encaje, composición y encuadre", canal: "elenalh", vistas: 121258 } },
+    { h: "Espacios interiores", html: `<p>Los <b>interiores</b> (tu habitación, el aula, una cocina, una iglesia) son un excelente laboratorio de perspectiva y luz. Pasos para dibujarlos:</p><ol><li>Sitúa la <b>línea de horizonte</b> a la altura de tus ojos.</li><li>Encaja las grandes líneas: suelo, paredes y techo.</li><li>Coloca muebles y objetos con sus puntos de fuga.</li><li>Estudia la <b>luz</b>: de dónde entra (ventana, lámpara) y cómo crea zonas claras y oscuras.</li></ol><p>Pintores como Vermeer o Hopper convirtieron los interiores en escenas llenas de silencio e intimidad. Un interior bien dibujado cuenta algo sobre quien lo habita.</p>`, svg: flujo("Pasos para dibujar un interior", ["situar la LH", "suelo, paredes y techo", "muebles en perspectiva", "luz y sombras", "detalles personales"]) },
+    { h: "Espacios urbanos y naturales", html: `<p>En el exterior el espacio es más amplio y cambiante. Conviene organizarlo en <b>planos de profundidad</b>: primer plano (cerca, detallado y contrastado), plano medio y fondo (lejos, simplificado y claro).</p><p>En el <b>paisaje urbano</b> dominan las líneas rectas y la perspectiva; en el <b>paisaje natural</b>, las formas orgánicas, las texturas y la atmósfera.</p><p>El movimiento <b>urban sketching</b> (dibujantes urbanos) propone dibujar in situ la ciudad en cuadernos, contando lo que pasa a tu alrededor. Su lema: «mostrar el mundo, un dibujo a la vez». En muchas ciudades españolas hay grupos que quedan para dibujar juntos.</p>`, svg: capas("Planos de profundidad de un paisaje", [["Primer plano", "detalle y contraste"], ["Plano medio", "formas claras"], ["Fondo", "simple y claro"], ["Cielo", "atmósfera"]]), video: { id: "LvIPMGLJN5A", titulo: "Materiales y consejos para urban sketchers", canal: "Alicia Aradilla", vistas: 86662 } },
+    { h: "Geometría y naturaleza", html: `<p>La naturaleza parece desordenada, pero esconde una geometría sorprendente:</p><ul><li><b>Simetría</b>: bilateral en mariposas y hojas; radial en flores y estrellas de mar.</li><li><b>Espirales</b>: caracoles, piñas, girasoles y galaxias siguen espirales logarítmicas.</li><li><b>Sucesión de Fibonacci</b> (1, 1, 2, 3, 5, 8, 13…) en el número de pétalos o de espirales de las piñas.</li><li><b>Proporción áurea</b> (aproximadamente 1,618), relacionada con Fibonacci.</li><li><b>Fractales</b>: formas que se repiten a distintas escalas, como un helecho, un brócoli romanesco o la ramificación de un árbol.</li><li><b>Teselaciones</b>: hexágonos en panales o en la piel de las tortugas.</li></ul><p>Descubrir esa geometría ayuda a dibujar la naturaleza con más estructura y es una fuente de inspiración para el diseño.</p>`, svg: estrella("Geometría en la naturaleza", "naturaleza", ["simetría", "espiral", "Fibonacci", "fractal", "hexágono"]) },
+  ],
+  figura: { titulo: "Encuadrar y dibujar espacios", items: [["Encuadre", "▭", "formato, plano", "y punto de vista"], ["Tercios", "⋕", "puntos", "fuertes"], ["Espacios", "⌂", "interior, urbano,", "natural"], ["Geometría", "φ", "espirales,", "fractales"]] },
+  video: { id: "ppfZkGO_uXA", titulo: "Dibujo y pintura: encaje, composición y encuadre", canal: "elenalh", vistas: 121258 },
+  ejemplos: [
+    ["Encuadra una vista de un parque con un árbol grande, un banco y un camino.", ["Formato horizontal: transmite calma.", "Árbol en el tercio izquierdo, en un punto fuerte.", "El camino entra por la esquina inferior derecha y lleva al banco.", "Horizonte en el tercio inferior para dar protagonismo al cielo y a la copa."], "Una composición <b>equilibrada</b> con un recorrido visual claro."],
+    ["Elige el formato para dibujar una torre de iglesia vista desde la plaza.", ["El motivo es alto y estrecho.", "Un formato vertical refuerza la altura.", "Un ligero contrapicado aumenta la sensación de grandeza."], "<b>Formato vertical</b> y contrapicado."],
+    ["Analiza la geometría de un girasol.", ["Simetría radial en los pétalos.", "Las semillas forman dos familias de espirales en sentidos opuestos.", "El número de espirales suele ser de Fibonacci (34 y 55, por ejemplo)."], "El girasol combina <b>simetría radial</b> y <b>espirales de Fibonacci</b>."],
+  ],
+  errores: [
+    ["Colocar el horizonte justo en el centro.", "Situarlo en un tercio para que la composición no quede partida."],
+    ["Dibujar todo con el mismo detalle.", "Detallar el primer plano y simplificar el fondo."],
+    ["Empezar sin decidir el encuadre y que el motivo se salga del papel.", "Hacer antes un boceto pequeño de encuadre o usar un visor."],
+    ["Copiar una foto como si fuera la realidad.", "La foto aplana y deforma: úsala como apoyo, no como sustituto."],
+  ],
+  ejercicios: {
+    b: [
+      ["¿Qué es un visor y para qué sirve?", "Un cartón con una ventana rectangular que aísla el encuadre y ayuda a ver el motivo como imagen plana."],
+      ["Explica la regla de los tercios.", "Dividir el formato en tres partes en vertical y horizontal y situar los elementos importantes en las líneas o en sus cruces (puntos fuertes)."],
+      ["Nombra tres planos de profundidad de un paisaje.", "Primer plano, plano medio y fondo."],
+      ["Da tres ejemplos de espirales en la naturaleza.", "Caracol, piña, girasol (también galaxias, helechos jóvenes, cuernos de carnero)."],
+    ],
+    m: [
+      ["Haz seis miniaturas de encuadre (5 × 7 cm) de un mismo rincón y elige la mejor.", "Varía formato, plano y punto de vista. Justifica la elección con la regla de los tercios y las líneas directrices."],
+      ["Dibuja tu habitación desde la puerta en 30 minutos.", "LH a la altura de los ojos, grandes líneas primero, muebles después y luz de la ventana al final."],
+      ["Sal a la calle y haz un apunte urbano de 15 minutos con rotulador.", "Elige un encuadre sencillo, empieza por la línea de horizonte y las fachadas principales, añade personas como manchas pequeñas."],
+      ["Dibuja una piña o una flor destacando su geometría.", "Marca primero la estructura (espirales, ejes de simetría) con línea suave y después dibuja la forma encima."],
+    ],
+    a: [
+      ["Dibuja el mismo paisaje del natural y a partir de una foto tuya. Compara.", "Analiza diferencias de perspectiva, detalle y atmósfera. Normalmente el dibujo del natural tiene más vida y la foto, más detalles irrelevantes."],
+      ["Diseña un patrón decorativo basado en un fractal natural (helecho o romanesco).", "Repite una forma base a escalas decrecientes siguiendo la misma regla de ramificación. Aplícala a una lámina o tejido."],
+    ],
+  },
+  quiz: [
+    ["El encuadre es…", ["el marco de madera", "la porción de realidad elegida y su colocación", "el tipo de lápiz", "la luz"], 1, "Elegir qué y cómo se representa."],
+    ["Un formato vertical refuerza…", ["la calma", "la altura", "la anchura", "el color"], 1, "Ideal para torres o retratos."],
+    ["Un punto de vista desde arriba se llama…", ["contrapicado", "picado", "frontal", "cenital inverso"], 1, "Picado."],
+    ["Los puntos fuertes de la regla de los tercios son…", ["los bordes", "los cruces de las líneas de tercios", "el centro", "las esquinas"], 1, "Cuatro cruces."],
+    ["Conviene situar el horizonte…", ["en el centro", "en un tercio", "fuera del papel", "en el borde"], 1, "Evita partir la imagen."],
+    ["Un artista que tomó de la fotografía los encuadres cortados fue…", ["Ingres", "Degas", "Goya", "Klee"], 1, "Degas."],
+    ["En un paisaje, el fondo se dibuja…", ["con más detalle", "más simple y claro", "más oscuro", "igual"], 1, "Por la distancia."],
+    ["El movimiento urban sketching propone…", ["copiar fotos", "dibujar la ciudad in situ", "pintar murales", "hacer grafiti"], 1, "Dibujar en directo."],
+    ["La sucesión de Fibonacci empieza…", ["1, 2, 4, 8", "1, 1, 2, 3, 5, 8", "2, 4, 6, 8", "1, 3, 5, 7"], 1, "Cada número es la suma de los dos anteriores."],
+    ["Un helecho es un ejemplo de…", ["teselación", "fractal", "simetría radial", "perspectiva"], 1, "Repite su forma a distintas escalas."],
+  ],
+  examen: [
+    ["La proporción áurea vale aproximadamente…", ["1,414", "1,618", "3,14", "2,5"], 1, "φ ≈ 1,618."],
+    ["Las líneas directrices sirven para…", ["sombrear", "llevar la mirada al centro de interés", "medir", "colorear"], 1, "Guían la mirada."],
+    ["Un interior se empieza situando…", ["los detalles", "la línea de horizonte", "las sombras", "el color"], 1, "Primero la LH."],
+    ["Dejar «aire» delante de una figura significa…", ["dejar espacio hacia donde mira o se mueve", "dibujar el cielo", "no sombrear", "usar el visor"], 0, "Da sensación de dirección."],
+  ],
+  feynman: ["qué es encuadrar", "formato, plano y punto de vista", "regla de los tercios", "dibujo del natural y fotografía", "interiores, urbanos y naturales", "geometría en la naturaleza"],
+  mapa: ["Encuadre y espacios", [["Encuadre", "formato, plano, punto de vista"], ["Composición", "tercios, directrices"], ["Espacios", "interior, urbano, natural"], ["Geometría", "espiral, Fibonacci, fractal"]]],
+  tarjetas: [
+    ["Encuadre", "Porción de la realidad elegida y su colocación en el soporte."],
+    ["Visor", "Ventana de cartón para aislar el encuadre."],
+    ["Regla de los tercios", "Centro de interés en un cruce de las líneas de tercios."],
+    ["Picado y contrapicado", "Desde arriba y desde abajo."],
+    ["Planos de profundidad", "Primer plano, plano medio y fondo."],
+    ["Urban sketching", "Dibujar la ciudad in situ en cuadernos."],
+    ["Fibonacci", "1, 1, 2, 3, 5, 8, 13… cada número suma los dos anteriores."],
+    ["Fractal", "Forma que se repite a distintas escalas."],
+  ],
+  glosario: [
+    ["Encuadre", "Selección y colocación de la escena en el soporte."],
+    ["Formato", "Forma y orientación del soporte."],
+    ["Plano", "Distancia aparente de la escena (general, medio, detalle)."],
+    ["Picado", "Vista desde arriba."],
+    ["Contrapicado", "Vista desde abajo."],
+    ["Centro de interés", "Elemento principal de la composición."],
+    ["Proporción áurea", "Relación de aproximadamente 1,618 entre dos medidas."],
+    ["Fractal", "Forma autosemejante a diferentes escalas."],
+  ],
+  situacion: { titulo: "Cuaderno de viaje de mi ciudad", reto: "Crear un cuaderno de dibujos del natural con espacios interiores, urbanos y naturales de tu localidad.", pasos: ["Haz un mapa con cinco lugares que te representen.", "En cada lugar, dibuja tres miniaturas de encuadre y elige una.", "Desarrolla el dibujo in situ en 20-30 minutos.", "Añade notas escritas y fecha, como un urban sketcher."], producto: "Cuaderno de cinco dibujos del natural con notas.", evaluacion: ["Variedad de espacios", "Encuadres pensados y justificados", "Perspectiva y planos de profundidad", "Expresividad y constancia"] },
+  familias: ["Acompañadle a dibujar a un parque o a una plaza.", "Mirad fotos de la familia y comentad qué encuadres funcionan mejor.", "Buscad espirales y simetrías en frutas y plantas de casa.", "Informaos sobre grupos de urban sketchers de vuestra ciudad."],
+  saberes: "C. Dibujo y espacio: encuadre y dibujo del natural, relación con la fotografía; espacios interiores, exteriores, urbanos y naturales; geometría y naturaleza",
+  ideas: ["Fabricar visores en clase antes de la primera salida.", "Comparar fotos del mismo lugar tomadas por el alumnado para hablar de encuadre.", "Organizar una salida de dibujo urbano con un grupo local de urban sketchers."],
+  fuentes: [{ t: "Urban Sketchers: comunidad internacional de dibujo urbano", url: "https://urbansketchers.org/" }],
+});

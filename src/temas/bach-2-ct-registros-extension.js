@@ -26,7 +26,7 @@ module.exports = B.tema({
       h: "Extensión, tesitura y registro",
       html: `<p>La <b>extensión</b> son todas las notas que una voz puede emitir, de la más grave a la más aguda, aunque algunas suenen forzadas. La <b>tesitura</b> es la zona, más estrecha, en la que la voz canta con comodidad y buen sonido durante mucho tiempo. En el coro se trabaja siempre dentro de la tesitura.</p>
       <p>Un <b>registro</b> es una serie de notas seguidas que tienen el mismo timbre porque se producen con el mismo ajuste de la laringe. Cada voz tiene varios registros, y saber dónde empieza y acaba cada uno es la base de la técnica vocal.</p>`,
-      svg: B.tesituras("Extensión y tesitura de una voz de contralto", [["Extensión", 8, 24], ["Tesitura", 11, 20], ["Graves forzados", 8, 11], ["Agudos forzados", 20, 24]]),
+      svg: B.tesituras("Extensión y tesitura de una voz de contralto", [["Extensión total", 7, 25], ["Tesitura cómoda", 11, 21]]),
     },
     {
       h: "Voz de pecho y voz de cabeza",
@@ -46,7 +46,7 @@ module.exports = B.tema({
       h: "El passaggio o zona de paso",
       html: `<p>El <b><i>passaggio</i></b> es la zona donde la voz cambia de mecanismo. Si se fuerza la voz de pecho por encima de ella, la voz se tensa, se desafina o se rompe (el «gallo»). Si se pasa demasiado pronto a cabeza, el sonido pierde cuerpo.</p>
       <p>Cada voz tiene sus zonas de paso. De forma aproximada, en las voces femeninas el primer paso aparece hacia el <b>mi4-fa4</b> (por encima del do central) y el segundo hacia el <b>fa5</b>; en los tenores, hacia el <b>mi4-sol4</b>, y en barítonos y bajos, algo más grave. Lo importante es localizar el tuyo cantando escalas lentas y fijándote en la nota exacta en la que cambia el color o aparece la tensión.</p>`,
-      svg: B.tesituras("Registros aproximados de una voz de soprano", [["Pecho", 9, 16], ["Zona media", 16, 24], ["Cabeza", 24, 28], ["Pasos: mi4 y fa5", 16, 24]]),
+      svg: B.tesituras("Registros aproximados de una voz de soprano", [["Pecho", 9, 17], ["Zona media (mixta)", 15, 25], ["Cabeza", 21, 28]]),
     },
     {
       h: "Igualar la voz",
