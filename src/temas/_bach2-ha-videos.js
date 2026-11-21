@@ -63,4 +63,10 @@ module.exports = {
   "van-d": { id: "yuVQFFtk8dk", canal: "Antonio García Villarán", vistas: 0, q: "qué es Dadá" },
   "van-e": { id: "0C88ZYJJxHA", canal: "Mr. E on Art History", vistas: 0, q: "Surrealismo: Dalí, Ernst, Magritte y Miró" },
   "van-f": { id: "qJLH7JAsBHA", canal: "Great Art Explained", vistas: 0, q: "El Guernica de Picasso" },
+  "act-a": { id: "XD9ilRSSaVs", canal: "Xavi Romero", vistas: 0, q: "el arte después de la Segunda Guerra Mundial" },
+  "act-b": { id: "pIg-DjNhNYo", canal: "Rafael López Borrego", vistas: 0, q: "Expresionismo abstracto, orígenes y evolución" },
+  "act-c": { id: "bu9Bm8aw_lI", canal: "Great Art Explained", vistas: 0, q: "Marilyn de Andy Warhol" },
+  "act-d": { id: "stgNx7kxRh4", canal: "Manuel Lages", vistas: 0, q: "El Peine del Viento de Chillida" },
+  "act-e": { id: "fsz6bkkIHzQ", canal: "Great Art Explained", vistas: 0, q: "Los murales Seagram de Rothko" },
+  "act-f": { id: "EauX7ChXvAU", canal: "Alberto Garin", vistas: 0, q: "Resucitar Bilbao: el Guggenheim" },
 };
