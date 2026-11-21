@@ -252,3 +252,4 @@ body.peque .chunk svg{max-width:300px}
 .pau-check label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
 .pau-check input{width:20px;height:20px;flex:0 0 20px;margin-top:2px}
 .pau-n{display:inline-grid;place-items:center;width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:var(--c,var(--pen));color:#fff;font-size:15px}
+@media (max-width:600px){.tb{display:block;overflow-x:auto;width:max-content;max-width:100%;-webkit-overflow-scrolling:touch}}

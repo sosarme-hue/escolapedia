@@ -90,3 +90,95 @@ module.exports = P.tema({
   saberes: "Sentido de la medida: superficie y área; unidades de superficie del Sistema Métrico Decimal y sus equivalencias; unidades agrarias; área del cuadrado y del rectángulo; diferencia entre área y perímetro; resolución de problemas",
   ideas: ["Construir un metro cuadrado con papel de periódico y comprobar cuántos alumnos caben.", "Calcular el área del aula y del patio con cinta métrica.", "Geoplano o papel cuadriculado para crear figuras con la misma área y distinto perímetro."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { caja } = P;
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Estimar superficies con unidades no convencionales", "Calcular el área de un triángulo rectángulo y de figuras compuestas", "Comparar superficies reales de países y espacios naturales"],
+  lectura: { titulo: "Un suelo nuevo para la habitación", html: `<p>La familia de Daniela va a cambiar el suelo de su habitación. En la tienda, la dependienta les pregunta: «¿Cuántos metros cuadrados necesitan?». Daniela se queda pensativa. Sabe cuánto mide su cama y cuánto pesa su mochila, pero ¿cómo se mide un suelo?</p><p>Al llegar a casa, coge la cinta métrica: la habitación mide <b>4 metros de largo y 3 de ancho</b>. Su hermano mayor le explica que hay que imaginar el suelo dividido en cuadrados de un metro de lado. «Cuenta cuántos cuadrados caben», le dice. En cada fila caben 4, y hay 3 filas: 4 × 3 = <b>12 metros cuadrados</b>.</p><p>Las baldosas que les gustan cuestan 15 € el metro cuadrado. Daniela calcula enseguida: 12 × 15 = 180 €. Su madre añade: «Compraremos un poco más por si se rompe alguna».</p><p>Medir <b>superficies</b> sirve para comprar suelos, pintar paredes, sembrar un huerto o saber cuánto ocupa un país. En este tema aprenderás sus unidades y a calcular áreas de figuras sencillas.</p>` },
+  tras: {
+    "¿Qué es la superficie?": [
+      ["Medir superficies sin regla", `<p>Antes de usar metros cuadrados, podemos medir una superficie contando cuántas veces cabe en ella otra superficie más pequeña, que hace de <b>unidad</b>.</p><ul><li>¿Cuántas hojas de papel hacen falta para cubrir la mesa? Si caben 8, la mesa mide «8 hojas».</li><li>¿Cuántas baldosas tiene el pasillo? Si hay 5 filas de 12, el suelo mide 60 baldosas.</li><li>¿Cuántos post-it cubren tu libro?</li></ul><p>El problema es que estas unidades no son iguales para todos: tu hoja puede ser más grande que la de un compañero. Por eso se inventó una unidad común, el <b>metro cuadrado</b>, que es igual en todo el mundo.</p><p>Aun así, estas unidades caseras son muy útiles para <b>estimar</b>. Si sabes que una baldosa del colegio mide 30 cm × 30 cm, casi 1/10 de m², contando baldosas puedes calcular de forma aproximada el área de un aula sin necesidad de cinta métrica: 110 baldosas son unos 10 m².</p>`,
+        svg("Medir la superficie de una mesa con hojas de papel: caben ocho hojas", `<rect x="30" y="30" width="200" height="100" rx="4" fill="${NA}" fill-opacity=".15" stroke="${NA}" stroke-width="3"/>${[...Array(8)].map((_, i) => `<rect x="${34 + (i % 4) * 49}" y="${34 + Math.floor(i / 4) * 47}" width="45" height="43" fill="var(--card)" stroke="${AZ}" stroke-width="1.6"/>${t(56 + (i % 4) * 49, 61 + Math.floor(i / 4) * 47, i + 1, { s: 13, c: AZ })}`).join("")}${t(130, 160, "la mesa mide «8 hojas»", { s: 13, d: true })}`)],
+    ],
+    "Área y perímetro no son lo mismo": [
+      ["El área de un triángulo rectángulo", `<p>Si cortamos un rectángulo por su <b>diagonal</b> (de una esquina a la opuesta), obtenemos dos <b>triángulos rectángulos</b> exactamente iguales. Por eso, el área de cada triángulo es la <b>mitad</b> del área del rectángulo:</p><p style="text-align:center"><b>Área del triángulo = base × altura : 2</b></p><p>En un triángulo rectángulo, la base y la altura son los dos lados que forman el ángulo recto.</p><p>Ejemplo: un triángulo con base 6 cm y altura 4 cm. El rectángulo tendría 6 × 4 = 24 cm²; el triángulo, la mitad: <b>12 cm²</b>.</p><p>Esto también funciona en los triángulos que no son rectángulos, siempre que la altura se mida en perpendicular a la base. Lo estudiarás con más detalle en 6º.</p><p>Una aplicación: una vela de barco triangular de 3 m de base y 5 m de altura tiene 3 × 5 : 2 = <b>7,5 m²</b> de tela.</p>`,
+        svg("Un rectángulo de seis por cuatro dividido por la diagonal en dos triángulos de doce centímetros cuadrados", `${rejilla(40, 26, 6, 4, 22, "var(--line)")}<path d="M40 114 L 172 114 L 172 26 Z" fill="${VE}" fill-opacity=".4" stroke="${VE}" stroke-width="2.5"/><path d="M40 114 L 40 26 L 172 26 Z" fill="${AZ}" fill-opacity=".15" stroke="${AZ}" stroke-width="2" stroke-dasharray="5 3"/>${t(106, 134, "base 6 cm", { s: 11 })}${t(206, 74, "altura", { s: 11 })}${t(206, 88, "4 cm", { s: 11 })}${t(130, 162, "6 × 4 : 2 = 12 cm²", { s: 14, d: true, c: VE })}`)],
+      ["Figuras compuestas: dividir para calcular", `<p>Muchas superficies reales no son rectángulos perfectos: un salón en forma de L, un patio con un trozo de jardín… Para calcular su área, se <b>descomponen</b> en figuras sencillas (rectángulos, cuadrados, triángulos), se calcula el área de cada una y se <b>suman</b>.</p><p>Ejemplo: un salón en forma de L.</p><ol><li>Divídelo con una línea en dos rectángulos: uno de 6 m × 4 m y otro de 3 m × 2 m.</li><li>Áreas: 6 × 4 = 24 m² y 3 × 2 = 6 m².</li><li>Suma: 24 + 6 = <b>30 m²</b>.</li></ol><p>Otra estrategia es <b>restar</b>: calcula el rectángulo grande que envuelve la figura y quita el trozo que falta. Si el rectángulo completo fuese de 6 m × 6 m = 36 m² y falta un trozo de 3 m × 2 m = 6 m², quedan 36 − 6 = 30 m². ¡El mismo resultado por dos caminos!</p><p>Comprueba siempre con las dos estrategias cuando puedas: si coinciden, seguro que está bien.</p>`,
+        svg("Salón en forma de ele dividido en un rectángulo de veinticuatro metros cuadrados y otro de seis: total treinta", `<path d="M40 20 H 160 V 100 H 100 V 140 H 40 Z" fill="${AZ}" fill-opacity=".12" stroke="${AZ}" stroke-width="2.5"/><rect x="40" y="20" width="120" height="80" fill="${AZ}" fill-opacity=".25"/><rect x="40" y="100" width="60" height="40" fill="${RO}" fill-opacity=".3"/>${t(100, 66, "6 × 4 = 24 m²", { s: 12, c: AZ })}${t(70, 124, "3 × 2", { s: 11, c: RO })}${t(210, 70, "24 + 6", { s: 13 })}${t(210, 94, "= 30 m²", { s: 15, d: true, c: VE })}${t(100, 162, "divide, calcula y suma", { s: 11, c: "var(--muted)" })}`)],
+    ],
+    "Las unidades agrarias": [
+      ["Superficies del mundo: el km²", `<p>Para medir países, provincias o parques naturales se usa el <b>kilómetro cuadrado</b> (km²): un cuadrado de 1 km de lado, que equivale a 1 000 000 m² o a 100 hectáreas.</p><p>Algunos datos aproximados para comparar:</p><ul><li><b>España</b> tiene unos 506 000 km². Es uno de los países más grandes de Europa.</li><li><b>Rusia</b>, el país más grande del mundo, tiene más de 17 000 000 km²: unas 34 veces España.</li><li><b>El Vaticano</b>, el país más pequeño, tiene menos de medio kilómetro cuadrado (0,44 km²).</li><li>El <b>Parque Nacional de Doñana</b> ocupa unos 540 km².</li></ul><p>Para que te hagas una idea: un campo de fútbol tiene unos 7 000 m², casi tres cuartos de hectárea. En 1 km² caben unos 140 campos de fútbol.</p><p>Cuando leas datos de superficies en un atlas o en las noticias, fíjate siempre en la unidad: no es lo mismo 500 m² (un chalé con jardín) que 500 km² (¡una comarca entera!).</p>`,
+        svg("Comparación de superficies: un kilómetro cuadrado contiene unos ciento cuarenta campos de fútbol", `<rect x="20" y="20" width="120" height="120" fill="${VE}" fill-opacity=".15" stroke="${VE}" stroke-width="2.5"/>${[...Array(12)].map((_, i) => `<rect x="${26 + (i % 4) * 28}" y="${28 + Math.floor(i / 4) * 36}" width="22" height="28" fill="${VE}" fill-opacity=".5"/>`).join("")}${t(80, 156, "1 km²", { s: 14, d: true, c: VE })}${t(200, 54, "≈ 140", { s: 18, d: true, c: VE })}${t(200, 76, "campos de", { s: 11 })}${t(200, 90, "fútbol", { s: 11 })}${t(200, 130, "España ≈", { s: 11 })}${t(200, 146, "506 000 km²", { s: 12, d: true, c: AZ })}`)],
+    ],
+  },
+  final: [
+    ["Superficies y presupuestos: el precio por m²", `<p>Muchas cosas se venden por <b>metro cuadrado</b>: suelos, azulejos, moquetas, césped artificial, pintura… Para calcular el presupuesto se siguen tres pasos:</p><ol><li><b>Medir</b> y calcular el área de la superficie.</li><li><b>Multiplicar</b> el área por el precio de cada m².</li><li><b>Añadir un margen</b> (normalmente un 10 %) para recortes y piezas rotas.</li></ol><p>Ejemplo: queremos poner césped artificial en un patio de 8 m × 5 m. El césped cuesta 12 € el m².</p><ul><li>Área: 8 × 5 = 40 m².</li><li>Con un 10 % más: 40 + 4 = 44 m².</li><li>Precio: 44 × 12 = <b>528 €</b>.</li></ul><p>Con la <b>pintura</b> pasa algo parecido: en el bote pone cuántos m² cubre un litro. Si un litro pinta 10 m² y la pared mide 30 m², hacen falta 3 litros para una mano de pintura, y 6 litros si queremos dar dos manos.</p><p>Las personas que trabajan en la construcción, los arquitectos y los decoradores hacen estos cálculos cada día.</p>`,
+      svg("Presupuesto de césped: ocho por cinco son cuarenta metros cuadrados, más un diez por ciento, cuarenta y cuatro, por doce euros, quinientos veintiocho", `<rect x="20" y="24" width="120" height="75" fill="${VE}" fill-opacity=".35" stroke="${VE}" stroke-width="2.5"/>${t(80, 118, "8 m", { s: 11 })}${t(152, 66, "5 m", { s: 11 })}${t(80, 66, "40 m²", { s: 15, d: true, c: VE })}${t(206, 40, "+10 %", { s: 13, c: RO })}${t(206, 62, "44 m²", { s: 14, d: true })}${t(206, 88, "× 12 €", { s: 13 })}${t(206, 116, "528 €", { s: 18, d: true, c: AZ })}${t(130, 158, "medir · multiplicar · margen", { s: 11, c: "var(--muted)" })}`)],
+  ],
+  ejemplos: [
+    ["Calcula el área de un triángulo rectángulo de lados 8 cm y 5 cm (los del ángulo recto).", ["El rectángulo sería 8 × 5 = 40 cm².", "El triángulo es la mitad.", "40 : 2 = 20 cm²."], "20 cm²"],
+    ["Un jardín en forma de L se divide en un rectángulo de 10 m × 4 m y otro de 3 m × 5 m. ¿Cuál es su área? ¿Cuánto cuesta el césped a 8 €/m²?", ["10 × 4 = 40 m² y 3 × 5 = 15 m².", "Total: 55 m².", "55 × 8 = 440 €."], "55 m², 440 €"],
+  ],
+  errores: ["Sumar perímetros en lugar de áreas al calcular una figura compuesta."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Cuántos m² tiene 1 km²? ¿Y cuántas hectáreas?", "1 000 000 m² y 100 ha."],
+    ["b", "Una mesa se cubre con 12 hojas de papel. ¿Cuántas hojas necesitas para dos mesas iguales juntas?", "24 hojas."],
+    ["b", "Calcula el área de un triángulo rectángulo de 10 cm de base y 6 cm de altura.", "10 × 6 : 2 = 30 cm²."],
+    ["b", "¿Qué unidad usarías para medir la superficie de una provincia?", "El kilómetro cuadrado (km²)."],
+    ["m", "Una habitación mide 5 m × 4 m. ¿Cuánto cuesta el suelo a 20 €/m², sin margen? ¿Y con un 10 % más de material?", "20 m² × 20 € = 400 €. Con margen: 22 m² × 20 € = 440 €."],
+    ["m", "Una figura en forma de L se forma con un rectángulo de 7 m × 3 m y un cuadrado de 2 m de lado. Calcula su área.", "21 + 4 = 25 m²."],
+    ["m", "Un litro de pintura cubre 8 m². ¿Cuántos litros necesito para dos manos en una pared de 24 m²?", "Una mano: 24 : 8 = 3 L. Dos manos: 6 L."],
+    ["a", "Un cuadrado de 10 m de lado tiene un hueco cuadrado de 4 m de lado (una piscina). ¿Cuántos m² de césped hay?", "100 − 16 = 84 m²."],
+    ["a", "¿Cuántas veces más grande es Rusia (17 000 000 km²) que España (506 000 km²), aproximadamente?", "17 000 000 : 500 000 = 34 veces."],
+    ["a", "Una vela triangular de barco mide 4 m de base y 6 m de altura. La tela cuesta 15 € el m². ¿Cuánto cuesta la tela?", "4 × 6 : 2 = 12 m²; 12 × 15 = 180 €."],
+    ["a", "Un aula tiene 120 baldosas de 30 cm × 30 cm. ¿Cuántos m² mide el aula, aproximadamente?", "Cada baldosa: 0,3 × 0,3 = 0,09 m². 120 × 0,09 = 10,8 m²."],
+    ["a", "Dibuja en una cuadrícula una figura de 12 cuadraditos de área con el mayor perímetro posible.", "Una fila de 12 cuadraditos: perímetro 12 + 12 + 1 + 1 = 26 unidades."],
+    ["a", "Calcula el área de una figura en L de dos formas (sumando y restando): rectángulo grande 8 m × 6 m al que le falta una esquina de 3 m × 2 m.", "Restando: 48 − 6 = 42 m². Sumando (por ejemplo 8 × 4 + 5 × 2): 32 + 10 = 42 m²."],
+    ["m", "¿Cuántos campos de fútbol de 7 000 m² caben, aproximadamente, en 70 000 m²?", "70 000 : 7 000 = 10 campos."],
+    ["b", "¿Por qué el área de un triángulo rectángulo es la mitad de la de un rectángulo?", "Porque al cortar el rectángulo por la diagonal salen dos triángulos iguales."],
+    ["m", "Un parque mide 3 ha. ¿Cuántos m² son?", "3 × 10 000 = 30 000 m²."],
+  ],
+  quiz: [
+    ["El área de un triángulo rectángulo es…", ["base × altura : 2", "base × altura", "base + altura"], "Es la mitad de un rectángulo."],
+    ["Para calcular el área de una figura en forma de L…", ["La divido en rectángulos y sumo", "Sumo todos sus lados", "Multiplico los dos lados más largos"], "Se descompone en figuras sencillas."],
+    ["La superficie de un país se mide en…", ["km²", "cm²", "m"], "Son superficies enormes."],
+    ["1 km² son…", ["100 hectáreas", "10 hectáreas", "1 000 m²"], "1 km² = 1 000 000 m²."],
+    ["Para un presupuesto de suelo conviene comprar…", ["Un poco más de lo que mide", "Justo lo que mide", "La mitad"], "Se añade un margen por recortes y roturas."],
+  ],
+  examen: [
+    ["Un triángulo rectángulo de 6 cm y 4 cm tiene un área de…", ["12 cm²", "24 cm²", "10 cm²"], "6 × 4 : 2 = 12."],
+    ["El país más pequeño del mundo es…", ["El Vaticano", "Andorra", "Portugal"], "Mide menos de medio km²."],
+    ["Si un litro de pintura cubre 10 m², para 30 m² hacen falta…", ["3 L", "30 L", "300 L"], "30 : 10 = 3."],
+    ["España tiene una superficie de unos…", ["506 000 km²", "506 km²", "5 000 000 km²"], "Es uno de los países grandes de Europa."],
+  ],
+  tarjetas: [
+    ["Área del triángulo rectángulo", "base × altura : 2."],
+    ["Figuras compuestas", "Se dividen en rectángulos y se suman las áreas (o se resta el trozo que falta)."],
+    ["Kilómetro cuadrado", "1 km² = 100 ha = 1 000 000 m²."],
+    ["Presupuesto por m²", "Área × precio del m² + un margen."],
+  ],
+  glosario: [
+    ["Superficie", "Extensión que ocupa algo plano."],
+    ["Área", "Medida de una superficie."],
+    ["Metro cuadrado", "Superficie de un cuadrado de 1 m de lado (m²)."],
+    ["Kilómetro cuadrado", "Superficie de un cuadrado de 1 km de lado (km²)."],
+    ["Hectárea", "Unidad agraria igual a 1 hm² o 10 000 m²."],
+    ["Área (unidad agraria)", "Unidad igual a 1 dam² o 100 m²."],
+    ["Perímetro", "Longitud del borde de una figura."],
+    ["Diagonal", "Segmento que une dos esquinas no seguidas de un polígono."],
+    ["Triángulo rectángulo", "Triángulo con un ángulo recto."],
+    ["Figura compuesta", "Figura formada por varias figuras sencillas."],
+    ["Presupuesto", "Cálculo de lo que va a costar algo."],
+    ["Margen", "Cantidad extra que se añade por seguridad."],
+  ],
+  situacion: {
+    titulo: "Reformamos el aula",
+    reto: "El colegio quiere renovar el suelo y pintar las paredes de nuestra aula. Nos piden que calculemos cuánto material hace falta y cuánto costará.",
+    pasos: ["Medid con cinta métrica el largo y el ancho del aula y dibujad un plano sencillo en papel cuadriculado.", "Calculad el área del suelo (si tiene forma irregular, descomponedla en rectángulos).", "Medid una pared, restad puertas y ventanas, y calculad los litros de pintura necesarios para dos manos.", "Buscad precios reales por m² y por litro y elaborad el presupuesto con un margen del 10 %."],
+    producto: "Un plano del aula y un presupuesto de reforma presentado a la dirección del colegio.",
+    evaluacion: ["Mide y calcula áreas de figuras simples y compuestas.", "Distingue área y perímetro y usa las unidades correctas.", "Elabora un presupuesto realista con margen.", "Presenta el plano y los cálculos con orden y claridad."],
+  },
+});

@@ -98,3 +98,93 @@ module.exports = P.tema({
   saberes: "Sentido de la medida: unidades del Sistema Métrico Decimal de longitud, masa y capacidad; equivalencias y cambios de unidad; expresiones complejas e incomplejas; estimación y elección de la unidad adecuada; resolución de problemas",
   ideas: ["Taller de medición: medir objetos del aula con regla, cinta métrica y balanza.", "Escalera de unidades dibujada en el suelo para «bajar» y «subir» multiplicando y dividiendo.", "Comparar la capacidad de recipientes trasvasando agua con jarras graduadas."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { caja } = P;
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Conocer el origen del sistema métrico decimal y algunas medidas antiguas", "Relacionar la capacidad y la masa del agua", "Leer instrumentos de medida y comparar precios por kilo y por litro"],
+  lectura: { titulo: "¿Cuánto mide un pie?", html: `<p>Hace unos trescientos años, en Europa cada región medía a su manera. En un pueblo, una tela se medía en <b>varas</b>; en el de al lado, la vara era un poco más corta. Los caminos se medían en <b>leguas</b>, el vino en <b>cántaras</b> y el trigo en <b>fanegas</b>. Muchas medidas salían del cuerpo humano: el <b>pie</b>, el <b>palmo</b>, el <b>codo</b> o el <b>paso</b>.</p><p>Imagina el lío: un comerciante compraba diez varas de tela en una ciudad y, al venderlas en otra, ¡ya no eran diez varas! Y como no todos tenemos los pies iguales, siempre había discusiones.</p><p>Para acabar con el caos, a finales del siglo XVIII unos científicos franceses inventaron un sistema nuevo, igual para todo el mundo y basado en el número 10: el <b>sistema métrico decimal</b>. Su unidad de longitud, el <b>metro</b>, se definió a partir del tamaño de la Tierra.</p><p>Hoy casi todos los países lo usan. En este tema aprenderás sus unidades de longitud, masa y capacidad, y a cambiar de una a otra moviendo la coma.</p>` },
+  tras: {
+    "Medir: magnitudes y unidades": [
+      ["El sistema métrico decimal y las medidas antiguas", `<p>El <b>sistema métrico decimal</b> nació en Francia en 1795. Los científicos querían una unidad de longitud que no dependiera de ningún rey ni de ninguna persona, sino de la naturaleza. Midieron con mucha precisión la distancia del polo norte al ecuador y la dividieron en diez millones de partes iguales: cada parte sería un <b>metro</b>.</p><p>Su gran ventaja es que todas las unidades van de <b>10 en 10</b>, como nuestro sistema de numeración. Por eso, para cambiar de unidad basta con multiplicar o dividir por 10, 100, 1 000…</p><p>Algunas medidas antiguas todavía se usan:</p><ul><li>En Estados Unidos y el Reino Unido se usan la <b>pulgada</b> (2,54 cm), el <b>pie</b> (unos 30 cm) y la <b>milla</b> (unos 1 609 m). Las pantallas de televisión y de los móviles se miden en pulgadas.</li><li>En el campo español todavía se habla de <b>fanegas</b> para medir tierras.</li></ul><p>Las medidas del cuerpo (palmo, pie, paso) siguen siendo útiles para <b>estimar</b> cuando no tenemos una regla a mano.</p>`,
+        svg("Medidas antiguas del cuerpo: palmo, pie y paso; y el metro del sistema métrico decimal", `${[["palmo", "≈ 20 cm", NA], ["pie", "≈ 30 cm", AZ], ["paso", "≈ 70 cm", VE]].map(([n, v, c], i) => `${caja(14 + i * 82, 26, 72, 40, n, c, { s: 13 })}${t(50 + i * 82, 84, v, { s: 11, c })}`).join("")}<rect x="30" y="110" width="200" height="22" fill="${RO}" fill-opacity=".25" stroke="${RO}" stroke-width="2"/>${[...Array(11)].map((_, i) => `<path d="M${30 + i * 20} 132 V ${i % 5 ? 124 : 118}" stroke="${RO}" stroke-width="1.5"/>`).join("")}${t(130, 154, "1 metro: igual en todo el mundo", { s: 12, d: true, c: RO })}`)],
+    ],
+    "Las unidades de capacidad": [
+      ["Capacidad y masa del agua", `<p>Entre las unidades de capacidad y de masa hay una relación muy curiosa cuando se trata de <b>agua</b>:</p><p style="text-align:center"><b>1 litro de agua pesa 1 kilogramo.</b></p><p>Así, 1 mL de agua pesa 1 g, y 1 000 litros de agua pesan 1 000 kg, es decir, <b>1 tonelada</b>. No es casualidad: los científicos franceses definieron el kilogramo como la masa de un litro de agua.</p><p>Esta relación permite calcular muchas cosas:</p><ul><li>Una botella de 1,5 L de agua pesa unos 1,5 kg (más el envase).</li><li>Una piscina pequeña de 10 000 L contiene 10 000 kg de agua: ¡10 toneladas!</li><li>Una bañera con 150 L de agua pesa 150 kg, lo mismo que dos personas adultas.</li></ul><p>Ojo: esto solo vale para el agua. Un litro de aceite pesa menos (unos 920 g) y por eso el aceite flota sobre el agua. Un litro de miel pesa más (unos 1 400 g).</p><p>Por eso decimos que la miel es más <b>densa</b> que el agua y el aceite, menos. Si echas los tres líquidos en un vaso, se colocan solos en capas: la miel abajo, el agua en medio y el aceite arriba.</p>`,
+        svg("Un litro de agua pesa un kilogramo: una botella en una balanza equilibrada con una pesa de un kilo", `<path d="M40 120 H 220" stroke="var(--ink)" stroke-width="3"/><path d="M130 120 V 150 M100 150 H 160" stroke="var(--ink)" stroke-width="3"/><path d="M60 120 L 50 100 H 90 L 80 120" fill="none" stroke="var(--muted)" stroke-width="2"/><rect x="56" y="40" width="28" height="60" rx="6" fill="${AG}" fill-opacity=".45" stroke="${AG}" stroke-width="2"/>${t(70, 76, "1 L", { s: 12, d: true })}<path d="M180 120 L 170 100 H 210 L 200 120" fill="none" stroke="var(--muted)" stroke-width="2"/><path d="M174 100 L 180 72 H 200 L 206 100 Z" fill="var(--ink)" fill-opacity=".7"/>${t(190, 94, "1 kg", { s: 11, c: "var(--card)", d: true })}${t(130, 172, "1 L de agua = 1 kg", { s: 13, d: true, c: AG })}`)],
+    ],
+    "Elegir la unidad adecuada y estimar": [
+      ["Instrumentos de medida: leer bien la escala", `<p>Para medir usamos <b>instrumentos</b>, y cada uno tiene una <b>escala</b> con marcas. Leerla bien es tan importante como saber las unidades.</p><ul><li><b>Regla y cinta métrica</b>: los números grandes son centímetros y cada rayita pequeña, un milímetro. Coloca siempre el 0 en el borde del objeto.</li><li><b>Báscula de cocina</b>: mide en gramos. En las digitales, pulsa «tara» con el recipiente encima para que solo pese lo que echas.</li><li><b>Vaso medidor</b>: tiene marcas de mililitros (y a veces de gramos de harina o de azúcar). Míralo a la altura de los ojos, sobre una superficie plana.</li><li><b>Jeringa</b> del jarabe: marca mililitros; 5 mL es una cucharadita.</li></ul><p>Antes de leer, averigua <b>cuánto vale cada rayita</b>: si entre 0 y 100 mL hay 4 rayitas iguales, cada una vale 25 mL. Ese es el truco para no equivocarse.</p>`,
+        svg("Vaso medidor con marcas cada veinticinco mililitros y el agua a ciento cincuenta mililitros", `<path d="M70 20 L 76 160 H 144 L 150 20" fill="none" stroke="var(--ink)" stroke-width="2.5"/><path d="M73.5 90 L 76 160 H 144 L 146.5 90 Z" fill="${AG}" fill-opacity=".4"/>${[...Array(9)].map((_, i) => { const y = 160 - i * 17.5; return `<path d="M${i % 2 ? 138 : 132} ${y} H 146" stroke="var(--ink)" stroke-width="1.5"/>${i % 2 ? "" : t(170, y + 4, `${i * 25}`, { s: 10, a: "start" })}`; }).join("")}${t(214, 94, "150 mL", { s: 13, d: true, c: AG })}${t(214, 120, "cada rayita:", { s: 10 })}${t(214, 134, "25 mL", { s: 10 })}`)],
+    ],
+  },
+  final: [
+    ["Comparar precios: el precio por kilo y por litro", `<p>En el supermercado, los productos vienen en envases de tamaños distintos. ¿Cómo saber cuál es más barato? Hay que comparar el <b>precio por unidad de medida</b>: cuánto cuesta 1 kg o 1 L.</p><p>Ejemplo: un paquete de 500 g de arroz cuesta 1,20 € y otro de 1 kg cuesta 2,10 €.</p><ul><li>El de 500 g: 1 kg serían dos paquetes, 2 × 1,20 = <b>2,40 € el kilo</b>.</li><li>El de 1 kg: <b>2,10 € el kilo</b>.</li></ul><p>¡Es más barato el paquete grande! Por eso la ley obliga a las tiendas a poner en la etiqueta el <b>precio por kilo o por litro</b>, normalmente en letra más pequeña. Búscalo la próxima vez que vayas a comprar.</p><p>Pero ojo: lo más barato por kilo no siempre es lo mejor. Si compras un envase enorme y luego se estropea la mitad, has tirado comida y dinero. Un consumidor responsable compara precios <b>y</b> piensa en lo que realmente necesita.</p>`,
+      svg("Comparar precios: quinientos gramos a uno veinte es dos cuarenta el kilo; un kilo a dos diez es más barato", `${caja(16, 24, 104, 56, "500 g · 1,20 €", NA, { s: 12 })}${t(68, 100, "2,40 €/kg", { s: 14, d: true, c: RO })}${caja(140, 24, 104, 56, "1 kg · 2,10 €", NA, { s: 12 })}${t(192, 100, "2,10 €/kg", { s: 14, d: true, c: VE })}${t(130, 142, "mira el precio por kilo", { s: 13, d: true })}${t(130, 164, "¡y compra lo que necesites!", { s: 11, c: "var(--muted)" })}`)],
+  ],
+  ejemplos: [
+    ["Un acuario tiene 60 L de agua. ¿Cuánto pesa el agua? ¿Y en gramos?", ["1 L de agua pesa 1 kg.", "60 L pesan 60 kg.", "60 kg = 60 000 g."], "60 kg = 60 000 g"],
+    ["Una pantalla mide 40 pulgadas. ¿Cuántos centímetros son, aproximadamente?", ["1 pulgada = 2,54 cm.", "40 × 2,54 = 101,6 cm.", "Redondeando: unos 102 cm (algo más de un metro)."], "Unos 102 cm"],
+  ],
+  errores: ["Leer mal un instrumento por no comprobar antes cuánto vale cada rayita de la escala."],
+  nivelesBase: "bbbbbmmmma",
+  ejercicios: [
+    ["b", "¿En qué país y en qué año nació el sistema métrico decimal?", "En Francia, en 1795."],
+    ["b", "¿Cuánto pesan 3 L de agua? ¿Y 250 mL?", "3 kg y 250 g."],
+    ["b", "Escribe tres medidas antiguas que salgan del cuerpo humano.", "Por ejemplo: palmo, pie, codo o paso."],
+    ["b", "En una regla, ¿cuánto vale cada rayita pequeña entre dos centímetros?", "1 mm."],
+    ["m", "Una botella de 1,5 L y otra de 750 mL. ¿Cuántos kilos de agua hay en total?", "1,5 L + 0,75 L = 2,25 L, que pesan 2,25 kg."],
+    ["m", "Una milla son unos 1 609 m. ¿Cuántos kilómetros, aproximadamente, son 10 millas?", "10 × 1 609 = 16 090 m ≈ 16 km."],
+    ["m", "Leche: el brik de 1 L cuesta 0,95 € y el pack de 6 L, 5,40 €. ¿Qué es más barato por litro?", "El pack: 5,40 : 6 = 0,90 €/L, que es menos que 0,95 €/L."],
+    ["m", "En un vaso medidor hay 4 rayitas entre 0 y 200 mL. ¿Cuánto vale cada rayita?", "200 : 4 = 50 mL."],
+    ["a", "Una piscina hinchable tiene 2 500 L. ¿Cuántas toneladas de agua son?", "2 500 kg = 2,5 t."],
+    ["a", "Un móvil tiene una pantalla de 6 pulgadas. ¿Cuántos centímetros mide su diagonal?", "6 × 2,54 = 15,24 cm."],
+    ["a", "Galletas: paquete de 200 g por 1,10 € o paquete de 500 g por 2,50 €. ¿Cuál es más barato por kilo?", "200 g: 1,10 × 5 = 5,50 €/kg. 500 g: 2,50 × 2 = 5,00 €/kg. Es más barato el de 500 g."],
+    ["a", "Un litro de aceite pesa unos 920 g. ¿Cuánto pesan 5 L de aceite? ¿Y 5 L de agua?", "Aceite: 5 × 920 = 4 600 g = 4,6 kg. Agua: 5 kg."],
+    ["a", "Mide el largo de tu mesa con palmos y después con la regla. ¿Cuánto mide tu palmo?", "Respuesta abierta. Ejemplo: 6 palmos y 108 cm → palmo ≈ 108 : 6 = 18 cm."],
+    ["m", "¿Por qué el aceite flota en el agua?", "Porque un litro de aceite pesa menos que un litro de agua (es menos denso)."],
+    ["a", "Un jarabe se toma en dosis de 5 mL tres veces al día durante 6 días. ¿Basta un frasco de 100 mL?", "5 × 3 × 6 = 90 mL. Sí basta, y sobran 10 mL."],
+    ["b", "¿Qué hace la tecla «tara» de una báscula?", "Pone la báscula a cero con el recipiente encima, para pesar solo lo que se añade."],
+  ],
+  quiz: [
+    ["El sistema métrico decimal nació en…", ["Francia", "Inglaterra", "España"], "A finales del siglo XVIII (1795)."],
+    ["1 litro de agua pesa…", ["1 kilogramo", "1 gramo", "100 gramos"], "El kilogramo se definió así."],
+    ["Una pulgada equivale a unos…", ["2,54 cm", "25,4 cm", "1 metro"], "Se usa para medir pantallas."],
+    ["Para comparar precios de envases distintos, miro el precio…", ["Por kilo o por litro", "Del envase más grande", "Del envase más bonito"], "Es el que permite comparar."],
+    ["Antes de leer un instrumento conviene saber…", ["Cuánto vale cada rayita", "De qué color es", "Cuánto pesa"], "Así no te equivocas al leer la escala."],
+  ],
+  examen: [
+    ["1 000 L de agua pesan…", ["1 tonelada", "1 kilogramo", "100 kg"], "1 000 kg = 1 t."],
+    ["¿Qué medida antigua se usa hoy en las pantallas?", ["La pulgada", "La vara", "La fanega"], "Un televisor de 50 pulgadas."],
+    ["Arroz: 500 g a 1 € o 1 kg a 1,80 €. Es más barato por kilo…", ["El de 1 kg", "El de 500 g", "Cuestan lo mismo"], "500 g a 1 € son 2 €/kg."],
+    ["El metro se definió a partir de…", ["El tamaño de la Tierra", "El pie del rey", "Un paso humano"], "Diezmillonésima parte de la distancia del polo al ecuador."],
+  ],
+  tarjetas: [
+    ["Sistema métrico decimal", "Francia, 1795. Unidades de 10 en 10."],
+    ["Agua: litro y kilo", "1 L de agua = 1 kg; 1 mL = 1 g."],
+    ["Pulgada", "Unos 2,54 cm."],
+    ["Precio por kilo", "Sirve para comparar envases de tamaños distintos."],
+  ],
+  glosario: [
+    ["Magnitud", "Lo que se puede medir: longitud, masa, capacidad, tiempo…"],
+    ["Unidad de medida", "Cantidad que se toma como referencia para medir."],
+    ["Metro", "Unidad principal de longitud (m)."],
+    ["Gramo", "Unidad principal de masa (g)."],
+    ["Litro", "Unidad principal de capacidad (L)."],
+    ["Tonelada", "1 000 kilogramos (t)."],
+    ["Forma compleja", "Medida expresada con varias unidades: 2 m 35 cm."],
+    ["Forma incompleja", "Medida expresada con una sola unidad: 2,35 m."],
+    ["Escala", "Marcas de un instrumento de medida."],
+    ["Tara", "Peso del envase; poner la báscula a cero con él encima."],
+    ["Pulgada", "Medida antigua de longitud que equivale a unos 2,54 cm."],
+    ["Precio por unidad", "Lo que cuesta un kilo o un litro de un producto."],
+  ],
+  situacion: {
+    titulo: "El supermercado de la clase",
+    reto: "Investigamos los envases de casa para descubrir qué productos son más baratos por kilo o por litro y aprender a comprar mejor.",
+    pasos: ["Cada alumno trae fotos o etiquetas de envases vacíos de distintos tamaños (leche, arroz, galletas, agua).", "Anotad en una tabla la cantidad (g, kg, mL, L), el precio y el precio por kilo o por litro que viene en la etiqueta.", "Comprobad con la calculadora algunos precios por kilo y comparad envases del mismo producto.", "Elaborad un mural con conclusiones y consejos para comprar sin desperdiciar."],
+    producto: "Un mural «Comprar con cabeza» con la tabla de precios y conclusiones.",
+    evaluacion: ["Identifica y convierte unidades de masa y capacidad.", "Calcula y compara precios por unidad de medida.", "Lee correctamente la información de las etiquetas.", "Argumenta decisiones de consumo responsable."],
+  },
+});
