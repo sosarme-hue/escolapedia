@@ -25,6 +25,18 @@ const VID = {
   "cin-a": { id: "DE3_F5TVX8o", canal: "Amigos de la Química", vistas: 1440135 },
   "cin-b": { id: "hNKOs6snniY", canal: "Amigos de la Química", vistas: 937597 },
   "cin-c": { id: "-6Vs2Nx6E84", canal: "unicoos", vistas: 250087 },
+  "eq-a": { id: "VQjIP087SSY", canal: "Amigos de la Química", vistas: 1927824 },
+  "eq-b": { id: "H8jnOxZNe8o", canal: "Amigos de la Química", vistas: 802112 },
+  "eq-c": { id: "rceBhFfKuw0", canal: "Quimiayudas", vistas: 711191 },
+  "eq-d": { id: "vmZ5x0V_ecQ", canal: "Amigos de la Química", vistas: 432431 },
+  "sol-a": { id: "3jLQwrtDhqY", canal: "Amigos de la Química", vistas: 783320 },
+  "sol-b": { id: "UfaWCckmY78", canal: "Breaking Vlad", vistas: 227198 },
+  "sol-c": { id: "cZx5jOdB3C8", canal: "Quimitube Tu libro de Química", vistas: 113224 },
+  "ab-a": { id: "Igb21Z5_KKI", canal: "Amigos de la Química", vistas: 1102762 },
+  "ab-b": { id: "GW4qEfnFkkw", canal: "Amigos de la Química", vistas: 448353 },
+  "ab-c": { id: "tHv-InFjfa4", canal: "Amigos de la Química", vistas: 398226 },
+  "ab-d": { id: "sGkK5D6BBr4", canal: "Amigos de la Química", vistas: 476415 },
+  "ab-e": { id: "jeidMhgSrZc", canal: "Amigos de la Química", vistas: 350196 },
 };
 const V = (k, titulo, busqueda) => ({ ...VID[k], titulo, megusta: 0, ...(busqueda ? { busqueda } : {}) });
 
