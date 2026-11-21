@@ -14,6 +14,18 @@ const VID = {
   "ce-a": { id: "jebYYznwG4U", canal: "Profesor Particular Puebla", vistas: 936495 },
   "ce-b": { id: "MyOyBUmd9uw", canal: "Vitual", vistas: 1321414 },
   "ce-c": { id: "vPMkNtnikf8", canal: "espiral ciencias", vistas: 413858 },
+  "pe-a": { id: "kuFtDaplfzU", canal: "espiral ciencias", vistas: 380767 },
+  "pe-b": { id: "3aWFJdqM_Rw", canal: "espiral ciencias", vistas: 757381 },
+  "pe-c": { id: "QAU1hMOZBYQ", canal: "espiral ciencias", vistas: 211435 },
+  "pe-d": { id: "pIpV6HN7sDQ", canal: "Bromurez", vistas: 321721 },
+  "cm-a": { id: "IZsldf1-LJs", canal: "Academia FísicaPRO", vistas: 277417 },
+  "cm-b": { id: "wT4hOuJ4QDU", canal: "cigemexico", vistas: 221749 },
+  "cm-c": { id: "GpAVZK2oDFU", canal: "espiral ciencias", vistas: 186453 },
+  "cm-d": { id: "PXfvUJ1qV9A", canal: "espiral ciencias", vistas: 155024 },
+  "ind-a": { id: "SfbeIEvDWwo", canal: "Capacitación Eléctrica Trafomex", vistas: 460338 },
+  "ind-b": { id: "zVzWm1f9JD4", canal: "Academia FísicaPRO", vistas: 279937 },
+  "ind-c": { id: "Rj_ZfqGACP0", canal: "Mentalidad De Ingeniería", vistas: 3298541 },
+  "ind-d": { id: "A2kqFXGC4SY", canal: "Mentalidad De Ingeniería", vistas: 1445652 },
 };
 const V = (k, titulo, busqueda) => ({ ...VID[k], titulo, megusta: 0, ...(busqueda ? { busqueda } : {}) });
 
