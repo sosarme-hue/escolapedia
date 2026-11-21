@@ -9,6 +9,7 @@ const GA_ID = "G-DXYJCCJC31";
 const CURSO_ESCOLAR = "2026-27";
 
 const ORD = ["1er", "2º", "3er"];
+const PAU_MATERIAS = require("./src/pau").MATERIAS;
 const slug = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const initials = (n) => n.replace(/^(Lengua|Educación|Ciencias)\s+/i, (m) => m).split(/\s+/).filter((w) => w.length > 3 || /^[A-ZÁÉÍÓÚ]/.test(w)).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
@@ -72,6 +73,7 @@ ${extraHead}
   <nav class="nav" aria-label="Secciones">
     <a href="${r}familias/"${nav === "familias" ? ' class="on"' : ""}>${t.familias}</a>
     <a href="${r}profesores/"${nav === "profesores" ? ' class="on"' : ""}>${t.profesores}</a>
+    <a href="${r}pau/"${nav === "pau" ? ' class="on"' : ""}>PAU</a>
     <a href="${r}blog/">Blog</a>
   </nav>
 </div></header>
@@ -123,7 +125,7 @@ function stagesHTML(depth, lang) {
   return ETAPAS.map((e) => `
     <div class="stage" style="--c:${e.color}">
       <div><h3><a href="${r}${e.slug}/" style="color:inherit;text-decoration:none">${e.nombre}</a></h3><small>${e.edad}</small></div>
-      <div class="chips">${e.cursos.map((c) => `<a class="chip${cursoListo(c) ? " live" : ""}" href="${r}${e.slug}/${c.slug}/">${c.nombre}</a>`).join("")}${e.slug === "bachillerato" ? `<span class="chip" title="Próximamente">PAU</span>` : ""}</div>
+      <div class="chips">${e.cursos.map((c) => `<a class="chip${cursoListo(c) ? " live" : ""}" href="${r}${e.slug}/${c.slug}/">${c.nombre}</a>`).join("")}${e.slug === "bachillerato" ? `<a class="chip live" href="${r}pau/">PAU</a>` : ""}</div>
     </div>`).join("");
 }
 
@@ -187,6 +189,7 @@ for (const e of ETAPAS) {
     const body = `<main><div class="wrap">
       <div class="crumbs"><a href="../../">Inicio</a> › <a href="../">${e.nombre}</a> › ${c.nombre}</div>
       <div class="page-h"><h1>${cursoNombre(e, c)}</h1><p>Elige una materia. Las optativas y el curso en que se imparte cada materia pueden variar según tu comunidad autónoma.</p></div>
+      ${c.slug === "2-bachillerato" ? `<a class="pau-banner" href="../../pau/"><b>PAU 2027: todo para la selectividad</b><span>Fechas, cálculo de nota, notas de corte y un modelo de examen resuelto de cada materia →</span></a>` : ""}
       ${groups}<div style="height:32px"></div>
     </div></main>`;
     write(`${e.slug}/${c.slug}`, page({ title: `${cursoNombre(e, c)} · ${SITE}`, desc: `Todas las materias de ${cursoNombre(e, c)}.`, depth: 2, body }));
@@ -201,7 +204,7 @@ for (const e of ETAPAS) {
       const body = `<main><div class="wrap">
         <div class="crumbs"><a href="../../../">Inicio</a> › <a href="../../">${e.nombre}</a> › <a href="../">${c.nombre}</a> › ${m.nombre}</div>
         <div class="page-h"><span class="badge" style="background:${famColor(m)}">${cursoNombre(e, c)}</span><h1>${m.nombre}</h1>${m.nota ? `<p>${m.nota}</p>` : ""}</div>
-        ${examLinks(m)}${list}<div style="height:48px"></div>
+        ${pauLink(c, m)}${examLinks(m)}${list}<div style="height:48px"></div>
       </div></main>`;
       write(m.url, page({ title: `${m.nombre} · ${cursoNombre(e, c)} · ${SITE}`, desc: `Temas de ${m.nombre} de ${cursoNombre(e, c)}.`, depth: 3, body }));
 
@@ -219,6 +222,12 @@ function trimestres(m) {
   return [m.temasObj.slice(0, a), m.temasObj.slice(a, a + b), m.temasObj.slice(a + b)];
 }
 
+// En 2º de Bachillerato, enlace a la página de la materia en la sección PAU.
+function pauLink(c, m) {
+  if (c.slug !== "2-bachillerato") return "";
+  const P = PAU_MATERIAS.find((x) => x.nombre === m.nombre);
+  return P ? `<a class="pau-banner" href="../../../pau/${P.slug || slug(P.nombre)}/"><b>Prepara la PAU 2027 de ${m.nombre}</b><span>Cómo es el examen, modelo resuelto, consejos y test →</span></a>` : "";
+}
 function examLinks(m) {
   if (!m.temasObj.length) return "";
   return `<section class="exams"><h2>Exámenes de prueba</h2><div class="exam-row">${trimestres(m).map((tr, i) => {
@@ -341,6 +350,9 @@ function topicPage(e, c, m, T, n) {
 
 // ---------- familias y profesores ----------
 require("./src/recursos")({ ETAPAS, page, write, SITE, CURSO_ESCOLAR, cursoNombre, famColor, trimestres });
+
+// ---------- PAU ----------
+require("./src/pau")({ ETAPAS, page, write, SITE, famColor, slug, esc });
 
 // ---------- quién está detrás, aviso legal y privacidad ----------
 const TITULAR = "Alejandro Rosàs Navarro · NIF 35056148P · Calle Blaumar 19, bajos 1.ª, Sant Pere de Ribes (Barcelona) · partenopides@gmail.com";

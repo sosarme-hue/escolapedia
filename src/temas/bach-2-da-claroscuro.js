@@ -1,0 +1,103 @@
+// Dibujo Artístico II · El claroscuro: mancha, escalas y claves tonales (formato ligero).
+const B = require("./_bach2-da");
+const { tema, cajas, flujo, comparar, rejilla, escala, esfera, claves } = B;
+
+module.exports = tema({
+  titulo: "El claroscuro: mancha, escalas y claves tonales",
+  minutos: 80,
+  objetivos: [
+    "Representar el volumen con el sombreado y la mancha, identificando las zonas de luz y sombra",
+    "Construir y usar escalas de valor de varios tonos",
+    "Distinguir las claves tonales (alta, media y baja) y su efecto expresivo",
+    "Aplicar el claroscuro a un bodegón y a un retrato con distintas técnicas",
+  ],
+  claves: ["claroscuro", "valor", "tono", "mancha", "escala de grises", "clave alta", "clave baja", "luz", "sombra propia", "sombra proyectada"],
+  pregunta: {
+    texto: "Un círculo es plano. Pero si le añades unos grises bien colocados, se convierte en una bola que parece salir del papel. ¿Qué hace exactamente el gris?",
+    respuesta: "El gris es <mark>información sobre la luz</mark>. Nuestro cerebro interpreta las zonas claras como las que reciben luz y las oscuras como las que no. Si los grises siguen la forma (luz, penumbra, sombra, reflejo y sombra proyectada), el ojo «ve» volumen. Eso es el <b>claroscuro</b>.",
+  },
+  bloques: [
+    { h: "Qué es el claroscuro", html: `<p>El <b>claroscuro</b> es la representación del volumen mediante el contraste entre luces y sombras. Se desarrolló en el Renacimiento con Leonardo da Vinci (su técnica del <i>sfumato</i>, transiciones suaves sin contornos) y alcanzó su máxima intensidad en el Barroco con el <b>tenebrismo</b> de Caravaggio y Ribera: figuras muy iluminadas sobre fondos casi negros.</p><p>En el dibujo, el claroscuro se trabaja con el <b>valor</b> (o tono): el grado de claridad u oscuridad de una zona, desde el blanco del papel hasta el negro más intenso. Controlar el valor es más importante que dominar el color: una imagen con buenos valores funciona incluso en blanco y negro.</p>`, svg: comparar("Dos maneras de usar el claroscuro", ["Sfumato", ["Leonardo", "transiciones suaves", "sin contornos", "atmósfera"]], ["Tenebrismo", ["Caravaggio", "contraste extremo", "fondos negros", "drama"]]) },
+    { h: "Las zonas de luz y sombra", html: `<p>Sobre una forma iluminada por un foco aparecen siempre las mismas zonas:</p><ol><li><b>Luz o brillo</b>: la zona más clara, donde la luz incide de frente.</li><li><b>Penumbra o medios tonos</b>: transición entre luz y sombra.</li><li><b>Núcleo de sombra</b>: la parte más oscura de la sombra propia, justo donde la forma deja de recibir luz.</li><li><b>Sombra propia</b>: la cara del objeto que no recibe luz directa.</li><li><b>Luz reflejada</b>: un poco de claridad dentro de la sombra, que rebota del suelo o de objetos cercanos.</li><li><b>Sombra proyectada</b>: la que el objeto arroja sobre otras superficies; más oscura y definida cerca del objeto.</li></ol><p>Aprende a ver estas zonas en una esfera, un cubo y un cilindro: cualquier objeto se puede entender a partir de ellos.</p>`, svg: esfera("Zonas de luz y sombra en una esfera"), video: { id: "ff1b9m1EqNU", titulo: "Técnica claroscuro (paso a paso)", canal: "EducaTE", vistas: 139713 } },
+    { h: "Sombreado y mancha", html: `<p>Hay dos grandes maneras de crear valores:</p><ul><li><b>Sombreado lineal</b>: con líneas (rayado, tramado, punteado). Cuanto más juntas y cruzadas, más oscuro. Es típico del grabado, la tinta y el lápiz.</li><li><b>Mancha</b>: zonas de tono continuo, sin líneas visibles, hechas con carboncillo difuminado, aguada, lápiz plano o pincel. Es más rápida y pictórica.</li></ul><p>Trabajar por <b>manchas</b> obliga a pensar en grandes masas de luz y sombra antes que en contornos. Un método eficaz es <b>entrecerrar los ojos</b>: desaparecen los detalles y se ven las masas principales. Muchos dibujantes empiezan con una mancha media general y luego «sacan» las luces con goma y refuerzan las sombras.</p>`, svg: cajas("Maneras de crear valor", [["Rayado", "líneas|paralelas"], ["Tramado", "líneas|cruzadas"], ["Punteado", "densidad|de puntos"], ["Mancha", "tono continuo,|sin líneas"]]) },
+    { h: "Escalas de valor", html: `<p>Una <b>escala de valor</b> (o de grises) es una serie ordenada de tonos del blanco al negro con saltos iguales. Las más habituales tienen 5, 7 o 9 pasos.</p><p>Construirla es un ejercicio básico de control de la mano: hay que conseguir que cada casilla sea un poco más oscura que la anterior, sin saltos bruscos. Después se usa como <b>referencia</b> para comparar los tonos del modelo: «esta sombra es un 6», «este fondo es un 3».</p><p>Una regla útil: en la mayoría de dibujos conviene reservar el <b>blanco puro</b> para los brillos más intensos y el <b>negro puro</b> para los núcleos de sombra y los contactos (donde el objeto toca la mesa).</p>`, svg: escala("Escala de valores de siete tonos", 7, "Escala de grises") },
+    { h: "Claves tonales", html: `<p>La <b>clave tonal</b> es el rango de valores que predomina en un dibujo:</p><ul><li><b>Clave alta</b>: casi todo son tonos claros. Sensación de luz, delicadeza, calma o nostalgia (paisajes con niebla, retratos suaves).</li><li><b>Clave media</b>: predominan los grises intermedios. Sensación de equilibrio y naturalidad.</li><li><b>Clave baja</b>: predominan los oscuros. Sensación de misterio, noche, dramatismo o tristeza (Goya negro, cine negro).</li></ul><p>Además, se habla de <b>clave mayor</b> cuando hay un fuerte contraste (incluye blancos y negros) y <b>clave menor</b> cuando el rango es estrecho y suave. Elegir la clave es una decisión <b>expresiva</b> que se toma antes de empezar.</p>`, svg: claves("Clave alta, media y baja") },
+    { h: "El claroscuro aplicado: bodegón y retrato", html: `<p>Para aplicar el claroscuro a un bodegón o a un retrato:</p><ol><li><b>Ilumina</b> el modelo con un único foco lateral (una lámpara a 45°). La luz difusa aplana las formas.</li><li><b>Encaja</b> con línea suave.</li><li><b>Separa</b> luz y sombra con una mancha media en todas las sombras (dos valores).</li><li><b>Modela</b>: añade penumbras, núcleos y reflejos.</li><li><b>Acentúa</b>: negros en contactos y núcleos; blancos en brillos.</li><li><b>Revisa</b> de lejos y con los ojos entrecerrados.</li></ol><p>En el retrato, el claroscuro define pómulos, cuencas de los ojos, nariz y barbilla. La iluminación de <b>Rembrandt</b> (un triángulo de luz en la mejilla en sombra) es un clásico de la fotografía y el cine.</p>`, svg: flujo("Del encaje al claroscuro final", ["foco lateral único", "encaje suave", "dos valores: luz y sombra", "penumbras y reflejos", "negros y brillos finales"]), video: { id: "rpMAHUAxIsg", titulo: "Cómo aprendí grayscale: estudios de valores", canal: "Adrift Arts", vistas: 51733 } },
+  ],
+  figura: { titulo: "El claroscuro en cuatro ideas", items: [["Valor", "luz", "de blanco", "a negro"], ["Zonas", "6", "luz, sombra,", "reflejo, proyectada"], ["Escala", "1-9", "saltos", "iguales"], ["Clave", "alta / baja", "luz o", "drama"]] },
+  video: { id: "ff1b9m1EqNU", titulo: "Técnica claroscuro (paso a paso)", canal: "EducaTE", vistas: 139713 },
+  ejemplos: [
+    ["Sombrea un cubo iluminado desde arriba a la izquierda.", ["Cara superior: la más clara (valor 2).", "Cara izquierda: media (valor 4).", "Cara derecha: la más oscura (valor 7).", "Sombra proyectada hacia abajo a la derecha, más oscura junto a la base."], "Tres caras con <b>tres valores distintos</b> y una sombra proyectada coherente con la luz."],
+    ["Elige clave para ilustrar un poema sobre una mañana de niebla.", ["La niebla aclara y suaviza.", "Predominan grises claros y pocos contrastes.", "Clave alta y menor."], "<b>Clave alta menor</b>: tonos claros y suaves."],
+    ["¿Por qué un dibujo sombreado se ve plano aunque tenga muchos grises?", ["Los grises no siguen una única fuente de luz.", "No hay núcleo de sombra ni sombra proyectada.", "El rango de valores es muy estrecho."], "Falta <b>coherencia lumínica</b> y contraste: hay que definir el foco y ampliar la escala."],
+  ],
+  errores: [
+    ["Sombrear sin decidir de dónde viene la luz.", "Fijar un único foco y mantenerlo en todo el dibujo."],
+    ["Usar solo grises medios.", "Ampliar la escala: blancos en brillos y negros en núcleos y contactos."],
+    ["Oscurecer la luz reflejada tanto como el núcleo.", "El reflejo siempre es más claro que el núcleo de sombra."],
+    ["Difuminar todo con el dedo.", "Combinar zonas difuminadas con trazos y bordes definidos."],
+  ],
+  ejercicios: {
+    b: [
+      ["Define valor o tono.", "El grado de claridad u oscuridad de una zona, del blanco al negro."],
+      ["Nombra las seis zonas de luz y sombra de una esfera.", "Luz o brillo, penumbra, núcleo de sombra, sombra propia, luz reflejada y sombra proyectada."],
+      ["¿Qué diferencia hay entre clave alta y clave baja?", "En la alta predominan tonos claros (calma, luz); en la baja, oscuros (misterio, drama)."],
+      ["Haz una escala de 7 valores con lápiz 2B y 6B.", "Siete casillas de 2 × 2 cm, del blanco al negro, con saltos iguales. Compruébala entrecerrando los ojos."],
+    ],
+    m: [
+      ["Dibuja una esfera, un cubo y un cilindro con la misma luz.", "Mantén el foco arriba a la izquierda en los tres. Observa que el cilindro tiene franjas verticales de valor y el cubo caras planas."],
+      ["Copia un detalle de una obra de Caravaggio solo con dos valores.", "Reduce a blanco (luz) y negro (sombra). Así se entiende la estructura del tenebrismo."],
+      ["Dibuja un mismo objeto en clave alta y en clave baja.", "Clave alta: fondo claro, sombras grises suaves. Clave baja: fondo oscuro, solo las luces principales en claro."],
+      ["Haz un bodegón de tres objetos blancos con carboncillo trabajando por manchas.", "Empieza con una mancha media de fondo, saca las luces con goma moldeable y refuerza núcleos y contactos."],
+    ],
+    a: [
+      ["Realiza un autorretrato con iluminación de Rembrandt.", "Lámpara a 45° y algo elevada. Busca el triángulo de luz en la mejilla en sombra. Trabaja con carbón o grafito en al menos 7 valores."],
+      ["Dibuja en papel de color medio con lápiz negro y blanco.", "El papel es el valor medio: dibuja solo sombras en negro y luces en blanco. Es la técnica de los dibujos a tres lápices."],
+    ],
+  },
+  quiz: [
+    ["El claroscuro representa el volumen mediante…", ["el color", "el contraste de luces y sombras", "la línea de contorno", "la perspectiva"], 1, "Luces y sombras."],
+    ["El sfumato se asocia a…", ["Caravaggio", "Leonardo", "Goya", "Matisse"], 1, "Transiciones suaves sin contornos."],
+    ["El tenebrismo es propio de…", ["Caravaggio y Ribera", "Monet", "Kandinsky", "Ingres"], 0, "Barroco, contraste extremo."],
+    ["La zona más oscura de la sombra propia es…", ["la luz reflejada", "el núcleo de sombra", "la penumbra", "el brillo"], 1, "Donde la forma deja de recibir luz."],
+    ["La luz reflejada aparece…", ["en la luz", "dentro de la sombra", "en el fondo", "en el contorno"], 1, "Por el rebote de la luz."],
+    ["El tramado crea tonos con…", ["líneas cruzadas", "manchas", "puntos", "color"], 0, "Rayados cruzados."],
+    ["Entrecerrar los ojos sirve para…", ["ver los detalles", "ver las masas de luz y sombra", "descansar", "medir"], 1, "Desaparecen los detalles."],
+    ["Un dibujo de clave baja transmite…", ["calma luminosa", "misterio o drama", "alegría infantil", "nada"], 1, "Predominan los oscuros."],
+    ["La sombra proyectada es más oscura…", ["lejos del objeto", "cerca del objeto", "en el centro del papel", "igual en todas partes"], 1, "Junto al contacto."],
+    ["Para estudiar volumen conviene iluminar con…", ["luz difusa", "un único foco lateral", "luz desde detrás", "varias lámparas"], 1, "Un foco define las formas."],
+  ],
+  examen: [
+    ["Una clave mayor tiene…", ["poco contraste", "un fuerte contraste", "solo blancos", "solo colores"], 1, "Incluye blancos y negros."],
+    ["En una escala de grises los saltos deben ser…", ["iguales", "aleatorios", "solo oscuros", "solo claros"], 0, "Progresión regular."],
+    ["El primer paso del claroscuro por manchas es…", ["poner los brillos", "separar luz y sombra en dos valores", "difuminar todo", "dibujar el fondo negro"], 1, "Dos grandes masas."],
+    ["La iluminación de Rembrandt se reconoce por…", ["un triángulo de luz en la mejilla en sombra", "un fondo blanco", "luz frontal", "ausencia de sombra"], 0, "Es un clásico del retrato."],
+  ],
+  feynman: ["qué es el claroscuro y el valor", "las seis zonas de luz y sombra", "sombreado lineal y mancha", "escalas de grises", "claves tonales", "método para un bodegón o retrato"],
+  mapa: ["El claroscuro", [["Valor", "del blanco al negro"], ["Zonas", "luz, sombra, reflejo"], ["Escala", "5, 7 o 9 tonos"], ["Clave", "alta, media, baja"]]],
+  tarjetas: [
+    ["Claroscuro", "Volumen mediante contraste de luces y sombras."],
+    ["Valor", "Grado de claridad u oscuridad."],
+    ["Núcleo de sombra", "Zona más oscura de la sombra propia."],
+    ["Luz reflejada", "Claridad dentro de la sombra por rebote de luz."],
+    ["Sfumato", "Transiciones suaves sin contornos (Leonardo)."],
+    ["Tenebrismo", "Contraste extremo con fondos oscuros (Caravaggio)."],
+    ["Clave alta", "Predominio de tonos claros."],
+    ["Clave baja", "Predominio de tonos oscuros."],
+  ],
+  glosario: [
+    ["Claroscuro", "Contraste de luz y sombra para modelar el volumen."],
+    ["Valor", "Luminosidad de un tono."],
+    ["Penumbra", "Transición entre luz y sombra."],
+    ["Sombra propia", "Parte del objeto que no recibe luz."],
+    ["Sombra proyectada", "Sombra que el objeto arroja sobre otra superficie."],
+    ["Mancha", "Zona de tono continuo sin líneas."],
+    ["Clave tonal", "Rango de valores predominante."],
+    ["Tenebrismo", "Estilo barroco de contraste extremo."],
+  ],
+  situacion: { titulo: "Una escena, dos atmósferas", reto: "Dibujar la misma escena en clave alta y en clave baja para contar dos historias distintas.", pasos: ["Prepara un bodegón con un objeto significativo (una carta, unas llaves, una taza).", "Ilumínalo con luz suave y difusa: dibújalo en clave alta.", "Ilumínalo con un foco lateral en penumbra: dibújalo en clave baja.", "Escribe un título para cada versión que refleje su atmósfera."], producto: "Díptico de dos dibujos con títulos.", evaluacion: ["Las claves están bien diferenciadas", "Coherencia de luz en cada versión", "Uso de una escala amplia de valores", "La atmósfera cuenta una historia"] },
+  familias: ["Apagad las luces y encended una linterna lateral sobre una fruta: observad las zonas de sombra.", "Ved juntos una película en blanco y negro y fijaos en la iluminación.", "Pedidle que os explique qué es una clave alta.", "Buscad en la web del Prado obras de Ribera y Caravaggio."],
+  saberes: "D. La luz, el claroscuro y el color: el sombreado y la mancha; escalas y claves tonales",
+  ideas: ["Preparar un rincón con foco lateral y objetos blancos para estudiar valores.", "Pedir escalas de 9 valores con distintas técnicas como calentamiento.", "Analizar fotogramas de cine negro para hablar de claves tonales."],
+  fuentes: [{ t: "Museo del Prado: Caravaggio y el tenebrismo", url: "https://www.museodelprado.es/" }],
+});

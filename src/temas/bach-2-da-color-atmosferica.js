@@ -1,0 +1,103 @@
+// Dibujo Artístico II · El color en el dibujo y la perspectiva atmosférica (formato ligero).
+const B = require("./_bach2-da");
+const { tema, cajas, flujo, comparar, rejilla, circulo, atmosferica, capas } = B;
+
+module.exports = tema({
+  titulo: "El color en el dibujo y la perspectiva atmosférica",
+  minutos: 80,
+  objetivos: [
+    "Conocer las dimensiones del color: tono, valor y saturación",
+    "Aplicar los contrastes de color y distinguir color local, tonal y ambiental",
+    "Crear profundidad con la perspectiva atmosférica",
+    "Relacionar color y línea en el arte óptico y geométrico",
+  ],
+  claves: ["tono", "valor", "saturación", "complementarios", "contraste simultáneo", "color local", "color tonal", "color ambiental", "perspectiva atmosférica", "op art"],
+  pregunta: {
+    texto: "¿Por qué las montañas lejanas se ven azuladas aunque estén cubiertas de pinos verdes?",
+    respuesta: "Por el <mark>aire</mark> que hay entre ellas y tú. Las partículas de la atmósfera dispersan la luz azul, así que cuanto más lejos está algo, más <b>claro, azulado y desdibujado</b> se ve. Los pintores lo llaman <b>perspectiva atmosférica</b> y lo usan para crear profundidad.",
+  },
+  bloques: [
+    { h: "Las tres dimensiones del color", html: `<p>Todo color se puede describir con tres dimensiones:</p><ul><li><b>Tono</b> (o matiz): el color en sí, su posición en el círculo cromático (rojo, azul, amarillo verdoso…).</li><li><b>Valor</b> (luminosidad): lo claro u oscuro que es. Un amarillo es naturalmente claro; un violeta, oscuro. Se aclara con blanco y se oscurece con negro o con su complementario.</li><li><b>Saturación</b> (intensidad o pureza): lo vivo o apagado que es. Un rojo puro está saturado; un rojo agrisado, desaturado.</li></ul><p>Entender estas tres dimensiones permite «leer» cualquier color y mezclarlo con intención. Por ejemplo, una sombra no se hace simplemente añadiendo negro: se baja el valor y suele cambiar también el tono y la saturación.</p>`, svg: cajas("Dimensiones del color", [["Tono", "qué color es"], ["Valor", "claro u|oscuro"], ["Saturación", "vivo o|apagado"], ["Mezcla", "cambiar una|dimensión"]]) },
+    { h: "Relaciones y contrastes de color", html: `<p>En el <b>círculo cromático</b> se ven las relaciones básicas: primarios (amarillo, magenta y cian en pigmento; o el clásico amarillo, rojo y azul), secundarios y terciarios. Los colores opuestos son <b>complementarios</b>: se refuerzan mutuamente cuando están juntos y se neutralizan al mezclarse.</p><p>Johannes Itten, profesor de la Bauhaus, describió siete <b>contrastes de color</b>. Los más útiles en el dibujo son:</p><ul><li><b>De tono</b>: colores puros muy distintos.</li><li><b>Claro-oscuro</b>: diferencias de valor.</li><li><b>Cálido-frío</b>: naranjas y rojos frente a azules y verdes.</li><li><b>De complementarios</b>: máxima intensidad visual.</li><li><b>Simultáneo</b>: un color cambia según el que tiene al lado (un gris parece verdoso junto a un rojo).</li><li><b>De cantidad</b>: proporción entre superficies de color.</li></ul>`, svg: circulo("Círculo cromático y complementarios") },
+    { h: "Color local, tonal y ambiental", html: `<p>Al dibujar un objeto con color conviene distinguir:</p><ul><li><b>Color local</b>: el color «propio» del objeto con luz neutra (un limón es amarillo).</li><li><b>Color tonal</b>: ese color modificado por la luz y la sombra; el limón tiene amarillos claros en la luz y ocres u oliváceos en la sombra.</li><li><b>Color ambiental</b>: la influencia de la luz y de los objetos que lo rodean. Si el limón está sobre un mantel azul, su sombra se vuelve verdosa; al atardecer, todo se tiñe de naranja.</li></ul><p>Los impresionistas fueron los primeros en pintar sistemáticamente el color ambiental: Monet pintó la catedral de Ruan decenas de veces para mostrar cómo cambiaba su color según la hora. Por eso, las sombras no son grises: tienen color, a menudo el <b>complementario</b> de la luz.</p>`, svg: capas("Del color local al ambiental", [["Local", "color propio"], ["Tonal", "luz y sombra"], ["Ambiental", "entorno y hora"], ["Sombra", "con color, no gris"]]) },
+    { h: "Usos del color en el dibujo", html: `<p>El color puede tener distintas funciones en un dibujo:</p><ul><li><b>Descriptiva</b>: imitar los colores reales (ilustración científica, dibujo del natural).</li><li><b>Expresiva</b>: transmitir emociones (el azul de Picasso para la tristeza; los colores violentos del fauvismo).</li><li><b>Simbólica</b>: significados culturales (rojo = peligro o pasión).</li><li><b>Compositiva</b>: dirigir la mirada; un toque de color saturado en un dibujo gris se convierte en centro de interés.</li></ul><p>Técnicas de color en el dibujo: lápices de color (por capas, de claro a oscuro), pastel, rotuladores, acuarela y color digital. Un buen consejo es limitar la <b>paleta</b>: tres o cuatro colores bien elegidos dan más unidad que muchos.</p>`, svg: rejilla("Funciones del color", ["Función", "Ejemplo"], [["Descriptiva", "ilustración botánica"], ["Expresiva", "periodo azul"], ["Simbólica", "rojo = peligro"], ["Compositiva", "toque de color"]]), video: { id: "YIwE7-eqxiM", titulo: "Teoría del color: los 7 contrastes de Itten", canal: "Mariela Hurtado", vistas: 36103 } },
+    { h: "La perspectiva atmosférica", html: `<p>La <b>perspectiva atmosférica</b> (o aérea) crea profundidad imitando el efecto del aire. Leonardo da Vinci la describió en sus escritos y la aplicó en los fondos de la <i>Gioconda</i>. Con la distancia:</p><ol><li>Los objetos se vuelven más <b>claros</b> (el contraste disminuye).</li><li>Los colores se <b>desaturan</b> y se vuelven más <b>azulados</b> o fríos.</li><li>Los <b>contornos</b> se difuminan y desaparecen los detalles.</li></ol><p>En el primer plano, en cambio, hay colores cálidos, contrastes fuertes y detalles nítidos. Esta regla funciona también en blanco y negro: basta con aclarar los planos lejanos. Combinada con la perspectiva lineal, produce paisajes de gran profundidad.</p>`, svg: atmosferica("Perspectiva atmosférica: los planos lejanos se aclaran y azulean"), video: { id: "Q11xhJ93rHs", titulo: "Perspectiva atmosférica o profundidad en el paisaje", canal: "Rincón del Artista", vistas: 148222 } },
+    { h: "Color y línea: el arte óptico y geométrico", html: `<p>En los años 50 y 60 el <b>op art</b> (arte óptico) usó líneas, tramas y colores para crear ilusiones de movimiento y vibración. <b>Victor Vasarely</b> deformó cuadrículas para que parecieran hincharse; <b>Bridget Riley</b> dibujó líneas onduladas en blanco y negro que parecen moverse. En España y Latinoamérica destacan Eusebio Sempere y Carlos Cruz-Diez, que estudió cómo cambian los colores según el punto de vista.</p><p>El <b>arte geométrico</b> (Josef Albers con sus cuadrados, el arte concreto) investigó cómo interactúan los colores en formas sencillas. Albers demostró que un mismo color puede parecer dos distintos según el fondo.</p><p>Aquí línea y color trabajan juntos: el ritmo de las líneas y los contrastes de color engañan al ojo.</p>`, svg: comparar("Op art y arte geométrico", ["Op art", ["Vasarely, Riley", "ilusión de movimiento", "líneas y tramas", "vibración"]], ["Geométrico", ["Albers, Sempere", "formas simples", "interacción del color", "orden"]]), video: { id: "308PDQ3szaM", titulo: "Op Art: arte óptico", canal: "Matias Perez Montalbetti", vistas: 66785 } },
+  ],
+  figura: { titulo: "El color en el dibujo", items: [["Dimensiones", "T · V · S", "tono, valor,", "saturación"], ["Contraste", "opuestos", "complementarios,", "cálido-frío"], ["Atmosférica", "lejos", "claro, azul,", "difuso"], ["Op art", "ondas", "línea y color", "en vibración"]] },
+  video: { id: "Q11xhJ93rHs", titulo: "Perspectiva atmosférica o profundidad en el paisaje", canal: "Rincón del Artista", vistas: 148222 },
+  ejemplos: [
+    ["Describe el color de un tomate maduro con las tres dimensiones.", ["Tono: rojo ligeramente anaranjado.", "Valor: medio.", "Saturación: alta, color vivo."], "Rojo anaranjado, de valor medio y <b>muy saturado</b>."],
+    ["Dibuja con lápices de color la sombra de una naranja sobre un mantel blanco iluminado por luz cálida.", ["La luz es cálida: la sombra tiende al complementario (azulado).", "Se añade algo del color de la naranja por reflejo.", "Resultado: sombra de violeta azulado con borde anaranjado."], "Una sombra <b>con color</b>, no gris."],
+    ["Aplica la perspectiva atmosférica a un paisaje con cuatro montañas.", ["Primer plano: verde oscuro saturado y detalles.", "Segundo: verde azulado más claro.", "Tercero: azul grisáceo.", "Fondo: azul muy claro casi del color del cielo."], "Cuatro planos con <b>valor y saturación</b> decrecientes que crean profundidad."],
+  ],
+  errores: [
+    ["Oscurecer siempre con negro.", "Usar el complementario o un color más oscuro y frío para no ensuciar."],
+    ["Pintar las sombras de gris.", "Las sombras tienen color, influidas por la luz y el entorno."],
+    ["Usar demasiados colores saturados a la vez.", "Limitar la paleta y reservar la saturación para el centro de interés."],
+    ["Dibujar el fondo con la misma nitidez que el primer plano.", "Aplicar la perspectiva atmosférica: aclarar, desaturar y difuminar."],
+  ],
+  ejercicios: {
+    b: [
+      ["Define tono, valor y saturación.", "Tono: el color. Valor: lo claro u oscuro. Saturación: lo vivo o apagado."],
+      ["Escribe tres parejas de complementarios.", "Amarillo-violeta, rojo-verde, azul-naranja."],
+      ["¿Qué tres cambios produce la distancia según la perspectiva atmosférica?", "Más claro, menos saturado y más azulado, y contornos difuminados."],
+      ["Nombra dos artistas del op art.", "Victor Vasarely y Bridget Riley (también Sempere o Cruz-Diez)."],
+    ],
+    m: [
+      ["Haz una escala de saturación de un rojo en 6 pasos mezclándolo con su complementario.", "Del rojo puro al gris neutro añadiendo verde poco a poco. El valor debe mantenerse lo más parecido posible."],
+      ["Dibuja un limón en tres versiones: color local, tonal y ambiental (sobre tela azul).", "Local: amarillo plano. Tonal: amarillos claros y ocres en sombra. Ambiental: sombra verdosa y reflejos azulados."],
+      ["Demuestra el contraste simultáneo con dos cuadrados grises sobre fondos distintos.", "El mismo gris sobre fondo rojo parece verdoso y más claro; sobre fondo verde, rojizo. Explica por qué."],
+      ["Dibuja un paisaje en cuatro planos solo con tres lápices de color.", "Usa los tres colores en distintas proporciones: más saturado y oscuro delante, más claro y frío al fondo."],
+    ],
+    a: [
+      ["Crea una obra de op art con líneas que simulen una esfera que se hincha.", "Dibuja líneas paralelas y, dentro de un círculo, cúrvalas hacia fuera de forma progresiva. Usa blanco y negro o dos complementarios."],
+      ["Haz un estudio a la manera de Albers: un color que parezca dos.", "Coloca el mismo color intermedio sobre dos fondos muy distintos hasta que parezcan diferentes. Documenta las pruebas."],
+    ],
+  },
+  quiz: [
+    ["La dimensión que indica lo vivo o apagado de un color es…", ["el tono", "el valor", "la saturación", "la temperatura"], 2, "Saturación o pureza."],
+    ["El valor de un color indica…", ["su nombre", "lo claro u oscuro que es", "su precio", "su temperatura"], 1, "Luminosidad."],
+    ["El complementario del azul es…", ["el verde", "el naranja", "el violeta", "el rojo"], 1, "Opuestos en el círculo."],
+    ["Un gris que parece verdoso junto a un rojo es un ejemplo de…", ["contraste simultáneo", "color local", "perspectiva atmosférica", "clave baja"], 0, "Un color cambia según su vecino."],
+    ["El color propio de un objeto con luz neutra es el…", ["ambiental", "local", "tonal", "simbólico"], 1, "Color local."],
+    ["Monet pintó la catedral de Ruan muchas veces para estudiar…", ["la perspectiva lineal", "el color ambiental según la hora", "el claroscuro", "la figura"], 1, "Cambios de luz y color."],
+    ["Con la distancia, los objetos se ven…", ["más oscuros y saturados", "más claros y azulados", "más nítidos", "más cálidos"], 1, "Por el efecto del aire."],
+    ["¿Quién describió la perspectiva atmosférica?", ["Leonardo", "Kandinsky", "Degas", "Escher"], 0, "Leonardo da Vinci."],
+    ["Bridget Riley es conocida por…", ["líneas onduladas que parecen moverse", "retratos al pastel", "frottage", "esculturas"], 0, "Op art."],
+    ["Un toque de color saturado en un dibujo gris cumple una función…", ["descriptiva", "compositiva", "simbólica", "técnica"], 1, "Atrae la mirada."],
+  ],
+  examen: [
+    ["Josef Albers investigó…", ["la interacción del color", "el tenebrismo", "la anatomía", "la perspectiva cónica"], 0, "Homenaje al cuadrado."],
+    ["Las sombras en una escena con luz cálida tienden a…", ["gris neutro", "tonos fríos", "negro puro", "tonos cálidos"], 1, "Tienden al complementario de la luz."],
+    ["El color expresivo busca…", ["imitar la realidad", "transmitir emociones", "medir", "clasificar"], 1, "Emoción."],
+    ["Carlos Cruz-Diez estudió…", ["cómo cambia el color según el punto de vista", "la anatomía", "el grabado", "el claroscuro"], 0, "Arte cinético y óptico."],
+  ],
+  feynman: ["tono, valor y saturación", "complementarios y contrastes", "color local, tonal y ambiental", "funciones del color", "perspectiva atmosférica", "op art y arte geométrico"],
+  mapa: ["El color en el dibujo", [["Dimensiones", "tono, valor, saturación"], ["Contrastes", "complementarios, simultáneo"], ["Atmosférica", "claro, azul, difuso"], ["Op art", "línea y color vibran"]]],
+  tarjetas: [
+    ["Tono", "El color en sí (rojo, azul…)."],
+    ["Saturación", "Lo vivo o apagado de un color."],
+    ["Complementarios", "Colores opuestos en el círculo cromático."],
+    ["Contraste simultáneo", "Un color cambia según el que tiene al lado."],
+    ["Color ambiental", "Color modificado por la luz y el entorno."],
+    ["Perspectiva atmosférica", "Lo lejano es más claro, frío y difuso."],
+    ["Op art", "Arte óptico de líneas y colores que simulan movimiento."],
+    ["Albers", "Demostró que un color puede parecer dos según el fondo."],
+  ],
+  glosario: [
+    ["Tono", "Cualidad que distingue un color de otro."],
+    ["Valor", "Luminosidad de un color."],
+    ["Saturación", "Pureza o intensidad de un color."],
+    ["Complementario", "Color opuesto en el círculo cromático."],
+    ["Color local", "Color propio de un objeto con luz neutra."],
+    ["Color ambiental", "Color influido por la luz y el entorno."],
+    ["Perspectiva atmosférica", "Profundidad creada imitando el efecto del aire."],
+    ["Op art", "Arte óptico basado en ilusiones visuales."],
+  ],
+  situacion: { titulo: "El mismo paisaje a cuatro horas", reto: "Estudiar cómo cambia el color ambiental de un paisaje a lo largo del día, como hizo Monet.", pasos: ["Elige una vista desde tu ventana o tu calle.", "Dibújala con lápices de color o pastel por la mañana, a mediodía, al atardecer y de noche.", "Aplica la perspectiva atmosférica en los planos lejanos.", "Presenta las cuatro versiones juntas con una breve explicación."], producto: "Serie de cuatro dibujos en color con explicación.", evaluacion: ["Diferencias claras de color ambiental", "Uso correcto de la perspectiva atmosférica", "Paleta coherente en cada versión", "Explicación con vocabulario del tema"] },
+  familias: ["En una excursión, observad juntos cómo se azulean las montañas lejanas.", "Buscad obras de Vasarely y Bridget Riley y comentad las ilusiones.", "Fijaos en el color de las sombras al atardecer.", "Pedidle que os explique qué son los colores complementarios."],
+  saberes: "D. La luz, el claroscuro y el color: cualidades y relaciones del color; el contraste de color; color local, tonal y ambiental; usos del color en el dibujo; dimensiones del color; perspectiva atmosférica; el color asociado a la línea, arte óptico y geométrico",
+  ideas: ["Reproducir en clase los experimentos de interacción del color de Albers con papeles de color.", "Salir al patio a observar la perspectiva atmosférica en el horizonte urbano.", "Visitar virtualmente la obra de Eusebio Sempere en el Museo de Arte Abstracto de Cuenca o en la colección del Reina Sofía."],
+  fuentes: [{ t: "Josef and Anni Albers Foundation", url: "https://www.albersfoundation.org/" }],
+});

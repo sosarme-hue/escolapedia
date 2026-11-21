@@ -46,12 +46,12 @@ const CT = "Modalidad de Ciencias y Tecnología", HCS = "Modalidad de Humanidade
 const BACH = {
   1: ["Lengua Castellana y Literatura I|len", "Filosofía|fil", "Educación Física|ef", `Inglés I|ing|${L}`,
       ...["Matemáticas I|mat", "Física y Química|fis", "Biología, Geología y Ciencias Ambientales|natu", "Dibujo Técnico I|art", "Tecnología e Ingeniería I|tec"].map((x) => `${x}|${M}|${CT}`),
-      ...["Matemáticas Aplicadas a las Ciencias Sociales I|mat", "Latín I|cla", "Griego I|cla", "Economía|eco", "Historia del Mundo Contemporáneo|soc", "Literatura Universal|len"].map((x) => `${x}|${M}|${HCS}`),
+      ...["Matemáticas Aplicadas a las Ciencias Sociales I|mat", "Latín I|cla", "Economía|eco", "Historia del Mundo Contemporáneo|soc", "Literatura Universal|len"].map((x) => `${x}|${M}|${HCS}`),
       ...["Dibujo Artístico I|art", "Cultura Audiovisual|art", "Proyectos Artísticos|art", "Volumen|art", "Análisis Musical I|mus", "Artes Escénicas I|mus", "Lenguaje y Práctica Musical|mus", "Coro y Técnica Vocal I|mus"].map((x) => `${x}|${M}|${ART}`),
       ...["Matemáticas Generales|mat", "Economía, Emprendimiento y Actividad Empresarial|eco"].map((x) => `${x}|${M}|${GEN}`)],
   2: ["Lengua Castellana y Literatura II|len", "Historia de España|soc", "Historia de la Filosofía|fil", `Inglés II|ing|${L}`,
       ...["Matemáticas II|mat", "Física|fis", "Química|fis", "Biología|natu", "Geología y Ciencias Ambientales|natu", "Dibujo Técnico II|art", "Tecnología e Ingeniería II|tec"].map((x) => `${x}|${M}|${CT}`),
-      ...["Matemáticas Aplicadas a las Ciencias Sociales II|mat", "Latín II|cla", "Griego II|cla", "Empresa y Diseño de Modelos de Negocio|eco", "Geografía|soc", "Historia del Arte|art"].map((x) => `${x}|${M}|${HCS}`),
+      ...["Matemáticas Aplicadas a las Ciencias Sociales II|mat", "Latín II|cla", "Empresa y Diseño de Modelos de Negocio|eco", "Geografía|soc", "Historia del Arte|art"].map((x) => `${x}|${M}|${HCS}`),
       ...["Dibujo Artístico II|art", "Diseño|art", "Técnicas de Expresión Gráfico-Plástica|art", "Fundamentos Artísticos|art", "Análisis Musical II|mus", "Artes Escénicas II|mus", "Coro y Técnica Vocal II|mus", "Historia de la Música y de la Danza|mus", "Literatura Dramática|len"].map((x) => `${x}|${M}|${ART}`),
       ...["Ciencias Generales|natu", "Movimientos Culturales y Artísticos|art"].map((x) => `${x}|${M}|${GEN}`)],
 };
@@ -72,7 +72,7 @@ const INFANTIL = () => [
   s("Religión", "val", [], O, "Voluntaria"),
 ];
 
-const LISTAS = { "4-eso": require("./listas-4eso"), "3-eso": require("./listas-3eso"), "2-eso": require("./listas-2eso"), "1-eso": require("./listas-1eso"), "1-primaria": require("./listas-1primaria"), "6-primaria": require("./listas-6primaria"), "4-primaria": require("./listas-4primaria"), "5-primaria": require("./listas-5primaria"), "2-primaria": require("./listas-2primaria"), "3-primaria": require("./listas-3primaria"), ...require("./listas-infantil"), "1-bachillerato": require("./listas-1bach") };
+const LISTAS = { "4-eso": require("./listas-4eso"), "3-eso": require("./listas-3eso"), "2-eso": require("./listas-2eso"), "1-eso": require("./listas-1eso"), "1-primaria": require("./listas-1primaria"), "6-primaria": require("./listas-6primaria"), "4-primaria": require("./listas-4primaria"), "5-primaria": require("./listas-5primaria"), "2-primaria": require("./listas-2primaria"), "3-primaria": require("./listas-3primaria"), ...require("./listas-infantil"), "1-bachillerato": require("./listas-1bach"), "2-bachillerato": require("./listas-2bach") };
 function conListas(cursoSlug, materias) {
   const l = LISTAS[cursoSlug]; if (!l) return materias;
   return materias.map((m) => (l[m.nombre] && !m.temas.length ? { ...m, temas: l[m.nombre] } : m));

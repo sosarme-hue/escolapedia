@@ -1,0 +1,241 @@
+// Ciencias Generales 2º Bachillerato · Biotecnología, microorganismos y salud (nivel libro). Dibujos propios en SVG.
+const { tema, L5, L6, marco, T, arbol, cadena } = require("./_bach2-cg");
+
+// ADN recombinante: plásmido con un gen insertado.
+const plasmidoSVG = marco("ADN recombinante: se corta un plásmido bacteriano con una enzima de restricción, se inserta el gen humano y la bacteria transformada fabrica la proteína", `
+  <circle cx="74" cy="92" r="44" fill="none" stroke="var(--pen)" stroke-width="6"/>
+  <path d="M74 48 A 44 44 0 0 1 118 92" fill="none" stroke="var(--red)" stroke-width="7"/>
+  ${T(74, 96, "plásmido", { fs: 10, b: true, c: "var(--pen)" })}${T(126, 58, "gen humano", { fs: 10, b: true, c: "var(--red)", a: "start" })}
+  <path d="M128 112 L 160 112" fill="none" stroke="var(--ink)" stroke-width="2.5" marker-end="url(#plA)"/>
+  <ellipse cx="208" cy="112" rx="40" ry="24" fill="var(--leaf)" fill-opacity=".3" stroke="var(--leaf)" stroke-width="2"/>
+  <circle cx="200" cy="112" r="9" fill="none" stroke="var(--pen)" stroke-width="3"/><path d="M200 103 A 9 9 0 0 1 209 112" fill="none" stroke="var(--red)" stroke-width="3"/>
+  ${T(208, 150, "bacteria", { fs: 10, b: true, c: "var(--leaf)" })}${T(208, 164, "transformada", { fs: 10, b: true, c: "var(--leaf)" })}
+  ${T(130, 178, "→ insulina humana", { fs: 10.5, b: true, c: "var(--red)" })}`, `<marker id="plA" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink)"/></marker>`);
+
+module.exports = tema({
+  titulo: "Biotecnología, microorganismos y salud",
+  minutos: 120,
+  secciones: [4, 4, 4],
+  objetivos: [
+    "Describir los principales grupos de microorganismos y el papel de los virus",
+    "Valorar el papel de los microorganismos en los ecosistemas, la industria y la salud",
+    "Explicar el funcionamiento del sistema inmunitario, las vacunas y los antibióticos",
+    "Analizar el problema de la resistencia a los antibióticos y el enfoque «Una sola salud»",
+    "Explicar las técnicas de ingeniería genética: ADN recombinante, PCR y edición con CRISPR",
+    "Debatir las aplicaciones y los dilemas éticos de la biotecnología",
+  ],
+  claves: ["microorganismo", "bacteria", "virus", "fermentación", "patógeno", "sistema inmunitario", "anticuerpo", "vacuna", "antibiótico", "resistencia", "biotecnología", "ADN recombinante", "transgénico", "PCR", "CRISPR", "bioética"],
+  pregunta: {
+    texto: "¿Por qué un antibiótico no sirve para curar la gripe y, en cambio, tomarlo sin necesidad puede ser peligroso?",
+    respuesta: "Porque los <mark>antibióticos</mark> actúan contra estructuras y procesos de las <b>bacterias</b> (su pared, sus ribosomas), y los <b>virus</b>, como el de la gripe, no tienen nada de eso: se reproducen dentro de nuestras propias células. Tomar antibióticos sin necesidad no cura la gripe, pero sí mata a muchas bacterias de nuestro cuerpo y favorece que sobrevivan y se multipliquen las que son <b>resistentes</b>. Así se seleccionan superbacterias contra las que los antibióticos dejan de funcionar, uno de los mayores problemas de salud pública del siglo XXI.",
+  },
+  lectura: {
+    titulo: "El hongo que contaminó una placa",
+    html: `<p>En septiembre de 1928, Alexander Fleming volvió de vacaciones a su laboratorio del hospital de Saint Mary, en Londres. Había dejado varias placas con cultivos de bacterias del género Staphylococcus, y en una de ellas había crecido un moho que había entrado por accidente. Alrededor del moho, las bacterias habían desaparecido. Fleming, en lugar de tirar la placa, se preguntó por qué. El moho, Penicillium, producía una sustancia capaz de matar bacterias, a la que llamó penicilina.</p><p>Fleming no logró purificarla en cantidad suficiente, y su descubrimiento quedó casi olvidado hasta que, en 1940, Howard Florey y Ernst Chain consiguieron producirla y probarla en pacientes. Durante la Segunda Guerra Mundial se fabricó a escala industrial y salvó miles de vidas. Los antibióticos transformaron la medicina: infecciones que antes eran mortales se volvieron fáciles de curar. Pero, ya en su discurso del Premio Nobel de 1945, Fleming advirtió que el mal uso de la penicilina haría aparecer bacterias resistentes. Tenía razón. En este tema estudiarás el mundo de los microorganismos, cómo nos defendemos de ellos y cómo la biotecnología los ha convertido en aliados.</p>`,
+  },
+  bloques: [
+    { h: "El mundo de los microorganismos", p: [
+      "Los <mark>microorganismos</mark> son seres vivos tan pequeños que solo pueden verse al microscopio. No forman un grupo natural, sino que pertenecen a reinos muy distintos. Las <b>bacterias</b> y las <b>arqueas</b> son procariotas unicelulares de 1 a 10 µm, con formas de esfera (cocos), bastón (bacilos) o espiral; se reproducen por bipartición y, en condiciones ideales, algunas se dividen cada 20 minutos. Los <b>protozoos</b> y las <b>algas unicelulares</b> son protistas eucariotas, como las amebas o los paramecios. Los <b>hongos microscópicos</b> incluyen las levaduras, unicelulares, y los mohos, filamentosos.",
+      "Los microorganismos están en todas partes: en el suelo, en el agua, en el aire, en ambientes extremos como fuentes termales o el hielo antártico, y en el interior de otros seres vivos. En un gramo de suelo puede haber mil millones de bacterias. Fueron los primeros seres vivos y durante más de 2000 millones de años los únicos. Su estudio comenzó con Leeuwenhoek en el siglo XVII y se convirtió en ciencia con <b>Louis Pasteur</b>, que demostró que no surgen por generación espontánea y que causan las fermentaciones, y <b>Robert Koch</b>, que demostró que microorganismos concretos causan enfermedades concretas, como la tuberculosis.",
+    ], svg: arbol("Grupos de microorganismos", "Microorganismos", [["Bacterias", "procariotas: cocos, bacilos"], ["Arqueas", "procariotas extremófilas"], ["Protistas", "protozoos, algas"], ["Hongos", "levaduras, mohos"]]), v: ["bio-a", "¿Qué es la biotecnología?"] },
+    { h: "Los virus", p: [
+      "Los <mark>virus</mark> son mucho más pequeños que las bacterias (20-300 nm) y no son células. Están formados por un ácido nucleico (ADN o ARN) rodeado por una cubierta de proteínas, la <b>cápsida</b>, y algunos tienen además una <b>envoltura</b> de lípidos, como el de la gripe o el SARS-CoV-2. No tienen metabolismo propio ni pueden reproducirse por sí mismos: son <b>parásitos obligados</b> que necesitan infectar una célula y usar su maquinaria para fabricar nuevos virus. Fuera de una célula, son partículas inertes.",
+      "El ciclo de un virus tiene varias fases: el virus se <b>fija</b> a receptores específicos de la célula (por eso cada virus infecta ciertos tipos de células), <b>introduce</b> su material genético, la célula fabrica copias del ácido nucleico y de las proteínas víricas, se <b>ensamblan</b> nuevos virus y estos <b>salen</b> de la célula, a menudo destruyéndola. Los virus causan enfermedades como la gripe, el sarampión, el sida, la hepatitis o la COVID-19. Como mutan con rapidez, especialmente los de ARN, aparecen variantes nuevas. Los antibióticos no les afectan; contra ellos se usan <b>vacunas</b> y algunos <b>fármacos antivirales</b>.",
+    ], svg: L5.compara("Bacterias y virus", ["Bacteria", ["célula procariota", "1-10 µm", "metabolismo propio", "antibióticos: sí"]], ["Virus", ["no es una célula", "20-300 nm", "parásito obligado", "antibióticos: no"]], "var(--leaf)", "var(--red)") },
+    { h: "Microorganismos beneficiosos", p: [
+      "La inmensa mayoría de los microorganismos son inofensivos o beneficiosos. En los ecosistemas, las bacterias y los hongos son los <b>descomponedores</b> que reciclan la materia orgánica muerta y devuelven los nutrientes al suelo; las bacterias fijadoras de nitrógeno, como <i>Rhizobium</i>, que vive en las raíces de las legumbres, convierten el nitrógeno del aire en compuestos que las plantas pueden usar; y las cianobacterias y las algas microscópicas del plancton producen alrededor de la mitad del oxígeno de la Tierra.",
+      "En nuestro cuerpo vive la <mark>microbiota</mark>, un conjunto de billones de microorganismos, sobre todo en el intestino, con tantas células como las propias del cuerpo humano. La microbiota intestinal ayuda a digerir la fibra, produce vitaminas como la K y algunas del grupo B, entrena al sistema inmunitario y ocupa el espacio que podrían ocupar los patógenos. Su alteración se relaciona con enfermedades intestinales, alergias e incluso con el estado de ánimo. Una dieta rica en fibra y variada la favorece, y los <b>probióticos</b> (alimentos con microorganismos vivos beneficiosos, como el yogur o el kéfir) pueden ayudar a mantenerla.",
+    ], svg: L6.radial("Funciones beneficiosas de los microorganismos", "Microbios útiles", ["Descomposición", "Fijan nitrógeno", "Producen O₂", "Microbiota"], "var(--leaf)") },
+    { h: "Microorganismos en la alimentación y la industria", p: [
+      "La humanidad usa microorganismos desde hace miles de años, aunque sin saberlo, gracias a la <mark>fermentación</mark>, un proceso por el que obtienen energía transformando azúcares en otras sustancias sin necesidad de oxígeno. En la <b>fermentación alcohólica</b>, las levaduras (<i>Saccharomyces cerevisiae</i>) transforman la glucosa en etanol y CO₂: así se elaboran el vino, la cerveza y el pan, que sube por el CO₂ (el alcohol se evapora al hornearlo). En la <b>fermentación láctica</b>, bacterias como <i>Lactobacillus</i> transforman la lactosa en ácido láctico, que coagula la leche y produce el yogur y el queso. Otros alimentos fermentados son el vinagre, el chucrut, la salsa de soja o las aceitunas.",
+      "Hoy los microorganismos son verdaderas fábricas en la <b>industria</b>. Producen <b>antibióticos</b> (penicilina, estreptomicina), <b>enzimas</b> para detergentes y alimentos, ácidos orgánicos como el cítrico, aminoácidos, vitaminas y <b>biocombustibles</b> como el bioetanol. En la <b>biorremediación</b>, se usan bacterias capaces de degradar contaminantes, como el petróleo derramado en el mar o los compuestos tóxicos de suelos contaminados. Las <b>depuradoras</b> de aguas residuales se basan en microorganismos que descomponen la materia orgánica. Y algunos hongos y bacterias se usan como <b>bioplaguicidas</b> en agricultura, en lugar de productos químicos.",
+    ], svg: L5.rejilla("Fermentaciones y productos", ["Fermentación", "Microorganismo", "Producto"], [["Alcohólica", "levadura", "pan, vino"], ["Láctica", "Lactobacillus", "yogur, queso"], ["Acética", "Acetobacter", "vinagre"], ["Industrial", "Penicillium", "penicilina"]], "var(--sun)") },
+    { h: "Las enfermedades infecciosas", p: [
+      "Algunos microorganismos son <mark>patógenos</mark>: causan enfermedades. Una <b>enfermedad infecciosa</b> se produce cuando un patógeno entra en el organismo, se multiplica y causa daños, ya sea destruyendo células o produciendo <b>toxinas</b>. Las bacterias causan, por ejemplo, la tuberculosis, la salmonelosis, el tétanos o la neumonía; los virus, la gripe, el sarampión o la COVID-19; los protozoos, la malaria; y los hongos, el pie de atleta o la candidiasis. Las enfermedades infecciosas se <b>transmiten</b> por el aire (gotitas al toser), por contacto directo, por agua o alimentos contaminados, por la sangre o por vectores como los mosquitos.",
+      "Cuando una enfermedad está siempre presente en una zona es <b>endémica</b>; cuando aumentan mucho los casos en una población es una <b>epidemia</b>, y cuando se extiende por varios continentes es una <b>pandemia</b>, como la gripe de 1918 o la COVID-19 desde 2020. Las medidas de <b>salud pública</b> han sido decisivas para reducir las infecciones: el agua potable y el alcantarillado, la higiene de manos, la pasteurización de los alimentos, la vigilancia epidemiológica y, sobre todo, las vacunas. Hoy muchas enfermedades emergentes son <b>zoonosis</b>, transmitidas desde animales, por lo que la salud humana, la animal y la ambiental están conectadas: es el enfoque <b>«Una sola salud»</b>.",
+    ], svg: cadena("Cadena de transmisión de una enfermedad infecciosa", [["Fuente de infección", "var(--red)"], ["Vía de transmisión", "var(--sun)"], ["Persona susceptible", "var(--pen)"]], ["aire, agua, contacto", "infección"], "Transmisión") },
+    { h: "El sistema inmunitario", p: [
+      "El cuerpo humano se defiende de los patógenos con el <mark>sistema inmunitario</mark>, que tiene dos líneas de defensa. La <b>inmunidad innata</b> o inespecífica actúa igual ante cualquier agresor. Incluye barreras físicas y químicas (la piel, las mucosas, el ácido del estómago, las lágrimas con lisozima) y, si el patógeno las atraviesa, la <b>inflamación</b> y los <b>fagocitos</b>, glóbulos blancos que engullen y destruyen a los invasores. La fiebre también forma parte de esta respuesta, porque dificulta la multiplicación de muchos patógenos.",
+      "La <b>inmunidad adaptativa</b> o específica reconoce a cada patógeno concreto por sus <mark>antígenos</mark>, moléculas de su superficie. Los <b>linfocitos B</b> producen <b>anticuerpos</b>, proteínas en forma de Y que se unen específicamente a un antígeno y neutralizan al patógeno o lo marcan para su destrucción. Los <b>linfocitos T</b> coordinan la respuesta y destruyen las células infectadas. Tras la infección quedan <b>células de memoria</b>: si el mismo patógeno vuelve a entrar, la respuesta secundaria es mucho más rápida e intensa, y a menudo ni siquiera llegamos a enfermar. Esa memoria inmunitaria es la base de las vacunas.",
+    ], svg: L5.compara("Inmunidad innata y adaptativa", ["Innata", ["inespecífica", "rápida (horas)", "piel, fagocitos", "sin memoria"]], ["Adaptativa", ["específica", "lenta (días)", "linfocitos, anticuerpos", "con memoria"]], "var(--sun)", "var(--pen)"), v: ["bio-c", "El sistema inmunitario"] },
+    { h: "Las vacunas", p: [
+      "Una <mark>vacuna</mark> es un preparado que estimula el sistema inmunitario para que genere memoria frente a un patógeno sin causar la enfermedad. Edward Jenner, en 1796, observó que las ordeñadoras que habían pasado la viruela de las vacas no enfermaban de viruela humana, e inoculó material de esas lesiones a un niño: fue la primera vacuna (de ahí su nombre). Hay varios tipos: vacunas con el patógeno <b>atenuado</b> (sarampión) o <b>inactivado</b> (gripe), con solo algunos fragmentos o <b>toxinas inactivadas</b> (tétanos), y las más recientes, de <b>ARN mensajero</b> (COVID-19), que dan a nuestras células las instrucciones para fabricar una proteína del virus.",
+      "Las vacunas son una de las intervenciones sanitarias más eficaces de la historia: han <b>erradicado</b> la viruela (1980) y casi la poliomielitis, y evitan millones de muertes cada año. Además de proteger a quien se vacuna, cuando una gran parte de la población está inmunizada se produce la <b>inmunidad de grupo</b>: el patógeno no encuentra suficientes personas susceptibles para propagarse, y así se protege también a quienes no pueden vacunarse (bebés, personas inmunodeprimidas). Cuando la cobertura baja, reaparecen enfermedades como el sarampión. Las vacunas son seguras: se someten a ensayos clínicos rigurosos y a vigilancia continua de sus efectos.",
+    ], svg: L6.linea("Hitos de las vacunas", [["1796", "Jenner: viruela"], ["1885", "Pasteur: rabia"], ["1980", "viruela erradicada"], ["2020", "vacunas de ARNm"]], "Historia de las vacunas") },
+    { h: "Los antibióticos y las resistencias", p: [
+      "Los <mark>antibióticos</mark> son sustancias que matan las bacterias o impiden su crecimiento, actuando sobre estructuras que nuestras células no tienen, como la pared bacteriana (penicilina) o los ribosomas bacterianos (tetraciclina). Desde los años cuarenta han salvado cientos de millones de vidas y han hecho posibles la cirugía moderna, los trasplantes o la quimioterapia, que requieren controlar las infecciones. Pero <b>no sirven contra los virus</b>, y deben tomarse solo con receta médica, en la dosis y durante el tiempo indicados.",
+      "La <mark>resistencia a los antibióticos</mark> es un ejemplo de <b>selección natural</b> en acción. En una población de bacterias, algunas pueden tener por mutación o adquirir de otras bacterias (mediante plásmidos) genes que las hacen resistentes. Cuando se usa un antibiótico, mueren las sensibles y sobreviven las resistentes, que se multiplican. El uso excesivo e inadecuado (para resfriados, sin terminar el tratamiento, en la ganadería como promotor del crecimiento) acelera el proceso. La OMS considera la resistencia una de las mayores amenazas para la salud mundial: causa ya más de un millón de muertes al año y podría causar 10 millones en 2050 si no se actúa.",
+    ], svg: L6.flujo("Selección de bacterias resistentes por el uso de antibióticos", ["Población con algunas resistentes", "Antibiótico mata a las sensibles", "Sobreviven las resistentes", "Población resistente"], "Selección natural"), v: ["bio-d", "Cómo se vuelven resistentes las bacterias"] },
+    { h: "La biotecnología y el ADN recombinante", p: [
+      "La <mark>biotecnología</mark> es el uso de seres vivos o de sus componentes para obtener productos o servicios. La biotecnología tradicional (pan, vino, queso, selección de razas y variedades) existe desde hace milenios; la <b>biotecnología moderna</b> nació en los años setenta con la <b>ingeniería genética</b>, el conjunto de técnicas que permiten manipular directamente el ADN. Sus herramientas básicas son las <b>enzimas de restricción</b>, que cortan el ADN en secuencias concretas, como unas tijeras moleculares, y las <b>ligasas</b>, que pegan fragmentos de ADN.",
+      "Con ellas se obtiene <mark>ADN recombinante</mark>: se corta un gen de un organismo (por ejemplo, el de la insulina humana) y se inserta en un <b>vector</b>, normalmente un plásmido bacteriano cortado con la misma enzima. El plásmido recombinante se introduce en bacterias, que al multiplicarse copian el gen (<b>clonación</b>) y, gracias a la universalidad del código genético, fabrican la proteína humana. Desde 1982, la insulina para las personas con diabetes se produce así, y también la hormona del crecimiento, factores de coagulación para la hemofilia y muchas vacunas, como la de la hepatitis B. La técnica de la <b>PCR</b>, inventada por Kary Mullis en 1983, permite copiar millones de veces un fragmento de ADN en pocas horas.",
+    ], svg: plasmidoSVG },
+    { h: "Organismos transgénicos y clonación", p: [
+      "Un <mark>organismo transgénico</mark> u organismo modificado genéticamente (OMG) es aquel que lleva genes de otra especie introducidos mediante ingeniería genética. En agricultura existen plantas resistentes a plagas, como el maíz Bt, que lleva un gen de una bacteria que produce una toxina contra ciertos insectos (y reduce el uso de insecticidas); plantas tolerantes a herbicidas o a la sequía, y plantas con mejor valor nutritivo, como el <b>arroz dorado</b>, enriquecido en provitamina A para combatir la ceguera infantil. También hay animales transgénicos para la investigación médica y bacterias y levaduras modificadas para la industria.",
+      "La <b>clonación</b> es la obtención de individuos genéticamente idénticos. En 1996 nació en Escocia la oveja <b>Dolly</b>, el primer mamífero clonado a partir de una célula adulta: se transfirió el núcleo de una célula de la ubre a un óvulo sin núcleo. La <b>clonación terapéutica</b> busca obtener <b>células madre</b>, capaces de convertirse en distintos tipos celulares, para regenerar tejidos dañados; hoy se prefieren las células madre pluripotentes inducidas (iPS), obtenidas reprogramando células adultas sin necesidad de embriones. La clonación reproductiva humana está prohibida en España y en la mayoría de los países.",
+    ], svg: L5.ficha("Ejemplos de organismos transgénicos", "Transgénicos", ["maíz Bt: resiste plagas", "arroz dorado: provitamina A", "bacterias: insulina", "ratones: modelos de enfermedades"], "var(--leaf)") },
+    { h: "La edición genética con CRISPR", p: [
+      "La técnica <mark>CRISPR-Cas9</mark> ha revolucionado la biología desde 2012. Se basa en un sistema de defensa de las bacterias frente a los virus, cuya existencia descubrió el microbiólogo español <b>Francisco Mojica</b> estudiando arqueas de las salinas de Santa Pola (Alicante). Emmanuelle Charpentier y Jennifer Doudna lo convirtieron en una herramienta de edición genética, y recibieron el Premio Nobel de Química en 2020. Funciona como un «corrector de textos»: una molécula de ARN guía lleva a la enzima Cas9 hasta una secuencia concreta del ADN, donde la corta; después, la célula repara el corte, y se puede aprovechar para desactivar un gen, corregirlo o insertar uno nuevo.",
+      "CRISPR es mucho más barata, rápida y precisa que las técnicas anteriores, y sus aplicaciones crecen cada año. En medicina se ha aprobado el primer tratamiento con CRISPR para la <b>anemia falciforme</b> y la beta-talasemia (2023), y se investiga contra cánceres, enfermedades hereditarias y el VIH. En agricultura permite obtener variedades resistentes a enfermedades o a la sequía. Pero también plantea dilemas: en 2018, un investigador chino anunció el nacimiento de dos niñas con el genoma editado en el embrión, lo que causó un rechazo mundial, porque esos cambios se heredarían y sus riesgos son desconocidos. La edición de la <b>línea germinal</b> humana está prohibida en la mayoría de países.",
+    ], svg: L6.flujo("Cómo funciona CRISPR-Cas9", ["ARN guía localiza el gen", "Cas9 corta el ADN", "La célula repara", "Gen desactivado o corregido"], "CRISPR-Cas9"), v: ["bio-b", "CRISPR: la edición genética"] },
+    { h: "Aplicaciones y bioética", p: [
+      "La biotecnología tiene aplicaciones en casi todos los ámbitos. En <b>medicina</b>: fármacos y vacunas recombinantes, <b>diagnóstico genético</b> de enfermedades hereditarias y del cáncer, <b>terapia génica</b> (introducir genes sanos en las células de un paciente), medicina personalizada según el genoma de cada persona, anticuerpos monoclonales contra el cáncer. En <b>medicina forense</b>, la <b>huella genética</b> de ADN identifica a personas en investigaciones criminales y pruebas de paternidad. En <b>agricultura y ganadería</b>, nuevas variedades. En el <b>medio ambiente</b>, la biorremediación y los bioplásticos. Y en la <b>industria</b>, enzimas y biocombustibles.",
+      "Estas posibilidades plantean preguntas que estudia la <mark>bioética</mark>. ¿Quién debe tener acceso a nuestra información genética y cómo se protege su privacidad? ¿Es aceptable modificar embriones humanos? ¿Qué riesgos tienen los transgénicos para el medio ambiente y quién controla sus patentes? ¿Pueden las terapias génicas, muy caras, aumentar las desigualdades? Los principios de la bioética (beneficencia, no maleficencia, autonomía y justicia) y el <b>principio de precaución</b> ayudan a orientar estas decisiones. En la Unión Europea, la investigación y los OMG están regulados por leyes estrictas, y el Convenio de Oviedo prohíbe las modificaciones genéticas heredables en humanos. Una ciudadanía informada es clave para decidir cómo usar estas tecnologías.",
+    ], svg: L6.radial("Principios de la bioética", "Bioética", ["Beneficencia", "No maleficencia", "Autonomía", "Justicia"], "var(--pen)") },
+  ],
+  figura: { titulo: "Microbios, salud y biotecnología", items: [["Microbios", "bacterias, hongos", "protistas", "virus (no células)"], ["Utilidad", "fermentación", "industria", "microbiota"], ["Salud", "inmunidad", "vacunas", "antibióticos"], ["Biotecnología", "ADN recombinante", "transgénicos", "CRISPR"]] },
+  video: ["bio-a", "¿Qué es la biotecnología?"],
+  ejemplos: [
+    ["Una bacteria se divide cada 20 minutos. ¿Cuántas habrá a partir de una sola tras 3 horas?", ["3 h = 180 min → 180/20 = 9 divisiones.", "N = 2⁹.", "N = 512."], "512 bacterias."],
+    ["¿Cuánto tiempo tarda una población de 1 bacteria en superar el millón si se divide cada 30 minutos?", ["2²⁰ ≈ 1 048 576 &gt; 10⁶.", "20 divisiones.", "20 · 30 min = 600 min."], "Unas 10 horas."],
+    ["Una PCR duplica el ADN en cada ciclo. ¿Cuántas copias se obtienen de una molécula tras 30 ciclos?", ["N = 2³⁰.", "2¹⁰ ≈ 1000.", "2³⁰ ≈ 10⁹."], "Unos mil millones de copias."],
+    ["Una enfermedad tiene un número reproductivo R₀ = 4. ¿Qué proporción de la población debe estar inmunizada para lograr inmunidad de grupo?", ["Umbral = 1 − 1/R₀.", "= 1 − 1/4.", "= 0,75."], "Al menos el 75 %."],
+    ["El sarampión tiene R₀ ≈ 15. Calcula el umbral de inmunidad de grupo.", ["1 − 1/15.", "= 1 − 0,067.", "= 0,93."], "Un 93 %: por eso hace falta una cobertura vacunal muy alta."],
+    ["En una población de 10⁹ bacterias, una de cada 10⁷ es resistente a un antibiótico. ¿Cuántas sobreviven al tratamiento?", ["Resistentes = 10⁹ / 10⁷.", "= 100.", "Esas 100 pueden repoblar la infección."], "100 bacterias resistentes, que se multiplicarán."],
+  ],
+  errores: [
+    "Pensar que todos los microorganismos son perjudiciales: la mayoría son inofensivos o beneficiosos.",
+    "Creer que los antibióticos curan enfermedades víricas como la gripe o el resfriado.",
+    "Pensar que la persona se vuelve resistente al antibiótico: son las bacterias las que se vuelven resistentes.",
+    "Confundir antígeno y anticuerpo: el antígeno es del patógeno; el anticuerpo lo fabrica nuestro cuerpo.",
+    "Creer que un transgénico es lo mismo que un clon: el transgénico lleva genes de otra especie; el clon es una copia genética.",
+    "Pensar que las vacunas de ARNm modifican nuestro ADN: el ARNm no entra en el núcleo y se degrada en pocos días.",
+  ],
+  ejercicios: {
+    b: [
+      ["Cita los principales grupos de microorganismos con un ejemplo de cada uno.", "Bacterias (E. coli), arqueas (halófilas), protozoos (ameba, paramecio), algas unicelulares (diatomeas), hongos microscópicos (levadura, Penicillium)."],
+      ["¿Por qué se dice que los virus no son células?", "Porque no tienen estructura celular (solo ácido nucleico y cápsida), no tienen metabolismo propio y solo se reproducen dentro de una célula."],
+      ["Cita tres funciones beneficiosas de los microorganismos en la naturaleza.", "Descomponer la materia orgánica, fijar el nitrógeno atmosférico, producir oxígeno (cianobacterias y fitoplancton)."],
+      ["¿Qué es la microbiota y qué funciones tiene?", "El conjunto de microorganismos que viven en nuestro cuerpo. Ayuda a la digestión, produce vitaminas, entrena al sistema inmunitario y protege contra patógenos."],
+      ["Diferencia la fermentación alcohólica y la láctica.", "Alcohólica: levaduras, glucosa → etanol + CO₂ (pan, vino). Láctica: bacterias, azúcares → ácido láctico (yogur, queso)."],
+      ["Diferencia epidemia, pandemia y endemia.", "Endemia: enfermedad presente siempre en una zona. Epidemia: aumento de casos en una población. Pandemia: epidemia extendida por varios continentes."],
+      ["¿Qué es un patógeno? Cita uno de cada tipo.", "Un microorganismo que causa enfermedad. Bacteria: Mycobacterium tuberculosis. Virus: gripe. Protozoo: Plasmodium (malaria). Hongo: Candida."],
+      ["Diferencia antígeno y anticuerpo.", "Antígeno: molécula del patógeno que el sistema inmunitario reconoce. Anticuerpo: proteína fabricada por los linfocitos B que se une al antígeno."],
+      ["¿Qué es una vacuna y cómo funciona?", "Un preparado que contiene el patógeno debilitado, inactivado, fragmentos o instrucciones para fabricar un antígeno; estimula la formación de células de memoria sin causar la enfermedad."],
+      ["¿Por qué los antibióticos no sirven contra los virus?", "Porque actúan sobre estructuras bacterianas (pared, ribosomas bacterianos) que los virus no tienen."],
+      ["Define biotecnología y diferencia la tradicional de la moderna.", "Uso de seres vivos para obtener productos. Tradicional: fermentaciones, selección. Moderna: ingeniería genética (manipulación directa del ADN)."],
+      ["¿Qué es un organismo transgénico? Pon un ejemplo.", "Un organismo con genes de otra especie introducidos por ingeniería genética. Ejemplo: maíz Bt, arroz dorado, bacterias productoras de insulina."],
+    ],
+    m: [
+      ["Explica las aportaciones de Pasteur y Koch a la microbiología.", "Pasteur: refutó la generación espontánea, demostró el papel de los microorganismos en las fermentaciones, ideó la pasteurización y la vacuna de la rabia. Koch: demostró que cada enfermedad infecciosa es causada por un microorganismo concreto (tuberculosis, cólera)."],
+      ["Describe las fases del ciclo de un virus.", "Fijación a receptores de la célula, penetración del material genético, replicación del ácido nucleico y síntesis de proteínas víricas, ensamblaje de nuevos virus y liberación."],
+      ["¿Por qué el pan sube y por qué no tiene alcohol?", "Las levaduras fermentan los azúcares y producen CO₂, que forma burbujas en la masa; el etanol producido se evapora durante el horneado."],
+      ["Explica el enfoque «Una sola salud» con un ejemplo.", "La salud humana, animal y ambiental están conectadas. Ej.: muchas enfermedades emergentes son zoonosis (COVID-19, gripe aviar), y el uso de antibióticos en ganadería genera resistencias que afectan a las personas."],
+      ["Explica la diferencia entre la respuesta inmunitaria primaria y la secundaria.", "La primaria (primer contacto) es lenta y de menor intensidad. La secundaria, gracias a las células de memoria, es rápida, intensa y duradera, y suele evitar la enfermedad."],
+      ["¿Qué es la inmunidad de grupo y por qué es importante?", "Cuando una proporción suficiente de la población es inmune, el patógeno no puede propagarse; protege a quienes no pueden vacunarse (bebés, inmunodeprimidos)."],
+      ["Explica cómo aparecen las bacterias resistentes con un razonamiento de selección natural.", "Por mutación o transferencia de plásmidos, algunas bacterias tienen genes de resistencia. El antibiótico elimina a las sensibles; las resistentes sobreviven y se reproducen, y la población pasa a ser resistente."],
+      ["Cita cuatro medidas para frenar la resistencia a los antibióticos.", "Tomarlos solo con receta, completar el tratamiento, no usarlos para virus, prohibir su uso como promotores del crecimiento en ganadería, mejorar la higiene, investigar nuevos antibióticos, vacunar."],
+      ["Describe los pasos para producir insulina humana con bacterias.", "Aislar el gen de la insulina; cortar con enzimas de restricción el gen y un plásmido; unirlos con ligasa; introducir el plásmido en bacterias; cultivarlas; extraer y purificar la insulina."],
+      ["¿Para qué sirve la PCR? Cita dos aplicaciones.", "Para obtener millones de copias de un fragmento de ADN. Aplicaciones: diagnóstico de infecciones (COVID-19), medicina forense, diagnóstico genético, investigación."],
+      ["Explica cómo funciona CRISPR-Cas9 y quién lo descubrió.", "Un ARN guía dirige la enzima Cas9 a una secuencia de ADN, que la corta; la célula repara el corte, lo que permite desactivar, corregir o insertar genes. Mojica descubrió el sistema en arqueas; Charpentier y Doudna lo convirtieron en herramienta (Nobel 2020)."],
+      ["¿Qué son las células madre y para qué se investigan?", "Células no especializadas capaces de dividirse y convertirse en distintos tipos celulares. Se investigan para regenerar tejidos dañados (medicina regenerativa)."],
+    ],
+    a: [
+      ["Una bacteria se divide cada 25 min. Calcula cuántas habrá a partir de 100 bacterias en 5 h y explica por qué en la realidad el crecimiento se frena.", "5 h = 300 min → 12 divisiones. N = 100 · 2¹² = 409 600. Se frena porque se agotan los nutrientes, se acumulan desechos tóxicos y falta espacio (fase estacionaria y de muerte)."],
+      ["La gripe tiene R₀ ≈ 1,5 y la COVID-19 original R₀ ≈ 3. Calcula el umbral de inmunidad de grupo para cada una y explica por qué la variante ómicron, con R₀ ≈ 10, lo hizo más difícil de alcanzar.", "Gripe: 1 − 1/1,5 = 33 %. COVID-19: 1 − 1/3 = 67 %. Ómicron: 1 − 1/10 = 90 %. Cuanto más contagioso, mayor proporción de inmunes se necesita, y además ómicron escapaba parcialmente de la inmunidad previa."],
+      ["Diseña un experimento para comprobar el efecto de un antibiótico sobre bacterias con discos de papel en una placa de cultivo.", "Sembrar bacterias inofensivas en placa de agar; colocar discos impregnados en distintas concentraciones de antibiótico y un disco control con agua; incubar; medir el halo de inhibición alrededor de cada disco. Mayor halo = mayor eficacia. Controlar variables y repetir."],
+      ["Analiza los argumentos a favor y en contra de los cultivos transgénicos.", "A favor: más producción, menos plaguicidas, resistencia a sequía, mejor valor nutritivo (arroz dorado). En contra: posible flujo de genes a especies silvestres, efectos sobre insectos no objetivo, dependencia de grandes empresas por las patentes, aparición de plagas resistentes. Los estudios no muestran riesgos para la salud de los autorizados."],
+      ["Explica por qué la universalidad del código genético hace posible la biotecnología.", "Porque una bacteria lee un gen humano igual que una célula humana y fabrica la misma proteína; así un gen de una especie puede expresarse en otra."],
+      ["Debate: ¿debería permitirse la edición genética de embriones humanos para evitar enfermedades graves? Argumenta con principios bioéticos.", "A favor (beneficencia): evitar enfermedades hereditarias graves. En contra (no maleficencia, precaución): efectos no deseados fuera del objetivo, cambios heredables por generaciones futuras que no han consentido (autonomía), riesgo de mejora genética no terapéutica y desigualdad (justicia). Hoy está prohibido por el Convenio de Oviedo."],
+      ["Una PCR comienza con 10 moléculas de ADN y cada ciclo dura 3 minutos. ¿Cuántas copias hay en una hora? ¿Por qué se detecta así un virus en muy poco tiempo?", "60/3 = 20 ciclos. N = 10 · 2²⁰ ≈ 10⁷ copias. Porque amplifica cantidades mínimas de material genético del virus hasta niveles detectables."],
+      ["Prepara un argumentario para convencer a una familia indecisa sobre la vacunación, usando datos y evitando el enfrentamiento.", "Escuchar sus dudas; explicar cómo funcionan las vacunas; datos de eficacia (erradicación de la viruela, descenso del sarampión); seguridad (ensayos clínicos, vigilancia); inmunidad de grupo para proteger a los vulnerables; riesgos reales de las enfermedades frente a los efectos secundarios, que suelen ser leves; remitir a fuentes fiables (AEP, Ministerio de Sanidad)."],
+    ],
+  },
+  quiz: [
+    ["Demostró que cada enfermedad infecciosa la causa un microorganismo concreto…", ["Pasteur", "Koch", "Fleming", "Jenner"], 1, "Tuberculosis, 1882."],
+    ["Los virus están formados por…", ["células", "ácido nucleico y cápsida", "pared y citoplasma", "núcleo y orgánulos"], 1, "No son células."],
+    ["Las bacterias que fijan nitrógeno en las legumbres son…", ["Lactobacillus", "Rhizobium", "Penicillium", "Saccharomyces"], 1, "Viven en las raíces."],
+    ["La microbiota intestinal…", ["siempre es dañina", "produce vitaminas y defiende", "no existe", "solo tiene virus"], 1, "Billones de microbios."],
+    ["El pan sube por…", ["el ácido láctico", "el CO₂ de las levaduras", "el oxígeno", "el etanol"], 1, "Fermentación alcohólica."],
+    ["El yogur se obtiene por fermentación…", ["alcohólica", "láctica", "acética", "nuclear"], 1, "Lactobacillus."],
+    ["La biorremediación usa microorganismos para…", ["fabricar pan", "degradar contaminantes", "producir vacunas", "clonar ovejas"], 1, "Petróleo, suelos."],
+    ["Una epidemia extendida por varios continentes es…", ["endemia", "pandemia", "zoonosis", "brote"], 1, "COVID-19."],
+    ["Una zoonosis es una enfermedad…", ["genética", "transmitida desde animales", "solo de plantas", "no infecciosa"], 1, "Una sola salud."],
+    ["Los anticuerpos los fabrican…", ["los glóbulos rojos", "los linfocitos B", "las plaquetas", "los fagocitos"], 1, "Inmunidad adaptativa."],
+    ["La respuesta inmunitaria secundaria es…", ["más lenta", "más rápida e intensa", "igual", "inexistente"], 1, "Células de memoria."],
+    ["La primera vacuna, de Jenner, fue contra…", ["la rabia", "la viruela", "la polio", "el sarampión"], 1, "1796."],
+    ["La única enfermedad humana erradicada es…", ["la polio", "la viruela", "el sarampión", "la gripe"], 1, "1980."],
+    ["La penicilina la descubrió…", ["Pasteur", "Fleming", "Koch", "Mendel"], 1, "1928."],
+    ["La resistencia a los antibióticos se debe a…", ["que el cuerpo se acostumbra", "la selección de bacterias resistentes", "los virus", "las vacunas"], 1, "Selección natural."],
+    ["Las «tijeras moleculares» que cortan el ADN son…", ["las ligasas", "las enzimas de restricción", "los ribosomas", "los anticuerpos"], 1, "Cortan secuencias concretas."],
+    ["La insulina para diabéticos se produce hoy con…", ["páncreas de cerdo", "bacterias recombinantes", "síntesis química", "plantas"], 1, "Desde 1982."],
+    ["La PCR sirve para…", ["cortar ADN", "copiar millones de veces un fragmento de ADN", "clonar animales", "fabricar vacunas atenuadas"], 1, "Kary Mullis, 1983."],
+    ["El español que descubrió el sistema CRISPR fue…", ["Ramón y Cajal", "Francisco Mojica", "Severo Ochoa", "Margarita Salas"], 1, "Salinas de Santa Pola."],
+    ["La oveja Dolly fue…", ["un transgénico", "el primer mamífero clonado de una célula adulta", "una oveja editada con CRISPR", "una quimera"], 1, "1996."],
+  ],
+  examen: [
+    ["Tras 2 h, una bacteria que se divide cada 20 min da…", ["6", "64", "12", "32"], 1, "2⁶."],
+    ["Con R₀ = 5, el umbral de inmunidad de grupo es…", ["20 %", "80 %", "50 %", "95 %"], 1, "1 − 1/5."],
+    ["Tras 10 ciclos de PCR, de una molécula se obtienen…", ["20", "100", "1024", "10"], 2, "2¹⁰."],
+    ["Un antibiótico es útil contra…", ["la gripe", "la neumonía bacteriana", "el resfriado", "la COVID-19"], 1, "Solo bacterias."],
+    ["Una vacuna de ARNm…", ["modifica nuestro ADN", "da instrucciones para fabricar una proteína del virus", "contiene el virus vivo", "es un antibiótico"], 1, "Se degrada en días."],
+    ["Para insertar un gen en un plásmido se usan…", ["enzimas de restricción y ligasas", "anticuerpos", "antibióticos", "levaduras"], 0, "Cortar y pegar."],
+    ["La universalidad del código genético permite…", ["que las bacterias fabriquen proteínas humanas", "la fermentación", "la inmunidad", "la clonación natural"], 0, "Base de la biotecnología."],
+    ["El Convenio de Oviedo prohíbe…", ["las vacunas", "las modificaciones genéticas heredables en humanos", "los antibióticos", "la PCR"], 1, "Bioética."],
+  ],
+  feynman: ["Por qué los virus no son seres vivos como las bacterias", "Cómo una levadura hace subir el pan", "Cómo funciona una vacuna", "Por qué aparecen superbacterias", "Cómo se fabrica insulina con bacterias", "Qué hace CRISPR"],
+  mapa: ["BIOTECNOLOGÍA Y SALUD", [["Microbios", "bacterias, hongos, virus"], ["Utilidad", "fermentación, industria"], ["Salud", "inmunidad, vacunas, antibióticos"], ["Ingeniería genética", "ADN recombinante, CRISPR"]]],
+  tarjetas: [
+    ["Virus", "Ácido nucleico + cápsida; parásito obligado."],
+    ["Microbiota", "Microbios beneficiosos de nuestro cuerpo."],
+    ["Fermentación alcohólica", "Levadura: glucosa → etanol + CO₂."],
+    ["Pandemia", "Epidemia extendida por varios continentes."],
+    ["Inmunidad innata", "Barreras, inflamación, fagocitos."],
+    ["Anticuerpo", "Proteína de los linfocitos B que reconoce un antígeno."],
+    ["Vacuna", "Genera memoria inmunitaria sin enfermedad."],
+    ["Inmunidad de grupo", "Umbral = 1 − 1/R₀."],
+    ["Resistencia", "Selección de bacterias resistentes por mal uso de antibióticos."],
+    ["ADN recombinante", "Gen de una especie insertado en otra."],
+    ["PCR", "Copia millones de veces un fragmento de ADN."],
+    ["CRISPR-Cas9", "Tijeras guiadas para editar genes."],
+  ],
+  glosario: [
+    ["Microorganismo", "Ser vivo visible solo al microscopio."],
+    ["Virus", "Agente infeccioso acelular que se reproduce dentro de células."],
+    ["Microbiota", "Conjunto de microorganismos que viven en un organismo."],
+    ["Fermentación", "Obtención de energía a partir de azúcares sin oxígeno."],
+    ["Patógeno", "Microorganismo capaz de causar enfermedad."],
+    ["Zoonosis", "Enfermedad transmitida de los animales a las personas."],
+    ["Antígeno", "Molécula que el sistema inmunitario reconoce como extraña."],
+    ["Anticuerpo", "Proteína que se une específicamente a un antígeno."],
+    ["Vacuna", "Preparado que induce inmunidad sin causar la enfermedad."],
+    ["Antibiótico", "Sustancia que mata o inhibe a las bacterias."],
+    ["Biotecnología", "Uso de seres vivos para obtener productos o servicios."],
+    ["Enzima de restricción", "Enzima que corta el ADN en secuencias específicas."],
+    ["Plásmido", "Molécula circular de ADN extracromosómico de las bacterias."],
+    ["Transgénico", "Organismo con genes de otra especie."],
+    ["CRISPR", "Sistema de edición genética basado en la defensa bacteriana."],
+    ["Bioética", "Disciplina que estudia los problemas éticos de las ciencias de la vida."],
+  ],
+  situacion: {
+    titulo: "Campaña contra las superbacterias",
+    reto: "La Agencia Española de Medicamentos convoca un concurso escolar de campañas sobre el uso responsable de antibióticos. Vuestro equipo diseñará una campaña basada en datos y en un experimento propio.",
+    pasos: [
+      "Investigad cómo surgen las resistencias y los datos de consumo de antibióticos en España y Europa (PRAN, ECDC).",
+      "Realizad en el laboratorio un antibiograma sencillo con bacterias inofensivas y discos de distintas sustancias.",
+      "Haced una encuesta en el centro sobre ideas erróneas acerca de los antibióticos.",
+      "Diseñad carteles, un vídeo breve o una infografía que corrijan esas ideas.",
+      "Presentad la campaña al resto del centro y evaluad su impacto con una segunda encuesta.",
+    ],
+    producto: "Una campaña de concienciación con experimento, datos de la encuesta y materiales de difusión.",
+    evaluacion: ["La explicación de las resistencias es científicamente correcta.", "El experimento se realiza con seguridad y se interpreta bien.", "La encuesta y sus resultados están bien analizados.", "Los materiales son claros, rigurosos y persuasivos."],
+  },
+  familias: [
+    "Revisad juntos el botiquín y llevad a la farmacia (punto SIGRE) los medicamentos caducados.",
+    "Preparad yogur casero y comentad qué bacterias lo hacen posible.",
+    "Revisad el calendario de vacunación familiar y comentad por qué es importante.",
+    "Ved un documental sobre la historia de la penicilina o sobre CRISPR y comentadlo.",
+  ],
+  saberes: "bloque «D. Biología para el siglo XXI»: los microorganismos y los virus; su papel en los ecosistemas, la alimentación, la industria y la microbiota; enfermedades infecciosas y salud pública; el sistema inmunitario, las vacunas y los antibióticos; la resistencia a los antibióticos y el enfoque «Una sola salud»; biotecnología, ingeniería genética, PCR, transgénicos, clonación y CRISPR; implicaciones bioéticas.",
+  ideas: [
+    "Elaboración de yogur y pan para observar las fermentaciones.",
+    "Cultivo de microorganismos del entorno en placas de agar y comparación tras lavarse las manos.",
+    "Antibiograma escolar con bacterias inocuas y extractos de ajo, miel o clavo.",
+    "Debate bioético sobre CRISPR y transgénicos con roles asignados.",
+  ],
+  fuentes: [
+    { t: "Plan Nacional frente a la Resistencia a los Antibióticos (PRAN)", url: "https://resistenciaantibioticos.es/" },
+    { t: "Asociación Española de Pediatría: vacunas", url: "https://vacunasaep.org/" },
+    { t: "Centro Nacional de Biotecnología (CSIC)", url: "https://www.cnb.csic.es/" },
+  ],
+});
