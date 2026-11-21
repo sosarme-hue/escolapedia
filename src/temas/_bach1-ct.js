@@ -64,27 +64,26 @@ function respiracion(aria) {
 }
 
 // Disposición del coro mixto en semicírculo frente al director: filas [cuerda, color].
-function coro(aria, filas = [["Sopranos", "var(--red)"], ["Contraltos", "var(--sun)"], ["Tenores", "var(--leaf)"], ["Bajos", "var(--pen)"]], titulo = "") {
-  const n = filas.length, top = titulo ? 30 : 14;
-  let s = titulo ? t(130, 20, titulo, { fs: 11.5, bold: 1, maxW: 236 }) : "";
-  // Dos filas: delante las dos primeras cuerdas, detrás las dos últimas (o una sola fila si son 2).
-  const fila = (y, r, items) => items.forEach(([nom, c], k) => {
-    const m = items.length, a0 = Math.PI, a1 = 2 * Math.PI, paso = (a1 - a0) / m;
-    for (let j = 0; j < 5; j++) {
-      const a = a0 + paso * k + (paso * (j + 0.5)) / 5;
-      s += ci(130 + r * Math.cos(a), y + r * 0.62 * Math.sin(a) + r * 0.62, 6.5, `fill="${c}" fill-opacity=".8"`);
+// Las dos primeras cuerdas van delante (izquierda y derecha); las dos últimas, detrás.
+function coro(aria, filas = [["Sopranos", "var(--red)"], ["Contraltos", "var(--sun)"], ["Tenores", "var(--leaf)"], ["Bajos", "var(--pen)"]]) {
+  const cx = 130, cy = 160;
+  let s = filas.map(([nom, c], i) => { const x = 14 + i * 62;
+    return ci(x + 6, 18, 6, `fill="${c}"`) + t(x + 15, 22, nom, { fs: 9.5, bold: 1, color: c, maxW: 46, anchor: "start" }); }).join("");
+  const arco = (r, izq, der) => {
+    const n = 6;
+    for (let j = 0; j < 2 * n; j++) {
+      const a = Math.PI + (Math.PI * (j + 0.5)) / (2 * n), c = j < n ? izq : der;
+      s += ci(cx + r * Math.cos(a), cy + r * 0.78 * Math.sin(a), 7, `fill="${c}" fill-opacity=".85"`);
     }
-    const am = a0 + paso * (k + 0.5);
-    s += t(130 + (r + 2) * Math.cos(am), y + r * 0.62 * Math.sin(am) + r * 0.62 + (r < 80 ? 22 : -14), nom, { fs: 9.5, bold: 1, color: c, maxW: 70 });
-  });
-  if (n <= 2) fila(top + 20, 96, filas);
-  else { fila(top + 4, 108, filas.slice(2)); fila(top + 38, 70, filas.slice(0, 2)); }
-  s += ci(130, 168, 6, 'fill="var(--ink)"') + t(130, 158, "director", { fs: 9, maxW: 60, color: "var(--muted)" });
+  };
+  arco(112, filas[2][1], filas[3][1]);
+  arco(70, filas[0][1], filas[1][1]);
+  s += ci(cx, 168, 6, 'fill="var(--ink)"') + t(cx, 156, "director", { fs: 9, maxW: 60, color: "var(--muted)" });
   return marco(aria, s);
 }
 
 // Tesituras aproximadas de las voces sobre un teclado de notas (Do2 a Do6).
-function tesituras(aria, voces = [["Soprano", 24, 45], ["Contralto", 17, 38], ["Tenor", 10, 31], ["Bajo", 4, 25]]) {
+function tesituras(aria, voces = [["Soprano", 14, 26], ["Contralto", 10, 22], ["Tenor", 7, 19], ["Bajo", 3, 15]]) {
   // posición en notas blancas desde Do2 (0) hasta Do6 (28)
   const x = (k) => 34 + (k / 28) * 214;
   let s = [0, 7, 14, 21, 28].map((k, i) => ln(x(k), 20, x(k), 150, "var(--line)", 1) + t(x(k), 166, `Do${i + 2}`, { fs: 9, maxW: 30, color: "var(--muted)" })).join("");
