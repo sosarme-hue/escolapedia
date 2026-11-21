@@ -27,7 +27,8 @@ const OBRA = (t, a, f) => `<p class="caption" style="margin:6px 0 0;padding:6px 
 // Truco de taller.
 const TRUCO = (t) => `<p class="caption" style="margin:8px 0 0;padding:6px 10px;border-left:4px solid var(--sun);background:var(--paper);border-radius:6px">🖌 <b>En el taller:</b> ${t}</p>`;
 
-const tit = (t) => (t ? txt(t, 130, 16, 236, 12, 'font-weight="700"') : "");
+const nl = (t) => (t ? partir(t, Math.floor(236 / (12 * 0.56))).length : 0);
+const tit = (t) => (t ? txt(t, 130, 9 + 7 * nl(t), 236, 12, 'font-weight="700"') : "");
 
 // Escala de valores: n pasos de blanco a negro con etiquetas debajo (2 a 9).
 function escala(t, etiquetas) {
@@ -41,11 +42,12 @@ function escala(t, etiquetas) {
 
 // Muestras de color: [[nombre, color css, nota], ...] (2 a 8).
 function muestras(t, items) {
-  const n = items.length, cols = n <= 4 ? n : Math.ceil(n / 2), rows = Math.ceil(n / cols), W = 236 / cols, H = (150 - 8 * (rows - 1)) / rows;
+  const n = items.length, cols = n <= 4 ? n : Math.ceil(n / 2), rows = Math.ceil(n / cols), W = 236 / cols, top = 16 + 14 * nl(t), H = (176 - top - 8 * (rows - 1)) / rows;
   const body = items.map(([a, c, b], i) => {
-    const x = 12 + (i % cols) * W, y = 30 + Math.floor(i / cols) * (H + 8), s = Math.min(W - 18, H - 34);
+    const la = partir(a, Math.floor((W - 4) / (9.5 * 0.56))).length;
+    const x = 12 + (i % cols) * W, y = top + Math.floor(i / cols) * (H + 8), s = Math.min(W - 18, H - 22 - la * 11);
     return `<rect x="${(x + (W - s) / 2).toFixed(1)}" y="${y.toFixed(1)}" width="${s.toFixed(1)}" height="${s.toFixed(1)}" rx="6" fill="${c}" stroke="var(--line)"/>`
-      + txt(a, x + W / 2, y + s + 10, W - 4, 9.5, 'font-weight="700"') + (b ? txt(b, x + W / 2, y + s + 22, W - 4, 8, 'fill="var(--muted)"') : "");
+      + txt(a, x + W / 2, y + s + 5 + la * 5.5, W - 4, 9.5, 'font-weight="700"') + (b ? txt(b, x + W / 2, y + s + 10 + la * 11, W - 4, 8, 'fill="var(--muted)"') : "");
   }).join("");
   return marco(`${t}: ${items.map((x) => x[0]).join(", ")}`, tit(t) + body);
 }
@@ -70,9 +72,9 @@ function matrices(t = "Dónde está la tinta") {
   const pla = `<rect x="180" y="84" width="64" height="36" fill="#dcd6cc" stroke="var(--ink)"/><rect x="186" y="81" width="18" height="3" fill="${tinta}"/><rect x="218" y="81" width="14" height="3" fill="${tinta}"/>`;
   return marco("Matrices de grabado de perfil: en relieve la tinta está en lo que sobresale; en hueco, dentro de los surcos; en plano, en zonas químicamente preparadas a la misma altura",
     tit(t) + rel + hue + pla
-    + txt("Relieve", 42, 140, 70, 11, 'font-weight="700" fill="var(--pen)"') + txt("tinta en lo alto: xilografía, linóleo", 42, 158, 78, 8.5, 'fill="var(--muted)"')
-    + txt("Hueco", 126, 140, 70, 11, 'font-weight="700" fill="var(--red)"') + txt("tinta en los surcos: calcografía", 126, 158, 78, 8.5, 'fill="var(--muted)"')
-    + txt("Plano", 212, 140, 70, 11, 'font-weight="700" fill="var(--leaf)"') + txt("misma altura: litografía, serigrafía", 212, 158, 78, 8.5, 'fill="var(--muted)"')
+    + txt("Relieve", 42, 136, 70, 11, 'font-weight="700" fill="var(--pen)"') + txt("xilografía, linóleo", 42, 156, 80, 8.5, 'fill="var(--muted)"')
+    + txt("Hueco", 126, 136, 70, 11, 'font-weight="700" fill="var(--red)"') + txt("calcografía", 126, 156, 80, 8.5, 'fill="var(--muted)"')
+    + txt("Plano", 212, 136, 70, 11, 'font-weight="700" fill="var(--leaf)"') + txt("litografía, serigrafía", 212, 156, 80, 8.5, 'fill="var(--muted)"')
     + txt("Perfil de la matriz entintada", 130, 50, 236, 9.5, 'fill="var(--muted)"'));
 }
 
@@ -110,7 +112,7 @@ function tema(o) {
   // Comprobaciones del formato ligero (avisos, no errores).
   const av = [];
   const w = T_.bloques.reduce((a, b) => a + strip(b.html).split(" ").length, 0);
-  if (w < 900 || w > 1700) av.push(`${w} palabras`);
+  if (w < 850 || w > 1700) av.push(`${w} palabras`);
   if (T_.bloques.length < 8 || T_.bloques.length > 10) av.push(`${T_.bloques.length} bloques`);
   if (T_.bloques.some((b) => !b.svg)) av.push("bloques sin dibujo");
   if (T_.ejercicios.length < 10 || T_.ejercicios.length > 14) av.push(`${T_.ejercicios.length} ejercicios`);

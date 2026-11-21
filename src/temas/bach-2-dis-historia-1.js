@@ -71,7 +71,7 @@ module.exports = B.tema({
     titulo: "Del taller a la escuela",
     items: [["Industria", "⚙", "serie y", "separación"], ["Morris", "✿", "belleza y", "oficio"], ["Art Nouveau", "〰", "curva y", "arte total"], ["Bauhaus", "■", "arte y técnica,", "una unidad"]],
   },
-  video: { id: "Y69wOKg6yp4", titulo: "Bauhaus en 7 minutos: explicación del movimiento revolucionario del diseño", canal: "Curious Muse", vistas: 650775 },
+  video: { id: "R4ipBRYWjHU", titulo: "¿Diseño o arte? ¿Qué es la Bauhaus?", canal: "Antonio García Villarán", vistas: 309251 },
   quiz: [
     ["La Revolución Industrial cambió el diseño porque…", ["eliminó los objetos", "separó a quien idea de quien fabrica", "prohibió el adorno", "inventó el color"], 1, "Nace la figura del diseñador."],
     ["William Morris defendía…", ["la máquina por encima de todo", "objetos bellos, útiles y hechos con oficio", "el plástico", "la publicidad"], 1, "Arts and Crafts."],

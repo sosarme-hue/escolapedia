@@ -1,0 +1,103 @@
+// Dibujo Artístico II · El retrato y el cuerpo como expresión (formato ligero).
+const B = require("./_bach2-da");
+const { tema, cajas, flujo, comparar, rejilla, rostro, estrella, capas } = B;
+
+module.exports = tema({
+  titulo: "El retrato y el cuerpo como expresión",
+  minutos: 80,
+  objetivos: [
+    "Construir un retrato con las proporciones básicas del rostro de frente, de perfil y de tres cuartos",
+    "Dibujar las facciones (ojos, nariz, boca, orejas) y las expresiones",
+    "Buscar el parecido y el carácter de la persona retratada",
+    "Conocer el cuerpo como soporte y como instrumento de expresión artística",
+  ],
+  claves: ["retrato", "autorretrato", "proporciones del rostro", "facciones", "tres cuartos", "expresión", "parecido", "body art", "performance", "huella"],
+  pregunta: {
+    texto: "Un buen caricaturista dibuja a alguien con diez líneas y lo reconoces al instante. Un retrato «perfecto» a veces no se parece. ¿Dónde está el secreto del parecido?",
+    respuesta: "En las <mark>relaciones</mark>: la distancia entre los ojos, la longitud de la nariz respecto a la frente, la forma del óvalo… Cada cara se desvía del «promedio» de una manera única. Medir bien esas relaciones (y en la caricatura, exagerarlas) es lo que da el <b>parecido</b>.",
+  },
+  bloques: [
+    { h: "El retrato: más que una cara", html: `<p>Un <b>retrato</b> representa a una persona concreta. No basta con el parecido físico: un buen retrato transmite <b>carácter</b>, estado de ánimo y, a veces, posición social. Por eso importan la postura, la mirada, la luz, la ropa y el fondo.</p><p>Tipos de retrato según el encuadre: de busto, de medio cuerpo, de cuerpo entero y de grupo. El <b>autorretrato</b> es el modelo más paciente y disponible: Rembrandt hizo casi un centenar a lo largo de su vida, y Frida Kahlo convirtió el suyo en un diario de su dolor y su identidad.</p><p>En el dibujo, el retrato es un ejercicio exigente que reúne todo lo aprendido: proporción, claroscuro, línea y observación.</p>`, svg: estrella("Qué transmite un retrato", "retrato", ["parecido", "carácter", "emoción", "postura", "contexto"]) },
+    { h: "Proporciones del rostro de frente", html: `<p>Las proporciones medias de una cabeza adulta de frente:</p><ul><li>La cabeza cabe en un <b>óvalo</b> (como un huevo con la punta hacia abajo).</li><li>Los <b>ojos</b> están en la <b>mitad</b> de la altura total de la cabeza (no en el tercio superior, error frecuente).</li><li>La cara se divide en <b>tres tercios</b> iguales: del nacimiento del pelo a las cejas, de las cejas a la base de la nariz y de la nariz a la barbilla.</li><li>Entre los ojos cabe <b>otro ojo</b>; la cara mide unos cinco ojos de ancho.</li><li>La <b>boca</b> está a un tercio de la distancia entre nariz y barbilla; sus comisuras llegan al centro de las pupilas.</li><li>Las <b>orejas</b> van de la ceja a la base de la nariz.</li></ul><p>Son medidas de partida: cada persona se aparta de ellas, y ahí está su parecido.</p>`, svg: rostro("Proporciones del rostro de frente: tercios y ojos a media altura"), video: { id: "E6Kn_w6ubZg", titulo: "Cómo dibujar un rostro desde cualquier ángulo: método de Andrew Loomis", canal: "Arte Divierte", vistas: 2286133 } },
+    { h: "Perfil y tres cuartos", html: `<p>De <b>perfil</b>, la cabeza cabe aproximadamente en un cuadrado. La oreja queda justo detrás de la mitad horizontal, y la frente, la nariz, los labios y la barbilla forman una línea inclinada.</p><p>En <b>tres cuartos</b> (la cabeza girada unos 45°), la más usada en el retrato:</p><ol><li>Dibuja una esfera para el cráneo y añade la mandíbula.</li><li>Traza el <b>eje vertical central</b> de la cara curvado, siguiendo el giro.</li><li>Las líneas de ojos, nariz y boca siguen siendo horizontales pero curvadas como paralelos de una esfera.</li><li>El ojo y la mitad de la boca más lejanos se ven más estrechos.</li></ol><p>El método de <b>Andrew Loomis</b> (esfera cortada por los lados más mandíbula) permite construir la cabeza en cualquier ángulo.</p>`, svg: flujo("Construir una cabeza en tres cuartos", ["esfera del cráneo", "mandíbula", "eje central curvado", "líneas de ojos, nariz y boca", "facciones con escorzo"]) },
+    { h: "Las facciones", html: `<p>Cada facción tiene su estructura:</p><ul><li><b>Ojo</b>: es una esfera dentro de la cuenca; los párpados la envuelven. El iris siempre queda parcialmente tapado por el párpado superior. El brillo da vida a la mirada.</li><li><b>Nariz</b>: piensa en una cuña con un puente, una punta redondeada y dos aletas. Se define más con sombras que con líneas.</li><li><b>Boca</b>: el labio superior suele ser más oscuro (mira hacia abajo) y el inferior más claro. La línea de unión es la más oscura.</li><li><b>Oreja</b>: un óvalo inclinado con un pliegue en forma de C y de Y interior.</li></ul><p>Consejo: estudia cada facción por separado en varias posiciones antes de dibujar una cara completa.</p>`, svg: cajas("Estructura de las facciones", [["Ojo", "esfera y|párpados"], ["Nariz", "cuña y|aletas"], ["Boca", "labio superior|más oscuro"], ["Oreja", "óvalo con|pliegues C e Y"]]), video: { id: "XaKhz3iAxqQ", titulo: "10 claves para lograr el parecido en el retrato", canal: "Alicia Gomar", vistas: 1451354 } },
+    { h: "Las expresiones", html: `<p>Las <b>expresiones</b> se producen por los músculos de la cara, sobre todo alrededor de los ojos, las cejas y la boca. El psicólogo Paul Ekman describió seis emociones básicas reconocibles en todas las culturas: alegría, tristeza, ira, miedo, sorpresa y asco.</p>${"<table class=\"tb\"><tr><th>Emoción</th><th>Cejas</th><th>Ojos</th><th>Boca</th></tr><tr><td>Alegría</td><td>relajadas</td><td>entornados, arrugas</td><td>comisuras arriba</td></tr><tr><td>Tristeza</td><td>interior arriba</td><td>caídos</td><td>comisuras abajo</td></tr><tr><td>Ira</td><td>juntas y bajas</td><td>fijos</td><td>apretada</td></tr><tr><td>Sorpresa</td><td>muy altas</td><td>muy abiertos</td><td>abierta</td></tr></table>"}<p>Una sonrisa verdadera también arruga los ojos; si solo sube la boca, parece forzada. Ensaya expresiones frente al espejo y dibújalas.</p>`, svg: rejilla("Expresiones básicas", ["Emoción", "Rasgo clave"], [["Alegría", "comisuras arriba"], ["Tristeza", "cejas en tejado"], ["Ira", "cejas juntas"], ["Sorpresa", "ojos y boca abiertos"]]) },
+    { h: "El cuerpo como soporte y como instrumento", html: `<p>En el arte contemporáneo, el cuerpo no solo se dibuja: también es <b>soporte</b> y <b>herramienta</b>.</p><ul><li><b>Body art y body painting</b>: el cuerpo se pinta o se marca (también tradiciones como la henna o el tatuaje).</li><li><b>Huella</b>: Yves Klein usó cuerpos cubiertos de pintura azul como «pinceles vivos» en sus <i>Antropometrías</i>; Ana Mendieta dejó la silueta de su cuerpo en la tierra.</li><li><b>Performance</b>: acciones en directo en las que el cuerpo es la obra (Marina Abramović).</li><li><b>Dibujo con el cuerpo</b>: Trisha Brown o Heather Hansen dibujan con los movimientos de todo el cuerpo sobre papeles enormes, uniendo dibujo y danza.</li></ul><p>Estas prácticas recuerdan que dibujar es, ante todo, un <b>gesto corporal</b>.</p>`, svg: comparar("El cuerpo en el arte actual", ["Soporte", ["body painting", "tatuaje, henna", "maquillaje", "superficie"]], ["Instrumento", ["huella (Klein)", "performance", "dibujo-danza", "gesto"]]) },
+  ],
+  figura: { titulo: "El retrato y el cuerpo expresivo", items: [["Proporción", "½", "ojos a media", "altura"], ["Ángulo", "¾", "esfera de", "Loomis"], ["Expresión", "6", "emociones", "básicas"], ["Cuerpo", "huella", "soporte e", "instrumento"]] },
+  video: { id: "E6Kn_w6ubZg", titulo: "Cómo dibujar un rostro desde cualquier ángulo: método de Andrew Loomis", canal: "Arte Divierte", vistas: 2286133 },
+  ejemplos: [
+    ["Encaja un rostro de frente de 18 cm de alto.", ["Óvalo de 18 cm de alto y unos 13 de ancho.", "Línea de ojos a 9 cm.", "Divide la cara en tercios desde el pelo: cejas, base de la nariz, barbilla.", "Cinco ojos de ancho, uno entre los ojos."], "Un encaje <b>proporcionado</b> listo para las facciones."],
+    ["Dibuja la misma cara alegre y triste cambiando solo tres rasgos.", ["Alegre: comisuras arriba, mejillas elevadas, ojos entornados.", "Triste: cejas en tejado, párpados caídos, comisuras abajo."], "Pequeños cambios en <b>cejas, ojos y boca</b> cambian toda la emoción."],
+    ["Busca el parecido en un retrato que «no se parece».", ["Compara con el modelo la distancia entre ojos y la longitud de la nariz.", "Revisa el óvalo: ¿ancho o alargado?", "Mira el dibujo en un espejo para ver los errores."], "El parecido suele mejorar al corregir <b>relaciones de proporción</b>, no detalles."],
+  ],
+  errores: [
+    ["Colocar los ojos demasiado arriba.", "Los ojos están a media altura de la cabeza."],
+    ["Dibujar el iris entero, como un círculo completo.", "El párpado superior siempre tapa una parte."],
+    ["Contornear la nariz con líneas duras.", "Definirla con sombras suaves."],
+    ["Pensar que una sonrisa es solo la boca.", "Una sonrisa real también eleva las mejillas y arruga los ojos."],
+  ],
+  ejercicios: {
+    b: [
+      ["¿A qué altura de la cabeza están los ojos?", "A la mitad de la altura total de la cabeza."],
+      ["¿Cuántos ojos caben en el ancho de una cara?", "Unos cinco, con uno entre los dos ojos."],
+      ["Nombra las seis emociones básicas de Ekman.", "Alegría, tristeza, ira, miedo, sorpresa y asco."],
+      ["¿Qué son las Antropometrías de Yves Klein?", "Obras en las que cuerpos cubiertos de pintura azul dejaban su huella en el lienzo."],
+    ],
+    m: [
+      ["Dibuja una hoja de estudios: tres ojos, tres narices y tres bocas desde distintos ángulos.", "Frente, perfil y tres cuartos de cada facción. Fíjate en cómo cambian las formas al girar."],
+      ["Haz un autorretrato de frente con un espejo en 45 minutos.", "Encaja con el óvalo y los tercios, mide con el lápiz y trabaja el claroscuro con una luz lateral."],
+      ["Construye una cabeza en tres cuartos con el método de Loomis.", "Esfera, cortes laterales, eje central curvado, líneas de cejas, nariz y barbilla, y después facciones."],
+      ["Dibuja seis viñetas con la misma cara expresando las seis emociones básicas.", "Cambia solo cejas, ojos y boca. Usa la tabla del tema como guía."],
+    ],
+    a: [
+      ["Retrata a un compañero buscando su carácter, no solo su parecido.", "Elige postura, luz y encuadre que cuenten algo de esa persona (una afición, un gesto típico). Explica tus decisiones."],
+      ["Realiza un dibujo de gran formato con el movimiento de todo tu cuerpo.", "En papel continuo en el suelo, con carbón en las dos manos, haz movimientos simétricos durante 5 minutos. Analiza las huellas del gesto."],
+    ],
+  },
+  quiz: [
+    ["Un retrato debe transmitir…", ["solo el parecido", "parecido y carácter", "solo el fondo", "solo la ropa"], 1, "Parecido y carácter."],
+    ["Los ojos se sitúan…", ["en el tercio superior", "a media altura de la cabeza", "junto a la barbilla", "en la frente"], 1, "A la mitad."],
+    ["Entre los dos ojos cabe…", ["media nariz", "otro ojo", "dos ojos", "una oreja"], 1, "Un ojo."],
+    ["Las orejas van de…", ["la frente a los ojos", "la ceja a la base de la nariz", "la boca a la barbilla", "el pelo a la ceja"], 1, "De la ceja a la nariz."],
+    ["El método de Loomis construye la cabeza con…", ["un cubo", "una esfera y la mandíbula", "un triángulo", "una cuadrícula egipcia"], 1, "Esfera cortada y mandíbula."],
+    ["El labio superior suele verse…", ["más claro", "más oscuro", "igual", "invisible"], 1, "Mira hacia abajo."],
+    ["En la ira las cejas…", ["suben mucho", "se juntan y bajan", "desaparecen", "forman un tejado"], 1, "Juntas y bajas."],
+    ["Una sonrisa verdadera…", ["solo mueve la boca", "arruga también los ojos", "cierra la boca", "baja las cejas"], 1, "Sonrisa de Duchenne."],
+    ["¿Quién hizo casi un centenar de autorretratos?", ["Rembrandt", "Ingres", "Kandinsky", "Escher"], 0, "Rembrandt."],
+    ["Ana Mendieta dejó en la tierra…", ["su silueta", "un mural", "un grafiti", "una escultura de bronce"], 0, "Serie Siluetas."],
+  ],
+  examen: [
+    ["De perfil, la cabeza cabe aproximadamente en…", ["un círculo", "un cuadrado", "un triángulo", "un rectángulo muy alargado"], 1, "Un cuadrado."],
+    ["Una performance es…", ["un dibujo a lápiz", "una acción en directo donde el cuerpo es la obra", "un tipo de papel", "un retrato oficial"], 1, "Arte de acción."],
+    ["La boca, sus comisuras llegan aproximadamente…", ["a las orejas", "al centro de las pupilas", "a la nariz", "a la barbilla"], 1, "Al centro de las pupilas."],
+    ["Mirar el dibujo en un espejo sirve para…", ["borrar", "descubrir errores de proporción", "colorear", "firmar"], 1, "Se ve con ojos nuevos."],
+  ],
+  feynman: ["retrato, parecido y carácter", "proporciones del rostro de frente", "perfil, tres cuartos y Loomis", "estructura de las facciones", "expresiones básicas", "el cuerpo como soporte e instrumento"],
+  mapa: ["El retrato y el cuerpo", [["Proporción", "ojos a la mitad, tercios"], ["Ángulos", "frente, perfil, ¾"], ["Expresión", "cejas, ojos, boca"], ["Cuerpo", "soporte e instrumento"]]],
+  tarjetas: [
+    ["Ojos", "A media altura de la cabeza."],
+    ["Tercios del rostro", "Pelo-cejas, cejas-nariz, nariz-barbilla."],
+    ["Ancho de la cara", "Unos cinco ojos."],
+    ["Método de Loomis", "Esfera cortada más mandíbula para cualquier ángulo."],
+    ["Iris", "El párpado superior siempre tapa una parte."],
+    ["Emociones básicas", "Alegría, tristeza, ira, miedo, sorpresa y asco."],
+    ["Antropometrías", "Yves Klein: cuerpos con pintura azul como pinceles."],
+    ["Performance", "Acción en directo en la que el cuerpo es la obra."],
+  ],
+  glosario: [
+    ["Retrato", "Representación de una persona concreta."],
+    ["Autorretrato", "Retrato que el artista hace de sí mismo."],
+    ["Tres cuartos", "Cabeza girada unos 45°."],
+    ["Facciones", "Rasgos de la cara: ojos, nariz, boca, orejas."],
+    ["Parecido", "Semejanza reconocible con el modelo."],
+    ["Body art", "Arte que usa el cuerpo como soporte."],
+    ["Performance", "Arte de acción en directo."],
+    ["Huella", "Marca que deja el cuerpo sobre una superficie."],
+  ],
+  situacion: { titulo: "Retratos de la clase", reto: "Hacer una galería de retratos cruzados de la clase en la que cada retrato muestre algo del carácter de la persona.", pasos: ["Por parejas, entrevistaos 5 minutos: aficiones, gestos, lugar favorito.", "Haz tres bocetos rápidos de tu compañero en distintos ángulos.", "Desarrolla un retrato de 60 minutos con luz y postura elegidas.", "Escribe una cartela con el nombre y una frase que lo defina."], producto: "Galería de retratos con cartelas.", evaluacion: ["Proporciones y parecido", "Expresión del carácter", "Calidad del claroscuro", "Cartela y presentación"] },
+  familias: ["Posad para un retrato de 20 minutos.", "Buscad juntos autorretratos de Rembrandt y Frida Kahlo.", "Jugad a poner caras con emociones y que las dibuje.", "Comentad qué hace que una caricatura se parezca."],
+  saberes: "E. La figura humana: el retrato, facciones y expresiones; el cuerpo humano como soporte y como instrumento de expresión artística",
+  ideas: ["Empezar con estudios de facciones antes del retrato completo.", "Usar el espejo y la foto en blanco y negro para revisar proporciones.", "Sesión de dibujo con todo el cuerpo en el gimnasio con papel continuo."],
+  fuentes: [{ t: "National Portrait Gallery: colección de retratos", url: "https://www.npg.org.uk/collections" }],
+});
