@@ -1,0 +1,103 @@
+// Dibujo Artístico II · La figura humana: canon, anatomía y escorzo (formato ligero).
+const B = require("./_bach2-da");
+const { tema, cajas, flujo, comparar, rejilla, canon, escorzo, capas } = B;
+
+module.exports = tema({
+  titulo: "La figura humana: canon, anatomía y escorzo",
+  minutos: 85,
+  objetivos: [
+    "Conocer la evolución de la representación humana y sus cánones a lo largo de la historia",
+    "Analizar críticamente los estereotipos de belleza",
+    "Aplicar nociones básicas de anatomía artística: esqueleto, masas musculares y articulaciones",
+    "Dibujar la figura del natural en apuntes rápidos y resolver el escorzo",
+  ],
+  claves: ["canon", "proporción", "módulo", "anatomía artística", "esqueleto", "masas musculares", "línea de acción", "contrapposto", "apunte", "escorzo"],
+  pregunta: {
+    texto: "Las esculturas griegas, las Venus de Rubens y las modelos de una revista tienen cuerpos muy distintos. ¿Cuál es la proporción «correcta» del cuerpo humano?",
+    respuesta: "No hay una sola. Cada época ha fijado su <mark>canon</mark>, una regla de proporciones que refleja su ideal de belleza. Además, los cuerpos reales son diversos. El dibujante usa el canon como <b>herramienta de medida</b>, no como norma de cómo debe ser un cuerpo.",
+  },
+  bloques: [
+    { h: "El ser humano a lo largo de la historia", html: `<p>La figura humana es el tema más antiguo y constante del arte. Cada cultura la ha representado según sus creencias:</p><ul><li><b>Egipto</b>: figuras rígidas, con cabeza y piernas de perfil y torso de frente, medidas con una cuadrícula de 18 puños.</li><li><b>Grecia clásica</b>: búsqueda de la belleza ideal y la armonía; nace el <b>contrapposto</b> (el peso apoyado en una pierna).</li><li><b>Edad Media</b>: figuras alargadas y simbólicas, sin interés por la anatomía.</li><li><b>Renacimiento</b>: vuelta al estudio científico del cuerpo; Leonardo y Miguel Ángel diseccionan cadáveres.</li><li><b>Siglo XX</b>: el cuerpo se deforma, se fragmenta o se reduce a signos (Picasso, Giacometti, Keith Haring).</li></ul>`, svg: capas("La figura humana en la historia", [["Egipto", "cuadrícula, rigidez"], ["Grecia", "ideal y contrapposto"], ["Renacimiento", "anatomía científica"], ["Siglo XX", "deformación y signo"]]) },
+    { h: "Canon y proporción", html: `<p>Un <b>canon</b> es un sistema de proporciones que usa una parte del cuerpo como <b>módulo</b> (normalmente la cabeza). Los más conocidos:</p>${"<ul><li><b>Policleto</b> (siglo V a. C.): 7 cabezas, cuerpo atlético.</li><li><b>Lisipo</b> (siglo IV a. C.): 8 cabezas, figura más esbelta.</li><li><b>Vitruvio y Leonardo</b>: el hombre inscrito en un círculo y un cuadrado; la envergadura de los brazos es igual a la altura.</li><li><b>Canon académico</b>: 7,5 a 8 cabezas para un adulto; el pubis queda en la mitad.</li></ul>"}<p>Los niños tienen cabezas proporcionalmente más grandes (unas 4 cabezas al nacer, 6 hacia los 10 años). En la ilustración y el cómic se usan cánones de 9 o más cabezas para héroes, y de 2 o 3 para personajes infantiles o cómicos.</p>`, svg: canon("Canon de ocho cabezas", 8), video: { id: "sl4eS-gXloI", titulo: "Cánones y proporciones del cuerpo humano", canal: "Polanco Art Studio", vistas: 127114 } },
+    { h: "Los estereotipos de belleza", html: `<p>Los cánones no son neutrales: expresan un <b>ideal de belleza</b> de una época, una cultura y, a menudo, de un grupo social concreto. Las Venus prehistóricas eran voluminosas; Rubens pintó cuerpos rotundos; la moda de finales del siglo XX impuso una delgadez extrema.</p><p>Muchos de estos ideales excluyen cuerpos reales: diferentes edades, tallas, colores de piel o diversidades funcionales. Hoy, artistas e ilustradores reivindican la <b>diversidad corporal</b> y critican los retoques digitales que crean cuerpos imposibles.</p><p>Como dibujante, conviene conocer el canon para medir, pero también <b>observar cuerpos reales</b> y preguntarse qué cuerpos aparecen (y cuáles no) en las imágenes que consumimos.</p>`, svg: comparar("Canon y cuerpos reales", ["Canon ideal", ["regla fija", "una época", "un modelo", "excluye"]], ["Cuerpos reales", ["diversidad", "edades", "tallas", "observación"]]) },
+    { h: "Nociones de anatomía artística", html: `<p>La <b>anatomía artística</b> estudia el cuerpo pensando en cómo se ve, no en cómo funciona por dentro. Lo esencial:</p><ul><li><b>Esqueleto</b>: da la estructura y las medidas. Puntos clave visibles: clavículas, codos, crestas de la cadera, rodillas, tobillos.</li><li><b>Tres masas principales</b>: cabeza, caja torácica y pelvis. Se unen por el cuello y la columna, que es flexible.</li><li><b>Masas musculares</b>: dan la forma exterior (deltoides en el hombro, pectorales, bíceps, cuádriceps, gemelos).</li><li><b>Articulaciones</b>: hombro, codo, muñeca, cadera, rodilla, tobillo. Se pueden dibujar como esferas que permiten el giro.</li></ul><p>Un método útil es el <b>maniquí</b>: dibujar la figura con un palo para la columna, óvalos para las tres masas y cilindros para los miembros.</p>`, svg: cajas("Lo esencial de la anatomía artística", [["Esqueleto", "estructura|y medida"], ["3 masas", "cabeza, tórax|y pelvis"], ["Músculos", "forma|exterior"], ["Articulaciones", "esferas|que giran"]]), video: { id: "U-AyAIHU8-k", titulo: "Anatomía básica para principiantes: guía completa", canal: "Milly ArtStudio", vistas: 642289 } },
+    { h: "El apunte del natural", html: `<p>El <b>apunte</b> es un dibujo rápido (de 30 segundos a 5 minutos) que capta lo esencial de una figura: el gesto, el movimiento y la proporción general. Es el mejor entrenamiento para el dibujo de figura.</p><ol><li>Traza la <b>línea de acción</b>: una curva que recorre el cuerpo de la cabeza al pie de apoyo y expresa el movimiento.</li><li>Marca la inclinación de <b>hombros y caderas</b>: suelen inclinarse en sentidos opuestos (contrapposto).</li><li>Coloca las tres masas y los miembros como cilindros.</li><li>Si hay tiempo, define el contorno.</li></ol><p>Usa técnicas rápidas: carboncillo, rotulador de pincel o tinta. Dibuja personas en el transporte, en la cafetería o en el patio. La cantidad importa: cien apuntes enseñan más que un dibujo perfecto.</p>`, svg: flujo("Pasos de un apunte de figura", ["línea de acción", "hombros y caderas", "tres masas", "miembros como cilindros", "contorno si hay tiempo"]) },
+    { h: "El escorzo", html: `<p>El <b>escorzo</b> es la representación de una forma que se dirige hacia el observador o se aleja de él, de modo que se ve <b>acortada</b>. Un brazo que te señala, unas piernas tumbadas hacia ti o un cuerpo visto desde los pies son escorzos.</p><p>Es difícil porque el cerebro sabe que un brazo es largo y tiende a dibujarlo largo. Para resolverlo:</p><ul><li><b>Dibuja lo que ves</b>, no lo que sabes: mide con el lápiz.</li><li>Piensa en <b>cilindros</b> en perspectiva y usa las elipses de sus secciones.</li><li>Aprovecha los <b>solapamientos</b>: la mano tapa parte del antebrazo, que tapa parte del brazo.</li><li>Exagera el tamaño de lo cercano.</li></ul><p>El ejemplo histórico más famoso es el <i>Cristo muerto</i> de Andrea Mantegna, visto desde los pies.</p>`, svg: escorzo("El mismo brazo de lado y en escorzo"), video: { id: "nEPR1OFhP5U", titulo: "Cómo dibujar escorzos (perspectiva en personajes)", canal: "Why so Gurin", vistas: 270642 } },
+  ],
+  figura: { titulo: "La figura humana en cuatro claves", items: [["Canon", "8 cab.", "módulo:", "la cabeza"], ["Anatomía", "3 masas", "cabeza, tórax", "y pelvis"], ["Apunte", "30 s", "línea de", "acción"], ["Escorzo", "acortar", "acortar y", "solapar"]] },
+  video: { id: "sl4eS-gXloI", titulo: "Cánones y proporciones del cuerpo humano", canal: "Polanco Art Studio", vistas: 127114 },
+  ejemplos: [
+    ["Dibuja una figura de pie de 16 cm con el canon de 8 cabezas.", ["Cada cabeza mide 2 cm.", "Marca 8 divisiones: barbilla en 2, pezones en 4, ombligo en 6, pubis en 8 cm.", "Rodillas hacia los 12 cm y pies en 16 cm.", "Hombros de unas 2 cabezas de ancho."], "Una figura <b>proporcionada</b> con el pubis en la mitad."],
+    ["Haz un apunte de 1 minuto de un compañero apoyado en una pierna.", ["Línea de acción curva del cuello al pie de apoyo.", "Hombros y caderas inclinados en sentidos opuestos.", "Tres masas y miembros como palos."], "Un apunte con <b>contrapposto</b> que transmite el peso."],
+    ["Resuelve una pierna estirada hacia el espectador.", ["Mide: el pie se ve casi tan grande como el muslo.", "Dibuja el pie, la rodilla y el muslo como formas que se solapan.", "Usa elipses para las secciones del muslo y la pantorrilla."], "Una pierna en <b>escorzo</b> corta y volumétrica."],
+  ],
+  errores: [
+    ["Dibujar la cabeza demasiado grande.", "Medir con el canon: un adulto mide unas 7,5 u 8 cabezas."],
+    ["Poner hombros y caderas paralelos en una figura apoyada en una pierna.", "Inclinarlos en sentidos opuestos (contrapposto)."],
+    ["Empezar el apunte por la cara y los detalles.", "Empezar por la línea de acción y las masas."],
+    ["Alargar un brazo en escorzo porque «sabemos» que es largo.", "Medir y dibujar lo que se ve: corto y solapado."],
+  ],
+  ejercicios: {
+    b: [
+      ["¿Qué es un canon?", "Sistema de proporciones que usa una parte del cuerpo como módulo para medir el resto."],
+      ["¿Cuántas cabezas tienen los cánones de Policleto y de Lisipo?", "Policleto, 7; Lisipo, 8."],
+      ["¿Cuáles son las tres masas principales del cuerpo?", "Cabeza, caja torácica y pelvis."],
+      ["Define escorzo.", "Representación de una forma que se dirige hacia el observador o se aleja, y que por eso se ve acortada."],
+    ],
+    m: [
+      ["Dibuja tres figuras con cánones de 3, 6 y 8 cabezas.", "La de 3 parecerá un niño pequeño o un personaje cómico; la de 6, un niño de unos 10 años; la de 8, un adulto esbelto."],
+      ["Haz 20 apuntes de 30 segundos de personas en movimiento.", "Solo línea de acción, hombros, caderas y masas. No borres: el objetivo es la cantidad y el gesto."],
+      ["Dibuja un maniquí en tres posturas: de pie, sentado y corriendo.", "Palo para la columna, óvalos para las masas, esferas para articulaciones y cilindros para los miembros."],
+      ["Analiza en cinco líneas un anuncio con un cuerpo muy retocado.", "Identifica qué se ha alterado (cintura, piernas, piel), qué ideal transmite y qué cuerpos quedan fuera."],
+    ],
+    a: [
+      ["Dibuja tu mano en escorzo apuntando hacia ti.", "Mírate en un espejo o coloca la mano delante. Dibuja primero las yemas grandes y cercanas y deja que los dedos tapen la palma."],
+      ["Reinterpreta el Cristo muerto de Mantegna con un compañero tumbado.", "Colócate a los pies y dibuja el escorzo completo. Compara cómo Mantegna «corrigió» los pies para que no taparan el cuerpo."],
+    ],
+  },
+  quiz: [
+    ["El módulo más usado en los cánones es…", ["el pie", "la cabeza", "la mano", "el codo"], 1, "La cabeza."],
+    ["El canon de Lisipo tiene…", ["6 cabezas", "7 cabezas", "8 cabezas", "10 cabezas"], 2, "Más esbelto que el de Policleto."],
+    ["En el canon de 8 cabezas, la mitad de la figura cae en…", ["el ombligo", "el pubis", "las rodillas", "el pecho"], 1, "El pubis."],
+    ["El contrapposto consiste en…", ["dibujar de perfil", "apoyar el peso en una pierna con hombros y caderas opuestos", "dibujar sin cabeza", "un escorzo"], 1, "Nace en Grecia."],
+    ["En el arte egipcio la figura se mide con…", ["una cuadrícula", "el compás", "la fotografía", "el escorzo"], 0, "Una cuadrícula de puños."],
+    ["La anatomía artística estudia el cuerpo…", ["como lo ve un médico", "pensando en cómo se ve", "solo por dentro", "sin huesos"], 1, "La forma visible."],
+    ["La línea de acción expresa…", ["el contorno", "el movimiento de la figura", "la sombra", "la ropa"], 1, "El gesto general."],
+    ["Un apunte dura…", ["varias horas", "de segundos a pocos minutos", "un día", "una semana"], 1, "Es rápido."],
+    ["En un escorzo, la parte más cercana se ve…", ["más pequeña", "más grande", "igual", "invisible"], 1, "Se exagera lo cercano."],
+    ["Una obra célebre en escorzo es…", ["La Gioconda", "el Cristo muerto de Mantegna", "Las Meninas", "La noche estrellada"], 1, "Visto desde los pies."],
+  ],
+  examen: [
+    ["El hombre de Vitruvio muestra que…", ["la envergadura es igual a la altura", "la cabeza es la mitad", "el cuerpo mide 10 cabezas", "no hay proporciones"], 0, "Inscrito en círculo y cuadrado."],
+    ["Un recién nacido mide aproximadamente…", ["4 cabezas", "6 cabezas", "8 cabezas", "10 cabezas"], 0, "La cabeza es muy grande."],
+    ["Los solapamientos ayudan a…", ["dar sensación de escorzo y profundidad", "colorear", "medir el canon", "hacer sombras"], 0, "Lo cercano tapa lo lejano."],
+    ["Analizar críticamente los estereotipos de belleza implica…", ["copiarlos", "preguntarse qué cuerpos muestran y cuáles excluyen", "ignorarlos", "usar solo cánones griegos"], 1, "Mirada crítica."],
+  ],
+  feynman: ["la figura en la historia", "canon y módulo", "estereotipos de belleza", "esqueleto, tres masas y articulaciones", "apunte y línea de acción", "escorzo y solapamiento"],
+  mapa: ["La figura humana", [["Canon", "7, 8 cabezas; módulo"], ["Anatomía", "esqueleto y 3 masas"], ["Apunte", "línea de acción"], ["Escorzo", "acortar y solapar"]]],
+  tarjetas: [
+    ["Canon", "Sistema de proporciones con un módulo."],
+    ["Policleto / Lisipo", "7 cabezas / 8 cabezas."],
+    ["Contrapposto", "Peso en una pierna, hombros y caderas inclinados en sentidos opuestos."],
+    ["Tres masas", "Cabeza, caja torácica y pelvis."],
+    ["Maniquí", "Figura esquemática de palos, óvalos y cilindros."],
+    ["Línea de acción", "Curva que expresa el movimiento de la figura."],
+    ["Escorzo", "Forma que se dirige hacia el observador y se ve acortada."],
+    ["Mantegna", "Cristo muerto: escorzo célebre visto desde los pies."],
+  ],
+  glosario: [
+    ["Canon", "Regla de proporciones del cuerpo."],
+    ["Módulo", "Unidad de medida del canon."],
+    ["Contrapposto", "Postura con el peso en una pierna."],
+    ["Anatomía artística", "Estudio del cuerpo para representarlo."],
+    ["Masas", "Grandes volúmenes del cuerpo: cabeza, tórax y pelvis."],
+    ["Apunte", "Dibujo rápido del natural."],
+    ["Línea de acción", "Curva principal del movimiento."],
+    ["Escorzo", "Acortamiento de una forma vista en profundidad."],
+  ],
+  situacion: { titulo: "Cuerpos en movimiento", reto: "Crear una lámina de apuntes de figura de personas reales en actividades cotidianas y deportivas.", pasos: ["Elige un lugar con gente en movimiento (patio, pabellón, parque).", "Haz 30 apuntes de 30 segundos a 2 minutos.", "Selecciona los 8 mejores y desarrolla uno con anatomía y escorzo.", "Escribe una reflexión sobre la diversidad de cuerpos observados."], producto: "Lámina de apuntes y un dibujo desarrollado con reflexión.", evaluacion: ["Captación del gesto y el movimiento", "Proporciones coherentes", "Resolución del escorzo", "Mirada crítica sobre los cuerpos"] },
+  familias: ["Posad para que dibuje apuntes rápidos de 1 minuto.", "Mirad juntos esculturas griegas en la web de un museo y buscad el contrapposto.", "Comentad anuncios con cuerpos retocados.", "Animadle a llevar un cuaderno de apuntes en el transporte público."],
+  saberes: "E. La figura humana: representación del ser humano a lo largo de la historia; canon y proporción; los estereotipos de belleza; nociones básicas de anatomía artística; apunte del natural; estudio y representación del escorzo",
+  ideas: ["Turnos de modelo en clase con poses de 30 s, 1 min y 5 min.", "Usar un maniquí articulado de madera para estudiar escorzos.", "Debate sobre cánones de belleza con imágenes de distintas épocas."],
+  fuentes: [{ t: "Museo Nacional de Escultura: colección de reproducciones", url: "https://www.culturaydeporte.gob.es/mnescultura/" }],
+});
