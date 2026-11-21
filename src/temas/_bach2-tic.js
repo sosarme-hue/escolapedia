@@ -21,6 +21,18 @@ const VID = {
   "alg-quick": { id: "UrPJLhKF1jY", canal: "Chio Code", vistas: 92891 },
   "alg-recursividad": { id: "lilBGvaOSy8", canal: "makigas", vistas: 275159 },
   "alg-general": { id: "nqusvWZiL8M", canal: "makigas", vistas: 47130 },
+  "poo-general": { id: "SI7O81GMG2A", canal: "BitBoss", vistas: 814670 },
+  "poo-clases": { id: "VYXdpjCZojA", canal: "codigofacilito", vistas: 324006 },
+  "poo-herencia": { id: "0xt806gLghg", canal: "UskoKruM2010", vistas: 33333 },
+  "poo-polimorfismo": { id: "1J9bCm2J8wU", canal: "UskoKruM2010", vistas: 11239 },
+  "gui-general": { id: "XgjKa9kkYjc", canal: "Fazt", vistas: 204017 },
+  "gui-tkinter": { id: "h8usxRykVmI", canal: "Enrique Barros", vistas: 10983 },
+  "gui-ux": { id: "rKQ1qdD1hrE", canal: "Coderhouse", vistas: 64632 },
+  "gui-pruebas": { id: "wA_y-72rLs0", canal: "codigofacilito", vistas: 37266 },
+  "bd-general": { id: "SKOiEXlFNeM", canal: "TodoCode", vistas: 184366 },
+  "bd-er": { id: "l5PDQtUVye8", canal: "Eliezer De León", vistas: 742731 },
+  "bd-relaciones": { id: "AArIcStS0TU", canal: "TodoCode", vistas: 136730 },
+  "bd-normalizacion": { id: "MdYvCMbQji4", canal: "Daniela Bohórquez Escovar", vistas: 322922 },
 };
 const V = (k, titulo) => {
   if (!VID[k]) throw new Error(`vídeo ${k} no encontrado`);
