@@ -94,3 +94,96 @@ module.exports = P.tema({
   saberes: "Sentido numérico: porcentajes como fracciones de denominador 100 y como decimales; cálculo del porcentaje de una cantidad; descuentos y aumentos porcentuales en situaciones de consumo",
   ideas: ["Colorear porcentajes en cuadrados de 100 casillas.", "Folletos de rebajas para calcular precios finales por equipos.", "Encuesta en clase y expresión de los resultados en porcentajes."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Calcular el total conociendo una parte y su porcentaje", "Detectar las trampas de las rebajas sucesivas", "Leer porcentajes en gráficos de sectores y en tiques de compra"],
+  lectura: { titulo: "¡Todo al 50 %!", html: `<p>Es sábado por la mañana y Lucas acompaña a su madre al centro comercial. En los escaparates hay carteles de todos los colores: «Rebajas del 20 %», «Segunda unidad al 50 %», «¡Hasta un 70 % de descuento!».</p><p>Lucas ha ahorrado 30 € y quiere comprarse unas zapatillas que antes costaban 45 €. Ahora tienen un 30 % de descuento. «¿Me llega el dinero?», pregunta. Su madre le propone un reto: «Calcúlalo tú antes de llegar a la caja».</p><p>Lucas piensa: el 10 % de 45 es 4,50 €, así que el 30 % es el triple, 13,50 €. Las zapatillas cuestan ahora 45 − 13,50 = 31,50 €. «¡Me falta 1,50 €!», exclama. Por suerte, su madre le presta la diferencia.</p><p>Los <b>porcentajes</b> están por todas partes: en las rebajas, en la batería del móvil, en las noticias, en los envases de alimentos o en las notas de un examen. En este tema aprenderás a calcularlos y, sobre todo, a no dejarte engañar por ellos.</p>` },
+  tras: {
+    "Porcentajes y números decimales": [
+      ["Más del 100 % y el 0 %", `<p>El <b>100 %</b> es el total, la unidad completa. Pero los porcentajes también pueden ser <b>mayores que 100</b>:</p><ul><li>Si un árbol medía 2 m y ahora mide 3 m, su altura es el <b>150 %</b> de la que tenía: ha crecido la mitad más.</li><li>Si un producto sube de precio y ahora cuesta el doble, su precio es el <b>200 %</b> del de antes.</li><li>Como decimal, 150 % = 1,5 y 200 % = 2.</li></ul><p>En el otro extremo está el <b>0 %</b>, que significa «nada»: un yogur con 0 % de materia grasa no tiene grasa, y una batería al 0 % está vacía.</p><p>Fíjate también en esto: el 100 % siempre se refiere a un total concreto. El 50 % de 10 € (5 €) no es lo mismo que el 50 % de 1 000 € (500 €). Por eso, cuando alguien te dé un porcentaje, pregunta siempre: «¿el tanto por ciento <b>de qué</b>?».</p>`,
+        svg("Porcentajes mayores que cien: una barra del cien por cien y otra del ciento cincuenta por ciento", `<rect x="20" y="40" width="140" height="34" fill="${AZ}" fill-opacity=".45" stroke="${AZ}" stroke-width="2"/>${t(90, 62, "100 %", { s: 14, d: true })}${t(196, 62, "= 1", { s: 14, c: AZ })}<rect x="20" y="96" width="140" height="34" fill="${VE}" fill-opacity=".45" stroke="${VE}" stroke-width="2"/><rect x="160" y="96" width="70" height="34" fill="${VE}" fill-opacity=".25" stroke="${VE}" stroke-width="2" stroke-dasharray="5 3"/>${t(125, 118, "150 %", { s: 14, d: true })}${t(130, 160, "150 % = 1,5 (la mitad más)", { s: 12, c: VE })}`)],
+    ],
+    "Descuentos y rebajas": [
+      ["Cuidado con las trampas de las rebajas", `<p>Algunos carteles parecen mejores de lo que son. Mira estos casos:</p><ul><li><b>Dos descuentos seguidos no se suman.</b> Una chaqueta de 100 € tiene un 20 % de rebaja y luego otro 20 % más. No es un 40 %: primero baja a 80 € y después el 20 % de 80 es 16 €, así que queda en <b>64 €</b>, no en 60 €. El descuento total es del 36 %.</li><li><b>«Segunda unidad al 50 %»</b> no es un 50 % de descuento. Si cada camiseta cuesta 10 €, dos cuestan 10 + 5 = 15 € en vez de 20 €: el descuento es de 5 € sobre 20 €, es decir, un <b>25 %</b>. Y solo te conviene si de verdad necesitas dos.</li><li><b>«Hasta un 70 %»</b> significa que solo algunos productos tienen ese descuento; la mayoría tendrá menos.</li></ul><p>Consejo de consumidor responsable: calcula siempre el <b>precio final</b> y compáralo con otras tiendas antes de comprar.</p>`,
+        svg("Dos descuentos del veinte por ciento seguidos: de cien a ochenta y de ochenta a sesenta y cuatro, no a sesenta", `${caja(14, 30, 64, 40, "100 €", AZ, { s: 15 })}${P.flecha(82, 50, 108, 50)}${t(95, 40, "−20 %", { s: 10, c: RO })}${caja(110, 30, 56, 40, "80 €", MO, { s: 15 })}${P.flecha(170, 50, 196, 50)}${t(183, 40, "−20 %", { s: 10, c: RO })}${caja(198, 30, 52, 40, "64 €", VE, { s: 15 })}${t(130, 110, "20 % + 20 % ≠ 40 %", { s: 16, d: true, c: RO })}${t(130, 140, "descuento total: 36 %", { s: 13, c: VE })}`)],
+    ],
+    "Aumentos con porcentajes": [
+      ["El IVA y el tique de compra", `<p>Cuando compramos algo, una parte del precio es un impuesto llamado <b>IVA</b> (impuesto sobre el valor añadido). Con ese dinero el Estado paga hospitales, colegios, carreteras y otros servicios de todos.</p><p>En España hay varios tipos de IVA según el producto:</p><ul><li><b>21 %</b> (general): ropa, juguetes, electrónica, restaurantes.</li><li><b>10 %</b> (reducido): algunos alimentos, transporte.</li><li><b>4 %</b> (superreducido): pan, leche, frutas, verduras, libros.</li></ul><p>El IVA funciona como un aumento: si un juguete cuesta 50 € sin IVA, el impuesto es el 21 % de 50 = 10,50 €, y el precio final es 50 + 10,50 = <b>60,50 €</b>. Normalmente el precio que ves en la etiqueta ya lo lleva incluido.</p><p>En los tiques de compra suele aparecer una línea con el IVA. ¡Busca uno en casa y mira cuánto impuesto se pagó en la compra!</p>`,
+        svg("Un tique de compra con base de cincuenta euros, IVA del veintiuno por ciento de diez con cincuenta y total de sesenta con cincuenta", `<rect x="60" y="14" width="140" height="152" fill="var(--card)" stroke="var(--muted)" stroke-width="2"/>${t(130, 36, "TIQUE", { s: 13, d: true })}<path d="M70 46 H 190" stroke="var(--line)" stroke-dasharray="4 3"/>${t(74, 70, "Juguete", { s: 11, a: "start" })}${t(186, 70, "50,00", { s: 11, a: "end" })}${t(74, 96, "IVA 21 %", { s: 11, a: "start", c: RO })}${t(186, 96, "10,50", { s: 11, a: "end", c: RO })}<path d="M70 110 H 190" stroke="var(--ink)" stroke-width="1.5"/>${t(74, 134, "TOTAL", { s: 13, a: "start", d: true })}${t(186, 134, "60,50 €", { s: 13, a: "end", d: true, c: VE })}`)],
+    ],
+    "Calcular qué porcentaje es": [
+      ["Del porcentaje al total", `<p>A veces conocemos una parte y su porcentaje, y queremos saber el <b>total</b>. La clave es averiguar cuánto vale el <b>1 %</b> o el <b>10 %</b>.</p><p>Problema: «En una clase, 6 alumnos llevan gafas. Son el 25 % de la clase. ¿Cuántos alumnos hay?».</p><ul><li>Si el 25 % son 6, como 25 % = 1/4, el total es 4 veces más: 6 × 4 = <b>24 alumnos</b>.</li></ul><p>Otro: «Me han descontado 9 €, que es el 10 % del precio. ¿Cuánto costaba?». Si el 10 % son 9 €, el 100 % es 10 veces más: <b>90 €</b>.</p><p>Y uno más difícil: «El 30 % de un número es 45». El 10 % es 45 : 3 = 15, y el 100 % es 15 × 10 = <b>150</b>.</p><p>Comprueba siempre volviendo atrás: el 30 % de 150 es 45. ¡Correcto!</p><p>Este tipo de cálculo es muy útil para entender las noticias. Si un periódico dice que «en un pueblo, 300 personas votaron, que son el 60 % de los vecinos con derecho a voto», puedes averiguar cuántos vecinos podían votar: el 10 % son 300 : 6 = 50 personas, así que el 100 % son 50 × 10 = 500 vecinos. Y también cuántos no fueron a votar: 500 − 300 = 200, es decir, el 40 % restante. Fíjate en que 60 % + 40 % = 100 %: las dos partes juntas siempre forman el total.</p>`,
+        svg("El treinta por ciento son cuarenta y cinco: cada diez por ciento son quince y el total ciento cincuenta", `${[...Array(10)].map((_, i) => `<rect x="${20 + i * 22}" y="56" width="22" height="34" fill="${i < 3 ? MO : "var(--card)"}" fill-opacity="${i < 3 ? 0.45 : 1}" stroke="var(--ink)" stroke-width="1.3"/>${t(31 + i * 22, 78, "15", { s: 9 })}`).join("")}${t(53, 44, "30 % = 45", { s: 12, c: MO })}${t(130, 120, "10 % = 45 : 3 = 15", { s: 13 })}${t(130, 152, "100 % = 150", { s: 16, d: true, c: VE })}`),
+        ["PId8BE7N_EI", "Qué porcentaje es un número de otro: súper fácil", "Daniel Carreón", 1424005]],
+    ],
+  },
+  final: [
+    ["Porcentajes en gráficos de sectores", `<p>Los porcentajes se representan muy bien en un <b>gráfico de sectores</b> (o «de quesitos»): el círculo completo es el <b>100 %</b> y cada sector es una parte.</p><p>Como el círculo tiene 360°, cada 1 % equivale a 3,6°. Pero en Primaria basta con estas referencias:</p><ul><li><b>50 %</b> → medio círculo.</li><li><b>25 %</b> → un cuarto de círculo (un ángulo recto).</li><li><b>10 %</b> → un trocito pequeño, como una porción de pizza cortada en diez.</li></ul><p>Ejemplo: en una encuesta, el 50 % de la clase prefiere el fútbol, el 25 % el baloncesto, el 15 % la natación y el 10 % el atletismo. Los cuatro sectores suman 50 + 25 + 15 + 10 = <b>100 %</b>. ¡Siempre deben sumar 100! Si no suman 100, algo está mal: quizá falta un grupo, como el de los que «no saben o no contestan».</p><p>Estos gráficos aparecen en las noticias, en las facturas de la luz o en las encuestas. Leerlos bien te ayuda a entender la información de un vistazo.</p>`,
+      svg("Gráfico de sectores: cincuenta por ciento fútbol, veinticinco baloncesto, quince natación y diez atletismo", `${(() => { let a = -Math.PI / 2; return [[50, AZ], [25, VE], [15, RO], [10, NA]].map(([v, c]) => { const a2 = a + (v / 100) * 2 * Math.PI, p = (x) => `${(80 + 60 * Math.cos(x)).toFixed(1)} ${(90 + 60 * Math.sin(x)).toFixed(1)}`; const s = `<path d="M80 90 L ${p(a)} A 60 60 0 ${v > 50 ? 1 : 0} 1 ${p(a2)} Z" fill="${c}" fill-opacity=".55" stroke="var(--card)" stroke-width="2"/>`; a = a2; return s; }).join(""); })()}${[["Fútbol 50 %", AZ], ["Baloncesto 25 %", VE], ["Natación 15 %", RO], ["Atletismo 10 %", NA]].map(([n, c], i) => `<rect x="152" y="${40 + i * 28}" width="12" height="12" fill="${c}" fill-opacity=".7"/>${t(170, 51 + i * 28, n, { s: 11, a: "start" })}`).join("")}`)],
+  ],
+  ejemplos: [
+    ["Una bici de 200 € tiene un 15 % de descuento y después un 10 % más. ¿Cuál es el precio final?", ["15 % de 200 = 30 € → 200 − 30 = 170 €.", "10 % de 170 = 17 € → 170 − 17 = 153 €.", "No es un 25 % (que daría 150 €)."], "153 €"],
+    ["El 20 % de los alumnos de un colegio, que son 60, van en bici. ¿Cuántos alumnos tiene el colegio?", ["20 % = 1/5.", "Si 1/5 son 60, el total son 60 × 5.", "Comprobación: 20 % de 300 = 60."], "300 alumnos"],
+  ],
+  errores: ["Sumar dos descuentos seguidos: un 20 % y otro 20 % no hacen un 40 %."],
+  nivelesBase: "bbbmmmmmmm",
+  ejercicios: [
+    ["b", "Escribe como decimal: 150 % y 200 %.", "1,5 y 2."],
+    ["b", "¿Qué significa «0 % de azúcares añadidos»?", "Que no se le ha añadido nada de azúcar."],
+    ["b", "Un gráfico de sectores tiene 40 %, 35 % y una parte sin dato. ¿Cuánto vale esa parte?", "100 − 40 − 35 = 25 %."],
+    ["b", "Escribe los tres tipos de IVA que hay en España y un producto de cada uno.", "21 % (juguetes), 10 % (transporte) y 4 % (pan)."],
+    ["m", "El 10 % de un número es 7. ¿Cuál es el número?", "7 × 10 = 70."],
+    ["m", "Calcula el IVA del 21 % de un producto de 200 € sin IVA y su precio final.", "21 % de 200 = 42 €. Precio final: 242 €."],
+    ["m", "Dos camisetas de 12 € con la oferta «segunda unidad al 50 %». ¿Cuánto pagas? ¿Qué porcentaje de descuento es en total?", "12 + 6 = 18 €. Ahorras 6 € de 24 €: un 25 %."],
+    ["a", "Un abrigo de 80 € tiene un 25 % de descuento y luego un 10 % más. ¿Cuánto cuesta al final?", "80 − 20 = 60 €; 60 − 6 = 54 €."],
+    ["a", "El 30 % de los socios de un club son 120. ¿Cuántos socios hay?", "10 % = 40; 100 % = 400 socios."],
+    ["a", "Un árbol medía 4 m y ahora mide el 125 % de esa altura. ¿Cuánto mide? ¿Cuánto ha crecido?", "125 % de 4 = 1,25 × 4 = 5 m. Ha crecido 1 m."],
+    ["a", "Una tienda anuncia «hasta un 60 % de descuento». ¿Significa que todo cuesta la mitad o menos? Explícalo.", "No. Solo algunos productos tienen un 60 %; el resto puede tener menos descuento o ninguno."],
+    ["a", "En una encuesta a 40 alumnos, 10 prefieren leer, 20 jugar y 10 dibujar. Calcula los porcentajes y comprueba que suman 100.", "10/40 = 25 %, 20/40 = 50 %, 10/40 = 25 %. Suman 100 %."],
+    ["a", "¿Es lo mismo subir un precio un 10 % y luego bajarlo un 10 %? Compruébalo con 100 €.", "100 + 10 = 110 €; 10 % de 110 = 11 € → 99 €. No vuelve a 100 €."],
+    ["m", "Un móvil tiene la batería al 80 %. Si llena tiene 4 000 mAh, ¿cuántos mAh le quedan?", "80 % de 4 000 = 3 200 mAh."],
+    ["m", "En un tique, el pan (IVA 4 %) cuesta 2 € sin IVA. ¿Cuánto IVA se paga?", "4 % de 2 = 0,08 € (8 céntimos)."],
+    ["b", "Colorea mentalmente: ¿qué parte del círculo es el 25 %?", "Un cuarto de círculo."],
+  ],
+  quiz: [
+    ["Un 20 % de descuento y después otro 20 % es en total…", ["Menos de un 40 %", "Un 40 %", "Más de un 40 %"], "El segundo descuento se calcula sobre un precio ya rebajado."],
+    ["150 % escrito como decimal es…", ["1,5", "0,15", "15"], "150 : 100 = 1,5."],
+    ["Si el 10 % de un precio son 8 €, el precio es…", ["80 €", "18 €", "0,8 €"], "Se multiplica por 10."],
+    ["El IVA general en España es del…", ["21 %", "4 %", "50 %"], "Se aplica a ropa, juguetes, electrónica…"],
+    ["En un gráfico de sectores, todos los sectores suman…", ["100 %", "50 %", "360 %"], "El círculo completo es el total."],
+  ],
+  examen: [
+    ["«Segunda unidad al 50 %» supone sobre dos unidades un descuento del…", ["25 %", "50 %", "100 %"], "Ahorras media unidad de dos."],
+    ["El 25 % de un número es 6. El número es…", ["24", "31", "150"], "6 × 4 = 24."],
+    ["El pan y la leche tienen un IVA del…", ["4 %", "21 %", "10 %"], "Es el tipo superreducido."],
+    ["Medio círculo en un gráfico de sectores es el…", ["50 %", "25 %", "180 %"], "La mitad del total."],
+  ],
+  tarjetas: [
+    ["Descuentos seguidos", "No se suman: 20 % + 20 % = 36 % de descuento total."],
+    ["Del porcentaje al total", "Si el 10 % son 8, el 100 % son 80."],
+    ["IVA", "Impuesto incluido en el precio: 21 %, 10 % o 4 % en España."],
+    ["Gráfico de sectores", "El círculo es el 100 %; los sectores siempre suman 100."],
+  ],
+  glosario: [
+    ["Porcentaje", "Cantidad de cada cien: 30 % = 30 de cada 100."],
+    ["Tanto por ciento", "Otra forma de llamar al porcentaje."],
+    ["Descuento", "Cantidad que se resta a un precio."],
+    ["Rebaja", "Bajada del precio de un producto durante un tiempo."],
+    ["Aumento", "Cantidad que se suma a un precio o a una medida."],
+    ["Precio final", "Lo que se paga después de descuentos, aumentos e impuestos."],
+    ["IVA", "Impuesto sobre el valor añadido, que se paga al comprar."],
+    ["Tique", "Papel que da la tienda con lo que has comprado y su precio."],
+    ["Gráfico de sectores", "Círculo dividido en partes que representan porcentajes."],
+    ["Encuesta", "Conjunto de preguntas a un grupo de personas para conocer su opinión."],
+    ["Consumidor responsable", "Persona que compara precios y compra solo lo que necesita."],
+  ],
+  situacion: {
+    titulo: "Detectives de las rebajas",
+    reto: "Analizamos folletos y anuncios reales de rebajas para descubrir cuáles son ofertas de verdad y cuáles son trampas.",
+    pasos: ["Traed a clase folletos de supermercados o tiendas, o capturas de anuncios con porcentajes.", "Calculad el precio final de cada producto y el ahorro real en euros.", "Buscad ofertas «tramposas»: descuentos seguidos, «segunda unidad», «hasta un…» y explicad por qué lo son.", "Elaborad una guía de consejos para comprar en rebajas con ejemplos calculados."],
+    producto: "Una «Guía del detective de las rebajas» con al menos cinco casos resueltos y consejos para consumir con responsabilidad.",
+    evaluacion: ["Calcula porcentajes, descuentos y precios finales sin errores.", "Distingue ofertas reales de ofertas engañosas y lo justifica.", "Aplica el cálculo a situaciones reales de consumo.", "Comunica sus conclusiones con claridad."],
+  },
+});
