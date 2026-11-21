@@ -60,7 +60,7 @@ function espana(t, o = {}) {
   }
   if (o.rios) {
     const ks = o.rios === true ? Object.keys(RIOS) : o.rios;
-    s += ks.map((k) => `<path d="${P(RIOS[k])}" fill="none" stroke="var(--inf)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`).join("");
+    s += ks.map((k) => `<path d="${P(RIOS[k])}" fill="none" stroke="var(--pen)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`).join("");
   }
   const HALO = 'font-weight="700" stroke="var(--card)" stroke-width="2.6" paint-order="stroke" stroke-linejoin="round"';
   (o.zonas || []).forEach(([lo, la, rx, ry, n, c], i) => {
