@@ -51,7 +51,7 @@ const BACH = {
       ...["Matemáticas Generales|mat", "Economía, Emprendimiento y Actividad Empresarial|eco"].map((x) => `${x}|${M}|${GEN}`)],
   2: ["Lengua Castellana y Literatura II|len", "Historia de España|soc", "Historia de la Filosofía|fil", `Inglés II|ing|${L}`,
       ...["Matemáticas II|mat", "Física|fis", "Química|fis", "Biología|natu", "Geología y Ciencias Ambientales|natu", "Dibujo Técnico II|art", "Tecnología e Ingeniería II|tec"].map((x) => `${x}|${M}|${CT}`),
-      ...["Matemáticas Aplicadas a las Ciencias Sociales II|mat", "Latín II|cla", "Griego II|cla", "Empresa y Diseño de Modelos de Negocio|eco", "Geografía|soc", "Historia del Arte|art"].map((x) => `${x}|${M}|${HCS}`),
+      ...["Matemáticas Aplicadas a las Ciencias Sociales II|mat", "Latín II|cla", "Empresa y Diseño de Modelos de Negocio|eco", "Geografía|soc", "Historia del Arte|art"].map((x) => `${x}|${M}|${HCS}`),
       ...["Dibujo Artístico II|art", "Diseño|art", "Técnicas de Expresión Gráfico-Plástica|art", "Fundamentos Artísticos|art", "Análisis Musical II|mus", "Artes Escénicas II|mus", "Coro y Técnica Vocal II|mus", "Historia de la Música y de la Danza|mus", "Literatura Dramática|len"].map((x) => `${x}|${M}|${ART}`),
       ...["Ciencias Generales|natu", "Movimientos Culturales y Artísticos|art"].map((x) => `${x}|${M}|${GEN}`)],
 };
