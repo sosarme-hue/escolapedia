@@ -1,0 +1,103 @@
+// Dibujo Artístico II · Los proyectos gráficos colaborativos (formato ligero).
+const B = require("./_bach2-da");
+const { tema, cajas, flujo, comparar, rejilla, ciclo, capas } = B;
+
+module.exports = tema({
+  titulo: "Los proyectos gráficos colaborativos",
+  minutos: 75,
+  objetivos: [
+    "Planificar un proyecto gráfico colaborativo siguiendo sus fases",
+    "Repartir las tareas según las habilidades y los intereses de cada persona",
+    "Elegir técnicas, herramientas, medios y soportes adecuados a cada disciplina",
+    "Evaluar el proceso y el resultado y entender el error como oportunidad de aprendizaje",
+  ],
+  claves: ["proyecto", "colaboración", "briefing", "roles", "cronograma", "boceto", "prototipo", "maqueta", "rúbrica", "error como oportunidad"],
+  pregunta: {
+    texto: "Un mural de 20 metros, una película de animación o un cómic de 200 páginas no los hace una sola persona. ¿Qué tiene que pasar para que diez personas dibujen como si fueran una?",
+    respuesta: "Hace falta un <mark>proyecto</mark>: un objetivo común, un estilo acordado, tareas repartidas según lo que cada uno hace mejor, un calendario y momentos de revisión. La colaboración no se improvisa: <b>se organiza</b>.",
+  },
+  bloques: [
+    { h: "Qué es un proyecto gráfico colaborativo", html: `<p>Un <b>proyecto gráfico colaborativo</b> es un trabajo de dibujo o diseño que realiza un grupo con un objetivo común: un mural, un cómic colectivo, un fanzine, una campaña de carteles, una animación o la escenografía de una obra de teatro.</p><p>Muchas disciplinas profesionales funcionan así: en un estudio de animación hay guionistas, diseñadores de personajes, fondistas, animadores y coloristas; en un cómic, guionista, dibujante, entintador, colorista y rotulista.</p><p>Colaborar aporta ideas variadas, permite abordar obras grandes y enseña competencias muy valoradas: comunicación, organización, negociación y responsabilidad. Pero exige acordar un <b>lenguaje visual común</b> para que el resultado sea coherente.</p>`, svg: cajas("Ejemplos de proyectos colaborativos", [["Mural", "gran formato|en equipo"], ["Cómic / fanzine", "páginas|repartidas"], ["Animación", "cadena de|producción"], ["Escenografía", "teatro|o evento"]]) },
+    { h: "Las fases del proyecto", html: `<p>Todo proyecto gráfico sigue unas fases parecidas:</p><ol><li><b>Briefing o encargo</b>: qué se pide, para quién, dónde se verá, plazo y presupuesto.</li><li><b>Investigación</b>: referentes, documentación, visita al lugar, público.</li><li><b>Ideación</b>: lluvia de ideas y bocetos rápidos (miniaturas).</li><li><b>Desarrollo</b>: elegir una idea, definir estilo, paleta y técnica; hacer un <b>boceto final</b> o maqueta.</li><li><b>Producción</b>: realizar la obra repartiendo tareas.</li><li><b>Presentación y difusión</b>: montaje, inauguración, redes.</li><li><b>Evaluación</b>: qué ha funcionado y qué mejorar.</li></ol><p>Las fases no son rígidas: a menudo se vuelve atrás para corregir. Documentar cada fase con fotos y notas permite presentar después el <b>proceso</b>, no solo el resultado.</p>`, svg: flujo("Fases de un proyecto gráfico", ["briefing e investigación", "ideación y bocetos", "desarrollo y maqueta", "producción", "presentación y evaluación"]), video: { id: "ZXovbtOoSvk", titulo: "Cómo escribir un proyecto artístico: partes generales", canal: "Libro de Artista Colecciones", vistas: 28168 } },
+    { h: "Repartir las tareas", html: `<p>La <b>distribución de tareas</b> es clave. Criterios para hacerla bien:</p><ul><li><b>Habilidades</b>: quién encaja mejor, quién domina el color, quién la letra o el digital.</li><li><b>Intereses</b>: la motivación mejora el resultado; también conviene que alguien aprenda algo nuevo.</li><li><b>Equilibrio de carga</b>: que nadie haga todo ni nadie se quede sin tarea.</li><li><b>Roles rotativos</b>: coordinación, documentación o control de materiales pueden ir cambiando.</li></ul><p>Herramientas útiles: un <b>cronograma</b> (calendario con fechas de entrega), un tablero de tareas (pendiente, en proceso, hecho) y una <b>guía de estilo</b> con paleta, tipo de línea y ejemplos para que todos dibujen de forma coherente.</p>`, svg: rejilla("Ejemplo de reparto en un mural", ["Rol", "Tarea"], [["Coordinación", "calendario y decisiones"], ["Diseño", "boceto y estilo"], ["Encaje", "cuadrícula y traslado"], ["Color", "paleta y relleno"], ["Documentación", "fotos y memoria"]]) },
+    { h: "Elegir técnicas, medios y soportes", html: `<p>La técnica depende del <b>lugar</b>, del <b>tiempo</b> y del <b>público</b>:</p><ul><li><b>Mural exterior</b>: pintura acrílica o plástica de exteriores, plantillas y escalas por cuadrícula; previsión de imprimación y barniz.</li><li><b>Mural interior efímero</b>: papel continuo, carbón, rotuladores gruesos, cinta adhesiva.</li><li><b>Cómic o fanzine</b>: tinta, rotulador, formato y número de páginas pensados para fotocopiar o imprimir.</li><li><b>Animación</b>: papel y caja de luz, o tableta y programa (Krita, OpenToonz).</li><li><b>Escenografía</b>: grandes formatos, cartón pluma, proyecciones.</li></ul><p>Hay que considerar también la <b>seguridad</b> (escaleras, ventilación con aerosoles), el coste, la sostenibilidad de los materiales y la <b>autoría</b>: acordar cómo se firma y se difunde la obra colectiva.</p>`, svg: comparar("Del boceto al soporte final", ["Boceto", ["pequeño", "papel", "rápido", "se corrige"]], ["Soporte final", ["gran formato", "material duradero", "plan de trabajo", "seguridad"]]), video: { id: "AluXxHxIb8w", titulo: "Murales: proceso de una creación (documental)", canal: "Fernando M Marquez", vistas: 858 } },
+    { h: "Evaluar el proyecto", html: `<p>Evaluar no es solo poner nota al final. Conviene evaluar <b>cada fase</b> y el <b>resultado</b>, y combinar varias miradas:</p><ul><li><b>Autoevaluación</b>: qué he aportado y qué he aprendido.</li><li><b>Coevaluación</b>: cómo ha trabajado cada miembro del grupo.</li><li><b>Heteroevaluación</b>: la del profesorado o el público.</li></ul><p>Una <b>rúbrica</b> con criterios claros (adecuación al encargo, calidad técnica, coherencia visual, colaboración, documentación) ayuda a ser justos. Las revisiones intermedias («crítica de grupo») permiten corregir a tiempo: se muestran los bocetos, se comentan con respeto y se decide qué cambiar.</p>`, svg: ciclo("Tipos de evaluación", "evaluar", ["auto", "co", "hetero", "rúbrica"]) },
+    { h: "El error como oportunidad", html: `<p>En un proyecto siempre hay errores: un boceto que no funciona, un color que no queda como se esperaba, una fecha que no se cumple. La clave es convertirlos en <b>aprendizaje</b>:</p><ul><li>Detectarlos pronto con revisiones frecuentes.</li><li>Analizar la causa sin culpar a nadie.</li><li>Buscar soluciones creativas: muchos hallazgos artísticos nacen de un accidente (el goteo de Pollock, el azar surrealista).</li><li>Anotarlo en la memoria del proyecto para no repetirlo.</li></ul><p>Un buen equipo no es el que no se equivoca, sino el que <b>aprende</b> y mejora durante el proceso. El cierre ideal es una reflexión conjunta: qué haríamos igual, qué cambiaríamos y qué hemos descubierto.</p>`, svg: capas("Del error al aprendizaje", [["Detectar", "revisiones frecuentes"], ["Analizar", "causa, no culpa"], ["Solucionar", "creatividad"], ["Aprender", "anotar y mejorar"]]) },
+  ],
+  figura: { titulo: "Un proyecto colaborativo en cuatro claves", items: [["Fases", "1→7", "del briefing", "a la evaluación"], ["Roles", "equipo", "según", "habilidades"], ["Técnica", "lugar", "tiempo y", "público"], ["Evaluar", "rúbrica", "y aprender", "del error"]] },
+  video: { id: "ZXovbtOoSvk", titulo: "Cómo escribir un proyecto artístico: partes generales", canal: "Libro de Artista Colecciones", vistas: 28168 },
+  ejemplos: [
+    ["Planifica un fanzine de 8 páginas sobre el barrio en un grupo de cuatro.", ["Briefing: público, tema y fecha de presentación.", "Una persona coordina la maqueta; cada miembro dibuja 2 páginas.", "Guía de estilo: tinta negra, un color plano, misma tipografía.", "Revisión intermedia de bocetos y montaje final."], "Un fanzine <b>coherente</b> con tareas equilibradas."],
+    ["Trasladar un boceto de 20 × 30 cm a una pared de 2 × 3 m.", ["Dibujar una cuadrícula de 2 × 2 cm sobre el boceto.", "Trazar en la pared una cuadrícula de 20 × 20 cm (escala 1:10).", "Copiar casilla a casilla."], "El <b>método de la cuadrícula</b> conserva las proporciones."],
+    ["Un color del mural queda demasiado oscuro al secar. ¿Qué hacer?", ["Analizar: la pintura plástica oscurece al secar.", "Probar mezclas en una muestra y dejar secar antes de aplicar.", "Anotarlo en la memoria y repintar esa zona."], "Un error convertido en <b>protocolo</b>: hacer siempre pruebas de color."],
+  ],
+  errores: [
+    ["Empezar a pintar sin boceto acordado.", "Aprobar entre todos un boceto final y una guía de estilo."],
+    ["Repartir tareas sin tener en cuenta habilidades ni carga.", "Usar criterios de habilidad, interés y equilibrio."],
+    ["Evaluar solo el resultado final.", "Evaluar también las fases, la colaboración y la documentación."],
+    ["Esconder los errores.", "Detectarlos pronto y convertirlos en aprendizaje."],
+  ],
+  ejercicios: {
+    b: [
+      ["Ordena las fases: producción, briefing, evaluación, ideación, desarrollo.", "Briefing, ideación, desarrollo, producción y evaluación."],
+      ["¿Qué es un briefing?", "El encargo inicial: qué se pide, para quién, dónde, cuándo y con qué recursos."],
+      ["Nombra tres criterios para repartir tareas.", "Habilidades, intereses y equilibrio de carga."],
+      ["Diferencia autoevaluación y coevaluación.", "Autoevaluación: me evalúo yo. Coevaluación: me evalúan mis compañeros."],
+    ],
+    m: [
+      ["Redacta el briefing de un mural para la biblioteca del instituto.", "Incluye objetivo, público, medidas de la pared, técnica permitida, plazo, presupuesto y quién lo aprueba."],
+      ["Crea una guía de estilo de una página para un cómic colectivo.", "Paleta de 3-4 colores, grosor de línea, tipo de bocadillo y rotulación, y un ejemplo de personaje en tres posturas."],
+      ["Diseña un cronograma de cuatro semanas para un proyecto de carteles.", "Semana 1: investigación y bocetos. Semana 2: desarrollo y revisión. Semana 3: producción. Semana 4: montaje, difusión y evaluación."],
+      ["Elabora una rúbrica de cuatro criterios y tres niveles.", "Criterios: adecuación al encargo, calidad técnica, coherencia visual y colaboración. Niveles: en proceso, conseguido, excelente, con descriptores claros."],
+    ],
+    a: [
+      ["Organiza un cadáver exquisito de clase de gran formato con reglas comunes.", "Divide un papel continuo en tantas franjas como alumnos, fija unas reglas (técnica, paleta, puntos de unión) y valora la coherencia del resultado."],
+      ["Escribe la memoria final de un proyecto real de clase.", "Incluye objetivos, fases con fotos, reparto de tareas, técnicas, errores y soluciones, evaluación y propuestas de mejora."],
+    ],
+  },
+  quiz: [
+    ["Un proyecto gráfico colaborativo es…", ["un dibujo individual", "un trabajo de grupo con un objetivo común", "una copia", "un examen"], 1, "Objetivo compartido."],
+    ["La primera fase de un proyecto es…", ["la producción", "el briefing", "la evaluación", "la difusión"], 1, "El encargo."],
+    ["Las miniaturas son…", ["bocetos rápidos y pequeños", "el resultado final", "una técnica de grabado", "un soporte"], 0, "Para la ideación."],
+    ["Una guía de estilo sirve para…", ["que cada uno dibuje a su manera", "que el resultado sea coherente", "elegir el presupuesto", "evaluar"], 1, "Lenguaje visual común."],
+    ["Un cronograma es…", ["un calendario de tareas y fechas", "un tipo de pincel", "una rúbrica", "una técnica"], 0, "Organiza el tiempo."],
+    ["Para trasladar un boceto a una pared se usa…", ["el frottage", "la cuadrícula", "el escorzo", "el grattage"], 1, "Escala por cuadrícula."],
+    ["La coevaluación la hacen…", ["los compañeros", "el profesorado", "uno mismo", "el público"], 0, "Los iguales."],
+    ["Una rúbrica contiene…", ["criterios y niveles de logro", "colores", "bocetos", "materiales"], 0, "Evaluación clara."],
+    ["Ante un error en el proyecto lo mejor es…", ["ocultarlo", "analizarlo y aprender", "abandonar", "culpar a alguien"], 1, "El error como oportunidad."],
+    ["Pollock y los surrealistas muestran que…", ["el azar y el accidente pueden ser creativos", "no hay que equivocarse", "solo vale el boceto", "no se debe colaborar"], 0, "Hallazgos por accidente."],
+  ],
+  examen: [
+    ["En un estudio de animación, quien dibuja los escenarios es…", ["el fondista", "el colorista", "el rotulista", "el guionista"], 0, "Fondos."],
+    ["Los roles rotativos permiten…", ["que todos aprendan distintas tareas", "que nadie trabaje", "evitar la evaluación", "no planificar"], 0, "Reparto equitativo."],
+    ["Documentar cada fase sirve para…", ["presentar el proceso y aprender", "gastar papel", "evitar el boceto", "copiar"], 0, "Memoria del proyecto."],
+    ["En un mural exterior conviene prever…", ["imprimación y barniz", "papel de seda", "carboncillo", "pastel"], 0, "Durabilidad."],
+  ],
+  feynman: ["qué es un proyecto colaborativo", "las fases del proyecto", "reparto de tareas", "elección de técnicas y soportes", "evaluación y rúbrica", "el error como oportunidad"],
+  mapa: ["Proyectos colaborativos", [["Fases", "briefing a evaluación"], ["Roles", "habilidades e intereses"], ["Técnicas", "lugar, tiempo, público"], ["Evaluar", "rúbrica y error"]]],
+  tarjetas: [
+    ["Briefing", "Encargo inicial del proyecto."],
+    ["Miniaturas", "Bocetos pequeños y rápidos de ideación."],
+    ["Guía de estilo", "Normas visuales comunes del grupo."],
+    ["Cronograma", "Calendario de tareas y entregas."],
+    ["Método de la cuadrícula", "Trasladar un boceto a gran formato conservando proporciones."],
+    ["Coevaluación", "Evaluación entre compañeros."],
+    ["Rúbrica", "Tabla de criterios y niveles de logro."],
+    ["Error como oportunidad", "Detectar, analizar, solucionar y aprender."],
+  ],
+  glosario: [
+    ["Proyecto", "Plan de trabajo con un objetivo, fases y plazos."],
+    ["Briefing", "Documento del encargo."],
+    ["Rol", "Función de cada miembro del equipo."],
+    ["Guía de estilo", "Normas visuales para la coherencia."],
+    ["Maqueta", "Modelo previo de la obra final."],
+    ["Cronograma", "Calendario del proyecto."],
+    ["Rúbrica", "Herramienta de evaluación con criterios y niveles."],
+    ["Memoria", "Documento que recoge el proceso del proyecto."],
+  ],
+  situacion: { titulo: "Mural colectivo para el instituto", reto: "Diseñar y realizar en equipo un mural (efímero o permanente) sobre un tema elegido por la comunidad educativa.", pasos: ["Redactad el briefing con el equipo directivo.", "Investigad referentes y haced miniaturas individuales.", "Elegid y desarrollad un boceto común con guía de estilo.", "Repartid tareas y realizad el mural con la cuadrícula.", "Presentadlo, documentadlo y evaluadlo con rúbrica."], producto: "Mural terminado y memoria del proyecto.", evaluacion: ["Adecuación al encargo", "Calidad técnica y coherencia visual", "Colaboración y reparto equilibrado", "Memoria y reflexión sobre errores"] },
+  familias: ["Preguntadle qué rol ha tenido en su proyecto de grupo.", "Visitad murales de vuestra ciudad y comentad cómo se hicieron.", "Valorad tanto el proceso como el resultado.", "Hablad de algún error del que hayáis aprendido algo."],
+  saberes: "F. Proyectos gráficos colaborativos: distribución de tareas según habilidades; fases de los proyectos gráficos; estrategias de selección de técnicas, herramientas, medios y soportes; estrategias de evaluación de las fases y los resultados; el error como oportunidad de mejora y aprendizaje",
+  ideas: ["Plantear el proyecto colaborativo como cierre del curso integrando los saberes anteriores.", "Usar un tablero de tareas visible en el aula.", "Invitar a un muralista o ilustrador local a explicar su proceso."],
+  fuentes: [{ t: "Escuelas de Arte y Superiores de Diseño: proyectos de ilustración", url: "https://www.educacionfpydeportes.gob.es/" }],
+});

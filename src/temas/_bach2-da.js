@@ -108,7 +108,7 @@ function texturas(aria) {
 // Escorzo: un brazo visto de lado y en escorzo (las formas se acortan y se solapan).
 function escorzo(aria) {
   return marco(aria, `${ci(46, 70, 14, trazo("var(--ink)", 2))}${pa("M46 84 V140", trazo("var(--ink)", 2.2))}${pa("M46 96 L104 96 L150 96", trazo("var(--pen)", 6))}${ci(156, 96, 7, 'fill="var(--pen)"')}${t(98, 82, "de lado: largo", { color: "var(--pen)", bold: 1, maxW: 120 })}
-    ${ci(200, 70, 14, trazo("var(--ink)", 2))}${pa("M200 84 V140", trazo("var(--ink)", 2.2))}${el(214, 100, 10, 9, 'fill="var(--red)" fill-opacity=".35" stroke="var(--red)" stroke-width="2"')}${el(224, 102, 13, 12, 'fill="var(--red)" fill-opacity=".55" stroke="var(--red)" stroke-width="2"')}${ci(234, 104, 9, 'fill="var(--red)"')}${t(214, 136, "en escorzo:", { color: "var(--red)", bold: 1, maxW: 80 })}${t(214, 150, "corto y solapado", { color: "var(--red)", maxW: 90 })}
+    ${ci(200, 70, 14, trazo("var(--ink)", 2))}${pa("M200 84 V140", trazo("var(--ink)", 2.2))}${el(214, 100, 10, 9, 'fill="var(--red)" fill-opacity=".35" stroke="var(--red)" stroke-width="2"')}${el(224, 102, 13, 12, 'fill="var(--red)" fill-opacity=".55" stroke="var(--red)" stroke-width="2"')}${ci(234, 104, 9, 'fill="var(--red)"')}${t(232, 136, "en escorzo:", { color: "var(--red)", bold: 1, maxW: 80 })}${t(222, 150, "más corto", { color: "var(--red)", maxW: 90 })}
     ${t(130, 172, "mismo brazo, distinto punto de vista", { color: "var(--muted)", maxW: 230 })}`);
 }
 
