@@ -12,11 +12,18 @@ function region(aria, poli, o = {}) {
   const { rectas = [], vert = [], nivel = null, opt = null, ...ej } = o;
   return G(aria, { x0: -0.5, x1: 10, y0: -0.5, y1: 8, ...ej }, (E) => {
     let s = E.area(poli, "var(--leaf)", 0.26);
+    const ley = [];
     rectas.forEach(([a, b, c, col = "var(--pen)", rot = ""]) => {
       if (Math.abs(b) > 1e-9) s += E.curva((x) => (c - a * x) / b, col, ej.x0 ?? -0.5, ej.x1 ?? 10, 2);
       else s += E.seg(c / a, ej.y0 ?? -0.5, c / a, ej.y1 ?? 8, col, 2);
-      if (rot) { const xr = Math.abs(b) > 1e-9 ? (ej.x1 ?? 10) * 0.86 : c / a; const yr = Math.abs(b) > 1e-9 ? (c - a * xr) / b : (ej.y1 ?? 8) * 0.9; s += t(E.X(xr) + 2, E.Y(yr) - 5, rot, { s: 10, b: 1, c: col, a: "end" }); }
+      if (rot) ley.push([rot, col]);
     });
+    // Leyenda de las rectas en la esquina superior derecha, sobre un fondo claro.
+    if (ley.length) {
+      const wl = Math.max(...ley.map(([r]) => r.length)) * 6 + 12, xr = E.w - 18;
+      s += `<rect x="${xr - wl}" y="18" width="${wl + 4}" height="${ley.length * 13 + 6}" rx="5" fill="var(--paper)" fill-opacity=".92"/>`;
+      ley.forEach(([r, col], i) => { s += t(xr, 30 + i * 13, r, { s: 10, b: 1, c: col, a: "end" }); });
+    }
     if (nivel) { const [a, b, k] = nivel; s += E.curva((x) => (k - a * x) / b, "var(--red)", ej.x0 ?? -0.5, ej.x1 ?? 10, 2, 'stroke-dasharray="6 4"'); }
     vert.forEach(([x, y, r, dx = 6, dy = -6]) => { s += E.punto(x, y, "var(--ink)", r, dx, dy); });
     if (opt) s += `<circle cx="${E.X(opt[0])}" cy="${E.Y(opt[1])}" r="8" fill="none" stroke="var(--red)" stroke-width="2.4"/>`;
