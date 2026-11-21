@@ -38,10 +38,10 @@ function reticula(aria, cols = 4) {
 
 // Anatomía de la letra: línea base, altura de x, ascendentes, descendentes y serifa.
 function anatomia(aria) {
-  const lb = 124, lx = 84, la = 46, ld = 150;
+  const lb = 124, lx = 79, la = 53, ld = 146;
   const linea = (y, s, c) => `${ln(14, y, 200, y, c, 1.2, 'stroke-dasharray="4 3"')}${t(206, y + 4, s, { fs: 10, bold: 1, color: c, anchor: "start", maxW: 54 })}`;
   return marco(aria, `${linea(la, "ascendente", "var(--leaf)")}${linea(lx, "altura x", "var(--pen)")}${linea(lb, "línea base", "var(--red)")}${linea(ld, "descendente", "var(--sun)")}
-    <text x="24" y="${lb}" font-family="Georgia, 'Times New Roman', serif" font-size="96" fill="var(--ink)">Hxp</text>
+    <text x="24" y="${lb}" font-family="Georgia, 'Times New Roman', serif" font-size="96" fill="var(--ink)">hxp</text>
     ${ci(38, lb - 2, 9, 'fill="none" stroke="var(--red)" stroke-width="2"')}${t(38, 172, "serifa", { fs: 10, bold: 1, color: "var(--red)", maxW: 50 })}
     ${t(110, 18, "Anatomía de la letra", { fs: 12, bold: 1, maxW: 200 })}`);
 }

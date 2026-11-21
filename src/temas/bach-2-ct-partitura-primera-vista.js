@@ -52,7 +52,7 @@ module.exports = B.tema({
       h: "Encontrar la primera nota",
       html: `<p>Al empezar, el director o el piano dan el <b>acorde</b> de la tonalidad o la primera nota de cada cuerda. Si tu voz entra más tarde, debes buscar tu nota a partir de lo que suena: «empiezo en la tercera del acorde», «entro una quinta por encima de los bajos».</p>
       <p>Un buen recurso es cantar mentalmente la <b>escala</b> de la tonalidad y comprobar que tu primera nota encaja. Con el tiempo se desarrolla la <b>audición interior</b>: oír la música en la cabeza solo con mirarla. Cantar cada día una melodía nueva, aunque sea corta, es la mejor forma de conseguirlo.</p>`,
-      svg: B.acordes("Buscar mi nota en el acorde de do", [["Bajo", 0, "fundamental"], ["Tenor", 2, "tercera"], ["Contralto", 4, "quinta"]]),
+      svg: B.capas("Buscar mi nota en el acorde de do mayor", [["Sopranos", "do agudo: la octava"], ["Contraltos", "sol: la quinta"], ["Tenores", "mi: la tercera"], ["Bajos", "do: la fundamental"]]),
     },
     {
       h: "Marcar y estudiar la partitura",
