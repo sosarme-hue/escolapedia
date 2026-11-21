@@ -2,7 +2,7 @@
 // Reutiliza la geometría calculada de Dibujo Técnico I y añade inversión, homología, afinidad,
 // cónicas, curvas cíclicas, axonometrías generales y perspectiva cónica. Coordenadas de pantalla (y hacia abajo).
 const G = require("./_bach1-dt");
-const { add, sub, mul, dist, unit, corteRR, rad, n2, pie } = G;
+const { add, sub, mul, dist, unit, corteRR, rad, n2, pie, seg } = G;
 const P2 = (A) => `${n2(A[0])} ${n2(A[1])}`;
 
 // ---------- Inversión ----------
@@ -109,4 +109,55 @@ const ejeL = 'stroke-dasharray="10 3 2 3"';
 const oculta = 'stroke-dasharray="4 3"';
 const rayado = (pts, c = "var(--pen)", op = 0.22) => `<path d="M${pts.map(P2).join(" L ")} Z" fill="${c}" fill-opacity="${op}" stroke="${c}" stroke-width="1.6"/>`;
 
-module.exports = { ...G, P2, inv, invCirc, homologia, afinidad, elipsePts, hiperPts, paraPts, paraV, cicloide, epici, evolvente, axo, militar, conica, dP, planoD, dash, ejeL, oculta, rayado };
+
+// ---- Poliedros: envolvente convexa, giros 3D y dibujo con visibilidad ----
+const v3 = { sub: (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]], add: (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]], mul: (a, k) => [a[0] * k, a[1] * k, a[2] * k], dot: (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2], cross: (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]] };
+v3.norm = (a) => Math.hypot(...a);
+v3.unit = (a) => v3.mul(a, 1 / v3.norm(a));
+// Giro de Rodrigues: lleva el vector u sobre el vector w.
+function giro3(u, w) {
+  const a = v3.unit(u), b = v3.unit(w), k = v3.cross(a, b), s = v3.norm(k), c = v3.dot(a, b);
+  if (s < 1e-12) return (P) => (c > 0 ? P : [P[0], -P[1], -P[2]]);
+  const kk = v3.mul(k, 1 / s);
+  return (P) => v3.add(v3.add(v3.mul(P, c), v3.mul(v3.cross(kk, P), s)), v3.mul(kk, v3.dot(kk, P) * (1 - c)));
+}
+const giroZ = (deg) => { const a = rad(deg), c = Math.cos(a), s = Math.sin(a); return (P) => [P[0] * c - P[1] * s, P[0] * s + P[1] * c, P[2]]; };
+// Envolvente convexa por fuerza bruta (poliedros pequeños): caras ordenadas con normal exterior.
+function envolvente(V) {
+  const n = V.length, cen = v3.mul(V.reduce((s, p) => v3.add(s, p), [0, 0, 0]), 1 / n), caras = [], vistas = new Set();
+  for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) for (let k = j + 1; k < n; k++) {
+    let N = v3.cross(v3.sub(V[j], V[i]), v3.sub(V[k], V[i])); const L = v3.norm(N); if (L < 1e-9) continue; N = v3.mul(N, 1 / L);
+    const d = v3.dot(N, V[i]); let pos = 0, neg = 0; const S = [];
+    for (let m = 0; m < n; m++) { const t = v3.dot(N, V[m]) - d; if (Math.abs(t) < 1e-6) S.push(m); else if (t > 0) pos++; else neg++; }
+    if (pos && neg) continue;
+    const key = S.join(","); if (vistas.has(key)) continue; vistas.add(key);
+    if (v3.dot(N, v3.sub(V[i], cen)) < 0) N = v3.mul(N, -1);
+    const c = v3.mul(S.reduce((s, m) => v3.add(s, V[m]), [0, 0, 0]), 1 / S.length), e1 = v3.unit(v3.sub(V[S[0]], c)), e2 = v3.cross(N, e1);
+    S.sort((p, q) => Math.atan2(v3.dot(v3.sub(V[p], c), e2), v3.dot(v3.sub(V[p], c), e1)) - Math.atan2(v3.dot(v3.sub(V[q], c), e2), v3.dot(v3.sub(V[q], c), e1)));
+    caras.push({ idx: S, n: N });
+  }
+  const aristas = new Map();
+  caras.forEach((f, fi) => f.idx.forEach((a, t) => { const b = f.idx[(t + 1) % f.idx.length], key = a < b ? a + "-" + b : b + "-" + a; if (!aristas.has(key)) aristas.set(key, { a: Math.min(a, b), b: Math.max(a, b), caras: [] }); aristas.get(key).caras.push(fi); }));
+  return { V, caras, aristas: [...aristas.values()] };
+}
+// Dibuja un poliedro con una proyección P (punto 3D → pantalla) y un vector hacia el observador w.
+function polVista(pol, P, w, c = "var(--pen)", fill = 0.1, wv = 2.2) {
+  const vis = pol.caras.map((f) => v3.dot(f.n, w) > 1e-6), Q = pol.V.map(P);
+  const ocultas = pol.aristas.filter((e) => !e.caras.some((f) => vis[f])), visibles = pol.aristas.filter((e) => e.caras.some((f) => vis[f]));
+  const caras = pol.caras.filter((f, i) => vis[i]).map((f) => `<path d="M${f.idx.map((i) => P2(Q[i])).join(" L ")} Z" fill="${c}" fill-opacity="${fill}" stroke="none"/>`).join("");
+  return caras + ocultas.map((e) => seg(Q[e.a], Q[e.b], c, 1.1, 'stroke-dasharray="4 3"')).join("") + visibles.map((e) => seg(Q[e.a], Q[e.b], c, wv)).join("");
+}
+// Planta y alzado de un poliedro dado en coordenadas (x, alejamiento, cota).
+const polDiedrico = (pol, yt, c = "var(--pen)") => polVista(pol, (p) => [p[0], yt + p[1]], [0, 0, 1], c) + polVista(pol, (p) => [p[0], yt - p[2]], [0, 1, 0], c);
+// Vista axonométrica ortogonal genérica (az, el en grados) con su vector de visión.
+const vistaAxo = (O, k, az, el) => { const a = rad(az), e = rad(el); const R = (p) => { const x1 = p[0] * Math.cos(a) - p[1] * Math.sin(a), y1 = p[0] * Math.sin(a) + p[1] * Math.cos(a); return [x1, y1, p[2]]; }; const w0 = [0, -Math.cos(e), Math.sin(e)]; const w = [w0[0] * Math.cos(a) + w0[1] * Math.sin(a), -w0[0] * Math.sin(a) + w0[1] * Math.cos(a), w0[2]]; return { P: (p) => { const r = R(p); return [O[0] + r[0] * k, O[1] - (r[1] * Math.sin(e) + r[2] * Math.cos(e)) * k]; }, w }; };
+const POL = {
+  tetra: (a) => { const r = a / Math.sqrt(3), h = a * Math.sqrt(2 / 3); return [0, 1, 2].map((i) => [r * Math.cos(rad(90 + 120 * i)), r * Math.sin(rad(90 + 120 * i)), 0]).concat([[0, 0, h]]); },
+  cubo: (a) => [0, 1].flatMap((i) => [0, 1].flatMap((j) => [0, 1].map((k) => [(i - 0.5) * a, (j - 0.5) * a, k * a]))),
+  octa: (a) => { const r = a / Math.SQRT2; return [[r, 0, r], [-r, 0, r], [0, r, r], [0, -r, r], [0, 0, 0], [0, 0, 2 * r]]; },
+  ico: (a) => { const f = (1 + Math.sqrt(5)) / 2, s = a / 2; const V = []; [-1, 1].forEach((p) => [-1, 1].forEach((q) => { V.push([0, p * s, q * f * s], [p * s, q * f * s, 0], [q * f * s, 0, p * s]); })); return V; },
+  dodeca: (a) => { const f = (1 + Math.sqrt(5)) / 2, s = a * f / 2, V = []; [-1, 1].forEach((p) => [-1, 1].forEach((q) => [-1, 1].forEach((r) => V.push([p * s, q * s, r * s])))); [-1, 1].forEach((p) => [-1, 1].forEach((q) => { V.push([0, p * s / f, q * s * f], [p * s / f, q * s * f, 0], [q * s * f, 0, p * s / f]); })); return V; },
+};
+// Coloca un conjunto de puntos: apoya el mínimo de cota en c0 y centra en (x, o).
+const colocar = (V, x, o, c0 = 0) => { const zmin = Math.min(...V.map((p) => p[2])), cx = (Math.min(...V.map((p) => p[0])) + Math.max(...V.map((p) => p[0]))) / 2, cy = (Math.min(...V.map((p) => p[1])) + Math.max(...V.map((p) => p[1]))) / 2; return V.map((p) => [p[0] - cx + x, p[1] - cy + o, p[2] - zmin + c0]); };
+module.exports = { ...G, v3, giro3, giroZ, envolvente, polVista, polDiedrico, vistaAxo, POL, colocar, P2, inv, invCirc, homologia, afinidad, elipsePts, hiperPts, paraPts, paraV, cicloide, epici, evolvente, axo, militar, conica, dP, planoD, dash, ejeL, oculta, rayado };
