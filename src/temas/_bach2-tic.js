@@ -44,6 +44,21 @@ const VID = {
   "js-dom": { id: "4ILE0y58J00", canal: "TodoCode", vistas: 31875 },
   "js-eventos": { id: "TzhpyFmSioY", canal: "Code Hive", vistas: 34128 },
   "js-fetch": { id: "FJ-w0tf3d_w", canal: "midulive", vistas: 165186 },
+  "pub-general": { id: "kltg9w3TiLc", canal: "Soy Dalto", vistas: 396658 },
+  "pub-hosting": { id: "l6kdgO09G0I", canal: "Dostin Hurtado", vistas: 86414 },
+  "pub-seo": { id: "_ewwO0Y1zb4", canal: "Mugu | Mentor en Marketing Digital", vistas: 96330 },
+  "pub-cms": { id: "Yp_HroRM6rw", canal: "Academia de Hostinger", vistas: 91500 },
+  "pub-github": { id: "aaEeEpOC-EQ", canal: "Dostin Hurtado", vistas: 139492 },
+  "seg-general": { id: "3G8yJaudGC0", canal: "elmondigital", vistas: 127261 },
+  "seg-cripto": { id: "wDpqrasDmxM", canal: "Profe Sang", vistas: 134625 },
+  "seg-hash": { id: "it9suW1HN3Q", canal: "Contando Bits", vistas: 53149 },
+  "seg-phishing": { id: "PAOZ7i6wAAE", canal: "Micro Joan", vistas: 127752 },
+  "seg-claves": { id: "Cp4Tiq3LOrc", canal: "PantallasAmigas", vistas: 279522 },
+  "ia-general": { id: "XuWMWPwdlik", canal: "BIG BOOK", vistas: 563295 },
+  "ia-ml": { id: "xrQ1YH0PnrM", canal: "Linkfy", vistas: 191050 },
+  "ia-redes": { id: "MRIv2IwFTPg", canal: "Dot CSV", vistas: 878149 },
+  "ia-pandas": { id: "PvNKKrPE0AI", canal: "Errodringer", vistas: 130421 },
+  "ia-etica": { id: "X3vXJ1kG1E8", canal: "NEURO - LEARNING", vistas: 117551 },
 };
 const V = (k, titulo) => {
   if (!VID[k]) throw new Error(`vídeo ${k} no encontrado`);
