@@ -26,7 +26,7 @@ module.exports = B.tema({
       h: "Afinar dentro del acorde",
       html: `<p>En 1º viste que afinar es ajustar la altura de tu nota a la de los demás. En 2º damos un paso más: en el coro no se afina nota a nota, sino <b>dentro del acorde</b>. Cada cantante debe saber qué papel tiene su nota: <b>fundamental</b>, <b>tercera</b>, <b>quinta</b> o <b>séptima</b>.</p>
       <p>La fundamental es la base y la cantan normalmente los bajos; la quinta refuerza la estabilidad; la tercera decide si el acorde es mayor o menor, y la séptima añade tensión. Saber «quién soy en el acorde» permite escuchar hacia dónde ajustar y dar a cada nota el peso adecuado.</p>`,
-      svg: B.acordes("Papel de cada nota en el acorde", [["Fundamental", 0, "base"], ["Tercera", 2, "mayor o menor"], ["Quinta", 4, "estabilidad"]]),
+      svg: B.capas("Las notas del acorde de do mayor", [["Quinta · sol", "da estabilidad"], ["Tercera · mi", "decide mayor o menor"], ["Fundamental · do", "base del acorde"]]),
     },
     {
       h: "Afinación justa y temperada",

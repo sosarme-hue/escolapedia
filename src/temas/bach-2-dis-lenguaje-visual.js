@@ -71,7 +71,7 @@ module.exports = B.tema({
     titulo: "Leer una imagen en cuatro pasos",
     items: [["Elementos", "•—▲", "punto, línea", "y plano"], ["Percepción", "◐", "leyes de", "la Gestalt"], ["Composición", "▦", "jerarquía y", "retícula"], ["Color", "◉", "modelo, armonía", "y significado"]],
   },
-  video: { id: "7N2v0bpNFKA", titulo: "Fundamentos del diseño: elementos básicos", canal: "LearnFree en Español", vistas: 615599 },
+  video: { id: "6_Ak5Rdo_rc", titulo: "Psicología de la Gestalt súper fácil, con ejemplos", canal: "Marco Creativo y Hey Jaime", vistas: 230008 },
   quiz: [
     ["La línea diagonal transmite…", ["calma", "dinamismo", "estabilidad", "silencio"], 1, "Movimiento e inestabilidad."],
     ["El espacio en blanco en diseño…", ["es un error", "deja respirar y también comunica", "debe eliminarse", "solo sirve en libros"], 1, "Orden y elegancia."],
