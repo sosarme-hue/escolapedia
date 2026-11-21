@@ -15,6 +15,16 @@ const VID = {
   "ion-a": { id: "WnVFcnGvJ-Y", canal: "Amigos de la Química", vistas: 5423787 },
   "ion-b": { id: "UR66eHziB-c", canal: "Amigos de la Química", vistas: 342207 },
   "ion-c": { id: "BcdyqMYled0", canal: "Breaking Vlad", vistas: 211888 },
+  "cov-a": { id: "dWh4wf5VgMs", canal: "Amigos de la Química", vistas: 5398202 },
+  "cov-b": { id: "yyETY2ARd3g", canal: "Amigos de la Química", vistas: 1460361 },
+  "cov-c": { id: "vR-C_IXBTOw", canal: "Amigos de la Química", vistas: 1411077 },
+  "cov-d": { id: "DS0v0RWUwCI", canal: "Amigos de la Química", vistas: 2357087 },
+  "td-a": { id: "eqkVJ3YbdEI", canal: "Amigos de la Química", vistas: 1058552 },
+  "td-b": { id: "eS0wlgyHAwI", canal: "Amigos de la Química", vistas: 349675 },
+  "td-c": { id: "g0fvXJutbGY", canal: "Breaking Vlad", vistas: 252370 },
+  "cin-a": { id: "DE3_F5TVX8o", canal: "Amigos de la Química", vistas: 1440135 },
+  "cin-b": { id: "hNKOs6snniY", canal: "Amigos de la Química", vistas: 937597 },
+  "cin-c": { id: "-6Vs2Nx6E84", canal: "unicoos", vistas: 250087 },
 };
 const V = (k, titulo, busqueda) => ({ ...VID[k], titulo, megusta: 0, ...(busqueda ? { busqueda } : {}) });
 
