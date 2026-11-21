@@ -142,7 +142,7 @@ function envolvente(V) {
 }
 // Dibuja un poliedro con una proyección P (punto 3D → pantalla) y un vector hacia el observador w.
 function polVista(pol, P, w, c = "var(--pen)", fill = 0.1, wv = 2.2) {
-  const vis = pol.caras.map((f) => v3.dot(f.n, w) > 1e-6), Q = pol.V.map(P);
+  const vis = pol.caras.map((f) => v3.dot(f.n, typeof w === "function" ? w(f, pol) : w) > 1e-6), Q = pol.V.map(P);
   const ocultas = pol.aristas.filter((e) => !e.caras.some((f) => vis[f])), visibles = pol.aristas.filter((e) => e.caras.some((f) => vis[f]));
   const caras = pol.caras.filter((f, i) => vis[i]).map((f) => `<path d="M${f.idx.map((i) => P2(Q[i])).join(" L ")} Z" fill="${c}" fill-opacity="${fill}" stroke="none"/>`).join("");
   return caras + ocultas.map((e) => seg(Q[e.a], Q[e.b], c, 1.1, 'stroke-dasharray="4 3"')).join("") + visibles.map((e) => seg(Q[e.a], Q[e.b], c, wv)).join("");
@@ -160,4 +160,16 @@ const POL = {
 };
 // Coloca un conjunto de puntos: apoya el mínimo de cota en c0 y centra en (x, o).
 const colocar = (V, x, o, c0 = 0) => { const zmin = Math.min(...V.map((p) => p[2])), cx = (Math.min(...V.map((p) => p[0])) + Math.max(...V.map((p) => p[0]))) / 2, cy = (Math.min(...V.map((p) => p[1])) + Math.max(...V.map((p) => p[1]))) / 2; return V.map((p) => [p[0] - cx + x, p[1] - cy + o, p[2] - zmin + c0]); };
-module.exports = { ...G, v3, giro3, giroZ, envolvente, polVista, polDiedrico, vistaAxo, POL, colocar, P2, inv, invCirc, homologia, afinidad, elipsePts, hiperPts, paraPts, paraV, cicloide, epici, evolvente, axo, militar, conica, dP, planoD, dash, ejeL, oculta, rayado };
+
+// Vistas oblicuas y cónica con su criterio de visibilidad.
+const vistaCaba = (O, c = 0.5, a = 225, k = 1) => ({ P: G.caba(O, c, a, k), w: v3.unit([1, -c * Math.cos(rad(a)), -c * Math.sin(rad(a))]) });
+const vistaMilitar = (O, g = 30, c = 1, k = 1) => { const a = rad(g); return { P: militar(O, g, c, k), w: v3.unit([Math.sin(a), Math.cos(a), 1 / c]) }; };
+const vistaConica = (O, D, h, k = 1, ex = 0) => ({ P: conica(O, D, h, k), w: (f, pol) => { const c = f.idx.reduce((s, i) => v3.add(s, pol.V[i]), [0, 0, 0]).map((v) => v / f.idx.length); return v3.sub([ex, -D, h], c); } });
+// Trunca un poliedro convexo por el plano f(P) = 0 conservando la parte f ≤ 0; devuelve también la sección.
+function truncar(pol, f) {
+  const keep = pol.V.filter((p) => f(p) <= 1e-9), cortes = [];
+  pol.aristas.forEach((e) => { const A = pol.V[e.a], B = pol.V[e.b], fa = f(A), fb = f(B); if (fa * fb < 0) { const t = fa / (fa - fb); cortes.push(v3.add(A, v3.mul(v3.sub(B, A), t))); } });
+  const nuevo = envolvente(keep.concat(cortes)), sec = nuevo.caras.find((c) => c.idx.every((i) => Math.abs(f(nuevo.V[i])) < 1e-6));
+  return { pol: nuevo, seccion: sec ? sec.idx.map((i) => nuevo.V[i]) : cortes };
+}
+module.exports = { ...G, vistaCaba, vistaMilitar, vistaConica, truncar, v3, giro3, giroZ, envolvente, polVista, polDiedrico, vistaAxo, POL, colocar, P2, inv, invCirc, homologia, afinidad, elipsePts, hiperPts, paraPts, paraV, cicloide, epici, evolvente, axo, militar, conica, dP, planoD, dash, ejeL, oculta, rayado };
