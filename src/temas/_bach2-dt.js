@@ -2,7 +2,7 @@
 // Reutiliza la geometría calculada de Dibujo Técnico I y añade inversión, homología, afinidad,
 // cónicas, curvas cíclicas, axonometrías generales y perspectiva cónica. Coordenadas de pantalla (y hacia abajo).
 const G = require("./_bach1-dt");
-const { add, sub, mul, dist, unit, corteRR, rad, n2 } = G;
+const { add, sub, mul, dist, unit, corteRR, rad, n2, pie } = G;
 const P2 = (A) => `${n2(A[0])} ${n2(A[1])}`;
 
 // ---------- Inversión ----------
@@ -82,10 +82,31 @@ const militar = (O, g = 30, c = 1, k = 1) => ([x, y, z]) => { const a = rad(g); 
 // Pantalla: origen del cuadro en O (pie de la línea de tierra bajo el punto principal), escala k.
 const conica = (O, D, h, k = 1) => ([x, y, z]) => { const f = D / (D + y); return [O[0] + x * f * k, O[1] - (h + (z - h) * f) * k]; };
 
+
+// ---------- Sistema diédrico ----------
+// LT en y = yt. Un punto del espacio [x, o, c] (abscisa, alejamiento, cota) tiene proyecciones { h, v }.
+const dP = (yt) => ([x, o, c]) => ({ h: [x, yt + o], v: [x, yt - c] });
+// Plano a·(x − xN) + b·o + g·c = 0, que corta a la LT en N = (xN, yt).
+function planoD(xN, a, b, g, yt) {
+  const N = [xN, yt];
+  const cota = (x, o) => -(a * (x - xN) + b * o) / g;
+  const hTr = (x) => [x, yt - (a * (x - xN)) / b];
+  const vTr = (x) => [x, yt + (a * (x - xN)) / g];
+  const phi = Math.atan(Math.hypot(a, b) / Math.abs(g));
+  const H2 = hTr(xN - 100);
+  // Abatimiento sobre el PH alrededor de la traza h, hacia el lado opuesto a la LT.
+  const abate = (x, o) => { const p = [x, yt + o], H = pie(p, N, H2), d = dist(p, H), c = cota(x, o); if (d < 1e-9) return p; return add(H, mul(unit(p, H), Math.hypot(d, c))); };
+  // Desabatimiento: del punto abatido a la proyección horizontal.
+  const desabate = (A) => { const H = pie(A, N, H2), D = dist(A, H); if (D < 1e-9) return A; return add(H, mul(unit(A, H), D * Math.cos(phi))); };
+  const vDe = (p) => [p[0], yt - cota(p[0], p[1] - yt)];
+  return { N, cota, hTr, vTr, phi, abate, desabate, vDe };
+}
+const pieF = (P, A, B) => { const u = unit(A, B), k = (P[0] - A[0]) * u[0] + (P[1] - A[1]) * u[1]; return [A[0] + u[0] * k, A[1] + u[1] * k]; };
+
 // ---------- Trazos extra ----------
 const dash = 'stroke-dasharray="5 3"';
 const ejeL = 'stroke-dasharray="10 3 2 3"';
 const oculta = 'stroke-dasharray="4 3"';
 const rayado = (pts, c = "var(--pen)", op = 0.22) => `<path d="M${pts.map(P2).join(" L ")} Z" fill="${c}" fill-opacity="${op}" stroke="${c}" stroke-width="1.6"/>`;
 
-module.exports = { ...G, P2, inv, invCirc, homologia, afinidad, elipsePts, hiperPts, paraPts, paraV, cicloide, epici, evolvente, axo, militar, conica, dash, ejeL, oculta, rayado };
+module.exports = { ...G, P2, inv, invCirc, homologia, afinidad, elipsePts, hiperPts, paraPts, paraV, cicloide, epici, evolvente, axo, militar, conica, dP, planoD, dash, ejeL, oculta, rayado };
