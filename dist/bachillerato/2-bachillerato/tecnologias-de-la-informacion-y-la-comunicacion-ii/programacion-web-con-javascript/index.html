@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Programación web con JavaScript · Tecnologías de la Información y la Comunicación II 2º de Bachillerato · Escolapedia</title>
+<meta name="description" content="Programación web con JavaScript: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. 2º de Bachillerato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../../../assets/base.css">
+<link rel="stylesheet" href="../../../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../../../familias/">Familias</a>
+    <a href="../../../../profesores/">Profesores</a>
+    <a href="../../../../blog/">Blog</a>
+  </nav>
+</div></header>
+<main><div class="wrap">
+  <div class="crumbs"><a href="../../../../">Inicio</a> › <a href="../../../">Bachillerato</a> › <a href="../../">2º</a> › <a href="../">Tecnologías de la Información y la Comunicación II</a> › Tema 9</div>
+  <div class="topic-head">
+    <div><span class="badge" style="background:#475569">2º de Bachillerato · Tecnologías de la Información y la Comunicación II</span><h1>Programación web con JavaScript</h1>
+      <div class="tools"><button type="button" id="t-proj" aria-pressed="false">Modo proyector</button><a class="toolbtn" href="ficha/">Ficha para imprimir</a></div></div>
+    <nav class="steps" aria-label="Pasos del tema"><a href="#p1" data-go="p1">1</a><a href="#p2" data-go="p2">2</a><a href="#p3" data-go="p3">3</a><a href="#p4" data-go="p4">4</a><a href="#p5" data-go="p5">5</a><a href="#p6" data-go="p6">6</a></nav>
+  </div>
+  <div class="layout"><div>
+    <section class="sec" id="p1"><div class="sec-h"><span class="n">1</span><h2>Pregunta de arranque<small>Piensa 30 segundos antes de seguir</small></h2></div>
+      <p class="question">Escribes en el buscador de una tienda online y, con cada letra, aparecen sugerencias; añades un producto y el carrito se actualiza sin que la página se recargue. ¿Cómo lo hace?</p>
+      <div class="reveal"><p style="margin:0">Escribe o di en voz alta tu respuesta. Después <button type="button" id="rv">mira la solución</button>.</p><p id="rv-text" hidden style="margin:10px 0 0">Con <mark>JavaScript</mark>, el único lenguaje de programación que entienden todos los navegadores. Un programa en JavaScript <b>escucha</b> los eventos (cada tecla pulsada), <b>pide</b> datos al servidor en segundo plano con <code>fetch</code>, recibe la respuesta en formato JSON y <b>modifica</b> la página a través del DOM, la representación de la página como un árbol de objetos. HTML pone el contenido, CSS el aspecto y JavaScript el comportamiento.</p></div>
+    </section>
+    <section class="sec" id="p2"><div class="sec-h"><span class="n">2</span><h2>Aprende<small>12 apartados</small></h2></div>
+      <div class="lectura"><h3>Para empezar: Un lenguaje creado en diez días</h3><p>En mayo de 1995, la empresa Netscape, que fabricaba el navegador más usado del momento, encargó a Brendan Eich un lenguaje sencillo para dar vida a las páginas web. Eich escribió el primer prototipo en solo diez días. Se llamó Mocha, luego LiveScript y, finalmente, <b>JavaScript</b>, un nombre elegido por marketing para aprovechar la fama de Java, con el que apenas tiene relación.</p>
+    <p>Durante años se consideró un lenguaje de juguete, lleno de rarezas. Todo cambió en 2004-2005, cuando Gmail y Google Maps demostraron que con JavaScript se podían hacer aplicaciones completas dentro del navegador. En 2008, Google presentó el motor V8, que lo hizo muchísimo más rápido, y en 2009 apareció Node.js, que permitió usarlo también en los servidores. En 2015, la versión ES6 modernizó el lenguaje con <code>let</code>, <code>const</code>, funciones flecha, clases y promesas.</p>
+    <p>Hoy JavaScript es el lenguaje más utilizado del mundo según las encuestas a programadores: está en casi todas las páginas web, en aplicaciones de escritorio como Visual Studio Code y en aplicaciones móviles.</p></div>
+      <div class="chunk"><div><h3>1.1 JavaScript en el navegador</h3><p><mark>JavaScript</mark> (JS) es un lenguaje de programación interpretado, de tipado dinámico, que se ejecuta en el <b>motor</b> de cada navegador. Su estándar oficial se llama <b>ECMAScript</b>. Permite que las páginas reaccionen a las acciones del usuario, cambien su contenido y se comuniquen con servidores sin recargarse.</p>
+      <p>El código se incluye con el elemento <code>&lt;script&gt;</code>, preferiblemente en un archivo externo:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">&lt;script src="app.js" defer&gt;&lt;/script&gt;</pre>
+      <p>El atributo <code>defer</code> hace que el script se ejecute cuando el HTML ya se ha leído por completo, de modo que puede acceder a todos los elementos de la página. Con <code>type="module"</code> se puede dividir el programa en módulos que se importan entre sí, como en Python.</p>
+      <p>La herramienta básica para aprender y depurar es la <b>consola</b> de las herramientas para desarrolladores (tecla F12). En ella se puede escribir código y ver el resultado al instante, y los programas escriben mensajes con <code>console.log()</code>:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">console.log("Hola desde JavaScript");
+console.log(2 + 3 * 4);          // 14
+console.log(typeof "texto");      // "string"</pre>
+      <p>La sintaxis recuerda a la de C o Java: los bloques se delimitan con <b>llaves</b>, las instrucciones terminan en punto y coma (opcional, pero recomendable) y los comentarios empiezan por <code>//</code> o van entre <code>/* */</code>. A diferencia de Python, la sangría no es obligatoria, aunque se usa siempre para que el código sea legible.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Las tres capas de una página web">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">Capas de la web</text><rect x="8" y="30" width="244" height="31.75" rx="7" fill="var(--pen)" fill-opacity=".16" stroke="var(--pen)" stroke-width="2"/>
+      <text x="16" y="49.875" text-anchor="start" font-size="11.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">JavaScript</text><text x="244" y="49.875" text-anchor="end" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">comportamiento</text><rect x="14" y="66.75" width="232" height="31.75" rx="7" fill="var(--red)" fill-opacity=".16" stroke="var(--red)" stroke-width="2"/>
+      <text x="22" y="86.625" text-anchor="start" font-size="11.5" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">CSS</text><text x="238" y="86.625" text-anchor="end" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">presentación</text><rect x="20" y="103.5" width="220" height="31.75" rx="7" fill="var(--leaf)" fill-opacity=".16" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="28" y="123.375" text-anchor="start" font-size="11.5" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">HTML</text><text x="232" y="123.375" text-anchor="end" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">contenido</text><rect x="26" y="140.25" width="208" height="31.75" rx="7" fill="var(--sun)" fill-opacity=".16" stroke="var(--sun)" stroke-width="2"/>
+      <text x="34" y="160.125" text-anchor="start" font-size="11.5" font-weight="700" fill="var(--sun)" font-family="Atkinson Hyperlegible, sans-serif">Navegador</text><text x="226" y="160.125" text-anchor="end" font-size="8.6" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">motor que lo ejecuta</text></svg></div><div class="chunk"><div><h3>1.2 Variables, tipos y operadores</h3><p>Las variables se declaran con <code>let</code>, si su valor va a cambiar, o con <code>const</code>, si no se va a reasignar. La antigua palabra <code>var</code> tiene un comportamiento confuso y ya no se recomienda.</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const nombre = "Lucía";      // string
+let edad = 17;               // number (enteros y decimales)
+let mayor = edad &gt;= 18;      // boolean: false
+let nota;                    // undefined: sin valor todavía
+let premio = null;           // null: vacío a propósito
+edad = edad + 1;
+console.log(`${nombre} tiene ${edad} años`);</pre>
+      <p>Los tipos primitivos son <b>number</b> (todos los números, sin distinguir enteros y decimales), <b>string</b>, <b>boolean</b>, <b>undefined</b> y <b>null</b>. Las <b>plantillas</b> de texto, entre comillas invertidas, permiten insertar expresiones con <code>${…}</code>, como las <i>f-strings</i> de Python.</p>
+      <p>Los operadores aritméticos son los habituales (<code>+ - * / % **</code>), y los lógicos se escriben <code>&amp;&amp;</code> (y), <code>||</code> (o) y <code>!</code> (no). Una particularidad importante: JavaScript tiene dos operadores de igualdad. El <b>doble igual</b> <code>==</code> convierte los tipos antes de comparar, con resultados sorprendentes (<code>"5" == 5</code> es verdadero), mientras que el <b>triple igual</b> <code>===</code> exige que coincidan el valor y el tipo. Se usa siempre <code>===</code> y <code>!==</code>.</p>
+      <p>El operador <code>+</code> también une textos, y si se mezcla un texto con un número, convierte el número en texto: <code>"2" + 3</code> da <code>"23"</code>. Para convertir un texto en número se usa <code>Number("23")</code> o <code>parseInt</code>, lo que es imprescindible con los datos de los formularios, que siempre llegan como texto.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Tipos de datos de JavaScript">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">Tipos</text><rect x="8" y="30" width="244" height="23.666666666666668" rx="6" fill="var(--eso)"/><text x="69" y="45.833333333333336" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">Tipo</text><text x="191" y="45.833333333333336" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">Ejemplo</text><rect x="8" y="53.66666666666667" width="244" height="23.666666666666668" fill="var(--paper)" stroke="var(--line)"/><text x="69" y="69.5" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">number</text><text x="191" y="69.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">17, 3.14</text><rect x="8" y="77.33333333333334" width="244" height="23.666666666666668" fill="var(--card)" stroke="var(--line)"/><text x="69" y="93.16666666666667" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">string</text><text x="191" y="93.16666666666667" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">"Lucía"</text><rect x="8" y="101" width="244" height="23.666666666666668" fill="var(--paper)" stroke="var(--line)"/><text x="69" y="116.83333333333333" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">boolean</text><text x="191" y="116.83333333333333" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">true, false</text><rect x="8" y="124.66666666666667" width="244" height="23.666666666666668" fill="var(--card)" stroke="var(--line)"/><text x="69" y="140.5" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">undefined / null</text><text x="191" y="140.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">sin valor</text><rect x="8" y="148.33333333333334" width="244" height="23.666666666666668" fill="var(--paper)" stroke="var(--line)"/><text x="69" y="164.16666666666669" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">object / array</text><text x="191" y="164.16666666666669" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">{…}  […]</text></svg></div><div class="chunk"><div><h3>1.3 Estructuras de control</h3><p>Las estructuras de control de JavaScript son equivalentes a las de Python, con distinta sintaxis: las condiciones van entre paréntesis y los bloques entre llaves.</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">if (nota &gt;= 9) {
+  console.log("Sobresaliente");
+} else if (nota &gt;= 5) {
+  console.log("Aprobado");
+} else {
+  console.log("Suspenso");
+}
+
+for (let i = 1; i &lt;= 5; i++) {      // inicio; condición; incremento
+  console.log(i * i);
+}
+
+const colores = ["rojo", "verde", "azul"];
+for (const c of colores) {          // recorre los elementos
+  console.log(c);
+}
+
+let intentos = 0;
+while (intentos &lt; 3) {
+  intentos++;
+}</pre>
+      <p>El <code>for</code> clásico tiene tres partes separadas por punto y coma: la inicialización, la condición que se comprueba antes de cada vuelta y la actualización (<code>i++</code> suma uno a <code>i</code>). El <code>for…of</code> recorre directamente los elementos de un array o de un texto, como el <code>for</code> de Python.</p>
+      <p>La estructura <code>switch</code> compara un valor con varios casos, y el <b>operador ternario</b> <code>condición ? valorSiSí : valorSiNo</code> permite elegir un valor en una sola línea: <code>const texto = edad &gt;= 18 ? "adulto" : "menor";</code>.</p>
+      <p>En las condiciones, JavaScript considera «falsos» los valores <code>false</code>, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code> y <code>NaN</code> (<i>Not a Number</i>, el resultado de operaciones numéricas imposibles), y verdadero todo lo demás.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="La misma estructura en Python y en JavaScript">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><rect x="8" y="12" width="118" height="156" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+    <rect x="8" y="12" width="118" height="28" rx="12" fill="var(--pen)"/><text x="67" y="31" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">Python</text>
+    <text x="67" y="62" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">if x &gt; 0:</text><text x="67" y="86" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">elif / else</text><text x="67" y="110" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">for c in lista:</text><text x="67" y="134" text-anchor="middle" font-size="10.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">bloques con sangría</text><rect x="134" y="12" width="118" height="156" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
+    <rect x="134" y="12" width="118" height="28" rx="12" fill="var(--red)"/><text x="193" y="31" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">JavaScript</text>
+    <text x="193" y="62" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">if (x &gt; 0) {</text><text x="193" y="86" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">else if / else</text><text x="193" y="110" text-anchor="middle" font-size="8.6" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">for (const c of lista)</text><text x="193" y="134" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">bloques con llaves</text></svg></div><div class="chunk"><div><h3>1.4 Funciones</h3><p>Las <mark>funciones</mark> agrupan código reutilizable. En JavaScript hay varias formas de definirlas:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">function area(base, altura) {          // declaración
+  return base * altura / 2;
+}
+
+const saludo = (nombre = "anónimo") =&gt; {   // función flecha
+  return `Hola, ${nombre}`;
+};
+
+const doble = x =&gt; x * 2;                // flecha abreviada
+
+console.log(area(4, 3));   // 6
+console.log(saludo());     // Hola, anónimo</pre>
+      <p>Las <b>funciones flecha</b> (<code>=&gt;</code>) son una forma compacta, muy usada en el JavaScript moderno. Si solo tienen una expresión, se pueden escribir sin llaves ni <code>return</code>. Los parámetros pueden tener <b>valores por defecto</b>.</p>
+      <p>Igual que en Python, las variables declaradas dentro de una función o de un bloque con <code>let</code> y <code>const</code> son <b>locales</b>: solo existen dentro de él. Conviene evitar las variables globales y que cada función reciba lo que necesita por parámetros y devuelva su resultado.</p>
+      <p>En JavaScript, las funciones son valores: se pueden guardar en variables y pasar como argumento a otras funciones. Una función que se pasa a otra para que esta la llame más tarde se llama <b>función de retrollamada</b> (<i>callback</i>). Es la base de los eventos y de los métodos de los arrays:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">setTimeout(() =&gt; console.log("Han pasado 2 s"), 2000);</pre>
+      <p>Aquí se pasa a <code>setTimeout</code> una función flecha, que el navegador ejecutará dos segundos después.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Formas de definir una función en JavaScript">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">Funciones</text><rect x="8" y="30" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+      <text x="67" y="54.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">function f(a)</text><text x="67" y="69.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">declaración</text><text x="67" y="83" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">clásica</text><rect x="134" y="30" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
+      <text x="193" y="54.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">(a) => {…}</text><text x="193" y="69.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">función</text><text x="193" y="83" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">flecha</text><rect x="8" y="104" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.5"/>
+      <text x="67" y="128.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">a => a * 2</text><text x="67" y="143.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">flecha de</text><text x="67" y="157" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">una expresión</text><rect x="134" y="104" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2.5"/>
+      <text x="193" y="128.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--sun)" font-family="Atkinson Hyperlegible, sans-serif">callback</text><text x="193" y="143.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">función que se</text><text x="193" y="157" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">pasa a otra</text></svg></div><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/8GTaO9XhA5M" title="JavaScript desde cero: curso para principiantes" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: JavaScript desde cero: curso para principiantes · Programador X (YouTube) · 467 mil visualizaciones</p><div class="chunk"><div><h3>2.1 Arrays, objetos y JSON</h3><p>Los <b>arrays</b> son listas ordenadas, como las listas de Python. Se accede a sus elementos por posición, desde 0, y tienen métodos muy potentes que reciben funciones:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const notas = [7, 4.5, 9, 6, 3];
+notas.push(8);                                  // añade al final
+const aprobadas = notas.filter(n =&gt; n &gt;= 5);    // [7, 9, 6, 8]
+const subidas   = notas.map(n =&gt; n + 0.5);      // suma 0,5 a cada una
+const suma      = notas.reduce((a, n) =&gt; a + n, 0);
+const media     = suma / notas.length;
+const primera9  = notas.find(n =&gt; n &gt;= 9);      // 9</pre>
+      <p><code>filter</code> selecciona los elementos que cumplen una condición, <code>map</code> transforma cada elemento y devuelve un nuevo array, <code>reduce</code> acumula todos en un único valor y <code>find</code> devuelve el primero que cumple una condición.</p>
+      <p>Los <b>objetos</b> agrupan datos con nombre en pares <b>clave: valor</b>, como los diccionarios de Python:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const alumna = { nombre: "Lucía", curso: "2B", notas: [8, 9] };
+console.log(alumna.nombre);       // Lucía
+alumna.email = "lucia@ejemplo.es"; // añade una propiedad</pre>
+      <p>Los arrays de objetos son la forma habitual de representar datos: una lista de productos, de alumnos o de mensajes. <mark>JSON</mark> (<i>JavaScript Object Notation</i>) es un formato de texto basado en esta notación, con las claves entre comillas dobles. Es el formato estándar de intercambio de datos en la web, y JavaScript lo convierte con dos funciones: <code>JSON.stringify(obj)</code> pasa de objeto a texto y <code>JSON.parse(texto)</code>, de texto a objeto.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Encadenar métodos de un array">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">filter, map y reduce</text><defs><marker id="fl294" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker></defs><rect x="20" y="30" width="220" height="28" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+        <circle cx="36" cy="44" r="10" fill="var(--pen)"/><text x="36" y="48" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">1</text>
+        <text x="141" y="48" text-anchor="middle" font-size="11.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">[7, 4.5, 9, 6, 3]</text><path d="M130 59 V 67" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl294)"/><rect x="20" y="68" width="220" height="28" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+        <circle cx="36" cy="82" r="10" fill="var(--red)"/><text x="36" y="86" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">2</text>
+        <text x="141" y="86" text-anchor="middle" font-size="9.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">filter(n =&gt; n &gt;= 5) → [7, 9, 6]</text><path d="M130 97 V 105" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl294)"/><rect x="20" y="106" width="220" height="28" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+        <circle cx="36" cy="120" r="10" fill="var(--leaf)"/><text x="36" y="124" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">3</text>
+        <text x="141" y="124" text-anchor="middle" font-size="9.8" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">map(n =&gt; n * 10) → [70, 90, 60]</text><path d="M130 135 V 143" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl294)"/><rect x="20" y="144" width="220" height="28" rx="8" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/>
+        <circle cx="36" cy="158" r="10" fill="var(--sun)"/><text x="36" y="162" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">4</text>
+        <text x="141" y="162" text-anchor="middle" font-size="11.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">reduce(suma) → 220</text></svg></div><div class="chunk"><div><h3>2.2 El DOM: leer y modificar la página</h3><p>Cuando el navegador carga una página, construye el <mark>DOM</mark> (<i>Document Object Model</i>): una representación de la página como un <b>árbol de objetos</b>, uno por cada elemento. JavaScript accede al DOM a través del objeto <code>document</code>, y cualquier cambio en el DOM se ve inmediatamente en la pantalla.</p>
+      <p>Para <b>seleccionar</b> elementos se usan selectores CSS:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const titulo = document.querySelector("h1");          // el primero
+const boton  = document.querySelector("#enviar");     // por id
+const tarjetas = document.querySelectorAll(".tarjeta"); // todos</pre>
+      <p>Una vez seleccionado, se puede <b>modificar</b> el elemento:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">titulo.textContent = "Bienvenida";         // cambia el texto
+titulo.classList.add("destacado");          // añade una clase CSS
+titulo.classList.toggle("oculto");          // la pone o la quita
+boton.disabled = true;                      // cambia un atributo
+const img = document.querySelector("img");
+img.src = "otra.jpg";</pre>
+      <p>Para <b>crear</b> elementos nuevos y añadirlos a la página:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const lista = document.querySelector("ul");
+const li = document.createElement("li");
+li.textContent = "Nueva tarea";
+lista.append(li);
+li.remove();                                // y para eliminarlo</pre>
+      <p>Es mejor cambiar el aspecto añadiendo o quitando <b>clases</b> definidas en el CSS que modificar directamente la propiedad <code>style</code>, porque así la presentación sigue en la hoja de estilos. La propiedad <code>innerHTML</code> permite insertar HTML como texto, pero debe evitarse con datos que procedan del usuario, por el riesgo de seguridad que veremos al final del tema.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="JavaScript ve la página como un árbol de nodos, el DOM: selecciona un nodo con querySelector, cambia su texto y añade un nuevo elemento li a la lista">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="18" text-anchor="middle" font-size="12.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">El DOM: la página como árbol</text>
+  <path d="M130 44 L70 72" stroke="var(--muted)" stroke-width="1.4" /><path d="M130 44 L190 72" stroke="var(--muted)" stroke-width="1.4" /><path d="M70 82 L70 104" stroke="var(--muted)" stroke-width="1.4" /><path d="M190 82 L160 104" stroke="var(--muted)" stroke-width="1.4" /><path d="M190 82 L222 104" stroke="var(--muted)" stroke-width="1.4" /><path d="M222 114 L222 136" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <rect x="104" y="27" width="52" height="20" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><text x="130" y="41" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">body</text><rect x="44" y="65" width="52" height="20" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="70" y="79" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">h1</text><rect x="164" y="65" width="52" height="20" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="190" y="79" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">ul</text>
+  <rect x="42" y="99" width="56" height="20" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="70" y="113" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">«Hola»</text><rect x="140" y="99" width="40" height="20" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="160" y="113" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">li</text><rect x="202" y="99" width="40" height="20" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="222" y="113" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">li</text>
+  <rect x="198" y="131" width="48" height="20" rx="10" fill="var(--sun)" fill-opacity=".25" stroke="var(--sun)" stroke-width="2" stroke-dasharray="4 2"/><text x="222" y="145" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">li nuevo</text>
+  <text x="70" y="140" text-anchor="middle" font-size="9.0" fill="var(--pen)" ui-monospace,monospace>textContent = …</text>
+  <text x="130" y="170" text-anchor="middle" font-size="8.5" fill="var(--leaf)" ui-monospace,monospace>ul.append(document.createElement("li"))</text>
+</svg></div><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/4ILE0y58J00" title="Manipulación del DOM con JavaScript" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: Manipulación del DOM con JavaScript · TodoCode (YouTube) · 32 mil visualizaciones</p><div class="chunk"><div><h3>2.3 Eventos</h3><p>La programación web es <b>dirigida por eventos</b>: el programa no se ejecuta de principio a fin, sino que espera a que ocurran cosas y reacciona. Un <mark>evento</mark> es cualquier suceso: un clic, una tecla pulsada, el envío de un formulario, el final de la carga de la página. Con <code>addEventListener</code> se asocia a un elemento una función <b>manejadora</b>, que se ejecuta cada vez que ocurre el evento:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const boton = document.querySelector("#contar");
+const salida = document.querySelector("#total");
+let clics = 0;
+
+boton.addEventListener("click", () =&gt; {
+  clics++;
+  salida.textContent = `Has pulsado ${clics} veces`;
+});
+
+document.querySelector("#busqueda").addEventListener("input", (e) =&gt; {
+  console.log("Texto actual:", e.target.value);
+});</pre>
+      <p>Los eventos más usados son <code>click</code>, <code>input</code> (cambia el contenido de un campo), <code>change</code>, <code>submit</code> (envío de un formulario), <code>keydown</code> (tecla), <code>mouseover</code> y <code>DOMContentLoaded</code> (página lista).</p>
+      <p>La función manejadora recibe un <b>objeto evento</b> (<code>e</code>) con información sobre lo ocurrido: <code>e.target</code> es el elemento que lo produjo, <code>e.key</code> la tecla pulsada. El método <code>e.preventDefault()</code> cancela el comportamiento por defecto del navegador, por ejemplo, el envío de un formulario o la navegación de un enlace.</p>
+      <p>Los eventos <b>se propagan</b> hacia arriba en el árbol: un clic en un botón también llega a su contenedor. Esto permite la <b>delegación de eventos</b>: escuchar en un único contenedor, como una lista, los clics de todos sus elementos, incluidos los que se añadan después.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Ciclo de un evento">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">Programación por eventos</text><defs><marker id="fl185" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker></defs><rect x="20" y="30" width="220" height="20.4" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+        <circle cx="36" cy="40.2" r="9.2" fill="var(--pen)"/><text x="36" y="44.2" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">1</text>
+        <text x="141" y="44.2" text-anchor="middle" font-size="11.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">El usuario hace clic</text><path d="M130 51.4 V 59.4" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl185)"/><rect x="20" y="60.4" width="220" height="20.4" rx="8" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+        <circle cx="36" cy="70.6" r="9.2" fill="var(--red)"/><text x="36" y="74.6" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">2</text>
+        <text x="141" y="74.6" text-anchor="middle" font-size="9.8" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">El navegador crea el objeto evento</text><path d="M130 81.8 V 89.8" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl185)"/><rect x="20" y="90.8" width="220" height="20.4" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+        <circle cx="36" cy="101" r="9.2" fill="var(--leaf)"/><text x="36" y="105" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">3</text>
+        <text x="141" y="105" text-anchor="middle" font-size="10.4" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Se ejecuta la función manejadora</text><path d="M130 112.19999999999999 V 120.19999999999999" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl185)"/><rect x="20" y="121.19999999999999" width="220" height="20.4" rx="8" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/>
+        <circle cx="36" cy="131.39999999999998" r="9.2" fill="var(--sun)"/><text x="36" y="135.39999999999998" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">4</text>
+        <text x="141" y="135.39999999999998" text-anchor="middle" font-size="11.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">La función modifica el DOM</text><path d="M130 142.6 V 150.6" stroke="var(--muted)" stroke-width="2" marker-end="url(#fl185)"/><rect x="20" y="151.6" width="220" height="20.4" rx="8" fill="var(--card)" stroke="var(--inf)" stroke-width="2"/>
+        <circle cx="36" cy="161.79999999999998" r="9.2" fill="var(--inf)"/><text x="36" y="165.79999999999998" text-anchor="middle" font-size="11.0" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">5</text>
+        <text x="141" y="165.79999999999998" text-anchor="middle" font-size="11.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">La pantalla se actualiza</text></svg></div><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/TzhpyFmSioY" title="Eventos en JavaScript con addEventListener" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: Eventos en JavaScript con addEventListener · Code Hive (YouTube) · 34 mil visualizaciones</p><div class="chunk"><div><h3>2.4 Formularios y almacenamiento local</h3><p>JavaScript permite mejorar los formularios: validar los datos mientras se escriben, mostrar mensajes claros y procesarlos sin recargar la página. El valor de un campo se lee con la propiedad <code>value</code>, que es siempre un texto:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const form = document.querySelector("#calculadora");
+form.addEventListener("submit", (e) =&gt; {
+  e.preventDefault();                          // no recargar
+  const peso = Number(form.peso.value);
+  const altura = Number(form.altura.value) / 100;
+  const error = document.querySelector("#error");
+  if (!peso || !altura) {
+    error.textContent = "Introduce peso y altura válidos";
+    return;
+  }
+  error.textContent = "";
+  const imc = peso / altura ** 2;
+  document.querySelector("#resultado").textContent = `IMC: ${imc.toFixed(1)}`;
+});</pre>
+      <p>Se combina con la validación de HTML5: el método <code>form.checkValidity()</code> indica si todos los campos cumplen sus restricciones. Recuerda que la validación en el cliente mejora la experiencia, pero cualquiera puede saltársela, así que el servidor debe validar siempre de nuevo.</p>
+      <p>Para que una aplicación recuerde datos entre visitas, el navegador ofrece el <b>almacenamiento local</b>, <code>localStorage</code>, que guarda pares clave-valor de texto en el propio dispositivo. Para guardar objetos, se convierten a JSON:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const tareas = [{ texto: "Estudiar SQL", hecha: false }];
+localStorage.setItem("tareas", JSON.stringify(tareas));
+const guardadas = JSON.parse(localStorage.getItem("tareas")) ?? [];</pre>
+      <p>El operador <code>??</code> da un valor por defecto si el resultado es <code>null</code>, como ocurre la primera vez. No deben guardarse en <code>localStorage</code> datos sensibles, porque cualquier script de la página puede leerlos.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Validación en el cliente frente a validación en el servidor">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><rect x="8" y="12" width="118" height="156" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+    <rect x="8" y="12" width="118" height="28" rx="12" fill="var(--pen)"/><text x="67" y="31" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">En el cliente</text>
+    <text x="67" y="62" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">HTML5 y JavaScript</text><text x="67" y="86" text-anchor="middle" font-size="10.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">respuesta inmediata</text><text x="67" y="110" text-anchor="middle" font-size="9.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">mejora la experiencia</text><text x="67" y="134" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">se puede saltar</text><rect x="134" y="12" width="118" height="156" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
+    <rect x="134" y="12" width="118" height="28" rx="12" fill="var(--red)"/><text x="193" y="31" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">En el servidor</text>
+    <text x="193" y="62" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">Python, PHP, Node…</text><text x="193" y="86" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">tras el envío</text><text x="193" y="110" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">protege los datos</text><text x="193" y="134" text-anchor="middle" font-size="10.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">siempre obligatoria</text></svg></div><div class="chunk"><div><h3>3.1 Programación asíncrona</h3><p>JavaScript se ejecuta en un <b>único hilo</b>: solo hace una cosa a la vez. Si una tarea lenta, como descargar datos de internet, bloqueara ese hilo, la página se quedaría congelada. Por eso las operaciones lentas son <mark>asíncronas</mark>: el programa las pone en marcha, sigue con lo demás y, cuando terminan, se ejecuta la función que se indicó.</p>
+      <p>Este mecanismo se llama <b>bucle de eventos</b>: el navegador gestiona las esperas (temporizadores, peticiones de red, clics) y, cuando una termina, pone su función en una <b>cola</b>; el bucle la pasa a ejecución cuando la pila de llamadas está vacía.</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">console.log("1");
+setTimeout(() =&gt; console.log("2"), 0);
+console.log("3");
+// Muestra 1, 3, 2: la función del temporizador espera en la cola</pre>
+      <p>Para organizar el código asíncrono, el JavaScript moderno usa <b>promesas</b>. Una <mark>promesa</mark> es un objeto que representa un resultado que llegará en el futuro: está <i>pendiente</i> y acaba <i>cumplida</i>, con un valor, o <i>rechazada</i>, con un error. Las palabras <code>async</code> y <code>await</code> permiten escribir código asíncrono que se lee como si fuera secuencial:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const esperar = (ms) =&gt; new Promise(ok =&gt; setTimeout(ok, ms));
+
+async function cuentaAtras() {
+  for (let i = 3; i &gt; 0; i--) {
+    console.log(i);
+    await esperar(1000);      // espera sin bloquear la página
+  }
+  console.log("¡Ya!");
+}
+cuentaAtras();</pre>
+      <p><code>await</code> solo puede usarse dentro de funciones marcadas con <code>async</code>, y detiene esa función, no la página entera: mientras tanto, el usuario puede seguir haciendo clic.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Modelo de ejecución de JavaScript: la pila ejecuta el código; las tareas lentas como temporizadores o peticiones de red las gestiona el navegador; al terminar, su función se pone en la cola, y el bucle de eventos la pasa a la pila cuando está vacía">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="18" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">Un solo hilo y un bucle de eventos</text>
+  <rect x="14" y="30" width="70" height="92" rx="6" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="49" y="44" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">Pila</text>
+  <rect x="22" y="100" width="54" height="16" rx="3" fill="var(--pen)" fill-opacity="0.35"/><rect x="22" y="80" width="54" height="16" rx="3" fill="var(--pen)" fill-opacity="0.55"/><rect x="22" y="60" width="54" height="16" rx="3" fill="var(--pen)" fill-opacity="0.75"/>
+  <rect x="104" y="30" width="142" height="52" rx="6" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/><text x="175" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--sun)" font-family="Atkinson Hyperlegible, sans-serif">Navegador</text><text x="175" y="64" text-anchor="middle" font-size="9.1" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">temporizador · red · clics</text>
+  <rect x="104" y="100" width="142" height="30" rx="6" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="130" y="119" text-anchor="middle" font-size="10.0" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">Cola</text>
+  <rect x="160" y="107" width="20" height="16" rx="3" fill="var(--leaf)" fill-opacity=".6"/><rect x="186" y="107" width="20" height="16" rx="3" fill="var(--leaf)" fill-opacity=".6"/><rect x="212" y="107" width="20" height="16" rx="3" fill="var(--leaf)" fill-opacity=".6"/>
+  <path d="M84 50 H100" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#fb)"/>
+  <path d="M175 82 V96" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#fb)"/>
+  <path d="M175 132 C 175 160, 49 160, 49 126" stroke="var(--red)" stroke-width="2" fill="none" marker-end="url(#fb)"/>
+  <defs><marker id="fb" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="var(--ink)"/></marker></defs>
+  <text x="112" y="172" text-anchor="middle" font-size="9.2" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">bucle de eventos: si la pila está vacía</text>
+</svg></div><div class="chunk"><div><h3>3.2 Consumir APIs con fetch</h3><p>Una <mark>API web</mark> es un servicio que ofrece datos o funciones a otros programas a través de URL. Muchas siguen el estilo <b>REST</b>: cada recurso tiene su URL y se usan los métodos de HTTP para las operaciones (<code>GET</code> para leer, <code>POST</code> para crear, <code>PUT</code> para modificar y <code>DELETE</code> para borrar). Las respuestas suelen venir en JSON. Hay APIs públicas de datos meteorológicos, de transporte, de bibliotecas o de datos abiertos de las administraciones.</p>
+      <p>La función <code>fetch</code> hace peticiones HTTP desde JavaScript y devuelve una promesa:</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">async function mostrarUsuarios() {
+  const lista = document.querySelector("#usuarios");
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+    if (!res.ok) throw new Error(`Error HTTP ${res.status}`);
+    const usuarios = await res.json();          // texto JSON → objetos
+    for (const u of usuarios) {
+      const li = document.createElement("li");
+      li.textContent = `${u.name} (${u.email})`;
+      lista.append(li);
+    }
+  } catch (err) {
+    lista.textContent = "No se han podido cargar los datos.";
+    console.error(err);
+  }
+}
+mostrarUsuarios();</pre>
+      <p>El patrón es siempre el mismo: pedir con <code>await fetch(url)</code>, comprobar que la respuesta es correcta con <code>res.ok</code>, convertir el cuerpo con <code>await res.json()</code> y actualizar el DOM. Las redes fallan, por lo que hay que gestionar los errores con <code>try…catch</code> y mostrar un mensaje comprensible.</p>
+      <p>Por seguridad, los navegadores aplican la política del <b>mismo origen</b>: una página solo puede leer respuestas de otros dominios si el servidor lo permite con las cabeceras <b>CORS</b>. Además, muchas APIs exigen una <b>clave</b>, que nunca debe escribirse en el código del cliente, porque cualquiera puede verla: se guarda en el servidor.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="Diagrama de una petición fetch: el navegador envía GET a la API; la API responde con datos en JSON; el programa los convierte en objetos y actualiza la página sin recargarla">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/>
+  <rect x="10" y="14" width="76" height="150" rx="8" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/><text x="48" y="32" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">Navegador</text>
+  <rect x="174" y="14" width="76" height="150" rx="8" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/><text x="212" y="32" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">API</text>
+  <defs><marker id="fa" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="var(--ink)"/></marker></defs>
+  <path d="M86 56 H172" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#fa)"/><text x="130" y="50" text-anchor="middle" font-size="9.0" fill="var(--ink)" ui-monospace,monospace>GET /tiempo</text>
+  <path d="M174 96 H88" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#fa)"/><text x="130" y="90" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">200 · JSON</text>
+  <text x="212" y="82" text-anchor="middle" font-size="9.0" fill="var(--ink)" ui-monospace,monospace>{"temp": 14}</text>
+  <text x="48" y="70" text-anchor="middle" font-size="8.5" fill="var(--pen)" ui-monospace,monospace>await fetch()</text>
+  <text x="48" y="118" text-anchor="middle" font-size="8.5" fill="var(--pen)" ui-monospace,monospace>res.json()</text>
+  <text x="48" y="140" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">actualiza</text><text x="48" y="152" text-anchor="middle" font-size="9.0" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">el DOM</text>
+  <text x="130" y="176" text-anchor="middle" font-size="9.5" fill="var(--muted)" font-family="Atkinson Hyperlegible, sans-serif">sin recargar la página</text>
+</svg></div><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/FJ-w0tf3d_w" title="Fetch, promesas y async/await en JavaScript" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: Fetch, promesas y async/await en JavaScript · midulive (YouTube) · 165 mil visualizaciones</p><div class="chunk"><div><h3>3.3 Depuración y buenas prácticas</h3><p>Todos los programas tienen errores, y saber encontrarlos es tan importante como saber escribir código. Las <b>herramientas para desarrolladores</b> del navegador (F12) ofrecen:</p>
+      <ul><li>La <b>consola</b>, que muestra los mensajes de <code>console.log</code> y los errores con el archivo y la línea donde se produjeron. Hay que leer el mensaje: <code>TypeError: Cannot read properties of null</code> suele significar que <code>querySelector</code> no ha encontrado el elemento.</li>
+      <li>El <b>depurador</b> (pestaña Fuentes), que permite poner <b>puntos de interrupción</b>, ejecutar el programa paso a paso y ver el valor de las variables. La instrucción <code>debugger;</code> detiene el programa en esa línea.</li>
+      <li>La pestaña <b>Red</b>, que muestra cada petición <code>fetch</code>, su código de estado y la respuesta recibida.</li></ul>
+      <p>Errores típicos al empezar: escribir mal un nombre (JavaScript distingue mayúsculas y minúsculas), usar <code>==</code> en lugar de <code>===</code>, sumar textos en lugar de números, olvidar <code>await</code> (y obtener una promesa en vez de los datos) o ejecutar el script antes de que exista el HTML (se evita con <code>defer</code>).</p>
+      <p>Buenas prácticas para escribir código mantenible:</p>
+      <ul><li>Usar <code>const</code> por defecto y <code>let</code> solo cuando haya que reasignar.</li>
+      <li>Dar nombres descriptivos y escribir funciones pequeñas con una sola tarea.</li>
+      <li>Separar el HTML, el CSS y el JavaScript en archivos distintos.</li>
+      <li>Usar herramientas como <b>ESLint</b>, que detecta errores y malas prácticas, y <b>Prettier</b>, que da formato automático.</li>
+      <li>Controlar las versiones con <b>Git</b>.</li></ul></div><svg viewBox="0 0 260 180" role="img" aria-label="Herramientas para desarrolladores del navegador">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><text x="130" y="20" text-anchor="middle" font-size="13.0" font-weight="700" fill="var(--ink)" font-family="Baloo 2, sans-serif">F12</text><rect x="8" y="30" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+      <text x="67" y="54.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--pen)" font-family="Atkinson Hyperlegible, sans-serif">Consola</text><text x="67" y="69.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">mensajes</text><text x="67" y="83" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">y errores</text><rect x="134" y="30" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
+      <text x="193" y="54.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--red)" font-family="Atkinson Hyperlegible, sans-serif">Fuentes</text><text x="193" y="69.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">puntos de</text><text x="193" y="83" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">interrupción</text><rect x="8" y="104" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2.5"/>
+      <text x="67" y="128.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--leaf)" font-family="Atkinson Hyperlegible, sans-serif">Red</text><text x="67" y="143.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">peticiones</text><text x="67" y="157" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">y respuestas</text><rect x="134" y="104" width="118" height="66" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2.5"/>
+      <text x="193" y="128.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--sun)" font-family="Atkinson Hyperlegible, sans-serif">Elementos</text><text x="193" y="143.5" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">DOM y CSS</text><text x="193" y="157" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">en vivo</text></svg></div><div class="chunk"><div><h3>3.4 Seguridad, accesibilidad y ecosistema</h3><p>El código JavaScript se ejecuta en el ordenador del usuario y cualquiera puede leerlo y modificarlo. De ahí una regla de oro: <b>no confiar nunca en el cliente</b>. Las comprobaciones importantes (permisos, precios, validación) deben repetirse en el servidor, y las claves secretas nunca deben estar en el código del navegador.</p>
+      <p>La vulnerabilidad más común es el <mark>XSS</mark> (<i>Cross-Site Scripting</i>): un atacante consigue que una página muestre un texto suyo que contiene código, por ejemplo, en un comentario. Si la página lo inserta con <code>innerHTML</code>, el navegador lo interpreta como HTML y ejecuta el script, que puede robar las sesiones de los usuarios.</p>
+      <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">// Peligroso: el texto del usuario se interpreta como HTML
+caja.innerHTML = comentario;
+// Seguro: se muestra como texto, con los signos &lt; &gt; tal cual
+caja.textContent = comentario;</pre>
+      <p>Por eso, para mostrar datos que vienen del usuario o de una API se usa siempre <code>textContent</code> o <code>createElement</code>.</p>
+      <p>Las páginas dinámicas también deben ser <b>accesibles</b>: usar elementos <code>&lt;button&gt;</code> para las acciones, y no <code>&lt;div&gt;</code> con un evento clic, para que funcionen con el teclado; mantener visible el foco; y avisar a los lectores de pantalla de los cambios importantes con atributos ARIA como <code>aria-live</code>.</p>
+      <p>Para aplicaciones grandes se usan <b>bibliotecas y marcos de trabajo</b> (<i>frameworks</i>) como React, Vue, Angular o Svelte, que organizan la interfaz en componentes reutilizables. Antes de usarlos conviene dominar el JavaScript «puro» (<i>vanilla</i>), que es la base de todos ellos.</p></div><svg viewBox="0 0 260 180" role="img" aria-label="innerHTML frente a textContent con datos del usuario">
+  <rect width="260" height="180" rx="14" fill="var(--paper)"/><rect x="8" y="12" width="118" height="156" rx="12" fill="var(--card)" stroke="var(--pen)" stroke-width="2.5"/>
+    <rect x="8" y="12" width="118" height="28" rx="12" fill="var(--pen)"/><text x="67" y="31" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">innerHTML</text>
+    <text x="67" y="62" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">interpreta HTML</text><text x="67" y="86" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">ejecuta scripts</text><text x="67" y="110" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">riesgo de XSS</text><text x="67" y="134" text-anchor="middle" font-size="9.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">solo con HTML propio</text><rect x="134" y="12" width="118" height="156" rx="12" fill="var(--card)" stroke="var(--red)" stroke-width="2.5"/>
+    <rect x="134" y="12" width="118" height="28" rx="12" fill="var(--red)"/><text x="193" y="31" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif">textContent</text>
+    <text x="193" y="62" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">solo texto</text><text x="193" y="86" text-anchor="middle" font-size="8.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif" textLength="106" lengthAdjust="spacingAndGlyphs">muestra &lt; &gt; tal cual</text><text x="193" y="110" text-anchor="middle" font-size="10.5" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">seguro</text><text x="193" y="134" text-anchor="middle" font-size="10.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">para datos externos</text></svg></div>
+      <div class="ejemplos"><h3>Ejemplos resueltos</h3><div class="ej"><p><b>Ejemplo 1.</b> Escribe una función que reciba un array de notas y devuelva un objeto con la media y el número de aprobados.</p><ol><li>Sumar con reduce y dividir entre length.</li><li>Contar los aprobados con filter y length.</li><li>Devolver un objeto con dos propiedades.</li></ol><p class="res"><b>Resultado:</b> <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const resumen = (notas) =&gt; ({
+  media: notas.reduce((a, n) =&gt; a + n, 0) / notas.length,
+  aprobados: notas.filter(n =&gt; n &gt;= 5).length,
+});
+resumen([4, 6, 8]);  // { media: 6, aprobados: 2 }</pre></p></div><div class="ej"><p><b>Ejemplo 2.</b> Haz un botón que cambie entre modo claro y oscuro añadiendo o quitando la clase oscuro al body.</p><ol><li>Seleccionar el botón.</li><li>Escuchar el evento click.</li><li>classList.toggle pone o quita la clase; el CSS hace el resto.</li></ol><p class="res"><b>Resultado:</b> <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">document.querySelector("#tema").addEventListener("click", () =&gt; {
+  document.body.classList.toggle("oscuro");
+});</pre></p></div><div class="ej"><p><b>Ejemplo 3.</b> Un campo de texto debe mostrar debajo cuántos caracteres quedan de un máximo de 280.</p><ol><li>Escuchar el evento input, que salta con cada tecla.</li><li>Calcular 280 menos la longitud del valor.</li><li>Escribir el resultado con textContent.</li></ol><p class="res"><b>Resultado:</b> <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const t = document.querySelector("#mensaje");
+const q = document.querySelector("#quedan");
+t.addEventListener("input", () =&gt; {
+  q.textContent = `Quedan ${280 - t.value.length} caracteres`;
+});</pre></p></div><div class="ej"><p><b>Ejemplo 4.</b> Una lista de tareas: al enviar el formulario, añade el texto escrito como un nuevo elemento de la lista y vacía el campo.</p><ol><li>Escuchar submit y cancelar la recarga.</li><li>Crear un li con createElement y textContent (seguro).</li><li>Añadirlo con append y vaciar el input.</li></ol><p class="res"><b>Resultado:</b> <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">form.addEventListener("submit", (e) =&gt; {
+  e.preventDefault();
+  const li = document.createElement("li");
+  li.textContent = form.tarea.value;
+  document.querySelector("#lista").append(li);
+  form.tarea.value = "";
+});</pre></p></div><div class="ej"><p><b>Ejemplo 5.</b> Escribe una función asíncrona que obtenga de una API la lista de países y muestre cuántos hay.</p><ol><li>await fetch y comprobar res.ok.</li><li>await res.json() devuelve un array.</li><li>Gestionar los errores con try…catch.</li></ol><p class="res"><b>Resultado:</b> <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">async function contarPaises() {
+  try {
+    const res = await fetch("https://restcountries.com/v3.1/all?fields=name");
+    if (!res.ok) throw new Error(res.status);
+    const paises = await res.json();
+    console.log(`Hay ${paises.length} países`);
+  } catch (err) {
+    console.error("Error al cargar:", err);
+  }
+}</pre></p></div><div class="ej"><p><b>Ejemplo 6.</b> Guarda la puntuación máxima de un juego en localStorage y recupérala al cargar la página.</p><ol><li>getItem devuelve null la primera vez: usar ?? 0.</li><li>Convertir el texto a número.</li><li>Si la nueva puntuación es mayor, guardarla.</li></ol><p class="res"><b>Resultado:</b> <pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">let record = Number(localStorage.getItem("record") ?? 0);
+function finPartida(puntos) {
+  if (puntos &gt; record) {
+    record = puntos;
+    localStorage.setItem("record", record);
+  }
+}</pre></p></div></div><div class="errores"><h3>Errores típicos</h3><ul><li>Usar == en lugar de ===, y obtener comparaciones verdaderas entre tipos distintos.</li><li>Olvidar convertir a número el value de un campo y sumar textos («2» + «3» = «23»).</li><li>Ejecutar el script antes de que exista el HTML y obtener null con querySelector.</li><li>Olvidar await con fetch o json() y trabajar con una promesa en lugar de con los datos.</li><li>Mostrar datos del usuario con innerHTML, lo que abre la puerta al XSS.</li><li>Escribir claves de API o comprobaciones de seguridad solo en el código del cliente.</li></ul></div>
+      <h3 style="font-size:21px;margin-top:10px">Ideas clave de JavaScript en la web</h3>
+      <div class="figure"><svg viewBox="0 0 640 220" role="img" aria-label="Ideas clave de JavaScript en la web">
+  <rect width="640" height="220" rx="16" fill="var(--paper)"/>
+  <rect x="16" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--pen)" stroke-width="3"/>
+    <text x="89" y="60" text-anchor="middle" font-size="16.0" font-weight="700" fill="var(--pen)" font-family="Baloo 2, sans-serif">Lenguaje</text>
+    <text x="89" y="106" text-anchor="middle" font-size="20.0" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">let · const</text>
+    <text x="89" y="146" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">funciones flecha,</text><text x="89" y="166" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">arrays y objetos</text><rect x="170" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--red)" stroke-width="3"/>
+    <text x="243" y="60" text-anchor="middle" font-size="16.0" font-weight="700" fill="var(--red)" font-family="Baloo 2, sans-serif">DOM</text>
+    <text x="243" y="106" text-anchor="middle" font-size="16.9" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">querySelector</text>
+    <text x="243" y="146" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">textContent,</text><text x="243" y="166" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">classList, append</text><rect x="324" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--leaf)" stroke-width="3"/>
+    <text x="397" y="60" text-anchor="middle" font-size="16.0" font-weight="700" fill="var(--leaf)" font-family="Baloo 2, sans-serif">Eventos</text>
+    <text x="397" y="106" text-anchor="middle" font-size="13.8" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">addEventListener</text>
+    <text x="397" y="146" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">click, input,</text><text x="397" y="166" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">submit</text><rect x="478" y="24" width="146" height="172" rx="14" fill="var(--card)" stroke="var(--sun)" stroke-width="3"/>
+    <text x="551" y="60" text-anchor="middle" font-size="16.0" font-weight="700" fill="var(--sun)" font-family="Baloo 2, sans-serif">Asíncrono</text>
+    <text x="551" y="106" text-anchor="middle" font-size="16.9" font-weight="700" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">async · await</text>
+    <text x="551" y="146" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">fetch y JSON</text><text x="551" y="166" text-anchor="middle" font-size="13.0" fill="var(--ink)" font-family="Atkinson Hyperlegible, sans-serif">try…catch</text>
+</svg></div><p class="caption">Esquema dibujado para Escolapedia. En el móvil, desliza a los lados.</p>
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/8GTaO9XhA5M" title="JavaScript desde cero: curso para principiantes" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption">Vídeo: JavaScript desde cero: curso para principiantes · Programador X (YouTube) · 467 mil visualizaciones</p>
+    </section>
+    <section class="sec" id="p3"><div class="sec-h"><span class="n">3</span><h2>Practica<small>Responde sin mirar arriba. Equivocarse aquí también enseña.</small></h2></div>
+      <div class="quiz" id="quiz"></div><p class="score" id="score" aria-live="polite"></p>
+      <div class="ejercicios"><h3>Ejercicios (36)</h3><p class="caption">Hazlos en tu cuaderno y después abre la solución.</p><h4 class="nivel nivel-basico">Nivel básico</h4><ol start="1"><li><p>Escribe la línea HTML que carga el archivo juego.js cuando la página ya se ha leído.</p><details><summary>Ver solución</summary><div>&lt;script src="juego.js" defer&gt;&lt;/script&gt;</div></details></li><li><p>Declara una constante PI con valor 3.1416 y una variable puntos que empiece en 0.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const PI = 3.1416;
+let puntos = 0;</pre></div></details></li><li><p>¿Qué muestran console.log("3" + 4) y console.log("3" * 4)?</p><details><summary>Ver solución</summary><div>"34" (concatena) y 12 (el * convierte a número).</div></details></li><li><p>¿Qué devuelven 0 == "" y 0 === ""?</p><details><summary>Ver solución</summary><div>true y false. Por eso se usa siempre ===.</div></details></li><li><p>Escribe un if que muestre «Mayor de edad» o «Menor de edad» según la variable edad.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">if (edad &gt;= 18) {
+  console.log("Mayor de edad");
+} else {
+  console.log("Menor de edad");
+}</pre></div></details></li><li><p>Escribe un bucle que muestre los números pares del 2 al 20.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">for (let i = 2; i &lt;= 20; i += 2) {
+  console.log(i);
+}</pre></div></details></li><li><p>Escribe una función flecha cuadrado que devuelva el cuadrado de un número.</p><details><summary>Ver solución</summary><div>const cuadrado = n =&gt; n * n;</div></details></li><li><p>Crea un objeto libro con título, autor y año, y muestra el autor.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const libro = { titulo: "Nada", autor: "Carmen Laforet", anio: 1945 };
+console.log(libro.autor);</pre></div></details></li><li><p>Selecciona el elemento con id saludo y cambia su texto por «¡Hola!».</p><details><summary>Ver solución</summary><div>document.querySelector("#saludo").textContent = "¡Hola!";</div></details></li><li><p>Añade la clase activo al primer elemento con la clase pestaña.</p><details><summary>Ver solución</summary><div>document.querySelector(".pestaña").classList.add("activo");</div></details></li><li><p>Escribe el código que muestra «Pulsado» en la consola al hacer clic en el botón #b.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">document.querySelector("#b").addEventListener("click", () =&gt; {
+  console.log("Pulsado");
+});</pre></div></details></li><li><p>Convierte el objeto { nombre: "Ana" } a texto JSON y explica para qué sirve.</p><details><summary>Ver solución</summary><div>JSON.stringify({ nombre: "Ana" }) da '{"nombre":"Ana"}'. Sirve para enviarlo a un servidor o guardarlo en localStorage, que solo admiten texto.</div></details></li></ol><h4 class="nivel nivel-medio">Nivel medio</h4><ol start="13"><li><p>Dado const precios = [12, 5, 30, 8], obtén con métodos de array los precios mayores de 10 con un 21 % de IVA.</p><details><summary>Ver solución</summary><div>precios.filter(p =&gt; p &gt; 10).map(p =&gt; p * 1.21)  // [14.52, 36.3]</div></details></li><li><p>Calcula con reduce el precio máximo de un array sin usar Math.max.</p><details><summary>Ver solución</summary><div>const max = precios.reduce((m, p) =&gt; (p &gt; m ? p : m), precios[0]);</div></details></li><li><p>Dado un array de objetos alumnos con nombre y nota, obtén los nombres de los aprobados ordenados alfabéticamente.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">alumnos.filter(a =&gt; a.nota &gt;= 5)
+       .map(a =&gt; a.nombre)
+       .sort((x, y) =&gt; x.localeCompare(y));</pre></div></details></li><li><p>Escribe una función que reciba un array de textos y cree un li por cada uno dentro del ul #lista.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">function pintar(textos) {
+  const ul = document.querySelector("#lista");
+  for (const t of textos) {
+    const li = document.createElement("li");
+    li.textContent = t;
+    ul.append(li);
+  }
+}</pre></div></details></li><li><p>Haz un contador con dos botones (+ y −) que no permita bajar de 0.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">let n = 0;
+const out = document.querySelector("#n");
+document.querySelector("#mas").addEventListener("click", () =&gt; { n++; out.textContent = n; });
+document.querySelector("#menos").addEventListener("click", () =&gt; {
+  if (n &gt; 0) n--;
+  out.textContent = n;
+});</pre></div></details></li><li><p>Muestra en un párrafo la tecla que pulsa el usuario en cualquier momento.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">document.addEventListener("keydown", (e) =&gt; {
+  document.querySelector("#tecla").textContent = `Has pulsado: ${e.key}`;
+});</pre></div></details></li><li><p>Programa un conversor de euros a dólares que actualice el resultado mientras se escribe (1 € = 1,08 $).</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const e = document.querySelector("#euros");
+e.addEventListener("input", () =&gt; {
+  const d = Number(e.value) * 1.08;
+  document.querySelector("#dolares").textContent = d.toFixed(2) + " $";
+});</pre></div></details></li><li><p>Valida que una contraseña tenga al menos 8 caracteres y un número antes de enviar el formulario.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">form.addEventListener("submit", (e) =&gt; {
+  const c = form.clave.value;
+  if (c.length &lt; 8 || !/[0-9]/.test(c)) {
+    e.preventDefault();
+    document.querySelector("#error").textContent =
+      "Mínimo 8 caracteres y un número";
+  }
+});</pre></div></details></li><li><p>Explica en qué orden se muestran los mensajes: console.log("A"); setTimeout(() =&gt; console.log("B"), 1000); setTimeout(() =&gt; console.log("C"), 0); console.log("D").</p><details><summary>Ver solución</summary><div>A, D, C y B. Primero se ejecuta todo el código síncrono (A y D); después, las funciones de la cola cuando vencen sus temporizadores: C (0 ms) y B (1 s).</div></details></li><li><p>Escribe una función async que espere 2 segundos y después muestre «Listo», usando una promesa.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const esperar = ms =&gt; new Promise(r =&gt; setTimeout(r, ms));
+async function avisar() {
+  await esperar(2000);
+  console.log("Listo");
+}</pre></div></details></li><li><p>Corrige este código: const res = fetch(url); const datos = res.json(); console.log(datos.nombre).</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">Falta await, y debe estar dentro de una función async:
+async function cargar() {
+  const res = await fetch(url);
+  const datos = await res.json();
+  console.log(datos.nombre);
+}</pre></div></details></li><li><p>Guarda en localStorage un array de tareas y escribe la función que lo recupera, devolviendo un array vacío si no hay nada.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const guardar = t =&gt; localStorage.setItem("tareas", JSON.stringify(t));
+const cargar = () =&gt; JSON.parse(localStorage.getItem("tareas")) ?? [];</pre></div></details></li><li><p>Implementa la delegación de eventos: al hacer clic en cualquier li de #lista, se tacha añadiendo la clase hecha.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">document.querySelector("#lista").addEventListener("click", (e) =&gt; {
+  if (e.target.matches("li")) {
+    e.target.classList.toggle("hecha");
+  }
+});</pre></div></details></li><li><p>Un compañero muestra los comentarios con caja.innerHTML += comentario. Explica el riesgo con un ejemplo y corrígelo.</p><details><summary>Ver solución</summary><div>Si alguien escribe &lt;img src=x onerror="robar()"&gt;, el navegador lo interpreta y ejecuta el código (XSS). Corrección: const p = document.createElement("p"); p.textContent = comentario; caja.append(p);</div></details></li></ol><h4 class="nivel nivel-avanzado">Nivel avanzado</h4><ol start="27"><li><p>Programa un juego de adivinar un número del 1 al 100: el usuario escribe en un campo, pulsa un botón y la página dice «mayor», «menor» o «¡correcto!» con el número de intentos.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const secreto = Math.floor(Math.random() * 100) + 1;
+let intentos = 0;
+document.querySelector("#probar").addEventListener("click", () =&gt; {
+  const n = Number(document.querySelector("#num").value);
+  intentos++;
+  const msg = n === secreto ? `¡Correcto en ${intentos} intentos!`
+            : n &lt; secreto ? "Es mayor" : "Es menor";
+  document.querySelector("#pista").textContent = msg;
+});</pre></div></details></li><li><p>Crea una lista de tareas completa: añadir, marcar como hecha, borrar y conservar las tareas en localStorage al recargar.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">let tareas = JSON.parse(localStorage.getItem("t")) ?? [];
+const ul = document.querySelector("#lista");
+function pintar() {
+  ul.replaceChildren();
+  tareas.forEach((t, i) =&gt; {
+    const li = document.createElement("li");
+    li.textContent = t.texto;
+    li.classList.toggle("hecha", t.hecha);
+    li.dataset.i = i;
+    const x = document.createElement("button");
+    x.textContent = "Borrar";
+    li.append(x);
+    ul.append(li);
+  });
+  localStorage.setItem("t", JSON.stringify(tareas));
+}
+form.addEventListener("submit", e =&gt; {
+  e.preventDefault();
+  tareas.push({ texto: form.tarea.value, hecha: false });
+  form.tarea.value = "";
+  pintar();
+});
+ul.addEventListener("click", e =&gt; {
+  const i = e.target.closest("li").dataset.i;
+  if (e.target.matches("button")) tareas.splice(i, 1);
+  else tareas[i].hecha = !tareas[i].hecha;
+  pintar();
+});
+pintar();</pre></div></details></li><li><p>Consulta la API https://api.open-meteo.com/v1/forecast?latitude=42.6&amp;longitude=-5.57&amp;current=temperature_2m y muestra la temperatura actual con un mensaje de error si falla.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">async function tiempo() {
+  const out = document.querySelector("#temp");
+  try {
+    const url = "https://api.open-meteo.com/v1/forecast?latitude=42.6&amp;longitude=-5.57&amp;current=temperature_2m";
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(res.status);
+    const d = await res.json();
+    out.textContent = `Ahora: ${d.current.temperature_2m} °C`;
+  } catch {
+    out.textContent = "No se ha podido obtener el tiempo";
+  }
+}
+tiempo();</pre></div></details></li><li><p>Implementa un buscador que filtre en directo una lista de 200 productos ya cargada en un array, sin distinguir mayúsculas.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">const input = document.querySelector("#buscar");
+input.addEventListener("input", () =&gt; {
+  const q = input.value.toLowerCase();
+  const res = productos.filter(p =&gt; p.nombre.toLowerCase().includes(q));
+  pintar(res.map(p =&gt; p.nombre));   // función del ejercicio anterior
+});</pre></div></details></li><li><p>El buscador anterior hace una petición fetch con cada tecla y satura el servidor. Explica la técnica del debounce e impleméntala.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">Debounce: esperar a que el usuario deje de escribir un tiempo (por ejemplo 300 ms) antes de lanzar la petición, cancelando el temporizador anterior con cada tecla.
+let t;
+input.addEventListener("input", () =&gt; {
+  clearTimeout(t);
+  t = setTimeout(() =&gt; buscarEnServidor(input.value), 300);
+});</pre></div></details></li><li><p>Escribe una función que lance tres peticiones fetch a la vez y espere a que terminen todas, explicando la ventaja frente a hacerlas una tras otra.</p><details><summary>Ver solución</summary><div><pre style="overflow-x:auto;font-size:.9em;line-height:1.4;background:var(--paper);border:1px solid var(--line);padding:.6em .8em;border-radius:8px">async function cargarTodo(urls) {
+  const resps = await Promise.all(urls.map(u =&gt; fetch(u)));
+  return Promise.all(resps.map(r =&gt; r.json()));
+}
+Las peticiones se hacen en paralelo: el tiempo total es el de la más lenta y no la suma de las tres.</pre></div></details></li><li><p>Encuentra los errores de este código: let total = 0; for (const p of document.querySelectorAll(".precio")) total += p.textContent; if (total == "0") alert("vacío").</p><details><summary>Ver solución</summary><div>textContent es texto, así que total se concatena: hay que usar Number(p.textContent). Además, == compara con conversión y debería ser total === 0; y mejor mostrar el aviso en la página que con alert, que bloquea y es poco accesible.</div></details></li><li><p>Diseña la arquitectura de una aplicación web de reserva de pistas: qué haría el JavaScript del cliente y qué debe hacer obligatoriamente el servidor.</p><details><summary>Ver solución</summary><div>Cliente: mostrar el calendario, pedir los huecos libres con fetch, validar el formulario y actualizar la interfaz sin recargar. Servidor: autenticar al usuario, volver a validar los datos, comprobar que la pista sigue libre dentro de una transacción, guardar la reserva en la base de datos y guardar las claves de la pasarela de pago.</div></details></li><li><p>Mejora la accesibilidad de un menú desplegable hecho con un div que se abre con un evento clic.</p><details><summary>Ver solución</summary><div>Usar un &lt;button&gt; con aria-expanded que cambie entre true y false al abrir, aria-controls con el id del menú, permitir cerrarlo con la tecla Escape, mover el foco al primer enlace y mantener visible el contorno de foco.</div></details></li><li><p>Debate: muchas webs cargan decenas de scripts de terceros (anuncios, analítica, redes sociales). ¿Qué consecuencias tiene para el rendimiento, la seguridad y la privacidad?</p><details><summary>Ver solución</summary><div>Rendimiento: más descargas y ejecución, páginas más lentas y más consumo de batería y datos. Seguridad: cada script tiene acceso total a la página, y si el proveedor es atacado, también lo es la web. Privacidad: rastrean a los usuarios entre sitios, lo que exige consentimiento según el RGPD. Conviene limitar los terceros y cargar solo los necesarios.</div></details></li></ol></div>
+    </section>
+    <section class="sec" id="p4"><div class="sec-h"><span class="n">4</span><h2>Explícalo con tus palabras<small>Como si se lo contaras a alguien de un curso menor</small></h2></div>
+      <label for="feyn" class="caption">Escribe aquí tu explicación. Se guarda en este navegador.</label>
+      <textarea id="feyn" placeholder="Con mis palabras…"></textarea>
+      <div class="check"><span class="caption">¿Has nombrado estas ideas?</span><label><input type="checkbox" id="c0"> Qué papel tiene JavaScript frente a HTML y CSS</label><label><input type="checkbox" id="c1"> Qué diferencia hay entre let, const, == y ===</label><label><input type="checkbox" id="c2"> Cómo se escriben funciones flecha y para qué sirven los callbacks</label><label><input type="checkbox" id="c3"> Qué hacen filter, map y reduce</label><label><input type="checkbox" id="c4"> Qué es el DOM y cómo se modifica</label><label><input type="checkbox" id="c5"> Cómo funciona un evento y su función manejadora</label><label><input type="checkbox" id="c6"> Por qué JavaScript es asíncrono y qué hacen async y await</label><label><input type="checkbox" id="c7"> Cómo se consulta una API con fetch y por qué innerHTML puede ser peligroso</label></div>
+    </section>
+    <section class="sec situacion"><div class="sec-h"><span class="n">★</span><h2>Situación de aprendizaje<small>Una aplicación web útil para el instituto</small></h2></div>
+  <p>En parejas, programad con HTML, CSS y JavaScript una pequeña aplicación web que resuelva una necesidad real del centro (calculadora de notas, organizador de tareas, cuestionario de repaso, información del tiempo para las excursiones) y que use eventos, el DOM y, si es posible, datos de una API o de localStorage.</p><h3>Pasos</h3><ol><li>Detectad la necesidad preguntando a compañeros o profesores y definid las funciones mínimas.</li><li>Dibujad la interfaz y escribid el HTML semántico y el CSS adaptable.</li><li>Programad en JavaScript la lógica, los eventos y la actualización del DOM, con funciones pequeñas.</li><li>Añadid persistencia con localStorage o datos de una API pública con fetch y gestión de errores.</li><li>Probad la aplicación con usuarios reales, depurad con F12 y revisad la seguridad y la accesibilidad.</li></ol>
+  <p><b>Producto final:</b> Aplicación web funcional con su código comentado, publicada en un servidor o en GitHub Pages, y una breve guía de uso.</p><h3>Cómo se valora</h3><ul><li>La aplicación funciona y resuelve la necesidad planteada.</li><li>El código usa correctamente variables, funciones, arrays, el DOM y los eventos.</li><li>Gestiona la asincronía y los errores, y muestra los datos de forma segura.</li><li>La interfaz es accesible y se adapta al móvil.</li></ul></section>
+    <section class="sec" id="p5"><div class="sec-h"><span class="n">5</span><h2>Resumen visual<small>Todo el tema en una pantalla</small></h2></div><div class="map"><svg viewBox="0 0 700 300" role="img" aria-label="Mapa mental: JAVASCRIPT">
+    <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15">
+      <g stroke="var(--line)" stroke-width="3"><path d="M350 150 L 140 60"/><path d="M350 150 L 560 60"/><path d="M350 150 L 140 240"/><path d="M350 150 L 560 240"/></g>
+      <rect x="225" y="122" width="250" height="56" rx="28" fill="var(--pen)"/>
+      <text x="350" y="157" text-anchor="middle" font-size="19.0" font-weight="700" fill="#fff" font-family="Baloo 2, sans-serif">JAVASCRIPT</text>
+      <rect x="15" y="34" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--pen)" stroke-width="2"/>
+      <text x="140" y="56" text-anchor="middle" font-weight="700" fill="var(--pen)">Lenguaje</text>
+      <text x="140" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">let/const · funciones · arrays</text><rect x="435" y="34" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+      <text x="560" y="56" text-anchor="middle" font-weight="700" fill="var(--red)">DOM</text>
+      <text x="560" y="76" text-anchor="middle" fill="var(--ink)" font-size="13">querySelector · textContent</text><rect x="15" y="214" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--leaf)" stroke-width="2"/>
+      <text x="140" y="236" text-anchor="middle" font-weight="700" fill="var(--leaf)">Eventos</text>
+      <text x="140" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">addEventListener · formularios</text><rect x="435" y="214" width="250" height="56" rx="10" fill="var(--card)" stroke="var(--sun)" stroke-width="2"/>
+      <text x="560" y="236" text-anchor="middle" font-weight="700" fill="var(--sun)">Asincronía</text>
+      <text x="560" y="256" text-anchor="middle" fill="var(--ink)" font-size="13">promesas · async/await · fetch</text>
+    </g></svg></div><div class="glosario"><h3>Glosario</h3><dl><dt>JavaScript</dt><dd>Lenguaje de programación que se ejecuta en los navegadores y da comportamiento a las páginas.</dd><dt>ECMAScript</dt><dd>Estándar oficial del lenguaje JavaScript.</dd><dt>Consola</dt><dd>Herramienta del navegador para ejecutar código y ver mensajes y errores.</dd><dt>Función flecha</dt><dd>Forma compacta de definir funciones con =&gt;.</dd><dt>Callback</dt><dd>Función que se pasa a otra para que la ejecute más tarde.</dd><dt>Array</dt><dd>Lista ordenada de valores con métodos como map, filter y reduce.</dd><dt>Objeto</dt><dd>Conjunto de pares clave: valor.</dd><dt>JSON</dt><dd>Formato de texto para intercambiar datos basado en la notación de objetos.</dd><dt>DOM</dt><dd>Representación de la página como árbol de objetos que JavaScript puede modificar.</dd><dt>Evento</dt><dd>Suceso (clic, tecla, envío) al que el programa puede reaccionar.</dd><dt>Función manejadora</dt><dd>Función que se ejecuta cuando ocurre un evento.</dd><dt>localStorage</dt><dd>Almacenamiento de datos de texto en el navegador.</dd><dt>Asincronía</dt><dd>Ejecución de tareas lentas sin bloquear el programa.</dd><dt>Promesa</dt><dd>Objeto que representa un resultado futuro: pendiente, cumplida o rechazada.</dd><dt>API web</dt><dd>Servicio que ofrece datos o funciones a otros programas mediante URL.</dd><dt>fetch</dt><dd>Función de JavaScript para hacer peticiones HTTP.</dd><dt>XSS</dt><dd>Ataque que inyecta código en una página a través de datos mostrados sin control.</dd></dl></div></section>
+    <section class="sec" id="p6"><div class="sec-h"><span class="n">6</span><h2>Tarjetas de repaso<small>Toca la tarjeta para darle la vuelta</small></h2></div>
+      <div class="cards">
+        <button class="flash" id="flash" type="button" aria-live="polite"><div class="in"><div class="face front"><small id="fc-count"></small><span id="fc-q"></span></div><div class="face back"><small>Respuesta</small><span id="fc-a"></span></div></div></button>
+        <div class="grade"><button type="button" data-g="0" disabled>No me acordaba</button><button type="button" data-g="1" disabled>Me costó</button><button type="button" data-g="2" disabled>¡Fácil!</button></div>
+        <p class="next" id="fc-next">Según cómo respondas, la tarjeta vuelve mañana, en 3, en 7 o en 21 días.</p>
+      </div>
+    </section>
+    <section class="sec who" aria-label="Familias y profesores">
+      <div class="box"><h3>Para familias</h3><ul><li>Pedidle que os enseñe la aplicación que ha programado y que os explique cómo responde a los clics.</li><li>Abrid la consola del navegador (F12) en una web y mirad juntos los mensajes que aparecen.</li><li>Comentad qué datos guardan las webs en vuestro navegador y cómo borrarlos.</li><li>Hablad de por qué no hay que pegar en la consola código que os envíe un desconocido.</li></ul></div>
+      <div class="box"><h3>Para profesores</h3><p style="margin:0 0 6px"><b>Saberes:</b> Programación web en el cliente con JavaScript: inclusión en la página y consola, variables, tipos, operadores, estructuras de control, funciones y funciones flecha, arrays y sus métodos, objetos y JSON, el DOM (selección, modificación y creación de elementos), programación dirigida por eventos, formularios y almacenamiento local, asincronía con promesas y async/await, consumo de APIs con fetch, depuración con las herramientas del navegador, seguridad (XSS) y accesibilidad (Tecnologías de la Información y la Comunicación II, optativa de 2º de Bachillerato de oferta autonómica en el marco del RD 243/2022).</p><ul><li>Empezar en la consola del navegador para obtener resultados inmediatos sin crear archivos.</li><li>Comparar cada estructura de JavaScript con su equivalente en Python, que el alumnado ya conoce.</li><li>Usar APIs públicas de datos abiertos españoles (AEMET, datos.gob.es) para proyectos con datos reales.</li><li>Hacer sesiones de depuración en las que una pareja introduce errores y otra los encuentra con F12.</li></ul></div>
+    </section>
+    <section class="sec"><h2 style="font-size:20px;margin-bottom:8px">Fuentes y revisión</h2>
+      <ul class="src"><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-5521" target="_blank" rel="noopener">Real Decreto 243/2022, enseñanzas mínimas del Bachillerato (BOE)</a></li><li><a href="https://educagob.educacionfpydeportes.gob.es/curriculo/curriculo-lomloe.html" target="_blank" rel="noopener">Tecnologías de la Información y la Comunicación (optativa de Bachillerato): currículo autonómico</a></li><li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" rel="noopener">MDN Web Docs: JavaScript</a></li><li><a href="https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction" target="_blank" rel="noopener">MDN: introducción al DOM</a></li><li><a href="https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener">MDN: uso de fetch</a></li><li><a href="https://es.javascript.info/" target="_blank" rel="noopener">javascript.info: el tutorial moderno de JavaScript (en español)</a></li></ul>
+      <p class="caption">Revisado el 21 de noviembre de 2026.</p>
+    </section>
+  </div>
+  <aside class="side">
+    <div class="box"><h3>Qué vas a aprender</h3><ul><li>Explicar el papel de JavaScript en el navegador e incorporarlo a una página</li><li>Usar variables, tipos, estructuras de control, funciones, arrays y objetos de JavaScript</li><li>Leer y modificar la página a través del DOM</li><li>Responder a las acciones del usuario con eventos y validar formularios en el cliente</li><li>Programar tareas asíncronas con promesas, async/await y fetch para consultar APIs que devuelven JSON</li><li>Depurar programas con las herramientas del navegador y aplicar buenas prácticas de seguridad</li></ul></div>
+    <div class="box"><h3>Palabras clave</h3>JavaScript · consola · let · const · función flecha · array · objeto · JSON · DOM · querySelector · evento · addEventListener · asincronía · promesa · fetch · XSS</div>
+    <div class="box"><h3>Tiempo</h3>120 minutos hoy + 2 minutos en cada repaso</div>
+  </aside></div>
+</div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.<br><small>Escolapedia es un refuerzo: no sustituye al profesorado ni a los centros. <a href="../../../../quien-esta-detras/">Quién está detrás</a> · <a href="../../../../aviso-legal/">Aviso legal</a> · <a href="../../../../privacidad/">Privacidad</a> · <a href="#" data-cookies>Cookies</a></small><br><small>© 2026 Alejandro Rosàs · Contenido bajo licencia <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" rel="license noopener" style="display:inline">CC BY-NC 4.0</a>, salvo indicación en contrario</small></div></footer>
+<div class="cookies" id="cookies" hidden><p>Usamos Google Analytics para saber cuántas personas visitan Escolapedia. Solo se activa si lo aceptas. <a href="../../../../privacidad/">Más información</a></p><div><button type="button" data-ck="no">Rechazar</button><button type="button" data-ck="si">Aceptar</button></div></div>
+<script>(function(){var ID="G-DXYJCCJC31",K="ep-cookies",b=document.getElementById("cookies");function get(){try{return localStorage.getItem(K)}catch(e){return null}}function set(v){try{localStorage.setItem(K,v)}catch(e){}}function load(){if(window.gtag)return;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",ID,{anonymize_ip:true});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+ID;document.head.appendChild(s)}var v=get();if(v==="si")load();else if(v!=="no")b.hidden=false;b.addEventListener("click",function(e){var c=e.target.getAttribute("data-ck");if(!c)return;set(c);b.hidden=true;if(c==="si")load();else{document.cookie.split(";").forEach(function(x){var n=x.split("=")[0].trim();if(/^_ga/.test(n))document.cookie=n+"=;Max-Age=0;path=/;domain=."+location.hostname.replace(/^www./,"")})}});document.querySelectorAll("[data-cookies]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();b.hidden=false})})})();</script>
+<script>window.BASE="../../../../";window.IDX="";</script>
+<script>window.TEMA={"id":"2-bachillerato-tecnologias-de-la-informacion-y-la-comunicacion-ii-programacion-web-con-javascript","quiz":[{"q":"JavaScript se ejecuta principalmente en…","o":["el servidor de correo","el navegador","la base de datos","la impresora"],"a":1,"e":"Lado del cliente, aunque también en Node.js."},{"q":"El atributo defer en &lt;script&gt;…","o":["borra el script","ejecuta el script cuando el HTML ya se ha leído","lo hace más rápido","lo oculta"],"a":1,"e":"Evita acceder a elementos que aún no existen."},{"q":"Para declarar una variable que no se reasignará se usa…","o":["var","let","const","def"],"a":2,"e":"Constante."},{"q":"\"5\" === 5 es…","o":["true","false","un error","undefined"],"a":1,"e":"Distinto tipo."},{"q":"\"2\" + 3 da…","o":["5","\"23\"","error","NaN"],"a":1,"e":"Concatena textos."},{"q":"Para recorrer los elementos de un array se usa…","o":["for…of","for…in","while true","switch"],"a":0,"e":"Como el for de Python."},{"q":"x =&gt; x * 2 es…","o":["una comparación","una función flecha","un array","un objeto"],"a":1,"e":"Devuelve el doble."},{"q":"notas.filter(n =&gt; n &gt;= 5) devuelve…","o":["la suma","un array con las notas aprobadas","la primera nota","true"],"a":1,"e":"Selecciona elementos."},{"q":"El método map…","o":["filtra","transforma cada elemento y devuelve un nuevo array","ordena","suma"],"a":1,"e":"Una transformación por elemento."},{"q":"JSON.parse convierte…","o":["un objeto en texto","un texto JSON en objeto","un número en texto","HTML en CSS"],"a":1,"e":"De texto a objeto."},{"q":"El DOM es…","o":["un lenguaje","la representación de la página como árbol de objetos","un servidor","un formato de imagen"],"a":1,"e":"Document Object Model."},{"q":"document.querySelector(\".aviso\") devuelve…","o":["todos los avisos","el primer elemento con clase aviso","el id aviso","un texto"],"a":1,"e":"querySelectorAll devuelve todos."},{"q":"Para cambiar el texto de un elemento de forma segura se usa…","o":["innerHTML","textContent","style","src"],"a":1,"e":"No interpreta HTML."},{"q":"addEventListener(\"click\", f) hace que…","o":["f se ejecute ya","f se ejecute en cada clic","se borre el botón","se recargue la página"],"a":1,"e":"Función manejadora."},{"q":"e.preventDefault() en un submit…","o":["envía dos veces","evita el envío y la recarga por defecto","borra el formulario","valida los campos"],"a":1,"e":"Cancela el comportamiento por defecto."},{"q":"El valor de un input se obtiene siempre como…","o":["número","texto","booleano","objeto"],"a":1,"e":"Hay que convertirlo con Number."},{"q":"localStorage guarda…","o":["datos en el servidor","pares clave-valor de texto en el navegador","cookies cifradas","imágenes"],"a":1,"e":"Persisten entre visitas."},{"q":"await solo puede usarse…","o":["en cualquier sitio","dentro de funciones async (o módulos)","en CSS","en bucles while"],"a":1,"e":"Espera una promesa."},{"q":"fetch devuelve…","o":["los datos directamente","una promesa","un número","HTML siempre"],"a":1,"e":"Se espera con await."},{"q":"El ataque XSS se evita al mostrar datos del usuario con…","o":["innerHTML","textContent","eval","alert"],"a":1,"e":"Se tratan como texto."}],"tarjetas":[["Incluir JS","&lt;script src=\"app.js\" defer&gt;&lt;/script&gt;; consola con F12."],["Variables","const por defecto, let si cambia; evitar var."],["Igualdad","Usar === y !==; == convierte tipos."],["Plantillas","`Hola, ${nombre}` con comillas invertidas."],["Función flecha","const doble = x =&gt; x * 2;"],["Métodos de array","push, filter, map, reduce, find."],["Objeto y JSON","{ clave: valor }; JSON.stringify y JSON.parse."],["DOM","querySelector, textContent, classList, createElement, append."],["Eventos","el.addEventListener(\"click\", e =&gt; { … }); e.preventDefault()."],["localStorage","setItem y getItem con JSON; nada sensible."],["async/await y fetch","const r = await fetch(url); const d = await r.json();"],["XSS","Usar textContent con datos externos; validar en el servidor."]]};</script>
+<script src="../../../../assets/app.js"></script>
+</body></html>
