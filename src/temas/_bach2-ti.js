@@ -18,6 +18,19 @@ const VID = {
   "ens-impacto": { id: "8685HYXNrxE", canal: "Universitat Politècnica de València - UPV", vistas: 97377 },
   "ens-fatiga": { id: "dZLExvQ_7Rg", canal: "Universitat Politècnica de València - UPV", vistas: 85248 },
   "ens-end": { id: "WwcdwdvzGmc", canal: "CH&M NDT", vistas: 59319 },
+  "al-fec": { id: "tkYYc4CnY1c", canal: "Salvador FI Facultad de Ingeniería", vistas: 371138 },
+  "al-palanca": { id: "c39Wgn2kGg4", canal: "Ingeniosos", vistas: 90872 },
+  "al-tratamientos": { id: "aJKfyJCRQSM", canal: "El yeti", vistas: 271285 },
+  "al-superficial": { id: "F6tY6y0r-Sw", canal: "Ingeniosos", vistas: 35650 },
+  "al-corrosion": { id: "xow45w9YhM4", canal: "Universitat Politècnica de València - UPV", vistas: 110842 },
+  "es-reacciones": { id: "yv4ii6SzTn0", canal: "marcelo pardo", vistas: 407997 },
+  "es-diagramas": { id: "KmHw7pEpRtQ", canal: "Salvador FI Facultad de Ingeniería", vistas: 967258 },
+  "es-nudos": { id: "bo7CCkMh_tY", canal: "Salvador FI Facultad de Ingeniería", vistas: 570070 },
+  "mt-leyes": { id: "ZLAoKBVglU8", canal: "CuriosaMente", vistas: 1571236 },
+  "mt-otto": { id: "6-udN4cZ6HU", canal: "Motorgiga TV", vistas: 1369002 },
+  "mt-diesel": { id: "AEfgWoPCfRA", canal: "carwow.es", vistas: 93815 },
+  "mt-par": { id: "YgI6lG6FshQ", canal: "AUTOTECNICATV", vistas: 1956739 },
+  "mt-carnot": { id: "6mlL4wTYelM", canal: "unicoos", vistas: 165085 },
 };
 const V = (k, titulo, busqueda) => {
   if (!VID[k]) throw new Error(`vídeo ${k} no encontrado`);
