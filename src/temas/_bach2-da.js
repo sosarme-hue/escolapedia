@@ -73,9 +73,12 @@ function conica(aria, n = 1) {
   const p1 = (p, k) => [p[0] + (F1[0] - p[0]) * k, p[1] + (F1[1] - p[1]) * k], p2 = (p, k) => [p[0] + (F2[0] - p[0]) * k, p[1] + (F2[1] - p[1]) * k];
   const a1 = p1(A, 0.42), b1 = p1(Bp, 0.42), a2 = p2(A, 0.38), b2 = p2(Bp, 0.38);
   const f = (p) => p.map((v) => v.toFixed(1)).join(" ");
+  // Cara superior: cruce de a1→F2 con a2→F1.
+  const cruce = (P1, P2, P3, P4) => { const d = (P1[0] - P2[0]) * (P3[1] - P4[1]) - (P1[1] - P2[1]) * (P3[0] - P4[0]); const u = ((P1[0] - P3[0]) * (P3[1] - P4[1]) - (P1[1] - P3[1]) * (P3[0] - P4[0])) / d; return [P1[0] + u * (P2[0] - P1[0]), P1[1] + u * (P2[1] - P1[1])]; };
+  const top = cruce(a1, F2, a2, F1);
   return marco(aria, `${ln(4, hz, 256, hz, "var(--pen)", 1.6)}${ci(F1[0], F1[1], 4.5, 'fill="var(--red)"')}${ci(F2[0], F2[1], 4.5, 'fill="var(--red)"')}${t(24, hz - 9, "F1", { bold: 1, color: "var(--red)" })}${t(236, hz - 9, "F2", { bold: 1, color: "var(--red)" })}
     ${[A, Bp].map((p) => ln(p[0], p[1], F1[0], F1[1], "var(--muted)", 1, 'stroke-dasharray="4 3"') + ln(p[0], p[1], F2[0], F2[1], "var(--muted)", 1, 'stroke-dasharray="4 3"')).join("")}
-    ${pa(`M${f(A)} L${f(a1)} L${f(b1)} L${f(Bp)}Z`, 'fill="var(--card)" stroke="var(--ink)" stroke-width="2.2"')}${pa(`M${f(A)} L${f(a2)} L${f(b2)} L${f(Bp)}Z`, 'fill="var(--paper)" stroke="var(--ink)" stroke-width="2.2"')}
+    ${pa(`M${f(A)} L${f(a1)} L${f(b1)} L${f(Bp)}Z`, 'fill="var(--card)" stroke="var(--ink)" stroke-width="2.2"')}${pa(`M${f(A)} L${f(a2)} L${f(b2)} L${f(Bp)}Z`, 'fill="var(--paper)" stroke="var(--ink)" stroke-width="2.2"')}${pa(`M${f(A)} L${f(a1)} L${f(top)} L${f(a2)}Z`, 'fill="var(--sun)" fill-opacity=".35" stroke="var(--ink)" stroke-width="2.2"')}
     ${t(130, 30, "LH a la altura de los ojos", { color: "var(--pen)", maxW: 200 })}${t(130, 176, "arista vertical más cercana", { color: "var(--muted)", maxW: 200 })}`);
 }
 
