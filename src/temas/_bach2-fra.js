@@ -51,6 +51,8 @@ const VID = {
   gerGen: vid("mSKR39HEKNU", "Gérondif ou participe présent? C'est quoi la différence?", "French School TV", 104361, "gérondif français"),
   gerClub: vid("6zvMw3JsZ_4", "Gérondif vs participe présent: les verbes en -ant", "Le French Club", 85017, "gérondif français"),
   adjVerbal: vid("Y9FbqqcIKUA", "Le participe présent, le gérondif et l'adjectif verbal", "Mon Français", 75115, "participe présent gérondif adjectif verbal"),
+  depuis: vid("Mk56kgaKQvM", "Ne confonds pas ces prépositions: depuis, pour, pendant, en et dans", "Guillaume Posé", 411115, "depuis pendant il y a français"),
+  subTemps: vid("FYtS8TXOeTw", "Expression du temps (subordonnées de temps)", "Grammaire française", 167793, "expression du temps français"),
   // 9. Connecteurs
   conGen: vid("IU92r6BgRe8", "Les connecteurs du discours en français (B1-B2)", "French School TV", 385911, "connecteurs logiques cause conséquence"),
   cause: vid("TX0aHIjNQyg", "Expression de la cause: car, parce que, puisque", "Français avec Pierre", 304724, "connecteurs logiques cause conséquence"),
