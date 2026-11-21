@@ -46,4 +46,13 @@ module.exports = {
   "tra-a": { id: "HwSz2MGZUoo", canal: "CuriosaMente", vistas: 994426, q: "trastornos mentales qué son" },
   "tra-b": { id: "yqqjKg1kEUk", canal: "Clínica Universidad de Navarra", vistas: 1289003, q: "la depresión explicada" },
   "tra-c": { id: "Xvu2tbspwcc", canal: "Psicología en Serio con Guillermo Orozco", vistas: 465043, q: "terapia cognitivo conductual" },
+  "soc-a": { id: "TYIh4MkcfJA", canal: "eqivideos", vistas: 3139103, q: "experimento de Asch conformidad" },
+  "soc-b": { id: "K2hm_aAXy5c", canal: "Píldoras de Psicología", vistas: 391370, q: "experimento de Milgram obediencia" },
+  "soc-c": { id: "dXixBKcEqcA", canal: "Píldoras de Psicología", vistas: 273515, q: "experimento de la cárcel de Stanford" },
+  "soc-d": { id: "dYdjDb3a_d8", canal: "Píldoras de Psicología", vistas: 348119, q: "disonancia cognitiva explicación" },
+  "soc-e": { id: "2ghqfA2P4u4", canal: "Pienso y luego aprendo", vistas: 211749, q: "estereotipos y prejuicios psicología" },
+  "org-a": { id: "C3c9oN1-M80", canal: "Astraway", vistas: 147074, q: "psicología de las organizaciones" },
+  "org-b": { id: "tFvq_VX8BEA", canal: "Psicoactiva", vistas: 507280, q: "liderazgo tipos psicología" },
+  "org-c": { id: "5snOSoGQnSM", canal: "Dr. Daniel López Rosetti", vistas: 232944, q: "síndrome de burnout trabajo" },
+  "org-d": { id: "r9Riujuqi0o", canal: "Economia Desde Casa", vistas: 347480, q: "liderazgo tipos psicología" },
 };
