@@ -122,10 +122,9 @@ function formas(aria, filas, titulo = "") {
 // Plano de la orquesta sinfónica visto desde arriba.
 function orquesta(aria) {
   const arco = (r1, r2, c, et, y) => pa(`M${130 - r2} 168 A${r2} ${r2 * 0.78} 0 0 1 ${130 + r2} 168 L${130 + r1} 168 A${r1} ${r1 * 0.78} 0 0 0 ${130 - r1} 168Z`, `fill="${c}" fill-opacity=".22" stroke="${c}" stroke-width="2"`) + t(130, y, et, { fs: 10.5, bold: 1, color: c, maxW: 120 });
-  return marco(aria, arco(30, 72, "var(--pen)", "cuerda", 132) + arco(72, 104, "var(--leaf)", "viento madera", 94) + arco(104, 126, "var(--sun)", "viento metal", 66) +
+  return marco(aria, arco(30, 72, "var(--pen)", "cuerda", 138) + arco(72, 104, "var(--leaf)", "viento madera", 104) + arco(104, 126, "var(--sun)", "viento metal", 82) +
     t(26, 36, "percusión", { fs: 10.5, bold: 1, color: "var(--red)", maxW: 60 }) + ci(26, 52, 9, 'fill="var(--red)" fill-opacity=".5"') + ci(44, 50, 7, 'fill="var(--red)" fill-opacity=".5"') +
-    ci(130, 168, 9, 'fill="var(--ink)"') + t(130, 160, "director", { fs: 9, maxW: 50, color: "var(--muted)" }) +
-    t(226, 40, "público ↓", { fs: 9, maxW: 60, color: "var(--muted)" }));
+    ci(130, 172, 5, 'fill="var(--ink)"') + t(130, 162, "director", { fs: 9, maxW: 50, color: "var(--muted)" }));
 }
 
 // Cadencias: flechas entre grados con su efecto.
