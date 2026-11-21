@@ -1,0 +1,247 @@
+// Química 2º Bachillerato · Ácidos y bases (nivel libro). Dibujos propios en SVG.
+const { pasos, compara, rejilla, escala, barras, graf, marco, T, bloque, formula, B, M, A, q4, V, mapaB, figura, PROFE, FUENTE_RD } = require("./_bach2-qui");
+
+const escalaPH = escala("Escala de pH de algunas sustancias de uso cotidiano a 25 grados", "Escala de pH a 25 °C", [["1,5", "estómago", "var(--red)"], ["3", "vinagre", "#b45309"], ["7", "agua", "var(--muted)"], ["8,3", "bicarbonato", "var(--pen)"], ["13", "lejía", "var(--ink)"]], "ácido", "básico");
+
+const transferencia = marco("Un ácido de Brønsted cede un protón a una base: el ácido acético y el agua forman su par conjugado", `
+  ${[[20, "CH₃COOH", "ácido", "var(--red)"], [140, "H₂O", "base", "var(--pen)"]].map(([x, f, r, c]) => `<rect x="${x}" y="40" width="100" height="40" rx="8" fill="${c}"/>${T(x + 50, 65, f, { fs: 13, b: true, c: "#fff" })}${T(x + 50, 98, r, { fs: 11.5, c: c, b: true })}`).join("")}
+  <path d="M75 36 Q 130 4 185 36" fill="none" stroke="var(--ink)" stroke-width="2.5" marker-end="url(#fl)"/>${T(130, 16, "H⁺", { fs: 14, b: true, c: "var(--ink)" })}
+  <defs><marker id="fl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="var(--ink)"/></marker></defs>
+  ${[[20, "CH₃COO⁻", "base conjugada", "var(--pen)"], [140, "H₃O⁺", "ácido conjugado", "var(--red)"]].map(([x, f, r, c]) => `<rect x="${x}" y="118" width="100" height="40" rx="8" fill="none" stroke="${c}" stroke-width="3"/>${T(x + 50, 143, f, { fs: 13, b: true, c: c })}${T(x + 50, 176, r, { fs: 11, c: c, b: true })}`).join("")}
+  ${T(130, 112, "⇌", { fs: 18, b: true })}`);
+
+module.exports = {
+  materia: "Química",
+  curso: "2-bachillerato",
+  titulo: "Ácidos y bases",
+  minutos: 130,
+  objetivos: [
+    "Comparar las teorías ácido-base de Arrhenius, Brønsted-Lowry y Lewis e identificar pares conjugados",
+    "Explicar la autoionización del agua y usar Kw, pH y pOH",
+    "Relacionar la fuerza de ácidos y bases con Ka, Kb y el grado de disociación",
+    "Calcular el pH de disoluciones de ácidos y bases fuertes y débiles",
+    "Predecir el carácter ácido, básico o neutro de las disoluciones de sales (hidrólisis)",
+    "Explicar el funcionamiento de las disoluciones reguladoras y de los indicadores",
+    "Realizar e interpretar volumetrías de neutralización y sus curvas",
+  ],
+  claves: ["ácido", "base", "Arrhenius", "Brønsted-Lowry", "Lewis", "par conjugado", "anfótero", "producto iónico del agua", "pH", "Ka", "Kb", "grado de disociación", "hidrólisis", "disolución reguladora", "indicador", "valoración", "punto de equivalencia"],
+  pregunta: {
+    texto: "Si el estómago tiene ácido clorhídrico capaz de disolver metales, ¿por qué no se digiere a sí mismo?",
+    respuesta: "El jugo gástrico tiene un pH entre 1 y 2, así que la concentración de H₃O⁺ es unas cien mil veces mayor que en el agua pura. La pared del estómago se protege con una capa de moco y con <mark>bicarbonato</mark>, una base que neutraliza el ácido que llega hasta ella, y sus células se renuevan cada pocos días. Cuando esa defensa falla aparece la úlcera; y cuando el ácido sube al esófago, que no tiene esa protección, notamos el ardor que calmamos con antiácidos, que son bases.",
+  },
+  lectura: {
+    titulo: "El pH: una idea nacida en una fábrica de cerveza",
+    html: `<p>En 1909, el químico danés Søren Sørensen trabajaba en el laboratorio de la cervecera Carlsberg, en Copenhague, estudiando cómo las enzimas de la fermentación dependían de la acidez. Las concentraciones de iones hidrógeno con las que trabajaba eran números incómodos, como 0,0000001 mol/L, así que propuso usar su logaritmo cambiado de signo: había nacido la escala de <b>pH</b>. Hoy el pH se mide en hospitales, piscinas, campos de cultivo, depuradoras y en cada análisis de sangre.</p><p>La sangre humana se mantiene entre pH 7,35 y 7,45 gracias a disoluciones reguladoras; si baja de 7,0 o sube de 7,8, la vida corre peligro. El pH del suelo decide qué cultivos prosperan; el de los océanos, si los corales pueden construir sus esqueletos; el de la lluvia, si los bosques enferman. Y detrás de todo hay una idea muy sencilla: unas sustancias ceden protones y otras los aceptan. En este tema aprenderás a describir esa transferencia y a calcular el pH de casi cualquier disolución.</p>`,
+  },
+  bloques: [
+    bloque({ h: "1.1 Propiedades y teoría de Arrhenius", p: [
+      "Desde la Antigüedad se conocen dos grupos de sustancias con propiedades opuestas. Los <b>ácidos</b> tienen sabor agrio (limón, vinagre), enrojecen el papel de tornasol, reaccionan con muchos metales desprendiendo hidrógeno y con los carbonatos desprendiendo CO₂. Las <b>bases</b> o álcalis tienen sabor amargo, tacto jabonoso, azulean el tornasol y neutralizan a los ácidos. Las disoluciones de ambos conducen la electricidad, porque contienen iones.",
+      "En 1887, Svante Arrhenius dio la primera explicación: un <mark>ácido</mark> es una sustancia que en disolución acuosa libera iones H⁺ (HCl → H⁺ + Cl⁻) y una <mark>base</mark> es la que libera iones OH⁻ (NaOH → Na⁺ + OH⁻). La neutralización es simplemente H⁺ + OH⁻ → H₂O, y por eso todas las neutralizaciones de ácidos y bases fuertes desprenden el mismo calor (−57 kJ/mol). La teoría tiene limitaciones: solo vale para disoluciones acuosas y no explica el carácter básico del amoniaco (NH₃), que no tiene OH⁻ en su fórmula, ni el de sales como el carbonato de sodio.",
+    ], svg: compara("Propiedades de ácidos y bases", ["Ácidos", ["sabor agrio", "tornasol rojo", "con metales → H₂", "liberan H⁺"]], ["Bases", ["sabor amargo", "tornasol azul", "tacto jabonoso", "liberan OH⁻"]], "var(--red)", "var(--pen)"), video: V("ab-a", "Teorías ácido-base: Arrhenius, Brønsted-Lowry y Lewis", "teorías ácido base Arrhenius Bronsted Lewis") }),
+    bloque({ h: "1.2 Teoría de Brønsted-Lowry: pares conjugados", p: [
+      "En 1923, Brønsted y Lowry propusieron una definición más general basada en la <b>transferencia de protones</b>: un <mark>ácido</mark> es una especie capaz de <b>ceder un protón</b> (H⁺) y una <mark>base</mark> es una especie capaz de <b>aceptarlo</b>. Una reacción ácido-base es, por tanto, un intercambio de protones: CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺. En agua, el H⁺ no existe libre: se une a una molécula de agua y forma el ion <b>oxonio</b> (o hidronio), H₃O⁺.",
+      "Cuando un ácido cede su protón se convierte en una especie que puede volver a aceptarlo: su <mark>base conjugada</mark>. Así, el CH₃COOH y el CH₃COO⁻ forman un <b>par conjugado ácido-base</b>, igual que el H₃O⁺ y el H₂O. Con esta teoría, el amoniaco es una base porque acepta un protón del agua: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻. Algunas especies, como el agua o el ion HCO₃⁻, pueden actuar como ácido o como base según con quién reaccionen: se llaman <b>anfóteras</b> o anfipróticas.",
+    ], svg: transferencia }),
+    bloque({ h: "1.3 Teoría de Lewis", p: [
+      "Gilbert N. Lewis, el mismo de las estructuras de puntos, propuso la definición más amplia de todas, basada en los <b>pares de electrones</b>: un <mark>ácido de Lewis</mark> es una especie capaz de <b>aceptar un par de electrones</b>, y una <mark>base de Lewis</mark> la que puede <b>cederlo</b>. La reacción ácido-base de Lewis forma un enlace covalente coordinado (dativo). Toda base de Brønsted es también base de Lewis, porque para aceptar un protón necesita un par libre; pero hay ácidos de Lewis que no tienen protones.",
+      "Por ejemplo, el BF₃, con el boro rodeado solo de seis electrones, acepta el par libre del amoniaco: BF₃ + :NH₃ → F₃B−NH₃. Los cationes metálicos son ácidos de Lewis: el Ag⁺ acepta pares del NH₃ para formar [Ag(NH₃)₂]⁺, y el Fe³⁺ o el Al³⁺ se rodean de moléculas de agua. La teoría de Lewis es fundamental en química orgánica (catalizadores como AlCl₃ o FeBr₃), en química de coordinación y en bioquímica, pero para los cálculos de pH en disolución acuosa usaremos la de Brønsted-Lowry.",
+    ], svg: rejilla("Comparación de las tres teorías ácido-base", ["Teoría", "Ácido", "Base"], [["Arrhenius", "libera H⁺ en agua", "libera OH⁻ en agua"], ["Brønsted-Lowry", "cede H⁺", "acepta H⁺"], ["Lewis", "acepta par e⁻", "cede par e⁻"]], "#7b3fc4") }),
+    bloque({ h: "2.1 Autoionización del agua y el pH", p: [
+      "El agua pura conduce muy poco la electricidad, pero algo conduce: una pequeñísima parte de sus moléculas reacciona entre sí, H₂O + H₂O ⇌ H₃O⁺ + OH⁻. Es la <b>autoionización</b> del agua, y su constante, el <mark>producto iónico del agua</mark>, es <b>Kw = [H₃O⁺][OH⁻] = 1,0 · 10⁻¹⁴ a 25 °C</b>. En agua pura, [H₃O⁺] = [OH⁻] = 10⁻⁷ M. Esta relación se cumple en <b>cualquier</b> disolución acuosa: si aumenta [H₃O⁺], disminuye [OH⁻] para que el producto siga siendo Kw.",
+      "Para manejar números tan pequeños se define el <mark>pH = −log [H₃O⁺]</mark> y, del mismo modo, pOH = −log [OH⁻]. Tomando logaritmos en Kw: <b>pH + pOH = 14</b> a 25 °C. Una disolución es <b>neutra</b> si [H₃O⁺] = [OH⁻] (pH = 7), <b>ácida</b> si [H₃O⁺] > [OH⁻] (pH < 7) y <b>básica</b> si [H₃O⁺] < [OH⁻] (pH > 7). Como la escala es logarítmica, una unidad de pH supone un factor 10 en la concentración: el vinagre (pH 3) tiene diez mil veces más H₃O⁺ que el agua pura. Kw aumenta con la temperatura (la autoionización es endotérmica): a 60 °C el agua neutra tiene pH 6,5.",
+    ], extra: formula("Kw = [H₃O⁺][OH⁻] = 10⁻¹⁴ ; pH = −log[H₃O⁺] ; pH + pOH = 14"), svg: escalaPH }),
+    bloque({ h: "2.2 Fuerza de ácidos y bases: Ka y Kb", p: [
+      "Los <b>ácidos fuertes</b> están totalmente disociados en agua: HCl, HBr, HI, HNO₃, HClO₄ y H₂SO₄ (en su primera disociación). En sus disoluciones, la reacción es prácticamente completa (→). Las <b>bases fuertes</b> son los hidróxidos de los alcalinos y de los alcalinotérreos más pesados (NaOH, KOH, Ca(OH)₂, Ba(OH)₂). Los <b>ácidos y bases débiles</b> solo se disocian parcialmente y alcanzan un equilibrio: HA + H₂O ⇌ A⁻ + H₃O⁺, cuya constante es la <mark>constante de acidez</mark> <b>Ka = [A⁻][H₃O⁺] / [HA]</b>.",
+      "Para una base débil, B + H₂O ⇌ BH⁺ + OH⁻, se define la <b>constante de basicidad</b> <b>Kb = [BH⁺][OH⁻] / [B]</b>. Cuanto mayor es Ka, más fuerte es el ácido; se usa también pKa = −log Ka (menor pKa, ácido más fuerte). El ácido acético tiene Ka = 1,8 · 10⁻⁵ (pKa = 4,74); el fluorhídrico, 6,8 · 10⁻⁴; el cianhídrico, 6,2 · 10⁻¹⁰. El amoniaco tiene Kb = 1,8 · 10⁻⁵. Otra medida útil es el <mark>grado de disociación</mark> α, la fracción de moléculas disociadas: α = x / c₀. A diferencia de Ka, α depende de la concentración: cuanto más diluido está un ácido débil, mayor es su grado de disociación.",
+    ], extra: formula("Ka = [A⁻][H₃O⁺] / [HA] ; Kb = [BH⁺][OH⁻] / [B] ; α = x / c₀"), svg: barras("Constantes de acidez de algunos ácidos débiles expresadas como pKa", "pKa (mayor valor, ácido más débil)", [["HF", 3.17, "var(--red)", "3,17"], ["HCOOH", 3.75, "#b45309", "3,75"], ["CH₃COOH", 4.74, "var(--leaf)", "4,74"], ["NH₄⁺", 9.25, "var(--pen)", "9,25"], ["HCN", 9.21, "#7b3fc4", "9,21"]]) }),
+    bloque({ h: "2.3 Pares conjugados: Ka · Kb = Kw", p: [
+      "Existe una relación muy útil entre la fuerza de un ácido y la de su base conjugada. Si se suman las reacciones del ácido acético con el agua y de su base conjugada (acetato) con el agua, se obtiene la autoionización del agua; y como al sumar reacciones se multiplican las constantes: <mark>Ka · Kb = Kw</mark>. Por tanto, Kb(CH₃COO⁻) = 10⁻¹⁴ / 1,8 · 10⁻⁵ = 5,6 · 10⁻¹⁰. En logaritmos, pKa + pKb = 14.",
+      "La consecuencia es clara: <b>cuanto más fuerte es un ácido, más débil es su base conjugada</b>, y al revés. La base conjugada de un ácido fuerte (Cl⁻, NO₃⁻, ClO₄⁻) es tan débil que no tiene carácter básico apreciable en agua; la de un ácido débil (CH₃COO⁻, F⁻, CN⁻) sí es una base débil. Lo mismo ocurre con las bases: el ácido conjugado del amoniaco, el NH₄⁺, es un ácido débil (Ka = 5,6 · 10⁻¹⁰), mientras que el Na⁺, procedente de una base fuerte, no tiene carácter ácido. Esta idea es la clave para entender la hidrólisis de las sales.",
+    ], extra: formula("Ka · Kb = Kw ; pKa + pKb = 14"), svg: escala("Fuerza relativa de ácidos y de sus bases conjugadas", "Ácido más fuerte, base conjugada más débil", [["HCl", "Cl⁻", "var(--red)"], ["HF", "F⁻", "#b45309"], ["CH₃COOH", "CH₃COO⁻", "var(--leaf)"], ["NH₄⁺", "NH₃", "var(--pen)"], ["H₂O", "OH⁻", "#7b3fc4"]], "ácido fuerte", "base fuerte") }),
+    bloque({ h: "3.1 pH de ácidos y bases fuertes", p: [
+      "Como los ácidos fuertes están totalmente disociados, la concentración de H₃O⁺ es igual a la del ácido (si es monoprótico): en HCl 0,010 M, [H₃O⁺] = 0,010 M y <mark>pH = −log 0,010 = 2</mark>. Para las bases fuertes, [OH⁻] es igual a la concentración de la base multiplicada por el número de OH⁻: en NaOH 0,010 M, [OH⁻] = 0,010, pOH = 2 y pH = 12; en Ba(OH)₂ 0,010 M, [OH⁻] = 0,020, pOH = 1,70 y pH = 12,30.",
+      "Hay que tener cuidado en dos situaciones. Si el ácido está muy diluido (por debajo de 10⁻⁶ M) hay que tener en cuenta los H₃O⁺ que aporta el agua: una disolución de HCl 10⁻⁸ M no tiene pH 8 (¡sería básica!), sino algo menos de 7. Y al <b>mezclar</b> un ácido fuerte con una base fuerte, primero se calculan los moles de H₃O⁺ y OH⁻, se restan (reacción de neutralización completa) y se divide el exceso entre el <b>volumen total</b>. Si sobra ácido, la disolución es ácida; si sobra base, básica; si son iguales, neutra (pH 7).",
+    ], svg: pasos("Cálculo del pH al mezclar un ácido fuerte y una base fuerte", ["Moles de H₃O⁺ y de OH⁻", "Neutralización: se restan", "Exceso / volumen total", "pH o pOH del exceso"], "var(--red)") }),
+    bloque({ h: "3.2 pH de ácidos y bases débiles", p: [
+      "Para un ácido débil HA de concentración inicial c₀, se plantea el equilibrio: HA + H₂O ⇌ A⁻ + H₃O⁺, con concentraciones en el equilibrio c₀ − x, x y x. Entonces <b>Ka = x² / (c₀ − x)</b>. Si el ácido es suficientemente débil y no está muy diluido (en la práctica, si c₀/Ka > 400 o si α < 5 %), se puede aproximar c₀ − x ≈ c₀, y queda <mark>x = √(Ka · c₀)</mark>. Siempre hay que comprobar la aproximación al final; si no se cumple, se resuelve la ecuación de segundo grado.",
+      "Por ejemplo, para el ácido acético 0,10 M (Ka = 1,8 · 10⁻⁵): x = √(1,8 · 10⁻⁶) = 1,34 · 10⁻³ M, pH = 2,87 y α = 1,34 %. Compáralo con el HCl 0,10 M, de pH 1: con la misma concentración, el ácido débil es mucho menos ácido. Para una base débil se hace lo mismo con Kb: en NH₃ 0,10 M, [OH⁻] = √(1,8 · 10⁻⁶) = 1,34 · 10⁻³, pOH = 2,87 y pH = 11,13. Si lo que se conoce es el pH, el problema se resuelve al revés: se calcula x = 10⁻ᵖᴴ y de ahí Ka o la concentración.",
+    ], extra: formula("Ka = x² / (c₀ − x) ≈ x² / c₀ → x = √(Ka c₀) ; α = x / c₀"), svg: compara("pH del ácido clorhídrico y del ácido acético a la misma concentración", ["HCl 0,10 M", ["fuerte: α = 100 %", "[H₃O⁺] = 0,10", "pH = 1,0", ""]], ["CH₃COOH 0,10 M", ["débil: α = 1,3 %", "[H₃O⁺] = 1,3·10⁻³", "pH = 2,87", ""]], "var(--red)", "var(--leaf)"), video: V("ab-b", "Cálculo de pH de un ácido débil", "pH ácido débil ejercicio") }),
+    bloque({ h: "3.3 Ácidos polipróticos", p: [
+      "Algunos ácidos pueden ceder más de un protón: son <mark>polipróticos</mark>. El ácido sulfúrico (H₂SO₄) es diprótico, el carbónico (H₂CO₃) también, y el fosfórico (H₃PO₄) es triprótico. Ceden los protones de uno en uno, con constantes cada vez más pequeñas: para el H₃PO₄, Ka₁ = 7,5 · 10⁻³, Ka₂ = 6,2 · 10⁻⁸ y Ka₃ = 4,8 · 10⁻¹³. Es lógico: cuesta más arrancar un protón de un anión con carga negativa que de una molécula neutra.",
+      "Como las constantes sucesivas suelen diferir en varios órdenes de magnitud, el pH se calcula, en buena aproximación, <b>solo con la primera disociación</b>; las siguientes apenas aportan H₃O⁺. El caso especial es el H₂SO₄: su primera disociación es completa (ácido fuerte) y la segunda, HSO₄⁻ ⇌ SO₄²⁻ + H₃O⁺, tiene Ka₂ = 1,2 · 10⁻²; en muchos problemas de PAU se considera, por simplificar, que se disocia totalmente en ambas etapas. Los ácidos polipróticos y sus aniones forman los sistemas reguladores más importantes de la naturaleza: el carbonato en la sangre y los océanos, y el fosfato en las células.",
+    ], svg: niveles3() }),
+    bloque({ h: "4.1 Hidrólisis de sales", p: [
+      "Al disolver una sal, sus iones pueden reaccionar con el agua y modificar el pH: es la <mark>hidrólisis</mark>. Solo se hidrolizan los iones que proceden de ácidos o bases <b>débiles</b>, porque son bases o ácidos conjugados con cierta fuerza. Hay cuatro casos. <b>Sal de ácido fuerte y base fuerte</b> (NaCl, KNO₃): ningún ion se hidroliza y la disolución es <b>neutra</b>. <b>Sal de ácido débil y base fuerte</b> (CH₃COONa, NaF, Na₂CO₃): el anión se hidroliza, A⁻ + H₂O ⇌ HA + OH⁻, y la disolución es <b>básica</b>.",
+      "<b>Sal de ácido fuerte y base débil</b> (NH₄Cl): el catión se hidroliza, NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺, y la disolución es <b>ácida</b>. <b>Sal de ácido débil y base débil</b> (CH₃COONH₄, NH₄CN): se hidrolizan los dos iones y el pH depende de cuál sea más fuerte, comparando Ka del catión y Kb del anión. Para calcular el pH se usa la constante de hidrólisis, que no es más que la Kb del anión (o la Ka del catión) calculada con Ka · Kb = Kw. Por ejemplo, para CH₃COONa 0,10 M: Kb = 5,6 · 10⁻¹⁰, [OH⁻] = √(5,6 · 10⁻¹¹) = 7,5 · 10⁻⁶, pOH = 5,13 y pH = 8,87.",
+    ], svg: rejilla("Carácter ácido o básico de las disoluciones de sales", ["Ácido + base", "Ejemplo", "Disolución"], [["fuerte + fuerte", "NaCl", "neutra"], ["débil + fuerte", "CH₃COONa", "básica"], ["fuerte + débil", "NH₄Cl", "ácida"], ["débil + débil", "NH₄CN", "según Ka y Kb"]], "var(--leaf)"), video: V("ab-c", "Hidrólisis de sales y pH", "hidrólisis de sales pH") }),
+    bloque({ h: "4.2 Disoluciones reguladoras", p: [
+      "Una <mark>disolución reguladora</mark> (amortiguadora o tampón) es la que mantiene su pH casi constante aunque se le añadan pequeñas cantidades de ácido o de base, o se diluya. Está formada por un <b>ácido débil y su base conjugada</b> en concentraciones parecidas (CH₃COOH/CH₃COONa), o por una base débil y su ácido conjugado (NH₃/NH₄Cl). Si se añade un ácido, la base conjugada lo neutraliza (CH₃COO⁻ + H₃O⁺ → CH₃COOH + H₂O); si se añade una base, la neutraliza el ácido (CH₃COOH + OH⁻ → CH₃COO⁻ + H₂O).",
+      "Su pH se calcula con la constante de acidez, que, tomando logaritmos, da la <mark>ecuación de Henderson-Hasselbalch</mark>: <b>pH = pKa + log ([A⁻] / [HA])</b>. Si las dos concentraciones son iguales, pH = pKa; por eso, para preparar un tampón de un pH dado, se elige un ácido con pKa cercano. En la sangre, el sistema H₂CO₃/HCO₃⁻ mantiene el pH en 7,4; si falla, aparece la acidosis o la alcalosis. Dentro de las células actúa el par H₂PO₄⁻/HPO₄²⁻, y las proteínas también amortiguan. En el laboratorio, los tampones se usan para calibrar los pH-metros y en reacciones enzimáticas.",
+    ], extra: formula("pH = pKa + log ( [A⁻] / [HA] )"), svg: pasos("Cómo responde un tampón de ácido acético y acetato a ácidos y bases", ["Tampón: CH₃COOH + CH₃COO⁻", "+ H₃O⁺: lo capta el CH₃COO⁻", "+ OH⁻: lo neutraliza el CH₃COOH", "El cociente cambia poco: pH casi igual"], "#b45309"), video: V("ab-d", "Disoluciones amortiguadoras o tampón", "disolución tampón reguladora") }),
+    bloque({ h: "4.3 Indicadores ácido-base", p: [
+      "Un <mark>indicador</mark> es un ácido débil orgánico (HIn) cuya forma ácida y cuya base conjugada (In⁻) tienen colores distintos: HIn + H₂O ⇌ In⁻ + H₃O⁺. En medio ácido predomina HIn y se ve su color; en medio básico predomina In⁻. El cambio de color se aprecia cuando una forma es unas diez veces más abundante que la otra, así que ocurre en un <b>intervalo de viraje</b> de unas dos unidades de pH alrededor de pKa(HIn).",
+      "Cada indicador vira en una zona distinta: el <b>naranja de metilo</b> pasa de rojo a amarillo entre pH 3,1 y 4,4; el <b>azul de bromotimol</b>, de amarillo a azul entre 6,0 y 7,6; la <b>fenolftaleína</b>, de incolora a rosa entre 8,2 y 10. El papel indicador universal es una mezcla de varios que cambia de color a lo largo de toda la escala. Muchos pigmentos naturales son indicadores: las antocianinas de la lombarda pasan de rojo en medio ácido a verde o amarillo en medio básico. Para medir el pH con precisión se usa el <b>pH-metro</b>, que mide un potencial eléctrico relacionado con [H₃O⁺].",
+    ], svg: rejilla("Intervalo de viraje de algunos indicadores ácido-base", ["Indicador", "Viraje (pH)", "Colores"], [["Naranja de metilo", "3,1 – 4,4", "rojo → amarillo"], ["Rojo de metilo", "4,2 – 6,3", "rojo → amarillo"], ["Azul de bromotimol", "6,0 – 7,6", "amarillo → azul"], ["Fenolftaleína", "8,2 – 10,0", "incolora → rosa"]], "#7b3fc4") }),
+    bloque({ h: "4.4 Volumetrías de neutralización", p: [
+      "Una <mark>valoración</mark> o volumetría ácido-base sirve para determinar la concentración de un ácido (o de una base) haciéndolo reaccionar con una base (o ácido) de concentración conocida. Se coloca la disolución problema en un erlenmeyer con unas gotas de indicador y se añade desde una bureta la disolución valorante hasta que el indicador cambia de color. El <b>punto de equivalencia</b> es aquel en el que los moles de H₃O⁺ y de OH⁻ añadidos son estequiométricamente iguales: para ácidos y bases monopróticos, <b>Vₐ · Mₐ = V_b · M_b</b>.",
+      "La <b>curva de valoración</b> representa el pH frente al volumen añadido y muestra un salto brusco en torno al punto de equivalencia. En la valoración de un <b>ácido fuerte con una base fuerte</b>, el punto de equivalencia está en pH 7 y el salto es muy grande (de 4 a 10), así que sirve casi cualquier indicador. En la de un <b>ácido débil con una base fuerte</b>, en el punto de equivalencia hay la sal del ácido débil, que se hidroliza: el pH es <b>básico</b> (unos 8,7 para el acético) y hay que usar fenolftaleína. A la mitad del volumen de equivalencia, [HA] = [A⁻] y pH = pKa: así se mide experimentalmente Ka. En la de una base débil con un ácido fuerte, el punto de equivalencia es ácido y se usa naranja o rojo de metilo.",
+    ], extra: formula("Punto de equivalencia: nº mol H₃O⁺ = nº mol OH⁻ ; Vₐ · Mₐ · a = V_b · M_b · b"), svg: graf("Curvas de valoración de un ácido fuerte y de un ácido débil con hidróxido de sodio: el salto del ácido débil empieza más arriba y el punto de equivalencia es básico", "volumen de NaOH añadido", "pH (0-14)", [{ p: [[0, 0.07], [0.3, 0.09], [0.45, 0.13], [0.49, 0.2], [0.5, 0.5], [0.51, 0.8], [0.55, 0.85], [0.8, 0.93], [1, 0.96]], c: "var(--red)", t: "HCl" }, { p: [[0, 0.2], [0.1, 0.28], [0.25, 0.34], [0.4, 0.4], [0.48, 0.48], [0.5, 0.62], [0.52, 0.8], [0.6, 0.72], [1, 0.76]], c: "var(--leaf)", t: "CH₃COOH" }]), video: V("ab-e", "Valoración o titulación ácido-base", "valoración ácido base") }),
+  ],
+  figura: figura("Calcular un pH", "Elige el camino según la sustancia", [["Ácido fuerte", "[H₃O⁺] = c₀", "pH = −log c₀"], ["Ácido débil", "x = √(Ka c₀)", "comprobar α"], ["Sal", "hidrólisis", "Kb = Kw/Ka"], ["Tampón", "Henderson", "pH = pKa + log"]]),
+  video: V("ab-a", "Teorías ácido-base: Arrhenius, Brønsted-Lowry y Lewis", "teorías ácido base Arrhenius Bronsted Lewis"),
+  ejemplos: [
+    { enunciado: "Calcula el pH de una disolución de HNO₃ 0,025 M y de otra de Ca(OH)₂ 0,0050 M.", pasos: ["HNO₃ es fuerte: [H₃O⁺] = 0,025 M → pH = −log 0,025 = 1,60.", "Ca(OH)₂ es fuerte y da 2 OH⁻: [OH⁻] = 0,010 M → pOH = 2.", "pH = 14 − 2."], resultado: "pH = 1,60 y pH = 12,0." },
+    { enunciado: "Calcula el pH y el grado de disociación de una disolución de ácido acético 0,050 M (Ka = 1,8 · 10⁻⁵).", pasos: ["CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺: 0,050 − x, x, x.", "Ka = x² / (0,050 − x) ≈ x² / 0,050 → x = √(9 · 10⁻⁷) = 9,5 · 10⁻⁴ M.", "pH = −log 9,5 · 10⁻⁴ = 3,02.", "α = 9,5 · 10⁻⁴ / 0,050 = 0,019 (1,9 %): la aproximación es válida."], resultado: "pH = 3,02; α = 1,9 %." },
+    { enunciado: "Una disolución 0,20 M de un ácido débil HA tiene pH = 2,70. Calcula Ka y α.", pasos: ["[H₃O⁺] = 10⁻²·⁷⁰ = 2,0 · 10⁻³ M = x.", "Ka = x² / (c₀ − x) = (2,0 · 10⁻³)² / (0,198) = 2,0 · 10⁻⁵.", "α = 2,0 · 10⁻³ / 0,20 = 0,010."], resultado: "Ka = 2,0 · 10⁻⁵; α = 1,0 %." },
+    { enunciado: "Calcula el pH de una disolución de NH₄Cl 0,10 M. Kb(NH₃) = 1,8 · 10⁻⁵.", pasos: ["El NH₄⁺ se hidroliza: NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺.", "Ka(NH₄⁺) = Kw / Kb = 10⁻¹⁴ / 1,8 · 10⁻⁵ = 5,6 · 10⁻¹⁰.", "x = √(5,6 · 10⁻¹⁰ · 0,10) = 7,5 · 10⁻⁶ M.", "pH = −log 7,5 · 10⁻⁶."], resultado: "pH = 5,13: disolución ácida." },
+    { enunciado: "Se mezclan 50 mL de HCl 0,10 M con 30 mL de NaOH 0,10 M. Calcula el pH.", pasos: ["n(H₃O⁺) = 0,050 · 0,10 = 5,0 · 10⁻³ mol; n(OH⁻) = 0,030 · 0,10 = 3,0 · 10⁻³ mol.", "Sobran 2,0 · 10⁻³ mol de H₃O⁺.", "Volumen total 80 mL: [H₃O⁺] = 2,0 · 10⁻³ / 0,080 = 0,025 M.", "pH = −log 0,025."], resultado: "pH = 1,60." },
+    { enunciado: "Calcula el pH de un tampón con CH₃COOH 0,10 M y CH₃COONa 0,15 M (pKa = 4,74), y el pH tras añadir 0,010 mol de HCl a 1 L.", pasos: ["pH = 4,74 + log (0,15 / 0,10) = 4,74 + 0,18 = 4,92.", "El HCl reacciona con el acetato: CH₃COO⁻ 0,14 M; CH₃COOH 0,11 M.", "pH = 4,74 + log (0,14 / 0,11) = 4,74 + 0,10."], resultado: "pH = 4,92 → 4,84: apenas cambia (en agua pura pasaría de 7 a 2)." },
+  ],
+  errores: [
+    "Confundir ácido fuerte con ácido concentrado: la fuerza es el grado de disociación, la concentración es cuánto hay.",
+    "Calcular el pH de un ácido débil como si fuera fuerte (pH = −log c₀).",
+    "Olvidar que el Ca(OH)₂ o el Ba(OH)₂ aportan 2 OH⁻ por fórmula.",
+    "Al mezclar ácido y base, no dividir el exceso entre el volumen total.",
+    "Pensar que en el punto de equivalencia el pH siempre es 7: solo si ácido y base son fuertes.",
+    "Usar la aproximación c₀ − x ≈ c₀ sin comprobar que α es pequeño.",
+  ],
+  ejercicios: [
+    B("Define ácido y base según Arrhenius y según Brønsted-Lowry.", "Arrhenius: ácido libera H⁺ en agua; base libera OH⁻. Brønsted-Lowry: ácido cede H⁺; base acepta H⁺."),
+    B("Escribe la base conjugada de: HCl, H₂O, HCO₃⁻, NH₄⁺, H₂SO₄.", "Cl⁻, OH⁻, CO₃²⁻, NH₃, HSO₄⁻."),
+    B("Escribe el ácido conjugado de: NH₃, H₂O, CO₃²⁻, F⁻, OH⁻.", "NH₄⁺, H₃O⁺, HCO₃⁻, HF, H₂O."),
+    B("Identifica los pares conjugados en: HF + NH₃ ⇌ F⁻ + NH₄⁺.", "HF/F⁻ y NH₄⁺/NH₃."),
+    B("¿Qué es una sustancia anfótera? Pon dos ejemplos con reacciones.", "La que puede actuar como ácido o como base: H₂O (con NH₃ es ácido; con HCl es base); HCO₃⁻ (+ OH⁻ → CO₃²⁻ + H₂O; + H₃O⁺ → H₂CO₃ + H₂O)."),
+    B("¿Por qué el BF₃ es un ácido de Lewis?", "Porque el boro tiene solo seis electrones de valencia y orbitales vacíos: puede aceptar un par de electrones."),
+    B("Calcula el pH de HCl 0,0010 M.", "pH = 3."),
+    B("Calcula el pH de NaOH 0,050 M.", "pOH = 1,30 → pH = 12,70."),
+    B("¿Cuál es [H₃O⁺] y [OH⁻] en una disolución de pH 4,5?", "[H₃O⁺] = 10⁻⁴·⁵ = 3,2 · 10⁻⁵ M; [OH⁻] = 10⁻⁹·⁵ = 3,2 · 10⁻¹⁰ M."),
+    B("¿Cuántas veces más ácido es un zumo de pH 3 que un café de pH 5?", "100 veces más [H₃O⁺]."),
+    B("Indica si son ácidas, básicas o neutras las disoluciones de: KCl, CH₃COOK, NH₄NO₃, Na₂CO₃.", "KCl neutra; CH₃COOK básica; NH₄NO₃ ácida; Na₂CO₃ básica."),
+    B("¿Qué indicador usarías para valorar ácido acético con NaOH? ¿Por qué?", "Fenolftaleína: el punto de equivalencia es básico (pH ≈ 8,7) y su viraje (8,2-10) coincide."),
+    M("Calcula el pH de una disolución de HF 0,10 M (Ka = 6,8 · 10⁻⁴). Comprueba la aproximación.", "Aproximado: x = √(6,8 · 10⁻⁵) = 8,2 · 10⁻³ (α = 8,2 %, > 5 %). Resolviendo x² + 6,8 · 10⁻⁴ x − 6,8 · 10⁻⁵ = 0: x = 7,9 · 10⁻³ M → pH = 2,10."),
+    M("Calcula el pH de una disolución de NH₃ 0,20 M (Kb = 1,8 · 10⁻⁵) y su grado de disociación.", "[OH⁻] = √(3,6 · 10⁻⁶) = 1,9 · 10⁻³ → pOH = 2,72 → pH = 11,28. α = 0,95 %."),
+    M("Una disolución de ácido fórmico 0,10 M tiene α = 4,2 %. Calcula Ka y el pH.", "x = 0,0042 M; Ka = 0,0042² / 0,0958 = 1,84 · 10⁻⁴; pH = 2,38."),
+    M("¿Qué concentración de ácido acético (Ka = 1,8 · 10⁻⁵) hace falta para que el pH sea 3,0?", "x = 10⁻³; c₀ − x = x² / Ka = 10⁻⁶ / 1,8 · 10⁻⁵ = 0,056 → c₀ = 0,057 M."),
+    M("Calcula Kb del ion cianuro si Ka(HCN) = 6,2 · 10⁻¹⁰. ¿Es una base débil o fuerte?", "Kb = 10⁻¹⁴ / 6,2 · 10⁻¹⁰ = 1,6 · 10⁻⁵: base débil, comparable al amoniaco."),
+    M("Calcula el pH de una disolución de CH₃COONa 0,20 M (Ka del acético = 1,8 · 10⁻⁵).", "Kb = 5,6 · 10⁻¹⁰; [OH⁻] = √(1,1 · 10⁻¹⁰) = 1,05 · 10⁻⁵ → pOH = 4,98 → pH = 9,02."),
+    M("Se mezclan 25 mL de H₂SO₄ 0,10 M (totalmente disociado) con 40 mL de NaOH 0,10 M. Calcula el pH.", "n(H₃O⁺) = 0,025 · 0,20 = 5,0 · 10⁻³; n(OH⁻) = 4,0 · 10⁻³. Sobran 1,0 · 10⁻³ mol H₃O⁺ en 65 mL: [H₃O⁺] = 0,0154 → pH = 1,81."),
+    M("Se valoran 20 mL de HCl con NaOH 0,15 M y se gastan 24 mL. Calcula la concentración del HCl.", "Mₐ = 24 · 0,15 / 20 = 0,18 M."),
+    M("Calcula el pH de un tampón NH₃ 0,10 M / NH₄Cl 0,20 M (Kb = 1,8 · 10⁻⁵).", "pKa(NH₄⁺) = 9,25; pH = 9,25 + log (0,10/0,20) = 9,25 − 0,30 = 8,95."),
+    M("Explica qué ocurre en la sangre si aumenta la concentración de CO₂ (por ejemplo, al hiperventilar al revés: retener la respiración).", "Más CO₂ → más H₂CO₃ → el equilibrio H₂CO₃ ⇌ HCO₃⁻ + H₃O⁺ libera H₃O⁺: baja el pH (acidosis respiratoria). Los riñones y la respiración lo compensan."),
+    M("¿Por qué una disolución de NH₄CN es básica? Ka(HCN) = 6,2 · 10⁻¹⁰; Kb(NH₃) = 1,8 · 10⁻⁵.", "Ka(NH₄⁺) = 5,6 · 10⁻¹⁰ y Kb(CN⁻) = 1,6 · 10⁻⁵. Como Kb(CN⁻) > Ka(NH₄⁺), predomina la hidrólisis del anión: básica."),
+    M("¿Cuántos mL de agua hay que añadir a 10 mL de HCl de pH 1 para que el pH pase a 2?", "Hay que diluir 10 veces: volumen final 100 mL, es decir, añadir 90 mL."),
+    A("(Tipo PAU) Se disuelven 2,30 g de ácido metanoico (HCOOH, M = 46 g/mol) en agua hasta 500 mL. El pH es 2,38. a) Calcula Ka. b) Calcula α. c) ¿Qué volumen de NaOH 0,20 M neutraliza 25 mL de esa disolución?", "a) c₀ = 0,050 / 0,5 = 0,10 M; x = 10⁻²·³⁸ = 4,2 · 10⁻³; Ka = (4,2 · 10⁻³)² / 0,0958 = 1,8 · 10⁻⁴. b) α = 4,2 %. c) 25 · 0,10 = V · 0,20 → V = 12,5 mL."),
+    A("(Tipo PAU) Se valoran 25 mL de ácido acético 0,10 M (Ka = 1,8 · 10⁻⁵) con NaOH 0,10 M. Calcula el pH: a) al principio; b) tras añadir 12,5 mL; c) en el punto de equivalencia; d) tras añadir 30 mL.", "a) pH = 2,87. b) Mitad de la equivalencia: [HA] = [A⁻] → pH = pKa = 4,74. c) 25 mL: CH₃COO⁻ 0,050 M; Kb = 5,6 · 10⁻¹⁰; [OH⁻] = 5,3 · 10⁻⁶ → pH = 8,72. d) Exceso OH⁻: 0,5 · 10⁻³ mol en 55 mL → [OH⁻] = 9,1 · 10⁻³ → pH = 11,96."),
+    A("(Tipo PAU) Razona si son verdaderas o falsas: a) una disolución de ácido débil siempre tiene mayor pH que una de ácido fuerte; b) el pH de NaCl es 7; c) al diluir un ácido débil aumenta α; d) en el punto de equivalencia de toda valoración el pH es 7.", "a) Falsa: depende de las concentraciones (un fuerte muy diluido puede tener mayor pH). b) Verdadera a 25 °C: no hay hidrólisis. c) Verdadera (ley de dilución de Ostwald). d) Falsa: solo si ácido y base son fuertes."),
+    A("Calcula el pH de una disolución de HCl 1,0 · 10⁻⁸ M teniendo en cuenta el agua.", "[H₃O⁺] = 10⁻⁸ + x, [OH⁻] = x; (10⁻⁸ + x) x = 10⁻¹⁴ → x = 9,5 · 10⁻⁸; [H₃O⁺] = 1,05 · 10⁻⁷ → pH = 6,98 (ligeramente ácido, no 8)."),
+    A("(Tipo PAU) Queremos preparar 1 L de tampón de pH 5,00 con ácido acético 0,20 M y acetato de sodio sólido (M = 82 g/mol; pKa = 4,74). ¿Qué masa de acetato hay que añadir?", "log([A⁻]/0,20) = 0,26 → [A⁻] = 0,20 · 1,82 = 0,36 M → 0,36 · 82 = 30 g."),
+    A("El pH de la sangre es 7,40 y el pKa₁ del H₂CO₃ es 6,10. Calcula el cociente [HCO₃⁻]/[H₂CO₃] y comenta el resultado.", "log ([HCO₃⁻]/[H₂CO₃]) = 1,30 → cociente 20. Hay mucha más base que ácido: el tampón está preparado sobre todo para neutralizar ácidos, que son lo que el metabolismo produce."),
+    A("Calcula el pH de una disolución de H₃PO₄ 0,10 M (Ka₁ = 7,5 · 10⁻³) considerando solo la primera disociación.", "α no es pequeño: x² / (0,10 − x) = 7,5 · 10⁻³ → x² + 7,5 · 10⁻³ x − 7,5 · 10⁻⁴ = 0 → x = 0,024 M → pH = 1,62."),
+    A("Explica con la teoría de Lewis por qué el Fe³⁺ en agua da una disolución ácida.", "El Fe³⁺, ácido de Lewis pequeño y muy cargado, se rodea de seis moléculas de agua y polariza sus enlaces O−H: [Fe(H₂O)₆]³⁺ + H₂O ⇌ [Fe(OH)(H₂O)₅]²⁺ + H₃O⁺. Por eso las sales de hierro(III) y de aluminio son ácidas."),
+    A("Diseña un experimento para hacer un indicador casero con lombarda y comprobar el pH de productos de casa.", "Hervir lombarda troceada, filtrar el líquido morado. Añadirlo a vinagre, zumo de limón, agua, bicarbonato, jabón y amoniaco diluido. Ordenar por el color (rojo ácido, morado neutro, azul-verde-amarillo básico) y comparar con papel indicador universal."),
+  ],
+  quiz: [
+    q4("Según Brønsted-Lowry, un ácido…", ["acepta protones", "cede protones", "acepta electrones", "libera OH⁻"], 1, "Donante de H⁺."),
+    q4("La base conjugada del H₂O es…", ["H₃O⁺", "OH⁻", "O²⁻", "H₂"], 1, "Al perder un H⁺."),
+    q4("Según Lewis, una base…", ["cede un par de electrones", "acepta un par", "cede H⁺", "libera OH⁻"], 0, "Donante de par."),
+    q4("¿Qué especie es anfótera?", ["Cl⁻", "Na⁺", "HCO₃⁻", "NH₄⁺"], 2, "Puede ceder o aceptar H⁺."),
+    q4("Kw a 25 °C vale…", ["10⁻⁷", "10⁻¹⁴", "14", "1"], 1, "[H₃O⁺][OH⁻]."),
+    q4("Una disolución con [H₃O⁺] = 10⁻⁹ M es…", ["ácida", "neutra", "básica", "no existe"], 2, "pH 9."),
+    q4("pH + pOH =", ["7", "10", "14", "0"], 2, "A 25 °C."),
+    q4("¿Cuál es un ácido fuerte?", ["CH₃COOH", "HF", "HNO₃", "H₂CO₃"], 2, "Totalmente disociado."),
+    q4("A mayor Ka…", ["ácido más débil", "ácido más fuerte", "pH mayor", "base más fuerte"], 1, "Más disociado."),
+    q4("Ka · Kb =", ["1", "Kw", "pH", "14"], 1, "Para un par conjugado."),
+    q4("La base conjugada de un ácido fuerte es…", ["fuerte", "muy débil", "anfótera", "un ácido"], 1, "Cl⁻, NO₃⁻…"),
+    q4("pH de HCl 0,01 M:", ["1", "2", "12", "0,01"], 1, "−log 0,01."),
+    q4("pH de NaOH 0,001 M:", ["3", "11", "7", "14"], 1, "pOH 3."),
+    q4("Para un ácido débil, [H₃O⁺] ≈", ["c₀", "√(Ka · c₀)", "Ka", "Ka · c₀"], 1, "Si α es pequeño."),
+    q4("Una disolución de NH₄Cl es…", ["ácida", "neutra", "básica", "insoluble"], 0, "Se hidroliza el NH₄⁺."),
+    q4("Una disolución de CH₃COONa es…", ["ácida", "neutra", "básica", "no conduce"], 2, "Se hidroliza el acetato."),
+    q4("Un tampón está formado por…", ["ácido fuerte y base fuerte", "ácido débil y su base conjugada", "agua y sal", "dos ácidos fuertes"], 1, "Resiste cambios de pH."),
+    q4("Si [A⁻] = [HA] en un tampón, pH =", ["7", "pKa", "pKb", "14"], 1, "Henderson-Hasselbalch."),
+    q4("La fenolftaleína en medio básico es…", ["incolora", "rosa", "amarilla", "azul"], 1, "Vira entre 8,2 y 10."),
+    q4("En la valoración de ácido débil con base fuerte, el pH de equivalencia es…", ["ácido", "7", "básico", "0"], 2, "Hidrólisis del anión."),
+  ],
+  examen: [
+    q4("pH de HNO₃ 0,0050 M:", ["2,30", "5,0", "11,7", "3,0"], 0, "−log 0,005."),
+    q4("pH de Ba(OH)₂ 0,005 M:", ["11,7", "12,0", "2,0", "12,3"], 1, "[OH⁻] = 0,01."),
+    q4("[H₃O⁺] de un ácido débil 0,1 M con Ka = 10⁻⁵:", ["10⁻³ M", "10⁻⁵ M", "10⁻⁶ M", "0,1 M"], 0, "√(10⁻⁶)."),
+    q4("Kb de la base conjugada de un ácido con Ka = 10⁻⁴:", ["10⁻⁴", "10⁻¹⁰", "10⁻¹⁴", "10⁴"], 1, "Kw / Ka."),
+    q4("50 mL de HCl 0,1 M + 50 mL de NaOH 0,1 M:", ["pH 1", "pH 7", "pH 13", "pH 4"], 1, "Neutralización exacta."),
+    q4("pH de un tampón con pKa = 4,74 y [A⁻]/[HA] = 10:", ["3,74", "4,74", "5,74", "7"], 2, "pKa + 1."),
+    q4("¿Qué sal da disolución neutra?", ["KNO₃", "NH₄Cl", "Na₂CO₃", "CH₃COONa"], 0, "Ácido y base fuertes."),
+    q4("Volumen de NaOH 0,2 M que neutraliza 20 mL de HCl 0,1 M:", ["10 mL", "20 mL", "40 mL", "5 mL"], 0, "V · 0,2 = 2 mmol."),
+  ],
+  feynman: ["Por qué el amoniaco es una base aunque no tenga OH⁻", "Qué significa que el pH baje una unidad", "Por qué un ácido fuerte tiene una base conjugada muy débil", "Por qué el acetato de sodio da una disolución básica", "Cómo un tampón resiste los cambios de pH", "Por qué el punto de equivalencia no siempre está en pH 7"],
+  mapa: mapaB("ÁCIDOS Y BASES", [["Teorías", "Arrhenius, Brønsted, Lewis", "var(--pen)"], ["pH", "Kw, fuertes y débiles", "var(--red)"], ["Sales", "hidrólisis; Ka · Kb = Kw", "var(--leaf)"], ["Tampones y valoraciones", "Henderson; indicadores", "#b45309"]]),
+  tarjetas: [
+    ["Ácido de Brønsted", "Especie que cede un protón."],
+    ["Base de Lewis", "Especie que cede un par de electrones."],
+    ["Par conjugado", "Ácido y base que se diferencian en un H⁺: CH₃COOH/CH₃COO⁻."],
+    ["Kw", "[H₃O⁺][OH⁻] = 10⁻¹⁴ a 25 °C."],
+    ["pH", "−log [H₃O⁺]; pH + pOH = 14."],
+    ["Ka", "Constante de acidez: [A⁻][H₃O⁺]/[HA]."],
+    ["Ka · Kb", "= Kw para un par conjugado."],
+    ["Ácido débil", "[H₃O⁺] ≈ √(Ka c₀) si α < 5 %."],
+    ["Hidrólisis", "Reacción con el agua de iones de ácidos o bases débiles."],
+    ["Tampón", "Ácido débil + base conjugada; pH = pKa + log([A⁻]/[HA])."],
+    ["Indicador", "Ácido débil cuyas dos formas tienen colores distintos."],
+    ["Punto de equivalencia", "Moles de ácido y base estequiométricamente iguales."],
+  ],
+  glosario: [
+    ["Ion oxonio", "H₃O⁺, protón unido a una molécula de agua."],
+    ["Anfótero", "Que puede actuar como ácido o como base."],
+    ["Autoionización", "Reacción del agua consigo misma que forma H₃O⁺ y OH⁻."],
+    ["Ácido fuerte", "Ácido totalmente disociado en agua."],
+    ["Grado de disociación", "Fracción de moléculas de un electrolito que se disocian."],
+    ["pKa", "−log Ka; cuanto menor, más fuerte el ácido."],
+    ["Ácido poliprótico", "Ácido que puede ceder más de un protón."],
+    ["Constante de hidrólisis", "Kb del anión o Ka del catión de una sal."],
+    ["Henderson-Hasselbalch", "Ecuación del pH de un tampón."],
+    ["Intervalo de viraje", "Zona de pH en la que un indicador cambia de color."],
+    ["Valoración", "Determinación de una concentración mediante una reacción completa con un reactivo de concentración conocida."],
+    ["Bureta", "Tubo graduado con llave para añadir volúmenes precisos."],
+    ["Acidosis", "Bajada del pH de la sangre por debajo de 7,35."],
+    ["pH-metro", "Aparato que mide el pH electroquímicamente."],
+    ["Lluvia ácida", "Precipitación con pH menor de 5,6 por óxidos de azufre y nitrógeno."],
+  ],
+  situacion: {
+    titulo: "¿Cuánto ácido lleva de verdad el vinagre?",
+    reto: "Una cooperativa de consumidores quiere comprobar si los vinagres del supermercado tienen la acidez que indica la etiqueta. Vuestro equipo los valorará en el laboratorio y publicará los resultados.",
+    pasos: [
+      "Elegid tres o cuatro vinagres distintos y anotad la acidez de la etiqueta (gramos de ácido acético por 100 mL).",
+      "Diluid cada vinagre 1:10 y valorad 10 mL con NaOH 0,10 M usando fenolftaleína; repetid tres veces.",
+      "Calculad la concentración de ácido acético y pasadla a g/100 mL; estimad el error.",
+      "Medid el pH de cada vinagre y comprobad si es coherente con la concentración calculada y Ka.",
+      "Comparad con la etiqueta y redactad un informe para la cooperativa.",
+    ],
+    producto: "Un informe con tabla de resultados, la curva de valoración de una muestra medida con pH-metro y las conclusiones.",
+    evaluacion: ["La valoración se realiza con técnica y seguridad.", "Los cálculos estequiométricos y de pH son correctos.", "Se elige y justifica bien el indicador.", "El informe compara con la etiqueta y discute los errores."],
+  },
+  familias: [
+    "Preparad indicador de lombarda y probad el pH de productos de casa (siempre con supervisión).",
+    "Leed las etiquetas de los productos de limpieza y buscad cuáles son ácidos y cuáles básicos.",
+    "Comentad por qué nunca hay que mezclar lejía con productos ácidos (desprende cloro).",
+    "Observad cómo el limón cambia el color del té.",
+  ],
+  profesores: {
+    saberes: `${PROFE}: bloque «Reacciones químicas» (reacciones ácido-base): teorías de Arrhenius, Brønsted-Lowry y Lewis, pares conjugados, Kw y pH, Ka y Kb, cálculo de pH, hidrólisis, disoluciones reguladoras, indicadores y volumetrías.`,
+    ideas: [
+      "Escala de pH con indicador de lombarda y productos cotidianos.",
+      "Valoración de vinagre comercial con NaOH y fenolftaleína.",
+      "Curva de valoración con pH-metro o sensor y determinación de pKa a la mitad de la equivalencia.",
+      "Preparación de un tampón y comparación de su respuesta frente al agua al añadir HCl.",
+    ],
+  },
+  fuentes: [
+    FUENTE_RD,
+    { t: "Ácido, Wikipedia en español", url: "https://es.wikipedia.org/wiki/%C3%81cido" },
+    { t: "Simulación PhET «Escala de pH» (en español)", url: "https://phet.colorado.edu/es/simulations/ph-scale" },
+    { t: "Simulación PhET «Soluciones ácido-base» (en español)", url: "https://phet.colorado.edu/es/simulations/acid-base-solutions" },
+  ],
+  revisado: "2026-11-21",
+};
+
+function niveles3() {
+  return rejilla("Constantes de acidez sucesivas del ácido fosfórico", ["Etapa", "Equilibrio", "Ka"], [["1ª", "H₃PO₄ ⇌ H₂PO₄⁻", "7,5 · 10⁻³"], ["2ª", "H₂PO₄⁻ ⇌ HPO₄²⁻", "6,2 · 10⁻⁸"], ["3ª", "HPO₄²⁻ ⇌ PO₄³⁻", "4,8 · 10⁻¹³"]], "var(--red)");
+}
