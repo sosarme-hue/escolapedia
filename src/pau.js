@@ -2,6 +2,9 @@
 // Genera /pau/ con la información de la prueba 2027, la calculadora de notas y una página por materia
 // (formato del examen, temas de 2º de Bachillerato enlazados, consejos, modelo de examen con soluciones y test).
 const INFO = require("./pau-info");
+// Modelos adicionales por materia: { "Nombre de la materia": [modelo2, modelo3, …] }
+const EXTRA = {};
+for (const f of require("fs").readdirSync(__dirname).filter((f) => /^pau-modelos-.*\.js$/.test(f)).sort()) for (const [k, v] of Object.entries(require("./" + f))) (EXTRA[k] = EXTRA[k] || []).push(...v);
 const MATERIAS = [...require("./pau-materias-1"), ...require("./pau-materias-2"), ...require("./pau-materias-3"), ...require("./pau-materias-4")];
 
 module.exports = function pau({ ETAPAS, page, write, SITE, famColor, slug, esc }) {
@@ -47,6 +50,7 @@ module.exports = function pau({ ETAPAS, page, write, SITE, famColor, slug, esc }
     ["plan-de-estudio", "Plan de estudio", "De septiembre a junio, mes a mes y semana a semana."],
     ["consejos", "Consejos y día del examen", "Técnica de examen, descanso, alimentación y nervios."],
     ["preguntas-frecuentes", "Preguntas frecuentes", "Revisión, mejorar nota, FP, adaptaciones y más."],
+    ["examenes-oficiales", "Exámenes oficiales", "Dónde están los exámenes reales de años anteriores de tu comunidad."],
   ];
   const subnav = (depth, on) => `<nav class="rec-toc pau-nav" aria-label="Sección PAU"><a href="${R(depth - 1)}"${on === "" ? ' class="on"' : ""}>PAU 2027</a>${SUB.map(([s, t]) => `<a href="${R(depth - 1)}${s}/"${on === s ? ' class="on"' : ""}>${t}</a>`).join("")}<a href="${R(depth - 1)}materias/"${on === "materias" ? ' class="on"' : ""}>Materias y modelos</a></nav>`;
 
@@ -80,12 +84,12 @@ module.exports = function pau({ ETAPAS, page, write, SITE, famColor, slug, esc }
   pagina("pau", 1, "PAU 2027", "PAU 2027: todo para aprobar la selectividad",
     "La Prueba de Acceso a la Universidad (PAU), antes EBAU, EvAU o selectividad, explicada fácil: cómo es, cuándo es, cómo se calcula la nota y cómo prepararla materia a materia, con modelos de examen resueltos.",
     `${cuenta}
-    ${subnav(2, "")}
+    ${subnav(1, "")}
     <div class="figure">${ESQUEMA}</div>
     ${sec("", "Lo esencial en 10 puntos", ol(INFO.esencial))}
     ${sec("", "Prepara cada materia", `<p>Cada materia tiene su página con <b>cómo es el examen</b>, <b>qué temas entran</b> (enlazados a los temas completos de 2º de Bachillerato), <b>consejos</b>, <b>errores que restan puntos</b>, un <b>modelo de examen con soluciones</b> para imprimir y un <b>test de repaso</b> con nota.</p>
-      <h3>Fase de acceso</h3>${matCards(acc, 2)}
-      <h3>Fase de admisión (para subir nota)</h3>${matCards(adm, 2)}`)}
+      <h3>Fase de acceso</h3>${matCards(acc, 1)}
+      <h3>Fase de admisión (para subir nota)</h3>${matCards(adm, 1)}`)}
     ${sec("", "Todo sobre la prueba", `<div class="grid rec-cards">${SUB.map(([s, t, d]) => `<a class="card" style="--c:var(--bac)" href="${s}/"><span class="mono">${t[0]}</span><span><b>${t}</b><small>${d}</small></span></a>`).join("")}</div>`)}
     <p class="caption">Información revisada el 21 de noviembre de 2026 con el Real Decreto 534/2024 (BOE-A-2024-11858) y los calendarios publicados por las comunidades. Las universidades y consejerías pueden ajustar fechas y detalles: confírmalo siempre en la web oficial de tu comunidad.</p>`,
     "PAU 2027: selectividad, fechas, nota y modelos de examen",
@@ -187,6 +191,28 @@ module.exports = function pau({ ETAPAS, page, write, SITE, famColor, slug, esc }
     ${INFO.faqGrupos.map(([h, xs]) => sec("", h, faq(xs))).join("")}`,
     "Preguntas frecuentes PAU 2027", "Respuestas a las dudas de la PAU 2027: revisión de exámenes, subir nota, validez, FP, adaptaciones, calculadora, diccionario y más.");
 
+  // ---------------- exámenes oficiales ----------------
+  const dom = (u) => u.replace(/^https?:\/\//, "").split("/")[0].replace(/^www\./, "");
+  const busca = (c) => `https://www.google.com/search?q=${encodeURIComponent(`exámenes PAU años anteriores soluciones site:${dom(c.web)}`)}`;
+  pagina("pau/examenes-oficiales", 2, "Exámenes oficiales", "Exámenes oficiales de la PAU de años anteriores",
+    "Los exámenes reales de convocatorias pasadas, con sus soluciones y criterios de corrección, son el mejor entrenamiento. Los publica cada comunidad: aquí tienes dónde encontrarlos y cómo usarlos.",
+    `${subnav(2, "examenes-oficiales")}
+    ${sec("", "Dónde están en cada comunidad", `<p>Cada comisión organizadora publica sus exámenes en su web, normalmente en un apartado llamado «Exámenes de años anteriores», «Modelos de examen», «Orientaciones» o «Exàmens PAU». El botón «Buscar» abre una búsqueda solo dentro de la web oficial.</p>${tabla(["Comunidad", "Organiza", "Web oficial", "Buscar exámenes"], INFO.comunidades.filter((c) => c.nombre !== "PCE").map((c) => [c.n, c.org, `<a href="${c.web}" target="_blank" rel="noopener">${c.webT}</a>`, `<a href="${busca(c)}" target="_blank" rel="noopener">Buscar →</a>`]))}<p class="caption">Los exámenes oficiales pertenecen a las comisiones y universidades que los elaboran: por eso los enlazamos y no los copiamos.</p>`)}
+    ${sec("", "Cuáles practicar", ul([
+      "Empieza por los <b>modelos de 2025, 2026 y 2027</b>: son los del nuevo formato competencial (RD 534/2024). Los anteriores a 2025 siguen siendo útiles para practicar contenidos, pero su estructura es distinta.",
+      "Practica sobre todo los de <b>tu comunidad</b>: cada comisión tiene su estilo. Después, los de otras comunidades te dan más variedad.",
+      "Haz también los de la <b>convocatoria extraordinaria</b>: suelen ser igual de exigentes.",
+      "En Escolapedia tienes además <a href=\"../materias/\">tres modelos propios resueltos por materia</a>, escritos según el formato actual.",
+    ]))}
+    ${sec("", "Cómo sacarles partido", ol([
+      "Hazlo entero, en 90 minutos y sin apuntes, en un sitio tranquilo.",
+      "Corrígelo con los <b>criterios oficiales</b>, como lo haría el tribunal, y ponte nota.",
+      "Apunta en una libreta cada error y el tema al que pertenece.",
+      "Repasa esos temas en Escolapedia y vuelve a hacer el mismo examen una semana después.",
+      "A partir de febrero, intenta hacer un examen oficial por semana de cada materia de acceso.",
+    ]))}`,
+    "Exámenes oficiales de la PAU de años anteriores", "Dónde encontrar los exámenes oficiales de la PAU de años anteriores de cada comunidad, con soluciones y criterios, y cómo practicar con ellos.");
+
   // ---------------- índice de materias ----------------
   pagina("pau/materias", 2, "Materias", "Materias de la PAU: modelos de examen resueltos",
     "Todas las materias que se pueden examinar en la PAU, con su modelo de examen, soluciones, consejos y test.",
@@ -205,41 +231,52 @@ module.exports = function pau({ ETAPAS, page, write, SITE, famColor, slug, esc }
     const temasHTML = temas.length ? `<ol class="topics">${temas.map((t) => t.obj
       ? `<li><a href="${urlTema(t, 2)}"><span>${t.titulo}</span><span class="pill">Tema completo</span></a></li>`
       : `<li><span class="t"><span>${t.titulo}</span><span class="pill soon">Próximamente</span></span></li>`).join("")}</ol>` : "";
+    const modelos = [M.modelo, ...(EXTRA[M.nombre] || [])];
     const mod = M.modelo;
-    const total = mod.preguntas.reduce((a, p) => a + (p.puntos || 0), 0);
-    const modeloHTML = `<div class="pau-modelo">
+    const pts = (n) => String(n).replace(".", ",");
+    const modeloHTML = (mod) => { const total = mod.preguntas.reduce((a, p) => a + (p.puntos || 0), 0); return `<div class="pau-modelo">
       <p class="caption"><b>Instrucciones:</b> ${mod.instrucciones}</p>
       ${mod.texto ? `<div class="lectura pau-texto">${mod.texto}</div>` : ""}
-      <ol class="pau-preg">${mod.preguntas.map((p) => `<li><p>${p.q}${p.puntos ? ` <span class="pau-pts">(${String(p.puntos).replace(".", ",")} ${p.puntos === 1 ? "punto" : "puntos"})</span>` : ""}</p><details><summary>Ver solución y criterios</summary><div>${p.sol}</div></details></li>`).join("")}</ol>
-      ${total ? `<p class="caption">Total: ${String(total).replace(".", ",")} puntos.</p>` : ""}</div>`;
+      <ol class="pau-preg">${mod.preguntas.map((p) => `<li><p>${p.q}${p.puntos ? ` <span class="pau-pts">(${pts(p.puntos)} ${p.puntos === 1 ? "punto" : "puntos"})</span>` : ""}</p><details><summary>Ver solución y criterios</summary><div>${p.sol}</div></details></li>`).join("")}</ol>
+      ${total ? `<p class="caption">Total: ${pts(total)} puntos.</p>` : ""}</div>`; };
     const quizPool = listos.flatMap((t) => [...(t.obj.quiz || []), ...(t.obj.examen || [])].map((q) => ({ ...q, tema: t.titulo, u: urlTema(t, 3) })));
     const hayTest = quizPool.length >= 10;
+    const masModelos = modelos.length > 1 ? `<h3>Más modelos resueltos</h3><div class="grid rec-cards">${modelos.slice(1).map((x, i) => `<a class="card" style="--c:${M.color}" href="modelo-${i + 2}/"><span class="mono">${i + 2}</span><span><b>Modelo ${i + 2}</b><small>${x.titulo}</small></span></a>`).join("")}</div>` : "";
 
     pagina(`pau/${M.slug}`, 2, M.nombre, `${M.nombre} en la PAU`,
       M.intro,
       `${subnav(2, "materias")}
       <div class="pau-head">${faseTag(M)}<span class="pau-tag" style="--c:#5a6580">${M.quien}</span>${M.m ? `<a class="toolbtn" href="${R(2)}${M.m.url}">Temario completo de 2º →</a>` : ""}</div>
-      <nav class="rec-toc"><a href="#examen">Cómo es el examen</a><a href="#temas">Qué entra</a><a href="#consejos">Consejos</a><a href="#modelo">Modelo resuelto</a>${hayTest ? `<a href="test/">Test de repaso</a>` : ""}<a href="examen/">Versión para imprimir</a></nav>
+      <nav class="rec-toc"><a href="#examen">Cómo es el examen</a><a href="#temas">Qué entra</a><a href="#consejos">Consejos</a><a href="#modelo">${modelos.length > 1 ? `${modelos.length} modelos resueltos` : "Modelo resuelto"}</a>${hayTest ? `<a href="test/">Test de repaso</a>` : ""}<a href="examen/">Versión para imprimir</a><a href="${R(1)}examenes-oficiales/">Exámenes oficiales</a></nav>
       ${sec("examen", "Cómo es el examen", `${ul(M.formato)}${M.tabla ? tabla(M.tabla[0], M.tabla.slice(1)) : ""}<p class="caption">${INFO.avisoModelo}</p>`)}
       ${sec("temas", "Qué entra: lo imprescindible", `${ul(M.claves)}${temas.length ? `<h3>Los temas de 2º de Bachillerato</h3><p>Repasa cada tema con su explicación, ejemplos resueltos, ejercicios con solución y tarjetas de repaso.</p>${temasHTML}` : ""}`)}
       ${sec("consejos", "Consejos para sacar nota", `${ul(M.consejos)}<div class="errores"><h3>Errores que restan puntos</h3>${ul(M.errores)}</div>`)}
-      ${sec("modelo", `Modelo de examen resuelto <small style="font-size:15px;color:var(--muted)">(${mod.titulo})</small>`, `${modeloHTML}<p><a class="toolbtn" href="examen/">Imprimir el modelo (sin soluciones a la vista)</a></p>`)}
+      ${sec("modelo", `Modelo de examen resuelto <small style="font-size:15px;color:var(--muted)">(${mod.titulo})</small>`, `${modeloHTML(mod)}<p><a class="toolbtn" href="examen/">Imprimir el modelo (sin soluciones a la vista)</a></p>${masModelos}<p class="caption">¿Quieres los exámenes reales de años anteriores? <a href="${R(1)}examenes-oficiales/">Dónde encontrar los exámenes oficiales de tu comunidad</a>.</p>`)}
       ${hayTest ? sec("test", "Test de repaso", `<p>${Math.min(30, quizPool.length)} preguntas de los temas de ${M.nombre}, con corrección y nota. Te dice qué temas repasar.</p><p><a class="toolbtn" href="test/">Hacer el test →</a></p>`) : ""}
       ${M.fuentes ? sec("", "Fuentes", `<ul class="src">${M.fuentes.map((f) => `<li><a href="${f.url}" target="_blank" rel="noopener">${f.t}</a></li>`).join("")}</ul>`) : ""}`,
-      `${M.nombre} PAU 2027: modelo de examen resuelto`, `${M.nombre} en la PAU 2027: cómo es el examen, qué entra, consejos, errores típicos y modelo de examen resuelto con soluciones.`);
+      `${M.nombre} PAU 2027: ${modelos.length > 1 ? `${modelos.length} modelos de examen resueltos` : "modelo de examen resuelto"}`, `${M.nombre} en la PAU 2027: cómo es el examen, qué entra, consejos, errores típicos y ${modelos.length > 1 ? `${modelos.length} modelos de examen resueltos` : "modelo de examen resuelto"} con soluciones.`);
 
-    // Versión imprimible
-    write(`pau/${M.slug}/examen`, page({ title: `Modelo PAU ${M.nombre} · ${SITE}`, desc: `Modelo de examen de ${M.nombre} para la PAU 2027, para imprimir, con soluciones al final.`, depth: 3,
+    // Modelos adicionales: página propia con las soluciones desplegables
+    modelos.forEach((x, i) => {
+      if (i === 0) return;
+      write(`pau/${M.slug}/modelo-${i + 1}`, page({ title: `Modelo ${i + 1} PAU ${M.nombre} resuelto · ${SITE}`, desc: `Modelo ${i + 1} de examen de ${M.nombre} para la PAU 2027 (${x.titulo}), con soluciones y criterios de corrección.`, depth: 3, nav: "pau",
+        body: wrap(3, `<a href="../">${M.nombre}</a> › Modelo ${i + 1}`, `${M.nombre}: modelo ${i + 1}`, `${x.titulo[0].toUpperCase() + x.titulo.slice(1)}. Hazlo en 90 minutos y después abre las soluciones.`,
+          `<nav class="rec-toc pau-nav"><a href="../">← ${M.nombre} en la PAU</a>${modelos.map((_, j) => j === i ? `<a class="on" href="./">Modelo ${j + 1}</a>` : `<a href="${j === 0 ? "../#modelo" : `../modelo-${j + 1}/`}">Modelo ${j + 1}</a>`).join("")}<a href="../examen-${i + 1}/">Versión para imprimir</a></nav>
+          <section class="rec-sec">${modeloHTML(x)}</section>`).replace(`<a href="../">PAU 2027</a>`, `<a href="../../">PAU 2027</a>`) }));
+    });
+
+    // Versiones imprimibles (examen/, examen-2/, examen-3/…)
+    modelos.forEach((x, i) => write(`pau/${M.slug}/${i ? `examen-${i + 1}` : "examen"}`, page({ title: `Modelo ${i + 1} PAU ${M.nombre} para imprimir · ${SITE}`, desc: `Modelo ${i + 1} de examen de ${M.nombre} para la PAU 2027, para imprimir, con soluciones al final.`, depth: 3,
       scripts: `<script>document.getElementById("t-print").addEventListener("click",()=>window.print());</script>`,
       body: `<main class="ficha"><div class="wrap">
   <div class="crumbs noprint"><a href="../">← ${M.nombre} en la PAU</a></div>
   <div class="ficha-tools noprint"><button type="button" id="t-print">Imprimir o guardar en PDF</button><span class="caption">Hazlo en 90 minutos, sin mirar las soluciones.</span></div>
-  <header class="ficha-h"><div><span class="badge" style="background:${M.color}">PAU 2027 · Modelo de Escolapedia</span><h1>${M.nombre}</h1><p class="caption">${mod.instrucciones}</p></div>
+  <header class="ficha-h"><div><span class="badge" style="background:${M.color}">PAU 2027 · Modelo ${i + 1} de Escolapedia</span><h1>${M.nombre}</h1><p class="caption">${x.instrucciones}</p></div>
     <div class="ficha-name">Nombre: ______________________ &nbsp; Fecha: ___________ &nbsp; Nota: ______</div></header>
-  ${mod.texto ? `<section><div class="lectura pau-texto">${mod.texto}</div></section>` : ""}
-  <section><ol class="fq">${mod.preguntas.map((p) => `<li><p>${p.q}${p.puntos ? ` <b>(${String(p.puntos).replace(".", ",")} p.)</b>` : ""}</p><div class="lines tall"></div></li>`).join("")}</ol></section>
-  <section class="sol brk"><h2>Soluciones y criterios de corrección</h2><ol>${mod.preguntas.map((p) => `<li>${p.sol}</li>`).join("")}</ol></section>
-  </div></main>` }));
+  ${x.texto ? `<section><div class="lectura pau-texto">${x.texto}</div></section>` : ""}
+  <section><ol class="fq">${x.preguntas.map((p) => `<li><p>${p.q}${p.puntos ? ` <b>(${pts(p.puntos)} p.)</b>` : ""}</p><div class="lines tall"></div></li>`).join("")}</ol></section>
+  <section class="sol brk"><h2>Soluciones y criterios de corrección</h2><ol>${x.preguntas.map((p) => `<li>${p.sol}</li>`).join("")}</ol></section>
+  </div></main>` })));
 
     // Test de repaso (usa el mismo motor que los exámenes por trimestre)
     if (hayTest) {
