@@ -38,6 +38,21 @@ const VID = {
   "luz-b": { id: "U4-DmT12D9E", canal: "Date un Voltio", vistas: 555383 },
   "luz-c": { id: "k-KIPLgeMko", canal: "Profesor Sergio Llanos", vistas: 422987 },
   "luz-d": { id: "cKKM9boWqZs", canal: "ScienceClic Español", vistas: 709396 },
+  "opt-a": { id: "TAOnBigQjFY", canal: "Profesor Sergio Llanos", vistas: 787916 },
+  "opt-b": { id: "diVl40dQrXA", canal: "Profesor Sergio Llanos", vistas: 433743 },
+  "opt-c": { id: "I9y7BFnpQ0E", canal: "espiral ciencias", vistas: 177136 },
+  "opt-d": { id: "KiUSU0mROqE", canal: "ROCOLCORP", vistas: 215164 },
+  "rel-a": { id: "HVbWtwQLHKk", canal: "CuriosaMente", vistas: 2904655 },
+  "rel-b": { id: "5CLj9uJPQKg", canal: "Date un Voltio", vistas: 579155 },
+  "rel-c": { id: "JnEAMYltzi0", canal: "Date un Vlog", vistas: 579637 },
+  "rel-d": { id: "gMRsSbFNsyM", canal: "Instituto de Física Teórica IFT", vistas: 1359300 },
+  "rel-e": { id: "zOX-gbH7J64", canal: "Date un Voltio", vistas: 1790518 },
+  "nuc-a": { id: "4SfB8HOXSNU", canal: "KhanAcademyEspañol", vistas: 120875 },
+  "nuc-b": { id: "Vf3fkOyyFIE", canal: "unicoos", vistas: 174591 },
+  "nuc-c": { id: "_qgVKmOsqV8", canal: "Date un Vlog", vistas: 2490909 },
+  "nuc-d": { id: "8t5EJYaqXVE", canal: "QuantumFracture", vistas: 673321 },
+  "nuc-e": { id: "Ngd7b3rnDZU", canal: "Date un Vlog", vistas: 367136 },
+  "nuc-f": { id: "-wwPXnaTF60", canal: "profesor10demates", vistas: 58014 },
 };
 const V = (k, titulo, busqueda) => ({ ...VID[k], titulo, megusta: 0, ...(busqueda ? { busqueda } : {}) });
 
