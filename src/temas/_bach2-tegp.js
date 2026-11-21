@@ -72,9 +72,9 @@ function matrices(t = "Dónde está la tinta") {
   const pla = `<rect x="180" y="84" width="64" height="36" fill="#dcd6cc" stroke="var(--ink)"/><rect x="186" y="81" width="18" height="3" fill="${tinta}"/><rect x="218" y="81" width="14" height="3" fill="${tinta}"/>`;
   return marco("Matrices de grabado de perfil: en relieve la tinta está en lo que sobresale; en hueco, dentro de los surcos; en plano, en zonas químicamente preparadas a la misma altura",
     tit(t) + rel + hue + pla
-    + txt("Relieve", 42, 140, 70, 11, 'font-weight="700" fill="var(--pen)"') + txt("tinta en lo alto: xilografía, linóleo", 42, 158, 78, 8.5, 'fill="var(--muted)"')
-    + txt("Hueco", 126, 140, 70, 11, 'font-weight="700" fill="var(--red)"') + txt("tinta en los surcos: calcografía", 126, 158, 78, 8.5, 'fill="var(--muted)"')
-    + txt("Plano", 212, 140, 70, 11, 'font-weight="700" fill="var(--leaf)"') + txt("misma altura: litografía, serigrafía", 212, 158, 78, 8.5, 'fill="var(--muted)"')
+    + txt("Relieve", 42, 136, 70, 11, 'font-weight="700" fill="var(--pen)"') + txt("xilografía, linóleo", 42, 156, 80, 8.5, 'fill="var(--muted)"')
+    + txt("Hueco", 126, 136, 70, 11, 'font-weight="700" fill="var(--red)"') + txt("calcografía", 126, 156, 80, 8.5, 'fill="var(--muted)"')
+    + txt("Plano", 212, 136, 70, 11, 'font-weight="700" fill="var(--leaf)"') + txt("litografía, serigrafía", 212, 156, 80, 8.5, 'fill="var(--muted)"')
     + txt("Perfil de la matriz entintada", 130, 50, 236, 9.5, 'fill="var(--muted)"'));
 }
 
