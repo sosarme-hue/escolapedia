@@ -61,4 +61,10 @@ module.exports = {
   "dig-b": { id: "xrrogOtQU70", canal: "Rafael López Borrego", vistas: 65133, q: "qué es y cómo surge el videoarte" },
   "dig-c": { id: "G7-WsAKVKSM", canal: "AFP Español", vistas: 77504, q: "museo digital teamLab Tokio" },
   "dig-d": { id: "PUJFyst8tzA", canal: "Antonio García Villarán", vistas: 512412, q: "IA gana un concurso de pintura" },
+  "ser-a": { id: "Qg_tTryjccY", canal: "El Cañonazo", vistas: 73346, q: "qué es el transmedia" },
+  "ser-b": { id: "ZDvbXyg1lV8", canal: "Bastian Luka", vistas: 71661, q: "cómo Los Soprano lo cambió todo" },
+  "ser-c": { id: "Ged5zZ8Sgu4", canal: "De todo un Paco", vistas: 164414, q: "multiverso y líneas de tiempo" },
+  "ser-d": { id: "KRRfb-pSZy8", canal: "Academia Play", vistas: 552832, q: "historia de los videojuegos" },
+  "ser-e": { id: "tfNyhtNc8rY", canal: "DayoScript", vistas: 376074, q: "los videojuegos son arte" },
+  "ser-f": { id: "xe0xPxeWj58", canal: "BettaTech", vistas: 15639, q: "industria del videojuego en España" },
 };
