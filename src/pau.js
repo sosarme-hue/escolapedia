@@ -3,6 +3,8 @@
 // (formato del examen, temas de 2º de Bachillerato enlazados, consejos, modelo de examen con soluciones y test).
 const INFO = require("./pau-info");
 const COM = require("./pau-comunidades");
+const GRADOS = require("./pau-grados");
+const RESUMEN = Object.assign({}, ...["1", "2", "3", "4"].map((n) => require("./pau-resumenes-" + n)));
 // Modelos adicionales por materia: { "Nombre de la materia": [modelo2, modelo3, …] }
 const EXTRA = {};
 for (const f of require("fs").readdirSync(__dirname).filter((f) => /^pau-modelos-.*\.js$/.test(f)).sort()) for (const [k, v] of Object.entries(require("./" + f))) (EXTRA[k] = EXTRA[k] || []).push(...v);
@@ -48,6 +50,7 @@ module.exports = function pau({ ETAPAS, page, write, SITE, famColor, slug, esc }
     ["comunidades", "Por comunidades", "Cómo se llama, quién la organiza y qué cambia en cada comunidad."],
     ["cataluna", "PAU en Cataluña", "Selectivitat: catalán, fechas, preinscripción y ponderaciones."],
     ["notas-de-corte-y-ponderaciones", "Notas de corte y ponderaciones", "Qué son, cómo se usan y cómo elegir materias de admisión."],
+    ["notas-de-corte-por-grado", "Notas de corte por grado", "Más de 60 grados con su nota de corte orientativa y qué materias ponderan."],
     ["plan-de-estudio", "Plan de estudio", "De septiembre a junio, mes a mes y semana a semana."],
     ["consejos", "Consejos y día del examen", "Técnica de examen, descanso, alimentación y nervios."],
     ["preguntas-frecuentes", "Preguntas frecuentes", "Revisión, mejorar nota, FP, adaptaciones y más."],
@@ -200,6 +203,26 @@ module.exports = function pau({ ETAPAS, page, write, SITE, famColor, slug, esc }
     ${sec("", "Qué materias pondera cada rama", tabla(["Rama", "Materias que suelen ponderar 0,2", "Consejo"], INFO.ramas))}`,
     "Notas de corte y ponderaciones PAU 2027", "Qué es la nota de corte, cómo funcionan las ponderaciones 0,1 y 0,2, notas de corte orientativas de los grados más pedidos y qué materias elegir en la fase de admisión.");
 
+  // ---------------- notas de corte por grado ----------------
+  {
+    const RAMAS = [...new Set(GRADOS.map((g) => g[1]))];
+    const filtroJS = `<script>(function(){var i=document.getElementById("g-busca"),r=document.getElementById("g-rama");if(!i)return;function f(){var q=i.value.toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,""),ra=r.value,n=0;document.querySelectorAll("#g-tabla tbody tr").forEach(function(t){var ok=(!ra||t.dataset.rama===ra)&&(!q||t.textContent.toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").indexOf(q)>=0);t.hidden=!ok;if(ok)n++;});document.getElementById("g-n").textContent=n;}i.addEventListener("input",f);r.addEventListener("change",f);})();</script>`;
+    pagina("pau/notas-de-corte-por-grado", 2, "Notas de corte por grado", "Notas de corte por grado: qué nota necesitas",
+      `${GRADOS.length} grados universitarios con su nota de corte orientativa en universidades públicas, las materias que suelen ponderar 0,2 y la modalidad de Bachillerato que más ayuda.`,
+      `${subnav(2, "notas-de-corte-por-grado")}
+      ${sec("", "Busca tu grado", `<div class="pau-filtro"><label>Grado o materia<input id="g-busca" type="search" placeholder="Por ejemplo: enfermería, física…"></label><label>Rama<select id="g-rama"><option value="">Todas</option>${RAMAS.map((r) => `<option>${r}</option>`).join("")}</select></label><p class="caption"><b id="g-n">${GRADOS.length}</b> grados</p></div>
+      <div class="tscroll"><table class="rec-t" id="g-tabla"><thead><tr><th>Grado</th><th>Nota de corte (orientativa)</th><th>Suelen ponderar 0,2</th><th>Bachillerato que más ayuda</th></tr></thead><tbody>${GRADOS.map(([g, ra, n, p, b]) => `<tr data-rama="${ra}"><td><b>${g}</b><br><small class="caption">${ra}</small></td><td>${n}</td><td>${p}</td><td>${b}</td></tr>`).join("")}</tbody></table></div>
+      <p class="caption">Rangos aproximados de las notas de corte de cursos recientes en universidades públicas españolas, elaborados por Escolapedia. No son datos oficiales: cambian cada año y entre universidades, y las privadas tienen su propio sistema de admisión. Consulta siempre la web de cada universidad.</p>`)}
+      ${sec("", "Cómo leer esta tabla", ul([
+        "La <b>nota de corte</b> es la nota de admisión del último alumno que entró el año anterior. Va de 5 a 14.",
+        "El rango va desde la universidad con la nota más baja hasta la más alta. En la misma comunidad puede haber varios puntos de diferencia entre universidades o campus.",
+        "Si tu nota de acceso está por debajo del rango, la <b>fase de admisión</b> puede sumar hasta 4 puntos: dos materias con un 10 que ponderen 0,2 suman 2 + 2.",
+        "Las ponderaciones las fija cada universidad: comprueba las del grado y la universidad que te interesan antes de elegir tus materias de admisión.",
+      ]))}
+      ${sec("", "Siguiente paso", `<p><a href="../calculadora/">Calcula tu nota de admisión</a> con las ponderaciones del grado que quieres, o lee <a href="../notas-de-corte-y-ponderaciones/">cómo funcionan las ponderaciones</a>.</p>`)}`,
+      "Notas de corte por grado 2026-2027 (orientativas)", `Notas de corte orientativas de ${GRADOS.length} grados universitarios en universidades públicas y materias que ponderan 0,2 en la PAU: Medicina, Enfermería, Ingenierías, Derecho, ADE y más.`, filtroJS);
+  }
+
   // ---------------- plan de estudio ----------------
   pagina("pau/plan-de-estudio", 2, "Plan de estudio", "Plan de estudio para la PAU 2027",
     "Un plan realista para llegar a junio con todo repasado sin dejar de lado el curso de 2º de Bachillerato.",
@@ -280,14 +303,27 @@ module.exports = function pau({ ETAPAS, page, write, SITE, famColor, slug, esc }
       M.intro,
       `${subnav(2, "materias")}
       <div class="pau-head">${faseTag(M)}<span class="pau-tag" style="--c:#5a6580">${M.quien}</span>${M.m ? `<a class="toolbtn" href="${R(2)}${M.m.url}">Temario completo de 2º →</a>` : ""}</div>
-      <nav class="rec-toc"><a href="#examen">Cómo es el examen</a><a href="#temas">Qué entra</a><a href="#consejos">Consejos</a><a href="#modelo">${modelos.length > 1 ? `${modelos.length} modelos resueltos` : "Modelo resuelto"}</a>${hayTest ? `<a href="test/">Test de repaso</a>` : ""}<a href="examen/">Versión para imprimir</a><a href="${R(1)}examenes-oficiales/">Exámenes oficiales</a></nav>
+      <nav class="rec-toc"><a href="#examen">Cómo es el examen</a><a href="#temas">Qué entra</a><a href="#consejos">Consejos</a>${RESUMEN[M.nombre] ? `<a href="resumen/">Resumen de repaso</a>` : ""}<a href="#modelo">${modelos.length > 1 ? `${modelos.length} modelos resueltos` : "Modelo resuelto"}</a>${hayTest ? `<a href="test/">Test de repaso</a>` : ""}<a href="examen/">Versión para imprimir</a><a href="${R(1)}examenes-oficiales/">Exámenes oficiales</a></nav>
       ${sec("examen", "Cómo es el examen", `${ul(M.formato)}${M.tabla ? tabla(M.tabla[0], M.tabla.slice(1)) : ""}<p class="caption">${INFO.avisoModelo}</p>`)}
       ${sec("temas", "Qué entra: lo imprescindible", `${ul(M.claves)}${temas.length ? `<h3>Los temas de 2º de Bachillerato</h3><p>Repasa cada tema con su explicación, ejemplos resueltos, ejercicios con solución y tarjetas de repaso.</p>${temasHTML}` : ""}`)}
+      ${RESUMEN[M.nombre] ? sec("resumen", "Resumen de repaso", `<p>Los temas que más caen en ${M.nombre}, explicados en pocas líneas, con los datos y fórmulas que tienes que saberte y una lista para comprobar que lo llevas preparado.</p><p><a class="toolbtn" href="resumen/">Abrir el resumen →</a></p>`) : ""}
       ${sec("consejos", "Consejos para sacar nota", `${ul(M.consejos)}<div class="errores"><h3>Errores que restan puntos</h3>${ul(M.errores)}</div>`)}
       ${sec("modelo", `Modelo de examen resuelto <small style="font-size:15px;color:var(--muted)">(${mod.titulo})</small>`, `${modeloHTML(mod)}<p><a class="toolbtn" href="examen/">Imprimir el modelo (sin soluciones a la vista)</a></p>${masModelos}<p class="caption">¿Quieres los exámenes reales de años anteriores? <a href="${R(1)}examenes-oficiales/">Dónde encontrar los exámenes oficiales de tu comunidad</a>.</p>`)}
       ${hayTest ? sec("test", "Test de repaso", `<p>${Math.min(30, quizPool.length)} preguntas de los temas de ${M.nombre}, con corrección y nota. Te dice qué temas repasar.</p><p><a class="toolbtn" href="test/">Hacer el test →</a></p>`) : ""}
       ${M.fuentes ? sec("", "Fuentes", `<ul class="src">${M.fuentes.map((f) => `<li><a href="${f.url}" target="_blank" rel="noopener">${f.t}</a></li>`).join("")}</ul>`) : ""}`,
       `${M.nombre} PAU 2027: ${modelos.length > 1 ? `${modelos.length} modelos de examen resueltos` : "modelo de examen resuelto"}`, `${M.nombre} en la PAU 2027: cómo es el examen, qué entra, consejos, errores típicos y ${modelos.length > 1 ? `${modelos.length} modelos de examen resueltos` : "modelo de examen resuelto"} con soluciones.`);
+
+    // Resumen de repaso
+    const RS = RESUMEN[M.nombre];
+    if (RS) write(`pau/${M.slug}/resumen`, page({ title: `Resumen PAU ${M.nombre}: lo que más cae · ${SITE}`, desc: `Resumen de repaso de ${M.nombre} para la PAU 2027: los temas que más caen, datos y fórmulas clave y lista de comprobación.`, depth: 3, nav: "pau",
+      body: wrap(3, `<a href="../">${M.nombre}</a> › Resumen`, `Resumen de ${M.nombre} para la PAU`, `Lo que más cae, en pocas líneas. Úsalo para repasar en las últimas semanas, después de haber estudiado los temas completos.`,
+        `<nav class="rec-toc pau-nav"><a href="../">← ${M.nombre} en la PAU</a><a href="#temas">Temas que más caen</a><a href="#datos">Datos clave</a><a href="#check">¿Lo llevo preparado?</a>${hayTest ? `<a href="../test/">Test de repaso</a>` : ""}</nav>
+        ${sec("temas", "Los temas que más caen", RS.temas.map(([t, x], i) => `<div class="box pau-res-tema" style="--c:${M.color}"><h3><span class="pau-n">${i + 1}</span> ${t}</h3><p>${x}</p></div>`).join(""))}
+        ${sec("datos", "Datos, fórmulas y fechas que tienes que saberte", ul(RS.datos))}
+        ${sec("check", "¿Lo llevo preparado?", `<ul class="pau-check">${RS.check.map((c, i) => `<li><label><input type="checkbox" data-k="${M.slug}-${i}"> ${c}</label></li>`).join("")}</ul><p class="caption">Tus marcas se guardan en este navegador.</p>`)}
+        ${sec("", "Y ahora, practica", `<p><a class="toolbtn" href="../#modelo">${modelos.length} modelos resueltos</a> ${hayTest ? `<a class="toolbtn" href="../test/">Test de repaso</a>` : ""} ${M.m ? `<a class="toolbtn" href="${R(3)}${M.m.url}">Temario completo de 2º</a>` : ""}</p>`)}
+        <p class="caption">Resumen elaborado por Escolapedia. Comprueba siempre el temario y las orientaciones oficiales de tu comunidad.</p>`),
+      scripts: `<script>(function(){document.querySelectorAll(".pau-check input").forEach(function(c){var k="pau-check-"+c.dataset.k;try{c.checked=localStorage.getItem(k)==="1";}catch(e){}c.addEventListener("change",function(){try{localStorage.setItem(k,c.checked?"1":"0");}catch(e){}});});})();</script>` }));
 
     // Modelos adicionales: página propia con las soluciones desplegables
     modelos.forEach((x, i) => {

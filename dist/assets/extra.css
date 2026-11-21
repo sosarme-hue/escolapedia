@@ -241,3 +241,14 @@ body.peque .chunk svg{max-width:300px}
 .pau-formula p{margin:4px 0}
 .pau-formula .fa,.pau-formula .fb{font-family:var(--display);font-size:22px}
 .pau-formula .fa{color:var(--pen)}.pau-formula .fb{color:var(--bac)}
+.pau-filtro{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-end;margin:0 0 14px}
+.pau-filtro label{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:14px;flex:1 1 220px;min-width:0}
+.pau-filtro input,.pau-filtro select{font:inherit;font-weight:400;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);width:100%;box-sizing:border-box}
+.pau-filtro .caption{margin:0}
+.pau-res-tema{border-left:5px solid var(--c,var(--pen))}
+.pau-res-tema h3{display:flex;gap:10px;align-items:center}
+.pau-check{list-style:none;padding:0}
+.pau-check li{margin:0 0 10px}
+.pau-check label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.pau-check input{width:20px;height:20px;flex:0 0 20px;margin-top:2px}
+.pau-n{display:inline-grid;place-items:center;width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:var(--c,var(--pen));color:#fff;font-size:15px}
