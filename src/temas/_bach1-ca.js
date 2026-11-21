@@ -63,14 +63,17 @@ function tema(o) {
 
 // Escala de planos: una figura recortada por encuadres cada vez más cerrados.
 function planos(aria) {
-  const P = [["general", 1], ["entero", 0.86], ["americano", 0.62], ["medio", 0.44], ["primer plano", 0.22], ["detalle", 0.1]];
+  // [nombre, altura de la figura, desplazamiento desde arriba del encuadre]
+  const P = [["general", 24, 30], ["entero", 54, 4], ["americano", 78, 4], ["medio", 118, 4], ["primer plano", 200, 0], ["detalle", 0, 0]];
   const fig = (cx, top, h) => `${ci(cx, top + h * 0.09, h * 0.08, 'fill="var(--pen)"')}${pa(`M${cx - h * 0.13} ${top + h * 0.2} H${cx + h * 0.13} L${cx + h * 0.1} ${top + h * 0.55} L${cx + h * 0.08} ${top + h} H${cx + h * 0.02} L${cx} ${top + h * 0.6} L${cx - h * 0.02} ${top + h} H${cx - h * 0.08} L${cx - h * 0.1} ${top + h * 0.55}Z`, 'fill="var(--pen)" fill-opacity=".8"')}`;
-  return marco(aria, P.map(([n, f], i) => {
-    const x = 8 + (i % 3) * 84, y = 10 + Math.floor(i / 3) * 86, w = 76, h = 62;
-    const H = (h * 0.9) / f, top = y + 6;
+  return marco(aria, P.map(([n, H, dy], i) => {
+    const x = 8 + (i % 3) * 84, y = 10 + Math.floor(i / 3) * 86, w = 76, h = 62, cx = x + w / 2;
+    const dentro = i === 5
+      ? `${el(cx, y + 31, 26, 13, 'fill="#fff" stroke="var(--ink)" stroke-width="2"')}${ci(cx, y + 31, 10, 'fill="var(--pen)"')}${ci(cx, y + 31, 4, 'fill="var(--ink)"')}${ci(cx + 3, y + 28, 2, 'fill="#fff"')}`
+      : `${i === 0 ? `${ln(x, y + 54, x + w, y + 54, "var(--leaf)", 2)}${pa(`M${x + 6} ${y + 54} l12 -20 l12 20z M${x + 50} ${y + 54} l9 -14 l9 14z`, 'fill="var(--leaf)"')}` : ""}${fig(cx, y + dy, H)}`;
     return `<clipPath id="pl${i}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="5"/></clipPath>${rc(x, y, w, h, 'fill="var(--card)" stroke="var(--ink)" stroke-width="1.6" rx="5"')}
-      <g clip-path="url(#pl${i})">${i === 0 ? `${ln(x, y + 52, x + w, y + 52, "var(--leaf)", 2)}${pa(`M${x + 6} ${y + 52} l10 -16 l10 16z`, 'fill="var(--leaf)"')}` : ""}${fig(x + w / 2, top, H)}</g>
-      ${t(x + w / 2, y + h + 13, n, { fs: 10, bold: 1, maxW: 80 })}`;
+      <g clip-path="url(#pl${i})">${dentro}</g>
+      ${t(cx, y + h + 13, n, { fs: 10, bold: 1, maxW: 80 })}`;
   }).join(""));
 }
 
@@ -80,7 +83,7 @@ function angulos(aria) {
   return marco(aria, `${ln(10, 150, 250, 150, "var(--line)", 2)}${ci(176, 94, 9, 'fill="var(--ink)"')}${rc(170, 104, 12, 46, 'fill="var(--ink)" rx="4"')}
     ${cam(70, 34, 30, "var(--red)")}${ln(86, 44, 168, 92, "var(--red)", 1.4, 'stroke-dasharray="4 3"')}${t(50, 20, "picado", { bold: 1, color: "var(--red)" })}${t(50, 60, "empequeñece", { fs: 9.5, color: "var(--muted)" })}
     ${cam(56, 100, 0, "var(--pen)")}${ln(74, 100, 166, 100, "var(--pen)", 1.4, 'stroke-dasharray="4 3"')}${t(40, 86, "normal", { bold: 1, color: "var(--pen)" })}
-    ${cam(70, 156, -28, "var(--leaf)")}${ln(86, 148, 168, 112, "var(--leaf)", 1.4, 'stroke-dasharray="4 3"')}${t(50, 174, "contrapicado: engrandece", { bold: 1, color: "var(--leaf)", maxW: 150 })}`);
+    ${cam(70, 156, -28, "var(--leaf)")}${ln(86, 148, 168, 112, "var(--leaf)", 1.4, 'stroke-dasharray="4 3"')}${t(56, 176, "contrapicado: engrandece", { bold: 1, color: "var(--leaf)", maxW: 104, fs: 10 })}`);
 }
 
 // Una página de cómic: viñetas, bocadillo, cartela y onomatopeya.
