@@ -2,7 +2,7 @@
 // Reutiliza las de Matemáticas II (matrices, determinantes, gráficas, campana de Gauss) y añade algunas propias.
 // Todo son dibujos propios en SVG; los colores salen de las variables del tema (claro y oscuro).
 const base = require("./_bach2-m2");
-const { lienzo, t, graf, n2, flecha } = base;
+const { lienzo, t, graf, n2, flecha, fi } = base;
 
 const G = (aria, o, fn) => graf(aria, { w: 260, h: 180, ...o }, fn);
 
@@ -45,5 +45,27 @@ function intervalo(aria, a, c, b, o = {}) {
   return lienzo(aria, s, w, h);
 }
 
+// Campana de Gauss con varias zonas sombreadas (en unidades z): zonas = [[a, b, color, opacidad]].
+// o: { rot: [[z, texto, color]], sig, mu, eti: [[z, y, texto, color]] } (eti: rótulos dentro del dibujo, y en unidades de densidad).
+function normal(aria, zonas, o = {}) {
+  const { w = 260, h = 180, c = "var(--pen)", rot = [], mu = "0", sig = null, eti = [] } = o;
+  const X = (z) => n2(20 + ((z + 3.6) / 7.2) * (w - 40)), Y = (y) => n2(h - 30 - y * ((h - 50) / 0.42));
+  let s = "", curva = "";
+  zonas.forEach(([a, b, col = c, op = 0.3]) => {
+    const A = Math.max(-3.6, a), B = Math.min(3.6, b);
+    if (B <= A) return;
+    let d = `M${X(A)} ${Y(0)} `;
+    for (let i = 0; i <= 80; i++) { const z = A + ((B - A) * i) / 80; d += `L${X(z)} ${Y(fi(z))} `; }
+    s += `<path d="${d}L${X(B)} ${Y(0)} Z" fill="${col}" fill-opacity="${op}"/>`;
+  });
+  for (let i = 0; i <= 140; i++) { const z = -3.6 + (7.2 * i) / 140; curva += `${i ? "L" : "M"}${X(z)} ${Y(fi(z))} `; }
+  s += `<path d="M14 ${Y(0)} H ${w - 14}" stroke="var(--muted)" stroke-width="1.6"/><path d="${curva}" fill="none" stroke="${c}" stroke-width="2.6"/>`;
+  s += `<path d="M${X(0)} ${Y(0)} V ${Y(fi(0))}" stroke="var(--muted)" stroke-width="1.2" stroke-dasharray="3 3"/>${t(X(0), Y(0) + 14, mu, { c: "var(--muted)", s: 10 })}`;
+  rot.forEach(([z, txt, cc = "var(--red)"]) => { s += `<path d="M${X(z)} ${Y(0) - 4} V ${Y(0) + 4}" stroke="${cc}" stroke-width="2"/>${t(X(z), Y(0) + 14, txt, { c: cc, s: 10, b: 1 })}`; });
+  eti.forEach(([z, y, txt, cc = "var(--ink)", sz = 11]) => { s += t(X(z), Y(y), txt, { c: cc, s: sz, b: 1 }); });
+  if (sig) s += t(w / 2, 18, sig, { s: 12, b: 1, c: "var(--red)" });
+  return lienzo(aria, s, w, h);
+}
+
 const RD = base.RD;
-module.exports = { ...base, G, region, intervalo, RD };
+module.exports = { ...base, G, region, intervalo, normal, RD };

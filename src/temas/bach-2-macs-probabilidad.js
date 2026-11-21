@@ -1,0 +1,256 @@
+// Matemáticas Aplicadas a las Ciencias Sociales II · 2º Bachillerato · Tema 9. Nivel libro. Dibujos propios en SVG.
+const { reparte, mapa, lienzo, t, tarjeta, fig, rejilla, arbol, RD } = require("./_bach2-macs");
+
+// Diagrama de Venn de dos sucesos con la probabilidad (o el número de casos) escrita en cada zona.
+// v = [solo A, A y B, solo B, fuera], zona opcional sombreada: "u" unión, "i" intersección, "a" solo A.
+function venn(aria, v, zona = "", pie = "") {
+  const A = `<circle cx="104" cy="86" r="50"/>`, B = `<circle cx="158" cy="86" r="50"/>`;
+  const id = `vm${(venn.k = (venn.k || 0) + 1)}`;
+  let fill = "";
+  if (zona === "u") fill = `<g fill="var(--leaf)" fill-opacity=".3">${A}${B}</g>`;
+  if (zona === "i") fill = `<clipPath id="${id}">${A}</clipPath><g clip-path="url(#${id})"><circle cx="158" cy="86" r="50" fill="var(--leaf)" fill-opacity=".45"/></g>`;
+  if (zona === "a") fill = `<mask id="${id}"><rect width="260" height="180" fill="#fff"/><circle cx="158" cy="86" r="50" fill="#000"/></mask><circle cx="104" cy="86" r="50" fill="var(--leaf)" fill-opacity=".4" mask="url(#${id})"/>`;
+  const [a, i, b, c] = v;
+  return lienzo(aria, `<rect x="14" y="20" width="232" height="134" rx="8" fill="none" stroke="var(--muted)" stroke-width="1.6"/>${fill}<g fill="none" stroke-width="2.2"><circle cx="104" cy="86" r="50" stroke="var(--pen)"/><circle cx="158" cy="86" r="50" stroke="var(--red)"/></g>${t(62, 46, "A", { s: 15, b: 1, c: "var(--pen)" })}${t(200, 46, "B", { s: 15, b: 1, c: "var(--red)" })}${t(84, 91, a, { s: 13, b: 1 })}${t(131, 91, i, { s: 13, b: 1 })}${t(178, 91, b, { s: 13, b: 1 })}${t(230, 146, c, { s: 12, b: 1, c: "var(--muted)", a: "end" })}${t(30, 36, "E", { s: 12, b: 1, c: "var(--muted)" })}${pie ? t(130, 172, pie, { s: 12, b: 1, c: "var(--ink)" }) : ""}`, 260, 180);
+}
+
+module.exports = {
+  materia: "Matemáticas Aplicadas a las Ciencias Sociales II",
+  curso: "2-bachillerato",
+  titulo: "Probabilidad",
+  minutos: 120,
+  objetivos: [
+    "Describir experimentos aleatorios, espacios muestrales y operaciones con sucesos",
+    "Calcular probabilidades con la regla de Laplace y con las propiedades de la probabilidad",
+    "Calcular probabilidades condicionadas y decidir si dos sucesos son independientes",
+    "Organizar la información en tablas de contingencia y diagramas de árbol",
+    "Aplicar el teorema de la probabilidad total y el teorema de Bayes",
+    "Interpretar probabilidades en contextos sociales: encuestas, pruebas diagnósticas, control de calidad",
+  ],
+  claves: ["experimento aleatorio", "espacio muestral", "suceso", "regla de Laplace", "suceso contrario", "sucesos incompatibles", "probabilidad condicionada", "sucesos independientes", "tabla de contingencia", "diagrama de árbol", "probabilidad total", "teorema de Bayes"],
+  lectura: {
+    titulo: "La alarma que se equivoca",
+    html: `<p>En la entrada de un supermercado suena la alarma antirrobo. ¿Es muy probable que la persona que pasaba haya robado algo? Intuitivamente diríamos que sí, porque la alarma «casi nunca falla». Pero si de cada mil clientes solo uno roba, y la alarma salta por error con un cliente de cada cien, por cada ladrón que la hace sonar habrá unos diez clientes honrados que también la activan. La mayoría de las veces que suena, ¡no hay robo!</p>
+    <p>Este tipo de razonamiento, que confunde a jueces, periodistas y médicos, se llama <b>probabilidad condicionada</b>: no es lo mismo la probabilidad de que suene la alarma si alguien roba que la probabilidad de que alguien haya robado si suena la alarma. El reverendo <b>Thomas Bayes</b> encontró en el siglo XVIII la fórmula para «dar la vuelta» a una probabilidad condicionada.</p>
+    <p>En Ciencias Sociales la probabilidad está en todas partes: en las encuestas electorales, en las primas de los seguros, en la evaluación de pruebas diagnósticas o en los filtros de correo basura. En este tema aprenderás a calcularla con orden, usando tablas y árboles, y a no dejarte engañar por la intuición.</p>`,
+  },
+  pregunta: {
+    texto: "El 2 % de los billetes que llegan a un banco son falsos. Un detector señala el 95 % de los falsos, pero también marca por error el 3 % de los buenos. Si el detector marca un billete, ¿qué probabilidad hay de que sea falso?",
+    respuesta: "P(marca) = 0,02 · 0,95 + 0,98 · 0,03 = 0,019 + 0,0294 = 0,0484. Por Bayes, P(falso | marca) = 0,019/0,0484 ≈ <mark>0,39</mark>. Solo un 39 %: la mayoría de los billetes marcados son buenos, porque hay muchísimos más billetes buenos que falsos.",
+  },
+  bloques: [
+    {
+      html: `<h3>9.1 Experimentos aleatorios y sucesos</h3><p>Un <b>experimento aleatorio</b> es aquel cuyo resultado no se puede predecir aunque se repita en las mismas condiciones: lanzar un dado, elegir a una persona al azar para una encuesta, observar si un cliente compra.</p><ul><li><b>Espacio muestral</b> E: conjunto de todos los resultados posibles. Al lanzar un dado, E = {1, 2, 3, 4, 5, 6}.</li><li><b>Suceso</b>: cualquier subconjunto de E. «Sacar par» es A = {2, 4, 6}.</li><li>Suceso <b>seguro</b>: E. Suceso <b>imposible</b>: ∅.</li></ul><p><b>Operaciones con sucesos</b>:</p><ul><li><b>Unión</b> A ∪ B: ocurre A <b>o</b> B (o los dos).</li><li><b>Intersección</b> A ∩ B: ocurren A <b>y</b> B a la vez.</li><li><b>Contrario</b> Ā: ocurre cuando <b>no</b> ocurre A.</li><li><b>Diferencia</b> A − B = A ∩ B̄: ocurre A pero no B.</li></ul><p>Dos sucesos son <b>incompatibles</b> si no pueden ocurrir a la vez: A ∩ B = ∅.</p><p><b>Leyes de De Morgan</b>, muy útiles en los problemas:</p><ul><li>«No ocurre ninguno de los dos»: Ā ∩ B̄ = <b>contrario de A ∪ B</b>.</li><li>«No ocurren los dos a la vez»: Ā ∪ B̄ = <b>contrario de A ∩ B</b>.</li></ul><p>Ejemplo con un dado: A = par = {2, 4, 6}, B = mayor que 3 = {4, 5, 6}. A ∪ B = {2, 4, 5, 6}, A ∩ B = {4, 6}, Ā = {1, 3, 5}, A − B = {2}.</p>`,
+      svg: venn("Diagrama de Venn con los sucesos par y mayor que 3 al lanzar un dado", ["2", "4, 6", "5", "1, 3"], "i", "A ∩ B = {4, 6}"),
+      video: { id: "m0B--gG6BNQ", titulo: "Operaciones con sucesos", canal: "Tuto mate", vistas: 196041, busqueda: "sucesos operaciones unión intersección probabilidad" },
+    },
+    {
+      html: `<h3>9.2 La probabilidad y la regla de Laplace</h3><p>Si un experimento se repite muchas veces, la <b>frecuencia relativa</b> de un suceso tiende a estabilizarse en un número: su <b>probabilidad</b> (ley de los grandes números). Así se estiman, por ejemplo, la probabilidad de que un conductor tenga un accidente o la de que un cliente devuelva un producto.</p><p>Cuando todos los resultados son <b>igual de probables</b> (equiprobables), se aplica la <b>regla de Laplace</b>:</p><p style="text-align:center"><b>P(A) = casos favorables / casos posibles</b></p><p>Ejemplos:</p><ul><li>Dado: P(par) = 3/6 = 1/2.</li><li>Baraja española (40 cartas): P(oros) = 10/40 = 1/4; P(figura) = 12/40 = 3/10.</li><li>Dos dados: hay 6 · 6 = 36 resultados. P(suma 7) = 6/36 = 1/6 (1-6, 2-5, 3-4, 4-3, 5-2, 6-1).</li><li>Una clase con 18 chicas y 12 chicos: P(elegir al azar a una chica) = 18/30 = 0,6.</li></ul><p>Cuidado: la regla de Laplace <b>solo</b> vale si los casos son equiprobables. Al sumar dos dados, las sumas 2, 3, …, 12 no son igual de probables (la suma 7 es seis veces más probable que la 2), así que no se puede decir P(suma 7) = 1/11.</p><p>La probabilidad es siempre un número entre 0 (imposible) y 1 (seguro). Se puede dar como fracción, decimal o porcentaje.</p>`,
+      svg: rejilla("Tabla de las 36 sumas al lanzar dos dados: la suma 7 aparece en la diagonal seis veces", [["+", "1", "2", "3", "4", "5", "6"], ["1", "2", "3", "4", "5", "6", "7"], ["2", "3", "4", "5", "6", "7", "8"], ["3", "4", "5", "6", "7", "8", "9"], ["4", "5", "6", "7", "8", "9", "10"], ["5", "6", "7", "8", "9", "10", "11"], ["6", "7", "8", "9", "10", "11", "12"]], { w: 260, h: 178 }),
+      video: { id: "52dHFBQCgnk", titulo: "Regla de Laplace explicada con ejemplos", canal: "Archimedes Tube", vistas: 189309, busqueda: "regla de Laplace sucesos probabilidad" },
+    },
+    {
+      html: `<h3>9.3 Propiedades de la probabilidad</h3><p>A partir de las reglas básicas (Kolmogorov, 1933) se deducen las propiedades que más se usan:</p><ul><li><b>Contrario</b>: P(Ā) = 1 − P(A).</li><li><b>Unión</b>: P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Se resta la intersección porque se ha contado dos veces.</li><li>Si A y B son <b>incompatibles</b>: P(A ∪ B) = P(A) + P(B).</li><li><b>Diferencia</b>: P(A ∩ B̄) = P(A) − P(A ∩ B).</li><li><b>De Morgan</b>: P(Ā ∩ B̄) = 1 − P(A ∪ B); P(Ā ∪ B̄) = 1 − P(A ∩ B).</li></ul><p>Ejemplo: en un instituto, el 50 % del alumnado practica deporte (A), el 40 % toca un instrumento (B) y el 20 % hace las dos cosas.</p><ul><li>P(deporte o instrumento) = 0,5 + 0,4 − 0,2 = <b>0,7</b>.</li><li>P(ninguna de las dos) = 1 − 0,7 = <b>0,3</b>.</li><li>P(solo deporte) = 0,5 − 0,2 = <b>0,3</b>.</li><li>P(solo una de las dos) = 0,3 + 0,2 = <b>0,5</b>.</li></ul><p><b>Truco</b>: dibuja un diagrama de Venn y escribe la probabilidad de cada una de las cuatro zonas (solo A, A y B, solo B, ninguno). Las cuatro deben sumar 1, y cualquier pregunta se responde sumando zonas.</p><p>El contrario es muy útil para «al menos uno»: P(al menos un 6 en tres lanzamientos) = 1 − P(ningún 6) = 1 − (5/6)³ ≈ 0,42.</p>`,
+      svg: venn("Diagrama de Venn con probabilidades: solo deporte 0,3, ambas 0,2, solo instrumento 0,2, ninguna 0,3", ["0,3", "0,2", "0,2", "0,3"], "u", "P(A ∪ B) = 0,3 + 0,2 + 0,2 = 0,7"),
+    },
+    {
+      html: `<h3>9.4 Probabilidad condicionada</h3><p>A veces se sabe que ha ocurrido algo y eso cambia las probabilidades. La <b>probabilidad de A condicionada a B</b> (o «de A sabiendo B») es</p><p style="text-align:center"><b>P(A | B) = P(A ∩ B) / P(B)</b>, con P(B) &gt; 0</p><p>La idea: saber que ha ocurrido B <b>reduce el espacio muestral</b> a B, y dentro de él solo cuentan los casos de A ∩ B.</p><p>Ejemplo con un dado: ¿cuál es la probabilidad de sacar un 6 sabiendo que ha salido par? Ahora los casos posibles son {2, 4, 6} y el favorable es el 6: P(6 | par) = 1/3. Con la fórmula: (1/6)/(1/2) = 1/3.</p><p>Con el ejemplo del deporte (A) y el instrumento (B):</p><ul><li>P(A | B) = 0,2/0,4 = <b>0,5</b>: la mitad de quienes tocan un instrumento hace deporte.</li><li>P(B | A) = 0,2/0,5 = <b>0,4</b>: el 40 % de los deportistas toca un instrumento.</li></ul><p><b>¡P(A | B) y P(B | A) son distintas!</b> Confundirlas es un error muy frecuente (la «falacia del fiscal»). La probabilidad de que un ciudadano lleve paraguas si llueve es alta; la de que llueva si alguien lleva paraguas no tiene por qué serlo.</p><p>Despejando se obtiene la <b>regla del producto</b>: P(A ∩ B) = P(B) · P(A | B) = P(A) · P(B | A).</p>`,
+      svg: lienzo("Probabilidad condicionada: saber que ocurre B reduce el espacio muestral a B", `<rect x="14" y="20" width="232" height="120" rx="8" fill="none" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="4 4"/><circle cx="104" cy="80" r="46" fill="none" stroke="var(--pen)" stroke-width="2"/><circle cx="156" cy="80" r="46" fill="var(--red)" fill-opacity=".1" stroke="var(--red)" stroke-width="2.6"/><clipPath id="vmc"><circle cx="104" cy="80" r="46"/></clipPath><g clip-path="url(#vmc)"><circle cx="156" cy="80" r="46" fill="var(--leaf)" fill-opacity=".5"/></g>${t(64, 42, "A", { s: 14, b: 1, c: "var(--pen)" })}${t(198, 42, "B", { s: 14, b: 1, c: "var(--red)" })}${t(130, 85, "A∩B", { s: 11, b: 1 })}${t(230, 36, "E", { s: 12, b: 1, c: "var(--muted)", a: "end" })}${t(130, 162, "P(A | B) = P(A ∩ B) / P(B)", { s: 13, b: 1, c: "var(--red)" })}`),
+      video: { id: "9RDaQDLE3iU", titulo: "Probabilidad condicional: introducción", canal: "Gustavo Solis Huchim", vistas: 110202, busqueda: "probabilidad condicionada" },
+    },
+    {
+      html: `<h3>9.5 Tablas de contingencia</h3><p>Cuando una población se clasifica según <b>dos características</b>, los datos se organizan en una <b>tabla de contingencia</b> (o de doble entrada). Es la herramienta más cómoda para los problemas de encuestas.</p><p>Ejemplo: se pregunta a 400 personas si leen prensa a diario.</p><table class="tb"><tr><th></th><th>Lee (L)</th><th>No lee</th><th>Total</th></tr><tr><th>Joven (J)</th><td>60</td><td>140</td><td>200</td></tr><tr><th>Adulto</th><td>120</td><td>80</td><td>200</td></tr><tr><th>Total</th><td>180</td><td>220</td><td>400</td></tr></table><p>Eligiendo una persona al azar:</p><ul><li>P(L) = 180/400 = <b>0,45</b> (total de la columna entre el total general).</li><li>P(J ∩ L) = 60/400 = <b>0,15</b> (una casilla interior).</li><li>P(L | J) = 60/200 = <b>0,3</b>: entre los jóvenes, se mira solo su <b>fila</b>.</li><li>P(J | L) = 60/180 = <b>1/3</b>: entre los lectores, se mira solo su <b>columna</b>.</li></ul><p>Regla práctica: en P(A | B), <b>B es el nuevo total</b>. Por eso las condicionadas se leen dividiendo una casilla entre el total de su fila o de su columna.</p><p>Si el enunciado da porcentajes en vez de números, se puede inventar un total cómodo (100, 1 000) y rellenar la tabla, o rellenarla directamente con probabilidades (el total general es 1).</p>`,
+      svg: rejilla("Tabla de contingencia de lectura de prensa según la edad", [["", "Lee", "No lee", "Total"], ["Joven", "60", "140", "200"], ["Adulto", "120", "80", "200"], ["Total", "180", "220", "400"], ["P(L | J)", "60/200", "= 0,3", "fila"], ["P(J | L)", "60/180", "= 1/3", "columna"]], { w: 260, h: 166 }),
+      video: { id: "4G7-sP91zoo", titulo: "Probabilidad en Bachillerato: domina la tabla de contingencia", canal: "Las Matemáticas de Jalón (Edu Jalón)", vistas: 33584, busqueda: "tabla de contingencia probabilidad" },
+    },
+    {
+      html: `<h3>9.6 Sucesos independientes</h3><p>Dos sucesos son <b>independientes</b> si saber que ha ocurrido uno no cambia la probabilidad del otro: <b>P(A | B) = P(A)</b>. Equivalentemente:</p><p style="text-align:center"><b>A y B independientes ⇔ P(A ∩ B) = P(A) · P(B)</b></p><p>Esta segunda forma es la que se usa para <b>comprobar</b> la independencia.</p><ul><li>En la tabla de prensa: P(L) = 0,45 pero P(L | J) = 0,3. Son <b>dependientes</b>: la edad influye en la lectura.</li><li>Lanzar dos veces una moneda: el segundo lanzamiento no depende del primero. P(cara y cara) = 1/2 · 1/2 = 1/4.</li><li>Si P(A) = 0,4, P(B) = 0,5 y P(A ∪ B) = 0,7, entonces P(A ∩ B) = 0,4 + 0,5 − 0,7 = 0,2 = 0,4 · 0,5: son <b>independientes</b>.</li></ul><p>Si A y B son independientes, también lo son Ā y B, A y B̄, y Ā y B̄. Por eso, para dos máquinas que fallan de forma independiente con probabilidades 0,1 y 0,2, la probabilidad de que <b>ninguna</b> falle es 0,9 · 0,8 = 0,72.</p><p><b>No confundas</b> independientes con incompatibles. Si A y B son incompatibles y tienen probabilidad positiva, son muy dependientes: si ocurre A, ya sabemos que B no puede ocurrir. P(A ∩ B) = 0 ≠ P(A) · P(B).</p>`,
+      svg: tarjeta("Sucesos independientes frente a incompatibles", "Independencia", [["independientes: P(A ∩ B) = P(A) · P(B)", "var(--leaf)", 11.5], ["equivale a: P(A | B) = P(A)", "var(--pen)", 12], ["incompatibles: P(A ∩ B) = 0", "var(--red)", 12], ["¡no son lo mismo!", "var(--inf)", 12]], "var(--leaf)"),
+      video: { id: "RxJTQHN14tM", titulo: "Probabilidad condicionada y sucesos independientes", canal: "Mates con Andrés", vistas: 14213, busqueda: "probabilidad condicionada" },
+    },
+    {
+      html: `<h3>9.7 Experimentos compuestos y diagramas de árbol</h3><p>Cuando un experimento tiene <b>varias etapas</b> (extraer dos bolas, elegir una máquina y luego una pieza…), se representa con un <b>diagrama de árbol</b>:</p><ul><li>De cada nudo salen las ramas de los resultados posibles de esa etapa, con su probabilidad (condicionada a lo que ha pasado antes).</li><li>Las probabilidades de las ramas que salen de un mismo nudo <b>suman 1</b>.</li><li>La probabilidad de un camino se obtiene <b>multiplicando</b> sus ramas (regla del producto).</li><li>La probabilidad de un suceso formado por varios caminos se obtiene <b>sumando</b> esos caminos.</li></ul><p>Ejemplo: una urna tiene 3 bolas rojas y 2 azules. Se sacan dos <b>sin reemplazamiento</b>.</p><ul><li>P(R, R) = 3/5 · 2/4 = 6/20 = <b>3/10</b>.</li><li>P(R, A) = 3/5 · 2/4 = 3/10; P(A, R) = 2/5 · 3/4 = 3/10; P(A, A) = 2/5 · 1/4 = 1/10.</li><li>P(las dos del mismo color) = 3/10 + 1/10 = <b>2/5</b>.</li></ul><p>Si la extracción es <b>con reemplazamiento</b>, las etapas son independientes y las probabilidades no cambian: P(R, R) = 3/5 · 3/5 = 9/25.</p><p>Comprobación útil: la suma de las probabilidades de todos los caminos finales es 1 (aquí 3/10 + 3/10 + 3/10 + 1/10 = 1).</p>`,
+      svg: arbol("Diagrama de árbol de dos extracciones sin reemplazamiento de una urna con 3 rojas y 2 azules", [["R", "3/5", [["R", "2/4", "3/10"], ["A", "2/4", "3/10"]]], ["A", "2/5", [["R", "3/4", "3/10"], ["A", "1/4", "1/10"]]]]),
+    },
+    {
+      html: `<h3>9.8 Teorema de la probabilidad total</h3><p>Muchos problemas tienen esta estructura: la población está dividida en <b>grupos</b> A₁, A₂, …, Aₙ que no se solapan y cubren todo (un <b>sistema completo de sucesos</b>), y se conoce la probabilidad de un suceso B <b>dentro de cada grupo</b>. Entonces</p><p style="text-align:center"><b>P(B) = P(A₁) · P(B | A₁) + P(A₂) · P(B | A₂) + … + P(Aₙ) · P(B | Aₙ)</b></p><p>En el árbol: es la <b>suma de todos los caminos que terminan en B</b>.</p><p>Ejemplo: una fábrica tiene tres máquinas. A produce el 50 % de las piezas, B el 30 % y C el 20 %. Los porcentajes de piezas defectuosas son 2 %, 3 % y 5 %, respectivamente. ¿Qué proporción de piezas son defectuosas (D)?</p><p>P(D) = 0,5 · 0,02 + 0,3 · 0,03 + 0,2 · 0,05 = 0,010 + 0,009 + 0,010 = <b>0,029</b>.</p><p>El 2,9 % de toda la producción es defectuosa. Observa que es una <b>media ponderada</b> de los porcentajes de cada máquina, con pesos iguales a su producción: está entre el 2 % y el 5 %, más cerca de los valores de las máquinas que más producen.</p><p>La misma idea sirve para calcular la intención de voto global a partir de la de cada región, o el porcentaje de aprobados de un centro a partir del de cada grupo.</p>`,
+      svg: arbol("Árbol de la fábrica: tres máquinas con producción 0,5, 0,3 y 0,2 y piezas defectuosas 2, 3 y 5 por ciento", [["A", "0,5", [["D", "0,02", "0,010"], ["D̄", "0,98", ""]]], ["B", "0,3", [["D", "0,03", "0,009"], ["D̄", "0,97", ""]]], ["C", "0,2", [["D", "0,05", "0,010"], ["D̄", "0,95", ""]]]]),
+      video: { id: "dGuH8MT--FE", titulo: "Teorema de la probabilidad total: explicación y ejercicio resuelto", canal: "Mates con Andrés", vistas: 51143, busqueda: "probabilidad total diagrama de árbol" },
+    },
+    {
+      html: `<h3>9.9 Teorema de Bayes</h3><p>El teorema de la probabilidad total va «de la causa al efecto»: conocida la máquina, ¿qué probabilidad hay de pieza defectuosa? El <b>teorema de Bayes</b> va al revés, «del efecto a la causa»: si una pieza es defectuosa, ¿qué probabilidad hay de que venga de cada máquina?</p><p style="text-align:center"><b>P(Aᵢ | B) = P(Aᵢ) · P(B | Aᵢ) / P(B)</b></p><p>En el árbol: <b>el camino que interesa dividido entre la suma de todos los caminos que llevan a B</b>.</p><p>Con la fábrica, si se elige una pieza al azar y es defectuosa:</p><ul><li>P(A | D) = 0,010/0,029 = 10/29 ≈ <b>0,345</b>.</li><li>P(B | D) = 0,009/0,029 = 9/29 ≈ <b>0,310</b>.</li><li>P(C | D) = 0,010/0,029 = 10/29 ≈ <b>0,345</b>.</li></ul><p>Las tres suman 1, como debe ser. Interpretación: aunque C es la máquina que peor funciona (5 % de defectuosas), es responsable de la misma proporción de defectos que A, porque A produce mucho más.</p><p>Vocabulario: P(Aᵢ) son las probabilidades <b>a priori</b> (antes de observar nada) y P(Aᵢ | B) las probabilidades <b>a posteriori</b> (después de saber que ha ocurrido B). Bayes enseña a actualizar lo que creemos con la nueva información.</p>`,
+      svg: lienzo("Teorema de Bayes: el camino que interesa dividido entre todos los caminos que llevan al suceso observado", `${t(130, 26, "P(A | D) = camino A→D / todos los caminos a D", { s: 11.5, b: 1, c: "var(--pen)" })}<rect x="28" y="44" width="72" height="34" rx="6" fill="var(--pen)" fill-opacity=".18" stroke="var(--pen)" stroke-width="2"/>${t(64, 66, "0,010", { s: 14, b: 1, c: "var(--pen)" })}<rect x="104" y="44" width="62" height="34" rx="6" fill="var(--muted)" fill-opacity=".14" stroke="var(--muted)" stroke-width="1.6"/>${t(135, 66, "0,009", { s: 14, b: 1, c: "var(--muted)" })}<rect x="170" y="44" width="72" height="34" rx="6" fill="var(--muted)" fill-opacity=".14" stroke="var(--muted)" stroke-width="1.6"/>${t(206, 66, "0,010", { s: 14, b: 1, c: "var(--muted)" })}${t(64, 96, "A → D", { s: 11, b: 1, c: "var(--pen)" })}${t(135, 96, "B → D", { s: 11, b: 1, c: "var(--muted)" })}${t(206, 96, "C → D", { s: 11, b: 1, c: "var(--muted)" })}<path d="M40 112 H 220" stroke="var(--ink)" stroke-width="1.4"/>${t(130, 134, "0,010 / 0,029 ≈ 0,345", { s: 15, b: 1, c: "var(--red)" })}${t(130, 160, "a priori 0,5 → a posteriori 0,345", { s: 11, b: 1, c: "var(--leaf)" })}`),
+      video: { id: "zQqxBirepKw", titulo: "Teorema de Bayes en Bachillerato: probabilidad total y condicionada", canal: "unicoos", vistas: 674419, busqueda: "probabilidad total diagrama de árbol" },
+    },
+    {
+      html: `<h3>9.10 Bayes en la vida real: falsos positivos</h3><p>Las pruebas diagnósticas, los detectores y los filtros nunca son perfectos. Se describen con dos números:</p><ul><li><b>Sensibilidad</b>: P(positivo | tiene la característica). Mide cuántos casos reales detecta.</li><li><b>Tasa de falsos positivos</b>: P(positivo | no la tiene). Su contrario es la <b>especificidad</b>.</li></ul><p>Lo que de verdad le interesa a quien da positivo es otra cosa: el <b>valor predictivo</b> P(tiene la característica | positivo), que se calcula con Bayes y depende muchísimo de lo frecuente que sea la característica (la <b>prevalencia</b>).</p><p>Ejemplo: el detector de billetes de la pregunta inicial. Imagina 10 000 billetes:</p><table class="tb"><tr><th></th><th>Marcado</th><th>No marcado</th><th>Total</th></tr><tr><th>Falso</th><td>190</td><td>10</td><td>200</td></tr><tr><th>Bueno</th><td>294</td><td>9 506</td><td>9 800</td></tr><tr><th>Total</th><td>484</td><td>9 516</td><td>10 000</td></tr></table><p>De los 484 billetes marcados, solo 190 son falsos: P(falso | marcado) = 190/484 ≈ <b>0,39</b>.</p><p>Esta técnica, convertir los porcentajes en <b>frecuencias naturales</b> con un total de 1 000 o 10 000, hace que los problemas de Bayes se entiendan mucho mejor. Los estudios muestran que, presentados así, los aciertos se multiplican.</p>`,
+      svg: lienzo("De 484 billetes marcados por el detector, 190 son falsos y 294 son buenos", `${t(130, 24, "484 billetes marcados", { s: 13, b: 1, c: "var(--ink)" })}${Array.from({ length: 50 }, (_, k) => { const x = 22 + (k % 10) * 22, y = 40 + Math.floor(k / 10) * 20; const fal = k < 20; return `<rect x="${x}" y="${y}" width="17" height="13" rx="3" fill="${fal ? "var(--red)" : "var(--leaf)"}" fill-opacity="${fal ? ".85" : ".45"}"/>`; }).join("")}${t(66, 158, "■ falsos: 190 (39 %)", { s: 11, b: 1, c: "var(--red)" })}${t(194, 158, "■ buenos: 294 (61 %)", { s: 11, b: 1, c: "var(--leaf)" })}${t(130, 176, "cada cuadro ≈ 10 billetes", { s: 9.5, c: "var(--muted)" })}`),
+      video: { id: "D7KKlC0LOyw", titulo: "Cómo escapar de la trampa bayesiana", canal: "Veritasium en español", vistas: 1274247, busqueda: "teorema de Bayes explicación" },
+    },
+    {
+      html: `<h3>9.11 Elegir la herramienta adecuada</h3><p>La mayoría de los problemas de probabilidad de la PAU de CCSS se resuelven con una de tres herramientas. Elegir bien ahorra tiempo y errores:</p><ul><li><b>Diagrama de Venn</b>: cuando se dan P(A), P(B) y alguna relación entre ellos (intersección, unión) y se pregunta por «al menos uno», «ninguno», «solo uno».</li><li><b>Tabla de contingencia</b>: cuando la población se clasifica por dos características y los datos son porcentajes de un total (encuestas). Permite leer cualquier probabilidad, conjunta o condicionada.</li><li><b>Diagrama de árbol</b>: cuando el experimento tiene etapas o los datos son probabilidades <b>condicionadas</b> («de los que…, el x %…»). Lleva directamente a la probabilidad total y a Bayes.</li></ul><p><b>Traducir el enunciado</b> es la mitad del trabajo:</p><table class="tb"><tr><th>Frase</th><th>Probabilidad</th></tr><tr><td>«El 30 % de los clientes compra y paga con tarjeta»</td><td>P(C ∩ T) = 0,3</td></tr><tr><td>«El 30 % de los que compran paga con tarjeta»</td><td>P(T | C) = 0,3</td></tr><tr><td>«De los que pagan con tarjeta, el 30 % compra»</td><td>P(C | T) = 0,3</td></tr><tr><td>«Al menos uno de los dos»</td><td>P(A ∪ B)</td></tr><tr><td>«Ninguno de los dos»</td><td>P(Ā ∩ B̄) = 1 − P(A ∪ B)</td></tr></table><p>Fíjate en las palabras «de los que», «entre los», «sabiendo que», «si»: casi siempre indican una probabilidad <b>condicionada</b>.</p>`,
+      svg: rejilla("Qué herramienta usar según los datos del problema", [["Datos", "Herramienta"], ["P(A), P(B), P(A ∩ B)", "diagrama de Venn"], ["dos características, %", "tabla de contingencia"], ["datos por etapas", "diagrama de árbol"], ["P(B) total", "suma de caminos"], ["de efecto a causa", "Bayes"]], { w: 260, h: 156 }),
+    },
+    {
+      html: `<h3>9.12 Estrategia para la PAU</h3><p>El problema de probabilidad de la PAU de CCSS suele tener tres o cuatro apartados encadenados. Lista de comprobación:</p><ul><li><b>Nombra los sucesos</b> con letras y escribe los datos como probabilidades: P(A) = …, P(B | A) = …</li><li>Elige la herramienta (Venn, tabla o árbol) y <b>dibújala</b>: es parte de la respuesta y se valora.</li><li>Comprueba que las ramas de cada nudo suman 1 y que la tabla cuadra.</li><li>Para P(B) global, suma <b>todos</b> los caminos que llevan a B.</li><li>Para Bayes, divide el camino concreto entre ese total.</li><li>Para la <b>independencia</b>, compara P(A ∩ B) con P(A) · P(B) (o P(A | B) con P(A)) y concluye con una frase.</li><li>Da los resultados con <b>tres o cuatro decimales</b> o como fracción, y <b>interprétalos</b> en el contexto.</li></ul><p>Errores frecuentes: confundir P(A | B) con P(B | A) o con P(A ∩ B); sumar en lugar de multiplicar a lo largo de un camino; olvidar restar la intersección en la unión; confundir sucesos independientes con incompatibles; y usar la regla de Laplace con casos que no son equiprobables.</p><p>Esta materia continúa en el tema siguiente con las <b>distribuciones de probabilidad</b> (binomial y normal), base de la inferencia estadística.</p>`,
+      svg: rejilla("Fórmulas clave de probabilidad", [["Qué", "Fórmula"], ["Contrario", "P(Ā) = 1 − P(A)"], ["Unión", "P(A) + P(B) − P(A ∩ B)"], ["Condicionada", "P(A ∩ B) / P(B)"], ["Independencia", "P(A ∩ B) = P(A) · P(B)"], ["Total", "Σ P(Aᵢ) · P(B | Aᵢ)"], ["Bayes", "P(Aᵢ) P(B | Aᵢ) / P(B)"]], { w: 260, h: 178 }),
+    },
+  ],
+  ejemplos: [
+    { enunciado: "P(A) = 0,5, P(B) = 0,4 y P(A ∩ B) = 0,2. Halla P(A ∪ B) y P(Ā ∩ B̄).", pasos: ["P(A ∪ B) = 0,5 + 0,4 − 0,2 = 0,7.", "Ā ∩ B̄ es el contrario de A ∪ B."], resultado: "P(A ∪ B) = 0,7; P(Ā ∩ B̄) = 0,3." },
+    { enunciado: "Con los mismos datos, halla P(A | B) y decide si A y B son independientes.", pasos: ["P(A | B) = 0,2/0,4 = 0,5.", "P(A) · P(B) = 0,2 = P(A ∩ B)."], resultado: "P(A | B) = 0,5 = P(A): son independientes." },
+    { enunciado: "En la tabla de lectura (400 personas; 60 jóvenes lectores, 200 jóvenes, 180 lectores), halla P(L | J) y P(J | L).", pasos: ["P(L | J) = 60/200: fila de los jóvenes.", "P(J | L) = 60/180: columna de los lectores."], resultado: "P(L | J) = 0,3; P(J | L) = 1/3." },
+    { enunciado: "Urna con 3 rojas y 2 azules; se sacan dos sin reemplazamiento. P(las dos rojas)?", pasos: ["Primera roja: 3/5.", "Segunda roja sabiendo que la primera lo fue: 2/4."], resultado: "3/5 · 2/4 = 3/10." },
+    { enunciado: "Máquinas A, B, C producen el 50 %, 30 % y 20 %, con 2 %, 3 % y 5 % de defectuosas. P(defectuosa)?", pasos: ["Probabilidad total: suma de caminos.", "0,5 · 0,02 + 0,3 · 0,03 + 0,2 · 0,05."], resultado: "P(D) = 0,029." },
+    { enunciado: "Con los datos anteriores, una pieza es defectuosa. ¿Probabilidad de que venga de C?", pasos: ["Bayes: camino C → D entre el total.", "0,010/0,029."], resultado: "P(C | D) = 10/29 ≈ 0,345." },
+  ],
+  errores: [
+    "Confundir P(A | B) con P(B | A) o con P(A ∩ B).",
+    "Olvidar restar P(A ∩ B) al calcular la probabilidad de la unión.",
+    "Confundir sucesos independientes con sucesos incompatibles.",
+    "Sumar las probabilidades a lo largo de un camino del árbol en lugar de multiplicarlas.",
+    "En Bayes, dividir entre la probabilidad de la causa en lugar de entre P(B) total.",
+    "Aplicar la regla de Laplace a resultados que no son equiprobables.",
+  ],
+  ejercicios: [
+    { nivel: "básico", q: "Se lanza un dado. A = «par», B = «mayor que 3». Describe A ∪ B, A ∩ B y Ā, y calcula P(A ∪ B).", sol: "A ∪ B = {2, 4, 5, 6}, A ∩ B = {4, 6}, Ā = {1, 3, 5}. P(A ∪ B) = 4/6 = 2/3." },
+    { nivel: "básico", q: "Se extrae una carta de una baraja española de 40 cartas. Calcula P(oros), P(figura) y P(oros o figura).", sol: "P(oros) = 10/40 = 1/4; P(figura) = 12/40 = 3/10; P(oros ∩ figura) = 3/40. P(oros o figura) = 10/40 + 12/40 − 3/40 = 19/40." },
+    { nivel: "básico", q: "P(A) = 0,5, P(B) = 0,4, P(A ∩ B) = 0,2. Calcula P(A ∪ B), P(Ā ∩ B̄) y P(A ∩ B̄).", sol: "P(A ∪ B) = 0,7; P(Ā ∩ B̄) = 0,3; P(A ∩ B̄) = 0,5 − 0,2 = 0,3." },
+    { nivel: "básico", q: "A y B son incompatibles, con P(A) = 0,6 y P(B) = 0,3. Calcula P(A ∪ B) y P(A ∩ B).", sol: "P(A ∩ B) = 0; P(A ∪ B) = 0,9." },
+    { nivel: "básico", q: "P(A ∩ B) = 0,2, P(A) = 0,5 y P(B) = 0,4. Calcula P(A | B) y P(B | A).", sol: "P(A | B) = 0,2/0,4 = 0,5; P(B | A) = 0,2/0,5 = 0,4." },
+    { nivel: "básico", q: "Se lanzan dos monedas. Calcula P(dos caras) y P(al menos una cara).", sol: "P(CC) = 1/4. P(al menos una) = 1 − P(ninguna) = 1 − 1/4 = 3/4." },
+    { nivel: "básico", q: "A y B son independientes con P(A) = 0,3 y P(B) = 0,5. Calcula P(A ∩ B) y P(A ∪ B).", sol: "P(A ∩ B) = 0,15; P(A ∪ B) = 0,3 + 0,5 − 0,15 = 0,65." },
+    { nivel: "básico", q: "Se lanzan dos dados. Calcula la probabilidad de que la suma sea 7 y la de que sea 2.", sol: "36 casos equiprobables. P(7) = 6/36 = 1/6; P(2) = 1/36." },
+    { nivel: "básico", q: "En la tabla de 400 personas (60 jóvenes lectores, 140 jóvenes no lectores, 120 adultos lectores, 80 adultos no lectores), calcula P(L), P(J ∩ L) y P(L | J).", sol: "P(L) = 180/400 = 0,45; P(J ∩ L) = 60/400 = 0,15; P(L | J) = 60/200 = 0,3." },
+    { nivel: "básico", q: "Urna con 3 rojas y 2 azules. Se sacan dos bolas sin reemplazamiento. Calcula P(dos rojas).", sol: "3/5 · 2/4 = 3/10." },
+    { nivel: "básico", q: "Repite el ejercicio anterior con reemplazamiento.", sol: "3/5 · 3/5 = 9/25 = 0,36." },
+    { nivel: "básico", q: "Calcula la probabilidad de sacar al menos un 6 en tres lanzamientos de un dado.", sol: "1 − (5/6)³ = 1 − 125/216 = 91/216 ≈ 0,421." },
+    { nivel: "medio", q: "En la tabla de lectura de prensa, ¿son independientes «ser joven» y «leer prensa»?", sol: "P(L) = 0,45 y P(L | J) = 0,3. Como son distintas, son dependientes (también P(J ∩ L) = 0,15 ≠ 0,5 · 0,45 = 0,225)." },
+    { nivel: "medio", q: "El 60 % del alumnado aprueba Matemáticas, el 50 % Inglés y el 30 % ambas. Calcula P(aprobar Matemáticas sabiendo que aprueba Inglés), P(no aprobar ninguna) y P(aprobar solo una).", sol: "P(M | I) = 0,3/0,5 = 0,6. P(M ∪ I) = 0,8, así que P(ninguna) = 0,2. P(solo una) = 0,8 − 0,3 = 0,5." },
+    { nivel: "medio", q: "P(A) = 0,4, P(B) = 0,5 y P(A ∪ B) = 0,7. ¿Son independientes? Calcula P(A | B).", sol: "P(A ∩ B) = 0,4 + 0,5 − 0,7 = 0,2 = 0,4 · 0,5: independientes. P(A | B) = 0,2/0,5 = 0,4 = P(A)." },
+    { nivel: "medio", q: "Una fábrica tiene máquinas A, B y C que producen el 50 %, 30 % y 20 % de las piezas, con un 2 %, 3 % y 5 % de defectuosas. Calcula la probabilidad de que una pieza sea defectuosa.", sol: "P(D) = 0,5 · 0,02 + 0,3 · 0,03 + 0,2 · 0,05 = 0,029." },
+    { nivel: "medio", q: "Con los datos anteriores, si una pieza es defectuosa, ¿qué máquina es la más probable?", sol: "P(A | D) = 0,010/0,029 ≈ 0,345; P(B | D) ≈ 0,310; P(C | D) ≈ 0,345. A y C empatan como más probables." },
+    { nivel: "medio", q: "El 55 % de los encuestados son mujeres. El 40 % de las mujeres y el 30 % de los hombres van en bici al trabajo. Calcula P(bici) y P(mujer | bici).", sol: "P(bici) = 0,55 · 0,4 + 0,45 · 0,3 = 0,22 + 0,135 = 0,355. P(M | bici) = 0,22/0,355 ≈ 0,620." },
+    { nivel: "medio", q: "En un grupo de 120 jóvenes hay 70 chicos y 50 chicas. Practican deporte 30 chicos y 35 chicas. Calcula P(deporte), P(chica | deporte) y P(deporte | chica).", sol: "P(deporte) = 65/120 = 13/24 ≈ 0,542; P(chica | deporte) = 35/65 = 7/13 ≈ 0,538; P(deporte | chica) = 35/50 = 0,7." },
+    { nivel: "medio", q: "La urna U₁ tiene 3 bolas blancas y 2 negras; U₂ tiene 1 blanca y 4 negras. Se lanza una moneda para elegir urna y se saca una bola. Calcula P(blanca) y P(U₁ | blanca).", sol: "P(B) = 0,5 · 3/5 + 0,5 · 1/5 = 0,4. P(U₁ | B) = 0,3/0,4 = 0,75." },
+    { nivel: "medio", q: "Si P(A ∩ B) = 0,2, calcula P(Ā ∪ B̄).", sol: "Por De Morgan, Ā ∪ B̄ es el contrario de A ∩ B: P = 1 − 0,2 = 0,8." },
+    { nivel: "medio", q: "Un sistema tiene dos componentes en paralelo (funciona si funciona alguno), que fallan de forma independiente con probabilidad 0,1 cada uno. ¿Qué probabilidad hay de que el sistema funcione?", sol: "Falla solo si fallan los dos: 0,1 · 0,1 = 0,01. P(funciona) = 0,99." },
+    { nivel: "medio", q: "P(A) = 0,3, P(B) = 0,4 y P(A | B) = 0,5. Calcula P(A ∩ B), P(B | A) y P(A ∪ B).", sol: "P(A ∩ B) = 0,4 · 0,5 = 0,2; P(B | A) = 0,2/0,3 = 2/3; P(A ∪ B) = 0,3 + 0,4 − 0,2 = 0,5." },
+    { nivel: "medio", q: "El 2 % de los billetes son falsos. Un detector marca el 95 % de los falsos y el 3 % de los buenos. Si marca un billete, ¿qué probabilidad hay de que sea falso?", sol: "P(marca) = 0,019 + 0,0294 = 0,0484. P(falso | marca) = 0,019/0,0484 ≈ 0,393." },
+    { nivel: "avanzado", q: "El 40 % de los correos que recibe una empresa son spam. La palabra «gratis» aparece en el 30 % del spam y en el 2 % del correo normal. Si un correo contiene «gratis», ¿qué probabilidad hay de que sea spam?", sol: "P(G) = 0,4 · 0,3 + 0,6 · 0,02 = 0,12 + 0,012 = 0,132. P(spam | G) = 0,12/0,132 ≈ 0,909." },
+    { nivel: "avanzado", q: "Un alumno conoce la respuesta del 60 % de las preguntas de un test de 4 opciones; en el resto, contesta al azar. Si ha acertado una pregunta, ¿qué probabilidad hay de que la supiera?", sol: "P(acierto) = 0,6 · 1 + 0,4 · 0,25 = 0,7. P(sabía | acierto) = 0,6/0,7 = 6/7 ≈ 0,857." },
+    { nivel: "avanzado", q: "P(A) = 0,5, P(B | A) = 0,4 y P(B | Ā) = 0,2. Calcula P(B), P(A | B) y P(Ā ∩ B̄).", sol: "P(B) = 0,5 · 0,4 + 0,5 · 0,2 = 0,3. P(A | B) = 0,2/0,3 = 2/3. P(Ā ∩ B̄) = 0,5 · 0,8 = 0,4." },
+    { nivel: "avanzado", q: "Demuestra que si A y B son independientes, también lo son Ā y B.", sol: "P(Ā ∩ B) = P(B) − P(A ∩ B) = P(B) − P(A)P(B) = P(B)(1 − P(A)) = P(Ā) · P(B)." },
+    { nivel: "avanzado", q: "P(A) = 0,6, P(B) = 0,5 y P(A | B) = 0,7. Calcula P(A ∩ B), P(A ∪ B) y P(B | A). ¿Son independientes?", sol: "P(A ∩ B) = 0,35; P(A ∪ B) = 0,75; P(B | A) = 0,35/0,6 = 7/12 ≈ 0,583. No son independientes, porque P(A | B) = 0,7 ≠ 0,6." },
+    { nivel: "avanzado", q: "Una enfermedad tiene una prevalencia del 1 %. Un test tiene sensibilidad del 99 % y da falsos positivos en el 5 % de los sanos. Calcula el valor predictivo del positivo usando 10 000 personas.", sol: "100 enfermos → 99 positivos; 9 900 sanos → 495 positivos. P(enfermo | +) = 99/594 ≈ 0,167." },
+    { nivel: "avanzado", q: "Con el test anterior, una persona da positivo y repite la prueba (independiente), que vuelve a dar positivo. ¿Qué probabilidad hay ahora de que esté enferma?", sol: "Se usa 1/6 como nueva probabilidad a priori: P = (1/6 · 0,99)/(1/6 · 0,99 + 5/6 · 0,05) = 0,165/0,2067 ≈ 0,798." },
+    { nivel: "avanzado", q: "¿Qué probabilidad hay de que, entre tres personas elegidas al azar, al menos dos cumplan años el mismo día (año de 365 días)?", sol: "P(todos distintos) = (365 · 364 · 363)/365³ ≈ 0,9918. P(al menos dos iguales) ≈ 1 − 0,9918 = 0,0082." },
+  ],
+  quiz: reparte([
+    { q: "El conjunto de todos los resultados posibles se llama…", o: ["espacio muestral", "suceso seguro elemental", "frecuencia", "población"], a: 0, e: "Se representa con E." },
+    { q: "A ∩ B significa que ocurren…", o: ["A y B a la vez", "A o B", "ni A ni B", "A pero no B"], a: 0, e: "Intersección." },
+    { q: "Dos sucesos son incompatibles si…", o: ["A ∩ B = ∅", "P(A ∩ B) = P(A)P(B)", "P(A) = P(B)", "A ∪ B = E"], a: 0, e: "No pueden ocurrir a la vez." },
+    { q: "La regla de Laplace solo vale si los casos son…", o: ["equiprobables", "independientes", "incompatibles", "más de 10"], a: 0, e: "Igual de probables." },
+    { q: "P(Ā) =", o: ["1 − P(A)", "P(A) − 1", "−P(A)", "1/P(A)"], a: 0, e: "Contrario." },
+    { q: "P(A ∪ B) =", o: ["P(A) + P(B) − P(A ∩ B)", "P(A) + P(B)", "P(A) · P(B)", "P(A) + P(B) + P(A ∩ B)"], a: 0, e: "Se resta lo contado dos veces." },
+    { q: "«Ninguno de los dos» es…", o: ["Ā ∩ B̄", "Ā ∪ B̄", "A ∩ B̄", "A ∪ B"], a: 0, e: "De Morgan." },
+    { q: "P(A | B) =", o: ["P(A ∩ B)/P(B)", "P(A ∩ B)/P(A)", "P(A)/P(B)", "P(A) · P(B)"], a: 0, e: "B es el nuevo total." },
+    { q: "En general, P(A | B) y P(B | A)…", o: ["son distintas", "son iguales", "suman 1", "son incompatibles"], a: 0, e: "Falacia del fiscal." },
+    { q: "A y B son independientes si…", o: ["P(A ∩ B) = P(A) · P(B)", "A ∩ B = ∅", "P(A) + P(B) = 1", "P(A | B) = P(B)"], a: 0, e: "Definición." },
+    { q: "Si A y B son incompatibles con probabilidades positivas, entonces son…", o: ["dependientes", "independientes", "iguales", "contrarios siempre"], a: 0, e: "P(A ∩ B) = 0 ≠ P(A)P(B)." },
+    { q: "En una tabla de contingencia, P(L | J) se calcula…", o: ["con la casilla entre el total de la fila J", "con la casilla entre el total general", "con el total de L entre el total", "sumando la fila"], a: 0, e: "J es el nuevo total." },
+    { q: "En un diagrama de árbol, la probabilidad de un camino se obtiene…", o: ["multiplicando sus ramas", "sumando sus ramas", "restando", "dividiendo"], a: 0, e: "Regla del producto." },
+    { q: "Las ramas que salen de un mismo nudo…", o: ["suman 1", "multiplican 1", "son iguales", "suman 0"], a: 0, e: "Agotan las posibilidades." },
+    { q: "El teorema de la probabilidad total calcula P(B) como…", o: ["suma de los caminos que llevan a B", "producto de todas las ramas", "P(A₁) solo", "1 − P(A)"], a: 0, e: "Σ P(Aᵢ) P(B | Aᵢ)." },
+    { q: "El teorema de Bayes permite calcular…", o: ["P(causa | efecto)", "P(efecto | causa)", "P(A ∪ B)", "P(Ā)"], a: 0, e: "Va del efecto a la causa." },
+    { q: "Las probabilidades P(Aᵢ | B) se llaman…", o: ["a posteriori", "a priori", "marginales", "totales"], a: 0, e: "Después de observar B." },
+    { q: "Sin reemplazamiento, las extracciones sucesivas son…", o: ["dependientes", "independientes", "incompatibles", "equiprobables siempre"], a: 0, e: "Cambia la composición de la urna." },
+    { q: "«El 30 % de los que compran paga con tarjeta» es…", o: ["P(T | C) = 0,3", "P(C ∩ T) = 0,3", "P(C | T) = 0,3", "P(T) = 0,3"], a: 0, e: "«De los que» indica condicionada." },
+    { q: "Si una característica es muy rara, un test con pocos falsos positivos…", o: ["puede dar muchos positivos falsos en proporción", "nunca se equivoca", "da siempre 99 % de acierto", "no sirve para nada"], a: 0, e: "Depende de la prevalencia." },
+  ]),
+  examen: reparte([
+    { q: "Se lanza un dado. P(múltiplo de 3) =", o: ["1/3", "1/2", "1/6", "2/3"], a: 0, e: "{3, 6}." },
+    { q: "P(A) = 0,6, P(B) = 0,5, P(A ∩ B) = 0,3. P(A ∪ B) =", o: ["0,8", "1,1", "0,3", "0,9"], a: 0, e: "0,6 + 0,5 − 0,3." },
+    { q: "Con los datos anteriores, P(A | B) =", o: ["0,6", "0,5", "0,3", "0,15"], a: 0, e: "0,3/0,5." },
+    { q: "Con los datos anteriores, A y B son…", o: ["independientes", "incompatibles", "dependientes", "contrarios"], a: 0, e: "0,6 · 0,5 = 0,3." },
+    { q: "P(al menos una cara en 3 lanzamientos de moneda) =", o: ["7/8", "3/8", "1/2", "1/8"], a: 0, e: "1 − (1/2)³." },
+    { q: "Urna con 2 blancas y 3 negras, dos extracciones sin reemplazamiento. P(dos blancas) =", o: ["1/10", "4/25", "2/5", "1/5"], a: 0, e: "2/5 · 1/4." },
+    { q: "P(A₁) = 0,6, P(A₂) = 0,4, P(B | A₁) = 0,1, P(B | A₂) = 0,2. P(B) =", o: ["0,14", "0,3", "0,15", "0,02"], a: 0, e: "0,06 + 0,08." },
+    { q: "Con los datos anteriores, P(A₂ | B) =", o: ["4/7", "3/7", "0,2", "0,4"], a: 0, e: "0,08/0,14." },
+  ], 1),
+  feynman: ["Qué diferencia hay entre sucesos incompatibles y sucesos independientes", "Por qué P(A | B) no es lo mismo que P(B | A), con un ejemplo cotidiano", "Cómo se leen las probabilidades condicionadas en una tabla de contingencia", "Cuándo se suma y cuándo se multiplica en un diagrama de árbol", "Por qué un test muy fiable puede dar más falsos positivos que verdaderos cuando la enfermedad es rara"],
+  glosario: [
+    ["Experimento aleatorio", "Aquel cuyo resultado no se puede predecir."],
+    ["Espacio muestral", "Conjunto de todos los resultados posibles, E."],
+    ["Suceso", "Subconjunto del espacio muestral."],
+    ["Suceso contrario", "Ā: ocurre cuando no ocurre A."],
+    ["Sucesos incompatibles", "No pueden ocurrir a la vez: A ∩ B = ∅."],
+    ["Regla de Laplace", "Favorables entre posibles, si son equiprobables."],
+    ["Leyes de De Morgan", "Contrario de la unión = intersección de contrarios, y viceversa."],
+    ["Probabilidad condicionada", "P(A | B) = P(A ∩ B)/P(B)."],
+    ["Sucesos independientes", "P(A ∩ B) = P(A) · P(B)."],
+    ["Tabla de contingencia", "Tabla de doble entrada con dos características."],
+    ["Diagrama de árbol", "Esquema de un experimento por etapas."],
+    ["Sistema completo de sucesos", "Sucesos incompatibles que cubren todo E."],
+    ["Probabilidad total", "P(B) = Σ P(Aᵢ) · P(B | Aᵢ)."],
+    ["Teorema de Bayes", "P(Aᵢ | B) = P(Aᵢ) P(B | Aᵢ)/P(B)."],
+    ["Falso positivo", "Resultado positivo en alguien que no tiene la característica."],
+  ],
+  situacion: {
+    titulo: "¿Nos fiamos de la prueba?",
+    reto: "Un ayuntamiento quiere hacer una prueba rápida de detección a toda la población. Vuestro grupo explicará a la ciudadanía qué significa dar positivo, usando probabilidades.",
+    pasos: [
+      "Buscad la sensibilidad, la especificidad y la prevalencia de una prueba real (por ejemplo, en la ficha técnica de un test de farmacia o en fuentes sanitarias oficiales).",
+      "Construid una tabla de contingencia con frecuencias naturales para 10 000 personas.",
+      "Calculad con Bayes la probabilidad de estar afectado si se da positivo y la de no estarlo si se da negativo.",
+      "Estudiad cómo cambian esos valores si la prevalencia es del 0,1 %, 1 % o 10 % (hoja de cálculo).",
+      "Diseñad una infografía para la ciudadanía que explique el resultado sin fórmulas.",
+    ],
+    producto: "Una infografía con la tabla de frecuencias naturales y los valores predictivos, y una hoja de cálculo con el estudio de la prevalencia.",
+    evaluacion: [
+      "Traduce correctamente los datos a probabilidades condicionadas.",
+      "Construye la tabla de contingencia y aplica Bayes sin errores.",
+      "Analiza el efecto de la prevalencia con una hoja de cálculo.",
+      "Comunica el resultado de forma clara y honesta a un público general.",
+    ],
+  },
+  figura: fig("Probabilidad de un vistazo", "Resumen: sucesos, condicionada, tablas y árboles, Bayes", [
+    ["Sucesos", ["∪ ∩ contrario", "incompatibles", "Laplace", "De Morgan"], "var(--pen)"],
+    ["Condicionada", ["P(A ∩ B)/P(B)", "nuevo total B", "independencia", "P(A)·P(B)"], "var(--leaf)"],
+    ["Herramientas", ["Venn", "tabla", "árbol", "× camino, + caminos"], "var(--red)"],
+    ["Total y Bayes", ["Σ caminos a B", "camino / total", "a priori", "a posteriori"], "var(--inf)"],
+  ]),
+  video: { id: "KrvsiHh1ThA", titulo: "Teorema de Bayes: aprende a resolverlo paso a paso", canal: "Mates con Andrés", vistas: 98500, busqueda: "teorema de Bayes explicación" },
+  mapa: mapa("PROBABILIDAD", "var(--bac)", [
+    ["Sucesos", "operaciones · Laplace · propiedades", "var(--pen)"],
+    ["Condicionada", "fórmula · independencia", "var(--leaf)"],
+    ["Herramientas", "Venn · tabla · árbol", "var(--red)"],
+    ["Total y Bayes", "de causa a efecto y al revés", "var(--inf)"],
+  ], 290),
+  tarjetas: [
+    ["Regla de Laplace", "Favorables / posibles (equiprobables)"],
+    ["P(Ā)", "1 − P(A)"],
+    ["P(A ∪ B)", "P(A) + P(B) − P(A ∩ B)"],
+    ["Ninguno de los dos", "1 − P(A ∪ B)"],
+    ["P(A | B)", "P(A ∩ B) / P(B)"],
+    ["Independientes", "P(A ∩ B) = P(A) · P(B)"],
+    ["Incompatibles", "P(A ∩ B) = 0"],
+    ["Tabla: P(A | B)", "Casilla / total de B"],
+    ["Árbol: un camino", "Multiplicar ramas"],
+    ["Probabilidad total", "Sumar caminos que llevan a B"],
+    ["Bayes", "Camino / total de caminos a B"],
+    ["«De los que…»", "Probabilidad condicionada"],
+  ],
+  familias: ["Comentad una noticia con un porcentaje («el 80 % de los accidentes…») y preguntaos si es P(A | B) o P(B | A).", "Jugad a lanzar dos dados 50 veces y comparad la frecuencia de la suma 7 con 1/6.", "Hablad de las alarmas que saltan sin motivo (coche, tienda, móvil): ¿por qué la mayoría son falsas alarmas?", "Repasad las tarjetas del paso 6 dos minutos al día."],
+  profesores: {
+    saberes: "Sentido estocástico: cálculo de probabilidades con la regla de Laplace y las propiedades de la probabilidad; probabilidad condicionada e independencia de sucesos; tablas de contingencia y diagramas de árbol; teoremas de la probabilidad total y de Bayes; interpretación crítica de probabilidades en contextos sociales (RD 243/2022, Matemáticas Aplicadas a las Ciencias Sociales II, saberes básicos de sentido estocástico).",
+    ideas: ["Encuesta en el centro para construir una tabla de contingencia real y estudiar la independencia.", "Simulación con hoja de cálculo de la ley de los grandes números con dos dados.", "Analizar noticias que confunden P(A | B) con P(B | A).", "Estudiar con frecuencias naturales el valor predictivo de una prueba diagnóstica real."],
+  },
+  fuentes: [
+    RD,
+    { t: "Probabilidad condicionada, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Probabilidad_condicionada" },
+    { t: "Teorema de Bayes, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Teorema_de_Bayes" },
+    { t: "Tabla de contingencia, Wikipedia en español", url: "https://es.wikipedia.org/wiki/Tabla_de_contingencia" },
+  ],
+  revisado: "2026-11-21",
+};

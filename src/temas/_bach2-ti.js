@@ -31,6 +31,19 @@ const VID = {
   "mt-diesel": { id: "AEfgWoPCfRA", canal: "carwow.es", vistas: 93815 },
   "mt-par": { id: "YgI6lG6FshQ", canal: "AUTOTECNICATV", vistas: 1956739 },
   "mt-carnot": { id: "6mlL4wTYelM", canal: "unicoos", vistas: 165085 },
+  "mf-ciclo": { id: "cdUge74ZlOU", canal: "Friolandia Service", vistas: 1602730 },
+  "mf-peltier": { id: "h5SlFsf5ksg", canal: "HRom", vistas: 940546 },
+  "mf-aerotermia": { id: "tjujGM-gWqg", canal: "Construyendo Casas", vistas: 449558 },
+  "mf-mollier": { id: "oIz4kiE2Bnw", canal: "MAESTRO CIFU", vistas: 296474 },
+  "nh-lab": { id: "KCtFWu773o0", canal: "Smart Inventor", vistas: 535088 },
+  "nh-valvulas": { id: "_Rd0xgw9V3g", canal: "Neheyler Mecatrónico", vistas: 409586 },
+  "nh-leer": { id: "hAFB8zKUyQM", canal: "Les Ingenieurs", vistas: 328620 },
+  "nh-oleo": { id: "AEjlK3q7r6E", canal: "Neheyler Mecatrónico", vistas: 367215 },
+  "ca-intro": { id: "A3MFVSSyXQA", canal: "Charly Labs", vistas: 1061502 },
+  "ca-rlc": { id: "sho9Qqr4-Gs", canal: "El Traductor de Ingeniería", vistas: 262082 },
+  "ca-fp": { id: "nHcqTR3rryw", canal: "Pon un ingeniero en tu vida", vistas: 865194 },
+  "ca-resonancia": { id: "WNOINqPEo0g", canal: "Electrónica FP", vistas: 165578 },
+  "ca-trifasica": { id: "UXW_I_d5O5w", canal: "Mentalidad De Ingeniería", vistas: 1400168 },
 };
 const V = (k, titulo, busqueda) => {
   if (!VID[k]) throw new Error(`vídeo ${k} no encontrado`);
