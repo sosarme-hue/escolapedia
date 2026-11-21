@@ -350,6 +350,7 @@ function topicPage(e, c, m, T, n) {
 
 // ---------- familias y profesores ----------
 require("./src/recursos")({ ETAPAS, page, write, SITE, CURSO_ESCOLAR, cursoNombre, famColor, trimestres });
+require("./src/centros")({ page, write, SITE, nTemas: nListos, nMaterias, nPau: PAU_MATERIAS.length });
 
 // ---------- PAU ----------
 require("./src/pau")({ ETAPAS, page, write, SITE, famColor, slug, esc });
