@@ -104,10 +104,10 @@ module.exports = {
   ],
   claves: ["proyección cilíndrica oblicua", "perspectiva caballera", "perspectiva militar", "plano del cuadro", "eje de fugas", "ángulo φ", "coeficiente de reducción", "escala reducida", "óvalo", "método de los ocho puntos"],
   lectura: {
-    titulo: "La perspectiva de los ingenieros militares",
-    html: `<p>El nombre de la perspectiva <b>caballera</b> viene de las «caballeras» de las fortificaciones, plataformas elevadas desde las que se dominaba el terreno. La <b>militar</b> tiene un origen parecido: los ingenieros militares de los siglos XVII y XVIII necesitaban representar fortalezas con su planta exacta y sus alturas, para que los mandos pudieran leer distancias directamente en el plano.</p>
-    <p>Las dos son <b>axonometrías oblicuas</b>: los rayos de proyección son paralelos pero no perpendiculares al cuadro. A cambio de esa «trampa», una cara del objeto se ve sin ninguna deformación. En la caballera es la cara frontal; en la militar, la planta.</p>
-    <p>Por eso la caballera es ideal para piezas con una cara complicada (engranajes, bridas, molduras), y la militar se usa en arquitectura, urbanismo y paisajismo, porque permite dibujar el plano de una ciudad y levantar los edificios sin rehacer la planta.</p>`,
+    titulo: "Choisy, De Stijl y la vista desde arriba",
+    html: `<p>En 1899, el ingeniero francés Auguste Choisy publicó una <b>Historia de la arquitectura</b> ilustrada de forma revolucionaria: en lugar de fachadas o perspectivas pintorescas, dibujó los templos y catedrales con <b>axonometrías</b>, a menudo vistas desde abajo, que mostraban a la vez la planta, los muros y las bóvedas. Cualquiera podía medir en ellas.</p>
+    <p>Veinte años después, los arquitectos del grupo holandés <b>De Stijl</b>, como Theo van Doesburg, convirtieron la axonometría en un manifiesto: sus casas se dibujaban como volúmenes flotantes vistos desde arriba, sin punto de vista privilegiado. La Bauhaus y Le Corbusier adoptaron el mismo lenguaje.</p>
+    <p>La razón es práctica: la <b>perspectiva militar</b> conserva la planta exacta y permite levantar los volúmenes sin rehacer nada. Hoy sigue siendo la forma habitual de explicar un proyecto de urbanismo, un plano de evacuación o la distribución de una vivienda.</p>`,
   },
   pregunta: {
     texto: "Si dibujas un cubo en caballera con las tres aristas en verdadera magnitud (c = 1), ¿parecerá un cubo?",
