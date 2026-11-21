@@ -3,4 +3,5 @@
 module.exports = {
   // Ciencias y Tecnología
   "Matemáticas II": ["Matrices", "Determinantes", "Sistemas de ecuaciones lineales", "Vectores en el espacio", "Rectas y planos en el espacio", "Problemas métricos en el espacio", "Límites y continuidad", "Derivabilidad y teoremas del cálculo diferencial", "Aplicaciones de la derivada", "Integral indefinida", "Integral definida y aplicaciones", "Probabilidad", "Distribuciones binomial y normal"],
+  "Física": ["El campo gravitatorio", "Movimiento de satélites y planetas", "El campo eléctrico", "Potencial eléctrico y teorema de Gauss", "El campo magnético", "La inducción electromagnética", "El movimiento armónico simple", "Ondas mecánicas y sonido", "La luz y las ondas electromagnéticas", "Óptica geométrica", "Física relativista y cuántica", "Física nuclear y de partículas"],
 };
