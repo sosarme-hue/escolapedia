@@ -44,7 +44,7 @@ module.exports = tema({
     { h: "Las vanguardias y Las Sinsombrero", p: [
       "En el siglo XX, las mujeres participaron en todas las vanguardias, aunque a menudo a la sombra de sus compañeros. <b>Sonia Delaunay</b> llevó la abstracción a la moda y el diseño; <b>Hannah Höch</b> inventó el fotomontaje dadá; <b>Frida Kahlo</b> convirtió su cuerpo y su dolor en tema; <b>Georgia O'Keeffe</b> amplió flores hasta hacerlas paisajes; la sueca <b>Hilma af Klint</b> pintó cuadros abstractos antes que Kandinsky.",
       "En España, la generación del 27 tuvo sus artistas olvidadas: <mark>Las Sinsombrero</mark>, llamadas así porque se quitaron el sombrero en público como gesto de libertad. Entre ellas, las pintoras <b>Maruja Mallo</b> y <b>Ángeles Santos</b>, y la escultora <b>Marga Gil Roësset</b>. Un documental de 2015 ayudó a recuperarlas.",
-    ], v: ["muj-a", "Veinte mujeres artistas"], svg: cuadro("Vanguardistas", [["Artista", "Aportación"], ["Hilma af Klint", "abstracción temprana"], ["Hannah Höch", "fotomontaje dadá"], ["Frida Kahlo", "autorretrato y cuerpo"], ["Maruja Mallo", "Sinsombrero, surrealismo"]]) },
+    ], svg: cuadro("Vanguardistas", [["Artista", "Aportación"], ["Hilma af Klint", "abstracción temprana"], ["Hannah Höch", "fotomontaje dadá"], ["Frida Kahlo", "autorretrato y cuerpo"], ["Maruja Mallo", "Sinsombrero, surrealismo"]]) },
     { h: "El arte feminista", p: [
       "En los años setenta nació el <mark>arte feminista</mark>, que usa el arte para denunciar la desigualdad. <b>Judy Chicago</b> creó <i>The Dinner Party</i> (1979), una gran mesa triangular con 39 cubiertos dedicados a mujeres de la historia. <b>Cindy Sherman</b> se fotografió disfrazada de estereotipos femeninos del cine. <b>Ana Mendieta</b> dejó la silueta de su cuerpo en la tierra.",
       "Desde 1985, las <b>Guerrilla Girls</b>, artistas anónimas con máscaras de gorila, denuncian con carteles la escasa presencia de mujeres en los museos. Uno de los más famosos preguntaba si las mujeres tenían que estar desnudas para entrar en el Metropolitan, donde en las salas de arte moderno menos del 5 % de los artistas eran mujeres y el 85 % de los desnudos eran femeninos.",
@@ -60,7 +60,7 @@ module.exports = tema({
     ["Vanguardias", ["Af Klint, Höch", "Frida Kahlo", "Las Sinsombrero", "Maruja Mallo"]],
     ["Hoy", ["arte feminista", "Guerrilla Girls", "Kusama, Bourgeois", "revisar el canon"]],
   ] },
-  video: ["muj-a", "Mujeres artistas en la historia del arte"],
+  video: ["muj-a", "Hilma af Klint y las mujeres artistas en la historia del arte"],
   ejemplos: [
     ["Compara la Judit de Artemisia con una Judit de otro pintor.", ["Observa la actitud: en Artemisia, Judit y su criada actúan con fuerza.", "En otras versiones, Judit aparece serena o decorativa.", "Fíjate en el claroscuro y la violencia.", "Relaciona con la vida y la mirada de la artista."], "Artemisia presenta a mujeres activas y decididas."],
     ["Analiza el cartel de las Guerrilla Girls sobre el Metropolitan.", ["Imita un anuncio publicitario.", "Usa una odalisca clásica con máscara de gorila.", "Aporta datos: menos del 5 % de artistas mujeres.", "Ironía y denuncia."], "Arte feminista que usa datos y humor para criticar los museos."],
