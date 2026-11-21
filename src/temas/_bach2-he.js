@@ -46,8 +46,8 @@ function peninsula(t, puntos = [], zonas = [], flechas = [], nota = "") {
     const [x1, y1] = xy([a, b]), [x2, y2] = xy([c2, d]);
     o += `<path d="M${x1} ${y1} L ${x2} ${y2}" stroke="${c}" stroke-width="2.2" fill="none" marker-end="url(#${id})"/>`;
   });
-  puntos.forEach(([lo, la, n, c = "var(--red)"]) => {
-    const [x, y] = P([lo, la]), izq = x > 175;
+  puntos.forEach(([lo, la, n, c = "var(--red)", lado]) => {
+    const [x, y] = P([lo, la]), izq = lado ? lado === "i" : x > 175;
     o += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.2" fill="${c}" stroke="var(--paper)" stroke-width="1"/>`;
     o += `<text x="${(izq ? x - 5 : x + 5).toFixed(1)}" y="${(y + 3).toFixed(1)}" font-size="8.5" font-weight="700" text-anchor="${izq ? "end" : "start"}" fill="var(--ink)" paint-order="stroke" stroke="var(--paper)" stroke-width="2.5">${n}</text>`;
   });
