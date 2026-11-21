@@ -2,6 +2,7 @@
 // Genera /pau/ con la información de la prueba 2027, la calculadora de notas y una página por materia
 // (formato del examen, temas de 2º de Bachillerato enlazados, consejos, modelo de examen con soluciones y test).
 const INFO = require("./pau-info");
+const COM = require("./pau-comunidades");
 // Modelos adicionales por materia: { "Nombre de la materia": [modelo2, modelo3, …] }
 const EXTRA = {};
 for (const f of require("fs").readdirSync(__dirname).filter((f) => /^pau-modelos-.*\.js$/.test(f)).sort()) for (const [k, v] of Object.entries(require("./" + f))) (EXTRA[k] = EXTRA[k] || []).push(...v);
@@ -121,11 +122,43 @@ module.exports = function pau({ ETAPAS, page, write, SITE, famColor, slug, esc }
   pagina("pau/comunidades", 2, "Por comunidades", "La PAU en cada comunidad autónoma",
     "La prueba es común en toda España (mismo real decreto, mismas materias y misma fórmula), pero cada comunidad la organiza, pone los exámenes y fija los detalles.",
     `${subnav(2, "comunidades")}
+    ${sec("", "Elige tu comunidad", `<div class="grid rec-cards">${INFO.comunidades.map((c) => `<a class="card" style="--c:#1f4fd1" href="${c.n === "Cataluña" ? "../cataluna/" : slug(c.n) + "/"}"><span class="mono">${(COM[c.n] || {}).sigla || "CT"}</span><span><b>${c.n}</b><small>${c.org}</small></span></a>`).join("")}</div>`)}
     ${sec("", "Quién la organiza y dónde informarse", tabla(["Comunidad", "Nombre habitual", "Organiza", "Lengua cooficial", "Web oficial"], INFO.comunidades.map((c) => [c.n, c.nombre, c.org, c.lengua, `<a href="${c.web}" target="_blank" rel="noopener">${c.webT}</a>`])))}
     ${sec("", "Qué es igual en toda España", ul(INFO.igual))}
     ${sec("", "Qué cambia de una comunidad a otra", ul(INFO.cambia))}
     ${sec("", "¿Y si quiero estudiar en otra comunidad?", INFO.distrito)}`,
     "PAU por comunidades autónomas", "Nombre, organizador, lengua cooficial y web oficial de la PAU en cada comunidad autónoma, y qué cambia de una a otra.");
+
+  // ---------------- una página por comunidad ----------------
+  const FECHA_FILA = (n) => (INFO.fechas.filas.find((f) => f[0].split(/, | y /).includes(n) || f[0] === n) || null);
+  for (const c of INFO.comunidades) {
+    if (c.n === "Cataluña") continue;
+    const D = COM[c.n]; if (!D) continue;
+    const fila = FECHA_FILA(c.n);
+    const ord = fila ? fila[1] : D.fecha[0], ext = fila ? fila[2] : D.fecha[1];
+    const pce = c.nombre === "PCE";
+    const n5 = !!D.lengua;
+    const otras = INFO.comunidades.filter((x) => x.n !== c.n).map((x) => `<a href="${x.n === "Cataluña" ? "../../cataluna/" : "../" + slug(x.n) + "/"}">${x.n}</a>`).join("");
+    pagina(`pau/comunidades/${slug(c.n)}`, 3, `<a href="../">Por comunidades</a> › ${c.n}`, pce ? "Acceso a la universidad desde sistemas educativos extranjeros" : `La PAU en ${c.n} 2027`,
+      pce ? "Qué son las PCE de la UNED, quién las hace y cómo se pide plaza en una universidad española." : `Fechas, universidades, exámenes y preinscripción en ${c.n}. ${n5 ? "Aquí la fase de acceso tiene cinco exámenes, con la lengua cooficial." : "Aquí la fase de acceso tiene cuatro exámenes."}`,
+      `${subnav(3, "comunidades")}
+      ${sec("", "Lo esencial", tabla(["Dato", "En tu comunidad"], [
+        ["Nombre", c.nombre], ["Organiza", c.org],
+        ...(pce ? [] : [["Exámenes de la fase de acceso", n5 ? "5 (con " + D.lengua.split(" (")[0] + ")" : "4"]]),
+        ["Convocatoria ordinaria 2027", ord], ["Convocatoria extraordinaria 2027", ext],
+        ["Web oficial", `<a href="${c.web}" target="_blank" rel="noopener">${c.webT}</a>`],
+      ]))}
+      ${sec("", "Lo que tienes que saber", ul(D.claves))}
+      ${D.lengua ? sec("", "El examen de lengua cooficial", `<p>${D.lengua}</p><p>Dura 90 minutos, como los demás, y su nota cuenta igual en la media de la prueba. Sigue el modelo de Lengua Castellana: comentario de un texto, preguntas de lengua y una de literatura.</p>`) : ""}
+      ${sec("", pce ? "Quién lo organiza" : "Universidades públicas", ul(D.univ) + `<p>${D.sedes}</p>`)}
+      ${sec("", "Preinscripción", `<p>${D.preins}</p><p>Recuerda que la nota de la PAU vale para <b>cualquier universidad de España</b>: si quieres estudiar fuera, preinscríbete también en esa comunidad dentro de su plazo.</p>`)}
+      ${pce ? "" : sec("", "Practica con los exámenes de tu comunidad", `<p>Cada comisión tiene su estilo de preguntas. Haz primero los modelos resueltos de Escolapedia y después los exámenes oficiales de ${c.n}, que están en la web de quien organiza la prueba.</p><p><a class="btn" href="https://www.google.com/search?q=${encodeURIComponent(`exámenes PAU años anteriores soluciones site:${new URL(c.web).hostname}`)}" target="_blank" rel="noopener">Buscar exámenes oficiales de ${c.n} →</a> <a class="btn" href="../../materias/">Modelos resueltos por materia →</a></p>`)}
+      ${sec("", "Más sobre la PAU", ul([`<a href="../../fechas-2027/">Fechas 2027 en todas las comunidades</a>`, `<a href="../../calculadora/">Calcula tu nota de acceso y de admisión</a>`, `<a href="../../notas-de-corte-y-ponderaciones/">Notas de corte y ponderaciones</a>`, `<a href="../../plan-de-estudio/">Plan de estudio de septiembre a junio</a>`]))}
+      <p class="caption">Información revisada el 21 de noviembre de 2026. Las fechas y los detalles los fija cada comunidad: confírmalos siempre en la web oficial.</p>
+      <nav class="rec-toc pau-nav" aria-label="Otras comunidades">${otras}</nav>`,
+      pce ? "PCE de la UNED: acceso desde sistemas educativos extranjeros" : `PAU ${c.n} 2027: fechas, universidades y exámenes`,
+      pce ? "Pruebas de Competencias Específicas (PCE) de la UNED para estudiantes de sistemas educativos extranjeros: qué son, quién las hace y cómo pedir plaza." : `Selectividad en ${c.n} 2027: fechas de la convocatoria ordinaria y extraordinaria, universidades públicas, ${n5 ? "examen de lengua cooficial, " : ""}preinscripción y exámenes oficiales.`);
+  }
 
   // ---------------- Cataluña ----------------
   pagina("pau/cataluna", 2, "Cataluña", "La PAU en Cataluña (selectivitat) 2027",
