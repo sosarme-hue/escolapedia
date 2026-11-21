@@ -12,4 +12,13 @@ module.exports = {
   "inf-b": { id: "gswAM4fJcRM", canal: "cosapiens", vistas: 122613, q: "sistemas de información geográfica SIG" },
   "inf-c": { id: "8tL-UBNsCv8", canal: "Date un Voltio", vistas: 309195, q: "cómo funciona el GPS" },
   "inf-d": { id: "wlk3dA-cNf4", canal: "Help GIS", vistas: 42989, q: "teledetección combinación de bandas" },
+  "atm-a": { id: "DJWsby1cssI", canal: "FJ Simarro", vistas: 247978, q: "circulación general de la atmósfera" },
+  "atm-b": { id: "nPZDOgL0nxw", canal: "El Robot de Platón", vistas: 1118074, q: "fenómeno de El Niño" },
+  "atm-c": { id: "ZQFjJ5j6ltQ", canal: "Profa. Kempis", vistas: 216563, q: "climas del mundo" },
+  "cc-a": { id: "umAGi80FsPM", canal: "EcologíaVerde", vistas: 1292048, q: "cambio climático causas y consecuencias" },
+  "cc-b": { id: "3ZbRHzimXOA", canal: "QuantumFracture", vistas: 759306, q: "IPCC informe cambio climático explicado" },
+  "cc-c": { id: "4ofqzVW0mwM", canal: "UN Climate Change", vistas: 158594, q: "acuerdo de París" },
+  "rc-a": { id: "PPYLvoToMe8", canal: "BBC News Mundo", vistas: 441214, q: "qué es una DANA gota fría" },
+  "rc-b": { id: "pCSmwPB0hdw", canal: "GENIAL", vistas: 3661367, q: "cómo se forma un huracán" },
+  "rc-c": { id: "dZa0qHMy0YM", canal: "DW Español", vistas: 60564, q: "sequía en España" },
 };
