@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de nota PAU 2027 (acceso y admisión) · Escolapedia</title>
+<meta name="description" content="Calcula tu nota de la PAU 2027: nota de la prueba, nota de acceso sobre 10 y nota de admisión sobre 14 con ponderaciones 0,1 y 0,2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../assets/base.css">
+<link rel="stylesheet" href="../../assets/extra.css">
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="../../" aria-label="Escolapedia, Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="4" fill="var(--pen)"/><path d="M16 9v15M7 11h6M7 15h6M19 11h6M19 15h6M7 19h6M19 19h6" stroke="var(--card)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Escola<span>pedia</span></span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="../../familias/">Familias</a>
+    <a href="../../profesores/">Profesores</a>
+    <a href="../../pau/" class="on">PAU</a>
+    <a href="../../blog/">Blog</a>
+  </nav>
+</div></header>
+<main><div class="wrap rec pau" style="padding-bottom:48px">
+  <div class="crumbs"><a href="../../">Inicio</a> › <a href="../">PAU 2027</a> › Calculadora</div>
+  <div class="page-h"><span class="badge" style="background:var(--bac)">PAU 2027 · Selectividad</span><h1>Calculadora de nota de la PAU</h1><p>Escribe tus notas y verás al momento tu nota de la prueba, tu nota de acceso (sobre 10) y tu nota de admisión (sobre 14). Los datos se quedan en tu navegador.</p></div>
+  <nav class="rec-toc pau-nav" aria-label="Sección PAU"><a href="../">PAU 2027</a><a href="../estructura-y-nota/">Estructura y nota</a><a href="../fechas-2027/">Fechas 2027</a><a href="../calculadora/" class="on">Calculadora de nota</a><a href="../comunidades/">Por comunidades</a><a href="../cataluna/">PAU en Cataluña</a><a href="../notas-de-corte-y-ponderaciones/">Notas de corte y ponderaciones</a><a href="../plan-de-estudio/">Plan de estudio</a><a href="../consejos/">Consejos y día del examen</a><a href="../preguntas-frecuentes/">Preguntas frecuentes</a><a href="../materias/">Materias y modelos</a></nav>
+    <form class="pau-calc" id="pau-calc" autocomplete="off" onsubmit="return false">
+      <fieldset><legend>1. Bachillerato</legend>
+        <label>Nota media de 1º y 2º de Bachillerato <input type="number" step="0.01" min="5" max="10" id="c-nmb" placeholder="Ej.: 8,25"></label></fieldset>
+      <fieldset><legend>2. Fase de acceso (de 0 a 10)</legend>
+        <label>Lengua Castellana y Literatura II <input type="number" step="0.01" min="0" max="10" id="c-lcl"></label><label>Historia de España o Historia de la Filosofía <input type="number" step="0.01" min="0" max="10" id="c-his"></label><label>Lengua Extranjera II <input type="number" step="0.01" min="0" max="10" id="c-le"></label><label>Materia de modalidad <input type="number" step="0.01" min="0" max="10" id="c-mod"></label>
+        <label class="chk"><input type="checkbox" id="c-cof"> Tengo examen de lengua cooficial (catalán, gallego, euskera, valenciano)</label>
+        <label id="c-cof-l" hidden>Lengua cooficial y Literatura II <input type="number" step="0.01" min="0" max="10" id="c-lc"></label></fieldset>
+      <fieldset><legend>3. Materias que ponderan (fase de admisión o modalidad)</legend>
+        <p class="caption">Pon la nota de cada materia y cuánto pondera en el grado que quieres (míralo en la web de la universidad). Solo cuentan las aprobadas (5 o más) y, de ellas, las dos que más suben.</p>
+        <div class="pau-row"><input type="text" id="c-m1n" placeholder="Materia 1" aria-label="Nombre de la materia 1"><input type="number" step="0.01" min="0" max="10" id="c-m1" placeholder="Nota" aria-label="Nota de la materia 1"><select id="c-m1p" aria-label="Ponderación de la materia 1"><option value="0.2">× 0,2</option><option value="0.1">× 0,1</option><option value="0">No pondera</option></select></div><div class="pau-row"><input type="text" id="c-m2n" placeholder="Materia 2" aria-label="Nombre de la materia 2"><input type="number" step="0.01" min="0" max="10" id="c-m2" placeholder="Nota" aria-label="Nota de la materia 2"><select id="c-m2p" aria-label="Ponderación de la materia 2"><option value="0.2">× 0,2</option><option value="0.1">× 0,1</option><option value="0">No pondera</option></select></div><div class="pau-row"><input type="text" id="c-m3n" placeholder="Materia 3" aria-label="Nombre de la materia 3"><input type="number" step="0.01" min="0" max="10" id="c-m3" placeholder="Nota" aria-label="Nota de la materia 3"><select id="c-m3p" aria-label="Ponderación de la materia 3"><option value="0.2">× 0,2</option><option value="0.1">× 0,1</option><option value="0">No pondera</option></select></div><div class="pau-row"><input type="text" id="c-m4n" placeholder="Materia 4" aria-label="Nombre de la materia 4"><input type="number" step="0.01" min="0" max="10" id="c-m4" placeholder="Nota" aria-label="Nota de la materia 4"><select id="c-m4p" aria-label="Ponderación de la materia 4"><option value="0.2">× 0,2</option><option value="0.1">× 0,1</option><option value="0">No pondera</option></select></div>
+      </fieldset>
+      <fieldset><legend>4. Nota de corte del grado (opcional)</legend><label>Nota de corte del curso pasado <input type="number" step="0.001" min="5" max="14" id="c-corte" placeholder="Ej.: 12,5"></label></fieldset>
+    </form>
+    <div class="pau-res" id="pau-res" aria-live="polite"><p>Rellena tus notas para ver el resultado.</p></div>
+    <section class="rec-sec"><h2>Cómo calcula</h2><div class="pau-formula" role="note">
+  <p><b class="fa">Nota de acceso</b> = 0,6 × media de Bachillerato + 0,4 × nota de la prueba</p>
+  <p class="caption">La nota de la prueba es la media de sus 4 o 5 exámenes y tiene que ser 4 o más. La de acceso, 5 o más.</p>
+  <p><b class="fb">Nota de admisión</b> = nota de acceso + a × M1 + b × M2</p>
+  <p class="caption">M1 y M2: las dos materias aprobadas (5 o más) que más te suben para ese grado. a y b: 0,1 o 0,2.</p>
+</div><ul><li>Las notas se redondean como en las actas: la nota de la prueba y la de acceso con tres decimales.</li><li>La nota de la prueba tiene que ser 4 o más y la de acceso 5 o más.</li><li>Solo suman las materias que ponderan aprobadas (5 o más) y, de ellas, las dos que más aportan. Puedes incluir la materia de modalidad de la fase de acceso si esa universidad la pondera.</li><li>Las ponderaciones dependen del grado y de la universidad. Búscalas en la web de la universidad o en el portal de acceso de tu comunidad.</li><li>La calculadora es orientativa: la nota oficial es la que publica la comisión organizadora.</li></ul></section>
+</div></main>
+<footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.<br><small>Escolapedia es un refuerzo: no sustituye al profesorado ni a los centros. <a href="../../quien-esta-detras/">Quién está detrás</a> · <a href="../../aviso-legal/">Aviso legal</a> · <a href="../../privacidad/">Privacidad</a> · <a href="#" data-cookies>Cookies</a></small><br><small>© 2026 Alejandro Rosàs · Contenido bajo licencia <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" rel="license noopener" style="display:inline">CC BY-NC 4.0</a>, salvo indicación en contrario</small></div></footer>
+<div class="cookies" id="cookies" hidden><p>Usamos Google Analytics para saber cuántas personas visitan Escolapedia. Solo se activa si lo aceptas. <a href="../../privacidad/">Más información</a></p><div><button type="button" data-ck="no">Rechazar</button><button type="button" data-ck="si">Aceptar</button></div></div>
+<script>(function(){var ID="G-DXYJCCJC31",K="ep-cookies",b=document.getElementById("cookies");function get(){try{return localStorage.getItem(K)}catch(e){return null}}function set(v){try{localStorage.setItem(K,v)}catch(e){}}function load(){if(window.gtag)return;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",ID,{anonymize_ip:true});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+ID;document.head.appendChild(s)}var v=get();if(v==="si")load();else if(v!=="no")b.hidden=false;b.addEventListener("click",function(e){var c=e.target.getAttribute("data-ck");if(!c)return;set(c);b.hidden=true;if(c==="si")load();else{document.cookie.split(";").forEach(function(x){var n=x.split("=")[0].trim();if(/^_ga/.test(n))document.cookie=n+"=;Max-Age=0;path=/;domain=."+location.hostname.replace(/^www./,"")})}});document.querySelectorAll("[data-cookies]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();b.hidden=false})})})();</script>
+<script>window.BASE="../../";window.IDX="";</script>
+<script>(function(){var f=document.getElementById("pau-calc");if(!f)return;var K="ep:pau:calc",$=function(i){return document.getElementById(i)};
+var n=function(i){var v=($(i).value||"").replace(",",".");return v===""?null:Math.max(0,Math.min(10,parseFloat(v)))};
+var r3=function(x){return Math.round(x*1000)/1000},fx=function(x){return x.toLocaleString("es-ES",{minimumFractionDigits:3,maximumFractionDigits:3})};
+function save(){var o={};f.querySelectorAll("input,select").forEach(function(e){o[e.id]=e.type==="checkbox"?e.checked:e.value});try{localStorage.setItem(K,JSON.stringify(o))}catch(e){}}
+function load(){var o=null;try{o=JSON.parse(localStorage.getItem(K))}catch(e){}if(!o)return;Object.keys(o).forEach(function(k){var e=$(k);if(!e)return;if(e.type==="checkbox")e.checked=o[k];else e.value=o[k]})}
+function calc(){$("c-cof-l").hidden=!$("c-cof").checked;var ids=["c-lcl","c-his","c-le","c-mod"];if($("c-cof").checked)ids.push("c-lc");
+var v=ids.map(n),res=$("pau-res"),nmb=n("c-nmb");if(v.some(function(x){return x===null})||nmb===null){res.innerHTML="<p>Rellena la media de Bachillerato y todas las notas de la fase de acceso.</p>";return}
+var fa=r3(v.reduce(function(a,b){return a+b},0)/v.length),acc=r3(0.6*nmb+0.4*fa),h="";
+h+="<div class=\"pau-num\"><span>Nota de la prueba</span><b>"+fx(fa)+"</b><small>"+(fa>=4?"Cuenta (4 o más)":"No llega a 4: no cuenta")+"</small></div>";
+h+="<div class=\"pau-num\"><span>Nota de acceso</span><b>"+(fa>=4?fx(acc):"—")+"</b><small>"+(fa>=4&&acc>=5?"¡Tienes acceso a la universidad!":"Necesitas 4 en la prueba y 5 de acceso")+"</small></div>";
+var ms=[];for(var i=1;i<=4;i++){var x=n("c-m"+i),p=parseFloat($("c-m"+i+"p").value);if(x!==null&&x>=5&&p>0)ms.push({t:$("c-m"+i+"n").value||("Materia "+i),a:r3(x*p)})}
+ms.sort(function(a,b){return b.a-a.a});ms=ms.slice(0,2);var adm=fa>=4&&acc>=5?r3(acc+ms.reduce(function(a,b){return a+b.a},0)):null;
+h+="<div class=\"pau-num big\"><span>Nota de admisión</span><b>"+(adm!==null?fx(adm):"—")+"</b><small>"+(ms.length?"Suman: "+ms.map(function(m){return m.t+" (+"+fx(m.a)+")"}).join(" y "):"Sin materias que ponderen")+"</small></div>";
+var c=$("c-corte").value.replace(",",".");if(c!==""&&adm!==null){var d=r3(adm-parseFloat(c));h+="<p class=\"pau-corte "+(d>=0?"ok":"no")+"\">"+(d>=0?"Superas la nota de corte del año pasado por "+fx(d)+" puntos.":"Te faltan "+fx(-d)+" puntos para la nota de corte del año pasado. Mira cuánto subiría tu nota con una materia más o con un punto más en las que ponderan.")+"</p>"}
+res.innerHTML=h}
+load();f.addEventListener("input",function(){calc();save()});calc()})();</script>
+<script src="../../assets/app.js"></script>
+</body></html>
