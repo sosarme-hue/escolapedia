@@ -42,4 +42,13 @@ module.exports = {
   "lit-b": { id: "j3MsVvZYjak", canal: "betatvpro", vistas: 572076, q: "corrientes oceánicas" },
   "lit-c": { id: "ju_2NuK5O-E", canal: "United Nations", vistas: 2664239, q: "plásticos en el océano" },
   "lit-d": { id: "1WJyGaHN5oI", canal: "Oceánidas", vistas: 42218, q: "posidonia oceánica" },
+  "urb-a": { id: "DioaVoVdRdA", canal: "EcologíaVerde", vistas: 4622, q: "isla de calor urbana" },
+  "urb-b": { id: "9kmIUjHL0zs", canal: "The Build", vistas: 886287, q: "supermanzanas de Barcelona" },
+  "urb-c": { id: "uu-a1hFEV7Q", canal: "UN Environment Programme", vistas: 40031, q: "metabolismo urbano" },
+  "urb-d": { id: "tjGlWHH1-XU", canal: "Carmona Producciones", vistas: 52033, q: "movilidad sostenible" },
+  "ges-a": { id: "kMiRlyR8iqw", canal: "Aprende", vistas: 19227, q: "economía ambiental y ecológica" },
+  "ges-b": { id: "sOkPlAxMguo", canal: "Libertelia", vistas: 89240, q: "externalidades" },
+  "ges-c": { id: "vPo55x5lCzM", canal: "unicoos", vistas: 9217, q: "Pacto Verde Europeo" },
+  "ges-d": { id: "5R-ysu2LYho", canal: "EcoVisiion 360", vistas: 95954, q: "desarrollo sostenible" },
+  "ges-e": { id: "LbnbrK9jgRw", canal: "EUClimateAction", vistas: 17648, q: "comercio de derechos de emisión" },
 };
