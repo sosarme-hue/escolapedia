@@ -109,10 +109,11 @@ function texturas(aria) {
 // Formas en bloques de colores: filas [nombre, "A B A"].
 function formas(aria, filas, titulo = "") {
   const top = titulo ? 32 : 12, n = filas.length, h = Math.min(30, (180 - top - 8) / n - 6);
-  const color = { A: "var(--pen)", B: "var(--red)", C: "var(--leaf)", D: "var(--sun)" };
+  const color = { A: "var(--pen)", B: "var(--red)", C: "var(--leaf)", D: "var(--sun)", E: "var(--pen)", Es: "var(--red)", Pe: "var(--sun)", P: "var(--leaf)", In: "var(--muted)", Intro: "var(--muted)", Coda: "var(--leaf)" };
+  const y0 = top + Math.max(0, (180 - top - 8 - n * (h + 6)) / 2);
   return marco(aria, (titulo ? t(130, 20, titulo, { fs: 12, bold: 1, maxW: 236 }) : "") + filas.map(([nom, sec], i) => {
-    const y = top + i * (h + 6), ps = sec.split(" "), w = 176 / ps.length;
-    return t(38, y + h / 2 + 4, nom, { fs: 10.5, bold: 1, maxW: 64 }) + ps.map((p, j) => { const c = color[p[0]] || "var(--muted)";
+    const y = y0 + i * (h + 6), ps = sec.split(" "), w = 176 / ps.length;
+    return t(38, y + h / 2 + 4, nom, { fs: 10.5, bold: 1, maxW: 64 }) + ps.map((p, j) => { const c = color[p.replace(/'+/g, "")] || color[p[0]] || "var(--muted)";
       return rc(76 + j * w, y, w - 3, h, `rx="5" fill="${c}" fill-opacity="${p.includes("'") ? ".35" : ".8"}" stroke="${c}"`) + t(76 + j * w + (w - 3) / 2, y + h / 2 + 4, p, { fs: 11, bold: 1, color: p.includes("'") ? "var(--ink)" : "#fff", maxW: w - 6 });
     }).join("");
   }).join(""));
