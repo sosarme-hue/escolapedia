@@ -109,10 +109,11 @@ function texturas(aria) {
 // Formas en bloques de colores: filas [nombre, "A B A"].
 function formas(aria, filas, titulo = "") {
   const top = titulo ? 32 : 12, n = filas.length, h = Math.min(30, (180 - top - 8) / n - 6);
-  const color = { A: "var(--pen)", B: "var(--red)", C: "var(--leaf)", D: "var(--sun)" };
+  const color = { A: "var(--pen)", B: "var(--red)", C: "var(--leaf)", D: "var(--sun)", E: "var(--pen)", Es: "var(--red)", Pe: "var(--sun)", P: "var(--leaf)", In: "var(--muted)", Intro: "var(--muted)", Coda: "var(--leaf)" };
+  const y0 = top + Math.max(0, (180 - top - 8 - n * (h + 6)) / 2);
   return marco(aria, (titulo ? t(130, 20, titulo, { fs: 12, bold: 1, maxW: 236 }) : "") + filas.map(([nom, sec], i) => {
-    const y = top + i * (h + 6), ps = sec.split(" "), w = 176 / ps.length;
-    return t(38, y + h / 2 + 4, nom, { fs: 10.5, bold: 1, maxW: 64 }) + ps.map((p, j) => { const c = color[p[0]] || "var(--muted)";
+    const y = y0 + i * (h + 6), ps = sec.split(" "), w = 176 / ps.length;
+    return t(38, y + h / 2 + 4, nom, { fs: 10.5, bold: 1, maxW: 64 }) + ps.map((p, j) => { const c = color[p.replace(/'+/g, "")] || color[p[0]] || "var(--muted)";
       return rc(76 + j * w, y, w - 3, h, `rx="5" fill="${c}" fill-opacity="${p.includes("'") ? ".35" : ".8"}" stroke="${c}"`) + t(76 + j * w + (w - 3) / 2, y + h / 2 + 4, p, { fs: 11, bold: 1, color: p.includes("'") ? "var(--ink)" : "#fff", maxW: w - 6 });
     }).join("");
   }).join(""));
@@ -121,10 +122,9 @@ function formas(aria, filas, titulo = "") {
 // Plano de la orquesta sinfónica visto desde arriba.
 function orquesta(aria) {
   const arco = (r1, r2, c, et, y) => pa(`M${130 - r2} 168 A${r2} ${r2 * 0.78} 0 0 1 ${130 + r2} 168 L${130 + r1} 168 A${r1} ${r1 * 0.78} 0 0 0 ${130 - r1} 168Z`, `fill="${c}" fill-opacity=".22" stroke="${c}" stroke-width="2"`) + t(130, y, et, { fs: 10.5, bold: 1, color: c, maxW: 120 });
-  return marco(aria, arco(30, 72, "var(--pen)", "cuerda", 132) + arco(72, 104, "var(--leaf)", "viento madera", 94) + arco(104, 126, "var(--sun)", "viento metal", 66) +
+  return marco(aria, arco(30, 72, "var(--pen)", "cuerda", 138) + arco(72, 104, "var(--leaf)", "viento madera", 104) + arco(104, 126, "var(--sun)", "viento metal", 82) +
     t(26, 36, "percusión", { fs: 10.5, bold: 1, color: "var(--red)", maxW: 60 }) + ci(26, 52, 9, 'fill="var(--red)" fill-opacity=".5"') + ci(44, 50, 7, 'fill="var(--red)" fill-opacity=".5"') +
-    ci(130, 168, 9, 'fill="var(--ink)"') + t(130, 160, "director", { fs: 9, maxW: 50, color: "var(--muted)" }) +
-    t(226, 40, "público ↓", { fs: 9, maxW: 60, color: "var(--muted)" }));
+    ci(130, 172, 5, 'fill="var(--ink)"') + t(130, 162, "director", { fs: 9, maxW: 50, color: "var(--muted)" }));
 }
 
 // Cadencias: flechas entre grados con su efecto.
