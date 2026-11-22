@@ -137,3 +137,90 @@ module.exports = {
   fuentes: [RD, wiki("Juego cooperativo", "Juego_cooperativo"), wiki("Juego limpio", "Juego_limpio")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Resolver desafíos físicos cooperativos repartiendo roles", "Reconocer los cuatro roles de un jugador en los juegos de cooperación-oposición", "Seguir unos pasos para resolver los conflictos en el juego", "Practicar juegos de lucha con normas de seguridad y respeto"],
+  lectura: { titulo: "El río de lava", html: `<p>La profesora colocó dos cuerdas en el suelo del gimnasio, separadas unos diez metros.</p><p>—Entre estas cuerdas hay un río de lava —anunció—. Todo el grupo tiene que cruzarlo. Solo podéis pisar estas «piedras mágicas» —y repartió seis trozos de cartón—. Pero cuidado: si una piedra se queda sin nadie pisándola, la lava se la traga.</p><p>Al principio fue un caos. Todos hablaban a la vez, Mario saltó solo a la primera piedra y la de detrás se quedó vacía. ¡Plaf! La profesora se la llevó.</p><p>—Así no —dijo Aisha—. Paremos un momento y pensemos.</p><p>El grupo se sentó en círculo. Aisha propuso que alguien coordinara; Mario, algo avergonzado, se ofreció a ir el último para recoger las piedras; y Leo, que era el más pequeño, se encargó de vigilar que ninguna piedra quedara libre.</p><p>Lo intentaron otra vez. Avanzaban en fila, agarrados de los hombros, pasando las piedras de atrás hacia delante. Cuando Nerea perdió el equilibrio, tres manos la sujetaron a la vez.</p><p>Tardaron once minutos, pero llegaron todos al otro lado. Lo celebraron como si hubieran ganado una final.</p><p>—¿Quién ha ganado? —preguntó la profesora.</p><p>—¡Todos! —gritaron a la vez.</p>` },
+  tras: {
+    "Los juegos cooperativos": [
+      ["Desafíos físicos cooperativos", `<p>Los <b>desafíos físicos cooperativos</b> son retos en los que todo el grupo tiene que resolver un problema usando el cuerpo y la cabeza. No hay rivales: el reto es el problema en sí. Algunos ejemplos:</p><ul><li><b>El río de lava</b>: cruzar una zona pisando solo unas «piedras» que no pueden quedarse solas.</li><li><b>El nudo humano</b>: en círculo, cada uno coge las manos de dos compañeros que no estén a su lado. Hay que deshacer el nudo sin soltarse.</li><li><b>La alfombra mágica</b>: todo el grupo de pie sobre una lona tiene que darle la vuelta sin pisar fuera.</li><li><b>Levantarse juntos</b>: sentados en el suelo espalda con espalda y con los brazos enlazados, levantarse a la vez. Primero en parejas, luego en tríos, luego en cuartetos…</li><li><b>El transporte</b>: llevar un balón grande de un lado a otro sin usar las manos, solo con espaldas, hombros o frentes.</li></ul><p>Para que funcionen, es útil repartir <b>roles</b>: un <b>coordinador</b> que organiza, un <b>portavoz</b> que habla con el profesor, un <b>vigilante de normas</b> y un <b>animador</b> que da ánimos. Y siempre hay que seguir tres fases: <b>pensar</b> un plan, <b>probar</b> y <b>revisar</b> lo que ha fallado.</p>`,
+        L5.filas("Roles en un desafío cooperativo", [["coordinador", "organiza el plan", cAZ], ["portavoz", "habla con el profe", cVE], ["vigilante", "cuida las normas", cNA], ["animador", "da ánimos", cMO]]), ["MPbp7G5saBw", "9 juegos creativos que debes conocer para tus clases de educacion fisica", "Cristhian Alexander Quintero Mogollon ", 594806]],
+    ],
+    "Principios de la defensa": [
+      ["Los cuatro roles del jugador", `<p>En un juego de cooperación-oposición (fútbol, baloncesto, balonmano, juegos de pases…) cada jugador cambia de papel constantemente según quién tenga el balón. Hay <b>cuatro roles</b>:</p><ul><li><b>Atacante con balón</b>: tiene que decidir rápido entre <b>conservar</b> el balón, <b>pasarlo</b> a un compañero mejor situado, <b>avanzar</b> o <b>lanzar</b> a la meta.</li><li><b>Atacante sin balón</b>: es el rol más olvidado y el más importante. Debe <b>desmarcarse</b> (alejarse de su defensor), <b>ofrecer una línea de pase</b> libre, <b>ocupar espacios</b> vacíos y <b>apoyar</b> al compañero que tiene el balón.</li><li><b>Defensor del poseedor</b>: marca al que tiene el balón; se coloca entre él y la meta, con las piernas flexionadas, sin hacer falta, e intenta que no avance ni pase con facilidad.</li><li><b>Defensor sin balón</b>: vigila a otro atacante o un espacio; intenta <b>anticiparse</b> para interceptar pases y está listo para <b>ayudar</b> a un compañero si lo superan.</li></ul><p>Fíjate en que, en un partido, cada jugador pasa la mayor parte del tiempo <b>sin balón</b>. Por eso los buenos jugadores no son solo los que regatean mejor, sino los que saben moverse cuando no tienen el balón.</p>`,
+        L5.tabla("Los cuatro roles del jugador", ["rol", "qué hace"], [["ataca con balón", "pasa, avanza, lanza"], ["ataca sin balón", "se desmarca"], ["defiende al poseedor", "frena su avance"], ["defiende sin balón", "anticipa y ayuda"]], cAZ)],
+    ],
+    "Juego limpio e inventar juegos": [
+      ["Resolver conflictos en el juego", `<p>Cuando jugamos, es normal que surjan <b>conflictos</b>: ¿fue falta o no?, ¿el balón salió?, ¿quién empieza? Lo importante no es evitar todos los conflictos, sino <b>saber resolverlos bien</b>. Estos son los pasos:</p><ul><li><b>1. Parar</b>: detener el juego en lugar de seguir discutiendo mientras se corre.</li><li><b>2. Calmarse</b>: respirar hondo. Con enfado no se piensa bien.</li><li><b>3. Escuchar</b>: cada parte cuenta lo que ha visto, sin interrumpir ni gritar.</li><li><b>4. Buscar soluciones</b>: proponer varias salidas posibles.</li><li><b>5. Acordar</b> una y seguir jugando.</li></ul><p>Algunos recursos rápidos para dudas pequeñas: repetir la jugada, echarlo a <b>piedra, papel o tijera</b> o pedir la opinión de alguien que no juegue.</p><p>En muchos deportes juveniles se practica el <b>autoarbitraje</b>: no hay árbitro y los propios jugadores señalan sus faltas. En el <b>ultimate</b> (un deporte con disco volador), incluso los partidos de alto nivel se juegan así, gracias al llamado «espíritu del juego». Funciona porque todos confían en la honestidad de los demás.</p>`,
+        H5.flujo("Cinco pasos para resolver un conflicto", ["Parar|el juego", "Calmarse|respirar", "Escuchar|sin gritar", "Proponer|soluciones", "Acordar|y seguir"], cVE), ["FF514CVrpJc", "La Partida de Fútbol | Una historia corta para niños | Aprende sobre el juego limpio", "ENEN Para niños", 16256]],
+    ],
+  },
+  final: [
+    ["Juegos de lucha con normas", `<p>Los <b>juegos de lucha</b> son juegos de oposición en los que hay contacto directo con el compañero: empujar, tirar, desequilibrar o inmovilizar. Practicados con normas, desarrollan la fuerza, el equilibrio y, sobre todo, el <b>autocontrol</b> y el respeto.</p><p>Algunos ejemplos:</p><ul><li><b>Empujar fuera del círculo</b>: dos compañeros, palma contra palma, intentan que el otro salga de un círculo dibujado en el suelo.</li><li><b>La tortuga</b>: uno está a cuatro patas y el otro intenta darle la vuelta en un tiempo límite.</li><li><b>Robar la cinta</b>: cada uno lleva una cinta en la cintura e intenta quitársela al otro.</li><li><b>Sogatira</b>: dos equipos tiran de una cuerda.</li></ul><p><b>Normas de oro</b>, que vienen de deportes como el <b>judo</b> o la lucha:</p><ul><li>Saludar al compañero <b>antes y después</b>.</li><li>Prohibido golpear, pellizcar, tirar del pelo, agarrar el cuello o la cara.</li><li>Una palabra o señal de <b>«stop»</b> que detiene el juego al instante.</li><li>Practicar sobre colchonetas, con compañeros de tamaño parecido y sin objetos (relojes, pendientes).</li></ul><p>El fundador del judo, <b>Jigoro Kano</b>, decía que su deporte buscaba la «mejor utilización de la energía» y el «beneficio mutuo»: crecer juntos, no hacerse daño.</p>`,
+      L5.filas("Normas de oro en los juegos de lucha", [["saludo", "antes y después", cAZ], ["sin golpes", "ni cara ni cuello", cRO], ["stop", "se para al instante", cNA], ["colchoneta", "y sin objetos", cVE], ["parejas", "de tamaño parecido", cMO]])],
+    ["Pensar antes de jugar: la estrategia", `<p>Los mejores equipos no solo corren: <b>piensan</b>. La <b>estrategia</b> es el plan que el equipo prepara antes del juego, y la <b>táctica</b> son las decisiones que se toman durante el juego según lo que va pasando.</p><p>Un buen plan de equipo responde a cuatro preguntas:</p><ul><li><b>¿Qué sabemos hacer bien?</b> Si somos rápidos, podemos atacar al contraataque; si pasamos bien, conservar el balón.</li><li><b>¿Cómo juega el rival?</b> Observar al otro equipo da pistas: ¿quién es su mejor jugador?, ¿por dónde atacan más?</li><li><b>¿Quién hace qué?</b> Repartir posiciones y tareas: quién defiende atrás, quién sube al ataque.</li><li><b>¿Qué señales usamos?</b> Una palabra clave o un gesto para cambiar de plan sin que se entere el rival.</li></ul><p>Durante el juego, el <b>tiempo muerto</b> sirve para revisar el plan. Y al terminar, conviene hacer una pequeña <b>evaluación</b>: qué ha funcionado, qué no y qué cambiaríamos.</p><p>Los entrenadores dibujan sus jugadas en una <b>pizarra táctica</b> con flechas y círculos. ¡Podéis hacer lo mismo antes de vuestros juegos!</p>`,
+      H5.flujo("El ciclo de la estrategia de un equipo", ["Plan|antes", "Jugar|observar", "Pausa|ajustar", "Evaluar|después"], cAZ)],
+  ],
+  ejemplos: [
+    ["Tu equipo tiene el balón y tú no. Tu defensor está pegado a ti. ¿Qué haces?", ["Rol: atacante sin balón.", "Desmarcarse: alejarse del defensor con un cambio de ritmo o de dirección.", "Ofrecer una línea de pase libre al compañero con balón."], "Me desmarco y ofrezco una línea de pase"],
+    ["Dos compañeros discuten si el balón salió. ¿Cómo lo resolvéis?", ["Parar y calmarse.", "Escuchar a los dos.", "Proponer: repetir la jugada o piedra, papel o tijera.", "Acordar y seguir."], "Siguiendo los cinco pasos y acordando una solución"],
+  ],
+  errores: ["Quedarse quieto cuando no tienes el balón: el atacante sin balón debe desmarcarse.", "Seguir jugando un juego de lucha cuando el compañero dice «stop»."],
+  ejercicios: [
+    ["b", "Nombra tres desafíos físicos cooperativos.", "El río de lava, el nudo humano, la alfombra mágica, levantarse juntos…"],
+    ["b", "¿Cuáles son los cuatro roles del jugador?", "Atacante con balón, atacante sin balón, defensor del poseedor y defensor sin balón."],
+    ["b", "¿Qué significa desmarcarse?", "Alejarse del defensor para quedar libre y recibir un pase."],
+    ["b", "Escribe los cinco pasos para resolver un conflicto.", "Parar, calmarse, escuchar, proponer soluciones y acordar."],
+    ["b", "¿Qué deporte se juega con autoarbitraje incluso a alto nivel?", "El ultimate."],
+    ["m", "¿Qué hizo cambiar al grupo de la lectura para conseguir cruzar el río?", "Pararon, hicieron un plan y se repartieron roles."],
+    ["m", "Explica la diferencia entre estrategia y táctica.", "Estrategia: plan previo. Táctica: decisiones durante el juego."],
+    ["m", "Escribe tres normas de seguridad para los juegos de lucha.", "Saludo, sin golpes ni cara ni cuello, «stop» detiene el juego, colchonetas…"],
+    ["m", "¿Por qué el atacante sin balón es tan importante?", "Porque pasamos casi todo el partido sin balón y su movimiento crea líneas de pase y espacios."],
+    ["m", "¿Qué roles se pueden repartir en un desafío cooperativo?", "Coordinador, portavoz, vigilante de normas y animador."],
+    ["a", "Inventa un desafío físico cooperativo con sus normas, material y roles.", "Respuesta libre."],
+    ["a", "Dibuja en una pizarra táctica una jugada de tu equipo con flechas y explícala.", "Respuesta libre."],
+    ["a", "Representad un conflicto en el juego y resolvedlo con los cinco pasos.", "Respuesta libre."],
+    ["a", "Investiga quién fue Jigoro Kano y qué valores tiene el judo.", "Fundador del judo; respeto, autocontrol, beneficio mutuo."],
+  ],
+  quiz: [
+    ["En un desafío cooperativo, el rival es…", ["el propio problema", "otro equipo", "el profesor"], "No hay rivales."],
+    ["Ofrecer una línea de pase es tarea del…", ["atacante sin balón", "defensor sin balón", "árbitro"], "Desmarque."],
+    ["El primer paso para resolver un conflicto es…", ["parar", "gritar", "irse"], "Detener el juego."],
+    ["En los juegos de lucha está prohibido…", ["agarrar el cuello", "saludar", "usar colchonetas"], "Seguridad."],
+    ["La táctica son…", ["las decisiones durante el juego", "el plan de antes", "el uniforme"], "Durante."],
+  ],
+  examen: [
+    ["El fundador del judo fue…", ["Jigoro Kano", "Pierre de Coubertin", "James Naismith"], "Japón."],
+    ["El defensor sin balón intenta…", ["anticiparse y ayudar", "botar", "lanzar a canasta"], "Interceptar."],
+  ],
+  tarjetas: [
+    ["Desafío cooperativo", "Reto de grupo sin rivales: pensar, probar, revisar."],
+    ["Cuatro roles", "Con balón, sin balón, defensor del poseedor, defensor sin balón."],
+    ["Resolver conflictos", "Parar, calmarse, escuchar, proponer, acordar."],
+    ["Estrategia y táctica", "Plan antes / decisiones durante el juego."],
+  ],
+  glosario: [
+    ["Desafío cooperativo", "Reto físico que el grupo resuelve junto, sin rivales."],
+    ["Coordinador", "Persona que organiza el plan del grupo."],
+    ["Portavoz", "Persona que habla en nombre del grupo."],
+    ["Desmarque", "Movimiento para librarse del defensor."],
+    ["Línea de pase", "Camino libre por el que puede ir un pase."],
+    ["Anticipación", "Adelantarse a lo que va a hacer el rival."],
+    ["Conflicto", "Desacuerdo entre personas."],
+    ["Autoarbitraje", "Juego en el que los jugadores señalan sus propias faltas."],
+    ["Juego de lucha", "Juego de oposición con contacto y normas de seguridad."],
+    ["Autocontrol", "Capacidad de dominar la propia fuerza y las emociones."],
+    ["Estrategia", "Plan que se prepara antes del juego."],
+    ["Táctica", "Decisiones que se toman durante el juego."],
+  ],
+  situacion: {
+    titulo: "La liga del juego limpio",
+    reto: "La clase organiza una pequeña liga de juegos cooperativos y de cooperación-oposición en la que los puntos se ganan también por resolver bien los conflictos y ayudar.",
+    pasos: ["Formad equipos mixtos, elegid un nombre y repartid roles: coordinador, portavoz, vigilante y animador.", "Superad un desafío cooperativo y jugad partidos de cooperación-oposición preparando antes la estrategia en una pizarra.", "Arbitrad vosotros mismos los partidos y resolved las dudas con los cinco pasos.", "Al final, sumad puntos por resultados, por juego limpio y por ayuda, y evaluad qué habéis aprendido."],
+    producto: "Una liga con clasificación de resultados y de juego limpio, y una pizarra táctica por equipo.",
+    evaluacion: ["Coopera en los desafíos y asume su rol.", "Reconoce y desempeña los cuatro roles del jugador.", "Resuelve los conflictos de forma pacífica.", "Respeta las normas de seguridad en los juegos de lucha."],
+  },
+});

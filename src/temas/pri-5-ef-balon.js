@@ -137,3 +137,86 @@ module.exports = {
   fuentes: [RD, wiki("Habilidades motrices básicas", "Habilidad_motriz"), wiki("Pase (deporte)", "Pase_(deporte)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Botar como en baloncesto protegiendo el balón y cambiando de mano", "Conocer las reglas básicas del manejo del balón en varios deportes", "Iniciarse en los malabares para mejorar la coordinación", "Entender por qué bota y se curva un balón"],
+  lectura: { titulo: "La pelota de trapo", html: `<p>Cuando el abuelo de Yeray era pequeño, en su pueblo de Canarias no había balones de cuero ni pistas deportivas. Así que los niños fabricaban sus propias pelotas.</p><p>—Cogíamos calcetines viejos, trapos y papel de periódico —le contó el abuelo una tarde—. Los apretábamos bien, hasta hacer una bola, y la atábamos con cuerda. Luego jugábamos al fútbol en la plaza con dos piedras como portería.</p><p>—¿Y botaba? —preguntó Yeray.</p><p>—¡Nada! —rió el abuelo—. Era como dar patadas a un melón. Pero nos daba igual: jugábamos hasta que se hacía de noche.</p><p>Al día siguiente, Yeray contó la historia en clase de Educación Física. Al profesor le encantó y propuso un reto: cada grupo fabricaría su propia pelota con materiales reciclados y luego probarían cuál botaba más, cuál volaba más lejos y cuál era mejor para pasarse.</p><p>El grupo de Yeray hizo una con un globo dentro y cinta adhesiva por fuera. Botaba un poco. El de Lucía usó bolsas de plástico apretadas y quedó muy ligera, perfecta para malabares. Nadie consiguió una que botara como la de baloncesto.</p><p>—¿Por qué? —preguntó Lucía.</p><p>—Porque un balón de verdad lleva aire a presión dentro —explicó el profesor—. Y eso, amigos, es pura física.</p>` },
+  tras: {
+    "El bote": [
+      ["Botar como en baloncesto", `<p>En baloncesto, el bote (o <b>dribling</b>) es la forma de avanzar con el balón. Para hacerlo bien:</p><ul><li>Empuja el balón con las <b>yemas de los dedos</b>, no con la palma, y acompaña con la muñeca.</li><li>Bota a la altura de la <b>cintura</b> cuando avanzas rápido, y más <b>bajo</b>, a la altura de la rodilla, cuando tienes un defensor cerca.</li><li>Lleva la <b>cabeza alta</b> para ver a tus compañeros y la canasta, no el balón.</li><li><b>Protege</b> el balón con el cuerpo y el brazo libre: pon el cuerpo entre el balón y el defensor.</li><li>Practica con las <b>dos manos</b>. Un buen jugador cambia de mano según el lado del defensor.</li></ul><p>El <b>cambio de mano por delante</b> es el primero que se aprende: botas con la derecha, das un bote cruzado y bajo hacia tu izquierda y sigues con la otra mano. Más adelante se aprenden el cambio por detrás de la espalda y entre las piernas.</p><p>Dos reglas importantes: no puedes dar <b>más de dos pasos</b> con el balón en las manos sin botar (si no, es «pasos»), y si dejas de botar y vuelves a hacerlo, es «<b>dobles</b>».</p>`,
+        H5.flujo("Cambio de mano por delante", ["Derecha|bota", "Cruza|bote bajo", "Izquierda|sigue"], cNA), ["zuU_fw4TdK0", "Cómo botar el balón | Baloncesto", "SIKANA Español", 1383891]],
+    ],
+    "Pase y puntería": [
+      ["Las reglas del balón en cada deporte", `<p>Cada deporte tiene reglas distintas sobre <b>cómo se puede tocar y mover el balón</b>. Conocerlas te ayuda a jugar bien y a no cometer faltas:</p><ul><li><b>Fútbol</b>: se juega con los pies, la cabeza y el cuerpo, pero no con los brazos ni las manos (salvo el portero dentro de su área).</li><li><b>Baloncesto</b>: se juega con las manos. Para avanzar hay que botar; no se puede andar con el balón en las manos (pasos) ni volver a botar después de parar (dobles). Tampoco se puede golpear con el pie a propósito.</li><li><b>Balonmano</b>: se juega con las manos. Puedes dar hasta <b>tres pasos</b> con el balón en la mano y retenerlo como máximo <b>tres segundos</b>.</li><li><b>Voleibol</b>: el balón no puede tocar el suelo ni retenerse. Cada equipo tiene un máximo de <b>tres toques</b> para pasarlo al otro campo, y un jugador no puede tocarlo dos veces seguidas.</li><li><b>Rugby</b>: se corre con el balón en las manos, pero solo se puede pasar <b>hacia atrás</b>. Para avanzar hacia delante hay que correr o dar una patada.</li></ul><p>Fíjate en que estas reglas obligan a cooperar: en muchos deportes, si no pasas el balón, no puedes avanzar mucho.</p>`,
+        L5.tabla("Reglas del balón en varios deportes", ["deporte", "regla clave"], [["fútbol", "sin manos"], ["baloncesto", "botar, sin pasos"], ["balonmano", "3 pasos, 3 segundos"], ["voleibol", "máximo 3 toques"], ["rugby", "pase hacia atrás"]], cAZ), ["62ST4sHP9rg", "4 EJERCICIOS DE MINIBASKET | BASQUET PARA PRINCIPIANTES | CLINICA DE BASQUETBOL", "Clínica de basquetbol", 272995]],
+    ],
+  },
+  final: [
+    ["Malabares: aprender paso a paso", `<p>Los <b>malabares</b> son un ejercicio fantástico para mejorar la <b>coordinación ojo-mano</b>, la atención y el uso de las dos manos. Puedes empezar con pelotas blandas o con saquitos rellenos de arroz, que no ruedan cuando se caen.</p><p>Se aprende en cuatro pasos:</p><ul><li><b>1 pelota</b>: lánzala de una mano a la otra describiendo un arco que llegue más o menos a la altura de los ojos. Practica hasta que el lanzamiento sea siempre igual.</li><li><b>2 pelotas</b>: lanza la primera; cuando llegue a lo más alto, lanza la segunda desde la otra mano por debajo. Recoge las dos. Lo importante es esperar al punto más alto.</li><li><b>3 pelotas, un intercambio</b>: dos pelotas en la mano más hábil y una en la otra. Haz tres lanzamientos seguidos y para. Esto ya es la «cascada».</li><li><b>Cascada continua</b>: cuando domines el paso anterior, sigue lanzando sin parar.</li></ul><p>Consejos: ponte delante de una pared o una cama para no perseguir las pelotas, mira el punto alto del arco y no las manos, y ten paciencia: casi nadie lo consigue el primer día. Otros objetos de malabares son el <b>diábolo</b>, los <b>platos chinos</b> y las <b>mazas</b>.</p>`,
+      H5.flujo("Aprender malabares en cuatro pasos", ["1 pelota|en arco", "2 pelotas|arriba", "3 pelotas|3 veces", "Cascada|sin parar"], cMO)],
+    ["La física del balón", `<p>¿Por qué unos balones botan más que otros? ¿Cómo hacen los futbolistas para que el balón haga una curva? La respuesta está en la <b>física</b>.</p><p><b>El bote</b>. Un balón lleva <b>aire a presión</b> dentro. Al chocar con el suelo, se aplasta un poco y el aire empuja para recuperar su forma, lo que lo lanza hacia arriba. Por eso:</p><ul><li>Un balón <b>bien hinchado</b> bota más que uno desinflado.</li><li>Bota más en un suelo <b>duro</b> (parqué, cemento) que en uno blando (césped, arena).</li><li>Nunca vuelve a la misma altura desde la que cae, porque en cada bote pierde parte de la energía.</li></ul><p><b>El efecto</b>. Cuando golpeas el balón por un lado, este <b>gira</b> mientras vuela. Al girar, arrastra el aire de manera diferente por cada lado y aparece una fuerza que lo desvía: el balón se curva. Se llama <b>efecto Magnus</b>, y lo usan los futbolistas en los tiros libres, los tenistas en sus golpes «liftados» y los jugadores de pimpón.</p><p><b>El ángulo</b>. Para lanzar algo lo más lejos posible, sin contar el aire, el mejor ángulo de salida es unos <b>45 grados</b>, a medio camino entre lanzar recto hacia delante y hacia arriba.</p>`,
+      L5.filas("Física del balón", [["más aire", "bota más", cAZ], ["suelo duro", "bota más", cVE], ["cada bote", "pierde energía", cNA], ["giro", "se curva (Magnus)", cMO], ["45 grados", "más lejos", cRO]])],
+  ],
+  ejemplos: [
+    ["Un balón cae desde 2 metros y en cada bote sube la mitad de la altura anterior. ¿Hasta dónde sube en el tercer bote?", ["1.er bote: 2 : 2 = 1 m.", "2.º bote: 1 : 2 = 0,5 m.", "3.er bote: 0,5 : 2 = 0,25 m."], "25 centímetros"],
+    ["Juegas al balonmano y llevas el balón en la mano. Un defensor te cierra el paso. ¿Qué puedes hacer?", ["Puedes dar hasta 3 pasos y retenerlo 3 segundos.", "Puedes botar para seguir avanzando o pasar a un compañero libre."], "Botar, pasar o lanzar antes de 3 pasos y 3 segundos"],
+  ],
+  errores: ["Botar mirando el balón: hay que llevar la cabeza alta.", "Pensar que en voleibol se puede retener el balón: se golpea, no se agarra."],
+  ejercicios: [
+    ["b", "¿Con qué parte de la mano se bota el balón?", "Con las yemas de los dedos."],
+    ["b", "¿Qué son los «pasos» y los «dobles» en baloncesto?", "Pasos: andar con el balón en las manos sin botar. Dobles: volver a botar después de parar."],
+    ["b", "¿Cuántos toques puede dar un equipo de voleibol antes de pasar el balón?", "Tres."],
+    ["b", "¿Hacia dónde se pasa el balón en rugby?", "Hacia atrás."],
+    ["b", "¿Por qué bota más un balón bien hinchado?", "Porque tiene más aire a presión que empuja al chocar."],
+    ["m", "Explica cómo proteger el balón en el bote ante un defensor.", "Botar bajo, poner el cuerpo entre balón y defensor y usar el brazo libre."],
+    ["m", "Compara las reglas de pasos en baloncesto y balonmano.", "Baloncesto: no se puede andar sin botar. Balonmano: hasta tres pasos con el balón."],
+    ["m", "¿Qué es el efecto Magnus y en qué deportes se usa?", "La curva del balón al girar; fútbol, tenis, pimpón."],
+    ["m", "Describe los dos primeros pasos para aprender malabares.", "Una pelota en arco a la altura de los ojos; dos pelotas, la segunda cuando la primera esté en lo más alto."],
+    ["m", "Según la lectura, ¿por qué no botaban las pelotas de trapo?", "Porque no llevaban aire a presión dentro."],
+    ["a", "Fabrica una pelota con materiales reciclados y comprueba cómo bota en distintos suelos.", "Respuesta libre."],
+    ["a", "Mide la altura del bote de un balón dejado caer desde 1 m en tres superficies y haz una tabla.", "Respuesta libre."],
+    ["a", "Diseña un circuito de bote con cambios de mano y conos.", "Respuesta libre."],
+    ["a", "Practica malabares con dos pelotas durante una semana y anota tu récord diario.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Al botar, la mirada va…", ["al frente, cabeza alta", "al balón", "al suelo"], "Ver el juego."],
+    ["En balonmano se puede retener el balón…", ["3 segundos", "10 segundos", "sin límite"], "Regla de los 3 s."],
+    ["En rugby el pase va…", ["hacia atrás", "hacia delante", "hacia arriba"], "Siempre atrás."],
+    ["Un balón bota más en…", ["un suelo duro", "la arena", "el césped alto"], "Pierde menos energía."],
+    ["El mejor ángulo para lanzar lejos es de unos…", ["45 grados", "10 grados", "90 grados"], "Sin aire."],
+  ],
+  examen: [
+    ["El primer paso en malabares es…", ["una pelota en arco", "tres pelotas a la vez", "el diábolo"], "Paso a paso."],
+    ["Que el balón se curve al girar se llama…", ["efecto Magnus", "efecto rebote", "efecto dominó"], "Física."],
+  ],
+  tarjetas: [
+    ["Dribling", "Bote para avanzar: yemas, cabeza alta, proteger."],
+    ["Pasos y dobles", "Faltas de baloncesto al mover el balón."],
+    ["Cascada", "Malabar básico con tres pelotas."],
+    ["Efecto Magnus", "El balón se curva al girar en el aire."],
+  ],
+  glosario: [
+    ["Dribling", "Bote del balón para avanzar en baloncesto."],
+    ["Pasos", "Falta por andar con el balón sin botar."],
+    ["Dobles", "Falta por botar de nuevo tras parar el bote."],
+    ["Cambio de mano", "Pasar el bote de una mano a la otra."],
+    ["Retener", "Sujetar el balón sin soltarlo."],
+    ["Malabares", "Lanzar y recoger varios objetos sin que caigan."],
+    ["Cascada", "Patrón básico de malabares con tres pelotas."],
+    ["Diábolo", "Juguete de malabares que gira sobre una cuerda."],
+    ["Presión", "Fuerza con la que el aire empuja dentro del balón."],
+    ["Efecto", "Giro del balón que cambia su trayectoria."],
+    ["Coordinación ojo-mano", "Capacidad de ajustar las manos a lo que ves."],
+    ["Trayectoria", "Camino que sigue el balón en el aire."],
+  ],
+  situacion: {
+    titulo: "El laboratorio del balón",
+    reto: "La clase fabrica pelotas recicladas, investiga cómo botan y vuelan y organiza unas olimpiadas de habilidades con balón.",
+    pasos: ["Por grupos, fabricad una pelota con materiales reciclados y describid sus materiales.", "Medid cuánto bota desde 1 metro en tres superficies y comparadla con un balón de verdad.", "Preparad estaciones de habilidades: bote con cambios de mano, pases con reglas de distintos deportes y malabares.", "Celebrad las olimpiadas, anotad los resultados de cada grupo y explicad la física de lo que habéis visto."],
+    producto: "Pelotas recicladas, una tabla de mediciones y unas olimpiadas de habilidades.",
+    evaluacion: ["Bota con ambas manos y la cabeza alta.", "Respeta las reglas de manejo del balón de cada deporte.", "Progresa en los malabares paso a paso.", "Explica con sus palabras por qué bota y se curva un balón."],
+  },
+});

@@ -137,3 +137,90 @@ module.exports = {
   fuentes: [RD, { t: "OMS: actividad física", url: "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity" }, wiki("Dieta mediterránea", "Dieta_mediterránea"), wiki("Deshidratación", "Deshidratación")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Leer la etiqueta de un alimento y entender el Nutri-Score", "Descubrir el azúcar oculto de las bebidas y elegir agua", "Relacionar el sueño y las pantallas con el rendimiento", "Distinguir mitos y verdades sobre comida y deporte"],
+  lectura: { titulo: "La merienda del torneo", html: `<p>El sábado había torneo de fútbol sala y el equipo de Sara jugaba tres partidos seguidos. Antes de salir de casa, su padre le preparó la mochila: una botella de agua, un plátano, un bocadillo pequeño de pan integral con queso y un puñado de frutos secos.</p><p>En el polideportivo, su compañero Hugo sacó de la mochila una lata de bebida energética y una bolsa de gominolas.</p><p>—Esto da muchísima energía —presumió.</p><p>El primer partido fue genial para los dos. Pero en el segundo, Hugo empezó a notarse raro: le temblaban un poco las manos, tenía el corazón acelerado y, al rato, se sintió de repente muy cansado. La entrenadora le hizo sentarse y le dio agua.</p><p>—Las bebidas energéticas tienen mucha cafeína y mucho azúcar —le explicó—. Al principio te sientes con energía, pero el azúcar sube y baja rápido y te deja sin fuerzas. Y la cafeína no es para niños.</p><p>Sara, en el descanso, se comió medio plátano y bebió agua a sorbitos. En el tercer partido seguía corriendo como al principio.</p><p>Al terminar, Hugo se acercó a la mochila de Sara.</p><p>—Oye… ¿me das un poco de ese plátano?</p>` },
+  tras: {
+    "El plato saludable": [
+      ["Leer la etiqueta de un alimento", `<p>Todos los alimentos envasados llevan una <b>etiqueta</b> con información importante. Aprender a leerla te ayuda a elegir mejor.</p><ul><li><b>Lista de ingredientes</b>: están ordenados de <b>más a menos cantidad</b>. Si el azúcar aparece entre los primeros, ese producto tiene mucho. Ojo: el azúcar se esconde con otros nombres, como jarabe de glucosa, dextrosa, fructosa o sacarosa.</li><li><b>Información nutricional</b>: una tabla con la energía (en kilocalorías) y los gramos de grasas, hidratos de carbono, <b>azúcares</b>, proteínas y <b>sal</b> por cada 100 gramos. Así puedes comparar dos productos.</li><li><b>Fecha de caducidad</b> («consumir antes de»), importante en alimentos frescos, y <b>fecha de consumo preferente</b>, que indica hasta cuándo conserva su mejor calidad.</li><li><b>Alérgenos</b>: aparecen destacados en negrita, como gluten, leche, huevo o frutos secos.</li></ul><p>Muchos productos llevan además el <b>Nutri-Score</b>, una etiqueta con cinco letras y colores, de la <b>A</b> verde (mejor calidad nutricional) a la <b>E</b> roja (peor). Sirve para comparar productos parecidos, por ejemplo dos cereales de desayuno. Pero recuerda: los mejores alimentos, como la fruta o la verdura fresca, ¡casi nunca llevan etiqueta!</p>`,
+        L5.filas("El Nutri-Score: de la A a la E", [["A", "la mejor calidad", cVE], ["B", "buena", cAZ], ["C", "intermedia", cNA], ["D", "baja", cMO], ["E", "la peor calidad", cRO]])],
+    ],
+    "La hidratación": [
+      ["Refrescos, bebidas deportivas y azúcar oculto", `<p>La mejor bebida para hacer deporte es el <b>agua</b>. Sin embargo, en las tiendas hay muchas bebidas que prometen energía. Veamos qué llevan (las cantidades son aproximadas y cambian según la marca):</p><ul><li>Una <b>lata de refresco</b> de 330 ml puede llevar unos <b>35 gramos de azúcar</b>, casi 9 terrones de 4 gramos.</li><li>Una <b>bebida deportiva</b> o isotónica de 500 ml lleva unos <b>30 gramos</b>. Está pensada para deportistas adultos que hacen esfuerzos muy largos e intensos, de más de una hora, y pierden muchas sales con el sudor. Para un partido o una clase de Educación Física, basta con agua.</li><li>Un <b>zumo envasado</b> de 200 ml lleva unos <b>20 gramos</b>. Es mejor comer la fruta entera, que tiene fibra.</li><li>Las <b>bebidas energéticas</b> llevan azúcar y mucha <b>cafeína</b>, que puede acelerar el corazón y quitar el sueño. Los médicos desaconsejan que las tomen niños y adolescentes.</li></ul><p>La Organización Mundial de la Salud recomienda que el azúcar añadido sea lo menos posible: idealmente, <b>menos de unos 25 gramos al día</b>. ¡Una sola lata de refresco ya lo supera!</p>`,
+        H5.barras("Azúcar aproximado en gramos de varias bebidas", [["agua", 0, cAZ, "0 g"], ["zumo", 20, cNA, "20 g"], ["isotónica", 30, cMO, "30 g"], ["refresco", 35, cRO, "35 g"]], 40), ["nMzXIJu7MTQ", "Hidratación: Bebidas deportivas vs. Agua - Medicina Deportiva del Hospital Infantil de Texas", "Texas Children’s", 79500]],
+    ],
+    "Descanso, higiene y postura": [
+      ["El sueño y las pantallas", `<p>Dormir no es perder el tiempo: mientras duermes, tu cuerpo <b>trabaja</b>. Durante el sueño profundo se libera la <b>hormona del crecimiento</b>, los músculos se reparan después del ejercicio y el cerebro ordena lo que has aprendido durante el día.</p><p>Los expertos en sueño recomiendan que los niños de <b>6 a 12 años</b> duerman entre <b>9 y 12 horas</b> cada noche. Si te levantas a las 7:30, deberías estar dormido, como muy tarde, hacia las 22:00.</p><p>Uno de los grandes enemigos del sueño son las <b>pantallas</b>:</p><ul><li>La <b>luz</b> de móviles, tabletas y ordenadores engaña al cerebro y le hace creer que todavía es de día, por lo que cuesta más dormirse.</li><li>Los vídeos y videojuegos <b>excitan</b> el cerebro justo cuando debería relajarse.</li><li>Tener el móvil en la habitación provoca despertares por notificaciones.</li></ul><p><b>Consejos para dormir bien</b>: apaga las pantallas al menos <b>una hora antes</b> de acostarte; deja el móvil fuera del dormitorio; acuéstate y levántate siempre a la misma hora; cena ligero; y lee un libro en papel para relajarte. Un niño que duerme bien rinde más en clase, tiene mejor humor, se lesiona menos y juega mejor.</p>`,
+        L5.filas("Consejos para dormir bien", [["9–12 horas", "cada noche", cAZ], ["sin pantallas", "1 hora antes", cRO], ["móvil", "fuera del cuarto", cNA], ["horario", "siempre igual", cVE], ["leer", "para relajarse", cMO]])],
+    ],
+  },
+  final: [
+    ["Desayunos y meriendas de deportista", `<p>El desayuno y la merienda son las comidas que más se descuidan, y son muy importantes para tener energía en clase y en el deporte. Un buen desayuno o una buena merienda combinan tres grupos:</p><ul><li>Un <b>cereal</b>, mejor integral: pan, copos de avena, tostadas.</li><li>Un <b>lácteo</b> o una proteína: leche, yogur natural, queso, huevo, hummus.</li><li>Una <b>fruta</b> entera.</li></ul><p>Ideas de desayuno: tostada integral con aceite de oliva y tomate, un vaso de leche y una naranja; yogur natural con copos de avena, plátano y nueces.</p><p>Ideas de merienda: bocadillo pequeño de pan integral con queso fresco, una manzana y agua; un puñado de frutos secos naturales y una pera.</p><p>Y lo que conviene dejar para ocasiones especiales: bollería industrial, galletas rellenas, cereales de colores con mucho azúcar, zumos envasados y batidos azucarados. No están prohibidos, pero no deberían ser lo de todos los días.</p><p>Antes de un partido o un entrenamiento por la tarde, la merienda es tu «gasolina»: tómala al menos una hora antes para no tener el estómago lleno al correr.</p>`,
+      L5.tabla("Ideas de desayuno y merienda", ["cereal", "lácteo o proteína", "fruta"], [["tostada", "leche", "naranja"], ["avena", "yogur", "plátano"], ["bocadillo", "queso", "manzana"]], cVE)],
+    ["Mitos sobre comida y deporte", `<p>Sobre la comida y el deporte circulan muchas ideas falsas. Vamos a desmontar algunas:</p><ul><li><b>«Si sudo mucho, adelgazo».</b> Falso. Con el sudor pierdes sobre todo <b>agua</b>, que recuperas en cuanto bebes. Sudar más no significa quemar más grasa.</li><li><b>«Para tener músculos hay que tomar batidos de proteínas».</b> Falso. Con una alimentación variada (legumbres, huevos, pescado, carne, lácteos) un niño obtiene todas las proteínas que necesita.</li><li><b>«Saltarse el desayuno no pasa nada».</b> Falso. Por la mañana el cuerpo lleva muchas horas sin comer; sin desayuno cuesta más concentrarse y rendir en el recreo.</li><li><b>«Beber agua en la comida engorda».</b> Falso. El agua no tiene calorías, se beba cuando se beba.</li><li><b>«Hay que beber solo cuando tienes mucha sed».</b> Falso. La sed fuerte ya es una señal de que te falta agua; hay que beber a sorbos antes, durante y después del ejercicio.</li><li><b>«Los alimentos “light” se pueden comer sin límite».</b> Falso. Solo tienen algo menos de grasa o azúcar que el original.</li></ul><p>Antes de creerte un consejo de internet, pregúntate quién lo dice y si es un experto en salud.</p>`,
+      L5.filas("Mitos y realidades sobre comida y deporte", [["sudar adelgaza", "solo pierdes agua", cRO], ["batidos de proteína", "basta comer variado", cNA], ["sin desayuno", "rindes menos", cAZ], ["agua al comer", "no engorda", cVE], ["beber con sed", "mejor antes", cMO]])],
+  ],
+  ejemplos: [
+    ["Unos cereales tienen 32 g de azúcar por 100 g. Si tomas una ración de 30 g, ¿cuánto azúcar tomas?", ["32 g en 100 g → 0,32 g por gramo.", "30 × 0,32 = 9,6 g.", "Son más de 2 terrones de azúcar."], "Unos 9,6 gramos"],
+    ["Daniel se levanta a las 7:30. ¿A qué hora debería dormirse para dormir 10 horas?", ["7:30 − 10 horas.", "7:30 de la mañana menos 10 h = 21:30 de la noche."], "A las 21:30"],
+  ],
+  errores: ["Pensar que las bebidas deportivas son necesarias en una clase de Educación Física: basta con agua.", "Creer que sudar mucho hace adelgazar: solo se pierde agua."],
+  ejercicios: [
+    ["b", "¿En qué orden aparecen los ingredientes en una etiqueta?", "De más a menos cantidad."],
+    ["b", "¿Qué letra del Nutri-Score indica mejor calidad nutricional?", "La A (verde)."],
+    ["b", "¿Cuántas horas deben dormir los niños de 6 a 12 años?", "Entre 9 y 12 horas."],
+    ["b", "¿Cuál es la mejor bebida para hacer deporte?", "El agua."],
+    ["b", "Escribe tres nombres con los que se esconde el azúcar en las etiquetas.", "Jarabe de glucosa, dextrosa, fructosa, sacarosa."],
+    ["m", "Una lata de refresco tiene 35 g de azúcar. ¿Cuántos terrones de 4 g son?", "35 : 4 ≈ 9 terrones."],
+    ["m", "¿Por qué las bebidas energéticas no son para niños?", "Porque llevan mucha cafeína y azúcar: aceleran el corazón y quitan el sueño."],
+    ["m", "Explica dos razones por las que las pantallas dificultan el sueño.", "La luz engaña al cerebro y los vídeos y juegos lo excitan."],
+    ["m", "Diseña un desayuno con un cereal, un lácteo y una fruta.", "Ej.: tostada integral, leche y una naranja."],
+    ["m", "¿Qué le pasó a Hugo en la lectura y por qué?", "Se sintió acelerado y luego muy cansado por la cafeína y el azúcar de la bebida energética."],
+    ["a", "Compara las etiquetas de dos cereales de desayuno de casa y decide cuál es mejor.", "Respuesta libre."],
+    ["a", "Anota durante una semana tus horas de sueño y de pantallas. ¿Qué conclusiones sacas?", "Respuesta libre."],
+    ["a", "Prepara un cartel que desmonte tres mitos sobre comida y deporte.", "Respuesta libre."],
+    ["a", "Planifica la mochila de alimentación para un torneo de tres partidos.", "Ej.: agua, plátano, bocadillo integral, frutos secos."],
+  ],
+  quiz: [
+    ["Un Nutri-Score E significa…", ["peor calidad nutricional", "mejor calidad", "ecológico"], "De A a E."],
+    ["Una lata de refresco puede tener unos…", ["35 g de azúcar", "2 g de azúcar", "100 g de azúcar"], "Unos 9 terrones."],
+    ["La hormona del crecimiento se libera sobre todo…", ["durmiendo", "comiendo", "viendo la tele"], "Sueño profundo."],
+    ["Sudar mucho hace perder sobre todo…", ["agua", "grasa", "músculo"], "Mito."],
+    ["Las pantallas conviene apagarlas antes de dormir…", ["una hora antes", "un minuto antes", "no hace falta"], "Higiene del sueño."],
+  ],
+  examen: [
+    ["Las bebidas isotónicas están pensadas para…", ["esfuerzos de más de una hora", "el recreo", "la comida"], "Deportistas."],
+    ["Los alérgenos de una etiqueta aparecen…", ["destacados en negrita", "escondidos", "en otro idioma"], "Gluten, leche…"],
+  ],
+  tarjetas: [
+    ["Nutri-Score", "Etiqueta de la A (mejor) a la E (peor)."],
+    ["Azúcar oculto", "Jarabe de glucosa, dextrosa, fructosa…"],
+    ["Sueño a tu edad", "9–12 horas; pantallas fuera 1 h antes."],
+    ["Mejor bebida", "El agua, a sorbos antes, durante y después."],
+  ],
+  glosario: [
+    ["Etiqueta nutricional", "Información sobre lo que contiene un alimento."],
+    ["Ingredientes", "Lo que forma un alimento, de más a menos cantidad."],
+    ["Nutri-Score", "Etiqueta de colores que valora la calidad nutricional."],
+    ["Alérgeno", "Sustancia que puede causar alergia."],
+    ["Fecha de caducidad", "Día límite para consumir un alimento fresco."],
+    ["Azúcar añadido", "Azúcar que se pone al fabricar un alimento."],
+    ["Bebida isotónica", "Bebida con sales y azúcar para esfuerzos largos."],
+    ["Cafeína", "Sustancia estimulante del café y de las bebidas energéticas."],
+    ["Hormona del crecimiento", "Sustancia que el cuerpo libera al dormir y ayuda a crecer."],
+    ["Higiene del sueño", "Hábitos que ayudan a dormir bien."],
+    ["Mito", "Idea falsa muy extendida."],
+    ["Integral", "Cereal que conserva la fibra del grano."],
+  ],
+  situacion: {
+    titulo: "Detectives de etiquetas",
+    reto: "La clase investiga las etiquetas de productos de desayuno y merienda y crea una exposición para ayudar a las familias a elegir mejor.",
+    pasos: ["Cada grupo trae envases vacíos de desayunos, meriendas y bebidas.", "Leed las etiquetas y anotad azúcares, sal, Nutri-Score y si el azúcar está entre los primeros ingredientes.", "Representad con terrones o dibujos el azúcar de cada producto y ordenadlos.", "Montad una exposición con alternativas saludables y consejos de sueño e hidratación."],
+    producto: "Una exposición con productos analizados y alternativas saludables.",
+    evaluacion: ["Lee e interpreta la información de una etiqueta.", "Calcula el azúcar de una ración.", "Propone desayunos y meriendas equilibrados.", "Relaciona sueño, pantallas y rendimiento."],
+  },
+});
