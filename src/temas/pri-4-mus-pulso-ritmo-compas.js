@@ -94,3 +94,91 @@ module.exports = tema({
   ideas: ["Juego del director de orquesta con cambios de tempo.", "Ritmo de los nombres de la clase con palmas.", "Ostinatos de percusión corporal sobre una canción."],
   fuentes: [["Diccionario de la RAE: compás", "https://dle.rae.es/compás"], ["Chrome Music Lab", "https://musiclab.chromeexperiments.com/"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Medir el pulso en pulsaciones por minuto (BPM)", "Reconocer la anacrusa al principio de una canción", "Interpretar cánones rítmicos en grupo", "Descubrir la batería y los ritmos del mundo"],
+  lectura: { titulo: "La lista de canciones para correr", html: `<p>Daniela iba a correr su primera carrera popular de cinco kilómetros con su madre. Para entrenar, querían hacer una lista de canciones que las animara.</p><p>—Pero no vale cualquier canción —dijo su madre, que era profesora de Educación Física—. Tiene que tener el <b>pulso</b> adecuado para correr.</p><p>Se sentaron con el ordenador. La madre le enseñó una aplicación que medía las <b>BPM</b> de las canciones: los pulsos por minuto.</p><p>—Una nana tiene unos 60 BPM, como el corazón cuando estás tranquila. Para trotar suave nos van bien canciones de unos 150 o 160, porque así cada paso coincide con un pulso.</p><p>Daniela empezó a buscar. Su canción favorita tenía 98 BPM: demasiado lenta. Otra, de su grupo preferido, tenía 170: demasiado rápida para ella. Al final encontró diez canciones entre 150 y 160 BPM.</p><p>El primer día de entrenamiento se dio cuenta de algo increíble: sin pensarlo, sus pies seguían el pulso de la música. Pum, pum, pum. Era como si la canción la empujara.</p><p>—Esto es lo que hacían los remeros antiguos —le contó su madre—. Un tambor marcaba el pulso y todos remaban a la vez.</p><p>El día de la carrera, Daniela llegó a la meta en treinta y cinco minutos. Y no se quitó los auriculares hasta que acabó la última canción de la lista.</p>` },
+  tras: {
+    "El tempo: rápido o lento": [
+      ["Pulsaciones por minuto: BPM", `<p>Para medir exactamente la velocidad del pulso, los músicos cuentan cuántos pulsos hay en un minuto. Se escribe <mark>BPM</mark> (del inglés <i>beats per minute</i>, «pulsos por minuto»). En las partituras aparece así: <b>♩ = 100</b>, que significa «100 negras por minuto».</p><p>Algunos ejemplos aproximados:</p><ul><li>Una <b>nana</b> o una canción muy tranquila: unos <b>60 BPM</b>, un pulso por segundo, como el tic-tac del reloj.</li><li>El corazón de una persona en reposo: entre <b>60 y 100</b> latidos por minuto.</li><li>Una <b>marcha</b> para desfilar: unos <b>120 BPM</b>.</li><li>Muchas canciones de <b>pop</b> para bailar: entre <b>110 y 130 BPM</b>.</li><li>Música para correr: unos <b>150-170 BPM</b>.</li></ul><p><b>Experimento</b>: busca un reloj con segundero. Mientras escuchas una canción, cuenta los pulsos durante <b>15 segundos</b> y multiplica por <b>4</b>. ¡Ya tienes sus BPM! Haz lo mismo con tu pulso en la muñeca antes y después de saltar a la comba.</p><p>Hay estudios que dicen que la música influye en nosotros: una música lenta nos relaja y una rápida nos activa. Por eso en los gimnasios ponen música rápida y en los spas, música lenta.</p>`,
+        L6.filas("BPM", [["nana", "60", cAZ], ["corazón", "60-100", cRO], ["marcha", "120", cVE], ["correr", "150-170", cNA]])],
+    ],
+    "El compás": [
+      ["La anacrusa", `<p>Normalmente, una canción empieza en el <b>primer pulso</b> del compás, que es el fuerte. Pero muchas canciones empiezan con una o varias notas <b>antes</b> del primer pulso fuerte. Esas notas se llaman <mark>anacrusa</mark>.</p><p>Es como coger impulso antes de saltar: unas notas de «preparación» que llevan hacia el primer acento.</p><p>Un ejemplo muy claro es el <b>«Cumpleaños feliz»</b>. Si das palmas en los pulsos fuertes, notarás que el acento no cae en «cum», sino en «<b>ña</b>»: «cumple-<b>A</b>-ños fe-<b>LIZ</b>». Las sílabas «cum-ple» son la anacrusa.</p><p>Muchas canciones populares y muchos himnos empiezan también con anacrusa. Busca ejemplos en las canciones que cantas en clase.</p><p>¿Cómo se escribe? El primer compás aparece <b>incompleto</b>: solo tiene las notas de la anacrusa. Y el último compás de la obra suele estar también incompleto, de forma que entre los dos suman un compás entero.</p><p><b>Cómo descubrirla</b>: canta la canción y marca con un pisotón el pulso más fuerte. Si antes de ese primer pisotón ya has cantado alguna sílaba, ¡la canción tiene anacrusa!</p>`,
+        H6.dos("¿Cómo empieza?", ["TÉTICO", ["empieza en", "el pulso fuerte", "UN-dos-tres"], cAZ], ["ANACRUSA", ["notas antes", "del pulso fuerte", "cum-ple-A-ños"], cRO]), ["5VhwKKzLKAI", "La anacrusa", "Musicademia", 184491]],
+    ],
+    "Ostinatos y percusión corporal": [
+      ["El canon rítmico", `<p>Un <mark>canon</mark> es una pieza en la que varios grupos interpretan <b>lo mismo</b>, pero empezando en momentos <b>distintos</b>, uno detrás de otro, como si se persiguieran. El resultado es un tejido de sonidos muy rico.</p><p>Seguro que conoces cánones cantados, como «Frère Jacques» («Martinillo») o «Banaha». Pero también se pueden hacer <b>cánones rítmicos</b>, solo con palmas, pies y otros sonidos del cuerpo.</p><p>Cómo hacer un canon rítmico en clase:</p><ul><li><b>1.</b> Escribid un ritmo de <b>cuatro compases</b> de 4/4 con negras, corcheas y silencios.</li><li><b>2.</b> Toda la clase lo aprende y lo toca junta varias veces, marcando bien el pulso.</li><li><b>3.</b> Se divide la clase en <b>dos grupos</b>. El grupo 1 empieza; cuando termina el primer compás, empieza el grupo 2 desde el principio.</li><li><b>4.</b> Cuando salga bien, probad con <b>tres o cuatro grupos</b>, cada uno entrando un compás después.</li></ul><p>El secreto es que cada grupo mantenga su <b>pulso</b> sin dejarse arrastrar por los demás. Para ayudar, un director puede marcar el compás con el brazo.</p><p>Para que se distinga cada grupo, cada uno puede usar un timbre diferente: uno palmas, otro pies, otro chasquidos…</p>`,
+        H6.flujo("Canon a 3", ["grupo 1|empieza", "grupo 2|compás 2", "grupo 3|compás 3", "todos|terminan"], cVE), ["uFwaVX9OBOE", "Canción Banaha: canon a 3 voces", "Batuta Virtual", 122329]],
+    ],
+  },
+  final: [
+    ["La batería: el pulso del pop y el rock", `<p>En la música pop, rock, jazz o funk, el instrumento que marca el <b>pulso</b> y el <b>ritmo</b> es la <mark>batería</mark>. Está formada por varios instrumentos de percusión que toca una sola persona con las baquetas y los pies:</p><ul><li>El <b>bombo</b>: el tambor más grande, en el suelo. Se toca con un <b>pedal</b> con el pie derecho. Suena muy grave: «pum».</li><li>La <b>caja</b>: un tambor con unos alambres debajo (bordones) que le dan un sonido seco: «chas».</li><li>El <b>charles</b> (o hi-hat): dos platillos que se abren y cierran con un pedal del pie izquierdo. Se toca con la baqueta para marcar las corcheas: «chi-chi-chi».</li><li>Los <b>toms</b>: tambores de distintos tamaños para los redobles.</li><li>Los <b>platos</b>: el crash para los golpes fuertes y el ride para ritmos continuos.</li></ul><p>El ritmo básico del rock en compás de 4/4 es muy sencillo:</p><ul><li>Bombo en los pulsos <b>1 y 3</b>.</li><li>Caja en los pulsos <b>2 y 4</b>.</li><li>Charles en todas las <b>corcheas</b>.</li></ul><p>Puedes imitarlo con el cuerpo: pisotón en el 1 y el 3, palmada en el 2 y el 4, y «chi» con la boca en cada corchea.</p>`,
+      L6.filas("La batería", [["bombo", "pum · pulsos 1 y 3", cRO], ["caja", "chas · pulsos 2 y 4", cAZ], ["charles", "chi · corcheas", cNA], ["platos", "crash y ride", cVE]]), ["HqQT28ro4q8", "El ritmo más básico en batería", "100 Lecciones De Bateria", 6578925]],
+    ["Ritmos del mundo", `<p>Cada cultura tiene sus propios <mark>ritmos</mark>, que la hacen inconfundible:</p><ul><li><b>África</b>: en muchos pueblos africanos se tocan varios ritmos diferentes a la vez con tambores, y todos encajan entre sí. Se llama <b>polirritmia</b>. Por ejemplo, un tambor toca de dos en dos y otro, de tres en tres, al mismo tiempo.</li><li><b>Cuba</b>: la base de la salsa y el son es la <b>clave</b>, un patrón de cinco golpes que se toca con dos palitos de madera llamados también <b>claves</b>. Suena «tac, tac, tac… tac, tac».</li><li><b>Brasil</b>: la <b>samba</b> se toca con muchos tambores en las escuelas de samba del carnaval, con la <b>batucada</b>. Su ritmo es binario y muy movido.</li><li><b>India</b>: los músicos usan ciclos rítmicos llamados <b>tala</b>, que pueden ser muy largos, y los aprenden diciendo sílabas, como nuestro «ta, ti-ti».</li><li><b>España</b>: el <b>flamenco</b> tiene ritmos complejos, como el de la <b>bulería</b>, que se cuenta en doce tiempos con acentos en sitios especiales, y se marca con <b>palmas</b>.</li></ul><p>Aunque sean distintos, todos tienen algo en común: un <b>pulso</b> que se repite y que invita a moverse.</p>`,
+      H6.rueda("Ritmos", "PULSO", [["África", cNA], ["Cuba", cRO], ["Brasil", cVE], ["flamenco", cAZ]])],
+  ],
+  ejemplos: [
+    ["Cuentas 20 pulsos en 15 segundos. ¿Cuántos BPM tiene la canción?", ["Un minuto son 4 veces 15 segundos.", "20 × 4 = 80."], "80 BPM."],
+    ["En un compás de 4/4, ¿en qué pulsos suena la caja de la batería en un ritmo de rock?", ["El bombo va en el 1 y el 3.", "La caja va en los otros dos pulsos."], "En el 2 y el 4."],
+  ],
+  errores: ["Pensar que todas las canciones empiezan en el pulso fuerte: algunas tienen anacrusa.", "Dejarse arrastrar por otro grupo en el canon: cada grupo debe mantener su pulso."],
+  ejercicios: [
+    ["b", "¿Qué significa BPM?", "Pulsos por minuto."],
+    ["b", "¿Cuántos BPM tiene aproximadamente una nana?", "Unos 60."],
+    ["b", "¿Qué es una anacrusa?", "Notas antes del primer pulso fuerte."],
+    ["b", "¿Qué es un canon?", "Varios grupos interpretan lo mismo empezando en momentos distintos."],
+    ["b", "¿Con qué se toca el bombo de la batería?", "Con un pedal, con el pie."],
+    ["m", "¿Cómo calculas los BPM contando 15 segundos?", "Multiplicando por 4."],
+    ["m", "¿Qué sílabas forman la anacrusa del «Cumpleaños feliz»?", "Cum-ple."],
+    ["m", "¿Qué es la polirritmia?", "Varios ritmos distintos sonando a la vez."],
+    ["m", "¿Qué es la clave cubana?", "Un patrón de cinco golpes, base de la salsa."],
+    ["m", "Describe el ritmo básico de rock.", "Bombo en 1 y 3, caja en 2 y 4, charles en corcheas."],
+    ["a", "Mide los BPM de tres canciones que te gusten.", "Respuesta abierta."],
+    ["a", "Busca otra canción con anacrusa y explica cómo lo sabes.", "Respuesta abierta."],
+    ["a", "Escribe un ritmo de cuatro compases e interprétalo en canon.", "Respuesta abierta."],
+    ["a", "Toca el ritmo de rock con percusión corporal sobre una canción.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["♩ = 120 indica…", ["120 negras por minuto", "120 compases", "120 notas en total"], "BPM."],
+    ["Las notas antes del primer pulso fuerte son la…", ["anacrusa", "ligadura", "coda"], "Anacrusa."],
+    ["«Martinillo» se puede cantar en…", ["canon", "silencio", "clave de fa"], "Canon."],
+    ["El charles de la batería se toca con…", ["un pedal y baquetas", "arco", "soplando"], "Batería."],
+    ["La batucada es típica de…", ["Brasil", "Japón", "Noruega"], "Mundo."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué BPM buscaba Daniela para correr?", ["entre 150 y 160", "60", "98"], "Lectura."],
+    ["¿En cuántos tiempos se cuenta la bulería?", ["doce", "dos", "tres"], "Flamenco."],
+  ],
+  tarjetas: [
+    ["BPM", "Pulsos por minuto; nana 60, marcha 120, correr 150-170."],
+    ["Anacrusa", "Notas antes del pulso fuerte: cum-ple-A-ños."],
+    ["Canon rítmico", "Mismo ritmo, entradas sucesivas."],
+    ["Batería y mundo", "Bombo, caja, charles; polirritmia, clave, samba, bulería."],
+  ],
+  glosario: [
+    ["BPM", "Pulsos por minuto."],
+    ["Pulsaciones", "Latidos del corazón en un minuto."],
+    ["Anacrusa", "Notas que preceden al primer pulso fuerte."],
+    ["Tético", "Que empieza en el pulso fuerte."],
+    ["Canon", "Obra en que las voces entran una tras otra con lo mismo."],
+    ["Batería", "Conjunto de instrumentos de percusión para un músico."],
+    ["Bombo", "Tambor grave que se toca con pedal."],
+    ["Caja", "Tambor de sonido seco con bordones."],
+    ["Charles", "Par de platillos accionados con pedal."],
+    ["Polirritmia", "Varios ritmos superpuestos."],
+    ["Clave", "Patrón rítmico cubano y palitos que lo tocan."],
+    ["Batucada", "Conjunto de percusión brasileño."],
+  ],
+  situacion: {
+    titulo: "Laboratorio del ritmo",
+    reto: "La clase investiga el pulso de las canciones y prepara una actuación rítmica.",
+    pasos: ["Medir los BPM de varias canciones y ordenarlas de lenta a rápida.", "Descubrir qué canciones tienen anacrusa.", "Crear un ritmo de cuatro compases y tocarlo en canon a tres grupos.", "Terminar con el ritmo de rock en percusión corporal sobre una canción."],
+    producto: "Una tabla de BPM y una actuación rítmica.",
+    evaluacion: ["Mide el pulso en BPM.", "Reconoce la anacrusa.", "Mantiene su parte en un canon.", "Imita ritmos de batería y del mundo."],
+  },
+});

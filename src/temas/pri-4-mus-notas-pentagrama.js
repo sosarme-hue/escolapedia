@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Pentagrama gigante en el suelo con cinta: los alumnos se colocan como notas.", "Dictados de notas con tarjetas.", "Juego de la mano pentagrama por parejas."],
   fuentes: [["Diccionario de la RAE: pentagrama", "https://dle.rae.es/pentagrama"], ["Chrome Music Lab", "https://musiclab.chromeexperiments.com/"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la clave de fa para las notas graves", "Encontrar las notas en el teclado del piano", "Distinguir grados conjuntos y saltos", "Reconocer sostenidos, bemoles y el cifrado americano"],
+  lectura: { titulo: "Las letras de la guitarra", html: `<p>Martina llevaba unos meses aprendiendo a tocar la guitarra con su tío Rubén, que tocaba en un grupo de rock. Un sábado, Rubén le pasó un papel con la letra de una canción. Encima de algunas palabras había unas letras sueltas: C, G, Am, F.</p><p>—¿Qué son estas letras? —preguntó Martina—. En clase de Música escribimos las notas en el pentagrama y las llamamos do, re, mi…</p><p>—Son las mismas notas, pero con su nombre en inglés —le explicó su tío—. En muchos países las notas se llaman con letras: <b>C</b> es do, <b>D</b> es re, <b>E</b> es mi, <b>F</b> es fa, <b>G</b> es sol, <b>A</b> es la y <b>B</b> es si.</p><p>—¿Y por qué empieza por la A en el la?</p><p>—Porque hace muchos siglos las notas se nombraban con letras empezando por el la. Los dos sistemas conviven. Los guitarristas usamos mucho las letras para escribir los <b>acordes</b>, que son varias notas sonando a la vez.</p><p>—¿Y la «m» de Am?</p><p>—Significa «menor». La menor. Suena más triste que La mayor.</p><p>Martina miró otra vez el papel. Ahora lo entendía: era como un idioma secreto con dos versiones. Al lunes siguiente, en clase de Música, escribió en la pizarra la escala de do con los dos nombres. La profesora se quedó encantada.</p>` },
+  tras: {
+    "La clave de sol": [
+      ["Otra clave: la clave de fa", `<p>La clave de sol sirve para las notas <b>agudas y medias</b>: las de la flauta, el violín o la voz de los niños. Pero ¿qué pasa con los instrumentos muy <b>graves</b>, como la tuba, el contrabajo o la mano izquierda del piano? Si las escribiéramos en clave de sol, necesitaríamos muchísimas líneas adicionales.</p><p>Para eso existe la <mark>clave de fa</mark>. Se dibuja como una especie de <b>C al revés</b> con <b>dos puntitos</b> a su derecha. Su dibujo empieza en la <b>cuarta línea</b>, y los dos puntos rodean esa línea. Nos dice: «en la cuarta línea está el <b>fa</b>».</p><p>A partir de ahí se sacan las demás notas. En clave de fa en cuarta:</p><ul><li>En las <b>líneas</b>, de abajo arriba: <b>sol, si, re, fa, la</b>.</li><li>En los <b>espacios</b>, de abajo arriba: <b>la, do, mi, sol</b>.</li></ul><p>Los pianistas leen <b>dos pentagramas a la vez</b>: el de arriba en clave de sol (mano derecha) y el de abajo en clave de fa (mano izquierda). Se unen con una llave y forman el <b>sistema</b> del piano.</p><p>El <b>do central</b> del piano se escribe con una línea adicional por debajo del pentagrama en clave de sol, o con una línea adicional por encima en clave de fa. ¡Es la misma nota!</p>`,
+        H6.dos("Dos claves", ["SOL", ["2.ª línea", "notas agudas", "mano derecha"], cAZ], ["FA", ["4.ª línea", "notas graves", "mano izquierda"], cRO]), ["fJ0PEMYKgbc", "Identificar notas en clave de fa", "utilidadTV", 531483]],
+    ],
+    "La escala de do": [
+      ["Las notas en el piano", `<p>El <mark>teclado del piano</mark> es una forma muy visual de ver las notas. Tiene teclas <b>blancas</b> y <b>negras</b>, y las negras están agrupadas de <b>dos en dos</b> y de <b>tres en tres</b>, alternando.</p><p>Ese dibujo es la clave para orientarse:</p><ul><li>El <b>do</b> es siempre la tecla blanca que está justo a la <b>izquierda</b> del grupo de <b>dos</b> teclas negras.</li><li>A partir del do, las teclas blancas hacia la derecha son: <b>re, mi, fa, sol, la, si</b>, y vuelve otro do.</li><li>El <b>fa</b> es la tecla blanca a la izquierda del grupo de <b>tres</b> negras.</li></ul><p>Si tocas solo las teclas blancas desde un do hasta el siguiente do, sonará la <b>escala de do</b>, la misma que escribes en el pentagrama.</p><p>Fíjate en algo curioso: entre <b>mi y fa</b> y entre <b>si y do</b> no hay tecla negra. Eso es porque esas notas están más cerca entre sí: hay un <b>semitono</b>. Entre las demás notas hay un <b>tono</b>, y en medio cabe una tecla negra.</p><p>Las teclas de la <b>izquierda</b> suenan <b>graves</b>, y las de la <b>derecha</b>, <b>agudas</b>. El do que está más o menos en el centro del teclado se llama <b>do central</b>.</p>`,
+        L6.filas("En el teclado", [["do", "antes de 2 negras", cAZ], ["fa", "antes de 3 negras", cVE], ["mi-fa, si-do", "sin negra: semitono", cRO], ["izquierda", "graves", cNA]]), ["hFykjO50DFk", "Clases de teclado para principiantes", "Pianistech", 7154610]],
+    ],
+    "Leer una melodía": [
+      ["Grados conjuntos y saltos", `<p>Cuando una melodía pasa de una nota a otra, puede moverse de dos maneras:</p><ul><li>Por <mark>grados conjuntos</mark>: pasa a la nota de al lado, como subir o bajar un escalón. En el pentagrama, la nota pasa de una línea al espacio siguiente, o de un espacio a la línea siguiente. Por ejemplo: do-re, mi-fa, sol-fa.</li><li>Por <mark>saltos</mark>: se salta una o más notas, como subir la escalera de dos en dos. En el pentagrama, la nota pasa de línea a línea o de espacio a espacio, o más lejos. Por ejemplo: do-mi, sol-do.</li></ul><p>La distancia entre dos notas se llama <b>intervalo</b>. Se cuenta incluyendo las dos notas:</p><ul><li>do-re: <b>segunda</b> (2 notas: do, re).</li><li>do-mi: <b>tercera</b> (do, re, mi).</li><li>do-fa: <b>cuarta</b>.</li><li>do-sol: <b>quinta</b>.</li><li>do-do agudo: <b>octava</b> (8 notas).</li></ul><p>Las melodías que se mueven por grados conjuntos son fáciles de cantar, como el «Himno de la alegría». Los saltos dan energía y sorpresa: el «Cumpleaños feliz» tiene un gran salto de octava en «cum-ple-<b>a</b>-ños».</p><p>Cuando leas una melodía, fíjate primero en el dibujo que hacen las notas: ¿sube, baja, va por escalones o salta?</p>`,
+        H6.flujo("Intervalos desde do", ["do-re|segunda", "do-mi|tercera", "do-sol|quinta", "do-do|octava"], cMO)],
+    ],
+  },
+  final: [
+    ["Sostenidos y bemoles", `<p>Entre algunas notas hay sonidos intermedios: son las <mark>teclas negras</mark> del piano. Para escribirlos se usan unos signos llamados <b>alteraciones</b>, que se colocan a la <b>izquierda</b> de la nota:</p><ul><li>El <b>sostenido</b> (♯) parece una almohadilla: <b>sube</b> la nota medio tono. Por ejemplo, fa sostenido es la tecla negra a la derecha del fa.</li><li>El <b>bemol</b> (♭) parece una «b» pequeña: <b>baja</b> la nota medio tono. Por ejemplo, si bemol es la tecla negra a la izquierda del si.</li><li>El <b>becuadro</b> (♮) anula el sostenido o el bemol: la nota vuelve a ser natural.</li></ul><p>Fíjate en algo curioso: la misma tecla negra puede tener dos nombres. La tecla entre do y re es <b>do sostenido</b> o <b>re bemol</b>. ¡Depende de si la miramos subiendo o bajando!</p><p>Si una alteración aparece al principio del pentagrama, justo después de la clave, se llama <b>armadura</b> y afecta a esa nota durante toda la obra.</p><p>En la flauta dulce, el <b>si bemol</b> y el <b>fa sostenido</b> son de las primeras alteraciones que se aprenden, porque aparecen en muchas canciones.</p>`,
+      L6.filas("Alteraciones", [["sostenido", "sube ½ tono", cRO], ["bemol", "baja ½ tono", cAZ], ["becuadro", "anula", cVE], ["armadura", "toda la obra", cNA]])],
+    ["Las notas con letras: el cifrado americano", `<p>En España, Italia, Francia o Hispanoamérica llamamos a las notas <b>do, re, mi, fa, sol, la, si</b>. Pero en países como el Reino Unido o Estados Unidos se nombran con <mark>letras</mark>. Es el llamado <b>cifrado americano</b> o inglés:</p><ul><li><b>A</b> = la</li><li><b>B</b> = si</li><li><b>C</b> = do</li><li><b>D</b> = re</li><li><b>E</b> = mi</li><li><b>F</b> = fa</li><li><b>G</b> = sol</li></ul><p>Las letras empiezan por el <b>la</b> porque en la Antigüedad y la Edad Media se nombraban las notas así, empezando por la nota más grave que se usaba entonces.</p><p>Este sistema se usa mucho para escribir <b>acordes</b> (varias notas a la vez) en canciones de guitarra, piano o ukelele. Por ejemplo:</p><ul><li><b>C</b> = acorde de Do mayor.</li><li><b>Am</b> = acorde de La menor (la «m» significa menor).</li><li><b>G7</b> = acorde de Sol séptima.</li></ul><p>Truco para memorizarlo: escribe la escala de do con los dos nombres, uno debajo del otro: C-do, D-re, E-mi, F-fa, G-sol, A-la, B-si.</p>`,
+      H6.rueda("Cifrado", "C = DO", [["D = re", cAZ], ["E = mi", cVE], ["G = sol", cRO], ["A = la", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Qué intervalo hay entre re y la?", ["Cuento incluyendo las dos: re, mi, fa, sol, la.", "Son 5 notas."], "Una quinta."],
+    ["¿Qué nota es G en el cifrado americano?", ["A = la, B = si, C = do…", "G es la séptima letra: sol."], "Sol."],
+  ],
+  errores: ["Contar los intervalos sin incluir la primera nota: do-mi es una tercera, no una segunda.", "Colocar el sostenido o el bemol a la derecha de la nota: va a la izquierda."],
+  ejercicios: [
+    ["b", "¿En qué línea empieza la clave de fa?", "En la cuarta."],
+    ["b", "¿Dónde está el do en el teclado del piano?", "A la izquierda del grupo de dos teclas negras."],
+    ["b", "¿Qué hace el sostenido?", "Sube la nota medio tono."],
+    ["b", "¿Qué nota es la C?", "Do."],
+    ["b", "¿Cuántas notas hay en una octava contando las dos?", "Ocho."],
+    ["m", "¿Por qué los pianistas leen dos pentagramas?", "Uno en clave de sol (mano derecha) y otro en clave de fa (izquierda)."],
+    ["m", "¿Entre qué notas no hay tecla negra?", "Entre mi y fa, y entre si y do."],
+    ["m", "¿Qué diferencia hay entre grado conjunto y salto?", "El grado conjunto va a la nota de al lado; el salto se salta notas."],
+    ["m", "¿Qué otro nombre tiene do sostenido?", "Re bemol."],
+    ["m", "¿Qué significa la «m» en Am?", "Menor."],
+    ["a", "Escribe la escala de do con los nombres en español y en cifrado.", "Respuesta abierta."],
+    ["a", "Busca una canción con acordes en cifrado y tradúcelos.", "Respuesta abierta."],
+    ["a", "Encuentra en un teclado todos los do y los fa.", "Respuesta abierta."],
+    ["a", "Inventa una melodía con tres saltos y tres grados conjuntos.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La clave de fa se usa para notas…", ["graves", "agudas", "silencios"], "Clave de fa."],
+    ["El do está a la izquierda de…", ["dos teclas negras", "tres teclas negras", "ninguna"], "Piano."],
+    ["Do-sol es una…", ["quinta", "tercera", "octava"], "Intervalos."],
+    ["El bemol…", ["baja medio tono", "sube medio tono", "anula"], "Alteraciones."],
+    ["En cifrado, A es…", ["la", "do", "mi"], "Cifrado."],
+  ],
+  examen: [
+    ["En la lectura, ¿a qué notas se refieren las letras C y G?", ["do y sol", "re y la", "mi y si"], "Lectura."],
+    ["Una alteración al principio del pentagrama se llama…", ["armadura", "becuadro", "calderón"], "Alteraciones."],
+  ],
+  tarjetas: [
+    ["Clave de fa", "4.ª línea; líneas sol, si, re, fa, la; mano izquierda del piano."],
+    ["El teclado", "Do antes de dos negras; mi-fa y si-do sin negra."],
+    ["Intervalos", "Grados conjuntos y saltos; segunda, tercera, quinta, octava."],
+    ["Alteraciones y cifrado", "♯ sube, ♭ baja, ♮ anula; A-la, B-si, C-do…"],
+  ],
+  glosario: [
+    ["Clave de fa", "Clave para las notas graves."],
+    ["Sistema", "Dos pentagramas unidos por una llave."],
+    ["Do central", "Do que está en el centro del teclado."],
+    ["Tono", "Distancia entre dos notas con una tecla en medio."],
+    ["Semitono", "La distancia más pequeña entre dos teclas."],
+    ["Grado conjunto", "Paso a la nota de al lado."],
+    ["Salto", "Paso a una nota más lejana."],
+    ["Intervalo", "Distancia entre dos notas."],
+    ["Sostenido", "Signo que sube medio tono."],
+    ["Bemol", "Signo que baja medio tono."],
+    ["Armadura", "Alteraciones al principio del pentagrama."],
+    ["Cifrado americano", "Nombres de las notas con letras."],
+  ],
+  situacion: {
+    titulo: "Traductores de notas",
+    reto: "La clase prepara una guía para ayudar a otros alumnos a leer notas en distintos sistemas.",
+    pasos: ["Hacer una tabla con las notas en español, en cifrado y en el teclado.", "Dibujar un pentagrama en clave de sol y otro en clave de fa con las mismas notas.", "Buscar en canciones conocidas ejemplos de grados conjuntos y saltos.", "Presentar la guía tocando una melodía en un teclado o en la flauta."],
+    producto: "Una guía ilustrada de lectura de notas.",
+    evaluacion: ["Lee notas en clave de sol y de fa.", "Localiza notas en el teclado.", "Identifica intervalos y saltos.", "Usa alteraciones y cifrado."],
+  },
+});

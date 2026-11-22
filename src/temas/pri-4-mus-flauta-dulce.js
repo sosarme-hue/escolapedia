@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Cadena de notas: cada alumno toca una nota y el siguiente continúa.", "Melodías inventadas por los alumnos con tres notas.", "Acompañamiento con percusión mientras un grupo toca la flauta."],
   fuentes: [["Diccionario de la RAE: flauta", "https://dle.rae.es/flauta"], ["Chrome Music Lab", "https://musiclab.chromeexperiments.com/"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la familia de las flautas dulces", "Tocar las notas mi y re graves con la mano derecha", "Interpretar el «Himno de la alegría» con la flauta", "Descubrir la historia de la flauta y las flautas del mundo"],
+  lectura: { titulo: "La flauta de la cueva", html: `<p>Durante una excursión a un museo de Prehistoria, la guía, Sonia, se paró delante de una vitrina muy pequeña. Dentro había un hueso fino y amarillento, con varios agujeros en fila.</p><p>—¿Qué creéis que es esto? —preguntó.</p><p>—¿Un collar? —dijo Pau.</p><p>—¿Una herramienta para coser? —probó Ana.</p><p>—Es una <b>flauta</b> —respondió Sonia—. Es una copia de una que se encontró en una cueva de Alemania. La original está hecha con el hueso del ala de un buitre y tiene unos <b>cuarenta mil años</b>. Es uno de los instrumentos musicales más antiguos que conocemos.</p><p>Los niños se quedaron boquiabiertos. ¡Cuarenta mil años! Mucho antes de que existieran las ciudades, la escritura o la rueda, alguien ya había descubierto que soplando por un tubo con agujeros se podían hacer melodías.</p><p>—Y mirad —continuó Sonia—: tiene agujeros para tapar con los dedos, igual que vuestras flautas dulces del cole. La idea es la misma: al tapar más agujeros, el tubo de aire se alarga y el sonido se hace más grave.</p><p>De vuelta en clase, Pau sacó su flauta de plástico y la miró como si fuera la primera vez.</p><p>—Pues entonces —dijo— esta flauta es la tataranieta de la de la cueva.</p><p>Y tocó un sol, muy despacio, como si los músicos de hace cuarenta mil años pudieran escucharle.</p>` },
+  tras: {
+    "Las partes de la flauta": [
+      ["La familia de las flautas dulces", `<p>La flauta que usamos en el colegio es solo un miembro de una gran <mark>familia</mark>. Las flautas dulces son de distintos tamaños, y cuanto más grandes son, más <b>graves</b> suenan:</p><ul><li><b>Sopranino</b>: la más pequeña y aguda, de unos 24 cm.</li><li><b>Soprano</b>: la que usamos en clase, de unos 30 cm. También se llama flauta de do o «descant».</li><li><b>Contralto</b>: algo más grande (unos 47 cm). Muchos solistas la usan porque tiene un sonido muy bonito.</li><li><b>Tenor</b>: unos 65 cm. Suele tener una <b>llave</b> en el último agujero, porque los dedos no llegan.</li><li><b>Bajo</b>: casi un metro. Se sopla a través de un tubito curvo llamado <b>tudel</b>.</li><li>Existen incluso flautas <b>gran bajo</b> y <b>contrabajo</b>, ¡más altas que una persona!</li></ul><p>Cuando varias flautas de distintos tamaños tocan juntas, forman un <b>consort</b> o conjunto de flautas, como si fuera un coro de voces agudas y graves.</p><p>Además, hay dos sistemas de digitación: la <b>barroca</b> (o inglesa) y la <b>alemana</b>. Se distinguen porque en la barroca el cuarto agujero es más pequeño. La mayoría de notas se tocan igual, pero el fa cambia. Pregunta a tu profesor qué sistema es tu flauta.</p>`,
+        L6.filas("Tamaños", [["sopranino", "la más aguda", cRO], ["soprano", "la del cole", cAZ], ["contralto", "solistas", cVE], ["bajo", "con tudel", cMO]]), ["_VsavolK5eU", "Tipos de flauta dulce", "DonluNatic", 254440]],
+    ],
+    "Do y re agudos": [
+      ["Nuevas notas: mi y re graves", `<p>Hasta ahora has tocado con la mano izquierda. Ahora entra en juego la <mark>mano derecha</mark>, que tapa los agujeros de abajo. Con ella llegamos a notas más <b>graves</b>.</p><ul><li><b>Mi grave</b>: tapa el agujero de detrás y los tres primeros de delante con la mano izquierda (como en el sol). Después, con la mano derecha, tapa también el <b>cuarto</b> (índice) y el <b>quinto</b> (corazón).</li><li><b>Re grave</b>: igual que el mi, pero tapando además el <b>sexto</b> agujero con el anular de la mano derecha.</li></ul><p>Consejos para que suenen bien:</p><ul><li>Las notas graves necesitan un soplo <b>muy suave</b>, casi como un suspiro. Si soplas fuerte, saltará a una nota aguda y chillona.</li><li>Tapa los agujeros con la <b>yema</b> de los dedos (la parte blanda), no con la punta. Si queda un poquito de hueco, la nota no saldrá.</li><li>El pulgar de la mano derecha va detrás, entre el cuarto y el quinto agujero, para <b>sujetar</b> la flauta.</li><li>Practica bajando poco a poco: sol, fa… mi, re. Comprueba que cada dedo tapa bien antes de soplar.</li></ul><p>En el pentagrama, el <b>mi</b> está en la primera línea y el <b>re</b> justo debajo de ella. Con estas notas ya tienes desde el re grave hasta el re agudo: ¡una octava completa!</p>`,
+        H6.dos("Mano derecha", ["MI", ["pulgar y 1-2-3", "más 4 y 5", "1.ª línea"], cVE], ["RE", ["pulgar y 1-2-3", "más 4, 5 y 6", "bajo la 1.ª"], cAZ])],
+    ],
+    "Segunda melodía: con do y re agudos": [
+      ["Toca el «Himno de la alegría»", `<p>El <mark>«Himno de la alegría»</mark> es una de las melodías más famosas del mundo. La compuso el alemán <b>Ludwig van Beethoven</b> para el último movimiento de su <b>Novena Sinfonía</b>, en <b>1824</b>, con un poema de Friedrich Schiller. Lo increíble es que Beethoven ya estaba completamente <b>sordo</b> cuando la escribió.</p><p>Hoy es el <b>himno de la Unión Europea</b>.</p><p>Se puede tocar con las notas <b>sol, la, si, do y re</b> agudos. Estas son las notas de la primera parte:</p><ul><li>si si do re · re do si la</li><li>sol sol la si · si la la</li><li>si si do re · re do si la</li><li>sol sol la si · la sol sol</li></ul><p>Fíjate en que casi todas las notas van por <b>grados conjuntos</b>: suben o bajan a la nota de al lado, como una escalera. Eso la hace fácil de cantar y de tocar.</p><p>Para practicarla:</p><ul><li>Primero <b>canta</b> los nombres de las notas.</li><li>Luego pon los dedos en la flauta sin soplar, cantando por dentro.</li><li>Toca cada frase por separado y lentamente.</li><li>Une las frases manteniendo el pulso.</li></ul><p>Cuando la domines, prueba a tocarla en grupo mientras otros compañeros cantan.</p>`,
+        H6.flujo("Primera frase", ["si si|do re", "re do|si la", "sol sol|la si", "si la|la"], cNA), ["vdsgeFmngCs", "Himno de la alegría en flauta dulce", "YOUCANPLAYIT.COM", 4054632]],
+    ],
+  },
+  final: [
+    ["Historia de la flauta", `<p>La flauta es uno de los <mark>instrumentos más antiguos</mark> de la humanidad:</p><ul><li>En la <b>Prehistoria</b>, hace unos 40 000 años, ya se fabricaban flautas con <b>huesos de aves</b> y con colmillos de mamut. Se han encontrado en cuevas de Alemania.</li><li>En la <b>Edad Media</b> aparecen flautas parecidas a la flauta dulce en pinturas y esculturas de iglesias.</li><li>En el <b>Renacimiento</b> y el <b>Barroco</b> (siglos XVI al XVIII), la flauta dulce fue muy popular. Compositores como <b>Telemann</b>, <b>Händel</b> o <b>Vivaldi</b> escribieron obras para ella. En los cuadros de la época aparecen músicos tocándola.</li><li>Después, fue sustituida por la <b>flauta travesera</b>, que sonaba más fuerte en las grandes orquestas, y casi se olvidó.</li><li>En el <b>siglo XX</b>, músicos como el británico <b>Arnold Dolmetsch</b> la recuperaron. Las flautas de plástico, baratas y resistentes, hicieron que llegara a las escuelas de todo el mundo.</li></ul><p>Hoy hay grandes intérpretes profesionales de flauta dulce que dan conciertos por todo el mundo. ¡No es solo un instrumento para aprender: es un instrumento de verdad!</p>`,
+      L6.filas("Historia", [["Prehistoria", "hueso, 40 000 años", cNA], ["Barroco", "Telemann, Vivaldi", cAZ], ["olvido", "gana la travesera", cRO], ["siglo XX", "vuelve a la escuela", cVE]]), ["CGVIXNiMyrI", "El primer instrumento melódico: la flauta de hueso", "Andoni Martinez", 15641]],
+    ["Flautas del mundo", `<p>En todas las culturas se han inventado <mark>flautas</mark>, hechas con los materiales de cada lugar: caña, bambú, madera, hueso o barro.</p><ul><li><b>Quena</b> (Andes): una flauta de caña con una muesca en el extremo para soplar. Es típica de Perú, Bolivia y Ecuador.</li><li><b>Zampoña</b> o <b>flauta de Pan</b>: varios tubos de distinto tamaño unidos en fila. Cada tubo da una nota. Se llama así por el dios griego Pan.</li><li><b>Shakuhachi</b> (Japón): una flauta de bambú de sonido suave y meditativo, que tocaban los monjes.</li><li><b>Bansuri</b> (India): una flauta travesera de bambú, que se asocia con el dios Krishna.</li><li><b>Txistu</b> (País Vasco): una flauta de tres agujeros que se toca con una sola mano, mientras la otra golpea un tamboril.</li><li><b>Gaita gallega</b>: aunque tiene bolsa, su puntero funciona como una flauta.</li><li><b>Ocarina</b>: una flauta redonda de barro, con forma de huevo o de pájaro.</li></ul><p>Todas funcionan igual: el aire se corta en un borde y vibra dentro del tubo. ¡La misma idea que tu flauta dulce!</p>`,
+      H6.rueda("Flautas", "SOPLAR", [["quena", cRO], ["zampoña", cNA], ["shakuhachi", cAZ], ["txistu", cVE]])],
+  ],
+  ejemplos: [
+    ["Quieres pasar de sol a re grave. ¿Qué dedos añades?", ["El sol tapa pulgar y 1-2-3.", "El re grave añade 4, 5 y 6 con la mano derecha."], "Índice, corazón y anular de la mano derecha."],
+    ["¿Qué flauta sonará más grave, la soprano o la contralto?", ["Cuanto más grande, más grave.", "La contralto es más grande."], "La contralto."],
+  ],
+  errores: ["Soplar fuerte en las notas graves: necesitan un soplo muy suave.", "Tapar los agujeros con la punta de los dedos: hay que usar la yema."],
+  ejercicios: [
+    ["b", "Ordena de agudo a grave: bajo, soprano, contralto.", "Soprano, contralto, bajo."],
+    ["b", "¿Qué mano tapa los agujeros de abajo?", "La derecha."],
+    ["b", "¿Quién compuso el «Himno de la alegría»?", "Beethoven."],
+    ["b", "¿De qué estaban hechas las flautas prehistóricas?", "De hueso o marfil."],
+    ["b", "Nombra una flauta de los Andes.", "La quena (o la zampoña)."],
+    ["m", "¿Qué dedos tapan el mi grave?", "Pulgar, 1, 2, 3, 4 y 5."],
+    ["m", "¿Por qué las flautas tenor llevan una llave?", "Porque los dedos no llegan al último agujero."],
+    ["m", "¿Qué tiene de especial el txistu?", "Se toca con una mano mientras la otra golpea un tamboril."],
+    ["m", "¿Por qué se olvidó la flauta dulce tras el Barroco?", "Porque la travesera sonaba más fuerte en las orquestas."],
+    ["m", "¿Qué son los grados conjuntos?", "Pasar a la nota de al lado."],
+    ["a", "Toca la primera parte del «Himno de la alegría».", "Respuesta abierta."],
+    ["a", "Inventa una melodía de ocho notas que use mi y re graves.", "Respuesta abierta."],
+    ["a", "Construye una zampoña con pajitas y compárala con la flauta.", "Respuesta abierta."],
+    ["a", "Escucha una obra barroca para flauta dulce y descríbela.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La flauta del cole es la…", ["soprano", "bajo", "tenor"], "Familia."],
+    ["Para el re grave se tapan…", ["todos los agujeros menos el último", "solo el pulgar", "dos agujeros"], "Notas."],
+    ["El «Himno de la alegría» es de la Novena Sinfonía de…", ["Beethoven", "Mozart", "Vivaldi"], "Himno."],
+    ["La flauta más antigua tiene unos…", ["40 000 años", "500 años", "100 años"], "Historia."],
+    ["El shakuhachi es de…", ["Japón", "Perú", "Italia"], "Mundo."],
+  ],
+  examen: [
+    ["En la lectura, ¿de qué estaba hecha la flauta de la cueva?", ["del hueso de un buitre", "de plástico", "de bambú"], "Lectura."],
+    ["¿Hoy de qué es himno el «Himno de la alegría»?", ["de la Unión Europea", "de España", "de los Juegos Olímpicos"], "Himno."],
+  ],
+  tarjetas: [
+    ["Familia de flautas", "Sopranino, soprano, contralto, tenor y bajo; consort."],
+    ["Mi y re graves", "Mano derecha: 4 y 5 (mi), 4, 5 y 6 (re); soplo suave."],
+    ["Himno de la alegría", "Beethoven, 1824; si si do re, re do si la…"],
+    ["Historia y mundo", "Hueso prehistórico, Barroco; quena, zampoña, txistu."],
+  ],
+  glosario: [
+    ["Soprano", "Flauta dulce que se usa en el colegio."],
+    ["Contralto", "Flauta dulce más grande y grave que la soprano."],
+    ["Tudel", "Tubito curvo para soplar la flauta bajo."],
+    ["Consort", "Conjunto de instrumentos de la misma familia."],
+    ["Digitación", "Forma de colocar los dedos para cada nota."],
+    ["Yema", "Parte blanda de la punta del dedo."],
+    ["Grado conjunto", "Paso de una nota a la de al lado."],
+    ["Novena Sinfonía", "Obra de Beethoven con el Himno de la alegría."],
+    ["Barroco", "Época musical de los siglos XVII y XVIII."],
+    ["Quena", "Flauta andina de caña."],
+    ["Zampoña", "Flauta de varios tubos unidos."],
+    ["Txistu", "Flauta vasca de tres agujeros."],
+  ],
+  situacion: {
+    titulo: "Concierto de flautas",
+    reto: "La clase prepara un concierto con flautas dulces y flautas del mundo.",
+    pasos: ["Repasar todas las notas: re y mi graves, sol, la, si, do y re agudos.", "Ensayar el «Himno de la alegría» por grupos.", "Preparar una explicación de la historia de la flauta.", "Presentar una flauta del mundo con una grabación o una zampoña casera."],
+    producto: "Un concierto con explicaciones sobre las flautas.",
+    evaluacion: ["Toca las notas graves con soplo suave.", "Interpreta el himno manteniendo el pulso.", "Conoce la familia de las flautas.", "Explica la historia de la flauta."],
+  },
+});
