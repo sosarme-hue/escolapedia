@@ -94,3 +94,91 @@ module.exports = P.tema({
   saberes: "Comunicación y léxico: los colores y su concordancia de género y número; los números del 0 al 30; preguntar y decir la edad con avoir; la expresión il y a y la pregunta combien",
   ideas: ["Bingo de números del 0 al 30 cantado en francés.", "Dictado de colores: los alumnos colorean un dibujo siguiendo instrucciones en francés.", "Encuesta de la clase sobre el color favorito con resultados en francés."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Contar del 30 al 100 en francés", "Describir colores claros y oscuros", "Preguntar precios y decir números de teléfono", "Hacer cálculos sencillos en francés y conocer los colores de la bandera francesa"],
+  lectura: { titulo: "Au marché de Nice", html: `<p>Inès y su abuelo van al mercado de Niza el sábado por la mañana. Lee el diálogo con el vendedor de frutas. Las palabras difíciles llevan traducción.</p><p><i>Le vendeur : Bonjour ! Qu'est-ce que vous voulez ? (¿Qué desean?)</i></p><p><i>Papi : Bonjour ! Je voudrais (quisiera) des tomates, s'il vous plaît. Les tomates <b>rouges</b>, là.</i></p><p><i>Le vendeur : Combien ? (¿Cuántas?)</i></p><p><i>Papi : <b>Un kilo</b>, s'il vous plaît. <b>Ça coûte combien ?</b> (¿Cuánto cuesta?)</i></p><p><i>Le vendeur : <b>Trois euros cinquante</b>.</i></p><p><i>Inès : Papi, regarde les citrons ! Ils sont <b>jaunes</b> comme le soleil. Et ces raisins (uvas) <b>violets</b> !</i></p><p><i>Papi : D'accord. Et <b>six</b> citrons et une grappe de raisins (un racimo de uvas), s'il vous plaît.</i></p><p><i>Le vendeur : Voilà ! Ça fait <b>sept euros quatre-vingts</b> en tout.</i></p><p><i>Papi : Voilà <b>dix euros</b>.</i></p><p><i>Le vendeur : Et voilà <b>deux euros vingt</b>. Merci, au revoir !</i></p><p>Después, Inès ve un puesto de flores de todos los colores: rosas <b>rouges</b>, girasoles <b>jaunes</b>, lavanda <b>violette</b> y flores <b>bleu clair</b>. Inès compra un ramo pequeño para su madre. Cuesta <b>quatre euros</b>.</p><p>—Inès, ¡ya sabes contar en francés! —dice su abuelo sonriendo.</p>` },
+  tras: {
+    "Del 21 al 30": [
+      ["Del 30 al 100", `<p>Ya sabes contar hasta el 30. Ahora vamos a aprender las <mark>decenas</mark> hasta el 100:</p><ul><li>30: <b>trente</b></li><li>40: <b>quarante</b></li><li>50: <b>cinquante</b></li><li>60: <b>soixante</b> («suasánt»)</li></ul><p>Entre una decena y otra, se hace igual que con el 20: <i>trente et un</i> (31), <i>trente-deux</i> (32), <i>quarante-cinq</i> (45), <i>cinquante-huit</i> (58).</p><p>¡Y ahora viene lo curioso! Del 70 en adelante, los franceses <b>cuentan de otra manera</b>:</p><ul><li>70: <b>soixante-dix</b> (sesenta y diez)</li><li>71: <b>soixante et onze</b> (sesenta y once)</li><li>75: <b>soixante-quinze</b> (sesenta y quince)</li><li>80: <b>quatre-vingts</b> (cuatro veintes: 4 × 20)</li><li>85: <b>quatre-vingt-cinq</b></li><li>90: <b>quatre-vingt-dix</b> (cuatro veintes y diez)</li><li>99: <b>quatre-vingt-dix-neuf</b></li><li>100: <b>cent</b></li></ul><p>Un detalle de escritura: <i>quatre-vingts</i> lleva <b>-s</b> cuando va solo (80), pero la pierde si le sigue otro número: <i>quatre-vingt-un</i> (81), <i>quatre-vingt-trois</i> (83). ¡Y fíjate en que el 81 no lleva <i>et</i>, al contrario que el 21, el 31 o el 71!</p><p>Es como hacer una suma cada vez: 97 = 4 × 20 + 17 → <i>quatre-vingt-dix-sept</i>.</p><p>En <b>Bélgica</b> y en <b>Suiza</b> es más fácil: dicen <b>septante</b> (70) y <b>nonante</b> (90). En algunas partes de Suiza también dicen <b>huitante</b> (80).</p>`,
+        L6.filas("Les dizaines", [["50", "cinquante", cAZ], ["60", "soixante", cVE], ["70", "soixante-dix", cNA], ["80", "quatre-vingts", cMO], ["90", "quatre-vingt-dix", cRO]]), ["CEx2fPn-_UE", "French numbers 1-100", "Learn French With Alexa", 7451067]],
+    ],
+    "Masculino y femenino": [
+      ["Clair, foncé: matices de color", `<p>Los colores tienen muchos <mark>matices</mark>: no es lo mismo el azul del cielo que el azul del mar de noche. En francés, para decir si un color es claro u oscuro, se añade una palabra detrás:</p><ul><li><b>clair</b> (claro): <i>bleu clair</i> (azul claro), <i>vert clair</i> (verde claro)</li><li><b>foncé</b> (oscuro): <i>bleu foncé</i> (azul oscuro), <i>vert foncé</i> (verde oscuro)</li></ul><p>¡Atención! Cuando el color lleva <i>clair</i> o <i>foncé</i>, <b>no cambia</b> nunca, aunque la palabra sea femenina o plural: <i>une robe <b>bleu clair</b></i>, <i>des chaussures <b>vert foncé</b></i>.</p><p>Hay otros colores que tampoco cambian, porque vienen de nombres de cosas:</p><ul><li><b>orange</b> (naranja, como la fruta): <i>des ballons orange</i></li><li><b>marron</b> (marrón, como la castaña): <i>des yeux marron</i></li></ul><p>Y más colores útiles:</p><ul><li><b>rose</b> (rosa), <b>violet / violette</b> (morado), <b>gris / grise</b> (gris)</li><li><b>doré</b> (dorado), <b>argenté</b> (plateado)</li><li><b>turquoise</b> (turquesa), <b>beige</b> (beis)</li></ul><p>Para preguntar: <b>C'est de quelle couleur ?</b> (¿De qué color es?) → <i>C'est vert foncé.</i></p><p>Juego: describe la ropa de un compañero con colores y matices, y que los demás adivinen quién es.</p>`,
+        H6.dos("Clair / foncé", ["CLAIR", ["bleu clair", "vert clair", "rose clair"], cAZ], ["FONCÉ", ["bleu foncé", "vert foncé", "gris foncé"], cMO])],
+    ],
+    "¿Cuántos años tienes?": [
+      ["Los números en la vida diaria", `<p>Los números no solo sirven para contar. Los usamos todos los días: para <mark>comprar</mark>, para llamar por <mark>teléfono</mark> o para decir la <b>fecha</b>.</p><p><b>Los precios:</b></p><ul><li><b>Ça coûte combien ?</b> / <b>C'est combien ?</b> — ¿Cuánto cuesta?</li><li><b>Ça coûte deux euros.</b> — Cuesta dos euros.</li><li><b>3,50 €</b> se dice <i>trois euros cinquante</i>. Fíjate en que en francés los decimales llevan <b>coma</b>, igual que en español.</li><li>Los céntimos se llaman <b>centimes</b>: <i>cinquante centimes</i>.</li></ul><p><b>El teléfono:</b> en Francia, los números de teléfono tienen <b>diez cifras</b> y se dicen de <b>dos en dos</b>: 06 12 34 56 78 → <i>zéro six, douze, trente-quatre, cinquante-six, soixante-dix-huit</i>. ¡Hay que saber bien los números hasta el 99!</p><ul><li><b>Quel est ton numéro de téléphone ?</b> — ¿Cuál es tu número de teléfono?</li></ul><p><b>La dirección:</b> <i>J'habite 25, rue Victor Hugo</i> (Vivo en el número 25 de la calle Victor Hugo). ¡En francés el número va <b>antes</b> que la calle!</p><p>Y para decir la fecha: <i>Aujourd'hui, on est le vingt-deux novembre</i> (hoy es 22 de noviembre). En francés, para el día 1 se dice <i>le premier</i>: <i>le premier janvier</i>.</p><p>Recuerda: tu número de teléfono y tu dirección son datos personales. Solo se los das a personas de confianza.</p>`,
+        L6.filas("Dans la vie", [["Ça coûte combien ?", "¿Cuánto cuesta?", cAZ], ["3,50 €", "trois euros cinquante", cVE], ["06 12 34 56 78", "de dos en dos", cNA], ["25, rue…", "número primero", cRO]])],
+    ],
+  },
+  final: [
+    ["Les couleurs de la France", `<p>La <mark>bandera de Francia</mark> se llama <i>le drapeau tricolore</i> (la bandera de tres colores), porque tiene tres franjas verticales: <b>bleu</b>, <b>blanc</b> y <b>rouge</b>. Por eso, a los deportistas franceses se les llama <i>les Bleus</i> (los Azules).</p><p>Los colores también aparecen en muchas <b>expresiones</b> francesas, que no se pueden traducir palabra por palabra:</p><ul><li><b>Avoir une peur bleue</b> («tener un miedo azul»): tener muchísimo miedo.</li><li><b>Voir la vie en rose</b> («ver la vida en rosa»): ser optimista. También es una canción muy famosa de <b>Édith Piaf</b>.</li><li><b>Être rouge comme une tomate</b>: ponerse rojo como un tomate, igual que en español.</li><li><b>Rire jaune</b> («reír amarillo»): reírse sin ganas, por compromiso.</li><li><b>Être vert de rage</b> («estar verde de rabia»): estar muy enfadado.</li><li><b>Une nuit blanche</b> («una noche blanca»): una noche sin dormir.</li></ul><p>La bandera francesa nació con la Revolución francesa, hace más de doscientos años: el azul y el rojo eran los colores de París, y el blanco, el del rey.</p><p>¿Y en español? Nosotros decimos «ponerse morado» (comer mucho), «estar verde» (no estar preparado) o «quedarse en blanco». Cada lengua usa los colores a su manera.</p><p>¿Cuál de estas expresiones francesas te gusta más? Dibuja una de ellas de forma literal: ¡quedará muy divertida!</p>`,
+      L6.filas("Expressions", [["une peur bleue", "mucho miedo", cAZ], ["la vie en rose", "ser optimista", cRO], ["rire jaune", "reír sin ganas", cNA], ["une nuit blanche", "no dormir", cMO]]), ["bjrQo1AOLOE", "Pourquoi le drapeau français est bleu blanc rouge ?", "1 jour, 1 question", 861312]],
+    ["Les maths en français", `<p>¿Y si hacemos <mark>matemáticas en francés</mark>? Estas son las palabras que necesitas:</p><ul><li><b>plus</b> (+): <i>deux plus trois</i> (2 + 3)</li><li><b>moins</b> (−): <i>dix moins quatre</i> (10 − 4)</li><li><b>fois</b> (×): <i>cinq fois six</i> (5 × 6)</li><li><b>divisé par</b> (÷): <i>vingt divisé par quatre</i> (20 ÷ 4)</li><li><b>égale</b> o <b>font</b> (=): <i>deux plus deux <b>égale</b> quatre</i> / <i>deux et deux <b>font</b> quatre</i></li></ul><p>Algunos ejemplos:</p><ul><li><i>Trente plus quarante égale soixante-dix.</i> (30 + 40 = 70)</li><li><i>Cent moins vingt égale quatre-vingts.</i> (100 − 20 = 80)</li><li><i>Neuf fois dix égale quatre-vingt-dix.</i> (9 × 10 = 90)</li></ul><p>Para preguntar el resultado: <b>Combien font trois fois sept ?</b> (¿Cuánto es tres por siete?) → <i>Ça fait vingt et un.</i></p><p><b>Juego del «Bingo»</b>: cada alumno escribe en un cartón seis números entre 1 y 100. La maestra dice operaciones en francés (<i>quarante plus dix</i>) y si tienes el resultado (50), ¡lo tachas! El primero que tache todos grita <b>«Bingo !»</b>.</p>`,
+      H6.flujo("Calcul", ["30|plus", "40|égale", "70|soixante-dix", "¡Bingo!|tacha"], cVE)],
+  ],
+  ejemplos: [
+    ["Escribe en letras: 75 y 92.", ["75 = 60 + 15: soixante-quinze.", "92 = 4 × 20 + 12: quatre-vingt-douze."], "soixante-quinze, quatre-vingt-douze"],
+    ["Pregunta el precio de unas manzanas y responde que cuestan 2,40 €.", ["Pregunta: Ça coûte combien ?", "Respuesta: euros + céntimos."], "Ça coûte combien ? — Ça coûte deux euros quarante."],
+  ],
+  errores: ["Decir «septante» o «nonante» pensando que es lo de Francia: en Francia se dice soixante-dix y quatre-vingt-dix.", "Hacer concordar bleu clair: «une robe bleue claire»."],
+  ejercicios: [
+    ["b", "¿Cómo se dice 40 en francés?", "quarante"],
+    ["b", "¿Cómo se dice «azul oscuro»?", "bleu foncé"],
+    ["b", "¿Cómo se pregunta «¿Cuánto cuesta?»?", "Ça coûte combien ?"],
+    ["b", "¿De qué colores es la bandera francesa?", "Bleu, blanc, rouge."],
+    ["b", "¿Qué significa «moins»?", "menos"],
+    ["m", "Escribe en letras: 80.", "quatre-vingts"],
+    ["m", "Escribe en letras: 71.", "soixante et onze"],
+    ["m", "Calcula y escribe en francés: cinq fois dix.", "cinquante"],
+    ["m", "¿Qué significa «avoir une peur bleue»?", "Tener muchísimo miedo."],
+    ["m", "Di este teléfono de dos en dos: 06 20 45 70 90.", "zéro six, vingt, quarante-cinq, soixante-dix, quatre-vingt-dix"],
+    ["a", "Escribe un diálogo en una tienda con tres precios.", "Respuesta abierta."],
+    ["a", "Escribe cinco operaciones en francés para un compañero.", "Respuesta abierta."],
+    ["a", "Describe tu ropa con colores y matices.", "Respuesta abierta."],
+    ["a", "Dibuja una expresión francesa con colores de forma literal.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["90 en francés es…", ["quatre-vingt-dix", "neuf-dix", "soixante-trente"], "Números."],
+    ["«Vert foncé» es…", ["verde oscuro", "verde claro", "verde brillante"], "Colores."],
+    ["En Francia, el teléfono se dice…", ["de dos en dos", "de tres en tres", "de uno en uno"], "Números en la vida."],
+    ["A los deportistas franceses se les llama…", ["les Bleus", "les Rouges", "les Verts"], "Bandera."],
+    ["«Fois» significa…", ["por (×)", "más (+)", "igual (=)"], "Matemáticas."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuánto cuesta el kilo de tomates?", ["tres euros cincuenta", "diez euros", "cuatro euros"], "Lectura."],
+    ["¿Cuánto le devuelven al abuelo?", ["dos euros veinte", "siete euros ochenta", "un euro"], "Lectura."],
+  ],
+  tarjetas: [
+    ["Decenas", "trente, quarante, cinquante, soixante, soixante-dix, quatre-vingts, quatre-vingt-dix, cent."],
+    ["Matices", "bleu clair, vert foncé (no cambian); orange y marron tampoco."],
+    ["En la vida", "Ça coûte combien ? 3,50 €; teléfono de dos en dos."],
+    ["Bandera y mates", "bleu, blanc, rouge; plus, moins, fois, égale."],
+  ],
+  glosario: [
+    ["trente", "treinta"],
+    ["soixante", "sesenta"],
+    ["soixante-dix", "setenta"],
+    ["quatre-vingts", "ochenta"],
+    ["quatre-vingt-dix", "noventa"],
+    ["clair", "claro"],
+    ["foncé", "oscuro"],
+    ["Ça coûte combien ?", "¿Cuánto cuesta?"],
+    ["les centimes", "los céntimos"],
+    ["le drapeau", "la bandera"],
+    ["plus / moins", "más / menos"],
+    ["égale", "igual a"],
+  ],
+  situacion: {
+    titulo: "Le marché de la classe",
+    reto: "La clase monta un mercado en francés con productos de colores y precios.",
+    pasos: ["Haced etiquetas con el nombre, el color y el precio de cada producto (hasta 100 €).", "Preparad diálogos de compra con «Ça coûte combien ?».", "Comprad y vended calculando el cambio en voz alta en francés.", "Al final, jugad al bingo de operaciones en francés."],
+    producto: "Un mercado de clase en francés.",
+    evaluacion: ["Dice los números hasta el 100.", "Usa los colores con clair y foncé.", "Pregunta y dice precios.", "Hace cálculos sencillos en francés."],
+  },
+});

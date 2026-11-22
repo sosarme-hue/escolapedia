@@ -90,3 +90,91 @@ module.exports = P.tema({
   saberes: "Comunicación y léxico: el material escolar y los objetos del aula; artículos determinados e indeterminados; posesivos mon, ma, ton, ta; preguntar qué es algo; consignas y frases habituales del aula",
   ideas: ["Juego de Kim: retirar un objeto de la mesa y adivinar cuál falta en francés.", "Simón dice con las consignas de clase (Levez la main, Asseyez-vous…).", "Etiquetado del aula en francés con artículo y color según el género."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Decir los días de la semana y leer un horario escolar", "Formar el plural de los objetos de clase", "Nombrar las asignaturas y decir cuáles te gustan", "Conocer cómo es el colegio en Francia y jugar a «Jacques a dit»"],
+  lectura: { titulo: "La journée de Chloé", html: `<p>Chloé tiene nueve años y vive en Burdeos (Bordeaux). Está en <b>CM1</b>, que es como nuestro 4º de Primaria. Lee cómo es su semana.</p><p><i>Bonjour ! Je m'appelle Chloé. Mon école s'appelle école Jules Verne.</i></p><p><i>Le <b>lundi</b>, le <b>mardi</b>, le <b>jeudi</b> et le <b>vendredi</b>, j'ai école de 8 h 30 à 16 h 30. Le <b>mercredi</b>, je n'ai pas école ! Je vais à la piscine (piscina) et au cours de dessin.</i></p><p><i>Dans mon <b>cartable</b>, il y a <b>des cahiers</b>, <b>des livres</b> et ma <b>trousse</b>. Dans ma trousse, il y a <b>trois stylos</b>, <b>deux crayons</b>, une gomme et des <b>ciseaux</b>.</i></p><p><i>J'adore <b>les maths</b> et <b>le sport</b>. J'aime bien <b>l'anglais</b>. Mais je n'aime pas beaucoup <b>la géographie</b>. C'est difficile !</i></p><p><i>À midi, je mange à <b>la cantine</b> avec mes copains. Après, c'est <b>la récré</b> (el recreo) ! On joue à « <b>Jacques a dit</b> ».</i></p><p><i>Ma maîtresse s'appelle Madame Dubois. Elle est très gentille. Quand on parle trop, elle dit : « <b>Silence, s'il vous plaît !</b> »</i></p><p><i>Et toi ? Comment est ton école ?</i></p><p>¿Te has fijado? ¡En Francia muchos niños no tienen clase el miércoles!</p>` },
+  tras: {
+    "Dans la classe: en la clase": [
+      ["Los días de la semana y el horario", `<p>Para hablar de tu semana en el colegio necesitas los <mark>días de la semana</mark>. En francés se escriben con <b>minúscula</b>, como en español:</p><ul><li><b>lundi</b> (lunes) · <b>mardi</b> (martes) · <b>mercredi</b> (miércoles) · <b>jeudi</b> (jueves) · <b>vendredi</b> (viernes)</li><li><b>samedi</b> (sábado) · <b>dimanche</b> (domingo)</li><li><b>le week-end</b> (el fin de semana)</li></ul><p>¿Ves el truco? Casi todos terminan en <b>-di</b>, igual que en español terminan en <b>-es</b>. Y se parecen mucho: <i>lun-di / lun-es</i>, <i>mar-di / mart-es</i>.</p><p>Para preguntar qué día es:</p><ul><li><b>Quel jour on est ?</b> / <b>On est quel jour ?</b> — ¿Qué día es hoy?</li><li><b>On est lundi.</b> — Hoy es lunes.</li></ul><p>Para hablar del horario (<b>l'emploi du temps</b>):</p><ul><li><b>Le lundi, j'ai maths.</b> — Los lunes tengo mates.</li><li><b>Le mercredi, je n'ai pas école.</b> — Los miércoles no tengo cole.</li></ul><p>Fíjate: con <b>le</b> delante del día, significa «todos los lunes». Sin <i>le</i>, es solo un día concreto: <i>Lundi, je vais au cinéma</i> (este lunes).</p><p>Un truco para recordarlos: los nombres vienen de los astros, igual que en español. <i>Lundi</i> es el día de la Luna, <i>mardi</i> el de Marte, <i>mercredi</i> el de Mercurio, <i>jeudi</i> el de Júpiter y <i>vendredi</i> el de Venus.</p><p>Las horas en francés se escriben con <b>h</b>: <i>8 h 30</i> (las ocho y media).</p>`,
+        L6.filas("La semaine", [["lundi", "lunes", cAZ], ["mercredi", "miércoles", cVE], ["vendredi", "viernes", cNA], ["samedi", "sábado", cMO], ["dimanche", "domingo", cRO]]), ["BiHYehk0tYo", "Les jours de la semaine", "Pierre Lozère", 45508620]],
+    ],
+    "El, la, los: le, la, l', les": [
+      ["El plural: un stylo, des stylos", `<p>En francés, el <mark>plural</mark> se forma casi siempre añadiendo una <b>-s</b>, como en español. Pero hay una gran diferencia: ¡esa <b>-s</b> <b>no se pronuncia</b>!</p><ul><li><i>un stylo → des stylo<b>s</b></i> (suena igual: «stiló»)</li><li><i>une gomme → des gomme<b>s</b></i></li><li><i>un livre → des livre<b>s</b></i></li></ul><p>Entonces, ¿cómo sabemos si es singular o plural cuando hablamos? ¡Por el <b>artículo</b>! Escucha bien:</p><ul><li><b>le</b> stylo («lə») / <b>les</b> stylos («le»)</li><li><b>un</b> livre / <b>des</b> livres («de»)</li></ul><p>El artículo <b>des</b> es el plural de <i>un</i> y <i>une</i>. En español a veces no lo decimos, pero en francés <b>siempre</b> hace falta: <i>J'ai <b>des</b> crayons</i> (tengo lápices).</p><p>Algunas palabras forman el plural de otra manera:</p><ul><li>Las que terminan en <b>-eau</b> añaden <b>-x</b>: <i>un tableau → des tableau<b>x</b></i> (pizarras), <i>un bureau → des bureau<b>x</b></i> (mesas del profesor).</li><li>Las que ya terminan en <b>-s</b> no cambian: <i>un bras → des bras</i>.</li></ul><p>Cuando la palabra empieza por vocal, la <b>s</b> de <i>les</i> o <i>des</i> se une a ella y suena como «z»: <i>les‿enfants</i> («lezanfán»). Esto se llama <b>liaison</b>.</p>`,
+        L6.filas("Pluriel", [["un stylo", "des stylos", cAZ], ["une gomme", "des gommes", cVE], ["le livre", "les livres", cNA], ["un tableau", "des tableaux", cRO]])],
+    ],
+    "Las órdenes de la maestra": [
+      ["Les matières: las asignaturas", `<p>¿Cuál es tu asignatura favorita? Estas son las <mark>asignaturas</mark> (<i>les matières</i>) del colegio en francés:</p><ul><li><b>les maths</b> (las matemáticas)</li><li><b>le français</b> (la lengua francesa, como nuestra Lengua)</li><li><b>l'anglais</b> (el inglés) y <b>l'espagnol</b> (el español)</li><li><b>les sciences</b> (las ciencias)</li><li><b>l'histoire</b> (la historia) y <b>la géographie</b></li><li><b>la musique</b></li><li><b>les arts plastiques</b> (la plástica)</li><li><b>le sport</b> o <b>l'EPS</b> (la educación física)</li></ul><p>Para decir qué te gusta, usa estos verbos:</p><ul><li><b>J'adore</b> les maths ! ❤️❤️ (me encantan)</li><li><b>J'aime</b> la musique. ❤️ (me gusta)</li><li><b>J'aime bien</b> l'anglais. (me gusta bastante)</li><li><b>Je n'aime pas</b> la géographie. (no me gusta)</li><li><b>Je déteste</b>… (odio)</li></ul><p>Fíjate en que, al contrario que en español, en francés se dice <b>la persona que hace la acción</b>: «<b>J'</b>aime» (yo amo/me gusta). Y el artículo va siempre: <i>J'aime <b>les</b> maths</i>.</p><p>Para preguntar: <b>Quelle est ta matière préférée ?</b> (¿Cuál es tu asignatura preferida?) → <i>Ma matière préférée, c'est le sport !</i></p>`,
+        H6.dos("J'aime…", ["J'ADORE", ["les maths", "le sport", "la musique"], cVE], ["JE N'AIME PAS", ["la géographie", "les devoirs", "les examens"], cRO])],
+    ],
+  },
+  final: [
+    ["El colegio en Francia", `<p>¿Cómo es ir al colegio en Francia? Hay algunas <mark>diferencias</mark> con España muy curiosas:</p><ul><li><b>Los cursos</b>: la Primaria (<i>l'école élémentaire</i>) tiene cinco cursos: <b>CP</b>, <b>CE1</b>, <b>CE2</b>, <b>CM1</b> y <b>CM2</b>. Un niño de 4º de Primaria en España está en <b>CM1</b>. Después de CM2 pasan al <i>collège</i> (nuestra ESO, pero empieza antes).</li><li><b>El miércoles</b>: en muchos colegios, los niños no tienen clase el miércoles, o solo por la mañana. Aprovechan para hacer deporte, música o actividades.</li><li><b>Los horarios</b>: las clases suelen durar de 8 h 30 a 16 h 30, con una pausa larga para comer.</li><li><b>La cantine</b>: casi todos los niños comen en el comedor del colegio. El menú tiene entrante, plato principal, queso o yogur y postre.</li><li><b>La récré</b>: el recreo, donde se juega a la comba (<i>la corde à sauter</i>), al pilla-pilla (<i>le loup</i>) o a las canicas (<i>les billes</i>).</li><li><b>Les vacances</b>: además del verano, tienen vacaciones cada seis o siete semanas, más o menos: en otoño, en Navidad, en invierno y en primavera.</li></ul><p>Otra diferencia: en Francia, las notas no siempre son números del 0 al 10. En muchos colegios de Primaria se usan colores, letras o frases como <i>très bien</i> (muy bien) o <i>à revoir</i> (para repasar). Y al empezar el curso, en septiembre, se celebra <b>la rentrée</b>, la vuelta al cole, que es un momento muy importante: las tiendas se llenan de cuadernos, estuches y mochilas nuevas.</p><p>¿Qué te parece? ¿Te gustaría tener el miércoles libre?</p>`,
+      L6.filas("España / Francia", [["4º Primaria", "CM1", cAZ], ["miércoles", "sin clase", cVE], ["comedor", "la cantine", cNA], ["recreo", "la récré", cMO]]), ["OBuhE9eg0Z4", "Le système scolaire français", "Easy French", 322355]],
+    ["Jouons ! Jacques a dit", `<p><mark>Jacques a dit</mark> («Jacques dice») es un juego muy popular en Francia, parecido a «Simón dice». Sirve para practicar las órdenes y las partes del cuerpo.</p><p><b>Cómo se juega:</b></p><ol><li>Un jugador es «Jacques» y da órdenes a los demás.</li><li>Si la orden empieza con <b>«Jacques a dit…»</b>, hay que obedecer: <i>Jacques a dit : levez la main !</i> (¡Levantad la mano!)</li><li>Si la orden <b>no</b> empieza con «Jacques a dit», ¡no hay que moverse! Quien se mueva, queda eliminado.</li></ol><p>Algunas órdenes útiles (con <i>vous</i>, para todo el grupo):</p><ul><li><b>Levez-vous !</b> — ¡Levantaos!</li><li><b>Asseyez-vous !</b> — ¡Sentaos!</li><li><b>Levez la main !</b> — ¡Levantad la mano!</li><li><b>Touchez la tête / le nez / les pieds !</b> — ¡Tocad la cabeza / la nariz / los pies!</li><li><b>Fermez les yeux !</b> — ¡Cerrad los ojos!</li><li><b>Sautez !</b> — ¡Saltad!</li><li><b>Tournez !</b> — ¡Girad!</li><li><b>Applaudissez !</b> — ¡Aplaudid!</li></ul><p>Para un solo compañero se usa <i>tu</i>: <i>Lève-toi ! Assieds-toi ! Saute !</i></p><p>Es un juego excelente para entrenar el oído: hay que escuchar con mucha atención el principio de cada frase, y entender la orden en francés antes de moverse.</p><p>¡Juega en clase y ganará quien escuche mejor!</p>`,
+      H6.flujo("Jacques a dit", ["Jacques…|levez-vous", "con Jacques|obedece", "sin Jacques|quieto", "si fallas|fuera"], cNA)],
+  ],
+  ejemplos: [
+    ["Escribe en plural: un livre, une trousse, un tableau.", ["La mayoría añade -s (que no suena).", "Las acabadas en -eau añaden -x. El artículo un/une pasa a des."], "des livres, des trousses, des tableaux"],
+    ["Di que los miércoles no tienes cole.", ["Con le delante del día = todos los miércoles.", "Negación: ne… pas."], "Le mercredi, je n'ai pas école."],
+  ],
+  errores: ["Pronunciar la -s del plural: «stilós».", "Escribir los días con mayúscula: «Lundi» en mitad de una frase."],
+  ejercicios: [
+    ["b", "¿Cómo se dice «jueves» en francés?", "jeudi"],
+    ["b", "Escribe el plural de «un cahier».", "des cahiers"],
+    ["b", "¿Cómo se dice «Me encantan las mates»?", "J'adore les maths !"],
+    ["b", "¿En qué curso francés está un niño de 4º de Primaria?", "En CM1."],
+    ["b", "¿Qué significa «Levez la main»?", "Levantad la mano."],
+    ["m", "Escribe el plural de «un bureau».", "des bureaux"],
+    ["m", "Pregunta a un compañero cuál es su asignatura preferida.", "Quelle est ta matière préférée ?"],
+    ["m", "Escribe dos asignaturas que te gustan y una que no.", "Respuesta abierta."],
+    ["m", "¿Qué diferencia hay entre «lundi» y «le lundi»?", "Lundi = este lunes; le lundi = todos los lunes."],
+    ["m", "Nombra tres diferencias entre el cole en Francia y en España.", "Por ejemplo: el miércoles libre, CM1, más vacaciones cortas."],
+    ["a", "Escribe tu horario semanal en francés.", "Respuesta abierta."],
+    ["a", "Escribe un texto como el de Chloé sobre tu colegio.", "Respuesta abierta."],
+    ["a", "Dirige una partida de «Jacques a dit» con cinco órdenes.", "Respuesta abierta."],
+    ["a", "Haz una encuesta: ¿cuál es la asignatura preferida de la clase?", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«Miércoles» en francés es…", ["mercredi", "mardi", "jeudi"], "Días."],
+    ["El plural de «un crayon» es…", ["des crayons", "les crayon", "des crayones"], "Plural."],
+    ["«J'adore le sport» significa…", ["Me encanta el deporte", "Odio el deporte", "No hago deporte"], "Asignaturas."],
+    ["En Francia, 4º de Primaria se llama…", ["CM1", "CP", "collège"], "Cole en Francia."],
+    ["En «Jacques a dit», si no se dice «Jacques a dit»…", ["no te mueves", "saltas", "aplaudes"], "Juego."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué hace Chloé el miércoles?", ["va a la piscina y a dibujo", "va al colegio", "va a la cantina"], "Lectura."],
+    ["¿Qué asignatura no le gusta a Chloé?", ["la geografía", "las matemáticas", "el deporte"], "Lectura."],
+  ],
+  tarjetas: [
+    ["Días", "lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche."],
+    ["Plural", "un stylo → des stylos (la -s no suena); tableau → tableaux."],
+    ["Asignaturas", "les maths, le français, l'anglais, le sport; J'adore… Je n'aime pas…"],
+    ["Cole en Francia", "CM1, mercredi libre, la cantine, la récré; Jacques a dit."],
+  ],
+  glosario: [
+    ["lundi", "lunes"],
+    ["mercredi", "miércoles"],
+    ["l'emploi du temps", "el horario"],
+    ["des", "unos, unas (plural de un/une)"],
+    ["les matières", "las asignaturas"],
+    ["J'adore", "me encanta"],
+    ["Je n'aime pas", "no me gusta"],
+    ["la cantine", "el comedor"],
+    ["la récré", "el recreo"],
+    ["CM1", "curso equivalente a 4º de Primaria"],
+    ["Levez-vous !", "¡Levantaos!"],
+    ["Asseyez-vous !", "¡Sentaos!"],
+  ],
+  situacion: {
+    titulo: "Notre école en français",
+    reto: "La clase prepara un vídeo o un cartel para explicar su colegio a una clase de CM1 de Francia.",
+    pasos: ["Escribid el horario de la semana en francés con los días y las asignaturas.", "Haced una lista de los objetos de vuestra mochila y estuche en plural.", "Cada alumno dice qué asignaturas le encantan y cuáles no.", "Grabad un vídeo jugando a «Jacques a dit» y comparad vuestro cole con uno francés."],
+    producto: "Un cartel o un vídeo sobre el colegio en francés.",
+    evaluacion: ["Usa los días de la semana correctamente.", "Forma bien el plural con des y les.", "Expresa gustos con j'adore, j'aime, je n'aime pas.", "Da órdenes sencillas en francés."],
+  },
+});

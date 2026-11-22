@@ -93,3 +93,91 @@ module.exports = P.tema({
   saberes: "Comunicación y léxico: los miembros de la familia; posesivos mon, ma, mes, ton, ta, tes; presentar a alguien (c'est, il/elle s'appelle, il/elle a … ans); descripción física y de carácter con adjetivos y concordancia de género",
   ideas: ["Árbol genealógico ilustrado con frases en francés.", "Familias de cartas con miembros de la familia en francés.", "Presentación oral breve de la familia con fotos o dibujos."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Usar ton, ta, tes y son, sa, ses", "Hablar de familias de todo tipo", "Describir el pelo y los ojos con el verbo avoir", "Conjugar avoir y conocer las fiestas familiares francesas"],
+  lectura: { titulo: "L'anniversaire de Mamie", html: `<p>Hoy la abuela de Tom cumple setenta años y toda la familia se reúne en su casa, en Toulouse. Lee lo que cuenta Tom. Las palabras difíciles llevan traducción.</p><p><i>Aujourd'hui, c'est l'anniversaire de ma grand-mère, Mamie Rose. Elle <b>a</b> soixante-dix ans ! Toute la famille est là.</i></p><p><i>Il y a <b>mes parents</b>, ma petite sœur Lina et moi. Il y a aussi <b>mon oncle</b> Marc et <b>sa femme</b>, ma tante Sofia. Ils <b>ont</b> deux enfants : <b>mes cousins</b> Hugo et Zoé.</i></p><p><i>Mon cousin Hugo <b>a les cheveux</b> roux (pelirrojo) et bouclés (rizado). Ma cousine Zoé <b>a les yeux</b> verts, comme <b>sa mère</b>.</i></p><p><i>Mon autre tante, tante Claire, vit seule avec <b>son fils</b>, Noah. Noah est <b>fils unique</b> (hijo único), mais il dit qu'il a beaucoup de cousins, alors il n'est jamais seul !</i></p><p><i>Mamie Rose <b>a les cheveux</b> blancs et courts. Elle est très drôle et très gentille. Elle fait le meilleur gâteau au chocolat du monde.</i></p><p><i>À quatre heures, on allume les bougies (velas) du gâteau. Tout le monde chante : « <b>Joyeux anniversaire, Mamie !</b> »</i></p><p><i>Mamie souffle (sopla) les bougies et dit : « Ma famille, c'est <b>mon</b> plus beau cadeau (regalo) ! »</i></p>` },
+  tras: {
+    "Mon, ma, mes: mi y mis": [
+      ["Ton, ta, tes · son, sa, ses", `<p>Ya sabes decir «mi» y «mis» con <i>mon, ma, mes</i>. Para decir «tu» y «su» funciona exactamente igual: hay una forma para el <b>masculino</b>, otra para el <b>femenino</b> y otra para el <b>plural</b>.</p><ul><li><b>tu / tus</b>: <b>ton</b> père, <b>ta</b> mère, <b>tes</b> parents.</li><li><b>su / sus</b> (de él o de ella): <b>son</b> frère, <b>sa</b> sœur, <b>ses</b> cousins.</li></ul><p>¡Atención! En francés, <i>son / sa</i> concuerda con la <b>cosa o persona que se posee</b>, no con el dueño. Por eso:</p><ul><li><i>Zoé et <b>son</b> père</i> — Zoé y su padre (aunque Zoé es una chica, <i>père</i> es masculino).</li><li><i>Hugo et <b>sa</b> mère</i> — Hugo y su madre (aunque Hugo es un chico, <i>mère</i> es femenino).</li></ul><p>Otra regla: delante de una palabra femenina que empieza por <b>vocal</b>, se usa <b>mon, ton, son</b> en lugar de <i>ma, ta, sa</i>, para que suene mejor: <i><b>mon</b> amie</i> (mi amiga), <i><b>ton</b> école</i>, <i><b>son</b> histoire</i>.</p><p>Preguntas útiles:</p><ul><li><i>Comment s'appelle <b>ta</b> mère ?</i> — ¿Cómo se llama tu madre?</li><li><i>Où habitent <b>tes</b> grands-parents ?</i> — ¿Dónde viven tus abuelos?</li></ul>`,
+        L6.filas("Possessifs", [["mi", "mon · ma · mes", cAZ], ["tu", "ton · ta · tes", cVE], ["su", "son · sa · ses", cNA], ["mon amie", "vocal: mon", cRO]]), ["TFCkx4kl5rc", "French possessive adjectives", "Learn French With Alexa", 764464]],
+    ],
+    "Los abuelos, los tíos y los primos": [
+      ["Familias de todo tipo", `<p>No todas las familias son iguales. Hay <mark>muchos tipos de familias</mark>, y todas son familias de verdad:</p><ul><li><b>Une famille nombreuse</b>: una familia numerosa, con muchos hijos. <i>J'ai quatre frères et sœurs !</i></li><li><b>Une famille monoparentale</b>: un padre o una madre que vive solo con sus hijos. <i>J'habite avec ma mère.</i></li><li><b>Une famille recomposée</b>: cuando los padres se separan y forman una nueva familia con otra pareja. Entonces aparecen:<ul><li><b>le beau-père</b> (el padrastro, la pareja de tu madre) y <b>la belle-mère</b> (la madrastra)</li><li><b>le demi-frère</b> y <b>la demi-sœur</b> (el medio hermano y la media hermana)</li></ul></li><li>Familias con <b>dos papás</b> o <b>dos mamás</b>: <i>J'ai deux mamans.</i></li><li>Familias <b>adoptivas</b>: <i>Je suis adopté / adoptée.</i></li></ul><p>Y además:</p><ul><li><b>fils unique</b> / <b>fille unique</b>: hijo único / hija única.</li><li><b>des jumeaux</b> / <b>des jumelles</b>: gemelos / gemelas.</li><li><b>l'aîné(e)</b>: el mayor, la mayor; <b>le / la cadet(te)</b>: el pequeño, la pequeña.</li></ul><p>Lo importante de una familia no es cuántos son ni cómo son, sino que se quieren y se cuidan.</p><p>¿Cómo es tu familia? <i>Dans ma famille, il y a…</i></p>`,
+        H6.rueda("Familles", "FAMILLE", [["nombreuse", cAZ], ["monoparentale", cVE], ["recomposée", cNA], ["adoptive", cMO]])],
+    ],
+    "Describir a una persona": [
+      ["El pelo y los ojos", `<p>Para describir el <mark>pelo</mark> y los <mark>ojos</mark>, en francés se usa el verbo <b>avoir</b> (tener) con el artículo <b>les</b>:</p><ul><li><b>Il a les cheveux</b> courts. — Tiene el pelo corto.</li><li><b>Elle a les yeux</b> bleus. — Tiene los ojos azules.</li></ul><p>Fíjate: <i>les cheveux</i> (el pelo) y <i>les yeux</i> (los ojos) van siempre en <b>plural</b>, así que los adjetivos también: <i>les cheveux <b>longs</b></i>, <i>les yeux <b>verts</b></i>.</p><p><b>El pelo:</b></p><ul><li>Largo: <b>longs</b> · Corto: <b>courts</b></li><li>Liso: <b>raides</b> · Rizado: <b>bouclés</b> · Ondulado: <b>ondulés</b></li><li>Rubio: <b>blonds</b> · Moreno: <b>bruns</b> · Castaño: <b>châtains</b> · Pelirrojo: <b>roux</b> · Blanco: <b>blancs</b> · Canoso: <b>gris</b></li></ul><p><b>Los ojos:</b> <b>bleus</b>, <b>verts</b>, <b>marron</b> (no cambia), <b>noirs</b>, <b>gris</b>.</p><p>Otros rasgos:</p><ul><li><b>Il porte des lunettes.</b> — Lleva gafas.</li><li><b>Il a une barbe / une moustache.</b> — Tiene barba / bigote.</li><li><b>Il est chauve.</b> — Es calvo.</li></ul><p>Ejemplo completo: <i>Ma tante Sofia est grande. Elle a les cheveux longs et bruns, et les yeux verts. Elle porte des lunettes.</i></p>`,
+        L6.filas("Il a / Elle a…", [["les cheveux", "longs, courts, bouclés", cAZ], ["les cheveux", "blonds, bruns, roux", cNA], ["les yeux", "bleus, verts, marron", cVE], ["il porte", "des lunettes", cMO]])],
+    ],
+  },
+  final: [
+    ["Le verbe avoir", `<p>El verbo <mark>avoir</mark> (tener) es uno de los más importantes del francés. Lo usamos para la familia, la edad, el aspecto físico… ¡y para muchas cosas más!</p><ul><li><b>j'ai</b> — yo tengo (fíjate: <i>je</i> + <i>ai</i> = <i>j'ai</i>, con apóstrofo)</li><li><b>tu as</b> — tú tienes</li><li><b>il a</b> / <b>elle a</b> / <b>on a</b> — él / ella tiene / tenemos</li><li><b>nous avons</b> — nosotros tenemos</li><li><b>vous avez</b> — vosotros tenéis / usted tiene</li><li><b>ils ont</b> / <b>elles ont</b> — ellos / ellas tienen</li></ul><p>Pronunciación: en <i>nous‿avons</i>, <i>vous‿avez</i> e <i>ils‿ont</i> la <b>s</b> se une a la vocal y suena como «z»: «nuzavón», «vuzavé», «ilzón». ¡No confundas <i>ils ont</i> («ilzón», tienen) con <i>ils sont</i> («ilsón», son)!</p><p>Usos de <i>avoir</i>:</p><ul><li>La familia: <i>J'<b>ai</b> deux frères.</i></li><li>La edad: <i>Elle <b>a</b> neuf ans.</i></li><li>El aspecto: <i>Il <b>a</b> les yeux bleus.</i></li><li>Las mascotas: <i>Nous <b>avons</b> un chien.</i></li><li>Las sensaciones: <i>J'<b>ai</b> faim</i> (tengo hambre), <i>j'<b>ai</b> soif</i> (tengo sed), <i>j'<b>ai</b> froid</i> (tengo frío), <i>j'<b>ai</b> peur</i> (tengo miedo).</li></ul><p>En negativo: <i>Je <b>n'ai pas</b> de frère.</i> (No tengo hermanos.)</p>`,
+      L6.filas("Avoir", [["j'ai", "yo tengo", cAZ], ["tu as", "tú tienes", cVE], ["il / elle a", "él / ella tiene", cNA], ["nous avons", "tenemos", cMO], ["ils ont", "tienen", cRO]])],
+    ["Les fêtes en famille", `<p>En Francia, como en España, hay muchas <mark>fiestas</mark> que se celebran en familia:</p><ul><li><b>L'anniversaire</b> (el cumpleaños): se hace un pastel con velas y se canta <i>Joyeux anniversaire</i>, con la misma música que nuestro «Cumpleaños feliz». Para felicitar se dice <b>Bon anniversaire !</b></li><li><b>Noël</b> (Navidad): el 24 por la noche hay una gran cena, <i>le réveillon</i>. Los regalos los trae <b>le Père Noël</b> (Papá Noel) y se ponen al pie del <b>sapin</b> (el árbol de Navidad). De postre se toma <b>la bûche de Noël</b>, un pastel con forma de tronco. Para felicitar: <b>Joyeux Noël !</b></li><li><b>La galette des rois</b>: en enero se come un pastel de hojaldre relleno de crema de almendras. Dentro se esconde una figurita, <b>la fève</b>. Quien la encuentra es el rey o la reina del día ¡y lleva una corona de papel! Se parece a nuestro roscón de Reyes.</li><li><b>La fête des mères</b> y <b>la fête des pères</b>: días para hacer un regalo a mamá y a papá. En Francia, la fiesta de las madres suele ser a finales de mayo o principios de junio.</li></ul><p>¿Qué fiesta familiar te gusta más? ¿Se celebra igual en tu casa?</p>`,
+      H6.dos("Fêtes", ["FRANCE", ["la galette des rois", "la bûche de Noël", "le Père Noël"], cAZ], ["ESPAÑA", ["el roscón", "el turrón", "los Reyes Magos"], cRO]), ["l04BpnlteSY", "Joyeux anniversaire", "Le Rieur", 46215963]],
+  ],
+  ejemplos: [
+    ["Completa: Hugo et ___ mère; Zoé et ___ père.", ["son / sa concuerdan con lo que se posee.", "mère es femenino → sa; père es masculino → son."], "Hugo et sa mère; Zoé et son père."],
+    ["Describe: chica, pelo largo y rubio, ojos azules.", ["Elle a les cheveux + adjetivos en plural.", "Elle a les yeux + color en plural."], "Elle a les cheveux longs et blonds et les yeux bleus."],
+  ],
+  errores: ["Decir «sa père» porque el dueño es una chica: es son père.", "Confundir ils ont (tienen) con ils sont (son)."],
+  ejercicios: [
+    ["b", "¿Cómo se dice «tu madre» en francés?", "ta mère"],
+    ["b", "¿Cómo se dice «tengo hambre»?", "J'ai faim."],
+    ["b", "¿Qué significa «fils unique»?", "hijo único"],
+    ["b", "¿Cómo se felicita un cumpleaños en francés?", "Bon anniversaire ! / Joyeux anniversaire !"],
+    ["b", "Conjuga avoir con nous.", "nous avons"],
+    ["m", "Completa: Léa et ___ frère; Léa et ___ sœurs.", "son, ses"],
+    ["m", "¿Por qué se dice «mon amie» y no «ma amie»?", "Porque amie empieza por vocal."],
+    ["m", "Describe el pelo de alguien de tu familia en francés.", "Respuesta abierta."],
+    ["m", "¿Qué es la fève de la galette des rois?", "La figurita escondida en el pastel."],
+    ["m", "Escribe en negativo: J'ai un chien.", "Je n'ai pas de chien."],
+    ["a", "Describe a tu familia en cinco frases con avoir.", "Respuesta abierta."],
+    ["a", "Describe a un personaje famoso sin decir su nombre para que lo adivinen.", "Respuesta abierta."],
+    ["a", "Compara una fiesta francesa con una española.", "Respuesta abierta."],
+    ["a", "Escribe una tarjeta de cumpleaños en francés.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«Su hermana» (de Hugo) es…", ["sa sœur", "son sœur", "ses sœur"], "Posesivos."],
+    ["Una familia con muchos hijos es…", ["nombreuse", "monoparentale", "unique"], "Familias."],
+    ["«Tiene los ojos verdes» es…", ["Il a les yeux verts.", "Il est les yeux verts.", "Il a yeux vert."], "Describir."],
+    ["«Ellos tienen» se dice…", ["ils ont", "ils sont", "ils a"], "Avoir."],
+    ["El pastel francés de enero con una figurita es…", ["la galette des rois", "la bûche de Noël", "le croissant"], "Fiestas."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántos años cumple Mamie Rose?", ["setenta", "sesenta", "ochenta"], "Lectura."],
+    ["¿Cómo tiene el pelo el primo Hugo?", ["pelirrojo y rizado", "rubio y liso", "blanco y corto"], "Lectura."],
+  ],
+  tarjetas: [
+    ["Posesivos", "mon/ma/mes, ton/ta/tes, son/sa/ses; mon amie."],
+    ["Familias", "nombreuse, monoparentale, recomposée; demi-frère, fils unique."],
+    ["Pelo y ojos", "Il a les cheveux longs; elle a les yeux bleus."],
+    ["Avoir y fiestas", "j'ai, tu as, il a, nous avons, vous avez, ils ont; galette, bûche."],
+  ],
+  glosario: [
+    ["ton, ta, tes", "tu, tus"],
+    ["son, sa, ses", "su, sus"],
+    ["une famille nombreuse", "una familia numerosa"],
+    ["le demi-frère", "el medio hermano"],
+    ["fils unique", "hijo único"],
+    ["les cheveux", "el pelo"],
+    ["les yeux", "los ojos"],
+    ["bouclés", "rizados"],
+    ["roux", "pelirrojo"],
+    ["avoir", "tener"],
+    ["Bon anniversaire !", "¡Feliz cumpleaños!"],
+    ["la fève", "la figurita de la galette"],
+  ],
+  situacion: {
+    titulo: "Mon album de famille",
+    reto: "Cada alumno crea un álbum de su familia en francés para intercambiar con una clase francesa.",
+    pasos: ["Dibuja o pega fotos de tu familia (o de una familia inventada).", "Escribe debajo quién es cada persona con mon, ma, mes y su edad con avoir.", "Describe su pelo, sus ojos y su carácter.", "Añade una página sobre la fiesta familiar que más te gusta."],
+    producto: "Un álbum de familia en francés.",
+    evaluacion: ["Usa bien los posesivos.", "Conjuga avoir correctamente.", "Describe el pelo y los ojos.", "Presenta el álbum con cuidado."],
+  },
+});
