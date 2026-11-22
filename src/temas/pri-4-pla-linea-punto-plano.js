@@ -93,3 +93,91 @@ module.exports = tema({
   ideas: ["Muestrario de texturas con rotulador negro.", "Pequeña obra puntillista con bastoncillos y témpera.", "Dibujar emociones solo con líneas y comentarlas."],
   fuentes: [["Museo Nacional Centro de Arte Reina Sofía: educación", "https://www.museoreinasofia.es/educacion"], ["Fundació Joan Miró: educación", "https://www.fmirobcn.org/es/educacion/"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el arte de puntos de los pueblos aborígenes", "Dibujar con una línea continua como Picasso y Calder", "Crear texturas con la técnica del frottage", "Descubrir la caligrafía como arte de la línea"],
+  lectura: { titulo: "El dibujo sin levantar el lápiz", html: `<p>Aquella mañana, el profesor de Plástica, Andrés, entró en clase con un reto curioso.</p><p>—Hoy vais a dibujar a vuestro compañero de al lado. Pero con dos condiciones: no podéis levantar el lápiz del papel ni una sola vez… y no podéis mirar la hoja.</p><p>Hubo un murmullo de protesta. ¿Cómo se iba a dibujar sin mirar?</p><p>Zoe miró a su compañero Bruno con mucha atención. Empezó por la oreja, siguió por el pelo, bajó por la frente, la nariz, la boca… Sus ojos recorrían despacio la cara de Bruno mientras su mano avanzaba sobre el papel como una hormiga.</p><p>Al terminar, miraron los dibujos. ¡Qué risa! La nariz de Bruno estaba en la mejilla, un ojo encima de la ceja y la boca le salía por la barbilla. Pero, curiosamente, se parecía a Bruno. Había algo en las líneas, en la forma del pelo, que era muy suyo.</p><p>—Esto se llama <b>dibujo de contorno ciego</b> —explicó Andrés—. Lo usan muchos artistas para entrenar la mirada. Cuando no miras el papel, miras de verdad lo que dibujas.</p><p>Después les enseñó unos dibujos de Picasso hechos con una sola línea: un perro, un pájaro, un caballo. Ninguno tenía un trazo de más.</p><p>—Una línea puede decirlo todo —dijo— si sabes dónde llevarla.</p><p>Zoe colgó su retrato de Bruno en la pared. A él le pareció horrible. A ella, genial.</p>` },
+  tras: {
+    "El puntillismo": [
+      ["Los puntos del arte aborigen", `<p>Los pueblos <mark>aborígenes de Australia</mark> tienen una de las culturas más antiguas del mundo: llevan allí más de 50 000 años. Durante siglos, contaban sus historias y sus mapas dibujándolos en la arena, en las rocas o en su propio cuerpo.</p><p>A partir de los años setenta del siglo pasado, algunos artistas aborígenes empezaron a pintar esas historias sobre lienzo con pintura acrílica. Así nació el famoso <b>arte de puntos</b> (<i>dot painting</i>):</p><ul><li>Los cuadros están hechos con miles de <b>puntos</b> de colores, colocados con palitos, pinceles o la punta de los dedos.</li><li>Los puntos forman <b>círculos concéntricos</b>, líneas onduladas y caminos.</li><li>Muchos cuadros son como <b>mapas vistos desde arriba</b>: los círculos pueden ser pozos de agua o lugares de reunión; las líneas, caminos o ríos; unas huellas en forma de U, personas sentadas.</li><li>Usan mucho los colores de la tierra: ocre, rojo, amarillo, blanco y negro.</li></ul><p>Estos cuadros cuentan relatos del <b>Tiempo del Sueño</b>, las historias sagradas sobre cómo se creó el mundo.</p><p><b>Prueba</b>: con bastoncillos de algodón y témpera, pinta un mapa de tu camino al colegio solo con puntos: círculos para tu casa y el cole, líneas de puntos para las calles.</p>`,
+        L6.filas("Arte de puntos", [["círculos", "lugares, pozos", cNA], ["líneas", "caminos, ríos", cRO], ["forma de U", "personas", cAZ], ["colores", "tierra y ocre", cMO]]), ["5PhRqKVkLDY", "Arte aborigen australiano", "MÁS QUE ARTE", 62799]],
+    ],
+    "La línea y sus tipos": [
+      ["Dibujar con una sola línea", `<p>Algunos artistas han demostrado que con una sola <mark>línea continua</mark>, sin levantar el lápiz, se puede dibujar casi cualquier cosa:</p><ul><li><b>Pablo Picasso</b> hizo muchos dibujos de una sola línea: un perro salchicha, un pájaro, un camello, una lechuza, un caballo. Con muy pocos trazos captaba lo esencial del animal. En 1949, un fotógrafo le pidió que dibujara en el aire con una linterna en una habitación a oscuras, y la cámara grabó los dibujos de luz.</li><li><b>Alexander Calder</b>, escultor estadounidense, «dibujaba en el aire» con <b>alambre</b>: doblaba un hilo de metal para crear retratos, animales y personajes de circo. Eran como dibujos en tres dimensiones.</li><li><b>Paul Klee</b> decía que dibujar es «sacar a pasear una línea».</li></ul><p>Dos ejercicios para entrenar:</p><ul><li><b>Dibujo de línea continua</b>: dibuja un objeto (tu zapatilla, una planta) sin levantar el lápiz del papel. Ve despacio.</li><li><b>Dibujo de contorno ciego</b>: dibuja algo mirándolo solo a él, sin mirar el papel. El resultado será raro, pero entrenarás mucho la observación.</li></ul><p>Después, puedes doblar un trozo de <b>limpiapipas</b> o alambre blando para convertir tu dibujo en una escultura de línea, como Calder.</p>`,
+        H6.dos("Una línea", ["PICASSO", ["animales", "un solo trazo", "con luz"], cAZ], ["CALDER", ["alambre", "dibujo en 3D", "circo"], cRO]), ["Nxes8pyHkJc", "Watch Picasso make a masterpiece", "Royal Academy of Arts", 9324598]],
+    ],
+    "Texturas con puntos y líneas": [
+      ["El frottage: copiar texturas", `<p>El <mark>frottage</mark> (palabra francesa que significa «frotado») es una técnica para copiar texturas reales al papel. La popularizó el pintor surrealista <b>Max Ernst</b> hace unos cien años: un día, mirando las vetas del suelo de madera de una habitación, puso un papel encima y frotó con un lápiz. ¡Aparecieron formas sorprendentes!</p><p><b>Cómo se hace</b>:</p><ul><li><b>1.</b> Busca superficies con relieve: hojas de árbol (por el lado de los nervios), monedas, cortezas, una rejilla, la suela de una zapatilla, una tabla de madera, un azulejo con dibujo, una pared rugosa.</li><li><b>2.</b> Coloca un papel fino encima (un folio o papel de seda) y sujétalo bien para que no se mueva.</li><li><b>3.</b> Frota suavemente con el <b>lateral</b> de una cera, de un lápiz blando o de un carboncillo, siempre en la misma dirección.</li><li><b>4.</b> ¡Mira cómo aparece la textura en el papel!</li></ul><p>Con los papeles de frottage puedes hacer después un <b>collage</b>: recorta formas de distintas texturas y compón un paisaje, un animal o una ciudad. La corteza puede ser el tronco de un árbol; la rejilla, una ventana; la hoja, un pez.</p><p>Max Ernst también usaba el <b>grattage</b>: rascar la pintura húmeda sobre un lienzo apoyado en objetos con textura.</p>`,
+        H6.flujo("Frottage", ["superficie|con relieve", "papel|encima", "frotar|con cera", "recortar|y componer"], cVE)],
+    ],
+  },
+  final: [
+    ["La caligrafía: el arte de la línea escrita", `<p>La <mark>caligrafía</mark> es el arte de escribir con letras bonitas. En ella, cada trazo es una línea pensada con cuidado: gruesa o fina, recta o curva, rápida o lenta.</p><ul><li>En <b>China</b> y <b>Japón</b>, la caligrafía es una de las artes más valoradas. Se escribe con un <b>pincel</b> y tinta negra sobre papel de arroz. Cada carácter tiene un orden de trazos que hay que respetar. Los calígrafos practican durante años y dicen que en un solo trazo se ve el estado de ánimo de quien escribe. En Japón se llama <b>shodo</b>, «el camino de la escritura».</li><li>En el mundo <b>árabe</b> e islámico, la caligrafía decora mezquitas, palacios y libros. En la <b>Alhambra</b> de Granada, las paredes están cubiertas de poemas escritos con letras que parecen encaje.</li><li>En la <b>Edad Media</b>, en Europa, los monjes copiaban libros a mano en los monasterios, con letras decoradas y una gran <b>letra capital</b> iluminada con colores y oro al principio de cada capítulo.</li></ul><p><b>Prueba</b>: con un rotulador de punta biselada (o dos lápices atados con celo), escribe tu nombre. Fíjate en cómo cambia el grosor de la línea según la dirección del trazo.</p><p>Después, diseña la <b>letra capital</b> de tu nombre decorada con puntos, líneas y colores, como los monjes medievales.</p>`,
+      H6.rueda("Caligrafía", "TRAZO", [["China", cRO], ["Japón", cAZ], ["árabe", cVE], ["monjes", cNA]]), ["ji1PjjLkqac", "Los cuatro principios básicos de la caligrafía japonesa (Shodo)", "Esteban Martinez", 72436]],
+    ["Patrones con puntos y líneas", `<p>Un <mark>patrón</mark> es un motivo que se repite de forma ordenada: rayas, cuadros, lunares, zigzags… Los encontramos en la ropa, el papel de regalo, los azulejos, las alfombras o la piel de los animales (las rayas de la cebra, las manchas del leopardo).</p><p>Hay muchos tipos de patrones:</p><ul><li><b>Lineales</b>: se repiten en una fila, como una cenefa o un friso.</li><li><b>De superficie</b>: cubren todo el plano en todas las direcciones, como una tela de cuadros.</li><li><b>Alternos</b>: se van alternando dos motivos: punto-raya-punto-raya.</li><li><b>Progresivos</b>: el motivo va cambiando poco a poco, por ejemplo, de pequeño a grande.</li></ul><p>Una actividad muy relajante es el dibujo de patrones dentro de zonas:</p><ul><li><b>1.</b> Dibuja con lápiz una forma grande (una mano, una hoja, un pez).</li><li><b>2.</b> Divídela en zonas con líneas curvas que crucen de lado a lado.</li><li><b>3.</b> Rellena cada zona con un patrón diferente hecho solo con <b>puntos</b> y <b>líneas</b>: rayas, círculos, ondas, cuadrículas, espirales…</li><li><b>4.</b> Repasa con rotulador negro fino.</li></ul><p>Concentrarse en repetir pequeños motivos ayuda a calmarse. ¡Muchos artistas dicen que dibujar patrones es como meditar!</p>`,
+      L6.filas("Patrones", [["lineal", "friso, cenefa", cAZ], ["de superficie", "toda la tela", cVE], ["alterno", "punto-raya", cRO], ["progresivo", "de pequeño a grande", cMO]])],
+  ],
+  ejemplos: [
+    ["En un cuadro aborigen ves círculos concéntricos unidos por líneas de puntos. ¿Qué pueden representar?", ["Muchos cuadros son mapas vistos desde arriba.", "Círculos: lugares; líneas: caminos."], "Lugares (como pozos) unidos por caminos."],
+    ["Quieres copiar la textura de una hoja con frottage. ¿Qué lado pones hacia arriba?", ["Se necesita el relieve de los nervios.", "Los nervios sobresalen más por detrás."], "El lado de los nervios, debajo del papel tocándolo."],
+  ],
+  errores: ["Frotar con la punta del lápiz en el frottage: se usa el lateral de la cera o el lápiz.", "Levantar el lápiz en el dibujo de línea continua: hay que hacerlo de un solo trazo."],
+  ejercicios: [
+    ["b", "¿Con qué pintan los artistas aborígenes sus puntos?", "Con palitos, pinceles o los dedos."],
+    ["b", "¿Con qué material dibujaba Calder en el aire?", "Con alambre."],
+    ["b", "¿Qué significa frottage?", "Frotado."],
+    ["b", "¿Cómo se llama la caligrafía japonesa?", "Shodo."],
+    ["b", "¿Qué es un patrón?", "Un motivo que se repite de forma ordenada."],
+    ["m", "¿Qué es el dibujo de contorno ciego?", "Dibujar mirando el objeto, sin mirar el papel."],
+    ["m", "¿Qué representan muchos cuadros aborígenes?", "Mapas e historias del Tiempo del Sueño."],
+    ["m", "¿Quién popularizó el frottage?", "Max Ernst."],
+    ["m", "¿Qué era la letra capital?", "La gran letra decorada al principio de un capítulo."],
+    ["m", "¿Qué diferencia hay entre un patrón alterno y uno progresivo?", "El alterno alterna motivos; el progresivo cambia poco a poco."],
+    ["a", "Pinta un mapa de tu camino al cole con puntos.", "Respuesta abierta."],
+    ["a", "Dibuja tres animales con una sola línea continua.", "Respuesta abierta."],
+    ["a", "Haz un collage con papeles de frottage.", "Respuesta abierta."],
+    ["a", "Diseña la letra capital de tu nombre.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El arte de puntos es de los pueblos…", ["aborígenes australianos", "romanos", "vikingos"], "Puntos."],
+    ["Picasso dibujó en el aire con…", ["una linterna", "un pincel mojado", "humo"], "Línea."],
+    ["El frottage copia…", ["texturas", "colores", "sonidos"], "Frottage."],
+    ["En la Alhambra hay caligrafía…", ["árabe", "japonesa", "china"], "Caligrafía."],
+    ["Las rayas de la cebra son un…", ["patrón", "volumen", "bodegón"], "Patrones."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué no podían hacer los alumnos al dibujar?", ["mirar el papel ni levantar el lápiz", "hablar", "usar colores"], "Lectura."],
+    ["¿Con qué se escribe la caligrafía china tradicional?", ["con pincel y tinta", "con bolígrafo", "con tiza"], "Caligrafía."],
+  ],
+  tarjetas: [
+    ["Arte aborigen", "Puntos, círculos y líneas; mapas del Tiempo del Sueño."],
+    ["Línea continua", "Picasso, Calder con alambre, contorno ciego."],
+    ["Frottage", "Max Ernst; frotar texturas con cera; collage."],
+    ["Caligrafía y patrones", "Shodo, árabe, letra capital; patrones lineales y alternos."],
+  ],
+  glosario: [
+    ["Aborigen", "Habitante originario de un lugar."],
+    ["Arte de puntos", "Pintura aborigen hecha con puntos."],
+    ["Círculos concéntricos", "Círculos con el mismo centro."],
+    ["Línea continua", "Línea que se dibuja sin levantar el lápiz."],
+    ["Contorno ciego", "Dibujo sin mirar el papel."],
+    ["Frottage", "Técnica de frotar para copiar texturas."],
+    ["Grattage", "Técnica de rascar la pintura."],
+    ["Caligrafía", "Arte de escribir con letras bonitas."],
+    ["Shodo", "Caligrafía japonesa."],
+    ["Letra capital", "Letra grande decorada al inicio de un texto."],
+    ["Patrón", "Motivo que se repite de forma ordenada."],
+    ["Friso", "Franja decorada con un motivo repetido."],
+  ],
+  situacion: {
+    titulo: "Galería del punto y la línea",
+    reto: "La clase monta una galería con obras hechas solo con puntos y líneas de distintas culturas y técnicas.",
+    pasos: ["Pintar un mapa de puntos al estilo aborigen.", "Hacer retratos de contorno ciego y una escultura de alambre.", "Crear un collage con papeles de frottage.", "Diseñar letras capitales y patrones para decorar las cartelas de la galería."],
+    producto: "Una galería de obras de punto y línea.",
+    evaluacion: ["Conoce el arte aborigen.", "Dibuja con línea continua.", "Aplica el frottage.", "Crea patrones y caligrafía."],
+  },
+});

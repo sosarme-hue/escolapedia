@@ -94,3 +94,91 @@ module.exports = tema({
   ideas: ["Animal de arcilla con bola, churros y texturas.", "Pequeño relieve en placa de arcilla con hojas presionadas.", "Paseo para observar esculturas del entorno desde varios puntos de vista."],
   fuentes: [["Diccionario de la RAE: escultura", "https://dle.rae.es/escultura"], ["Museo Nacional del Prado: educación", "https://www.museodelprado.es/aprende/educacion"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo se hace la cerámica", "Distinguir entre modelar y tallar", "Reconocer esculturas famosas del mundo", "Crear esculturas con materiales reciclados"],
+  lectura: { titulo: "Las manos del alfarero", html: `<p>En las vacaciones, Hugo fue con sus abuelos a un pueblo famoso por su cerámica. En una calle estrecha había un taller con la puerta abierta. Dentro, un hombre mayor, con el delantal manchado de barro, trabajaba sentado frente a una rueda que giraba sin parar.</p><p>—Pasa, pasa —le dijo—. Me llamo Tomás. Mira.</p><p>Tomás echó una bola de barro mojado en el centro de la rueda. Apretó con las dos manos, y el barro, que bailaba de un lado a otro, se quedó quieto, redondo y liso. Luego hundió los pulgares en el centro, y poco a poco, como si fuera magia, las paredes empezaron a subir. En menos de un minuto había un jarrón.</p><p>—¿Cuánto tiempo tardó en aprender? —preguntó Hugo con la boca abierta.</p><p>—Mi padre me sentó en este torno cuando tenía tu edad —rio Tomás—. Los primeros cien cacharros se me cayeron todos.</p><p>Le dejó probar. El barro se le escapó, se torció y acabó convertido en una torta. Hugo se rio, lleno de barro hasta los codos.</p><p>—Lo importante no son las manos —dijo Tomás—, sino la paciencia.</p><p>Antes de irse, Hugo compró un pequeño botijo pintado de azul. Ahora está en su estantería, y cada vez que lo mira se acuerda del barro bailando en la rueda.</p>` },
+  tras: {
+    "Materiales para modelar": [
+      ["La cerámica: del barro al horno", `<p>La <mark>cerámica</mark> es el arte de hacer objetos con barro y endurecerlos con fuego. Es una de las artes más antiguas: hay figuras de barro cocido de hace más de 20 000 años. Platos, vasijas, tejas, ladrillos y azulejos son cerámica.</p><p>El camino de una pieza de cerámica tiene varios pasos:</p><ul><li><b>Modelar</b>: se da forma al barro con las manos o en el <b>torno</b>, una rueda que gira mientras el <b>alfarero</b> sube las paredes de la pieza.</li><li><b>Secar</b>: la pieza se deja secar al aire varios días. Si se cuece mojada, ¡puede estallar!</li><li><b>Cocer</b>: se mete en un <b>horno</b> a muy alta temperatura, unos 1000 grados. El barro se transforma y queda duro para siempre.</li><li><b>Decorar</b>: se pinta y se cubre con <b>esmalte</b>, una capa brillante que hace la pieza impermeable. Después se vuelve a cocer.</li></ul><p>En España hay una gran tradición de cerámica: la loza azul y blanca de <b>Talavera de la Reina</b> (Toledo), los reflejos dorados de <b>Manises</b> (Valencia), la porcelana de <b>Sargadelos</b> (Lugo), los azulejos de <b>Triana</b> en Sevilla o los botijos de muchos pueblos.</p><p>La cerámica de Talavera, junto con la de Puebla y Tlaxcala, en México, es <b>Patrimonio Cultural Inmaterial de la Humanidad</b>.</p>`,
+        H6.flujo("Cerámica", ["modelar|en torno", "secar|al aire", "cocer|en horno", "esmaltar|y decorar"], cNA), ["w5wgfA5l_HE", "Cerámica y alfarería: centrado", "Espacio Dual Ceramica", 343285]],
+    ],
+    "Relieve y bulto redondo": [
+      ["Tallar: quitar en vez de añadir", `<p>Hay dos formas principales de hacer una escultura:</p><ul><li><mark>Modelar</mark> (técnica <b>aditiva</b>): se <b>añade</b> material blando, como barro o plastilina, y se le da forma. Si te equivocas, puedes quitar o poner más.</li><li><mark>Tallar</mark> (técnica <b>sustractiva</b>): se parte de un bloque duro, como piedra o madera, y se va <b>quitando</b> material hasta que aparece la figura. ¡Si quitas de más, ya no tiene arreglo!</li></ul><p>Miguel Ángel decía que la escultura ya estaba dentro del bloque de mármol y que él solo tenía que quitar lo que sobraba. Para tallar se usan herramientas como el <b>cincel</b>, la <b>gubia</b> y el <b>martillo</b> (o la maza).</p><p>En clase puedes probar la talla con un material blando y seguro: una <b>pastilla de jabón</b>.</p><ul><li><b>1.</b> Dibuja con un palillo la silueta de tu figura (un pez, una tortuga, un corazón) en la cara del jabón.</li><li><b>2.</b> Con un palito de helado o una cucharilla de plástico, ve quitando jabón poco a poco, por fuera de la silueta.</li><li><b>3.</b> Talla los detalles (ojos, escamas) con el palillo.</li><li><b>4.</b> Alisa la superficie con el dedo un poco mojado.</li></ul><p>Las virutas no se tiran: sirven para lavarse las manos.</p>`,
+        H6.dos("Escultura", ["MODELAR", ["añadir", "barro, cera", "se corrige"], cVE], ["TALLAR", ["quitar", "piedra, madera", "sin vuelta"], cRO]), ["kUAvEPi4hNU", "Figuras de jabón fácil", "HolashalomA", 424663]],
+    ],
+    "Escultores y esculturas": [
+      ["Esculturas famosas del mundo", `<p>Algunas esculturas son tan famosas que las reconoce gente de todo el planeta:</p><ul><li><b>El David</b> (Miguel Ángel, Florencia, Italia): un joven de mármol de más de 5 metros, tallado de un solo bloque hace más de 500 años.</li><li><b>El pensador</b> (Auguste Rodin, Francia): un hombre de bronce sentado, con la barbilla apoyada en la mano, pensando. Se ha copiado muchas veces y hay versiones en museos de todo el mundo.</li><li><b>Los guerreros de terracota</b> (China): un ejército de más de 7000 soldados de barro cocido, de tamaño natural, enterrados junto a la tumba del primer emperador de China hace más de 2000 años. ¡Cada uno tiene una cara diferente! Los descubrieron unos campesinos en 1974 mientras cavaban un pozo.</li><li><b>Los moáis</b> (Isla de Pascua, Chile): enormes cabezas y cuerpos de piedra volcánica tallados por el pueblo rapanui. Hay cerca de mil.</li><li><b>La Dama de Elche</b> (España): busto de piedra de una mujer íbera con un tocado espectacular; hoy está en el Museo Arqueológico Nacional, en Madrid.</li></ul><p>Fíjate en que cada una usa un material distinto: mármol, bronce, barro cocido, piedra volcánica y caliza.</p>`,
+        L6.filas("Esculturas", [["David", "mármol", cAZ], ["El pensador", "bronce", cMO], ["Guerreros", "terracota", cNA], ["Moáis", "piedra volcánica", cVE]]), ["gjHhExeiX5w", "La increíble historia de los guerreros de terracota", "Sé Curioso TED-Ed", 100233]],
+    ],
+  },
+  final: [
+    ["Esculturas con reciclaje y móviles", `<p>No hace falta barro ni mármol para hacer una escultura. Muchos artistas usan <mark>materiales reciclados</mark>: cajas, tapones, latas, botellas, cartón, alambre, tubos…</p><ul><li><b>Pablo Picasso</b> hizo una cabeza de toro con solo dos piezas de una bicicleta vieja: el sillín y el manillar.</li><li><b>Alexander Calder</b> inventó los <b>móviles</b>: esculturas colgantes hechas con varillas de alambre y formas de chapa de colores que se mueven con el aire. Las piezas tienen que estar <b>equilibradas</b>, como una balanza.</li><li>Hoy hay artistas que hacen grandes animales con plásticos recogidos en las playas para avisar de la contaminación del mar.</li></ul><p><b>Taller: mi móvil</b></p><ul><li><b>1.</b> Recorta 6 u 8 formas de cartulina o de tapas de cajas recicladas (peces, estrellas, hojas) y píntalas por las dos caras.</li><li><b>2.</b> Ata un hilo a cada forma.</li><li><b>3.</b> Cuelga las formas de dos o tres palitos o pajitas.</li><li><b>4.</b> Mueve los hilos a lo largo de cada palito hasta que quede <b>horizontal</b>. Así conseguirás el equilibrio.</li></ul><p>Cuélgalo cerca de una ventana y mira cómo gira con el aire.</p>`,
+      H6.rueda("Reciclar", "OBRA", [["cajas", cNA], ["tapones", cRO], ["latas", cAZ], ["alambre", cMO]])],
+    ["Moldes y vaciado: esculturas en bronce", `<p>Si quieres hacer muchas copias iguales de una figura, o hacerla en un material que no se puede modelar, se usa un <mark>molde</mark>. Hacer una escultura con un molde se llama <b>vaciado</b>.</p><p>La técnica más antigua para hacer esculturas de <b>bronce</b> es la <mark>cera perdida</mark>:</p><ul><li><b>1.</b> El escultor modela la figura en <b>cera</b>.</li><li><b>2.</b> Cubre la figura de cera con una capa de arcilla o yeso que hace de molde.</li><li><b>3.</b> Calienta el molde: la cera se derrite y sale por un agujero. Por eso se llama «cera perdida».</li><li><b>4.</b> Por ese agujero se vierte el <b>bronce fundido</b>, un metal líquido y muy caliente, que ocupa el hueco que dejó la cera.</li><li><b>5.</b> Cuando el bronce se enfría y se endurece, se rompe el molde… ¡y aparece la escultura!</li></ul><p>En clase puedes hacer un vaciado sencillo: aprieta una concha o una hoja en una plancha de plastilina para hacer el molde, rodéala con una tira de cartulina y rellénala de <b>yeso</b>. Cuando se seque, retira la plastilina y tendrás un relieve de yeso.</p>`,
+      H6.flujo("Cera perdida", ["figura|de cera", "cubrir|con molde", "derretir|la cera", "verter|bronce"], cMO)],
+  ],
+  ejemplos: [
+    ["Has hecho un cuenco de arcilla y quieres que dure. ¿Qué pasos siguen?", ["La pieza debe secarse bien antes del horno.", "Después se cuece y se esmalta."], "Secar, cocer en el horno y esmaltar."],
+    ["Un escultor tiene un bloque de madera. ¿Modelará o tallará?", ["La madera es dura: no se puede añadir.", "Hay que quitar material."], "Tallará (técnica sustractiva)."],
+  ],
+  errores: ["Cocer una pieza de barro mojada: puede estallar en el horno.", "Pensar que tallar es añadir material: tallar es quitar."],
+  ejercicios: [
+    ["b", "¿Cómo se llama la rueda que usa el alfarero?", "Torno."],
+    ["b", "¿Qué material usa la técnica de la cera perdida al final?", "Bronce."],
+    ["b", "¿De qué material son los guerreros de China?", "De terracota, barro cocido."],
+    ["b", "¿Quién inventó los móviles?", "Alexander Calder."],
+    ["b", "¿Dónde están los moáis?", "En la Isla de Pascua."],
+    ["m", "¿Qué diferencia hay entre modelar y tallar?", "Modelar es añadir; tallar es quitar."],
+    ["m", "¿Para qué sirve el esmalte?", "Para dar brillo y hacer la pieza impermeable."],
+    ["m", "¿Por qué se llama cera perdida?", "Porque la cera se derrite y sale del molde."],
+    ["m", "Nombra dos lugares de España con tradición de cerámica.", "Talavera, Manises, Sargadelos, Triana…"],
+    ["m", "¿Con qué hizo Picasso su cabeza de toro?", "Con un sillín y un manillar de bicicleta."],
+    ["a", "Talla una figura en una pastilla de jabón.", "Respuesta abierta."],
+    ["a", "Construye un móvil equilibrado con materiales reciclados.", "Respuesta abierta."],
+    ["a", "Haz un relieve de yeso con un molde de plastilina.", "Respuesta abierta."],
+    ["a", "Elige una escultura famosa y explica su material y su historia.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La cerámica se endurece en el…", ["horno", "frigorífico", "agua"], "Cerámica."],
+    ["Tallar es una técnica…", ["sustractiva", "aditiva", "de pintura"], "Tallar."],
+    ["El pensador es de…", ["Rodin", "Picasso", "Calder"], "Esculturas."],
+    ["Un móvil necesita estar…", ["equilibrado", "mojado", "pegado al suelo"], "Móviles."],
+    ["En la cera perdida, la figura se modela primero en…", ["cera", "bronce", "papel"], "Vaciado."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le dijo Tomás que era lo importante?", ["la paciencia", "las manos grandes", "el barro caro"], "Lectura."],
+    ["¿Cuántos guerreros de terracota hay aproximadamente?", ["más de 7000", "unos 20", "un millón"], "Esculturas."],
+  ],
+  tarjetas: [
+    ["Cerámica", "Modelar, secar, cocer y esmaltar; Talavera, Manises."],
+    ["Modelar y tallar", "Añadir material blando o quitar de un bloque duro."],
+    ["Esculturas famosas", "David, El pensador, guerreros de terracota, moáis."],
+    ["Reciclaje y bronce", "Móviles de Calder; vaciado a la cera perdida."],
+  ],
+  glosario: [
+    ["Cerámica", "Arte de hacer objetos de barro cocido."],
+    ["Alfarero", "Persona que hace objetos de barro."],
+    ["Torno", "Rueda giratoria para modelar barro."],
+    ["Esmalte", "Capa brillante que cubre la cerámica."],
+    ["Tallar", "Dar forma quitando material de un bloque."],
+    ["Cincel", "Herramienta de metal para tallar piedra."],
+    ["Gubia", "Herramienta curva para tallar madera."],
+    ["Terracota", "Barro cocido."],
+    ["Móvil", "Escultura colgante que se mueve con el aire."],
+    ["Molde", "Pieza hueca que da forma a un material."],
+    ["Vaciado", "Hacer una escultura rellenando un molde."],
+    ["Bronce", "Metal hecho de cobre y estaño."],
+  ],
+  situacion: {
+    titulo: "Museo de esculturas del cole",
+    reto: "La clase prepara un pequeño museo de escultura con obras hechas con distintas técnicas.",
+    pasos: ["Modelar una vasija con churros de arcilla y dejarla secar.", "Tallar una figura en una pastilla de jabón.", "Hacer un relieve de yeso con un molde.", "Construir un móvil con materiales reciclados y escribir las cartelas."],
+    producto: "Un museo de esculturas con cartelas explicativas.",
+    evaluacion: ["Conoce el proceso de la cerámica.", "Distingue modelar y tallar.", "Reconoce esculturas famosas.", "Usa materiales reciclados con equilibrio."],
+  },
+});

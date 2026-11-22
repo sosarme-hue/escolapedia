@@ -89,3 +89,91 @@ module.exports = P.tema({
   saberes: "El relato de la creación (Gn 1–2) como relato religioso; Dios Padre y Creador; la dignidad del ser humano como imagen de Dios; el descanso y la acción de gracias; el cuidado de la casa común",
   ideas: ["Mural de los siete días con dibujos de toda la clase.", "Escribir un «cántico de las criaturas» propio con cosas del entorno.", "Patrulla verde del aula durante un mes."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer a Georges Lemaître, sacerdote y científico", "Descubrir cómo el arte ha representado la creación", "Comprender el relato de la primera desobediencia", "Comparar relatos del origen de distintas culturas"],
+  lectura: { titulo: "La noche de las estrellas", html: `<p>Aquel verano, Lucía fue de campamento a la montaña. La última noche, la monitora, Carmen, apagó todas las linternas.</p><p>—Tumbaos en la hierba y mirad hacia arriba —dijo—. Sin hablar.</p><p>Lucía nunca había visto tantas estrellas. En la ciudad solo se veían tres o cuatro, pero allí el cielo estaba lleno, como si alguien hubiera derramado un bote de purpurina sobre una tela negra. Una franja blanquecina lo cruzaba de lado a lado.</p><p>—Eso es la Vía Láctea —susurró Carmen—. Nuestra galaxia. Tiene miles de millones de estrellas, y el sol es solo una de ellas.</p><p>De repente, una estrella fugaz cruzó el cielo. Todos gritaron a la vez.</p><p>—¿Y quién hizo todo esto? —preguntó Mateo en voz baja.</p><p>Hubo un silencio. Rubén dijo que fue el Big Bang. Sara dijo que fue Dios. Empezaron a discutir.</p><p>—A lo mejor no hace falta elegir —dijo Carmen—. Los científicos estudian cómo empezó el universo. ¿Sabéis que la teoría del Big Bang la propuso un sacerdote?</p><p>Nadie la creyó. Pero era verdad.</p><p>Lucía se quedó callada, mirando hacia arriba. Sentía algo que no sabía explicar: pequeña y, a la vez, muy contenta de estar allí. Más tarde aprendió que esa sensación tiene un nombre: <b>asombro</b>.</p>` },
+  tras: {
+    "Los siete días": [
+      ["Lemaître: un sacerdote y el Big Bang", `<p>Mucha gente piensa que la fe y la ciencia están enfrentadas. La historia de <mark>Georges Lemaître</mark> demuestra que no tiene por qué ser así.</p><p>Lemaître nació en <b>Bélgica</b> en 1894. Desde niño tenía dos grandes pasiones: Dios y las ciencias. De mayor fue <b>sacerdote católico</b> y, a la vez, <b>astrónomo y físico</b>, profesor en la Universidad de Lovaina.</p><ul><li>Estudiando las ecuaciones de Albert Einstein y las observaciones de las galaxias, llegó a una conclusión sorprendente: el universo <b>se está expandiendo</b>, como un globo que se infla.</li><li>Si se expande, pensó, en el pasado tuvo que ser muy pequeño. En 1931 propuso que el universo empezó a partir de un «<b>átomo primitivo</b>» que se fue expandiendo. Esa idea es la base de lo que hoy llamamos el <b>Big Bang</b>.</li><li>Al principio, algunos científicos, incluido Einstein, dudaron de su idea. Con los años, las pruebas le dieron la razón.</li></ul><p>Lemaître decía que la ciencia y la fe son <b>dos caminos</b> distintos hacia la verdad: la ciencia explica cómo funciona el universo y la fe busca su sentido. No quería mezclarlas, pero tampoco veía que se contradijeran.</p><p>Como él, muchos científicos han sido creyentes, y muchos creyentes han sido grandes científicos.</p>`,
+        L6.filas("Lemaître", [["nació", "Bélgica, 1894", cAZ], ["era", "sacerdote", cMO], ["y además", "astrónomo", cNA], ["propuso", "el Big Bang", cRO]]), ["Nr360Li0l2U", "La historia del comienzo – Georges Lemaître, padre del big bang", "Eduardo Riaza", 50558]],
+    ],
+    "El ser humano, imagen de Dios": [
+      ["La creación en el arte: la Capilla Sixtina", `<p>Muchos artistas han representado la creación. La obra más famosa está en la <mark>Capilla Sixtina</mark>, en el Vaticano (Roma).</p><p>Entre 1508 y 1512, el papa Julio II encargó a <b>Miguel Ángel</b> pintar el techo de la capilla. Miguel Ángel se consideraba escultor, no pintor, y al principio no quería hacerlo. Al final aceptó y trabajó durante cuatro años:</p><ul><li>Pintaba subido a un enorme <b>andamio</b>, de pie y con la cabeza echada hacia atrás, mirando hacia arriba. Le caía pintura en la cara.</li><li>Usó la técnica del <b>fresco</b>: pintar sobre el yeso todavía húmedo, muy deprisa, antes de que se secara.</li><li>Pintó más de 300 figuras con escenas del Génesis: la separación de la luz y las tinieblas, la creación del sol y la luna, Adán y Eva, Noé…</li></ul><p>La escena más conocida es <b>La creación de Adán</b>: Dios, rodeado de ángeles, extiende el brazo hacia Adán, que está tumbado. Sus dedos casi se tocan, pero no del todo. Ese pequeño hueco entre los dedos es una de las imágenes más famosas del mundo: representa el momento en que Dios da la vida al ser humano.</p><p>Hoy, millones de personas visitan cada año la capilla y miran hacia arriba, como hacía Miguel Ángel.</p>`,
+        H6.flujo("Sixtina", ["encargo|1508", "andamio|y fresco", "300|figuras", "Adán|los dedos"], cAZ), ["_RxBjsyJcuE", "¿Cómo pintó Miguel Ángel el techo de la Capilla Sixtina?", "Inspiraggio", 889082]],
+    ],
+    "Adán y Eva en el jardín": [
+      ["La primera desobediencia", `<p>El Génesis sigue contando (Gn 3), con nuestras palabras: en el jardín, Dios dejó a Adán y Eva comer de todos los árboles menos de uno, el <b>árbol del conocimiento del bien y del mal</b>.</p><p>Pero una <b>serpiente</b> astuta le dijo a Eva: «Si coméis de ese fruto, seréis como Dios». Eva comió y le dio a Adán, que también comió.</p><ul><li>En ese momento sintieron <b>vergüenza</b> y se escondieron entre los árboles.</li><li>Dios los buscó: «¿Dónde estás?». Adán echó la culpa a Eva, y Eva echó la culpa a la serpiente. ¡Nadie quería reconocer su error!</li><li>Tuvieron que salir del jardín, y la vida se volvió más difícil.</li></ul><p>Este relato no habla de una fruta, sino de algo que nos pasa a todos: a veces queremos hacer las cosas a nuestra manera, sin escuchar a Dios ni a los demás, y eso nos hace daño. La Iglesia lo llama <mark>pecado original</mark>.</p><p>Pero el relato tiene un detalle muy bonito: Dios no abandona a Adán y Eva. Les hace unos vestidos de piel para que no pasen frío. Los cristianos creen que Dios nunca deja de buscar al ser humano, y que esa búsqueda termina en <b>Jesús</b>.</p><p>Fíjate también en lo de echar la culpa a otro. ¿Te ha pasado alguna vez?</p>`,
+        H6.dos("Gn 3", ["ERROR", ["desobedecer", "esconderse", "culpar"], cRO], ["DIOS", ["busca", "viste", "no abandona"], cVE])],
+    ],
+  },
+  final: [
+    ["Relatos del origen en otras culturas", `<p>Todos los pueblos de la Tierra se han preguntado de dónde viene el mundo, y muchos han contado sus respuestas en <mark>relatos del origen</mark>:</p><ul><li>En la antigua <b>Mesopotamia</b>, un poema llamado <i>Enuma Elish</i> contaba que el mundo nació de una lucha entre dioses: el dios Marduk venció a la diosa del mar y con su cuerpo hizo el cielo y la tierra.</li><li>En <b>China</b> se cuenta que el gigante <b>Pangu</b> dormía dentro de un huevo cósmico. Al despertar, separó el cielo de la tierra, y de su cuerpo nacieron las montañas, los ríos y las estrellas.</li><li>Los <b>mayas</b> de Centroamérica cuentan en el <b>Popol Vuh</b> que los dioses intentaron hacer a los seres humanos con barro y con madera, pero no les salieron bien. Al final los hicieron con <b>maíz</b>, su alimento principal.</li><li>En la antigua <b>Grecia</b>, al principio estaba el <b>Caos</b>, y de él nacieron la Tierra (Gea) y el Cielo (Urano).</li></ul><p>Si comparas estos relatos con el Génesis, verás algo especial en el bíblico: Dios crea <b>sin luchar</b> con nadie, solo con su palabra, y todo lo que hace es <b>bueno</b>. El ser humano no es un error ni un juguete de los dioses, sino su imagen.</p><p>Conocer los relatos de otras culturas nos ayuda a <b>respetarlas</b> y a entender mejor el nuestro.</p>`,
+      H6.rueda("Orígenes", "ORIGEN", [["Mesopotamia", cNA], ["China", cRO], ["mayas", cVE], ["Grecia", cAZ]])],
+    ["El asombro: mirar el mundo con ojos nuevos", `<p>El <mark>asombro</mark> es lo que sientes cuando algo te deja con la boca abierta: un arcoíris doble, una tormenta, una mariposa saliendo de su capullo o un cielo lleno de estrellas. Los filósofos griegos decían que el asombro es el principio de la sabiduría, porque nos hace hacernos preguntas.</p><p>Para los creyentes, el asombro también puede convertirse en <b>oración</b>. El salmo 8 dice: «Cuando contemplo el cielo, obra de tus dedos, la luna y las estrellas que has creado, ¿qué es el hombre para que te acuerdes de él?».</p><p>Muchos artistas han expresado ese asombro:</p><ul><li>El músico austriaco <b>Joseph Haydn</b> compuso un oratorio llamado <b>La Creación</b> (1798). Cuando el coro canta «¡Y se hizo la luz!», la música, que era suave, estalla de repente con toda la orquesta.</li><li>Los poetas escriben sobre el mar, las flores o la lluvia.</li></ul><p><b>Propuesta: mi cuaderno del asombro</b></p><ul><li><b>1.</b> Durante una semana, busca cada día algo de la naturaleza que te sorprenda.</li><li><b>2.</b> Dibújalo y escribe una frase sobre él.</li><li><b>3.</b> Al final, escribe una pequeña oración o un poema de gratitud.</li></ul><p>Verás que, cuando aprendes a mirar, el mundo está lleno de maravillas pequeñas.</p>`,
+      L6.filas("Asombro", [["mirar", "con atención", cAZ], ["preguntar", "¿por qué?", cNA], ["agradecer", "salmo 8", cVE], ["expresar", "arte y música", cMO]])],
+  ],
+  ejemplos: [
+    ["¿Puede un científico ser creyente? Pon un ejemplo.", ["La ciencia y la fe responden a preguntas distintas.", "Lemaître fue sacerdote y astrónomo."], "Sí: Georges Lemaître, que propuso el Big Bang."],
+    ["En el relato de Gn 3, ¿qué hacen Adán y Eva cuando Dios les pregunta?", ["Adán culpa a Eva.", "Eva culpa a la serpiente."], "Se echan la culpa unos a otros."],
+  ],
+  errores: ["Creer que la teoría del Big Bang la propuso un enemigo de la fe: la propuso un sacerdote.", "Pensar que el relato del árbol habla solo de comer una fruta: habla de desobedecer y alejarse de Dios."],
+  ejercicios: [
+    ["b", "¿En qué país nació Lemaître?", "En Bélgica."],
+    ["b", "¿Quién pintó el techo de la Capilla Sixtina?", "Miguel Ángel."],
+    ["b", "¿Qué animal habla con Eva en el relato?", "Una serpiente."],
+    ["b", "¿De qué hicieron los dioses a los humanos en el Popol Vuh?", "De maíz."],
+    ["b", "¿Qué compuso Haydn?", "El oratorio La Creación."],
+    ["m", "¿Qué idea propuso Lemaître en 1931?", "Que el universo empezó desde un átomo primitivo y se expande."],
+    ["m", "¿Qué es la técnica del fresco?", "Pintar sobre yeso húmedo."],
+    ["m", "¿Qué hace Dios con Adán y Eva después de su error?", "Los busca y les hace vestidos: no los abandona."],
+    ["m", "¿Qué diferencia al Génesis del relato mesopotámico?", "Dios crea sin luchar, con su palabra, y todo es bueno."],
+    ["m", "¿Qué dice el salmo 8?", "Que al contemplar el cielo nos asombramos del cuidado de Dios."],
+    ["a", "Explica con tus palabras cómo pueden convivir la ciencia y la fe.", "Respuesta abierta."],
+    ["a", "Describe La creación de Adán y lo que te transmite.", "Respuesta abierta."],
+    ["a", "Compara dos relatos del origen de culturas distintas.", "Respuesta abierta."],
+    ["a", "Empieza tu cuaderno del asombro con tres entradas.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Lemaître era sacerdote y…", ["astrónomo", "futbolista", "pintor"], "Lemaître."],
+    ["La Capilla Sixtina está en…", ["el Vaticano", "París", "Toledo"], "Sixtina."],
+    ["En Gn 3, Adán echa la culpa a…", ["Eva", "un ángel", "Caín"], "Desobediencia."],
+    ["Pangu es un gigante de un relato de…", ["China", "Grecia", "México"], "Otras culturas."],
+    ["El asombro es…", ["sorprenderse ante algo maravilloso", "tener miedo", "aburrirse"], "Asombro."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué vio Lucía en el cielo?", ["la Vía Láctea y una estrella fugaz", "un avión", "la luna llena"], "Lectura."],
+    ["En La creación de Adán, ¿qué casi se tocan?", ["los dedos de Dios y Adán", "dos árboles", "el sol y la luna"], "Sixtina."],
+  ],
+  tarjetas: [
+    ["Lemaître", "Sacerdote y astrónomo belga; propuso el Big Bang."],
+    ["Capilla Sixtina", "Miguel Ángel, fresco, La creación de Adán."],
+    ["Gn 3", "Serpiente, desobediencia, culpar; Dios no abandona."],
+    ["Relatos del origen y asombro", "Pangu, Popol Vuh; salmo 8, Haydn."],
+  ],
+  glosario: [
+    ["Astrónomo", "Científico que estudia los astros."],
+    ["Big Bang", "Teoría sobre el inicio y la expansión del universo."],
+    ["Expansión", "Hacerse cada vez más grande."],
+    ["Fresco", "Pintura sobre yeso húmedo."],
+    ["Andamio", "Armazón para trabajar en alto."],
+    ["Desobediencia", "No hacer caso de lo que se manda."],
+    ["Pecado original", "Alejamiento de Dios que, según la fe cristiana, afecta a todos."],
+    ["Serpiente", "Símbolo del engaño en el relato del Génesis."],
+    ["Mito", "Relato antiguo que explica el origen de las cosas."],
+    ["Popol Vuh", "Libro sagrado de los mayas."],
+    ["Asombro", "Sorpresa y admiración ante algo grande."],
+    ["Oratorio", "Obra musical para coro, voces y orquesta."],
+  ],
+  situacion: {
+    titulo: "Exposición «Mirar la creación»",
+    reto: "La clase prepara una exposición sobre cómo la ciencia, el arte y las culturas han mirado el origen del mundo.",
+    pasos: ["Hacer un panel sobre Lemaître y el Big Bang.", "Reproducir La creación de Adán pintando tumbados bajo la mesa.", "Preparar fichas de relatos del origen de cuatro culturas.", "Exponer los cuadernos del asombro con oraciones de gratitud."],
+    producto: "Una exposición con paneles, dibujos y cuadernos.",
+    evaluacion: ["Relaciona ciencia y fe con respeto.", "Conoce la Capilla Sixtina.", "Comprende el relato de Gn 3.", "Compara relatos de distintas culturas."],
+  },
+});
