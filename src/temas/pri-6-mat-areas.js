@@ -93,3 +93,91 @@ module.exports = P.tema({
   saberes: "Sentido de la medida: área de figuras planas, unidades de superficie y agrarias, área del círculo y de figuras compuestas por descomposición",
   ideas: ["Recortar romboides y triángulos de papel para deducir sus fórmulas.", "Medir el aula y calcular cuántas baldosas tiene.", "Diseñar la planta de una casa en papel cuadriculado y calcular su superficie."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbmbbmmmma",
+  objetivos: ["Usar las unidades agrarias para medir terrenos", "Calcular el área de la corona y del sector circular", "Comprobar que figuras con el mismo perímetro pueden tener distinta área", "Resolver problemas reales de pintar, alicatar y medir terrenos"],
+  lectura: { titulo: "La tierra de la reina Dido", html: `<p>Cuenta una leyenda antigua que la princesa Dido huyó de su ciudad, en Fenicia, y llegó por mar a la costa del norte de África. Allí pidió al rey del lugar un trozo de tierra para fundar una ciudad.</p><p>El rey, que no quería dar mucho, le contestó con una sonrisa burlona:</p><p>—Te daré toda la tierra que puedas abarcar con la piel de un buey.</p><p>Una piel de buey apenas cubría el suelo de una habitación. Pero Dido era muy lista. Mandó cortar la piel en tiras finísimas y las ató unas con otras hasta formar una cuerda larguísima.</p><p>Después tuvo que pensar: ¿qué forma debía rodear con la cuerda para encerrar la mayor superficie posible? Si hacía un rectángulo muy alargado, encerraría poco terreno. Si hacía un cuadrado, más. Pero la mejor forma, con diferencia, era un <b>círculo</b>.</p><p>Además, Dido aprovechó la costa: apoyó la cuerda en la orilla del mar formando un semicírculo, y así el mar hacía de borde y la cuerda le cundía el doble.</p><p>Según la leyenda, en esa tierra se fundó la ciudad de Cartago. Y el problema de encontrar la figura con mayor área para un perímetro dado se conoce todavía hoy como el «problema de Dido».</p>` },
+  tras: {
+    "Unidades de superficie": [
+      ["Las unidades agrarias", `<p>Para medir terrenos grandes, como fincas, campos de cultivo o bosques, se usan las <b>unidades agrarias</b>:</p><ul><li>La <b>hectárea</b> (ha) equivale a 1 hm², es decir, un cuadrado de 100 m de lado: <b>10 000 m²</b>.</li><li>El <b>área</b> (a) equivale a 1 dam², un cuadrado de 10 m de lado: <b>100 m²</b>.</li><li>La <b>centiárea</b> (ca) equivale a <b>1 m²</b>.</li></ul><p>Así, 1 ha = 100 a = 10 000 ca.</p><p>Para hacerse una idea: un campo de fútbol de 105 m × 68 m mide 7 140 m², es decir, unas <b>0,7 hectáreas</b>. Una hectárea es un poco más grande que un campo de fútbol.</p><p>Las hectáreas aparecen mucho en las noticias: cuando se habla de la superficie quemada en un incendio forestal, de los cultivos de una región o del tamaño de un parque natural. Por ejemplo, el Parque Nacional de Doñana tiene más de 50 000 hectáreas.</p><p>Para pasar de hectáreas a metros cuadrados, multiplica por 10 000: 3 ha = 30 000 m². Y al revés, divide: 24 000 m² = 2,4 ha.</p>`,
+        L6.filas("Unidades agrarias", [["hectárea", "1 hm² = 10 000 m²", cVE], ["área", "1 dam² = 100 m²", cAZ], ["centiárea", "1 m²", cNA], ["campo de fútbol", "unos 0,7 ha", cRO]])],
+    ],
+    "El círculo": [
+      ["La corona y el sector circular", `<p>A partir del área del círculo (π × r²) podemos calcular el área de otras figuras circulares:</p><p><b>Corona circular</b>: es la zona entre dos circunferencias concéntricas, como un anillo o el borde de un CD. Su área es el área del círculo grande menos la del pequeño:</p><p>A = π × R² − π × r² = π × (R² − r²)</p><p>Con R = 5 cm y r = 3 cm: A = 3,14 × (25 − 9) = 3,14 × 16 = <b>50,24 cm²</b>.</p><p><b>Sector circular</b>: es una porción del círculo limitada por dos radios, como un trozo de pizza. Su área es la parte proporcional del círculo según su ángulo:</p><ul><li>Un sector de 90° es la cuarta parte del círculo. Con radio 4 cm: 3,14 × 16 : 4 = <b>12,56 cm²</b>.</li><li>Un semicírculo (180°) es la mitad. Con radio 6 cm: 3,14 × 36 : 2 = <b>56,52 cm²</b>.</li></ul><p>En general: área del sector = π × r² × ángulo : 360.</p><p>Estas fórmulas sirven, por ejemplo, para calcular la superficie de un camino alrededor de una fuente redonda o la parte de jardín que riega un aspersor que gira solo un trozo.</p>`,
+        H6.dos("Figuras circulares", ["Corona", ["π × (R² − r²)", "R = 5, r = 3", "50,24 cm²"], cAZ], ["Sector", ["π × r² × ángulo : 360", "90°, r = 4", "12,56 cm²"], cNA]), ["HGPzyx8qgZE", "ÁREA DE UNA CORONA CIRCULAR Super fácil - Para principiantes", "Daniel Carreón", 276230]],
+    ],
+    "Triángulo": [
+      ["Estimar áreas con cuadrícula", `<p>No todas las figuras tienen una fórmula. ¿Cómo se calcula el área de un lago, de una hoja de árbol o de una isla en un mapa? Se puede <b>estimar</b> con una <b>cuadrícula</b>.</p><ol><li>Se coloca encima de la figura un papel transparente con cuadrados de tamaño conocido, por ejemplo de 1 cm².</li><li>Se cuentan los cuadrados que quedan <b>completamente dentro</b> de la figura.</li><li>Se cuentan los cuadrados que quedan <b>parcialmente dentro</b> y se divide ese número entre 2, porque de media cubren la mitad.</li><li>Se suman los dos resultados.</li></ol><p>Ejemplo: si una hoja cubre 18 cuadrados completos y 10 incompletos, su área es aproximadamente 18 + 10 : 2 = <b>23 cm²</b>.</p><p>Cuanto más pequeños son los cuadrados de la cuadrícula, más exacta es la estimación. Si en el mapa cada cuadrado representa 1 km², el resultado estará en km².</p><p>Este método se usaba antes para medir superficies en los mapas. Hoy los ordenadores hacen algo parecido, pero con millones de cuadraditos diminutos: los <b>píxeles</b> de las imágenes de satélite.</p>`,
+        H6.flujo("Área con cuadrícula", ["Completos", "Incompletos|: 2", "Sumar"], cVE)],
+    ],
+  },
+  final: [
+    ["Mismo perímetro, distinta área", `<p>Dos figuras pueden tener el <b>mismo perímetro</b> y áreas muy diferentes. Mira estos rectángulos, todos con 20 cm de perímetro:</p><ul><li>1 cm × 9 cm: área = 9 cm².</li><li>2 cm × 8 cm: área = 16 cm².</li><li>3 cm × 7 cm: área = 21 cm².</li><li>4 cm × 6 cm: área = 24 cm².</li><li>5 cm × 5 cm (un cuadrado): área = <b>25 cm²</b>.</li></ul><p>Con el mismo perímetro, el rectángulo que encierra <b>más área</b> es el <b>cuadrado</b>. Y si se permite cualquier forma, la que más área encierra es el <b>círculo</b>, como descubrió la reina Dido.</p><p>Al revés también pasa: figuras con la misma área pueden tener perímetros muy distintos. Un rectángulo de 1 × 16 y un cuadrado de 4 × 4 tienen los dos 16 cm² de área, pero el primero tiene 34 cm de perímetro y el segundo solo 16 cm.</p><p>Por eso, para vallar un terreno gastando poca valla, conviene que sea lo más «redondeado» posible. Y por eso los animales se hacen una bola cuando tienen frío: así exponen menos superficie al aire y pierden menos calor.</p>`,
+      H6.barras("Perímetro 20 cm", [["1 × 9", 9, cRO, "9 cm²"], ["2 × 8", 16, cNA, "16 cm²"], ["3 × 7", 21, cAZ, "21 cm²"], ["4 × 6", 24, cAZ, "24 cm²"], ["5 × 5", 25, cVE, "25 cm²"]], 25)],
+    ["Áreas en la vida real", `<p>Calcular áreas es imprescindible en muchos trabajos y situaciones cotidianas:</p><ul><li><b>Pintar</b>: una pared de 4 m × 2,5 m tiene 10 m². Si tiene una ventana de 1,2 m × 1 m, la superficie que hay que pintar es 10 − 1,2 = <b>8,8 m²</b>. Si un litro de pintura cubre 10 m² y se dan dos manos, hacen falta 8,8 × 2 : 10 = 1,76 litros.</li><li><b>Alicatar o poner suelo</b>: se calcula el área de la habitación y se divide entre el área de cada baldosa. Siempre conviene comprar alrededor de un 10 % más por los cortes y las roturas.</li><li><b>Comprar o vender terrenos</b>: el precio suele darse por metro cuadrado. Una parcela de 2,4 ha a 15 €/m² cuesta 24 000 × 15 = 360 000 €.</li><li><b>Jardinería</b>: para saber cuánto césped o abono hace falta. Un camino de 1 m de ancho alrededor de un jardín circular de 10 m de radio es una corona: 3,14 × (11² − 10²) = 3,14 × 21 = 65,94 m².</li></ul><p>Antes de calcular, haz siempre un <b>dibujo</b> con las medidas: así es más difícil equivocarse.</p>`,
+      L6.filas("Problemas reales", [["pared − ventana", "10 − 1,2 = 8,8 m²", cAZ], ["pintura", "1,76 L con 2 manos", cVE], ["parcela 2,4 ha", "360 000 €", cNA], ["camino circular", "65,94 m²", cRO]])],
+  ],
+  ejemplos: [
+    ["Calcula el área de una corona circular de radios 5 cm y 3 cm.", ["A = π × (R² − r²).", "3,14 × (25 − 9) = 3,14 × 16."], "50,24 cm²."],
+    ["¿Qué rectángulo de perímetro 20 cm tiene más área?", ["Probamos 1 × 9, 2 × 8, 3 × 7, 4 × 6 y 5 × 5.", "Las áreas son 9, 16, 21, 24 y 25."], "El cuadrado de 5 × 5: 25 cm²."],
+  ],
+  errores: ["Pensar que dos figuras con el mismo perímetro tienen la misma área.", "Confundir hectárea (10 000 m²) con área (100 m²)."],
+  ejercicios: [
+    ["b", "¿Cuántos m² son 3 ha?", "30 000 m²."],
+    ["b", "Calcula el área de una corona circular de radios 5 y 3 cm.", "50,24 cm²."],
+    ["b", "¿Cuántos m² tiene un área?", "100 m²."],
+    ["b", "Calcula el área y el perímetro de un cuadrado de 5 cm de lado.", "Área 25 cm², perímetro 20 cm."],
+    ["b", "Una figura ocupa 18 cuadros completos de 1 cm² y ninguno incompleto. ¿Cuál es su área?", "18 cm²."],
+    ["m", "Calcula el área de un sector circular de 90° y 4 cm de radio.", "12,56 cm²."],
+    ["m", "Un campo de fútbol mide 105 m × 68 m. Expresa su área en m² y en ha.", "7 140 m² = 0,714 ha."],
+    ["m", "De todos los rectángulos de perímetro 20 cm, ¿cuál tiene más área?", "El cuadrado de 5 × 5: 25 cm²."],
+    ["m", "Una pared de 4 m × 2,5 m tiene una ventana de 1,2 m × 1 m. ¿Qué superficie hay que pintar?", "8,8 m²."],
+    ["m", "Calcula el área de un semicírculo de 6 cm de radio.", "56,52 cm²."],
+    ["a", "Si un litro de pintura cubre 10 m², ¿cuántos litros hacen falta para dar dos manos a 8,8 m²?", "1,76 L."],
+    ["a", "Un jardín circular de 10 m de radio tiene alrededor un camino de 1 m de ancho. ¿Qué área tiene el camino?", "3,14 × (121 − 100) = 65,94 m²."],
+    ["a", "Una parcela de 2,4 ha se vende a 15 €/m². ¿Cuánto cuesta?", "360 000 €."],
+    ["a", "Un cuadrado tiene 36 cm de perímetro. ¿Cuál es su área?", "Lado 9 cm; área 81 cm²."],
+  ],
+  quiz: [
+    ["Una hectárea equivale a…", ["10 000 m²", "100 m²", "1 000 m²"], "Unidades agrarias."],
+    ["El área de una corona es…", ["π × (R² − r²)", "π × R × r", "2 × π × R"], "Corona."],
+    ["Con el mismo perímetro, el rectángulo de más área es el…", ["cuadrado", "más alargado", "más estrecho"], "Dido."],
+    ["Un sector de 90° es del círculo…", ["la cuarta parte", "la mitad", "la tercera parte"], "Sector."],
+    ["Un campo de fútbol mide unas…", ["0,7 ha", "70 ha", "7 a"], "105 × 68."],
+  ],
+  examen: [
+    ["24 000 m² son…", ["2,4 ha", "24 ha", "240 ha"], ": 10 000."],
+    ["Un semicírculo de radio 6 cm tiene un área de…", ["56,52 cm²", "113,04 cm²", "18,84 cm²"], "π × 36 : 2."],
+  ],
+  tarjetas: [
+    ["Unidades agrarias", "1 ha = 100 a = 10 000 ca = 10 000 m²."],
+    ["Corona y sector", "Corona: π × (R² − r²). Sector: π × r² × ángulo : 360."],
+    ["Estimar con cuadrícula", "Completos + incompletos : 2."],
+    ["Perímetro y área", "Mismo perímetro, más área: cuadrado; en general, círculo."],
+  ],
+  glosario: [
+    ["Hectárea", "Unidad agraria igual a 10 000 m²."],
+    ["Área (unidad)", "Unidad agraria igual a 100 m²."],
+    ["Centiárea", "Unidad agraria igual a 1 m²."],
+    ["Corona circular", "Superficie entre dos circunferencias concéntricas."],
+    ["Sector circular", "Parte del círculo limitada por dos radios."],
+    ["Semicírculo", "Mitad de un círculo."],
+    ["Cuadrícula", "Red de cuadrados iguales."],
+    ["Estimar", "Calcular de forma aproximada."],
+    ["Píxel", "Cada uno de los puntos que forman una imagen digital."],
+    ["Alicatar", "Cubrir con azulejos o baldosas."],
+    ["Parcela", "Trozo de terreno."],
+    ["Mano de pintura", "Cada capa de pintura que se da."],
+  ],
+  situacion: {
+    titulo: "Reformamos la clase",
+    reto: "La clase calcula cuánta pintura, suelo y materiales harían falta para reformar el aula y elabora un presupuesto.",
+    pasos: ["Medid el suelo, las paredes, las puertas y las ventanas del aula.", "Calculad la superficie que hay que pintar y la que hay que cubrir de suelo.", "Buscad precios reales de pintura y baldosas y calculad cuántas unidades comprar, con un 10 % extra.", "Presentad el presupuesto con planos y cálculos a la dirección del colegio."],
+    producto: "Un presupuesto de reforma con planos y cálculos de áreas.",
+    evaluacion: ["Mide con precisión.", "Calcula áreas de figuras simples y compuestas.", "Usa porcentajes y precios.", "Presenta el trabajo con orden y claridad."],
+  },
+});

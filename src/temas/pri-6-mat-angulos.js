@@ -98,3 +98,91 @@ module.exports = P.tema({
   saberes: "Sentido espacial y de la medida: el ángulo y sus elementos, clasificación, medida con transportador, sistema sexagesimal y relaciones entre ángulos",
   ideas: ["Ángulos con el cuerpo: los brazos como lados y el codo como vértice.", "Reloj gigante en el patio para descubrir los ángulos de las agujas.", "Plegar papel para obtener ángulos de 90°, 45° y 180°."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmbmmmaa",
+  objetivos: ["Calcular la suma de los ángulos interiores de un polígono", "Multiplicar y dividir ángulos en grados y minutos", "Trazar la bisectriz de un ángulo", "Usar ángulos para orientarse y para leer el reloj"],
+  lectura: { titulo: "Las sombras de Eratóstenes", html: `<p>Hace más de 2 200 años, en la ciudad de Alejandría, en Egipto, vivía un sabio llamado Eratóstenes. Dirigía la mayor biblioteca del mundo antiguo, y un día leyó un dato curioso en un papiro.</p><p>En la ciudad de Siena, muy al sur, el día más largo del año, a mediodía, el sol iluminaba el fondo de un pozo profundo. Eso significaba que estaba justo encima: los objetos no tenían sombra.</p><p>Eratóstenes pensó: «¿Y aquí, en Alejandría, ocurre lo mismo?». Al año siguiente, ese mismo día y a la misma hora, clavó un palo en el suelo y midió su sombra. ¡Sí había sombra! Midió el ángulo que formaban los rayos del sol con el palo: unos 7 grados.</p><p>Entonces razonó: si la Tierra fuera plana, las sombras serían iguales en las dos ciudades. Como no lo eran, la Tierra tenía que ser redonda. Y esos 7 grados eran, más o menos, la cincuentava parte de una vuelta completa de 360 grados.</p><p>Sabía que entre Siena y Alejandría había unos 800 kilómetros. Así que la vuelta completa a la Tierra mediría unos 50 × 800 = 40 000 kilómetros.</p><p>Con un palo, una sombra y un ángulo, Eratóstenes calculó el tamaño de la Tierra con un error muy pequeño. Así de poderosos son los ángulos.</p>` },
+  tras: {
+    "Clases de ángulos según su abertura": [
+      ["Ángulos en los polígonos", `<p>Los ángulos que forman los lados de un polígono por dentro se llaman <b>ángulos interiores</b>. Su suma depende del número de lados:</p><ul><li>En cualquier <b>triángulo</b>, los tres ángulos suman <b>180°</b>.</li><li>En cualquier <b>cuadrilátero</b>, los cuatro ángulos suman <b>360°</b>, porque se puede dividir en dos triángulos con una diagonal.</li><li>Un <b>pentágono</b> se divide en tres triángulos: 3 × 180° = <b>540°</b>.</li><li>Un <b>hexágono</b>, en cuatro: 4 × 180° = <b>720°</b>.</li></ul><p>La regla general es: <b>suma = (número de lados − 2) × 180°</b>.</p><p>Si el polígono es <b>regular</b>, todos sus ángulos son iguales, así que dividimos la suma entre el número de lados:</p><ul><li>Triángulo equilátero: 180° : 3 = 60°.</li><li>Hexágono regular: 720° : 6 = 120°.</li><li>Octógono regular: (8 − 2) × 180° = 1 080°; 1 080° : 8 = 135°.</li></ul><p>Con esta regla puedes calcular el ángulo que falta en un triángulo: si dos ángulos miden 50° y 65°, el tercero mide 180° − 50° − 65° = 65°.</p>`,
+        L6.filas("Suma de ángulos interiores", [["triángulo", "180°", cAZ], ["cuadrilátero", "360°", cVE], ["pentágono", "540°", cNA], ["hexágono", "720°", cRO]]), ["ku_GwiCfIpk", "ANGULOS INTERNOS DE UN POLIGONO REGULAR Super facil", "Daniel Carreón", 1826980]],
+    ],
+    "Sumar y restar ángulos": [
+      ["Multiplicar y dividir ángulos", `<p>También podemos <b>multiplicar</b> un ángulo por un número y <b>dividirlo</b> entre un número.</p><p><b>Multiplicar</b>: se multiplican por separado los grados y los minutos, y después se pasan los minutos sobrantes a grados (60' = 1°).</p><ul><li>3 × 25° 40' = 75° 120'. Como 120' = 2°, el resultado es <b>77°</b>.</li><li>2 × 45° 50' = 90° 100' = <b>91° 40'</b>.</li></ul><p><b>Dividir</b>: se dividen los grados; si sobra algún grado, se pasa a minutos (× 60) y se suma a los minutos antes de seguir dividiendo.</p><ul><li>90° : 4 = 22° y sobran 2°. 2° = 120'. 120' : 4 = 30'. Resultado: <b>22° 30'</b>.</li><li>100° : 3 = 33° y sobra 1°. 1° = 60'. 60' : 3 = 20'. Resultado: <b>33° 20'</b>.</li></ul><p>Comprobación: multiplica el resultado por el divisor y debe salir el ángulo inicial. 33° 20' × 3 = 99° 60' = 100°.</p><p>Estas operaciones sirven, por ejemplo, para repartir un ángulo en partes iguales al diseñar un logotipo o una rueda de colores.</p>`,
+        L6.filas("Operar con ángulos", [["3 × 25° 40'", "77°", cAZ], ["2 × 45° 50'", "91° 40'", cVE], ["90° : 4", "22° 30'", cNA], ["100° : 3", "33° 20'", cRO]])],
+    ],
+    "Ángulos consecutivos, adyacentes y opuestos": [
+      ["La bisectriz", `<p>La <b>bisectriz</b> de un ángulo es la semirrecta que lo divide en <b>dos ángulos iguales</b>. La bisectriz de un ángulo de 80° lo divide en dos de 40°.</p><p>Se puede trazar con el transportador, midiendo la mitad, pero también con <b>compás</b>, sin medir:</p><ol><li>Con centro en el vértice, traza un arco que corte los dos lados del ángulo.</li><li>Desde cada uno de esos dos puntos de corte, traza dos arcos con la misma abertura, que se crucen dentro del ángulo.</li><li>Une el vértice con el punto donde se cruzan los arcos. Esa recta es la bisectriz.</li></ol><p>Todos los puntos de la bisectriz están a la <b>misma distancia</b> de los dos lados del ángulo. Por eso es útil en muchas situaciones: por ejemplo, para colocar una farola a la misma distancia de dos calles que forman una esquina.</p><p>En un triángulo, las tres bisectrices se cortan en un punto llamado <b>incentro</b>, que es el centro de la circunferencia que cabe dentro del triángulo tocando sus tres lados.</p>`,
+        H6.flujo("Bisectriz con compás", ["Arco en|el vértice", "Dos arcos|cruzados", "Unir con|el vértice"], cVE)],
+    ],
+  },
+  final: [
+    ["Orientarse con ángulos", `<p>Los ángulos sirven para indicar <b>direcciones</b>. En navegación, aviación y en los mapas se usa el <b>rumbo</b>: el ángulo medido desde el <b>Norte</b>, en el sentido de las agujas del reloj.</p><ul><li>Norte (N) = 0° (o 360°).</li><li>Este (E) = 90°.</li><li>Sur (S) = 180°.</li><li>Oeste (O) = 270°.</li></ul><p>Las direcciones intermedias están en medio: Noreste (NE) = 45°, Sureste (SE) = 135°, Suroeste (SO) = 225°, Noroeste (NO) = 315°. Todas ellas aparecen en la <b>rosa de los vientos</b>, el dibujo que se ve en mapas y brújulas.</p><p>La <b>brújula</b> tiene una aguja imantada que siempre señala hacia el norte magnético. Con ella, un excursionista puede seguir un rumbo aunque no vea ningún camino.</p><p>Ejemplo: un barco navega con rumbo 90° (hacia el este) y gira 135° a la derecha. Su nuevo rumbo es 90° + 135° = 225°: ahora va hacia el suroeste.</p><p>Los pilotos de avión hablan así con la torre de control: «Rumbo dos siete cero» significa que vuelan hacia el oeste.</p><p>Un truco útil: para <b>volver</b> por el mismo camino, el rumbo de regreso es el de ida más 180° (o menos 180° si el resultado pasa de 360°). Si fuiste con rumbo 60°, vuelves con rumbo 240°. Si fuiste con rumbo 300°, vuelves con rumbo 120°. Es como darse la vuelta completa sobre uno mismo: media vuelta son 180°. Los equipos de rescate en montaña usan este cálculo para no perderse con niebla.</p>`,
+      L6.filas("Rumbos", [["Norte", "0°", cAZ], ["Este", "90°", cVE], ["Sur", "180°", cNA], ["Oeste", "270°", cRO]])],
+    ["Ángulos en el reloj", `<p>Las agujas de un reloj analógico forman ángulos que cambian a lo largo del día. Para calcularlos, hay que saber cuánto se mueve cada aguja:</p><ul><li>El <b>minutero</b> da una vuelta completa (360°) en 60 minutos: avanza <b>6° cada minuto</b>.</li><li>La <b>aguja horaria</b> da una vuelta en 12 horas: avanza <b>30° cada hora</b>, es decir, <b>medio grado cada minuto</b>.</li></ul><p>A las horas en punto es fácil: a las 3:00 las agujas forman 3 × 30° = <b>90°</b>; a las 6:00, 180°.</p><p>Pero a las 3:30 hay una sorpresa. El minutero está en el 6, a 180° de las 12. La aguja horaria no está en el 3, sino a mitad de camino entre el 3 y el 4: 90° + 15° = 105°. El ángulo entre ellas es 180° − 105° = <b>75°</b>, no 90°.</p><p>Las agujas se superponen 11 veces cada 12 horas, no 12. Por ejemplo, después de las 12:00, no vuelven a coincidir a la 1:05 exacta, sino un poco más tarde, hacia la 1:05 y 27 segundos.</p>`,
+      H6.dos("Agujas del reloj", ["Minutero", ["360° en 60 min", "6° por minuto", "rápido"], cAZ], ["Horaria", ["30° por hora", "0,5° por minuto", "lenta"], cRO])],
+  ],
+  ejemplos: [
+    ["Calcula 3 × 25° 40'.", ["3 × 25° = 75°; 3 × 40' = 120'.", "120' = 2°."], "77°."],
+    ["¿Cuánto mide cada ángulo de un hexágono regular?", ["Suma: (6 − 2) × 180° = 720°.", "720° : 6."], "120°."],
+  ],
+  errores: ["Olvidar que 60 minutos forman 1 grado al multiplicar ángulos.", "Pensar que a las 3:30 las agujas forman 90°: la aguja horaria también se mueve."],
+  ejercicios: [
+    ["b", "¿Cuánto suman los ángulos interiores de un pentágono?", "540°."],
+    ["b", "¿Cuánto mide cada ángulo de un hexágono regular?", "120°."],
+    ["b", "¿Qué rumbo corresponde al Este?", "90°."],
+    ["b", "¿Cuántos grados avanza el minutero en 1 minuto?", "6°."],
+    ["b", "La bisectriz de un ángulo de 80° lo divide en dos ángulos de…", "40°."],
+    ["m", "Calcula: 3 × 25° 40'.", "77°."],
+    ["m", "Calcula: 90° : 4.", "22° 30'."],
+    ["m", "¿Cuánto mide cada ángulo de un octógono regular?", "135°."],
+    ["m", "¿Qué rumbo corresponde al Suroeste?", "225°."],
+    ["m", "Dos ángulos de un triángulo miden 50° y 65°. ¿Cuánto mide el tercero?", "65°."],
+    ["a", "¿Qué ángulo forman las agujas del reloj a las 3:30?", "75°."],
+    ["a", "Calcula: 2 × 45° 50'.", "91° 40'."],
+    ["a", "Calcula: 100° : 3 y comprueba el resultado.", "33° 20'; 33° 20' × 3 = 100°."],
+    ["a", "Un barco va con rumbo 90° y gira 135° a la derecha. ¿Cuál es su nuevo rumbo y hacia dónde va?", "225°: hacia el suroeste."],
+  ],
+  quiz: [
+    ["Los ángulos de un triángulo suman…", ["180°", "360°", "90°"], "Triángulo."],
+    ["Los ángulos de un cuadrilátero suman…", ["360°", "180°", "540°"], "Dos triángulos."],
+    ["El minutero avanza cada minuto…", ["6°", "1°", "30°"], "360 : 60."],
+    ["El rumbo Sur es…", ["180°", "90°", "270°"], "Rosa de los vientos."],
+    ["La bisectriz divide un ángulo en…", ["dos ángulos iguales", "tres partes", "un ángulo recto"], "Bisectriz."],
+  ],
+  examen: [
+    ["90° : 4 = …", ["22° 30'", "22° 50'", "23°"], "2° = 120'."],
+    ["A las 3:00 las agujas forman…", ["90°", "45°", "180°"], "3 × 30°."],
+  ],
+  tarjetas: [
+    ["Ángulos de polígonos", "Suma = (lados − 2) × 180°."],
+    ["Multiplicar y dividir ángulos", "60' = 1°; los grados sobrantes se pasan a minutos."],
+    ["Bisectriz", "Divide el ángulo en dos iguales; las de un triángulo se cortan en el incentro."],
+    ["Rumbos y reloj", "N 0°, E 90°, S 180°, O 270°; minutero 6°/min."],
+  ],
+  glosario: [
+    ["Ángulo interior", "Ángulo formado por dos lados de un polígono por dentro."],
+    ["Polígono regular", "Polígono con lados y ángulos iguales."],
+    ["Minuto de arco", "Sexagésima parte de un grado."],
+    ["Bisectriz", "Semirrecta que divide un ángulo en dos iguales."],
+    ["Compás", "Instrumento para trazar arcos y circunferencias."],
+    ["Incentro", "Punto donde se cortan las bisectrices de un triángulo."],
+    ["Rumbo", "Dirección medida en grados desde el Norte."],
+    ["Rosa de los vientos", "Dibujo con los puntos cardinales y sus intermedios."],
+    ["Brújula", "Instrumento con una aguja imantada que señala el norte."],
+    ["Minutero", "Aguja larga del reloj que marca los minutos."],
+    ["Superponerse", "Colocarse una cosa encima de otra."],
+    ["Sombra", "Zona oscura que se forma detrás de un objeto iluminado."],
+  ],
+  situacion: {
+    titulo: "Gincana de orientación",
+    reto: "La clase diseña una gincana por el patio con instrucciones de rumbos y distancias que los compañeros deben seguir.",
+    pasos: ["Haced un plano del patio y marcad el Norte con una brújula.", "Diseñad un recorrido de cinco pistas con rumbos en grados y distancias en pasos.", "Comprobad cada instrucción con transportador y brújula antes del juego.", "Organizad la gincana para otra clase y revisad los errores al final."],
+    producto: "Un plano con un recorrido de orientación y sus tarjetas de pistas.",
+    evaluacion: ["Mide y dibuja ángulos con precisión.", "Usa los rumbos correctamente.", "Opera con grados y minutos.", "Colabora en el diseño del juego."],
+  },
+});

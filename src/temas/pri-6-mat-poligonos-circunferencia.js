@@ -91,3 +91,89 @@ module.exports = P.tema({
   saberes: "Sentido espacial: polígonos, elementos y clasificación; triángulos y cuadriláteros; circunferencia y círculo, sus elementos y la longitud de la circunferencia",
   ideas: ["Geoplano y gomas para construir polígonos.", "Medir objetos circulares de clase para descubrir π.", "Ruta de señales de tráfico alrededor del colegio clasificando sus formas."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bmbbmmbbma",
+  objetivos: ["Conocer las rectas y puntos notables del triángulo", "Comprobar cuándo tres segmentos forman un triángulo", "Conocer la historia del número π", "Reconocer posiciones de rectas y circunferencias, y crear mosaicos con polígonos"],
+  lectura: { titulo: "El secreto de las abejas", html: `<p>En la granja de su abuelo, Nora observaba un panal a través de un cristal. Miles de celdillas perfectas, todas iguales, encajaban unas con otras sin dejar ni un hueco.</p><p>—¿Por qué son hexágonos? —preguntó—. ¿Por qué no cuadrados o círculos?</p><p>Su abuelo, que había sido profesor de matemáticas, sonrió y sacó un papel.</p><p>—Vamos a pensarlo. Si las celdillas fueran círculos, quedarían huecos entre ellas: un desperdicio de espacio. Para no dejar huecos, solo sirven tres polígonos regulares: triángulos, cuadrados y hexágonos.</p><p>—¿Y por qué eligen el hexágono?</p><p>—Porque, de los tres, es el que encierra más espacio con el mismo perímetro. Así, con la misma cantidad de cera, las abejas consiguen celdillas más grandes para guardar miel. La cera les cuesta mucho esfuerzo fabricarla.</p><p>Nora se quedó mirando el panal con otros ojos.</p><p>—Entonces, las abejas son matemáticas.</p><p>—Bueno —rio el abuelo—, más bien la naturaleza ha encontrado durante millones de años la solución más económica. Los matemáticos tardaron siglos en demostrar que el hexágono era la mejor opción. No lo consiguieron del todo hasta 1999.</p><p>En este tema descubrirás más secretos de los polígonos y de la circunferencia.</p>` },
+  tras: {
+    "Los triángulos": [
+      ["Rectas y puntos notables del triángulo", `<p>En todo triángulo podemos trazar cuatro tipos de rectas especiales. Lo sorprendente es que las tres rectas de cada tipo siempre se cortan en un <b>mismo punto</b>:</p><ul><li>Las <b>alturas</b> van desde cada vértice hasta el lado opuesto, formando un ángulo recto. Se cortan en el <b>ortocentro</b>.</li><li>Las <b>medianas</b> unen cada vértice con el punto medio del lado opuesto. Se cortan en el <b>baricentro</b>, que es el centro de gravedad: si recortas un triángulo de cartón, puedes equilibrarlo sobre la punta de un lápiz colocada en ese punto.</li><li>Las <b>mediatrices</b> son perpendiculares a cada lado por su punto medio. Se cortan en el <b>circuncentro</b>, centro de la circunferencia que pasa por los tres vértices.</li><li>Las <b>bisectrices</b> dividen cada ángulo en dos iguales. Se cortan en el <b>incentro</b>, centro de la circunferencia que cabe dentro tocando los tres lados.</li></ul><p>En un triángulo equilátero, los cuatro puntos coinciden en el mismo lugar.</p>`,
+        L6.filas("Puntos notables", [["alturas", "ortocentro", cAZ], ["medianas", "baricentro", cVE], ["mediatrices", "circuncentro", cNA], ["bisectrices", "incentro", cRO]])],
+      ["¿Se puede construir el triángulo?", `<p>No con tres segmentos cualesquiera se puede formar un triángulo. Prueba con palillos de 3 cm, 4 cm y 8 cm: los dos cortos no llegan a juntarse.</p><p>La regla se llama <b>desigualdad triangular</b>: cada lado tiene que ser <b>menor que la suma de los otros dos</b>.</p><ul><li>3, 4 y 8: como 3 + 4 = 7, que es menor que 8, <b>no</b> se puede.</li><li>5, 6 y 10: como 5 + 6 = 11, que es mayor que 10, <b>sí</b> se puede.</li><li>3, 4 y 7: como 3 + 4 = 7, los segmentos quedan tumbados en línea recta y no forman triángulo.</li></ul><p>Basta con comprobar que el lado <b>más largo</b> es menor que la suma de los otros dos.</p><p>Esta regla explica por qué el camino recto entre dos puntos siempre es el más corto: si das un rodeo pasando por un tercer punto, recorres dos lados de un triángulo, y su suma es mayor que el tercer lado.</p><p>Si conocemos dos lados, por ejemplo 7 cm y 10 cm, el tercero tiene que medir más de 3 cm y menos de 17 cm.</p>`,
+        H6.dos("Desigualdad triangular", ["Sí", ["5, 6 y 10", "5 + 6 > 10", "se cierra"], cVE], ["No", ["3, 4 y 8", "3 + 4 < 8", "no se cierra"], cRO])],
+    ],
+    "La longitud de la circunferencia y el número π": [
+      ["La historia de π", `<p>El número <b>π</b> (pi) es la relación entre la longitud de una circunferencia y su diámetro. Vale 3,14159… y sus cifras decimales <b>no se acaban nunca</b> ni se repiten.</p><ul><li>Los babilonios y los egipcios, hace casi 4 000 años, ya usaban aproximaciones como 3 o 3,16.</li><li>Hacia el año 250 a. C., el griego <b>Arquímedes</b> dibujó polígonos regulares dentro y fuera de una circunferencia, hasta llegar a polígonos de <b>96 lados</b>. Así demostró que π estaba entre 3,1408 y 3,1429.</li><li>En el siglo XVIII se empezó a usar la letra griega π para nombrarlo.</li><li>Con ordenadores, hoy se conocen <b>más de 100 billones</b> de cifras de π.</li></ul><p>Para los cálculos de la escuela basta con usar 3,14. Incluso la NASA, para calcular trayectorias de naves espaciales, usa solo unas 15 cifras decimales.</p><p>El <b>14 de marzo</b> (3/14, escrito al estilo estadounidense) se celebra el Día de π, que es también el Día Internacional de las Matemáticas.</p>`,
+        L6.filas("Historia de π", [["Babilonia", "unos 3", cNA], ["Arquímedes", "polígono de 96 lados", cAZ], ["siglo XVIII", "letra π", cVE], ["14 de marzo", "Día de π", cRO]]), ["NMjWyyB3mpA", "¿Qué es Pi?", "CuriosaMente", 2065652]],
+    ],
+  },
+  final: [
+    ["Rectas y circunferencias", `<p>Una recta y una circunferencia pueden tener tres posiciones:</p><ul><li><b>Exterior</b>: no se tocan. La distancia del centro a la recta es <b>mayor</b> que el radio.</li><li><b>Tangente</b>: se tocan en <b>un solo punto</b>. La distancia del centro a la recta es <b>igual</b> al radio. La recta tangente es siempre perpendicular al radio en ese punto.</li><li><b>Secante</b>: la corta en <b>dos puntos</b>. La distancia del centro a la recta es <b>menor</b> que el radio.</li></ul><p>Dos circunferencias también pueden ser exteriores, tangentes, secantes o una dentro de otra. Si tienen el mismo centro, se llaman <b>concéntricas</b>, como los anillos de una diana o las ondas que se forman al tirar una piedra al agua.</p><p>Las tangentes aparecen en la vida real: una rueda que rueda sobre el suelo es tangente a él; una bicicleta transmite el movimiento con una cadena tangente a los platos y piñones.</p><p>Ejemplo: si una circunferencia tiene 5 cm de radio y una recta está a 3 cm del centro, la recta es secante, porque 3 es menor que 5.</p><p>Si la recta estuviera a 5 cm, sería tangente; y a 7 cm, exterior.</p>`,
+      L6.filas("Recta y circunferencia", [["exterior", "distancia > radio", cAZ], ["tangente", "distancia = radio", cVE], ["secante", "distancia < radio", cRO]])],
+    ["Mosaicos con polígonos", `<p>Un <b>mosaico</b> o <b>teselación</b> es un recubrimiento del plano con figuras que encajan sin dejar huecos ni superponerse.</p><p>¿Qué polígonos regulares sirven? Los ángulos que se juntan en cada vértice tienen que sumar <b>360°</b>:</p><ul><li><b>Triángulos equiláteros</b>: 6 × 60° = 360°. Sí.</li><li><b>Cuadrados</b>: 4 × 90° = 360°. Sí.</li><li><b>Hexágonos regulares</b>: 3 × 120° = 360°. Sí.</li><li><b>Pentágonos regulares</b>: cada ángulo mide 108°, y 360 no se puede dividir entre 108 de forma exacta. No.</li></ul><p>Solo hay, por tanto, <b>tres</b> mosaicos regulares. Pero si combinamos varios polígonos, aparecen muchos más: por ejemplo, octógonos y cuadrados (135° + 135° + 90° = 360°), como en muchos suelos de baldosas.</p><p>Los mosaicos de la <b>Alhambra</b> de Granada son famosos en todo el mundo por su riqueza geométrica. Inspiraron al artista neerlandés <b>M. C. Escher</b>, que creó mosaicos con figuras de pájaros, peces y lagartos que encajan perfectamente.</p><p>Los mosaicos siguen dando sorpresas. Durante décadas, los matemáticos buscaron una única pieza que pudiera cubrir el plano sin que el dibujo llegara nunca a repetirse. En 2023, un aficionado británico, David Smith, descubrió una: una figura de 13 lados que se ganó el apodo de «el sombrero». Sus mosaicos nunca forman un patrón que se repita, por mucho que se extiendan. Fue una noticia que dio la vuelta al mundo.</p>`,
+      H6.rueda("Mosaicos regulares", "360°", [["6 triángulos", cAZ], ["4 cuadrados", cVE], ["3 hexágonos", cNA], ["pentágono no", cRO]]), ["6rfcIeSXgQ0", "TESELADOS Super Facil", "Daniel Carreón", 812551]],
+  ],
+  ejemplos: [
+    ["¿Se puede construir un triángulo con lados de 5, 6 y 10 cm?", ["El lado mayor es 10.", "5 + 6 = 11, que es mayor que 10."], "Sí."],
+    ["¿Por qué el pentágono regular no sirve para hacer un mosaico?", ["Cada ángulo mide 108°.", "360 : 108 no es exacto."], "Porque sus ángulos no completan 360° en un vértice."],
+  ],
+  errores: ["Pensar que con tres segmentos cualesquiera siempre se forma un triángulo.", "Confundir tangente (un punto) con secante (dos puntos)."],
+  ejercicios: [
+    ["b", "¿Cómo se llama el punto donde se cortan las medianas de un triángulo?", "Baricentro."],
+    ["b", "¿Se puede construir un triángulo con lados de 3, 4 y 8 cm?", "No: 3 + 4 < 8."],
+    ["b", "¿Qué polígonos regulares sirven para hacer mosaicos?", "Triángulo equilátero, cuadrado y hexágono."],
+    ["b", "¿Cómo se llama una recta que toca la circunferencia en un solo punto?", "Tangente."],
+    ["b", "¿Qué día se celebra el Día de π?", "El 14 de marzo."],
+    ["m", "¿Se puede construir un triángulo con lados de 5, 6 y 10 cm?", "Sí: 5 + 6 > 10."],
+    ["m", "¿Por qué el pentágono regular no sirve para teselar?", "Sus ángulos de 108° no completan 360°."],
+    ["m", "Una circunferencia tiene 5 cm de radio y una recta está a 3 cm del centro. ¿Qué posición tienen?", "Secante."],
+    ["m", "¿De qué circunferencia es centro el incentro?", "De la inscrita, que toca los tres lados."],
+    ["m", "¿Con qué polígono aproximó Arquímedes el valor de π?", "Con polígonos de 96 lados."],
+    ["a", "La rueda de una bici tiene 35 cm de radio. ¿Cuánto avanza en una vuelta? Usa π = 3,14.", "2 × 3,14 × 35 = 219,8 cm."],
+    ["a", "¿Cuántos hexágonos regulares se juntan en cada vértice de un mosaico?", "3: 3 × 120° = 360°."],
+    ["a", "Comprueba que se puede hacer un mosaico con octógonos regulares y cuadrados.", "135° + 135° + 90° = 360°."],
+    ["a", "Dos lados de un triángulo miden 7 y 10 cm. ¿Entre qué valores puede estar el tercero?", "Más de 3 cm y menos de 17 cm."],
+  ],
+  quiz: [
+    ["Las medianas se cortan en el…", ["baricentro", "incentro", "ortocentro"], "Centro de gravedad."],
+    ["Una recta secante corta a la circunferencia en…", ["dos puntos", "un punto", "ningún punto"], "Secante."],
+    ["Arquímedes usó polígonos de…", ["96 lados", "10 lados", "1 000 lados"], "π."],
+    ["Las abejas construyen celdillas…", ["hexagonales", "cuadradas", "circulares"], "Mosaicos."],
+    ["Un triángulo se puede construir si el lado mayor es…", ["menor que la suma de los otros dos", "igual a la suma", "mayor que la suma"], "Desigualdad triangular."],
+  ],
+  examen: [
+    ["Las mediatrices se cortan en el…", ["circuncentro", "baricentro", "incentro"], "Circunscrita."],
+    ["Los mosaicos de la Alhambra inspiraron a…", ["Escher", "Arquímedes", "Picasso"], "Teselaciones."],
+  ],
+  tarjetas: [
+    ["Puntos notables", "Ortocentro, baricentro, circuncentro, incentro."],
+    ["Desigualdad triangular", "Cada lado < suma de los otros dos."],
+    ["π", "3,14159…; Arquímedes; 14 de marzo."],
+    ["Mosaicos", "Triángulo, cuadrado y hexágono; los ángulos suman 360°."],
+  ],
+  glosario: [
+    ["Altura", "Segmento perpendicular desde un vértice al lado opuesto."],
+    ["Mediana", "Segmento que une un vértice con el punto medio del lado opuesto."],
+    ["Mediatriz", "Recta perpendicular a un segmento por su punto medio."],
+    ["Baricentro", "Punto donde se cortan las medianas."],
+    ["Circuncentro", "Punto donde se cortan las mediatrices."],
+    ["Desigualdad triangular", "Regla para saber si tres segmentos forman un triángulo."],
+    ["Tangente", "Recta que toca la circunferencia en un punto."],
+    ["Secante", "Recta que corta la circunferencia en dos puntos."],
+    ["Concéntricas", "Circunferencias con el mismo centro."],
+    ["Teselación", "Recubrimiento del plano sin huecos ni superposiciones."],
+    ["π", "Relación entre la longitud de la circunferencia y su diámetro."],
+    ["Panal", "Estructura de celdillas de cera que fabrican las abejas."],
+  ],
+  situacion: {
+    titulo: "Nuestro mosaico",
+    reto: "La clase diseña y construye un gran mosaico geométrico inspirado en la Alhambra para decorar el pasillo.",
+    pasos: ["Investigad los mosaicos de la Alhambra y elegid qué polígonos usar.", "Comprobad con los ángulos que los polígonos encajan sin huecos.", "Recortad las piezas en cartulina con regla, compás y transportador.", "Montad el mosaico y escribid una cartela que explique sus matemáticas."],
+    producto: "Un mosaico geométrico con su explicación.",
+    evaluacion: ["Construye polígonos regulares con precisión.", "Justifica con ángulos por qué encajan.", "Conoce la historia de los mosaicos.", "Trabaja en equipo con cuidado."],
+  },
+});
