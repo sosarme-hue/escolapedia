@@ -146,3 +146,87 @@ module.exports = {
   fuentes: [RD, wiki("Invertebrado", "Invertebrado"), wiki("Insecta", "Insectos"), wiki("Mollusca", "Moluscos")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo viven los insectos sociales", "Identificar invertebrados que causan problemas y cómo prevenirlos", "Descubrir invertebrados asombrosos", "Construir un hotel de insectos"],
+  lectura: { titulo: "La colmena del abuelo", html: `<p>El abuelo de Pablo tenía colmenas en el pueblo. Un sábado de primavera, le prestó un traje blanco con una careta de rejilla y lo llevó a verlas.</p><p>—No hagas movimientos bruscos —le dijo—. Las abejas están trabajando y no quieren pelea.</p><p>El abuelo echó un poco de humo con un aparato que parecía una cafetera y abrió la caja. Sacó un marco de madera cubierto de celdillas hexagonales. Miles de abejas caminaban por encima.</p><p>—¿Dónde está la reina? —preguntó Pablo.</p><p>El abuelo buscó un rato y señaló una abeja más larga que las demás.</p><p>—Aquí. Pone huevos todo el día, más de mil en un solo día de verano. Las demás son obreras: limpian, cuidan a las crías, fabrican cera y salen a por néctar.</p><p>Pablo vio cómo una abeja recién llegada se movía en círculos, meneando el cuerpo.</p><p>—Está bailando —explicó el abuelo—. Así les cuenta a sus compañeras dónde ha encontrado flores.</p><p>Esa tarde, Pablo probó la miel recién sacada del panal. Nunca había comido nada tan dulce. Y nunca había pensado que detrás de cada cucharada hubiera tanto trabajo en equipo.</p>` },
+  tras: {
+    "Los insectos": [
+      ["Los insectos sociales", `<p>Algunos insectos viven en grandes grupos organizados, en los que cada uno tiene un trabajo. Se llaman <mark>insectos sociales</mark>.</p><p><b>Las abejas</b> viven en <b>colmenas</b>:</p><ul><li>La <b>reina</b> pone los huevos.</li><li>Las <b>obreras</b> hacen casi todo: limpian, cuidan las crías, construyen las celdas de cera y buscan néctar y polen.</li><li>Los <b>zánganos</b> son los machos.</li><li>Las abejas se comunican con una <b>danza</b> para indicar dónde hay flores.</li></ul><p><b>Las hormigas</b> viven en <b>hormigueros</b> bajo tierra, con muchos túneles y salas. También tienen una reina y miles de obreras. Dejan un rastro de olor para que sus compañeras encuentren el camino hasta la comida. ¡Por eso caminan en fila!</p><p>Las <b>termitas</b> construyen enormes nidos de barro, algunos más altos que una persona.</p><p>Trabajando juntos, estos pequeños animales consiguen cosas que ninguno podría hacer solo.</p>`,
+        H6.rueda("Colmena", "ABEJAS", [["reina", cRO], ["obreras", cNA], ["zánganos", cAZ], ["danza", cVE]]), ["SP50LoRpYJg", "La abeja 🐝 Animales para niños 🍯 Episodio 4", "Smile and Learn - Español", 1628963]],
+    ],
+    "¿Para qué sirven los invertebrados?": [
+      ["Invertebrados que causan problemas", `<p>Aunque la mayoría de los invertebrados son útiles, algunos pueden causar <mark>problemas</mark> a las personas, a los animales o a las plantas.</p><ul><li>El <b>mosquito tigre</b> es negro con rayas blancas. Llegó a España hace unos años y su picadura molesta mucho. Pone los huevos en agua quieta, así que conviene no dejar agua estancada en platos de macetas, cubos o juguetes.</li><li>Los <b>piojos</b> viven en el pelo y se pasan de una cabeza a otra. Se quitan con un peine especial y lociones. No tienen nada que ver con estar sucio.</li><li>Las <b>garrapatas</b> se enganchan a la piel de perros y personas en el campo. Hay que revisarse después de una excursión.</li><li>Algunas <b>plagas</b>, como el pulgón o la langosta, se comen los cultivos.</li><li>La <b>carcoma</b> hace agujeros en los muebles de madera.</li></ul><p>Muchos de estos problemas se controlan con <b>prevención</b>. Y algunos se resuelven con otros invertebrados: ¡las mariquitas se comen a los pulgones!</p>`,
+        L6.filas("Problemas", [["mosquito tigre", "agua quieta", cMO], ["piojos", "peine especial", cNA], ["garrapatas", "revisarse", cRO], ["pulgón", "mariquitas", cVE]])],
+    ],
+  },
+  final: [
+    ["Invertebrados asombrosos", `<p>Entre los invertebrados hay auténticos <mark>campeones</mark>:</p><ul><li>El <b>calamar gigante</b> vive en las profundidades del océano y puede medir más que un autobús. Sus ojos son tan grandes como un balón.</li><li>Las <b>luciérnagas</b> producen su propia luz en el abdomen para encontrar pareja en las noches de verano.</li><li>La <b>pulga</b> puede saltar unas cien veces su propia longitud.</li><li>El <b>tardígrado</b>, también llamado oso de agua, es diminuto y resiste el frío, el calor y hasta viajes al espacio.</li><li>Las <b>mariposas monarca</b> viajan miles de kilómetros cada año, desde Canadá hasta México.</li><li>El <b>escarabajo pelotero</b> empuja bolas que pesan mucho más que él.</li><li>El <b>pulpo</b> es muy inteligente: sabe abrir frascos y escapar por agujeros muy pequeños, porque no tiene huesos.</li></ul><p>Los científicos creen que hay millones de especies de invertebrados que todavía no se han descubierto.</p>`,
+      H6.rueda("Récords", "CAMPEONES", [["calamar gigante", cAZ], ["luciérnaga", cNA], ["pulga", cRO], ["tardígrado", cVE]])],
+    ["Construye un hotel de insectos", `<p>Muchos insectos útiles, como las abejas solitarias y las mariquitas, tienen cada vez menos lugares donde refugiarse. Podemos ayudarlos construyendo un <mark>hotel de insectos</mark>.</p><p><b>Materiales</b>: una caja de madera o un ladrillo con agujeros, cañas huecas, piñas, trozos de corteza, paja y palitos.</p><ul><li><b>1.</b> Rellena cada hueco de la caja con un material distinto.</li><li><b>2.</b> Pon las cañas bien apretadas, con la boca hacia fuera: allí harán su nido las abejas solitarias.</li><li><b>3.</b> Coloca la caja en un lugar soleado y protegido de la lluvia, cerca de flores, a un metro del suelo.</li><li><b>4.</b> Observa durante semanas quién viene a vivir y apúntalo en tu cuaderno.</li></ul><p>Las abejas solitarias no viven en colmenas y casi nunca pican. Son grandes polinizadoras. Un hotel de insectos en el huerto escolar ayuda a que las plantas den más frutos.</p>`,
+      H6.flujo("Hotel", ["caja|madera", "rellena|cañas, piñas", "sitio|soleado", "observa|y anota"], cVE), ["8IPSL5q16p4", "Como Hacer Y Porque Instalar Un Hotel De Insectos O Refugio En El Huerto || La Huertina De Toni", "La Huertina De Toni", 635853]],
+  ],
+  ejemplos: [
+    ["¿Cómo evitamos el mosquito tigre en casa?", ["Pone los huevos en agua quieta.", "Vaciamos platos de macetas y cubos."], "No dejando agua estancada."],
+    ["¿Por qué las hormigas caminan en fila?", ["Dejan un rastro de olor.", "Las compañeras lo siguen hasta la comida."], "Siguen un rastro de olor."],
+  ],
+  errores: ["Pensar que tener piojos es por estar sucio.", "Creer que todas las abejas viven en colmenas: hay abejas solitarias."],
+  ejercicios: [
+    ["b", "¿Quién pone los huevos en una colmena?", "La reina."],
+    ["b", "¿Dónde viven las hormigas?", "En hormigueros."],
+    ["b", "¿Qué insecto produce su propia luz?", "La luciérnaga."],
+    ["b", "¿Dónde pone los huevos el mosquito tigre?", "En agua quieta."],
+    ["b", "Di un material para un hotel de insectos.", "Cañas, piñas, corteza o paja."],
+    ["m", "¿Cómo se comunican las abejas?", "Con una danza."],
+    ["m", "¿Qué invertebrado se come a los pulgones?", "La mariquita."],
+    ["m", "¿Por qué el pulpo escapa por agujeros pequeños?", "Porque no tiene huesos."],
+    ["m", "¿Qué hay que hacer tras una excursión al campo?", "Revisarse por si hay garrapatas."],
+    ["m", "¿Dónde colocarías el hotel de insectos?", "Al sol, protegido de la lluvia y cerca de flores."],
+    ["a", "Dibuja el interior de un hormiguero.", "Respuesta abierta."],
+    ["a", "Construye un hotel de insectos y lleva un diario.", "Respuesta abierta."],
+    ["a", "Investiga otro invertebrado récord.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cómo era la abeja reina?", "Más larga que las demás."],
+  ],
+  quiz: [
+    ["Los machos de las abejas se llaman…", ["zánganos", "obreras", "reinas"], "Colmena."],
+    ["Las termitas construyen…", ["nidos de barro", "telas", "conchas"], "Sociales."],
+    ["El mosquito tigre tiene rayas…", ["blancas", "rojas", "verdes"], "Problemas."],
+    ["El tardígrado es…", ["diminuto y muy resistente", "gigante", "un pez"], "Récords."],
+    ["Las abejas solitarias…", ["casi nunca pican", "viven en colmenas", "no polinizan"], "Hotel."],
+  ],
+  examen: [
+    ["En la lectura, ¿para qué bailaba la abeja?", ["para indicar dónde hay flores", "para jugar", "para avisar de la lluvia"], "Lectura."],
+    ["La carcoma daña…", ["la madera", "el pelo", "los cultivos de trigo"], "Problemas."],
+  ],
+  tarjetas: [
+    ["Insectos sociales", "Abejas, hormigas y termitas: reina, obreras y trabajo en equipo."],
+    ["Problemas", "Mosquito tigre, piojos, garrapatas, plagas y carcoma."],
+    ["Récords", "Calamar gigante, luciérnaga, pulga, tardígrado, monarca."],
+    ["Hotel de insectos", "Cañas y piñas al sol para abejas solitarias y mariquitas."],
+  ],
+  glosario: [
+    ["Insecto social", "Insecto que vive en grupo organizado."],
+    ["Colmena", "Casa de las abejas."],
+    ["Obrera", "Abeja u hormiga que trabaja para el grupo."],
+    ["Zángano", "Abeja macho."],
+    ["Hormiguero", "Nido de las hormigas."],
+    ["Plaga", "Gran cantidad de animales que causan daño."],
+    ["Pulgón", "Insecto pequeño que chupa la savia de las plantas."],
+    ["Garrapata", "Ácaro que se engancha a la piel."],
+    ["Agua estancada", "Agua quieta que no corre."],
+    ["Luciérnaga", "Insecto que produce luz."],
+    ["Tardígrado", "Animal diminuto muy resistente."],
+    ["Abeja solitaria", "Abeja que no vive en colmena."],
+  ],
+  situacion: {
+    titulo: "Amigos de los bichos",
+    reto: "La clase investiga los invertebrados del colegio y les construye un refugio.",
+    pasos: ["Observar hormigas y anotar cómo se organizan.", "Hacer una campaña contra el agua estancada y el mosquito tigre.", "Preparar fichas de invertebrados asombrosos.", "Construir e instalar un hotel de insectos."],
+    producto: "Un hotel de insectos y una exposición de fichas.",
+    evaluacion: ["Explica los insectos sociales.", "Conoce cómo prevenir problemas.", "Describe invertebrados asombrosos.", "Construye y observa el hotel."],
+  },
+});

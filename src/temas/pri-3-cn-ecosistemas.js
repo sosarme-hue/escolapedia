@@ -142,3 +142,87 @@ module.exports = {
   fuentes: [RD, wiki("Ecosistema", "Ecosistema"), wiki("Cadena trófica", "Cadena trófica"), wiki("Charca", "Charca")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar el camuflaje como adaptación", "Conocer el ecosistema marino y la posidonia", "Comparar ecosistemas extremos del mundo", "Observar un ecosistema cercano"],
+  lectura: { titulo: "Un metro cuadrado de selva", html: `<p>La maestra de Nora llegó a clase con un ovillo de cuerda y cuatro palitos.</p><p>—Hoy vamos a explorar una selva —anunció.</p><p>Todos se miraron extrañados. ¿Una selva en el colegio? Salieron al patio, a un rincón con hierba junto al muro, y la maestra clavó los palitos formando un cuadrado de un metro de lado, rodeado con la cuerda.</p><p>—Esta es vuestra selva. Mirad bien lo que vive dentro.</p><p>Al principio, Nora solo vio hierba. Pero se tumbó, acercó la lupa y empezó a descubrir cosas: una hormiga que arrastraba una miga, una mariquita roja subiendo por un tallo, un caracol pequeñito escondido bajo una hoja, un trébol con florecitas blancas…</p><p>—¡Aquí hay una araña tejiendo! —gritó Marcos.</p><p>Al final de la hora, el grupo había apuntado más de veinte seres vivos distintos en un solo metro cuadrado. Había plantas que fabricaban su alimento, hormigas que buscaban comida, una araña que cazaba moscas y hojas secas que se estaban pudriendo para devolver nutrientes a la tierra.</p><p>—Esto es un ecosistema —dijo la maestra—. Pequeño, pero completo.</p><p>Nora no volvió a mirar el rincón del patio de la misma manera.</p>` },
+  tras: {
+    "El hábitat y la adaptación": [
+      ["El camuflaje", `<p>Una de las adaptaciones más asombrosas es el <mark>camuflaje</mark>: tener colores o formas que se confunden con el entorno para no ser vistos.</p><ul><li>El <b>insecto palo</b> parece una ramita y el <b>insecto hoja</b>, una hoja verde.</li><li>La <b>perdiz nival</b> es marrón en verano y se vuelve blanca en invierno, cuando cae la nieve.</li><li>El <b>camaleón</b> y el <b>pulpo</b> pueden cambiar de color en pocos segundos.</li><li>El <b>lenguado</b> se queda plano sobre la arena del fondo del mar y casi no se ve.</li></ul><p>El camuflaje sirve a los animales que se esconden de sus <b>depredadores</b>, pero también a los cazadores, como el tigre, cuyas rayas se confunden con las hierbas altas.</p><p>Otros animales hacen lo contrario: tienen colores muy llamativos para avisar de que son peligrosos o saben mal, como la <b>salamandra</b> negra y amarilla o la avispa.</p>`,
+        H6.dos("Colores", ["ESCONDERSE", ["insecto palo", "perdiz nival", "lenguado"], cVE], ["AVISAR", ["salamandra", "avispa", "mariquita"], cRO]), ["F4kYKSo9fTU", "Encuentra a los Maestros del Camuflaje: ¡Desafío de 5 Animales Ocultos! 👀 | Earth Rangers", "Earth Rangers", 1762662]],
+    ],
+    "La charca": [
+      ["El ecosistema marino", `<p>El <mark>mar</mark> es el ecosistema más grande del planeta. Cubre casi tres cuartas partes de la Tierra.</p><ul><li>Cerca de la superficie, donde llega la luz, viven las <b>algas</b> y el <b>plancton</b>, unos seres diminutos que son el alimento de muchos animales.</li><li>En las rocas de la costa viven mejillones, lapas, cangrejos y estrellas de mar.</li><li>En mar abierto nadan peces, delfines y tortugas.</li><li>En las profundidades, donde todo está oscuro, viven peces muy raros, algunos con luces propias.</li></ul><p>En el mar Mediterráneo hay unas praderas submarinas muy importantes: la <b>posidonia</b>. Es una planta con flores, no un alga, que da oxígeno, refugio a muchos peces y protege las playas de las olas.</p><p>En los mares cálidos se forman los <b>arrecifes de coral</b>, llenos de colores y de vida. Hoy están en peligro por el calentamiento del agua y la contaminación.</p>`,
+        L6.filas("Mar", [["superficie", "algas, plancton", cAZ], ["costa", "mejillones", cNA], ["mar abierto", "peces, delfines", cVE], ["posidonia", "praderas", cMO]]), ["VJBdY0d1YRQ", "¿Qué son los ARRECIFES de CORAL? 🌿🐠 (Tipos, Cómo se forman e Importancia)", "EcologíaVerde", 176252]],
+    ],
+  },
+  final: [
+    ["Ecosistemas extremos: el polo y la selva", `<p>En el mundo hay ecosistemas muy diferentes al bosque y la charca.</p><p><b>Los polos</b> son lugares helados, con mucho frío casi todo el año:</p><ul><li>En el <b>Ártico</b>, al norte, vive el oso polar, con una gruesa capa de grasa y pelo.</li><li>En la <b>Antártida</b>, al sur, viven los pingüinos, que se juntan en grupo para darse calor.</li><li>Casi no hay plantas, y la mayor parte del alimento viene del mar.</li></ul><p><b>La selva tropical</b> es todo lo contrario: hace calor y llueve casi todos los días.</p><ul><li>Es el ecosistema con <b>más tipos de seres vivos</b> del planeta.</li><li>Los árboles son tan altos que forman un techo verde y abajo llega poca luz.</li><li>Viven monos, loros, ranas de colores, serpientes y millones de insectos.</li></ul><p>Las selvas, como la del <b>Amazonas</b>, están en peligro porque se talan para conseguir madera y campos de cultivo.</p>`,
+      H6.dos("Extremos", ["POLO", ["mucho frío", "oso, pingüino", "pocas plantas"], cAZ], ["SELVA", ["calor y lluvia", "monos, loros", "muchas plantas"], cVE])],
+    ["Observamos un ecosistema cercano", `<p>No hace falta viajar lejos para estudiar un <mark>ecosistema</mark>: el patio, un parque o un jardín también lo son.</p><p><b>Cómo hacer una observación</b>:</p><ul><li><b>1.</b> Marca un cuadrado de un metro de lado con cuerda y palitos.</li><li><b>2.</b> Con una lupa, busca seres vivos: plantas, insectos, arañas, caracoles, lombrices…</li><li><b>3.</b> Apunta en una tabla cada ser vivo, cuántos hay y qué está haciendo.</li><li><b>4.</b> Busca también los elementos no vivos: tierra, piedras, agua, luz o sombra.</li><li><b>5.</b> Intenta formar una cadena alimentaria con lo que has encontrado.</li></ul><p><b>Normas del buen explorador</b>: mira sin hacer daño, devuelve cada piedra a su sitio y no arranques plantas.</p><p>Si repites la observación en otra estación del año, verás cómo cambia el ecosistema: en primavera hay flores e insectos; en invierno, muchos animales se esconden.</p>`,
+      H6.flujo("Observar", ["marca|1 metro", "busca|con lupa", "anota|tabla", "relaciona|cadena"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Por qué la perdiz nival cambia de color?", ["En invierno el suelo se cubre de nieve.", "Si es blanca, sus enemigos no la ven."], "Para camuflarse según la estación."],
+    ["Forma una cadena con lo observado: hierba, saltamontes, araña.", ["La hierba fabrica su alimento.", "El saltamontes come hierba y la araña caza al saltamontes."], "Hierba → saltamontes → araña."],
+  ],
+  errores: ["Pensar que la posidonia es un alga: es una planta con flores.", "Creer que en el patio no hay ningún ecosistema."],
+  ejercicios: [
+    ["b", "¿Qué es el camuflaje?", "Confundirse con el entorno para no ser visto."],
+    ["b", "Di un animal que cambie de color.", "Camaleón o pulpo."],
+    ["b", "¿Qué planta forma praderas en el Mediterráneo?", "La posidonia."],
+    ["b", "¿Qué animal vive en el Ártico?", "El oso polar."],
+    ["b", "¿Qué necesitas para observar un ecosistema de cerca?", "Una lupa."],
+    ["m", "¿Para qué tiene la salamandra colores llamativos?", "Para avisar de que es peligrosa."],
+    ["m", "¿Qué es el plancton?", "Seres diminutos que alimentan a muchos animales marinos."],
+    ["m", "Compara el clima del polo y de la selva.", "Polo: frío; selva: calor y lluvia."],
+    ["m", "¿Por qué está en peligro la selva del Amazonas?", "Por la tala de árboles."],
+    ["m", "Di dos normas del buen explorador.", "No hacer daño y devolver las piedras a su sitio."],
+    ["a", "Haz la observación de un metro cuadrado y anota lo que encuentres.", "Respuesta abierta."],
+    ["a", "Dibuja un animal camuflado en su hábitat.", "Respuesta abierta."],
+    ["a", "Investiga un animal de las profundidades del mar.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cuántos seres vivos encontró el grupo?", "Más de veinte."],
+  ],
+  quiz: [
+    ["El insecto palo se parece a…", ["una ramita", "una piedra", "una flor"], "Camuflaje."],
+    ["La posidonia es…", ["una planta con flores", "un alga", "un pez"], "Mar."],
+    ["Los pingüinos viven en…", ["la Antártida", "el Ártico", "la selva"], "Polos."],
+    ["El ecosistema con más tipos de seres vivos es…", ["la selva tropical", "el desierto", "el polo"], "Selva."],
+    ["Para observar un ecosistema marcamos un cuadrado de…", ["un metro de lado", "un kilómetro", "un centímetro"], "Observar."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué tejía la araña?", ["su tela", "una hoja", "un nido"], "Lectura."],
+    ["Los arrecifes de coral están en peligro por…", ["el calentamiento del agua", "el frío", "los delfines"], "Coral."],
+  ],
+  tarjetas: [
+    ["Camuflaje", "Esconderse (insecto palo) o avisar (salamandra)."],
+    ["Mar", "Plancton, costa, mar abierto, posidonia y corales."],
+    ["Polo y selva", "Frío y pocas plantas; calor, lluvia y muchísima vida."],
+    ["Observar", "Un metro cuadrado, lupa, tabla y cadena alimentaria."],
+  ],
+  glosario: [
+    ["Camuflaje", "Colores o formas que confunden con el entorno."],
+    ["Depredador", "Animal que caza a otros."],
+    ["Presa", "Animal que es cazado."],
+    ["Plancton", "Seres diminutos que flotan en el agua."],
+    ["Posidonia", "Planta marina del Mediterráneo."],
+    ["Arrecife de coral", "Estructura marina formada por corales."],
+    ["Ártico", "Zona helada del norte."],
+    ["Antártida", "Continente helado del sur."],
+    ["Selva tropical", "Ecosistema cálido y lluvioso."],
+    ["Tala", "Corte de árboles."],
+    ["Lupa", "Lente que aumenta lo que miramos."],
+    ["Observación", "Mirar con atención y anotar."],
+  ],
+  situacion: {
+    titulo: "Exploradores de ecosistemas",
+    reto: "La clase estudia el ecosistema del patio y lo compara con ecosistemas lejanos.",
+    pasos: ["Observar un metro cuadrado del patio con lupa.", "Buscar ejemplos de camuflaje en fotos y en el patio.", "Investigar en grupos el mar, el polo o la selva.", "Presentar un mural comparativo de ecosistemas."],
+    producto: "Un cuaderno de campo y un mural de ecosistemas.",
+    evaluacion: ["Explica el camuflaje.", "Describe el ecosistema marino.", "Compara polo y selva.", "Observa con respeto un ecosistema cercano."],
+  },
+});

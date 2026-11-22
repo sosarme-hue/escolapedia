@@ -140,3 +140,91 @@ module.exports = {
   fuentes: [RD, wiki("Luz", "Luz"), wiki("Sonido", "Sonido"), wiki("Arcoíris", "Arcoíris")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo funcionan los espejos y las lupas", "Explicar cómo algunos animales se orientan con sonidos", "Clasificar los instrumentos musicales", "Entender cómo vemos y cuidar el cielo nocturno"],
+  lectura: { titulo: "La noche de las estrellas", html: `<p>En agosto, la familia de Martina fue a pasar unos días a una casa rural en la montaña, lejos de la ciudad.</p><p>La primera noche, el padre de Martina apagó todas las luces del porche.</p><p>—Mirad hacia arriba —dijo.</p><p>Martina levantó la cabeza y se quedó con la boca abierta. El cielo estaba lleno de estrellas, miles y miles, mucho más de las que había visto nunca. Atravesando el cielo había una franja blanquecina, como una nube muy larga.</p><p>—Es la Vía Láctea —explicó su padre—. Nuestra galaxia. En la ciudad no se ve porque hay demasiadas luces.</p><p>—¿Y las estrellas no están allí también? —preguntó Martina.</p><p>—Sí, siempre están. Pero la luz de las farolas y los edificios ilumina el cielo y las tapa.</p><p>De pronto, una luz cruzó el cielo a toda velocidad.</p><p>—¡Una estrella fugaz! —gritó su hermano Teo.</p><p>Era la época de las Perseidas, una lluvia de estrellas que se ve cada mes de agosto. Esa noche contaron catorce.</p><p>Al volver a casa, Martina propuso en clase apagar las luces que no hicieran falta. Quería que algún día también se vieran las estrellas desde su ciudad.</p>` },
+  tras: {
+    "La luz rebota y se descompone": [
+      ["Espejos y lupas", `<p>Los <mark>espejos</mark> y las <mark>lupas</mark> cambian el camino de la luz.</p><p><b>Los espejos</b> reflejan la luz y nos devuelven una imagen:</p><ul><li>En un espejo plano, la imagen está <b>al revés</b> de izquierda a derecha. Por eso en las ambulancias se escribe AMBULANCIA del revés: el conductor de delante la lee bien por el retrovisor.</li><li>Los espejos curvos de las curvas de las carreteras y de los aparcamientos permiten ver un espacio más grande.</li></ul><p><b>Las lupas</b> son lentes: piezas de vidrio o plástico transparente más gruesas por el centro. Cuando la luz las atraviesa, se desvía, y los objetos se ven <b>más grandes</b>.</p><ul><li>Las gafas también tienen lentes que ayudan a ver mejor.</li><li>Los <b>microscopios</b> usan varias lentes para ver cosas diminutas, y los <b>telescopios</b>, para ver cosas muy lejanas.</li></ul><p><b>Experimento</b>: pon una gota de agua sobre un plástico transparente encima de un periódico. ¡Las letras se ven más grandes! La gota funciona como una lupa.</p>`,
+        L6.filas("Luz", [["espejo plano", "imagen al revés", cAZ], ["espejo curvo", "ve más", cVE], ["lupa", "aumenta", cNA], ["telescopio", "lo lejano", cMO]])],
+    ],
+    "¿Cómo viaja el sonido?": [
+      ["Animales que ven con sonidos", `<p>Algunos animales usan el <mark>eco</mark> para orientarse y cazar en la oscuridad. Esta habilidad se llama <mark>ecolocalización</mark>.</p><ul><li>Los <b>murciélagos</b> vuelan de noche. Emiten unos sonidos muy agudos que nosotros no podemos oír, llamados <b>ultrasonidos</b>. El sonido rebota en los objetos y en los insectos y vuelve a sus grandes orejas. Así saben dónde está cada cosa sin verla.</li><li>Los <b>delfines</b> hacen chasquidos bajo el agua y escuchan el eco para encontrar peces, incluso en aguas turbias.</li><li>Las <b>ballenas</b> cantan canciones que viajan por el agua a muchos kilómetros de distancia.</li></ul><p>Las personas copiamos esta idea para inventar el <b>sónar</b>, que usan los barcos para medir la profundidad del mar y encontrar bancos de peces. Los coches con sensores de aparcamiento también usan ultrasonidos: pitan más rápido cuanto más cerca está el obstáculo.</p>`,
+        H6.flujo("Eco", ["emite|sonido", "rebota|en algo", "vuelve|al oído", "sabe|dónde está"], cMO), ["Wo6SPJ9fj_M", "LOS MURCIÉLAGOS PARA NIÑOS/ TODO SOBRE LOS MURCIELAGOS/ EL MURCIÉLAGO EN ESPAÑOL", "MunDoPeKes", 146725]],
+    ],
+    "Cualidades del sonido": [
+      ["Los instrumentos musicales", `<p>Los <mark>instrumentos musicales</mark> producen sonido haciendo vibrar algo. Según lo que vibra, se agrupan en familias:</p><ul><li><b>Cuerda</b>: vibran unas cuerdas tensas al frotarlas, pulsarlas o golpearlas. Violín, guitarra, arpa y piano.</li><li><b>Viento</b>: vibra el aire que soplamos dentro de un tubo. Flauta, trompeta, clarinete y gaita.</li><li><b>Percusión</b>: vibra el instrumento cuando lo golpeamos, lo agitamos o lo rascamos. Tambor, xilófono, pandereta y maracas.</li></ul><p>Los instrumentos también siguen las cualidades del sonido: una cuerda <b>más corta</b> o más fina da un sonido <b>más agudo</b>, y un tubo más largo da un sonido más grave. Por eso el contrabajo, que es enorme, suena muy grave, y el violín, pequeño, suena agudo.</p><p><b>Actividad</b>: llena varios vasos con distintas cantidades de agua y golpéalos suavemente con una cuchara. ¡Has fabricado un xilófono de agua!</p>`,
+        H6.rueda("Familias", "MÚSICA", [["cuerda", cAZ], ["viento", cVE], ["percusión", cRO], ["vasos", cNA]])],
+    ],
+  },
+  final: [
+    ["Cómo vemos: el ojo", `<p>Para ver necesitamos <b>luz</b> y unos órganos especiales: los <mark>ojos</mark>.</p><ul><li>La luz rebota en los objetos y entra en el ojo por un agujerito negro llamado <b>pupila</b>.</li><li>Alrededor de la pupila está el <b>iris</b>, la parte de color: azul, verde, marrón…</li><li>Dentro del ojo hay una lente, el <b>cristalino</b>, que enfoca la imagen.</li><li>Al fondo del ojo, la <b>retina</b> recoge la imagen y la envía al cerebro por un nervio.</li><li>El cerebro interpreta la imagen y sabemos qué estamos viendo.</li></ul><p><b>Experimento</b>: mírate en un espejo con poca luz y luego enciende una lámpara. Verás que tu pupila se hace pequeña con mucha luz y grande con poca.</p><p><b>Cuida tus ojos</b>: no mires nunca directamente al Sol, lee con buena luz y descansa la vista cuando uses pantallas. Si ves borroso, avisa para que te revise un oculista.</p>`,
+      H6.flujo("Ver", ["luz|rebota", "pupila|entra", "retina|imagen", "cerebro|entiende"], cAZ)],
+    ["La contaminación lumínica", `<p>Por la noche, las ciudades están llenas de luces: farolas, carteles, escaparates y edificios. Cuando hay demasiada luz o está mal dirigida, se produce <mark>contaminación lumínica</mark>.</p><ul><li>El cielo se ilumina y <b>no se ven las estrellas</b>. Muchos niños de ciudad nunca han visto la Vía Láctea.</li><li>Afecta a los <b>animales nocturnos</b>: las tortugas recién nacidas se confunden y van hacia las luces en vez de al mar, y muchos insectos mueren dando vueltas alrededor de las farolas.</li><li>Las aves que migran de noche se desorientan.</li><li>Se <b>gasta energía</b> sin necesidad.</li></ul><p><b>Soluciones</b>: apagar las luces que no se usan, usar farolas que iluminen solo hacia abajo y luces menos intensas.</p><p>En España hay lugares con cielos muy oscuros y protegidos, como algunas zonas de las Islas Canarias, donde hay grandes telescopios para estudiar el universo.</p>`,
+      H6.dos("Luz de noche", ["PROBLEMAS", ["sin estrellas", "animales confusos", "gasto"], cRO], ["SOLUCIONES", ["apagar", "hacia abajo", "menos fuerte"], cVE]), ["QBzfMTxwpuY", "Contaminación lumínica - Explicado para niños: Planeta Darwin", "CNTV Infantil", 119759]],
+  ],
+  ejemplos: [
+    ["¿Por qué AMBULANCIA se escribe del revés?", ["Los espejos dan la imagen al revés.", "El conductor de delante la ve por el retrovisor."], "Para leerla bien en el espejo."],
+    ["¿Qué vaso suena más agudo: con mucha agua o con poca?", ["Cuanta menos agua hay, más rápido vibra el vaso al golpearlo.", "Probamos golpeando ambos."], "El que tiene menos agua."],
+  ],
+  errores: ["Pensar que los murciélagos son ciegos: ven, pero se orientan sobre todo con el eco.", "Creer que la pupila es siempre del mismo tamaño."],
+  ejercicios: [
+    ["b", "¿Qué hace una lupa?", "Ver los objetos más grandes."],
+    ["b", "¿Qué animal vuela de noche usando el eco?", "El murciélago."],
+    ["b", "Di un instrumento de cuerda.", "Guitarra, violín, arpa o piano."],
+    ["b", "¿Cómo se llama la parte de color del ojo?", "El iris."],
+    ["b", "¿Qué no dejan ver las luces de las ciudades?", "Las estrellas."],
+    ["m", "¿Qué es la ecolocalización?", "Orientarse escuchando el eco."],
+    ["m", "¿Por qué el contrabajo suena grave?", "Porque es grande y sus cuerdas son largas."],
+    ["m", "¿Qué hace la pupila con mucha luz?", "Se hace pequeña."],
+    ["m", "¿Cómo afecta la luz a las tortugas recién nacidas?", "Se confunden y van hacia las luces."],
+    ["m", "¿Para qué sirve el sónar?", "Para medir la profundidad y encontrar peces."],
+    ["a", "Fabrica un xilófono de agua y ordena los vasos de grave a agudo.", "Respuesta abierta."],
+    ["a", "Haz el experimento de la gota de agua como lupa.", "Respuesta abierta."],
+    ["a", "Diseña un cartel para reducir la contaminación lumínica.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cuántas estrellas fugaces contaron?", "Catorce."],
+  ],
+  quiz: [
+    ["En un espejo plano la imagen sale…", ["al revés de izquierda a derecha", "boca abajo", "más grande"], "Espejos."],
+    ["Los murciélagos emiten…", ["ultrasonidos", "luz", "humo"], "Eco."],
+    ["El tambor es de la familia de…", ["percusión", "cuerda", "viento"], "Instrumentos."],
+    ["La imagen se recoge en la…", ["retina", "pupila", "pestaña"], "Ojo."],
+    ["Las farolas deben iluminar…", ["hacia abajo", "hacia el cielo", "todo el día"], "Lumínica."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo se llamaba la lluvia de estrellas?", ["Perseidas", "Leónidas", "Vía Láctea"], "Lectura."],
+    ["El microscopio sirve para ver…", ["cosas diminutas", "estrellas", "sonidos"], "Lentes."],
+  ],
+  tarjetas: [
+    ["Espejos y lupas", "Reflejan o desvían la luz; las lentes aumentan."],
+    ["Ecolocalización", "Murciélagos y delfines se orientan con el eco."],
+    ["Instrumentos", "Cuerda, viento y percusión."],
+    ["Ojo y cielo", "Pupila, iris, retina; menos luz de noche para ver estrellas."],
+  ],
+  glosario: [
+    ["Espejo", "Superficie que refleja la luz."],
+    ["Lente", "Pieza transparente que desvía la luz."],
+    ["Lupa", "Lente que aumenta lo que miramos."],
+    ["Eco", "Sonido que rebota y vuelve."],
+    ["Ecolocalización", "Orientarse escuchando el eco."],
+    ["Ultrasonido", "Sonido tan agudo que no lo oímos."],
+    ["Sónar", "Aparato que usa el eco bajo el agua."],
+    ["Percusión", "Familia de instrumentos que se golpean."],
+    ["Pupila", "Agujero negro por donde entra la luz al ojo."],
+    ["Iris", "Parte de color del ojo."],
+    ["Retina", "Fondo del ojo que recoge la imagen."],
+    ["Contaminación lumínica", "Exceso de luz artificial por la noche."],
+  ],
+  situacion: {
+    titulo: "Feria de la luz y el sonido",
+    reto: "La clase prepara una feria de experimentos para otros cursos.",
+    pasos: ["Preparar el experimento de la gota-lupa y los espejos.", "Fabricar un xilófono de agua y clasificar instrumentos.", "Explicar con un juego de eco cómo cazan los murciélagos.", "Hacer una campaña para apagar luces innecesarias."],
+    producto: "Una feria con cuatro puestos de experimentos.",
+    evaluacion: ["Explica espejos y lupas.", "Describe la ecolocalización.", "Clasifica instrumentos.", "Explica cómo vemos y la contaminación lumínica."],
+  },
+});
