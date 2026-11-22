@@ -87,3 +87,94 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: el sustantivo; sustantivos comunes y propios; género y formación del femenino; número y formación del plural; concordancia en el grupo nominal",
   ideas: ["Caja misteriosa: sacar objetos y nombrarlos con el, la, los, las.", "Bingo de plurales en -s, -es y -ces.", "Mural de nombres propios de la clase, el barrio y la ciudad."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: { "Repaso: analizamos sustantivos": H6.flujo("Analizar", ["¿qué|nombra?", "común|o propio", "género|m o f", "número|sing. o pl."], cAZ) },
+  objetivos: ["Descubrir el significado de algunos nombres de persona", "Conocer sustantivos que vienen de otras lenguas", "Reconocer sustantivos que no cambian de número", "Usar el diccionario y nombrar emociones"],
+  lectura: { titulo: "La tienda de los nombres", html: `<p>En una calle estrecha de un pueblo había una tienda muy rara. En el escaparate, un cartel decía: «Se venden nombres».</p><p>Una mañana entró una niña llamada Noa.</p><p>—Buenos días —dijo—. Tengo un problema. Encontré un animalito en el jardín, pero no sé cómo se llama.</p><p>El tendero, un anciano con gafas redondas, se rascó la barba.</p><p>—¿Cómo es?</p><p>—Pequeño, con caparazón y se esconde cuando lo tocas.</p><p>El anciano abrió un cajón lleno de tarjetas y sacó una: «Tortuga».</p><p>—Aquí tienes. Ahora tu animalito tiene nombre de cosa, un sustantivo común. Si además quieres ponerle un nombre solo para él, eso es un nombre propio. Ese es gratis: elígelo tú.</p><p>Noa pensó un rato.</p><p>—Se llamará Lenta.</p><p>—Lenta… con mayúscula —dijo el tendero, y escribió el nombre en una tarjeta dorada.</p><p>Al salir, Noa se dio cuenta de algo: todo lo que veía tenía un nombre. La farola, el banco, la nube, el perro, la panadería… Y pensó que, sin sustantivos, no podríamos hablar de nada.</p>` },
+  tras: {
+    "Sustantivos propios": [
+      ["¿Qué significa tu nombre?", `<p>Muchos nombres de persona tienen un <mark>significado</mark> escondido, porque vienen de lenguas antiguas como el latín, el griego o el hebreo:</p><ul><li><b>Lucía</b> viene de «luz».</li><li><b>Pedro</b> significa «piedra».</li><li><b>Sofía</b> significa «sabiduría» en griego.</li><li><b>Leo</b> y <b>León</b> vienen de «león».</li><li><b>Alba</b> es la primera luz de la mañana.</li><li><b>Víctor</b> significa «el que vence».</li><li><b>Irene</b> significa «paz» en griego.</li><li><b>Pablo</b> significa «pequeño».</li></ul><p>Algunos nombres propios son también sustantivos comunes: <i>Rosa</i>, <i>Paloma</i>, <i>Pilar</i>, <i>Mar</i> o <i>Sol</i>. Cuando nombran a una persona, se escriben con mayúscula; cuando nombran una flor o un ave, con minúscula: <i>Rosa riega la rosa</i>.</p><p><b>Actividad</b>: pregunta en casa por qué te pusieron tu nombre y busca qué significa.</p>`,
+        L6.filas("Nombres", [["Lucía", "luz", cNA], ["Pedro", "piedra", cMO], ["Sofía", "sabiduría", cAZ], ["Irene", "paz", cVE]])],
+    ],
+    "Cómo se forma el femenino": [
+      ["Sustantivos viajeros", `<p>Muchos sustantivos que usamos cada día llegaron al castellano desde <mark>otras lenguas</mark>. ¡Son palabras viajeras!</p><ul><li>Del <b>árabe</b>, que se habló en la península durante siglos: <i>almohada, aceite, azúcar, aceituna, alfombra, ajedrez, naranja</i>. Muchas empiezan por <i>al-</i> o <i>a-</i>.</li><li>De las lenguas de <b>América</b>, como el náhuatl de México: <i>chocolate, tomate, cacahuete, aguacate</i>. Y del taíno, del Caribe: <i>hamaca, canoa, huracán</i>.</li><li>Del <b>inglés</b>: <i>fútbol, sándwich, robot, dron</i>.</li><li>Del <b>italiano</b>: <i>pizza, espagueti, piano</i>.</li><li>Del <b>francés</b>: <i>jardín, croqueta, chófer</i>.</li></ul><p>Las lenguas son como ríos que recogen agua de muchos afluentes. El castellano se ha hecho más rico gracias a todas estas palabras. Y el viaje también va al revés: el castellano ha prestado palabras a otras lenguas. En inglés dicen <i>patio</i>, <i>siesta</i>, <i>plaza</i> o <i>mosquito</i>, igual que nosotros. Cuando una palabra nueva llega de fuera, la Real Academia Española decide cómo escribirla en castellano: por eso escribimos <i>fútbol</i> con tilde o <i>espagueti</i> con e al principio.</p>`,
+        H6.rueda("Viajeras", "PALABRAS", [["árabe", cNA], ["América", cVE], ["inglés", cAZ], ["italiano", cRO]])],
+    ],
+    "Cómo se forma el plural": [
+      ["Siempre igual o siempre en plural", `<p>Casi todos los sustantivos cambian del singular al plural. Pero algunos son <mark>especiales</mark>:</p><ul><li><b>Siempre se usan en plural</b>, aunque hablemos de una sola cosa: <i>las gafas, las tijeras, los pantalones, los prismáticos, las vacaciones, los alrededores</i>. Decimos «unas gafas», aunque sean unas solas.</li><li><b>No cambian</b> del singular al plural: <i>el lunes / los lunes, la crisis / las crisis, el paraguas / los paraguas, el cumpleaños / los cumpleaños, el virus / los virus</i>. Para saber si es singular o plural, nos fijamos en el artículo: <i>el</i> o <i>los</i>.</li><li><b>Casi nunca se usan en plural</b>: <i>la sed, el oeste, la salud</i>.</li></ul><p>Fíjate en que los que no cambian suelen terminar en <b>-s</b> y no ser agudos: <i>lunes, martes, crisis, tórax</i>. En cambio, si la palabra termina en <b>-s</b> y es aguda, sí cambia: <i>el autobús / los autobuses, el compás / los compases, el país / los países</i>. Y algunas palabras compuestas también se quedan igual: <i>el sacapuntas / los sacapuntas, el abrelatas / los abrelatas, el lavavajillas / los lavavajillas</i>. ¡Mira cuántos hay en tu estuche y en tu cocina!</p>`,
+        H6.dos("Especiales", ["EN PLURAL", ["gafas", "tijeras", "vacaciones"], cAZ], ["NO CAMBIAN", ["lunes", "paraguas", "cumpleaños"], cNA])],
+    ],
+  },
+  final: [
+    ["Buscamos sustantivos en el diccionario", `<p>El <mark>diccionario</mark> es un libro que explica el significado de las palabras. Están ordenadas por <b>orden alfabético</b>.</p><ul><li>Los sustantivos aparecen en <b>singular</b>: para buscar <i>leones</i>, busca <i>león</i>.</li><li>Si un sustantivo tiene masculino y femenino, aparece en <b>masculino</b>: para buscar <i>gata</i>, busca <i>gato</i>.</li><li>En lo alto de cada página hay unas <b>palabras guía</b> que dicen cuál es la primera y la última palabra de esa página. Así se busca más deprisa.</li><li>Junto a la palabra aparece una abreviatura: <i>m.</i> (masculino) o <i>f.</i> (femenino).</li><li>Algunas palabras tienen varios significados, numerados: <i>banco</i> 1. asiento; 2. lugar donde se guarda dinero; 3. grupo de peces.</li></ul><p>Hoy también hay diccionarios en internet, como el de la Real Academia Española. Además de los diccionarios normales, existen diccionarios de <b>sinónimos</b>, para buscar palabras que significan lo mismo, y diccionarios <b>bilingües</b>, que traducen de una lengua a otra. Cuando leas una palabra que no conoces, intenta primero adivinar su significado por lo que dice el resto de la frase, y después compruébalo en el diccionario.</p><p><b>Carrera</b>: ¿quién encuentra antes la palabra <i>murciélago</i> en el diccionario?</p>`,
+      H6.flujo("Diccionario", ["singular|y masculino", "orden|alfabético", "palabras|guía", "leer|significado"], cVE)],
+    ["Sustantivos para las emociones", `<p>Los sustantivos no solo nombran cosas que se pueden ver y tocar. También nombran lo que <mark>sentimos</mark> y pensamos:</p><ul><li><i>alegría, tristeza, miedo, enfado, sorpresa, vergüenza, calma</i>.</li><li><i>amistad, cariño, paciencia, valentía, generosidad</i>.</li><li><i>idea, sueño, recuerdo, deseo</i>.</li></ul><p>Saber nombrar las emociones nos ayuda a entendernos, a calmarnos y a explicar a los demás lo que nos pasa. Todas las emociones son normales, también las desagradables. No es lo mismo decir «estoy mal» que «siento <b>tristeza</b> porque mi amigo se ha mudado» o «tengo <b>miedo</b> al examen».</p><p>Muchos de estos sustantivos vienen de adjetivos: <i>alegre → alegría, triste → tristeza, valiente → valentía, tranquilo → tranquilidad</i>.</p><p><b>Actividad</b>: dibuja tu cara con cinco emociones diferentes y escribe debajo el sustantivo de cada una.</p>`,
+      H6.rueda("Emociones", "SIENTO", [["alegría", cNA], ["tristeza", cAZ], ["miedo", cMO], ["calma", cVE]])],
+    ["Jugamos a «¡Basta!»", `<p>«¡Basta!» o «Stop» es un juego clásico para practicar sustantivos.</p><p><b>Cómo se juega</b>:</p><ul><li><b>1.</b> Cada jugador dibuja en un papel una tabla con columnas: <i>nombre de persona, animal, cosa, fruta, ciudad</i>.</li><li><b>2.</b> Alguien dice el abecedario en voz baja y otro dice «¡Basta!». La letra en la que se pare es la letra de la ronda.</li><li><b>3.</b> Todos escriben, lo más rápido posible, una palabra que empiece por esa letra en cada columna.</li><li><b>4.</b> Quien termina primero grita «¡Basta!» y todos dejan de escribir.</li><li><b>5.</b> Se cuentan puntos: 10 por palabra original, 5 si otro ha puesto la misma.</li></ul><p>Por ejemplo, con la <b>M</b>: <i>Marta, mono, mesa, mango, Madrid</i>. Con la <b>P</b> podría salir <i>Pablo, perro, peine, pera, París</i>. ¿Te atreves con la <b>Z</b>?</p><p>¡Recuerda escribir los nombres propios con mayúscula! Si no, no cuentan los puntos.</p>`,
+      L6.filas("Basta", [["persona", "Marta", cRO], ["animal", "mono", cVE], ["cosa", "mesa", cAZ], ["ciudad", "Madrid", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Es singular o plural «el paraguas»?", ["El sustantivo no cambia.", "El artículo «el» es singular."], "Singular."],
+    ["¿Qué palabra buscas en el diccionario para «perras»?", ["Pasamos a singular: perra.", "Pasamos a masculino: perro."], "Perro."],
+  ],
+  errores: ["Decir «una gafa» o «una tijera»: se usan en plural.", "Buscar en el diccionario una palabra en plural."],
+  ejercicios: [
+    ["b", "¿Qué significa «Lucía»?", "Luz."],
+    ["b", "Di una palabra que venga del árabe.", "Almohada, aceite, azúcar…"],
+    ["b", "Di un sustantivo que siempre va en plural.", "Gafas, tijeras, pantalones…"],
+    ["b", "¿En qué orden están las palabras del diccionario?", "En orden alfabético."],
+    ["b", "Di un sustantivo de emoción.", "Alegría, miedo, tristeza…"],
+    ["m", "Escribe una frase con «Rosa» y «rosa».", "Rosa riega la rosa."],
+    ["m", "¿De qué lengua viene «chocolate»?", "Del náhuatl, de México."],
+    ["m", "¿Cómo sabes si «la crisis» es singular?", "Por el artículo «la»."],
+    ["m", "¿Qué son las palabras guía?", "Las que indican la primera y la última de la página."],
+    ["m", "Forma el sustantivo de «valiente».", "Valentía."],
+    ["a", "Investiga qué significa tu nombre.", "Respuesta abierta."],
+    ["a", "Juega una partida de «¡Basta!» con la letra P.", "Respuesta abierta."],
+    ["a", "Escribe cómo te sientes hoy usando sustantivos de emociones.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué nombre propio puso Noa a la tortuga?", "Lenta."],
+  ],
+  quiz: [
+    ["«Pedro» significa…", ["piedra", "luz", "paz"], "Nombres."],
+    ["«Tomate» viene de…", ["una lengua de América", "el inglés", "el francés"], "Viajeras."],
+    ["«El cumpleaños» en plural es…", ["los cumpleaños", "los cumpleañoses", "las cumpleaños"], "Especiales."],
+    ["Para buscar «gatas» buscamos…", ["gato", "gatas", "gata"], "Diccionario."],
+    ["«Alegría» viene del adjetivo…", ["alegre", "alegrar", "alegremente"], "Emociones."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué vendía la tienda?", ["nombres", "tortugas", "gafas"], "Lectura."],
+    ["En «¡Basta!», los nombres propios deben ir…", ["con mayúscula", "en plural", "al revés"], "Juego."],
+  ],
+  tarjetas: [
+    ["Significado de nombres", "Lucía es luz, Pedro es piedra, Irene es paz."],
+    ["Palabras viajeras", "Árabe, lenguas de América, inglés, italiano y francés."],
+    ["Número especial", "Siempre plural (gafas) o no cambian (lunes)."],
+    ["Diccionario y emociones", "Singular y masculino; alegría, miedo, calma."],
+  ],
+  glosario: [
+    ["Significado", "Lo que quiere decir una palabra."],
+    ["Latín", "Lengua de los antiguos romanos."],
+    ["Náhuatl", "Lengua indígena de México."],
+    ["Palabra viajera", "Palabra que viene de otra lengua."],
+    ["Singular", "Que nombra uno."],
+    ["Plural", "Que nombra varios."],
+    ["Diccionario", "Libro que explica las palabras."],
+    ["Orden alfabético", "Orden de las letras del abecedario."],
+    ["Palabras guía", "Palabras en lo alto de la página del diccionario."],
+    ["Emoción", "Lo que sentimos, como la alegría o el miedo."],
+    ["Abreviatura", "Forma corta de escribir una palabra."],
+    ["Mayúscula", "Letra grande para nombres propios."],
+  ],
+  situacion: {
+    titulo: "El diccionario de la clase",
+    reto: "La clase crea su propio diccionario ilustrado de sustantivos.",
+    pasos: ["Investigar el significado de los nombres de la clase.", "Buscar palabras viajeras y su origen.", "Ordenar los sustantivos alfabéticamente con definición.", "Añadir una sección de emociones con dibujos."],
+    producto: "Un diccionario ilustrado de la clase.",
+    evaluacion: ["Conoce nombres y su significado.", "Reconoce palabras viajeras.", "Usa bien el número.", "Maneja el diccionario."],
+  },
+});

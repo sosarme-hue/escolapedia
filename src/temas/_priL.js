@@ -30,6 +30,12 @@ function libro(T, A) {
     if (!b) throw new Error(`libro: vídeo para «${ref}», que no existe en «${T.titulo}»`);
     b.video = vid(v);
   }
+  // Dibujo para apartados del tema base que no lo tenían (repasos, etc.).
+  for (const [ref, s] of Object.entries(A.dibujos || {})) {
+    const b = T.bloques.find((x) => tit(x) === ref);
+    if (!b) throw new Error(`libro: dibujo para «${ref}», que no existe en «${T.titulo}»`);
+    b.svg = s;
+  }
   T.bloques.forEach((b, i) => { b.html = b.html.replace(/^<h3>/, `<h3>${i + 1}. `); });
   // 2. Resto de piezas.
   T.lectura = A.lectura;

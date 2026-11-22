@@ -87,3 +87,92 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: la sílaba; separación silábica; clasificación de las palabras por el número de sílabas; sílaba tónica y sílabas átonas",
   ideas: ["Tarjetas de sílabas para formar palabras en parejas.", "Dictado de palmadas: el alumnado escribe cuántas sílabas oye.", "Mural de palabras con la sílaba tónica coloreada."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: { "Repaso: analizamos palabras": H6.flujo("Analizar", ["separar|sílabas", "contar|cuántas", "buscar|la tónica", "decir|qué tipo"], cAZ) },
+  objetivos: ["Descubrir palabras muy largas y muy cortas", "Comprobar que la sílaba tónica cambia el significado", "Conocer agudas, llanas y esdrújulas", "Jugar con sílabas y contar las de un verso"],
+  lectura: { titulo: "El robot que hablaba raro", html: `<p>Para la feria del colegio, el grupo de Martín programó un pequeño robot que leía palabras en voz alta. Pero tenía un problema: no sabía cuál era la sílaba tónica.</p><p>—Hola, me llamo Ro-BOT —dijo con voz metálica—. Hoy vamos a co-MER pa-PÁ.</p><p>Todos se echaron a reír.</p><p>—¡No! —dijo Martín—. No vamos a comer a papá. Querías decir «papa», la patata.</p><p>Probaron otra frase.</p><p>—El ca-MI-no está muy lejos —dijo el robot. Esta vez lo dijo bien.</p><p>—Yo ca-mi-NÓ por el parque —siguió.</p><p>—¡Otra vez mal! —protestó Lucía—. Es «yo camino», no «caminó». Si cambias la tónica, cambia el significado.</p><p>Durante toda la tarde, el grupo enseñó al robot a buscar la sílaba más fuerte: la que suena más cuando la dices llamando a alguien desde lejos.</p><p>El día de la feria, el robot saludó a todos los visitantes:</p><p>—Bienvenidos a la feria de ciencias. Me llamo Robot y hablo… casi perfecto.</p><p>Y esa vez, todas las sílabas tónicas estaban en su sitio.</p>` },
+  tras: {
+    "Palabras según sus sílabas": [
+      ["Palabras muy largas y muy cortas", `<p>Hay palabras de <b>una sola sílaba</b>, como <i>sol</i>, <i>mar</i>, <i>pan</i>, <i>yo</i> o <i>tren</i>. Y hay otras <mark>larguísimas</mark>.</p><ul><li><i>Mariposa</i> tiene 4 sílabas: ma-ri-po-sa.</li><li><i>Hipopótamo</i> tiene 5: hi-po-pó-ta-mo.</li><li><i>Electrodoméstico</i> tiene 7: e-lec-tro-do-més-ti-co.</li><li><i>Otorrinolaringólogo</i>, el médico de la nariz, la garganta y los oídos, tiene 9: o-to-rri-no-la-rin-gó-lo-go.</li><li><i>Esternocleidomastoideo</i>, un músculo del cuello, es una de las palabras más largas del diccionario, con 10 sílabas.</li></ul><p>Las palabras largas suelen estar formadas por trozos más pequeños. <i>Otorrinolaringólogo</i> junta oído, nariz y laringe.</p><p><b>Reto</b>: busca en un libro la palabra más larga que encuentres y separa sus sílabas dando palmadas. Después, pide a un compañero que la diga de un tirón, sin equivocarse. ¡No es tan fácil como parece!</p>`,
+        L6.filas("Largas", [["sol", "1 sílaba", cAZ], ["mariposa", "4 sílabas", cVE], ["hipopótamo", "5 sílabas", cNA], ["electrodoméstico", "7 sílabas", cRO]])],
+    ],
+    "Dónde está la tónica": [
+      ["La tónica cambia el significado", `<p>A veces dos palabras tienen las <b>mismas letras</b> pero la sílaba tónica en un lugar distinto. ¡Y significan cosas diferentes!</p><ul><li><i><b>pa</b>pa</i> (patata) y <i>pa<b>pá</b></i> (padre).</li><li><i>ca<b>mi</b>no</i> (sendero o «yo camino») y <i>cami<b>nó</b></i> (él caminó ayer).</li><li><i><b>tér</b>mino</i> (final), <i>ter<b>mi</b>no</i> (yo termino) y <i>termi<b>nó</b></i> (él terminó).</li><li><i><b>sá</b>bana</i> (de la cama) y <i>sa<b>ba</b>na</i> (llanura de África).</li><li><i><b>cé</b>lebre</i> (famoso), <i>ce<b>le</b>bre</i> (que yo celebre) y <i>cele<b>bré</b></i> (lo celebré ayer).</li><li><i><b>Ca</b>lle</i> y <i>ca<b>lló</b></i> no suenan igual: en la primera la fuerza va al principio.</li></ul><p>Por eso es tan importante pronunciar bien y, al escribir, poner la tilde cuando toca: la tilde nos dice dónde está la fuerza de la palabra.</p><p><b>Juego</b>: di estas palabras cambiando la tónica de sitio y explica qué significan: <i>público, publico, publicó</i>.</p>`,
+        H6.dos("Cambia", ["PAPA", ["patata", "tónica: pa-", "sin tilde"], cNA], ["PAPÁ", ["padre", "tónica: -pá", "con tilde"], cAZ])],
+    ],
+  },
+  final: [
+    ["Agudas, llanas y esdrújulas", `<p>Según dónde esté la sílaba tónica, las palabras tienen un <mark>nombre</mark>. Contamos las sílabas empezando por el <b>final</b>:</p><ul><li><b>Agudas</b>: la tónica es la <b>última</b> sílaba. <i>Ca-<b>fé</b>, re-<b>loj</b>, can-<b>ción</b>, pa-<b>pá</b></i>.</li><li><b>Llanas</b>: la tónica es la <b>penúltima</b>. <i><b>Me</b>-sa, <b>li</b>-bro, <b>ár</b>-bol, <b>lá</b>-piz</i>. Son las más abundantes en castellano.</li><li><b>Esdrújulas</b>: la tónica es la <b>antepenúltima</b>. <i><b>Pá</b>-ja-ro, <b>mú</b>-si-ca, <b>sá</b>-ba-do</i>. ¡Todas llevan tilde!</li></ul><p>El año que viene estudiarás cuándo llevan tilde las agudas y las llanas. De momento, aprende a reconocerlas.</p><p><b>Truco</b>: palmea la palabra y señala con los dedos desde el final: el primer dedo es la última sílaba, el segundo la penúltima y el tercero la antepenúltima.</p>`,
+      L6.filas("Tipos", [["aguda", "última", cRO], ["llana", "penúltima", cVE], ["esdrújula", "antepenúltima", cAZ], ["esdrújulas", "siempre tilde", cMO]])],
+    ["Jugamos con las sílabas", `<p>Las sílabas son como piezas de construcción: se pueden mover y combinar para <mark>jugar</mark>.</p><ul><li><b>Palabras escondidas</b>: dentro de <i>sol-da-do</i> está <i>sol</i>; dentro de <i>ma-ri-po-sa</i> está <i>ma-ri</i>… y <i>po-sa</i>.</li><li><b>Palabras al revés</b>: si das la vuelta a las sílabas de <i>ra-mo</i> sale <i>mo-ra</i>; de <i>ca-sa</i> sale <i>sa-ca</i>; de <i>to-ma</i>, <i>ma-to</i>.</li><li><b>Palabras encadenadas</b>: la última sílaba de una palabra es la primera de la siguiente: <i>ca-<b>sa</b> → <b>sa</b>-po → <b>po</b>-llo → <b>llo</b>-ver…</i></li><li><b>Palíndromos</b>: palabras que se leen igual del derecho y del revés, como <i>oso</i>, <i>Ana</i> o <i>reconocer</i>.</li><li><b>Inventar palabras</b>: une sílabas al azar y crea nombres de monstruos o planetas, como <i>Zorpitán</i>.</li></ul><p>Estos juegos ayudan a separar bien las sílabas y a leer con más rapidez. También puedes jugar al <b>veo, veo</b> con sílabas: «Veo, veo una cosa que empieza por <i>ven</i>…». ¡La ventana! O al <b>ahorcado</b>, pero dando pistas de cuántas sílabas tiene la palabra. Con un dado puedes jugar a las <b>sílabas locas</b>: tira el dado y di una palabra con tantas sílabas como puntos salgan. Si sale un uno, vale <i>pez</i>; si sale un cinco, <i>bicicleta</i>… ¿o no? Bi-ci-cle-ta tiene cuatro. ¡Piensa otra!</p>`,
+      H6.rueda("Juegos", "SÍLABAS", [["escondidas", cAZ], ["al revés", cRO], ["encadenadas", cVE], ["palíndromos", cNA]])],
+    ["La tónica de nombres y ciudades", `<p>Los <mark>nombres propios</mark> también tienen sílaba tónica, y también pueden ser agudos, llanos o esdrújulos. ¡Fíjate en los nombres de tu clase!</p><ul><li><b>Nombres agudos</b>: <i>Mar-<b>tín</b>, I-<b>nés</b>, Ja-<b>vier</b>, Jo-<b>sé</b></i>.</li><li><b>Nombres llanos</b>: <i><b>Mar</b>-ta, <b>Car</b>-men, <b>Ós</b>-car, <b>Pa</b>-blo</i>.</li><li><b>Nombres esdrújulos</b>: <i><b>Ál</b>-va-ro, <b>Mó</b>-ni-ca, <b>Án</b>-ge-la</i>.</li></ul><p>Con las ciudades pasa lo mismo:</p><ul><li>Agudas: <i>Ma-<b>drid</b>, Ja-<b>én</b>, Gi-<b>jón</b></i>.</li><li>Llanas: <i>To-<b>le</b>-do, A-li-<b>can</b>-te, Za-ra-<b>go</b>-za</i>.</li><li>Esdrújulas: <i><b>Má</b>-la-ga, <b>Cór</b>-do-ba, <b>Cá</b>-ce-res</i>.</li></ul><p>Algunas palabras engañan: <i>Alicante</i> es larga y parece que la fuerza va al final, pero es llana. Por eso conviene decir la palabra en voz alta, como si llamaras a alguien desde lejos, antes de decidir. Y recuerda: los nombres propios también llevan tilde cuando les toca, aunque empiecen por mayúscula, como <i>Álvaro</i> u <i>Óscar</i>.</p><p><b>Actividad</b>: escribe los nombres de cinco compañeros y clasifícalos en agudos, llanos y esdrújulos.</p>`,
+      L6.filas("Nombres", [["Martín", "aguda", cRO], ["Marta", "llana", cVE], ["Álvaro", "esdrújula", cAZ], ["Málaga", "esdrújula", cNA]])],
+    ["Contar sílabas en los versos", `<p>En los poemas, los <mark>versos</mark> suelen tener un número de sílabas parecido, y eso les da ritmo, como una canción.</p><p>Por ejemplo, esta canción popular:</p><p><i>Que-llue-va,-que-llue-va (6)<br>la-Vir-gen-de-la-Cue-va (7)</i></p><p>Para contar las sílabas de un verso:</p><ul><li><b>1.</b> Lee el verso en voz alta despacio.</li><li><b>2.</b> Da una palmada por cada sílaba.</li><li><b>3.</b> Ojo: cuando una palabra termina en vocal y la siguiente empieza por vocal, a veces se juntan en una sola sílaba. Por ejemplo, en «la_ola» se dice <i>lao-la</i>.</li></ul><p>Los <b>romances</b>, unos poemas antiguos que se cantaban por los pueblos, tienen versos de <b>ocho sílabas</b>. Muchas canciones infantiles tienen versos de seis, siete u ocho sílabas, por eso son tan fáciles de cantar y de recordar. Los poetas cuentan las sílabas con cuidado para que sus versos suenen bien, igual que un músico cuenta los tiempos de una canción.</p><p><b>Actividad</b>: elige una canción que te sepas y cuenta las sílabas de sus versos con palmadas.</p>`,
+      H6.flujo("Contar", ["leer|despacio", "palmada|por sílaba", "unir|vocales", "anotar|el número"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Qué tipo de palabra es «pájaro»?", ["Separamos: pá-ja-ro.", "La tónica es la tercera empezando por el final."], "Esdrújula."],
+    ["¿Qué palabra sale al dar la vuelta a «lo-bo»?", ["Cambiamos el orden de las sílabas.", "bo-lo."], "Bolo."],
+  ],
+  errores: ["Contar las sílabas desde el principio para saber si es aguda, llana o esdrújula: se cuentan desde el final.", "Pensar que «papa» y «papá» son la misma palabra."],
+  ejercicios: [
+    ["b", "¿Cuántas sílabas tiene «hipopótamo»?", "Cinco."],
+    ["b", "¿Qué significa «papa» sin tilde?", "Patata."],
+    ["b", "¿Qué tipo de palabra es «canción»?", "Aguda."],
+    ["b", "¿Qué palabra está escondida en «soldado»?", "Sol."],
+    ["b", "Di un palíndromo.", "Oso, Ana, reconocer…"],
+    ["m", "Separa en sílabas «electrodoméstico».", "e-lec-tro-do-més-ti-co."],
+    ["m", "¿Qué diferencia hay entre «término» y «terminó»?", "Final / él acabó."],
+    ["m", "Clasifica: mesa, café, música.", "Llana, aguda, esdrújula."],
+    ["m", "Continúa la cadena: casa, sapo, …", "Pollo, llover…"],
+    ["m", "¿Cuántas sílabas tiene «que llueva, que llueva»?", "Seis."],
+    ["a", "Busca la palabra más larga de un libro y sepárala.", "Respuesta abierta."],
+    ["a", "Inventa tres palabras con sílabas al azar.", "Respuesta abierta."],
+    ["a", "Cuenta las sílabas de los versos de una canción.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué error cometió el robot con «papa»?", "Dijo papá en vez de papa."],
+  ],
+  quiz: [
+    ["«Otorrinolaringólogo» tiene…", ["9 sílabas", "5 sílabas", "12 sílabas"], "Largas."],
+    ["«Sábana» y «sabana» se diferencian en…", ["la sílaba tónica", "las letras", "el número de sílabas"], "Tónica."],
+    ["Las esdrújulas…", ["siempre llevan tilde", "nunca llevan tilde", "solo a veces"], "Tipos."],
+    ["«Ramo» al revés es…", ["mora", "mar", "rama"], "Juegos."],
+    ["Para contar sílabas de un verso damos…", ["palmadas", "saltos", "gritos"], "Versos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué quería hacer el robot?", ["leer palabras en voz alta", "cocinar", "bailar"], "Lectura."],
+    ["En las llanas, la tónica es la…", ["penúltima", "última", "antepenúltima"], "Tipos."],
+  ],
+  tarjetas: [
+    ["Largas y cortas", "Sol (1) … otorrinolaringólogo (9)."],
+    ["Cambia el significado", "Papa/papá, término/termino/terminó."],
+    ["Agudas, llanas, esdrújulas", "Última, penúltima, antepenúltima."],
+    ["Juegos y versos", "Escondidas, al revés, encadenadas; palmadas en los versos."],
+  ],
+  glosario: [
+    ["Monosílaba", "Palabra de una sílaba."],
+    ["Polisílaba", "Palabra de muchas sílabas."],
+    ["Sílaba tónica", "La que suena más fuerte."],
+    ["Aguda", "Palabra con la tónica en la última sílaba."],
+    ["Llana", "Palabra con la tónica en la penúltima sílaba."],
+    ["Esdrújula", "Palabra con la tónica en la antepenúltima sílaba."],
+    ["Penúltima", "La que va antes de la última."],
+    ["Antepenúltima", "La que va antes de la penúltima."],
+    ["Palíndromo", "Palabra que se lee igual al revés."],
+    ["Encadenar", "Unir una cosa detrás de otra."],
+    ["Verso", "Cada línea de un poema."],
+    ["Ritmo", "Repetición ordenada de sonidos."],
+  ],
+  situacion: {
+    titulo: "El taller de las sílabas",
+    reto: "La clase prepara juegos de sílabas para enseñar a los compañeros de 1º y 2º.",
+    pasos: ["Buscar palabras larguísimas y separarlas.", "Crear tarjetas de palabras que cambian con la tónica.", "Clasificar palabras en agudas, llanas y esdrújulas.", "Inventar un juego de palabras encadenadas."],
+    producto: "Un taller de juegos de sílabas para otros cursos.",
+    evaluacion: ["Separa palabras largas.", "Reconoce la tónica.", "Clasifica agudas, llanas y esdrújulas.", "Juega con sílabas y versos."],
+  },
+});

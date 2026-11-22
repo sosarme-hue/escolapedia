@@ -87,3 +87,93 @@ module.exports = P.tema({
   saberes: "Comunicación e interacción oral: elementos de la comunicación (emisor, receptor, mensaje, canal, código); comunicación oral, escrita y no verbal; normas de la conversación",
   ideas: ["Teléfono de vasos y cuerda para trabajar canal, emisor y receptor.", "Juego de mímica: mensajes sin palabras en pequeños grupos.", "Asamblea con «objeto de la palabra» para practicar el turno."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo se comunicaba la gente antes", "Descubrir el braille", "Reconocer los medios de comunicación", "Conocer las lenguas de España y la comunicación de los animales"],
+  lectura: { titulo: "El mensaje en la botella", html: `<p>Durante unas vacaciones en la playa, Nico y su prima Alba decidieron enviar un mensaje en una botella. Escribieron en un papel:</p><p><i>«Hola. Somos Nico y Alba, tenemos ocho y nueve años y vivimos en Zaragoza. Si encuentras esta botella, escríbenos al colegio. ¡Cuéntanos dónde vives!»</i></p><p>Pusieron la dirección del colegio, enrollaron el papel, lo metieron en una botella de cristal y la cerraron bien con un corcho. Su tío los llevó en barca un poco mar adentro y la lanzaron al agua.</p><p>—No creo que nadie la encuentre nunca —dijo Alba.</p><p>Pasaron los meses y se olvidaron de la botella. Pero un día de febrero, la directora entró en su clase con un sobre lleno de sellos extraños.</p><p>—Ha llegado una carta para Nico y Alba… desde Italia.</p><p>Una niña llamada Giulia había encontrado la botella en una playa de Cerdeña. Les escribía en italiano, con un dibujo de su pueblo y una foto de la botella.</p><p>Con ayuda de la maestra, tradujeron la carta. Y así empezó una amistad por correspondencia que duró muchos años.</p><p>—El mar ha sido nuestro cartero —dijo Nico.</p>` },
+  tras: {
+    "Comunicación escrita": [
+      ["Mensajes de antes", `<p>Antes de los teléfonos e internet, las personas inventaron muchas formas de enviar <mark>mensajes a distancia</mark>:</p><ul><li><b>Señales de humo</b> y hogueras en lo alto de las montañas, para avisar de un peligro.</li><li><b>Tambores</b>, cuyo sonido llegaba lejos por la selva.</li><li><b>Palomas mensajeras</b>, que llevaban papelitos atados a la pata y siempre volvían a su palomar.</li><li><b>Mensajeros</b> a pie o a caballo, que recorrían largos caminos.</li><li>El <b>telégrafo</b>, que enviaba mensajes por cables con el código Morse: puntos y rayas. El SOS es punto-punto-punto, raya-raya-raya, punto-punto-punto.</li><li>Las <b>cartas</b> por correo, con sellos y sobres.</li></ul><p>Hoy un mensaje cruza el mundo en un segundo. Pero todos estos sistemas tienen algo en común: un emisor, un receptor, un mensaje, un canal y un código.</p>`,
+        L6.filas("Antes", [["humo", "avisar de lejos", cMO], ["paloma", "papel en la pata", cAZ], ["telégrafo", "código Morse", cNA], ["carta", "sello y sobre", cRO]])],
+    ],
+    "Comunicarse sin palabras": [
+      ["El braille: leer con los dedos", `<p>Las personas ciegas pueden leer y escribir gracias al <mark>braille</mark>, un sistema de puntos en relieve que se leen tocándolos con la yema de los dedos.</p><ul><li>Cada letra se forma con una combinación de hasta <b>seis puntos</b>, colocados en dos columnas de tres, como las fichas de un dominó.</li><li>Lo inventó el francés <b>Louis Braille</b>, que se quedó ciego de niño. ¡Lo creó cuando tenía unos quince años!</li><li>Con el braille se escriben libros, partituras de música y números.</li></ul><p>Fíjate y verás braille en muchos sitios: en las cajas de medicinas, en los botones de los ascensores y en algunos carteles.</p><p>En España, la <b>ONCE</b> ayuda a las personas ciegas a estudiar y a trabajar. Hoy también existen ordenadores y móviles que leen en voz alta los textos de la pantalla.</p><p><b>Actividad</b>: con un lápiz, pincha desde atrás una cartulina para hacer los puntos de la primera letra de tu nombre y prueba a leerla con los ojos cerrados.</p>`,
+        H6.dos("Braille", ["CÓMO ES", ["6 puntos", "en relieve", "dos columnas"], cAZ], ["DÓNDE", ["medicinas", "ascensores", "libros"], cVE])],
+    ],
+    "La conversación": [
+      ["Los medios de comunicación", `<p>Los <mark>medios de comunicación</mark> son los que llevan la información a muchísimas personas a la vez:</p><ul><li>La <b>prensa</b>: periódicos y revistas, en papel o en internet. Cuentan noticias con textos y fotos.</li><li>La <b>radio</b>: solo se escucha. Puedes oírla mientras haces otras cosas.</li><li>La <b>televisión</b>: combina imagen y sonido.</li><li><b>Internet</b>: une todo lo anterior y permite que cualquiera publique.</li></ul><p>Los medios sirven para <b>informar</b> (noticias), <b>entretener</b> (películas, concursos, música) y <b>enseñar</b> (documentales).</p><p>También hay <b>publicidad</b>, que intenta convencernos de comprar algo.</p><p><b>Consejo</b>: no todo lo que aparece en internet es verdad. Antes de creer una noticia sorprendente, pregunta a un adulto y comprueba si la cuentan otros medios fiables.</p>`,
+        H6.rueda("Medios", "INFORMAR", [["prensa", cAZ], ["radio", cNA], ["televisión", cRO], ["internet", cVE]])],
+    ],
+  },
+  final: [
+    ["Las lenguas de España", `<p>En España se hablan varias <mark>lenguas</mark>. Todas son igual de valiosas:</p><ul><li>El <b>castellano</b> o español es la lengua oficial de todo el país. Lo hablan más de 500 millones de personas en el mundo.</li><li>El <b>catalán</b> se habla en Cataluña, las islas Baleares y, con el nombre de valenciano, en la Comunidad Valenciana.</li><li>El <b>gallego</b> se habla en Galicia.</li><li>El <b>euskera</b> o vasco se habla en el País Vasco y en parte de Navarra. Es una lengua muy antigua de origen misterioso.</li><li>Hay otras más, como el asturiano o el aranés.</li></ul><p>Algunas palabras se parecen mucho: «buenos días» se dice <i>bon dia</i> en catalán, <i>bo día</i> en gallego y <i>egun on</i> en euskera.</p><p>Saber varias lenguas es una gran riqueza: permite comunicarse con más personas y conocer otras culturas.</p>`,
+      L6.filas("Lenguas", [["castellano", "todo el país", cRO], ["catalán", "Cataluña, Baleares", cNA], ["gallego", "Galicia", cAZ], ["euskera", "País Vasco", cVE]])],
+    ["Así se comunican los animales", `<p>Los animales no hablan como nosotros, pero también se <mark>comunican</mark>:</p><ul><li>Las <b>abejas</b> hacen una danza para indicar a sus compañeras dónde hay flores.</li><li>Los <b>perros</b> mueven la cola cuando están contentos y enseñan los dientes cuando se sienten amenazados.</li><li>Los <b>pájaros</b> cantan para atraer pareja o para defender su territorio.</li><li>Las <b>ballenas</b> cantan canciones que se oyen a muchos kilómetros bajo el agua.</li><li>Las <b>hormigas</b> dejan rastros de olor.</li><li>Las <b>luciérnagas</b> se envían señales de luz.</li></ul><p>Pero solo las personas tenemos un <b>lenguaje</b> con palabras que podemos combinar para decir cosas nuevas, hablar del pasado, del futuro o de cosas imaginarias.</p>`,
+      H6.rueda("Animales", "SEÑALES", [["danza", cNA], ["cola", cRO], ["canto", cAZ], ["olor", cVE]])],
+    ["Emojis y mensajes del móvil", `<p>Hoy muchas personas se comunican con <mark>mensajes</mark> en el móvil. En ellos usamos palabras, fotos, audios y <mark>emojis</mark>: pequeños dibujos que muestran emociones o cosas.</p><ul><li>Los emojis ayudan a expresar cómo nos sentimos, porque en un texto escrito no se ve nuestra cara ni se oye nuestro tono.</li><li>Pero un mismo emoji puede entenderse de forma distinta según quién lo lea.</li></ul><p><b>Normas para escribir mensajes</b>:</p><ul><li>Saluda y despídete.</li><li>Escribe con buena ortografía, aunque sea un mensaje corto.</li><li>No escribas nada que no dirías a la cara.</li><li>No compartas fotos o datos de otras personas sin permiso.</li><li>Si alguien te escribe algo que te hace sentir mal, cuéntaselo a un adulto.</li></ul><p>Los niños de tu edad solo deben usar el móvil con la supervisión de un adulto.</p>`,
+      H6.flujo("Mensaje", ["saluda|primero", "escribe|bien", "piensa|antes", "despídete|al final"], cAZ)],
+  ],
+  ejemplos: [
+    ["¿Qué elementos hay en un mensaje con paloma mensajera?", ["Quien escribe es el emisor; quien lo recibe, el receptor.", "La paloma es el canal y la lengua escrita, el código."], "Emisor, receptor, mensaje, canal y código."],
+    ["¿Qué medio usarías para enterarte de noticias mientras haces la cama?", ["Necesito tener las manos y los ojos libres.", "La radio solo se escucha."], "La radio."],
+  ],
+  errores: ["Creer todo lo que aparece en internet.", "Pensar que el braille es solo para letras: también hay números y música."],
+  ejercicios: [
+    ["b", "Di una forma antigua de enviar mensajes.", "Humo, tambores, palomas, cartas…"],
+    ["b", "¿Quién inventó el braille?", "Louis Braille."],
+    ["b", "¿Cuántos puntos tiene como máximo una letra en braille?", "Seis."],
+    ["b", "Di un medio de comunicación.", "Prensa, radio, televisión o internet."],
+    ["b", "¿Dónde se habla gallego?", "En Galicia."],
+    ["m", "¿Cómo se escribe SOS en Morse?", "Tres puntos, tres rayas, tres puntos."],
+    ["m", "¿Dónde puedes encontrar braille?", "En medicinas, ascensores y libros."],
+    ["m", "¿Para qué sirven los medios de comunicación?", "Para informar, entretener y enseñar."],
+    ["m", "¿Cómo se dice «buenos días» en euskera?", "Egun on."],
+    ["m", "¿Por qué usamos emojis?", "Para expresar emociones en un texto."],
+    ["a", "Escribe tu nombre en braille pinchando una cartulina.", "Respuesta abierta."],
+    ["a", "Escribe un mensaje para una botella.", "Respuesta abierta."],
+    ["a", "Escribe tres normas para usar el móvil.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿dónde encontraron la botella?", "En una playa de Cerdeña, Italia."],
+  ],
+  quiz: [
+    ["El telégrafo usaba el código…", ["Morse", "braille", "de signos"], "Mensajes de antes."],
+    ["El braille se lee…", ["con los dedos", "con los oídos", "con la nariz"], "Braille."],
+    ["La radio…", ["solo se escucha", "solo se ve", "solo se lee"], "Medios."],
+    ["El valenciano es el nombre del catalán en…", ["la Comunidad Valenciana", "Galicia", "Asturias"], "Lenguas."],
+    ["Las abejas se comunican con…", ["una danza", "luces", "palabras"], "Animales."],
+  ],
+  examen: [
+    ["En la lectura, ¿en qué idioma escribió Giulia?", ["en italiano", "en inglés", "en francés"], "Lectura."],
+    ["Antes de creer una noticia sorprendente hay que…", ["comprobarla", "compartirla", "inventar otra"], "Medios."],
+  ],
+  tarjetas: [
+    ["Mensajes de antes", "Humo, tambores, palomas, telégrafo y cartas."],
+    ["Braille", "Seis puntos en relieve; Louis Braille."],
+    ["Medios", "Prensa, radio, televisión e internet."],
+    ["Lenguas y animales", "Castellano, catalán, gallego, euskera; danzas y cantos."],
+  ],
+  glosario: [
+    ["Telégrafo", "Aparato que envía mensajes por cable."],
+    ["Código Morse", "Código de puntos y rayas."],
+    ["Paloma mensajera", "Paloma que lleva mensajes."],
+    ["Braille", "Escritura de puntos en relieve."],
+    ["Relieve", "Lo que sobresale de una superficie."],
+    ["Medio de comunicación", "Forma de llevar información a mucha gente."],
+    ["Prensa", "Periódicos y revistas."],
+    ["Publicidad", "Mensajes para que compremos algo."],
+    ["Lengua oficial", "Lengua que se usa en las leyes y escuelas."],
+    ["Euskera", "Lengua del País Vasco."],
+    ["Emoji", "Dibujito que expresa emociones."],
+    ["Correspondencia", "Intercambio de cartas."],
+  ],
+  situacion: {
+    titulo: "Mensajeros del mundo",
+    reto: "La clase investiga distintas formas de comunicarse y envía mensajes a otro colegio.",
+    pasos: ["Escribir mensajes en Morse y en braille.", "Preparar un pequeño noticiario de radio.", "Aprender a saludar en las lenguas de España.", "Escribir cartas a una clase de otra comunidad."],
+    producto: "Un programa de radio y una correspondencia escolar.",
+    evaluacion: ["Conoce mensajes de antes.", "Explica el braille.", "Distingue medios de comunicación.", "Valora las lenguas."],
+  },
+});
