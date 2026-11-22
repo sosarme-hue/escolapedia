@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, wiki("Segunda República española", "Segunda_República_española"), wiki("Guerra civil española", "Guerra_civil_española"), { t: "Museo Reina Sofía: Guernica", url: "https://www.museoreinasofia.es/coleccion/obra/guernica" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la Edad de Plata de la cultura española", "Comprender cómo vivieron la guerra y la posguerra los niños y las familias", "Valorar a los científicos e inventores españoles del siglo XX", "Usar fuentes históricas, como la historia oral, para estudiar el pasado reciente"],
+  lectura: { titulo: "La niña que quería investigar", html: `<p>Margarita Salas nació en 1938 en un pequeño pueblo de Asturias. Sus padres, aunque vivían tiempos difíciles, tenían una idea clara: sus hijas debían estudiar igual que su hijo. En aquella época no era lo habitual.</p><p>Margarita estudió Química en Madrid. Allí conoció al gran científico asturiano <b>Severo Ochoa</b>, que había ganado el Premio Nobel en 1959, y él la animó a dedicarse a la investigación. Así que se marchó con su marido, también científico, a trabajar a su laboratorio de Nueva York.</p><p>Cuando volvieron a España, montaron su propio laboratorio. Al principio, algunos la trataban como «la mujer de» su marido. Ella siguió trabajando con tesón y demostró su enorme valía.</p><p>Margarita estudió durante años un virus diminuto que infecta bacterias. En él descubrió una proteína que copia el ADN con muchísima precisión. Su descubrimiento sirve hoy para analizar muestras de ADN en medicina, en investigación y hasta para resolver delitos. La patente que lo protegía fue una de las más rentables de la investigación pública española.</p><p>Margarita Salas animó siempre a las niñas a ser científicas. Decía que la investigación necesita trabajo, pasión y mucha paciencia.</p>` },
+  tras: {
+    "Alfonso XIII y la crisis de la Restauración": [
+      ["La Edad de Plata de la cultura", `<p>Entre finales del siglo XIX y 1936, la ciencia, la literatura y el arte españoles vivieron una época tan brillante que se la llama la <b>Edad de Plata</b>, en recuerdo del Siglo de Oro.</p><ul><li>En 1907 se creó la <b>Junta para Ampliación de Estudios</b>, presidida por Santiago Ramón y Cajal, que daba becas a jóvenes para formarse en universidades y laboratorios de otros países.</li><li>En 1910 abrió en Madrid la <b>Residencia de Estudiantes</b>, donde convivieron jóvenes como el poeta Federico García Lorca, el pintor Salvador Dalí o el cineasta Luis Buñuel, y adonde venían a dar conferencias científicos como Albert Einstein.</li><li>En 1915 se abrió la <b>Residencia de Señoritas</b>, dirigida por la pedagoga <b>María de Maeztu</b>, para que las mujeres pudieran estudiar en la universidad.</li><li>Un grupo de artistas y escritoras, como la pintora <b>Maruja Mallo</b>, la filósofa <b>María Zambrano</b> o la poeta <b>Concha Méndez</b>, fueron llamadas después «las Sinsombrero», porque un día se quitaron el sombrero en la Puerta del Sol, un gesto rebelde en su época.</li></ul><p>La Guerra Civil interrumpió esta época: muchos de sus protagonistas murieron o tuvieron que marchar al exilio.</p>`,
+        L6.filas("La Edad de Plata", [["1907", "Junta de Ampliación", cAZ], ["1910", "Residencia de Estudiantes", cNA], ["1915", "Residencia de Señoritas", cMO], ["Sinsombrero", "artistas y escritoras", cVE]])],
+    ],
+    "La Guerra Civil (1936-1939)": [
+      ["La vida de los niños durante la guerra", `<p>La guerra cambió por completo la vida de los niños y las niñas de España:</p><ul><li>En muchas ciudades, como Madrid, Barcelona o Bilbao, hubo <b>bombardeos</b>. Al sonar las sirenas, las familias corrían a los <b>refugios</b>, a veces en los túneles del metro o en sótanos.</li><li>Faltaban alimentos, ropa y medicinas. Muchas familias se separaron: los padres estaban en el frente o habían muerto.</li><li>Muchas escuelas cerraron o se usaron como hospitales y cuarteles. En algunos lugares se organizaron <b>colonias infantiles</b>, lejos de los combates.</li><li>Para protegerlos, miles de niños fueron <b>evacuados</b> al extranjero. En mayo de 1937, el barco <i>Habana</i> llevó desde Bilbao a Inglaterra a casi 4 000 niños vascos. Otros fueron a Francia, Bélgica, la Unión Soviética o México.</li></ul><p>Muchos volvieron al cabo de unos meses o años, pero otros se quedaron para siempre en el país que los acogió, lejos de sus familias. Se les conoce como los <b>niños de la guerra</b>. Sus testimonios, recogidos en libros y documentales, nos ayudan a comprender el sufrimiento que causa cualquier guerra, sobre todo a los más pequeños.</p>`,
+        H6.rueda("Niños en guerra", "1936-1939", [["Bombardeos", cRO], ["Refugios", cMO], ["Escasez", cNA], ["Evacuación", cAZ]])],
+    ],
+    "La dictadura de Franco (1939-1975)": [
+      ["La posguerra: los años del hambre", `<p>Los años que siguieron a la Guerra Civil fueron muy duros. España estaba destruida: puentes, carreteras, fábricas y viviendas habían sido bombardeados. Además, la Segunda Guerra Mundial (1939-1945) dificultaba el comercio, y después el país quedó aislado.</p><p>Faltaban alimentos, y el Gobierno estableció el <b>racionamiento</b>: cada familia tenía una <b>cartilla</b> que indicaba la cantidad de pan, aceite, azúcar, legumbres o jabón que podía comprar cada semana. Las raciones eran muy pequeñas. Las cartillas de racionamiento se mantuvieron hasta <b>1952</b>.</p><p>Como no había suficiente, apareció el <b>estraperlo</b>: el mercado negro, donde se vendían productos a escondidas y mucho más caros. Muchas familias pasaban hambre y se alimentaban de lo que podían: pan negro, boniatos, algarrobas…</p><p>También hubo enfermedades, como la tuberculosis, y muchas familias vivían en casas pobres o en chabolas en las afueras de las ciudades.</p><p>Por eso muchas personas mayores recuerdan esa época como «los años del hambre», y les cuesta tanto ver cómo se tira comida a la basura.</p>`,
+        L6.filas("La posguerra", [["racionamiento", "cartillas hasta 1952", cNA], ["estraperlo", "mercado negro", cRO], ["enfermedades", "tuberculosis", cMO], ["recuerdo", "los años del hambre", cAZ]])],
+    ],
+  },
+  final: [
+    ["Científicos e inventores del siglo XX", `<p>Durante el siglo XX, varios científicos e inventores españoles hicieron aportaciones importantes al mundo:</p><ul><li><b>Leonardo Torres Quevedo</b> inventó en 1903 el <b>telekino</b>, uno de los primeros aparatos de control a distancia por ondas de radio. En 1912 construyó <b>El Ajedrecista</b>, una máquina capaz de jugar sola un final de partida de ajedrez, considerada un antecedente de los ordenadores. También diseñó un transbordador sobre las cataratas del Niágara que todavía funciona.</li><li><b>Juan de la Cierva</b> inventó el <b>autogiro</b>, un aparato volador con una hélice horizontal que giraba libremente. Voló por primera vez en 1923 y fue un antecedente del helicóptero.</li><li><b>Severo Ochoa</b>, nacido en Asturias, ganó el <b>Premio Nobel de Medicina</b> en 1959 por sus investigaciones sobre cómo se forman las moléculas que guardan la información genética.</li><li><b>Margarita Salas</b> descubrió una proteína que copia el ADN, muy usada hoy en medicina e investigación.</li></ul><p>Muchos de ellos tuvieron que trabajar en el extranjero porque en España había pocos medios para investigar. Hoy existen el CSIC, las universidades y muchos centros de investigación.</p>`,
+      L6.filas("Ciencia del siglo XX", [["1903", "telekino (Torres Quevedo)", cAZ], ["1923", "autogiro (De la Cierva)", cNA], ["1959", "Nobel a Severo Ochoa", cVE], ["Margarita Salas", "proteína que copia ADN", cMO]]), ["ka00hY-m7qA", "El mensaje de Margarita Salas para las niñas que quieren ser científicas", "AprendemosJuntos", 372365]],
+    ["Cómo se estudia la historia reciente", `<p>Para conocer el siglo XX, los historiadores tienen muchas más <b>fuentes</b> que para épocas antiguas:</p><ul><li><b>Documentos escritos</b>: leyes, cartas, diarios personales, libros y, sobre todo, periódicos y revistas, que cuentan lo que pasaba cada día. Pero hay que tener en cuenta que durante la dictadura existía la <b>censura</b>: los periódicos no podían publicar lo que quisieran.</li><li><b>Fotografías</b>, carteles y dibujos.</li><li><b>Cine y noticiarios</b>: entre 1943 y 1981 se proyectaba en los cines, antes de cada película, el <b>NO-DO</b>, un noticiario controlado por el Gobierno.</li><li><b>Grabaciones</b> de radio y de televisión.</li><li><b>Testimonios orales</b>: lo que cuentan las personas que vivieron los hechos.</li></ul><p>Tú también puedes hacer historia oral entrevistando a tus abuelos o a otras personas mayores:</p><ol><li>Prepara las preguntas: dónde vivían, cómo era su escuela, a qué jugaban, qué comían, qué recuerdan de algún hecho importante.</li><li>Pide permiso para grabar y escucha con respeto, sin interrumpir.</li><li>Anota fechas y lugares, y compara su relato con otras fuentes.</li></ol><p>Recuerda que cada testimonio es una visión personal: para entender bien la historia hay que contrastar varias fuentes.</p>`,
+      H6.flujo("Historia oral", ["Preparar|preguntas", "Entrevistar|y grabar", "Contrastar|fuentes"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Cuántos años duró el racionamiento si empezó en 1939 y terminó en 1952?", ["1952 − 1939."], "13 años."],
+    ["Clasifica estas fuentes: una carta de 1940, una foto de una escuela, la entrevista a una abuela.", ["La carta es un documento escrito.", "La foto es una fuente gráfica.", "La entrevista es un testimonio oral."], "Escrita, gráfica y oral."],
+  ],
+  errores: ["Pensar que la cultura española empezó a brillar solo en democracia: la Edad de Plata fue antes de 1936.", "Creer que un solo testimonio cuenta toda la verdad: hay que contrastar fuentes."],
+  ejercicios: [
+    ["b", "¿Qué fue la Edad de Plata?", "Una época brillante de la cultura y la ciencia españolas entre finales del siglo XIX y 1936."],
+    ["b", "¿Quién dirigió la Residencia de Señoritas?", "María de Maeztu."],
+    ["b", "¿Qué era una cartilla de racionamiento?", "Un documento que fijaba cuánta comida podía comprar cada familia."],
+    ["b", "¿Qué inventó Juan de la Cierva?", "El autogiro."],
+    ["b", "¿En qué año ganó Severo Ochoa el Premio Nobel?", "En 1959."],
+    ["m", "¿Por qué se llamó «Sinsombrero» a un grupo de mujeres artistas?", "Porque se quitaron el sombrero en público, un gesto rebelde en su época."],
+    ["m", "¿Qué era el estraperlo?", "El mercado negro de la posguerra."],
+    ["m", "¿Adónde llevó el barco Habana a casi 4 000 niños en 1937?", "A Inglaterra."],
+    ["m", "¿Qué hacía El Ajedrecista de Torres Quevedo?", "Jugaba solo un final de partida de ajedrez."],
+    ["m", "¿Qué era el NO-DO?", "Un noticiario controlado por el Gobierno que se proyectaba en los cines."],
+    ["a", "¿Por qué los periódicos de la dictadura no son una fuente totalmente fiable?", "Porque existía la censura."],
+    ["a", "¿Por qué muchos científicos españoles investigaron en el extranjero?", "Porque en España había pocos medios para investigar."],
+    ["a", "Prepara cinco preguntas para entrevistar a una persona mayor sobre su infancia.", "Respuesta abierta."],
+    ["a", "¿Por qué crees que a muchas personas mayores les cuesta ver tirar comida?", "Porque vivieron o les contaron los años del hambre de la posguerra."],
+  ],
+  quiz: [
+    ["La Residencia de Estudiantes abrió en…", ["1910", "1975", "1898"], "Edad de Plata."],
+    ["Las cartillas de racionamiento duraron hasta…", ["1952", "1939", "1978"], "Posguerra."],
+    ["El telekino era un aparato de…", ["control a distancia", "cocina", "riego"], "Inventos."],
+    ["Margarita Salas investigó con…", ["Severo Ochoa", "Ramón y Cajal", "Isaac Peral"], "Lectura."],
+    ["Los testimonios de quienes vivieron los hechos son fuentes…", ["orales", "arqueológicas", "falsas"], "Fuentes."],
+  ],
+  examen: [
+    ["Los niños evacuados al extranjero durante la guerra se conocen como…", ["los niños de la guerra", "los niños del 98", "los Sinsombrero"], "Guerra."],
+    ["El autogiro voló por primera vez en…", ["1923", "1959", "1888"], "De la Cierva."],
+  ],
+  tarjetas: [
+    ["Edad de Plata", "JAE 1907, Residencia de Estudiantes 1910, Residencia de Señoritas 1915, las Sinsombrero."],
+    ["Niños de la guerra", "Bombardeos, refugios, escasez; evacuados a Inglaterra, Francia, URSS, México."],
+    ["Posguerra", "Racionamiento hasta 1952, estraperlo, años del hambre."],
+    ["Ciencia", "Torres Quevedo, Juan de la Cierva, Severo Ochoa (Nobel 1959), Margarita Salas."],
+  ],
+  glosario: [
+    ["Edad de Plata", "Época brillante de la cultura española antes de 1936."],
+    ["Beca", "Ayuda económica para estudiar."],
+    ["Exilio", "Salida forzosa del propio país."],
+    ["Refugio antiaéreo", "Lugar subterráneo para protegerse de los bombardeos."],
+    ["Evacuar", "Sacar a personas de un lugar peligroso."],
+    ["Racionamiento", "Reparto limitado de alimentos y productos."],
+    ["Estraperlo", "Venta ilegal de productos escasos a precios altos."],
+    ["Telekino", "Aparato de control a distancia de Torres Quevedo."],
+    ["Autogiro", "Aparato volador antecesor del helicóptero."],
+    ["Censura", "Control que impide publicar ciertas informaciones."],
+    ["NO-DO", "Noticiario oficial proyectado en los cines (1943-1981)."],
+    ["Historia oral", "Historia basada en testimonios de personas."],
+  ],
+  situacion: {
+    titulo: "La memoria de nuestros mayores",
+    reto: "La clase recoge testimonios de personas mayores sobre cómo era su infancia y elabora un archivo de historia oral.",
+    pasos: ["Preparad en grupo un guion de preguntas sobre la escuela, los juegos, la comida y la vida diaria.", "Entrevistad a abuelos o vecinos, con su permiso, y grabad o anotad sus respuestas.", "Comparad los testimonios con fotografías, periódicos y el libro de texto.", "Elaborad un libro o un pódcast con los testimonios ordenados por épocas."],
+    producto: "Un archivo de historia oral en forma de libro o pódcast.",
+    evaluacion: ["Prepara preguntas adecuadas.", "Escucha y registra con respeto.", "Contrasta fuentes diversas.", "Organiza y presenta la información."],
+  },
+});

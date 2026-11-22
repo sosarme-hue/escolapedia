@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, { t: "Constitución Española (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229" }, { t: "Congreso de los Diputados", url: "https://www.congreso.es/" }, wiki("Organización territorial de España", "Organización_territorial_de_España")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Describir los pasos para aprobar una ley", "Conocer los símbolos de España y de las comunidades autónomas", "Saber a quién acudir cuando no se respetan los derechos", "Participar en la vida del municipio y valorar la democracia en el mundo"],
+  lectura: { titulo: "El pleno de los niños", html: `<p>Una vez al año, el salón de plenos del ayuntamiento de un pequeño municipio se llena de niños y niñas. Se sientan en los mismos sillones que los concejales, delante de los micrófonos, con el escudo del pueblo en la pared. Es el pleno del <b>Consejo de la Infancia</b>.</p><p>Durante meses, los representantes de cada colegio han preguntado a sus compañeros qué cambiarían del pueblo. Han salido muchas ideas: más papeleras en el parque, un carril bici hasta el colegio, que arreglen los columpios rotos, que haya más árboles en la plaza…</p><p>Lucía, de 6.º, es la portavoz de su colegio. Le tiemblan un poco las piernas cuando le dan la palabra, pero explica con claridad la propuesta de su clase: poner un paso de cebra con semáforo delante de la escuela, porque los coches pasan muy deprisa.</p><p>El alcalde y los concejales escuchan, toman notas y responden. Al final se votan las propuestas. La del paso de cebra gana por mayoría. Unos meses después, Lucía cruza la calle por un paso nuevo y piensa: «Esto lo hemos conseguido nosotros».</p><p>Así, los niños aprenden que la democracia no es solo votar cada cuatro años: es participar, proponer y escuchar.</p>` },
+  tras: {
+    "Los tres poderes del Estado": [
+      ["Cómo se hace una ley", `<p>Las leyes son las normas que todos debemos cumplir. En España las aprueban las <b>Cortes Generales</b>, que representan a los ciudadanos. Estos son los pasos principales:</p><ol><li><b>Iniciativa</b>: alguien propone una ley. Si la propone el Gobierno, se llama <b>proyecto de ley</b>; si la proponen los diputados o senadores, <b>proposición de ley</b>. También pueden proponerla las comunidades autónomas e incluso los ciudadanos, reuniendo al menos 500 000 firmas: es la <b>iniciativa legislativa popular</b>.</li><li><b>Debate en el Congreso</b>: los grupos parlamentarios estudian el texto, presentan cambios, llamados <b>enmiendas</b>, y lo votan.</li><li><b>Paso por el Senado</b>: el Senado también lo estudia y puede proponer cambios o vetarlo. Después, el Congreso tiene la última palabra.</li><li><b>Sanción y promulgación</b>: el Rey firma la ley. No puede negarse: es un acto que forma parte de sus funciones constitucionales.</li><li><b>Publicación</b>: la ley se publica en el <b>Boletín Oficial del Estado</b> (BOE) y entra en vigor en la fecha que indique.</li></ol><p>Las comunidades autónomas también aprueban leyes en sus parlamentos sobre los asuntos que les corresponden, como la educación o la sanidad.</p>`,
+        H6.flujo("Una ley paso a paso", ["Iniciativa", "Congreso", "Senado", "Rey|y BOE"], cAZ)],
+    ],
+    "Las comunidades autónomas": [
+      ["Los símbolos de España y de las comunidades", `<p>Los países y las comunidades tienen <b>símbolos</b> que los representan y que nos recuerdan lo que compartimos:</p><ul><li>La <b>bandera de España</b>, según el artículo 4 de la Constitución, está formada por tres franjas horizontales: roja, amarilla y roja, con la amarilla de doble anchura. En los edificios oficiales lleva además el <b>escudo</b>.</li><li>El <b>himno nacional</b> es la <b>Marcha Real</b>, una de las melodías de himno más antiguas de Europa. Curiosamente, no tiene letra oficial.</li><li>El <b>12 de octubre</b> es la <b>Fiesta Nacional de España</b>, y el <b>6 de diciembre</b> se celebra el <b>Día de la Constitución</b>, en recuerdo del referéndum de 1978.</li></ul><p>Cada <b>comunidad autónoma</b> tiene también su propia bandera, su escudo, muchas veces un himno y un día festivo propio. Por ejemplo, el 23 de abril se celebra el día de Aragón y el de Castilla y León, y también Sant Jordi en Cataluña; el 28 de febrero, el de Andalucía; y el 25 de julio, el de Galicia.</p><p>Los símbolos se deben tratar con <b>respeto</b>. Y en los edificios públicos de las comunidades autónomas, la bandera de España ondea junto a la de la comunidad y, a menudo, junto a la de la Unión Europea.</p>`,
+        L6.filas("Símbolos y fiestas", [["bandera", "roja, amarilla y roja", cRO], ["himno", "Marcha Real, sin letra", cNA], ["12 de octubre", "Fiesta Nacional", cAZ], ["6 de diciembre", "Día de la Constitución", cVE]])],
+    ],
+    "Derechos y deberes": [
+      ["¿Quién defiende nuestros derechos?", `<p>Tener derechos escritos en la Constitución es muy importante, pero ¿qué podemos hacer si alguien no los respeta? Existen varias instituciones para protegerlos:</p><ul><li>Los <b>jueces y tribunales</b> son independientes y resuelven los conflictos aplicando las leyes. Cualquier persona puede acudir a ellos.</li><li>El <b>Tribunal Constitucional</b> vigila que las leyes respeten la Constitución. Además, si una persona cree que se ha vulnerado uno de sus derechos fundamentales y los demás tribunales no se lo han reconocido, puede presentar un <b>recurso de amparo</b>.</li><li>El <b>Defensor del Pueblo</b> es elegido por las Cortes para cinco años. Cualquier ciudadano puede escribirle, gratis, si cree que una administración, por ejemplo un hospital, un ayuntamiento o un ministerio, no ha respetado sus derechos. Investiga y hace recomendaciones.</li><li>Varias comunidades tienen su propio defensor, con nombres como Síndic de Greuges, Valedor do Pobo, Ararteko o Justicia de Aragón.</li></ul><p>Los niños y las niñas también tienen derechos, reconocidos en la <b>Convención sobre los Derechos del Niño</b> de 1989. Si un niño sufre maltrato o acoso, puede pedir ayuda a un adulto de confianza, a su colegio o llamar al teléfono gratuito 116 111.</p>`,
+        L6.filas("Defensores de derechos", [["tribunales", "aplican las leyes", cAZ], ["Constitucional", "recurso de amparo", cMO], ["Defensor del Pueblo", "ante la Administración", cVE], ["niños", "116 111", cNA]])],
+    ],
+  },
+  final: [
+    ["Participar en tu municipio", `<p>La democracia empieza muy cerca de casa: en el <b>municipio</b>. Los ayuntamientos se ocupan de muchas cosas de nuestra vida diaria: las calles, los parques, la limpieza, el alumbrado, las bibliotecas, las instalaciones deportivas o el transporte urbano. Y hay muchas maneras de participar:</p><ul><li><b>Asistir a los plenos</b>: las sesiones del pleno del ayuntamiento son públicas, y cualquier vecino puede ir a escuchar.</li><li><b>Presupuestos participativos</b>: en algunos municipios, los vecinos proponen y votan en qué gastar una parte del dinero del ayuntamiento.</li><li><b>Asociaciones de vecinos</b>, de madres y padres, deportivas o culturales, que trabajan por mejorar el barrio.</li><li><b>Consejos de la infancia y la adolescencia</b>: muchos municipios, reconocidos por UNICEF como <b>Ciudades Amigas de la Infancia</b>, tienen órganos en los que niños y niñas dan su opinión sobre los asuntos que les afectan.</li><li><b>Voluntariado</b>: colaborar en bancos de alimentos, cuidar el medio ambiente o acompañar a personas mayores.</li></ul><p>La Convención sobre los Derechos del Niño dice que los niños tienen derecho a expresar su opinión en los asuntos que les afectan y a que se tenga en cuenta.</p>`,
+      H6.rueda("Participar", "MUNICIPIO", [["Plenos", cAZ], ["Asociaciones", cNA], ["Consejo infantil", cVE], ["Voluntariado", cMO]]), ["6btAj4pJPTo", "#MiCiudadAmiga I UNICEF España", "UNICEF España", 88201]],
+    ["La democracia en el mundo", `<p>Vivir en democracia nos puede parecer lo normal, pero no lo es en todo el mundo. Una democracia plena necesita varias condiciones:</p><ul><li><b>Elecciones libres</b> y periódicas, con varios partidos y voto secreto.</li><li><b>Separación de poderes</b>: quien hace las leyes, quien gobierna y quien juzga son distintos y se controlan entre sí.</li><li><b>Libertad de expresión</b> y de prensa.</li><li><b>Respeto a los derechos humanos</b> y a las minorías.</li></ul><p>En una <b>dictadura</b>, en cambio, una persona o un grupo concentra el poder, no hay elecciones libres o son una farsa, se persigue a quien opina diferente y se controla lo que se publica.</p><p>En 1948, la ONU aprobó la <b>Declaración Universal de los Derechos Humanos</b>, que en su artículo 21 dice que toda persona tiene derecho a participar en el gobierno de su país, directamente o por medio de representantes libremente elegidos.</p><p>Según los estudios internacionales, solo una parte de la población mundial vive en democracias plenas. Por eso la democracia hay que <b>cuidarla</b> cada día: informándose, votando, respetando a quien piensa distinto y defendiendo los derechos de todos.</p>`,
+      H6.dos("Dos sistemas", ["Democracia", ["elecciones libres", "poderes separados", "prensa libre"], cVE], ["Dictadura", ["sin elecciones libres", "poder concentrado", "censura"], cRO])],
+  ],
+  ejemplos: [
+    ["Ordena los pasos de una ley: publicación en el BOE, debate en el Congreso, iniciativa, Senado, firma del Rey.", ["Primero alguien la propone.", "Luego la debaten Congreso y Senado.", "Después la firma el Rey y se publica."], "Iniciativa, Congreso, Senado, firma del Rey, BOE."],
+    ["Un hospital público no responde a la queja de tu familia. ¿A quién podéis acudir?", ["Es un problema con una administración.", "Esa es la función del Defensor del Pueblo (o el defensor autonómico)."], "Al Defensor del Pueblo."],
+  ],
+  errores: ["Pensar que el Rey hace las leyes: las aprueban las Cortes y el Rey las firma.", "Creer que la democracia consiste solo en votar cada cuatro años."],
+  ejercicios: [
+    ["b", "¿Dónde se publican las leyes?", "En el Boletín Oficial del Estado (BOE)."],
+    ["b", "¿Cómo es la bandera de España?", "Roja, amarilla y roja, con la franja amarilla de doble anchura."],
+    ["b", "¿Qué se celebra el 6 de diciembre?", "El Día de la Constitución."],
+    ["b", "¿Qué hace el Defensor del Pueblo?", "Atiende quejas de los ciudadanos contra las administraciones."],
+    ["b", "¿Qué teléfono gratuito ayuda a niños y niñas?", "El 116 111."],
+    ["m", "¿Qué diferencia hay entre proyecto y proposición de ley?", "El proyecto lo presenta el Gobierno; la proposición, los parlamentarios."],
+    ["m", "¿Qué es una iniciativa legislativa popular?", "Una propuesta de ley de los ciudadanos con al menos 500 000 firmas."],
+    ["m", "¿Qué es una enmienda?", "Un cambio propuesto al texto de una ley."],
+    ["m", "¿Qué es un recurso de amparo?", "Una petición al Tribunal Constitucional cuando se vulnera un derecho fundamental."],
+    ["m", "Di tres formas de participar en tu municipio.", "Ir a los plenos, asociaciones, consejo infantil o voluntariado."],
+    ["a", "¿Qué tiene de curioso el himno de España?", "Que no tiene letra oficial."],
+    ["a", "¿Por qué es importante la separación de poderes?", "Para que el poder no se concentre y los poderes se controlen entre sí."],
+    ["a", "¿Qué dice el artículo 21 de la Declaración Universal de los Derechos Humanos?", "Que toda persona tiene derecho a participar en el gobierno de su país."],
+    ["a", "Propón una mejora para tu barrio y explica cómo la presentarías al ayuntamiento.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Las leyes del Estado las aprueban…", ["las Cortes Generales", "los alcaldes", "los jueces"], "Leyes."],
+    ["La Fiesta Nacional de España es el…", ["12 de octubre", "6 de diciembre", "1 de enero"], "Símbolos."],
+    ["El Defensor del Pueblo lo eligen…", ["las Cortes", "los jueces", "los ayuntamientos"], "Derechos."],
+    ["Muchos municipios con consejo infantil son Ciudades Amigas de la…", ["Infancia", "Industria", "Música"], "Participar."],
+    ["La Declaración Universal de los Derechos Humanos es de…", ["1948", "1978", "1812"], "Democracia."],
+  ],
+  examen: [
+    ["Para una iniciativa legislativa popular hacen falta al menos…", ["500 000 firmas", "50 firmas", "5 000 000 firmas"], "Iniciativa."],
+    ["En una dictadura…", ["no hay elecciones libres", "hay prensa libre", "los poderes están separados"], "Democracia."],
+  ],
+  tarjetas: [
+    ["Hacer una ley", "Iniciativa, Congreso, Senado, firma del Rey y publicación en el BOE."],
+    ["Símbolos", "Bandera, escudo, Marcha Real; 12 de octubre y 6 de diciembre."],
+    ["Defensa de derechos", "Tribunales, Tribunal Constitucional, Defensor del Pueblo, 116 111."],
+    ["Participar", "Plenos, presupuestos participativos, asociaciones, consejos infantiles."],
+  ],
+  glosario: [
+    ["Proyecto de ley", "Propuesta de ley del Gobierno."],
+    ["Proposición de ley", "Propuesta de ley de los parlamentarios."],
+    ["Enmienda", "Cambio propuesto a un texto legal."],
+    ["BOE", "Boletín Oficial del Estado, donde se publican las leyes."],
+    ["Iniciativa legislativa popular", "Propuesta de ley de los ciudadanos con firmas."],
+    ["Himno", "Composición musical que representa a un país."],
+    ["Recurso de amparo", "Petición de protección de un derecho fundamental."],
+    ["Defensor del Pueblo", "Institución que defiende a los ciudadanos ante la Administración."],
+    ["Pleno", "Reunión de todos los concejales del ayuntamiento."],
+    ["Presupuestos participativos", "Sistema en que los vecinos deciden parte del gasto municipal."],
+    ["Voluntariado", "Trabajo solidario sin cobrar."],
+    ["Dictadura", "Sistema en que el poder se concentra sin elecciones libres."],
+  ],
+  situacion: {
+    titulo: "Nuestro pleno escolar",
+    reto: "La clase simula un pleno municipal para debatir y aprobar una propuesta de mejora para el colegio o el barrio.",
+    pasos: ["Por grupos, detectad un problema del colegio o del barrio y redactad una propuesta.", "Elegid un alcalde o alcaldesa, concejales y un secretario que levante acta.", "Celebrad el pleno: presentad las propuestas, debatidlas con respeto, proponed enmiendas y votad.", "Enviad la propuesta ganadora por escrito al ayuntamiento o a la dirección del colegio."],
+    producto: "Un acta del pleno y una carta con la propuesta aprobada.",
+    evaluacion: ["Conoce cómo se toman decisiones en democracia.", "Argumenta y escucha con respeto.", "Redacta propuestas claras.", "Participa de forma responsable."],
+  },
+});

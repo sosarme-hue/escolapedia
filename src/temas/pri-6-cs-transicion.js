@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, wiki("Transición española", "Transición_española"), { t: "Constitución Española (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229" }, { t: "Congreso de los Diputados: historia", url: "https://www.congreso.es/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Valorar la recuperación de la libertad de expresión", "Conocer las lenguas cooficiales y la diversidad de España", "Explicar por qué 1992 fue un año simbólico", "Describir los cambios en la vida de las mujeres y las familias"],
+  lectura: { titulo: "La primera vez que votó la abuela", html: `<p>El 15 de junio de 1977, a primera hora de la mañana, la abuela de Pablo se puso su mejor vestido. Tenía 50 años y estaba nerviosa como una niña el primer día de colegio. Iba a <b>votar</b> por primera vez en su vida.</p><p>La última vez que se habían celebrado elecciones libres en España había sido en febrero de 1936, cuando ella era una niña pequeña. Habían pasado <b>41 años</b>.</p><p>En el colegio electoral había una cola larguísima. Personas mayores, jóvenes, gente que venía del campo con la ropa de trabajo… Todo el mundo esperaba con paciencia, hablando en voz baja. En las mesas había montones de papeletas de muchos partidos distintos, algo que nunca habían visto.</p><p>La abuela eligió su papeleta, la metió en un sobre y, con la mano un poco temblorosa, la introdujo en la urna de cristal. Una de las personas de la mesa dijo en voz alta: «¡Vota!». La abuela sintió que se le humedecían los ojos.</p><p>Muchos años después, cuando Pablo cumplió 18 años y fue a votar por primera vez, su abuela lo acompañó. «Nunca dejes de votar», le dijo. «Lo que hoy te parece normal, a nosotros nos costó mucho conseguirlo».</p>` },
+  tras: {
+    "Las primeras elecciones democráticas": [
+      ["Libertad para opinar y crear", `<p>Durante la dictadura existía la <b>censura</b>: el Gobierno revisaba los libros, los periódicos, las películas, las obras de teatro y las canciones antes de publicarlos, y podía prohibirlos o cortar lo que no le gustaba.</p><p>En 1977 se aprobó la <b>libertad de expresión</b>, y la Constitución de 1978 la reconoció como un derecho fundamental. Los cambios fueron enormes:</p><ul><li>Nacieron <b>nuevos periódicos y revistas</b> que podían criticar al Gobierno y publicar opiniones muy distintas.</li><li>Se pudieron publicar y leer libros que antes estaban prohibidos, y regresaron del exilio escritores y artistas.</li><li>El cine, el teatro y la música trataron temas que antes eran imposibles.</li><li>En los años ochenta surgió en Madrid la <b>Movida</b>, un movimiento de jóvenes músicos, pintores, fotógrafos y cineastas llenos de creatividad, que quería mostrar una España moderna y libre. Hubo movimientos parecidos en otras ciudades.</li></ul><p>La libertad de expresión tiene límites: no se puede insultar, calumniar o incitar al odio. Pero es una de las bases de la democracia, porque permite informarse, debatir y controlar a quienes gobiernan.</p>`,
+        H6.dos("Opinar y publicar", ["Con censura", ["revisión previa", "libros prohibidos", "una sola versión"], cRO], ["En libertad", ["prensa libre", "debate y crítica", "creatividad"], cVE])],
+    ],
+    "El Estado de las autonomías": [
+      ["Una España con varias lenguas", `<p>España es un país <b>plurilingüe</b>: en él se hablan varias lenguas. La Constitución de 1978 dice en su artículo 3 que el <b>castellano</b> es la lengua oficial de todo el Estado y que todos los españoles tienen el deber de conocerla y el derecho a usarla. Y añade que las demás lenguas españolas serán también <b>oficiales</b> en sus comunidades autónomas, según sus Estatutos.</p><p>Así, son <b>cooficiales</b>:</p><ul><li>El <b>catalán</b>, en Cataluña y las Islas Baleares, y el <b>valenciano</b>, nombre que recibe en la Comunidad Valenciana.</li><li>El <b>gallego</b>, en Galicia.</li><li>El <b>euskera</b> o vasco, en el País Vasco y en una parte de Navarra.</li><li>El <b>aranés</b>, una variedad del occitano, en el Valle de Arán, en Cataluña.</li></ul><p>Otras lenguas, como el <b>asturiano</b> o bable y el <b>aragonés</b>, están protegidas por las leyes de sus comunidades.</p><p>La Constitución dice que esta riqueza lingüística es un <b>patrimonio cultural</b> que debe ser objeto de especial respeto y protección. Hablar varias lenguas es una gran ventaja: ayuda a comprender otras culturas y a aprender más idiomas.</p>`,
+        L6.filas("Lenguas cooficiales", [["catalán / valenciano", "Cataluña, Baleares, C. Valenciana", cRO], ["gallego", "Galicia", cAZ], ["euskera", "País Vasco y Navarra", cVE], ["aranés", "Valle de Arán", cMO]]), ["yzQld9tb7ZA", "Comparación de Las Lenguas Oficiales de España", "Manoloyy", 1524310]],
+    ],
+    "La democracia se consolida": [
+      ["1992: España se presenta al mundo", `<p>El año <b>1992</b> fue muy especial para España. Coincidían el quinto centenario de la llegada de Colón a América y varios grandes acontecimientos que mostraron al mundo un país moderno y democrático:</p><ul><li>Los <b>Juegos Olímpicos de Barcelona</b>, celebrados en verano. La ciudad se transformó: se abrió al mar, se construyeron la Villa Olímpica, nuevas carreteras y espacios públicos. Los deportistas españoles lograron 13 medallas de oro, su mejor resultado hasta entonces.</li><li>La <b>Exposición Universal de Sevilla</b>, la Expo 92, en la isla de la Cartuja, con pabellones de más de cien países que recibieron millones de visitantes.</li><li>La primera línea del tren de <b>alta velocidad</b>, el AVE, entre Madrid y Sevilla, inaugurada en abril de aquel año.</li><li><b>Madrid</b> fue elegida Capital Europea de la Cultura.</li></ul><p>Aquellos acontecimientos supusieron grandes inversiones, atrajeron turismo y cambiaron la imagen de España en el exterior. También dejaron enseñanzas: algunas instalaciones se aprovecharon muy bien y otras se quedaron sin uso. Hoy se procura que los grandes eventos tengan en cuenta su utilidad posterior y el medio ambiente.</p>`,
+        L6.filas("El año 1992", [["Barcelona", "Juegos Olímpicos", cRO], ["Sevilla", "Expo 92", cNA], ["Madrid-Sevilla", "primer AVE", cAZ], ["Madrid", "capital de la cultura", cMO]])],
+    ],
+  },
+  final: [
+    ["Mujeres y familias que cambian", `<p>Durante la Transición y los primeros años de la democracia cambió mucho la vida de las mujeres y de las familias:</p><ul><li>Durante buena parte de la dictadura, una mujer casada necesitaba el permiso de su marido, la llamada <b>licencia marital</b>, para trabajar, abrir una cuenta en el banco o firmar un contrato. Esta norma se eliminó en 1975.</li><li>La <b>Constitución de 1978</b> reconoció la <b>igualdad</b> de hombres y mujeres ante la ley y prohibió cualquier discriminación por sexo.</li><li>En 1981 se aprobó la ley del <b>divorcio</b>, que permitía a los matrimonios separarse legalmente.</li><li>Cada vez más mujeres estudiaron en la universidad y trabajaron fuera de casa. Hoy hay más mujeres que hombres estudiando en las universidades españolas.</li><li>Las familias se hicieron más pequeñas y más diversas.</li></ul><p>Pero la igualdad real todavía no es completa: las mujeres siguen cobrando de media menos que los hombres, hay menos mujeres en los puestos de dirección y aún existe la violencia contra las mujeres. Conseguir la igualdad es tarea de todos, también de los chicos.</p>`,
+      H6.flujo("Hacia la igualdad", ["1975|fin licencia", "1978|Constitución", "1981|divorcio", "Hoy|igualdad real"], cMO)],
+    ["Investigar la Transición", `<p>La Transición es una época muy cercana: la vivieron tus abuelos y, quizá, tus padres. Por eso es un tema perfecto para investigar con <b>fuentes primarias</b>:</p><ul><li><b>Hemeroteca</b>: muchos periódicos tienen archivos digitales donde se pueden ver las portadas de días históricos, como el 15 de junio de 1977 o el 6 de diciembre de 1978.</li><li><b>Archivos de radio y televisión</b>: RTVE tiene en internet grabaciones de discursos, noticias y programas de aquellos años.</li><li><b>El Congreso de los Diputados</b> tiene en su web el texto de la Constitución y los diarios de las sesiones.</li><li><b>Carteles electorales</b>, fotos familiares, discos y objetos de la época.</li><li>Las <b>entrevistas</b> a personas que lo vivieron: ¿qué recuerdan del primer día que votaron?, ¿qué música escuchaban?, ¿cómo era su colegio?</li></ul><p>Al investigar, compara lo que dicen distintas fuentes y distintas personas. Cada una puede recordar los hechos de manera diferente. Contrastar fuentes es la tarea más importante de un buen historiador.</p>`,
+      L6.filas("Fuentes para investigar", [["hemeroteca", "portadas históricas", cAZ], ["RTVE", "vídeos y audios", cRO], ["Congreso", "Constitución y sesiones", cVE], ["entrevistas", "testimonios", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Cuántos años pasaron entre las elecciones de febrero de 1936 y las de junio de 1977?", ["1977 − 1936."], "41 años."],
+    ["¿Qué lengua es cooficial en el Valle de Arán?", ["El Valle de Arán está en Cataluña.", "Allí se habla una variedad del occitano."], "El aranés (además del catalán y el castellano)."],
+  ],
+  errores: ["Pensar que en España solo se habla castellano: hay varias lenguas cooficiales.", "Creer que la igualdad entre hombres y mujeres ya es completa."],
+  ejercicios: [
+    ["b", "¿Qué día se celebraron las primeras elecciones democráticas tras la dictadura?", "El 15 de junio de 1977."],
+    ["b", "¿Qué era la censura?", "El control del Gobierno sobre lo que se publicaba."],
+    ["b", "Nombra las lenguas cooficiales de España.", "Catalán/valenciano, gallego, euskera y aranés."],
+    ["b", "¿Dónde se celebraron los Juegos Olímpicos de 1992?", "En Barcelona."],
+    ["b", "¿En qué año se aprobó la ley del divorcio?", "En 1981."],
+    ["m", "¿Qué dice el artículo 3 de la Constitución sobre las lenguas?", "Que el castellano es oficial en todo el Estado y las demás lo son en sus comunidades."],
+    ["m", "¿Qué fue la Movida?", "Un movimiento cultural de jóvenes artistas en los años ochenta."],
+    ["m", "Di tres acontecimientos de 1992.", "Juegos de Barcelona, Expo de Sevilla y primer AVE Madrid-Sevilla."],
+    ["m", "¿Qué era la licencia marital?", "El permiso del marido que necesitaba una mujer casada para muchas cosas."],
+    ["m", "¿Qué límites tiene la libertad de expresión?", "No se puede insultar, calumniar ni incitar al odio."],
+    ["a", "¿Por qué la libertad de expresión es una base de la democracia?", "Permite informarse, debatir y controlar a quienes gobiernan."],
+    ["a", "¿Qué ventajas tiene vivir en un país con varias lenguas?", "Riqueza cultural y facilidad para aprender idiomas y comprender otras culturas."],
+    ["a", "¿Qué aspectos de la igualdad entre hombres y mujeres faltan todavía?", "Igualdad salarial, en puestos de dirección y fin de la violencia contra las mujeres."],
+    ["a", "Busca la portada de un periódico del 7 de diciembre de 1978 y explica qué noticia destacaba.", "La aprobación en referéndum de la Constitución."],
+  ],
+  quiz: [
+    ["Antes de 1977, la última vez que se votó libremente fue en…", ["1936", "1975", "1931"], "Lectura."],
+    ["El euskera es cooficial en…", ["el País Vasco y parte de Navarra", "Galicia", "Baleares"], "Lenguas."],
+    ["El primer AVE unió Madrid con…", ["Sevilla", "Barcelona", "Valencia"], "1992."],
+    ["La Movida surgió en…", ["Madrid", "Cádiz", "Teruel"], "Cultura."],
+    ["La licencia marital se eliminó en…", ["1975", "1992", "2000"], "Mujeres."],
+  ],
+  examen: [
+    ["La Expo 92 se celebró en…", ["Sevilla", "Barcelona", "Bilbao"], "1992."],
+    ["La Constitución reconoce la libertad de expresión como…", ["un derecho fundamental", "un deber", "un privilegio de algunos"], "Libertad."],
+  ],
+  tarjetas: [
+    ["Libertad de expresión", "Fin de la censura en 1977; prensa libre; la Movida."],
+    ["Lenguas", "Castellano oficial; catalán/valenciano, gallego, euskera y aranés cooficiales."],
+    ["1992", "Juegos de Barcelona, Expo de Sevilla, primer AVE, Madrid capital cultural."],
+    ["Mujeres", "1975 fin de la licencia marital; 1978 igualdad; 1981 divorcio."],
+  ],
+  glosario: [
+    ["Censura", "Control previo de lo que se publica."],
+    ["Libertad de expresión", "Derecho a expresar opiniones libremente."],
+    ["La Movida", "Movimiento cultural juvenil de los años ochenta."],
+    ["Plurilingüe", "Que tiene o usa varias lenguas."],
+    ["Lengua cooficial", "Lengua oficial junto al castellano en una comunidad."],
+    ["Estatuto de autonomía", "Norma básica de una comunidad autónoma."],
+    ["Exposición Universal", "Gran feria internacional con pabellones de muchos países."],
+    ["Licencia marital", "Permiso del marido que necesitaba la mujer casada."],
+    ["Divorcio", "Disolución legal del matrimonio."],
+    ["Hemeroteca", "Archivo de periódicos y revistas."],
+    ["Fuente primaria", "Documento u objeto de la época estudiada."],
+    ["Urna", "Caja donde se depositan los votos."],
+  ],
+  situacion: {
+    titulo: "El periódico de la Transición",
+    reto: "La clase elabora un periódico especial con las noticias más importantes de la Transición, como si se publicara en aquellos años.",
+    pasos: ["Repartid noticias: elecciones de 1977, Constitución, autonomías, 23-F, entrada en Europa, 1992.", "Investigad en hemerotecas, archivos de RTVE y entrevistas a personas mayores.", "Redactad las noticias, entrevistas y opiniones con titulares y fotografías.", "Maquetad el periódico y presentadlo en una exposición para el colegio."],
+    producto: "Un periódico histórico sobre la Transición.",
+    evaluacion: ["Sitúa los hechos en orden cronológico.", "Usa fuentes primarias y las contrasta.", "Escribe noticias claras y correctas.", "Trabaja en equipo de forma responsable."],
+  },
+});
