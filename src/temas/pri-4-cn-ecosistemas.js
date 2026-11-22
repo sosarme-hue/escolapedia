@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, { t: "Red de Parques Nacionales (MITECO)", url: "https://www.miteco.gob.es/es/parques-nacionales-oapn.html" }, wiki("Ecosistema", "Ecosistema"), wiki("Cadena trófica", "Cadena_trófica")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Construir e interpretar redes alimentarias", "Conocer dos ecosistemas valiosos de España: la dehesa y Doñana", "Comprender el daño que causan las especies invasoras", "Explicar qué ocurre cuando desaparece un eslabón de la red"],
+  lectura: { titulo: "Las tortugas de la charca", html: `<p>Junto al colegio de Pablo había una pequeña charca rodeada de juncos. Allí vivían ranas, libélulas y unos galápagos autóctonos que tomaban el sol en un tronco.</p><p>Un día de primavera, Pablo vio en el tronco una tortuga distinta: tenía unas manchas rojas a los lados de la cabeza.</p><p>—Es un galápago de Florida —le explicó su maestra, Inés—. Alguien lo tuvo de mascota y, cuando creció, lo soltó aquí.</p><p>—¿Y qué tiene de malo? Así está libre.</p><p>—El problema es que no es de aquí. Come más, crece más y es más agresivo que nuestros galápagos. Se queda con los mejores sitios para tomar el sol y con la comida. Poco a poco, los galápagos autóctonos desaparecen.</p><p>Pablo se quedó pensativo. Él también tenía una tortuga de orejas rojas en casa, y alguna vez había pensado en soltarla en el río.</p><p>Esa semana, la clase escribió a un centro de recuperación de fauna. Unos técnicos vinieron, capturaron el galápago de Florida y se lo llevaron a un centro donde podría vivir sin dañar a nadie.</p><p>Pablo habló con sus padres. Decidieron que su tortuga seguiría en casa, bien cuidada, toda su vida.</p><p>—Una mascota no es para soltarla —dijo Pablo—. Es para siempre.</p>` },
+  tras: {
+    "Las cadenas alimentarias": [
+      ["Las redes alimentarias", `<p>En la naturaleza, las cadenas alimentarias no están separadas. Casi todos los animales comen varios tipos de alimento y, a la vez, sirven de alimento a varios animales distintos. Por eso las cadenas se cruzan y forman una <mark>red alimentaria</mark> o <b>red trófica</b>, como una telaraña.</p><p>Por ejemplo, en un bosque mediterráneo:</p><ul><li>El <b>conejo</b> come hierba, y lo cazan el zorro, el águila y el lince.</li><li>El <b>ratón</b> come semillas y bellotas, y lo cazan el zorro, la culebra y el búho.</li><li>La <b>perdiz</b> come semillas e insectos, y la cazan el zorro y el águila.</li><li>El <b>zorro</b> come conejos, ratones, perdices, frutos y hasta insectos.</li></ul><p>Las redes son más fuertes que una sola cadena. Si un año escasean los conejos, el zorro puede comer más ratones o frutos. Pero si desaparece una especie muy importante, todo el ecosistema puede desequilibrarse.</p><p>Los <b>descomponedores</b> (hongos, bacterias, lombrices) están en toda la red: transforman los restos de todos los seres vivos en sustancias que vuelven a usar las plantas. Así, la materia no se pierde: <b>circula</b> una y otra vez.</p>`,
+        H6.rueda("Red del bosque", "ZORRO", [["conejo", cNA], ["ratón", cAZ], ["perdiz", cVE], ["frutos", cRO]])],
+    ],
+    "Ecosistemas terrestres": [
+      ["La dehesa", `<p>La <b>dehesa</b> es un ecosistema típico del oeste y el suroeste de la península ibérica: Extremadura, el oeste de Andalucía, Salamanca y el Alentejo portugués. Es un paisaje <mark>creado por las personas</mark> a lo largo de siglos, pero que convive en equilibrio con la naturaleza.</p><p>¿Cómo es una dehesa?</p><ul><li>Un prado de hierba salpicado de <b>encinas</b> y <b>alcornoques</b> separados unos de otros, como un bosque aclarado.</li><li>El ganado pasta en ella: vacas, ovejas, cabras y el <b>cerdo ibérico</b>, que en otoño e invierno engorda comiendo bellotas en la «montanera».</li><li>De los alcornoques se saca el <b>corcho</b> cada nueve o diez años, sin cortar el árbol.</li></ul><p>La dehesa es muy rica en vida salvaje: allí viven el águila imperial, el buitre negro, la cigüeña negra, el ciervo y, en invierno, miles de <b>grullas</b> que llegan del norte de Europa a comer bellotas.</p><p>Es un buen ejemplo de cómo las personas pueden aprovechar la naturaleza sin destruirla. Pero hoy está amenazada por el envejecimiento de las encinas, que no se renuevan, y por algunas enfermedades de los árboles.</p>`,
+        L6.filas("La dehesa", [["árboles", "encinas, alcornoques", cVE], ["ganado", "cerdo ibérico", cRO], ["fauna", "grullas, águilas", cAZ], ["productos", "corcho, bellota", cNA]]), ["J8Brd16uogo", "La dehesa, un ecosistema único, Andalucía", "Canal Sur Turismo", 5446]],
+    ],
+    "Ecosistemas acuáticos": [
+      ["Doñana, un tesoro en peligro", `<p><b>Doñana</b>, entre Huelva, Sevilla y Cádiz, junto a la desembocadura del río Guadalquivir, es uno de los espacios naturales más importantes de Europa. Es <b>Parque Nacional</b> desde 1969 y Patrimonio de la Humanidad desde 1994.</p><p>Su riqueza se debe a que reúne varios ecosistemas en poco espacio:</p><ul><li><b>Marismas</b>: grandes llanuras que se inundan en otoño e invierno. Son el hogar de cientos de miles de aves acuáticas: patos, garzas, flamencos y espátulas.</li><li><b>Dunas móviles</b> que el viento empuja poco a poco.</li><li><b>Bosques</b> de pinos y matorral, donde vive el lince ibérico.</li><li><b>Lagunas</b> de agua dulce y la playa.</li></ul><p>Doñana es una «gasolinera» para las <b>aves migratorias</b>: muchas paran allí a descansar y comer en su viaje entre Europa y África.</p><p>Pero Doñana está en <mark>peligro</mark>. Recibe menos agua por las sequías y porque se saca demasiada agua del suelo para regar cultivos cercanos. Algunas lagunas, que antes duraban todo el año, se han secado. Proteger su agua es proteger a todos sus seres vivos.</p>`,
+        H6.rueda("Doñana", "MARISMA", [["aves", cAZ], ["dunas", cNA], ["lince", cRO], ["lagunas", cVE]])],
+    ],
+  },
+  final: [
+    ["Especies invasoras", `<p>Una <b>especie invasora</b> es un ser vivo que las personas han llevado, a propósito o sin querer, a un lugar donde no vivía, y que allí se extiende tanto que <mark>daña a las especies autóctonas</mark> (las propias del lugar).</p><p>Ejemplos en España:</p><ul><li>El <b>galápago de Florida</b>: era una mascota muy común. Muchos se soltaron en ríos y charcas y compiten con nuestros galápagos.</li><li>La <b>cotorra argentina</b>: se escapó de jaulas y hoy forma grandes colonias en parques de Madrid, Barcelona y otras ciudades. Daña árboles y cultivos.</li><li>El <b>cangrejo rojo americano</b>: se trajo para criarlo y desplazó al cangrejo de río autóctono, que casi ha desaparecido.</li><li>El <b>mejillón cebra</b>: llegó al río Ebro y tapona tuberías y presas.</li><li>La <b>avispa asiática</b>: caza abejas y amenaza las colmenas.</li></ul><p>Las especies invasoras son una de las principales causas de pérdida de biodiversidad en el mundo. Para evitarlas:</p><ul><li>Nunca soltar mascotas ni plantas de acuario en la naturaleza.</li><li>Limpiar las botas, las barcas y el material de pesca al pasar de un río a otro.</li><li>No traer animales ni plantas de otros países sin control.</li></ul>`,
+      L6.filas("Invasoras", [["galápago", "de Florida", cVE], ["cotorra", "argentina", cAZ], ["cangrejo", "rojo americano", cRO], ["avispa", "asiática", cNA]])],
+    ["Cuando falta un eslabón", `<p>¿Qué pasa en un ecosistema si desaparece un ser vivo? Como todos están conectados, el efecto se nota en toda la red. Un ejemplo famoso es el de los <b>lobos de Yellowstone</b>, un parque nacional de Estados Unidos.</p><ol><li>A principios del siglo XX, los lobos desaparecieron del parque porque fueron cazados.</li><li>Sin lobos, los <b>ciervos</b> se multiplicaron y comían sin parar los árboles jóvenes de las orillas de los ríos.</li><li>Sin árboles, desaparecieron muchos pájaros y los <b>castores</b>, que necesitan su madera. Las orillas se erosionaban.</li><li>En <b>1995</b> se volvieron a traer lobos. Los ciervos se volvieron más prudentes y se movían más.</li><li>Los árboles volvieron a crecer, regresaron pájaros y castores, y con sus presas aparecieron nuevos estanques para peces y anfibios.</li></ol><p>A esto se le llama una <mark>cascada</mark>: un cambio en un eslabón provoca cambios en cadena. Los grandes depredadores, como el lobo, el lince o el águila, ayudan a mantener el equilibrio.</p><p>Por eso es tan importante proteger a todas las especies, también a las que no nos parecen simpáticas.</p>`,
+      H6.flujo("Yellowstone", ["sin lobos|más ciervos", "ciervos|sin árboles", "1995|vuelven", "equilibrio|regresa"], cAZ), ["utoJJTMO3Eg", "Cómo los lobos cambiaron el curso del río Yellowstone", "Restauración de Ecosistemas", 118894]],
+  ],
+  ejemplos: [
+    ["En una red, el zorro come conejos y ratones. Si desaparecen los conejos, ¿qué hará el zorro?", ["El zorro tiene varios alimentos.", "Puede comer más ratones."], "Comerá más ratones, frutos o insectos."],
+    ["Alguien suelta peces de acuario en un río. ¿Qué puede pasar?", ["No son de allí.", "Pueden competir o comerse a los autóctonos."], "Pueden convertirse en especie invasora."],
+  ],
+  errores: ["Pensar que soltar una mascota en la naturaleza es liberarla y no hace daño.", "Creer que un ecosistema creado o usado por personas, como la dehesa, no puede ser valioso."],
+  ejercicios: [
+    ["b", "¿Qué es una red alimentaria?", "Varias cadenas alimentarias unidas."],
+    ["b", "¿Qué árboles hay en la dehesa?", "Encinas y alcornoques."],
+    ["b", "¿Desde qué año es Doñana Parque Nacional?", "Desde 1969."],
+    ["b", "Escribe dos especies invasoras de España.", "Galápago de Florida, cotorra argentina…"],
+    ["b", "¿Qué animales se reintrodujeron en Yellowstone en 1995?", "Los lobos."],
+    ["m", "¿Por qué una red alimentaria es más estable que una cadena?", "Porque los animales tienen varios alimentos."],
+    ["m", "¿Qué es la montanera?", "La época en que el cerdo ibérico engorda comiendo bellotas en la dehesa."],
+    ["m", "¿Por qué está en peligro Doñana?", "Por la falta de agua: sequías y extracción para regar."],
+    ["m", "¿Cómo daña la avispa asiática a las abejas?", "Las caza y amenaza las colmenas."],
+    ["m", "Explica qué es una cascada en un ecosistema.", "Un cambio en un eslabón que provoca cambios en cadena."],
+    ["a", "Dibuja la red alimentaria de un bosque o un río de tu comunidad.", "Respuesta abierta."],
+    ["a", "Investiga una especie invasora de tu zona y propón medidas.", "Respuesta abierta."],
+    ["a", "Escribe una carta defendiendo la protección de Doñana.", "Respuesta abierta."],
+    ["a", "Imagina qué pasaría en la dehesa si desaparecieran las encinas.", "Sin bellotas ni sombra; menos fauna y ganado."],
+  ],
+  quiz: [
+    ["Las cadenas que se cruzan forman una…", ["red alimentaria", "pirámide de piedras", "cadena simple"], "Redes."],
+    ["En la dehesa, el corcho se saca de los…", ["alcornoques", "pinos", "olivos"], "Dehesa."],
+    ["Doñana está junto a la desembocadura del…", ["Guadalquivir", "Ebro", "Duero"], "Doñana."],
+    ["El cangrejo rojo americano es una especie…", ["invasora", "autóctona", "extinguida"], "Invasoras."],
+    ["Sin lobos en Yellowstone aumentaron los…", ["ciervos", "castores", "árboles"], "Eslabones."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué decidió Pablo sobre su tortuga?", ["cuidarla en casa toda su vida", "soltarla en el río", "regalarla"], "Lectura."],
+    ["Las grullas llegan a la dehesa en…", ["invierno", "verano", "primavera"], "Dehesa."],
+  ],
+  tarjetas: [
+    ["Redes alimentarias", "Cadenas cruzadas; más estables; los descomponedores cierran el ciclo."],
+    ["Dehesa", "Encinas y alcornoques, ganado, cerdo ibérico, corcho, grullas."],
+    ["Doñana", "Parque Nacional 1969; marismas, aves, lince; amenazada por la falta de agua."],
+    ["Invasoras y cascadas", "Galápago, cotorra, cangrejo rojo; lobos de Yellowstone."],
+  ],
+  glosario: [
+    ["Ecosistema", "Medio físico, seres vivos y sus relaciones."],
+    ["Red alimentaria", "Conjunto de cadenas alimentarias conectadas."],
+    ["Eslabón", "Cada ser vivo de una cadena alimentaria."],
+    ["Descomponedor", "Ser vivo que transforma los restos en sustancias minerales."],
+    ["Dehesa", "Prado con encinas o alcornoques usado por el ganado."],
+    ["Montanera", "Engorde del cerdo ibérico con bellotas."],
+    ["Marisma", "Terreno llano que se inunda junto a la desembocadura de un río."],
+    ["Acuífero", "Agua guardada bajo el suelo."],
+    ["Especie invasora", "Especie traída de fuera que daña a las autóctonas."],
+    ["Especie autóctona", "Especie propia de un lugar."],
+    ["Biodiversidad", "Variedad de seres vivos."],
+    ["Cascada trófica", "Cambios en cadena al desaparecer o volver una especie."],
+  ],
+  situacion: {
+    titulo: "Defensores de un ecosistema",
+    reto: "Cada grupo investiga un ecosistema de España y prepara una campaña para protegerlo.",
+    pasos: ["Elegid un ecosistema: dehesa, Doñana, un río, un bosque o la costa.", "Dibujad su red alimentaria y sus principales amenazas.", "Investigad si hay especies invasoras y qué se hace contra ellas.", "Cread un cartel o un vídeo corto de campaña."],
+    producto: "Una campaña de protección con red alimentaria y propuestas.",
+    evaluacion: ["Explica las relaciones en un ecosistema.", "Identifica amenazas reales.", "Propone medidas posibles.", "Comunica de forma clara y creativa."],
+  },
+});

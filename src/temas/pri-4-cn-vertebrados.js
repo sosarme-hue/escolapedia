@@ -135,3 +135,93 @@ module.exports = {
   fuentes: [RD, wiki("Vertebrata", "Vertebrata"), wiki("Mammalia", "Mammalia"), wiki("Lince ibérico", "Lynx_pardinus")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+// El apartado de la tabla comparativa no tenía dibujo: se le añade uno.
+module.exports.bloques.find((b) => /Comparamos los cinco grupos/.test(b.html)).svg = L6.filas("Pistas para clasificar", [["mamíferos", "pelo · pulmones", cAZ], ["aves", "plumas · huevos", cNA], ["reptiles", "escamas secas", cVE], ["anfibios", "piel húmeda", cMO], ["peces", "escamas · branquias", cRO]]);
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer mamíferos poco comunes: monotremas y marsupiales", "Explicar por qué y cómo migran los animales", "Describir cómo pasan el invierno algunos vertebrados", "Conocer récords del reino animal y cuidar con responsabilidad de las mascotas"],
+  lectura: { titulo: "Las cigüeñas del campanario", html: `<p>En el pueblo de Lucía, en lo alto del campanario de la iglesia, había un nido de cigüeñas enorme, hecho de ramas, tan grande como una mesa.</p><p>Cada año, a finales de invierno, Lucía y su abuelo apostaban qué día volverían las cigüeñas.</p><p>—Antes, cuando yo era pequeño —decía el abuelo—, se iban todas en verano a África y no volvían hasta San Blas, en febrero. «Por San Blas, la cigüeña verás», decía el refrán.</p><p>—¿Y ahora?</p><p>—Ahora muchas ya no se van. Se quedan todo el año cerca de los vertederos y los arrozales, donde encuentran comida fácil.</p><p>Aquel año, una pareja de cigüeñas apareció en el nido a mediados de enero. Desde la ventana de su cuarto, Lucía las veía arreglar el nido con ramas nuevas y hacer sonar el pico, «crotorar», como si aplaudieran.</p><p>En primavera vio asomar tres cabecitas grises. Los padres iban y venían sin parar, trayendo comida.</p><p>En agosto, los jóvenes ya volaban. Una mañana, el nido amaneció vacío.</p><p>—¿Se han ido a África? —preguntó Lucía.</p><p>—Puede que sí —dijo el abuelo—. Los jóvenes suelen hacer el viaje. Ya nos lo contarán cuando vuelvan.</p>` },
+  tras: {
+    "Los mamíferos": [
+      ["Mamíferos muy especiales", `<p>Casi todos los mamíferos son <b>placentarios</b>: la cría crece dentro del vientre de la madre unida a ella por la placenta, y nace bastante formada. Pero hay dos grupos de mamíferos muy diferentes, que viven sobre todo en <b>Australia</b>:</p><p><b>Los monotremas</b> son los únicos mamíferos que <mark>ponen huevos</mark>. Cuando las crías nacen, la madre las alimenta con leche, que no sale de pezones, sino que rezuma por su piel. Son el <b>ornitorrinco</b> y los <b>equidnas</b>.</p><ul><li>El ornitorrinco tiene pico de pato, cola de castor y patas palmeadas. Los machos tienen un espolón venenoso en las patas traseras.</li><li>Los equidnas tienen el cuerpo cubierto de púas, como un erizo.</li></ul><p><b>Los marsupiales</b> tienen crías que nacen muy pequeñas y poco desarrolladas, del tamaño de una judía. La cría trepa hasta una bolsa de piel que la madre tiene en el vientre, el <b>marsupio</b>, y allí sigue creciendo mientras mama. Son el <b>canguro</b>, el <b>koala</b> y el <b>wombat</b>. En América vive la zarigüeya, que también es marsupial.</p><p>Los científicos estudian estos animales porque nos ayudan a entender cómo eran los primeros mamíferos.</p>`,
+        L6.filas("Mamíferos raros", [["monotremas", "ponen huevos", cAZ], ["ornitorrinco", "pico de pato", cVE], ["marsupiales", "bolsa", cNA], ["canguro, koala", "Australia", cRO]]), ["t1eFkr1rZWc", "El ornitorrinco: ¡conoce a este curioso animal!", "ExpertoAnimal", 489900]],
+    ],
+    "Los peces": [
+      ["Grandes viajeros: las migraciones", `<p>Muchos animales hacen largos viajes cada año para buscar alimento, un clima mejor o un lugar seguro para tener sus crías. Estos viajes se llaman <mark>migraciones</mark>.</p><ul><li><b>Aves</b>: la cigüeña blanca, la golondrina o el abejaruco pasan el verano en España y el invierno en África. Otras, como la <b>grulla</b>, hacen lo contrario: vienen del norte de Europa a pasar el invierno en las dehesas de Extremadura. El <b>charrán ártico</b> viaja cada año del Ártico a la Antártida y vuelta: es el mayor viajero del planeta.</li><li><b>Peces</b>: el <b>salmón</b> nace en los ríos, crece en el mar y vuelve a su río para poner los huevos, nadando contra la corriente y saltando cascadas. La <b>anguila</b> hace el viaje al revés: de los ríos europeos al mar de los Sargazos, cerca de América.</li><li><b>Mamíferos</b>: las ballenas viajan miles de kilómetros entre zonas frías para comer y zonas cálidas para tener sus crías. En África, millones de ñus cruzan la sabana buscando hierba fresca.</li></ul><p>¿Cómo saben a dónde ir? Se orientan con el Sol, las estrellas, el campo magnético de la Tierra, el olfato y la memoria del paisaje. Los científicos los siguen con pequeños emisores.</p>`,
+        H6.rueda("Migraciones", "VIAJAR", [["cigüeña", cAZ], ["grulla", cMO], ["salmón", cRO], ["ballena", cVE]]), ["OzC-pVnQPJM", "¿Por qué migran los animales?", "FlexFlix Kids en Español", 354509]],
+    ],
+    "Cómo se alimentan y cómo nacen": [
+      ["Pasar el invierno", `<p>El invierno es una época difícil para muchos animales: hace frío y hay poca comida. Cada uno tiene su estrategia:</p><ul><li><b>Hibernar</b>: algunos mamíferos, como el <b>lirón</b>, el <b>erizo</b> o muchos <b>murciélagos</b>, caen en un sueño muy profundo. Su corazón late muy despacio, respiran poco y su temperatura baja mucho. Viven de la grasa que acumularon en otoño.</li><li><b>Dormir mucho</b>: el <b>oso pardo</b> pasa el invierno en una osera, durmiendo casi todo el tiempo. Su temperatura baja menos que en la hibernación verdadera, y las hembras dan a luz a sus oseznos durante ese periodo.</li><li><b>Aletargarse</b>: los reptiles y los anfibios, que tienen sangre fría, se entierran o se esconden bajo piedras y apenas se mueven hasta que vuelve el calor.</li><li><b>Cambiar de abrigo</b>: muchos mamíferos tienen un pelaje más espeso en invierno. La <b>liebre ártica</b> y el <b>armiño</b> se vuelven blancos para camuflarse en la nieve.</li><li><b>Guardar comida</b>: la ardilla y el arrendajo esconden frutos secos en otoño.</li><li><b>Irse</b>: las aves migratorias viajan a lugares más cálidos.</li></ul>`,
+        L6.filas("En invierno", [["hibernar", "lirón, erizo", cAZ], ["osera", "oso pardo", cNA], ["letargo", "reptiles", cVE], ["abrigo", "armiño blanco", cRO]])],
+    ],
+  },
+  final: [
+    ["Récords de los vertebrados", `<p>Los vertebrados tienen algunos de los récords más espectaculares de la naturaleza:</p><ul><li>El animal más <b>grande</b> que ha existido nunca es la <b>ballena azul</b>: puede medir unos 30 metros y pesar más de 150 toneladas. Su corazón es del tamaño de un coche pequeño.</li><li>El animal más <b>rápido</b> en tierra es el <b>guepardo</b>, que alcanza unos 110 km/h en carreras cortas.</li><li>El más rápido del planeta es el <b>halcón peregrino</b>: en picado supera los 300 km/h.</li><li>El ave más <b>pequeña</b> es el <b>colibrí abeja</b> de Cuba, que mide unos 5 centímetros y pesa menos que una moneda.</li><li>El animal <b>terrestre más grande</b> es el <b>elefante africano</b>, que puede pesar más de 6 toneladas.</li><li>Algunas <b>tortugas gigantes</b> viven más de 150 años, y un tiburón del Ártico, el tiburón de Groenlandia, podría vivir varios siglos.</li><li>La <b>jirafa</b> es el animal más alto: más de 5 metros.</li></ul><p>Todos ellos tienen algo en común: una <mark>columna vertebral</mark> que sostiene su cuerpo, igual que la tuya.</p>`,
+      L6.filas("Récords", [["ballena azul", "unos 30 m", cAZ], ["guepardo", "unos 110 km/h", cNA], ["halcón", "más de 300 km/h", cRO], ["colibrí abeja", "unos 5 cm", cVE]])],
+    ["Mascotas responsables", `<p>Muchas familias conviven con animales vertebrados: perros, gatos, conejos, hámsteres, periquitos o peces. Tener una mascota es bonito, pero también una <b>gran responsabilidad</b> que dura toda la vida del animal, que puede ser de más de 15 años.</p><p>Antes de tener una mascota, piensa en familia:</p><ul><li>¿Tenemos <b>tiempo</b> para cuidarla, pasearla y jugar con ella cada día?</li><li>¿Tenemos <b>espacio</b> suficiente?</li><li>¿Podemos pagar su <b>comida</b> y el <b>veterinario</b>?</li><li>¿Quién la cuidará en vacaciones?</li></ul><p>Cuidados básicos: comida adecuada, agua limpia, un lugar limpio y cómodo, ejercicio, cariño y visitas al veterinario. En España, los perros y los gatos deben llevar un <b>microchip</b> que los identifica y estar vacunados.</p><p><mark>Abandonar a un animal es un delito</mark> y le causa mucho sufrimiento. Si ya no se puede cuidar, hay que buscarle otro hogar a través de una protectora.</p><p>Y nunca se deben soltar en la naturaleza mascotas como tortugas de Florida, peces o cotorras: pueden convertirse en especies invasoras que dañan a los animales autóctonos.</p><p>Una buena opción es <b>adoptar</b> en una protectora en lugar de comprar.</p>`,
+      H6.flujo("Mascota", ["pensar|en familia", "adoptar|protectora", "cuidar|cada día", "chip|y vacunas"], cVE)],
+  ],
+  ejemplos: [
+    ["Un animal pone huevos pero sus crías maman leche. ¿Qué tipo de animal es?", ["Mamar leche: mamífero.", "Poner huevos: monotrema."], "Un mamífero monotrema, como el ornitorrinco."],
+    ["Las grullas llegan a Extremadura en otoño. ¿De dónde vienen y por qué?", ["Vienen del norte de Europa.", "Buscan un clima más suave y comida."], "Migran para pasar el invierno en la dehesa."],
+  ],
+  errores: ["Pensar que todos los mamíferos tienen crías vivas: los monotremas ponen huevos.", "Creer que hibernar es solo dormir mucho, sin cambios en el cuerpo."],
+  ejercicios: [
+    ["b", "¿Qué mamífero pone huevos y tiene pico de pato?", "El ornitorrinco."],
+    ["b", "¿Cómo se llama la bolsa de los marsupiales?", "Marsupio."],
+    ["b", "Escribe dos animales que hibernan.", "El lirón y el erizo."],
+    ["b", "¿Cuál es el animal más rápido en tierra?", "El guepardo."],
+    ["b", "¿Qué deben llevar los perros y gatos para identificarlos?", "Un microchip."],
+    ["m", "Explica el viaje del salmón.", "Nace en el río, crece en el mar y vuelve al río a poner los huevos."],
+    ["m", "¿Por qué se vuelve blanco el armiño en invierno?", "Para camuflarse en la nieve."],
+    ["m", "¿Cómo se orientan los animales migratorios?", "Con el Sol, las estrellas, el campo magnético, el olfato y la memoria."],
+    ["m", "¿Qué diferencia hay entre el oso y el lirón en invierno?", "El lirón hiberna de verdad; el oso duerme, pero su temperatura baja menos."],
+    ["m", "¿Por qué no hay que soltar mascotas en la naturaleza?", "Pueden convertirse en especies invasoras."],
+    ["a", "Haz un mapa con la migración de la cigüeña o de la grulla.", "Respuesta abierta."],
+    ["a", "Prepara una ficha de cuidados para una mascota.", "Respuesta abierta."],
+    ["a", "Compara en una tabla un monotrema, un marsupial y un placentario.", "Huevos; bolsa; placenta."],
+    ["a", "Investiga qué animales de tu comunidad hibernan.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El canguro es un…", ["marsupial", "monotrema", "reptil"], "Mamíferos."],
+    ["El charrán ártico es famoso por…", ["su gran migración", "hibernar", "ser venenoso"], "Migraciones."],
+    ["En invierno, el lirón…", ["hiberna", "migra a África", "cambia de plumas"], "Invierno."],
+    ["El animal más grande que ha existido es…", ["la ballena azul", "el elefante", "el dinosaurio"], "Récords."],
+    ["Abandonar un animal es…", ["un delito", "algo normal", "obligatorio en verano"], "Mascotas."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué muchas cigüeñas ya no se van a África?", ["encuentran comida fácil todo el año", "no saben volar", "les da miedo el mar"], "Lectura."],
+    ["El halcón peregrino en picado supera los…", ["300 km/h", "30 km/h", "3 km/h"], "Récords."],
+  ],
+  tarjetas: [
+    ["Mamíferos raros", "Monotremas ponen huevos (ornitorrinco); marsupiales con bolsa (canguro)."],
+    ["Migraciones", "Cigüeña, grulla, charrán, salmón, anguila, ballena; se orientan con el Sol y el magnetismo."],
+    ["Invierno", "Hibernar, osera, letargo, cambiar de pelaje, guardar comida, migrar."],
+    ["Récords y mascotas", "Ballena azul, guepardo, halcón; microchip, adoptar, no abandonar."],
+  ],
+  glosario: [
+    ["Vertebrado", "Animal con columna vertebral."],
+    ["Placentario", "Mamífero cuya cría crece unida a la madre por la placenta."],
+    ["Monotrema", "Mamífero que pone huevos."],
+    ["Marsupial", "Mamífero cuyas crías crecen en una bolsa."],
+    ["Migración", "Viaje periódico de los animales."],
+    ["Hibernación", "Sueño profundo para pasar el invierno."],
+    ["Letargo", "Estado de inactividad de reptiles y anfibios en invierno."],
+    ["Osera", "Cueva donde el oso pasa el invierno."],
+    ["Camuflaje", "Confundirse con el entorno."],
+    ["Microchip", "Pequeño aparato bajo la piel que identifica a una mascota."],
+    ["Protectora", "Asociación que cuida animales abandonados."],
+    ["Especie autóctona", "Especie propia de un lugar."],
+  ],
+  situacion: {
+    titulo: "Seguimos a los viajeros",
+    reto: "La clase investiga una especie migratoria y sigue su viaje en un mapa.",
+    pasos: ["Elegid una especie: cigüeña, grulla, golondrina, salmón o ballena.", "Buscad en fuentes fiables sus rutas, fechas y distancias.", "Dibujad la ruta en un mapa del mundo con los peligros que encuentra.", "Presentad la especie y proponed medidas para protegerla."],
+    producto: "Un mapa ilustrado de la migración con una ficha de la especie.",
+    evaluacion: ["Clasifica vertebrados correctamente.", "Explica la migración y la hibernación.", "Usa mapas y datos.", "Propone medidas de protección."],
+  },
+});

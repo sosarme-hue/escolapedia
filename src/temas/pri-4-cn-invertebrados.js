@@ -139,3 +139,91 @@ module.exports = {
   fuentes: [RD, wiki("Invertebrado", "Invertebrado"), wiki("Arthropoda", "Arthropoda"), wiki("Mollusca", "Mollusca")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar la metamorfosis completa e incompleta de los insectos", "Conocer las sorprendentes capacidades de los cefalópodos", "Valorar el papel de las abejas y cómo protegerlas", "Observar invertebrados en la naturaleza con respeto"],
+  lectura: { titulo: "La caja de las orugas", html: `<p>En primavera, Hugo encontró en las hojas de la ortiga del huerto de su abuelo unas orugas negras con pinchitos.</p><p>—¿Me las puedo llevar al cole? —preguntó.</p><p>—Solo un par —dijo el abuelo—, y con hojas de esta misma planta, que es lo único que comen.</p><p>En clase las pusieron en una caja con tapa de rejilla. Cada día les cambiaban las hojas. Las orugas comían sin parar y crecían a ojos vista.</p><p>Una mañana, una de ellas se había colgado boca abajo de la tapa, enrollada como una jota. Al día siguiente ya no era una oruga: era una cápsula marrón, dura y quieta, con unos puntitos dorados.</p><p>—¡Se ha muerto! —dijo Sara, preocupada.</p><p>—No —explicó la maestra—. Es una <b>crisálida</b>. Dentro, su cuerpo está cambiando por completo.</p><p>Pasaron casi dos semanas. Un lunes, al entrar en clase, alguien gritó. En la tapa de la caja, secándose las alas, había una mariposa naranja con manchas negras y azules.</p><p>Esa misma tarde, toda la clase salió al patio. Hugo abrió la caja con cuidado y la mariposa voló hacia los arbustos.</p><p>—Adiós —susurró Sara—. Saluda a tus hermanas.</p>` },
+  tras: {
+    "Los moluscos": [
+      ["Pulpos, los genios del mar", `<p>Los <b>cefalópodos</b> (pulpos, calamares, sepias) son los invertebrados más inteligentes que se conocen. El <b>pulpo</b> es el más sorprendente:</p><ul><li>Tiene <b>ocho brazos</b> con ventosas que sirven para sujetar, tocar e incluso «saborear».</li><li>Tiene <b>tres corazones</b> y su sangre es de color <b>azul</b>.</li><li>Puede cambiar de <b>color y textura</b> en un instante para camuflarse entre las rocas o las algas.</li><li>Cuando se siente en peligro, suelta una nube de <b>tinta</b> y escapa a toda velocidad.</li><li>Como no tiene huesos, puede colarse por agujeros del tamaño de una moneda.</li></ul><p>En los acuarios se ha visto a pulpos <mark>abrir tarros con tapa de rosca</mark>, recordar caminos y reconocer a las personas que los cuidan.</p><p>El <b>calamar gigante</b> es el invertebrado más grande del mundo: puede medir más de 10 metros contando sus tentáculos. Vive en las profundidades y casi nunca se ve vivo. En la costa de <b>Asturias</b> se han encontrado varios ejemplares, y en Luarca hay un museo dedicado a ellos.</p><p>Las sepias también son maestras del camuflaje y su concha interna, el «hueso de sepia», se da a los canarios como fuente de calcio.</p>`,
+        L6.filas("El pulpo", [["brazos", "ocho", cAZ], ["corazones", "tres", cRO], ["sangre", "azul", cVE], ["defensa", "tinta y color", cNA]]), ["3Yh8Oct1Yp0", "Demostración de la inteligencia de los pulpos en el Acuario de Zaragoza", "Acuario de Zaragoza", 62092]],
+    ],
+    "Los insectos": [
+      ["La metamorfosis", `<p>Muchos insectos cambian muchísimo de forma a lo largo de su vida. Este cambio se llama <mark>metamorfosis</mark>, que significa «transformación».</p><p><b>Metamorfosis completa</b> (mariposas, escarabajos, moscas, abejas):</p><ol><li><b>Huevo</b>: la hembra lo pone, normalmente sobre la planta que comerá la cría.</li><li><b>Larva</b>: es muy distinta del adulto. En las mariposas se llama <b>oruga</b>. Solo come y crece, mudando la piel varias veces.</li><li><b>Pupa</b>: la larva se encierra en una cubierta (la <b>crisálida</b> de la mariposa o el <b>capullo</b> del gusano de seda). Parece quieta, pero dentro su cuerpo se transforma por completo.</li><li><b>Adulto</b>: sale con alas y puede reproducirse.</li></ol><p><b>Metamorfosis incompleta</b> (saltamontes, grillos, cucarachas, libélulas): del huevo sale una <b>ninfa</b>, que se parece bastante al adulto pero es más pequeña y no tiene alas. Va creciendo y mudando el exoesqueleto hasta convertirse en adulto.</p><p>La ventaja de la metamorfosis completa es que las larvas y los adultos <b>no compiten por el alimento</b>: la oruga come hojas y la mariposa, néctar de las flores.</p>`,
+        H6.flujo("Mariposa", ["huevo|en hoja", "oruga|come", "crisálida|cambia", "adulto|vuela"], cNA), ["ggEHciPpRiw", "Oruga tiene una transformación maravillosa", "El Dodo", 5862180]],
+    ],
+    "La importancia de los invertebrados": [
+      ["Las abejas en peligro", `<p>Las <b>abejas</b> son unas de las mejores <b>polinizadoras</b>: al ir de flor en flor para recoger néctar y polen, transportan el polen que permite que las plantas den frutos y semillas. Gran parte de las frutas y verduras que comemos dependen de ellas y de otros insectos polinizadores.</p><p>En una colmena de abejas melíferas viven miles de individuos organizados:</p><ul><li>Una <b>reina</b>, que pone los huevos.</li><li>Miles de <b>obreras</b>, que buscan alimento, cuidan las crías, fabrican la cera y defienden la colmena.</li><li>Algunos <b>zánganos</b>, los machos.</li></ul><p>Las obreras se comunican con una curiosa <b>danza</b> que indica a sus compañeras dónde hay flores.</p><p>Pero las abejas y otros polinizadores están <mark>disminuyendo</mark> en muchas partes del mundo por:</p><ul><li>Los <b>pesticidas</b> que se usan en los cultivos.</li><li>La pérdida de flores silvestres y de lugares para anidar.</li><li>Enfermedades, parásitos y especies invasoras, como la avispa asiática.</li><li>El cambio climático.</li></ul><p>Podemos ayudar plantando flores silvestres o aromáticas (lavanda, romero, tomillo), dejando zonas de hierba sin cortar y construyendo <b>hoteles de insectos</b> en el colegio.</p>`,
+        H6.rueda("Colmena", "ABEJAS", [["reina", cMO], ["obreras", cNA], ["zánganos", cAZ], ["danza", cVE]])],
+    ],
+  },
+  final: [
+    ["Invertebrados de récord", `<p>Los invertebrados guardan algunos de los récords más asombrosos del reino animal:</p><ul><li>La <b>hormiga</b> puede levantar objetos que pesan muchas veces su propio peso.</li><li>La <b>pulga</b> salta más de cien veces la longitud de su cuerpo. Si una persona pudiera hacer lo mismo, saltaría por encima de un edificio.</li><li>La <b>libélula</b> es una de las cazadoras más eficaces: atrapa casi todas las presas que persigue. Sus antepasados, hace millones de años, tenían alas de más de medio metro.</li><li>La <b>mariposa monarca</b> viaja miles de kilómetros desde Canadá hasta México cada otoño.</li><li>Las <b>termitas</b> construyen termiteros de varios metros de altura, con sistemas de ventilación que han inspirado a arquitectos.</li><li>Los <b>corales</b> son pequeños animales que forman arrecifes gigantes. La Gran Barrera de Coral, en Australia, se ve desde el espacio.</li><li>La <b>medusa inmortal</b> puede volver a convertirse en joven cuando envejece o está en peligro.</li></ul><p>Y en número no tienen rival: se calcula que por cada persona del planeta hay <mark>millones de insectos</mark>.</p>`,
+      L6.filas("Récords", [["hormiga", "fuerza", cRO], ["pulga", "salto", cAZ], ["monarca", "viajera", cNA], ["coral", "arrecifes", cVE]])],
+    ["Safari de invertebrados", `<p>No hace falta viajar lejos para descubrir invertebrados: en el patio, en un parque o en un jardín hay cientos. Organiza un <b>safari</b> siguiendo estos pasos:</p><ol><li><b>Material</b>: una lupa, un bote transparente con agujeros en la tapa, un pincel suave, un cuaderno y una guía de bichos o una aplicación.</li><li><b>Dónde buscar</b>: bajo piedras y troncos (cochinillas, ciempiés, lombrices), en las flores (abejas, mariposas, mariquitas), en la hierba (saltamontes, arañas) y en zonas húmedas (caracoles, babosas).</li><li><b>Cómo cogerlos</b>: con el pincel o dejándolos subir a una hoja, nunca apretándolos. No toques abejas, avispas, arañas grandes ni orugas con pelos, que pueden picar o irritar la piel.</li><li><b>Observa y anota</b>: cuántas patas tiene, si tiene antenas, alas o concha, cómo se mueve. Dibújalo.</li><li><b>Clasifícalo</b>: ¿es un insecto, un arácnido, un crustáceo, un miriápodo, un molusco o un gusano?</li><li><b>Devuélvelo</b> al mismo lugar donde lo encontraste y vuelve a colocar las piedras como estaban.</li></ol><p>Recuerda la regla de oro del naturalista: <mark>observar sin dañar</mark>.</p>`,
+      H6.flujo("Safari", ["buscar|bajo piedras", "observar|con lupa", "clasificar|el grupo", "devolver|a su sitio"], cVE)],
+  ],
+  ejemplos: [
+    ["Un saltamontes joven se parece al adulto pero no tiene alas. ¿Qué tipo de metamorfosis tiene?", ["Sale una ninfa, no una larva distinta.", "No pasa por pupa."], "Metamorfosis incompleta."],
+    ["Una cochinilla de la humedad tiene 14 patas y caparazón. ¿A qué grupo pertenece?", ["No tiene 6 patas: no es insecto.", "Tiene caparazón y muchas patas."], "Es un crustáceo terrestre."],
+  ],
+  errores: ["Pensar que la crisálida está muerta porque no se mueve.", "Creer que el pulpo es un pez porque vive en el mar."],
+  ejercicios: [
+    ["b", "Ordena las fases de la mariposa: adulto, huevo, crisálida, oruga.", "Huevo, oruga, crisálida, adulto."],
+    ["b", "¿Cuántos corazones tiene un pulpo?", "Tres."],
+    ["b", "¿Qué hacen las abejas obreras?", "Buscan alimento, cuidan las crías, fabrican cera y defienden la colmena."],
+    ["b", "¿Cuál es el invertebrado más grande del mundo?", "El calamar gigante."],
+    ["b", "¿Qué se lleva a un safari de invertebrados?", "Lupa, bote con agujeros, pincel y cuaderno."],
+    ["m", "¿Qué diferencia hay entre larva y ninfa?", "La larva es muy distinta del adulto; la ninfa se le parece."],
+    ["m", "¿Por qué es útil que la oruga y la mariposa coman cosas distintas?", "Para no competir por el alimento."],
+    ["m", "Escribe tres causas de la disminución de las abejas.", "Pesticidas, pérdida de flores, enfermedades, cambio climático."],
+    ["m", "¿Cómo se defiende un pulpo?", "Cambia de color, suelta tinta y huye."],
+    ["m", "¿Qué es un hotel de insectos?", "Una estructura con huecos donde pueden anidar insectos útiles."],
+    ["a", "Construye un hotel de insectos con cañas, piñas y madera.", "Respuesta abierta."],
+    ["a", "Haz un safari en el patio y clasifica lo que encuentres en una tabla.", "Respuesta abierta."],
+    ["a", "Investiga el ciclo de vida del gusano de seda.", "Huevo, larva, capullo, mariposa."],
+    ["a", "Prepara una presentación sobre la inteligencia de los pulpos.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La fase de pupa de la mariposa se llama…", ["crisálida", "ninfa", "oruga"], "Metamorfosis."],
+    ["El saltamontes tiene metamorfosis…", ["incompleta", "completa", "ninguna"], "Metamorfosis."],
+    ["La sangre del pulpo es…", ["azul", "roja", "verde"], "Cefalópodos."],
+    ["La abeja que pone los huevos es…", ["la reina", "la obrera", "el zángano"], "Abejas."],
+    ["La regla del naturalista es…", ["observar sin dañar", "llevarse los bichos", "matar los que pican"], "Safari."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué pasó con la mariposa al final?", ["la soltaron en el patio", "se quedó en la caja", "murió"], "Lectura."],
+    ["En Luarca hay un museo de…", ["calamares gigantes", "mariposas", "abejas"], "Cefalópodos."],
+  ],
+  tarjetas: [
+    ["Metamorfosis", "Completa: huevo, larva, pupa, adulto. Incompleta: huevo, ninfa, adulto."],
+    ["Cefalópodos", "Pulpo: 8 brazos, 3 corazones, sangre azul, tinta; calamar gigante."],
+    ["Abejas", "Polinizan; reina, obreras, zánganos; amenazas y hoteles de insectos."],
+    ["Récords y safari", "Hormiga, pulga, monarca, coral; observar sin dañar."],
+  ],
+  glosario: [
+    ["Metamorfosis", "Gran cambio de forma durante la vida de un animal."],
+    ["Larva", "Fase joven muy distinta del adulto."],
+    ["Pupa", "Fase en que la larva se transforma en adulto."],
+    ["Crisálida", "Pupa de la mariposa."],
+    ["Ninfa", "Fase joven parecida al adulto, sin alas."],
+    ["Muda", "Cambio del exoesqueleto para crecer."],
+    ["Cefalópodo", "Molusco con brazos en la cabeza, como el pulpo."],
+    ["Camuflaje", "Confundirse con el entorno para no ser visto."],
+    ["Polinizador", "Animal que lleva polen de una flor a otra."],
+    ["Colmena", "Lugar donde vive una colonia de abejas."],
+    ["Pesticida", "Producto para matar plagas."],
+    ["Naturalista", "Persona que observa y estudia la naturaleza."],
+  ],
+  situacion: {
+    titulo: "Guía de bichos del patio",
+    reto: "La clase elabora una guía ilustrada de los invertebrados que viven en el colegio.",
+    pasos: ["Organizad un safari de invertebrados por grupos en distintas zonas del patio.", "Fotografiad o dibujad cada animal sin dañarlo.", "Clasificad cada uno en su grupo con una ficha de características.", "Montad la guía e incluid propuestas para proteger a los polinizadores."],
+    producto: "Una guía de campo ilustrada del patio.",
+    evaluacion: ["Identifica los grupos de invertebrados.", "Describe la metamorfosis.", "Respeta a los seres vivos.", "Trabaja en equipo con orden."],
+  },
+});
