@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Describir el tiempo con It's foggy, It's rainbow…", "Decir qué hacemos con cada tiempo: When it's sunny I…", "Nombrar cosas para el tiempo: umbrella, raincoat", "Presentar un parte del tiempo sencillo"],
+  lectura: { titulo: "Rainy day, happy day", html: `<p>It's Saturday. Lola looks out of the window. It's <b>raining</b>. It's <b>cloudy</b> and <b>grey</b>.</p><p>"Oh no!" says Lola. "I can't go to the park. I'm sad."</p><p>Her dad smiles. "Rainy days can be fun too! Put on your <b>raincoat</b> and your <b>wellies</b>."</p><p>Lola puts on her yellow raincoat and her red wellies. Dad takes a big <b>umbrella</b>.</p><p>They go outside. Lola jumps in the <b>puddles</b>: splash, splash! She laughs a lot.</p><p>They see a snail on a leaf and a duck swimming in a big puddle. "Quack!"</p><p>After a while, the rain stops. The sun comes out. And look… there's a <b>rainbow</b> in the sky! Red, orange, yellow, green, blue and purple.</p><p>"Wow! It's beautiful!" says Lola.</p><p>At home, they have hot chocolate. Lola draws the rainbow.</p><p>"Dad, I love rainy days!"</p><p><i>(raincoat: chubasquero · wellies: botas de agua · puddles: charcos · snail: caracol)</i></p>` },
+  tras: {
+    "Windy, snowy, stormy": [
+      ["Foggy, rainbow, icy", `<p>Aprendemos más palabras del <mark>weather</mark> (tiempo):</p><ul><li><b>It's foggy</b>: hay niebla. No se ve bien.</li><li><b>It's icy</b>: hay hielo. ¡Cuidado, resbala!</li><li><b>There's a rainbow</b>: hay un arcoíris.</li><li><b>There's thunder</b>: hay truenos. ¡Boom!</li><li><b>There's lightning</b>: hay relámpagos.</li><li><b>It's warm</b>: hace una temperatura agradable.</li><li><b>It's cool</b>: hace fresco.</li></ul><p>Recuerda las de antes: <i>sunny</i>, <i>cloudy</i>, <i>rainy</i>, <i>windy</i>, <i>snowy</i>, <i>stormy</i>.</p><p>Muchas palabras del tiempo terminan en <b>-y</b>: sun → sunn<b>y</b>, cloud → cloud<b>y</b>, wind → wind<b>y</b>, fog → fogg<b>y</b>.</p><p>When it's foggy, cars turn on their lights.</p><p><b>Actividad</b>: dibuja un símbolo para foggy, icy y rainbow, y añádelos al panel del tiempo de clase.</p>`,
+        L6.filas("Weather", [["foggy", "niebla", cMO], ["icy", "hielo", cAZ], ["rainbow", "arcoíris", cRO], ["warm", "templado", cNA]])],
+    ],
+    "Hot and cold": [
+      ["Umbrella and sunglasses", `<p>Cada tiempo necesita sus <mark>cosas</mark>:</p><ul><li>When it's <b>rainy</b>: an <b>umbrella</b> (paraguas), a <b>raincoat</b> (chubasquero) and <b>wellies</b> (botas de agua).</li><li>When it's <b>sunny</b>: <b>sunglasses</b> (gafas de sol), a <b>sun hat</b> (sombrero) and <b>sun cream</b> (crema solar).</li><li>When it's <b>snowy</b>: a <b>coat</b>, a <b>scarf</b>, <b>gloves</b> and a <b>woolly hat</b> (gorro de lana).</li><li>When it's <b>windy</b>: a <b>kite</b> (cometa) to play!</li></ul><p>Podemos dar consejos: «It's raining. <b>Take your umbrella!</b>» «It's sunny. <b>Put on your sun cream!</b>»</p><p>¡Recuerda que el sol puede quemar la piel aunque haga fresco, sobre todo en la montaña y en la playa!</p><p><b>Actividad</b>: dibuja a un niño preparado para cada tiempo y escribe qué lleva.</p>`,
+        H6.dos("Take", ["RAINY", ["umbrella", "raincoat", "wellies"], cAZ], ["SUNNY", ["sunglasses", "sun hat", "sun cream"], cNA])],
+    ],
+    "The four seasons": [
+      ["When it's sunny, I…", `<p>Según el tiempo hacemos <mark>activities</mark> distintas. Decimos <b>When it's…, I…</b> (Cuando hace…, yo…):</p><ul><li>«When it's <b>sunny</b>, I go to the beach.»</li><li>«When it's <b>rainy</b>, I read books at home.»</li><li>«When it's <b>snowy</b>, I make a snowman.» (muñeco de nieve)</li><li>«When it's <b>windy</b>, I fly my kite.»</li><li>«When it's <b>hot</b>, I go swimming.»</li><li>«When it's <b>cold</b>, I drink hot chocolate.»</li></ul><p>Para preguntar: «<b>What do you do when it's rainy?</b>» — «I play board games.» (juegos de mesa)</p><p>Cada tiempo tiene su lado divertido. ¡Como Lola en el cuento!</p><p><b>Actividad</b>: completa en tu cuaderno: «When it's sunny, I…», «When it's snowy, I…».</p>`,
+        H6.rueda("When", "I…", [["beach", cNA], ["snowman", cAZ], ["kite", cVE], ["read", cMO]]),
+        ["8ZjpI6fgYSY", "Seasons Song", "Have Fun Teaching", 197806953]],
+    ],
+    "Autumn and winter": [
+      ["The weather report", `<p>En la tele, el <mark>weather presenter</mark> (presentador del tiempo) explica qué tiempo hará. Podemos hacer nuestro propio parte:</p><p><i>«Good morning! Here is the weather for today. In the north, it's <b>rainy</b> and <b>cold</b>. In the south, it's <b>sunny</b> and <b>hot</b>. In the mountains, it's <b>snowy</b>. In the east, it's <b>windy</b>. Take your umbrella! Have a nice day!»</i></p><p>Palabras útiles:</p><ul><li><b>north</b>: norte. <b>south</b>: sur.</li><li><b>east</b>: este. <b>west</b>: oeste.</li><li><b>today</b>: hoy. <b>tomorrow</b>: mañana.</li><li><b>degrees</b>: grados. «It's 25 degrees.»</li></ul><p>Para empezar el parte decimos «<b>Here is the weather</b>» y para terminar «<b>Have a nice day!</b>».</p><p><b>Actividad</b>: presenta el parte del tiempo delante de un mapa de España.</p>`,
+        H6.flujo("Report", ["hello|today", "north|rainy", "south|sunny", "bye|nice day"], cAZ)],
+    ],
+  },
+  final: [
+    ["Weather around the world", `<p>En el mundo hay lugares con un tiempo muy distinto:</p><ul><li>In the <b>desert</b> (desierto), it's very <b>hot</b> and <b>dry</b> (seco). It almost never rains.</li><li>In the <b>Arctic</b> (Ártico), it's very <b>cold</b> and <b>snowy</b>. Polar bears live there.</li><li>In the <b>rainforest</b> (selva), it's <b>hot</b> and <b>rainy</b> every day.</li><li>In <b>England</b>, it's often <b>cloudy</b> and <b>rainy</b>. People always carry an umbrella!</li><li>In <b>Spain</b>, it's <b>sunny</b> many days of the year.</li></ul><p>Cuando en España es verano, en Australia es invierno. ¡Allí celebran la Navidad en la playa!</p><p>Para preguntar: «<b>What's the weather like in…?</b>» (¿Qué tiempo hace en…?)</p><p><b>Actividad</b>: elige un lugar del mundo y dibuja su tiempo con un animal que viva allí.</p>`,
+      L6.filas("World", [["desert", "hot, dry", cNA], ["Arctic", "cold, snowy", cAZ], ["rainforest", "rainy", cVE], ["England", "cloudy", cMO]])],
+    ["Repaso: rainy day, happy day", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>It's <b>Saturday</b>. It's <b>raining</b>; it's <b>cloudy</b> and <b>grey</b>.</li><li>Lola is <b>sad</b> at first.</li><li>She puts on her yellow <b>raincoat</b> and her red <b>wellies</b>.</li><li>Dad takes a big <b>umbrella</b>.</li><li>Lola jumps in the <b>puddles</b>: splash!</li><li>Then the sun comes out and there's a <b>rainbow</b>.</li><li>At home they have <b>hot chocolate</b>.</li><li>At the end, Lola is <b>happy</b>: «I love rainy days!»</li></ul><p>Lola aprende que cualquier día puede ser divertido si buscamos el lado bueno.</p><p><b>Actividad</b>: escribe una frase sobre lo que te gusta hacer cuando llueve.</p>`,
+      H6.flujo("Lola", ["rain|sad", "wellies|splash", "sun|rainbow", "home|happy"], cVE)],
+  ],
+  ejemplos: [
+    ["Hay niebla. ¿Cómo se dice?", ["fog + -y"], "It's foggy."],
+    ["Cuando nieva, hago un muñeco de nieve.", ["When it's snowy, I…"], "When it's snowy, I make a snowman."],
+  ],
+  errores: ["Decir «It's sun» en lugar de «It's sunny».", "Llevar paraguas cuando hace viento fuerte (¡se rompe!) en lugar de chubasquero."],
+  ejercicios: [
+    ["b", "How do you say «hay niebla»?", "It's foggy."],
+    ["b", "What is an «umbrella»?", "Un paraguas."],
+    ["b", "What is a «rainbow»?", "Un arcoíris."],
+    ["b", "Translate: Hace calor.", "It's hot."],
+    ["b", "What do you need when it's sunny?", "Sunglasses, sun hat, sun cream."],
+    ["m", "Complete: «When it's windy, I fly my ___.»", "Kite."],
+    ["m", "What's the weather like in the Arctic?", "It's very cold and snowy."],
+    ["m", "Translate: Coge tu paraguas.", "Take your umbrella."],
+    ["m", "What is «north» in Spanish?", "Norte."],
+    ["m", "What do you do when it's rainy?", "Open answer: I read, I play…"],
+    ["a", "In the reading, what does Lola wear?", "A yellow raincoat and red wellies."],
+    ["a", "Why is Lola happy at the end?", "Because she jumps in puddles and sees a rainbow."],
+    ["a", "Write a short weather report for today.", "Open answer."],
+    ["a", "Write two sentences with «When it's…, I…».", "Open answer."],
+  ],
+  quiz: [
+    ["Hielo is…", ["icy", "foggy", "windy"], "Weather."],
+    ["Botas de agua are…", ["wellies", "gloves", "sandals"], "Things."],
+    ["When it's ___, I make a snowman.", ["snowy", "sunny", "hot"], "Activities."],
+    ["Sur is…", ["south", "north", "east"], "Report."],
+    ["In the desert it's…", ["hot and dry", "cold and snowy", "rainy"], "World."],
+  ],
+  examen: [
+    ["In the reading, what day is it?", ["Saturday", "Monday", "Friday"], "Reading."],
+    ["What do Lola and her dad see in the sky?", ["a rainbow", "a plane", "snow"], "Repaso."],
+  ],
+  tarjetas: [
+    ["More weather", "foggy, icy, warm, cool, rainbow, thunder."],
+    ["When it's…", "When it's sunny, I go to the beach."],
+  ],
+  glosario: [
+    ["Foggy", "Con niebla."],
+    ["Icy", "Con hielo."],
+    ["Rainbow", "Arcoíris."],
+    ["Umbrella", "Paraguas."],
+    ["Raincoat", "Chubasquero."],
+    ["Wellies", "Botas de agua."],
+    ["Puddle", "Charco."],
+    ["Snowman", "Muñeco de nieve."],
+    ["North", "Norte."],
+    ["Degrees", "Grados."],
+  ],
+  situacion: {
+    titulo: "Weather TV",
+    reto: "La clase graba un parte del tiempo en inglés con un mapa, símbolos y consejos para cada tiempo.",
+    pasos: ["Hacer un mapa grande con los puntos cardinales.", "Dibujar símbolos del tiempo: sunny, rainy, foggy…", "Escribir el parte: «In the north, it's…».", "Presentarlo con un consejo: «Take your umbrella!»."],
+    producto: "Un parte del tiempo grabado o representado en inglés.",
+    evaluacion: ["Describe el tiempo con vocabulario nuevo.", "Relaciona tiempo y ropa u objetos.", "Usa When it's…, I…", "Presenta un parte sencillo."],
+  },
+});

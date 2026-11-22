@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Describir juguetes con color, tamaño y forma", "Usar Have you got…? y responder Yes, I have / No, I haven't", "Usar posesivos: my, your, his, her", "Hablar de juegos del patio en inglés"],
+  lectura: { titulo: "The toy shop at night", html: `<p>It's night. The toy shop is closed and dark. But inside, something magic happens…</p><p>The <b>teddy bear</b> opens his eyes. "Wake up, everybody!" he says.</p><p>The <b>doll</b> stands up and dances. The <b>robot</b> walks: beep, beep! The red <b>car</b> drives around the shop: vroom, vroom! The <b>ball</b> bounces up and down: boing, boing!</p><p>"Let's play!" says the <b>kite</b>, and it flies over the shelves.</p><p>The <b>train</b> goes round and round on its tracks: choo, choo! The little <b>yo-yo</b> goes up and down.</p><p>They play all night. They are very happy.</p><p>But then, the sun comes up. "Quick! It's morning!" says the teddy bear.</p><p>All the toys run back to their places and close their eyes.</p><p>The shop owner opens the door. "Good morning, toys!" she says. Everything is quiet.</p><p>But look… the red car is on the floor, not on the shelf! Hmm…</p><p><i>(closed: cerrada · bounces: bota · shelves: estanterías · tracks: vías · owner: dueña)</i></p>` },
+  tras: {
+    "More toys": [
+      ["Big, small, round, square", `<p>Para describir juguetes usamos <mark>adjectives</mark>:</p><ul><li><b>Size</b> (tamaño): <b>big</b> (grande), <b>small</b> (pequeño), <b>long</b> (largo).</li><li><b>Shape</b> (forma): <b>round</b> (redondo), <b>square</b> (cuadrado), <b>triangle</b> (triángulo).</li><li><b>Colour</b>: red, blue, yellow, green, pink, purple…</li><li><b>Other</b>: <b>new</b> (nuevo), <b>old</b> (viejo), <b>soft</b> (blandito), <b>fast</b> (rápido).</li></ul><p>Examples:</p><ul><li>«My ball is <b>big</b>, <b>round</b> and <b>red</b>.»</li><li>«I've got a <b>soft brown</b> teddy.»</li><li>«This is a <b>fast blue</b> car.»</li><li>«The kite is a <b>yellow triangle</b>.»</li></ul><p>Recuerda: en inglés el adjetivo va <b>antes</b> del nombre: «a <b>red</b> ball», no «a ball red».</p><p><b>Actividad</b>: describe un juguete sin decir su nombre y tus compañeros lo adivinan.</p>`,
+        L6.filas("Describe", [["ball", "big, round", cRO], ["teddy", "soft, brown", cMO], ["car", "fast, blue", cAZ], ["kite", "yellow", cNA]]),
+        ["aC5Kpm5M5j8", "Playing With My Car", "Noodle & Pals", 16680443]],
+    ],
+    "I've got a ball": [
+      ["Have you got…?", `<p>Para preguntar si alguien tiene algo decimos <mark>Have you got…?</mark> (¿Tienes…?)</p><ul><li>«<b>Have you got</b> a bike?» — «<b>Yes, I have.</b>» (Sí, tengo.)</li><li>«<b>Have you got</b> a robot?» — «<b>No, I haven't.</b>» (No, no tengo.)</li></ul><p>Para decir que <b>no</b> tenemos algo:</p><ul><li>«I <b>haven't got</b> a train.» (No tengo un tren.)</li></ul><p>Y para otra persona:</p><ul><li>«<b>Has</b> he <b>got</b> a kite?» — «Yes, he <b>has</b>.» / «No, he <b>hasn't</b>.»</li></ul><p>Fíjate en que la respuesta es corta: no repetimos el juguete. Decimos «Yes, I have», no «Yes, I have got a bike».</p><p>Con <i>he</i> y <i>she</i> cambiamos <i>have</i> por <i>has</i>: «She <b>has got</b> a doll.»</p><p><b>Actividad</b>: haz una encuesta: pregunta a cinco compañeros «Have you got a…?» y apunta las respuestas.</p>`,
+        L6.dialogo("Got", [["Leo", "Have you got a bike?", cAZ], ["Mia", "Yes, I have!", cRO], ["Leo", "Have you got a robot?", cAZ], ["Mia", "No, I haven't.", cRO]])],
+    ],
+    "My favourite toy": [
+      ["My, your, his, her", `<p>Para decir de quién es algo usamos los <mark>possessives</mark> (posesivos):</p><ul><li><b>my</b>: mi. «This is <b>my</b> doll.»</li><li><b>your</b>: tu. «Is this <b>your</b> ball?»</li><li><b>his</b>: su (de él). «This is Tom's car. It's <b>his</b> car.»</li><li><b>her</b>: su (de ella). «This is Ana's kite. It's <b>her</b> kite.»</li></ul><p>También podemos usar <b>'s</b> con el nombre de la persona:</p><ul><li>«<b>Tom's</b> car» = el coche de Tom.</li><li>«<b>Ana's</b> doll» = la muñeca de Ana.</li></ul><p>Para preguntar de quién es: «<b>Whose</b> is this?» — «It's <b>Leo's</b>.»</p><p>Compartir juguetes es bonito: «Can I play with <b>your</b> train?» — «Yes, of course!»</p><p><b>Actividad</b>: cada uno trae un juguete; mezcladlos y adivinad de quién es cada uno: «It's Ana's!».</p>`,
+        H6.rueda("Whose?", "WHOSE", [["my", cAZ], ["your", cVE], ["his", cNA], ["her", cRO]])],
+    ],
+    "One ball, two balls": [
+      ["Playground games", `<p>En el patio jugamos a muchos <mark>games</mark> (juegos). En inglés:</p><ul><li><b>hide and seek</b>: el escondite.</li><li><b>tag</b> (o <b>tig</b>): el pilla-pilla.</li><li><b>hopscotch</b>: la rayuela.</li><li><b>skipping</b>: saltar a la comba.</li><li><b>marbles</b>: las canicas.</li><li><b>football</b> and <b>basketball</b>.</li></ul><p>Frases útiles para jugar:</p><ul><li>«<b>Let's play</b> hide and seek!» (¡Juguemos al escondite!)</li><li>«<b>Can I play?</b>» (¿Puedo jugar?)</li><li>«<b>It's my turn!</b>» (¡Me toca!)</li><li>«<b>You're it!</b>» (¡Te la quedas!)</li><li>«<b>Ready or not, here I come!</b>» (¡Allá voy!)</li></ul><p>Recuerda: «<b>Play fair!</b>» (¡Juega limpio!) y deja jugar a todos.</p><p><b>Actividad</b>: en el recreo, jugad al escondite contando hasta 20 en inglés.</p>`,
+        H6.dos("Games", ["RUN", ["tag", "hide and seek", "football"], cVE], ["JUMP", ["hopscotch", "skipping", "marbles"], cMO])],
+    ],
+  },
+  final: [
+    ["Toys of the past", `<p>Hace muchos años, los niños jugaban con <mark>toys</mark> muy diferentes:</p><ul><li><b>Wooden toys</b>: juguetes de madera, como trenes y caballitos.</li><li>A <b>spinning top</b>: una peonza.</li><li>A <b>rag doll</b>: una muñeca de trapo.</li><li>A <b>hoop</b>: un aro que se hacía rodar con un palo.</li><li><b>Tin soldiers</b>: soldaditos de hojalata.</li></ul><p>No tenían pilas ni pantallas. ¡Pero se divertían mucho!</p><p>Hoy tenemos <b>video games</b>, <b>tablets</b> y <b>remote control cars</b> (coches teledirigidos). Algunos juguetes antiguos todavía nos encantan: el yo-yo, la peonza y la cometa.</p><p>Pregunta a tus abuelos: «<b>What was your favourite toy?</b>» (¿Cuál era tu juguete favorito?)</p><p><b>Actividad</b>: fabrica un juguete con materiales reciclados y ponle nombre en inglés.</p>`,
+      L6.filas("Past", [["spinning top", "peonza", cNA], ["rag doll", "de trapo", cRO], ["hoop", "aro", cVE], ["wooden", "de madera", cMO]])],
+    ["Repaso: the toy shop at night", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>It's <b>night</b> and the shop is <b>closed</b>.</li><li>The <b>teddy bear</b> says: «Wake up, everybody!»</li><li>The <b>doll</b> dances, the <b>robot</b> walks (beep, beep!), the <b>car</b> drives (vroom!).</li><li>The <b>ball</b> bounces (boing!) and the <b>kite</b> flies.</li><li>The <b>train</b> goes «choo, choo!» and the <b>yo-yo</b> goes up and down.</li><li>In the morning, the toys go back to their places.</li><li>But the <b>red car</b> is on the floor!</li></ul><p>Fíjate en los sonidos: en inglés también hay onomatopeyas, como <i>vroom</i>, <i>beep</i> y <i>boing</i>.</p><p><b>Actividad</b>: inventa qué hacen tus juguetes por la noche y cuéntalo en inglés.</p>`,
+      H6.flujo("Night", ["teddy|wake up", "toys|play", "sun|quick!", "car|floor"], cAZ)],
+  ],
+  ejemplos: [
+    ["Pregunta si tu amigo tiene una cometa.", ["Have you got + a kite?"], "Have you got a kite?"],
+    ["Di que el coche es de Tom.", ["Nombre + 's."], "It's Tom's car."],
+  ],
+  errores: ["Contestar «Yes, I have got» en lugar de «Yes, I have».", "Usar his para una chica: «Ana and his doll»."],
+  ejercicios: [
+    ["b", "How do you say «redondo»?", "Round."],
+    ["b", "What is «hide and seek»?", "El escondite."],
+    ["b", "How do you say «mi muñeca»?", "My doll."],
+    ["b", "Answer: Have you got a ball?", "Yes, I have / No, I haven't."],
+    ["b", "What is a «kite»?", "Una cometa."],
+    ["m", "Order: ball / a / red / big", "A big red ball."],
+    ["m", "Complete: «This is Ana's doll. It's ___ doll.»", "Her."],
+    ["m", "Translate: No tengo un robot.", "I haven't got a robot."],
+    ["m", "What does «It's my turn» mean?", "Me toca."],
+    ["m", "Name two toys of the past.", "Spinning top, rag doll…"],
+    ["a", "In the reading, what does the robot say?", "Beep, beep!"],
+    ["a", "Why is the red car on the floor?", "Because it didn't go back to its place in time."],
+    ["a", "Describe your favourite toy with three adjectives.", "Open answer."],
+    ["a", "Write a dialogue to ask to play with a friend's toy.", "Open answer."],
+  ],
+  quiz: [
+    ["Blandito is…", ["soft", "fast", "square"], "Adjectives."],
+    ["Have you got a bike? — Yes, I…", ["have", "am", "do"], "Have got."],
+    ["Tom's car = ___ car.", ["his", "her", "my"], "Possessives."],
+    ["El escondite is…", ["hide and seek", "tag", "hopscotch"], "Games."],
+    ["A rag doll is made of…", ["cloth", "metal", "plastic"], "Past."],
+  ],
+  examen: [
+    ["In the reading, who wakes up first?", ["the teddy bear", "the doll", "the robot"], "Reading."],
+    ["What is on the floor in the morning?", ["the red car", "the ball", "the kite"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Have you got…?", "Yes, I have. / No, I haven't."],
+    ["Possessives", "my, your, his, her; Tom's car."],
+  ],
+  glosario: [
+    ["Round", "Redondo."],
+    ["Square", "Cuadrado."],
+    ["Soft", "Blando."],
+    ["Have you got", "¿Tienes?"],
+    ["His", "Su (de él)."],
+    ["Her", "Su (de ella)."],
+    ["Whose", "De quién."],
+    ["Hide and seek", "El escondite."],
+    ["Turn", "Turno."],
+    ["Spinning top", "Peonza."],
+  ],
+  situacion: {
+    titulo: "Toy museum",
+    reto: "La clase monta un museo de juguetes con fichas en inglés de juguetes de ahora y de antes.",
+    pasos: ["Traer un juguete o fabricar uno reciclado.", "Escribir una ficha: name, colour, size, whose.", "Preguntar a la familia por un juguete antiguo.", "Presentar el museo: «This is my robot. It's big and grey.»"],
+    producto: "Un museo de juguetes con fichas en inglés.",
+    evaluacion: ["Describe juguetes con adjetivos.", "Usa Have you got…?", "Usa posesivos.", "Nombra juegos del patio."],
+  },
+});
