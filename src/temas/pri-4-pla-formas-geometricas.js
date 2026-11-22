@@ -94,3 +94,91 @@ module.exports = tema({
   ideas: ["Cuadro abstracto con formas recortadas y título que exprese una emoción.", "Escuchar una pieza musical y dibujar formas que la representen.", "Caza de formas en el patio con fotografías."],
   fuentes: [["Museo Nacional Centro de Arte Reina Sofía", "https://www.museoreinasofia.es/"], ["Patronato de la Alhambra y Generalife", "https://www.alhambra-patronato.es/"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Descubrir la geometría escondida en la naturaleza", "Conocer a Paul Klee y Sonia Delaunay", "Crear teselaciones al estilo de Escher", "Jugar con el tangram y las ilusiones ópticas"],
+  lectura: { titulo: "El lagarto que encajaba", html: `<p>En la sala de Plástica había un póster muy raro. Al principio, Nico creyó que era un dibujo de baldosas. Pero al acercarse, descubrió que cada baldosa era un <b>lagarto</b>. Los lagartos encajaban perfectamente unos con otros, sin dejar ningún hueco, como las piezas de un puzle.</p><p>—¿Cómo puede ser? —preguntó—. Los lagartos no son cuadrados.</p><p>La profesora, Ester, sonrió y cogió una cartulina cuadrada.</p><p>—Esto lo hacía un artista holandés llamado <b>Escher</b>. Mira el truco.</p><p>Con las tijeras recortó un mordisco en forma de curva en el lado izquierdo del cuadrado. Después, sin girarlo, pegó ese trozo con celo en el lado derecho, justo enfrente.</p><p>—Ahora tenemos una forma rara, ¿verdad? Pero como lo que he quitado por un lado lo he puesto por el otro, sigue encajando consigo misma.</p><p>Hizo lo mismo arriba y abajo. La forma ya parecía una cabeza con un sombrero. Ester la usó como plantilla y la fue dibujando una y otra vez sobre un folio, encajando cada copia con la anterior. En pocos minutos, el papel se llenó de figuras que encajaban como por arte de magia.</p><p>—Escher se inspiró en los azulejos de la <b>Alhambra de Granada</b> —explicó—. Los visitó dos veces y se pasaba días copiándolos.</p><p>Esa tarde, toda la clase quiso hacer su propia plantilla. Nico consiguió un pájaro. Bueno, más o menos.</p>` },
+  tras: {
+    "Formas geométricas y orgánicas": [
+      ["La geometría de la naturaleza", `<p>Aunque la naturaleza parece desordenada, si miras con atención encontrarás <mark>geometría</mark> por todas partes:</p><ul><li><b>Hexágonos</b>: las celdas de los panales de abejas son hexágonos perfectos. Es la forma que permite guardar más miel usando menos cera. También hay hexágonos en el caparazón de las tortugas y en las columnas de basalto de algunas costas volcánicas.</li><li><b>Espirales</b>: la concha del caracol y del nautilo, las semillas del centro del <b>girasol</b>, las piñas o los cuernos del carnero forman espirales.</li><li><b>Simetría</b>: las alas de una mariposa, una hoja o nuestra propia cara son casi simétricas. Las estrellas de mar y muchas flores tienen <b>simetría radial</b>, como los radios de una rueda.</li><li><b>Copos de nieve</b>: todos tienen <b>seis puntas</b>, aunque no hay dos iguales.</li><li><b>Esferas</b>: las gotas de agua, las burbujas, los planetas.</li><li><b>Fractales</b>: formas que se repiten dentro de sí mismas a distinto tamaño, como el <b>brócoli romanesco</b>, los helechos o las ramas de un árbol.</li></ul><p>Muchos artistas y arquitectos se inspiran en estas formas naturales. Gaudí, por ejemplo, decía que la naturaleza era su maestra.</p>`,
+        L6.filas("Naturaleza", [["hexágono", "panal", cNA], ["espiral", "caracol, girasol", cRO], ["seis puntas", "copo de nieve", cAZ], ["fractal", "romanesco", cVE]]), ["4u7TwSwo0rU", "Qué son los fractales", "BBC News Mundo", 503544]],
+    ],
+    "Mondrian: líneas y colores primarios": [
+      ["Paul Klee y Sonia Delaunay", `<p>Otros dos artistas que jugaron con las <mark>formas geométricas</mark> y el color:</p><ul><li><b>Paul Klee</b> (Suiza y Alemania, 1879-1940) decía que dibujar era «sacar a pasear una línea». Pintó cuadros llenos de cuadrados y rectángulos de colores que parecen ciudades, jardines o mosaicos. En <b>«Castillo y sol»</b>, construye un castillo solo con cuadrados, triángulos y rectángulos de colores cálidos, y encima pone un sol redondo. Fue profesor en la <b>Bauhaus</b>, una escuela de arte y diseño muy famosa.</li><li><b>Sonia Delaunay</b> (Ucrania y Francia, 1885-1979) llenó sus obras de <b>círculos</b> de colores que giran, como si se movieran. Su arte se llamó <b>simultaneísmo</b>: colores que, puestos uno junto a otro, vibran. No solo pintaba cuadros: también diseñaba <b>ropa</b>, telas, bolsos, cubiertas de libros e incluso decoró un coche. Fue la primera mujer con una exposición en vida en el museo del Louvre.</li></ul><p>Los dos demostraron que con formas sencillas, como el cuadrado y el círculo, se pueden crear obras llenas de emoción y de ritmo.</p><p>Prueba a hacer tu «castillo» como Klee con cuadrados de papel de colores, o un cuadro de círculos concéntricos como Delaunay.</p>`,
+        H6.dos("Dos artistas", ["KLEE", ["cuadrados", "Castillo y sol", "la Bauhaus"], cNA], ["DELAUNAY", ["círculos", "simultaneísmo", "ropa y telas"], cMO])],
+    ],
+    "Mosaicos y simetría": [
+      ["Escher y las teselaciones", `<p>Una <mark>teselación</mark> es un mosaico en el que una misma forma se repite una y otra vez, cubriendo toda la superficie sin dejar huecos ni montarse. Solo algunos polígonos regulares lo consiguen: el <b>triángulo</b>, el <b>cuadrado</b> y el <b>hexágono</b>.</p><p>El artista holandés <b>M. C. Escher</b> (1898-1972) llevó las teselaciones a otro nivel. Visitó la <b>Alhambra</b> de Granada en <b>1922</b> y en <b>1936</b>, y quedó fascinado por sus azulejos. Pero quiso ir más allá: en lugar de polígonos, consiguió que encajaran <b>pájaros, peces, lagartos o caballos</b>.</p><p><b>Cómo hacer tu teselación</b>:</p><ul><li><b>1.</b> Recorta un cuadrado de cartulina de unos 6 cm.</li><li><b>2.</b> Recorta una forma de un lado (por ejemplo, una curva) y pégala con celo en el lado <b>opuesto</b>, sin girarla.</li><li><b>3.</b> Repite con los otros dos lados, si quieres.</li><li><b>4.</b> Usa esa pieza como plantilla: dibuja su contorno, desplázala para que encaje con la anterior y vuelve a dibujar. Así hasta llenar el folio.</li><li><b>5.</b> Mira qué parece tu forma (un animal, una cara…) y añade detalles. Colorea alternando dos o tres colores.</li></ul><p>Escher también dibujó <b>edificios imposibles</b>, con escaleras que suben y suben sin llegar a ninguna parte.</p>`,
+        H6.flujo("Teselación", ["cuadrado|cartulina", "recortar|y pasar", "plantilla|repetir", "detalles|y color"], cAZ)],
+    ],
+  },
+  final: [
+    ["El tangram", `<p>El <mark>tangram</mark> es un rompecabezas chino muy antiguo. Está formado por <b>siete piezas</b> que salen de dividir un cuadrado:</p><ul><li><b>5 triángulos</b>: dos grandes, uno mediano y dos pequeños.</li><li><b>1 cuadrado</b>.</li><li><b>1 romboide</b> (un paralelogramo).</li></ul><p>Las reglas son sencillas: hay que usar <b>las siete piezas</b>, sin montarlas unas encima de otras, para formar una figura. Con ellas se pueden construir más de <b>mil figuras</b> distintas: animales (un gato, un conejo, un cisne), personas en movimiento, barcos, casas, letras y números.</p><p><b>Construye tu tangram</b>: dobla y recorta un folio cuadrado siguiendo las líneas de un modelo, o dibújalo en cartulina con regla y recórtalo. Puedes pintar cada pieza de un color.</p><p>El tangram es un ejercicio estupendo para:</p><ul><li>Reconocer y nombrar <b>polígonos</b>.</li><li>Desarrollar la <b>imaginación</b> y la visión espacial.</li><li>Descubrir que con las mismas formas se pueden crear figuras muy diferentes, ¡como hacen los artistas!</li></ul><p>Reto: forma con las siete piezas un cuadrado otra vez. Parece fácil, pero no lo es tanto.</p>`,
+      L6.filas("Siete piezas", [["triángulos grandes", "2", cRO], ["triángulo mediano", "1", cNA], ["triángulos pequeños", "2", cAZ], ["cuadrado y romboide", "1 + 1", cVE]]), ["evw9D9uLKbM", "El tangram para niños", "Escuela de Aprendices", 835595]],
+    ["Ilusiones ópticas: el arte óptico", `<p>El <mark>arte óptico</mark> (u <i>op art</i>) es un estilo que usa formas geométricas para <b>engañar al ojo</b>. Las obras parecen moverse, vibrar, hincharse o hundirse, aunque estén completamente quietas.</p><p>Sus artistas más conocidos son:</p><ul><li><b>Victor Vasarely</b> (Hungría y Francia), considerado el padre del op art. Hacía cuadrículas de cuadrados y círculos que, al deformarse poco a poco, parecen esferas que salen del cuadro.</li><li><b>Bridget Riley</b> (Reino Unido), que pintaba líneas onduladas en blanco y negro que parecen moverse como el agua.</li><li><b>Eusebio Sempere</b> (Alicante), que creaba efectos de luz con líneas finísimas.</li></ul><p>¿Cómo funciona? Nuestro cerebro intenta encontrar sentido a lo que ve, y cuando hay muchas líneas o formas repetidas con pequeños cambios, «se confunde» y crea sensación de volumen o movimiento.</p><p><b>Haz tu obra op art</b>: dibuja tu mano sobre un folio. Luego traza líneas horizontales con regla de lado a lado, pero cuando pasen por dentro de la mano, hazlas <b>curvas</b> hacia arriba. Colorea las franjas alternando dos colores. ¡La mano parecerá salir del papel!</p>`,
+      H6.rueda("Op art", "ILUSIÓN", [["Vasarely", cAZ], ["Riley", cRO], ["Sempere", cVE], ["mi mano", cNA]]), ["ny1C-O37PCY", "Op-Art of Vasarely", "pamglobe", 341022]],
+  ],
+  ejemplos: [
+    ["¿Por qué las abejas construyen celdas hexagonales y no circulares?", ["Los círculos dejan huecos entre ellos.", "Los hexágonos encajan sin huecos y ahorran cera."], "Porque los hexágonos encajan sin dejar huecos."],
+    ["En tu plantilla de Escher recortas una curva del lado de arriba. ¿Dónde la pegas?", ["Hay que pasarla al lado opuesto.", "Sin girarla, para que siga encajando."], "En el lado de abajo."],
+  ],
+  errores: ["En el tangram, dejar piezas sin usar o montarlas: hay que usar las siete sin superponerlas.", "Girar la pieza recortada al pegarla en la teselación: entonces ya no encaja."],
+  ejercicios: [
+    ["b", "¿Qué forma tienen las celdas de un panal?", "Hexagonal."],
+    ["b", "¿Cuántas puntas tiene un copo de nieve?", "Seis."],
+    ["b", "¿Cuántas piezas tiene el tangram?", "Siete."],
+    ["b", "¿Qué edificio inspiró a Escher?", "La Alhambra de Granada."],
+    ["b", "¿Qué forma usaba sobre todo Sonia Delaunay?", "El círculo."],
+    ["m", "¿Qué es un fractal?", "Una forma que se repite dentro de sí misma a distinto tamaño."],
+    ["m", "¿Qué polígonos regulares teselan el plano?", "El triángulo, el cuadrado y el hexágono."],
+    ["m", "¿Qué decía Klee sobre dibujar?", "Que era sacar a pasear una línea."],
+    ["m", "¿Por qué el op art parece moverse?", "Porque el cerebro se confunde con las formas repetidas."],
+    ["m", "Nombra las piezas del tangram.", "Cinco triángulos, un cuadrado y un romboide."],
+    ["a", "Crea una teselación con una plantilla propia.", "Respuesta abierta."],
+    ["a", "Forma tres figuras de animales con el tangram.", "Respuesta abierta."],
+    ["a", "Haz la mano en op art con líneas curvas.", "Respuesta abierta."],
+    ["a", "Fotografía tres formas geométricas en la naturaleza.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El brócoli romanesco es un ejemplo de…", ["fractal", "círculo", "cubo"], "Naturaleza."],
+    ["«Castillo y sol» es de…", ["Paul Klee", "Mondrian", "Escher"], "Klee."],
+    ["Escher hacía encajar…", ["animales", "solo cuadrados", "letras"], "Teselación."],
+    ["El tangram tiene…", ["5 triángulos", "7 cuadrados", "3 círculos"], "Tangram."],
+    ["El padre del op art es…", ["Vasarely", "Velázquez", "Goya"], "Op art."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué animal encajaba en el póster?", ["un lagarto", "un gato", "un pez"], "Lectura."],
+    ["¿Qué diseñaba Sonia Delaunay además de cuadros?", ["ropa y telas", "edificios", "coches de carreras"], "Delaunay."],
+  ],
+  tarjetas: [
+    ["Naturaleza", "Hexágonos, espirales, simetría, copos, fractales."],
+    ["Klee y Delaunay", "Cuadrados de colores; círculos que vibran."],
+    ["Escher", "Teselaciones de animales; Alhambra; recortar y pasar al lado opuesto."],
+    ["Tangram y op art", "Siete piezas; Vasarely, Riley, Sempere."],
+  ],
+  glosario: [
+    ["Hexágono", "Polígono de seis lados."],
+    ["Espiral", "Línea curva que gira alejándose de un centro."],
+    ["Simetría radial", "Simetría alrededor de un centro."],
+    ["Fractal", "Forma que se repite a distintos tamaños."],
+    ["Bauhaus", "Escuela alemana de arte y diseño."],
+    ["Simultaneísmo", "Estilo de Delaunay con colores que vibran."],
+    ["Teselación", "Cubrir una superficie con una forma sin huecos."],
+    ["Plantilla", "Pieza que sirve para repetir un dibujo."],
+    ["Tangram", "Rompecabezas chino de siete piezas."],
+    ["Romboide", "Paralelogramo con lados desiguales."],
+    ["Op art", "Arte de ilusiones ópticas."],
+    ["Ilusión óptica", "Imagen que engaña al ojo."],
+  ],
+  situacion: {
+    titulo: "Exposición geométrica",
+    reto: "La clase prepara una exposición sobre la geometría en la naturaleza y en el arte.",
+    pasos: ["Fotografiar o dibujar formas geométricas de la naturaleza.", "Crear un castillo como Klee y círculos como Delaunay.", "Hacer teselaciones al estilo de Escher.", "Montar una zona de tangram y otra de op art para que los visitantes jueguen."],
+    producto: "Una exposición interactiva de formas geométricas.",
+    evaluacion: ["Reconoce geometría en la naturaleza.", "Conoce a artistas geométricos.", "Construye una teselación.", "Crea figuras con el tangram y efectos ópticos."],
+  },
+});

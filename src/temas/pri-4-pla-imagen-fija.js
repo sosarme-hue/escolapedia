@@ -96,3 +96,91 @@ module.exports = tema({
   ideas: ["Paseo fotográfico por el cole con retos de encuadre.", "Carteles de una campaña escolar por grupos y prueba de los cinco segundos.", "Análisis en grupo de anuncios de revistas."],
   fuentes: [["Diccionario de la RAE: fotografía", "https://dle.rae.es/fotograf%C3%ADa"], ["INCIBE IS4K: Internet segura para menores", "https://www.is4k.es/"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la historia de la fotografía", "Descubrir a grandes fotógrafos y fotógrafas", "Conocer los primeros grandes cartelistas", "Construir una cámara oscura y detectar imágenes retocadas"],
+  lectura: { titulo: "La foto que tardó ocho horas", html: `<p>Para su cumpleaños, Marcos recibió de regalo una cámara de fotos de verdad, no la del móvil. Esa misma tarde salió al balcón e hizo una foto de los tejados. ¡Clic! En una fracción de segundo, la imagen ya estaba en la pantalla.</p><p>Su tía Raquel, que era fotógrafa, le enseñó entonces una imagen en el ordenador. Era gris, borrosa, con unas manchas claras y oscuras que parecían edificios.</p><p>—Esta es la <b>fotografía más antigua que se conserva</b> —le dijo—. La hizo un francés llamado <b>Niépce</b> hace unos doscientos años. Puso una caja con un agujero en la ventana de su casa, apuntando a los tejados, como tú. ¿Sabes cuánto tiempo tuvo que esperar?</p><p>—¿Un minuto?</p><p>—Unas <b>ocho horas</b>, o quizá incluso días. Por eso en la foto el sol ilumina los edificios por los dos lados: se movió de un lado al otro mientras la imagen se grababa.</p><p>Marcos miró su cámara y luego la imagen antigua.</p><p>—Entonces, si alguien hubiera pasado por la calle…</p><p>—No habría salido. Se movía demasiado rápido. En las primeras fotos de ciudades, las calles parecen vacías aunque estuvieran llenas de gente.</p><p>Esa noche, antes de dormir, Marcos hizo otra foto de los tejados con la luna. Y pensó en Niépce, esperando horas junto a su ventana para conseguir lo que él acababa de hacer con un dedo.</p>` },
+  tras: {
+    "La fotografía": [
+      ["Historia de la fotografía", `<p>La <mark>fotografía</mark> es un invento bastante reciente. Estos son sus grandes momentos:</p><ul><li><b>La cámara oscura</b>: desde la Antigüedad se sabía que, si en una habitación a oscuras se abre un agujerito, la imagen del exterior aparece en la pared de enfrente, <b>al revés</b>. Los pintores la usaban para copiar paisajes.</li><li><b>1826</b>: el francés <b>Nicéphore Niépce</b> consigue fijar una imagen de forma permanente: la vista desde su ventana. Tardó muchas horas en hacerla.</li><li><b>1839</b>: <b>Louis Daguerre</b> presenta el <b>daguerrotipo</b>, una imagen sobre una placa de metal. Ya solo hacían falta unos minutos. La gente tenía que quedarse muy quieta, a veces con soportes para la cabeza.</li><li><b>1888</b>: la empresa Kodak vende una cámara sencilla con el lema «Usted apriete el botón, nosotros hacemos el resto». La fotografía llega a todas las familias.</li><li>Siglo XX: llegan la <b>película en color</b> y las cámaras pequeñas.</li><li><b>1975</b>: se inventa la primera cámara <b>digital</b>, que guarda las fotos como datos en lugar de en película.</li><li>Hoy: casi todos llevamos una cámara en el <b>móvil</b>, y cada día se hacen miles de millones de fotos.</li></ul>`,
+        L6.filas("Historia", [["1826", "Niépce, horas", cNA], ["1839", "daguerrotipo", cAZ], ["1888", "Kodak para todos", cRO], ["1975", "cámara digital", cVE]])],
+    ],
+    "Los encuadres o planos": [
+      ["Grandes fotógrafos", `<p>La fotografía no solo sirve para recordar: también es un <mark>arte</mark> y una forma de contar la realidad. Estos son algunos grandes fotógrafos:</p><ul><li><b>Henri Cartier-Bresson</b> (Francia) hablaba del <b>«instante decisivo»</b>: ese momento exacto, de una fracción de segundo, en el que todo encaja en la imagen. Paseaba por las calles con su pequeña cámara esperando ese momento. Por eso se le considera un maestro de la <b>fotografía callejera</b>.</li><li><b>Dorothea Lange</b> (Estados Unidos) fotografió a las familias pobres durante una gran crisis económica en los años treinta. Su foto <b>«Madre migrante»</b> ayudó a que el gobierno enviara ayuda.</li><li><b>Ansel Adams</b> (Estados Unidos) fotografió en blanco y negro los grandes paisajes y parques naturales de su país.</li><li><b>Cristina García Rodero</b> (Puertollano, Ciudad Real) ha recorrido durante años los pueblos de España fotografiando sus fiestas y tradiciones. Fue la primera fotógrafa española de la famosa agencia Magnum.</li></ul><p>Cada fotógrafo tiene una <b>mirada</b> propia: unos buscan la belleza, otros denuncian injusticias, otros guardan la memoria de lo que desaparece.</p><p>Cuando hagas fotos, no dispares sin más: piensa qué quieres contar.</p>`,
+        L6.filas("Fotógrafos", [["Cartier-Bresson", "instante decisivo", cAZ], ["Dorothea Lange", "denuncia", cRO], ["Ansel Adams", "paisajes", cVE], ["García Rodero", "fiestas de España", cNA]])],
+    ],
+    "Las partes de un cartel": [
+      ["Los primeros grandes cartelistas", `<p>El <mark>cartel</mark> moderno nació en <b>París</b>, a finales del siglo XIX. Gracias a una técnica de impresión llamada <b>litografía</b>, se podían imprimir carteles grandes y en color, y las calles se llenaron de ellos. Algunos pintores se dedicaron a hacerlos y los convirtieron en obras de arte:</p><ul><li><b>Jules Chéret</b> es considerado el padre del cartel moderno. Sus carteles estaban llenos de colores alegres y figuras en movimiento.</li><li><b>Henri de Toulouse-Lautrec</b> hizo carteles para los espectáculos y cabarets de París, como el famoso <b>Moulin Rouge</b>. Usaba grandes manchas de color plano, siluetas negras y letras dibujadas a mano. Se inspiró en los grabados japoneses.</li><li><b>Alfons Mucha</b> (actual República Checa) creó carteles con mujeres de largos cabellos ondulados, flores y adornos curvos. Su estilo se llamó <b>modernismo</b> o <i>art nouveau</i>.</li></ul><p>En España también hubo grandes cartelistas modernistas, como <b>Ramon Casas</b>, en Barcelona.</p><p>Fíjate en que estos carteles, aunque tienen más de cien años, siguen las mismas reglas que te hemos enseñado: una <b>imagen</b> potente, un <b>título</b> grande y los <b>datos</b> justos.</p>`,
+        H6.rueda("Cartelistas", "PARÍS", [["Chéret", cNA], ["Lautrec", cRO], ["Mucha", cMO], ["Casas", cAZ]]), ["TqpJs_hfBQg", "Toulouse-Lautrec: el arte del diseño gráfico", "nationalgalleries", 38323]],
+    ],
+  },
+  final: [
+    ["Taller: la cámara oscura", `<p>Vamos a construir una <mark>cámara oscura</mark>, el antepasado de todas las cámaras de fotos. Con ella verás cómo funciona la luz.</p><p><b>Material</b>: una caja de zapatos o un tubo de cartón, papel de aluminio, papel vegetal (o de cocina), cinta adhesiva, un alfiler y una tela o cartulina negra.</p><p><b>Pasos</b>:</p><ul><li><b>1.</b> En uno de los extremos de la caja, recorta un agujero cuadrado de unos 3 cm y tápalo con papel de aluminio.</li><li><b>2.</b> Con el alfiler, haz un agujerito muy pequeño en el centro del aluminio.</li><li><b>3.</b> En el extremo opuesto, recorta un hueco más grande y tápalo con papel vegetal tensado: será la <b>pantalla</b>.</li><li><b>4.</b> Cubre tu cabeza y la parte de la pantalla con la tela negra, para que no entre luz.</li><li><b>5.</b> Apunta el agujerito hacia una ventana o un paisaje muy iluminado y mira la pantalla.</li></ul><p><b>¿Qué ves?</b> Aparecerá la imagen del exterior, pero <b>al revés</b>: boca abajo y con la derecha a la izquierda. Ocurre porque la luz viaja en línea recta y, al pasar por el agujerito, los rayos se cruzan.</p><p>Nuestro <b>ojo</b> funciona igual: la imagen llega al revés al fondo del ojo, y el <b>cerebro</b> la pone del derecho.</p>`,
+      H6.flujo("Cámara oscura", ["caja|cerrada", "agujerito|en aluminio", "pantalla|papel vegetal", "imagen|al revés"], cVE), ["2_zz0xJW-L0", "Cómo hacer una cámara oscura", "Noe Favila", 871394]],
+    ["¿Es real esta imagen?", `<p>Hoy es muy fácil <mark>modificar</mark> una fotografía. Con programas de edición o aplicaciones del móvil se pueden cambiar los colores, borrar objetos, juntar varias fotos o cambiar el aspecto de las personas. Y con la <b>inteligencia artificial</b> se pueden crear imágenes que parecen fotos reales de cosas que nunca han ocurrido.</p><p>Retocar no siempre es malo: los fotógrafos ajustan la luz o el color para que la foto se vea mejor. El problema aparece cuando se usa para <b>engañar</b>:</p><ul><li>En <b>publicidad</b>, se retocan las fotos de modelos para que parezcan perfectos: piel sin marcas, más delgados, más altos. Eso puede hacernos creer que nuestro cuerpo no es «normal».</li><li>En internet circulan <b>imágenes falsas</b> que parecen noticias reales.</li></ul><p>Pistas para detectar una imagen manipulada:</p><ul><li>Sombras que van en direcciones distintas.</li><li>Bordes raros alrededor de una persona u objeto.</li><li>Manos con dedos de más, letras sin sentido o fondos deformados (típico de la IA).</li><li>Algo demasiado perfecto o increíble para ser verdad.</li></ul><p>Ante una imagen sorprendente, pregúntate: ¿quién la ha hecho?, ¿para qué?, ¿aparece en otras fuentes fiables? Y antes de compartirla, piénsalo dos veces.</p>`,
+      H6.dos("Retoque", ["MEJORAR", ["luz y color", "recortar", "enderezar"], cVE], ["ENGAÑAR", ["cuerpos falsos", "noticias falsas", "hechos inventados"], cRO]), ["5I7RyLjwMbQ", "Cuidado con la publicidad", "Happy Learning Español", 126950]],
+  ],
+  ejemplos: [
+    ["¿Por qué en las primeras fotos de ciudades las calles parecen vacías?", ["La exposición duraba horas o minutos.", "Las personas que se movían no quedaban grabadas."], "Porque la gente se movía y no salía en la foto."],
+    ["En una foto, la sombra de una persona va hacia la izquierda y la de un árbol hacia la derecha. ¿Qué puede pasar?", ["Con un solo sol, las sombras van en la misma dirección.", "Puede ser un montaje."], "Que la foto esté manipulada."],
+  ],
+  errores: ["Creer que todas las fotos muestran la realidad tal cual: pueden estar retocadas o creadas con IA.", "Hacer el agujero de la cámara oscura demasiado grande: la imagen sale borrosa."],
+  ejercicios: [
+    ["b", "¿Quién hizo la fotografía más antigua que se conserva?", "Nicéphore Niépce."],
+    ["b", "¿Qué es un daguerrotipo?", "Una foto antigua sobre una placa de metal."],
+    ["b", "¿En qué ciudad nació el cartel moderno?", "En París."],
+    ["b", "¿Cómo se ve la imagen en una cámara oscura?", "Al revés."],
+    ["b", "Nombra un fotógrafo famoso.", "Por ejemplo, Henri Cartier-Bresson."],
+    ["m", "¿Qué es el «instante decisivo»?", "El momento exacto en que todo encaja en la foto."],
+    ["m", "¿Qué técnica permitió imprimir carteles grandes en color?", "La litografía."],
+    ["m", "¿Por qué la imagen sale al revés en la cámara oscura?", "Porque los rayos de luz se cruzan al pasar por el agujero."],
+    ["m", "Da dos pistas para detectar una imagen manipulada.", "Sombras distintas y bordes raros, por ejemplo."],
+    ["m", "¿Qué fotografió Cristina García Rodero?", "Fiestas y tradiciones de los pueblos de España."],
+    ["a", "Construye una cámara oscura y dibuja lo que ves.", "Respuesta abierta."],
+    ["a", "Haz una foto buscando tu «instante decisivo».", "Respuesta abierta."],
+    ["a", "Diseña un cartel al estilo de Toulouse-Lautrec o Mucha.", "Respuesta abierta."],
+    ["a", "Busca un anuncio y analiza si la imagen está retocada.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El daguerrotipo se presentó en…", ["1839", "1975", "1500"], "Historia."],
+    ["«Madre migrante» es de…", ["Dorothea Lange", "Ansel Adams", "Mucha"], "Fotógrafos."],
+    ["Toulouse-Lautrec hizo carteles del…", ["Moulin Rouge", "Museo del Prado", "Louvre"], "Cartel."],
+    ["En la cámara oscura la luz entra por…", ["un agujerito", "una ventana grande", "un espejo"], "Cámara oscura."],
+    ["Dedos de más en una imagen pueden indicar…", ["que la ha creado una IA", "que es muy antigua", "que es un cartel"], "Retoque."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuánto tardó aproximadamente la foto de Niépce?", ["unas ocho horas o más", "un segundo", "un minuto"], "Lectura."],
+    ["¿Cómo se llama el estilo de Alfons Mucha?", ["modernismo o art nouveau", "cubismo", "op art"], "Cartel."],
+  ],
+  tarjetas: [
+    ["Historia de la foto", "Cámara oscura, Niépce 1826, daguerrotipo 1839, Kodak 1888, digital 1975."],
+    ["Fotógrafos", "Cartier-Bresson, Lange, Adams, García Rodero."],
+    ["Cartelistas", "Chéret, Toulouse-Lautrec, Mucha, Ramon Casas; litografía."],
+    ["Cámara oscura y retoque", "Imagen al revés; detectar montajes e IA."],
+  ],
+  glosario: [
+    ["Cámara oscura", "Caja con un agujero que proyecta una imagen invertida."],
+    ["Daguerrotipo", "Fotografía antigua sobre placa de metal."],
+    ["Exposición", "Tiempo que la luz entra en la cámara."],
+    ["Fotografía digital", "Foto guardada como datos."],
+    ["Instante decisivo", "Momento perfecto para disparar."],
+    ["Fotografía callejera", "Fotos de la vida en la calle."],
+    ["Litografía", "Técnica de impresión sobre piedra."],
+    ["Modernismo", "Estilo artístico de líneas curvas y flores."],
+    ["Cartelista", "Artista que diseña carteles."],
+    ["Retoque", "Modificación de una imagen."],
+    ["Manipulación", "Cambio de una imagen para engañar."],
+    ["Inteligencia artificial", "Programas que pueden crear imágenes."],
+  ],
+  situacion: {
+    titulo: "Detectives de la imagen",
+    reto: "La clase investiga la historia de la imagen fija y aprende a mirarla con espíritu crítico.",
+    pasos: ["Construir cámaras oscuras y observar la imagen invertida.", "Hacer una exposición de fotos propias inspiradas en un gran fotógrafo.", "Diseñar un cartel para una actividad del cole al estilo modernista.", "Analizar anuncios y fotos de internet para detectar retoques."],
+    producto: "Una exposición con cámaras, fotos, carteles y una guía antiengaños.",
+    evaluacion: ["Conoce la historia de la fotografía.", "Hace fotos con intención.", "Diseña un cartel claro y atractivo.", "Detecta imágenes manipuladas."],
+  },
+});

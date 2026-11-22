@@ -101,3 +101,91 @@ module.exports = tema({
   ideas: ["Historieta de cuatro viñetas con guion previo.", "Muestrario de bocadillos y onomatopeyas inventadas.", "Rincón de lectura de tebeos de la biblioteca escolar."],
   fuentes: [["Biblioteca Nacional de España: cómic", "https://www.bne.es/es/colecciones/comic"], ["Diccionario de la RAE: cómic", "https://dle.rae.es/c%C3%B3mic"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la historia del cómic en España y en el mundo", "Diseñar un personaje con una hoja de modelo", "Seguir las fases profesionales de un cómic", "Distinguir el manga, la tira cómica y la novela gráfica"],
+  lectura: { titulo: "El cajón de los tebeos", html: `<p>Mientras ayudaba a su abuelo Julián a ordenar el trastero, Elsa encontró una caja de cartón llena de revistas viejas, con las esquinas dobladas y el papel amarillento.</p><p>—¡Mis tebeos! —exclamó el abuelo, emocionado—. Los compraba en el quiosco con la paga del domingo.</p><p>Elsa abrió uno. Dos agentes secretos muy despistados, uno calvo y otro con un sombrero, se metían en un lío detrás de otro. Uno de ellos se disfrazaba de cualquier cosa: de farola, de cactus, de gallina…</p><p>—Son <b>Mortadelo y Filemón</b> —le explicó el abuelo—. Los dibujaba Francisco Ibáñez. Me reía tanto que mi madre me decía que iba a despertar a los vecinos.</p><p>Elsa siguió sacando tebeos: unos gemelos traviesos llamados <b>Zipi y Zape</b>, un caballero valiente, el <b>Capitán Trueno</b>… Algunos tenían más de sesenta años.</p><p>Esa noche, Elsa se llevó el montón a su habitación y estuvo leyendo hasta tarde. Al día siguiente, en el colegio, sacó de la mochila uno de los tebeos y su amigo Lucas, que solo leía <b>manga</b>, lo miró con curiosidad.</p><p>—¡Se lee al revés que mis mangas! —dijo.</p><p>—No —respondió Elsa—. Tus mangas se leen al revés que esto.</p><p>Se rieron y decidieron intercambiar: una semana, tebeos del abuelo; la siguiente, mangas de Lucas.</p>` },
+  tras: {
+    "¿Qué es un cómic?": [
+      ["Historia del cómic", `<p>El cómic tiene poco más de cien años, aunque contar historias con imágenes es muy antiguo: piensa en las pinturas de las cuevas o en los relieves egipcios.</p><p>En <mark>España</mark>, algunos momentos importantes son:</p><ul><li>En <b>1917</b> nace la revista <b>TBO</b>, que dio nombre a los «tebeos».</li><li>En <b>1948</b>, Josep Escobar crea a <b>Zipi y Zape</b>, dos gemelos traviesos.</li><li>En <b>1956</b> aparece el <b>Capitán Trueno</b>, un caballero que viaja por el mundo defendiendo a los débiles.</li><li>En <b>1958</b>, <b>Francisco Ibáñez</b> crea a <b>Mortadelo y Filemón</b>, los agentes más torpes de la historia. Ibáñez dibujó sus aventuras durante más de sesenta años.</li></ul><p>En el <mark>mundo</mark> también nacieron cómics muy famosos:</p><ul><li><b>Tintín</b> (Bélgica, 1929), de Hergé: un joven reportero que viaja por todo el mundo con su perro Milú.</li><li><b>Astérix</b> (Francia, 1959): un galo que, gracias a una poción mágica, resiste a los romanos.</li><li><b>Mafalda</b> (Argentina, 1964), de Quino: una niña que hace preguntas muy inteligentes sobre el mundo.</li><li>Los <b>superhéroes</b> estadounidenses, como Superman (1938).</li></ul><p>Hoy en día hay cómics de todo tipo: de humor, de aventuras, de ciencia, de historia… ¡e incluso adaptaciones de grandes novelas!</p>`,
+        L6.filas("Cómic español", [["TBO", "1917", cNA], ["Zipi y Zape", "1948", cAZ], ["Capitán Trueno", "1956", cRO], ["Mortadelo", "1958", cVE]]), ["4V0yu7f5gWw", "Francisco Ibáñez, autor de Mortadelo y Filemón", "Retroclips", 55036]],
+    ],
+    "Los personajes y sus gestos": [
+      ["Diseñar un personaje", `<p>Los grandes personajes de cómic se reconocen con solo ver su <mark>silueta</mark>. Para diseñar el tuyo, sigue estos pasos:</p><ul><li><b>1. Piensa cómo es por dentro</b>: ¿es valiente, despistado, gruñón, curioso? ¿Qué le gusta? ¿Qué le da miedo? Su forma de ser decidirá su aspecto.</li><li><b>2. Empieza con formas básicas</b>: un círculo para la cabeza, un óvalo o un rectángulo para el cuerpo. Un personaje redondo parece simpático; uno con formas puntiagudas, más malvado o nervioso; uno cuadrado, fuerte.</li><li><b>3. Añade rasgos especiales</b>: un peinado, unas gafas, un sombrero, una bufanda, un color concreto. Algo que lo haga <b>único</b>. Piensa en el tupé de Tintín o en el sombrero de Filemón.</li><li><b>4. Hazlo sencillo</b>: tendrás que dibujarlo muchas veces, así que no lo llenes de detalles complicados.</li><li><b>5. Haz su hoja de modelo</b>: dibújalo de <b>frente</b>, de <b>perfil</b> y de <b>espaldas</b>, y con varias <b>expresiones</b> (contento, triste, enfadado, sorprendido). Los dibujantes profesionales la usan para que el personaje sea siempre igual.</li></ul><p>Por último, dale un <b>nombre</b> que encaje con su personalidad. ¡Ya tienes tu protagonista!</p>`,
+        H6.flujo("Mi personaje", ["carácter|cómo es", "formas|básicas", "rasgo|único", "hoja de|modelo"], cMO)],
+    ],
+    "Los planos en el cómic": [
+      ["Cómo se hace un cómic profesional", `<p>Un cómic profesional pasa por varias <mark>fases</mark>. A veces una sola persona hace todo, y otras veces trabaja un equipo:</p><ul><li><b>1. Guion</b>: el guionista escribe la historia, viñeta a viñeta, con lo que se ve y lo que dicen los personajes.</li><li><b>2. Bocetos</b> o storyboard: dibujos rápidos y pequeños de cada página para decidir cómo se reparten las viñetas.</li><li><b>3. Lápiz</b>: el dibujante hace las páginas a tamaño grande, con lápiz suave, cuidando los detalles.</li><li><b>4. Entintado</b>: se repasan las líneas buenas con <b>tinta negra</b> (plumilla, pincel o rotulador). Después se borra el lápiz.</li><li><b>5. Rotulación</b>: se escriben los textos de los bocadillos, las cartelas y las onomatopeyas. Antes se hacía a mano, letra a letra.</li><li><b>6. Color</b>: el colorista da color a las páginas, hoy casi siempre con el ordenador. El color ayuda a crear ambientes: noche, día, peligro, alegría.</li><li><b>7. Edición e imprenta</b>: se revisan las páginas, se diseña la portada y se imprime.</li></ul><p>Un álbum de cómic puede llevar meses o incluso años de trabajo. ¡Cada viñeta es un pequeño cuadro!</p>`,
+        L6.filas("Fases", [["guion", "la historia", cAZ], ["lápiz", "el dibujo", cVE], ["entintado", "tinta negra", cMO], ["color", "ambientes", cRO]])],
+    ],
+  },
+  final: [
+    ["El manga", `<p>El <mark>manga</mark> es el cómic japonés. Es muy popular en todo el mundo y tiene algunas características especiales:</p><ul><li>Se lee <b>de derecha a izquierda</b>: el libro empieza por lo que para nosotros es el final, y las viñetas y los bocadillos también se leen de derecha a izquierda. Es la forma tradicional de leer en Japón.</li><li>Casi siempre es en <b>blanco y negro</b>, porque se publica en revistas semanales con mucha rapidez.</li><li>Los personajes suelen tener <b>ojos grandes</b> y muy expresivos.</li><li>Usa muchos <b>símbolos visuales</b>: una gota de sudor gigante en la cabeza (vergüenza), una cruz en la frente (enfado), sangre por la nariz, mejillas rayadas (sonrojo)…</li><li>Usa muchas <b>líneas cinéticas</b> y onomatopeyas en japonés.</li></ul><p>El gran maestro del manga fue <b>Osamu Tezuka</b>, llamado «el dios del manga», creador de <b>Astro Boy</b> (1952), un niño robot. Otro autor muy conocido es <b>Akira Toriyama</b>, creador de <b>Dragon Ball</b>.</p><p>Muchos mangas se convierten después en series de dibujos animados, que se llaman <b>anime</b>.</p>`,
+      H6.dos("Cómo se lee", ["CÓMIC", ["izquierda", "a derecha", "suele ir en color"], cAZ], ["MANGA", ["derecha", "a izquierda", "blanco y negro"], cRO]), ["R0xyx_WhYx0", "¿Por qué los mangas se leen de derecha a izquierda?", "DialingShrimp37", 7244]],
+    ["Tiras cómicas y novelas gráficas", `<p>No todos los cómics tienen la misma <mark>extensión</mark>:</p><ul><li>La <b>tira cómica</b> es una historia muy corta, de <b>tres o cuatro viñetas</b> en fila, que suele terminar con un chiste. Se publicaba en los periódicos cada día. Las más famosas son <b>Snoopy</b> (Peanuts), de Charles Schulz; <b>Garfield</b>, el gato perezoso que adora la lasaña; y <b>Mafalda</b>.</li><li>La <b>historieta</b> o tebeo tiene unas pocas páginas, como las aventuras cortas de Mortadelo y Filemón.</li><li>El <b>álbum</b> es un libro con una aventura completa de unas 40 o 60 páginas, como los de Tintín o Astérix.</li><li>La <b>novela gráfica</b> es un cómic largo, como una novela, que cuenta una historia profunda y completa. Muchas tratan temas serios: la historia, los recuerdos, la familia, la vejez. En España, una muy premiada es «Arrugas», de <b>Paco Roca</b>.</li><li>El <b>webcómic</b> se publica en internet. Algunos se leen deslizando hacia abajo en el móvil.</li></ul><p>La tira cómica es perfecta para empezar a crear: con solo tres viñetas tienes que presentar, desarrollar y rematar con un final sorprendente.</p>`,
+      L6.filas("Formatos", [["tira cómica", "3-4 viñetas", cNA], ["historieta", "pocas páginas", cAZ], ["álbum", "40-60 páginas", cVE], ["novela gráfica", "historia larga", cMO]])],
+  ],
+  ejemplos: [
+    ["Abres un manga por lo que parece la última página. ¿Lo estás leyendo bien?", ["El manga se lee de derecha a izquierda.", "Empieza por lo que para nosotros es el final."], "Sí, el manga empieza por ahí."],
+    ["Tu personaje es un villano nervioso. ¿Qué formas básicas usas?", ["Las formas transmiten carácter.", "Las puntiagudas parecen nerviosas o malvadas."], "Formas puntiagudas y angulosas."],
+  ],
+  errores: ["Diseñar un personaje con demasiados detalles: hay que dibujarlo muchas veces y debe ser sencillo.", "Pasar directamente a la tinta sin hacer antes los bocetos y el lápiz."],
+  ejercicios: [
+    ["b", "¿De dónde viene la palabra «tebeo»?", "De la revista TBO."],
+    ["b", "¿Quién creó Mortadelo y Filemón?", "Francisco Ibáñez."],
+    ["b", "¿Cómo se lee un manga?", "De derecha a izquierda."],
+    ["b", "¿Cuántas viñetas tiene una tira cómica?", "Tres o cuatro."],
+    ["b", "¿Qué es una hoja de modelo?", "Dibujos del personaje de frente, perfil, espaldas y con expresiones."],
+    ["m", "Ordena las fases: color, guion, entintado, lápiz.", "Guion, lápiz, entintado, color."],
+    ["m", "¿Qué es el anime?", "La serie de dibujos animados basada en el manga."],
+    ["m", "¿Por qué el manga suele ser en blanco y negro?", "Porque se publica muy rápido en revistas semanales."],
+    ["m", "¿Qué diferencia hay entre una tira cómica y una novela gráfica?", "La tira es muy corta; la novela gráfica es larga y profunda."],
+    ["m", "¿Quién fue «el dios del manga»?", "Osamu Tezuka."],
+    ["a", "Diseña tu personaje y haz su hoja de modelo.", "Respuesta abierta."],
+    ["a", "Dibuja una tira cómica de tres viñetas con un final sorpresa.", "Respuesta abierta."],
+    ["a", "Entinta una página que hayas hecho a lápiz.", "Respuesta abierta."],
+    ["a", "Pregunta en casa qué tebeos leían de pequeños.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Zipi y Zape son…", ["gemelos traviesos", "agentes secretos", "galos"], "Historia."],
+    ["Tintín es de…", ["Bélgica", "Japón", "España"], "Historia."],
+    ["Repasar el lápiz con tinta se llama…", ["entintado", "rotulación", "guion"], "Fases."],
+    ["Astro Boy es de…", ["Osamu Tezuka", "Hergé", "Quino"], "Manga."],
+    ["Garfield es protagonista de una…", ["tira cómica", "novela gráfica", "ópera"], "Formatos."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo compraba el abuelo sus tebeos?", ["con la paga en el quiosco", "por internet", "en la biblioteca"], "Lectura."],
+    ["¿Quién escribió la novela gráfica «Arrugas»?", ["Paco Roca", "Ibáñez", "Toriyama"], "Formatos."],
+  ],
+  tarjetas: [
+    ["Historia", "TBO 1917, Zipi y Zape, Capitán Trueno, Mortadelo; Tintín, Astérix, Mafalda."],
+    ["Personaje", "Carácter, formas básicas, rasgo único, hoja de modelo."],
+    ["Fases", "Guion, bocetos, lápiz, entintado, rotulación, color."],
+    ["Manga y formatos", "Derecha a izquierda; tira, álbum, novela gráfica."],
+  ],
+  glosario: [
+    ["Tebeo", "Revista de historietas; viene de TBO."],
+    ["Silueta", "Contorno de una figura."],
+    ["Hoja de modelo", "Dibujos de referencia de un personaje."],
+    ["Guionista", "Quien escribe la historia del cómic."],
+    ["Boceto", "Dibujo rápido de prueba."],
+    ["Entintado", "Repaso de las líneas con tinta."],
+    ["Rotulación", "Escritura de los textos del cómic."],
+    ["Colorista", "Quien da color a las páginas."],
+    ["Manga", "Cómic japonés."],
+    ["Anime", "Dibujos animados japoneses."],
+    ["Tira cómica", "Historieta de pocas viñetas en fila."],
+    ["Novela gráfica", "Cómic largo con una historia completa."],
+  ],
+  situacion: {
+    titulo: "La editorial de la clase",
+    reto: "La clase funciona como una editorial y publica una revista de cómics.",
+    pasos: ["Formar equipos con guionista, dibujante, entintador y colorista.", "Diseñar un personaje con su hoja de modelo.", "Hacer una tira cómica y una historieta de una página siguiendo todas las fases.", "Montar la revista con portada y presentarla en la biblioteca."],
+    producto: "Una revista de cómics de la clase.",
+    evaluacion: ["Conoce la historia del cómic.", "Diseña un personaje coherente.", "Sigue las fases de producción.", "Distingue formatos y el manga."],
+  },
+});
