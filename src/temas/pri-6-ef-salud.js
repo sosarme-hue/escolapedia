@@ -142,3 +142,91 @@ module.exports = {
   fuentes: [RD, { t: "Ministerio de Sanidad: Estilos de vida saludable", url: "https://estilosdevidasaludable.sanidad.gob.es/" }, { t: "OMS: actividad física", url: "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity" }, wiki("Dieta mediterránea", "Dieta_mediterránea")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Leer la etiqueta de un alimento para elegir mejor", "Hacer ejercicio con seguridad cuando hace calor", "Relacionar la actividad física con el bienestar emocional", "Mantener hábitos de higiene y diseñar un plan de vida activa"],
+  lectura: { titulo: "El reto de la semana activa", html: `<p>Un lunes, el tutor de sexto propuso un reto: durante una semana, cada alumno apuntaría en una tabla los minutos que se movía, lo que bebía, las horas que dormía y el tiempo que pasaba con pantallas.</p><p>Leo se rio. «Esto lo gano yo», pensó. Jugaba al baloncesto dos tardes por semana.</p><p>Pero el miércoles por la noche, al rellenar la tabla, se llevó una sorpresa. Los días sin entrenamiento apenas llegaba a 20 minutos de movimiento: iba al colegio en coche, en el recreo se quedaba sentado con el móvil de su hermano mayor… y por la tarde, videojuegos. Además, dormía solo siete horas porque se acostaba tardísimo.</p><p>Decidió cambiar algunas cosas. Convenció a su madre para ir andando al colegio. En el recreo empezó a jugar al pañuelo con sus amigos. Dejó el móvil fuera de la habitación a las nueve y media.</p><p>El viernes no solo había superado los 60 minutos diarios: también estaba de mejor humor, se dormía antes y en clase le costaba menos concentrarse.</p><p>—No he ganado el reto —dijo al final—, pero he ganado algo mejor.</p>` },
+  tras: {
+    "Alimentación para crecer y moverse": [
+      ["Aprender a leer una etiqueta", `<p>Los alimentos envasados llevan una <b>etiqueta</b> con mucha información útil. Aprender a leerla te ayuda a elegir mejor:</p><ul><li><b>La lista de ingredientes</b>: aparecen ordenados de <b>más a menos cantidad</b>. Si el azúcar aparece entre los primeros, el producto tiene mucho. Ojo: el azúcar se esconde con otros nombres, como <i>jarabe de glucosa</i>, <i>dextrosa</i> o <i>sacarosa</i>.</li><li><b>La información nutricional</b>: indica la energía (en kilocalorías) y la cantidad de grasas, hidratos de carbono, <b>azúcares</b>, proteínas y <b>sal</b> por cada 100 gramos. Así puedes comparar productos.</li><li><b>Algunos sellos orientativos</b>, como el Nutri-Score (una letra de la A verde a la E roja), dan una idea rápida, pero no sustituyen a leer la etiqueta ni al sentido común.</li></ul><p>Como regla general, conviene que los alimentos del día a día sean <b>poco procesados</b>: fruta, verdura, legumbres, frutos secos, huevos, pescado, cereales integrales. Los <b>ultraprocesados</b> (bollería industrial, refrescos, snacks salados) suelen tener mucho azúcar, sal o grasas de mala calidad, y son para consumir <b>de vez en cuando</b>.</p><p>Un truco: cuantos menos ingredientes y más fácil sea entender la lista, mejor suele ser el alimento.</p>`,
+        L6.filas("La etiqueta", [["ingredientes", "de más a menos", cAZ], ["azúcares", "por 100 g", cRO], ["sal", "por 100 g", cNA], ["procesado", "¿cuántos ingredientes?", cMO]])],
+    ],
+    "La hidratación": [
+      ["Ejercicio con calor", `<p>En los días de mucho calor, el cuerpo tiene más dificultades para refrigerarse, y hacer ejercicio puede ser peligroso si no tomamos precauciones. El riesgo más serio es el <b>golpe de calor</b>: la temperatura del cuerpo sube demasiado y aparecen síntomas como dolor de cabeza, mareo, piel muy caliente y roja, náuseas, cansancio extremo o confusión.</p><p>Para prevenirlo:</p><ul><li>Haz ejercicio en las <b>horas más frescas</b>: a primera hora de la mañana o al final de la tarde. Evita las horas centrales del día.</li><li><b>Bebe agua</b> antes, durante y después, aunque no tengas sed.</li><li>Usa <b>gorra</b>, ropa <b>clara y transpirable</b> y <b>protector solar</b>.</li><li>Busca la <b>sombra</b> y baja la intensidad.</li><li>Haz <b>pausas</b> más frecuentes.</li></ul><p>Si alguien se encuentra mal por el calor: llévalo a un lugar fresco y a la sombra, aflójale la ropa, refréscale con agua (paños húmedos en la frente, el cuello y las axilas), dale agua a sorbos si está consciente y <b>avisa a un adulto</b>. Si no mejora, hay que llamar al <b>112</b>.</p>`,
+        H6.flujo("Si hace calor", ["horas|frescas", "agua|a menudo", "gorra|y sombra", "pausas|frecuentes"], cNA), ["5AphZCHeaP4", "Consejos para sobrellevar la ola calor y cómo actuar en un golpe de calor", "CANAL ENFERMERO - Consejo General Enfermería", 44176]],
+    ],
+    "Pantallas y vida activa": [
+      ["Moverse para sentirse bien", `<p>La actividad física no solo es buena para el cuerpo: también lo es para la <b>mente</b> y las <b>emociones</b>. Cuando hacemos ejercicio, el cerebro libera sustancias como las <b>endorfinas</b> y la <b>dopamina</b>, que producen sensación de bienestar y alegría.</p><p>Algunos efectos que han comprobado los científicos:</p><ul><li><b>Reduce el estrés</b> y la ansiedad: después de correr o jugar un partido, solemos estar más tranquilos.</li><li><b>Mejora el estado de ánimo</b>: como Leo en la lectura, mucha gente está de mejor humor cuando se mueve.</li><li><b>Ayuda a concentrarse</b> y a aprender: hay estudios que muestran que los alumnos que se mueven en el recreo prestan más atención después en clase.</li><li><b>Mejora la autoestima</b>: al superar retos, aprendes que puedes mejorar con esfuerzo.</li><li><b>Crea amistades</b>: jugar en equipo es una de las mejores maneras de conocer gente y sentirse parte de un grupo.</li></ul><p>Por eso es tan importante que la actividad física sea <b>divertida</b> y que cada persona encuentre la suya: no a todo el mundo le gusta el fútbol, pero seguro que hay algo que te encanta, como bailar, nadar, patinar, escalar o pasear en bici.</p>`,
+        H6.rueda("Bienestar", "MENTE ACTIVA", [["menos estrés", cAZ], ["buen humor", cNA], ["concentración", cVE], ["amistad", cMO]])],
+    ],
+  },
+  final: [
+    ["Higiene y actividad física", `<p>La higiene también forma parte de una vida saludable, sobre todo cuando hacemos ejercicio:</p><ul><li><b>Ducha después del ejercicio</b>: elimina el sudor y las bacterias, previene malos olores y problemas de piel.</li><li><b>Ropa limpia y adecuada</b>: cómoda, transpirable y de tu talla. Lleva siempre una <b>camiseta de recambio</b> para cambiarte después de clase de Educación Física.</li><li><b>Calzado adecuado</b>: zapatillas deportivas con buena sujeción, bien atadas y con calcetines de algodón. Un calzado inadecuado causa ampollas, esguinces y dolor.</li><li><b>Pies secos</b>: sécalos bien, sobre todo entre los dedos, para evitar hongos. En duchas y piscinas públicas, usa chanclas.</li><li><b>Lavarse las manos</b> antes de comer y después de usar material compartido.</li><li><b>Protección solar</b> en las actividades al aire libre, incluso en días nublados.</li><li><b>Botella propia</b>: no compartas botellas para evitar contagios.</li></ul><p>Cuidar la higiene es una forma de cuidarte a ti mismo y de respetar a los demás.</p>`,
+      L6.filas("Higiene", [["ducha", "después del ejercicio", cAZ], ["camiseta", "de recambio", cVE], ["chanclas", "en duchas públicas", cNA], ["botella", "propia", cMO]])],
+    ["Mi plan de vida activa", `<p>Llegar a los <b>60 minutos diarios</b> de actividad física es más fácil de lo que parece si los repartes a lo largo del día. Como hizo Leo, puedes diseñar tu propio <b>plan de vida activa</b>:</p><ul><li><b>Transporte activo</b>: ir andando, en bici o en patinete al colegio (si es seguro). ¡Pueden ser 20-30 minutos al día!</li><li><b>Recreo activo</b>: juegos de persecución, comba, pelota, pañuelo.</li><li><b>Educación Física</b> en el colegio.</li><li><b>Actividad extraescolar</b>: un deporte, danza, artes marciales, natación…</li><li><b>Tiempo libre</b>: jugar en el parque, pasear al perro, ayudar en casa, subir escaleras.</li><li><b>Fin de semana en familia</b>: excursiones, bici, piscina, juegos en la playa o en el monte.</li></ul><p>Y no olvides el otro lado: <b>reducir el tiempo sentado</b>. Cada hora de estudio o pantalla, levántate y muévete unos minutos. Guarda el móvil fuera de la habitación por la noche para dormir las <b>9-11 horas</b> recomendadas a tu edad.</p><p>Escribe tu plan, ponlo en un lugar visible y revísalo cada semana. ¡Los pequeños cambios suman!</p>`,
+      H6.flujo("Un día activo", ["ir andando|20 min", "recreo|20 min", "EF o deporte|30 min", "parque|20 min"], cVE)],
+  ],
+  ejemplos: [
+    ["En una etiqueta, los ingredientes son: «azúcar, harina, aceite de palma…». ¿Qué te dice?", ["Van de más a menos cantidad.", "El azúcar es el ingrediente principal."], "Es un producto con mucho azúcar: para tomar solo de vez en cuando."],
+    ["¿Cómo puede un niño sumar 60 minutos de actividad al día?", ["Repartiéndolos durante el día.", "Ir andando + recreo + juego por la tarde."], "Por ejemplo: 20 min andando, 20 min de recreo y 20 min en el parque."],
+  ],
+  errores: ["Hacer ejercicio intenso en las horas de más calor sin beber agua.", "Pensar que solo cuenta como actividad física el deporte organizado."],
+  ejercicios: [
+    ["b", "¿En qué orden aparecen los ingredientes en una etiqueta?", "De más a menos cantidad."],
+    ["b", "Escribe tres síntomas del golpe de calor.", "Dolor de cabeza, mareo, piel caliente y roja (náuseas, confusión)."],
+    ["b", "¿Qué sustancias libera el cerebro al hacer ejercicio?", "Endorfinas y dopamina."],
+    ["b", "¿Por qué hay que usar chanclas en las duchas públicas?", "Para evitar hongos en los pies."],
+    ["b", "¿Cuántas horas debe dormir un niño de tu edad?", "Entre 9 y 11 horas."],
+    ["m", "Compara dos etiquetas de cereales y di cuál es más saludable.", "Respuesta abierta: el de menos azúcares y sal por 100 g."],
+    ["m", "¿Qué hay que hacer si un compañero se marea por el calor?", "Llevarlo a la sombra, refrescarlo, darle agua a sorbos y avisar a un adulto."],
+    ["m", "Escribe tres beneficios emocionales de la actividad física.", "Reduce el estrés, mejora el ánimo, ayuda a concentrarse."],
+    ["m", "¿Qué cambios hizo Leo y qué consiguió?", "Ir andando, recreo activo y móvil fuera; superó los 60 minutos, mejor humor y sueño."],
+    ["m", "Haz una lista de lo que debe llevar tu bolsa de deporte.", "Camiseta de recambio, toalla, botella, chanclas, protector solar…"],
+    ["a", "Rellena durante una semana una tabla de actividad, agua, sueño y pantallas, y analízala.", "Respuesta abierta."],
+    ["a", "Diseña tu plan de vida activa semanal.", "Respuesta abierta."],
+    ["a", "Prepara una campaña para el colegio sobre el ejercicio en días de calor.", "Respuesta abierta."],
+    ["a", "Investiga qué actividad física te gusta más y por qué.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Los ultraprocesados conviene tomarlos…", ["de vez en cuando", "en cada comida", "nunca hay que mirarlo"], "Alimentación."],
+    ["Con mucho calor es mejor hacer ejercicio…", ["a primera hora o al final de la tarde", "a mediodía", "con ropa oscura"], "Calor."],
+    ["El ejercicio ayuda a…", ["reducir el estrés", "dormir peor", "concentrarse menos"], "Bienestar."],
+    ["Después de Educación Física conviene…", ["cambiarse de camiseta", "seguir con la ropa sudada", "no beber"], "Higiene."],
+    ["El transporte activo es…", ["ir andando o en bici", "ir en coche", "ir en autobús siempre"], "Vida activa."],
+  ],
+  examen: [
+    ["¿Qué descubrió Leo al rellenar la tabla?", ["que algunos días se movía muy poco", "que se movía más que nadie", "que dormía demasiado"], "Lectura."],
+    ["El teléfono de emergencias es el…", ["112", "010", "091 para todo"], "Calor."],
+  ],
+  tarjetas: [
+    ["Etiquetas", "Ingredientes de más a menos; mira azúcares y sal por 100 g."],
+    ["Calor", "Horas frescas, agua, gorra, sombra y pausas. Golpe de calor: sombra, frescor y 112."],
+    ["Mente activa", "Endorfinas: menos estrés, mejor humor, más concentración y amigos."],
+    ["Vida activa", "60 min al día repartidos: andar, recreo, deporte, parque."],
+  ],
+  glosario: [
+    ["Etiqueta nutricional", "Información de los nutrientes de un alimento."],
+    ["Kilocaloría", "Unidad para medir la energía de los alimentos."],
+    ["Ultraprocesado", "Producto industrial con muchos ingredientes añadidos."],
+    ["Nutri-Score", "Sello con letras de la A a la E que orienta sobre la calidad nutricional."],
+    ["Golpe de calor", "Subida peligrosa de la temperatura del cuerpo."],
+    ["Transpirable", "Que deja pasar el sudor y el aire."],
+    ["Endorfinas", "Sustancias del cerebro que producen bienestar."],
+    ["Autoestima", "Valoración que hacemos de nosotros mismos."],
+    ["Hongos", "Organismos que pueden causar infecciones en la piel."],
+    ["Transporte activo", "Desplazarse andando, en bici o en patinete."],
+    ["Sedentarismo", "Pasar mucho tiempo sentado o sin moverse."],
+    ["Plan de vida activa", "Organización personal para moverse cada día."],
+  ],
+  situacion: {
+    titulo: "La semana activa",
+    reto: "La clase hace el mismo reto que Leo: una semana de vida activa con un diario personal.",
+    pasos: ["Preparad una tabla para anotar actividad, agua, sueño, pantallas y comidas.", "Rellenadla durante una semana y calculad vuestras medias.", "Proponed tres cambios personales y un plan de vida activa.", "Presentad los resultados de la clase en un mural con gráficas y consejos."],
+    producto: "Un diario personal de hábitos y un mural de la clase con gráficas y propuestas.",
+    evaluacion: ["Registra y analiza sus hábitos con sinceridad.", "Lee etiquetas y elige alimentos saludables.", "Conoce cómo hacer ejercicio con calor de forma segura.", "Diseña un plan realista de vida activa."],
+  },
+});

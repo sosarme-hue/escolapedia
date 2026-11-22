@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, wiki("Habilidades motrices básicas", "Habilidades_motrices_básicas"), wiki("Lateralidad", "Lateralidad"), wiki("Esquema corporal", "Esquema_corporal")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo trabajan huesos, músculos y articulaciones al moverse", "Mejorar la coordinación óculo-manual con malabares", "Entender cómo sabemos dónde está nuestro cuerpo: la propiocepción", "Relacionar las habilidades básicas con los gestos deportivos y aprender a relajarse"],
+  lectura: { titulo: "El circo en el gimnasio", html: `<p>Aquel trimestre, la profesora de Educación Física llegó al gimnasio con una caja enorme. Dentro había pelotas de malabares, aros, platos chinos, cintas de colores y un rulo de madera con una tabla encima.</p><p>—Este mes vamos a preparar un espectáculo de circo —anunció.</p><p>A Samuel no le hizo mucha gracia. Él era bueno jugando al fútbol, pero se le daban fatal las cosas «de equilibrio». La primera semana, las pelotas se le caían todo el rato y en la tabla de equilibrio no aguantaba ni dos segundos.</p><p>—No mires los pies —le dijo Irene, su compañera—. Mira un punto fijo en la pared y respira.</p><p>Funcionó. Día a día, Samuel fue mejorando. Descubrió que con los malabares tenía que mirar arriba, al punto más alto de la pelota, y no a las manos. Y que, cuanto más tranquilo estaba, mejor le salía todo.</p><p>El día del espectáculo, delante de todo el colegio, Samuel hizo una cascada con tres pelotas encima de la tabla. Duró solo diez segundos, pero el aplauso fue el más fuerte de la tarde.</p><p>—¿Ves? —le dijo la profesora—. El cuerpo aprende si le das tiempo.</p>` },
+  tras: {
+    "El esquema corporal": [
+      ["Huesos, músculos y articulaciones", `<p>Cada vez que te mueves, trabaja tu <b>aparato locomotor</b>, formado por tres elementos:</p><ul><li><b>Los huesos</b> forman el <b>esqueleto</b>. Un adulto tiene 206 huesos. Sostienen el cuerpo, protegen órganos importantes (el cráneo protege el cerebro; las costillas, el corazón y los pulmones) y sirven de palanca para el movimiento.</li><li><b>Las articulaciones</b> son las uniones entre huesos. Algunas se mueven mucho (hombro, cadera, rodilla, tobillo, codo) y otras casi nada (las del cráneo). Los <b>ligamentos</b> mantienen unidos los huesos en la articulación.</li><li><b>Los músculos</b> son los motores: se <b>contraen</b> (se acortan) y tiran de los huesos a través de los <b>tendones</b>. Tenemos más de 600.</li></ul><p>Los músculos trabajan <b>por parejas</b>: cuando uno se contrae, el contrario se relaja. Por ejemplo, para doblar el codo se contrae el <b>bíceps</b> (flexor) y se relaja el <b>tríceps</b> (extensor); para estirarlo, al revés.</p><p>Por eso el ejercicio debe ser <b>equilibrado</b>: si solo trabajas unos músculos, se descompensa la postura. Y por eso es tan importante calentar: un músculo caliente se contrae mejor y se lesiona menos.</p>`,
+        L6.filas("El aparato locomotor", [["huesos", "206: sostén", cNA], ["articulaciones", "uniones", cAZ], ["músculos", "+600: motor", cRO], ["tendones", "músculo-hueso", cVE]]), ["V072pKvw3a8", "¡Hoy aprendemos sobre los Músculos! 💪🏻  | Excursión al Cuerpo humano 🩻 | Zamba", "Mundo Zamba", 8249840]],
+    ],
+    "La coordinación": [
+      ["Malabares: coordinación óculo-manual", `<p>Los <b>malabares</b> son una de las mejores actividades para mejorar la <b>coordinación óculo-manual</b> (ojo-mano), la concentración y la paciencia. Además, se pueden practicar en casa con muy poco material: pelotas de tela rellenas de arroz, pañuelos o incluso calcetines enrollados.</p><p>Se aprende <b>paso a paso</b>:</p><ol><li><b>Una pelota</b>: lánzala de una mano a la otra dibujando un arco que llegue a la altura de los ojos. La mirada va al punto más alto, no a las manos.</li><li><b>Dos pelotas</b>: lanza la primera; cuando llegue arriba, lanza la segunda hacia el otro lado. Recoge las dos. ¡Lanzar, lanzar, coger, coger!</li><li><b>Tres pelotas</b> (la «cascada»): empieza con dos en una mano y una en la otra, y encadena los lanzamientos siempre que la pelota anterior llegue arriba.</li></ol><p>Consejos: empieza con <b>pañuelos</b>, que caen despacio; ponte delante de una pared para no ir hacia delante; y no te frustres: todo el mundo tarda días o semanas en conseguir la cascada.</p><p>Los malabares también trabajan la <b>lateralidad</b>, porque obligan a usar las dos manos por igual, incluida la no dominante.</p>`,
+        H6.flujo("Aprender malabares", ["1 pelota|en arco", "2 pelotas|lanzar-lanzar", "3 pelotas|cascada", "practicar|cada día"], cMO), ["Ys5cJ6fMBOc", "Tutorial Malabares - 3 pelotas - Cascada", "Juggler Master", 536954]],
+    ],
+    "El equilibrio": [
+      ["Los sentidos del movimiento", `<p>¿Cómo sabes dónde está tu mano si cierras los ojos? ¿Cómo notas que te estás cayendo? Además de los cinco sentidos, tenemos otros «sentidos ocultos» que nos ayudan a movernos:</p><ul><li><b>La propiocepción</b>: en los músculos, los tendones y las articulaciones hay unos <b>receptores</b> que informan constantemente al cerebro de la posición de cada parte del cuerpo. Gracias a ellos puedes tocarte la nariz con los ojos cerrados o subir escaleras sin mirar los pies.</li><li><b>El sistema vestibular</b>: está en el <b>oído interno</b>. Tiene unos conductos con líquido que se mueve cuando giras o inclinas la cabeza, y así el cerebro sabe si estás derecho, girando o cayendo. Por eso, después de dar muchas vueltas, te mareas: el líquido sigue moviéndose aunque tú ya te hayas parado.</li><li><b>La vista</b>: ayuda mucho al equilibrio. Prueba a mantenerte a la pata coja con los ojos abiertos y luego cerrados: ¡qué diferencia!</li></ul><p>Estos sistemas se pueden <b>entrenar</b>: andar descalzo por superficies distintas, hacer ejercicios a la pata coja o sobre cojines y practicar acrobacias mejora la propiocepción y ayuda a prevenir lesiones, sobre todo de tobillo y rodilla.</p>`,
+        H6.rueda("Sentir el cuerpo", "EQUILIBRIO", [["propiocepción", cAZ], ["oído interno", cMO], ["vista", cVE], ["tacto", cNA]])],
+    ],
+  },
+  final: [
+    ["De las habilidades básicas al deporte", `<p>Las habilidades motrices básicas (desplazarse, saltar, girar, lanzar y recibir) son como las <b>letras del abecedario</b> del movimiento. Con ellas se construyen las <b>habilidades específicas</b> de cada deporte, igual que con las letras se forman palabras:</p><ul><li><b>Correr + saltar</b> → la batida de un salto de longitud o un remate de voleibol.</li><li><b>Lanzar</b> → el tiro a canasta, el saque de tenis, el lanzamiento de jabalina.</li><li><b>Recibir</b> → la parada de un portero, el control de un balón con el pie.</li><li><b>Girar</b> → la voltereta en gimnasia, el giro de un patinador, la pivotación en baloncesto.</li><li><b>Desplazarse</b> → el regate en fútbol, el desplazamiento lateral en bádminton.</li></ul><p>Por eso es tan importante haber practicado <b>muchas habilidades diferentes</b> de pequeño: los niños que juegan a muchos juegos y prueban varios deportes aprenden después cualquier deporte con más facilidad. Los expertos recomiendan no especializarse demasiado pronto en un solo deporte, sino disfrutar de la variedad hasta la adolescencia.</p>`,
+      L6.filas("Básica → específica", [["lanzar", "tiro a canasta", cRO], ["saltar", "remate de vóley", cAZ], ["girar", "voltereta", cVE], ["recibir", "parada del portero", cNA]])],
+    ["Respirar y relajarse", `<p>Moverse bien no es solo moverse rápido o con fuerza: también es saber <b>controlar el cuerpo</b> y estar tranquilo. Como descubrió Samuel en la lectura, los nervios hacen que los músculos se tensen y los movimientos salgan peor.</p><p>La <b>respiración</b> es la herramienta más sencilla para relajarse:</p><ul><li><b>Respiración abdominal</b>: túmbate boca arriba con una mano en la tripa. Coge aire por la nariz lentamente, notando cómo sube la mano, y suéltalo por la boca más despacio todavía.</li><li><b>Respiración 4-4</b>: cuenta 4 al coger aire y 4 al soltarlo, varias veces.</li></ul><p>Y algunas técnicas de <b>relajación</b>:</p><ul><li><b>Tensar y soltar</b>: aprieta fuerte los puños cinco segundos y suéltalos de golpe. Repite con los hombros, la cara, las piernas. Notarás la diferencia entre tensión y relajación.</li><li><b>Visualización</b>: cierra los ojos e imagina un lugar tranquilo, o imagina que haces perfecto el movimiento que estás aprendiendo. ¡Muchos deportistas de élite lo hacen antes de competir!</li></ul><p>Estas técnicas sirven también para los exámenes, para dormirte o cuando estás enfadado.</p>`,
+      H6.flujo("Respiración 4-4", ["coger aire|1, 2, 3, 4", "notar|la tripa", "soltar aire|1, 2, 3, 4", "repetir|5 veces"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Qué músculos trabajan al doblar y estirar el codo?", ["Doblar: se contrae el bíceps.", "Estirar: se contrae el tríceps."], "Trabajan por parejas: bíceps (flexor) y tríceps (extensor)."],
+    ["¿Por qué te mareas después de girar mucho?", ["El líquido del oído interno sigue moviéndose.", "El cerebro cree que sigues girando."], "Por el sistema vestibular del oído interno."],
+  ],
+  errores: ["Mirar las manos al hacer malabares: hay que mirar el punto más alto de la pelota.", "Especializarse demasiado pronto en un solo deporte en lugar de probar muchos."],
+  ejercicios: [
+    ["b", "¿Cuántos huesos tiene un adulto?", "206."],
+    ["b", "¿Qué une los músculos con los huesos?", "Los tendones."],
+    ["b", "¿Dónde está el sistema vestibular?", "En el oído interno."],
+    ["b", "¿Con qué material puedes empezar a hacer malabares?", "Con pañuelos o pelotas de tela."],
+    ["b", "Escribe una técnica de relajación.", "Respiración abdominal, tensar y soltar, visualización."],
+    ["m", "Explica qué es la propiocepción con un ejemplo.", "La información sobre la posición del cuerpo; por ejemplo, tocarse la nariz con los ojos cerrados."],
+    ["m", "Relaciona cada habilidad con un gesto deportivo: lanzar, girar, recibir.", "Tiro a canasta; voltereta; parada del portero."],
+    ["m", "¿Qué consejo le dio Irene a Samuel?", "Que no mirara los pies, mirara un punto fijo y respirara."],
+    ["m", "¿Por qué los músculos trabajan por parejas?", "Porque un músculo solo puede tirar: uno flexiona y el contrario extiende."],
+    ["m", "Prueba a la pata coja con ojos abiertos y cerrados. ¿Qué pasa y por qué?", "Cuesta más con los ojos cerrados porque la vista ayuda al equilibrio."],
+    ["a", "Diseña un circuito de seis estaciones que trabaje coordinación, equilibrio y propiocepción.", "Respuesta abierta."],
+    ["a", "Practica malabares diez minutos al día durante una semana y anota tus progresos.", "Respuesta abierta."],
+    ["a", "Prepara un número de circo por grupos combinando malabares y equilibrios.", "Respuesta abierta."],
+    ["a", "Guía a tus compañeros en una relajación de cinco minutos al final de la clase.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Para doblar el codo se contrae el…", ["bíceps", "tríceps", "cuádriceps"], "Músculos."],
+    ["En malabares hay que mirar…", ["el punto más alto de la pelota", "las manos", "el suelo"], "Malabares."],
+    ["La propiocepción informa de…", ["la posición del cuerpo", "los sabores", "la temperatura del aire"], "Sentidos."],
+    ["Las habilidades específicas se construyen a partir de…", ["las habilidades básicas", "la fuerza solo", "la altura"], "Habilidades."],
+    ["La respiración abdominal se hace…", ["cogiendo aire por la nariz despacio", "muy rápido por la boca", "aguantando el aire un minuto"], "Relajación."],
+  ],
+  examen: [
+    ["¿Qué hizo Samuel en el espectáculo?", ["una cascada con tres pelotas sobre la tabla", "un gol de chilena", "una pirueta en el aire"], "Lectura."],
+    ["Los ligamentos…", ["unen huesos en las articulaciones", "unen músculos y huesos", "son músculos"], "Aparato locomotor."],
+  ],
+  tarjetas: [
+    ["Aparato locomotor", "Huesos (206), articulaciones y músculos (+600) unidos por tendones."],
+    ["Malabares", "1, 2 y 3 pelotas; mirar arriba; practicar con paciencia."],
+    ["Sentidos del movimiento", "Propiocepción, sistema vestibular (oído interno) y vista."],
+    ["Relajación", "Respiración abdominal, 4-4, tensar y soltar, visualización."],
+  ],
+  glosario: [
+    ["Aparato locomotor", "Conjunto de huesos, articulaciones y músculos que permite moverse."],
+    ["Articulación", "Unión entre dos huesos."],
+    ["Ligamento", "Tejido que une los huesos en una articulación."],
+    ["Tendón", "Cordón que une un músculo con un hueso."],
+    ["Contracción", "Acortamiento de un músculo al trabajar."],
+    ["Flexor / extensor", "Músculo que dobla / estira una articulación."],
+    ["Óculo-manual", "Que coordina la vista y las manos."],
+    ["Cascada", "Figura básica de malabares con tres pelotas."],
+    ["Propiocepción", "Sentido que informa de la posición del cuerpo."],
+    ["Sistema vestibular", "Órgano del oído interno que controla el equilibrio."],
+    ["Habilidad específica", "Gesto propio de un deporte concreto."],
+    ["Visualización", "Imaginar un movimiento o un lugar para concentrarse o relajarse."],
+  ],
+  situacion: {
+    titulo: "El circo de sexto",
+    reto: "La clase prepara un espectáculo de circo para el resto del colegio.",
+    pasos: ["Formad grupos y elegid disciplinas: malabares, equilibrios, acrobacias sencillas y payasos.", "Entrenad durante varias sesiones con progresiones seguras y ayudas de los compañeros.", "Montad un número de dos minutos con música, combinando habilidades.", "Antes de actuar, haced una relajación en grupo y después valorad lo aprendido."],
+    producto: "Un espectáculo de circo con números de malabares, equilibrio y expresión.",
+    evaluacion: ["Mejora su coordinación óculo-manual.", "Controla el equilibrio estático y dinámico.", "Colabora y ayuda a los compañeros con seguridad.", "Usa la respiración para controlar los nervios."],
+  },
+});

@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, wiki("Calentamiento (deporte)", "Calentamiento_(deporte)"), wiki("Condición física", "Condición_física"), { t: "Ministerio de Sanidad: actividad física para la salud", url: "https://www.sanidad.gob.es/areas/promocionPrevencion/actividadFisica/home.htm" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir estiramientos dinámicos y estáticos y cuándo usar cada uno", "Usar la frecuencia cardiaca para controlar la intensidad", "Conocer los principios del entrenamiento y las pruebas de condición física", "Prevenir las molestias y lesiones más frecuentes"],
+  lectura: { titulo: "La carrera solidaria", html: `<p>El colegio de Alba organizaba cada primavera una carrera solidaria: por cada vuelta al circuito del parque, las familias donaban dinero para un hospital infantil.</p><p>El año anterior, Alba había salido a toda velocidad. En la segunda vuelta ya no podía más: le dolía el costado, respiraba como un fuelle y tuvo que pararse. Hizo solo tres vueltas.</p><p>Este año decidió prepararse. Con su profesor de Educación Física hizo un plan de seis semanas: tres días por semana, carrera suave, cada vez un poco más larga. Aprendió a tomarse el pulso en el cuello y descubrió que, si podía hablar mientras corría, iba al ritmo adecuado.</p><p>El día de la carrera calentó bien: trote suave, movilidad de tobillos y rodillas, unos skipping y un par de aceleraciones cortas. Salió despacio, mientras otros niños salían disparados. En la tercera vuelta, muchos de ellos caminaban. Alba seguía a su ritmo.</p><p>Terminó once vueltas. Al acabar, en lugar de tirarse al suelo, caminó un rato y estiró con calma, como había aprendido.</p><p>—¿Cuál es el secreto? —le preguntó su amigo Hugo.</p><p>—Prepararse poco a poco… y no salir como un cohete —se rio Alba.</p>` },
+  tras: {
+    "Movilidad articular y estiramientos": [
+      ["Estiramientos dinámicos y estáticos", `<p>No todos los estiramientos son iguales, y cada tipo tiene su momento:</p><ul><li><b>Estiramientos dinámicos</b>: se hacen <b>en movimiento</b>, llevando la articulación poco a poco hasta su recorrido completo de forma controlada. Por ejemplo, balanceos de piernas adelante y atrás, círculos de brazos, zancadas caminando o «talones al glúteo». Son los más adecuados para el <b>calentamiento</b>, porque preparan los músculos sin enfriarlos.</li><li><b>Estiramientos estáticos</b>: se lleva el músculo a una posición de estiramiento y se <b>mantiene quieto</b> unos <b>15-20 segundos</b>, respirando con calma. Son ideales para la <b>vuelta a la calma</b>, al final de la sesión.</li></ul><p>Normas para estirar bien:</p><ul><li>Estira hasta notar <b>tensión</b>, nunca <b>dolor</b>.</li><li><b>No hagas rebotes</b> en los estáticos: pueden provocar pequeñas roturas.</li><li><b>Respira</b> lentamente; no aguantes el aire.</li><li>Estira <b>los dos lados</b> por igual.</li><li>Estira todos los grupos grandes: gemelos, isquiotibiales, cuádriceps, aductores, espalda, hombros y cuello.</li></ul>`,
+        H6.dos("Estiramientos", ["DINÁMICOS", ["en movimiento", "calentamiento", "balanceos"], cRO], ["ESTÁTICOS", ["quietos 15-20 s", "vuelta a la calma", "sin rebotes"], cAZ])],
+    ],
+    "La condición física": [
+      ["Los principios del entrenamiento", `<p>Para mejorar la condición física no basta con hacer ejercicio de vez en cuando: hay que seguir unos <b>principios del entrenamiento</b>, como hizo Alba en la lectura:</p><ul><li><b>Progresión</b>: aumentar el esfuerzo <b>poco a poco</b>. Si un día corres 10 minutos, la semana siguiente prueba 12, no 30.</li><li><b>Continuidad</b>: entrenar de forma <b>regular</b>, varios días por semana. Si lo dejas, en pocas semanas pierdes lo ganado.</li><li><b>Variedad</b>: combinar actividades distintas para trabajar todas las capacidades y no aburrirse.</li><li><b>Descanso</b>: el cuerpo mejora mientras <b>se recupera</b>. Sin descanso llegan el cansancio y las lesiones.</li><li><b>Individualidad</b>: cada persona es diferente. No te compares: compárate contigo mismo.</li></ul><p>A tu edad, la condición física se mejora sobre todo <b>jugando</b>: juegos de persecución, deportes, saltar a la comba, ir en bici. Lo importante es que sea divertido y que lo hagas a menudo.</p><p>Un error frecuente es pensar que «cuanto más, mejor». Entrenar demasiado sin descansar puede producir cansancio, dolores y pérdida de motivación.</p>`,
+        L6.filas("Principios", [["progresión", "poco a poco", cVE], ["continuidad", "con regularidad", cAZ], ["variedad", "actividades distintas", cNA], ["descanso", "recuperar", cMO]])],
+    ],
+    "El pulso y la frecuencia cardiaca": [
+      ["Controlar la intensidad", `<p>La frecuencia cardiaca nos dice <b>a qué intensidad</b> estamos trabajando. En niños de tu edad, los valores aproximados son:</p><ul><li><b>En reposo</b>: entre 70 y 100 pulsaciones por minuto, más o menos. Cuanto más entrenado está alguien, más baja suele ser.</li><li><b>Actividad moderada</b> (caminar rápido, montar en bici tranquilo): unas 120-150 ppm.</li><li><b>Actividad intensa</b> (correr rápido, partido de fútbol): 150-180 ppm o más.</li></ul><p>Para tomarse el pulso, coloca los dedos índice y corazón en el <b>cuello</b> (arteria carótida) o en la <b>muñeca</b> (arteria radial), cuenta los latidos durante <b>15 segundos</b> y <b>multiplica por 4</b>.</p><p>Si no tienes reloj, hay trucos sencillos para saber cómo vas:</p><ul><li><b>Test del habla</b>: si puedes hablar con frases completas, vas a ritmo moderado. Si solo puedes decir palabras sueltas, vas a ritmo intenso.</li><li><b>Escala del esfuerzo</b>: puntúa de 1 (muy fácil) a 10 (máximo) cómo te sientes.</li></ul><p>Después del ejercicio, el pulso baja poco a poco. Cuanto más rápido vuelve a valores normales, mejor es la condición física.</p>`,
+        L6.filas("Intensidad", [["reposo", "70-100 ppm", cVE], ["moderada", "120-150 ppm", cNA], ["intensa", "150-180 ppm", cRO], ["test del habla", "¿puedes hablar?", cAZ]]), ["__2Q6OWpTOA", "¿Qué es la frecuencia cardiaca? #telodigodecorazón", "Fundación Española del Corazón", 829661]],
+    ],
+  },
+  final: [
+    ["Las pruebas de condición física", `<p>Para saber cómo está tu condición física y ver si mejoras, se hacen <b>pruebas</b> o <b>test</b>. En España se usa mucho la batería <b>ALPHA-Fitness</b>, diseñada por investigadores españoles para escolares. Algunas pruebas habituales son:</p><ul><li><b>Course Navette</b> (resistencia): correr de un lado a otro de una pista de 20 metros siguiendo unos pitidos que van cada vez más deprisa. Cuantos más tramos aguantes, mejor resistencia.</li><li><b>Salto horizontal a pies juntos</b> (fuerza de piernas): saltar lo más lejos posible desde parado.</li><li><b>Dinamometría manual</b> (fuerza de brazos): apretar un aparato llamado dinamómetro con la mano.</li><li><b>Carrera de ida y vuelta 4 × 10 metros</b> (velocidad y agilidad).</li><li><b>Flexión de tronco sentado</b> (flexibilidad): llegar lo más lejos posible con las manos, con las piernas estiradas.</li></ul><p>Lo importante de estas pruebas <b>no es compararse</b> con los demás, sino con uno mismo: hacerlas a principio y a final de curso y ver cuánto has mejorado. Y siempre con un buen calentamiento antes.</p>`,
+      L6.filas("Pruebas", [["Course Navette", "resistencia", cRO], ["salto horizontal", "fuerza", cAZ], ["4 × 10 m", "velocidad", cVE], ["flexión de tronco", "flexibilidad", cMO]])],
+    ["Molestias y lesiones frecuentes", `<p>Con un buen calentamiento y sentido común, la mayoría de molestias se pueden evitar. Estas son las más habituales:</p><ul><li><b>El flato</b>: un dolor punzante en el costado, como el que tuvo Alba. Suele aparecer al correr después de comer o beber mucho, o al empezar demasiado rápido. Para aliviarlo: baja el ritmo, respira hondo y presiona suavemente la zona.</li><li><b>Las agujetas</b>: dolor muscular que aparece uno o dos días después de un ejercicio al que no estabas acostumbrado. Desaparecen solas en unos días. Se previenen con progresión.</li><li><b>Los calambres</b>: el músculo se contrae de golpe y no se relaja. Hay que estirarlo suavemente y beber agua.</li><li><b>El esguince</b>: lesión de los ligamentos de una articulación, sobre todo del tobillo, al torcerla. Necesita reposo, frío y que lo vea un médico.</li><li><b>Las ampollas</b>: por el roce del calzado o de unos calcetines inadecuados.</li></ul><p>Recuerda: si algo <b>duele de verdad</b>, para y avisa al profesor. «Aguantar el dolor» no es de valientes: es arriesgarse a lesionarse más.</p>`,
+      H6.rueda("Prevenir", "SIN LESIONES", [["calentar", cRO], ["progresar", cAZ], ["hidratarse", cVE], ["descansar", cMO]])],
+  ],
+  ejemplos: [
+    ["Cuentas 30 latidos en 15 segundos. ¿Cuál es tu frecuencia cardiaca?", ["Se multiplica por 4.", "30 × 4 = 120."], "120 pulsaciones por minuto (intensidad moderada)."],
+    ["¿Qué tipo de estiramiento haces en el calentamiento?", ["Antes de la actividad no conviene enfriar el músculo.", "Se usan movimientos controlados."], "Estiramientos dinámicos."],
+  ],
+  errores: ["Hacer rebotes en los estiramientos estáticos.", "Salir a toda velocidad en una carrera larga en lugar de dosificar el esfuerzo."],
+  ejercicios: [
+    ["b", "¿Cuánto tiempo se mantiene un estiramiento estático?", "Unos 15-20 segundos."],
+    ["b", "Escribe tres principios del entrenamiento.", "Progresión, continuidad, variedad (descanso, individualidad)."],
+    ["b", "¿Dónde puedes tomarte el pulso?", "En el cuello o en la muñeca."],
+    ["b", "¿Qué capacidad mide la Course Navette?", "La resistencia."],
+    ["b", "¿Qué es el flato?", "Un dolor punzante en el costado al correr."],
+    ["m", "Cuentas 40 latidos en 15 s. Calcula tus ppm y di la intensidad.", "160 ppm: intensa."],
+    ["m", "Explica el test del habla.", "Si puedes hablar con frases completas, el ritmo es moderado."],
+    ["m", "¿Por qué Alba hizo once vueltas y no tres?", "Porque entrenó con progresión, calentó y dosificó el esfuerzo."],
+    ["m", "Diferencia agujetas y calambres.", "Agujetas: dolor días después. Calambre: contracción repentina durante el ejercicio."],
+    ["m", "Escribe dos ejemplos de estiramientos dinámicos.", "Balanceos de piernas, círculos de brazos, zancadas…"],
+    ["a", "Diseña un plan de seis semanas para correr 20 minutos seguidos.", "Respuesta abierta."],
+    ["a", "Tómate el pulso en reposo, tras un trote y tras un sprint, y haz una gráfica.", "Respuesta abierta."],
+    ["a", "Organiza con la clase unas pruebas de condición física al principio y al final del trimestre.", "Respuesta abierta."],
+    ["a", "Prepara un cartel para prevenir lesiones en el recreo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Los estiramientos estáticos son ideales para…", ["la vuelta a la calma", "empezar a calentar", "en mitad de un sprint"], "Estiramientos."],
+    ["El principio de progresión significa…", ["aumentar el esfuerzo poco a poco", "entrenar solo un día", "hacer siempre lo mismo"], "Entrenamiento."],
+    ["Para calcular las ppm cuentas 15 s y…", ["multiplicas por 4", "sumas 60", "divides entre 2"], "Pulso."],
+    ["Un esguince afecta a…", ["los ligamentos", "los dientes", "el pelo"], "Lesiones."],
+    ["La batería ALPHA-Fitness sirve para…", ["medir la condición física", "medir la altura", "elegir deporte"], "Pruebas."],
+  ],
+  examen: [
+    ["¿Qué le pasó a Alba el año anterior?", ["le dio flato y solo hizo tres vueltas", "ganó la carrera", "se torció el tobillo"], "Lectura."],
+    ["Si puedes hablar con frases completas, vas a ritmo…", ["moderado", "máximo", "intenso"], "Intensidad."],
+  ],
+  tarjetas: [
+    ["Estiramientos", "Dinámicos al calentar; estáticos (15-20 s, sin rebotes) al final."],
+    ["Principios", "Progresión, continuidad, variedad, descanso e individualidad."],
+    ["Intensidad", "Reposo 70-100, moderada 120-150, intensa 150-180 ppm. Test del habla."],
+    ["Lesiones", "Flato, agujetas, calambres, esguince, ampollas. Si duele, para."],
+  ],
+  glosario: [
+    ["Estiramiento dinámico", "Estiramiento en movimiento controlado."],
+    ["Estiramiento estático", "Estiramiento mantenido sin moverse."],
+    ["Progresión", "Aumento gradual del esfuerzo."],
+    ["Continuidad", "Regularidad en el entrenamiento."],
+    ["Pulsaciones por minuto", "Latidos del corazón en un minuto (ppm)."],
+    ["Arteria carótida", "Arteria del cuello donde se toma el pulso."],
+    ["Intensidad", "Grado de esfuerzo de una actividad."],
+    ["Course Navette", "Prueba de resistencia de ida y vuelta con pitidos."],
+    ["Dinamómetro", "Aparato que mide la fuerza."],
+    ["Flato", "Dolor en el costado al correr."],
+    ["Agujetas", "Dolor muscular que aparece días después del ejercicio."],
+    ["Esguince", "Lesión de los ligamentos de una articulación."],
+  ],
+  situacion: {
+    titulo: "Preparamos la carrera solidaria",
+    reto: "La clase se prepara durante varias semanas para participar en una carrera solidaria.",
+    pasos: ["Haced una prueba inicial de resistencia y anotad los resultados.", "Diseñad por parejas un plan de entrenamiento con progresión y descanso.", "Cada día, dirigid un calentamiento con estiramientos dinámicos y controlad el pulso.", "Celebrad la carrera, haced la vuelta a la calma y comparad con la prueba inicial."],
+    producto: "Un plan de entrenamiento personal y una carrera solidaria de la clase.",
+    evaluacion: ["Aplica los principios del entrenamiento.", "Controla la intensidad con el pulso o el test del habla.", "Diferencia y usa bien los tipos de estiramiento.", "Valora la mejora personal sin compararse."],
+  },
+});
