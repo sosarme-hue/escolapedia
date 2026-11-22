@@ -132,3 +132,93 @@ module.exports = tema({
   saberes: "Educación vial: la calle (acera y calzada), normas básicas del peatón y del pasajero, el semáforo, señales de tráfico sencillas y uso seguro de la bicicleta",
   ideas: ["Circuito vial en el patio con pasos de cebra pintados con tiza y semáforos de cartulina.", "Visita de la policía local para una charla de educación vial.", "Paseo por el entorno del colegio identificando señales."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir las formas y colores de las señales", "Conocer las normas del pasajero en el transporte público", "Saber cómo actuar en caso de accidente", "Ser visible de noche y con mal tiempo"],
+  lectura: { titulo: "El camino al cole de Leo", html: `<p>Este curso, Leo va andando al cole con su hermano mayor, Mario. Su madre les ha enseñado el camino más seguro.</p><p>Salen de casa y van siempre por la acera, lejos del bordillo. En la esquina hay un semáforo. Está en rojo para los peatones, así que esperan.</p><p>—Mira, Mario, no viene ningún coche. ¿Pasamos?</p><p>—No. Si el muñeco está en rojo, no se cruza. Aunque no venga nadie.</p><p>Cuando el muñeco se pone verde, miran a la izquierda, a la derecha y otra vez a la izquierda. Un coche se ha parado. Mario saluda al conductor y cruzan por el paso de peatones.</p><p>Más adelante hay una calle sin semáforo, pero con un paso de cebra. Allí, una señora con chaleco amarillo y una señal en la mano les ayuda a cruzar: es la agente que vigila la entrada del cole.</p><p>—¡Buenos días, chicos! —les dice.</p><p>Leo llega a clase a tiempo y orgulloso: hoy ha sido un peatón responsable.</p>` },
+  tras: {
+    "Las señales de tráfico": [
+      ["Formas y colores de las señales", `<p>Las señales de tráfico se entienden por su <mark>forma</mark> y su <mark>color</mark>, aunque no sepamos leer:</p><ul><li><b>Círculo rojo</b>: <b>prohibición</b>. Algo que no se puede hacer. Por ejemplo: prohibido pasar bicicletas.</li><li><b>Triángulo rojo</b>: <b>peligro</b>. Avisa de algo: niños, curva, animales sueltos.</li><li><b>Círculo azul</b>: <b>obligación</b>. Algo que hay que hacer: camino solo para bicis, para peatones.</li><li><b>Cuadrado o rectángulo azul</b>: <b>información</b>. Paso de peatones, hospital, aparcamiento.</li></ul><p>Hay dos señales especiales: el <b>STOP</b>, con forma de octógono rojo, que obliga a pararse del todo; y el <b>ceda el paso</b>, un triángulo al revés, que obliga a dejar pasar a otros.</p><p><b>Actividad</b>: en el camino al cole, busca una señal de cada tipo y dibújala.</p>`,
+        L6.filas("Señales", [["círculo rojo", "prohíbe", cRO], ["triángulo rojo", "peligro", cNA], ["círculo azul", "obliga", cAZ], ["cuadrado azul", "informa", cVE]]),
+        ["rnb0fkpeOao", "Las señales de tráfico, seguridad vial niños", "Greenlight", 2948983]],
+    ],
+    "En el coche y en el autobús": [
+      ["El buen pasajero", `<p>Un <mark>pasajero</mark> es quien viaja en un vehículo sin conducirlo. También tiene sus normas:</p><p>En el <b>coche</b>:</p><ul><li>Los niños viajan siempre <b>detrás</b>, en su <b>silla o elevador</b>, con el cinturón abrochado.</li><li>Se sube y se baja por el lado de la <b>acera</b>.</li><li>No se molesta al conductor ni se sacan los brazos por la ventanilla.</li></ul><p>En el <b>autobús</b> o el metro:</p><ul><li>Esperar en la <b>parada</b>, sin acercarse al borde.</li><li>Dejar <b>salir</b> antes de entrar.</li><li>Ceder el asiento a personas mayores, embarazadas o con muletas.</li><li>Agarrarse a la barra si vamos de pie.</li><li>No cruzar por <b>delante</b> del autobús al bajar: esperar a que se vaya.</li></ul><p><b>Actividad</b>: haced un autobús con sillas en clase y practicad las normas.</p>`,
+        H6.dos("Pasajero", ["COCHE", ["detrás", "silla", "cinturón"], cAZ], ["AUTOBÚS", ["dejar salir", "ceder asiento", "agarrarse"], cVE])],
+    ],
+    "En bici y en patinete": [
+      ["Ser visible", `<p>Para estar seguros en la calle, es muy importante que los conductores nos <mark>vean</mark>. Sobre todo:</p><ul><li>Al <b>anochecer</b> y de <b>noche</b>.</li><li>Con <b>lluvia</b> o <b>niebla</b>.</li><li>En carreteras sin aceras, en el campo.</li></ul><p>¿Cómo hacernos visibles?</p><ul><li>Llevar ropa de <b>colores claros</b> o vivos: amarillo, naranja, blanco.</li><li>Usar un <b>chaleco reflectante</b>, que brilla cuando le dan las luces de los coches.</li><li>Poner <b>pegatinas reflectantes</b> en la mochila, el casco y la bici.</li><li>Llevar <b>luces</b> en la bici: blanca delante y roja detrás.</li><li>En carretera, caminar por la <b>izquierda</b>, de frente a los coches.</li></ul><p>Con ropa oscura, de noche, un conductor tarda mucho en vernos. ¡Con reflectantes nos ve desde muy lejos!</p><p><b>Actividad</b>: decora tu mochila con tiras reflectantes.</p>`,
+        H6.rueda("Visible", "VERTE", [["ropa clara", cNA], ["chaleco", cVE], ["luces", cAZ], ["pegatinas", cRO]])],
+    ],
+    "El agente de tráfico": [
+      ["Si hay un accidente", `<p>A veces ocurren <mark>accidentes</mark> en la calle. Si ves uno, debes saber qué hacer:</p><ul><li><b>Mantén la calma</b> y no te acerques a la carretera.</li><li><b>Avisa a un adulto</b> enseguida.</li><li>Si no hay ningún adulto, llama al <b>112</b>. Es el teléfono de emergencias: sirve para ambulancias, bomberos y policía.</li><li>Di <b>qué ha pasado</b> y <b>dónde</b> estás.</li><li>No muevas a una persona herida: espera a que lleguen los profesionales.</li></ul><p>El 112 es gratis y funciona desde cualquier teléfono, incluso sin saldo. Pero solo se llama para <b>emergencias de verdad</b>: si llamas en broma, puedes quitarle la línea a alguien que lo necesita.</p><p>Aprende también tu dirección y el teléfono de tus padres de memoria.</p><p><b>Actividad</b>: practica con un compañero una llamada al 112 explicando qué ha pasado y dónde.</p>`,
+        H6.flujo("Accidente", ["calma|lejos", "avisar|adulto", "llamar|112", "decir|qué y dónde"], cRO)],
+    ],
+  },
+  final: [
+    ["Caminos escolares seguros", `<p>En muchas ciudades hay <mark>caminos escolares seguros</mark>: recorridos preparados para que los niños puedan ir andando al colegio con tranquilidad.</p><ul><li>Tienen <b>aceras anchas</b> y pasos de peatones bien pintados.</li><li>Hay <b>señales</b> que avisan a los coches de que pasan niños.</li><li>En algunos sitios hay <b>comercios amigos</b> con una pegatina: si un niño necesita ayuda, puede entrar.</li><li>Hay <b>agentes</b> o voluntarios en los cruces a la hora de entrada y salida.</li></ul><p>También existe el <b>bus andando</b>: un grupo de niños va al cole caminando juntos, acompañados de adultos, y van recogiendo a otros por paradas, como un autobús.</p><p>Ir andando al cole es sano, contamina menos y ayuda a conocer el barrio.</p><p><b>Actividad</b>: dibuja un plano de tu camino al cole y marca los cruces y los lugares seguros.</p>`,
+      L6.filas("Camino seguro", [["aceras", "anchas", cAZ], ["pasos", "bien pintados", cVE], ["comercios", "amigos", cNA], ["bus andando", "en grupo", cRO]])],
+    ["Repaso: el camino de Leo", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Leo y Mario van por la <b>acera</b>, lejos del bordillo.</li><li>Esperan con el muñeco en <b>rojo</b>, aunque no venga nadie.</li><li>Miran a la <b>izquierda</b>, a la <b>derecha</b> y otra vez a la izquierda.</li><li>Cruzan por el <b>paso de peatones</b>, cuando el coche se ha parado.</li><li>Mario saluda al conductor: así se aseguran de que <b>les ha visto</b>.</li><li>Una <b>agente</b> con chaleco amarillo les ayuda en el paso de cebra.</li></ul><p>Leo ha sido un buen <b>peatón</b>. ¿Y si fuera de noche? Debería llevar ropa clara o algo reflectante para ser <b>visible</b>.</p><p><b>Actividad</b>: escribe cinco normas para ir al cole andando de forma segura.</p>`,
+      H6.flujo("Leo", ["acera|por dentro", "rojo|esperar", "mirar|izq. y der.", "cruzar|paso"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Qué significa un círculo rojo?", ["Rojo y redondo.", "Es una prohibición."], "Que algo está prohibido."],
+    ["¿Por dónde caminamos en una carretera sin acera?", ["Debemos ver los coches de frente."], "Por la izquierda."],
+  ],
+  errores: ["Cruzar con el muñeco en rojo porque no viene nadie.", "Llamar al 112 en broma."],
+  ejercicios: [
+    ["b", "¿Qué indica un triángulo rojo?", "Peligro."],
+    ["b", "¿Qué forma tiene la señal de STOP?", "Octógono."],
+    ["b", "¿Dónde van los niños en el coche?", "Detrás, en su silla, con cinturón."],
+    ["b", "¿Cuál es el teléfono de emergencias?", "112."],
+    ["b", "Di una forma de ser visible de noche.", "Chaleco reflectante, ropa clara…"],
+    ["m", "¿Qué indica un círculo azul?", "Obligación."],
+    ["m", "¿Por qué no cruzamos por delante del autobús al bajar?", "Porque los coches no nos ven."],
+    ["m", "¿Qué luces lleva una bici?", "Blanca delante y roja detrás."],
+    ["m", "¿Qué decimos al llamar al 112?", "Qué ha pasado y dónde."],
+    ["m", "¿Qué es el bus andando?", "Un grupo de niños que va al cole a pie con adultos."],
+    ["a", "En la lectura, ¿por qué no cruzan aunque no venga ningún coche?", "Porque el muñeco está en rojo."],
+    ["a", "¿Por qué Mario saluda al conductor?", "Para asegurarse de que les ha visto."],
+    ["a", "Explica qué harías si ves un accidente.", "Calma, avisar a un adulto o llamar al 112."],
+    ["a", "Diseña una señal para la puerta del cole.", "Respuesta libre con forma y color adecuados."],
+  ],
+  quiz: [
+    ["Las señales de prohibición son…", ["círculos rojos", "cuadrados azules", "triángulos"], "Señales."],
+    ["En el autobús, antes de entrar…", ["dejamos salir", "empujamos", "corremos"], "Pasajero."],
+    ["De noche conviene llevar…", ["reflectantes", "ropa negra", "nada"], "Visible."],
+    ["El teléfono de emergencias es el…", ["112", "123", "911"], "Accidente."],
+    ["En carretera sin acera caminamos por la…", ["izquierda", "derecha", "mitad"], "Visible."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién ayuda a cruzar en el paso de cebra?", ["una agente", "un perro", "un profesor"], "Lectura."],
+    ["Leo mira primero a la…", ["izquierda", "derecha", "arriba"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Señales", "Rojo prohíbe o avisa; azul obliga o informa."],
+    ["112", "Emergencias: qué pasa y dónde."],
+  ],
+  glosario: [
+    ["Prohibición", "Algo que no se puede hacer."],
+    ["Obligación", "Algo que hay que hacer."],
+    ["Ceda el paso", "Señal que obliga a dejar pasar."],
+    ["Pasajero", "Persona que viaja sin conducir."],
+    ["Reflectante", "Que brilla con la luz de los coches."],
+    ["Visible", "Que se puede ver."],
+    ["Emergencia", "Situación grave que necesita ayuda urgente."],
+    ["112", "Teléfono de emergencias."],
+    ["Elevador", "Asiento para que el niño use bien el cinturón."],
+    ["Camino escolar", "Recorrido seguro hasta el colegio."],
+  ],
+  situacion: {
+    titulo: "Agentes del camino seguro",
+    reto: "La clase estudia el camino al colegio y propone mejoras para que sea más seguro.",
+    pasos: ["Dibujar un plano con el camino al cole.", "Marcar señales, semáforos y cruces peligrosos.", "Proponer mejoras y escribir normas para peatones.", "Presentar el plano y las propuestas al equipo directivo."],
+    producto: "Un plano del camino escolar con normas y propuestas.",
+    evaluacion: ["Interpreta señales por forma y color.", "Conoce las normas del pasajero.", "Sabe hacerse visible.", "Sabe actuar ante un accidente."],
+  },
+});

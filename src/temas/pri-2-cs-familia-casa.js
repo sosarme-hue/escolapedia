@@ -138,3 +138,93 @@ module.exports = tema({
   saberes: "Sociedades y territorios: la familia, sus miembros y su diversidad; la vivienda y sus dependencias; corresponsabilidad en las tareas domésticas y normas de convivencia",
   ideas: ["Mural «Nuestras familias» con una foto o dibujo de cada alumno.", "Árbol genealógico sencillo con fotos y flechas.", "Plano de la casa con piezas de cartulina para nombrar las habitaciones."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer tipos de vivienda en distintos lugares", "Ahorrar energía y agua en casa", "Prevenir accidentes domésticos", "Valorar las celebraciones familiares"],
+  lectura: { titulo: "La casa de los abuelos", html: `<p>En verano, Sofía pasa unas semanas en el pueblo con sus abuelos. Su casa es muy distinta del piso de la ciudad donde vive con sus padres.</p><p>La casa de los abuelos es de piedra y tiene dos plantas. Abajo hay una cocina grande con una chimenea, y arriba están los dormitorios. Detrás hay un patio con un limonero y un huerto pequeño.</p><p>En la ciudad, Sofía vive en un cuarto piso. Para llegar, coge el ascensor. Desde la ventana ve otros edificios, coches y un parque.</p><p>Por las mañanas, en el pueblo, Sofía ayuda a su abuela a regar el huerto y a dar de comer a las gallinas. Por las tardes, el abuelo le enseña juegos de cuando él era pequeño.</p><p>Al final del verano, toda la familia se reúne para celebrar el cumpleaños de la abuela. Vienen tíos, primos y hasta una bisabuela.</p><p>—Cada casa es diferente —piensa Sofía—, pero en las dos me siento en mi hogar.</p>` },
+  tras: {
+    "La vivienda": [
+      ["Viviendas de aquí y de allá", `<p>Las personas viven en <mark>viviendas</mark> muy distintas según el lugar y el clima:</p><ul><li><b>Piso</b>: en un edificio con muchas viviendas, típico de las ciudades.</li><li><b>Casa</b> o chalé: una vivienda para una familia, a menudo con jardín o patio.</li><li><b>Casa de campo</b> o cortijo: en el campo, con espacio para animales y cultivos.</li><li><b>Cueva</b>: en Granada hay casas excavadas en la roca. Son frescas en verano y calentitas en invierno.</li><li><b>Palafito</b>: casa sobre palos encima del agua, en lugares con ríos o lagos.</li><li><b>Iglú</b>: refugio de nieve que construían los inuit en las zonas heladas.</li><li><b>Jaima</b>: tienda de tela de los pueblos nómadas del desierto.</li></ul><p>Cada vivienda se adapta al <b>clima</b> y a los materiales del lugar.</p><p><b>Actividad</b>: dibuja tu vivienda y otra muy distinta de otro lugar del mundo.</p>`,
+        L6.filas("Viviendas", [["piso", "ciudad", cAZ], ["cueva", "Granada", cNA], ["palafito", "sobre agua", cVE], ["iglú", "nieve", cMO]])],
+    ],
+    "Ayudamos en casa": [
+      ["Ahorrar en casa", `<p>En casa gastamos <mark>agua</mark> y <mark>energía</mark>. Si ahorramos, cuidamos el planeta y la familia gasta menos dinero.</p><p>Para ahorrar <b>agua</b>:</p><ul><li>Cerrar el grifo mientras nos lavamos los dientes.</li><li>Ducharnos en vez de bañarnos.</li><li>Avisar si un grifo gotea.</li></ul><p>Para ahorrar <b>energía</b>:</p><ul><li>Apagar la luz al salir de una habitación.</li><li>Apagar la tele y el ordenador cuando no los usamos, sin dejarlos en espera.</li><li>Aprovechar la luz del sol abriendo las persianas.</li><li>No abrir la nevera sin necesidad.</li><li>Cerrar puertas y ventanas con la calefacción encendida.</li></ul><p>Pequeños gestos de todos los días, sumados, ahorran muchísimo.</p><p><b>Actividad</b>: sé el «vigilante del ahorro» de tu casa durante una semana y apunta los gestos de tu familia.</p>`,
+        H6.dos("Ahorrar", ["AGUA", ["cerrar grifo", "ducha", "avisar goteo"], cAZ], ["ENERGÍA", ["apagar luz", "apagar tele", "luz del sol"], cNA]),
+        ["6g6WGfV0S58", "Responsabilidades en Casa - Conocimiento del medio", "Instituto Canadiense", 329746]],
+    ],
+    "Normas en casa": [
+      ["Prevenir accidentes en casa", `<p>Aunque la casa es un lugar seguro, pueden ocurrir <mark>accidentes</mark>. Con cuidado se evitan:</p><ul><li><b>Cocina</b>: no tocar el fuego, la vitrocerámica ni el horno. No coger cuchillos. Girar los mangos de las sartenes hacia dentro.</li><li><b>Enchufes</b>: no meter los dedos ni objetos. No tocar aparatos eléctricos con las manos mojadas.</li><li><b>Productos de limpieza</b> y <b>medicinas</b>: nunca tocarlos ni probarlos. Deben estar en lugares altos o cerrados.</li><li><b>Ventanas y balcones</b>: no asomarse ni subirse a sillas cerca de ellos.</li><li><b>Suelos</b>: recoger los juguetes para no tropezar y tener cuidado con el suelo mojado.</li></ul><p>Si ocurre algo, avisa enseguida a un adulto.</p><p><b>Actividad</b>: dibuja un plano de tu casa y marca con un triángulo rojo los lugares donde hay que tener cuidado.</p>`,
+        H6.rueda("Peligro", "CASA", [["fuego", cRO], ["enchufes", cNA], ["limpieza", cMO], ["ventanas", cAZ]])],
+    ],
+    "¿Para qué sirve?": [
+      ["Celebraciones en familia", `<p>Las familias se reúnen para <mark>celebrar</mark> momentos especiales:</p><ul><li><b>Cumpleaños</b>: con tarta, velas y regalos.</li><li><b>Navidad</b> y <b>Año Nuevo</b>: comidas en familia, belenes, árboles, uvas a medianoche.</li><li><b>Fiestas del pueblo</b>: en verano, con verbenas y procesiones.</li><li><b>Bodas</b>, <b>bautizos</b> y <b>comuniones</b>.</li><li>Otras fiestas según las costumbres de cada familia: el fin del Ramadán, el Año Nuevo chino, Janucá…</li></ul><p>En las celebraciones se comparten comidas típicas, canciones y recuerdos. Los mayores cuentan historias de cuando eran pequeños.</p><p>Celebrar juntos hace que la familia se sienta más <b>unida</b>.</p><p><b>Actividad</b>: cuenta en clase cómo celebra tu familia su fiesta favorita.</p>`,
+        L6.filas("Fiestas", [["cumpleaños", "tarta", cRO], ["Navidad", "belén, árbol", cVE], ["Año Nuevo", "uvas", cNA], ["fiestas", "del pueblo", cAZ]])],
+    ],
+  },
+  final: [
+    ["Las casas de antes", `<p>Las casas de nuestros bisabuelos eran muy <mark>diferentes</mark> a las de ahora:</p><ul><li>Muchas no tenían <b>agua corriente</b>: había que ir a buscarla a la fuente o al pozo.</li><li>No había <b>calefacción</b>: se calentaban con la chimenea o con un brasero.</li><li>Se cocinaba con <b>leña</b> o carbón.</li><li>No había <b>nevera</b>: los alimentos se guardaban en la despensa fresca o en sal.</li><li>La ropa se lavaba a mano en el <b>río</b> o en el lavadero del pueblo.</li><li>No había televisión: por la noche se escuchaba la radio o se contaban historias.</li></ul><p>Hoy tenemos agua caliente, electricidad, lavadora, nevera y calefacción. ¡La vida en casa es mucho más cómoda!</p><p><b>Actividad</b>: pregunta a tus abuelos cómo era su casa de pequeños y dibújala.</p>`,
+      H6.dos("Casa", ["ANTES", ["pozo", "chimenea", "lavar en río"], cMO], ["AHORA", ["grifo", "calefacción", "lavadora"], cAZ])],
+    ["Repaso: la casa de los abuelos", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>La casa del pueblo es de <b>piedra</b>, tiene dos <b>plantas</b>, chimenea, patio y huerto.</li><li>En la ciudad, Sofía vive en un <b>piso</b>, en un cuarto piso con ascensor.</li><li>Sofía <b>ayuda</b> en casa: riega el huerto y da de comer a las gallinas.</li><li>El abuelo le enseña juegos de <b>antes</b>.</li><li>La familia se reúne para <b>celebrar</b> el cumpleaños de la abuela.</li><li>Vienen tíos, primos y una <b>bisabuela</b>: ¡cuatro generaciones juntas!</li></ul><p>Sofía descubre que el <b>hogar</b> no es solo la casa: es el lugar donde está la gente que nos quiere.</p><p><b>Actividad</b>: compara tu casa con la de un familiar en una tabla de dos columnas.</p>`,
+      L6.filas("Sofía", [["pueblo", "casa de piedra", cNA], ["ciudad", "piso", cAZ], ["ayuda", "huerto", cVE], ["celebra", "cumpleaños", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Dónde hay casas cueva en España?", ["Recuerdo la lista de viviendas."], "En Granada."],
+    ["¿Cómo ahorramos agua al lavarnos los dientes?", ["El agua corre sin usarla."], "Cerrando el grifo."],
+  ],
+  errores: ["Dejar los aparatos en espera pensando que no gastan.", "Guardar los productos de limpieza al alcance de los niños."],
+  ejercicios: [
+    ["b", "Di un tipo de vivienda.", "Piso, casa, cueva…"],
+    ["b", "Di una forma de ahorrar energía.", "Apagar la luz al salir."],
+    ["b", "¿Qué no debemos tocar con las manos mojadas?", "Los aparatos eléctricos."],
+    ["b", "Di una celebración familiar.", "Cumpleaños, Navidad…"],
+    ["b", "¿Qué es un iglú?", "Un refugio de nieve."],
+    ["m", "¿Por qué las viviendas son distintas en cada lugar?", "Porque se adaptan al clima y los materiales."],
+    ["m", "¿Hacia dónde giramos los mangos de las sartenes?", "Hacia dentro."],
+    ["m", "¿Cómo se lavaba antes la ropa?", "A mano, en el río o el lavadero."],
+    ["m", "¿Por qué es mejor ducharse que bañarse?", "Porque se gasta menos agua."],
+    ["m", "¿Qué es un palafito?", "Una casa sobre palos encima del agua."],
+    ["a", "En la lectura, ¿qué diferencias hay entre las dos casas de Sofía?", "Una es de piedra con huerto en el pueblo; otra, un piso en la ciudad."],
+    ["a", "¿Qué quiere decir Sofía con «en las dos me siento en mi hogar»?", "Que el hogar es donde está la gente que la quiere."],
+    ["a", "Propón tres normas de seguridad para la cocina.", "No tocar el fuego, no coger cuchillos, mangos hacia dentro."],
+    ["a", "Compara una casa de antes con una de ahora.", "Antes sin agua corriente ni nevera; ahora con grifo, nevera, calefacción."],
+  ],
+  quiz: [
+    ["Una casa excavada en la roca es una…", ["cueva", "jaima", "palafito"], "Viviendas."],
+    ["Para ahorrar energía…", ["apagamos la luz", "dejamos la tele encendida", "abrimos la nevera"], "Ahorro."],
+    ["Las medicinas deben estar…", ["en lugares altos o cerrados", "en el suelo", "en la mesa"], "Accidentes."],
+    ["En Año Nuevo, en España se toman…", ["uvas", "turrones a mediodía", "castañas"], "Fiestas."],
+    ["Antes se calentaban las casas con…", ["chimenea o brasero", "radiadores", "aire acondicionado"], "Antes."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué árbol hay en el patio de los abuelos?", ["un limonero", "un pino", "un olivo"], "Lectura."],
+    ["¿Qué celebran al final del verano?", ["el cumpleaños de la abuela", "la Navidad", "una boda"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Ahorrar", "Cerrar grifos y apagar luces y aparatos."],
+    ["Seguridad en casa", "Fuego, enchufes, limpieza y ventanas: ¡cuidado!"],
+  ],
+  glosario: [
+    ["Vivienda", "Lugar donde vive una familia."],
+    ["Piso", "Vivienda dentro de un edificio."],
+    ["Cueva", "Vivienda excavada en la roca."],
+    ["Palafito", "Casa sobre palos en el agua."],
+    ["Jaima", "Tienda de tela del desierto."],
+    ["Ahorrar", "Gastar menos."],
+    ["Energía", "Lo que hace funcionar luces y aparatos."],
+    ["Accidente doméstico", "Accidente que ocurre en casa."],
+    ["Celebración", "Fiesta para un momento especial."],
+    ["Hogar", "Casa donde vive la familia."],
+  ],
+  situacion: {
+    titulo: "Casa segura y ahorradora",
+    reto: "Cada niño revisa su casa con su familia para hacerla más segura y ahorrar agua y energía.",
+    pasos: ["Dibujar el plano de la propia casa.", "Marcar lugares peligrosos y proponer soluciones.", "Anotar durante una semana gestos de ahorro.", "Presentar en clase un cartel con las mejores ideas."],
+    producto: "Un plano de casa segura y un cartel de ahorro.",
+    evaluacion: ["Conoce tipos de vivienda.", "Propone formas de ahorrar.", "Identifica peligros en casa.", "Valora las celebraciones familiares."],
+  },
+});

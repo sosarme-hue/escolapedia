@@ -135,3 +135,93 @@ module.exports = tema({
   saberes: "Sociedades y territorios: la localidad (pueblo y ciudad), su organización en calles, plazas y barrios, el ayuntamiento y el cuidado de los espacios públicos",
   ideas: ["Maqueta del barrio con cajas de cartón y calles pintadas.", "Paseo por el entorno del colegio para hacer un plano sencillo.", "Carta al ayuntamiento con propuestas de la clase para mejorar el barrio."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Leer un plano sencillo de la localidad", "Conocer las fiestas y tradiciones locales", "Distinguir las tiendas y lo que venden", "Participar como buen vecino"],
+  lectura: { titulo: "El plano del tesoro", html: `<p>Para celebrar las fiestas del barrio, el ayuntamiento organiza una gincana. Cada equipo recibe un plano con un recorrido y unas pistas.</p><p>El equipo de Aitana abre el plano. Hay calles dibujadas como líneas, una plaza en el centro y unos símbolos pequeños: una cruz para la iglesia, un libro para la biblioteca, un árbol para el parque.</p><p>—La primera pista está «donde se guardan miles de historias» —lee Aitana.</p><p>—¡La biblioteca! —dice Unai.</p><p>Buscan el libro en el plano y siguen la calle Mayor. Al llegar, la bibliotecaria les da otra tarjeta: «Busca donde trabaja la alcaldesa».</p><p>Corren hasta el ayuntamiento, en la plaza. Después van al mercado, al centro de salud y, por último, al parque.</p><p>Debajo del quiosco de música encuentran un cofre con medallas de chocolate. ¡Han ganado!</p><p>—Ahora conozco mi barrio mucho mejor —dice Aitana, mirando el plano.</p>` },
+  tras: {
+    "Las calles y las plazas": [
+      ["Leer un plano", `<p>Un <mark>plano</mark> es un dibujo de un lugar visto desde <b>arriba</b>, como lo vería un pájaro. Sirve para orientarnos y encontrar sitios.</p><p>En un plano:</p><ul><li>Las <b>calles</b> se dibujan como líneas o franjas, con su nombre.</li><li>Los <b>edificios</b> aparecen como rectángulos.</li><li>Los <b>parques</b> suelen ser de color verde y los ríos, azules.</li><li>Hay <b>símbolos</b> para lugares importantes: una H para el hospital, una cruz para la farmacia, una P para el aparcamiento.</li><li>La <b>leyenda</b> explica qué significa cada símbolo.</li></ul><p>Hoy usamos mucho los planos en el <b>móvil</b>, que además nos dicen dónde estamos con un puntito.</p><p>Para seguir un plano, hay que girarlo para que coincida con lo que vemos a nuestro alrededor.</p><p><b>Actividad</b>: dibuja el plano de tu clase visto desde arriba, con una leyenda.</p>`,
+        L6.filas("Plano", [["líneas", "calles", cMO], ["verde", "parques", cVE], ["azul", "ríos", cAZ], ["símbolos", "leyenda", cRO]])],
+    ],
+    "Los barrios": [
+      ["Las tiendas del barrio", `<p>En los barrios y pueblos hay <mark>tiendas</mark> donde compramos lo que necesitamos. Muchas se llaman según lo que venden, con la terminación <b>-ería</b>:</p><ul><li><b>Panadería</b>: pan y bollos.</li><li><b>Frutería</b>: frutas y verduras.</li><li><b>Carnicería</b>: carne.</li><li><b>Pescadería</b>: pescado.</li><li><b>Librería</b> y <b>papelería</b>: libros, cuadernos y lápices.</li><li><b>Zapatería</b>: zapatos.</li><li><b>Farmacia</b>: medicinas.</li></ul><p>También hay <b>mercados</b>, con muchos puestos juntos, y <b>supermercados</b>, donde se vende un poco de todo.</p><p>Comprar en las tiendas del barrio ayuda a que haya vida en las calles y a que los vecinos se conozcan.</p><p><b>Actividad</b>: haz una lista de las tiendas que hay en tu calle o cerca del cole.</p>`,
+        H6.rueda("Tiendas", "BARRIO", [["panadería", cNA], ["frutería", cVE], ["farmacia", cRO], ["librería", cAZ]])],
+    ],
+    "Edificios importantes": [
+      ["Fiestas y tradiciones", `<p>Cada localidad tiene sus propias <mark>fiestas</mark> y <mark>tradiciones</mark>. Son parte de su identidad.</p><ul><li>Las <b>fiestas patronales</b>: en honor al patrón o la patrona del pueblo, con procesiones, verbenas, música y fuegos artificiales.</li><li>Los <b>Carnavales</b>: la gente se disfraza y hay desfiles. Los de Cádiz y Santa Cruz de Tenerife son muy famosos.</li><li>Las <b>Fallas</b> de Valencia, con grandes figuras que se queman.</li><li>Los <b>Sanfermines</b> de Pamplona.</li><li>Las <b>romerías</b>, cuando la gente va al campo a una ermita.</li></ul><p>En las fiestas también hay <b>comidas típicas</b>, <b>bailes</b> y <b>trajes</b> tradicionales que se transmiten de generación en generación.</p><p><b>Actividad</b>: averigua cuándo son las fiestas de tu localidad y qué se hace en ellas.</p>`,
+        L6.filas("Fiestas", [["patronales", "procesión", cNA], ["Carnaval", "disfraces", cRO], ["Fallas", "Valencia", cAZ], ["romería", "ermita", cVE]])],
+    ],
+    "El ayuntamiento y el alcalde": [
+      ["Ser buen vecino", `<p>Los <mark>vecinos</mark> son las personas que viven en la misma localidad. Ser buen vecino es colaborar para que todos vivamos bien:</p><ul><li><b>Saludar</b> a las personas del edificio y del barrio.</li><li>No hacer <b>ruido</b> por la noche ni a la hora de la siesta.</li><li>Ayudar a las personas <b>mayores</b> con la compra o abriendo la puerta.</li><li>Recoger las cacas de nuestro <b>perro</b>.</li><li>Cuidar las zonas comunes: la escalera, el ascensor, el portal.</li><li>Participar en las actividades del barrio: fiestas, mercadillos, limpiezas del parque.</li></ul><p>En muchos barrios hay <b>asociaciones de vecinos</b>, que proponen mejoras al ayuntamiento: más zonas verdes, un paso de peatones, una biblioteca…</p><p><b>Actividad</b>: piensa en una mejora para tu barrio y escribe una carta al alcalde o a la alcaldesa.</p>`,
+        H6.flujo("Vecino", ["saludar|amable", "sin ruido|respetar", "ayudar|mayores", "participar|barrio"], cVE),
+        ["OS4eCsKOGOw", "Haciendo El Barrio Limpio Y Verde", "ChuChuTV Español", 1689909]],
+    ],
+  },
+  final: [
+    ["Mi localidad cambia", `<p>Las localidades <mark>cambian</mark> con el paso del tiempo:</p><ul><li>Donde antes había <b>campos</b>, ahora puede haber casas y calles.</li><li>Las calles de <b>tierra</b> se asfaltaron y se pusieron farolas.</li><li>Se construyeron <b>colegios</b>, centros de salud y polideportivos.</li><li>Antes había muchos <b>oficios</b> en la calle, como el afilador o el lechero, que hoy casi no existen.</li><li>Algunos pueblos han crecido mucho y otros han perdido habitantes porque la gente se fue a las ciudades.</li></ul><p>Para saber cómo era nuestra localidad antes, podemos mirar <b>fotos antiguas</b>, preguntar a los mayores o visitar el museo local.</p><p>Hay edificios antiguos que se conservan, como iglesias, castillos o puentes. Son parte de nuestro <b>patrimonio</b> y hay que cuidarlos.</p><p><b>Actividad</b>: busca una foto antigua de tu localidad y compárala con cómo es hoy.</p>`,
+      H6.dos("Localidad", ["ANTES", ["campos", "calles de tierra", "afilador"], cMO], ["AHORA", ["casas", "asfalto, farolas", "tiendas"], cAZ])],
+    ["Repaso: el plano del tesoro", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>El <b>plano</b> muestra el barrio visto desde arriba, con calles y símbolos.</li><li>El <b>libro</b> es el símbolo de la biblioteca; el <b>árbol</b>, el del parque.</li><li>La biblioteca es un <b>servicio</b> de la localidad.</li><li>En el <b>ayuntamiento</b> trabaja la <b>alcaldesa</b>.</li><li>El ayuntamiento está en la <b>plaza</b>, en el centro.</li><li>Pasan por el <b>mercado</b>, donde están las tiendas, y el <b>centro de salud</b>.</li><li>Todo ocurre durante las <b>fiestas</b> del barrio.</li></ul><p>Gracias al juego, Aitana conoce mejor los lugares importantes de su barrio.</p><p><b>Actividad</b>: organiza con tu clase una gincana por el colegio con un plano y pistas.</p>`,
+      L6.filas("Gincana", [["1", "biblioteca", cAZ], ["2", "ayuntamiento", cNA], ["3", "mercado", cVE], ["4", "parque: ¡cofre!", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Qué vende una pescadería?", ["Termina en -ería.", "Empieza por «pescad-»."], "Pescado."],
+    ["¿Cómo se ve un lugar en un plano?", ["Como un pájaro desde el cielo."], "Desde arriba."],
+  ],
+  errores: ["Pensar que un plano es una foto de frente.", "Hacer ruido en el edificio a horas de descanso."],
+  ejercicios: [
+    ["b", "¿Qué es un plano?", "Un dibujo de un lugar visto desde arriba."],
+    ["b", "¿Qué se vende en una frutería?", "Frutas y verduras."],
+    ["b", "Di una fiesta famosa de España.", "Fallas, Sanfermines, Carnaval…"],
+    ["b", "Di una forma de ser buen vecino.", "Saludar, no hacer ruido…"],
+    ["b", "¿Qué explica la leyenda de un plano?", "Lo que significa cada símbolo."],
+    ["m", "¿De qué color suelen estar los parques en un plano?", "Verde."],
+    ["m", "¿Qué son las fiestas patronales?", "Fiestas en honor al patrón o patrona."],
+    ["m", "¿Qué hace una asociación de vecinos?", "Propone mejoras para el barrio."],
+    ["m", "Di dos cambios de las localidades con el tiempo.", "Calles asfaltadas, nuevos edificios…"],
+    ["m", "¿Por qué es bueno comprar en las tiendas del barrio?", "Da vida a las calles y une a los vecinos."],
+    ["a", "En la lectura, ¿dónde está el cofre?", "Debajo del quiosco de música del parque."],
+    ["a", "¿Qué símbolos usarías en un plano para el cole y la farmacia?", "Respuesta libre razonada."],
+    ["a", "Escribe una mejora para tu barrio.", "Respuesta libre."],
+    ["a", "¿Qué es el patrimonio de una localidad?", "Los edificios y tradiciones antiguos que se conservan."],
+  ],
+  quiz: [
+    ["Un plano muestra un lugar visto…", ["desde arriba", "de frente", "de lado"], "Plano."],
+    ["Los libros se compran en la…", ["librería", "carnicería", "farmacia"], "Tiendas."],
+    ["Las Fallas son de…", ["Valencia", "Pamplona", "Cádiz"], "Fiestas."],
+    ["Un buen vecino…", ["recoge las cacas del perro", "grita de noche", "ensucia el portal"], "Vecinos."],
+    ["Los edificios antiguos que se cuidan son…", ["patrimonio", "tiendas", "planos"], "Cambios."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué símbolo tiene la biblioteca?", ["un libro", "una cruz", "un árbol"], "Lectura."],
+    ["¿Qué hay en el cofre?", ["medallas de chocolate", "monedas", "un mapa"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Plano", "Dibujo desde arriba con leyenda."],
+    ["Buen vecino", "Saluda, respeta, ayuda y participa."],
+  ],
+  glosario: [
+    ["Plano", "Dibujo de un lugar visto desde arriba."],
+    ["Leyenda", "Explicación de los símbolos."],
+    ["Símbolo", "Dibujo que representa algo."],
+    ["Panadería", "Tienda de pan."],
+    ["Mercado", "Lugar con muchos puestos de venta."],
+    ["Fiesta patronal", "Fiesta del patrón de un pueblo."],
+    ["Tradición", "Costumbre que pasa de padres a hijos."],
+    ["Vecino", "Persona que vive en la misma localidad."],
+    ["Asociación", "Grupo de personas que se unen por un fin."],
+    ["Patrimonio", "Lo valioso que heredamos del pasado."],
+  ],
+  situacion: {
+    titulo: "Guía de mi localidad",
+    reto: "La clase prepara una guía ilustrada de la localidad con un plano, sus tiendas, sus fiestas y consejos para ser buen vecino.",
+    pasos: ["Dibujar un plano sencillo con símbolos y leyenda.", "Hacer una lista de tiendas y servicios.", "Investigar las fiestas y tradiciones locales.", "Escribir normas para ser buen vecino."],
+    producto: "Una guía de la localidad para las familias.",
+    evaluacion: ["Lee e interpreta un plano.", "Conoce tiendas y servicios.", "Describe fiestas locales.", "Propone normas de convivencia."],
+  },
+});

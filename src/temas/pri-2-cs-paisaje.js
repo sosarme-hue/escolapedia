@@ -136,3 +136,93 @@ module.exports = tema({
   saberes: "Sociedades y territorios: el paisaje, sus elementos naturales y construidos; el paisaje de montaña (cima, ladera, valle) y el de costa (playa, acantilado, puerto); la conservación del entorno",
   ideas: ["Maqueta de plastilina con una montaña y una costa.", "Clasificación de fotos de paisajes en la pizarra digital.", "Caja de arena para modelar cima, ladera y valle y echar agua para ver el río."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las partes de una montaña", "Distinguir playa, acantilado, cabo y golfo", "Conocer montañas y costas de España", "Conocer otros paisajes: llanura, valle y río"],
+  lectura: { titulo: "Vacaciones de dos paisajes", html: `<p>Este verano, la familia de Jorge no se pone de acuerdo. Su madre quiere ir a la montaña y su padre, a la playa.</p><p>—¡Pues vamos a los dos sitios! —propone Jorge.</p><p>La primera semana van a los Pirineos. Se alojan en un pueblo de casas de piedra con tejados de pizarra. Por las mañanas suben por senderos entre pinos hasta un lago de agua helada. Desde la cima ven valles verdes y vacas con cencerros. Por la noche hace fresco y necesitan chaqueta.</p><p>La segunda semana van a la costa, a un pueblo de pescadores. Las casas son blancas y hay barcas de colores en el puerto. Jorge se baña en el mar, hace castillos de arena y busca cangrejos entre las rocas. Al atardecer, ven cómo los pescadores vuelven con las redes llenas.</p><p>De vuelta a casa, Jorge dibuja los dos paisajes en su cuaderno.</p><p>—¿Cuál te ha gustado más? —le pregunta su madre.</p><p>Jorge lo piensa un buen rato.</p><p>—¡Los dos! Son muy distintos, pero los dos son preciosos.</p>` },
+  tras: {
+    "La montaña": [
+      ["Las partes de la montaña", `<p>Una montaña tiene varias <mark>partes</mark>:</p><ul><li>La <b>cima</b>: la parte más alta, la punta. Si es afilada se llama <b>pico</b>.</li><li>La <b>ladera</b>: los lados inclinados de la montaña. Se suben por senderos.</li><li>La <b>falda</b> o <b>pie</b>: la parte más baja, donde empieza la montaña.</li></ul><p>Cuando hay muchas montañas juntas forman una <b>sierra</b> o una <b>cordillera</b>.</p><p>Entre dos montañas queda un terreno hundido y alargado: el <b>valle</b>. Por el valle suele correr un <b>río</b>.</p><p>Cuanto más subimos por la ladera, más <b>frío</b> hace. Por eso muchas cimas tienen <b>nieve</b> incluso en primavera.</p><p><b>Actividad</b>: haz una montaña con plastilina y señala la cima, la ladera, la falda y el valle con banderitas.</p>`,
+        H6.flujo("Montaña", ["pie|abajo", "ladera|lados", "cima|arriba", "valle|entre dos"], cVE),
+        ["tJshNT7p-mE", "Amo Las Montañas | Canciones Infantiles", "Super Simple Español", 12970248]],
+    ],
+    "Vivir en la montaña": [
+      ["Montañas de España", `<p>España es un país con muchas <mark>montañas</mark>. Algunas de las más conocidas:</p><ul><li>Los <b>Pirineos</b>: en el norte, en la frontera con Francia. Tienen picos muy altos con nieve.</li><li>La <b>cordillera Cantábrica</b>: en el norte, cerca del mar. Allí vive el oso pardo.</li><li>El <b>Sistema Central</b>: en el centro, cerca de Madrid. Tiene la sierra de Guadarrama.</li><li><b>Sierra Nevada</b>: en Granada. Allí está el <b>Mulhacén</b>, el pico más alto de la Península.</li><li>El <b>Teide</b>: en Tenerife, en las islas Canarias. Es un <b>volcán</b> y es la montaña más alta de toda España.</li></ul><p>En muchas de estas montañas hay <b>parques nacionales</b> que protegen la naturaleza.</p><p><b>Actividad</b>: busca en un mapa de España dónde están los Pirineos, Sierra Nevada y el Teide.</p>`,
+        L6.filas("Montañas", [["Pirineos", "norte", cAZ], ["Sierra Nevada", "Mulhacén", cNA], ["Sist. Central", "Madrid", cVE], ["Teide", "volcán", cRO]])],
+    ],
+    "La costa": [
+      ["Formas de la costa", `<p>La <mark>costa</mark> no es igual en todas partes. Tiene diferentes formas:</p><ul><li><b>Playa</b>: costa baja y llana, con arena o piedras.</li><li><b>Acantilado</b>: costa alta, con paredes de roca que caen directamente al mar.</li><li><b>Cabo</b>: un trozo de tierra que entra en el mar, como una punta.</li><li><b>Golfo</b> o <b>bahía</b>: un trozo de mar que entra en la tierra, como una curva.</li><li><b>Isla</b>: tierra rodeada de agua por todas partes.</li><li><b>Península</b>: tierra rodeada de agua por todas partes menos por una. ¡España está en una península!</li></ul><p>En los cabos y acantilados suele haber <b>faros</b>, que con su luz avisan a los barcos de noche.</p><p><b>Actividad</b>: con arena mojada en una bandeja, construye una playa, un cabo y un golfo.</p>`,
+        H6.rueda("Costa", "MAR", [["playa", cNA], ["acantilado", cMO], ["cabo", cAZ], ["golfo", cVE]])],
+    ],
+    "Elementos naturales y construidos": [
+      ["Otros paisajes", `<p>Además de la montaña y la costa, hay <mark>otros paisajes</mark>:</p><ul><li><b>Llanura</b>: terreno grande y plano, sin montañas. Se ve muy lejos el horizonte. Suele haber campos de cultivo, como en Castilla.</li><li><b>Meseta</b>: una llanura que está a bastante altura. El centro de España es una gran meseta.</li><li><b>Valle</b>: terreno bajo entre montañas, por donde corre un río.</li><li><b>Paisaje de río</b>: con agua que corre, árboles en las orillas como chopos y sauces, y a veces puentes.</li><li><b>Desierto</b>: muy seco, con poca vegetación. En Almería está el desierto de Tabernas.</li></ul><p>España tiene casi todos los paisajes: montañas, costas, llanuras, ríos, islas ¡y hasta un desierto!</p><p><b>Actividad</b>: busca fotos de tres paisajes distintos de España y escribe sus nombres.</p>`,
+        L6.filas("Paisajes", [["llanura", "plana", cNA], ["meseta", "plana y alta", cMO], ["valle", "entre montañas", cVE], ["desierto", "seco", cRO]])],
+    ],
+  },
+  final: [
+    ["Deportes y actividades", `<p>En cada paisaje podemos hacer <mark>actividades</mark> diferentes:</p><p>En la <b>montaña</b>:</p><ul><li><b>Senderismo</b>: caminar por senderos.</li><li><b>Escalada</b>: subir por paredes de roca.</li><li><b>Esquí</b> y trineo en invierno.</li><li>Observar animales y plantas.</li></ul><p>En la <b>costa</b>:</p><ul><li><b>Nadar</b> y bucear.</li><li><b>Surf</b> y vela.</li><li>Hacer castillos de arena y buscar conchas.</li><li>Pasear por el paseo marítimo.</li></ul><p>Siempre con <b>seguridad</b>: en la montaña, ir acompañados, llevar agua y no salirse del sendero. En la playa, bañarse con un adulto, hacer caso a las banderas y usar crema solar.</p><p><b>Bandera verde</b>: baño permitido. <b>Amarilla</b>: precaución. <b>Roja</b>: prohibido bañarse.</p><p><b>Actividad</b>: escribe qué actividad te gustaría hacer en la montaña y cuál en la playa.</p>`,
+      H6.dos("Actividades", ["MONTAÑA", ["senderismo", "escalada", "esquí"], cVE], ["COSTA", ["nadar", "surf", "castillos"], cAZ])],
+    ["Repaso: las vacaciones de Jorge", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>En los <b>Pirineos</b>: casas de <b>piedra</b> con tejados de pizarra, pinos, un lago helado, valles verdes y vacas.</li><li>Jorge sube a la <b>cima</b> y ve los <b>valles</b>.</li><li>Por la noche hace <b>fresco</b>: en la montaña hace más frío.</li><li>En la <b>costa</b>: casas blancas, <b>puerto</b> con barcas, playa y rocas.</li><li>Los pescadores trabajan en el mar: es una actividad típica de la costa.</li></ul><p>Elementos <b>naturales</b>: el lago, los pinos, el mar, la arena. Elementos <b>construidos</b>: las casas, el puerto, los senderos.</p><p><b>Actividad</b>: dibuja, como Jorge, un paisaje de montaña y uno de costa, y señala sus elementos.</p>`,
+      L6.filas("Jorge", [["Pirineos", "piedra, pinos", cVE], ["cima", "ve valles", cNA], ["costa", "casas blancas", cAZ], ["puerto", "pescadores", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Qué es una península?", ["Tierra rodeada de agua.", "Menos por un lado."], "Tierra rodeada de agua menos por una parte."],
+    ["¿Cuál es la montaña más alta de España?", ["Está en Canarias.", "Es un volcán."], "El Teide."],
+  ],
+  errores: ["Confundir cabo (tierra que entra en el mar) con golfo (mar que entra en la tierra).", "Bañarse con bandera roja."],
+  ejercicios: [
+    ["b", "¿Cómo se llama la parte más alta de la montaña?", "Cima."],
+    ["b", "¿Qué es un acantilado?", "Costa alta de roca."],
+    ["b", "¿Dónde está el Teide?", "En Tenerife, Canarias."],
+    ["b", "¿Qué es una llanura?", "Un terreno grande y plano."],
+    ["b", "¿Qué significa la bandera roja en la playa?", "Prohibido bañarse."],
+    ["m", "¿Qué diferencia hay entre cabo y golfo?", "El cabo es tierra que entra en el mar; el golfo, mar que entra en la tierra."],
+    ["m", "¿Qué es un valle?", "Terreno bajo entre montañas."],
+    ["m", "¿Dónde está el Mulhacén?", "En Sierra Nevada, Granada."],
+    ["m", "Di dos actividades de montaña.", "Senderismo, esquí…"],
+    ["m", "¿Para qué sirven los faros?", "Para avisar a los barcos de noche."],
+    ["a", "En la lectura, ¿por qué Jorge necesita chaqueta en los Pirineos?", "Porque en la montaña hace más frío."],
+    ["a", "Clasifica los elementos de la lectura en naturales y construidos.", "Naturales: lago, pinos, mar. Construidos: casas, puerto."],
+    ["a", "¿Por qué España es una península?", "Porque está rodeada de agua menos por una parte."],
+    ["a", "Escribe tres normas de seguridad en la playa.", "Bañarse con un adulto, hacer caso a las banderas, crema solar."],
+  ],
+  quiz: [
+    ["Los lados de la montaña son las…", ["laderas", "cimas", "playas"], "Partes."],
+    ["La montaña más alta de España es el…", ["Teide", "Mulhacén", "Pirineo"], "España."],
+    ["Una costa alta de roca es un…", ["acantilado", "playa", "golfo"], "Costa."],
+    ["Una llanura alta es una…", ["meseta", "valle", "isla"], "Paisajes."],
+    ["Con bandera amarilla hay que…", ["tener precaución", "no bañarse nunca", "bucear"], "Seguridad."],
+  ],
+  examen: [
+    ["En la lectura, ¿adónde van primero?", ["a los Pirineos", "a la playa", "a Canarias"], "Lectura."],
+    ["En el puerto de la costa hay…", ["barcas de colores", "vacas", "pinos"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Montaña", "Pie, ladera, cima; entre montañas, el valle."],
+    ["Costa", "Playa, acantilado, cabo, golfo."],
+  ],
+  glosario: [
+    ["Cima", "Parte más alta de una montaña."],
+    ["Ladera", "Lado inclinado de una montaña."],
+    ["Cordillera", "Muchas montañas juntas."],
+    ["Valle", "Terreno bajo entre montañas."],
+    ["Acantilado", "Costa alta de roca."],
+    ["Cabo", "Tierra que entra en el mar."],
+    ["Golfo", "Mar que entra en la tierra."],
+    ["Península", "Tierra rodeada de agua menos por una parte."],
+    ["Llanura", "Terreno plano y extenso."],
+    ["Faro", "Torre con luz que guía a los barcos."],
+  ],
+  situacion: {
+    titulo: "Maqueta de paisajes",
+    reto: "La clase construye una gran maqueta con una montaña, un valle, un río y una costa con sus formas.",
+    pasos: ["Diseñar la maqueta en papel.", "Modelar con plastilina o papel maché la montaña y la costa.", "Señalar cima, ladera, valle, playa, cabo y golfo.", "Añadir elementos construidos y explicar la maqueta."],
+    producto: "Una maqueta de paisajes con etiquetas.",
+    evaluacion: ["Nombra las partes de la montaña.", "Distingue formas de la costa.", "Conoce montañas de España.", "Diferencia elementos naturales y construidos."],
+  },
+});
