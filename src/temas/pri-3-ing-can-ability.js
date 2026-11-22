@@ -91,3 +91,101 @@ module.exports = tema({
   ideas: ["Juego «Find someone who can…».", "Cartel del talent show de la clase.", "Inventar un robot y describir lo que puede hacer."],
   fuentes: [["British Council LearnEnglish Kids: can", "https://learnenglishkids.britishcouncil.org/"], ["Cambridge Dictionary: can", "https://dictionary.cambridge.org/grammar/british-grammar/can"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Say how well we can do something with «very well» and «a little»", "Ask «What can you do?» and answer with full sentences", "Use can and can't with and and but", "Talk about abilities of people and animals in a short text"],
+  lectura: { titulo: "Penguin can't fly", html: `<p>Pip is a little penguin. He lives in Antarctica, where it is very cold.</p><p>One day, Pip sees a big bird in the sky. "Wow! That bird can fly!" he says. "I want to fly too."</p><p>Pip jumps from a rock and moves his wings very fast. But he can't fly. He falls into the snow. Bump!</p><p>"I can't fly," says Pip sadly. "I'm a useless bird."</p><p>His friend Seal swims to the rock. "Don't be sad, Pip," she says. "You can't fly, but you can do other things. Come with me!"</p><p>Pip jumps into the water. And suddenly, he feels fantastic. He can swim very fast. He can dive very deep. He can catch fish!</p><p>"Look!" says Seal. "In the water, you can fly!"</p><p>Pip smiles. The big bird can fly in the sky, but it can't swim like a penguin.</p><p>"Everybody can do something well," says Pip. "And I can swim!"</p>` },
+  tras: {
+    "Action verbs": [
+      ["Sports and music: play", `<p>Many abilities use the verb <mark>play</mark> (jugar o tocar). Look at the two meanings:</p><ul><li><b>play + sport</b> (jugar a): «I can <b>play football</b>», «She can play tennis», «They can play basketball».</li><li><b>play + the + instrument</b> (tocar): «I can <b>play the guitar</b>», «He can play the piano», «Can you play the drums?» (la batería)</li></ul><p>Look: with instruments we use <b>the</b>. With sports, we don't: we never say <i>play the football</i>.</p><p>Other verbs for abilities:</p><ul><li><b>ride</b> a bike / a horse (montar en)</li><li><b>speak</b> English / French (hablar)</li><li><b>draw</b> (dibujar) and <b>paint</b> (pintar)</li><li><b>cook</b> (cocinar)</li><li><b>skate</b> (patinar) and <b>ski</b> (esquiar)</li><li><b>whistle</b> (silbar)</li></ul><p>Instruments to learn: <i>the guitar, the piano, the violin, the drums, the flute, the recorder</i> (la flauta dulce). At school in Spain, many children can play the recorder.</p><p><b>Activity</b>: draw a sport and an instrument and write «I can play…» or «I can't play…».</p>`,
+        H6.dos("play", ["SPORT", ["play football", "play tennis", "play chess"], cVE], ["MUSIC", ["play the piano", "play the guitar", "play the drums"], cMO]),
+        ["0RRtaY7c-Bs", "I Can Jump! | Actions Song for Kids | Fun Kids English", "Fun Kids English", 1092314]],
+    ],
+    "I can't": [
+      ["Very well, quite well, a little", `<p>We don't do everything at the same level. We can say <mark>how well</mark> (lo bien que) we can do something:</p><ul><li>«I can swim <b>very well</b>.» (muy bien) ★★★</li><li>«I can swim <b>quite well</b>.» (bastante bien) ★★</li><li>«I can swim <b>a little</b>.» (un poco) ★</li><li>«I <b>can't</b> swim <b>at all</b>.» (nada) ✗</li></ul><p>These words go <b>at the end</b> of the sentence, after the activity:</p><ul><li>«She can speak English very well.»</li><li>«He can play the piano a little.»</li></ul><p>We can also ask: «Can you swim?» – «Yes, <b>very well</b>!» or «Yes, but only a little.»</p><p>It's OK to say «I can't… yet» (todavía no). <b>Yet</b> means that we are learning: «I can't ride a bike <b>yet</b>, but I'm learning.» With practice, everybody can learn new things!</p><p><b>Activity</b>: write four sentences about yourself with very well, quite well, a little and not at all.</p>`,
+        L6.filas("How well?", [["very well", "★★★", cVE], ["quite well", "★★", cAZ], ["a little", "★", cNA], ["not at all", "✗", cRO]])],
+    ],
+    "Can you…?": [
+      ["What can you do?", `<p>With <b>Can you…?</b> the answer is <i>yes</i> or <i>no</i>. To get more information, ask <mark>What can you do?</mark> (¿Qué sabes hacer?)</p><ul><li>«<b>What can you do?</b>» – «I can dance and I can sing.»</li><li>«<b>What can your dog do?</b>» – «It can catch a ball.»</li><li>«<b>What can</b> a parrot <b>do</b>?» – «It can talk!»</li></ul><p>We can also ask with <b>Who</b> (quién): «<b>Who can</b> speak French?» – «Marie can!»</p><p>Answer with <b>full sentences</b> and join two ideas:</p><ul><li>With <b>and</b> (y): «I can swim <b>and</b> I can dive.»</li><li>With <b>but</b> (pero), for a contrast: «I can swim, <b>but</b> I can't dive.»</li></ul><p>We can make it shorter: «I can swim and dive.» («I can» only once.)</p><p><b>Activity</b>: interview a partner: «What can you do? What can't you do?» Write two sentences with <i>and</i> and two with <i>but</i>.</p>`,
+        L6.dialogo("What can you do?", [["Leo", "What can you do?", cAZ], ["Mia", "I can sing and dance.", cRO], ["Leo", "Can you play the drums?", cAZ], ["Mia", "No, but I can play the piano!", cRO]])],
+    ],
+    "Animals can…": [
+      ["Amazing animal abilities", `<p>Some animals have <mark>amazing</mark> (asombrosas) abilities:</p><ul><li>A <b>cheetah</b> (guepardo) can run very fast: faster than a car in the city!</li><li>A <b>kangaroo</b> can jump very far.</li><li>A <b>chameleon</b> (camaleón) can change colour.</li><li>An <b>owl</b> (búho) can see in the dark.</li><li>A <b>dolphin</b> can swim and jump, and it can play with other dolphins.</li><li>A <b>bat</b> (murciélago) can fly, but it can't see very well. It uses sounds.</li><li>A <b>snake</b> can't walk, but it can climb trees and swim.</li></ul><p>Remember: <b>can</b> doesn't change: «A cheetah can run», «Cheetahs can run».</p><p>Riddle (adivinanza): <i>I can fly. I can sing. I can make a nest. I have got two legs and feathers. What am I?</i> (A bird!)</p><p><b>Activity</b>: choose an animal and write a riddle with three «can» sentences and one «can't» sentence. Your classmates guess!</p>`,
+        H6.rueda("Animals", "CAN", [["cheetah: run", cNA], ["owl: see", cMO], ["kangaroo: jump", cVE], ["dolphin: swim", cAZ]]),
+        ["dUXk8Nc5qQ8", "Action Songs for kids | The Singing Walrus", "The Singing Walrus - Canciones Inglesas para niños", 184368453]],
+    ],
+    "Reading: the school talent show": [
+      ["Write about abilities", `<p>Now you can write a short text about what <mark>you and your family</mark> can do. Here is an example:</p><p><i>My name is Clara and I'm eight. I can do lots of things! I can swim very well and I can ride a bike. I can play the recorder a little. I can't play the piano yet, but I'm learning. My brother Max can play football very well, but he can't swim. My grandma can cook fantastic paella! My dog Toby can catch a ball, but he can't climb trees. What can you do?</i></p><p>Tips:</p><ul><li>Start with your name and age.</li><li>Use <b>can</b> and <b>can't</b> with different verbs.</li><li>Say how well: <b>very well, a little</b>.</li><li>Use <b>and</b> and <b>but</b>.</li><li>Write about other people and a pet.</li><li>Finish with a question.</li></ul><p><b>Activity</b>: write your text with at least eight sentences and add a drawing.</p>`,
+        H6.flujo("My text", ["name|age", "can|can't", "very well|a little", "and|but"], cAZ)],
+    ],
+  },
+  final: [
+    ["Can I…? Asking for permission", `<p><b>Can</b> has another important use: we use it to <mark>ask for permission</mark> (pedir permiso). We say <b>Can I…?</b> (¿Puedo…?):</p><ul><li>«<b>Can I</b> go to the toilet, please?»</li><li>«<b>Can I</b> open the window, please?»</li><li>«<b>Can I</b> borrow your pencil, please?» (¿Me dejas…?)</li><li>«<b>Can I</b> have some water, please?»</li></ul><p>The answers:</p><ul><li>Yes: «<b>Yes, of course.</b>» (Sí, claro) / «<b>Sure!</b>» / «<b>Here you are.</b>» (Aquí tienes)</li><li>No: «<b>Sorry, no.</b>» / «<b>Not now</b>, sorry.» (Ahora no)</li></ul><p>And to ask somebody to help us, we use <b>Can you…?</b>: «<b>Can you</b> help me, please?», «<b>Can you</b> repeat, please?» (¿Puedes repetir?), «<b>Can you</b> pass me the glue, please?»</p><p>Always say <b>please</b> (por favor) when you ask, and <b>thank you</b> (gracias) when somebody helps you. It's polite (educado)!</p><p>In class, these are some of the most useful sentences in English. Use them every day with your teacher.</p><p><b>Activity</b>: make a poster with five «Can I…?» questions for the classroom.</p>`,
+      L6.dialogo("Can I…?", [["Ana", "Can I borrow your ruler?", cAZ], ["Ben", "Sure! Here you are.", cRO], ["Ana", "Thank you!", cAZ], ["Ben", "You're welcome.", cRO]])],
+    ["Learning new things", `<p>Nobody can do everything at the beginning. We <mark>learn</mark> new abilities with practice. Think about babies: at first, a baby can't walk or talk. Then, step by step, the baby can sit, then stand, then walk!</p><p>Look at these sentences about the past and the future:</p><ul><li>«When I was a baby, I <b>couldn't</b> walk.» (no podía)</li><li>«Now I <b>can</b> run and jump.»</li><li>«I want to learn to <b>play</b> the guitar.» (quiero aprender a…)</li></ul><p>Tips for learning something new:</p><ul><li><b>Practise</b> every day, a little.</li><li>Don't be afraid of <b>mistakes</b> (errores): they help you learn.</li><li>Ask for <b>help</b>: «Can you help me, please?»</li><li>Say «I can't… <b>yet</b>».</li></ul><p>And remember: we can also help other people. If your friend can't do something, you can say: «Don't worry! I can help you.»</p><p><b>Activity</b>: write two things you can do now but couldn't do as a baby, and one thing you want to learn.</p>`,
+      H6.flujo("Learning", ["baby|can't", "practise|every day", "mistakes|help", "now|I can!"], cVE)],
+  ],
+  ejemplos: [
+    ["Correct: «I can play the football.»", ["With sports, we don't use the.", "With instruments, we use the."], "I can play football."],
+    ["Join with but: «I can swim.» + «I can't dive.»", ["But shows a contrast.", "Put a comma before but."], "I can swim, but I can't dive."],
+  ],
+  errores: ["Saying «play the football» (with sports there is no the).", "Putting «very well» in the middle: «I can very well swim»."],
+  ejercicios: [
+    ["b", "How do you say «tocar el piano» in English?", "Play the piano."],
+    ["b", "Complete: «I can't ride a bike ___, but I'm learning.»", "Yet."],
+    ["b", "What can a cheetah do?", "It can run very fast."],
+    ["b", "In the reading, can Pip fly?", "No, he can't."],
+    ["b", "What does «a little» mean?", "Un poco."],
+    ["m", "Order: well / swim / I / very / can", "I can swim very well."],
+    ["m", "Make a question: What / your dog / can / do?", "What can your dog do?"],
+    ["m", "Join with and: «I can sing.» + «I can dance.»", "I can sing and dance."],
+    ["m", "Translate: Ella sabe hablar francés un poco.", "She can speak French a little."],
+    ["m", "What can Pip do in the water?", "He can swim very fast, dive and catch fish."],
+    ["a", "Write an animal riddle with three can and one can't.", "Open answer."],
+    ["a", "What is the message of «Penguin can't fly»?", "Everybody can do something well."],
+    ["a", "Write a text about what you and your family can do.", "Open answer."],
+    ["a", "Write three things you couldn't do as a baby and can do now.", "Open answer."],
+  ],
+  quiz: [
+    ["«I can play ___ guitar.»", ["the", "a", "—"], "Instruments."],
+    ["«Bastante bien» in English is…", ["quite well", "very well", "a little"], "How well."],
+    ["«___ can speak French?» – «Marie can!»", ["Who", "What", "Where"], "Who."],
+    ["A chameleon can…", ["change colour", "fly", "talk"], "Animals."],
+    ["«I can swim, ___ I can't dive.»", ["but", "and", "because"], "Contrast."],
+  ],
+  examen: [
+    ["In the reading, who helps Pip?", ["Seal", "a big bird", "a fish"], "Reading."],
+    ["Which sentence is correct?", ["She can play tennis very well.", "She can very well play tennis.", "She cans play tennis."], "Order."],
+  ],
+  tarjetas: [
+    ["play", "play + sport (play football); play the + instrument (play the piano)."],
+    ["How well?", "very well, quite well, a little, not at all; can't… yet."],
+    ["What can you do?", "What can you do? Who can…? and / but."],
+    ["Animals", "A cheetah can run fast. An owl can see in the dark."],
+  ],
+  glosario: [
+    ["Ability", "Habilidad, algo que sabemos hacer."],
+    ["Play the piano", "Tocar el piano."],
+    ["Ride a bike", "Montar en bici."],
+    ["Very well", "Muy bien."],
+    ["Quite well", "Bastante bien."],
+    ["A little", "Un poco."],
+    ["Yet", "Todavía (en negativas)."],
+    ["Who", "Quién."],
+    ["But", "Pero."],
+    ["Cheetah", "Guepardo."],
+    ["Owl", "Búho."],
+    ["Practise", "Practicar."],
+  ],
+  situacion: {
+    titulo: "Our class talent book",
+    reto: "Each pupil writes a page about what they can do, how well, and what they want to learn, and the class makes a book.",
+    pasos: ["Interview a partner with What can you do? and Can you…?", "Write a page with can, can't, very well and a little.", "Add an animal riddle with can and can't.", "Put the pages together and present the book."],
+    producto: "A class book of talents in English.",
+    evaluacion: ["Uses can and can't correctly.", "Says how well with very well and a little.", "Uses play and play the correctly.", "Joins ideas with and and but."],
+  },
+});

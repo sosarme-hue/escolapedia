@@ -91,3 +91,99 @@ module.exports = tema({
   ideas: ["Encuesta de gustos de la clase con gráfico de barras.", "Juego «Find your food twin».", "Escala de emociones con caras para love / hate."],
   fuentes: [["British Council LearnEnglish Kids: food", "https://learnenglishkids.britishcouncil.org/"], ["Cambridge Dictionary: like", "https://dictionary.cambridge.org/dictionary/english/like"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Ask «What… do you like?» and «Does he like…?»", "Agree and disagree with «Me too!» and «Me neither!»", "Talk about meals and healthy food", "Do a class survey and write about likes and dislikes"],
+  lectura: { titulo: "Two very different friends", html: `<p>Hugo and Nadia are best friends, but they are very different.</p><p>Hugo loves sport. He plays football every day after school, and he likes swimming and riding his bike. He doesn't like reading, and he hates drawing. "It's boring!" he says.</p><p>Nadia loves books. She reads every night before bed. She likes painting and playing the piano, and she loves animals. She doesn't like football at all.</p><p>At lunchtime, they are different too. Hugo likes pasta and chicken, but he doesn't like vegetables. Nadia loves salad and fruit, but she hates fish.</p><p>"So what do you like doing together?" asks Hugo's mum one day.</p><p>Hugo and Nadia look at each other and smile.</p><p>"We love going to the zoo!" says Nadia.</p><p>"And we both like ice cream!" says Hugo. "Chocolate ice cream!"</p><p>"Me too!" says Hugo's mum. "Let's go and get some."</p><p>Friends don't need to like the same things. They just need to like each other.</p>` },
+  tras: {
+    "Do you like…?": [
+      ["What… do you like?", `<p>With <b>Do you like…?</b> the answer is <i>yes</i> or <i>no</i>. But to get <mark>more information</mark>, we can ask with <b>What</b>:</p><ul><li>«<b>What food</b> do you like?» – «I like pizza and strawberries.»</li><li>«<b>What sports</b> do you like?» – «I like tennis and basketball.»</li><li>«<b>What animals</b> do you like?» – «I love dolphins.»</li><li>«<b>What music</b> do you like?» – «I like pop music.»</li></ul><p>We can also ask about things we don't like:</p><ul><li>«<b>What food don't you like?</b>» – «I don't like mushrooms.» (setas)</li></ul><p>And to ask <b>why</b> (por qué), use <b>Why?</b> and answer with <b>because</b> (porque):</p><ul><li>«I don't like spiders.» – «<b>Why?</b>» – «<b>Because</b> they're scary.»</li><li>«I love summer <b>because</b> there's no school!»</li></ul><p>Useful adjectives for reasons: <i>fun</i> (divertido), <i>boring</i> (aburrido), <i>delicious</i> (delicioso), <i>disgusting</i> (asqueroso), <i>scary</i> (que da miedo), <i>cute</i> (mono), <i>exciting</i> (emocionante).</p><p><b>Activity</b>: ask three classmates «What animals do you like? Why?» and write their answers.</p>`,
+        L6.dialogo("Why?", [["Tom", "What food do you like?", cAZ], ["Eva", "I love pizza.", cRO], ["Tom", "Why?", cAZ], ["Eva", "Because it's delicious!", cRO]])],
+    ],
+    "Food I like": [
+      ["Breakfast, lunch and dinner", `<p>We eat different things at different <mark>meals</mark> (comidas):</p><ul><li><b>breakfast</b> (desayuno): «For breakfast, I have milk and toast.» Other ideas: <i>cereal, yoghurt, orange juice, an egg</i>.</li><li><b>lunch</b> (comida): «For lunch, I have soup, chicken and an apple.»</li><li><b>snack</b> (merienda o tentempié): «For my snack, I have a sandwich.»</li><li><b>dinner</b> (cena): «For dinner, I have fish and salad.»</li></ul><p>Look: in English we say <b>have</b> breakfast, <b>have</b> lunch, <b>have</b> dinner. And «For breakfast, I <b>have</b>…».</p><p>Some food is <b>healthy</b> (sano) and we can eat it every day: <i>fruit, vegetables, fish, water, rice, bread, milk</i>. Other food is <b>unhealthy</b> (poco sano) if we eat too much: <i>sweets, crisps</i> (patatas fritas de bolsa), <i>fizzy drinks</i> (refrescos), <i>cakes, burgers</i>.</p><p>It's OK to have a treat (capricho) sometimes, but not every day!</p><p>In the UK, lunch is often a small meal at about 12 or 1 o'clock, and dinner is the big meal at about 6 or 7 o'clock. In Spain, lunch is usually the big meal of the day, and we have dinner much later.</p><p><b>Activity</b>: write what you have for breakfast, lunch and dinner on a normal day.</p>`,
+        H6.dos("Food", ["HEALTHY", ["fruit", "vegetables", "fish"], cVE], ["UNHEALTHY", ["sweets", "crisps", "fizzy drinks"], cRO]),
+        ["Mfb--R1fhtQ", "Do You Like Pickle Pudding? | Kids Food Song | Super Simple Songs", "Super Simple Songs - Kids Songs", 202941764]],
+    ],
+    "Activities I like: like + -ing": [
+      ["Me too! Me neither!", `<p>When a friend tells us what they like, we can <mark>agree</mark> (estar de acuerdo) or <mark>disagree</mark> (no estar de acuerdo).</p><p><b>When your friend says something positive</b>:</p><ul><li>«I like cats.» – «<b>Me too!</b>» (¡Yo también!) if you like cats.</li><li>«I like cats.» – «<b>Really? I don't.</b>» (¿De verdad? A mí no.) if you don't like cats.</li></ul><p><b>When your friend says something negative</b>:</p><ul><li>«I don't like spiders.» – «<b>Me neither!</b>» (¡Yo tampoco!) if you don't like them either.</li><li>«I don't like spiders.» – «<b>Really? I do!</b>» (¿De verdad? ¡A mí sí!) if you like them.</li></ul><p>Be careful! After a negative sentence, we don't say <i>Me too</i>. We say <b>Me neither</b>. In Spanish it's the same: <i>yo también</i> / <i>yo tampoco</i>.</p><p>It's polite to disagree in a friendly way. We can add: «That's OK. We're different!»</p><p>Game: <b>Stand up if…</b> The teacher says: «I love chocolate!» Pupils who agree stand up and say «Me too!». The teacher says: «I don't like rain.» Pupils who agree stand up and say «Me neither!».</p><p><b>Activity</b>: with a partner, say five likes and dislikes and answer with «Me too», «Me neither», «I don't» or «I do».</p>`,
+        L6.filas("Agree?", [["I like…", "Me too!", cVE], ["I like…", "I don't.", cRO], ["I don't like…", "Me neither!", cAZ], ["I don't like…", "I do!", cNA]])],
+    ],
+    "He likes, she likes": [
+      ["Does he like…?", `<p>To ask about another person, we use <mark>Does</mark> + he / she + <b>like</b> (without -s):</p><ul><li>«<b>Does</b> your brother <b>like</b> football?» – «Yes, he <b>does</b>.» / «No, he <b>doesn't</b>.»</li><li>«<b>Does</b> Nadia <b>like</b> fish?» – «No, she <b>doesn't</b>. She hates it.»</li><li>«<b>Does</b> your cat <b>like</b> milk?» – «Yes, it <b>does</b>.»</li></ul><p>Look carefully: the <b>-s</b> goes on <i>does</i>, not on <i>like</i>. We never say <i>Does he likes…?</i></p><p>Compare:</p><ul><li>Positive: «He <b>likes</b> football.» (with -s)</li><li>Negative: «He <b>doesn't like</b> football.» (no -s)</li><li>Question: «<b>Does</b> he <b>like</b> football?» (no -s)</li></ul><p>And with <b>What</b>: «What food <b>does</b> your sister like?» – «She likes pasta.»</p><p>For two or more people, we use <b>do</b>: «<b>Do</b> your parents like music?» – «Yes, they <b>do</b>.»</p><p><b>Activity</b>: ask a partner about their family: «Does your mum like…? Does your grandpa like…?»</p>`,
+        L6.filas("Does?", [["He likes", "positive", cVE], ["He doesn't like", "negative", cRO], ["Does he like?", "question", cAZ], ["Yes, he does.", "answer", cNA]])],
+    ],
+    "Reading: a class survey": [
+      ["Our survey in a bar chart", `<p>After a <b>survey</b>, we can show the results in a <mark>bar chart</mark> (gráfico de barras). It helps us see the answers quickly.</p><p>How to make it:</p><ul><li><b>1.</b> Choose a question: «What's your favourite fruit?»</li><li><b>2.</b> Give four or five options: <i>apples, bananas, strawberries, oranges, grapes</i>.</li><li><b>3.</b> Ask everybody in the class and make a <b>tally</b> (recuento con palitos): IIII.</li><li><b>4.</b> Draw the bar chart: the fruits at the bottom, the numbers on the side, and one bar for each fruit.</li></ul><p>Then write about the results with these phrases:</p><ul><li>«<b>Most</b> children like strawberries.» (la mayoría)</li><li>«Ten children like bananas.»</li><li>«<b>Only</b> two children like grapes.» (solo)</li><li>«<b>Nobody</b> likes lemons!» (nadie)</li><li>«Apples are <b>more popular than</b> oranges.»</li></ul><p>Remember: <b>nobody</b> and <b>everybody</b> take the verb with <b>-s</b>: «Nobody like<b>s</b>…», «Everybody like<b>s</b>…».</p><p>Surveys are also part of Maths: we collect data, count and compare.</p><p><b>Activity</b>: do a survey in your class about favourite sports and draw a bar chart.</p>`,
+        L6.filas("Results", [["strawberries", "12", cRO], ["bananas", "10", cNA], ["apples", "6", cVE], ["grapes", "2", cMO]])],
+    ],
+  },
+  final: [
+    ["Write about what you like", `<p>Now you can write a <mark>text about yourself</mark> and your likes and dislikes. Use different verbs, add reasons and join your ideas.</p><p>Look at this example:</p><p><i>Hi! I'm Lucas and I'm eight. I love animals, especially horses, because they're beautiful and strong. I like playing basketball with my friends and I like reading comics. I don't like getting up early, and I hate tomatoes! My favourite food is pizza. My sister Ana likes dancing, but she doesn't like sport. And what about you? What do you like?</i></p><p>Tips for a good text:</p><ul><li>Use different verbs: <b>love, like, don't like, hate</b>.</li><li>Use <b>-ing</b> with activities: <i>playing, reading, getting up</i>.</li><li>Add reasons with <b>because</b>.</li><li>Join ideas with <b>and</b> (y) and <b>but</b> (pero): <i>She likes dancing, <b>but</b> she doesn't like sport.</i></li><li>Write about another person with <b>-s</b>: <i>She likes, he loves</i>.</li><li>Finish with a question to the reader.</li></ul><p><b>Activity</b>: write your own text with at least eight sentences. Read it to the class.</p>`,
+      H6.flujo("My text", ["love, like|hate", "-ing|activities", "because|reasons", "and, but|join"], cNA),
+      ["nddRGDEKxA0", "What Do You Like To Do? | Kids Songs | Super Simple Songs", "Super Simple Songs - Kids Songs", 94151210]],
+  ],
+  ejemplos: [
+    ["Answer «Me too» or «Me neither»: «I don't like rain» (you don't like it either).", ["The sentence is negative.", "To agree with a negative, we say Me neither."], "Me neither!"],
+    ["Correct: «Does she likes pizza?»", ["The -s goes on does.", "Like has no -s in questions."], "Does she like pizza?"],
+  ],
+  errores: ["Saying «Me too» after a negative sentence instead of «Me neither».", "Writing «Does he likes…?» with two -s."],
+  ejercicios: [
+    ["b", "How do you say «desayuno» in English?", "Breakfast."],
+    ["b", "Answer: «I like chocolate.» (you like it too)", "Me too!"],
+    ["b", "Complete: «___ your brother like football?»", "Does."],
+    ["b", "Is fruit healthy or unhealthy?", "Healthy."],
+    ["b", "In the reading, what does Hugo love?", "Sport."],
+    ["m", "Make a question: What / sports / you / like?", "What sports do you like?"],
+    ["m", "Answer: Does Nadia like fish?", "No, she doesn't. She hates fish."],
+    ["m", "Write a reason: «I like dogs because…»", "Example: because they're cute and friendly."],
+    ["m", "Translate: Nadie quiere limones.", "Nobody likes lemons."],
+    ["m", "What do you have for breakfast?", "Example: For breakfast, I have milk and cereal."],
+    ["a", "What do Hugo and Nadia both like?", "They love going to the zoo and they like chocolate ice cream."],
+    ["a", "Do a survey of five classmates and write three sentences about the results.", "Open answer."],
+    ["a", "Write a text about your likes and dislikes with because, and and but.", "Open answer."],
+    ["a", "Write five questions with Does to ask about a classmate's family.", "Open answer."],
+  ],
+  quiz: [
+    ["«I don't like spiders.» – «___» (you agree)", ["Me neither!", "Me too!", "I do!"], "Agree."],
+    ["«What food ___ you like?»", ["do", "does", "are"], "What."],
+    ["«Does your mum like coffee?» – «Yes, she ___.»", ["does", "do", "likes"], "Does."],
+    ["«Refrescos» in English is…", ["fizzy drinks", "crisps", "sweets"], "Food."],
+    ["«La mayoría de los niños» is…", ["most children", "nobody", "only children"], "Survey."],
+  ],
+  examen: [
+    ["In the reading, what does Nadia hate?", ["fish", "books", "animals"], "Reading."],
+    ["The big meal in the evening in the UK is…", ["dinner", "breakfast", "snack"], "Meals."],
+  ],
+  tarjetas: [
+    ["What… / Why?", "What food do you like? Why? Because it's delicious."],
+    ["Meals", "breakfast, lunch, snack, dinner; healthy, unhealthy."],
+    ["Agree", "Me too! / Me neither! / I don't. / I do!"],
+    ["Does?", "Does he like…? Yes, he does. No, she doesn't."],
+  ],
+  glosario: [
+    ["Breakfast", "Desayuno."],
+    ["Lunch", "Comida del mediodía."],
+    ["Dinner", "Cena."],
+    ["Healthy", "Sano."],
+    ["Unhealthy", "Poco sano."],
+    ["Because", "Porque."],
+    ["Me too", "Yo también."],
+    ["Me neither", "Yo tampoco."],
+    ["Survey", "Encuesta."],
+    ["Bar chart", "Gráfico de barras."],
+    ["Nobody", "Nadie."],
+    ["Boring", "Aburrido."],
+  ],
+  situacion: {
+    titulo: "Class likes in numbers",
+    reto: "The class does surveys about food, sports and animals, makes bar charts and writes a report with the results.",
+    pasos: ["Choose a question and four options in groups.", "Ask the whole class and make a tally.", "Draw a bar chart and write sentences with most, only and nobody.", "Present the results and agree or disagree with Me too and Me neither."],
+    producto: "A wall display of surveys and bar charts in English.",
+    evaluacion: ["Asks questions with Do you like…? and What…?", "Uses Does he like…? correctly.", "Agrees and disagrees politely.", "Writes about likes with because, and and but."],
+  },
+});

@@ -91,3 +91,99 @@ module.exports = tema({
   ideas: ["Juego de esconder un objeto con preguntas de lugar.", "Plano de la casa soñada con descripción oral.", "Etiquetas en inglés de los objetos del aula."],
   fuentes: [["British Council LearnEnglish Kids: house", "https://learnenglishkids.britishcouncil.org/"], ["Cambridge Dictionary", "https://dictionary.cambridge.org/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  videos: {
+    "Where is it? In, on, under": ["idJYhjGyWTU", "Where's the Monkey?", "KidsTV123", 41106150],
+    "There is, there are": ["TC-dN4bIaQ8", "There IS, there ARE | Do you know how to use them?", "Little Songs", 191460],
+  },
+  objetivos: ["Name more rooms and say upstairs and downstairs", "Name things in the kitchen and the bathroom", "Ask «Is there…? Are there…? How many…?»", "Talk about housework and homes around the world"],
+  lectura: { titulo: "The tree house", html: `<p>Last summer, Ella and her grandpa built a tree house in the garden. Now it's her favourite place in the world.</p><p>The tree house is in a big old oak tree. To go up, there's a rope ladder. Inside, there's only one room, but it's got everything Ella needs.</p><p>There's a small table and two chairs. On the table, there's a lamp and a box of crayons. There are some cushions on the floor, next to the window. Ella reads her comics there. Under the table, there's a basket with snacks and a bottle of water.</p><p>On the wall, there are drawings of her friends and a map of a secret island. Behind the door, there's a telescope. At night, Ella and Grandpa look at the stars with it.</p><p>"Is there a bathroom in your tree house?" asks her friend Leo.</p><p>"No, there isn't!" laughs Ella. "And there isn't a kitchen. But there's a fantastic view!"</p><p>Every Saturday, Ella tidies the tree house and sweeps the floor. She says it's the best house in the street.</p>` },
+  tras: {
+    "The rooms": [
+      ["Upstairs and downstairs", `<p>Many houses have got two floors. To go from one to the other, we use the <mark>stairs</mark> (escaleras).</p><ul><li><b>Downstairs</b> (abajo, en la planta baja), there's usually the <i>hall</i> (recibidor), the kitchen, the living room and sometimes a toilet.</li><li><b>Upstairs</b> (arriba), there are usually the bedrooms and the bathroom.</li></ul><p>More parts of a home:</p><ul><li><b>bathroom</b> (cuarto de baño) and <b>toilet</b> (aseo, váter).</li><li><b>garage</b> (garaje): for the car and the bikes.</li><li><b>attic</b> (desván): under the roof.</li><li><b>basement</b> (sótano): under the ground.</li><li><b>balcony</b> (balcón) and <b>terrace</b> (terraza).</li><li><b>garden</b> (jardín).</li></ul><p>To say where people are, we use <b>in the</b> + room: «Mum is <b>in the</b> kitchen.» «My brother is <b>in the</b> garden.» But we say «Dad is <b>upstairs</b>», without <i>in the</i>.</p><p>In the UK, the first floor is the floor above the ground: the ground floor is <i>planta baja</i>, the first floor is <i>primera planta</i>.</p><p><b>Activity</b>: draw a house with two floors and write the names of six rooms.</p>`,
+        H6.dos("Floors", ["UPSTAIRS", ["bedrooms", "bathroom", "attic"], cAZ], ["DOWNSTAIRS", ["kitchen", "living room", "hall"], cNA])],
+    ],
+    "Furniture": [
+      ["In the kitchen and the bathroom", `<p>Each room has got its own <mark>things</mark>. Let's learn the kitchen and the bathroom.</p><p><b>In the kitchen</b>:</p><ul><li><b>fridge</b> (nevera): «The milk is in the fridge.»</li><li><b>cooker</b> (cocina, fogones) and <b>oven</b> (horno).</li><li><b>sink</b> (fregadero): where we wash the dishes.</li><li><b>washing machine</b> (lavadora) and <b>dishwasher</b> (lavavajillas).</li><li><b>microwave</b> (microondas) and <b>cupboard</b> (armario de cocina).</li></ul><p><b>In the bathroom</b>:</p><ul><li><b>bath</b> (bañera) and <b>shower</b> (ducha).</li><li><b>washbasin</b> (lavabo) and <b>toilet</b> (váter).</li><li><b>mirror</b> (espejo), <b>towel</b> (toalla), <b>soap</b> (jabón), <b>toothbrush</b> (cepillo de dientes).</li></ul><p>Be careful with <b>cooker</b>: it is the machine, not the person. The person is a <b>cook</b>! «My dad is a good <b>cook</b>. He uses the <b>cooker</b> every day.»</p><p>We can describe what we do in each room: «I <b>have a shower</b> in the bathroom. I <b>have breakfast</b> in the kitchen.»</p><p><b>Activity</b>: make two lists: five things in your kitchen and five things in your bathroom.</p>`,
+        L6.filas("Rooms", [["fridge", "kitchen", cAZ], ["cooker", "kitchen", cVE], ["shower", "bathroom", cNA], ["mirror", "bathroom", cRO]])],
+    ],
+    "There is, there are": [
+      ["Is there…? How many…?", `<p>To ask about a room or a house, we put <b>is</b> or <b>are</b> first:</p><ul><li>«<b>Is there</b> a garden in your house?» – «Yes, <b>there is</b>.» / «No, <b>there isn't</b>.»</li><li>«<b>Are there</b> any posters in your bedroom?» – «Yes, <b>there are</b>.» / «No, <b>there aren't</b>.»</li></ul><p>Remember: in questions and negatives with plurals, we use <b>any</b>: «Are there <b>any</b> books?» «There aren't <b>any</b> chairs.»</p><p>To ask about the number of things, use <mark>How many…?</mark> + plural + <b>are there</b>:</p><ul><li>«<b>How many</b> bedrooms <b>are there</b> in your house?» – «There are three.»</li><li>«<b>How many</b> windows <b>are there</b> in the classroom?» – «There are six.»</li></ul><p>In the short answers we don't use the short form with <i>yes</i>: we say «Yes, there <b>is</b>», not <i>Yes, there's</i>.</p><p>Game: <b>Memory room</b>. Look at a picture of a room for one minute. Then close the book. Your partner asks: «Is there a lamp? How many chairs are there?»</p><p><b>Activity</b>: ask a partner five questions about their home.</p>`,
+        L6.dialogo("Your home", [["Ana", "Is there a garden?", cAZ], ["Leo", "No, there isn't.", cRO], ["Ana", "How many bedrooms?", cAZ], ["Leo", "There are three.", cRO]])],
+    ],
+    "My bedroom": [
+      ["Homes around the world", `<p>People live in very <mark>different homes</mark> around the world. It depends on the weather, the place and how people live.</p><ul><li><b>Igloo</b>: a house made of blocks of ice and snow. Some Inuit people in the Arctic built them for hunting trips.</li><li><b>Houseboat</b>: a house on a boat, on a river or a canal. There are many in Amsterdam and London.</li><li><b>Stilt house</b> (palafito): a house on long poles over the water or the ground, to stay dry when it rains a lot.</li><li><b>Tent</b> and <b>yurt</b>: homes that people can move. Nomads in Mongolia live in round tents called yurts.</li><li><b>Cave house</b>: a home inside a hill. In Guadix, in Granada, there are lots of cave houses!</li><li><b>Skyscraper</b> (rascacielos): a very tall building with hundreds of flats, like in New York.</li></ul><p>And of course, there are <b>castles</b>, <b>farmhouses</b> (masías, cortijos) and <b>caravans</b>.</p><p>We can compare them: «An igloo is cold outside but warm inside.» «A houseboat can move.» «There are lots of flats in a skyscraper.»</p><p><b>Activity</b>: choose one of these homes and write three sentences about it with <i>there is</i> or <i>there are</i>.</p>`,
+        H6.rueda("Homes", "HOME", [["igloo", cAZ], ["houseboat", cVE], ["cave house", cNA], ["yurt", cRO]])],
+    ],
+  },
+  final: [
+    ["Helping at home", `<p>Everybody in the family can help with the <mark>housework</mark> (tareas de casa). Here are some jobs that children can do:</p><ul><li><b>make my bed</b> (hacer la cama)</li><li><b>tidy my room</b> (ordenar mi habitación)</li><li><b>lay the table</b> (poner la mesa) and <b>clear the table</b> (quitar la mesa)</li><li><b>wash the dishes</b> or <b>load the dishwasher</b></li><li><b>water the plants</b> (regar las plantas)</li><li><b>feed the pet</b> (dar de comer a la mascota)</li><li><b>take out the rubbish</b> (sacar la basura)</li><li><b>sweep the floor</b> (barrer)</li></ul><p>To talk about how often we do these jobs, we use words like <b>always</b> (siempre), <b>usually</b> (normalmente), <b>sometimes</b> (a veces) and <b>never</b> (nunca). They go <b>before</b> the verb:</p><ul><li>«I <b>always</b> make my bed.»</li><li>«I <b>sometimes</b> lay the table.»</li><li>«My brother <b>never</b> tidies his room!»</li></ul><p>Look: with <i>he</i> and <i>she</i>, the verb takes <b>-s</b> or <b>-es</b>: <i>he makes, she washes, he tidies</i>.</p><p><b>Activity</b>: make a housework chart for your family for one week and tick the jobs you do.</p>`,
+      L6.filas("Housework", [["make", "my bed", cAZ], ["lay", "the table", cVE], ["water", "the plants", cNA], ["feed", "the pet", cRO]])],
+    ["My dream house", `<p>Now it's time to be an <mark>architect</mark> (arquitecto)! Imagine your dream house and describe it.</p><p>Look at this example:</p><p><i>My dream house is on a beach. It's big and white, and it's got three floors. Downstairs, there's a kitchen with a giant fridge full of ice cream. There's a living room with a slide to the beach! Upstairs, there are five bedrooms and two bathrooms. My bedroom has got a glass ceiling, so I can see the stars from my bed. On the roof, there's a swimming pool. There isn't a garage, because I go everywhere by bike.</i></p><p>To write your description, follow these steps:</p><ul><li><b>1.</b> Where is it? <i>in the mountains, on a beach, in the city, in a tree…</i></li><li><b>2.</b> What is it like? <i>big, small, modern, old, colourful…</i></li><li><b>3.</b> What rooms are there? Use <i>there is / there are</i>.</li><li><b>4.</b> What is special? A secret room, a slide, a pool, a tower…</li><li><b>5.</b> What isn't there? Use <i>there isn't / there aren't</i>.</li></ul><p>Then draw a plan (plano) or a picture of your house and label the rooms.</p><p><b>Activity</b>: write and draw your dream house and present it to the class.</p>`,
+      H6.flujo("Dream house", ["where|is it?", "what|is it like?", "there is|there are", "draw|and label"], cVE)],
+  ],
+  ejemplos: [
+    ["Make a question: a garden / your house.", ["One thing: Is there…?", "Add the place at the end."], "Is there a garden in your house?"],
+    ["Answer: How many bedrooms are there? (3)", ["Plural: there are.", "Say the number."], "There are three bedrooms."],
+  ],
+  errores: ["Saying «There are a bed» or «There is two chairs» instead of «There is a bed» and «There are two chairs».", "Confusing «cooker» (the machine) and «cook» (the person)."],
+  ejercicios: [
+    ["b", "Where are the bedrooms usually: upstairs or downstairs?", "Upstairs."],
+    ["b", "How do you say «nevera» in English?", "Fridge."],
+    ["b", "Answer: Is there a shower in your bathroom?", "Example: Yes, there is."],
+    ["b", "What's a houseboat?", "A house on a boat."],
+    ["b", "In the reading, where is the tree house?", "In a big old oak tree in the garden."],
+    ["m", "Make a question with How many: windows / your classroom.", "How many windows are there in your classroom?"],
+    ["m", "Translate: hacer la cama, poner la mesa.", "Make the bed, lay the table."],
+    ["m", "Order: never / my brother / tidies / his room.", "My brother never tidies his room."],
+    ["m", "What's the difference between a cook and a cooker?", "A cook is a person; a cooker is a machine."],
+    ["m", "Write two things in the bathroom.", "Example: a mirror and a towel."],
+    ["a", "Describe the tree house in the reading with three sentences.", "Example: There's a small table. There are cushions on the floor. There isn't a bathroom."],
+    ["a", "Write about a home from another country.", "Open answer."],
+    ["a", "Write your dream house with five sentences.", "Open answer."],
+    ["a", "Make a housework chart and write three sentences with always, sometimes and never.", "Open answer."],
+  ],
+  quiz: [
+    ["«Desván» in English is…", ["attic", "basement", "hall"], "Rooms."],
+    ["Where do we wash the dishes?", ["in the sink", "in the bath", "in the fridge"], "Kitchen."],
+    ["«___ any posters in your room?»", ["Are there", "Is there", "There are"], "Questions."],
+    ["A round tent of the nomads in Mongolia is a…", ["yurt", "igloo", "skyscraper"], "World."],
+    ["«Poner la mesa» is…", ["lay the table", "make the table", "do the table"], "Housework."],
+  ],
+  examen: [
+    ["In the reading, what do Ella and Grandpa use at night?", ["a telescope", "a TV", "a torch"], "Reading."],
+    ["«How many chairs ___?»", ["are there", "is there", "there are"], "How many."],
+  ],
+  tarjetas: [
+    ["Floors", "upstairs, downstairs; attic, basement, garage, hall."],
+    ["Kitchen and bathroom", "fridge, cooker, sink; bath, shower, mirror, towel."],
+    ["Questions", "Is there…? Are there any…? How many… are there?"],
+    ["Homes and housework", "igloo, houseboat, yurt; make my bed, lay the table."],
+  ],
+  glosario: [
+    ["Upstairs / downstairs", "Arriba / abajo."],
+    ["Stairs", "Escaleras."],
+    ["Attic", "Desván."],
+    ["Fridge", "Nevera."],
+    ["Cooker", "Cocina (aparato)."],
+    ["Sink", "Fregadero."],
+    ["Towel", "Toalla."],
+    ["How many", "¿Cuántos?"],
+    ["Igloo", "Iglú."],
+    ["Houseboat", "Casa flotante."],
+    ["Housework", "Tareas de casa."],
+    ["Ladder", "Escalera de mano."],
+  ],
+  situacion: {
+    titulo: "Our dream street",
+    reto: "Each child designs a dream house and the class puts all the houses together to make a dream street.",
+    pasos: ["Draw a plan of your dream house and label the rooms.", "Write a description with there is, there are and prepositions.", "Ask and answer questions about the houses with Is there…? and How many…?", "Make a big poster of the street and present it."],
+    producto: "A poster of a dream street with descriptions in English.",
+    evaluacion: ["Names rooms and furniture.", "Uses there is and there are correctly.", "Asks questions with Is there…? and How many…?", "Talks about housework with always and never."],
+  },
+});
