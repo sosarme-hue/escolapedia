@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Reflexió sobre la llengua: el nom i les seves classes, gènere i nombre (canvis ortogràfics del plural); l'adjectiu qualificatiu, els graus i la concordança",
   ideas: ["Bingo de classes de noms amb cartrons de paraules.", "Concurs de descripcions d'un objecte misteriós només amb adjectius.", "Mural de plurals difícils amb els canvis ortogràfics (ç/c, j/g, c/qu, gu/gü)."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Formar noms i adjectius per derivació i composició", "Conèixer noms amb un gènere diferent del castellà", "Fer servir comparatius i superlatius irregulars", "Conèixer els gentilicis i els sinònims i antònims dels adjectius"],
+  lectura: { titulo: "La botiga de paraules", html: `<p>Al carrer més estret del barri vell hi havia una botiga petitíssima amb un rètol de fusta: <b>«Paraules a granel»</b>. A l'aparador no hi havia fruita ni roba, sinó pots de vidre plens de lletres de colors.</p><p>La Berta hi va entrar per curiositat. Darrere el taulell, una senyora molt gran, amb ulleres rodones i un davantal blau, la va saludar.</p><p>—Què necessites, bonica?</p><p>—Doncs… he d'escriure una redacció sobre el mar, i només em surt «el mar és blau i gran».</p><p>La botiguera va somriure i va obrir un calaix ple de paperets.</p><p>—Per al mar, tinc adjectius de primera qualitat: <i>immens, serè, salvatge, brillant, profund, inquiet</i>. I si vols noms, tinc <i>onada, escuma, horitzó, marinada, gavina</i>. Però compte: fes-los concordar bé, que si no, es queixen!</p><p>La Berta se'n va emportar una bossa plena. Aquella nit va escriure: «El mar immens i inquiet llançava onades blanques contra les roques, mentre les gavines dibuixaven cercles a l'horitzó».</p><p>L'endemà, la mestra li va dir que era la millor redacció de la classe.</p>` },
+  tras: {
+    "Concrets, abstractes i col·lectius": [
+      ["Derivació i composició", `<p>A partir d'una paraula en podem formar moltes d'altres. Totes juntes formen una <b>família de paraules</b>, perquè comparteixen el mateix <b>lexema</b> (l'arrel): <i>mar, marí, mariner, marinada, marítim</i>.</p><p>Hi ha dues maneres principals de formar paraules noves:</p><ul><li><b>Derivació</b>: afegim <b>morfemes</b> al lexema.<ul><li><b>Prefixos</b> (davant): <i>feliç → <b>in</b>feliç, fer → <b>des</b>fer, mar → <b>sub</b>marí</i>.</li><li><b>Sufixos</b> (darrere): <i>flor → flor<b>ista</b>, pa → pa<b>ner</b>, bo → bon<b>esa</b>, gat → gat<b>et</b></i>.</li></ul></li><li><b>Composició</b>: unim dues paraules o més: <i>para + sol → <b>para-sol</b>, gira + sol → <b>gira-sol</b>, guarda + roba → <b>guarda-roba</b>, cap + gros → <b>capgròs</b></i>.</li></ul><p>Fixa't que molts compostos porten <b>guionet</b> quan la primera paraula acaba en vocal i la segona comença per <i>r</i> o <i>s</i>, per no canviar-ne el so: <i>para-sol, gira-sol</i>.</p><p>Alguns sufixos són molt útils: <b>-et, -eta, -ó</b> fan <b>diminutius</b> (<i>caseta, carretó</i>), i <b>-às, -assa</b> fan <b>augmentatius</b> (<i>cotxàs, casassa</i>).</p><p>Altres sufixos indiquen <b>oficis</b> (<i>-er, -era, -ista</i>: <i>forner, perruquera, dentista</i>), <b>llocs</b> on es fa o es ven alguna cosa (<i>-eria</i>: <i>fruiteria, sabateria</i>) o <b>qualitats</b> (<i>-esa, -or, -itat</i>: <i>bellesa, blancor, bondat</i>). Si coneixes el significat dels prefixos i sufixos, podràs endevinar el significat de moltes paraules noves sense obrir el diccionari: una <i>arbreda</i> és un lloc amb molts arbres, i <i>reescriure</i> és tornar a escriure.</p>`,
+        L6.filas("Formar paraules", [["prefix", "in + feliç", cAZ], ["sufix", "flor + ista", cVE], ["diminutiu", "cas + eta", cNA], ["composició", "para-sol", cMO]]), ["rKpwOGZlVLE", "👨‍👩‍👧‍👦 La FAMILIA de PALABRAS para NIÑOS", "Clases Particulares en Ávila", 80762]],
+    ],
+    "El nombre": [
+      ["Compte amb el gènere!", `<p>Hi ha noms que tenen un <b>gènere diferent en català i en castellà</b>. Són una font d'errors freqüents, així que val la pena aprendre'ls:</p><ul><li>Són <b>femenins</b> en català: <i><b>les</b> dents, <b>la</b> sang, <b>la</b> suor, <b>les</b> postres, <b>la</b> resta, <b>la</b> síndria, <b>l'</b>allau</i>.</li><li>Són <b>masculins</b> en català: <i><b>el</b> senyal, <b>el</b> dubte, <b>el</b> costum, <b>l'</b>avantatge, <b>el</b> compte, <b>el</b> llegum, <b>l'</b>avís</i>.</li></ul><p>També hi ha noms que <b>canvien de significat</b> segons el gènere:</p><ul><li><i><b>el</b> fi</i> (la finalitat) / <i><b>la</b> fi</i> (el final): «La <b>fi</b> del món».</li><li><i><b>el</b> son</i> (el fet de dormir) / <i><b>la</b> son</i> (les ganes de dormir): «Tinc <b>son</b>».</li><li><i><b>el</b> pols</i> (el batec al canell) / <i><b>la</b> pols</i> (la brutícia fina).</li><li><i><b>el</b> clau</i> (per clavar) / <i><b>la</b> clau</i> (per obrir el pany).</li><li><i><b>el</b> cap</i> (part del cos) / <i><b>la</b> capa</i> (peça de roba): aquí canvia també la forma.</li></ul><p>Quan dubtis, consulta el <b>diccionari</b>: al costat de cada nom hi diu <i>m.</i> (masculí) o <i>f.</i> (femení).</p><p>Un truc: fes-te una llista amb els que t'equivoques més sovint i penja-la al costat de l'escriptori.</p>`,
+        H6.dos("Gènere diferent", ["FEMENINS", ["les dents", "la sang", "les postres"], cMO], ["MASCULINS", ["el senyal", "el dubte", "el costum"], cAZ])],
+    ],
+    "Els graus de l'adjectiu": [
+      ["Comparatius i superlatius irregulars", `<p>Alguns adjectius tenen formes <b>especials</b> per al comparatiu i el superlatiu, que vénen directament del llatí:</p><ul><li><b>bo</b> → <b>millor</b> (més bo) → <b>òptim</b> (molt bo)</li><li><b>dolent</b> → <b>pitjor</b> (més dolent) → <b>pèssim</b> (molt dolent)</li><li><b>gran</b> → <b>major</b> (més gran) → <b>màxim</b></li><li><b>petit</b> → <b>menor</b> (més petit) → <b>mínim</b></li></ul><p>Compte: no es diu «més millor» ni «més pitjor», perquè <i>millor</i> i <i>pitjor</i> ja signifiquen «més bo» i «més dolent». I en el llenguatge de cada dia, per a l'edat, és més habitual dir <i>més gran</i> i <i>més petit</i>: «La meva germana és <b>més gran</b> que jo».</p><p>El <b>superlatiu</b> es pot fer de diverses maneres:</p><ul><li>Amb <b>molt</b>: <i>molt alt, molt bonic</i>.</li><li>Amb el sufix <b>-íssim, -íssima</b>: <i>altíssim, boniquíssima, petitíssim</i>. Fixa't en els canvis ortogràfics: <i>ric → riquíssim</i>, <i>llarg → llarguíssim</i>.</li><li>Amb prefixos com <b>super-</b>, <b>re-</b> o <b>extra-</b>, sobretot quan parlem: <i>superdivertit, rebò</i>.</li><li>El superlatiu relatiu compara amb un grup: <i>el <b>més</b> alt <b>de</b> la classe</i>.</li></ul>`,
+        L6.filas("Formes especials", [["bo", "millor · òptim", cVE], ["dolent", "pitjor · pèssim", cRO], ["gran", "major · màxim", cAZ], ["petit", "menor · mínim", cNA]])],
+    ],
+  },
+  final: [
+    ["Els gentilicis", `<p>Els <b>gentilicis</b> són adjectius (i també noms) que indiquen <b>d'on és</b> una persona o una cosa. Es formen amb sufixos diferents i s'escriuen sempre amb <b>minúscula</b>:</p><ul><li><b>-í, -ina</b>: <i>barceloní, gironí, tarragoní, mallorquí, menorquí, alacantí</i>.</li><li><b>-à, -ana</b>: <i>lleidatà, valencià, andorrà, italià</i>.</li><li><b>-ès, -esa</b>: <i>francès, anglès, alguerès, aragonès, portuguès</i>.</li><li><b>-enc, -enca</b>: <i>eivissenc, castellonenc, reusenc, osonenc</i>.</li><li>Altres terminacions: <i>gallec, basc, alemany, empordanès</i>.</li></ul><p>Alguns gentilicis són sorprenents i cal aprendre'ls: els de <b>Vic</b> són <i>vigatans</i>, els de <b>Sabadell</b>, <i>sabadellencs</i>, els de <b>Terrassa</b>, <i>egarencs</i> o <i>terrassencs</i>, i els de <b>Mataró</b>, <i>mataronins</i>.</p><p>Com tots els adjectius, concorden amb el nom: <i>un nen <b>valencià</b>, una nena <b>valenciana</b>, uns pagesos <b>mallorquins</b></i>. Recorda també les regles del plural: <i>francès → francesos</i>, <i>andorrà → andorrans</i>.</p>`,
+      L6.filas("Gentilicis", [["-í / -ina", "barceloní", cAZ], ["-à / -ana", "lleidatà", cVE], ["-ès / -esa", "francès", cNA], ["-enc / -enca", "eivissenc", cMO]])],
+    ["Sinònims i antònims", `<p>Per escriure bé cal triar l'adjectiu més <b>precís</b> i no repetir sempre els mateixos. Aquí ens ajuden els sinònims i els antònims:</p><ul><li>Els <b>sinònims</b> són paraules amb un significat <b>igual o semblant</b>: <i>content, alegre, feliç, joiós</i>; <i>bonic, bell, preciós, formós</i>; <i>gran, enorme, immens, gegantí</i>.</li><li>Els <b>antònims</b> són paraules amb un significat <b>contrari</b>: <i>alt / baix, ràpid / lent, ple / buit, valent / covard, generós / gasiu</i>.</li></ul><p>Molts antònims es formen amb <b>prefixos</b>: <i><b>in</b>útil, <b>des</b>ordenat, <b>im</b>possible, <b>i</b>legal, <b>a</b>normal</i>. Fixa't que <b>in-</b> es converteix en <b>im-</b> davant de <i>p</i> i <i>b</i>, i en <b>i-</b> davant de <i>l</i> i <i>r</i>: <i>il·legal</i> s'escriu amb ela geminada.</p><p>Compte: els sinònims gairebé mai no són exactament iguals. <i>Gran</i> i <i>gegantí</i> volen dir el mateix, però <i>gegantí</i> és molt més intens. Per trobar-ne, fes servir un <b>diccionari de sinònims</b>, en paper o en línia. La Berta de la lectura va canviar «gran» per «immens», i la seva redacció va guanyar molta força!</p><p>Un bon exercici és fer una <b>escala</b> d'adjectius, de menys a més intensitat: <i>tebi, calent, calentíssim, bullent</i>; o bé <i>fresc, fred, gelat, glaçat</i>. Així, quan escriguis, podràs triar exactament el grau que vols expressar. També pots buscar <b>adjectius dels cinc sentits</b>: per a la vista (<i>lluent, opac</i>), l'oïda (<i>estrident, silenciós</i>), l'olfacte (<i>perfumat, pudent</i>), el gust (<i>dolç, amarg</i>) i el tacte (<i>aspre, suau</i>).</p>`,
+      H6.dos("Sinònims i antònims", ["SINÒNIMS", ["content", "alegre", "feliç"], cVE], ["ANTÒNIMS", ["ple / buit", "alt / baix", "útil / inútil"], cRO])],
+  ],
+  ejemplos: [
+    ["Separa el lexema i els morfemes de «desordenat».", ["Prefix des-.", "Lexema orden-.", "Sufix -at."], "des- + orden + -at."],
+    ["Corregeix: «Aquest pastís és més millor».", ["Millor ja vol dir «més bo».", "No cal més."], "Aquest pastís és millor."],
+  ],
+  errores: ["Dir «el sang» o «els dents»: en català són femenins (la sang, les dents).", "Dir «més millor» o «més pitjor»."],
+  ejercicios: [
+    ["b", "Escriu dos noms derivats de «flor».", "florista, floreta (floristeria, florir…)."],
+    ["b", "Escriu l'article: ___ senyal, ___ dents, ___ dubte, ___ sang.", "el, les, el, la."],
+    ["b", "Quin és el comparatiu de bo i de dolent?", "Millor i pitjor."],
+    ["b", "Escriu el gentilici de Lleida, Girona i Andorra.", "lleidatà, gironí, andorrà."],
+    ["b", "Escriu un sinònim i un antònim de «content».", "alegre / trist."],
+    ["m", "Forma el superlatiu en -íssim de: ric, llarg, petit.", "riquíssim, llarguíssim, petitíssim."],
+    ["m", "Explica la diferència entre «el fi» i «la fi».", "El fi és la finalitat; la fi és el final."],
+    ["m", "Forma antònims amb prefix: útil, possible, legal, ordenat.", "inútil, impossible, il·legal, desordenat."],
+    ["m", "Troba a la lectura quatre adjectius per al mar.", "immens, serè, salvatge, brillant, profund, inquiet."],
+    ["m", "Escriu dues paraules compostes amb guionet.", "para-sol, gira-sol (guarda-roba)."],
+    ["a", "Escriu una família de deu paraules a partir de «pa».", "Ex.: pa, panet, paner, panera, panada, empanada, empanar, panificadora, paneret."],
+    ["a", "Reescriu «Hi havia un bosc gran i bonic» amb adjectius més precisos.", "Resposta oberta."],
+    ["a", "Fes una llista de gentilicis de la teva comarca i classifica'ls pel sufix.", "Resposta oberta."],
+    ["a", "Escriu un text breu com el de la Berta amb deu adjectius ben concordats.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["«Gira-sol» és una paraula…", ["composta", "derivada", "primitiva"], "Formació de paraules."],
+    ["En català, «senyal» és…", ["masculí", "femení", "neutre"], "Gènere."],
+    ["El superlatiu de «bo» és…", ["òptim", "pèssim", "màxim"], "Graus."],
+    ["Els de Vic són…", ["vigatans", "viquencs", "vicencs"], "Gentilicis."],
+    ["Un antònim de «ple» és…", ["buit", "complet", "gros"], "Antònims."],
+  ],
+  examen: [
+    ["Com es deia la botiga de la lectura?", ["Paraules a granel", "Lletres de colors", "El calaix màgic"], "Lectura."],
+    ["«Tinc son» vol dir…", ["tinc ganes de dormir", "estic dormint", "he dormit molt"], "Gènere i significat."],
+  ],
+  tarjetas: [
+    ["Derivació i composició", "Prefixos i sufixos (infeliç, florista) / dues paraules (para-sol)."],
+    ["Gènere diferent", "Femenins: les dents, la sang. Masculins: el senyal, el dubte, el costum."],
+    ["Formes irregulars", "millor/òptim, pitjor/pèssim, major/màxim, menor/mínim."],
+    ["Gentilicis", "barceloní, lleidatà, francès, eivissenc. Sempre en minúscula."],
+  ],
+  glosario: [
+    ["Lexema", "Part de la paraula que porta el significat."],
+    ["Morfema", "Part que s'afegeix al lexema."],
+    ["Prefix", "Morfema que va davant del lexema."],
+    ["Sufix", "Morfema que va darrere del lexema."],
+    ["Derivació", "Formació de paraules amb prefixos i sufixos."],
+    ["Composició", "Formació de paraules unint-ne d'altres."],
+    ["Diminutiu", "Paraula que expressa petitesa: caseta."],
+    ["Augmentatiu", "Paraula que expressa grandària: cotxàs."],
+    ["Gentilici", "Paraula que indica el lloc d'origen."],
+    ["Sinònim", "Paraula de significat igual o semblant."],
+    ["Antònim", "Paraula de significat contrari."],
+    ["Superlatiu", "Grau màxim d'una qualitat."],
+  ],
+  situacion: {
+    titulo: "La botiga de paraules de la classe",
+    reto: "La classe obre la seva pròpia «botiga de paraules» per ajudar altres alumnes a escriure millor.",
+    pasos: ["Prepareu pots temàtics (el mar, el bosc, la ciutat, les emocions) amb noms i adjectius precisos.", "Afegiu-hi fitxes de sinònims, antònims i famílies de paraules.", "Feu un cartell amb els noms que tenen un gènere diferent del castellà.", "Ofereix la botiga a una altra classe i ajuda'ls a millorar una redacció."],
+    producto: "Una botiga de paraules amb pots temàtics i fitxes de vocabulari.",
+    evaluacion: ["Forma paraules per derivació i composició.", "Fa servir el gènere i el nombre correctes.", "Usa comparatius, superlatius i gentilicis.", "Tria adjectius precisos i sinònims per escriure millor."],
+  },
+});

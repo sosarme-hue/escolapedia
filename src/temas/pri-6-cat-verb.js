@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Reflexió sobre la llengua: el verb; arrel i desinència; conjugacions i verbs incoatius; persona, nombre, temps i mode; passat perifràstic; temps compostos i formes no personals; verbs irregulars freqüents",
   ideas: ["Dau de persones i dau de temps per conjugar verbs a l'atzar.", "Mural dels verbs irregulars més freqüents.", "Reescriure una notícia del present al passat perifràstic i al futur."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Combinar els temps del passat en una narració", "Formar l'imperatiu afirmatiu i negatiu", "Fer servir correctament les perífrasis verbals", "Evitar els calcs del castellà en l'ús dels verbs"],
+  lectura: { titulo: "L'excursió a la neu", html: `<p>Quan era petita, cada hivern <b>anàvem</b> a la neu amb l'escola. Ens <b>llevàvem</b> molt d'hora, <b>pujàvem</b> a l'autocar mig adormits i <b>cantàvem</b> durant tot el viatge.</p><p>Però aquell any <b>va ser</b> diferent. A mig camí, l'autocar <b>es va aturar</b> de cop. <b>Havia nevat</b> tant durant la nit que la carretera <b>estava</b> tallada.</p><p>—<b>Esteu</b> tranquils —<b>va dir</b> la mestra—. <b>Hem d'esperar</b> la llevaneu.</p><p>Al cap d'una hora, la màquina <b>va arribar</b> i <b>vam poder</b> continuar. Quan finalment <b>vam baixar</b> a l'estació, tot <b>era</b> blanc. <b>Vam fer</b> un ninot de neu gegant, <b>vam lliscar</b> amb trineus i <b>vam acabar</b> molls de cap a peus.</p><p>Encara avui, quan veig nevar, <b>recordo</b> aquell dia. I sempre <b>penso</b>: «Si no <b>hagués nevat</b> tant, no <b>hauria estat</b> una excursió tan especial».</p><p>Aquesta tarda <b>he trobat</b> una foto d'aquell ninot. L'<b>emmarcaré</b> i la <b>penjaré</b> a la meva habitació.</p>` },
+  tras: {
+    "El temps": [
+      ["Els temps del passat en una narració", `<p>Quan expliquem una història, fem servir diversos temps del passat, i cada un té una funció. Fixa't en la lectura:</p><ul><li><b>Imperfet</b> (<i>anava, cantava, era</i>): per a les <b>descripcions</b>, els <b>costums</b> i les accions que duren. «Cada hivern <b>anàvem</b> a la neu». «Tot <b>era</b> blanc».</li><li><b>Passat perifràstic</b> (<i>vaig anar, va arribar</i>): per a les <b>accions acabades</b> que fan avançar la història. «L'autocar <b>es va aturar</b>». «<b>Vam fer</b> un ninot». També s'usa el <b>passat simple</b> (<i>anà, arribà</i>), sobretot en textos escrits i literaris.</li><li><b>Plusquamperfet</b> (<i>havia nevat</i>): per a una acció <b>anterior</b> a una altra del passat. «<b>Havia nevat</b> tant que la carretera estava tallada».</li><li><b>Perfet</b> (<i>he trobat</i>): per a accions passades en un temps que encara no ha acabat (avui, aquesta setmana, enguany). «Aquesta tarda <b>he trobat</b> una foto».</li></ul><p>Un error freqüent és fer servir el perfet per a fets d'ahir o de fa temps: no es diu «ahir he anat al cine», sinó «ahir <b>vaig anar</b> al cine».</p>`,
+        L6.filas("Passats", [["imperfet", "descriure: era", cAZ], ["perifràstic", "acció: va arribar", cVE], ["plusquamperfet", "abans: havia nevat", cMO], ["perfet", "avui: he trobat", cNA]])],
+    ],
+    "Els modes": [
+      ["L'imperatiu", `<p>L'<b>imperatiu</b> és el mode que fem servir per donar <b>ordres, instruccions, consells o peticions</b>. Només té formes per a les persones a qui parlem:</p>${P.tb(["persona", "cantar", "córrer", "dormir"], [["tu", "canta", "corre", "dorm"], ["vostè", "canti", "corri", "dormi"], ["nosaltres", "cantem", "correm", "dormim"], ["vosaltres", "canteu", "correu", "dormiu"], ["vostès", "cantin", "corrin", "dormin"]])}<p>Alguns verbs molt usats tenen imperatius <b>irregulars</b>: <i>anar → <b>ves</b></i>, <i>fer → <b>fes</b></i>, <i>dir → <b>digues</b></i>, <i>venir → <b>vine</b></i>, <i>tenir → <b>tingues</b></i>, <i>ser → <b>sigues</b></i>, <i>saber → <b>sàpigues</b></i>.</p><p>Per a l'<b>imperatiu negatiu</b> fem servir el <b>present de subjuntiu</b> amb <i>no</i>: «<b>No cantis</b>», «<b>No corris</b>», «<b>No hi vagis</b>».</p><p>Quan l'imperatiu porta pronoms febles, s'escriuen <b>darrere</b> amb guionet o apòstrof: «<b>Porta-ho</b>», «<b>Explica-m'ho</b>», «<b>Digues-li</b>», «<b>Fes-ho</b>». En canvi, amb el negatiu van davant: «<b>No ho</b> portis».</p>`,
+        H6.dos("L'imperatiu", ["AFIRMATIU", ["canta", "fes-ho", "vine"], cVE], ["NEGATIU", ["no cantis", "no ho facis", "no vinguis"], cRO]), ["Zct1dr3FWG8", "💙 ELS VERBS I Estratègies d'aprendre els verbs en valencià 💙 ELS VERBS en 2022", "Redactar millor", 21382]],
+    ],
+    "Temps simples, compostos i formes no personals": [
+      ["Les perífrasis verbals", `<p>Una <b>perífrasi verbal</b> és una combinació de dos verbs (un verb auxiliar conjugat i un infinitiu, un gerundi o un participi) que funcionen junts com si fossin un de sol:</p><ul><li><b>Obligació</b>: <b>haver de</b> + infinitiu. «<b>Hem d'esperar</b> la llevaneu». També <b>caldre</b>: «<b>Cal</b> esperar».</li><li><b>Probabilitat</b>: <b>deure</b> + infinitiu. «<b>Deu ser</b> tard» (segurament és tard).</li><li><b>Acció en curs</b>: <b>estar</b> + gerundi. «<b>Estic llegint</b>».</li><li><b>Inici</b>: <b>començar a</b>, <b>posar-se a</b> + infinitiu. «<b>Va començar a</b> nevar».</li><li><b>Final</b>: <b>acabar de</b> + infinitiu. «<b>Acabo d'</b>arribar».</li><li><b>Repetició</b>: <b>tornar a</b> + infinitiu. «<b>Torna a</b> ploure».</li><li><b>Costum</b>: <b>soler</b> + infinitiu. «<b>Solem</b> sopar a les nou».</li></ul><p>Compte amb dues perífrasis que són calcs del castellà i no són correctes:</p><ul><li>✗ «<b>Tinc que</b> estudiar» → ✓ «<b>He d'</b>estudiar».</li><li>✗ «<b>Vaig a</b> sortir ara» (amb sentit de futur) → ✓ «<b>Sortiré</b> ara» o «<b>Ara</b> surto». Recorda que en català <i>vaig + infinitiu</i> és un passat!</li></ul>`,
+        L6.filas("Perífrasis", [["haver de", "obligació", cRO], ["deure", "probabilitat", cMO], ["estar + gerundi", "en curs", cAZ], ["tornar a", "repetició", cVE]])],
+    ],
+  },
+  final: [
+    ["Calcs del castellà", `<p>Com que el català i el castellà conviuen, de vegades fem servir verbs o construccions castellanes sense adonar-nos-en. Aquests errors s'anomenen <b>calcs</b> o <b>barbarismes</b>. Aquí en tens alguns de molt freqüents amb verbs:</p><ul><li>✗ «<b>Tinc que</b> anar-hi» → ✓ «<b>He d'</b>anar-hi».</li><li>✗ «<b>Hi ha que</b> reciclar» → ✓ «<b>Cal</b> reciclar» / «<b>S'ha de</b> reciclar».</li><li>✗ «Demà <b>vaig a</b> jugar» → ✓ «Demà <b>jugaré</b>».</li><li>✗ «<b>Cumpleixo</b> anys» → ✓ «<b>Faig</b> anys».</li><li>✗ «<b>Me</b> dona igual» → ✓ «<b>Em</b> dona igual»: el pronom és <b>em</b>.</li><li>✗ «<b>Disfrutar</b>» → ✓ «<b>gaudir</b>», «<b>passar-s'ho bé</b>».</li><li>✗ «<b>Buscar</b> la mare a l'escola» → ✓ «<b>Anar a buscar</b>» o «<b>recollir</b>».</li><li>✗ «<b>Enterar-se</b>» → ✓ «<b>assabentar-se</b>», «<b>adonar-se</b>».</li><li>✗ «<b>Acordar-se</b> de» (en el sentit de recordar) → ✓ «<b>recordar</b>» o «<b>recordar-se de</b>». En català, <i>acordar</i> vol dir «posar-se d'acord».</li></ul><p>Per evitar-los, llegeix molt en català i, quan dubtis, consulta un diccionari o un corrector.</p><p>No tots els préstecs són errors: moltes paraules d'altres llengües han entrat al català de manera correcta i ja són al diccionari, com <i>xocolata</i> (del nàhuatl), <i>futbol</i> (de l'anglès) o <i>garatge</i> (del francès). El problema són els calcs que <b>substitueixen</b> paraules i construccions que el català ja té, perquè empobreixen la llengua. Un bon exercici és fer, amb la classe, un <b>pot de calcs</b>: cada vegada que algú en detecta un, l'escriu en un paper amb la forma correcta i el posa al pot. A final de mes, llegiu-los tots junts.</p>`,
+      H6.dos("Calcs", ["✗ INCORRECTE", ["tinc que", "hi ha que", "disfrutar"], cRO], ["✓ CORRECTE", ["he de", "cal", "gaudir"], cVE])],
+    ["Els verbs en els textos", `<p>Els verbs són el motor de qualsevol text, i el temps i el mode que triem depenen del <b>tipus de text</b>:</p><ul><li>A les <b>narracions</b> predominen els temps del <b>passat</b>: imperfet per descriure i perifràstic per explicar les accions.</li><li>A les <b>descripcions</b> i els <b>textos expositius</b> predomina el <b>present</b>: «El gat <b>és</b> un mamífer que <b>caça</b> de nit».</li><li>Als <b>textos instructius</b> (receptes, normes) s'usen l'<b>imperatiu</b> o l'<b>infinitiu</b>: «<b>Barreja</b> la farina», «<b>Barrejar</b> la farina».</li><li>Als <b>textos argumentatius</b> hi ha verbs d'opinió en present (<i>crec, penso, considero</i>) i el <b>condicional</b> per proposar: «<b>Seria</b> bo tenir un hort».</li><li>En els <b>plans i prediccions</b> fem servir el <b>futur</b>: «L'<b>emmarcaré</b> i la <b>penjaré</b>».</li></ul><p>Una norma important quan escrivim és la <b>coherència temporal</b>: no hem de canviar de temps sense motiu. Si comences una història en passat, mantén-la en passat. Només canviaràs de temps quan hi hagi un motiu: per exemple, quan el narrador torna al present per fer un comentari («Encara avui, quan veig nevar, recordo aquell dia»), o quan un personatge parla en un diàleg. Rellegir el text en veu alta ajuda molt a detectar els canvis de temps que no tenen sentit. I fixa't en el <b>subjuntiu</b> i el <b>condicional</b> de la frase final de la lectura: «Si no <b>hagués nevat</b> tant, no <b>hauria estat</b> tan especial».</p>`,
+      L6.filas("Temps i textos", [["narració", "passat", cAZ], ["exposició", "present", cVE], ["instruccions", "imperatiu", cNA], ["plans", "futur", cMO]])],
+  ],
+  ejemplos: [
+    ["Corregeix: «Ahir he anat a la platja».", ["Ahir és un temps ja acabat.", "Cal el passat perifràstic."], "Ahir vaig anar a la platja."],
+    ["Passa a imperatiu negatiu: «Fes-ho».", ["Negatiu: no + present de subjuntiu.", "El pronom va davant."], "No ho facis."],
+  ],
+  errores: ["Dir «tinc que» en lloc de «haver de»: «He d'estudiar».", "Fer servir «vaig a + infinitiu» per parlar del futur."],
+  ejercicios: [
+    ["b", "Escriu l'imperatiu de «cantar» per a tu i vosaltres.", "canta, canteu."],
+    ["b", "Quina perífrasi expressa obligació?", "Haver de + infinitiu."],
+    ["b", "Escriu l'imperatiu irregular de fer, anar i dir.", "fes, ves, digues."],
+    ["b", "Corregeix: «Hi ha que reciclar».", "Cal reciclar / S'ha de reciclar."],
+    ["b", "Quin temps es fa servir per descriure en una narració?", "L'imperfet."],
+    ["m", "Classifica els verbs de la lectura: anàvem, va arribar, havia nevat, he trobat.", "imperfet, perifràstic, plusquamperfet, perfet."],
+    ["m", "Escriu tres ordres amb pronoms: porta (el llibre), explica (a mi, això), dona (a ell).", "Porta'l, explica-m'ho, dona-li."],
+    ["m", "Què vol dir «deu ser a casa»?", "Que probablement és a casa."],
+    ["m", "Substitueix «disfrutar» i «enterar-se» per verbs correctes.", "gaudir, assabentar-se."],
+    ["m", "Escriu una frase amb «tornar a» i una amb «acabar de».", "Resposta oberta."],
+    ["a", "Escriu la continuació de la lectura combinant imperfet, perifràstic i plusquamperfet.", "Resposta oberta."],
+    ["a", "Escriu les normes de la classe en imperatiu afirmatiu i negatiu.", "Resposta oberta."],
+    ["a", "Fes una llista de cinc calcs que senten sovint i la forma correcta.", "Resposta oberta."],
+    ["a", "Escriu els teus plans per a l'estiu en futur.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["«Havia nevat» és…", ["plusquamperfet", "perfet", "imperfet"], "Temps."],
+    ["L'imperatiu de «venir» (tu) és…", ["vine", "venis", "vens"], "Imperatiu."],
+    ["«He d'estudiar» expressa…", ["obligació", "probabilitat", "repetició"], "Perífrasis."],
+    ["La forma correcta és…", ["Ara sortiré", "Ara vaig a sortir", "Ara tinc que sortir"], "Calcs."],
+    ["En els textos expositius predomina el…", ["present", "plusquamperfet", "imperatiu"], "Verbs i textos."],
+  ],
+  examen: [
+    ["Per què es va aturar l'autocar?", ["la carretera estava tallada per la neu", "s'havia espatllat", "la mestra estava malalta"], "Lectura."],
+    ["«No ___» (imperatiu negatiu de córrer, tu)", ["corris", "corre", "correu"], "Imperatiu."],
+  ],
+  tarjetas: [
+    ["Passats", "Imperfet: descriure. Perifràstic: accions. Plusquamperfet: abans. Perfet: avui."],
+    ["Imperatiu", "canta, canteu. Negatiu: no cantis. Irregulars: ves, fes, digues, vine."],
+    ["Perífrasis", "haver de, deure, estar + gerundi, començar a, acabar de, tornar a, soler."],
+    ["Calcs", "tinc que → he de; hi ha que → cal; disfrutar → gaudir."],
+  ],
+  glosario: [
+    ["Imperfet", "Temps del passat per a descripcions i costums."],
+    ["Passat perifràstic", "Temps del passat format amb anar + infinitiu: vaig cantar."],
+    ["Plusquamperfet", "Passat anterior a un altre passat: havia cantat."],
+    ["Imperatiu", "Mode per donar ordres i instruccions."],
+    ["Subjuntiu", "Mode dels desitjos, dubtes i possibilitats."],
+    ["Condicional", "Temps que expressa una possibilitat: cantaria."],
+    ["Perífrasi verbal", "Combinació de dos verbs que funcionen com un."],
+    ["Gerundi", "Forma no personal acabada en -ant, -ent, -int."],
+    ["Calc", "Error per imitar una estructura d'una altra llengua."],
+    ["Barbarisme", "Paraula o expressió presa d'una altra llengua sense ser correcta."],
+    ["Coherència temporal", "Manteniment dels temps verbals adequats en un text."],
+    ["Llevaneu", "Màquina que treu la neu de la carretera."],
+  ],
+  situacion: {
+    titulo: "El llibre de records",
+    reto: "La classe escriu un llibre de records amb una anècdota de cada alumne i una guia de verbs correctes.",
+    pasos: ["Cada alumne explica una anècdota real, com la de l'excursió a la neu.", "Escriviu-la combinant imperfet, perifràstic i plusquamperfet.", "Afegiu una pàgina de consells per al futur en imperatiu i amb perífrasis.", "Reviseu els textos buscant calcs del castellà i feu una llista de correccions."],
+    producto: "Un llibre de records de la classe amb una guia dels verbs més problemàtics.",
+    evaluacion: ["Fa servir els temps del passat amb coherència.", "Forma l'imperatiu afirmatiu i negatiu.", "Usa perífrasis correctes.", "Detecta i corregeix calcs del castellà."],
+  },
+});

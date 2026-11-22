@@ -13,7 +13,8 @@ module.exports = P.tema({
       L.frase("El determinant va davant del nom", [["Aquells", "determinant", AZ], ["tres", "determinant", AZ], ["gatets", "nom", RO]], "presenten i concreten el nom")],
     ["Els articles", `<p>Els <b>articles definits</b> són <i>el, la, els, les</i>, i presenten una cosa coneguda: «Dona'm <b>el</b> llibre». Els <b>indefinits</b> són <i>un, una, uns, unes</i>, i presenten una cosa nova: «Dona'm <b>un</b> llibre».</p><p>Davant de paraules que comencen per <b>vocal</b> o <b>h</b>, <i>el</i> i <i>la</i> s'<mark>apostrofen</mark>: <i>l'arbre, l'hora, l'àvia</i>. Però <i>la</i> no s'apostrofa davant de <i>i</i>, <i>u</i>, <i>hi</i>, <i>hu</i> àtones: <i>la idea, la universitat, la humitat</i>. Els plurals mai no s'apostrofen: <i>les àvies</i>.</p><p>Amb els noms de persona fem servir l'<b>article personal</b>: <i>en</i> davant de consonant (<i>en Pau</i>) i <i>l'</i> davant de vocal (<i>l'Anna, l'Eloi</i>). A les Illes també s'usa <i>na</i> (<i>na Maria</i>).</p>`,
       L.filas("L'article", [["Definit", "el, la, els, les", AZ], ["Indefinit", "un, una, uns, unes", VE], ["Apostrofat", "l'arbre, l'hora", NA], ["Personal", "en Pau, l'Anna", RO]])],
-    ["Les contraccions", `<p>Quan les preposicions <b>a</b>, <b>de</b> i <b>per</b> van davant dels articles <i>el</i> i <i>els</i>, s'ajunten en una sola paraula. Són les <b>contraccions</b>:</p>${P.tb(["", "el", "els"], [["a", "<b>al</b> parc", "<b>als</b> nens"], ["de", "<b>del</b> mercat", "<b>dels</b> avis"], ["per", "<b>pel</b> carrer", "<b>pels</b> camps"]])}<p>Compte: si l'article està apostrofat, no hi ha contracció: «Vaig <b>a l'</b>hort», «Torno <b>de l'</b>escola». I amb el femení tampoc: «a la platja», «de la mare». També hi ha la contracció <i>can</i> (ca + en): «Anem a <b>can</b> Joan» (a casa d'en Joan).</p>`],
+    ["Les contraccions", `<p>Quan les preposicions <b>a</b>, <b>de</b> i <b>per</b> van davant dels articles <i>el</i> i <i>els</i>, s'ajunten en una sola paraula. Són les <b>contraccions</b>:</p>${P.tb(["", "el", "els"], [["a", "<b>al</b> parc", "<b>als</b> nens"], ["de", "<b>del</b> mercat", "<b>dels</b> avis"], ["per", "<b>pel</b> carrer", "<b>pels</b> camps"]])}<p>Compte: si l'article està apostrofat, no hi ha contracció: «Vaig <b>a l'</b>hort», «Torno <b>de l'</b>escola». I amb el femení tampoc: «a la platja», «de la mare». També hi ha la contracció <i>can</i> (ca + en): «Anem a <b>can</b> Joan» (a casa d'en Joan).</p>`,
+      L.filas("Les contraccions", [["a + el", "al", AZ], ["de + els", "dels", VE], ["per + el", "pel", NA], ["ca + en", "can", MO]])],
     ["Demostratius i possessius", `<p>Els <b>demostratius</b> indiquen la <mark>distància</mark> respecte de qui parla:</p><ul><li>A prop: <i>aquest, aquesta, aquests, aquestes</i>.</li><li>Lluny: <i>aquell, aquella, aquells, aquelles</i>.</li></ul><p>(En valencià també s'usa <i>eixe, eixa</i> per a una distància mitjana.)</p><p>Els <b>possessius</b> indiquen a qui <mark>pertany</mark> una cosa. En català solen anar amb l'article davant: <i>el meu, la meva, els meus, les meves; el teu; el seu; el nostre; el vostre; el seu</i>. «<b>La meva</b> casa», «<b>els vostres</b> abrics». En valencià es diu també <i>la meua, la teua, la seua</i>.</p>`,
       L.filas("Els demostratius", [["A prop", "aquest, aquesta…", VE], ["Lluny", "aquell, aquella…", RO], ["Possessius", "el meu, la teva, el seu…", AZ]])],
     ["Numerals i quantitatius", `<p>Els <b>numerals</b> indiquen una <mark>quantitat exacta</mark> o un ordre:</p><ul><li><b>Cardinals</b>: diuen quants. <i>un, dos, deu, cent</i>. Compte: <i>un/una</i> i <i>dos/dues</i> tenen femení: «<b>dues</b> germanes».</li><li><b>Ordinals</b>: diuen l'ordre. <i>primer, segon, tercer, quart, cinquè, sisè, setè...</i> «Visc al <b>cinquè</b> pis». Abreviats: 1r, 2n, 3r, 4t, 5è.</li></ul><p>Els <b>quantitatius</b> i <b>indefinits</b> indiquen una quantitat imprecisa o no concreta: <i>molt, poc, bastant, massa, prou, gaire, algun, cap, tot, altre, cada</i>. «Hi ha <b>molts</b> núvols», «No tinc <b>gaire</b> gana», «No hi ha <b>cap</b> problema».</p>`,
@@ -86,4 +87,92 @@ module.exports = P.tema({
   familias: ["Quan pareu taula, anomeneu les coses amb demostratius: aquest plat, aquell got.", "Jugueu a dir frases amb contraccions: anem al parc, venim del mercat, passem pel pont.", "Llegiu junts una notícia i compteu quants pronoms hi apareixen."],
   saberes: "Reflexió sobre la llengua: els determinants i les seves classes; apostrofació i contracció de l'article; article personal; pronoms personals forts i introducció als pronoms febles; distinció entre determinant i pronom",
   ideas: ["Targetes de colors: blau per als determinants i vermell per als pronoms; classificar les paraules d'un text.", "Dictat d'articles apostrofats i contraccions amb autocorrecció.", "Reescriure un text ple de repeticions fent servir pronoms."],
+});
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Fer servir l'article personal i apostrofar correctament", "Conèixer els ordinals femenins, els multiplicatius i els partitius", "Substituir complements amb els pronoms en i hi", "Usar els pronoms relatius i evitar repeticions en un text"],
+  lectura: { titulo: "El misteri del pastís desaparegut", html: `<p>Aquell diumenge, l'àvia Rosa havia fet un pastís de xocolata enorme per a la festa del barri. El va deixar a la taula de la cuina, que era a prop de la finestra, i va baixar a buscar les espelmes.</p><p>Quan va tornar, el pastís no hi era!</p><p>—Qui se l'ha menjat? —va cridar.</p><p>En Martí, el seu net, que llegia un còmic al sofà, va aixecar el cap.<br>—Jo no he estat. Ni l'he vist!</p><p>La Laia, la seva germana, va sortir de l'habitació.<br>—Jo tampoc. Però a la finestra hi ha unes petjades…</p><p>Els tres s'hi van acostar. A l'ampit hi havia unes marques petites i una molla de xocolata. Les van seguir amb la mirada: anaven fins a la teulada del veí.</p><p>I allà dalt, assegut al costat de la xemeneia, hi havia en Bigotis, el gat del senyor Pere, amb els bigotis plens de xocolata i una cara de felicitat absoluta.</p><p>—Doncs ja en tenim el culpable! —va riure la Laia.</p><p>L'àvia va sospirar. Aquella tarda en van haver de fer un altre, i aquesta vegada el van vigilar els tres.</p>` },
+  tras: {
+    "Els articles": [
+      ["L'article personal i l'apostrofació", `<p>En català, davant dels noms de persona, sovint es fa servir l'<b>article personal</b>:</p><ul><li><b>en</b> davant de noms masculins que comencen per consonant: <i><b>en</b> Martí, <b>en</b> Pere</i>.</li><li><b>na</b> davant de noms femenins (sobretot a les Illes i en un registre formal): <i><b>na</b> Maria</i>. En el català central es diu més aviat <i><b>la</b> Maria</i>.</li><li><b>l'</b> davant de noms que comencen per vocal: <i><b>l'</b>Andreu, <b>l'</b>Anna</i>.</li></ul><p>Els articles <b>el</b> i <b>la</b> s'<b>apostrofen</b> (es converteixen en <b>l'</b>) davant de vocal o <i>h</i>: <i>l'avi, l'àvia, l'home, l'hora</i>.</p><p>Però hi ha <b>excepcions</b> amb l'article femení <b>la</b>: no s'apostrofa davant de <b>i</b> o <b>u</b> <b>àtones</b> (que no porten l'accent de la paraula), ni davant de <i>hi</i>, <i>hu</i> àtones:</p><ul><li><i><b>la</b> idea, <b>la</b> universitat, <b>la</b> història, <b>la</b> humitat</i> (i, u àtones).</li><li>Però: <i><b>l'</b>illa, <b>l'</b>única, <b>l'</b>hora</i> (i, u, o tòniques).</li></ul><p>Tampoc s'apostrofen davant del nom de les lletres (<i>la essa</i>) ni de la paraula <i>una</i> quan parlem de l'hora: <i>la una</i>.</p>`,
+        L6.filas("Apostrofar", [["l'avi", "el + vocal", cAZ], ["l'illa", "i tònica", cVE], ["la idea", "i àtona", cRO], ["en Martí", "article personal", cMO]])],
+    ],
+    "Numerals i quantitatius": [
+      ["Ordinals, multiplicatius i partitius", `<p>A més dels cardinals i els ordinals, hi ha altres numerals molt útils:</p><ul><li>Els <b>ordinals</b> tenen femení: <i>primer → primera, segon → segona, tercer → tercera, quart → quarta, cinquè → cinquena, sisè → sisena</i>. Les abreviatures femenines són <b>1a, 2a, 3a, 4a, 5a</b>. Per exemple: «Viu al <b>3r</b> pis, porta <b>2a</b>».</li><li>Els <b>multiplicatius</b> indiquen quantes vegades més: <i><b>doble</b> (×2), <b>triple</b> (×3), <b>quàdruple</b> (×4), <b>quíntuple</b> (×5)</i>. «Tinc el doble de cromos que tu».</li><li>Els <b>partitius</b> indiquen una part d'un tot: <i>la <b>meitat</b> (1/2), un <b>terç</b> (1/3), un <b>quart</b> (1/4), un <b>cinquè</b> (1/5)</i>. «Se'n va menjar la meitat».</li><li>Els <b>col·lectius</b> numerals indiquen un grup: <i>un <b>parell</b> (2), una <b>dotzena</b> (12), una <b>vintena</b>, una <b>centena</b></i>. «Compra una dotzena d'ous».</li></ul><p>Recorda també com s'escriuen els cardinals compostos: amb <b>guionet</b> entre desenes i unitats (<i>trenta-dos</i>), amb <b>-i-</b> entre desenes i unitats a partir del vint (<i>vint-i-un, vint-i-cinc</i>) i amb guionet entre unitats i centenes (<i>dos-cents, tres-centes</i>).</p>`,
+        H6.flujo("Numerals", ["cardinal|tres", "ordinal|tercera", "multiplicatiu|triple", "partitiu|un terç"], cNA), ["Ax2kX0M5T64", "Números ordinales del 1 al 10 para niños de Primaria", "Mundo Primaria", 903154]],
+    ],
+    "Els pronoms febles": [
+      ["Els pronoms en i hi", `<p>Els pronoms <b>en</b> i <b>hi</b> són molt típics del català (en castellà no existeixen) i sonen molt naturals quan parlem bé.</p><p><b>EN</b> substitueix:</p><ul><li>Un <b>complement introduït per <i>de</i></b>: «Vens <b>de l'escola</b>? Sí, <b>en</b> vinc». «Parlàvem <b>del partit</b> → <b>En</b> parlàvem».</li><li>Un <b>nom sense determinant</b> o amb un <b>numeral o quantitatiu</b>: «Vols <b>pa</b>? Sí, <b>en</b> vull». «Tens <b>germans</b>? Sí, <b>en</b> tinc <b>dos</b>». «Hi ha <b>molta gent</b>? Sí, n'hi ha molta».</li></ul><p><b>HI</b> substitueix:</p><ul><li>Un <b>complement de lloc</b> introduït per <i>a, en, dins, sota…</i>: «Vas <b>a la piscina</b>? Sí, <b>hi</b> vaig». «El pastís no era <b>a la taula</b> → El pastís no <b>hi</b> era».</li><li>Un complement introduït per <i>a</i> o <i>en</i> amb alguns verbs: «Penses <b>en les vacances</b>? Sí, <b>hi</b> penso».</li></ul><p>Davant de vocal, <i>en</i> s'apostrofa: <b>n'</b>he menjat, <b>n'</b>hi ha. També s'usa amb el verb <i>haver-hi</i>: «<b>Hi</b> ha tres gats al pati».</p><p>Busca'ls a la lectura: «el pastís no <b>hi</b> era», «<b>s'hi</b> van acostar», «ja <b>en</b> tenim el culpable».</p>`,
+        H6.dos("En i hi", ["EN", ["de + lloc", "quantitat", "en vull dos"], cAZ], ["HI", ["lloc", "a / en + ...", "hi vaig"], cVE])],
+    ],
+  },
+  final: [
+    ["Els pronoms relatius", `<p>Els <b>pronoms relatius</b> serveixen per unir dues oracions i referir-se a un nom que ja ha aparegut abans, que s'anomena <b>antecedent</b>. Gràcies a ells podem fer frases més llargues sense repetir paraules:</p><p><i>L'àvia va fer un pastís. El pastís era de xocolata.</i> → <i>L'àvia va fer un pastís <b>que</b> era de xocolata.</i></p><p>Els relatius més usats són:</p><ul><li><b>que</b>: el més freqüent. «La taula <b>que</b> era a prop de la finestra».</li><li><b>qui</b>: per a persones, darrere d'una preposició. «La noia <b>amb qui</b> parlaves és la meva cosina».</li><li><b>on</b>: per a llocs. «La teulada <b>on</b> era el gat».</li><li><b>el qual, la qual, els quals, les quals</b>: sobretot darrere de preposicions i en textos formals. «L'amic <b>del qual</b> et parlava».</li><li><b>què</b> (amb accent): darrere de preposició, per a coses. «El llapis <b>amb què</b> escric».</li></ul><p>Compte amb un error molt freqüent: no es diu «la noia que li vaig donar el llibre», sinó «la noia <b>a qui</b> vaig donar el llibre» o «la noia <b>a la qual</b> vaig donar el llibre».</p>`,
+      L6.filas("Els relatius", [["que", "el pastís que…", cAZ], ["qui", "amb qui parlaves", cVE], ["on", "la teulada on…", cNA], ["el qual", "del qual et parlava", cMO]])],
+    ["Evitar repeticions", `<p>Un text es llegeix molt millor quan no repetim constantment les mateixes paraules. Els determinants i els pronoms són les nostres millors eines per aconseguir-ho. Compara:</p><p><i>✗ L'àvia va fer un pastís. L'àvia va deixar el pastís a la taula. Quan l'àvia va tornar, el pastís no era a la taula.</i></p><p><i>✓ L'àvia va fer un pastís. El va deixar a la taula. Quan va tornar, no hi era.</i></p><p>Per evitar repeticions, podem:</p><ul><li><b>Substituir</b> el nom per un <b>pronom</b>: <i>el, la, ho, en, hi, ell, ella</i>.</li><li><b>Ometre</b> el subjecte, perquè el verb ja indica la persona: <i>«(Ella) va baixar a buscar les espelmes»</i>. Això s'anomena <b>el·lipsi</b>.</li><li>Fer servir <b>sinònims</b> o expressions equivalents: <i>el gat → l'animal → el lladre de pastissos</i>.</li><li>Usar <b>demostratius</b> per referir-nos a una cosa ja dita: <i>«aquest pastís», «aquella tarda»</i>.</li></ul><p>Però compte: si posem massa pronoms, el lector es pot perdre i no saber de qui parlem. Quan hi ha diversos personatges, de tant en tant cal repetir el nom.</p>`,
+      H6.flujo("Sense repetir", ["pronom|el, hi, en", "el·lipsi|(ella) va…", "sinònim|el felí", "demostratiu|aquest"], cVE)],
+  ],
+  ejemplos: [
+    ["Substitueix pel pronom adequat: «Vaig a la biblioteca».", ["És un complement de lloc.", "El lloc se substitueix per hi."], "Hi vaig."],
+    ["Escriu l'article: ___ illa, ___ idea, ___ hora, ___ universitat.", ["Illa i hora tenen la vocal tònica.", "Idea i universitat tenen i/u àtones."], "l'illa, la idea, l'hora, la universitat."],
+  ],
+  errores: ["Dir «tinc dos» en lloc de «en tinc dos».", "Fer servir «que li» en lloc de «a qui»: «la noia que li vaig donar» és incorrecte."],
+  ejercicios: [
+    ["b", "Escriu l'article personal: ___ Pere, ___ Anna, ___ Jordi.", "en Pere, l'Anna, en Jordi."],
+    ["b", "Escriu el femení dels ordinals 1r, 2n, 4t i 5è.", "primera, segona, quarta, cinquena."],
+    ["b", "Què és el doble de 6? I la meitat de 6?", "12 i 3."],
+    ["b", "Quin pronom substitueix un complement de lloc?", "Hi."],
+    ["b", "Escriu tres pronoms relatius.", "que, qui, on (el qual, què)."],
+    ["m", "Substitueix: «Vull pomes» → «___ vull».", "En vull."],
+    ["m", "Uneix amb un relatiu: «Tinc un gos. El gos es diu Tom».", "Tinc un gos que es diu Tom."],
+    ["m", "Escriu en lletres: 21, 32, 200.", "vint-i-un, trenta-dos, dos-cents."],
+    ["m", "Troba a la lectura dos pronoms en o hi i digues què substitueixen.", "«no hi era» (a la taula), «en tenim el culpable» (del misteri)…"],
+    ["m", "Corregeix: «la història» o «l'història»?", "la història (i àtona)."],
+    ["a", "Reescriu un paràgraf ple de repeticions fent servir pronoms i el·lipsis.", "Resposta oberta."],
+    ["a", "Escriu cinc preguntes i respon-les amb en o hi.", "Resposta oberta."],
+    ["a", "Continua la història del pastís amb cinc relatius diferents.", "Resposta oberta."],
+    ["a", "Inventa problemes amb multiplicatius i partitius per a un company.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["Davant de «universitat», l'article és…", ["la", "l'", "el"], "Apostrofació."],
+    ["«Vens de casa? Sí, ___ vinc.»", ["en", "hi", "ho"], "Pronom en."],
+    ["Una dotzena són…", ["12", "10", "20"], "Numerals."],
+    ["«La noia amb ___ parlaves»", ["qui", "que", "on"], "Relatius."],
+    ["Ometre el subjecte s'anomena…", ["el·lipsi", "apostrofació", "contracció"], "Cohesió."],
+  ],
+  examen: [
+    ["Qui es va menjar el pastís?", ["el gat d'en Pere", "en Martí", "la Laia"], "Lectura."],
+    ["«Vas al parc? Sí, ___ vaig.»", ["hi", "en", "el"], "Pronom hi."],
+  ],
+  tarjetas: [
+    ["Apostrofació", "el/la → l' davant de vocal; la no s'apostrofa davant de i/u àtones."],
+    ["Numerals", "Multiplicatius: doble, triple. Partitius: meitat, terç, quart."],
+    ["En i hi", "En: de + ..., quantitats. Hi: llocs i a/en + ..."],
+    ["Relatius", "que, qui, on, el qual, què. Uneixen oracions."],
+  ],
+  glosario: [
+    ["Article personal", "Article davant de noms de persona: en, na, l'."],
+    ["Apostrofar", "Escriure l' davant de vocal."],
+    ["Vocal àtona", "Vocal que no porta l'accent de la paraula."],
+    ["Multiplicatiu", "Numeral que indica quantes vegades: doble, triple."],
+    ["Partitiu", "Numeral que indica una part: meitat, terç."],
+    ["Dotzena", "Grup de dotze."],
+    ["Pronom en", "Pronom feble que substitueix complements amb de o quantitats."],
+    ["Pronom hi", "Pronom feble que substitueix complements de lloc."],
+    ["Pronom relatiu", "Pronom que uneix oracions i es refereix a un antecedent."],
+    ["Antecedent", "Nom al qual es refereix el relatiu."],
+    ["El·lipsi", "Omissió d'una paraula que ja s'entén."],
+    ["Cohesió", "Connexió entre les parts d'un text."],
+  ],
+  situacion: {
+    titulo: "Detectius de paraules",
+    reto: "La classe escriu i grava un còmic de misteri com el del pastís desaparegut.",
+    pasos: ["Inventeu el misteri: què ha desaparegut, on, i qui són els sospitosos.", "Escriviu els diàlegs fent servir en, hi i pronoms relatius.", "Reviseu el text per eliminar repeticions i comprovar l'apostrofació.", "Dibuixeu el còmic i llegiu-lo en veu alta a una altra classe."],
+    producto: "Un còmic de misteri amb diàlegs ben cohesionats.",
+    evaluacion: ["Apostrofa correctament els articles.", "Usa els pronoms en i hi.", "Uneix oracions amb relatius.", "Evita repeticions amb pronoms, el·lipsis i sinònims."],
+  },
 });
