@@ -92,3 +92,100 @@ module.exports = P.tema({
   saberes: "José y sus hermanos (Gn 37–50): los celos y la envidia en la familia de Jacob, José vendido y llevado a Egipto, la interpretación de los sueños del faraón (Gn 41), el reencuentro y el perdón (Gn 45); la presencia de Dios en la dificultad (Gn 39,2; 50,20); el perdón en la enseñanza de Jesús (Mt 18,22)",
   ideas: ["Teatro de la historia de José en cuatro escenas.", "Túnica de colores de papel con valores escritos en cada franja.", "Rincón de la paz con los pasos para hacer las paces."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Descubrir otros sueños importantes de la Biblia", "Conocer cómo era el antiguo Egipto", "Comprender la prueba de la copa y el cambio de los hermanos", "Reconocer y gestionar las emociones de la historia"],
+  lectura: { titulo: "Los celos de Daniela", html: `<p>Cuando nació su hermana Carla, Daniela tenía siete años. Al principio estaba muy contenta, pero poco a poco empezó a sentir algo raro en el estómago.</p><p>Todo el mundo hablaba de Carla. Las visitas traían regalos para Carla. Mamá estaba siempre con Carla. Papá le hacía fotos a Carla. Y si Carla lloraba, todos corrían; pero si Daniela quería enseñar un dibujo, le decían: «Ahora no, cariño».</p><p>Un día, Daniela escondió el chupete de su hermana debajo del sofá. Carla estuvo llorando toda la tarde y Daniela se sintió todavía peor.</p><p>Por la noche, su padre se sentó en su cama.</p><p>—Hoy en Religión hemos leído la historia de José —dijo Daniela—. Sus hermanos tenían celos porque era el preferido.</p><p>—¿Y tú tienes celos de Carla?</p><p>Daniela se puso a llorar y dijo que sí, y que había escondido el chupete.</p><p>Su padre la abrazó fuerte.</p><p>—Gracias por contármelo. Los celos son normales, pero hay que hablar de ellos. ¿Sabes una cosa? Te quiero igual que el día que naciste.</p><p>Al día siguiente, Daniela sacó el chupete de debajo del sofá. Y le enseñó a Carla su dibujo. Carla, por supuesto, sonrió.</p>` },
+  tras: {
+    "Los sueños de José": [
+      ["Sueños en la Biblia", `<p>En la Biblia, los <mark>sueños</mark> aparecen muchas veces como una forma en que Dios comunica algo a las personas. José no es el único soñador.</p><ul><li><b>Jacob</b>, el padre de José, soñó una noche con una <b>escalera</b> que llegaba de la tierra al cielo, por la que subían y bajaban ángeles. En el sueño, Dios le prometía cuidarle (Gn 28). Al despertar, llamó a ese lugar <b>Betel</b>, que significa «casa de Dios».</li><li>El rey <b>Salomón</b>, hijo de David, soñó que Dios le ofrecía lo que quisiera. Salomón no pidió riquezas ni poder, sino <b>sabiduría</b> para gobernar bien (1 Re 3).</li><li>El profeta <b>Daniel</b>, como José, sabía explicar los sueños de los reyes.</li><li>En el Nuevo Testamento, <b>José de Nazaret</b>, el esposo de María, recibió en sueños varios mensajes de un ángel: que cuidara de María y del niño, y que huyera a Egipto para protegerlo (Mt 1–2). ¡Otro José que va a Egipto!</li><li>Los <b>Magos de Oriente</b> fueron avisados en sueños de que no volvieran a ver al rey Herodes.</li></ul><p>Hoy sabemos que los sueños son una actividad normal del cerebro mientras dormimos. Pero en muchas culturas antiguas se pensaba que los sueños tenían mensajes ocultos.</p><p><b>Actividad</b>: dibuja la escalera de Jacob y escribe qué pedirías tú si fueras Salomón.</p>`,
+        L6.filas("Soñadores", [["Jacob", "una escalera", cAZ], ["Salomón", "pide sabiduría", cNA], ["José de Nazaret", "huir a Egipto", cVE], ["Magos", "no volver", cMO]])],
+    ],
+    "Vendido por sus hermanos": [
+      ["Rubén y Judá", `<p>No todos los hermanos de José pensaban igual. Dos de ellos, <mark>Rubén</mark> y <mark>Judá</mark>, tuvieron un papel especial en la historia.</p><p><b>Rubén</b> era el hermano mayor. Cuando los demás querían matar a José, él dijo: «<b>No derraméis sangre; echadlo a este pozo</b>». Su idea era volver después a sacarlo en secreto y devolverlo a su padre (Gn 37,22). Pero cuando volvió al pozo, José ya no estaba: lo habían vendido. Rubén se rasgó la ropa de pena.</p><p><b>Judá</b> fue quien propuso vender a José a unos comerciantes que iban a Egipto en lugar de dejarlo morir. Fue una mala acción, aunque así le salvó la vida.</p><p>Pero lo más interesante es que Judá <b>cambió</b>. Años después, en Egipto, cuando el gobernador quería quedarse con Benjamín como esclavo, fue Judá quien dio un paso adelante y dijo: «<b>Déjame quedarme a mí como esclavo en lugar del muchacho</b>, para que él pueda volver con mi padre» (Gn 44,33). El que antes había vendido a un hermano, ahora se ofrecía por otro.</p><p>Esta historia enseña que las personas pueden <b>arrepentirse</b> y mejorar. Nadie está condenado a ser siempre igual.</p><p><b>Actividad</b>: escribe qué le dirías a Rubén y qué le dirías a Judá si pudieras hablar con ellos.</p>`,
+        H6.dos("Hermanos", ["RUBÉN", ["el mayor", "quiere salvarlo", "llega tarde"], cAZ], ["JUDÁ", ["propone vender", "después cambia", "se ofrece"], cNA])],
+    ],
+    "José en Egipto": [
+      ["El antiguo Egipto", `<p>La historia de José ocurre en <mark>Egipto</mark>, uno de los países más ricos y poderosos de la Antigüedad.</p><ul><li>Egipto vivía gracias al río <b>Nilo</b>. Cada año, el río se desbordaba y dejaba sobre los campos un barro muy fértil, el <b>limo</b>. Así crecían trigo, cebada, lino y papiro en medio del desierto. Por eso Egipto tenía comida cuando en otros lugares había hambre.</li><li>El rey de Egipto se llamaba <b>faraón</b>. Los egipcios creían que era como un dios. Tenía un enorme poder y muchos funcionarios a su servicio.</li><li>Los faraones más antiguos se hicieron enterrar en las <b>pirámides</b>, como las de Guiza, que siguen en pie después de más de cuatro mil años.</li><li>Los egipcios escribían con <b>jeroglíficos</b>, dibujos que representaban palabras y sonidos, sobre papiro o en las paredes de los templos.</li><li>Conservaban los cuerpos de los muertos como <b>momias</b>, porque creían en otra vida.</li></ul><p>Para un pastor de Canaán como José, llegar a Egipto era como llegar a otro mundo: ciudades enormes, templos, carros de caballos y una lengua que no entendía.</p><p>José tuvo que aprender muchas cosas nuevas, y llegó a ser el segundo hombre más importante del país.</p><p><b>Actividad</b>: escribe tu nombre con jeroglíficos usando un alfabeto egipcio.</p>`,
+        H6.rueda("Egipto", "NILO", [["faraón", cNA], ["pirámides", cMO], ["jeroglíficos", cAZ], ["trigo", cVE]]),
+        ["98zyd4b1TZ8", "José el Gobernador de Egipto 🤴🏻⏳ | Historia de la Biblia | Mi Primera Biblia | 19", "Mi Primera Biblia", 4601235]],
+    ],
+    "Los sueños del faraón": [
+      ["José, un buen administrador", `<p>Cuando el faraón nombró a José <b>gobernador</b>, le dio su anillo, un collar de oro y un carro, y le encargó preparar el país para los años de hambre (Gn 41,41-49).</p><p>José fue un <mark>buen administrador</mark>. Durante los <b>siete años de abundancia</b>:</p><ul><li>Recorrió todo Egipto.</li><li>Mandó guardar una parte de cada cosecha.</li><li>Construyó grandes <b>graneros</b> en las ciudades, cerca de los campos.</li><li>Guardó tanto trigo que dejaron de contarlo, «como la arena del mar».</li></ul><p>Cuando llegaron los <b>siete años de hambre</b>, los graneros estaban llenos. José abrió los almacenes y vendió trigo a los egipcios y a la gente de otros países que llegaba hambrienta, entre ellos sus propios hermanos.</p><p>José nos enseña algo muy útil: hay que ser <b>previsor</b>, es decir, pensar en el futuro. Cuando las cosas van bien, conviene <b>ahorrar</b> y guardar para cuando vengan tiempos difíciles.</p><p>Podemos aplicarlo hoy:</p><ul><li><b>Ahorrar</b> una parte de la paga en una hucha.</li><li><b>No desperdiciar</b> comida ni agua.</li><li>Cuidar las cosas para que duren.</li><li>Organizar el tiempo: estudiar un poco cada día y no todo el día antes del examen.</li></ul><p><b>Actividad</b>: haz un plan de ahorro para conseguir algo que te guste, como hizo José con el trigo.</p>`,
+        H6.flujo("Plan", ["7 años|buenos", "guardar|trigo", "graneros|llenos", "7 malos|hay comida"], cNA)],
+    ],
+    "Los hermanos llegan a Egipto": [
+      ["La copa de plata", `<p>Para saber si sus hermanos habían cambiado de verdad, José preparó una <mark>prueba</mark> (Gn 44).</p><p>Cuando los hermanos volvían a su tierra con los sacos llenos de trigo, José mandó a su mayordomo esconder su <b>copa de plata</b> en el saco de <b>Benjamín</b>, el hermano pequeño, el otro hijo de Raquel, la madre de José.</p><p>Al poco de salir de la ciudad, el mayordomo los alcanzó y los acusó de haber robado la copa. Los hermanos, seguros de su inocencia, dijeron: «<b>Si la encuentras en el saco de alguno, que muera</b>». El mayordomo registró los sacos, del mayor al más pequeño… ¡y la copa apareció en el de Benjamín!</p><p>José dijo que Benjamín se quedaría como <b>esclavo</b> y los demás podían irse.</p><p>Era la misma situación de años atrás: los hermanos podían librarse de un hermano preferido de su padre y volver a casa tranquilos. Pero esta vez no lo hicieron. Se rasgaron la ropa, volvieron todos juntos a la ciudad y Judá se ofreció a quedarse en lugar de Benjamín.</p><p>Al ver que sus hermanos ahora <b>protegían</b> al pequeño y pensaban en el dolor de su padre, José comprendió que habían cambiado. Entonces ya no pudo contenerse más y les dijo quién era.</p><p><b>Actividad</b>: representad la escena de la copa de plata en grupo, con un narrador.</p>`,
+        L6.filas("Prueba", [["copa", "en el saco", cNA], ["Benjamín", "acusado", cAZ], ["hermanos", "no lo dejan", cVE], ["José", "se da a conocer", cRO]])],
+    ],
+  },
+  final: [
+    ["Las emociones en la historia de José", `<p>La historia de José está llena de <mark>emociones</mark>, igual que nuestra vida. Reconocerlas nos ayuda a entendernos mejor.</p><ul><li><b>Celos y envidia</b>: los hermanos sentían que su padre quería más a José. En la lectura, Daniela también siente celos de su hermana. Los celos son normales, pero si no los hablamos pueden llevarnos a hacer daño.</li><li><b>Miedo</b>: José en el pozo y en la cárcel; los hermanos cuando descubren quién es el gobernador.</li><li><b>Tristeza</b>: Jacob llora durante años porque cree que su hijo ha muerto.</li><li><b>Culpa</b>: los hermanos se sienten mal por lo que hicieron, y eso les hace cambiar.</li><li><b>Alegría</b>: el reencuentro de José con su padre y sus hermanos.</li><li><b>Amor</b>: José llora varias veces a escondidas al ver a sus hermanos, porque los sigue queriendo.</li></ul><p>¿Qué podemos hacer con las emociones difíciles?</p><ul><li><b>Ponerles nombre</b>: «Estoy celoso», «tengo miedo».</li><li><b>Hablarlas</b> con alguien de confianza, como hizo Daniela con su padre.</li><li><b>No actuar en caliente</b>: esperar a calmarnos antes de hacer algo.</li><li><b>Buscar soluciones</b> que no hagan daño a nadie.</li></ul><p><b>Actividad</b>: haz un «emocionómetro» de la historia de José: dibuja una cara para cada emoción y escribe en qué momento aparece.</p>`,
+      H6.rueda("Emociones", "JOSÉ", [["celos", cVE], ["miedo", cMO], ["tristeza", cAZ], ["alegría", cNA]])],
+    ["José en el arte y la cultura", `<p>La historia de José es una de las más contadas de la Biblia, y ha inspirado a muchos <mark>artistas</mark> durante siglos.</p><ul><li><b>Pintura</b>: grandes pintores como <b>Velázquez</b> (<i>La túnica de José</i>, donde los hermanos enseñan a Jacob la túnica manchada), <b>Murillo</b> o <b>Rembrandt</b> pintaron escenas de su vida.</li><li><b>Música y teatro</b>: existe un musical muy famoso sobre José y su túnica de muchos colores, que se ha representado en teatros de todo el mundo.</li><li><b>Cine</b>: hay películas de dibujos animados que cuentan su historia, como <i>José, el rey de los sueños</i>.</li><li><b>Literatura</b>: el escritor alemán <b>Thomas Mann</b> escribió una larguísima novela en cuatro tomos sobre José y sus hermanos.</li></ul><p>La historia de José es importante también para otras religiones. En el <b>Corán</b>, el libro sagrado del islam, hay un capítulo entero dedicado a él, la sura de <b>Yusuf</b> (así se llama José en árabe), con una historia muy parecida.</p><p>¿Por qué gusta tanto esta historia? Porque tiene de todo: sueños, traiciones, aventuras, un viaje a un país lejano, un ascenso increíble, misterio y un final feliz con un gran perdón.</p><p><b>Actividad</b>: diseña el cartel de una película sobre José, con título, personajes y una frase que invite a verla.</p>`,
+      L6.filas("Arte", [["Velázquez", "La túnica de José", cAZ], ["musical", "la túnica de colores", cRO], ["Thomas Mann", "novela", cVE], ["Corán", "sura de Yusuf", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Cómo supo José que sus hermanos habían cambiado?", ["Les puso la prueba de la copa en el saco de Benjamín.", "No abandonaron a Benjamín y Judá se ofreció por él."], "Porque protegieron a Benjamín en lugar de abandonarlo."],
+    ["¿Por qué Egipto tenía comida cuando otros pueblos pasaban hambre?", ["El Nilo dejaba un limo fértil.", "José había guardado trigo en los graneros."], "Por el Nilo y por los graneros de José."],
+  ],
+  errores: ["Confundir a José, hijo de Jacob, con José de Nazaret, el esposo de María: vivieron con muchos siglos de diferencia.", "Pensar que los hermanos de José fueron siempre malos: al final se arrepintieron y cambiaron."],
+  ejercicios: [
+    ["b", "¿Con qué soñó Jacob?", "Con una escalera que llegaba al cielo."],
+    ["b", "¿Qué hermano quería salvar a José del pozo?", "Rubén."],
+    ["b", "¿Qué río daba vida a Egipto?", "El Nilo."],
+    ["b", "¿Dónde guardó José el trigo?", "En grandes graneros."],
+    ["b", "¿En qué saco apareció la copa de plata?", "En el de Benjamín."],
+    ["m", "¿Qué pidió Salomón en su sueño?", "Sabiduría para gobernar bien."],
+    ["m", "¿Cómo demostró Judá que había cambiado?", "Se ofreció a quedarse como esclavo en lugar de Benjamín."],
+    ["m", "¿Qué son los jeroglíficos?", "La escritura de dibujos de los antiguos egipcios."],
+    ["m", "¿Qué significa ser previsor?", "Pensar en el futuro y guardar para los tiempos difíciles."],
+    ["m", "¿Cómo se llama José en el Corán?", "Yusuf."],
+    ["a", "En la lectura, ¿qué tienen en común Daniela y los hermanos de José?", "Sienten celos de un hermano al que creen preferido; Daniela lo habla y lo resuelve."],
+    ["a", "Explica por qué la prueba de la copa repetía la situación de años atrás.", "Los hermanos podían volver a librarse de un hijo preferido de Jacob, pero esta vez no lo hicieron."],
+    ["a", "Haz un plan de ahorro inspirado en José.", "Respuesta abierta."],
+    ["a", "Escribe qué harías si sintieras celos de alguien.", "Respuesta abierta (ponerle nombre, hablarlo, calmarse, buscar soluciones)."],
+  ],
+  quiz: [
+    ["El lugar del sueño de Jacob se llamó…", ["Betel", "Belén", "Egipto"], "Sueños."],
+    ["El hermano mayor de José era…", ["Rubén", "Benjamín", "Judá"], "Hermanos."],
+    ["El barro fértil del Nilo se llama…", ["limo", "papiro", "crisma"], "Egipto."],
+    ["El faraón le dio a José…", ["su anillo y un collar de oro", "una túnica de colores", "una honda"], "Gobernador."],
+    ["José lloraba a escondidas porque…", ["seguía queriendo a sus hermanos", "tenía hambre", "había perdido la copa"], "Emociones."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué escondió Daniela?", ["el chupete de su hermana", "un dibujo", "una copa"], "Lectura."],
+    ["¿Qué pintor hizo «La túnica de José»?", ["Velázquez", "Picasso", "Monet"], "Arte."],
+  ],
+  tarjetas: [
+    ["Sueños bíblicos", "Jacob, Salomón, José de Nazaret y los Magos."],
+    ["Rubén y Judá", "Rubén quiso salvarlo; Judá cambió y se ofreció por Benjamín."],
+    ["Egipto", "Nilo, faraón, pirámides, jeroglíficos y graneros."],
+    ["Emociones", "Celos, miedo, tristeza, culpa, alegría y amor."],
+  ],
+  glosario: [
+    ["Betel", "Lugar del sueño de Jacob: «casa de Dios»."],
+    ["Sabiduría", "Saber actuar bien y con prudencia."],
+    ["Nilo", "Gran río de Egipto."],
+    ["Limo", "Barro fértil que deja el río."],
+    ["Faraón", "Rey del antiguo Egipto."],
+    ["Pirámide", "Tumba gigante de los faraones."],
+    ["Jeroglífico", "Escritura egipcia con dibujos."],
+    ["Granero", "Almacén de trigo."],
+    ["Previsor", "Que piensa en el futuro."],
+    ["Mayordomo", "Encargado de la casa de un señor."],
+    ["Celos", "Miedo a perder el cariño de alguien."],
+    ["Yusuf", "Nombre de José en árabe."],
+  ],
+  situacion: {
+    titulo: "La historia de José en escena",
+    reto: "La clase representa la historia de José en varias escenas y la acompaña de un mural sobre el antiguo Egipto y las emociones de los personajes.",
+    pasos: ["Repartir las escenas: los sueños, el pozo, Egipto, el faraón, la copa y el perdón.", "Preparar un mural del antiguo Egipto con el Nilo, pirámides y graneros.", "Hacer el emocionómetro de cada personaje.", "Representar la obra y comentar qué enseña sobre los celos y el perdón."],
+    producto: "Una representación teatral con mural y emocionómetro.",
+    evaluacion: ["Narra la historia de José en orden.", "Explica cómo era el antiguo Egipto.", "Reconoce las emociones de los personajes.", "Valora el arrepentimiento y el perdón."],
+  },
+});

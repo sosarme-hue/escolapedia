@@ -89,3 +89,100 @@ module.exports = P.tema({
   saberes: "La Iglesia, comunidad de los seguidores de Jesús; el templo y sus partes (altar, ambón, sagrario, pila bautismal); los siete sacramentos; el Bautismo y sus signos (Mc 1,9-11); la Eucaristía y la Última Cena (Lc 22,19-20); las partes de la misa; la primera comunión; el domingo, día del Señor; gestos, cantos y colores de la celebración",
   ideas: ["Maqueta de una iglesia con sus partes señaladas.", "Visita guiada a la parroquia del barrio.", "Mural de los siete sacramentos con sus signos."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo se organiza la Iglesia en el mundo", "Reconocer los objetos de la celebración", "Distinguir los tiempos del año litúrgico", "Valorar la acción solidaria y respetar otras celebraciones"],
+  lectura: { titulo: "El bautizo de Leo", html: `<p>El domingo es un día especial en casa de Valeria: van a bautizar a su hermanito Leo, que tiene cuatro meses.</p><p>Por la mañana, toda la familia se pone guapa. La abuela ha sacado del armario un faldón blanco con encajes: lo llevó la madre de Valeria cuando la bautizaron a ella, y también la abuela, hace muchos años.</p><p>En la iglesia del barrio hay otras dos familias con bebés. El sacerdote, don Luis, los recibe en la puerta con una sonrisa.</p><p>—¿Qué nombre habéis elegido para este niño?</p><p>—Leo —dicen los padres a la vez.</p><p>Después se acercan a la pila bautismal. Don Luis echa agua tres veces sobre la cabeza de Leo, que llora un poquito. Luego le pone aceite perfumado en la frente, y la tía Marta, que es la madrina, enciende una vela en el cirio grande que hay junto al altar.</p><p>Valeria sujeta la vela con mucho cuidado. Mira la llama y después a su hermano, que ya se ha calmado.</p><p>Al terminar, todos aplauden. Don Luis dice:</p><p>—Bienvenido a la familia, Leo.</p><p>Y Valeria piensa que la familia de Leo se ha hecho, de repente, muchísimo más grande.</p>` },
+  tras: {
+    "La Iglesia, una gran familia": [
+      ["La Iglesia en todo el mundo", `<p>La Iglesia católica está presente en casi <mark>todos los países</mark> del mundo. Hay más de mil trescientos millones de católicos. Para organizarse, tiene distintos niveles, como una gran familia con muchas casas.</p><ul><li>La <b>parroquia</b>: es la comunidad cristiana de un barrio o de un pueblo, con su iglesia y su <b>párroco</b> (el sacerdote que la atiende). Es la Iglesia más cercana a nosotros.</li><li>La <b>diócesis</b>: reúne muchas parroquias de una zona, por ejemplo de una provincia. La dirige un <b>obispo</b>. Su iglesia principal se llama <b>catedral</b>, porque allí está la «cátedra», la silla del obispo.</li><li>La Iglesia universal: está guiada por el <b>papa</b>, que es el obispo de Roma. Los católicos lo consideran sucesor de san Pedro.</li></ul><p>El papa vive en el <b>Vaticano</b>, el país más pequeño del mundo, dentro de la ciudad de Roma. Allí está la gran <b>basílica de San Pedro</b>.</p><p>Además de católicos, hay otros cristianos: los <b>ortodoxos</b> (sobre todo en Grecia, Rusia y Europa del Este) y los <b>protestantes</b> o evangélicos. Todos creen en Jesús y leen la Biblia, aunque tienen algunas diferencias. Hoy dialogan entre ellos para estar más unidos.</p><p><b>Actividad</b>: averigua cómo se llama tu parroquia, a qué diócesis pertenece y cuál es su catedral.</p>`,
+        H6.flujo("Organización", ["parroquia|párroco", "diócesis|obispo", "catedral|cátedra", "Iglesia|papa"], cAZ)],
+    ],
+    "El templo: la casa de la comunidad": [
+      ["Objetos de la celebración", `<p>En la misa y en otras celebraciones se usan <mark>objetos especiales</mark>, cada uno con un significado.</p><ul><li>El <b>cáliz</b>: una copa, normalmente de metal dorado, donde se pone el vino.</li><li>La <b>patena</b>: un platito donde se coloca el pan, que en la misa es una oblea redonda llamada <b>hostia</b>.</li><li>Las <b>vinajeras</b>: dos jarritas con el vino y el agua.</li><li>El <b>leccionario</b>: el libro con las lecturas de la Biblia que se leen en la misa.</li><li>El <b>cirio pascual</b>: una vela grande y decorada que se enciende en Pascua y en los bautizos, como en la lectura. Simboliza a Jesús resucitado, luz del mundo.</li><li>El <b>incensario</b>: un recipiente donde se quema incienso, que sube como el humo de la oración.</li></ul><p>El sacerdote también lleva <b>vestiduras</b> especiales:</p><ul><li>El <b>alba</b>: una túnica blanca larga.</li><li>La <b>estola</b>: una banda de tela alrededor del cuello.</li><li>La <b>casulla</b>: una especie de capa sin mangas, del color del tiempo litúrgico.</li></ul><p>Los <b>monaguillos</b> son niños y niñas que ayudan en la misa llevando estos objetos.</p><p><b>Actividad</b>: dibuja el altar preparado para la misa con el cáliz, la patena, las vinajeras y el cirio.</p>`,
+        L6.filas("Objetos", [["cáliz", "copa del vino", cNA], ["patena", "plato del pan", cAZ], ["cirio", "luz pascual", cRO], ["casulla", "vestidura", cVE]])],
+    ],
+    "El Bautismo: entrar en la familia": [
+      ["La Confirmación", `<p>La <mark>Confirmación</mark> es otro sacramento. Se llama así porque «confirma» y hace más fuerte lo que empezó en el Bautismo.</p><p>Cuando una persona se bautiza de bebé, son sus padres y padrinos los que deciden. Más adelante, normalmente en la adolescencia, el joven puede <b>decir él mismo</b> que quiere seguir a Jesús. Para eso se prepara durante un tiempo en la catequesis.</p><p>En la celebración de la Confirmación:</p><ul><li>Normalmente la celebra el <b>obispo</b>.</li><li>El obispo pone su mano sobre la cabeza del joven y le unge la frente con el <b>santo crisma</b>, un aceite perfumado que el obispo bendice cada año el Jueves Santo. El mismo aceite que le pusieron a Leo en la lectura.</li><li>Dice: «<b>Recibe por esta señal el don del Espíritu Santo</b>».</li></ul><p>Los cristianos creen que el <b>Espíritu Santo</b> les da fuerza, como recibieron los apóstoles en <b>Pentecostés</b>, cincuenta días después de la Pascua. Según los Hechos de los Apóstoles, aquel día el Espíritu bajó sobre ellos como <b>lenguas de fuego</b> y perdieron el miedo para anunciar a Jesús.</p><p>Los símbolos del Espíritu Santo son la <b>paloma</b>, el <b>fuego</b> y el <b>viento</b>.</p><p><b>Actividad</b>: dibuja los tres símbolos del Espíritu Santo y escribe qué te sugiere cada uno.</p>`,
+        H6.rueda("Confirmación", "ESPÍRITU", [["paloma", cAZ], ["fuego", cRO], ["viento", cVE], ["crisma", cNA]])],
+    ],
+    "La primera comunión": [
+      ["El perdón: la Reconciliación", `<p>Antes de la primera comunión, muchos niños celebran también por primera vez el sacramento de la <mark>Reconciliación</mark>, también llamado <b>Penitencia</b> o <b>confesión</b>.</p><p>Todas las personas nos equivocamos a veces: mentimos, nos peleamos, no ayudamos o hacemos daño a alguien. Los cristianos llaman a esto <b>pecado</b>. La Reconciliación es el sacramento en el que creen que Dios les perdona y les ayuda a empezar de nuevo.</p><p>Tiene estos pasos:</p><ul><li><b>1. Examen de conciencia</b>: pensar con calma en lo que hemos hecho mal.</li><li><b>2. Arrepentimiento</b>: sentir de verdad haber hecho daño.</li><li><b>3. Decir los pecados</b> al sacerdote, que guarda siempre el secreto.</li><li><b>4. Propósito</b> de mejorar.</li><li><b>5. Penitencia</b>: una pequeña oración o acción para reparar el daño.</li></ul><p>Al final, el sacerdote dice las palabras del perdón: «Yo te absuelvo de tus pecados…».</p><p>Recuerda la parábola del <b>hijo pródigo</b>: el padre no le echa nada en cara al hijo, sino que lo abraza y hace una fiesta. Así entienden los cristianos el perdón de Dios.</p><p>Pedir perdón y perdonar también es importante en la vida diaria, con la familia y con los amigos.</p><p><b>Actividad</b>: escribe una pequeña carta pidiendo perdón a alguien con quien te hayas enfadado.</p>`,
+        H6.flujo("Perdón", ["pensar|qué hice", "arrepentirse|de verdad", "decirlo|y perdón", "mejorar|reparar"], cMO)],
+    ],
+    "El domingo, día del Señor": [
+      ["El año litúrgico", `<p>Igual que el año normal tiene estaciones, la Iglesia organiza el año en <mark>tiempos</mark> para recordar la vida de Jesús. Es el <b>año litúrgico</b>, y empieza a finales de noviembre o principios de diciembre, no en enero.</p><ul><li><b>Adviento</b> (morado): las cuatro semanas antes de Navidad. Es tiempo de <b>esperar</b> y prepararse. En muchas casas e iglesias se enciende cada domingo una vela de la <b>corona de Adviento</b>.</li><li><b>Navidad</b> (blanco): se celebra el nacimiento de Jesús, hasta la fiesta del Bautismo de Jesús. Incluye la Epifanía o día de Reyes.</li><li><b>Cuaresma</b> (morado): cuarenta días antes de la Pascua, que empiezan el <b>Miércoles de Ceniza</b>. Es tiempo de cambiar y compartir.</li><li><b>Semana Santa</b>: se recuerda la entrada en Jerusalén, la Última Cena, la muerte de Jesús y su resurrección.</li><li><b>Pascua</b> (blanco): cincuenta días de alegría por la resurrección, hasta <b>Pentecostés</b> (rojo).</li><li><b>Tiempo ordinario</b> (verde): el resto del año, el más largo.</li></ul><p>Por eso los colores de la casulla del sacerdote y de los adornos del altar cambian a lo largo del año.</p><p><b>Actividad</b>: dibuja una rueda dividida en los tiempos del año litúrgico, cada uno con su color.</p>`,
+        L6.filas("Tiempos", [["Adviento", "morado", cMO], ["Navidad", "blanco", cAZ], ["Pentecostés", "rojo", cRO], ["ordinario", "verde", cVE]]),
+        ["yTJtCPB2o4A", "💒 La SANTA MISA y TODAS sus PARTES 🙏 | GUÍA para NIÑOS 💛 | PequeFe", "PequeFe", 72761]],
+    ],
+  },
+  final: [
+    ["La Iglesia que ayuda", `<p>Para los cristianos, celebrar la misa y ayudar a los demás van <mark>unidos</mark>. Jesús dijo que lo que se hace a quien pasa necesidad, a él se le hace (Mt 25,40).</p><p>Por eso la Iglesia tiene muchas organizaciones de ayuda:</p><ul><li><b>Cáritas</b>: ayuda a personas y familias que lo pasan mal en nuestro país: comida, ropa, ayuda para pagar la casa, clases de español para personas que llegan de fuera o ayuda para encontrar trabajo. Trabaja en casi todas las parroquias.</li><li><b>Manos Unidas</b>: lucha contra el hambre en los países más pobres del mundo. Cada febrero organiza una campaña en la que muchos colegios participan, por ejemplo con la «operación bocata».</li><li><b>Las misiones</b>: hay misioneros y misioneras españoles en África, América y Asia que construyen escuelas, hospitales y pozos. Cada octubre se celebra el <b>Domund</b>, con huchas para recoger dinero.</li><li><b>Hospitales</b>, <b>colegios</b> y <b>residencias</b> de mayores atendidos por religiosos.</li></ul><p>Muchas de las personas que trabajan en estas organizaciones son <b>voluntarias</b>: dedican su tiempo sin cobrar.</p><p><b>Actividad</b>: averigua qué campaña solidaria se hace en tu colegio y cómo podéis participar.</p>`,
+      L6.filas("Ayuda", [["Cáritas", "aquí cerca", cRO], ["Manos Unidas", "contra el hambre", cAZ], ["Domund", "misiones", cNA], ["voluntarios", "sin cobrar", cVE]])],
+    ["Otras religiones también celebran", `<p>Los cristianos se reúnen el <b>domingo</b> en la iglesia. Las personas de otras religiones también tienen sus <mark>lugares y días de celebración</mark>, que conviene conocer y respetar.</p><ul><li><b>Judíos</b>: se reúnen en la <b>sinagoga</b>. Su día sagrado es el <b>sábado</b> (<i>sabbat</i>), que empieza el viernes al atardecer, cuando se encienden dos velas en casa. Allí leen la Torá y rezan. Su guía religioso se llama <b>rabino</b>.</li><li><b>Musulmanes</b>: se reúnen en la <b>mezquita</b>, sobre todo el <b>viernes</b> a mediodía. Antes de entrar se descalzan y se lavan. Rezan cinco veces al día mirando hacia La Meca. Su guía en la oración se llama <b>imán</b>. Durante el mes de <b>Ramadán</b> no comen ni beben desde que sale el sol hasta que se pone.</li><li><b>Cristianos ortodoxos y protestantes</b>: también se reúnen el domingo, con algunas diferencias en sus celebraciones.</li></ul><p>En España hay iglesias, sinagogas y mezquitas, algunas muy antiguas, como la mezquita-catedral de Córdoba o las sinagogas de Toledo, que recuerdan que durante siglos convivieron cristianos, judíos y musulmanes.</p><p>Conocer las celebraciones de los demás nos ayuda a <b>respetarnos</b> y a convivir.</p><p><b>Actividad</b>: haz una tabla con el lugar, el día y el guía de cada religión.</p>`,
+      L6.filas("Lugares", [["iglesia", "domingo", cAZ], ["sinagoga", "sábado", cNA], ["mezquita", "viernes", cVE], ["guías", "cura, rabino, imán", cMO]])],
+  ],
+  ejemplos: [
+    ["¿Por qué la iglesia principal de una diócesis se llama catedral?", ["En ella está la cátedra.", "La cátedra es la silla del obispo."], "Porque allí está la silla del obispo."],
+    ["¿De qué color va el sacerdote en Adviento?", ["Adviento es tiempo de espera.", "Su color, como en Cuaresma, es el morado."], "Morado."],
+  ],
+  errores: ["Pensar que el año litúrgico empieza en enero: empieza con el Adviento.", "Confundir el cáliz (copa del vino) con la patena (plato del pan)."],
+  ejercicios: [
+    ["b", "¿Quién dirige una parroquia?", "El párroco."],
+    ["b", "¿Dónde vive el papa?", "En el Vaticano."],
+    ["b", "¿Qué es el cirio pascual?", "Una vela grande que simboliza a Jesús resucitado."],
+    ["b", "¿Cuáles son los símbolos del Espíritu Santo?", "La paloma, el fuego y el viento."],
+    ["b", "¿De qué color es el tiempo ordinario?", "Verde."],
+    ["m", "Ordena de menor a mayor: diócesis, parroquia, Iglesia universal.", "Parroquia, diócesis, Iglesia universal."],
+    ["m", "¿Qué es el santo crisma?", "Aceite perfumado que se usa en el Bautismo y la Confirmación."],
+    ["m", "Nombra los pasos de la Reconciliación.", "Examen de conciencia, arrepentimiento, decir los pecados, propósito y penitencia."],
+    ["m", "¿Qué se celebra en Pentecostés?", "La venida del Espíritu Santo sobre los apóstoles."],
+    ["m", "¿Qué hace Manos Unidas?", "Lucha contra el hambre en los países pobres."],
+    ["a", "En la lectura, ¿qué signos del Bautismo aparecen?", "El nombre, el agua, el aceite y la vela encendida en el cirio."],
+    ["a", "Dibuja la rueda del año litúrgico con sus colores.", "Adviento morado, Navidad blanco, Cuaresma morado, Pascua blanco, Pentecostés rojo, ordinario verde."],
+    ["a", "Compara una iglesia, una sinagoga y una mezquita.", "Respuesta abierta (día, guía, lectura sagrada)."],
+    ["a", "Propón una acción solidaria para tu clase inspirada en Cáritas o Manos Unidas.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La silla del obispo se llama…", ["cátedra", "patena", "ambón"], "Organización."],
+    ["La túnica blanca larga del sacerdote es el…", ["alba", "cáliz", "cirio"], "Vestiduras."],
+    ["La Confirmación la celebra normalmente…", ["el obispo", "un monaguillo", "el padrino"], "Confirmación."],
+    ["La Cuaresma empieza el…", ["Miércoles de Ceniza", "día de Reyes", "Jueves Santo"], "Año litúrgico."],
+    ["El día sagrado de los judíos es el…", ["sábado", "viernes", "lunes"], "Religiones."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién es la madrina de Leo?", ["la tía Marta", "la abuela", "Valeria"], "Lectura."],
+    ["El Domund se dedica a…", ["las misiones", "el deporte", "los museos"], "Ayuda."],
+  ],
+  tarjetas: [
+    ["Organización", "Parroquia, diócesis y obispo, papa en el Vaticano."],
+    ["Objetos", "Cáliz, patena, vinajeras, cirio; alba, estola y casulla."],
+    ["Sacramentos", "Confirmación con crisma; Reconciliación con perdón."],
+    ["Año litúrgico", "Adviento, Navidad, Cuaresma, Pascua, ordinario."],
+  ],
+  glosario: [
+    ["Parroquia", "Comunidad cristiana de un barrio o pueblo."],
+    ["Diócesis", "Zona con muchas parroquias guiada por un obispo."],
+    ["Catedral", "Iglesia principal de una diócesis."],
+    ["Papa", "Obispo de Roma y guía de la Iglesia católica."],
+    ["Cáliz", "Copa para el vino en la misa."],
+    ["Patena", "Platito para el pan en la misa."],
+    ["Cirio pascual", "Vela grande que simboliza a Jesús resucitado."],
+    ["Casulla", "Vestidura del sacerdote del color del tiempo."],
+    ["Crisma", "Aceite perfumado bendecido por el obispo."],
+    ["Pentecostés", "Fiesta de la venida del Espíritu Santo."],
+    ["Adviento", "Tiempo de espera antes de Navidad."],
+    ["Cáritas", "Organización de la Iglesia que ayuda a quien lo necesita."],
+  ],
+  situacion: {
+    titulo: "Conocemos nuestra parroquia",
+    reto: "La clase prepara una guía de la parroquia o iglesia del barrio para explicar a otros cursos qué se celebra en ella y cómo ayuda a los demás.",
+    pasos: ["Visitar o investigar la iglesia del barrio y sus objetos.", "Dibujar el altar con los objetos y las vestiduras.", "Hacer la rueda del año litúrgico con sus colores.", "Investigar qué hace Cáritas en el barrio y proponer una colaboración."],
+    producto: "Una guía ilustrada de la parroquia y una propuesta solidaria.",
+    evaluacion: ["Explica cómo se organiza la Iglesia.", "Reconoce los objetos y los tiempos litúrgicos.", "Describe los sacramentos estudiados.", "Respeta las celebraciones de otras religiones."],
+  },
+});
