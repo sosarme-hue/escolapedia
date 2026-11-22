@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: la sílaba; clasificación de las palabras por el número de sílabas; normas de separación silábica y uso del guion; sílaba tónica y átona; vocales abiertas y cerradas; diptongo, triptongo e hiato",
   ideas: ["Palmadas y saltos: un salto por sílaba en el patio.", "Fichas de vocales de dos tamaños (abiertas grandes, cerradas pequeñas) para formar diptongos e hiatos.", "Dictado de palabras para partir al final del renglón."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Partir palabras correctamente al final de la línea", "Pronunciar con claridad mediante trabalenguas y sílabas trabadas", "Relacionar diptongos en familias de palabras", "Jugar con las sílabas para mejorar la conciencia fonológica"],
+  lectura: { titulo: "La niña que hablaba al revés", html: `<p>En el colegio de Ruth, todo el mundo conocía su secreto: sabía hablar <b>al revés</b>.</p><p>No es que dijera las frases al revés, no. Es que cogía cada palabra, la partía en sílabas y les daba la vuelta. Así, «gato» se convertía en «toga», «casa» en «saca» y «pelota» en «talope».</p><p>—¡La-ho! —saludaba cada mañana, que quería decir «¡Hola!».</p><p>Al principio, sus amigos no entendían nada. Pero Ruth les enseñó el truco: primero hay que dar palmadas para separar las sílabas, después se dicen empezando por la última.</p><p>—«Ma-ri-po-sa» tiene cuatro palmadas —explicaba Ruth—. Al revés: «sa-po-ri-ma».</p><p>Pronto, toda la clase hablaba al revés en el recreo. Era su lengua secreta. Los mayores de sexto los miraban sin entender nada, y eso les encantaba.</p><p>Un día, la maestra les propuso un reto: buscar palabras que, dichas al revés por sílabas, formaran otra palabra de verdad. Probaron con «loco», pero «colo» no existe. Probaron con «lomo», pero «molo» tampoco. ¡Qué difícil! Poco a poco fueron encontrando parejas: «casa» y «saca», «toma» y «mato», «lobo» y «bolo», «caro» y «roca».</p><p>Al final de la semana tenían una lista de veinte. La colgaron en el pasillo con un título enorme: <b>«BRAS-LA-PA AL VÉS-RE»</b>.</p><p>¿Sabes qué significa?</p>` },
+  tras: {
+    "Cómo se separan las sílabas": [
+      ["Partir palabras al final de la línea", `<p>Cuando escribimos a mano y una palabra no cabe entera al final de la línea, podemos <b>partirla</b>. Para ello se usa un <mark>guion</mark> (-) al final de la línea y se sigue en la siguiente. Pero hay que hacerlo bien:</p><ul><li>Se parte siempre <b>por sílabas</b>, nunca en medio de una sílaba: <i>ma-</i> / <i>riposa</i> o <i>mari-</i> / <i>posa</i>, pero nunca <i>mar-</i> / <i>iposa</i>.</li><li><b>No</b> se deja <b>una vocal sola</b> al final ni al principio de la línea: <s><i>a-</i> / <i>mor</i></s>, <s><i>Mari-</i> / <i>a</i></s>. Mejor escribir la palabra entera en la línea siguiente.</li><li><b>No</b> se separan las letras dobles que forman un solo sonido: <b>ch</b>, <b>ll</b> y <b>rr</b>: <i>co-che</i>, <i>ca-lle</i>, <i>pe-rro</i>.</li><li><b>No</b> se rompen los <b>diptongos</b> ni los triptongos: <i>pie-</i> / <i>dra</i>, nunca <i>pi-</i> / <i>edra</i>.</li><li>En los <b>hiatos</b> es mejor no partir entre las dos vocales: <i>tea-</i> / <i>tro</i> o <i>te-</i> / <i>atro</i> se admiten, pero queda más claro escribir la palabra entera.</li><li>Las palabras con <b>x</b> entre vocales se parten antes de la x: <i>ta-xi</i>, <i>bo-xeo</i>.</li></ul><p>Hoy, en el ordenador, el programa hace este trabajo solo. Pero en tus cuadernos, ¡eres tú quien decide!</p>`,
+        H6.dos("Partir la palabra", ["BIEN", ["mari- / posa", "co- / che", "pie- / dra"], cVE], ["MAL", ["mar- / iposa", "coc- / he", "pi- / edra"], cRO])],
+    ],
+    "La sílaba tónica": [
+      ["Trabalenguas: entrenar la lengua", `<p>Los <mark>trabalenguas</mark> son frases difíciles de pronunciar porque repiten sílabas y sonidos parecidos. Son un juego muy antiguo y un ejercicio estupendo para pronunciar con <b>claridad</b>, separar bien las sílabas y fijarse en la sílaba tónica.</p><p>Aquí tienes algunos tradicionales. Léelos primero despacio, sílaba a sílaba, y después cada vez más rápido:</p><ul><li><i>Tres tristes tigres tragaban trigo en un trigal.</i></li><li><i>Pablito clavó un clavito. ¿Qué clavito clavó Pablito?</i></li><li><i>El cielo está enladrillado. ¿Quién lo desenladrillará? El desenladrillador que lo desenladrille buen desenladrillador será.</i></li><li><i>Erre con erre, cigarro; erre con erre, barril. Rápido ruedan los carros cargados de azúcar del ferrocarril.</i></li><li><i>Como poco coco como, poco coco compro.</i></li><li><i>Pepe Pecas pica papas con un pico; con un pico pica papas Pepe Pecas.</i></li></ul><p>Consejos para decirlos bien:</p><ul><li>Marca con una palmada cada sílaba.</li><li>Fíjate en las sílabas que más se repiten: <i>tra</i>, <i>tri</i>, <i>cla</i>, <i>co</i>.</li><li>Abre bien la boca y no corras al principio.</li></ul><p>Los logopedas y los actores usan trabalenguas para entrenar la pronunciación. ¿Te atreves a inventar uno?</p>`,
+        L6.filas("Sonidos que traban", [["tr", "tres tristes tigres", cAZ], ["cl", "Pablito clavó", cNA], ["rr", "erre con erre", cRO], ["co", "como poco coco", cMO]]), ["0BkCRSBXUlM", "8 trabalenguas cortos y fáciles para niños", "guiainfantil", 1868975]],
+    ],
+    "El diptongo": [
+      ["Diptongos que van y vienen", `<p>¿Te has fijado en que algunas palabras de la misma familia unas veces tienen <b>diptongo</b> y otras no? Mira:</p><ul><li><i>p<b>ue</b>rta</i> → <i>p<b>o</b>rtero</i>, <i>p<b>o</b>rtal</i>.</li><li><i>f<b>ue</b>rte</i> → <i>f<b>o</b>rtaleza</i>, <i>f<b>o</b>rtísimo</i>.</li><li><i>n<b>ue</b>vo</i> → <i>n<b>o</b>vedad</i>, <i>n<b>o</b>vato</i>.</li><li><i>t<b>ie</b>mpo</i> → <i>t<b>e</b>mporada</i>, <i>t<b>e</b>mprano</i>.</li><li><i>d<b>ie</b>nte</i> → <i>d<b>e</b>ntista</i>, <i>d<b>e</b>ntadura</i>.</li><li><i>p<b>ie</b>dra</i> → <i>p<b>e</b>drada</i>, <i>p<b>e</b>dregoso</i>.</li></ul><p>¿Por qué pasa esto? En <b>latín</b>, estas palabras tenían una <b>o</b> o una <b>e</b>: <i>porta</i>, <i>fortis</i>, <i>tempus</i>. Con el paso de los siglos, cuando esa vocal era <b>tónica</b> (sonaba fuerte), se convirtió en diptongo: <i>o → ue</i>, <i>e → ie</i>. Pero cuando era átona, se quedó igual.</p><p>Lo mismo pasa en muchos verbos: <i>contar → c<b>ue</b>nto</i>, <i>pensar → p<b>ie</b>nso</i>, <i>dormir → d<b>ue</b>rmo</i>, <i>querer → qu<b>ie</b>ro</i>. El diptongo aparece en las formas donde esa sílaba es tónica.</p><p>Saber esto te ayuda a encontrar familias de palabras y a escribir mejor. Por ejemplo, si dudas cómo se escribe <i>fortaleza</i>, piensa en <i>fuerte</i>.</p>`,
+        L6.filas("De diptongo a vocal", [["puerta", "portero", cAZ], ["fuerte", "fortaleza", cNA], ["tiempo", "temporada", cVE], ["diente", "dentista", cMO]]), ["BDogfXOZYA0", "Ejemplos de diptongos para niños de Primaria", "aprendealeer", 1473226]],
+    ],
+  },
+  final: [
+    ["Las sílabas trabadas", `<p>Una <mark>sílaba trabada</mark> es la que tiene <b>dos consonantes seguidas</b> antes de la vocal, como <i>bla</i>, <i>bra</i>, <i>cla</i>, <i>tre</i>, <i>flo</i>. La segunda consonante es siempre una <b>l</b> o una <b>r</b>.</p><p>Las parejas que forman sílabas trabadas en castellano son:</p><ul><li>Con <b>l</b>: <b>bl</b> (<i>blanco</i>), <b>cl</b> (<i>clase</i>), <b>fl</b> (<i>flor</i>), <b>gl</b> (<i>globo</i>), <b>pl</b> (<i>plato</i>).</li><li>Con <b>r</b>: <b>br</b> (<i>brazo</i>), <b>cr</b> (<i>crema</i>), <b>dr</b> (<i>dragón</i>), <b>fr</b> (<i>fresa</i>), <b>gr</b> (<i>grande</i>), <b>pr</b> (<i>primo</i>), <b>tr</b> (<i>tren</i>).</li></ul><p>Estas parejas <b>nunca se separan</b> al dividir en sílabas: <i>ha-bla</i>, <i>a-pren-der</i>, <i>li-bro</i>, <i>o-tro</i>. Fíjate en que <i>tl</i> sí puede ir junto en algunas palabras (<i>a-tle-ta</i>), aunque en muchas zonas se pronuncia <i>at-le-ta</i>.</p><p>Pronunciar bien las sílabas trabadas cuesta un poco a los más pequeños y a quienes aprenden castellano. Por eso a veces se oye «pato» en lugar de «plato». Practicar con trabalenguas ayuda mucho.</p><p>Un consejo para escribir: si dudas entre <i>br</i> y <i>vr</i>, recuerda que en castellano <b>nunca</b> se escribe <i>vr</i> ni <i>vl</i>. Siempre es <b>br</b> y <b>bl</b>: <i>brazo</i>, <i>hablar</i>, <i>libro</i>, <i>sombra</i>.</p>`,
+      L6.filas("Sílabas trabadas", [["con l", "bl, cl, fl, gl, pl", cAZ], ["con r", "br, cr, dr, fr, gr, pr, tr", cNA], ["nunca", "vr, vl", cRO], ["no se separan", "li-bro, ha-bla", cVE]])],
+    ["Juegos con sílabas", `<p>Las sílabas son las piezas de las palabras, como las piezas de un juego de construcción. Podemos jugar con ellas de muchas formas:</p><ul><li><mark>Palabras encadenadas</mark>: cada jugador dice una palabra que empieza por la última sílaba de la anterior. <i>Casa → sapo → pozo → zorro → rosa…</i> Pierde quien tarda demasiado o repite.</li><li><b>Sílabas al revés</b>: decir las palabras invirtiendo el orden de sus sílabas: <i>casa → saca</i>, <i>lobo → bolo</i>, <i>gato → toga</i>. ¡Algunas forman palabras nuevas!</li><li><b>Quitar una sílaba</b>: ¿qué queda si a <i>camino</i> le quitas <i>ca</i>? <i>Mino</i>… ¿y si a <i>mariposa</i> le quitas <i>ri</i>? <i>Maposa</i>. ¿Y a <i>sombrero</i> le quitas <i>som</i>? ¡<i>Brero</i>!</li><li><b>Palabras escondidas</b>: buscar palabras dentro de otras: en <i>soldado</i> están <i>sol</i> y <i>dado</i>; en <i>cocodrilo</i>, <i>coco</i>.</li><li><b>La jerigonza</b>: una lengua secreta tradicional que añade una sílaba con <i>p</i> detrás de cada sílaba: <i>hola → hopo-lapa</i>, <i>casa → capa-sapa</i>.</li></ul><p>Estos juegos parecen solo diversión, pero entrenan algo muy importante para leer y escribir bien: la <b>conciencia fonológica</b>, es decir, darse cuenta de los sonidos que forman las palabras.</p>`,
+      H6.flujo("Palabras encadenadas", ["ca-SA", "SA-po", "PO-zo", "ZO-rro…"], cMO), ["1mlIcrym_90", "Juego de palabras encadenadas", "Isa y Nati", 817855]],
+  ],
+  ejemplos: [
+    ["¿Dónde puedes partir «chocolate» al final de una línea?", ["Sílabas: cho-co-la-te.", "Ch no se separa."], "cho- / colate, choco- / late o chocola- / te"],
+    ["Encuentra la palabra de la familia sin diptongo: cuento, nieve, muela.", ["ue → o; ie → e.", "contar, nevar, molar."], "contar, nevada, molar"],
+  ],
+  errores: ["Partir una palabra dejando una vocal sola: «a- / migo».", "Separar ll, ch o rr al partir: «cal- / le»."],
+  ejercicios: [
+    ["b", "Separa en sílabas: «trabalenguas».", "tra-ba-len-guas."],
+    ["b", "¿Se puede partir «perro» como «per- / ro»?", "No; rr no se separa: pe- / rro."],
+    ["b", "Escribe tres palabras con sílaba trabada con l.", "Blanco, flor, plato."],
+    ["b", "Encadena tres palabras a partir de «mesa».", "Mesa, saco, coche…"],
+    ["b", "Di «gato» con las sílabas al revés.", "Toga."],
+    ["m", "Escribe una palabra de la familia de «fuerte» sin diptongo.", "Fortaleza."],
+    ["m", "¿Por qué no se puede partir «ami- / go» como «a- / migo»?", "Porque quedaría una vocal sola."],
+    ["m", "Di un trabalenguas de memoria y señala qué sílaba se repite.", "Respuesta abierta."],
+    ["m", "Busca dos palabras escondidas en «soldado».", "Sol, dado."],
+    ["m", "¿Por qué decimos «cuento» pero «contar»?", "La o latina tónica se hizo ue."],
+    ["a", "Inventa un trabalenguas con la sílaba «pla».", "Respuesta abierta."],
+    ["a", "Escribe diez parejas de palabras con y sin diptongo.", "Respuesta abierta."],
+    ["a", "Descifra el cartel de la lectura y escribe uno nuevo.", "Palabras al revés."],
+    ["a", "Organiza un campeonato de palabras encadenadas.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Al partir una palabra al final de línea se usa…", ["un guion", "una coma", "un punto"], "Partir."],
+    ["«Tres tristes tigres» repite la sílaba…", ["tr", "pl", "ch"], "Trabalenguas."],
+    ["De la familia de «diente» sin diptongo:", ["dentista", "dientón", "dientes"], "Diptongos."],
+    ["Es una sílaba trabada…", ["bra", "bar", "aba"], "Trabadas."],
+    ["Las palabras encadenadas empiezan por…", ["la última sílaba de la anterior", "la misma letra", "una vocal"], "Juegos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué sabía hacer Ruth?", ["hablar con las sílabas al revés", "hablar inglés", "cantar ópera"], "Lectura."],
+    ["En castellano nunca se escribe…", ["vr", "br", "bl"], "Trabadas."],
+  ],
+  tarjetas: [
+    ["Partir palabras", "Por sílabas, sin vocal sola, sin separar ch, ll, rr ni diptongos."],
+    ["Trabalenguas", "Entrenan la pronunciación: tres tristes tigres."],
+    ["Diptongos de familia", "puerta/portero, tiempo/temporada; del latín."],
+    ["Trabadas y juegos", "bl, br, cl, tr…; encadenadas, al revés, jerigonza."],
+  ],
+  glosario: [
+    ["Guion", "Signo (-) que se usa para partir una palabra al final de línea."],
+    ["Trabalenguas", "Frase difícil de pronunciar que se usa como juego."],
+    ["Logopeda", "Especialista que ayuda a hablar y pronunciar bien."],
+    ["Diptongo", "Dos vocales en la misma sílaba."],
+    ["Familia de palabras", "Palabras con la misma raíz."],
+    ["Latín", "Lengua de los romanos, origen del castellano."],
+    ["Sílaba trabada", "Sílaba con dos consonantes antes de la vocal."],
+    ["Conciencia fonológica", "Capacidad de reconocer los sonidos de las palabras."],
+    ["Jerigonza", "Lengua secreta de juego que añade sílabas."],
+    ["Palabras encadenadas", "Juego que une palabras por su última sílaba."],
+    ["Sílaba tónica", "Sílaba que suena más fuerte."],
+    ["Fluidez", "Leer o hablar con soltura y sin trabarse."],
+  ],
+  situacion: {
+    titulo: "Olimpiadas de sílabas",
+    reto: "La clase organiza unas olimpiadas de juegos de sílabas para otro curso.",
+    pasos: ["Preparad pruebas: trabalenguas, encadenadas, sílabas al revés, palabras escondidas.", "Escribid las normas de cada prueba.", "Haced tarjetas y un marcador de puntos.", "Celebrad las olimpiadas y entregad diplomas."],
+    producto: "Unas olimpiadas de sílabas con pruebas y diplomas.",
+    evaluacion: ["Separa correctamente en sílabas.", "Pronuncia con claridad.", "Reconoce diptongos y sílabas trabadas.", "Organiza y explica las pruebas."],
+  },
+});

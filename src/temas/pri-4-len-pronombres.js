@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: el pronombre personal; persona y número; formas de cortesía; formas tónicas y átonas; conmigo, contigo; tilde diacrítica en tú, él, mí; uso del pronombre para evitar repeticiones; concordancia con el verbo",
   ideas: ["Tarjetas con yo, tú, él… para conjugar verbos en corro.", "Texto lleno de repeticiones para «limpiar» con pronombres por parejas.", "Programa de radio simulado con presentador, público e invitado."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el uso de vosotros, ustedes y vos en el mundo hispano", "Usar bien lo, la y le", "Comparar los pronombres personales con otras lenguas", "Emplear conmigo, contigo, consigo y los pronombres reflexivos"],
+  lectura: { titulo: "La carta de Valeria", html: `<p>Querida prima Valeria:</p><p>¿Qué tal estás en Buenos Aires? Yo estoy muy contenta porque ya terminó el trimestre y he sacado buenas notas.</p><p>El otro día la maestra nos leyó la carta que <b>tú</b> me mandaste y a toda la clase le hizo mucha gracia. Escribiste: «<b>Vos</b> sabés que te extraño mucho». Nadie entendía lo de «vos sabés». La maestra nos explicó que en Argentina, en Uruguay y en otros países se usa <b>vos</b> en lugar de <b>tú</b>, y que el verbo cambia un poco: <i>vos sabés</i>, <i>vos tenés</i>, <i>vos sos</i>.</p><p>También nos contó que en Canarias, en parte de Andalucía y en toda América no se usa <b>vosotros</b>. Cuando hablan a varios amigos dicen <b>ustedes</b>: «Niños, ¿ustedes quieren merendar?». ¡Mi abuela de Tenerife lo dice así!</p><p>Así que en clase hemos hecho un juego: cada uno decía la misma frase como se diría en su familia. Hugo, que es de Madrid, dijo: «¿Vosotros venís al parque?». Yeray, de Canarias: «¿Ustedes vienen al parque?». Y yo dije, imitándote: «¿Vos venís al parque?».</p><p>Nos reímos muchísimo. Todos hablamos la misma lengua, pero cada uno a su manera. Eso es lo bonito.</p><p>Escríbeme pronto y cuéntame cosas de <b>ti</b>.</p><p>Un abrazo enorme,</p><p>Alba</p>` },
+  tras: {
+    "Usted y ustedes": [
+      ["Vosotros, ustedes y vos", `<p>El castellano lo hablan más de <b>500 millones de personas</b> en el mundo, y no todos usan los mismos pronombres de segunda persona:</p><ul><li>En la mayor parte de <b>España</b> usamos <b>tú</b> para hablar a un amigo, <b>vosotros/vosotras</b> para hablar a varios amigos, y <b>usted/ustedes</b> para hablar con respeto.</li><li>En <b>Canarias</b>, en parte de <b>Andalucía</b> y en toda <b>América</b> no se usa <i>vosotros</i>. Para hablar a varias personas, amigos o no, se dice siempre <mark>ustedes</mark>: <i>¿Ustedes quieren jugar?</i></li><li>En <b>Argentina</b>, <b>Uruguay</b>, <b>Paraguay</b> y en partes de Centroamérica se usa <mark>vos</mark> en lugar de <i>tú</i>, y el verbo cambia: <i>vos tenés</i> (tú tienes), <i>vos sos</i> (tú eres), <i>vos cantás</i> (tú cantas). Se llama <b>voseo</b>.</li></ul><p>Ninguna de estas formas es mejor ni peor: son <b>variedades</b> del castellano, igual de correctas en su lugar. Lo importante es que el verbo concuerde con el pronombre:</p><ul><li><i>Vosotros <b>cantáis</b></i>.</li><li><i>Ustedes <b>cantan</b></i>.</li><li><i>Vos <b>cantás</b></i>.</li></ul><p>Cuando veas películas o leas libros de otros países hispanohablantes, fíjate en estos pronombres: ¡es un viaje por la lengua!</p>`,
+        L6.filas("A varios amigos", [["España", "vosotros cantáis", cRO], ["Canarias", "ustedes cantan", cNA], ["América", "ustedes cantan", cVE], ["Argentina (a uno)", "vos cantás", cAZ]])],
+    ],
+    "Formas átonas": [
+      ["Lo, la y le: sin confusiones", `<p>Los pronombres átonos <b>lo, la, los, las</b> y <b>le, les</b> se confunden a menudo. Vamos a aprender a usarlos bien:</p><ul><li><mark>Lo, la, los, las</mark> sustituyen a la persona o cosa que <b>recibe directamente</b> la acción (el complemento directo). Concuerdan en género y número: <i>¿Has visto a <b>Pedro</b>? Sí, <b>lo</b> vi.</i> <i>¿Has comprado <b>las manzanas</b>? Sí, <b>las</b> compré.</i></li><li><mark>Le, les</mark> sustituyen a la persona que <b>recibe el beneficio o el daño</b> de la acción (el complemento indirecto). Sirven para masculino y femenino: <i>Di un regalo <b>a María</b> → <b>Le</b> di un regalo.</i> <i>Escribí <b>a mis abuelos</b> → <b>Les</b> escribí.</i></li></ul><p>Un truco: pregunta <b>¿qué?</b> o <b>¿a quién?</b> recibe la acción.</p><ul><li><i>Vi a Laura</i> → ¿a quién vi? A Laura → la vi.</li><li><i>Di un libro a Laura</i> → ¿qué di? Un libro → lo di. ¿A quién? A Laura → le di el libro.</li></ul><p>Errores frecuentes en algunas zonas:</p><ul><li><b>Laísmo</b>: usar <i>la</i> en lugar de <i>le</i>: «<s>La</s> dije a Laura» → <b>Le</b> dije.</li><li><b>Loísmo</b>: «<s>Lo</s> di un abrazo» → <b>Le</b> di un abrazo.</li><li>El <b>leísmo</b> con personas masculinas («a Pedro le vi») se admite, pero con cosas no: «el libro <s>le</s> leí» → <b>lo</b> leí.</li></ul>`,
+        H6.dos("¿Lo/la o le?", ["LO, LA", ["¿qué? ¿a quién?", "lo vi, la compré", "c. directo"], cAZ], ["LE, LES", ["¿a quién? recibe", "le di un regalo", "c. indirecto"], cNA]), ["qku_XTiSQC0", "Lo que debes saber sobre el leísmo, el laísmo y el loísmo", "Blog de Lengua", 108634]],
+    ],
+    "Pronombres para no repetir": [
+      ["Pronombres en otras lenguas", `<p>Todas las lenguas tienen pronombres personales. Compararlos con el castellano nos ayuda a aprender idiomas y a entender mejor el nuestro:</p><ul><li>En <b>inglés</b>: <i>I</i> (yo), <i>you</i> (tú y también vosotros), <i>he</i> (él), <i>she</i> (ella), <i>it</i> (para cosas y animales), <i>we</i> (nosotros), <i>they</i> (ellos y ellas).</li><li>En <b>francés</b>: <i>je</i>, <i>tu</i>, <i>il</i>, <i>elle</i>, <i>nous</i>, <i>vous</i>, <i>ils</i>, <i>elles</i>.</li><li>En <b>catalán</b>: <i>jo</i>, <i>tu</i>, <i>ell</i>, <i>ella</i>, <i>nosaltres</i>, <i>vosaltres</i>, <i>ells</i>, <i>elles</i>.</li></ul><p>Hay una diferencia muy importante: en castellano el sujeto se puede <b>omitir</b>, porque la terminación del verbo ya dice quién hace la acción. Decimos <i>Canto</i> en lugar de <i>Yo canto</i>, y se entiende perfectamente.</p><p>En <b>inglés</b> y en <b>francés</b>, en cambio, el pronombre es <b>obligatorio</b>: hay que decir <i>I sing</i> o <i>Je chante</i>. Si dices solo <i>sing</i>, no se sabe quién canta, porque el verbo inglés casi no cambia.</p><p>Otra curiosidad: en inglés <i>I</i> (yo) se escribe <b>siempre con mayúscula</b>, aunque vaya en medio de una frase.</p><p>Por eso, cuando aprendas inglés o francés, ¡no te olvides del pronombre!</p>`,
+        L6.filas("Yo, tú, él", [["castellano", "yo, tú, él", cRO], ["inglés", "I, you, he", cAZ], ["francés", "je, tu, il", cMO], ["catalán", "jo, tu, ell", cNA]]), ["D0RgdfHXFKE", "Pronombres personales en inglés", "Amigo Mumu Español", 2818895]],
+    ],
+  },
+  final: [
+    ["Conmigo, contigo, consigo", `<p>Cuando los pronombres <b>mí</b>, <b>ti</b> y <b>sí</b> van detrás de la preposición <b>con</b>, no se dice «con mí» ni «con ti». Se juntan en una sola palabra con una forma especial:</p><ul><li><b>con + mí = <mark>conmigo</mark></b>: <i>¿Vienes <b>conmigo</b> al parque?</i></li><li><b>con + ti = <mark>contigo</mark></b>: <i>Me lo paso muy bien <b>contigo</b>.</i></li><li><b>con + sí = <mark>consigo</mark></b>: <i>Lucas siempre lleva un libro <b>consigo</b>.</i> (Se usa cuando se refiere a la misma persona que hace la acción.)</li></ul><p>Con las demás personas no hay forma especial: <i>con él</i>, <i>con ella</i>, <i>con nosotros</i>, <i>con vosotras</i>, <i>con ellos</i>, <i>con usted</i>.</p><p>Estas formas vienen del latín: los romanos decían <i>mecum</i>, <i>tecum</i>, <i>secum</i>, con la preposición pegada al final. Con el tiempo, se añadió otra vez <i>con</i> delante, ¡y la preposición quedó dos veces!</p><p>Un error frecuente en el habla es decir «contra mí» como «contra mía», o «delante mío». Lo correcto es: <i>contra <b>mí</b></i>, <i>delante <b>de mí</b></i>, <i>detrás <b>de ti</b></i>, <i>encima <b>de él</b></i>.</p><p>Fíjate también en que <b>ti</b> nunca lleva tilde: <i>para ti</i>, <i>a ti</i>.</p>`,
+      L6.filas("Con + pronombre", [["con + mí", "conmigo", cAZ], ["con + ti", "contigo", cVE], ["con + sí", "consigo", cNA], ["con + él", "con él", cMO]])],
+    ["Los pronombres reflexivos", `<p>A veces la persona que hace la acción es la misma que la recibe. Por ejemplo: <i>Yo <b>me</b> lavo</i> (yo lavo a mí mismo). En estos casos usamos los <mark>pronombres reflexivos</mark>:</p><ul><li><b>me</b> (yo): <i>Me peino.</i></li><li><b>te</b> (tú): <i>¿Te duchas?</i></li><li><b>se</b> (él, ella, usted): <i>Se viste.</i></li><li><b>nos</b> (nosotros): <i>Nos abrigamos.</i></li><li><b>os</b> (vosotros): <i>Os levantáis.</i></li><li><b>se</b> (ellos, ellas, ustedes): <i>Se divierten.</i></li></ul><p>Compara:</p><ul><li><i>Lavo <b>al perro</b></i> → la acción la recibe el perro.</li><li><i><b>Me</b> lavo</i> → la acción la recibo yo mismo.</li></ul><p>Los verbos que se usan con estos pronombres a menudo tienen el infinitivo con <b>-se</b>: <i>lavarse, peinarse, despertarse, sentarse, acostarse</i>.</p><p>También existen los <b>recíprocos</b>, cuando dos o más personas hacen la acción la una a la otra: <i>Ana y Luis <b>se</b> saludan</i> (Ana saluda a Luis y Luis a Ana). <i><b>Nos</b> abrazamos</i>.</p><p>Fíjate en el orden con el imperativo: el pronombre va <b>detrás</b> y unido: <i>¡Lávate las manos!</i>, <i>¡Sentaos!</i></p>`,
+      H6.flujo("Mi mañana", ["me despierto|7:30", "me ducho|y me visto", "me peino|y desayuno", "nos vamos|al cole"], cVE)],
+  ],
+  ejemplos: [
+    ["Sustituye por un pronombre lo subrayado: «Compré <u>las entradas</u> <u>a mis primos</u>».", ["Las entradas: ¿qué compré? → las.", "A mis primos: ¿a quién? → les (se, ante las)."], "Se las compré."],
+    ["Corrige: «La dije a mi madre que llegaría tarde».", ["¿Qué dije? Que llegaría tarde.", "¿A quién? A mi madre → le."], "Le dije a mi madre que llegaría tarde."],
+  ],
+  errores: ["Decir «con mí» o «con ti» en vez de conmigo y contigo.", "Usar «la» para el complemento indirecto: «la dije» (laísmo)."],
+  ejercicios: [
+    ["b", "¿Qué pronombre usan en Canarias en lugar de vosotros?", "Ustedes."],
+    ["b", "¿Cómo se dice «yo» en inglés?", "I."],
+    ["b", "Completa: «¿Vienes ___ (con + mí)?»", "Conmigo."],
+    ["b", "Escribe tres verbos reflexivos.", "Lavarse, peinarse, vestirse."],
+    ["b", "Sustituye: «Vi a Marta».", "La vi."],
+    ["m", "Convierte al voseo: «Tú tienes razón».", "Vos tenés razón."],
+    ["m", "Sustituye: «Di un abrazo a Pablo».", "Le di un abrazo."],
+    ["m", "¿Por qué en inglés hay que decir siempre el pronombre?", "Porque el verbo casi no cambia y no se sabría quién lo hace."],
+    ["m", "Corrige: «Se sentó delante mío».", "Se sentó delante de mí."],
+    ["m", "¿Es reflexivo o recíproco «Los niños se saludan»?", "Recíproco."],
+    ["a", "Escribe tu rutina de la mañana con pronombres reflexivos.", "Respuesta abierta."],
+    ["a", "Busca en una película latinoamericana ejemplos de ustedes o vos.", "Respuesta abierta."],
+    ["a", "Escribe un diálogo usando conmigo, contigo y consigo.", "Respuesta abierta."],
+    ["a", "Haz una tabla de pronombres en tres lenguas.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En Argentina, en lugar de «tú» se usa…", ["vos", "vosotros", "usted"], "Voseo."],
+    ["«Compré el pan» → «___ compré».", ["Lo", "Le", "La"], "Lo, la, le."],
+    ["En inglés, «ella» es…", ["she", "he", "it"], "Otras lenguas."],
+    ["con + ti =", ["contigo", "con ti", "contí"], "Conmigo."],
+    ["«Me peino» lleva un pronombre…", ["reflexivo", "posesivo", "demostrativo"], "Reflexivos."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde vive la prima Valeria?", ["en Buenos Aires", "en Tenerife", "en Madrid"], "Lectura."],
+    ["«Le di un regalo» es correcto porque «le» es…", ["complemento indirecto", "sujeto", "complemento directo"], "Lo, la, le."],
+  ],
+  tarjetas: [
+    ["Variedades", "Vosotros (España), ustedes (Canarias, América), vos (Argentina)."],
+    ["Lo, la, le", "Lo/la: ¿qué? (directo). Le: ¿a quién? (indirecto). Evita laísmo."],
+    ["Otras lenguas", "I, you, he, she; je, tu, il; en inglés el pronombre es obligatorio."],
+    ["Conmigo y reflexivos", "conmigo, contigo, consigo; me lavo, te peinas, se viste."],
+  ],
+  glosario: [
+    ["Pronombre", "Palabra que sustituye al sustantivo."],
+    ["Voseo", "Uso de vos en lugar de tú."],
+    ["Variedad", "Forma de hablar una lengua en un lugar."],
+    ["Átono", "Que se pronuncia sin fuerza."],
+    ["Complemento directo", "Lo que recibe directamente la acción."],
+    ["Complemento indirecto", "Quien recibe el beneficio o daño de la acción."],
+    ["Laísmo", "Uso incorrecto de la por le."],
+    ["Leísmo", "Uso de le por lo."],
+    ["Omitir", "No decir algo que se sobreentiende."],
+    ["Reflexivo", "Pronombre que indica que la acción vuelve a quien la hace."],
+    ["Recíproco", "Acción que se hacen dos o más personas entre sí."],
+    ["Preposición", "Palabra que une, como a, con, de, para."],
+  ],
+  situacion: {
+    titulo: "Cartas por el mundo",
+    reto: "La clase escribe cartas a niños imaginarios de otros países hispanohablantes.",
+    pasos: ["Elegid un país: Argentina, México, Colombia, España…", "Investigad cómo se usan tú, vos, vosotros y ustedes allí.", "Escribid una carta usando bien los pronombres de ese país.", "Leed las cartas en voz alta y comparad."],
+    producto: "Un buzón de cartas de distintos países.",
+    evaluacion: ["Usa los pronombres de cada variedad.", "Hace concordar verbo y pronombre.", "Usa bien lo, la y le.", "Respeta las variedades de la lengua."],
+  },
+});

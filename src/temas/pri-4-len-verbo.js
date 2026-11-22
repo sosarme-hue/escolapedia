@@ -87,3 +87,92 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: el verbo; infinitivo; raíz y desinencia; las tres conjugaciones; persona y número; tiempo pasado, presente y futuro; verbos regulares e irregulares frecuentes; análisis de formas verbales",
   ideas: ["Dado de personas y dado de tiempos para conjugar verbos al azar.", "Raíces en cartulina y desinencias en pinzas para «vestir» verbos.", "Diario de la semana: escribir una frase en pasado, otra en presente y otra en futuro."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+module.exports.bloques.find((b) => /Conjugar un verbo/.test(b.html)).svg = L6.filas("Comer en tres tiempos", [["yo (pasado)", "comí", cMO], ["yo (presente)", "como", cAZ], ["yo (futuro)", "comeré", cVE], ["nosotros (presente)", "comemos", cNA]]);
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer el gerundio y el participio", "Formar tiempos compuestos con haber", "Conjugar los verbos irregulares más usados", "Usar el imperativo y elegir verbos precisos"],
+  lectura: { titulo: "La fábrica de verbos", html: `<p>En lo alto de una colina había una fábrica muy rara. No fabricaba coches ni galletas: fabricaba <b>verbos</b>.</p><p>Cada mañana, el señor Infinitivo abría la puerta y repartía el trabajo. En la primera nave, la de los verbos en <b>-ar</b>, trabajaban miles de obreros: <i>cantar, saltar, pintar, jugar</i>. En la segunda, los de <b>-er</b>: <i>comer, beber, correr</i>. Y en la tercera, la más pequeña, los de <b>-ir</b>: <i>vivir, escribir, abrir</i>.</p><p>Las máquinas cogían cada verbo, le dejaban la raíz y le iban poniendo terminaciones distintas, como quien cambia de sombrero: <i>cant-o, cant-as, cant-amos, cant-é, cant-aré</i>.</p><p>Casi todos los verbos pasaban por la máquina sin problemas. Pero algunos eran rebeldes. <i>Ir</i>, por ejemplo, salía de la máquina convertido en <i>voy</i>, <i>fui</i>, <i>iré</i>… ¡No se parecía a sí mismo!</p><p>—¡Esta máquina está rota! —gritaba el aprendiz.</p><p>—No, chico —le explicó el señor Infinitivo—. Es que <i>ir</i>, <i>ser</i>, <i>tener</i> y <i>hacer</i> son verbos <b>irregulares</b>. Son tan antiguos y se han usado tanto que se han ido desgastando y cambiando.</p><p>Al final del día, la fábrica enviaba los verbos a todas las bocas y los cuadernos del mundo. Porque, sin verbos, nadie podría decir lo que hace, lo que hizo ni lo que hará.</p>` },
+  tras: {
+    "El infinitivo": [
+      ["El gerundio y el participio", `<p>Además del infinitivo, los verbos tienen otras dos formas que <b>no indican persona</b>: el gerundio y el participio.</p><ul><li>El <mark>gerundio</mark> expresa una acción que está <b>ocurriendo</b>, en desarrollo. Termina en <b>-ando</b> (1.ª conjugación) o <b>-iendo</b> (2.ª y 3.ª): <i>cantando</i>, <i>comiendo</i>, <i>viviendo</i>. Se usa mucho con el verbo <i>estar</i>: <i>Estoy <b>leyendo</b> un cómic</i>; <i>Los niños están <b>jugando</b></i>.</li><li>El <mark>participio</mark> expresa una acción <b>terminada</b>. Termina en <b>-ado</b> (1.ª conjugación) o <b>-ido</b> (2.ª y 3.ª): <i>cantado</i>, <i>comido</i>, <i>vivido</i>. Se usa para formar los tiempos compuestos (<i>he cantado</i>) y también como adjetivo: <i>una puerta <b>cerrada</b></i>, <i>un vaso <b>roto</b></i>.</li></ul><p>Algunos participios son <b>irregulares</b> y conviene aprenderlos:</p><ul><li><i>hacer → hecho</i>, <i>decir → dicho</i>, <i>escribir → escrito</i>, <i>ver → visto</i>, <i>poner → puesto</i>, <i>romper → roto</i>, <i>abrir → abierto</i>, <i>volver → vuelto</i>, <i>morir → muerto</i>.</li></ul><p>¡Cuidado! No se dice «he rompido» ni «he escribido». Lo correcto es <i>he roto</i> y <i>he escrito</i>.</p><p>Y no confundas <b>hecho</b> (del verbo hacer, con h) con <b>echo</b> (del verbo echar): <i>He <b>hecho</b> los deberes</i>; <i><b>Echo</b> sal a la sopa</i>.</p>`,
+        L6.filas("Formas no personales", [["infinitivo", "cantar, comer", cAZ], ["gerundio", "cantando, comiendo", cNA], ["participio", "cantado, comido", cVE], ["irregular", "hecho, roto, escrito", cRO]])],
+    ],
+    "El tiempo: pasado, presente y futuro": [
+      ["Tiempos simples y compuestos", `<p>Las formas verbales pueden ser de dos tipos:</p><ul><li><mark>Tiempos simples</mark>: tienen <b>una sola palabra</b>. <i>Canto</i>, <i>comí</i>, <i>viviré</i>.</li><li><mark>Tiempos compuestos</mark>: tienen <b>dos palabras</b>: una forma del verbo <b>haber</b> y el <b>participio</b> del verbo que conjugamos. <i>He cantado</i>, <i>habías comido</i>, <i>habremos vivido</i>.</li></ul><p>El tiempo compuesto más usado es el <b>pretérito perfecto compuesto</b>, que sirve para hablar de acciones pasadas en un tiempo que todavía no ha terminado (hoy, esta semana, este año):</p><ul><li><i>Yo <b>he</b> desayunado</i>.</li><li><i>Tú <b>has</b> desayunado</i>.</li><li><i>Él <b>ha</b> desayunado</i>.</li><li><i>Nosotros <b>hemos</b> desayunado</i>.</li><li><i>Vosotros <b>habéis</b> desayunado</i>.</li><li><i>Ellos <b>han</b> desayunado</i>.</li></ul><p>Compara:</p><ul><li><i>Hoy <b>he ido</b> al cine</i> (hoy todavía no ha terminado).</li><li><i>Ayer <b>fui</b> al cine</i> (ayer ya terminó).</li></ul><p>En algunas zonas de España, como Galicia, Asturias o Canarias, y en América, se usa más el tiempo simple: <i>Hoy fui al cine</i>. Las dos formas se entienden.</p><p>¡Ojo con la ortografía! Las formas de <i>haber</i> se escriben con <b>h</b>: <i>he, has, ha, hemos, habéis, han</i>. No confundas <i>ha</i> (verbo) con <i>a</i> (preposición): <i>Ha ido <b>a</b> casa</i>.</p>`,
+        H6.dos("Dos tipos", ["SIMPLES", ["una palabra", "canto, comí", "viviré"], cAZ], ["COMPUESTOS", ["haber + participio", "he cantado", "habían comido"], cMO]), ["1UzN3utwf6w", "Formas verbales simples y compuestas", "Aarón de masquemaestros", 275382]],
+    ],
+    "Verbos regulares e irregulares": [
+      ["Los cuatro verbos más irregulares", `<p>Los verbos que más usamos son también los más <b>irregulares</b>, porque al decirlos tantas veces durante siglos se han ido transformando. Estos cuatro son los campeones:</p><ul><li><mark>Ser</mark>: <i>soy, eres, es, somos, sois, son</i> (presente); <i>fui, fuiste, fue</i> (pasado); <i>seré</i> (futuro).</li><li><mark>Ir</mark>: <i>voy, vas, va, vamos, vais, van</i>; <i>fui, fuiste, fue</i>; <i>iré</i>. Fíjate: ¡el pasado de <i>ser</i> e <i>ir</i> es igual! <i>Fui</i> puede significar «fui al parque» (ir) o «fui el primero» (ser).</li><li><mark>Tener</mark>: <i>tengo, tienes, tiene, tenemos, tenéis, tienen</i>; <i>tuve, tuviste, tuvo</i>; <i>tendré</i>.</li><li><mark>Hacer</mark>: <i>hago, haces, hace, hacemos, hacéis, hacen</i>; <i>hice, hiciste, hizo</i>; <i>haré</i>.</li></ul><p>Otros irregulares muy frecuentes: <i>estar</i> (estoy, estuve), <i>poder</i> (puedo, pude), <i>querer</i> (quiero, quise), <i>decir</i> (digo, dije), <i>venir</i> (vengo, vine), <i>saber</i> (sé, supe), <i>poner</i> (pongo, puse).</p><p>Errores típicos al hablar:</p><ul><li>«<s>Andé</s>» → <b>anduve</b>.</li><li>«<s>Conducí</s>» → <b>conduje</b>.</li><li>«<s>Hicistes</s>», «<s>fuistes</s>» → <b>hiciste</b>, <b>fuiste</b> (¡sin s al final!).</li><li>«<s>Satisfació</s>» → <b>satisfizo</b>.</li></ul>`,
+        L6.filas("Presente y pasado", [["ser", "soy · fui", cRO], ["ir", "voy · fui", cAZ], ["tener", "tengo · tuve", cNA], ["hacer", "hago · hice", cVE]])],
+    ],
+  },
+  final: [
+    ["El imperativo: dar órdenes", `<p>Cuando queremos <b>dar una orden</b>, pedir algo o dar un consejo, usamos el <mark>modo imperativo</mark>. Solo tiene formas para la persona a la que hablamos:</p><ul><li><b>Tú</b>: <i>¡Canta!</i>, <i>¡Come!</i>, <i>¡Escribe!</i></li><li><b>Vosotros</b>: <i>¡Cantad!</i>, <i>¡Comed!</i>, <i>¡Escribid!</i> Se forma cambiando la <b>-r</b> final del infinitivo por <b>-d</b>.</li><li><b>Usted</b>: <i>¡Cante!</i>, <i>¡Coma!</i></li><li><b>Ustedes</b>: <i>¡Canten!</i>, <i>¡Coman!</i></li></ul><p>Algunos imperativos de tú son irregulares y muy cortos: <i>di</i> (decir), <i>haz</i> (hacer), <i>ve</i> (ir), <i>pon</i> (poner), <i>sal</i> (salir), <i>sé</i> (ser), <i>ten</i> (tener), <i>ven</i> (venir).</p><p>Errores frecuentes:</p><ul><li>Usar el infinitivo para mandar: «<s>¡Callar!</s>», «<s>¡Sentaros!</s>». Lo correcto es <b>¡Callad!</b>, <b>¡Sentaos!</b> (con <i>os</i>, la <i>d</i> desaparece: <i>sentad + os = sentaos</i>).</li><li>Las órdenes negativas no usan imperativo: no se dice «<s>¡No cantad!</s>», sino <b>¡No cantéis!</b>, y no «<s>¡No come!</s>», sino <b>¡No comas!</b></li></ul><p>Encontrarás muchos imperativos en las <b>recetas</b> (<i>bate los huevos</i>), las <b>instrucciones</b> (<i>pulsa el botón</i>) y las <b>normas</b> (<i>respeta el turno</i>).</p>`,
+      L6.filas("Imperativo", [["tú", "¡canta!", cAZ], ["vosotros", "¡cantad!", cNA], ["usted", "¡cante!", cVE], ["no", "¡no cantéis!", cRO]]), ["-1_tR3W72oI", "Verbos en imperativo, Educación Primaria", "Escuela de Aprendices", 485416]],
+    ["Verbos precisos", `<p>Algunos verbos, como <b>hacer</b>, <b>decir</b>, <b>poner</b>, <b>tener</b> o <b>ver</b>, sirven para casi todo. Por eso los usamos demasiado y nuestros textos quedan pobres. Un buen escritor busca el <mark>verbo preciso</mark>, el que expresa exactamente lo que quiere decir.</p><p>Mira cómo mejoran estas oraciones:</p><ul><li><i>Hizo una casa</i> → <b>construyó</b> una casa.</li><li><i>Hizo un dibujo</i> → <b>dibujó</b>, <b>pintó</b>.</li><li><i>Hacer un pastel</i> → <b>preparar</b>, <b>hornear</b> un pastel.</li><li><i>Dijo una poesía</i> → <b>recitó</b> una poesía.</li><li><i>Dijo un secreto</i> → <b>contó</b>, <b>reveló</b> un secreto.</li><li><i>Dijo que no</i> → <b>respondió</b>, <b>se negó</b>.</li><li><i>Puso la ropa en el armario</i> → <b>guardó</b>, <b>colgó</b>.</li><li><i>Tiene muchos sellos</i> → <b>colecciona</b> sellos.</li><li><i>Vio una película</i> → <b>disfrutó</b> de una película.</li></ul><p>También el verbo «decir» se puede sustituir en los diálogos por otros que expresan cómo se habla: <i>susurró</i>, <i>gritó</i>, <i>exclamó</i>, <i>preguntó</i>, <i>murmuró</i>, <i>contestó</i>, <i>protestó</i>, <i>tartamudeó</i>.</p><p>Lo mismo pasa con los verbos de movimiento. En lugar de repetir <i>ir</i> o <i>andar</i>, piensa cómo se mueve el personaje: <i>corrió</i>, <i>caminó</i>, <i>paseó</i>, <i>se arrastró</i>, <i>trepó</i>, <i>galopó</i>, <i>se deslizó</i>, <i>avanzó de puntillas</i>. Cada verbo pinta una imagen diferente en la mente del lector. No es lo mismo <i>El gato fue hacia el ratón</i> que <i>El gato se acercó sigilosamente al ratón</i>.</p><p>Cuando revises un texto, busca los verbos «comodín» y pregúntate: ¿hay uno más exacto?</p><p>Un buen ejercicio es tener a mano un <b>diccionario de sinónimos</b> o hacer en clase un mural con verbos alternativos para los verbos comodín. Poco a poco, los usarás sin darte cuenta y tus redacciones serán mucho más ricas.</p>`,
+      H6.rueda("En vez de decir", "DECIR", [["susurrar", cAZ], ["gritar", cRO], ["contestar", cVE], ["contar", cNA]])],
+  ],
+  ejemplos: [
+    ["Escribe el gerundio y el participio de leer y de abrir.", ["Leer: 2.ª conjugación → -iendo/-ido (con y: leyendo).", "Abrir tiene participio irregular."], "leyendo, leído; abriendo, abierto"],
+    ["Corrige: «Ayer andé mucho y luego hicistes la cena».", ["Andar es irregular en pasado: anduve.", "Hiciste no lleva s final."], "Ayer anduve mucho y luego hiciste la cena."],
+  ],
+  errores: ["Decir «he rompido» o «he escribido» en vez de he roto y he escrito.", "Usar el infinitivo para mandar: «¡Sentaros!» en vez de ¡Sentaos!"],
+  ejercicios: [
+    ["b", "Escribe el gerundio de saltar.", "Saltando."],
+    ["b", "Escribe el participio de comer.", "Comido."],
+    ["b", "¿Con qué verbo se forman los tiempos compuestos?", "Con haber."],
+    ["b", "Conjuga ser en presente.", "Soy, eres, es, somos, sois, son."],
+    ["b", "Escribe el imperativo de tú de venir.", "Ven."],
+    ["m", "Escribe el participio de hacer, decir y volver.", "Hecho, dicho, vuelto."],
+    ["m", "Conjuga «he leído» en todas las personas.", "He, has, ha, hemos, habéis, han leído."],
+    ["m", "¿Por qué «fui» puede pertenecer a dos verbos?", "Es pasado de ser y de ir."],
+    ["m", "Corrige: «¡Callar todos!»", "¡Callad todos!"],
+    ["m", "Cambia «hacer» por un verbo preciso: «Hizo un muñeco de nieve».", "Construyó / modeló un muñeco de nieve."],
+    ["a", "Escribe una receta con diez imperativos.", "Respuesta abierta."],
+    ["a", "Cuenta qué has hecho hoy usando el pretérito perfecto compuesto.", "Respuesta abierta."],
+    ["a", "Reescribe un diálogo sustituyendo «dijo» por verbos precisos.", "Respuesta abierta."],
+    ["a", "Haz un juego de cartas con verbos irregulares y sus formas.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«Comiendo» es un…", ["gerundio", "participio", "infinitivo"], "Formas no personales."],
+    ["«He cantado» es un tiempo…", ["compuesto", "simple", "imperativo"], "Compuestos."],
+    ["El pasado de «tener» es…", ["tuve", "tení", "tenió"], "Irregulares."],
+    ["Imperativo de vosotros de «sentarse»:", ["sentaos", "sentaros", "sentados"], "Imperativo."],
+    ["Verbo preciso para «hacer una casa»:", ["construir", "decir", "ver"], "Verbos precisos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué verbo salía de la máquina como «voy» y «fui»?", ["ir", "ver", "comer"], "Lectura."],
+    ["El participio de «escribir» es…", ["escrito", "escribido", "escribiendo"], "Participio."],
+  ],
+  tarjetas: [
+    ["Gerundio y participio", "-ando/-iendo; -ado/-ido; hecho, dicho, roto, escrito."],
+    ["Tiempos compuestos", "haber + participio: he, has, ha, hemos, habéis, han."],
+    ["Irregulares", "ser, ir, tener, hacer; fui, tuve, hice; sin s final en hiciste."],
+    ["Imperativo y precisión", "canta, cantad; sentaos; construir, recitar, susurrar."],
+  ],
+  glosario: [
+    ["Infinitivo", "Forma del verbo acabada en -ar, -er, -ir."],
+    ["Gerundio", "Forma del verbo acabada en -ando o -iendo."],
+    ["Participio", "Forma del verbo acabada en -ado o -ido."],
+    ["Forma no personal", "Forma verbal que no indica persona."],
+    ["Tiempo simple", "Forma verbal de una palabra."],
+    ["Tiempo compuesto", "Forma verbal con haber y participio."],
+    ["Verbo auxiliar", "Verbo que ayuda a formar otros tiempos, como haber."],
+    ["Irregular", "Verbo que cambia la raíz o las terminaciones."],
+    ["Imperativo", "Modo del verbo para dar órdenes."],
+    ["Pretérito", "Tiempo pasado."],
+    ["Verbo comodín", "Verbo muy general que sirve para todo."],
+    ["Preciso", "Exacto, que dice justo lo que se quiere."],
+  ],
+  situacion: {
+    titulo: "Manual de instrucciones",
+    reto: "La clase escribe un manual de instrucciones para un juego inventado.",
+    pasos: ["Inventad un juego sencillo para el recreo.", "Escribid las instrucciones con verbos en imperativo.", "Revisad que los verbos sean precisos y bien conjugados.", "Probad el juego con otra clase siguiendo el manual."],
+    producto: "Un manual de instrucciones ilustrado.",
+    evaluacion: ["Usa bien el imperativo.", "Elige verbos precisos.", "Conjuga correctamente verbos irregulares.", "Las instrucciones se entienden y se pueden seguir."],
+  },
+});
