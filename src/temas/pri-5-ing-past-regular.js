@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Encuesta «Find someone who…» en el aula.", "Dictado de verbos clasificándolos por el sonido de -ed.", "Cómic de un día lluvioso con conectores first, then, finally."],
   fuentes: [["British Council LearnEnglish Kids: past simple regular verbs", "https://learnenglishkids.britishcouncil.org/grammar-practice/past-simple-regular-verbs"], ["Cambridge Dictionary: past simple", "https://dictionary.cambridge.org/grammar/british-grammar/past-simple-i-worked"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Learn useful regular verbs for everyday life", "Answer with short answers and ask Wh- questions with did", "Tell a story in the past and tell the past from the present"],
+  lectura: { titulo: "The mystery of the missing cake", html: `<p>On Saturday morning, Mum <b>baked</b> a big chocolate cake for Grandpa's birthday. She <b>placed</b> it on the kitchen table and <b>walked</b> to the shop.</p><p>Half an hour later, she <b>opened</b> the door and <b>screamed</b>: «The cake! Where is the cake?»</p><p>Daniel and his sister Julia <b>looked</b> at each other. «We <b>didn't touch</b> it!» they <b>shouted</b>.</p><p>Julia <b>decided</b> to be a detective. She <b>searched</b> the kitchen and <b>noticed</b> some chocolate on the floor. She <b>followed</b> the little brown spots… into the garden!</p><p>There, under the apple tree, Bobby the dog <b>looked</b> very happy. His nose was brown and his tail <b>wagged</b> and <b>wagged</b>.</p><p>«Bobby! Did you eat the cake?» Julia <b>asked</b>. Bobby <b>barked</b>.</p><p>Everybody <b>laughed</b>. In the end, they <b>hurried</b> to the bakery and Grandpa <b>enjoyed</b> a delicious strawberry cake. And Bobby? He <b>stayed</b> in the garden all afternoon.</p><p><i>(Todos los verbos en negrita son regulares: forman el pasado con -ed. Fíjate en la ortografía de wagged y hurried.)</i></p>` },
+  tras: {
+    "Spelling: -d, -ied and double letters": [
+      ["Regular verbs for every day", `<p>Most English verbs are <b>regular</b>. Here are some very useful ones, grouped by topic. Learn them in groups: it is easier!</p><ul><li><b>At home</b>: clean → cleaned, cook → cooked, wash → washed, tidy → tidied, help → helped, open → opened, close → closed.</li><li><b>At school</b>: learn → learned, listen → listened, answer → answered, study → studied, finish → finished, start → started.</li><li><b>Free time</b>: play → played, watch → watched, dance → danced, paint → painted, visit → visited, travel → travelled, enjoy → enjoyed.</li><li><b>Moving</b>: walk → walked, jump → jumped, climb → climbed, arrive → arrived, stop → stopped, hurry → hurried.</li><li><b>Talking</b>: ask → asked, talk → talked, shout → shouted, laugh → laughed, call → called.</li></ul><p>Notice that <b>travel</b> doubles the <b>l</b> in British English (<i>travelled</i>), but not in American English (<i>traveled</i>). Both are correct.</p><p><b>Tip</b>: make flashcards with the verb on one side and the past on the other, and a drawing. Review them for five minutes every day.</p><p>Another good idea is to keep a <b>verb diary</b>: every evening, write three sentences about your day using regular verbs. «Today I <b>helped</b> my grandma. I <b>played</b> basketball. I <b>listened</b> to music.» After a month, you will know dozens of verbs, and you will use them without thinking. You can also play «Verb tennis» with a friend: one says a verb in the present and the other answers quickly with the past.</p>`,
+        L.filas("Regular verbs by topic", [["At home", "cleaned · cooked · tidied", AZ], ["At school", "learned · studied", VE], ["Free time", "played · watched · danced", RO], ["Moving", "walked · jumped · stopped", NA], ["Talking", "asked · laughed · called", AM]]), ["jxl28KQOHy4", "Nessy Reading Strategy | Adding '-ed' | Past Tense Verbs | Learn to Read", "Nessy", 2760135]],
+    ],
+    "Questions with did": [
+      ["Short answers and Wh- questions", `<p>When someone asks a <b>yes/no question</b> with <b>did</b>, we don't usually answer just «yes» or «no». We use a <b>short answer</b> with <b>did</b> or <b>didn't</b>:</p><ul><li>«Did you play football yesterday?» – «Yes, I <b>did</b>.» / «No, I <b>didn't</b>.»</li><li>«Did she clean her room?» – «Yes, she <b>did</b>.» / «No, she <b>didn't</b>.»</li><li>«Did they watch the film?» – «Yes, they <b>did</b>.»</li></ul><p>Never repeat the main verb in a short answer: say «Yes, I did», not «Yes, I played».</p><p>To ask for more information, put a <b>question word</b> at the start: <b>Wh- word + did + subject + base form</b>.</p><ul><li>«<b>What did</b> you watch?» – «I watched a cartoon.»</li><li>«<b>Where did</b> you play?» – «We played in the park.»</li><li>«<b>When did</b> they arrive?» – «They arrived at six.»</li><li>«<b>Who did</b> you visit?» – «I visited my aunt.»</li><li>«<b>Why did</b> you shout?» – «Because I was angry.»</li></ul><p>Remember: after <b>did</b>, the verb is always in the base form, without -ed: «What did you <b>watch</b>?», not «What did you watched?».</p>`,
+        L.dialogo("Short answers", [["Ana", "Did you play football?", AZ], ["Leo", "No, I didn't.", RO], ["Ana", "What did you play?", AZ], ["Leo", "I played tennis.", RO]])],
+    ],
+    "Sequencing words": [
+      ["Time expressions: when did it happen?", `<p>The past simple goes with <b>time expressions</b> that tell us <b>when</b> something happened. They usually go at the end or at the beginning of the sentence:</p><ul><li><b>yesterday</b> (ayer), <b>yesterday morning / afternoon / evening</b>.</li><li><b>last</b> + time: <b>last night</b>, <b>last week</b>, <b>last summer</b>, <b>last year</b>, <b>last Monday</b>. Don't use «the»: say «last week», not «the last week».</li><li>time + <b>ago</b> (hace): <b>two days ago</b>, <b>a week ago</b>, <b>ten years ago</b>. «Ago» always goes <b>after</b> the time.</li><li><b>in</b> + year or month: <b>in 2020</b>, <b>in July</b>.</li><li><b>on</b> + day or date: <b>on Saturday</b>, <b>on 4th October</b>.</li><li><b>at</b> + time: <b>at seven o'clock</b>, <b>at night</b>.</li><li><b>when I was</b> + age: <b>when I was five</b>.</li></ul><p>Compare: «I <b>visited</b> my cousins <b>last summer</b>.» «<b>Three days ago</b>, we <b>painted</b> the kitchen.» «My parents <b>married</b> <b>in 2010</b>.»</p><p>If you start a sentence with a time expression, you can put a comma after it: «Last night, I watched a film.»</p>`,
+        L.filas("When did it happen?", [["yesterday", "yesterday morning", AZ], ["last", "last week · last summer", VE], ["ago", "two days ago", RO], ["in · on · at", "in 2020 · on Monday · at 7", NA]])],
+    ],
+  },
+  final: [
+    ["Past or present?", `<p>It's very important to know when to use the <b>present simple</b> and when to use the <b>past simple</b>.</p><ul><li>We use the <b>present simple</b> for habits and routines, things that happen <b>usually</b>: «I <b>play</b> tennis every Saturday.» «She <b>walks</b> to school.» Signal words: <i>every day, usually, always, often, on Mondays</i>.</li><li>We use the <b>past simple</b> for actions that <b>finished</b> in the past: «I <b>played</b> tennis last Saturday.» «She <b>walked</b> to school yesterday.» Signal words: <i>yesterday, last…, …ago, in 2019</i>.</li></ul><p>Look at the differences in negatives and questions:</p><ul><li>Present: «I <b>don't</b> play», «She <b>doesn't</b> play», «<b>Do</b> you play?», «<b>Does</b> she play?».</li><li>Past: «I <b>didn't</b> play», «She <b>didn't</b> play», «<b>Did</b> you play?», «<b>Did</b> she play?». In the past, <b>did</b> is the same for all persons!</li></ul><p>Also, in the present we add <b>-s</b> with he, she, it (<i>she plays</i>), but in the past the form is the same for everybody: <i>I played, she played, they played</i>.</p><p>Before you write, look for the time words. They tell you which tense you need.</p>`,
+      H.dos("Present or past?", ["Present simple", ["every day · usually", "I play / she plays", "do / does"], AZ], ["Past simple", ["yesterday · ago", "I / she played", "did (all persons)"], RO])],
+    ["Telling a story: a story map", `<p>The past simple is the tense of <b>stories</b>. Before you write one, draw a <b>story map</b> to plan it:</p><ol><li><b>Characters</b>: who is in the story? «A girl called Julia and her dog Bobby.»</li><li><b>Setting</b>: where and when? «In a house, on a Saturday morning.»</li><li><b>Beginning</b>: what happened first? «Mum baked a cake.»</li><li><b>Problem</b>: what went wrong? «The cake disappeared!»</li><li><b>Events</b>: what did the characters do? «Julia searched the kitchen and followed the chocolate spots.»</li><li><b>Ending</b>: how did it finish? «They discovered Bobby and laughed.»</li></ol><p>When you write, use <b>sequencing words</b> (<i>first, then, next, after that, finally</i>) and <b>time expressions</b> (<i>one day, last summer, an hour later</i>). Add <b>feelings</b> with was and were: «Mum was angry. The children were surprised.»</p><p>Finally, check every verb: did you add <b>-ed</b>? Did you spell it correctly (<i>stopped, studied, danced</i>)? Read your story aloud to a partner and ask: «Did you like it?»</p>`,
+      L.filas("Story map", [["Characters", "Julia and Bobby", AZ], ["Setting", "a house, on Saturday", VE], ["Problem", "the cake disappeared", RO], ["Events", "she searched and followed", NA], ["Ending", "they laughed", AM]])],
+  ],
+  ejemplos: [
+    ["Answer with a short answer: «Did Julia find the cake?» (no)", ["Yes/no question with did → short answer with did/didn't.", "Julia = she."], "No, she didn't."],
+    ["Present or past? «I ___ (watch) TV every evening. Last night I ___ (watch) a film.»", ["Every evening = habit → present simple: watch.", "Last night = finished → past simple: watched."], "I watch TV every evening. Last night I watched a film."],
+  ],
+  errores: ["Responder repitiendo el verbo: «Yes, I played» → «Yes, I did».", "Decir «the last week» o «ago two days» → «last week», «two days ago»."],
+  ejercicios: [
+    ["b", "Write the past: clean, study, stop, dance, travel.", "cleaned, studied, stopped, danced, travelled."],
+    ["b", "Short answer: «Did you watch TV yesterday?» (yes)", "Yes, I did."],
+    ["b", "Complete with last or ago: «I visited Rome ___ year. I visited Paris two years ___.»", "last, ago."],
+    ["b", "Write three regular verbs you use at school, in the past.", "Example: learned, listened, answered."],
+    ["b", "Present or past? «She ___ (walk) to school every day.»", "walks (present simple)."],
+    ["m", "Make a Wh- question: «They arrived at six.» (When)", "When did they arrive?"],
+    ["m", "Correct: «What did you watched last night?»", "What did you watch last night?"],
+    ["m", "Change to the past: «I play tennis every Saturday.» (last Saturday)", "I played tennis last Saturday."],
+    ["m", "Write two things you did yesterday and one thing you didn't do.", "Open answer. Example: I cleaned my room. I helped my dad. I didn't watch TV."],
+    ["m", "Complete with in, on or at: «I arrived ___ Monday ___ seven o'clock ___ 2023.»", "on, at, in."],
+    ["a", "Draw a story map and write a story of eight sentences in the past simple.", "Open answer with sequencing words."],
+    ["a", "Write the story of the missing cake from Bobby's point of view.", "Open answer in the first person: I smelled the cake…"],
+    ["a", "Interview a partner: five questions with did and Wh- words. Write the answers.", "Open answer."],
+    ["a", "Write a paragraph comparing what you usually do on Sundays and what you did last Sunday.", "Open answer with present and past simple."],
+    ["a", "Find five regular verbs in the reading and classify them by the sound of -ed: /t/, /d/, /id/.", "Example: /t/ walked, looked; /d/ opened, followed; /id/ decided."],
+  ],
+  quiz: [
+    ["«Did you clean your room?» «Yes, I ___.»", ["did", "cleaned", "do"], "Short answer with did."],
+    ["«Where ___ you play?»", ["did", "were", "does"], "Wh- + did + subject."],
+    ["«I visited Rome three years ___.»", ["ago", "last", "before"], "Time + ago."],
+    ["«She ___ to school every day.»", ["walks", "walked", "walk"], "Habit → present."],
+    ["The past of «travel» in British English is…", ["travelled", "traveled", "travelt"], "Double l."],
+  ],
+  examen: [
+    ["«___ week we visited the zoo.»", ["Last", "The last", "Ago"], "No article."],
+    ["«What did she ___?»", ["cook", "cooked", "cooks"], "Base form after did."],
+  ],
+  tarjetas: [
+    ["Short answers", "Yes, I did. / No, I didn't."],
+    ["Wh- + did", "What did you watch?"],
+    ["last / ago", "last week · two days ago."],
+    ["Present or past", "every day → present; yesterday → past."],
+  ],
+  glosario: [
+    ["regular verb", "Verbo que forma el pasado con -ed."],
+    ["past simple", "Pasado simple."],
+    ["base form", "Forma base del verbo (play)."],
+    ["did", "Auxiliar del pasado para preguntas y negativas."],
+    ["didn't", "Did not: negativa en pasado."],
+    ["short answer", "Respuesta corta: Yes, I did."],
+    ["yesterday", "Ayer."],
+    ["last week", "La semana pasada."],
+    ["ago", "Hace (tiempo)."],
+    ["story map", "Plano o esquema de una historia."],
+    ["setting", "Lugar y tiempo de una historia."],
+    ["sequencing words", "Palabras para ordenar: first, then, finally."],
+  ],
+  situacion: {
+    titulo: "Class detectives",
+    reto: "La clase escribe e interpreta pequeñas historias de misterio en inglés en las que un detective averigua qué pasó.",
+    pasos: ["In groups, invent a mystery: something disappeared at school or at home.", "Draw a story map with characters, setting, problem, events and ending.", "Write the story in the past simple with regular verbs and sequencing words.", "Act it out: the detective asks questions with did and the others give short answers."],
+    producto: "Historias de misterio escritas y representadas.",
+    evaluacion: ["Uses regular verbs with correct spelling.", "Asks Wh- questions with did and gives short answers.", "Uses time expressions correctly.", "Distinguishes present and past simple."],
+  },
+});

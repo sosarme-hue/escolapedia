@@ -91,3 +91,90 @@ module.exports = tema({
   ideas: ["Bingo de verbos irregulares con la forma base cantada y el pasado en el cartón.", "Historia en cadena en grupos de cuatro.", "Muro de familias de verbos que crece cada semana."],
   fuentes: [["British Council LearnEnglish Kids: past simple irregular verbs", "https://learnenglishkids.britishcouncil.org/grammar-practice/past-simple-irregular-verbs"], ["Cambridge Dictionary: irregular verbs", "https://dictionary.cambridge.org/grammar/british-grammar/verbs-regular-and-irregular"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Know the three forms of irregular verbs and how to check them", "Use irregular verbs to retell fairy tales and talk about the weekend", "Choose between was/were and did"],
+  lectura: { titulo: "The best day of the year", html: `<p>Last Saturday <b>was</b> my birthday. I <b>woke</b> up very early, at seven o'clock, because I <b>was</b> so excited!</p><p>First, my parents <b>gave</b> me a present: a new skateboard. I <b>put</b> on my helmet and I <b>went</b> to the park with my brother. I <b>fell</b> down twice, but I <b>didn't hurt</b> myself.</p><p>At one o'clock, my grandparents <b>came</b> for lunch. Grandpa <b>brought</b> a big paella and Grandma <b>made</b> my favourite dessert: rice pudding. We <b>ate</b> in the garden because the weather <b>was</b> fantastic.</p><p>In the afternoon, my friends <b>came</b> to my party. We <b>sang</b>, we <b>ran</b> and we <b>drank</b> lemonade. Then my friend Nora <b>took</b> lots of photos. I <b>blew</b> out ten candles and everybody <b>clapped</b>.</p><p>In the evening, I <b>felt</b> tired but very happy. I <b>wrote</b> about my day in my diary and I <b>slept</b> like a log.</p><p>It <b>was</b> the best day of the year!</p><p><i>(Busca los verbos irregulares: woke, gave, put, went, fell, came, brought, made, ate, sang, ran, drank, took, blew, felt, wrote, slept. ¿Cuál es el único regular?)</i></p>` },
+  tras: {
+    "More useful verbs": [
+      ["The three forms of a verb", `<p>In dictionaries and in lists of irregular verbs you will find <b>three columns</b>. Now you only need the first two, but it's good to know what the third one is:</p><ol><li><b>Base form</b> (infinitive): the verb in the dictionary. <i>go, eat, see</i>.</li><li><b>Past simple</b>: the form for finished actions. <i>went, ate, saw</i>.</li><li><b>Past participle</b>: used in other tenses that you will learn in the next years (like the present perfect: «I have <b>eaten</b>»). <i>gone, eaten, seen</i>.</li></ol><p>In regular verbs, the past simple and the past participle are the same: <i>play – played – played</i>. In irregular verbs there are different patterns:</p><ul><li><b>A – A – A</b>: the three forms are the same: <i>put – put – put</i>, <i>cut – cut – cut</i>.</li><li><b>A – B – B</b>: the second and third are the same: <i>buy – bought – bought</i>, <i>sleep – slept – slept</i>.</li><li><b>A – B – C</b>: the three forms are different: <i>go – went – gone</i>, <i>see – saw – seen</i>, <i>eat – ate – eaten</i>.</li><li><b>A – B – A</b>: the first and third are the same: <i>come – came – come</i>, <i>run – ran – run</i>.</li></ul><p>When you learn a new irregular verb, say the three forms aloud like a song: «go, went, gone; see, saw, seen».</p>`,
+        L.tabla("Three forms", ["Base", "Past", "Participle"], [["put", "put", "put"], ["buy", "bought", "bought"], ["go", "went", "gone"], ["come", "came", "come"]]), ["aj632WmQnZc", "Nessy Writing Strategy | Irregular Verbs | Learn to Write", "Nessy", 1371929]],
+    ],
+    "Questions: Did…? Where did…?": [
+      ["Regular or irregular? How to check", `<p>How do you know if a verb is regular or irregular? Unfortunately, there is no rule: you can't see it in the verb. But there are some good strategies:</p><ul><li><b>Look at a list</b>: most English books have a list of irregular verbs at the end. Keep a copy in your notebook.</li><li><b>Use a dictionary</b>: in a good dictionary, irregular verbs show their past forms next to the word: «<i>swim</i> (swam, swum)». If you don't see any forms, the verb is regular.</li><li><b>Think of the most common verbs</b>: the most frequent verbs in English (be, have, do, go, get, make, see, come, take, say) are almost all irregular. New verbs (like <i>text</i>, <i>google</i>, <i>download</i>) are always regular.</li><li><b>Be careful with similar verbs</b>: <i>look</i> is regular (looked) but <i>see</i> is irregular (saw); <i>listen</i> is regular (listened) but <i>hear</i> is irregular (heard); <i>stay</i> is regular but <i>stand</i> is irregular (stood).</li></ul><p>Good news: in questions and negatives with <b>did</b>, you always use the base form, so you don't need the irregular form! «Did you <b>see</b> it? No, I didn't <b>see</b> it.»</p>`,
+        L.filas("Regular or irregular?", [["look / see", "looked / saw", AZ], ["listen / hear", "listened / heard", VE], ["stay / stand", "stayed / stood", RO], ["new verbs", "texted · downloaded", NA]])],
+    ],
+    "Tricks to remember them": [
+      ["Irregular verbs in fairy tales", `<p>Fairy tales are full of irregular verbs, because they tell stories in the past. Read this short version of <b>Little Red Riding Hood</b> (Caperucita Roja):</p><p><i>«Once upon a time there <b>was</b> a girl who <b>wore</b> a red hood. One day, her mother <b>gave</b> her a basket of food for her grandmother. The girl <b>went</b> into the forest. There she <b>met</b> a wolf. The wolf <b>ran</b> to Grandma's house, <b>ate</b> her and <b>put</b> on her clothes. When the girl <b>came</b>, she <b>said</b>: "Grandma, what big eyes you have!" Suddenly, a hunter <b>heard</b> a noise. He <b>found</b> the wolf, <b>took</b> Grandma out and they all <b>lived</b> happily ever after.»</i></p><p>Fairy tales have <b>typical expressions</b> that you can use in your own stories:</p><ul><li><b>Once upon a time…</b> (Érase una vez…)</li><li><b>One day…</b> (Un día…)</li><li><b>Suddenly…</b> (De repente…)</li><li><b>In the end…</b> (Al final…)</li><li><b>…and they lived happily ever after.</b> (…y vivieron felices para siempre.)</li></ul><p>Choose another tale you know (Cinderella, The Three Little Pigs, Snow White) and retell it in English using irregular verbs.</p>`,
+        H.flujo("Little Red Riding Hood", ["went to|the forest", "met a|wolf", "the wolf|ran", "ate|Grandma", "the hunter|found him"], RO)],
+    ],
+  },
+  final: [
+    ["Was / were or did?", `<p>Many students mix <b>was/were</b> and <b>did</b>. Here is the key:</p><ul><li>With the verb <b>to be</b> (ser, estar), use <b>was / were</b>. Don't use did: «I <b>was</b> tired.» → «I <b>wasn't</b> tired.» → «<b>Were</b> you tired?»</li><li>With <b>all other verbs</b>, use the past form in affirmative sentences, and <b>did / didn't</b> in negatives and questions: «I <b>slept</b> well.» → «I <b>didn't sleep</b> well.» → «<b>Did</b> you <b>sleep</b> well?»</li></ul><p>Look at the mistakes and the correct sentences:</p><ul><li>«I didn't was at home.» ✗ → «I <b>wasn't</b> at home.» ✓</li><li>«Did you were happy?» ✗ → «<b>Were</b> you happy?» ✓</li><li>«Was you go to the cinema?» ✗ → «<b>Did</b> you <b>go</b> to the cinema?» ✓</li><li>«She wasn't eat.» ✗ → «She <b>didn't eat</b>.» ✓</li></ul><p><b>A trick</b>: look for the main verb. If it is <i>be</i> (with an adjective or a place after it: <i>tired, happy, at home</i>), use was/were. If there is another verb (<i>go, eat, sleep</i>), use did.</p><p>Both can appear together: «I <b>was</b> hungry, so I <b>ate</b> a sandwich. I <b>didn't eat</b> a pizza because there <b>wasn't</b> any.»</p>`,
+      H.dos("Was/were or did?", ["to be", ["I was tired", "I wasn't tired", "Were you tired?"], AZ], ["other verbs", ["I slept well", "I didn't sleep", "Did you sleep?"], VE])],
+    ["Talking about your weekend", `<p>On Monday mornings, English teachers often ask: «<b>What did you do at the weekend?</b>» Here are some useful frames to answer well, with irregular verbs:</p><ul><li><b>Where</b>: «I <b>went</b> to the beach / to my grandparents' house / to the cinema.»</li><li><b>Who</b>: «I <b>met</b> my cousins.» «I <b>saw</b> my friends.»</li><li><b>Food</b>: «We <b>had</b> lunch in a restaurant. I <b>ate</b> spaghetti and I <b>drank</b> orange juice.»</li><li><b>Activities</b>: «I <b>rode</b> my bike.» «I <b>swam</b> in the pool.» «I <b>read</b> a comic.» «We <b>made</b> a cake.»</li><li><b>Feelings</b>: «It <b>was</b> fun / boring / amazing.» «I <b>felt</b> tired but happy.»</li></ul><p>Don't just say «I went to the park». Give details: when, who, what you did and how it was. «On Saturday afternoon I <b>went</b> to the park with my sister. We <b>flew</b> a kite and we <b>ran</b> a lot. It <b>was</b> windy and great fun!»</p><p>Then <b>ask back</b>: «And you? What did you do?» A conversation is like a tennis match: the ball must go and come back.</p>`,
+      L.dialogo("Monday morning", [["Teacher", "What did you do?", AZ], ["Iris", "I went to the beach.", RO], ["Teacher", "Did you swim?", AZ], ["Iris", "Yes, I did! It was great.", RO]])],
+  ],
+  ejemplos: [
+    ["Write the three forms of: eat, buy, put.", ["eat → ate → eaten (A–B–C).", "buy → bought → bought (A–B–B).", "put → put → put (A–A–A)."], "eat–ate–eaten; buy–bought–bought; put–put–put"],
+    ["Was or did? «___ you tired?» / «___ you sleep well?»", ["Tired is an adjective → to be → Were you tired?", "Sleep is another verb → did → Did you sleep well?"], "Were you tired? Did you sleep well?"],
+  ],
+  errores: ["Mezclar was y did: «I didn't was», «Did you were» → «I wasn't», «Were you».", "Pensar que los verbos nuevos son irregulares: «download» es regular (downloaded)."],
+  ejercicios: [
+    ["b", "Write the past: give, come, wear, meet, hear.", "gave, came, wore, met, heard."],
+    ["b", "Is it regular or irregular? look, see, listen, hear.", "look and listen are regular; see and hear are irregular."],
+    ["b", "Translate: «Érase una vez…» and «De repente…».", "Once upon a time… / Suddenly…"],
+    ["b", "Answer: «What did you do at the weekend?» (two sentences)", "Open answer. Example: I went to the park. I rode my bike."],
+    ["b", "Complete: «I ___ tired, so I ___ to bed early.» (be, go)", "was, went."],
+    ["m", "Write the three forms of: go, see, come.", "go–went–gone; see–saw–seen; come–came–come."],
+    ["m", "Correct: «Did you were at the party?» and «I didn't was hungry.»", "Were you at the party? I wasn't hungry."],
+    ["m", "Find the regular verb in the reading «The best day of the year».", "clapped."],
+    ["m", "Write the questions: «I ate pizza.» (What) / «We went to Madrid.» (Where)", "What did you eat? Where did you go?"],
+    ["m", "Classify by pattern: cut, sleep, eat, run.", "cut A–A–A; sleep A–B–B; eat A–B–C; run A–B–A."],
+    ["a", "Retell The Three Little Pigs in eight sentences with irregular verbs.", "Open answer. Example: The wolf came… he blew the house down…"],
+    ["a", "Write about your best day of the year with at least ten irregular verbs.", "Open answer."],
+    ["a", "Write a dialogue about the weekend with a partner: four questions and four answers.", "Open answer with did, was/were and irregular verbs."],
+    ["a", "Explain in Spanish when we use was/were and when we use did.", "Was/were con el verbo to be; did en negativas y preguntas con los demás verbos."],
+  ],
+  quiz: [
+    ["The three forms of «go» are…", ["go – went – gone", "go – goed – gone", "go – went – went"], "A–B–C."],
+    ["«Once upon a time» means…", ["Érase una vez", "De repente", "Al final"], "Typical start of tales."],
+    ["«___ you happy?»", ["Were", "Did", "Was"], "To be with you."],
+    ["«She ___ eat the cake.»", ["didn't", "wasn't", "weren't"], "Eat → did."],
+    ["Which verb is regular?", ["download", "drink", "draw"], "New verbs are regular."],
+  ],
+  examen: [
+    ["«The wolf ___ Grandma.»", ["ate", "eated", "eat"], "Irregular past."],
+    ["«What ___ you do at the weekend?»", ["did", "were", "was"], "Do is not to be."],
+  ],
+  tarjetas: [
+    ["Three forms", "base – past – participle: see – saw – seen."],
+    ["How to check", "Irregular verbs list or dictionary."],
+    ["Fairy tales", "Once upon a time… happily ever after."],
+    ["was/were vs did", "be → was/were; other verbs → did."],
+  ],
+  glosario: [
+    ["irregular verb", "Verbo que no forma el pasado con -ed."],
+    ["base form", "Forma base: go."],
+    ["past simple", "Pasado: went."],
+    ["past participle", "Participio: gone."],
+    ["dictionary", "Diccionario."],
+    ["fairy tale", "Cuento de hadas."],
+    ["once upon a time", "Érase una vez."],
+    ["suddenly", "De repente."],
+    ["in the end", "Al final."],
+    ["weekend", "Fin de semana."],
+    ["hunter", "Cazador."],
+    ["wolf", "Lobo."],
+  ],
+  situacion: {
+    titulo: "Our fairy tale theatre",
+    reto: "La clase adapta un cuento clásico al inglés y lo representa para otro curso usando verbos irregulares en pasado.",
+    pasos: ["In groups, choose a fairy tale and write the main events in the past simple.", "Make a list of the irregular verbs in your tale with their three forms.", "Write a narrator's text and a few dialogues for the characters.", "Rehearse and perform your tale with simple costumes; the audience answers questions with did."],
+    producto: "Una representación teatral de un cuento en inglés y un póster de verbos irregulares.",
+    evaluacion: ["Uses irregular past forms correctly.", "Knows how to check if a verb is irregular.", "Distinguishes was/were and did.", "Tells a story with typical expressions."],
+  },
+});

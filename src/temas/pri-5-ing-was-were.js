@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Álbum de fotos de la infancia con frases en pasado.", "Juego «Where were you?»: cada alumno inventa dónde estaba ayer a una hora y los demás preguntan.", "Mímica de emociones: «You were angry!»."],
   fuentes: [["British Council LearnEnglish Kids: past simple (to be)", "https://learnenglishkids.britishcouncil.org/grammar-practice/past-simple-be"], ["Cambridge Dictionary: be", "https://dictionary.cambridge.org/grammar/british-grammar/be"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Use there was and there were (había)", "Talk about birthdays and history with was born", "Compare the past and the present and write a short biography"],
+  lectura: { titulo: "Grandma's old school", html: `<p>Last Sunday, Lucas visited his grandma Carmen. She showed him an old black-and-white photo.</p><p>«This <b>was</b> my school in 1965,» she said. «I <b>was</b> ten years old, like you.»</p><p>Lucas looked at the photo carefully. «Where <b>were</b> the computers, Grandma?»</p><p>Grandma laughed. «There <b>weren't</b> any computers! There <b>was</b> a big blackboard and there <b>were</b> forty children in my class. The desks <b>were</b> made of wood and there <b>was</b> a little hole for the ink.»</p><p>«Forty children? <b>Was</b> it noisy?»</p><p>«No, it <b>wasn't</b>! Our teacher, Don Julián, <b>was</b> very strict. But he <b>was</b> also very kind. His stories about the stars <b>were</b> fantastic.»</p><p>«<b>Were</b> you a good student?» asked Lucas with a smile.</p><p>«I <b>was</b> good at Maths, but my handwriting <b>was</b> terrible,» she answered.</p><p>On Monday, Lucas told his class about Grandma's school. Everybody <b>was</b> surprised. Life in the past <b>was</b> very different!</p><p><i>(En esta lectura aparecen was, were y sus negativas. Fíjate también en there was y there were: significan «había».)</i></p>` },
+  tras: {
+    "Was or were?": [
+      ["There was and there were", `<p>You already know <b>there is</b> and <b>there are</b> (hay). In the past, they become <mark>there was</mark> and <mark>there were</mark>. In Spanish, both mean <b>«había»</b>.</p><ul><li>Use <b>there was</b> with one thing (singular) or with uncountable nouns: «<b>There was</b> a cat in the garden.» «<b>There was</b> some milk in the fridge.»</li><li>Use <b>there were</b> with two or more things (plural): «<b>There were</b> three cats in the garden.» «<b>There were</b> lots of people at the concert.»</li></ul><p><b>Negatives</b>: there wasn't / there weren't. We often use <b>any</b> in negative sentences: «<b>There wasn't</b> a TV.» «<b>There weren't any</b> computers.»</p><p><b>Questions</b>: change the order. «<b>Was there</b> a park near your house?» – «Yes, there was.» / «No, there wasn't.» «<b>Were there</b> many children?» – «Yes, there were.»</p><p>Careful! In Spanish we say «había un gato» and «había tres gatos» with the same word. In English, you must choose <b>was</b> or <b>were</b> depending on what comes next.</p>`,
+        L.filas("There was / there were (había)", [["there was", "a cat · some milk", AZ], ["there were", "three cats · many people", RO], ["negative", "there weren't any computers", VE], ["question", "Was there a park?", NA]]), ["g5mlKU3QfAc", "Usando los verbos Be Was y Were correctamente", "Tiny Teaching Tube", 75468]],
+    ],
+    "Time words for the past": [
+      ["I was born in…", `<p>To talk about birthdays and the place where someone started their life, English uses <mark>was born</mark> / <mark>were born</mark>. In Spanish it means «nací», «nació», «nacieron».</p><ul><li>«I <b>was born</b> in 2015.» (Nací en 2015.)</li><li>«My brother <b>was born</b> in Valencia.»</li><li>«My cousins <b>were born</b> in the same hospital.»</li><li>«<b>When were</b> you <b>born</b>?» – «I was born on 12th May.»</li><li>«<b>Where was</b> your mum <b>born</b>?» – «She was born in Lima, in Peru.»</li></ul><p>Remember the prepositions: <b>in</b> + year, month or city (in 2015, in May, in Seville); <b>on</b> + a date or a day (on 12th May, on Monday).</p><p>We also use <b>was born</b> to talk about famous people in history:</p><ul><li>«Miguel de Cervantes <b>was born</b> in Alcalá de Henares in 1547.»</li><li>«Marie Curie <b>was born</b> in Warsaw, in Poland, in 1867. She <b>was</b> a famous scientist.»</li><li>«Pablo Picasso <b>was born</b> in Málaga in 1881. He <b>was</b> a painter.»</li></ul><p>Never say «I born» or «I am born». The correct form is always <b>I was born</b>.</p>`,
+        L.filas("Was born (nací)", [["I was born", "in 2015 · in Madrid", AZ], ["on", "on 12th May", VE], ["Cervantes", "was born in 1547", RO], ["Question", "When were you born?", NA]])],
+    ],
+    "Describing the past": [
+      ["Then and now", `<p>We can use <b>was</b> and <b>were</b> to compare the past with the present. Look at the time words: <b>in the past</b>, <b>fifty years ago</b>, <b>when I was little</b>; and <b>now</b>, <b>today</b>, <b>nowadays</b>.</p><ul><li>«Fifty years ago, phones <b>were</b> big and heavy. Now they <b>are</b> small and light.»</li><li>«In the past, there <b>were</b> no computers in schools. Today there <b>are</b> computers in every classroom.»</li><li>«When I <b>was</b> little, my favourite toy <b>was</b> a teddy bear. Now it <b>is</b> my bike.»</li><li>«My dad <b>was</b> shy at school, but now he <b>is</b> a teacher!»</li></ul><p>To describe the change, we often use <b>but</b>: «The village <b>was</b> quiet, <b>but</b> now it <b>is</b> busy.»</p><p>You can also use comparatives: «The streets <b>were</b> darker. Cars <b>were</b> slower.»</p><p>This is a great way to learn about history. Ask your grandparents: «What <b>was</b> your town like? Where <b>were</b> the shops? <b>Was</b> there a cinema?» Their answers are a window to the past.</p>`,
+        H.dos("Then and now", ["Then", ["phones were big", "no computers", "streets were dark"], AZ], ["Now", ["phones are small", "computers in class", "streets are bright"], VE])],
+    ],
+  },
+  final: [
+    ["Pronunciation: was and were", `<p>Listen to native speakers and you will notice something interesting: <b>was</b> and <b>were</b> sound different in different positions.</p><ul><li>In the middle of a sentence, they are usually <b>weak</b> (débiles) and short: «I was at home» sounds like /ai wəz at hoom/. «They were happy» sounds like /dei wə hapi/.</li><li>At the end of a short answer or when we want to stress them, they are <b>strong</b>: «Yes, I <b>was</b>!» sounds like /woz/. «Yes, they <b>were</b>!» sounds like /wer/ (in British English, almost /wə:/).</li><li>The negatives <b>wasn't</b> /wóznt/ and <b>weren't</b> /wernt/ are always strong.</li></ul><p>Don't pronounce the letter <b>w</b> like a Spanish «gu» too strongly: put your lips in a circle, like for the sound «u», and then open them.</p><p><b>Practise</b> with this chant, clapping on the strong words:</p><p><i>«Where were you? I was at school.<br>Where was Tom? He was at the pool.<br>Were you tired? Yes, I was!<br>Was it cold? No, it wasn't!»</i></p><p>Saying chants aloud is a fun way to remember grammar and to improve your rhythm in English.</p>`,
+      L.filas("Weak and strong", [["weak", "I was at home → /wəz/", AZ], ["strong", "Yes, I was! → /woz/", RO], ["weak", "They were happy → /wə/", VE], ["always strong", "wasn't · weren't", NA]])],
+    ["Writing: a short biography", `<p>A <b>biography</b> is a text about a person's life. With <b>was</b>, <b>were</b> and <b>was born</b> you can write a short one. Follow these steps:</p><ol><li><b>Choose a person</b>: a famous person, or someone in your family (your grandmother, your uncle…).</li><li><b>Find information</b>: when and where was he or she born? What was his or her job? What was special about this person?</li><li><b>Organise the text</b> in three paragraphs:<ul><li><b>Birth and childhood</b>: «Gloria Fuertes was born in Madrid in 1917. Her family was poor.»</li><li><b>Life and work</b>: «She was a poet. Her poems were for children. They were funny and full of animals.»</li><li><b>Why he or she is important</b>: «She was very popular on TV. Her books are still famous today.»</li></ul></li><li><b>Check</b>: was with I, he, she, it; were with you, we, they. Use capital letters for names, cities and countries.</li></ol><p>Add a photo or a drawing and a title. Then read your biography to the class. Your classmates can ask questions: «Was she married? Were her books expensive?»</p>`,
+      L.filas("Write a biography", [["1. Choose", "a person", AZ], ["2. Find", "information", VE], ["3. Write", "three paragraphs", NA], ["4. Check", "was and were", RO]])],
+  ],
+  ejemplos: [
+    ["Complete with there was or there were: «___ a big tree in the square and ___ two benches.»", ["A big tree = one thing → there was.", "Two benches = plural → there were."], "There was a big tree in the square and there were two benches."],
+    ["Write a question and answer: you / born / 2015? (yes)", ["Question with be: Were + you + born…?", "Short answer with was: Yes, I was."], "Were you born in 2015? Yes, I was."],
+  ],
+  errores: ["Decir «I born in 2015» o «I am born»: la forma correcta es «I was born in 2015».", "Usar there was con plural: «There was three cats» → «There were three cats»."],
+  ejercicios: [
+    ["b", "Complete: «There ___ a dog in the park. There ___ two children.»", "was, were."],
+    ["b", "Translate: «Nací en Sevilla.»", "I was born in Seville."],
+    ["b", "Make it negative: «There were computers in the classroom.»", "There weren't any computers in the classroom."],
+    ["b", "Write the question: «There was a cinema in your town.»", "Was there a cinema in your town?"],
+    ["b", "Complete with in or on: «I was born ___ 2014, ___ 3rd June.»", "in, on."],
+    ["m", "Write three sentences about your bedroom when you were little: there was / there were.", "Open answer. Example: There was a small bed. There were lots of toys."],
+    ["m", "Answer: «When were you born? Where were you born?»", "Open answer. Example: I was born on 5th March 2015. I was born in Bilbao."],
+    ["m", "Write two sentences comparing then and now: phones, schools or toys.", "Example: Phones were big. Now they are small."],
+    ["m", "Correct: «Picasso born in Málaga and he were a painter.»", "Picasso was born in Málaga and he was a painter."],
+    ["m", "Complete the chant: «Where ___ you? I ___ at school.»", "were, was."],
+    ["m", "Is was weak or strong here? «Yes, I was!» / «I was at home.»", "Strong in «Yes, I was!»; weak in «I was at home»."],
+    ["a", "Interview an older person and write five sentences about his or her school.", "Open answer with was, were, there was and there were."],
+    ["a", "Write a short biography of a famous person in three paragraphs.", "Open answer: birth, life and work, why important."],
+    ["a", "Write five questions to ask your grandparents about the past.", "Example: Was there a cinema? Were the streets busy? Where were you born?"],
+    ["a", "Describe a photo of your town fifty years ago and today.", "Open answer comparing was/were and is/are."],
+  ],
+  quiz: [
+    ["«There ___ many people at the party.»", ["were", "was", "is"], "Plural → there were."],
+    ["«Nací en 2015» is…", ["I was born in 2015", "I born in 2015", "I am born in 2015"], "Always was born."],
+    ["«___ there a TV in the room?»", ["Was", "Were", "Did"], "A TV = singular."],
+    ["«I was born ___ 12th May.»", ["on", "in", "at"], "On + date."],
+    ["In «Yes, I was!», was is…", ["strong", "weak", "silent"], "At the end of a short answer."],
+  ],
+  examen: [
+    ["«There ___ any computers in 1965.»", ["weren't", "wasn't", "didn't"], "Plural negative."],
+    ["«Where ___ Cervantes born?»", ["was", "were", "did"], "Cervantes = he."],
+  ],
+  tarjetas: [
+    ["there was / there were", "había (singular / plural)."],
+    ["was born", "nací, nació: I was born in 2015."],
+    ["then and now", "was / were frente a is / are."],
+    ["biography", "Biografía: vida de una persona."],
+  ],
+  glosario: [
+    ["was", "Pasado de am / is."],
+    ["were", "Pasado de are."],
+    ["wasn't / weren't", "Formas negativas."],
+    ["there was", "Había (singular)."],
+    ["there were", "Había (plural)."],
+    ["was born", "Nació / nací."],
+    ["yesterday", "Ayer."],
+    ["last night", "Anoche."],
+    ["ago", "Hace (tiempo): two days ago."],
+    ["in the past", "En el pasado."],
+    ["nowadays", "Hoy en día."],
+    ["biography", "Biografía."],
+  ],
+  situacion: {
+    titulo: "Our town in the past",
+    reto: "La clase prepara una exposición en inglés sobre cómo era su pueblo o barrio en el pasado, con entrevistas a personas mayores.",
+    pasos: ["Prepare five questions in English with was, were, there was and there were.", "Interview a grandparent or an older neighbour (en castellano si hace falta) and take notes.", "Write a short text «Our town in the past» comparing then and now, with photos.", "Present your poster to the class and answer your classmates' questions."],
+    producto: "Una exposición de carteles «Then and now» con entrevistas y fotos.",
+    evaluacion: ["Uses was and were correctly with each person.", "Uses there was / there were.", "Talks about birth with was born.", "Compares the past and the present."],
+  },
+});
