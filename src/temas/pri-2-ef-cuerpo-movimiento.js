@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los huesos y músculos principales", "Respirar bien al hacer ejercicio", "Estirar después de la actividad", "Mantener una buena postura"],
+  lectura: { titulo: "El esqueleto bailarín", html: `<p>En el aula de Ciencias había un esqueleto de plástico llamado Huesitos. Siempre estaba quieto en su rincón.</p><p>Pero una tarde, cuando todos se fueron, Huesitos escuchó música en el gimnasio. Movió un dedo… luego la mano… ¡y salió del aula!</p><p>En el gimnasio, intentó bailar. Dobló las <b>rodillas</b>, giró la <b>cadera</b> y movió los <b>hombros</b>. Pero cada vez que daba un salto, sus huesos hacían «clac, clac» y se le caía un brazo.</p><p>—¡Ay! —se quejó—. ¡No puedo bailar bien!</p><p>Entonces apareció Fibra, una cuerda elástica del material de gimnasia.</p><p>—Te falta algo muy importante —dijo Fibra—: ¡<b>músculos</b>! Los huesos sostienen, pero los músculos tiran y mueven.</p><p>Fibra se enrolló en los brazos y piernas de Huesitos. Ahora, cuando Fibra tiraba, Huesitos se movía con fuerza y sin desmontarse.</p><p>Bailaron toda la noche. Por la mañana, los niños encontraron a Huesitos en su rincón… ¡con una sonrisa!</p>` },
+  tras: {
+    "Las articulaciones": [
+      ["Huesos y músculos", `<p>Nuestro cuerpo se mueve gracias a un equipo: los <mark>huesos</mark> y los <mark>músculos</mark>.</p><ul><li>Los <b>huesos</b> son duros. Forman el <b>esqueleto</b>, que nos sostiene y protege. Tenemos más de 200.</li><li>Los <b>músculos</b> son blandos y elásticos. Están pegados a los huesos y <b>tiran</b> de ellos para moverlos.</li><li>Las <b>articulaciones</b> son las uniones entre huesos, donde el cuerpo se dobla.</li></ul><p>Algunos huesos importantes: el <b>cráneo</b> (cabeza), las <b>costillas</b> (pecho), la <b>columna</b> (espalda), el <b>fémur</b> (muslo).</p><p>Algunos músculos: los <b>bíceps</b> (brazo), los <b>abdominales</b> (barriga), los <b>gemelos</b> (detrás de la pierna).</p><p>Haz la prueba: dobla el brazo y toca el bíceps. ¡Se pone duro! Es el músculo trabajando.</p><p><b>Actividad</b>: toca tu cuerpo y busca un hueso, un músculo y una articulación.</p>`,
+        L6.filas("Cuerpo", [["huesos", "sostienen", cMO], ["músculos", "tiran", cRO], ["articulación", "dobla", cAZ], ["bíceps", "brazo", cVE]])],
+    ],
+    "Derecha e izquierda": [
+      ["La buena postura", `<p>La <mark>postura</mark> es la forma en que colocamos el cuerpo. Una buena postura cuida la espalda.</p><p><b>Sentados</b>:</p><ul><li>La espalda <b>recta</b> y apoyada en el respaldo.</li><li>Los pies <b>en el suelo</b>.</li><li>Los hombros relajados, sin encorvarse.</li></ul><p><b>De pie</b>: la cabeza alta, los hombros hacia atrás y el peso repartido en los dos pies.</p><p><b>Con la mochila</b>:</p><ul><li>Llevarla con las <b>dos asas</b>, no colgada de un solo hombro.</li><li>Que no pese demasiado: solo lo necesario.</li><li>Mejor si va pegada a la espalda.</li></ul><p><b>Al coger algo del suelo</b>: doblar las rodillas, no la espalda.</p><p><b>Actividad</b>: haced en parejas de «inspectores de la postura»: uno se sienta y el otro le corrige.</p>`,
+        H6.dos("Postura", ["SENTADO", ["espalda recta", "pies al suelo", "hombros"], cVE], ["MOCHILA", ["dos asas", "poco peso", "pegada"], cAZ])],
+    ],
+    "El corazón se acelera": [
+      ["Respirar bien", `<p>Cuando hacemos ejercicio, los músculos necesitan más <mark>oxígeno</mark>. Por eso respiramos más deprisa.</p><p>Para respirar bien:</p><ul><li>Coge el aire por la <b>nariz</b> (inspirar).</li><li>Échalo por la <b>boca</b> (espirar), despacio.</li><li>Nota cómo se hincha la <b>barriga</b> al coger aire.</li></ul><p>Un juego para respirar: imagina que hueles una <b>flor</b> (coges aire por la nariz) y después soplas una <b>vela</b> (echas el aire por la boca). Repítelo cinco veces.</p><p>Cuando terminamos de correr, respirar despacio nos ayuda a <b>calmarnos</b> y a que el corazón vuelva a latir tranquilo.</p><p>También respiramos así cuando estamos nerviosos o enfadados: ¡funciona!</p><p><b>Actividad</b>: tumbado, ponte un peluche en la barriga y míralo subir y bajar al respirar.</p>`,
+        H6.flujo("Respirar", ["nariz|coge", "barriga|se hincha", "boca|echa", "despacio|calma"], cNA),
+        ["nxpjpOUEmQ8", "Cabeza, hombros, rodillas y pies", "HeyKids", 32536840]],
+    ],
+    "Calentar en orden": [
+      ["Estirar al final", `<p>Antes del ejercicio <b>calentamos</b>. Y al terminar, <mark>estiramos</mark>. Estirar ayuda a que los músculos se relajen y no duelan al día siguiente.</p><p>Estiramientos sencillos:</p><ul><li><b>Cuello</b>: inclinar la cabeza a un lado y al otro, despacito.</li><li><b>Brazos</b>: llevar un brazo cruzado por delante del pecho y sujetarlo con el otro.</li><li><b>Piernas</b>: sentados, con las piernas estiradas, intentar tocar las puntas de los pies.</li><li><b>Gemelos</b>: apoyar las manos en la pared y estirar una pierna hacia atrás.</li><li><b>Todo el cuerpo</b>: tumbados, estirarnos como un gato al despertar.</li></ul><p>Normas: estirar <b>despacio</b>, sin rebotes, sin que duela, y aguantar contando hasta <b>diez</b>.</p><p><b>Actividad</b>: dirige tú los estiramientos al final de la clase contando hasta diez.</p>`,
+        H6.rueda("Estirar", "ESTIRAR", [["cuello", cAZ], ["brazos", cRO], ["piernas", cVE], ["gemelos", cNA]])],
+    ],
+  },
+  final: [
+    ["Mis sentidos en movimiento", `<p>Para movernos bien también usamos los <mark>sentidos</mark>:</p><ul><li>La <b>vista</b>: para ver dónde están los compañeros y el balón.</li><li>El <b>oído</b>: para escuchar el silbato, la música o las instrucciones.</li><li>El <b>tacto</b>: para notar el suelo, la pelota o la cuerda.</li></ul><p>Juegos con los sentidos:</p><ul><li><b>El lazarillo</b>: un compañero con los ojos tapados y otro que le guía de la mano. ¡Hay que confiar!</li><li><b>Sigue el sonido</b>: con los ojos cerrados, ir hacia donde suena una pandereta.</li><li><b>Descalzos</b>: caminar sobre distintas superficies (colchoneta, césped, arena) y notar la diferencia.</li></ul><p>Así nos damos cuenta de lo importantes que son nuestros sentidos y de cómo se sienten las personas que no ven o no oyen.</p><p><b>Actividad</b>: jugad al lazarillo por parejas en el gimnasio.</p>`,
+      L6.filas("Sentidos", [["vista", "compañeros", cAZ], ["oído", "silbato", cVE], ["tacto", "suelo", cNA], ["lazarillo", "confiar", cRO]])],
+    ["Repaso: el esqueleto bailarín", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Huesitos es un <b>esqueleto</b>: solo tiene huesos.</li><li>Dobla las <b>rodillas</b>, gira la <b>cadera</b> y mueve los <b>hombros</b>: son <b>articulaciones</b>.</li><li>Sin músculos, se le <b>caen</b> los huesos.</li><li>Fibra es como un <b>músculo</b>: elástica, tira y mueve.</li><li>«Los huesos <b>sostienen</b>; los músculos <b>tiran y mueven</b>».</li><li>Juntos, huesos y músculos hacen que el cuerpo se mueva con fuerza.</li></ul><p>Para tener huesos y músculos fuertes necesitamos hacer ejercicio, comer bien (leche, legumbres, fruta) y dormir.</p><p><b>Actividad</b>: haz un esqueleto con pajitas y pon gomas elásticas como músculos.</p>`,
+      H6.flujo("Huesitos", ["huesos|sostienen", "articula|doblan", "músculos|tiran", "juntos|bailan"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Qué hace que el brazo se doble?", ["El músculo tira del hueso por el codo."], "El bíceps tira del hueso y la articulación del codo se dobla."],
+    ["¿Cómo se coge algo pesado del suelo?", ["Cuidando la espalda."], "Doblando las rodillas, con la espalda recta."],
+  ],
+  errores: ["Llevar la mochila colgada de un solo hombro.", "Estirar dando rebotes o hasta que duela."],
+  ejercicios: [
+    ["b", "¿Qué forman los huesos?", "El esqueleto."],
+    ["b", "¿Qué hacen los músculos?", "Tiran de los huesos para moverlos."],
+    ["b", "¿Por dónde cogemos el aire?", "Por la nariz."],
+    ["b", "¿Cuándo estiramos?", "Al final del ejercicio."],
+    ["b", "Di un hueso.", "Cráneo, costillas, fémur…"],
+    ["m", "¿Cómo te sientas bien?", "Espalda recta y pies en el suelo."],
+    ["m", "¿Por qué respiramos más deprisa al correr?", "Porque los músculos necesitan más oxígeno."],
+    ["m", "Di dos normas para estirar.", "Despacio, sin rebotes, contar hasta diez."],
+    ["m", "¿Dónde están los gemelos?", "Detrás de la pierna."],
+    ["m", "¿Qué es el lazarillo?", "Un juego en el que guías a un compañero con los ojos tapados."],
+    ["a", "En la lectura, ¿por qué se le caen los brazos a Huesitos?", "Porque no tiene músculos."],
+    ["a", "¿Qué representa Fibra?", "Los músculos."],
+    ["a", "Inventa una rutina de tres estiramientos.", "Respuesta libre."],
+    ["a", "¿Cómo te ayuda respirar despacio cuando estás nervioso?", "Te calma."],
+  ],
+  quiz: [
+    ["Las uniones entre huesos son…", ["articulaciones", "músculos", "venas"], "Cuerpo."],
+    ["La mochila se lleva con…", ["dos asas", "una mano", "un hombro"], "Postura."],
+    ["El aire se echa por la…", ["boca", "oreja", "rodilla"], "Respirar."],
+    ["Al estirar contamos hasta…", ["diez", "cien", "dos"], "Estirar."],
+    ["En el lazarillo hay que…", ["confiar", "correr solo", "gritar"], "Sentidos."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo se llama el esqueleto?", ["Huesitos", "Fibra", "Clac"], "Lectura."],
+    ["¿Qué es Fibra?", ["una cuerda elástica", "un balón", "un aro"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Huesos y músculos", "Los huesos sostienen; los músculos tiran y mueven."],
+    ["Estirar", "Despacio, sin rebotes, contando hasta diez."],
+  ],
+  glosario: [
+    ["Esqueleto", "Conjunto de huesos del cuerpo."],
+    ["Músculo", "Parte blanda que mueve los huesos."],
+    ["Articulación", "Unión entre dos huesos."],
+    ["Bíceps", "Músculo de la parte delantera del brazo."],
+    ["Gemelos", "Músculos de detrás de la pierna."],
+    ["Postura", "Forma de colocar el cuerpo."],
+    ["Oxígeno", "Parte del aire que necesitamos para vivir."],
+    ["Inspirar", "Coger aire."],
+    ["Estirar", "Alargar un músculo despacio."],
+    ["Lazarillo", "Guía de una persona que no ve."],
+  ],
+  situacion: {
+    titulo: "Cuerpo en forma",
+    reto: "La clase prepara una guía con dibujos para cuidar el cuerpo: buena postura, respiración y estiramientos.",
+    pasos: ["Dibujar un esqueleto y señalar huesos y músculos.", "Fotografiar buenas y malas posturas.", "Inventar un juego de respiración.", "Crear una rutina de estiramientos para el final de clase."],
+    producto: "Una guía ilustrada para cuidar el cuerpo.",
+    evaluacion: ["Nombra huesos y músculos.", "Mantiene una buena postura.", "Respira correctamente.", "Estira con seguridad."],
+  },
+});

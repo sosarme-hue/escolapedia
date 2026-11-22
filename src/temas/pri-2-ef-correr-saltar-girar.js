@@ -136,3 +136,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Salir rápido desde distintas posiciones", "Hacer relevos con un testigo", "Saltar a la comba y hacer giros en el suelo", "Medir y mejorar mis marcas"],
+  lectura: { titulo: "La carrera de la tortuga Tina", html: `<p>En el colegio de los animales se celebraba la gran carrera de relevos. Cada equipo tenía cuatro corredores.</p><p>En el equipo azul estaban el conejo Rufo, la ardilla Lía, el canguro Bote y… la tortuga Tina.</p><p>—¡Con Tina vamos a perder! —se quejó Rufo—. ¡Es lentísima!</p><p>Tina bajó la cabeza, triste. Pero la profesora, la jirafa Clara, les dijo:</p><p>—En los relevos, cada uno aporta lo que sabe hacer mejor. Pensad en vuestro plan.</p><p>Entonces Lía tuvo una idea:</p><p>—¡El último tramo pasa por el río! Tina nada más rápido que nadie.</p><p>El día de la carrera, Rufo salió como una flecha. Le pasó el testigo a Lía, que trepó por los árboles. Bote saltó todas las vallas. Y cuando Tina cogió el testigo, se lanzó al agua y nadó como un torpedo.</p><p>¡El equipo azul ganó!</p><p>—Perdona, Tina —dijo Rufo—. Sin ti no lo habríamos conseguido.</p><p>Todos se abrazaron. Habían aprendido que en un equipo todos son importantes.</p>` },
+  tras: {
+    "Cambiar de ritmo": [
+      ["La salida", `<p>En una carrera, la <mark>salida</mark> es muy importante. Si salimos bien, ganamos tiempo.</p><p>Podemos salir desde distintas posiciones:</p><ul><li><b>De pie</b>: un pie delante y otro detrás, las rodillas un poco dobladas y el cuerpo inclinado hacia delante.</li><li><b>Agachados</b>: con las manos en el suelo, como los velocistas.</li><li><b>Sentados</b> o <b>tumbados</b>: en los juegos, para practicar la reacción.</li></ul><p>Para salir rápido hay que estar muy <b>atentos</b> a la señal: un silbato, una palmada o la voz «¡Ya!».</p><p>Las palabras de la salida son: «<b>Preparados</b>… <b>listos</b>… <b>¡ya!</b>». Si salimos antes de la señal, es una <b>salida nula</b> y hay que volver a empezar.</p><p><b>Actividad</b>: practica salidas desde cuatro posiciones distintas y comprueba cuál es la más rápida.</p>`,
+        H6.flujo("Salida", ["preparados|pie atrás", "listos|rodillas", "¡ya!|salgo", "antes|nula"], cAZ)],
+    ],
+    "Saltar con un pie": [
+      ["Saltar a la comba", `<p>Saltar a la <mark>comba</mark> (o cuerda) es un juego muy divertido y un ejercicio buenísimo para el corazón y las piernas.</p><p>Para empezar:</p><ul><li>Coge la cuerda por los <b>extremos</b>, con las manos a la altura de la cintura.</li><li>Gira la cuerda con las <b>muñecas</b>, no con los brazos enteros.</li><li>Salta con los <b>pies juntos</b> justo cuando la cuerda pasa por debajo.</li><li>Salta <b>bajito</b>, sobre la punta de los pies.</li></ul><p>También se puede saltar en grupo: dos compañeros dan a la comba y los demás entran y salen. Se cantan <b>canciones</b> para llevar el ritmo, como «El cocherito leré» o «Al pasar la barca».</p><p>Al principio cuesta, pero con práctica se pueden hacer saltos a la pata coja o cruzando los brazos.</p><p><b>Actividad</b>: cuenta cuántos saltos seguidos haces sin pisar la cuerda e intenta superarte cada semana.</p>`,
+        L6.filas("Comba", [["manos", "cintura", cAZ], ["girar", "muñecas", cVE], ["saltar", "pies juntos", cNA], ["ritmo", "canción", cRO]])],
+    ],
+    "Girar sobre uno mismo": [
+      ["Giros en el suelo", `<p>También podemos <mark>girar</mark> tumbados en el suelo, siempre sobre una colchoneta:</p><ul><li><b>La croqueta</b>: tumbados con los brazos estirados por encima de la cabeza, rodamos de lado como un rodillo.</li><li><b>La bolita</b>: sentados, abrazamos las rodillas y rodamos hacia atrás y hacia delante como una mecedora.</li><li><b>La voltereta</b>: con la barbilla pegada al pecho, apoyamos las manos y rodamos hacia delante por la espalda redonda.</li></ul><p>Normas de seguridad:</p><ul><li>Siempre sobre <b>colchonetas</b>.</li><li>De <b>uno en uno</b>, esperando el turno.</li><li>La <b>cabeza</b> nunca soporta el peso: lo hacen las manos y la espalda.</li><li>Si te mareas, siéntate un momento.</li></ul><p><b>Actividad</b>: haz una fila de colchonetas y recorre el camino haciendo croquetas.</p>`,
+        H6.dos("Giros", ["SUELO", ["croqueta", "bolita", "voltereta"], cVE], ["SEGURO", ["colchoneta", "de uno en uno", "barbilla"], cRO])],
+    ],
+    "Todo junto: un circuito": [
+      ["Los relevos", `<p>En una carrera de <mark>relevos</mark>, los corredores de un equipo se turnan para completar el recorrido.</p><ul><li>Cada corredor hace un <b>tramo</b>.</li><li>Lleva en la mano un <b>testigo</b>: un palo corto o un objeto.</li><li>Cuando llega, le pasa el testigo al siguiente <b>en la mano</b>, sin tirarlo.</li><li>El siguiente no sale hasta que tiene el testigo.</li><li>Gana el equipo cuyo último corredor llega antes.</li></ul><p>Trucos:</p><ul><li>El que recibe extiende la mano hacia atrás y mira al compañero.</li><li>Se anima a todos los del equipo, ¡también al último!</li><li>Pensad qué orden de corredores es mejor.</li></ul><p>Hay relevos de muchos tipos: corriendo, saltando a la pata coja, con un balón, a cuatro patas…</p><p><b>Actividad</b>: haced relevos por equipos con un circuito de conos, aros y vallas.</p>`,
+        H6.rueda("Relevos", "EQUIPO", [["tramo", cAZ], ["testigo", cNA], ["mano", cVE], ["ánimo", cRO]]),
+        ["meWkWhIQ6XY", "Mario Corre - Ejercicios para niños", "Descanso Mental", 4613468]],
+    ],
+  },
+  final: [
+    ["Mido mis marcas", `<p>Para saber si mejoramos, podemos <mark>medir</mark> lo que hacemos:</p><ul><li>Con un <b>cronómetro</b> medimos cuánto <b>tiempo</b> tardamos en correr una distancia. Menos tiempo es mejor.</li><li>Con una <b>cinta métrica</b> medimos cuánto <b>saltamos</b> de largo. Más distancia es mejor.</li><li><b>Contamos</b> cuántos saltos a la comba hacemos seguidos o cuántas veces encestamos.</li></ul><p>Lo importante no es ganar a los demás, sino <b>superarte a ti mismo</b>. Si hoy saltas 1 metro y dentro de un mes 1 metro y 10, ¡has mejorado!</p><p>Podemos apuntar las marcas en una <b>tabla</b> con la fecha, y hacer un gráfico para ver cómo progresamos.</p><p>Para mejorar hace falta practicar, descansar y comer bien.</p><p><b>Actividad</b>: apunta tu marca de salto de longitud y vuelve a medirla dentro de un mes.</p>`,
+      L6.filas("Marcas", [["carrera", "cronómetro", cAZ], ["salto", "cinta", cVE], ["comba", "contar", cNA], ["mejorar", "tabla", cRO]])],
+    ["Repaso: la carrera de Tina", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>La carrera es de <b>relevos</b>: cuatro corredores por equipo.</li><li>Cada uno corre un <b>tramo</b> y pasa el <b>testigo</b>.</li><li>Rufo sale <b>como una flecha</b>: es muy rápido en la <b>salida</b>.</li><li>Lía <b>trepa</b>, Bote <b>salta</b> vallas y Tina <b>nada</b>.</li><li>Pensar el <b>orden</b> del equipo les ayuda a ganar.</li><li>Rufo pide perdón: en un equipo <b>todos son importantes</b>.</li></ul><p>Cada persona tiene habilidades distintas. Unos corren más rápido, otros saltan más alto, otros tienen más resistencia. ¡Juntos somos más fuertes!</p><p><b>Actividad</b>: piensa en qué eres bueno tú y en qué te gustaría mejorar.</p>`,
+      H6.flujo("Equipo", ["Rufo|corre", "Lía|trepa", "Bote|salta", "Tina|nada"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Qué pasa si sales antes del «¡ya!»?", ["No has esperado la señal."], "Es salida nula y se repite."],
+    ["¿Con qué giras la comba?", ["No con los brazos enteros."], "Con las muñecas."],
+  ],
+  errores: ["Lanzar el testigo al compañero en lugar de dárselo en la mano.", "Hacer volteretas sin colchoneta o apoyando la cabeza."],
+  ejercicios: [
+    ["b", "¿Qué se dice antes de salir?", "Preparados, listos, ¡ya!"],
+    ["b", "¿Qué es el testigo?", "El objeto que se pasan los corredores en los relevos."],
+    ["b", "¿Cómo se llaman los giros tumbados de lado?", "La croqueta."],
+    ["b", "¿Con qué se mide el tiempo?", "Con un cronómetro."],
+    ["b", "Di una canción para saltar a la comba.", "El cocherito leré, Al pasar la barca."],
+    ["m", "Di dos posiciones de salida.", "De pie y agachado."],
+    ["m", "¿Cómo se salta a la comba?", "Pies juntos, bajito, cuando pasa la cuerda."],
+    ["m", "Di dos normas para hacer volteretas.", "Colchoneta, de uno en uno, barbilla al pecho."],
+    ["m", "¿Qué es mejor en una carrera: más o menos tiempo?", "Menos tiempo."],
+    ["m", "¿Cómo se recibe el testigo?", "Con la mano hacia atrás, mirando al compañero."],
+    ["a", "En la lectura, ¿por qué Tina es importante?", "Porque nada muy rápido en el tramo del río."],
+    ["a", "¿Qué aprende Rufo?", "Que en un equipo todos son importantes."],
+    ["a", "Diseña un circuito de relevos con cuatro pruebas.", "Respuesta libre."],
+    ["a", "¿Por qué es mejor compararte contigo mismo?", "Porque cada uno mejora a su ritmo."],
+  ],
+  quiz: [
+    ["Salir antes de la señal es…", ["salida nula", "ganar", "relevo"], "Salida."],
+    ["La comba se gira con las…", ["muñecas", "rodillas", "piernas"], "Comba."],
+    ["Las volteretas se hacen sobre…", ["colchonetas", "el asfalto", "un banco"], "Giros."],
+    ["En los relevos se pasa un…", ["testigo", "balón de playa", "aro"], "Relevos."],
+    ["Para medir un salto usamos…", ["cinta métrica", "cronómetro", "termómetro"], "Marcas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué animal es Tina?", ["una tortuga", "un conejo", "una ardilla"], "Lectura."],
+    ["¿Qué hace Bote?", ["salta vallas", "nada", "trepa"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Relevos", "Tramo, testigo en la mano, todos animan."],
+    ["Marcas", "Cronómetro para tiempo, cinta para distancia."],
+  ],
+  glosario: [
+    ["Salida", "Comienzo de una carrera."],
+    ["Salida nula", "Salir antes de la señal."],
+    ["Comba", "Cuerda para saltar."],
+    ["Croqueta", "Giro tumbado rodando de lado."],
+    ["Voltereta", "Giro hacia delante sobre la espalda."],
+    ["Relevos", "Carrera por turnos en equipo."],
+    ["Testigo", "Objeto que se pasan los corredores."],
+    ["Tramo", "Parte de un recorrido."],
+    ["Cronómetro", "Reloj para medir el tiempo."],
+    ["Marca", "Resultado que conseguimos."],
+  ],
+  situacion: {
+    titulo: "Las olimpiadas de clase",
+    reto: "La clase organiza unas olimpiadas con salidas, comba, giros en colchoneta y relevos, y apunta las marcas de cada uno.",
+    pasos: ["Preparar las pruebas y el material.", "Practicar cada prueba con seguridad.", "Hacer las pruebas y apuntar las marcas.", "Repetir dentro de un mes y comparar."],
+    producto: "Unas olimpiadas con tabla de marcas personales.",
+    evaluacion: ["Sale bien desde distintas posiciones.", "Salta a la comba.", "Hace giros con seguridad.", "Colabora en los relevos."],
+  },
+});

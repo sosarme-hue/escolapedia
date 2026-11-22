@@ -136,3 +136,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Hacer posturas de equilibrio inspiradas en animales", "Caminar sobre líneas, cuerdas y zancos", "Mantener el equilibrio con los ojos cerrados", "Hacer figuras de equilibrio en grupo"],
+  lectura: { titulo: "Nina, la equilibrista", html: `<p>Nina vivía en un circo. Su madre era equilibrista: caminaba sobre un cable muy alto con una sombrilla en la mano. Nina quería ser como ella.</p><p>—Mamá, ¿me enseñas?</p><p>—Claro, pero empezaremos por abajo —dijo su madre, y pintó una línea en el suelo con tiza.</p><p>Nina caminó sobre la línea. ¡Fácil! Después, su madre puso una cuerda en el suelo. Nina se tambaleó un poco, pero llegó al final.</p><p>Luego practicaron sobre un banco bajo, con los brazos abiertos como un avión. Nina se cayó una vez, dos veces, tres veces…</p><p>—No pasa nada —le dijo su madre—. Mira un punto fijo delante de ti y respira tranquila.</p><p>Nina lo intentó otra vez. Miró el punto rojo de la pared, abrió los brazos y… ¡llegó al final sin caerse!</p><p>Pasaron los meses. Un día, Nina salió a la pista del circo y caminó por un cable bajito con su propia sombrilla. Todo el público aplaudió.</p><p>—¡Lo has conseguido! —dijo su madre, muy orgullosa.</p>` },
+  tras: {
+    "Equilibrio quieto": [
+      ["Posturas de animales", `<p>Muchos animales tienen un <mark>equilibrio</mark> increíble. Podemos imitar sus posturas:</p><ul><li><b>La cigüeña</b> o el <b>flamenco</b>: sobre un pie, con la otra pierna doblada y los brazos como alas.</li><li><b>El árbol</b>: sobre un pie, con la planta del otro pie apoyada en la pierna y los brazos hacia arriba como ramas.</li><li><b>El avión</b>: sobre un pie, con el cuerpo inclinado hacia delante y la otra pierna estirada hacia atrás.</li><li><b>La rana</b>: en cuclillas, con las manos en el suelo entre las rodillas.</li><li><b>El gato</b>: a cuatro patas, levantando un brazo y la pierna contraria.</li></ul><p>Truco: mira un <b>punto fijo</b> y aprieta la barriga. Intenta aguantar mientras cuentas hasta diez.</p><p><b>Actividad</b>: haced una «sesión de yoga animal» con cinco posturas seguidas.</p>`,
+        L6.filas("Animales", [["cigüeña", "un pie", cAZ], ["árbol", "brazos arriba", cVE], ["avión", "inclinado", cRO], ["gato", "a cuatro patas", cNA]]),
+        ["jMOZz7GHaog", "Yoga para niños - Las posturas de los animales", "Smile and Learn", 12456642]],
+    ],
+    "Equilibrio en movimiento": [
+      ["Caminos difíciles", `<p>Caminar en <mark>equilibrio</mark> por caminos estrechos es un reto divertido. Podemos ir de lo más fácil a lo más difícil:</p><ul><li>Una <b>línea</b> pintada en el suelo.</li><li>Una <b>cuerda</b> estirada en el suelo.</li><li>Un <b>banco</b> sueco del derecho (ancho).</li><li>Un banco del <b>revés</b> (estrecho).</li><li>Unas <b>piedras</b> o aros separados, como para cruzar un río.</li></ul><p>Y podemos complicarlo:</p><ul><li>Caminando hacia <b>atrás</b> o de <b>lado</b>.</li><li>De <b>puntillas</b>.</li><li>Con un <b>saquito</b> en la cabeza.</li><li>Agachándonos en mitad del camino.</li></ul><p>Los <b>zancos</b> son otro reto: unos botes o latas con cuerdas sobre los que caminamos más altos.</p><p><b>Actividad</b>: fabrica unos zancos con dos latas y una cuerda, y aprende a caminar con ellos.</p>`,
+        H6.flujo("Caminos", ["línea|fácil", "cuerda|medio", "banco|difícil", "zancos|reto"], cNA)],
+    ],
+    "Llevar objetos": [
+      ["Equilibrio con los ojos cerrados", `<p>¿Sabías que los <mark>ojos</mark> nos ayudan mucho a mantener el equilibrio? Haz la prueba:</p><ul><li>Ponte a la pata coja con los ojos <b>abiertos</b>. Cuenta hasta diez.</li><li>Ahora hazlo con los ojos <b>cerrados</b>. ¿A que es mucho más difícil?</li></ul><p>Dentro de los <b>oídos</b> también tenemos un órgano que nos dice si estamos derechos o inclinados. Por eso, cuando damos muchas vueltas, nos <b>mareamos</b>.</p><p>Juegos con los ojos cerrados (siempre con un compañero cerca):</p><ul><li>Aguantar de pie sobre un pie.</li><li>Caminar sobre una línea con un compañero que nos avisa.</li><li>Tocarnos la nariz con un dedo, con los brazos abiertos.</li></ul><p>Practicar con los ojos cerrados entrena el equilibrio y la concentración.</p><p><b>Actividad</b>: compara cuántos segundos aguantas a la pata coja con los ojos abiertos y cerrados.</p>`,
+        H6.dos("Ojos", ["ABIERTOS", ["más fácil", "punto fijo", "aguanto"], cVE], ["CERRADOS", ["más difícil", "oído", "compañero"], cMO])],
+    ],
+    "Equilibrio por parejas": [
+      ["Figuras en grupo", `<p>En grupo podemos hacer <mark>figuras</mark> de equilibrio, como los acróbatas del circo. Siempre sobre colchonetas y con cuidado.</p><ul><li><b>La mesa</b>: uno a cuatro patas, con la espalda recta.</li><li><b>El puente</b>: dos compañeros se dan las manos por encima formando un arco.</li><li><b>La estrella</b>: cinco niños tumbados con las cabezas en el centro y los pies hacia fuera.</li><li><b>El abanico</b>: tres niños de la mano; los de los lados se inclinan hacia fuera.</li></ul><p>Normas para las figuras:</p><ul><li>Nunca nos subimos sobre la <b>espalda</b> de un compañero en el centro, solo en zonas firmes como caderas y hombros.</li><li>Montamos y desmontamos <b>despacio</b> y avisando.</li><li>Si alguien dice «¡para!», paramos.</li></ul><p><b>Actividad</b>: en grupos de cuatro, inventad una figura y hacedle una foto.</p>`,
+        H6.rueda("Figuras", "GRUPO", [["mesa", cAZ], ["puente", cRO], ["estrella", cNA], ["abanico", cVE]])],
+    ],
+  },
+  final: [
+    ["El circo", `<p>En el <mark>circo</mark> hay artistas que son maestros del equilibrio:</p><ul><li>Los <b>equilibristas</b> o funambulistas: caminan sobre un cable.</li><li>Los <b>acróbatas</b>: hacen figuras y saltos en grupo.</li><li>Los <b>malabaristas</b>: lanzan pelotas o mazas mientras están en equilibrio.</li><li>Los que montan en <b>monociclo</b>: una bici de una sola rueda.</li><li>Los <b>trapecistas</b>: se balancean en el aire.</li></ul><p>Todos ellos han practicado muchísimas horas. Empezaron poco a poco, como Nina, y se cayeron muchas veces antes de hacerlo bien.</p><p>Hoy hay escuelas de circo donde los niños pueden aprender malabares, acrobacias y equilibrios.</p><p><b>Actividad</b>: aprende a hacer malabares con dos pañuelos lanzándolos al aire.</p>`,
+      L6.filas("Circo", [["equilibrista", "cable", cRO], ["acróbata", "figuras", cAZ], ["malabarista", "pelotas", cNA], ["monociclo", "una rueda", cVE]])],
+    ["Repaso: Nina, la equilibrista", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Nina empieza por lo <b>fácil</b>: una línea en el suelo.</li><li>Después, una <b>cuerda</b>, y luego un <b>banco</b>.</li><li>Abre los brazos como un <b>avión</b> para equilibrarse.</li><li>Se cae varias veces, pero <b>no se rinde</b>.</li><li>El truco: mirar un <b>punto fijo</b> y respirar tranquila.</li><li>Al final camina por un cable con una <b>sombrilla</b>.</li></ul><p>La lectura nos enseña que para aprender algo difícil hay que ir <b>paso a paso</b> y practicar mucho. ¡Caerse forma parte de aprender!</p><p><b>Actividad</b>: piensa en algo que te costó aprender y cuenta cómo lo conseguiste.</p>`,
+      H6.flujo("Nina", ["línea|fácil", "cuerda|tambalea", "banco|se cae", "cable|¡lo logra!"], cAZ)],
+  ],
+  ejemplos: [
+    ["¿Qué truco te ayuda a no caerte sobre un pie?", ["Fijarse en algo quieto."], "Mirar un punto fijo y apretar la barriga."],
+    ["¿Por qué nos mareamos al dar vueltas?", ["Un órgano del oído controla el equilibrio."], "Porque se altera el equilibrio del oído."],
+  ],
+  errores: ["Hacer figuras de grupo sin colchonetas o sin avisar.", "Rendirse a la primera caída."],
+  ejercicios: [
+    ["b", "¿Cómo es la postura de la cigüeña?", "Sobre un pie, con la otra pierna doblada."],
+    ["b", "¿Qué es más fácil, una línea o un banco del revés?", "Una línea."],
+    ["b", "¿Es más difícil el equilibrio con los ojos cerrados?", "Sí."],
+    ["b", "Di un artista de circo.", "Equilibrista, acróbata, malabarista…"],
+    ["b", "¿Con qué se hacen unos zancos caseros?", "Con latas y cuerdas."],
+    ["m", "Di dos formas de complicar el camino.", "Hacia atrás, de puntillas, con un saquito…"],
+    ["m", "¿Dónde está el órgano del equilibrio?", "En el oído."],
+    ["m", "Di dos normas de las figuras de grupo.", "Colchonetas, despacio, parar si alguien lo dice."],
+    ["m", "¿Cómo se hace la estrella?", "Tumbados, con las cabezas en el centro."],
+    ["m", "¿Qué hace un funambulista?", "Camina sobre un cable."],
+    ["a", "En la lectura, ¿qué consejo da la madre a Nina?", "Mirar un punto fijo y respirar tranquila."],
+    ["a", "¿Por qué empieza Nina por una línea?", "Para ir de lo fácil a lo difícil."],
+    ["a", "Inventa una postura de equilibrio de un animal.", "Respuesta libre."],
+    ["a", "Diseña un camino de equilibrio con cinco obstáculos.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["El árbol se hace sobre…", ["un pie", "dos manos", "la cabeza"], "Posturas."],
+    ["Lo más fácil es caminar por…", ["una línea", "un cable", "zancos"], "Caminos."],
+    ["Con los ojos cerrados el equilibrio es…", ["más difícil", "más fácil", "igual"], "Ojos."],
+    ["Las figuras se hacen sobre…", ["colchonetas", "sillas", "mesas"], "Grupo."],
+    ["El monociclo tiene…", ["una rueda", "dos ruedas", "tres ruedas"], "Circo."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde vive Nina?", ["en un circo", "en un castillo", "en una granja"], "Lectura."],
+    ["¿Qué lleva Nina en el cable?", ["una sombrilla", "una pelota", "un aro"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Truco del equilibrio", "Punto fijo, barriga apretada, brazos abiertos."],
+    ["De fácil a difícil", "Línea, cuerda, banco, zancos, ojos cerrados."],
+  ],
+  glosario: [
+    ["Equilibrio", "Mantenerse sin caerse."],
+    ["Punto fijo", "Lugar al que miramos para no caernos."],
+    ["Zancos", "Objetos para caminar más altos."],
+    ["Banco sueco", "Banco largo de gimnasio."],
+    ["Mareo", "Sensación de que todo da vueltas."],
+    ["Acróbata", "Artista que hace saltos y figuras."],
+    ["Funambulista", "Persona que camina sobre un cable."],
+    ["Malabares", "Lanzar y coger objetos sin que caigan."],
+    ["Monociclo", "Bicicleta de una rueda."],
+    ["Figura", "Forma que hacemos con el cuerpo."],
+  ],
+  situacion: {
+    titulo: "Nuestro circo",
+    reto: "La clase prepara un espectáculo de circo con números de equilibrio, figuras de grupo y malabares sencillos.",
+    pasos: ["Elegir un número: posturas, camino, zancos o figuras.", "Practicar de lo fácil a lo difícil.", "Preparar la música y la presentación.", "Hacer la función para otra clase."],
+    producto: "Un espectáculo de circo de la clase.",
+    evaluacion: ["Hace posturas de equilibrio.", "Camina en equilibrio por caminos difíciles.", "Controla el equilibrio con ojos cerrados.", "Colabora con seguridad en las figuras."],
+  },
+});

@@ -139,3 +139,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Expresar emociones con todo el cuerpo", "Imitar oficios y deportes con mímica", "Hacer estatuas y esculturas con el cuerpo", "Moverse con distintos ritmos de música"],
+  lectura: { titulo: "El mimo de la plaza", html: `<p>Cada domingo, en la plaza del pueblo, aparecía un mimo. Tenía la cara pintada de blanco, una camiseta de rayas y unos guantes blancos. Nunca hablaba.</p><p>Un domingo, Hugo y su hermana Alba se pararon a mirarlo.</p><p>El mimo hizo como si hubiera una <b>pared invisible</b> delante. Pasó las manos por ella, buscó una puerta… ¡y no la encontraba!</p><p>Alba se rió. Después, el mimo sacó de la nada una <b>cuerda invisible</b> y empezó a tirar con todas sus fuerzas. Parecía que arrastraba un elefante.</p><p>De pronto, señaló a Hugo y le hizo un gesto: «¡Ven!». Hugo, nervioso, se acercó. El mimo le dio un <b>globo invisible</b>. Hugo lo cogió… y el mimo hizo como si el globo se lo llevara volando.</p><p>Hugo, sin pensarlo, empezó a flotar de puntillas, con los brazos hacia arriba. ¡Todo el público aplaudió!</p><p>Al terminar, el mimo hizo una reverencia y le guiñó un ojo.</p><p>Desde ese día, Hugo practica mímica en su habitación delante del espejo.</p>` },
+  tras: {
+    "Las caras: emociones": [
+      ["Emociones con todo el cuerpo", `<p>No solo la cara muestra lo que sentimos. Todo el <mark>cuerpo</mark> habla:</p><ul><li><b>Alegría</b>: saltamos, abrimos los brazos, caminamos ligeros.</li><li><b>Tristeza</b>: bajamos los hombros y la cabeza, caminamos despacio.</li><li><b>Enfado</b>: apretamos los puños, damos pisotones, cruzamos los brazos.</li><li><b>Miedo</b>: nos encogemos, temblamos, nos tapamos la cara.</li><li><b>Sorpresa</b>: abrimos mucho los ojos y la boca, damos un paso atrás.</li><li><b>Cansancio</b>: arrastramos los pies y bostezamos.</li></ul><p>Los actores y actrices estudian mucho cómo se mueve el cuerpo con cada emoción para que el público lo entienda sin palabras.</p><p>Reconocer las emociones en el cuerpo de los demás nos ayuda a entenderlos y a ayudarles.</p><p><b>Actividad</b>: camina por el gimnasio cambiando de emoción cada vez que suene el pandero.</p>`,
+        L6.filas("Emoción", [["alegría", "salto", cNA], ["tristeza", "hombros abajo", cAZ], ["enfado", "puños", cRO], ["miedo", "me encojo", cMO]]),
+        ["106_Mv1ZF5E", "La familia dedo de emociones", "El Payaso Plim Plim", 120186169]],
+    ],
+    "Imitar animales": [
+      ["Oficios y deportes en mímica", `<p>Con <mark>mímica</mark> podemos representar cualquier oficio o deporte sin decir nada:</p><p><b>Oficios</b>:</p><ul><li><b>Pintor</b>: mojamos la brocha y pintamos la pared de arriba abajo.</li><li><b>Peluquera</b>: cortamos el pelo con unas tijeras invisibles.</li><li><b>Cocinero</b>: removemos la olla, probamos y ¡quema!</li><li><b>Bombera</b>: cogemos la manguera y apagamos el fuego.</li></ul><p><b>Deportes</b>:</p><ul><li><b>Tenis</b>: golpeamos la pelota con la raqueta.</li><li><b>Natación</b>: movemos los brazos como si nadáramos.</li><li><b>Baloncesto</b>: botamos y lanzamos a canasta.</li><li><b>Esquí</b>: bajamos la montaña haciendo eses.</li></ul><p>El truco es exagerar un poco los gestos y hacerlos <b>despacio</b> para que se entiendan.</p><p><b>Actividad</b>: jugad a adivinar oficios y deportes por equipos.</p>`,
+        H6.dos("Mímica", ["OFICIOS", ["pintor", "cocinero", "bombera"], cAZ], ["DEPORTES", ["tenis", "natación", "esquí"], cVE])],
+    ],
+    "Objetos invisibles": [
+      ["Estatuas y esculturas", `<p>Nuestro cuerpo puede convertirse en una <mark>estatua</mark>:</p><ul><li><b>Las estatuas musicales</b>: bailamos con la música y, cuando se para, nos quedamos quietos como estatuas. ¡Quien se mueva, pierde!</li><li><b>El escultor</b>: un compañero es de «plastilina» y otro le va moviendo los brazos, las piernas y la cabeza para crear una escultura.</li><li><b>El museo</b>: unos hacen de estatuas y otro es el vigilante. Cuando el vigilante no mira, las estatuas cambian de postura.</li><li><b>Las fotos</b>: en grupo, hacemos una «foto» de una escena: un cumpleaños, un partido, una playa.</li></ul><p>Para ser una buena estatua hay que estar muy <b>quieto</b>, respirar despacio y aguantar la risa.</p><p><b>Actividad</b>: en grupos de cinco, haced la foto de «un día en la playa» sin moveros.</p>`,
+        H6.rueda("Estatuas", "¡QUIETOS!", [["música", cAZ], ["escultor", cMO], ["museo", cNA], ["foto", cVE]])],
+    ],
+    "Ser buen público": [
+      ["Moverse con la música", `<p>La <mark>música</mark> nos invita a movernos de formas distintas:</p><ul><li>Música <b>rápida</b>: saltamos, corremos, nos movemos con energía.</li><li>Música <b>lenta</b>: nos movemos suave, como si flotáramos en el agua.</li><li>Música <b>fuerte</b>: movimientos grandes y enérgicos.</li><li>Música <b>suave</b>: movimientos pequeños y delicados.</li><li>Música <b>alegre</b> o <b>triste</b>: el cuerpo cambia de emoción.</li></ul><p>También podemos movernos como <b>cosas</b>:</p><ul><li>Como un <b>robot</b>: movimientos rectos y cortados.</li><li>Como un <b>globo</b> que se hincha y se deshincha.</li><li>Como <b>gelatina</b>: todo tembloroso.</li><li>Como una <b>hoja</b> que cae del árbol.</li></ul><p><b>Actividad</b>: con distintas músicas, muévete como un robot, un globo, una hoja y gelatina.</p>`,
+        H6.flujo("Música", ["rápida|salto", "lenta|floto", "fuerte|grande", "suave|pequeño"], cRO)],
+    ],
+  },
+  final: [
+    ["Las sombras chinescas", `<p>Las <mark>sombras chinescas</mark> son un arte muy antiguo que nació en China. Se hacen figuras con las manos o el cuerpo delante de una luz, y su sombra aparece en una pared o una sábana.</p><p>Con las manos podemos hacer:</p><ul><li>Un <b>perro</b>: la mano de lado, el pulgar arriba como oreja y el meñique como boca.</li><li>Un <b>pájaro</b>: las dos manos cruzadas por los pulgares, moviendo los dedos como alas.</li><li>Un <b>conejo</b>: dos dedos levantados como orejas.</li><li>Un <b>caracol</b>: el puño como concha y dos dedos como cuernos.</li></ul><p>Con todo el cuerpo, detrás de una sábana iluminada, podemos representar cuentos enteros sin decir una palabra.</p><p>Es una forma muy bonita de expresión corporal y de teatro.</p><p><b>Actividad</b>: con una linterna en una habitación oscura, inventa tres sombras con tus manos.</p>`,
+      L6.filas("Sombras", [["perro", "pulgar oreja", cMO], ["pájaro", "manos cruzadas", cAZ], ["conejo", "dos dedos", cVE], ["caracol", "puño", cNA]])],
+    ["Repaso: el mimo de la plaza", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>El mimo <b>nunca habla</b>: se expresa solo con el cuerpo.</li><li>Lleva la cara <b>blanca</b>, camiseta de <b>rayas</b> y guantes blancos.</li><li>Hace una <b>pared invisible</b> con las manos.</li><li>Tira de una <b>cuerda invisible</b> como si arrastrara un elefante: exagera el esfuerzo.</li><li>Le da a Hugo un <b>globo invisible</b>.</li><li>Hugo <b>flota de puntillas</b>: se mueve como si el globo le llevara.</li><li>Al final hace una <b>reverencia</b>.</li></ul><p>El público aplaude porque entiende todo sin necesidad de palabras. ¡Eso es la mímica!</p><p><b>Actividad</b>: representa sin hablar lo que hiciste esta mañana antes de venir al cole.</p>`,
+      H6.flujo("Mimo", ["pared|invisible", "cuerda|tira", "globo|flota", "reverencia|fin"], cAZ)],
+  ],
+  ejemplos: [
+    ["¿Cómo muestras enfado con el cuerpo?", ["Piensa en los puños y los pies."], "Apretando los puños, dando pisotones y cruzando los brazos."],
+    ["¿Cómo te mueves con música lenta?", ["Lenta = suave."], "Despacio y suave, como si flotara."],
+  ],
+  errores: ["Hacer la mímica muy deprisa y sin exagerar, de forma que no se entiende.", "Hablar o hacer ruidos cuando el juego es sin palabras."],
+  ejercicios: [
+    ["b", "¿Cómo se ve la alegría en el cuerpo?", "Saltamos y abrimos los brazos."],
+    ["b", "Representa con mímica a un pintor.", "Mojar la brocha y pintar."],
+    ["b", "¿Qué hacemos en las estatuas musicales?", "Quedarnos quietos cuando para la música."],
+    ["b", "¿Cómo nos movemos como un robot?", "Con movimientos rectos y cortados."],
+    ["b", "¿Dónde nacieron las sombras chinescas?", "En China."],
+    ["m", "¿Cómo se ve el miedo en el cuerpo?", "Nos encogemos y temblamos."],
+    ["m", "¿Cuál es el truco de la mímica?", "Exagerar y hacerlo despacio."],
+    ["m", "Explica el juego del escultor.", "Uno mueve el cuerpo del otro como si fuera plastilina."],
+    ["m", "¿Cómo nos movemos con música fuerte?", "Con movimientos grandes y enérgicos."],
+    ["m", "¿Cómo se hace un conejo de sombra?", "Con dos dedos levantados como orejas."],
+    ["a", "En la lectura, ¿qué objetos invisibles usa el mimo?", "Una pared, una cuerda y un globo."],
+    ["a", "¿Por qué el público entiende al mimo?", "Porque sus gestos son claros y exagerados."],
+    ["a", "Inventa una escena de mímica con tres objetos invisibles.", "Respuesta libre."],
+    ["a", "Representa una emoción y que tus compañeros la adivinen.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Encogerse y temblar es…", ["miedo", "alegría", "enfado"], "Emociones."],
+    ["En la mímica no se…", ["habla", "mueve", "exagera"], "Mímica."],
+    ["Cuando para la música, las estatuas…", ["se quedan quietas", "corren", "cantan"], "Estatuas."],
+    ["Con música lenta nos movemos…", ["suave", "a saltos", "muy rápido"], "Música."],
+    ["Las sombras chinescas necesitan…", ["luz", "agua", "pelotas"], "Sombras."],
+  ],
+  examen: [
+    ["En la lectura, ¿de qué color tiene el mimo la cara?", ["blanca", "roja", "azul"], "Lectura."],
+    ["¿Qué le da el mimo a Hugo?", ["un globo invisible", "una flor", "un sombrero"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Cuerpo y emociones", "Alegría salta, tristeza baja, enfado aprieta, miedo encoge."],
+    ["Mímica", "Sin palabras, gestos claros, exagerar y despacio."],
+  ],
+  glosario: [
+    ["Mímica", "Expresarse con gestos, sin palabras."],
+    ["Mimo", "Artista que hace mímica."],
+    ["Expresión corporal", "Comunicar con el cuerpo."],
+    ["Estatua", "Figura quieta."],
+    ["Escultor", "Artista que hace esculturas."],
+    ["Reverencia", "Inclinación del cuerpo para saludar."],
+    ["Exagerar", "Hacer algo más grande de lo normal."],
+    ["Sombras chinescas", "Figuras de sombra hechas con las manos."],
+    ["Ritmo", "Velocidad y forma de la música."],
+    ["Público", "Personas que miran un espectáculo."],
+  ],
+  situacion: {
+    titulo: "Teatro sin palabras",
+    reto: "La clase prepara pequeñas escenas de mímica y sombras chinescas para representarlas ante las familias.",
+    pasos: ["Elegir una escena: un oficio, un deporte o un cuento.", "Ensayar los gestos exagerando y despacio.", "Preparar una parte con sombras detrás de una sábana.", "Representar con música y ser buen público con los demás."],
+    producto: "Un espectáculo de mímica y sombras.",
+    evaluacion: ["Expresa emociones con el cuerpo.", "Representa oficios y deportes.", "Hace estatuas quieto.", "Adapta el movimiento a la música."],
+  },
+});
