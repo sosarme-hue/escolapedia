@@ -92,3 +92,100 @@ module.exports = P.tema({
   saberes: "Los amigos de Jesús: la llamada de los primeros discípulos (Mc 1,16-20), los doce apóstoles (Mc 3,13-19), Pedro, Mateo y Zaqueo (Mt 9,9; Lc 19,1-10), la casa de Betania (Lc 10,38-42; Jn 11), las mujeres que seguían a Jesús (Lc 8,1-3; Jn 20,11-18); el mandamiento nuevo del amor (Jn 13,34; 15,13-15); la amistad y el perdón",
   ideas: ["Mural con los doce apóstoles y un rasgo de cada uno.", "Dramatización de la historia de Zaqueo.", "Árbol de la amistad con gestos de buen amigo en cada hoja."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer a Andrés, Santiago, Juan, Tomás y Pablo", "Descubrir el trato de Jesús con los niños", "Comprender el gesto de lavar los pies", "Relacionar la amistad con el servicio y el perdón"],
+  lectura: { titulo: "El banco de la amistad", html: `<p>En el patio del colegio de Adrián han puesto un banco nuevo, pintado de amarillo, con un cartel que dice: «Banco de la amistad».</p><p>La directora lo explicó en la asamblea:</p><p>—Si alguien se siente solo en el recreo, puede sentarse aquí. Y si veis a alguien en el banco, id a invitarle a jugar.</p><p>Los primeros días, nadie se sentaba. Hasta que un martes, Adrián vio allí a Iván, un niño de su clase que había llegado de Ucrania hacía un mes. Iván casi no hablaba español y siempre estaba callado.</p><p>Adrián dudó. Sus amigos le esperaban para jugar al fútbol. Pero se acordó de lo que habían leído en Religión: Jesús se fijaba siempre en quien estaba solo, como Zaqueo, subido a un árbol.</p><p>Se acercó al banco y le tendió la mano.</p><p>—¿Juegas? Te pongo de portero.</p><p>Iván sonrió por primera vez en semanas. Resultó que era un portero buenísimo: paró tres goles seguidos.</p><p>Al día siguiente, Iván ya no se sentó en el banco. Pero Adrián lo vio un rato después sentado allí… al lado de una niña de primero, que estaba llorando.</p>` },
+  tras: {
+    "Los doce apóstoles": [
+      ["Andrés, Santiago y Juan", `<p>Entre los primeros amigos de Jesús había dos parejas de <mark>hermanos pescadores</mark> del lago de Galilea: Pedro y <b>Andrés</b>, y <b>Santiago</b> y <b>Juan</b>, hijos de Zebedeo.</p><ul><li><b>Andrés</b> fue, según el evangelio de Juan, el primero en seguir a Jesús, y enseguida fue a buscar a su hermano Pedro para decirle: «<b>Hemos encontrado al Mesías</b>» (Jn 1,41). ¡Compartió su alegría! En el milagro de los panes y los peces fue él quien llevó a Jesús al niño que tenía cinco panes y dos peces.</li><li><b>Santiago</b> y <b>Juan</b> tenían tanto carácter que Jesús los llamaba en broma «<b>hijos del trueno</b>» (Mc 3,17). Con Pedro, eran los tres que más acompañaban a Jesús.</li><li><b>Juan</b> era el más joven. El evangelio habla del «discípulo amado», y la tradición cristiana lo identifica con él. Estuvo junto a la cruz con María.</li><li><b>Santiago</b> es el <b>patrón de España</b>. Según la tradición, sus restos están en <b>Santiago de Compostela</b>. Desde hace más de mil años, miles de peregrinos hacen el <b>Camino de Santiago</b> a pie o en bicicleta, siguiendo las flechas amarillas y la concha de vieira.</li></ul><p><b>Actividad</b>: busca en un mapa las rutas del Camino de Santiago y averigua si alguna pasa cerca de tu localidad.</p>`,
+        L6.filas("Hermanos", [["Andrés", "el primero", cAZ], ["Santiago", "patrón de España", cRO], ["Juan", "el más joven", cVE], ["Zebedeo", "su padre", cNA]]),
+        ["PGfYpzyyDg0", "🎶 Los Amigos de Jesús – Canción Infantil sobre los 12 Apóstoles | Catekids", "Catekids", 243488]],
+    ],
+    "Pedro, el amigo valiente": [
+      ["Tomás, el que quería ver", `<p><mark>Tomás</mark> era otro de los doce apóstoles. También le llamaban «el Mellizo».</p><p>El evangelio de Juan cuenta que, después de la muerte de Jesús, los apóstoles estaban reunidos y con miedo. Según el relato, Jesús resucitado se les apareció. Pero Tomás no estaba ese día. Cuando los demás le contaron: «<b>¡Hemos visto al Señor!</b>», Tomás contestó: «<b>Si no lo veo y no lo toco, no lo creo</b>» (Jn 20,25).</p><p>Ocho días después, los amigos estaban otra vez juntos, y esta vez Tomás estaba con ellos. El evangelio cuenta que Jesús se presentó y le dijo a Tomás que se acercara y viera sus heridas. Tomás exclamó: «<b>¡Señor mío y Dios mío!</b>». Y Jesús dijo: «<b>Dichosos los que creen sin haber visto</b>» (Jn 20,29).</p><p>De Tomás viene la expresión «ser como santo Tomás», que se dice de quien solo se cree las cosas si las ve con sus propios ojos.</p><p>La historia de Tomás enseña algo importante: <b>tener dudas es normal</b>. Jesús no se enfadó con él ni lo echó del grupo. Sus amigos tampoco: lo esperaron y lo incluyeron. Los buenos amigos aceptan nuestras preguntas.</p><p><b>Actividad</b>: escribe una pregunta que te gustaría hacer sobre algo que no entiendes, y compártela en clase sin miedo.</p>`,
+        H6.flujo("Tomás", ["no estaba|ese día", "«no lo creo»|dudas", "8 días|vuelve", "«Señor mío»|cree"], cMO)],
+    ],
+    "Mateo y Zaqueo": [
+      ["Jesús y los niños", `<p>En tiempos de Jesús, los niños no eran muy tenidos en cuenta: no podían opinar y se pensaba que no eran importantes hasta que fueran mayores.</p><p>Un día, unas madres y padres llevaron a sus <mark>niños</mark> a Jesús para que los bendijera. Los discípulos, pensando que molestaban, les regañaron y quisieron echarlos.</p><p>Pero Jesús se enfadó con sus discípulos y les dijo: «<b>Dejad que los niños se acerquen a mí, no se lo impidáis, porque de los que son como ellos es el Reino de Dios</b>» (Mc 10,14). Y los abrazaba y los bendecía poniendo las manos sobre ellos.</p><p>En otra ocasión, cuando los apóstoles discutían sobre quién era el más importante, Jesús puso a un niño en medio y dijo que había que hacerse <b>sencillo como un niño</b> (Mt 18,1-5).</p><p>¿Qué tienen los niños que Jesús valoraba tanto? La <b>confianza</b>, la <b>sencillez</b>, la capacidad de <b>asombrarse</b> y de pedir ayuda sin vergüenza.</p><p>Recuerda también el niño de los cinco panes y dos peces: compartió lo poco que tenía, y Jesús hizo con ello algo grande. ¡Los niños también pueden ayudar mucho!</p><p><b>Actividad</b>: haz un dibujo de Jesús con los niños y escribe debajo lo que más te gusta de ser niño o niña.</p>`,
+        H6.rueda("Niños", "COMO ELLOS", [["confianza", cAZ], ["sencillez", cVE], ["asombro", cNA], ["compartir", cRO]])],
+    ],
+    "Las mujeres que seguían a Jesús": [
+      ["Pablo, el apóstol viajero", `<p><mark>Pablo</mark> no fue uno de los doce, ni conoció a Jesús antes de su muerte. Al principio se llamaba <b>Saulo</b> y perseguía a los cristianos.</p><p>Según el libro de los Hechos de los Apóstoles, un día, cuando iba a caballo hacia la ciudad de <b>Damasco</b>, una luz muy fuerte le hizo caer al suelo y oyó una voz que le decía: «<b>Saulo, Saulo, ¿por qué me persigues?</b>». Era Jesús (Hch 9). Saulo se quedó ciego unos días. Cuando recuperó la vista, había cambiado: se bautizó y empezó a anunciar a Jesús. Este cambio se llama <b>conversión</b>.</p><p>Desde entonces, Pablo se convirtió en un gran <b>viajero</b>: recorrió miles de kilómetros a pie y en barco por Asia Menor, Grecia y hasta Roma, fundando comunidades cristianas. ¡Incluso naufragó varias veces!</p><p>Como no podía estar en todas partes, escribía <b>cartas</b> a esas comunidades para animarlas y aconsejarlas. Muchas están en el Nuevo Testamento. En una de ellas escribió un texto muy famoso sobre el amor: «<b>El amor es paciente, es amable; el amor no tiene envidia…</b>» (1 Cor 13,4).</p><p>Pablo y Pedro se consideran las dos columnas de la Iglesia, y se celebran juntos el 29 de junio.</p><p><b>Actividad</b>: escribe una carta corta, como Pablo, para animar a un amigo que lo está pasando mal.</p>`,
+        L6.filas("Pablo", [["antes", "Saulo", cRO], ["Damasco", "una luz", cNA], ["viajes", "a pie y en barco", cAZ], ["cartas", "a las comunidades", cVE]])],
+    ],
+    "«Amaos unos a otros»": [
+      ["Jesús lava los pies", `<p>En la <mark>Última Cena</mark>, antes de comer, Jesús hizo algo que dejó a sus amigos con la boca abierta (Jn 13).</p><p>Se levantó de la mesa, se quitó el manto, se ató una toalla a la cintura, echó agua en una palangana y se puso a <b>lavar los pies</b> a sus discípulos, uno por uno, y a secárselos con la toalla.</p><p>En aquella época, la gente caminaba con sandalias por caminos de tierra y llegaba con los pies muy sucios. Lavar los pies a los invitados era un trabajo de <b>criados</b>, nunca del señor de la casa.</p><p>Cuando llegó a Pedro, este no quería: «<b>¡Tú no me lavarás los pies jamás!</b>». Pero Jesús le explicó que era necesario, y Pedro aceptó.</p><p>Al terminar, Jesús les dijo: «<b>Os he dado ejemplo, para que lo que yo he hecho con vosotros, vosotros también lo hagáis</b>» (Jn 13,15).</p><p>Con este gesto Jesús enseñaba que el amor de verdad se demuestra <b>sirviendo</b> a los demás, sin creerse más importante que nadie.</p><p>Hoy, el Jueves Santo, en muchas iglesias el sacerdote repite este gesto lavando los pies a doce personas.</p><p>¿Cómo podemos «lavar los pies» hoy? Ayudando en casa, recogiendo lo que otro ha tirado, cuidando a un hermano pequeño o ayudando a un compañero con los deberes.</p><p><b>Actividad</b>: durante una semana, haz cada día un pequeño servicio sin que te lo pidan y anótalo.</p>`,
+        H6.dos("Servir", ["JESÚS", ["se levanta", "toalla", "lava los pies"], cAZ], ["NOSOTROS", ["ayudar", "cuidar", "recoger"], cVE])],
+    ],
+  },
+  final: [
+    ["Hacer las paces", `<p>Hasta los mejores amigos se enfadan a veces. Los apóstoles también discutían: sobre quién era el más importante, sobre quién se sentaría al lado de Jesús… Y Pedro, que tanto quería a Jesús, le falló cuando dijo tres veces que no lo conocía. Pero, según los evangelios, Jesús lo <b>perdonó</b> y siguió confiando en él.</p><p>Un día Pedro preguntó a Jesús: «¿Cuántas veces tengo que perdonar a mi hermano? ¿Hasta siete veces?». Jesús le respondió: «<b>No te digo hasta siete veces, sino hasta setenta veces siete</b>» (Mt 18,22). Es decir: ¡siempre!</p><p>Para <mark>hacer las paces</mark> con un amigo puedes seguir estos pasos:</p><ul><li><b>1. Calmarse</b>: respira hondo y espera a no estar tan enfadado.</li><li><b>2. Hablar</b>: explica cómo te has sentido, sin insultar: «Me sentí mal cuando…».</li><li><b>3. Escuchar</b>: deja que el otro cuente lo que pasó desde su punto de vista.</li><li><b>4. Pedir perdón y perdonar</b>: reconocer lo que hicimos mal y aceptar las disculpas.</li><li><b>5. Buscar una solución</b> juntos para que no vuelva a pasar.</li></ul><p>Perdonar no significa olvidar ni que lo que pasó estuviera bien, sino dar una nueva oportunidad.</p><p><b>Actividad</b>: con un compañero, representad una discusión y cómo la resolvéis con los cinco pasos.</p>`,
+      H6.flujo("Paces", ["calmarse|respirar", "hablar|sin insultar", "escuchar|al otro", "perdonar|solución"], cRO)],
+    ["Amigos de Jesús a lo largo de la historia", `<p>Después de los apóstoles, muchas personas a lo largo de la historia han querido ser <mark>amigos de Jesús</mark> y vivir como él. A algunas, la Iglesia las llama <b>santos</b> y <b>santas</b>.</p><ul><li><b>San Francisco de Asís</b> (Italia, siglo XIII): era hijo de un rico comerciante, pero lo dejó todo para vivir pobre y cuidar a los enfermos. Amaba la naturaleza y llamaba «hermano» al sol, a la luna y a los animales. Por él, cada año el 4 de octubre se celebra el día de los animales.</li><li><b>Santa Teresa de Jesús</b> (Ávila, siglo XVI): fundó muchos conventos y escribió libros. Decía que rezar es «tratar de amistad» con Dios.</li><li><b>San Juan Bosco</b> (Italia, siglo XIX): creó escuelas y talleres para niños pobres de la calle, con juegos, música y oficios.</li><li><b>Santa Teresa de Calcuta</b> (siglo XX): cuidó a los más pobres y enfermos de la India.</li></ul><p>Y hay muchas personas que no son famosas: abuelos, maestros, voluntarios, médicos o vecinos, que ayudan a los demás cada día de forma sencilla.</p><p><b>Actividad</b>: busca el santo o santa que da nombre a tu colegio, a tu pueblo o a ti mismo, y averigua algo de su vida.</p>`,
+      L6.filas("Santos", [["Francisco", "animales y pobres", cVE], ["Teresa de Ávila", "amistad con Dios", cMO], ["Juan Bosco", "niños de la calle", cAZ], ["Teresa de Calcuta", "enfermos", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Por qué Jesús llamaba a Santiago y Juan «hijos del trueno»?", ["Eran hermanos con mucho carácter.", "El trueno es fuerte y ruidoso."], "Porque tenían mucho carácter."],
+    ["¿Qué quiere decir «setenta veces siete»?", ["Pedro pregunta si perdonar siete veces.", "Jesús responde con un número enorme."], "Que hay que perdonar siempre."],
+  ],
+  errores: ["Pensar que Pablo era uno de los doce apóstoles: se unió después de la muerte de Jesús.", "Creer que tener dudas está mal: Tomás dudó y Jesús no lo rechazó."],
+  ejercicios: [
+    ["b", "¿Quién fue a buscar a Pedro para hablarle de Jesús?", "Su hermano Andrés."],
+    ["b", "¿Quién es el patrón de España?", "Santiago."],
+    ["b", "¿Qué dijo Tomás cuando le contaron que habían visto a Jesús?", "Que si no lo veía y lo tocaba, no lo creía."],
+    ["b", "¿Qué dijo Jesús cuando los discípulos querían echar a los niños?", "«Dejad que los niños se acerquen a mí»."],
+    ["b", "¿Cómo se llamaba Pablo antes?", "Saulo."],
+    ["m", "¿Qué le pasó a Pablo camino de Damasco?", "Una luz le hizo caer y oyó la voz de Jesús; después cambió de vida."],
+    ["m", "¿Por qué lavar los pies era un gesto sorprendente?", "Porque era trabajo de criados, no del señor de la casa."],
+    ["m", "¿Qué son los peregrinos del Camino de Santiago?", "Personas que caminan hasta Santiago de Compostela."],
+    ["m", "Escribe los cinco pasos para hacer las paces.", "Calmarse, hablar, escuchar, pedir perdón y perdonar, buscar una solución."],
+    ["m", "¿Qué hacía san Juan Bosco?", "Creaba escuelas y talleres para niños pobres."],
+    ["a", "En la lectura, ¿qué hace Adrián y en qué se parece a Jesús?", "Invita a Iván, que estaba solo; Jesús se fijaba en quien estaba solo, como Zaqueo."],
+    ["a", "¿Qué enseña la historia de Tomás sobre las dudas y la amistad?", "Que dudar es normal y que los amigos nos aceptan con nuestras preguntas."],
+    ["a", "Escribe tres maneras de «lavar los pies» a los demás hoy.", "Respuesta abierta."],
+    ["a", "Elige un santo o santa e investiga cómo ayudó a los demás.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Santiago y Juan eran hijos de…", ["Zebedeo", "Jacob", "Abraham"], "Hermanos."],
+    ["«Dichosos los que creen sin haber visto» se lo dice Jesús a…", ["Tomás", "Pedro", "Pablo"], "Tomás."],
+    ["Pablo escribía…", ["cartas a las comunidades", "salmos", "evangelios de niños"], "Pablo."],
+    ["Jesús lavó los pies a sus amigos en…", ["la Última Cena", "Betania", "el lago"], "Servir."],
+    ["San Francisco de Asís llamaba «hermano» al…", ["sol", "dinero", "rey"], "Santos."],
+  ],
+  examen: [
+    ["En la lectura, ¿de dónde había llegado Iván?", ["de Ucrania", "de Marruecos", "de Italia"], "Lectura."],
+    ["¿Cuántas veces dijo Jesús que hay que perdonar?", ["setenta veces siete", "tres veces", "una vez"], "Paces."],
+  ],
+  tarjetas: [
+    ["Andrés, Santiago y Juan", "Pescadores; Santiago, patrón de España."],
+    ["Tomás", "Dudó y después creyó; dudar es normal."],
+    ["Pablo", "Saulo, Damasco, viajes y cartas."],
+    ["Servir y perdonar", "Lavatorio de los pies; setenta veces siete."],
+  ],
+  glosario: [
+    ["Apóstol", "Enviado; cada uno de los doce amigos elegidos por Jesús."],
+    ["Peregrino", "Persona que camina hacia un lugar sagrado."],
+    ["Camino de Santiago", "Ruta de peregrinos hasta Santiago de Compostela."],
+    ["Mellizo", "Hermano nacido en el mismo parto."],
+    ["Bendecir", "Desear el bien en nombre de Dios."],
+    ["Conversión", "Cambio de vida."],
+    ["Damasco", "Ciudad de Siria donde Pablo cambió de vida."],
+    ["Carta", "Escrito de Pablo a una comunidad cristiana."],
+    ["Palangana", "Recipiente ancho para lavarse."],
+    ["Servicio", "Ayudar a los demás."],
+    ["Perdón", "Dar una nueva oportunidad a quien nos ha hecho daño."],
+    ["Santo", "Persona que la Iglesia propone como ejemplo."],
+  ],
+  situacion: {
+    titulo: "Nuestro banco de la amistad",
+    reto: "La clase propone crear un rincón de la amistad en el patio y explica a otros cursos por qué es importante incluir a todos.",
+    pasos: ["Recordar cómo trató Jesús a sus amigos, a los niños y a quien estaba solo.", "Diseñar un cartel para el banco o rincón de la amistad.", "Escribir las normas para hacer las paces y para incluir a todos.", "Presentar la propuesta a otros cursos y a la dirección del colegio."],
+    producto: "Un rincón de la amistad con cartel y normas.",
+    evaluacion: ["Conoce a varios amigos de Jesús y su historia.", "Explica el sentido del servicio y del perdón.", "Propone acciones concretas de amistad.", "Trabaja en equipo con respeto."],
+  },
+});

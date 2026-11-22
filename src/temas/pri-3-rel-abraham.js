@@ -92,3 +92,100 @@ module.exports = P.tema({
   saberes: "Abraham, amigo de Dios (Gn 12–21; St 2,23): la llamada y la salida de Ur hacia Canaán, la promesa de descendencia (Gn 15,5), la alianza y el cambio de nombre (Gn 17,5), la hospitalidad en Mambré (Gn 18) y el nacimiento de Isaac; la fe como confianza en Dios",
   ideas: ["Mural del cielo estrellado con el nombre de cada alumno.", "Dramatización de la visita de los tres hombres en Mambré.", "Mapa del viaje de Abraham con una cuerda y chinchetas."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo vivían los pastores nómadas", "Narrar el cambio de nombre y el nacimiento de Isaac", "Reconocer la familia de Abraham hasta José", "Valorar la hospitalidad y la generosidad"],
+  lectura: { titulo: "Las estrellas del desierto", html: `<p>La familia de Yasmín vive en un pueblo del sur de Marruecos, cerca del desierto. Ese verano, su prima Clara, que vive en Granada, ha ido a visitarla.</p><p>Una noche, el abuelo de Yasmín las lleva a las dunas. Extienden una manta sobre la arena, todavía caliente, y se tumban a mirar el cielo.</p><p>Clara no puede creer lo que ve: hay tantísimas estrellas que el cielo parece cubierto de polvo brillante. En la ciudad nunca había visto tantas.</p><p>—¿Se pueden contar? —pregunta.</p><p>El abuelo sonríe.</p><p>—Hace muchísimo tiempo, un pastor que vivía en tiendas, como los nómadas de aquí, también miró este cielo. Se llamaba Abraham. Cuenta un libro muy antiguo que Dios le dijo: «Cuenta las estrellas, si puedes. Así de numerosa será tu familia».</p><p>—¿Y era verdad? —pregunta Yasmín.</p><p>—Hoy hay millones de personas, judíos, cristianos y musulmanes, que lo recuerdan como su padre en la fe. Así que algo de verdad tenía.</p><p>Las dos primas se quedan calladas, intentando contar. A la estrella número cuarenta se quedan dormidas.</p>` },
+  tras: {
+    "Un pastor llamado Abraham": [
+      ["La vida de los nómadas", `<p>Abraham y su familia eran <mark>nómadas</mark>: no vivían siempre en el mismo sitio, sino que se movían de un lugar a otro buscando <b>agua</b> y <b>hierba</b> para sus animales.</p><p>Así era su vida:</p><ul><li>Vivían en <b>tiendas</b> hechas con pieles o con tela de pelo de cabra, que se montaban y desmontaban con facilidad.</li><li>Tenían <b>rebaños</b> de ovejas y cabras, que les daban leche, carne, lana y pieles. También tenían burros y camellos para llevar la carga.</li><li>Buscaban <b>pozos</b> de agua, muy valiosos en tierras secas. A veces había peleas entre pastores por un pozo.</li><li>Se guiaban por el sol de día y por las <b>estrellas</b> de noche.</li><li>Toda la familia, también los criados y sus hijos, viajaba junta. El jefe de la familia se llamaba <b>patriarca</b>.</li></ul><p>Hoy todavía hay pueblos nómadas o seminómadas en algunos lugares del mundo, como los <b>beduinos</b> en los desiertos de Oriente Medio o los <b>tuaregs</b> en el Sáhara.</p><p>Conocer cómo vivía Abraham nos ayuda a entender mejor su historia: dejar su tierra era un gran cambio, pero los nómadas estaban acostumbrados a caminar.</p><p><b>Actividad</b>: dibuja el campamento de Abraham con sus tiendas, sus rebaños y un pozo.</p>`,
+        L6.filas("Nómadas", [["tiendas", "de pieles", cNA], ["rebaños", "ovejas, cabras", cVE], ["pozos", "agua", cAZ], ["estrellas", "para guiarse", cMO]])],
+    ],
+    "En camino hacia Canaán": [
+      ["Abraham y Lot se separan", `<p>Abraham y su sobrino <mark>Lot</mark> tenían tantos animales que en aquella tierra no había hierba ni agua para todos. Sus pastores empezaron a <b>discutir</b> y a pelearse por los pastos (Gn 13).</p><p>Abraham no quería peleas en la familia. Por eso le dijo a Lot: «<b>Que no haya disputas entre nosotros, porque somos hermanos</b>. Tienes toda la tierra delante. Si tú vas a la izquierda, yo iré a la derecha; si tú vas a la derecha, yo iré a la izquierda».</p><p>Abraham era el mayor y el jefe de la familia, y podía haber elegido primero. Pero dejó que <b>Lot eligiera</b>. Lot miró y vio el valle del río Jordán, verde y con mucha agua, y se quedó con él. Abraham se fue a la tierra de las montañas, más seca.</p><p>De esta historia aprendemos:</p><ul><li>Que es mejor buscar una <b>solución</b> que pelearse.</li><li>Que ser <b>generoso</b> y dejar elegir a otro trae paz.</li><li>Que hablar con calma ayuda a resolver los problemas.</li></ul><p>Según la Biblia, después de separarse Dios volvió a prometer a Abraham que su familia sería enorme, «como el polvo de la tierra».</p><p><b>Actividad</b>: piensa en una discusión que hayas tenido por un juguete o un sitio. ¿Cómo la habría resuelto Abraham?</p>`,
+        H6.dos("Problema", ["PELEA", ["pastos", "agua", "discutir"], cRO], ["SOLUCIÓN", ["hablar", "dejar elegir", "paz"], cVE])],
+    ],
+    "Cuenta las estrellas": [
+      ["Nombres nuevos", `<p>En la Biblia, el <mark>nombre</mark> de una persona es muy importante: dice algo de quién es o de su misión.</p><p>Cuando Abraham tenía noventa y nueve años, Dios renovó su alianza con él y le cambió el nombre (Gn 17):</p><ul><li>Hasta entonces se llamaba <b>Abrán</b>, que quiere decir «padre grande».</li><li>A partir de ese momento se llamaría <b>Abraham</b>, que se explica como «<b>padre de muchos pueblos</b>».</li></ul><p>También su esposa cambió de nombre: <b>Saray</b> pasó a llamarse <b>Sara</b>, que significa «<b>princesa</b>». Dios prometió que de ella nacerían reyes y pueblos.</p><p>El cambio de nombre era como empezar una <b>vida nueva</b>, con una misión. Hay otros cambios de nombre en la Biblia: Jacob pasó a llamarse <b>Israel</b>, y Jesús llamó a Simón <b>Pedro</b>, que significa «piedra».</p><p>Hoy, cuando los cristianos bautizan a un niño, también dicen su nombre en voz alta, porque creen que Dios conoce a cada persona por su nombre.</p><p>¿Y tú? ¿Sabes qué significa tu nombre? Muchos nombres tienen un significado: Lucía es «luz», Pablo es «pequeño», Sofía es «sabiduría» y Daniel es «Dios es mi juez».</p><p><b>Actividad</b>: investiga en casa qué significa tu nombre y por qué te lo pusieron.</p>`,
+        L6.filas("Nombres", [["Abrán", "padre grande", cAZ], ["Abraham", "de muchos pueblos", cVE], ["Saray", "Sara", cRO], ["Sara", "princesa", cNA]])],
+    ],
+    "Sara se ríe": [
+      ["Nace Isaac", `<p>Tal como Dios había prometido, Sara se quedó embarazada aunque era muy mayor. Al año siguiente nació un niño, y Abraham le puso de nombre <mark>Isaac</mark> (Gn 21).</p><p>Isaac significa «<b>él ríe</b>» o «<b>risa</b>». ¡Qué nombre tan bonito! Recordaba que Sara se había reído cuando escuchó la promesa porque no se la creía, y ahora se reía de <b>alegría</b>.</p><p>Sara dijo: «<b>Dios me ha hecho reír, y todos los que se enteren se reirán conmigo</b>» (Gn 21,6).</p><p>Abraham tenía cien años cuando nació Isaac. Cuando el niño dejó de tomar el pecho de su madre, Abraham hizo un gran <b>banquete</b> para celebrarlo con todos.</p><p>Para la Biblia, el nacimiento de Isaac es la prueba de que Dios <b>cumple sus promesas</b>, aunque tarde, aunque parezca imposible. Abraham había esperado muchos años y no había perdido la confianza.</p><p>Con Isaac empezaba a hacerse realidad la promesa de las estrellas: la gran familia de Abraham.</p><p>También nosotros esperamos cosas que tardan en llegar: crecer, aprender a leer bien, que vuelva alguien que está lejos. Abraham nos enseña a esperar con <b>paciencia</b> y <b>confianza</b>.</p><p><b>Actividad</b>: escribe una tarjeta de felicitación de los vecinos a Abraham y Sara por el nacimiento de Isaac.</p>`,
+        H6.flujo("Promesa", ["promesa|Dios habla", "esperar|años", "Sara ríe|no cree", "Isaac|¡alegría!"], cNA),
+        ["R7vXGrIaGxQ", "Story Of Abraham & Sarah| Historia de Abraham y Sara| Historias bíblicas para niños | Bible Story", "Bible Tales", 286393]],
+    ],
+    "Abraham, nuestro padre en la fe": [
+      ["La familia de Abraham", `<p>La promesa de Dios a Abraham se fue cumpliendo generación tras generación. Esta es su <mark>familia</mark>, según la Biblia:</p><ul><li><b>Abraham y Sara</b> tuvieron a <b>Isaac</b>.</li><li><b>Isaac</b> se casó con <b>Rebeca</b>, y tuvieron dos hijos gemelos: <b>Esaú</b> y <b>Jacob</b>.</li><li><b>Jacob</b>, que después se llamó <b>Israel</b>, tuvo <b>doce hijos</b>. Uno de ellos fue <b>José</b>, el de la túnica de colores, cuya historia estudiamos en otro tema.</li><li>De los doce hijos de Jacob salieron las <b>doce tribus de Israel</b>, el pueblo de Israel.</li></ul><p>A Abraham, Isaac y Jacob se les llama los <b>patriarcas</b>, que significa «padres del pueblo». En la Biblia, Dios se presenta muchas veces como «el Dios de Abraham, de Isaac y de Jacob».</p><p>Abraham tuvo también otro hijo, <b>Ismael</b>, hijo de Agar. La tradición musulmana considera a Ismael antepasado de los pueblos árabes.</p><p>Un <b>árbol genealógico</b> es un dibujo que muestra los miembros de una familia y cómo están relacionados: abuelos, padres, hijos y nietos. Se dibuja como un árbol con ramas.</p><p><b>Actividad</b>: dibuja el árbol genealógico de Abraham hasta José y, al lado, el de tu propia familia hasta tus abuelos.</p>`,
+        H6.flujo("Familia", ["Abraham|y Sara", "Isaac|y Rebeca", "Jacob|Israel", "12 hijos|José"], cMO)],
+    ],
+  },
+  final: [
+    ["La hospitalidad", `<p>Ya conoces la historia de los tres visitantes de Mambré: Abraham corrió a recibirlos, les lavó los pies y les preparó una gran comida, aunque no los conocía. Esto se llama <mark>hospitalidad</mark>: recibir bien a quien llega a nuestra casa.</p><p>En el desierto, la hospitalidad era muy importante: quien viajaba solo podía morir de sed o de calor si nadie lo acogía. Por eso los pueblos nómadas tenían una regla sagrada: <b>al viajero se le da agua, comida y sombra</b>.</p><p>Muchos siglos después, un pintor ruso llamado <b>Andréi Rublev</b> pintó un famoso icono con los <b>tres visitantes</b> sentados alrededor de una mesa. Los cristianos ven en esa imagen un símbolo de la Trinidad, porque creen en un solo Dios que es Padre, Hijo y Espíritu Santo.</p><p>La carta a los Hebreos, en el Nuevo Testamento, recuerda a Abraham y dice: «<b>No olvidéis la hospitalidad</b>» (Heb 13,2).</p><p>¿Cómo podemos ser hospitalarios hoy?</p><ul><li>Recibiendo con alegría a un compañero <b>nuevo</b> en clase.</li><li>Invitando a casa a un amigo y compartiendo lo que tenemos.</li><li>Ayudando a las personas que llegan de <b>otros países</b> a sentirse en casa.</li></ul><p><b>Actividad</b>: preparad en grupo una «bienvenida» para un alumno nuevo: un cartel, un plano del colegio y un amigo guía.</p>`,
+      H6.rueda("Acoger", "BIENVENIDA", [["agua", cAZ], ["comida", cNA], ["sombra", cVE], ["sonrisa", cRO]])],
+    ["Abraham, un ejemplo para hoy", `<p>Abraham vivió hace casi cuatro mil años, pero su historia sigue diciendo cosas a millones de personas. Repasemos lo que hizo y pensemos cómo se puede vivir hoy:</p><ul><li><b>Se puso en camino</b>: dejó lo conocido y confió. Hoy también cambiamos de colegio, de casa o de ciudad, y nos da miedo. Abraham nos enseña a ser valientes ante lo nuevo.</li><li><b>Buscó la paz</b> con Lot: hoy podemos resolver las discusiones hablando y cediendo.</li><li><b>Acogió</b> a los visitantes: hoy podemos recibir bien a quien llega.</li><li><b>Esperó con paciencia</b>: hoy podemos aprender a esperar sin rendirnos.</li><li><b>Rezó y habló con Dios</b>: los creyentes hablan con Dios en la oración, también cuando tienen dudas.</li></ul><p>Abraham no era perfecto: también tuvo miedos y se equivocó a veces. Pero la Biblia lo recuerda porque <b>confió</b> y siguió adelante.</p><p>Además, Abraham une a <b>tres grandes religiones</b>: judíos, cristianos y musulmanes. Por eso su figura invita al <b>diálogo</b> y al respeto entre creyentes de distintas religiones.</p><p><b>Actividad</b>: escribe una carta a Abraham contándole un momento en que tú también tuviste que ser valiente ante algo nuevo.</p>`,
+      L6.filas("Hoy", [["caminar", "ser valiente", cAZ], ["paz", "hablar", cVE], ["acoger", "recibir bien", cNA], ["esperar", "paciencia", cMO]])],
+  ],
+  ejemplos: [
+    ["¿Por qué Abraham dejó elegir primero a Lot?", ["Los pastores se peleaban por los pastos.", "Abraham quería paz en la familia."], "Para evitar peleas y ser generoso."],
+    ["¿Qué significa el nombre de Isaac y por qué?", ["Sara se rió al oír la promesa.", "Después se rió de alegría."], "«Risa»: recuerda la risa de Sara."],
+  ],
+  errores: ["Pensar que Abraham fue el abuelo de José: fue su bisabuelo (Abraham, Isaac, Jacob, José).", "Creer que Abraham solo es importante para los cristianos: también lo es para judíos y musulmanes."],
+  ejercicios: [
+    ["b", "¿Qué son los nómadas?", "Personas que se mueven de un lugar a otro buscando agua y pastos."],
+    ["b", "¿Por qué discutían los pastores de Abraham y Lot?", "Por los pastos y el agua."],
+    ["b", "¿Qué significa Abraham?", "Padre de muchos pueblos."],
+    ["b", "¿Cómo se llamó el hijo de Abraham y Sara?", "Isaac."],
+    ["b", "¿Qué es la hospitalidad?", "Recibir bien a quien llega a nuestra casa."],
+    ["m", "¿Qué parte de la tierra eligió Lot?", "El valle verde del río Jordán."],
+    ["m", "¿Qué nombre nuevo recibió Saray y qué significa?", "Sara, «princesa»."],
+    ["m", "Ordena: Jacob, Abraham, José, Isaac.", "Abraham, Isaac, Jacob, José."],
+    ["m", "¿Quiénes son los patriarcas?", "Abraham, Isaac y Jacob."],
+    ["m", "¿Qué pintó Andréi Rublev?", "Un icono con los tres visitantes de Abraham."],
+    ["a", "En la lectura, ¿por qué el abuelo recuerda a Abraham al ver las estrellas?", "Porque Dios le prometió una familia tan numerosa como las estrellas."],
+    ["a", "Explica qué aprendemos de la separación de Abraham y Lot.", "A resolver los conflictos hablando, con generosidad y buscando la paz."],
+    ["a", "Dibuja el árbol genealógico de Abraham hasta José.", "Abraham y Sara → Isaac y Rebeca → Jacob → doce hijos, entre ellos José."],
+    ["a", "Propón tres maneras de ser hospitalario en el colegio.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Las tiendas de los nómadas se hacían con…", ["pieles o pelo de cabra", "ladrillos", "piedra"], "Nómadas."],
+    ["Quien eligió primero la tierra fue…", ["Lot", "Abraham", "Isaac"], "Lot."],
+    ["Isaac significa…", ["risa", "piedra", "luz"], "Isaac."],
+    ["Los hijos gemelos de Isaac fueron…", ["Esaú y Jacob", "José y Benjamín", "Pedro y Andrés"], "Familia."],
+    ["«No olvidéis la hospitalidad» aparece en…", ["la carta a los Hebreos", "el Génesis 1", "los Salmos"], "Hospitalidad."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde vive Yasmín?", ["en Marruecos, cerca del desierto", "en Granada", "en Ur"], "Lectura."],
+    ["¿Qué edad tenía Abraham cuando nació Isaac?", ["cien años", "veinte años", "cincuenta años"], "Isaac."],
+  ],
+  tarjetas: [
+    ["Nómadas", "Tiendas, rebaños, pozos y estrellas."],
+    ["Abraham y Lot", "Para evitar peleas, Abraham deja elegir a Lot."],
+    ["Nombres", "Abrán → Abraham; Saray → Sara; Isaac = risa."],
+    ["Familia", "Abraham, Isaac, Jacob y los doce hijos, entre ellos José."],
+  ],
+  glosario: [
+    ["Nómada", "Persona que no vive siempre en el mismo sitio."],
+    ["Tienda", "Casa de tela o pieles que se monta y desmonta."],
+    ["Pozo", "Agujero en la tierra para sacar agua."],
+    ["Patriarca", "Padre y jefe de un pueblo o familia."],
+    ["Lot", "Sobrino de Abraham."],
+    ["Isaac", "Hijo de Abraham y Sara; su nombre significa risa."],
+    ["Jacob", "Hijo de Isaac, también llamado Israel."],
+    ["Tribu", "Grupo de familias con un antepasado común."],
+    ["Árbol genealógico", "Dibujo de los miembros de una familia."],
+    ["Hospitalidad", "Recibir bien a quien llega."],
+    ["Icono", "Pintura religiosa sobre madera de tradición oriental."],
+    ["Beduino", "Pueblo nómada del desierto."],
+  ],
+  situacion: {
+    titulo: "El campamento de Abraham",
+    reto: "La clase monta en el aula un campamento nómada y cuenta a otro curso la historia de Abraham con escenas y carteles.",
+    pasos: ["Construir una tienda con telas y dibujar los rebaños y el pozo.", "Representar la separación de Abraham y Lot y la visita de Mambré.", "Hacer un mural con el árbol genealógico de Abraham a José.", "Preparar una bienvenida hospitalaria para los visitantes."],
+    producto: "Un campamento con escenas teatrales, un árbol genealógico y una bienvenida.",
+    evaluacion: ["Narra los principales hechos de la vida de Abraham.", "Explica el significado de los nombres nuevos.", "Relaciona a Abraham con su familia hasta José.", "Practica la hospitalidad y la generosidad."],
+  },
+});

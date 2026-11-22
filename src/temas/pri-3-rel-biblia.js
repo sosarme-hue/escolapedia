@@ -92,3 +92,100 @@ module.exports = P.tema({
   saberes: "La Biblia, palabra de Dios: estructura (Antiguo y Nuevo Testamento, 73 libros), géneros (historia, poesía, profetas, evangelios, cartas), los cuatro evangelios; manejo de citas bíblicas (libro, capítulo y versículo, Gn 1,1; Lc 15,4); la escucha de la Palabra en la liturgia (Lc 11,28)",
   ideas: ["Concurso de búsqueda de citas por equipos.", "Estantería de cartulina con los tipos de libros de la Biblia.", "Marcapáginas con una cita bíblica favorita."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Saber cómo y en qué lenguas se escribió la Biblia", "Reconocer los símbolos de los evangelistas", "Conocer algunas parábolas y salmos", "Descubrir la huella de la Biblia en el arte y el idioma"],
+  lectura: { titulo: "La Biblia del bisabuelo", html: `<p>En casa de Martina hay una estantería con libros viejos. El más grande de todos es una Biblia con tapas de cuero gastadas y letras doradas.</p><p>Un domingo por la tarde, Martina le pide a su abuela que se la enseñe.</p><p>La abuela la baja con cuidado y la abre sobre la mesa. Las primeras páginas están en blanco, pero alguien ha escrito en ellas con letra muy bonita: nombres, fechas, bodas y nacimientos.</p><p>—Esta Biblia era de tu bisabuelo Antonio —explica la abuela—. Aquí apuntaba todo lo importante de la familia. Mira: aquí está mi nombre, el día que nací. Y aquí, el de tu madre.</p><p>Martina pasa las hojas, finas como papel de cebolla. Dentro encuentra una flor seca, una estampa y un papelito con una frase copiada a mano: «El Señor es mi pastor, nada me falta».</p><p>—Era su frase favorita —dice la abuela—. La leía cuando estaba preocupado.</p><p>Martina coge un bolígrafo y mira a su abuela.</p><p>—¿Puedo escribir yo también?</p><p>La abuela asiente. Debajo del nombre de su madre, con su mejor letra, Martina escribe el suyo.</p>` },
+  tras: {
+    "Una biblioteca de 73 libros": [
+      ["¿Quién escribió la Biblia?", `<p>La Biblia no la escribió una sola persona, ni de una vez. La escribieron <mark>muchos autores</mark> distintos a lo largo de más de <b>mil años</b>.</p><p>Al principio, muchas historias se contaban de <b>boca en boca</b>: los padres las contaban a los hijos, y los hijos a los nietos, alrededor del fuego o en las fiestas. Esto se llama <b>tradición oral</b>. Después se pusieron por escrito.</p><p>Entre los autores había reyes, profetas, sacerdotes, pastores, pescadores y escribas. Algunos libros se atribuyen a personas conocidas, como el rey David (muchos salmos) o el apóstol Pablo (sus cartas). De otros no sabemos el nombre del autor.</p><p>La Biblia se escribió en <b>tres lenguas</b>:</p><ul><li><b>Hebreo</b>: casi todo el Antiguo Testamento. Se escribe de derecha a izquierda.</li><li><b>Arameo</b>: algunas partes. Era la lengua que hablaba Jesús.</li><li><b>Griego</b>: todo el Nuevo Testamento, porque era la lengua que entendía más gente en aquella época.</li></ul><p>Después se tradujo al <b>latín</b>, la lengua de los romanos, y más tarde a todos los idiomas. Los cristianos creen que, aunque la escribieron personas, Dios las <b>inspiró</b>.</p><p><b>Actividad</b>: escribe tu nombre en letras hebreas o griegas con ayuda de un alfabeto.</p>`,
+        L6.filas("Lenguas", [["hebreo", "Antiguo T.", cAZ], ["arameo", "lengua de Jesús", cNA], ["griego", "Nuevo T.", cVE], ["latín", "traducción", cRO]])],
+    ],
+    "Los evangelios": [
+      ["Los símbolos de los evangelistas", `<p>Desde hace muchos siglos, los artistas representan a cada <mark>evangelista</mark> con un <b>símbolo</b>. Se inspiraron en una visión del profeta Ezequiel y del libro del Apocalipsis, donde aparecen cuatro seres con caras de hombre, león, toro y águila.</p><ul><li><b>Mateo</b>: un <b>hombre</b> o un <b>ángel</b>, porque su evangelio empieza con la lista de los antepasados de Jesús, es decir, con su lado humano.</li><li><b>Marcos</b>: un <b>león</b>, porque su evangelio empieza con Juan el Bautista, cuya voz grita en el desierto como el rugido de un león.</li><li><b>Lucas</b>: un <b>toro</b>, porque su evangelio empieza en el templo, donde se ofrecían toros a Dios.</li><li><b>Juan</b>: un <b>águila</b>, porque su evangelio empieza hablando de Dios con palabras muy elevadas, como el vuelo del águila.</li></ul><p>Estos símbolos se llaman en conjunto <b>Tetramorfos</b> («cuatro formas»). Los encontrarás en las portadas de muchas iglesias y catedrales, alrededor de una figura de Jesús, en vidrieras y en libros antiguos. Por ejemplo, en el Pórtico de la Gloria de Santiago de Compostela.</p><p>Además, el león de san Marcos es el símbolo de la ciudad de <b>Venecia</b>, donde se guardan sus restos según la tradición.</p><p><b>Actividad</b>: dibuja los cuatro símbolos en un cuadrado, uno en cada esquina, y escribe el nombre de cada evangelista.</p>`,
+        H6.rueda("Evangelistas", "4", [["Mateo: ángel", cAZ], ["Marcos: león", cNA], ["Lucas: toro", cRO], ["Juan: águila", cVE]]),
+        ["1MhbXyfiIqA", "La Biblia Explicada para Niños: Enseñanza Católica Fácil y Divertida", "ABC de la fe", 152127]],
+    ],
+    "Buscamos juntos": [
+      ["De los rollos a la imprenta", `<p>¿Cómo ha llegado la Biblia hasta nosotros, si se escribió hace tantísimo tiempo? Es una <mark>larga historia</mark>.</p><ul><li>Primero se escribió en <b>rollos</b> de <b>papiro</b> (hecho con una planta de Egipto) o de <b>pergamino</b> (piel de animal preparada). Los rollos se iban desenrollando para leer.</li><li>En 1947, un pastor que buscaba una cabra perdida encontró en unas cuevas junto al mar Muerto unas vasijas con <b>rollos antiquísimos</b>, de hace más de dos mil años. Son los <b>manuscritos del mar Muerto</b>, uno de los descubrimientos más importantes de la historia.</li><li>Después aparecieron los <b>códices</b>: hojas cosidas por un lado, como los libros de hoy.</li><li>Durante la Edad Media, los <b>monjes copistas</b> copiaban la Biblia a mano en los monasterios, letra a letra. Una copia podía tardar años. Las adornaban con dibujos de colores y letras doradas: las <b>miniaturas</b>.</li><li>Hacia 1455, <b>Gutenberg</b> inventó en Alemania la <b>imprenta</b>, y el primer gran libro que imprimió fue una Biblia. Desde entonces se pudieron hacer muchas copias iguales y más baratas.</li></ul><p>Hoy la Biblia también se puede leer en el <b>móvil</b> o en el ordenador.</p><p><b>Actividad</b>: copia a mano un versículo con letra muy bonita y decora la primera letra como un monje copista.</p>`,
+        H6.flujo("Historia", ["rollos|papiro", "códices|hojas", "copistas|a mano", "imprenta|1455"], cNA)],
+    ],
+    "Historias que ya conoces": [
+      ["Las parábolas", `<p>Jesús enseñaba muchas veces con <mark>parábolas</mark>: historias cortas, con personajes y situaciones de la vida diaria, que tienen una <b>enseñanza</b> escondida. La gente de entonces las entendía bien porque hablaban de cosas que conocían: semillas, ovejas, monedas, fiestas.</p><p>Estas son algunas de las más conocidas:</p><ul><li><b>El sembrador</b> (Mc 4): un hombre siembra semillas. Unas caen en el camino, otras entre piedras, otras entre espinas y otras en tierra buena, donde dan mucho fruto. Enseña que hay que acoger la palabra de Dios como la tierra buena.</li><li><b>El buen samaritano</b> (Lc 10): un hombre herido en el camino es ignorado por varias personas, pero un extranjero lo cura y lo cuida. Enseña que el prójimo es cualquier persona que necesita ayuda.</li><li><b>El hijo pródigo</b> (Lc 15): un hijo se va de casa y malgasta su herencia. Cuando vuelve arrepentido, su padre lo recibe con un abrazo y una fiesta. Enseña que Dios perdona siempre.</li><li><b>La oveja perdida</b> (Lc 15): un pastor deja noventa y nueve ovejas para buscar la que se ha perdido.</li><li><b>El grano de mostaza</b> (Mc 4): una semilla diminuta se convierte en un árbol grande.</li></ul><p><b>Actividad</b>: elige una parábola y cuéntala en un cómic de cuatro viñetas.</p>`,
+        L6.filas("Parábolas", [["sembrador", "tierra buena", cVE], ["samaritano", "ayudar", cAZ], ["hijo pródigo", "perdonar", cRO], ["mostaza", "crecer", cNA]])],
+    ],
+    "Escuchar la palabra de Dios": [
+      ["Rezar con los salmos", `<p>En la Biblia hay un libro muy especial para rezar: el libro de los <mark>Salmos</mark>. Tiene <b>150</b> oraciones y cantos.</p><p>Muchos se atribuyen al rey <b>David</b>, que de joven era pastor y tocaba el arpa. Los salmos se cantaban acompañados de instrumentos en el templo de Jerusalén.</p><p>En los salmos hay oraciones para todos los momentos y sentimientos:</p><ul><li><b>Alegría y alabanza</b>: «Cantad al Señor un cántico nuevo» (Sal 96).</li><li><b>Agradecimiento</b>: «Dad gracias al Señor porque es bueno» (Sal 136).</li><li><b>Confianza</b>: «El Señor es mi pastor, nada me falta» (Sal 23), la frase favorita del bisabuelo de la lectura.</li><li><b>Tristeza y miedo</b>: «¿Hasta cuándo, Señor, me olvidarás?» (Sal 13).</li><li><b>Admiración por la naturaleza</b>: «Los cielos cuentan la gloria de Dios» (Sal 19).</li><li><b>Perdón</b>: «Ten piedad de mí, oh Dios» (Sal 51).</li></ul><p>Los salmos enseñan que se puede hablar con Dios de <b>todo</b>, también cuando estamos tristes o enfadados.</p><p>Judíos y cristianos los rezan desde hace miles de años. En la misa se canta o se lee un salmo después de la primera lectura.</p><p><b>Actividad</b>: escribe tu propio salmo de cuatro líneas para dar gracias por algo bonito de tu vida.</p>`,
+        H6.rueda("Salmos", "150", [["alegría", cNA], ["gracias", cVE], ["confianza", cAZ], ["tristeza", cMO]])],
+    ],
+  },
+  final: [
+    ["La Biblia en el arte y en el idioma", `<p>La Biblia ha inspirado durante siglos a <mark>pintores, escultores, músicos y escritores</mark>.</p><ul><li>En las <b>catedrales</b>, las portadas y vidrieras contaban historias de la Biblia a quien no sabía leer. Por eso se les llamaba «la Biblia de los pobres».</li><li><b>Miguel Ángel</b> pintó en el techo de la Capilla Sixtina, en Roma, la creación del mundo y la historia de Noé.</li><li><b>Leonardo da Vinci</b> pintó <i>La última cena</i>.</li><li>Músicos como <b>Bach</b> o <b>Händel</b> compusieron obras con textos bíblicos.</li></ul><p>Además, usamos en español muchas <b>expresiones</b> que vienen de la Biblia, ¡aunque no lo sepamos!</p><ul><li>«<b>Tener más paciencia que el santo Job</b>»: muchísima paciencia.</li><li>«<b>Ser más viejo que Matusalén</b>»: muy viejo (Matusalén vivió 969 años, según el Génesis).</li><li>«<b>Ser un Goliat</b>»: alguien enorme y fuerte.</li><li>«<b>Lavarse las manos</b>»: no querer responsabilidad, como Pilato.</li><li>«<b>Ser el hijo pródigo</b>»: quien vuelve a casa después de mucho tiempo.</li><li>«<b>Ser como santo Tomás</b>»: creer solo lo que se ve.</li></ul><p><b>Actividad</b>: usa tres de estas expresiones en frases tuyas y explica su origen.</p>`,
+      L6.filas("Expresiones", [["Job", "paciencia", cAZ], ["Matusalén", "muy viejo", cMO], ["Goliat", "enorme", cRO], ["santo Tomás", "ver para creer", cVE]])],
+    ["Libros sagrados de otras religiones", `<p>La Biblia es el libro sagrado de los <mark>cristianos</mark>. Otras religiones también tienen sus libros sagrados, y es bueno conocerlos para respetar a todas las personas.</p><ul><li><b>Judaísmo</b>: los judíos tienen la <b>Tanaj</b>, que coincide en gran parte con el Antiguo Testamento cristiano. Su parte más importante es la <b>Torá</b>: los cinco primeros libros. En la sinagoga se lee en un rollo de pergamino que se guarda en un armario especial, y no se toca con la mano, sino con un puntero de plata.</li><li><b>Islam</b>: los musulmanes tienen el <b>Corán</b>, escrito en árabe. Creen que fue revelado al profeta <b>Mahoma</b>. Tiene 114 capítulos llamados <b>suras</b>. En el Corán aparecen también Abraham, Moisés, María y Jesús.</li><li><b>Hinduismo</b>: tiene los <b>Vedas</b>, textos muy antiguos de la India.</li><li><b>Budismo</b>: recoge las enseñanzas de <b>Buda</b> en distintos libros.</li></ul><p>Judíos, cristianos y musulmanes comparten la figura de <b>Abraham</b>, y por eso se les llama religiones <b>abrahámicas</b>.</p><p>Conocer los libros sagrados de los demás nos ayuda a <b>entendernos</b> y a convivir en paz en una clase o una ciudad donde hay personas de distintas creencias.</p><p><b>Actividad</b>: si en tu clase hay compañeros de otras religiones, pídeles con respeto que os cuenten cómo es su libro sagrado.</p>`,
+      L6.filas("Libros", [["cristianos", "Biblia", cAZ], ["judíos", "Tanaj, Torá", cNA], ["musulmanes", "Corán", cVE], ["hindúes", "Vedas", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Qué evangelista se representa con un león?", ["Su evangelio empieza con Juan el Bautista.", "Su voz grita en el desierto como un león."], "Marcos."],
+    ["¿Qué significa «más viejo que Matusalén»?", ["Matusalén aparece en el Génesis.", "Vivió 969 años, según la Biblia."], "Que alguien o algo es muy viejo."],
+  ],
+  errores: ["Pensar que la Biblia la escribió una sola persona en poco tiempo: la escribieron muchos autores durante más de mil años.", "Creer que la Biblia se escribió en español: se escribió en hebreo, arameo y griego."],
+  ejercicios: [
+    ["b", "¿En qué tres lenguas se escribió la Biblia?", "Hebreo, arameo y griego."],
+    ["b", "¿Qué lengua hablaba Jesús?", "Arameo."],
+    ["b", "¿Qué símbolo tiene Juan?", "Un águila."],
+    ["b", "¿Qué inventó Gutenberg?", "La imprenta."],
+    ["b", "¿Cuántos salmos hay?", "150."],
+    ["m", "¿Qué es la tradición oral?", "Contar las historias de boca en boca antes de escribirlas."],
+    ["m", "¿Qué son los manuscritos del mar Muerto?", "Rollos antiquísimos encontrados en cuevas en 1947."],
+    ["m", "¿Qué es una parábola?", "Una historia corta de la vida diaria con una enseñanza."],
+    ["m", "¿Qué enseña la parábola del buen samaritano?", "Que hay que ayudar a cualquier persona que lo necesite."],
+    ["m", "¿Cómo se llama el libro sagrado del islam?", "El Corán."],
+    ["a", "En la lectura, ¿por qué la Biblia del bisabuelo es especial para la familia?", "Porque en ella están escritos los nombres y fechas de la familia y la frase favorita del bisabuelo."],
+    ["a", "Explica por qué cada evangelista tiene su símbolo.", "Mateo, hombre (antepasados); Marcos, león (desierto); Lucas, toro (templo); Juan, águila (palabras elevadas)."],
+    ["a", "Escribe un salmo propio de agradecimiento.", "Respuesta abierta."],
+    ["a", "¿Por qué es importante conocer los libros sagrados de otras religiones?", "Para entender y respetar a los demás y convivir en paz."],
+  ],
+  quiz: [
+    ["El Nuevo Testamento se escribió en…", ["griego", "latín", "árabe"], "Lenguas."],
+    ["Lucas se representa con un…", ["toro", "león", "águila"], "Símbolos."],
+    ["Los monjes que copiaban la Biblia a mano se llaman…", ["copistas", "profetas", "evangelistas"], "Historia."],
+    ["En la parábola del hijo pródigo, el padre…", ["lo recibe con una fiesta", "lo echa de casa", "no lo reconoce"], "Parábolas."],
+    ["La parte más importante de la Tanaj judía es la…", ["Torá", "sura", "carta"], "Religiones."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué escribe Martina en la Biblia?", ["su nombre", "un salmo", "una carta"], "Lectura."],
+    ["«Lavarse las manos» viene de…", ["Pilato", "Noé", "David"], "Expresiones."],
+  ],
+  tarjetas: [
+    ["Autores y lenguas", "Muchos autores, más de mil años; hebreo, arameo y griego."],
+    ["Evangelistas", "Mateo ángel, Marcos león, Lucas toro, Juan águila."],
+    ["Historia del libro", "Rollos, códices, copistas e imprenta (1455)."],
+    ["Libros sagrados", "Biblia, Tanaj y Torá, Corán, Vedas."],
+  ],
+  glosario: [
+    ["Tradición oral", "Historias contadas de boca en boca."],
+    ["Hebreo", "Lengua del Antiguo Testamento."],
+    ["Arameo", "Lengua que hablaba Jesús."],
+    ["Inspirar", "Para los creyentes, Dios guía a quien escribe."],
+    ["Tetramorfos", "Los cuatro símbolos de los evangelistas."],
+    ["Papiro", "Material para escribir hecho con una planta."],
+    ["Pergamino", "Piel de animal preparada para escribir."],
+    ["Copista", "Persona que copiaba libros a mano."],
+    ["Imprenta", "Máquina para hacer muchas copias de un libro."],
+    ["Parábola", "Historia corta con una enseñanza."],
+    ["Salmo", "Oración o canto del libro de los Salmos."],
+    ["Corán", "Libro sagrado del islam."],
+  ],
+  situacion: {
+    titulo: "La exposición de la Biblia",
+    reto: "La clase prepara una exposición sobre la Biblia: cómo se escribió, cómo ha llegado hasta hoy y qué huella ha dejado en el arte y en el idioma.",
+    pasos: ["Hacer una línea del tiempo de los rollos a la imprenta y al móvil.", "Copiar y decorar un versículo como los monjes copistas.", "Dibujar los símbolos de los evangelistas y representar una parábola en cómic.", "Hacer un mural de expresiones bíblicas y otro de libros sagrados de distintas religiones."],
+    producto: "Una exposición con línea del tiempo, miniaturas, cómics y murales.",
+    evaluacion: ["Explica cómo se escribió la Biblia y en qué lenguas.", "Reconoce los símbolos de los evangelistas.", "Narra una parábola y su enseñanza.", "Muestra respeto por los libros sagrados de otras religiones."],
+  },
+});
