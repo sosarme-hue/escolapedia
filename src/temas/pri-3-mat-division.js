@@ -106,3 +106,91 @@ module.exports = P.tema({
   saberes: "Sentido numérico y operaciones: la división como reparto y como agrupamiento; términos; relación con la multiplicación; división exacta y entera; algoritmo de la división por una cifra; prueba de la división; interpretación del resto en problemas",
   ideas: ["Repartos reales con material manipulativo en pequeños grupos.", "Juego de las tablas al revés con tarjetas.", "Problemas en los que hay que decidir qué hacer con el resto."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir entre repartir y agrupar", "Saber si un número se puede dividir entre 2, 5 y 10", "Dividir de cabeza descomponiendo", "Usar la división en situaciones de la vida diaria"],
+  lectura: { titulo: "Los cromos del abuelo", html: `<p>El abuelo de Sergio guardaba en el desván una caja de lata llena de cromos antiguos de animales. Una tarde de lluvia la bajó al salón.</p><p>—Aquí hay 96 cromos —dijo—. Quiero regalarlos a mis nietos, pero de forma justa.</p><p>Los nietos eran cuatro: Sergio, sus hermanas Laura y Nerea y su primo Dani. Sergio cogió un papel.</p><p>—Hay que dividir 96 entre 4.</p><p>Primero cogió el 9: 9 entre 4 tocaba a 2, y sobraba 1. Bajó el 6 y formó 16. 16 entre 4 tocaba a 4. ¡Resto 0!</p><p>—¡24 cromos para cada uno, y no sobra ninguno!</p><p>Repartieron los cromos en cuatro montones. Pero entonces llegó la tía Elena con el bebé, Hugo.</p><p>—¿Y Hugo no tiene cromos? —preguntó, riéndose.</p><p>Todos se miraron. Ahora eran cinco nietos. Sergio volvió a hacer la cuenta: 96 entre 5. Tocaba a 19 y sobraba 1.</p><p>—Uno sobra —dijo Laura—. ¿Qué hacemos con él?</p><p>El abuelo buscó entre los cromos y sacó uno muy especial: un tigre de Bengala con los bordes dorados.</p><p>—Este me lo quedo yo —sonrió—. Era mi favorito cuando tenía vuestra edad.</p><p>Y así fue como el resto de la división acabó otra vez en el bolsillo del abuelo.</p>` },
+  tras: {
+    "División y multiplicación: dos amigas": [
+      ["Repartir y agrupar", `<p>Hay dos tipos de situaciones que se resuelven con una división, aunque parezcan distintas:</p><ul><li><mark>Repartir</mark>: sabemos <b>cuántas partes</b> hay y queremos saber <b>cuánto toca a cada una</b>. «Repartimos 20 caramelos entre 5 niños. ¿Cuántos caramelos le tocan a cada uno?» → 20 : 5 = <b>4 caramelos</b>.</li><li><mark>Agrupar</mark>: sabemos <b>cuánto hay en cada grupo</b> y queremos saber <b>cuántos grupos</b> se forman. «Tenemos 20 caramelos y hacemos bolsitas de 5. ¿Cuántas bolsitas salen?» → 20 : 5 = <b>4 bolsitas</b>.</li></ul><p>La operación es la misma (20 : 5 = 4), pero el resultado significa cosas diferentes: en el reparto son <b>caramelos</b>; en el agrupamiento son <b>bolsitas</b>. Por eso, al escribir la solución, hay que poner bien la <b>unidad</b>.</p><p>Más ejemplos:</p><ul><li>Reparto: 30 cromos entre 6 amigos → 5 cromos a cada uno.</li><li>Agrupamiento: 30 alumnos en equipos de 6 → 5 equipos.</li><li>Agrupamiento: 28 días son 28 : 7 = 4 semanas.</li></ul><p>Pista: si la pregunta empieza con «¿cuántos le tocan…?», suele ser reparto; si empieza con «¿cuántos grupos, cajas, equipos…?», suele ser agrupamiento.</p>`,
+        H6.dos("20 : 5", ["REPARTIR", ["entre 5 niños", "¿cuánto a cada uno?", "4 caramelos"], cAZ], ["AGRUPAR", ["bolsitas de 5", "¿cuántos grupos?", "4 bolsitas"], cVE]), ["PDWkPfNYP_c", "Repartos y agrupamientos", "Profa. Kempis", 126625]],
+    ],
+    "El resto siempre es menor que el divisor": [
+      ["¿Se puede repartir sin que sobre?", `<p>A veces queremos saber si una cantidad se puede repartir en partes iguales <b>sin que sobre nada</b>, es decir, si la división será <b>exacta</b>. Para algunos números hay trucos muy rápidos, llamados <mark>criterios de divisibilidad</mark>:</p><ul><li>Entre <b>2</b>: si el número es <b>par</b> (acaba en 0, 2, 4, 6 u 8). 346 se puede repartir entre 2; 347, no.</li><li>Entre <b>5</b>: si el número acaba en <b>0 o en 5</b>. 85 y 120 sí; 83, no.</li><li>Entre <b>10</b>: si el número acaba en <b>0</b>. 450 sí; 455, no.</li></ul><p>Fíjate en que todos los números que se pueden dividir entre 10 también se pueden dividir entre 2 y entre 5.</p><p>Para otros números, como el 3 o el 4, hay que hacer la división o pensar en la tabla. Un número se puede dividir exactamente entre 3 si está en la tabla del 3 (o en su continuación): 3, 6, 9, 12… 27, 30, 33…</p><p><b>Reto</b>: en clase hay 24 alumnos. ¿En qué tamaños de equipo se pueden organizar sin que sobre nadie? Equipos de 2, 3, 4, 6, 8 o 12, porque 24 está en todas esas tablas. ¿Y si fueran 25 alumnos? Solo en equipos de 5 (o de 25).</p>`,
+        L6.filas("¿Exacta?", [["entre 2", "acaba en par", cAZ], ["entre 5", "acaba en 0 o 5", cNA], ["entre 10", "acaba en 0", cVE], ["otros", "piensa la tabla", cMO]])],
+    ],
+    "La prueba de la división": [
+      ["Dividir de cabeza", `<p>Algunas divisiones se pueden hacer <mark>de cabeza</mark> con un poco de ingenio.</p><p><b>1. Descomponer el dividendo</b> en partes que se dividan fácilmente.</p><ul><li>84 : 4 → 80 : 4 = 20 y 4 : 4 = 1 → 20 + 1 = <b>21</b>.</li><li>96 : 3 → 90 : 3 = 30 y 6 : 3 = 2 → <b>32</b>.</li><li>72 : 6 → 60 : 6 = 10 y 12 : 6 = 2 → <b>12</b>.</li></ul><p><b>2. Dividir entre 10</b>: si el número acaba en 0, basta con <b>quitar el cero</b>. 70 : 10 = 7; 350 : 10 = 35.</p><p><b>3. Dividir entre 2</b> es calcular la <b>mitad</b>. La mitad de 60 es 30; la mitad de 48 es 24 (mitad de 40 = 20, mitad de 8 = 4).</p><p><b>4. Dividir entre 4</b> es calcular la mitad de la mitad. 80 : 4 → mitad de 80 = 40 → mitad de 40 = <b>20</b>.</p><p><b>5. Pensar en la tabla al revés</b>: 56 : 7 → ¿qué número por 7 da 56? El 8.</p><p>Calcular de cabeza no sustituye a la división en columna, pero ayuda a comprobar y a resolver problemas sencillos rápidamente.</p>`,
+        H6.flujo("84 : 4", ["84 =|80 + 4", "80 : 4|= 20", "4 : 4|= 1", "total|21"], cRO)],
+    ],
+  },
+  final: [
+    ["La división en la vida diaria", `<p>Dividimos mucho más de lo que creemos. Algunos ejemplos:</p><ul><li><b>El calendario</b>: un año tiene 365 días. ¿Cuántas semanas son? 365 : 7 = 52 semanas, y sobra 1 día. Por eso, si tu cumpleaños este año es martes, el año que viene será miércoles (salvo que haya un 29 de febrero por medio).</li><li><b>Los equipos</b>: en el recreo hay 28 niños y queréis hacer equipos de fútbol de 7. 28 : 7 = 4 equipos.</li><li><b>Los paquetes</b>: si los yogures vienen en paquetes de 4 y necesitas 30, compras 30 : 4 = 7 paquetes y sobran 2 yogures… así que necesitas 8 paquetes.</li><li><b>Pagar a medias</b>: si 3 amigos compran un regalo de 27 €, cada uno pone 27 : 3 = 9 €.</li><li><b>La cocina</b>: una receta para 8 personas lleva 400 gramos de arroz; para 4 personas, la mitad: 200 gramos.</li><li><b>Los viajes</b>: si un coche recorre 240 kilómetros en 3 horas, cada hora recorre 240 : 3 = 80 kilómetros.</li></ul><p><b>Investiga</b>: busca en casa tres situaciones en las que se reparta algo en partes iguales y escribe la división de cada una.</p>`,
+      H6.rueda("Dividimos", "REPARTIR", [["calendario", cAZ], ["equipos", cVE], ["paquetes", cNA], ["a medias", cRO]]), ["zF4GYIbSMzg", "La división - Aprende a dividir con nuestros amigos los monos", "Smile and Learn - Español", 971558]],
+    ["El número que falta", `<p>Un buen entrenamiento es resolver divisiones con <mark>números escondidos</mark>. Para encontrarlos, usamos la relación entre la multiplicación y la división.</p><p><b>Falta el cociente</b>: 45 : 9 = ? → ¿qué número por 9 da 45? → <b>5</b>.</p><p><b>Falta el divisor</b>: 36 : ? = 4 → ¿entre cuánto reparto 36 para que toque a 4? → 36 : 4 = <b>9</b>.</p><p><b>Falta el dividendo</b>: ? : 6 = 7 → el dividendo es el divisor por el cociente: 6 × 7 = <b>42</b>.</p><p><b>Con resto</b>: ? : 5 = 8, resto 3 → usamos la prueba de la división: 5 × 8 + 3 = <b>43</b>.</p><p><b>Acertijo</b>: Pienso un número. Si lo divido entre 4, me da 6 y no sobra nada. ¿Qué número he pensado? (24).</p><p><b>Acertijo difícil</b>: Tengo menos de 20 caramelos. Si los reparto entre 3 amigos, no sobra ninguno. Si los reparto entre 5, tampoco. ¿Cuántos caramelos tengo? Tiene que ser un número que esté a la vez en la tabla del 3 (3, 6, 9, 12, 15, 18) y en la del 5 (5, 10, 15). El único que está en las dos es el <b>15</b>.</p>`,
+      L6.filas("Esconder", [["45 : 9 = ?", "5", cAZ], ["36 : ? = 4", "9", cVE], ["? : 6 = 7", "42", cNA], ["? : 5 = 8 r 3", "43", cRO]])],
+  ],
+  ejemplos: [
+    ["«Tenemos 40 sillas y hacemos filas de 8.» ¿Reparto o agrupamiento?", ["Sabemos cuántas hay en cada fila.", "Queremos saber cuántas filas."], "Agrupamiento: 40 : 8 = 5 filas."],
+    ["¿Se pueden repartir 135 cromos entre 5 sin que sobre?", ["135 acaba en 5.", "Los números que acaban en 0 o 5 se dividen entre 5."], "Sí: 135 : 5 = 27."],
+  ],
+  errores: ["Escribir mal la unidad de la solución: en un agrupamiento la respuesta son grupos, no objetos.", "Pensar que un número que acaba en 5 se puede dividir entre 2: solo los pares."],
+  ejercicios: [
+    ["b", "¿Se puede dividir 238 entre 2 sin que sobre?", "Sí, es par."],
+    ["b", "¿Se puede dividir 340 entre 10?", "Sí: 34."],
+    ["b", "Calcula de cabeza 60 : 3.", "20."],
+    ["b", "36 : ? = 6", "6."],
+    ["b", "? : 4 = 5", "20."],
+    ["m", "Calcula de cabeza 68 : 2.", "34."],
+    ["m", "Calcula de cabeza 93 : 3.", "31."],
+    ["m", "En una caja caben 6 huevos. ¿Cuántas cajas hacen falta para 54 huevos?", "9 cajas (agrupamiento)."],
+    ["m", "? : 7 = 6, resto 2.", "44."],
+    ["m", "¿En qué equipos iguales se pueden organizar 18 alumnos?", "De 2, 3, 6 o 9."],
+    ["a", "Un año tiene 365 días. ¿Cuántas semanas y días son?", "52 semanas y 1 día."],
+    ["a", "Necesitas 50 lápices y vienen en cajas de 8. ¿Cuántas cajas compras?", "7 cajas (6 no llegan)."],
+    ["a", "Inventa un problema de reparto y otro de agrupamiento con 24 : 4.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cuántos cromos tocarían si fueran 6 nietos?", "16, y no sobra ninguno."],
+  ],
+  quiz: [
+    ["«¿Cuántos equipos de 5 salen con 30 niños?» es un…", ["agrupamiento", "reparto", "producto"], "Agrupar."],
+    ["Se puede dividir exactamente entre 5 el…", ["75", "73", "52"], "Divisibilidad."],
+    ["84 : 4 = 80 : 4 + …", ["4 : 4", "8 : 4", "4 : 8"], "De cabeza."],
+    ["365 : 7 = 52 y sobra…", ["1", "5", "0"], "Vida diaria."],
+    ["? : 6 = 7 → ? = …", ["42", "13", "1"], "Número que falta."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántos cromos tocaron al repartir entre 4?", ["24", "19", "20"], "Lectura."],
+    ["Dividir entre 4 es calcular…", ["la mitad de la mitad", "el doble", "el triple"], "De cabeza."],
+  ],
+  tarjetas: [
+    ["Repartir y agrupar", "Cuánto a cada uno o cuántos grupos; misma operación."],
+    ["Divisibilidad", "Entre 2: par. Entre 5: 0 o 5. Entre 10: 0."],
+    ["De cabeza", "Descompón: 84 : 4 = 80 : 4 + 4 : 4."],
+    ["Vida diaria y números escondidos", "Calendario, equipos; dividendo = divisor × cociente + resto."],
+  ],
+  glosario: [
+    ["Repartir", "Dar a cada uno la misma cantidad."],
+    ["Agrupar", "Formar grupos del mismo tamaño."],
+    ["Divisible", "Que se puede dividir sin que sobre nada."],
+    ["Criterio", "Regla para saber algo rápidamente."],
+    ["Exacta", "División con resto 0."],
+    ["Mitad", "Cada una de las dos partes iguales."],
+    ["Descomponer", "Separar un número en partes."],
+    ["Dividendo", "Cantidad que se reparte."],
+    ["Divisor", "Número entre el que se reparte."],
+    ["Cociente", "Resultado de la división."],
+    ["Resto", "Lo que sobra en una división."],
+    ["A medias", "Pagando cada uno la misma parte."],
+  ],
+  situacion: {
+    titulo: "Organizamos las olimpiadas del cole",
+    reto: "La clase organiza unas olimpiadas y tiene que repartir alumnos, material y premios de forma justa.",
+    pasos: ["Formar equipos iguales y comprobar si sobra algún alumno.", "Repartir el material (petos, balones, aros) entre los equipos.", "Calcular de cabeza las raciones de fruta para cada equipo.", "Inventar problemas de reparto y agrupamiento para otra clase."],
+    producto: "Un plan de olimpiadas con equipos, materiales y cálculos.",
+    evaluacion: ["Distingue repartir y agrupar.", "Usa criterios de divisibilidad.", "Divide de cabeza.", "Aplica la división en situaciones reales."],
+  },
+});

@@ -93,3 +93,91 @@ module.exports = P.tema({
   saberes: "Resolución de problemas: comprensión del enunciado, datos y pregunta; elección de la operación; problemas de dos operaciones combinando suma, resta, multiplicación y división; preguntas intermedias; comprobación y estimación; invención de problemas",
   ideas: ["Problemas sin pregunta: los alumnos escriben la pregunta.", "Tarjetas con operaciones para inventar una historia.", "Mercadillo de clase con compras y vueltas."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Detectar datos que sobran y datos que faltan", "Dibujar esquemas para entender un problema", "Resolver problemas por ensayo y error", "Resolver problemas de lógica y de compras"],
+  lectura: { titulo: "El problema imposible", html: `<p>La maestra Rosa escribió un problema en la pizarra:</p><p>«Un pastor tiene 125 ovejas y 5 perros. ¿Cuántos años tiene el pastor?»</p><p>Enseguida se levantaron varias manos.</p><p>—¡130! —dijo Mario—. Porque 125 + 5 = 130.</p><p>—¡No! ¡25! —gritó Carla—. 125 entre 5 da 25, y es una edad más normal.</p><p>Rosa no dijo nada. Solo sonreía.</p><p>Entonces Valeria, que estaba muy callada, levantó la mano despacio.</p><p>—Yo creo que no se puede saber. El problema no dice nada de la edad del pastor. Las ovejas y los perros no tienen nada que ver con sus años.</p><p>—¡Exacto! —dijo Rosa—. Este problema es una trampa. Muchas veces, cuando vemos números, queremos hacer cuentas con ellos sin pensar. Pero lo primero es <b>entender</b> qué nos preguntan y si los datos sirven para contestar.</p><p>Mario se puso rojo.</p><p>—Entonces… ¿y si el pastor fuera mi abuelo, que tiene 70 años?</p><p>—Entonces tendríamos ese dato —rio Rosa—. Y podríamos contestar sin hacer ninguna operación.</p><p>Desde aquel día, cuando la clase se encuentra un problema, alguien siempre pregunta en voz alta: «Pero… ¿cuántos años tiene el pastor?». Y todos se ponen a leer otra vez, con más cuidado.</p>` },
+  tras: {
+    "¿Qué operación elijo?": [
+      ["Datos que sobran y datos que faltan", `<p>No todos los números de un problema hacen falta. A veces hay <mark>datos que sobran</mark>, y otras veces <mark>falta un dato</mark> para poder contestar.</p><p><b>Datos que sobran</b>:</p><p>«Lucía tiene 9 años. Compra 3 cuadernos de 2 € cada uno en una papelería que abre a las 10. ¿Cuánto paga?»</p><ul><li>Datos necesarios: 3 cuadernos y 2 € cada uno.</li><li>Datos que sobran: la edad de Lucía (9 años) y la hora (las 10).</li><li>Operación: 3 × 2 = <b>6 €</b>.</li></ul><p><b>Datos que faltan</b>:</p><p>«Pedro ha comprado unas canicas y le han dado 4 más. ¿Cuántas tiene ahora?»</p><ul><li>No sabemos cuántas canicas había comprado. Sin ese dato, ¡no se puede resolver!</li></ul><p>Cuando leas un problema, <b>subraya</b> con un color los datos que sirven y <b>tacha</b> los que no. Si echas en falta alguno, dilo: saber que un problema no se puede resolver también es una buena respuesta.</p><p><b>Reto</b>: inventa un problema con un dato que sobre y dáselo a un compañero. ¿Lo encuentra?</p>`,
+        H6.dos("Datos", ["SOBRAN", ["la edad", "la hora", "se tachan"], cRO], ["FALTAN", ["sin él", "no se puede", "se dice"], cAZ]), ["G7FvuGFGMgI", "🔴 PASOS para RESOLVER un PROBLEMA de MATEMÁTICAS para niños", "Clases Particulares en Ávila", 243318]],
+    ],
+    "La pregunta escondida": [
+      ["Dibujar para entender", `<p>Un <mark>dibujo</mark> o un <mark>esquema</mark> ayuda mucho a entender un problema. No hace falta que sea bonito: basta con que muestre lo que pasa.</p><p><b>Diagrama de barras</b>: se dibuja cada cantidad como una barra. Las barras más largas son las cantidades más grandes.</p><p>«Ana tiene 45 cromos. Luis tiene 18 más que Ana. ¿Cuántos tienen entre los dos?»</p><ul><li>Dibujamos la barra de Ana: 45.</li><li>Debajo, la barra de Luis: igual de larga que la de Ana más un trozo de 18. Luis tiene 45 + 18 = 63.</li><li>Juntamos las dos barras: 45 + 63 = <b>108 cromos</b>.</li></ul><p>Con el dibujo, se ve enseguida que primero hay que calcular los de Luis (la pregunta escondida).</p><p><b>Otros esquemas útiles</b>:</p><ul><li><b>Grupos</b>: círculos con objetos dentro para multiplicar o dividir.</li><li><b>Recta numérica</b>: saltos para sumar, restar o calcular lo que falta.</li><li><b>Tabla</b>: para ordenar datos de varias personas o días.</li></ul><p>Los alumnos de Singapur, que obtienen muy buenos resultados en las pruebas internacionales de matemáticas, usan mucho los diagramas de barras para resolver problemas.</p>`,
+        L6.filas("Esquemas", [["barras", "comparar", cAZ], ["grupos", "× y :", cVE], ["recta", "saltos", cNA], ["tabla", "ordenar", cMO]])],
+    ],
+    "Repartir y después restar": [
+      ["Probar y ajustar: ensayo y error", `<p>Algunos problemas se resuelven <mark>probando</mark>: elegimos un número, comprobamos si cumple las condiciones y, si no, lo <b>ajustamos</b>. Este método se llama <b>ensayo y error</b>.</p><p><b>Problema</b>: En una granja hay gallinas y conejos. En total hay 8 cabezas y 22 patas. ¿Cuántas gallinas y cuántos conejos hay?</p><p>Recuerda: las gallinas tienen 2 patas y los conejos 4.</p><ul><li><b>Prueba 1</b>: 4 gallinas y 4 conejos → 8 + 16 = 24 patas. Son demasiadas: hay que poner menos conejos.</li><li><b>Prueba 2</b>: 5 gallinas y 3 conejos → 10 + 12 = <b>22 patas</b>. ¡Correcto!</li></ul><p>Solución: <b>5 gallinas y 3 conejos</b>.</p><p><b>Otro problema</b>: Dos números suman 20 y uno es 4 más grande que el otro. ¿Cuáles son?</p><ul><li>Prueba: 10 y 10 → la diferencia es 0. Hay que separarlos.</li><li>Prueba: 11 y 9 → diferencia 2. Todavía no.</li><li>Prueba: 12 y 8 → diferencia <b>4</b>. ¡Correcto!</li></ul><p>Para que el ensayo y error funcione, conviene <b>apuntar las pruebas en una tabla</b> y fijarse en si nos pasamos o nos quedamos cortos. Así cada prueba se acerca más a la solución.</p>`,
+        H6.flujo("Ensayo", ["probar|un número", "comprobar", "¿me paso?|ajustar", "¡solución!|"], cNA)],
+    ],
+  },
+  final: [
+    ["Problemas de lógica", `<p>Hay problemas que no necesitan grandes cuentas, sino <mark>pensar con orden</mark>. Son los problemas de lógica.</p><p><b>La carrera</b>: Ana, Bea y Carlos han hecho una carrera. Ana no ha llegado la primera. Carlos ha llegado justo detrás de Bea. ¿En qué orden llegaron?</p><ul><li>Si Carlos va justo detrás de Bea, el orden puede ser Bea-Carlos-Ana o Ana-Bea-Carlos.</li><li>Como Ana no fue la primera, el orden es: <b>1.º Bea, 2.º Carlos, 3.ª Ana</b>.</li></ul><p><b>Las mascotas</b>: Pablo, Irene y Óscar tienen un perro, un gato y un pez, uno cada uno. Pablo es alérgico a los pelos de animales. Irene no tiene perro. ¿Qué mascota tiene cada uno?</p><ul><li>Pablo no puede tener perro ni gato (tienen pelo) → Pablo tiene el <b>pez</b>.</li><li>Irene no tiene perro → Irene tiene el <b>gato</b>.</li><li>Óscar tiene el <b>perro</b>.</li></ul><p>Truco: dibuja una <b>tabla</b> con los nombres en las filas y las opciones en las columnas. Pon una ✗ en lo que no puede ser y una ✓ en lo que sí. Al final, en cada fila queda una sola opción.</p><p><b>Acertijo clásico</b>: ¿Qué pesa más, un kilo de hierro o un kilo de plumas? (¡Pesan lo mismo, un kilo!)</p><p><b>Las edades</b>: Mi hermano tiene 3 años más que yo. Dentro de 2 años, él tendrá 12. ¿Cuántos años tengo yo ahora? Pensamos hacia atrás: si dentro de 2 años él tendrá 12, ahora tiene 10. Y como yo tengo 3 menos, tengo <b>7 años</b>. A esta forma de razonar, empezando por el final, se le llama <b>ir marcha atrás</b>, y es muy útil en muchos problemas.</p>`,
+      H6.rueda("Lógica", "PENSAR", [["orden", cAZ], ["tabla", cVE], ["✗ y ✓", cRO], ["descartar", cMO]])],
+    ["Problemas de compras: el tique", `<p>Cuando compramos, el vendedor nos da un <mark>tique</mark> (o ticket) donde aparece todo lo que hemos comprado. Leerlo bien es un buen problema de matemáticas.</p><p><b>Tique de la frutería</b>:</p><ul><li>2 kg de manzanas a 2 € el kilo → 2 × 2 = <b>4 €</b>.</li><li>3 kg de naranjas a 1 € el kilo → 3 × 1 = <b>3 €</b>.</li><li>1 melón → <b>5 €</b>.</li><li><b>Total</b>: 4 + 3 + 5 = <b>12 €</b>.</li><li>Pago con un billete de 20 € → <b>Cambio</b>: 20 − 12 = <b>8 €</b>.</li></ul><p>En un tique aparecen tres operaciones típicas:</p><ul><li><b>Multiplicar</b> la cantidad por el precio de cada producto.</li><li><b>Sumar</b> todos los importes para calcular el total.</li><li><b>Restar</b> el total del dinero que entregamos para saber el cambio.</li></ul><p><b>Consejos de buen comprador</b>: antes de pagar, haz una <b>estimación</b> del total para saber si llevas bastante dinero, y después comprueba que el cambio es correcto.</p><p><b>Actividad</b>: guarda un tique de alguna compra de tu familia y comprueba las operaciones. ¿Están bien?</p>`,
+      L6.filas("Tique", [["manzanas", "2 × 2 = 4 €", cRO], ["naranjas", "3 × 1 = 3 €", cNA], ["total", "12 €", cAZ], ["cambio", "20 − 12 = 8 €", cVE]]), ["YI0sTmsLLnA", "¿Cómo aprender a sumar y restar con Dinero? | Videos Educativos Aula365", "FlexFlix Kids en Español", 231219]],
+  ],
+  ejemplos: [
+    ["«Un tren lleva 6 vagones con 40 personas cada uno y sale a las 9. ¿Cuántas personas lleva?» ¿Qué dato sobra?", ["Necesitamos los vagones y las personas por vagón.", "La hora no sirve para la pregunta."], "Sobra la hora; 6 × 40 = 240 personas."],
+    ["Hay 6 cabezas y 16 patas entre gallinas y conejos. ¿Cuántos de cada?", ["Prueba 3 y 3: 6 + 12 = 18, demasiadas.", "Prueba 4 gallinas y 2 conejos: 8 + 8 = 16."], "4 gallinas y 2 conejos."],
+  ],
+  errores: ["Hacer cuentas con todos los números aunque no sirvan: primero hay que entender la pregunta.", "En el ensayo y error, probar al azar sin fijarse en si nos pasamos o nos quedamos cortos."],
+  ejercicios: [
+    ["b", "¿Qué dato sobra? «Marta, de 8 años, compra 4 lápices a 1 €. ¿Cuánto paga?»", "La edad."],
+    ["b", "¿Se puede resolver? «Tengo unos cromos y me dan 5. ¿Cuántos tengo?»", "No, falta cuántos tenía."],
+    ["b", "¿Cuántas patas tienen 3 conejos?", "12."],
+    ["b", "Compras por 7 € y pagas con 10 €. ¿Cuánto te devuelven?", "3 €."],
+    ["b", "¿Qué pesa más, un kilo de paja o un kilo de piedras?", "Pesan lo mismo."],
+    ["m", "Ana tiene 30 cromos y Luis 12 más. ¿Cuántos tienen entre los dos?", "72."],
+    ["m", "Dos números suman 15 y uno es 3 más grande. ¿Cuáles son?", "9 y 6."],
+    ["m", "4 kg de peras a 2 € y un melón de 3 €. ¿Total?", "11 €."],
+    ["m", "Raúl llegó antes que Sara y Sara antes que Tomás. ¿Quién fue el último?", "Tomás."],
+    ["m", "Dibuja el diagrama de barras de: «Eva tiene 20 € y Juan el doble».", "Barra de Juan el doble de larga: 40 €."],
+    ["a", "Hay 10 cabezas y 28 patas entre gallinas y conejos. ¿Cuántos de cada?", "6 gallinas y 4 conejos."],
+    ["a", "Inventa un problema con un dato que sobre.", "Respuesta abierta."],
+    ["a", "Tres amigos tienen un perro, un loro y una tortuga. Inventa pistas para adivinar quién tiene cada uno.", "Respuesta abierta."],
+    ["a", "Comprueba las operaciones de un tique real de casa.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En «¿cuántos años tiene el pastor?» el problema…", ["no se puede resolver", "da 130", "da 25"], "Lectura."],
+    ["Los datos que no sirven…", ["se tachan", "se suman", "se multiplican"], "Datos."],
+    ["Un diagrama de barras sirve para…", ["comparar cantidades", "dividir el pan", "medir el tiempo"], "Dibujar."],
+    ["En el ensayo y error, después de probar hay que…", ["comprobar y ajustar", "rendirse", "borrar"], "Ensayo."],
+    ["El cambio se calcula con una…", ["resta", "suma", "multiplicación"], "Tique."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién dio la respuesta correcta?", ["Valeria", "Mario", "Carla"], "Lectura."],
+    ["5 gallinas y 3 conejos, ¿cuántas patas tienen?", ["22", "16", "32"], "Ensayo."],
+  ],
+  tarjetas: [
+    ["Datos", "Tacha los que sobran; di si falta alguno."],
+    ["Dibujar", "Barras, grupos, recta y tablas para entender."],
+    ["Ensayo y error", "Prueba, comprueba, ajusta y apunta en una tabla."],
+    ["Lógica y tique", "Tabla de ✗ y ✓; multiplicar, sumar y restar en compras."],
+  ],
+  glosario: [
+    ["Enunciado", "Texto que cuenta el problema."],
+    ["Dato", "Información que se usa para resolver."],
+    ["Dato que sobra", "Información que no hace falta."],
+    ["Esquema", "Dibujo sencillo que ayuda a entender."],
+    ["Diagrama de barras", "Dibujo de cantidades como barras."],
+    ["Ensayo y error", "Método de probar y corregir."],
+    ["Ajustar", "Cambiar un poco para acercarse a la solución."],
+    ["Lógica", "Forma de pensar con orden."],
+    ["Descartar", "Quitar opciones que no pueden ser."],
+    ["Tique", "Papel con lo comprado y su precio."],
+    ["Importe", "Cantidad de dinero que se paga."],
+    ["Cambio", "Dinero que te devuelven."],
+  ],
+  situacion: {
+    titulo: "El mercado de la clase",
+    reto: "La clase monta un mercado con productos y precios, y resuelve y crea problemas reales de compras.",
+    pasos: ["Preparar productos con precios y hacer tiques de compra.", "Calcular totales y cambios, y estimar antes de pagar.", "Inventar problemas con datos que sobran para otros grupos.", "Resolver acertijos de lógica sobre quién compró qué."],
+    producto: "Un mercado de clase con tiques y un libro de problemas inventados.",
+    evaluacion: ["Detecta datos que sobran o faltan.", "Usa esquemas para entender.", "Aplica el ensayo y error.", "Resuelve problemas de lógica y compras."],
+  },
+});
