@@ -86,3 +86,97 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: el adjetivo calificativo; género y número del adjetivo; concordancia con el sustantivo; adjetivos contrarios; descripción; comparación",
   ideas: ["Caja de los sentidos: tocar y oler objetos y decir adjetivos.", "Retrato del compañero o compañera con cinco adjetivos amables.", "Dominó de adjetivos contrarios."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "La concordancia": L6.filas("Concordancia", [["gato", "negro", cAZ], ["gata", "negra", cRO], ["gatos", "negros", cVE], ["gatas", "negras", cNA]]),
+    "Repaso: el juego del retrato": H6.flujo("Retrato", ["mira|bien", "elige|adjetivos", "escribe|frases", "adivina|quién es"], cVE),
+  },
+  objetivos: ["Conocer los gentilicios", "Usar bien buen, gran y otros adjetivos que se acortan", "Describir con colores y matices", "Reconocer adjetivos en la publicidad y crear descripciones"],
+  lectura: { titulo: "El monstruo del armario", html: `<p>Todas las noches, cuando su madre apagaba la luz, Pablo oía un ruido en el armario. Cric, cric.</p><p>Una noche se armó de valor, encendió la linterna y abrió la puerta despacito. Dentro había un monstruo. Pero no era como los de las películas.</p><p>Era pequeño, redondo y peludo, con un pelo azul celeste muy suave. Tenía tres ojos enormes y brillantes, unas orejas larguísimas y caídas, y una boca ancha con dos dientes torcidos. Estaba temblando.</p><p>—¿Tienes miedo? —preguntó Pablo, sorprendido.</p><p>—Muchísimo —contestó el monstruo con una voz finita—. Oigo unos ronquidos terribles todas las noches.</p><p>Pablo se rio. ¡Los ronquidos eran de su padre!</p><p>Desde aquella noche, Pablo y el monstruo se hicieron amigos. Lo llamó Pelusa. Al día siguiente, en clase, la maestra pidió que describieran a un personaje inventado, y Pablo escribió una descripción tan buena que todos pudieron dibujarlo sin verlo.</p><p>—¿Cómo lo has hecho? —le preguntó Sara.</p><p>—Con muchos adjetivos —dijo Pablo—. Son los colores de las palabras.</p>` },
+  tras: {
+    "Qué nos cuentan los adjetivos": [
+      ["Los gentilicios", `<p>Los <mark>gentilicios</mark> son adjetivos que dicen de qué <b>lugar</b> es una persona o una cosa:</p><ul><li>De España: <i>español, española</i>. De Francia: <i>francés</i>. De Italia: <i>italiano</i>. De México: <i>mexicano</i>.</li><li>De Madrid: <i>madrileño</i>. De Sevilla: <i>sevillano</i>. De Barcelona: <i>barcelonés</i>. De Valencia: <i>valenciano</i>. De Bilbao: <i>bilbaíno</i>.</li><li>Algunos son curiosos: de Huelva, <i>onubense</i>; de Alcalá de Henares, <i>complutense</i>; de Ciudad Real, <i>ciudadrealeño</i>; de Salamanca, <i>salmantino</i>.</li></ul><p>Los gentilicios se escriben con <b>minúscula</b>, aunque el nombre del lugar vaya con mayúscula: <i>Vivo en Málaga, soy malagueño</i>.</p><p>Como todos los adjetivos, concuerdan con el sustantivo: <i>el queso manchego, la paella valenciana, los turrones alicantinos</i>.</p><p>Algunos gentilicios terminan en <i>-ense</i>, <i>-eño</i>, <i>-ano</i>, <i>-és</i> o <i>-ino</i>, pero no hay una regla fija: hay que aprenderlos o buscarlos en el diccionario. A veces un mismo lugar tiene dos gentilicios: a la gente de Cádiz se la llama <i>gaditana</i>, y a la de Toledo, <i>toledana</i>. También hay gentilicios de continentes: <i>europeo, africano, americano, asiático</i>.</p><p><b>Actividad</b>: escribe el gentilicio de tu pueblo o ciudad y el de tres lugares más.</p>`,
+        L6.filas("Gentilicios", [["Madrid", "madrileño", cRO], ["Sevilla", "sevillano", cNA], ["Bilbao", "bilbaíno", cVE], ["Huelva", "onubense", cAZ]])],
+    ],
+    "La concordancia": [
+      ["Buen, gran y sus amigos", `<p>Algunos adjetivos <mark>se acortan</mark> cuando van <b>delante</b> de un sustantivo masculino singular:</p><ul><li><i>bueno → buen</i>: un <b>buen</b> amigo (pero: un amigo <b>bueno</b>).</li><li><i>malo → mal</i>: un <b>mal</b> día.</li><li><i>primero → primer</i>: el <b>primer</b> premio.</li><li><i>tercero → tercer</i>: el <b>tercer</b> piso.</li></ul><p>El adjetivo <i>grande</i> se acorta delante de cualquier sustantivo singular: un <b>gran</b> árbol, una <b>gran</b> fiesta.</p><p>¡Ojo! A veces cambia el significado según el lugar: <i>un hombre grande</i> es alto y fuerte; <i>un gran hombre</i> es una persona importante y admirable. <i>Un amigo viejo</i> tiene muchos años; <i>un viejo amigo</i> es un amigo desde hace mucho tiempo.</p><p>Con el femenino no se acortan: <i>una buena amiga, la primera fila</i>.</p>`,
+        H6.dos("Se acortan", ["DELANTE", ["buen amigo", "gran fiesta", "primer día"], cAZ], ["DETRÁS", ["amigo bueno", "fiesta grande", "día primero"], cNA])],
+    ],
+    "Describir con adjetivos": [
+      ["Los colores y sus matices", `<p>Los colores son adjetivos muy útiles para describir. Y no hay solo un azul o un verde: hay muchos <mark>matices</mark>.</p><ul><li>Azul <i>celeste</i>, azul <i>marino</i>, azul <i>turquesa</i>.</li><li>Verde <i>lima</i>, verde <i>oliva</i>, verde <i>esmeralda</i>.</li><li>Rojo <i>fuego</i>, rojo <i>cereza</i>, <i>granate</i>.</li><li>Amarillo <i>limón</i>, amarillo <i>pollito</i>, <i>dorado</i>.</li></ul><p>También usamos <b>claro</b> y <b>oscuro</b>: <i>marrón claro, gris oscuro</i>.</p><p>Fíjate en una cosa curiosa: cuando el color es el nombre de una cosa, a menudo <b>no cambia</b>: <i>camisetas naranja</i> o <i>naranjas</i>, <i>zapatos rosa</i> o <i>rosas</i>; y en los colores compuestos tampoco: <i>unos pantalones azul marino</i>.</p><p>Muchos colores vienen de frutas, flores o piedras preciosas: <i>naranja, violeta, lila, esmeralda, turquesa</i>. Los pintores y los diseñadores conocen cientos de nombres de colores. Cuanto más preciso sea el adjetivo, mejor se imaginará el lector lo que describes: no es lo mismo «un mar azul» que «un mar turquesa y transparente».</p>`,
+        H6.rueda("Colores", "MATICES", [["celeste", cAZ], ["lima", cVE], ["granate", cRO], ["dorado", cNA]])],
+    ],
+  },
+  final: [
+    ["Adjetivos en la publicidad", `<p>Los anuncios usan muchos <mark>adjetivos</mark> para convencernos de que compremos algo:</p><ul><li><i>«¡Nuevo y mejorado!»</i></li><li><i>«Deliciosos cereales, crujientes y saludables».</i></li><li><i>«El juguete más divertido del año».</i></li><li><i>«Zapatillas ligeras, cómodas y rapidísimas».</i></li></ul><p>Los publicistas eligen adjetivos positivos y exagerados: <i>increíble, fantástico, único, perfecto, mágico</i>. Así nos hacen imaginar que el producto es maravilloso.</p><p>Pero un buen consumidor piensa: ¿es verdad lo que dice? ¿Lo necesito? ¿Cuánto cuesta? Unos cereales «saludables» pueden tener mucho azúcar, y un juguete «increíble» puede romperse a los dos días.</p><p>Los anuncios también usan el grado superlativo: <i>buenísimo, rapidísimo, el mejor</i>. Y a veces inventan comparaciones sin decir con qué comparan: «¡Ahora más limpio!». ¿Más limpio que qué?</p><p><b>Actividad</b>: busca un anuncio en una revista, subraya todos los adjetivos y decide si crees que dice la verdad. Después, inventa un anuncio para un producto imaginario, como unos zapatos voladores.</p>`,
+      L6.filas("Anuncios", [["nuevo", "llama la atención", cRO], ["delicioso", "da hambre", cNA], ["divertido", "promete diversión", cVE], ["único", "exagera", cMO]])],
+    ["Describimos un personaje", `<p>Para hacer una buena <mark>descripción</mark> de un personaje, real o inventado, sigue un orden:</p><ul><li><b>1. Aspecto general</b>: ¿es alto o bajo, grande o pequeño, gordo o delgado?</li><li><b>2. La cabeza y la cara</b>: pelo (largo, rizado, rubio), ojos (grandes, verdes, saltones), nariz, boca, orejas.</li><li><b>3. El cuerpo y la ropa</b>: brazos, piernas, ropa de colores, accesorios.</li><li><b>4. El carácter</b>: ¿es simpático, tímido, valiente, gruñón, curioso?</li><li><b>5. Algo especial</b>: un detalle que lo haga único, como una cicatriz o una forma de reír.</li></ul><p>Usa <b>comparaciones</b> para que sea más vivo: <i>ojos como platos, pelo suave como el algodón, voz chillona como un pito</i>.</p><p>Evita repetir siempre los mismos adjetivos, como <i>bonito</i> o <i>grande</i>. Busca otros más precisos: en vez de <i>bonito</i>, puedes decir <i>precioso, elegante, gracioso</i> o <i>llamativo</i>; en vez de <i>grande</i>, <i>enorme, gigantesco, amplio</i> o <i>alto</i>. Los buenos escritores eligen cada adjetivo con mucho cuidado, porque cada uno pinta una imagen distinta en la cabeza del lector.</p><p><b>Reto</b>: describe un monstruo inventado y pide a un compañero que lo dibuje sin verlo. Si el dibujo se parece, ¡tu descripción es buena! Si no, revisa qué adjetivos faltaban y vuelve a intentarlo.</p>`,
+      H6.flujo("Describir", ["aspecto|general", "cara|y pelo", "ropa|y cuerpo", "carácter|y detalle"], cAZ)],
+    ["Adivinanzas con adjetivos", `<p>Las <mark>adivinanzas</mark> describen algo con adjetivos y pistas, pero sin decir su nombre:</p><ul><li><i>«Blanca por dentro, verde por fuera; si quieres que te lo diga, espera»</i>. (La pera).</li><li><i>«Soy redondo, grande y amarillo; de día salgo y de noche me escondo»</i>. (El sol).</li><li><i>«Tiene dientes y no come, tiene cabeza y no es hombre»</i>. (El ajo).</li></ul><p>Para inventar una adivinanza:</p><ul><li>Elige un objeto o un animal.</li><li>Piensa en tres adjetivos que lo describan: forma, color, tamaño, textura.</li><li>Añade una pista de lo que hace o dónde está.</li><li>Si puedes, haz que rime.</li></ul><p>Por ejemplo: <i>«Soy pequeña y roja, con puntitos negros; vuelo por el jardín y me como los pulgones»</i>. ¿Quién soy? ¡La mariquita!</p>`,
+      H6.rueda("Adivina", "¿QUÉ ES?", [["forma", cAZ], ["color", cRO], ["tamaño", cVE], ["pista", cNA]])],
+  ],
+  ejemplos: [
+    ["Completa: «Es un ___ día» (bueno).", ["El adjetivo va delante de un masculino singular.", "Bueno se acorta en buen."], "Es un buen día."],
+    ["¿Cómo se llama a alguien de Salamanca?", ["Buscamos el gentilicio.", "Es un gentilicio especial."], "Salmantino."],
+  ],
+  errores: ["Escribir los gentilicios con mayúscula: «soy Madrileño».", "Decir «un grande árbol» en vez de «un gran árbol»."],
+  ejercicios: [
+    ["b", "¿Qué es un gentilicio?", "Un adjetivo que dice de dónde es alguien."],
+    ["b", "¿Cómo se acorta «bueno» delante de «amigo»?", "Buen."],
+    ["b", "Di un matiz del azul.", "Celeste, marino o turquesa."],
+    ["b", "Di un adjetivo típico de un anuncio.", "Nuevo, increíble, delicioso…"],
+    ["b", "¿Qué va primero en una descripción?", "El aspecto general."],
+    ["m", "¿Cuál es el gentilicio de Huelva?", "Onubense."],
+    ["m", "¿Qué diferencia hay entre «un gran hombre» y «un hombre grande»?", "Importante / alto y fuerte."],
+    ["m", "Completa: «unos pantalones ___ (azul marino)».", "Azul marino."],
+    ["m", "¿Por qué los anuncios usan adjetivos exagerados?", "Para convencernos de comprar."],
+    ["m", "Haz una comparación para describir unos ojos.", "Ojos como platos…"],
+    ["a", "Describe un monstruo y que un compañero lo dibuje.", "Respuesta abierta."],
+    ["a", "Inventa un anuncio para unos zapatos voladores.", "Respuesta abierta."],
+    ["a", "Inventa una adivinanza con tres adjetivos.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿de qué color era el pelo del monstruo?", "Azul celeste."],
+  ],
+  quiz: [
+    ["El gentilicio de Barcelona es…", ["barcelonés", "barcelonino", "barcelonero"], "Gentilicios."],
+    ["Lo correcto es…", ["el primer premio", "el primero premio", "el prime premio"], "Se acortan."],
+    ["El granate es un tipo de…", ["rojo", "verde", "azul"], "Colores."],
+    ["Ante un anuncio hay que preguntarse…", ["si es verdad", "si es largo", "si tiene música"], "Publicidad."],
+    ["«Blanca por dentro, verde por fuera» es…", ["la pera", "el sol", "el ajo"], "Adivinanzas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué asustaba al monstruo?", ["los ronquidos", "la luz", "Pablo"], "Lectura."],
+    ["Los gentilicios se escriben con…", ["minúscula", "mayúscula", "tilde siempre"], "Gentilicios."],
+  ],
+  tarjetas: [
+    ["Gentilicios", "Madrileño, sevillano, onubense: con minúscula."],
+    ["Se acortan", "Buen, mal, primer, tercer, gran delante del sustantivo."],
+    ["Colores", "Celeste, marino, lima, granate; claro y oscuro."],
+    ["Describir y anunciar", "Orden en la descripción; adjetivos exagerados en anuncios."],
+  ],
+  glosario: [
+    ["Gentilicio", "Adjetivo que indica el lugar de origen."],
+    ["Onubense", "De Huelva."],
+    ["Salmantino", "De Salamanca."],
+    ["Apócope", "Palabra que se acorta, como buen o gran."],
+    ["Matiz", "Pequeña diferencia de un color."],
+    ["Celeste", "Azul claro como el cielo."],
+    ["Granate", "Rojo oscuro."],
+    ["Publicidad", "Mensajes para vender productos."],
+    ["Exagerar", "Decir que algo es más de lo que es."],
+    ["Descripción", "Explicación de cómo es algo o alguien."],
+    ["Carácter", "Forma de ser de una persona."],
+    ["Adivinanza", "Juego de describir algo sin decir su nombre."],
+  ],
+  situacion: {
+    titulo: "La agencia de descripciones",
+    reto: "La clase crea un catálogo de monstruos y anuncios con muchos adjetivos.",
+    pasos: ["Hacer un mapa con gentilicios de España.", "Describir un monstruo con orden y comparaciones.", "Crear un anuncio para un invento imaginario.", "Inventar adivinanzas para otra clase."],
+    producto: "Un catálogo ilustrado de monstruos, anuncios y adivinanzas.",
+    evaluacion: ["Usa gentilicios.", "Acorta bien los adjetivos.", "Describe con colores y orden.", "Analiza la publicidad."],
+  },
+});

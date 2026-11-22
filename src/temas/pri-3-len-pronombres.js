@@ -85,3 +85,98 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: el pronombre personal; persona y número; usted y ustedes; tilde diacrítica en él/el y tú/tu; concordancia con el verbo; uso para evitar repeticiones",
   ideas: ["Gesto de cada pronombre recitado en coro.", "Texto con repeticiones para corregir en parejas.", "Tarjetas de nombres y pronombres para emparejar."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "Singular y plural": H6.dos("Número", ["SINGULAR", ["yo", "tú", "él, ella"], cAZ], ["PLURAL", ["nosotros", "vosotros", "ellos, ellas"], cNA]),
+    "El pronombre y el verbo": L6.filas("Verbo", [["yo", "canto", cAZ], ["tú", "cantas", cVE], ["ella", "canta", cNA], ["nosotros", "cantamos", cRO]]),
+    "Repaso: busca los pronombres": H6.flujo("Buscar", ["lee|la frase", "¿quién|lo hace?", "subraya|pronombre", "persona|y número"], cMO),
+  },
+  objetivos: ["Reconocer quién cuenta una historia", "Usar me, te, se, nos y os", "Usar conmigo, contigo y para mí", "Escribir en primera persona y comparar con el inglés"],
+  lectura: { titulo: "El diario de Leo", html: `<p><i>Lunes, 3 de marzo.</i></p><p><i>Querido diario: hoy ha sido un día rarísimo. Yo estaba tan tranquilo en clase cuando la maestra dijo que íbamos a tener un alumno nuevo. Se llama Kenji y viene de Japón. Él no habla mucho español todavía, así que la maestra me pidió que lo ayudara.</i></p><p><i>En el recreo, nosotros dos jugamos al fútbol. Kenji es buenísimo. Me enseñó a decir «hola» en japonés: «konnichiwa». Yo le enseñé a decir «gol». Nos reímos mucho.</i></p><p><i>Martes, 4 de marzo.</i></p><p><i>Hoy Kenji ha traído unos dulces japoneses para toda la clase. Ellos estaban un poco desconfiados, pero los probaron y les encantaron. Lucía dijo: «¿Puedo sentarme contigo, Kenji?». Él sonrió y contestó: «Sí, conmigo».</i></p><p><i>¡Ha aprendido una palabra nueva! Creo que vosotros, si lo conocierais, también seríais sus amigos.</i></p><p><i>Mañana le voy a enseñar a jugar a las canicas. Y él me ha prometido enseñarme a hacer una grulla de papel.</i></p><p><i>Leo.</i></p>` },
+  tras: {
+    "Las tres personas": [
+      ["¿Quién cuenta la historia?", `<p>Los pronombres nos ayudan a saber <mark>quién cuenta</mark> una historia.</p><ul><li>Si el narrador usa <b>yo</b> y <b>nosotros</b>, cuenta en <b>primera persona</b>: es un personaje de la historia. <i>«Yo abrí la puerta y vi al dragón»</i>. Así se escriben los diarios, las cartas y muchas novelas de aventuras.</li><li>Si el narrador usa <b>él</b>, <b>ella</b>, <b>ellos</b>, cuenta en <b>tercera persona</b>: está fuera de la historia y la cuenta como si la viera desde lejos. <i>«Ella abrió la puerta y vio al dragón»</i>. Así empiezan la mayoría de los cuentos: «Había una vez una niña que…».</li><li>Muy pocas veces se cuenta en <b>segunda persona</b>: <i>«Tú abres la puerta y ves un dragón»</i>. Se usa en algunos libros de juegos en los que el lector decide qué pasa.</li></ul><p>Contar en primera persona hace que el lector se sienta dentro de la historia. Contar en tercera persona permite saber lo que piensan varios personajes.</p><p><b>Actividad</b>: busca el comienzo de tres libros de la biblioteca y averigua en qué persona están contados.</p>`,
+        H6.rueda("Narrador", "¿QUIÉN?", [["1.ª: yo", cAZ], ["2.ª: tú", cVE], ["3.ª: él", cNA], ["diario: yo", cRO]])],
+    ],
+    "Pronombres para no repetir": [
+      ["Me, te, se, nos, os", `<p>Además de <i>yo, tú, él</i>…, hay unos pronombres <mark>pequeñitos</mark> que van junto al verbo:</p><ul><li><b>me</b> (yo): <i>Me lavo las manos. Mi abuela me cuenta cuentos.</i></li><li><b>te</b> (tú): <i>Te quiero. ¿Te ayudo?</i></li><li><b>se</b> (él, ella, ellos): <i>Se peina. Se ríen.</i></li><li><b>nos</b> (nosotros): <i>Nos vamos al parque.</i></li><li><b>os</b> (vosotros): <i>Os espero en la puerta.</i></li></ul><p>Normalmente van <b>delante</b> del verbo y separados: <i>me lavo</i>. Pero con el infinitivo y las órdenes van <b>detrás</b> y pegados: <i>lavar<b>me</b>, ¡lávate!, ¡sentaos!</i></p><p>También hay <b>lo, la, los, las</b> para no repetir cosas: <i>¿Dónde está el balón? Lo tengo yo.</i> Y <b>le, les</b> para personas que reciben algo: <i>Le di un regalo a Marta.</i></p><p>Fíjate en cómo ayudan a no repetir: <i>Compré un helado y me comí el helado</i> suena raro; mejor <i>Compré un helado y me lo comí</i>.</p>`,
+        L6.filas("Pequeños", [["me", "me lavo", cAZ], ["te", "te ayudo", cVE], ["nos", "nos vamos", cNA], ["os", "os espero", cRO]])],
+    ],
+    "Él con tilde y el sin tilde": [
+      ["Conmigo, contigo y para mí", `<p>Cuando el pronombre va detrás de una palabra como <i>para, a, de, sin</i> o <i>con</i>, a veces <mark>cambia de forma</mark>:</p><ul><li><b>yo → mí</b>: <i>para mí, a mí, sin mí</i>. (¡Con tilde!)</li><li><b>tú → ti</b>: <i>para ti, a ti, de ti</i>. (Sin tilde: <i>ti</i> nunca lleva tilde).</li><li>Con la palabra <i>con</i> se forman palabras especiales: <b>conmigo</b>, <b>contigo</b>. Nunca decimos <i>con mí</i> ni <i>con ti</i>.</li><li>Los demás no cambian: <i>para él, con ella, sin nosotros, para vosotros, con ellos</i>.</li></ul><p>Errores frecuentes:</p><ul><li>❌ <i>Es para tí</i> → ✅ <i>Es para ti</i>.</li><li>❌ <i>Ven con mí</i> → ✅ <i>Ven conmigo</i>.</li><li>❌ <i>A mi me gusta</i> → ✅ <i>A mí me gusta</i> (es pronombre, lleva tilde).</li></ul><p>Truco: <i>mí</i> con tilde va después de <i>a, para, de, sin…</i>; <i>mi</i> sin tilde va delante de un sustantivo: <i>mi perro</i>.</p>`,
+        H6.dos("Con", ["SÍ", ["conmigo", "contigo", "para ti"], cVE], ["NO", ["con mí", "con ti", "para tí"], cRO])],
+    ],
+  },
+  final: [
+    ["Escribimos un diario", `<p>Un <mark>diario</mark> es un cuaderno donde escribimos lo que nos pasa y lo que sentimos. Se escribe en <b>primera persona</b>, con <i>yo</i>, <i>me</i>, <i>mi</i>.</p><p><b>Cómo escribir una página de diario</b>:</p><ul><li><b>1.</b> Empieza con la <b>fecha</b>: <i>Martes, 12 de abril</i>.</li><li><b>2.</b> Puedes dirigirte al diario: <i>Querido diario…</i></li><li><b>3.</b> Cuenta lo que ha pasado en <b>orden</b>: primero, después, al final.</li><li><b>4.</b> Explica cómo te has <b>sentido</b>: contento, nervioso, sorprendido…</li><li><b>5.</b> Termina con algo que esperas para mañana.</li></ul><p>El diario es <b>privado</b>: nadie debe leerlo sin permiso.</p><p>Algunos diarios se han hecho muy famosos, porque nos cuentan cómo era la vida de una persona en otra época. Escribir un diario también ayuda a ordenar las ideas y a recordar cosas que, si no, olvidaríamos.</p><p><b>Actividad</b>: escribe tu diario durante una semana. Al final, léelo y fíjate en cuántos pronombres de primera persona has usado.</p>`,
+      H6.flujo("Diario", ["fecha|del día", "querido|diario", "qué pasó|en orden", "cómo|me sentí"], cNA)],
+    ["Pronombres en inglés", `<p>En <b>inglés</b> también hay <mark>pronombres personales</mark>, y se parecen bastante a los nuestros:</p><ul><li><b>I</b> = yo. ¡Siempre se escribe con mayúscula!</li><li><b>you</b> = tú, y también vosotros.</li><li><b>he</b> = él. <b>she</b> = ella.</li><li><b>it</b> = para animales y cosas.</li><li><b>we</b> = nosotros o nosotras.</li><li><b>they</b> = ellos o ellas.</li></ul><p>Hay dos diferencias importantes:</p><ul><li>En inglés existe <b>it</b> para las cosas y los animales. En castellano decimos <i>él</i> o <i>ella</i> para todo.</li><li>En inglés casi siempre hay que decir el pronombre: <i>I play</i>. En castellano muchas veces no hace falta, porque el verbo ya nos dice la persona: <i>juego</i> (ya sabemos que soy yo).</li></ul><p>Además, en inglés no hay una forma especial para hablar con respeto, como nuestro <i>usted</i>: a todo el mundo se le dice <i>you</i>, sea un amigo o el director del colegio. Y para decir «nosotras» o «ellas» se usan las mismas palabras que para el masculino: <i>we</i> y <i>they</i>. Comparar las dos lenguas nos ayuda a aprender las dos mejor.</p>`,
+      L6.filas("Inglés", [["I", "yo", cAZ], ["you", "tú, vosotros", cVE], ["he / she", "él / ella", cNA], ["we / they", "nosotros / ellos", cRO]])],
+    ["Cambiamos de persona", `<p>Un buen ejercicio para dominar los pronombres es <mark>reescribir</mark> un texto cambiando la persona. Hay que cambiar el pronombre y también el verbo.</p><p><b>Texto en primera persona</b>:</p><p><i>Yo me levanto temprano. Me lavo la cara y desayuno con mis padres. Después cojo mi mochila y voy al colegio.</i></p><p><b>El mismo texto en tercera persona</b>:</p><p><i>Ella se levanta temprano. Se lava la cara y desayuna con sus padres. Después coge su mochila y va al colegio.</i></p><p><b>Y en primera persona del plural</b>:</p><p><i>Nosotros nos levantamos temprano. Nos lavamos la cara y desayunamos con nuestros padres. Después cogemos nuestras mochilas y vamos al colegio.</i></p><p>Fíjate en todo lo que cambia: el pronombre (<i>yo → ella → nosotros</i>), los pronombres pequeños (<i>me → se → nos</i>), los posesivos (<i>mis → sus → nuestros</i>) y la terminación del verbo (<i>levanto → levanta → levantamos</i>).</p><p><b>Actividad</b>: escribe cómo es tu tarde en primera persona y cámbialo a tercera persona, como si lo contara otra persona.</p>`,
+      H6.dos("Cambia", ["YO", ["me levanto", "mi mochila", "voy"], cAZ], ["ELLA", ["se levanta", "su mochila", "va"], cNA])],
+  ],
+  ejemplos: [
+    ["Corrige: «Ven con mí al parque».", ["Con + yo forma una palabra especial.", "Se dice conmigo."], "Ven conmigo al parque."],
+    ["¿En qué persona está «Ella abrió la caja»?", ["El pronombre es ella.", "Ella es tercera persona."], "Tercera persona."],
+  ],
+  errores: ["Escribir «ti» con tilde.", "Decir «con mí» o «con ti» en vez de conmigo y contigo."],
+  ejercicios: [
+    ["b", "¿En qué persona se escribe un diario?", "En primera persona."],
+    ["b", "Completa: «___ lavo los dientes» (yo).", "Me."],
+    ["b", "¿Cómo se dice «con» + «tú»?", "Contigo."],
+    ["b", "¿Cómo se dice «yo» en inglés?", "I."],
+    ["b", "¿Qué va primero en una página de diario?", "La fecha."],
+    ["m", "¿Cómo empieza un cuento en tercera persona?", "Había una vez una niña que…"],
+    ["m", "Sustituye: «Tengo el libro. Leo el libro».", "Tengo el libro. Lo leo."],
+    ["m", "¿Lleva tilde «mí» en «Es para mí»?", "Sí."],
+    ["m", "¿Para qué sirve «it» en inglés?", "Para animales y cosas."],
+    ["m", "Pasa a tercera persona: «Me peino».", "Se peina."],
+    ["a", "Escribe una página de tu diario.", "Respuesta abierta."],
+    ["a", "Reescribe tu tarde en tercera persona.", "Respuesta abierta."],
+    ["a", "Busca tres libros y di en qué persona están contados.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué palabra nueva aprendió Kenji?", "Conmigo."],
+  ],
+  quiz: [
+    ["«Yo abrí la puerta» está en…", ["primera persona", "segunda persona", "tercera persona"], "Narrador."],
+    ["«Nos vamos» usa el pronombre de…", ["nosotros", "vosotros", "ellos"], "Pequeños."],
+    ["Lo correcto es…", ["para ti", "para tí", "para tu"], "Con."],
+    ["En inglés, «ella» es…", ["she", "he", "it"], "Inglés."],
+    ["Un diario es…", ["privado", "un periódico", "un libro de recetas"], "Diario."],
+  ],
+  examen: [
+    ["En la lectura, ¿de dónde venía Kenji?", ["de Japón", "de China", "de Italia"], "Lectura."],
+    ["Al pasar «mi mochila» a tercera persona queda…", ["su mochila", "tu mochila", "nuestra mochila"], "Cambiar."],
+  ],
+  tarjetas: [
+    ["Narrador", "Primera persona (yo) o tercera (él, ella)."],
+    ["Pequeños", "Me, te, se, nos, os; lo, la, le."],
+    ["Conmigo", "Para mí, para ti, conmigo, contigo."],
+    ["Diario e inglés", "Fecha, orden, sentimientos; I, you, he, she, it, we, they."],
+  ],
+  glosario: [
+    ["Narrador", "Quien cuenta la historia."],
+    ["Primera persona", "La de quien habla: yo, nosotros."],
+    ["Tercera persona", "La de quien no habla ni escucha: él, ella."],
+    ["Pronombre átono", "Pronombre pequeño junto al verbo, como me o te."],
+    ["Infinitivo", "Forma del verbo acabada en -ar, -er, -ir."],
+    ["Conmigo", "Con yo."],
+    ["Contigo", "Con tú."],
+    ["Diario", "Cuaderno donde contamos lo que vivimos."],
+    ["Privado", "Que es solo para uno mismo."],
+    ["Reescribir", "Volver a escribir un texto cambiándolo."],
+    ["It", "Pronombre inglés para animales y cosas."],
+    ["Sustituir", "Poner una palabra en lugar de otra."],
+  ],
+  situacion: {
+    titulo: "Escritores en primera persona",
+    reto: "La clase escribe un diario colectivo y lo convierte en un cuento en tercera persona.",
+    pasos: ["Escribir cada día una página del diario de clase.", "Corregir los usos de conmigo, contigo y para ti.", "Transformar el diario en un cuento en tercera persona.", "Traducir los pronombres principales al inglés."],
+    producto: "Un diario de clase y su versión en cuento.",
+    evaluacion: ["Reconoce al narrador.", "Usa pronombres átonos.", "Usa conmigo y contigo.", "Cambia de persona correctamente."],
+  },
+});

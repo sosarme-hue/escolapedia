@@ -86,3 +86,97 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: el grupo nominal; artículos determinados e indeterminados; contracciones al y del; demostrativos y distancia; concordancia",
   ideas: ["Juego de la distancia: objetos colocados cerca, a media distancia y lejos.", "Tarjetas de artículos para emparejar con sustantivos.", "Cuento colectivo empezando con «Había una vez un…»."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "Todas las formas de los demostrativos": L6.filas("Formas", [["cerca", "este, esta, estos, estas", cAZ], ["media", "ese, esa, esos, esas", cVE], ["lejos", "aquel, aquella…", cNA], ["neutro", "esto, eso, aquello", cMO]]),
+    "Repaso: busca y clasifica": H6.flujo("Clasificar", ["busca|sustantivo", "mira|delante", "¿qué|palabra es?", "género|y número"], cAZ),
+  },
+  objetivos: ["Usar el artículo con nombres de ríos, montes y países", "Conocer los posesivos", "Relacionar los demostrativos con aquí, ahí y allí", "Descubrir los numerales y los artículos de otras lenguas"],
+  lectura: { titulo: "Este, ese y aquel", html: `<p>En la pastelería del barrio, la abuela de Sergio le dijo que podía elegir un pastel para su cumpleaños.</p><p>Sergio pegó la nariz al cristal del mostrador.</p><p>—Quiero este —dijo, señalando uno de chocolate que tenía justo delante.</p><p>—¿Este? —preguntó la pastelera, cogiendo una tarta de fresa.</p><p>—No, ese no. Este, el de chocolate.</p><p>La pastelera, que estaba al otro lado del mostrador, sonrió.</p><p>—Para mí es «ese», porque está cerca de ti. Si quieres que te entienda, dime: «ese de chocolate».</p><p>Sergio se quedó pensando. Tenía razón: lo que está cerca de uno está lejos del otro.</p><p>—Vale. Quiero ese de chocolate. Y también aquel de nata del fondo del escaparate, para mi hermana.</p><p>—¡Aquel! ¡Perfecto! —rio la pastelera, y señaló una tarta de nata enorme que estaba lejos de los dos.</p><p>Al salir, con las dos cajas, la abuela le dijo:</p><p>—Has aprendido algo importante. Las palabras como <i>este</i>, <i>ese</i> y <i>aquel</i> dependen de dónde está cada uno.</p><p>Esa tarde, mientras soplaba las velas, Sergio pensó que la gramática también servía para conseguir pasteles.</p>` },
+  tras: {
+    "Los artículos determinados": [
+      ["El artículo con ríos, montes y países", `<p>Los <mark>nombres propios</mark> de persona normalmente no llevan artículo: decimos <i>Marta llega</i>, no <i>la Marta llega</i>.</p><p>Pero algunos nombres propios de <b>geografía</b> sí lo llevan:</p><ul><li>Los <b>ríos</b>: <i>el Ebro, el Tajo, el Guadalquivir, el Duero</i>.</li><li>Los <b>mares</b> y <b>océanos</b>: <i>el Mediterráneo, el Atlántico, el Cantábrico</i>.</li><li>Las <b>montañas</b> y <b>cordilleras</b>: <i>el Teide, el Mulhacén, los Pirineos, los Alpes</i>.</li><li>Algunos <b>países</b> y <b>ciudades</b>: <i>la India, el Reino Unido, los Estados Unidos, El Cairo, La Coruña</i>. Cuando el artículo forma parte del nombre de una ciudad, se escribe con mayúscula: <i>El Escorial, Las Palmas</i>.</li></ul><p>Fíjate: muchas veces decimos solo <i>el Ebro</i> en vez de <i>el río Ebro</i>. El artículo masculino nos recuerda que la palabra <i>río</i> está escondida.</p><p>Con las islas también se usa artículo en plural: <i>las Canarias, las Baleares</i>.</p><p><b>Actividad</b>: busca en un mapa de España cinco nombres con artículo y escríbelos.</p>`,
+        L6.filas("Geografía", [["ríos", "el Ebro", cAZ], ["mares", "el Mediterráneo", cVE], ["montañas", "los Pirineos", cNA], ["ciudades", "Las Palmas", cRO]])],
+    ],
+    "Los demostrativos": [
+      ["Los posesivos: mi, tu, su", `<p>Los <mark>posesivos</mark> son palabras que acompañan al sustantivo y dicen <b>de quién es</b> algo:</p><ul><li><b>mi, mis</b>: de quien habla. <i>Mi bici, mis zapatos</i>.</li><li><b>tu, tus</b>: de quien escucha. <i>Tu mochila, tus libros</i>.</li><li><b>su, sus</b>: de otra persona o de usted. <i>Su perro, sus gafas</i>.</li><li><b>nuestro, nuestra, nuestros, nuestras</b>: de nosotros. <i>Nuestra clase</i>.</li><li><b>vuestro, vuestra, vuestros, vuestras</b>: de vosotros. <i>Vuestro equipo</i>.</li></ul><p>Igual que los artículos, concuerdan en número con el sustantivo: <i>mi libro, mis libros</i>. Y <i>nuestro</i> y <i>vuestro</i> también en género: <i>nuestro patio, nuestra aula</i>.</p><p><b>¡Ojo con la tilde!</b> <i>Tu</i> sin tilde es posesivo: <i>tu casa</i>. <i>Tú</i> con tilde es pronombre: <i>tú cantas</i>. Lo mismo pasa con <i>mi</i> y <i>mí</i>: <i>mi gato</i> / <i>es para mí</i>.</p><p>Cuando van detrás del sustantivo, cambian de forma: <i>un amigo mío, una idea tuya, el libro suyo</i>.</p>`,
+        H6.dos("Posesivos", ["UNO", ["mi", "tu", "su"], cAZ], ["VARIOS", ["mis", "tus", "sus"], cNA]), ["E2S58cj1r6Y", "La Eduteca - Los posesivos", "La Eduteca", 326464]],
+    ],
+    "Todas las formas de los demostrativos": [
+      ["Aquí, ahí y allí", `<p>Los demostrativos tienen tres <mark>amigos</mark> que indican lugar:</p><ul><li><b>Aquí</b> (o <b>acá</b>): cerca de quien habla. Va con <i>este</i>: <i>Este libro está aquí</i>.</li><li><b>Ahí</b>: cerca de quien escucha. Va con <i>ese</i>: <i>Ese lápiz está ahí, junto a ti</i>.</li><li><b>Allí</b> (o <b>allá</b>): lejos de los dos. Va con <i>aquel</i>: <i>Aquella montaña está allí</i>.</li></ul><p>No confundas estas palabras parecidas:</p><ul><li><b>ahí</b> (lugar): <i>Déjalo ahí.</i></li><li><b>hay</b> (verbo haber): <i>Hay tres manzanas.</i></li><li><b>¡ay!</b> (exclamación de dolor): <i>¡Ay, qué daño!</i></li></ul><p>Un truco para recordarlo: <i>«Ahí hay un hombre que dice ¡ay!»</i>.</p><p>Con el tiempo pasa algo parecido: <i>este verano</i> es el de ahora o el que viene; <i>aquel verano</i> es uno que pasó hace mucho tiempo. <i>En aquella época…</i>, dicen los abuelos cuando cuentan sus recuerdos.</p>`,
+        H6.rueda("Lugar", "¿DÓNDE?", [["aquí: este", cAZ], ["ahí: ese", cVE], ["allí: aquel", cNA], ["hay / ¡ay!", cRO]])],
+    ],
+  },
+  final: [
+    ["Los numerales: contar y ordenar", `<p>Los <mark>numerales</mark> son palabras que acompañan al sustantivo para decir <b>cuántos</b> hay o en qué <b>orden</b> va algo.</p><ul><li><b>Cardinales</b>: dicen la cantidad. <i>Dos perros, cinco lápices, cien años</i>.</li><li><b>Ordinales</b>: dicen el orden. <i>Primer puesto, segunda fila, tercer piso, cuarto curso, quinto día</i>.</li></ul><p>Los ordinales del 1 al 10 son: <i>primero, segundo, tercero, cuarto, quinto, sexto, séptimo, octavo, noveno, décimo</i>.</p><p>Recuerda que <i>primero</i> y <i>tercero</i> se acortan delante de un sustantivo masculino: <i>el primer día, el tercer premio</i>.</p><p>Con números, los ordinales se escriben con un circulito: <i>1.º, 2.ª, 3.º</i>. Por eso tu curso se escribe <i>3.º de Primaria</i>.</p><p>Los cardinales casi no cambian, excepto <i>uno</i> (un niño, una niña) y las centenas (<i>doscientos libros, doscientas páginas</i>).</p><p>Los ordinales se usan mucho en la vida diaria: en los pisos de los edificios, en las clasificaciones deportivas, en los cursos del colegio y en los capítulos de los libros. Fíjate en el ascensor de un edificio: los botones dicen <i>1.º, 2.º, 3.º</i>, y en voz alta decimos <i>primero, segundo, tercero</i>. ¡Y el último de una fila también tiene su ordinal!</p><p><b>Actividad</b>: escribe la clasificación de una carrera imaginaria con diez corredores usando los ordinales.</p>`,
+      L6.filas("Numerales", [["cardinal", "tres coches", cAZ], ["ordinal", "tercer coche", cVE], ["1.º", "primero", cNA], ["10.º", "décimo", cRO]]), ["wIJnchzAj1k", "Números ordinales para niños  Video de Peques Aprenden Jugando", "Peques Aprenden Jugando", 1309236]],
+    ["Artículos en otras lenguas", `<p>No todas las lenguas tienen los mismos <mark>artículos</mark> que el castellano:</p><ul><li>En <b>inglés</b> solo hay un artículo determinado para todo: <i>the</i>. <i>The cat, the cats, the house</i>. Y los indeterminados son <i>a</i> y <i>an</i>: <i>a dog, an apple</i>.</li><li>En <b>francés</b> hay <i>le, la, les</i>: <i>le chat, la maison, les enfants</i>.</li><li>En <b>catalán</b>: <i>el, la, els, les</i>: <i>el gat, la casa, els nens</i>. Y delante de vocal, <i>l'</i>: <i>l'arbre</i>.</li><li>En <b>italiano</b>: <i>il, la, i, le</i>: <i>il gatto, la pizza</i>.</li><li>En <b>alemán</b> hay tres géneros: <i>der, die, das</i>.</li><li>Y algunas lenguas, como el <b>latín</b> o el <b>chino</b>, ¡no tienen artículos!</li></ul><p>Comparar lenguas nos ayuda a entender mejor la nuestra. Fíjate en que, en todas, el artículo va delante del sustantivo y nos da pistas sobre él.</p><p>Por eso, cuando aprendas palabras en inglés o francés, apréndelas con su artículo: así recordarás mejor cómo se usan.</p>`,
+      H6.rueda("Lenguas", "EL / LA", [["the", cRO], ["le, la", cAZ], ["el, la, l'", cNA], ["il, la", cVE]])],
+    ["Juego de pistas con demostrativos", `<p>¡Vamos a jugar a las <mark>pistas</mark>! Este juego se hace en parejas o en grupos.</p><p><b>Preparación</b>: escondemos varios objetos por la clase: unos cerca de la mesa del profesor, otros en el centro y otros al fondo.</p><p><b>Cómo se juega</b>:</p><ul><li><b>1.</b> Un jugador se queda junto a la pizarra y da pistas usando demostrativos: <i>«Busca aquella goma que está junto a la ventana»</i>, <i>«Coge ese lápiz que tienes al lado»</i>.</li><li><b>2.</b> El compañero tiene que adivinar a qué objeto se refiere, según si la pista dice <i>este</i>, <i>ese</i> o <i>aquel</i>.</li><li><b>3.</b> Si acierta, gana un punto y cambian los papeles.</li></ul><p><b>Variante con artículos</b>: un jugador describe un objeto con el artículo indeterminado («Es <i>un</i> objeto que sirve para borrar») y el otro responde con el determinado («¡Es <i>la</i> goma!»).</p><p>Recuerda: el artículo indeterminado presenta algo nuevo y el determinado habla de algo que ya conocemos.</p>`,
+      H6.flujo("Pistas", ["esconder|objetos", "pista|este o aquel", "buscar|y señalar", "punto|y cambio"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Ahí, hay o ¡ay!? «___ muchos niños en el parque».", ["Indica que existen niños, no un lugar.", "Es el verbo haber."], "Hay."],
+    ["¿Cómo se escribe «tercero» delante de «piso»?", ["Piso es masculino singular.", "Tercero se acorta."], "Tercer piso."],
+  ],
+  errores: ["Confundir ahí, hay y ¡ay!", "Escribir «tú casa» con tilde: el posesivo va sin tilde."],
+  ejercicios: [
+    ["b", "¿Qué artículo lleva «Ebro»?", "El."],
+    ["b", "Di un posesivo.", "Mi, tu, su, nuestro…"],
+    ["b", "¿Qué demostrativo va con «allí»?", "Aquel."],
+    ["b", "¿Cuál es el ordinal de 5?", "Quinto."],
+    ["b", "¿Cuál es el artículo en inglés?", "The."],
+    ["m", "Completa: «___ (yo) mochila es roja».", "Mi."],
+    ["m", "Completa: «Déjalo ___, a tu lado».", "Ahí."],
+    ["m", "¿Cómo se escribe 3.º con letras?", "Tercero."],
+    ["m", "Escribe dos ciudades con artículo.", "Las Palmas, La Coruña, El Escorial…"],
+    ["m", "¿Qué tilde lleva el pronombre «tú»?", "Lleva tilde; el posesivo «tu», no."],
+    ["a", "Escribe la clasificación de una carrera con ordinales.", "Respuesta abierta."],
+    ["a", "Juega a las pistas con demostrativos.", "Respuesta abierta."],
+    ["a", "Escribe cinco palabras con su artículo en inglés y en castellano.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué pastel eligió Sergio para su hermana?", "Aquel de nata."],
+  ],
+  quiz: [
+    ["Lo correcto es…", ["los Pirineos", "Pirineos los", "las Pirineos"], "Geografía."],
+    ["«Nuestra» indica que algo es…", ["de nosotros", "de ti", "de ellos"], "Posesivos."],
+    ["«Ahí» indica…", ["lugar", "dolor", "existencia"], "Lugar."],
+    ["«Segundo» es un numeral…", ["ordinal", "cardinal", "posesivo"], "Numerales."],
+    ["En francés, «la casa» es…", ["la maison", "le maison", "les maison"], "Lenguas."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué la pastelera decía «ese»?", ["porque el pastel estaba cerca de Sergio", "porque era de fresa", "porque estaba lejos de todos"], "Lectura."],
+    ["«Aquel verano» se refiere a…", ["un tiempo lejano", "este año", "mañana"], "Demostrativos."],
+  ],
+  tarjetas: [
+    ["Geografía", "El Ebro, el Mediterráneo, los Pirineos, Las Palmas."],
+    ["Posesivos", "Mi, tu, su, nuestro, vuestro; tu sin tilde."],
+    ["Aquí, ahí, allí", "Este, ese, aquel; no confundir ahí, hay, ¡ay!"],
+    ["Numerales y lenguas", "Cardinales y ordinales; the, le, el, il."],
+  ],
+  glosario: [
+    ["Artículo", "Palabra que va delante del sustantivo."],
+    ["Posesivo", "Palabra que indica de quién es algo."],
+    ["Demostrativo", "Palabra que indica distancia."],
+    ["Aquí", "En este lugar, cerca de mí."],
+    ["Ahí", "En ese lugar, cerca de ti."],
+    ["Allí", "En aquel lugar, lejos de los dos."],
+    ["Numeral", "Palabra que indica cantidad u orden."],
+    ["Cardinal", "Numeral que indica cantidad."],
+    ["Ordinal", "Numeral que indica orden."],
+    ["Cordillera", "Cadena de montañas."],
+    ["Concordar", "Coincidir en género y número."],
+    ["Lengua extranjera", "Lengua de otro país."],
+  ],
+  situacion: {
+    titulo: "El museo de los determinantes",
+    reto: "La clase monta un museo con objetos y carteles que usan artículos, posesivos, demostrativos y numerales.",
+    pasos: ["Etiquetar objetos con su artículo en varias lenguas.", "Escribir carteles con posesivos: nuestra clase, mi mesa.", "Jugar a las pistas con demostrativos.", "Ordenar a los visitantes con ordinales."],
+    producto: "Un museo de la clase con carteles.",
+    evaluacion: ["Usa el artículo en nombres geográficos.", "Escribe bien los posesivos.", "Distingue aquí, ahí y allí.", "Usa numerales."],
+  },
+});
