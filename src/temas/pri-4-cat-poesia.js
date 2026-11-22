@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Educació literària: la poesia; prosa i vers; vers i estrofa; rima consonant i assonant; mesura dels versos (fins a l'última tònica) i sinalefa; apariat, tercet i quarteta; comparació i personificació; recitació i creació de poemes",
   ideas: ["Recital de poemes de la classe amb micròfon i música suau.", "Estenedor d'apariats escrits pels alumnes.", "Caça de personificacions en cançons infantils i anuncis."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Descobrir el vers lliure", "Reconèixer i crear metàfores, repeticions i onomatopeies", "Conèixer poetes catalans que han escrit per a infants", "Escriure cal·ligrames i haikus"],
+  lectura: { titulo: "La poeta del terrat", html: `<p>La Clàudia vivia en un pis amb un <b>terrat</b> ple de testos. Cada tarda hi pujava amb una llibreta i un llapis.</p><p>—Què fas aquí dalt cada dia? —li va preguntar el seu veí, l'Eloi.</p><p>—Caço poemes —va respondre ella.</p><p>L'Eloi no ho entenia. Com es poden caçar poemes?</p><p>—Mira —va dir la Clàudia, assenyalant el cel—. Aquell núvol és <b>un vaixell de cotó</b>. I el vent, que fa ballar els llençols estesos, és <b>un nen entremaliat</b>. I escolta la pluja quan comença: <b>pit, pat, pit, pat</b>…</p><p>L'Eloi va mirar i va escoltar. De sobte, ho va veure: el núvol sí que semblava un vaixell!</p><p>La Clàudia li va ensenyar la llibreta. Hi havia poemes de totes les formes: un tenia forma de gota de pluja; un altre, de tres versos curtíssims, parlava d'una formiga; i n'hi havia un sense cap rima, però que sonava com una cançó.</p><p>—No tots els poemes rimen? —va preguntar l'Eloi.</p><p>—No! El que importa és que diguin les coses d'una manera nova.</p><p>Aquella tarda, l'Eloi va pujar al terrat amb la seva pròpia llibreta. Va mirar una oreneta que volava i va escriure:</p><p><i>L'oreneta és una tisora negra<br>que retalla el cel de la tarda.</i></p><p>La Clàudia el va llegir i va somriure:</p><p>—Benvingut, caçador de poemes.</p>` },
+  tras: {
+    "La rima": [
+      ["El vers lliure", `<p>Fins ara hem vist poemes amb <b>rima</b> i amb versos de la mateixa <b>mesura</b>. Però hi ha molts poemes que no rimen i que tenen versos de mesures diferents. Diem que estan escrits en <mark>vers lliure</mark>.</p><p>Mira aquest exemple:</p><p><i>Al matí,<br>el carrer encara dorm.<br>Només el forner<br>té els llums encesos<br>i l'olor de pa calent<br>desperta les finestres.</i></p><p>No rima i els versos són de mides diferents. Tot i això, és un poema! Per què?</p><ul><li>Està escrit en <b>versos</b>: cada línia acaba on el poeta ha volgut, no on s'acaba el paper.</li><li>Té <b>ritme</b>: les pauses al final dels versos fan que el llegim a poc a poc.</li><li>Fa servir un <b>llenguatge poètic</b>: el carrer <i>dorm</i>, l'olor <i>desperta</i> les finestres. Són personificacions.</li><li>Expressa <b>sentiments</b> i <b>imatges</b>: ens fa veure i olorar un matí tranquil.</li></ul><p>El vers lliure dona molta <b>llibertat</b> per escriure, però no vol dir que tot s'hi valgui. Has de triar molt bé les paraules i decidir on talles cada vers, perquè aquest tall crea una pausa i fa que el lector s'aturi a pensar.</p><p>Prova-ho: agafa una frase que t'agradi i divideix-la en versos curts. Llegeix-la en veu alta: sona diferent?</p>`,
+        H6.dos("Poemes", ["AMB RIMA", ["mateixa mesura", "rima AA o ABAB", "com una cançó"], cAZ], ["VERS LLIURE", ["sense rima", "mesures diferents", "ritme i pauses"], cVE])],
+    ],
+    "El llenguatge poètic: comparació i personificació": [
+      ["Metàfora, repetició i onomatopeia", `<p>A més de la comparació i la personificació, els poetes fan servir altres <mark>recursos</mark>:</p><ul><li>La <b>metàfora</b>: és com una comparació, però <b>sense</b> la paraula <i>com</i>. Diem directament que una cosa <b>és</b> una altra: <i>«El núvol <b>és</b> un vaixell de cotó»</i>, <i>«L'oreneta és una tisora negra»</i>. Compara: <i>Els teus ulls són <b>com</b> estrelles</i> (comparació) / <i>Els teus ulls són estrelles</i> (metàfora).</li><li>La <b>repetició</b>: repetir una paraula o un vers per donar-li força o fer ritme: <i>«Plou, plou, plou, / i la terra beu, beu, beu.»</i></li><li>L'<b>onomatopeia</b>: paraules que imiten sons: <i>pit-pat</i> (pluja), <i>tic-tac</i> (rellotge), <i>nyam-nyam</i> (menjar), <i>xip-xap</i> (aigua), <i>bum!</i> (explosió), <i>quiquiriquic</i> (gall).</li><li>L'<b>exageració</b> o <b>hipèrbole</b>: dir les coses molt més grans del que són: <i>«T'he dit mil milions de vegades…»</i>, <i>«Tinc tanta gana que em menjaria un elefant»</i>.</li></ul><p>Aquests recursos no són exclusius de la poesia: els fem servir sovint quan parlem! Quan dius <i>«Aquest nen és un remolí»</i>, fas una metàfora. I quan dius <i>«Estic mort de cansament»</i>, una exageració.</p><p>Per inventar metàfores, pregunta't: <i>a què s'assembla això?</i> La lluna, per exemple, pot ser una moneda, una galeta, un fanal…</p>`,
+        L6.filas("Recursos", [["metàfora", "el núvol és un vaixell", cAZ], ["repetició", "plou, plou, plou", cVE], ["onomatopeia", "pit-pat, tic-tac", cNA], ["exageració", "mil milions de vegades", cMO]])],
+    ],
+    "Recitar un poema": [
+      ["Poetes per a infants", `<p>Molts <mark>poetes catalans</mark> han escrit poemes pensats per als nens i les nenes. Aquí en tens alguns que val la pena conèixer:</p><ul><li><b>Joana Raspall</b> (1913-2013): va escriure molts llibres de poemes per a infants, plens de natura, jocs i bon humor. Va viure gairebé cent anys!</li><li><b>Miquel Desclot</b>: poeta i traductor, ha escrit llibres de poemes molt divertits que juguen amb les paraules.</li><li><b>Miquel Martí i Pol</b> (1929-2003): poeta de Roda de Ter, va escriure poemes molt estimats, alguns dedicats als infants i a l'escola.</li><li><b>Maria Antònia Salvà</b> (1869-1958): poeta mallorquina que va escriure sobre el camp i la natura de Mallorca.</li><li><b>Vicent Andrés Estellés</b> (1924-1993): el gran poeta valencià, que va escriure sobre la vida de cada dia.</li><li><b>Josep Carner</b> (1884-1970): anomenat «el príncep dels poetes», també va escriure poemes per a infants.</li></ul><p>Moltes escoles organitzen un <b>recital</b> amb poemes d'aquests autors, per exemple per <b>Sant Jordi</b>, el Dia del Llibre.</p><p>Busca a la biblioteca un llibre de poemes d'algun d'aquests autors, tria el poema que més t'agradi i aprèn-te'l de memòria. Recitar un poema és com cantar una cançó sense música: has de trobar el ritme i posar-hi emoció.</p>`,
+        L6.filas("Poetes", [["Joana Raspall", "natura i jocs", cAZ], ["Miquel Desclot", "jocs de paraules", cVE], ["Martí i Pol", "Roda de Ter", cNA], ["M. A. Salvà", "Mallorca", cMO], ["V. A. Estellés", "País Valencià", cRO]])],
+    ],
+  },
+  final: [
+    ["El cal·ligrama", `<p>Un <mark>cal·ligrama</mark> és un poema en què les paraules es col·loquen formant un <b>dibuix</b> relacionat amb el que diu el poema. És com si el poema es pogués mirar a més de llegir!</p><p>Per exemple, un poema sobre la pluja pot tenir els versos escrits de dalt a baix, com si fossin gotes que cauen. Un poema sobre el sol pot tenir les paraules en cercle, amb els versos com si fossin raigs. I un poema sobre un arbre pot tenir el tronc fet amb una columna de paraules i la copa amb versos arrodonits.</p><p>Per fer un cal·ligrama, segueix aquests passos:</p><ol><li>Tria un <b>tema</b> que es pugui dibuixar fàcilment: una poma, un peix, una casa, la lluna, un núvol, una espiral.</li><li>Escriu un <b>poema curt</b> sobre aquest tema. Pot rimar o no.</li><li>Dibuixa en <b>llapis</b> la silueta del dibuix, molt suau.</li><li>Escriu el poema seguint la línia de la silueta o omplint-la per dins.</li><li>Esborra la silueta de llapis i, si vols, repassa les lletres amb colors.</li></ol><p>El poeta francès <b>Guillaume Apollinaire</b> va fer famosos els cal·ligrames fa més de cent anys. A Catalunya, el poeta <b>Joan Salvat-Papasseit</b> també va jugar molt amb la forma dels poemes.</p><p>Els cal·ligrames són perfectes per penjar a la paret de la classe!</p>`,
+      H6.flujo("Cal·ligrama", ["triar|tema", "escriure|poema", "dibuixar|silueta", "escriure|a sobre"], cNA), ["lz1Sh_FJu4s", "Com fer un cal·ligrama", "Arte en el Cole", 243479]],
+    ["L'haiku", `<p>L'<mark>haiku</mark> és un poema molt curt que va néixer al <b>Japó</b> fa més de tres-cents anys. Té només <b>tres versos</b>, i el primer i el tercer són més curts que el del mig. Tradicionalment, tenen <b>cinc, set i cinc</b> síl·labes.</p><p>Les característiques de l'haiku són:</p><ul><li>Parla de la <b>natura</b>: un animal, una flor, la pluja, la lluna, una estació de l'any.</li><li>Capta un <b>moment</b>, com si fos una fotografia: el que veiem o sentim en aquell instant.</li><li>És molt <b>senzill</b>: fa servir poques paraules i gairebé no té adjectius.</li><li>Normalment <b>no rima</b>.</li></ul><p>Mira aquests exemples, escrits per a aquest tema:</p><p><i>Gotes de pluja<br>sobre les fulles verdes.<br>Canta la granota.</i></p><p><i>Lluna de vidre,<br>el gat mira l'estany:<br>dues llunes.</i></p><p>El poeta japonès més famós que va escriure haikus és <b>Matsuo Bashō</b>. El seu haiku més conegut parla d'una granota que salta a un estany antic i fa <i>xap!</i> a l'aigua.</p><p>Per escriure el teu haiku, surt al pati o mira per la finestra. Observa en silenci un minut. Què veus? Què sents? Escriu-ho en tres versos curts, i ja tindràs un haiku!</p>`,
+      L6.filas("Haiku", [["origen", "Japó", cRO], ["versos", "3 (5-7-5)", cAZ], ["tema", "la natura", cVE], ["rima", "normalment no", cNA]]), ["u5Uv3zHRDvM", "Com escriure un haiku", "Groobles Media", 82341]],
+  ],
+  ejemplos: [
+    ["Converteix en metàfora: «La lluna és com una galeta».", ["Una metàfora no fa servir com.", "Diem directament que una cosa és l'altra."], "La lluna és una galeta."],
+    ["Quins recursos hi ha a «Plou, plou, plou, i fa pit-pat a la finestra»?", ["Es repeteix plou: repetició.", "Pit-pat imita el so de la pluja: onomatopeia."], "Repetició i onomatopeia."],
+  ],
+  errores: ["Pensar que tots els poemes han de rimar.", "Confondre la metàfora amb la comparació, que porta com."],
+  ejercicios: [
+    ["b", "Què és un cal·ligrama?", "Un poema que forma un dibuix."],
+    ["b", "Quants versos té un haiku?", "Tres."],
+    ["b", "Escriu dues onomatopeies.", "Per exemple: tic-tac, nyam-nyam."],
+    ["b", "On va néixer l'haiku?", "Al Japó."],
+    ["b", "Escriu el nom d'una poeta catalana per a infants.", "Joana Raspall."],
+    ["m", "És comparació o metàfora: «L'oreneta és una tisora negra»?", "Metàfora."],
+    ["m", "Inventa tres metàfores per a la lluna.", "Resposta oberta."],
+    ["m", "Què vol dir escriure en vers lliure?", "Sense rima i amb versos de mesures diferents."],
+    ["m", "Troba l'exageració: «Tinc tanta gana que em menjaria un elefant».", "Em menjaria un elefant."],
+    ["m", "Quin tema tenen normalment els haikus?", "La natura."],
+    ["a", "Escriu un haiku sobre una estació de l'any.", "Resposta oberta."],
+    ["a", "Fes un cal·ligrama sobre un animal.", "Resposta oberta."],
+    ["a", "Escriu un poema en vers lliure sobre el teu carrer.", "Resposta oberta."],
+    ["a", "Aprèn un poema de Joana Raspall i recita'l.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["Una metàfora…", ["no porta com", "sempre porta com", "només imita sons"], "Recursos."],
+    ["«Tic-tac» és una…", ["onomatopeia", "metàfora", "rima"], "Recursos."],
+    ["El vers lliure…", ["no té per què rimar", "sempre rima", "només té un vers"], "Vers lliure."],
+    ["L'haiku parla sobretot de…", ["la natura", "les màquines", "la història"], "Haiku."],
+    ["Joana Raspall va escriure…", ["poemes per a infants", "notícies", "receptes"], "Poetes."],
+  ],
+  examen: [
+    ["A la lectura, què era el núvol per a la Clàudia?", ["un vaixell de cotó", "una tisora negra", "un nen entremaliat"], "Lectura."],
+    ["Un poema que forma un dibuix és…", ["un cal·ligrama", "un haiku", "una quarteta"], "Cal·ligrama."],
+  ],
+  tarjetas: [
+    ["Vers lliure", "Sense rima ni mesura fixa, però amb ritme i imatges."],
+    ["Recursos", "Metàfora, repetició, onomatopeia, exageració."],
+    ["Poetes", "Joana Raspall, Miquel Desclot, Martí i Pol, Salvà, Estellés."],
+    ["Formes", "Cal·ligrama: poema-dibuix. Haiku: 3 versos sobre la natura."],
+  ],
+  glosario: [
+    ["Vers", "Cada línia d'un poema."],
+    ["Estrofa", "Grup de versos."],
+    ["Rima", "Repetició de sons al final dels versos."],
+    ["Vers lliure", "Vers sense rima ni mesura fixa."],
+    ["Metàfora", "Dir que una cosa és una altra."],
+    ["Comparació", "Relacionar dues coses amb com."],
+    ["Onomatopeia", "Paraula que imita un so."],
+    ["Hipèrbole", "Exageració."],
+    ["Cal·ligrama", "Poema que forma un dibuix."],
+    ["Haiku", "Poema japonès de tres versos."],
+    ["Recital", "Lectura de poemes davant de públic."],
+    ["Poeta", "Persona que escriu poemes."],
+  ],
+  situacion: {
+    titulo: "El tendal de poemes",
+    reto: "La classe penja un tendal de poemes al pati per Sant Jordi.",
+    pasos: ["Cada alumne escriu un haiku, un cal·ligrama o un poema en vers lliure.", "Afegiu-hi almenys una metàfora o una onomatopeia.", "Passeu-los a net en cartolines i decoreu-los.", "Pengeu-los en un fil i organitzeu un petit recital."],
+    producto: "Un tendal de poemes i un recital.",
+    evaluacion: ["Fa servir recursos poètics.", "Respecta la forma triada.", "Presenta el poema amb cura.", "Recita amb ritme i emoció."],
+  },
+});

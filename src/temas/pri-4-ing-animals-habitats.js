@@ -102,3 +102,91 @@ module.exports = tema({
   ideas: ["Ficha de un animal y exposición tipo adivinanza.", "Mural de la clase con los cinco hábitats y animales recortados.", "Conexión con Ciencias de la Naturaleza: ecosistemas y alimentación."],
   fuentes: [["British Council LearnEnglish Kids: word games", "https://learnenglishkids.britishcouncil.org/word-games"], ["Cambridge Dictionary: habitat", "https://dictionary.cambridge.org/dictionary/english/habitat"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Compare animals with bigger, faster, smaller (comparar animales)", "Explain a simple food chain", "Talk about endangered animals and how to protect them", "Describe animal adaptations and nocturnal animals"],
+  lectura: { titulo: "A night at the zoo", html: `<p>Last summer, Martina and her class went on a special trip: a <b>night at the zoo</b>!</p><p>They arrived at eight o'clock in the evening. The keeper, Tom, gave everybody a torch.</p><p>"Most animals are sleeping now," he said. "But some animals are <b>nocturnal</b>. They sleep in the day and they wake up at night."</p><p>First, they saw the <b>owls</b>. They have got very big eyes, so they can see in the dark. Then they saw the <b>bats</b>. They hang upside down and they fly at night to catch insects.</p><p>Next, they visited the <b>polar bear</b>. "Polar bears live in the Arctic," said Tom. "They have got thick white fur and a layer of fat to keep warm. But the ice in the Arctic is melting, so polar bears are in danger."</p><p>"Can we help them?" asked Martina.</p><p>"Yes! We can save energy, use less plastic and recycle. Small actions help big animals."</p><p>At the end of the visit, they saw the <b>red panda</b>. It is <b>smaller</b> than a giant panda, and it has got a long, stripy tail. It was eating bamboo.</p><p>At midnight, the children slept in sleeping bags next to the aquarium. Martina watched the fish swimming in the blue water.</p><p>"This is the best trip ever," she whispered. And she closed her eyes.</p>` },
+  tras: {
+    "Describing animals: body parts": [
+      ["Comparing animals", `<p>To compare two animals, we use <b>comparatives</b> (comparativos) + <b>than</b> (que):</p><ul><li>Short adjectives: add <b>-er</b>: big → <b>bigger</b>, small → <b>smaller</b>, fast → <b>faster</b>, tall → <b>taller</b>, long → <b>longer</b>, slow → <b>slower</b>.<br>«An elephant is <b>bigger than</b> a lion.» «A cheetah is <b>faster than</b> a horse.»</li><li>Adjectives ending in <b>consonant + vowel + consonant</b>: double the last letter: big → bi<b>gg</b>er, fat → fa<b>tt</b>er, thin → thi<b>nn</b>er.</li><li>Adjectives ending in <b>-y</b>: change to <b>-ier</b>: heavy → heav<b>ier</b>, funny → funn<b>ier</b>.</li><li>Long adjectives: use <b>more</b>: dangerous → <b>more dangerous</b>, beautiful → <b>more beautiful</b>.<br>«A shark is <b>more dangerous than</b> a dolphin.»</li></ul><p>Some amazing animal facts to compare:</p><ul><li>The <b>blue whale</b> is the biggest animal in the world. It is bigger than a dinosaur!</li><li>The <b>giraffe</b> is taller than any other animal.</li><li>The <b>cheetah</b> is the fastest land animal.</li><li>A <b>snail</b> is slower than a tortoise. It moves about one metre in an hour!</li><li>An <b>ostrich</b> (avestruz) is heavier than any other bird, but it can't fly.</li></ul><p>Now you: compare your pet or your favourite animal with another animal. Use two or three different adjectives.</p><p>Remember: <b>than</b> (que), not <i>that</i>. «A mouse is smaller <b>than</b> a cat.»</p>`,
+        L6.filas("Comparatives", [["big", "bigger than", cAZ], ["fast", "faster than", cVE], ["heavy", "heavier than", cNA], ["dangerous", "more dangerous", cRO]])],
+    ],
+    "Where does it live? What does it eat?": [
+      ["Food chains", `<p>A <mark>food chain</mark> (cadena alimentaria) shows <b>who eats who</b> in a habitat. Every food chain starts with a <b>plant</b>, because plants make their own food with sunlight.</p><p>Look at this food chain in a meadow:</p><p><b>grass → grasshopper → frog → snake → eagle</b></p><ul><li>The <b>grass</b> is a <b>producer</b> (productor): it makes food from sunlight.</li><li>The <b>grasshopper</b> eats the grass. It is a <b>herbivore</b> (herbívoro).</li><li>The <b>frog</b> eats the grasshopper. It is a <b>carnivore</b> (carnívoro).</li><li>The <b>snake</b> eats the frog.</li><li>The <b>eagle</b> eats the snake. Nothing eats the eagle: it is the <b>top predator</b> (superdepredador).</li></ul><p>The arrows (→) mean <i>«is eaten by»</i> (es comido por).</p><p>Here is a food chain in the ocean: <b>algae → small fish → big fish → shark</b>.</p><p>Some animals eat plants <b>and</b> meat. They are <b>omnivores</b> (omnívoros): bears, pigs, chickens… and people!</p><p>Useful sentences:</p><ul><li>«Frogs <b>eat</b> insects.»</li><li>«Eagles <b>hunt</b> snakes.»</li><li>«A <b>predator</b> hunts other animals. The animal it hunts is the <b>prey</b> (presa).»</li></ul><p>If one animal disappears, the whole chain is in danger. That's why every animal is important!</p>`,
+        H6.flujo("Food chain", ["grass|producer", "grasshopper|herbivore", "frog|carnivore", "eagle|top predator"], cVE), ["YuO4WB4SwCg", "What is a food chain?", "Peekaboo Kidz", 3476160]],
+    ],
+    "Polar regions and grasslands": [
+      ["Endangered animals", `<p>Some animals are <mark>endangered</mark> (en peligro de extinción). This means there are very few of them, and they can disappear forever. When an animal disappears forever, it is <b>extinct</b> (extinguido), like the dinosaurs or the dodo.</p><p>Some endangered animals:</p><ul><li>The <b>polar bear</b>: the Arctic ice is melting because the Earth is getting warmer.</li><li>The <b>tiger</b>: people cut down its forests, and some people hunt it.</li><li>The <b>orangutan</b>: its jungle is disappearing.</li><li>The <b>sea turtle</b>: plastic in the sea is very dangerous for it. It thinks plastic bags are jellyfish!</li><li>The <b>Iberian lynx</b> (lince ibérico): it lives in Spain and Portugal. There were very few, but now there are more thanks to protection programmes. Good news!</li></ul><p>Why are animals in danger?</p><ul><li>People <b>destroy</b> their habitats.</li><li><b>Pollution</b> (contaminación) and plastic.</li><li><b>Climate change</b> (cambio climático).</li><li>Illegal <b>hunting</b> (caza).</li></ul><p>What can we do? We <b>can</b> recycle, use less plastic, save water and energy, and never buy products made from wild animals. We <b>can</b> also visit nature reserves and learn about animals.</p>`,
+        H6.dos("Animals", ["IN DANGER", ["polar bear", "tiger", "sea turtle"], cRO], ["WE CAN", ["recycle", "use less plastic", "save energy"], cVE]), ["7k8CcAU2Lt0", "Endangered animals!", "SciShow Kids", 1822534]],
+    ],
+  },
+  final: [
+    ["Animal adaptations", `<p>Animals have got special body parts and behaviours to survive in their habitat. These are called <mark>adaptations</mark> (adaptaciones).</p><ul><li>The <b>polar bear</b> has got thick white fur and a layer of fat to keep warm. Its white colour helps it to hide in the snow.</li><li>The <b>camel</b> has got a hump (joroba) with fat. It can live for many days without water. It has got long eyelashes to protect its eyes from the sand.</li><li>The <b>giraffe</b> has got a very long neck to eat leaves from tall trees.</li><li>The <b>fish</b> has got gills (branquias) to breathe underwater and fins to swim.</li><li>The <b>chameleon</b> can change colour to hide. This is called <b>camouflage</b> (camuflaje).</li><li>The <b>penguin</b> can't fly, but it is a great swimmer. Its wings are like flippers.</li></ul><p>Some adaptations are about <b>behaviour</b> (comportamiento):</p><ul><li>Some birds <b>migrate</b> (migran): they fly to warmer places in winter.</li><li>Some animals <b>hibernate</b> (hibernan): they sleep all winter. Bears and dormice do this.</li></ul><p>Use <b>has got</b> and <b>can</b> to describe adaptations: «A camel <b>has got</b> a hump. It <b>can</b> live without water for many days.»</p>`,
+      L6.filas("Adaptations", [["polar bear", "thick white fur", cAZ], ["camel", "hump, long eyelashes", cNA], ["giraffe", "long neck", cVE], ["chameleon", "changes colour", cMO]])],
+    ["Day and night animals", `<p>Most animals are active during the day and sleep at night, like us. They are <b>diurnal</b> (diurnos). But some animals do the opposite: they sleep during the day and wake up at night. They are <mark>nocturnal</mark> (nocturnos).</p><p>Nocturnal animals:</p><ul><li>The <b>owl</b> has got big eyes to see in the dark and very good ears. It can turn its head almost all the way round!</li><li>The <b>bat</b> flies at night and catches insects. It uses sounds and echoes to find its way.</li><li>The <b>hedgehog</b> (erizo) looks for worms and snails at night.</li><li>The <b>fox</b> often hunts at night.</li><li>The <b>firefly</b> (luciérnaga) lights up in the dark.</li><li>Many <b>moths</b> (polillas) fly at night.</li></ul><p>Why are some animals nocturnal? At night it is <b>cooler</b> (más fresco), so desert animals stay safe from the heat. It is also <b>darker</b>, so it is easier to hide from predators.</p><p>Useful phrases:</p><ul><li>«Owls <b>sleep during the day</b> and <b>hunt at night</b>.»</li><li>«Is a bat nocturnal? <b>Yes, it is.</b>»</li><li>«Is a horse nocturnal? <b>No, it isn't.</b> It's diurnal.»</li></ul><p>Can you think of a nocturnal animal that lives near your home?</p>`,
+      H6.dos("Day or night?", ["DIURNAL", ["horse", "eagle", "butterfly"], cNA], ["NOCTURNAL", ["owl", "bat", "hedgehog"], cAZ])],
+  ],
+  ejemplos: [
+    ["Compare: a giraffe / a zebra (tall).", ["tall is a short adjective: add -er.", "Use than."], "A giraffe is taller than a zebra."],
+    ["Order the food chain: snake, grass, eagle, mouse.", ["It starts with a plant: grass.", "The mouse eats grass, the snake eats the mouse, the eagle eats the snake."], "grass → mouse → snake → eagle"],
+  ],
+  errores: ["Saying «more big» or «biger»: it's bigger.", "Using that instead of than: «smaller that a cat»."],
+  ejercicios: [
+    ["b", "Complete: An elephant is ___ (big) than a mouse.", "bigger"],
+    ["b", "What does a herbivore eat?", "Plants."],
+    ["b", "Is an owl nocturnal or diurnal?", "Nocturnal."],
+    ["b", "What is camouflage?", "Changing colour or looking like the habitat to hide."],
+    ["b", "Name an endangered animal.", "For example: polar bear, tiger."],
+    ["m", "Complete: A shark is ___ (dangerous) than a dolphin.", "more dangerous"],
+    ["m", "Write the comparative of heavy and thin.", "heavier, thinner"],
+    ["m", "Make a food chain in the ocean.", "For example: algae → small fish → big fish → shark."],
+    ["m", "Why are polar bears in danger?", "Because the Arctic ice is melting."],
+    ["m", "Describe one adaptation of a camel.", "It has got a hump / long eyelashes."],
+    ["a", "Write five sentences comparing animals.", "Open answer."],
+    ["a", "Make a poster to protect an endangered animal.", "Open answer."],
+    ["a", "Describe a nocturnal animal: body, food and habitat.", "Open answer."],
+    ["a", "Invent an animal with special adaptations and describe it.", "Open answer."],
+  ],
+  quiz: [
+    ["A cheetah is ___ than a horse.", ["faster", "more fast", "fastest"], "Comparatives."],
+    ["Every food chain starts with…", ["a plant", "an eagle", "a shark"], "Food chains."],
+    ["Endangered means…", ["en peligro de extinción", "peligroso", "dormido"], "Endangered."],
+    ["A camel has got a ___ with fat.", ["hump", "neck", "fin"], "Adaptations."],
+    ["Nocturnal animals sleep…", ["during the day", "at night", "all winter"], "Day and night."],
+  ],
+  examen: [
+    ["In the reading, what did the keeper give everybody?", ["a torch", "a sleeping bag", "a ticket"], "Reading."],
+    ["Animals that eat plants and meat are…", ["omnivores", "herbivores", "producers"], "Food chains."],
+  ],
+  tarjetas: [
+    ["Comparatives", "bigger than, faster than, more dangerous than."],
+    ["Food chain", "producer → herbivore → carnivore → top predator."],
+    ["Endangered", "Polar bear, tiger, sea turtle: recycle and use less plastic."],
+    ["Adaptations", "Fur, hump, long neck, camouflage; nocturnal animals."],
+  ],
+  glosario: [
+    ["habitat", "hábitat: lugar donde vive un animal"],
+    ["comparative", "comparativo: bigger, faster"],
+    ["than", "que (en comparaciones)"],
+    ["food chain", "cadena alimentaria"],
+    ["producer", "productor (planta)"],
+    ["predator", "depredador"],
+    ["prey", "presa"],
+    ["endangered", "en peligro de extinción"],
+    ["extinct", "extinguido"],
+    ["adaptation", "adaptación"],
+    ["camouflage", "camuflaje"],
+    ["nocturnal", "nocturno"],
+  ],
+  situacion: {
+    titulo: "Save our animals!",
+    reto: "The class makes an exhibition about endangered animals.",
+    pasos: ["In groups, choose an endangered animal.", "Find information: habitat, food, adaptations and why it is in danger.", "Make a poster with a food chain and comparisons.", "Present it in English and say what we can do to help."],
+    producto: "An exhibition of posters about endangered animals.",
+    evaluacion: ["Uses comparatives correctly.", "Explains a food chain.", "Describes adaptations.", "Speaks clearly in English."],
+  },
+});

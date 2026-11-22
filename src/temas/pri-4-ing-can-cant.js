@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Juego «Find someone who…» con tarjetas de habilidades.", "Mímica de verbos de acción por equipos.", "Cartel de un «Talent Show» de la clase en inglés."],
   fuentes: [["British Council LearnEnglish Kids: can / can't", "https://learnenglishkids.britishcouncil.org/grammar-practice/can-cant"], ["Cambridge Dictionary: can", "https://dictionary.cambridge.org/grammar/british-grammar/can"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Use play, ride and do with sports and instruments", "Ask for permission and make requests with can", "Talk about past abilities with could and couldn't", "Join ideas with and and but and describe a superhero"],
+  lectura: { titulo: "Grandpa's superpowers", html: `<p>Ivan's grandpa is seventy-five years old. Ivan thinks he has got <b>superpowers</b>.</p><p>"Grandpa, <b>can</b> you play the guitar?" Ivan asked one day.</p><p>"Yes, I <b>can</b>. I <b>can</b> play the guitar and the harmonica. But I <b>can't</b> play the drums. They're too loud for me!"</p><p>"<b>Could</b> you swim when you were a boy?"</p><p>"Oh, yes! When I was eight, I <b>could</b> swim across the river near my village. But I <b>couldn't</b> ride a bike. We didn't have bikes then."</p><p>Ivan was surprised. He <b>can</b> ride a bike very well, but he <b>can't</b> swim across a river.</p><p>"What other things <b>can</b> you do, Grandpa?"</p><p>"I <b>can</b> cook the best paella in the world. I <b>can</b> tell stories for hours. And I <b>can</b> make a kite with paper and sticks."</p><p>"<b>Can</b> you teach me?" asked Ivan.</p><p>"Of course! <b>Can</b> you bring me some paper and string, please?"</p><p>That afternoon, they made a red and yellow kite. Then they went to the park. The wind was strong and the kite flew very high.</p><p>"See?" said Grandpa. "You don't need superpowers. You just need someone to teach you."</p><p>Ivan smiled. "I think you <b>are</b> a superhero, Grandpa."</p>` },
+  tras: {
+    "Action verbs": [
+      ["Sports, music and games: play, ride, do", `<p>To talk about abilities with sports and music, we need the right verb:</p><ul><li><b>play</b> + ball games: <i>play football, play basketball, play tennis, play volleyball</i>. «I <b>can play</b> basketball.»</li><li><b>play the</b> + instruments: <i>play <b>the</b> guitar, play <b>the</b> piano, play <b>the</b> drums, play <b>the</b> violin</i>. Notice: with instruments we use <b>the</b>. «She <b>can play the</b> piano.»</li><li><b>ride</b> + things with wheels or animals: <i>ride a bike, ride a scooter (patinete), ride a horse, ride a skateboard</i>.</li><li><b>do</b> + some activities: <i>do karate, do gymnastics, do judo, do a puzzle</i>.</li><li><b>go</b> + -ing: <i>go swimming, go skating, go skiing</i>.</li></ul><p>And some more abilities:</p><ul><li><i>speak English / Catalan / French</i></li><li><i>count to a hundred</i></li><li><i>stand on one leg</i></li><li><i>whistle</i> (silbar)</li><li><i>do a cartwheel</i> (hacer la rueda)</li><li><i>touch your toes</i> (tocarte los dedos de los pies)</li></ul><p>Be careful: we say <b>play football</b>, not <i>play the football</i>. But we say <b>play the guitar</b>, not <i>play guitar</i> in British English. Ball games: no <i>the</i>. Instruments: <i>the</i>.</p>`,
+        L6.filas("Which verb?", [["play", "football, tennis", cAZ], ["play the", "guitar, piano", cVE], ["ride", "a bike, a horse", cNA], ["do", "karate, judo", cMO]])],
+    ],
+    "Questions: Can you…?": [
+      ["Can I…? Permission and requests", `<p><b>Can</b> is not only for abilities. We also use it to <mark>ask for permission</mark> (pedir permiso) and to <mark>ask someone to do something</mark> (pedir un favor).</p><p><b>Asking for permission: Can I…?</b></p><ul><li>«<b>Can I</b> go to the toilet, please?»</li><li>«<b>Can I</b> open the window?»</li><li>«<b>Can I</b> borrow your rubber?» (¿Me dejas tu goma?)</li><li>«<b>Can I</b> have some water, please?»</li></ul><p><b>Asking for a favour: Can you…?</b></p><ul><li>«<b>Can you</b> help me, please?»</li><li>«<b>Can you</b> close the door, please?»</li><li>«<b>Can you</b> repeat that, please?»</li><li>«<b>Can you</b> pass me the scissors?»</li></ul><p>How to answer:</p><ul><li><b>Yes:</b> «Yes, of course.» «Sure!» «Yes, here you are.» «No problem.»</li><li><b>No:</b> «Sorry, you can't.» «Not now, sorry.» «I'm sorry, I'm busy.»</li></ul><p>Good manners are very important in English. Always add <b>please</b> at the end of the question, and say <b>thank you</b> when someone helps you. For a more polite question to adults, use <b>could</b>: «<b>Could</b> you help me, please?»</p>`,
+        L6.dialogo("In class", [["Pupil", "Can I open the window, please?", cAZ], ["Teacher", "Yes, of course.", cRO], ["Pupil", "Thank you! Can you help me?", cAZ], ["Teacher", "Sure!", cRO]]), ["avMCZt0PIt8", "Asking for permission: English dialogue", "English Singsing", 636700]],
+    ],
+    "Amazing animals": [
+      ["Could and couldn't: the past", `<p>To talk about abilities in the <b>past</b>, we use <mark>could</mark> (podía, sabía) and <mark>couldn't</mark> (no podía, no sabía). Like <i>can</i>, it is the same for everybody, and the verb after it doesn't change.</p><ul><li>«When I was three, I <b>could</b> walk, but I <b>couldn't</b> read.»</li><li>«When my mum was six, she <b>could</b> swim.»</li><li>«Dinosaurs <b>couldn't</b> fly. But some reptiles <b>could</b> fly, like the pterosaurs.»</li><li>«Fifty years ago, people <b>couldn't</b> send emails.»</li></ul><p><b>Questions</b>: put <b>could</b> first.</p><ul><li>«<b>Could</b> you ride a bike when you were five?» → «Yes, I <b>could</b>.» / «No, I <b>couldn't</b>.»</li></ul><p>Compare <b>now</b> and <b>then</b>:</p><ul><li>«When I was a baby, I <b>couldn't</b> talk. Now I <b>can</b> talk in two languages!»</li><li>«Last year I <b>couldn't</b> do a cartwheel. Now I <b>can</b>.»</li></ul><p>Pronunciation: the <b>l</b> in <i>could</i> is silent: /kʊd/. It sounds like <i>good</i> with a k!</p><p>Animals too! «A baby bird <b>couldn't</b> fly when it was born, but now it <b>can</b>.» «A tadpole (renacuajo) <b>couldn't</b> jump, but a frog <b>can</b>.» Growing up means learning new abilities, for animals and for people.</p><p>Ask your family: what <b>could</b> they do when they were your age? What <b>couldn't</b> they do?</p>`,
+        H6.dos("Then and now", ["WHEN I WAS 3", ["could walk", "couldn't read", "couldn't swim"], cNA], ["NOW", ["can walk", "can read", "can swim"], cVE])],
+    ],
+  },
+  final: [
+    ["Joining ideas: and, but", `<p>To make longer and better sentences, we can join two ideas with <b>and</b> or <b>but</b>:</p><ul><li><mark>and</mark> (y) joins two similar ideas: two things you <b>can</b> do, or two things you <b>can't</b> do.<br>«I can swim <b>and</b> I can dive.»<br>«I can't sing <b>and</b> I can't dance.»</li><li><mark>but</mark> (pero) joins two <b>different</b> or opposite ideas: something you can do and something you can't.<br>«I can swim, <b>but</b> I can't dive.»<br>«Penguins can swim, <b>but</b> they can't fly.»</li></ul><p>Notice: we often write a <b>comma</b> (,) before <i>but</i>.</p><p>We can also make the sentence shorter if the subject is the same:</p><ul><li>«I can sing <b>and</b> dance.» (= I can sing and I can dance.)</li><li>«My sister can read <b>but</b> she can't write.»</li></ul><p>Another useful word is <b>or</b> (o), for questions and negatives:</p><ul><li>«Can you play the piano <b>or</b> the guitar?»</li><li>«I can't ski <b>or</b> skate.»</li></ul><p>When you write about yourself, try to use <i>and</i> and <i>but</i> in every paragraph. Your writing will sound more natural!</p>`,
+      H6.dos("Join ideas", ["AND", ["can + can", "can't + can't", "y"], cAZ], ["BUT", ["can + can't", "opposite ideas", "pero"], cRO]), ["psjd5w125Ac", "Conjunctions and and but", "Periwinkle", 505216]],
+    ["My superhero", `<p>Imagine you can create your own <mark>superhero</mark>. What can he or she do? Here are some ideas for <b>superpowers</b>:</p><ul><li><i>fly</i> (volar) and <i>run very fast</i></li><li><i>become invisible</i> (volverse invisible)</li><li><i>read minds</i> (leer la mente)</li><li><i>talk to animals</i></li><li><i>breathe underwater</i> (respirar bajo el agua)</li><li><i>lift a car</i> (levantar un coche)</li><li><i>stop time</i></li></ul><p>A superhero always has a <b>weakness</b> (debilidad) too: something he or she <b>can't</b> do.</p><p>Read this example:</p><p><i>My superhero is called <b>Captain Wave</b>. She is tall and strong. She has got blue hair and a silver cape. She <b>can</b> breathe underwater <b>and</b> she <b>can</b> talk to fish and dolphins. She <b>can</b> swim faster than a shark! <b>But</b> she <b>can't</b> fly, and she <b>can't</b> stay out of the water for a long time. She cleans plastic from the oceans and helps sea turtles.</i></p><p>To write your profile, include:</p><ol><li>The <b>name</b> of your superhero.</li><li>What he or she <b>looks like</b> (has got…).</li><li>What he or she <b>can</b> do.</li><li>What he or she <b>can't</b> do.</li><li>How he or she <b>helps</b> people or the planet.</li></ol>`,
+      H6.flujo("Superhero profile", ["name|Captain Wave", "looks|has got…", "can|swim, talk", "can't|fly"], cAZ)],
+  ],
+  ejemplos: [
+    ["Join with but: «Ostriches can run fast. They can't fly.»", ["One positive idea and one negative idea.", "Use a comma and but."], "Ostriches can run fast, but they can't fly."],
+    ["Ask for permission politely: you want to use the computer.", ["Permission: Can I…?", "Add please."], "Can I use the computer, please?"],
+  ],
+  errores: ["Adding -s after can: «She cans swim».", "Saying «play the football» or «I could to swim»."],
+  ejercicios: [
+    ["b", "Complete: I can ___ the piano. (play / ride)", "play"],
+    ["b", "Complete: She can ___ a bike.", "ride"],
+    ["b", "Ask for permission to go to the toilet.", "Can I go to the toilet, please?"],
+    ["b", "What is the past of can?", "could"],
+    ["b", "Complete with and or but: I can swim ___ I can't dive.", "but"],
+    ["m", "Write two things you could do when you were five.", "Open answer."],
+    ["m", "Write two things you couldn't do when you were five.", "Open answer."],
+    ["m", "Ask a friend to help you, politely.", "Can you help me, please?"],
+    ["m", "Correct: He cans play the guitar.", "He can play the guitar."],
+    ["m", "Join: Penguins can swim. Penguins can't fly.", "Penguins can swim, but they can't fly."],
+    ["a", "Write a profile of your own superhero.", "Open answer."],
+    ["a", "Interview a grandparent: what could they do as children?", "Open answer."],
+    ["a", "Write five classroom requests with Can I…? and Can you…?", "Open answer."],
+    ["a", "Write a paragraph about your abilities using and and but.", "Open answer."],
+  ],
+  quiz: [
+    ["I can play ___ guitar.", ["the", "a", "—"], "Play the + instrument."],
+    ["___ I open the window, please?", ["Can", "Do", "Am"], "Permission."],
+    ["When I was two, I ___ read.", ["couldn't", "can't", "don't"], "Could."],
+    ["I can sing, ___ I can't dance.", ["but", "and", "or"], "And / but."],
+    ["Which is a superpower?", ["become invisible", "brush your teeth", "go to school"], "Superhero."],
+  ],
+  examen: [
+    ["In the reading, what couldn't Grandpa do as a boy?", ["ride a bike", "swim", "play the guitar"], "Reading."],
+    ["She can ___ a horse.", ["ride", "play", "do"], "Verbs."],
+  ],
+  tarjetas: [
+    ["play / ride / do", "play football, play the guitar, ride a bike, do karate."],
+    ["Can I…? Can you…?", "Permission and requests; add please."],
+    ["Could", "Past ability: I could swim. I couldn't read."],
+    ["and / but", "I can swim and dive. I can swim, but I can't dive."],
+  ],
+  glosario: [
+    ["can", "poder, saber hacer"],
+    ["can't", "no poder, no saber hacer"],
+    ["could", "podía, sabía (pasado)"],
+    ["couldn't", "no podía, no sabía"],
+    ["permission", "permiso"],
+    ["borrow", "pedir prestado"],
+    ["ride", "montar (en bici, a caballo)"],
+    ["whistle", "silbar"],
+    ["superpower", "superpoder"],
+    ["weakness", "debilidad"],
+    ["invisible", "invisible"],
+    ["but", "pero"],
+  ],
+  situacion: {
+    titulo: "Our class talent book",
+    reto: "The class makes a book about everybody's talents, then and now.",
+    pasos: ["Ask your classmates: What can you do? What could you do when you were five?", "Write a page about yourself with can, can't, could and couldn't.", "Use and and but to join your ideas.", "Add a drawing and put all the pages together."],
+    producto: "A class book of talents.",
+    evaluacion: ["Uses can and could correctly.", "Uses play, ride and do.", "Joins ideas with and and but.", "Asks questions politely."],
+  },
+});
