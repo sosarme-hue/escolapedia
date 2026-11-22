@@ -93,3 +93,91 @@ module.exports = P.tema({
   saberes: "Comunicación: describir la localidad, preguntar y dar indicaciones; léxico de lugares, tiendas y transportes; il y a / il n'y a pas de; preposiciones de lugar y contracciones; presente de aller e imperativo",
   ideas: ["Plano gigante del barrio en el suelo de clase para dar indicaciones a un compañero con los ojos tapados.", "Juego de rol: turista y vecino en una ciudad francesa.", "Folleto turístico en francés del pueblo o barrio del colegio."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los monumentos más famosos de París", "Usar los números ordinales para dar indicaciones", "Hablar de formas de moverse sin contaminar", "Comparar la ciudad y el campo y conocer las normas de seguridad vial"],
+  lectura: { titulo: "Perdus à Paris !", html: `<p>Lucas y su hermana Emma están de viaje en París con sus padres. Se separan un momento del grupo y tienen que preguntar el camino. Lee:</p><p><i>— Excusez-moi, madame. Nous sommes perdus. Pour aller à la <b>tour Eiffel</b>, s'il vous plaît ?</i></p><p><i>— Ce n'est pas loin ! Allez tout droit jusqu'à la Seine. Traversez le <b>pont</b>, puis tournez à gauche. Prenez la <b>deuxième</b> rue à droite. La tour Eiffel est en face du jardin.</i></p><p><i>— C'est à combien de minutes ?</i></p><p><i>— À dix minutes à pied. Ou vous pouvez prendre le <b>métro</b>, ligne 6, station Bir-Hakeim.</i></p><p><i>— Merci beaucoup, madame !</i></p><p><i>— De rien. Bonne visite !</i></p><p>Lucas y Emma cruzan el puente sobre el Sena y, al girar la esquina, ven la torre, enorme y de color bronce. Allí, debajo, los esperan sus padres. «¡La próxima vez, no os separéis!», dice su madre. Pero los dos están contentos: ¡han encontrado el camino solos y en francés!</p>` },
+  tras: {
+    "Las tiendas": [
+      ["Paris et ses monuments", `<p>París es la capital de Francia y una de las ciudades más visitadas del mundo. La atraviesa el río <b>la Seine</b> (el Sena), con más de treinta puentes. Sus monumentos más conocidos son:</p><ul><li><b>La tour Eiffel</b>: construida por el ingeniero Gustave Eiffel para la Exposición Universal de 1889. Mide unos 330 metros y es de hierro. Al principio a muchos parisinos no les gustaba; ¡hoy es el símbolo de Francia!</li><li><b>Le Louvre</b>: uno de los museos más grandes del mundo, con una pirámide de cristal en la entrada. Allí está <i>La Joconde</i> (la Mona Lisa).</li><li><b>Notre-Dame</b>: una catedral gótica de más de 800 años. Sufrió un gran incendio en 2019 y volvió a abrir sus puertas en diciembre de 2024 tras su restauración.</li><li><b>L'Arc de Triomphe</b>, al final de la avenida de los <b>Champs-Élysées</b>.</li><li><b>Le Sacré-Cœur</b>, una basílica blanca en lo alto de la colina de <b>Montmartre</b>, el barrio de los pintores.</li></ul><p>Para describirlos puedes usar lo que sabes: <i>La tour Eiffel est très haute. Le Louvre est un musée. Il y a beaucoup de touristes.</i></p>`,
+        L6.filas("Paris", [["la tour Eiffel", "1889, 330 m", cNA], ["le Louvre", "la Joconde", cAZ], ["Notre-Dame", "cathédrale", cMO], ["Montmartre", "le Sacré-Cœur", cRO]]), ["FL9T05a3NYU", "À quoi sert la tour Eiffel ? - 1 jour, 1 question", "1 jour, 1 question", 977491]],
+    ],
+    "Dar indicaciones": [
+      ["Los números ordinales", `<p>Para decir «la primera calle», «el segundo piso» o «el tercer semáforo» necesitas los <b>números ordinales</b>. En francés se forman de manera muy sencilla: se añade <b>-ième</b> al número:</p><ul><li>deux → <b>deuxième</b> (2e), trois → <b>troisième</b> (3e), dix → <b>dixième</b> (10e)</li><li>Si el número termina en -e, se quita la e: quatre → <b>quatrième</b>, onze → <b>onzième</b>.</li><li>Cambios pequeños: cinq → <b>cinquième</b> (se añade u), neuf → <b>neuvième</b> (f se convierte en v).</li><li>El único especial es el primero: <b>premier</b> (masculino) y <b>première</b> (femenino), que se abrevian 1er y 1re.</li></ul><p>Ejemplos en la calle:</p><ul><li><i>Prenez la <b>première</b> rue à gauche.</i> — Coja la primera calle a la izquierda.</li><li><i>J'habite au <b>troisième</b> étage.</i> — Vivo en el tercer piso.</li><li><i>Au <b>deuxième</b> feu, tournez à droite.</i> — En el segundo semáforo, gire a la derecha.</li></ul><p>Fíjate en que en francés la planta baja se llama <b>le rez-de-chaussée</b>, y el primer piso es <i>le premier étage</i>. Los barrios de París también se cuentan así: <i>le 7e arrondissement</i>.</p>`,
+        H6.flujo("Les ordinaux", ["1er|premier", "2e|deuxième", "3e|troisième", "5e|cinquième"], cAZ)],
+    ],
+    "Los medios de transporte": [
+      ["Moverse sin contaminar", `<p>Los coches producen gases que contaminan el aire de las ciudades y contribuyen al cambio climático. Por eso, muchas ciudades francesas animan a sus habitantes a usar <b>la mobilité douce</b> (movilidad suave):</p><ul><li><b>Le vélo</b>: París tiene cientos de kilómetros de carriles bici (<i>les pistes cyclables</i>) y un servicio de bicis compartidas, <b>le Vélib'</b>. Otras ciudades, como Estrasburgo, son famosas por su gran número de ciclistas.</li><li><b>Le tramway</b> (el tranvía): eléctrico y silencioso, ha vuelto a muchas ciudades como Burdeos, Lyon o Niza.</li><li><b>Le métro</b> y <b>le bus</b>: el transporte público lleva a muchas personas a la vez.</li><li><b>Aller à pied</b> (ir a pie): en muchos centros de ciudad hay calles peatonales (<i>les rues piétonnes</i>).</li><li><b>Le covoiturage</b>: compartir el coche con otras personas que van al mismo sitio.</li></ul><p>Para opinar: <i>Je préfère aller à l'école à vélo parce que c'est écologique.</i> <i>Le bus pollue <b>moins que</b> la voiture.</i></p><p>¿Cómo vas tú al colegio? ¿Podrías ir de una forma más ecológica?</p><p>Algunos colegios franceses organizan el <b>pédibus</b>: un grupo de niños va andando al colegio acompañado por padres voluntarios, siguiendo un recorrido fijo con «paradas», como si fuera un autobús, pero a pie.</p>`,
+        H6.dos("En ville", ["Écolo", ["à pied", "à vélo", "en tramway"], cVE], ["Pollue", ["en voiture", "en moto", "en avion"], cRO]), ["QHjVnQ5qPKA", "Comment se déplacer sans polluer ? - 1 jour, 1 question", "1 jour, 1 question", 142236]],
+    ],
+  },
+  final: [
+    ["La ville ou la campagne ?", `<p>¿Prefieres vivir en la ciudad o en el campo (<b>la campagne</b>)? Cada lugar tiene sus ventajas y sus inconvenientes. Para compararlos, usamos <b>plus … que</b>, <b>moins … que</b> y <b>il y a</b>:</p><ul><li><i>En ville, <b>il y a</b> beaucoup de magasins, de cinémas et de musées.</i></li><li><i>À la campagne, <b>il y a</b> des champs, des forêts et des animaux.</i></li><li><i>La ville est <b>plus</b> bruyante <b>que</b> la campagne.</i> (ruidosa)</li><li><i>La campagne est <b>plus</b> calme et <b>moins</b> polluée.</i></li><li><i>En ville, les transports sont <b>plus</b> pratiques.</i></li></ul><p>Para dar tu opinión:</p><ul><li><b>Je préfère</b> la campagne <b>parce que</b> j'adore la nature.</li><li><b>À mon avis</b>, la ville est plus amusante.</li></ul><p>Fíjate en las preposiciones: <b>en</b> ville (en la ciudad), <b>à la</b> campagne (en el campo), <b>à la</b> montagne (en la montaña) y <b>au bord de la mer</b> (en la costa). En Francia, como en España, mucha gente vive en las ciudades, pero muchas familias pasan las vacaciones en el campo o en un pueblo.</p>`,
+      L6.filas("Ville / campagne", [["en ville", "magasins, bruit", cAZ], ["à la campagne", "nature, calme", cVE], ["à la montagne", "neige, forêts", cMO], ["au bord de la mer", "plage", cNA]])],
+    ["Seguridad en la calle", `<p>Para moverte por la ciudad con seguridad es importante conocer las normas y las palabras de la calle:</p><ul><li><b>le trottoir</b> — la acera: es para los peatones (<i>les piétons</i>).</li><li><b>le passage piéton</b> — el paso de peatones: cruza siempre por él.</li><li><b>le feu</b> — el semáforo: <i>le feu est rouge</i> (para), <i>le feu est vert</i> (puedes pasar).</li><li><b>la piste cyclable</b> — el carril bici.</li><li><b>le casque</b> — el casco: en Francia es obligatorio para los menores de 12 años que van en bici.</li></ul><p>Las normas se dan con <b>il faut</b> o con el imperativo:</p><ul><li><i><b>Regarde</b> à gauche et à droite avant de traverser.</i> — Mira a izquierda y derecha antes de cruzar.</li><li><i><b>Attends</b> le feu vert.</i> — Espera al semáforo verde.</li><li><i><b>Mets</b> ton casque à vélo.</i> — Ponte el casco en la bici.</li><li><i><b>Ne traverse pas</b> en courant.</i> — No cruces corriendo.</li></ul><p>Fíjate en que aquí el imperativo va en la forma <b>tu</b> (sin -s en los verbos en -er: <i>regarde</i>), porque se dirige a un niño.</p>`,
+      H6.flujo("Traverser", ["le passage|piéton", "attends|le feu vert", "regarde|à gauche", "traverse|calmement"], cRO)],
+  ],
+  ejemplos: [
+    ["Escribe el ordinal de 4 y de 9.", ["Se quita la e de quatre y se añade -ième.", "En neuf, la f cambia a v."], "quatrième, neuvième."],
+    ["Compara: «El campo es más tranquilo que la ciudad».", ["plus + adjetivo + que.", "calme no cambia."], "La campagne est plus calme que la ville."],
+  ],
+  errores: ["Decir «unième» para el primero: se dice premier o première.", "Decir «dans la campagne»: se dice à la campagne."],
+  ejercicios: [
+    ["b", "Escribe el ordinal de 2, 3 y 10.", "deuxième, troisième, dixième."],
+    ["b", "¿En qué año se construyó la tour Eiffel?", "En 1889."],
+    ["b", "¿Cómo se llama el río de París?", "La Seine."],
+    ["b", "Traduce: el paso de peatones, el semáforo, la acera.", "le passage piéton, le feu, le trottoir."],
+    ["b", "Nombra dos formas de moverse sin contaminar.", "à pied, à vélo (en tramway…)."],
+    ["m", "Completa: Prenez la ___ (1ª) rue, puis la ___ (2ª) à droite.", "première, deuxième."],
+    ["m", "¿Qué indicaciones recibe Lucas para llegar a la torre?", "Todo recto hasta el Sena, cruzar el puente, girar a la izquierda y coger la segunda calle a la derecha."],
+    ["m", "Escribe dos frases comparando la ciudad y el campo.", "Respuesta abierta: La ville est plus bruyante que la campagne…"],
+    ["m", "Escribe tres normas de seguridad vial en imperativo.", "Regarde à gauche et à droite. Attends le feu vert. Mets ton casque."],
+    ["m", "¿Qué es le Vélib' ?", "El servicio de bicis compartidas de París."],
+    ["a", "Prepara un itinerario de un día por París con cuatro monumentos y cómo ir de uno a otro.", "Respuesta abierta."],
+    ["a", "Escribe un texto de opinión: ¿prefieres la ciudad o el campo? Da tres razones.", "Respuesta abierta."],
+    ["a", "Diseña un cartel en francés para animar a ir al colegio sin coche.", "Respuesta abierta."],
+    ["a", "Da indicaciones en francés desde tu clase hasta la salida usando ordinales.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El primero (femenino) es…", ["première", "unième", "premier"], "Ordinales."],
+    ["La Joconde está en…", ["le Louvre", "la tour Eiffel", "Notre-Dame"], "París."],
+    ["«le feu est rouge» significa…", ["hay que parar", "puedes pasar", "hay fuego"], "Seguridad."],
+    ["«à la campagne» significa…", ["en el campo", "en la ciudad", "en la playa"], "Ciudad y campo."],
+    ["Un medio de transporte eléctrico y silencioso es…", ["le tramway", "la voiture", "l'avion"], "Transporte."],
+  ],
+  examen: [
+    ["Lucas y Emma buscan…", ["la tour Eiffel", "le Louvre", "la gare"], "Lectura."],
+    ["El quinto es…", ["cinquième", "cinqième", "cinqueme"], "Ordinales."],
+  ],
+  tarjetas: [
+    ["Paris", "la Seine, la tour Eiffel, le Louvre, Notre-Dame, Montmartre."],
+    ["Les ordinaux", "premier/première, deuxième, troisième, quatrième, cinquième…"],
+    ["Mobilité douce", "à pied, à vélo, en tramway, en bus, covoiturage."],
+    ["La rue", "le trottoir, le passage piéton, le feu, la piste cyclable."],
+  ],
+  glosario: [
+    ["La Seine", "El Sena, el río de París."],
+    ["Le pont", "El puente."],
+    ["Le monument", "El monumento."],
+    ["Premier / première", "Primero / primera."],
+    ["L'étage", "El piso, la planta."],
+    ["Le rez-de-chaussée", "La planta baja."],
+    ["Le tramway", "El tranvía."],
+    ["Polluer", "Contaminar."],
+    ["La campagne", "El campo."],
+    ["Bruyant", "Ruidoso."],
+    ["Le trottoir", "La acera."],
+    ["Le feu", "El semáforo."],
+  ],
+  situacion: {
+    titulo: "Un voyage à Paris",
+    reto: "La clase organiza un viaje imaginario de tres días a París y prepara la guía en francés.",
+    pasos: ["Elegid los monumentos que queréis visitar y situadlos en un plano de París.", "Escribid las indicaciones para ir de uno a otro con ordinales y verbos de dirección.", "Decidid cómo os moveréis de forma ecológica y explicad por qué.", "Representad una escena en la que os perdéis y preguntáis el camino."],
+    producto: "Una guía de viaje a París con plano, itinerario e indicaciones en francés.",
+    evaluacion: ["Pregunta y da indicaciones con ordinales.", "Describe monumentos de París.", "Compara lugares y medios de transporte.", "Conoce y respeta las normas de seguridad vial."],
+  },
+});

@@ -91,3 +91,91 @@ module.exports = P.tema({
   ideas: ["Telèfon espatllat a classe per descobrir el soroll i com es deforma un missatge.", "Caçar a l'escola exemples de comunicació visual, sonora i gestual i fer-ne un mural.", "Representar la mateixa escena amb registre col·loquial i formal."],
   fuentes: [["Comunicació, Viquipèdia en català", "https://ca.wikipedia.org/wiki/Comunicaci%C3%B3"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Saber que els gestos canvien d'una cultura a una altra", "Conèixer on es parla el català i la diversitat de llengües del món", "Comunicar-se de manera respectuosa als missatges i a les xarxes", "Preparar i fer una exposició oral"],
+  lectura: { titulo: "El dia que va marxar la llum", html: `<p>Aquell dimarts, a les sis de la tarda, la llum va marxar a tot el barri. La Júlia era a casa amb el seu germà petit, en Pau.</p><p>—No funciona la tele! —va cridar en Pau.<br>—Ni el wifi! —va dir la Júlia, mirant el mòbil sense cobertura.</p><p>Al principi es van avorrir. Però aleshores la Júlia va tenir una idea: va agafar una llanterna i va començar a fer senyals a la finestra del davant, on vivia la seva amiga Laia. Tres llampades volien dir «hola»; una de llarga, «baixa al replà».</p><p>La Laia va respondre de seguida amb la seva llanterna. Al cap de cinc minuts, els tres eren asseguts a l'escala, explicant-se acudits i inventant un codi secret de cops a la paret.</p><p>Quan va tornar la llum, gairebé els va saber greu.</p><p>—Saps què? —va dir en Pau—. Avui ens hem comunicat més que mai, i sense pantalles.</p><p>La Júlia va somriure. Havia après que per comunicar-se només calen un emissor, un receptor, un missatge… i un codi que tots dos entenguin.</p>` },
+  tras: {
+    "Comunicació no verbal": [
+      ["Els gestos canvien amb la cultura", `<p>Pensem sovint que els gestos són universals, però no és així: <b>un mateix gest pot voler dir coses diferents</b> segons el país. Per això la comunicació no verbal també forma part de la cultura.</p><ul><li>A Bulgària i en algunes zones de Grècia, moure el cap amunt i avall pot voler dir <b>«no»</b>, i moure'l de costat a costat, <b>«sí»</b>: just al revés que nosaltres.</li><li>El gest del <b>polze amunt</b> vol dir «molt bé» per a nosaltres, però en alguns països es considera una ofensa.</li><li>Al Japó, la gent se saluda amb una <b>inclinació</b> del cos en lloc de fer-se petons o donar-se la mà.</li><li>A França es fan petons a les galtes, però el nombre canvia segons la regió; a molts països nòrdics, en canvi, es prefereix la distància.</li><li>També canvia la <b>distància</b> entre les persones quan parlen: en algunes cultures s'acosten molt i en d'altres es mantenen més lluny.</li></ul><p>Quan coneixem persones d'altres cultures, és bo observar i preguntar abans de jutjar. Un gest que ens sembla estrany pot ser molt educat en un altre lloc.</p>`,
+        L6.filas("Un gest, diversos sentits", [["cap amunt i avall", "sí / no", cAZ], ["polze amunt", "bé / ofensa", cRO], ["inclinació", "salutació", cVE], ["petons", "1, 2, 3…", cMO]]), ["JCwyRn40fvk", "Las definiciones de los gestos con las manos en todo el mundo", "ZoneA", 283728]],
+    ],
+    "Llenguatge, llengua i parla": [
+      ["El català i les llengües del món", `<p>Al món es parlen unes <b>7 000 llengües</b>. Algunes tenen centenars de milions de parlants, com el xinès, l'anglès, l'hindi o el castellà, i d'altres només unes poques persones. Moltes estan en perill de desaparèixer.</p><p>El <b>català</b> és una llengua romànica, és a dir, ve del llatí, com el castellà, el francès, l'italià, el portuguès o l'occità. El parlen uns deu milions de persones en territoris de quatre estats:</p><ul><li><b>Espanya</b>: Catalunya, el País Valencià (on també s'anomena valencià), les Illes Balears, la Franja de Ponent (a l'Aragó) i el Carxe (a Múrcia).</li><li><b>Andorra</b>: és l'única llengua oficial del país.</li><li><b>França</b>: la Catalunya del Nord.</li><li><b>Itàlia</b>: la ciutat de l'Alguer, a l'illa de Sardenya.</li></ul><p>Totes aquestes zones formen el <b>domini lingüístic</b> del català. A cada lloc hi ha <b>dialectes</b> diferents (central, nord-occidental, valencià, balear, rossellonès, alguerès), però tots parlem la mateixa llengua.</p><p>Cada llengua és una manera única de veure el món. Per això el 21 de febrer se celebra el <b>Dia Internacional de la Llengua Materna</b>.</p>`,
+        H6.rueda("El domini lingüístic", "CATALÀ", [["Catalunya", cAZ], ["P. Valencià", cRO], ["Illes Balears", cVE], ["Andorra", cNA]])],
+    ],
+    "Escoltar també és comunicar": [
+      ["Comunicar-se a la xarxa", `<p>Avui ens comuniquem molt per mitjà de les pantalles: missatges, xats de grup, videotrucades, correus electrònics. És una comunicació ràpida, però té alguns perills, perquè <b>no veiem la cara</b> de l'altra persona ni sentim el seu to de veu.</p><p>Per això cal seguir unes normes, que s'anomenen <b>netiqueta</b> (l'etiqueta de la xarxa):</p><ul><li><b>Pensa abans d'enviar</b>: un missatge escrit es pot reenviar i guardar. Pregunta't: ho diria també cara a cara?</li><li><b>Escriure en majúscules</b> sembla que cridis. Fes-les servir poc.</li><li>Les <b>emoticones</b> ajuden a mostrar el to (broma, alegria, tristesa), però no les facis servir per riure't de ningú.</li><li>Als xats de grup, <b>no hi escriguis</b> coses que només interessen a una persona, i no hi excloguis ningú.</li><li><b>Respecta la intimitat</b>: no enviïs fotos d'altres persones sense permís.</li><li>Si algú t'insulta o et fa sentir malament, <b>no responguis</b> i explica-ho a un adult de confiança.</li></ul><p>Recorda que darrere de cada pantalla hi ha una persona amb sentiments.</p>`,
+        H6.flujo("Abans d'enviar", ["ho diria|cara a cara?", "és|respectuós?", "hi ha|faltes?", "ara sí:|envia"], cVE)],
+    ],
+  },
+  final: [
+    ["L'exposició oral", `<p>Fer una <b>exposició oral</b> vol dir explicar un tema davant d'un grup, de manera clara i ordenada. Per fer-la bé, segueix aquests passos:</p><ol><li><b>Prepara el tema</b>: busca informació en fonts fiables i tria les idees més importants.</li><li><b>Organitza'l</b> en tres parts: una <b>introducció</b> (saluda, presenta el tema i explica per què és interessant), un <b>desenvolupament</b> (les idees principals, amb exemples) i una <b>conclusió</b> (resumeix i dona les gràcies).</li><li><b>Fes un guió</b> amb paraules clau. No cal aprendre-ho tot de memòria ni llegir un paper.</li><li><b>Prepara un suport visual</b>: un mural, unes diapositives o objectes. Hi ha d'haver poc text i imatges clares.</li><li><b>Assaja</b> davant d'un mirall o de la família, i controla el temps.</li></ol><p>El dia de l'exposició, cuida la <b>comunicació no verbal</b>: mira el públic, parla a poc a poc i amb un volum adequat, no et moguis massa i somriu. És normal estar nerviós: respira fons abans de començar. Al final, convida el públic a fer preguntes.</p>`,
+      H6.flujo("L'exposició", ["inici|presenta", "idees|exemples", "final|resumeix", "torn de|preguntes"], cAZ)],
+    ["Els mitjans de comunicació", `<p>Els <b>mitjans de comunicació</b> són les eines que fem servir per enviar missatges a moltes persones alhora. Per això també s'anomenen <b>mitjans de comunicació de masses</b>:</p><ul><li><b>La premsa</b>: diaris i revistes, en paper o digitals.</li><li><b>La ràdio</b>: només fa servir el so (veu, música i efectes).</li><li><b>La televisió</b>: combina imatge i so.</li><li><b>Internet</b>: webs, blogs, plataformes de vídeo, pòdcasts i xarxes socials. Aquí qualsevol persona pot ser emissora.</li></ul><p>Els mitjans tenen tres funcions principals: <b>informar</b> (les notícies), <b>formar</b> (els documentals i els programes educatius) i <b>entretenir</b> (les sèries, els concursos, els esports). També hi ha la <b>publicitat</b>, que vol convèncer-nos de comprar alguna cosa.</p><p>No tot el que surt als mitjans és cert. Hi ha <b>notícies falses</b> (<i>fake news</i>). Per saber si una informació és fiable, mira qui l'ha escrita, si apareix en altres mitjans seriosos i si té data. Ser un receptor crític també és part d'una bona comunicació.</p>`,
+      L6.filas("Els mitjans", [["premsa", "text i fotos", cAZ], ["ràdio", "només so", cVE], ["televisió", "imatge i so", cRO], ["internet", "tot alhora", cMO]]), ["2Q2U-obKftc", "Les NOTÍCIES per a nens 🎙️📰​ Característiques i elements 📺​ Llengua per a nens", "Smile and Learn - Català", 1717]],
+  ],
+  ejemplos: [
+    ["Identifica el mitjà: «Escoltem la veu del locutor i una cançó, però no veiem res».", ["Només hi ha so.", "No hi ha imatge."], "És la ràdio."],
+    ["Corregeix aquest missatge per a un grup: «QUI HA AGAFAT EL MEU LLAPIS???»", ["Les majúscules semblen crits.", "Cal un to amable."], "«Algú ha vist el meu llapis? Gràcies!»"],
+  ],
+  errores: ["Creure que els gestos volen dir el mateix a tot el món.", "Llegir l'exposició oral d'un paper sense mirar el públic."],
+  ejercicios: [
+    ["b", "Escriu els quatre grans mitjans de comunicació.", "Premsa, ràdio, televisió i internet."],
+    ["b", "On és l'única llengua oficial el català?", "A Andorra."],
+    ["b", "Què és la netiqueta?", "Les normes per comunicar-se amb respecte a la xarxa."],
+    ["b", "Quines són les tres parts d'una exposició oral?", "Introducció, desenvolupament i conclusió."],
+    ["b", "Quantes llengües es parlen al món, aproximadament?", "Unes 7 000."],
+    ["m", "Escriu tres territoris on es parla català fora de Catalunya.", "País Valencià, Illes Balears, Andorra (Catalunya del Nord, l'Alguer, la Franja…)."],
+    ["m", "Explica per què és millor no escriure en majúscules als xats.", "Perquè sembla que cridis."],
+    ["m", "Digues un gest que canvia de sentit segons la cultura.", "Moure el cap per dir sí o no, el polze amunt…"],
+    ["m", "Quines són les tres funcions dels mitjans de comunicació?", "Informar, formar i entretenir."],
+    ["m", "Com van comunicar-se la Júlia i la Laia sense llum? Quin era el codi?", "Amb llanternes: tres llampades volien dir «hola» i una de llarga, «baixa al replà»."],
+    ["a", "Prepara el guió d'una exposició oral de tres minuts sobre un tema que t'agradi.", "Resposta oberta."],
+    ["a", "Inventa un codi secret com el de la lectura i explica'n els elements de la comunicació.", "Resposta oberta."],
+    ["a", "Busca una notícia i comprova si és fiable seguint els tres consells.", "Resposta oberta."],
+    ["a", "Escriu les cinc normes de netiqueta del grup de la teva classe.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["El català és una llengua…", ["romànica", "germànica", "eslava"], "Origen."],
+    ["La ràdio transmet…", ["només so", "imatge i so", "només text"], "Mitjans."],
+    ["Escriure tot en majúscules als xats sembla…", ["que cridis", "que siguis educat", "que facis broma"], "Netiqueta."],
+    ["Al final d'una exposició oral cal…", ["resumir i donar les gràcies", "començar un tema nou", "llegir el guió sencer"], "Exposició."],
+    ["Les notícies falses s'anomenen també…", ["fake news", "netiqueta", "titulars"], "Mitjans."],
+  ],
+  examen: [
+    ["A la lectura, què va fallar?", ["la llum", "el cotxe", "l'aigua"], "Lectura."],
+    ["El Dia Internacional de la Llengua Materna és el…", ["21 de febrer", "23 d'abril", "11 de setembre"], "Llengües."],
+  ],
+  tarjetas: [
+    ["Gestos i cultura", "Un mateix gest pot voler dir coses diferents segons el país."],
+    ["Domini lingüístic", "Catalunya, País Valencià, Illes Balears, Andorra, Franja, Catalunya del Nord, l'Alguer, el Carxe."],
+    ["Netiqueta", "Pensa abans d'enviar, no cridis amb majúscules, respecta la intimitat."],
+    ["Mitjans de comunicació", "Premsa, ràdio, televisió, internet: informar, formar, entretenir."],
+  ],
+  glosario: [
+    ["Cultura", "Conjunt de costums, idees i maneres de fer d'un grup de persones."],
+    ["Llengua romànica", "Llengua que prové del llatí."],
+    ["Domini lingüístic", "Conjunt de territoris on es parla una llengua."],
+    ["Dialecte", "Varietat d'una llengua en una zona."],
+    ["Parlant", "Persona que parla una llengua."],
+    ["Netiqueta", "Normes de bona educació a internet."],
+    ["Emoticona", "Dibuix petit que expressa una emoció en un missatge."],
+    ["Intimitat", "Allò personal que no volem que coneguin els altres."],
+    ["Exposició oral", "Explicació d'un tema davant d'un públic."],
+    ["Guió", "Llista ordenada de les idees que direm."],
+    ["Mitjà de comunicació", "Eina per enviar missatges a moltes persones."],
+    ["Notícia falsa", "Informació inventada que es presenta com a certa."],
+  ],
+  situacion: {
+    titulo: "La ràdio de l'escola",
+    reto: "La classe prepara un programa de ràdio de deu minuts per a tota l'escola.",
+    pasos: ["Repartiu les seccions: notícies de l'escola, una entrevista, una secció de llengües del món i consells de netiqueta.", "Busqueu informació fiable i escriviu els guions de cada secció.", "Assageu com en una exposició oral: veu clara, ritme i volum adequats.", "Enregistreu el programa i escolteu-lo per valorar què ha funcionat."],
+    producto: "Un programa de ràdio enregistrat amb diverses seccions.",
+    evaluacion: ["Organitza la informació en introducció, desenvolupament i conclusió.", "Fa servir la veu i el registre adequats.", "Contrasta la informació abans de difondre-la.", "Valora la diversitat de llengües i cultures."],
+  },
+});

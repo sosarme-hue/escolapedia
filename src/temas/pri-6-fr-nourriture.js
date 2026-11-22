@@ -93,3 +93,91 @@ module.exports = P.tema({
   saberes: "Comunicación: hablar de hábitos alimentarios, expresar gustos y pedir en tiendas y restaurantes; léxico de alimentos, bebidas y comidas; artículos partitivos y su negación; presente de manger y boire; aspectos socioculturales de la gastronomía francesa",
   ideas: ["Menú de la cantina de la semana escrito en francés.", "Role-play en una boulangerie o crêperie con dinero de juguete.", "Desayuno francés en clase con tartines y vocabulario."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Expresar cantidades: un kilo de, une bouteille de, beaucoup de", "Comprar en un mercado y preguntar el precio", "Seguir una receta sencilla en francés", "Conocer la importancia de la comida en la cultura francesa"],
+  lectura: { titulo: "Au marché avec mamie", html: `<p>Camille va al mercado con su abuela el sábado por la mañana. Lee el diálogo con el frutero:</p><p><i>— Bonjour, monsieur !</i><br><i>— Bonjour, madame ! Bonjour, mademoiselle ! Qu'est-ce que vous désirez ?</i><br><i>— Je voudrais <b>un kilo de</b> pommes et <b>une barquette de</b> fraises, s'il vous plaît.</i><br><i>— Voilà. Et avec ça ?</i><br><i>— Vous avez des tomates ?</i><br><i>— Oui, elles sont très bonnes aujourd'hui !</i><br><i>— Alors, <b>500 grammes de</b> tomates, s'il vous plaît. <b>Ça fait combien ?</b></i><br><i>— Ça fait neuf euros cinquante.</i><br><i>— Voilà dix euros.</i><br><i>— Et voilà votre monnaie : cinquante centimes. Merci et bonne journée !</i><br><i>— Merci, au revoir !</i></p><p>Después, Camille y su abuela compran una baguette en la boulangerie y queso en la fromagerie. Por la tarde, preparan juntas <b>des crêpes</b> para la merienda.</p><p>Fíjate: después de una cantidad se usa siempre <b>de</b>, nunca du ni des: <i>un kilo <b>de</b> pommes</i>.</p>` },
+  tras: {
+    "Las comidas del día": [
+      ["Las cantidades", `<p>Para decir cuánto quieres de algo, se usa una palabra de cantidad seguida de <b>de</b> (o <b>d'</b> delante de vocal). ¡Ojo! Tras la cantidad nunca va <i>du, de la</i> ni <i>des</i>:</p><ul><li><b>un kilo de</b> pommes — un kilo de manzanas</li><li><b>500 grammes de</b> fromage — medio kilo de queso</li><li><b>un litre de</b> lait — un litro de leche</li><li><b>une bouteille d'</b>eau — una botella de agua</li><li><b>un paquet de</b> biscuits — un paquete de galletas</li><li><b>une boîte de</b> thon — una lata de atún</li><li><b>un pot de</b> confiture — un tarro de mermelada</li><li><b>une tranche de</b> jambon — una loncha de jamón</li><li><b>un morceau de</b> gâteau — un trozo de pastel</li></ul><p>También hay palabras de cantidad sin número:</p><ul><li><b>beaucoup de</b> (mucho): <i>Je mange beaucoup de fruits.</i></li><li><b>un peu de</b> (un poco de): <i>Un peu de sucre, s'il vous plaît.</i></li><li><b>trop de</b> (demasiado): <i>Il y a trop de sel !</i></li><li><b>assez de</b> (bastante, suficiente): <i>On a assez de pain ?</i></li></ul>`,
+        L6.filas("Les quantités", [["un kilo de", "pommes", cVE], ["une bouteille d'", "eau", cAZ], ["un paquet de", "biscuits", cNA], ["beaucoup de", "fruits", cRO]])],
+    ],
+    "Pedir en un restaurante o una tienda": [
+      ["Au marché: comprar y pagar", `<p>En casi todas las ciudades y pueblos de Francia hay un <b>marché</b> (mercado al aire libre) una o varias veces por semana, con puestos de fruta, verdura, queso, pescado y pan. Estas son las frases para comprar:</p><ul><li>El vendedor pregunta: <b>Qu'est-ce que vous désirez ?</b> o <b>Je vous écoute.</b> (¿Qué desea?)</li><li>Tú pides: <b>Je voudrais…</b> / <b>Il me faut…</b> (necesito).</li><li>Para preguntar si tienen algo: <b>Vous avez des cerises ?</b></li><li>El vendedor: <b>Et avec ça ?</b> (¿Algo más?) — Tú: <b>C'est tout, merci.</b> (Eso es todo.)</li><li>Para preguntar el precio: <b>C'est combien ?</b> / <b>Ça coûte combien ?</b> / <b>Ça fait combien ?</b> (al final).</li></ul><p>Los precios se dicen así: <i>2,50 €</i> = <b>deux euros cinquante</b>. Fíjate en que en francés, como en español, los decimales se escriben con <b>coma</b>. Los céntimos se llaman <b>centimes</b>.</p><p>Al pagar te pueden devolver <b>la monnaie</b> (el cambio). Y recuerda: siempre <i>Bonjour</i> al llegar y <i>Merci, bonne journée</i> al irte.</p>`,
+        H6.flujo("Au marché", ["Bonjour !|", "Je voudrais|un kilo de…", "C'est|combien ?", "Merci,|au revoir !"], cVE), ["Mb_T3Ewz1Ng", "Acheter des fruits et des légumes au marché-Dialogue simulé-Delf A1 - 📢English subtitles available!", "La prof Elisabeth", 106820]],
+    ],
+    "Platos típicos franceses": [
+      ["El pan y el queso: un patrimonio", `<p>Para los franceses, comer es mucho más que alimentarse: es un momento para compartir. Por eso, en 2010 la UNESCO declaró <b>la comida gastronómica de los franceses</b> (<i>le repas gastronomique des Français</i>) patrimonio cultural inmaterial de la humanidad. Esa comida especial tiene un orden: aperitivo, entrante, plato principal, queso y postre.</p><p>En 2022, la UNESCO también reconoció <b>el saber hacer de la baguette</b>. En Francia hay unas 33 000 panaderías y se venden millones de baguettes cada día. Una baguette tradicional solo lleva harina, agua, sal y levadura. Muchos franceses la compran recién hecha cada mañana y la llevan bajo el brazo.</p><p>El otro gran símbolo es <b>le fromage</b>: Francia produce cientos de quesos diferentes, de vaca, de cabra y de oveja. Algunos muy conocidos son el <i>camembert</i>, el <i>brie</i>, el <i>roquefort</i> (con moho azul) y el <i>comté</i>. En muchas casas se toma queso con pan antes del postre.</p><p>Al general De Gaulle se le atribuye esta frase famosa: «¿Cómo gobernar un país que tiene 246 variedades de queso?».</p>`,
+        H6.dos("Symboles", ["LE PAIN", ["la baguette", "le croissant", "la boulangerie"], cNA], ["LE FROMAGE", ["le camembert", "le brie", "le comté"], cAZ]), ["7qb09Lqepws", "Gastronomie : la baguette française entre au patrimoine immatériel de l'humanité • FRANCE 24", "FRANCE 24", 11781]],
+    ],
+  },
+  final: [
+    ["Une recette: les crêpes", `<p>Las recetas se escriben con verbos en <b>imperativo</b>, en la forma <i>vous</i> (terminados en -ez), igual que las instrucciones de clase. Vamos a preparar crêpes, el postre más popular de Bretaña.</p><p><b>Les ingrédients</b> (para unas 10 crêpes): <i>250 grammes de farine</i> (harina), <i>4 œufs</i> (huevos), <i>un demi-litre de lait</i>, <i>une pincée de sel</i> (una pizca de sal), <i>deux cuillères de sucre</i> (cucharadas de azúcar) y <i>50 grammes de beurre fondu</i> (mantequilla derretida).</p><p><b>La préparation</b>:</p><ol><li><b>Mettez</b> la farine, le sucre et le sel dans un saladier. — Poned la harina, el azúcar y la sal en un bol.</li><li><b>Ajoutez</b> les œufs et <b>mélangez</b>. — Añadid los huevos y mezclad.</li><li><b>Versez</b> le lait petit à petit. — Echad la leche poco a poco.</li><li><b>Ajoutez</b> le beurre fondu. <b>Laissez reposer</b> une heure. — Dejad reposar una hora.</li><li><b>Faites cuire</b> les crêpes dans une poêle chaude. — Cocinad las crêpes en una sartén caliente.</li></ol><p>Se comen con azúcar, chocolate, mermelada o fruta. ¡Y pide siempre ayuda a un adulto para usar el fuego!</p>`,
+      H6.flujo("Les crêpes", ["mettez|la farine", "ajoutez|les œufs", "versez|le lait", "faites|cuire"], cNA)],
+    ["Comer sano", `<p>Para estar sano hay que tener <b>une alimentation équilibrée</b> (una alimentación equilibrada). En Francia, el lema oficial de las campañas de salud es <i>Mangez au moins cinq fruits et légumes par jour</i> (comed al menos cinco frutas y verduras al día).</p><p>Algunos consejos en francés:</p><ul><li><i>Il faut manger <b>des fruits et des légumes</b> tous les jours.</i> (Hay que…)</li><li><i>Il faut boire <b>beaucoup d'eau</b>.</i></li><li><i>Il ne faut pas manger <b>trop de sucre</b> ni <b>trop de sel</b>.</i> (No hay que…)</li><li><i>Il faut prendre un bon <b>petit-déjeuner</b>.</i></li><li><i>Il ne faut pas grignoter</i> (picar) entre les repas.</li></ul><p>La expresión <b>il faut</b> + infinitivo significa «hay que» y es muy útil para dar consejos. En negativo: <b>il ne faut pas</b>.</p><p>Comer sano también significa comer despacio, en familia y sin pantallas, y probar alimentos nuevos. Los franceses dedican de media más tiempo a comer que casi cualquier otro país de Europa.</p>`,
+      L6.filas("Il faut…", [["il faut", "5 fruits et légumes", cVE], ["il faut", "boire de l'eau", cAZ], ["il ne faut pas", "trop de sucre", cRO], ["il ne faut pas", "grignoter", cNA]])],
+  ],
+  ejemplos: [
+    ["Pide medio kilo de fresas en el mercado.", ["Cantidad + de.", "Fórmula educada: je voudrais."], "Je voudrais 500 grammes de fraises, s'il vous plaît."],
+    ["Escribe en letra el precio 3,20 €.", ["Euros: trois euros.", "Céntimos: vingt."], "trois euros vingt."],
+  ],
+  errores: ["Decir «un kilo des pommes»: tras una cantidad se usa de.", "Escribir «beaucoup du pain»: con beaucoup se usa de, beaucoup de pain."],
+  ejercicios: [
+    ["b", "Traduce: una botella de agua, un paquete de galletas.", "une bouteille d'eau, un paquet de biscuits."],
+    ["b", "¿Cómo se pregunta el precio?", "C'est combien ? / Ça coûte combien ?"],
+    ["b", "¿Qué alimento francés reconoció la UNESCO en 2022?", "El saber hacer de la baguette."],
+    ["b", "Nombra tres quesos franceses.", "camembert, brie, roquefort (comté)."],
+    ["b", "¿Qué significa «Et avec ça ?»?", "¿Algo más?"],
+    ["m", "Completa: Je mange beaucoup ___ légumes et un peu ___ chocolat.", "de, de."],
+    ["m", "Escribe en letra: 1,50 €, 4,75 €.", "un euro cinquante, quatre euros soixante-quinze."],
+    ["m", "Escribe tres consejos con il faut / il ne faut pas.", "Il faut boire de l'eau. Il faut manger des fruits. Il ne faut pas manger trop de sucre."],
+    ["m", "Ordena los pasos de la receta de crêpes.", "mettre la farine, ajouter les œufs, verser le lait, laisser reposer, faire cuire."],
+    ["m", "¿Cuánto paga la abuela de Camille y cuánto le devuelven?", "Paga 10 € y le devuelven 50 céntimos."],
+    ["a", "Representa con un compañero un diálogo en el mercado con tres productos y su precio.", "Respuesta abierta."],
+    ["a", "Escribe la lista de la compra en francés para una merienda de clase, con cantidades.", "Respuesta abierta."],
+    ["a", "Escribe en francés la receta de un plato fácil que sepas hacer.", "Respuesta abierta."],
+    ["a", "Compara la comida gastronómica francesa con una comida de fiesta en tu casa.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«un litre ___ lait»", ["de", "du", "des"], "Cantidades."],
+    ["«Ça fait combien ?» se dice…", ["al pagar", "al saludar", "al despedirse"], "Mercado."],
+    ["«Ajoutez les œufs» significa…", ["Añadid los huevos", "Batid los huevos", "Comprad huevos"], "Receta."],
+    ["«Il faut boire de l'eau» significa…", ["Hay que beber agua", "No bebo agua", "Quiero agua"], "Il faut."],
+    ["El cambio que te devuelven es…", ["la monnaie", "le centime", "la carte"], "Pagar."],
+  ],
+  examen: [
+    ["Camille compra fresas…", ["en una barquette", "por kilos", "en una botella"], "Lectura."],
+    ["«trop de sel» es…", ["demasiada sal", "poca sal", "nada de sal"], "Cantidades."],
+  ],
+  tarjetas: [
+    ["Les quantités", "un kilo de, une bouteille de, un paquet de, beaucoup de + nombre."],
+    ["Au marché", "Je voudrais… Et avec ça ? C'est tout. C'est combien ?"],
+    ["Une recette", "mettez, ajoutez, mélangez, versez, faites cuire."],
+    ["Il faut", "Hay que + infinitivo. Il ne faut pas: no hay que."],
+  ],
+  glosario: [
+    ["Le marché", "El mercado."],
+    ["Un kilo de", "Un kilo de."],
+    ["Une bouteille", "Una botella."],
+    ["Beaucoup de", "Mucho, muchos."],
+    ["Trop de", "Demasiado."],
+    ["Combien ?", "¿Cuánto?"],
+    ["La monnaie", "El cambio, las monedas."],
+    ["La farine", "La harina."],
+    ["Les œufs", "Los huevos."],
+    ["Mélanger", "Mezclar."],
+    ["Il faut", "Hay que."],
+    ["Grignoter", "Picar entre horas."],
+  ],
+  situacion: {
+    titulo: "Le marché de la classe",
+    reto: "La clase monta un mercado francés de mentira y prepara un recetario saludable.",
+    pasos: ["Organizad puestos (fruta, pan, queso…) con productos dibujados y precios en euros.", "Por turnos, unos venden y otros compran usando las cantidades y las fórmulas de cortesía.", "Cada grupo escribe una receta sencilla con imperativos y la lista de ingredientes.", "Reunid las recetas en un libro con consejos de il faut para comer sano."],
+    producto: "Un mercado simulado y un recetario saludable en francés.",
+    evaluacion: ["Usa cantidades con de.", "Compra, pregunta precios y paga con cortesía.", "Escribe instrucciones en imperativo.", "Da consejos de alimentación saludable."],
+  },
+});
