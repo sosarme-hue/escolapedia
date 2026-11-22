@@ -117,3 +117,91 @@ module.exports = tema({
   ideas: ["Concurso de fotos del colegio con la regla de los tercios.", "Stop motion de 10 segundos con plastilina por grupos.", "Cine-fórum con un cortometraje y análisis de planos."],
   fuentes: [["Filmoteca Española", "https://www.cultura.gob.es/cultura/areas/cine/mc/fe/portada.html"], ["Real Academia Española: fotografía", "https://dle.rae.es/fotograf%C3%ADa"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Comprender cómo funciona una cámara: diafragma, obturador e ISO", "Conocer a Méliès, Segundo de Chomón y los pioneros del cine", "Identificar los oficios del cine y grandes fotógrafos", "Usar la fotografía de forma respetuosa en internet"],
+  lectura: { titulo: "La foto que no salió", html: `<p>En la final del campeonato de atletismo del colegio, Hugo tenía una misión: hacer la foto de la llegada de su hermana Alba en los 100 metros.</p><p>Se colocó junto a la meta con el móvil preparado. Alba cruzó la línea la primera, con los brazos en alto. Hugo pulsó el botón. Pero cuando miró la pantalla, solo vio una mancha borrosa de colores.</p><p>—¡No puede ser! —se lamentó.</p><p>Su tío Javier, que era fotógrafo de deportes, le pidió el móvil.</p><p>—Estaba nublado y había poca luz —le explicó—. El móvil ha dejado el obturador abierto más tiempo para captar luz, y tu hermana iba tan deprisa que ha salido movida.</p><p>Le enseñó el modo profesional de la cámara: cómo poner una velocidad más rápida, subir la sensibilidad y enfocar antes en la línea de meta.</p><p>En la carrera de relevos, Hugo lo intentó otra vez. Clic. En la pantalla apareció Alba congelada en el aire, con el testigo en la mano y una expresión de esfuerzo increíble.</p><p>—Esa sí que es una foto —dijo el tío Javier.</p><p>La foto acabó colgada en el pasillo del colegio. Debajo, Hugo escribió: «Velocidad: 1/1000».</p>` },
+  tras: {
+    "Escribir con la luz": [
+      ["Cómo funciona una cámara", `<p>Todas las cámaras, desde la más antigua hasta la del móvil, controlan <b>cuánta luz</b> entra y <b>durante cuánto tiempo</b>. Tres ajustes deciden cómo saldrá la foto; juntos forman el llamado <b>triángulo de exposición</b>:</p><ul><li><b>El diafragma</b> (apertura): es un agujero en el objetivo que se abre o se cierra, como la <b>pupila</b> del ojo. Muy abierto deja entrar mucha luz y deja el <b>fondo desenfocado</b>, ideal para retratos. Más cerrado consigue que todo salga nítido, ideal para paisajes.</li><li><b>El obturador</b> (velocidad): es una cortinilla que se abre durante un tiempo. Una velocidad <b>rápida</b> (1/1000 de segundo) <b>congela</b> el movimiento: una gota, un salto. Una velocidad <b>lenta</b> (1 segundo) deja <b>estelas</b>: los faros de los coches de noche se convierten en líneas de luz.</li><li><b>La sensibilidad (ISO)</b>: indica cuánto «amplifica» el sensor la luz. Un ISO alto permite fotografiar con poca luz, pero la imagen sale con <b>ruido</b> (puntitos).</li></ul><p>Además, la cámara tiene que <b>enfocar</b>: ajustar el objetivo para que el sujeto principal se vea nítido.</p><p>Los móviles hacen estos cálculos automáticamente, pero muchos tienen un <b>modo manual</b> o profesional con el que puedes experimentar.</p>`,
+        L6.filas("Triángulo de exposición", [["diafragma", "luz y desenfoque", cAZ], ["obturador", "congelar o estela", cRO], ["ISO", "sensibilidad", cNA], ["enfoque", "nitidez", cVE]]), ["qQMridBZFpA", "Explicado fácil (Iso, Velocidad de obturación y Apertura) | Ejemplos", "Luis Araujo", 1491353]],
+    ],
+    "El nacimiento del cine": [
+      ["Magos del cine: Méliès y Segundo de Chomón", `<p>Los hermanos Lumière filmaban la realidad. Pero muy pronto otros cineastas descubrieron que el cine también podía mostrar <b>lo imposible</b>.</p><p>El francés <b>Georges Méliès</b> era mago antes que cineasta. Un día, según se cuenta, su cámara se atascó mientras filmaba una calle; al proyectar la película, ¡un autobús se convertía de repente en un coche fúnebre! Así descubrió el <b>truco de sustitución</b>: parar la cámara, cambiar algo y seguir filmando. En 1902 rodó <i>Viaje a la Luna</i>, en la que una cápsula se clava en el ojo de una Luna con cara. Usó decorados pintados, maquetas y sobreimpresiones: fue el padre de los <b>efectos especiales</b>.</p><p>En España tuvimos a un genio parecido: <b>Segundo de Chomón</b> (1871-1929), nacido en Teruel. Trabajó en Barcelona, París y Turín, y fue un maestro de los trucos: hizo que los objetos se movieran solos fotograma a fotograma, una de las primeras formas de animación (como en <i>El hotel eléctrico</i>, de 1908), y coloreaba las películas a mano con plantillas.</p><p>Años después, en 1929, <b>Luis Buñuel</b> y <b>Salvador Dalí</b> rodaron <i>Un perro andaluz</i>, una película surrealista llena de imágenes de sueño.</p>`,
+        H6.dos("Dos pioneros", ["MÉLIÈS", ["Francia", "Viaje a la Luna", "sustitución"], cMO], ["CHOMÓN", ["Teruel", "objetos animados", "color a mano"], cNA]), ["gJqRxMQZvZw", "Segundo de Chomón | Reportajes TCM | TCM", "TCM España", 10611]],
+    ],
+    "El lenguaje del cine": [
+      ["Los oficios del cine", `<p>Al final de una película aparecen los <b>créditos</b>: una larga lista de nombres. Hacer cine es un trabajo de equipo en el que participan cientos de personas:</p><ul><li><b>Guionista</b>: escribe la historia, los diálogos y lo que ocurre en cada escena.</li><li><b>Director o directora</b>: decide cómo se cuenta la historia: qué planos, cómo actúan los intérpretes, qué ritmo tiene. Es quien coordina a todo el equipo.</li><li><b>Productor</b>: consigue el dinero y organiza el rodaje.</li><li><b>Director de fotografía</b>: se encarga de la luz y de la cámara.</li><li><b>Director de arte</b>, <b>vestuario</b>, <b>maquillaje</b> y <b>peluquería</b>: crean el aspecto de los lugares y los personajes.</li><li><b>Actores y actrices</b>: dan vida a los personajes.</li><li><b>Montador</b>: une los planos en el orden adecuado. El montaje decide el ritmo y puede cambiar por completo el sentido de una escena.</li><li><b>Sonido, música y efectos visuales</b>: completan la película en la posproducción.</li></ul><p>En España, la Academia de Cine entrega cada año los <b>Premios Goya</b>, desde 1987, para reconocer el trabajo de todos estos oficios. La estatuilla es un busto del pintor Francisco de Goya.</p>`,
+        H6.flujo("Hacer una película", ["guion|historia", "rodaje|cámara", "montaje|ritmo", "estreno|público"], cAZ)],
+    ],
+  },
+  final: [
+    ["Grandes fotógrafos", `<p>Algunas fotografías han cambiado la manera de ver el mundo:</p><ul><li><b>Robert Capa</b>: fotógrafo húngaro que cubrió la Guerra Civil española, donde tomó en 1936 una de las imágenes de guerra más famosas de la historia, un miliciano en el momento de caer. Fue uno de los fundadores de la agencia <b>Magnum</b>. Su compañera, <b>Gerda Taro</b>, también fotógrafa, murió en 1937 en la batalla de Brunete mientras hacía su trabajo.</li><li><b>Dorothea Lange</b>: retrató en 1936 a una madre con sus hijos en un campamento de trabajadores pobres de Estados Unidos. <i>Madre migrante</i> se convirtió en el símbolo de la Gran Depresión.</li><li><b>Ansel Adams</b>: fotografió en blanco y negro los paisajes de los parques nacionales de Estados Unidos, con un control extraordinario de las luces y las sombras.</li><li><b>Cristina García Rodero</b> (Puertollano, 1949): recorrió durante años los pueblos de España fotografiando fiestas, ritos y tradiciones en su libro <i>España oculta</i>. Fue la primera fotógrafa española en entrar en la agencia Magnum.</li></ul><p>El <b>fotoperiodismo</b> cuenta la realidad con imágenes. Su compromiso es mostrar la verdad: por eso no se permite manipular las fotos de prensa.</p>`,
+      L6.filas("Fotógrafos", [["Robert Capa", "guerra", cRO], ["D. Lange", "Madre migrante", cMO], ["Ansel Adams", "paisajes", cVE], ["G. Rodero", "España oculta", cNA]])],
+    ["Fotos y redes: derechos y respeto", `<p>Hoy hacemos y compartimos más fotos que nunca. Por eso conviene conocer algunas normas:</p><ul><li><b>Derecho a la propia imagen</b>: cada persona decide si se publica su foto. Antes de subir una foto en la que salga otra persona, <b>pide permiso</b>. Con menores, deciden también sus familias.</li><li><b>Privacidad</b>: las fotos pueden revelar dónde vives o dónde está tu colegio (el uniforme, la fachada, el nombre de la calle). Muchas fotos guardan además la <b>ubicación</b> en sus datos ocultos (metadatos). Revisa la configuración y no publiques información personal.</li><li><b>Lo que se sube se queda</b>: aunque borres una foto, alguien puede haberla guardado o reenviado. Piensa antes de publicar.</li><li><b>Derechos de autor</b>: las fotos de internet tienen autor. Para usarlas en un trabajo, busca imágenes con licencia libre y cita la fuente.</li><li><b>Nunca</b> compartas fotos que puedan avergonzar o hacer daño a alguien: eso es una forma de acoso.</li></ul><p>Una buena pregunta antes de compartir: «¿Me gustaría que publicaran esta foto si fuera yo?».</p>`,
+      H6.rueda("Antes de publicar", "PIENSA", [["permiso", cAZ], ["privacidad", cVE], ["autoría", cNA], ["respeto", cRO]])],
+  ],
+  ejemplos: [
+    ["Quieres fotografiar una gota de agua en el aire. ¿Qué velocidad de obturación usas?", ["Hay que congelar un movimiento muy rápido.", "Velocidad muy alta."], "Muy rápida, por ejemplo 1/1000 de segundo."],
+    ["Una película muestra un coche que se convierte de repente en caballo. ¿Qué truco de Méliès se usó?", ["Se para la cámara y se cambia el objeto.", "Truco de sustitución."], "El truco de sustitución."],
+  ],
+  errores: ["Pensar que un ISO alto no tiene ningún inconveniente.", "Creer que se puede publicar la foto de otra persona sin su permiso."],
+  ejercicios: [
+    ["b", "¿Qué controla el diafragma?", "La cantidad de luz que entra."],
+    ["b", "¿Qué hace una velocidad de obturación rápida?", "Congela el movimiento."],
+    ["b", "¿Quién rodó Viaje a la Luna?", "Georges Méliès."],
+    ["b", "¿De dónde era Segundo de Chomón?", "De Teruel."],
+    ["b", "¿Qué hace el montador?", "Une los planos en orden y marca el ritmo."],
+    ["m", "Explica qué es el triángulo de exposición.", "Diafragma, obturador e ISO, que juntos controlan la luz."],
+    ["m", "¿Cómo conseguirías un fondo desenfocado en un retrato?", "Abriendo mucho el diafragma."],
+    ["m", "¿Qué aportó Chomón al cine?", "Trucos, animación de objetos y color a mano."],
+    ["m", "¿Qué es el fotoperiodismo?", "Contar la realidad con fotografías de prensa."],
+    ["m", "Escribe tres normas antes de publicar una foto.", "Pedir permiso, cuidar la privacidad, respetar la autoría."],
+    ["a", "Haz dos fotos de un objeto en movimiento: una congelada y otra con estela.", "Respuesta abierta."],
+    ["a", "Graba un truco de sustitución con el móvil.", "Respuesta abierta."],
+    ["a", "Escribe los créditos de un corto de tu clase con los oficios del cine.", "Respuesta abierta."],
+    ["a", "Crea una serie de fotos sobre una tradición de tu localidad.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El diafragma funciona como…", ["la pupila", "el párpado", "la oreja"], "Cámara."],
+    ["Un ISO muy alto produce…", ["ruido", "más nitidez", "colores más vivos"], "Cámara."],
+    ["Un perro andaluz es de…", ["Buñuel y Dalí", "Méliès", "los Lumière"], "Pioneros."],
+    ["Los Premios Goya se entregan desde…", ["1987", "1895", "2010"], "Oficios."],
+    ["Cristina García Rodero publicó…", ["España oculta", "Madre migrante", "Maus"], "Fotógrafos."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué salió movida la primera foto?", ["el obturador estuvo abierto demasiado tiempo", "la cámara estaba rota", "había demasiada luz"], "Lectura."],
+    ["Los metadatos de una foto pueden revelar…", ["la ubicación", "el color favorito", "la edad"], "Redes."],
+  ],
+  tarjetas: [
+    ["Cámara", "Diafragma (luz, desenfoque), obturador (movimiento), ISO (sensibilidad)."],
+    ["Pioneros", "Méliès (Viaje a la Luna), Chomón (Teruel), Buñuel y Dalí."],
+    ["Oficios del cine", "Guion, dirección, fotografía, arte, montaje, sonido; Goya."],
+    ["Fotografía", "Capa, Lange, Adams, García Rodero; permiso y privacidad."],
+  ],
+  glosario: [
+    ["Diafragma", "Abertura que regula la luz que entra en la cámara."],
+    ["Obturador", "Mecanismo que deja pasar la luz durante un tiempo."],
+    ["ISO", "Sensibilidad del sensor a la luz."],
+    ["Desenfoque", "Zona de la imagen que no se ve nítida."],
+    ["Truco de sustitución", "Parar la cámara, cambiar algo y seguir filmando."],
+    ["Efectos especiales", "Técnicas para mostrar lo imposible en el cine."],
+    ["Créditos", "Lista de personas que hicieron la película."],
+    ["Montaje", "Unión ordenada de los planos de una película."],
+    ["Posproducción", "Trabajo que se hace tras el rodaje."],
+    ["Fotoperiodismo", "Periodismo contado con fotografías."],
+    ["Derecho a la propia imagen", "Derecho a decidir si se publica tu imagen."],
+    ["Metadatos", "Datos ocultos de un archivo, como la fecha o la ubicación."],
+  ],
+  situacion: {
+    titulo: "Festival de cine y foto del cole",
+    reto: "La clase organiza un festival con fotografías y cortos propios.",
+    pasos: ["Haced una serie de fotos aplicando el triángulo de exposición y la regla de los tercios.", "Rodad un corto de un minuto con un truco de cine de los pioneros.", "Repartid oficios y escribid los créditos.", "Organizad la proyección y la exposición, pidiendo permiso a quienes aparecen."],
+    producto: "Un festival con una exposición fotográfica y cortos proyectados.",
+    evaluacion: ["Ajusta la cámara según la situación.", "Aplica trucos y lenguaje del cine.", "Trabaja en equipo con roles definidos.", "Respeta los derechos de imagen y autor."],
+  },
+});

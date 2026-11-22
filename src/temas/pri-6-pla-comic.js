@@ -107,3 +107,91 @@ module.exports = tema({
   ideas: ["Cómic de seis viñetas por parejas (guionista y dibujante).", "Quitar los textos a una página de cómic y reescribir los bocadillos.", "Biblioteca de aula con cómics y álbumes ilustrados."],
   fuentes: [["Biblioteca Nacional de España: el cómic", "https://www.bne.es/es/colecciones/comic"], ["Real Academia Española: cómic", "https://dle.rae.es/c%C3%B3mic"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la historia del cómic y el tebeo español", "Distinguir los estilos del manga, el cómic europeo y el americano", "Descubrir el álbum ilustrado, la novela gráfica y sus autores", "Explorar el webcómic y las adaptaciones a otros medios"],
+  lectura: { titulo: "Los tebeos del trastero", html: `<p>Ordenando el trastero, Sofía encontró una caja de cartón con una etiqueta que decía «NO TIRAR». Dentro había decenas de cuadernillos de papel amarillento con dibujos de colores.</p><p>—¡Mis tebeos! —gritó su padre al verlos—. Pensaba que se habían perdido.</p><p>Se sentaron en el suelo a hojearlos. Había un agente secreto calvo que se disfrazaba de cualquier cosa y su compañero, que siempre acababa con un chichón. Había unos gemelos traviesos, uno rubio y otro moreno. Y un reportero con un tupé y un perro blanco que viajaba por todo el mundo.</p><p>—Yo leo manga —dijo Sofía—. Se lee al revés, de derecha a izquierda.</p><p>—¿Al revés? —su padre puso cara de no entender nada.</p><p>Sofía fue a buscar uno de sus libros y le enseñó cómo se leía. Su padre se perdió en la primera página y los dos se rieron.</p><p>Esa tarde hicieron un trato: él leería un manga entero y ella, un tebeo de los de antes. Al final de la semana, los dos tenían un personaje favorito nuevo. Y Sofía colocó la caja del trastero en la estantería de su habitación.</p>` },
+  tras: {
+    "¿Qué es un cómic?": [
+      ["Breve historia del cómic", `<p>Contar historias con imágenes en secuencia es muy antiguo: lo hacían los relieves egipcios, la columna de Trajano en Roma o los tapices medievales. Pero el cómic moderno nació en los <b>periódicos</b> a finales del siglo XIX.</p><ul><li>En 1895 apareció en Nueva York <b>The Yellow Kid</b>, un niño con camisón amarillo, considerado uno de los primeros personajes de cómic con bocadillos.</li><li>En España, en 1917, nació la revista <b>TBO</b>, tan popular que dio nombre a todos los cómics: los <mark>tebeos</mark>.</li><li>En 1929 el belga <b>Hergé</b> creó a <b>Tintín</b>, el joven reportero.</li><li>En 1938 apareció <b>Superman</b>, el primer gran superhéroe estadounidense.</li><li>En la España de la posguerra triunfaron las revistas de humor: <b>Zipi y Zape</b> (Josep Escobar, 1948) y <b>Mortadelo y Filemón</b> (Francisco Ibáñez, 1958), que se siguen leyendo hoy. Ibáñez dibujó a sus agentes durante más de sesenta años.</li><li>En 1959 los franceses Goscinny y Uderzo crearon a <b>Astérix</b>.</li></ul><p>En Japón, tras la Segunda Guerra Mundial, <b>Osamu Tezuka</b> renovó el <b>manga</b> con personajes como Astro Boy, y se le llama «el dios del manga».</p><p>Hoy el cómic se considera un arte: a veces se le llama el <b>noveno arte</b>.</p>`,
+        L6.filas("Hitos del cómic", [["1895", "The Yellow Kid", cNA], ["1917", "revista TBO", cRO], ["1929", "Tintín", cAZ], ["1958", "Mortadelo", cVE]]), ["R_qceZWZBA8", "FRANCISCO IBÁÑEZ: Muere a los 87 años el genio DIBUJANTE, creador de 'Mortadelo y Filemón' I RTVE", "RTVE Noticias", 33113]],
+    ],
+    "Onomatopeyas y signos de movimiento": [
+      ["Tres grandes tradiciones: europea, americana y manga", `<p>Aunque todos los cómics usan viñetas y bocadillos, hay tres grandes tradiciones con estilos propios:</p><ul><li><b>El cómic franco-belga</b>: se publica en álbumes de tapa dura de unas 48 páginas a color. Muchos autores usan la <b>línea clara</b>, que creó Hergé con Tintín: contornos limpios del mismo grosor, colores planos y sin sombras, fondos muy detallados. Son de esta tradición Astérix, Los Pitufos o Lucky Luke.</li><li><b>El cómic americano</b>: famoso por los <b>superhéroes</b>. Se publica en cuadernillos mensuales, con mucha acción, cuerpos musculosos, colores intensos y personajes que viven aventuras durante décadas. Suelen trabajar equipos: guionista, dibujante, entintador y colorista.</li><li><b>El manga</b> (Japón): se lee de <b>derecha a izquierda</b>, empezando por lo que para nosotros es la última página. Suele ser en <b>blanco y negro</b>, con personajes de <b>ojos grandes</b> muy expresivos, <b>líneas cinéticas</b> para la velocidad y muchos símbolos para las emociones (una gota en la frente, venas, nubes). Hay manga para todas las edades y temas.</li></ul><p>El cómic español ha bebido de las tres, y hoy muchos autores mezclan estilos libremente.</p>`,
+        H6.rueda("Tradiciones", "CÓMIC", [["franco-belga", cAZ], ["americano", cRO], ["manga", cMO], ["español", cNA]])],
+    ],
+    "La ilustración": [
+      ["El álbum ilustrado y los ilustradores españoles", `<p>El <mark>álbum ilustrado</mark> es un libro en el que <b>imagen y texto cuentan la historia juntos</b>: las ilustraciones no solo adornan, sino que añaden información que el texto no dice. A veces incluso lo contradicen, y de ahí nace el humor o la sorpresa. Hay álbumes sin ninguna palabra, en los que las imágenes lo cuentan todo.</p><p>Para analizar un álbum fíjate en:</p><ul><li>La <b>portada</b> y las <b>guardas</b> (las primeras y últimas páginas interiores), que a veces ya cuentan algo.</li><li>La <b>doble página</b>: muchas escenas ocupan las dos páginas abiertas.</li><li>La <b>técnica</b>: acuarela, lápiz, collage, grabado, digital.</li><li>Los <b>detalles escondidos</b> que el lector descubre en una segunda lectura.</li></ul><p>España tiene ilustradores muy reconocidos. Cada año el Ministerio de Cultura concede el <b>Premio Nacional de Ilustración</b>: lo han recibido, entre otros, <b>Ana Juan</b> (2010), con sus personajes melancólicos y misteriosos, y <b>Elena Odriozola</b> (2015), de trazo delicado y mucho espacio en blanco. El diseñador <b>Javier Mariscal</b> creó a <b>Cobi</b>, la mascota de los Juegos Olímpicos de Barcelona 92.</p><p>Visita la biblioteca y busca álbumes ilustrados: no son solo para pequeños.</p>`,
+        L6.filas("Mirar un álbum", [["portada", "primera pista", cAZ], ["guardas", "también cuentan", cVE], ["doble página", "escena amplia", cNA], ["detalles", "segunda lectura", cRO]])],
+    ],
+  },
+  final: [
+    ["La novela gráfica", `<p>La <mark>novela gráfica</mark> es un cómic largo, normalmente con una historia completa en un solo libro, que trata temas profundos y está pensada sobre todo para jóvenes y adultos. Puede contar recuerdos personales, hechos históricos, viajes o problemas sociales.</p><p>Dos ejemplos muy importantes:</p><ul><li><b>Maus</b>, del estadounidense <b>Art Spiegelman</b>, cuenta la historia real de su padre, superviviente del Holocausto, dibujando a los judíos como ratones y a los nazis como gatos. En 1992 recibió un premio Pulitzer especial, algo que ningún cómic había conseguido antes.</li><li><b>Arrugas</b>, del valenciano <b>Paco Roca</b>, cuenta con ternura y humor la vida de Emilio, un anciano con alzhéimer que llega a una residencia. Ganó el Premio Nacional del Cómic en 2008 y se convirtió en una película de animación que ganó dos premios Goya.</li></ul><p>La novela gráfica demuestra que el cómic puede emocionar, hacer pensar y explicar la historia tan bien como una novela o una película. Muchos libros de divulgación sobre ciencia, arte o historia se publican hoy en formato de cómic, porque la combinación de imagen y texto ayuda a entender y recordar.</p>`,
+      H6.dos("Cómic y novela gráfica", ["CLÁSICO", ["series largas", "humor, aventura", "cuadernillos"], cNA], ["N. GRÁFICA", ["historia completa", "temas profundos", "un libro"], cMO]), ["5LABDFpJLHg", "Entrevista con Paco Roca, autor de cómic. #AdapataFestMx 2025", "Centro Cultural de España en México", 1133]],
+    ["Del papel a la pantalla", `<p>El cómic se ha adaptado a las pantallas de muchas maneras:</p><ul><li><b>El webcómic</b>: cómic publicado en internet. En Corea del Sur se popularizó el <b>webtoon</b>, pensado para leer en el móvil: las viñetas se colocan en una tira <b>vertical</b> muy larga y se leen deslizando el dedo hacia abajo. El espacio entre viñetas sirve para marcar el ritmo o crear suspense.</li><li><b>El cómic animado</b>: algunas aplicaciones añaden pequeños movimientos, sonidos o música a las viñetas.</li><li><b>Las adaptaciones</b>: muchos cómics han pasado al cine, las series y los videojuegos: los superhéroes americanos, Tintín, Astérix, Mortadelo y Filemón o el anime japonés, que adapta a menudo historias de manga.</li></ul><p>Adaptar no es copiar: el cine tiene movimiento, sonido y actores, pero pierde algo propio del cómic, la posibilidad de que el lector se detenga en cada viñeta el tiempo que quiera e imagine lo que pasa en el espacio entre ellas (la <b>calle</b>).</p><p>Puedes crear tu propio webcómic con una aplicación de dibujo y publicarlo en el blog de clase. Recuerda no incluir datos personales y firmar con tu nombre de autor.</p>`,
+      H6.flujo("Un webtoon", ["viñeta|arriba", "espacio|suspense", "viñeta|siguiente", "deslizar|hacia abajo"], cAZ)],
+  ],
+  ejemplos: [
+    ["Un cómic tiene contornos limpios de grosor uniforme, colores planos y fondos muy detallados. ¿Qué estilo es?", ["Contornos iguales y colores planos.", "Estilo de Hergé."], "La línea clara franco-belga."],
+    ["¿Por dónde empiezas a leer un manga japonés?", ["Se lee de derecha a izquierda.", "Lo que para nosotros es el final."], "Por la última página según nuestro orden habitual."],
+  ],
+  errores: ["Pensar que los cómics son solo para niños pequeños.", "Creer que las ilustraciones de un álbum solo repiten lo que dice el texto."],
+  ejercicios: [
+    ["b", "¿De dónde viene la palabra «tebeo»?", "De la revista TBO (1917)."],
+    ["b", "¿Quién creó Mortadelo y Filemón?", "Francisco Ibáñez."],
+    ["b", "¿En qué sentido se lee el manga?", "De derecha a izquierda."],
+    ["b", "¿Qué es un álbum ilustrado?", "Un libro en el que imagen y texto cuentan la historia juntos."],
+    ["b", "¿Qué es un webtoon?", "Un cómic vertical para leer en el móvil."],
+    ["m", "Describe la línea clara.", "Contornos limpios de igual grosor, colores planos, sin sombras."],
+    ["m", "Escribe tres rasgos del manga.", "Blanco y negro, ojos grandes, líneas cinéticas."],
+    ["m", "¿De qué trata Arrugas?", "De un anciano con alzhéimer en una residencia."],
+    ["m", "¿Qué se pierde al adaptar un cómic al cine?", "El ritmo propio del lector y lo que imagina entre viñetas."],
+    ["m", "¿Qué son las guardas de un libro?", "Las primeras y últimas páginas interiores."],
+    ["a", "Dibuja una página en estilo línea clara y otra en estilo manga.", "Respuesta abierta."],
+    ["a", "Crea un webtoon vertical de ocho viñetas con suspense.", "Respuesta abierta."],
+    ["a", "Analiza un álbum ilustrado de la biblioteca.", "Respuesta abierta."],
+    ["a", "Entrevista a un adulto sobre los tebeos que leía de pequeño.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["The Yellow Kid apareció en…", ["1895", "1958", "2000"], "Historia."],
+    ["El dios del manga es…", ["Osamu Tezuka", "Hergé", "Ibáñez"], "Historia."],
+    ["Cobi es obra de…", ["Javier Mariscal", "Paco Roca", "Ana Juan"], "Ilustración."],
+    ["Maus recibió…", ["un premio Pulitzer especial", "un Óscar", "un Goya"], "Novela gráfica."],
+    ["El espacio entre viñetas se llama…", ["calle", "bocadillo", "cartela"], "Pantalla."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué trato hacen Sofía y su padre?", ["leer cada uno el cómic del otro", "tirar los tebeos", "dibujar juntos"], "Lectura."],
+    ["Zipi y Zape los creó…", ["Josep Escobar", "Hergé", "Uderzo"], "Historia."],
+  ],
+  tarjetas: [
+    ["Historia", "Yellow Kid 1895, TBO 1917, Tintín 1929, Mortadelo 1958."],
+    ["Tradiciones", "Franco-belga (línea clara), americano (superhéroes), manga."],
+    ["Álbum ilustrado", "Imagen y texto juntos; Ana Juan, Elena Odriozola."],
+    ["Novela gráfica y web", "Maus, Arrugas; webtoon vertical."],
+  ],
+  glosario: [
+    ["Tebeo", "Nombre español del cómic, por la revista TBO."],
+    ["Noveno arte", "Otro nombre del cómic."],
+    ["Línea clara", "Estilo de contornos limpios y colores planos."],
+    ["Manga", "Cómic japonés."],
+    ["Anime", "Animación japonesa."],
+    ["Líneas cinéticas", "Rayas que indican velocidad o movimiento."],
+    ["Álbum ilustrado", "Libro donde imagen y texto narran juntos."],
+    ["Guardas", "Primeras y últimas páginas interiores de un libro."],
+    ["Novela gráfica", "Cómic largo de historia completa y temas profundos."],
+    ["Webcómic", "Cómic publicado en internet."],
+    ["Webtoon", "Cómic vertical para móvil."],
+    ["Calle", "Espacio entre viñetas."],
+  ],
+  situacion: {
+    titulo: "La biblioteca de cómic de la clase",
+    reto: "La clase crea un rincón de cómic con reseñas y obras propias en distintos estilos.",
+    pasos: ["Reunid cómics, mangas y álbumes ilustrados de casa y de la biblioteca.", "Escribid reseñas breves con estilo, tema y recomendación de edad.", "Cread cada uno una página en una tradición distinta.", "Inaugurad el rincón con una exposición y un intercambio de lecturas."],
+    producto: "Un rincón de lectura con reseñas y cómics propios.",
+    evaluacion: ["Reconoce tradiciones y estilos del cómic.", "Usa el lenguaje del cómic correctamente.", "Analiza álbumes y novelas gráficas.", "Respeta los materiales y comparte lecturas."],
+  },
+});

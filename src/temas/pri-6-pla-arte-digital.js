@@ -109,3 +109,91 @@ module.exports = tema({
   ideas: ["Pixel art en papel cuadriculado y después en una aplicación.", "Animación GIF de 6 fotogramas por parejas.", "Galería digital de clase con fichas de autoría."],
   fuentes: [["Creative Commons: licencias", "https://creativecommons.org/licenses/?lang=es"], ["INCIBE: Internet segura for Kids (IS4K)", "https://www.is4k.es/"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Entender cómo se forman los colores en pantalla (RGB) y en papel (CMYK)", "Usar el retoque fotográfico con sentido crítico", "Conocer el modelado 3D y el arte creado con código", "Crear imágenes con inteligencia artificial de forma responsable"],
+  lectura: { titulo: "La foto del lago", html: `<p>Para el concurso de fotografía del colegio, Nerea presentó una foto preciosa: un lago azul turquesa, unas montañas nevadas y, en el centro, un cisne blanco perfecto.</p><p>Toda la clase la votó como favorita. Pero Bruno, que había ido de excursión al mismo lago, levantó la mano.</p><p>—Ese lago no es tan azul. Y allí no hay cisnes.</p><p>Nerea se puso roja. Había retocado la foto con una aplicación: subió la saturación, borró a unos turistas y añadió un cisne de otra imagen.</p><p>La profesora no se enfadó. Al contrario, aprovechó para hacer una pregunta a toda la clase:</p><p>—¿Está mal retocar una foto?</p><p>Hubo un debate intenso. Unos decían que todos los fotógrafos retocan. Otros, que no es justo si la foto se presenta como real. Al final llegaron a un acuerdo: retocar está bien, pero hay que decirlo cuando cambia lo que la foto cuenta.</p><p>Para el año siguiente, el concurso tuvo dos categorías: «Foto real» y «Creación digital». Nerea ganó la segunda con un lago lleno de cisnes de colores. Y esta vez, todos sabían que era imaginado.</p>` },
+  tras: {
+    "El píxel": [
+      ["Colores en pantalla y en papel: RGB y CMYK", `<p>Si miras una pantalla con una lupa, verás que cada píxel está formado por tres pequeñas luces: <b>roja</b>, <b>verde</b> y <b>azul</b>. Es el modelo <mark>RGB</mark> (del inglés <i>Red, Green, Blue</i>). Combinando la intensidad de esas tres luces se consiguen todos los colores de la pantalla:</p><ul><li>Rojo + verde = <b>amarillo</b>.</li><li>Las tres al máximo = <b>blanco</b>.</li><li>Las tres apagadas = <b>negro</b>.</li></ul><p>Es una mezcla <b>aditiva</b>: cuanta más luz sumas, más claro es el color. Cada luz puede tener 256 niveles (de 0 a 255), lo que da más de <b>16 millones</b> de colores posibles. En diseño web, los colores se escriben con un código <b>hexadecimal</b>: <b>#FF0000</b> es rojo puro, #FFFFFF es blanco y #000000 es negro.</p><p>En cambio, cuando imprimimos en papel usamos tintas, y la mezcla es <b>sustractiva</b>: cuanta más tinta, más oscuro. Las impresoras usan el modelo <mark>CMYK</mark>: <b>cian</b>, <b>magenta</b>, <b>amarillo</b> y <b>negro</b> (K, de <i>key</i>). ¡Son los mismos primarios que usas con las témperas!</p><p>Por eso un color muy brillante en la pantalla a veces sale más apagado en la impresora: no todos los colores de luz se pueden conseguir con tinta.</p>`,
+        H6.dos("Dos formas de mezclar", ["RGB (luz)", ["rojo, verde, azul", "suma: blanco", "pantallas"], cAZ], ["CMYK (tinta)", ["cian, magenta…", "suma: oscuro", "impresoras"], cMO]), ["WNRTBrXvw6s", "🔴🟢🔵 RGB & CMYK. Los MODOS DE COLOR o FORMATOS de color", "Hey Jaime", 74507]],
+    ],
+    "Las capas": [
+      ["El retoque fotográfico y la verdad", `<p>Con los programas de edición podemos <mark>retocar</mark> una fotografía: recortarla, enderezarla, ajustar el <b>brillo</b>, el <b>contraste</b> y la <b>saturación</b> (la intensidad de los colores), eliminar una mancha o aplicar un <b>filtro</b>. Son ajustes normales que hacen casi todos los fotógrafos.</p><p>Pero también se puede <b>manipular</b>: borrar personas, añadir objetos que no estaban, cambiar caras o cuerpos. Esto no es nuevo: ya en el siglo XX algunos gobiernos borraban de las fotos a las personas que caían en desgracia. Hoy, con las aplicaciones y la inteligencia artificial, cualquiera puede hacerlo en segundos.</p><p>Por eso es importante tener una <b>mirada crítica</b>:</p><ul><li>¿Quién publica la imagen y con qué intención?</li><li>¿Aparece en otras fuentes fiables?</li><li>¿Hay detalles raros: sombras imposibles, manos deformes, bordes extraños?</li><li>¿Se puede hacer una búsqueda inversa de la imagen para ver dónde apareció primero?</li></ul><p>Los filtros de belleza de las redes sociales también son retoques: cambian la piel, los ojos o la cara. Recordar que esas imágenes no son reales ayuda a no compararnos con ellas.</p><p>La regla de oro: retocar está bien, pero <b>engañar no</b>. Si un retoque cambia lo que la foto cuenta, hay que decirlo.</p>`,
+        L6.filas("Retocar o manipular", [["ajustar", "brillo, contraste", cVE], ["recortar", "encuadre", cAZ], ["manipular", "borrar, añadir", cRO], ["filtro belleza", "no es real", cNA]])],
+    ],
+    "Animación digital": [
+      ["Modelado 3D", `<p>Las imágenes que hemos visto hasta ahora son planas, en dos dimensiones (2D). En el <mark>modelado 3D</mark> se crean objetos con <b>alto, ancho y profundidad</b> dentro del ordenador, que se pueden girar y mirar desde cualquier lado.</p><p>Así se construye un modelo 3D:</p><ol><li><b>Modelar</b>: se parte de formas sencillas (cubos, esferas, cilindros) y se deforman. El objeto queda formado por una <b>malla</b> de pequeños polígonos, normalmente triángulos.</li><li><b>Texturizar</b>: se «pinta» la superficie con colores y texturas: madera, metal, piel.</li><li><b>Iluminar</b>: se colocan luces virtuales, como en un plató.</li><li><b>Renderizar</b>: el ordenador calcula la imagen final con sus sombras y reflejos. En las películas, cada fotograma puede tardar horas.</li></ol><p>En 1995 se estrenó <i>Toy Story</i>, la primera película de animación hecha completamente con ordenador. Hoy el 3D se usa en cine, videojuegos, arquitectura, medicina y diseño de productos.</p><p>Con programas gratuitos como Tinkercad puedes empezar a modelar en el colegio, e incluso imprimir tu diseño con una <b>impresora 3D</b>, que construye el objeto capa a capa con plástico fundido.</p>`,
+        H6.flujo("Crear en 3D", ["modelar|la malla", "texturizar|superficie", "iluminar|la escena", "renderizar|imagen"], cVE), ["csvBRWfgf1I", "Cómo usar TINKERCAD | Tutorial diseño 3D para principiantes | Primeros pasos | Introducción", "El Rincón de Primaria", 262663]],
+    ],
+  },
+  final: [
+    ["Arte con código", `<p>Algunos artistas no dibujan con pincel ni con lápiz digital: <b>escriben instrucciones</b> para que el ordenador dibuje. Es el <mark>arte generativo</mark>. El artista decide las reglas, y el ordenador las sigue, a veces con un poco de azar, para crear la obra.</p><p>Una de las pioneras fue <b>Vera Molnar</b> (1924-2023), una artista húngara que vivió en Francia. A finales de los años 60 empezó a usar ordenadores enormes para crear dibujos con cuadrados y líneas que se iban desordenando poco a poco. En aquella época casi nadie pensaba que un ordenador pudiera servir para hacer arte.</p><p>Hoy puedes hacer arte generativo en clase con <b>Scratch</b> u otros programas de bloques:</p><ul><li>Usa el «lápiz» y repite un movimiento: avanzar 100 pasos, girar 91 grados… y repítelo 200 veces. Saldrá una espiral sorprendente.</li><li>Cambia el color del lápiz un poco en cada repetición para conseguir un degradado.</li><li>Añade un número al azar: cada vez que ejecutes el programa saldrá una obra diferente.</li></ul><p>El arte generativo une matemáticas, programación y creatividad. Fíjate en que muchas formas de la naturaleza, como las conchas o los copos de nieve, también siguen reglas sencillas que se repiten.</p>`,
+      H6.rueda("Arte generativo", "CÓDIGO", [["reglas", cAZ], ["repetición", cVE], ["azar", cNA], ["color", cRO]])],
+    ["Imágenes con inteligencia artificial", `<p>Los <mark>generadores de imágenes</mark> con inteligencia artificial crean una imagen a partir de una descripción escrita (por ejemplo, «un dragón leyendo en una biblioteca, estilo acuarela»). Han aprendido analizando millones de imágenes hechas por personas.</p><p>Son herramientas potentes, pero conviene usarlas con cabeza:</p><ul><li><b>Respeta la edad mínima</b> y las normas de cada aplicación, y úsalas con un adulto.</li><li><b>No imites a personas reales</b>: crear imágenes falsas de alguien puede hacerle mucho daño y puede ser un delito.</li><li><b>Respeta a los artistas</b>: pedir una imagen «al estilo» de un ilustrador vivo plantea dudas, porque ese artista no ha dado permiso ni cobra por ello.</li><li><b>Sé transparente</b>: si presentas una imagen hecha con IA, dilo.</li><li><b>Comprueba</b>: la IA comete errores, como manos con seis dedos o letras sin sentido.</li></ul><p>La IA puede servir para buscar ideas, hacer bocetos rápidos o imaginar un escenario. Pero dibujar a mano sigue siendo insustituible: entrena la mirada, la paciencia y la creatividad, y el resultado es solo tuyo.</p>`,
+      L6.filas("IA con responsabilidad", [["edad", "con un adulto", cAZ], ["personas", "no imitar", cRO], ["artistas", "respetar", cVE], ["IA", "decirlo", cNA]])],
+  ],
+  ejemplos: [
+    ["En una pantalla, ¿qué color sale si encendemos al máximo la luz roja y la verde, y la azul apagada?", ["Mezcla aditiva de luz.", "Rojo + verde = amarillo."], "Amarillo."],
+    ["Una foto muestra a una persona con seis dedos en una mano. ¿Qué puede indicar?", ["La IA comete errores con las manos.", "Hay que comprobar la fuente."], "Que puede ser una imagen generada o manipulada."],
+  ],
+  errores: ["Pensar que los colores de la pantalla y de la impresora se mezclan igual.", "Creer que una foto en internet siempre muestra la realidad."],
+  ejercicios: [
+    ["b", "¿Qué significa RGB?", "Rojo, verde y azul."],
+    ["b", "¿Qué tintas usa una impresora?", "Cian, magenta, amarillo y negro (CMYK)."],
+    ["b", "¿Qué es la saturación?", "La intensidad de los colores."],
+    ["b", "¿Cuál fue la primera película hecha completamente por ordenador?", "Toy Story (1995)."],
+    ["b", "¿Qué es el arte generativo?", "Arte creado por un ordenador siguiendo reglas escritas por el artista."],
+    ["m", "Explica la diferencia entre mezcla aditiva y sustractiva.", "Aditiva: luz, se aclara al sumar. Sustractiva: tinta, se oscurece al sumar."],
+    ["m", "¿Qué diferencia hay entre retocar y manipular una foto?", "Retocar ajusta; manipular cambia lo que la foto cuenta."],
+    ["m", "Nombra los cuatro pasos del modelado 3D.", "Modelar, texturizar, iluminar y renderizar."],
+    ["m", "Escribe tres preguntas para comprobar si una imagen es real.", "Quién la publica, si aparece en otras fuentes, si tiene detalles raros."],
+    ["m", "¿Quién fue Vera Molnar?", "Una pionera del arte hecho con ordenador."],
+    ["a", "Crea una espiral de colores con el lápiz de Scratch.", "Respuesta abierta."],
+    ["a", "Modela en 3D un objeto sencillo para tu habitación.", "Respuesta abierta."],
+    ["a", "Retoca una foto propia y explica qué cambiaste y por qué.", "Respuesta abierta."],
+    ["a", "Elabora un decálogo de uso responsable de la IA en Plástica.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En RGB, las tres luces al máximo dan…", ["blanco", "negro", "marrón"], "RGB."],
+    ["El código #FF0000 es…", ["rojo", "verde", "azul"], "Hexadecimal."],
+    ["Renderizar es…", ["calcular la imagen final", "dibujar a mano", "imprimir"], "3D."],
+    ["Si presentas una imagen hecha con IA…", ["debes decirlo", "no hace falta decirlo", "debes firmarla como dibujo a mano"], "IA."],
+    ["La impresora 3D construye el objeto…", ["capa a capa", "de golpe", "con pintura"], "3D."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué acordó la clase sobre el retoque?", ["que hay que decirlo si cambia lo que cuenta la foto", "que está prohibido", "que no importa"], "Lectura."],
+    ["La K de CMYK corresponde al…", ["negro", "rosa", "azul"], "CMYK."],
+  ],
+  tarjetas: [
+    ["RGB y CMYK", "Luz: rojo, verde, azul (aditiva). Tinta: cian, magenta, amarillo, negro."],
+    ["Retoque", "Ajustar sí; engañar no. Mirada crítica."],
+    ["3D", "Modelar, texturizar, iluminar, renderizar; Toy Story 1995."],
+    ["Código e IA", "Arte generativo (Vera Molnar); IA con transparencia."],
+  ],
+  glosario: [
+    ["RGB", "Modelo de color de la luz: rojo, verde y azul."],
+    ["CMYK", "Modelo de color de la tinta: cian, magenta, amarillo y negro."],
+    ["Mezcla aditiva", "Mezcla de luces que se aclara al sumar."],
+    ["Mezcla sustractiva", "Mezcla de tintas que se oscurece al sumar."],
+    ["Hexadecimal", "Código con números y letras para escribir colores."],
+    ["Saturación", "Intensidad de un color."],
+    ["Manipulación", "Cambio que altera lo que cuenta una imagen."],
+    ["Malla", "Conjunto de polígonos que forma un objeto 3D."],
+    ["Renderizado", "Cálculo de la imagen final en 3D."],
+    ["Impresora 3D", "Máquina que fabrica objetos capa a capa."],
+    ["Arte generativo", "Arte creado siguiendo reglas programadas."],
+    ["Búsqueda inversa", "Buscar en internet a partir de una imagen."],
+  ],
+  situacion: {
+    titulo: "Exposición digital: real o imaginado",
+    reto: "La clase organiza una exposición en línea con dos salas: imágenes reales e imágenes creadas digitalmente.",
+    pasos: ["Haced fotos reales del colegio y ajustadlas sin cambiar lo que cuentan.", "Cread obras digitales: pixel art, arte generativo o un modelo 3D.", "Escribid una cartela de cada obra indicando técnica y retoques.", "Publicad la exposición en la web del colegio y explicad las diferencias."],
+    producto: "Una exposición en línea con obras reales y digitales bien etiquetadas.",
+    evaluacion: ["Distingue RGB y CMYK.", "Retoca con criterio y transparencia.", "Crea obras con herramientas digitales.", "Usa la tecnología de forma responsable."],
+  },
+});
