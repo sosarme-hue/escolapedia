@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Reflexión sobre la lengua: el adverbio; invariabilidad; clases (lugar, tiempo, modo, cantidad, afirmación, negación y duda); adverbios en -mente y su acentuación; locuciones adverbiales; usos incorrectos frecuentes",
   ideas: ["Dado de preguntas (¿dónde?, ¿cuándo?, ¿cómo?, ¿cuánto?) para crear frases con adverbios.", "Teatro de adverbios: representar una acción de la manera que diga una tarjeta.", "Cazaerrores con «delante mío», «medias dormidas» y «ahí/hay/ay»."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Usar los grados del adverbio y los adverbios interrogativos", "Distinguir el adverbio del adjetivo en palabras como alto o rápido", "Escribir bien los adverbios y usarlos para ordenar un texto"],
+  lectura: { titulo: "La búsqueda del tesoro", html: `<p>Para el cumpleaños de Carla, su tío escondió un regalo en el jardín y le dejó un mapa con instrucciones:</p><p>«<b>Primero</b>, camina <b>despacio</b> hasta el pozo. <b>Después</b>, da diez pasos <b>hacia atrás</b>. Mira <b>arriba</b>: verás el nido de las golondrinas. <b>Justo debajo</b> hay una piedra con forma de corazón. <b>Allí</b> no está el tesoro, pero <b>cerca</b>, <b>muy cerca</b>, sí».</p><p>Carla y sus amigos siguieron las pistas <b>atentamente</b>. Caminaron <b>despacito</b>, contaron los pasos <b>en voz alta</b> y miraron <b>arriba</b> y <b>abajo</b>. Encontraron la piedra, pero <b>debajo</b> no había nada.</p><p>—¿Y ahora qué? —preguntó Hugo.</p><p>—<b>Quizá</b> esté <b>detrás</b> del rosal —dijo Carla.</p><p>Buscaron <b>detrás</b>, <b>delante</b> y <b>alrededor</b>. Por fin, <b>casi</b> enterrada en la arena, apareció una caja de madera. <b>Dentro</b> había una brújula y una nota: «Para que <b>nunca</b> pierdas el norte».</p><p>Sin las palabras que dicen <b>dónde</b>, <b>cuándo</b>, <b>cómo</b> y <b>cuánto</b>, el mapa no habría servido de nada. Esas palabras son los <b>adverbios</b>.</p>` },
+  tras: {
+    "Adverbios de lugar y de tiempo": [
+      ["Aquí, ahí, allí: la distancia", `<p>Los adverbios de lugar <b>aquí, ahí</b> y <b>allí</b> indican distancia respecto a quien habla, igual que los demostrativos <i>este, ese, aquel</i>:</p><ul><li><b>Aquí</b> (o <i>acá</i>): cerca de quien habla. Se relaciona con <i>este</i>: «<b>Aquí</b> tengo este libro».</li><li><b>Ahí</b>: cerca de quien escucha o a media distancia. Se relaciona con <i>ese</i>: «<b>Ahí</b> tienes ese lápiz».</li><li><b>Allí</b> (o <i>allá</i>): lejos de los dos. Se relaciona con <i>aquel</i>: «<b>Allí</b> está aquel castillo».</li></ul><p><i>Acá</i> y <i>allá</i> son menos precisos que <i>aquí</i> y <i>allí</i>, y admiten grados: <i>más acá</i>, <i>muy allá</i>. En América se usan mucho más que en España.</p><p>Otros adverbios de lugar van en parejas: <b>dentro / adentro</b> y <b>fuera / afuera</b>. Con verbos de movimiento se pueden usar las dos formas: «Vamos <b>adentro</b>» o «Vamos <b>dentro</b>». Pero para indicar situación es mejor la forma sin <i>a</i>: «Está <b>dentro</b> de la caja».</p><p>También hay parejas con los adverbios de tiempo: <i>antes / después</i>, <i>temprano / tarde</i>, <i>ayer / mañana</i>, <i>siempre / nunca</i>. Sirven para situar los hechos en una línea temporal.</p>`,
+        L.filas("Tres distancias", [["aquí", "cerca de mí · este", AZ], ["ahí", "cerca de ti · ese", VE], ["allí", "lejos de los dos · aquel", RO]])],
+    ],
+    "Adverbios de modo y de cantidad": [
+      ["Los grados del adverbio", `<p>Como los adjetivos, muchos adverbios pueden expresar distintos <b>grados</b> de intensidad:</p><ul><li><b>Positivo</b>: el adverbio sin más. «Vivo <b>cerca</b>».</li><li><b>Comparativo</b>: compara con <i>más… que</i>, <i>menos… que</i> o <i>tan… como</i>. «Vivo <b>más cerca que</b> tú». «Llegué <b>tan pronto como</b> pude».</li><li><b>Superlativo</b>: expresa el grado más alto con <i>muy</i> o con el sufijo <b>-ísimo</b>. «Vivo <b>muy cerca</b>», «Vivo <b>cerquísima</b>». «Llegó <b>tempranísimo</b>». «Está <b>lejísimos</b>».</li></ul><p>Fíjate en la ortografía: <i>cerca</i> da <i>cer<b>qu</b>ísima</i> (la c pasa a qu para mantener el sonido) y <i>lejos</i> da <i>lejísimos</i>.</p><p>Además, en la lengua familiar se usan adverbios con <b>diminutivo</b> para dar un tono cariñoso: <i>despacito, cerquita, prontito, ahorita, enseguidita</i>.</p><p>Algunos adverbios de modo tienen comparativos especiales: <i>bien → mejor</i> y <i>mal → peor</i>. Por eso no se dice «más bien que» para comparar, sino «<b>mejor que</b>»: «Canta <b>mejor que</b> yo». Tampoco existen «más mejor» ni «más peor».</p>`,
+        L.filas("Grados del adverbio", [["Positivo", "cerca · pronto", AZ], ["Comparativo", "más cerca que", VE], ["Superlativo", "cerquísima · lejísimos", RO], ["Especiales", "bien → mejor", NA]])],
+    ],
+    "Afirmación, negación y duda": [
+      ["Adverbios interrogativos y exclamativos", `<p>Los adverbios <b>dónde, cuándo, cómo</b> y <b>cuánto</b> sirven para hacer <b>preguntas</b> y <b>exclamaciones</b>, y entonces se escriben siempre con <b>tilde</b>:</p><ul><li>«¿<b>Dónde</b> vives?» (lugar). «¡<b>Dónde</b> has puesto las llaves!».</li><li>«¿<b>Cuándo</b> empieza la película?» (tiempo).</li><li>«¿<b>Cómo</b> se hace este pastel?» (modo). «¡<b>Cómo</b> llueve!».</li><li>«¿<b>Cuánto</b> cuesta?» (cantidad). «¡<b>Cuánto</b> te he echado de menos!».</li></ul><p>También llevan tilde en las <b>preguntas indirectas</b>, aunque no haya signos de interrogación: «No sé <b>dónde</b> vives», «Dime <b>cuándo</b> vienes», «Pregúntale <b>cómo</b> se llama».</p><p>En cambio, cuando <b>no preguntan ni exclaman</b>, sino que unen dos oraciones, se escriben <b>sin tilde</b>: «Vivo <b>donde</b> nací», «Te llamo <b>cuando</b> llegue», «Hazlo <b>como</b> quieras».</p><p>Un truco: lee la frase en voz alta. Si la palabra se pronuncia con fuerza y encierra una pregunta, lleva tilde.</p>`,
+        L.tabla("¿Con tilde o sin tilde?", ["Pregunta", "Sin pregunta"], [["¿Dónde vives?", "Vivo donde nací"], ["¿Cuándo vienes?", "Ven cuando quieras"], ["¿Cómo se hace?", "Hazlo como sepas"]]), ["lu__ipDZsqk", "Adverbios y sus clases | Aula chachi - Vídeos educativos para niños", "Aula chachi", 1065697]],
+    ],
+  },
+  final: [
+    ["¿Adverbio o adjetivo?", `<p>Algunas palabras pueden ser <b>adjetivo</b> o <b>adverbio</b> según la palabra a la que acompañan. ¡Hay que fijarse bien!</p><ul><li><b>Alto</b>: «Es un chico <b>alto</b>» (adjetivo: acompaña al sustantivo <i>chico</i>, y cambia: <i>chica alta</i>). «Habla <b>alto</b>» (adverbio: acompaña al verbo <i>habla</i>, y no cambia: «Ellas hablan <b>alto</b>»).</li><li><b>Rápido</b>: «Un tren <b>rápido</b>» (adjetivo). «Corre <b>rápido</b>» (adverbio, igual que <i>rápidamente</i>).</li><li><b>Claro</b>, <b>fuerte</b>, <b>bajo</b>, <b>lento</b>, <b>duro</b>: «Habla <b>claro</b>», «Pega <b>fuerte</b>», «Trabaja <b>duro</b>».</li><li><b>Mucho, poco, bastante, demasiado</b>: si acompañan a un sustantivo son <b>determinantes</b> y concuerdan con él (<i>muchas</i> fresas); si acompañan a un verbo, adjetivo o adverbio son <b>adverbios</b> y no cambian («Comí <b>mucho</b>», «Es <b>bastante</b> alta»).</li></ul><p>La prueba clave es la <b>concordancia</b>: si puedes cambiar el género o el número de la palabra según el sustantivo, es un adjetivo o un determinante. Si no cambia, es un adverbio. Por eso es un error decir «Están <s>medias</s> dormidas»: <i>medio</i> acompaña a un adjetivo y es adverbio, así que se dice «Están <b>medio</b> dormidas».</p>`,
+      H.dos("Alto: dos papeles", ["Adjetivo", ["chico alto", "chica alta", "sí cambia"], AZ], ["Adverbio", ["él habla alto", "ellas hablan alto", "no cambia"], VE])],
+    ["Escribir bien los adverbios", `<p>Muchos adverbios y locuciones adverbiales generan dudas al escribirlos: ¿juntos o separados?</p><ul><li><b>Se escriben juntos</b>: <i>deprisa, enseguida, alrededor, debajo, encima, adelante, también, apenas, acaso, anteayer</i>.</li><li><b>Se escriben separados</b>: <i>a veces, de repente, sobre todo, a menudo, de pronto, en medio, a gusto, de verdad, por fin, tal vez</i>.</li><li><b>Admiten las dos formas</b>: <i>enseguida</i> o <i>en seguida</i>, <i>deprisa</i> o <i>de prisa</i>, <i>adonde</i> o <i>a donde</i>.</li></ul><p>Cuidado con estas parejas que suenan igual:</p><ul><li><b>También</b> (además): «Yo <b>también</b> voy». <b>Tan bien</b> (tan + bien): «Lo hiciste <b>tan bien</b> que ganaste».</li><li><b>Asimismo</b> (también): «Asimismo, recordad la merienda». <b>Así mismo</b> (de esa misma manera): «Hazlo <b>así mismo</b>».</li><li><b>Sobretodo</b> es una prenda de abrigo; para decir «principalmente» se escribe <b>sobre todo</b>.</li></ul><p>Y recuerda: <i>quizá</i> y <i>quizás</i> son correctas las dos, pero nunca «quizás» con tilde en la a.</p>`,
+      L.filas("¿Junto o separado?", [["Juntos", "deprisa · enseguida · alrededor", AZ], ["Separados", "a veces · de repente", VE], ["Las dos", "enseguida / en seguida", NA], ["Ojo", "también ≠ tan bien", RO]])],
+    ["Los adverbios ordenan los textos", `<p>Los adverbios son muy útiles para <b>ordenar</b> las ideas cuando escribimos. Fíjate en cómo funcionan en distintos tipos de texto:</p><ul><li>En una <b>narración</b>, los adverbios y locuciones de tiempo marcan el paso de los acontecimientos: <i>primero, luego, después, entonces, más tarde, de repente, finalmente</i>. «<b>Primero</b> oímos un ruido; <b>luego</b>, un grito; <b>de repente</b>, la luz se apagó».</li><li>En unas <b>instrucciones</b> o una <b>receta</b>, ordenan los pasos y explican cómo hacerlos: «<b>Primero</b>, bate los huevos <b>enérgicamente</b>. <b>Después</b>, añade la harina <b>poco a poco</b>».</li><li>En una <b>descripción</b> de un lugar, los adverbios de lugar guían la mirada del lector: «<b>Delante</b> hay un jardín; <b>detrás</b>, un huerto; <b>al fondo</b>, las montañas».</li><li>En un texto de <b>opinión</b>, los adverbios de duda y afirmación matizan lo que pensamos: «<b>Seguramente</b> tengas razón, pero <b>quizá</b> haya otra solución».</li></ul><p>Evita repetir siempre el mismo adverbio (<i>y luego… y luego… y luego…</i>): alterna <i>después, más tarde, a continuación, al rato</i>.</p>`,
+      H.flujo("Ordenar una historia", ["primero", "luego", "de|repente", "entonces", "finalmente"], AZ)],
+  ],
+  ejemplos: [
+    ["¿Adjetivo o adverbio? «Ese coche es lento» / «Conduce lento».", ["En la primera, lento acompaña al sustantivo coche y cambiaría con él (moto lenta): adjetivo.", "En la segunda, lento acompaña al verbo conduce y no cambia (ellas conducen lento): adverbio."], "Adjetivo en la primera, adverbio en la segunda"],
+    ["Pon tilde si hace falta: «No sé donde está, pero lo busco cuando acabe».", ["Donde va en una pregunta indirecta (no sé dónde): lleva tilde.", "Cuando une dos oraciones y no pregunta: sin tilde."], "No sé dónde está, pero lo busco cuando acabe"],
+  ],
+  errores: ["Escribir sin tilde los interrogativos en preguntas indirectas: «No sé donde vives» (es dónde).", "Confundir «también» y «tan bien», o escribir «sobretodo» con el sentido de principalmente."],
+  ejercicios: [
+    ["b", "Escribe el superlativo de: cerca, lejos, temprano.", "Cerquísima, lejísimos, tempranísimo."],
+    ["b", "Relaciona: aquí, ahí, allí con este, ese, aquel.", "Aquí-este, ahí-ese, allí-aquel."],
+    ["b", "Escribe una pregunta con cada adverbio: dónde, cuándo, cómo, cuánto.", "Respuesta abierta, con tilde y signos de interrogación."],
+    ["b", "Escribe tres adverbios para ordenar una historia.", "Por ejemplo: primero, luego, finalmente."],
+    ["b", "¿Junto o separado? ___ (a veces), ___ (de prisa / deprisa), ___ (alrededor).", "A veces; deprisa o de prisa; alrededor."],
+    ["m", "¿Adjetivo o adverbio? «Habla claro» / «El agua está clara».", "Claro: adverbio. Clara: adjetivo."],
+    ["m", "Corrige: «Canta más mejor que tú y está medias dormida».", "Canta mejor que tú y está medio dormida."],
+    ["m", "Completa con también o tan bien: «Yo ___ quiero ir» / «Lo explicó ___ que lo entendí».", "También; tan bien."],
+    ["m", "Pon tilde si hace falta: «Dime cuando llegas», «Llámame cuando llegues».", "Dime cuándo llegas (pregunta indirecta). Llámame cuando llegues (sin tilde)."],
+    ["m", "¿Es determinante o adverbio «mucho»? «Tengo muchos amigos» / «Te quiero mucho».", "Muchos: determinante. Mucho: adverbio."],
+    ["a", "Escribe las pistas de una búsqueda del tesoro en tu casa usando al menos ocho adverbios distintos.", "Respuesta abierta."],
+    ["a", "Reescribe sin repetir «luego»: «Me levanté y luego desayuné y luego me vestí y luego salí».", "Por ejemplo: «Primero me levanté; después desayuné; a continuación me vestí y, finalmente, salí»."],
+    ["a", "Explica la prueba que sirve para saber si «rápido» es adjetivo o adverbio.", "Cambiar el género o número: si concuerda con un sustantivo es adjetivo; si no cambia, es adverbio."],
+    ["a", "Describe tu habitación guiando la mirada con adverbios de lugar.", "Respuesta abierta: delante, detrás, encima, al fondo…"],
+  ],
+  quiz: [
+    ["El superlativo de «cerca» es…", ["cerquísima", "cercísima", "muy cercísima"], "La c pasa a qu."],
+    ["En «Habla alto», alto es…", ["adverbio", "adjetivo", "sustantivo"], "Acompaña al verbo."],
+    ["Se escribe…", ["No sé dónde vive", "No sé donde vive", "No se donde vive"], "Pregunta indirecta."],
+    ["«Allí» se relaciona con el demostrativo…", ["aquel", "este", "ese"], "Lejos de los dos."],
+    ["Para decir «principalmente» se escribe…", ["sobre todo", "sobretodo", "sobre-todo"], "Separado."],
+  ],
+  examen: [
+    ["«Primero, luego, finalmente» sirven para…", ["ordenar los hechos", "describir colores", "expresar duda"], "Adverbios de tiempo."],
+    ["Es correcto…", ["Están medio dormidas", "Están medias dormidas", "Están media dormidas"], "Medio es adverbio y no cambia."],
+  ],
+  tarjetas: [
+    ["Grados del adverbio", "cerca, más cerca, cerquísima."],
+    ["Interrogativos", "dónde, cuándo, cómo, cuánto: con tilde."],
+    ["Adjetivo o adverbio", "Si no concuerda, es adverbio: hablan alto."],
+    ["Juntos o separados", "deprisa, enseguida / a veces, de repente."],
+  ],
+  glosario: [
+    ["Adverbio", "Palabra invariable que complementa a un verbo, un adjetivo u otro adverbio."],
+    ["Invariable", "Que no cambia de género ni de número."],
+    ["Lugar", "Adverbios que responden a ¿dónde?"],
+    ["Tiempo", "Adverbios que responden a ¿cuándo?"],
+    ["Modo", "Adverbios que responden a ¿cómo?"],
+    ["Cantidad", "Adverbios que responden a ¿cuánto?"],
+    ["Duda", "Adverbios como quizá, tal vez, acaso."],
+    ["Locución adverbial", "Grupo de palabras que funciona como un adverbio."],
+    ["Superlativo", "Grado más alto: lejísimos."],
+    ["Interrogativo", "Adverbio que pregunta y lleva tilde."],
+    ["Pregunta indirecta", "Pregunta sin signos dentro de otra oración: no sé dónde vive."],
+    ["Concordancia", "Coincidencia de género y número."],
+  ],
+  situacion: {
+    titulo: "La gran búsqueda del tesoro",
+    reto: "La clase organiza una búsqueda del tesoro por el colegio para otro curso, con pistas escritas llenas de adverbios.",
+    pasos: ["Por equipos, elegid un escondite y dibujad un plano del recorrido.", "Escribid cinco pistas usando adverbios de lugar, tiempo, modo y cantidad.", "Revisad la ortografía: tildes de los interrogativos y adverbios juntos o separados.", "Probad las pistas con otro equipo, corregid lo que no se entienda y organizad la búsqueda."],
+    producto: "Un juego de pistas y un plano para una búsqueda del tesoro.",
+    evaluacion: ["Usa adverbios variados y precisos.", "Distingue adverbio y adjetivo.", "Escribe con tilde los interrogativos.", "Ordena las instrucciones con adverbios de tiempo."],
+  },
+});

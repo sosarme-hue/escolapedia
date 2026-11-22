@@ -88,3 +88,89 @@ module.exports = P.tema({
   saberes: "Reflexión sobre la lengua: el verbo; infinitivo y conjugaciones; raíz y desinencia; persona, número, tiempo y modo; tiempos simples y compuestos del indicativo; uso del subjuntivo y del imperativo",
   ideas: ["Tabla mural de conjugación con los verbos modelo cantar, comer y vivir.", "Teatrillo de órdenes para practicar el imperativo correcto.", "Reescribir un diario en pasado y luego en futuro."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Conjugar los verbos modelo de las tres conjugaciones", "Reconocer las formas no personales y los verbos irregulares", "Escribir bien los verbos y usar los tiempos del pasado al narrar"],
+  lectura: { titulo: "El diario del explorador", html: `<p>En el desván de la casa de sus abuelos, Daniel encontró un cuaderno viejo con tapas de cuero. En la primera página, con letra temblorosa, ponía: «Diario de mi viaje al Amazonas. 1952».</p><p>Lo abrió con cuidado y empezó a leer: «Hoy <b>salimos</b> del puerto al amanecer. El río <b>era</b> tan ancho que no se <b>veía</b> la otra orilla. Mientras los remeros <b>cantaban</b>, un mono <b>saltó</b> a la barca y nos <b>robó</b> un plátano».</p><p>Daniel se quedó fascinado. Cada frase le hacía imaginar una escena distinta. Se dio cuenta de que algunos verbos contaban lo que <b>pasó</b> de repente (salimos, saltó, robó) y otros describían cómo <b>era</b> todo alrededor (era, veía, cantaban).</p><p>En la última página había una frase escrita con otra tinta: «Algún día <b>volveré</b>. Y si no puedo, ojalá alguien de mi familia lo <b>haga</b> por mí».</p><p>Daniel cerró el cuaderno y bajó corriendo a preguntar a su abuela quién era el explorador. «Tu bisabuelo», le dijo ella sonriendo. Esa noche, Daniel empezó su propio diario.</p><p>Los <b>verbos</b> son el motor de cualquier historia. En este tema aprenderás a dominarlos.</p>` },
+  tras: {
+    "Raíz y desinencia": [
+      ["Los modelos de las tres conjugaciones", `<p>Todos los verbos regulares se conjugan siguiendo uno de estos tres <b>modelos</b>. Si te aprendes los modelos, sabrás conjugar miles de verbos:</p><ul><li><b>Primera conjugación</b> (-ar): el modelo es <b>amar</b> (o <i>cantar</i>). Presente: <i>amo, amas, ama, amamos, amáis, aman</i>. Pertenecen a ella la mayoría de los verbos del castellano, y casi todos los verbos nuevos que se crean: <i>tuitear, escanear, chatear</i>.</li><li><b>Segunda conjugación</b> (-er): el modelo es <b>temer</b> (o <i>comer</i>). Presente: <i>temo, temes, teme, tememos, teméis, temen</i>.</li><li><b>Tercera conjugación</b> (-ir): el modelo es <b>partir</b> (o <i>vivir</i>). Presente: <i>parto, partes, parte, partimos, partís, parten</i>.</li></ul><p>Fíjate en que la segunda y la tercera conjugación se parecen mucho: solo se diferencian en algunas formas, como <i>tememos / partimos</i> o <i>teméis / partís</i>.</p><p>Para conjugar un verbo regular nuevo, quita la terminación del infinitivo y añade las desinencias de su modelo: <i>salt-ar</i> se conjuga como <i>am-ar</i>: <i>salto, saltas, salta…</i></p>`,
+        L.tabla("Presente de los modelos", ["", "amar", "temer", "partir"], [["yo", "amo", "temo", "parto"], ["tú", "amas", "temes", "partes"], ["nosotros", "amamos", "tememos", "partimos"], ["vosotros", "amáis", "teméis", "partís"]])],
+    ],
+    "Los tiempos del indicativo": [
+      ["Contar en pasado: perfecto o imperfecto", `<p>Cuando escribimos un cuento o contamos algo que nos ha pasado, usamos sobre todo dos tiempos del pasado, y cada uno tiene su función:</p><ul><li>El <b>pretérito perfecto simple</b> (<i>salté, comió, llegaron</i>) cuenta las <b>acciones</b> principales, las que hacen avanzar la historia. Son acciones terminadas y puntuales: «El mono <b>saltó</b> a la barca y <b>robó</b> un plátano».</li><li>El <b>pretérito imperfecto</b> (<i>saltaba, comía, llegaban</i>) <b>describe</b> el escenario, los personajes y las acciones habituales o que estaban ocurriendo: «El río <b>era</b> muy ancho. Los remeros <b>cantaban</b>».</li></ul><p>Podemos imaginarlo como una película: el imperfecto es el <b>decorado</b> y el perfecto simple, lo que <b>pasa</b> delante. A menudo aparecen juntos: «Mientras <b>dormía</b> (decorado), <b>sonó</b> el teléfono (acción)».</p><p>Además, el <b>pretérito pluscuamperfecto</b> (<i>había salido</i>) sirve para contar algo que ocurrió <b>antes</b> de otra acción pasada: «Cuando llegué, el tren ya <b>había salido</b>».</p><p>Un consejo para tus redacciones: no mezcles el presente y el pasado sin motivo. Si empiezas a contar en pasado, mantén el pasado hasta el final, salvo en los diálogos, donde los personajes hablan en presente: «—¡Corre, que <b>viene</b> el tren! —<b>gritó</b> Ana».</p>`,
+        H.dos("Dos pasados", ["Perfecto simple", ["acciones", "saltó · robó", "avanza la historia"], RO], ["Imperfecto", ["decorado", "era · cantaban", "describe"], AZ])],
+    ],
+    "Tiempos simples y compuestos": [
+      ["Las formas no personales", `<p>Hay tres formas del verbo que <b>no indican persona</b> ni tiempo: son las <b>formas no personales</b>.</p><ul><li><b>Infinitivo</b>: es el nombre del verbo. Acaba en <b>-ar, -er, -ir</b>: <i>cantar, comer, vivir</i>. Puede funcionar como un sustantivo: «<b>Leer</b> es divertido».</li><li><b>Gerundio</b>: acaba en <b>-ando</b> (1.ª conjugación) o <b>-iendo</b> (2.ª y 3.ª): <i>cantando, comiendo, viviendo</i>. Expresa una acción en desarrollo: «Estoy <b>estudiando</b>». Algunos son irregulares: <i>leyendo, durmiendo, pidiendo, yendo</i>.</li><li><b>Participio</b>: acaba en <b>-ado</b> o <b>-ido</b>: <i>cantado, comido, vivido</i>. Se usa para formar los tiempos compuestos con <i>haber</i> (<i>he cantado</i>) y también como adjetivo (<i>una puerta cerrada</i>).</li></ul><p>Muchos participios muy usados son <b>irregulares</b>: <i>hacer → hecho</i>, <i>decir → dicho</i>, <i>escribir → escrito</i>, <i>romper → roto</i>, <i>poner → puesto</i>, <i>ver → visto</i>, <i>volver → vuelto</i>, <i>abrir → abierto</i>, <i>morir → muerto</i>, <i>cubrir → cubierto</i>. Es un error decir «he rompido» o «ha volvido».</p><p>Cuidado con el gerundio: no debe expresar una acción posterior. «Se cayó, rompiéndose una pierna» es incorrecto; mejor «Se cayó y se rompió una pierna».</p>`,
+        L.filas("Formas no personales", [["Infinitivo", "-ar · -er · -ir: cantar", AZ], ["Gerundio", "-ando · -iendo: cantando", VE], ["Participio", "-ado · -ido: cantado", RO], ["Irregulares", "hecho · dicho · roto · visto", NA]]), ["Qc3tKkWbZ40", "Los Verbos: Formas Personales y Formas No Personales", "La Profe Noemí", 286098]],
+    ],
+  },
+  final: [
+    ["Los verbos irregulares", `<p>Los <b>verbos regulares</b> mantienen siempre la misma raíz y toman las desinencias de su modelo. Los <b>verbos irregulares</b>, en cambio, cambian la raíz o las desinencias en algunas formas. Son pocos, pero se usan muchísimo:</p><ul><li><b>Cambio de vocal</b> en la raíz: <i>pensar → p<b>ie</b>nso</i>, <i>poder → p<b>ue</b>do</i>, <i>pedir → p<b>i</b>do</i>, <i>dormir → d<b>ue</b>rmo</i>, <i>jugar → j<b>ue</b>go</i>.</li><li><b>Se añade una consonante</b>: <i>conocer → cono<b>zc</b>o</i>, <i>tener → ten<b>g</b>o</i>, <i>salir → sal<b>g</b>o</i>, <i>poner → pon<b>g</b>o</i>.</li><li><b>Pretéritos muy distintos</b>: <i>tener → <b>tuve</b></i>, <i>hacer → <b>hice</b></i>, <i>poder → <b>pude</b></i>, <i>andar → <b>anduve</b></i>, <i>decir → <b>dije</b></i>, <i>traer → <b>traje</b></i>.</li><li><b>Futuros irregulares</b>: <i>tener → <b>tendré</b></i>, <i>salir → <b>saldré</b></i>, <i>hacer → <b>haré</b></i>, <i>poder → <b>podré</b></i>.</li><li><b>Totalmente irregulares</b>: <b>ser</b> (<i>soy, eres, fui, era</i>) e <b>ir</b> (<i>voy, vas, fui, iba</i>). ¡Fíjate en que <i>fui</i> sirve para los dos!</li></ul><p>Errores típicos que debes evitar: «andé» (es <i>anduve</i>), «conducí» (es <i>conduje</i>), «satisfació» (es <i>satisfizo</i>) y «haiga» (es <i>haya</i>). Para saber si un verbo es irregular, conjúgalo en presente, pretérito y futuro: si la raíz cambia, es irregular.</p>`,
+      L.tabla("Verbos irregulares", ["Infinitivo", "Presente", "Pretérito"], [["tener", "tengo", "tuve"], ["hacer", "hago", "hice"], ["poder", "puedo", "pude"], ["andar", "ando", "anduve"], ["ir", "voy", "fui"]])],
+    ["Ortografía de los verbos", `<p>Los verbos tienen algunas reglas de ortografía muy útiles:</p><ul><li>El <b>pretérito imperfecto</b> de la 1.ª conjugación se escribe con <b>b</b>: <i>cantaba, jugábamos, estaban</i>. Y también el del verbo <i>ir</i>: <i>iba, íbamos</i>.</li><li>Los verbos acabados en <b>-bir</b> se escriben con <b>b</b> (<i>escribir, recibir, subir</i>), excepto <i>hervir, servir</i> y <i>vivir</i>.</li><li>Los verbos acabados en <b>-ger</b> y <b>-gir</b> se escriben con <b>g</b> (<i>coger, elegir, proteger</i>), pero cambian la g por <b>j</b> delante de <b>a</b> y <b>o</b>: <i>cojo, elijo, protejamos</i>. Excepción: <i>tejer</i> y <i>crujir</i>, que llevan siempre j.</li><li>Las formas de <b>haber</b> llevan <b>h</b>: <i>he, has, ha, hemos, había, hubo</i>. No confundas <i>ha</i> (verbo) con <i>a</i> (preposición): «Ana <b>ha</b> ido <b>a</b> casa».</li><li><b>Haber / a ver</b>: «Puede <b>haber</b> tormenta» (verbo) y «Vamos <b>a ver</b> la película» (preposición + verbo ver).</li><li><b>Hecho / echo</b>: <i>hecho</i>, con h, es el participio de <i>hacer</i> («He <b>hecho</b> los deberes»); <i>echo</i>, sin h, es del verbo <i>echar</i> («<b>Echo</b> sal a la sopa»).</li><li><b>Hay / ahí / ay</b>: <i>hay</i> es del verbo haber; <i>ahí</i>, adverbio de lugar; <i>¡ay!</i>, exclamación.</li></ul>`,
+      L.filas("Dudas frecuentes", [["-aba", "cantaba · jugábamos", AZ], ["ha / a", "Ana ha ido a casa", VE], ["haber / a ver", "puede haber · a ver", RO], ["hecho / echo", "he hecho · echo sal", NA], ["hay / ahí / ay", "verbo · lugar · queja", MO]])],
+  ],
+  ejemplos: [
+    ["Escribe el participio de: romper, decir, volver y abrir.", ["Son participios irregulares: no acaban en -ado ni -ido.", "romper → roto; decir → dicho.", "volver → vuelto; abrir → abierto."], "roto, dicho, vuelto, abierto"],
+    ["Completa con haber o a ver: «Vamos ___ si puede ___ entradas».", ["En el primer hueco va la preposición a seguida del verbo ver: «vamos a ver».", "En el segundo hueco va el infinitivo haber: «puede haber entradas»."], "Vamos a ver si puede haber entradas"],
+  ],
+  errores: ["Decir «he rompido» o «ha volvido»: son he roto y ha vuelto.", "Decir «andé» o «conducí»: son anduve y conduje."],
+  ejercicios: [
+    ["b", "Conjuga el presente de «partir».", "Parto, partes, parte, partimos, partís, parten."],
+    ["b", "Escribe el gerundio de: cantar, comer, leer.", "Cantando, comiendo, leyendo."],
+    ["b", "Escribe el participio de: hacer, escribir, poner.", "Hecho, escrito, puesto."],
+    ["b", "Escribe la primera persona del presente de: tener, salir, conocer.", "Tengo, salgo, conozco."],
+    ["b", "Completa con b o v: canta_a, vi_ir, escri_ir.", "Cantaba, vivir, escribir."],
+    ["m", "Escribe la primera persona del pretérito perfecto simple de: tener, hacer, andar.", "Tuve, hice, anduve."],
+    ["m", "Completa con hecho o echo: «He ___ la cama» / «___ agua a las plantas».", "He hecho la cama. Echo agua a las plantas."],
+    ["m", "Completa con hay, ahí o ay: «¡___, qué daño!», «___ un gato ___».", "¡Ay, qué daño! Hay un gato ahí."],
+    ["m", "Escribe la 1.ª persona del presente de coger y elegir.", "Cojo, elijo."],
+    ["m", "¿Qué tiempo describe y qué tiempo cuenta acciones en «Llovía cuando llegó el autobús»?", "Llovía (imperfecto) describe; llegó (perfecto simple) cuenta la acción."],
+    ["a", "Continúa el diario del explorador con cinco oraciones combinando perfecto simple e imperfecto.", "Respuesta abierta."],
+    ["a", "Corrige: «Ayer andé mucho, he rompido mis zapatos y conducí la bici sin frenos».", "Ayer anduve mucho, he roto mis zapatos y conduje la bici sin frenos."],
+    ["a", "Explica por qué «ser» e «ir» son verbos totalmente irregulares.", "Porque cambian por completo la raíz: soy, era, fui; voy, iba, fui."],
+    ["a", "Escribe tres oraciones con hay, ahí y ay, y otra con haber y a ver.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El modelo de la 3.ª conjugación es…", ["partir", "temer", "amar"], "Verbos en -ir."],
+    ["«Comiendo» es…", ["un gerundio", "un participio", "un infinitivo"], "Termina en -iendo."],
+    ["El participio de «romper» es…", ["roto", "rompido", "rompiendo"], "Irregular."],
+    ["El pretérito de «andar» es…", ["anduve", "andé", "andí"], "Verbo irregular."],
+    ["Se escribe…", ["cantábamos", "cantávamos", "cantabamos"], "Imperfecto -aba con b y tilde en esdrújula."],
+  ],
+  examen: [
+    ["«He ___ los deberes» se completa con…", ["hecho", "echo", "echado"], "Participio de hacer."],
+    ["En un cuento, para describir el escenario usamos sobre todo…", ["el pretérito imperfecto", "el futuro", "el imperativo"], "Era, había, brillaba."],
+  ],
+  tarjetas: [
+    ["Modelos", "amar, temer, partir."],
+    ["Formas no personales", "Infinitivo, gerundio y participio."],
+    ["Participios irregulares", "hecho, dicho, escrito, roto, puesto, visto, vuelto."],
+    ["hecho / echo", "Hacer / echar."],
+  ],
+  glosario: [
+    ["Verbo", "Palabra que expresa acciones, estados o fenómenos."],
+    ["Infinitivo", "Forma que da nombre al verbo: -ar, -er, -ir."],
+    ["Raíz", "Parte del verbo que lleva el significado."],
+    ["Desinencia", "Terminación que indica persona, número, tiempo y modo."],
+    ["Conjugación", "Conjunto de formas de un verbo, o cada uno de sus tres grupos."],
+    ["Gerundio", "Forma no personal en -ando o -iendo."],
+    ["Participio", "Forma no personal en -ado o -ido."],
+    ["Tiempo compuesto", "El formado con haber y el participio."],
+    ["Modo", "Actitud del hablante: indicativo, subjuntivo o imperativo."],
+    ["Verbo regular", "El que se conjuga como su modelo sin cambiar la raíz."],
+    ["Verbo irregular", "El que cambia la raíz o las desinencias."],
+    ["Pretérito imperfecto", "Pasado que describe o indica costumbre: cantaba."],
+  ],
+  situacion: {
+    titulo: "El diario de un explorador",
+    reto: "Cada alumno escribe el diario de un viaje imaginario de cinco días, como el del bisabuelo de Daniel.",
+    pasos: ["Elegid un destino y documentaos sobre su paisaje, su clima y sus animales.", "Escribid cada día del diario combinando imperfecto para describir y perfecto simple para las acciones.", "Revisad en pareja los verbos irregulares, los participios y la ortografía (b de -aba, hecho/echo, hay/ahí/ay).", "Leed en voz alta vuestro diario y montad una exposición con mapas y dibujos."],
+    producto: "Un diario de viaje ilustrado de cinco días.",
+    evaluacion: ["Conjuga correctamente verbos regulares e irregulares.", "Usa los tiempos del pasado con su función.", "Reconoce las formas no personales.", "Escribe los verbos sin faltas de ortografía."],
+  },
+});

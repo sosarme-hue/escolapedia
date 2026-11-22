@@ -88,3 +88,92 @@ module.exports = P.tema({
   saberes: "Reflexión sobre la lengua: palabras de enlace; las preposiciones y su significado; contracciones; usos correctos de a/en y por/para; las conjunciones (copulativas, disyuntivas, adversativas, causales, consecutivas, condicionales y finales); cohesión textual",
   ideas: ["Rap de las preposiciones para memorizar la lista.", "Juego de búsqueda del tesoro con pistas basadas en preposiciones de lugar.", "Taller de enlazar: convertir textos telegráficos en párrafos con conjunciones."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Reconocer las locuciones prepositivas y el régimen de los verbos", "Escribir bien porque, por qué, porqué, sino y si no", "Usar conectores para organizar un texto"],
+  lectura: { titulo: "El puente de palabras", html: `<p>En un pueblo de montaña había dos aldeas separadas por un río. Los de una orilla hablaban de sus cosechas y los de la otra, de sus rebaños, pero nunca se reunían, <b>porque</b> no había ningún puente.</p><p>Un día, una niña llamada Alba tuvo una idea. Ató una cuerda <b>a</b> una piedra, la lanzó <b>hacia</b> la otra orilla y gritó: «¡Agarradla <b>y</b> tirad!». Poco a poco, con cuerdas, tablas <b>y</b> mucha paciencia, las dos aldeas construyeron un puente.</p><p>Desde entonces, los pastores cruzaban <b>con</b> sus quesos <b>y</b> los agricultores volvían <b>con</b> lana. Las dos aldeas se hicieron amigas, <b>aunque</b> a veces discutían <b>sobre</b> quién había puesto más tablas.</p><p>Cuando Alba fue mayor, se hizo maestra. El primer día de clase escribió en la pizarra: «de», «con», «y», «pero», «porque».</p><p>—Estas palabras son como nuestro puente —explicó—. Son pequeñas, pero sin ellas las demás palabras se quedarían aisladas, cada una en su orilla.</p><p>En este tema seguirás aprendiendo a usar esos puentes de la lengua: las <b>preposiciones</b>, las <b>conjunciones</b> y los <b>conectores</b>.</p>` },
+  tras: {
+    "Las preposiciones": [
+      ["Las locuciones prepositivas", `<p>Además de las preposiciones de una sola palabra, hay grupos de palabras que funcionan como una preposición. Se llaman <b>locuciones prepositivas</b> y casi siempre terminan en una preposición (<i>de, a, con</i>):</p><ul><li><b>De lugar</b>: <i>encima de, debajo de, delante de, detrás de, dentro de, cerca de, lejos de, junto a, alrededor de, frente a</i>. «El gato duerme <b>encima del</b> armario».</li><li><b>De causa</b>: <i>a causa de, debido a, gracias a, por culpa de</i>. «Se suspendió el partido <b>a causa de</b> la lluvia».</li><li><b>De oposición</b>: <i>a pesar de, en contra de</i>. «Salimos <b>a pesar del</b> frío».</li><li><b>De sustitución</b>: <i>en lugar de, en vez de</i>. «Tomé zumo <b>en vez de</b> leche».</li><li><b>De tema</b>: <i>acerca de, en cuanto a, respecto a</i>. «Hablamos <b>acerca de</b> los planetas».</li></ul><p>Algunas preposiciones de la lista apenas se usan hoy: <i>cabe</i> («junto a») y <i>so</i> («bajo») solo aparecen en textos antiguos o en expresiones como <i>so pena de</i>. En cambio, <i>durante</i>, <i>mediante</i>, <i>versus</i> y <i>vía</i> se han incorporado a la lista más recientemente.</p><p>Cuidado con <i>debajo de mí</i> y <i>delante de ti</i>: es un error decir «debajo mío» o «delante tuyo».</p>`,
+        L.filas("Locuciones prepositivas", [["Lugar", "encima de · junto a", AZ], ["Causa", "a causa de · gracias a", VE], ["Oposición", "a pesar de", RO], ["Sustitución", "en vez de", NA], ["Tema", "acerca de", MO]])],
+    ],
+    "Usar bien las preposiciones": [
+      ["Verbos con su preposición", `<p>Muchos verbos van acompañados siempre de una <b>preposición fija</b>. Es lo que llamamos el <b>régimen</b> del verbo. Si cambias la preposición, la frase suena mal o cambia de significado:</p><ul><li><i>pensar <b>en</b></i>: «Pienso <b>en</b> ti».</li><li><i>soñar <b>con</b></i>: «Soñé <b>con</b> dragones».</li><li><i>depender <b>de</b></i>, <i>acordarse <b>de</b></i>, <i>enamorarse <b>de</b></i>.</li><li><i>confiar <b>en</b></i>, <i>insistir <b>en</b></i>, <i>tardar <b>en</b></i>.</li><li><i>atreverse <b>a</b></i>, <i>aprender <b>a</b></i>, <i>oler <b>a</b></i>: «Huele <b>a</b> pan recién hecho».</li></ul><p>Dos errores muy frecuentes están relacionados con la preposición <b>de</b> delante de <b>que</b>:</p><ul><li><b>Dequeísmo</b>: poner <i>de</i> donde no hace falta. «Pienso <s>de</s> que tienes razón» → «Pienso <b>que</b> tienes razón». «Me dijo <s>de</s> que vendría» → «Me dijo <b>que</b> vendría».</li><li><b>Queísmo</b>: quitar <i>de</i> cuando sí hace falta. «Me acuerdo <s>que</s> llovía» → «Me acuerdo <b>de que</b> llovía». «Estoy seguro <s>que</s> ganaremos» → «Estoy seguro <b>de que</b> ganaremos».</li></ul><p><b>Truco</b>: cambia lo que va detrás de <i>que</i> por <i>eso</i>. Si dices «Pienso <b>eso</b>», no lleva <i>de</i>; si dices «Me acuerdo <b>de eso</b>», sí la lleva.</p>`,
+        L.filas("¿Con «de» o sin «de»?", [["Pienso", "eso → pienso que…", AZ], ["Dijo", "eso → dijo que…", VE], ["Me acuerdo", "de eso → de que…", RO], ["Seguro", "de eso → de que…", NA]])],
+    ],
+    "Clases de conjunciones (I)": [
+      ["Sino y si no", `<p>Estas dos formas suenan casi igual, pero se escriben y se usan de forma muy distinta:</p><ul><li><b>Sino</b>, en una sola palabra, es una <b>conjunción adversativa</b>. Se usa después de una negación para <b>corregir</b> lo anterior y decir lo que es verdad: «No es azul, <b>sino</b> verde». «No vino Pedro, <b>sino</b> su hermano». «No solo canta, <b>sino</b> que también baila».</li><li><b>Si no</b>, en dos palabras, es la unión de la conjunción condicional <b>si</b> y el adverbio de negación <b>no</b>. Expresa una <b>condición negativa</b>: «<b>Si no</b> estudias, no aprobarás». «Ven pronto; <b>si no</b>, nos iremos sin ti».</li></ul><p><b>Truco</b>: si puedes poner otra palabra entre <i>si</i> y <i>no</i> sin que la frase cambie de sentido, se escribe separado: «Si <b>tú</b> no estudias…». Con <i>sino</i> esto no es posible.</p><p>También existe <b>sino</b> como sustantivo, que significa «destino»: «Su <b>sino</b> era ser marinero».</p><p>Y recuerda lo que viste antes: la conjunción <b>y</b> se convierte en <b>e</b> delante de palabras que empiezan por <i>i</i> o <i>hi</i> (<i>padres e hijos</i>), y <b>o</b> se convierte en <b>u</b> delante de <i>o</i> u <i>ho</i> (<i>siete u ocho</i>).</p>`,
+        H.dos("Sino o si no", ["sino", ["corrige", "No es azul,", "sino verde"], AZ], ["si no", ["condición", "Si no estudias,", "no aprobarás"], RO])],
+    ],
+    "Clases de conjunciones (II)": [
+      ["Porque, por que, porqué y por qué", `<p>Estas cuatro formas son una de las dudas ortográficas más frecuentes. Cada una tiene su uso:</p><ul><li><b>Por qué</b> (separado y con tilde): sirve para <b>preguntar</b> o exclamar, también en preguntas indirectas. «¿<b>Por qué</b> lloras?». «No sé <b>por qué</b> lloras».</li><li><b>Porque</b> (junto y sin tilde): es una <b>conjunción causal</b> y sirve para <b>responder</b> o explicar la causa. «Lloro <b>porque</b> me duele la rodilla».</li><li><b>Porqué</b> (junto y con tilde): es un <b>sustantivo</b> que significa «causa» o «motivo». Lleva siempre un determinante delante (<i>el, un, su</i>) y tiene plural. «No entiendo <b>el porqué</b> de su enfado». «Explícame <b>los porqués</b>».</li><li><b>Por que</b> (separado y sin tilde): es la preposición <i>por</i> + el relativo <i>que</i>. Se puede sustituir por <i>por el cual, por la cual</i>: «Esa es la razón <b>por (la) que</b> vine». Es la forma menos frecuente.</li></ul><p>Recuerda: pregunta → <b>por qué</b>; respuesta → <b>porque</b>; con artículo → <b>el porqué</b>.</p>`,
+        L.filas("Los cuatro porqués", [["por qué", "¿Por qué lloras?", AZ], ["porque", "Lloro porque me duele", VE], ["el porqué", "el motivo, con artículo", RO], ["por que", "la razón por (la) que vine", NA]])],
+    ],
+  },
+  final: [
+    ["Los conectores del texto", `<p>Cuando escribimos textos más largos, como una redacción, un trabajo o una opinión, necesitamos palabras y expresiones que <b>unan los párrafos</b> y muestren cómo se relacionan las ideas. Son los <b>conectores</b> o marcadores del discurso:</p><ul><li><b>Para ordenar</b>: <i>en primer lugar, en segundo lugar, por un lado, por otro lado, por último</i>.</li><li><b>Para añadir</b>: <i>además, también, asimismo, incluso</i>.</li><li><b>Para oponer</b>: <i>pero, sin embargo, no obstante, en cambio, aunque</i>.</li><li><b>Para explicar o poner ejemplos</b>: <i>es decir, o sea, por ejemplo, como</i>.</li><li><b>Para indicar consecuencia</b>: <i>por eso, por tanto, así que, en consecuencia</i>.</li><li><b>Para terminar</b>: <i>en conclusión, en resumen, para terminar, finalmente</i>.</li></ul><p>Fíjate en la <b>puntuación</b>: los conectores que van al principio de una oración suelen ir seguidos de <b>coma</b>: «<b>Sin embargo,</b> no todos estaban de acuerdo». «<b>En conclusión,</b> el reciclaje es necesario».</p><p>Un texto con buenos conectores es como un camino bien señalizado: el lector sabe en todo momento hacia dónde va.</p>`,
+      L.filas("Conectores", [["Ordenar", "en primer lugar · por último", AZ], ["Añadir", "además · también", VE], ["Oponer", "sin embargo · en cambio", RO], ["Explicar", "es decir · por ejemplo", NA], ["Concluir", "en resumen", MO]]), ["0yK64bAjrOw", "Los Conectores de Texto | Videos Educativos Aula365", "FlexFlix Kids en Español", 2767781]],
+  ],
+  ejemplos: [
+    ["Completa: «¿___ no viniste?» «___ estaba enfermo». «Nadie sabe el ___».", ["La primera es una pregunta: por qué.", "La segunda responde con la causa: porque.", "La tercera lleva artículo y significa motivo: porqué."], "Por qué, porque, porqué"],
+    ["¿Dequeísmo o queísmo? «Me alegro que vengas» / «Creo de que lloverá».", ["Me alegro de eso → me alegro de que vengas (había queísmo).", "Creo eso → creo que lloverá (había dequeísmo)."], "Me alegro de que vengas. Creo que lloverá."],
+  ],
+  errores: ["Dequeísmo: «Pienso de que…» (es pienso que).", "Escribir «sino» cuando es condición: «Sino estudias…» (es si no estudias)."],
+  ejercicios: [
+    ["b", "Escribe tres locuciones prepositivas de lugar.", "Por ejemplo: encima de, debajo de, junto a."],
+    ["b", "Completa con la preposición: pensar ___ ti, soñar ___ el mar, oler ___ flores.", "En, con, a."],
+    ["b", "Completa con sino o si no: «No es lunes, ___ martes».", "Sino."],
+    ["b", "Completa: «¿___ ríes?» «___ me hace gracia».", "¿Por qué ríes? Porque me hace gracia."],
+    ["b", "Escribe dos conectores para añadir y dos para concluir.", "Además, también; en conclusión, en resumen."],
+    ["m", "Corrige: «Me dijo de que llegaría tarde» y «Me acuerdo que llovía».", "Me dijo que llegaría tarde. Me acuerdo de que llovía."],
+    ["m", "Completa con sino o si no: «___ te das prisa, perderás el tren».", "Si no."],
+    ["m", "Escribe una oración con «el porqué».", "Por ejemplo: «Quiero saber el porqué de tu decisión»."],
+    ["m", "Sustituye por una locución: «Salimos aunque hacía frío».", "Salimos a pesar del frío."],
+    ["m", "Corrige: «Se sentó delante mío».", "Se sentó delante de mí."],
+    ["m", "¿Qué conector usarías para oponer una idea? Escribe un ejemplo.", "Sin embargo. Por ejemplo: «Hacía sol; sin embargo, llevamos paraguas»."],
+    ["a", "Escribe un texto de opinión de seis líneas sobre el uso del móvil con al menos cuatro conectores distintos.", "Respuesta abierta, con conectores de orden, adición, oposición y conclusión."],
+    ["a", "Explica el truco de «eso» para evitar el dequeísmo y aplícalo a «Estoy seguro (de) que ganaremos».", "Estoy seguro de eso → Estoy seguro de que ganaremos."],
+    ["a", "Escribe una oración con cada forma: porque, por qué, porqué y por que.", "Respuesta abierta."],
+    ["a", "Une con conectores: «Llovía. Fuimos de excursión. Nos mojamos. Lo pasamos bien».", "Por ejemplo: «Aunque llovía, fuimos de excursión. Nos mojamos; sin embargo, lo pasamos bien»."],
+  ],
+  quiz: [
+    ["«A pesar de» es una…", ["locución prepositiva", "conjunción copulativa", "preposición simple"], "Varias palabras que funcionan como preposición."],
+    ["«Pienso de que…» es un caso de…", ["dequeísmo", "queísmo", "laísmo"], "Sobra el de."],
+    ["«No es rojo, ___ naranja»", ["sino", "si no", "si"], "Corrige tras una negación."],
+    ["«No entiendo el ___ de su enfado»", ["porqué", "por qué", "porque"], "Sustantivo con artículo."],
+    ["«Sin embargo» es un conector para…", ["oponer", "añadir", "ordenar"], "Indica contraste."],
+  ],
+  examen: [
+    ["«Me acuerdo ___ tu cumpleaños»", ["de", "en", "con"], "Acordarse de."],
+    ["«¿___ no me llamaste?»", ["Por qué", "Porque", "Porqué"], "Pregunta: separado y con tilde."],
+  ],
+  tarjetas: [
+    ["Locución prepositiva", "encima de, a causa de, a pesar de."],
+    ["Dequeísmo", "Pienso de que → pienso que."],
+    ["sino / si no", "Corrige / condición."],
+    ["Porqués", "¿Por qué? / porque / el porqué / por que."],
+  ],
+  glosario: [
+    ["Enlace", "Palabra que une otras palabras u oraciones."],
+    ["Preposición", "Enlace invariable que une una palabra con su término."],
+    ["Término", "Palabra que va detrás de la preposición."],
+    ["Locución prepositiva", "Grupo de palabras que funciona como una preposición."],
+    ["Régimen", "Preposición fija que exige un verbo."],
+    ["Conjunción", "Enlace que une palabras del mismo tipo u oraciones."],
+    ["Copulativa", "Conjunción que suma: y, e, ni."],
+    ["Disyuntiva", "Conjunción que presenta una elección: o, u."],
+    ["Adversativa", "Conjunción que opone: pero, sino."],
+    ["Causal", "Conjunción que indica causa: porque."],
+    ["Dequeísmo", "Uso de «de que» donde solo va «que»."],
+    ["Conector", "Expresión que relaciona las ideas de un texto."],
+  ],
+  situacion: {
+    titulo: "Constructores de puentes",
+    reto: "La clase elabora un mural-guía de enlaces y escribe textos de opinión bien conectados sobre temas del colegio.",
+    pasos: ["Por equipos, recopilad preposiciones, locuciones, conjunciones y conectores en tarjetas de colores.", "Diseñad un mural con forma de puente en el que cada tabla sea un enlace con un ejemplo.", "Escribid un texto de opinión sobre una mejora para el colegio usando al menos cinco conectores.", "Leed los textos, comprobad el uso de porque/por qué y sino/si no, y votad las mejores propuestas."],
+    producto: "Un mural-guía de enlaces y una colección de textos de opinión.",
+    evaluacion: ["Distingue preposiciones, conjunciones y locuciones.", "Evita el dequeísmo y el queísmo.", "Escribe correctamente porque, por qué, sino y si no.", "Organiza sus textos con conectores."],
+  },
+});
