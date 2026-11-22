@@ -137,3 +137,94 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir el sonido suave de la c y el fuerte de la g con e, i", "Escribir bien el plural de palabras acabadas en z", "Usar la k en las pocas palabras que la llevan", "Copiar y dictar palabras sin errores"],
+  lectura: { titulo: "El dictado de Guille", html: `<p>Guillermo, al que todos llaman Guille, tiene un problema con los dictados. Siempre se le escapa alguna u o le sobra alguna otra.</p><p>Un día, la maestra dicta: «El águila vuela sobre la guitarra del pingüino».</p><p>Guille escribe «gitarra» y «pinguino».</p><p>—¿Cómo suena «gi»? —le pregunta la maestra.</p><p>—Como en «gigante»… ¡Uy! Entonces me falta la u: gui-tarra.</p><p>—¿Y en pingüino, suena la u?</p><p>Guille lo dice despacio: «pin-gü-i-no».</p><p>—¡Sí que suena! Entonces lleva los dos puntitos.</p><p>Desde ese día, Guille tiene un truco: antes de escribir, dice la palabra en voz baja y escucha bien cada sonido. En su estuche lleva una tarjetita con la tabla de la g y la qu.</p><p>En el siguiente dictado, ¡no tuvo ni un solo error! La maestra le puso una pegatina de un pingüino con guitarra.</p>` },
+  tras: {
+    "La tabla de la c y la qu": [
+      ["La c suave: ce, ci", `<p>La letra c tiene <mark>dos sonidos</mark>:</p><ul><li>Con <b>a, o, u</b> suena fuerte: casa, cola, cuna.</li><li>Con <b>e, i</b> suena suave, como la z: <b>ce</b>bolla, <b>ci</b>ne, <b>ce</b>reza, <b>ci</b>ruela.</li></ul><p>Por eso escribimos <b>ce</b> y <b>ci</b>, y casi nunca «ze» o «zi». En cambio, con a, o, u usamos la z: <b>za</b>pato, <b>zo</b>rro, <b>zu</b>mo.</p><p>Fíjate en la tabla del sonido suave:</p><ul><li><b>za</b> – <b>ce</b> – <b>ci</b> – <b>zo</b> – <b>zu</b>.</li></ul><p>En algunas zonas de España, en Canarias y en América, este sonido se pronuncia como una <b>s</b>. Pero se escribe igual: cine, zapato.</p><p><b>Actividad</b>: busca en el supermercado o en casa alimentos con ce y ci: cebolla, cereales, ciruela…</p>`,
+        L6.filas("Sonido suave", [["za", "zapato", cNA], ["ce", "cebolla", cVE], ["ci", "cine", cAZ], ["zo, zu", "zorro, zumo", cRO]]),
+        ["Gvu8x2Nm0u0", "La Letra C (CECI) | Canción Infantil para Aprender CA CO CU CE CI", "Prof. Maria Fernanda", 3349787]],
+    ],
+    "Gue y gui": [
+      ["La g fuerte: ge, gi", `<p>La g también tiene <mark>dos sonidos</mark>:</p><ul><li>Con <b>a, o, u</b> y con <b>ue, ui</b> suena suave: gato, goma, guerra, guitarra.</li><li>Con <b>e, i</b> suena fuerte, como la j: <b>ge</b>nte, <b>gi</b>gante, <b>gi</b>rasol, ma<b>gi</b>a.</li></ul><p>Es como la c: según la vocal que va detrás, cambia el sonido.</p><p>¡Ojo! El sonido fuerte con e, i a veces se escribe con <b>j</b>: <b>je</b>fe, <b>ji</b>rafa, <b>je</b>rsey. Para saber si va g o j, tenemos que fijarnos y memorizar las palabras. Un diccionario nos ayuda cuando dudamos.</p><p>Compara: <b>gi</b>tano / <b>gui</b>tarra. En la primera, la g suena fuerte; en la segunda, suave. ¡Por eso la segunda necesita la u!</p><p><b>Actividad</b>: haz dos columnas: palabras con ge, gi y palabras con gue, gui.</p>`,
+        H6.dos("La g", ["SUAVE", ["ga go gu", "gue gui", "guitarra"], cAZ], ["FUERTE", ["ge gi", "gente", "gigante"], cRO]),
+        ["kTUtZhrSzC4", "Silabas gue gui", "Mi Jardin Infantil", 918519]],
+    ],
+    "Güe y güi: los dos puntitos": [
+      ["El plural de las palabras con z", `<p>Las palabras que terminan en <mark>z</mark> cambian la z por <b>c</b> cuando las ponemos en plural:</p><ul><li>pez → <b>peces</b>.</li><li>lápiz → <b>lápices</b>.</li><li>nariz → <b>narices</b>.</li><li>luz → <b>luces</b>.</li><li>voz → <b>voces</b>.</li></ul><p>¿Por qué? Porque en plural añadimos <b>-es</b>, y delante de la e no escribimos z, sino c. ¡Es la regla de ce, ci!</p><p>Lo mismo pasa con algunos verbos: <b>cazar</b> → yo ca<b>c</b>é; <b>rezar</b> → yo re<b>c</b>é.</p><p>Si dudas, di el plural en voz alta: «pe-ces». Suena ce, así que escribimos c.</p><p><b>Actividad</b>: escribe en plural: cruz, actriz, disfraz, avestruz.</p>`,
+        H6.flujo("Plural", ["pez|singular", "+ es|pez-es", "z → c|delante de e", "peces|¡listo!"], cAZ)],
+    ],
+    "La tabla de la g": [
+      ["La k: una letra con pocas palabras", `<p>El sonido fuerte de la c (ca, que, qui, co, cu) también se puede escribir con la letra <mark>k</mark>. Pero hay muy pocas palabras con k en español.</p><p>Casi todas vienen de <b>otros idiomas</b>:</p><ul><li><b>kilo</b> y <b>kilómetro</b>.</li><li><b>kiwi</b>, la fruta.</li><li><b>koala</b>, el animal de Australia.</li><li><b>kárate</b>, el deporte de Japón.</li><li><b>kétchup</b>.</li></ul><p>Algunas se pueden escribir de dos formas: <b>kiosco</b> o <b>quiosco</b>, <b>biquini</b> o bikini.</p><p>Como son pocas, es fácil aprenderlas. Para el resto de las palabras usamos c o qu.</p><p><b>Actividad</b>: haz un dibujo de un koala comiendo un kiwi en un kiosco y escribe las palabras con k.</p>`,
+        H6.rueda("Con k", "K", [["kilo", cNA], ["kiwi", cVE], ["koala", cMO], ["kárate", cRO]])],
+    ],
+  },
+  final: [
+    ["Copiar y dictar sin errores", `<p>Para escribir bien c, qu, z, g, gu y gü, te ayudarán estos <mark>trucos</mark>:</p><ul><li><b>Escucha</b> la palabra despacio, sílaba a sílaba.</li><li><b>Fíjate en la vocal</b> que viene detrás: e, i o a, o, u.</li><li><b>Pregúntate</b>: ¿suena fuerte o suave? ¿Suena la u?</li><li><b>Revisa</b> al terminar: lee lo que has escrito en voz baja.</li></ul><p>Cuando copies, mira la palabra entera, tápala y escríbela de memoria. Después, destápala y compara. Este truco se llama <b>mirar, tapar, escribir y comprobar</b>.</p><p>Hacer un <b>cuaderno de palabras difíciles</b> también ayuda: cada vez que te equivoques en una, la apuntas bien escrita y la repasas.</p><p><b>Actividad</b>: haz un dictado por parejas con diez palabras de este tema y corrígelo con tu compañero.</p>`,
+      L6.filas("Truco", [["1", "mirar", cAZ], ["2", "tapar", cNA], ["3", "escribir", cVE], ["4", "comprobar", cRO]])],
+    ["Repaso: el dictado de Guille", `<p>Repasamos las palabras difíciles de la <mark>lectura</mark>:</p><ul><li><b>Guille</b>: gui, con u que no suena.</li><li><b>águila</b>: gui, con u que no suena.</li><li><b>guitarra</b>: gui. Guille escribió «gitarra», pero así sonaría como «gigante».</li><li><b>pingüino</b>: güi, con diéresis porque la u suena.</li><li><b>pegatina</b>: ga, sin u.</li><li><b>maestra dicta</b>: ca, con c fuerte.</li><li><b>siguiente</b>: gui.</li></ul><p>Más ejemplos para practicar:</p><ul><li>Plurales con z: un pez → dos <b>peces</b>; un lápiz → tres <b>lápices</b>.</li><li>Palabras con k: <b>kiwi</b>, <b>koala</b>.</li><li>Sonido suave: <b>cebolla</b>, <b>cine</b>, <b>zapato</b>.</li></ul><p><b>Actividad</b>: inventa una frase loca con un pingüino, una guitarra, unos peces y un kiwi.</p>`,
+      H6.dos("Guille", ["ANTES", ["gitarra", "pinguino", "errores"], cRO], ["DESPUÉS", ["guitarra", "pingüino", "¡ninguno!"], cVE])],
+  ],
+  ejemplos: [
+    ["Escribe el plural de «luz».", ["Añado -es: luz-es.", "Delante de e, z → c."], "Luces."],
+    ["¿«Gitarra» o «guitarra»?", ["Suena suave, como gato.", "Con i necesito gu."], "Guitarra."],
+  ],
+  errores: ["Escribir «pezes» o «lápizes».", "Escribir «gitarra» en lugar de «guitarra»."],
+  ejercicios: [
+    ["b", "Escribe dos palabras con ce o ci.", "Cebolla, cine…"],
+    ["b", "Escribe dos palabras con ge o gi.", "Gente, gigante…"],
+    ["b", "Plural de «pez».", "Peces."],
+    ["b", "Di dos palabras con k.", "Kilo, kiwi, koala…"],
+    ["b", "¿Suena fuerte o suave la g de «girasol»?", "Fuerte."],
+    ["m", "Plural de: nariz, voz, cruz.", "Narices, voces, cruces."],
+    ["m", "Completa: …itarra, …gante (g o gu).", "Guitarra, gigante."],
+    ["m", "Completa: …apato, …ine (z o c).", "Zapato, cine."],
+    ["m", "¿Por qué «gitano» no lleva u?", "Porque su g suena fuerte."],
+    ["m", "Escribe «quiosco» de otra forma.", "Kiosco."],
+    ["a", "En la lectura, ¿qué dos errores cometió Guille?", "Escribió «gitarra» y «pinguino»."],
+    ["a", "Explica por qué «pez» se escribe «peces» en plural.", "Porque delante de e la z cambia a c."],
+    ["a", "Escribe una frase con güe, gui, ce y k.", "Respuesta libre."],
+    ["a", "Explica el truco mirar, tapar, escribir y comprobar.", "Miro la palabra, la tapo, la escribo de memoria y la comparo."],
+  ],
+  quiz: [
+    ["El plural de «lápiz» es…", ["lápices", "lápizes", "lápiz"], "Plural z."],
+    ["«Ge» y «gi» suenan…", ["fuerte, como j", "suave, como gato", "como la c"], "La g."],
+    ["Las palabras con k suelen venir de…", ["otros idiomas", "el latín siempre", "los números"], "La k."],
+    ["Ce y ci suenan como…", ["za, zo, zu", "ca, co, cu", "ga, go, gu"], "La c."],
+    ["El truco de copiar es mirar, tapar, escribir y…", ["comprobar", "borrar", "dibujar"], "Copiar."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué pegatina recibe Guille?", ["un pingüino con guitarra", "una cebra", "un koala"], "Lectura."],
+    ["¿Qué palabra lleva diéresis?", ["pingüino", "guitarra", "águila"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Plural en z", "z → c: pez, peces."],
+    ["g fuerte", "ge, gi, como gente y gigante."],
+  ],
+  glosario: [
+    ["Sonido fuerte", "Ca, que, qui, co, cu; ge, gi."],
+    ["Sonido suave", "Za, ce, ci, zo, zu; ga, gue, gui."],
+    ["Diéresis", "Dos puntitos sobre la u: ü."],
+    ["Plural", "Más de uno."],
+    ["Dictado", "Escribir lo que otra persona dice."],
+    ["Copiar", "Escribir lo que vemos escrito."],
+    ["Kiwi", "Fruta verde por dentro, con piel marrón."],
+    ["Koala", "Animal de Australia que come eucalipto."],
+    ["Revisar", "Volver a leer para buscar errores."],
+    ["Pingüino", "Ave que no vuela y nada en el mar."],
+  ],
+  situacion: {
+    titulo: "El diccionario de sonidos",
+    reto: "La clase crea un mural con la tabla de c, qu, z, g, gu, gü y k, con palabras e ilustraciones de cada sonido.",
+    pasos: ["Recoger palabras con cada sílaba: ca, que, ce, za, ga, gue, ge, güe, k.", "Clasificarlas en sonido fuerte y suave.", "Escribir los plurales de palabras acabadas en z.", "Hacer un dictado por parejas y corregirlo."],
+    producto: "Un mural de sonidos con palabras y dibujos.",
+    evaluacion: ["Escribe bien ce, ci, ge, gi.", "Usa gu y gü correctamente.", "Hace el plural de palabras en z.", "Revisa sus dictados."],
+  },
+});

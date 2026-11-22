@@ -137,3 +137,94 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir protagonista, ayudantes y antagonista", "Conocer las fórmulas de inicio y final de los cuentos", "Conocer a Esopo y fábulas famosas", "Contar un cuento en voz alta con expresión"],
+  lectura: { titulo: "El león y el ratón", html: `<p>Un león dormía la siesta a la sombra de un árbol. De pronto, un ratoncito despistado le pasó corriendo por encima del hocico.</p><p>El león se despertó de mal humor y atrapó al ratón con su enorme garra.</p><p>—¡Perdóname, por favor! —suplicó el ratón—. Si me dejas libre, algún día te ayudaré.</p><p>El león soltó una carcajada. ¿Cómo iba a ayudarle a él, el rey de la selva, un animal tan pequeño? Pero le hizo gracia y lo dejó marchar.</p><p>Unos días después, el león cayó en la red de unos cazadores. Rugía y rugía, pero no conseguía escapar.</p><p>El ratón oyó los rugidos y corrió hacia allí. Con sus dientes afilados, mordió las cuerdas una a una hasta que el león quedó libre.</p><p>—¿Ves? —dijo el ratón—. Hasta el más pequeño puede ayudar al más grande.</p><p><b>Moraleja</b>: no desprecies a nadie por ser pequeño.</p>` },
+  tras: {
+    "Los personajes": [
+      ["Protagonista, ayudantes y antagonista", `<p>En los cuentos, los personajes tienen distintos <mark>papeles</mark>:</p><ul><li>El <b>protagonista</b> es el personaje principal. La historia trata de él. Por ejemplo, Caperucita Roja.</li><li>El <b>antagonista</b> es el que le pone las cosas difíciles al protagonista. Por ejemplo, el lobo.</li><li>Los <b>ayudantes</b> echan una mano al protagonista. Por ejemplo, el leñador que salva a Caperucita.</li><li>Los <b>personajes secundarios</b> aparecen poco, como la mamá de Caperucita.</li></ul><p>No todos los antagonistas son malvados: a veces son un problema, como una tormenta o un río que hay que cruzar.</p><p>En la lectura del león y el ratón, ¿quién ayuda a quién? ¡El ratón, que parecía el más débil, es el ayudante del león!</p><p><b>Actividad</b>: elige un cuento y di quién es el protagonista, el antagonista y el ayudante.</p>`,
+        L6.filas("Caperucita", [["protagonista", "Caperucita", cRO], ["antagonista", "el lobo", cMO], ["ayudante", "el leñador", cVE], ["secundario", "la mamá", cAZ]])],
+    ],
+    "Las tres partes": [
+      ["Fórmulas para empezar y acabar", `<p>Muchos cuentos empiezan y terminan con frases que se repiten. Se llaman <mark>fórmulas</mark>.</p><p>Fórmulas de <b>inicio</b>:</p><ul><li>«Érase una vez…»</li><li>«Había una vez…»</li><li>«Hace mucho, mucho tiempo, en un país muy lejano…»</li></ul><p>Fórmulas de <b>final</b>:</p><ul><li>«…y vivieron felices y comieron perdices».</li><li>«…y colorín colorado, este cuento se ha acabado».</li><li>«…y fueron felices para siempre».</li></ul><p>Estas frases avisan al que escucha: «¡Empieza un cuento!» o «¡Ya ha terminado!». Por eso se usan desde hace cientos de años, cuando los cuentos se contaban de memoria junto al fuego.</p><p><b>Actividad</b>: pregunta a tus abuelos qué fórmulas usaban ellos para empezar y terminar los cuentos.</p>`,
+        H6.dos("Fórmulas", ["INICIO", ["Érase una vez", "Había una vez", "Hace mucho…"], cAZ], ["FINAL", ["colorín colorado", "comieron perdices", "felices"], cVE]),
+        ["B-Gt430Y-GY", "El cuento y sus partes explicado fácil (inicio, nudo y desenlace)", "Te Lo Explico", 425849]],
+    ],
+    "¿Qué es una fábula?": [
+      ["Esopo y otros fabulistas", `<p>Las fábulas son muy, muy antiguas. El fabulista más famoso fue <mark>Esopo</mark>, que vivió en Grecia hace más de 2500 años. Se dice que era un esclavo muy listo que contaba historias de animales.</p><p>Algunas fábulas de Esopo:</p><ul><li><b>La liebre y la tortuga</b>: la tortuga, lenta pero constante, gana la carrera.</li><li><b>La cigarra y la hormiga</b>: la hormiga trabaja en verano y la cigarra no.</li><li><b>El león y el ratón</b>: la de nuestra lectura.</li><li><b>El pastor mentiroso</b>: un niño grita «¡que viene el lobo!» tantas veces en broma que, cuando es verdad, nadie le cree.</li></ul><p>En España hubo dos fabulistas famosos que escribieron fábulas en verso: <b>Samaniego</b> e <b>Iriarte</b>.</p><p><b>Actividad</b>: escucha la fábula de la liebre y la tortuga y dibuja el final de la carrera.</p>`,
+        L6.filas("Esopo", [["liebre", "y tortuga", cVE], ["cigarra", "y hormiga", cNA], ["león", "y ratón", cAZ], ["pastor", "mentiroso", cRO]]),
+        ["ZQrYlI97J24", "El León y el Ratón - Cuentos infantiles", "Cuentos y Canciones Infantiles", 15248160]],
+    ],
+    "Contamos en orden": [
+      ["Contar en voz alta", `<p>Contar un cuento en <mark>voz alta</mark> es un arte. Los buenos cuentacuentos usan estos trucos:</p><ul><li><b>Voz</b>: cambian la voz para cada personaje. El león habla grave y fuerte; el ratón, agudo y bajito.</li><li><b>Velocidad</b>: van despacio en los momentos de misterio y más rápido en la aventura.</li><li><b>Pausas</b>: se callan un momento antes de algo importante para crear emoción.</li><li><b>Gestos</b>: mueven las manos y la cara para mostrar miedo, alegría o sorpresa.</li><li><b>Mirada</b>: miran al público, no solo al papel.</li></ul><p>Antes de contar, conviene <b>leer el cuento varias veces</b> para conocerlo bien. No hace falta saberlo de memoria palabra por palabra: basta con recordar el orden de lo que pasa.</p><p><b>Actividad</b>: cuenta la fábula del león y el ratón a tu familia, con una voz distinta para cada animal.</p>`,
+        H6.rueda("Contar", "VOZ", [["velocidad", cAZ], ["pausas", cNA], ["gestos", cVE], ["mirada", cRO]])],
+    ],
+  },
+  final: [
+    ["Cuentos de todo el mundo", `<p>En todos los países se cuentan <mark>cuentos</mark>. Muchos se parecen, porque los viajeros los llevaban de un lugar a otro.</p><ul><li>De Alemania son los <b>hermanos Grimm</b>, que recogieron Blancanieves, Hansel y Gretel o Caperucita Roja.</li><li>De Dinamarca es <b>Hans Christian Andersen</b>, que escribió El patito feo y La sirenita.</li><li>De Francia es <b>Charles Perrault</b>, que escribió Cenicienta y El gato con botas.</li><li>De Oriente llegan los cuentos de <b>Las mil y una noches</b>, como Aladino o Alí Babá.</li><li>De España son cuentos populares como <b>Garbancito</b> o La ratita presumida.</li></ul><p>¿Sabías que Cenicienta tiene versiones en China, en Egipto y en muchos otros lugares? Cada pueblo la cuenta a su manera.</p><p><b>Actividad</b>: pregunta en casa por un cuento de tu familia o de otro país y cuéntalo en clase.</p>`,
+      L6.filas("Autores", [["Grimm", "Alemania", cAZ], ["Andersen", "Dinamarca", cRO], ["Perrault", "Francia", cVE], ["Garbancito", "España", cNA]])],
+    ["Repaso: el león y el ratón", `<p>Repasamos con la <mark>fábula</mark> de nuestra lectura:</p><ul><li>¿Es un cuento o una fábula? Una <b>fábula</b>: tiene animales que hablan y una moraleja.</li><li>Personajes: el <b>león</b> y el <b>ratón</b>. Los cazadores aparecen poco: son secundarios.</li><li>¿Dónde pasa? En la <b>selva</b>, bajo un árbol.</li><li><b>Inicio</b>: el ratón despierta al león, que lo atrapa y lo suelta.</li><li><b>Nudo</b>: el león cae en la red de los cazadores.</li><li><b>Desenlace</b>: el ratón muerde las cuerdas y lo libera.</li><li><b>Moraleja</b>: no desprecies a nadie por ser pequeño.</li></ul><p>¿Quién la escribió? Es una fábula de <b>Esopo</b>.</p><p><b>Actividad</b>: dibuja la fábula en tres viñetas, una para el inicio, otra para el nudo y otra para el desenlace.</p>`,
+      H6.flujo("Fábula", ["inicio|lo atrapa", "nudo|la red", "final|lo libera", "moraleja|¡ayuda!"], cAZ)],
+  ],
+  ejemplos: [
+    ["¿Quién es el antagonista en «Los tres cerditos»?", ["Pienso quién les causa problemas."], "El lobo."],
+    ["Escribe una fórmula de inicio y otra de final.", ["Inicio clásico.", "Final clásico."], "«Érase una vez…» y «colorín colorado…»."],
+  ],
+  errores: ["Pensar que el antagonista siempre es una persona malvada.", "Contar un cuento en voz alta sin cambiar la voz ni hacer pausas."],
+  ejercicios: [
+    ["b", "¿Qué es el protagonista?", "El personaje principal."],
+    ["b", "Di una fórmula de inicio.", "Érase una vez…"],
+    ["b", "¿Quién fue Esopo?", "Un fabulista de la antigua Grecia."],
+    ["b", "Di una fábula de Esopo.", "La liebre y la tortuga…"],
+    ["b", "¿Quién escribió El patito feo?", "Andersen."],
+    ["m", "¿Cuál es la moraleja de la liebre y la tortuga?", "Quien es constante llega lejos."],
+    ["m", "¿Quién es el ayudante en Caperucita?", "El leñador."],
+    ["m", "Di tres trucos para contar en voz alta.", "Cambiar la voz, hacer pausas, gestos…"],
+    ["m", "¿Qué cuentos recogieron los hermanos Grimm?", "Blancanieves, Hansel y Gretel…"],
+    ["m", "¿Qué pasa en el pastor mentiroso?", "Miente tanto que, cuando es verdad, nadie le cree."],
+    ["a", "En la lectura, ¿por qué se ríe el león del ratón?", "Porque no cree que alguien tan pequeño pueda ayudarle."],
+    ["a", "Divide la fábula del león en inicio, nudo y desenlace.", "Atrapa al ratón; cae en la red; el ratón lo libera."],
+    ["a", "Inventa otra moraleja para la fábula del león y el ratón.", "Por ejemplo: haz el bien y te lo devolverán."],
+    ["a", "¿Por qué hay cuentos parecidos en muchos países?", "Porque los viajeros los llevaban de un lugar a otro."],
+  ],
+  quiz: [
+    ["El que pone las cosas difíciles es el…", ["antagonista", "protagonista", "narrador"], "Personajes."],
+    ["«Colorín colorado» es una fórmula de…", ["final", "inicio", "nudo"], "Fórmulas."],
+    ["El fabulista griego más famoso es…", ["Esopo", "Andersen", "Perrault"], "Fábulas."],
+    ["Contar despacio en el misterio es usar la…", ["velocidad", "rima", "moraleja"], "Contar."],
+    ["Andersen era de…", ["Dinamarca", "Francia", "España"], "Mundo."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo libera el ratón al león?", ["mordiendo las cuerdas", "llamando a otros leones", "asustando a los cazadores"], "Lectura."],
+    ["La moraleja de la lectura es…", ["no desprecies a nadie por ser pequeño", "no mientas", "trabaja en verano"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Papeles", "Protagonista, antagonista, ayudantes y secundarios."],
+    ["Esopo", "Fabulista griego de hace más de 2500 años."],
+  ],
+  glosario: [
+    ["Protagonista", "Personaje principal del cuento."],
+    ["Antagonista", "Personaje que se opone al protagonista."],
+    ["Ayudante", "Personaje que ayuda al protagonista."],
+    ["Fórmula", "Frase fija para empezar o acabar."],
+    ["Fábula", "Cuento corto con animales y moraleja."],
+    ["Fabulista", "Persona que escribe fábulas."],
+    ["Moraleja", "Enseñanza de una fábula."],
+    ["Cuentacuentos", "Persona que cuenta cuentos en voz alta."],
+    ["Desenlace", "Final del cuento."],
+    ["Versión", "Otra forma de contar la misma historia."],
+  ],
+  situacion: {
+    titulo: "Festival de cuentacuentos",
+    reto: "La clase prepara un festival en el que cada grupo cuenta una fábula o un cuento a los niños de Infantil.",
+    pasos: ["Elegir un cuento o una fábula y leerlo varias veces.", "Identificar personajes, partes y moraleja.", "Ensayar con voces, pausas y gestos.", "Contarlo al público con fórmulas de inicio y final."],
+    producto: "Un festival de cuentacuentos para Infantil.",
+    evaluacion: ["Identifica los papeles de los personajes.", "Usa fórmulas de inicio y final.", "Explica la moraleja.", "Cuenta con voz, pausas y gestos."],
+  },
+});

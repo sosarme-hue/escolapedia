@@ -136,3 +136,92 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Usar adjetivos de sabor, olor y sonido", "Comparar con más… que y menos… que", "Formar adjetivos con -ito y -ísimo", "Describir personas, animales y lugares"],
+  lectura: { titulo: "El monstruo del armario", html: `<p>Todas las noches, Pablo oía un ruido extraño dentro de su armario. Era un ruido suave y raspado: «ras, ras, ras».</p><p>—Seguro que es un monstruo enorme, peludo y feroz —le decía a su hermana Lía.</p><p>Una noche, Lía decidió investigar. Cogió una linterna pequeña y amarilla y abrió la puerta despacio.</p><p>Dentro no había ningún monstruo gigante. Había un ratoncito gris, diminuto y muy asustado, que mordisqueaba una galleta vieja.</p><p>—¡Qué monstruo tan pequeñito! —se rió Lía.</p><p>El ratón tenía los ojos negros y brillantes, las orejas redondas y una cola larguísima.</p><p>Al día siguiente, su padre lo llevó con mucho cuidado al parque y lo dejó junto a un árbol viejo y grande.</p><p>Desde entonces, el armario de Pablo está silencioso y tranquilo. Pero a veces, cuando pasa por el parque, Pablo busca a su pequeño monstruo gris.</p>` },
+  tras: {
+    "Adjetivos de forma y de tacto": [
+      ["Adjetivos para los sentidos", `<p>Con los adjetivos podemos contar lo que notamos con <mark>los cinco sentidos</mark>:</p><ul><li><b>Vista</b>: rojo, brillante, grande, oscuro.</li><li><b>Tacto</b>: suave, áspero, frío, mojado.</li><li><b>Gusto</b>: dulce, salado, amargo, ácido.</li><li><b>Olfato</b>: perfumado, apestoso, fresco.</li><li><b>Oído</b>: ruidoso, silencioso, agudo, grave.</li></ul><p>Fíjate en este ejemplo sobre un limón: «Es <b>amarillo</b>, <b>ácido</b>, <b>rugoso</b> y huele <b>fresco</b>».</p><p>Cuantos más sentidos usamos, mejor imagina el lector lo que describimos. Los escritores de cuentos hacen esto todo el tiempo: no solo dicen cómo son las cosas, sino cómo suenan, saben y huelen.</p><p><b>Actividad</b>: con los ojos cerrados, toca, huele y prueba una fruta. Escribe un adjetivo para cada sentido.</p>`,
+        L6.filas("Sentidos", [["gusto", "dulce, salado", cRO], ["olfato", "perfumado", cMO], ["oído", "ruidoso", cAZ], ["tacto", "suave", cVE]])],
+    ],
+    "¿Dónde está el adjetivo?": [
+      ["Comparar con adjetivos", `<p>Los adjetivos también sirven para <mark>comparar</mark> dos cosas. Usamos estas fórmulas:</p><ul><li><b>más … que</b>: «El elefante es <b>más</b> grande <b>que</b> el ratón».</li><li><b>menos … que</b>: «El ratón es <b>menos</b> pesado <b>que</b> el elefante».</li><li><b>tan … como</b>: «Mi hermano es <b>tan</b> alto <b>como</b> yo».</li></ul><p>¡Cuidado! Algunos adjetivos tienen una forma especial para comparar:</p><ul><li>No decimos «más bueno», sino <b>mejor</b>: «Este helado es mejor que ese».</li><li>No decimos «más malo», sino <b>peor</b>: «Hoy hace peor tiempo que ayer».</li></ul><p>Comparar ayuda a explicar las cosas con más precisión. Por ejemplo, no es lo mismo decir «mi perro es grande» que «mi perro es más grande que un león». ¡La segunda frase nos haría reír, porque es imposible!</p><p><b>Actividad</b>: compara dos animales con más… que, menos… que y tan… como.</p>`,
+        H6.flujo("Comparar", ["más|que", "menos|que", "tan|como", "mejor|peor"], cAZ)],
+    ],
+    "El adjetivo concuerda": [
+      ["Pequeñito y grandísimo", `<p>Podemos cambiar un adjetivo añadiéndole un trocito al final para que diga <mark>más cosas</mark>:</p><ul><li>Con <b>-ito / -ita</b> decimos que algo es pequeño o le tenemos cariño: pequeño → <b>pequeñito</b>; guapa → <b>guapita</b>; cerca → cerquita.</li><li>Con <b>-ísimo / -ísima</b> decimos que algo es <b>muy</b>, muy: alto → <b>altísimo</b>; buena → <b>buenísima</b>; largo → <b>larguísimo</b>.</li></ul><p>Así, «una cola larguísima» quiere decir «una cola muy, muy larga».</p><p>Fíjate en que a veces cambia alguna letra para que suene bien: largo → lar<b>gu</b>ísimo; rico → ri<b>qu</b>ísimo; feliz → feli<b>c</b>ísimo.</p><p><b>Actividad</b>: transforma estos adjetivos con -ísimo: grande, guapo, limpio, rico.</p>`,
+        H6.dos("Cambiar", ["-ITO", ["pequeñito", "guapita", "cariño"], cVE], ["-ÍSIMO", ["altísimo", "riquísimo", "muy, muy"], cRO])],
+    ],
+    "Describir con adjetivos": [
+      ["Describir un lugar", `<p>Además de personas y animales, podemos <mark>describir lugares</mark>. Para hacerlo bien, seguimos un orden:</p><ul><li>Decimos <b>qué lugar es</b>: un parque, una cocina, una playa.</li><li>Contamos cómo es <b>en general</b>: grande, tranquilo, luminoso.</li><li>Describimos las <b>cosas que hay</b>, de lo más cercano a lo más lejano, o de izquierda a derecha.</li><li>Terminamos con lo que <b>sentimos</b> allí.</li></ul><p>Ejemplo: «La playa de mi pueblo es <b>larga</b> y <b>tranquila</b>. La arena es <b>fina</b> y <b>dorada</b>. El agua está <b>fría</b> y es <b>transparente</b>. Al fondo hay unas rocas <b>oscuras</b>. Allí me siento <b>feliz</b>».</p><p>Una buena descripción hace que quien la lee pueda cerrar los ojos y ver el lugar como si estuviera allí. Por eso es importante no olvidar los detalles pequeños, como el color de una puerta o el olor de las flores.</p><p>Las palabras de lugar ayudan mucho: <b>delante</b>, <b>detrás</b>, <b>al fondo</b>, <b>a la derecha</b>.</p><p><b>Actividad</b>: describe tu habitación con al menos seis adjetivos.</p>`,
+        L6.filas("Describir lugar", [["1", "qué lugar", cNA], ["2", "cómo es", cAZ], ["3", "qué hay", cVE], ["4", "qué siento", cRO]])],
+    ],
+  },
+  final: [
+    ["Adjetivos en los cuentos", `<p>Los cuentos están llenos de <mark>adjetivos</mark>. Gracias a ellos imaginamos a los personajes y los lugares:</p><ul><li>«Había una vez una niña <b>pobre</b> y <b>bondadosa</b>…»</li><li>«En un bosque <b>oscuro</b> y <b>frondoso</b> vivía un lobo <b>feroz</b>».</li><li>«La bruja tenía una nariz <b>larga</b> y <b>torcida</b>».</li></ul><p>Algunos personajes tienen un adjetivo en su nombre: el <b>Patito Feo</b>, la <b>Bella</b> Durmiente, el Gato <b>con Botas</b>, Caperucita <b>Roja</b>.</p><p>Los adjetivos también nos dicen si un personaje es bueno o malo. Si leemos «el gigante <b>amable</b>», ya sabemos que no hay que tenerle miedo.</p><p>En la lectura del monstruo, los adjetivos nos engañan al principio: «enorme, peludo y feroz». ¡Y al final era «diminuto y asustado»!</p><p><b>Actividad</b>: escoge tu cuento favorito y subraya todos sus adjetivos.</p>`,
+      H6.rueda("Cuentos", "ADJ.", [["Patito Feo", cMO], ["Bella", cRO], ["lobo feroz", cAZ], ["Roja", cVE]])],
+    ["Repaso: el monstruo del armario", `<p>Repasamos con la <mark>lectura</mark> de Pablo y Lía:</p><ul><li>¿Cómo imaginaba Pablo al monstruo? <b>Enorme, peludo y feroz</b>.</li><li>¿Cómo era de verdad? Un ratón <b>gris, diminuto</b> y <b>asustado</b>.</li><li>¿Qué adjetivo con -ísima tiene la cola? <b>Larguísima</b>.</li><li>¿Y con -ito? <b>Pequeñito</b>.</li><li>¿Cómo está el armario al final? <b>Silencioso</b> y <b>tranquilo</b>.</li></ul><p>Comparamos: «El ratón es <b>más</b> pequeño <b>que</b> el monstruo que imaginaba Pablo».</p><p>Concordancia: «linterna pequeña y amarilla» (femenino, singular); «ojos negros y brillantes» (masculino, plural).</p><p>¡Fíjate cuántos adjetivos caben en un cuento corto!</p><p><b>Actividad</b>: dibuja el monstruo que imaginaba Pablo y el ratón de verdad, y escribe tres adjetivos debajo de cada uno.</p>`,
+      H6.dos("Monstruo", ["IMAGINADO", ["enorme", "peludo", "feroz"], cRO], ["DE VERDAD", ["diminuto", "gris", "asustado"], cVE])],
+  ],
+  ejemplos: [
+    ["Compara un gato y un caballo.", ["Elijo un adjetivo: grande.", "Uso más… que."], "El caballo es más grande que el gato."],
+    ["Pon -ísimo a «rico».", ["La c cambia a qu para que suene igual."], "Riquísimo."],
+  ],
+  errores: ["Decir «más bueno» en lugar de «mejor».", "Escribir «ricísimo» en vez de «riquísimo»."],
+  ejercicios: [
+    ["b", "Di un adjetivo de sabor.", "Dulce, salado, amargo, ácido."],
+    ["b", "Di un adjetivo de sonido.", "Ruidoso, silencioso, agudo…"],
+    ["b", "Pon -ito a «pequeño».", "Pequeñito."],
+    ["b", "Pon -ísimo a «alto».", "Altísimo."],
+    ["b", "¿Cómo se dice «más bueno»?", "Mejor."],
+    ["m", "Completa: el ratón es … pesado … el elefante.", "Menos … que."],
+    ["m", "Escribe tres adjetivos para un limón.", "Amarillo, ácido, rugoso."],
+    ["m", "Transforma: grande, limpio, largo con -ísimo.", "Grandísimo, limpísimo, larguísimo."],
+    ["m", "¿Qué adjetivo tiene el nombre «Patito Feo»?", "Feo."],
+    ["m", "Ordena para describir un lugar: qué siento, qué lugar, qué hay, cómo es.", "Qué lugar, cómo es, qué hay, qué siento."],
+    ["a", "En la lectura, ¿qué adjetivos usa Pablo para el monstruo?", "Enorme, peludo y feroz."],
+    ["a", "Describe un parque con cinco adjetivos de distintos sentidos.", "Respuesta libre."],
+    ["a", "Compara a dos personajes de cuento con tan… como.", "Por ejemplo: el lobo es tan listo como el zorro."],
+    ["a", "¿Por qué los adjetivos de la lectura nos engañan al principio?", "Porque describen lo que imaginaba Pablo, no al ratón real."],
+  ],
+  quiz: [
+    ["«Áspero» es un adjetivo de…", ["tacto", "gusto", "oído"], "Sentidos."],
+    ["«Más bueno» se dice…", ["mejor", "buenísimo", "peor"], "Comparar."],
+    ["«Larguísimo» significa…", ["muy, muy largo", "un poco largo", "corto"], "-ísimo."],
+    ["Para comparar iguales uso…", ["tan … como", "más … que", "menos … que"], "Comparar."],
+    ["«Ruidoso» es de…", ["oído", "vista", "olfato"], "Sentidos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué había en el armario?", ["un ratoncito", "un monstruo", "un gato"], "Lectura."],
+    ["«Ojos negros y brillantes» están en…", ["masculino plural", "femenino singular", "masculino singular"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Comparar", "más… que, menos… que, tan… como."],
+    ["-ito / -ísimo", "Pequeñito: cariño; altísimo: muy, muy."],
+  ],
+  glosario: [
+    ["Adjetivo", "Palabra que dice cómo es algo."],
+    ["Sentidos", "Vista, oído, olfato, gusto y tacto."],
+    ["Comparar", "Ver en qué se parecen o se diferencian."],
+    ["Mejor", "Más bueno."],
+    ["Peor", "Más malo."],
+    ["Diminuto", "Muy pequeño."],
+    ["Feroz", "Muy fiero y peligroso."],
+    ["Describir", "Explicar cómo es algo."],
+    ["Concordar", "Tener el mismo género y número."],
+    ["Áspero", "Que no es suave al tocarlo."],
+  ],
+  situacion: {
+    titulo: "Galería de monstruos",
+    reto: "Cada niño inventa un monstruo, lo dibuja y lo describe con adjetivos para que los demás lo adivinen.",
+    pasos: ["Dibujar un monstruo inventado.", "Escribir adjetivos de forma, color, tacto, sonido y olor.", "Comparar el monstruo con el de un compañero.", "Leer la descripción en voz alta y adivinar de quién es."],
+    producto: "Una galería de dibujos con sus descripciones.",
+    evaluacion: ["Usa adjetivos de varios sentidos.", "Compara con más… que y tan… como.", "Forma palabras con -ito e -ísimo.", "Hace concordar los adjetivos."],
+  },
+});

@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer letras especiales como la ñ, la ch y la ll", "Ordenar palabras por la segunda y la tercera letra", "Usar el orden alfabético en listas, agendas y bibliotecas", "Entender una definición del diccionario"],
+  lectura: { titulo: "La biblioteca desordenada", html: `<p>El lunes por la mañana, la bibliotecaria del colegio, Rosa, abre la puerta y se lleva un susto enorme. ¡Todos los libros están por el suelo!</p><p>Durante el fin de semana se había caído una estantería entera. Había cuentos de dragones mezclados con libros de animales y de planetas.</p><p>—Necesito ayudantes —dice Rosa.</p><p>Los niños de 2.º se ofrecen enseguida. Rosa les explica el truco: en cada estantería hay una letra, de la A a la Z, y cada libro va en la letra con la que empieza el apellido de su autor.</p><p>Mateo coge un libro de Gloria Fuertes: va en la F. Sofía coge uno de Elvira Lindo: va en la L.</p><p>—¡Y estos dos empiezan por M! —dice Leo.</p><p>—Entonces mira la segunda letra —le enseña Rosa.</p><p>En una hora, la biblioteca vuelve a estar en orden. Rosa da las gracias a sus ayudantes con un marcapáginas para cada uno.</p>` },
+  tras: {
+    "Las 27 letras": [
+      ["Letras especiales: ñ, ch, ll", `<p>Nuestro abecedario tiene una letra que no existe en casi ningún otro idioma: la <mark>ñ</mark>. Es tan especial que es un símbolo del español en todo el mundo.</p><p>Con la ñ escribimos palabras como <b>niño</b>, <b>año</b>, <b>montaña</b>, <b>araña</b> o <b>España</b>.</p><p>Además, hay dos parejas de letras que suenan como un solo sonido. Se llaman <mark>dígrafos</mark>:</p><ul><li><b>ch</b>: chocolate, coche, leche.</li><li><b>ll</b>: llave, pollo, calle.</li></ul><p>Antes, la ch y la ll se contaban como letras del abecedario. Hoy no: en el diccionario, la palabra <b>chocolate</b> está dentro de la <b>c</b>, y <b>llave</b>, dentro de la <b>l</b>.</p><p>También es especial la <b>h</b>: es la única letra que no suena. Decimos «ola» y escribimos <b>hola</b>.</p><p><b>Actividad</b>: busca en un cuento cinco palabras con ñ y cinco con ch o ll.</p>`,
+        L6.filas("Especiales", [["ñ", "niño, año", cRO], ["ch", "coche", cAZ], ["ll", "llave", cVE], ["h", "no suena", cMO]]),
+        ["ODThScHFBHY", "Patylu - El Abecedario (Video Oficial)", "Patylu Oficial", 264262491]],
+    ],
+    "Si empiezan igual": [
+      ["Mirar la tercera letra", `<p>A veces dos palabras empiezan por las <mark>dos mismas letras</mark>. Entonces miramos la <b>tercera</b>.</p><p>Ejemplo: <b>casa</b>, <b>cama</b> y <b>cabra</b>.</p><ul><li>Las tres empiezan por <b>ca</b>.</li><li>Miramos la tercera letra: ca<b>s</b>a, ca<b>m</b>a, ca<b>b</b>ra.</li><li>En el abecedario, la b va antes que la m, y la m antes que la s.</li><li>Orden: <b>cabra, cama, casa</b>.</li></ul><p>Si la tercera letra también es igual, miramos la cuarta, y así sucesivamente. Por ejemplo, <b>pato</b> y <b>pata</b>: son iguales hasta la cuarta letra. La a va antes que la o, así que el orden es pata, pato.</p><p>Es como una carrera: gana la palabra cuya letra llega antes en el abecedario, en el primer sitio donde son distintas.</p><p><b>Actividad</b>: ordena estas palabras: sol, sopa, sofá, sobre.</p>`,
+        H6.flujo("Ordenar", ["casa cama|cabra", "igual|ca-", "3.ª letra|s m b", "cabra|cama casa"], cAZ)],
+    ],
+    "El diccionario": [
+      ["Leer una definición", `<p>Cuando encontramos una palabra en el diccionario, aparece su <mark>definición</mark>: una explicación de lo que significa.</p><p>Por ejemplo:</p><p><b>gato</b>: animal doméstico de cuatro patas, con bigotes y uñas afiladas, que maúlla.</p><p>Una entrada del diccionario tiene varias partes:</p><ul><li>La <b>palabra</b>, escrita en negrita o en color.</li><li>La <b>definición</b>, que explica qué es.</li><li>A veces, un <b>ejemplo</b> de cómo se usa en una frase.</li><li>A veces, varios <b>significados</b> numerados: 1, 2, 3…</li></ul><p>Por ejemplo, <b>banco</b> tiene varios significados: 1. Asiento largo para varias personas. 2. Lugar donde se guarda el dinero. 3. Grupo de peces que nadan juntos.</p><p>Para saber cuál es el correcto, leemos la frase donde aparece la palabra.</p><p><b>Actividad</b>: busca la palabra «hoja» en el diccionario. ¿Cuántos significados tiene?</p>`,
+        L6.filas("banco", [["1", "asiento", cNA], ["2", "dinero", cVE], ["3", "peces", cAZ], ["¿cuál?", "lee la frase", cRO]])],
+    ],
+    "Buscar una palabra": [
+      ["Las palabras guía", `<p>En la parte de arriba de cada página del diccionario hay dos palabras en negrita. Se llaman <mark>palabras guía</mark>.</p><ul><li>La de la <b>izquierda</b> es la primera palabra de la página.</li><li>La de la <b>derecha</b> es la última palabra de la página.</li></ul><p>Sirven para saber rápido si la palabra que buscamos está en esa página.</p><p>Ejemplo: busco <b>loro</b>. Abro una página con las palabras guía <b>lobo</b> y <b>luna</b>.</p><ul><li>¿Loro va después de lobo? Sí: lo-b, lo-r; la b va antes que la r.</li><li>¿Loro va antes de luna? Sí: la o va antes que la u.</li><li>¡Entonces loro está en esta página!</li></ul><p>Si la palabra fuera <b>mesa</b>, tendría que pasar páginas hacia delante.</p><p>Con práctica, ¡encontrarás cualquier palabra en menos de un minuto!</p><p><b>Actividad</b>: haced una carrera en clase: gana quien encuentre primero una palabra usando las palabras guía.</p>`,
+        H6.dos("Guía", ["IZQUIERDA", ["lobo", "primera", "de la página"], cAZ], ["DERECHA", ["luna", "última", "de la página"], cVE])],
+    ],
+  },
+  final: [
+    ["El orden alfabético en la vida", `<p>El <mark>orden alfabético</mark> no solo está en el diccionario. Lo usamos en muchos sitios para encontrar las cosas rápido:</p><ul><li>La <b>lista de clase</b>: los alumnos se ordenan por el apellido.</li><li>La <b>agenda</b> del móvil: los contactos aparecen de la A a la Z.</li><li>La <b>biblioteca</b>: los libros se colocan por el apellido del autor.</li><li>Los <b>índices</b> de algunos libros y las <b>enciclopedias</b>.</li><li>Los <b>buzones</b> de un edificio o los nombres de las calles en un plano.</li></ul><p>Imagina una biblioteca con miles de libros sin orden: ¡tardarías días en encontrar uno!</p><p>Por eso el orden alfabético es un invento muy útil: todo el mundo sabe las letras y todos podemos usarlo.</p><p><b>Actividad</b>: ordena alfabéticamente los nombres de cinco amigos o familiares, como en una agenda.</p>`,
+      H6.rueda("Orden", "A-Z", [["clase", cNA], ["agenda", cAZ], ["biblioteca", cVE], ["índice", cRO]])],
+    ["Repaso: ayudantes de biblioteca", `<p>Repasamos con los <mark>libros</mark> de la biblioteca de Rosa. Estos son los apellidos de algunos autores:</p><ul><li>Fuertes, Lindo, Martín, Molina, Andersen.</li></ul><p>Los ordenamos:</p><ul><li>Primero miramos la primera letra: A, F, L, M, M.</li><li>Martín y Molina empiezan por M. Miramos la segunda letra: a y o. La a va antes.</li><li>Orden final: <b>Andersen, Fuertes, Lindo, Martín, Molina</b>.</li></ul><p>Más preguntas:</p><ul><li>¿En qué letra del diccionario está «chocolate»? En la <b>c</b>.</li><li>¿Qué letra no suena? La <b>h</b>.</li><li>Si las palabras guía son «pan» y «pez», ¿está «pato»? Sí: pa-n, pa-t, pe-z.</li></ul><p><b>Actividad</b>: coge cinco libros de la biblioteca de clase y ordénalos por el apellido del autor.</p>`,
+      L6.filas("Autores", [["1", "Andersen", cNA], ["2", "Fuertes", cAZ], ["3", "Lindo", cVE], ["4 y 5", "Martín, Molina", cRO]])],
+  ],
+  ejemplos: [
+    ["Ordena: cabra, casa, cama.", ["Las tres empiezan por ca.", "Miro la tercera letra: b, s, m."], "cabra, cama, casa."],
+    ["Palabras guía: «río» y «rosa». ¿Está «rojo»?", ["ri < ro.", "roj < ros."], "Sí."],
+  ],
+  errores: ["Buscar «llave» como si la ll fuera una letra aparte del abecedario.", "Ordenar solo por la primera letra cuando dos palabras empiezan igual."],
+  ejercicios: [
+    ["b", "Escribe tres palabras con ñ.", "Niño, año, araña…"],
+    ["b", "¿Qué letra no suena?", "La h."],
+    ["b", "¿Qué es una definición?", "La explicación de lo que significa una palabra."],
+    ["b", "Ordena: mesa, árbol, pato.", "árbol, mesa, pato."],
+    ["b", "¿Dónde se usa el orden alfabético?", "En la lista de clase, la agenda, la biblioteca…"],
+    ["m", "Ordena: sol, sopa, sofá, sobre.", "sobre, sofá, sol, sopa."],
+    ["m", "Ordena: pata, pato, pasa.", "pasa, pata, pato."],
+    ["m", "Di dos significados de «banco».", "Asiento y lugar del dinero (o grupo de peces)."],
+    ["m", "¿Para qué sirven las palabras guía?", "Para saber si la palabra está en esa página."],
+    ["m", "¿En qué letra del diccionario buscas «chaqueta»?", "En la c."],
+    ["a", "En la lectura, ¿cómo se ordenan los libros de la biblioteca?", "Por el apellido del autor."],
+    ["a", "Palabras guía «gato» y «gota». ¿Está «gorra»? ¿Y «guante»?", "Gorra sí; guante no."],
+    ["a", "Ordena: Martín, Molina, Marta, Mora.", "Marta, Martín, Molina, Mora."],
+    ["a", "Explica por qué una agenda se ordena alfabéticamente.", "Para encontrar los nombres rápido."],
+  ],
+  quiz: [
+    ["Una letra propia del español es la…", ["ñ", "w", "k"], "Especiales."],
+    ["Si empiezan igual, miro la…", ["siguiente letra", "última letra", "longitud"], "Orden."],
+    ["La explicación de una palabra es su…", ["definición", "sílaba", "rima"], "Diccionario."],
+    ["La palabra guía de la izquierda es…", ["la primera de la página", "la última", "la más larga"], "Guía."],
+    ["«Llave» se busca en la letra…", ["l", "ll", "y"], "Dígrafos."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué los libros estaban en el suelo?", ["se cayó una estantería", "los tiraron los niños", "hubo un terremoto"], "Lectura."],
+    ["¿Qué autor va primero?", ["Andersen", "Fuertes", "Molina"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Tercera letra", "Si las dos primeras son iguales, miro la tercera."],
+    ["Palabras guía", "Primera y última palabra de la página."],
+  ],
+  glosario: [
+    ["Abecedario", "Conjunto ordenado de las letras."],
+    ["Dígrafo", "Dos letras que suenan como una: ch, ll."],
+    ["Orden alfabético", "Orden de las palabras según el abecedario."],
+    ["Diccionario", "Libro que explica el significado de las palabras."],
+    ["Definición", "Explicación de lo que significa una palabra."],
+    ["Entrada", "Cada palabra del diccionario con su definición."],
+    ["Palabras guía", "Palabras arriba de cada página del diccionario."],
+    ["Significado", "Lo que quiere decir una palabra."],
+    ["Agenda", "Lista de nombres y teléfonos."],
+    ["Biblioteca", "Lugar donde se guardan y prestan libros."],
+  ],
+  situacion: {
+    titulo: "Nuestro diccionario de clase",
+    reto: "La clase crea un diccionario ilustrado con palabras nuevas que aprende cada semana, ordenadas alfabéticamente.",
+    pasos: ["Elegir cada uno tres palabras nuevas.", "Escribir una definición sencilla y un dibujo.", "Ordenar todas las fichas por orden alfabético.", "Añadir palabras guía en cada página."],
+    producto: "Un diccionario ilustrado de la clase.",
+    evaluacion: ["Conoce las letras y los dígrafos.", "Ordena por segunda y tercera letra.", "Escribe definiciones sencillas.", "Usa las palabras guía."],
+  },
+});
