@@ -137,3 +137,88 @@ module.exports = {
   fuentes: [RD, wiki("Ecosistema", "Ecosistema"), wiki("Cadena trófica", "Cadena_trófica"), { t: "Red de Parques Nacionales (MITECO)", url: "https://www.miteco.gob.es/es/parques-nacionales-oapn.html" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Explicar por qué la energía disminuye en cada eslabón de una cadena alimentaria", "Reconocer el suelo como un ecosistema y conocer especies invasoras de España", "Estudiar un ecosistema cercano con un cuaderno de campo"],
+  lectura: { titulo: "Los lobos que cambiaron un río", html: `<p>En el parque de <b>Yellowstone</b>, en Estados Unidos, los lobos desaparecieron hace un siglo porque los cazaban. Sin lobos, los <b>ciervos</b> se multiplicaron y pasaban el día junto a los ríos, comiéndose los brotes de los árboles. Las orillas se quedaron peladas y la tierra empezó a desmoronarse dentro del agua.</p><p>En 1995, los científicos decidieron devolver los <b>lobos</b> al parque. Entonces ocurrió algo sorprendente. Los ciervos, con miedo, dejaron de quedarse tanto tiempo junto al agua. Los sauces y los álamos volvieron a crecer. Con ellos regresaron las aves que anidan en los árboles y los <b>castores</b>, que construyeron presas y crearon charcas para peces y ranas. Las raíces sujetaron las orillas, y el río se volvió más estable.</p><p>Unos pocos lobos habían cambiado todo el paisaje. Esta historia muestra que en un <b>ecosistema</b> todos los seres vivos y el medio están conectados: cuando cambia una pieza, cambia todo lo demás. En este tema estudiarás esas conexiones y cómo mantener el <b>equilibrio</b>.</p>` },
+  tras: {
+    "Las cadenas alimentarias": [
+      ["La pirámide de la energía", `<p>En cada eslabón de una cadena alimentaria pasa <b>energía</b> de un ser vivo a otro. Pero no pasa toda: cada ser vivo gasta la mayor parte de la energía que obtiene en moverse, respirar, crecer y mantener el calor. Solo una pequeña parte, más o menos la <b>décima parte</b> (un 10 %), queda guardada en su cuerpo y pasa al siguiente eslabón.</p><p>Por eso la energía se representa con una <b>pirámide</b>: abajo, en la base, los productores, con mucha energía; encima, los herbívoros; y arriba, los carnívoros, con muy poca.</p><p>Esto tiene consecuencias importantes:</p><ul><li>En un ecosistema hay <b>muchas más plantas</b> que herbívoros, y muchos más herbívoros que carnívoros. Una familia de linces necesita un territorio enorme con muchísimos conejos.</li><li>Las cadenas alimentarias son <b>cortas</b>, casi nunca de más de cuatro o cinco eslabones, porque arriba ya no queda energía suficiente.</li><li>Los grandes depredadores, como el lobo o el águila, son pocos y muy sensibles: cualquier problema en los eslabones de abajo les afecta.</li></ul>`,
+        svg("Pirámide de energía: productores abajo, herbívoros en medio y carnívoros arriba", `${tit("Pirámide de la energía")}<path d="M130 36 L222 160 H38z" fill="none" stroke="var(--line)" stroke-width="2"/>${cj(46, 128, 168, 28, "productores: 100 %", COL.verde)}${cj(72, 94, 116, 28, "herbívoros: 10 %", COL.sol)}${cj(88, 60, 84, 28, "carnívoros: 1 %", COL.rojo)}${tx(130, 174, "solo un 10 % pasa a cada piso", 230)}`)],
+    ],
+    "Ecosistemas acuáticos": [
+      ["El suelo, un ecosistema escondido", `<p>Bajo nuestros pies hay un ecosistema lleno de vida que casi nunca vemos: el <b>suelo</b>. En un puñado de tierra de un bosque puede haber más seres vivos que personas en todo el planeta.</p><p>Su biotopo está formado por fragmentos de roca, arena, arcilla, agua y aire. Su biocenosis incluye:</p><ul><li><b>Lombrices de tierra</b>, que excavan galerías y mezclan la tierra. Así entra el aire y el agua se filtra mejor.</li><li><b>Insectos</b>, cochinillas de humedad, ciempiés y ácaros, que trocean las hojas caídas.</li><li><b>Hongos</b> y <b>bacterias</b>, los grandes descomponedores, que transforman los restos en sustancias que las plantas vuelven a absorber.</li><li>Las <b>raíces</b> de las plantas y animales como los topos.</li></ul><p>Con los restos descompuestos se forma el <b>humus</b>, la capa oscura y fértil de la superficie. Un suelo con mucha vida es un suelo sano, que produce buenas cosechas. Formar un centímetro de suelo fértil puede tardar cientos de años, pero un incendio o la erosión pueden destruirlo en muy poco tiempo.</p>`,
+        svg("El suelo: humus arriba con lombrices, hongos y bacterias, y roca abajo", `${tit("Vida en el suelo")}<rect x="14" y="40" width="232" height="34" fill="#78350f" fill-opacity=".55"/><rect x="14" y="74" width="232" height="44" fill="#a16207" fill-opacity=".35"/><rect x="14" y="118" width="232" height="44" fill="#a8a29e" fill-opacity=".5"/><path d="M40 60 q10 -8 20 0 q10 8 20 0" stroke="#f472b6" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M100 46 V100 M100 70 l-14 16 M100 76 l14 14" stroke="#e7e5e4" stroke-width="2"/>${et(190, 60, "humus", 90, { size: 11, color: "#fff" })}${et(190, 100, "tierra", 90, { size: 11, color: COL.marron })}${et(190, 144, "roca", 90, { size: 11, color: COL.gris })}${tx(130, 174, "lombrices, hongos y bacterias reciclan", 236)}`)],
+    ],
+  },
+  final: [
+    ["Las especies invasoras", `<p>Una <b>especie invasora</b> es un ser vivo que llega a un ecosistema donde no vivía, casi siempre llevado por las personas, se multiplica sin control y perjudica a las especies del lugar. Como no tiene depredadores ni competidores naturales, rompe el equilibrio.</p><p>Algunos ejemplos en España:</p><ul><li>El <b>cangrejo rojo americano</b> ha desplazado al cangrejo de río autóctono y le transmite una enfermedad mortal.</li><li>El <b>mejillón cebra</b> se pega a tuberías y presas y forma capas que las obstruyen.</li><li>La <b>tortuga de Florida</b>, que muchas familias tenían como mascota y soltaron en estanques, compite con las tortugas autóctonas.</li><li>La <b>cotorra argentina</b> llena los árboles de las ciudades con nidos enormes.</li><li>El <b>camalote</b>, una planta acuática, cubre ríos como el Guadiana y quita la luz a las demás.</li></ul><p>Una vez que una especie invasora se instala, es muy difícil y caro eliminarla. Por eso la mejor medida es la <b>prevención</b>: <b>nunca</b> sueltes una mascota ni una planta exótica en la naturaleza.</p>`,
+        svg("Especies invasoras en España: cangrejo rojo, mejillón cebra, tortuga de Florida y cotorra argentina", `${tit("Invasoras en España")}${fichas([["Cangrejo rojo", "desplaza al autóctono", COL.rojo], ["Mejillón cebra", "tapona tuberías", COL.gris], ["Tortuga de Florida", "mascota soltada", COL.verde], ["Cotorra argentina", "nidos enormes", COL.sol]])}`)],
+    ["Estudiar un ecosistema: el cuaderno de campo", `<p>Los ecólogos estudian los ecosistemas observando con mucha atención y anotándolo todo. Tú puedes hacerlo con un ecosistema cercano: un parque, una charca, un pinar o el patio del colegio.</p><ol><li><b>Prepara el material</b>: cuaderno, lápiz, lupa, metro, termómetro y una guía de campo. Una cámara o un móvil ayudan a fotografiar sin coger nada.</li><li><b>Describe el biotopo</b>: fecha y hora, temperatura, si hace sol o está nublado, tipo de suelo, si hay agua.</li><li><b>Haz un recuento</b>: marca un cuadrado de un metro de lado con cuerdas y cuenta las plantas y los animales que hay dentro. Repite en varios sitios para comparar.</li><li><b>Busca relaciones</b>: ¿quién come a quién? ¿Hay hojas mordidas, excrementos, huellas o nidos?</li><li><b>Saca conclusiones</b>: dibuja una cadena o una red alimentaria del lugar y piensa qué podría romper su equilibrio.</li></ol><p>Recuerda las normas del buen naturalista: observar sin molestar, no arrancar plantas, no llevarse animales y dejar el lugar igual o mejor de lo que estaba.</p>`,
+        svg("Pasos del cuaderno de campo: preparar, describir el biotopo, contar, buscar relaciones y concluir", `${tit("Cuaderno de campo")}${columna([["preparar el material", COL.gris], ["describir el biotopo", COL.marron], ["contar en un cuadrado", COL.verde], ["buscar relaciones", COL.naranja]], 130, 200, 36, 24, 12)}`)],
+  ],
+  ejemplos: [
+    ["En una cadena, la hierba tiene 10 000 unidades de energía. ¿Cuánta llega al conejo y cuánta al zorro?", ["A cada eslabón pasa aproximadamente un 10 %.", "Conejo: 10 000 : 10 = 1000.", "Zorro: 1000 : 10 = 100."], "1000 al conejo y 100 al zorro"],
+    ["En un río aparece una planta que cubre toda la superficie. ¿Qué les pasa a las plantas y algas de debajo?", ["La planta invasora tapa la luz.", "Sin luz, las plantas y algas sumergidas no pueden hacer la fotosíntesis.", "Mueren y con ellas los animales que dependen de ellas."], "Desaparecen y se rompe el equilibrio del río"],
+  ],
+  errores: ["Pensar que toda la energía pasa de un eslabón al siguiente: solo pasa alrededor de un 10 %."],
+  nivelesBase: "bbbmmbmmmm",
+  ejercicios: [
+    ["b", "¿Qué porcentaje aproximado de la energía pasa de un eslabón al siguiente?", "Alrededor de un 10 %."],
+    ["b", "¿Qué hay en la base de la pirámide de la energía?", "Los productores."],
+    ["b", "Escribe tres seres vivos que viven en el suelo.", "Lombrices, hongos y bacterias (también cochinillas, topos…)."],
+    ["b", "¿Qué es el humus?", "La capa oscura y fértil del suelo formada por restos descompuestos."],
+    ["b", "Escribe dos especies invasoras de España.", "El cangrejo rojo americano y la cotorra argentina (también mejillón cebra, tortuga de Florida, camalote)."],
+    ["m", "¿Por qué las cadenas alimentarias suelen ser cortas?", "Porque en cada eslabón se pierde mucha energía y arriba ya no queda suficiente."],
+    ["m", "¿Por qué hay muchos menos zorros que conejos en un bosque?", "Porque a los carnívoros les llega muy poca energía y necesitan comer muchos herbívoros."],
+    ["m", "¿Qué hacen las lombrices por el suelo?", "Excavan galerías y mezclan la tierra, así entra el aire y el agua se filtra mejor."],
+    ["m", "¿Por qué una especie invasora se multiplica sin control?", "Porque en el nuevo lugar no tiene depredadores ni competidores naturales."],
+    ["m", "Escribe tres normas del buen naturalista.", "Observar sin molestar, no arrancar plantas y no llevarse animales."],
+    ["a", "La hierba de un prado tiene 50 000 unidades de energía. Calcula cuánta llega al saltamontes, a la lagartija y al águila.", "Saltamontes 5000, lagartija 500 y águila 50."],
+    ["a", "En la historia de Yellowstone, explica cómo los lobos ayudaron a los castores.", "Los lobos asustaron a los ciervos, que dejaron de comerse los brotes junto al río; crecieron los árboles y los castores tuvieron madera para sus presas."],
+    ["a", "Tienes una tortuga de Florida y ya no puedes cuidarla. ¿Qué debes hacer y por qué no soltarla en un río?", "Llevarla a un centro de recuperación o entregarla a quien pueda cuidarla. Si la sueltas puede convertirse en invasora y perjudicar a las tortugas autóctonas."],
+    ["a", "¿Por qué destruir el suelo de un bosque es un daño difícil de reparar?", "Porque formar un centímetro de suelo fértil tarda cientos de años."],
+    ["a", "Diseña un plan para estudiar el patio del colegio como ecosistema.", "Respuesta abierta. Debe incluir material, descripción del biotopo, recuento en cuadrados, búsqueda de relaciones y conclusiones."],
+    ["m", "¿Qué tipo de seres vivos son los hongos y las bacterias del suelo según su papel en el ecosistema?", "Descomponedores."],
+  ],
+  quiz: [
+    ["De un eslabón al siguiente pasa más o menos…", ["El 10 % de la energía", "Toda la energía", "La mitad de la energía"], "El resto se gasta en vivir."],
+    ["En la base de la pirámide de la energía están…", ["Los productores", "Los carnívoros", "Los descomponedores"], "Las plantas y las algas."],
+    ["La capa fértil y oscura del suelo es…", ["El humus", "La roca", "La arena"], "Formada por restos descompuestos."],
+    ["Una especie invasora…", ["Se multiplica sin control en un lugar nuevo", "Siempre es beneficiosa", "Es una especie autóctona"], "Rompe el equilibrio."],
+    ["La mejor medida contra las especies invasoras es…", ["La prevención", "Soltar más mascotas", "No hacer nada"], "No liberar especies exóticas."],
+  ],
+  examen: [
+    ["El cangrejo rojo americano ha desplazado…", ["Al cangrejo de río autóctono", "A las truchas", "A las ranas"], "Le transmite una enfermedad mortal."],
+    ["Para hacer un recuento en el campo se marca…", ["Un cuadrado de un metro", "Todo el bosque", "Una sola planta"], "Y se cuentan los seres vivos de dentro."],
+  ],
+  tarjetas: [
+    ["Pirámide de la energía", "Productores abajo; a cada piso pasa ~10 %."],
+    ["Humus", "Capa fértil formada por restos descompuestos."],
+    ["Especie invasora", "Llega a un lugar nuevo y rompe el equilibrio."],
+    ["Cuaderno de campo", "Donde el naturalista anota lo que observa."],
+  ],
+  glosario: [
+    ["Ecosistema", "Seres vivos, medio físico y sus relaciones."],
+    ["Biotopo", "Medio físico sin vida de un ecosistema."],
+    ["Biocenosis", "Conjunto de seres vivos de un ecosistema."],
+    ["Productor", "Ser vivo que fabrica su alimento con la fotosíntesis."],
+    ["Consumidor", "Ser vivo que se alimenta de otros seres vivos."],
+    ["Descomponedor", "Ser vivo que transforma los restos en sustancias para el suelo."],
+    ["Cadena alimentaria", "Serie de seres vivos en la que cada uno es alimento del siguiente."],
+    ["Red alimentaria", "Conjunto de cadenas alimentarias conectadas."],
+    ["Depredador", "Animal que caza a otros para alimentarse."],
+    ["Humus", "Capa fértil del suelo hecha de restos descompuestos."],
+    ["Especie invasora", "Especie introducida que perjudica a las del lugar."],
+    ["Espacio protegido", "Zona natural con normas para conservarla."],
+  ],
+  situacion: {
+    titulo: "Detectives de un ecosistema cercano",
+    reto: "La clase estudia un ecosistema cercano, dibuja su red alimentaria y propone medidas para conservarlo.",
+    pasos: ["Elegid un ecosistema cercano (parque, charca, pinar o patio) y preparad el material del cuaderno de campo.", "Describid el biotopo y haced recuentos de seres vivos en cuadrados de un metro.", "Con lo observado, dibujad una red alimentaria y una pirámide de la energía del lugar.", "Investigad si hay especies invasoras o problemas y proponed tres medidas de protección."],
+    producto: "Un cuaderno de campo con datos, una red alimentaria y un cartel con medidas de conservación.",
+    evaluacion: ["Identifica biotopo, biocenosis y relaciones en un ecosistema real.", "Construye correctamente cadenas y redes alimentarias.", "Recoge datos de campo con orden y respeto por la naturaleza.", "Propone medidas razonadas de conservación."],
+  },
+});

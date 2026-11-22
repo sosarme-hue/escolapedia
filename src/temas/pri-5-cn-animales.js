@@ -141,3 +141,91 @@ module.exports = {
   fuentes: [RD, wiki("Vertebrata", "Vertebrata"), wiki("Invertebrado", "Invertebrado"), wiki("Lynx pardinus", "Lynx_pardinus")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { ciclo } = require("./_pri5b");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Describir la metamorfosis de los anfibios y de los insectos", "Reconocer mamíferos adaptados al aire y al agua", "Conocer animales en peligro de extinción en España y cómo se protegen"],
+  lectura: { titulo: "La charca de Pablo", html: `<p>En primavera, Pablo y su abuela fueron de excursión a una charca cerca del pueblo. Entre las plantas de la orilla, Pablo vio una masa gelatinosa llena de puntitos negros.</p><p>—Son <b>huevos de rana</b> —le explicó su abuela—. Vuelve dentro de unas semanas y verás.</p><p>Pablo volvió tres veces. La primera, los huevos se habían convertido en cientos de <b>renacuajos</b> que nadaban moviendo la cola, como peces diminutos. La segunda, a los renacuajos les habían salido unas patitas traseras. La tercera, sobre una piedra, había una ranita del tamaño de una uña, ya sin cola, que saltó al agua en cuanto él se acercó.</p><p>—¡Es como si fueran animales distintos! —dijo Pablo.</p><p>—Es una <b>metamorfosis</b> —contestó su abuela—. La rana cambia de forma a lo largo de su vida.</p><p>Esa tarde, Pablo vio también una libélula, una lagartija, un mirlo y un caracol. En la charca había vertebrados e invertebrados de muchos grupos distintos. En este tema aprenderás a <b>clasificarlos</b> y a reconocer sus características.</p>` },
+  tras: {
+    "Los mamíferos": [
+      ["Mamíferos del aire y del agua", `<p>La mayoría de los mamíferos viven en tierra y caminan a cuatro patas, pero algunos se han adaptado a ambientes muy distintos:</p><ul><li>Los <b>murciélagos</b> son los únicos mamíferos que vuelan de verdad. Sus alas son una piel fina estirada entre los dedos, muy largos. En España hay más de 30 especies, y todas comen insectos, por lo que son muy útiles: un solo murciélago puede comer cientos de mosquitos en una noche.</li><li>Las <b>ballenas</b>, los <b>delfines</b> y las <b>orcas</b> (los <b>cetáceos</b>) viven siempre en el mar y tienen forma de pez, pero son mamíferos: respiran aire con pulmones (por eso suben a la superficie), las crías nacen vivas y maman leche. La <b>ballena azul</b> es el animal más grande que ha existido: puede medir unos 30 metros.</li><li>Las <b>focas</b> y los <b>leones marinos</b> pasan mucho tiempo en el agua, pero salen a tierra a descansar y a tener sus crías.</li></ul><p>Por eso no se puede clasificar un animal solo por el lugar donde vive: hay que fijarse en cómo respira, cómo se reproduce y qué cubre su cuerpo.</p>`,
+        svg("Mamíferos adaptados: murciélago que vuela, ballena y delfín que nadan, foca que sale a tierra", `${tit("Mamíferos especiales")}${fichas([["Murciélago", "vuela; come insectos", COL.morado], ["Ballena azul", "unos 30 m; pulmones", COL.azul], ["Delfín", "cetáceo; mama leche", COL.agua], ["Foca", "agua y tierra", COL.gris]])}`)],
+    ],
+    "Los anfibios": [
+      ["La metamorfosis de la rana", `<p>Los anfibios sufren una <b>metamorfosis</b>: un cambio profundo de forma a lo largo de su vida. Así es la de la rana:</p><ol><li><b>Huevos</b>: la rana pone en el agua cientos de huevos envueltos en una gelatina que los protege.</li><li><b>Renacuajo</b>: del huevo sale una larva con cola y sin patas que vive en el agua, respira por <b>branquias</b> y come algas, como un pez.</li><li><b>Renacuajo con patas</b>: primero le salen las patas traseras y después las delanteras. Sus branquias van desapareciendo y se forman los <b>pulmones</b>.</li><li><b>Rana joven</b>: la cola se reabsorbe y sale del agua. Ahora respira por pulmones y por la piel, y come insectos.</li></ol><p>Todo el proceso dura unas semanas o unos meses, según la especie y la temperatura del agua.</p><p>Los anfibios son muy sensibles a la contaminación porque respiran a través de su piel fina y húmeda. Por eso, cuando desaparecen las ranas de una charca, es una señal de alarma de que el agua no está sana. Muchas especies de anfibios están hoy en peligro en todo el mundo.</p>`,
+        svg("El renacuajo vive en el agua y respira por branquias; la rana adulta respira por pulmones y piel", `${tit("Renacuajo y rana adulta")}${cj2(10, 40, 116, 96, "Renacuajo", "agua · branquias · cola · come algas", COL.agua)}${cj2(134, 40, 116, 96, "Rana adulta", "agua y tierra · pulmones y piel · come insectos", COL.verde)}${tx(130, 158, "parecen animales distintos", 220)}`)],
+    ],
+    "Los invertebrados (I): artrópodos": [
+      ["Los insectos de cerca", `<p>Los <b>insectos</b> son el grupo de animales con más especies del planeta: se conocen cerca de un millón, más que todos los demás animales juntos. Todos tienen el mismo plan corporal:</p><ul><li>El cuerpo dividido en tres partes: <b>cabeza</b>, <b>tórax</b> y <b>abdomen</b>.</li><li>En la cabeza, dos <b>antenas</b> para oler y tocar, y unos ojos compuestos formados por cientos de ojitos.</li><li>En el tórax, <b>seis patas</b> y, en muchos, una o dos parejas de <b>alas</b>.</li></ul><p>Muchos insectos también sufren <b>metamorfosis</b>. La de la <b>mariposa</b> es completa: del <b>huevo</b> sale una <b>oruga</b> que no para de comer hojas; cuando crece lo suficiente se encierra en una <b>crisálida</b>, y dentro su cuerpo se transforma por completo hasta salir convertida en <b>mariposa</b> adulta.</p><p>Los insectos son imprescindibles: las abejas, las mariposas y otros polinizan las flores (y con ello muchos de nuestros alimentos), los escarabajos peloteros reciclan los excrementos y muchos sirven de alimento a aves, reptiles y anfibios. Algunos, como los mosquitos, pueden transmitir enfermedades.</p>`,
+        svg("Metamorfosis de la mariposa: huevo, oruga, crisálida y mariposa", `${tit("Metamorfosis de la mariposa")}${ciclo([["huevo", COL.gris], ["oruga", COL.verde], ["crisálida", COL.marron], ["mariposa", COL.morado]], 130, 100, 54, 80)}`)],
+    ],
+  },
+  final: [
+    ["Animales en peligro en España", `<p>Una especie está <b>en peligro de extinción</b> cuando quedan tan pocos individuos que podría desaparecer para siempre. Las causas principales son la destrucción de su hábitat, la caza ilegal, los venenos, los atropellos y la contaminación.</p><p>En España hay varias especies amenazadas que se han convertido en símbolos de la protección de la naturaleza:</p><ul><li>El <b>lince ibérico</b> solo vive en la península ibérica. En 2002 quedaban menos de 100 en libertad y era el felino más amenazado del mundo. Gracias a la cría en cautividad, la protección de los conejos de los que se alimenta y los pasos de fauna en las carreteras, hoy supera los 2000 ejemplares.</li><li>El <b>oso pardo</b> de la cordillera Cantábrica y los Pirineos.</li><li>El <b>quebrantahuesos</b>, un buitre que come huesos, y el <b>águila imperial ibérica</b>.</li><li>El <b>urogallo</b>, un ave grande de los bosques del norte.</li></ul><p>Tú también puedes ayudar: no dejar basura en el campo, no molestar a los animales salvajes, no comprar animales exóticos y respetar las normas de los espacios protegidos.</p>`,
+        svg("Especies amenazadas de España: oso pardo, quebrantahuesos, águila imperial y urogallo", `${tit("Amenazados en España")}${fichas([["Oso pardo", "Cantábrica y Pirineos", COL.marron], ["Quebrantahuesos", "buitre que come huesos", COL.naranja], ["Águila imperial", "solo en la península", COL.sol], ["Urogallo", "bosques del norte", COL.verde]])}`)],
+  ],
+  ejemplos: [
+    ["Un animal vive en el mar, tiene forma de pez y sube a la superficie a respirar. ¿Es un pez?", ["Los peces respiran por branquias y no necesitan subir a respirar.", "Si sube a respirar aire, tiene pulmones.", "Respirar con pulmones, en el mar, y criar vivas a sus crías es propio de cetáceos."], "No: es un mamífero (un cetáceo, como el delfín)"],
+    ["Encuentras un animal con ocho patas y el cuerpo en dos partes. ¿Es un insecto?", ["Los insectos tienen seis patas y tres partes: cabeza, tórax y abdomen.", "Ocho patas es propio de los arácnidos.", "Por tanto no es un insecto."], "Es un arácnido, como la araña"],
+  ],
+  errores: ["Pensar que los murciélagos son aves o ratones con alas: son mamíferos voladores con alas de piel."],
+  nivelesBase: "bbbbmmbmmm",
+  ejercicios: [
+    ["b", "Ordena la metamorfosis de la rana: rana, huevos, renacuajo con patas, renacuajo.", "Huevos, renacuajo, renacuajo con patas y rana."],
+    ["b", "¿Cuáles son las tres partes del cuerpo de un insecto?", "Cabeza, tórax y abdomen."],
+    ["b", "¿Cuántas patas tiene un insecto? ¿Y un arácnido?", "Seis; ocho."],
+    ["b", "Nombra dos cetáceos.", "La ballena y el delfín (también la orca)."],
+    ["b", "Escribe tres animales en peligro de extinción en España.", "Lince ibérico, oso pardo y quebrantahuesos (también águila imperial y urogallo)."],
+    ["m", "¿Por qué el murciélago es un mamífero y no un ave?", "Porque tiene pelo, es vivíparo y las crías maman leche; sus alas son de piel, no de plumas."],
+    ["m", "¿Cómo respira un renacuajo y cómo respira una rana adulta?", "El renacuajo, por branquias; la rana adulta, por pulmones y por la piel."],
+    ["m", "¿Qué ocurre dentro de la crisálida?", "El cuerpo de la oruga se transforma por completo hasta convertirse en mariposa."],
+    ["m", "¿Por qué la desaparición de las ranas de una charca es una señal de alarma?", "Porque respiran por la piel y son muy sensibles a la contaminación: indica que el agua no está sana."],
+    ["m", "Escribe tres causas por las que una especie puede estar en peligro.", "La destrucción de su hábitat, la caza ilegal y la contaminación (también venenos y atropellos)."],
+    ["a", "El lince pasó de 94 a 2021 ejemplares. ¿Cuántos más hay? ¿Cuántas veces más, aproximadamente?", "1927 más; aproximadamente 21 veces más."],
+    ["a", "¿Por qué proteger a los conejos ayuda a salvar al lince?", "Porque el conejo es su alimento principal: sin conejos, los linces no pueden sobrevivir."],
+    ["a", "Compara la metamorfosis de la rana y la de la mariposa. ¿Qué tienen en común?", "En las dos el animal cambia de forma: la cría (renacuajo u oruga) es muy distinta del adulto y vive y come de otra manera."],
+    ["a", "Clasifica: delfín, libélula, salamandra, murciélago, tortuga y araña.", "Mamíferos: delfín y murciélago. Insecto: libélula. Anfibio: salamandra. Reptil: tortuga. Arácnido: araña."],
+    ["a", "Escribe tres acciones que puedes hacer para proteger a los animales salvajes.", "Respuesta abierta. Por ejemplo: no dejar basura en el campo, no molestar a los animales y no comprar animales exóticos."],
+    ["m", "¿Por qué los murciélagos son útiles para las personas?", "Porque comen muchísimos insectos, como los mosquitos."],
+  ],
+  quiz: [
+    ["La cría de la rana se llama…", ["Renacuajo", "Oruga", "Larva de mosca"], "Vive en el agua y tiene cola."],
+    ["La ballena es…", ["Un mamífero", "Un pez", "Un anfibio"], "Respira con pulmones y amamanta."],
+    ["El único mamífero que vuela de verdad es…", ["El murciélago", "La ardilla", "El búho"], "Con alas de piel."],
+    ["Las tres partes de un insecto son…", ["Cabeza, tórax y abdomen", "Cabeza y cuerpo", "Cabeza, cuerpo y cola"], "Y seis patas."],
+    ["Un felino ibérico en peligro es…", ["El lince ibérico", "El tigre", "El guepardo"], "Hoy supera los 2000 ejemplares."],
+  ],
+  examen: [
+    ["Entre la oruga y la mariposa está la fase de…", ["Crisálida", "Renacuajo", "Huevo"], "Allí se transforma por completo."],
+    ["El animal más grande que ha existido es…", ["La ballena azul", "El elefante", "El tiburón ballena"], "Unos 30 metros."],
+  ],
+  tarjetas: [
+    ["Metamorfosis", "Cambio de forma a lo largo de la vida: rana, mariposa."],
+    ["Cetáceos", "Mamíferos marinos: ballena, delfín, orca."],
+    ["Insecto", "Cabeza, tórax, abdomen, 6 patas y 2 antenas."],
+    ["En peligro de extinción", "Especie con tan pocos individuos que puede desaparecer."],
+  ],
+  glosario: [
+    ["Vertebrado", "Animal con columna vertebral y esqueleto interno."],
+    ["Invertebrado", "Animal sin columna vertebral."],
+    ["Vivíparo", "Animal cuyas crías se desarrollan dentro de la madre."],
+    ["Ovíparo", "Animal que nace de un huevo puesto fuera de la madre."],
+    ["Branquias", "Órganos para respirar el oxígeno disuelto en el agua."],
+    ["Pulmones", "Órganos para respirar el oxígeno del aire."],
+    ["Metamorfosis", "Cambio de forma de un animal a lo largo de su vida."],
+    ["Renacuajo", "Larva acuática de la rana."],
+    ["Artrópodo", "Invertebrado con exoesqueleto y patas articuladas."],
+    ["Molusco", "Invertebrado de cuerpo blando, a menudo con concha."],
+    ["Cetáceo", "Mamífero que vive siempre en el mar, como la ballena."],
+    ["Especie amenazada", "Especie en riesgo de desaparecer."],
+  ],
+  situacion: {
+    titulo: "Guía de animales de nuestro entorno",
+    reto: "La clase elabora una guía ilustrada de los animales que se pueden observar cerca del colegio y una campaña para protegerlos.",
+    pasos: ["Salid al patio o a un parque y anotad, sin molestarlos, los animales que veáis: aves, insectos, caracoles, lagartijas…", "Clasificad cada animal en su grupo de vertebrados o invertebrados con una ficha: cubierta, respiración, reproducción y alimentación.", "Investigad una especie amenazada de vuestra comunidad y qué se hace para protegerla.", "Reunid las fichas en una guía y presentadla con un cartel de consejos para cuidar la fauna."],
+    producto: "Una guía ilustrada de la fauna del entorno y un cartel de protección.",
+    evaluacion: ["Clasifica correctamente animales vertebrados e invertebrados.", "Describe las características de cada grupo.", "Observa la naturaleza con respeto y sin molestar a los animales.", "Propone acciones razonadas para proteger la fauna."],
+  },
+});

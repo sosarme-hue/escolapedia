@@ -141,3 +141,89 @@ module.exports = {
   fuentes: [RD, wiki("Fotosíntesis", "Fotosíntesis"), wiki("Flor", "Flor"), wiki("Polinización", "Polinización")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { linea } = require("./_pri5b");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Explicar cómo germina una semilla y qué condiciones necesita", "Interpretar experimentos históricos sobre la nutrición de las plantas", "Valorar la utilidad de las plantas para las personas"],
+  lectura: { titulo: "El sauce de Van Helmont", html: `<p>Hace casi cuatrocientos años, un científico de Flandes llamado <b>Jan van Helmont</b> se hizo una pregunta: ¿de dónde sacan las plantas la materia para crecer? Casi todo el mundo pensaba que «se comían» la tierra.</p><p>Para comprobarlo, hizo un experimento muy paciente. Pesó una maceta con tierra seca y plantó en ella un pequeño <b>sauce</b>. Durante cinco años solo le echó <b>agua de lluvia</b> y tapó la maceta para que no cayera polvo.</p><p>Al final, el sauce había ganado unos <b>74 kilos</b>. Van Helmont secó y pesó otra vez la tierra… ¡y solo había perdido unos 57 gramos! La planta no se había alimentado de la tierra.</p><p>Él pensó que todo venía del agua. Acertó a medias: hoy sabemos que las plantas fabrican su alimento con el agua, pero también con un gas del aire, el <b>dióxido de carbono</b>, y con la energía de la <b>luz</b>. Es la <b>fotosíntesis</b>. En este tema descubrirás cómo se nutren, se relacionan y se reproducen las plantas.</p>` },
+  tras: {
+    "La fotosíntesis": [
+      ["Experimentos que explicaron la fotosíntesis", `<p>Entender cómo se alimentan las plantas costó siglos y muchos experimentos:</p><ul><li><b>Van Helmont</b> (hacia 1640) demostró con su sauce que las plantas no se alimentan de la tierra: tras cinco años, el árbol había ganado 74 kg y la tierra apenas había perdido 57 g.</li><li><b>Joseph Priestley</b> (1771) metió una vela encendida en un recipiente cerrado hasta que se apagó. Después puso dentro una ramita de menta y, días más tarde, la vela volvía a arder. La planta había «arreglado» el aire: había producido <b>oxígeno</b>.</li><li><b>Jan Ingenhousz</b> (1779) descubrió que eso solo ocurría con <b>luz</b>: las hojas sumergidas en agua soltaban burbujas de oxígeno al sol, pero no a oscuras.</li></ul><p>Tú puedes repetir una versión sencilla: pon una ramita de planta acuática (como la elodea) en un vaso de agua al sol y observa las burbujas que salen de las hojas. Después tápalo con una caja oscura: las burbujas casi desaparecerán. Con cada experimento, los científicos fueron reuniendo las piezas del puzle.</p>`,
+        svg("Línea del tiempo de experimentos: Van Helmont 1640, Priestley 1771, Ingenhousz 1779", `${tit("Piezas del puzle")}${linea([["1640", "no viene de la tierra", COL.marron], ["1771", "las plantas dan oxígeno", COL.verde], ["1779", "solo con luz", COL.sol]])}`)],
+    ],
+    "Del fruto a la nueva planta": [
+      ["La germinación de una semilla", `<p>Una <b>semilla</b> es como una cápsula con una planta dormida dentro. Tiene tres partes:</p><ul><li>La <b>cubierta</b>, una piel dura que la protege.</li><li>El <b>embrión</b>, la pequeña planta, con una raicilla y un tallito.</li><li>Los <b>cotiledones</b>, hojas especiales llenas de alimento de reserva. En una judía o un garbanzo son las dos mitades que se separan.</li></ul><p>La <b>germinación</b> es el momento en que la semilla despierta y el embrión empieza a crecer. Para germinar necesita tres condiciones: <b>agua</b>, <b>aire</b> (oxígeno) y una <b>temperatura</b> adecuada. Al principio no necesita luz ni tierra, porque usa la reserva de los cotiledones.</p><p>El orden es siempre el mismo: la semilla absorbe agua y se hincha, la cubierta se rompe, sale primero la <b>raíz</b>, que crece hacia abajo, y después el <b>tallo</b>, que crece hacia arriba y saca las primeras hojas verdes. Desde ese momento, la plantita ya puede hacer la fotosíntesis por sí misma.</p><p>Puedes comprobarlo con lentejas o judías sobre algodón húmedo: en pocos días verás la raíz.</p>`,
+        svg("Germinación: semilla hinchada, sale la raíz, sale el tallo y aparecen las hojas", `${tit("De semilla a planta")}<path d="M10 140 H250" stroke="#a16207" stroke-width="3"/>${[[40, 0], [100, 1], [160, 2], [220, 3]].map(([x, k]) => `<ellipse cx="${x}" cy="${k ? 136 : 132}" rx="14" ry="10" fill="#fde68a" stroke="#a16207" stroke-width="2"/>${k >= 1 ? `<path d="M${x} 144 q-4 12 2 22" stroke="#a16207" stroke-width="2.5" fill="none"/>` : ""}${k >= 2 ? `<path d="M${x} 128 V${k === 2 ? 104 : 84}" stroke="${COL.verde}" stroke-width="3"/>` : ""}${k === 3 ? `<path d="M${x} 90 q-18 -12 -24 0 q12 8 24 0 M${x} 90 q18 -12 24 0 q-12 8 -24 0" fill="#86efac" stroke="${COL.verde}" stroke-width="2"/>` : ""}`).join("")}${["se hincha", "raíz", "tallo", "hojas"].map((s, i) => et(40 + i * 60, 60, s, 56, { size: 11, color: [COL.sol, COL.marron, COL.verde, COL.verde][i] })).join("")}${tx(130, 40, "necesita agua, aire y temperatura adecuada", 236)}`)],
+    ],
+  },
+  final: [
+    ["Las plantas y las personas", `<p>Sin plantas no podríamos vivir. Nos dan mucho más de lo que imaginamos:</p><ul><li><b>Oxígeno</b>: casi todo el oxígeno que respiramos lo han producido las plantas y las algas con la fotosíntesis.</li><li><b>Alimentos</b>: cereales como el trigo, el arroz o el maíz; legumbres, frutas, verduras, aceite de oliva… Incluso la carne y la leche dependen de las plantas que comen los animales.</li><li><b>Materiales</b>: la <b>madera</b> para muebles y casas, el <b>papel</b>, el <b>corcho</b> del alcornoque y fibras como el <b>algodón</b> y el lino para hacer ropa.</li><li><b>Medicinas</b>: muchos medicamentos salieron de plantas. La corteza del <b>sauce</b> se usaba contra el dolor y la fiebre, y de ella se obtuvo la sustancia que dio origen a la aspirina.</li><li><b>Suelo y agua</b>: las raíces sujetan el suelo y evitan que la lluvia lo arrastre, y los bosques ayudan a que el agua de lluvia se filtre.</li></ul><p>Por eso es tan importante cuidar los bosques, no arrancar plantas en el campo y prevenir los incendios.</p>`,
+        svg("Las plantas nos dan oxígeno, alimentos, materiales y medicinas", `${tit("Lo que nos dan las plantas")}${fichas([["Oxígeno", "fotosíntesis", COL.agua], ["Alimentos", "cereales, frutas, aceite", COL.sol], ["Materiales", "madera, corcho, algodón", COL.marron], ["Medicinas", "sauce y aspirina", COL.rojo]])}`)],
+    ["Plantas sorprendentes", `<p>El reino de las plantas está lleno de récords y rarezas:</p><ul><li><b>Plantas carnívoras</b>: viven en suelos pobres y completan su nutrición atrapando insectos. La <b>dionea</b> cierra sus hojas como una trampa, y las <b>droseras</b>, que también crecen en algunas turberas de España, tienen pelillos pegajosos.</li><li>Los <b>cactus</b> guardan agua en su tallo grueso, y sus hojas se han convertido en espinas para no perder agua y defenderse.</li><li>Las <b>secuoyas</b> de California superan los 100 metros de altura y pueden vivir miles de años.</li><li>La <b>rafflesia</b>, de las selvas de Asia, tiene la flor más grande del mundo, de casi un metro, y huele a carne podrida para atraer a las moscas que la polinizan.</li><li>La <b>posidonia</b> del Mediterráneo no es un alga, sino una planta con flores que vive bajo el mar. Forma praderas que dan refugio a muchos peces y protegen las playas.</li></ul><p>Todas estas formas son <b>adaptaciones</b>: características que ayudan a cada planta a sobrevivir en su ambiente.</p>`,
+        svg("Plantas sorprendentes: carnívoras, cactus, secuoya, rafflesia y posidonia", `${tit("Récords y rarezas")}${filas([["Dionea", "atrapa insectos", COL.rojo], ["Cactus", "guarda agua en el tallo", COL.verde], ["Secuoya", "más de 100 m de altura", COL.marron], ["Rafflesia", "flor de casi 1 m", COL.morado], ["Posidonia", "planta bajo el mar", COL.agua]], 46, 25)}`)],
+  ],
+  ejemplos: [
+    ["En el experimento de Van Helmont, el sauce ganó 74 kg y la tierra perdió 57 g. ¿Qué conclusión sacamos?", ["Si la planta comiera tierra, la tierra habría perdido casi tanto como ganó el árbol.", "La tierra casi no cambió.", "La materia del árbol vino de otro sitio: del agua y del aire."], "Las plantas no se alimentan de la tierra"],
+    ["Pones lentejas en dos vasos con algodón: uno húmedo y otro seco. ¿Cuál germinará? ¿Por qué?", ["Para germinar hacen falta agua, aire y temperatura adecuada.", "El vaso seco no tiene agua.", "El vaso húmedo tiene las tres condiciones."], "Solo germinarán las del algodón húmedo"],
+  ],
+  errores: ["Pensar que las semillas necesitan luz y tierra para germinar: al principio les basta con agua, aire y temperatura adecuada."],
+  nivelesBase: "bbbbmbmmmm",
+  ejercicios: [
+    ["b", "Escribe las tres partes de una semilla.", "Cubierta, embrión y cotiledones."],
+    ["b", "¿Qué tres condiciones necesita una semilla para germinar?", "Agua, aire y temperatura adecuada."],
+    ["b", "¿Qué sale primero al germinar, la raíz o el tallo?", "La raíz."],
+    ["b", "Escribe tres materiales que obtenemos de las plantas.", "Madera, corcho y algodón (también papel o lino)."],
+    ["b", "¿Qué tienen de especial las plantas carnívoras?", "Atrapan insectos para completar su nutrición en suelos pobres."],
+    ["m", "¿Qué demostró Priestley con la vela y la ramita de menta?", "Que las plantas producen oxígeno, el gas que necesita la vela para arder."],
+    ["m", "¿Por qué los cactus tienen espinas en lugar de hojas?", "Para perder menos agua y defenderse de los animales."],
+    ["m", "¿Para qué sirven los cotiledones?", "Guardan alimento de reserva que usa el embrión hasta que puede hacer la fotosíntesis."],
+    ["m", "¿Por qué la posidonia no es un alga?", "Porque es una planta con flores, raíces, tallo y hojas que vive bajo el mar."],
+    ["m", "Explica por qué la carne que comemos también depende de las plantas.", "Porque los animales que nos dan la carne se alimentan de plantas o de otros animales que comen plantas."],
+    ["a", "Diseña un experimento para comprobar que las semillas necesitan agua para germinar.", "Respuesta abierta. Dos grupos de semillas iguales con el mismo aire y temperatura; uno con algodón húmedo y otro seco. Solo cambia el agua."],
+    ["a", "Ingenhousz vio burbujas en las hojas al sol pero no a oscuras. ¿Qué conclusión sacó?", "Que las plantas solo producen oxígeno con luz: la fotosíntesis necesita luz."],
+    ["a", "¿Por qué después de un incendio forestal la lluvia arrastra mucha tierra?", "Porque ya no hay raíces que sujeten el suelo."],
+    ["a", "Relaciona cada adaptación con el ambiente: tallo grueso con agua; pelillos pegajosos; hojas bajo el agua.", "Tallo grueso: desierto (cactus). Pelillos pegajosos: suelos pobres (drosera). Hojas bajo el agua: el mar (posidonia)."],
+    ["a", "Si casi todo el oxígeno lo producen las plantas y las algas, ¿qué pasaría si destruyéramos los bosques y contamináramos el mar?", "Disminuiría la producción de oxígeno y habría más dióxido de carbono en el aire, además de perder alimentos y refugio para muchos seres vivos."],
+    ["m", "¿De qué árbol se obtiene el corcho?", "Del alcornoque."],
+  ],
+  quiz: [
+    ["Van Helmont demostró que las plantas…", ["No se alimentan de la tierra", "Comen tierra", "No necesitan agua"], "La tierra casi no perdió peso."],
+    ["Para germinar, una semilla necesita…", ["Agua, aire y temperatura adecuada", "Luz y abono", "Solo tierra"], "Al principio usa su reserva."],
+    ["Al germinar, lo primero que sale es…", ["La raíz", "La flor", "El fruto"], "Crece hacia abajo."],
+    ["La posidonia es…", ["Una planta con flores marina", "Un alga", "Un hongo"], "Forma praderas en el Mediterráneo."],
+    ["Las espinas del cactus son…", ["Hojas transformadas", "Raíces", "Flores"], "Así pierde menos agua."],
+  ],
+  examen: [
+    ["Las hojas con reserva de alimento de la semilla son…", ["Los cotiledones", "Los sépalos", "Los pétalos"], "En la judía son las dos mitades."],
+    ["De la corteza del sauce salió la sustancia de…", ["La aspirina", "La penicilina", "El azúcar"], "Se usaba contra el dolor y la fiebre."],
+  ],
+  tarjetas: [
+    ["Germinación", "Cuando la semilla despierta y el embrión crece."],
+    ["Cotiledones", "Hojas de la semilla con alimento de reserva."],
+    ["Planta carnívora", "Atrapa insectos para completar su nutrición."],
+    ["Adaptación", "Característica que ayuda a sobrevivir en un ambiente."],
+  ],
+  glosario: [
+    ["Autótrofo", "Ser vivo que fabrica su propio alimento."],
+    ["Fotosíntesis", "Proceso por el que las plantas fabrican alimento con luz, agua y dióxido de carbono."],
+    ["Clorofila", "Pigmento verde que captura la luz."],
+    ["Savia bruta", "Agua con sales minerales que sube desde la raíz."],
+    ["Savia elaborada", "Savia con el alimento fabricado en las hojas."],
+    ["Estoma", "Poro de la hoja por donde entran y salen los gases."],
+    ["Polinización", "Viaje del polen desde los estambres hasta el pistilo."],
+    ["Fecundación", "Unión del polen con el óvulo."],
+    ["Fruto", "Ovario transformado que protege las semillas."],
+    ["Semilla", "Óvulo fecundado que contiene el embrión."],
+    ["Germinación", "Desarrollo del embrión de una semilla."],
+    ["Espora", "Célula con la que se reproducen musgos y helechos."],
+  ],
+  situacion: {
+    titulo: "Nuestro semillero científico",
+    reto: "La clase monta un semillero para investigar qué necesitan las semillas y las plantas, y presenta los resultados como científicos.",
+    pasos: ["Plantad lentejas o judías en vasos con algodón y cambiad una sola condición en cada grupo: agua, luz, temperatura.", "Anotad cada día en un cuaderno de laboratorio cuántas semillas han germinado y cuánto miden.", "Cuando las plantitas tengan hojas, colocad una junto a la ventana y observad hacia dónde se inclina el tallo.", "Haced un gráfico con los resultados y presentad las conclusiones a la clase."],
+    producto: "Un cuaderno de laboratorio con datos, un gráfico y conclusiones sobre la germinación.",
+    evaluacion: ["Identifica las condiciones que necesita la germinación.", "Diseña un experimento cambiando una sola condición.", "Registra datos con orden y los representa en un gráfico.", "Explica las conclusiones con vocabulario científico."],
+  },
+});
