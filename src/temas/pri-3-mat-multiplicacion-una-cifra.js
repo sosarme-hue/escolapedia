@@ -99,3 +99,91 @@ module.exports = P.tema({
   saberes: "Sentido numérico y operaciones: la multiplicación como suma de sumandos iguales; términos; tablas de multiplicar; propiedad conmutativa; algoritmo de la multiplicación por una cifra con y sin llevadas; multiplicación por 10, 100 y 1.000; resolución de problemas",
   ideas: ["Matrices con gomets o piezas para descubrir la propiedad conmutativa.", "Bingo de las tablas de multiplicar.", "Tienda de clase: comprar varias unidades del mismo producto."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Usar el truco de los dedos para la tabla del 9", "Contar con filas y columnas", "Multiplicar de cabeza descomponiendo", "Descubrir patrones en la tabla pitagórica"],
+  lectura: { titulo: "Las butacas del teatro", html: `<p>La clase de 3.º fue de excursión al teatro de la ciudad a ver una obra de títeres. Al entrar, Óscar se quedó con la boca abierta: el patio de butacas era enorme, con filas y filas de asientos de terciopelo rojo.</p><p>—¿Cuántas butacas habrá? —preguntó—. ¿Mil? ¿Un millón?</p><p>—Podrías contarlas una a una —le dijo su amiga Julia—, pero tardarías toda la obra.</p><p>Óscar se fijó mejor. Todas las filas eran iguales. Contó las butacas de una fila: 9. Después contó las filas: 8.</p><p>—¡Ya lo tengo! Son 8 filas de 9 butacas. Eso es 9 × 8…</p><p>Se quedó pensando. La tabla del 9 era la que peor se sabía.</p><p>Entonces Julia levantó las dos manos con los dedos estirados.</p><p>—Mira, mi abuela me enseñó un truco. Bajas el dedo número 8, contando desde la izquierda. Los dedos que quedan a la izquierda son las decenas, y los de la derecha, las unidades.</p><p>Óscar bajó el octavo dedo. A la izquierda quedaban 7 dedos; a la derecha, 2.</p><p>—¡72 butacas!</p><p>Se apagaron las luces y empezó la función. Pero Óscar pasó un buen rato mirándose las manos, probando el truco con todos los números del 1 al 10.</p>` },
+  tras: {
+    "Las tablas de multiplicar": [
+      ["El truco de los dedos para la tabla del 9", `<p>La <b>tabla del 9</b> tiene un truco mágico que solo necesita tus <mark>diez dedos</mark>:</p><ul><li><b>1.</b> Pon las dos manos delante, con las palmas hacia ti y los dedos estirados.</li><li><b>2.</b> Numera los dedos del 1 al 10, empezando por el meñique de la mano izquierda.</li><li><b>3.</b> Para calcular 9 × 4, <b>dobla el dedo número 4</b>.</li><li><b>4.</b> Cuenta los dedos que quedan a la <b>izquierda</b> del dedo doblado: 3. Son las <b>decenas</b>.</li><li><b>5.</b> Cuenta los dedos que quedan a la <b>derecha</b>: 6. Son las <b>unidades</b>.</li><li><b>6.</b> El resultado es <b>36</b>.</li></ul><p>Funciona con todos: 9 × 7 → doblas el 7.º dedo → quedan 6 a la izquierda y 3 a la derecha → <b>63</b>.</p><p>¿Por qué funciona? Fíjate en la tabla del 9: 9, 18, 27, 36, 45, 54, 63, 72, 81, 90. Las decenas <b>suben</b> de 1 en 1 (0, 1, 2, 3…) y las unidades <b>bajan</b> de 1 en 1 (9, 8, 7, 6…). Al doblar un dedo más a la derecha, hay un dedo más a la izquierda y uno menos a la derecha.</p><p>Otro truco: 9 × un número es lo mismo que <b>10 × ese número, menos el número</b>. 9 × 6 = 60 − 6 = 54.</p>`,
+        L6.filas("9 × 4", [["dobla", "el dedo 4", cAZ], ["izquierda", "3 decenas", cVE], ["derecha", "6 unidades", cNA], ["resultado", "36", cRO]])],
+    ],
+    "El orden de los factores": [
+      ["Contar sin contar: filas y columnas", `<p>Muchas cosas están colocadas en <mark>filas y columnas</mark>, formando un rectángulo. Para saber cuántas hay, no hace falta contarlas una a una: basta con <b>multiplicar</b> el número de filas por el número de elementos de cada fila.</p><ul><li>Un <b>cartón de huevos</b> tiene 2 filas de 6: 6 × 2 = <b>12 huevos</b> (una docena).</li><li>Una <b>tableta de chocolate</b> de 4 filas de 6 onzas tiene 6 × 4 = <b>24 onzas</b>.</li><li>Un <b>tablero de ajedrez</b> tiene 8 filas de 8 casillas: 8 × 8 = <b>64 casillas</b>.</li><li>Una caja de <b>lápices de colores</b> de 2 filas de 12 tiene 24 lápices.</li><li>Las <b>ventanas</b> de un edificio: si tiene 5 pisos con 4 ventanas cada uno, son 20 ventanas en la fachada.</li></ul><p>Esta forma de colocar las cosas se llama <b>disposición rectangular</b>. Sirve también para organizar: si en clase hay 24 alumnos, se pueden sentar en 4 filas de 6, en 6 filas de 4, en 3 filas de 8 o en 2 filas de 12.</p><p><b>Investiga</b>: busca en clase o en casa cosas colocadas en filas y columnas (azulejos, botones de un mando, teclas de la calculadora) y calcula cuántas hay con una multiplicación.</p>`,
+        H6.rueda("Filas", "FILAS", [["huevos", cNA], ["chocolate", cMO], ["ajedrez", cAZ], ["ventanas", cVE]])],
+    ],
+    "Multiplicar por 10, 100 y 1.000": [
+      ["Multiplicar de cabeza: descomponer", `<p>Para multiplicar de cabeza un número de dos cifras por una cifra, hay un truco muy útil: <mark>descomponer</mark> el número en decenas y unidades, multiplicar cada parte y después sumar.</p><p><b>Ejemplo</b>: 23 × 4.</p><ul><li>Descomponemos: 23 = 20 + 3.</li><li>Multiplicamos las decenas: 20 × 4 = 80.</li><li>Multiplicamos las unidades: 3 × 4 = 12.</li><li>Sumamos: 80 + 12 = <b>92</b>.</li></ul><p><b>Otro ejemplo</b>: 46 × 3 → 40 × 3 = 120; 6 × 3 = 18; 120 + 18 = <b>138</b>.</p><p>Se puede dibujar como un <b>rectángulo partido</b> en dos trozos: uno de 20 por 4 y otro de 3 por 4. El área total es la suma de los dos trozos.</p><p>Con números de tres cifras también funciona: 125 × 4 → 100 × 4 = 400; 20 × 4 = 80; 5 × 4 = 20; total: <b>500</b>.</p><p>Otro truco para números que están cerca de una decena: <b>redondear y quitar</b>. 19 × 5 = 20 × 5 − 5 = 100 − 5 = <b>95</b>. Y 29 × 3 = 30 × 3 − 3 = 90 − 3 = <b>87</b>.</p><p>Practica cada día un par de multiplicaciones de cabeza: es como un entrenamiento para el cerebro.</p>`,
+        H6.flujo("23 × 4", ["20 + 3|", "20 × 4|= 80", "3 × 4|= 12", "80 + 12|= 92"], cVE)],
+    ],
+  },
+  final: [
+    ["La tabla pitagórica y sus secretos", `<p>La <mark>tabla pitagórica</mark> es un cuadro que reúne todas las tablas de multiplicar. Se llama así en honor a <b>Pitágoras</b>, un sabio de la antigua Grecia. En la primera fila y en la primera columna se escriben los números del 1 al 10; en cada casilla, el producto de su fila por su columna.</p><p>Si la miras bien, descubrirás <b>secretos</b>:</p><ul><li>Es <b>simétrica</b>: si la doblas por la diagonal, los números coinciden. Eso pasa porque 3 × 7 = 7 × 3 (propiedad conmutativa). ¡Así que solo hace falta aprender la mitad!</li><li>En la <b>diagonal</b> están los números que resultan de multiplicar un número por sí mismo: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100. Se llaman <b>números cuadrados</b>, porque con esa cantidad de puntos se puede formar un cuadrado.</li><li>La fila del 5 alterna resultados que acaban en <b>5</b> y en <b>0</b>.</li><li>La fila del 10 es como la del 1, pero con un 0 al final.</li><li>La fila del 4 es el doble de la del 2, y la del 8, el doble de la del 4.</li></ul><p><b>Actividad</b>: dibuja la tabla en una cuadrícula y colorea con un color los resultados pares y con otro los impares. ¿Qué dibujo sale?</p>`,
+      L6.filas("Secretos", [["diagonal", "cuadrados", cAZ], ["simetría", "3×7 = 7×3", cVE], ["fila del 5", "acaba en 0 o 5", cNA], ["fila del 8", "doble del 4", cMO]]), ["GRhsECnnqy8", "Cómo aprender a multiplicar con la Tabla de Pitágoras | Escuela divertida para niños", "guiainfantil", 153090]],
+    ["Multiplicar con rayas", `<p>Existe una forma muy curiosa de multiplicar <mark>dibujando rayas</mark>, que a veces se llama método japonés o de las líneas. No sustituye a la multiplicación en columna, pero ayuda a entender lo que pasa.</p><p><b>Ejemplo</b>: 13 × 2.</p><ul><li><b>1.</b> Dibuja el 13 con rayas <b>inclinadas hacia la derecha</b>: 1 raya (las decenas) y, separadas, 3 rayas (las unidades).</li><li><b>2.</b> Dibuja el 2 con 2 rayas <b>inclinadas hacia el otro lado</b>, cruzando todas las anteriores.</li><li><b>3.</b> Cuenta los <b>puntos de cruce</b> en cada zona. Los cruces con la raya de las decenas son decenas: 2. Los cruces con las 3 rayas de las unidades son unidades: 6.</li><li><b>4.</b> El resultado es <b>2 decenas y 6 unidades = 26</b>.</li></ul><p>Si en alguna zona hay 10 cruces o más, nos llevamos una a la zona de la izquierda, igual que en la multiplicación en columna.</p><p>Este método muestra por qué funciona multiplicar «por partes»: primero las decenas y luego las unidades.</p><p>Pruébalo con 21 × 3, 12 × 4 y 32 × 2, y comprueba los resultados en columna.</p>`,
+      H6.flujo("13 × 2", ["1 raya|y 3 rayas", "cruzar|con 2", "contar|cruces", "2 D y 6 U|= 26"], cRO), ["gQcEeMjI6DM", "Cómo multiplicar usando líneas | Multiplicación japonesa | Matemáticas básicas", "ZERO MATH (Zero.Math)", 39383]],
+  ],
+  ejemplos: [
+    ["Calcula 9 × 6 con el truco de los dedos.", ["Dobla el dedo 6.", "Quedan 5 a la izquierda y 4 a la derecha."], "54."],
+    ["Calcula de cabeza 34 × 3.", ["30 × 3 = 90; 4 × 3 = 12.", "90 + 12 = 102."], "102."],
+  ],
+  errores: ["En el truco de los dedos, contar el dedo doblado: no se cuenta.", "Al descomponer, olvidar sumar las dos partes: 23 × 4 no es 80, es 80 + 12."],
+  ejercicios: [
+    ["b", "Calcula 9 × 3 con los dedos.", "27."],
+    ["b", "¿Cuántos huevos hay en un cartón de 2 filas de 6?", "12."],
+    ["b", "¿Cuántas casillas tiene un tablero de ajedrez?", "64."],
+    ["b", "Escribe los cinco primeros números cuadrados.", "1, 4, 9, 16, 25."],
+    ["b", "Calcula 9 × 5 como 10 × 5 − 5.", "45."],
+    ["m", "Calcula de cabeza 42 × 3.", "126."],
+    ["m", "Calcula 19 × 4 redondeando.", "76."],
+    ["m", "¿De qué formas se pueden sentar 18 alumnos en filas iguales?", "1×18, 2×9, 3×6, 6×3, 9×2, 18×1."],
+    ["m", "Calcula 12 × 3 con rayas y explica los cruces.", "3 decenas y 6 unidades: 36."],
+    ["m", "¿Por qué la tabla pitagórica es simétrica?", "Porque el orden de los factores no cambia el producto."],
+    ["a", "Un edificio tiene 7 pisos con 6 ventanas cada uno. ¿Cuántas ventanas hay?", "42."],
+    ["a", "Calcula de cabeza 125 × 3.", "375."],
+    ["a", "Colorea pares e impares en la tabla pitagórica y describe el dibujo.", "Respuesta abierta."],
+    ["a", "Explica por qué funciona el truco de los dedos.", "Las decenas suben de 1 en 1 y las unidades bajan de 1 en 1."],
+  ],
+  quiz: [
+    ["Con los dedos, para 9 × 8 se dobla el dedo…", ["8", "9", "1"], "Dedos."],
+    ["Una tableta de 4 filas de 5 onzas tiene…", ["20 onzas", "9 onzas", "45 onzas"], "Filas."],
+    ["23 × 4 = 80 + …", ["12", "3", "4"], "Descomponer."],
+    ["Los números de la diagonal de la tabla pitagórica son…", ["cuadrados", "impares", "redondos"], "Tabla."],
+    ["En el método de rayas se cuentan…", ["los cruces", "las rayas", "los colores"], "Rayas."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántas butacas había?", ["72", "17", "81"], "Lectura."],
+    ["29 × 3 es lo mismo que…", ["90 − 3", "30 + 3", "29 + 3"], "Descomponer."],
+  ],
+  tarjetas: [
+    ["Dedos del 9", "Dobla el dedo; izquierda decenas, derecha unidades."],
+    ["Filas y columnas", "Multiplica filas por elementos de cada fila."],
+    ["Descomponer", "23 × 4 = 20 × 4 + 3 × 4."],
+    ["Tabla pitagórica y rayas", "Simétrica, cuadrados en la diagonal; contar cruces."],
+  ],
+  glosario: [
+    ["Truco", "Forma ingeniosa de hacer algo más fácil."],
+    ["Fila", "Elementos colocados uno al lado de otro."],
+    ["Columna", "Elementos colocados uno encima de otro."],
+    ["Disposición rectangular", "Colocación en filas y columnas iguales."],
+    ["Docena", "Grupo de 12."],
+    ["Descomponer", "Separar un número en partes."],
+    ["Redondear", "Cambiar un número por otro cercano y fácil."],
+    ["Tabla pitagórica", "Cuadro con todas las tablas de multiplicar."],
+    ["Diagonal", "Línea que cruza el cuadro de esquina a esquina."],
+    ["Simétrico", "Que es igual a los dos lados de una línea."],
+    ["Número cuadrado", "Producto de un número por sí mismo."],
+    ["Cruce", "Punto donde se cortan dos rayas."],
+  ],
+  situacion: {
+    titulo: "Organizamos el festival del cole",
+    reto: "La clase organiza las sillas, los refrescos y los programas del festival usando la multiplicación.",
+    pasos: ["Decidir cómo colocar las sillas en filas y columnas y calcular cuántas caben.", "Calcular de cabeza cuántas botellas hay en varias cajas iguales.", "Comprobar los cálculos con el truco de los dedos y el método de rayas.", "Hacer un cartel con la tabla pitagórica para la entrada."],
+    producto: "Un plano del festival con todos los cálculos.",
+    evaluacion: ["Usa trucos para la tabla del 9.", "Cuenta con filas y columnas.", "Multiplica de cabeza descomponiendo.", "Descubre patrones en la tabla."],
+  },
+});

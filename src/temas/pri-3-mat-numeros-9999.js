@@ -99,3 +99,91 @@ module.exports = P.tema({
   saberes: "Sentido numérico: lectura, escritura, composición y descomposición de números naturales hasta el 9.999; valor posicional; comparación, orden, recta numérica y redondeo a la centena y al millar",
   ideas: ["Material de base 10 o billetes de juguete de 1.000, 100, 10 y 1 para formar números.", "Carrera de números en la recta del suelo de la clase.", "Cartas con cifras para formar el número mayor y el menor posible."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Representar números en el ábaco", "Distinguir números pares e impares", "Continuar series de 10, 100 y 1.000", "Hacerse una idea de lo grande que es 1.000"],
+  lectura: { titulo: "Mil tapones", html: `<p>En septiembre, la clase de 3.º B decidió recoger tapones de plástico para reciclarlos. La tutora, Marta, colgó un cartel en la puerta: «Objetivo: ¡1.000 tapones!».</p><p>—¿Mil? ¡Eso es facilísimo! —dijo Iker—. En mi casa hay por lo menos cien.</p><p>Al final de la primera semana contaron: 87 tapones. Iker se quedó callado.</p><p>Para no perder la cuenta, Marta les enseñó un truco. Cada vez que juntaban diez tapones, los metían en una bolsita: una <b>decena</b>. Cuando tenían diez bolsitas, las metían en una caja de zapatos: una <b>centena</b>. Y en la pared pegaron un cartel con cuatro columnas: UM, C, D y U.</p><p>Pasaron las semanas. Una caja, dos cajas, cinco cajas… En febrero ya tenían nueve cajas, nueve bolsitas y nueve tapones sueltos: 999.</p><p>—¡Solo falta uno! —gritó Lucía.</p><p>Todos buscaron por las mochilas. Al final, Iker sacó del bolsillo un tapón azul de su botella de agua y lo puso en la mesa. Diez tapones sueltos formaron una bolsita, diez bolsitas una caja nueva… y diez cajas, ¡un millar!</p><p>Lo celebraron con un aplauso enorme. Iker miró la montaña de tapones y dijo:</p><p>—Vale. Mil es mucho más de lo que parecía.</p>` },
+  tras: {
+    "Unidades, decenas, centenas y millares": [
+      ["Representar números en el ábaco", `<p>El <mark>ábaco</mark> es uno de los instrumentos de cálculo más antiguos del mundo. Hay muchos tipos, pero en clase se suele usar un ábaco con <b>varillas verticales</b>, una para cada orden:</p><ul><li>La varilla de la derecha es la de las <b>unidades (U)</b>.</li><li>La siguiente, la de las <b>decenas (D)</b>.</li><li>Después, la de las <b>centenas (C)</b>.</li><li>Y la de la izquierda, la de las <b>unidades de millar (UM)</b>.</li></ul><p>Para representar un número, ponemos en cada varilla tantas bolas como indica su cifra. Por ejemplo, el <b>3.205</b> se representa con 3 bolas en las UM, 2 en las C, ninguna en las D y 5 en las U.</p><p>Fíjate en algo importante: cuando una varilla tiene <b>0</b>, se queda vacía, pero no podemos quitarla. ¡Si la quitáramos, el número cambiaría! Por eso el cero es tan importante: guarda el sitio.</p><p>En cada varilla caben como máximo <b>9 bolas</b>. Si llegamos a 10, quitamos las diez y ponemos una bola en la varilla de la izquierda: 10 unidades = 1 decena.</p><p>También se pueden usar <b>bloques</b>: cubitos para las unidades, barras de 10 para las decenas, placas de 100 para las centenas y cubos grandes de 1.000 para los millares.</p>`,
+        L6.filas("3.205", [["UM", "3 bolas", cRO], ["C", "2 bolas", cAZ], ["D", "vacía: 0", cMO], ["U", "5 bolas", cVE]]), ["cG50ps5tyGc", "REPRESENTAR UN NÚMERO EN EL ÁBACO", "Primero A Híjar", 168101]],
+    ],
+    "Descomponer números": [
+      ["Números pares e impares", `<p>Los números se pueden dividir en dos grandes familias: <mark>pares</mark> e <mark>impares</mark>.</p><ul><li>Un número es <b>par</b> si se puede repartir en <b>dos grupos iguales</b> sin que sobre nada. Por ejemplo, 8 caramelos se reparten entre dos: 4 y 4.</li><li>Un número es <b>impar</b> si, al repartirlo en dos grupos iguales, <b>sobra uno</b>. Con 7 caramelos: 3 y 3, y sobra 1.</li></ul><p>¿Cómo saberlo con números muy grandes, como el 4.736? ¡Muy fácil! Solo hay que mirar la <b>cifra de las unidades</b>:</p><ul><li>Si termina en <b>0, 2, 4, 6 u 8</b>, es <b>par</b>: 4.736 es par.</li><li>Si termina en <b>1, 3, 5, 7 o 9</b>, es <b>impar</b>: 2.019 es impar.</li></ul><p>Los pares y los impares van <b>alternando</b>: par, impar, par, impar… Por eso, después de un número par siempre viene uno impar.</p><p>Algunas curiosidades:</p><ul><li>En muchas calles, los números <b>pares</b> de las casas están en una acera y los <b>impares</b> en la de enfrente.</li><li>Par + par = par. Impar + impar = par. Par + impar = impar. ¡Compruébalo con ejemplos!</li></ul>`,
+        H6.dos("Familias", ["PARES", ["0, 2, 4, 6, 8", "dos grupos", "no sobra"], cAZ], ["IMPARES", ["1, 3, 5, 7, 9", "dos grupos", "sobra 1"], cRO]), ["NFFtPW94tbg", "Definición de los números pares e impares para Primaria", "Mundo Primaria", 581199]],
+    ],
+    "Comparar y ordenar números": [
+      ["Series de 10, de 100 y de 1.000", `<p>Una <mark>serie</mark> es una lista de números que siguen una <b>regla</b>. Para continuarla, primero hay que descubrir la regla.</p><ul><li><b>De 10 en 10</b> (cambia la cifra de las decenas): 2.340, 2.350, 2.360, 2.370…</li><li><b>De 100 en 100</b> (cambia la cifra de las centenas): 4.125, 4.225, 4.325, 4.425…</li><li><b>De 1.000 en 1.000</b> (cambia la cifra de los millares): 1.508, 2.508, 3.508, 4.508…</li></ul><p>Las series también pueden ir <b>hacia atrás</b>, restando: 6.900, 6.800, 6.700, 6.600…</p><p>¡Cuidado con los saltos de orden! Cuando la cifra que cambia llega a 9 y hay que sumar otra vez, pasa a la siguiente:</p><ul><li>De 10 en 10: 3.970, 3.980, 3.990, <b>4.000</b>.</li><li>De 100 en 100: 2.750, 2.850, 2.950, <b>3.050</b>.</li></ul><p>Para descubrir la regla de una serie, resta dos números seguidos: 5.420 y 5.520 → la diferencia es 100, así que la serie va de 100 en 100.</p><p><b>Reto</b>: ¿qué regla sigue esta serie? 1.250, 1.500, 1.750, 2.000… (va de 250 en 250).</p>`,
+        H6.flujo("De 100 en 100", ["2.750|", "2.850|", "2.950|", "3.050|¡salto!"], cVE)],
+    ],
+  },
+  final: [
+    ["¿Cuánto es 1.000?", `<p>El número <mark>1.000</mark> parece pequeño escrito, pero es mucho más grande de lo que imaginamos. Mira algunos ejemplos para hacerte una idea:</p><ul><li><b>1.000 pasos</b>: si das pasos de medio metro, recorres 500 metros: unas cinco veces el largo de un campo de fútbol.</li><li><b>1.000 segundos</b>: son casi 17 minutos.</li><li><b>1.000 días</b>: casi 3 años. ¡Desde que entraste en 1.º de Primaria hasta ahora!</li><li><b>1.000 metros</b> forman un <b>kilómetro</b>, y <b>1.000 gramos</b>, un <b>kilogramo</b>. Por eso el prefijo <b>kilo</b> significa «mil».</li><li>Un libro gordo puede tener unas 300 páginas: <b>1.000 páginas</b> serían tres libros.</li></ul><p><b>Investiga en clase</b>: entre todos, reunid 1.000 objetos pequeños (garbanzos, clips, palillos). Agrupadlos de 10 en 10 en vasitos, y los vasitos de 10 en 10 en bandejas. ¿Cuántos vasitos necesitáis? (100). ¿Y cuántas bandejas? (10).</p><p>¿Y cuánto tardarías en contar hasta 1.000 de uno en uno? Diciendo un número por segundo, unos 17 minutos… ¡sin equivocarte ni una vez!</p>`,
+      L6.filas("1.000", [["pasos", "500 metros", cAZ], ["segundos", "casi 17 min", cNA], ["días", "casi 3 años", cMO], ["metros", "1 kilómetro", cVE]])],
+    ["Detectives de números", `<p>Un buen juego para practicar es <mark>adivinar números con pistas</mark>. Un compañero piensa un número de cuatro cifras y da pistas; los demás, como detectives, lo descubren.</p><p><b>Caso 1</b>: Soy un número de cuatro cifras.</p><ul><li>Mi cifra de los millares es 3.</li><li>Tengo 0 centenas.</li><li>Mi cifra de las decenas es el doble de la de los millares.</li><li>Soy impar y mi última cifra es la mayor posible.</li></ul><p>¿Quién soy? → UM = 3, C = 0, D = 6, U = 9: el <b>3.069</b>.</p><p><b>Caso 2</b>: Estoy entre el 5.000 y el 6.000. Mis cuatro cifras son iguales. ¿Quién soy? → el <b>5.555</b>.</p><p><b>Caso 3</b>: Soy el número más grande que se puede escribir con las cifras 4, 0, 7 y 2 sin repetir ninguna. → Ordenamos las cifras de mayor a menor: <b>7.420</b>. ¿Y el más pequeño de cuatro cifras? No puede empezar por 0, así que es el <b>2.047</b>.</p><p>Ahora te toca a ti: inventa un número y escribe cuatro pistas para que tu compañero lo adivine. Usa palabras como <b>par</b>, <b>impar</b>, <b>mayor que</b>, <b>menor que</b>, <b>doble</b> o <b>anterior</b>.</p>`,
+      H6.rueda("Pistas", "¿QUIÉN SOY?", [["par/impar", cAZ], ["mayor que", cRO], ["doble", cVE], ["cifras", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Cómo se representa 4.060 en el ábaco?", ["4 bolas en las UM, 0 en las C.", "6 bolas en las D, 0 en las U."], "UM: 4, C: vacía, D: 6, U: vacía."],
+    ["Continúa la serie: 1.980, 1.990, …", ["La serie va de 10 en 10.", "Después de 1.990 viene un salto de centena."], "2.000, 2.010, 2.020."],
+  ],
+  errores: ["Mirar la primera cifra para saber si un número es par: hay que mirar la última.", "Olvidar el salto en las series: después de 3.990 (de 10 en 10) viene 4.000."],
+  ejercicios: [
+    ["b", "¿Cuántas bolas pones en las C para el 2.715?", "7."],
+    ["b", "¿Es par o impar el 3.458?", "Par."],
+    ["b", "Continúa de 100 en 100: 1.200, 1.300, …", "1.400, 1.500."],
+    ["b", "¿Cuántos metros tiene un kilómetro?", "1.000."],
+    ["b", "Escribe el número con 5 UM, 0 C, 3 D y 1 U.", "5.031."],
+    ["m", "Continúa de 1.000 en 1.000: 2.450, 3.450, …", "4.450, 5.450."],
+    ["m", "Escribe tres números impares entre 6.000 y 6.010.", "6.001, 6.003, 6.005…"],
+    ["m", "¿Qué regla sigue la serie 7.800, 7.700, 7.600?", "Resta 100."],
+    ["m", "¿Cuántas decenas hay en 1.000?", "100."],
+    ["m", "Par + impar, ¿da par o impar?", "Impar."],
+    ["a", "Escribe el mayor y el menor número con 8, 1, 0 y 5.", "8.510 y 1.058."],
+    ["a", "Adivina: estoy entre 4.000 y 5.000, mis decenas y unidades son 9 y tengo 0 centenas.", "4.099."],
+    ["a", "Inventa una serie de 250 en 250 que empiece en 1.000.", "1.000, 1.250, 1.500, 1.750…"],
+    ["a", "¿Cuántas cajas de 100 tapones hacen falta para 3.400 tapones?", "34."],
+  ],
+  quiz: [
+    ["En el ábaco, la varilla de la derecha es la de las…", ["unidades", "decenas", "UM"], "Ábaco."],
+    ["El 5.207 es…", ["impar", "par", "redondo"], "Pares."],
+    ["Después de 2.950 (de 100 en 100) viene…", ["3.050", "2.960", "3.000"], "Series."],
+    ["Kilo significa…", ["mil", "cien", "diez"], "Mil."],
+    ["El mayor número con 3, 9, 1 y 6 es…", ["9.631", "1.369", "9.316"], "Detectives."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántos tapones faltaban en febrero?", ["uno", "cien", "diez"], "Lectura."],
+    ["¿Qué número de cuatro cifras tiene todas sus cifras iguales y está entre 7.000 y 8.000?", ["7.777", "7.000", "8.888"], "Detectives."],
+  ],
+  tarjetas: [
+    ["Ábaco", "Una varilla por orden; el 0 deja la varilla vacía."],
+    ["Pares e impares", "Mira la última cifra: 0, 2, 4, 6, 8 son pares."],
+    ["Series", "Descubre la regla restando dos seguidos; cuidado con los saltos."],
+    ["1.000", "1 km, 1 kg, casi 3 años en días."],
+  ],
+  glosario: [
+    ["Ábaco", "Instrumento con varillas y bolas para contar."],
+    ["Varilla", "Barra fina del ábaco."],
+    ["Orden", "Lugar de una cifra: U, D, C o UM."],
+    ["Par", "Número que se reparte en dos grupos iguales."],
+    ["Impar", "Número que, al repartirlo en dos, sobra 1."],
+    ["Serie", "Lista de números que siguen una regla."],
+    ["Regla", "Lo que se suma o se resta en una serie."],
+    ["Millar", "Grupo de mil unidades."],
+    ["Kilómetro", "Mil metros."],
+    ["Kilogramo", "Mil gramos."],
+    ["Cifra", "Cada uno de los signos del 0 al 9."],
+    ["Pista", "Dato que ayuda a descubrir algo."],
+  ],
+  situacion: {
+    titulo: "El reto de los 1.000",
+    reto: "La clase se propone reunir 1.000 objetos reciclables y llevar la cuenta con el sistema decimal.",
+    pasos: ["Agrupar los objetos en decenas y centenas y anotarlos en el ábaco.", "Llevar un registro semanal con series de números.", "Clasificar las cantidades de cada semana en pares e impares.", "Inventar adivinanzas de números con los datos recogidos."],
+    producto: "Un mural con el recuento hasta 1.000 y un libro de adivinanzas numéricas.",
+    evaluacion: ["Representa números en el ábaco.", "Distingue pares e impares.", "Continúa series.", "Comprende el valor de 1.000."],
+  },
+});
