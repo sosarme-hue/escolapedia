@@ -101,3 +101,91 @@ module.exports = tema({
   ideas: ["Intercambio de emails con un colegio de otro país (eTwinning).", "Correo de invitación y respuesta por parejas.", "Corrección entre iguales con la lista de comprobación."],
   fuentes: [["British Council LearnEnglish Teens: an informal email", "https://learnenglishteens.britishcouncil.org/skills/writing/a1-writing/email-friend"], ["Cambridge English: A2 Key for Schools, writing", "https://www.cambridgeenglish.org/exams-and-tests/key-for-schools/"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Know when to use short forms and emojis", "Write messages for special occasions", "Learn about letters and postcards before email", "Write thank-you emails and messages to a pen pal"],
+  lectura: { titulo: "Christmas on the beach", html: `<p><b>From:</b> Mia<br><b>To:</b> Pablo<br><b>Subject:</b> Christmas on the beach!</p><p>Hi Pablo,</p><p>Thanks for your email and the photos of the snow in the mountains near Madrid. It looks so cold! You won't believe it, but here in Perth it's really hot. In Australia, Christmas is in <b>summer</b>, because we are in the southern hemisphere. Yesterday it was 38 degrees!</p><p>On Christmas Day, we had a barbecue in the garden with my grandparents, my aunts and my cousins. We ate prawns, salads and a dessert called pavlova, which is made with meringue, cream and fruit. In the afternoon, we went to the beach and played cricket on the sand. Some people even wear Santa hats when they go surfing!</p><p>How do you celebrate Christmas in Spain? Is it true that you get presents from the Three Kings on 6th January? That sounds amazing. I'd love to try the roscón you told me about.</p><p>Write back soon and tell me everything!</p><p>Best wishes,<br>Mia 🦘</p><p>PS: Here's a photo of me and my dog Bluey on the beach.</p>` },
+  tras: {
+    "Greetings and closings": [
+      ["Short forms and emojis", `<p>In messages to friends, people often use <b>short forms</b> (abreviaturas) and <b>emojis</b>. Here are some common ones in English:</p><ul><li><b>BTW</b> = by the way (por cierto)</li><li><b>LOL</b> = laughing out loud (me parto de risa)</li><li><b>ASAP</b> = as soon as possible (lo antes posible)</li><li><b>BRB</b> = be right back (ahora vuelvo)</li><li><b>IDK</b> = I don't know (no sé)</li><li><b>TBH</b> = to be honest (la verdad)</li><li><b>Thx</b> = thanks · <b>pls</b> = please · <b>u</b> = you · <b>gr8</b> = great · <b>CU</b> = see you</li></ul><p>Emojis can show feelings and make a message friendlier: 😊 👍 🎉 ❤️ 😂. But be careful:</p><ul><li>Use short forms and emojis <b>only</b> with friends and family, in informal messages.</li><li><b>Never</b> use them in formal emails, for example to a teacher, a company or a museum.</li><li>Don't use too many: your message should still be easy to read.</li><li>Emojis can be misunderstood. A message that seems funny to you might seem rude to someone else.</li></ul><p>In your English exams, always write the full words: <i>you</i>, not <i>u</i>; <i>great</i>, not <i>gr8</i>.</p>`,
+        L6.filas("Short forms", [["BTW", "by the way", cAZ], ["ASAP", "as soon as possible", cRO], ["IDK", "I don't know", cVE], ["CU", "see you", cNA]])],
+    ],
+    "Paragraphs": [
+      ["Messages for special occasions", `<p>Emails and cards are perfect for special moments. Here are some useful phrases:</p><ul><li><b>Birthdays</b>: «Happy birthday! Have a fantastic day!» «Many happy returns!» «I hope all your wishes come true.»</li><li><b>Congratulations</b> (for winning, passing an exam, a new baby…): «Congratulations! Well done!» «I'm so proud of you!» «You deserve it!»</li><li><b>Get well soon</b> (when someone is ill): «I'm sorry to hear you're ill.» «Get well soon!» «I hope you feel better soon.»</li><li><b>Saying sorry</b>: «I'm really sorry about…» «I didn't mean to…» «It won't happen again.»</li><li><b>Good luck</b>: «Good luck in your exam!» «Fingers crossed!» «You can do it!»</li><li><b>Holidays</b>: «Merry Christmas and a Happy New Year!» «Happy holidays!» «Have a great summer!»</li></ul><p>Notice: in English we say «<b>Happy</b> birthday» and «<b>Merry</b> Christmas», but «<b>Happy</b> New Year» and «<b>Happy</b> Easter».</p><p>A short, personal message is always better than a long, general one. Add something special: a memory, a joke or a plan for when you see each other.</p>`,
+        H6.dos("Special messages", ["Happy", ["Happy birthday!", "Congratulations!", "Merry Christmas!"], cVE], ["Support", ["Get well soon!", "Good luck!", "I'm sorry…"], cAZ])],
+    ],
+    "Check before you send": [
+      ["Before email: letters and postcards", `<p>Before email and mobile phones, people communicated by <b>letter</b>. They wrote by hand, put the letter in an <b>envelope</b>, wrote the <b>address</b> and put a <b>stamp</b> on it. Then the post took days or even weeks to arrive!</p><ul><li>The world's first postage stamp, the <b>Penny Black</b>, appeared in the United Kingdom in <b>1840</b>. It had a picture of Queen Victoria.</li><li><b>Postcards</b> became very popular in the 20th century. People sent them from holidays with a photo on the front and a short message on the back: «Having a great time! Wish you were here!»</li><li>The first <b>email</b> was sent in <b>1971</b> by an American engineer called <b>Ray Tomlinson</b>. He chose the symbol <b>@</b> (at) to separate the name of the person from the name of the computer. We still use it today!</li></ul><p>Today, email is instant and free, but a handwritten letter or postcard is still special. Many people keep letters from family and friends for their whole lives. Why don't you send a real postcard to someone you love? They will be really happy to find it in their letterbox.</p>`,
+        L6.filas("From letters to emails", [["1840", "first stamp", cRO], ["1900s", "postcards", cNA], ["1971", "first email, @", cAZ], ["today", "instant messages", cVE]]), ["XhXk3wzemR4", "Raymond Tomlinson - the inventor of email", "technogeiser", 81715]],
+    ],
+  },
+  final: [
+    ["Saying thank you", `<p>A <b>thank-you email</b> is short, but it makes people very happy. It's polite to send one after someone gives you a present, invites you to their house or helps you.</p><p>A good thank-you email has four parts:</p><ul><li><b>Greeting</b>: «Dear Aunt Lucy,» or «Hi Tom,»</li><li><b>Thank them for something specific</b>: «Thank you so much for the book you gave me for my birthday.» Saying exactly what you are thanking them for is more personal than just «Thanks for the present».</li><li><b>Say why you like it or how you used it</b>: «I've already read three chapters. It's really exciting, and I love the main character!»</li><li><b>Close warmly</b>: «I hope to see you soon. Thanks again! Love, Ana» or «Best wishes, Ana».</li></ul><p>Useful phrases: <i>Thank you so much for…</i>, <i>It was really kind of you to…</i>, <i>I really appreciate…</i>, <i>It's exactly what I wanted!</i>, <i>I had a great time at…</i></p><p>For a teacher or an adult you don't know well, use a more formal style: «Dear Mrs Smith, Thank you very much for organising the trip. We all learned a lot. Kind regards, Class 6B.»</p>`,
+      H6.flujo("Thank-you email", ["greeting|Dear…", "thank you|for the book", "why|I love it", "close|Love, Ana"], cVE)],
+    ["Pen pals", `<p>A <b>pen pal</b> (or <b>pen friend</b>) is a friend in another country that you write to regularly. Many schools have exchanges with schools in other countries, for example through the European programme <b>eTwinning</b>. It's a great way to practise English and learn about other cultures.</p><p>In your first message, introduce yourself:</p><ul><li>Your name, age and where you live: «My name's Pablo. I'm eleven and I live in Toledo, a historic city in the centre of Spain.»</li><li>Your family and pets.</li><li>Your school and favourite subjects.</li><li>Your hobbies and likes.</li><li>Something special about your town or country: a festival, a typical dish, a famous place.</li></ul><p>Then ask questions to start a conversation: «What's your school like? What do you do at weekends? What's the weather like in your town now? Do you have any pets?»</p><p>Remember the safety rules: write only through your school or with your parents' permission, never share your address, passwords or private photos, and tell an adult if anything makes you feel uncomfortable.</p>`,
+      L6.filas("First message", [["about me", "name, age, town", cAZ], ["my life", "family, school, hobbies", cVE], ["my country", "a festival, a dish", cNA], ["questions", "What about you?", cMO]]), ["ctCaLQDWs1Q", "How to Write a Friendly Letter", "USPS", 436220]],
+  ],
+  ejemplos: [
+    ["Rewrite for a teacher: «Hi! IDK the homework 4 tmrw, pls tell me ASAP 😅»", ["Formal greeting and full words.", "No short forms or emojis."], "Dear Mr Brown, I'm sorry, but I don't know what the homework for tomorrow is. Could you tell me, please? Thank you. Best regards, Pablo."],
+    ["Make it more specific: «Thanks for the present.»", ["Say exactly what the present was.", "Add why you like it."], "Thank you so much for the football. I played with it all weekend!"],
+  ],
+  errores: ["Usar abreviaturas o emojis en un correo formal o en un examen.", "Dar las gracias de forma general («Thanks for the present») en lugar de decir qué te gustó."],
+  ejercicios: [
+    ["b", "What does BTW mean?", "By the way."],
+    ["b", "Complete: «Get ___ soon!»", "well."],
+    ["b", "When was the first email sent?", "In 1971."],
+    ["b", "What season is Christmas in Australia?", "Summer."],
+    ["b", "What is a pen pal?", "A friend in another country that you write to."],
+    ["m", "Write a message to a friend who has broken her leg.", "Open answer. Example: I'm so sorry to hear about your leg. Get well soon!"],
+    ["m", "Write the full words: thx, pls, u, gr8.", "thanks, please, you, great."],
+    ["m", "Why did Ray Tomlinson use @?", "To separate the person's name from the computer's name."],
+    ["m", "Write a short thank-you email to your grandma for a present.", "Open answer."],
+    ["m", "Answer Mia's question: How do you celebrate Christmas in Spain?", "Open answer. Example: We have a big dinner on 24th December and the Three Kings bring presents on 6th January."],
+    ["a", "Write a congratulations email to a friend who won a competition (60 words).", "Open answer."],
+    ["a", "Write your first email to a pen pal (80 words) with three questions.", "Open answer."],
+    ["a", "Write a postcard from a holiday: where you are, what you're doing, the weather.", "Open answer."],
+    ["a", "Explain when emojis are a good idea and when they are not.", "Good with friends in informal messages; not in formal emails or exams."],
+  ],
+  quiz: [
+    ["ASAP means…", ["as soon as possible", "as simple as possible", "always say a phrase"], "Short forms."],
+    ["«I'm sorry to hear you're ill. ___!»", ["Get well soon", "Congratulations", "Happy birthday"], "Special messages."],
+    ["The first postage stamp was called…", ["the Penny Black", "the Red Queen", "the Royal Mail"], "History."],
+    ["A good thank-you email is…", ["specific and personal", "very long and general", "full of short forms"], "Thank you."],
+    ["With a pen pal, you should never share…", ["your address or passwords", "your hobbies", "your favourite food"], "Safety."],
+  ],
+  examen: [
+    ["Mia lives in…", ["Perth, Australia", "Madrid, Spain", "London, UK"], "Reading."],
+    ["The @ symbol is read as…", ["at", "and", "about"], "Email."],
+  ],
+  tarjetas: [
+    ["Short forms", "BTW, LOL, ASAP, IDK, CU: only with friends."],
+    ["Special occasions", "Happy birthday! Congratulations! Get well soon! Good luck!"],
+    ["History", "1840 Penny Black; 1971 first email, Ray Tomlinson, @."],
+    ["Thank-you email", "Greeting, thank for something specific, why, close warmly."],
+  ],
+  glosario: [
+    ["Short form", "Abreviatura."],
+    ["By the way", "Por cierto."],
+    ["Congratulations", "Enhorabuena."],
+    ["Get well soon", "Que te mejores."],
+    ["Fingers crossed", "Crucemos los dedos."],
+    ["Envelope", "Sobre."],
+    ["Stamp", "Sello."],
+    ["Postcard", "Postal."],
+    ["Pen pal", "Amigo por correspondencia."],
+    ["Appreciate", "Agradecer, valorar."],
+    ["Southern hemisphere", "Hemisferio sur."],
+    ["Kind regards", "Saludos cordiales."],
+  ],
+  situacion: {
+    titulo: "Pen pals project",
+    reto: "La clase inicia un intercambio de correos en inglés con un colegio de otro país.",
+    pasos: ["Con ayuda del profesorado, buscad un colegio socio (por ejemplo, a través de eTwinning).", "Escribid un primer correo de presentación con preguntas.", "Responded a los correos recibidos y enviad mensajes para fechas especiales.", "Al final del trimestre, escribid un correo de agradecimiento y una postal real."],
+    producto: "Un intercambio de correos y postales con alumnos de otro país.",
+    evaluacion: ["Uses the right style (formal or informal).", "Writes messages for special occasions.", "Asks and answers questions.", "Follows online safety rules."],
+  },
+});

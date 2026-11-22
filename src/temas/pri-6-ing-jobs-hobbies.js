@@ -96,3 +96,91 @@ module.exports = tema({
   ideas: ["Encuesta de aficiones de la clase con gráfico de barras.", "Juego «Find someone who…».", "Juego de mímica de profesiones con What do I do?"],
   fuentes: [["British Council LearnEnglish Kids: jobs", "https://learnenglishkids.britishcouncil.org/word-games/jobs"], ["Cambridge Dictionary: like, love, hate + -ing", "https://dictionary.cambridge.org/grammar/british-grammar/like-love-hate-etc"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Form job words with -er, -or, -ist and -ian", "Talk about jobs of the past and of the future", "Use adjectives with prepositions: keen on, proud of, afraid of", "Prepare a job interview and learn about volunteering"],
+  lectura: { titulo: "The last lighthouse keeper", html: `<p>My great-grandfather Tomás was a <b>lighthouse keeper</b>. He lived with his family in a small white house next to a lighthouse on the coast of Galicia.</p><p>Every evening, when the sun went down, he climbed the 120 steps to the top of the tower and switched on the light. All night, he had to check that the light was working, because ships needed it to avoid the dangerous rocks. When there was fog, he turned on the foghorn. In the morning, he cleaned the big glass lens until it was shining.</p><p>It was a lonely job, but he loved it. In his free time, he was <b>keen on</b> fishing and painting. He was very <b>good at</b> painting boats, and he was <b>proud of</b> his pictures of the sea. My grandmother still has them in her living room.</p><p>Today, most lighthouses work automatically, and there are almost no lighthouse keepers. Some jobs disappear and new jobs appear. Maybe one day my job will disappear too! But I hope people will always need stories, because I want to be a <b>writer</b>.</p>` },
+  tras: {
+    "Jobs": [
+      ["Job words: -er, -or, -ist, -ian", `<p>Many job words in English are made with a <b>suffix</b> at the end of a verb or a noun. Knowing these suffixes helps you to understand and spell new words:</p><ul><li><b>-er</b> (the most common): teach → teach<b>er</b>, farm → farm<b>er</b>, build → build<b>er</b>, bake → bak<b>er</b>, paint → paint<b>er</b>, write → writ<b>er</b>, design → design<b>er</b>, programme → programm<b>er</b>.</li><li><b>-or</b>: act → act<b>or</b>, direct → direct<b>or</b>, invent → invent<b>or</b>, sail → sail<b>or</b>, doct<b>or</b>.</li><li><b>-ist</b>: art → art<b>ist</b>, science → scient<b>ist</b>, journal → journal<b>ist</b>, dent<b>ist</b>, pian<b>ist</b>, cycl<b>ist</b>.</li><li><b>-ian</b>: music → music<b>ian</b>, electric → electric<b>ian</b>, library → librar<b>ian</b>, politic<b>ian</b>.</li></ul><p>Some jobs have special words: <i>chef</i> (from French), <i>pilot</i>, <i>nurse</i>, <i>firefighter</i>, <i>police officer</i>, <i>vet</i> (short for veterinarian).</p><p>Notice that in English most job words are the <b>same for men and women</b>: <i>a teacher, a doctor, an engineer</i>. Today we usually say <i>firefighter</i> instead of <i>fireman</i>, and <i>police officer</i> instead of <i>policeman</i>.</p>`,
+        L6.filas("Job suffixes", [["-er", "teacher, farmer, writer", cAZ], ["-or", "actor, sailor, doctor", cVE], ["-ist", "artist, scientist", cNA], ["-ian", "musician, librarian", cMO]])],
+    ],
+    "Where do they work? What do they do?": [
+      ["Jobs of the past and the future", `<p>The world of work is always changing. Some jobs have almost disappeared because of new technology:</p><ul><li><b>Lighthouse keepers</b>: today lighthouses work automatically.</li><li><b>Switchboard operators</b>: they connected telephone calls by hand.</li><li><b>Milkmen</b>: they brought fresh milk to people's doors every morning.</li><li><b>Typists</b>: they wrote documents on typewriters.</li></ul><p>And many new jobs have appeared in the last few years, and more will appear in the future. Some experts think these jobs will be important:</p><ul><li><b>App developers</b> and <b>video game designers</b>, who create programs for computers and phones.</li><li><b>Drone pilots</b>, who use drones to take photos, deliver packages or check fields and forests.</li><li><b>Renewable energy technicians</b>, who install and repair solar panels and wind turbines.</li><li><b>Data scientists</b>, who study huge amounts of information to find answers.</li><li><b>Carers</b> for elderly people, because people live longer.</li></ul><p>Nobody knows exactly what jobs will exist when you grow up. That's why it's important to keep learning, be creative and be good at working in a team.</p>`,
+        H6.dos("Jobs change", ["Past", ["lighthouse keeper", "milkman", "typist"], cMO], ["Future", ["drone pilot", "app developer", "solar technician"], cVE]), ["RUup841pZrs", "100 Kids Tell Us What They Want to Be When They Grow Up | 100 Kids | HiHo Kids", "HiHo Kids", 4456064]],
+    ],
+    "Good at, interested in": [
+      ["Keen on, proud of, afraid of", `<p>Many adjectives in English go with a particular <b>preposition</b>. You have to learn them together, because they are often different from Spanish:</p><ul><li><b>keen on</b> (very interested in): «I'm <b>keen on</b> photography.»</li><li><b>fond of</b> (likes a lot): «My grandpa is <b>fond of</b> gardening.»</li><li><b>crazy about</b> (loves): «She's <b>crazy about</b> horses.»</li><li><b>proud of</b> (orgulloso de): «I'm <b>proud of</b> my drawings.»</li><li><b>afraid of / scared of</b> (tener miedo de): «He's <b>afraid of</b> spiders.»</li><li><b>bored with</b> (aburrido de): «I'm <b>bored with</b> this game.»</li><li><b>tired of</b> (harto de): «I'm <b>tired of</b> waiting.»</li><li><b>bad at</b> (malo en): «I'm <b>bad at</b> singing.»</li><li><b>worried about</b> (preocupado por): «Mum's <b>worried about</b> the exam.»</li></ul><p>Remember: after a preposition, a verb takes <b>-ing</b>: «I'm keen on <b>dancing</b>.» «She's afraid of <b>flying</b>.» «I'm tired of <b>doing</b> homework.»</p><p>Notice the difference with Spanish: «estoy orgulloso <b>de</b>» is «proud <b>of</b>», but «bueno <b>en</b>» is «good <b>at</b>».</p>`,
+        L6.filas("Adjective + preposition", [["keen on", "photography", cAZ], ["proud of", "my drawings", cVE], ["afraid of", "spiders", cRO], ["worried about", "the exam", cNA]]), ["gN5HOpQDkOA", "Adjectives and Prepositions | Learn British English with Lucy |", "English with Lucy", 822225]],
+    ],
+  },
+  final: [
+    ["A job interview", `<p>When people apply for a job, they usually have a <b>job interview</b>. The interviewer asks questions to find out if the person is right for the job. Imagine you want to be a volunteer at the town library this summer. Here are some typical questions and answers:</p><ul><li>«Can you tell me something about yourself?» – «I'm eleven years old and I'm in Year 6. I'm very keen on reading.»</li><li>«Why do you want this job?» – «Because I love books and I'd like to help younger children to enjoy reading.»</li><li>«What are you good at?» – «I'm good at organising things and I'm very patient.»</li><li>«What are you bad at?» – «Sometimes I'm a bit shy, but I'm trying to improve.»</li><li>«Can you work in a team?» – «Yes, I can. I often do group projects at school.»</li><li>«Do you have any questions?» – «Yes. What time do I have to start?»</li></ul><p>Tips for a good interview: be <b>on time</b>, smile, look at the interviewer, listen carefully, answer with full sentences and give examples. At the end, say «Thank you for your time».</p>`,
+      H6.flujo("Interview tips", ["be on time|and smile", "listen|carefully", "give|examples", "say|thank you"], cAZ)],
+    ["Volunteering", `<p>A <b>volunteer</b> is a person who works <b>without a salary</b> to help other people, animals or the environment. Millions of people around the world volunteer in their free time. Here are some examples:</p><ul><li>Helping at an <b>animal shelter</b>: feeding dogs and cats, walking them and cleaning their cages.</li><li>Collecting food for a <b>food bank</b>, which gives food to families who need it.</li><li>Cleaning <b>beaches</b>, rivers and forests.</li><li>Visiting <b>elderly people</b> who live alone, reading to them or playing games with them.</li><li>Helping younger children with their homework.</li><li>Working with the <b>Red Cross</b> or other organisations when there are emergencies.</li></ul><p>Why do people volunteer? Because it makes them feel useful and happy, they meet new people and they learn new skills. Many people say that they receive more than they give.</p><p>Children can volunteer too, with their families or their school: a charity sale, a toy collection at Christmas or a clean-up day in the park. What could your class do to help your community?</p><p>In many countries there is an <b>International Volunteer Day</b> on 5th December. On that day, organisations thank their volunteers and invite new people to join them. Some schools organise a volunteering week with activities like collecting books for a library, making cards for a hospital or planting trees in the playground. Small actions can make a big difference!</p>`,
+      L6.filas("Ways to volunteer", [["animal shelter", "walk the dogs", cNA], ["food bank", "collect food", cAZ], ["clean-up", "beaches and parks", cVE], ["elderly people", "visit and read", cMO]])],
+  ],
+  ejemplos: [
+    ["Form the job: science, music, act.", ["science → -ist.", "music → -ian.", "act → -or."], "scientist, musician, actor."],
+    ["Complete: «I'm afraid ___ (fly).»", ["afraid goes with of.", "After a preposition, -ing."], "I'm afraid of flying."],
+  ],
+  errores: ["Decir «I'm good in maths»: se dice good at.", "Poner el verbo sin -ing tras preposición: «keen on dance» en lugar de «keen on dancing»."],
+  ejercicios: [
+    ["b", "Form job words: farm, invent, art, library.", "farmer, inventor, artist, librarian."],
+    ["b", "Complete: «I'm proud ___ my sister.»", "of."],
+    ["b", "What did a lighthouse keeper do?", "He switched on and checked the light so ships could avoid the rocks."],
+    ["b", "What is a volunteer?", "A person who works without a salary to help others."],
+    ["b", "Name a job of the future.", "Drone pilot (app developer, data scientist…)."],
+    ["m", "Complete with the right preposition: keen ___, bored ___, worried ___.", "on, with, about."],
+    ["m", "Write two sentences: something you are keen on and something you are afraid of.", "Open answer."],
+    ["m", "Why are some jobs disappearing?", "Because of new technology (machines do them automatically)."],
+    ["m", "Answer the interview question: «What are you good at?»", "Open answer. Example: I'm good at drawing and working in a team."],
+    ["m", "Why do people volunteer?", "They feel useful and happy, meet people and learn new skills."],
+    ["a", "Write five interview questions and answers for a summer job at a zoo.", "Open answer."],
+    ["a", "Describe a job you think will exist in 2050 and explain what the person will do.", "Open answer."],
+    ["a", "Plan a volunteering project for your class (what, where, when, who).", "Open answer."],
+    ["a", "Interview an older person about a job that doesn't exist now.", "Open answer."],
+  ],
+  quiz: [
+    ["A person who plays music professionally is a…", ["musician", "musicer", "musicist"], "Suffixes."],
+    ["«She's crazy ___ horses.»", ["about", "of", "in"], "Prepositions."],
+    ["«I'm tired of ___ for the bus.»", ["waiting", "wait", "to wait"], "-ing."],
+    ["A volunteer works…", ["without a salary", "only at night", "for a big salary"], "Volunteering."],
+    ["In a job interview, you should…", ["listen carefully and give examples", "arrive late", "answer only yes or no"], "Interview."],
+  ],
+  examen: [
+    ["Tomás was a…", ["lighthouse keeper", "fisherman", "painter"], "Reading."],
+    ["The opposite of «good at» is…", ["bad at", "good of", "bad in"], "Prepositions."],
+  ],
+  tarjetas: [
+    ["Job suffixes", "-er (teacher), -or (actor), -ist (artist), -ian (musician)."],
+    ["Jobs change", "Past: lighthouse keeper, milkman. Future: drone pilot, app developer."],
+    ["Adjective + preposition", "keen on, proud of, afraid of, bored with, worried about + -ing."],
+    ["Volunteering", "Animal shelter, food bank, clean-up, elderly people."],
+  ],
+  glosario: [
+    ["Suffix", "Sufijo."],
+    ["Lighthouse keeper", "Farero."],
+    ["Fog", "Niebla."],
+    ["Disappear", "Desaparecer."],
+    ["Developer", "Desarrollador, programador."],
+    ["Renewable", "Renovable."],
+    ["Keen on", "Entusiasta de, aficionado a."],
+    ["Proud of", "Orgulloso de."],
+    ["Job interview", "Entrevista de trabajo."],
+    ["Volunteer", "Voluntario."],
+    ["Salary", "Sueldo."],
+    ["Animal shelter", "Protectora de animales."],
+  ],
+  situacion: {
+    titulo: "Jobs fair",
+    reto: "La clase organiza una feria de oficios en inglés con profesiones del pasado, del presente y del futuro.",
+    pasos: ["Cada pareja elige una profesión e investiga qué hace, dónde trabaja y qué habilidades necesita.", "Preparad un póster con el nombre del oficio, su sufijo y frases con good at y keen on.", "Ensayad una entrevista de trabajo para esa profesión.", "Celebrad la feria y proponed un proyecto de voluntariado para la clase."],
+    producto: "Una feria de oficios con pósteres, entrevistas y un proyecto de voluntariado.",
+    evaluacion: ["Forms job words with suffixes.", "Uses adjectives with prepositions and -ing.", "Asks and answers interview questions.", "Shows interest in helping the community."],
+  },
+});
