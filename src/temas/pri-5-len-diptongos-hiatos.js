@@ -88,3 +88,88 @@ module.exports = P.tema({
   saberes: "Ortografía: sílaba tónica y reglas generales de acentuación; vocales abiertas y cerradas; diptongos, triptongos e hiatos; acentuación de diptongos y triptongos; tilde en los hiatos con vocal cerrada tónica",
   ideas: ["Palmadas silábicas para descubrir diptongos e hiatos.", "Clasificar tarjetas de palabras en tres cajas: diptongo, triptongo e hiato.", "Dictado de parejas que cambian de significado con la tilde (sabia/sabía, hacia/hacía)."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Separar en sílabas palabras con vocales en contacto", "Acentuar monosílabos, verbos y palabras con h o y", "Revisar la tilde de los propios textos"],
+  lectura: { titulo: "El cartel de la frutería", html: `<p>Al lado del colegio de Nuria hay una frutería con un cartel enorme pintado a mano: «HOY, MAIZ Y CACAO A BUEN PRECIO. GUIAS DE RECETAS GRATIS».</p><p>Nuria se paró delante y frunció el ceño. Algo no cuadraba. Al día siguiente lo comentó en clase y la maestra propuso un reto: ¿quién encuentra los errores?</p><p>—«Maíz» necesita tilde —dijo Hugo—, porque la <b>i</b> se pronuncia fuerte y está separada de la a: ma-íz. Es un <b>hiato</b>.</p><p>—«Cacao» está bien —añadió Nuria—: ca-ca-o tiene hiato, pero es llana acabada en vocal y no lleva tilde.</p><p>—¿Y «guías»? —preguntó la maestra. Separaron las sílabas en voz alta dando palmadas: guí-as. ¡Otra vez una í tónica junto a una vocal abierta!</p><p>Al salir, entre todos escribieron una nota amable al frutero, que les dio las gracias y repintó el cartel: «HOY, MAÍZ Y CACAO A BUEN PRECIO. GUÍAS DE RECETAS GRATIS». Desde entonces, cada vez que pasan por allí, lo miran con orgullo.</p><p>En este tema aprenderás a descubrir cuándo dos vocales van juntas y cuándo se separan, y cómo afecta eso a la tilde.</p>` },
+  tras: {
+    "Vocales abiertas y cerradas": [
+      ["Separar sílabas con vocales juntas", `<p>Cuando en una palabra aparecen dos o más vocales seguidas, tienes que decidir si van en la <b>misma sílaba</b> o en <b>sílabas distintas</b>. Sigue estos pasos:</p><ol><li><b>Localiza las vocales seguidas</b> y escribe debajo si son abiertas (A) o cerradas (C).</li><li>Si son <b>dos abiertas</b> (a, e, o), sepáralas siempre: <i>ca-er, le-er, co-rre-o</i>.</li><li>Si son una <b>abierta y una cerrada</b>, o <b>dos cerradas</b>, mira si la cerrada es <b>tónica</b>:<ul><li>Si la cerrada es <b>átona</b>, van juntas: <i>cie-lo, pei-ne, rui-do</i>.</li><li>Si la cerrada es <b>tónica</b> (se pronuncia con más fuerza), se separan: <i>rí-o, ba-úl, Ra-úl</i>.</li></ul></li><li><b>Comprueba</b> pronunciando la palabra despacio y dando una palmada por sílaba.</li></ol><p>Recuerda que al separar una palabra al final de una línea <b>no se deben dejar vocales sueltas</b>: no se escribe «a-ire» al final del renglón, sino que se pasa la palabra entera o se separa como <i>ai-re</i>. Tampoco se separan las vocales de un diptongo: escribe <i>cuen-to</i>, nunca «cu-ento».</p>`,
+        H.flujo("¿Juntas o separadas?", ["marca A|y C", "¿dos|abiertas?", "sí:|sepáralas", "no: ¿la C|es tónica?", "átona:|juntas", "tónica:|separa"], AZ)],
+    ],
+    "La tilde en los diptongos": [
+      ["La h y la y entre vocales", `<p>Hay dos letras que pueden despistarte cuando buscas diptongos e hiatos:</p><ul><li><b>La h intercalada</b>. Como la h no suena, no separa las vocales: se comportan como si estuvieran juntas. Por eso <i>ahu-ma-do</i> o <i>rehu-sar</i> tienen diptongo, y <i>bú-ho</i>, <i>pro-hí-bo</i> o <i>re-hú-so</i> tienen hiato con tilde en la vocal cerrada tónica. La <b>h no impide</b> poner la tilde: se escribe <i>búho</i>, <i>prohíbo</i> y <i>vahído</i>.</li><li><b>La y al final de palabra</b>. Cuando suena como la vocal <b>i</b> al final de una palabra, forma diptongo o triptongo con la vocal anterior: <i>rey, ley, hoy, muy, estoy, Paraguay</i>. Sin embargo, para las reglas de la tilde, la <b>y cuenta como consonante</b>. Por eso <i>virrey</i>, <i>convoy</i> o <i>jersey</i> son agudas, pero <b>no llevan tilde</b>, porque no terminan en vocal, n ni s.</li></ul><p>Cuidado con el plural: <i>rey</i> forma <i>reyes</i>, y <i>ley</i>, <i>leyes</i>. Pero algunas palabras recientes hacen el plural en -is: <i>jersey</i> → <i>jerséis</i>, que sí lleva tilde, porque es aguda acabada en s.</p>`,
+        L.filas("Letras que despistan", [["h muda", "búho · prohíbo: hiato con tilde", AZ], ["ahumado", "la h no lo rompe", VE], ["y final", "rey · hoy · muy: diptongo", NA], ["jersey", "aguda en y: sin tilde", RO]]), ["QWAg_1m47ao", "LOS DIPTONGOS 🦸‍♀️ GRAMÁTICA y ORTOGRAFÍA para niños 📝 Superlexia⭐ Episodio 9", "Smile and Learn - Español", 446338]],
+    ],
+  },
+  final: [
+    ["Monosílabos con diptongo", `<p>Algunas palabras con diptongo tienen una sola sílaba: son <b>monosílabos</b>. Y los monosílabos, como regla general, <b>no llevan tilde</b>. Esto incluye formas verbales muy frecuentes que mucha gente escribe mal:</p><ul><li><i>fue, fui, dio, vio, pie, fe, bien, sol, mies</i>.</li><li><i>guion, truhan, fie, lie, crie, Sion</i>, que según la ortografía actual se consideran monosílabos y se escriben sin tilde.</li></ul><p>Así, escribimos «Ayer <b>fui</b> al cine y <b>vio</b> la película mi hermano», sin tilde en <i>fui</i> ni en <i>vio</i>.</p><p>La única excepción es la <b>tilde diacrítica</b>, la que distingue dos monosílabos que se escriben igual pero significan cosas distintas: <i>té</i> (bebida) / <i>te</i> (pronombre), <i>sí</i> (afirmación) / <i>si</i> (condición), <i>él</i> / <i>el</i>, <i>tú</i> / <i>tu</i>, <i>mí</i> / <i>mi</i>, <i>dé</i> / <i>de</i>, <i>sé</i> / <i>se</i>, <i>más</i> / <i>mas</i>.</p><p>Fíjate en <i>río</i>: el sustantivo (<i>el río Ebro</i>) es bisílabo con hiato (<i>rí-o</i>) y lleva tilde; en cambio, <i>rio</i>, pasado del verbo reír («Ana rio mucho»), es un monosílabo y va sin tilde.</p>`,
+      L.tabla("Monosílabos con diptongo", ["Sin tilde", "Ejemplo"], [["fue · fui", "Ayer fui al parque"], ["dio · vio", "Me dio un regalo"], ["guion · pie", "Lee el guion"], ["rio (verbo)", "Ana rio mucho"]]), ["7hB3c2_PxYo", "Reconocer los diptongos e hiatos", "unProfesor", 1858263]],
+    ["La tilde en los verbos", `<p>Muchos errores de tilde aparecen en los <b>verbos</b>. Estos son los casos más importantes:</p><ul><li><b>Pretérito imperfecto</b> de los verbos en -er e -ir: todas sus formas llevan tilde en la í, porque hay hiato: <i>comía, comías, comíamos, vivían</i>.</li><li><b>Condicional</b> de todos los verbos: también llevan tilde en la í: <i>cantaría, comerías, viviríamos, saldrían</i>.</li><li><b>Verbos en -iar y -uar</b>: unos forman hiato y llevan tilde (<i>envío, enfrío, actúo, continúo, gradúo</i>) y otros forman diptongo y no la llevan (<i>cambio, limpio, averiguo, apacigua</i>). Si dudas, pronuncia despacio: ¿suena <i>en-ví-o</i> o <i>cam-bio</i>?</li><li><b>Reír, oír, freír, sonreír</b>: la í tónica lleva tilde en muchas formas: <i>reír, oímos, sonríe, freímos</i>.</li><li><b>Pretéritos con diptongo</b>: no llevan tilde si son monosílabos (<i>fui, dio</i>), pero sí cuando lo pide la regla general: <i>comió, salió, partió</i> (agudas acabadas en vocal).</li></ul><p>Un buen truco: conjuga el verbo en voz alta y escucha dónde cae la fuerza de la voz.</p>`,
+      H.dos("Verbos en -iar y -uar", ["Hiato", ["con tilde", "envío · enfrío", "actúo · continúo"], RO], ["Diptongo", ["sin tilde", "cambio · limpio", "averiguo"], AZ])],
+    ["Revisar la tilde en tus textos", `<p>Saber las reglas está muy bien, pero lo importante es aplicarlas cuando escribes. Antes de entregar un texto, haz una <b>revisión de tildes</b> siguiendo este método:</p><ol><li><b>Lee el texto en voz alta</b>, despacio. Fíjate en la sílaba que pronuncias con más fuerza en cada palabra.</li><li><b>Subraya las palabras con vocales juntas</b>. Para cada una, decide si hay diptongo o hiato.</li><li><b>Aplica la regla</b>: si es diptongo, sigue las reglas generales y pon la tilde en la abierta; si es hiato con í o ú tónica, la tilde es obligatoria.</li><li><b>Repasa los verbos</b> en imperfecto y condicional (-ía): casi siempre llevan tilde.</li><li><b>Consulta el diccionario</b> cuando dudes. Los correctores del ordenador ayudan, pero no son infalibles: no distinguen <i>sabia</i> de <i>sabía</i> si las dos existen.</li></ol><p>Puedes crear tu propio <b>cuaderno de errores frecuentes</b>: cada vez que te equivoques en una tilde, apunta la palabra bien escrita y su explicación. En pocas semanas notarás que cometes muchos menos fallos.</p>`,
+      L.filas("Revisar las tildes", [["Leer", "en voz alta, despacio", AZ], ["Subrayar", "vocales juntas", VE], ["Regla", "diptongo o hiato", NA], ["Verbos", "repasa las formas en -ía", RO], ["Dudas", "consulta el diccionario", MO]])],
+  ],
+  ejemplos: [
+    ["Separa en sílabas y explica: «ahumado», «búho», «rey».", ["a-hu-ma-do: la h no separa, a + u átona forman diptongo.", "bú-ho: u tónica + o, hiato con tilde aunque haya h.", "rey: e + y final forman diptongo; monosílabo sin tilde."], "Diptongo, hiato con tilde y diptongo"],
+    ["¿Llevan tilde «envio», «cambio» y «cantaria»?", ["en-ví-o: hiato con í tónica → envío.", "cam-bio: diptongo, llana en vocal → sin tilde.", "can-ta-rí-a: condicional con hiato → cantaría."], "envío, cambio, cantaría"],
+  ],
+  errores: ["Poner tilde a monosílabos con diptongo: «fué», «dió», «guión» (son fue, dio, guion).", "Poner tilde a agudas acabadas en y: «virréy», «convóy» (son virrey, convoy)."],
+  nivelesBase: "bbbbmmmmmb",
+  ejercicios: [
+    ["b", "Separa en sílabas: aire, caer, ruido, baúl.", "ai-re, ca-er, rui-do, ba-úl."],
+    ["b", "Corrige: «Ayer fuí al cine y me dió miedo».", "Ayer fui al cine y me dio miedo."],
+    ["b", "Escribe tres palabras que acaben en y con diptongo.", "Por ejemplo: rey, hoy, muy."],
+    ["b", "Escribe el condicional de «comer» en primera persona del singular y del plural.", "Comería, comeríamos."],
+    ["m", "Explica por qué «búho» lleva tilde aunque tenga h.", "Porque la h no separa las vocales: hay hiato con u tónica, que siempre lleva tilde."],
+    ["m", "¿Por qué «virrey» no lleva tilde si es aguda?", "Porque acaba en y, que cuenta como consonante para la tilde."],
+    ["m", "Pon tilde si hace falta: actuo, limpio, envio, averiguo.", "Actúo, limpio, envío, averiguo."],
+    ["m", "Diferencia «río» y «rio» con una oración para cada uno.", "«El río lleva mucha agua» (sustantivo). «Mi hermano rio con el chiste» (verbo reír)."],
+    ["m", "Escribe tres formas de «oír» o «reír» con tilde.", "Por ejemplo: oímos, reír, sonríe."],
+    ["m", "¿Cómo se separa «cuento» al final de una línea?", "Cuen-to; nunca se separan las vocales de un diptongo."],
+    ["a", "Corrige el cartel: «HOY, MAIZ Y CACAO. GUIAS DE RECETAS GRATIS».", "HOY, MAÍZ Y CACAO. GUÍAS DE RECETAS GRATIS."],
+    ["a", "Escribe un texto de cuatro líneas sobre lo que harías en vacaciones usando el condicional.", "Respuesta abierta. Todas las formas en -ía llevan tilde: iría, viajaría, comeríamos."],
+    ["a", "Clasifica en dos columnas (hiato / diptongo): guion, ríe, peine, prohíbo, hoy, oímos.", "Hiato: ríe, prohíbo, oímos. Diptongo: guion, peine, hoy."],
+    ["a", "Explica por qué el corrector del ordenador no siempre detecta los errores de tilde.", "Porque hay palabras que existen con y sin tilde (sabia/sabía) y el corrector no sabe cuál quieres decir."],
+  ],
+  quiz: [
+    ["Se escribe…", ["fue", "fué", "fúe"], "Monosílabo: sin tilde."],
+    ["«Jersey» no lleva tilde porque…", ["acaba en y", "es llana", "es esdrújula"], "La y cuenta como consonante."],
+    ["Se escribe…", ["guion", "guión", "güion"], "Monosílabo según la ortografía actual."],
+    ["Se escribe…", ["cantaría", "cantaria", "cántaria"], "Condicional con hiato."],
+    ["«Cambio» tiene…", ["diptongo", "hiato", "triptongo"], "cam-bio."],
+  ],
+  examen: [
+    ["La h entre dos vocales…", ["no impide la tilde del hiato", "siempre separa las vocales en dos sílabas", "obliga a poner tilde"], "búho, prohíbo."],
+    ["Se escribe…", ["envío", "envio", "énvio"], "Hiato con í tónica."],
+  ],
+  tarjetas: [
+    ["h intercalada", "No impide diptongo ni tilde: ahumado, búho."],
+    ["y final", "Forma diptongo y cuenta como consonante: virrey."],
+    ["Monosílabos", "Sin tilde: fue, fui, dio, vio, guion."],
+    ["Condicional", "Siempre tilde en -ía: cantaría."],
+  ],
+  glosario: [
+    ["Sílaba", "Sonido o grupo de sonidos que se pronuncian en un solo golpe de voz."],
+    ["Sílaba tónica", "La que se pronuncia con más fuerza."],
+    ["Tilde", "Acento escrito sobre una vocal."],
+    ["Vocal abierta", "a, e, o."],
+    ["Vocal cerrada", "i, u."],
+    ["Diptongo", "Dos vocales seguidas en la misma sílaba."],
+    ["Triptongo", "Tres vocales seguidas en la misma sílaba."],
+    ["Hiato", "Dos vocales seguidas en sílabas distintas."],
+    ["Monosílabo", "Palabra de una sola sílaba."],
+    ["Tilde diacrítica", "La que distingue palabras que se escriben igual: té / te."],
+    ["h intercalada", "La h situada entre dos vocales."],
+    ["Condicional", "Tiempo verbal en -ía: cantaría, comería."],
+  ],
+  situacion: {
+    titulo: "Detectives de la tilde",
+    reto: "La clase se convierte en una agencia de detectives que busca errores de tilde en carteles, menús y anuncios del barrio.",
+    pasos: ["Fotografiad o copiad carteles, menús y anuncios del barrio o del colegio.", "Buscad las palabras con vocales juntas y decidid si hay diptongo o hiato.", "Corregid los errores explicando la regla que se aplica en cada caso.", "Preparad un mural «Antes y después» y, si es posible, enviad una nota amable a los comercios."],
+    producto: "Un mural de errores corregidos y un cuaderno de detective con las reglas aplicadas.",
+    evaluacion: ["Separa en sílabas palabras con vocales juntas.", "Distingue diptongo, triptongo e hiato.", "Aplica la tilde en hiatos, monosílabos y verbos.", "Revisa sus propios textos con método."],
+  },
+});

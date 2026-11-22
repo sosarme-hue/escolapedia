@@ -88,3 +88,98 @@ module.exports = P.tema({
   saberes: "Reflexión sobre la lengua: estructura de la palabra (lexema y morfemas); palabras simples, derivadas y compuestas; prefijos y sufijos; familias léxicas; siglas, acortamientos y préstamos",
   ideas: ["Dominó de prefijos y sufijos para formar palabras.", "Árbol de familias léxicas en el mural de clase.", "Inventar palabras compuestas para objetos imaginarios y escribir su definición."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Distinguir lexema, prefijos y sufijos en cualquier palabra", "Formar palabras derivadas, compuestas, siglas y acrónimos", "Usar el diccionario para descubrir familias de palabras"],
+  lectura: { titulo: "La fábrica de palabras", html: `<p>En la biblioteca del colegio había una caja de madera con un cartel que decía: «Fábrica de palabras». Dentro, la bibliotecaria había guardado cientos de tarjetas: unas con trozos como <b>pan</b>, <b>flor</b> o <b>mar</b>, y otras con piezas pequeñas como <b>des-</b>, <b>re-</b>, <b>-ero</b> o <b>-ito</b>.</p><p>—Hoy vais a ser inventores —dijo—. Unid las piezas y veréis qué sale.</p><p>Lucía cogió <b>pan</b> y le añadió <b>-adero</b>: ¡panadero! Después probó con <b>-ería</b> y salió panadería. Su compañero Iker juntó <b>flor</b> y <b>-ero</b> y formó florero. Luego intentó algo más difícil: unió <b>para</b> y <b>aguas</b>, y apareció paraguas.</p><p>Al final de la hora, la mesa estaba llena de palabras nuevas. Algunas existían en el diccionario y otras no, como «marero» o «desflor». Se rieron mucho buscándolas.</p><p>—¿Lo veis? —explicó la bibliotecaria—. Las palabras no aparecen de la nada: se construyen con piezas, como los juguetes de construcción. Si conocéis las piezas, entenderéis palabras que no habéis oído nunca.</p><p>En este tema aprenderás a desmontar las palabras y a construir otras nuevas.</p>` },
+  tras: {
+    "Las piezas de la palabra": [
+      ["Lexema y morfemas", `<p>Las piezas de una palabra tienen nombre propio. El <b>lexema</b> o raíz es la parte que tiene el significado principal y que se repite en todas las palabras de la misma familia: en <i>panadero</i>, <i>panecillo</i> y <i>empanada</i>, el lexema es <b>pan</b>.</p><p>Los <b>morfemas</b> son las piezas que se unen al lexema. Hay dos clases:</p><ul><li><b>Morfemas flexivos</b>: indican el <b>género</b> (niñ<b>o</b> / niñ<b>a</b>), el <b>número</b> (gato / gato<b>s</b>) o, en los verbos, la persona y el tiempo (cant<b>amos</b>). No cambian el significado de la palabra: <i>gato</i> y <i>gatos</i> son la misma palabra en singular y en plural.</li><li><b>Morfemas derivativos</b>: los <b>prefijos</b> y los <b>sufijos</b>. Sirven para crear palabras nuevas con un significado distinto: de <i>hacer</i> sale <i>des</i>hacer, y de <i>zapato</i>, zapat<b>ería</b>.</li></ul><p>Por eso <i>perros</i> no es una palabra derivada (solo tiene un morfema de número), pero <i>perrera</i> sí lo es, porque lleva el sufijo <b>-era</b>, que forma una palabra nueva con otro significado: el lugar donde están los perros.</p>`,
+        L.filas("Las piezas", [["Lexema", "pan · flor · mar", AZ], ["Flexivos", "género y número: niñ-o / niñ-a-s", VE], ["Prefijos", "des-hacer · re-leer", RO], ["Sufijos", "zapat-ería · flor-ero", NA]])],
+    ],
+    "Los sufijos más usados": [
+      ["Diminutivos, aumentativos y despectivos", `<p>Algunos sufijos no cambian mucho el significado de la palabra, sino que expresan el <b>tamaño</b> o lo que <b>sentimos</b> hacia algo. Se llaman <b>sufijos apreciativos</b>:</p><ul><li><b>Diminutivos</b>: indican tamaño pequeño o cariño. Los más usados son <b>-ito/-ita</b> (casita), <b>-illo/-illa</b> (panecillo), <b>-ico/-ica</b> (ratico), <b>-ín/-ina</b> (pequeñín) y <b>-uelo/-uela</b> (pequeñuelo). En cada zona de España se prefiere uno: en Aragón y Murcia se oye mucho <i>-ico</i>, y en Asturias, <i>-ín</i>.</li><li><b>Aumentativos</b>: indican tamaño grande. Son <b>-ón/-ona</b> (cabezón), <b>-azo/-aza</b> (perrazo) y <b>-ote/-ota</b> (grandote).</li><li><b>Despectivos</b>: indican desprecio o burla. Son <b>-ucho</b> (casucha), <b>-aco</b> (libraco) o <b>-ejo</b> (animalejo). ¡Úsalos con cuidado, porque pueden ofender!</li></ul><p>A veces una palabra con estos sufijos ha cambiado de significado y es ya una palabra distinta: una <i>bombilla</i> no es una bomba pequeña, un <i>cajón</i> no es solo una caja grande y un <i>zapatazo</i> es un golpe dado con un zapato. El sufijo <b>-azo</b> también puede indicar golpe: portazo, codazo, balonazo.</p>`,
+        H.barras("Casa con sufijos", [["casita", 1, VE, "pequeña"], ["casa", 2, AZ, "normal"], ["casona", 3, NA, "grande"], ["casucha", 1.5, RO, "fea"]], 3)],
+    ],
+    "Palabras compuestas": [
+      ["Cómo se escriben las compuestas", `<p>No todas las palabras compuestas se escriben igual. Hay tres formas:</p><ul><li><b>Unidas en una sola palabra</b>: es lo más frecuente. <i>Sacapuntas</i>, <i>girasol</i>, <i>paraguas</i>, <i>bocacalle</i>, <i>pelirrojo</i>. Fíjate en que al unirse pueden cambiar algunas letras: <i>pelo</i> + <i>rojo</i> forma <i>pel<b>i</b>rrojo</i>, con <b>i</b> y con <b>rr</b> para que suene igual; <i>agrio</i> + <i>dulce</i> forma <i>agridulce</i>.</li><li><b>Con guion</b>: se unen dos adjetivos y cada uno conserva su forma. <i>Teórico-práctico</i>, <i>franco-alemán</i>, <i>físico-químico</i>. Solo el segundo adjetivo cambia de género y número: clases <i>teórico-prácticas</i>.</li><li><b>Separadas</b>: dos o más palabras forman un único significado aunque se escriban aparte. <i>Ojo de buey</i> (una ventana redonda), <i>fin de semana</i>, <i>mesa camilla</i>, <i>hombre rana</i>, <i>cuarto de baño</i>.</li></ul><p>Las palabras compuestas también llevan tilde siguiendo las reglas generales, como una sola palabra: <i>décimo</i> + <i>séptimo</i> = <i>decimoséptimo</i> (sin tilde en <i>decimo</i>, porque ahora es llana terminada en vocal). Pero <i>puntapié</i> sí lleva tilde, porque es aguda terminada en vocal.</p>`,
+        L.filas("Tres formas de escribirlas", [["Unidas", "girasol · pelirrojo", AZ], ["Con guion", "teórico-práctico", VE], ["Separadas", "fin de semana · ojo de buey", NA]]), ["GmW7cuk6Lsg", "📚 Las PALABRAS COMPUESTAS ► para NIÑOS de PRIMARIA", "Clases Particulares en Ávila", 226209]],
+    ],
+    "Otras formas de crear palabras": [
+      ["Palabras que vienen de otras lenguas", `<p>El castellano procede del <b>latín</b>, la lengua de los romanos: de <i>aqua</i> viene <i>agua</i>; de <i>filius</i>, <i>hijo</i>; de <i>oculus</i>, <i>ojo</i>. Pero a lo largo de su historia ha tomado muchas palabras de otras lenguas. Se llaman <b>préstamos</b>:</p><ul><li>Del <b>árabe</b>, durante los ocho siglos de al-Ándalus, llegaron más de cuatro mil palabras. Muchas empiezan por <b>al-</b>: <i>almohada, alfombra, aceite, azúcar, aceituna, ojalá</i>.</li><li>Del <b>griego</b>, sobre todo palabras de ciencia: <i>teléfono, geografía, democracia</i>.</li><li>De las <b>lenguas de América</b>, tras los viajes de Colón: <i>chocolate, tomate, patata, canoa, huracán</i>.</li><li>Del <b>francés</b> y del <b>italiano</b>: <i>jardín, hotel, pizza, piano</i>.</li><li>Del <b>inglés</b>, sobre todo en deportes y tecnología: <i>fútbol, líder, wifi, chat</i>.</li></ul><p>Cuando un préstamo se adapta a nuestra forma de escribir y pronunciar, se escribe como cualquier palabra: <i>fútbol</i> (de <i>football</i>), <i>béisbol</i>. Si no se adapta, se escribe en <i>cursiva</i>: <i>pizza</i>, <i>software</i>.</p><p>También surgen <b>neologismos</b>, palabras nuevas para cosas nuevas, como <i>tuitear</i> o <i>teletrabajo</i>. Si existe una palabra en castellano, es mejor usarla: <i>correo electrónico</i> mejor que <i>e-mail</i>.</p>`,
+        L.filas("¿De dónde vienen?", [["Latín", "agua · hijo · ojo", AZ], ["Árabe", "almohada · aceite · ojalá", VE], ["América", "chocolate · tomate", NA], ["Inglés", "fútbol · wifi · líder", RO]])],
+    ],
+    "La familia léxica": [
+      ["Campo semántico y familia léxica", `<p>Es fácil confundir dos grupos de palabras que se parecen pero son muy distintos:</p><ul><li>La <b>familia léxica</b> reúne palabras que comparten el <b>mismo lexema</b>. Se parecen en la forma: <i>mar, marino, marinero, marea, submarino, maremoto</i>. Todas llevan <b>mar</b>.</li><li>El <b>campo semántico</b> reúne palabras que pertenecen al <b>mismo tema</b> o tienen un significado relacionado, aunque no se parezcan en nada: <i>ola, playa, arena, barco, ancla, gaviota</i> forman parte del campo semántico del mar.</li></ul><p>Una misma palabra puede estar en los dos grupos: <i>marinero</i> pertenece a la familia léxica de <i>mar</i> y también al campo semántico del mar.</p><p>Cuidado con las <b>falsas familias</b>: <i>mar</i> y <i>marcha</i> o <i>casa</i> y <i>casco</i> pueden parecer de la misma familia por su forma, pero no lo son, porque su significado no tiene relación. Para saber si dos palabras son de la misma familia, piensa si comparten <b>forma y significado</b>. El diccionario te ayudará en caso de duda.</p><p>Conocer familias y campos semánticos enriquece tu vocabulario y te ayuda a no repetir palabras cuando escribes.</p>`,
+        H.dos("Familia o campo", ["Familia", ["mismo lexema", "mar · marino", "marea · submarino"], AZ], ["Campo", ["mismo tema", "ola · playa", "barco · gaviota"], VE])],
+    ],
+  },
+  final: [
+    ["Las palabras en el diccionario", `<p>El <b>diccionario</b> es el mejor aliado para trabajar con las palabras. Para usarlo bien, recuerda que las palabras aparecen en <b>orden alfabético</b> y en su forma básica:</p><ul><li>Los <b>sustantivos y adjetivos</b>, en <b>masculino singular</b>: para buscar <i>altas</i>, busca <i>alto</i>.</li><li>Los <b>verbos</b>, en <b>infinitivo</b>: para buscar <i>comíamos</i>, busca <i>comer</i>.</li><li>Las palabras con <b>diminutivos o aumentativos</b> normalmente no aparecen: busca la palabra base (<i>perrito</i> → <i>perro</i>).</li></ul><p>Las <b>palabras guía</b>, en la parte superior de cada página, indican la primera y la última palabra de esa página y te ayudan a buscar más deprisa.</p><p>Cada entrada del diccionario te da mucha información: la <b>categoría</b> (sustantivo, verbo…), el <b>origen</b> de la palabra y sus distintos <b>significados</b> o acepciones, numerados. En el diccionario en línea de la Real Academia Española también puedes ver cómo se conjuga un verbo.</p><p>Muchas veces, si no encuentras una palabra derivada, puedes buscar su lexema y deducir el significado sumando el del prefijo o el sufijo: <i>releer</i> = volver a leer.</p>`,
+      H.flujo("Buscar en el diccionario", ["forma|básica", "primera|letra", "palabras|guía", "elegir la|acepción"], AZ)],
+  ],
+  ejemplos: [
+    ["Analiza la palabra «panaderías».", ["Lexema: pan.", "Sufijo derivativo: -ería (tienda), con el interfijo -ad-.", "Morfema flexivo: -s (plural)."], "pan-ad-ería-s: palabra derivada en plural"],
+    ["¿Son de la misma familia «cartero» y «cartón»?", ["Cartero viene de carta: lleva cartas.", "Cartón también viene de carta (papel grueso), pero su significado actual no se relaciona con el de cartero.", "Para la familia de cartero buscamos palabras con forma y significado común: carta, cartera, cartería."], "Cartero pertenece a la familia de carta; cartón, por su significado, mejor no"],
+  ],
+  errores: ["Pensar que «gatos» es derivada: el plural es un morfema flexivo y no forma una palabra nueva.", "Confundir familia léxica (mismo lexema) con campo semántico (mismo tema)."],
+  ejercicios: [
+    ["b", "Escribe el lexema de: florista, floristería, florero.", "Flor."],
+    ["b", "Escribe un diminutivo, un aumentativo y un despectivo de «casa».", "Casita, casona, casucha."],
+    ["b", "¿De qué lengua vienen almohada, aceite y azúcar?", "Del árabe."],
+    ["b", "Escribe el acortamiento de: bicicleta, colegio, televisión.", "Bici, cole, tele."],
+    ["b", "¿Cómo buscarías en el diccionario la palabra «saltábamos»?", "En su infinitivo: saltar."],
+    ["m", "Separa lexema y morfemas en «niñas».", "Lexema niñ-, morfema de género -a y de número -s."],
+    ["m", "Escribe tres palabras de la familia léxica de «mar» y tres del campo semántico del mar.", "Familia: marino, marea, submarino. Campo: ola, playa, barco."],
+    ["m", "Forma palabras compuestas: pelo + rojo, agrio + dulce, saca + puntas.", "Pelirrojo, agridulce, sacapuntas."],
+    ["m", "¿Qué indica el sufijo -azo en «portazo» y «balonazo»?", "Un golpe dado con eso (la puerta, el balón)."],
+    ["m", "¿Por qué «bombilla» no es un diminutivo de bomba?", "Porque ha cambiado de significado y ya es una palabra distinta."],
+    ["m", "Escribe dos palabras compuestas que se escriban separadas.", "Por ejemplo: fin de semana, ojo de buey."],
+    ["a", "Explica la diferencia entre sigla y acrónimo con un ejemplo de cada uno.", "La sigla usa iniciales (ONU); el acrónimo une trozos de palabras (autobús, ovni)."],
+    ["a", "Escribe un préstamo del árabe, otro de América y otro del inglés, y explica por qué llegaron al castellano.", "Por ejemplo: aceite (al-Ándalus), tomate (viajes a América), fútbol (deporte inglés)."],
+    ["a", "Inventa una palabra con un prefijo y un sufijo y explica su significado.", "Respuesta abierta. Por ejemplo: «reflorecer», volver a florecer."],
+    ["a", "Clasifica: girasol, teórico-práctico, mesa camilla, pelirrojo, fin de semana.", "Unidas: girasol, pelirrojo. Con guion: teórico-práctico. Separadas: mesa camilla, fin de semana."],
+    ["a", "Escribe un texto de cuatro líneas sobre el bosque usando al menos cinco palabras de su campo semántico.", "Respuesta abierta: árbol, hoja, rama, musgo, ardilla…"],
+  ],
+  quiz: [
+    ["En «gatos», la -s es un morfema…", ["Flexivo de número", "Derivativo", "Prefijo"], "No forma palabra nueva."],
+    ["«Casucha» lleva un sufijo…", ["Despectivo", "Diminutivo", "Aumentativo"], "-ucho/-ucha indica desprecio."],
+    ["«Ovni» es…", ["Un acrónimo", "Un diminutivo", "Una palabra compuesta con guion"], "Se lee como una palabra."],
+    ["«Ola, playa, barco» forman…", ["Un campo semántico", "Una familia léxica", "Palabras derivadas"], "Comparten tema, no lexema."],
+    ["En el diccionario, los verbos aparecen en…", ["Infinitivo", "Pasado", "Plural"], "Comer, saltar, vivir."],
+  ],
+  examen: [
+    ["«Teórico-práctico» es una palabra compuesta…", ["Con guion", "Unida", "Separada"], "Une dos adjetivos."],
+    ["«Chocolate» y «tomate» son préstamos de…", ["Las lenguas de América", "El árabe", "El inglés"], "Llegaron tras los viajes de Colón."],
+  ],
+  tarjetas: [
+    ["Morfema flexivo", "Género, número, persona: no crea palabra nueva."],
+    ["Sufijos apreciativos", "Diminutivos, aumentativos y despectivos."],
+    ["Préstamo", "Palabra tomada de otra lengua: almohada, tomate, fútbol."],
+    ["Campo semántico", "Palabras del mismo tema."],
+  ],
+  glosario: [
+    ["Lexema", "Parte de la palabra con el significado principal."],
+    ["Morfema", "Pieza que se une al lexema."],
+    ["Prefijo", "Morfema que va delante del lexema."],
+    ["Sufijo", "Morfema que va detrás del lexema."],
+    ["Palabra simple", "La formada solo por un lexema y, a veces, morfemas flexivos."],
+    ["Palabra derivada", "La que lleva prefijos o sufijos."],
+    ["Palabra compuesta", "La formada por dos o más palabras."],
+    ["Diminutivo", "Sufijo que indica tamaño pequeño o cariño."],
+    ["Aumentativo", "Sufijo que indica tamaño grande."],
+    ["Préstamo", "Palabra tomada de otra lengua."],
+    ["Neologismo", "Palabra nueva que entra en la lengua."],
+    ["Familia léxica", "Palabras que comparten lexema."],
+    ["Campo semántico", "Palabras que comparten tema."],
+  ],
+  situacion: {
+    titulo: "La fábrica de palabras de la clase",
+    reto: "La clase monta una fábrica de palabras con tarjetas de lexemas, prefijos y sufijos y elabora un diccionario ilustrado.",
+    pasos: ["Preparad tarjetas con lexemas, prefijos y sufijos de distintos colores.", "Por equipos, formad palabras derivadas y compuestas y comprobad en el diccionario si existen.", "Elegid una familia léxica y dibujad su árbol con el lexema en el tronco.", "Reunid las mejores palabras en un diccionario ilustrado de la clase, con definición y ejemplo."],
+    producto: "Un juego de tarjetas, árboles de familias léxicas y un diccionario ilustrado.",
+    evaluacion: ["Identifica lexema y morfemas.", "Forma palabras derivadas, compuestas y abreviadas.", "Distingue familia léxica y campo semántico.", "Usa el diccionario con soltura."],
+  },
+});

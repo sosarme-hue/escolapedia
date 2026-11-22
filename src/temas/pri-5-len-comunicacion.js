@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Comunicación e interacción oral: elementos de la comunicación; comunicación verbal y no verbal; lenguaje, lengua y habla; el signo lingüístico; la diversidad lingüística de España y del entorno",
   ideas: ["Teléfono roto en clase para descubrir qué pasa cuando falla el canal.", "Mapa de las lenguas de España con saludos grabados por familias del centro.", "Juego de roles para practicar el registro formal y el coloquial."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Reconocer el ruido y los malentendidos en la comunicación", "Identificar la intención de un mensaje", "Comunicarse con respeto en internet y hacer una exposición oral"],
+  lectura: { titulo: "El mensaje que llegó mal", html: `<p>El martes por la tarde, Marta escribió en el grupo de clase: «Mañana no hay examen de Lengua». Quería decir que el examen se había cambiado al jueves, pero se le olvidó añadirlo.</p><p>Pablo leyó el mensaje deprisa y entendió que el examen se había suspendido para siempre. Se lo contó a su hermano, que se lo contó a una amiga, que lo escribió en otro grupo: «¡Ya no hay examen de Lengua!». En una hora, media clase creía que no tendrían examen.</p><p>El jueves, la maestra repartió los folios y muchos se quedaron con la boca abierta. ¡No habían estudiado!</p><p>—¿Qué ha pasado? —preguntó la maestra. Entre todos reconstruyeron la cadena de mensajes y descubrieron el problema: el mensaje de Marta estaba <b>incompleto</b>, Pablo lo leyó <b>sin atención</b> y cada persona lo fue cambiando un poco al repetirlo.</p><p>La maestra sonrió y dejó el examen para el lunes. «Hoy toca otra lección», dijo: «cómo comunicarnos bien». En este tema descubrirás qué es la <b>comunicación</b>, qué elementos tiene y por qué a veces falla.</p>` },
+  tras: {
+    "Los elementos de la comunicación": [
+      ["El ruido: cuando el mensaje no llega bien", `<p>A veces el mensaje no llega al receptor tal y como el emisor quería. Llamamos <b>ruido</b> a cualquier cosa que estropea la comunicación. No siempre es un sonido:</p><ul><li><b>Ruido en el canal</b>: una música muy alta mientras hablas por teléfono, una mala cobertura, una letra que no se entiende o una pantalla rota.</li><li><b>Ruido en el código</b>: el receptor no conoce bien la lengua o las palabras que usa el emisor. Por ejemplo, si un médico usa palabras muy técnicas que el paciente no entiende.</li><li><b>Ruido en el emisor o en el receptor</b>: estar distraído, cansado o enfadado, o no prestar atención.</li><li><b>Falta de contexto</b>: un mensaje como «Te espero allí» no sirve si el receptor no sabe dónde es «allí».</li></ul><p>Cuando hay ruido se producen <b>malentendidos</b>. Para evitarlos, el emisor debe ser <b>claro y completo</b>, y el receptor debe <b>escuchar con atención</b> y preguntar si algo no queda claro. Repetir con tus palabras lo que has entendido («¿Quieres decir que…?») es una buena forma de comprobar que el mensaje ha llegado bien.</p>`,
+        L.filas("Tipos de ruido", [["Canal", "música alta, mala cobertura", AZ], ["Código", "palabras desconocidas", RO], ["Atención", "distraídos o cansados", VE], ["Contexto", "«te espero allí»: ¿dónde?", NA]])],
+    ],
+    "Comunicación verbal": [
+      ["La intención del mensaje", `<p>Cada vez que nos comunicamos lo hacemos con una <b>intención</b>, es decir, con un propósito. Según lo que queramos conseguir, el mensaje tiene una forma distinta:</p><ul><li><b>Informar</b>: contar algo que ha pasado o explicar cómo es algo. «El museo abre a las diez.» Se usan oraciones <b>enunciativas</b>.</li><li><b>Preguntar</b>: pedir una información. «¿A qué hora abre el museo?» Se usan oraciones <b>interrogativas</b>, con signos de interrogación al principio y al final.</li><li><b>Pedir u ordenar</b>: que alguien haga algo. «Cierra la puerta, por favor.» Son oraciones <b>exhortativas</b>.</li><li><b>Expresar sentimientos</b>: alegría, sorpresa, enfado o pena. «¡Qué día tan bonito!» Son oraciones <b>exclamativas</b>.</li><li><b>Convencer</b>: que alguien piense o haga lo que proponemos, como en los anuncios publicitarios: «¡Prueba el nuevo zumo y llénate de energía!».</li></ul><p>Reconocer la intención te ayuda a entender mejor lo que te dicen y a elegir bien tus palabras. Por ejemplo, un anuncio quiere convencerte: no todo lo que dice tiene por qué ser verdad.</p>`,
+        L.filas("¿Para qué hablamos?", [["Informar", "«El museo abre a las 10»", AZ], ["Preguntar", "«¿A qué hora abre?»", VE], ["Ordenar", "«Cierra la puerta»", RO], ["Expresar", "«¡Qué bonito!»", SO], ["Convencer", "«¡Prueba el zumo!»", MO]])],
+    ],
+    "Las lenguas de España": [
+      ["El español en el mundo", `<p>El <b>español</b> o castellano nació en la Edad Media en una pequeña zona del norte de Castilla, como una evolución del latín. Hoy es una de las lenguas más habladas del planeta:</p><ul><li>Lo hablan como <b>lengua materna</b> cerca de <b>500 millones</b> de personas. Solo el chino mandarín tiene más hablantes nativos.</li><li>Es la lengua oficial de <b>más de veinte países</b>: España, México, Argentina, Colombia, Perú, Chile, Venezuela, Cuba y muchos más, además de Guinea Ecuatorial, en África.</li><li>En <b>Estados Unidos</b> lo hablan decenas de millones de personas.</li><li>Millones de estudiantes lo aprenden como lengua extranjera en todo el mundo.</li></ul><p>Aunque el español es el mismo en todos esos países, cada zona tiene su <b>forma de hablarlo</b>: cambia la pronunciación, algunas palabras y expresiones. En España decimos «coche», «zumo» y «ordenador»; en México, «carro», «jugo» y «computadora». Todas las formas son correctas.</p><p>La <b>Real Academia Española</b> (RAE), junto con las academias de los demás países, cuida la lengua común y publica el diccionario y la gramática. El <b>Instituto Cervantes</b> enseña español y difunde la cultura en todo el mundo.</p>`,
+        L.filas("El español hoy", [["Hablantes", "unos 500 millones nativos", AZ], ["Países", "más de 20 con lengua oficial", VE], ["Variedades", "coche / carro · zumo / jugo", RO], ["Cuidan", "RAE e Instituto Cervantes", NA]]), ["Br562bNdgZg", "Las LENGUAS de España para niños ✔👩‍🏫 PRIMARIA", "La BiBlioTHeKa", 95264]],
+    ],
+  },
+  final: [
+    ["Comunicarnos en internet", `<p>Hoy nos comunicamos muchísimo por <b>mensajes</b>, <b>videollamadas</b> y <b>redes</b>. Son canales rápidos y cómodos, pero tienen sus propias dificultades: no vemos la cara ni oímos el tono de voz del otro, y un mensaje escrito puede malinterpretarse con facilidad. Por eso existen unas normas de buena educación en internet:</p><ul><li><b>Escribe con claridad</b> y relee antes de enviar. Revisa la ortografía: también cuenta en el móvil.</li><li><b>No escribas todo en mayúsculas</b>: parece que estás gritando.</li><li>Usa los <b>emojis</b> para aclarar el tono, pero sin abusar.</li><li><b>Respeta</b> a los demás: no insultes, no te burles y no dejes a nadie fuera de un grupo a propósito. Lo que no dirías cara a cara, tampoco lo escribas.</li><li><b>Piensa antes de reenviar</b>: comprueba si una noticia es verdad y no compartas fotos ni datos de otras personas sin su permiso.</li><li><b>Protege tu intimidad</b>: no des tu dirección, tus contraseñas ni datos personales a desconocidos.</li></ul><p>Si algo te hace sentir mal o te preocupa en internet, cuéntaselo a un adulto de confianza. Recuerda que lo que se publica puede quedarse ahí para siempre.</p>`,
+        L.filas("Normas en internet", [["Claridad", "relee y revisa la ortografía", AZ], ["Mayúsculas", "parece que gritas", RO], ["Respeto", "lo que no dirías en persona, no", VE], ["Reenviar", "comprueba si es verdad", SO], ["Intimidad", "no des tus datos", MO]])],
+    ["Hablar en público: la exposición oral", `<p>En clase muchas veces tendrás que <b>exponer</b> un tema delante de tus compañeros. Al principio puede dar un poco de miedo, pero con estos pasos te saldrá cada vez mejor:</p><ol><li><b>Prepara el tema</b>: busca información en libros o webs fiables y elige lo más importante.</li><li><b>Haz un guion</b>: una introducción que presente el tema, un desarrollo con dos o tres ideas principales y una conclusión que las resuma.</li><li><b>Prepara un apoyo visual</b>: un cartel, unas fotos o unas diapositivas con pocas palabras y buenas imágenes.</li><li><b>Ensaya</b> en voz alta, en casa, delante de un espejo o de tu familia, y controla el tiempo.</li><li><b>El día de la exposición</b>: habla despacio, con buen volumen y pronunciando bien. Mira al público, no al suelo ni al papel. Usa las manos para acompañar lo que dices.</li><li><b>Termina</b> dando las gracias y pregunta si alguien tiene dudas.</li></ol><p>Mientras exponen tus compañeros, tu papel también es importante: escucha en silencio, mira a quien habla y, al final, haz preguntas o comentarios respetuosos.</p>`,
+        H.flujo("Preparar una exposición", ["buscar|información", "hacer el|guion", "apoyo|visual", "ensayar", "exponer", "dudas"], AZ)],
+  ],
+  ejemplos: [
+    ["Clasifica según su intención: «¡Qué susto!», «Recoge tu cuarto», «¿Vienes al cine?», «La película dura dos horas».", ["«¡Qué susto!» expresa un sentimiento: exclamativa.", "«Recoge tu cuarto» es una orden: exhortativa.", "«¿Vienes al cine?» pregunta: interrogativa. «La película dura dos horas» informa: enunciativa."], "Expresar, ordenar, preguntar e informar"],
+    ["Hablas por teléfono en la calle con mucho tráfico y tu amigo entiende «a las seis» en lugar de «a las tres». ¿Qué ha fallado?", ["El emisor dijo bien el mensaje.", "El ruido del tráfico estropeó el canal.", "Se produjo un malentendido; habría ayudado repetir la hora para comprobarla."], "Hubo ruido en el canal"],
+  ],
+  errores: ["Pensar que el ruido es solo un sonido fuerte: también es la distracción, no conocer las palabras o la falta de contexto."],
+  ejercicios: [
+    ["b", "¿Qué es el ruido en la comunicación?", "Cualquier cosa que impide que el mensaje llegue bien al receptor."],
+    ["b", "Escribe una oración para informar y otra para preguntar.", "Por ejemplo: «Hoy hace sol». «¿Vendrás mañana?»."],
+    ["b", "¿Cuántas personas hablan español como lengua materna, aproximadamente?", "Unos 500 millones."],
+    ["b", "Escribe dos normas para comunicarte bien en internet.", "Por ejemplo: no escribir en mayúsculas y no compartir datos personales."],
+    ["b", "¿Qué partes debe tener el guion de una exposición?", "Introducción, desarrollo y conclusión."],
+    ["m", "Pon un ejemplo de ruido en el canal y otro de ruido en el código.", "Canal: mala cobertura del móvil. Código: un médico que usa palabras que el paciente no entiende."],
+    ["m", "¿Qué intención tiene un anuncio publicitario?", "Convencer al receptor para que compre o haga algo."],
+    ["m", "Escribe cómo se dice en México: coche, zumo y ordenador.", "Carro, jugo y computadora."],
+    ["m", "¿Por qué un mensaje escrito se malinterpreta más fácilmente que uno hablado cara a cara?", "Porque no vemos la cara ni oímos el tono de voz del otro."],
+    ["m", "¿Qué hace la Real Academia Española?", "Cuida la lengua junto a las demás academias y publica el diccionario y la gramática."],
+    ["m", "Transforma esta orden en una petición amable: «Dame el libro».", "Por ejemplo: «¿Me das el libro, por favor?»."],
+    ["a", "Reescribe el mensaje de Marta de la lectura para que no haya malentendidos.", "Por ejemplo: «Mañana no hay examen de Lengua: se ha cambiado al jueves»."],
+    ["a", "Escribe un mensaje de cada tipo sobre el mismo tema (una excursión): informar, preguntar, ordenar, expresar y convencer.", "Respuesta abierta. Por ejemplo: «La excursión es el viernes», «¿Adónde vamos?», «Traed la autorización», «¡Qué ganas!», «¡Venid, será genial!»."],
+    ["a", "Un compañero recibe mensajes de burla en un grupo. ¿Qué harías y por qué?", "Respuesta abierta. No reenviar ni participar, apoyar al compañero y contárselo a un adulto de confianza, porque es una falta de respeto que hace daño."],
+    ["a", "Prepara el guion de una exposición de dos minutos sobre tu animal favorito.", "Respuesta abierta. Debe tener introducción, dos o tres ideas en el desarrollo y una conclusión."],
+    ["a", "¿Por qué se dice que todas las variedades del español son correctas?", "Porque son formas distintas de hablar la misma lengua según cada zona, y todas sirven para comunicarse."],
+  ],
+  quiz: [
+    ["La música alta al hablar por teléfono es ruido en el…", ["Canal", "Código", "Mensaje"], "Estropea el medio por el que viaja."],
+    ["«¿Qué hora es?» es una oración…", ["Interrogativa", "Exclamativa", "Exhortativa"], "Sirve para preguntar."],
+    ["El español es lengua oficial en…", ["Más de veinte países", "Solo en España", "Dos países"], "En España, América y Guinea Ecuatorial."],
+    ["Escribir todo en mayúsculas en un mensaje parece…", ["Que gritas", "Que susurras", "Que preguntas"], "Mejor evitarlo."],
+    ["Al exponer en público conviene…", ["Mirar al público", "Leer sin levantar la vista", "Hablar muy deprisa"], "Y hablar despacio y claro."],
+  ],
+  examen: [
+    ["La intención de un anuncio publicitario es…", ["Convencer", "Preguntar", "Expresar pena"], "Quiere que compremos o hagamos algo."],
+    ["La institución que cuida el español y publica el diccionario es…", ["La Real Academia Española", "El Instituto de Meteorología", "El Congreso"], "Junto con las academias americanas."],
+  ],
+  tarjetas: [
+    ["Ruido", "Lo que impide que el mensaje llegue bien."],
+    ["Intenciones", "Informar, preguntar, ordenar, expresar, convencer."],
+    ["El español", "Unos 500 millones de hablantes nativos."],
+    ["Exposición oral", "Introducción, desarrollo y conclusión."],
+  ],
+  glosario: [
+    ["Comunicación", "Transmisión de una información que el receptor entiende."],
+    ["Emisor", "Quien envía el mensaje."],
+    ["Receptor", "Quien recibe el mensaje."],
+    ["Mensaje", "Información que se transmite."],
+    ["Código", "Conjunto de signos y reglas que comparten emisor y receptor."],
+    ["Canal", "Medio por el que viaja el mensaje."],
+    ["Contexto", "Situación en la que se produce la comunicación."],
+    ["Ruido", "Lo que dificulta o impide la comunicación."],
+    ["Lenguaje", "Capacidad humana de comunicarse con signos."],
+    ["Lengua", "Idioma de una comunidad."],
+    ["Habla", "Uso personal que cada persona hace de la lengua."],
+    ["Lengua cooficial", "Lengua oficial en una comunidad junto al castellano."],
+  ],
+  situacion: {
+    titulo: "Agencia de noticias de la clase",
+    reto: "La clase crea una agencia de noticias que informa al colegio a través de un periódico mural y exposiciones orales.",
+    pasos: ["Jugad al «teléfono roto» y analizad qué ruidos y malentendidos se han producido.", "Por parejas, elegid una noticia del colegio y escribidla de forma clara y completa.", "Preparad una exposición oral de dos minutos con guion y apoyo visual para contarla a otra clase.", "Elaborad entre todos unas normas para comunicarse con respeto en el grupo de clase."],
+    producto: "Un periódico mural, exposiciones orales y un decálogo de comunicación respetuosa.",
+    evaluacion: ["Identifica los elementos de la comunicación y el ruido.", "Adapta el mensaje a la intención y al receptor.", "Expone oralmente con orden, claridad y buen volumen.", "Se comunica con respeto, también en internet."],
+  },
+});
