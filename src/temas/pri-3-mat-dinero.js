@@ -100,3 +100,91 @@ module.exports = P.tema({
   saberes: "Medida y sentido numérico: el sistema monetario del euro; monedas y billetes; equivalencia entre euro y céntimo; lectura y escritura de precios; composición de cantidades; suma de precios; cálculo de vueltas; presupuesto y consumo responsable",
   ideas: ["Tienda de clase con etiquetas de precios y monedas de juguete.", "Folleto de supermercado para hacer la compra con un presupuesto.", "Reto de las monedas: formar una cantidad con el menor número de monedas."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las caras de las monedas de euro", "Reconocer las medidas de seguridad de los billetes", "Pagar con el menor número de monedas y billetes", "Conocer la historia del dinero y comparar precios"],
+  lectura: { titulo: "La hucha de cerdito", html: `<p>Desde que cumplió siete años, Marcos guardaba en una hucha con forma de cerdito todas las monedas que le daban: las de los cumpleaños, las del ratoncito Pérez y las que encontraba en el sofá.</p><p>Un día de primavera decidió que ya era hora de saber cuánto tenía. Quería comprarse un balón de baloncesto que costaba 18 €.</p><p>Con mucho cuidado, quitó el tapón de goma de la tripa del cerdito y vació todo sobre la alfombra. ¡Qué ruido! Había monedas por todas partes.</p><p>Su hermana Paula le ayudó a separarlas por montones: las pequeñas de color cobre, las doradas y las de euro, que tenían dos colores.</p><p>—Primero cuenta las de más valor —le aconsejó Paula—. Así es más fácil.</p><p>Había 4 monedas de 2 € (8 €), 5 de 1 € (5 €), 6 de 50 céntimos (3 €) y un montón de monedas pequeñas que, juntas, sumaban 2,35 €.</p><p>Marcos sumó en su libreta: 8 + 5 + 3 + 2,35 = 18,35 €.</p><p>—¡Me llega! ¡Y me sobran 35 céntimos!</p><p>Paula cogió una moneda de 1 € y le dio la vuelta.</p><p>—Mira, esta tiene a un rey. Y esta otra, que es igual, tiene un búho. Es de Grecia.</p><p>Marcos la miró sorprendido. Su dinero había viajado más que él.</p>` },
+  tras: {
+    "Las monedas": [
+      ["Las dos caras del euro", `<p>Las monedas de euro tienen dos caras diferentes:</p><ul><li>La <mark>cara común</mark> es igual en todos los países que usan el euro. Muestra el <b>valor</b> de la moneda y un mapa o un dibujo de Europa.</li><li>La <mark>cara nacional</mark> la diseña cada país con sus propios dibujos.</li></ul><p>Las monedas españolas tienen tres diseños:</p><ul><li>1, 2 y 5 céntimos: la <b>catedral de Santiago de Compostela</b>.</li><li>10, 20 y 50 céntimos: el escritor <b>Miguel de Cervantes</b>, autor de <i>Don Quijote</i>.</li><li>1 y 2 euros: el <b>rey de España</b>.</li></ul><p>Otros países tienen dibujos muy curiosos: Grecia tiene una <b>lechuza</b> en la moneda de 1 €; Italia, el <i>Hombre de Vitruvio</i> de Leonardo da Vinci; Irlanda, un <b>arpa</b>; Francia, un <b>árbol</b>.</p><p>Lo importante es que <b>todas valen lo mismo</b> en cualquier país del euro, sea cual sea su cara nacional. Una moneda con una lechuza griega sirve para comprar en una tienda de Sevilla.</p><p><b>Actividad</b>: busca en tu monedero o en la hucha de casa monedas con caras de otros países. ¿Cuántas encuentras? Haz una colección: los coleccionistas de monedas se llaman <b>numismáticos</b>.</p>`,
+        L6.filas("Cara española", [["1, 2, 5 cent", "catedral", cNA], ["10, 20, 50 cent", "Cervantes", cMO], ["1 y 2 €", "el rey", cAZ], ["todas", "valen igual", cVE]])],
+    ],
+    "Los billetes": [
+      ["Billetes seguros: toque, mire, gire", `<p>Los billetes de euro tienen <mark>medidas de seguridad</mark> para que nadie pueda falsificarlos fácilmente. El Banco de España recomienda comprobarlos con tres pasos: <b>toque, mire y gire</b>.</p><ul><li><b>Toque</b>: el papel de los billetes es especial, firme y crujiente, no como el papel normal. Además, algunas partes tienen <b>relieve</b>: si pasas el dedo, notas las letras en relieve.</li><li><b>Mire</b>: pon el billete a contraluz, delante de una ventana. Aparece una <b>marca de agua</b>, una imagen que no se ve cuando el billete está sobre la mesa. También se ve un <b>hilo de seguridad</b>, una línea oscura que atraviesa el billete.</li><li><b>Gire</b>: inclina el billete. La banda plateada (el <b>holograma</b>) cambia de imagen, y en los billetes nuevos el número grande cambia de color, de verde esmeralda a azul oscuro.</li></ul><p>En la marca de agua y en el holograma de los billetes nuevos aparece el retrato de <b>Europa</b>, un personaje de la mitología griega que dio nombre a nuestro continente.</p><p>Falsificar dinero es un <b>delito</b> muy grave. Si alguna vez tienes dudas sobre un billete, enséñaselo a un adulto.</p>`,
+        H6.flujo("Comprobar", ["toque|relieve", "mire|contraluz", "gire|holograma", "¡es|bueno!"], cAZ), ["fLfC3y06Am0", "El método toque, mire, gire", "Banco de España", 58818]],
+    ],
+    "Pagar y calcular las vueltas": [
+      ["Pagar con pocas monedas", `<p>Cuando pagamos, conviene usar el <mark>menor número posible</mark> de monedas y billetes. Así el monedero pesa menos y es más fácil para el vendedor.</p><p><b>El truco</b>: empezar siempre por la moneda o el billete <b>de más valor</b> que no se pase del precio, y seguir con los siguientes.</p><p><b>Ejemplo</b>: pagar <b>8,75 €</b> justos.</p><ul><li>Un billete de 5 € → quedan 3,75 €.</li><li>Una moneda de 2 € → quedan 1,75 €.</li><li>Una moneda de 1 € → quedan 0,75 €.</li><li>Una de 50 céntimos → quedan 0,25 €.</li><li>Una de 20 céntimos → quedan 0,05 €.</li><li>Una de 5 céntimos → ¡justo!</li></ul><p>Total: <b>6 piezas</b> (1 billete y 5 monedas).</p><p>A veces, dar un poco <b>más</b> hace que las vueltas sean más cómodas. Si algo cuesta 3,20 € y das un billete de 5 € y una moneda de 20 céntimos (5,20 €), te devuelven justo <b>una moneda de 2 €</b>, en lugar de muchas monedas pequeñas. Los dependientes agradecen mucho este gesto, porque así no se quedan sin cambio en la caja.</p><p><b>Reto</b>: ¿cuál es el menor número de monedas para pagar 0,99 €? (50 + 20 + 20 + 5 + 2 + 2 = 6 monedas).</p>`,
+        L6.filas("8,75 €", [["billete", "5 €", cAZ], ["monedas", "2 € y 1 €", cNA], ["céntimos", "50 + 20 + 5", cMO], ["total", "6 piezas", cVE]])],
+    ],
+  },
+  final: [
+    ["La historia del dinero", `<p>El dinero no siempre ha sido como hoy. Su historia es larga y curiosa:</p><ul><li><b>El trueque</b>: al principio, las personas cambiaban unas cosas por otras.</li><li><b>Objetos valiosos</b>: después se usaron como dinero cosas que todos apreciaban: <b>conchas</b> (sobre todo unas pequeñas llamadas cauris), cabezas de ganado, granos de cacao o <b>sal</b>. ¡De la palabra «sal» viene la palabra <b>salario</b>, el dinero que se cobra por trabajar!</li><li><b>Las primeras monedas</b>: hace unos 2.600 años, en un reino llamado <b>Lidia</b> (en la actual Turquía), se fabricaron las primeras monedas de metal, con un sello que garantizaba su valor.</li><li><b>Los billetes</b>: los primeros billetes de papel se usaron en <b>China</b>, hace más de mil años. Era mucho más cómodo llevar papel que sacos de monedas.</li><li><b>La peseta</b>: en España, la moneda fue la <b>peseta</b> durante más de cien años.</li><li><b>El euro</b>: en <b>2002</b>, España y otros países europeos empezaron a usar monedas y billetes de euro.</li><li><b>El dinero digital</b>: hoy pagamos con tarjetas y móviles, y el dinero viaja de un banco a otro sin tocarlo.</li></ul><p>Pregunta en casa: ¿alguien de tu familia recuerda las pesetas?</p>`,
+      H6.flujo("Historia", ["trueque|", "conchas|y sal", "monedas|Lidia", "billetes|y euro"], cNA), ["ipS1hKAwXCU", "La historia del dinero", "Banco de México", 595096]],
+    ["¿Qué es más barato? Comparar precios", `<p>Comprar bien no es solo pagar: también es <mark>comparar precios</mark> para no gastar de más.</p><p><b>Mismo producto, distintas tiendas</b>: un cuaderno cuesta 2,50 € en una papelería y 1,90 € en otra. En la segunda es más barato: ahorras 2,50 − 1,90 = <b>0,60 €</b>.</p><p><b>Ofertas</b>: a veces las tiendas ponen ofertas como «3 por 2» (te llevas 3 y pagas 2). Si un zumo cuesta 1 €, con la oferta pagas 2 € por 3 zumos. ¡Pero solo es buena idea si de verdad necesitas los 3 zumos!</p><p><b>Paquete o sueltos</b>: un paquete de 4 yogures cuesta 2 €; cada yogur suelto cuesta 0,60 €. ¿Qué conviene?</p><ul><li>4 yogures sueltos: 4 × 0,60 = 2,40 €.</li><li>El paquete: 2 €.</li><li>El paquete sale más barato: ahorras 0,40 €.</li></ul><p><b>Consejos del buen consumidor</b>:</p><ul><li>Haz una <b>lista</b> antes de ir a comprar y compra solo lo que necesitas.</li><li>Mira bien el <b>precio</b> y la <b>cantidad</b>.</li><li>No te dejes llevar por los anuncios o los envases bonitos.</li><li>Guarda el <b>tique</b> por si hay que devolver algo.</li></ul>`,
+      H6.dos("Yogures", ["SUELTOS", ["0,60 € cada uno", "4 × 0,60", "= 2,40 €"], cRO], ["PAQUETE", ["4 yogures", "2 €", "¡más barato!"], cVE])],
+  ],
+  ejemplos: [
+    ["Paga 4,30 € con el menor número de piezas.", ["2 € + 2 € = 4 €.", "20 cent + 10 cent = 30 cent."], "4 monedas: 2 €, 2 €, 20 cent y 10 cent."],
+    ["Un lápiz cuesta 0,40 € suelto y 1 € el paquete de 3. ¿Qué es más barato?", ["3 sueltos: 3 × 0,40 = 1,20 €.", "El paquete: 1 €."], "El paquete; ahorras 0,20 €."],
+  ],
+  errores: ["Pensar que una moneda de euro de otro país no vale en España: todas valen lo mismo.", "Pensar que una oferta siempre ahorra dinero: solo si necesitas lo que compras."],
+  ejercicios: [
+    ["b", "¿Qué aparece en las monedas españolas de 10, 20 y 50 céntimos?", "Cervantes."],
+    ["b", "¿Cuáles son los tres pasos para comprobar un billete?", "Toque, mire y gire."],
+    ["b", "¿De qué palabra viene «salario»?", "De sal."],
+    ["b", "¿En qué año empezamos a usar el euro en España?", "En 2002."],
+    ["b", "¿Cómo se llaman los coleccionistas de monedas?", "Numismáticos."],
+    ["m", "Paga 3,60 € con el menor número de monedas.", "2 €, 1 €, 50 cent, 10 cent: 4 monedas."],
+    ["m", "¿Qué se ve al poner un billete a contraluz?", "La marca de agua y el hilo de seguridad."],
+    ["m", "Un libro cuesta 12 € en una tienda y 9,50 € en otra. ¿Cuánto ahorras?", "2,50 €."],
+    ["m", "Con la oferta «3 por 2», ¿cuánto pagas por 3 helados de 1,50 €?", "3 €."],
+    ["m", "¿Dónde se fabricaron las primeras monedas?", "En Lidia, en la actual Turquía."],
+    ["a", "¿Cuántas monedas como mínimo necesitas para pagar 1,88 €?", "7 monedas: 1 €, 50, 20, 10, 5, 2 y 1 céntimos."],
+    ["a", "Compara: 6 galletas sueltas a 0,25 € o un paquete de 6 por 1,20 €.", "El paquete; ahorras 0,30 €."],
+    ["a", "Haz una lista de la compra con presupuesto de 10 € y compara precios.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cuánto dinero le sobra a Marcos tras comprar el balón?", "0,35 €."],
+  ],
+  quiz: [
+    ["La cara común de las monedas es…", ["igual en todos los países", "distinta en cada país", "solo española"], "Caras."],
+    ["Al girar un billete cambia el…", ["holograma", "papel", "tamaño"], "Seguridad."],
+    ["Para pagar con pocas monedas, empieza por la…", ["de más valor", "de menos valor", "más bonita"], "Pagar."],
+    ["Los primeros billetes fueron de…", ["China", "España", "Francia"], "Historia."],
+    ["«3 por 2» significa…", ["te llevas 3 y pagas 2", "pagas 3 y te llevas 2", "cada uno vale 2 €"], "Comparar."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuánto dinero había en la hucha?", ["18,35 €", "18 €", "16,35 €"], "Lectura."],
+    ["¿Qué animal aparece en la moneda griega de 1 €?", ["una lechuza", "un toro", "un águila"], "Caras."],
+  ],
+  tarjetas: [
+    ["Caras del euro", "Cara común y nacional: catedral, Cervantes, rey."],
+    ["Billetes seguros", "Toque (relieve), mire (marca de agua), gire (holograma)."],
+    ["Pagar bien", "Empieza por la pieza de más valor sin pasarte."],
+    ["Historia y precios", "Trueque, sal, Lidia, China, euro; compara antes de comprar."],
+  ],
+  glosario: [
+    ["Cara común", "Lado igual en todas las monedas de euro."],
+    ["Cara nacional", "Lado diseñado por cada país."],
+    ["Numismático", "Coleccionista de monedas."],
+    ["Falsificar", "Hacer una copia falsa."],
+    ["Marca de agua", "Imagen que se ve a contraluz."],
+    ["Holograma", "Imagen que cambia al girar el billete."],
+    ["Relieve", "Parte que sobresale y se nota al tocar."],
+    ["Salario", "Dinero que se cobra por trabajar."],
+    ["Peseta", "Antigua moneda de España."],
+    ["Oferta", "Precio rebajado o regalo al comprar."],
+    ["Consumidor", "Persona que compra."],
+    ["Ahorrar", "Guardar dinero o gastar menos."],
+  ],
+  situacion: {
+    titulo: "La tienda del cole",
+    reto: "La clase monta una tienda con dinero de juguete y aprende a pagar, comprobar y comparar precios.",
+    pasos: ["Fabricar monedas y billetes de juguete y una colección de caras de monedas reales.", "Diseñar billetes con medidas de seguridad inventadas.", "Comprar y pagar con el menor número de piezas.", "Preparar ofertas y decidir cuáles convienen de verdad."],
+    producto: "Una tienda de clase con precios, ofertas y un mural de la historia del dinero.",
+    evaluacion: ["Reconoce las caras del euro.", "Conoce las medidas de seguridad.", "Paga con pocas monedas.", "Compara precios con criterio."],
+  },
+});

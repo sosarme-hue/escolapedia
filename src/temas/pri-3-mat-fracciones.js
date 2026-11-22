@@ -98,3 +98,91 @@ module.exports = P.tema({
   saberes: "Sentido numérico: iniciación a la fracción como parte de la unidad y de una colección; medios, tercios y cuartos; lectura y escritura; numerador y denominador; comparación de fracciones unitarias; mitad, tercera parte y cuarta parte de un número",
   ideas: ["Plegado de tiras de papel en mitades, tercios y cuartos.", "Pizzas de cartulina para componer y comparar fracciones.", "Repartos de objetos de la clase calculando la mitad o la cuarta parte."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer quintos, sextos, octavos y décimos", "Descubrir fracciones equivalentes doblando papel", "Colocar fracciones en la recta numérica", "Encontrar fracciones en la música y en el tangram"],
+  lectura: { titulo: "La tarta de cumpleaños", html: `<p>Era el cumpleaños de Irene y su padre había hecho una tarta de chocolate enorme, redonda y brillante.</p><p>—Somos ocho —dijo, cuchillo en mano—. Ocho trozos iguales.</p><p>Hizo un corte por la mitad. Luego otro, cruzado, y quedaron cuatro cuartos. Después partió cada cuarto en dos. ¡Ocho trozos exactos!</p><p>—Cada uno se come un octavo —explicó Irene, que acababa de estudiar las fracciones—. Se escribe 1/8.</p><p>Pero entonces sonó el timbre. Eran sus primos Hugo y Alba, que llegaban sin avisar.</p><p>—¡Ahora somos diez! —dijo su madre—. ¿Y ahora qué hacemos?</p><p>El padre miró la tarta, ya cortada en ocho trozos.</p><p>—Pues… ¿la corto en décimos?</p><p>—No hace falta —dijo Irene—. Yo me como solo medio trozo y le doy la otra mitad a Hugo. Y la abuela, que nunca se acaba el suyo, puede compartir con Alba.</p><p>Al final, todos comieron tarta. Unos un octavo; otros, la mitad de un octavo.</p><p>—¿Y cuánto es la mitad de un octavo? —preguntó Hugo con la boca llena de chocolate.</p><p>Irene se quedó pensando. Si partías cada octavo en dos, salían dieciséis trozos…</p><p>—Un dieciseisavo —dijo por fin—. ¡Un trozo pequeñísimo!</p><p>Hugo miró su plato vacío, preocupado.</p><p>—¿Y queda más?</p>` },
+  tras: {
+    "Un cuarto": [
+      ["Quintos, sextos, octavos y décimos", `<p>Además de medios, tercios y cuartos, podemos partir la unidad en muchas otras partes iguales. Cada tipo de parte tiene su <mark>nombre</mark>:</p><ul><li>En <b>5</b> partes iguales: cada parte es un <b>quinto</b> (1/5).</li><li>En <b>6</b> partes: un <b>sexto</b> (1/6).</li><li>En <b>7</b> partes: un <b>séptimo</b> (1/7).</li><li>En <b>8</b> partes: un <b>octavo</b> (1/8).</li><li>En <b>9</b> partes: un <b>noveno</b> (1/9).</li><li>En <b>10</b> partes: un <b>décimo</b> (1/10).</li></ul><p>A partir de 11, se dice el número y se añade <b>-avo</b>: un onceavo (1/11), un doceavo (1/12), un dieciseisavo (1/16)…</p><p>Cuantas <b>más partes</b> hacemos, más <b>pequeña</b> es cada una. Un décimo de pizza es mucho más pequeño que un quinto.</p><p>Algunos ejemplos de la vida diaria:</p><ul><li>Una <b>tableta de chocolate</b> de 8 onzas: cada onza es 1/8 de la tableta.</li><li>Un <b>décimo</b> de lotería se llama así porque cada billete completo se divide en diez partes iguales.</li><li>Una <b>pizza familiar</b> suele cortarse en 8 trozos: octavos.</li><li>Una <b>naranja</b> suele tener unos 10 gajos, aunque no siempre son iguales.</li></ul>`,
+        L6.filas("Nombres", [["1/5", "un quinto", cAZ], ["1/6", "un sexto", cVE], ["1/8", "un octavo", cNA], ["1/10", "un décimo", cRO]])],
+    ],
+    "¿Qué fracción es mayor?": [
+      ["Fracciones equivalentes", `<p>Dos fracciones son <mark>equivalentes</mark> cuando representan la <b>misma cantidad</b>, aunque se escriban con números distintos.</p><p><b>Experimento con papel</b>:</p><ul><li><b>1.</b> Coge una hoja y dóblala por la mitad. Colorea una de las dos partes: has coloreado <b>1/2</b>.</li><li><b>2.</b> Sin desdoblarla, dóblala otra vez por la mitad. Ábrela: ahora hay 4 partes y la zona coloreada ocupa 2. Has coloreado <b>2/4</b>.</li><li><b>3.</b> Dóblala una vez más. Al abrirla hay 8 partes y la zona coloreada ocupa 4: <b>4/8</b>.</li></ul><p>¡La zona coloreada no ha cambiado! Por eso: <b>1/2 = 2/4 = 4/8</b>.</p><p>Más ejemplos:</p><ul><li>1/3 = 2/6 (un tercio de pizza es lo mismo que dos sextos).</li><li>3/4 = 6/8.</li><li>1/5 = 2/10.</li></ul><p>Fíjate en el truco: si <b>multiplicas</b> el numerador y el denominador por el <b>mismo número</b>, obtienes una fracción equivalente. 1/2 → multiplicamos los dos por 3 → 3/6. ¿Es verdad que 3/6 es la mitad? ¡Sí! Tres de seis partes es justo la mitad.</p><p>Con la comida pasa lo mismo: media pizza cortada en 2 o en 4 trozos alimenta igual.</p>`,
+        H6.flujo("Doblar", ["1 doblez|1/2", "2 dobleces|2/4", "3 dobleces|4/8", "¡igual|cantidad!"], cVE), ["GgINtvOWVWs", "Fracciones EQUIVALENTES ➗", "Susi Profe", 1768084]],
+    ],
+    "La mitad, el tercio y el cuarto de un número": [
+      ["Fracciones en la recta numérica", `<p>Las fracciones también son <b>números</b>, y por eso se pueden colocar en la <mark>recta numérica</mark>, entre el 0 y el 1.</p><p><b>Cómo colocar 3/4</b>:</p><ul><li><b>1.</b> Dibuja una recta y marca el <b>0</b> y el <b>1</b>.</li><li><b>2.</b> Mira el denominador: 4. Divide el espacio entre 0 y 1 en <b>4 partes iguales</b>.</li><li><b>3.</b> Mira el numerador: 3. Cuenta <b>3 partes</b> desde el 0 y pon una marca.</li><li><b>4.</b> ¡Ahí está el 3/4!</li></ul><p>Así se ve muy bien que:</p><ul><li><b>1/2</b> está justo en el <b>centro</b> entre el 0 y el 1.</li><li><b>1/4</b> está más cerca del 0, y <b>3/4</b> más cerca del 1.</li><li><b>4/4</b> está justo en el <b>1</b>: cuatro cuartos son una unidad entera.</li><li><b>2/4</b> cae en el mismo sitio que 1/2: ¡son equivalentes!</li></ul><p>La recta numérica es como una <b>regla</b>. De hecho, en las reglas, entre centímetro y centímetro hay 10 rayitas: cada una marca un décimo de centímetro, es decir, un milímetro.</p><p>Las fracciones mayores que 1 también caben en la recta, pero más allá del 1. Por ejemplo, 5/4 son cinco cuartos: cuatro cuartos llegan hasta el 1 y el quinto cuarto sigue un poco más, hacia el 2.</p><p><b>Actividad</b>: dibuja una recta del 0 al 1 dividida en octavos y coloca 1/8, 3/8, 4/8 y 7/8.</p>`,
+        L6.filas("Recta 0 → 1", [["1/4", "cerca del 0", cAZ], ["1/2", "en el centro", cVE], ["3/4", "cerca del 1", cNA], ["4/4", "en el 1", cRO]])],
+    ],
+  },
+  final: [
+    ["Fracciones en la música", `<p>¿Sabías que las <mark>figuras musicales</mark> funcionan como fracciones? Cada figura dura la mitad que la anterior:</p><ul><li>La <b>redonda</b> es la nota más larga: vale como una unidad entera.</li><li>La <b>blanca</b> dura la mitad que la redonda: <b>1/2</b>. Dos blancas = una redonda.</li><li>La <b>negra</b> dura la mitad que la blanca: <b>1/4</b> de la redonda. Cuatro negras = una redonda.</li><li>La <b>corchea</b> dura la mitad que la negra: <b>1/8</b> de la redonda. Ocho corcheas = una redonda.</li></ul><p>Por eso, en muchos países, las figuras se llaman con nombres de fracciones. En inglés de Estados Unidos, a la blanca se le llama <i>half note</i> («nota mitad») y a la negra <i>quarter note</i> («nota cuarto»).</p><p>Cuando un músico lee una partitura, está sumando fracciones sin darse cuenta: en un compás de cuatro tiempos caben, por ejemplo, una blanca y dos negras (1/2 + 1/4 + 1/4 = 1).</p><p>También los <b>silencios</b> tienen sus figuras con los mismos valores: hay silencio de redonda, de blanca, de negra y de corchea. Así, en una partitura los sonidos y los silencios se reparten el compás como si fueran trozos de una misma tarta, y siempre tienen que sumar lo que indica el compás, ni más ni menos.</p><p><b>Actividad</b>: da palmadas largas y cortas. Una palmada que dura cuatro tiempos es una redonda; si en ese tiempo das dos, son blancas; si das cuatro, negras.</p>`,
+      H6.flujo("Figuras", ["redonda|1", "blanca|1/2", "negra|1/4", "corchea|1/8"], cMO)],
+    ["El tangram y las fracciones", `<p>El <mark>tangram</mark> es un rompecabezas chino muy antiguo formado por <b>7 piezas</b> que juntas forman un cuadrado. Con ellas se pueden construir cientos de figuras: animales, personas, casas, barcos…</p><p>Pero el tangram también esconde <b>fracciones</b>. Si el cuadrado entero es la unidad:</p><ul><li>Cada uno de los <b>2 triángulos grandes</b> es <b>1/4</b> del cuadrado.</li><li>El <b>triángulo mediano</b> es <b>1/8</b>.</li><li>El <b>cuadrado pequeño</b> es <b>1/8</b>.</li><li>El <b>paralelogramo</b> (el romboide) es <b>1/8</b>.</li><li>Cada uno de los <b>2 triángulos pequeños</b> es <b>1/16</b>.</li></ul><p>Compruébalo: dos triángulos pequeños juntos forman el cuadrado pequeño, el triángulo mediano o el paralelogramo. Por eso cada triángulo pequeño es la mitad de un octavo: un dieciseisavo.</p><p>Y si sumas todo: 1/4 + 1/4 + 1/8 + 1/8 + 1/8 + 1/16 + 1/16 = <b>1</b>, el cuadrado entero.</p><p><b>Actividad</b>: recorta un tangram de cartulina siguiendo las líneas, colorea cada pieza según su fracción y construye una figura. ¿Qué fracción del cuadrado ocupa la cabeza de tu animal?</p>`,
+      H6.rueda("Tangram", "1 CUADRADO", [["grande 1/4", cRO], ["mediano 1/8", cAZ], ["cuadrado 1/8", cVE], ["pequeño 1/16", cNA]]), ["aNk0pqXSdTQ", "Fraccion que representa cada pieza del tangram y suma de Piezas en fraccion.", "Mary Mate", 84858]],
+  ],
+  ejemplos: [
+    ["¿Son equivalentes 2/3 y 4/6?", ["Multiplica arriba y abajo de 2/3 por 2.", "Sale 4/6."], "Sí, son equivalentes."],
+    ["¿Cómo colocas 2/5 en la recta?", ["Divide del 0 al 1 en 5 partes.", "Cuenta 2 partes desde el 0."], "En la segunda marca."],
+  ],
+  errores: ["Pensar que 1/8 es mayor que 1/4 porque 8 es mayor que 4: cuantas más partes, más pequeñas.", "Creer que 2/4 y 1/2 son cantidades distintas: son equivalentes."],
+  ejercicios: [
+    ["b", "¿Cómo se llama cada parte si partimos en 6?", "Un sexto."],
+    ["b", "¿Qué es mayor, 1/5 o 1/10?", "1/5."],
+    ["b", "Escribe una fracción equivalente a 1/2.", "2/4, 3/6, 4/8…"],
+    ["b", "¿Dónde está 1/2 en la recta del 0 al 1?", "En el centro."],
+    ["b", "¿Cuántas negras caben en una redonda?", "4."],
+    ["m", "Escribe dos fracciones equivalentes a 1/3.", "2/6, 3/9."],
+    ["m", "¿Es 3/4 igual a 6/8?", "Sí."],
+    ["m", "¿Qué fracción del tangram es un triángulo grande?", "1/4."],
+    ["m", "¿Cuántas corcheas hay en una blanca?", "4."],
+    ["m", "Ordena de menor a mayor: 1/2, 1/8, 1/4.", "1/8, 1/4, 1/2."],
+    ["a", "Dobla una hoja tres veces y explica qué fracciones equivalentes aparecen.", "1/2, 2/4, 4/8."],
+    ["a", "Coloca 1/8, 3/8, 4/8 y 7/8 en una recta.", "Respuesta abierta."],
+    ["a", "Suma las piezas del tangram y comprueba que dan 1.", "1/4+1/4+1/8+1/8+1/8+1/16+1/16 = 1."],
+    ["a", "En la lectura, ¿qué fracción de tarta es la mitad de un octavo?", "1/16."],
+  ],
+  quiz: [
+    ["Una parte de diez iguales es un…", ["décimo", "dieceavo", "quinto"], "Nombres."],
+    ["1/2 es equivalente a…", ["4/8", "1/4", "2/8"], "Equivalentes."],
+    ["En la recta, 3/4 está más cerca del…", ["1", "0", "2"], "Recta."],
+    ["La blanca dura… de la redonda", ["1/2", "1/4", "1/8"], "Música."],
+    ["El tangram tiene…", ["7 piezas", "5 piezas", "10 piezas"], "Tangram."],
+  ],
+  examen: [
+    ["En la lectura, ¿en cuántos trozos cortó la tarta el padre?", ["ocho", "diez", "cuatro"], "Lectura."],
+    ["Un triángulo pequeño del tangram es…", ["1/16", "1/4", "1/2"], "Tangram."],
+  ],
+  tarjetas: [
+    ["Nombres", "Quinto, sexto, séptimo, octavo, noveno, décimo; -avo desde 11."],
+    ["Equivalentes", "1/2 = 2/4 = 4/8; multiplica arriba y abajo."],
+    ["Recta", "Divide 0-1 según el denominador; cuenta el numerador."],
+    ["Música y tangram", "Redonda 1, blanca 1/2, negra 1/4; tangram 1/4, 1/8, 1/16."],
+  ],
+  glosario: [
+    ["Quinto", "Cada una de 5 partes iguales."],
+    ["Sexto", "Cada una de 6 partes iguales."],
+    ["Octavo", "Cada una de 8 partes iguales."],
+    ["Décimo", "Cada una de 10 partes iguales."],
+    ["Equivalente", "Que vale lo mismo."],
+    ["Recta numérica", "Línea con los números ordenados."],
+    ["Unidad", "El todo que se divide."],
+    ["Redonda", "Figura musical más larga."],
+    ["Negra", "Figura que dura 1/4 de la redonda."],
+    ["Tangram", "Rompecabezas chino de 7 piezas."],
+    ["Paralelogramo", "Figura de cuatro lados paralelos dos a dos."],
+    ["Doblez", "Marca que deja un papel al doblarlo."],
+  ],
+  situacion: {
+    titulo: "La feria de las fracciones",
+    reto: "La clase prepara una feria con juegos y talleres para enseñar fracciones a otros cursos.",
+    pasos: ["Taller de papel: doblar y colorear fracciones equivalentes.", "Recta gigante en el suelo para colocar fracciones.", "Taller de ritmo con redondas, blancas, negras y corcheas.", "Concurso de figuras con tangram y sus fracciones."],
+    producto: "Una feria de fracciones con cuatro puestos.",
+    evaluacion: ["Nombra fracciones.", "Reconoce equivalentes.", "Las sitúa en la recta.", "Las encuentra en la música y el tangram."],
+  },
+});

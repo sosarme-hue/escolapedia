@@ -102,3 +102,91 @@ module.exports = P.tema({
   saberes: "Medida: el tiempo; lectura del reloj analógico (en punto, y cuarto, y media, menos cuarto y minutos) y digital (formato de 12 y 24 horas); equivalencias entre segundo, minuto, hora, día, semana, mes y año; uso del calendario; cálculo de duraciones",
   ideas: ["Reloj de cartulina con agujas móviles para cada alumno.", "Horario de clase en formato digital y analógico.", "Calendario de aula con cumpleaños y cuenta atrás de días."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Nombrar las partes del día", "Conocer las estaciones del año", "Descubrir cómo se medía el tiempo antes de los relojes", "Usar décadas y siglos y leer horarios"],
+  lectura: { titulo: "El tren de las 9:15", html: `<p>Las vacaciones de Navidad empezaban con un viaje en tren a casa de los abuelos. El billete de Mía decía: «Salida: 9:15. Llegada: 11:45».</p><p>La noche anterior, su madre puso el despertador a las 7:30.</p><p>—El tren no espera —dijo—. Si sale a las nueve y cuarto, sale a las nueve y cuarto.</p><p>A la mañana siguiente, Mía desayunó deprisa y se vistió. A las 8:30 ya estaban en la calle, y a las 8:50 llegaron a la estación.</p><p>En el vestíbulo había una pantalla enorme con los horarios de todos los trenes. Mía buscó el suyo entre las letras amarillas: «9:15 — Vía 3».</p><p>—Faltan veinticinco minutos —calculó—. Nos da tiempo a comprar agua.</p><p>Se sentaron en el tren justo a tiempo. Mía miraba por la ventana: campos, pueblos, montañas con nieve. Cada poco miraba el reloj de su madre.</p><p>—¿Cuánto falta? —preguntó, por quinta vez.</p><p>—Lo mismo que hace cinco minutos, menos cinco minutos —se rio su madre—. Calcúlalo tú.</p><p>Mía hizo cuentas: de las 9:15 a las 11:15 eran dos horas, y de las 11:15 a las 11:45, media hora más.</p><p>—¡Dos horas y media de viaje!</p><p>A las 11:45 en punto, el tren se detuvo. En el andén, los abuelos saludaban con los brazos en alto.</p>` },
+  tras: {
+    "Leer los minutos": [
+      ["Las partes del día", `<p>El día tiene 24 horas, y las dividimos en <mark>partes</mark> con nombre propio:</p><ul><li><b>La madrugada</b>: desde las 12 de la noche (00:00) hasta que sale el sol. La mayoría de la gente duerme. Si alguien dice «las 3 de la madrugada», son las 03:00.</li><li><b>La mañana</b>: desde que amanece hasta el mediodía. Desayunamos, vamos al colegio…</li><li><b>El mediodía</b>: hacia las 12:00 y las horas cercanas. En España es la hora de comer, entre las 13:00 y las 15:00.</li><li><b>La tarde</b>: desde el mediodía hasta que anochece. Merendamos, hacemos deberes y actividades.</li><li><b>La noche</b>: desde que oscurece hasta las 12. Cenamos y nos vamos a dormir.</li></ul><p>Por eso, cuando no usamos el reloj de 24 horas, decimos «las 8 <b>de la mañana</b>» o «las 8 <b>de la tarde</b>» para no confundirnos.</p><p>En algunos países de habla inglesa usan <b>a. m.</b> para las horas antes del mediodía y <b>p. m.</b> para las de después: 8 a. m. son las 8 de la mañana y 8 p. m., las 8 de la tarde.</p><p>Curiosidad: en verano anochece mucho más tarde que en invierno, así que la «tarde» dura más.</p>`,
+        H6.rueda("El día", "24 h", [["madrugada", cMO], ["mañana", cNA], ["tarde", cRO], ["noche", cAZ]])],
+    ],
+    "Semanas, meses y años": [
+      ["Las cuatro estaciones", `<p>El año se divide en cuatro <mark>estaciones</mark>, que duran unos tres meses cada una. En España empiezan, más o menos, en estas fechas:</p><ul><li><b>Primavera</b>: hacia el <b>20 o 21 de marzo</b>. Los días se alargan, florecen las plantas y vuelven muchas aves.</li><li><b>Verano</b>: hacia el <b>21 de junio</b>. Es el día más largo del año. Hace calor y tenemos vacaciones.</li><li><b>Otoño</b>: hacia el <b>22 o 23 de septiembre</b>. Los días se acortan, caen las hojas de muchos árboles y empieza el curso.</li><li><b>Invierno</b>: hacia el <b>21 de diciembre</b>. Es la noche más larga del año. Hace frío y en algunos lugares nieva.</li></ul><p>Las estaciones existen porque la Tierra está un poco <b>inclinada</b> mientras da la vuelta al Sol. Durante una parte del año, nuestra mitad del planeta recibe los rayos del Sol más directos (verano), y en otra, más inclinados (invierno).</p><p>¡En el hemisferio sur es al revés! Cuando aquí es Navidad y hace frío, en Argentina o en Australia es verano y van a la playa.</p><p><b>Actividad</b>: en un calendario, colorea cada estación de un color y busca en qué estación es tu cumpleaños.</p>`,
+        L6.filas("Estaciones", [["primavera", "≈ 21 de marzo", cVE], ["verano", "≈ 21 de junio", cNA], ["otoño", "≈ 23 de septiembre", cMO], ["invierno", "≈ 21 de diciembre", cAZ]])],
+    ],
+    "Calcular tiempos": [
+      ["Relojes antes de los relojes", `<p>Antes de que existieran los relojes de agujas, las personas inventaron formas muy ingeniosas de <mark>medir el tiempo</mark>:</p><ul><li><b>El reloj de sol</b>: una varilla clavada en una superficie con marcas. La sombra de la varilla se mueve a lo largo del día y señala la hora. ¡Pero no funciona de noche ni cuando está nublado! Todavía se pueden ver relojes de sol en las paredes de muchas iglesias y edificios antiguos.</li><li><b>El reloj de agua</b> (o <b>clepsidra</b>): un recipiente con un agujerito por el que el agua cae poco a poco. Según el nivel del agua, se sabía cuánto tiempo había pasado. Lo usaban los egipcios y los griegos.</li><li><b>El reloj de arena</b>: dos ampollas de cristal unidas por un paso estrecho. La arena tarda siempre lo mismo en caer. Aún se usa para juegos de mesa o para cocinar un huevo pasado por agua.</li><li><b>Las velas con marcas</b>: cada marca se derretía en una hora.</li></ul><p>Los primeros <b>relojes mecánicos</b>, con ruedas y pesas, aparecieron en Europa hace unos 700 años, en las torres de las iglesias y los ayuntamientos.</p><p><b>Actividad</b>: haz un reloj de sol en el patio con un palo y piedras para marcar la sombra cada hora.</p>`,
+        H6.flujo("Relojes", ["sol|sombra", "agua|clepsidra", "arena|ampollas", "mecánico|torres"], cNA), ["tBN6HGyuGwY", "EL RELOJ | Vídeos Educativos para Niños", "Happy Learning Español", 262910]],
+    ],
+  },
+  final: [
+    ["Décadas, siglos y milenios", `<p>Para hablar de tiempos <b>muy largos</b>, usamos unidades más grandes que el año:</p><ul><li>Un <mark>lustro</mark> = <b>5 años</b>.</li><li>Una <mark>década</mark> = <b>10 años</b>. Por ejemplo, la década de los noventa fue de 1990 a 1999.</li><li>Un <mark>siglo</mark> = <b>100 años</b>.</li><li>Un <mark>milenio</mark> = <b>1.000 años</b>.</li></ul><p>Los siglos se escriben con <b>números romanos</b>: estamos en el siglo <b>XXI</b> (veintiuno), que empezó en el año 2001 y terminará en el 2100.</p><p>¿Cómo saber en qué siglo fue un año? Un truco: tapa las dos últimas cifras y súmale 1 a lo que queda (si las dos últimas no son 00).</p><ul><li>1492 → 14 + 1 = siglo <b>XV</b> (Colón llegó a América).</li><li>1969 → 19 + 1 = siglo <b>XX</b> (el ser humano llegó a la Luna).</li><li>2026 → 20 + 1 = siglo <b>XXI</b>.</li></ul><p>Con estas unidades nos hacemos una idea de la historia. Tu abuela pudo nacer hace unas seis o siete décadas; la catedral de tu ciudad quizá tiene varios siglos; y las pirámides de Egipto, ¡más de cuatro milenios!</p>`,
+      L6.filas("Tiempo largo", [["lustro", "5 años", cAZ], ["década", "10 años", cVE], ["siglo", "100 años", cNA], ["milenio", "1.000 años", cRO]]), ["bf-_WwUiR1k", "¿Cuantos años tiene una decada, un siglo y un milenio?", "El Profe Grillo de las Matemáticas ", 134884]],
+    ["Leer un horario", `<p>Un <mark>horario</mark> es una tabla que dice a qué hora pasa algo. Hay horarios de clase, de autobuses, de trenes, de museos o de piscinas. Saber leerlos es muy útil.</p><p><b>Horario de autobús</b> (línea 4):</p><ul><li>Plaza Mayor: 8:00 — 8:30 — 9:00</li><li>Colegio: 8:10 — 8:40 — 9:10</li><li>Hospital: 8:25 — 8:55 — 9:25</li><li>Estación: 8:35 — 9:05 — 9:35</li></ul><p>Preguntas que podemos contestar:</p><ul><li>¿Cada cuánto pasa el autobús por la Plaza Mayor? Cada <b>30 minutos</b>.</li><li>¿Cuánto tarda de la Plaza Mayor a la Estación? De 8:00 a 8:35: <b>35 minutos</b>.</li><li>Si llego a la parada del Colegio a las 8:45, ¿qué autobús cojo? El de las <b>9:10</b> (el de las 8:40 ya ha pasado).</li><li>Si tengo que estar en el Hospital antes de las 9:00, ¿qué autobús cojo en la Plaza? El de las <b>8:30</b>, que llega a las 8:55.</li></ul><p><b>Tu horario</b>: escribe tu horario semanal del colegio. ¿Cuántas horas de Matemáticas tienes a la semana? ¿Qué día tienes Educación Física?</p>`,
+      H6.dos("Línea 4", ["SALIDA", ["Plaza Mayor", "8:00 · 8:30", "cada 30 min"], cAZ], ["LLEGADA", ["Estación", "8:35 · 9:05", "35 min"], cVE])],
+  ],
+  ejemplos: [
+    ["¿En qué siglo fue el año 1808?", ["Tapa las dos últimas cifras: 18.", "18 + 1 = 19."], "Siglo XIX."],
+    ["Una película empieza a las 17:40 y dura 1 hora y 35 minutos. ¿A qué hora acaba?", ["17:40 + 1 h = 18:40.", "18:40 + 35 min = 19:15."], "A las 19:15."],
+  ],
+  errores: ["Pensar que el siglo XXI empezó en el 2000: empezó en el 2001.", "Decir «las 8» sin aclarar si es de la mañana o de la tarde."],
+  ejercicios: [
+    ["b", "¿En qué estación empieza el curso escolar?", "En otoño (o al final del verano)."],
+    ["b", "¿Cuántos años tiene una década?", "10."],
+    ["b", "¿Cómo funciona un reloj de sol?", "Con la sombra de una varilla."],
+    ["b", "¿En qué parte del día solemos dormir?", "En la noche y la madrugada."],
+    ["b", "¿Cuántos años son un siglo?", "100."],
+    ["m", "¿En qué siglo estamos?", "En el XXI."],
+    ["m", "¿Qué día del año es el más largo?", "Hacia el 21 de junio."],
+    ["m", "¿Qué es una clepsidra?", "Un reloj de agua."],
+    ["m", "En el horario, ¿cuánto tarda el autobús del Colegio al Hospital?", "15 minutos."],
+    ["m", "¿En qué siglo llegó Colón a América (1492)?", "En el XV."],
+    ["a", "Haz un reloj de sol en el patio y anota la sombra cada hora.", "Respuesta abierta."],
+    ["a", "¿Por qué en Australia es verano en Navidad?", "Porque está en el hemisferio sur."],
+    ["a", "Escribe tu horario semanal y cuenta las horas de cada asignatura.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cuánto duró el viaje en tren?", "Dos horas y media."],
+  ],
+  quiz: [
+    ["Las 3 de la madrugada son las…", ["03:00", "15:00", "13:00"], "Partes del día."],
+    ["El invierno empieza hacia el…", ["21 de diciembre", "21 de marzo", "1 de enero"], "Estaciones."],
+    ["El reloj de arena funciona porque la arena…", ["tarda siempre lo mismo en caer", "brilla", "pesa mucho"], "Relojes."],
+    ["Un milenio son…", ["1.000 años", "100 años", "10 años"], "Siglos."],
+    ["Un horario es una…", ["tabla de horas", "regla", "moneda"], "Horario."],
+  ],
+  examen: [
+    ["En la lectura, ¿a qué hora salía el tren?", ["a las 9:15", "a las 11:45", "a las 7:30"], "Lectura."],
+    ["El siglo XX va del año…", ["1901 al 2000", "1900 al 1999", "2001 al 2100"], "Siglos."],
+  ],
+  tarjetas: [
+    ["Partes del día", "Madrugada, mañana, mediodía, tarde y noche."],
+    ["Estaciones", "Primavera, verano, otoño, invierno; al revés en el sur."],
+    ["Relojes antiguos", "Sol, agua (clepsidra), arena, velas, mecánicos."],
+    ["Siglos y horarios", "Lustro, década, siglo, milenio; leer tablas de horas."],
+  ],
+  glosario: [
+    ["Madrugada", "Horas entre medianoche y el amanecer."],
+    ["Mediodía", "Hacia las 12 del día."],
+    ["Estación", "Cada una de las cuatro partes del año."],
+    ["Hemisferio", "Mitad de la Tierra."],
+    ["Reloj de sol", "Reloj que marca la hora con una sombra."],
+    ["Clepsidra", "Reloj de agua."],
+    ["Lustro", "Cinco años."],
+    ["Década", "Diez años."],
+    ["Siglo", "Cien años."],
+    ["Milenio", "Mil años."],
+    ["Horario", "Tabla con las horas de algo."],
+    ["Andén", "Lugar de la estación donde se sube al tren."],
+  ],
+  situacion: {
+    titulo: "Los guardianes del tiempo",
+    reto: "La clase construye relojes antiguos y prepara un calendario y unos horarios para el colegio.",
+    pasos: ["Construir un reloj de sol y un reloj de arena con botellas.", "Hacer un calendario con las estaciones y los cumpleaños.", "Preparar un horario de actividades del día de la fiesta del cole.", "Hacer una línea del tiempo con décadas y siglos de la historia familiar."],
+    producto: "Una exposición de relojes, calendario y horarios.",
+    evaluacion: ["Nombra las partes del día.", "Conoce las estaciones.", "Explica relojes antiguos.", "Usa siglos y lee horarios."],
+  },
+});
