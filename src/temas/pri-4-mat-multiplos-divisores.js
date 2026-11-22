@@ -94,3 +94,94 @@ module.exports = P.tema({
   saberes: "Sentido numérico: múltiplos y divisores de un número, relación con la división exacta, números pares e impares, múltiplos de 2, 5 y 10 y múltiplos comunes en situaciones cotidianas",
   ideas: ["Tabla del 100 coloreando los múltiplos de 2, 5 y 10 para descubrir patrones.", "Formar rectángulos con fichas para encontrar divisores.", "Problemas de horarios que coinciden (autobuses, entrenamientos)."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+// Criba de Eratóstenes del 1 al 30: primos coloreados.
+const PRIMOS = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29];
+const criba = () => [...Array(30)].map((_, i) => { const n = i + 1, x = 20 + (i % 10) * 22, y = 30 + Math.floor(i / 10) * 34, p = PRIMOS.includes(n); return `<rect x="${x}" y="${y}" width="20" height="28" rx="4" fill="${p ? cVE : "var(--card)"}" fill-opacity="${p ? 0.35 : 1}" stroke="${p ? cVE : "var(--line)"}" stroke-width="1.4"/>${t(x + 10, y + 19, String(n), { s: 11, d: p, c: p ? "var(--ink)" : "var(--muted)" })}`; }).join("") + t(130, 156, "primos del 1 al 30", { s: 12, c: cVE });
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir números primos y compuestos", "Aplicar los criterios de divisibilidad por 3 y por 9", "Encontrar divisores comunes para hacer repartos", "Usar múltiplos en el calendario y conocer la criba de Eratóstenes"],
+  lectura: { titulo: "Los equipos imposibles", html: `<p>El profesor de Educación Física, Andrés, tenía un problema. En la clase de 4.º había <b>23 alumnos</b> y quería hacer equipos iguales para jugar.</p><p>—Equipos de 2… sobra uno. Equipos de 3… sobran dos. De 4… sobran tres. De 5… sobran tres otra vez.</p><p>Probó con 6, con 7, con 8… Siempre sobraba alguien.</p><p>—¡Esto es imposible! —exclamó.</p><p>Desde el banco, Valeria levantó la mano.</p><p>—Es que el 23 es un número primo, profe. Solo se puede dividir entre 1 y entre 23. O hacemos un equipo gigante de 23, o 23 equipos de una persona.</p><p>Todos se rieron. Andrés también.</p><p>—¿Y qué hago entonces?</p><p>—Usted juega también —propuso Hugo—. Así somos 24, y el 24 tiene un montón de divisores: 1, 2, 3, 4, 6, 8, 12 y 24.</p><p>Al final hicieron 4 equipos de 6 y el profesor acabó sudando más que nadie.</p><p>Al salir, Valeria le dijo a Hugo:</p><p>—Mañana somos 25, porque vuelve Lucas. ¿Cuántos equipos hacemos?</p><p>—Cinco de cinco —respondió Hugo sin dudar—. El 25 no es primo.</p>` },
+  tras: {
+    "Buscar todos los divisores": [
+      ["Números primos y compuestos", `<p>Si buscas los divisores de varios números, descubrirás que algunos tienen muchos y otros muy pocos:</p><ul><li>Divisores de 12: 1, 2, 3, 4, 6, 12. ¡Seis divisores!</li><li>Divisores de 13: solo 1 y 13.</li></ul><p>Un número que <b>solo</b> tiene <b>dos divisores</b>, el 1 y él mismo, se llama <mark>número primo</mark>. Los primeros primos son:</p><p style="text-align:center"><b>2, 3, 5, 7, 11, 13, 17, 19, 23, 29…</b></p><p>Un número que tiene <b>más de dos divisores</b> se llama <b>número compuesto</b>: 4, 6, 8, 9, 10, 12…</p><p>Algunas curiosidades:</p><ul><li>El <b>1</b> no es primo ni compuesto, porque solo tiene un divisor.</li><li>El <b>2</b> es el único número primo que es par. Todos los demás pares son compuestos, porque se pueden dividir entre 2.</li><li>Hay <b>infinitos</b> números primos: el matemático griego Euclides lo demostró hace más de 2 000 años.</li></ul><p>Con objetos se ve muy claro: con 12 fichas puedes hacer rectángulos de 2 × 6 o de 3 × 4. Con 13 fichas, solo puedes ponerlas en una fila. Los números primos no se pueden ordenar en rectángulos.</p>`,
+        H6.dos("Divisores", ["PRIMO", ["13", "1 y 13", "solo dos"], cVE], ["COMPUESTO", ["12", "1, 2, 3, 4, 6, 12", "más de dos"], cNA]), ["VB0vwQ6YbME", "Números primos", "Matemáticas profe Alex", 1102594]],
+    ],
+    "Múltiplos de 5 y de 10": [
+      ["Múltiplos de 3 y de 9", `<p>Para saber si un número es múltiplo de 3 o de 9 sin dividir hay un truco muy curioso: <mark>sumar sus cifras</mark>.</p><p><b>Múltiplo de 3</b>: un número es múltiplo de 3 si la suma de sus cifras es múltiplo de 3.</p><ul><li>412: 4 + 1 + 2 = 7. El 7 no está en la tabla del 3: 412 <b>no</b> es múltiplo de 3.</li><li>531: 5 + 3 + 1 = 9. El 9 sí está en la tabla del 3: 531 <b>sí</b> es múltiplo de 3 (531 : 3 = 177).</li></ul><p><b>Múltiplo de 9</b>: un número es múltiplo de 9 si la suma de sus cifras es múltiplo de 9.</p><ul><li>738: 7 + 3 + 8 = 18. El 18 está en la tabla del 9: 738 <b>sí</b> es múltiplo de 9 (738 : 9 = 82).</li><li>624: 6 + 2 + 4 = 12. El 12 no está en la tabla del 9: <b>no</b> es múltiplo de 9. Pero sí es múltiplo de 3.</li></ul><p>Si la suma te sale grande, puedes volver a sumar sus cifras: 98 765 → 9 + 8 + 7 + 6 + 5 = 35 → 3 + 5 = 8. No es múltiplo de 3 ni de 9.</p><p>Fíjate: todo múltiplo de 9 es también múltiplo de 3, pero no al revés.</p>`,
+        L6.filas("Sumar cifras", [["412", "7: no es de 3", cRO], ["531", "9: de 3 y de 9", cVE], ["738", "18: de 3 y de 9", cAZ], ["624", "12: solo de 3", cNA]])],
+    ],
+    "Múltiplos comunes": [
+      ["Divisores comunes", `<p>Igual que hay múltiplos comunes, también hay <b>divisores comunes</b>: números que dividen a la vez a dos números.</p><p>Divisores de 12: <b>1, 2, 3, 4, 6</b>, 12.<br>Divisores de 18: <b>1, 2, 3</b>, <b>6</b>, 9, 18.<br>Divisores comunes: <mark>1, 2, 3 y 6</mark>. El mayor de ellos es el <b>6</b>.</p><p>¿Para qué sirven? Para hacer <b>repartos en grupos iguales</b> de dos cosas distintas sin que sobre nada.</p><p><b>Problema.</b> <i>Tenemos 12 bocadillos y 18 zumos. Queremos hacer bolsas iguales para la excursión, todas con los mismos bocadillos y los mismos zumos, sin que sobre nada. ¿Cuántas bolsas podemos hacer como máximo?</i></p><ol><li>El número de bolsas tiene que ser divisor de 12 (para los bocadillos) y de 18 (para los zumos).</li><li>Los divisores comunes son 1, 2, 3 y 6.</li><li>El mayor es <b>6</b>: hacemos 6 bolsas, cada una con 2 bocadillos (12 : 6) y 3 zumos (18 : 6).</li></ol><p>Los <b>múltiplos comunes</b> responden a preguntas de «¿cuándo coinciden?», y los <b>divisores comunes</b>, a preguntas de «¿en cuántos grupos iguales puedo repartir?».</p>`,
+        L6.filas("Divisores de 12 y 18", [["de 12", "1, 2, 3, 4, 6, 12", cAZ], ["de 18", "1, 2, 3, 6, 9, 18", cNA], ["comunes", "1, 2, 3, 6", cVE], ["mayor", "6 bolsas", cRO]])],
+    ],
+  },
+  final: [
+    ["La criba de Eratóstenes", `<p>Hace más de 2 200 años, en la ciudad de Alejandría (Egipto), vivió un sabio griego llamado <b>Eratóstenes</b>. Era el director de la gran biblioteca y fue famoso por calcular con bastante exactitud el tamaño de la Tierra usando solo sombras y geometría.</p><p>También inventó un método muy sencillo para encontrar los números primos, al que llamamos la <mark>criba de Eratóstenes</mark>. Una criba es un colador: deja pasar unas cosas y retiene otras.</p><p>Así funciona con los números del 1 al 30 (o hasta 100):</p><ol><li>Escribe los números en una tabla. Tacha el <b>1</b>, que no es primo.</li><li>Rodea el <b>2</b> y tacha todos sus múltiplos: 4, 6, 8, 10…</li><li>Rodea el siguiente número sin tachar, el <b>3</b>, y tacha sus múltiplos: 6, 9, 12, 15…</li><li>Rodea el <b>5</b> y tacha sus múltiplos. Después, el <b>7</b>.</li><li>Los números que quedan sin tachar son todos <b>primos</b>.</li></ol><p>Del 1 al 30 quedan: 2, 3, 5, 7, 11, 13, 17, 19, 23 y 29. Del 1 al 100 hay 25 números primos.</p><p>Hoy los números primos muy grandes se usan para <b>proteger la información</b> en internet, como las contraseñas o las compras en línea.</p>`,
+      svg("Tabla del 1 al 30 con los números primos coloreados: criba de Eratóstenes", criba())],
+    ["Múltiplos en el calendario", `<p>Los múltiplos aparecen en muchos acontecimientos que se repiten:</p><ul><li><b>Años bisiestos</b>: son los años que tienen 366 días, con un 29 de febrero. En general son los <mark>múltiplos de 4</mark>: 2020, 2024, 2028… Hay una excepción: los años que acaban en 00 solo son bisiestos si son múltiplos de 400. Por eso el año 2000 fue bisiesto, pero el 1900 no.</li><li><b>Juegos Olímpicos</b> de verano: se celebran cada 4 años. Fueron en 2016, 2020 (aunque se celebraron en 2021), 2024 y serán en 2028.</li><li><b>Mundial de fútbol</b>: también cada 4 años.</li><li><b>Las semanas</b>: si hoy es lunes, dentro de 7, 14, 21 o 28 días (múltiplos de 7) también será lunes.</li></ul><p>Para saber si un año es múltiplo de 4, basta con mirar sus <b>dos últimas cifras</b>: si forman un múltiplo de 4, el año también lo es. 2036 → 36 es múltiplo de 4 → será bisiesto.</p><p>¿Naciste en un año bisiesto? ¿Cuándo será el próximo? ¡Ya sabes calcularlo!</p>`,
+      L6.filas("Calendario", [["bisiesto", "múltiplo de 4", cAZ], ["2000", "sí (400)", cVE], ["1900", "no", cRO], ["lunes", "cada 7 días", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Es 29 primo o compuesto?", ["Pruebo 2, 3, 4, 5: ninguno da exacto.", "Solo 1 y 29."], "Es primo."],
+    ["¿Es 1 251 múltiplo de 3? ¿Y de 9?", ["1 + 2 + 5 + 1 = 9.", "9 es múltiplo de 3 y de 9."], "Sí, de los dos."],
+  ],
+  errores: ["Pensar que el 1 es un número primo.", "Creer que todos los números impares son primos (el 9, el 15 o el 21 no lo son)."],
+  ejercicios: [
+    ["b", "Escribe los números primos menores que 20.", "2, 3, 5, 7, 11, 13, 17, 19."],
+    ["b", "¿Es 15 primo o compuesto?", "Compuesto: 1, 3, 5, 15."],
+    ["b", "¿Es 342 múltiplo de 3?", "Sí: 3 + 4 + 2 = 9."],
+    ["b", "¿Fue 2024 un año bisiesto?", "Sí: múltiplo de 4."],
+    ["b", "¿Cuál es el único número primo par?", "El 2."],
+    ["m", "Escribe los divisores comunes de 8 y 12.", "1, 2 y 4."],
+    ["m", "¿Es 5 418 múltiplo de 9?", "Sí: 5 + 4 + 1 + 8 = 18."],
+    ["m", "Tenemos 20 lápices y 30 gomas. ¿Cuántos estuches iguales podemos hacer como máximo sin que sobre nada?", "10 estuches con 2 lápices y 3 gomas."],
+    ["m", "¿Será bisiesto el año 2100?", "No: acaba en 00 y no es múltiplo de 400."],
+    ["m", "¿Cuántas formas de rectángulo puedes hacer con 18 fichas?", "1 × 18, 2 × 9, 3 × 6."],
+    ["a", "Haz la criba de Eratóstenes del 1 al 50 y escribe los primos.", "2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47."],
+    ["a", "Busca un número de tres cifras que sea múltiplo de 9 y de 5.", "Por ejemplo, 135 o 450."],
+    ["a", "Investiga cuántos años bisiestos ha habido desde que naciste.", "Respuesta abierta."],
+    ["a", "Explica con fichas por qué el 7 es primo y el 8 no.", "Con 7 solo hay una fila; con 8, 2 × 4."],
+  ],
+  quiz: [
+    ["Un número primo tiene…", ["dos divisores", "un divisor", "muchos divisores"], "Primos."],
+    ["¿Cuál es primo?", ["17", "21", "27"], "Primos."],
+    ["Para saber si es múltiplo de 3…", ["sumo sus cifras", "miro la última cifra", "lo multiplico por 3"], "Criterios."],
+    ["El mayor divisor común de 12 y 18 es…", ["6", "3", "36"], "Divisores comunes."],
+    ["El año 2000 fue…", ["bisiesto", "no bisiesto", "de 365 días"], "Calendario."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué no se podían hacer equipos con 23?", ["porque 23 es primo", "porque eran pocos", "porque faltaban balones"], "Lectura."],
+    ["La criba de Eratóstenes sirve para…", ["encontrar números primos", "medir la Tierra", "multiplicar"], "Criba."],
+  ],
+  tarjetas: [
+    ["Primos y compuestos", "Primo: solo 1 y él mismo (2, 3, 5, 7, 11…). El 1 no es primo."],
+    ["Criterios del 3 y del 9", "Suma las cifras: si la suma es múltiplo de 3 o de 9, el número también."],
+    ["Divisores comunes", "Sirven para repartir dos cosas en grupos iguales: 12 y 18 → 6."],
+    ["Criba y calendario", "Tachar múltiplos para hallar primos; bisiestos, múltiplos de 4."],
+  ],
+  glosario: [
+    ["Múltiplo", "Resultado de multiplicar un número por otro natural."],
+    ["Divisor", "Número que divide a otro de forma exacta."],
+    ["Número primo", "Número con solo dos divisores: 1 y él mismo."],
+    ["Número compuesto", "Número con más de dos divisores."],
+    ["Criterio de divisibilidad", "Truco para saber si un número es múltiplo de otro sin dividir."],
+    ["Divisor común", "Número que divide a la vez a dos o más números."],
+    ["Múltiplo común", "Número que es múltiplo a la vez de dos o más números."],
+    ["Criba", "Colador; método para separar los números primos."],
+    ["Año bisiesto", "Año de 366 días, con 29 de febrero."],
+    ["Infinito", "Que no se acaba nunca."],
+    ["Eratóstenes", "Sabio griego que inventó la criba de los primos."],
+    ["Euclides", "Matemático griego que demostró que hay infinitos primos."],
+  ],
+  situacion: {
+    titulo: "Cazadores de primos",
+    reto: "La clase construye una gran criba de Eratóstenes del 1 al 100 y la usa para resolver retos.",
+    pasos: ["Dibujad en un mural una tabla del 1 al 100.", "Por turnos, tachad los múltiplos de 2, 3, 5 y 7 con colores distintos.", "Rodead los primos y contad cuántos hay.", "Inventad retos de repartos con divisores comunes para otra clase."],
+    producto: "Un mural con la criba del 1 al 100 y una colección de retos.",
+    evaluacion: ["Identifica primos y compuestos.", "Aplica criterios de divisibilidad.", "Usa divisores comunes en repartos.", "Coopera en el trabajo de grupo."],
+  },
+});

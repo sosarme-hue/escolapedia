@@ -96,3 +96,91 @@ module.exports = P.tema({
   saberes: "Sentido de las operaciones: la multiplicación como suma de sumandos iguales y como organización rectangular; propiedades; algoritmo por una y dos cifras; multiplicación por la unidad seguida de ceros; estimación y problemas",
   ideas: ["Construir multiplicaciones con matrices de pegatinas o regletas.", "Descubrir la propiedad distributiva cortando rectángulos de papel cuadriculado.", "Concurso de cálculo mental por equipos con tablas salteadas y × 10, 100, 1 000."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el papel del 1 y del 0 en la multiplicación", "Multiplicar por números de tres cifras", "Contar combinaciones con la multiplicación y el diagrama de árbol", "Usar trucos de cálculo mental y conocer métodos antiguos de multiplicar"],
+  lectura: { titulo: "El huerto de la clase", html: `<p>La clase de 4.º había conseguido un trozo de tierra junto al gimnasio para hacer un huerto. La profesora Elena les dio una misión:</p><p>—Tenemos que plantar lechugas. Si hacemos <b>6 filas</b> y en cada fila ponemos <b>14 plantas</b>, ¿cuántas plantas necesitamos comprar?</p><p>Mario empezó a sumar: 14 + 14 + 14…</p><p>—¡Eso es muy largo! —dijo Ainhoa—. Es una multiplicación: 6 × 14.</p><p>—Pero yo no me sé la tabla del 14 —protestó Mario.</p><p>—No hace falta —sonrió Ainhoa—. Rompe el 14 en 10 y 4. Seis por diez, sesenta. Seis por cuatro, veinticuatro. Sesenta más veinticuatro…</p><p>—¡Ochenta y cuatro! —gritó media clase.</p><p>En el vivero, cada planta costaba 35 céntimos. Mario volvió a pensar: 84 × 35. Esta vez cogió papel y lápiz y lo hizo en vertical, primero por las unidades y luego por las decenas.</p><p>—2 940 céntimos. ¡29 euros con 40!</p><p>La profesora comprobó con una estimación: «unas 80 plantas por unos 40 céntimos son unos 3 200 céntimos». El resultado era razonable.</p><p>En junio, el huerto estaba lleno de lechugas. Y Mario ya nunca volvió a sumar catorce veces el mismo número.</p>` },
+  tras: {
+    "Propiedades conmutativa y asociativa": [
+      ["El 1 y el 0 en la multiplicación", `<p>Dos números se comportan de forma muy especial cuando multiplicamos:</p><p><b>El 1, elemento neutro.</b> Cualquier número multiplicado por 1 da el <mark>mismo número</mark>. No cambia nada, por eso se llama «neutro».</p><ul><li>7 × 1 = 7</li><li>1 × 356 = 356</li></ul><p>Es lógico: si tienes <b>una</b> caja con 7 lápices, tienes 7 lápices.</p><p><b>El 0, que lo anula todo.</b> Cualquier número multiplicado por 0 da <mark>0</mark>.</p><ul><li>9 × 0 = 0</li><li>0 × 1 250 = 0</li></ul><p>También tiene sentido: si tienes 9 cajas vacías, con 0 lápices en cada una, no tienes ningún lápiz. Y si tienes 0 cajas, aunque cada una tuviera 1 250 lápices, ¡tampoco tienes ninguno!</p><p>Cuidado: no confundas la <b>suma</b> con la <b>multiplicación</b>:</p><ul><li>5 + 0 = 5, pero 5 × 0 = 0.</li><li>5 + 1 = 6, pero 5 × 1 = 5.</li></ul><p>Estas dos reglas son muy útiles al multiplicar en vertical: cuando una cifra es 0, esa fila solo tiene ceros; y cuando es 1, se copia el número de arriba.</p>`,
+        H6.dos("Números especiales", ["× 1", ["7 × 1 = 7", "no cambia", "neutro"], cVE], ["× 0", ["9 × 0 = 0", "todo a cero", "anula"], cRO])],
+    ],
+    "Multiplicar por dos cifras": [
+      ["Multiplicar por tres cifras", `<p>Si sabes multiplicar por dos cifras, multiplicar por tres es igual, pero con <b>un paso más</b>. Veamos <b>214 × 132</b>:</p><ol><li>Multiplica por las <b>unidades</b> (2): 214 × 2 = <b>428</b>.</li><li>Multiplica por las <b>decenas</b> (3): 214 × 3 = 642. Lo escribes debajo <b>dejando un hueco</b> a la derecha, porque son decenas: 6 420.</li><li>Multiplica por las <b>centenas</b> (1): 214 × 1 = 214. Lo escribes dejando <b>dos huecos</b>, porque son centenas: 21 400.</li><li><b>Suma</b> los tres resultados: 428 + 6 420 + 21 400 = <mark>28 248</mark>.</li></ol><p>Muchas personas ponen ceros en los huecos para no equivocarse al colocar las cifras. Es una buena idea.</p><p>Y siempre <b>estima</b> antes: 214 × 132 es más o menos 200 × 130 = 26 000. El resultado, 28 248, es parecido: ¡está bien!</p><p>Un consejo: cuando un factor tiene un 0 en medio, como 305, la fila de las decenas será toda de ceros, así que puedes saltártela, pero sin olvidar dejar el hueco correcto.</p>`,
+        svg("Multiplicación 214 por 132 en vertical con tres filas y la suma 28 248", `${t(200, 30, "214", { s: 17, d: true, a: "end" })}${t(200, 52, "× 132", { s: 17, d: true, a: "end", c: cAZ })}<path d="M120 60 H 206" stroke="var(--ink)" stroke-width="2"/>${t(200, 80, "428", { s: 16, a: "end", c: cVE })}${t(200, 100, "6420", { s: 16, a: "end", c: cNA })}${t(200, 120, "21400", { s: 16, a: "end", c: cMO })}<path d="M120 128 H 206" stroke="var(--ink)" stroke-width="2"/>${t(200, 150, "28248", { s: 18, d: true, a: "end", c: cRO })}${t(70, 80, "× 2", { s: 11, c: cVE })}${t(70, 100, "× 30", { s: 11, c: cNA })}${t(70, 120, "× 100", { s: 11, c: cMO })}`)],
+    ],
+    "Problemas de multiplicar": [
+      ["¿De cuántas maneras? Las combinaciones", `<p>La multiplicación sirve también para contar <b>combinaciones</b>: de cuántas maneras distintas podemos juntar cosas.</p><p>Imagina que tienes <b>3 camisetas</b> (roja, azul y verde) y <b>2 pantalones</b> (vaquero y negro). ¿Cuántos conjuntos distintos puedes ponerte?</p><p>Podemos dibujar un <mark>diagrama de árbol</mark>: de cada camiseta salen dos ramas, una por cada pantalón.</p><ul><li>Roja con vaquero, roja con negro.</li><li>Azul con vaquero, azul con negro.</li><li>Verde con vaquero, verde con negro.</li></ul><p>Hay <b>6</b> conjuntos. Y en lugar de dibujarlos todos, basta con multiplicar: <b>3 × 2 = 6</b>.</p><p>Si además tienes <b>2 pares de zapatillas</b>, cada uno de esos 6 conjuntos se puede combinar con las 2 zapatillas: 3 × 2 × 2 = <b>12</b> maneras.</p><p>Más ejemplos:</p><ul><li>Un menú con 4 primeros y 3 segundos: 4 × 3 = <b>12</b> menús distintos.</li><li>Una heladería con 5 sabores y 2 tipos de cucurucho: 5 × 2 = <b>10</b> helados.</li></ul><p>Las combinaciones crecen muy deprisa. Por eso un candado de 3 ruedas con 10 números cada una tiene 10 × 10 × 10 = 1 000 combinaciones posibles.</p>`,
+        H6.rueda("3 × 2 = 6", "CONJUNTOS", [["roja", cRO], ["azul", cAZ], ["verde", cVE], ["× 2", cNA]]), ["DYFaxy1XuFI", "Diagrama de árbol | Ejemplos", "Math2me Kids", 148943]],
+    ],
+  },
+  final: [
+    ["Trucos de cálculo mental", `<p>Con algunos trucos puedes multiplicar de cabeza más rápido de lo que imaginas:</p><ul><li><b>Por 2</b>: calcula el <b>doble</b>. 36 × 2 = 72.</li><li><b>Por 4</b>: el doble del doble. 15 × 4 → 30 → <b>60</b>.</li><li><b>Por 5</b>: multiplica por 10 y calcula la mitad. 48 × 5 → 480 → <b>240</b>.</li><li><b>Por 9</b>: multiplica por 10 y resta el número. 7 × 9 = 70 − 7 = <b>63</b>; 23 × 9 = 230 − 23 = <b>207</b>.</li><li><b>Por 11</b> (con números de dos cifras): separa las cifras y pon en medio su suma. 23 × 11 → 2 (2+3) 3 → <b>253</b>. Si la suma pasa de 9, te llevas una: 57 × 11 → 5 (12) 7 → <b>627</b>.</li><li><b>Por 20</b>: multiplica por 2 y añade un cero. 13 × 20 → 26 → <b>260</b>.</li><li><b>Romper números</b> (propiedad distributiva): 7 × 18 = 7 × 20 − 7 × 2 = 140 − 14 = <b>126</b>.</li></ul><p>Un truco curioso de la tabla del 9: los resultados 9, 18, 27, 36, 45… tienen cifras que siempre suman 9 (1+8, 2+7, 3+6…).</p><p>Practica un truco cada día y en pocas semanas calcularás como un rayo.</p>`,
+      L6.filas("Trucos", [["× 5", "× 10 y mitad", cAZ], ["× 9", "× 10 − n", cVE], ["× 11", "cifras y suma", cNA], ["× 4", "doble del doble", cRO]])],
+    ["Multiplicar en la historia", `<p>A lo largo de la historia se han inventado muchas formas de multiplicar:</p><ul><li><b>Los egipcios</b> multiplicaban con <b>dobles</b>. Para 13 × 12, iban doblando el 12 (12, 24, 48, 96) y sumaban los dobles que correspondían a 1 + 4 + 8 = 13: 12 + 48 + 96 = <b>156</b>.</li><li>En la India y en el mundo árabe se usaba el <b>método de la celosía</b>: se dibuja una cuadrícula con diagonales, se escriben los productos de cada par de cifras en las casillas y se suman en diagonal. El matemático italiano <b>Fibonacci</b> lo explicó en Europa en un libro de 1202, junto con los números que usamos hoy.</li><li>En el siglo XVII, el escocés <b>John Napier</b> inventó unas varillas, los «huesos de Napier», que tenían escritas las tablas y ayudaban a multiplicar números grandes.</li></ul><p>El signo <b>×</b> lo empezó a usar el matemático inglés William Oughtred en 1631. Otros prefirieron un <b>punto</b> (·), que todavía se usa, y en los ordenadores se usa el <b>asterisco</b> (*).</p><p>Hoy tenemos calculadoras, pero entender cómo funciona la multiplicación te permite comprobar si el resultado tiene sentido.</p>`,
+      H6.flujo("Historia", ["Egipto|dobles", "1202|Fibonacci", "1617|Napier", "1631|signo ×"], cMO), ["e9XhBwj2Adk", "Multiplicación en celosía", "EjerciciosMatematicas", 81413]],
+  ],
+  ejemplos: [
+    ["Calcula 123 × 211.", ["123 × 1 = 123; 123 × 10 = 1 230; 123 × 200 = 24 600.", "Sumo: 123 + 1 230 + 24 600."], "25 953."],
+    ["Una pizzería ofrece 3 tipos de masa y 5 ingredientes (uno por pizza). ¿Cuántas pizzas distintas hay?", ["Cada masa con cada ingrediente.", "3 × 5."], "15 pizzas."],
+  ],
+  errores: ["Pensar que un número multiplicado por 0 da el mismo número.", "Olvidar dejar dos huecos al multiplicar por la cifra de las centenas."],
+  ejercicios: [
+    ["b", "Calcula 845 × 1 y 845 × 0.", "845 y 0."],
+    ["b", "Calcula 26 × 5 con el truco de la mitad.", "260 : 2 = 130."],
+    ["b", "Calcula 8 × 9 con el truco del 9.", "80 − 8 = 72."],
+    ["b", "¿Cuántos conjuntos haces con 4 camisetas y 2 pantalones?", "8."],
+    ["b", "¿Quién empezó a usar el signo ×?", "William Oughtred."],
+    ["m", "Calcula 312 × 123.", "38 376."],
+    ["m", "Calcula 34 × 11 de cabeza.", "374."],
+    ["m", "Un menú: 3 primeros, 4 segundos y 2 postres. ¿Cuántos menús distintos?", "24."],
+    ["m", "Calcula 405 × 102.", "41 310."],
+    ["m", "Estima 389 × 210 y calcula el resultado exacto.", "Unos 80 000; 81 690."],
+    ["a", "Un candado tiene 4 ruedas con números del 0 al 9. ¿Cuántas combinaciones tiene?", "10 000."],
+    ["a", "Multiplica 13 × 14 con el método egipcio de los dobles.", "14 + 56 + 112 = 182."],
+    ["a", "Haz 23 × 45 con el método de la celosía.", "1 035."],
+    ["a", "Inventa un problema de combinaciones con tu comida favorita y resuélvelo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["253 × 0 =", ["0", "253", "1"], "El cero."],
+    ["253 × 1 =", ["253", "254", "0"], "Elemento neutro."],
+    ["Para multiplicar por 5 puedes…", ["multiplicar por 10 y hacer la mitad", "sumar 5", "restar 5"], "Trucos."],
+    ["4 sabores y 3 cucuruchos dan…", ["12 helados", "7 helados", "43 helados"], "Combinaciones."],
+    ["Fibonacci explicó la celosía en…", ["1202", "2002", "202"], "Historia."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántas lechugas necesitaban?", ["84", "64", "20"], "Lectura."],
+    ["16 × 9 =", ["144", "154", "126"], "Trucos."],
+  ],
+  tarjetas: [
+    ["1 y 0", "Por 1 el número no cambia; por 0, siempre 0."],
+    ["Tres cifras", "Unidades, decenas (un hueco), centenas (dos huecos) y sumar."],
+    ["Combinaciones", "Diagrama de árbol o multiplicar: 3 camisetas × 2 pantalones = 6."],
+    ["Trucos e historia", "× 5, × 9, × 11; egipcios, celosía, Napier, signo × de 1631."],
+  ],
+  glosario: [
+    ["Factor", "Cada número que se multiplica."],
+    ["Producto", "Resultado de una multiplicación."],
+    ["Elemento neutro", "El 1: multiplicar por él no cambia el número."],
+    ["Propiedad distributiva", "Romper un número en partes para multiplicar."],
+    ["Estimar", "Calcular de forma aproximada."],
+    ["Combinación", "Cada forma distinta de juntar elementos."],
+    ["Diagrama de árbol", "Dibujo con ramas para contar combinaciones."],
+    ["Doble", "Resultado de multiplicar por 2."],
+    ["Mitad", "Resultado de dividir entre 2."],
+    ["Celosía", "Método antiguo de multiplicar con una cuadrícula."],
+    ["Huesos de Napier", "Varillas con las tablas para multiplicar."],
+    ["Cálculo mental", "Hacer operaciones de cabeza."],
+  ],
+  situacion: {
+    titulo: "Diseñamos un menú",
+    reto: "La clase diseña el menú de una cafetería escolar y calcula combinaciones y costes.",
+    pasos: ["Elegid primeros, segundos y postres saludables.", "Calculad cuántos menús distintos se pueden formar.", "Calculad el coste de preparar menús para toda la clase y para todo el colegio.", "Presentad el menú con las operaciones y estimaciones."],
+    producto: "Una carta de menús con los cálculos de combinaciones y costes.",
+    evaluacion: ["Multiplica por varias cifras correctamente.", "Cuenta combinaciones.", "Estima y comprueba.", "Presenta el trabajo con claridad."],
+  },
+});

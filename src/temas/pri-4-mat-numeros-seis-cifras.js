@@ -98,3 +98,91 @@ module.exports = P.tema({
   saberes: "Sentido numérico: lectura, escritura, descomposición, comparación, ordenación y redondeo de números naturales de hasta seis cifras; números ordinales",
   ideas: ["Tabla de valor posicional en el suelo con seis aros: los alumnos se colocan con cartulinas de cifras.", "Dictado de números con ceros intermedios y corrección por parejas.", "Buscar en la prensa números grandes, redondearlos y ordenarlos en una recta numérica mural."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el millón y leer números de siete cifras", "Leer y escribir números romanos", "Estimar cantidades grandes", "Conocer la historia de nuestros números y usar datos reales de España"],
+  lectura: { titulo: "Un millón de tapones", html: `<p>En el colegio de Iker se propusieron un reto solidario: reunir <b>un millón de tapones</b> de plástico para reciclarlos y ayudar a una asociación.</p><p>—¿Un millón? —dijo Iker—. ¡Eso es muchísimo!</p><p>—¿Cuánto es muchísimo? —le preguntó la profesora—. Vamos a calcularlo.</p><p>Pesaron 100 tapones: eran unos 200 gramos. La clase hizo cuentas: mil tapones pesarían 2 kilos; cien mil, 200 kilos… ¡y un millón, unos 2 000 kilos, dos toneladas!</p><p>Durante meses llenaron cajas en todas las clases. Cada viernes, los de 4.º contaban: 125 000… 348 500… 610 200…</p><p>Hicieron un gran cartel con una barra que se iba coloreando. Debajo escribían el número con letras: «seiscientos diez mil doscientos».</p><p>En mayo, el número llegó a <b>999 850</b>.</p><p>—¡Nos faltan solo ciento cincuenta! —gritó Iker.</p><p>Esa tarde, toda la clase recorrió el barrio pidiendo tapones en las tiendas. Al día siguiente, la cifra cambió por fin: <b>1 000 000</b>.</p><p>Iker se quedó mirando el cartel. Era la primera vez que veía un número de siete cifras escrito con su propia letra.</p>` },
+  tras: {
+    "Leer y escribir números grandes": [
+      ["Más allá: el millón", `<p>¿Qué pasa cuando al número más grande de seis cifras, el <b>999 999</b>, le sumamos 1? Todas las cifras se convierten en 0 y aparece una nueva a la izquierda:</p><p style="text-align:center">999 999 + 1 = <b>1 000 000</b></p><p>Es el <mark>millón</mark>: un 1 seguido de seis ceros. Es el primer número de <b>siete cifras</b>, y su orden se llama <b>unidad de millón</b> (U. de millón).</p><ul><li>1 millón = 1 000 unidades de millar = 10 centenas de millar.</li><li>2 500 000 se lee «dos millones quinientos mil».</li><li>4 030 200 se lee «cuatro millones treinta mil doscientos».</li></ul><p>Para leerlos, se separan las cifras en grupos de tres desde la derecha. El primer grupo por la izquierda son los <b>millones</b>, el segundo los <b>miles</b> y el último las <b>unidades</b>.</p><p>¿Cuánto es un millón? Si contaras un número cada segundo, sin parar ni para dormir, tardarías más de <b>11 días</b> en llegar al millón. En España viven unos 49 millones de personas, y en la ciudad de Madrid, más de 3 millones.</p><p>Fíjate: «millón» lleva tilde, pero «millones» no.</p>`,
+        L6.filas("Millones", [["1 000 000", "un millón", cAZ], ["2 500 000", "dos millones y medio", cVE], ["4 030 200", "4 millones 30 mil…", cNA], ["11 días", "contar hasta 1 M", cRO]])],
+    ],
+    "Descomponer un número": [
+      ["Los números romanos", `<p>Los antiguos <b>romanos</b> escribían los números con <b>letras</b>. Todavía los vemos en relojes, en los nombres de los reyes y papas (Felipe VI), en los siglos (siglo XXI) y en los capítulos de los libros.</p><p>Usaban siete letras:</p><p style="text-align:center"><b>I</b> = 1 · <b>V</b> = 5 · <b>X</b> = 10 · <b>L</b> = 50 · <b>C</b> = 100 · <b>D</b> = 500 · <b>M</b> = 1 000</p><p>Las reglas principales:</p><ul><li>Una letra a la <b>derecha</b> de otra mayor o igual <b>suma</b>: VI = 5 + 1 = 6; XX = 20; LX = 60.</li><li>I, X o C a la <b>izquierda</b> de una letra mayor <b>resta</b>: IV = 5 − 1 = 4; IX = 9; XL = 40; XC = 90; CD = 400; CM = 900.</li><li>I, X, C y M se pueden repetir hasta <b>tres veces</b> seguidas: III = 3, XXX = 30. V, L y D no se repiten nunca.</li></ul><p>Ejemplos: XIV = 14; XXIX = 29; MMXXVI = 2 026.</p><p>Los romanos <b>no tenían cero</b> y su sistema no era posicional: cada letra vale siempre lo mismo, esté donde esté. Por eso hacer cuentas con ellos era muy difícil. ¡Prueba a multiplicar XLVII por XIII!</p>`,
+        L6.filas("Números romanos", [["I · V · X", "1 · 5 · 10", cAZ], ["L · C", "50 · 100", cVE], ["D · M", "500 · 1 000", cNA], ["IV · IX", "4 · 9 (restan)", cRO]]), ["IAtWxaQLboY", "La Eduteca - Los números romanos", "La Eduteca", 1497204]],
+    ],
+    "Redondear números": [
+      ["Estimar cantidades grandes", `<p>A veces no podemos contar uno a uno, porque son demasiados: las personas en una manifestación, los granos de arroz de un paquete o las hojas de un árbol. Entonces <b>estimamos</b>: calculamos una cantidad aproximada de forma inteligente.</p><p>El método más usado es <mark>contar una parte y multiplicar</mark>:</p><ol><li>Divide el total en partes iguales (zonas, filas, montones).</li><li>Cuenta con cuidado <b>una</b> de esas partes.</li><li>Multiplica por el número de partes.</li></ol><p><b>Ejemplo 1.</b> Un estadio tiene 40 sectores iguales. En un sector cuentas unas 1 200 personas. En total habrá unas 40 × 1 200 = <b>48 000</b> personas.</p><p><b>Ejemplo 2.</b> En una cucharada de arroz hay unos 250 granos. El paquete da para unas 80 cucharadas. En el paquete hay unos 80 × 250 = <b>20 000</b> granos.</p><p><b>Ejemplo 3.</b> Un libro tiene unas 300 palabras por página y 200 páginas: unas <b>60 000</b> palabras.</p><p>Una estimación no es una adivinanza: se apoya en datos y cálculos. Por eso, cuando oigas en las noticias que en un concierto había «unas 50 000 personas», ya sabes que alguien lo ha calculado así.</p>`,
+        H6.flujo("Estimar", ["dividir|en partes", "contar|una parte", "multiplicar|por partes", "redondear|el total"], cAZ)],
+    ],
+  },
+  final: [
+    ["La historia de nuestros números", `<p>Las cifras que usamos (0, 1, 2, 3…) se llaman <b>números indoarábigos</b>, porque se inventaron en la <b>India</b> y llegaron a Europa gracias a los <b>árabes</b>.</p><p>Su gran ventaja es que son un sistema <mark>posicional</mark>: la misma cifra vale distinto según el lugar. En 222, el primer 2 vale 200, el segundo 20 y el tercero 2. Y además tienen el <b>cero</b>, que sirve para marcar un lugar vacío: no es lo mismo 25 que 205.</p><p>Algunos momentos importantes:</p><ul><li>Hace unos 1 500 años, los matemáticos de la India ya usaban el cero y las nueve cifras.</li><li>En el siglo IX, el sabio persa <b>al-Juarismi</b>, que trabajaba en Bagdad, escribió un libro sobre cómo calcular con ellos. De su nombre viene la palabra «algoritmo».</li><li>Llegaron a Europa a través de <b>al-Ándalus</b>. El documento europeo más antiguo que se conoce con estas cifras es el <b>Códice Vigilano</b>, escrito en el año 976 en un monasterio de La Rioja.</li><li>En 1202, el italiano <b>Fibonacci</b> las dio a conocer en toda Europa.</li></ul><p>Otras civilizaciones, como los <b>mayas</b> de América, también inventaron el cero por su cuenta, con un símbolo parecido a una concha.</p>`,
+      H6.flujo("Nuestras cifras", ["India|el cero", "Bagdad|al-Juarismi", "976|La Rioja", "1202|Fibonacci"], cNA)],
+    ["Números grandes de verdad", `<p>Con lo que sabes, ya puedes leer números que aparecen en las noticias, en los libros de Ciencias o en los mapas:</p><ul><li>Muchas ciudades españolas tienen <b>seis cifras</b> de habitantes: Salamanca, unos 145 000; Burgos, unos 175 000; Santander, unos 172 000.</li><li>España tiene unos <b>49 000 000</b> de habitantes.</li><li>La <b>Luna</b> está a unos <b>384 000</b> kilómetros de la Tierra.</li><li>La vuelta a la Tierra por el ecuador mide unos <b>40 000</b> km.</li><li>El <b>corazón</b> de un niño late más de 100 000 veces al día.</li><li>Un coche que ha recorrido <b>200 000</b> km ya ha dado como cinco vueltas al mundo.</li></ul><p>Cuando leas un número grande, sigue estos pasos:</p><ol><li>Separa las cifras en grupos de tres desde la derecha.</li><li>Lee cada grupo y añade «millones» o «mil» donde corresponda.</li><li>Piensa si el número tiene sentido: ¿una ciudad de 145 habitantes? ¡Faltan cifras!</li></ol><p>Busca en un atlas o en internet cuántos habitantes tiene tu municipio y tu comunidad autónoma. ¿Cuántas cifras tienen?</p>`,
+      L6.filas("Números reales", [["Burgos", "unos 175 000", cAZ], ["España", "unos 49 millones", cVE], ["la Luna", "unos 384 000 km", cNA], ["corazón", "+100 000 latidos", cRO]])],
+  ],
+  ejemplos: [
+    ["Escribe en números romanos el año 2 024.", ["2 000 = MM.", "24 = XXIV."], "MMXXIV."],
+    ["En un campo de girasoles hay 25 filas y cuentas unos 480 girasoles en una fila. ¿Cuántos habrá más o menos?", ["Contar una parte y multiplicar.", "25 × 480."], "Unos 12 000 girasoles."],
+  ],
+  errores: ["Escribir IIII en lugar de IV.", "Olvidar los ceros intermedios al escribir millones: «tres millones cinco mil» es 3 005 000."],
+  ejercicios: [
+    ["b", "Escribe con cifras: un millón doscientos mil.", "1 200 000."],
+    ["b", "¿Cuánto vale XV? ¿Y XL?", "15 y 40."],
+    ["b", "Escribe en romanos: 8, 19 y 50.", "VIII, XIX, L."],
+    ["b", "¿De dónde vienen nuestros números?", "De la India, a través de los árabes."],
+    ["b", "¿Cuántas cifras tiene un millón?", "Siete."],
+    ["m", "Escribe cómo se lee 6 040 300.", "Seis millones cuarenta mil trescientos."],
+    ["m", "¿Qué número romano es MCMXC?", "1 990."],
+    ["m", "En una página caben unas 350 palabras. ¿Cuántas habrá en un libro de 120 páginas?", "Unas 42 000."],
+    ["m", "¿Qué ventaja tiene el sistema posicional frente al romano?", "Con pocas cifras escribe cualquier número y es fácil calcular."],
+    ["m", "Ordena: 1 000 000, 999 999, 1 000 100.", "999 999 < 1 000 000 < 1 000 100."],
+    ["a", "Escribe tu fecha de nacimiento en números romanos.", "Respuesta abierta."],
+    ["a", "Estima cuántas baldosas tiene el suelo del pasillo del colegio.", "Respuesta abierta."],
+    ["a", "Busca los habitantes de tres ciudades y ordénalos de mayor a menor.", "Respuesta abierta."],
+    ["a", "Investiga qué símbolos usaban los mayas para escribir los números.", "Puntos, rayas y una concha para el cero."],
+  ],
+  quiz: [
+    ["Un millón tiene…", ["seis ceros", "cinco ceros", "siete ceros"], "Millón."],
+    ["IX vale…", ["9", "11", "4"], "Romanos."],
+    ["En números romanos, la letra M vale…", ["1 000", "100", "500"], "Romanos."],
+    ["Para estimar una cantidad grande…", ["contamos una parte y multiplicamos", "adivinamos", "contamos todo"], "Estimar."],
+    ["De al-Juarismi viene la palabra…", ["algoritmo", "ábaco", "aritmética"], "Historia."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántos tapones les faltaban cuando llegaron a 999 850?", ["150", "1 500", "15"], "Lectura."],
+    ["La Luna está de la Tierra a unos…", ["384 000 km", "3 840 km", "38 km"], "Números grandes."],
+  ],
+  tarjetas: [
+    ["El millón", "1 000 000: siete cifras; grupos de tres: millones, miles, unidades."],
+    ["Romanos", "I 1, V 5, X 10, L 50, C 100, D 500, M 1 000; IV y IX restan."],
+    ["Estimar", "Dividir en partes, contar una y multiplicar."],
+    ["Historia", "India, al-Juarismi, Códice Vigilano 976, Fibonacci 1202; el cero."],
+  ],
+  glosario: [
+    ["Cifra", "Cada uno de los símbolos del 0 al 9."],
+    ["Orden de unidades", "Lugar que ocupa una cifra: unidades, decenas, centenas…"],
+    ["Millón", "Mil millares: 1 000 000."],
+    ["Sistema posicional", "Sistema en el que una cifra vale según su lugar."],
+    ["Número romano", "Número escrito con letras, como lo hacían los romanos."],
+    ["Estimar", "Calcular una cantidad aproximada."],
+    ["Indoarábigo", "Sistema de cifras inventado en la India y difundido por los árabes."],
+    ["Cero", "Cifra que marca un lugar vacío."],
+    ["Algoritmo", "Serie de pasos para resolver un cálculo o problema."],
+    ["Códice", "Libro antiguo escrito a mano."],
+    ["Habitante", "Persona que vive en un lugar."],
+    ["Ecuador", "Línea imaginaria que divide la Tierra en dos mitades."],
+  ],
+  situacion: {
+    titulo: "El reto del millón",
+    reto: "La clase imagina y calcula cómo sería reunir un millón de objetos.",
+    pasos: ["Elegid un objeto pequeño (granos de arroz, tapones, clips).", "Contad y pesad o medid 100 de ellos.", "Calculad cuánto pesarían o cuánto espacio ocuparían mil, cien mil y un millón.", "Presentad los resultados en un cartel con números escritos en cifras y en letras."],
+    producto: "Un cartel con cálculos sobre el millón.",
+    evaluacion: ["Lee y escribe números de hasta siete cifras.", "Estima cantidades con un método razonado.", "Multiplica por 10, 100 y 1 000.", "Comunica los resultados con claridad."],
+  },
+});
