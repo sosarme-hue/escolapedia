@@ -143,3 +143,91 @@ module.exports = {
   fuentes: [RD, wiki("Materia", "Materia"), wiki("Densidad", "Densidad"), { t: "Real Sociedad Española de Química", url: "https://rseq.org/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Calcular la densidad e identificar materiales con ella", "Relacionar los cambios de estado con la temperatura y la presión", "Describir cómo se potabiliza el agua", "Conocer los átomos, los elementos y la tabla periódica"],
+  lectura: { titulo: "Dos hermanos y un metal nuevo", html: `<p>En el siglo XVIII, en el pueblo guipuzcoano de Bergara, había una escuela muy especial: el Real Seminario, donde se enseñaban ciencias modernas como la química y la mineralogía. Allí trabajaban dos hermanos nacidos en Logroño, <b>Juan José y Fausto Elhuyar</b>.</p><p>Los dos habían estudiado en varios países de Europa y sabían que en un mineral pesado y oscuro, la <b>wolframita</b>, se escondía algo desconocido. Muchos químicos lo habían intentado sin éxito.</p><p>En 1783, después de muchos experimentos en su laboratorio, los hermanos Elhuyar trituraron el mineral, lo trataron con distintas sustancias y lo calentaron a altísima temperatura. Al final obtuvieron un polvo metálico gris: ¡un <b>elemento químico nuevo</b>! Lo llamaron <b>wolframio</b>.</p><p>Es el único elemento químico aislado por primera vez en España. Tiene el punto de fusión más alto de todos los metales: más de 3 400 °C. Por eso, durante más de un siglo, los filamentos de las bombillas se fabricaron con wolframio, que se ponía al rojo blanco sin derretirse. Hoy se usa en herramientas de corte, en brocas y en muchos aparatos electrónicos.</p>` },
+  tras: {
+    "Propiedades específicas: la densidad": [
+      ["Calcular la densidad", `<p>La densidad indica cuánta masa hay en cada unidad de volumen. Se calcula <b>dividiendo la masa entre el volumen</b>:</p><p style="text-align:center"><b>densidad = masa : volumen</b></p><p>Si la masa está en gramos y el volumen en centímetros cúbicos, la densidad se expresa en <b>g/cm³</b>.</p><ul><li>Un trozo de metal tiene una masa de 54 g y un volumen de 20 cm³. Su densidad es 54 : 20 = <b>2,7 g/cm³</b>. Es la densidad del <b>aluminio</b>.</li><li>Un tapón de 6 g ocupa 25 cm³: 6 : 25 = <b>0,24 g/cm³</b>. Es <b>corcho</b>.</li></ul><p>Como cada sustancia pura tiene su propia densidad, este dato sirve para <b>identificar materiales</b>. Algunas densidades:</p><ul><li>Corcho: 0,24 g/cm³. Aceite: 0,92. Agua: 1.</li><li>Aluminio: 2,7. Hierro: 7,9. Plomo: 11,3. Oro: 19,3.</li></ul><p>El oro es tan denso que una botella de litro llena de oro pesaría más de 19 kilos. Para medir el volumen de un objeto irregular, como una piedra, se usa una probeta con agua, como hizo Arquímedes: el volumen es lo que sube el nivel del agua.</p>`,
+        H6.barras("Densidad (g/cm³)", [["corcho", 0.24, cNA, "0,24"], ["agua", 1, cAZ, "1"], ["aluminio", 2.7, cVE, "2,7"], ["hierro", 7.9, cMO, "7,9"], ["oro", 19.3, cRO, "19,3"]], 19.3), ["iiWMkiVX1qQ", "¿Por qué este Huevo NO se hunde? (Experimento de Densidad)", "Cienciabit: Ciencia y Tecnología.", 1398447]],
+    ],
+    "Los cambios de estado": [
+      ["Temperaturas de cambio de estado", `<p>Cada sustancia pura cambia de estado a unas temperaturas fijas, que sirven para identificarla:</p><ul><li>El <b>punto de fusión</b> es la temperatura a la que un sólido se convierte en líquido. El del agua es <b>0 °C</b>.</li><li>El <b>punto de ebullición</b> es la temperatura a la que un líquido hierve. El del agua es <b>100 °C</b> al nivel del mar.</li></ul><p>Otras sustancias tienen valores muy distintos:</p><ul><li>El <b>mercurio</b> funde a −39 °C: por eso es líquido a temperatura ambiente.</li><li>El <b>alcohol</b> hierve a unos 78 °C, antes que el agua.</li><li>El <b>hierro</b> funde a unos 1 538 °C.</li><li>El <b>nitrógeno</b>, el gas más abundante del aire, solo es líquido por debajo de −196 °C.</li></ul><p>El punto de ebullición depende también de la <b>presión</b>. En la cima de una montaña alta hay menos presión y el agua hierve antes: en lo alto del Everest, a unos 70 °C. Por eso allí cuesta tanto cocer la pasta. Al revés, en una <b>olla exprés</b> la presión es mayor, el agua hierve por encima de 100 °C y los alimentos se cocinan más rápido.</p>`,
+        L6.filas("Puntos de cambio", [["agua", "funde 0 °C; hierve 100 °C", cAZ], ["alcohol", "hierve a 78 °C", cNA], ["mercurio", "funde a −39 °C", cMO], ["hierro", "funde a 1 538 °C", cRO]])],
+    ],
+    "Cómo separar mezclas": [
+      ["Del río al grifo: potabilizar el agua", `<p>El agua de los ríos y embalses parece limpia, pero lleva tierra, hojas, microbios y otras sustancias. Antes de llegar a nuestros grifos pasa por una <b>estación de tratamiento de agua potable</b> (ETAP), donde se usan varias técnicas de separación de mezclas:</p><ol><li><b>Captación y desbaste</b>: el agua se toma del río o del embalse y pasa por rejas que retienen ramas, hojas y objetos grandes.</li><li><b>Decantación</b>: se añaden sustancias que hacen que las partículas pequeñas se junten en grumos. En grandes depósitos tranquilos, los grumos caen al fondo.</li><li><b>Filtración</b>: el agua atraviesa capas de arena y carbón, que retienen las partículas que quedan.</li><li><b>Desinfección</b>: se añade una pequeña cantidad de cloro u otros productos para matar los microbios. Así el agua sigue limpia en las tuberías.</li></ol><p>En zonas con poca agua dulce, como algunas partes de la costa mediterránea y las islas Canarias, también hay <b>desaladoras</b>, que quitan la sal al agua del mar.</p><p>Después de usarla, el agua sucia va a una <b>depuradora</b> (EDAR), que la limpia antes de devolverla al río o al mar.</p>`,
+        H6.flujo("Potabilizar", ["Rejas", "Decantar", "Filtrar", "Desinfectar"], cAZ)],
+    ],
+  },
+  final: [
+    ["Átomos, elementos y la tabla periódica", `<p>Toda la materia está formada por partículas diminutas llamadas <b>átomos</b>. Son tan pequeños que en el punto de una «i» caben millones de millones de ellos.</p><p>Hay distintos tipos de átomos. Una sustancia formada por un solo tipo de átomo es un <b>elemento químico</b>: el oxígeno, el hierro, el oro o el carbono son elementos. Hoy se conocen <b>118 elementos</b>. Combinando sus átomos se forman todas las sustancias del universo, igual que con unas pocas letras se escriben todas las palabras. Por ejemplo, el agua está formada por átomos de hidrógeno y de oxígeno.</p><p>En <b>1869</b>, el químico ruso <b>Dmitri Mendeléyev</b> ordenó los elementos conocidos en una tabla según sus propiedades. Su tabla era tan buena que dejó huecos para elementos que todavía no se habían descubierto, y predijo cómo serían. Años después se encontraron y encajaron. Así nació la <b>tabla periódica</b>.</p><p>En ella hay elementos relacionados con España: además del wolframio de los hermanos Elhuyar, el marino y científico <b>Antonio de Ulloa</b> describió el <b>platino</b> a mediados del siglo XVIII, y el español <b>Andrés Manuel del Río</b> descubrió en México en 1801 el elemento que hoy llamamos vanadio.</p>`,
+      L6.filas("Elementos y España", [["1748", "platino (Ulloa)", cMO], ["1783", "wolframio (Elhuyar)", cAZ], ["1801", "vanadio (Del Río)", cVE], ["1869", "tabla de Mendeléyev", cNA]]), ["FqZ3BSeu1d0", "Entendiendo la tabla periódica", "UBUinvestiga y El electrón perdido", 2434818]],
+    ["Los materiales y el reciclaje", `<p>Muchos objetos que tiramos están hechos de materiales que se pueden aprovechar. Para que se reciclen, primero hay que <b>separarlos</b> bien en casa. En España se usan estos contenedores:</p><ul><li><b>Amarillo</b>: envases de plástico, latas y briks.</li><li><b>Azul</b>: papel y cartón.</li><li><b>Verde</b>: envases de vidrio, como botellas y tarros, sin tapones.</li><li><b>Marrón</b>: restos orgánicos, como cáscaras y restos de comida, que se convierten en abono.</li><li><b>Gris</b>: el resto de los residuos que no se pueden separar.</li></ul><p>No todos los materiales se reciclan igual. El <b>vidrio</b> y los metales como el aluminio se pueden reciclar una y otra vez sin perder calidad. El <b>papel</b>, en cambio, solo unas pocas veces, porque sus fibras se van acortando.</p><p>Reciclar ahorra materias primas, agua y energía: fabricar una lata con aluminio reciclado gasta mucha menos energía que hacerla con aluminio nuevo. Pero aún es mejor seguir el orden de las <b>tres erres</b>: primero <b>reducir</b> lo que consumimos, después <b>reutilizar</b> y, por último, <b>reciclar</b>.</p>`,
+      H6.rueda("Contenedores", "RECICLA", [["Amarillo", cNA], ["Azul", cAZ], ["Verde", cVE], ["Marrón", cRO]])],
+  ],
+  ejemplos: [
+    ["Un objeto tiene una masa de 158 g y un volumen de 20 cm³. ¿De qué metal puede ser?", ["Densidad = 158 : 20 = 7,9 g/cm³.", "7,9 g/cm³ es la densidad del hierro."], "De hierro."],
+    ["¿Por qué en lo alto del Everest el agua hierve a unos 70 °C?", ["Arriba hay menos presión.", "Con menos presión, el punto de ebullición baja."], "Por la menor presión."],
+  ],
+  errores: ["Pensar que algo más grande siempre es más denso: depende de la masa y del volumen.", "Creer que el agua siempre hierve a 100 °C: depende de la presión."],
+  ejercicios: [
+    ["b", "¿Cuál es la fórmula de la densidad?", "Densidad = masa : volumen."],
+    ["b", "¿Cuál es el punto de fusión del agua? ¿Y el de ebullición?", "0 °C y 100 °C (al nivel del mar)."],
+    ["b", "¿Qué elemento descubrieron los hermanos Elhuyar?", "El wolframio, en 1783."],
+    ["b", "¿Cuántos elementos químicos se conocen?", "118."],
+    ["b", "¿En qué contenedor se tira una botella de vidrio?", "En el verde."],
+    ["m", "Calcula la densidad de un objeto de 54 g y 20 cm³. ¿Qué material puede ser?", "2,7 g/cm³: aluminio."],
+    ["m", "Ordena los pasos de una potabilizadora: filtración, desinfección, decantación.", "Decantación, filtración, desinfección."],
+    ["m", "¿Por qué el mercurio es líquido a temperatura ambiente?", "Porque funde a −39 °C."],
+    ["m", "¿Por qué en una olla exprés los alimentos se cocinan antes?", "Porque hay más presión y el agua hierve por encima de 100 °C."],
+    ["m", "¿Qué son las tres erres?", "Reducir, reutilizar y reciclar."],
+    ["a", "¿Qué masa tiene un trozo de oro de 10 cm³?", "19,3 × 10 = 193 g."],
+    ["a", "¿Qué mérito tuvo la tabla de Mendeléyev?", "Ordenó los elementos y dejó huecos para predecir elementos aún no descubiertos."],
+    ["a", "¿Por qué se usaba wolframio en los filamentos de las bombillas?", "Porque tiene un punto de fusión altísimo y no se derrite al calentarse."],
+    ["a", "¿Para qué sirve una desaladora? ¿Dónde son más útiles?", "Para quitar la sal al agua del mar; en zonas con poca agua dulce, como Canarias."],
+  ],
+  quiz: [
+    ["La densidad del agua es…", ["1 g/cm³", "10 g/cm³", "0,1 g/cm³"], "Referencia."],
+    ["En lo alto del Everest el agua hierve a unos…", ["70 °C", "100 °C", "150 °C"], "Presión."],
+    ["En la potabilización, el cloro sirve para…", ["matar microbios", "quitar la sal", "dar color"], "Desinfección."],
+    ["La tabla periódica la ideó…", ["Mendeléyev", "Arquímedes", "Jenner"], "1869."],
+    ["El papel y el cartón van al contenedor…", ["azul", "amarillo", "verde"], "Reciclaje."],
+  ],
+  examen: [
+    ["Un material de 6 g y 25 cm³ tiene una densidad de…", ["0,24 g/cm³", "4,1 g/cm³", "31 g/cm³"], "6 : 25."],
+    ["El wolframio se aisló por primera vez en…", ["Bergara, en 1783", "Londres, en 1869", "México, en 1801"], "Elhuyar."],
+  ],
+  tarjetas: [
+    ["Densidad", "masa : volumen. Agua 1; aluminio 2,7; hierro 7,9; oro 19,3 g/cm³."],
+    ["Cambios de estado", "Agua: funde a 0 °C, hierve a 100 °C; con menos presión hierve antes."],
+    ["Potabilizar", "Rejas, decantación, filtración y desinfección."],
+    ["Elementos", "118 elementos en la tabla periódica de Mendeléyev (1869)."],
+  ],
+  glosario: [
+    ["Densidad", "Masa por unidad de volumen."],
+    ["Punto de fusión", "Temperatura a la que un sólido pasa a líquido."],
+    ["Punto de ebullición", "Temperatura a la que un líquido hierve."],
+    ["Presión", "Fuerza que ejerce el aire o un líquido sobre una superficie."],
+    ["Potabilizar", "Hacer que el agua sea apta para beber."],
+    ["Decantación", "Separación de partículas que caen al fondo por su peso."],
+    ["Desaladora", "Instalación que quita la sal al agua del mar."],
+    ["Depuradora", "Instalación que limpia el agua usada."],
+    ["Átomo", "Partícula diminuta que forma la materia."],
+    ["Elemento químico", "Sustancia formada por un solo tipo de átomo."],
+    ["Tabla periódica", "Tabla que ordena los elementos según sus propiedades."],
+    ["Wolframio", "Metal descubierto en Bergara con el punto de fusión más alto."],
+  ],
+  situacion: {
+    titulo: "Detectives de materiales",
+    reto: "La clase identifica varios objetos misteriosos calculando su densidad y explica el resultado como si fuera un laboratorio forense.",
+    pasos: ["Medid la masa de varios objetos (tornillos, tapones, piedras, anillos) con una balanza.", "Medid su volumen con una probeta y agua.", "Calculad la densidad de cada uno y comparadla con una tabla de densidades.", "Escribid un informe de laboratorio con los datos, los cálculos y las conclusiones."],
+    producto: "Un informe de laboratorio que identifica los materiales.",
+    evaluacion: ["Mide masa y volumen con precisión.", "Calcula la densidad correctamente.", "Compara con datos de referencia.", "Comunica los resultados de forma ordenada."],
+  },
+});

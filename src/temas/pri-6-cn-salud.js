@@ -137,3 +137,91 @@ module.exports = {
   fuentes: [RD, { t: "Organización Mundial de la Salud", url: "https://www.who.int/es" }, { t: "Ministerio de Sanidad: Estilos de vida saludable", url: "https://estilosdevidasaludable.sanidad.gob.es/" }, wiki("Dieta mediterránea", "Dieta_mediterránea")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la historia de las vacunas y la erradicación de la viruela", "Leer e interpretar las etiquetas de los alimentos", "Aplicar la conducta PAS y algunos primeros auxilios sencillos", "Usar bien los antibióticos y lavarse las manos correctamente"],
+  lectura: { titulo: "Veintidós niños y una vacuna", html: `<p>En el año 1803, la <b>viruela</b> era una de las enfermedades más temidas del mundo. Mataba a millones de personas y dejaba marcas en la cara de quienes sobrevivían. Hacía poco que se había descubierto una vacuna, pero había un problema: ¿cómo llevarla en barco hasta América, si el viaje duraba semanas y la vacuna se estropeaba?</p><p>El médico <b>Francisco Javier Balmis</b> tuvo una idea ingeniosa. La vacuna se podía pasar de una persona a otra: a los pocos días de vacunar a alguien, le salían unas pequeñas ampollas con el líquido que servía para vacunar al siguiente. Así que embarcó en La Coruña con <b>22 niños huérfanos</b>. Durante el viaje, los iba vacunando de dos en dos, brazo a brazo, para que la vacuna llegara viva al otro lado del océano.</p><p>De los niños se ocupó <b>Isabel Zendal</b>, la rectora del orfanato, que viajó con ellos, los cuidó y llevó a su propio hijo.</p><p>La expedición llevó la vacuna a América y a Filipinas, y vacunó a cientos de miles de personas. Está considerada la primera gran campaña internacional de vacunación de la historia. En 1980, la viruela fue declarada erradicada en todo el mundo.</p>` },
+  tras: {
+    "Las defensas del cuerpo y las vacunas": [
+      ["Una historia de las vacunas", `<p>La historia de las vacunas empezó con una observación curiosa. A finales del siglo XVIII, el médico inglés <b>Edward Jenner</b> se dio cuenta de que las lecheras que se habían contagiado de la <b>viruela de las vacas</b>, una enfermedad leve, no enfermaban después de la viruela humana.</p><p>En <b>1796</b> hizo un experimento: tomó un poco de líquido de las ampollas de una lechera y se lo aplicó a un niño. Semanas después comprobó que el niño estaba protegido contra la viruela. Como venía de las vacas, el método se llamó <b>vacuna</b>, del latín <i>vacca</i>.</p><p>Desde entonces, las vacunas han salvado cientos de millones de vidas:</p><ul><li>Gracias a ellas, la <b>viruela</b> desapareció por completo: es la primera enfermedad humana erradicada, en 1980.</li><li>La <b>poliomielitis</b>, que dejaba paralizados a muchos niños, ha desaparecido de casi todo el mundo.</li><li>En España, el <b>calendario de vacunación</b> protege a los niños de enfermedades como el sarampión, la tosferina o el tétanos.</li></ul><p>Cuando mucha gente está vacunada, los microbios no encuentran a quién contagiar y también quedan protegidas las personas que no se pueden vacunar, como los bebés muy pequeños. Es la <b>inmunidad de grupo</b>.</p>`,
+        L6.filas("Hitos de las vacunas", [["1796", "Jenner: viruela", cNA], ["1803", "expedición Balmis", cAZ], ["1980", "viruela erradicada", cVE], ["hoy", "calendario vacunal", cMO]]), ["52PgHf5CIjY", "La expedición contra la viruela", "Academia Play", 409464]],
+    ],
+    "Una dieta equilibrada": [
+      ["Aprender a leer las etiquetas", `<p>Los alimentos envasados llevan una <b>etiqueta</b> con información muy útil para elegir mejor. Fíjate en estas partes:</p><ul><li><b>La lista de ingredientes</b>: aparecen ordenados de <b>mayor a menor cantidad</b>. Si el azúcar está entre los primeros, el producto tiene mucho azúcar.</li><li><b>La información nutricional</b>: indica la energía (en kilocalorías) y la cantidad de grasas, hidratos de carbono, azúcares, proteínas y sal, normalmente <b>por cada 100 gramos</b>.</li><li><b>Los alérgenos</b>, como el gluten, la leche, el huevo o los frutos secos, aparecen destacados en otro tipo de letra.</li><li><b>La fecha de caducidad</b> («fecha de caducidad») indica hasta cuándo es seguro comerlo; la de <b>consumo preferente</b>, hasta cuándo conserva toda su calidad.</li></ul><p>Hagamos un cálculo: unos cereales tienen <b>30 g de azúcar por cada 100 g</b>. Si comes un tazón de 40 g, tomas 30 × 40 : 100 = <b>12 g de azúcar</b>, casi tres terrones.</p><p>Muchos envases llevan también el <b>Nutri-Score</b>, una escala de letras y colores de la A (verde) a la E (rojo) que ayuda a comparar productos del mismo tipo de un vistazo.</p>`,
+        H6.flujo("Leer una etiqueta", ["Ingredientes|orden", "Tabla|por 100 g", "Alérgenos", "Fechas"], cNA)],
+    ],
+    "La higiene": [
+      ["Lavarse las manos de verdad", `<p>Las manos tocan de todo: pomos, móviles, dinero, animales, la cara… y llevan millones de <b>microbios</b>. Muchas enfermedades, como resfriados, gripes o diarreas, se contagian a través de ellas. Lavárselas bien es una de las formas más sencillas y eficaces de evitar infecciones.</p><p>Pero hay que hacerlo bien. Mojarlas un momento bajo el grifo no basta. Los pasos son:</p><ol><li>Mojar las manos con agua.</li><li>Poner jabón suficiente para cubrir toda la superficie.</li><li>Frotar palma con palma, el dorso de cada mano, entre los dedos, los pulgares y las uñas, durante al menos <b>20 segundos</b>. Un truco: cantar dos veces «Cumpleaños feliz».</li><li>Aclarar bien con agua.</li><li>Secar con una toalla limpia o con papel.</li></ol><p>¿Cuándo hay que lavarlas? Antes de comer y de cocinar, después de ir al baño, al volver de la calle o del recreo, después de tocar animales y después de sonarse, toser o estornudar.</p><p>Si no hay agua y jabón, un gel desinfectante puede servir, pero no sustituye al lavado cuando las manos están visiblemente sucias.</p>`,
+        L6.filas("Cuándo lavarse", [["antes", "de comer y cocinar", cVE], ["después", "del baño", cAZ], ["al volver", "de la calle", cNA], ["cuánto", "20 segundos o más", cRO]]), ["-_2vPIB6Ofc", "10 pasos para lavarse las manos (Versión corta) - Hábitos de higiene para niños", "Smile and Learn - Español", 1085179]],
+    ],
+  },
+  final: [
+    ["Primeros auxilios: la conducta PAS", `<p>Ante un accidente, es importante mantener la calma y seguir tres pasos, que se recuerdan con la palabra <b>PAS</b>:</p><ul><li><b>P de Proteger</b>: asegúrate de que el lugar es seguro para ti y para la persona herida. Por ejemplo, si hay tráfico, no te pongas en peligro.</li><li><b>A de Avisar</b>: llama al <b>112</b>, el teléfono de emergencias, que funciona en toda Europa y es gratuito. Di qué ha pasado, dónde estás y cuántas personas están heridas, y no cuelgues hasta que te lo digan.</li><li><b>S de Socorrer</b>: ayuda solo en lo que sepas hacer y avisa a un adulto.</li></ul><p>Algunos primeros auxilios sencillos:</p><ul><li><b>Herida pequeña</b>: lavarla con agua y jabón, secarla y taparla con una tirita.</li><li><b>Quemadura leve</b>: poner la zona bajo agua fresca durante varios minutos. Nunca poner pasta de dientes ni hielo directamente.</li><li><b>Sangrado de nariz</b>: sentarse con la cabeza ligeramente <b>hacia delante</b> y apretar la nariz con dos dedos unos minutos. No echar la cabeza hacia atrás.</li><li><b>Golpe</b>: aplicar frío envuelto en un paño.</li></ul>`,
+      H6.flujo("Conducta PAS", ["Proteger", "Avisar|112", "Socorrer"], cRO)],
+    ["Usar bien los antibióticos", `<p>Los <b>antibióticos</b> son medicamentos que matan bacterias o impiden que se multipliquen. Desde que se descubrió la penicilina, han curado infecciones que antes eran mortales. Pero hay que usarlos bien:</p><ul><li><b>No sirven contra los virus</b>. La mayoría de los resfriados, las gripes y muchos dolores de garganta los causan virus, así que los antibióticos no los curan.</li><li>Solo se toman cuando los <b>receta un médico</b>, nunca por nuestra cuenta ni los que sobraron de otra vez.</li><li>Hay que tomarlos <b>a las horas indicadas y durante todos los días</b> que diga el médico, aunque nos encontremos mejor antes.</li></ul><p>¿Por qué tanto cuidado? Porque cuando se usan mal, algunas bacterias sobreviven y se vuelven <b>resistentes</b>: el antibiótico ya no les hace efecto. Estas bacterias resistentes pasan a otras personas, y algunas infecciones se vuelven muy difíciles de curar.</p><p>La resistencia a los antibióticos es uno de los grandes problemas de salud del mundo. Todos podemos ayudar: usarlos solo cuando hacen falta, lavarnos las manos para no contagiar y vacunarnos para no enfermar.</p>`,
+      H6.dos("¿Antibiótico?", ["Sí", ["bacterias", "con receta", "hasta el final"], cVE], ["No", ["resfriados y gripe", "por nuestra cuenta", "dejarlo a medias"], cRO])],
+  ],
+  ejemplos: [
+    ["Un yogur tiene 12 g de azúcar por 100 g. ¿Cuánto azúcar hay en un envase de 125 g?", ["12 × 125 : 100."], "15 g de azúcar."],
+    ["Un compañero se cae en el patio y no se mueve. ¿Qué haces?", ["Proteger: comprobar que no hay peligro.", "Avisar: llamar a un profesor y, si hace falta, al 112.", "Socorrer: acompañarlo sin moverlo."], "Seguir la conducta PAS."],
+  ],
+  errores: ["Tomar antibióticos para un resfriado: lo causa un virus.", "Echar la cabeza hacia atrás cuando sangra la nariz."],
+  ejercicios: [
+    ["b", "¿Qué significan las letras PAS?", "Proteger, Avisar y Socorrer."],
+    ["b", "¿Cuál es el teléfono de emergencias en España y en Europa?", "El 112."],
+    ["b", "¿Quién descubrió la vacuna de la viruela y en qué año?", "Edward Jenner, en 1796."],
+    ["b", "¿Cuántos segundos hay que frotarse las manos con jabón como mínimo?", "20 segundos."],
+    ["b", "¿Sirven los antibióticos contra los virus?", "No."],
+    ["m", "¿Cómo se ordenan los ingredientes en una etiqueta?", "De mayor a menor cantidad."],
+    ["m", "¿Qué hizo Balmis para que la vacuna llegara viva a América?", "La pasó de niño a niño, brazo a brazo, durante el viaje."],
+    ["m", "¿Qué es la inmunidad de grupo?", "La protección de toda la población cuando la mayoría está vacunada."],
+    ["m", "¿Qué hay que hacer ante una quemadura leve?", "Ponerla bajo agua fresca varios minutos."],
+    ["m", "¿Por qué hay que terminar el tratamiento con antibióticos aunque te encuentres mejor?", "Para eliminar todas las bacterias y evitar resistencias."],
+    ["a", "Unos cereales tienen 30 g de azúcar por 100 g. ¿Cuánto azúcar tiene un tazón de 40 g?", "12 g."],
+    ["a", "¿Qué es una bacteria resistente y por qué es un problema?", "Una bacteria a la que el antibiótico ya no afecta; las infecciones se vuelven difíciles de curar."],
+    ["a", "¿Por qué la viruela se pudo erradicar?", "Gracias a la vacunación masiva en todo el mundo."],
+    ["a", "Compara dos productos con la etiqueta: ¿qué datos mirarías para elegir el más sano?", "Azúcares, grasas saturadas, sal, fibra y el Nutri-Score."],
+  ],
+  quiz: [
+    ["La palabra vacuna viene de…", ["vaca", "vacío", "vacaciones"], "Jenner."],
+    ["La primera enfermedad erradicada fue la…", ["viruela", "gripe", "varicela"], "1980."],
+    ["Al sangrar la nariz, la cabeza debe ir…", ["ligeramente hacia delante", "hacia atrás", "tumbada boca arriba"], "Primeros auxilios."],
+    ["Los antibióticos actúan contra…", ["bacterias", "virus", "hongos de las setas"], "Uso responsable."],
+    ["El Nutri-Score va de la…", ["A a la E", "1 al 10", "A a la Z"], "Etiquetas."],
+  ],
+  examen: [
+    ["La persona que cuidó a los niños de la expedición Balmis fue…", ["Isabel Zendal", "Marie Curie", "Florence Nightingale"], "Lectura."],
+    ["En una etiqueta, la información nutricional suele darse por cada…", ["100 g", "kilo", "envase de 1 litro"], "Etiquetas."],
+  ],
+  tarjetas: [
+    ["Vacunas", "Jenner 1796; Balmis 1803; viruela erradicada en 1980; inmunidad de grupo."],
+    ["Etiquetas", "Ingredientes de mayor a menor, tabla por 100 g, alérgenos y fechas."],
+    ["PAS", "Proteger, Avisar (112) y Socorrer."],
+    ["Antibióticos", "Solo contra bacterias, con receta y hasta el final."],
+  ],
+  glosario: [
+    ["Viruela", "Grave enfermedad contagiosa erradicada en 1980."],
+    ["Erradicar", "Eliminar por completo una enfermedad."],
+    ["Inmunidad de grupo", "Protección colectiva cuando la mayoría está vacunada."],
+    ["Calendario de vacunación", "Lista de vacunas recomendadas por edades."],
+    ["Alérgeno", "Sustancia que puede provocar alergia."],
+    ["Consumo preferente", "Fecha hasta la que un alimento conserva su calidad."],
+    ["Nutri-Score", "Escala de la A a la E sobre la calidad nutricional."],
+    ["Primeros auxilios", "Ayuda inmediata a una persona herida o enferma."],
+    ["112", "Teléfono de emergencias gratuito en Europa."],
+    ["Antibiótico", "Medicamento contra las bacterias."],
+    ["Resistencia", "Capacidad de una bacteria de sobrevivir al antibiótico."],
+    ["Receta", "Indicación escrita del médico sobre un medicamento."],
+  ],
+  situacion: {
+    titulo: "Detectives de etiquetas",
+    reto: "La clase analiza las etiquetas de los productos que suelen tomar en el desayuno y en el recreo y propone alternativas más saludables.",
+    pasos: ["Traed envases vacíos de productos del desayuno y del recreo.", "Anotad en una tabla el azúcar, la sal, las grasas y el Nutri-Score de cada uno, y calculad lo que hay en una ración.", "Representad con terrones o sobres de azúcar la cantidad de azúcar de cada producto.", "Elaborad una guía de desayunos y almuerzos saludables para las familias."],
+    producto: "Una exposición de etiquetas con terrones de azúcar y una guía de almuerzos sanos.",
+    evaluacion: ["Interpreta etiquetas de alimentos.", "Calcula cantidades por ración.", "Compara productos con criterio.", "Propone alternativas saludables."],
+  },
+});

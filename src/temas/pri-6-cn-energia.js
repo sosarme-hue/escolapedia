@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, { t: "Red Eléctrica de España: REData", url: "https://www.ree.es/es/datos" }, { t: "IDAE: Instituto para la Diversificación y Ahorro de la Energía", url: "https://www.idae.es/" }, wiki("Energía", "Energía_(física)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Calcular el rendimiento de algunas máquinas y comparar bombillas", "Distinguir conductores y aislantes del calor", "Conocer el peso de las energías renovables en España", "Calcular el consumo eléctrico en kWh y la energía de los alimentos"],
+  lectura: { titulo: "La isla del viento y el agua", html: `<p>El Hierro es la isla más pequeña y occidental de las Canarias. Durante muchos años, toda su electricidad venía de una central que quemaba gasóleo, traído en barco desde muy lejos. Era caro y contaminaba.</p><p>En la isla sopla casi siempre el viento, así que sus habitantes pensaron: ¿y si usamos el viento? Había un problema: cuando el viento para, también pararían los aerogeneradores, y la isla se quedaría a oscuras.</p><p>La solución fue ingeniosa. En 2014 se inauguró la central de <b>Gorona del Viento</b>. Tiene cinco aerogeneradores y dos depósitos de agua a distinta altura: uno abajo, cerca del mar, y otro arriba, en el cráter de un antiguo volcán.</p><p>Cuando sopla mucho viento y sobra electricidad, se usa para <b>bombear agua</b> desde el depósito de abajo hasta el de arriba. Cuando el viento flojea, se suelta el agua del depósito de arriba, que cae por una tubería y mueve unas turbinas, como en una central hidroeléctrica.</p><p>Así, el depósito funciona como una gigantesca <b>pila de agua</b>. En algunas épocas, la isla ha llegado a funcionar varias semanas seguidas solo con energía renovable.</p>` },
+  tras: {
+    "La energía se transforma": [
+      ["Energía útil y energía perdida", `<p>En cada transformación, una parte de la energía se convierte en lo que queremos, la <b>energía útil</b>, y otra parte se «pierde» en forma de calor que no aprovechamos. El porcentaje de energía útil se llama <b>rendimiento</b>.</p><ul><li>Una antigua <b>bombilla incandescente</b> convertía en luz solo alrededor del 5 % de la electricidad. El resto se iba en calor: por eso quemaban al tocarlas.</li><li>Una <b>bombilla LED</b> da la misma luz gastando unas 6 u 8 veces menos electricidad, y apenas se calienta.</li><li>El motor de un <b>coche de gasolina</b> aprovecha para moverse menos de un tercio de la energía del combustible.</li><li>Un <b>motor eléctrico</b> aprovecha bastante más de las tres cuartas partes.</li><li>Nuestro <b>cuerpo</b> convierte en movimiento alrededor de una cuarta parte de la energía de los alimentos; el resto se transforma en calor. Por eso sudamos al hacer ejercicio.</li></ul><p>Fíjate en un ejemplo: si una bombilla LED de 9 W da la misma luz que una incandescente de 60 W, ahorra 51 W cada hora que está encendida. Cambiar las bombillas de una casa es una forma sencilla de ahorrar energía y dinero.</p>`,
+        H6.barras("Bombillas con la misma luz", [["incandescente", 60, cRO, "60 W"], ["halógena", 42, cNA, "42 W"], ["LED", 9, cVE, "9 W"]], 60)],
+    ],
+    "El calor y la temperatura": [
+      ["Conductores y aislantes del calor", `<p>El calor pasa siempre de los cuerpos calientes a los fríos. Pero no todos los materiales lo dejan pasar igual:</p><ul><li>Los <b>conductores térmicos</b> dejan pasar el calor con facilidad. Son sobre todo los <b>metales</b>, como el cobre, el aluminio o el hierro. Por eso las ollas y las sartenes son de metal.</li><li>Los <b>aislantes térmicos</b> dificultan el paso del calor: la madera, el plástico, el corcho, la lana, el poliestireno (el «corcho blanco») y, sobre todo, el <b>aire</b> quieto.</li></ul><p>¿Por qué por la mañana una barandilla de metal parece más fría que un banco de madera, si los dos están a la misma temperatura? Porque el metal se lleva rápidamente el calor de tu mano y la madera no. Lo que notas no es la temperatura del objeto, sino lo rápido que pierdes calor.</p><p>Usamos los aislantes en muchas situaciones:</p><ul><li>Los <b>mangos</b> de las ollas son de madera o plástico.</li><li>La <b>ropa de abrigo</b> atrapa aire entre sus fibras. Varias capas finas abrigan más que una gruesa.</li><li>Las <b>ventanas de doble cristal</b> tienen aire entre los dos vidrios.</li><li>Los <b>termos</b> mantienen la bebida caliente o fría porque casi no dejan pasar el calor.</li></ul>`,
+        H6.dos("El calor", ["Conductores", ["metales", "ollas, radiadores", "pasan el calor"], cRO], ["Aislantes", ["madera, lana, aire", "mangos, abrigos", "frenan el calor"], cAZ])],
+    ],
+    "Fuentes de energía renovables": [
+      ["Las renovables en España", `<p>España es uno de los países de Europa que más electricidad obtiene de fuentes renovables, gracias a su sol, su viento y sus ríos. En <b>2024</b>, según Red Eléctrica, <b>más de la mitad</b> de la electricidad generada en España vino de fuentes renovables.</p><ul><li>La <b>eólica</b> es la que más aporta. Hay parques eólicos en casi todas las comunidades, sobre todo en Castilla y León, Aragón, Castilla-La Mancha y Galicia.</li><li>La <b>solar fotovoltaica</b> ha crecido muchísimo en los últimos años. Además de grandes plantas, cada vez más casas y colegios ponen placas en sus tejados.</li><li>La <b>hidráulica</b> aprovecha los embalses y depende mucho de si el año es lluvioso o seco.</li><li>La <b>solar térmica</b> concentra la luz del sol con espejos. En Andalucía hay centrales en las que miles de espejos dirigen la luz a lo alto de una torre.</li></ul><p>El gran reto de las renovables es que el sol y el viento no están siempre disponibles. Por eso se buscan formas de <b>almacenar</b> la energía: baterías, centrales de bombeo de agua como la de El Hierro o el hidrógeno verde.</p>`,
+        H6.rueda("Renovables en España", "MÁS DEL 50 %", [["Eólica", cAZ], ["Solar", cNA], ["Hidráulica", cVE], ["Térmica", cRO]]), ["gOPwSP2ifpU", "La Central Hidroeólica de El Hierro. Gorona del Viento El Hierro.mp4", "Gorona del Viento", 45080]],
+    ],
+  },
+  final: [
+    ["Calcular el consumo eléctrico", `<p>La potencia de un aparato eléctrico, en <b>vatios (W)</b>, indica cuánta energía gasta cada hora. Para saber cuánto consume, se multiplica la potencia por el tiempo que está encendido. Si la potencia está en <b>kilovatios</b> (1 kW = 1 000 W) y el tiempo en horas, el resultado sale en <b>kilovatios hora (kWh)</b>, la unidad de la factura de la luz.</p><p style="text-align:center"><b>consumo (kWh) = potencia (kW) × tiempo (h)</b></p><ul><li>Un horno de 2 000 W (2 kW) encendido media hora: 2 × 0,5 = <b>1 kWh</b>.</li><li>Una bombilla LED de 10 W (0,01 kW) encendida 100 horas: 0,01 × 100 = <b>1 kWh</b>.</li><li>Un radiador de 1 500 W encendido 4 horas: 1,5 × 4 = <b>6 kWh</b>.</li></ul><p>Si el kWh costara, por ejemplo, 0,15 €, el radiador gastaría 6 × 0,15 = 0,90 € en esas 4 horas.</p><p>Muchos aparatos siguen gastando un poco cuando están apagados con el piloto encendido: es el consumo en <b>espera</b> o <i>stand-by</i>. Desenchufarlos o usar regletas con interruptor ahorra energía.</p>`,
+      L6.filas("1 kWh es…", [["horno 2 000 W", "30 minutos", cRO], ["LED 10 W", "100 horas", cVE], ["radiador 1 500 W", "40 minutos", cNA], ["fórmula", "kW × horas", cAZ]]), ["O6UlU1CFxjE", "¿Qué es kWh?", "Dr. Fenómeno", 72378]],
+    ["La energía de los alimentos", `<p>Nosotros también necesitamos energía para vivir, crecer, pensar y movernos. La obtenemos de los <b>alimentos</b>. La energía de los alimentos se mide en <b>kilocalorías</b> (kcal), que en el lenguaje de cada día se llaman simplemente «calorías».</p><p>No todos los nutrientes aportan la misma energía:</p><ul><li>1 gramo de <b>hidratos de carbono</b> (pan, pasta, arroz) aporta unas <b>4 kcal</b>.</li><li>1 gramo de <b>proteínas</b> (carne, pescado, huevos, legumbres) aporta unas <b>4 kcal</b>.</li><li>1 gramo de <b>grasas</b> (aceite, mantequilla) aporta unas <b>9 kcal</b>, más del doble.</li></ul><p>Por ejemplo, un alimento con 20 g de hidratos, 5 g de proteínas y 10 g de grasas aporta 20 × 4 + 5 × 4 + 10 × 9 = 80 + 20 + 90 = <b>190 kcal</b>.</p><p>La energía que necesita cada persona depende de su edad, su tamaño y su actividad física. Una persona que hace mucho deporte necesita más que una que pasa el día sentada. Lo importante es que la energía que comemos y la que gastamos estén <b>equilibradas</b>, y que venga de alimentos variados y poco procesados.</p>`,
+      L6.filas("Energía por gramo", [["hidratos", "4 kcal", cNA], ["proteínas", "4 kcal", cAZ], ["grasas", "9 kcal", cRO], ["clave", "equilibrio", cVE]])],
+  ],
+  ejemplos: [
+    ["¿Cuántos kWh consume un radiador de 1 500 W encendido 4 horas?", ["1 500 W = 1,5 kW.", "1,5 × 4."], "6 kWh."],
+    ["¿Cuántas kcal aporta un alimento con 20 g de hidratos, 5 g de proteínas y 10 g de grasas?", ["20 × 4 = 80; 5 × 4 = 20; 10 × 9 = 90.", "80 + 20 + 90."], "190 kcal."],
+  ],
+  errores: ["Pensar que un metal está más frío que la madera a la misma temperatura: solo nos quita el calor más deprisa.", "Creer que los aparatos apagados con el piloto encendido no gastan nada."],
+  ejercicios: [
+    ["b", "¿Qué tipo de bombilla gasta menos para dar la misma luz?", "La LED."],
+    ["b", "Pon dos ejemplos de conductores del calor y dos de aislantes.", "Cobre y hierro; madera y lana."],
+    ["b", "¿Qué fuente de energía renovable aporta más electricidad en España?", "La eólica."],
+    ["b", "¿Cuántas kcal aporta 1 g de grasa?", "Unas 9 kcal."],
+    ["b", "¿Cómo se llama la central de El Hierro que combina viento y agua?", "Gorona del Viento."],
+    ["m", "¿Cuántos kWh gasta un horno de 2 000 W encendido media hora?", "1 kWh."],
+    ["m", "¿Por qué la ropa en capas abriga más?", "Porque atrapa aire, que es un buen aislante."],
+    ["m", "¿Qué es el rendimiento de una máquina?", "El porcentaje de energía que se convierte en energía útil."],
+    ["m", "¿Por qué hace falta almacenar la energía de las renovables?", "Porque el sol y el viento no están siempre disponibles."],
+    ["m", "¿Cuántas kcal aportan 30 g de pan con 15 g de hidratos y 3 g de proteínas (sin grasa)?", "15 × 4 + 3 × 4 = 72 kcal."],
+    ["a", "Una LED de 9 W sustituye a una incandescente de 60 W. ¿Cuántos kWh se ahorran en 1 000 horas?", "51 W × 1 000 h = 51 kWh."],
+    ["a", "Si el kWh cuesta 0,15 €, ¿cuánto cuesta tener un radiador de 1 500 W encendido 4 horas?", "6 × 0,15 = 0,90 €."],
+    ["a", "Explica cómo funciona la central de Gorona del Viento.", "Con el viento sobrante bombea agua arriba; cuando no hay viento, el agua baja y mueve turbinas."],
+    ["a", "¿Por qué sudamos al hacer ejercicio?", "Porque el cuerpo convierte gran parte de la energía en calor y debe enfriarse."],
+  ],
+  quiz: [
+    ["Una bombilla incandescente convertía en luz alrededor del…", ["5 % de la energía", "50 % de la energía", "100 % de la energía"], "Rendimiento."],
+    ["El mejor aislante de esta lista es…", ["el aire quieto", "el cobre", "el aluminio"], "Calor."],
+    ["En 2024, las renovables generaron en España…", ["más de la mitad de la electricidad", "un 5 % de la electricidad", "toda la electricidad"], "Red Eléctrica."],
+    ["Un aparato de 1 kW encendido 3 horas gasta…", ["3 kWh", "1 kWh", "300 kWh"], "kW × h."],
+    ["El nutriente que más energía aporta por gramo es…", ["la grasa", "la proteína", "el agua"], "9 kcal."],
+  ],
+  examen: [
+    ["Las ollas son de metal porque el metal es…", ["buen conductor del calor", "buen aislante", "transparente"], "Conductores."],
+    ["Una LED de 10 W tarda en gastar 1 kWh…", ["100 horas", "10 horas", "1 hora"], "0,01 × 100."],
+  ],
+  tarjetas: [
+    ["Rendimiento", "Energía útil / energía total. LED mucho mejor que incandescente."],
+    ["Conductores y aislantes", "Metales conducen; madera, lana, plástico y aire aíslan."],
+    ["Renovables en España", "Más de la mitad de la electricidad en 2024; la eólica, la primera."],
+    ["Consumo y calorías", "kWh = kW × h. Hidratos y proteínas 4 kcal/g; grasas 9 kcal/g."],
+  ],
+  glosario: [
+    ["Energía útil", "Parte de la energía que se aprovecha para lo que queremos."],
+    ["Rendimiento", "Porcentaje de energía útil en una transformación."],
+    ["LED", "Tipo de bombilla que gasta muy poca electricidad."],
+    ["Conductor térmico", "Material que deja pasar bien el calor."],
+    ["Aislante térmico", "Material que dificulta el paso del calor."],
+    ["Fotovoltaica", "Energía solar convertida directamente en electricidad."],
+    ["Central de bombeo", "Central que sube agua para soltarla después y producir electricidad."],
+    ["Vatio", "Unidad de potencia (W)."],
+    ["Kilovatio hora", "Energía que gasta un aparato de 1 kW en 1 hora."],
+    ["Stand-by", "Consumo de un aparato en espera."],
+    ["Kilocaloría", "Unidad de energía de los alimentos."],
+    ["Aerogenerador", "Molino que transforma el viento en electricidad."],
+  ],
+  situacion: {
+    titulo: "Auditoría energética del colegio",
+    reto: "La clase calcula cuánta electricidad gasta el colegio y propone un plan de ahorro.",
+    pasos: ["Haced un inventario de aparatos eléctricos de vuestra aula y anotad su potencia.", "Estimad las horas de uso diarias y calculad el consumo en kWh y su coste.", "Comprobad qué aparatos quedan en espera, qué bombillas no son LED y si se pierde calor por las ventanas.", "Presentad un plan de ahorro con medidas concretas y el dinero que se ahorraría."],
+    producto: "Un informe de auditoría energética con un plan de ahorro.",
+    evaluacion: ["Calcula consumos en kWh correctamente.", "Identifica pérdidas de energía.", "Propone medidas realistas.", "Presenta datos y conclusiones con claridad."],
+  },
+});
