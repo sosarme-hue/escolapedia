@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FONTS,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Classificar paraules per nombre de síl·labes", "Formar paraules noves unint síl·labes", "Trobar la síl·laba tònica de paraules senzilles", "Dividir paraules a final de ratlla amb el guionet"],
+  lectura: { titulo: "El robot que parlava a trossos", html: `<p>A l'escola de la Júlia ha arribat un robot nou. Es diu Ro-bi.</p><p>Ro-bi és molt simpàtic, però té un problema: parla a trossets.</p><p>—Bon-dia-a-tot-hom! —diu amb la seva veu metàl·lica.</p><p>Els nens riuen. La mestra els explica que en Robi separa les paraules en <b>síl·labes</b>.</p><p>—Com-us-di-eu? —pregunta el robot.</p><p>—Jo soc la Jú-li-a! —respon la Júlia, picant de mans a cada síl·laba.</p><p>—I jo en Mar-tí!</p><p>Ara tota la classe parla com en Robi. Pa-ta-ta. Ca-ra-gol. Ma-ri-po-sa. Ele-fant… no: e-le-fant!</p><p>A l'hora del pati, en Robi vol jugar a pilota.</p><p>—Pi-lo-ta! Pi-lo-ta!</p><p>Els nens li passen la pilota i en Robi fa un gol. Tothom crida:</p><p>—Gooo-ool!</p><p>—Aquest gol té una sola síl·laba —diu la Júlia, rient—. Però molt llarga!</p>` },
+  tras: {
+    "Comptem picant de mans": [
+      ["Monosíl·labes, bisíl·labes i trisíl·labes", `<p>Segons el <mark>nombre de síl·labes</mark>, les paraules tenen un nom:</p><ul><li><b>Monosíl·labes</b> (una síl·laba): sol, mar, pa, gat, flor.</li><li><b>Bisíl·labes</b> (dues): ca-sa, ga-ta, llu-na, ar-bre.</li><li><b>Trisíl·labes</b> (tres): pi-lo-ta, sa-ba-ta, ca-mi-sa.</li><li><b>Polisíl·labes</b> (quatre o més): ma-ri-po-sa, bi-bli-o-te-ca.</li></ul><p>Per saber-ho, picant de mans és molt fàcil: cada pic, una síl·laba.</p><p>Fixa't que si afegim lletres, a vegades guanyem síl·labes: <i>gat</i> (1) → <i>ga-tet</i> (2) → <i>ga-te-ta</i> (3).</p><p>Recorda que cada síl·laba ha de tenir com a mínim una <b>vocal</b>. Per això <i>mar</i> és una sola síl·laba: només té una vocal, la a. I <i>arbre</i> en té dues: ar-bre.</p><p><b>Activitat</b>: fes quatre columnes i classifica els noms dels companys segons les seves síl·labes.</p>`,
+        L6.filas("Síl·labes", [["mono-", "sol (1)", cAZ], ["bi-", "ca-sa (2)", cVE], ["tri-", "pi-lo-ta (3)", cNA], ["poli-", "ma-ri-po-sa", cRO]])],
+    ],
+    "Tres síl·labes o més": [
+      ["Construïm paraules", `<p>Les síl·labes són com peces de <mark>construcció</mark>: les podem combinar per fer paraules noves.</p><ul><li><b>ca</b> + <b>sa</b> = casa</li><li><b>sa</b> + <b>ca</b> = saca</li><li><b>ma</b> + <b>ta</b> = mata</li><li><b>to</b> + <b>ma</b> + <b>ta</b> = tomata</li><li><b>pa</b> + <b>ta</b> + <b>ta</b> = patata</li><li><b>pi</b> + <b>lo</b> + <b>ta</b> = pilota</li></ul><p>Si canviem una sola síl·laba, la paraula canvia:</p><ul><li><b>ca</b>-sa → <b>ta</b>-sa → <b>ma</b>-sa</li><li>ga-<b>ta</b> → ga-<b>la</b></li></ul><p>També hi ha paraules que es llegeixen igual al revés, com <i>radar</i> o <i>ala</i>. Són els palíndroms!</p><p>Jugar a construir paraules ens ajuda a llegir més de pressa, perquè aprenem a reconèixer les síl·labes d'un cop d'ull, sense haver de mirar lletra per lletra.</p><p><b>Activitat</b>: escriu síl·labes en targetes i forma totes les paraules que puguis.</p>`,
+        H6.flujo("Peces", ["pa|+", "ta|+", "ta|=", "patata|!"], cNA),
+        ["IzlcyYuDPb8", "El Pot Petit - El Drac Rac", "El Pot Petit", 12976564]],
+    ],
+    "La síl·laba que sona fort": [
+      ["On és la síl·laba forta?", `<p>Cada paraula té una síl·laba que sona més <mark>fort</mark>: la síl·laba tònica. Per trobar-la, podem «cridar» la paraula com si cridéssim algú de lluny:</p><ul><li>ca-<b>MIÓ</b> → la forta és l'<b>última</b>.</li><li><b>CA</b>-sa → la forta és la <b>penúltima</b>.</li><li><b>MÚ</b>-si-ca → la forta és l'<b>antepenúltima</b>.</li></ul><p>Moltes paraules porten <b>accent</b> escrit damunt la vocal tònica: camió, cafè, música, pàgina.</p><p>Altres no en porten però també tenen síl·laba forta: <i>CA-sa</i>, <i>pi-LO-ta</i>, <i>ca-ra-GOL</i>.</p><p>Si diem fort una síl·laba que no toca, la paraula sona estranya: «ca-SA» en lloc de «CA-sa».</p><p>Quan llegim en veu alta, fer sonar bé la síl·laba forta fa que tothom ens entengui millor. Prova de dir <i>pi-LO-ta</i> i després <i>PI-lo-ta</i>: quina sona bé?</p><p><b>Activitat</b>: crida el teu nom i descobreix quina és la teva síl·laba forta.</p>`,
+        H6.dos("Forta", ["AL FINAL", ["camió", "cafè", "caragol"], cRO], ["ABANS", ["casa", "pilota", "música"], cAZ])],
+    ],
+    "Per a què serveix?": [
+      ["Partir paraules a final de ratlla", `<p>Quan escrivim i la paraula no hi cap al final de la ratlla, la podem <mark>partir</mark> amb un <b>guionet</b> (-). Però s'ha de fer bé:</p><ul><li>Es parteix sempre entre <b>síl·labes</b>: pi-lota o pilo-ta ✓, pil-ota ✗.</li><li>No deixem <b>una sola lletra</b> sola a la ratlla: à-nec ✗.</li><li>Les lletres <b>ll</b>, <b>ny</b>, <b>ch</b> no se separen mai: ca-vall ✓, cav-all ✗.</li><li>Les lletres <b>rr</b> i <b>ss</b> sí que se separen: ter-ra, pas-sa.</li><li>La <b>l·l</b> se separa així: col-legi.</li></ul><p>Si dubtes, és millor passar tota la paraula a la ratlla següent.</p><p>Els ordinadors parteixen les paraules sols, però nosaltres hem d'aprendre a fer-ho bé quan escrivim a mà.</p><p><b>Activitat</b>: escriu en una tira estreta de paper una frase i parteix les paraules que no hi càpiguen.</p>`,
+        L6.filas("Partir", [["pi-lo-ta", "entre síl·labes", cVE], ["ter-ra", "rr se separa", cAZ], ["ca-vall", "ll junta", cNA], ["col-legi", "l·l", cMO]])],
+    ],
+  },
+  final: [
+    ["Jocs de síl·labes", `<p>Amb les síl·labes podem fer molts <mark>jocs</mark>:</p><ul><li><b>El tren de síl·labes</b>: la paraula nova comença per l'última síl·laba de l'anterior: ca-<b>sa</b> → <b>sa</b>-ba-<b>ta</b> → <b>ta</b>-ula → …</li><li><b>La síl·laba amagada</b>: quina síl·laba falta? pa-__-ta (ta).</li><li><b>Paraules dins de paraules</b>: a <i>ca-<b>mi</b>-sa</i> hi ha <i>mi</i>; a <i>ca<b>sa</b></i>, a <i>pa<b>ta</b>ta</i>…</li><li><b>El llenguatge secret</b>: afegim «pi» després de cada síl·laba: <i>ca-pi-sa-pi</i> vol dir «casa».</li><li><b>Rimes</b>: paraules que acaben amb la mateixa síl·laba: <i>gat</i>, <i>plat</i>, <i>pat</i>.</li></ul><p>Jugant amb les síl·labes aprenem a llegir i escriure millor.</p><p><b>Activitat</b>: parla en llenguatge secret amb un company durant un minut.</p>`,
+      H6.rueda("Jocs", "SÍL·LABES", [["tren", cAZ], ["amagada", cVE], ["secret", cRO], ["rimes", cNA]])],
+    ["Repàs: el robot que parlava a trossos", `<p>Repassem amb la <mark>lectura</mark>:</p><ul><li>En <b>Ro-bi</b> parla separant les paraules en síl·labes.</li><li><b>Jú-li-a</b> té tres síl·labes: és trisíl·laba.</li><li><b>Mar-tí</b> en té dues: és bisíl·laba, i la forta és l'última (porta accent).</li><li><b>Pa-ta-ta</b> i <b>pi-lo-ta</b> són trisíl·labes.</li><li><b>Ma-ri-po-sa</b> té quatre síl·labes: és polisíl·laba.</li><li><b>Gol</b> té una sola síl·laba: és monosíl·laba.</li><li>Els nens piquen de mans per comptar síl·labes.</li></ul><p>Els robots no parlen a trossos, però a vegades separar les paraules ens ajuda a escriure-les bé!</p><p><b>Activitat</b>: parla com en Robi i digues el teu esmorzar d'avui a trossets.</p>`,
+      L6.filas("Robi", [["gol", "1 síl·laba", cRO], ["Mar-tí", "2", cAZ], ["Jú-li-a", "3", cVE], ["ma-ri-po-sa", "4", cNA]])],
+  ],
+  ejemplos: [
+    ["Quantes síl·labes té «sabata»?", ["Piquem de mans: sa-ba-ta."], "Tres: és trisíl·laba."],
+    ["Com partiries «cavall» a final de ratlla?", ["La ll no es pot separar."], "Ca-vall."],
+  ],
+  errores: ["Partir una paraula deixant una lletra sola: «à-nec».", "Separar la ll o la ny: «cav-all», «muny-tanya»."],
+  ejercicios: [
+    ["b", "Quantes síl·labes té «sol»?", "Una."],
+    ["b", "Separa en síl·labes: pilota.", "Pi-lo-ta."],
+    ["b", "Uneix: ca + sa.", "Casa."],
+    ["b", "Digues una paraula bisíl·laba.", "Casa, gata, lluna…"],
+    ["b", "Quina síl·laba falta? pa-__-ta.", "Ta."],
+    ["m", "Classifica: mar, cadira, mariposa, gata.", "Mar 1, gata 2, cadira 3, mariposa 4."],
+    ["m", "Quina és la síl·laba forta de «camió»?", "Mió (l'última)."],
+    ["m", "Parteix: terra.", "Ter-ra."],
+    ["m", "Canvia la primera síl·laba de «casa» i fes dues paraules.", "Tasa, massa (o masa)…"],
+    ["m", "Continua el tren: casa → sa…", "Sabata, salut…"],
+    ["a", "A la lectura, quantes síl·labes té «Júlia»?", "Tres."],
+    ["a", "Per què «gol» és monosíl·laba?", "Perquè només té una síl·laba."],
+    ["a", "Escriu tres paraules de quatre síl·labes.", "Mariposa, bicicleta, papallona…"],
+    ["a", "Escriu «casa» en llenguatge secret amb «pi».", "Ca-pi-sa-pi."],
+  ],
+  quiz: [
+    ["«Lluna» és…", ["bisíl·laba", "monosíl·laba", "trisíl·laba"], "Síl·labes."],
+    ["pa + ta + ta =", ["patata", "pata", "tapa"], "Construïm."],
+    ["La síl·laba forta de «música» és…", ["mú", "si", "ca"], "Tònica."],
+    ["Es parteix bé…", ["ca-vall", "cav-all", "c-avall"], "Partir."],
+    ["En llenguatge secret «ca-pi-sa-pi» vol dir…", ["casa", "capa", "sapa"], "Jocs."],
+  ],
+  examen: [
+    ["A la lectura, com es diu el robot?", ["Robi", "Martí", "Júlia"], "Lectura."],
+    ["A què juga en Robi al pati?", ["a pilota", "a amagar", "a la corda"], "Repàs."],
+  ],
+  tarjetas: [
+    ["Nombre de síl·labes", "mono- (1), bi- (2), tri- (3), poli- (4 o més)."],
+    ["Partir a final de ratlla", "Entre síl·labes; ll i ny juntes; rr, ss i l·l se separen."],
+  ],
+  glosario: [
+    ["Síl·laba", "Tros de paraula que diem d'un sol cop de veu."],
+    ["Monosíl·laba", "Paraula d'una síl·laba."],
+    ["Bisíl·laba", "Paraula de dues síl·labes."],
+    ["Trisíl·laba", "Paraula de tres síl·labes."],
+    ["Polisíl·laba", "Paraula de quatre síl·labes o més."],
+    ["Síl·laba tònica", "Síl·laba que sona més fort."],
+    ["Guionet", "Ratlleta (-) per partir paraules."],
+    ["Palíndrom", "Paraula que es llegeix igual al revés."],
+    ["Robot", "Màquina que fa feines sola."],
+    ["Metàl·lic", "Que sona o és com el metall."],
+  ],
+  situacion: {
+    titulo: "La fàbrica de paraules",
+    reto: "La classe munta una fàbrica on es fan paraules noves combinant targetes de síl·labes, i les classifica.",
+    pasos: ["Escriure síl·labes en targetes de colors.", "Combinar-les per formar paraules reals i inventades.", "Classificar les paraules per nombre de síl·labes.", "Marcar la síl·laba forta i fer un mural."],
+    producto: "Un mural de paraules classificades.",
+    evaluacion: ["Classifica paraules per síl·labes.", "Forma paraules amb síl·labes.", "Troba la síl·laba forta.", "Parteix bé a final de ratlla."],
+  },
+});

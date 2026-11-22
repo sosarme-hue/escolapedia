@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FONTS,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distingir les vocals amb accent obert i tancat", "Conèixer els dígrafs: ll, ny, rr, ss, qu, gu", "Comptar vocals i consonants d'una paraula", "Fer servir la dièresi en casos senzills"],
+  lectura: { titulo: "La festa de les lletres", html: `<p>Al país de l'Abecedari, les lletres van organitzar una gran festa.</p><p>Les cinc <b>vocals</b>, A, E, I, O i U, van arribar cantant, perquè elles soles ja sonen: «A-a-a! E-e-e!»</p><p>Les <b>consonants</b> van arribar després. La B, la C, la D… Totes volien cantar, però no podien fer-ho soles.</p><p>—Bbbb… —feia la B, sense poder dir res més.</p><p>—Vine amb mi! —li va dir la A.</p><p>I juntes van cantar: «Ba! Ba! Ba!»</p><p>Aviat totes les consonants van trobar una vocal per ballar: la M amb la A (ma), la P amb la O (po), la S amb la U (su)…</p><p>Al final de la festa, la L i la L es van agafar de la mà i van fer una lletra nova: <b>ll</b>, com a «lluna». I la N i la Y van fer <b>ny</b>, com a «nyam-nyam».</p><p>—Quina festa més bonica! —va dir la H, que és muda i no va poder cantar, però va ballar tota la nit.</p>` },
+  tras: {
+    "Les vocals": [
+      ["L'accent: obert i tancat", `<p>Algunes vocals porten un <mark>accent</mark> a sobre. En català n'hi ha de dues maneres:</p><ul><li><b>Accent obert</b> (\`) : baixa cap a la dreta. Va sobre la <b>à</b>, la <b>è</b> i la <b>ò</b>. Exemples: <i>mà</i>, <i>cafè</i>, <i>òliba</i>.</li><li><b>Accent tancat</b> (´) : puja cap a la dreta. Va sobre la <b>é</b>, la <b>í</b>, la <b>ó</b> i la <b>ú</b>. Exemples: <i>cançó</i>, <i>camí</i>, <i>també</i>, <i>múscul</i>.</li></ul><p>La <b>a</b> sempre porta accent obert: <i>sofà</i>, <i>papà</i>.</p><p>La <b>i</b> i la <b>u</b> sempre porten accent tancat: <i>camí</i>, <i>ningú</i>.</p><p>La <b>e</b> i la <b>o</b> poden portar-ne de tots dos tipus: <i>cafè</i> / <i>també</i>; <i>òliba</i> / <i>cançó</i>.</p><p><b>Activitat</b>: busca en un conte cinc paraules amb accent i digues si és obert o tancat.</p>`,
+        H6.dos("Accent", ["OBERT `", ["sofà", "cafè", "òliba"], cAZ], ["TANCAT ´", ["camí", "també", "cançó"], cRO])],
+    ],
+    "Les consonants": [
+      ["Dues lletres, un sol so", `<p>Alguns sons els escrivim amb <mark>dues lletres</mark> juntes. Són els <b>dígrafs</b>:</p><ul><li><b>ll</b>: lluna, cavall, ull.</li><li><b>ny</b>: nyam, muntanya, any.</li><li><b>rr</b>: gorra, terra, carro (només entre vocals).</li><li><b>ss</b>: tassa, gossos, classe (entre vocals, so fort).</li><li><b>qu</b> davant de e i i: <i>que</i>, <i>química</i>, <i>paquet</i>.</li><li><b>gu</b> davant de e i i: <i>guerra</i>, <i>guitarra</i>, <i>guineu</i>.</li><li><b>ix</b>: caixa, peix.</li></ul><p>Quan comptem lletres, el dígraf són dues lletres, però sona com un sol so: <i>lluna</i> té 5 lletres i 4 sons.</p><p>Ull! A <b>qu</b> i <b>gu</b> la u no sona: <i>que</i> sona «ke».</p><p><b>Activitat</b>: busca a la classe objectes que tinguin ll, ny o rr al seu nom.</p>`,
+        L6.filas("Dígrafs", [["ll", "lluna", cAZ], ["ny", "muntanya", cVE], ["rr", "gorra", cNA], ["qu / gu", "que, guitarra", cRO]])],
+    ],
+    "Comptem lletres": [
+      ["Vocals i consonants a cada paraula", `<p>Per <mark>comptar</mark> les vocals i consonants d'una paraula, anem lletra per lletra:</p><ul><li><b>gat</b>: g-a-t → 1 vocal (a) i 2 consonants (g, t).</li><li><b>casa</b>: c-a-s-a → 2 vocals i 2 consonants.</li><li><b>arbre</b>: a-r-b-r-e → 2 vocals i 3 consonants.</li><li><b>aigua</b>: a-i-g-u-a → 4 vocals i 1 consonant!</li></ul><p>Algunes paraules tenen moltes vocals juntes: <i>aire</i>, <i>noia</i>, <i>cuina</i>.</p><p>Altres tenen moltes consonants juntes: <i>trist</i>, <i>prompte</i>.</p><p>Recorda que la paraula més curta del català pot tenir una sola lletra: <i>a</i>, <i>i</i>, <i>o</i>. Totes són vocals!</p><p>I que la <b>h</b> no sona, però sí que compta com a consonant: <i>hora</i> té 4 lletres.</p><p><b>Activitat</b>: escriu el teu nom i compta quantes vocals i quantes consonants té.</p>`,
+        H6.flujo("Comptem", ["gat|1 v + 2 c", "casa|2 + 2", "arbre|2 + 3", "aigua|4 + 1"], cNA),
+        ["KEMPzVCLjZg", "El Pot Petit - Els pirates", "El Pot Petit", 23337866]],
+    ],
+    "Per a què serveix?": [
+      ["Els dos puntets: la dièresi", `<p>A vegades veiem dos puntets damunt d'una vocal: és la <mark>dièresi</mark> (¨).</p><p>Té dues feines:</p><ul><li><b>Fer sonar la u</b> després de q o g: <i>pingüí</i>, <i>aigüera</i>, <i>qüestió</i>. Sense dièresi, la u no sonaria: «pingi».</li><li><b>Separar dues vocals</b> que estan juntes: <i>veïna</i> (ve-ï-na), <i>raïm</i> (ra-ïm), <i>països</i>. Així sabem que la ï va en una altra síl·laba.</li></ul><p>Paraules amb dièresi que fem servir molt:</p><ul><li><b>pingüí</b>, <b>aigües</b>, <b>llengües</b></li><li><b>veïna</b>, <b>raïm</b>, <b>Lluïsa</b></li><li><b>oïda</b>, <b>diürn</b></li></ul><p>Compara: <i>guerra</i> (la u no sona) i <i>pingüí</i> (la u sona).</p><p><b>Activitat</b>: dibuixa un pingüí menjant raïm i escriu-hi les dues paraules amb dièresi.</p>`,
+        H6.rueda("Dièresi", "PUNTETS", [["pingüí", cAZ], ["raïm", cMO], ["veïna", cVE], ["aigües", cRO]])],
+    ],
+  },
+  final: [
+    ["Embarbussaments", `<p>Els <mark>embarbussaments</mark> són frases difícils de dir de pressa perquè repeteixen sons semblants. Són perfectes per practicar les lletres!</p><ul><li>«<b>Setze jutges d'un jutjat mengen fetge d'un penjat.</b>»</li><li>«<b>Un plat blanc, pla, ple de pebre negre està.</b>»</li><li>«<b>En Pinxo li va dir a en Panxo: vols que et punxi amb un punxó?</b>»</li><li>«<b>Plou poc, però per poc que plogui, plou prou.</b>»</li><li>«<b>Paula, para la taula.</b>»</li></ul><p>Primer els diem a poc a poc, pronunciant bé totes les lletres. Després, cada vegada més de pressa.</p><p>El de «Setze jutges» és tan famós que a vegades es fa servir per saber si algú parla bé el català!</p><p><b>Activitat</b>: aprèn un embarbussament i digues-lo tres vegades seguides sense equivocar-te.</p>`,
+      L6.filas("Embarbussa", [["setze", "jutges", cRO], ["plat", "blanc, pla", cAZ], ["Pinxo", "Panxo", cVE], ["Paula", "para la taula", cNA]])],
+    ["Repàs: la festa de les lletres", `<p>Repassem amb la <mark>lectura</mark>:</p><ul><li>Les <b>cinc vocals</b> (a, e, i, o, u) sonen soles.</li><li>Les <b>consonants</b> necessiten una vocal per sonar: <b>b</b> + <b>a</b> = ba.</li><li>Les parelles fan síl·labes: <b>ma</b>, <b>po</b>, <b>su</b>.</li><li>La <b>l</b> i la <b>l</b> fan el dígraf <b>ll</b>: lluna.</li><li>La <b>n</b> i la <b>y</b> fan el dígraf <b>ny</b>: nyam-nyam.</li><li>La <b>h</b> és <b>muda</b>: no sona, però existeix.</li></ul><p>Les lletres treballen en equip per fer paraules, igual que nosaltres treballem en equip a classe!</p><p><b>Activitat</b>: inventa una escena de la festa amb dues lletres noves que es fan amigues.</p>`,
+      H6.flujo("Festa", ["vocals|canten", "b + a|ba", "l + l|ll", "h|muda"], cVE)],
+  ],
+  ejemplos: [
+    ["Quin accent porta «camí»?", ["La i sempre porta accent tancat."], "Accent tancat: camí."],
+    ["Quantes vocals té «aigua»?", ["a-i-g-u-a"], "Quatre vocals i una consonant."],
+  ],
+  errores: ["Posar accent obert a la i: «camì».", "Oblidar la dièresi a «pingüí» o «raïm»."],
+  ejercicios: [
+    ["b", "Digues les cinc vocals.", "A, e, i, o, u."],
+    ["b", "Quin accent porta «sofà»?", "Obert."],
+    ["b", "Escriu una paraula amb ll.", "Lluna, cavall…"],
+    ["b", "Quantes vocals té «gat»?", "Una."],
+    ["b", "Com es diuen els dos puntets?", "Dièresi."],
+    ["m", "Quin accent porta «cançó»?", "Tancat."],
+    ["m", "Compta vocals i consonants: arbre.", "2 vocals i 3 consonants."],
+    ["m", "A «guerra», sona la u?", "No."],
+    ["m", "Escriu dues paraules amb ny.", "Muntanya, any…"],
+    ["m", "Per què «raïm» porta dièresi?", "Per separar la a i la i en dues síl·labes."],
+    ["a", "A la lectura, per què la H no pot cantar?", "Perquè és muda."],
+    ["a", "Quines lletres fan el dígraf ny?", "La n i la y."],
+    ["a", "Classifica: cafè, també, òliba, camí.", "Obert: cafè, òliba. Tancat: també, camí."],
+    ["a", "Digues un embarbussament de memòria.", "Setze jutges d'un jutjat…"],
+  ],
+  quiz: [
+    ["La a porta sempre accent…", ["obert", "tancat", "cap"], "Accent."],
+    ["És un dígraf…", ["ny", "nt", "pl"], "Dígrafs."],
+    ["«Aigua» té…", ["4 vocals", "2 vocals", "1 vocal"], "Comptem."],
+    ["Porta dièresi…", ["pingüí", "guerra", "guitarra"], "Dièresi."],
+    ["«Setze jutges…» és un…", ["embarbussament", "conte", "poema llarg"], "Embarbussaments."],
+  ],
+  examen: [
+    ["A la lectura, què fan la L i la L?", ["la ll", "la ny", "la rr"], "Lectura."],
+    ["Quina lletra és muda?", ["la h", "la b", "la a"], "Repàs."],
+  ],
+  tarjetas: [
+    ["Accents", "Obert: à, è, ò. Tancat: é, í, ó, ú."],
+    ["Dígrafs", "ll, ny, rr, ss, qu, gu, ix: dues lletres, un so."],
+  ],
+  glosario: [
+    ["Vocal", "Lletra que sona sola: a, e, i, o, u."],
+    ["Consonant", "Lletra que necessita una vocal per sonar."],
+    ["Accent obert", "Ratlleta que baixa cap a la dreta: à."],
+    ["Accent tancat", "Ratlleta que puja cap a la dreta: í."],
+    ["Dígraf", "Dues lletres que fan un sol so."],
+    ["Dièresi", "Dos puntets sobre la i o la u."],
+    ["Lletra muda", "Lletra que no sona: la h."],
+    ["Embarbussament", "Frase difícil de dir de pressa."],
+    ["Pingüí", "Ocell que no vola i viu al fred."],
+    ["Veïna", "Persona que viu a prop."],
+  ],
+  situacion: {
+    titulo: "El concurs de les lletres",
+    reto: "La classe organitza un concurs amb proves de vocals, consonants, accents, dígrafs i embarbussaments.",
+    pasos: ["Preparar targetes amb paraules amb accent i dièresi.", "Fer una prova de comptar vocals i consonants.", "Buscar objectes amb dígrafs.", "Fer la final amb embarbussaments."],
+    producto: "Un concurs de lletres amb proves i puntuacions.",
+    evaluacion: ["Distingeix accent obert i tancat.", "Reconeix dígrafs.", "Compta vocals i consonants.", "Fa servir la dièresi."],
+  },
+});

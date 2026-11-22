@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FONTS,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconèixer l'article davant del nom", "Escriure noms propis de llocs amb majúscula", "Agrupar noms per famílies i categories", "Fer servir noms precisos per descriure"],
+  lectura: { titulo: "La maleta de la Clara", html: `<p>La Clara se'n va de colònies a la muntanya, a prop d'Olot. És la primera vegada que dorm fora de casa tres nits!</p><p>A la seva habitació, prepara la maleta amb la seva mare.</p><p>—A veure: <b>pijama</b>, <b>raspall</b> de dents, <b>tovallola</b>, <b>samarretes</b>, <b>pantalons</b> i <b>mitjons</b> —diu la mare.</p><p>—I la <b>llanterna</b>! —diu la Clara—. A la nit, al bosc, no hi ha <b>fanals</b>.</p><p>La Clara també hi posa una <b>llibreta</b>, uns <b>colors</b> i un <b>conte</b>.</p><p>—I en Tobi? —pregunta la Clara, mirant el seu <b>ós</b> de peluix.</p><p>La mare somriu.</p><p>—En Tobi també pot venir. Segur que t'ajuda a dormir.</p><p>L'endemà, a l'<b>autocar</b>, la Clara seu al costat del seu amic Biel. Pel camí veuen <b>prats</b>, <b>vaques</b>, <b>rius</b> i un <b>volcà</b> antic.</p><p>Quan arriben a la <b>casa de colònies</b>, la Clara obre la maleta. A dalt de tot, en Tobi la mira amb els seus ulls de botó.</p><p>—Ja som aquí, Tobi! Serà una aventura!</p>` },
+  tras: {
+    "Un truc per trobar-los": [
+      ["L'article: el company del nom", `<p>Davant del nom sovint hi ha una paraula petita: l'<mark>article</mark>. Ens ajuda a trobar els noms.</p><ul><li><b>el</b>: el gat, el llibre (masculí singular)</li><li><b>la</b>: la casa, la pilota (femení singular)</li><li><b>els</b>: els gats, els llibres (masculí plural)</li><li><b>les</b>: les cases, les pilotes (femení plural)</li><li><b>l'</b>: l'arbre, l'àvia (davant de vocal o h)</li></ul><p>També hi ha els articles <b>un</b>, <b>una</b>, <b>uns</b>, <b>unes</b>: un gos, una flor, uns nens, unes nenes.</p><p>I amb els noms de persona, en català diem <b>en</b>, <b>na</b> o <b>l'</b>: <i>en Pau</i>, <i>la Marta</i>, <i>l'Anna</i>.</p><p>Truc: si davant d'una paraula pots posar <b>el</b> o <b>la</b>, segurament és un nom.</p><p>L'article també ens diu si el nom és masculí o femení i si és singular o plural. Per exemple, a <i>les pilotes</i> l'article <b>les</b> ens avisa que són moltes i que la paraula és femenina.</p><p><b>Activitat</b>: posa l'article a aquestes paraules: arbre, finestra, ocells, mans.</p>`,
+        L6.filas("Articles", [["el", "el gat", cAZ], ["la", "la casa", cRO], ["els / les", "plural", cVE], ["l'", "l'arbre", cNA]])],
+    ],
+    "Noms propis": [
+      ["Noms propis de llocs", `<p>Els noms propis no només són de persones. També els <mark>llocs</mark> tenen nom propi, i s'escriuen amb <b>majúscula</b>:</p><ul><li><b>Pobles i ciutats</b>: Olot, Tarragona, Palma, València.</li><li><b>Països</b>: Catalunya, França, Itàlia, el Marroc.</li><li><b>Rius</b>: l'Ebre, el Llobregat, el Ter.</li><li><b>Muntanyes</b>: el Montseny, el Canigó, Montserrat.</li><li><b>Mars</b>: el Mediterrani.</li><li><b>Carrers i places</b>: carrer Major, plaça de la Vila.</li></ul><p>Fixa't: amb els rius i les muntanyes, l'article va amb minúscula i el nom amb majúscula: <i>el Montseny</i>.</p><p>També tenen nom propi els <b>llibres</b> i les <b>pel·lícules</b>: <i>La Caputxeta Vermella</i>.</p><p>Els noms dels habitants d'un lloc, en canvi, van amb minúscula: els <i>olotins</i>, les <i>tarragonines</i>, els <i>mallorquins</i>.</p><p><b>Activitat</b>: escriu el nom del teu poble, del riu més proper i d'una muntanya que coneguis.</p>`,
+        H6.rueda("Llocs", "LLOCS", [["Olot", cRO], ["l'Ebre", cAZ], ["Canigó", cVE], ["França", cNA]])],
+    ],
+    "Noms individuals i col·lectius": [
+      ["Famílies de noms", `<p>Podem <mark>agrupar</mark> els noms per categories, com si fossin calaixos:</p><ul><li><b>Fruites</b>: poma, pera, plàtan, préssec.</li><li><b>Animals</b>: gos, gat, cavall, ocell.</li><li><b>Roba</b>: samarreta, pantalons, mitjons, jaqueta.</li><li><b>Mobles</b>: taula, cadira, llit, armari.</li><li><b>Joguines</b>: pilota, nina, baldufa, trencaclosques.</li></ul><p>La paraula que les agrupa totes és un <b>nom general</b>: «fruita» agrupa poma, pera i plàtan.</p><p>Els noms generals ens ajuden a no repetir: «Al mercat he comprat pomes, peres i plàtans. Les <b>fruites</b> eren boníssimes.»</p><p>També hi ha <b>famílies de paraules</b>: paraules que s'assemblen perquè venen d'una mateixa: <i>pa</i>, <i>paner</i>, <i>panet</i>, <i>panadera</i>.</p><p><b>Activitat</b>: juga a «Digues cinc…»: digues cinc animals, cinc fruites, cinc colors.</p>`,
+        L6.filas("Grups", [["fruites", "poma, pera", cVE], ["animals", "gos, gat", cMO], ["roba", "mitjons", cAZ], ["mobles", "taula, llit", cNA]]),
+        ["NJSDfeWP9Wc", "El Pot Petit - Soc un mico", "El Pot Petit", 12062978]],
+    ],
+    "Per a què serveix?": [
+      ["El nom precís", `<p>Per explicar-nos bé, és millor fer servir el <mark>nom precís</mark> (exacte) que una paraula general com «cosa».</p><ul><li>«Dona'm aquesta <i>cosa</i>.» ✗ → «Dona'm aquesta <b>goma</b>.» ✓</li><li>«He vist un <i>ocell</i>.» → «He vist una <b>oreneta</b>.» (encara millor!)</li><li>«M'he menjat una <i>fruita</i>.» → «M'he menjat una <b>maduixa</b>.»</li><li>«Al bosc hi ha <i>arbres</i>.» → «Al bosc hi ha <b>pins</b> i <b>alzines</b>.»</li></ul><p>Els escriptors trien molt bé els noms. Així el lector s'imagina exactament el que passa.</p><p>Si no saps el nom d'una cosa, pots preguntar: «Com es diu això?» o buscar-ho al diccionari.</p><p>Com més noms coneixem, millor podem explicar el que veiem, el que sentim i el que imaginem. Llegir molts contes és la millor manera d'aprendre noms nous!</p><p><b>Activitat</b>: canvia «cosa» per un nom precís a cinc frases.</p>`,
+        H6.flujo("Precís", ["cosa|goma", "ocell|oreneta", "fruita|maduixa", "arbre|pi"], cAZ)],
+    ],
+  },
+  final: [
+    ["Paraules compostes", `<p>Algunes paraules es fan <mark>ajuntant dues paraules</mark>. Són les paraules compostes:</p><ul><li><b>para</b> + <b>sol</b> = parasol</li><li><b>para</b> + <b>caigudes</b> = paracaigudes</li><li><b>gira</b> + <b>sol</b> = gira-sol</li><li><b>escura</b> + <b>dents</b> = escuradents</li><li><b>trenca</b> + <b>closques</b> = trencaclosques</li><li><b>guarda</b> + <b>roba</b> = guarda-roba</li><li><b>rentar</b> + <b>plats</b> = rentaplats</li></ul><p>Algunes s'escriuen juntes i altres amb un guionet (-). Si dubtes, mira el diccionari!</p><p>Les paraules compostes són noms, i porten article: <i>el</i> paraigua, <i>el</i> trencaclosques.</p><p>Podem inventar-ne de divertides: un «menjagaletes», un «saltabasses»…</p><p><b>Activitat</b>: inventa tres paraules compostes i explica què serien.</p>`,
+      H6.dos("Compostes", ["PARAULA 1", ["para", "trenca", "renta"], cNA], ["PARAULA 2", ["sol", "closques", "plats"], cAZ])],
+    ["Repàs: la maleta de la Clara", `<p>Repassem amb la <mark>lectura</mark>:</p><ul><li>Noms propis de persona: <b>Clara</b>, <b>Biel</b>, <b>Tobi</b>.</li><li>Nom propi de lloc: <b>Olot</b>.</li><li>Noms comuns de roba: <b>samarretes</b>, <b>pantalons</b>, <b>mitjons</b>, pijama.</li><li>Altres objectes: <b>raspall</b>, <b>tovallola</b>, <b>llanterna</b>, <b>llibreta</b>.</li><li>Paisatge: <b>prats</b>, <b>rius</b>, <b>volcà</b>, bosc.</li><li>Davant dels noms de persona diem <b>la</b> Clara, <b>en</b> Biel, <b>en</b> Tobi.</li></ul><p>A la zona d'Olot hi ha molts volcans antics, que ja no treuen foc. És la Garrotxa!</p><p><b>Activitat</b>: fes la llista del que posaries a la maleta per anar de colònies.</p>`,
+      L6.filas("Maleta", [["persones", "Clara, Biel", cRO], ["lloc", "Olot", cNA], ["roba", "mitjons", cAZ], ["paisatge", "volcà", cVE]])],
+  ],
+  ejemplos: [
+    ["Posa l'article: arbre.", ["Comença per vocal."], "L'arbre."],
+    ["Quin nom general agrupa poma, pera i plàtan?", ["Totes es mengen i surten dels arbres."], "Fruites."],
+  ],
+  errores: ["Escriure els noms de pobles o rius amb minúscula: «olot», «l'ebre».", "Fer servir «cosa» en lloc del nom precís."],
+  ejercicios: [
+    ["b", "Posa l'article: casa.", "La casa."],
+    ["b", "Escriu bé: el riu ter.", "El riu Ter."],
+    ["b", "Digues tres animals.", "Gos, gat, cavall…"],
+    ["b", "Quina paraula fan «para» + «sol»?", "Parasol."],
+    ["b", "Davant de Pau diem…", "En Pau."],
+    ["m", "Posa l'article: àvia, ocells, finestres.", "L'àvia, els ocells, les finestres."],
+    ["m", "Quin nom general agrupa taula, cadira, llit?", "Mobles."],
+    ["m", "Canvia «cosa»: «Dona'm la cosa per escriure.»", "Dona'm el llapis."],
+    ["m", "Digues dos noms de muntanyes.", "Montseny, Canigó…"],
+    ["m", "Fes la paraula composta: trenca + closques.", "Trencaclosques."],
+    ["a", "A la lectura, com es diu l'ós de peluix?", "Tobi."],
+    ["a", "Copia tres noms de roba de la lectura.", "Samarretes, pantalons, mitjons."],
+    ["a", "Per què la Clara vol la llanterna?", "Perquè al bosc no hi ha fanals."],
+    ["a", "Inventa una paraula composta i explica-la.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["Davant d'«arbre» diem…", ["l'", "la", "el"], "Article."],
+    ["S'escriu amb majúscula…", ["el Montseny", "la muntanya", "el riu"], "Llocs."],
+    ["Agrupa poma i pera:", ["fruites", "roba", "mobles"], "Grups."],
+    ["Més precís que «ocell»:", ["oreneta", "animal", "cosa"], "Precís."],
+    ["Paraula composta:", ["rentaplats", "plats", "rentar"], "Compostes."],
+  ],
+  examen: [
+    ["A la lectura, a prop de quin poble van de colònies?", ["Olot", "Lleida", "Reus"], "Lectura."],
+    ["Al costat de qui seu la Clara a l'autocar?", ["en Biel", "en Tobi", "la mare"], "Repàs."],
+  ],
+  tarjetas: [
+    ["Articles", "el, la, els, les, l'; un, una; en Pau, la Marta."],
+    ["Llocs", "Olot, l'Ebre, el Montseny: majúscula."],
+  ],
+  glosario: [
+    ["Article", "Paraula petita que va davant del nom."],
+    ["Nom propi", "Nom d'una persona, un lloc o un animal concret."],
+    ["Nom general", "Nom que agrupa altres noms."],
+    ["Família de paraules", "Paraules que venen d'una mateixa."],
+    ["Precís", "Exacte."],
+    ["Paraula composta", "Paraula feta amb dues paraules."],
+    ["Colònies", "Estada de diversos dies fora de casa amb l'escola."],
+    ["Llanterna", "Llum petit que es porta a la mà."],
+    ["Volcà", "Muntanya per on pot sortir foc de la terra."],
+    ["Tovallola", "Roba per eixugar-se."],
+  ],
+  situacion: {
+    titulo: "Preparem les colònies",
+    reto: "La classe prepara un viatge imaginari i fa la llista de la maleta, el mapa amb els llocs i un diari.",
+    pasos: ["Triar on anem i buscar el nom de pobles, rius i muntanyes.", "Fer la llista de la maleta agrupada per categories.", "Fer servir noms precisos i articles correctes.", "Escriure una pàgina de diari del primer dia."],
+    producto: "Una llista de maleta, un mapa i una pàgina de diari.",
+    evaluacion: ["Fa servir bé els articles.", "Escriu noms propis de llocs amb majúscula.", "Agrupa noms per categories.", "Tria noms precisos."],
+  },
+});

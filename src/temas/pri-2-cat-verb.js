@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FONTS,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Fer servir verbs de moviment i d'esport", "Reconèixer les tres famílies de verbs: -ar, -er/-re, -ir", "Distingir el passat, el present i el futur", "Escriure instruccions amb verbs"],
+  lectura: { titulo: "La recepta del pa amb tomàquet", html: `<p>Diumenge al matí, l'avi Josep i la Mireia preparen l'esmorzar.</p><p>—Avui farem pa amb tomàquet —diu l'avi—. És el més bo del món!</p><p>Primer, la Mireia <b>renta</b> els tomàquets sota l'aixeta. L'avi <b>talla</b> el pa a llesques i les <b>torra</b> una mica.</p><p>Després, la Mireia <b>parteix</b> un tomàquet per la meitat i el <b>refrega</b> damunt del pa. El pa es <b>torna</b> vermell i sucós.</p><p>—Ara, un raig d'oli —diu l'avi. La Mireia <b>tira</b> l'oli amb compte.</p><p>—I una mica de sal! —La Mireia l'<b>escampa</b> amb els dits.</p><p>Tota la família <b>seu</b> a taula. La mare <b>tasta</b> el pa i <b>somriu</b>.</p><p>—Mmm! Boníssim!</p><p>—L'ha fet la Mireia —diu l'avi, orgullós.</p><p>—Demà en <b>farem</b> més? —pregunta la Mireia.</p><p>—Demà farem truita de patates! —respon l'avi.</p>` },
+  tras: {
+    "Verbs de cada dia": [
+      ["Verbs de moviment i d'esport", `<p>Molts verbs expliquen com ens <mark>movem</mark>:</p><ul><li><b>caminar</b>, <b>córrer</b>, <b>saltar</b>, <b>ballar</b></li><li><b>nedar</b>, <b>pujar</b>, <b>baixar</b>, <b>girar</b></li><li><b>enfilar-se</b>, <b>ajupir-se</b>, <b>rodolar</b>, <b>lliscar</b></li></ul><p>I altres verbs són d'<mark>esport</mark>:</p><ul><li><b>xutar</b> la pilota, <b>marcar</b> un gol</li><li><b>llançar</b>, <b>atrapar</b>, <b>botar</b></li><li><b>pedalar</b> amb la bicicleta</li><li><b>patinar</b>, <b>esquiar</b></li></ul><p>Amb aquests verbs podem explicar un partit: «En Joan <b>corre</b>, <b>bota</b> la pilota, la <b>llança</b>… i <b>marca</b>!»</p><p>Fixa't que alguns verbs porten <b>-se</b>: enfilar-se, ajupir-se, banyar-se. Vol dir que l'acció la fem a nosaltres mateixos.</p><p>El verb és la paraula més important de la frase, perquè ens explica què passa. Sense verb, la frase queda coixa: «En Joan… la pilota.» Què fa en Joan? La xuta? L'atrapa? La llança?</p><p><b>Activitat</b>: jugueu a «Simon diu»: «Simon diu: salteu! Simon diu: gireu!».</p>`,
+        H6.dos("Verbs", ["MOVIMENT", ["córrer", "saltar", "nedar"], cAZ], ["ESPORT", ["xutar", "llançar", "patinar"], cVE])],
+    ],
+    "El nom del verb": [
+      ["Tres famílies de verbs", `<p>El nom del verb (l'<mark>infinitiu</mark>) pot acabar de maneres diferents. Així fem tres famílies:</p><ul><li><b>1a família: -ar</b>. cantar, saltar, jugar, ballar, mirar. És la més gran!</li><li><b>2a família: -er o -re</b>. córrer, conèixer, beure, viure, escriure, fer.</li><li><b>3a família: -ir</b>. dormir, sortir, obrir, llegir, servir.</li></ul><p>Per saber de quina família és un verb, el posem en infinitiu i mirem com acaba:</p><ul><li>«ell <i>canta</i>» → can<b>tar</b> → 1a família.</li><li>«ella <i>beu</i>» → beu<b>re</b> → 2a família.</li><li>«ells <i>dormen</i>» → dor<b>mir</b> → 3a família.</li></ul><p>Al diccionari els verbs apareixen sempre en infinitiu.</p><p>Alguns verbs molt importants són una mica especials i canvien molt: <i>ser</i> (jo soc, tu ets, ell és), <i>anar</i> (jo vaig, tu vas) i <i>fer</i> (jo faig, tu fas). Els aprendrem a poc a poc!</p><p><b>Activitat</b>: fes tres caixes (-ar, -er/-re, -ir) i classifica deu verbs.</p>`,
+        L6.filas("Famílies", [["1a", "-ar: cantar", cAZ], ["2a", "-er / -re: beure", cRO], ["3a", "-ir: dormir", cVE], ["diccionari", "infinitiu", cNA]])],
+    ],
+    "Ahir, avui i demà": [
+      ["Passat, present i futur", `<p>El verb ens diu <mark>quan</mark> passa l'acció:</p><ul><li><b>Passat</b> (ja ha passat): «Ahir <b>vaig jugar</b> al parc.» «La setmana passada <b>vam anar</b> d'excursió.»</li><li><b>Present</b> (passa ara): «Avui <b>jugo</b> al parc.» «Ara <b>llegeixo</b> un conte.»</li><li><b>Futur</b> (passarà): «Demà <b>jugaré</b> al parc.» «L'estiu que ve <b>anirem</b> a la platja.»</li></ul><p>Les paraules <b>ahir</b>, <b>avui</b>, <b>demà</b>, <b>ara</b>, <b>abans</b> i <b>després</b> ens ajuden a saber el temps.</p><p>En català, molt sovint el passat es fa amb <b>vaig</b>, <b>vas</b>, <b>va</b>, <b>vam</b>, <b>vau</b>, <b>van</b> + infinitiu: <i>vaig menjar</i>, <i>va ploure</i>, <i>van cantar</i>.</p><p>Quan expliquem una història, normalment fem servir el passat: «Un dia, la princesa <b>va sortir</b> del castell i <b>va trobar</b> un drac.»</p><p><b>Activitat</b>: explica una cosa que vas fer ahir, una que fas avui i una que faràs demà.</p>`,
+        H6.flujo("Temps", ["ahir|vaig jugar", "avui|jugo", "demà|jugaré", "vaig|+ infinitiu"], cMO),
+        ["4atoVE3t-yo", "Dàmaris Gelabert - Els dies de la setmana", "Dàmaris Gelabert", 231533629]],
+    ],
+    "Per a què serveix?": [
+      ["Verbs per donar instruccions", `<p>Les <mark>receptes</mark>, les instruccions dels jocs o les normes de classe fan servir molts verbs que diuen què hem de fer:</p><ul><li><b>Renta</b> les mans.</li><li><b>Talla</b> el pa.</li><li><b>Barreja</b> la farina i els ous.</li><li><b>Posa</b> la massa al forn.</li><li><b>Espera</b> deu minuts.</li></ul><p>Per fer unes bones instruccions:</p><ul><li>Escrivim els passos <b>en ordre</b>: primer, després, finalment.</li><li>Comencem cada pas amb un <b>verb</b>.</li><li>Fem frases <b>curtes</b> i clares.</li><li>Posem números o dibuixos.</li></ul><p>Altres verbs de cuina: <b>bullir</b>, <b>fregir</b>, <b>pelar</b>, <b>remenar</b>, <b>tastar</b>, <b>untar</b>.</p><p>Les instruccions també es fan servir per muntar joguines, plantar llavors o jugar a un joc de taula. Si estan ben escrites, tothom les pot seguir!</p><p><b>Activitat</b>: escriu les instruccions per rentar-se les dents en cinc passos.</p>`,
+        H6.rueda("Cuina", "RECEPTA", [["rentar", cAZ], ["tallar", cRO], ["barrejar", cNA], ["tastar", cVE]])],
+    ],
+  },
+  final: [
+    ["Verbs que s'assemblen", `<p>Hi ha verbs que volen dir gairebé el <mark>mateix</mark>. Són sinònims:</p><ul><li><b>parlar</b>, <b>dir</b>, <b>explicar</b>, <b>xerrar</b></li><li><b>mirar</b>, <b>veure</b>, <b>observar</b></li><li><b>caminar</b>, <b>passejar</b>, <b>anar</b></li><li><b>començar</b>, <b>iniciar</b></li></ul><p>I verbs que volen dir el <mark>contrari</mark>:</p><ul><li><b>obrir</b> ↔ <b>tancar</b></li><li><b>pujar</b> ↔ <b>baixar</b></li><li><b>entrar</b> ↔ <b>sortir</b></li><li><b>riure</b> ↔ <b>plorar</b></li><li><b>donar</b> ↔ <b>rebre</b></li><li><b>encendre</b> ↔ <b>apagar</b></li></ul><p>Quan escrivim, canviar un verb per un sinònim ens ajuda a no repetir: «La Mireia <i>diu</i>… L'avi <i>explica</i>… La mare <i>pregunta</i>…»</p><p><b>Activitat</b>: juga amb un company: tu fas un verb amb mímica i ell fa el contrari.</p>`,
+      L6.filas("Contraris", [["obrir", "tancar", cAZ], ["pujar", "baixar", cVE], ["entrar", "sortir", cNA], ["riure", "plorar", cRO]])],
+    ["Repàs: la recepta del pa amb tomàquet", `<p>Repassem amb la <mark>lectura</mark>:</p><ul><li>Verbs de cuina: <b>rentar</b>, <b>tallar</b>, <b>torrar</b>, <b>partir</b>, <b>refregar</b>, <b>tirar</b>, <b>escampar</b>, <b>tastar</b>.</li><li>1a família (-ar): rentar, tallar, torrar, tastar.</li><li>2a família (-re): somriure. 3a família (-ir): partir.</li><li>Present: «la Mireia <b>renta</b>», «l'avi <b>talla</b>».</li><li>Futur: «Demà en <b>farem</b> més?», «Demà <b>farem</b> truita».</li></ul><p>El pa amb tomàquet és un plat típic de la cuina catalana. Només cal pa, tomàquet, oli i sal!</p><p><b>Activitat</b>: escriu la recepta del pa amb tomàquet en cinc passos, començant cada pas amb un verb.</p>`,
+      H6.flujo("Recepta", ["torra|el pa", "refrega|tomàquet", "tira|oli", "escampa|sal"], cRO)],
+  ],
+  ejemplos: [
+    ["De quina família és «escriure»?", ["Acaba en -re."], "De la 2a família."],
+    ["Posa en passat: «Avui jugo a pilota».", ["Ahir + vaig + infinitiu."], "Ahir vaig jugar a pilota."],
+  ],
+  errores: ["Confondre l'infinitiu amb la forma conjugada: buscar «canto» al diccionari.", "Barrejar temps: «Ahir jugaré»."],
+  ejercicios: [
+    ["b", "Digues tres verbs de moviment.", "Córrer, saltar, nedar."],
+    ["b", "Infinitiu de «canta».", "Cantar."],
+    ["b", "Contrari d'«obrir».", "Tancar."],
+    ["b", "«Demà aniré a la platja» és passat, present o futur?", "Futur."],
+    ["b", "Digues un verb de cuina.", "Tallar, rentar, bullir…"],
+    ["m", "Classifica: dormir, ballar, beure.", "Ballar 1a, beure 2a, dormir 3a."],
+    ["m", "Posa en futur: «Avui llegeixo».", "Demà llegiré."],
+    ["m", "Posa en passat: «Avui menjo poma».", "Ahir vaig menjar poma."],
+    ["m", "Digues un sinònim de «mirar».", "Veure, observar."],
+    ["m", "Ordena: posa al forn, barreja, espera.", "Barreja, posa al forn, espera."],
+    ["a", "A la lectura, què fa la Mireia amb el tomàquet?", "El parteix i el refrega damunt del pa."],
+    ["a", "Copia una frase en futur de la lectura.", "Demà farem truita de patates."],
+    ["a", "Escriu les instruccions per fer un entrepà.", "Resposta oberta."],
+    ["a", "Explica un partit amb cinc verbs d'esport.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["És un verb d'esport…", ["xutar", "dormir", "llegir"], "Esport."],
+    ["«Llegir» és de la…", ["3a família", "1a família", "2a família"], "Famílies."],
+    ["«Vaig jugar» és…", ["passat", "present", "futur"], "Temps."],
+    ["Les receptes comencen amb un…", ["verb", "nom propi", "article"], "Instruccions."],
+    ["Contrari de «pujar»:", ["baixar", "córrer", "saltar"], "Contraris."],
+  ],
+  examen: [
+    ["A la lectura, què preparen?", ["pa amb tomàquet", "truita", "pastís"], "Lectura."],
+    ["Què faran demà?", ["truita de patates", "pa amb tomàquet", "amanida"], "Repàs."],
+  ],
+  tarjetas: [
+    ["Famílies", "-ar (cantar), -er/-re (córrer, beure), -ir (dormir)."],
+    ["Temps", "Ahir vaig jugar; avui jugo; demà jugaré."],
+  ],
+  glosario: [
+    ["Infinitiu", "Nom del verb: cantar, beure, dormir."],
+    ["Família de verbs", "Grup de verbs que acaben igual."],
+    ["Passat", "El que ja ha passat."],
+    ["Present", "El que passa ara."],
+    ["Futur", "El que passarà."],
+    ["Instruccions", "Passos per fer una cosa."],
+    ["Recepta", "Instruccions per cuinar un plat."],
+    ["Refregar", "Fregar una cosa contra una altra."],
+    ["Xutar", "Donar un cop de peu a la pilota."],
+    ["Sinònim", "Paraula que vol dir el mateix."],
+  ],
+  situacion: {
+    titulo: "El nostre receptari",
+    reto: "La classe fa un receptari amb receptes senzilles de les famílies, escrites com a instruccions amb verbs.",
+    pasos: ["Demanar a casa una recepta fàcil.", "Escriure els ingredients i els passos en ordre.", "Començar cada pas amb un verb i revisar el temps.", "Il·lustrar les receptes i fer-ne un llibre."],
+    producto: "Un receptari de la classe.",
+    evaluacion: ["Fa servir verbs de moviment i cuina.", "Classifica verbs per famílies.", "Distingeix passat, present i futur.", "Escriu instruccions clares."],
+  },
+});
