@@ -23,7 +23,8 @@ module.exports = P.tema({
       L.filas("Figuras de sonido", [["Aliteración", "Rápido rueda el río…", AZ], ["Onomatopeya", "tictac, guau, zas", RO]])],
     ["Figuras de repetición y de contraste", `<p>Otras figuras se basan en <mark>repetir</mark> o <mark>oponer</mark> palabras e ideas:</p><ul><li>La <b>anáfora</b> repite una o varias palabras al principio de varios versos u oraciones. «<b>Verde</b> el campo, / <b>verde</b> el árbol, / <b>verde</b> la hierba del prado».</li><li>La <b>antítesis</b> une dos palabras o ideas <b>opuestas</b>. «Es tan corto el recreo y tan largo el examen». «Unos ríen y otros lloran».</li><li>El <b>epíteto</b> es un adjetivo que expresa una cualidad que ya tiene el sustantivo, para resaltarla: «la <b>blanca</b> nieve», «la <b>verde</b> hierba», «el <b>frío</b> hielo».</li></ul>`,
       P.versos("Anáfora", [["Verde el campo,", 4, "", VE], ["verde el árbol,", 4, "", VE], ["verde la hierba del prado.", 8, "", VE]], "se repite «verde» al principio")],
-    ["Cómo reconocer las figuras", `<p>Para encontrar figuras en un texto, sigue estas pistas:</p>${P.tb(["Si ves…", "Probablemente es…"], [["«como», «parece», «igual que»", "comparación"], ["una cosa llamada con el nombre de otra", "metáfora"], ["animales u objetos que hacen cosas de personas", "personificación"], ["números enormes o exageraciones", "hipérbole"], ["un sonido que se repite", "aliteración"], ["una palabra que imita un ruido", "onomatopeya"], ["la misma palabra al principio de cada verso", "anáfora"], ["ideas contrarias juntas", "antítesis"]])}<p>Un mismo verso puede tener varias figuras a la vez. «El sol, como un niño, jugaba con las nubes» tiene una comparación y una personificación.</p>`],
+    ["Cómo reconocer las figuras", `<p>Para encontrar figuras en un texto, sigue estas pistas:</p>${P.tb(["Si ves…", "Probablemente es…"], [["«como», «parece», «igual que»", "comparación"], ["una cosa llamada con el nombre de otra", "metáfora"], ["animales u objetos que hacen cosas de personas", "personificación"], ["números enormes o exageraciones", "hipérbole"], ["un sonido que se repite", "aliteración"], ["una palabra que imita un ruido", "onomatopeya"], ["la misma palabra al principio de cada verso", "anáfora"], ["ideas contrarias juntas", "antítesis"]])}<p>Un mismo verso puede tener varias figuras a la vez. «El sol, como un niño, jugaba con las nubes» tiene una comparación y una personificación.</p>`,
+      H.flujo("Detectar figuras", ["leer|despacio", "¿como?|comparación", "¿es?|metáfora", "¿exagera?|hipérbole"], AZ)],
     ["Escribir con figuras", `<p>Las figuras no son solo para analizarlas: también puedes usarlas para que tus redacciones sean más <mark>originales</mark>. Prueba esto:</p><ol><li>Elige algo que quieras describir: el mar, tu gato, una tormenta.</li><li>Piensa a qué se parece: el mar es azul y se mueve… <i>como una sábana gigante que alguien sacude</i> (comparación).</li><li>Conviértelo en metáfora: <i>la sábana azul del mar</i>.</li><li>Dale vida: <i>el mar ronca por la noche</i> (personificación).</li><li>Añade sonido: <i>las olas, shhh, shhh, borran la arena</i> (onomatopeya).</li></ol><p>Eso sí: no abuses. Dos o tres figuras bien elegidas valen más que veinte seguidas.</p>`,
       H.flujo("Escribir con figuras", ["elige|algo", "compara", "metáfora", "dale vida", "sonido"], VE)],
   ],
@@ -86,4 +87,92 @@ module.exports = P.tema({
   familias: ["Cazad hipérboles en las conversaciones de casa durante un día.", "Escuchad una canción que os guste y buscad comparaciones y metáforas en la letra.", "Inventad trabalenguas (aliteraciones) con el nombre de cada miembro de la familia."],
   saberes: "Educación literaria: recursos literarios (comparación, metáfora, personificación, hipérbole, aliteración, onomatopeya, anáfora, antítesis, epíteto); sentido literal y figurado; creación de textos con intención literaria",
   ideas: ["Cazadores de figuras en letras de canciones y anuncios.", "Libro de metáforas de la clase: cada alumno aporta una imagen sobre un mismo objeto.", "Cómic con onomatopeyas inventadas."],
+});
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Descubrir las metáforas que usamos sin darnos cuenta", "Reconocer la ironía, la enumeración, la pregunta retórica y el hipérbaton", "Conocer y crear greguerías", "Analizar las figuras en los anuncios y las canciones"],
+  lectura: { titulo: "El señor de las greguerías", html: `<p>En el Madrid de principios del siglo XX, había un escritor que se pasaba el día mirando las cosas de una manera diferente. Donde los demás veían un tornillo, él veía <i>un clavo peinado con raya en medio</i>. Donde todos veían un arcoíris, él veía <i>la cinta que se pone la naturaleza después de haberse lavado la cabeza</i>.</p><p>Se llamaba <b>Ramón Gómez de la Serna</b> y a esas frases las llamó <b>greguerías</b>. Escribió miles. Las apuntaba en papelitos, en servilletas, en los márgenes de los periódicos.</p><p>Ramón era un personaje muy curioso. Reunía a escritores y artistas cada sábado por la noche en un café de Madrid, el Café de Pombo, donde se hablaba de arte durante horas. Una vez dio una conferencia subido a un trapecio de circo, y otra, montado en un elefante.</p><p>Él decía que la greguería era la suma de <b>metáfora</b> y <b>humor</b>. Parece fácil, pero no lo es: hay que mirar el mundo como si fuera la primera vez y encontrar parecidos que nadie había visto antes. ¿Te atreves a probar?</p>` },
+  tras: {
+    "La metáfora": [
+      ["Metáforas de todos los días", `<p>Aunque parezca que las metáforas son cosa de poetas, las usamos constantemente sin darnos cuenta. Muchas palabras nacieron como metáforas y, de tanto usarlas, ya no las notamos. Se llaman <b>metáforas lexicalizadas</b> o metáforas muertas:</p><ul><li>La <b>pata</b> de la mesa, el <b>brazo</b> del sillón, la <b>boca</b> del metro, el <b>ojo</b> de la aguja, el <b>diente</b> de ajo, la <b>cabeza</b> de ajos, el <b>cuello</b> de la botella.</li><li>El <b>ratón</b> del ordenador, que se llamó así por su forma y su cable, que parecía una cola.</li><li>Una <b>lluvia</b> de goles, una <b>montaña</b> de deberes, un <b>mar</b> de dudas.</li></ul><p>También están en muchas <b>frases hechas</b>:</p><ul><li><i>Estar en las nubes</i>: estar distraído.</li><li><i>Tener un corazón de oro</i>: ser muy bueno.</li><li><i>Ser un lince</i>: ser muy listo y observador.</li><li><i>Ser la oveja negra</i>: ser distinto al resto de un grupo, normalmente para mal.</li><li><i>Comerse el coco</i>: pensar demasiado en algo.</li></ul><p>Estas expresiones son difíciles para quien aprende español, porque no se pueden traducir palabra por palabra. Cada lengua tiene las suyas: en inglés, por ejemplo, cuando llueve mucho se dice que llueven gatos y perros.</p>`,
+        L6.filas("Metáforas escondidas", [["pata", "de la mesa", cAZ], ["ojo", "de la aguja", cVE], ["ratón", "del ordenador", cNA], ["en las nubes", "distraído", cMO]])],
+    ],
+    "La hipérbole": [
+      ["La ironía", `<p>La <b>ironía</b> consiste en decir lo <b>contrario</b> de lo que se piensa, pero de manera que el oyente entienda el sentido verdadero. Por ejemplo:</p><ul><li>Está diluviando y alguien dice: <i>¡Qué día tan bonito para ir a la playa!</i></li><li>Tu hermano rompe un vaso y le dices: <i>Muy bien, campeón.</i></li><li>Llegas tardísimo y tu amiga te dice: <i>¡Qué puntual!</i></li></ul><p>Para entender la ironía hace falta conocer el <b>contexto</b>. En una conversación, el <b>tono de voz</b> y la cara de quien habla nos ayudan mucho. Por escrito es más difícil: en un mensaje de chat, una frase irónica puede malinterpretarse y parecer un insulto o un halago de verdad. Por eso a veces se añaden emojis o signos para aclararlo.</p><p>Los escritores usan la ironía para hacer humor o para criticar algo de forma inteligente. Cervantes la utiliza continuamente en el <i>Quijote</i>: por ejemplo, cuando llama a don Quijote «el valeroso caballero» justo en el momento en que acaba de recibir una paliza.</p><p>Cuidado: la ironía puede ser divertida, pero también puede hacer daño si se usa para burlarse de alguien. Cuando no sabemos si la otra persona la va a entender, mejor decir las cosas claras.</p>`,
+        H6.dos("La ironía", ["Dice", ["«¡Qué puntual!»", "«Muy bien»", "«Qué bonito día»"], cAZ], ["Quiere decir", ["llegas tarde", "lo has roto", "llueve mucho"], cRO])],
+    ],
+    "Figuras de repetición y de contraste": [
+      ["Enumeración, pregunta retórica e hipérbaton", `<p>Hay tres figuras más que encontrarás a menudo en poemas, discursos y anuncios:</p><ul><li>La <b>enumeración</b> consiste en acumular una serie de elementos, uno detrás de otro, para dar sensación de abundancia o de movimiento: <i>En el mercado había melones, sandías, cerezas, ciruelas, nísperos, fresas y un olor a verano que mareaba.</i></li><li>La <b>pregunta retórica</b> es una pregunta que no espera respuesta, porque la respuesta es evidente o porque sirve para hacer pensar: <i>¿Hasta cuándo vamos a seguir tirando plástico al mar?</i> El que la hace no quiere una fecha: quiere que reflexionemos.</li><li>El <b>hipérbaton</b> cambia el orden habitual de las palabras de la oración para destacar una idea o para conseguir la rima y el ritmo: <i>Del bosque en lo más hondo, cantaba un ruiseñor</i>, en lugar de <i>Un ruiseñor cantaba en lo más hondo del bosque</i>. El maestro Yoda de las películas de <i>La guerra de las galaxias</i> es famoso por hablar con hipérbatos: <i>Mucho que aprender te queda.</i></li></ul><p>Para reconocer un hipérbaton, intenta decir la frase en el orden normal: sujeto, verbo y complementos. Si suena muy distinto, hay hipérbaton.</p>`,
+        L6.filas("Tres figuras más", [["Enumeración", "melones, sandías…", cVE], ["Pregunta retórica", "¿hasta cuándo…?", cNA], ["Hipérbaton", "orden cambiado", cMO], ["Truco", "ordénala: S + V + C", cAZ]])],
+    ],
+  },
+  final: [
+    ["Las greguerías", `<p>Una <b>greguería</b> es una frase breve e ingeniosa que muestra una cosa de la vida diaria de una manera sorprendente. La inventó el escritor madrileño <b>Ramón Gómez de la Serna</b> (1888-1963), que la definió así: <b>greguería = metáfora + humor</b>.</p><p>Algunas de sus greguerías más conocidas son:</p><ul><li><i>El arcoíris es la cinta que se pone la naturaleza después de haberse lavado la cabeza.</i></li><li><i>El tornillo es un clavo peinado con raya en medio.</i></li></ul><p>¿Ves el truco? Se elige un objeto corriente, se observa con atención su forma, su color, su sonido o su movimiento, y se busca otra cosa con la que se parezca de forma inesperada. El tornillo tiene una ranura en la cabeza... ¡como una raya en el pelo!</p><p>Para escribir tus propias greguerías:</p><ul><li>Elige un objeto del aula o de casa: una goma, un grifo, una escalera, unas gafas.</li><li>Fíjate en su forma o en lo que hace.</li><li>Pregúntate: ¿a qué se parece?, ¿qué haría si estuviera vivo?</li><li>Escribe una frase breve y con gracia. Por ejemplo: <i>La goma de borrar se va adelgazando de tanto corregir los errores de los demás.</i></li></ul>`,
+      H6.flujo("Crear una greguería", ["objeto|corriente", "observar|forma", "parecido|inesperado", "frase|con humor"], cNA), ["8zq7JpbNhXo", "Greguerías - Ramón Gómez de la Serna - Microcuentos - Con subtítulos", "Cuentacuentos Beatriz Montero", 156311]],
+    ["Figuras que venden y que se cantan", `<p>Las figuras literarias no solo están en los libros. Los <b>publicistas</b> las usan para que sus anuncios se recuerden, y los <b>compositores</b>, para que sus canciones emocionen.</p><p>En la <b>publicidad</b> encontramos:</p><ul><li><b>Hipérboles</b>: un detergente que deja la ropa «más blanca que la nieve», una pizza «infinitamente sabrosa».</li><li><b>Personificaciones</b>: frutas que bailan, coches que «sienten la carretera».</li><li><b>Rimas y aliteraciones</b> en los eslóganes, para que se peguen al oído.</li><li><b>Preguntas retóricas</b>: «¿Todavía no lo has probado?».</li><li><b>Metáforas</b>: una bebida que es «pura energía».</li></ul><p>Conocer estas figuras te ayuda a ser un consumidor más crítico: el anuncio no describe el producto, intenta <b>convencerte</b> y emocionarte.</p><p>En las <b>canciones</b>, las figuras expresan sentimientos: metáforas para hablar del amor o la tristeza, anáforas en los estribillos que se repiten, hipérboles como «te esperaré toda la vida», o comparaciones como «eres como el sol de la mañana». Busca las figuras en la letra de tu canción favorita: te sorprenderá cuántas tiene.</p>`,
+      H6.dos("Figuras en la vida", ["Anuncios", ["hipérbole", "rima", "pregunta retórica"], cRO], ["Canciones", ["metáfora", "anáfora", "comparación"], cVE]), ["ayYgqmqJIuI", "Figuras Literarias en Canciones | Lengua y Literatura", "Victoria Jacho", 248447]],
+  ],
+  ejemplos: [
+    ["Ordena y di qué figura hay: «Verdes son las hojas del limonero».", ["Orden normal: Las hojas del limonero son verdes.", "Se ha cambiado el orden para destacar «verdes»."], "Hipérbaton."],
+    ["¿Qué figura hay en «¿Acaso no merecemos un mundo más limpio?»?", ["Es una pregunta.", "No espera respuesta: la respuesta es evidente."], "Pregunta retórica."],
+  ],
+  errores: ["Tomar al pie de la letra una frase irónica.", "Confundir la enumeración con la anáfora: la anáfora repite palabras al principio; la enumeración acumula elementos distintos."],
+  ejercicios: [
+    ["b", "¿Qué es una greguería según su inventor?", "Metáfora más humor."],
+    ["b", "Escribe tres metáforas lexicalizadas.", "Pata de la mesa, ojo de la aguja, ratón del ordenador."],
+    ["b", "¿Qué hace la ironía?", "Dice lo contrario de lo que se piensa para que se entienda el sentido verdadero."],
+    ["b", "¿Qué significa «estar en las nubes»?", "Estar distraído."],
+    ["b", "¿Quién inventó las greguerías?", "Ramón Gómez de la Serna."],
+    ["m", "Identifica la figura: «Compró pan, leche, huevos, fruta, queso y un ramo de flores».", "Enumeración."],
+    ["m", "Pon en orden normal: «Mucho que aprender te queda».", "Te queda mucho que aprender."],
+    ["m", "¿Por qué la ironía es difícil en un chat?", "Porque no hay tono de voz ni gestos que ayuden a entenderla."],
+    ["m", "Explica la greguería del tornillo.", "La ranura del tornillo parece la raya del peinado."],
+    ["m", "Busca una hipérbole en un anuncio inventado.", "Por ejemplo: «Las zapatillas más rápidas del universo»."],
+    ["a", "Escribe dos greguerías sobre objetos de tu clase.", "Respuesta abierta."],
+    ["a", "Inventa un eslogan con rima y una pregunta retórica para un producto.", "Respuesta abierta."],
+    ["a", "Explica por qué conviene conocer las figuras de la publicidad.", "Para darnos cuenta de que intentan convencernos y emocionarnos, y ser consumidores críticos."],
+    ["a", "Busca tres figuras en la letra de una canción y explícalas.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«La boca del metro» es una…", ["metáfora lexicalizada", "hipérbole", "ironía"], "Metáforas."],
+    ["Decir «¡Qué puntual!» a alguien que llega tarde es…", ["ironía", "enumeración", "comparación"], "Ironía."],
+    ["El hipérbaton cambia…", ["el orden de las palabras", "el significado", "las letras"], "Hipérbaton."],
+    ["Una pregunta retórica…", ["no espera respuesta", "pide un dato", "siempre es un examen"], "Pregunta retórica."],
+    ["Ramón Gómez de la Serna reunía a artistas en el café…", ["de Pombo", "Gijón", "Central"], "Greguerías."],
+  ],
+  examen: [
+    ["Para Ramón, el arcoíris era…", ["la cinta de la naturaleza", "un puente de colores", "una sonrisa del cielo"], "Lectura."],
+    ["«Más blanca que la nieve» en un anuncio es una…", ["hipérbole", "anáfora", "ironía"], "Publicidad."],
+  ],
+  tarjetas: [
+    ["Metáfora lexicalizada", "Metáfora que ya no notamos: pata de la mesa, ratón del ordenador."],
+    ["Ironía", "Decir lo contrario de lo que se piensa; necesita contexto y tono."],
+    ["Tres figuras más", "Enumeración, pregunta retórica, hipérbaton."],
+    ["Greguería", "Metáfora + humor. Ramón Gómez de la Serna."],
+  ],
+  glosario: [
+    ["Metáfora lexicalizada", "Metáfora tan usada que ya no se percibe."],
+    ["Frase hecha", "Expresión fija con un sentido figurado."],
+    ["Ironía", "Decir lo contrario de lo que se piensa."],
+    ["Contexto", "Situación que rodea a lo que se dice."],
+    ["Enumeración", "Serie de elementos seguidos."],
+    ["Pregunta retórica", "Pregunta que no espera respuesta."],
+    ["Hipérbaton", "Cambio del orden habitual de las palabras."],
+    ["Greguería", "Frase breve que une metáfora y humor."],
+    ["Ingenioso", "Que tiene gracia e imaginación."],
+    ["Eslogan", "Frase breve de un anuncio."],
+    ["Publicista", "Persona que crea anuncios."],
+    ["Consumidor crítico", "Quien analiza los anuncios antes de comprar."],
+  ],
+  situacion: {
+    titulo: "El museo de las greguerías",
+    reto: "La clase convierte el pasillo en un museo de objetos vistos con ojos de poeta.",
+    pasos: ["Cada alumno elige un objeto del colegio y escribe tres greguerías.", "Elegid la mejor y dibujad el objeto junto a ella.", "Analizad anuncios reales y señalad sus figuras en una ficha.", "Inaugurad el museo y explicad a los visitantes cómo se crea una greguería."],
+    producto: "Una exposición de greguerías ilustradas y fichas de anuncios analizados.",
+    evaluacion: ["Reconoce figuras literarias en distintos textos.", "Crea greguerías originales.", "Analiza la publicidad con sentido crítico.", "Explica su trabajo con claridad."],
+  },
 });

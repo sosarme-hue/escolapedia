@@ -21,7 +21,8 @@ module.exports = P.tema({
       L.filas("Consonante y asonante", [["Consonante", "ventana / mañana (-ana)", RO], ["Asonante", "travieso / sueño (e-o)", AZ], ["Asonante", "casa / agua (a-a)", AZ]])],
     ["El esquema métrico", `<p>Para resumir la métrica de una estrofa escribimos su <b>esquema métrico</b>. A cada verso le damos una <b>letra</b>: los versos que riman entre sí llevan la misma letra (a, b, c…), y los que no riman con ninguno llevan un guion (—). Las letras van en <mark>minúscula</mark> si los versos son de arte menor y en <mark>mayúscula</mark> si son de arte mayor. Al lado se puede poner el número de sílabas: <i>8a</i>, <i>11B</i>.</p><p>Fíjate en esta estrofa escrita para este tema:</p><p><i>Cuando llega la mañana<br>se despierta mi ciudad,<br>y con toda claridad<br>entra el sol por la ventana.</i></p><p>Esquema: <b>8a 8b 8b 8a</b>. Es una redondilla.</p>`,
       P.versos("Esquema de una redondilla", [["Cuando llega la mañana", 8, "a", AZ], ["se despierta mi ciudad,", 8, "b", RO], ["y con toda claridad", 8, "b", RO], ["entra el sol por la ventana.", 8, "a", AZ]], "esquema: abba (arte menor)")],
-    ["Las estrofas más conocidas", `<p>Según el número de versos y su rima, hay muchas <b>estrofas</b>. Estas son algunas de las más usadas:</p>${P.tb(["Estrofa", "Versos", "Esquema"], [["pareado", "2", "aa o AA"], ["terceto", "3 de arte mayor", "A—A"], ["redondilla", "4 de arte menor", "abba"], ["cuarteta", "4 de arte menor", "abab"], ["cuarteto", "4 de arte mayor", "ABBA"], ["quintilla", "5 de arte menor", "rima variada"]])}<p>Los <b>refranes</b> suelen ser pareados: «Agua que no has de beber, / déjala correr». Por eso se recuerdan tan bien.</p>`],
+    ["Las estrofas más conocidas", `<p>Según el número de versos y su rima, hay muchas <b>estrofas</b>. Estas son algunas de las más usadas:</p>${P.tb(["Estrofa", "Versos", "Esquema"], [["pareado", "2", "aa o AA"], ["terceto", "3 de arte mayor", "A—A"], ["redondilla", "4 de arte menor", "abba"], ["cuarteta", "4 de arte menor", "abab"], ["cuarteto", "4 de arte mayor", "ABBA"], ["quintilla", "5 de arte menor", "rima variada"]])}<p>Los <b>refranes</b> suelen ser pareados: «Agua que no has de beber, / déjala correr». Por eso se recuerdan tan bien.</p>`,
+      L.filas("Estrofas por número de versos", [["2 versos", "pareado", AZ], ["3 versos", "terceto", VE], ["4 versos", "redondilla, cuarteta, cuarteto", NA], ["5 versos", "quintilla", MO]])],
     ["El romance y el soneto", `<p>Dos formas poéticas son muy importantes en la literatura en castellano:</p><ul><li>El <b>romance</b> es una serie de versos <mark>octosílabos</mark> en la que <b>riman en asonante los versos pares</b> y los impares quedan sueltos. Es la forma de muchos poemas populares que cuentan historias. Por ejemplo: «Por el camino del río / pasea un perro travieso; / lleva una flor en la boca / y en los ojos lleva un sueño» (riman en e-o los pares).</li><li>El <b>soneto</b> es un poema de <mark>catorce versos endecasílabos</mark> repartidos en dos cuartetos y dos tercetos. Lo usaron grandes poetas como Garcilaso de la Vega, Lope de Vega o Quevedo.</li></ul>`,
       P.versos("Un romance", [["Por el camino del río", 8, "—", NA], ["pasea un perro travieso;", 8, "a", VE], ["lleva una flor en la boca", 8, "—", NA], ["y en los ojos lleva un sueño.", 8, "a", VE]], "octosílabos; riman en asonante los pares (e-o)")],
     ["Recitar y escribir poesía", `<p>La poesía nació para ser <mark>escuchada</mark>. Para recitar bien un poema: léelo varias veces antes, entiende lo que dice, respeta las pausas al final de cada verso (sin cantarlo como un robot), vocaliza y mira al público. El tono debe ir de acuerdo con el sentimiento: alegre, triste, misterioso...</p><p>Para escribir tus propios poemas, puedes empezar así:</p><ol><li>Elige un tema que te emocione: el mar, tu mascota, el invierno.</li><li>Escribe palabras relacionadas y busca rimas (<i>mar, jugar, soñar</i>).</li><li>Construye versos de 8 sílabas y cuéntalas con los dedos.</li><li>Añade alguna figura literaria: una comparación o una personificación.</li><li>Léelo en voz alta y corrige lo que no suene bien.</li></ol>`,
@@ -86,4 +87,92 @@ module.exports = P.tema({
   familias: ["Leed juntos un poema en voz alta cada noche durante una semana.", "Jugad a buscar rimas: uno dice una palabra y el otro tiene que encontrar una consonante y una asonante.", "Escribid en familia un pareado para felicitar un cumpleaños."],
   saberes: "Educación literaria: el poema; verso y estrofa; medida de los versos (sinalefa, ley del acento final); arte menor y mayor; rima consonante y asonante; esquema métrico; estrofas tradicionales; recitado y creación de poemas",
   ideas: ["Medir versos dando palmadas en cada sílaba.", "Taller de redondillas sobre un tema de la clase y recital final.", "Buscar romances populares y canciones de la tradición oral de la comunidad y escribir su esquema."],
+});
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer las formas de la lírica popular", "Conocer el haiku y el caligrama como formas poéticas especiales", "Acercarse a poetas españoles de los siglos XIX y XX", "Relacionar la poesía con la música y las canciones"],
+  lectura: { titulo: "La poeta de los niños", html: `<p>Gloria nació en 1917 en <b>Lavapiés</b>, un barrio popular de Madrid. Su familia era humilde: su padre era conserje y su madre, costurera. Desde muy pequeña, Gloria escribía versos en cualquier papel que encontraba, aunque en casa no veían con buenos ojos que una niña quisiera ser poeta.</p><p>Ella no se rindió. Trabajó en oficinas, en revistas infantiles y como <b>bibliotecaria</b>, y siguió escribiendo poemas llenos de humor, de juegos de palabras y de ternura. Escribía para adultos, pero sobre todo para los niños, a los que trataba como lectores muy listos.</p><p>En los años setenta y ochenta, millones de niños españoles la conocieron por la televisión. Aparecía en programas infantiles con su voz ronca, su pelo corto y sus corbatas, recitando poemas sobre un gato garabato, una vaca o una pulga. Los niños se los aprendían de memoria.</p><p>Se llamaba <b>Gloria Fuertes</b>. Murió en 1998 y dejó su dinero para ayudar a niños necesitados. En 2017, cuando se cumplieron cien años de su nacimiento, colegios de toda España llenaron sus pasillos con sus versos.</p>` },
+  tras: {
+    "Verso, estrofa y poema": [
+      ["La poesía del pueblo", `<p>Mucho antes de que se escribieran libros de poemas, la gente ya cantaba y recitaba versos. La <b>lírica popular</b> es la poesía que ha ido pasando de boca en boca, de padres a hijos, sin que sepamos quién la inventó. Por eso a menudo hay varias versiones de un mismo poema. Algunas de sus formas son:</p><ul><li>Las <b>nanas</b> o canciones de cuna, para dormir a los bebés: <i>Duérmete, niño, duérmete ya…</i></li><li>Las <b>canciones de corro</b> y de comba, que acompañan los juegos: <i>Al pasar la barca, me dijo el barquero…</i></li><li>Los <b>villancicos</b>, que hoy cantamos en Navidad, aunque al principio trataban de cualquier tema.</li><li>Las <b>retahílas</b> y las <b>canciones de echar a suertes</b>: <i>Pito, pito, gorgorito…</i></li><li>Las <b>coplas</b>: estrofas de cuatro versos, normalmente octosílabos, que riman los pares y se cantan en fiestas y romerías.</li><li>Los <b>trabalenguas</b>, las <b>adivinanzas</b> y muchos <b>refranes</b>, que también tienen ritmo y rima para que se recuerden mejor.</li></ul><p>Estos poemas son sencillos, repiten mucho y tienen un ritmo muy marcado, porque estaban hechos para ser memorizados y cantados.</p>`,
+        L6.filas("Lírica popular", [["nanas", "para dormir", cAZ], ["corro y comba", "para jugar", cVE], ["villancicos", "Navidad", cRO], ["coplas", "fiestas", cNA]])],
+    ],
+    "Las estrofas más conocidas": [
+      ["El haiku, un poema japonés", `<p>El <b>haiku</b> es un poema muy breve que nació en <b>Japón</b>. Tiene solo <b>tres versos</b>: el primero de 5 sílabas, el segundo de 7 y el tercero de 5. No suele tener rima.</p><p>El haiku intenta atrapar un instante, como si fuera una fotografía con palabras. Casi siempre habla de la <b>naturaleza</b> y de las <b>estaciones del año</b>: una flor que se abre, la nieve, el canto de un pájaro, la lluvia sobre el tejado. No explica lo que siente el poeta: lo muestra y deja que el lector lo sienta.</p><p>El maestro más famoso fue <b>Matsuo Bashō</b>, que vivió en el siglo XVII. Su haiku más conocido habla de un viejo estanque, una rana que salta y el ruido del agua. Al traducirlo al castellano no siempre se mantienen las sílabas exactas.</p><p>Escribir haikus es un buen ejercicio para contar sílabas. Por ejemplo:</p><p><i>Cae la lluvia (5)<br>sobre el patio vacío. (7)<br>Nadie en el recreo. (5)</i></p><p>Recuerda las reglas de la sinalefa al contar: <i>pa-tio-va-cí-o</i> se cuenta según cómo suena.</p>`,
+        L6.filas("Haiku: 5-7-5", [["verso 1", "5 sílabas", cAZ], ["verso 2", "7 sílabas", cVE], ["verso 3", "5 sílabas", cAZ], ["tema", "un instante de la naturaleza", cNA]]), ["1UoRDxAAYwk", "El Haiku Japonés. Poesía creativa. | Pienso y luego aprendo", "Pienso y luego aprendo", 53718]],
+    ],
+    "El romance y el soneto": [
+      ["Poetas que hay que conocer", `<p>Estos son algunos poetas españoles cuyos versos se siguen leyendo y cantando:</p><ul><li><b>Gustavo Adolfo Bécquer</b> (siglo XIX) escribió las <i>Rimas</i>, poemas breves sobre el amor y los sueños: <i>¿Qué es poesía?, dices mientras clavas / en mi pupila tu pupila azul…</i></li><li><b>Antonio Machado</b> escribió sobre los paisajes de Castilla y sobre el paso del tiempo. Suyos son los versos <i>Caminante, no hay camino, / se hace camino al andar</i>.</li><li><b>Juan Ramón Jiménez</b>, Premio Nobel en 1956, buscaba una poesía pura y sencilla.</li><li><b>Federico García Lorca</b> llenó sus poemas de luna, gitanos, caballos y Andalucía, como en el <i>Romancero gitano</i>.</li><li><b>Rafael Alberti</b>, nacido junto al mar en El Puerto de Santa María, escribió <i>Marinero en tierra</i>, con poemas que parecen canciones.</li><li><b>Miguel Hernández</b>, pastor de cabras en Orihuela que aprendió a escribir poesía leyendo en la biblioteca, escribió versos muy emocionantes.</li><li><b>Gloria Fuertes</b> escribió poemas con humor para niños y mayores.</li></ul><p>Muchos de estos autores escribieron también para niños o tienen poemas perfectos para leer en voz alta.</p>`,
+        L6.filas("Poetas españoles", [["Bécquer", "Rimas", cMO], ["Machado", "Castilla, caminos", cNA], ["Lorca", "Romancero gitano", cVE], ["Gloria Fuertes", "humor y ternura", cRO]]), ["8FhHtgfdPNs", "Gloria Fuertes recita 'El gato Garabato'", "Marcos Roca", 276587]],
+    ],
+  },
+  final: [
+    ["Caligramas: poemas para mirar", `<p>Un <b>caligrama</b> es un poema en el que las palabras se colocan formando un <b>dibujo</b> relacionado con lo que dicen. Un poema sobre la lluvia puede caer en líneas inclinadas; uno sobre un árbol puede tener forma de tronco y copa; uno sobre el sol puede extender sus versos como rayos.</p><p>El nombre lo popularizó el poeta francés <b>Guillaume Apollinaire</b>, que en 1918 publicó un libro titulado <i>Caligramas</i>. Pero la idea es mucho más antigua: ya en la Grecia clásica había poemas con forma de huevo, de hacha o de alas.</p><p>En un caligrama, el lector disfruta dos veces: al <b>ver</b> la forma y al <b>leer</b> el texto. Por eso se dice que es <b>poesía visual</b>.</p><p>Para hacer tu propio caligrama:</p><ul><li>Elige un objeto con una forma sencilla: una luna, una gota, un pez, una casa.</li><li>Escribe un poema breve sobre ese objeto.</li><li>Dibuja la silueta muy suave a lápiz.</li><li>Copia los versos siguiendo el contorno o rellenando la figura.</li><li>Borra el dibujo a lápiz: solo quedarán las palabras.</li></ul>`,
+      H6.flujo("Hacer un caligrama", ["objeto|sencillo", "poema|breve", "silueta|a lápiz", "copiar|y borrar"], cAZ), ["8jgjl4jANhQ", "✏ CALIGRAMAS para NIÑOS de PRIMARIA", "Clases Particulares en Ávila", 89693]],
+    ["Poesía que se canta", `<p>Poesía y música han ido siempre de la mano. En la Antigüedad, los poemas se recitaban acompañados de una lira, y de ahí viene el nombre de <b>lírica</b>. Los romances medievales se cantaban por las plazas.</p><p>Muchos cantantes han puesto música a poemas famosos. En 1969, el cantautor <b>Joan Manuel Serrat</b> publicó un disco entero con poemas de Antonio Machado, y gracias a él muchísima gente se aprendió <i>Caminante, no hay camino</i>. <b>Paco Ibáñez</b> cantó a Alberti, Lorca y otros poetas, y el cantaor <b>Camarón de la Isla</b> grabó poemas de Lorca con música flamenca.</p><p>Si te fijas, las <b>canciones</b> actuales se construyen como los poemas: tienen versos, estrofas que se repiten (el estribillo), rima y un ritmo marcado. El <b>rap</b> es un ejemplo muy claro: los raperos cuidan la rima, a menudo interna, y cuentan sílabas para que los versos encajen con el ritmo. En las <b>batallas de gallos</b>, los raperos improvisan rimas en el momento, igual que hacían los antiguos juglares y los repentistas que todavía hoy improvisan coplas en las fiestas de algunos pueblos.</p>`,
+      H6.dos("Poema y canción", ["Poema", ["versos", "estrofas", "rima"], cVE], ["Canción", ["versos", "estribillo", "rima y ritmo"], cMO])],
+  ],
+  ejemplos: [
+    ["Comprueba si es un haiku: «Brilla la luna / sobre el mar en silencio / duerme la playa».", ["Bri-lla-la-lu-na: 5.", "so-bre el-mar-en-si-len-cio: 7 (sinalefa en «bre el»).", "duer-me-la-pla-ya: 5."], "Sí: tiene la medida 5-7-5."],
+    ["¿Por qué las nanas repiten tanto las mismas palabras?", ["Son poesía popular para memorizar.", "La repetición y el ritmo calman al bebé."], "Para recordarlas fácilmente y arrullar con su ritmo."],
+  ],
+  errores: ["Pensar que un haiku debe rimar.", "Creer que las canciones no tienen nada que ver con la poesía."],
+  ejercicios: [
+    ["b", "¿De qué país viene el haiku?", "De Japón."],
+    ["b", "¿Cuántos versos tiene un haiku?", "Tres."],
+    ["b", "¿Qué es un caligrama?", "Un poema cuyas palabras forman un dibujo."],
+    ["b", "Escribe el nombre de tres poetas españoles.", "Por ejemplo: Machado, Lorca y Gloria Fuertes."],
+    ["b", "¿Para qué sirven las nanas?", "Para dormir a los bebés."],
+    ["m", "¿Por qué hay varias versiones de un mismo poema popular?", "Porque se transmitía de boca en boca y cada persona lo cambiaba un poco."],
+    ["m", "¿Qué poeta escribió «Caminante, no hay camino»?", "Antonio Machado."],
+    ["m", "¿Qué tienen en común una canción y un poema?", "Versos, estrofas, rima y ritmo."],
+    ["m", "¿De dónde viene la palabra lírica?", "De la lira, el instrumento con que se acompañaban los poemas."],
+    ["m", "¿Quién popularizó el nombre de caligrama?", "Guillaume Apollinaire."],
+    ["a", "Escribe un haiku sobre el otoño y marca las sílabas.", "Respuesta abierta con medida 5-7-5."],
+    ["a", "Compara la improvisación de los raperos con la de los juglares.", "Ambos improvisan versos con rima y ritmo delante del público."],
+    ["a", "Dibuja un caligrama sobre el mar.", "Respuesta abierta."],
+    ["a", "Busca una canción que te guste y señala estribillo y rimas.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Un haiku tiene la medida…", ["5-7-5", "8-8-8-8", "11-11-11"], "Haiku."],
+    ["El maestro japonés del haiku fue…", ["Matsuo Bashō", "Apollinaire", "Bécquer"], "Haiku."],
+    ["Las Rimas las escribió…", ["Bécquer", "Lorca", "Alberti"], "Poetas."],
+    ["«Pito, pito, gorgorito» es una…", ["retahíla para echar a suertes", "nana", "copla"], "Popular."],
+    ["Un disco con poemas de Machado lo publicó en 1969…", ["Joan Manuel Serrat", "Camarón", "Paco Ibáñez"], "Música."],
+  ],
+  examen: [
+    ["Gloria Fuertes nació en el barrio madrileño de…", ["Lavapiés", "Triana", "Gràcia"], "Lectura."],
+    ["En un caligrama el lector…", ["ve la forma y lee el texto", "solo escucha", "solo ve un dibujo"], "Caligrama."],
+  ],
+  tarjetas: [
+    ["Lírica popular", "Nanas, corro, villancicos, retahílas, coplas; anónima y de boca en boca."],
+    ["Haiku", "Japonés, 3 versos 5-7-5, sin rima, un instante de la naturaleza."],
+    ["Caligrama", "Poema que forma un dibujo; Apollinaire, 1918."],
+    ["Poesía y música", "Serrat-Machado, Paco Ibáñez, Camarón-Lorca, rap."],
+  ],
+  glosario: [
+    ["Lírica popular", "Poesía anónima transmitida de boca en boca."],
+    ["Nana", "Canción para dormir a los niños."],
+    ["Villancico", "Canción popular, hoy asociada a la Navidad."],
+    ["Retahíla", "Serie de palabras que se dicen de memoria."],
+    ["Copla", "Estrofa popular de cuatro versos para cantar."],
+    ["Haiku", "Poema japonés de tres versos de 5, 7 y 5 sílabas."],
+    ["Caligrama", "Poema cuyas palabras forman un dibujo."],
+    ["Poesía visual", "Poesía que se disfruta también con la vista."],
+    ["Lira", "Antiguo instrumento de cuerda."],
+    ["Estribillo", "Versos que se repiten en un poema o canción."],
+    ["Juglar", "Artista medieval que recitaba y cantaba por las plazas."],
+    ["Improvisar", "Crear algo en el momento, sin prepararlo."],
+  ],
+  situacion: {
+    titulo: "Recital de poesía",
+    reto: "La clase prepara un recital con poemas populares, haikus, caligramas y canciones.",
+    pasos: ["Recoged nanas, retahílas y canciones de corro de vuestras familias.", "Escribid haikus de las estaciones y caligramas sobre objetos del colegio.", "Elegid un poema de un autor español y ponedle música o ritmo.", "Celebrad el recital y exponed los caligramas en el pasillo."],
+    producto: "Un recital poético y una exposición de caligramas y haikus.",
+    evaluacion: ["Reconoce formas de la lírica popular y culta.", "Cuenta sílabas correctamente.", "Crea textos poéticos originales.", "Recita con ritmo y expresividad."],
+  },
 });

@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Educación literaria: el texto literario; los géneros narrativo, lírico y dramático; subgéneros (cuento, novela, leyenda, fábula, poema, teatro); lectura expresiva y dramatización",
   ideas: ["Clasificar los libros de la biblioteca de aula por géneros.", "Taller de fábulas: escribir una con moraleja propia.", "Representación de una escena breve con acotaciones escritas por el grupo."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer algunas obras clásicas de la literatura española", "Reconocer la huella de los mitos griegos en nuestras palabras", "Identificar otros espectáculos teatrales y los elementos del cómic", "Escribir una reseña para recomendar un libro"],
+  lectura: { titulo: "El soldado que escribió el Quijote", html: `<p>En 1571, un joven soldado español de 24 años luchaba en la batalla naval de <b>Lepanto</b>. Tenía fiebre y le aconsejaron quedarse abajo, en el barco, pero quiso combatir. Recibió dos disparos en el pecho y uno en la mano izquierda, que le quedó inútil para siempre. Desde entonces lo llamaron el <b>manco de Lepanto</b>.</p><p>Años después, cuando volvía a España, unos piratas asaltaron su barco y lo llevaron preso a <b>Argel</b>. Pasó allí cinco años de cautiverio. Intentó escapar cuatro veces, y todas fracasaron, hasta que por fin pagaron su rescate.</p><p>De vuelta en España, trabajó recaudando impuestos y llegó a estar en la cárcel por problemas con las cuentas. Escribía comedias y novelas, pero no tenía mucho éxito.</p><p>Hasta que, en 1605, con 57 años, publicó la historia de un hidalgo que había leído tantos libros de caballerías que se volvió loco y salió a recorrer el mundo con su escudero. Aquel hombre era <b>Miguel de Cervantes</b>, y su libro, <i>Don Quijote de la Mancha</i>, se convirtió en una de las novelas más leídas de la historia.</p>` },
+  tras: {
+    "El género narrativo: cuento y novela": [
+      ["Joyas de la literatura española", `<p>La literatura en castellano tiene más de ochocientos años. Estas son algunas obras que todo el mundo debería conocer, aunque sea en una versión adaptada:</p><ul><li>El <b>Cantar de mio Cid</b>, escrito hacia el año 1200 por un autor desconocido, cuenta en verso las hazañas de Rodrigo Díaz de Vivar, un caballero castellano desterrado por el rey.</li><li>El <b>Lazarillo de Tormes</b> (1554), también anónimo, es la historia de un niño pobre que sirve a varios amos y sobrevive gracias a su ingenio. Es la primera <b>novela picaresca</b>.</li><li><b>Don Quijote de la Mancha</b>, de Miguel de Cervantes, publicado en dos partes (1605 y 1615), narra las aventuras de un hidalgo que se cree caballero andante y de su escudero Sancho Panza.</li><li><b>Platero y yo</b> (1914), de Juan Ramón Jiménez, es un libro de prosa poética sobre un burrito y su dueño en Moguer. Su autor recibió el <b>Premio Nobel</b> de Literatura en 1956.</li><li>Las obras de teatro de <b>Federico García Lorca</b>, como <i>La casa de Bernarda Alba</i>, y sus poemas se representan y leen en todo el mundo.</li></ul><p>El 23 de abril, día en que se recuerda la muerte de Cervantes, se celebra el <b>Día del Libro</b>, y ese día se entrega en Alcalá de Henares, su ciudad natal, el <b>Premio Cervantes</b>, el más importante de las letras en español.</p>`,
+        L6.filas("Clásicos en castellano", [["hacia 1200", "Cantar de mio Cid", cRO], ["1554", "Lazarillo de Tormes", cNA], ["1605", "Don Quijote", cAZ], ["1914", "Platero y yo", cVE]])],
+    ],
+    "Leyendas y fábulas": [
+      ["Mitos griegos que hablamos sin saberlo", `<p>Los antiguos griegos inventaron cientos de <b>mitos</b>: relatos sobre dioses, héroes y monstruos con los que explicaban el origen del mundo y de las cosas. Muchos de ellos han dejado su huella en palabras que usamos cada día:</p><ul><li><b>Pánico</b> viene del dios <b>Pan</b>, mitad hombre y mitad cabra, que asustaba a los viajeros con sus gritos en el bosque.</li><li><b>Eco</b> era una ninfa castigada a repetir solo las últimas palabras que oía.</li><li><b>Narcisismo</b> viene de <b>Narciso</b>, un joven que se enamoró de su propio reflejo en el agua.</li><li>El <b>talón de Aquiles</b>, el punto débil de alguien, recuerda al héroe Aquiles, invulnerable en todo el cuerpo menos en el talón.</li><li>Una <b>odisea</b>, un viaje lleno de dificultades, recuerda el largo regreso de Odiseo (Ulises) a su casa tras la guerra de Troya.</li><li>Un <b>atlas</b> se llama así por el titán <b>Atlas</b>, condenado a sostener el cielo sobre sus hombros.</li><li>Abrir la <b>caja de Pandora</b> es provocar muchos males: Pandora abrió una caja de la que salieron todas las desgracias, y dentro solo quedó la esperanza.</li></ul><p>Otros mitos, como el de <b>Ícaro</b>, que voló tan cerca del sol que la cera de sus alas se derritió, siguen inspirando cuentos, películas y canciones.</p>`,
+        H6.rueda("Mitos en palabras", "MITOS", [["pánico", cNA], ["eco", cAZ], ["odisea", cVE], ["atlas", cMO]]), ["dv-NsVIy5gA", "El mito de la caja de Pandora | Shackleton Kids | Mitología para niños", "Shackleton Kids", 582942]],
+    ],
+    "Elementos de la representación": [
+      ["Títeres, sombras y otros escenarios", `<p>El teatro no siempre lo hacen actores de carne y hueso en un escenario. Existen muchas otras formas de espectáculo dramático:</p><ul><li>Los <b>títeres</b>: muñecos que cobran vida. Las <b>marionetas</b> se mueven con hilos desde arriba; los títeres de <b>guante</b>, como el guiñol, se manejan metiendo la mano dentro. En el <i>Quijote</i>, don Quijote ve una función de títeres, el retablo de maese Pedro, y se la cree tanto que ataca a los muñecos con su espada.</li><li>El <b>teatro de sombras</b>, muy antiguo en países de Asia como China o Indonesia: figuras recortadas o las propias manos y cuerpos proyectan sombras sobre una tela iluminada por detrás.</li><li>El <b>mimo</b>: el actor cuenta la historia solo con gestos y movimientos, sin palabras.</li><li>La <b>ópera</b>, donde los personajes cantan todo el texto acompañados de una orquesta, y la <b>zarzuela</b>, un género español que mezcla partes habladas y cantadas.</li><li>El <b>musical</b>, que combina teatro, canciones y baile.</li><li>El <b>teatro leído</b>: los actores leen el texto en voz alta, dando vida a los personajes solo con la voz. Es una forma perfecta de empezar en clase.</li></ul>`,
+        H6.dos("Otros teatros", ["Muñecos", ["marionetas", "guiñol", "sombras"], cMO], ["Con música", ["ópera", "zarzuela", "musical"], cNA]), ["2u0zNAXFCM0", "Teatro de Sombras Verba - Titanic", "VERBA shadow theatre", 10785712]],
+    ],
+  },
+  final: [
+    ["El cómic y la novela gráfica", `<p>El <b>cómic</b> o <b>historieta</b> cuenta una historia combinando <b>dibujos</b> y <b>texto</b>. Es una forma de narración con su propio lenguaje:</p><ul><li>La <b>viñeta</b> es cada uno de los recuadros. Se leen en el mismo orden que el texto: de izquierda a derecha y de arriba abajo.</li><li>El <b>bocadillo</b> o globo contiene lo que dicen los personajes. Su forma también comunica: con borde de nube indica un pensamiento; con borde de pinchos, un grito.</li><li>La <b>cartela</b> es un recuadro con la voz del narrador: «Mientras tanto, en el castillo…».</li><li>Las <b>onomatopeyas</b> imitan sonidos: ¡crash!, ¡boing!, zzz.</li><li>Las <b>líneas cinéticas</b> dan sensación de movimiento, y los <b>planos</b>, como en el cine, muestran a los personajes de lejos o de muy cerca.</li></ul><p>La <b>novela gráfica</b> es un cómic largo, con una historia completa y a menudo seria, que se publica como un libro. Muchas obras clásicas, como el <i>Quijote</i> o el <i>Lazarillo</i>, se han adaptado al cómic.</p><p>En España hay una gran tradición de tebeos: personajes como Mortadelo y Filemón, creados por Francisco Ibáñez en 1958, han hecho reír a varias generaciones.</p>`,
+      L6.filas("Lenguaje del cómic", [["viñeta", "cada recuadro", cAZ], ["bocadillo", "lo que dicen", cVE], ["cartela", "voz del narrador", cNA], ["onomatopeya", "¡crash!", cRO]]), ["xG902ElBqFs", "Elementos del cómic", "CRISTINA PEREZ HERNANDEZ", 185615]],
+    ["Recomendar un libro: la reseña", `<p>Cuando un libro nos gusta mucho, queremos que otros lo lean. Para eso sirve la <b>reseña</b>, un texto breve que presenta un libro y da una opinión sobre él. Se publica en revistas, periódicos, blogs o en el tablón de la biblioteca del colegio.</p><p>Una reseña tiene estas partes:</p><ul><li>Los <b>datos del libro</b>: título, autor o autora, ilustrador, editorial y género.</li><li>Un <b>resumen</b> breve del argumento, que despierte la curiosidad pero <b>sin desvelar el final</b>. ¡Nadie quiere que le cuenten cómo acaba!</li><li>La <b>valoración</b>: qué te ha gustado y qué no, y por qué. No basta con decir «es chulo»: explica si te enganchó la trama, si los personajes te parecieron reales, si te hizo reír o pensar.</li><li>La <b>recomendación</b>: a quién se lo aconsejarías. Puedes añadir una puntuación con estrellas.</li></ul><p>También puedes hacer un <b>booktráiler</b>, un vídeo corto que presenta un libro como si fuera el anuncio de una película, o un club de lectura, en el que varias personas leen el mismo libro y luego lo comentan juntas.</p>`,
+      H6.flujo("Escribir una reseña", ["datos|del libro", "resumen|sin final", "valoración|con razones", "consejo|estrellas"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Qué mito está detrás de la frase «Este examen ha sido una odisea»?", ["Odisea viene de Odiseo.", "Odiseo tardó muchos años en volver a casa."], "El viaje lleno de dificultades de Odiseo."],
+    ["Mejora esta valoración: «El libro es chulo».", ["Damos razones concretas.", "Añadimos a quién se recomienda."], "Me enganchó porque cada capítulo acaba con un misterio. Lo recomiendo a quien le gusten las aventuras."],
+  ],
+  errores: ["Contar el final del libro en una reseña.", "Pensar que el cómic no es literatura: también narra con su propio lenguaje."],
+  ejercicios: [
+    ["b", "¿Quién escribió Don Quijote de la Mancha?", "Miguel de Cervantes."],
+    ["b", "¿De qué dios viene la palabra pánico?", "De Pan."],
+    ["b", "¿Cómo se llama cada recuadro de un cómic?", "Viñeta."],
+    ["b", "¿Cómo se mueven las marionetas?", "Con hilos desde arriba."],
+    ["b", "¿Qué día se celebra el Día del Libro?", "El 23 de abril."],
+    ["m", "¿Qué tienen en común el Cantar de mio Cid y el Lazarillo?", "Ambos son anónimos: no se sabe quién los escribió."],
+    ["m", "Explica qué es el talón de Aquiles de una persona.", "Su punto débil."],
+    ["m", "¿En qué se diferencian la ópera y la zarzuela?", "En la ópera todo se canta; la zarzuela mezcla partes habladas y cantadas."],
+    ["m", "¿Qué indica un bocadillo con forma de nube?", "Que el personaje está pensando."],
+    ["m", "Ordena las partes de una reseña.", "Datos, resumen, valoración y recomendación."],
+    ["a", "¿Por qué crees que el Lazarillo se considera una novela picaresca?", "Porque cuenta la vida de un pícaro que sobrevive con su ingenio sirviendo a varios amos."],
+    ["a", "Escribe una frase con «abrir la caja de Pandora».", "Respuesta abierta. Ej.: Decirle eso fue abrir la caja de Pandora: empezaron todas las discusiones."],
+    ["a", "Convierte una fábula conocida en un cómic de cuatro viñetas.", "Respuesta abierta con viñetas, bocadillos y cartela."],
+    ["a", "Escribe una reseña de 80 palabras de tu libro favorito.", "Respuesta abierta con las cuatro partes."],
+  ],
+  quiz: [
+    ["Platero y yo lo escribió…", ["Juan Ramón Jiménez", "Lorca", "Cervantes"], "Clásicos."],
+    ["La ninfa que solo repetía las últimas palabras era…", ["Eco", "Pandora", "Atenea"], "Mitos."],
+    ["En el cómic, la voz del narrador va en la…", ["cartela", "viñeta", "onomatopeya"], "Cómic."],
+    ["El teatro de sombras es muy antiguo en…", ["Asia", "la Antártida", "Australia"], "Teatro."],
+    ["En una reseña nunca debes…", ["desvelar el final", "dar tu opinión", "poner el título"], "Reseña."],
+  ],
+  examen: [
+    ["Cervantes perdió el movimiento de la mano en…", ["la batalla de Lepanto", "Argel", "Alcalá"], "Lectura."],
+    ["El Cantar de mio Cid cuenta las hazañas de…", ["Rodrigo Díaz de Vivar", "Sancho Panza", "Lázaro"], "Clásicos."],
+  ],
+  tarjetas: [
+    ["Clásicos", "Cantar de mio Cid, Lazarillo, Quijote, Platero y yo, Lorca."],
+    ["Mitos en palabras", "Pánico, eco, odisea, atlas, talón de Aquiles, caja de Pandora."],
+    ["Cómic", "Viñeta, bocadillo, cartela, onomatopeya, líneas cinéticas."],
+    ["Reseña", "Datos, resumen sin final, valoración, recomendación."],
+  ],
+  glosario: [
+    ["Anónimo", "Obra de la que no se conoce el autor."],
+    ["Novela picaresca", "Novela que cuenta la vida de un pícaro."],
+    ["Hidalgo", "Noble de baja categoría."],
+    ["Mito", "Relato antiguo sobre dioses y héroes."],
+    ["Titán", "Gigante de la mitología griega."],
+    ["Marioneta", "Títere que se mueve con hilos."],
+    ["Zarzuela", "Obra española con partes habladas y cantadas."],
+    ["Mimo", "Teatro solo con gestos."],
+    ["Viñeta", "Cada recuadro de un cómic."],
+    ["Cartela", "Recuadro con la voz del narrador en un cómic."],
+    ["Reseña", "Texto que presenta y valora un libro."],
+    ["Booktráiler", "Vídeo corto que anuncia un libro."],
+  ],
+  situacion: {
+    titulo: "Semana del Libro",
+    reto: "La clase organiza actividades para el Día del Libro y anima al resto del colegio a leer.",
+    pasos: ["Elegid un clásico adaptado y preparad un teatro leído o de sombras de una escena.", "Convertid un mito griego en un cómic de una página.", "Escribid reseñas de vuestros libros favoritos para el tablón de la biblioteca.", "Grabad un booktráiler y presentadlo el 23 de abril."],
+    producto: "Una representación, un cómic, reseñas y un booktráiler.",
+    evaluacion: ["Reconoce obras y géneros literarios.", "Relaciona mitos con palabras actuales.", "Usa el lenguaje del cómic.", "Escribe reseñas con opiniones razonadas."],
+  },
+});
