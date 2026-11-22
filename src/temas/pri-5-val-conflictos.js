@@ -93,3 +93,90 @@ module.exports = P.tema({
   saberes: "Relaciones sociales y convivencia: normas de convivencia y su elaboración democrática; el conflicto como parte de las relaciones; gestión emocional, diálogo, negociación y mediación; prevención y detección del acoso escolar; reparación del daño",
   ideas: ["Elaborar en asamblea las normas de la clase y firmarlas.", "Representar conflictos del patio y resolverlos con los pasos de la negociación.", "Formar un equipo de alumnos ayudantes para el recreo."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Distinguir distintos tipos de conflicto y verlos como oportunidades", "Conocer cómo funciona una mediación entre alumnos", "Entender el papel de los espectadores en el acoso", "Valorar la cultura de paz y la participación en asambleas"],
+  lectura: { titulo: "La guerra de la pelota", html: `<p>Todos los días pasaba lo mismo. Al sonar el timbre del recreo, los de 5.º A y los de 5.º B corrían a la única pista de fútbol. Quien llegaba primero, jugaba. Los otros se quedaban protestando.</p><p>Un día, la discusión acabó en empujones. La directora llamó a dos alumnos de cada clase y, en vez de castigarlos, les presentó a Irene y a Hugo, dos alumnos de sexto que eran mediadores.</p><p>—Nosotros no vamos a decidir quién tiene razón —explicó Irene—. Vamos a ayudaros a que encontréis vosotros la solución.</p><p>Primero, cada uno contó lo que pasaba sin interrumpirse. Los de 5.º A se quejaban de que los de B salían antes de clase. Los de B decían que los de A no les dejaban jugar nunca.</p><p>—¿Qué necesitáis de verdad? —preguntó Hugo.</p><p>—Jugar al fútbol —dijeron todos a la vez. Y se echaron a reír.</p><p>Entonces empezaron a proponer ideas: turnos por días, partidos mixtos, un calendario… Al final acordaron que los lunes, miércoles y viernes jugarían partidos mezclando las dos clases, y los martes y jueves la pista sería para quien quisiera jugar a otra cosa.</p><p>Firmaron el acuerdo en un papel y lo colgaron en el tablón. Un mes después, Hugo e Irene volvieron a preguntar. Nadie se acordaba ya de la guerra de la pelota. Los partidos mixtos eran los mejores del colegio.</p>` },
+  tras: {
+    "¿Qué es un conflicto?": [
+      ["Tipos de conflicto", `<p>No todos los conflictos son iguales. Conocer de qué tipo es uno nos ayuda a buscar la mejor solución:</p><ul><li><b>Por recursos</b>: dos o más personas quieren lo mismo y no hay para todos. Por ejemplo, la pista de fútbol, el ordenador o el último trozo de pizza.</li><li><b>Por intereses</b>: cada uno quiere hacer algo distinto. Por ejemplo, uno quiere ir al cine y otro a la piscina.</li><li><b>Por valores u opiniones</b>: pensamos diferente sobre lo que es justo o importante. Por ejemplo, si se debe dejar jugar a todos o solo a los mejores.</li><li><b>De relación</b>: surgen por malentendidos, rumores, celos o una mala comunicación.</li></ul><p>Los conflictos no son buenos ni malos en sí mismos: forman parte de la vida. Lo que importa es <b>cómo los resolvemos</b>. Bien gestionado, un conflicto es una <b>oportunidad</b> para conocernos mejor, aprender a dialogar, mejorar las normas e incluso fortalecer una amistad.</p><p>Por eso se dice que el objetivo no es que <b>no haya conflictos</b>, sino aprender a resolverlos <b>sin violencia</b> y de forma que todos salgan ganando.</p>`,
+        H5.rueda("Tipos de conflicto", "CONFLICTO", [["recursos", cAZ], ["intereses", cVE], ["valores", cNA], ["relación", cMO]])],
+    ],
+    "La mediación": [
+      ["Ser alumno mediador", `<p>En muchos colegios hay un <b>equipo de mediación</b> formado por alumnos de los cursos mayores. Reciben una formación especial para ayudar a sus compañeros a resolver conflictos. Para ser mediador hace falta saber escuchar, ser imparcial, guardar la confidencialidad y tener paciencia.</p><p>Una mediación suele seguir estas <b>fases</b>:</p><ol><li><b>Presentación</b>: los mediadores explican las normas: hablar por turnos, no insultar, decir la verdad y guardar en secreto lo que se diga.</li><li><b>Cuéntame</b>: cada parte explica qué ha pasado y cómo se siente.</li><li><b>Aclarar</b>: los mediadores resumen lo que han oído y ayudan a descubrir qué necesita cada uno de verdad.</li><li><b>Buscar soluciones</b>: las partes proponen ideas y eligen las que convienen a todos.</li><li><b>Acuerdo</b>: se escribe lo pactado, se firma y se revisa pasado un tiempo.</li></ol><p>La mediación es <b>voluntaria</b>: solo funciona si las dos partes quieren participar. Y no sirve para todo: en casos de acoso o violencia, deben intervenir los adultos.</p>`,
+        H5.flujo("Fases de la mediación", ["Normas", "Cuéntame", "Aclarar", "Ideas", "Acuerdo"], cVE), ["w7rKA5Yy1S4", "Mediación escolar. Alumno mediador", "Lucia Quiles Quiles", 50548]],
+    ],
+    "Conflicto no es acoso": [
+      ["El papel de los espectadores", `<p>En una situación de acoso no solo están la persona que acosa y la víctima. Casi siempre hay <b>espectadores</b>: compañeros que ven lo que pasa. Su papel es muy importante, porque pueden hacer que el acoso continúe o que se detenga.</p><ul><li>Los que <b>animan</b>: se ríen, aplauden o graban con el móvil. Aunque no peguen, están ayudando al acosador.</li><li>Los que <b>miran hacia otro lado</b>: no hacen nada por miedo o porque piensan que no es asunto suyo. Su silencio hace que el acosador crea que puede seguir.</li><li>Los que <b>defienden</b>: apoyan a la víctima, le hacen compañía y avisan a un adulto.</li></ul><p>Muchos estudios muestran que cuando los compañeros intervienen, el acoso suele detenerse muy rápido. No hace falta ser un héroe ni enfrentarse a nadie: basta con <b>no reírse</b>, <b>acompañar</b> a quien lo sufre y <b>contarlo</b> a un adulto.</p><p>Contarlo <b>no es chivarse</b>: es proteger a una persona que lo está pasando mal. En España existe además el teléfono contra el acoso escolar, el <b>900 018 018</b>, gratuito y disponible todo el día.</p>`,
+        L5.filas("Espectadores del acoso", [["animar", "ayuda al acosador", cRO], ["callar", "deja que siga", cNA], ["defender", "acompaña y avisa", cVE]])],
+    ],
+  },
+  final: [
+    ["La cultura de paz", `<p>La <b>cultura de paz</b> es una forma de vivir basada en el respeto, el diálogo y la resolución de los conflictos <b>sin violencia</b>. Algunas personas han dedicado su vida a defenderla:</p><ul><li><b>Mahatma Gandhi</b> (1869-1948) consiguió, con métodos pacíficos como las marchas y las huelgas, que la India se independizara del Reino Unido en 1947. Su idea era la <b>no violencia</b>.</li><li><b>Martin Luther King</b> (1929-1968) luchó de forma pacífica por los derechos de la población negra en Estados Unidos. Es famoso su discurso «Tengo un sueño» (1963). Recibió el Premio Nobel de la Paz en 1964.</li><li><b>Nelson Mandela</b> (1918-2013) pasó 27 años en prisión por luchar contra el apartheid, un sistema que separaba a las personas por el color de su piel en Sudáfrica. Al salir, en lugar de vengarse, apostó por la reconciliación y fue presidente de su país.</li></ul><p>Cada <b>30 de enero</b>, aniversario de la muerte de Gandhi, se celebra en los colegios el <b>Día Escolar de la No Violencia y la Paz</b>. La paz no es solo la ausencia de guerra: se construye cada día en casa, en clase y en el patio.</p>`,
+      L5.filas("Defensores de la paz", [["Gandhi", "no violencia, India", cNA], ["Luther King", "derechos civiles, EE. UU.", cAZ], ["Mandela", "reconciliación", cVE], ["30 de enero", "Día de la Paz", cMO]])],
+    ["La asamblea de clase", `<p>La <b>asamblea de clase</b> es una reunión en la que todos los alumnos, con ayuda del tutor o la tutora, hablan de lo que pasa en el grupo: problemas, propuestas, normas o actividades. Es una forma de aprender <b>democracia</b> desde pequeños.</p><p>Para que funcione bien:</p><ul><li>Se hace en <b>círculo</b>, para que todos se vean.</li><li>Hay un <b>moderador</b> que da los turnos de palabra y un <b>secretario</b> que apunta los acuerdos.</li><li>Se prepara un <b>orden del día</b>: un buzón o un mural donde cualquiera puede escribir lo que quiere tratar durante la semana.</li><li>Se habla de <b>situaciones</b>, no se acusa a personas.</li><li>Las decisiones se toman por <b>consenso</b> o, si no es posible, por <b>votación</b>.</li><li>En la siguiente asamblea se revisa si los acuerdos se han cumplido.</li></ul><p>Muchas clases dividen el buzón en tres partes: «Felicito», «Critico» y «Propongo». Así la asamblea no sirve solo para quejarse, sino también para reconocer lo que se hace bien.</p>`,
+      H5.dos("La asamblea", ["Cargos", ["moderador", "secretario", "todos opinan"], cAZ], ["Buzón", ["felicito", "critico", "propongo"], cVE])],
+  ],
+  ejemplos: [
+    ["Dos compañeras discuten porque las dos quieren ser capitanas del equipo. ¿Qué tipo de conflicto es y qué solución proponéis?", ["Ambas quieren lo mismo: es un conflicto por recursos.", "Buscar una solución que beneficie a las dos."], "Conflicto por recursos; pueden turnarse por partidos o compartir el cargo."],
+    ["Ves que unos compañeros graban con el móvil cómo se burlan de otro. ¿Qué haces?", ["No reírse ni grabar.", "Acompañar a la víctima y avisar a un adulto."], "Defender: no participar, apoyar a la víctima y contarlo."],
+  ],
+  errores: ["Pensar que contar un caso de acoso es chivarse: es proteger a alguien.", "Creer que el mediador decide quién tiene razón: solo ayuda a dialogar."],
+  ejercicios: [
+    ["b", "Nombra los cuatro tipos de conflicto.", "Por recursos, por intereses, por valores u opiniones y de relación."],
+    ["b", "¿Cuáles son las fases de una mediación?", "Presentación, cuéntame, aclarar, buscar soluciones y acuerdo."],
+    ["b", "¿Qué tres tipos de espectadores hay en el acoso?", "Los que animan, los que callan y los que defienden."],
+    ["b", "¿Qué se celebra el 30 de enero?", "El Día Escolar de la No Violencia y la Paz."],
+    ["b", "¿Qué hace el secretario de una asamblea?", "Apunta los acuerdos."],
+    ["m", "¿Por qué se dice que un conflicto puede ser una oportunidad?", "Porque nos ayuda a dialogar, mejorar normas y conocernos mejor."],
+    ["m", "Explica por qué la mediación tiene que ser voluntaria.", "Porque solo funciona si las dos partes quieren llegar a un acuerdo."],
+    ["m", "¿Por qué quien graba una burla también participa en el acoso?", "Porque anima al acosador y difunde el daño."],
+    ["m", "¿Qué tienen en común Gandhi, Luther King y Mandela?", "Defendieron sus ideas de forma pacífica."],
+    ["m", "¿Para qué sirve dividir el buzón en «Felicito, Critico, Propongo»?", "Para reconocer lo bueno y no solo quejarse."],
+    ["a", "Representad una mediación con dos alumnos en conflicto y dos mediadores.", "Respuesta práctica."],
+    ["a", "Escribid un acuerdo de mediación para el conflicto de la pista de fútbol.", "Respuesta abierta."],
+    ["a", "Organizad una asamblea de clase con orden del día y acta.", "Respuesta práctica."],
+    ["a", "Preparad un mural para el Día de la Paz con frases de Gandhi, King y Mandela.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Dos niños quieren el mismo ordenador: conflicto por…", ["recursos", "valores", "relación"], "Tipos."],
+    ["El mediador…", ["ayuda a dialogar", "pone castigos", "decide quién gana"], "Mediación."],
+    ["Quien se ríe del acoso es un espectador que…", ["anima", "defiende", "media"], "Espectadores."],
+    ["La independencia de la India sin violencia la impulsó…", ["Gandhi", "Mandela", "Luther King"], "Paz."],
+    ["En la asamblea se habla de…", ["situaciones", "acusar a personas", "nada"], "Asamblea."],
+  ],
+  examen: [
+    ["El teléfono contra el acoso escolar en España es el…", ["900 018 018", "112 112", "010"], "Acoso."],
+    ["Mandela luchó contra el…", ["apartheid", "trabajo infantil", "cambio climático"], "Sudáfrica."],
+  ],
+  tarjetas: [
+    ["Tipos de conflicto", "Recursos, intereses, valores, relación."],
+    ["Mediación", "Normas, cuéntame, aclarar, ideas, acuerdo."],
+    ["Espectadores", "Animan, callan o defienden."],
+    ["Cultura de paz", "Gandhi, Luther King, Mandela; 30 de enero."],
+  ],
+  glosario: [
+    ["Recurso", "Algo que se necesita o se usa, como un espacio o un objeto."],
+    ["Imparcial", "Que no está a favor de ninguna parte."],
+    ["Confidencialidad", "Guardar en secreto lo que se cuenta."],
+    ["Voluntario", "Que se hace porque uno quiere."],
+    ["Espectador", "Persona que ve lo que ocurre."],
+    ["No violencia", "Forma de luchar sin hacer daño a nadie."],
+    ["Apartheid", "Sistema que separaba a las personas por el color de piel en Sudáfrica."],
+    ["Reconciliación", "Volver a llevarse bien después de un conflicto."],
+    ["Asamblea", "Reunión en la que todos participan y deciden."],
+    ["Moderador", "Persona que da los turnos de palabra."],
+    ["Consenso", "Acuerdo en el que todos están conformes."],
+    ["Orden del día", "Lista de temas que se van a tratar en una reunión."],
+  ],
+  situacion: {
+    titulo: "Rincón de la paz",
+    reto: "La clase crea un rincón y un protocolo para resolver los conflictos del aula sin violencia.",
+    pasos: ["Haced una lista de los conflictos más frecuentes y clasificadlos por tipos.", "Elaborad un cartel con los pasos para calmarse, dialogar y negociar.", "Formad parejas de mediadores que se turnen cada semana.", "Revisad en asamblea, al final de cada mes, cómo ha funcionado el rincón."],
+    producto: "Un rincón de la paz con carteles, protocolo y cuaderno de acuerdos.",
+    evaluacion: ["Identifica el tipo de conflicto.", "Sigue las fases de la mediación.", "Sabe actuar como espectador que defiende.", "Participa en la asamblea con respeto."],
+  },
+});

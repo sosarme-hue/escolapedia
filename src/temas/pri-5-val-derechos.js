@@ -92,3 +92,90 @@ module.exports = P.tema({
   saberes: "Sociedad, justicia y democracia: los derechos humanos y la dignidad; la Convención sobre los Derechos del Niño y sus principios; derechos de supervivencia, desarrollo, protección y participación; relación entre derechos y deberes; organismos de protección de la infancia",
   ideas: ["Mural de los derechos de la infancia para el 20 de noviembre.", "Asamblea de clase sobre un tema real del colegio para ejercer el derecho a la participación.", "Investigar por grupos la situación de la infancia en distintos países."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Conocer la historia de los derechos de la infancia", "Valorar el derecho a la educación a través de la historia de Malala", "Comprender qué es el trabajo infantil y por qué hay que erradicarlo", "Conocer las organizaciones y los cauces de participación infantil"],
+  lectura: { titulo: "La carta de Amina", html: `<p>La clase de 5.º B se escribía cartas con una escuela de un pueblo de Malí, en África, gracias a una organización solidaria. Un día llegó una carta de Amina, una niña de su misma edad.</p><p>«Me levanto antes de que salga el sol para ir a buscar agua al pozo con mi hermana pequeña. Tardamos casi una hora. Después voy a la escuela. Somos más de sesenta en la clase y compartimos los libros de tres en tres. Algunas amigas mías ya no vienen: sus familias necesitan que trabajen en el campo o que cuiden de sus hermanos. Yo quiero ser maestra para que todas las niñas de mi pueblo puedan estudiar».</p><p>Cuando la profesora terminó de leer, la clase se quedó en silencio. Pablo levantó la mano:</p><p>—Yo me quejo cada mañana de tener que venir al colegio.</p><p>Todos se rieron un poco, pero también se quedaron pensando.</p><p>Aquella semana decidieron organizar un mercadillo solidario con libros y juguetes que ya no usaban. Con lo recaudado, la organización compraría material escolar para la escuela de Amina.</p><p>En la carta de respuesta, cada alumno escribió una frase. La de Pablo decía: «Gracias por enseñarme que ir al colegio es un derecho, no una obligación aburrida. Ojalá llegues a ser maestra».</p>` },
+  tras: {
+    "La Convención sobre los Derechos del Niño": [
+      ["Historia de los derechos de la infancia", `<p>Durante muchos siglos, los niños no tenían derechos propios. Se les consideraba propiedad de sus padres y muchos trabajaban desde muy pequeños en el campo, en fábricas o en minas. El reconocimiento de sus derechos fue un proceso largo:</p><ul><li><b>1919</b>: la británica <b>Eglantyne Jebb</b> funda <b>Save the Children</b> para ayudar a los niños que pasaban hambre tras la Primera Guerra Mundial.</li><li><b>1924</b>: la Sociedad de Naciones aprueba la <b>Declaración de Ginebra</b>, el primer texto internacional sobre los derechos del niño, redactado por Jebb.</li><li><b>1946</b>: se crea <b>UNICEF</b>, el fondo de las Naciones Unidas para la infancia.</li><li><b>1948</b>: la ONU aprueba la <b>Declaración Universal de los Derechos Humanos</b>.</li><li><b>1959</b>: la ONU aprueba la <b>Declaración de los Derechos del Niño</b>, con diez principios.</li><li><b>1989</b>: llega la <b>Convención sobre los Derechos del Niño</b>, que, a diferencia de las declaraciones, obliga a los países que la firman.</li></ul><p>Por eso el <b>20 de noviembre</b> se celebra el <b>Día Universal de la Infancia</b>, en recuerdo de la aprobación de la Declaración de 1959 y de la Convención de 1989.</p>`,
+        L5.filas("Historia de los derechos", [["1924", "Declaración de Ginebra", cNA], ["1946", "nace UNICEF", cAZ], ["1959", "Declaración de la ONU", cMO], ["1989", "Convención", cVE]])],
+    ],
+    "Derecho a la educación y al juego": [
+      ["Malala y el derecho a estudiar", `<p><b>Malala Yousafzai</b> nació en 1997 en el valle de Swat, en Pakistán. Su padre dirigía una escuela y ella adoraba estudiar. Cuando tenía unos 11 años, un grupo armado, los talibanes, prohibió que las niñas de su región fueran al colegio.</p><p>Malala no se calló. Empezó a escribir un diario en internet, con otro nombre, contando cómo era la vida bajo esa prohibición, y dio entrevistas defendiendo el derecho de las niñas a la educación.</p><p>En <b>2012</b>, cuando volvía del colegio en autobús, un talibán le disparó en la cabeza. Sobrevivió de milagro tras ser operada en Pakistán y después en el Reino Unido. Lejos de rendirse, siguió luchando con más fuerza. En su cumpleaños de 2013 habló en la sede de la ONU y pronunció una frase famosa: «<b>Un niño, un profesor, un libro y un lápiz pueden cambiar el mundo</b>».</p><p>En <b>2014</b>, con solo 17 años, recibió el <b>Premio Nobel de la Paz</b>: es la persona más joven en conseguirlo. Hoy dirige una fundación que ayuda a que millones de niñas puedan ir a la escuela.</p><p>Aún hoy, según la UNESCO, unos <b>250 millones</b> de niños y jóvenes en el mundo no van al colegio.</p>`,
+        L5.filas("Malala Yousafzai", [["1997", "nace en Pakistán", cAZ], ["2012", "sufre un atentado", cRO], ["2013", "discurso en la ONU", cNA], ["2014", "Nobel de la Paz", cVE]]), ["8SXPoGhGoX8", "LA INCREÍBLE Hª DE MALALA | Draw My Life", "TikTak Draw", 1554609]],
+    ],
+    "Derecho a la protección": [
+      ["El trabajo infantil", `<p>Ayudar en casa poniendo la mesa u ordenando el cuarto <b>no</b> es trabajo infantil: es colaborar con la familia. El <b>trabajo infantil</b> es el que realizan niños que no tienen la edad mínima para trabajar, o el que es <b>peligroso</b>, les quita el tiempo de <b>ir a la escuela</b> o les impide jugar y descansar.</p><p>Según la Organización Internacional del Trabajo (OIT) y UNICEF, en el mundo hay <b>más de 130 millones</b> de niños y niñas que trabajan. La mayoría lo hacen en la <b>agricultura</b>: recogiendo cacao, algodón o café. Otros trabajan en minas, en talleres textiles, vendiendo en la calle o en el servicio doméstico.</p><p>¿Por qué ocurre? Sobre todo por la <b>pobreza</b>: muchas familias necesitan el dinero que ganan sus hijos. También por la falta de escuelas o por guerras y desastres.</p><p>El trabajo infantil tiene consecuencias graves: problemas de salud, accidentes, cansancio y, sobre todo, la pérdida de la educación, lo que hace más difícil salir de la pobreza en el futuro.</p><p>Cada <b>12 de junio</b> se celebra el <b>Día Mundial contra el Trabajo Infantil</b>. Como consumidores también podemos ayudar, eligiendo productos de <b>comercio justo</b>, que garantizan que no se ha usado trabajo infantil.</p>`,
+        H5.dos("Ayudar o trabajar", ["Colaborar", ["poner la mesa", "ordenar", "sin perder escuela"], cVE], ["Trabajo", ["peligroso", "sin escuela", "sin juego"], cRO]), ["aqQunOlVhKo", "Trabajo infantil", "Mans Unides ONG Barcelona", 883489]],
+    ],
+  },
+  final: [
+    ["Quién defiende a la infancia", `<p>Además de los gobiernos, muchas organizaciones trabajan para que los derechos de la infancia se cumplan en todo el mundo:</p><ul><li><b>UNICEF</b>: el fondo de las Naciones Unidas para la infancia. Lleva vacunas, agua potable, comida y material escolar a millones de niños, sobre todo en situaciones de emergencia.</li><li><b>Save the Children</b>: la organización fundada por Eglantyne Jebb. Trabaja en educación, salud y protección.</li><li><b>Plan International</b>, <b>Aldeas Infantiles</b> y muchas otras ONG ayudan a niños sin familia o en situación de pobreza.</li><li>En España, el <b>Defensor del Pueblo</b> recibe quejas cuando no se respetan los derechos, y la <b>Fundación ANAR</b> atiende a niños en riesgo en el 900 20 20 10.</li></ul><p>Muchas de estas organizaciones viven gracias a <b>socios</b> y <b>voluntarios</b>. Los colegios también colaboran con carreras solidarias, mercadillos o campañas de recogida de material.</p>`,
+      H5.rueda("Defienden a la infancia", "INFANCIA", [["UNICEF", cAZ], ["Save", cRO], ["ONG", cVE], ["ANAR", cNA]])],
+    ["Los niños también deciden", `<p>La Convención dice que los niños tienen <b>derecho a opinar</b> en los asuntos que les afectan. Para que este derecho sea real, existen cauces de participación:</p><ul><li>Los <b>consejos de infancia y adolescencia</b>: en muchos ayuntamientos, grupos de niños y niñas elegidos en los colegios se reúnen con el alcalde o la alcaldesa para proponer mejoras: parques, carriles bici, caminos seguros al colegio, actividades culturales.</li><li>Las <b>Ciudades Amigas de la Infancia</b>: es un reconocimiento de UNICEF a los municipios que tienen en cuenta a los niños al tomar decisiones. En España hay cientos de ciudades y pueblos con este sello.</li><li>En el colegio, los <b>delegados de clase</b>, las asambleas y el <b>consejo escolar</b>, donde en algunos cursos también participan representantes de los alumnos.</li></ul><p>Participar es también una <b>responsabilidad</b>: hay que informarse, escuchar a los compañeros y proponer ideas que beneficien a todos, no solo a uno mismo.</p>`,
+      H5.flujo("Participar", ["Informarse", "Escuchar", "Proponer", "Decidir"], cMO)],
+  ],
+  ejemplos: [
+    ["Un niño de 10 años ayuda a poner la mesa en casa. Otro trabaja ocho horas en una mina. ¿Son los dos trabajo infantil?", ["Pensar si es peligroso o impide estudiar y jugar.", "Colaborar en casa no lo impide."], "Solo el segundo es trabajo infantil."],
+    ["¿Por qué el 20 de noviembre es el Día Universal de la Infancia?", ["Buscar qué documentos se aprobaron ese día.", "1959 y 1989."], "Porque ese día se aprobaron la Declaración de 1959 y la Convención de 1989."],
+  ],
+  errores: ["Confundir colaborar en las tareas de casa con trabajo infantil.", "Pensar que los derechos de la infancia se cumplen ya en todo el mundo."],
+  ejercicios: [
+    ["b", "¿Quién fundó Save the Children y en qué año?", "Eglantyne Jebb, en 1919."],
+    ["b", "¿Qué se aprobó en 1924?", "La Declaración de Ginebra."],
+    ["b", "¿Qué premio recibió Malala en 2014?", "El Premio Nobel de la Paz."],
+    ["b", "¿Qué día es el Día Mundial contra el Trabajo Infantil?", "El 12 de junio."],
+    ["b", "¿Qué es una Ciudad Amiga de la Infancia?", "Un municipio reconocido por UNICEF por tener en cuenta a los niños."],
+    ["m", "¿Qué diferencia hay entre una declaración y la Convención?", "La Convención obliga a los países que la firman."],
+    ["m", "Explica la frase de Malala «Un niño, un profesor, un libro y un lápiz pueden cambiar el mundo».", "La educación da poder para mejorar la vida y la sociedad."],
+    ["m", "¿Cuál es la causa principal del trabajo infantil?", "La pobreza."],
+    ["m", "¿Cómo puede ayudar el comercio justo contra el trabajo infantil?", "Garantiza que los productos no se han hecho con trabajo infantil."],
+    ["m", "¿Qué hacen los consejos de infancia?", "Proponen mejoras al ayuntamiento."],
+    ["a", "Haz una línea del tiempo ilustrada con la historia de los derechos de la infancia.", "Respuesta abierta."],
+    ["a", "Escribe una carta a Malala contándole qué significa para ti ir al colegio.", "Respuesta abierta."],
+    ["a", "Busca en casa productos con sello de comercio justo y haz una lista.", "Respuesta abierta."],
+    ["a", "Prepara tres propuestas para presentar al consejo de infancia de tu localidad.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El primer texto internacional sobre derechos del niño fue la…", ["Declaración de Ginebra", "Constitución", "Carta Magna"], "1924."],
+    ["Malala defendía el derecho de las niñas a…", ["estudiar", "votar", "trabajar"], "Educación."],
+    ["La mayoría del trabajo infantil está en la…", ["agricultura", "informática", "banca"], "Campo."],
+    ["UNICEF se creó en…", ["1946", "1989", "2014"], "ONU."],
+    ["El Día Universal de la Infancia es el…", ["20 de noviembre", "12 de junio", "30 de enero"], "Infancia."],
+  ],
+  examen: [
+    ["Malala nació en…", ["Pakistán", "India", "Malí"], "Swat."],
+    ["Poner la mesa en casa es…", ["colaborar", "trabajo infantil", "un delito"], "Diferencia."],
+  ],
+  tarjetas: [
+    ["Historia", "1924 Ginebra, 1946 UNICEF, 1959 Declaración, 1989 Convención."],
+    ["Malala", "Educación de las niñas; Nobel de la Paz en 2014 con 17 años."],
+    ["Trabajo infantil", "Más de 130 millones; causa principal, la pobreza; 12 de junio."],
+    ["Participar", "Consejos de infancia, Ciudades Amigas de la Infancia, delegados."],
+  ],
+  glosario: [
+    ["Declaración", "Texto que proclama unos principios, sin obligar."],
+    ["Tratado", "Acuerdo entre países que obliga a quienes lo firman."],
+    ["Sociedad de Naciones", "Organización internacional anterior a la ONU."],
+    ["UNICEF", "Fondo de las Naciones Unidas para la Infancia."],
+    ["ONG", "Organización no gubernamental, sin ánimo de lucro."],
+    ["Talibán", "Miembro de un grupo armado que impuso prohibiciones en Afganistán y Pakistán."],
+    ["Trabajo infantil", "Trabajo que perjudica la salud, la educación o el juego de un niño."],
+    ["OIT", "Organización Internacional del Trabajo."],
+    ["Comercio justo", "Comercio que garantiza condiciones dignas a quien produce."],
+    ["Consejo de infancia", "Grupo de niños que hace propuestas a su ayuntamiento."],
+    ["Defensor del Pueblo", "Institución que defiende los derechos de los ciudadanos."],
+    ["Voluntario", "Persona que ayuda sin cobrar."],
+  ],
+  situacion: {
+    titulo: "Nuestro consejo de infancia",
+    reto: "La clase simula un consejo de infancia y presenta propuestas para mejorar el barrio o el colegio pensando en los derechos de los niños.",
+    pasos: ["Elegid representantes mediante una votación en clase.", "Recoged ideas de los compañeros con un buzón de propuestas.", "Relacionad cada propuesta con un artículo de la Convención.", "Presentad las propuestas a la dirección del colegio o al ayuntamiento."],
+    producto: "Un dosier de propuestas y una presentación oral.",
+    evaluacion: ["Conoce la historia de los derechos de la infancia.", "Relaciona propuestas con derechos concretos.", "Participa de forma responsable.", "Expresa sus ideas con claridad y respeto."],
+  },
+});

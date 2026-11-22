@@ -92,3 +92,88 @@ module.exports = P.tema({
   saberes: "Relaciones interpersonales: la amistad y sus valores; el respeto y la dignidad de las personas; empatía, escucha activa y asertividad; respeto a la diversidad y rechazo de los prejuicios; relaciones no sanas y presión de grupo",
   ideas: ["Buzón de la amistad para dejar mensajes amables a compañeros.", "Role-play de respuestas pasivas, agresivas y asertivas.", "Mural de la diversidad con aportaciones de cada alumno sobre su familia y sus costumbres."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Conocer cómo cambia la amistad a lo largo de la vida", "Usar internet con prudencia al relacionarse con otros", "Aprender estrategias para hacer nuevos amigos", "Afrontar los cambios y finales de una amistad"],
+  lectura: { titulo: "La chica nueva", html: `<p>Nadia llegó al colegio en febrero, cuando todos los grupos ya estaban hechos. Venía de otra ciudad y no conocía a nadie. El primer día comió sola en una esquina del comedor y en el recreo se sentó en un banco a mirar cómo jugaban los demás.</p><p>Marcos se dio cuenta. Él también había sido «el nuevo» dos años antes y recordaba lo largo que se le hacía el recreo. Pero le daba vergüenza acercarse.</p><p>Al día siguiente, la profesora pidió trabajos en parejas sobre los volcanes. Marcos levantó la mano:</p><p>—¿Puedo ponerme con Nadia?</p><p>Mientras trabajaban, descubrieron que a los dos les encantaban los cómics y que coleccionaban piedras. Nadia tenía una de lava auténtica que le había traído su abuela de Canarias.</p><p>—Mañana la traigo —le dijo.</p><p>En el recreo, Marcos la invitó a jugar con su grupo. Algunos pusieron mala cara al principio, pero Nadia resultó ser la mejor portera de toda la clase. A la semana, todos querían tenerla en su equipo.</p><p>Meses después, Nadia le preguntó a Marcos:</p><p>—¿Por qué me elegiste aquel día?</p><p>—Porque yo también estuve solo en ese banco —respondió él.</p><p>A veces, una gran amistad empieza con un gesto muy pequeño.</p>` },
+  tras: {
+    "¿Qué es la amistad?": [
+      ["La amistad a lo largo de la vida", `<p>La amistad no es igual a todas las edades. Va cambiando a medida que crecemos:</p><ul><li><b>En la primera infancia</b>, un amigo es sobre todo un <b>compañero de juego</b>: alguien con quien lo pasamos bien en el parque o en clase.</li><li><b>Hacia los 9 o 10 años</b>, empezamos a valorar la <b>confianza</b> y la <b>lealtad</b>: el amigo es quien guarda nuestros secretos y nos defiende.</li><li><b>En la adolescencia</b>, los amigos se vuelven muy importantes: compartimos sentimientos, dudas y sueños, y nos ayudan a descubrir quiénes somos.</li><li><b>En la vida adulta</b>, a veces vemos menos a los amigos, pero las amistades verdaderas duran aunque pase el tiempo o la distancia.</li></ul><p>Hace más de 2.300 años, el filósofo griego <b>Aristóteles</b> ya reflexionó sobre la amistad. Distinguió tres tipos:</p><ul><li>La amistad <b>por utilidad</b>: nos juntamos porque nos conviene (por ejemplo, para hacer un trabajo).</li><li>La amistad <b>por placer</b>: nos juntamos porque lo pasamos bien.</li><li>La amistad <b>verdadera</b>: queremos el bien del otro por sí mismo. Es la más valiosa y la que más dura.</li></ul><p>Las tres pueden ser buenas, pero solo la última resiste los momentos difíciles.</p>`,
+        L5.filas("Tres tipos de amistad según Aristóteles", [["utilidad", "nos conviene", cNA], ["placer", "lo pasamos bien", cAZ], ["verdadera", "quiero tu bien", cVE]])],
+    ],
+    "Relaciones que no son sanas": [
+      ["Amistades en internet", `<p>Hoy muchas relaciones también se mantienen a través de mensajes, videojuegos en línea o redes sociales. Internet nos permite hablar con amigos que viven lejos, pero hay que tener <b>mucho cuidado</b>:</p><ul><li>En internet, una persona puede <b>fingir</b> ser quien no es: decir que tiene tu edad cuando es un adulto, por ejemplo.</li><li><b>Nunca</b> des tu dirección, tu colegio, tu teléfono ni fotos personales a alguien que no conoces en persona.</li><li>Si alguien que has conocido en internet te pide <b>quedar</b>, guardar un <b>secreto</b> o enviarle fotos, díselo inmediatamente a un adulto de confianza.</li><li>Un amigo de verdad <b>no te presiona</b> ni te hace sentir incómodo.</li></ul><p>En los grupos de mensajes con compañeros de clase también hay que cuidar el respeto: no reenviar fotos de otros sin permiso, no dejar a nadie fuera a propósito y no escribir lo que no dirías a la cara. Las palabras escritas pueden hacer el mismo daño que las dichas en persona, y además quedan guardadas.</p><p>Una buena regla: <b>trata a los demás en internet igual que en la vida real</b>.</p>`,
+        L5.filas("Amistad segura en internet", [["no compartas", "datos ni fotos", cRO], ["desconfía", "de quien no conoces", cNA], ["avisa", "si te piden secretos", cMO], ["respeta", "como en la vida real", cVE]])],
+    ],
+  },
+  final: [
+    ["Hacer nuevos amigos", `<p>A algunas personas les cuesta mucho hacer amigos, sobre todo si son <b>tímidas</b> o si llegan a un colegio o un barrio nuevo. La timidez no es un defecto: muchas personas tímidas son grandes amigos porque saben escuchar. Pero conviene tener algunas estrategias:</p><ul><li><b>Sonreír</b> y saludar: una sonrisa invita a acercarse.</li><li><b>Buscar intereses comunes</b>: un deporte, un libro, un dibujo, un videojuego.</li><li><b>Hacer preguntas</b>: «¿A qué estáis jugando?», «¿Qué estás leyendo?».</li><li><b>Unirse a actividades</b>: equipos, talleres, coro, grupos de lectura.</li><li><b>Tener paciencia</b>: las amistades necesitan tiempo para crecer.</li></ul><p>Y si eres tú quien ve a alguien solo, recuerda la historia de Marcos y Nadia: <b>dar el primer paso</b> para incluir a otra persona es uno de los gestos más bonitos que se pueden hacer. En muchos colegios existe el <b>banco de la amistad</b>: quien se sienta en él indica que busca a alguien con quien jugar.</p>`,
+      H5.flujo("Hacer amigos", ["Sonreír", "Preguntar", "Compartir", "Paciencia"], cAZ), ["2nTnR2KXXVs", "La niña que no quería intentar cosas nuevas y es tímida", "Marie Leiner  | Historias que ayudan a crecer", 3716274]],
+    ["Amistades en los libros", `<p>La literatura está llena de grandes amistades que nos enseñan qué significa ser un buen amigo:</p><ul><li><b>El Principito y el zorro</b>, en el libro de Antoine de Saint-Exupéry (1943). El zorro le pide al Principito que lo «domestique», es decir, que cree lazos con él. Le enseña que los amigos se hacen especiales con el tiempo que les dedicamos y le regala un secreto: «Lo esencial es invisible a los ojos».</li><li><b>Don Quijote y Sancho Panza</b>, en la novela de Miguel de Cervantes. Son muy distintos, uno soñador y el otro práctico, pero se quieren, se cuidan y aprenden el uno del otro.</li><li><b>Pippi Calzaslargas y sus vecinos Tommy y Annika</b>, en los libros de Astrid Lindgren. Pippi es diferente a todos, y sus amigos la aceptan tal como es.</li><li><b>Carlota y Wilbur</b>, en <i>La telaraña de Carlota</i>, de E. B. White: una araña ayuda a un cerdito a salvar su vida.</li></ul><p>Todas estas historias muestran lo mismo: la amistad verdadera no depende de ser iguales, sino de <b>cuidarse</b> y <b>aceptarse</b>.</p>`,
+      H5.rueda("Amistades de libro", "AMIGOS", [["zorro", cNA], ["Sancho", cAZ], ["Pippi", cRO], ["Carlota", cVE]]), ["IFvWeJ5RWMg", "El Principito y el zorro", "Club de las Ideas", 313373]],
+    ["Cuando una amistad cambia", `<p>Las amistades pueden <b>cambiar</b>: un amigo se muda, cambia de clase, empieza a tener otros intereses o simplemente nos distanciamos. A veces incluso una amistad se termina después de una discusión.</p><p>Es normal sentir <b>tristeza</b>, enfado o confusión. Algunas ideas para afrontarlo:</p><ul><li><b>Hablar</b> con la otra persona si hay algo que se puede arreglar.</li><li><b>Aceptar</b> que no todas las amistades duran para siempre, y que eso no significa que hayamos hecho algo mal.</li><li><b>Guardar los buenos recuerdos</b> y agradecer lo que esa amistad nos dio.</li><li><b>No hablar mal</b> de quien fue nuestro amigo ni contar sus secretos.</li><li><b>Abrirse</b> a nuevas amistades.</li></ul><p>Si un amigo se muda lejos, hoy es más fácil mantener el contacto con videollamadas, cartas o mensajes. Muchas amistades de la infancia continúan durante toda la vida.</p>`,
+      H5.dos("Si la amistad cambia", ["Hacer", ["hablar", "aceptar", "recordar lo bueno"], cVE], ["Evitar", ["criticar", "contar secretos", "cerrarse"], cRO])],
+  ],
+  ejemplos: [
+    ["Un chico que conociste en un videojuego en línea te pide tu dirección para mandarte un regalo. ¿Qué haces?", ["Recordar que en internet alguien puede fingir quién es.", "No dar datos personales y contárselo a un adulto."], "No dársela y avisar a un adulto de confianza."],
+    ["Tu mejor amiga se cambia de colegio. ¿Cómo podéis mantener la amistad?", ["Buscar formas de contacto.", "Quedar algunos fines de semana con permiso de las familias."], "Con mensajes, videollamadas o cartas, y viéndose cuando se pueda."],
+  ],
+  errores: ["Pensar que una persona tímida no quiere tener amigos: muchas veces solo necesita que alguien dé el primer paso.", "Creer que en internet todo el mundo es quien dice ser."],
+  ejercicios: [
+    ["b", "¿Qué tres tipos de amistad distinguió Aristóteles?", "Por utilidad, por placer y verdadera."],
+    ["b", "¿Qué datos no debes dar nunca a alguien que solo conoces por internet?", "Dirección, colegio, teléfono y fotos personales."],
+    ["b", "Nombra dos estrategias para hacer nuevos amigos.", "Por ejemplo: sonreír y buscar intereses comunes."],
+    ["b", "¿Qué le enseña el zorro al Principito?", "Que lo esencial es invisible a los ojos y que los amigos se hacen con tiempo."],
+    ["b", "¿Para qué sirve el banco de la amistad?", "Para indicar que buscas a alguien con quien jugar."],
+    ["m", "Explica cómo cambia la amistad entre la infancia y la adolescencia.", "De compañero de juego a alguien con quien compartir sentimientos y confianza."],
+    ["m", "¿Por qué no hay que escribir en un grupo lo que no dirías a la cara?", "Porque hace el mismo daño y queda guardado."],
+    ["m", "Escribe tres preguntas para empezar a hablar con alguien nuevo.", "Respuesta abierta."],
+    ["m", "¿Qué tienen en común Don Quijote y Sancho a pesar de ser distintos?", "Se quieren, se cuidan y aprenden el uno del otro."],
+    ["m", "¿Qué harías si una amistad se termina después de una discusión?", "Intentar hablar, aceptar, no criticar y abrirse a otras amistades."],
+    ["a", "Diseña un cartel para un banco de la amistad en el patio.", "Respuesta abierta."],
+    ["a", "Escribe una carta a un amigo que vive lejos contándole tu semana.", "Respuesta abierta."],
+    ["a", "Elige una amistad de un libro o película y explica qué te enseña.", "Respuesta abierta."],
+    ["a", "Elabora un decálogo de normas para el grupo de mensajes de la clase.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Para Aristóteles, la amistad más valiosa es la…", ["verdadera", "por utilidad", "por placer"], "Quiere el bien del otro."],
+    ["Si alguien de internet te pide guardar un secreto…", ["lo cuentas a un adulto", "lo guardas", "le das tu teléfono"], "Seguridad."],
+    ["«Lo esencial es invisible a los ojos» lo dice…", ["el zorro", "Sancho Panza", "Pippi"], "El Principito."],
+    ["La timidez es…", ["una forma de ser, no un defecto", "un defecto grave", "una enfermedad"], "Timidez."],
+    ["Si una amistad se acaba, conviene…", ["no contar sus secretos", "hablar mal de él", "cerrarse a otros"], "Respeto."],
+  ],
+  examen: [
+    ["Quien escribió El Principito fue…", ["Saint-Exupéry", "Cervantes", "Astrid Lindgren"], "1943."],
+    ["En internet hay que tratar a los demás…", ["igual que en la vida real", "como queramos", "sin normas"], "Regla."],
+  ],
+  tarjetas: [
+    ["Aristóteles", "Amistad por utilidad, por placer y verdadera."],
+    ["Internet", "No dar datos, desconfiar, avisar a un adulto."],
+    ["Hacer amigos", "Sonreír, preguntar, compartir, paciencia."],
+    ["Amistades de libro", "El Principito y el zorro, Quijote y Sancho, Pippi, Carlota."],
+  ],
+  glosario: [
+    ["Lealtad", "Fidelidad a un amigo, también cuando no está."],
+    ["Timidez", "Dificultad para relacionarse con personas nuevas."],
+    ["Utilidad", "Provecho que sacamos de algo."],
+    ["Filósofo", "Persona que reflexiona sobre las grandes preguntas."],
+    ["Domesticar", "En El Principito, crear lazos con alguien."],
+    ["Fingir", "Hacer creer algo que no es verdad."],
+    ["Datos personales", "Información que nos identifica: nombre, dirección, teléfono."],
+    ["Inclusión", "Hacer que nadie quede fuera."],
+    ["Banco de la amistad", "Banco del patio para buscar compañero de juego."],
+    ["Distanciarse", "Alejarse poco a poco de alguien."],
+    ["Videollamada", "Llamada con imagen a través de internet."],
+    ["Decálogo", "Lista de diez normas."],
+  ],
+  situacion: {
+    titulo: "Nadie solo en el recreo",
+    reto: "La clase organiza una campaña para que ningún alumno del colegio pase el recreo solo.",
+    pasos: ["Observad el patio durante unos días y anotad qué ocurre.", "Diseñad un banco de la amistad y un cartel que explique cómo funciona.", "Preparad juegos de grupo abiertos a cualquiera que quiera unirse.", "Presentad la campaña a otras clases y evaluad los resultados al cabo de un mes."],
+    producto: "Un banco de la amistad y una campaña de juegos inclusivos.",
+    evaluacion: ["Explica qué hace a una amistad verdadera.", "Propone estrategias para incluir a otros.", "Conoce normas de seguridad en internet.", "Trabaja en equipo con respeto."],
+  },
+});
