@@ -88,3 +88,85 @@ module.exports = P.tema({
   saberes: "Los profetas en la historia de Israel; la vocación profética; Elías, Amós, Isaías, Jeremías y Jonás; la denuncia de la injusticia y el anuncio de la esperanza; Juan el Bautista; actitudes proféticas hoy",
   ideas: ["Cómic de la historia de Jonás en seis viñetas.", "Mural «Profetas de hoy» con personas que defienden la justicia y la paz.", "Dramatización de la escena de Elías en el monte Horeb."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Descubrir a las mujeres profetas de la Biblia", "Conocer la historia de Daniel y su fidelidad", "Distinguir profetas mayores y menores", "Reconocer la presencia de los profetas en el arte"],
+  lectura: { titulo: "El niño que no quería hablar", html: `<p>A Jeremías le temblaban las manos. Era muy joven y nunca había hablado delante de nadie importante. Ahora sentía que Dios le pedía algo imposible: hablar al rey y a todo el pueblo de Jerusalén.</p><p>—Pero si no sé hablar —dijo en voz baja—. Solo soy un muchacho.</p><p>Y entonces, cuenta la Biblia, escuchó una respuesta: «No digas que eres un muchacho. Irás adonde yo te envíe y dirás lo que yo te mande. No tengas miedo, que yo estoy contigo».</p><p>Jeremías respiró hondo. Sentía miedo, pero también una fuerza nueva dentro de él.</p><p>Durante años habló en las calles y en el Templo. Avisaba de que la injusticia y el olvido de Dios traerían desgracias. Muchos se burlaban de él. Otros se enfadaban tanto que lo encerraron en un pozo lleno de barro.</p><p>Pero Jeremías no se rindió. Incluso cuando Jerusalén fue destruida y el pueblo tuvo que marchar al destierro, siguió hablando. Ahora su mensaje era de esperanza: «Volveréis. Dios hará una alianza nueva, escrita en vuestros corazones».</p><p>Aquel muchacho que no se atrevía a hablar se convirtió en uno de los grandes profetas de Israel.</p>` },
+  tras: {
+    "¿Qué es un profeta?": [
+      ["Mujeres profetas", `<p>En la Biblia no solo hay profetas hombres. También aparecen varias <b>mujeres profetas</b> que guiaron y animaron al pueblo:</p><ul><li><b>Miriam</b>, hermana de Moisés y de Aarón. Según la tradición, de niña vigiló la cesta en la que su hermano pequeño flotaba por el río Nilo. Después de cruzar el mar, tomó un pandero y dirigió a las mujeres en un canto de alegría y agradecimiento a Dios (Éx 15).</li><li><b>Débora</b>, jueza y profetisa. Se sentaba bajo una palmera y la gente acudía a ella para resolver sus pleitos. Animó a Israel en un momento de gran peligro, y su canto de victoria es uno de los textos más antiguos de la Biblia (Jue 5).</li><li><b>Hulda</b>, profetisa de Jerusalén. Cuando se encontró un antiguo libro de la Ley en el Templo, el rey Josías mandó consultarla para saber qué significaba.</li><li><b>Ana</b>, en el Nuevo Testamento. Era una anciana que pasaba los días rezando en el Templo y, al ver al niño Jesús, habló de él a todos los que esperaban la salvación (Lc 2).</li></ul>`,
+        L.filas("Mujeres profetas", [["Miriam", "canto tras el mar", AZ], ["Débora", "jueza bajo la palmera", VE], ["Hulda", "consejera del rey", NA], ["Ana", "anciana del Templo", MO]])],
+    ],
+    "Jonás y la ciudad de Nínive": [
+      ["Daniel en el foso de los leones", `<p>El libro de <b>Daniel</b> cuenta la historia de un joven judío que vivió en Babilonia durante el destierro. Era tan sabio y honrado que el rey lo nombró uno de sus principales consejeros.</p><p>Otros consejeros le tenían <b>envidia</b> y buscaron la forma de acabar con él. Sabían que Daniel rezaba a Dios tres veces al día, con la ventana abierta mirando hacia Jerusalén. Así que convencieron al rey Darío para que firmara una ley: durante treinta días, nadie podría rezar a ningún dios ni hombre, solo al rey. Quien desobedeciera sería arrojado al <b>foso de los leones</b>.</p><p>Daniel siguió rezando como siempre. Los envidiosos lo denunciaron y el rey, muy a su pesar, tuvo que cumplir su propia ley. Daniel fue arrojado al foso y taparon la entrada con una piedra.</p><p>A la mañana siguiente, el rey corrió al foso y llamó a Daniel. Desde dentro, Daniel respondió que estaba sano: los leones no le habían hecho ningún daño. El rey se llenó de alegría y reconoció la grandeza del Dios de Daniel.</p><p>La historia enseña la <b>fidelidad</b>: ser coherente con lo que uno cree, aunque sea difícil, y confiar en Dios en los momentos de peligro.</p>`,
+        H.flujo("Daniel y los leones", ["Envidia", "Ley|del rey", "Reza|igual", "Foso", "A salvo"], NA), ["FIy08PuQPWk", "Daniel en el Foso de los Leones | Historias Infantiles | Historias De Navidad", "Bible Tales", 3109566]],
+    ],
+  },
+  final: [
+    ["Profetas mayores y menores", `<p>En el Antiguo Testamento hay muchos libros que llevan el nombre de un profeta. Tradicionalmente se dividen en dos grupos:</p><ul><li>Los <b>profetas mayores</b>: Isaías, Jeremías, Ezequiel y Daniel. Se llaman así porque sus libros son <b>largos</b>, no porque sean más importantes.</li><li>Los <b>profetas menores</b>: doce libros más <b>breves</b>, entre ellos los de Oseas, Joel, Amós, Jonás, Miqueas y Malaquías. Algunos tienen solo uno o dos capítulos.</li></ul><p>No todos los profetas escribieron libros. <b>Elías</b> y su discípulo <b>Eliseo</b>, por ejemplo, son muy importantes, pero sus historias se cuentan en los libros de los Reyes.</p><p>Cada profeta tiene un mensaje propio:</p><ul><li><b>Ezequiel</b> tuvo una visión de un valle lleno de huesos secos que volvían a la vida: una imagen de esperanza para un pueblo desanimado.</li><li><b>Miqueas</b> resumió lo que Dios pide en una frase: «Practicar la justicia, amar la bondad y caminar humildemente con tu Dios» (Miq 6,8).</li></ul>`,
+      H.dos("Libros proféticos", ["Mayores", ["libros largos", "4 profetas", "Isaías, Daniel"], AZ], ["Menores", ["libros breves", "12 profetas", "Amós, Jonás"], VE])],
+    ["Los profetas en el arte", `<p>Los profetas han inspirado a grandes artistas a lo largo de los siglos:</p><ul><li>En el techo de la <b>Capilla Sixtina</b>, en Roma, <b>Miguel Ángel</b> pintó siete profetas gigantes sentados en tronos, entre ellos Isaías, Jeremías, Jonás y Daniel. Jeremías aparece pensativo, con la mano en la barba.</li><li>En el <b>Pórtico de la Gloria</b> de la catedral de Santiago de Compostela, el maestro Mateo esculpió a varios profetas del Antiguo Testamento. La figura del profeta <b>Daniel</b> es famosa por su sonrisa.</li><li>En Brasil, el escultor <b>Aleijadinho</b> talló en piedra doce profetas de tamaño natural frente al santuario de Congonhas, a principios del siglo XIX.</li><li>El escultor italiano <b>Donatello</b> realizó varias estatuas de profetas para el campanario de la catedral de Florencia.</li></ul><p>Los artistas suelen representar a los profetas con un <b>rollo</b> o un libro en las manos, porque transmiten la palabra de Dios.</p>`,
+      L.filas("Profetas en el arte", [["Miguel Ángel", "Capilla Sixtina", AZ], ["maestro Mateo", "Pórtico de la Gloria", NA], ["Aleijadinho", "Congonhas, Brasil", VE], ["Donatello", "Florencia", RO]])],
+  ],
+  ejemplos: [
+    ["¿Por qué Isaías es un profeta «mayor» y Amós uno «menor»?", ["Pensar en la extensión de sus libros.", "No tiene que ver con su importancia."], "Porque el libro de Isaías es largo y el de Amós es breve."],
+    ["¿Qué tienen en común Daniel y Jeremías?", ["Los dos vivieron momentos de peligro.", "Los dos fueron fieles a su misión."], "Ambos fueron fieles a Dios aunque les costó persecuciones."],
+  ],
+  errores: ["Pensar que los profetas mayores son más importantes que los menores: la diferencia es la extensión de sus libros.", "Creer que en la Biblia solo hay profetas hombres."],
+  ejercicios: [
+    ["b", "Nombra dos mujeres profetas del Antiguo Testamento.", "Por ejemplo: Miriam y Débora."],
+    ["b", "¿Por qué arrojaron a Daniel al foso de los leones?", "Por seguir rezando a Dios a pesar de la ley del rey."],
+    ["b", "¿Cuáles son los cuatro profetas mayores?", "Isaías, Jeremías, Ezequiel y Daniel."],
+    ["b", "¿Cuántos son los profetas menores?", "Doce."],
+    ["b", "¿Qué pintó Miguel Ángel en la Capilla Sixtina sobre los profetas?", "Siete profetas sentados en tronos."],
+    ["m", "¿Qué hizo Miriam después de cruzar el mar?", "Dirigió un canto de alegría con un pandero."],
+    ["m", "¿Qué valor enseña la historia de Daniel?", "La fidelidad y la confianza en Dios."],
+    ["m", "Explica la frase de Miqueas 6,8 con tus palabras.", "Ser justo, bondadoso y humilde ante Dios."],
+    ["m", "¿Qué significa la visión de los huesos secos de Ezequiel?", "Esperanza: el pueblo volverá a la vida."],
+    ["m", "¿Por qué los artistas representan a los profetas con un rollo?", "Porque transmiten la palabra de Dios."],
+    ["a", "Escribe un cómic de seis viñetas sobre Daniel en el foso de los leones.", "Respuesta abierta."],
+    ["a", "Prepara una ficha de una mujer profeta con su cita bíblica y su mensaje.", "Respuesta abierta."],
+    ["a", "Busca una imagen de un profeta en el arte y describe cómo está representado.", "Respuesta abierta."],
+    ["a", "Escribe un mensaje «profético» de justicia y esperanza para tu barrio.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La hermana de Moisés que cantó tras cruzar el mar es…", ["Miriam", "Débora", "Ana"], "Éxodo 15."],
+    ["Daniel vivió el destierro en…", ["Babilonia", "Egipto", "Roma"], "Destierro."],
+    ["Los profetas mayores tienen libros…", ["largos", "más importantes", "en latín"], "Extensión."],
+    ["Débora era jueza y…", ["profetisa", "reina", "pescadora"], "Jueces."],
+    ["El profeta Daniel sonríe en el…", ["Pórtico de la Gloria", "Museo del Prado", "Coliseo"], "Santiago."],
+  ],
+  examen: [
+    ["Ana, la anciana del Templo, aparece en el Evangelio de…", ["Lucas", "Marcos", "Juan"], "Lc 2."],
+    ["Aleijadinho talló profetas en…", ["Brasil", "Italia", "España"], "Congonhas."],
+  ],
+  tarjetas: [
+    ["Mujeres profetas", "Miriam, Débora, Hulda y Ana."],
+    ["Daniel", "Fiel a Dios en el foso de los leones."],
+    ["Mayores y menores", "4 libros largos y 12 breves."],
+    ["Arte", "Sixtina, Pórtico de la Gloria, Congonhas, Donatello."],
+  ],
+  glosario: [
+    ["Profetisa", "Mujer profeta."],
+    ["Pandero", "Instrumento de percusión con sonajas."],
+    ["Juez", "En el antiguo Israel, líder que guiaba al pueblo y resolvía pleitos."],
+    ["Pleito", "Disputa entre personas."],
+    ["Destierro", "Obligación de vivir fuera de la propia tierra."],
+    ["Foso", "Hoyo grande y profundo."],
+    ["Fidelidad", "Ser constante y leal a lo que uno cree o promete."],
+    ["Envidia", "Tristeza por el bien de otro."],
+    ["Visión", "Imagen que alguien ve y que tiene un significado especial."],
+    ["Humildad", "Reconocer las propias limitaciones sin creerse más que nadie."],
+    ["Pórtico", "Entrada con columnas de un edificio."],
+    ["Campanario", "Torre donde están las campanas."],
+  ],
+  situacion: {
+    titulo: "Galería de profetas",
+    reto: "La clase crea una galería de retratos de profetas y profetisas con su mensaje para hoy.",
+    pasos: ["Cada alumno elige un profeta o una profetisa de la Biblia.", "Busca su historia y una cita breve de su mensaje.", "Dibuja un retrato con un símbolo que lo identifique.", "Escribe cómo se aplicaría su mensaje hoy y presentadlo en una galería."],
+    producto: "Una galería de retratos con citas y mensajes actuales.",
+    evaluacion: ["Conoce la historia del profeta.", "Localiza una cita bíblica.", "Relaciona el mensaje con la actualidad.", "Presenta con claridad."],
+  },
+});

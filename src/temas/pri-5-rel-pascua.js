@@ -88,3 +88,85 @@ module.exports = P.tema({
   saberes: "La pasión, muerte y resurrección de Jesús; la Última Cena y la Eucaristía; el mandamiento del amor; los relatos de la resurrección y las apariciones; la Semana Santa y la Pascua; el significado cristiano de la cruz y de la vida nueva",
   ideas: ["Calendario ilustrado de la Semana Santa día a día.", "Dramatización del camino de Emaús.", "Decorar un cirio con símbolos de la Pascua."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Conocer la Pascua judía y su relación con la Pascua cristiana", "Descubrir las tradiciones de la Semana Santa en España", "Interpretar los símbolos de la Pascua", "Saber cómo se calcula cada año la fecha de la Pascua"],
+  lectura: { titulo: "El tambor de la abuela", html: `<p>Era Jueves Santo y Pablo estaba nervioso. Por primera vez iba a tocar el tambor en su pueblo, en el Bajo Aragón, junto a cientos de vecinos vestidos con túnicas moradas.</p><p>Su abuela le había regalado el tambor que ella misma había tocado durante cincuenta años. La piel tenía manchas de tanto uso.</p><p>—Este tambor ha sonado en muchas Semanas Santas —le dijo—. Ahora te toca a ti.</p><p>A medianoche, la plaza estaba llena y en completo silencio. Pablo sentía su corazón como si ya fuera un tambor. De pronto, sonó una señal y todos golpearon a la vez. El estruendo fue tan fuerte que notó la vibración en el pecho y en los pies. Era la «rompida de la hora».</p><p>Tocaron durante horas. Al principio a Pablo le dolían las muñecas, pero poco a poco el ritmo le llevó solo.</p><p>Cuando por fin se sentó a descansar, la abuela se le acercó.</p><p>—¿Sabes por qué tocamos? —le preguntó—. Para recordar que, cuando murió Jesús, la tierra tembló y el cielo se oscureció. Pero el domingo, el silencio se convierte en alegría.</p><p>Pablo miró sus manos rojas y sonrió. Ahora entendía por qué su abuela nunca se había perdido una Semana Santa.</p>` },
+  tras: {
+    "La Última Cena": [
+      ["La Pascua judía", `<p>Jesús celebró la Última Cena durante la fiesta de la <b>Pascua judía</b>, llamada <b>Pésaj</b>, que significa «paso». Los judíos recuerdan cada año cómo Dios <b>liberó</b> a su pueblo de la esclavitud en Egipto, en tiempos de Moisés.</p><p>La celebración principal es una cena familiar llamada <b>séder</b> («orden»), en la que cada alimento tiene un significado:</p><ul><li>El <b>pan ácimo</b> (<i>matzá</i>), sin levadura: recuerda que los israelitas salieron con tanta prisa de Egipto que no tuvieron tiempo de dejar fermentar la masa.</li><li>Las <b>hierbas amargas</b>: recuerdan la amargura de la esclavitud.</li><li>El <b>cordero</b>: en tiempos de Jesús se sacrificaba un cordero en el Templo y se comía en familia.</li><li>El <b>vino</b>: se beben varias copas para celebrar la libertad.</li></ul><p>Durante la cena, el niño más pequeño hace preguntas como «¿Por qué esta noche es diferente de las demás?», y los mayores le cuentan la historia del Éxodo.</p><p>Para los cristianos, Jesús dio a esta fiesta un sentido nuevo: él es el <b>cordero</b> que da su vida, y su muerte y resurrección son el «paso» de la muerte a la vida. Por eso la fiesta cristiana también se llama <b>Pascua</b>.</p>`,
+        L.filas("La cena del séder", [["pan ácimo", "salida con prisa", NA], ["hierbas amargas", "la esclavitud", VE], ["cordero", "la liberación", RO], ["vino", "la libertad", MO]]), ["CZvVvvHzYYo", "10 Datos importantes sobre Pésaj", "Enlace Judío", 177685]],
+    ],
+    "Semana Santa y Pascua": [
+      ["La Semana Santa en España", `<p>En España, la Semana Santa se vive con muchas tradiciones que mezclan fe, arte, música e historia:</p><ul><li>Las <b>procesiones</b> recorren las calles con <b>pasos</b>: grandes plataformas con esculturas que representan escenas de la Pasión. Las organizan las <b>cofradías</b> o hermandades.</li><li>Los <b>nazarenos</b> visten túnicas y capirotes, y los <b>costaleros</b> llevan los pasos sobre sus hombros o su nuca, moviéndose al compás de la música.</li><li>Las <b>saetas</b> son cantos flamencos breves y emocionados que se cantan desde un balcón al paso de una imagen.</li><li>Muchas imágenes son verdaderas <b>obras de arte</b>: en Valladolid, por ejemplo, salen esculturas de madera policromada del siglo XVII de artistas como Gregorio Fernández.</li><li>En el <b>Bajo Aragón</b>, en pueblos como Calanda, Híjar o Alcañiz, miles de personas tocan <b>tambores y bombos</b> durante horas. Las tamborradas españolas fueron declaradas Patrimonio Cultural Inmaterial de la Humanidad por la UNESCO en 2018.</li></ul><p>También hay dulces típicos, como las <b>torrijas</b>, los <b>buñuelos</b> o la <b>mona de Pascua</b>, que en Cataluña, Valencia y Murcia los padrinos regalan a sus ahijados.</p>`,
+        L.filas("Semana Santa en España", [["pasos", "escenas de la Pasión", MO], ["costaleros", "llevan los pasos", AZ], ["saetas", "cantos flamencos", RO], ["tambores", "Bajo Aragón", NA]]), ["ThJuLG482Do", "Así rompen la Hora siete pueblos de la Ruta del Tambor y Bombo | Semana Santa 2023", "La COMARCA TV", 7042]],
+    ],
+  },
+  final: [
+    ["Los símbolos de la Pascua", `<p>La Pascua es la fiesta más importante para los cristianos, y se celebra con muchos <b>símbolos</b>:</p><ul><li>El <b>cirio pascual</b>: una gran vela que se enciende en la Vigilia Pascual, la noche del Sábado Santo, en medio de la iglesia a oscuras. Representa a Jesús resucitado como <b>luz</b> que vence a la oscuridad. Lleva grabadas una cruz, el año y las letras griegas <b>alfa</b> y <b>omega</b>, la primera y la última del alfabeto: Cristo es el principio y el fin.</li><li>El <b>agua</b>: en la Vigilia se bendice el agua y se renuevan las promesas del bautismo, que significa nacer a una vida nueva.</li><li>El <b>aleluya</b>: una palabra hebrea que significa «alabad a Dios». No se canta durante la Cuaresma y vuelve con fuerza en Pascua.</li><li>El color <b>blanco</b>: los sacerdotes visten de blanco, color de la alegría y la vida.</li><li>El <b>huevo</b>: en muchos países se regalan huevos decorados, porque de un huevo que parece sin vida surge una vida nueva.</li><li>Las <b>flores</b>: la Pascua cae en primavera, cuando la naturaleza renace.</li></ul>`,
+      H.rueda("Símbolos de Pascua", "PASCUA", [["cirio", NA], ["agua", AZ], ["aleluya", VE], ["huevo", MO]])],
+    ["¿Por qué cambia de fecha?", `<p>La Navidad es siempre el 25 de diciembre, pero la Pascua cambia de fecha cada año. ¿Por qué?</p><p>La Pascua judía se celebraba según el calendario lunar, y Jesús murió y resucitó durante esa fiesta. Por eso los cristianos decidieron calcular la fecha de la Pascua teniendo en cuenta la <b>luna</b>.</p><p>En el año <b>325</b>, en el <b>Concilio de Nicea</b>, se estableció una regla que se sigue usando hoy: el Domingo de Pascua es <b>el primer domingo después de la primera luna llena</b> que sigue al <b>equinoccio de primavera</b> (que para este cálculo se fija el 21 de marzo).</p><p>Por eso la Pascua siempre cae entre el <b>22 de marzo</b> y el <b>25 de abril</b>. Y a partir de ella se calculan otras fiestas:</p><ul><li>El <b>Miércoles de Ceniza</b>, que empieza la Cuaresma, es 46 días antes.</li><li>La <b>Ascensión</b>, 40 días después.</li><li><b>Pentecostés</b>, 50 días después de Pascua.</li></ul><p>Las Iglesias ortodoxas usan otro calendario, el juliano, y por eso suelen celebrar la Pascua en una fecha distinta.</p>`,
+      H.flujo("Calcular la Pascua", ["21 de|marzo", "Luna|llena", "Domingo|siguiente"], AZ)],
+  ],
+  ejemplos: [
+    ["En un año, la primera luna llena después del 21 de marzo cae el martes 2 de abril. ¿Cuándo es el Domingo de Pascua?", ["Buscar el primer domingo después de esa luna llena.", "Contar desde el martes 2."], "El domingo 7 de abril."],
+    ["¿Por qué en la cena del séder se come pan sin levadura?", ["Recordar la salida de Egipto.", "No hubo tiempo de fermentar la masa."], "Para recordar la prisa con la que los israelitas salieron de Egipto."],
+  ],
+  errores: ["Pensar que la Pascua cristiana no tiene relación con la judía: Jesús murió y resucitó durante Pésaj.", "Creer que la Pascua cae siempre en la misma fecha."],
+  ejercicios: [
+    ["b", "¿Qué significa Pésaj?", "Paso."],
+    ["b", "¿Qué es el séder?", "La cena familiar de la Pascua judía."],
+    ["b", "¿Quiénes llevan los pasos en las procesiones?", "Los costaleros."],
+    ["b", "¿Qué significa «aleluya»?", "Alabad a Dios."],
+    ["b", "¿Entre qué fechas cae siempre la Pascua?", "Entre el 22 de marzo y el 25 de abril."],
+    ["m", "¿Qué recuerdan las hierbas amargas del séder?", "La amargura de la esclavitud en Egipto."],
+    ["m", "¿Qué representan el alfa y la omega del cirio pascual?", "Que Cristo es el principio y el fin."],
+    ["m", "¿Qué son las saetas?", "Cantos flamencos breves dedicados a una imagen."],
+    ["m", "¿Cuántos días después de Pascua se celebra Pentecostés?", "50 días."],
+    ["m", "¿Qué reconoció la UNESCO en 2018?", "Las tamborradas españolas como Patrimonio Cultural Inmaterial."],
+    ["a", "Busca en un calendario la fecha de la Pascua del próximo año y comprueba la regla de la luna llena.", "Respuesta abierta."],
+    ["a", "Investiga una tradición de Semana Santa de tu comunidad y preséntala.", "Respuesta abierta."],
+    ["a", "Diseña un cirio pascual con sus símbolos explicados.", "Respuesta abierta."],
+    ["a", "Compara en una tabla la Pascua judía y la Pascua cristiana.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En la Pascua judía se recuerda la salida de…", ["Egipto", "Roma", "Babilonia"], "Éxodo."],
+    ["El pan sin levadura se llama…", ["ácimo", "integral", "de molde"], "Matzá."],
+    ["Las tamborradas son famosas en el…", ["Bajo Aragón", "Cantábrico", "Pirineo catalán"], "Calanda."],
+    ["El cirio pascual simboliza…", ["la luz de Cristo resucitado", "la tristeza", "el invierno"], "Luz."],
+    ["La regla para fijar la Pascua se aprobó en…", ["Nicea, 325", "Trento, 1545", "Roma, 1000"], "Concilio."],
+  ],
+  examen: [
+    ["El color litúrgico de la Pascua es el…", ["blanco", "morado", "negro"], "Alegría."],
+    ["La mona de Pascua la regalan…", ["los padrinos", "los maestros", "los vecinos"], "Ahijados."],
+  ],
+  tarjetas: [
+    ["Pésaj", "Paso; séder con pan ácimo, hierbas amargas, cordero y vino."],
+    ["Semana Santa en España", "Pasos, cofradías, costaleros, saetas, tambores."],
+    ["Símbolos", "Cirio, agua, aleluya, blanco, huevo, flores."],
+    ["Fecha", "Domingo tras la luna llena posterior al 21 de marzo."],
+  ],
+  glosario: [
+    ["Pésaj", "Pascua judía."],
+    ["Séder", "Cena ritual de la Pascua judía."],
+    ["Ácimo", "Sin levadura."],
+    ["Cofradía", "Asociación que organiza una procesión."],
+    ["Paso", "Plataforma con esculturas que sale en procesión."],
+    ["Costalero", "Persona que lleva un paso."],
+    ["Saeta", "Canto flamenco religioso."],
+    ["Policromada", "Pintada con varios colores."],
+    ["Cirio", "Vela grande."],
+    ["Vigilia Pascual", "Celebración de la noche del Sábado Santo."],
+    ["Equinoccio", "Momento en que el día y la noche duran lo mismo."],
+    ["Concilio", "Reunión de obispos para tratar asuntos de la Iglesia."],
+  ],
+  situacion: {
+    titulo: "Calendario de la Pascua",
+    reto: "La clase calcula las fechas de la Pascua de los próximos años y crea un calendario ilustrado con sus símbolos.",
+    pasos: ["Buscad las fechas de luna llena de marzo y abril de los próximos tres años.", "Aplicad la regla de Nicea para calcular el Domingo de Pascua.", "Calculad también el Miércoles de Ceniza y Pentecostés.", "Ilustrad el calendario con los símbolos pascuales y su explicación."],
+    producto: "Un calendario ilustrado de la Pascua para tres años.",
+    evaluacion: ["Aplica correctamente la regla de la fecha.", "Relaciona la Pascua judía y la cristiana.", "Explica los símbolos.", "Presenta un trabajo cuidado."],
+  },
+});

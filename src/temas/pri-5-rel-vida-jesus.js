@@ -88,3 +88,85 @@ module.exports = P.tema({
   saberes: "Jesús de Nazaret en su contexto histórico y geográfico; nacimiento e infancia; bautismo y comienzo de la vida pública; los apóstoles; el anuncio del Reino de Dios; parábolas y milagros; la manera de tratar a las personas",
   ideas: ["Mapa en relieve de Palestina con los lugares de la vida de Jesús.", "Representar una parábola con marionetas.", "Línea de la vida de Jesús con dibujos de los alumnos."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Conocer cómo era la vida diaria en tiempos de Jesús", "Interpretar algunas parábolas y su mensaje", "Comprender el sentido de las Bienaventuranzas", "Saber qué fuentes históricas hablan de Jesús"],
+  lectura: { titulo: "Un día en Cafarnaún", html: `<p>Simón se levantó antes del amanecer. Su padre ya estaba en la orilla del lago, preparando las redes.</p><p>—Hoy hay que llenar la barca —dijo—. Mañana es sábado y no se puede trabajar.</p><p>A mediodía, su madre les trajo pan de cebada, aceitunas e higos secos. Comieron sentados en la arena mientras otras barcas volvían a puerto.</p><p>Por la tarde, Simón vio a mucha gente caminando hacia la casa de un pescador del pueblo. Un hombre de Nazaret estaba hablando. No gritaba ni parecía un rey, pero todos le escuchaban en silencio.</p><p>—El reino de Dios es como un grano de mostaza —decía—. Es la semilla más pequeña, pero cuando crece se hace un árbol donde anidan los pájaros.</p><p>Simón pensó en las semillas diminutas del huerto de su madre. Nunca se le había ocurrido que algo tan pequeño pudiera hablar de Dios.</p><p>Esa noche, en la azotea, le preguntó a su padre:</p><p>—¿Quién es ese hombre?</p><p>—Se llama Jesús. Dicen que cura a los enfermos y que come con todo el mundo, incluso con los recaudadores de impuestos.</p><p>Simón se durmió pensando en el grano de mostaza y decidió que al día siguiente volvería a escucharle.</p>` },
+  tras: {
+    "La tierra de Jesús": [
+      ["La vida cotidiana en tiempos de Jesús", `<p>¿Cómo vivía la gente sencilla de Galilea hace dos mil años?</p><ul><li><b>Las casas</b> eran pequeñas, de piedra o adobe, con una o dos habitaciones y un <b>techo plano</b> (azotea) de ramas y barro, donde se secaban los frutos y se dormía en verano.</li><li><b>La comida</b> se basaba en el pan, sobre todo de cebada, el aceite de oliva, las legumbres, los higos, los dátiles, la leche de cabra y el pescado del lago. La carne se comía solo en fiestas.</li><li><b>Los oficios</b> más comunes eran los de agricultor, pastor, pescador, artesano o comerciante. Los niños aprendían el oficio de su padre.</li><li><b>La sinagoga</b> era el lugar donde la comunidad se reunía cada sábado para rezar y escuchar la lectura de las Escrituras. Allí los niños aprendían a leer.</li><li><b>El sábado</b> (<i>sabbat</i>) era el día sagrado de descanso: empezaba al atardecer del viernes y no se podía trabajar.</li><li>Las mujeres iban a buscar <b>agua</b> al pozo, molían el grano y tejían la ropa.</li></ul><p>Jesús conocía bien esta vida, y por eso sus parábolas hablan de semillas, ovejas, redes, panes y lámparas.</p>`,
+        L.filas("Vida cotidiana en Galilea", [["casa", "adobe y azotea", NA], ["comida", "pan, aceite, higos", VE], ["oficio", "pescador, pastor", AZ], ["sábado", "día de descanso", MO]])],
+    ],
+    "Las parábolas": [
+      ["Tres parábolas para pensar", `<p>Algunas parábolas de Jesús son especialmente conocidas:</p><ul><li><b>El buen samaritano</b> (Lc 10). Un hombre es asaltado en el camino y queda herido. Pasan un sacerdote y un levita y siguen de largo. Por fin pasa un samaritano, alguien de un pueblo con el que los judíos no se llevaban bien, y es él quien lo cura y lo lleva a una posada. Jesús enseña que el <b>prójimo</b> es cualquier persona que necesita ayuda, sin importar de dónde sea.</li><li><b>El hijo pródigo</b> (Lc 15). Un hijo pide su herencia y la malgasta lejos de casa. Arruinado, vuelve arrepentido. Su padre lo ve de lejos, corre a abrazarlo y organiza una fiesta. Enseña que Dios es como un padre que siempre <b>perdona</b> y espera.</li><li><b>La oveja perdida</b> (Lc 15). Un pastor deja sus noventa y nueve ovejas para buscar la que se ha perdido y, cuando la encuentra, se alegra muchísimo. Enseña que para Dios <b>cada persona</b> es importante.</li></ul><p>Las parábolas no dan la respuesta directamente: invitan a quien las escucha a pensar y a preguntarse «¿y yo qué haría?».</p>`,
+        L.filas("Parábolas de Lucas", [["samaritano", "ayudar a todos", VE], ["hijo pródigo", "perdonar siempre", AZ], ["oveja perdida", "cada uno importa", NA]]), ["7_sArxpUQho", "Parábola de El Buen Samaritano - Valivan", "Valivan", 6527570]],
+    ],
+  },
+  final: [
+    ["Las Bienaventuranzas", `<p>El Evangelio de Mateo cuenta que Jesús subió a un monte, se sentó y, rodeado de una multitud, pronunció un discurso que se conoce como el <b>Sermón de la montaña</b>. Lo comenzó con las <b>Bienaventuranzas</b> (Mt 5,3-12). «Bienaventurado» significa «feliz» o «dichoso».</p><p>Algunas de ellas dicen:</p><ul><li>Felices los <b>pobres</b> de espíritu, porque de ellos es el reino de los cielos.</li><li>Felices los que <b>lloran</b>, porque serán consolados.</li><li>Felices los <b>misericordiosos</b>, porque recibirán misericordia.</li><li>Felices los que <b>trabajan por la paz</b>, porque serán llamados hijos de Dios.</li><li>Felices los que tienen <b>hambre y sed de justicia</b>, porque serán saciados.</li></ul><p>Las Bienaventuranzas son sorprendentes porque dan la vuelta a lo que mucha gente piensa: la felicidad no está en tener mucho dinero o poder, sino en tener un corazón sencillo, compasivo y que busca la justicia y la paz.</p><p>En el mismo sermón, Jesús enseñó también el <b>Padrenuestro</b> y la llamada <b>regla de oro</b>: «Tratad a los demás como queréis que ellos os traten».</p>`,
+      H.rueda("Bienaventuranzas", "FELICES", [["sencillos", AZ], ["compasivos", VE], ["justos", NA], ["pacíficos", MO]])],
+    ["¿Qué dicen los historiadores?", `<p>Las principales fuentes sobre la vida de Jesús son los <b>Evangelios</b>, escritos por sus seguidores en el siglo I. Pero ¿hay otros textos que hablen de él?</p><p>Sí. Algunos autores <b>no cristianos</b> de la época lo mencionan:</p><ul><li><b>Flavio Josefo</b>, un historiador judío, escribió hacia el año 93 una obra sobre la historia de los judíos en la que menciona a Jesús y a su hermano Santiago.</li><li><b>Tácito</b>, un historiador romano, escribió hacia el año 116 que los cristianos tomaban su nombre de «Cristo», que había sido ejecutado por el gobernador Poncio Pilato en tiempos del emperador Tiberio.</li><li><b>Plinio el Joven</b>, gobernador romano, escribió al emperador Trajano contándole que los cristianos se reunían para cantar himnos a Cristo.</li></ul><p>Por eso, la gran mayoría de los historiadores, sean creyentes o no, están de acuerdo en que Jesús de Nazaret fue un <b>personaje histórico</b> que vivió en Palestina y murió crucificado en Jerusalén. Lo que cada persona cree sobre él, que es el Hijo de Dios, es ya una cuestión de <b>fe</b>.</p>`,
+      L.filas("Fuentes no cristianas", [["Flavio Josefo", "historiador judío", AZ], ["Tácito", "historiador romano", RO], ["Plinio el Joven", "gobernador romano", NA]])],
+  ],
+  ejemplos: [
+    ["En el patio, un niño nuevo se cae y nadie le ayuda porque «no es de nuestra clase». ¿Qué parábola te recuerda?", ["Pensar en alguien que ayuda sin mirar de dónde es el otro.", "Relacionarlo con el prójimo."], "La del buen samaritano: el prójimo es cualquiera que necesita ayuda."],
+    ["¿Qué significa «Felices los que trabajan por la paz»?", ["«Bienaventurado» significa feliz.", "Pensar en acciones de paz en la vida diaria."], "Que son dichosos quienes ayudan a resolver conflictos y a reconciliar."],
+  ],
+  errores: ["Pensar que en tiempos de Jesús se comía carne todos los días: era un lujo de las fiestas.", "Creer que solo los Evangelios hablan de Jesús: también lo mencionan autores judíos y romanos."],
+  ejercicios: [
+    ["b", "¿Cómo eran las casas en tiempos de Jesús?", "Pequeñas, de piedra o adobe, con azotea."],
+    ["b", "¿Qué se hacía en la sinagoga?", "Rezar, leer las Escrituras y aprender."],
+    ["b", "¿Qué significa «bienaventurado»?", "Feliz o dichoso."],
+    ["b", "¿Qué enseña la parábola de la oveja perdida?", "Que cada persona es importante para Dios."],
+    ["b", "Nombra un historiador romano que menciona a Cristo.", "Tácito."],
+    ["m", "¿Por qué las parábolas hablan de semillas, ovejas o redes?", "Porque eran cosas de la vida diaria que todos conocían."],
+    ["m", "¿Por qué es sorprendente que el que ayuda sea un samaritano?", "Porque judíos y samaritanos no se llevaban bien."],
+    ["m", "Explica con tus palabras la regla de oro.", "Tratar a los demás como queremos que nos traten."],
+    ["m", "¿Qué hace el padre del hijo pródigo cuando lo ve volver?", "Corre a abrazarlo y organiza una fiesta."],
+    ["m", "¿En qué están de acuerdo la mayoría de los historiadores sobre Jesús?", "En que fue un personaje histórico."],
+    ["a", "Escribe una versión actual de la parábola del buen samaritano ambientada en tu colegio.", "Respuesta abierta."],
+    ["a", "Inventa una bienaventuranza para tu clase y explícala.", "Respuesta abierta."],
+    ["a", "Dibuja una casa de Galilea con sus partes y explica cómo se vivía en ella.", "Respuesta abierta."],
+    ["a", "Representad la parábola del hijo pródigo en grupos.", "Respuesta práctica."],
+  ],
+  quiz: [
+    ["El día sagrado de descanso de los judíos era el…", ["sábado", "domingo", "lunes"], "Sabbat."],
+    ["Quien ayuda al herido en la parábola es…", ["un samaritano", "un sacerdote", "un levita"], "Lc 10."],
+    ["Las Bienaventuranzas están en el Sermón de la…", ["montaña", "cena", "playa"], "Mt 5."],
+    ["El pastor deja noventa y nueve ovejas para buscar…", ["una perdida", "un lobo", "agua"], "Lc 15."],
+    ["Flavio Josefo era un historiador…", ["judío", "griego", "egipcio"], "Fuentes."],
+  ],
+  examen: [
+    ["En el Sermón de la montaña Jesús enseñó también el…", ["Padrenuestro", "Avemaría", "Credo"], "Oración."],
+    ["La comida básica en Galilea era el…", ["pan", "arroz", "maíz"], "Cebada."],
+  ],
+  tarjetas: [
+    ["Vida cotidiana", "Casas de adobe, pan y aceite, sinagoga, sábado."],
+    ["Parábolas", "Samaritano, hijo pródigo, oveja perdida."],
+    ["Bienaventuranzas", "Felices los sencillos, compasivos, justos y pacíficos."],
+    ["Historia", "Josefo, Tácito y Plinio mencionan a Jesús o a Cristo."],
+  ],
+  glosario: [
+    ["Adobe", "Ladrillo de barro secado al sol."],
+    ["Azotea", "Techo plano de una casa."],
+    ["Sinagoga", "Lugar de reunión y oración de los judíos."],
+    ["Sabbat", "Sábado, día sagrado de descanso judío."],
+    ["Samaritano", "Habitante de Samaria."],
+    ["Levita", "Ayudante de los sacerdotes en el Templo."],
+    ["Prójimo", "Cualquier persona, sobre todo la que necesita ayuda."],
+    ["Pródigo", "Que malgasta sus bienes."],
+    ["Bienaventurado", "Feliz, dichoso."],
+    ["Misericordioso", "Que se compadece y perdona."],
+    ["Historiador", "Persona que estudia y escribe la historia."],
+    ["Fuente", "Documento que da información sobre el pasado."],
+  ],
+  situacion: {
+    titulo: "Parábolas de hoy",
+    reto: "La clase reescribe parábolas de Jesús ambientándolas en la vida actual y las graba como un pódcast.",
+    pasos: ["En grupos, elegid una parábola y leedla en el Evangelio con su cita.", "Identificad su enseñanza principal.", "Escribid una versión actual con personajes y lugares de hoy.", "Grabad la narración con efectos de sonido y presentadla a la clase."],
+    producto: "Un pódcast de parábolas actualizadas.",
+    evaluacion: ["Localiza la parábola en el Evangelio.", "Explica su enseñanza.", "Adapta el relato con creatividad.", "Narra con buena entonación."],
+  },
+});
