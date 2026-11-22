@@ -137,3 +137,89 @@ module.exports = {
   fuentes: [RD, wiki("Atmósfera terrestre", "Atmósfera_terrestre"), wiki("Clima de España", "Clima_de_España"), wiki("Climograma", "Climograma"), { t: "AEMET, Agencia Estatal de Meteorología", url: "https://www.aemet.es/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { linea } = require("./_pri5b");
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Explicar la función de la capa de ozono y cómo se está recuperando", "Reconocer los principales tipos de nubes y de precipitaciones", "Interpretar un mapa del tiempo con anticiclones y borrascas"],
+  lectura: { titulo: "La estación meteorológica del colegio", html: `<p>El lunes, la maestra de 5.º B llegó con una caja enorme.</p><p>—Desde hoy seremos <b>meteorólogos</b> —anunció.</p><p>Dentro había un <b>termómetro</b>, un <b>pluviómetro</b> para medir la lluvia, una <b>veleta</b> para saber de dónde sopla el viento y un <b>barómetro</b> para medir la presión del aire. Entre todos los colocaron en el patio, lejos de las paredes y a la sombra.</p><p>Cada mañana, un equipo distinto anotaba los datos en una tabla. Iker descubrió que, cuando el barómetro bajaba mucho, al día siguiente solía llover. Aya se dio cuenta de que el viento del norte traía frío. Y Lucas comprobó que el patio estaba más caliente a las doce que a las nueve, aunque el cielo estuviera igual.</p><p>A final de mes, con todos los datos, hicieron un gráfico y lo compararon con el pronóstico de la televisión. ¡Casi siempre coincidía!</p><p>—Así trabajan los meteorólogos de verdad —les explicó la maestra—: miden, observan, comparan y predicen.</p><p>En este tema aprenderás qué es la atmósfera y qué diferencia hay entre el <b>tiempo</b> y el <b>clima</b>.</p>` },
+  tras: {
+    "Las capas de la atmósfera": [
+      ["La capa de ozono, un escudo invisible", `<p>En la <b>estratosfera</b>, entre unos 15 y 35 kilómetros de altura, hay una zona con mucho <b>ozono</b>, un gas parecido al oxígeno. Es la <b>capa de ozono</b>, y funciona como un filtro solar para todo el planeta: absorbe la mayor parte de los <b>rayos ultravioleta</b> del Sol, que son peligrosos porque queman la piel, dañan los ojos y perjudican a las plantas y a los animales.</p><p>En los años 80, los científicos descubrieron que la capa de ozono se estaba haciendo muy fina, sobre todo encima de la <b>Antártida</b>: era el llamado «agujero de la capa de ozono». La causa eran unos gases, los <b>CFC</b>, que se usaban en aerosoles, neveras y aparatos de aire acondicionado.</p><p>En <b>1987</b>, casi todos los países del mundo firmaron el <b>Protocolo de Montreal</b> y se comprometieron a dejar de fabricar esos gases. Fue un gran éxito: hoy la capa de ozono se está recuperando poco a poco, y los científicos calculan que volverá a estar como antes hacia mediados de este siglo.</p><p>Esta historia demuestra que, cuando la ciencia avisa y los países colaboran, los problemas ambientales se pueden resolver.</p>`,
+        svg("Capa de ozono: descubrimiento del agujero en los años 80, Protocolo de Montreal en 1987 y recuperación", `${tit("La historia del ozono")}${linea([["1985", "se descubre el agujero", COL.rojo], ["1987", "Protocolo de Montreal", COL.azul], ["hoy", "se recupera", COL.verde]])}${tx(130, 168, "filtra los rayos ultravioleta del Sol", 236)}`)],
+    ],
+    "Los elementos del clima": [
+      ["Las nubes y las precipitaciones", `<p>Las <b>nubes</b> se forman cuando el aire caliente y húmedo sube, se enfría y el vapor de agua se condensa en gotitas o cristalitos de hielo. Según su forma y su altura, hay varios tipos:</p><ul><li><b>Cúmulos</b>: nubes blancas y abombadas, como bolas de algodón. Suelen indicar buen tiempo.</li><li><b>Estratos</b>: capas grises y bajas que cubren todo el cielo. Pueden dar llovizna. La <b>niebla</b> es un estrato pegado al suelo.</li><li><b>Cirros</b>: nubes altas, finas y blancas, como plumas o hilos. Están hechas de cristales de hielo y pueden anunciar un cambio de tiempo.</li><li><b>Cumulonimbos</b>: enormes torres oscuras que pueden subir más de 10 km. Traen <b>tormentas</b> con rayos, truenos, lluvia fuerte y a veces granizo.</li></ul><p>Cuando las gotitas de una nube se unen y pesan demasiado, caen: es la <b>precipitación</b>. Puede ser <b>lluvia</b> (gotas de agua), <b>nieve</b> (cristales de hielo que caen cuando hace mucho frío) o <b>granizo</b> (bolitas de hielo que se forman dentro de las nubes de tormenta). La precipitación se mide en <b>litros por metro cuadrado</b> con el pluviómetro.</p>`,
+        svg("Tipos de nubes: cúmulos, estratos, cirros y cumulonimbos", `${tit("Tipos de nubes")}${fichas([["Cúmulos", "algodón: buen tiempo", COL.agua], ["Estratos", "capa gris, llovizna", COL.gris], ["Cirros", "altas, como plumas", COL.azul], ["Cumulonimbos", "tormentas y granizo", COL.morado]])}`)],
+    ],
+  },
+  final: [
+    ["Cómo leer un mapa del tiempo", `<p>En el telediario o en internet vemos cada día <b>mapas del tiempo</b>. Tienen sus propios símbolos:</p><ul><li>Las <b>isobaras</b> son líneas curvas que unen los puntos con la <b>misma presión atmosférica</b>. Cuando están muy juntas, hay mucho <b>viento</b>.</li><li>Una <b>A</b> marca un <b>anticiclón</b>: una zona de <b>altas presiones</b>. El aire baja, no se forman nubes y suele hacer <b>buen tiempo</b> y cielos despejados. En verano, el anticiclón de las Azores nos trae calor y sol.</li><li>Una <b>B</b> marca una <b>borrasca</b>: una zona de <b>bajas presiones</b>. El aire sube, se enfría y forma nubes: suele traer <b>lluvia</b>, viento y mal tiempo.</li><li>Los <b>frentes</b> son líneas con triángulos o semicírculos que marcan el choque entre una masa de aire frío y otra caliente; a su paso suele llover.</li></ul><p>También aparecen <b>símbolos</b> sencillos: un sol, una nube, unas gotas, un copo de nieve, un rayo o una flecha para el viento. Los meteorólogos elaboran estos mapas con datos de miles de estaciones, globos sonda, radares y satélites, y con potentes ordenadores que calculan cómo cambiará la atmósfera.</p>`,
+        svg("Símbolos del mapa del tiempo: isobaras, frente frío, frente cálido y símbolos del tiempo", `${tit("Símbolos del mapa del tiempo")}${fichas([["Isobaras", "juntas: mucho viento", COL.gris], ["Frente frío", "línea con triángulos", COL.azul], ["Frente cálido", "línea con semicírculos", COL.rojo], ["Símbolos", "sol, nube, gotas, copo", COL.sol]])}`)],
+    ["Fenómenos meteorológicos extremos", `<p>A veces el tiempo es tan intenso que puede causar daños. Son los <b>fenómenos meteorológicos extremos</b>, y conocerlos nos ayuda a protegernos:</p><ul><li><b>Olas de calor</b>: varios días seguidos con temperaturas muy altas. Hay que beber agua, evitar el sol en las horas centrales y cuidar especialmente a bebés y personas mayores.</li><li><b>Lluvias torrenciales</b>: mucha lluvia en poco tiempo, como las de la <b>DANA</b> o «gota fría» en otoño en la zona mediterránea. Pueden provocar <b>inundaciones</b>. Nunca hay que cruzar un río crecido, un barranco o una calle inundada, ni a pie ni en coche.</li><li><b>Sequías</b>: largos periodos sin apenas llover. Los embalses bajan y hay que ahorrar agua.</li><li><b>Temporales de nieve y viento</b>, y <b>tormentas</b> con granizo y rayos.</li></ul><p>La <b>Agencia Estatal de Meteorología</b> (AEMET) avisa con <b>alertas por colores</b>: <b>amarillo</b> (riesgo para actividades concretas), <b>naranja</b> (riesgo importante) y <b>rojo</b> (riesgo extraordinario). Cuando hay aviso, hay que seguir las indicaciones de Protección Civil y, en una emergencia, llamar al <b>112</b>. Con el cambio climático, los científicos esperan que algunos de estos fenómenos sean más frecuentes.</p>`,
+        svg("Avisos meteorológicos por colores: amarillo, naranja y rojo, y teléfono 112", `${tit("Avisos por colores")}${columna([["amarillo: atención", COL.sol], ["naranja: riesgo importante", COL.naranja], ["rojo: riesgo extraordinario", COL.rojo]], 130, 210, 40, 26, 12)}${tx(130, 166, "emergencias: 112", 200, { weight: 700 })}`)],
+  ],
+  ejemplos: [
+    ["En el mapa del tiempo de mañana aparece una B grande sobre Galicia con isobaras muy juntas. ¿Qué tiempo hará?", ["La B indica una borrasca: bajas presiones.", "Las borrascas traen nubes y lluvia.", "Isobaras muy juntas indican viento fuerte."], "Lluvia y mucho viento en Galicia"],
+    ["Ves en el horizonte una nube oscura enorme con forma de torre. ¿Qué tipo de nube es y qué debes hacer?", ["Una torre oscura muy alta es un cumulonimbo.", "Los cumulonimbos traen tormentas con rayos y a veces granizo.", "Hay que buscar refugio en un edificio y alejarse de árboles aislados."], "Cumulonimbo: refugiarse porque viene tormenta"],
+  ],
+  errores: ["Pensar que un anticiclón trae lluvia: las altas presiones suelen traer buen tiempo; la lluvia la traen las borrascas."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Para qué sirve la capa de ozono?", "Filtra la mayor parte de los rayos ultravioleta del Sol."],
+    ["b", "Escribe cuatro tipos de nubes.", "Cúmulos, estratos, cirros y cumulonimbos."],
+    ["b", "¿Qué significa una A en un mapa del tiempo? ¿Y una B?", "A: anticiclón (altas presiones, buen tiempo). B: borrasca (bajas presiones, lluvia)."],
+    ["b", "Escribe tres tipos de precipitación.", "Lluvia, nieve y granizo."],
+    ["b", "¿Cuáles son los colores de los avisos meteorológicos?", "Amarillo, naranja y rojo."],
+    ["m", "¿Qué gases dañaban la capa de ozono y qué acuerdo los prohibió?", "Los CFC; el Protocolo de Montreal, de 1987."],
+    ["m", "¿Cómo se forma una nube?", "El aire caliente y húmedo sube, se enfría y el vapor de agua se condensa en gotitas o cristales de hielo."],
+    ["m", "¿Qué son las isobaras? ¿Qué indica que estén muy juntas?", "Líneas que unen puntos de igual presión; muy juntas indican viento fuerte."],
+    ["m", "¿Por qué nunca hay que cruzar una calle inundada en coche?", "Porque la fuerza del agua puede arrastrar el coche y es muy difícil saber la profundidad."],
+    ["m", "¿Qué es la niebla?", "Un estrato, una nube baja, pegado al suelo."],
+    ["m", "¿Qué es una ola de calor y qué consejos darías?", "Varios días seguidos con temperaturas muy altas; beber agua, evitar el sol en las horas centrales y cuidar a bebés y mayores."],
+    ["a", "Explica por qué la historia de la capa de ozono es un ejemplo de éxito.", "Los científicos detectaron el problema, los países se pusieron de acuerdo para prohibir los CFC y la capa se está recuperando."],
+    ["a", "En el pluviómetro del colegio se recogen 12, 0, 5 y 23 litros por metro cuadrado en cuatro días. ¿Cuánto ha llovido en total? ¿Y de media al día?", "40 l/m² en total; 10 l/m² de media."],
+    ["a", "¿Por qué en los anticiclones no se forman nubes y en las borrascas sí?", "En el anticiclón el aire baja y se calienta, y no se condensa; en la borrasca el aire sube, se enfría y el vapor se condensa en nubes."],
+    ["a", "Prepara el mapa del tiempo de un día inventado para España con símbolos y explícalo como un presentador.", "Respuesta abierta. Debe usar correctamente A, B, isobaras y símbolos de sol, nubes, lluvia o nieve."],
+    ["a", "¿Por qué la AEMET usa colores en sus avisos en lugar de solo explicaciones?", "Porque los colores se entienden de un vistazo y permiten saber rápidamente cuánto riesgo hay."],
+  ],
+  quiz: [
+    ["La capa de ozono está en la…", ["Estratosfera", "Troposfera", "Superficie"], "Entre 15 y 35 km de altura."],
+    ["Las nubes de tormenta se llaman…", ["Cumulonimbos", "Cirros", "Estratos"], "Torres oscuras muy altas."],
+    ["Una B en el mapa del tiempo indica…", ["Borrasca", "Buen tiempo", "Brisa"], "Bajas presiones y lluvia."],
+    ["El aviso meteorológico de máximo riesgo es de color…", ["Rojo", "Amarillo", "Verde"], "Riesgo extraordinario."],
+    ["El Protocolo de Montreal protegió…", ["La capa de ozono", "Los ríos", "Los bosques"], "Prohibió los CFC."],
+  ],
+  examen: [
+    ["Las nubes como plumas, altas y finas, son…", ["Cirros", "Cúmulos", "Nieblas"], "Hechas de cristales de hielo."],
+    ["El número de emergencias en España es el…", ["112", "010", "123"], "Funciona en toda Europa."],
+  ],
+  tarjetas: [
+    ["Capa de ozono", "Filtra los rayos ultravioleta; se recupera desde 1987."],
+    ["Tipos de nubes", "Cúmulos, estratos, cirros, cumulonimbos."],
+    ["Anticiclón (A)", "Altas presiones: buen tiempo."],
+    ["Borrasca (B)", "Bajas presiones: lluvia y viento."],
+  ],
+  glosario: [
+    ["Atmósfera", "Capa de gases que rodea la Tierra."],
+    ["Troposfera", "Capa más baja de la atmósfera, donde ocurre el tiempo."],
+    ["Ozono", "Gas de la estratosfera que filtra los rayos ultravioleta."],
+    ["Tiempo atmosférico", "Estado de la atmósfera en un lugar y momento concretos."],
+    ["Clima", "Tiempo habitual de un lugar a lo largo de muchos años."],
+    ["Precipitación", "Agua que cae de las nubes: lluvia, nieve o granizo."],
+    ["Presión atmosférica", "Peso del aire sobre la superficie."],
+    ["Isobara", "Línea que une puntos de igual presión."],
+    ["Anticiclón", "Zona de altas presiones con buen tiempo."],
+    ["Borrasca", "Zona de bajas presiones con lluvia."],
+    ["Climograma", "Gráfico de temperaturas y precipitaciones de un lugar."],
+    ["Cambio climático", "Aumento rápido de la temperatura media de la Tierra."],
+  ],
+  situacion: {
+    titulo: "Somos meteorólogos",
+    reto: "La clase monta una estación meteorológica, registra datos durante un mes y presenta un parte del tiempo grabado en vídeo.",
+    pasos: ["Instalad en el patio un termómetro, un pluviómetro casero y una veleta, y anotad los datos cada día a la misma hora.", "Fotografiad las nubes y clasificadlas según su tipo.", "Con los datos del mes, elaborad un gráfico de temperaturas y lluvias y comparadlo con el pronóstico oficial.", "Grabad un parte del tiempo con un mapa de España, símbolos, anticiclones y borrascas."],
+    producto: "Un registro meteorológico de un mes, un gráfico y un parte del tiempo en vídeo.",
+    evaluacion: ["Usa correctamente los instrumentos meteorológicos.", "Identifica tipos de nubes y precipitaciones.", "Interpreta y elabora mapas del tiempo.", "Distingue tiempo atmosférico y clima con ejemplos."],
+  },
+});

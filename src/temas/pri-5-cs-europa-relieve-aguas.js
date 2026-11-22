@@ -137,3 +137,86 @@ module.exports = {
   fuentes: [RD, wiki("Geografía de Europa", "Geografía_de_Europa"), wiki("Anexo:Ríos de Europa", "Anexo:Ríos_de_Europa"), wiki("Alpes", "Alpes")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Localizar los principales volcanes de Europa y conocer sus erupciones más famosas", "Describir el recorrido del Danubio y su importancia", "Explicar cómo los glaciares han formado fiordos y lagos"],
+  lectura: { titulo: "Un crucero por el Danubio", html: `<p>Este verano, la familia de Irene hizo un viaje especial: recorrer en barco una parte del <b>Danubio</b>, uno de los ríos más largos de Europa.</p><p>Subieron al barco en <b>Viena</b>, la capital de Austria. Desde la cubierta veían palacios, iglesias con cúpulas verdes y viñedos en las laderas. Un día después llegaron a <b>Bratislava</b>, la capital de Eslovaquia, con un castillo blanco en lo alto de una colina. Y al anochecer entraron en <b>Budapest</b>, la capital de Hungría, donde el Parlamento iluminado se reflejaba en el agua como un palacio de oro.</p><p>—Este río nace en las montañas de Alemania y desemboca en el <b>mar Negro</b> —les explicó la guía—. Por el camino atraviesa o toca diez países.</p><p>Irene sacó su atlas y siguió con el dedo la línea azul del río, entre llanuras verdes y montañas marrones. Comprendió que el Danubio era como una carretera de agua que unía a muchos pueblos de Europa.</p><p>En este tema descubrirás el relieve, las costas y las aguas del continente europeo.</p>` },
+  tras: {
+    "Las grandes cordilleras": [
+      ["Los volcanes de Europa", `<p>Aunque Europa no tiene tantos volcanes como otros continentes, algunos son muy famosos y siguen activos:</p><ul><li>El <b>Etna</b>, en la isla italiana de Sicilia, es el volcán activo más alto de Europa, con más de 3300 metros. Entra en erupción con mucha frecuencia.</li><li>El <b>Vesubio</b>, junto a la ciudad de Nápoles, en Italia. En el año <b>79</b> sepultó bajo la ceniza las ciudades romanas de <b>Pompeya</b> y Herculano. Gracias a ello, hoy podemos ver cómo eran sus calles, casas y pinturas.</li><li><b>Islandia</b> es una isla llena de volcanes, géiseres y aguas termales. En 2010, la ceniza del volcán Eyjafjallajökull obligó a cancelar miles de vuelos en toda Europa.</li><li>En España, las <b>islas Canarias</b> son de origen volcánico. El <b>Teide</b> es el pico más alto de España, y en <b>2021</b> el volcán de <b>Tajogaite</b>, en La Palma, estuvo en erupción casi tres meses y destruyó cientos de casas.</li></ul><p>Los científicos <b>vigilan</b> los volcanes con aparatos que detectan pequeños terremotos, cambios en el suelo y gases. Así pueden avisar a la población y evacuarla a tiempo.</p>`,
+        svg("Volcanes de Europa: Etna, Vesubio, Islandia y Canarias", `${tit("Volcanes de Europa")}<path d="M20 160 L70 70 L120 160z" fill="${COL.marron}" fill-opacity=".35" stroke="${COL.marron}" stroke-width="2"/><path d="M62 72 q8 -24 2 -38 q14 12 6 38z" fill="${COL.naranja}" fill-opacity=".8"/><path d="M62 70 q-6 -10 -2 -20 M78 70 q6 -10 2 -20" stroke="var(--muted)" stroke-width="2" fill="none"/>${filas([["Etna", "Sicilia, muy activo", COL.rojo], ["Vesubio", "Pompeya, año 79", COL.naranja], ["Islandia", "géiseres, 2010", COL.azul], ["Canarias", "Teide, La Palma 2021", COL.marron]], 50, 32, { x: 130, wa: 60, wb: 100, dos: true })}`)],
+    ],
+    "Los ríos de Europa y sus vertientes": [
+      ["El Danubio, un río de diez países", `<p>El <b>Danubio</b> es el segundo río más largo de Europa, después del Volga, con unos <b>2850 km</b>. Nace en la <b>Selva Negra</b>, en Alemania, y desemboca en el <b>mar Negro</b> formando un gran <b>delta</b>, una zona pantanosa llena de canales, islas y aves, que es reserva natural.</p><p>Es el río que atraviesa o hace de frontera de más países del mundo: <b>diez</b>. Entre ellos están Alemania, Austria, Eslovaquia, Hungría, Croacia, Serbia, Rumanía y Bulgaria. Pasa por <b>cuatro capitales</b>: Viena, Bratislava, Budapest y Belgrado.</p><p>A lo largo de la historia, el Danubio ha sido:</p><ul><li>Una <b>frontera</b>: durante siglos marcó el límite norte del Imperio romano.</li><li>Una <b>vía de transporte</b>: hoy lo recorren barcos de mercancías y de pasajeros. Un canal lo une con el río Rin, de modo que se puede ir en barco desde el mar del Norte hasta el mar Negro.</li><li>Una fuente de <b>agua</b> para regar y beber, y de <b>energía</b>, con grandes presas hidroeléctricas.</li></ul><p>Su importancia es tal que el famoso compositor Johann Strauss le dedicó un vals, <i>El Danubio azul</i>.</p>`,
+        svg("Recorrido del Danubio desde la Selva Negra hasta el mar Negro pasando por Viena, Bratislava, Budapest y Belgrado", `${tit("El Danubio")}<path d="M14 64 C50 60 60 80 90 76 C120 72 130 100 160 112 C190 124 210 118 244 132" fill="none" stroke="${COL.agua}" stroke-width="5" stroke-linecap="round"/>${[[14, 64, "Selva Negra", COL.verde, 54], [84, 77, "Viena", COL.rojo, 96], [118, 74, "Bratislava", COL.rojo, 62], [150, 106, "Budapest", COL.rojo, 126], [196, 120, "Belgrado", COL.rojo, 106], [244, 132, "mar Negro", COL.azul, 152]].map(([x, y, s, c, ly]) => `<circle cx="${x}" cy="${y}" r="4" fill="${c}"/>${et(Math.min(222, Math.max(36, x)), ly, s, 70, { size: 10, color: c })}`).join("")}${tx(130, 174, "unos 2850 km · 10 países · 4 capitales", 236)}`)],
+    ],
+  },
+  final: [
+    ["Glaciares y fiordos", `<p>Hace miles de años, durante las <b>glaciaciones</b>, enormes masas de hielo cubrían el norte de Europa y las montañas más altas. Este hielo, que se mueve muy despacio como un río congelado, se llama <b>glaciar</b>. Al deslizarse, arrastra rocas y excava el terreno como una gigantesca lija.</p><p>Los glaciares dejaron huellas muy visibles en el paisaje europeo:</p><ul><li>Los <b>fiordos</b>: valles excavados por el hielo junto al mar que, al derretirse, fueron invadidos por el agua del océano. Son entrantes de mar largos, estrechos y profundos, rodeados de paredes de roca altísimas. Los más famosos están en la costa de <b>Noruega</b>.</li><li>Los <b>lagos</b> glaciares de Finlandia, Suecia y los Alpes, que ocupan los huecos que excavó el hielo.</li><li>Los <b>valles en forma de U</b> de las montañas.</li></ul><p>Hoy todavía quedan glaciares en Islandia, Noruega, los Alpes e incluso algunos muy pequeños en los Pirineos. Pero casi todos están <b>retrocediendo</b> rápidamente por el aumento de las temperaturas: muchos glaciares de los Pirineos ya han desaparecido. Los glaciares son importantes reservas de agua dulce que alimentan a muchos ríos en verano.</p>`,
+        svg("Un glaciar excava un valle en U; al fundirse y entrar el mar se forma un fiordo", `${tit("Del glaciar al fiordo")}<path d="M14 50 L40 50 Q50 130 70 130 Q90 130 100 50 L126 50" fill="none" stroke="${COL.marron}" stroke-width="3"/><path d="M44 60 Q52 120 70 120 Q88 120 96 60z" fill="#e0f2fe" stroke="${COL.agua}" stroke-width="2"/><path d="M134 50 L160 50 Q170 130 190 130 Q210 130 220 50 L246 50" fill="none" stroke="${COL.marron}" stroke-width="3"/><path d="M166 90 Q174 128 190 128 Q206 128 214 90z" fill="${COL.azul}" fill-opacity=".5"/>${et(70, 152, "glaciar en el valle", 110, { size: 10.5, color: COL.agua })}${et(190, 152, "fiordo: entra el mar", 110, { size: 10.5, color: COL.azul })}${tx(130, 172, "valle en forma de U", 200)}`)],
+  ],
+  ejemplos: [
+    ["El Danubio mide unos 2850 km y el Volga unos 3530 km. ¿Cuántos kilómetros más largo es el Volga?", ["Restamos las dos longitudes.", "3530 − 2850 = 680.", "El Volga es el río más largo de Europa."], "680 km más largo"],
+    ["En un mapa ves un entrante de mar muy largo y estrecho entre montañas en Noruega. ¿Qué es y cómo se formó?", ["Un entrante de mar estrecho y profundo rodeado de roca es un fiordo.", "Un glaciar excavó allí un valle.", "Al fundirse el hielo, el mar entró en el valle."], "Un fiordo, formado por un glaciar"],
+  ],
+  errores: ["Pensar que los fiordos son ríos: son valles glaciares invadidos por el mar."],
+  nivelesBase: "bbbbmmmmmm",
+  ejercicios: [
+    ["b", "¿Cuál es el volcán activo más alto de Europa y dónde está?", "El Etna, en Sicilia (Italia)."],
+    ["b", "¿Qué ciudad romana sepultó el Vesubio en el año 79?", "Pompeya (y también Herculano)."],
+    ["b", "¿Dónde nace el Danubio y dónde desemboca?", "Nace en la Selva Negra (Alemania) y desemboca en el mar Negro."],
+    ["b", "Escribe las cuatro capitales por las que pasa el Danubio.", "Viena, Bratislava, Budapest y Belgrado."],
+    ["b", "¿En qué país están los fiordos más famosos?", "En Noruega."],
+    ["m", "¿Qué es un delta?", "Una zona en la desembocadura de un río con canales e islas formadas por los sedimentos."],
+    ["m", "¿Por qué la erupción de un volcán de Islandia en 2010 afectó a toda Europa?", "Porque su ceniza se extendió por el cielo y obligó a cancelar miles de vuelos."],
+    ["m", "¿Cómo vigilan los científicos los volcanes?", "Con aparatos que detectan pequeños terremotos, cambios en el suelo y gases."],
+    ["m", "¿Qué es un glaciar?", "Una gran masa de hielo que se desliza muy despacio por un valle."],
+    ["m", "Escribe tres usos del Danubio a lo largo de la historia.", "Frontera, vía de transporte y fuente de agua y energía."],
+    ["m", "¿Por qué hay tantos lagos en Finlandia y Suecia?", "Porque los glaciares excavaron el terreno y, al fundirse, el agua llenó los huecos."],
+    ["a", "¿Por qué los glaciares están retrocediendo y qué consecuencias puede tener?", "Por el aumento de las temperaturas; se pierden reservas de agua dulce que alimentan a los ríos en verano."],
+    ["a", "Gracias a la erupción del Vesubio conocemos muy bien la vida romana. Explica por qué.", "La ceniza cubrió y conservó las calles, casas, objetos y pinturas tal como estaban."],
+    ["a", "Un barco recorre 150 km al día por el Danubio. ¿Cuántos días tardaría aproximadamente en recorrer todo el río?", "2850 : 150 = 19 días."],
+    ["a", "Compara un valle de río (en V) con un valle glaciar (en U).", "El río excava un valle estrecho en forma de V; el glaciar, uno más ancho con fondo plano en forma de U."],
+    ["a", "Localiza en un mapa físico de Europa tres volcanes, un fiordo y el delta del Danubio.", "Respuesta abierta: Etna, Vesubio, Teide o volcanes de Islandia; fiordos de Noruega; delta del Danubio en el mar Negro."],
+  ],
+  quiz: [
+    ["El volcán que sepultó Pompeya fue el…", ["Vesubio", "Etna", "Teide"], "En el año 79."],
+    ["El Danubio desemboca en el…", ["Mar Negro", "Mar del Norte", "Mediterráneo"], "Formando un delta."],
+    ["El Danubio pasa por…", ["Diez países", "Dos países", "Veinte países"], "Más que ningún otro río."],
+    ["Los fiordos se formaron por…", ["Glaciares", "Volcanes", "Terremotos"], "Valles excavados por el hielo."],
+    ["El volcán que entró en erupción en La Palma en 2021 fue el…", ["Tajogaite", "Teide", "Etna"], "Estuvo casi tres meses activo."],
+  ],
+  examen: [
+    ["El río más largo de Europa es el…", ["Volga", "Danubio", "Rin"], "El Danubio es el segundo."],
+    ["Los valles excavados por glaciares tienen forma de…", ["U", "V", "S"], "Fondo ancho y plano."],
+  ],
+  tarjetas: [
+    ["Etna", "Volcán activo más alto de Europa, en Sicilia."],
+    ["Danubio", "Unos 2850 km, 10 países, desemboca en el mar Negro."],
+    ["Glaciar", "Masa de hielo que se desliza y excava valles."],
+    ["Fiordo", "Valle glaciar invadido por el mar (Noruega)."],
+  ],
+  glosario: [
+    ["Continente", "Gran extensión de tierra rodeada de océanos."],
+    ["Llanura", "Terreno extenso y llano a poca altitud."],
+    ["Cordillera", "Conjunto de montañas unidas entre sí."],
+    ["Volcán", "Montaña por la que sale magma del interior de la Tierra."],
+    ["Península", "Tierra rodeada de agua por todas partes menos por una."],
+    ["Golfo", "Gran entrante de mar en la costa."],
+    ["Vertiente", "Conjunto de ríos que desembocan en un mismo mar."],
+    ["Afluente", "Río que desemboca en otro río."],
+    ["Delta", "Desembocadura con canales e islas de sedimentos."],
+    ["Glaciar", "Masa de hielo que se desliza por un valle."],
+    ["Fiordo", "Valle glaciar invadido por el mar."],
+    ["Lago", "Masa de agua acumulada en una zona hundida."],
+  ],
+  situacion: {
+    titulo: "Guía de viaje por la Europa física",
+    reto: "Por equipos, preparad una guía de viaje para recorrer Europa visitando sus volcanes, ríos, lagos, cordilleras y fiordos.",
+    pasos: ["Elegid una ruta con al menos seis paradas en elementos del relieve y de las aguas de Europa.", "Localizad cada parada en un mapa físico mudo y escribid sus datos principales: altura, longitud, país.", "Calculad la distancia total aproximada de la ruta con la escala del mapa.", "Diseñad una guía con fotos o dibujos, curiosidades y consejos para cuidar esos paisajes."],
+    producto: "Un mapa con la ruta y una guía de viaje ilustrada.",
+    evaluacion: ["Localiza correctamente elementos del relieve y de las aguas de Europa.", "Usa la escala para calcular distancias.", "Explica el origen de volcanes, fiordos y lagos glaciares.", "Presenta la información de forma atractiva y ordenada."],
+  },
+});

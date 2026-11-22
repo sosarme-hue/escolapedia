@@ -136,3 +136,87 @@ module.exports = {
   fuentes: [RD, wiki("Parques nacionales de España", "Parques_nacionales_de_España"), wiki("Dehesa", "Dehesa"), wiki("Laurisilva", "Laurisilva")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { barras } = require("./_pri5b");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Explicar cómo cambia la vegetación con la altitud en una montaña", "Valorar la dehesa como paisaje humanizado sostenible", "Describir un paisaje siguiendo un método ordenado"],
+  lectura: { titulo: "Cinco paisajes en una semana", html: `<p>Para su trabajo de Sociales, Álex tenía que describir un paisaje. Pero ese verano su familia hizo un viaje tan largo que decidió describir cinco.</p><p>El lunes, en <b>Asturias</b>, todo era verde: prados con vacas, bosques de hayas y una lluvia fina que no paraba. El miércoles, en la <b>Meseta</b>, el paisaje cambió por completo: campos de trigo amarillos hasta el horizonte, pueblos de adobe y un calor seco que hacía temblar el aire. El jueves subieron a la <b>sierra de Gredos</b>: a medida que el coche ganaba altura, los robles daban paso a los pinos, y arriba solo había piedras, matorrales y prados con cabras montesas.</p><p>El viernes llegaron a la costa de <b>Valencia</b>: naranjos, huertas, playas llenas de gente y edificios altos junto al mar. Y el domingo volaron a <b>Lanzarote</b>, donde la tierra era negra, los volcanes parecían de otro planeta y las viñas crecían en hoyos protegidos del viento por muros de piedra.</p><p>—¡Parece que hemos viajado a cinco países! —dijo Álex. Y era España. En este tema conocerás la gran variedad de <b>paisajes</b> de nuestro país.</p>` },
+  tras: {
+    "El paisaje mediterráneo": [
+      ["La dehesa, un paisaje creado por las personas", `<p>La <b>dehesa</b> es uno de los paisajes más característicos del oeste y el suroeste de España: Extremadura, el oeste de Andalucía, Salamanca y parte de Castilla-La Mancha. Es un buen ejemplo de <b>paisaje humanizado</b> que, bien cuidado, es también muy rico en naturaleza.</p><p>Se formó hace siglos, cuando las personas aclararon el bosque mediterráneo: quitaron muchos árboles y matorrales, pero dejaron las mejores <b>encinas</b> y <b>alcornoques</b>, separados unos de otros. Entre los árboles crecen pastos.</p><p>En la dehesa se aprovecha todo:</p><ul><li>Los pastos alimentan al <b>ganado</b>: vacas, ovejas, cabras y el famoso <b>cerdo ibérico</b>, que en otoño engorda comiendo <b>bellotas</b>.</li><li>De los alcornoques se saca el <b>corcho</b> cada nueve o diez años, sin cortar el árbol.</li><li>La leña de las podas sirve para hacer carbón vegetal.</li></ul><p>Además, la dehesa es el hogar de especies amenazadas como el <b>águila imperial ibérica</b>, el <b>buitre negro</b> o la grulla en invierno. Por eso se dice que es un modelo de convivencia entre las personas y la naturaleza. Su gran problema es que muchas encinas son viejas y cuesta que crezcan otras nuevas.</p>`,
+        svg("Dehesa: encinas separadas, pastos, cerdos ibéricos y alcornoques", `${tit("La dehesa")}<path d="M10 140 H250" stroke="${COL.verde}" stroke-width="3"/>${[40, 120, 200].map((x) => `<rect x="${x - 3}" y="104" width="6" height="36" fill="#78350f"/><ellipse cx="${x}" cy="96" rx="30" ry="18" fill="#15803d" fill-opacity=".75"/>`).join("")}<ellipse cx="80" cy="134" rx="12" ry="6" fill="#57534e"/><ellipse cx="164" cy="134" rx="12" ry="6" fill="#57534e"/>${filas([["Encinas", "bellotas", COL.verde], ["Ganado", "cerdo ibérico", COL.marron]], 44, 0, { x: 30, wa: 60, wb: 70 })}${tx(130, 166, "aprovechar sin destruir", 220, { weight: 700 })}`)],
+    ],
+    "El paisaje de montaña": [
+      ["Los pisos de vegetación", `<p>Cuando subimos una montaña alta, la temperatura baja unos <b>6 °C por cada 1000 metros</b> y, en general, llueve más. Por eso la vegetación va cambiando con la altitud y se organiza en franjas llamadas <b>pisos de vegetación</b>, como los pisos de un edificio.</p><p>En una montaña del norte de España, como los Pirineos, encontramos de abajo arriba:</p><ul><li><b>Piso basal</b>: en el pie de la montaña, con cultivos, prados, pueblos y bosques de <b>robles</b> o encinas.</li><li><b>Piso montano</b>: bosques de <b>hayas</b> y <b>abetos</b>, que necesitan más humedad y frío.</li><li><b>Piso subalpino</b>: bosques de <b>pino negro</b>, más abiertos, y matorrales.</li><li><b>Piso alpino</b>: no hay árboles, porque hace demasiado frío y viento. Solo crecen <b>prados</b> de hierba baja que aprovecha el ganado en verano.</li><li><b>Piso nival</b>: en las cumbres, rocas y <b>nieve</b> gran parte del año.</li></ul><p>En las montañas del sur, como Sierra Nevada, los pisos son parecidos, pero con especies mediterráneas. Los animales también se reparten por pisos: la cabra montés, la marmota o el quebrantahuesos viven en las zonas altas.</p>`,
+        svg("Temperatura según la altitud: 20 grados a 0 metros, 14 a 1000, 8 a 2000 y 2 a 3000", `${tit("Más alto, más frío")}${barras([["0 m", 20, COL.rojo], ["1000 m", 14, COL.naranja], ["2000 m", 8, COL.agua], ["3000 m", 2, COL.azul]], { unidad: " °C", max: 20, y0: 146, alto: 96 })}${tx(130, 174, "unos 6 °C menos cada 1000 m", 230)}`)],
+    ],
+  },
+  final: [
+    ["Cómo describir un paisaje", `<p>Describir un paisaje es como hacer una fotografía con palabras. Para hacerlo bien, conviene seguir siempre un orden, de lo general a lo particular:</p><ol><li><b>Situación</b>: dónde está (comunidad autónoma, cerca de qué ciudad o río) y desde dónde lo observamos.</li><li><b>Relieve</b>: si es llano, ondulado o montañoso; si hay valles, sierras, acantilados o playas.</li><li><b>Aguas</b>: ríos, lagos, embalses o el mar.</li><li><b>Clima</b>: qué tiempo hace y qué se nota (mucha lluvia, sequedad, nieve).</li><li><b>Vegetación y fauna</b>: bosques, matorrales, prados, cultivos y los animales que se ven.</li><li><b>Elementos humanos</b>: pueblos, ciudades, carreteras, campos de cultivo, fábricas, presas…</li><li><b>Conclusión</b>: qué tipo de paisaje es, si es natural o humanizado, y qué problemas o valores tiene.</li></ol><p>Usa adjetivos precisos (escarpado, frondoso, árido, verde intenso) y compara con lo que ya conoces. Un buen truco es dividir una fotografía en tres franjas: el <b>primer plano</b> (lo más cercano), el <b>plano medio</b> y el <b>fondo</b>, y describir cada una por separado.</p>`,
+        svg("Pasos para describir un paisaje: situación, relieve, aguas, clima, vegetación y elementos humanos", `${tit("Describir un paisaje")}${columna([["situación y relieve", COL.marron], ["aguas y clima", COL.azul], ["vegetación y fauna", COL.verde], ["elementos humanos", COL.rojo]], 130, 200, 36, 24, 12)}`)],
+  ],
+  ejemplos: [
+    ["En la base de una montaña hay 20 °C. ¿Qué temperatura habrá aproximadamente 2000 metros más arriba?", ["La temperatura baja unos 6 °C por cada 1000 m.", "En 2000 m baja 2 × 6 = 12 °C.", "20 − 12 = 8."], "Unos 8 °C"],
+    ["Ves un paisaje con encinas separadas, pastos y cerdos comiendo bellotas. ¿Qué paisaje es? ¿Es natural o humanizado?", ["Encinas dispersas con pastos y ganado son la dehesa.", "Las personas aclararon el bosque y lo aprovechan.", "Por tanto es humanizado, aunque con mucha naturaleza."], "Una dehesa: paisaje humanizado"],
+  ],
+  errores: ["Pensar que en lo alto de una montaña hay más árboles porque llueve más: a partir de cierta altitud hace demasiado frío y solo hay prados y rocas."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Qué árboles forman la dehesa?", "Encinas y alcornoques."],
+    ["b", "¿Cuánto baja la temperatura por cada 1000 metros de altitud?", "Unos 6 °C."],
+    ["b", "Escribe en orden los pisos de vegetación de abajo arriba.", "Basal, montano, subalpino, alpino y nival."],
+    ["b", "¿Qué se obtiene del alcornoque?", "El corcho."],
+    ["b", "Escribe los tres planos en que se divide una fotografía para describirla.", "Primer plano, plano medio y fondo."],
+    ["m", "¿Por qué no hay árboles en el piso alpino?", "Porque hace demasiado frío y viento."],
+    ["m", "¿Por qué se dice que la dehesa es un paisaje humanizado?", "Porque las personas aclararon el bosque y lo aprovechan para el ganado, el corcho y la leña."],
+    ["m", "Nombra dos animales amenazados que viven en la dehesa.", "El águila imperial ibérica y el buitre negro."],
+    ["m", "¿Qué árboles encontramos en el piso montano de los Pirineos?", "Hayas y abetos."],
+    ["m", "Escribe cuatro adjetivos útiles para describir paisajes.", "Por ejemplo: escarpado, frondoso, árido y llano."],
+    ["m", "¿En qué comunidades hay más dehesas?", "En Extremadura y el oeste de Andalucía (también Salamanca y Castilla-La Mancha)."],
+    ["a", "En la cima de una montaña de 3000 m hace 2 °C. ¿Qué temperatura aproximada hará a nivel del mar?", "Baja 6 °C cada 1000 m: 3 × 6 = 18 °C. A nivel del mar: 2 + 18 = 20 °C."],
+    ["a", "Describe un paisaje de tu comunidad siguiendo los siete pasos.", "Respuesta abierta. Debe incluir situación, relieve, aguas, clima, vegetación, elementos humanos y conclusión."],
+    ["a", "¿Por qué se dice que la dehesa es un modelo de convivencia entre las personas y la naturaleza?", "Porque se aprovecha económicamente sin destruirla y sigue siendo el hogar de muchas especies."],
+    ["a", "Compara los pisos de vegetación de los Pirineos con los de Sierra Nevada: ¿en qué se parecen y en qué se diferencian?", "Se parecen en que cambian con la altitud; se diferencian en que en Sierra Nevada hay especies mediterráneas."],
+    ["a", "¿Qué problema tiene la dehesa para el futuro y qué solución propondrías?", "Muchas encinas son viejas y cuesta que crezcan otras; se pueden plantar y proteger encinas jóvenes del ganado."],
+  ],
+  quiz: [
+    ["La dehesa está formada sobre todo por…", ["Encinas y alcornoques", "Pinos y abetos", "Palmeras"], "Separadas, con pastos."],
+    ["Al subir 1000 m, la temperatura baja unos…", ["6 °C", "1 °C", "20 °C"], "Por eso cambia la vegetación."],
+    ["En el piso alpino hay…", ["Prados", "Hayedos", "Encinares"], "No crecen árboles."],
+    ["El cerdo ibérico engorda en otoño comiendo…", ["Bellotas", "Piñas", "Algas"], "El fruto de la encina."],
+    ["Al describir un paisaje, lo primero es…", ["La situación", "La conclusión", "Los animales"], "Dónde está."],
+  ],
+  examen: [
+    ["El piso más alto de una montaña es el…", ["Nival", "Basal", "Montano"], "Rocas y nieve."],
+    ["El corcho se saca del alcornoque…", ["Sin cortar el árbol", "Talándolo", "Quemándolo"], "Cada nueve o diez años."],
+  ],
+  tarjetas: [
+    ["Dehesa", "Encinas y alcornoques dispersos con pastos y ganado."],
+    ["Pisos de vegetación", "Basal, montano, subalpino, alpino, nival."],
+    ["Altitud y temperatura", "Unos −6 °C por cada 1000 m."],
+    ["Describir un paisaje", "Situación, relieve, aguas, clima, vegetación, humanos."],
+  ],
+  glosario: [
+    ["Paisaje", "Aspecto de un territorio tal como lo observamos."],
+    ["Paisaje natural", "Paisaje en el que apenas ha intervenido el ser humano."],
+    ["Paisaje humanizado", "Paisaje transformado por las personas."],
+    ["Vegetación", "Conjunto de plantas de un lugar."],
+    ["Caducifolio", "Árbol que pierde la hoja en otoño."],
+    ["Perennifolio", "Árbol que conserva la hoja todo el año."],
+    ["Dehesa", "Bosque aclarado de encinas o alcornoques con pastos."],
+    ["Piso de vegetación", "Franja de una montaña con vegetación propia."],
+    ["Altitud", "Altura sobre el nivel del mar."],
+    ["Meseta", "Llanura elevada en el centro de la península."],
+    ["Parque nacional", "Espacio natural protegido de gran valor."],
+    ["Incendio forestal", "Fuego que destruye un bosque o un monte."],
+  ],
+  situacion: {
+    titulo: "Exposición de paisajes de España",
+    reto: "La clase organiza una exposición fotográfica con los distintos paisajes de España y una guía para describirlos.",
+    pasos: ["Por grupos, elegid un tipo de paisaje: oceánico, mediterráneo, de interior, de montaña o canario.", "Buscad tres fotografías y describid cada una con los siete pasos del método.", "Dibujad un esquema de los pisos de vegetación de una montaña de España o explicad un paisaje humanizado como la dehesa.", "Montad la exposición con mapas, fotos y fichas, y explicadla a otros cursos."],
+    producto: "Una exposición de paisajes con fichas descriptivas y esquemas.",
+    evaluacion: ["Identifica y localiza los paisajes de España.", "Describe paisajes con orden y vocabulario preciso.", "Distingue paisajes naturales y humanizados.", "Valora la necesidad de conservar los paisajes."],
+  },
+});
