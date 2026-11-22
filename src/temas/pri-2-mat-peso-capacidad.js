@@ -115,3 +115,94 @@ module.exports = P.tema({
   saberes: "Medida: masa y capacidad; comparación con balanza; unidades convencionales (kilogramo, medio kilo, litro, medio litro y cuarto de litro)",
   ideas: ["Rincón de la tienda con productos reales de 1 kg, ½ kg, 1 l y ½ l.", "Trasvases de agua con botellas y vasos para comparar capacidades.", "Balanza de platos en el aula para ordenar objetos por su peso."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el cuarto de kilo y el gramo", "Leer el peso en una báscula", "Sumar y restar pesos y capacidades", "Distinguir lo grande de lo pesado"],
+  lectura: { titulo: "El bizcocho de la abuela", html: `<p>Los domingos, Daniel ayuda a su abuela a hacer un bizcocho de limón. La abuela no necesita receta: se la sabe de memoria.</p><p>—Primero, medio kilo de harina —dice la abuela.</p><p>Daniel pone el bol sobre la báscula de la cocina y echa harina hasta que la pantalla marca 500 gramos.</p><p>—Ahora, un cuarto de kilo de azúcar.</p><p>—¿Cuánto es un cuarto, abuela?</p><p>—La mitad de medio kilo: 250 gramos.</p><p>Después añaden tres huevos, la ralladura de un limón y un cuarto de litro de leche, medido con una jarra que tiene rayitas.</p><p>—¡Y un vaso de aceite! —recuerda Daniel.</p><p>Lo mezclan todo, lo meten en el horno y esperan media hora. La cocina huele de maravilla.</p><p>Cuando el bizcocho sale del horno, Daniel lo pesa por curiosidad: ¡más de un kilo! Lo cortan en ocho trozos y lo comparten con toda la familia.</p>` },
+  tras: {
+    "La balanza": [
+      ["La báscula de casa", `<p>Además de la balanza de dos platos, existen las <mark>básculas</mark>. Tienen un solo plato y nos dicen directamente cuánto pesa algo.</p><p>Hay varias clases:</p><ul><li>La <b>báscula de cocina</b>: para pesar harina, azúcar o fruta. Marca en gramos.</li><li>La <b>báscula de baño</b>: para pesar personas. Marca en kilos.</li><li>La <b>báscula del mercado</b>: el frutero pesa las manzanas y calcula el precio.</li></ul><p>Muchas son <b>digitales</b>: el peso aparece en una pantalla con números. Otras tienen una <b>aguja</b> que gira y señala el número, como un reloj.</p><p>Antes de pesar, la báscula debe marcar <b>0</b>. Si ponemos un bol vacío, pulsamos el botón para volver a 0 y así solo pesamos lo de dentro.</p><p><b>Actividad</b>: pésate en una báscula de baño y apunta tu peso en kilos.</p>`,
+        H6.dos("Pesar", ["BALANZA", ["dos platos", "compara", "¿cuál pesa más?"], cAZ], ["BÁSCULA", ["un plato", "dice el peso", "en kg o g"], cVE]),
+        ["CpOQ-s0FLt4", "El KILO, EL 1/2 Kg y el 1/4 de Kg", "La BiBlioTHeKa", 185992]],
+    ],
+    "Medio kilo": [
+      ["El cuarto de kilo y el gramo", `<p>Si partimos medio kilo por la mitad, obtenemos un <mark>cuarto de kilo</mark>.</p><ul><li>1 kilo = 2 medios kilos.</li><li>1 kilo = <b>4 cuartos de kilo</b>.</li><li>Medio kilo = 2 cuartos de kilo.</li></ul><p>Para pesar cosas ligeras usamos una unidad más pequeña: el <mark>gramo</mark>, que se escribe <b>g</b>.</p><ul><li><b>1 kilo = 1000 gramos</b>.</li><li>Medio kilo = <b>500 gramos</b>.</li><li>Un cuarto de kilo = <b>250 gramos</b>.</li></ul><p>Pesan unos pocos gramos un lápiz, una hoja o una moneda. Un paquete de mantequilla suele pesar 250 g: ¡un cuarto de kilo!</p><p><b>Actividad</b>: busca en la cocina paquetes que pongan «250 g», «500 g» o «1 kg» y clasifícalos.</p>`,
+        L6.filas("Peso", [["1 kg", "1000 g", cNA], ["1/2 kg", "500 g", cAZ], ["1/4 kg", "250 g", cVE], ["lápiz", "pocos g", cMO]]),
+        ["uZOBBUqcggU", "Kilos, medios kilos y cuartos de kilos", "La profe Lorena", 115952]],
+    ],
+    "El litro": [
+      ["Medir capacidad en casa", `<p>Para medir líquidos en la cocina usamos una <mark>jarra medidora</mark>. Es transparente y tiene rayitas con números.</p><p>Echamos el líquido y miramos a qué raya llega. Hay que mirar con los ojos a la altura de la raya, no desde arriba.</p><p>Otros recipientes que conocemos:</p><ul><li>Un <b>vaso</b>: caben unos 4 vasos en un litro, así que un vaso es más o menos un cuarto de litro.</li><li>Una <b>botella de agua grande</b>: 1 litro y medio o 2 litros.</li><li>Una <b>lata de refresco</b>: un poco más de un cuarto de litro.</li><li>Un <b>cubo</b> de fregar: unos 10 litros.</li><li>Una <b>bañera</b>: ¡más de 100 litros!</li></ul><p>Para cantidades muy pequeñas, como un jarabe, usamos una <b>cuchara</b> o una jeringuilla.</p><p><b>Actividad</b>: con una jarra medidora, averigua cuántos vasos de agua caben en una botella de 1 litro.</p>`,
+        L6.filas("Capacidad", [["vaso", "1/4 l", cAZ], ["botella", "1 l", cVE], ["cubo", "10 l", cNA], ["bañera", "+100 l", cRO]])],
+    ],
+    "Medio litro y cuarto de litro": [
+      ["Sumar y restar pesos y litros", `<p>Igual que con los metros, podemos <mark>sumar y restar</mark> pesos y capacidades, siempre en la misma unidad.</p><p>Con pesos:</p><ul><li>Una bolsa de 2 kg de naranjas y otra de 3 kg de patatas: 2 + 3 = <b>5 kg</b>.</li><li>Un saco de 10 kg de arena. Uso 4 kg. Quedan 10 − 4 = <b>6 kg</b>.</li></ul><p>Con capacidades:</p><ul><li>Tengo una botella de 2 litros y otra de 1 litro: 2 + 1 = <b>3 litros</b>.</li><li>Una garrafa de 5 litros. Lleno 2 botellas de 1 litro. Quedan 5 − 2 = <b>3 litros</b>.</li><li>Medio litro y medio litro hacen <b>1 litro</b>.</li></ul><p>No olvides escribir siempre <b>kg</b>, <b>g</b> o <b>l</b> en el resultado.</p><p><b>Actividad</b>: inventa un problema de la compra con kilos y otro con litros.</p>`,
+        H6.flujo("Garrafa", ["tengo|5 l", "lleno|2 l", "5 − 2|=", "quedan|3 l"], cAZ)],
+    ],
+  },
+  final: [
+    ["¿Grande es lo mismo que pesado?", `<p>¡No siempre! Un objeto puede ser <mark>grande y ligero</mark>, o <mark>pequeño y pesado</mark>.</p><p>Fíjate en estos ejemplos:</p><ul><li>Un <b>globo</b> es grande, pero pesa muy poco.</li><li>Una <b>almohada</b> es grande y ligera.</li><li>Una <b>piedra</b> pequeña puede pesar más que la almohada.</li><li>Una <b>pesa de gimnasio</b> es pequeña, pero muy pesada.</li></ul><p>Lo que importa es de qué <b>material</b> está hecho. El hierro y la piedra pesan mucho. Las plumas, el papel y el aire pesan poco.</p><p>También pasa al revés con los líquidos: una botella grande puede estar casi vacía y una pequeña muy llena.</p><p>Por eso, para saber cuánto pesa algo de verdad, no basta con mirarlo: hay que <b>pesarlo</b>.</p><p><b>Actividad</b>: busca un objeto grande y ligero y otro pequeño y pesado. Compruébalo con una balanza.</p>`,
+      H6.dos("¡Sorpresa!", ["LIGERO", ["globo", "almohada", "caja vacía"], cAZ], ["PESADO", ["piedra", "pesa", "llave de hierro"], cRO])],
+    ["Repaso: la lista de la compra", `<p>Repasamos con la <mark>lista de la compra</mark> de la familia de Daniel:</p><ul><li><b>1 kg</b> de manzanas.</li><li><b>Medio kilo</b> de tomates.</li><li><b>Un cuarto de kilo</b> de queso.</li><li><b>2 litros</b> de leche.</li><li><b>Medio litro</b> de zumo.</li></ul><p>Preguntas:</p><ul><li>¿Cuántos gramos de tomates compran? <b>500 g</b>.</li><li>¿Y de queso? <b>250 g</b>.</li><li>¿Cuántos litros de líquido llevan en total? 2 + medio = <b>2 litros y medio</b>.</li><li>¿Qué pesa más, las manzanas o los tomates? Las manzanas: 1 kg es más que medio kilo.</li><li>¿Con qué miden en la tienda el queso? Con la <b>báscula</b>.</li></ul><p><b>Actividad</b>: haced una tienda en clase con envases vacíos y escribid en cada uno su peso o su capacidad.</p>`,
+      L6.filas("Compra", [["manzanas", "1 kg", cRO], ["tomates", "500 g", cNA], ["queso", "250 g", cAZ], ["leche", "2 l", cVE]])],
+  ],
+  ejemplos: [
+    ["¿Cuántos gramos son un cuarto de kilo?", ["1 kg = 1000 g.", "La mitad: 500 g; otra mitad: 250 g."], "250 g."],
+    ["Tengo 3 kg de patatas y gasto 1 kg. ¿Cuánto queda?", ["3 − 1 = 2."], "2 kg."],
+  ],
+  errores: ["Pensar que algo grande siempre pesa más.", "Olvidar poner la báscula a 0 antes de pesar."],
+  ejercicios: [
+    ["b", "¿Cuántos gramos tiene 1 kilo?", "1000 g."],
+    ["b", "¿Cuántos cuartos de kilo hay en 1 kilo?", "4."],
+    ["b", "¿Qué usarías para pesarte?", "Una báscula de baño."],
+    ["b", "¿Cuántos vasos caben más o menos en 1 litro?", "Unos 4."],
+    ["b", "Di algo grande que pese poco.", "Un globo, una almohada…"],
+    ["m", "2 kg de naranjas y 2 kg de peras. ¿Cuánto pesan juntas?", "4 kg."],
+    ["m", "Una garrafa de 8 l. Saco 3 l. ¿Cuánto queda?", "5 l."],
+    ["m", "¿Cuántos gramos son medio kilo?", "500 g."],
+    ["m", "Medio litro y medio litro, ¿cuánto es?", "1 litro."],
+    ["m", "¿Qué pesa más, 1 kg de plumas o 1 kg de hierro?", "Pesan lo mismo: 1 kg."],
+    ["a", "En la lectura, ¿cuántos gramos de azúcar echa Daniel?", "250 g, un cuarto de kilo."],
+    ["a", "La lista lleva 2 litros de leche y medio de zumo. ¿Cuántos litros en total?", "2 litros y medio."],
+    ["a", "¿Por qué una piedra pequeña puede pesar más que una almohada?", "Porque depende del material, no del tamaño."],
+    ["a", "Inventa un problema de restar kilos y resuélvelo.", "Respuesta libre con unidad."],
+  ],
+  quiz: [
+    ["1 kg tiene…", ["1000 g", "100 g", "10 g"], "Gramo."],
+    ["Un cuarto de kilo son…", ["250 g", "500 g", "400 g"], "Cuarto."],
+    ["Para pesar harina en casa uso…", ["la báscula de cocina", "la regla", "la cinta métrica"], "Báscula."],
+    ["Un globo es…", ["grande y ligero", "pequeño y pesado", "grande y pesado"], "Tamaño y peso."],
+    ["2 l + 1 l =", ["3 l", "1 l", "21 l"], "Sumar."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuánta harina lleva el bizcocho?", ["medio kilo", "un cuarto de kilo", "un kilo"], "Lectura."],
+    ["En la compra, ¿cuántos gramos de queso hay?", ["250 g", "500 g", "1000 g"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Gramos", "1 kg = 1000 g; 1/2 kg = 500 g; 1/4 kg = 250 g."],
+    ["Grande ≠ pesado", "El peso depende del material."],
+  ],
+  glosario: [
+    ["Peso", "Lo que pesa un objeto."],
+    ["Kilo", "Unidad de peso: 1000 g."],
+    ["Gramo", "Unidad pequeña de peso."],
+    ["Cuarto de kilo", "250 gramos."],
+    ["Balanza", "Compara pesos con dos platos."],
+    ["Báscula", "Dice cuánto pesa algo."],
+    ["Capacidad", "Lo que cabe en un recipiente."],
+    ["Litro", "Unidad de capacidad."],
+    ["Jarra medidora", "Recipiente con marcas para medir líquidos."],
+    ["Material", "Aquello de lo que está hecho un objeto."],
+  ],
+  situacion: {
+    titulo: "Cocineros de la clase",
+    reto: "La clase prepara una receta sencilla, como una macedonia o un batido, pesando y midiendo cada ingrediente.",
+    pasos: ["Leer la receta y anotar los kilos, gramos y litros.", "Pesar los ingredientes con la báscula puesta a 0.", "Medir los líquidos con una jarra medidora.", "Calcular cuánto sobra de cada paquete o botella."],
+    producto: "Una receta ilustrada con cantidades y la comida preparada.",
+    evaluacion: ["Usa kg, g y l correctamente.", "Pesa con la báscula.", "Mide con la jarra.", "Suma y resta pesos y capacidades."],
+  },
+});

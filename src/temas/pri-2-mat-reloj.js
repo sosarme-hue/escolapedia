@@ -103,3 +103,93 @@ module.exports = P.tema({
   saberes: "Medida: el tiempo; lectura del reloj analógico (en punto, y media, y cuarto, menos cuarto) y digital; relación hora y minutos",
   ideas: ["Relojes individuales de cartón para mover las agujas.", "Horario visual de la jornada escolar con relojes dibujados.", "Juego del reloj humano: dos alumnos hacen de agujas en un círculo en el suelo."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Leer las horas y los cuartos en relojes de agujas y digitales", "Calcular cuánto dura una actividad", "Ordenar los momentos del día con horas", "Conocer los días, las semanas y otros relojes antiguos"],
+  lectura: { titulo: "El despertador dormilón", html: `<p>Lucas tiene un despertador rojo con dos agujas y una campanita. Todas las noches lo pone a las ocho en punto para no llegar tarde al cole.</p><p>Pero una mañana el despertador no suena. Lucas se despierta solo, mira el reloj y ve la aguja corta en el 8 y la larga en el 6.</p><p>—¡Son las ocho y media! —grita—. ¡Llego tarde!</p><p>Se viste corriendo, desayuna en un minuto y sale con su madre hacia el colegio. El cole empieza a las nueve en punto. Por el camino, Lucas mira el reloj de la farmacia: son las nueve menos cuarto.</p><p>—Todavía quedan quince minutos —dice su madre—. ¡Llegamos!</p><p>Por la tarde, Lucas descubre el problema: al despertador se le había acabado la pila.</p><p>—Desde hoy —dice Lucas— revisaré la pila todos los domingos.</p><p>Y su madre le regala un reloj de pulsera, para que nunca más pierda la cuenta del tiempo.</p>` },
+  tras: {
+    "Las horas en punto": [
+      ["¿Cuánto dura?", `<p>Con el reloj podemos saber <mark>cuánto dura</mark> una actividad. Miramos la hora a la que empieza y la hora a la que termina, y contamos.</p><p>Ejemplos:</p><ul><li>La película empieza a las <b>5</b> y termina a las <b>7</b>. Cuento: de 5 a 6, una hora; de 6 a 7, otra hora. Dura <b>2 horas</b>.</li><li>El recreo empieza a las <b>11</b> y termina a las <b>11 y media</b>. Dura <b>media hora</b>.</li><li>La clase de piscina empieza a las <b>6</b> y acaba a las <b>7</b>. Dura <b>1 hora</b>.</li></ul><p>Para contar horas podemos ir moviendo el dedo por los números del reloj, de uno en uno.</p><p>También es útil saber a qué hora <b>acabará</b> algo: si empiezo los deberes a las 5 y tardo 1 hora, terminaré a las 6.</p><p><b>Actividad</b>: apunta a qué hora empieza y acaba tu programa favorito y calcula cuánto dura.</p>`,
+        H6.flujo("De 5 a 7", ["empieza|las 5", "pasa 1 h|las 6", "pasa 1 h|las 7", "dura|2 horas"], cAZ),
+        ["wZn5JZatTBY", "Las Mejores Canciones de Reloj | Aprende a Leer el Reloj", "Pinkfong en español - Canciones Infantiles", 17046766]],
+    ],
+    "Y cuarto y menos cuarto": [
+      ["Las cuatro posiciones de la aguja larga", `<p>Para leer la hora rápido, aprende dónde está la <mark>aguja larga</mark> en cada caso:</p><ul><li>En el <b>12</b>: es la hora <b>en punto</b>. Ejemplo: las 3 en punto.</li><li>En el <b>3</b>: es <b>y cuarto</b>. Han pasado 15 minutos. Ejemplo: las 3 y cuarto.</li><li>En el <b>6</b>: es <b>y media</b>. Han pasado 30 minutos. Ejemplo: las 3 y media.</li><li>En el <b>9</b>: es <b>menos cuarto</b>. Faltan 15 minutos para la hora siguiente. Ejemplo: las 4 menos cuarto.</li></ul><p>¡Cuidado con el menos cuarto! La aguja corta está ya casi en el 4, por eso decimos «las 4 menos cuarto» y no «las 3 menos cuarto».</p><p>Un truco: imagina que el reloj es una pizza cortada en cuatro trozos. Cada trozo es un cuarto de hora.</p><p><b>Actividad</b>: con un reloj de cartón, pon la aguja larga en el 12, el 3, el 6 y el 9 y di la hora.</p>`,
+        L6.filas("Aguja larga", [["en el 12", "en punto", cNA], ["en el 3", "y cuarto", cVE], ["en el 6", "y media", cAZ], ["en el 9", "menos cuarto", cRO]])],
+    ],
+    "El reloj digital": [
+      ["Las horas de la tarde: el 13, el 14…", `<p>Algunos relojes digitales cuentan las horas hasta el <mark>24</mark>. Así no hace falta decir «de la mañana» o «de la tarde».</p><p>Por la mañana las horas son como siempre: 08:00 son las 8 de la mañana.</p><p>Después del mediodía, en lugar de volver a empezar en 1, siguen contando:</p><ul><li><b>13:00</b> es la 1 de la tarde.</li><li><b>14:00</b> son las 2 de la tarde.</li><li><b>17:00</b> son las 5 de la tarde.</li><li><b>21:00</b> son las 9 de la noche.</li></ul><p>Un truco para saberlo: a la hora de la tarde le <b>restamos 12</b>. 17 − 12 = 5, así que 17:00 son las 5 de la tarde.</p><p>Este tipo de horas aparece en los horarios de trenes, en la televisión y en el cine.</p><p><b>Actividad</b>: busca en un horario de autobús o de cine una hora mayor que 12 y dila de la forma normal.</p>`,
+        L6.filas("Tarde", [["13:00", "la 1", cNA], ["14:00", "las 2", cAZ], ["17:00", "las 5", cVE], ["21:00", "las 9", cRO]])],
+    ],
+    "Mañana, tarde y noche": [
+      ["Días, semanas y meses", `<p>El reloj mide horas y minutos. Para medir tiempos más largos usamos el <mark>calendario</mark>:</p><ul><li>Un <b>día</b> tiene <b>24 horas</b>: la mañana, la tarde y la noche.</li><li>Una <b>semana</b> tiene <b>7 días</b>: lunes, martes, miércoles, jueves, viernes, sábado y domingo.</li><li>Un <b>mes</b> tiene unos <b>30 días</b>, o sea, unas 4 semanas.</li><li>Un <b>año</b> tiene <b>12 meses</b>: de enero a diciembre.</li></ul><p>Palabras útiles para hablar del tiempo:</p><ul><li><b>Ayer</b>: el día antes de hoy.</li><li><b>Hoy</b>: el día en que estamos.</li><li><b>Mañana</b>: el día después de hoy.</li></ul><p>¡Ojo! «Mañana» puede ser la parte del día antes de comer o el día siguiente. Lo sabemos por la frase.</p><p><b>Actividad</b>: escribe qué hiciste ayer, qué haces hoy y qué harás mañana.</p>`,
+        H6.rueda("Tiempo", "AÑO", [["día", cNA], ["semana", cAZ], ["mes", cVE], ["hora", cRO]])],
+    ],
+  },
+  final: [
+    ["Relojes de otros tiempos", `<p>Antes de que existieran los relojes de agujas, las personas usaban otros inventos para medir el tiempo:</p><ul><li><mark>Reloj de sol</mark>: un palo clavado hace sombra. La sombra se mueve con el sol y marca la hora. ¡Pero de noche o con nubes no funciona!</li><li><b>Reloj de arena</b>: la arena cae poco a poco de arriba abajo. Cuando se acaba, ha pasado un tiempo fijo. Todavía se usa en juegos de mesa.</li><li><b>Reloj de agua</b>: el agua gotea de un recipiente a otro.</li><li><b>Vela con marcas</b>: al quemarse, la vela baja y cada marca indica una hora.</li></ul><p>Mucho después llegaron los relojes de agujas con ruedas dentadas, los de las torres de las iglesias y los ayuntamientos. Y hoy tenemos relojes digitales en el móvil y en el horno.</p><p><b>Actividad</b>: fabrica un reloj de sol con un palo y una cartulina en el patio.</p>`,
+      L6.filas("Relojes", [["de sol", "sombra", cNA], ["de arena", "arena cae", cMO], ["de agua", "gotas", cAZ], ["de agujas", "ruedas", cVE]])],
+    ["Repaso: el horario de un sábado", `<p>Vamos a repasar con el <mark>sábado de Sara</mark>:</p><ul><li>Se levanta a las <b>9 en punto</b>.</li><li>Desayuna a las <b>9 y cuarto</b>.</li><li>Va al parque a las <b>10 y media</b> y vuelve a las <b>12 y media</b>.</li><li>Come a las <b>2</b> de la tarde, es decir, a las <b>14:00</b>.</li><li>Ve una película de las <b>5</b> a las <b>7</b>.</li><li>Se acuesta a las <b>9 menos cuarto</b> de la noche.</li></ul><p>Preguntas:</p><ul><li>¿Cuánto tiempo está en el parque? De 10 y media a 12 y media: <b>2 horas</b>.</li><li>¿Cuánto dura la película? <b>2 horas</b>.</li><li>¿Dónde está la aguja larga a las 9 y cuarto? En el <b>3</b>.</li><li>¿Qué hace por la tarde? Ver la película.</li></ul><p><b>Actividad</b>: escribe el horario de tu sábado ideal con horas, medias y cuartos.</p>`,
+      H6.flujo("Sábado", ["9:00|me levanto", "10:30|parque", "14:00|como", "17:00|película"], cAZ)],
+  ],
+  ejemplos: [
+    ["La clase empieza a las 9 y acaba a las 10. ¿Cuánto dura?", ["De 9 a 10 hay una hora."], "1 hora."],
+    ["¿Qué hora es 16:00 dicha de forma normal?", ["16 − 12 = 4.", "Es por la tarde."], "Las 4 de la tarde."],
+  ],
+  errores: ["Decir «las 3 menos cuarto» cuando la aguja corta está casi en el 4.", "Pensar que 15:00 son las 15 de la tarde en vez de las 3."],
+  ejercicios: [
+    ["b", "Si la aguja larga está en el 6, ¿es en punto o y media?", "Y media."],
+    ["b", "¿Cuántos días tiene una semana?", "7 días."],
+    ["b", "¿Cuántas horas tiene un día?", "24 horas."],
+    ["b", "¿Qué hora es 13:00?", "La 1 de la tarde."],
+    ["b", "Nombra un reloj antiguo.", "Reloj de sol, de arena o de agua."],
+    ["m", "Una película empieza a las 4 y dura 2 horas. ¿A qué hora acaba?", "A las 6."],
+    ["m", "¿Dónde está la aguja larga a las 7 menos cuarto?", "En el 9."],
+    ["m", "¿Qué hora es 20:00?", "Las 8 de la tarde o de la noche."],
+    ["m", "Hoy es martes. ¿Qué día fue ayer y qué día será mañana?", "Lunes y miércoles."],
+    ["m", "¿Cuánto dura algo que empieza a las 11 y acaba a las 11 y media?", "Media hora."],
+    ["a", "En la lectura, ¿cuánto tiempo falta para las 9 cuando Lucas ve el reloj de la farmacia?", "Quince minutos, un cuarto de hora."],
+    ["a", "¿Por qué el reloj de sol no funciona de noche?", "Porque no hay sol que haga sombra."],
+    ["a", "Sara está en el parque de 10 y media a 12 y media. ¿Cuánto tiempo pasa allí?", "2 horas."],
+    ["a", "Escribe tres actividades de tu día con su hora.", "Respuesta libre con horas correctas."],
+  ],
+  quiz: [
+    ["La aguja larga en el 3 marca…", ["y cuarto", "y media", "menos cuarto"], "Posiciones."],
+    ["18:00 son las…", ["6 de la tarde", "8 de la tarde", "18 de la mañana"], "Restamos 12."],
+    ["Una semana tiene…", ["7 días", "5 días", "30 días"], "Calendario."],
+    ["De 3 a 5 pasan…", ["2 horas", "3 horas", "1 hora"], "Duración."],
+    ["El reloj que usa la sombra es el de…", ["sol", "arena", "agua"], "Historia."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué no sonó el despertador?", ["Se le acabó la pila", "Estaba roto", "Lucas lo apagó"], "Lectura."],
+    ["Sara se acuesta a las 9 menos cuarto. La aguja larga está en el…", ["9", "3", "12"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Horas de tarde", "Restamos 12: 17:00 son las 5."],
+    ["Duración", "Cuento las horas del principio al final."],
+  ],
+  glosario: [
+    ["Reloj", "Aparato que mide el tiempo."],
+    ["Aguja corta", "Marca las horas."],
+    ["Aguja larga", "Marca los minutos."],
+    ["En punto", "La aguja larga está en el 12."],
+    ["Cuarto de hora", "15 minutos."],
+    ["Media hora", "30 minutos."],
+    ["Día", "24 horas."],
+    ["Semana", "7 días."],
+    ["Calendario", "Sirve para contar días, semanas y meses."],
+    ["Reloj de arena", "Mide el tiempo con arena que cae."],
+  ],
+  situacion: {
+    titulo: "El horario de nuestra clase",
+    reto: "La clase fabrica relojes de cartón y prepara un horario ilustrado de un día de cole con horas, medias y cuartos.",
+    pasos: ["Fabricar un reloj de agujas con cartón y un encuadernador.", "Apuntar a qué hora empieza y acaba cada actividad del día.", "Calcular cuánto dura cada actividad.", "Escribir cada hora también en forma digital."],
+    producto: "Un horario de clase con relojes dibujados y horas digitales.",
+    evaluacion: ["Lee horas en punto, y media, y cuarto y menos cuarto.", "Calcula duraciones sencillas.", "Pasa horas de la tarde a la forma normal.", "Usa ayer, hoy y mañana correctamente."],
+  },
+});

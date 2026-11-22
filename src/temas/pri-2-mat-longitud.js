@@ -109,3 +109,93 @@ module.exports = P.tema({
   saberes: "Medida: la longitud; unidades no convencionales y convencionales (metro y centímetro); uso de la regla y la cinta métrica; estimación",
   ideas: ["Medir el aula con palmos y pasos para descubrir la necesidad de una unidad común.", "Fabricar un metro de papel dividido en decímetros y centímetros.", "Estimar antes de medir y comparar la estimación con la medida real."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Estimar longitudes antes de medir", "Sumar y restar medidas en metros y centímetros", "Conocer el kilómetro para distancias largas", "Medir objetos y personas con la cinta métrica"],
+  lectura: { titulo: "¿Cuánto has crecido?", html: `<p>En casa de Nora hay una puerta muy especial. En el marco blanco hay muchas rayitas de lápiz con fechas al lado.</p><p>Cada año, el día de su cumpleaños, Nora se pone de espaldas a la puerta, descalza y muy recta. Su abuelo apoya un libro sobre su cabeza y hace una raya.</p><p>—A ver… ¡1 metro y 20 centímetros! —dice el abuelo, mirando la cinta métrica.</p><p>Nora busca la raya del año pasado: 1 metro y 14 centímetros.</p><p>—¿Cuánto he crecido? —pregunta.</p><p>—Cuenta tú —le dice el abuelo.</p><p>Nora piensa: de 14 a 20 hay 6. ¡Ha crecido <b>6 centímetros</b> en un año!</p><p>Después mira la raya más alta de todas, la de su hermano mayor: 1 metro y 50 centímetros.</p><p>—Algún día llegaré hasta ahí —dice Nora, poniéndose de puntillas.</p><p>Y el abuelo se ríe, porque él ya no cabe en la puerta sin agacharse.</p>` },
+  tras: {
+    "Unidades iguales para todos": [
+      ["Estimar antes de medir", `<p><mark>Estimar</mark> es decir una medida aproximada, sin medir, usando lo que ya sabemos. Después medimos para comprobar si nos hemos acercado.</p><p>Para estimar bien, conviene tener unas <b>medidas de referencia</b> en la cabeza:</p><ul><li>Un dedo es más o menos <b>1 centímetro</b> de ancho.</li><li>Un palmo de niño mide unos <b>15 centímetros</b>.</li><li>Un paso grande es casi <b>1 metro</b>.</li><li>Una puerta mide unos <b>2 metros</b> de alto.</li></ul><p>Ejemplo: ¿cuánto mide la pizarra? Pienso: «Caben unos 3 pasos grandes». Estimo <b>3 metros</b>. Al medir, sale 3 metros y 20 centímetros. ¡Muy cerca!</p><p>Estimar no es adivinar: es pensar con lo que conocemos. Con la práctica, cada vez acertamos más.</p><p><b>Actividad</b>: estima la longitud de tres objetos de clase, apúntala y luego mide para comprobar.</p>`,
+        L6.filas("Referencias", [["1 dedo", "1 cm", cNA], ["1 palmo", "15 cm", cAZ], ["1 paso", "1 m", cVE], ["1 puerta", "2 m", cRO]]),
+        ["buqFqwlXvFU", "Metro, centímetro, milímetro", "Becky Chavez", 510312]],
+    ],
+    "El centímetro": [
+      ["Más pequeño que el centímetro: el milímetro", `<p>A veces el centímetro es demasiado grande para medir cosas muy pequeñas. Entonces usamos el <mark>milímetro</mark>.</p><p>Si miras una regla con atención, entre un número y el siguiente hay <b>rayitas muy pequeñas</b>. Cada espacio entre dos rayitas es un milímetro.</p><ul><li><b>1 centímetro = 10 milímetros</b>.</li><li>Se escribe <b>mm</b>.</li></ul><p>Con milímetros medimos:</p><ul><li>El grosor de una moneda.</li><li>Una hormiga.</li><li>La punta de un lápiz.</li><li>Una gota de lluvia.</li></ul><p>Así, ya conocemos tres unidades, de mayor a menor: el <b>metro</b>, el <b>centímetro</b> y el <b>milímetro</b>.</p><p><b>Actividad</b>: busca con una lupa las rayitas de los milímetros en tu regla y cuenta cuántas hay entre el 0 y el 1.</p>`,
+        H6.flujo("Unidades", ["metro|m", "centímetro|cm", "milímetro|mm", "de mayor|a menor"], cAZ)],
+    ],
+    "Medir con la regla": [
+      ["La cinta métrica", `<p>Para medir cosas largas o que no son rectas, la regla no sirve. Usamos la <mark>cinta métrica</mark>.</p><p>La cinta métrica es <b>flexible</b>: se dobla y se enrolla. Por eso es perfecta para medir:</p><ul><li>La <b>altura</b> de una persona.</li><li>La <b>cintura</b> o la cabeza, que son redondas.</li><li>Un tronco de árbol.</li><li>El largo de una mesa o de una ventana.</li></ul><p>Hay varios tipos:</p><ul><li>La cinta de <b>costura</b>, blanda y de tela.</li><li>El <b>metro de obra</b>, que se enrolla dentro de una caja y tiene un gancho en la punta.</li></ul><p>Para usarla bien, ponemos el 0 en un extremo y estiramos la cinta sin que se tuerza. Miramos el número del otro extremo.</p><p><b>Actividad</b>: con una cinta de costura, mide el contorno de tu cabeza y el de la de un compañero.</p>`,
+        H6.dos("Medir", ["REGLA", ["rígida", "corta", "cosas rectas"], cAZ], ["CINTA", ["flexible", "larga", "cosas redondas"], cVE])],
+    ],
+    "Comparar longitudes": [
+      ["Sumar y restar medidas", `<p>Con las medidas también podemos <mark>sumar y restar</mark>, siempre que estén en la <b>misma unidad</b>.</p><p>Ejemplos de suma:</p><ul><li>Un lápiz mide 12 cm y una goma 5 cm. Puestos uno detrás de otro miden 12 + 5 = <b>17 cm</b>.</li><li>Corro 20 metros y luego 30 metros. En total corro <b>50 metros</b>.</li></ul><p>Ejemplos de resta:</p><ul><li>Una cuerda de 40 cm. Corto 15 cm. Quedan 40 − 15 = <b>25 cm</b>.</li><li>Nora mide 120 cm y su hermano 150 cm. La diferencia es 150 − 120 = <b>30 cm</b>.</li></ul><p>Siempre escribimos la <b>unidad</b> en el resultado. No es lo mismo 25 cm que 25 m.</p><p><b>Actividad</b>: mide dos lápices, súmalos y comprueba poniéndolos en fila.</p>`,
+        H6.flujo("Restar", ["cuerda|40 cm", "corto|15 cm", "40 − 15|=", "quedan|25 cm"], cRO)],
+    ],
+  },
+  final: [
+    ["Distancias largas: el kilómetro", `<p>Para medir distancias muy largas, como de un pueblo a otro, el metro se queda pequeño. Usamos el <mark>kilómetro</mark>.</p><ul><li><b>1 kilómetro = 1000 metros</b>.</li><li>Se escribe <b>km</b>.</li></ul><p>¿Cuánto es un kilómetro? Andando, se tarda unos <b>15 minutos</b>. Es como dar unas dos vueltas y media a una pista de atletismo.</p><p>Usamos kilómetros para:</p><ul><li>Las <b>señales de la carretera</b>: «Madrid 25 km».</li><li>La distancia de una carrera: una carrera popular de 5 km.</li><li>Lo que recorre un coche o un tren.</li></ul><p>Así, ya tenemos unidades para todo: el milímetro para lo muy pequeño, el centímetro para lo pequeño, el metro para lo mediano y el kilómetro para lo muy largo.</p><p><b>Actividad</b>: pregunta en casa a cuántos kilómetros está el pueblo o la ciudad de algún familiar.</p>`,
+      L6.filas("¿Qué uso?", [["hormiga", "mm", cMO], ["lápiz", "cm", cAZ], ["clase", "m", cVE], ["carretera", "km", cRO]])],
+    ["Repaso: el día de las medidas", `<p>Vamos a repasar lo aprendido con un <mark>día de medidas</mark> en clase:</p><ul><li>Estimamos la pizarra: unos 3 metros. Medimos: 3 m. ¡Acertamos!</li><li>Medimos el lápiz con la regla: <b>15 cm</b>.</li><li>Medimos la altura de Pablo con la cinta métrica: <b>125 cm</b>, o sea, 1 metro y 25 centímetros.</li><li>Medimos una hormiga dibujada: <b>4 mm</b>.</li><li>La excursión de mañana es a un parque a <b>8 km</b>.</li></ul><p>Preguntas:</p><ul><li>¿Qué unidad usamos para la hormiga? El milímetro.</li><li>Si Pablo mide 125 cm y Ana 118 cm, ¿quién es más alto? Pablo, por <b>7 cm</b>.</li><li>¿Iríamos andando al parque? Son 8 km: ¡mejor en autobús!</li></ul><p><b>Actividad</b>: haced una tabla con las alturas de la clase, de menor a mayor.</p>`,
+      H6.rueda("Medir", "m", [["mm", cMO], ["cm", cAZ], ["km", cRO], ["cinta", cVE]])],
+  ],
+  ejemplos: [
+    ["Un lápiz mide 14 cm y otro 9 cm. ¿Cuánto miden juntos?", ["14 + 9 = 23.", "Pongo la unidad."], "23 cm."],
+    ["Una cinta de 50 cm. Corto 20 cm. ¿Cuánto queda?", ["50 − 20 = 30."], "30 cm."],
+  ],
+  errores: ["Sumar medidas sin escribir la unidad en el resultado.", "Usar la regla rígida para medir algo redondo."],
+  ejercicios: [
+    ["b", "¿Cuántos milímetros tiene 1 centímetro?", "10 mm."],
+    ["b", "¿Cuántos metros tiene 1 kilómetro?", "1000 m."],
+    ["b", "¿Qué usarías para medir tu cintura?", "La cinta métrica."],
+    ["b", "Más o menos, ¿cuánto mide un paso grande?", "Casi 1 metro."],
+    ["b", "¿Con qué unidad medirías una hormiga?", "Con milímetros."],
+    ["m", "Una mesa mide 80 cm y otra 60 cm. ¿Cuánto miden juntas?", "140 cm."],
+    ["m", "Ana mide 130 cm y Leo 122 cm. ¿Cuánto más alta es Ana?", "8 cm."],
+    ["m", "Estima cuánto mide la puerta de tu clase.", "Unos 2 metros."],
+    ["m", "Corro 25 m y luego 25 m más. ¿Cuánto corro?", "50 m."],
+    ["m", "¿Qué unidad usarías para la distancia entre dos ciudades?", "El kilómetro."],
+    ["a", "En la lectura, ¿cuánto creció Nora en un año?", "6 cm (de 114 a 120 cm)."],
+    ["a", "¿Cuánto le falta a Nora para llegar a la raya de su hermano?", "30 cm (de 120 a 150)."],
+    ["a", "Ordena de menor a mayor: km, mm, m, cm.", "mm, cm, m, km."],
+    ["a", "Una cuerda de 1 metro. Corto 35 cm. ¿Cuánto queda?", "65 cm."],
+  ],
+  quiz: [
+    ["1 cm tiene…", ["10 mm", "100 mm", "1000 mm"], "Milímetro."],
+    ["1 km tiene…", ["1000 m", "100 m", "10 m"], "Kilómetro."],
+    ["Para medir un tronco redondo uso…", ["la cinta métrica", "la regla", "el reloj"], "Cinta."],
+    ["Decir una medida aproximada sin medir es…", ["estimar", "restar", "pesar"], "Estimar."],
+    ["40 cm − 15 cm =", ["25 cm", "35 cm", "55 cm"], "Restar."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuánto mide Nora este año?", ["1 m y 20 cm", "1 m y 14 cm", "1 m y 50 cm"], "Lectura."],
+    ["Para ir a un parque a 8 km es mejor ir…", ["en autobús", "a la pata coja", "gateando"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Unidades", "mm, cm, m y km, de menor a mayor."],
+    ["Estimar", "Pensar la medida con referencias antes de medir."],
+  ],
+  glosario: [
+    ["Medir", "Saber cuántas veces cabe una unidad."],
+    ["Metro", "Unidad de longitud: 100 cm."],
+    ["Centímetro", "Unidad pequeña: 10 mm."],
+    ["Milímetro", "Unidad muy pequeña."],
+    ["Kilómetro", "1000 metros, para distancias largas."],
+    ["Regla", "Instrumento rígido para medir en cm."],
+    ["Cinta métrica", "Instrumento flexible para medir."],
+    ["Estimar", "Calcular una medida aproximada."],
+    ["Longitud", "Lo que mide algo de largo."],
+    ["Altura", "Lo que mide algo de alto."],
+  ],
+  situacion: {
+    titulo: "El rincón de las medidas",
+    reto: "La clase crea un mural con las alturas de todos y una colección de objetos medidos en mm, cm y m.",
+    pasos: ["Estimar y luego medir objetos de clase con la regla.", "Medir la altura de cada alumno con la cinta métrica.", "Ordenar las alturas de menor a mayor y calcular diferencias.", "Clasificar objetos según la unidad adecuada."],
+    producto: "Un mural de alturas y una tabla de objetos medidos.",
+    evaluacion: ["Estima medidas razonables.", "Mide con regla y cinta métrica.", "Suma y resta medidas con unidad.", "Elige la unidad adecuada."],
+  },
+});

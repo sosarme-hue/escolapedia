@@ -109,3 +109,97 @@ module.exports = P.tema({
   saberes: "Medida: el sistema monetario; monedas y billetes de euro; equivalencias entre euros y céntimos; cálculo de precios y de la vuelta",
   ideas: ["Rincón de la tienda con precios y dinero de juguete.", "Clasificar monedas por color, tamaño y valor.", "Problemas de compra con el folleto de un supermercado."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Formar una cantidad de varias maneras", "Distinguir caro y barato", "Valorar el ahorro", "Conocer la historia del dinero y otras formas de pagar"],
+  lectura: { titulo: "La moneda de Italia", html: `<p>Un sábado por la mañana, Carla acompaña a su padre a la panadería. Compran una barra de pan de 1 € y 20 céntimos.</p><p>El panadero le da la vuelta a Carla: una moneda de 50 céntimos, una de 20 y una de 10.</p><p>De camino a casa, Carla mira las monedas con atención. ¡Qué raro! La moneda de 50 céntimos tiene por un lado el dibujo de siempre, con el número 50. Pero por el otro lado tiene la cara de un hombre con barba que no conoce.</p><p>—Papá, ¿esta moneda es falsa?</p><p>—No, es de Italia —le explica su padre—. Todas las monedas de euro tienen un lado igual en todos los países y otro lado diferente en cada país. Esta vino en el bolsillo de algún turista italiano.</p><p>Carla se queda pensando.</p><p>—Entonces, ¿puedo coleccionar monedas de toda Europa sin salir de mi barrio?</p><p>Desde ese día, Carla tiene una caja de galletas donde guarda monedas de Francia, Alemania, Portugal… ¡y la de Italia es la primera de su colección!</p>` },
+  tras: {
+    "Las monedas de euro": [
+      ["Monedas de toda Europa", `<p>El <mark>euro</mark> se usa en muchos países de Europa: España, Francia, Italia, Alemania, Portugal… Todas las monedas tienen <b>dos caras</b>:</p><ul><li>La <b>cara común</b>: es igual en todos los países. Tiene el número del valor y un mapa de Europa.</li><li>La <b>cara nacional</b>: cada país pone sus propios dibujos.</li></ul><p>En las monedas de <b>España</b> aparecen:</p><ul><li>En las de 1, 2 y 5 céntimos, la <b>catedral de Santiago de Compostela</b>.</li><li>En las de 10, 20 y 50 céntimos, <b>Miguel de Cervantes</b>, el escritor del Quijote.</li><li>En las de 1 y 2 euros, el <b>rey</b>.</li></ul><p>Aunque tengan dibujos distintos, todas las monedas valen lo mismo en cualquier país del euro. ¡Una moneda de 1 € de Italia sirve igual en España!</p><p><b>Actividad</b>: busca en casa monedas de otros países y descubre de dónde son.</p>`,
+        H6.dos("Dos caras", ["COMÚN", ["el número", "mapa de Europa", "igual en todos"], cAZ], ["NACIONAL", ["cada país", "España: Cervantes", "catedral, rey"], cNA]),
+        ["p5Xl6vbwB-w", "Las Monedas de Euro", "Aula de Emma", 17451]],
+    ],
+    "Contar dinero": [
+      ["La misma cantidad de muchas maneras", `<p>Podemos <mark>formar una misma cantidad</mark> de dinero con monedas y billetes diferentes.</p><p>Por ejemplo, <b>1 €</b> se puede formar así:</p><ul><li>Con una moneda de 1 €.</li><li>Con dos monedas de 50 céntimos.</li><li>Con cinco monedas de 20 céntimos.</li><li>Con una de 50, dos de 20 y una de 10 céntimos.</li></ul><p>Y <b>10 €</b> se puede formar con un billete de 10 €, con dos billetes de 5 € o con cinco monedas de 2 €.</p><p>¿Cuál es la forma más cómoda? Normalmente, la que usa <b>menos</b> monedas y billetes, porque así pesa menos el monedero.</p><p>Pero tener monedas pequeñas también es útil: así podemos pagar el precio justo y no esperar la vuelta.</p><p><b>Actividad</b>: con monedas de juguete, forma 2 € de tres maneras distintas.</p>`,
+        L6.filas("1 € es…", [["1 moneda", "de 1 €", cNA], ["2 monedas", "de 50 cts", cAZ], ["5 monedas", "de 20 cts", cVE], ["50 + 20 + 20 + 10", "céntimos", cRO]])],
+    ],
+    "Euros y céntimos juntos": [
+      ["Caro y barato", `<p>Decimos que algo es <mark>caro</mark> cuando cuesta mucho dinero, y <mark>barato</mark> cuando cuesta poco.</p><p>Pero depende de con qué lo comparemos. Un helado de 3 € es caro si en otra heladería cuesta 2 €. Y es barato si en otra cuesta 5 €.</p><p>Para elegir bien, <b>comparamos precios</b>:</p><ul><li>Cuaderno en la tienda A: 2 €. En la tienda B: 3 €. Es más barato en la tienda A.</li><li>Una manzana suelta: 50 céntimos. Una bolsa de 4 manzanas: 1,50 €. ¡La bolsa sale más barata!</li></ul><p>También hay que pensar si de verdad <b>necesitamos</b> algo. A veces una cosa barata que no usamos es un gasto inútil.</p><p>Cuando un precio baja, decimos que hay una <b>oferta</b> o unas <b>rebajas</b>.</p><p><b>Actividad</b>: busca en un folleto del supermercado dos productos parecidos y di cuál es más barato.</p>`,
+        H6.dos("Comparar", ["TIENDA A", ["cuaderno", "2 €", "más barato"], cVE], ["TIENDA B", ["cuaderno", "3 €", "más caro"], cRO])],
+    ],
+    "Pagar y recibir la vuelta": [
+      ["Ahorrar con una meta", `<p><mark>Ahorrar</mark> es guardar una parte del dinero en lugar de gastarlo todo. Así podemos comprar algo que cuesta más o tener dinero para cuando lo necesitemos.</p><p>Para ahorrar bien, ayuda tener una <b>meta</b>: saber para qué ahorramos y cuánto necesitamos.</p><p>Por ejemplo, Hugo quiere un balón de <b>15 €</b>. Cada semana le dan 3 € de paga y guarda 3 € en su hucha:</p><ul><li>Semana 1: 3 €.</li><li>Semana 2: 6 €.</li><li>Semana 3: 9 €.</li><li>Semana 4: 12 €.</li><li>Semana 5: <b>15 €</b>. ¡Ya puede comprar el balón!</li></ul><p>Ahorrar requiere <b>paciencia</b>. A veces queremos gastar el dinero en caramelos, pero si aguantamos, conseguimos cosas más grandes.</p><p><b>Actividad</b>: piensa en algo que te gustaría comprar y haz un plan de ahorro con una tabla de semanas.</p>`,
+        H6.flujo("Meta: 15 €", ["semana 1|3 €", "semana 2|6 €", "semana 4|12 €", "semana 5|¡15 €!"], cVE)],
+    ],
+    "¿Para qué sirve?": [
+      ["Otras formas de pagar", `<p>Además de monedas y billetes, hoy existen <mark>otras formas de pagar</mark>:</p><ul><li>Con <b>tarjeta</b>: una tarjeta de plástico del banco. Se acerca a una máquina y el dinero sale de la cuenta del banco.</li><li>Con el <b>móvil</b> o el reloj: funcionan como una tarjeta.</li><li>Por <b>internet</b>: para comprar en tiendas online.</li></ul><p>Aunque no veamos las monedas, ¡es dinero de verdad! El dinero de la tarjeta no es infinito: cuando se gasta lo que hay en el banco, ya no se puede pagar más.</p><p>Por eso es importante saber cuánto cuesta cada cosa y no gastar más de lo que tenemos.</p><p>El dinero de verdad, en monedas y billetes, se llama <b>efectivo</b> o <b>metálico</b>.</p><p><b>Actividad</b>: pregunta en casa cómo pagan normalmente la compra y por qué.</p>`,
+        H6.rueda("Pagar", "€", [["efectivo", cNA], ["tarjeta", cAZ], ["móvil", cVE], ["internet", cRO]])],
+    ],
+  },
+  final: [
+    ["Antes del dinero: el trueque", `<p>Hace muchísimos años no existían las monedas. Las personas cambiaban unas cosas por otras: esto se llama <mark>trueque</mark>.</p><p>Un pastor cambiaba un queso por un saco de trigo. Una pescadora cambiaba pescado por una vasija de barro.</p><p>Pero el trueque tenía problemas: ¿y si el panadero no quería tu queso? ¿Cuántos huevos vale una vaca?</p><p>Por eso empezaron a usar cosas que todos querían como «dinero»: <b>sal</b>, conchas, semillas de cacao… La palabra <b>salario</b>, lo que se cobra por trabajar, viene de «sal».</p><p>Después se inventaron las <b>monedas de metal</b>, de oro, plata o bronce, y mucho más tarde los <b>billetes</b> de papel.</p><p>En España, antes del euro, se usaba la <b>peseta</b>. El euro llegó en el año 2002. ¡Pregunta a tus abuelos si recuerdan las pesetas!</p><p><b>Actividad</b>: haced en clase un mercado de trueque cambiando cromos, lápices o pegatinas.</p>`,
+      L6.filas("Historia", [["trueque", "cosa por cosa", cNA], ["sal, conchas", "primer dinero", cVE], ["monedas", "de metal", cAZ], ["2002", "llega el euro", cRO]])],
+    ["Repaso: la tienda de chuches", `<p>Vamos a repasar con una <mark>tienda de chuches</mark> de juguete. Estos son los precios:</p><ul><li>Piruleta: <b>50 céntimos</b>.</li><li>Bolsa de gominolas: <b>1 €</b>.</li><li>Chicle: <b>20 céntimos</b>.</li><li>Chocolatina: <b>1,50 €</b>.</li></ul><p>Resolvemos:</p><ul><li>¿Cuánto cuestan 2 piruletas? 50 + 50 = <b>1 €</b>.</li><li>Compro una chocolatina y pago con 2 €. ¿Cuánto me devuelven? <b>50 céntimos</b>.</li><li>Tengo 1 €. ¿Me llega para una piruleta y dos chicles? 50 + 20 + 20 = 90 céntimos. ¡Sí! Me sobran <b>10 céntimos</b>.</li><li>¿Qué es más caro, 3 chicles o 1 piruleta? 60 céntimos &gt; 50 céntimos: los chicles.</li></ul><p><b>Actividad</b>: montad la tienda en clase y haced turnos de vendedor y comprador.</p>`,
+      L6.filas("Precios", [["piruleta", "50 cts", cRO], ["gominolas", "1 €", cVE], ["chicle", "20 cts", cAZ], ["chocolatina", "1,50 €", cNA]])],
+  ],
+  ejemplos: [
+    ["Forma 50 céntimos con monedas de 10 y 20.", ["20 + 20 = 40.", "40 + 10 = 50."], "Dos de 20 y una de 10."],
+    ["Ahorro 2 € cada semana. ¿Cuándo tendré 10 €?", ["2, 4, 6, 8, 10.", "Cuento las semanas: 5."], "En 5 semanas."],
+  ],
+  errores: ["Pensar que una moneda de otro país del euro no vale en España.", "Creer que con tarjeta se puede gastar sin límite."],
+  ejercicios: [
+    ["b", "¿Quién aparece en las monedas españolas de 10, 20 y 50 céntimos?", "Miguel de Cervantes."],
+    ["b", "Forma 1 € con monedas de 50 céntimos.", "Dos monedas."],
+    ["b", "¿Qué es más barato, 3 € o 5 €?", "3 €."],
+    ["b", "¿Qué es el trueque?", "Cambiar unas cosas por otras sin dinero."],
+    ["b", "¿Qué moneda se usaba en España antes del euro?", "La peseta."],
+    ["m", "Forma 5 € de dos maneras.", "Billete de 5 €; dos monedas de 2 € y una de 1 €…"],
+    ["m", "Una manzana cuesta 50 cts y una bolsa de 4, 1,50 €. ¿Qué sale más barato?", "La bolsa (4 sueltas costarían 2 €)."],
+    ["m", "Ahorro 4 € a la semana. ¿Cuánto tengo en 3 semanas?", "12 €."],
+    ["m", "Compro dos chicles de 20 cts. Pago con 1 €. ¿Cuánto me devuelven?", "60 céntimos."],
+    ["m", "¿De qué palabra viene «salario»?", "De sal."],
+    ["a", "En la lectura, ¿por qué la moneda de Carla no es falsa?", "Porque es de Italia: la cara nacional cambia en cada país."],
+    ["a", "Haz un plan de ahorro para comprar algo de 20 € guardando 4 € a la semana.", "5 semanas."],
+    ["a", "Explica un problema del trueque.", "No siempre el otro quiere lo que ofreces, o no sabes cuánto vale."],
+    ["a", "Con 2 €, ¿qué chuches de la tienda puedes comprar sin que sobre nada?", "Por ejemplo, dos bolsas de gominolas, o una chocolatina y una piruleta."],
+  ],
+  quiz: [
+    ["La cara de la moneda que es igual en todos los países es la…", ["común", "nacional", "española"], "Monedas."],
+    ["Dos monedas de 50 céntimos son…", ["1 €", "50 cts", "2 €"], "Formar."],
+    ["Guardar dinero para algo es…", ["ahorrar", "gastar", "trocar"], "Ahorro."],
+    ["El dinero en monedas y billetes se llama…", ["efectivo", "tarjeta", "trueque"], "Pagar."],
+    ["El euro llegó a España en…", ["2002", "1900", "2020"], "Historia."],
+  ],
+  examen: [
+    ["En la lectura, ¿de qué país es la moneda de Carla?", ["Italia", "Francia", "Portugal"], "Lectura."],
+    ["Una piruleta y dos chicles cuestan…", ["90 céntimos", "1 €", "70 céntimos"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Dos caras", "Común igual en Europa; nacional distinta en cada país."],
+    ["Ahorrar", "Guardar con una meta y paciencia."],
+  ],
+  glosario: [
+    ["Euro", "Moneda de muchos países de Europa."],
+    ["Céntimo", "Cada una de las 100 partes de un euro."],
+    ["Billete", "Dinero de papel."],
+    ["Cara nacional", "Lado de la moneda distinto en cada país."],
+    ["Caro", "Que cuesta mucho dinero."],
+    ["Barato", "Que cuesta poco dinero."],
+    ["Oferta", "Precio más bajo de lo normal."],
+    ["Ahorrar", "Guardar dinero para el futuro."],
+    ["Efectivo", "Dinero en monedas y billetes."],
+    ["Trueque", "Cambio de cosas sin usar dinero."],
+  ],
+  situacion: {
+    titulo: "La tienda de la clase",
+    reto: "La clase monta una tienda con precios en euros y céntimos y practica comprar, pagar, dar la vuelta y ahorrar.",
+    pasos: ["Fabricar productos y poner precios con euros y céntimos.", "Formar cada precio de varias maneras con dinero de juguete.", "Comprar, pagar y calcular la vuelta.", "Hacer un plan de ahorro para comprar el producto más caro."],
+    producto: "Una tienda de clase con etiquetas de precio y un plan de ahorro.",
+    evaluacion: ["Reconoce monedas y billetes.", "Forma una cantidad de varias maneras.", "Calcula la vuelta.", "Explica qué es ahorrar y para qué sirve."],
+  },
+});
