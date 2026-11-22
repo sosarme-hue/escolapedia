@@ -91,3 +91,98 @@ module.exports = tema({
   ideas: ["Escala corporal: de agachados a estirados.", "Juego de la mano pentagrama por parejas.", "Lectura y canto de melodías de tres notas."],
   fuentes: [["Real Conservatorio Superior de Música de Madrid", "https://rcsmm.eu/"], ["Orquesta y Coro Nacionales de España: educación", "https://ocne.mcu.es/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el origen del nombre de las notas", "Leer do y re graves y do y re agudos en el pentagrama", "Encontrar las notas en el teclado del piano", "Escribir una melodía sencilla"],
+  lectura: { titulo: "El monje que puso nombre a las notas", html: `<p>Hace unos mil años, en Italia, vivía un monje llamado Guido. Su trabajo era enseñar a cantar a los niños del coro de la catedral de Arezzo.</p><p>Pero había un problema: en aquella época casi no había partituras. Los niños tenían que aprender todas las canciones de memoria, escuchándolas una y otra vez. ¡Tardaban años!</p><p>Guido pensó: «Tiene que haber una forma más fácil». Y tuvo dos grandes ideas.</p><p>La primera fue dibujar unas <b>líneas horizontales</b> para colocar las notas encima, más arriba las agudas y más abajo las graves. Así nació la idea del pentagrama.</p><p>La segunda fue dar un <b>nombre</b> a cada nota. Usó un himno que todos sus alumnos conocían, dedicado a san Juan. Cada verso empezaba con una nota más aguda que el anterior, y Guido tomó la primera sílaba de cada verso: <i>ut, re, mi, fa, sol, la</i>.</p><p>Gracias a su invento, los niños aprendían en pocos meses lo que antes les costaba años.</p><p>Hoy, mil años después, seguimos cantando do, re, mi, fa, sol, la y si gracias a aquel monje paciente que quería que aprender música fuera más fácil.</p>` },
+  tras: {
+    "Subir y bajar: la escala": [
+      ["¿De dónde vienen los nombres de las notas?", `<p>Los nombres de las notas tienen casi <mark>mil años</mark>. Se los puso un monje italiano, <b>Guido d'Arezzo</b>, en el siglo XI.</p><p>Guido usó un <b>himno a san Juan</b>, escrito en latín. Cada verso empezaba con una nota más aguda, y cogió la primera sílaba de cada uno:</p><ul><li><b>Ut</b> queant laxis</li><li><b>Re</b>sonare fibris</li><li><b>Mi</b>ra gestorum</li><li><b>Fa</b>muli tuorum</li><li><b>Sol</b>ve polluti</li><li><b>La</b>bii reatum</li><li><b>S</b>ancte <b>I</b>ohannes</li></ul><p>Más tarde, la nota <b>ut</b> se cambió por <b>do</b>, porque es más fácil de cantar. Y la séptima nota, <b>si</b>, se formó con las iniciales de <i>Sancte Iohannes</i> (san Juan).</p><p>En otros países, como Inglaterra, Alemania o Estados Unidos, las notas se nombran con <b>letras</b>, empezando por la nota la:</p><ul><li>A = la · B = si · C = do · D = re · E = mi · F = fa · G = sol</li></ul><p>Este sistema se llama <b>cifrado americano</b> y lo verás en muchas partituras de guitarra.</p><p><b>Actividad</b>: escribe tu nombre con notas en cifrado americano si puedes (por ejemplo, «ABE» o «ADA»).</p>`,
+        L6.filas("Cifrado", [["do", "C", cRO], ["re", "D", cNA], ["mi", "E", cVE], ["la", "A", cAZ]])],
+    ],
+    "La clave de sol": [
+      ["Do y re: las notas de abajo", `<p>El pentagrama tiene cinco líneas, pero algunas notas son <b>más graves</b> que las que caben dentro. ¿Dónde las escribimos?</p><p><mark>El re grave</mark> se escribe <b>justo debajo</b> de la primera línea, tocándola por arriba. Es la nota que está «colgada» del pentagrama.</p><p><mark>El do grave</mark> necesita una <b>línea adicional</b>: una rayita corta, solo del tamaño de la nota, debajo del pentagrama. La nota se escribe atravesada por esa rayita, como si la línea la cortara por la mitad.</p><p>Así, de abajo hacia arriba, las primeras notas son:</p><ul><li><b>do</b>: en la línea adicional de abajo.</li><li><b>re</b>: debajo de la primera línea.</li><li><b>mi</b>: en la primera línea.</li><li><b>fa</b>: en el primer espacio.</li><li><b>sol</b>: en la segunda línea, donde se enrosca la clave de sol.</li></ul><p>Fíjate en el orden: <b>línea, espacio, línea, espacio</b>… Cada nota está en el sitio siguiente al de la anterior, sin saltarse ninguno.</p><p>En la flauta dulce, el do grave es la nota más grave: se tapan todos los agujeros y se sopla muy suave.</p><p><b>Actividad</b>: dibuja un pentagrama y escribe do, re, mi, fa y sol subiendo como una escalera.</p>`,
+        L6.filas("Abajo", [["do", "línea adicional", cRO], ["re", "bajo la 1.ª línea", cNA], ["mi", "1.ª línea", cVE], ["fa", "1.er espacio", cAZ]]),
+        ["-ySWBOLd0qQ", "Camaleón Clave de Sol - Canción infantil para conocer la clave de sol", "Musicaeduca", 413753]],
+    ],
+    "Fa y la: notas en los espacios": [
+      ["Do y re agudos: las notas de arriba", `<p>Si seguimos subiendo por el pentagrama después del si (en la tercera línea), llegamos a las notas <mark>agudas</mark>:</p><ul><li><b>do agudo</b>: en el <b>tercer espacio</b>.</li><li><b>re agudo</b>: en la <b>cuarta línea</b>.</li><li><b>mi agudo</b>: en el <b>cuarto espacio</b>.</li><li><b>fa agudo</b>: en la <b>quinta línea</b>.</li></ul><p>Fíjate: el do agudo tiene el mismo nombre que el do grave, pero suena <b>más alto</b>. Entre los dos hay ocho notas: do, re, mi, fa, sol, la, si, do. Esa distancia se llama <b>octava</b> (de «ocho»).</p><p>Las notas con el mismo nombre suenan «parecidas» aunque una sea más aguda: cuando un hombre y una niña cantan la misma canción, normalmente cantan las mismas notas pero separadas por una octava.</p><p>Resumen del pentagrama en clave de sol:</p><ul><li><b>Líneas</b> (de abajo arriba): mi, sol, si, re, fa.</li><li><b>Espacios</b> (de abajo arriba): fa, la, do, mi.</li></ul><p>Una frase para recordar las líneas: «<b>Mi</b> <b>sol</b>dado <b>si</b>empre <b>re</b>za <b>fa</b>ntástico».</p><p><b>Actividad</b>: escribe la escala completa, desde el do grave hasta el do agudo.</p>`,
+        L6.filas("Arriba", [["do agudo", "3.er espacio", cRO], ["re agudo", "4.ª línea", cNA], ["mi agudo", "4.º espacio", cVE], ["fa agudo", "5.ª línea", cAZ]])],
+    ],
+    "Las notas en los instrumentos": [
+      ["Las notas en el piano", `<p>El <mark>piano</mark> es perfecto para ver las notas, porque están todas colocadas en orden: las <b>graves a la izquierda</b> y las <b>agudas a la derecha</b>.</p><p>El teclado tiene teclas <b>blancas</b> y teclas <b>negras</b>. Las negras están agrupadas: un grupo de <b>dos</b>, después un grupo de <b>tres</b>, otra vez dos, otra vez tres…</p><p>Ese dibujo es la clave para encontrar las notas:</p><ul><li>El <b>do</b> es la tecla blanca que está justo a la <b>izquierda del grupo de dos</b> teclas negras.</li><li>Después, hacia la derecha, vienen re, mi, fa, sol, la, si… y otra vez do.</li><li>El <b>fa</b> es la tecla blanca a la izquierda del grupo de tres teclas negras.</li></ul><p>Un piano de concierto tiene <b>88 teclas</b>. Por eso hay muchos do, muchos re… cada uno en una octava distinta. El que está más o menos en el centro se llama <b>do central</b>.</p><p>Las teclas negras sirven para notas que están entre las blancas, como el fa sostenido. Las estudiarás más adelante.</p><p>Muchos teclados y apps de piano te permiten practicar en casa.</p><p><b>Actividad</b>: dibuja dos octavas de teclado y pinta de rojo todos los do y de azul todos los fa.</p>`,
+        H6.dos("Piano", ["GRUPO DE 2", ["a su izquierda:", "do"], cRO], ["GRUPO DE 3", ["a su izquierda:", "fa"], cAZ])],
+    ],
+    "Canciones con pocas notas": [
+      ["Escribo mi melodía", `<p>Ahora que sabemos leer notas, podemos <mark>componer una melodía</mark>. Vamos a usar solo cinco notas: <b>do, re, mi, sol y la</b>. Con ellas, casi cualquier combinación suena bien.</p><p>Paso a paso:</p><ul><li><b>1.</b> Dibuja un pentagrama con clave de sol, indicación <b>4/4</b> y <b>cuatro compases</b>.</li><li><b>2.</b> Escribe primero el <b>ritmo</b> con negras, blancas y corcheas, comprobando que cada compás suma cuatro tiempos.</li><li><b>3.</b> Coloca cada figura en una nota del pentagrama.</li><li><b>4.</b> Termina en la nota <b>do</b> y con una figura larga, como una redonda o una blanca: así suena a final.</li></ul><p>Consejos de compositor:</p><ul><li>Combina notas que <b>suben</b> y notas que <b>bajan</b>.</li><li>Haz pasos pequeños (de una nota a la de al lado) y algún salto.</li><li>Repite alguna idea: por ejemplo, que el compás 3 se parezca al 1.</li></ul><p>Después, tócala con la flauta, el carillón o el xilófono, o cántala con el nombre de las notas. ¡Y ponle un título!</p><p><b>Actividad</b>: escribe tu melodía, ponle título y tócasela a un compañero.</p>`,
+        H6.flujo("Mi melodía", ["4/4|4 compases", "primero|el ritmo", "después|las notas", "termina|en do"], cVE)],
+    ],
+  },
+  final: [
+    ["Melodías que suben y bajan", `<p>La forma en que una melodía se mueve también <mark>transmite emociones</mark>:</p><ul><li>Una melodía que <b>sube</b> (de grave a agudo) suele sonar a energía, alegría, sorpresa o pregunta. Es como subir una escalera hacia algo emocionante.</li><li>Una melodía que <b>baja</b> (de agudo a grave) suele sonar a calma, tristeza, cansancio o respuesta. Es como volver a casa o irse a dormir.</li><li>Una melodía que se queda <b>en la misma nota</b> suena insistente, como alguien que repite lo mismo.</li></ul><p>Al hablar pasa algo parecido: cuando preguntamos, la voz sube al final («¿Vienes?»), y cuando afirmamos, la voz baja («Sí, voy.»).</p><p>Los compositores usan esto para contar historias. En muchas películas, cuando el héroe consigue algo, la música sube; cuando algo sale mal, la música baja y se vuelve más grave.</p><p>Podemos dibujar el <b>contorno</b> de una melodía con una línea que sube y baja: así vemos su forma aunque no sepamos leer todas las notas.</p><p><b>Actividad</b>: canta una pregunta con una melodía que sube y una respuesta con una melodía que baja. Por ejemplo: «¿Quieres jugar?» – «Sí, vamos ya».</p>`,
+      H6.dos("Melodías", ["SUBE", ["alegría", "sorpresa", "pregunta"], cNA], ["BAJA", ["calma", "tristeza", "respuesta"], cAZ])],
+  ],
+  ejemplos: [
+    ["¿Dónde se escribe el do grave?", ["Está por debajo del pentagrama.", "Necesita una línea adicional."], "En una línea adicional debajo del pentagrama."],
+    ["¿Qué nota es C en cifrado americano?", ["El cifrado empieza con A = la.", "A, B, C: la, si, do."], "Do."],
+  ],
+  errores: ["Escribir el re grave en la primera línea (esa es mi).", "Pensar que el do grave y el do agudo son notas distintas sin relación: son la misma nota a una octava."],
+  ejercicios: [
+    ["b", "¿Quién puso nombre a las notas?", "Guido d'Arezzo, un monje italiano."],
+    ["b", "¿Qué nota es la G en cifrado americano?", "Sol."],
+    ["b", "¿Dónde está el do agudo en el pentagrama?", "En el tercer espacio."],
+    ["b", "¿Cuántas teclas tiene un piano de concierto?", "88."],
+    ["b", "En la lectura, ¿qué problema tenían los niños del coro?", "Tenían que aprender todas las canciones de memoria."],
+    ["m", "¿De dónde viene el nombre de la nota si?", "De las iniciales de Sancte Iohannes."],
+    ["m", "Nombra las notas de las cinco líneas, de abajo arriba.", "Mi, sol, si, re, fa."],
+    ["m", "¿Qué es una octava?", "La distancia entre una nota y la siguiente con el mismo nombre: ocho notas."],
+    ["m", "¿Cómo encuentras el do en el piano?", "Es la tecla blanca a la izquierda del grupo de dos teclas negras."],
+    ["m", "¿Qué suele expresar una melodía que sube?", "Energía, alegría, sorpresa o pregunta."],
+    ["a", "¿Qué dos ideas tuvo Guido y por qué fueron importantes?", "Las líneas para colocar las notas y los nombres de las notas; los niños aprendían mucho más rápido."],
+    ["a", "Escribe una melodía de cuatro compases en 4/4 que termine en do.", "Respuesta abierta."],
+    ["a", "Escribe la escala desde el do grave al do agudo e indica cuáles van en líneas.", "Do (línea adicional), mi, sol, si en líneas; re bajo la 1.ª; fa, la, do agudo en espacios."],
+    ["a", "Canta una pregunta y una respuesta con melodías que suben y bajan y explícalo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La primera nota se llamaba antes…", ["ut", "la", "sol"], "Historia."],
+    ["El re grave se escribe…", ["debajo de la 1.ª línea", "en la 1.ª línea", "en el 3.er espacio"], "Pentagrama."],
+    ["El re agudo está en…", ["la 4.ª línea", "el 4.º espacio", "la 2.ª línea"], "Agudos."],
+    ["En el piano, a la izquierda del grupo de tres teclas negras está…", ["fa", "do", "si"], "Piano."],
+    ["Una melodía que baja suele sonar a…", ["calma o respuesta", "sorpresa", "pregunta"], "Emociones."],
+  ],
+  examen: [
+    ["En la lectura, ¿de dónde sacó Guido los nombres de las notas?", ["de un himno a san Juan", "de un cuento", "de los días de la semana"], "Lectura."],
+    ["¿Cuántas notas hay de do grave a do agudo, contando los dos?", ["ocho", "siete", "cinco"], "Octava."],
+  ],
+  tarjetas: [
+    ["Guido d'Arezzo", "Ut, re, mi, fa, sol, la del himno a san Juan; ut → do; si = Sancte Iohannes."],
+    ["Cifrado americano", "A la, B si, C do, D re, E mi, F fa, G sol."],
+    ["Pentagrama", "Líneas: mi, sol, si, re, fa. Espacios: fa, la, do, mi. Do grave: línea adicional."],
+    ["Piano", "Do a la izquierda del grupo de 2 negras; fa a la izquierda del de 3."],
+  ],
+  glosario: [
+    ["Guido d'Arezzo", "Monje italiano que dio nombre a las notas."],
+    ["Himno", "Canción solemne en honor de alguien."],
+    ["Cifrado americano", "Nombres de las notas con letras."],
+    ["Línea adicional", "Rayita corta fuera del pentagrama para notas muy graves o agudas."],
+    ["Do grave", "Nota do escrita en la línea adicional de abajo."],
+    ["Do agudo", "Nota do en el tercer espacio."],
+    ["Octava", "Distancia de ocho notas entre dos notas con el mismo nombre."],
+    ["Teclado", "Conjunto de teclas de un piano."],
+    ["Do central", "Do situado más o menos en el centro del piano."],
+    ["Melodía", "Sucesión de notas que forman una frase musical."],
+    ["Contorno", "Forma que dibuja una melodía al subir y bajar."],
+    ["Componer", "Crear música nueva."],
+  ],
+  situacion: {
+    titulo: "Compositores de la clase",
+    reto: "Cada alumno compone una melodía de cuatro compases y la clase la interpreta en un pequeño estreno con instrumentos de láminas o flauta.",
+    pasos: ["Repasar todas las notas del pentagrama, del do grave al fa agudo.", "Buscar las notas en un teclado o en un xilófono.", "Escribir una melodía de cuatro compases con do, re, mi, sol y la que termine en do.", "Estrenar las melodías y comentar si suben, bajan y qué emoción transmiten."],
+    producto: "Un cuaderno de melodías de la clase y un concierto de estreno.",
+    evaluacion: ["Lee y escribe las notas en el pentagrama, incluidas do y re graves y agudos.", "Encuentra las notas en un instrumento.", "Compone una melodía con compases completos.", "Relaciona el movimiento de la melodía con emociones."],
+  },
+});

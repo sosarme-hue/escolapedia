@@ -93,3 +93,96 @@ module.exports = tema({
   ideas: ["Marcha y vals por la clase.", "Percusión corporal con pisotón y palmas.", "Juego del eco del compás en corro."],
   fuentes: [["Orquesta y Coro Nacionales de España: educación", "https://ocne.mcu.es/"], ["Fundación Juan March: conciertos didácticos", "https://www.march.es/es/madrid/musica"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer el compás de cuatro tiempos", "Leer la indicación de compás y las líneas divisorias", "Marcar el compás con la mano como un director", "Crear ritmos de cuatro compases"],
+  lectura: { titulo: "La batuta de Sofía", html: `<p>La clase de 3.º B va a cantar en el concierto de Navidad del colegio, y el maestro de Música, Jaime, les da una sorpresa: —Hoy uno de vosotros va a dirigir el coro.</p><p>Saca de su maleta una varita fina y blanca. —Esto es una batuta. Los directores de orquesta la usan para marcar el compás.</p><p>Sofía levanta la mano la primera. Jaime le enseña el movimiento: para una canción de dos tiempos, la batuta baja y sube: «UN-dos, UN-dos». Para una canción de tres, baja, va hacia fuera y sube: «UN-dos-tres».</p><p>Sofía se pone delante de sus compañeros, muy seria. Levanta la batuta… y empieza demasiado rápido. Los niños cantan cada vez más deprisa hasta que todos se ríen y se paran.</p><p>—Tranquila —le dice Jaime—. Escucha primero el pulso dentro de ti. Cuenta en voz baja antes de empezar.</p><p>Sofía cierra los ojos un momento y cuenta: «uno, dos, tres». Esta vez mueve la batuta despacio y con seguridad. El coro canta junto, al mismo tiempo, y el villancico suena precioso.</p><p>Cuando termina, todos aplauden. Sofía hace una reverencia, como los directores de verdad.</p>` },
+  tras: {
+    "El compás de tres tiempos": [
+      ["El compás de cuatro tiempos", `<p>Además de los compases de dos y tres tiempos, hay un compás muy usado: el de <mark>cuatro tiempos</mark>. Se escribe <b>4/4</b>.</p><p>En el compás de cuatro, los pulsos tienen tres tipos de fuerza:</p><ul><li><b>1.º tiempo</b>: <b>fuerte</b>. Es el acento principal.</li><li><b>2.º tiempo</b>: débil.</li><li><b>3.º tiempo</b>: <b>semifuerte</b>. Tiene un pequeño acento, más suave que el primero.</li><li><b>4.º tiempo</b>: débil.</li></ul><p>Se cuenta así: «<b>UN</b>-dos-<i>TRES</i>-cuatro, <b>UN</b>-dos-<i>TRES</i>-cuatro».</p><p>El compás de cuatro es el más habitual en la música pop, el rock, muchas canciones infantiles y los himnos. Por ejemplo, «Estrellita, ¿dónde estás?» o muchas canciones que escuchas en la radio.</p><p>Para marcarlo con el cuerpo: <b>palmada</b> en el 1, golpe en las <b>rodillas</b> en el 2, <b>chasquido</b> en el 3 y otra vez rodillas en el 4.</p><p>Un truco para no confundirlo con el de dos: en el de cuatro, el gran acento llega la mitad de veces. Escucha bien dónde cae el «UN» más fuerte.</p><p><b>Actividad</b>: marca el compás de cuatro con palmas, rodillas y chasquidos mientras cantas una canción que conozcas.</p>`,
+        L6.filas("4/4", [["1", "fuerte", cRO], ["2", "débil", cAZ], ["3", "semifuerte", cNA], ["4", "débil", cAZ]])],
+    ],
+    "Completar compases": [
+      ["Líneas divisorias e indicación de compás", `<p>En una partitura, los compases están separados por unas rayas verticales llamadas <mark>líneas divisorias</mark>. Cada espacio entre dos líneas es un compás.</p><p>Al final de la obra o de una parte importante aparece la <b>doble barra final</b>: una línea fina y otra gruesa. Significa «fin».</p><p>Al principio de la partitura, después de la clave, aparecen <b>dos números</b>, uno encima del otro. Es la <mark>indicación de compás</mark>:</p><ul><li>El número de <b>arriba</b> dice cuántos tiempos tiene cada compás.</li><li>El número de <b>abajo</b> dice qué figura vale un tiempo. Cuando es un <b>4</b>, la que vale un tiempo es la <b>negra</b>.</li></ul><p>Por eso:</p><ul><li><b>2/4</b>: dos negras por compás (o lo que sume lo mismo).</li><li><b>3/4</b>: tres negras por compás.</li><li><b>4/4</b>: cuatro negras por compás. A veces se escribe con una <b>C</b> grande.</li></ul><p>Hay también un signo de <b>repetición</b>: dos puntos junto a una doble barra. Significa que hay que volver atrás y tocar otra vez esa parte.</p><p><b>Actividad</b>: dibuja un pentagrama con la indicación 3/4 y cuatro compases separados con líneas divisorias. Termina con la doble barra final.</p>`,
+        L6.filas("Partitura", [["2/4", "dos negras", cAZ], ["3/4", "tres negras", cVE], ["4/4 o C", "cuatro negras", cNA], ["doble barra", "fin", cRO]])],
+    ],
+    "Marcar el compás con el cuerpo": [
+      ["Dirigir como un director", `<p>Los <mark>directores de orquesta y de coro</mark> marcan el compás con la mano o con una <b>batuta</b>, una varita fina. Cada compás tiene su propio dibujo en el aire. El primer tiempo, el fuerte, siempre se marca <b>hacia abajo</b>.</p><ul><li><b>Compás de 2</b>: abajo – arriba.</li><li><b>Compás de 3</b>: abajo – hacia fuera (a la derecha si usas la mano derecha) – arriba. Dibuja un triángulo.</li><li><b>Compás de 4</b>: abajo – hacia dentro (a la izquierda) – hacia fuera (a la derecha) – arriba. Dibuja una especie de cruz.</li></ul><p>Con la otra mano, el director da indicaciones: cuándo entra cada instrumento, si hay que tocar más fuerte o más suave, o cuándo hay que parar.</p><p>Antes de empezar, el director levanta las manos para que todos estén atentos y hace un pequeño gesto, la «preparación», para que todos comiencen a la vez.</p><p>Dirigir es una gran responsabilidad: si el director va deprisa, todos irán deprisa. Por eso debe sentir el pulso con mucha seguridad, como Sofía en la lectura.</p><p><b>Actividad</b>: por turnos, dirige a la clase mientras canta una canción de dos y otra de tres tiempos.</p>`,
+        H6.flujo("Compás de 4", ["1|abajo", "2|dentro", "3|fuera", "4|arriba"], cMO),
+        ["KBftxqrf1yk", "\"Compases, binarios, ternarios y cuaternarios\" (Capítulo 3)   Cómo aprender música con el Turuta", "Antonio Carmona", 58611]],
+    ],
+    "¿En qué compás va esta canción?": [
+      ["Compases y danzas", `<p>Cada tipo de música y de danza suele tener un <mark>compás característico</mark>. Conocerlos nos ayuda a bailar y a reconocer la música.</p><ul><li><b>Compás de 2</b>: las <b>marchas</b> (para desfilar: izquierda-derecha), el <b>pasodoble</b> y muchas polcas. Es un compás que invita a caminar.</li><li><b>Compás de 3</b>: el <b>vals</b>, que se baila en parejas girando; la <b>jota</b>; las <b>sevillanas</b>; y muchas nanas, que mecen como una cuna: «a-rro-rró».</li><li><b>Compás de 4</b>: la mayoría de las canciones de <b>pop</b> y <b>rock</b>, los himnos y muchas canciones infantiles.</li></ul><p>Un experimento divertido: canta «Cumpleaños feliz», que va en compás de 3, y prueba a caminar con ella. ¡Es difícil! Ahora prueba a balancearte de lado a lado, como en un vals: es mucho más fácil.</p><p>Y al revés: una marcha en compás de 2 es perfecta para caminar, pero no para girar.</p><p>El compás no solo organiza la música: también le da <b>carácter</b>. El 2 suena decidido, el 3 suena a balanceo y el 4 suena estable.</p><p><b>Actividad</b>: escucha un vals y una marcha y muévete de forma distinta con cada uno.</p>`,
+        H6.dos("Danzas", ["COMPÁS DE 2", ["marcha", "pasodoble", "polca"], cAZ], ["COMPÁS DE 3", ["vals", "jota", "sevillanas"], cRO])],
+    ],
+  },
+  final: [
+    ["Canciones que empiezan antes: la anacrusa", `<p>No todas las canciones empiezan en el tiempo fuerte. Algunas empiezan con una o varias notas <b>antes</b> del primer acento. Esas notas se llaman <mark>anacrusa</mark>.</p><p>Un ejemplo muy conocido es «<b>Cumpleaños feliz</b>»:</p><p style="text-align:center"><i>Cum-ple | <b>A</b>-ños fe- | <b>LIZ</b>…</i></p><p>Las sílabas «Cum-ple» van antes de la primera línea divisoria: son la anacrusa. El primer acento fuerte cae en «a», de «años».</p><p>¿Cómo se nota? Si intentas dar una palmada fuerte en la primera sílaba, «Cum», suena raro. La palmada fuerte encaja en «a-ños».</p><p>En la partitura, la anacrusa es un <b>compás incompleto</b> al principio: tiene menos tiempos de los que dice la indicación de compás. Y el último compás de la canción suele estar también incompleto, para que, juntos, sumen un compás entero.</p><p>Muchas canciones populares empiezan con anacrusa, como si la música «tomara impulso» antes de arrancar, igual que cuando cogemos carrerilla antes de saltar.</p><p><b>Actividad</b>: canta «Cumpleaños feliz» dando una palmada solo en los tiempos fuertes. ¿Dónde cae la primera?</p>`,
+      L6.filas("Anacrusa", [["Cum-ple", "anacrusa", cNA], ["A-ños fe-", "1.er compás", cRO], ["LIZ", "acento", cAZ], ["impulso", "como un salto", cVE]])],
+    ["Creamos ritmos en compás", `<p>Ya sabemos mucho sobre el compás. ¡Ahora vamos a <mark>componer</mark>! Crearemos un ritmo de <b>cuatro compases</b> en 2/4.</p><p>Paso a paso:</p><ul><li><b>1.</b> Dibuja cuatro compases con líneas divisorias y la indicación <b>2/4</b> al principio.</li><li><b>2.</b> En cada compás tienen que caber <b>dos tiempos</b>. Puedes usar: dos <b>negras</b> (ta-ta), una <b>blanca</b> (taa), cuatro <b>corcheas</b> (ti-ti-ti-ti) o una negra y un <b>silencio de negra</b>.</li><li><b>3.</b> Pon la doble barra final.</li><li><b>4.</b> Léelo en voz alta con sílabas rítmicas y después tócalo con palmas.</li></ul><p>Un buen ritmo tiene algo que se <b>repite</b> y algo que <b>cambia</b>. Por ejemplo, los compases 1 y 3 iguales, y el 2 y el 4 diferentes. Y suele terminar con una figura larga, como una blanca, para que suene a final.</p><p>Después, por parejas, uno toca su ritmo y el otro intenta escribirlo: es un <b>dictado rítmico</b>.</p><p>También podemos poner letra al ritmo con palabras: «PA-TA-TA | CA-SA | ME-LO-CO-TÓN | SOL».</p><p><b>Actividad</b>: escribe tu ritmo, tócalo con un instrumento de percusión y enséñaselo a la clase.</p>`,
+      H6.flujo("Componer", ["2/4|4 compases", "dos tiempos|cada uno", "repetir|y cambiar", "final|blanca"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Cuántas negras caben en un compás de 3/4?", ["El número de arriba dice los tiempos.", "El 4 de abajo indica que la negra vale un tiempo."], "Tres negras."],
+    ["¿Hacia dónde se marca el primer tiempo al dirigir?", ["El primer tiempo es el fuerte.", "Siempre se marca igual en todos los compases."], "Hacia abajo."],
+  ],
+  errores: ["Confundir el compás de 4 con el de 2 por no escuchar el acento semifuerte.", "Poner en un compás más tiempos de los que indica el número de arriba."],
+  ejercicios: [
+    ["b", "¿Cuántos tiempos tiene un compás de 4/4?", "Cuatro."],
+    ["b", "¿Qué separa los compases en una partitura?", "Las líneas divisorias."],
+    ["b", "¿Cómo se llama la varita del director?", "La batuta."],
+    ["b", "¿En qué compás va un vals?", "En compás de 3."],
+    ["b", "En la lectura, ¿qué error comete Sofía al principio?", "Empieza demasiado rápido."],
+    ["m", "Explica qué significan los dos números de 2/4.", "Arriba: dos tiempos por compás; abajo: la negra vale un tiempo."],
+    ["m", "¿Qué tiempo es semifuerte en el compás de 4?", "El tercero."],
+    ["m", "Describe cómo se dirige un compás de 3.", "Abajo, hacia fuera y arriba."],
+    ["m", "¿Qué es la anacrusa?", "Una o varias notas antes del primer tiempo fuerte."],
+    ["m", "Completa un compás de 2/4 con figuras distintas a dos negras.", "Una blanca, o cuatro corcheas, o una negra y un silencio de negra."],
+    ["a", "¿Qué consejo le da Jaime a Sofía y por qué funciona?", "Escuchar el pulso y contar antes de empezar; así marca un tempo seguro y todos cantan juntos."],
+    ["a", "Compón un ritmo de cuatro compases en 2/4 con la doble barra final.", "Respuesta abierta."],
+    ["a", "¿Por qué es difícil caminar con una canción en compás de 3?", "Porque los pasos van de dos en dos y el compás de tres no coincide; invita a balancearse."],
+    ["a", "Busca una canción con anacrusa y explica dónde cae el primer acento.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En el compás de 4, el 3.er tiempo es…", ["semifuerte", "fuerte", "silencio"], "4/4."],
+    ["La doble barra final significa…", ["fin", "repetir", "más fuerte"], "Partitura."],
+    ["En el compás de 3, la mano dirige…", ["abajo, fuera y arriba", "abajo y arriba", "en círculo"], "Dirigir."],
+    ["Las marchas suelen ir en compás de…", ["2", "3", "5"], "Danzas."],
+    ["«Cum-ple» en «Cumpleaños feliz» es…", ["la anacrusa", "el último compás", "la doble barra"], "Anacrusa."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué hace Sofía antes de empezar la segunda vez?", ["cuenta en voz baja el pulso", "canta sola", "cambia de canción"], "Lectura."],
+    ["La indicación C equivale a…", ["4/4", "2/4", "3/4"], "Indicación."],
+  ],
+  tarjetas: [
+    ["4/4", "Fuerte, débil, semifuerte, débil."],
+    ["Indicación", "Arriba: tiempos por compás. Abajo (4): la negra vale un tiempo."],
+    ["Dirigir", "2: abajo-arriba. 3: abajo-fuera-arriba. 4: abajo-dentro-fuera-arriba."],
+    ["Anacrusa", "Notas antes del primer tiempo fuerte: «Cum-ple | A-ños»."],
+  ],
+  glosario: [
+    ["Compás", "Grupo de pulsos que empieza con uno fuerte."],
+    ["Semifuerte", "Tiempo con un acento suave."],
+    ["Línea divisoria", "Raya vertical que separa los compases."],
+    ["Doble barra final", "Signo que indica el final de la obra."],
+    ["Indicación de compás", "Números que dicen cuántos tiempos tiene cada compás."],
+    ["Batuta", "Varita con la que dirige el director."],
+    ["Director", "Persona que dirige una orquesta o un coro."],
+    ["Vals", "Danza en compás de 3."],
+    ["Marcha", "Música en compás de 2 para caminar."],
+    ["Anacrusa", "Notas que van antes del primer tiempo fuerte."],
+    ["Dictado rítmico", "Escribir un ritmo que se escucha."],
+    ["Componer", "Crear música nueva."],
+  ],
+  situacion: {
+    titulo: "Pequeños directores",
+    reto: "La clase prepara un pequeño concierto en el que, por turnos, los alumnos dirigen al grupo y presentan ritmos compuestos por ellos.",
+    pasos: ["Escuchar canciones y descubrir si van en compás de 2, 3 o 4.", "Aprender los gestos de dirección de cada compás.", "Componer en parejas un ritmo de cuatro compases en 2/4.", "Celebrar el concierto: cada pareja toca su ritmo y un alumno dirige una canción."],
+    producto: "Un concierto de ritmos dirigido por los propios alumnos.",
+    evaluacion: ["Reconoce compases de 2, 3 y 4 tiempos.", "Marca el compás con los gestos de dirección.", "Escribe ritmos completos con líneas divisorias e indicación.", "Sigue al director y mantiene el pulso del grupo."],
+  },
+});

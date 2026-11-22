@@ -93,3 +93,98 @@ module.exports = tema({
   ideas: ["Caminar al pulso diciendo ta y ti-ti.", "Ritmos con nombres de animales y frutas.", "Juego del tren de los ritmos con tarjetas."],
   fuentes: [["Orquesta y Coro Nacionales de España: educación", "https://ocne.mcu.es/"], ["Fundación Juan March: conciertos didácticos", "https://www.march.es/es/madrid/musica"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la redonda y los silencios de blanca y de redonda", "Leer corcheas unidas y conocer la semicorchea", "Comprender la equivalencia entre figuras", "Usar el puntillo y crear ostinatos rítmicos"],
+  lectura: { titulo: "La familia Figura", html: `<p>En un pentagrama muy, muy lejano vivía la familia Figura.</p><p>La abuela Redonda era la más tranquila de todas. Era una bola blanca y hueca, sin plica, y cuando cantaba alargaba tanto la voz que necesitaba cuatro tiempos: «taaaa».</p><p>Su hija, Mamá Blanca, también era hueca, pero tenía una plica larga, como un bastón. Cantaba dos tiempos: «taa».</p><p>Papá Negra tenía la cabeza rellena de color negro y era muy puntual: cantaba exactamente un tiempo, «ta», ni más ni menos.</p><p>Y luego estaban los gemelos Corchea. Eran inquietos y rápidos y siempre iban de la mano, unidos por una barra: «ti-ti». Cada uno cantaba solo medio tiempo.</p><p>Un día, los gemelos se pelearon: —¡Yo valgo más que tú! —¡No, yo!</p><p>La abuela Redonda los llamó con calma: —Escuchad. Yo valgo lo mismo que dos blancas, o que cuatro negras, o que ocho corcheas. Ninguno vale más que otro: cada uno ocupa su tiempo. Y juntos hacemos música.</p><p>Los gemelos se miraron, se dieron la mano otra vez y se pusieron a cantar con toda la familia. ¡Sonaba de maravilla!</p>` },
+  tras: {
+    "La blanca: dos tiempos": [
+      ["La redonda: cuatro tiempos", `<p>La <mark>redonda</mark> es la figura más larga que vamos a estudiar. Dura <b>cuatro tiempos</b>, es decir, lo mismo que cuatro negras.</p><p>¿Cómo es?</p><ul><li>Su cabeza es <b>blanca</b> (hueca), como la de la blanca, y un poco más ovalada.</li><li><b>No tiene plica</b>: es solo la cabeza. Por eso parece una «o» tumbada.</li></ul><p>Para leerla con sílabas decimos «<b>taaaa</b>», alargando la voz mientras contamos mentalmente cuatro pulsos: «ta-a-a-a».</p><p>La redonda llena un compás entero de <b>4/4</b>. Por eso la vemos mucho al final de las canciones: es una nota larga que suena a «¡fin!».</p><p>Cuando tocamos una redonda con la flauta o la cantamos, hay que <b>mantener el sonido</b> sin que se apague y sin cortarlo antes de tiempo. Para eso necesitamos coger bastante aire.</p><p>Comparación rápida:</p><ul><li>Redonda: cabeza blanca, sin plica, 4 tiempos.</li><li>Blanca: cabeza blanca, con plica, 2 tiempos.</li><li>Negra: cabeza negra, con plica, 1 tiempo.</li></ul><p><b>Actividad</b>: canta una nota larga mientras tu compañero da cuatro palmadas. ¿Aguantas hasta el final?</p>`,
+        L6.filas("Figuras", [["redonda", "4 tiempos · taaaa", cNA], ["blanca", "2 tiempos · taa", cAZ], ["negra", "1 tiempo · ta", cRO], ["corchea", "½ tiempo · ti", cVE]])],
+    ],
+    "La corchea: medio tiempo": [
+      ["Corcheas unidas y la semicorchea", `<p>Una corchea sola tiene una <b>banderita</b> (o corchete) en la plica. Pero cuando hay dos o más corcheas seguidas, normalmente se <mark>unen con una barra</mark> en lugar de dibujar las banderitas. Así se leen más fácilmente.</p><ul><li>Dos corcheas unidas valen lo mismo que <b>una negra</b>: un tiempo. Se leen «<b>ti-ti</b>».</li><li>Cuatro corcheas unidas valen <b>dos tiempos</b>: «ti-ti-ti-ti».</li></ul><p>Ahora conocemos una figura todavía más rápida: la <mark>semicorchea</mark>. Tiene <b>dos banderitas</b> o, cuando van unidas, <b>dos barras</b>.</p><ul><li>La semicorchea vale la mitad que una corchea: <b>un cuarto de tiempo</b>.</li><li>Por eso, <b>cuatro semicorcheas</b> valen lo mismo que una negra.</li><li>Se pueden leer con las sílabas «<b>ti-ri-ti-ri</b>».</li></ul><p>Fíjate en la regla: cada vez que añadimos una banderita o una barra, la figura dura <b>la mitad</b>.</p><p>Las semicorcheas suenan muy rápidas, como el trote de un caballo o la lluvia fuerte en una ventana.</p><p><b>Actividad</b>: di con sílabas y palmas este ritmo: ta | ti-ti | ti-ri-ti-ri | ta.</p>`,
+        L6.filas("Más rápido", [["negra", "ta · 1", cRO], ["2 corcheas", "ti-ti · 1", cVE], ["4 semicorcheas", "ti-ri-ti-ri · 1", cMO], ["regla", "+ barra = mitad", cNA]])],
+    ],
+    "El silencio de negra": [
+      ["Silencios de blanca y de redonda", `<p>Cada figura tiene su <mark>silencio</mark>: un signo que indica que hay que callar durante el mismo tiempo. Ya conocemos el silencio de negra, con forma de zigzag. Ahora vamos a conocer dos más:</p><ul><li><b>Silencio de blanca</b>: es un pequeño rectángulo negro que está <b>encima</b> de la tercera línea del pentagrama, como un sombrero. Dura <b>dos tiempos</b>.</li><li><b>Silencio de redonda</b>: es un rectángulo igual, pero <b>colgando debajo</b> de la cuarta línea. Dura <b>cuatro tiempos</b> o, en general, un compás entero.</li></ul><p>Un truco para no confundirlos: el silencio de blanca es un <b>sombrero</b> puesto en la cabeza (encima de la línea); el de redonda es un sombrero <b>colgado</b> de una percha (debajo de la línea). ¡El de redonda pesa más y por eso se cae!</p><p>Durante un silencio, la música no se para: el pulso sigue. Por eso hay que <b>seguir contando</b> mentalmente, o hacer un gesto en silencio, como abrir las manos.</p><p>Los silencios son muy importantes: dan respiración a la música y crean expectación.</p><p><b>Actividad</b>: lee este ritmo con gestos en los silencios: ta | silencio de negra | taa | silencio de blanca.</p>`,
+        H6.dos("Silencios", ["DE BLANCA", ["sobre la 3.ª línea", "2 tiempos", "sombrero puesto"], cAZ], ["DE REDONDA", ["bajo la 4.ª línea", "4 tiempos", "sombrero colgado"], cRO])],
+    ],
+    "Leer un ritmo": [
+      ["Las matemáticas de las figuras", `<p>Las figuras musicales están relacionadas entre sí como una <mark>familia de fracciones</mark>. Cada una vale <b>el doble</b> que la siguiente y <b>la mitad</b> que la anterior. Lo podemos ver en el <b>árbol de las figuras</b>:</p><ul><li><b>1 redonda</b> = 2 blancas</li><li><b>1 blanca</b> = 2 negras</li><li><b>1 negra</b> = 2 corcheas</li><li><b>1 corchea</b> = 2 semicorcheas</li></ul><p>Por tanto: 1 redonda = 2 blancas = 4 negras = 8 corcheas = 16 semicorcheas. ¡Todas duran lo mismo en total!</p><p>Con esto podemos hacer <b>sumas musicales</b>:</p><ul><li>blanca + negra = 3 tiempos</li><li>negra + 2 corcheas = 2 tiempos</li><li>redonda − blanca = 2 tiempos</li></ul><p>Así comprobamos si un compás está bien completo. En un compás de 3/4 tienen que sumar exactamente 3 tiempos: por ejemplo, una blanca y una negra, o tres negras, o una negra y cuatro corcheas.</p><p>Música y matemáticas van muy unidas: los antiguos griegos ya estudiaban los números de la música.</p><p><b>Actividad</b>: escribe tres formas distintas de completar un compás de 4/4.</p>`,
+        H6.flujo("Árbol", ["1 redonda|= 2 blancas", "1 blanca|= 2 negras", "1 negra|= 2 corcheas", "1 corchea|= 2 semis"], cNA),
+        ["nDOVc1i8g3o", "Figuras musicales vamos a jugar (negras, corcheas y silencio de negra)", "Profesor Pedro Morales Tuto Flauta", 311252]],
+    ],
+    "Palabras con ritmo": [
+      ["El puntillo: la mitad más", `<p>A veces vemos un pequeño <mark>punto</mark> a la derecha de una figura. Se llama <b>puntillo</b> y tiene una regla muy sencilla: <b>alarga la figura la mitad de lo que vale</b>.</p><ul><li><b>Blanca con puntillo</b>: la blanca vale 2 tiempos; la mitad es 1; 2 + 1 = <b>3 tiempos</b>.</li><li><b>Negra con puntillo</b>: la negra vale 1 tiempo; la mitad es medio; 1 + ½ = <b>1 tiempo y medio</b>.</li></ul><p>La blanca con puntillo es muy útil en el <b>compás de 3/4</b>: ¡llena un compás entero! Por eso aparece mucho en los valses y en las nanas, para las notas largas del final.</p><p>Para leerla con sílabas decimos «taa-a», contando tres pulsos: «ta-a-a».</p><p>Cuidado: el puntillo va siempre a la <b>derecha</b> de la cabeza de la nota, nunca encima ni debajo. Un punto encima o debajo de la nota significa otra cosa: que la nota se toca corta y separada (se llama <i>staccato</i>).</p><p><b>Actividad</b>: completa un compás de 3/4 con una sola figura. ¿Cuál es?</p>`,
+        L6.filas("Puntillo", [["blanca", "2", cAZ], ["blanca con puntillo", "2 + 1 = 3", cNA], ["negra", "1", cRO], ["negra con puntillo", "1 + ½", cVE]])],
+    ],
+  },
+  final: [
+    ["El ostinato rítmico", `<p>Un <mark>ostinato</mark> es un ritmo corto que se <b>repite una y otra vez</b> sin cambiar, mientras suena una canción. La palabra viene del italiano y significa «obstinado», «terco»: ¡porque no para de repetirse!</p><p>Los ostinatos sirven para <b>acompañar</b> canciones. Mientras un grupo canta la melodía, otro grupo toca el ostinato con instrumentos de percusión o con el cuerpo.</p><p>Ejemplos de ostinatos de un compás en 2/4:</p><ul><li>ta | ta (dos negras, con el pandero)</li><li>ti-ti | ta (corcheas y negra, con claves)</li><li>ta | silencio (negra y silencio, con el bombo)</li></ul><p>Un truco para recordar un ostinato es ponerle palabras: «<b>CHO-CO | LA-TE</b>», «<b>PI-ZZA | PI-ZZA</b>», «<b>MA-RI-PO-SA | VUE-LA</b>».</p><p>Podemos tocar <b>dos o tres ostinatos a la vez</b>, cada grupo el suyo, y se forma una textura rítmica muy rica, como en la música de muchos países africanos o en las batucadas de Brasil.</p><p>Lo más difícil del ostinato es <b>no perderse</b> cuando otro grupo toca algo diferente. ¡Hay que concentrarse!</p><p><b>Actividad</b>: inventa un ostinato con palabras de tu comida favorita y tócalo mientras la clase canta una canción.</p>`,
+      H6.rueda("Ostinato", "REPETIR", [["CHO-CO-LA-TE", cNA], ["PI-ZZA", cRO], ["pandero", cAZ], ["claves", cVE]])],
+  ],
+  ejemplos: [
+    ["¿Cuántas corcheas caben en una blanca?", ["Una blanca son dos negras.", "Cada negra son dos corcheas."], "Cuatro corcheas."],
+    ["¿Cuánto vale una blanca con puntillo?", ["La blanca vale 2 tiempos.", "El puntillo añade la mitad: 1 tiempo."], "3 tiempos."],
+  ],
+  errores: ["Confundir el silencio de blanca (encima de la línea) con el de redonda (colgado debajo).", "Dejar de contar el pulso durante los silencios."],
+  ejercicios: [
+    ["b", "¿Cuántos tiempos dura una redonda?", "Cuatro."],
+    ["b", "¿Qué figura no tiene plica?", "La redonda."],
+    ["b", "¿Cuánto vale una semicorchea?", "Un cuarto de tiempo."],
+    ["b", "¿Qué es un ostinato?", "Un ritmo corto que se repite sin parar."],
+    ["b", "En la lectura, ¿quién es la abuela de la familia Figura?", "La Redonda."],
+    ["m", "Completa: 1 redonda = ___ negras = ___ corcheas.", "4 negras = 8 corcheas."],
+    ["m", "¿Dónde se coloca el silencio de redonda?", "Colgando debajo de la cuarta línea."],
+    ["m", "Suma: blanca + negra + 2 corcheas.", "4 tiempos."],
+    ["m", "¿Cuánto vale una negra con puntillo?", "Un tiempo y medio."],
+    ["m", "¿Cuántas semicorcheas equivalen a una negra?", "Cuatro."],
+    ["a", "¿Qué enseña la abuela Redonda a los gemelos Corchea?", "Que ninguna figura vale más que otra: cada una ocupa su tiempo y juntas hacen música."],
+    ["a", "Escribe tres formas de completar un compás de 3/4, una con puntillo.", "Ejemplo: blanca con puntillo; blanca + negra; tres negras."],
+    ["a", "Inventa un ostinato con palabras y escribe su ritmo.", "Respuesta abierta."],
+    ["a", "Explica la regla que relaciona banderitas y duración.", "Cada banderita o barra más hace que la figura dure la mitad."],
+  ],
+  quiz: [
+    ["La redonda vale…", ["4 tiempos", "2 tiempos", "1 tiempo"], "Redonda."],
+    ["Cuatro semicorcheas valen lo mismo que…", ["una negra", "una blanca", "una corchea"], "Semicorchea."],
+    ["El silencio de blanca está…", ["encima de la 3.ª línea", "colgado de la 4.ª línea", "debajo del pentagrama"], "Silencios."],
+    ["Una blanca con puntillo dura…", ["3 tiempos", "2 tiempos", "4 tiempos"], "Puntillo."],
+    ["«Ostinato» significa…", ["obstinado, que se repite", "muy rápido", "silencio largo"], "Ostinato."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo van siempre los gemelos Corchea?", ["de la mano, unidos por una barra", "separados", "con puntillo"], "Lectura."],
+    ["¿Cuántas blancas caben en una redonda?", ["dos", "cuatro", "una"], "Equivalencias."],
+  ],
+  tarjetas: [
+    ["Redonda", "Blanca, sin plica, 4 tiempos: taaaa."],
+    ["Semicorchea", "Dos banderitas o dos barras; 4 = 1 negra: ti-ri-ti-ri."],
+    ["Silencios", "De blanca: encima de la 3.ª línea. De redonda: colgado de la 4.ª."],
+    ["Puntillo y ostinato", "Puntillo: + la mitad. Ostinato: ritmo que se repite."],
+  ],
+  glosario: [
+    ["Redonda", "Figura de cuatro tiempos, sin plica."],
+    ["Semicorchea", "Figura de un cuarto de tiempo."],
+    ["Barra", "Línea que une corcheas o semicorcheas."],
+    ["Banderita", "Corchete en la plica de corcheas y semicorcheas."],
+    ["Silencio de blanca", "Signo de callar dos tiempos."],
+    ["Silencio de redonda", "Signo de callar cuatro tiempos."],
+    ["Equivalencia", "Relación de valor entre figuras."],
+    ["Árbol de las figuras", "Esquema de cómo se dividen las figuras."],
+    ["Puntillo", "Punto que alarga una figura la mitad de su valor."],
+    ["Staccato", "Nota corta y separada, con un punto encima o debajo."],
+    ["Ostinato", "Ritmo que se repite para acompañar."],
+    ["Textura", "Forma en que se combinan los sonidos que suenan a la vez."],
+  ],
+  situacion: {
+    titulo: "La orquesta de los ostinatos",
+    reto: "La clase acompaña una canción con varios ostinatos a la vez, escritos y tocados por grupos.",
+    pasos: ["Repasar todas las figuras y silencios con el árbol de las figuras.", "Cada grupo inventa un ostinato de un compás con palabras y lo escribe.", "Comprobar con sumas que cada compás está completo.", "Tocar los ostinatos a la vez mientras otro grupo canta la canción."],
+    producto: "Una partitura de clase con varios ostinatos y una interpretación conjunta.",
+    evaluacion: ["Reconoce figuras y silencios y su duración.", "Calcula equivalencias y completa compases.", "Mantiene su ostinato sin perderse.", "Escucha a los demás grupos mientras toca."],
+  },
+});
