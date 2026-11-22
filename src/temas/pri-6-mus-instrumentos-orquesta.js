@@ -92,3 +92,91 @@ module.exports = tema({
   ideas: ["Construcción de instrumentos reciclados por familias.", "Juego de reconocimiento de timbres con audiciones breves.", "Pequeña orquesta de aula con director rotativo."],
   fuentes: [["Orquesta y Coro Nacionales de España (OCNE)", "https://www.ocne.mcu.es/"], ["Real Academia Española: orquesta", "https://dle.rae.es/orquesta"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los instrumentos electrónicos y cómo producen el sonido", "Reconocer los instrumentos de la orquesta con Pedro y el lobo", "Identificar instrumentos tradicionales de España y del mundo", "Valorar el oficio del luthier"],
+  lectura: { titulo: "El ensayo general", html: `<p>La orquesta juvenil de la ciudad ensayaba en el auditorio vacío, y la clase de 6.º tenía permiso para asistir desde las butacas.</p><p>Antes de empezar, el sonido era un caos: un violín repasaba un pasaje rapidísimo, una tuba resoplaba, alguien golpeaba suavemente un timbal. De pronto, el oboe tocó una nota larga y limpia. Uno a uno, todos los instrumentos se unieron a ella hasta sonar como uno solo.</p><p>—Es el la para afinar —susurró Carla, que tocaba el violonchelo en la escuela de música.</p><p>Entró la directora, levantó la batuta y se hizo el silencio. Durante la obra, la clase fue descubriendo cosas: los violines llevaban la melodía; los trombones entraban con un sonido enorme que hacía vibrar las butacas; y al final, el platillo estalló como un relámpago.</p><p>Al terminar, la percusionista les dejó tocar la marimba y el bombo. Gael preguntó cuántos instrumentos sabía tocar.</p><p>—Unos veinte —respondió ella riendo—. En percusión, cada obra te pide algo distinto: hoy una caja china, mañana una máquina de viento.</p><p>De vuelta en el autobús, nadie hablaba de otra cosa.</p>` },
+  tras: {
+    "¿Cómo se clasifican los instrumentos?": [
+      ["Instrumentos electrónicos: del theremin al sintetizador", `<p>Los <mark>electrófonos</mark> son los instrumentos que producen o transforman el sonido mediante la <b>electricidad</b>. Son los más jóvenes de la historia de la música: apenas tienen cien años.</p><ul><li>El <b>theremin</b>, inventado hacia 1920 por el ruso León Theremin, es uno de los primeros. Tiene dos antenas y se toca <b>sin tocarlo</b>: al acercar o alejar una mano de una antena cambia la altura; la otra mano controla el volumen. Su sonido, como un silbido fantasmal, se usó mucho en películas de ciencia ficción.</li><li>El <b>órgano eléctrico</b> y, más tarde, el <b>sintetizador</b> generan sonidos con circuitos. El sintetizador puede imitar otros instrumentos o crear sonidos completamente nuevos. Se hizo muy popular a partir de los años 60 y 70.</li><li>La <b>guitarra eléctrica</b> y el <b>bajo eléctrico</b> son un caso especial: la cuerda vibra como en una guitarra normal, pero unas <b>pastillas</b> (pequeños imanes) convierten esa vibración en una señal eléctrica que se amplifica en un altavoz.</li></ul><p>Hoy, con un ordenador, una tableta o un teclado controlador, cualquiera puede crear música electrónica en casa. Aun así, todos estos instrumentos necesitan lo mismo que los antiguos: un buen oído y mucha práctica.</p>`,
+        L6.filas("Electrófonos", [["theremin", "antenas, sin tocar", cMO], ["sintetizador", "circuitos", cAZ], ["guitarra eléctr.", "pastillas", cRO], ["ordenador", "software", cVE]]), ["zLpUFXA5nxI", "¿Como funciona el Theremin? - Julian Hol 💀", "Julian Hol", 319584]],
+    ],
+    "La orquesta sinfónica": [
+      ["Pedro y el lobo: un cuento para conocer la orquesta", `<p>En 1936, el compositor ruso <b>Serguéi Prokófiev</b> escribió <mark>Pedro y el lobo</mark>, un cuento musical para que niñas y niños aprendieran a reconocer los instrumentos de la orquesta. Un <b>narrador</b> cuenta la historia y cada personaje tiene su propio instrumento y su propia melodía:</p><ul><li><b>Pedro</b>: la cuerda (violines, violas, violonchelos y contrabajos).</li><li><b>El pájaro</b>: la flauta, ágil y aguda.</li><li><b>El pato</b>: el oboe, de sonido nasal.</li><li><b>El gato</b>: el clarinete, que se mueve con sigilo en notas graves.</li><li><b>El abuelo</b>: el fagot, grave y gruñón.</li><li><b>El lobo</b>: tres trompas, con un tema amenazador.</li><li><b>Los cazadores</b>: los vientos, con disparos de timbales y bombo.</li></ul><p>Cada vez que aparece un personaje suena su tema, y así el público aprende a asociar cada timbre con un instrumento.</p><p>Otra obra pensada para lo mismo es la <b>Guía de orquesta para jóvenes</b> (1946) del británico <b>Benjamin Britten</b>: presenta un tema y lo hace pasar por cada familia y cada instrumento, para terminar con una gran fuga en la que todos tocan juntos.</p>`,
+        L6.filas("Pedro y el lobo", [["Pedro", "cuerda", cAZ], ["pájaro", "flauta", cVE], ["abuelo", "fagot", cNA], ["lobo", "tres trompas", cRO]])],
+    ],
+    "Otras agrupaciones": [
+      ["Instrumentos tradicionales de España", `<p>Cada región de España conserva instrumentos propios que suenan en fiestas, romerías y bailes populares:</p><ul><li><b>Gaita</b> (Galicia y Asturias): aerófono con una bolsa de aire, el <b>fol</b>, que el gaitero llena soplando y aprieta con el brazo para que el sonido no se corte.</li><li><b>Dulzaina</b> y <b>gralla</b>: instrumentos de viento de sonido muy potente, acompañados casi siempre por el tamboril. Suenan en Castilla, Aragón, Valencia y Cataluña.</li><li><b>Txistu</b> (País Vasco y Navarra): flauta de tres agujeros que se toca con una sola mano, mientras la otra golpea el tamboril.</li><li><b>Txalaparta</b>: tablas de madera que dos intérpretes golpean con palos verticales, dialogando con el ritmo.</li><li><b>Castañuelas</b> y <b>pandero</b>: percusión para acompañar jotas, sevillanas y muiñeiras.</li><li><b>Bandurria</b> y <b>laúd</b>: cuerda pulsada de las rondallas y las tunas.</li><li><b>Timple</b>: pequeña guitarra de cinco cuerdas, símbolo de Canarias.</li></ul><p>Muchos de estos instrumentos han estado a punto de desaparecer y hoy se enseñan en escuelas de música tradicional. Conocerlos es una manera de cuidar el patrimonio cultural.</p>`,
+        H6.rueda("Tradición", "ESPAÑA", [["gaita", cVE], ["txistu", cRO], ["castañuelas", cNA], ["timple", cAZ]])],
+    ],
+  },
+  final: [
+    ["El luthier: el arte de fabricar instrumentos", `<p>Un <mark>luthier</mark> (o lutier) es la persona que construye y repara instrumentos de cuerda. Es un oficio artesano que combina carpintería, física del sonido y mucha paciencia: un violín puede llevar varios meses de trabajo.</p><p>Para un violín se usa sobre todo madera de <b>abeto</b> para la tapa (es ligera y vibra bien) y de <b>arce</b> para el fondo y los costados (más dura). El luthier talla las piezas a mano, las curva con calor, las encola y las cubre con varias capas de <b>barniz</b>. Dentro coloca el <b>alma</b>, un palito de madera que transmite la vibración entre la tapa y el fondo: si se mueve unos milímetros, el sonido cambia.</p><p>El luthier más famoso de la historia es <b>Antonio Stradivari</b>, que trabajó en la ciudad italiana de Cremona entre los siglos XVII y XVIII. Sus violines, los «Stradivarius», se siguen tocando hoy y valen millones de euros.</p><p>En España destacó <b>Antonio de Torres</b>, un luthier almeriense del siglo XIX que dio a la <b>guitarra española</b> su forma y tamaño modernos. Todavía hoy, los guitarreros siguen sus medidas.</p>`,
+      H6.flujo("Construir un violín", ["elegir|madera", "tallar|piezas", "encolar|y barnizar", "poner|cuerdas"], cNA), ["9sT6owUeSxQ", "Cómo fabricar el violín más caro por un luthier vivo - Samuel Zygmuntowicz | Breve documental", "Magnifissance - Joy In the Making", 160642]],
+    ["Instrumentos del mundo", `<p>Cada cultura ha inventado instrumentos con los materiales que tenía a mano. Algunos de los más conocidos son:</p><ul><li><b>Sitar</b> (India): cordófono de mástil largo, con cuerdas que vibran solas por simpatía y dan un sonido brillante y envolvente.</li><li><b>Djembé</b> (África occidental): tambor de madera en forma de copa con piel de cabra, que se toca con las manos.</li><li><b>Kora</b> (África occidental): arpa-laúd de 21 cuerdas con una gran calabaza como caja de resonancia.</li><li><b>Koto</b> (Japón): larga cítara de trece cuerdas que se toca sentado en el suelo.</li><li><b>Didgeridoo</b> (Australia): tubo de madera ahuecado por las termitas, tocado por los pueblos aborígenes. Sus intérpretes usan la <b>respiración circular</b> para no cortar nunca el sonido.</li><li><b>Charango</b> (Andes): pequeño instrumento de cuerda de la música andina.</li><li><b>Gamelán</b> (Indonesia): más que un instrumento, es un conjunto de gongs y metalófonos que tocan juntos.</li></ul><p>Todos ellos se pueden clasificar con las mismas familias: ¿qué vibra en cada uno? Escuchar músicas del mundo nos ayuda a abrir los oídos y a valorar otras culturas.</p>`,
+      L6.filas("Del mundo", [["sitar", "India", cMO], ["djembé", "África", cNA], ["koto", "Japón", cRO], ["didgeridoo", "Australia", cVE]])],
+  ],
+  ejemplos: [
+    ["En Pedro y el lobo suena un tema grave y gruñón en el fagot. ¿Qué personaje aparece?", ["Cada personaje tiene un instrumento.", "El fagot es el abuelo."], "El abuelo."],
+    ["¿A qué familia pertenece la txalaparta?", ["Se golpean tablas de madera.", "Vibra el propio cuerpo del instrumento."], "Percusión (idiófono)."],
+  ],
+  errores: ["Pensar que la guitarra eléctrica no tiene cuerdas que vibren.", "Creer que el luthier solo repara instrumentos y no los construye."],
+  ejercicios: [
+    ["b", "¿Qué instrumento se toca sin tocarlo?", "El theremin."],
+    ["b", "¿Quién compuso Pedro y el lobo?", "Serguéi Prokófiev."],
+    ["b", "¿Qué instrumento representa al pájaro?", "La flauta."],
+    ["b", "¿Qué es un luthier?", "Quien construye y repara instrumentos de cuerda."],
+    ["b", "¿De dónde es el timple?", "De Canarias."],
+    ["m", "Explica cómo funciona una guitarra eléctrica.", "La cuerda vibra y las pastillas convierten la vibración en señal eléctrica que se amplifica."],
+    ["m", "Relaciona cada personaje con su instrumento: lobo, gato, pato.", "Trompas, clarinete, oboe."],
+    ["m", "¿Qué maderas se usan en un violín y para qué?", "Abeto para la tapa y arce para fondo y costados."],
+    ["m", "Clasifica: djembé, sitar, didgeridoo.", "Percusión (membranófono), cuerda, viento."],
+    ["m", "¿Qué tienen de especial el txistu y el tamboril?", "Los toca una sola persona: flauta con una mano y tamboril con la otra."],
+    ["a", "Escucha Pedro y el lobo y anota en qué orden aparecen los personajes.", "Respuesta abierta."],
+    ["a", "Investiga un instrumento tradicional de tu comunidad y presenta su historia.", "Respuesta abierta."],
+    ["a", "Crea con una aplicación un sonido de sintetizador y describe sus cualidades.", "Respuesta abierta."],
+    ["a", "Elige un instrumento del mundo y explica qué vibra y cómo se toca.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En Pedro y el lobo, el lobo es…", ["tres trompas", "el fagot", "la flauta"], "Pedro y el lobo."],
+    ["Las pastillas de la guitarra eléctrica…", ["convierten la vibración en señal eléctrica", "son de madera", "golpean la cuerda"], "Electrófonos."],
+    ["Stradivari trabajó en…", ["Cremona", "Madrid", "Viena"], "Luthier."],
+    ["La gaita tiene una bolsa de aire llamada…", ["fol", "alma", "caja"], "Tradición."],
+    ["El didgeridoo es de…", ["Australia", "Japón", "India"], "Mundo."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué instrumento da la nota para afinar?", ["el oboe", "el violín", "la tuba"], "Lectura."],
+    ["Antonio de Torres es famoso por…", ["dar forma a la guitarra española moderna", "inventar el theremin", "componer Pedro y el lobo"], "Luthier."],
+  ],
+  tarjetas: [
+    ["Electrófonos", "Theremin, sintetizador, guitarra eléctrica: sonido con electricidad."],
+    ["Pedro y el lobo", "Prokófiev, 1936: cada personaje, un instrumento."],
+    ["Tradición española", "Gaita, dulzaina, txistu, txalaparta, castañuelas, timple."],
+    ["Luthier", "Construye instrumentos de cuerda. Stradivari, Antonio de Torres."],
+  ],
+  glosario: [
+    ["Electrófono", "Instrumento que produce o transforma el sonido con electricidad."],
+    ["Theremin", "Instrumento electrónico que se toca moviendo las manos cerca de dos antenas."],
+    ["Sintetizador", "Instrumento que genera sonidos con circuitos electrónicos."],
+    ["Pastilla", "Imán que convierte la vibración de la cuerda en señal eléctrica."],
+    ["Narrador", "Persona que cuenta la historia en un cuento musical."],
+    ["Fol", "Bolsa de aire de la gaita."],
+    ["Txalaparta", "Instrumento vasco de tablas golpeadas con palos."],
+    ["Luthier", "Artesano que construye y repara instrumentos de cuerda."],
+    ["Alma", "Palito interior del violín que une tapa y fondo."],
+    ["Respiración circular", "Técnica para soplar sin cortar el sonido."],
+    ["Gamelán", "Conjunto instrumental de gongs y metalófonos de Indonesia."],
+    ["Rondalla", "Grupo de instrumentos de cuerda pulsada como bandurrias y laúdes."],
+  ],
+  situacion: {
+    titulo: "El museo de los instrumentos",
+    reto: "La clase prepara un museo sonoro con instrumentos de España y del mundo.",
+    pasos: ["Cada grupo elige tres instrumentos: uno español, uno del mundo y uno electrónico.", "Investigad su origen, su familia y cómo producen el sonido.", "Preparad una ficha con dibujo y un audio o vídeo de cada instrumento.", "Montad el museo y guiad la visita a otra clase."],
+    producto: "Un museo sonoro con fichas, imágenes y audios de instrumentos.",
+    evaluacion: ["Clasifica los instrumentos correctamente.", "Explica cómo producen el sonido.", "Reconoce timbres en audiciones.", "Comunica con claridad durante la visita."],
+  },
+});

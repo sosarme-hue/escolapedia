@@ -92,3 +92,91 @@ module.exports = tema({
   ideas: ["Rutina de calentamiento vocal al empezar la clase.", "Canon a dos o tres voces con una melodía inventada.", "Pieza de ostinatos vocales superpuestos por grupos."],
   fuentes: [["Real Academia Española: tesitura", "https://dle.rae.es/tesitura"], ["Real Academia Española: a capela", "https://dle.rae.es/capela"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar por qué cada voz tiene un timbre distinto y qué ocurre en la muda", "Conocer la ópera, la zarzuela y grandes voces españolas", "Descubrir las escolanías y técnicas vocales del mundo", "Usar la voz hablada con claridad y expresión"],
+  lectura: { titulo: "La voz de Hugo", html: `<p>Desde septiembre, a Hugo le pasaba algo raro. Cuando hablaba en clase, a veces su voz salía grave como la de su padre y, de repente, daba un gallo agudísimo. Sus compañeros se reían, y él empezó a hablar cada vez menos.</p><p>Un día, en el ensayo del coro, se quedó callado durante toda la canción. La profesora Elena se le acercó al final.</p><p>—¿Te pasa algo con la voz?</p><p>Hugo asintió, colorado.</p><p>—Es la muda —le explicó ella—. Tu laringe está creciendo y tus cuerdas vocales se están haciendo más largas y gruesas. Durante unos meses, la voz no sabe muy bien dónde colocarse. Le pasa a todo el mundo, chicos y chicas, aunque en los chicos se nota más.</p><p>—¿Y tengo que dejar el coro?</p><p>—Al contrario. Vamos a buscar las notas en las que estés cómodo. Sin forzar y sin gritar.</p><p>Esa semana, Hugo cantó con los graves por primera vez. Al terminar, Lucas le dio un codazo.</p><p>—Oye, ahora suenas como un cantante de verdad.</p><p>Hugo sonrió. Por primera vez en meses, no le importó que se le escapara un gallo.</p>` },
+  tras: {
+    "¿Cómo se produce la voz?": [
+      ["¿Por qué cada voz suena distinta?", `<p>Si cierras los ojos, eres capaz de reconocer a tu familia o a tus amigos solo por la voz. Eso es porque cada voz tiene un <b>timbre</b> propio, como una huella sonora. Depende de varias cosas:</p><ul><li><b>Las cuerdas vocales</b>: cuanto más <b>largas y gruesas</b>, más lentas vibran y más <b>grave</b> es la voz; cuanto más cortas y finas, más <b>aguda</b>. Las de un bebé miden unos pocos milímetros, mientras que las de un hombre adulto pueden superar el centímetro y medio.</li><li><b>Los resonadores</b>: el tamaño y la forma de la garganta, la boca y la nariz dan a cada voz su color. Por eso, cuando estamos resfriados y tenemos la nariz tapada, la voz suena distinta.</li><li><b>La manera de hablar</b>: el acento, la velocidad y la entonación que aprendemos.</li></ul><p>En la <mark>muda de la voz</mark>, hacia los 11-15 años, la laringe crece. En los chicos el cambio es mayor: las cuerdas vocales se alargan mucho, la voz baja casi una octava y aparece la <b>nuez</b>, el bulto de la garganta. En las chicas, la voz baja un poco y se vuelve más rica. Durante unos meses pueden salir <b>gallos</b>: es normal y desaparece con el tiempo. Lo importante es no forzar.</p>`,
+        L6.filas("El timbre de la voz", [["cuerdas largas", "voz más grave", cAZ], ["cuerdas cortas", "voz más aguda", cRO], ["resonadores", "color propio", cVE], ["muda", "11-15 años", cNA]]), ["K7NMn5xforw", "¿Cómo el cuerpo humano produce la voz y el habla?", "National Institutes of Health (NIH)", 421020]],
+    ],
+    "Tipos de voces": [
+      ["Grandes voces: ópera y zarzuela", `<p>La <mark>ópera</mark> es una obra de teatro en la que los personajes, en lugar de hablar, <b>cantan</b>, acompañados por una orquesta. Nació en Italia hacia el año 1600. Los cantantes de ópera entrenan durante años para que su voz llene un teatro entero <b>sin micrófono</b>, por encima de toda la orquesta.</p><p>En España nació un género propio: la <mark>zarzuela</mark>, que alterna partes <b>habladas</b> y partes <b>cantadas</b>, y que muchas veces cuenta historias de la vida cotidiana con humor. Su nombre viene del palacio de la Zarzuela, cerca de Madrid, donde se representaban en el siglo XVII.</p><p>España ha dado algunas de las voces más importantes del mundo:</p><ul><li><b>Montserrat Caballé</b> (Barcelona), soprano, famosa por su control del sonido suave.</li><li><b>Teresa Berganza</b> (Madrid), mezzosoprano, gran intérprete de Carmen y de Rossini.</li><li><b>Plácido Domingo</b> (Madrid), tenor, que ha cantado más de cien papeles distintos.</li><li><b>Alfredo Kraus</b> (Las Palmas de Gran Canaria), tenor de técnica admirada en todo el mundo.</li></ul><p>En la ópera, los papeles se reparten según la tesitura: a menudo la heroína es soprano y el héroe, tenor, mientras que los villanos o los personajes mayores suelen ser barítonos o bajos.</p>`,
+        H6.dos("Teatro cantado", ["ÓPERA", ["todo cantado", "nace en Italia", "hacia 1600"], cMO], ["ZARZUELA", ["habla y canto", "género español", "siglo XVII"], cNA])],
+    ],
+    "El coro y las agrupaciones vocales": [
+      ["Las escolanías y los coros infantiles", `<p>Una <mark>escolanía</mark> es una escuela de música y coro de niñas y niños, normalmente vinculada a un monasterio o a una iglesia. Los escolanes estudian como en cualquier colegio y, además, cantan cada día.</p><p>La más famosa de España es la <b>Escolanía de Montserrat</b>, en Cataluña, documentada desde el siglo XIV: es uno de los coros infantiles más antiguos de Europa. Una de sus piezas más conocidas es el <b>Virolai</b>, el himno a la Virgen de Montserrat, que canta cada día en la basílica. También es conocida la Escolanía del monasterio de El Escorial, en Madrid.</p><p>Fuera de España, los <b>Niños Cantores de Viena</b>, fundados en 1498, hacen giras por todo el mundo con su uniforme de marinero.</p><p>Pero no hace falta entrar en una escolanía para cantar en grupo. Hay coros infantiles en muchos colegios, escuelas de música y barrios. Cantar en un coro tiene muchos beneficios: mejora la respiración y la concentración, entrena el oído, enseña a escuchar a los demás y crea amistades. Además, la voz es el único instrumento que todos llevamos encima y que es gratis.</p>`,
+        H6.rueda("Cantar en coro", "CORO", [["respirar", cAZ], ["escuchar", cVE], ["concentrarse", cNA], ["amistad", cRO]]), ["7-Fkh3mUqWY", "Virolai - Escolania de Montserrat", "EscolaniaMontserrat", 1091200]],
+    ],
+  },
+  final: [
+    ["Voces del mundo: técnicas sorprendentes", `<p>La voz humana puede hacer cosas asombrosas. Cada cultura ha desarrollado técnicas propias:</p><ul><li><b>Canto difónico</b> (Tuva y Mongolia): el cantante produce <b>dos sonidos a la vez</b>, una nota grave continua y una melodía aguda parecida a un silbido, moviendo la lengua y los labios para destacar ciertos sonidos.</li><li><b>Yodel</b> (los Alpes): salta muy rápido entre la voz de pecho, grave, y la voz de cabeza, aguda. Servía a los pastores para comunicarse de una montaña a otra.</li><li><b>Cante flamenco</b> (Andalucía): una voz intensa, con adornos llamados <b>melismas</b> y mucha expresión. El flamenco es Patrimonio Cultural Inmaterial de la Humanidad desde 2010.</li><li><b>Beatbox</b>: imitar con la boca la batería y otros instrumentos. Es <b>percusión vocal</b>, muy usada en el hip hop y en grupos a capela.</li><li><b>Silbo gomero</b> (La Gomera): no es canto, sino un lenguaje silbado que permite comunicarse a varios kilómetros entre barrancos. También es Patrimonio de la Humanidad.</li></ul><p>Algunas de estas técnicas necesitan años de práctica. Otras, como el beatbox, puedes empezar a probarlas hoy mismo con tres sonidos básicos: el bombo («b»), el charles («ts») y la caja («k»).</p>`,
+      L6.filas("Técnicas vocales", [["difónico", "Tuva, Mongolia", cMO], ["yodel", "Alpes", cVE], ["flamenco", "Andalucía", cRO], ["beatbox", "hip hop", cAZ]])],
+    ["La voz hablada: radio, doblaje y teatro", `<p>La voz no solo sirve para cantar. Hay muchas profesiones en las que la <b>voz hablada</b> es la herramienta principal: locutores de radio, presentadores, actores de teatro, narradores de audiolibros o <b>actores de doblaje</b>, que ponen voz en español a las películas y series extranjeras y a los dibujos animados.</p><p>Para hablar bien en público se usan las mismas cualidades que en música:</p><ul><li><b>Intensidad</b>: proyectar la voz para que se oiga al fondo sin gritar, usando el apoyo de la respiración.</li><li><b>Altura</b>: la <b>entonación</b> sube y baja según preguntemos, nos sorprendamos o afirmemos. Una voz siempre en la misma nota es monótona y aburrida.</li><li><b>Duración y ritmo</b>: hablar ni muy rápido ni muy lento, y hacer <b>pausas</b> para que el público entienda.</li><li><b>Timbre</b>: los actores de doblaje cambian el color de su voz para hacer de un ogro, de una princesa o de un robot.</li></ul><p>Y, sobre todo, la <b>articulación</b>: pronunciar cada sonido con claridad. Un ejercicio clásico son los trabalenguas, que entrenan la lengua y los labios igual que las escalas entrenan los dedos de un pianista.</p>`,
+      H6.flujo("Hablar en público", ["respirar|y apoyar", "proyectar|la voz", "entonar|y pausar", "articular|claro"], cAZ)],
+  ],
+  ejemplos: [
+    ["¿Por qué la voz de un hombre adulto suele ser más grave que la de un niño?", ["Sus cuerdas vocales son más largas y gruesas.", "Vibran más despacio."], "Porque sus cuerdas vocales vibran más lentamente."],
+    ["Una obra alterna diálogos hablados y canciones y es española. ¿Qué género es?", ["En la ópera todo se canta.", "La zarzuela alterna habla y canto."], "Zarzuela."],
+  ],
+  errores: ["Pensar que la muda de la voz solo les ocurre a los chicos.", "Creer que la voz de ópera se amplifica con micrófono."],
+  ejercicios: [
+    ["b", "¿Qué es la zarzuela?", "Género español que alterna partes habladas y cantadas."],
+    ["b", "¿Qué tesitura tenía Montserrat Caballé?", "Soprano."],
+    ["b", "¿Qué es una escolanía?", "Escuela de música y coro infantil."],
+    ["b", "¿Qué es el beatbox?", "Imitar instrumentos de percusión con la boca."],
+    ["b", "¿Dónde se practica el yodel?", "En los Alpes."],
+    ["m", "Explica qué ocurre en la muda de la voz.", "La laringe crece, las cuerdas vocales se alargan y la voz se vuelve más grave."],
+    ["m", "¿Qué es el canto difónico?", "Cantar dos sonidos a la vez."],
+    ["m", "Nombra dos tenores españoles.", "Plácido Domingo y Alfredo Kraus."],
+    ["m", "Escribe tres beneficios de cantar en un coro.", "Mejora la respiración, entrena el oído, crea amistades."],
+    ["m", "¿Qué cualidades del sonido usamos al hablar en público?", "Intensidad, altura (entonación), duración (ritmo y pausas) y timbre."],
+    ["a", "Graba un trabalenguas tres veces y compara la articulación.", "Respuesta abierta."],
+    ["a", "Dobla una escena corta de dibujos animados cambiando el timbre de la voz.", "Respuesta abierta."],
+    ["a", "Escucha un fragmento de ópera y uno de zarzuela y compáralos.", "Respuesta abierta."],
+    ["a", "Prepara un ritmo de beatbox con tres sonidos básicos.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Las cuerdas vocales más largas dan una voz…", ["más grave", "más aguda", "más fuerte"], "Timbre."],
+    ["La ópera nació en…", ["Italia", "España", "Austria"], "Ópera."],
+    ["La Escolanía de Montserrat está en…", ["Cataluña", "Madrid", "Galicia"], "Escolanías."],
+    ["El silbo gomero es de…", ["La Gomera", "Tuva", "los Alpes"], "Técnicas."],
+    ["Los actores de doblaje…", ["ponen voz en español a películas extranjeras", "dirigen coros", "construyen instrumentos"], "Voz hablada."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le aconseja la profesora a Hugo?", ["seguir en el coro sin forzar", "dejar de cantar", "cantar más fuerte"], "Lectura."],
+    ["Los Niños Cantores de Viena se fundaron en…", ["1498", "1936", "1600"], "Coros."],
+  ],
+  tarjetas: [
+    ["Muda de la voz", "Hacia 11-15 años; la laringe crece y la voz baja. No forzar."],
+    ["Ópera y zarzuela", "Ópera: todo cantado. Zarzuela: habla y canto, española."],
+    ["Escolanía", "Coro y escuela infantil. Montserrat, desde el siglo XIV."],
+    ["Técnicas vocales", "Difónico, yodel, flamenco, beatbox."],
+  ],
+  glosario: [
+    ["Timbre vocal", "Color propio que distingue una voz de otra."],
+    ["Muda de la voz", "Cambio de la voz en la adolescencia."],
+    ["Gallo", "Nota que sale de forma inesperada al cambiar la voz."],
+    ["Ópera", "Teatro cantado acompañado por orquesta."],
+    ["Zarzuela", "Género español que alterna partes habladas y cantadas."],
+    ["Escolanía", "Escuela de música y coro de niñas y niños."],
+    ["Canto difónico", "Técnica para producir dos sonidos a la vez."],
+    ["Yodel", "Canto alpino que salta entre voz grave y aguda."],
+    ["Melisma", "Varias notas cantadas sobre una sola sílaba."],
+    ["Beatbox", "Percusión hecha con la boca."],
+    ["Entonación", "Subidas y bajadas de la voz al hablar."],
+    ["Doblaje", "Sustitución de las voces de una película por otras en otro idioma."],
+  ],
+  situacion: {
+    titulo: "Nuestro programa de radio",
+    reto: "La clase produce un programa de radio de diez minutos sobre la voz.",
+    pasos: ["Repartid secciones: noticias, entrevista, curiosidades y actuación musical.", "Escribid los guiones cuidando la entonación y las pausas.", "Ensayad con ejercicios de respiración, articulación y calentamiento.", "Grabad el programa y escuchadlo para mejorar."],
+    producto: "Un programa de radio grabado con secciones habladas y cantadas.",
+    evaluacion: ["Explica cómo se produce la voz y sus cambios.", "Usa una voz clara, proyectada y bien articulada.", "Canta con buena postura y respiración.", "Colabora en el trabajo en grupo."],
+  },
+});

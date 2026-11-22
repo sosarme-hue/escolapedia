@@ -95,3 +95,91 @@ module.exports = tema({
   ideas: ["Dictado rítmico con palmas y tarjetas de figuras.", "Bingo de notas en clave de sol.", "Composición de una melodía de cuatro compases para flauta."],
   fuentes: [["Real Academia Española: pentagrama", "https://dle.rae.es/pentagrama"], ["Real Academia Española: compás", "https://dle.rae.es/compás"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir tonos y semitonos y construir la escala mayor", "Reconocer compases simples y compuestos y la anacrusa", "Diferenciar tonalidad mayor y menor y leer la armadura", "Leer ritmos con sílabas y formar acordes sencillos"],
+  lectura: { titulo: "El mensaje secreto de la banda", html: `<p>El primer día de ensayo de la banda del colegio, el profesor Ramón repartió una hoja llena de puntos negros, rayas y palitos.</p><p>—Esto es un mensaje secreto —dijo—. Quien sepa leerlo podrá tocarlo en cualquier lugar del mundo.</p><p>Lucía arrugó la nariz. Para ella aquello parecía un jeroglífico. Pero Samir, que llevaba dos años tocando la guitarra, se acercó.</p><p>—Mira: la espiral es la clave de sol. Esos dos números de ahí, el 3 y el 4, dicen que cada compás tiene tres negras. Por eso suena como un vals.</p><p>—¿Y esa almohadilla delante de la nota?</p><p>—Es un sostenido. Sube la nota medio tono.</p><p>Lucía cogió su flauta y fue probando nota a nota, despacio. Al principio sonaba raro; luego, poco a poco, apareció una melodía que conocía.</p><p>—¡Es la canción de la fiesta de fin de curso!</p><p>El profesor sonrió.</p><p>—¿Veis? Un músico de Japón, otro de Brasil y vosotros podéis leer exactamente la misma hoja. La música escrita es un idioma que se entiende en todo el planeta.</p>` },
+  tras: {
+    "Las notas": [
+      ["Tonos y semitonos: la escala mayor", `<p>Entre dos notas seguidas hay siempre una distancia. La distancia más pequeña que usamos en nuestra música es el <b>semitono</b>; dos semitonos forman un <b>tono</b>.</p><p>Mira un teclado de piano: entre dos teclas blancas que tienen una negra en medio hay <b>un tono</b> (por ejemplo, do-re). Entre dos teclas blancas sin tecla negra en medio hay <b>un semitono</b>. Eso solo ocurre en dos lugares: <b>mi-fa</b> y <b>si-do</b>. Son los <b>semitonos naturales</b>.</p><p>Una <mark>escala</mark> es una serie ordenada de notas. La <b>escala de do mayor</b> (do, re, mi, fa, sol, la, si, do) sigue este orden de distancias:</p><p style="text-align:center"><b>tono – tono – semitono – tono – tono – tono – semitono</b></p><p>Esta fórmula es la de <b>todas las escalas mayores</b>. Si empiezas en otra nota, como sol, y quieres respetar la fórmula, necesitarás alguna alteración: la escala de sol mayor tiene un <b>fa sostenido</b>. Por eso las alteraciones son tan importantes: permiten construir escalas que empiezan en cualquier nota.</p><p>Las escalas sirven para calentar, para aprender un instrumento y para entender cómo están hechas las melodías: casi todas las canciones que conoces usan las notas de una escala.</p>`,
+        H6.flujo("Escala de do mayor", ["do-re|tono", "mi-fa|semitono", "fa-sol-la-si|tonos", "si-do|semitono"], cAZ), ["qqTQc7GomfI", "Escala Mayor & Escala Menor", "Adorarte Escuela de Música", 134620]],
+    ],
+    "El pulso y el compás": [
+      ["Compases compuestos y anacrusa", `<p>Los compases 2/4, 3/4 y 4/4 son <b>compases simples</b>: cada pulso se divide en <b>dos</b> partes (una negra = dos corcheas).</p><p>En los <mark>compases compuestos</mark>, cada pulso se divide en <b>tres</b> partes. El más conocido es el <b>6/8</b>: tiene seis corcheas agrupadas de tres en tres, y se marca con <b>dos pulsos</b>, uno por cada grupo («UN-dos-tres, CUA-tro-cin-co»). Suena como un balanceo, como un caballo al trote o una barca en el agua. Muchas canciones populares, nanas y danzas, como la jota o la tarantela, tienen este aire ternario.</p><p>Un truco para distinguirlos: si al marcar el pulso sientes que cada golpe se divide en «ti-ti», el compás es simple; si se divide en «ti-ti-ti», es compuesto.</p><p>Otra cosa curiosa: no todas las canciones empiezan en el primer tiempo del compás. A veces empiezan con una o varias notas <b>antes</b> del primer tiempo fuerte. Esas notas iniciales forman la <mark>anacrusa</mark>. En la partitura aparecen en un compás incompleto al principio, y el último compás de la obra suele estar también incompleto para compensar. Fíjate: cuando cantas «cumpleaños feliz», las dos primeras sílabas, «cum-ple», van antes del primer tiempo fuerte.</p>`,
+        H6.dos("Tipos de compás", ["SIMPLES", ["2/4, 3/4, 4/4", "pulso en 2 partes", "ti-ti"], cVE], ["COMPUESTOS", ["6/8", "pulso en 3 partes", "ti-ti-ti"], cNA])],
+    ],
+    "Alteraciones y signos de repetición": [
+      ["Mayor o menor: la tonalidad y la armadura", `<p>La <mark>tonalidad</mark> es la escala sobre la que está construida una pieza. Su nota principal, la que suena a «casa» y con la que suele terminar la melodía, se llama <b>tónica</b>.</p><p>Hay dos grandes modos:</p><ul><li><b>Modo mayor</b>: suena luminoso, alegre o enérgico. Ejemplo: do mayor.</li><li><b>Modo menor</b>: suena más oscuro, triste, misterioso o nostálgico. La escala de <b>la menor</b> usa las mismas teclas blancas que do mayor, pero empezando en la: la, si, do, re, mi, fa, sol, la. Por eso decimos que la menor es la <b>relativa</b> de do mayor.</li></ul><p>Cuando una pieza necesita siempre las mismas alteraciones, en lugar de escribirlas delante de cada nota se ponen una sola vez al principio de cada pentagrama, justo después de la clave. Es la <mark>armadura</mark>. Si la armadura tiene un fa sostenido, <b>todos los fa</b> de la obra se tocan sostenidos, en cualquier octava, salvo que aparezca un becuadro.</p><p>Las alteraciones que aparecen solo en un momento, delante de una nota, se llaman <b>accidentales</b>, y valen únicamente hasta el final de ese compás.</p><p>Prueba a cantar una canción conocida en mayor y luego en menor: ¡cambia por completo su carácter!</p>`,
+        L6.filas("Tonalidad", [["tónica", "nota «casa»", cAZ], ["mayor", "luminoso", cNA], ["menor", "oscuro", cMO], ["armadura", "alteraciones fijas", cVE]])],
+    ],
+  },
+  final: [
+    ["Leer ritmos con sílabas", `<p>Antes de tocar un ritmo, es muy útil <b>decirlo</b>. El compositor y pedagogo húngaro <b>Zoltán Kodály</b> impulsó un método, muy usado en las escuelas de todo el mundo, en el que cada figura tiene una sílaba:</p><ul><li><b>Negra</b>: «ta».</li><li><b>Dos corcheas</b>: «ti-ti».</li><li><b>Blanca</b>: «ta-a» (se alarga la vocal durante dos tiempos).</li><li><b>Redonda</b>: «ta-a-a-a».</li><li><b>Cuatro semicorcheas</b>: «ti-ri-ti-ri».</li><li><b>Silencio de negra</b>: se marca con un gesto en silencio (por ejemplo, abrir las manos).</li></ul><p>Así, el ritmo «ta, ta, ti-ti, ta» se lee en un compás de 4/4 sin necesidad de instrumento. Una vez dicho, se puede palmear, tocar con percusión corporal o con la flauta.</p><p>El mismo pedagogo popularizó también los <b>gestos con la mano</b> para cada nota (fononimia): la mano a una altura distinta para do, re, mi… Ayudan a «ver» lo agudo y lo grave mientras cantas.</p><p>Leer ritmos con sílabas es como deletrear antes de leer palabras: al principio va despacio, pero pronto lees compases completos de un vistazo.</p>`,
+      L6.filas("Sílabas rítmicas", [["negra", "ta", cAZ], ["2 corcheas", "ti-ti", cVE], ["blanca", "ta-a", cNA], ["4 semicorch.", "ti-ri-ti-ri", cRO]])],
+    ["Los acordes", `<p>Una melodía es una sucesión de notas, una tras otra. Pero si tocamos <b>varias notas a la vez</b>, formamos un <mark>acorde</mark>. Los acordes crean la <b>armonía</b>: el «colchón» sonoro que acompaña a la melodía. Es lo que hace la guitarra cuando acompaña a un cantante, o la mano izquierda del piano.</p><p>El acorde más sencillo es la <b>tríada</b>: tres notas separadas «una sí, una no». Por ejemplo, <b>do-mi-sol</b>. Si empiezas en do y saltas re, tocas mi; saltas fa y tocas sol.</p><ul><li><b>Do-mi-sol</b> es un acorde <b>mayor</b>: suena brillante.</li><li><b>La-do-mi</b> es un acorde <b>menor</b>: suena más triste.</li></ul><p>En do mayor, tres acordes son los más importantes: el de <b>do</b> (do-mi-sol), el de <b>fa</b> (fa-la-do) y el de <b>sol</b> (sol-si-re). ¡Con solo estos tres se pueden acompañar muchísimas canciones populares e infantiles!</p><p>En la música actual los acordes se escriben a menudo con letras: <b>C</b> (do mayor), <b>F</b> (fa mayor), <b>G</b> (sol mayor), <b>Am</b> (la menor). Es lo que verás en los cancioneros de guitarra y ukelele.</p>`,
+      H6.rueda("Acordes de do mayor", "DO M", [["do-mi-sol", cAZ], ["fa-la-do", cVE], ["sol-si-re", cNA], ["la-do-mi", cMO]]), ["YDX4xULlkwc", "Qué es un ACORDE. Tipos de Acordes. La Explicación Definitiva. | Jaime Altozano", "Jaime Altozano", 1674009]],
+  ],
+  ejemplos: [
+    ["¿Hay un tono o un semitono entre mi y fa? ¿Y entre sol y la?", ["Mi-fa no tiene tecla negra en medio.", "Sol-la sí la tiene."], "Mi-fa: semitono. Sol-la: tono."],
+    ["Una pieza tiene un fa sostenido en la armadura. ¿Cómo tocas un fa que aparece en el compás 12?", ["La armadura vale para toda la obra.", "No hay becuadro."], "Fa sostenido."],
+  ],
+  errores: ["Pensar que entre todas las notas seguidas hay la misma distancia.", "Olvidar que las alteraciones de la armadura valen para toda la obra."],
+  ejercicios: [
+    ["b", "¿Cuántos semitonos tiene un tono?", "Dos."],
+    ["b", "Escribe los dos semitonos naturales.", "Mi-fa y si-do."],
+    ["b", "¿Qué sílaba rítmica corresponde a dos corcheas?", "Ti-ti."],
+    ["b", "¿Qué es un acorde?", "Varias notas que suenan a la vez."],
+    ["b", "¿Dónde se escribe la armadura?", "Al principio de cada pentagrama, después de la clave."],
+    ["m", "Escribe la fórmula de la escala mayor.", "T-T-S-T-T-T-S."],
+    ["m", "¿Cuántos pulsos se marcan en un compás de 6/8?", "Dos, cada uno de tres corcheas."],
+    ["m", "Forma la tríada que empieza en fa.", "Fa-la-do."],
+    ["m", "¿Qué es la anacrusa?", "Notas que van antes del primer tiempo fuerte."],
+    ["m", "¿Cuál es la relativa menor de do mayor?", "La menor."],
+    ["a", "Construye la escala de sol mayor y explica por qué necesita fa sostenido.", "Sol-la-si-do-re-mi-fa♯-sol; para que entre mi y fa haya tono y entre fa y sol, semitono."],
+    ["a", "Inventa un ritmo de cuatro compases en 4/4 y escríbelo con sílabas.", "Respuesta abierta."],
+    ["a", "Acompaña una canción conocida con los acordes de do, fa y sol.", "Respuesta abierta."],
+    ["a", "Canta una canción en modo mayor y luego en menor. Describe el cambio.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La fórmula de la escala mayor es…", ["T-T-S-T-T-T-S", "T-S-T-T-S-T-T", "S-T-T-S-T-T-T"], "Escala."],
+    ["El 6/8 es un compás…", ["compuesto", "simple", "de cuatro tiempos"], "Compases."],
+    ["La tónica es…", ["la nota principal de la tonalidad", "una figura", "un silencio"], "Tonalidad."],
+    ["Do-mi-sol es un acorde…", ["mayor", "menor", "de cuatro notas"], "Acordes."],
+    ["La sílaba «ta-a» corresponde a…", ["la blanca", "la negra", "la corchea"], "Sílabas."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué la pieza sonaba como un vals?", ["porque estaba en 3/4", "porque tenía un sostenido", "porque era en clave de sol"], "Lectura."],
+    ["Una alteración accidental vale…", ["hasta el final del compás", "toda la obra", "solo para la clave"], "Armadura."],
+  ],
+  tarjetas: [
+    ["Escala mayor", "T-T-S-T-T-T-S. Semitonos naturales: mi-fa y si-do."],
+    ["6/8", "Compás compuesto: 2 pulsos de 3 corcheas."],
+    ["Tonalidad", "Tónica, modo mayor o menor; armadura al principio."],
+    ["Acorde", "Notas a la vez. Tríada: do-mi-sol (mayor), la-do-mi (menor)."],
+  ],
+  glosario: [
+    ["Tono", "Distancia entre dos notas igual a dos semitonos."],
+    ["Semitono", "La distancia más pequeña entre dos notas en nuestra música."],
+    ["Escala", "Serie ordenada de notas."],
+    ["Compás compuesto", "Compás cuyo pulso se divide en tres partes."],
+    ["Anacrusa", "Nota o notas antes del primer tiempo fuerte."],
+    ["Tonalidad", "Escala sobre la que se construye una pieza."],
+    ["Tónica", "Nota principal de una tonalidad."],
+    ["Armadura", "Alteraciones fijas escritas tras la clave."],
+    ["Accidental", "Alteración que vale solo hasta el final del compás."],
+    ["Acorde", "Tres o más notas que suenan a la vez."],
+    ["Tríada", "Acorde de tres notas."],
+    ["Armonía", "Combinación de sonidos simultáneos que acompaña a la melodía."],
+  ],
+  situacion: {
+    titulo: "Compositores de la clase",
+    reto: "Cada grupo compone una breve canción escrita en partitura y la interpreta ante la clase.",
+    pasos: ["Elegid compás, tonalidad (mayor o menor) y un ritmo leído con sílabas.", "Escribid una melodía de ocho compases con las notas de la escala.", "Añadid un acompañamiento con los acordes de do, fa y sol.", "Ensayad, interpretad y grabad la canción."],
+    producto: "Una partitura de ocho compases con acordes y su grabación.",
+    evaluacion: ["Usa correctamente compás y figuras.", "Construye la escala y respeta la tonalidad.", "Acompaña con acordes adecuados.", "Interpreta con pulso estable."],
+  },
+});
