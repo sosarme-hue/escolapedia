@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Juego de detectives del sonido con objetos cotidianos.", "Musicograma de una pieza marcando cambios de intensidad.", "Construir un «xilófono» de vasos con distinta cantidad de agua para explorar la altura."],
   fuentes: [["Diccionario de la RAE: timbre", "https://dle.rae.es/timbre"], ["Organización Mundial de la Salud: escucha segura", "https://www.who.int/es/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar cómo viaja el sonido y qué es el eco", "Construir un instrumento con botellas para comprobar la altura", "Medir la intensidad en decibelios y cuidar el oído", "Reconocer el timbre de los instrumentos en «Pedro y el lobo»"],
+  lectura: { titulo: "La tormenta y el cronómetro", html: `<p>Era una tarde de agosto en el pueblo. El cielo se puso negro de repente y empezó a soplar el viento. Jorge y su hermana Alba se asomaron a la ventana.</p><p>Un relámpago iluminó todo el valle. Unos segundos después se oyó un trueno larguísimo: «¡BRRRRUMMM!».</p><p>—Qué raro —dijo Alba—. Primero se ve la luz y luego llega el ruido. ¿No pasan a la vez?</p><p>Su abuelo, que leía el periódico en el sillón, sonrió.</p><p>—Sí que pasan a la vez, allá arriba. Pero la <b>luz</b> viaja muchísimo más rápido que el <b>sonido</b>. La luz llega casi al instante. El sonido, en cambio, recorre unos <b>340 metros cada segundo</b>.</p><p>—¿Y eso cómo se usa? —preguntó Jorge.</p><p>—Coged el cronómetro del móvil. Cuando veáis el próximo relámpago, empezad a contar. Paradlo cuando oigáis el trueno. Si dividís los segundos entre tres, sabréis más o menos a cuántos kilómetros está la tormenta.</p><p>Esperaron. ¡Flash! Jorge pulsó el botón. Uno, dos, tres, cuatro, cinco, seis… ¡BRRUM!</p><p>—Seis segundos —dijo Jorge—. Seis entre tres… ¡Dos kilómetros!</p><p>Un rato después, entre relámpago y trueno solo pasaban tres segundos.</p><p>—Se está acercando —dijo Alba—. ¡Mejor cerramos la ventana!</p>` },
+  tras: {
+    "¿Qué es el sonido?": [
+      ["Cómo viaja el sonido", `<p>El sonido necesita un <mark>medio</mark> para viajar: algo que pueda vibrar, como el aire, el agua o un material sólido. Por eso, en el <b>espacio</b>, donde no hay aire, no se oye nada: los astronautas se comunican por radio.</p><p>La <b>velocidad</b> del sonido depende del medio:</p><ul><li>En el <b>aire</b>, viaja a unos <b>340 metros por segundo</b>. Es rápido, pero mucho más lento que la luz. Por eso vemos el relámpago antes de oír el trueno.</li><li>En el <b>agua</b>, viaja unas cuatro veces más rápido. Las ballenas y los delfines se comunican con sonidos bajo el mar a grandes distancias.</li><li>En los <b>sólidos</b>, como la madera o el metal, es todavía más rápido. Si pegas la oreja a una mesa y alguien da un golpecito en el otro extremo, lo oirás muy bien.</li></ul><p>Cuando el sonido choca contra una superficie grande y dura, como una montaña o una pared, <b>rebota</b> y vuelve hacia nosotros. Ese sonido que regresa es el <b>eco</b>. Para oírlo bien, la pared debe estar a más de unos 17 metros.</p><p>Algunos animales, como los <b>murciélagos</b> y los delfines, usan el eco para orientarse y encontrar comida: emiten sonidos y escuchan cómo rebotan. Se llama <b>ecolocalización</b>.</p><p><b>Experimento</b>: haz un teléfono con dos vasos de yogur unidos por un hilo bien tenso. ¡El sonido viaja por el hilo!</p>`,
+        L6.filas("Velocidad", [["aire", "340 m/s", cAZ], ["agua", "4 veces más", cVE], ["sólidos", "aún más rápido", cNA], ["espacio", "no se oye", cRO]])],
+    ],
+    "La altura: graves y agudos": [
+      ["Taller: el botellófono", `<p>Vamos a construir un <mark>instrumento</mark> para comprobar cómo cambia la altura de los sonidos. Se llama <b>botellófono</b> o xilófono de botellas.</p><p><b>Material</b>: ocho botellas de cristal iguales, agua, colorante alimentario (opcional) y una cuchara de metal o una baqueta.</p><p><b>Pasos</b>:</p><ul><li>Coloca las botellas en fila.</li><li>Llena la primera casi entera de agua y ve poniendo cada vez <b>menos agua</b> en las siguientes, hasta que la última tenga muy poca.</li><li>Puedes teñir el agua de cada botella de un color distinto.</li><li>Golpea suavemente cada botella con la cuchara.</li></ul><p><b>¿Qué ocurre?</b> Al golpear, el cristal y el agua vibran. La botella con <b>más agua</b> vibra más despacio y suena más <b>grave</b>. La que tiene <b>menos agua</b> vibra más rápido y suena más <b>aguda</b>.</p><p>¡Pero cuidado! Si en vez de golpear <b>soplas</b> por la boca de la botella, pasa al revés: lo que vibra es el aire de dentro. La botella con más aire (menos agua) suena más grave, y la que tiene menos aire, más aguda.</p><p>Ajusta el agua hasta conseguir la escala <b>do, re, mi, fa, sol, la, si, do</b> y prueba a tocar una canción sencilla.</p>`,
+        H6.flujo("Botellófono", ["8 botellas|en fila", "agua|distinta", "golpear|con cuchara", "afinar|do a do"], cAZ), ["f27BGASKDbQ", "Botellas afinadas: escala musical", "DonluNatic", 162637]],
+    ],
+    "La intensidad: fuertes y suaves": [
+      ["Los decibelios y el ruido", `<p>La intensidad del sonido se mide en <mark>decibelios</mark> (dB) con un aparato llamado <b>sonómetro</b>. Hay aplicaciones del móvil que también lo miden. Algunos ejemplos aproximados:</p><ul><li>Una hoja cayendo: unos <b>10 dB</b>.</li><li>Un susurro: unos <b>30 dB</b>.</li><li>Una conversación normal: unos <b>60 dB</b>.</li><li>Una clase muy ruidosa o el tráfico de una calle: unos <b>80 dB</b>.</li><li>Un concierto de rock o una moto sin silenciador: más de <b>100 dB</b>.</li><li>Un avión despegando cerca: unos <b>130 dB</b>, que ya produce <b>dolor</b>.</li></ul><p>Los sonidos muy fuertes, o los fuertes durante mucho tiempo, pueden <b>dañar el oído</b> para siempre. Por eso hay que:</p><ul><li>No subir demasiado el volumen de los auriculares (una regla sencilla: no más del 60 % del volumen y no más de 60 minutos seguidos).</li><li>Usar tapones en lugares muy ruidosos.</li><li>Alejarse de los altavoces en conciertos y fiestas.</li></ul><p>Cuando hay demasiado ruido en una ciudad, hablamos de <b>contaminación acústica</b>. Provoca cansancio, dolor de cabeza y dificultad para concentrarse o dormir. En clase, ¡hablar más bajo también es cuidar el oído de todos!</p>`,
+        L6.filas("Decibelios", [["susurro", "30 dB", cVE], ["conversación", "60 dB", cAZ], ["tráfico", "80 dB", cNA], ["concierto", "más de 100 dB", cRO]]), ["LVhDNTZq2j4", "¿Qué es la contaminación sonora?", "Aula365", 265867]],
+    ],
+  },
+  final: [
+    ["El oído: cómo escuchamos", `<p>El <mark>oído</mark> es el órgano que capta los sonidos. Tiene tres partes:</p><ul><li>El <b>oído externo</b>: la <b>oreja</b> (pabellón auditivo), que recoge el sonido como un embudo, y el <b>conducto auditivo</b>, que lo lleva hacia dentro. En el conducto se forma la <b>cera</b>, que lo protege del polvo.</li><li>El <b>oído medio</b>: empieza en el <b>tímpano</b>, una membrana fina que vibra como la piel de un tambor cuando le llega el sonido. Detrás hay tres huesecillos diminutos: el <b>martillo</b>, el <b>yunque</b> y el <b>estribo</b>. ¡El estribo es el hueso más pequeño del cuerpo!</li><li>El <b>oído interno</b>: allí está el <b>caracol</b> (o cóclea), lleno de líquido y de células con pelitos que transforman las vibraciones en señales eléctricas. El <b>nervio auditivo</b> las lleva al <b>cerebro</b>, que es quien de verdad «oye».</li></ul><p>Las personas oímos sonidos entre unos 20 y 20 000 vibraciones por segundo. Los perros y los murciélagos oyen sonidos mucho más agudos que nosotros: los llamados <b>ultrasonidos</b>.</p><p>Para cuidar el oído: no metas bastoncillos ni objetos dentro, sécalo bien después del baño y evita los ruidos muy fuertes.</p>`,
+      H6.flujo("Así oímos", ["oreja|recoge", "tímpano|vibra", "huesecillos|y caracol", "cerebro|entiende"], cVE)],
+    ["Pedro y el lobo: el timbre cuenta un cuento", `<p><mark>«Pedro y el lobo»</mark> es un cuento musical compuesto en <b>1936</b> por el ruso <b>Serguéi Prokófiev</b> para que los niños y niñas conocieran los instrumentos de la orquesta. Un narrador cuenta la historia y cada personaje está representado por un <b>instrumento</b> y una melodía, gracias a su <b>timbre</b>:</p><ul><li><b>Pedro</b>: los instrumentos de <b>cuerda</b> (violines, violas, violonchelos…), alegres.</li><li><b>El pájaro</b>: la <b>flauta</b>, aguda y rápida.</li><li><b>El pato</b>: el <b>oboe</b>, con un sonido nasal.</li><li><b>El gato</b>: el <b>clarinete</b>, en notas graves y sigilosas.</li><li><b>El abuelo</b>: el <b>fagot</b>, grave y gruñón.</li><li><b>El lobo</b>: tres <b>trompas</b>, fuertes y amenazadoras.</li><li><b>Los cazadores</b>: los <b>timbales</b> y el <b>bombo</b>, que imitan los disparos.</li></ul><p>En la obra también se usan las otras cualidades: el pájaro es <b>agudo</b>, el abuelo <b>grave</b>; el lobo suena <b>fuerte</b> y el gato <b>suave</b>; los pasos del gato son <b>cortos</b>, y la melodía de Pedro, más <b>larga</b> y cantable.</p><p>Escúchala con los ojos cerrados e intenta reconocer a cada personaje solo por su timbre.</p>`,
+      L6.filas("Personajes", [["Pedro", "cuerda", cAZ], ["pájaro", "flauta", cNA], ["gato", "clarinete", cMO], ["lobo", "trompas", cRO]]), ["hnUA9P32Oik", "Pedro y el lobo de Prokofiev", "Monica Quinos", 58315]],
+  ],
+  ejemplos: [
+    ["Entre el relámpago y el trueno pasan 9 segundos. ¿A qué distancia está la tormenta?", ["El sonido recorre aproximadamente un kilómetro cada 3 segundos.", "9 : 3 = 3."], "A unos 3 kilómetros."],
+    ["En el botellófono, golpeas una botella casi llena y otra casi vacía. ¿Cuál suena más aguda?", ["Más agua vibra más despacio y suena grave.", "Menos agua vibra más rápido."], "La casi vacía."],
+  ],
+  errores: ["Pensar que en el espacio se oyen las explosiones: sin aire, el sonido no viaja.", "Confundir intensidad con altura: un sonido grave puede ser muy fuerte."],
+  ejercicios: [
+    ["b", "¿A qué velocidad viaja el sonido en el aire?", "Unos 340 metros por segundo."],
+    ["b", "¿Qué es el eco?", "Un sonido que rebota y vuelve."],
+    ["b", "¿En qué unidad se mide la intensidad?", "En decibelios."],
+    ["b", "Nombra los tres huesecillos del oído.", "Martillo, yunque y estribo."],
+    ["b", "¿Qué instrumento representa al pájaro en «Pedro y el lobo»?", "La flauta."],
+    ["m", "¿Por qué vemos el relámpago antes de oír el trueno?", "Porque la luz viaja mucho más rápido que el sonido."],
+    ["m", "¿Qué es la ecolocalización?", "Orientarse con el eco de los sonidos que emite un animal."],
+    ["m", "¿Qué es la contaminación acústica?", "El exceso de ruido en un lugar."],
+    ["m", "¿Qué parte del oído transforma las vibraciones en señales?", "El caracol del oído interno."],
+    ["m", "¿Qué cualidad del sonido usa Prokófiev para distinguir los personajes?", "El timbre."],
+    ["a", "Construye un teléfono de vasos y explica por qué funciona.", "Respuesta abierta."],
+    ["a", "Mide con una aplicación los decibelios de tres lugares del colegio.", "Respuesta abierta."],
+    ["a", "Afina un botellófono y toca una canción.", "Respuesta abierta."],
+    ["a", "Inventa un cuento musical con un instrumento para cada personaje.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El sonido no viaja en…", ["el espacio", "el agua", "la madera"], "Viaje del sonido."],
+    ["En el botellófono, la botella con más agua al golpearla suena…", ["más grave", "más aguda", "igual"], "Altura."],
+    ["Una conversación normal tiene unos…", ["60 dB", "130 dB", "5 dB"], "Decibelios."],
+    ["El tímpano está en el…", ["oído medio", "oído interno", "pabellón"], "Oído."],
+    ["En «Pedro y el lobo», el lobo lo tocan…", ["las trompas", "la flauta", "el oboe"], "Timbre."],
+  ],
+  examen: [
+    ["En la lectura, ¿a qué distancia estaba la tormenta la primera vez?", ["a unos dos kilómetros", "a seis kilómetros", "encima de la casa"], "Lectura."],
+    ["¿Quién compuso «Pedro y el lobo»?", ["Prokófiev", "Vivaldi", "Mozart"], "Pedro y el lobo."],
+  ],
+  tarjetas: [
+    ["Viaje del sonido", "340 m/s en el aire; más rápido en agua y sólidos; eco."],
+    ["Botellófono", "Golpear: más agua, más grave; soplar: al revés."],
+    ["Decibelios", "Susurro 30, conversación 60, concierto +100; cuidar el oído."],
+    ["Oído y timbre", "Tímpano, huesecillos, caracol; Pedro y el lobo."],
+  ],
+  glosario: [
+    ["Medio", "Material por el que viaja el sonido."],
+    ["Eco", "Sonido que rebota en una superficie y vuelve."],
+    ["Ecolocalización", "Orientarse escuchando el eco."],
+    ["Botellófono", "Instrumento hecho con botellas y agua."],
+    ["Decibelio", "Unidad de intensidad del sonido."],
+    ["Sonómetro", "Aparato que mide la intensidad."],
+    ["Contaminación acústica", "Exceso de ruido en un lugar."],
+    ["Tímpano", "Membrana del oído que vibra."],
+    ["Estribo", "El hueso más pequeño del cuerpo."],
+    ["Caracol", "Parte del oído interno que transforma vibraciones."],
+    ["Ultrasonido", "Sonido demasiado agudo para el oído humano."],
+    ["Cuento musical", "Historia contada con música e instrumentos."],
+  ],
+  situacion: {
+    titulo: "Laboratorio del sonido",
+    reto: "La clase monta un laboratorio con experimentos sobre las cualidades del sonido para enseñarlo a otros cursos.",
+    pasos: ["Construir teléfonos de vasos para comprobar cómo viaja el sonido.", "Afinar un botellófono y explicar la altura.", "Medir los decibelios del comedor, la clase y el patio, y proponer ideas contra el ruido.", "Escuchar «Pedro y el lobo» y preparar fichas con el timbre de cada personaje."],
+    producto: "Un laboratorio con cuatro estaciones explicadas por los alumnos.",
+    evaluacion: ["Explica cómo viaja el sonido.", "Relaciona la vibración con la altura.", "Mide la intensidad y cuida el oído.", "Reconoce timbres de instrumentos."],
+  },
+});

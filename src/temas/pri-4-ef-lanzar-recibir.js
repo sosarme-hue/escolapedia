@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, wiki("Habilidad motriz", "Habilidad_motriz"), wiki("Balón prisionero", "Balón_prisionero")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los lanzamientos del atletismo", "Entender la trayectoria de un objeto lanzado", "Iniciarse en los deportes de raqueta", "Practicar deportes de precisión y con el disco volador"],
+  lectura: { titulo: "El disco que volvía", html: `<p>El primer día de primavera, el profesor Andrés sacó al patio una caja llena de discos de plástico de colores.</p><p>—Hoy vamos a jugar al <b>ultimate</b> —anunció—. Pero antes hay que aprender a lanzar el disco.</p><p>Mateo cogió uno y lo tiró con todas sus fuerzas, como si fuera una pelota. El disco salió torcido, dio media vuelta en el aire y cayó a dos metros de sus pies. Toda la clase se rio, y Mateo también.</p><p>—El disco no se lanza con fuerza, sino con <b>giro</b> —explicó Andrés—. Cógelo con el pulgar encima y los dedos debajo, lleva el brazo hacia el cuerpo y suéltalo estirando el brazo y moviendo la muñeca, como si abrieras una puerta. Y mantenlo plano, paralelo al suelo.</p><p>Mateo lo intentó otra vez. Esta vez el disco voló recto, girando sobre sí mismo, y llegó hasta las manos de Carla, que lo atrapó con un aplauso: una mano arriba y otra abajo, como un cocodrilo cerrando la boca.</p><p>Después de un rato de práctica, jugaron un partido. En el ultimate no se puede correr con el disco: hay que pasarlo. Y no hay árbitro, así que cada uno reconoce sus propias faltas.</p><p>—Este juego me gusta —dijo Mateo al final—. Aquí todos tienen que tocar el disco.</p>` },
+  tras: {
+    "Tipos de lanzamiento": [
+      ["Los lanzamientos del atletismo", `<p>En el <mark>atletismo</mark> hay cuatro pruebas de lanzamiento. En todas el objetivo es lanzar el artefacto lo <b>más lejos</b> posible, sin salir de la zona marcada:</p><ul><li><b>Lanzamiento de peso</b>: se lanza una bola de metal muy pesada. No se tira como una pelota, sino que se <b>empuja</b> desde el cuello con una mano, estirando el brazo. Se lanza desde un círculo.</li><li><b>Lanzamiento de disco</b>: se lanza un disco plano girando sobre uno mismo dentro de un círculo protegido por una red.</li><li><b>Lanzamiento de jabalina</b>: se lanza una lanza larga tras una carrera. Debe clavarse primero con la punta.</li><li><b>Lanzamiento de martillo</b>: se lanza una bola atada a un cable con una empuñadura. El atleta da varias vueltas antes de soltarlo.</li></ul><p>En el colegio podemos practicarlos con material <b>adaptado</b> y seguro: pelotas medicinales ligeras en lugar del peso, aros o platillos en lugar del disco, jabalinas de espuma y pelotas dentro de una media en lugar del martillo.</p><p>Muy importante: en los lanzamientos de potencia, <b>nadie</b> puede estar delante ni en la zona de caída. Se lanza por turnos y se recoge cuando todos han lanzado.</p>`,
+        L6.filas("Lanzamientos", [["peso", "empujar la bola", cAZ], ["disco", "girar", cVE], ["jabalina", "con carrera", cNA], ["martillo", "con cable", cRO]]), ["E3NVQWzgbFQ", "Conociendo el deporte: lanzamiento de disco", "Buenos Aires 2018", 426147]],
+    ],
+    "Las fases de la recepción": [
+      ["La trayectoria", `<p>La <mark>trayectoria</mark> es el camino que sigue un objeto por el aire desde que sale de la mano hasta que cae. Entenderla nos ayuda a lanzar mejor y a recibir mejor.</p><p>Cuando lanzamos una pelota hacia arriba y hacia delante, dibuja una curva en forma de arco que se llama <b>parábola</b>: sube, llega a un punto más alto y vuelve a bajar por la fuerza de la <b>gravedad</b>.</p><p>La trayectoria depende de:</p><ul><li>La <b>fuerza</b> del lanzamiento: más fuerza, más lejos.</li><li>El <b>ángulo</b> de salida: si lanzas muy plano, cae pronto; si lanzas muy vertical, sube mucho pero llega cerca. Para llegar lejos, lo mejor es un ángulo <b>intermedio</b>, ni muy alto ni muy bajo.</li><li>El <b>peso</b> y la forma del objeto: un globo o una pluma frenan con el aire.</li><li>El <b>viento</b>.</li></ul><p>Tipos de trayectoria en los juegos:</p><ul><li><b>Recta o tensa</b>: rápida y directa, como un pase de pecho.</li><li><b>Parabólica o bombeada</b>: alta, para superar a un defensor o una red, como en voleibol.</li><li><b>Con bote</b>: el pase picado.</li></ul><p>Para recibir, hay que <b>calcular</b> dónde va a caer el objeto y llegar antes. ¡Tu cerebro hace los cálculos sin que te des cuenta!</p>`,
+        H6.dos("Trayectorias", ["TENSA", ["recta", "rápida", "pase de pecho"], cAZ], ["BOMBEADA", ["en arco", "alta", "por encima"], cNA])],
+    ],
+    "Golpeos con pies y raquetas": [
+      ["Los deportes de raqueta", `<p>En los <mark>deportes de raqueta</mark> se golpea una pelota o un volante con una raqueta o pala para pasarlo al campo contrario, normalmente por encima de una red. Los más conocidos son:</p><ul><li><b>Tenis</b>: con raqueta de cuerdas y pelota de fieltro. Se puede dejar botar la pelota una vez. España ha tenido grandes campeones, como Rafa Nadal, Arantxa Sánchez Vicario o Carlos Alcaraz.</li><li><b>Bádminton</b>: con una raqueta muy ligera y un <b>volante</b> de plumas. El volante no puede tocar el suelo. Carolina Marín, de Huelva, fue campeona olímpica en 2016.</li><li><b>Tenis de mesa</b> (ping-pong): con pala y una pelota pequeña y ligera sobre una mesa.</li><li><b>Pádel</b>: con pala y en una pista rodeada de paredes de cristal, en las que la pelota puede rebotar. Se juega siempre por parejas.</li><li><b>Pelota vasca con pala</b>: contra la pared de un frontón.</li></ul><p>Los golpes básicos son el <b>derecha</b> (por el lado de la mano que coge la raqueta) y el <b>revés</b> (por el otro lado), además del <b>saque</b> para empezar el punto.</p><p>En clase podemos empezar con palas de madera o raquetas de espuma y globos, que van más despacio y son más fáciles de golpear.</p>`,
+        H6.rueda("Raqueta", "RED", [["tenis", cVE], ["bádminton", cAZ], ["ping-pong", cRO], ["pádel", cNA]]), ["9WJqVM0FEKQ", "¿Cómo jugar al bádminton?", "Mr.Animate", 183632]],
+    ],
+  },
+  final: [
+    ["Deportes de precisión", `<p>En algunos deportes y juegos no gana quien lanza más lejos, sino quien lanza con más <mark>precisión</mark>, es decir, quien se acerca más al objetivo:</p><ul><li><b>Bolos</b>: se lanza una bola para derribar los bolos. En España hay muchas modalidades tradicionales, como el bolo palma de Cantabria o los bolos leoneses.</li><li><b>Petanca</b>: se lanzan bolas de metal para dejarlas lo más cerca posible de una bolita pequeña llamada <b>boliche</b>.</li><li><b>Boccia</b>: parecida a la petanca, con bolas de cuero. Es un deporte paralímpico.</li><li><b>Tiro con arco</b>: se lanzan flechas a una diana de colores; el centro, amarillo, es el que más puntos da.</li><li><b>Golf</b>: se golpea una bola con un palo para meterla en un hoyo con el menor número de golpes.</li><li><b>Curling</b>: se desliza una piedra por el hielo hacia una diana, mientras los compañeros barren delante para guiarla.</li></ul><p>Para lanzar con precisión:</p><ul><li>Mira el objetivo durante todo el lanzamiento.</li><li>Haz un movimiento <b>suave y controlado</b>, no brusco.</li><li>Termina con el brazo señalando el objetivo.</li><li>Concéntrate y respira antes de lanzar.</li></ul>`,
+      L6.filas("Precisión", [["bolos", "derribar", cRO], ["petanca", "cerca del boliche", cAZ], ["tiro con arco", "a la diana", cNA], ["curling", "piedra en el hielo", cVE]])],
+    ["El disco volador", `<p>El <mark>disco volador</mark> (o frisbi) es un disco de plástico que vuela gracias a su forma y a que gira. Con él se juegan varios deportes:</p><ul><li><b>Ultimate</b>: dos equipos de siete jugadores. Para marcar, hay que atrapar el disco dentro de la zona de marca del rival. No se puede correr con el disco en la mano: hay que pasarlo. Y lo más especial: <b>no hay árbitro</b>. Los jugadores resuelven sus faltas hablando, con el llamado «espíritu del juego».</li><li><b>Disc golf</b>: como el golf, pero lanzando el disco a unas cestas metálicas.</li><li><b>Juegos de precisión</b>: lanzar el disco dentro de un aro colgado o derribar conos.</li></ul><p>Cómo hacer el <b>lanzamiento de revés</b>, el más fácil:</p><ul><li>Coge el disco con el pulgar encima y los otros dedos debajo, por el borde.</li><li>Ponte de lado y lleva el disco hacia el cuerpo.</li><li>Estira el brazo hacia el compañero y suelta con un <b>giro de muñeca</b>.</li><li>Mantén el disco <b>plano</b>, paralelo al suelo.</li></ul><p>Para atraparlo, la forma más segura es el <b>cocodrilo</b> (o «sándwich»): una mano arriba y otra abajo, cerrándolas sobre el disco.</p>`,
+      H6.flujo("Lanzar el disco", ["pulgar|encima", "de lado|al cuerpo", "estira|el brazo", "muñeca|disco plano"], cMO)],
+  ],
+  ejemplos: [
+    ["Quieres pasar el balón por encima de un defensor alto. ¿Qué trayectoria usas?", ["Una trayectoria recta chocaría con el defensor.", "Necesito un arco alto."], "Una trayectoria bombeada o parabólica."],
+    ["¿Por qué el peso no se lanza como una pelota de tenis?", ["Es una bola de metal muy pesada.", "Lanzarla con el brazo por detrás podría lesionar el hombro: se empuja desde el cuello."], "Porque se empuja desde el cuello para no lesionarse."],
+  ],
+  errores: ["Lanzar el disco volador con fuerza y sin giro: hay que usar la muñeca y mantenerlo plano.", "Ponerse en la zona de caída durante los lanzamientos: hay que esperar el turno detrás."],
+  ejercicios: [
+    ["b", "Nombra los cuatro lanzamientos del atletismo.", "Peso, disco, jabalina y martillo."],
+    ["b", "¿Qué forma tiene la trayectoria de una pelota lanzada hacia arriba y adelante?", "Una parábola (un arco)."],
+    ["b", "¿Con qué se juega al bádminton?", "Con raqueta y volante."],
+    ["b", "¿Qué es el boliche en la petanca?", "La bolita a la que hay que acercarse."],
+    ["b", "¿Cómo se atrapa el disco con la técnica del cocodrilo?", "Una mano arriba y otra abajo."],
+    ["m", "¿Por qué baja una pelota después de subir?", "Por la fuerza de la gravedad."],
+    ["m", "¿Qué diferencia hay entre derecha y revés?", "La derecha es por el lado de la mano de la raqueta; el revés, por el otro."],
+    ["m", "¿Qué tiene de especial el ultimate?", "No hay árbitro y no se corre con el disco."],
+    ["m", "¿Qué ángulo es mejor para llegar lejos?", "Uno intermedio, ni muy alto ni muy bajo."],
+    ["m", "Da tres consejos para lanzar con precisión.", "Mirar el objetivo, movimiento suave y terminar señalando."],
+    ["a", "Mide la distancia de tres lanzamientos con ángulos distintos y compara.", "Respuesta abierta."],
+    ["a", "Fabrica un martillo con una pelota y una media y practica con seguridad.", "Respuesta abierta."],
+    ["a", "Inventa un juego de precisión con material del gimnasio.", "Respuesta abierta."],
+    ["a", "Busca información sobre una deportista española de raqueta.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El peso se lanza…", ["empujando desde el cuello", "girando con un cable", "con carrera y lanza"], "Atletismo."],
+    ["La trayectoria en arco se llama…", ["parábola", "recta", "zigzag"], "Trayectoria."],
+    ["En bádminton se golpea un…", ["volante", "balón", "disco"], "Raqueta."],
+    ["En la petanca hay que acercarse al…", ["boliche", "aro", "hoyo"], "Precisión."],
+    ["En el ultimate, las faltas las resuelven…", ["los jugadores", "el árbitro", "el público"], "Disco."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué falló Mateo el primer lanzamiento?", ["lo lanzó con fuerza y sin giro", "estaba lloviendo", "el disco estaba roto"], "Lectura."],
+    ["¿Qué deporte se juega en una pista con paredes de cristal?", ["el pádel", "el tenis de mesa", "el bádminton"], "Raqueta."],
+  ],
+  tarjetas: [
+    ["Lanzamientos del atletismo", "Peso, disco, jabalina y martillo; seguridad en la zona de caída."],
+    ["Trayectoria", "Parábola por la gravedad; tensa, bombeada o con bote."],
+    ["Raqueta", "Tenis, bádminton, ping-pong, pádel; derecha, revés y saque."],
+    ["Precisión y disco", "Bolos, petanca, boccia, arco; ultimate sin árbitro."],
+  ],
+  glosario: [
+    ["Peso", "Bola de metal que se lanza empujando."],
+    ["Jabalina", "Lanza que se lanza tras una carrera."],
+    ["Trayectoria", "Camino que sigue un objeto por el aire."],
+    ["Parábola", "Trayectoria en forma de arco."],
+    ["Gravedad", "Fuerza que atrae los objetos hacia el suelo."],
+    ["Volante", "Objeto con plumas que se golpea en bádminton."],
+    ["Revés", "Golpe por el lado contrario a la mano de la raqueta."],
+    ["Saque", "Golpe con el que empieza cada punto."],
+    ["Precisión", "Capacidad de acertar en un objetivo."],
+    ["Boliche", "Bolita pequeña de la petanca."],
+    ["Diana", "Blanco de círculos de colores."],
+    ["Ultimate", "Deporte de equipo con disco volador."],
+  ],
+  situacion: {
+    titulo: "Olimpiada de lanzamientos",
+    reto: "La clase organiza una olimpiada con pruebas de lanzamiento de potencia y de precisión.",
+    pasos: ["Fabricar material adaptado: martillos con medias, discos con platos de plástico.", "Montar estaciones de atletismo con zona de seguridad.", "Preparar estaciones de precisión: bolos, petanca y diana.", "Terminar con un partido de ultimate sin árbitro."],
+    producto: "Una tabla de resultados con potencia y precisión.",
+    evaluacion: ["Lanza con buena técnica y seguridad.", "Explica la trayectoria de sus lanzamientos.", "Golpea con raqueta o pala.", "Resuelve las faltas con deportividad."],
+  },
+});

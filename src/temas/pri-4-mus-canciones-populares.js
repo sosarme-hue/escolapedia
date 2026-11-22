@@ -97,3 +97,91 @@ module.exports = tema({
   ideas: ["Cancionero de clase con canciones que traen las familias.", "Mapa mural de España con danzas e instrumentos.", "Acompañamiento en grupos de una canción de corro."],
   fuentes: [["Diccionario de la RAE: folclore", "https://dle.rae.es/folclore"], ["UNESCO: el flamenco", "https://ich.unesco.org/es/RL/el-flamenco-00363"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Cantar villancicos y conocer sus instrumentos", "Acompañar canciones con juegos de palmas", "Descubrir el trabajo de Lorca recogiendo canciones populares", "Conocer canciones populares de Hispanoamérica y de las lenguas de España"],
+  lectura: { titulo: "La grabadora de Inés", html: `<p>Para el proyecto de Música, la profesora pidió a cada alumno que grabara una canción cantada por una persona mayor de su familia.</p><p>Inés fue a ver a su bisabuela Rosario, que tenía noventa y un años y vivía en una residencia. Al principio, Rosario decía que no se acordaba de nada.</p><p>—¿Y qué le cantabas al abuelo cuando era un bebé? —le preguntó Inés.</p><p>Rosario cerró los ojos, se quedó un momento en silencio y empezó a cantar muy bajito una <b>nana</b>: «<i>Duérmete, niño, duérmete ya, que viene el coco y te comerá…</i>».</p><p>Inés pulsó el botón de grabar del móvil. Después de la nana vinieron una canción de la siega, un villancico de su pueblo y una canción de corro que Inés no había oído nunca. Otras abuelas de la residencia se fueron acercando y se unieron a cantar. Algunas cambiaban un poco la letra. «¡En mi pueblo no se decía así!», discutían entre risas.</p><p>Esa tarde Inés grabó once canciones. Cuando las escuchó en clase, la profesora se emocionó.</p><p>—Inés, has hecho lo mismo que hacían los grandes investigadores de la música popular: recoger las canciones de la boca de la gente antes de que se pierdan.</p><p>Desde entonces, las grabaciones de Inés forman parte del <b>cancionero</b> del colegio.</p>` },
+  tras: {
+    "Una canción para cada momento": [
+      ["Los villancicos", `<p>Los <mark>villancicos</mark> son canciones populares que se cantan en <b>Navidad</b>. Su nombre viene de «villano», que antiguamente significaba el habitante de una villa o pueblo: eran las canciones que cantaba la gente sencilla.</p><p>En España hay muchísimos villancicos tradicionales. Algunos de los más conocidos son:</p><ul><li>«<b>Los peces en el río</b>»: «Pero mira cómo beben los peces en el río…».</li><li>«<b>Campana sobre campana</b>», de Andalucía.</li><li>«<b>Hacia Belén va una burra</b>», con su estribillo «rin, rin».</li><li>«<b>Ya vienen los Reyes Magos</b>».</li><li>«<b>El tamborilero</b>», con su «ropopompom».</li><li>«<b>El cant dels ocells</b>» (El canto de los pájaros), un villancico catalán muy antiguo.</li></ul><p>Los villancicos se acompañan con instrumentos populares de <b>percusión</b>:</p><ul><li>La <b>zambomba</b>: un recipiente cubierto con una piel en la que se clava una caña. Al frotar la caña con la mano húmeda, suena un sonido grave: «zum, zum».</li><li>La <b>pandereta</b> y las <b>castañuelas</b>.</li><li>La <b>botella de anís</b> rascada con una cuchara.</li><li>El <b>almirez</b>, un mortero de metal que se golpea con su mano.</li></ul><p>En Jerez y otras ciudades andaluzas se celebran las <b>zambombas</b>: fiestas en la calle en las que la gente se reúne para cantar villancicos flamencos.</p>`,
+        L6.filas("Villancicos", [["zambomba", "zum, zum", cRO], ["pandereta", "sacudir y golpear", cNA], ["botella", "rascar", cVE], ["almirez", "golpear el metal", cAZ]])],
+    ],
+    "Canciones de corro y de juego": [
+      ["Juegos de palmas y de manos", `<p>Los <mark>juegos de palmas</mark> son canciones que se cantan por parejas o en grupo mientras se dan palmadas siguiendo un patrón: con las propias manos, con las del compañero, en las piernas… Son perfectos para trabajar el <b>pulso</b>, el <b>ritmo</b> y la <b>coordinación</b>.</p><p>Algunos muy conocidos en España son:</p><ul><li>«<b>En la calle 24</b>»: «En la calle 24 ha habido un asesinato, una vieja mató a un gato con la punta del zapato…».</li><li>«<b>Chocolate, molinillo</b>»: se va acelerando cada vez más.</li><li>«<b>Los cinco lobitos</b>»: un juego de manos para los más pequeños, girando la mano al ritmo de la canción.</li><li>«<b>Choco choco la la</b>».</li></ul><p>Un patrón básico de palmas por parejas, uno frente al otro, es:</p><ul><li>1. Palmada con tus propias manos.</li><li>2. Palmada con la mano derecha contra la derecha del compañero.</li><li>3. Palmada con tus propias manos.</li><li>4. Palmada con la izquierda contra la izquierda del compañero.</li></ul><p>Cada palmada cae en un <b>tiempo</b> de la canción. Cuando lo domines, prueba a ir más rápido o a inventar tu propio patrón con golpes en las rodillas, chasquidos o palmadas cruzadas.</p><p>Estos juegos existen en todo el mundo, y muchos viajaron de un país a otro de boca en boca.</p>`,
+        H6.flujo("Patrón de palmas", ["1|mis manos", "2|derecha", "3|mis manos", "4|izquierda"], cMO), ["H-XH79VBFjY", "Chocolate. Juego de manos", "Pequeño Pez", 67398580]],
+    ],
+    "Del centro, del sur y de las islas": [
+      ["Lorca y las canciones populares", `<p>Muchas canciones populares se habrían perdido si alguien no las hubiera <mark>recogido</mark> y escrito. Las personas que viajan por los pueblos para escuchar y anotar las canciones de la gente se llaman <b>folcloristas</b> o recopiladores. Sus colecciones se llaman <b>cancioneros</b>.</p><p>Uno de los más famosos fue <b>Federico García Lorca</b> (1898-1936), el gran poeta granadino. Además de escribir poesía y teatro, Lorca era un excelente <b>pianista</b> y le encantaba la música popular.</p><p>En <b>1931</b>, Lorca grabó un disco con la cantante y bailaora <b>La Argentinita</b>. Él tocaba el piano y ella cantaba y tocaba las castañuelas. Se llamó <b>«Colección de canciones populares españolas»</b> e incluía canciones como:</p><ul><li>«<b>Los cuatro muleros</b>».</li><li>«<b>Anda, jaleo</b>».</li><li>«<b>Nana de Sevilla</b>».</li><li>«<b>Zorongo</b>».</li><li>«<b>Las morillas de Jaén</b>».</li></ul><p>Lorca también colaboró con el compositor <b>Manuel de Falla</b> para organizar en Granada un concurso de cante jondo en 1922, con el fin de proteger el flamenco más antiguo.</p><p>Gracias a su trabajo, hoy podemos escuchar esas canciones como se cantaban hace casi cien años.</p>`,
+        H6.dos("1931", ["LORCA", ["poeta", "granadino", "piano"], cVE], ["ARGENTINITA", ["canto", "baile", "castañuelas"], cRO]), ["w1FQd76fI3A", "Lorca y La Argentinita: Los cuatro muleros", "TamerlanMusic Traducciones II", 53591]],
+    ],
+  },
+  final: [
+    ["Canciones populares de Hispanoamérica", `<p>El español se habla en más de veinte países, y con la lengua viajaron muchas <mark>canciones</mark>. Algunas canciones infantiles se cantan igual en España y en América; otras nacieron allí y han llegado hasta nosotros.</p><ul><li>«<b>Arroz con leche</b>»: «Arroz con leche, me quiero casar con una señorita de San Nicolás…». Se canta en España y en toda América.</li><li>«<b>Los pollitos dicen</b>»: «Los pollitos dicen pío, pío, pío, cuando tienen hambre, cuando tienen frío». Muy popular en Hispanoamérica.</li><li>«<b>Cielito lindo</b>»: una canción mexicana con el famoso estribillo «Ay, ay, ay, ay, canta y no llores».</li><li>«<b>La cucaracha</b>»: un corrido mexicano muy conocido.</li><li>«<b>El reloj de Lulú</b>», «<b>Aserrín, aserrán</b>»…</li></ul><p>En América, la música popular se mezcló con la música de los pueblos <b>indígenas</b> y con la que llevaron las personas <b>africanas</b>. De esa mezcla nacieron ritmos como la <b>cumbia</b> (Colombia), el <b>son</b> (Cuba), el <b>tango</b> (Argentina y Uruguay) o la <b>ranchera</b> (México).</p><p>También hay instrumentos propios, como el <b>charango</b> (una guitarrita de los Andes), las <b>maracas</b>, el <b>güiro</b> o la <b>quena</b>, una flauta de caña.</p>`,
+      L6.filas("Hispanoamérica", [["México", "Cielito lindo", cRO], ["Colombia", "cumbia", cNA], ["Cuba", "son", cAZ], ["Andes", "charango, quena", cVE]])],
+    ["Canciones en las lenguas de España", `<p>En España se hablan varias <mark>lenguas</mark>, y cada una tiene un tesoro de canciones populares:</p><ul><li>En <b>catalán</b>: «<b>El cant dels ocells</b>», que el violonchelista <b>Pau Casals</b> tocaba en sus conciertos por todo el mundo como símbolo de paz; y canciones infantiles como «<b>Plou i fa sol</b>».</li><li>En <b>gallego</b>: «<b>A Rianxeira</b>», que habla de la Virgen de Guadalupe de Rianxo y se canta en todas las fiestas gallegas; y muchas <b>alalás</b>, cantos muy antiguos.</li><li>En <b>euskera</b>: «<b>Boga, boga</b>», una canción de remeros que se canta marcando el ritmo de los remos.</li><li>En <b>valenciano</b>: «<b>El Tio Pep se'n va a Muro</b>».</li><li>En <b>asturiano</b> y en <b>aragonés</b> también hay canciones de trabajo, de ronda y de fiesta.</li></ul><p>Aunque no entendamos todas las palabras, podemos disfrutar de su <b>melodía</b> y su <b>ritmo</b>. Cantar canciones en otras lenguas de España nos ayuda a conocer y respetar la <b>diversidad</b> cultural de nuestro país.</p><p>Pregunta a tus compañeros: ¿alguien conoce una canción en otra lengua? Podéis aprenderla todos juntos.</p>`,
+      H6.rueda("Lenguas", "CANTAR", [["catalán", cAZ], ["gallego", cVE], ["euskera", cRO], ["valenciano", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Por qué una misma canción popular tiene letras distintas en dos pueblos?", ["Se transmitía de boca en boca, sin partitura.", "Cada lugar la fue cambiando un poco."], "Por la tradición oral."],
+    ["Quieres acompañar «Los peces en el río» con un instrumento típico de Navidad que suena «zum, zum». ¿Cuál eliges?", ["Es un instrumento de percusión con una caña.", "Se frota con la mano húmeda."], "La zambomba."],
+  ],
+  errores: ["Pensar que las canciones populares tienen un autor conocido: casi siempre es anónimo.", "Acelerar el juego de palmas sin mantener el pulso: cada palmada debe caer en un tiempo."],
+  ejercicios: [
+    ["b", "¿Cuándo se cantan los villancicos?", "En Navidad."],
+    ["b", "¿Cómo suena la zambomba?", "Con un sonido grave, «zum, zum», al frotar la caña."],
+    ["b", "Nombra un juego de palmas.", "Por ejemplo, «En la calle 24»."],
+    ["b", "¿Qué instrumento tocaba Lorca en su disco de 1931?", "El piano."],
+    ["b", "¿De qué país es «Cielito lindo»?", "De México."],
+    ["m", "¿Qué es un cancionero?", "Una colección de canciones recogidas."],
+    ["m", "¿Qué trabajan los juegos de palmas?", "El pulso, el ritmo y la coordinación."],
+    ["m", "¿De dónde viene la palabra villancico?", "De «villano», habitante de una villa."],
+    ["m", "Nombra dos ritmos nacidos en Hispanoamérica.", "Por ejemplo, la cumbia y el tango."],
+    ["m", "¿Qué canción catalana tocaba Pau Casals como símbolo de paz?", "«El cant dels ocells»."],
+    ["a", "Graba una canción cantada por una persona mayor de tu familia.", "Respuesta abierta."],
+    ["a", "Inventa un patrón de palmas para una canción de corro.", "Respuesta abierta."],
+    ["a", "Aprende una canción en otra lengua de España.", "Respuesta abierta."],
+    ["a", "Acompaña un villancico con instrumentos caseros.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La zambomba suena al…", ["frotar la caña", "soplar", "pellizcar cuerdas"], "Villancicos."],
+    ["Lorca grabó canciones populares con…", ["La Argentinita", "Pau Casals", "Manuel de Falla"], "Lorca."],
+    ["«Arroz con leche» se canta…", ["en España y América", "solo en México", "solo en Galicia"], "Hispanoamérica."],
+    ["«Boga, boga» es una canción en…", ["euskera", "catalán", "gallego"], "Lenguas."],
+    ["Un juego de palmas trabaja sobre todo…", ["el pulso y el ritmo", "la flexibilidad", "el timbre"], "Palmas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué cantó primero la bisabuela Rosario?", ["una nana", "un villancico", "una canción de corro"], "Lectura."],
+    ["¿Qué es el charango?", ["una guitarrita de los Andes", "un tambor africano", "una flauta gallega"], "Hispanoamérica."],
+  ],
+  tarjetas: [
+    ["Villancicos", "Canciones de Navidad; zambomba, pandereta, botella, almirez."],
+    ["Juegos de palmas", "En la calle 24, chocolate; pulso y coordinación."],
+    ["Lorca", "Disco de 1931 con La Argentinita; cancioneros y folcloristas."],
+    ["Hispanoamérica y lenguas", "Cielito lindo, cumbia; El cant dels ocells, A Rianxeira, Boga boga."],
+  ],
+  glosario: [
+    ["Villancico", "Canción popular de Navidad."],
+    ["Zambomba", "Instrumento de fricción con una caña."],
+    ["Almirez", "Mortero de metal usado como instrumento."],
+    ["Juego de palmas", "Canción acompañada de palmadas en pareja."],
+    ["Patrón", "Secuencia de movimientos que se repite."],
+    ["Folclorista", "Persona que recoge la música popular."],
+    ["Cancionero", "Colección de canciones."],
+    ["Anónimo", "De autor desconocido."],
+    ["Tradición oral", "Transmisión de boca en boca."],
+    ["Charango", "Pequeña guitarra de los Andes."],
+    ["Quena", "Flauta andina de caña."],
+    ["Diversidad", "Variedad de culturas y lenguas."],
+  ],
+  situacion: {
+    titulo: "El cancionero de la clase",
+    reto: "La clase recopila canciones populares de sus familias para crear un cancionero propio.",
+    pasos: ["Grabar a familiares cantando una canción popular.", "Escribir la letra y anotar de dónde viene y para qué se cantaba.", "Aprender en clase un villancico, un juego de palmas y una canción en otra lengua.", "Presentar el cancionero en un pequeño concierto con instrumentos populares."],
+    producto: "Un cancionero escrito y grabado.",
+    evaluacion: ["Recoge canciones de la tradición oral.", "Sigue el pulso en un juego de palmas.", "Conoce el trabajo de los folcloristas.", "Valora canciones de otras lenguas y países."],
+  },
+});
