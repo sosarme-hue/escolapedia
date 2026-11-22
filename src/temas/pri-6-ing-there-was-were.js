@@ -101,3 +101,91 @@ module.exports = tema({
   ideas: ["Comparar fotos antiguas y actuales del pueblo o barrio.", "Juego de memoria con una imagen proyectada un minuto.", "Escribir el inicio de un cuento con Once upon a time there was…"],
   fuentes: [["British Council LearnEnglish Kids: there was, there were", "https://learnenglishkids.britishcouncil.org/grammar-practice"], ["Cambridge Dictionary: there is, there are", "https://dictionary.cambridge.org/grammar/british-grammar/there-is-there-are"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguish there was and it was", "Compare the past and the present with there used to be", "Set the scene of a story with there was / there were", "Describe Pompeii and life a hundred years ago"],
+  lectura: { titulo: "The secret room", html: `<p>Last summer, my cousin Marta and I stayed at our grandparents' old house in the mountains. One rainy afternoon, we were bored, so we decided to explore the attic.</p><p>It was dark and dusty. <b>There were</b> old boxes everywhere, and <b>there was</b> a strange smell. Behind a big wardrobe, Marta found a small wooden door. It was locked, but <b>there was</b> a key under the carpet.</p><p>We opened the door slowly. Inside, <b>there was</b> a tiny room with a round window. <b>There weren't</b> any lights, so we used a torch. <b>There was</b> a desk with an old typewriter on it, and <b>there were</b> hundreds of letters tied with red ribbons. On the wall, <b>there was</b> a black-and-white photo of a young woman.</p><p>We ran downstairs to ask Grandma. She smiled. «That was my mother's room,» she said. «She was a writer. <b>There were</b> no computers then, so she wrote everything on that typewriter.»</p><p>That evening, we read some of the letters together. It was the best rainy day ever.</p>` },
+  tras: {
+    "Questions and short answers": [
+      ["There was or it was?", `<p>Many students confuse <b>there was</b> and <b>it was</b>. They are different:</p><ul><li><mark>There was / there were</mark> says that something <b>existed</b> or was in a place. It introduces something <b>new</b>: «<b>There was</b> a dog in the garden.» (Había un perro.)</li><li><mark>It was</mark> describes something we already know, or talks about the weather, the time or a situation: «<b>It was</b> black and white.» «<b>It was</b> cold.» «<b>It was</b> nine o'clock.» «<b>It was</b> fantastic!»</li></ul><p>We often use them together: first <i>there was</i> to present the thing, then <i>it was</i> to describe it:</p><ul><li>«<b>There was</b> a cake on the table. <b>It was</b> delicious.»</li><li>«<b>There were</b> some kittens in the box. <b>They were</b> very small.»</li></ul><p><b>En castellano</b> decimos «había» para los dos números (había un perro, había dos perros), pero en inglés cambia: <i>there was</i> en singular y <i>there were</i> en plural. Y nunca decimos «It was a dog in the garden» para decir «había un perro».</p>`,
+        H6.dos("Two different things", ["There was", ["something exists", "There was a dog.", "había"], cAZ], ["It was", ["describes it", "It was black.", "era / estaba"], cNA]), ["pS6MubcSf_g", "The Was or Were Song", "Anchor Creative Education", 257902]],
+    ],
+    "My town in the past": [
+      ["There used to be…", `<p>To compare a place in the past and now, we can use <mark>there used to be</mark>. It means that something existed in the past, for a long time, but it doesn't exist now:</p><ul><li>«<b>There used to be</b> a cinema in my street. Now <b>there is</b> a supermarket.»</li><li>«<b>There used to be</b> lots of trees here. Now <b>there are</b> houses.»</li><li>«<b>There didn't use to be</b> a park in my town, but now <b>there is</b> a big one.»</li><li>«<b>Did there use to be</b> a castle here?» – «Yes, there did.»</li></ul><p>Notice that <i>there used to be</i> is the same for singular and plural.</p><p>Ask your grandparents or older neighbours what your town or neighbourhood was like when they were children. Here are some questions:</p><ul><li>Was there a school? Were there many shops?</li><li>What used to be in the place where your house is now?</li><li>Were there many cars? Was there a train station?</li></ul><p>Then compare the past and the present in a table with two columns: <b>Then</b> and <b>Now</b>.</p>`,
+        L6.filas("Then and now", [["there used to be a cinema", "now: a supermarket", cAZ], ["there used to be fields", "now: houses", cVE], ["there didn't use to be a park", "now: there is one", cNA], ["there used to be a market", "now: still there!", cMO]])],
+    ],
+    "Telling a story": [
+      ["Setting the scene", `<p>Good stories often begin by <b>setting the scene</b>: describing the place, the time and the atmosphere before the action starts. <i>There was</i> and <i>there were</i> are perfect for this:</p><ul><li><b>Time and place</b>: «Once upon a time, <b>there was</b> a little village by a lake.»</li><li><b>People and animals</b>: «<b>There were</b> children playing in the square, and <b>there was</b> an old man sitting on a bench.»</li><li><b>Sounds and atmosphere</b>: «<b>There was</b> a strange silence. <b>There wasn't</b> any wind.»</li></ul><p>A great trick is <b>there was / there were + person + -ing</b>, which shows an action happening in the scene: «<b>There was</b> a woman <b>selling</b> flowers.» «<b>There were</b> birds <b>singing</b> in the trees.»</p><p>You can also use adjectives and prepositions of place to paint a clear picture: «In the middle of the forest, <b>there was</b> a tall, dark tower. Next to it, <b>there was</b> a small, frozen pond.»</p><p>After setting the scene, start the action with the past simple and a word like <i>suddenly</i>: «Suddenly, a door opened…»</p>`,
+        H6.flujo("Start a story", ["place|there was…", "people|…-ing", "mood|there wasn't…", "Suddenly…|action!"], cMO)],
+    ],
+  },
+  final: [
+    ["Pompeii: a town frozen in time", `<p>Almost 2,000 years ago, in the year <b>79 AD</b>, there was a busy Roman town called <b>Pompeii</b>, near the city of Naples, in Italy. About 11,000 people lived there, near a big mountain called <b>Vesuvius</b>. Nobody knew it was a volcano.</p><p>In Pompeii, <b>there were</b> houses with beautiful paintings and mosaics, and <b>there were</b> shops, bakeries and street «fast-food» counters where people bought hot food. <b>There was</b> a big amphitheatre for shows and <b>there were</b> public baths. On the walls, <b>there were</b> lots of messages and drawings, like modern graffiti. At the entrance of one house, <b>there was</b> a mosaic of a dog with the words «<i>Cave canem</i>», which means «Beware of the dog»!</p><p>Then, one day, Vesuvius erupted. <b>There was</b> a huge cloud of ash and hot gas, and in a few hours the town was buried under metres of ash and stones. Pompeii disappeared.</p><p>More than 1,600 years later, in the 18th century, people started to dig and found the town almost exactly as it was. Today, millions of tourists walk along its streets every year, and archaeologists are still discovering new things.</p><p>Thanks to the ash, we know a lot about daily life in a Roman town: what people ate, how they decorated their homes, what games children played and even what jokes they wrote on the walls.</p>`,
+      L6.filas("In Pompeii there were…", [["houses", "paintings and mosaics", cAZ], ["bakeries", "and food counters", cNA], ["an amphitheatre", "for shows", cVE], ["graffiti", "on the walls", cRO]]), ["tZ4lAWXLW9g", "The Lost City of Pompeii | Mount Vesuvius | Greek History for Kids", "Bedtime History", 342253]],
+    ["A hundred years ago", `<p>Imagine you could travel back in time to a Spanish town a hundred years ago, in the 1920s. What was different?</p><ul><li><b>There weren't</b> any televisions, computers or mobile phones. The first radio stations in Spain started in 1924, and only a few families had a radio.</li><li><b>There were</b> very few cars. People walked a lot, rode horses or bicycles, and in cities <b>there were</b> trams.</li><li>In many villages, <b>there wasn't</b> running water at home. People got water from a fountain or a well.</li><li><b>There weren't</b> any supermarkets. <b>There were</b> small shops and markets, and people bought food every day because many homes didn't have a fridge.</li><li>Many children didn't go to school for long: they had to help their families in the fields or at home.</li><li>But <b>there were</b> also lots of children playing in the street with spinning tops, marbles and skipping ropes.</li></ul><p>Now think about the future: what will people say about our life in a hundred years? «A hundred years ago, there were mobile phones and petrol cars…»</p>`,
+      H6.dos("1920s and today", ["Then", ["no TV", "few cars", "no supermarkets"], cMO], ["Now", ["mobile phones", "lots of cars", "supermarkets"], cAZ])],
+  ],
+  ejemplos: [
+    ["Complete: «___ a cat on the roof. ___ grey.»", ["First, say that it existed: there was.", "Then describe it: it was."], "There was a cat on the roof. It was grey."],
+    ["Write about your town: «a cinema → a supermarket».", ["Past: there used to be.", "Present: there is."], "There used to be a cinema. Now there is a supermarket."],
+  ],
+  errores: ["Decir «It was a dog in the garden» para expresar «había un perro».", "Usar «there was» con plurales: «There was many people»."],
+  ejercicios: [
+    ["b", "Choose: «(There was / It was) a big tree in the park. (There was / It was) very old.»", "There was; It was."],
+    ["b", "Complete: «There ___ (be) two bakeries in my village.»", "were."],
+    ["b", "In what year did Vesuvius erupt?", "In 79 AD."],
+    ["b", "What does «Cave canem» mean?", "Beware of the dog."],
+    ["b", "Were there mobile phones a hundred years ago?", "No, there weren't."],
+    ["m", "Write two sentences with there used to be about your town.", "Open answer."],
+    ["m", "Correct: «There was many people at the concert.»", "There were many people at the concert."],
+    ["m", "Set the scene: write two sentences with there was / were + -ing.", "Open answer. Example: There were children playing. There was a man selling ice creams."],
+    ["m", "Make a question: «There used to be a castle here.»", "Did there use to be a castle here?"],
+    ["m", "Name three things there were in Pompeii.", "Houses with mosaics, bakeries, an amphitheatre (also baths, graffiti)."],
+    ["a", "Write the beginning of a story (five sentences) setting the scene with there was/were.", "Open answer."],
+    ["a", "Compare life a hundred years ago and now (four sentences).", "Open answer."],
+    ["a", "Explain the difference between «There was a party» and «It was a party».", "There was: a party existed/happened. It was a party: describes something already mentioned."],
+    ["a", "Interview an older person and write a «Then and now» table about your town.", "Open answer."],
+  ],
+  quiz: [
+    ["«There ___ some old coins in the box.»", ["were", "was", "it was"], "Plural."],
+    ["«There used to be» is used for…", ["past situations that changed", "future plans", "now"], "Used to."],
+    ["«There was a man ___ the guitar.»", ["playing", "plays", "played"], "Setting the scene."],
+    ["Pompeii is in…", ["Italy", "Greece", "Spain"], "Pompeii."],
+    ["The first radio stations in Spain started in…", ["1924", "1824", "1994"], "100 years ago."],
+  ],
+  examen: [
+    ["In the secret room, there was…", ["an old typewriter", "a computer", "a TV"], "Reading."],
+    ["«___ cold yesterday.»", ["It was", "There was", "There were"], "It was."],
+  ],
+  tarjetas: [
+    ["There was vs it was", "There was: something exists. It was: description, weather, time."],
+    ["There used to be", "Past situation, not true now. Did there use to be…?"],
+    ["Setting the scene", "There was a woman selling flowers. There were birds singing."],
+    ["Pompeii", "79 AD, Vesuvius; houses, bakeries, amphitheatre, graffiti."],
+  ],
+  glosario: [
+    ["Attic", "Desván."],
+    ["Typewriter", "Máquina de escribir."],
+    ["Existed", "Existía."],
+    ["Atmosphere", "Ambiente."],
+    ["Set the scene", "Describir el escenario."],
+    ["Volcano", "Volcán."],
+    ["Ash", "Ceniza."],
+    ["Erupt", "Entrar en erupción."],
+    ["Buried", "Enterrado."],
+    ["Archaeologist", "Arqueólogo."],
+    ["Running water", "Agua corriente."],
+    ["Well", "Pozo."],
+  ],
+  situacion: {
+    titulo: "Our town: then and now",
+    reto: "La clase investiga cómo era su localidad hace cien años y prepara una exposición bilingüe.",
+    pasos: ["Buscad fotos antiguas de la localidad y entrevistad a personas mayores.", "Escribid frases con there was / there were y there used to be para cada foto.", "Haced una foto actual del mismo lugar y escribid cómo es ahora.", "Montad la exposición «Then and now» y presentadla en inglés a otras clases."],
+    producto: "Una exposición de fotos «Then and now» con textos en inglés.",
+    evaluacion: ["Uses there was / there were correctly.", "Distinguishes there was and it was.", "Compares past and present with there used to be.", "Presents the information clearly."],
+  },
+});

@@ -97,3 +97,93 @@ module.exports = tema({
   ideas: ["Libro de récords de la clase con medidas reales.", "Cartas de animales con datos para comparar en parejas.", "Comparar dos ciudades con un mapa y datos de población."],
   fuentes: [["British Council LearnEnglish Kids: comparatives and superlatives", "https://learnenglishkids.britishcouncil.org/grammar-practice/comparatives"], ["Cambridge Dictionary: adjectives, comparison", "https://dictionary.cambridge.org/grammar/british-grammar/adjectives-forms"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Compare with less and the least", "Make comparisons stronger or softer: much better, a bit taller", "Use too and enough", "Compare actions with adverbs and compare two countries"],
+  lectura: { titulo: "The twin challenge", html: `<p>Leo and Sara are twins. They are eleven, they have the same birthday and they look very similar. But they are always competing!</p><p>Last week, their dad organised «The Twin Challenge». First, they measured themselves. Leo was <b>a bit taller</b> than Sara: only one centimetre! Then they had a race in the park. Sara ran <b>much faster</b> than Leo and won easily.</p><p>Next, they did a maths quiz. Leo was <b>quicker</b>, but Sara was <b>more careful</b> and made <b>fewer</b> mistakes, so she got a <b>better</b> score. In the cooking challenge, Leo's pancakes were <b>the most delicious</b>, but his kitchen was <b>the messiest</b> kitchen in the history of the family!</p><p>At the end, their dad counted the points. It was a draw: Leo was <b>as good as</b> Sara.</p><p>«So who is <b>the best</b> twin?» asked Sara.</p><p>Dad laughed. «You're <b>too</b> competitive, both of you! You're different, and that's <b>good enough</b> for me.»</p><p>The twins looked at each other and smiled. Then Leo said: «Rematch tomorrow?»</p>` },
+  tras: {
+    "Long adjectives: more and the most": [
+      ["Less and the least", `<p>We usually compare things by saying that one has <b>more</b> of a quality. But we can also say that it has <b>less</b>:</p><ul><li><mark>less + adjective + than</mark>: «This film is <b>less interesting than</b> the book.» (menos interesante que)</li><li><mark>the least + adjective</mark>: «Maths is <b>the least difficult</b> subject for me.» (la menos difícil)</li></ul><p>With short adjectives, it is more natural to use <b>not as … as</b>: «My bike is<b>n't as fast as</b> yours» sounds better than «My bike is less fast than yours».</p><p><i>Less</i> and <i>fewer</i> are also used with nouns:</p><ul><li><b>fewer</b> + countable nouns: «I have <b>fewer</b> books than you.»</li><li><b>less</b> + uncountable nouns: «There is <b>less</b> water in this bottle.»</li></ul><p>And the opposites with <i>more</i>: «I have <b>more</b> books / <b>more</b> water than you.» In everyday English, many people say «less books», but in correct written English we use <i>fewer</i> with countable nouns.</p>`,
+        L6.filas("More and less", [["more expensive", "más caro", cRO], ["less expensive", "menos caro", cAZ], ["the least expensive", "el menos caro", cVE], ["fewer books", "menos libros", cNA]])],
+    ],
+    "Irregular forms": [
+      ["Much better, a bit taller", `<p>We can make a comparison <b>stronger</b> or <b>softer</b> by adding a word before the comparative:</p><ul><li>A <b>big</b> difference: <mark>much</mark>, <mark>a lot</mark>, <mark>far</mark>. «An elephant is <b>much heavier</b> than a mouse.» «Your drawing is <b>a lot better</b> than mine.» «The sun is <b>far bigger</b> than the Earth.»</li><li>A <b>small</b> difference: <mark>a bit</mark>, <mark>a little</mark>, <mark>slightly</mark>. «I'm <b>a bit taller</b> than my sister.» «Today is <b>a little warmer</b> than yesterday.»</li></ul><p>Be careful: we <b>can't</b> use <i>very</i> with comparatives. «Very taller» is wrong. Use <i>much taller</i>.</p><p>With superlatives, we can use <b>by far</b> or <b>one of</b>:</p><ul><li>«She is <b>by far the best</b> player in the team.» (con diferencia la mejor)</li><li>«It's <b>one of the most beautiful</b> places in the world.» Notice: <i>one of the</i> + superlative + <b>plural noun</b>.</li></ul><p>And we can say that something keeps changing with two comparatives: «It's getting <b>colder and colder</b>.» «The film was <b>more and more</b> exciting.»</p>`,
+        L6.filas("Big or small difference?", [["much bigger", "big difference", cRO], ["a lot better", "big difference", cRO], ["a bit taller", "small difference", cVE], ["slightly warmer", "small difference", cVE]])],
+    ],
+    "As … as: the same": [
+      ["Too and enough", `<p><mark>Too</mark> and <mark>enough</mark> are not comparatives, but they also talk about «how much» of a quality something has.</p><ul><li><b>too + adjective</b> = more than necessary, a problem (demasiado): «This T-shirt is <b>too big</b> for me.» «It's <b>too cold</b> to go swimming.»</li><li><b>adjective + enough</b> = the right amount (suficientemente): «Is the water <b>warm enough</b>?» «She's <b>old enough</b> to go alone.» Notice the order: <i>enough</i> goes <b>after</b> the adjective.</li><li><b>not + adjective + enough</b> = less than necessary: «I'm <b>not tall enough</b> to reach the shelf.»</li></ul><p>With nouns, <i>enough</i> goes <b>before</b>: «We have <b>enough chairs</b>.» «There isn't <b>enough time</b>.» And <i>too</i> becomes <b>too much</b> or <b>too many</b>: «There is <b>too much</b> noise.» «There are <b>too many</b> people.»</p><p>Compare: «The box is <b>too heavy</b>, I can't carry it» and «The box is <b>light enough</b>, I can carry it».</p>`,
+        H6.dos("Too or enough?", ["too", ["too big", "too cold", "a problem"], cRO], ["enough", ["warm enough", "old enough", "OK!"], cVE]), ["q4xfTdojGEM", "How To Use TOO & ENOUGH | English Grammar Lesson", "mmmEnglish", 612878]],
+    ],
+  },
+  final: [
+    ["Comparing actions", `<p>We can also compare <b>how</b> people do things. For this we use <b>adverbs</b>:</p><ul><li>Short adverbs, which have the same form as the adjective, add <b>-er</b> and <b>-est</b>: <i>fast → faster → the fastest</i>; <i>hard → harder → the hardest</i>; <i>early → earlier → the earliest</i>. «Sara runs <b>faster than</b> Leo.» «Who gets up <b>the earliest</b> in your family?»</li><li>Adverbs ending in <b>-ly</b> use <b>more</b> and <b>the most</b>: <i>carefully → more carefully → the most carefully</i>; <i>slowly → more slowly</i>; <i>quietly → more quietly</i>. «Please speak <b>more slowly</b>.» «Lucía writes <b>the most carefully</b> in the class.»</li><li>Irregular adverbs: <i>well → better → the best</i>; <i>badly → worse → the worst</i>. «She sings <b>better than</b> me.» «I played <b>worse</b> today.»</li></ul><p>Remember the difference between an adjective and an adverb: «He is a <b>good</b> singer» (adjective) but «He sings <b>well</b>» (adverb). «She is a <b>careful</b> driver» but «She drives <b>carefully</b>».</p>`,
+      L6.filas("Adverbs", [["fast", "faster · the fastest", cAZ], ["carefully", "more carefully", cVE], ["well", "better · the best", cNA], ["badly", "worse · the worst", cRO]]), ["93fdOjNb4oU", "Comparison of Adverbs | English Grammar & Composition Grade 4 | Periwinkle", "Periwinkle", 88857]],
+    ["Spain and the UK", `<p>Let's compare two European countries: <b>Spain</b> and the <b>United Kingdom</b>.</p><ul><li><b>Size</b>: Spain is <b>much bigger</b> than the UK. It is about 506,000 km², more than twice as big as the UK (about 243,000 km²).</li><li><b>Population</b>: the UK has <b>more</b> people: about 69 million. Spain has about 49 million. So the UK is <b>more crowded</b>.</li><li><b>Mountains</b>: the highest mountain in Spain is the Teide, in Tenerife (3,715 m). The highest in the UK is Ben Nevis, in Scotland (1,345 m). The Teide is <b>far higher</b>!</li><li><b>Capitals</b>: London is <b>bigger</b> than Madrid. It has about 9 million people; Madrid has about 3.4 million.</li><li><b>Weather</b>: Spain is usually <b>sunnier</b>, <b>hotter</b> and <b>drier</b> than the UK, especially in summer. The UK is <b>rainier</b> and <b>cloudier</b>, but its summers are <b>cooler</b> and more comfortable for many people.</li><li><b>Dinner time</b>: people in the UK usually have dinner <b>much earlier</b> than people in Spain!</li></ul><p>Now choose two places you know, like two towns or two countries, and write five comparisons. Use numbers when you can: real facts and data make your comparisons much stronger and more interesting for the reader.</p>`,
+      H6.dos("Spain or the UK?", ["Spain", ["bigger", "sunnier", "higher mountain"], cRO], ["the UK", ["more people", "rainier", "bigger capital"], cAZ])],
+    ["The more, the better", `<p>There is a special structure with <b>two comparatives</b> that shows how one thing changes together with another: <mark>the + comparative …, the + comparative …</mark></p><ul><li>«<b>The more</b> you read, <b>the more</b> you learn.» (Cuanto más lees, más aprendes.)</li><li>«<b>The older</b> I get, <b>the taller</b> I am.»</li><li>«<b>The faster</b> you run, <b>the sooner</b> you arrive.»</li><li>«<b>The less</b> you sleep, <b>the more tired</b> you feel.»</li><li>«<b>The higher</b> you climb, <b>the colder</b> it gets.»</li></ul><p>There is also a very common short expression: «<b>The more, the merrier!</b>» It means that more people make a party or an activity more fun. You can say it when a friend asks if they can join your game: «Can I play with you?» – «Of course! The more, the merrier!» And «<b>the sooner, the better</b>» means that something should happen as soon as possible.</p><p><b>En castellano</b> usamos «cuanto más…, más…»: «Cuanto más practicas, mejor juegas» = «The more you practise, the better you play».</p><p>Try to complete these sentences about yourself: «The more I play video games, the…» «The more I practise English, the…»</p>`,
+      L6.filas("The more…, the more…", [["the more you read", "the more you learn", cAZ], ["the higher you climb", "the colder it gets", cVE], ["the more people", "the merrier!", cNA], ["the sooner", "the better", cMO]])],
+  ],
+  ejemplos: [
+    ["Make it stronger: «A lion is faster than a pig.»", ["Big difference: much / a lot / far.", "Never «very faster»."], "A lion is much faster than a pig."],
+    ["Too or enough? «I can't drink this tea. It's ___ hot.»", ["It is a problem: more than necessary.", "Too + adjective."], "It's too hot."],
+  ],
+  errores: ["Decir «very taller»: con comparativos se usa much, a lot o a bit.", "Poner enough antes del adjetivo: «enough old» en lugar de «old enough»."],
+  ejercicios: [
+    ["b", "Complete: «This book is ___ interesting than that one.» (less)", "less."],
+    ["b", "Choose: «I'm (a bit / very) taller than my brother.»", "a bit."],
+    ["b", "Complete: «The soup is too ___ (hot) to eat.»", "hot."],
+    ["b", "Write the comparative of the adverb: fast, well.", "faster, better."],
+    ["b", "Which is bigger, Spain or the UK?", "Spain."],
+    ["m", "Order the words: enough / not / I'm / tall.", "I'm not tall enough."],
+    ["m", "Fewer or less? «There is ___ milk.» «There are ___ apples.»", "less; fewer."],
+    ["m", "Write a sentence with «one of the most…».", "Open answer. Example: It's one of the most beautiful cities in the world."],
+    ["m", "Correct: «She speaks more good than me.»", "She speaks better than me."],
+    ["m", "Who won the race in the twins' story?", "Sara."],
+    ["a", "Compare two classmates' abilities using three adverbs (politely!).", "Open answer."],
+    ["a", "Write three sentences with too and three with enough about your school.", "Open answer."],
+    ["a", "Compare your town with another town (five sentences, with much and a bit).", "Open answer."],
+    ["a", "Explain the difference between «He is a good singer» and «He sings well».", "Good is an adjective (describes him); well is an adverb (describes how he sings)."],
+  ],
+  quiz: [
+    ["«This is ___ difficult exercise of all.»", ["the least", "less", "the less"], "Least."],
+    ["«An elephant is ___ heavier than a dog.»", ["much", "very", "too"], "Strong difference."],
+    ["«Is the room big ___ for the party?»", ["enough", "too", "much"], "Enough after adjective."],
+    ["«She works ___ than me.»", ["harder", "more hard", "hardlier"], "Short adverb."],
+    ["The highest mountain in Spain is…", ["the Teide", "Ben Nevis", "the Mulhacén"], "Spain and the UK."],
+  ],
+  examen: [
+    ["In the twins' story, Leo's kitchen was…", ["the messiest", "the cleanest", "the biggest"], "Reading."],
+    ["«There are ___ people here. Let's go somewhere quieter.»", ["too many", "too much", "enough"], "Too many."],
+  ],
+  tarjetas: [
+    ["Less / the least", "less interesting than; the least difficult; fewer + countable."],
+    ["Modifiers", "much / a lot / far + comparative; a bit / slightly; never «very taller»."],
+    ["Too and enough", "too big (problem); big enough (OK); enough time."],
+    ["Adverbs", "faster, more carefully, better, worse."],
+  ],
+  glosario: [
+    ["Less", "Menos (con incontables)."],
+    ["Fewer", "Menos (con contables)."],
+    ["The least", "El / la menos."],
+    ["Much / a lot", "Mucho (con comparativos)."],
+    ["A bit / slightly", "Un poco, ligeramente."],
+    ["By far", "Con diferencia."],
+    ["Too", "Demasiado."],
+    ["Enough", "Suficiente, bastante."],
+    ["Adverb", "Adverbio."],
+    ["Carefully", "Con cuidado."],
+    ["Crowded", "Abarrotado, con mucha gente."],
+    ["Draw", "Empate."],
+  ],
+  situacion: {
+    titulo: "The class Olympics",
+    reto: "La clase organiza unas olimpiadas divertidas y escribe un informe en inglés comparando resultados.",
+    pasos: ["Organizad pruebas sencillas: salto, carrera, puntería, memoria y dibujo rápido.", "Anotad los resultados en una tabla.", "Escribid comparaciones con comparativos, superlativos, adverbios, much y a bit.", "Presentad el informe con gráficos y frases como «Team A ran much faster than Team B»."],
+    producto: "Un informe ilustrado de las olimpiadas de la clase en inglés.",
+    evaluacion: ["Uses comparatives and superlatives correctly.", "Uses modifiers, too and enough.", "Compares actions with adverbs.", "Respects classmates when comparing."],
+  },
+});

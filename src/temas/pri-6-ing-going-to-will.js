@@ -96,3 +96,91 @@ module.exports = tema({
   ideas: ["Cápsula del tiempo con planes y predicciones para abrir en 4º de ESO.", "Previsión del tiempo de la semana presentada como en la tele.", "Juego de rol en una cafetería: I'll have…"],
   fuentes: [["British Council LearnEnglish Kids: going to", "https://learnenglishkids.britishcouncil.org/grammar-practice/going"], ["Cambridge Dictionary: future, will and be going to", "https://dictionary.cambridge.org/grammar/british-grammar/future-be-going-to-i-am-going-to-work"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Say how sure we are about the future with might, probably and definitely", "Use the first conditional: if + present, will", "Make offers and suggestions with shall and will", "Understand weather forecasts and write a letter to the future"],
+  lectura: { titulo: "A letter to my future self", html: `<p><i>Dear Lucas of 2040,</i></p><p>Hello! It's me, you, when you were eleven. Our teacher says we are going to put these letters in a time capsule, and we are going to open it in thirty years. So, if you are reading this, you are forty-one now. That's old!</p><p>Right now I love football and drawing comics. I'm going to be a professional footballer, or maybe an illustrator. I think I'll live in a big city, but I might live by the sea, because I love the beach. I definitely won't eat broccoli. Never!</p><p>I hope you still have Max, our dog, but he's eight now, so probably not. Sorry, that's a sad thought.</p><p>I wonder: will people drive flying cars? Will we have holidays on the Moon? Will robots do our homework? If they do, I'll be very jealous!</p><p>Please don't forget the things that make us happy now: playing in the park, laughing with Grandma and reading in bed with a torch.</p><p>I promise I'll try to be a good person. Will you keep my promise?</p><p><i>Love from the past,<br>Lucas, age 11</i></p>` },
+  tras: {
+    "Will for predictions": [
+      ["How sure are you?", `<p>When we talk about the future, we are not always 100 % sure. English has different ways to say <b>how sure</b> we are:</p><ul><li><b>will definitely</b> / <b>definitely won't</b>: we are almost sure. «It <b>will definitely</b> be sunny in Seville in August.» Note the order: «will definitely», but «definitely won't».</li><li><b>will probably</b> / <b>probably won't</b>: we think it is likely. «I'<b>ll probably</b> go to the cinema on Saturday.» «She <b>probably won't</b> come.»</li><li><mark>might</mark> + verb: it is possible, but we are not sure (puede que, quizás). «It <b>might</b> rain this afternoon.» «I <b>might</b> be a vet one day.» Negative: «I <b>might not</b> go to the party.»</li></ul><p>Like <i>will</i>, <i>might</i> is a modal verb: it is the same for all persons (no -s) and is followed by the verb without <i>to</i>: «He <b>might come</b>», not «He mights come» or «He might to come».</p><p>Here is the scale, from sure to impossible: <i>will definitely → will probably → might → probably won't → definitely won't</i>.</p>`,
+        L6.filas("From sure to impossible", [["100 %", "will definitely", cVE], ["70 %", "will probably", cAZ], ["50 %", "might", cNA], ["0 %", "definitely won't", cRO]]), ["XJ2MCLvs5Ro", "Verbos modales: May / Might vs. Will", "TeacherWhatIDo - Teacher Diana", 109997]],
+    ],
+    "Will for decisions and promises": [
+      ["If it rains, we'll stay at home", `<p>The <mark>first conditional</mark> talks about something that will probably happen in the future <b>if</b> another thing happens first. It has two parts:</p><ul><li>The <b>if</b> part, with the <b>present simple</b>: «If it <b>rains</b>…»</li><li>The result, with <b>will</b> + verb: «…we'<b>ll stay</b> at home.»</li></ul><p>More examples:</p><ul><li>«If you <b>study</b>, you'<b>ll pass</b> the exam.»</li><li>«If we <b>hurry</b>, we <b>won't miss</b> the bus.»</li><li>«If I <b>have</b> time, I'<b>ll call</b> you.»</li><li>«What <b>will</b> you <b>do</b> if you <b>win</b> the prize?»</li></ul><p>Careful! After <i>if</i> we <b>never</b> use <i>will</i>: «If it <b>will rain</b>» is wrong. <b>En castellano</b> pasa lo mismo: decimos «Si llueve, nos quedaremos en casa», no «Si lloverá».</p><p>We can change the order of the two parts. If the <i>if</i> part goes first, we put a <b>comma</b>: «If it rains, we'll stay at home.» If it goes second, there is no comma: «We'll stay at home if it rains.»</p>`,
+        H6.flujo("First conditional", ["If + present|If it rains,", "will + verb|we'll stay", "no will|after if"], cAZ), ["rvmcGCDYhvQ", "FIRST CONDITIONAL - INGLÉS PARA NIÑOS CON MR.PEA - ENGLISH FOR KIDS", "Inglés para niños con Mr Pea", 574442]],
+    ],
+    "Going to or will?": [
+      ["Shall I…? Will you…?", `<p>We can also use <i>will</i> and <i>shall</i> in questions to make <b>offers</b>, <b>suggestions</b> and <b>requests</b>. These are very useful when you are with friends or visiting an English-speaking family:</p><ul><li><b>Shall I…?</b> to offer help: «<b>Shall I</b> open the window?» «<b>Shall I</b> carry your bag?» (¿Quieres que…?)</li><li><b>Shall we…?</b> to make a suggestion: «<b>Shall we</b> play a game?» «<b>Shall we</b> go to the park?» (¿Vamos a…? ¿Qué tal si…?)</li><li><b>Will you…?</b> to ask someone to do something: «<b>Will you</b> help me with this box, please?» «<b>Will you</b> close the door?»</li><li><b>I'll…</b> to offer immediately: «The phone's ringing!» – «<b>I'll</b> get it!»</li></ul><p>And here are some answers:</p><ul><li>«Yes, please!» · «No, thanks, I'm fine.» · «Good idea!» · «Of course!» · «Sure!»</li></ul><p><i>Shall</i> is mostly used with <i>I</i> and <i>we</i>, and is more common in British English. In American English, people often say «Should I…?» or «Do you want me to…?».</p><p>Remember to be polite: add <b>please</b> when you ask for something and <b>thank you</b> when someone helps you. In English-speaking countries, people say «please» and «thank you» very often, even in small everyday situations, like buying bread or getting off a bus. «Will you pass me the salt, please?» – «Of course. Here you are.» – «Thank you!»</p>`,
+        H6.dos("Offers and requests", ["Offers", ["Shall I help?", "Shall we play?", "I'll get it!"], cVE], ["Answers", ["Yes, please!", "Good idea!", "No, thanks."], cNA])],
+    ],
+  },
+  final: [
+    ["The weather forecast", `<p>A <b>weather forecast</b> is a prediction about the weather, so it uses a lot of <i>will</i>, <i>won't</i> and <i>might</i>. Listen to this forecast for Spain:</p><p><i>«Good evening. Tomorrow <b>will be</b> a cold day in the north. It <b>will rain</b> in Galicia and Asturias, and it <b>might snow</b> in the mountains above 1,000 metres. In the centre, it <b>will be</b> cloudy in the morning, but the sun <b>will come out</b> in the afternoon. In the south, it <b>won't rain</b>: it <b>will be</b> sunny and warm, with temperatures of around 22 degrees. There <b>will be</b> strong winds in the Strait of Gibraltar. The weekend <b>will probably</b> be sunny everywhere. Have a good evening!»</i></p><p>Useful weather words:</p><ul><li><b>Nouns</b>: sun, rain, snow, wind, cloud, fog, storm, thunder, lightning.</li><li><b>Adjectives</b>: sunny, rainy, snowy, windy, cloudy, foggy, stormy. Notice: we add <b>-y</b> to the noun.</li><li><b>Temperatures</b>: hot, warm, cool, cold, freezing; «It's 25 degrees».</li></ul><p>Now prepare your own forecast for your town for tomorrow and present it like a TV weather presenter, with a map and symbols!</p>`,
+      L6.filas("Weather words", [["sun", "sunny", cNA], ["rain", "rainy", cAZ], ["wind", "windy", cVE], ["fog", "foggy", cMO]])],
+    ["Time capsules", `<p>A <b>time capsule</b> is a box or container full of objects and messages that people close and hide so that people in the <b>future</b> can open it and learn about the past.</p><p>There are some very famous time capsules:</p><ul><li>In <b>1795</b>, in Boston (USA), the revolutionaries Samuel Adams and Paul Revere put a time capsule inside the cornerstone of a government building. It contained coins, newspapers and a silver plate. Experts opened it in <b>2015</b>, 220 years later!</li><li>In <b>1939</b>, a company buried a time capsule in New York with a message for people in the year <b>6939</b>. Nobody alive today will see it opened!</li><li>Many schools and towns make time capsules to open after 10, 25 or 50 years.</li></ul><p>What will you put in your class time capsule? Some ideas: a letter to your future self, a class photo, a newspaper from today, a drawing, a list of your favourite songs and games, and your predictions about the future. When people open it, they <b>will laugh</b>, they <b>might cry</b>, and they <b>will definitely</b> learn something about us.</p>`,
+      H6.rueda("Our time capsule", "CAPSULE", [["a letter", cAZ], ["a photo", cVE], ["a newspaper", cNA], ["predictions", cRO]]), ["YRWerw7i8Ao", "First look inside Boston time capsule from 1795", "CBS Mornings", 2200013]],
+  ],
+  ejemplos: [
+    ["Complete: «If it ___ (be) sunny tomorrow, we ___ (go) to the beach.»", ["If part: present simple.", "Result: will + verb."], "If it is sunny tomorrow, we will go to the beach."],
+    ["Say it with might: «Maybe I'll go to the party.»", ["Might = maybe / puede que.", "Might + verb, no to."], "I might go to the party."],
+  ],
+  errores: ["Usar will después de if: «If it will rain» es incorrecto.", "Escribir «He mights come» o «might to come»: might no lleva -s ni to."],
+  ejercicios: [
+    ["b", "Put in order: probably / I'll / tomorrow / you / see.", "I'll probably see you tomorrow."],
+    ["b", "Complete: «It ___ snow. I'm not sure.» (might / will definitely)", "might."],
+    ["b", "Complete: «If you ___ (eat) all that cake, you'll feel sick.»", "eat."],
+    ["b", "What's the adjective? sun, wind, cloud.", "sunny, windy, cloudy."],
+    ["b", "Make an offer with Shall I: the window is closed and it's hot.", "Shall I open the window?"],
+    ["m", "Correct: «If it will rain, we will stay at home.»", "If it rains, we will stay at home."],
+    ["m", "Write three sentences about your future with definitely, probably and might.", "Open answer."],
+    ["m", "Complete the first conditional: «If we miss the bus, …»", "Open answer. Example: we'll be late for school."],
+    ["m", "Make a suggestion with Shall we for a rainy afternoon.", "Shall we watch a film?"],
+    ["m", "When was the Boston time capsule opened?", "In 2015."],
+    ["a", "Write a chain story: «If I get a dog, I'll… If I…, I'll…» (four sentences).", "Open answer."],
+    ["a", "Write a weather forecast for your region for the weekend (six sentences).", "Open answer."],
+    ["a", "Explain the difference between «I'll go» and «I might go».", "I'll go: I'm sure/decided. I might go: it's possible, I'm not sure."],
+    ["a", "Write a letter to your future self like Lucas.", "Open answer."],
+  ],
+  quiz: [
+    ["«It ___ rain. Take an umbrella just in case.»", ["might", "mights", "might to"], "Might."],
+    ["«If you ___ hard, you'll win.»", ["train", "will train", "trained"], "If + present."],
+    ["«Shall we go to the park?» is a…", ["suggestion", "prediction", "promise"], "Shall we."],
+    ["«Foggy» comes from…", ["fog", "frog", "fox"], "Weather."],
+    ["The 1939 New York time capsule will be opened in…", ["6939", "2039", "1999"], "Time capsules."],
+  ],
+  examen: [
+    ["In his letter, Lucas definitely won't…", ["eat broccoli", "play football", "draw comics"], "Reading."],
+    ["Correct: «We'll stay at home if it ___.»", ["rains", "will rain", "rain"], "First conditional."],
+  ],
+  tarjetas: [
+    ["How sure?", "will definitely → will probably → might → probably won't → definitely won't."],
+    ["First conditional", "If + present, will + verb. No will after if."],
+    ["Offers", "Shall I…? Shall we…? Will you…? I'll get it!"],
+    ["Weather", "sunny, rainy, windy, cloudy, foggy, stormy; it might snow."],
+  ],
+  glosario: [
+    ["Might", "Puede que, quizás."],
+    ["Definitely", "Seguro, sin duda."],
+    ["Probably", "Probablemente."],
+    ["First conditional", "Primer condicional: if + presente, will."],
+    ["Offer", "Ofrecimiento."],
+    ["Suggestion", "Sugerencia, propuesta."],
+    ["Request", "Petición."],
+    ["Forecast", "Previsión, pronóstico."],
+    ["Fog", "Niebla."],
+    ["Thunder", "Trueno."],
+    ["Time capsule", "Cápsula del tiempo."],
+    ["Bury", "Enterrar."],
+  ],
+  situacion: {
+    titulo: "Our class time capsule",
+    reto: "La clase prepara una cápsula del tiempo en inglés para abrirla al terminar Secundaria.",
+    pasos: ["Cada alumno escribe una carta a su yo del futuro con will, going to y might.", "Escribid predicciones de la clase con el primer condicional: «If we…, we'll…».", "Preparad un parte meteorológico del día y otros objetos que representen el presente.", "Cerrad la cápsula en una pequeña ceremonia y decidid dónde guardarla."],
+    producto: "Una cápsula del tiempo con cartas, predicciones y objetos de la clase.",
+    evaluacion: ["Uses will, going to and might correctly.", "Uses the first conditional without will after if.", "Makes offers and suggestions.", "Writes a clear letter with future forms."],
+  },
+});
