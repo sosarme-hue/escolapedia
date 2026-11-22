@@ -83,3 +83,106 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: el verbo; infinitivo; conjugaciones; raíz y terminación; persona y número; tiempos presente, pasado y futuro",
   ideas: ["Línea del tiempo en el suelo para colocar frases en pasado, presente y futuro.", "Dado de personas y dado de verbos para conjugar en voz alta.", "Diario de la semana: escribir cada día una frase en pasado."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  videos: {
+    "Pasado, presente y futuro juntos": ["tBEBVmOAXsg", "VERBOS EN PASADO, PRESENTE Y FUTURO", "Mi Maestra", 321689],
+  },
+  dibujos: {
+    "El verbo cambia con la persona": L6.filas("Saltar", [["yo", "salto", cAZ], ["tú", "saltas", cVE], ["nosotros", "saltamos", cNA], ["ellos", "saltan", cRO]]),
+    "El presente": H6.rueda("Presente", "AHORA", [["hoy", cAZ], ["ya", cVE], ["siempre", cNA], ["cada día", cRO]]),
+    "El pasado": H6.rueda("Pasado", "ANTES", [["ayer", cAZ], ["anoche", cVE], ["hace años", cNA], ["antes", cRO]]),
+    "El futuro": H6.rueda("Futuro", "DESPUÉS", [["mañana", cAZ], ["luego", cVE], ["pronto", cNA], ["el año que viene", cRO]]),
+    "Repaso: el detective de verbos": H6.flujo("Detective", ["¿cuál es|infinitivo?", "¿qué|conjugación?", "¿qué|persona?", "¿qué|tiempo?"], cMO),
+  },
+  objetivos: ["Hacer concordar el verbo con el sujeto", "Usar el pasado en -aba / -ía para describir costumbres", "Conjugar verbos irregulares muy frecuentes: ser, ir, tener y hacer", "Elegir verbos precisos al escribir y dar instrucciones"],
+  lectura: { titulo: "La máquina del tiempo de la abuela", html: `<p>La abuela de Nora guarda en el desván una caja de fotos que ella llama «mi máquina del tiempo».</p><p>—Mira —le dijo un domingo, señalando una foto en blanco y negro—. Aquí tenía tu edad. Vivíamos en un pueblo pequeño. Cada mañana iba a la fuente a por agua y después caminaba hasta la escuela. En invierno nevaba tanto que a veces no podíamos salir de casa.</p><p>Nora miró la foto con atención.</p><p>—¿Y no tenías tele?</p><p>—No. Por las noches mi padre nos contaba historias junto a la chimenea. Eran las mejores noches del mundo.</p><p>Luego la abuela sacó una foto en color: Nora, de bebé, en brazos de su madre.</p><p>—Y esta es de hace ocho años. Tú dormías todo el día y llorabas toda la noche.</p><p>Las dos se rieron. Entonces Nora tuvo una idea.</p><p>—Abuela, ¿y si hacemos una foto ahora? Así, cuando yo sea mayor, se la enseñaré a mis nietos y les contaré este día.</p><p>La abuela sonrió, cogió el móvil y dijo:</p><p>—¡Patata!</p>` },
+  tras: {
+    "Qué es un verbo": [
+      ["El verbo y el sujeto", `<p>En una oración, el verbo tiene un compañero muy importante: el <mark>sujeto</mark>. El sujeto es <b>quién</b> hace la acción o de quién se dice algo.</p><p><i><b>Los niños</b> juegan en el patio.</i> ¿Quién juega? <i>Los niños</i>: es el sujeto.</p><p><i><b>Mi abuela</b> cocina muy bien.</i> ¿Quién cocina? <i>Mi abuela</i>.</p><p>El verbo y el sujeto tienen que ir de acuerdo, igual que el sustantivo y el adjetivo. A esto lo llamamos <b>concordancia</b>:</p><ul><li>Si el sujeto es <b>singular</b>, el verbo va en singular: <i>El perro ladra.</i></li><li>Si el sujeto es <b>plural</b>, el verbo va en plural: <i>Los perros ladran.</i></li><li>Si el sujeto es <i>yo</i>, el verbo va en primera persona: <i>Yo canto, tú cantas.</i></li></ul><p>Errores que hay que evitar: <i>Los niños juega</i> ❌ → <i>Los niños juegan</i> ✅. <i>Mi hermano y yo vamos</i> ✅ (dos personas: plural).</p><p>A veces el sujeto <b>no aparece</b>, porque el verbo ya nos dice quién es: <i>Comemos a las dos</i> (nosotros). Se llama <b>sujeto omitido</b> y es muy frecuente en castellano.</p><p><b>Actividad</b>: escribe tres oraciones y subraya el sujeto en azul y el verbo en rojo.</p>`,
+        H6.dos("Concordar", ["SINGULAR", ["el perro", "ladra", "mi tía canta"], cAZ], ["PLURAL", ["los perros", "ladran", "mis tías cantan"], cNA]),
+        ["YaNKlC8z3Kc", "Sujeto y Predicado 📝 GRAMÁTICA y ORTOGRAFÍA para niños 🔡 Superlexia ⭐ Episodio 19", "Smile and Learn - Español", 199854]],
+    ],
+    "El pasado": [
+      ["Otro pasado: cantaba, comía", `<p>En castellano hay <mark>más de un pasado</mark>. Ya conoces el que cuenta algo que ocurrió y terminó: <i>Ayer canté</i>. Ahora vamos a conocer otro que sirve para contar lo que pasaba <b>de forma habitual</b> o para <b>describir</b> cómo eran las cosas antes.</p><p><i>Cuando era pequeña, <b>iba</b> a la fuente cada mañana.</i></p><p><i>En invierno <b>nevaba</b> mucho.</i></p><p>Se forma así:</p><ul><li>Verbos en <b>-ar</b>: terminan en <b>-aba</b>: <i>yo cantaba, tú cantabas, ella cantaba, nosotros cantábamos, vosotros cantabais, ellos cantaban</i>. ¡Siempre con <b>b</b>!</li><li>Verbos en <b>-er</b> e <b>-ir</b>: terminan en <b>-ía</b>, con tilde: <i>yo comía, tú comías, él vivía, nosotros vivíamos, ellos comían</i>.</li></ul><p>¿Qué diferencia hay entre los dos pasados?</p><ul><li><i>Ayer <b>jugué</b> al fútbol</i>: una vez, y se acabó.</li><li><i>De pequeño <b>jugaba</b> al fútbol todos los días</i>: una costumbre que se repetía.</li></ul><p>Los cuentos usan mucho este pasado al principio, para describir: <i>Había una vez una niña que <b>vivía</b> en el bosque y <b>tenía</b> una capa roja…</i></p><p><b>Actividad</b>: busca en la lectura los verbos de este pasado que usa la abuela.</p>`,
+        L6.filas("Antes", [["cantar", "cantaba", cAZ], ["comer", "comía", cVE], ["vivir", "vivía", cNA], ["ir", "iba", cRO]])],
+    ],
+    "El futuro": [
+      ["El futuro con «voy a»", `<p>Para hablar del futuro, además de <i>cantaré</i>, usamos muchísimo otra forma: <mark>ir a + infinitivo</mark>.</p><ul><li><i><b>Voy a</b> comer.</i></li><li><i>¿<b>Vas a</b> venir a mi fiesta?</i></li><li><i>Mañana <b>va a</b> llover.</i></li><li><i><b>Vamos a</b> jugar al escondite.</i></li><li><i>Los niños <b>van a</b> cantar en el festival.</i></li></ul><p>Esta forma tiene tres piezas:</p><ul><li><b>1.</b> El verbo <i>ir</i> en presente: <i>voy, vas, va, vamos, vais, van</i>. Este es el que cambia con la persona.</li><li><b>2.</b> La palabra <b>a</b>.</li><li><b>3.</b> El <b>infinitivo</b> del verbo principal, que no cambia nunca: <i>comer, venir, llover, jugar</i>.</li></ul><p>¿Cuándo se usa cada futuro? Las dos formas son correctas. <i>Voy a comer</i> se usa más al hablar, sobre todo cuando algo va a pasar pronto o ya lo tenemos decidido. <i>Comeré</i> es un poco más formal y se usa mucho al escribir o para cosas más lejanas: <i>Cuando sea mayor, seré veterinaria.</i></p><p>Ojo con la ortografía: <i>Voy a ver</i> (mirar) se escribe separado, no <i>Voy haber</i>.</p><p><b>Actividad</b>: escribe tres planes para el fin de semana usando «voy a» y otros tres usando el futuro en -é.</p>`,
+        H6.flujo("Voy a", ["ir|voy, vas…", "a|siempre", "infinitivo|comer", "¡listo!|voy a comer"], cVE)],
+    ],
+    "Pasado, presente y futuro juntos": [
+      ["Verbos que se portan raro", `<p>La mayoría de los verbos siguen el modelo de <i>cantar, comer</i> o <i>vivir</i>. Son <b>regulares</b>. Pero hay algunos que cambian la raíz y se portan de forma rara: son los <mark>verbos irregulares</mark>. Muchos son los que más usamos cada día.</p><ul><li><b>ser</b>: <i>yo soy, tú eres, él es</i> (presente); <i>yo fui</i> (pasado); <i>yo seré</i> (futuro).</li><li><b>ir</b>: <i>yo voy</i>, <i>yo fui</i>, <i>yo iré</i>. ¡No se parece nada a <i>ir</i>!</li><li><b>tener</b>: <i>yo tengo</i>, <i>yo tuve</i>, <i>yo tendré</i>.</li><li><b>hacer</b>: <i>yo hago</i>, <i>yo hice</i>, <i>yo haré</i>.</li><li><b>poner</b>: <i>yo pongo</i>, <i>yo puse</i>, <i>yo pondré</i>.</li><li><b>decir</b>: <i>yo digo</i>, <i>yo dije</i>, <i>yo diré</i>.</li></ul><p>Fíjate en algo curioso: <i>fui</i> sirve para <b>ser</b> y para <b>ir</b>. <i>Fui al cine</i> (ir) y <i>Fui el primero</i> (ser). El resto de la frase te dice cuál es.</p><p>Los niños pequeños a veces dicen <i>«yo sabo»</i> o <i>«he rompido»</i>, porque aplican la regla normal. ¡Tiene lógica, pero no es correcto! Se dice <i>yo sé</i> y <i>he roto</i>.</p><p><b>Actividad</b>: escribe una oración en pasado con <i>tener</i>, otra con <i>hacer</i> y otra con <i>decir</i>.</p>`,
+        L6.filas("Raros", [["ser", "soy, fui, seré", cAZ], ["ir", "voy, fui, iré", cVE], ["tener", "tengo, tuve", cNA], ["hacer", "hago, hice", cRO]])],
+    ],
+  },
+  final: [
+    ["Verbos para dar instrucciones", `<p>En las <b>recetas</b>, las normas de un juego o las instrucciones para montar algo, los verbos son los <mark>protagonistas</mark>. Hay dos formas de escribirlas:</p><ul><li>Con <b>infinitivo</b>: <i>Lavar las fresas. Cortar en trozos. Añadir el yogur.</i> Es muy frecuente en las recetas y en los carteles: <i>No pisar el césped.</i></li><li>Dando una <b>orden</b> a quien lee: <i>Lava las fresas. Corta en trozos. Añade el yogur.</i> También con <i>usted</i>: <i>Lave, corte, añada.</i></li></ul><p>Lo importante es no mezclar las dos formas en el mismo texto.</p><p>Mira esta receta de batido de fresa:</p><ul><li><b>1.</b> <b>Lava</b> diez fresas y <b>quítales</b> las hojas.</li><li><b>2.</b> <b>Corta</b> las fresas por la mitad.</li><li><b>3.</b> <b>Echa</b> las fresas, un vaso de leche y una cucharada de miel en la batidora.</li><li><b>4.</b> <b>Pide</b> a un adulto que <b>bata</b> todo hasta que quede cremoso.</li><li><b>5.</b> <b>Sirve</b> en un vaso y <b>disfruta</b>.</li></ul><p>Fíjate en que cada paso empieza con un verbo y que los pasos van <b>numerados</b> y en <b>orden</b>. Así, quien lo lee sabe exactamente qué tiene que hacer.</p><p><b>Actividad</b>: escribe las instrucciones de tu juego de patio favorito empezando cada paso con un verbo.</p>`,
+      H6.dos("Instrucción", ["INFINITIVO", ["lavar", "cortar", "añadir"], cAZ], ["ORDEN", ["lava", "corta", "añade"], cNA])],
+    ["Verbos precisos", `<p>Un buen escritor elige el <mark>verbo exacto</mark>. Algunos verbos sirven para casi todo, como <i>hacer, decir, poner, tener</i> o <i>ir</i>, pero si los repetimos mucho, el texto queda pobre. Compara:</p><ul><li><i>El niño <b>dijo</b> que no.</i> → <i>El niño <b>gritó</b> / <b>susurró</b> / <b>protestó</b> que no.</i></li><li><i>Mi tío <b>hizo</b> una casa.</i> → <i>Mi tío <b>construyó</b> una casa.</i></li><li><i>Hizo un dibujo.</i> → <i><b>Dibujó</b> un paisaje.</i></li><li><i>El gato <b>fue</b> al árbol.</i> → <i>El gato <b>trepó</b> al árbol.</i></li><li><i>Puso el libro en la estantería.</i> → <i><b>Colocó</b> el libro en la estantería.</i></li></ul><p>Los verbos precisos nos dan más información: no es lo mismo <i>caminar</i> que <i>correr</i>, <i>pasear</i>, <i>cojear</i> o <i>arrastrarse</i>. Cada uno pinta una imagen distinta en la cabeza del lector.</p><p>Un juego para practicar: escribe en el centro de una hoja un verbo general, como <i>mirar</i>, y alrededor todos los verbos más precisos que se te ocurran: <i>observar, espiar, contemplar, vigilar, ojear</i>. ¡Es un mapa de verbos!</p><p><b>Actividad</b>: cambia el verbo <i>decir</i> por otro más preciso en tres frases de un cuento que hayas escrito.</p>`,
+      H6.rueda("Decir", "DIJO", [["gritó", cAZ], ["susurró", cVE], ["protestó", cNA], ["preguntó", cRO]])],
+  ],
+  ejemplos: [
+    ["Corrige: «Los pájaros canta en el árbol».", ["El sujeto «los pájaros» es plural.", "El verbo debe ir en plural."], "Los pájaros cantan en el árbol."],
+    ["Pasa a futuro con «ir a»: «Juego al fútbol».", ["Ponemos ir en presente: voy.", "Añadimos a + infinitivo: jugar."], "Voy a jugar al fútbol."],
+  ],
+  errores: ["No hacer concordar el verbo con el sujeto: «Los niños juega».", "Regularizar verbos irregulares: «yo sabo», «he rompido», «andé»."],
+  ejercicios: [
+    ["b", "Subraya el sujeto: «Mi perro come pienso».", "Mi perro."],
+    ["b", "Escribe el pasado en -aba de «jugar» para «yo».", "Jugaba."],
+    ["b", "Completa: «Mañana ___ a llover» (ir).", "Va."],
+    ["b", "¿Cuál es la forma de «yo» en presente de «tener»?", "Tengo."],
+    ["b", "En la lectura, ¿dónde guarda la abuela la caja de fotos?", "En el desván."],
+    ["m", "Corrige: «Mis primas viene mañana».", "Mis primas vienen mañana."],
+    ["m", "¿Qué diferencia hay entre «jugué» y «jugaba»?", "Jugué es una vez que terminó; jugaba es algo habitual o una descripción."],
+    ["m", "¿De qué verbo es «fui» en «Fui al parque»?", "Del verbo ir."],
+    ["m", "Cambia «hizo» por un verbo más preciso: «Hizo un pastel».", "Por ejemplo: Preparó / horneó un pastel."],
+    ["m", "Escribe dos pasos de una receta con infinitivo.", "Por ejemplo: Pelar la manzana. Cortarla en trozos."],
+    ["a", "Copia de la lectura tres verbos en el pasado en -aba / -ía.", "Por ejemplo: tenía, vivíamos, iba, caminaba, nevaba, contaba, dormías, llorabas."],
+    ["a", "Escribe la frase final de Nora («se la enseñaré») con «ir a».", "Se la voy a enseñar."],
+    ["a", "Conjuga «hacer» en presente, pasado y futuro para «yo».", "Hago, hice, haré."],
+    ["a", "Escribe las instrucciones de un juego con cinco pasos.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En «Los gatos duermen», el sujeto es…", ["los gatos", "duermen", "no hay"], "Sujeto."],
+    ["«De pequeña vivía en Soria» está en…", ["pasado", "presente", "futuro"], "Pasado."],
+    ["«Vamos a cantar» expresa…", ["futuro", "pasado", "presente"], "Voy a."],
+    ["El pasado de «yo tengo» es…", ["yo tuve", "yo tení", "yo tenié"], "Irregulares."],
+    ["En las recetas se usa mucho…", ["el infinitivo o la orden", "el futuro", "la rima"], "Instrucciones."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo llama la abuela a su caja de fotos?", ["su máquina del tiempo", "su tesoro", "su álbum mágico"], "Lectura."],
+    ["Un verbo más preciso que «dijo» en voz muy baja es…", ["susurró", "gritó", "corrió"], "Precisos."],
+  ],
+  tarjetas: [
+    ["Sujeto", "Quién hace la acción; el verbo concuerda con él en número y persona."],
+    ["Pasado -aba / -ía", "Costumbres y descripciones: cantaba, comía, vivía."],
+    ["Ir a + infinitivo", "Futuro cercano: voy a comer, vamos a jugar."],
+    ["Irregulares", "Ser, ir, tener, hacer, poner, decir: soy, voy, tengo, hago."],
+  ],
+  glosario: [
+    ["Verbo", "Palabra que dice lo que alguien hace, le pasa o cómo está."],
+    ["Infinitivo", "Nombre del verbo, acabado en -ar, -er o -ir."],
+    ["Conjugación", "Grupo de verbos según su terminación."],
+    ["Sujeto", "Quién hace la acción en una oración."],
+    ["Concordancia", "Acuerdo en número y persona entre el sujeto y el verbo."],
+    ["Persona", "Quién hace la acción: yo, tú, él…"],
+    ["Tiempo verbal", "Cuándo ocurre la acción: pasado, presente o futuro."],
+    ["Verbo regular", "El que sigue el modelo de cantar, comer o vivir."],
+    ["Verbo irregular", "El que cambia la raíz al conjugarse."],
+    ["Sujeto omitido", "Sujeto que no aparece porque el verbo lo indica."],
+    ["Instrucciones", "Texto que explica paso a paso cómo hacer algo."],
+    ["Desván", "Habitación bajo el tejado donde se guardan cosas."],
+  ],
+  situacion: {
+    titulo: "La máquina del tiempo de la clase",
+    reto: "Cada alumno entrevista a un familiar mayor sobre su infancia y escribe un texto con tres partes: cómo era antes, cómo es ahora y cómo será en el futuro.",
+    pasos: ["Preparar preguntas y entrevistar a un familiar.", "Escribir «Antes» usando el pasado en -aba / -ía.", "Escribir «Ahora» en presente y «En el futuro» con -é e «ir a».", "Revisar la concordancia y cambiar verbos generales por verbos precisos."],
+    producto: "Un libro de la clase con fotos de ayer y de hoy y textos en los tres tiempos.",
+    evaluacion: ["Hace concordar sujeto y verbo.", "Usa los dos pasados correctamente.", "Expresa el futuro de dos formas.", "Conjuga bien los verbos irregulares frecuentes."],
+  },
+});

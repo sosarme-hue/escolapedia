@@ -87,3 +87,100 @@ module.exports = P.tema({
   saberes: "Educación literaria: el texto poético (verso, estrofa, rima, comparación, personificación); poesía popular (adivinanzas, trabalenguas, canciones); el texto teatral (diálogo, acotaciones, actos y escenas); lectura expresiva y dramatización",
   ideas: ["Recital de poemas con micrófono de juguete.", "Teatro de sombras con una escena corta escrita por grupos.", "Cajón de rimas: tarjetas para formar parejas que riman."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "Repaso: un poema y una escena": H6.dos("Comparar", ["POEMA", ["en verso", "4 versos", "rima"], cAZ], ["ESCENA", ["en diálogo", "2 personajes", "acotaciones"], cNA]),
+  },
+  objetivos: ["Distinguir la rima consonante de la asonante", "Contar las sílabas de un verso", "Escribir acrósticos y caligramas", "Preparar y representar una obra con títeres o actores"],
+  lectura: { titulo: "Las estaciones de mi ventana", html: `<p>Lucía escribió este poema para el concurso de primavera del colegio. Lo leyó delante de toda la clase y, al terminar, todos aplaudieron.</p><p><i>En invierno, mi ventana<br>se pone un abrigo blanco;<br>el frío, con su campana,<br>llama a la puerta del campo.</i></p><p><i>En primavera, la flor<br>se asoma a ver quién pasa;<br>la golondrina, mejor,<br>se hace en mi tejado casa.</i></p><p><i>En verano, el sol, travieso,<br>se cuela por la persiana,<br>y me despierta con un beso<br>temprano por la mañana.</i></p><p><i>Y en otoño, las hojitas,<br>doradas como monedas,<br>bailan en las tardecitas<br>y se acuestan en las aceras.</i></p><p>La maestra le preguntó qué era lo que más le había costado. «Encontrar las rimas», contestó Lucía. «Pero me ayudó mucho pensar en cosas que veo todos los días desde mi ventana.»</p>` },
+  tras: {
+    "La rima": [
+      ["Rima consonante y asonante", `<p>No todas las rimas son iguales. Hay dos clases de <mark>rima</mark>:</p><ul><li><b>Rima consonante</b>: a partir de la última vocal fuerte, coinciden <b>todas las letras</b>, vocales y consonantes. <i>ventana / campana</i> (-ana), <i>flor / mejor</i> (-or), <i>persiana / mañana</i> (-ana). Es la rima más fácil de notar, porque suena exactamente igual.</li><li><b>Rima asonante</b>: a partir de la última vocal fuerte, coinciden <b>solo las vocales</b>. <i>blanco / campo</i> (a-o), <i>monedas / aceras</i> (e-a): las vocales son iguales, pero las consonantes cambian.</li></ul><p>Cómo saber qué rima es:</p><ul><li><b>1.</b> Busca la última sílaba fuerte de cada verso: <i>ven-<b>TA</b>-na</i>, <i>cam-<b>PA</b>-na</i>.</li><li><b>2.</b> Copia desde la vocal de esa sílaba hasta el final: <i>-ana</i> y <i>-ana</i>.</li><li><b>3.</b> Compara: si todo es igual, consonante; si solo las vocales, asonante.</li></ul><p>Los romances y muchas canciones populares usan la rima asonante, porque es más libre y suena muy natural. Las adivinanzas y los poemas para niños suelen usar la consonante.</p><p><b>Actividad</b>: busca en la lectura dos parejas de versos con rima consonante y una con rima asonante.</p>`,
+        L6.filas("Rima", [["ventana", "campana: -ana", cAZ], ["flor", "mejor: -or", cVE], ["blanco", "campo: a-o", cNA], ["monedas", "aceras: e-a", cRO]]),
+        ["Q4w32MyZ2Hc", "🤗 Qué es una RIMA ASONANTE y CONSONANTE ⁉️ para NIÑOS ► Ejemplos", "Clases Particulares en Ávila", 1199419]],
+    ],
+    "Comparaciones y otros juegos": [
+      ["El ritmo: contar sílabas", `<p>Los poemas tienen <mark>ritmo</mark>, como la música. Una parte de ese ritmo viene de que los versos tienen un número de <b>sílabas</b> parecido.</p><p>Para medir un verso, contamos sus sílabas en voz alta, dando palmadas:</p><p><i>En / in / vier / no, / mi / ven / ta / na</i> → 8 sílabas.</p><p><i>se / po / ne un / a / bri / go / blan / co</i> → 8 sílabas.</p><p>¿Has visto lo que pasa en <i>po-ne un</i>? Cuando una palabra acaba en vocal y la siguiente empieza por vocal, en poesía se suelen <b>juntar</b> en una sola sílaba. Se llama <b>sinalefa</b>. Es como cuando hablamos deprisa: <i>mi amigo</i> suena «mia-mi-go», con tres sílabas en lugar de cuatro.</p><p>Los versos de <b>8 sílabas</b> son los favoritos de la poesía popular en castellano: los usan los romances, muchas canciones y muchos refranes. Se llaman <b>octosílabos</b>. Los de menos sílabas se llaman versos de <b>arte menor</b>; los de más de ocho, de <b>arte mayor</b>.</p><p>No te preocupes si al principio te cuesta. Lo importante es notar que los versos suenan parecido y que el poema tiene un «paso» regular, como cuando caminamos o saltamos a la comba.</p><p><b>Actividad</b>: cuenta las sílabas de los cuatro primeros versos de la lectura dando palmadas.</p>`,
+        H6.flujo("Contar", ["lee|el verso", "da|palmadas", "junta|vocales", "anota|el número"], cVE)],
+    ],
+    "Poesía popular": [
+      ["Inventamos poesía popular", `<p>La poesía popular no es solo para leerla: ¡es para <mark>jugar</mark> con ella! Y tú también puedes inventarla.</p><p><b>Adivinanzas</b>. Piensa en un objeto, di cómo es sin nombrarlo y busca rimas: <i>«Tengo agujas y no sé coser, / tengo números y no sé leer.»</i> (El reloj). ¡Fíjate en que los dos versos riman!</p><p><b>Trabalenguas</b>. Repite un sonido difícil muchas veces: <i>«Pablito clavó un clavito. / ¿Qué clavito clavó Pablito?»</i> Inventa uno con la <i>r</i> o con la <i>pl</i>.</p><p><b>Retahílas</b>. Son series de palabras encadenadas, a menudo para echar a suertes quién se la queda: <i>«Pito, pito, gorgorito, / ¿dónde vas tú tan bonito?»</i>. Muchas no significan nada: lo importante es el sonido y el ritmo.</p><p><b>Pareados</b>. Son estrofas de dos versos que riman entre sí. Son los más fáciles de inventar: <i>«Mi gato se llama Lucas / y duerme entre las pelucas.»</i></p><p>La poesía popular se transmite <b>de boca en boca</b>. Pregunta a tus abuelos qué canciones de corro o de comba cantaban cuando eran pequeños: seguro que conocen alguna que tú no sabías.</p><p><b>Actividad</b>: inventa un pareado sobre tu animal favorito.</p>`,
+        H6.rueda("Popular", "JUGAR", [["adivinanza", cAZ], ["trabalenguas", cVE], ["retahíla", cNA], ["pareado", cRO]]),
+        ["w9k1-E9x3zc", "📚 RETAHÍLAS para NIÑOS", "Clases Particulares en Ávila", 77271]],
+    ],
+    "Diálogo y acotaciones": [
+      ["Títeres y sombras", `<p>No hace falta un gran escenario para hacer teatro. Hay formas muy sencillas de <mark>representar</mark> una historia en clase.</p><p><b>El teatro de títeres</b>. Los personajes son muñecos que se mueven con la mano. Los actores se esconden detrás de un <b>retablo</b> (una caja o una mesa tapada con una tela) y prestan su voz a los muñecos. Puedes hacer títeres con:</p><ul><li>Un <b>calcetín</b> viejo con ojos de botón.</li><li>Una <b>bolsa de papel</b> con la cara dibujada.</li><li>Un dibujo recortado y pegado a un <b>palito</b>.</li></ul><p><b>El teatro de sombras</b>. Se coloca una sábana blanca y, detrás, una luz. Entre la luz y la sábana se mueven siluetas de cartulina negra o las propias manos. El público ve las sombras al otro lado. ¡Con las manos puedes hacer un perro, un pájaro o un conejo!</p><p>En los dos casos, el texto se escribe igual que una obra de teatro: con el <b>nombre</b> del personaje, el <b>diálogo</b> y las <b>acotaciones</b>. Pero la voz es todavía más importante, porque el público no ve la cara del actor: hay que hablar <b>alto</b>, <b>claro</b> y cambiar el tono para cada personaje.</p><p>Los títeres son una tradición muy antigua. En muchas ferias y plazas había titiriteros que viajaban de pueblo en pueblo con su retablo.</p><p><b>Actividad</b>: fabrica un títere de calcetín y escribe tres frases que dirá en una función.</p>`,
+        L6.filas("Teatro", [["títeres", "calcetín, bolsa", cAZ], ["retablo", "caja o mesa", cVE], ["sombras", "sábana y luz", cNA], ["voz", "alta y clara", cRO]])],
+    ],
+  },
+  final: [
+    ["Acrósticos y caligramas", `<p>Hay poemas que juegan también con la <mark>forma</mark> de las letras en el papel.</p><p>Un <b>acróstico</b> es un poema en el que las <b>primeras letras</b> de cada verso, leídas de arriba abajo, forman una palabra. Por ejemplo, con <b>SOL</b>:</p><p><i><b>S</b>ale por la mañana,<br><b>O</b>jo amarillo del cielo,<br><b>L</b>uz que entra en mi ventana.</i></p><p>Es muy divertido hacer acrósticos con tu <b>nombre</b> o con el de un amigo. Cada verso puede decir algo de cómo es esa persona.</p><p>Un <b>caligrama</b> es un poema en el que las palabras se colocan formando un <b>dibujo</b> de aquello de lo que habla. Un poema sobre la lluvia puede escribirse en líneas que caen como gotas; uno sobre una serpiente, en una línea que se enrosca; uno sobre un árbol, con un tronco y una copa de palabras.</p><p>Para hacer un caligrama:</p><ul><li><b>1.</b> Escribe primero el poema normal, en versos.</li><li><b>2.</b> Dibuja a lápiz, muy suave, la silueta del objeto.</li><li><b>3.</b> Copia el poema siguiendo la línea de la silueta.</li><li><b>4.</b> Borra el lápiz y colorea si quieres.</li></ul><p>El poeta francés Guillaume Apollinaire hizo famosos los caligramas hace más de cien años.</p><p><b>Actividad</b>: escribe un acróstico con tu nombre.</p>`,
+      H6.dos("Formas", ["ACRÓSTICO", ["S: Sale…", "O: Ojo…", "L: Luz…"], cAZ], ["CALIGRAMA", ["lluvia", "serpiente", "árbol"], cVE])],
+    ["Montamos una obra", `<p>Representar una obra de teatro en clase es un trabajo en <mark>equipo</mark>. Cada uno tiene una tarea importante:</p><ul><li>Los <b>actores y actrices</b>, que aprenden su papel.</li><li>El <b>director</b> o la directora, que organiza los ensayos y dice dónde se coloca cada uno.</li><li>Los encargados del <b>decorado</b>, que pintan el fondo: un bosque, una casa, el mar.</li><li>Los de <b>vestuario</b> y <b>atrezo</b> (los objetos que se usan en escena: una corona, una cesta, una escoba).</li><li>El <b>apuntador</b>, que ayuda en voz baja si alguien se olvida de una frase.</li><li>Los de <b>música y luces</b>, si las hay.</li></ul><p>Los pasos para montar la obra son:</p><ul><li><b>1.</b> Elegir o escribir un <b>texto corto</b>, con pocos personajes.</li><li><b>2.</b> <b>Repartir</b> los papeles y las tareas.</li><li><b>3.</b> Hacer una <b>lectura</b> sentados, todos juntos, para entender la historia.</li><li><b>4.</b> <b>Ensayar</b> varias veces, primero con el papel en la mano y después de memoria.</li><li><b>5.</b> Hacer un <b>ensayo general</b> con el vestuario y el decorado.</li><li><b>6.</b> ¡<b>Estrenar</b> la obra delante del público!</li></ul><p>Al terminar, los actores salen al escenario y saludan juntos. Y recuerda: si alguien se equivoca, no pasa nada. Lo importante es seguir y disfrutar.</p>`,
+      H6.flujo("Montar", ["elegir|el texto", "repartir|papeles", "ensayar|mucho", "estrenar|la obra"], cNA)],
+  ],
+  ejemplos: [
+    ["¿Qué rima tienen «flor» y «mejor»?", ["Desde la última vocal fuerte: -or y -or.", "Coinciden vocales y consonantes."], "Rima consonante."],
+    ["Cuenta las sílabas de «se pone un abrigo blanco».", ["se-po-ne un-a-bri-go-blan-co.", "Ne y un se juntan por sinalefa."], "8 sílabas."],
+  ],
+  errores: ["Pensar que dos palabras riman solo porque acaban en la misma letra (casa / mesa no tienen rima consonante).", "Leer las acotaciones en voz alta cuando se representa la obra."],
+  ejercicios: [
+    ["b", "¿Qué es un acróstico?", "Un poema en el que las primeras letras de los versos forman una palabra."],
+    ["b", "¿Cómo se llama la estrofa de dos versos que riman?", "Pareado."],
+    ["b", "¿Qué se necesita para hacer teatro de sombras?", "Una sábana, una luz y siluetas o las manos."],
+    ["b", "¿Qué hace el apuntador?", "Ayuda en voz baja a quien se olvida de una frase."],
+    ["b", "En la lectura, ¿qué hace el sol en verano?", "Se cuela por la persiana y la despierta con un beso."],
+    ["m", "¿Qué rima tienen «blanco» y «campo»?", "Asonante (a-o)."],
+    ["m", "¿Cuántas sílabas tienen los versos octosílabos?", "Ocho."],
+    ["m", "Escribe una comparación de la lectura.", "Doradas como monedas."],
+    ["m", "Inventa un pareado sobre la lluvia.", "Respuesta abierta."],
+    ["m", "¿Qué es el atrezo?", "Los objetos que se usan en escena."],
+    ["a", "Escribe un acróstico con la palabra MAR.", "Respuesta abierta."],
+    ["a", "Busca en la lectura un ejemplo de personificación.", "Por ejemplo: la ventana se pone un abrigo; el sol travieso la despierta con un beso."],
+    ["a", "Haz un caligrama sobre la lluvia o un árbol.", "Respuesta abierta."],
+    ["a", "Escribe una escena corta para títeres con dos personajes y una acotación.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«Ventana» y «campana» tienen rima…", ["consonante", "asonante", "ninguna"], "Rima."],
+    ["Un verso de ocho sílabas es…", ["octosílabo", "pareado", "acróstico"], "Ritmo."],
+    ["En un caligrama, las palabras…", ["forman un dibujo", "van en prosa", "no riman nunca"], "Formas."],
+    ["El retablo es…", ["donde se esconden los titiriteros", "un tipo de rima", "un trabalenguas"], "Títeres."],
+    ["El ensayo general se hace…", ["justo antes del estreno", "el primer día", "después del estreno"], "Montar."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le costó más a Lucía?", ["encontrar las rimas", "aprender el poema", "dibujar la ventana"], "Lectura."],
+    ["«Pito, pito, gorgorito» es una…", ["retahíla", "acotación", "obra de teatro"], "Popular."],
+  ],
+  tarjetas: [
+    ["Rimas", "Consonante: todas las letras (flor/mejor). Asonante: solo vocales (blanco/campo)."],
+    ["Sílabas", "Contar con palmadas; sinalefa; octosílabo = 8 sílabas."],
+    ["Acróstico y caligrama", "Primeras letras forman palabra; palabras que forman un dibujo."],
+    ["Títeres y obra", "Retablo, sombras; actores, director, decorado, atrezo, ensayo, estreno."],
+  ],
+  glosario: [
+    ["Verso", "Cada una de las líneas de un poema."],
+    ["Estrofa", "Grupo de versos."],
+    ["Rima consonante", "Coinciden vocales y consonantes desde la última vocal fuerte."],
+    ["Rima asonante", "Coinciden solo las vocales desde la última vocal fuerte."],
+    ["Sinalefa", "Unión de dos vocales de palabras distintas en una sílaba."],
+    ["Octosílabo", "Verso de ocho sílabas."],
+    ["Pareado", "Estrofa de dos versos que riman."],
+    ["Acróstico", "Poema cuyas primeras letras forman una palabra."],
+    ["Caligrama", "Poema escrito formando un dibujo."],
+    ["Retablo", "Escenario pequeño para títeres."],
+    ["Atrezo", "Objetos que se usan en una obra."],
+    ["Estreno", "Primera vez que se representa una obra."],
+  ],
+  situacion: {
+    titulo: "Festival de poesía y títeres",
+    reto: "La clase organiza un festival: primero, un recital de poemas propios; después, una función de títeres para los cursos pequeños.",
+    pasos: ["Escribir un poema con rima y un acróstico con el nombre.", "Ensayar la lectura en voz alta marcando el ritmo.", "Escribir en grupos una escena corta y fabricar los títeres.", "Representar el festival y recoger la opinión del público."],
+    producto: "Un recital de poemas y una función de títeres.",
+    evaluacion: ["Distingue rima consonante y asonante.", "Cuenta las sílabas de un verso.", "Escribe un acróstico o un caligrama.", "Representa una escena con buena voz."],
+  },
+});

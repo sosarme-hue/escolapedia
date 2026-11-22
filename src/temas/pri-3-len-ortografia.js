@@ -86,3 +86,103 @@ module.exports = P.tema({
   saberes: "Ortografía: reglas básicas de b y v (mb, nv, bl, br, -aba, -bir, -ivo); g suave y fuerte, gue, gui, güe, güi; j en ja, jo, ju y -aje; h en hue-, hie-, hum- y verbos haber y hacer; palabras homófonas frecuentes",
   ideas: ["Mural de reglas con un ejemplo dibujado de cada una.", "Bingo ortográfico con palabras de b/v, g/j y h.", "Diccionario de clase de palabras difíciles que se va completando."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  videos: {
+    "Se escriben con b": ["csnW1s9olaI", "No escriba: herbir - Reglas para el uso de la b", "LA PROFE MÓNICA", 209893],
+  },
+  dibujos: {
+    "Palabras que suenan igual": L6.filas("Suenan", [["vaca", "baca", cAZ], ["hola", "ola", cVE], ["hay", "ay", cNA], ["bota", "vota", cRO]]),
+    "Repaso: dictado con pistas": H6.flujo("Dictado", ["escucha|la frase", "piensa|la regla", "escribe|despacio", "revisa|al final"], cMO),
+  },
+  objetivos: ["Usar la familia de palabras para resolver dudas", "Escribir bien los verbos en -ger, -gir y las palabras con h intercalada", "Distinguir más palabras que suenan igual", "Consultar el diccionario y llevar un cuaderno de palabras difíciles"],
+  lectura: { titulo: "El cartel del huerto", html: `<p>Los alumnos de 3.º preparaban un cartel para el huerto del colegio. Sofía lo escribió con rotulador y lo colgó en la valla:</p><p><i>«Huerto escolar. Prohibido pisar la yerba. Aquí crecen zanaorias, abas y judías. No coja las verduras sin permiso.»</i></p><p>Al día siguiente, el conserje se acercó con una sonrisa.</p><p>—Qué cartel tan bonito —dijo—. Pero creo que hay unas cuantas letras escondidas.</p><p>Sofía y sus compañeros se pusieron a investigar. Encontraron <i>zanahoria</i> en el diccionario: ¡tenía una h en medio que no suena! Después buscaron <i>haba</i> y vieron que empezaba por h y que se escribía con b. <i>Hierba</i> también se podía escribir <i>yerba</i>, pero en el colegio preferían la forma con h, como <i>hierro</i> y <i>hielo</i>.</p><p>—¿Y «coja»? —preguntó Leo—. ¿Se escribe con g o con j?</p><p>—El verbo es <i>coger</i>, con g —explicó la maestra—, pero delante de <i>a</i> y de <i>o</i> la g sonaría suave. Por eso se cambia a j: <i>cojo, coja</i>.</p><p>Esa tarde hicieron un cartel nuevo, sin un solo error. Y en una esquina añadieron: «Revisado por los detectives de la ortografía».</p>` },
+  tras: {
+    "Se escriben con b": [
+      ["La familia ayuda", `<p>Hay un truco que sirve para todas las letras difíciles: <mark>la familia de palabras</mark>. Las palabras de la misma familia casi siempre conservan la misma letra.</p><ul><li>Si <i>barco</i> lleva <b>b</b>, también <i>barca, barquero, embarcar</i>.</li><li>Si <i>vaso</i> lleva <b>v</b>, también <i>vasito, vasija</i>.</li><li>Si <i>hielo</i> lleva <b>h</b>, también <i>helado, helar, deshielo</i>. ¡Fíjate en que aquí la h se queda aunque cambie la raíz!</li><li>Si <i>viaje</i> lleva <b>j</b>, también <i>viajero, viajar</i>.</li><li>Si <i>coger</i> lleva <b>g</b>, también <i>recoger, escoger, encoger</i>.</li></ul><p>Así, cuando no sepas cómo se escribe una palabra, piensa en otra de su familia que conozcas bien. ¿<i>Embotellar</i> con b o con v? Piensa en <i>botella</i>: con b. ¿<i>Invernadero</i>? Piensa en <i>invierno</i>: con v.</p><p>Hay algunas excepciones muy curiosas. <i>Hueso</i> lleva h, pero <i>óseo</i> no, porque la h solo se pone delante de <i>ue</i>. Lo mismo pasa con <i>huevo</i> y <i>óvalo</i>, o con <i>hueco</i> y <i>oquedad</i>. Pero son pocas.</p><p><b>Actividad</b>: escribe una palabra de la familia de <i>bosque, verde, hierro</i> y <i>gente</i>. Comprueba que mantienen la letra.</p>`,
+        H6.dos("Familia", ["BARCO", ["barca", "barquero", "embarcar"], cAZ], ["VASO", ["vasito", "vasija", "envasar"], cVE])],
+    ],
+    "La g fuerte y la j": [
+      ["Verbos en -ger y -gir", `<p>Hay una regla que te ayudará con muchísimos verbos: los verbos que acaban en <mark>-ger</mark> y <mark>-gir</mark> se escriben con <b>g</b>.</p><ul><li><b>-ger</b>: <i>coger, recoger, escoger, proteger, encoger</i>.</li><li><b>-gir</b>: <i>elegir, dirigir, corregir, exigir, fingir, surgir</i>.</li></ul><p>Hay dos excepciones que debes recordar: <b>tejer</b> y <b>crujir</b>, que se escriben con j.</p><p>Pero ¡cuidado! Al conjugar estos verbos, la g cambia a <b>j</b> delante de <i>a</i> y de <i>o</i>. ¿Por qué? Porque <i>ga</i> y <i>go</i> suenan suaves (como en <i>gato</i>), y queremos que siga sonando fuerte:</p><ul><li><i>coger → yo <b>cojo</b>, que él <b>coja</b></i> (pero <i>tú coges, él coge</i>, con g, porque va delante de e).</li><li><i>elegir → yo <b>elijo</b>, que ella <b>elija</b></i> (pero <i>tú eliges</i>).</li><li><i>proteger → yo <b>protejo</b></i>.</li></ul><p>Truco: si después viene <b>e</b> o <b>i</b>, se queda la <b>g</b>; si viene <b>a</b> u <b>o</b>, cambia a <b>j</b>.</p><p>Ya sabes también que las palabras que acaban en <b>-aje</b> van con j: <i>viaje, garaje, traje, paisaje, equipaje</i>. Y que las que empiezan por <i>geo-</i> (tierra) van con g: <i>geografía, geometría</i>.</p><p><b>Actividad</b>: conjuga en presente los verbos <i>recoger</i> y <i>corregir</i>, y rodea las formas con j.</p>`,
+        L6.filas("G o J", [["coger", "cojo, coges", cAZ], ["elegir", "elijo, eliges", cVE], ["proteger", "protejo", cNA], ["tejer", "¡con j!", cRO]])],
+    ],
+    "La h que no suena": [
+      ["La h escondida en medio", `<p>La h no solo aparece al principio de las palabras. A veces se esconde <mark>en medio</mark>, y es todavía más difícil de recordar, porque tampoco suena. Se llama <b>h intercalada</b>.</p><p>Algunas palabras con h en medio que usas mucho:</p><ul><li><i>a<b>h</b>ora, zana<b>h</b>oria, bú<b>h</b>o, almo<b>h</b>ada, co<b>h</b>ete</i>.</li><li><i>pro<b>h</b>ibido, ve<b>h</b>ículo, ba<b>h</b>ía</i>.</li><li>Las que empiezan por <b>des-</b> o <b>in-</b> y vienen de una palabra con h: <i>des<b>h</b>acer</i> (de <i>hacer</i>), <i>des<b>h</b>ielo</i> (de <i>hielo</i>), <i>in<b>h</b>umano</i> (de <i>humano</i>), <i>des<b>h</b>ojar</i> (de <i>hoja</i>).</li></ul><p>Como la h intercalada no tiene regla fija, el mejor método es <b>fijarse</b> al leer y <b>repasar</b> las palabras. Un buen truco es leerlas en voz alta separando las sílabas y diciendo la h como si sonara: «za-na-JO-ria», «al-mo-JA-da». ¡Así no se te olvida!</p><p>Y no confundas: <i>ahí</i> (un lugar), <i>hay</i> (del verbo <i>haber</i>) y <i>¡ay!</i> (una queja). <i>Ahí hay un hombre que dice ¡ay!</i></p><p><b>Actividad</b>: busca en el diccionario tres palabras más con h intercalada y escribe una frase con cada una.</p>`,
+        H6.rueda("H", "H EN MEDIO", [["ahora", cAZ], ["búho", cVE], ["almohada", cNA], ["prohibido", cRO]])],
+    ],
+    "Palabras que suenan igual": [
+      ["Más parejas que se confunden", `<p>Hay más parejas de palabras que <mark>suenan igual</mark> y se escriben distinto. Se llaman <b>homófonas</b>. Para no equivocarte, piensa siempre en el <b>significado</b>:</p><ul><li><b>tubo</b> (un cilindro hueco: <i>el tubo de pasta de dientes</i>) / <b>tuvo</b> (del verbo <i>tener</i>: <i>Ayer tuvo fiebre</i>).</li><li><b>bello</b> (bonito: <i>un paisaje bello</i>) / <b>vello</b> (pelito del cuerpo: <i>el vello del brazo</i>).</li><li><b>hierba</b> (planta: <i>la hierba del jardín</i>) / <b>hierva</b> (del verbo <i>hervir</i>: <i>Espera a que hierva el agua</i>).</li><li><b>hasta</b> (indica un límite: <i>hasta mañana</i>) / <b>asta</b> (palo de la bandera o cuerno del toro).</li><li><b>a ver</b> (mirar: <i>Vamos a ver la película</i>) / <b>haber</b> (verbo: <i>Debe haber un error</i>).</li><li><b>sabia</b> (que sabe mucho: <i>una mujer sabia</i>) / <b>savia</b> (el líquido que alimenta a las plantas).</li></ul><p>Un buen truco para la pareja <i>a ver / haber</i>: si puedes cambiarlo por <i>a mirar</i>, se escribe separado y sin h: <i>Vamos a ver → Vamos a mirar</i>.</p><p>También hay palabras que se escriben <b>igual</b> y significan cosas distintas, como <i>vela</i> (de cumpleaños) y <i>vela</i> (de un barco). Esas no dan problemas de ortografía, pero hay que entender por el resto de la frase cuál es.</p><p><b>Actividad</b>: escribe una frase con <i>tubo</i> y otra con <i>tuvo</i>.</p>`,
+        H6.dos("Homófonas", ["CON B", ["tubo", "bello", "sabia"], cAZ], ["CON V", ["tuvo", "vello", "savia"], cVE]),
+        ["uYAC9xtdpqA", "👩🏻‍🏫¿Qué son las palabras HOMÓGRAFAS Y HOMÓFONAS? 🤔", "MissStephy", 381437]],
+    ],
+  },
+  final: [
+    ["El diccionario, nuestro aliado", `<p>Cuando dudes de cómo se escribe una palabra, el <mark>diccionario</mark> es tu mejor amigo. Pero para encontrar rápido una palabra hay que saber usarlo.</p><ul><li>Las palabras están ordenadas por <b>orden alfabético</b>: primero las que empiezan por <i>a</i>, después por <i>b</i>, etc. Si dos palabras empiezan por la misma letra, se mira la segunda: <i>bota</i> va antes que <i>bufanda</i>, porque la <i>o</i> va antes que la <i>u</i>.</li><li>Arriba de cada página hay unas <b>palabras guía</b>: la primera y la última de esa página. Te ayudan a saber si tu palabra está ahí.</li><li>Los verbos aparecen en <b>infinitivo</b>. Si buscas <i>cojo</i>, tienes que buscar <i>coger</i>.</li><li>Los sustantivos y adjetivos aparecen en <b>singular</b> y, normalmente, en <b>masculino</b>: para <i>blancas</i>, busca <i>blanco</i>.</li></ul><p>Pero ¿cómo buscas una palabra si no sabes si va con b o con v? ¡Prueba las dos! Busca primero <i>bolar</i>: no está. Busca <i>volar</i>: ¡ahí está! Así compruebas la ortografía.</p><p>También puedes usar un diccionario en internet, con ayuda de un adulto. Escribes la palabra y, si está mal escrita, muchas veces te propone la correcta.</p><p><b>Actividad</b>: busca en el diccionario <i>huevo, jirafa, gigante</i> y <i>bufanda</i>, y apunta la página donde aparece cada una.</p>`,
+      H6.flujo("Buscar", ["primera|letra", "palabras|guía", "infinitivo|singular", "lee|la definición"], cAZ)],
+    ["Mi cuaderno de palabras difíciles", `<p>Todos tenemos palabras que se nos resisten. La forma de vencerlas es <mark>practicar</mark> con ellas de manera ordenada. Te proponemos que hagas tu propio <b>cuaderno de palabras difíciles</b>.</p><p><b>Cómo hacerlo</b>:</p><ul><li><b>1.</b> Cada vez que te equivoques en una palabra, apúntala bien escrita en tu cuaderno.</li><li><b>2.</b> Rodea de color la letra difícil: <i>ca<b>b</b>allo</i>, <i><b>j</b>irafa</i>, <i><b>h</b>ormiga</i>.</li><li><b>3.</b> Escribe al lado la <b>regla</b> que la explica, si la hay: <i>-aba, mb, hue-…</i></li><li><b>4.</b> Haz un <b>dibujo</b> pequeño: si dibujas una hormiga con forma de h, ¡ya no se te olvidará!</li><li><b>5.</b> Escribe una <b>frase</b> con la palabra.</li></ul><p>Después, repasa tu cuaderno con estos juegos:</p><ul><li><b>Autodictado</b>: lee una palabra, tápala y escríbela de memoria. Luego compara.</li><li><b>Palabras con hueco</b>: un compañero escribe <i>_ormiga</i> y tú pones la letra.</li><li><b>Bingo ortográfico</b>: cada uno tiene un cartón con palabras y el maestro dicta reglas.</li></ul><p>Recuerda que <b>leer mucho</b> es el mejor entrenamiento: los ojos se acostumbran a ver las palabras bien escritas y la mano acaba escribiéndolas solas.</p>`,
+      L6.filas("Cuaderno", [["apunta", "bien escrita", cAZ], ["rodea", "la letra", cVE], ["regla", "si la hay", cNA], ["dibujo", "y frase", cRO]])],
+  ],
+  ejemplos: [
+    ["¿«Protejo» o «protego»?", ["El verbo es proteger, con g.", "Delante de o, la g cambia a j para seguir sonando fuerte."], "Protejo."],
+    ["¿«Tubo» o «tuvo» en «Mi hermano ___ un resfriado»?", ["Es del verbo tener.", "Las formas de tener van con v."], "Tuvo."],
+  ],
+  errores: ["Escribir «cogo» o «elijes»: delante de a y o se usa j (cojo), delante de e e i se queda g (eliges).", "Olvidar la h intercalada: «zanaoria», «almoada»."],
+  ejercicios: [
+    ["b", "¿Con qué letra se escriben los verbos acabados en -ger y -gir?", "Con g."],
+    ["b", "Escribe dos palabras de la familia de «barco».", "Por ejemplo: barca, barquero."],
+    ["b", "Completa: zana_oria, bú_o.", "Zanahoria, búho."],
+    ["b", "¿Qué significa «savia»?", "El líquido que alimenta a las plantas."],
+    ["b", "En la lectura, ¿qué verduras crecían en el huerto?", "Zanahorias, habas y judías."],
+    ["m", "Escribe la forma de «yo» de los verbos elegir y recoger.", "Elijo, recojo."],
+    ["m", "¿Cuáles son las dos excepciones a la regla de -ger y -gir?", "Tejer y crujir."],
+    ["m", "Completa con hierba o hierva: «Cuando ___ el agua, echa la pasta».", "Hierva."],
+    ["m", "¿Por qué «invernadero» se escribe con v?", "Porque es de la familia de invierno."],
+    ["m", "¿Cómo buscarías «cojo» en el diccionario?", "Buscando el infinitivo: coger."],
+    ["a", "Corrige el primer cartel de la lectura.", "Huerto escolar. Prohibido pisar la hierba. Aquí crecen zanahorias, habas y judías. No coja las verduras sin permiso."],
+    ["a", "Escribe una frase con «ahí», «hay» y «ay».", "Por ejemplo: Ahí hay un perro que se ha hecho daño: ¡ay!"],
+    ["a", "Explica por qué «hueso» lleva h y «óseo» no.", "Porque la h va delante de ue; en óseo no hay ue."],
+    ["a", "Empieza tu cuaderno de palabras difíciles con cinco palabras.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Se escribe correctamente…", ["elegir", "elejir", "eleguir"], "Verbos."],
+    ["«Yo ___ la mesa» (recoger):", ["recojo", "recogo", "recoggo"], "Verbos."],
+    ["Tiene h intercalada…", ["almohada", "árbol", "ojo"], "H."],
+    ["«El ___ de la bandera» se escribe…", ["asta", "hasta", "hazta"], "Homófonas."],
+    ["En el diccionario, los verbos aparecen en…", ["infinitivo", "pasado", "plural"], "Diccionario."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién explicó por qué «coja» va con j?", ["la maestra", "el conserje", "Sofía"], "Lectura."],
+    ["Es de la familia de «hielo»…", ["helado", "huevo", "hierba"], "Familia."],
+  ],
+  tarjetas: [
+    ["La familia ayuda", "Barco, barquero; invierno, invernadero: la letra se mantiene."],
+    ["-ger, -gir", "Con g (menos tejer y crujir); cojo, elijo delante de a y o."],
+    ["H intercalada", "Ahora, búho, zanahoria, almohada, prohibido, deshacer."],
+    ["Homófonas", "Tubo/tuvo, bello/vello, hierba/hierva, a ver/haber, sabia/savia."],
+  ],
+  glosario: [
+    ["Ortografía", "Normas para escribir bien las palabras."],
+    ["Regla", "Norma que se cumple en muchas palabras."],
+    ["Excepción", "Palabra que no cumple una regla."],
+    ["Familia de palabras", "Palabras con la misma raíz."],
+    ["H intercalada", "H que va en medio de la palabra."],
+    ["Homófonas", "Palabras que suenan igual y se escriben distinto."],
+    ["Diéresis", "Dos puntos sobre la u: güe, güi."],
+    ["Infinitivo", "Forma del verbo acabada en -ar, -er, -ir."],
+    ["Orden alfabético", "Orden de las letras del abecedario."],
+    ["Palabras guía", "Las que aparecen arriba de cada página del diccionario."],
+    ["Autodictado", "Escribir de memoria una palabra que se ha leído."],
+    ["Savia", "Líquido que alimenta a las plantas."],
+  ],
+  situacion: {
+    titulo: "Detectives de la ortografía",
+    reto: "La clase revisa los carteles y avisos del colegio, encuentra los errores y propone versiones corregidas.",
+    pasos: ["Fotografiar o copiar carteles del colegio y del barrio.", "Buscar las palabras con b/v, g/j y h y comprobarlas en el diccionario.", "Escribir la regla o la familia que explica cada palabra.", "Hacer carteles nuevos y una lista de palabras para el cuaderno de clase."],
+    producto: "Carteles corregidos y un cuaderno de palabras difíciles de la clase.",
+    evaluacion: ["Aplica las reglas de b/v, g/j y h.", "Usa la familia de palabras para resolver dudas.", "Distingue palabras homófonas.", "Consulta el diccionario con soltura."],
+  },
+});
