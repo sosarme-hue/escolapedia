@@ -91,3 +91,98 @@ module.exports = tema({
   ideas: ["Póster «All about me» y gallery walk.", "Revisión entre iguales con «two stars and a wish».", "Intercambio de cartas con otra clase o un colegio extranjero."],
   fuentes: [["British Council LearnEnglish Kids: writing", "https://learnenglishkids.britishcouncil.org/"], ["Cambridge English: Pre A1 Starters", "https://www.cambridgeenglish.org/exams-and-tests/starters/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Describe our looks and personality", "Use question marks, exclamation marks and commas", "Write opening and closing sentences", "Write an email to a pen pal about ourselves"],
+  lectura: { titulo: "A letter from Jamie", html: `<p><i>Dear Paula,</i></p><p>Hi! My name is Jamie and I'm your new pen pal. I'm nine years old and I live in Edinburgh, in Scotland. It's a beautiful city with an old castle on a hill.</p><p>I've got short red hair and green eyes, and I wear glasses. I'm quite tall. My friends say I'm funny and friendly, but I'm a bit shy with new people.</p><p>I live with my mum, my dad and my little brother, Callum. He's five and he's very noisy! We've got a dog called Haggis. He's black and white and he loves running on the beach.</p><p>I love reading adventure stories and playing the bagpipes. Do you know them? They're a Scottish instrument. I don't like football, but I like swimming. My favourite food is fish and chips.</p><p>When I grow up, I want to be a vet because I love animals.</p><p>What about you? What do you like doing? Have you got any pets? Please write soon!</p><p><i>Best wishes,<br>Jamie</i></p>` },
+  tras: {
+    "All about me": [
+      ["Looks and personality", `<p>When we write about ourselves, we can describe two things: our <mark>looks</mark> (aspecto físico) and our <mark>personality</mark> (forma de ser).</p><p><b>Looks</b>: we use <b>I've got</b> for hair and eyes, and <b>I'm</b> for height.</p><ul><li>«I've got <b>long</b> / <b>short</b> / <b>curly</b> (rizado) / <b>straight</b> (liso) <b>brown</b> hair.»</li><li>«I've got <b>blue</b> / <b>green</b> / <b>brown</b> eyes.»</li><li>«I'm <b>tall</b> / <b>short</b> / <b>medium height</b>.» «I wear <b>glasses</b>.» (llevo gafas)</li></ul><p>Look at the order: size + type + colour + hair: «long curly black hair».</p><p><b>Personality</b>: we use <b>I'm</b>.</p><ul><li><b>friendly</b> (simpático), <b>kind</b> (amable), <b>funny</b> (gracioso), <b>shy</b> (tímido), <b>clever</b> (listo), <b>brave</b> (valiente), <b>chatty</b> (hablador), <b>calm</b> (tranquilo), <b>hard-working</b> (trabajador).</li></ul><p>We can make them softer or stronger: «I'm <b>a bit</b> shy.» (un poco) «I'm <b>very</b> chatty!»</p><p><b>Activity</b>: write two sentences about your looks and two about your personality.</p>`,
+        H6.dos("Me", ["LOOKS", ["I've got curly hair", "I've got blue eyes", "I'm tall"], cAZ], ["PERSONALITY", ["I'm friendly", "I'm a bit shy", "I'm funny"], cRO])],
+    ],
+    "Capital letters and full stops": [
+      ["Question marks, exclamation marks and commas", `<p>Besides full stops (.), we use other <mark>punctuation marks</mark> (signos de puntuación):</p><ul><li>The <b>question mark</b> (?) goes at the end of a question: «What's your favourite food?»</li><li>The <b>exclamation mark</b> (!) shows surprise or strong feelings: «I love chocolate!» «Wow!»</li><li>The <b>comma</b> (,) separates things in a list: «I like apples, bananas and grapes.»</li></ul><p>Very important! In English, question marks and exclamation marks go <b>only at the end</b>. We never write them at the beginning like in Spanish (¿…? ¡…!).</p><ul><li>Spanish: «<b>¿</b>Tienes mascota?» English: «Have you got a pet?»</li></ul><p>In a list, we don't usually put a comma before <b>and</b>: «red, blue and green».</p><p>Don't use too many exclamation marks! One is enough: «It's great!», not «It's great!!!!».</p><p><b>Activity</b>: copy these sentences and add the punctuation: <i>do you like pizza / I've got a cat a dog and a fish / what a beautiful day</i></p>`,
+        L6.filas("Punctuation", [[".", "full stop", cAZ], ["?", "question mark", cVE], ["!", "exclamation mark", cRO], [",", "comma", cNA]])],
+    ],
+    "Paragraphs": [
+      ["Opening and closing sentences", `<p>A good text has got a <mark>beginning</mark>, a <mark>middle</mark> and an <mark>end</mark>.</p><p>The <b>opening sentence</b> (frase de inicio) says hello and tells the reader what the text is about:</p><ul><li>«Hello! Let me tell you about me.»</li><li>«Hi! My name is Lucía and this is my story.»</li><li>«Do you want to know about me? Read on!»</li></ul><p>In the <b>middle</b>, we write the information, in paragraphs: my family, my looks, my hobbies, my school.</p><p>The <b>closing sentence</b> (frase final) finishes the text in a nice way:</p><ul><li>«That's all about me. Thanks for reading!»</li><li>«And what about you? What do you like?»</li><li>«I hope you like my text. Bye!»</li></ul><p>A question at the end is a good idea: the reader wants to answer!</p><p>Each paragraph can also start with a <b>topic sentence</b> (frase principal) that tells the reader the topic: «Now let me tell you about my family.» «I've got lots of hobbies.»</p><p><b>Activity</b>: write three different opening sentences and three closing sentences.</p>`,
+        H6.flujo("My text", ["opening|sentence", "paragraph|family", "paragraph|hobbies", "closing|sentence"], cVE),
+        ["keBFpEdiVVU", "How to Write a Paragraph for Kids: Teaching Lesson in English", "GRASPhopper", 788602]],
+    ],
+    "A model text": [
+      ["An email to a pen pal", `<p>A <mark>pen pal</mark> (amigo por correspondencia) is a friend in another country. We write letters or emails to tell them about our life.</p><p>An email has got special parts:</p><ul><li><b>Greeting</b> (saludo): «<b>Dear</b> Jamie,» or «<b>Hi</b> Jamie,». Put a comma after the name.</li><li><b>Opening</b>: «Thank you for your email.» «How are you?»</li><li><b>Body</b> (cuerpo): the information in paragraphs: about me, my family, my hobbies, my town.</li><li><b>Questions</b> for your pen pal: «Have you got a pet? What's your school like?»</li><li><b>Closing</b> (despedida): «<b>Write soon!</b>» (¡Escríbeme pronto!) and «<b>Best wishes</b>,» or «<b>Love</b>,» (for family and close friends).</li><li>Your <b>name</b>.</li></ul><p>Look: in an email to a friend we use <b>contractions</b> (formas cortas): <i>I'm, I've got, don't, it's</i>. It sounds friendly.</p><p>Tell your pen pal about things from your country: a typical food, a festival, a special place in your town.</p><p><b>Activity</b>: write an email to Jamie from the reading. Answer his questions.</p>`,
+        L6.filas("Email", [["Dear Jamie,", "greeting", cAZ], ["How are you?", "opening", cVE], ["Write soon!", "closing", cNA], ["Best wishes,", "goodbye", cRO]])],
+    ],
+    "Check your writing": [
+      ["Make it interesting!", `<p>A good text has got <mark>details</mark> (detalles). Compare:</p><ul><li>Boring: «I've got a dog. I like my dog.»</li><li>Interesting: «I've got a <b>small brown</b> dog <b>called Rocky</b>. He's <b>really funny</b> because he <b>chases his tail</b>!»</li></ul><p>How can we make our writing interesting?</p><ul><li>Add <b>adjectives</b>: <i>big, small, beautiful, noisy, delicious, old, new</i>.</li><li>Add <b>names</b>: «my friend <b>Ana</b>», «my town, <b>Teruel</b>».</li><li>Add <b>reasons</b> with <b>because</b>: «I love summer because I go to the beach.»</li><li>Add <b>examples</b>: «I like fruit, <b>for example</b> strawberries.»</li><li>Use <b>really</b> and <b>very</b>: «It's <b>really</b> exciting!»</li><li>Use different verbs: not only <i>like</i>, but <i>love, enjoy, prefer</i>.</li><li>Start sentences in different ways: not always «I…»: «<b>On Saturdays</b>, I…», «<b>My favourite</b> food is…».</li></ul><p><b>Activity</b>: make these sentences more interesting: «I've got a house. I like my school. I play a sport.»</p>`,
+        H6.rueda("Details", "WOW!", [["adjectives", cAZ], ["names", cVE], ["because", cNA], ["examples", cMO]])],
+    ],
+  },
+  final: [
+    ["My dreams for the future", `<p>We can finish our «All about me» text with our <mark>dreams</mark> (sueños) for the future.</p><p>To talk about jobs, we say <b>When I grow up, I want to be…</b> (Cuando sea mayor, quiero ser…):</p><ul><li>«When I grow up, I want to be <b>a vet</b> because I love animals.»</li><li>«I want to be <b>an astronaut</b> because I want to travel to space.»</li><li>Other jobs: <i>a teacher, a doctor, a nurse, a scientist, a firefighter</i> (bombero), <i>a footballer, a chef, a writer, an artist, a pilot</i>.</li></ul><p>Look: before a job we use <b>a</b> or <b>an</b>: <i>a vet, an artist</i> (an before a, e, i, o, u).</p><p>To talk about other dreams, we use <b>I'd like to…</b> (Me gustaría…):</p><ul><li>«I'd like to <b>visit</b> Japan.»</li><li>«I'd like to <b>learn</b> to play the guitar.»</li><li>«I'd like to <b>have</b> a horse.»</li></ul><p>Dreams can be big or small, and they can change. That's OK! The important thing is to work hard and enjoy learning.</p><p><b>Activity</b>: write three sentences about your dreams with «I want to be…» and «I'd like to…».</p>`,
+      L6.filas("Dreams", [["I want to be", "a vet", cVE], ["I want to be", "an astronaut", cAZ], ["I'd like to", "visit Japan", cNA], ["I'd like to", "have a horse", cRO]])],
+  ],
+  ejemplos: [
+    ["Correct the punctuation: «¿Have you got a pet?»", ["In English there is no ¿ at the beginning.", "The question mark goes only at the end."], "Have you got a pet?"],
+    ["Order: hair / I've got / brown / long", ["Size goes before colour.", "Hair goes at the end."], "I've got long brown hair."],
+  ],
+  errores: ["Writing ¿ and ¡ at the beginning of English sentences.", "Saying «I want to be vet» without a or an."],
+  ejercicios: [
+    ["b", "How do you say «tímido» in English?", "Shy."],
+    ["b", "Where does Jamie live?", "In Edinburgh, in Scotland."],
+    ["b", "Which mark goes at the end of a question?", "The question mark (?)."],
+    ["b", "Complete: «When I grow up, I want to be ___ artist.»", "An."],
+    ["b", "Write a greeting for an email.", "Dear… / Hi…,"],
+    ["m", "Describe Jamie's looks.", "He's got short red hair and green eyes, he wears glasses and he's quite tall."],
+    ["m", "Add commas: «I like red blue and green.»", "I like red, blue and green."],
+    ["m", "Write a closing sentence for your text.", "Example: That's all about me. Thanks for reading!"],
+    ["m", "Translate: Me gustaría visitar Escocia.", "I'd like to visit Scotland."],
+    ["m", "What does Jamie want to be? Why?", "A vet, because he loves animals."],
+    ["a", "Make this more interesting: «I've got a cat. I like it.»", "Example: I've got a fluffy grey cat called Luna. I love her because she's very calm."],
+    ["a", "Write an email to Jamie answering his questions.", "Open answer."],
+    ["a", "Write a paragraph about your personality with four adjectives.", "Open answer."],
+    ["a", "Write your full «All about me» text with an opening, three paragraphs and a closing.", "Open answer."],
+  ],
+  quiz: [
+    ["«Gracioso» in English is…", ["funny", "friendly", "shy"], "Personality."],
+    ["In English, the question mark goes…", ["only at the end", "at the beginning and the end", "only at the beginning"], "Punctuation."],
+    ["A good closing for an email to a friend is…", ["Best wishes,", "Dear Sir,", "Hello!"], "Email."],
+    ["«I want to be ___ astronaut.»", ["an", "a", "—"], "a / an."],
+    ["«I've got ___ hair.»", ["long curly black", "black curly long", "curly black long"], "Order."],
+  ],
+  examen: [
+    ["In the reading, what instrument does Jamie play?", ["the bagpipes", "the guitar", "the piano"], "Reading."],
+    ["What is a pen pal?", ["a friend you write to in another country", "a pen for writing", "a classmate"], "Email."],
+  ],
+  tarjetas: [
+    ["Looks", "I've got long curly brown hair. I'm tall. I wear glasses."],
+    ["Punctuation", ". ? ! , — in English, ? and ! only at the end."],
+    ["Email", "Dear…, How are you? … Write soon! Best wishes,"],
+    ["Dreams", "When I grow up, I want to be a/an… I'd like to…"],
+  ],
+  glosario: [
+    ["Looks", "Aspecto físico."],
+    ["Personality", "Personalidad, forma de ser."],
+    ["Curly", "Rizado."],
+    ["Straight", "Liso."],
+    ["Friendly", "Simpático."],
+    ["Shy", "Tímido."],
+    ["Question mark", "Signo de interrogación."],
+    ["Comma", "Coma."],
+    ["Pen pal", "Amigo por correspondencia."],
+    ["Best wishes", "Un saludo (despedida)."],
+    ["Grow up", "Crecer, hacerse mayor."],
+    ["Dream", "Sueño."],
+  ],
+  situacion: {
+    titulo: "Pen pals around the world",
+    reto: "Each pupil writes an email to a pen pal in another country to introduce themselves, and the class makes a «Pen pals» display.",
+    pasos: ["Plan the email with a mind map: me, family, hobbies, school, dreams.", "Write the email with a greeting, paragraphs, questions and a closing.", "Check capital letters, punctuation and details with a partner.", "Write the final version and put it on the display with a photo or drawing."],
+    producto: "An email to a pen pal and a class «Pen pals» display.",
+    evaluacion: ["Describes looks and personality correctly.", "Uses punctuation correctly, with ? and ! only at the end.", "Organises the email with greeting, paragraphs and closing.", "Adds details, reasons and questions for the reader."],
+  },
+});

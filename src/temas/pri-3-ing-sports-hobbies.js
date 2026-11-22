@@ -91,3 +91,99 @@ module.exports = tema({
   ideas: ["Encuesta de deportes con gráfico de barras.", "Horario semanal de actividades en inglés.", "Mímica de deportes con la regla play / go / do."],
   fuentes: [["British Council LearnEnglish Kids: sports", "https://learnenglishkids.britishcouncil.org/"], ["Cambridge Dictionary", "https://dictionary.cambridge.org/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Name water and winter sports", "Talk about a match with win, lose, score and team", "Learn about the Olympic and Paralympic Games", "Write a poster to invite people to a club"],
+  lectura: { titulo: "The new player", html: `<p>On Monday, a new girl arrives at Leo's school. Her name is Amira and she's from Morocco.</p><p>At break time, Leo and his friends play football in the playground. Amira watches them, but she doesn't say anything.</p><p>"Do you want to play?" asks Leo.</p><p>"Yes, please!" says Amira with a big smile.</p><p>Some boys laugh. "Girls can't play football," says Marcos.</p><p>But Amira can play very well. She runs fast, she passes the ball to her team and she scores two goals! At the end, Leo's team wins three–one.</p><p>"Wow! You're fantastic," says Leo.</p><p>"Thank you. I play every Saturday in a club," says Amira. "And I go swimming on Wednesdays."</p><p>Marcos looks at his shoes. "Sorry, Amira," he says. "You're a great player. Do you want to be in my team tomorrow?"</p><p>"OK!" says Amira. "But you need to pass the ball!"</p><p>Everybody laughs. Now Amira has got lots of new friends.</p>` },
+  tras: {
+    "Sports": [
+      ["Water and winter sports", `<p>Some sports need <mark>water</mark>, and others need <mark>snow or ice</mark> (nieve o hielo).</p><p><b>Water sports</b> (deportes acuáticos):</p><ul><li><b>swimming</b> (natación): «I go swimming in the pool.»</li><li><b>sailing</b> (vela): you need a boat with a sail.</li><li><b>surfing</b> (surf): you need a surfboard and big waves (olas).</li><li><b>diving</b> (buceo o saltos): you go under the water.</li><li><b>water polo</b>: a team game in the pool.</li><li><b>canoeing</b> (piragüismo): you use a paddle (remo).</li></ul><p><b>Winter sports</b> (deportes de invierno):</p><ul><li><b>skiing</b> (esquí): you need skis and you go down the mountain.</li><li><b>snowboarding</b>: you go down the snow on one board.</li><li><b>ice skating</b> (patinaje sobre hielo): you need skates.</li><li><b>ice hockey</b>: a team game on ice with sticks and a puck.</li></ul><p>Look: most of these sports use <b>go</b> + -ing: <i>go swimming, go sailing, go surfing, go skiing, go ice skating</i>.</p><p>In Spain, people go skiing in the Pyrenees and in Sierra Nevada, and they go surfing in the north, for example in Cantabria and the Basque Country.</p><p><b>Activity</b>: classify these sports: skiing, sailing, ice hockey, surfing, diving, snowboarding. Which one do you want to try?</p>`,
+        H6.dos("Sports", ["WATER", ["swimming", "sailing", "surfing"], cAZ], ["WINTER", ["skiing", "snowboarding", "ice skating"], cMO])],
+    ],
+    "Hobbies and free time": [
+      ["Making, collecting and playing", `<p>There are many kinds of <mark>hobbies</mark>. We can put them in groups:</p><ul><li><b>Making things</b> (hacer cosas): <i>make models</i> (maquetas), <i>bake cakes</i> (hacer pasteles), <i>knit</i> (tejer), <i>build with blocks</i>, <i>do origami</i>.</li><li><b>Collecting</b> (coleccionar): <i>stickers</i> (cromos), <i>shells</i> (conchas), <i>stones, coins</i> (monedas), <i>stamps</i> (sellos), <i>toy cars</i>.</li><li><b>Playing</b> (jugar): <i>chess</i> (ajedrez), <i>board games</i> (juegos de mesa), <i>cards</i> (cartas), <i>video games</i>, <i>hide and seek</i> (escondite).</li><li><b>Being outside</b> (al aire libre): <i>gardening</i> (jardinería), <i>fishing</i> (pescar), <i>camping, birdwatching</i> (observar pájaros).</li></ul><p>To talk about our hobbies we use <b>like / love + -ing</b>: «I love <b>baking</b> cakes with my grandma.» «My brother likes <b>collecting</b> coins.»</p><p>We can also say how long: «I collect stickers. I've got <b>two hundred</b> stickers!»</p><p>A hobby is good for us: it helps us relax, learn new things and make friends who like the same things.</p><p><b>Activity</b>: ask three classmates «What's your hobby?» and write a sentence for each person.</p>`,
+        L6.filas("Hobbies", [["making", "models, cakes", cNA], ["collecting", "stickers, shells", cAZ], ["playing", "chess, cards", cVE], ["outside", "gardening, camping", cRO]])],
+    ],
+    "Days of the week": [
+      ["My activity timetable", `<p>Many children do <mark>after-school activities</mark> (actividades extraescolares). We can show them in a <b>timetable</b> (horario):</p><ul><li><b>On Mondays</b>, I have English lessons.</li><li><b>On Tuesdays and Thursdays</b>, I go swimming.</li><li><b>On Wednesdays</b>, I play the piano.</li><li><b>On Fridays</b>, I play with my friends in the park.</li><li><b>At the weekend</b>, I play football in a club.</li></ul><p>Remember: days of the week <b>always</b> start with a <b>capital letter</b> (mayúscula) in English: <i>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</i>. In Spanish, they don't: <i>lunes, martes</i>.</p><p>We use <b>on</b> with days: <i>on Monday</i>. And <b>at</b> with times: «I go swimming on Tuesdays <b>at</b> five o'clock.»</p><p>To ask: «<b>When</b> do you go swimming?» (¿Cuándo…?) – «On Tuesdays and Thursdays.»</p><p>It's important to have free time too! Don't do activities every day: you need time to play and rest.</p><p><b>Activity</b>: make your weekly timetable and write five sentences with on.</p>`,
+        L6.filas("My week", [["Monday", "English", cAZ], ["Tuesday", "swimming", cVE], ["Wednesday", "piano", cMO], ["Saturday", "football", cRO]]),
+        ["3tx0rvuXIRg", "The 7 Days of the Week Song ♫ 7 Days of the Week ♫ Kids Songs by The Learning Station", "TheLearningStation - Kids Songs and Nursery Rhymes", 78102485]],
+    ],
+    "Sports places and things": [
+      ["Talking about a match", `<p>A <mark>match</mark> (partido) is a game between two <b>teams</b> (equipos) or two players. Here are the key words:</p><ul><li><b>player</b> (jugador) and <b>team</b>: «There are eleven players in a football team.»</li><li><b>score a goal</b> (marcar un gol) and <b>score a point</b> (un punto, in basketball or tennis).</li><li><b>win</b> (ganar): «We <b>win</b>!» – the winner (ganador).</li><li><b>lose</b> (perder): «They <b>lose</b>.» – the loser.</li><li><b>draw</b> (empatar): «It's a draw: two–two.»</li><li><b>referee</b> (árbitro): the person who makes the rules work.</li><li><b>fans</b> (aficionados): the people who watch and shout.</li></ul><p>To give the <b>score</b> (resultado) we say the numbers: «The score is three–one.» For zero we often say <b>nil</b> in football: «two–nil».</p><p>Useful phrases in a match: «Pass the ball!» (¡Pasa el balón!), «Goal!», «Well done!» (¡Bien hecho!), «Good game!» (¡Buen partido!).</p><p><b>Activity</b>: write a short report of a match: the teams, the score and who scores the goals.</p>`,
+        H6.flujo("A match", ["two|teams", "score|goals", "win, lose|or draw", "good|game!"], cVE),
+        ["f9vIk_DvljU", "Hey-O We Want To Play-O | Kids Sports And Movement Song | Super Simple Songs", "Super Simple Songs - Kids Songs", 8825093]],
+    ],
+    "Teamwork and fair play": [
+      ["The Olympic and Paralympic Games", `<p>The <mark>Olympic Games</mark> (Juegos Olímpicos) are the biggest sports competition in the world. They take place every <b>four years</b>, in a different city each time.</p><ul><li>The Olympic flag has <b>five rings</b> (anillos) of different colours: blue, yellow, black, green and red. They show that people from all the continents come together.</li><li>There are <b>Summer</b> Games (athletics, swimming, gymnastics…) and <b>Winter</b> Games (skiing, ice skating…).</li><li>The best athletes win <b>medals</b>: <b>gold</b> (oro) for first, <b>silver</b> (plata) for second and <b>bronze</b> (bronce) for third.</li></ul><p>After the Olympic Games come the <mark>Paralympic Games</mark> (Juegos Paralímpicos). Here, athletes with a disability (discapacidad) compete: some use a wheelchair (silla de ruedas), some can't see, and some have got a prosthetic leg (pierna ortopédica). They are amazing athletes!</p><p>The Olympic Games started in ancient Greece, more than 2,700 years ago. In 1992, they took place in Barcelona.</p><p><b>Activity</b>: draw the five Olympic rings and write the names of three Olympic sports.</p>`,
+        L6.filas("Medals", [["1st", "gold", cNA], ["2nd", "silver", cAZ], ["3rd", "bronze", cRO], ["every", "four years", cVE]])],
+    ],
+  },
+  final: [
+    ["Join our club!", `<p>Clubs want new members. Let's write a <mark>poster</mark> (cartel) to invite children to a club. A good poster answers these questions:</p><ul><li><b>What?</b> The name of the club: «The Star Chess Club».</li><li><b>When?</b> «On Tuesdays at half past five.»</li><li><b>Where?</b> «In the school library.»</li><li><b>Who?</b> «For children from 7 to 10 years old.»</li><li><b>What do you need?</b> «Bring a pencil and a notebook.»</li></ul><p>Look at this example:</p><p><i>Do you like dancing? Can you move to the music? Come to the HAPPY FEET DANCE CLUB! When: on Mondays and Wednesdays at five o'clock. Where: in the school gym. Bring comfortable clothes and water. It's free! Come and have fun!</i></p><p>Tips for a good poster:</p><ul><li>Start with a <b>question</b> to the reader.</li><li>Write the club name in <b>big letters</b>.</li><li>Use <b>imperatives</b> (órdenes): <i>Come! Bring! Join us!</i></li><li>Add colours and a drawing.</li></ul><p><b>Activity</b>: invent a club and make a poster in English.</p>`,
+      H6.rueda("Poster", "CLUB", [["What?", cAZ], ["When?", cVE], ["Where?", cNA], ["Bring…", cRO]])],
+  ],
+  ejemplos: [
+    ["Write the score: we have two goals and they have zero (football).", ["In football we often say nil for zero.", "Say our score first."], "It's two–nil. We win!"],
+    ["Correct: «I play skiing on saturday.»", ["Skiing uses go.", "Days start with a capital letter and use on."], "I go skiing on Saturday."],
+  ],
+  errores: ["Writing days of the week with a small letter: «on monday».", "Confusing win and lose, or saying «play skiing» instead of «go skiing»."],
+  ejercicios: [
+    ["b", "Name two water sports.", "Example: swimming and surfing."],
+    ["b", "How do you say «ganar» in English?", "Win."],
+    ["b", "What colour is the medal for first place?", "Gold."],
+    ["b", "In the reading, where is Amira from?", "From Morocco."],
+    ["b", "Complete: «I go swimming ___ Tuesdays.»", "On."],
+    ["m", "What does Marcos say about girls?", "He says that girls can't play football."],
+    ["m", "Make a question: When / you / go / skiing?", "When do you go skiing?"],
+    ["m", "Translate: Colecciono conchas.", "I collect shells."],
+    ["m", "How often are the Olympic Games?", "Every four years."],
+    ["m", "Write the score of a draw with two goals each.", "Two–two. It's a draw."],
+    ["a", "What is the message of «The new player»?", "Girls and boys can play sport; we must be fair and include everybody."],
+    ["a", "Write a report of a match with the teams, the score and the scorers.", "Open answer."],
+    ["a", "Write your weekly activity timetable with five sentences.", "Open answer."],
+    ["a", "Make a poster for a club with what, when, where and what to bring.", "Open answer."],
+  ],
+  quiz: [
+    ["«Esquí» in English is…", ["skiing", "sailing", "skating"], "Winter sports."],
+    ["«It's a ___: two–two.»", ["draw", "win", "lose"], "Match."],
+    ["The Olympic flag has…", ["five rings", "four rings", "six rings"], "Olympics."],
+    ["«Coleccionar cromos» is…", ["collect stickers", "make models", "play cards"], "Hobbies."],
+    ["«I go swimming on Tuesdays ___ five o'clock.»", ["at", "on", "in"], "Time."],
+  ],
+  examen: [
+    ["In the reading, how many goals does Amira score?", ["two", "one", "three"], "Reading."],
+    ["Which is correct?", ["I go skiing on Saturdays.", "I play skiing on saturdays.", "I go skiing in Saturdays."], "Go + on."],
+  ],
+  tarjetas: [
+    ["Water and winter", "go swimming, sailing, surfing; go skiing, ice skating."],
+    ["Match", "team, player, score, win, lose, draw, referee."],
+    ["Olympics", "every four years; five rings; gold, silver, bronze."],
+    ["Club poster", "What? When? Where? Bring… Come and join us!"],
+  ],
+  glosario: [
+    ["Hobby", "Afición."],
+    ["Match", "Partido."],
+    ["Team", "Equipo."],
+    ["Score", "Marcar; resultado."],
+    ["Win", "Ganar."],
+    ["Lose", "Perder."],
+    ["Draw", "Empate; empatar."],
+    ["Referee", "Árbitro."],
+    ["Medal", "Medalla."],
+    ["Timetable", "Horario."],
+    ["Collect", "Coleccionar."],
+    ["Fair play", "Juego limpio."],
+  ],
+  situacion: {
+    titulo: "Our class sports day",
+    reto: "The class organises a small sports day with team games, writes the rules and reports the results in English.",
+    pasos: ["Choose four games and make mixed teams.", "Write the rules and a timetable for the day.", "Play the games and write down the scores.", "Write a report with the scores and give a fair play award."],
+    producto: "A sports day poster and a report with the results in English.",
+    evaluacion: ["Uses play, go and do with sports correctly.", "Uses on with days and at with times.", "Talks about a match with win, lose, draw and score.", "Shows teamwork and fair play."],
+  },
+});

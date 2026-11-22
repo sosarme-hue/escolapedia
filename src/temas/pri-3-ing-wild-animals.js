@@ -97,3 +97,99 @@ module.exports = tema({
   ideas: ["Mural «Our wild zoo» con fichas de datos.", "Juego de adivinar animales con preguntas cerradas.", "Clasificación de animales por hábitat y alimentación."],
   fuentes: [["National Geographic Kids: animals", "https://kids.nationalgeographic.com/animals"], ["British Council LearnEnglish Kids", "https://learnenglishkids.britishcouncil.org/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Name animals of the desert and the ocean", "Compare animals with bigger, faster and taller than", "Name animal homes and animal babies", "Understand why some animals are in danger and how we can help"],
+  lectura: { titulo: "Lola the lynx", html: `<p>Lola is a young lynx. She lives in a forest in the south of Spain. She has got grey and brown fur with black spots, long legs and a short tail. On the top of her ears she has got little black hairs, like paintbrushes.</p><p>Lola is very quiet. She hides in the bushes all day. At night, she goes out to hunt. Her favourite food is rabbit.</p><p>One morning, Lola sees some people with cameras. She is scared, but they don't want to hurt her. They are scientists, and they want to help. "Look! A young lynx!" says one of them. "That's very good news."</p><p>Many years ago, there were only about one hundred Iberian lynxes in the world. They were in great danger. People cut down forests, there weren't many rabbits, and cars hit the lynxes on the roads.</p><p>Today, thanks to scientists and many other people, there are more than two thousand. Lola is one of them. She can run, hunt and live free in her forest.</p>` },
+  tras: {
+    "Animals of the savannah": [
+      ["Desert animals", `<p>A <mark>desert</mark> (desierto) is a very dry place with very little rain. Some deserts are very hot in the day and cold at night. The biggest hot desert in the world is the <b>Sahara</b>, in Africa.</p><p>Animals in the desert are special: they can live with very little water.</p><ul><li>The <b>camel</b> (camello) has got one or two <b>humps</b> (jorobas). It stores fat in them. It can walk for days without water!</li><li>The <b>fennec fox</b> (fénec) is a small fox with <b>very big ears</b>. Its ears help it lose heat and hear small animals under the sand.</li><li>The <b>scorpion</b> (escorpión) has got eight legs and a tail with a sting (aguijón).</li><li>The <b>lizard</b> (lagarto) and the <b>snake</b> hide under rocks when it's very hot.</li><li>The <b>meerkat</b> (suricata) lives in groups and stands on its back legs to look for danger.</li></ul><p>Many desert animals sleep in the day and go out at night, when it's cooler.</p><p><b>Activity</b>: choose a desert animal and write three sentences: «It's got… It can… It eats…».</p>`,
+        L6.filas("Desert", [["camel", "humps", cNA], ["fennec fox", "big ears", cRO], ["scorpion", "sting", cMO], ["meerkat", "lives in groups", cVE]])],
+    ],
+    "Cold places: polar animals": [
+      ["Ocean animals", `<p>The <mark>ocean</mark> (océano) covers most of our planet. Millions of animals live in it.</p><ul><li>The <b>blue whale</b> (ballena azul) is the biggest animal in the world. It's bigger than a bus! But it eats very small animals called krill.</li><li>The <b>shark</b> (tiburón) has got lots of sharp teeth. It can swim very fast.</li><li>The <b>octopus</b> (pulpo) has got <b>eight arms</b>. It can change colour and squirt ink (echar tinta).</li><li>The <b>jellyfish</b> (medusa) hasn't got a brain or bones. Be careful: it can sting!</li><li>The <b>sea turtle</b> (tortuga marina) has got a hard shell. It lays its eggs on the beach.</li><li>The <b>seahorse</b> (caballito de mar) is a fish. The dad carries the babies!</li><li>The <b>starfish</b> (estrella de mar) usually has got five arms.</li></ul><p>Remember: whales and dolphins are not fish. They are <b>mammals</b> (mamíferos): they breathe air and feed their babies with milk.</p><p><b>Activity</b>: draw an ocean picture with five animals and label them in English.</p>`,
+        L6.filas("Ocean", [["blue whale", "the biggest", cAZ], ["octopus", "eight arms", cMO], ["shark", "sharp teeth", cRO], ["turtle", "hard shell", cVE]])],
+    ],
+    "Describing animals: adjectives": [
+      ["Bigger, faster, taller", `<p>To <mark>compare</mark> (comparar) two animals, we add <b>-er</b> to the adjective and use <b>than</b> (que):</p><ul><li>fast → fast<b>er</b>: «A cheetah is <b>faster than</b> a lion.»</li><li>tall → tall<b>er</b>: «A giraffe is <b>taller than</b> an elephant.»</li><li>small → small<b>er</b>: «A mouse is <b>smaller than</b> a cat.»</li><li>long → long<b>er</b>: «A snake is <b>longer than</b> a worm.»</li></ul><p>Some adjectives change a little:</p><ul><li>big → big<b>ger</b> (double g): «An elephant is <b>bigger than</b> a horse.»</li><li>heavy → heav<b>ier</b> (y → i): «A hippo is <b>heavier than</b> a zebra.»</li><li>funny → funn<b>ier</b>: «A monkey is <b>funnier than</b> a snail.»</li></ul><p>And there are irregular ones: good → <b>better</b>, bad → <b>worse</b>.</p><p>Game: <b>Compare!</b> The teacher says two animals and an adjective: «A tortoise and a rabbit… fast!» You say: «A rabbit is faster than a tortoise.»</p><p><b>Activity</b>: write five sentences comparing animals.</p>`,
+        L6.filas("Compare", [["fast", "faster than", cVE], ["tall", "taller than", cAZ], ["big", "bigger than", cNA], ["heavy", "heavier than", cRO]]),
+        ["OwRmivbNgQk", "Let's Go To The Zoo | Animal Song for Kids | Super Simple Songs", "Super Simple Songs - Kids Songs", 135672417]],
+    ],
+    "What do they eat?": [
+      ["Animal homes", `<p>Animals need a <mark>home</mark> (hogar) to sleep, hide and look after their babies. Each animal has got a different kind of home:</p><ul><li>A bird lives in a <b>nest</b> (nido).</li><li>A rabbit lives in a <b>burrow</b> (madriguera) under the ground.</li><li>A bee lives in a <b>hive</b> (colmena).</li><li>A spider lives on a <b>web</b> (tela de araña).</li><li>A fox and a wolf live in a <b>den</b> (guarida).</li><li>A bat lives in a <b>cave</b> (cueva).</li><li>A snail carries its home on its back: a <b>shell</b> (concha).</li><li>An ant lives in an <b>anthill</b> (hormiguero) with thousands of other ants.</li></ul><p>Some animals build their homes: birds use small sticks, leaves and mud (barro); bees make wax (cera); spiders make silk (seda).</p><p>To ask: «<b>Where does</b> a bee <b>live</b>?» – «It lives in a hive.»</p><p>Remember: we must never break a nest or touch the eggs. The parents can leave them.</p><p><b>Activity</b>: draw four animals and their homes and write a sentence for each one.</p>`,
+        H6.rueda("Homes", "HOME", [["bird: nest", cNA], ["bee: hive", cMO], ["rabbit: burrow", cVE], ["spider: web", cAZ]])],
+    ],
+    "Reading: my animal fact file": [
+      ["Animals in danger", `<p>Some animals are <mark>in danger</mark> (en peligro): there are very few of them, and they can disappear forever (desaparecer para siempre). We say these animals are <b>endangered</b>.</p><p>Why are they in danger?</p><ul><li>People <b>cut down forests</b> (talar bosques), so the animals lose their homes.</li><li>There is <b>pollution</b> (contaminación) in the sea, rivers and air. Plastic in the sea hurts turtles and fish.</li><li>People <b>hunt</b> (cazar) some animals.</li><li>The planet is getting <b>hotter</b>: in the Arctic the ice melts (se derrite), and polar bears can't find food.</li></ul><p>Animals in danger: the <b>orangutan</b>, the <b>tiger</b>, some <b>sea turtles</b>, the <b>gorilla</b>… And in Spain, the <b>Iberian lynx</b> was in great danger, but now there are more!</p><p>How can we help?</p><ul><li>Don't throw rubbish (basura) on the ground or in the sea.</li><li>Use less plastic and recycle.</li><li>Respect animals in nature: don't touch or feed them.</li><li>Learn about animals and tell other people.</li></ul><p><b>Activity</b>: make a poster «Help the animals!» with four tips.</p>`,
+        H6.flujo("Help!", ["no|rubbish", "use less|plastic", "respect|nature", "tell|people"], cVE),
+        ["ADf8x8Z50y0", "Walking In The Jungle | Animal Adventure | Noodle & Pals", "Noodle & Pals", 67311685]],
+    ],
+  },
+  final: [
+    ["Animal babies", `<p>Many animal babies have got a <mark>special name</mark> in English:</p><ul><li>lion, tiger, bear → <b>cub</b> (cachorro)</li><li>elephant, giraffe, whale → <b>calf</b> (cría)</li><li>kangaroo → <b>joey</b></li><li>bird, chicken → <b>chick</b> (polluelo)</li><li>duck → <b>duckling</b> (patito)</li><li>dog → <b>puppy</b> (cachorrito)</li><li>cat → <b>kitten</b> (gatito)</li><li>frog → <b>tadpole</b> (renacuajo)</li></ul><p>Some animals are born from <b>eggs</b> (huevos): birds, most fish, snakes, turtles and frogs. Other animals are born from their <b>mother's body</b> and drink their mother's milk: they are <b>mammals</b>, like lions, whales and people.</p><p>The kangaroo is special: the joey is very, very small when it is born. It lives in its mother's <b>pouch</b> (bolsa) for months.</p><p>Look at the frog: the baby doesn't look like its mum! A tadpole lives in the water and has got a tail. Then it grows legs and becomes a frog.</p><p><b>Activity</b>: play memory with cards: an animal and its baby.</p>`,
+      L6.filas("Babies", [["lion", "cub", cNA], ["elephant", "calf", cAZ], ["kangaroo", "joey", cRO], ["frog", "tadpole", cVE]])],
+  ],
+  ejemplos: [
+    ["Compare: a giraffe and a zebra (tall).", ["Add -er to tall.", "Use than."], "A giraffe is taller than a zebra."],
+    ["Where does a bee live?", ["Bees live together.", "Their home is a hive."], "It lives in a hive."],
+  ],
+  errores: ["Saying «more fast» or «biger» instead of faster and bigger.", "Thinking that whales and dolphins are fish: they are mammals."],
+  ejercicios: [
+    ["b", "How do you say «desierto» in English?", "Desert."],
+    ["b", "How many arms has an octopus got?", "Eight."],
+    ["b", "Where does a bird live?", "In a nest."],
+    ["b", "What is a lion baby called?", "A cub."],
+    ["b", "In the reading, what does Lola eat?", "Rabbits."],
+    ["m", "Complete: big → ___; heavy → ___", "Bigger; heavier."],
+    ["m", "Compare: a mouse and an elephant (small).", "A mouse is smaller than an elephant."],
+    ["m", "Why can a camel live in the desert?", "It stores fat in its humps and can walk for days without water."],
+    ["m", "Translate: El tiburón tiene muchos dientes afilados.", "The shark has got lots of sharp teeth."],
+    ["m", "Is a whale a fish? Why?", "No. It's a mammal: it breathes air and feeds its babies with milk."],
+    ["a", "Why was the Iberian lynx in danger?", "People cut down forests, there weren't many rabbits and cars hit lynxes."],
+    ["a", "Write four tips to help animals in danger.", "Example: Don't throw rubbish. Use less plastic. Recycle. Respect nature."],
+    ["a", "Write a fact file about an ocean animal: looks, abilities, food and home.", "Open answer."],
+    ["a", "Write five sentences comparing animals with -er than.", "Open answer."],
+  ],
+  quiz: [
+    ["The biggest animal in the world is the…", ["blue whale", "elephant", "shark"], "Ocean."],
+    ["«A cheetah is ___ than a lion.»", ["faster", "more fast", "fastest"], "Compare."],
+    ["A rabbit lives in a…", ["burrow", "hive", "web"], "Homes."],
+    ["A kangaroo baby is a…", ["joey", "calf", "puppy"], "Babies."],
+    ["«Contaminación» in English is…", ["pollution", "rubbish", "danger"], "Danger."],
+  ],
+  examen: [
+    ["In the reading, how many Iberian lynxes are there today?", ["more than two thousand", "about one hundred", "only ten"], "Reading."],
+    ["Which animal has got big ears to lose heat?", ["the fennec fox", "the camel", "the scorpion"], "Desert."],
+  ],
+  tarjetas: [
+    ["Desert and ocean", "camel, fennec fox, scorpion; blue whale, octopus, shark, turtle."],
+    ["Compare", "faster than, taller than, bigger than, heavier than."],
+    ["Homes", "nest, burrow, hive, web, den, cave, shell."],
+    ["Babies", "cub, calf, joey, chick, puppy, kitten, tadpole."],
+  ],
+  glosario: [
+    ["Desert", "Desierto."],
+    ["Ocean", "Océano."],
+    ["Whale", "Ballena."],
+    ["Octopus", "Pulpo."],
+    ["Hump", "Joroba."],
+    ["Nest", "Nido."],
+    ["Burrow", "Madriguera."],
+    ["Cub", "Cachorro."],
+    ["Mammal", "Mamífero."],
+    ["Endangered", "En peligro de extinción."],
+    ["Pollution", "Contaminación."],
+    ["Than", "Que (al comparar)."],
+  ],
+  situacion: {
+    titulo: "Our wild animals museum",
+    reto: "The class creates a small museum of wild animals with fact files, comparisons and a corner about animals in danger.",
+    pasos: ["Choose an animal from the savannah, jungle, desert, ocean or polar regions.", "Write a fact file: looks, abilities, food, home and baby.", "Write two comparisons with another animal using -er than.", "Add a «Help the animals» tip and guide visitors through the museum."],
+    producto: "A class museum with animal fact files and posters in English.",
+    evaluacion: ["Names animals from different habitats.", "Uses has got, can and eats correctly.", "Compares animals with -er than.", "Explains why some animals are in danger."],
+  },
+});

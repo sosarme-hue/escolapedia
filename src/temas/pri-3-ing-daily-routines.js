@@ -91,3 +91,100 @@ module.exports = tema({
   ideas: ["Reloj de rutina ilustrado.", "Encuesta en clase: What time do you get up?", "Mímica de acciones diarias en cadena."],
   fuentes: [["British Council LearnEnglish Kids: daily routines", "https://learnenglishkids.britishcouncil.org/"], ["Cambridge Dictionary", "https://dictionary.cambridge.org/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Tell the time with quarter past and quarter to", "Talk about another person's routine with -s and -es", "Say how often we do things with always, usually, sometimes and never", "Plan and describe a healthy routine"],
+  lectura: { titulo: "A day at the zoo", html: `<p>Hello! My name is Sam and I'm a zookeeper. I work at the city zoo and I love my job.</p><p>I get up very early, at six o'clock. I have a quick breakfast and I ride my bike to the zoo. I start work at seven o'clock.</p><p>First, I feed the animals. The lions eat meat, the monkeys eat fruit and the penguins eat fish. Then I clean the cages and give the animals fresh water.</p><p>At half past ten, the zoo opens and the visitors arrive. I always talk to the children about the animals. They ask lots of questions!</p><p>I have lunch at one o'clock. In the afternoon, I check that the animals are healthy. Sometimes a vet comes to help me.</p><p>The zoo closes at six o'clock. I say goodbye to the animals and I go home. In the evening, I have dinner, I read a book and I go to bed at ten o'clock.</p><p>I'm always tired at night, but I'm happy. My friends are the animals!</p>` },
+  tras: {
+    "Afternoon and evening actions": [
+      ["At the weekend", `<p>From Monday to Friday we go to school. These are <mark>weekdays</mark> (días de diario). Saturday and Sunday are the <mark>weekend</mark> (fin de semana). Our routine is different at the weekend!</p><ul><li>On weekdays, I get up at half past seven. <b>At the weekend</b>, I get up at nine o'clock.</li><li>On weekdays, I have a quick breakfast. <b>On Sundays</b>, I have pancakes with my family.</li><li>On weekdays, I go to school. <b>On Saturdays</b>, I play football in the park.</li></ul><p>Look at the prepositions: <b>at</b> the weekend, <b>on</b> Saturday(s), <b>on</b> Sunday(s). With the <b>-s</b> (on Saturdays), it means <i>every</i> Saturday.</p><p>Weekend activities: <i>visit my grandparents, go to the cinema, go swimming, watch a film, play with friends, go to the beach, help at home, sleep late</i> (dormir hasta tarde).</p><p><b>Activity</b>: write three sentences about your weekdays and three about your weekend.</p>`,
+        H6.dos("My week", ["WEEKDAYS", ["get up early", "go to school", "do homework"], cAZ], ["WEEKEND", ["sleep late", "visit family", "play in the park"], cVE])],
+    ],
+    "Half past": [
+      ["Quarter past and quarter to", `<p>An hour has 60 minutes. Half an hour is 30 minutes. And a <mark>quarter</mark> (un cuarto) is 15 minutes.</p><ul><li><b>Quarter past</b> (y cuarto): the long hand is on the 3. «It's <b>quarter past</b> eight.» (8:15)</li><li><b>Quarter to</b> (menos cuarto): the long hand is on the 9. «It's <b>quarter to</b> nine.» (8:45)</li></ul><p>Look carefully! With <b>quarter to</b>, we say the <b>next</b> hour: 8:45 is <i>quarter to nine</i>, like in Spanish: <i>las nueve menos cuarto</i>.</p><p>Let's review all the times with the hour 4:</p><ul><li>4:00 – four o'clock</li><li>4:15 – quarter past four</li><li>4:30 – half past four</li><li>4:45 – quarter to five</li></ul><p>To ask: «<b>What time is it?</b>» To talk about routines: «<b>What time do you</b> have lunch?» – «<b>At</b> quarter past two.» Use <b>at</b> with times.</p><p><b>Activity</b>: draw four clocks and write the time under each one.</p>`,
+        L6.filas("Times", [["4:00", "four o'clock", cAZ], ["4:15", "quarter past four", cVE], ["4:30", "half past four", cNA], ["4:45", "quarter to five", cRO]]),
+        ["1eGkW3JnthI", "\"What Time Is It?\" - Telling the Time Song for Children, What's the Time? Kids English Nursery Songs", "Busy Beavers - Los Niños Aprenden ABCs 123s & More", 11082693]],
+    ],
+    "My day in sentences": [
+      ["He gets up, she has breakfast", `<p>When we talk about <mark>another person</mark> (he, she, my mum, Ana), the verb changes: we add <b>-s</b>.</p><ul><li>I get up → She get<b>s</b> up.</li><li>I wake up → He wake<b>s</b> up.</li><li>I go to bed → My dad go<b>es</b> to bed.</li></ul><p>Some verbs add <b>-es</b>: verbs ending in <i>-sh, -ch, -o, -ss</i>:</p><ul><li>brush → brush<b>es</b>: «He brushes his teeth.»</li><li>watch → watch<b>es</b>: «She watches TV.»</li><li>go → go<b>es</b>, do → do<b>es</b>: «He does his homework.»</li></ul><p>And there is one special verb: <b>have</b> → <b>has</b>. «She <b>has</b> breakfast at eight.»</p><p>Look at the change in the words <i>my</i> and <i>his/her</i> too: «I brush <b>my</b> teeth.» → «He brushes <b>his</b> teeth.» / «She brushes <b>her</b> teeth.»</p><p><b>Activity</b>: write five sentences about the routine of a person in your family. Underline the -s.</p>`,
+        L6.filas("He / she", [["get up", "gets up", cAZ], ["brush", "brushes", cVE], ["go", "goes", cNA], ["have", "has", cRO]])],
+    ],
+    "First, then, after that": [
+      ["How often? Always, sometimes, never", `<p>To say <mark>how often</mark> (con qué frecuencia) we do something, we use these words:</p><ul><li><b>always</b> (siempre) – 100 %: «I <b>always</b> brush my teeth.»</li><li><b>usually</b> (normalmente) – 80 %: «I <b>usually</b> walk to school.»</li><li><b>sometimes</b> (a veces) – 50 %: «I <b>sometimes</b> watch TV after dinner.»</li><li><b>never</b> (nunca) – 0 %: «I <b>never</b> go to bed late on weekdays.»</li></ul><p>Look at the position: these words go <b>before</b> the action verb: «She <b>always</b> gets up at seven.» But they go <b>after</b> <i>am, is, are</i>: «I <b>am always</b> happy on Fridays.»</p><p>Be careful with <b>never</b>: it is already negative. We say «I never eat sweets», not <i>I don't never</i>.</p><p>To ask: «<b>How often</b> do you…?» – «Every day.» / «Twice a week.» (dos veces por semana)</p><p><b>Activity</b>: write one sentence with each word about your routine.</p>`,
+        L6.filas("How often?", [["always", "100 %", cVE], ["usually", "80 %", cAZ], ["sometimes", "50 %", cNA], ["never", "0 %", cRO]])],
+    ],
+    "Reading: Ana's Saturday": [
+      ["School days in the UK and in Spain", `<p>Children around the world have <mark>different routines</mark>. Let's compare a school day in the UK and in Spain.</p><p><b>In the UK</b>:</p><ul><li>Children usually start school at about <b>quarter to nine</b>.</li><li>They wear a <b>school uniform</b> in most schools.</li><li>They have lunch at school at about <b>twelve o'clock</b>, often a packed lunch (comida de casa en una fiambrera).</li><li>School usually finishes at about <b>quarter past three</b>.</li><li>They have dinner early, at about <b>six o'clock</b>.</li></ul><p><b>In Spain</b>:</p><ul><li>Many children start school at <b>nine o'clock</b>.</li><li>Lunch is often the big meal of the day, at about <b>two o'clock</b>.</li><li>Many children do after-school activities (extraescolares).</li><li>Dinner is late, at about <b>nine o'clock</b>!</li></ul><p>Which routine do you prefer? Why?</p><p><b>Activity</b>: compare your school day with a British school day in three sentences.</p>`,
+        H6.dos("School day", ["UK", ["start 8:45", "lunch 12:00", "dinner 6:00"], cAZ], ["SPAIN", ["start 9:00", "lunch 2:00", "dinner 9:00"], cRO])],
+    ],
+  },
+  final: [
+    ["Digital time: seven fifteen", `<p>On a <mark>digital clock</mark> (reloj digital), on a phone or on a train timetable (horario), we see numbers: <b>7:15</b>. In English we can read them in two ways:</p><ul><li>7:15 – «quarter past seven» or «<b>seven fifteen</b>»</li><li>7:30 – «half past seven» or «<b>seven thirty</b>»</li><li>7:45 – «quarter to eight» or «<b>seven forty-five</b>»</li><li>7:05 – «<b>seven oh five</b>» (we say <i>oh</i> for the zero)</li></ul><p>The digital way is easy: we just say the hour and then the minutes. Remember the tens: <i>ten, twenty, thirty, forty, fifty</i>.</p><p>We also use <b>a.m.</b> for the morning (from midnight to midday) and <b>p.m.</b> for the afternoon and evening: «I get up at 7 a.m. I go to bed at 9 p.m.»</p><p><b>Activity</b>: read these times in two ways: 6:30, 9:15, 11:45, 2:05.</p>`,
+      L6.filas("Digital", [["7:15", "seven fifteen", cAZ], ["7:30", "seven thirty", cVE], ["7:45", "seven forty-five", cNA], ["7:05", "seven oh five", cRO]])],
+    ["A healthy routine", `<p>A good routine helps us feel <mark>healthy</mark> and happy. Here are some tips for children:</p><ul><li><b>Sleep</b> well: children need about <b>ten hours</b> of sleep every night. Go to bed at the same time every day.</li><li><b>Have breakfast</b>: it gives you energy for the morning.</li><li><b>Wash</b> your hands before meals and <b>brush</b> your teeth twice a day.</li><li><b>Move</b>: play outside, walk, ride a bike or do sport every day.</li><li><b>Screens</b> (pantallas): don't use the tablet or TV just before bed.</li><li><b>Read</b>: a story before bed helps you relax.</li></ul><p>We can write tips with <b>should</b> (deberías): «You <b>should</b> sleep ten hours.» «You <b>shouldn't</b> eat sweets every day.»</p><p>A healthy routine is not boring: it gives you time for school, play, family and rest.</p><p><b>Activity</b>: make a poster called «My healthy routine» with six tips and drawings.</p>`,
+      H6.rueda("Healthy", "ROUTINE", [["sleep 10 h", cAZ], ["breakfast", cNA], ["move", cVE], ["read", cMO]])],
+  ],
+  ejemplos: [
+    ["Write the time: 7:45.", ["The long hand is on the 9.", "With quarter to we say the next hour."], "It's quarter to eight."],
+    ["Change to «he»: «I watch TV.»", ["Watch ends in -ch.", "We add -es."], "He watches TV."],
+  ],
+  errores: ["Saying «quarter to seven» for 7:45 (it is quarter to eight).", "Writing «He watchs TV» or «She haves lunch» instead of watches and has."],
+  ejercicios: [
+    ["b", "How do you say «fin de semana» in English?", "Weekend."],
+    ["b", "Write 3:15 in words.", "Quarter past three."],
+    ["b", "Complete: «She ___ (have) breakfast at eight.»", "Has."],
+    ["b", "What does «never» mean?", "Nunca."],
+    ["b", "In the reading, what does Sam do?", "He is a zookeeper."],
+    ["m", "Write 10:45 in words.", "Quarter to eleven."],
+    ["m", "Change to «she»: «I brush my teeth.»", "She brushes her teeth."],
+    ["m", "Order: always / up / I / seven / get / at", "I always get up at seven."],
+    ["m", "What time does Sam start work?", "At seven o'clock."],
+    ["m", "Translate: Normalmente voy andando al colegio.", "I usually walk to school."],
+    ["a", "What do the animals at the zoo eat in the reading?", "The lions eat meat, the monkeys eat fruit and the penguins eat fish."],
+    ["a", "Write five sentences about Sam's day with he and -s.", "Example: He gets up at six o'clock. He rides his bike…"],
+    ["a", "Compare your school day with a British school day.", "Open answer."],
+    ["a", "Write six tips for a healthy routine with should.", "Open answer."],
+  ],
+  quiz: [
+    ["8:45 is…", ["quarter to nine", "quarter past eight", "quarter to eight"], "Quarter to."],
+    ["«He ___ his homework.»", ["does", "do", "dos"], "-es."],
+    ["«A veces» in English is…", ["sometimes", "always", "usually"], "How often."],
+    ["«I go to the park ___ Saturdays.»", ["on", "at", "in"], "On."],
+    ["How many hours do children need to sleep?", ["about ten", "about five", "about fifteen"], "Healthy."],
+  ],
+  examen: [
+    ["In the reading, what time does the zoo open?", ["at half past ten", "at seven o'clock", "at six o'clock"], "Reading."],
+    ["Which sentence is correct?", ["She always gets up at seven.", "She gets always up at seven.", "Always she get up at seven."], "Order."],
+  ],
+  tarjetas: [
+    ["Quarter", "4:15 quarter past four; 4:45 quarter to five."],
+    ["He / she", "gets up, brushes, watches, goes, does, has."],
+    ["How often?", "always, usually, sometimes, never."],
+    ["Weekend", "at the weekend; on Saturdays; on Sundays."],
+  ],
+  glosario: [
+    ["Routine", "Rutina, lo que hacemos cada día."],
+    ["Weekend", "Fin de semana."],
+    ["Weekdays", "Días de diario (de lunes a viernes)."],
+    ["Quarter past", "Y cuarto."],
+    ["Quarter to", "Menos cuarto."],
+    ["Always", "Siempre."],
+    ["Usually", "Normalmente."],
+    ["Sometimes", "A veces."],
+    ["Never", "Nunca."],
+    ["Zookeeper", "Cuidador de zoo."],
+    ["Healthy", "Sano, saludable."],
+    ["Should", "Deberías."],
+  ],
+  situacion: {
+    titulo: "A day in the life",
+    reto: "Each pupil interviews a person from the school or the family about their daily routine and presents it with a clock poster.",
+    pasos: ["Prepare questions: What time do you get up? How often do you…?", "Interview the person and write the answers.", "Make a poster with clocks and sentences with he or she and -s.", "Present the routine and compare it with your own."],
+    producto: "A poster «A day in the life of…» with clocks and sentences.",
+    evaluacion: ["Tells the time with o'clock, half past, quarter past and quarter to.", "Uses -s and -es with he and she.", "Uses always, usually, sometimes and never.", "Presents clearly and compares routines."],
+  },
+});
