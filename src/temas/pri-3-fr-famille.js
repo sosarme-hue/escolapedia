@@ -93,3 +93,98 @@ module.exports = P.tema({
   saberes: "Léxico básico en lengua extranjera: miembros de la familia y mascotas; determinantes posesivos mon, ma, mes; presentar a otras personas (voici, c'est, il/elle s'appelle, il/elle a … ans); preguntar y responder por los hermanos; producción de un texto breve guiado",
   ideas: ["Árbol genealógico ilustrado con etiquetas en francés.", "Presentación de una foto familiar ante la clase.", "Juego de las familias (cartas) con los parentescos en francés."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Describir a un familiar con adjetivos en masculino y femenino", "Usar ton, ta y tes para preguntar por la familia de otra persona", "Conocer fiestas familiares de Francia", "Valorar que hay muchos tipos de familias"],
+  lectura: { titulo: "El álbum de Chloé", html: `<p>Chloé vive en Lyon, en Francia. Hoy ha venido a su casa Marta, una amiga de Valencia. Chloé saca un álbum de fotos.</p><p>—<i>Regarde !</i> —dice, que significa «¡Mira!»—. <i>C'est ma famille.</i></p><p>En la primera foto hay dos personas mayores sonriendo delante de un pastel.</p><p>—<i>C'est mon papi et ma mamie</i> —explica Chloé—. <i>Il s'appelle Pierre et elle s'appelle Hélène.</i> Es el cumpleaños de mi abuelo.</p><p>En la segunda foto aparece un chico alto con una pelota.</p><p>—<i>Qui est-ce ?</i> —pregunta Marta, que está aprendiendo francés.</p><p>—<i>C'est mon frère, Hugo. Il est grand et très drôle !</i></p><p>En la tercera foto hay muchos niños en un jardín.</p><p>—<i>Ce sont mes cousins</i> —dice Chloé—. ¡Tengo seis primos!</p><p>Marta se ríe y saca su móvil.</p><p>—<i>Et voici ma famille !</i> —dice—. <i>C'est ma maman et c'est mon petit frère.</i></p><p>Chloé aplaude: —<i>Bravo ! Tu parles bien français !</i></p>` },
+  tras: {
+    "Tíos y primos": [
+      ["¿Cómo es?: grand, petit, gentil", `<p>Para <mark>describir</mark> a un familiar usamos <b>il est</b> (él es) y <b>elle est</b> (ella es) con un adjetivo:</p><ul><li><i>Mon papa est <b>grand</b>.</i> — Mi papá es alto.</li><li><i>Ma sœur est <b>petite</b>.</i> — Mi hermana es bajita.</li><li><i>Mon cousin est <b>gentil</b>.</i> — Mi primo es amable.</li><li><i>Ma tante est <b>gentille</b>.</i> — Mi tía es amable.</li></ul><p>Fíjate: igual que en <i>cousin / cousine</i>, el adjetivo femenino suele llevar una <b>-e</b> al final. Y a veces cambia el sonido: en <i>grand</i> la <b>d</b> no suena («gran»), pero en <i>grande</i> sí suena («grand»).</p><p>Más adjetivos útiles:</p><ul><li><b>drôle</b>: gracioso (igual en masculino y femenino porque ya acaba en -e).</li><li><b>sympa</b>: simpático.</li><li><b>jeune</b>: joven; <b>vieux / vieille</b>: mayor.</li><li><b>blond / blonde</b>: rubio, rubia.</li></ul><p>Podemos añadir <b>très</b> (muy): <i>Mon papi est très drôle !</i></p><p><b>Actividad</b>: escribe dos frases sobre un familiar y dos sobre una familiar con adjetivos.</p>`,
+        L6.filas("Adjetivos", [["grand", "grande", cAZ], ["petit", "petite", cVE], ["gentil", "gentille", cNA], ["drôle", "drôle", cRO]])],
+    ],
+    "Mon, ma, mes: mi y mis": [
+      ["Ton, ta, tes: tu y tus", `<p>Para hablar de la familia de la persona con la que hablamos, decimos «tu» y «tus». En francés funcionan igual que <i>mon, ma, mes</i>:</p><ul><li><b>ton</b> + masculino: <i>ton frère</i> (tu hermano), <i>ton papa</i>.</li><li><b>ta</b> + femenino: <i>ta sœur</i> (tu hermana), <i>ta maman</i>.</li><li><b>tes</b> + plural: <i>tes cousins</i> (tus primos), <i>tes grands-parents</i>.</li></ul><p>Con ellos podemos hacer preguntas:</p><ul><li><i>C'est <b>ton</b> frère ?</i> — <i>Oui, c'est <b>mon</b> frère.</i></li><li><i>Comment s'appelle <b>ta</b> maman ?</i> — ¿Cómo se llama tu mamá? — <i>Elle s'appelle Sofía.</i></li><li><i>Tes grands-parents habitent où ?</i> — ¿Dónde viven tus abuelos?</li></ul><p>Fíjate en el truco: las tres palabras de «mi» empiezan por <b>m</b> (<i>mon, ma, mes</i>) y las tres de «tu» empiezan por <b>t</b> (<i>ton, ta, tes</i>).</p><p><b>Actividad</b>: pregunta a un compañero por tres miembros de su familia con <i>ton, ta</i> y <i>tes</i>.</p>`,
+        L6.filas("mi / tu", [["mon frère", "ton frère", cAZ], ["ma sœur", "ta sœur", cRO], ["mes cousins", "tes cousins", cVE], ["m-", "t-", cNA]])],
+    ],
+    "¿Tienes hermanos?": [
+      ["Qui est-ce ? ¿Quién es?", `<p>Cuando vemos una foto, preguntamos <mark>Qui est-ce ?</mark> (¿Quién es?). Se pronuncia más o menos «ki es?».</p><p>Las respuestas:</p><ul><li>Una persona: <i><b>C'est</b> ma tante Marie.</i> — Es mi tía Marie.</li><li>Varias personas: <i><b>Ce sont</b> mes cousins.</i> — Son mis primos.</li></ul><p>Podemos dar más información:</p><ul><li><i>Elle a trente ans.</i> — Tiene treinta años.</li><li><i>Il habite à Paris.</i> — Vive en París.</li><li><i>Il aime le foot.</i> — Le gusta el fútbol.</li></ul><p>Y para señalar dentro de la foto: <i><b>à gauche</b></i> (a la izquierda), <i><b>à droite</b></i> (a la derecha), <i><b>au milieu</b></i> (en el medio).</p><p>Juego: <b>¿Quién es?</b> Trae una foto de tu familia (o dibújala). Tu compañero señala a alguien y pregunta <i>Qui est-ce ?</i>. Tú respondes con <i>C'est…</i> y una frase más.</p><p><b>Actividad</b>: escribe tres frases sobre una foto de tu familia con <i>à gauche, à droite</i> y <i>au milieu</i>.</p>`,
+        L6.dialogo("Qui est-ce ?", [["Marta", "Qui est-ce ?", cAZ], ["Chloé", "C'est mon frère.", cRO], ["Marta", "Et à droite ?", cAZ], ["Chloé", "Ce sont mes cousins.", cRO]]),
+        ["OEbuAyKGeh0", "Toute la famille de Pierre Lozère", "Pierre Lozère", 6192859]],
+    ],
+    "Las mascotas de la familia": [
+      ["Fiestas en familia: anniversaire y galette", `<p>Las familias francesas se reúnen en muchas <mark>fiestas</mark>. Conozcamos dos:</p><p><b>L'anniversaire</b> (el cumpleaños). Hay un <i>gâteau</i> (pastel) con <i>bougies</i> (velas) y <i>cadeaux</i> (regalos). Todos cantan:</p><p style="text-align:center"><i>Joyeux anniversaire, joyeux anniversaire, joyeux anniversaire [nombre], joyeux anniversaire !</i></p><p>Para felicitar decimos <b>Bon anniversaire !</b> o <b>Joyeux anniversaire !</b></p><p><b>La galette des rois</b> (el roscón francés). Se come a principios de enero, cerca del 6 de enero, como nuestro roscón de Reyes. Es una tarta redonda de hojaldre, muchas veces rellena de crema de almendras. Dentro se esconde una figurita: <i>la fève</i>. Quien la encuentra en su trozo es <i>le roi</i> (el rey) o <i>la reine</i> (la reina) y se pone <i>la couronne</i> (la corona).</p><p>Es costumbre que el niño más pequeño se esconda bajo la mesa y diga a quién va cada trozo, para que nadie haga trampas.</p><p><b>Actividad</b>: compara la galette des rois con el roscón de Reyes: ¿en qué se parecen?</p>`,
+        H6.dos("Fêtes", ["ANNIVERSAIRE", ["le gâteau", "les bougies", "les cadeaux"], cRO], ["GALETTE", ["la fève", "le roi, la reine", "la couronne"], cNA])],
+    ],
+  },
+  final: [
+    ["Chez mamie: en casa de la abuela", `<p>En francés hay una palabra muy práctica que no existe en español: <mark>chez</mark>. Significa «en casa de» o «a casa de».</p><ul><li><i>Je vais <b>chez</b> ma mamie.</i> — Voy a casa de mi abuela.</li><li><i>Je suis <b>chez</b> mon cousin.</i> — Estoy en casa de mi primo.</li><li><i>Le samedi, je dors <b>chez</b> mon papa.</i> — Los sábados duermo en casa de mi papá.</li><li><i>On mange <b>chez</b> mes grands-parents.</i> — Comemos en casa de mis abuelos.</li></ul><p>Con una sola palabra decimos lo que en español necesita tres: «en casa de». Por eso hay tiendas que se llaman <i>Chez Paul</i> o <i>Chez Marie</i>: es como decir «la casa de Paul».</p><p>Y para decir «en mi casa» usamos <b>chez moi</b>: <i>Viens chez moi !</i> — ¡Ven a mi casa!</p><p>En vacaciones, muchos niños franceses pasan unos días <i>chez papi et mamie</i>, a veces en el campo o en el pueblo. ¿Tú también vas a casa de tus abuelos?</p><p><b>Actividad</b>: escribe dos frases con <i>chez</i> sobre adónde vas los fines de semana.</p>`,
+      L6.filas("chez", [["chez mamie", "en casa de la abuela", cNA], ["chez Paul", "en casa de Paul", cAZ], ["chez moi", "en mi casa", cVE], ["Viens chez moi !", "¡Ven a mi casa!", cRO]])],
+    ["Todas las familias son diferentes", `<p>No hay dos familias iguales. En clase hay <mark>muchos tipos de familias</mark>, y todas son familias de verdad:</p><ul><li><i>J'habite avec mon papa et ma maman.</i> — Vivo con mi papá y mi mamá.</li><li><i>J'habite avec ma maman.</i> — Vivo con mi mamá.</li><li><i>J'ai deux mamans.</i> — Tengo dos mamás. / <i>J'ai deux papas.</i></li><li><i>Mes parents sont séparés. J'ai deux maisons.</i> — Mis padres están separados. Tengo dos casas.</li><li><i>J'habite avec ma mamie.</i> — Vivo con mi abuela.</li><li><i>Nous sommes une famille nombreuse.</i> — Somos una familia numerosa.</li></ul><p>Algunos niños son adoptados, otros tienen hermanastros (<i>un demi-frère</i>, <i>une demi-sœur</i>) y otros viven con sus tíos. Lo importante de una familia es que se cuidan y se quieren.</p><p>Fíjate en el verbo <b>habiter</b> (vivir): <i>j'habite</i> (yo vivo), <i>tu habites</i> (tú vives), <i>il / elle habite</i> (él / ella vive).</p><p><b>Actividad</b>: escribe una frase con <i>J'habite avec…</i> sobre tu familia.</p>`,
+      H6.rueda("Familles", "FAMILLE", [["papa + maman", cAZ], ["deux mamans", cRO], ["avec mamie", cNA], ["deux maisons", cVE]])],
+    ["Lo que hacemos juntos", `<p>Con nuestra familia hacemos muchas cosas. Para decir «con» usamos <mark>avec</mark>:</p><ul><li><i><b>Avec</b> mon papa, je joue au foot.</i> — Con mi papá juego al fútbol.</li><li><i><b>Avec</b> ma mamie, je fais des gâteaux.</i> — Con mi abuela hago pasteles.</li><li><i><b>Avec</b> ma sœur, je regarde la télé.</i> — Con mi hermana veo la tele.</li><li><i><b>Avec</b> mes cousins, je vais à la plage.</i> — Con mis primos voy a la playa.</li><li><i><b>Avec</b> mon papi, je lis des histoires.</i> — Con mi abuelo leo cuentos.</li></ul><p>Y para decir lo que sentimos por nuestra familia:</p><ul><li><i>J'aime ma famille.</i> — Quiero a mi familia.</li><li><i>J'adore mon petit frère.</i> — Adoro a mi hermano pequeño.</li><li><i>Je t'aime, maman !</i> — ¡Te quiero, mamá!</li></ul><p>Así podemos escribir un texto más largo: primero presentamos a la familia (<i>Voici ma famille</i>), luego la describimos (<i>Il est grand</i>) y al final contamos qué hacemos juntos (<i>Avec…</i>).</p><p><b>Actividad</b>: escribe tres frases con <i>Avec…</i> y dibuja cada momento.</p>`,
+      H6.flujo("Mon texte", ["Voici|ma famille", "Il est|grand", "Avec|mon papa", "J'aime|ma famille"], cMO)],
+  ],
+  ejemplos: [
+    ["Pon en femenino: «Mon cousin est petit.»", ["Cousin pasa a cousine.", "Mon pasa a ma y petit pasa a petite."], "Ma cousine est petite."],
+    ["Pregunta por la hermana de tu compañero.", ["Sœur es femenino.", "Para «tu» con femenino usamos ta."], "C'est ta sœur ? / Comment s'appelle ta sœur ?"],
+  ],
+  errores: ["Decir «ton sœur» o «ta frère»: ton va con masculino y ta con femenino.", "Olvidar la -e del femenino: «Ma tante est petit» en lugar de petite."],
+  ejercicios: [
+    ["b", "¿Cómo se dice «¿Quién es?» en francés?", "Qui est-ce ?"],
+    ["b", "Completa: «___ frère» (tu hermano).", "Ton."],
+    ["b", "¿Qué significa «gentille»?", "Amable (en femenino)."],
+    ["b", "¿Cómo se felicita un cumpleaños en francés?", "Bon anniversaire ! o Joyeux anniversaire !"],
+    ["b", "En la lectura, ¿cómo se llama el hermano de Chloé?", "Hugo."],
+    ["m", "Pon en femenino: «Il est grand et gentil.»", "Elle est grande et gentille."],
+    ["m", "Traduce: Son mis primos.", "Ce sont mes cousins."],
+    ["m", "¿Qué es la fève de la galette des rois?", "Una figurita escondida en la tarta; quien la encuentra es el rey o la reina."],
+    ["m", "Traduce: Con mi abuela hago pasteles.", "Avec ma mamie, je fais des gâteaux."],
+    ["m", "Completa: «___ grands-parents» (tus abuelos).", "Tes."],
+    ["a", "Describe a un familiar con tres frases: nombre, edad y cómo es.", "Ejemplo: Voici mon papi. Il s'appelle Juan. Il a soixante ans. Il est très drôle."],
+    ["a", "Escribe un diálogo de cuatro líneas con Qui est-ce ? y C'est / Ce sont.", "Respuesta abierta."],
+    ["a", "Escribe un texto sobre tu familia: Voici…, cómo son y qué hacéis juntos con avec.", "Respuesta abierta."],
+    ["a", "Compara la galette des rois con el roscón de Reyes.", "Ejemplo: se comen en enero y tienen una figurita escondida; la galette es de hojaldre y crema de almendras."],
+  ],
+  quiz: [
+    ["«Ma tante est ___.» (amable)", ["gentille", "gentil", "gentils"], "Femenino."],
+    ["«¿Es tu hermano?» se dice…", ["C'est ton frère ?", "C'est ta frère ?", "C'est mon frère ?"], "Ton."],
+    ["«Velas» de cumpleaños en francés es…", ["les bougies", "les cadeaux", "le gâteau"], "Fiestas."],
+    ["«Con» en francés se dice…", ["avec", "et", "chez"], "Avec."],
+    ["«Son mis primos» se dice…", ["Ce sont mes cousins.", "C'est mes cousins.", "Ce sont mon cousins."], "Ce sont."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué celebran en la primera foto?", ["el cumpleaños del abuelo", "la galette des rois", "una boda"], "Lectura."],
+    ["¿Quién se pone la corona en la galette des rois?", ["quien encuentra la fève", "el más pequeño", "el abuelo"], "Galette."],
+  ],
+  tarjetas: [
+    ["Adjetivos", "grand / grande, petit / petite, gentil / gentille, drôle."],
+    ["ton, ta, tes", "ton frère, ta sœur, tes cousins (tu, tus)."],
+    ["Qui est-ce ?", "C'est ma tante. Ce sont mes cousins. à gauche, à droite, au milieu."],
+    ["Fêtes", "Bon anniversaire ! La galette des rois: la fève, le roi, la reine."],
+  ],
+  glosario: [
+    ["Qui est-ce ?", "¿Quién es?"],
+    ["Ce sont", "Son (varias personas)."],
+    ["Grand / grande", "Alto, alta."],
+    ["Petit / petite", "Bajo, baja; pequeño."],
+    ["Gentil / gentille", "Amable."],
+    ["Drôle", "Gracioso."],
+    ["Ton, ta, tes", "Tu, tus."],
+    ["Anniversaire", "Cumpleaños."],
+    ["Gâteau", "Pastel."],
+    ["Galette des rois", "Tarta de Reyes francesa."],
+    ["Habiter", "Vivir (en un lugar)."],
+    ["Avec", "Con."],
+  ],
+  situacion: {
+    titulo: "Mi familia en un álbum francés",
+    reto: "Cada alumno prepara un pequeño álbum con fotos o dibujos de su familia y lo presenta en francés a la clase.",
+    pasos: ["Elegir cinco fotos o hacer cinco dibujos de la familia.", "Escribir debajo de cada uno C'est… o Ce sont… con el nombre.", "Añadir una frase con un adjetivo y otra con avec.", "Presentar el álbum a un compañero, que pregunta Qui est-ce ?"],
+    producto: "Un álbum familiar en francés y una presentación oral.",
+    evaluacion: ["Nombra a los familiares en francés.", "Usa mon, ma, mes y ton, ta, tes correctamente.", "Concuerda los adjetivos en masculino y femenino.", "Pregunta y responde con Qui est-ce ? y C'est / Ce sont."],
+  },
+});

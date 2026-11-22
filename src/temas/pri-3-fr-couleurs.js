@@ -95,3 +95,100 @@ module.exports = P.tema({
   saberes: "Léxico básico en lengua extranjera: los colores; preguntar y responder por el color de un objeto; posición del adjetivo; concordancia de género en los colores; expresar preferencias (j'aime, ma couleur préférée); aspectos socioculturales (bandera de Francia)",
   ideas: ["Bingo de colores en francés.", "Mezclas de témperas nombrando el resultado en francés.", "Veo, veo en francés con objetos de la clase."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Decir si un color es claro u oscuro", "Poner los colores en plural", "Dar opiniones sobre colores con j'aime, j'adore y je n'aime pas", "Conocer la bandera de Francia y pintores franceses"],
+  lectura: { titulo: "El caracol de colores", html: `<p>Hace muchos años, en Francia, vivía un pintor muy famoso llamado Henri Matisse. Cuando se hizo mayor, se puso enfermo y tuvo que pasar mucho tiempo en la cama o en una silla de ruedas. Ya no podía pintar de pie delante de un cuadro grande.</p><p>Pero Matisse no se rindió. Cogió unas tijeras, <i>des ciseaux</i>, y papeles pintados de colores. —<i>Je découpe !</i> —decía: «¡Recorto!».</p><p>Recortaba formas de papel <i>rouge, bleu, vert, jaune, orange</i>… y sus ayudantes las pegaban en la pared donde él decía.</p><p>Un día hizo un cuadro enorme con cuadrados de colores que giran como una espiral. Lo llamó <i>L'Escargot</i>, «el caracol».</p><p>—¡Pero si no parece un caracol! —dijo un visitante.</p><p>Matisse sonrió: —Mira bien cómo giran los colores. Es un caracol que se mueve.</p><p>Hoy ese cuadro está en un museo de Londres, y niños de todo el mundo hacen sus propios caracoles de colores con papel y tijeras.</p><p>Matisse decía que con los colores se puede pintar la alegría.</p>` },
+  tras: {
+    "Más colores": [
+      ["Claro y oscuro: clair y foncé", `<p>Muchas veces un color no es solo «azul»: puede ser azul claro o azul oscuro. En francés decimos:</p><ul><li><b>clair</b> (se pronuncia «cler»): claro. <i>bleu clair</i> — azul claro.</li><li><b>foncé</b> (se pronuncia «fonsé»): oscuro. <i>vert foncé</i> — verde oscuro.</li></ul><p>Ejemplos:</p><ul><li><i>Le ciel est bleu clair.</i> — El cielo es azul claro.</li><li><i>La mer est bleu foncé.</i> — El mar es azul oscuro.</li><li><i>L'herbe est vert clair.</i> — La hierba es verde claro.</li><li><i>Le sapin est vert foncé.</i> — El abeto es verde oscuro.</li></ul><p>Un detalle curioso: cuando decimos <i>bleu clair</i> o <i>vert foncé</i>, los dos colores no cambian nunca, ni en femenino ni en plural: <i>une robe bleu clair</i>, <i>des yeux vert foncé</i>.</p><p>Otros colores que se usan mucho: <b>beige</b> (beis), <b>turquoise</b> (turquesa), <b>doré</b> (dorado) y <b>argenté</b> (plateado).</p><p><b>Actividad</b>: busca en clase cuatro objetos y di si son de un color clair o foncé.</p>`,
+        L6.filas("clair / foncé", [["bleu clair", "le ciel", cAZ], ["bleu foncé", "la mer", cMO], ["vert clair", "l'herbe", cVE], ["vert foncé", "le sapin", cNA]])],
+    ],
+    "Colores en masculino y en femenino": [
+      ["Colores en plural", `<p>Cuando hay varias cosas, el color también va en <mark>plural</mark>. Como en español, se añade una <b>-s</b>:</p><ul><li><i>un crayon vert</i> → <i>des crayons vert<b>s</b></i> (lápices verdes)</li><li><i>une fleur blanche</i> → <i>des fleurs blanche<b>s</b></i> (flores blancas)</li><li><i>un ballon rouge</i> → <i>des ballons rouge<b>s</b></i> (globos rojos)</li></ul><p>Pero ¡cuidado! Esa <b>-s</b> no se pronuncia. <i>Vert</i> y <i>verts</i> suenan igual. Por eso, para saber si es plural, escuchamos el artículo: <i>un</i> o <i>une</i> es uno; <i>des</i> son varios.</p><p>Hay colores que <b>no cambian nunca</b>: <b>marron</b> y <b>orange</b>. Vienen del nombre de una fruta: el <i>marron</i> es la castaña y la <i>orange</i> es la naranja.</p><ul><li><i>des chaussures marron</i> (zapatos marrones)</li><li><i>des chaises orange</i> (sillas naranjas)</li></ul><p>Y los colores con <b>-s</b> ya al final, como <i>gris</i>, se quedan igual: <i>des chats gris</i>.</p><p><b>Actividad</b>: pon en plural: <i>un chat noir, une pomme rouge, un sac marron</i>.</p>`,
+        L6.filas("Pluriel", [["un crayon vert", "des crayons verts", cVE], ["une fleur blanche", "des fleurs blanches", cAZ], ["un sac marron", "des sacs marron", cNA], ["un chat gris", "des chats gris", cMO]]),
+        ["-4kNeFGBAcw", "French colors - Couleurs - Arc en ciel by alain le lait", "tialela99", 19004536]],
+    ],
+    "Mi color favorito": [
+      ["J'aime, j'adore, je n'aime pas", `<p>Para dar nuestra <mark>opinión</mark> sobre los colores usamos estos verbos, de más a menos:</p><ul><li><b>J'adore</b> le violet ! — ¡Me encanta el morado! ❤❤</li><li><b>J'aime</b> le bleu. — Me gusta el azul. ❤</li><li><b>Je n'aime pas</b> le gris. — No me gusta el gris. ✗</li><li><b>Je déteste</b> le marron ! — ¡Odio el marrón! ✗✗</li></ul><p>Fíjate en que en francés decimos <b>le</b> delante del color: <i>j'aime <b>le</b> rouge</i>, igual que en español «me gusta <b>el</b> rojo».</p><p>La negación francesa tiene dos partes que rodean al verbo: <b>ne</b> … <b>pas</b>. Delante de vocal, <i>ne</i> se convierte en <i>n'</i>: <i>je <b>n'</b>aime <b>pas</b></i>.</p><p>Para preguntar a otra persona:</p><ul><li><i>Tu aimes le jaune ?</i> — ¿Te gusta el amarillo?</li><li><i>Oui, j'aime le jaune.</i> / <i>Non, je n'aime pas le jaune.</i></li></ul><p>Y si estamos de acuerdo: <i>Moi aussi !</i> (¡Yo también!).</p><p><b>Actividad</b>: haz una encuesta en clase: <i>Tu aimes le rose ?</i> y cuenta cuántos dicen oui y cuántos non.</p>`,
+        L6.filas("Opinions", [["J'adore", "❤❤", cRO], ["J'aime", "❤", cNA], ["Je n'aime pas", "✗", cAZ], ["Je déteste", "✗✗", cMO]])],
+    ],
+    "Mezclar colores": [
+      ["Pintores franceses: Monet y Matisse", `<p>Francia es el país de muchos <mark>pintores</mark> famosos que usaban los colores de forma especial.</p><p><b>Claude Monet</b> pintaba al aire libre, fijándose en la luz. Tenía un jardín precioso en Giverny, con un estanque lleno de <i>nénuphars</i> (nenúfares). Los pintó muchísimas veces, a distintas horas del día: por la mañana el agua era <i>bleu clair</i>; por la tarde, <i>rose</i> y <i>orange</i>. Sus cuadros están hechos con muchas pinceladas pequeñas de colores.</p><p><b>Henri Matisse</b> usaba colores muy vivos y alegres: <i>rouge, jaune, vert, bleu</i>. Cuando ya era mayor, empezó a «pintar con tijeras»: recortaba papeles de colores y hacía con ellos grandes murales. Los llamaba <i>papiers découpés</i> (papeles recortados).</p><p>Vocabulario del taller de arte: <i>le pinceau</i> (el pincel), <i>la peinture</i> (la pintura), <i>les ciseaux</i> (las tijeras), <i>la colle</i> (el pegamento), <i>le papier</i> (el papel).</p><p><b>Actividad</b>: haz un cuadro al estilo de Matisse: recorta formas de papel de colores, pégalas y escribe en francés los colores que has usado.</p>`,
+        H6.dos("Peintres", ["MONET", ["nénuphars", "la lumière", "bleu clair, rose"], cAZ], ["MATISSE", ["papiers découpés", "les ciseaux", "rouge, jaune"], cRO])],
+    ],
+    "Colores en la vida diaria": [
+      ["Bleu, blanc, rouge: la bandera de Francia", `<p>La <mark>bandera de Francia</mark> tiene tres franjas verticales: <b>bleu, blanc, rouge</b> (azul, blanco, rojo). Por eso la llaman <i>le drapeau tricolore</i>, «la bandera de tres colores».</p><p>El orden es siempre el mismo, empezando por el lado del mástil: primero el azul, luego el blanco y al final el rojo. Los aficionados franceses cantan en los partidos: <i>Allez les Bleus !</i> (¡Vamos, azules!), porque la selección francesa juega con camiseta azul.</p><p>El <b>14 de julio</b> (<i>le 14 juillet</i>) es la fiesta nacional de Francia. Hay un desfile en París y, por la noche, <i>des feux d'artifice</i> (fuegos artificiales) en muchas ciudades.</p><p>Otros países donde se habla francés tienen banderas de otros colores:</p><ul><li><b>Belgique</b> (Bélgica): <i>noir, jaune, rouge</i>.</li><li><b>Canada</b> (Canadá): <i>rouge et blanc</i>, con una hoja de arce roja.</li><li><b>Suisse</b> (Suiza): <i>rouge</i> con una cruz <i>blanche</i>.</li></ul><p><b>Actividad</b>: dibuja la bandera de Francia y la de España y escribe sus colores en francés: <i>Le drapeau de l'Espagne est rouge et jaune.</i></p>`,
+        L6.filas("Drapeaux", [["France", "bleu, blanc, rouge", cAZ], ["Belgique", "noir, jaune, rouge", cNA], ["Canada", "rouge et blanc", cRO], ["Espagne", "rouge et jaune", cVE]])],
+    ],
+  },
+  final: [
+    ["Expresiones con colores", `<p>En francés, igual que en español, hay <mark>expresiones con colores</mark> que no significan exactamente lo que dicen. Algunas son muy divertidas:</p><ul><li><b>Rouge comme une tomate</b> — rojo como un tomate: cuando nos da vergüenza. <i>Il est rouge comme une tomate !</i></li><li><b>Une peur bleue</b> — un miedo azul: un susto muy grande. <i>J'ai une peur bleue des araignées.</i> (Me dan muchísimo miedo las arañas.)</li><li><b>Voir la vie en rose</b> — ver la vida de color de rosa: ser muy optimista. Es también el título de una canción francesa muy famosa, <i>La Vie en rose</i>, de Édith Piaf.</li><li><b>Un cordon bleu</b> — un cordón azul: una persona que cocina muy bien. <i>Ma mamie est un cordon bleu !</i></li><li><b>Blanc comme neige</b> — blanco como la nieve: inocente, que no ha hecho nada malo.</li></ul><p>Compara con el español: nosotros también decimos «rojo como un tomate» y «verlo todo de color de rosa». Pero un «susto azul» suena muy raro, ¿verdad?</p><p><b>Actividad</b>: elige una expresión y haz un dibujo divertido que la explique. Escribe la frase en francés debajo.</p>`,
+      L6.filas("Expressions", [["rouge comme une tomate", "rubor", cRO], ["une peur bleue", "mucho miedo", cAZ], ["la vie en rose", "optimista", cMO], ["un cordon bleu", "buen cocinero", cNA]])],
+    ["La ropa y sus colores: je porte…", `<p>Para decir qué ropa llevamos usamos <mark>je porte</mark> (llevo). Recuerda: el color va <b>después</b> de la prenda y concuerda con ella.</p><ul><li><i>Je porte <b>un</b> pull rouge.</i> — Llevo un jersey rojo.</li><li><i>Je porte <b>un</b> pantalon bleu.</i> — Llevo un pantalón azul.</li><li><i>Je porte <b>une</b> robe verte.</i> — Llevo un vestido verde.</li><li><i>Je porte <b>une</b> jupe noire.</i> — Llevo una falda negra.</li><li><i>Je porte <b>un</b> tee-shirt blanc.</i> — Llevo una camiseta blanca.</li><li><i>Je porte <b>des</b> chaussures marron.</i> — Llevo unos zapatos marrones.</li></ul><p>Fíjate: <i>robe</i> y <i>jupe</i> son femeninas, así que el color lleva <b>-e</b>: <i>verte, noire</i>. <i>Pull</i> y <i>pantalon</i> son masculinos: <i>rouge, bleu</i>.</p><p>Para hablar de otra persona: <i>Il porte…</i> (él lleva), <i>Elle porte…</i> (ella lleva).</p><p>Juego: <b>¿Quién es?</b> Describe la ropa de un compañero sin decir su nombre: <i>Il porte un pull vert et un pantalon noir.</i> Los demás adivinan quién es.</p><p><b>Actividad</b>: dibújate y escribe tres frases con <i>Je porte…</i>.</p>`,
+      L6.filas("Je porte…", [["un pull", "rouge", cRO], ["une robe", "verte", cVE], ["un pantalon", "bleu", cAZ], ["une jupe", "noire", cMO]])],
+  ],
+  ejemplos: [
+    ["Pon en plural: «une pomme verte».", ["Une pasa a des.", "Pomme y verte añaden -s."], "des pommes vertes"],
+    ["Di que no te gusta el gris.", ["La negación es ne… pas.", "Delante de vocal ne pasa a n'."], "Je n'aime pas le gris."],
+  ],
+  errores: ["Poner -s a marron y orange: «des chaussures marrons».", "Olvidar el artículo con j'aime: «J'aime rouge» en lugar de «J'aime le rouge»."],
+  ejercicios: [
+    ["b", "¿Qué significa «foncé»?", "Oscuro."],
+    ["b", "¿Cuáles son los colores de la bandera de Francia?", "Bleu, blanc, rouge."],
+    ["b", "¿Cómo se dice «me encanta el azul»?", "J'adore le bleu."],
+    ["b", "En la lectura, ¿cómo se llama el cuadro de Matisse?", "L'Escargot (el caracol)."],
+    ["b", "¿Cómo se dice «llevo» en francés?", "Je porte."],
+    ["m", "Pon en plural: «un ballon rouge, un sac marron».", "des ballons rouges, des sacs marron."],
+    ["m", "Traduce: La mar es azul oscuro.", "La mer est bleu foncé."],
+    ["m", "Traduce: Llevo una falda negra.", "Je porte une jupe noire."],
+    ["m", "¿Qué pintaba Monet en su jardín de Giverny?", "Los nenúfares (nénuphars) del estanque."],
+    ["m", "Responde en negativo: «Tu aimes le jaune ?»", "Non, je n'aime pas le jaune."],
+    ["a", "¿Por qué Matisse empezó a pintar con tijeras?", "Porque estaba enfermo y no podía pintar de pie; recortaba papeles de colores."],
+    ["a", "Describe la ropa de un compañero con Il porte… o Elle porte…", "Respuesta abierta."],
+    ["a", "Escribe cuatro frases sobre colores que te gustan y no te gustan.", "Respuesta abierta."],
+    ["a", "Compara la bandera de Francia con la de otro país francófono.", "Ejemplo: Le drapeau de la France est bleu, blanc, rouge. Le drapeau de la Belgique est noir, jaune, rouge."],
+  ],
+  quiz: [
+    ["«Azul claro» se dice…", ["bleu clair", "bleu foncé", "blanc bleu"], "Clair."],
+    ["«Des chaussures ___» (marrones)", ["marron", "marrons", "marronnes"], "Invariables."],
+    ["«No me gusta el gris» se dice…", ["Je n'aime pas le gris.", "Je aime pas le gris.", "Je n'aime le gris."], "Negación."],
+    ["La fiesta nacional de Francia es el…", ["14 de julio", "12 de octubre", "6 de enero"], "Francia."],
+    ["«Je porte une robe ___» (verde)", ["verte", "vert", "verts"], "Femenino."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué usaba Matisse para pintar cuando era mayor?", ["tijeras y papeles de colores", "solo lápices", "acuarelas"], "Lectura."],
+    ["«Allez les Bleus !» se grita para animar a…", ["la selección francesa", "el cielo", "los pintores"], "Bandera."],
+  ],
+  tarjetas: [
+    ["clair / foncé", "bleu clair, vert foncé (no cambian)."],
+    ["Pluriel", "des crayons verts; marron y orange no cambian."],
+    ["Opinions", "J'adore, j'aime, je n'aime pas, je déteste + le + color."],
+    ["Je porte", "un pull rouge, une robe verte, des chaussures marron."],
+  ],
+  glosario: [
+    ["Clair", "Claro."],
+    ["Foncé", "Oscuro."],
+    ["Des", "Unos, unas (plural)."],
+    ["J'adore", "Me encanta."],
+    ["Je n'aime pas", "No me gusta."],
+    ["Le drapeau", "La bandera."],
+    ["Tricolore", "De tres colores."],
+    ["Les ciseaux", "Las tijeras."],
+    ["Le pinceau", "El pincel."],
+    ["Je porte", "Llevo (ropa)."],
+    ["La robe", "El vestido."],
+    ["Le pull", "El jersey."],
+  ],
+  situacion: {
+    titulo: "Nuestra exposición à la Matisse",
+    reto: "La clase crea cuadros con papeles recortados al estilo de Matisse y los presenta en francés en una pequeña exposición.",
+    pasos: ["Ver obras de Matisse y Monet y nombrar sus colores en francés.", "Recortar y pegar formas de colores claros y oscuros.", "Escribir una cartela con el título y los colores en plural.", "Presentar la obra diciendo J'aime… y J'adore…"],
+    producto: "Una exposición de papiers découpés con cartelas en francés.",
+    evaluacion: ["Nombra los colores, claros y oscuros, en francés.", "Concuerda los colores en femenino y plural.", "Expresa opiniones con j'aime y je n'aime pas.", "Presenta su obra con frases completas."],
+  },
+});

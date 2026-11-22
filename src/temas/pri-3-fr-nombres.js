@@ -98,3 +98,102 @@ module.exports = P.tema({
   saberes: "Léxico básico en lengua extranjera: los números del 0 al 20; formación de los números del 17 al 19; preguntar y responder por cantidades (combien, il y a); operaciones sencillas (plus, moins, égale); uso de los números en contextos cotidianos (edad, fecha, teléfono); canciones y juegos tradicionales",
   ideas: ["Bingo de números en francés.", "Juego de la cuenta atrás con el cohete de papel.", "Rayuela en el patio diciendo los números en francés."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Contar de diez en diez hasta cien", "Usar il y a, decir la hora en punto y preguntar precios", "Usar los ordinales premier, deuxième, troisième", "Decir la fecha de nuestro cumpleaños"],
+  lectura: { titulo: "Al mercado con mamie", html: `<p>Es sábado por la mañana en Niza, una ciudad del sur de Francia junto al mar. Léa va al mercado con su abuela.</p><p>—<i>Quelle heure est-il ?</i> —pregunta la abuela.</p><p>—<i>Il est neuf heures, mamie !</i> —responde Léa mirando el reloj de la plaza.</p><p>En el mercado hay muchos puestos. Il y a des tomates rouges, des citrons jaunes y des fleurs de todos los colores. Huele a lavanda.</p><p>La abuela le da un monedero a Léa: —Hoy compras tú.</p><p>Léa se acerca al puesto de fruta y dice muy educada:</p><p>—<i>Bonjour ! Six pommes, s'il vous plaît.</i></p><p>El vendedor las cuenta: <i>un, deux, trois, quatre, cinq, six</i>. —<i>Voilà ! Ça fait trois euros.</i></p><p>Léa saca una moneda de dos euros y una de un euro. —<i>Un, deux, trois euros. Merci, monsieur !</i></p><p>—<i>Merci, mademoiselle. Au revoir !</i></p><p>La abuela sonríe orgullosa. —<i>Bravo, Léa !</i> Ahora vamos a por pan. Pero primero… <i>une glace</i>?</p><p>Léa da un salto: —<i>Oui ! Deux boules, s'il te plaît !</i></p>` },
+  tras: {
+    "Del 1 al 5": [
+      ["Números que se unen: la liaison", `<p>En francés, muchas letras finales <b>no se pronuncian</b>: en <i>deux</i> la <b>x</b> no suena, y en <i>trois</i> la <b>s</b> tampoco. Pero ¡atención! Si la palabra siguiente empieza por <b>vocal</b>, esa letra «se despierta» y se une a la palabra siguiente. Se llama <mark>liaison</mark> (enlace).</p><ul><li><i>deux amis</i> — se dice «de-<b>z</b>ami» (dos amigos)</li><li><i>trois enfants</i> — «trua-<b>z</b>anfan» (tres niños)</li><li><i>six ans</i> — «si-<b>z</b>an» (seis años)</li><li><i>dix euros</i> — «di-<b>z</b>euró» (diez euros)</li><li><i>un ami</i> — «un-<b>n</b>ami» (un amigo)</li></ul><p>Fíjate: la <b>s</b> y la <b>x</b> suenan como una <b>z</b> suave, como el zumbido de una abeja.</p><p>Y otro detalle: <i>six</i> y <i>dix</i> solos se pronuncian «sis» y «dis», pero delante de consonante pierden el final: <i>six chats</i> «si cha», <i>dix livres</i> «di livr».</p><p><b>Actividad</b>: lee en voz alta: <i>deux oranges, trois amis, six euros, dix ans</i>. ¿Oyes la «z»?</p>`,
+        L6.filas("Liaison", [["deux amis", "de-z-ami", cAZ], ["trois enfants", "trua-z-anfan", cVE], ["six ans", "si-z-an", cNA], ["un ami", "un-n-ami", cRO]])],
+    ],
+    "Del 17 al 20": [
+      ["De diez en diez hasta cien", `<p>Ya sabemos llegar a <b>vingt</b> (20). Ahora contamos de diez en diez:</p><ul><li>30 <b>trente</b> · 40 <b>quarante</b> · 50 <b>cinquante</b> · 60 <b>soixante</b></li></ul><p>Y aquí viene lo curioso. Los franceses no tienen una palabra para 70, 80 y 90: ¡hacen <mark>cuentas</mark>!</p><ul><li>70 = <b>soixante-dix</b> («sesenta y diez»)</li><li>80 = <b>quatre-vingts</b> («cuatro veintes», 4 × 20)</li><li>90 = <b>quatre-vingt-dix</b> («cuatro veintes y diez», 4 × 20 + 10)</li><li>100 = <b>cent</b></li></ul><p>Esta forma de contar con veintes es muy antigua: hace siglos, se contaba de veinte en veinte, quizá usando los dedos de las manos y de los pies.</p><p>En <b>Bélgica</b> y en <b>Suiza</b>, donde también se habla francés, es más sencillo: dicen <i>septante</i> (70) y <i>nonante</i> (90). En algunas zonas de Suiza dicen incluso <i>huitante</i> (80).</p><p><b>Actividad</b>: escribe en francés tu edad, la de un adulto de tu familia y el número 80. ¿Qué cuenta hay escondida en <i>quatre-vingts</i>?</p>`,
+        L6.filas("Dizaines", [["30, 40, 50", "trente, quarante, cinquante", cAZ], ["60", "soixante", cVE], ["70", "soixante-dix", cNA], ["80", "quatre-vingts", cRO]])],
+    ],
+    "¿Cuántos hay?: combien ?": [
+      ["Il y a: hay", `<p>Para decir «hay» en francés usamos dos palabritas que van siempre juntas: <mark>il y a</mark> (se pronuncia «il-i-a»). Sirve igual para una cosa o para muchas:</p><ul><li><i><b>Il y a</b> un chat sur le lit.</i> — Hay un gato en la cama.</li><li><i><b>Il y a</b> trois livres sur la table.</i> — Hay tres libros en la mesa.</li><li><i><b>Il y a</b> vingt élèves dans ma classe.</i> — Hay veinte alumnos en mi clase.</li></ul><p>Para preguntar «¿cuántos hay?» lo unimos con <b>combien</b>:</p><ul><li><i><b>Combien de</b> crayons <b>il y a</b> ?</i> — ¿Cuántos lápices hay?</li><li><i><b>Il y a</b> douze crayons.</i> — Hay doce lápices.</li></ul><p>Y si no hay nada: <i><b>Il n'y a pas de</b> chien.</i> — No hay perro.</p><p>Fíjate en que en francés decimos <b>combien de</b> + cosa: <i>combien de pommes, combien d'amis</i>.</p><p>Juego: <b>Il y a… dans ma trousse</b>. Abre tu estuche y cuenta en francés: <i>Il y a cinq crayons, deux gommes et une règle.</i></p><p><b>Actividad</b>: describe tu habitación con cuatro frases con <i>il y a</i>.</p>`,
+        L6.dialogo("Combien ?", [["Prof", "Combien d'élèves il y a ?", cAZ], ["Léo", "Il y a vingt élèves.", cRO], ["Prof", "Et combien de filles ?", cAZ], ["Léo", "Il y a onze filles.", cRO]]),
+        ["L7xq6q9WASQ", "French Lesson - NUMBERS 1-20 - Compter jusqu'à 20 - Learn French", "The French Minute", 7372678]],
+    ],
+    "Sumas y restas en francés": [
+      ["Quelle heure est-il ? La hora", `<p>Con los números del 1 al 12 ya podemos decir la <mark>hora en punto</mark>. La pregunta es:</p><p style="text-align:center"><b>Quelle heure est-il ?</b> — ¿Qué hora es?</p><p>La respuesta empieza siempre por <b>Il est…</b> y termina con <b>heure(s)</b>:</p><ul><li>1:00 — <i>Il est <b>une heure</b>.</i> (en singular)</li><li>3:00 — <i>Il est <b>trois heures</b>.</i> (en plural, con -s)</li><li>8:00 — <i>Il est <b>huit heures</b>.</i></li><li>12:00 del mediodía — <i>Il est <b>midi</b>.</i></li><li>12:00 de la noche — <i>Il est <b>minuit</b>.</i></li></ul><p>Para la hora y media se añade <b>et demie</b>: <i>Il est quatre heures et demie.</i> (las cuatro y media).</p><p>En francés también se usan mucho las horas de 13 a 24, sobre todo en los horarios de trenes y en la tele: <i>Le film commence à vingt heures.</i> (La película empieza a las ocho de la tarde.)</p><p>Para decir a qué hora hacemos algo usamos <b>à</b>: <i>L'école commence à neuf heures.</i></p><p><b>Actividad</b>: dibuja cuatro relojes y escribe la hora en francés debajo.</p>`,
+        L6.filas("L'heure", [["1:00", "Il est une heure.", cAZ], ["3:00", "Il est trois heures.", cVE], ["12:00", "Il est midi.", cNA], ["4:30", "quatre heures et demie", cRO]])],
+    ],
+    "Números para la vida diaria": [
+      ["Ça coûte combien ? Los precios", `<p>En Francia, como en España, se paga con <mark>euros</mark> (<i>les euros</i>). Para preguntar el precio decimos:</p><ul><li><i><b>Ça coûte combien ?</b></i> — ¿Cuánto cuesta?</li><li><i><b>C'est combien ?</b></i> — ¿Cuánto es?</li></ul><p>Las respuestas:</p><ul><li><i>Ça coûte <b>deux euros</b>.</i> — Cuesta dos euros.</li><li><i>Ça fait <b>cinq euros</b>.</i> — Son cinco euros (al pagar todo).</li><li><i>Un euro cinquante.</i> — Un euro con cincuenta.</li></ul><p>Recuerda la liaison: <i>deux euros</i> suena «de-zeuró» y <i>trois euros</i> «trua-zeuró».</p><p>Así es una compra educada en una tienda francesa:</p><ul><li>Se saluda siempre al entrar: <i>Bonjour !</i></li><li>Se pide con <i>s'il vous plaît</i>: <i>Une baguette, s'il vous plaît.</i></li><li>Se da el dinero: <i>Voilà.</i> (Aquí tiene.)</li><li>Se despide: <i>Merci, au revoir !</i></li></ul><p>En Francia es muy importante decir <i>bonjour</i> al entrar en una tienda; si no, parece de mala educación.</p><p><b>Actividad</b>: con un compañero, representa una compra en una panadería francesa con precios.</p>`,
+        L6.dialogo("À la boulangerie", [["Léa", "Une baguette, s'il vous plaît.", cAZ], ["Vendeur", "Voilà ! Un euro.", cRO], ["Léa", "Ça coûte combien, le croissant ?", cAZ], ["Vendeur", "Un euro cinquante.", cRO]])],
+    ],
+    "Contar hacia atrás y de dos en dos": [
+      ["Premier, deuxième, troisième", `<p>Los números <mark>ordinales</mark> sirven para decir el orden: primero, segundo, tercero… En francés se forman de una manera muy fácil: se añade <b>-ième</b> al número.</p><ul><li>2 deux → <b>deuxième</b> (segundo)</li><li>3 trois → <b>troisième</b> (tercero)</li><li>4 quatre → <b>quatrième</b> (cuarto): se quita la -e.</li><li>6 six → <b>sixième</b> · 10 dix → <b>dixième</b></li></ul><p>Hay algunos cambios pequeños:</p><ul><li>5 cinq → <b>cinquième</b>: se añade una <b>u</b>.</li><li>9 neuf → <b>neuvième</b>: la <b>f</b> se convierte en <b>v</b>.</li></ul><p>Y el primero es especial: <b>premier</b> (masculino) y <b>première</b> (femenino).</p><ul><li><i>Je suis <b>premier</b> !</i> — ¡Soy el primero!</li><li><i>Elle est <b>première</b>.</i> — Ella es la primera.</li><li><i>J'habite au <b>troisième</b> étage.</i> — Vivo en el tercer piso.</li></ul><p>En las carreras se dan medallas al <i>premier</i>, al <i>deuxième</i> y al <i>troisième</i>.</p><p><b>Actividad</b>: haz una fila con cinco compañeros y di la posición de cada uno: <i>Ana est première, Pablo est deuxième…</i></p>`,
+        L6.filas("Ordinaux", [["1", "premier, première", cNA], ["2", "deuxième", cAZ], ["3", "troisième", cRO], ["5", "cinquième", cVE]])],
+    ],
+  },
+  final: [
+    ["Los meses y mi cumpleaños", `<p>Los <mark>meses</mark> en francés se parecen mucho al español, y se escriben con <b>minúscula</b>:</p><ul><li><i>janvier, février, mars, avril, mai, juin</i></li><li><i>juillet, août, septembre, octobre, novembre, décembre</i></li></ul><p>Fíjate en <i>août</i> (agosto): se pronuncia «ut», ¡muy corto!</p><p>Para decir la fecha usamos <b>le</b> + número + mes: <i>le 5 avril</i> (el 5 de abril), <i>le 20 juin</i>. Pero el día uno es especial: decimos <b>le premier</b>: <i>le premier mai</i> (el 1 de mayo).</p><p>Para hablar del cumpleaños:</p><ul><li><i>C'est quand, ton anniversaire ?</i> — ¿Cuándo es tu cumpleaños?</li><li><i>Mon anniversaire, c'est <b>le 12 mars</b>.</i> — Mi cumpleaños es el 12 de marzo.</li></ul><p>Algunas fechas importantes en Francia: <i>le premier janvier</i> (Año Nuevo), <i>le 14 juillet</i> (fiesta nacional) y <i>le 25 décembre</i> (Navidad, <i>Noël</i>).</p><p><b>Actividad</b>: haz un calendario de cumpleaños de la clase. Cada alumno dice: <i>Mon anniversaire, c'est le…</i></p>`,
+      H6.flujo("La date", ["le|premier", "le 5|avril", "le 14|juillet", "le 25|décembre"], cMO)],
+  ],
+  ejemplos: [
+    ["Escribe 80 en francés y explica la cuenta.", ["Los franceses cuentan con veintes.", "80 son cuatro veintes."], "quatre-vingts (4 × 20)"],
+    ["Pregunta cuántas manzanas hay y responde que hay siete.", ["Usamos combien de + cosa.", "Hay se dice il y a."], "Combien de pommes il y a ? — Il y a sept pommes."],
+  ],
+  errores: ["Decir «Il est un heure» en lugar de «Il est une heure» (heure es femenino).", "Decir «unième» en lugar de premier o première."],
+  ejercicios: [
+    ["b", "¿Cómo se dice «hay» en francés?", "Il y a."],
+    ["b", "Escribe 50 en francés.", "Cinquante."],
+    ["b", "¿Cómo se pregunta la hora?", "Quelle heure est-il ?"],
+    ["b", "¿Cómo se dice «primero»?", "Premier (première en femenino)."],
+    ["b", "En la lectura, ¿cuántas manzanas compra Léa?", "Seis."],
+    ["m", "Escribe 70 y 90 en francés.", "Soixante-dix y quatre-vingt-dix."],
+    ["m", "Di la hora: 12:00 del mediodía y 7:00.", "Il est midi. Il est sept heures."],
+    ["m", "Traduce: Hay veinte alumnos en mi clase.", "Il y a vingt élèves dans ma classe."],
+    ["m", "Escribe en francés el ordinal de 5 y de 9.", "Cinquième y neuvième."],
+    ["m", "¿Cómo dicen 70 en Bélgica y en Suiza?", "Septante."],
+    ["a", "Escribe un diálogo de compra en una tienda francesa con precio.", "Respuesta abierta."],
+    ["a", "Escribe la fecha de tu cumpleaños y la de dos familiares.", "Ejemplo: Mon anniversaire, c'est le 3 juin."],
+    ["a", "Describe tu clase con cuatro frases con il y a y números.", "Respuesta abierta."],
+    ["a", "Explica qué es la liaison con dos ejemplos.", "Es la unión de la letra final muda con la vocal siguiente: deux amis, trois enfants."],
+  ],
+  quiz: [
+    ["80 en francés es…", ["quatre-vingts", "huitante", "soixante-vingt"], "Números."],
+    ["«Il est ___.» (12:00 del mediodía)", ["midi", "minuit", "douze heure"], "Hora."],
+    ["«¿Cuánto cuesta?» se dice…", ["Ça coûte combien ?", "Il y a combien ?", "Quelle heure est-il ?"], "Precios."],
+    ["El ordinal de 1 en femenino es…", ["première", "unième", "premier"], "Ordinales."],
+    ["«El 1 de mayo» se dice…", ["le premier mai", "le un mai", "le unième mai"], "Fecha."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuánto pagan por las manzanas?", ["trois euros", "six euros", "deux euros"], "Lectura."],
+    ["¿Qué se dice al entrar en una tienda francesa?", ["Bonjour !", "Au revoir !", "Voilà !"], "Cortesía."],
+  ],
+  tarjetas: [
+    ["Dizaines", "trente, quarante, cinquante, soixante, soixante-dix, quatre-vingts, quatre-vingt-dix, cent."],
+    ["Il y a", "Il y a trois livres. Combien de… il y a ?"],
+    ["L'heure", "Quelle heure est-il ? Il est une heure, trois heures, midi, minuit."],
+    ["Ordinaux y fecha", "premier, deuxième, troisième; le premier mai, le 5 avril."],
+  ],
+  glosario: [
+    ["Liaison", "Unión de una letra final muda con la vocal siguiente."],
+    ["Trente", "Treinta."],
+    ["Soixante-dix", "Setenta."],
+    ["Quatre-vingts", "Ochenta."],
+    ["Cent", "Cien."],
+    ["Il y a", "Hay."],
+    ["Quelle heure est-il ?", "¿Qué hora es?"],
+    ["Midi", "Mediodía."],
+    ["Minuit", "Medianoche."],
+    ["Ça coûte combien ?", "¿Cuánto cuesta?"],
+    ["Premier", "Primero."],
+    ["Août", "Agosto."],
+  ],
+  situacion: {
+    titulo: "Le marché de la classe",
+    reto: "La clase monta un mercado francés con precios en euros, horarios y un calendario de cumpleaños.",
+    pasos: ["Hacer etiquetas de precios en francés para productos dibujados.", "Poner un cartel con el horario: Le marché ouvre à neuf heures.", "Representar compras con Bonjour, Ça coûte combien ? y Merci.", "Al final, contar con il y a cuántos productos quedan."],
+    producto: "Un mercado francés en el aula con etiquetas y diálogos.",
+    evaluacion: ["Dice números hasta 100 de diez en diez.", "Pregunta y dice precios y horas.", "Usa il y a y combien de correctamente.", "Es educado en los diálogos de compra."],
+  },
+});
