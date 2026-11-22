@@ -97,3 +97,91 @@ module.exports = P.tema({
   saberes: "Sentido estocástico: recogida y organización de datos, tablas de frecuencias, gráficos estadísticos, media, mediana, moda y rango; experimentos aleatorios, sucesos y probabilidad con la regla de Laplace",
   ideas: ["Encuesta real en el colegio con informe y gráficos.", "Lanzar dados y monedas 100 veces y comparar frecuencias con probabilidades.", "Analizar gráficos de noticias y detectar escalas engañosas."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbmbmmmbma",
+  objetivos: ["Distinguir entre población y muestra en un estudio estadístico", "Elegir entre media y mediana cuando hay datos extremos", "Calcular probabilidades con dos dados", "Detectar gráficos engañosos y entender la ley de los grandes números"],
+  lectura: { titulo: "La enfermera que salvó vidas con un gráfico", html: `<p>En 1854, la enfermera inglesa <b>Florence Nightingale</b> viajó a un hospital militar durante la guerra de Crimea. Lo que encontró fue terrible: salas sucias, sin ventilación y con ratas. Los soldados heridos morían a cientos.</p><p>Florence no solo cuidaba a los enfermos por la noche, con su famosa lámpara. También <b>anotaba datos</b>: cuántos soldados morían cada mes y por qué causa. Al estudiarlos descubrió algo sorprendente: muchos más soldados morían por <b>enfermedades</b> como el cólera o el tifus que por las heridas de las batallas.</p><p>Sabía que los generales y los políticos no leerían largas tablas de números. Así que dibujó un gráfico nuevo, con forma de rosa, en el que cada mes era un sector coloreado según la causa de las muertes. Bastaba un vistazo para entenderlo.</p><p>Gracias a su gráfico, el gobierno mejoró la limpieza, el agua y la ventilación de los hospitales, y la mortalidad bajó muchísimo. Florence Nightingale es recordada como la fundadora de la enfermería moderna, pero también fue una gran <b>estadística</b>.</p>` },
+  tras: {
+    "Tablas de frecuencias": [
+      ["Población y muestra", `<p>Imagina que quieres saber cuál es el deporte favorito de los niños y niñas de España. No puedes preguntar a millones de personas. ¿Qué hacen los estadísticos?</p><ul><li>La <b>población</b> es el grupo completo que queremos estudiar: todos los niños y niñas de España.</li><li>La <b>muestra</b> es una parte de la población a la que sí preguntamos: por ejemplo, 2 000 niños y niñas de distintas ciudades y pueblos.</li><li>Cada persona o cosa estudiada es un <b>individuo</b>.</li></ul><p>Para que la muestra sirva, tiene que ser <b>representativa</b>: debe parecerse a la población. Si solo preguntamos a la salida de un campo de fútbol, casi todos dirán fútbol, y el resultado estará sesgado. Si solo preguntamos en una ciudad, olvidamos a los pueblos.</p><p>Las encuestas que salen en las noticias sobre elecciones, audiencias de televisión o hábitos de lectura se hacen con muestras de unos pocos miles de personas, elegidas con cuidado al azar. Cuando sí se pregunta a toda la población, como en el <b>censo</b> de habitantes, el estudio se llama censo.</p>`,
+        H6.dos("¿A quién preguntar?", ["Población", ["el grupo completo", "todos los niños", "censo: a todos"], cAZ], ["Muestra", ["una parte", "2 000 niños", "representativa"], cNA]), ["gl9EEbT7viM", "Población y Muestra - Ejemplos y Ejercicios Resueltos", "Matemóvil", 1102127]],
+    ],
+    "La media": [
+      ["Cuando la media engaña", `<p>La media es muy útil, pero tiene un punto débil: un solo dato muy grande o muy pequeño la puede <b>desequilibrar</b>.</p><p>Imagina una pequeña empresa con cinco trabajadores. Cuatro ganan 1 000 € al mes y el dueño gana 21 000 €. ¿Cuánto se gana de media?</p><p>Media = (1 000 + 1 000 + 1 000 + 1 000 + 21 000) : 5 = 25 000 : 5 = <b>5 000 €</b>.</p><p>Si el dueño pone un anuncio diciendo «En mi empresa se gana de media 5 000 € al mes», no miente… pero engaña, porque cuatro de cada cinco trabajadores ganan solo 1 000 €.</p><p>En casos así es mejor usar la <b>mediana</b>. Si ordenamos los sueldos (1 000, 1 000, 1 000, 1 000, 21 000), el valor central es <b>1 000 €</b>, que describe mucho mejor lo que gana la mayoría.</p><p>Los datos muy alejados del resto se llaman <b>valores atípicos</b>. Cuando aparecen, conviene calcular la media y la mediana y compararlas: si son muy diferentes, hay algún dato extremo tirando de la media.</p>`,
+        H6.barras("Sueldos (€)", [["Trab. 1", 1000, cAZ, "1 000"], ["Trab. 2", 1000, cAZ, "1 000"], ["Trab. 3", 1000, cAZ, "1 000"], ["Trab. 4", 1000, cAZ, "1 000"], ["Dueño", 21000, cRO, "21 000"]], 21000)],
+    ],
+    "Calcular la probabilidad": [
+      ["La probabilidad con dos dados", `<p>Al lanzar <b>dos dados</b> y sumar sus puntos, ¿todas las sumas son igual de probables? ¡No! Para verlo, hay que contar todas las combinaciones posibles.</p><p>El primer dado puede salir de 6 formas y el segundo de otras 6, así que hay 6 × 6 = <b>36 combinaciones</b> igual de probables.</p><ul><li>La suma <b>2</b> solo sale con 1 + 1: probabilidad 1/36.</li><li>La suma <b>12</b> solo sale con 6 + 6: probabilidad 1/36.</li><li>La suma <b>7</b> sale de seis formas: 1 + 6, 2 + 5, 3 + 4, 4 + 3, 5 + 2 y 6 + 1. Su probabilidad es 6/36 = <b>1/6</b>.</li></ul><p>El 7 es la suma <b>más probable</b>. Las sumas centrales (6, 7, 8) salen mucho más que las de los extremos (2, 3, 11, 12).</p><p>Ojo: 3 + 4 y 4 + 3 son combinaciones distintas, porque los dados son dos objetos diferentes. Si los pintas de colores, uno rojo y otro azul, lo verás claro. Muchos juegos de mesa están diseñados teniendo en cuenta que el 7 es el resultado más frecuente.</p>`,
+        H6.barras("Formas de cada suma", [["2", 1, cRO, "1/36"], ["4", 3, cNA, "3/36"], ["7", 6, cVE, "6/36"], ["10", 3, cNA, "3/36"], ["12", 1, cRO, "1/36"]], 6), ["4kE3zKfs_yg", "Probabilidad: Lanzar 2 dados y sumar las caras superiores", "El arte de las Matemáticas (Profesor Julio Tapia)", 171415]],
+    ],
+  },
+  final: [
+    ["Gráficos que engañan", `<p>Un gráfico puede mostrar datos verdaderos y, aun así, <b>engañar</b> a quien lo mira. Estos son los trucos más habituales:</p><ul><li><b>Cortar el eje vertical</b>. Si dos marcas tienen 92 y 95 clientes satisfechos de cada 100, la diferencia es pequeña. Pero si el eje empieza en 90 en lugar de en 0, la barra de 95 parece más del doble de alta que la de 92.</li><li><b>Dibujos que crecen en dos direcciones</b>. Si para representar el doble de ventas se dibuja una moneda el doble de ancha y el doble de alta, ocupa cuatro veces más espacio y parece cuatro veces más.</li><li><b>Escoger solo algunos datos</b>. Mostrar solo los meses buenos y esconder los malos da una imagen falsa.</li><li><b>No poner escala ni unidades</b>. Sin números en los ejes no se puede saber qué se compara.</li></ul><p>Cuando veas un gráfico en un anuncio o en las redes sociales, hazte estas preguntas: ¿dónde empieza el eje?, ¿de dónde salen los datos?, ¿falta algo? Leer gráficos con espíritu crítico es una forma de protegerse de las noticias falsas.</p>`,
+      H6.dos("Mismos datos", ["Eje desde 0", ["92 y 95", "barras casi iguales", "imagen honrada"], cVE], ["Eje desde 90", ["92 y 95", "una parece el doble", "imagen engañosa"], cRO])],
+    ["La ley de los grandes números", `<p>Si lanzas una moneda, la probabilidad de cara es 1/2. Pero si la lanzas 10 veces, ¿saldrán exactamente 5 caras? No necesariamente: pueden salir 3, 7 o incluso 9. Con pocos intentos, el azar hace de las suyas.</p><p>Sin embargo, si la lanzas <b>muchísimas</b> veces, la proporción de caras se va acercando cada vez más a la mitad. Esto se llama <b>ley de los grandes números</b>.</p><ul><li>En el siglo XVIII, el naturalista francés Buffon lanzó una moneda 4 040 veces y obtuvo 2 048 caras: algo más de la mitad.</li><li>Más tarde, el matemático inglés Karl Pearson la lanzó 24 000 veces y obtuvo 12 012 caras: casi exactamente la mitad.</li></ul><p>Esta ley explica por qué la probabilidad sirve para hacer <b>predicciones</b>: no podemos saber qué saldrá en un lanzamiento, pero sí qué pasará, más o menos, en miles de ellos.</p><p>Y desmonta un error muy común: creer que si han salido cinco cruces seguidas, ahora «toca» cara. La moneda no tiene memoria: en el siguiente lanzamiento la probabilidad sigue siendo 1/2.</p>`,
+      L6.filas("Lanzar una moneda", [["10 veces", "puede salir 3, 5 o 7", cRO], ["Buffon", "2 048 de 4 040", cNA], ["Pearson", "12 012 de 24 000", cAZ], ["tendencia", "cada vez más cerca de 1/2", cVE]])],
+  ],
+  ejemplos: [
+    ["Cuatro personas ganan 1 000 € y una gana 21 000 €. Calcula la media y la mediana.", ["Media: 25 000 : 5 = 5 000 €.", "Mediana: ordenados, el dato central es 1 000 €."], "Media 5 000 €, mediana 1 000 €; la mediana representa mejor."],
+    ["¿Cuál es la probabilidad de sacar suma 7 con dos dados?", ["Hay 6 × 6 = 36 combinaciones.", "Suman 7: 1+6, 2+5, 3+4, 4+3, 5+2, 6+1 (6 casos)."], "6/36 = 1/6."],
+  ],
+  errores: ["Usar la media cuando hay valores atípicos que la desequilibran.", "Creer que después de varias cruces seguidas es más probable que salga cara."],
+  ejercicios: [
+    ["b", "Se pregunta a 500 alumnos de una ciudad para conocer los gustos de todos los alumnos de la ciudad. ¿Cuál es la población y cuál la muestra?", "Población: todos los alumnos de la ciudad; muestra: los 500."],
+    ["b", "¿Cuántas combinaciones hay al lanzar dos dados?", "36."],
+    ["b", "¿Cuál es la probabilidad de sacar suma 12 con dos dados?", "1/36."],
+    ["b", "¿Qué es un valor atípico?", "Un dato muy alejado del resto."],
+    ["b", "¿Quién dibujó un gráfico en forma de rosa para mejorar los hospitales?", "Florence Nightingale."],
+    ["m", "Calcula la media y la mediana de 2, 3, 3, 4 y 38.", "Media 10; mediana 3."],
+    ["m", "¿De cuántas formas se puede obtener suma 4 con dos dados? ¿Cuál es su probabilidad?", "3 formas (1+3, 2+2, 3+1); 3/36 = 1/12."],
+    ["m", "Si se pregunta solo a la salida de un concierto de rock por la música favorita, ¿la muestra es representativa? ¿Por qué?", "No, porque casi todos dirán rock: está sesgada."],
+    ["m", "Un gráfico de barras empieza en 90. ¿Qué problema tiene?", "Exagera las diferencias entre las barras."],
+    ["m", "Han salido cinco cruces seguidas. ¿Qué probabilidad hay de cara en el siguiente lanzamiento?", "1/2."],
+    ["a", "¿Qué suma es más probable con dos dados, 6 u 8? Razónalo.", "Igual: las dos salen de 5 formas (5/36)."],
+    ["a", "Pearson obtuvo 12 012 caras en 24 000 lanzamientos. ¿Cuántas más de la mitad?", "12 caras más."],
+    ["a", "En 5 partidos un equipo marca 1, 0, 2, 1 y 11 goles. ¿Qué medida resume mejor sus resultados? Calcúlala.", "La mediana: 1 gol (la media, 3, está desequilibrada)."],
+    ["a", "Para mostrar el doble de ventas se dibuja una caja el doble de ancha y el doble de alta. ¿Cuántas veces más grande parece?", "4 veces, aunque las ventas solo son el doble."],
+  ],
+  quiz: [
+    ["La parte de la población a la que se pregunta es la…", ["muestra", "frecuencia", "moda"], "Población y muestra."],
+    ["Con datos extremos, describe mejor a la mayoría la…", ["mediana", "media", "suma"], "Valores atípicos."],
+    ["La suma más probable con dos dados es…", ["7", "12", "2"], "6 de 36."],
+    ["Un eje vertical que no empieza en 0…", ["exagera las diferencias", "las hace desaparecer", "no cambia nada"], "Gráficos engañosos."],
+    ["Al lanzar muchísimas veces una moneda, la proporción de caras…", ["se acerca a la mitad", "llega a 1", "baja a 0"], "Grandes números."],
+  ],
+  examen: [
+    ["Al lanzar dos dados hay…", ["36 combinaciones", "12 combinaciones", "6 combinaciones"], "6 × 6."],
+    ["La media de 1 000, 1 000, 1 000, 1 000 y 21 000 es…", ["5 000", "1 000", "21 000"], "25 000 : 5."],
+  ],
+  tarjetas: [
+    ["Población y muestra", "Población: el grupo entero. Muestra: la parte representativa a la que se pregunta."],
+    ["Media y valores atípicos", "Un dato extremo desequilibra la media; entonces es mejor la mediana."],
+    ["Dos dados", "36 combinaciones; la suma 7 es la más probable (1/6)."],
+    ["Ley de los grandes números", "Con muchos intentos, la frecuencia se acerca a la probabilidad."],
+  ],
+  glosario: [
+    ["Población", "Grupo completo de individuos que se quiere estudiar."],
+    ["Muestra", "Parte de la población que se estudia de verdad."],
+    ["Individuo", "Cada persona o cosa que forma la población."],
+    ["Representativa", "Muestra que se parece a la población."],
+    ["Sesgo", "Error que hace que una muestra no represente bien a la población."],
+    ["Censo", "Estudio en el que se pregunta a toda la población."],
+    ["Valor atípico", "Dato muy alejado del resto."],
+    ["Combinación", "Cada uno de los resultados posibles al lanzar varios objetos."],
+    ["Eje", "Línea con números de un gráfico."],
+    ["Escala", "Valores que marcan las divisiones de un eje."],
+    ["Ley de los grandes números", "Con muchos intentos, la frecuencia se acerca a la probabilidad."],
+    ["Encuesta", "Conjunto de preguntas que se hace a una muestra."],
+  ],
+  situacion: {
+    titulo: "Investigamos con dos dados",
+    reto: "La clase comprueba experimentalmente qué sumas salen más al lanzar dos dados y lo compara con la probabilidad teórica.",
+    pasos: ["Haced una tabla de 6 × 6 con todas las combinaciones y calculad la probabilidad de cada suma.", "Por parejas, lanzad dos dados 50 veces y anotad las sumas en una tabla de frecuencias.", "Juntad los datos de toda la clase y haced un gráfico de barras honrado, con el eje desde 0.", "Comparad vuestros resultados con la teoría y explicad la ley de los grandes números."],
+    producto: "Un mural con la tabla de combinaciones, el gráfico de la clase y las conclusiones.",
+    evaluacion: ["Cuenta todas las combinaciones posibles.", "Organiza datos en tablas de frecuencias.", "Construye gráficos correctos y no engañosos.", "Compara frecuencias y probabilidades."],
+  },
+});

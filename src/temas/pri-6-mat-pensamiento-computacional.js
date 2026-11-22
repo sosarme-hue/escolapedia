@@ -94,3 +94,91 @@ module.exports = P.tema({
   saberes: "Sentido algebraico y pensamiento computacional: descomposición, reconocimiento de patrones, abstracción y algoritmos; secuencias, bucles y condicionales en programación por bloques; depuración",
   ideas: ["Programación desenchufada: cuadrícula en el suelo y alumnos que hacen de robot.", "Programación por bloques para dibujar polígonos regulares relacionando giros y ángulos.", "Retos de depuración: programas con un error escondido para encontrarlo por parejas."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmbmama",
+  objetivos: ["Aplicar la búsqueda binaria para encontrar un dato con pocos pasos", "Usar bucles anidados y operadores lógicos Y, O y NO", "Escribir números y letras en código binario", "Conocer a las personas pioneras de la informática"],
+  lectura: { titulo: "El primer bicho informático", html: `<p>El 9 de septiembre de 1947, en la Universidad de Harvard, en Estados Unidos, un enorme ordenador llamado <b>Mark II</b> empezó a fallar. Ocupaba una habitación entera y funcionaba con miles de piezas que se movían y hacían clic.</p><p>El equipo que lo manejaba, en el que trabajaba la matemática <b>Grace Hopper</b>, buscó la avería pieza por pieza. Por fin la encontraron: ¡una <b>polilla</b> se había quedado atrapada en uno de los interruptores y no lo dejaba cerrarse!</p><p>Sacaron la polilla con unas pinzas y la pegaron con cinta adhesiva en el cuaderno de trabajo. Al lado escribieron, en inglés, que era el «primer caso real de bug encontrado». <i>Bug</i> significa «bicho».</p><p>Los ingenieros ya llamaban <i>bugs</i> a los fallos desde hacía años, pero esta anécdota se hizo tan famosa que la palabra quedó para siempre. Hoy, a los errores de los programas se les llama <b>bugs</b>, y a buscarlos y corregirlos se le llama <b>depurar</b>.</p><p>La página del cuaderno, con la polilla todavía pegada, se conserva en un museo de Washington.</p>` },
+  tras: {
+    "Algoritmos": [
+      ["La búsqueda binaria", `<p>Juguemos a adivinar un número del 1 al 100. Tú piensas un número y yo pregunto; tú solo respondes «mayor», «menor» o «¡acertaste!». ¿Cuál es el mejor algoritmo?</p><p>Una mala estrategia es ir uno por uno: 1, 2, 3… Podría necesitar hasta 100 intentos. La estrategia buena es la <b>búsqueda binaria</b>: preguntar siempre por el número del <b>medio</b> de los que quedan, para descartar la mitad cada vez.</p><p>Por ejemplo, si has pensado el 37:</p><ol><li>¿50? Menor. Quedan del 1 al 49.</li><li>¿25? Mayor. Quedan del 26 al 49.</li><li>¿37? ¡Acertaste!</li></ol><p>Como en cada paso la lista se reduce a la mitad (100, 50, 25, 12, 6, 3, 1), con este método nunca se necesitan más de <b>7 intentos</b> para adivinar un número del 1 al 100.</p><p>Usamos esta idea sin darnos cuenta al buscar una palabra en el diccionario: abrimos por la mitad y decidimos si ir hacia delante o hacia atrás. Los ordenadores la usan para buscar datos en listas ordenadas de millones de elementos en un instante. Pero ojo: <b>solo funciona si la lista está ordenada</b>.</p>`,
+        H6.flujo("Adivinar el 37", ["¿50?|menor", "¿25?|mayor", "¿37?|¡sí!"], cAZ)],
+    ],
+    "Secuencias y bucles": [
+      ["Bucles dentro de bucles", `<p>A veces necesitamos un bucle <b>dentro de otro bucle</b>. Se llaman <b>bucles anidados</b>.</p><p>Imagina que un robot debe dibujar 3 cuadrados en fila. Para dibujar un cuadrado repite 4 veces «avanza 50 pasos y gira 90°». Para dibujar los 3 cuadrados repite 3 veces ese bloque y luego se desplaza:</p><p style="font-family:monospace;background:#f4f4f8;padding:8px;border-radius:6px">repetir 3 veces:<br>&nbsp;&nbsp;repetir 4 veces:<br>&nbsp;&nbsp;&nbsp;&nbsp;avanzar 50<br>&nbsp;&nbsp;&nbsp;&nbsp;girar 90°<br>&nbsp;&nbsp;avanzar 70</p><p>¿Cuántas veces avanza 50 pasos? El bucle interior se ejecuta 4 veces por cada vuelta del exterior: 3 × 4 = <b>12 veces</b>.</p><p>Los bucles anidados están en todas partes. Un reloj es un ejemplo: por cada vuelta de la aguja de las horas, la de los minutos da 60 vueltas de un minuto, y por cada minuto pasan 60 segundos. Las tablas de multiplicar también: para cada número del 1 al 10, multiplicamos por cada número del 1 al 10, y salen 10 × 10 = 100 operaciones.</p><p>Un consejo: usa sangría, es decir, mete hacia dentro las órdenes del bucle interior, para ver claramente qué va dentro de qué.</p>`,
+        L6.filas("Bucles anidados", [["3 cuadrados", "3 × 4 = 12 lados", cAZ], ["reloj", "60 min × 60 s", cNA], ["tablas", "10 × 10 = 100", cVE], ["consejo", "sangría", cMO]])],
+    ],
+    "Condicionales": [
+      ["Y, O y NO: los operadores lógicos", `<p>Las condiciones pueden combinarse con tres palabras mágicas, los <b>operadores lógicos</b>:</p><ul><li><b>Y</b>: la condición se cumple solo si se cumplen <b>las dos</b> partes. «Si llueve Y hace frío, ponte el abrigo y coge el paraguas». Si solo llueve, no se cumple.</li><li><b>O</b>: se cumple si se cumple <b>al menos una</b> de las partes. «Si es sábado O es domingo, no hay cole». Basta con que sea uno de los dos días.</li><li><b>NO</b>: <b>da la vuelta</b> a la condición. «Si NO has terminado los deberes, no hay tablet». Se cumple cuando la condición original es falsa.</li></ul><p>Un ejemplo de videojuego: «Si el personaje tiene la llave Y está delante de la puerta, la puerta se abre». Y otro: «Si se acaba el tiempo O se pierden todas las vidas, fin del juego».</p><p>Hay que tener cuidado, porque en el lenguaje de cada día a veces decimos «o» con otro sentido. Si tu madre dice «¿quieres helado o tarta?», normalmente quiere decir que elijas uno. En programación, en cambio, el O se cumple también si se dan las dos cosas a la vez.</p>`,
+        H6.dos("Operadores lógicos", ["Y", ["las dos partes", "llave Y puerta", "si falta una, no"], cAZ], ["O", ["al menos una", "tiempo O vidas", "basta con una"], cNA])],
+    ],
+  },
+  final: [
+    ["El código binario", `<p>Los ordenadores no entienden letras, colores ni sonidos. Por dentro solo trabajan con dos estados: hay corriente o no hay corriente, que se representan con <b>1</b> y <b>0</b>. Este sistema se llama <b>código binario</b>, y cada 0 o 1 es un <b>bit</b>.</p><p>En nuestro sistema decimal, cada posición vale 10 veces más que la de su derecha (unidades, decenas, centenas…). En binario, cada posición vale el <b>doble</b>: 1, 2, 4, 8, 16, 32…</p><ul><li><b>101</b> = 4 + 0 + 1 = <b>5</b>.</li><li><b>1101</b> = 8 + 4 + 0 + 1 = <b>13</b>.</li><li><b>1000001</b> = 64 + 1 = <b>65</b>.</li></ul><p>¿Y las letras? Cada letra tiene asignado un número. En el código que usan los ordenadores, la <b>A</b> mayúscula es el 65, la B el 66, la C el 67… Así que cuando escribes una A, el ordenador guarda 1000001.</p><p>Ocho bits forman un <b>byte</b>. Las fotos, las canciones y los vídeos también se guardan como enormes listas de ceros y unos: una canción puede ocupar varios millones de bytes.</p>`,
+      L6.filas("De binario a decimal", [["101", "4 + 1 = 5", cAZ], ["1101", "8 + 4 + 1 = 13", cNA], ["1000001", "64 + 1 = 65 (A)", cVE], ["8 bits", "1 byte", cMO]]), ["w5a5I7RdKCE", "Cómo Leer Código Binario - Convertir Letras a Números", "utilidadTV", 1435621]],
+    ["Pioneras y pioneros de la informática", `<p>La informática es una ciencia joven, pero tiene una historia apasionante:</p><ul><li><b>Ada Lovelace</b> (1815-1852), matemática inglesa, escribió en 1843 unas notas sobre una máquina de calcular diseñada por Charles Babbage. En ellas describió paso a paso cómo podría calcular una serie de números: se considera el <b>primer programa</b> de la historia, aunque la máquina nunca llegó a construirse.</li><li><b>Alan Turing</b> (1912-1954), matemático inglés, imaginó cómo debía funcionar un ordenador universal y ayudó a descifrar los mensajes secretos durante la Segunda Guerra Mundial.</li><li><b>Grace Hopper</b> (1906-1992) creó programas que traducían órdenes escritas en palabras al lenguaje de la máquina. Gracias a ella, programar se volvió mucho más fácil.</li><li>En 2007, un equipo del MIT, en Estados Unidos, creó <b>Scratch</b>, el lenguaje de bloques de colores con el que millones de niños y niñas aprenden a programar.</li></ul><p>Todos ellos tenían algo en común: eran curiosos, pacientes y no tenían miedo a equivocarse y volver a intentarlo.</p>`,
+      L6.filas("Línea del tiempo", [["1843", "Ada Lovelace", cMO], ["1936", "Alan Turing", cAZ], ["1947", "el bug de Hopper", cNA], ["2007", "Scratch", cVE]]), ["bYCDVwyuVt4", "ADA LOVELACE | Draw My Life (la primera programadora de la Hª)", "TikTak Draw", 967384]],
+  ],
+  ejemplos: [
+    ["Busca el número 37 entre 1 y 100 con búsqueda binaria.", ["¿50? Es menor: quedan 1-49.", "¿25? Es mayor: quedan 26-49.", "¿37? ¡Acierto!"], "3 intentos; nunca harían falta más de 7."],
+    ["Pasa a decimal el número binario 1101.", ["Posiciones de derecha a izquierda: 1, 2, 4, 8.", "1 × 8 + 1 × 4 + 0 × 2 + 1 × 1."], "13."],
+  ],
+  errores: ["Usar la búsqueda binaria en una lista que no está ordenada.", "Confundir Y con O: con Y deben cumplirse las dos condiciones."],
+  ejercicios: [
+    ["b", "Pasa a decimal el número binario 101.", "5."],
+    ["b", "¿Qué número representa la letra A mayúscula en el código de los ordenadores?", "65."],
+    ["b", "¿Cuántos bits forman un byte?", "8."],
+    ["b", "¿Quién escribió el que se considera primer programa de la historia?", "Ada Lovelace, en 1843."],
+    ["b", "¿Qué significa la palabra inglesa bug?", "Bicho; hoy, error de un programa."],
+    ["m", "Un bucle de 5 vueltas contiene otro de 3 vueltas con la orden «saltar». ¿Cuántas veces salta?", "15 veces."],
+    ["m", "«Si tienes la llave Y estás en la puerta, se abre.» Tienes la llave pero no estás en la puerta. ¿Se abre?", "No."],
+    ["m", "«Si es sábado O domingo, no hay cole.» Es domingo. ¿Hay cole?", "No hay cole."],
+    ["m", "Pasa a decimal el número binario 1010.", "10."],
+    ["m", "Escribe en binario el número 6.", "110."],
+    ["a", "Con búsqueda binaria, ¿cuántos intentos como máximo para adivinar un número del 1 al 100?", "7."],
+    ["a", "Escribe en binario el número 13 y explica cómo lo has hecho.", "1101 = 8 + 4 + 1."],
+    ["a", "La B mayúscula es el 66. Escríbela en binario.", "1000010."],
+    ["a", "Escribe un algoritmo con bucles anidados para dibujar 4 triángulos.", "Repetir 4: (repetir 3: avanzar y girar 120°) y desplazarse."],
+  ],
+  quiz: [
+    ["La búsqueda binaria descarta en cada paso…", ["la mitad de la lista", "un solo elemento", "nada"], "Búsqueda binaria."],
+    ["Con el operador Y la condición se cumple si…", ["se cumplen las dos partes", "se cumple una", "no se cumple ninguna"], "Operadores."],
+    ["El número binario 101 es…", ["5", "101", "3"], "4 + 1."],
+    ["Un bucle de 3 dentro de uno de 4 ejecuta la orden…", ["12 veces", "7 veces", "3 veces"], "3 × 4."],
+    ["Se considera la primera programadora a…", ["Ada Lovelace", "Florence Nightingale", "Marie Curie"], "1843."],
+  ],
+  examen: [
+    ["El número binario 1101 es…", ["13", "11", "1 101"], "8 + 4 + 1."],
+    ["La búsqueda binaria solo funciona si la lista…", ["está ordenada", "es corta", "tiene números pares"], "Orden."],
+  ],
+  tarjetas: [
+    ["Búsqueda binaria", "Preguntar por el centro y descartar la mitad. Del 1 al 100: máximo 7 intentos."],
+    ["Bucles anidados", "Un bucle dentro de otro: las vueltas se multiplican."],
+    ["Y, O, NO", "Y: las dos. O: al menos una. NO: da la vuelta."],
+    ["Código binario", "Solo 0 y 1; cada posición vale el doble: 1, 2, 4, 8…"],
+  ],
+  glosario: [
+    ["Búsqueda binaria", "Método que busca en una lista ordenada partiéndola por la mitad."],
+    ["Bucle anidado", "Bucle que está dentro de otro bucle."],
+    ["Sangría", "Espacio al principio de una línea para mostrar qué va dentro de qué."],
+    ["Operador lógico", "Palabra que combina condiciones: Y, O, NO."],
+    ["Código binario", "Sistema que solo usa los dígitos 0 y 1."],
+    ["Bit", "Cada 0 o 1 del código binario."],
+    ["Byte", "Grupo de 8 bits."],
+    ["Bug", "Error en un programa."],
+    ["Depurar", "Buscar y corregir los errores de un programa."],
+    ["Mark II", "Ordenador de Harvard donde se encontró la famosa polilla en 1947."],
+    ["Scratch", "Lenguaje de programación por bloques creado en 2007."],
+    ["Pionero", "Persona que es de las primeras en hacer algo."],
+  ],
+  situacion: {
+    titulo: "Mensajes secretos en binario",
+    reto: "La clase inventa un sistema para enviarse mensajes en código binario usando tarjetas, luces o sonidos.",
+    pasos: ["Construid tarjetas con los valores 16, 8, 4, 2 y 1 para pasar números a binario.", "Asignad un número a cada letra (A = 1, B = 2…) y codificad vuestro nombre en binario.", "Escribid un algoritmo con bucles y condicionales para descifrar mensajes.", "Intercambiad mensajes entre equipos y depurad los errores que aparezcan."],
+    producto: "Un mensaje secreto en binario y el algoritmo para descifrarlo.",
+    evaluacion: ["Convierte números entre decimal y binario.", "Usa bucles y condicionales correctamente.", "Detecta y corrige errores.", "Colabora con su equipo."],
+  },
+});

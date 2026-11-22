@@ -100,3 +100,91 @@ module.exports = P.tema({
   saberes: "Sentido espacial y de la medida: poliedros (prismas, pirámides y poliedros regulares), cuerpos redondos, volumen del cubo y del ortoedro y relación entre volumen y capacidad",
   ideas: ["Construir poliedros con desarrollos planos de cartulina.", "Llenar cajas con cubitos de 1 cm³ para deducir la fórmula del volumen.", "Comprobar con agua que 1 dm³ es 1 litro usando un cubo hueco."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbmbbmbbma",
+  objetivos: ["Comprobar la fórmula de Euler en distintos poliedros", "Reconocer y dibujar desarrollos planos de prismas y pirámides", "Calcular el volumen de prismas y cilindros", "Medir el volumen de objetos irregulares sumergiéndolos en agua"],
+  lectura: { titulo: "Los cinco sólidos de Platón", html: `<p>Hace unos 2 400 años, en Atenas, el filósofo <b>Platón</b> enseñaba a sus alumnos en un jardín llamado la Academia. Dicen que en la entrada había un cartel que avisaba: «Que no entre nadie que no sepa geometría».</p><p>A Platón le fascinaban unos cuerpos muy especiales: los poliedros cuyas caras son todas polígonos regulares iguales y en cuyos vértices se juntan siempre el mismo número de caras. Solo existen <b>cinco</b>, y nadie ha podido encontrar un sexto, porque es imposible.</p><p>Platón pensaba que el mundo estaba hecho de cuatro elementos y que cada uno tenía forma de uno de estos cuerpos. El <b>fuego</b> pincha y quema, así que sería un tetraedro, con sus puntas afiladas. La <b>tierra</b> es firme y estable, como un cubo. El <b>aire</b> sería un octaedro y el <b>agua</b>, que fluye, un icosaedro, el más redondeado. Y el quinto, el dodecaedro, representaría el universo entero.</p><p>Hoy sabemos que la materia no está hecha así. Pero desde entonces estos cinco cuerpos se llaman <b>sólidos platónicos</b>, y los encontrarás en los dados de muchos juegos de mesa.</p>` },
+  tras: {
+    "Elementos de un poliedro": [
+      ["La fórmula de Euler", `<p>En el siglo XVIII, el matemático suizo <b>Leonhard Euler</b> descubrió una relación sorprendente entre los elementos de cualquier poliedro sin agujeros. Si sumamos las <b>caras</b> y los <b>vértices</b>, obtenemos siempre las <b>aristas</b> más 2:</p><p style="text-align:center"><b>C + V = A + 2</b></p><p>Comprobémoslo:</p><ul><li><b>Cubo</b>: 6 caras, 8 vértices y 12 aristas. 6 + 8 = 14 y 12 + 2 = 14. ✔</li><li><b>Tetraedro</b>: 4 caras, 4 vértices y 6 aristas. 4 + 4 = 8 y 6 + 2 = 8. ✔</li><li><b>Pirámide cuadrangular</b>: 5 caras, 5 vértices y 8 aristas. 5 + 5 = 10 y 8 + 2 = 10. ✔</li><li><b>Prisma pentagonal</b>: 7 caras, 10 vértices y 15 aristas. 7 + 10 = 17 y 15 + 2 = 17. ✔</li></ul><p>La fórmula sirve para calcular un dato que falta. Si un poliedro tiene 8 caras y 6 vértices, sus aristas son 8 + 6 − 2 = <b>12</b>: es el octaedro.</p><p>También sirve para descubrir errores: si al contar los elementos de un poliedro la fórmula no se cumple, es que nos hemos equivocado al contar.</p>`,
+        L6.filas("C + V = A + 2", [["cubo", "6 + 8 = 12 + 2", cAZ], ["tetraedro", "4 + 4 = 6 + 2", cRO], ["pirámide cuadr.", "5 + 5 = 8 + 2", cNA], ["prisma pentag.", "7 + 10 = 15 + 2", cVE]]), ["BYPw_pd-xFo", "La FÓRMULA de EULER 🎲 V - A + C = 2", "Archimedes Tube", 159501]],
+    ],
+    "Prismas": [
+      ["Desarrollos planos", `<p>Si recortamos un poliedro por algunas de sus aristas y lo extendemos sobre la mesa, obtenemos su <b>desarrollo plano</b>: una figura de una sola pieza que, al doblarla, vuelve a formar el cuerpo.</p><ul><li>El desarrollo de un <b>prisma</b> está formado por un rectángulo grande (o varios rectángulos seguidos), que son las caras laterales, y dos polígonos iguales, que son las bases.</li><li>El desarrollo de una <b>pirámide</b> está formado por un polígono, la base, rodeado de triángulos que se juntan arriba.</li><li>El desarrollo de un <b>cilindro</b> es un rectángulo y dos círculos. El largo del rectángulo es la longitud de la circunferencia de la base.</li><li>El desarrollo de un <b>cono</b> es un sector circular y un círculo.</li></ul><p>Un mismo cuerpo puede tener varios desarrollos diferentes. El cubo, por ejemplo, tiene <b>11 desarrollos</b> distintos. Uno de los más conocidos tiene forma de cruz: cuatro cuadrados en fila y uno a cada lado.</p><p>Pero no todas las combinaciones de seis cuadrados forman un cubo: si al doblar dos caras quedan una encima de la otra, el desarrollo no sirve. Los envases de cartón, como las cajas de cereales o los tetrabriks, se fabrican a partir de desarrollos planos con pestañas para pegarlos.</p>`,
+        H6.dos("Desarrollos", ["Prisma", ["rectángulos laterales", "dos bases iguales", "caja de cereales"], cAZ], ["Cilindro", ["un rectángulo", "dos círculos", "lata de refresco"], cNA])],
+    ],
+    "Volumen del cubo y del ortoedro": [
+      ["Volumen del prisma y del cilindro", `<p>La fórmula del ortoedro (largo × ancho × alto) se puede ver de otra manera: largo × ancho es el <b>área de la base</b>, y después se multiplica por la <b>altura</b>. Esta idea sirve para <b>cualquier prisma</b> y también para el <b>cilindro</b>:</p><p style="text-align:center"><b>Volumen = área de la base × altura</b></p><ul><li><b>Prisma triangular</b>: si la base es un triángulo de 6 cm de base y 4 cm de altura, su área es 6 × 4 : 2 = 12 cm². Si el prisma mide 10 cm de alto, su volumen es 12 × 10 = <b>120 cm³</b>.</li><li><b>Cilindro</b>: la base es un círculo, de área π × r². Una lata de radio 5 cm y altura 10 cm tiene un volumen de 3,14 × 25 × 10 = <b>785 cm³</b>, es decir, 0,785 litros.</li></ul><p>¿Y las pirámides y los conos? Si una pirámide tiene la misma base y la misma altura que un prisma, cabe exactamente <b>tres veces</b> dentro de él. Por eso su volumen es la tercera parte: área de la base × altura : 3. Se puede comprobar llenando de arena o de agua una pirámide hueca y vaciándola en el prisma.</p>`,
+        L6.filas("Base × altura", [["ortoedro", "largo × ancho × alto", cAZ], ["prisma triang.", "12 × 10 = 120 cm³", cNA], ["cilindro", "3,14 × 25 × 10 = 785 cm³", cVE], ["pirámide", "base × altura : 3", cRO]]), ["KF_S79SXOpo", "Volumen del Cilindro | conociendo área de la base o radio de la base", "Matemáticas profe Alex", 1490481]],
+    ],
+  },
+  final: [
+    ["Arquímedes y el volumen de lo irregular", `<p>¿Cómo se mide el volumen de una piedra, de una llave o de una corona, que no tienen forma de cubo ni de prisma? El sabio griego <b>Arquímedes</b>, que vivió en Siracusa hace más de 2 200 años, encontró la respuesta.</p><p>Según la leyenda, el rey Hierón le pidió averiguar si su corona era de oro puro o si el orfebre había mezclado plata, sin estropearla. Al meterse en la bañera, Arquímedes vio que el agua subía. Comprendió que un objeto sumergido <b>desplaza un volumen de agua igual a su propio volumen</b>, y salió gritando «¡Eureka!», que significa «¡Lo encontré!».</p><p>Puedes hacerlo tú con una <b>probeta</b> graduada:</p><ol><li>Echa agua y anota el nivel: por ejemplo, <b>200 mL</b>.</li><li>Sumerge la piedra por completo y anota el nuevo nivel: <b>250 mL</b>.</li><li>Resta: 250 − 200 = 50 mL. Como 1 mL = 1 cm³, la piedra tiene un volumen de <b>50 cm³</b>.</li></ol><p>La plata ocupa más espacio que la misma masa de oro. Por eso, si la corona tenía plata, desplazaría más agua que un lingote de oro puro que pesara lo mismo.</p>`,
+      H6.flujo("Medir con agua", ["Nivel|inicial", "Sumergir", "Nivel|final", "Restar"], cAZ), ["ijj58xD5fDI", "Cómo un baño dio lugar al principio de Arquímedes - Mark Salata", "TED-Ed", 1899648]],
+    ["Cuerpos geométricos en la arquitectura", `<p>Los arquitectos usan los cuerpos geométricos desde hace miles de años:</p><ul><li>La <b>Gran Pirámide de Guiza</b>, en Egipto, es una pirámide cuadrangular. Su base medía unos 230 m de lado y su altura original, unos 146 m. Fue el edificio más alto del mundo durante casi 4 000 años.</li><li>El <b>Panteón de Roma</b> tiene una enorme cúpula, que es media esfera. Su interior está pensado para que dentro cupiera una esfera completa: la cúpula mide unos 43 m de diámetro, y del suelo al techo hay también unos 43 m. En lo alto tiene un agujero circular, el óculo, por donde entra la luz.</li><li>Las <b>torres</b> y los faros suelen ser cilindros, porque resisten bien el viento venga de donde venga.</li><li>Muchos edificios modernos son ortoedros de cristal, porque es fácil aprovechar el espacio interior y amueblarlo.</li></ul><p>Los arquitectos calculan el volumen de cada sala para saber cuánto aire hay que calentar o refrigerar y cuántas personas caben con seguridad. Mira a tu alrededor: tu colegio, tu casa o el depósito de agua de tu pueblo están hechos de cuerpos geométricos.</p>`,
+      L6.filas("Cuerpos en edificios", [["pirámide", "Guiza, 146 m", cNA], ["semiesfera", "cúpula del Panteón", cAZ], ["cilindro", "torres y faros", cVE], ["ortoedro", "edificios modernos", cMO]])],
+  ],
+  ejemplos: [
+    ["Un poliedro tiene 8 caras y 6 vértices. ¿Cuántas aristas tiene?", ["Fórmula de Euler: C + V = A + 2.", "8 + 6 = A + 2, así que A = 14 − 2."], "12 aristas (es el octaedro)."],
+    ["Calcula el volumen de una lata cilíndrica de 5 cm de radio y 10 cm de altura.", ["Área de la base: 3,14 × 5² = 78,5 cm².", "Volumen: 78,5 × 10."], "785 cm³ = 0,785 L."],
+  ],
+  errores: ["Pensar que todas las combinaciones de seis cuadrados forman un cubo.", "Olvidar que la pirámide ocupa solo la tercera parte del prisma de igual base y altura."],
+  ejercicios: [
+    ["b", "Comprueba la fórmula de Euler en el cubo.", "6 + 8 = 12 + 2 = 14."],
+    ["b", "¿Qué figuras forman el desarrollo plano de un cilindro?", "Un rectángulo y dos círculos."],
+    ["b", "¿Cuántos desarrollos planos distintos tiene el cubo?", "11."],
+    ["b", "En una probeta el agua pasa de 200 mL a 250 mL al meter una piedra. ¿Qué volumen tiene la piedra?", "50 cm³."],
+    ["b", "¿Qué cuerpo geométrico es la cúpula del Panteón?", "Media esfera (semiesfera)."],
+    ["m", "Un poliedro tiene 5 caras y 5 vértices. ¿Cuántas aristas tiene?", "8 aristas."],
+    ["m", "Calcula el volumen de un prisma triangular de base 6 cm × 4 cm (triángulo) y 10 cm de altura.", "12 × 10 = 120 cm³."],
+    ["m", "Calcula el volumen de un cilindro de 5 cm de radio y 10 cm de altura.", "785 cm³."],
+    ["m", "Un prisma tiene un volumen de 90 cm³. ¿Qué volumen tiene una pirámide de igual base y altura?", "30 cm³."],
+    ["m", "Comprueba la fórmula de Euler en el prisma pentagonal.", "7 + 10 = 15 + 2 = 17."],
+    ["a", "¿Cuántos litros caben en un cilindro de 10 cm de radio y 20 cm de altura?", "3,14 × 100 × 20 = 6 280 cm³ = 6,28 L."],
+    ["a", "Un acuario de 50 × 30 × 40 cm tiene agua hasta 30 cm. Al meter una roca sube a 32 cm. ¿Qué volumen tiene la roca?", "50 × 30 × 2 = 3 000 cm³."],
+    ["a", "Un poliedro tiene 12 vértices y 30 aristas. ¿Cuántas caras tiene?", "C = 30 + 2 − 12 = 20 (icosaedro)."],
+    ["a", "¿Por qué la plata mezclada en la corona hacía subir más el agua?", "Porque la plata ocupa más volumen que la misma masa de oro."],
+  ],
+  quiz: [
+    ["La fórmula de Euler dice que…", ["C + V = A + 2", "C + A = V + 2", "C × V = A"], "Euler."],
+    ["El desarrollo de un cilindro tiene…", ["un rectángulo y dos círculos", "tres círculos", "un triángulo y un círculo"], "Desarrollos."],
+    ["El volumen de un prisma es…", ["área de la base × altura", "suma de sus aristas", "largo + ancho + alto"], "Base × altura."],
+    ["1 mL de agua ocupa…", ["1 cm³", "1 dm³", "1 m³"], "Capacidad y volumen."],
+    ["Una pirámide ocupa del prisma de igual base y altura…", ["la tercera parte", "la mitad", "lo mismo"], "Pirámide."],
+  ],
+  examen: [
+    ["Un poliedro con 6 caras y 8 vértices tiene…", ["12 aristas", "14 aristas", "10 aristas"], "6 + 8 − 2."],
+    ["Si el agua sube de 200 mL a 235 mL al sumergir un objeto, su volumen es…", ["35 cm³", "235 cm³", "435 cm³"], "Restar niveles."],
+  ],
+  tarjetas: [
+    ["Fórmula de Euler", "Caras + vértices = aristas + 2."],
+    ["Desarrollo plano", "Figura plana que al doblarse forma el cuerpo. El cubo tiene 11."],
+    ["Volumen de prismas y cilindros", "Área de la base × altura. Pirámide y cono: entre 3."],
+    ["Método de Arquímedes", "El volumen de un objeto sumergido es el agua que desplaza."],
+  ],
+  glosario: [
+    ["Fórmula de Euler", "C + V = A + 2, válida para los poliedros sin agujeros."],
+    ["Desarrollo plano", "Figura plana que, doblada, forma un cuerpo geométrico."],
+    ["Sólido platónico", "Cada uno de los cinco poliedros regulares."],
+    ["Octaedro", "Poliedro regular de 8 caras triangulares."],
+    ["Icosaedro", "Poliedro regular de 20 caras triangulares."],
+    ["Dodecaedro", "Poliedro regular de 12 caras pentagonales."],
+    ["Probeta", "Tubo graduado para medir volúmenes de líquidos."],
+    ["Desplazar", "Mover de su sitio; el objeto sumergido aparta agua."],
+    ["Semiesfera", "Mitad de una esfera."],
+    ["Cúpula", "Techo con forma de media esfera."],
+    ["Óculo", "Abertura circular en lo alto de una cúpula."],
+    ["Orfebre", "Artesano que trabaja el oro y la plata."],
+  ],
+  situacion: {
+    titulo: "Diseñamos un envase",
+    reto: "La clase diseña un envase para 1 litro de zumo con la forma que consideréis mejor y lo construye en cartulina.",
+    pasos: ["Comparad envases reales: cajas, latas, botellas, y medid su volumen.", "Elegid una forma (ortoedro, prisma o cilindro) y calculad medidas que den 1 000 cm³.", "Dibujad el desarrollo plano con pestañas y construid el envase.", "Comprobad su capacidad llenándolo de arroz y midiéndolo con una jarra graduada."],
+    producto: "Un envase de cartulina de 1 litro con sus cálculos.",
+    evaluacion: ["Calcula volúmenes con la fórmula adecuada.", "Dibuja desarrollos planos correctos.", "Relaciona volumen y capacidad.", "Comprueba y explica los resultados."],
+  },
+});
