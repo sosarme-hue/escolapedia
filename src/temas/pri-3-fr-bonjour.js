@@ -90,3 +90,98 @@ module.exports = P.tema({
   saberes: "Comunicación oral básica en lengua extranjera: saludos y despedidas según el momento del día; presentarse (nombre y edad); preguntar y responder cómo estás; fórmulas de cortesía; aproximación a la pronunciación y a aspectos socioculturales de los países francófonos",
   ideas: ["Rueda de presentaciones con una pelota: quien la recibe se presenta.", "Teatrillo con marionetas saludándose en francés.", "Mapa de la francofonía con banderas de cartulina."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir cuándo usar tu y cuándo vous", "Decir de dónde somos y presentar a un amigo", "Usar los saludos según la hora del día", "Deletrear nuestro nombre con el alfabeto francés"],
+  lectura: { titulo: "El primer día de Inés", html: `<p>Inés acaba de mudarse con su familia de Sevilla a Montreal, una gran ciudad de Canadá donde se habla francés. Hoy es su primer día en el colegio nuevo y está un poco nerviosa.</p><p>La maestra la recibe en la puerta con una sonrisa: —<i>Bonjour ! Comment tu t'appelles ?</i></p><p>—<i>Bonjour, madame. Je m'appelle Inés</i> —responde ella, muy bajito.</p><p>—<i>Bienvenue, Inés !</i> —dice la maestra—. Bienvenida.</p><p>En clase, un niño de pelo rizado se sienta a su lado. —<i>Salut ! Moi, c'est Samuel. Tu viens d'où ?</i></p><p>—<i>Je viens d'Espagne. Je suis espagnole.</i></p><p>—<i>Cool !</i> —dice Samuel—. <i>Mon papi est espagnol aussi !</i></p><p>En el recreo, Samuel le presenta a sus amigos: —<i>Je vous présente Inés.</i></p><p>—<i>Enchantée !</i> —dice Inés, ya más tranquila.</p><p>Por la tarde, cuando suena el timbre, todos se despiden: —<i>Au revoir, madame ! À demain !</i></p><p>Inés sale corriendo a buscar a su madre. —¿Qué tal, cariño?</p><p>Inés sonríe: —<i>Ça va très bien, maman !</i></p>` },
+  tras: {
+    "Saludar: bonjour y salut": [
+      ["Tu o vous: tutear o hablar de usted", `<p>En francés hay dos formas de hablar a otra persona, como en español con «tú» y «usted»:</p><ul><li><b>tu</b>: con amigos, compañeros de clase, la familia y otros niños. <i>Salut ! Comment tu t'appelles ?</i></li><li><b>vous</b>: con <mark>adultos</mark> que no conocemos bien, como un vendedor, el director del colegio o la maestra. <i>Bonjour, madame. Comment allez-vous ?</i></li></ul><p>En Francia, los niños suelen hablar de <i>vous</i> a sus maestros, aunque en Canadá es más habitual usar <i>tu</i>.</p><p>Con <i>vous</i> también se añade <b>monsieur</b> (señor) o <b>madame</b> (señora) después del saludo, sin decir el nombre: <i>Bonjour, monsieur. Merci, madame.</i> ¡Es muy educado!</p><p>Fíjate en las preguntas:</p><ul><li>Con tu: <i>Ça va ?</i> o <i>Comment tu t'appelles ?</i></li><li>Con vous: <i>Comment allez-vous ?</i> o <i>Comment vous appelez-vous ?</i></li></ul><p><i>Vous</i> también se usa para hablar a <b>varias personas</b> a la vez: <i>Bonjour à tous ! Vous allez bien ?</i></p><p><b>Actividad</b>: di si usarías tu o vous con: tu primo, una señora en la panadería, tu mejor amiga y el médico.</p>`,
+        H6.dos("tu / vous", ["TU", ["les amis", "la famille", "les enfants"], cVE], ["VOUS", ["madame, monsieur", "le directeur", "plusieurs personnes"], cAZ]),
+        ["Vmk4hQry4qQ", "Les Plus Belles Chansons de Politesse 🦒💛 | Comptine pour Bébés et Enfants | KidAllo", "kidAllo", 9122015]],
+    ],
+    "Despedirse": [
+      ["La bise: saludar con besos", `<p>En Francia, cuando se saludan dos personas que se conocen, muchas veces se dan <mark>la bise</mark>: besos en las mejillas, como en España.</p><p>Pero hay una diferencia curiosa: ¡el número de besos depende de la región!</p><ul><li>En París y en muchas zonas: <b>deux bises</b> (dos besos).</li><li>En algunas zonas del sur: <b>trois bises</b> (tres).</li><li>En algunas zonas del norte: incluso <b>quatre bises</b> (cuatro).</li><li>En Bretaña, a veces solo <b>une bise</b> (uno).</li></ul><p>Por eso los franceses a veces se ríen cuando no saben cuántos besos dar: <i>Combien de bises ?</i></p><p>Otras formas de saludar:</p><ul><li><b>Serrer la main</b>: dar la mano. Se usa mucho entre adultos que no se conocen, en el trabajo o al saludar a un maestro.</li><li>Entre amigos jóvenes, a veces solo se dice <i>Salut !</i> con la mano.</li></ul><p>Al final de una carta o un mensaje a un amigo, los franceses escriben <b>Bises !</b> o <b>Grosses bises !</b> (¡Besos! ¡Muchos besos!).</p><p><b>Actividad</b>: compara cómo se saluda en Francia y en tu familia. ¿Cuántos besos damos en España?</p>`,
+        L6.filas("La bise", [["Paris", "deux bises", cAZ], ["le sud", "trois bises", cNA], ["le nord", "quatre bises", cRO], ["serrer la main", "dar la mano", cVE]])],
+    ],
+    "¿Cuántos años tienes?": [
+      ["¿De dónde eres?: je suis espagnol", `<p>Para preguntar de dónde es alguien decimos:</p><ul><li><i><b>Tu viens d'où ?</b></i> — ¿De dónde vienes?</li><li><i><b>Tu es de quel pays ?</b></i> — ¿De qué país eres?</li></ul><p>Las respuestas:</p><ul><li><i><b>Je viens d'Espagne.</b></i> — Vengo de España.</li><li><i><b>Je suis espagnol.</b></i> (niño) / <i><b>Je suis espagnole.</b></i> (niña) — Soy español / española.</li><li><i><b>J'habite à Madrid.</b></i> — Vivo en Madrid.</li></ul><p>Como los adjetivos, las <mark>nacionalidades</mark> tienen masculino y femenino:</p><ul><li><i>espagnol / espagnole</i> — español, española</li><li><i>français / française</i> — francés, francesa</li><li><i>anglais / anglaise</i> — inglés, inglesa</li><li><i>italien / italienne</i> — italiano, italiana</li><li><i>marocain / marocaine</i> — marroquí</li></ul><p>Las nacionalidades se escriben con <b>minúscula</b> en francés, igual que en español: <i>je suis français</i>.</p><p>Fíjate en la diferencia: con países decimos <b>de</b> o <b>d'</b> (<i>je viens de France, d'Italie</i>); con ciudades, para decir dónde vivimos, usamos <b>à</b> (<i>j'habite à Paris</i>).</p><p><b>Actividad</b>: escribe tres frases sobre ti: tu país, tu nacionalidad y tu ciudad.</p>`,
+        L6.filas("Nationalités", [["espagnol", "espagnole", cRO], ["français", "française", cAZ], ["anglais", "anglaise", cVE], ["italien", "italienne", cNA]])],
+    ],
+    "Mi primer diálogo": [
+      ["Presentar a un amigo: je te présente", `<p>Cuando estamos con un amigo y llega otra persona, es educado <mark>presentarlos</mark>. En francés decimos:</p><ul><li><i><b>Je te présente</b> mon ami Hugo.</i> — Te presento a mi amigo Hugo. (a una persona, con tu)</li><li><i><b>Je vous présente</b> ma sœur.</i> — Os presento a mi hermana. (a varias personas, o a un adulto)</li><li><i><b>Voici</b> Lucía.</i> — Esta es Lucía. (más sencillo)</li></ul><p>Y la persona presentada responde:</p><ul><li><i><b>Enchanté !</b></i> — ¡Encantado! (si es un chico)</li><li><i><b>Enchantée !</b></i> — ¡Encantada! (si es una chica; se pronuncia igual, pero se escribe con otra -e)</li><li><i>Salut, Hugo !</i> — más informal, entre niños.</li></ul><p>Fíjate: igual que en <i>espagnole</i> o <i>cousine</i>, el femenino lleva una <b>-e</b> más.</p><p>Si queremos saber quién es alguien: <i><b>C'est qui ?</b></i> — ¿Quién es? (de forma sencilla entre amigos).</p><p><b>Actividad</b>: en grupos de tres, uno presenta a los otros dos con <i>Je te présente…</i> y ellos responden <i>Enchanté(e) !</i></p>`,
+        L6.dialogo("Je te présente", [["Inés", "Samuel, je te présente Lucas.", cAZ], ["Samuel", "Salut, Lucas !", cRO], ["Lucas", "Enchanté !", cVE], ["Samuel", "Tu viens d'où ?", cRO]])],
+    ],
+    "Palabras de cortesía": [
+      ["Bonjour, bonsoir, bonne nuit", `<p>En francés, el saludo cambia según el <mark>momento del día</mark>:</p><ul><li><b>Bonjour !</b> — por la mañana y por la tarde, hasta que oscurece. Es el saludo más usado.</li><li><b>Bonsoir !</b> — por la tarde-noche, cuando ya ha oscurecido. Es como «buenas noches» al llegar.</li><li><b>Bonne nuit !</b> — al irse a dormir. Es como «buenas noches» al acostarse.</li></ul><p>Cuidado con la diferencia: <i>bonsoir</i> sirve para <b>saludar</b> por la noche, y <i>bonne nuit</i> para <b>despedirse</b> antes de dormir.</p><p>Para despedirse deseando algo bueno:</p><ul><li><i><b>Bonne journée !</b></i> — ¡Que pases un buen día!</li><li><i><b>Bonne soirée !</b></i> — ¡Que pases una buena tarde-noche!</li><li><i><b>Bon week-end !</b></i> — ¡Buen fin de semana!</li><li><i><b>Bon appétit !</b></i> — ¡Que aproveche!</li></ul><p>Y para decir cuándo nos volvemos a ver: <i>À demain !</i> (¡Hasta mañana!), <i>À lundi !</i> (¡Hasta el lunes!), <i>À plus tard !</i> (¡Hasta luego!).</p><p><b>Actividad</b>: dibuja un sol, una luna y una cama y escribe debajo el saludo que corresponde.</p>`,
+        H6.flujo("La journée", ["matin|bonjour", "soir|bonsoir", "dormir|bonne nuit", "demain|à demain"], cMO)],
+    ],
+  },
+  final: [
+    ["El alfabeto: ¿cómo se escribe?", `<p>Muchas veces tenemos que <mark>deletrear</mark> nuestro nombre, porque en otro país no saben cómo se escribe. La pregunta es:</p><p style="text-align:center"><b>Comment ça s'écrit ?</b> — ¿Cómo se escribe?</p><p>El alfabeto francés tiene las mismas letras que el español, pero sin la <b>ñ</b>. Algunas letras suenan distinto que en español:</p><ul><li><b>E</b> suena como una «e» muy cerrada, casi «ö».</li><li><b>G</b> se dice «yé» y <b>J</b> se dice «yi». ¡Al revés de lo que parece!</li><li><b>H</b> se dice «ash».</li><li><b>R</b> se dice «er», con una r que suena en la garganta.</li><li><b>U</b> se dice poniendo los labios para decir «u» pero diciendo «i».</li><li><b>W</b> es <i>double vé</i> y <b>Y</b> es <i>i grec</i> («i griega», como en español).</li></ul><p>Ejemplo: <i>Je m'appelle Inés: I, N, E accent aigu, S.</i> (La <i>é</i> con tilde se dice <i>e accent aigu</i>.)</p><p>Para la <b>ñ</b> de nombres como Begoña o Íñigo, se explica: <i>N avec un tilde</i>.</p><p><b>Actividad</b>: deletrea tu nombre y tu apellido en francés a un compañero, que lo escribe sin mirar.</p>`,
+      L6.filas("L'alphabet", [["G", "yé", cAZ], ["J", "yi", cRO], ["H", "ash", cVE], ["W", "double vé", cNA]])],
+  ],
+  ejemplos: [
+    ["Saluda a una señora en una tienda por la mañana.", ["Es una adulta que no conocemos: usamos vous.", "Añadimos madame después del saludo."], "Bonjour, madame. Comment allez-vous ?"],
+    ["Una niña dice de dónde es: España.", ["Venir de un país: je viens de / d'.", "Nacionalidad en femenino con -e."], "Je viens d'Espagne. Je suis espagnole."],
+  ],
+  errores: ["Decir «bonne nuit» para saludar al llegar por la noche (se dice bonsoir).", "Hablar de tu a un adulto desconocido en lugar de usar vous."],
+  ejercicios: [
+    ["b", "¿Con quién usamos vous?", "Con adultos que no conocemos bien y con varias personas."],
+    ["b", "¿Cómo se dice «Encantada» en francés?", "Enchantée !"],
+    ["b", "¿Qué saludo usamos al llegar por la noche?", "Bonsoir !"],
+    ["b", "¿Cómo se dice «¿Cómo se escribe?»?", "Comment ça s'écrit ?"],
+    ["b", "En la lectura, ¿a qué ciudad se muda Inés?", "A Montreal, en Canadá."],
+    ["m", "Traduce: Vengo de España. Soy español.", "Je viens d'Espagne. Je suis espagnol."],
+    ["m", "Pon en femenino: français, italien, anglais.", "Française, italienne, anglaise."],
+    ["m", "Presenta a tu amigo Hugo a otra persona.", "Je te présente mon ami Hugo."],
+    ["m", "¿Cuántos besos se dan en París?", "Deux bises (dos)."],
+    ["m", "Deletrea en francés la palabra «GATO».", "yé, a, té, o."],
+    ["a", "Escribe un diálogo con un adulto usando vous, madame y merci.", "Respuesta abierta."],
+    ["a", "Escribe una presentación completa: nombre, edad, país, nacionalidad y ciudad.", "Ejemplo: Je m'appelle Pablo. J'ai huit ans. Je viens d'Espagne. Je suis espagnol. J'habite à Bilbao."],
+    ["a", "Explica la diferencia entre bonsoir y bonne nuit con un ejemplo.", "Bonsoir para saludar por la noche; bonne nuit al irse a dormir."],
+    ["a", "Compara la bise francesa con cómo se saluda en España.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["A una señora desconocida le decimos…", ["Bonjour, madame.", "Salut !", "Salut, toi !"], "Vous."],
+    ["«Soy española» se dice…", ["Je suis espagnole.", "Je suis espagnol.", "Je viens espagnole."], "Nacionalidad."],
+    ["«Te presento a mi amigo» se dice…", ["Je te présente mon ami.", "Je m'appelle mon ami.", "C'est qui mon ami ?"], "Presentar."],
+    ["Al irse a dormir se dice…", ["Bonne nuit !", "Bonsoir !", "Bonjour !"], "Saludos."],
+    ["La letra J en francés se dice…", ["yi", "jota", "yé"], "Alfabeto."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién es español en la familia de Samuel?", ["su abuelo", "su madre", "su hermano"], "Lectura."],
+    ["¿Qué significa «serrer la main»?", ["dar la mano", "dar dos besos", "decir adiós"], "Saludos."],
+  ],
+  tarjetas: [
+    ["tu / vous", "tu: amigos y familia; vous: adultos y varias personas. Bonjour, madame."],
+    ["D'où ?", "Tu viens d'où ? Je viens d'Espagne. Je suis espagnol(e). J'habite à…"],
+    ["Présenter", "Je te présente… Enchanté(e) !"],
+    ["La journée", "bonjour, bonsoir, bonne nuit, bonne journée, à demain."],
+  ],
+  glosario: [
+    ["Tu", "Tú (con amigos y familia)."],
+    ["Vous", "Usted; vosotros."],
+    ["Madame", "Señora."],
+    ["Monsieur", "Señor."],
+    ["La bise", "Beso en la mejilla al saludar."],
+    ["Serrer la main", "Dar la mano."],
+    ["Tu viens d'où ?", "¿De dónde vienes?"],
+    ["Espagnol / espagnole", "Español, española."],
+    ["Je te présente", "Te presento."],
+    ["Enchanté", "Encantado."],
+    ["Bonsoir", "Buenas noches (al saludar)."],
+    ["Comment ça s'écrit ?", "¿Cómo se escribe?"],
+  ],
+  situacion: {
+    titulo: "Bienvenue ! Recibimos a un alumno nuevo",
+    reto: "La clase prepara cómo recibir en francés a un alumno nuevo de un país francófono: saludos, presentaciones y un cartel de bienvenida.",
+    pasos: ["Elegir un país francófono y preparar un personaje con nombre, edad y ciudad.", "Ensayar el saludo con tu o vous según quién habla.", "Presentar al alumno nuevo a la clase con Je vous présente… y responder Enchanté(e) !", "Hacer un cartel de bienvenida con saludos según la hora y despedidas."],
+    producto: "Una representación de bienvenida y un cartel Bienvenue ! en francés.",
+    evaluacion: ["Saluda y se despide de forma adecuada a la hora.", "Elige bien entre tu y vous.", "Dice su país, nacionalidad y ciudad.", "Presenta a otra persona y deletrea su nombre."],
+  },
+});

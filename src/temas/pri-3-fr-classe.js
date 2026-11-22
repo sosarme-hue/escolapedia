@@ -90,3 +90,98 @@ module.exports = P.tema({
   saberes: "Léxico básico en lengua extranjera: objetos del estuche, de la mochila y del aula; artículos indeterminados un, une, des y género de los nombres; preguntar e identificar objetos (qu'est-ce que c'est ?, c'est…); órdenes y expresiones habituales de clase; describir el entorno escolar con il y a",
   ideas: ["Etiquetar el aula en francés con tarjetas.", "Juego de la bolsa misteriosa con objetos del estuche.", "Jacques a dit con las consignas de clase."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Decir dónde están las cosas con sur, sous, dans y à côté de", "Nombrar las asignaturas y los días de la semana", "Conocer cómo es un colegio en Francia", "Expresar las normas de la clase con il faut"],
+  lectura: { titulo: "El estuche desordenado", html: `<p>Lucas es un niño muy despistado. Todas las mañanas, en clase de francés, pasa lo mismo.</p><p>—<i>Sortez vos cahiers !</i> —dice la maestra, Madame Dubois—. Sacad los cuadernos.</p><p>Lucas abre su mochila, <i>son cartable</i>. Busca y busca, pero el cuaderno no está. —<i>Où est mon cahier ?</i> —murmura.</p><p>Su compañera Emma lo mira y se ríe: —<i>Il est sous ta chaise, Lucas !</i></p><p>Lucas lo recoge. Pero ahora necesita un lápiz. Abre el estuche, <i>sa trousse</i>, y… ¡sorpresa! Dentro hay una galleta, una canica y una piedra brillante, pero ni un solo lápiz.</p><p>—<i>Tu me prêtes un crayon, s'il te plaît ?</i> —le pide a Emma.</p><p>—<i>Oui, voilà !</i></p><p>Madame Dubois se acerca y ve el estuche. —Lucas, <i>il faut ranger ta trousse</i>. Hay que ordenar el estuche.</p><p>Esa tarde, en casa, Lucas lo ordena todo: los lápices <i>dans la trousse</i>, los libros <i>dans le cartable</i> y la galleta… <i>dans son ventre</i>, en su barriga.</p><p>Al día siguiente, Madame Dubois sonríe: —<i>Bravo, Lucas !</i></p>` },
+  tras: {
+    "En el aula: dans la classe": [
+      ["¿Dónde está?: sur, sous, dans", `<p>Para decir <mark>dónde está</mark> algo usamos estas palabras:</p><ul><li><b>sur</b> — sobre, encima de: <i>Le livre est <b>sur</b> la table.</i></li><li><b>sous</b> — debajo de: <i>Le cartable est <b>sous</b> la chaise.</i></li><li><b>dans</b> — dentro de, en: <i>Le crayon est <b>dans</b> la trousse.</i></li><li><b>à côté de</b> — al lado de: <i>La gomme est <b>à côté du</b> cahier.</i></li><li><b>devant</b> — delante de: <i>Le tableau est <b>devant</b> les élèves.</i></li><li><b>derrière</b> — detrás de: <i>La poubelle est <b>derrière</b> la porte.</i></li></ul><p>Cuidado con <i>sur</i> y <i>sous</i>: se parecen mucho. Un truco: <i>sous</i> tiene la <b>o</b>, como «hondo», abajo.</p><p>Para preguntar: <i><b>Où est</b> ma règle ?</i> — ¿Dónde está mi regla? <i><b>Où sont</b> mes crayons ?</i> — ¿Dónde están mis lápices?</p><p>Juego: <b>¿Dónde está la goma?</b> Un alumno esconde una goma en la clase. Los demás preguntan: <i>Elle est sous la table ? Elle est dans le cartable ?</i> El que acierta, la esconde la próxima vez.</p><p><b>Actividad</b>: describe la posición de cuatro objetos de tu mesa.</p>`,
+        L6.filas("Où ?", [["sur", "encima de", cAZ], ["sous", "debajo de", cRO], ["dans", "dentro de", cVE], ["à côté de", "al lado de", cNA]])],
+    ],
+    "Masculino o femenino: un y une": [
+      ["Las asignaturas: les matières", `<p>En el colegio estudiamos muchas <mark>asignaturas</mark>, que en francés se llaman <i>les matières</i>:</p><ul><li><i>les maths</i> — las matemáticas</li><li><i>le français</i> — la lengua francesa</li><li><i>l'anglais</i> — el inglés</li><li><i>l'espagnol</i> — el español</li><li><i>les sciences</i> — las ciencias</li><li><i>l'histoire</i> — la historia</li><li><i>la géographie</i> — la geografía</li><li><i>la musique</i> — la música</li><li><i>les arts plastiques</i> — la plástica</li><li><i>le sport</i> — la educación física (en el colegio se llama <i>l'EPS</i>)</li></ul><p>Para dar nuestra opinión:</p><ul><li><i>J'aime les maths.</i> — Me gustan las matemáticas.</li><li><i>J'adore la musique !</i> — ¡Me encanta la música!</li><li><i>Je n'aime pas l'histoire.</i> — No me gusta la historia.</li><li><i>Ma matière préférée, c'est le sport.</i> — Mi asignatura favorita es educación física.</li></ul><p>Fíjate: en francés siempre ponemos el artículo delante: <i>j'aime <b>les</b> maths</i>, igual que en español.</p><p><b>Actividad</b>: haz una encuesta en clase: <i>Quelle est ta matière préférée ?</i> y haz un gráfico con los resultados.</p>`,
+        H6.rueda("Matières", "ÉCOLE", [["les maths", cAZ], ["le français", cRO], ["la musique", cMO], ["le sport", cVE]])],
+    ],
+    "Las órdenes de la clase": [
+      ["Los días de la semana y el horario", `<p>Los <mark>días de la semana</mark> en francés se escriben con minúscula, como en español:</p><ul><li><i>lundi</i> (lunes), <i>mardi</i> (martes), <i>mercredi</i> (miércoles), <i>jeudi</i> (jueves), <i>vendredi</i> (viernes), <i>samedi</i> (sábado), <i>dimanche</i> (domingo).</li></ul><p>Fíjate: casi todos terminan en <b>-di</b>, que viene de una palabra latina que significa «día». Y se parecen mucho al español: <i>lundi</i> – lunes (de la Luna), <i>mardi</i> – martes (de Marte).</p><p>Con los días hacemos un <b>horario</b> (<i>l'emploi du temps</i>):</p><ul><li><i>Le lundi, j'ai maths et français.</i> — Los lunes tengo mates y francés.</li><li><i>Le vendredi, j'ai sport.</i> — Los viernes tengo educación física.</li></ul><p>Si ponemos <b>le</b> delante del día, significa «todos los»: <i>le lundi</i> = todos los lunes.</p><p>Una curiosidad: en muchos colegios de primaria de Francia <b>no hay clase el miércoles</b>. Los niños van al colegio lunes, martes, jueves y viernes, y el miércoles hacen deporte, música u otras actividades.</p><p><b>Actividad</b>: escribe tu horario de la semana en francés con las asignaturas.</p>`,
+        L6.filas("La semaine", [["lundi", "maths, français", cAZ], ["mardi", "anglais", cVE], ["mercredi", "pas d'école !", cNA], ["vendredi", "sport", cRO]]),
+        ["Lpwf5N0rfVE", "Les jours de la semaine - alain le lait (French days of the week)", "tialela99", 10010830]],
+    ],
+    "Frases para hablar con la maestra": [
+      ["La récré y la cantine", `<p>En el colegio no solo estudiamos: también jugamos y comemos.</p><p><b>La récré</b> (el recreo, de <i>la récréation</i>) es el momento de jugar en el patio, <i>la cour</i>. Juegos típicos de los niños franceses:</p><ul><li><i>la marelle</i> — la rayuela</li><li><i>le loup</i> — el pilla-pilla («el lobo»)</li><li><i>les billes</i> — las canicas</li><li><i>la corde à sauter</i> — la comba</li><li><i>le ballon</i> — la pelota</li><li><i>cache-cache</i> — el escondite</li></ul><p><b>La cantine</b> (el comedor): muchos niños comen en el colegio. Una comida francesa suele tener varias partes:</p><ul><li><i>l'entrée</i> — el primer plato, por ejemplo zanahoria rallada o ensalada.</li><li><i>le plat</i> — el plato principal, por ejemplo pollo con arroz.</li><li><i>le fromage</i> — ¡el queso! En Francia es muy habitual tomar un trocito de queso.</li><li><i>le dessert</i> — el postre, por ejemplo fruta o yogur.</li></ul><p>Antes de comer, todos se desean <i>Bon appétit !</i></p><p><b>Actividad</b>: explica en francés a qué juegas en el recreo: <i>À la récré, je joue au ballon.</i></p>`,
+        H6.dos("L'école", ["LA RÉCRÉ", ["la marelle", "les billes", "le loup"], cVE], ["LA CANTINE", ["l'entrée", "le plat", "le fromage"], cNA])],
+    ],
+    "Mi clase en francés": [
+      ["Un colegio en Francia", `<p>¿Cómo es el colegio de un niño francés de tu edad? Vamos a descubrirlo.</p><p>En Francia, la primaria se llama <mark>l'école élémentaire</mark> y tiene <b>cinco cursos</b>, no seis como en España. Tienen nombres con letras:</p><ul><li><b>CP</b> (6 años) — como 1.º de Primaria</li><li><b>CE1</b> (7 años) — como 2.º</li><li><b>CE2</b> (8 años) — como 3.º: ¡tu curso!</li><li><b>CM1</b> (9 años) — como 4.º</li><li><b>CM2</b> (10 años) — como 5.º</li></ul><p>Después, con 11 años, los niños van al <b>collège</b>, que es como la ESO.</p><p>El maestro se llama <b>le maître</b> y la maestra, <b>la maîtresse</b>. Los niños llevan su material en un <b>cartable</b>, una mochila de cuero o tela que muchas veces se lleva a la espalda.</p><p>Otra diferencia: en Francia las notas a menudo se ponen sobre 20 o con colores y letras, y en algunos colegios los niños tienen un <b>cahier de liaison</b>, un cuaderno para mensajes entre la familia y la maestra.</p><p><b>Actividad</b>: compara tu colegio con uno francés: ¿en qué se parecen y en qué se diferencian?</p>`,
+        L6.filas("L'école en France", [["CP", "1.º", cAZ], ["CE1", "2.º", cVE], ["CE2", "3.º", cRO], ["CM1 · CM2", "4.º y 5.º", cNA]])],
+    ],
+  },
+  final: [
+    ["Las normas de la clase: il faut", `<p>Para que la clase funcione bien hay que respetar unas <mark>normas</mark> (<i>les règles de la classe</i>). En francés las decimos con <b>il faut</b> (hay que) e <b>il ne faut pas</b> (no hay que):</p><ul><li><i><b>Il faut</b> lever la main pour parler.</i> — Hay que levantar la mano para hablar.</li><li><i><b>Il faut</b> écouter les autres.</i> — Hay que escuchar a los demás.</li><li><i><b>Il faut</b> ranger son matériel.</i> — Hay que ordenar el material.</li><li><i><b>Il faut</b> être poli : dire bonjour, merci et s'il te plaît.</i> — Hay que ser educado.</li><li><i><b>Il ne faut pas</b> crier.</i> — No hay que gritar.</li><li><i><b>Il ne faut pas</b> courir dans la classe.</i> — No hay que correr en clase.</li></ul><p>Fíjate: después de <i>il faut</i> el verbo va en infinitivo, igual que en español después de «hay que»: <i>écouter</i> (escuchar), <i>ranger</i> (ordenar).</p><p>Muchas clases francesas tienen un cartel con las normas en la pared y un <i>tableau des responsabilités</i>: cada semana un alumno se encarga de borrar la pizarra, repartir los cuadernos o regar las plantas.</p><p><b>Actividad</b>: haz un cartel con cinco normas de tu clase en francés: tres con <i>il faut</i> y dos con <i>il ne faut pas</i>.</p>`,
+      H6.dos("Règles", ["IL FAUT", ["lever la main", "écouter", "ranger"], cVE], ["INTERDIT", ["crier", "courir", "jeter"], cRO])],
+  ],
+  ejemplos: [
+    ["Di dónde está el lápiz: dentro del estuche.", ["Dentro de se dice dans.", "Estuche es la trousse (femenino)."], "Le crayon est dans la trousse."],
+    ["Escribe una norma: no hay que gritar.", ["No hay que se dice il ne faut pas.", "Después va el verbo en infinitivo."], "Il ne faut pas crier."],
+  ],
+  errores: ["Confundir sur (encima) y sous (debajo).", "Escribir los días de la semana con mayúscula: «Lundi» en mitad de una frase."],
+  ejercicios: [
+    ["b", "¿Qué significa «sous»?", "Debajo de."],
+    ["b", "¿Cómo se dice «miércoles» en francés?", "Mercredi."],
+    ["b", "¿Cómo se dice «el recreo» en francés?", "La récré (la récréation)."],
+    ["b", "¿Qué curso francés es como 3.º de Primaria?", "El CE2."],
+    ["b", "En la lectura, ¿dónde está el cuaderno de Lucas?", "Debajo de su silla (sous sa chaise)."],
+    ["m", "Traduce: El libro está encima de la mesa.", "Le livre est sur la table."],
+    ["m", "Di cuál es tu asignatura favorita en francés.", "Ejemplo: Ma matière préférée, c'est la musique."],
+    ["m", "Traduce: Los viernes tengo educación física.", "Le vendredi, j'ai sport."],
+    ["m", "Nombra las cuatro partes de una comida en la cantine.", "L'entrée, le plat, le fromage et le dessert."],
+    ["m", "Escribe una norma con il faut.", "Ejemplo: Il faut lever la main."],
+    ["a", "¿Qué encuentra Lucas en su estuche en lugar de lápices?", "Una galleta, una canica y una piedra brillante."],
+    ["a", "Describe dónde están cinco cosas de tu clase con sur, sous, dans, devant y derrière.", "Respuesta abierta."],
+    ["a", "Escribe tu horario de tres días con asignaturas en francés.", "Respuesta abierta."],
+    ["a", "Compara tu colegio con un colegio francés en tres frases.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«La goma está debajo de la silla.»", ["La gomme est sous la chaise.", "La gomme est sur la chaise.", "La gomme est dans la chaise."], "Posición."],
+    ["«Les maths» son…", ["las matemáticas", "la música", "las ciencias"], "Asignaturas."],
+    ["En muchos colegios franceses no hay clase el…", ["mercredi", "lundi", "vendredi"], "Horario."],
+    ["En la cantine, después del plato principal suele haber…", ["le fromage", "l'entrée", "la récré"], "Cantine."],
+    ["«No hay que correr» se dice…", ["Il ne faut pas courir.", "Il faut courir.", "Il ne pas faut courir."], "Normas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le dice la maestra a Lucas?", ["que hay que ordenar el estuche", "que se vaya a casa", "que pinte un dibujo"], "Lectura."],
+    ["¿Cómo se llama la ESO en Francia?", ["le collège", "le lycée", "le CM2"], "Colegio."],
+  ],
+  tarjetas: [
+    ["Où ?", "sur, sous, dans, à côté de, devant, derrière."],
+    ["Matières", "les maths, le français, l'anglais, les sciences, la musique, le sport."],
+    ["La semaine", "lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche."],
+    ["Règles", "Il faut lever la main. Il ne faut pas crier."],
+  ],
+  glosario: [
+    ["Sur", "Encima de."],
+    ["Sous", "Debajo de."],
+    ["Dans", "Dentro de."],
+    ["À côté de", "Al lado de."],
+    ["Les matières", "Las asignaturas."],
+    ["L'emploi du temps", "El horario."],
+    ["Mercredi", "Miércoles."],
+    ["La récré", "El recreo."],
+    ["La cantine", "El comedor escolar."],
+    ["La maîtresse", "La maestra."],
+    ["Le cartable", "La mochila del colegio."],
+    ["Il faut", "Hay que."],
+  ],
+  situacion: {
+    titulo: "Nuestra clase, en francés",
+    reto: "La clase etiqueta el aula en francés, hace su horario y escribe las normas para recibir a una clase francesa en una videollamada.",
+    pasos: ["Poner etiquetas en francés a los objetos y muebles del aula.", "Hacer el horario de la semana con los días y las asignaturas.", "Escribir un cartel de normas con il faut e il ne faut pas.", "Presentar la clase con frases con sur, sous y dans y las asignaturas favoritas."],
+    producto: "Un aula etiquetada, un horario y un cartel de normas en francés.",
+    evaluacion: ["Usa sur, sous, dans y à côté de correctamente.", "Nombra los días y las asignaturas.", "Escribe normas con il faut e il ne faut pas.", "Compara su colegio con uno francés."],
+  },
+});

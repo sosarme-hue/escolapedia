@@ -93,3 +93,102 @@ module.exports = P.tema({
   saberes: "Léxico básico en lengua extranjera: animales domésticos, de granja y salvajes; artículos un, une, le, la, l'; adjetivos de color y tamaño (grand, petit) con concordancia sencilla; onomatopeyas; hablar de la mascota (j'ai, il/elle s'appelle, il/elle est) y expresar gustos (j'aime, je n'aime pas)",
   ideas: ["Mural de la granja y del zoo con etiquetas en francés.", "Juego de adivinanzas «Qui suis-je ?».", "Ficha de mi mascota con nombre, color y tamaño en francés."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Nombrar animales del mar y del bosque", "Formar el plural de los animales, incluidos animaux y oiseaux", "Describir partes del cuerpo y acciones de los animales", "Conocer una fábula de La Fontaine y animales de países francófonos"],
+  lectura: { titulo: "Las vacaciones en la granja", html: `<p>Este verano, Daniel ha ido a pasar una semana a la granja de su tío Jules, en Normandía, al norte de Francia. Allí todo se dice en francés.</p><p>El primer día, el gallo lo despierta muy temprano: <i>Cocorico !</i></p><p>—<i>C'est le coq</i> —le explica su tío—. Es el gallo. En Francia no dice «quiquiriquí».</p><p>Después del desayuno, salen al campo. Hay <i>des vaches</i> blancas y negras comiendo hierba, <i>des moutons</i> con mucha lana y un caballo marrón muy grande.</p><p>—<i>Il s'appelle Tonnerre</i> —dice el tío Jules—. Significa «trueno», porque corre muy rápido.</p><p>Daniel le da una zanahoria. El caballo la coge con cuidado y mueve la cola.</p><p>Por la tarde, Daniel ayuda a dar de comer a las gallinas y busca huevos en la paja. ¡Encuentra seis!</p><p>Por la noche, mientras cenan una tortilla con esos huevos, oyen un sonido en el bosque: <i>hou hou</i>.</p><p>—<i>C'est un hibou</i> —susurra el tío—. Un búho.</p><p>Daniel sonríe. Ya sabe muchos animales en francés, y quiere volver el año que viene.</p>` },
+  tras: {
+    "Los animales del zoo": [
+      ["Animales del mar y del bosque", `<p>Además de los animales de casa, de la granja y del zoo, hay muchos animales que viven en la <mark>naturaleza</mark>.</p><p><b>Dans la mer</b> (en el mar):</p><ul><li><i>le poisson</i> — el pez</li><li><i>le dauphin</i> — el delfín</li><li><i>la baleine</i> — la ballena</li><li><i>le requin</i> — el tiburón</li><li><i>la pieuvre</i> — el pulpo</li><li><i>le crabe</i> — el cangrejo</li></ul><p><b>Dans la forêt</b> (en el bosque):</p><ul><li><i>le renard</i> — el zorro</li><li><i>le loup</i> — el lobo</li><li><i>l'ours</i> — el oso</li><li><i>l'écureuil</i> — la ardilla</li><li><i>le hibou</i> — el búho</li><li><i>le cerf</i> — el ciervo</li></ul><p>Fíjate: delante de vocal, <i>le</i> y <i>la</i> se convierten en <b>l'</b>: <i>l'ours, l'écureuil</i>. Y la palabra <i>écureuil</i> es una de las más difíciles de pronunciar en francés: algo así como «ecuréi».</p><p>Para decir dónde vive un animal: <i>Le dauphin vit dans la mer.</i> (El delfín vive en el mar.) <i>Le renard vit dans la forêt.</i></p><p><b>Actividad</b>: haz dos columnas, <i>la mer</i> y <i>la forêt</i>, y dibuja tres animales en cada una con su nombre.</p>`,
+        H6.dos("Où ?", ["LA MER", ["le dauphin", "la baleine", "le requin"], cAZ], ["LA FORÊT", ["le renard", "le loup", "l'écureuil"], cVE])],
+    ],
+    "Un y une, le y la": [
+      ["Plural: des animaux", `<p>Para hablar de <mark>varios animales</mark>, usamos <b>des</b> (unos) o <b>les</b> (los, las). Normalmente se añade una <b>-s</b>, que no se pronuncia:</p><ul><li><i>un chat</i> → <i>des chat<b>s</b></i></li><li><i>une vache</i> → <i>des vache<b>s</b></i></li><li><i>le lapin</i> → <i>les lapin<b>s</b></i></li></ul><p>Pero hay palabras que cambian de otra forma:</p><ul><li>Las que acaban en <b>-al</b> cambian a <b>-aux</b>: <i>un animal</i> → <i>des anim<b>aux</b></i>; <i>un cheval</i> → <i>des chev<b>aux</b></i> (caballos).</li><li>Las que acaban en <b>-eau</b> añaden <b>-x</b>: <i>un oiseau</i> → <i>des oiseau<b>x</b></i> (pájaros); <i>un chameau</i> → <i>des chameau<b>x</b></i> (camellos).</li><li>Las que ya acaban en <b>-s</b> o <b>-x</b> no cambian: <i>une souris</i> → <i>des souris</i> (ratones).</li></ul><p>¡Por eso el título de este tema es <i>Les animaux</i> y no <i>les animals</i>!</p><p>Como la -s no suena, para saber si es singular o plural escuchamos el artículo: <i>le / la</i> o <i>les</i>, <i>un / une</i> o <i>des</i>.</p><p><b>Actividad</b>: pon en plural: <i>un cheval, un oiseau, un lapin, une souris</i>.</p>`,
+        L6.filas("Pluriel", [["un chat", "des chats", cAZ], ["un cheval", "des chevaux", cNA], ["un oiseau", "des oiseaux", cVE], ["une souris", "des souris", cMO]])],
+    ],
+    "Grande o pequeño": [
+      ["Las partes del cuerpo: il a…", `<p>Para describir un animal decimos qué <mark>partes del cuerpo</mark> tiene con <b>il a</b> (tiene):</p><ul><li><i>la tête</i> — la cabeza</li><li><i>la queue</i> — la cola</li><li><i>les pattes</i> — las patas</li><li><i>les oreilles</i> — las orejas</li><li><i>les ailes</i> — las alas</li><li><i>les plumes</i> — las plumas</li><li><i>le bec</i> — el pico</li><li><i>les dents</i> — los dientes</li></ul><p>Ejemplos:</p><ul><li><i>Le lapin <b>a</b> de grandes oreilles.</i> — El conejo tiene orejas grandes.</li><li><i>L'oiseau <b>a</b> deux ailes et un bec.</i> — El pájaro tiene dos alas y un pico.</li><li><i>L'éléphant <b>a</b> une trompe.</i> — El elefante tiene una trompa.</li><li><i>Le serpent n'a pas de pattes.</i> — La serpiente no tiene patas.</li></ul><p>Y para contar las patas: <i>Le chien a quatre pattes. L'araignée a huit pattes.</i></p><p>Fíjate: <i>queue</i> se pronuncia «ke», ¡con una sola sílaba!</p><p><b>Actividad</b>: dibuja un animal inventado y descríbelo: <i>Il a trois têtes, six pattes et une queue bleue.</i></p>`,
+        H6.rueda("Le corps", "OISEAU", [["la tête", cAZ], ["les ailes", cVE], ["le bec", cNA], ["les plumes", cRO]])],
+    ],
+    "Los sonidos de los animales": [
+      ["¿Qué hacen?: nager, voler, sauter, courir", `<p>Cada animal se mueve de una forma. Estos <mark>verbos</mark> nos ayudan a describirlo:</p><ul><li><i>Le poisson <b>nage</b>.</i> — El pez nada. (verbo <i>nager</i>)</li><li><i>L'oiseau <b>vole</b>.</i> — El pájaro vuela. (verbo <i>voler</i>)</li><li><i>Le kangourou <b>saute</b>.</i> — El canguro salta. (verbo <i>sauter</i>)</li><li><i>Le cheval <b>court</b>.</i> — El caballo corre. (verbo <i>courir</i>)</li><li><i>Le serpent <b>rampe</b>.</i> — La serpiente se arrastra.</li><li><i>Le singe <b>grimpe</b>.</i> — El mono trepa.</li></ul><p>Para decir lo que <b>puede</b> o <b>no puede</b> hacer un animal usamos <i>il peut</i> / <i>il ne peut pas</i>:</p><ul><li><i>Le pingouin <b>peut</b> nager, mais il <b>ne peut pas</b> voler.</i> — El pingüino puede nadar, pero no puede volar.</li><li><i>Le canard peut nager <b>et</b> voler !</i> — ¡El pato puede nadar y volar!</li></ul><p>Juego: <b>Jacques a dit</b> (Simón dice). El maestro dice: <i>Jacques a dit: vole comme un oiseau !</i> y todos mueven los brazos. Si no dice «Jacques a dit», ¡nadie se mueve!</p><p><b>Actividad</b>: escribe qué hacen cuatro animales con estos verbos.</p>`,
+        L6.filas("Ils bougent", [["le poisson", "nage", cAZ], ["l'oiseau", "vole", cVE], ["le kangourou", "saute", cNA], ["le cheval", "court", cRO]])],
+    ],
+    "Mi mascota": [
+      ["Cuidar de una mascota", `<p>Tener una mascota es muy bonito, pero también es una <mark>responsabilidad</mark>: hay que cuidarla todos los días. En francés decimos <i>s'occuper de</i> (ocuparse de).</p><p>¿Qué hacemos para cuidar a nuestra mascota?</p><ul><li><i>Je donne à manger à mon chat.</i> — Doy de comer a mi gato.</li><li><i>Je donne de l'eau à mon lapin.</i> — Doy agua a mi conejo.</li><li><i>Je promène mon chien.</i> — Paseo a mi perro.</li><li><i>Je brosse mon chien.</i> — Cepillo a mi perro.</li><li><i>Je nettoie la cage.</i> — Limpio la jaula.</li><li><i>Je joue avec mon chat.</i> — Juego con mi gato.</li></ul><p>Y también hay que llevarla al veterinario: <i>chez le vétérinaire</i> (o, de forma corta, <i>chez le véto</i>).</p><p>Recuerda: una mascota no es un juguete. Si no puedes cuidarla, es mejor no tenerla. Y nunca se abandona a un animal.</p><p>¿Y si no tienes mascota? Puedes decir: <i>Je n'ai pas d'animal, mais j'aimerais un chien.</i> — No tengo mascota, pero me gustaría un perro.</p><p><b>Actividad</b>: haz una lista de tareas en francés para cuidar a una mascota durante una semana.</p>`,
+        H6.flujo("Mon chien", ["je donne|à manger", "je donne|de l'eau", "je promène|mon chien", "je joue|avec lui"], cNA)],
+    ],
+    "Me gusta y adivinanzas": [
+      ["Las fábulas de La Fontaine", `<p>Hace más de 350 años, en Francia, un escritor llamado <mark>Jean de La Fontaine</mark> escribió muchas <b>fábulas</b>: cuentos cortos en verso, con animales que hablan, que terminan con una enseñanza llamada <b>moraleja</b>. Todavía hoy los niños franceses las aprenden de memoria en el colegio.</p><p>La más famosa es <b>Le Corbeau et le Renard</b> (El cuervo y el zorro):</p><p>Un cuervo, <i>le corbeau</i>, está posado en una rama con un queso en el pico. Un zorro, <i>le renard</i>, huele el queso y quiere comérselo. Le dice: «¡Qué bonito eres! Si tu voz es tan bonita como tus plumas, eres el rey del bosque». El cuervo, muy orgulloso, abre el pico para cantar… ¡y el queso cae! El zorro lo coge y se va corriendo.</p><p>La moraleja: hay que tener cuidado con quien nos hace muchos cumplidos para conseguir algo.</p><p>Otra fábula famosa es <b>La Cigale et la Fourmi</b> (La cigarra y la hormiga), que enseña a trabajar y a ser previsores.</p><p><b>Actividad</b>: representa la fábula del cuervo y el zorro con un compañero. El zorro dice: <i>Bonjour, Monsieur du Corbeau !</i></p>`,
+        H6.dos("Fable", ["LE CORBEAU", ["le fromage", "le bec", "il chante"], cMO], ["LE RENARD", ["il flatte", "il prend", "le fromage"], cNA]),
+        ["Ns92r5TQH3k", "Un éléphant qui se balançait 🐘🐘 Les Comptines de Gabriel", "Les comptines de Gabriel", 177014109]],
+    ],
+  },
+  final: [
+    ["Animales del mundo francófono", `<p>El francés se habla en muchos países de <mark>todos los continentes</mark>, y en cada uno viven animales diferentes.</p><ul><li>En <b>Canadá</b> (sobre todo en Quebec): <i>le castor</i> (el castor), que construye presas en los ríos; <i>l'orignal</i>, un alce enorme; y <i>l'ours noir</i> (el oso negro).</li><li>En <b>Senegal</b> y otros países de África: <i>le lion</i>, <i>l'éléphant</i>, <i>la girafe</i> y <i>l'hippopotame</i>.</li><li>En <b>Madagascar</b>, una gran isla africana: <i>les lémuriens</i> (los lémures), unos primates que solo viven allí, con ojos grandes y colas largas con anillos.</li><li>En la <b>Guayana Francesa</b>, en América del Sur: <i>le jaguar</i>, <i>le paresseux</i> (el perezoso) y loros de colores.</li><li>En los <b>Alpes</b> franceses y suizos: <i>la marmotte</i> (la marmota), que duerme todo el invierno.</li></ul><p>Fíjate: muchos nombres de animales son muy parecidos en francés y en español: <i>le jaguar, la girafe, le lion, l'éléphant</i>. ¡Así es más fácil!</p><p><b>Actividad</b>: busca en el mapa estos países y escribe un animal de cada uno: <i>Au Canada, il y a des castors.</i></p>`,
+      L6.filas("Francophonie", [["Canada", "le castor", cRO], ["Sénégal", "le lion", cNA], ["Madagascar", "le lémurien", cVE], ["les Alpes", "la marmotte", cAZ]])],
+  ],
+  ejemplos: [
+    ["Pon en plural: «un cheval» y «un oiseau».", ["Las palabras en -al cambian a -aux.", "Las palabras en -eau añaden -x."], "des chevaux, des oiseaux"],
+    ["Describe al pájaro con il a.", ["Usamos il a para decir lo que tiene.", "Pájaro: alas, pico y plumas."], "L'oiseau a deux ailes, un bec et des plumes."],
+  ],
+  errores: ["Decir «des animals» o «des chevals» en lugar de animaux y chevaux.", "Decir «le écureuil» sin apóstrofo en lugar de l'écureuil."],
+  ejercicios: [
+    ["b", "¿Cómo se dice «zorro» en francés?", "Le renard."],
+    ["b", "¿Qué animal vive en el mar: le dauphin o le loup?", "Le dauphin."],
+    ["b", "¿Qué significa «la queue»?", "La cola."],
+    ["b", "Completa: «Le poisson ___» (nada).", "Nage."],
+    ["b", "En la lectura, ¿qué dice el gallo francés?", "Cocorico !"],
+    ["m", "Pon en plural: «un animal, une souris, un lapin».", "des animaux, des souris, des lapins."],
+    ["m", "Traduce: El conejo tiene orejas grandes.", "Le lapin a de grandes oreilles."],
+    ["m", "Traduce: El pingüino puede nadar, pero no puede volar.", "Le pingouin peut nager, mais il ne peut pas voler."],
+    ["m", "Di dos cosas que haces para cuidar a una mascota.", "Ejemplo: Je donne à manger à mon chat. Je promène mon chien."],
+    ["m", "¿Qué animal típico de Madagascar has aprendido?", "Le lémurien (el lémur)."],
+    ["a", "Cuenta la fábula del cuervo y el zorro y di su moraleja.", "El zorro halaga al cuervo, este abre el pico y el queso cae; no hay que fiarse de quien nos adula."],
+    ["a", "Describe un animal inventado: partes del cuerpo y qué puede hacer.", "Respuesta abierta."],
+    ["a", "Escribe una lista de tareas en francés para cuidar a una mascota.", "Respuesta abierta."],
+    ["a", "Escribe cuatro frases con dans la mer y dans la forêt.", "Ejemplo: Le dauphin vit dans la mer. L'écureuil vit dans la forêt."],
+  ],
+  quiz: [
+    ["El plural de «un cheval» es…", ["des chevaux", "des chevals", "des chevauxs"], "Plural."],
+    ["«L'oiseau a deux ___.» (alas)", ["ailes", "pattes", "oreilles"], "Cuerpo."],
+    ["«Le kangourou ___.» (salta)", ["saute", "nage", "vole"], "Verbos."],
+    ["«La ardilla» en francés es…", ["l'écureuil", "le renard", "le hibou"], "Bosque."],
+    ["Jean de La Fontaine escribió…", ["fábulas con animales", "canciones infantiles", "libros de ciencias"], "Fábulas."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo se llama el caballo del tío Jules?", ["Tonnerre", "Cocorico", "Hibou"], "Lectura."],
+    ["En la fábula, ¿qué tiene el cuervo en el pico?", ["un queso", "una zanahoria", "un pez"], "Fábula."],
+  ],
+  tarjetas: [
+    ["Mer et forêt", "le dauphin, la baleine, le requin; le renard, le loup, l'écureuil."],
+    ["Pluriel", "des chats; des chevaux, des animaux; des oiseaux; des souris."],
+    ["Le corps", "Il a… la tête, la queue, les pattes, les ailes, le bec."],
+    ["Verbes", "nager, voler, sauter, courir; il peut / il ne peut pas."],
+  ],
+  glosario: [
+    ["La mer", "El mar."],
+    ["La forêt", "El bosque."],
+    ["Le renard", "El zorro."],
+    ["L'écureuil", "La ardilla."],
+    ["Des animaux", "Unos animales (plural de animal)."],
+    ["Des oiseaux", "Unos pájaros."],
+    ["La queue", "La cola."],
+    ["Les ailes", "Las alas."],
+    ["Nager", "Nadar."],
+    ["Voler", "Volar."],
+    ["La fable", "La fábula."],
+    ["Le corbeau", "El cuervo."],
+  ],
+  situacion: {
+    titulo: "Nuestro libro de animales en francés",
+    reto: "Cada alumno crea una ficha de un animal en francés y la clase la reúne en un libro con una fábula final representada.",
+    pasos: ["Elegir un animal y decir dónde vive: dans la mer, dans la forêt…", "Describir sus partes con il a y qué hace con nage, vole, court…", "Escribir el plural del animal y dibujarlo.", "Representar en grupo la fábula Le Corbeau et le Renard."],
+    producto: "Un libro de fichas de animales y una pequeña representación.",
+    evaluacion: ["Nombra animales de distintos lugares en francés.", "Forma el plural correctamente, incluidos animaux y oiseaux.", "Describe con il a y verbos de movimiento.", "Participa en la representación con buena pronunciación."],
+  },
+});
