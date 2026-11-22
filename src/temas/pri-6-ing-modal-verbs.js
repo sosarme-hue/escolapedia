@@ -99,3 +99,91 @@ module.exports = tema({
   ideas: ["Cartel de normas de clase en inglés.", "Juego «problema y consejo» por parejas.", "Encuesta de habilidades «Can you…?» con gráfico."],
   fuentes: [["British Council LearnEnglish Kids: can / can't", "https://learnenglishkids.britishcouncil.org/grammar-practice/can-cant"], ["Cambridge Dictionary: modal verbs", "https://dictionary.cambridge.org/grammar/british-grammar/modals-and-modality"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Use may and might for possibility and polite permission", "Talk about past obligations with had to", "Give advice in different ways", "Understand signs, notices and rules in other countries"],
+  lectura: { titulo: "Rules for Biscuit", html: `<p>Last month our family adopted a puppy. His name is Biscuit, and he is brown, fluffy and VERY naughty. On the first day, he ate my slipper, and on the second day he chewed Dad's homework folder. So we had a family meeting and wrote some rules.</p><p><b>Rules for Biscuit (and for us!)</b></p><ul><li>Biscuit <b>mustn't</b> sleep on the sofa. He <b>has to</b> sleep in his basket.</li><li>We <b>have to</b> take him for a walk three times a day. My brother and I <b>have to</b> take turns.</li><li>We <b>mustn't</b> give him chocolate. It's dangerous for dogs.</li><li>Biscuit <b>can</b> play in the garden, but he <b>can't</b> go in the vegetable patch.</li><li>We <b>should</b> give him lots of love and patience.</li><li>Visitors <b>don't have to</b> be afraid. Biscuit only licks people!</li></ul><p>Yesterday Grandma visited us. «<b>May</b> I give him a biscuit?» she asked. We laughed. «Yes, you <b>can</b>, but only a dog biscuit!»</p><p>Biscuit still isn't perfect. He <b>might</b> eat another slipper one day. But he is learning, and so are we.</p>` },
+  tras: {
+    "Can: permission and requests": [
+      ["May and might", `<p><mark>May</mark> is a modal verb with two uses:</p><ul><li><b>Very polite permission</b>, especially when we speak to adults we don't know well or in formal situations: «<b>May</b> I come in?» «<b>May</b> I use your phone, please?» Answers: «Yes, of course you <b>may</b>.» / «I'm sorry, you <b>may not</b>.»</li><li><b>Possibility</b>, like <i>might</i>: «It <b>may</b> rain later.» «She <b>may</b> be at home.» (puede que)</li></ul><p><mark>Might</mark> is used for possibility, and it shows we are even less sure: «I <b>might</b> go to the beach tomorrow, I don't know yet.»</p><p>From less polite to more polite, we can ask permission like this:</p><ul><li>«<b>Can</b> I go to the toilet?» (normal, friendly)</li><li>«<b>Could</b> I go to the toilet, please?» (more polite)</li><li>«<b>May</b> I go to the toilet, please?» (very polite)</li></ul><p>Like all modal verbs, <i>may</i> and <i>might</i> don't add <i>-s</i> and are followed by a verb without <i>to</i>: «He <b>may know</b> the answer.»</p>`,
+        L6.filas("Asking permission", [["Can I…?", "friendly", cVE], ["Could I…, please?", "polite", cAZ], ["May I…, please?", "very polite", cMO], ["It may / might rain", "possibility", cNA]])],
+    ],
+    "Have to and don't have to": [
+      ["Had to: obligation in the past", `<p><i>Must</i> has no past form. To talk about obligations in the <b>past</b>, we use <mark>had to</mark> for all persons:</p><ul><li>«Yesterday I <b>had to</b> get up at six because we went on a trip.»</li><li>«My grandparents <b>had to</b> walk five kilometres to school.»</li><li>«We <b>had to</b> wear a uniform at my old school.»</li></ul><p><b>Negative</b>: <mark>didn't have to</mark> means it wasn't necessary: «It was Sunday, so I <b>didn't have to</b> go to school.» (No tuve que…)</p><p><b>Questions</b>: «<b>Did</b> you <b>have to</b> study a lot for the exam?» – «Yes, I did.»</p><p>And for <b>prohibitions</b> in the past we use <b>couldn't</b> or <b>wasn't / weren't allowed to</b>: «When my dad was a child, he <b>couldn't</b> watch TV after nine o'clock.» «We <b>weren't allowed to</b> use mobile phones in class.»</p><p>Ask an older person: what did they have to do when they were your age? What weren't they allowed to do? You may be surprised!</p><p>Here is an example from a grandmother born in 1955: «When I was eleven, I <b>had to</b> help my mother every day: I <b>had to</b> make the beds and buy the bread. We <b>didn't have to</b> do much homework, but we <b>had to</b> learn lots of things by heart. Girls <b>weren't allowed to</b> wear trousers at my school, and we <b>couldn't</b> talk in the corridors.» How different is your life?</p>`,
+        H6.dos("In the past", ["Obligation", ["I had to…", "I didn't have to…", "Did you have to…?"], cAZ], ["Prohibition", ["I couldn't…", "not allowed to…", "No phones!"], cRO]), ["km3xMfQSmAU", "Must, Have to, and Should for Obligation and Advice in English", "Learn English with EnglishClass101.com", 342182]],
+    ],
+    "Should: advice": [
+      ["More ways to give advice", `<p><i>Should</i> is the most common way to give advice, but there are other friendly and polite ways to help a friend:</p><ul><li><b>You'd better</b> (= you had better) + verb: strong advice, often a warning. «You'<b>d better</b> take an umbrella. It's going to rain.» Negative: «You'<b>d better not</b> be late.»</li><li><b>Why don't you…?</b> a friendly suggestion: «<b>Why don't you</b> ask the teacher?»</li><li><b>If I were you, I'd…</b>: imagine you are the other person. «<b>If I were you, I'd</b> say sorry.»</li><li><b>How about / What about + -ing?</b>: «<b>How about</b> studying together?»</li><li><b>Ought to</b>: similar to <i>should</i>, a bit more formal. «You <b>ought to</b> drink more water.»</li></ul><p>And when you need advice, you can ask: «What <b>should</b> I do?» «Do you think I <b>should</b>…?» «What would you do?»</p><p>Good advice is <b>kind</b> and <b>respectful</b>. Listen first, then give your advice, and remember the other person decides in the end.</p>`,
+        L6.filas("Giving advice", [["You should…", "normal advice", cAZ], ["You'd better…", "strong / warning", cRO], ["Why don't you…?", "friendly idea", cVE], ["If I were you, I'd…", "imagine", cNA]])],
+    ],
+  },
+  final: [
+    ["Signs and notices", `<p>When you travel to an English-speaking country, you will see lots of <b>signs</b> and <b>notices</b>. Many of them express obligation, prohibition or advice, but in a very short way, without modal verbs:</p><ul><li><b>Prohibition</b> (you mustn't): «No entry», «No smoking», «Do not touch», «Keep off the grass», «No parking», «Do not feed the animals».</li><li><b>Obligation</b> (you must / you have to): «Keep left», «Please queue here», «Seat belts must be worn», «Dogs must be kept on a lead».</li><li><b>Warning</b> (be careful): «Caution: wet floor», «Danger: high voltage», «Mind the gap» (on the London Underground: be careful with the space between the train and the platform).</li><li><b>Information</b>: «Exit», «Toilets», «Push / Pull», «Open 9–5», «Out of order» (it doesn't work).</li></ul><p>To explain a sign, we can use modal verbs: «Keep off the grass» means «You <b>mustn't</b> walk on the grass». «Please queue here» means «You <b>have to</b> wait in a line here».</p><p>Signs often use <b>pictures</b> too, so people who don't speak the language can understand them. A red circle with a line usually means «No», a red triangle means «Warning» and a blue circle usually means something you must do.</p>`,
+      L6.filas("Signs", [["Keep off the grass", "you mustn't walk on it", cRO], ["Mind the gap", "be careful!", cNA], ["Please queue here", "you have to wait", cAZ], ["Out of order", "it doesn't work", cMO]]), ["YQuJTA9Z-Eo", "Signs and Symbols | Traffic Signs", "Teacher Lis TV", 665742]],
+    ["Rules around the world", `<p>Every country has its own rules and customs. Here are some that may surprise you:</p><ul><li>In the <b>United Kingdom</b>, Ireland, Japan and Australia, you <b>have to</b> drive on the <b>left</b>.</li><li>In <b>Singapore</b>, shops <b>can't</b> sell normal chewing gum. The government banned it in 1992 to keep the streets clean.</li><li>In <b>Japan</b>, you <b>have to</b> take off your shoes when you enter a house, and also in some schools and temples. You <b>shouldn't</b> blow your nose at the table or talk loudly on the phone on trains.</li><li>In the <b>United States</b>, in most places, you <b>should</b> leave a tip in restaurants: it's part of the waiter's pay.</li><li>In many countries in <b>Europe</b>, including Spain, children <b>have to</b> use a special car seat until they are tall enough.</li><li>In <b>Venice</b>, Italy, tourists <b>mustn't</b> feed the pigeons in St Mark's Square.</li></ul><p>When you travel, it's a good idea to learn the local rules before you arrive. As people say, «When in Rome, do as the Romans do»: when you are in a new place, you <b>should</b> follow its customs.</p>`,
+      H6.rueda("Rules abroad", "RULES", [["UK: drive left", cAZ], ["Singapore: gum", cRO], ["Japan: shoes", cVE], ["USA: tips", cNA]])],
+  ],
+  ejemplos: [
+    ["Make it more polite: «Can I open the window?»", ["Could I…, please? is more polite.", "May I…, please? is very polite."], "May I open the window, please?"],
+    ["Past: «I have to wear a uniform.» (last year)", ["Must and have to change to had to.", "Same for all persons."], "Last year I had to wear a uniform."],
+  ],
+  errores: ["Decir «I musted» o «I must yesterday»: en pasado se usa had to.", "Escribir «He mays» o «may to»: los modales no llevan -s ni to."],
+  ejercicios: [
+    ["b", "Make it very polite: «Can I use your pencil?»", "May I use your pencil, please?"],
+    ["b", "Complete in the past: «Yesterday I ___ (have to) clean my room.»", "had to."],
+    ["b", "What does «Out of order» mean?", "It doesn't work."],
+    ["b", "Complete: «You'd ___ take a coat. It's cold.»", "better."],
+    ["b", "In which country can't shops sell normal chewing gum?", "In Singapore."],
+    ["m", "Write the negative: «I had to go to school on Saturday.»", "I didn't have to go to school on Saturday."],
+    ["m", "Explain the sign «Keep off the grass» with a modal verb.", "You mustn't walk on the grass."],
+    ["m", "Give advice with «Why don't you…?»: your friend is bored.", "Why don't you read a book / play outside?"],
+    ["m", "Write a sentence with «may» for possibility.", "Open answer. Example: It may rain this afternoon."],
+    ["m", "What must Biscuit not do?", "He mustn't sleep on the sofa (or eat chocolate)."],
+    ["a", "Interview an older person: write three things they had to do and two things they weren't allowed to do.", "Open answer."],
+    ["a", "Your friend wants to stay up all night playing video games before an exam. Give advice in three different ways.", "Open answer."],
+    ["a", "Design three signs for your school and explain each one with a modal verb.", "Open answer."],
+    ["a", "Explain the saying «When in Rome, do as the Romans do».", "When you are in a new place, you should follow its customs."],
+  ],
+  quiz: [
+    ["The most polite way to ask permission is…", ["May I…?", "Can I…?", "I want to…"], "Polite."],
+    ["The past of «must» (obligation) is…", ["had to", "musted", "must have"], "Past."],
+    ["«You'd better» means…", ["strong advice", "permission", "ability"], "Advice."],
+    ["«Mind the gap» is a…", ["warning", "prohibition", "invitation"], "Signs."],
+    ["In Japan you have to take off your…", ["shoes", "hat", "coat"], "Rules abroad."],
+  ],
+  examen: [
+    ["Biscuit is…", ["a puppy", "a cat", "a biscuit"], "Reading."],
+    ["«It was a holiday, so we ___ go to school.»", ["didn't have to", "mustn't", "hadn't to"], "Past."],
+  ],
+  tarjetas: [
+    ["May / might", "May I…? (very polite). It may / might rain (possibility)."],
+    ["Had to", "Past obligation: I had to… / I didn't have to… / Did you have to…?"],
+    ["Advice", "should, you'd better, why don't you…?, if I were you, I'd…"],
+    ["Signs", "No entry, Keep off the grass, Mind the gap, Out of order."],
+  ],
+  glosario: [
+    ["May", "Poder (permiso educado) o puede que."],
+    ["Had to", "Tuve que, tenía que."],
+    ["Be allowed to", "Tener permiso para."],
+    ["You'd better", "Más vale que, será mejor que."],
+    ["Advice", "Consejo (incontable)."],
+    ["Sign", "Señal, cartel."],
+    ["Notice", "Aviso."],
+    ["Queue", "Hacer cola; cola."],
+    ["Warning", "Advertencia."],
+    ["Out of order", "Averiado, no funciona."],
+    ["Ban", "Prohibir."],
+    ["Custom", "Costumbre."],
+  ],
+  situacion: {
+    titulo: "A guide for visitors",
+    reto: "La clase prepara una guía en inglés con normas y consejos para alumnos de intercambio que visitarán el colegio y la localidad.",
+    pasos: ["Haced una lista de normas del colegio con must, mustn't, have to y don't have to.", "Diseñad carteles en inglés para lugares del colegio (biblioteca, comedor, patio).", "Escribid consejos para visitar vuestra localidad con should, you'd better y why don't you.", "Montad la guía y presentadla con un juego de rol de alumno nuevo y anfitrión."],
+    producto: "Una guía bilingüe de normas y consejos con carteles para el colegio.",
+    evaluacion: ["Uses modal verbs correctly.", "Talks about past obligations with had to.", "Gives advice in different ways.", "Writes clear signs and notices."],
+  },
+});

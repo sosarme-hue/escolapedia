@@ -113,3 +113,91 @@ module.exports = tema({
   ideas: ["«Guess who?» con personajes famosos o ilustraciones.", "Plano del barrio con preposiciones y rutas.", "Retrato escrito de un personaje de libro para que los compañeros lo adivinen."],
   fuentes: [["British Council LearnEnglish Kids: describing people", "https://learnenglishkids.britishcouncil.org/word-games"], ["Cambridge Dictionary: adjectives, order", "https://dictionary.cambridge.org/grammar/british-grammar/adjectives-order"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Describe clothes and patterns with the present continuous", "Use compound adjectives and similes in descriptions", "Describe a picture: background, foreground, left and right", "Talk about famous portraits"],
+  lectura: { titulo: "Missing: Pepper the parrot", html: `<p><b>MISSING! Have you seen Pepper?</b></p><p>Our parrot Pepper flew out of the window on Saturday morning, and we are very worried. Please help us to find him!</p><p><b>What does he look like?</b> Pepper is a medium-sized African grey parrot. He is about thirty centimetres tall. His feathers are grey, but he has a bright red tail. He has a curved black beak and small, round, yellow eyes. He is quite old: he is twenty-five years old, but parrots can live for a very long time!</p><p><b>What is he like?</b> Pepper is very friendly and talkative. He is as clever as a fox and as noisy as a fire engine. He can say «Hello, darling!», «What's for dinner?» and he can copy the sound of a phone. He is a bit shy with strangers, so please don't try to catch him. He loves sunflower seeds and grapes.</p><p><b>Where?</b> He was last seen in the trees near the park on Elm Street.</p><p>If you see or hear Pepper, please call Emma on 600 123 456. There is a reward!</p>` },
+  tras: {
+    "Appearance: body and face": [
+      ["What is she wearing?", `<p>To describe what someone has on <b>now</b>, we use the present continuous with <mark>wear</mark>: «She <b>is wearing</b> a yellow raincoat.» «They<b>'re wearing</b> their school uniforms.» To describe what someone usually wears, we use the present simple: «My grandpa always <b>wears</b> a hat.»</p><p>Some useful clothes words: <i>jumper, sweatshirt, hoodie, T-shirt, shirt, blouse, jacket, coat, raincoat, skirt, dress, trousers, jeans, shorts, trainers, boots, sandals, cap, scarf, gloves</i>.</p><p>We can also describe <b>patterns</b> and <b>materials</b>:</p><ul><li><b>striped</b> (de rayas), <b>spotted</b> or <b>polka-dot</b> (de lunares), <b>checked</b> (de cuadros), <b>flowery</b> (de flores), <b>plain</b> (liso).</li><li>a <b>woolly</b> hat, a <b>leather</b> jacket, a <b>cotton</b> T-shirt, <b>denim</b> jeans.</li></ul><p>Remember the order of adjectives: opinion, size, age, colour, pattern, material, then the noun: «a <b>lovely long red woolly</b> scarf», «a <b>big old blue checked</b> shirt».</p>`,
+        L6.filas("Patterns", [["striped", "de rayas", cAZ], ["spotted", "de lunares", cRO], ["checked", "de cuadros", cVE], ["plain", "liso", cNA]])],
+    ],
+    "Personality": [
+      ["Compound adjectives", `<p>A <mark>compound adjective</mark> is made of <b>two words</b> joined with a hyphen (-). They are very useful because they say a lot in a short way:</p><ul><li><b>Appearance</b>: <i>blue-eyed</i> (with blue eyes), <i>dark-haired, long-haired, curly-haired, broad-shouldered, good-looking, well-dressed</i>.</li><li><b>Personality</b>: <i>kind-hearted</i> (very kind), <i>easy-going</i> (relaxed, calm), <i>open-minded</i> (accepts new ideas), <i>hard-working, bad-tempered</i> (gets angry easily), <i>self-confident</i>.</li><li><b>Other</b>: <i>left-handed, right-handed, well-known</i> (famous), <i>ten-year-old</i>.</li></ul><p>Many compound adjectives for appearance follow the pattern <b>adjective + noun + -ed</b>: <i>blue + eye + -ed = blue-eyed</i>; <i>long + hair + -ed = long-haired</i>.</p><p>Look at these examples:</p><ul><li>«My cousin is a <b>dark-haired</b>, <b>brown-eyed</b> boy.»</li><li>«Our teacher is <b>easy-going</b> and <b>open-minded</b>.»</li><li>«I'm <b>left-handed</b>, like my grandma.»</li></ul><p>Careful with ages: «She is ten <b>years</b> old» but «She is a ten-<b>year</b>-old girl» (no <i>s</i> when it is an adjective).</p>`,
+        H6.dos("Compound adjectives", ["Appearance", ["blue-eyed", "long-haired", "good-looking"], cAZ], ["Personality", ["kind-hearted", "easy-going", "hard-working"], cVE])],
+    ],
+    "Describing places": [
+      ["As busy as a bee: similes", `<p>A <mark>simile</mark> compares two things with <b>as … as</b> or <b>like</b>. Writers use similes to make descriptions more vivid and fun. Many are fixed expressions in English:</p><ul><li><b>as busy as a bee</b> (muy ocupado)</li><li><b>as brave as a lion</b> (muy valiente)</li><li><b>as quiet as a mouse</b> (muy silencioso)</li><li><b>as cold as ice</b> (helado)</li><li><b>as light as a feather</b> (ligero como una pluma)</li><li><b>as strong as an ox</b> (fuerte como un toro)</li><li><b>as slow as a snail</b> (lento como una tortuga, ¡en inglés es un caracol!)</li><li><b>as white as snow</b>, <b>as green as grass</b>, <b>as old as the hills</b> (muy viejo)</li></ul><p>With <b>like</b>: «She runs <b>like the wind</b>.» «He eats <b>like a horse</b>.» (come muchísimo) «The room was <b>like an oven</b>.» (hacía mucho calor)</p><p>Notice that some similes are different in Spanish: we say «más lento que una tortuga», but in English it's a <i>snail</i>. And you can invent your own: «My little brother is as loud as a rock concert!»</p>`,
+        L6.filas("Similes", [["as busy as", "a bee", cNA], ["as brave as", "a lion", cRO], ["as quiet as", "a mouse", cAZ], ["as slow as", "a snail", cVE]]), ["ROmKMtLWY14", "Similes for Kids", "Homeschool Pop", 716977]],
+    ],
+  },
+  final: [
+    ["Describing a picture", `<p>In exams and in class, you often have to <b>describe a picture</b>. Follow these steps:</p><ul><li><b>1. Say what it is in general</b>: «This is a photo of a market.» «In this picture, I can see a family on a beach.»</li><li><b>2. Describe the parts</b>, using words for position: <i>in the foreground</i> (en primer plano), <i>in the background</i> (al fondo), <i>in the middle / in the centre</i>, <i>on the left</i>, <i>on the right</i>, <i>at the top</i>, <i>at the bottom</i>, <i>in the top left corner</i>.</li><li><b>3. Describe the people</b> with the present continuous: «On the left, there's a woman. She's wearing a red dress and she's carrying a basket.»</li><li><b>4. Guess and give your opinion</b>: «It might be summer because they're wearing shorts.» «They look happy.» «I think it's in Spain.» «I'd like to be there because…»</li></ul><p>Useful phrases: <i>There is / There are…</i>, <i>I can see…</i>, <i>It looks like…</i>, <i>He seems…</i>, <i>Maybe…</i>, <i>It might be…</i></p><p>Here is a model: «This is a photo of a busy market in a Spanish town. In the foreground, there's a fruit stall with lots of oranges and lemons. On the left, an old man is wearing a flat cap and he's choosing tomatoes. On the right, a girl in a striped dress is holding her mum's hand. In the background, I can see a church and some white houses. It might be a Saturday morning because there are a lot of people. Everybody looks relaxed. I'd like to be there because I love markets!»</p><p>Practise with a photo from a magazine: describe it to a partner without showing it, and your partner draws it. Then compare your drawing with the original photo and see how many details you got right!</p>`,
+      H6.rueda("Where in the picture?", "PICTURE", [["background", cAZ], ["foreground", cVE], ["on the left", cNA], ["on the right", cRO]]), ["ihIQ8_-49Fo", "How to Describe a Picture in English - Spoken English Lesson", "Oxford Online English", 3142981]],
+    ["Famous portraits", `<p>A <b>portrait</b> is a picture of a person. When an artist paints himself or herself, it's a <b>self-portrait</b>. Here are three of the most famous portraits in the world:</p><ul><li><b>The Mona Lisa</b>, painted by Leonardo da Vinci in the early 16th century. It's in the Louvre museum in Paris. The woman has long dark hair and a mysterious smile. In 1911 the painting was stolen, and it was missing for more than two years! Today millions of people visit it every year.</li><li><b>Las Meninas</b>, painted by Diego Velázquez in 1656. It's in the Prado Museum in Madrid. In the centre, there's the little princess Margarita, wearing a big white dress. Around her there are her maids, a dog and other people. On the left, Velázquez painted himself, holding his brush in front of a huge canvas.</li><li><b>Frida Kahlo's self-portraits</b>. Frida Kahlo was a Mexican painter who painted many pictures of herself. In them, she has dark eyebrows that meet in the middle, she often wears flowers in her hair and colourful Mexican clothes, and there are often animals like monkeys and parrots around her.</li></ul><p>Choose a portrait you like and describe it using the steps you have learned.</p>`,
+      L6.filas("Famous portraits", [["Mona Lisa", "Leonardo · Paris", cAZ], ["Las Meninas", "Velázquez · Madrid", cRO], ["Self-portraits", "Frida Kahlo · Mexico", cVE], ["Your turn!", "describe one", cNA]]), ["yJiG8qz-hRI", "Why Is The Mona Lisa So Famous? | Story Of The Famous Painting | The Dr Binocs Show | Peekaboo Kidz", "Peekaboo Kidz", 4503876]],
+  ],
+  ejemplos: [
+    ["Make one compound adjective: «a girl with long hair».", ["Pattern: adjective + noun + -ed.", "long + hair + -ed."], "a long-haired girl."],
+    ["Describe the position: a tree that is far away in the picture.", ["Far away = at the back.", "Use «in the background»."], "In the background, there's a tree."],
+  ],
+  errores: ["Decir «a ten-years-old girl»: en el adjetivo compuesto no hay -s.", "Confundir background (al fondo) con foreground (en primer plano)."],
+  ejercicios: [
+    ["b", "Translate: striped, spotted, checked.", "de rayas, de lunares, de cuadros."],
+    ["b", "Complete the simile: «as quiet as a ___».", "mouse."],
+    ["b", "Make a compound adjective: «with blue eyes».", "blue-eyed."],
+    ["b", "Who painted Las Meninas?", "Diego Velázquez."],
+    ["b", "What colour is Pepper's tail?", "Red."],
+    ["m", "Describe what you are wearing today (three items with colours and patterns).", "Open answer. Example: I'm wearing a blue striped T-shirt…"],
+    ["m", "Order the adjectives: «a (woolly / red / lovely) scarf».", "a lovely red woolly scarf."],
+    ["m", "Explain «easy-going» and «bad-tempered».", "Easy-going: relaxed and calm. Bad-tempered: gets angry easily."],
+    ["m", "Write three similes about your family or friends.", "Open answer."],
+    ["m", "Where is the Mona Lisa and who painted it?", "In the Louvre (Paris); Leonardo da Vinci."],
+    ["a", "Write a «Missing» poster for an imaginary pet with appearance, personality and similes.", "Open answer."],
+    ["a", "Describe a photo of your choice following the four steps.", "Open answer."],
+    ["a", "Describe Las Meninas: who is in the centre, on the left and in the background?", "Centre: princess Margarita; left: Velázquez; background: a man in a doorway (and a mirror)."],
+    ["a", "Write a description of yourself using three compound adjectives.", "Open answer."],
+  ],
+  quiz: [
+    ["«She ___ a yellow raincoat now.»", ["is wearing", "wears", "wear"], "Now."],
+    ["«A ___ boy» (with dark hair)", ["dark-haired", "dark-hair", "darked-hair"], "Compound."],
+    ["«As strong as an ___»", ["ox", "egg", "ant"], "Simile."],
+    ["«In the ___» means al fondo.", ["background", "foreground", "middle"], "Picture."],
+    ["Frida Kahlo was from…", ["Mexico", "Spain", "Italy"], "Portraits."],
+  ],
+  examen: [
+    ["Pepper is…", ["a parrot", "a cat", "a dog"], "Reading."],
+    ["«He eats like a ___» means he eats a lot.", ["horse", "mouse", "bird"], "Similes."],
+  ],
+  tarjetas: [
+    ["Clothes", "is wearing; striped, spotted, checked, plain; woolly, leather."],
+    ["Compound adjectives", "blue-eyed, long-haired, kind-hearted, easy-going, left-handed."],
+    ["Similes", "as busy as a bee, as quiet as a mouse, like the wind."],
+    ["Describing a picture", "in the background / foreground, on the left / right, it might be…"],
+  ],
+  glosario: [
+    ["Wear", "Llevar puesto."],
+    ["Striped", "De rayas."],
+    ["Woolly", "De lana."],
+    ["Compound adjective", "Adjetivo compuesto."],
+    ["Easy-going", "Tranquilo, de trato fácil."],
+    ["Left-handed", "Zurdo."],
+    ["Simile", "Símil, comparación."],
+    ["Feather", "Pluma."],
+    ["Background", "Fondo."],
+    ["Foreground", "Primer plano."],
+    ["Portrait", "Retrato."],
+    ["Self-portrait", "Autorretrato."],
+  ],
+  situacion: {
+    titulo: "Our class gallery",
+    reto: "La clase organiza una galería de retratos con descripciones en inglés, como en un museo.",
+    pasos: ["Cada alumno hace un retrato o autorretrato al estilo de un artista famoso.", "Escribid una cartela con la descripción física, la ropa y la personalidad, con adjetivos compuestos y símiles.", "Preparad una audioguía describiendo el cuadro con background, foreground, left y right.", "Inaugurad la galería y haced de guías para las familias."],
+    producto: "Una galería de retratos con cartelas y audioguías en inglés.",
+    evaluacion: ["Describes appearance, clothes and personality.", "Uses compound adjectives and similes.", "Describes the position of things in a picture.", "Presents clearly to an audience."],
+  },
+});
