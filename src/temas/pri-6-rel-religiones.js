@@ -87,3 +87,91 @@ module.exports = P.tema({
   ideas: ["Mural de las religiones con libros, lugares y fiestas.", "Calendario de fiestas religiosas del mundo para la clase.", "Escribir la regla de oro en varios idiomas y decorar la clase."],
   fuentes: [["Concilio Vaticano II, declaración Nostra Aetate", "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_sp.html"], ["Constitución Española, artículo 16", "https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las fiestas y la vida religiosa judía y la huella de Sefarad", "Conocer el Ramadán, las fiestas musulmanas y la mezquita", "Situar los grandes lugares sagrados del mundo", "Comprender la libertad religiosa en España y los distintos calendarios"],
+  lectura: { titulo: "Tres fiestas en diciembre", html: `<p>En la clase de 6.º A, la tutora propuso un reto para diciembre: que cada familia que quisiera explicara una fiesta importante para ella.</p><p>El primer día, Daniel trajo una janukiá, un candelabro de nueve brazos. Contó que su familia es judía y que durante ocho noches encienden una vela más cada día, comen buñuelos y juegan con una peonza de cuatro caras.</p><p>La semana siguiente, Amina explicó que, aunque el Ramadán había sido en primavera, lo que más le gustaba era la fiesta del final: se ponen ropa nueva, visitan a la familia y reparten dulces. Trajo unas pastas de almendra y miel que desaparecieron en dos minutos.</p><p>Después, Lucas contó cómo montaban en casa el belén con figuritas heredadas de su bisabuela y cómo cantaban villancicos en Nochebuena.</p><p>Y Martina, que dijo que en su familia no eran religiosos, explicó que celebraban el solsticio de invierno con una cena con los abuelos y que le gustaba escuchar las historias de los demás.</p><p>Al final del mes, la tutora colgó un mural con todas las fiestas. En el centro, alguien había escrito con letras grandes: «Luces, familia y comida: al final, todos celebramos lo mismo».</p>` },
+  tras: {
+    "El judaísmo": [
+      ["Fiestas judías y la huella de Sefarad", `<p>La vida judía está marcada por el <b>Shabat</b>, el día de descanso, que empieza el viernes al ponerse el sol y termina el sábado al anochecer. Se encienden dos velas, se bendice el pan y el vino y se dedica el tiempo a la familia, la oración y el estudio.</p><p>Algunas fiestas importantes son:</p><ul><li><b>Pésaj</b> (Pascua judía): recuerda la salida de Egipto. Se come pan sin levadura (<i>matzá</i>), porque el pueblo salió con tanta prisa que no dio tiempo a que el pan subiera.</li><li><b>Yom Kipur</b> (Día del Perdón): el día más solemne, de ayuno y oración, para pedir perdón y reconciliarse.</li><li><b>Janucá</b> (Fiesta de las Luces): ocho días en los que se encienden las velas de un candelabro de nueve brazos, la <i>janukiá</i>.</li></ul><p>A los 13 años los chicos celebran su <b>Bar Mitzvá</b>, y a los 12 las chicas su <b>Bat Mitzvá</b>: desde entonces son responsables de cumplir los preceptos.</p><p>Los judíos vivieron en la península durante siglos; la llamaban <b>Sefarad</b>. Hubo grandes sabios, como el médico y filósofo cordobés <b>Maimónides</b>. En 1492 fueron expulsados. Hoy se pueden visitar antiguas juderías en Toledo, Córdoba, Girona o Hervás, y en Toledo, la <b>sinagoga del Tránsito</b> alberga el Museo Sefardí.</p>`,
+        L6.filas("Fiestas judías", [["Shabat", "descanso semanal", cAZ], ["Pésaj", "salida de Egipto", cNA], ["Yom Kipur", "perdón", cMO], ["Janucá", "luces, 8 días", cVE]]), ["nFLnuuslONE", "HANUKKAH para NIÑOS Y NIÑAS", "Addo Educa", 23134]],
+    ],
+    "El islam": [
+      ["El Ramadán y la mezquita", `<p>El <mark>Ramadán</mark> es el noveno mes del calendario musulmán. Durante ese mes, los musulmanes adultos y sanos <b>ayunan</b> desde el alba hasta la puesta de sol: no comen ni beben. Los niños pequeños, los enfermos, las embarazadas o quienes viajan no están obligados. Es un tiempo de oración, de autocontrol y de pensar en quienes pasan hambre. Al anochecer, las familias rompen el ayuno juntas, a menudo con dátiles y agua.</p><p>Como el calendario islámico es <b>lunar</b> y su año es unos once días más corto que el nuestro, el Ramadán cae cada año en una fecha distinta y va pasando por todas las estaciones.</p><p>Las dos grandes fiestas son la <b>Fiesta de la Ruptura del Ayuno</b>, al terminar el Ramadán, y la <b>Fiesta del Sacrificio</b> (o del cordero), que recuerda a Abraham y coincide con la peregrinación a <b>La Meca</b>.</p><p>La <b>mezquita</b> es el lugar de oración. Sus partes son:</p><ul><li>El <b>minarete</b>, la torre desde la que se llama a la oración.</li><li>La <b>sala de oración</b>, cubierta de alfombras y sin imágenes de personas.</li><li>El <b>mihrab</b>, un nicho en la pared que indica la dirección de La Meca.</li><li>La <b>fuente</b> para lavarse antes de rezar.</li></ul><p>El viernes al mediodía se celebra la oración comunitaria más importante de la semana.</p>`,
+        H6.flujo("Un día de Ramadán", ["alba|ayuno", "día|oración", "ocaso|se come", "noche|familia"], cMO), ["S3pIuquePoQ", "¿Qué es el Ramadán? / ¿Qué no se puede hacer en Ramadán? En 3 minutos.", "Geminis Vlogs", 149409]],
+    ],
+    "Religiones de Oriente": [
+      ["Lugares sagrados del mundo", `<p>Cada religión tiene lugares especialmente sagrados, a los que muchos fieles peregrinan:</p><ul><li><b>Jerusalén</b>: sagrada para tres religiones. Los judíos rezan ante el <b>Muro Occidental</b> (o de las Lamentaciones), lo que queda del antiguo Templo. Los cristianos visitan el <b>Santo Sepulcro</b>, donde según la tradición Jesús fue sepultado y resucitó. Los musulmanes veneran la <b>Cúpula de la Roca</b> y la mezquita de Al-Aqsa.</li><li><b>La Meca</b> (Arabia Saudí): en el centro de su gran mezquita está la <b>Kaaba</b>, un edificio cúbico cubierto con una tela negra, hacia el que rezan todos los musulmanes del mundo.</li><li><b>Roma</b> y el Vaticano, <b>Santiago de Compostela</b> o <b>Lourdes</b> (Francia): grandes destinos de peregrinación cristiana.</li><li><b>Benarés</b> (Varanasi, India): ciudad sagrada del hinduismo a orillas del río <b>Ganges</b>, donde los fieles se bañan para purificarse.</li><li><b>Bodh Gaya</b> (India): el lugar donde, según la tradición, Buda alcanzó la iluminación bajo un árbol.</li><li><b>Amritsar</b> (India): su <b>Templo Dorado</b> es el centro del sijismo y ofrece comida gratis cada día a miles de personas, sean de la religión que sean.</li></ul><p>Cuando visitamos un lugar sagrado, hay que respetar sus normas: vestir adecuadamente, guardar silencio o descalzarse cuando se pide.</p>`,
+        H6.rueda("Lugares sagrados", "PEREGRINAR", [["Jerusalén", cAZ], ["La Meca", cVE], ["Benarés", cNA], ["Santiago", cRO]])],
+    ],
+  },
+  final: [
+    ["Libertad religiosa en España", `<p>La <b>Constitución española</b> de 1978 garantiza en su artículo 16 la <mark>libertad religiosa</mark>: cada persona puede tener la religión que quiera, cambiar de religión o no tener ninguna, y nadie puede ser obligado a declarar sus creencias. Además, establece que «ninguna confesión tendrá carácter estatal»: España es un Estado <b>aconfesional</b>, aunque colabora con las distintas confesiones.</p><p>La mayoría de la población española se declara católica, pero en el país conviven muchas otras comunidades: <b>evangélicos</b> o protestantes, <b>musulmanes</b>, <b>judíos</b>, <b>ortodoxos</b>, <b>budistas</b>, testigos de Jehová, mormones, sijs e hindúes, entre otras. En 1992, el Estado firmó acuerdos de cooperación con las comunidades evangélica, judía y musulmana.</p><p>También hay muchas personas <b>no creyentes</b>: los <b>ateos</b>, que piensan que Dios no existe, y los <b>agnósticos</b>, que creen que no se puede saber. Sus convicciones merecen el mismo respeto.</p><p>La libertad religiosa tiene un límite: el respeto a los derechos de los demás y a las leyes. Ninguna creencia puede justificar la violencia o la discriminación.</p><p>En el colegio, respetar la libertad religiosa significa no burlarse de las creencias de nadie, interesarse por ellas y aceptar que cada familia viva su fe, o su ausencia de fe, a su manera.</p>`,
+      L6.filas("Constitución, art. 16", [["libertad", "creer o no creer", cAZ], ["aconfesional", "sin religión oficial", cVE], ["cooperación", "con las confesiones", cNA], ["límite", "derechos de todos", cRO]])],
+    ["Distintos calendarios, distintas fiestas", `<p>Las religiones han creado sus propios <b>calendarios</b> para organizar el tiempo y sus fiestas:</p><ul><li>El <b>calendario gregoriano</b>, el que usamos casi en todo el mundo, fue establecido en 1582 por el papa Gregorio XIII. Cuenta los años desde el nacimiento de Jesús, según los cálculos de un monje del siglo VI.</li><li>El <b>calendario judío</b> combina el sol y la luna y cuenta los años desde la creación del mundo, según la tradición. En 2026 empezó el año <b>5787</b>.</li><li>El <b>calendario islámico</b> es lunar y cuenta los años desde la <b>Hégira</b>, el viaje del profeta Mahoma de La Meca a Medina en el año 622. En 2026 empezó el año <b>1448</b>.</li></ul><p>Por eso muchas fiestas religiosas cambian de fecha cada año. Algunas de las más conocidas:</p><ul><li><b>Navidad</b> y <b>Pascua</b>, cristianas.</li><li><b>Janucá</b> y <b>Pésaj</b>, judías.</li><li><b>Fiesta de la Ruptura del Ayuno</b>, musulmana.</li><li><b>Diwali</b>, la fiesta hindú de las luces, con lámparas de aceite y fuegos artificiales.</li><li><b>Vesak</b>, en la que los budistas recuerdan el nacimiento, la iluminación y la muerte de Buda.</li></ul><p>Fíjate en que muchas tienen en común la <b>luz</b>, la <b>familia</b> y la <b>comida compartida</b>.</p>`,
+      H6.dos("Calendarios", ["SOLARES", ["gregoriano", "fechas fijas", "Navidad"], cNA], ["LUNARES", ["islámico", "fechas móviles", "Ramadán"], cMO])],
+  ],
+  ejemplos: [
+    ["Una fiesta dura ocho días y cada noche se enciende una vela más en un candelabro de nueve brazos. ¿Qué fiesta es?", ["Ocho días de luces.", "La janukiá."], "Janucá."],
+    ["¿Por qué el Ramadán no cae siempre en el mismo mes de nuestro calendario?", ["El calendario islámico es lunar.", "Su año es unos once días más corto."], "Porque va adelantándose cada año unos once días."],
+  ],
+  errores: ["Pensar que todos los musulmanes, incluidos niños y enfermos, deben ayunar.", "Creer que en España hay una religión oficial del Estado."],
+  ejercicios: [
+    ["b", "¿Cuándo empieza el Shabat?", "El viernes al ponerse el sol."],
+    ["b", "¿Qué es el mihrab?", "El nicho que indica la dirección de La Meca."],
+    ["b", "¿Qué es la Kaaba?", "El edificio cúbico sagrado de La Meca."],
+    ["b", "¿Qué artículo de la Constitución recoge la libertad religiosa?", "El artículo 16."],
+    ["b", "¿Qué es Diwali?", "La fiesta hindú de las luces."],
+    ["m", "¿Qué recuerda Pésaj y qué se come?", "La salida de Egipto; pan sin levadura."],
+    ["m", "Explica qué hacen los musulmanes durante el Ramadán.", "Ayunan del alba a la puesta de sol, rezan y comparten."],
+    ["m", "¿Por qué Jerusalén es sagrada para tres religiones?", "Tiene el Muro Occidental, el Santo Sepulcro y la Cúpula de la Roca."],
+    ["m", "Diferencia ateo y agnóstico.", "El ateo cree que Dios no existe; el agnóstico cree que no se puede saber."],
+    ["m", "¿Qué es la Hégira?", "El viaje de Mahoma de La Meca a Medina en 622."],
+    ["a", "Elabora un calendario de fiestas religiosas del curso.", "Respuesta abierta."],
+    ["a", "Investiga una judería o mezquita histórica de España.", "Respuesta abierta."],
+    ["a", "Escribe normas de respeto para visitar un lugar sagrado.", "Respuesta abierta."],
+    ["a", "Entrevista a una persona de otra religión sobre su fiesta favorita.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El Bar Mitzvá se celebra a los…", ["13 años", "7 años", "18 años"], "Judaísmo."],
+    ["El minarete sirve para…", ["llamar a la oración", "guardar libros", "lavarse"], "Mezquita."],
+    ["El Templo Dorado está en…", ["Amritsar", "La Meca", "Roma"], "Lugares."],
+    ["España es un Estado…", ["aconfesional", "católico oficial", "musulmán"], "España."],
+    ["El calendario gregoriano se estableció en…", ["1582", "622", "1992"], "Calendarios."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué objeto trae Daniel a clase?", ["una janukiá", "un belén", "una alfombra"], "Lectura."],
+    ["Maimónides fue un sabio judío nacido en…", ["Córdoba", "Toledo", "Girona"], "Sefarad."],
+  ],
+  tarjetas: [
+    ["Judaísmo", "Shabat, Pésaj, Yom Kipur, Janucá; Sefarad y Maimónides."],
+    ["Islam", "Ramadán, dos grandes fiestas, mezquita: minarete y mihrab."],
+    ["Lugares sagrados", "Jerusalén, La Meca, Benarés, Bodh Gaya, Amritsar."],
+    ["Convivencia", "Libertad religiosa (art. 16); calendarios solar y lunar."],
+  ],
+  glosario: [
+    ["Shabat", "Día de descanso judío."],
+    ["Matzá", "Pan sin levadura de la Pascua judía."],
+    ["Janukiá", "Candelabro de nueve brazos de Janucá."],
+    ["Sefarad", "Nombre hebreo de la península ibérica."],
+    ["Ramadán", "Mes de ayuno musulmán."],
+    ["Mihrab", "Nicho de la mezquita orientado a La Meca."],
+    ["Minarete", "Torre desde la que se llama a la oración."],
+    ["Kaaba", "Santuario cúbico de La Meca."],
+    ["Aconfesional", "Que no tiene religión oficial."],
+    ["Ateo", "Persona que cree que Dios no existe."],
+    ["Agnóstico", "Persona que cree que no se puede saber si Dios existe."],
+    ["Hégira", "Viaje de Mahoma a Medina en 622."],
+  ],
+  situacion: {
+    titulo: "Calendario de la convivencia",
+    reto: "La clase crea un calendario anual con fiestas de distintas religiones y tradiciones de las familias.",
+    pasos: ["Investigad fechas y significado de fiestas de varias religiones.", "Invitad a familias a explicar sus celebraciones, si lo desean.", "Diseñad el calendario con ilustraciones y textos breves.", "Colgad el calendario y celebrad un día de la convivencia."],
+    producto: "Un calendario intercultural ilustrado.",
+    evaluacion: ["Conoce fiestas y prácticas de varias religiones.", "Sitúa lugares sagrados en el mapa.", "Explica la libertad religiosa.", "Muestra respeto por todas las creencias."],
+  },
+});

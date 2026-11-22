@@ -87,3 +87,91 @@ module.exports = P.tema({
   ideas: ["Diseñar una vidriera con papel celofán.", "Dibujar un crismón y un pez con sus significados.", "Gincana de estilos con fotos de iglesias."],
   fuentes: [["Museu Nacional d'Art de Catalunya, colección románica", "https://www.museunacional.cat/es/coleccion/romanico"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las catacumbas y las primeras basílicas cristianas", "Comprender cómo se construían las catedrales", "Valorar la Semana Santa como patrimonio artístico", "Descubrir la música sagrada y el arte cristiano de otras culturas"],
+  lectura: { titulo: "La marca del cantero", html: `<p>Durante la visita a la catedral, el guía se detuvo junto a una columna y apuntó con su linterna a un sillar de piedra, a la altura de los ojos.</p><p>—Mirad bien. ¿Veis algo grabado?</p><p>Los de 6.º se acercaron. En la piedra había un pequeño dibujo: una especie de flecha con una cruz.</p><p>—Es una marca de cantero —explicó—. Cada picapedrero tenía la suya y la grababa en las piedras que tallaba. Así el maestro de obras sabía cuántas había hecho cada uno y les pagaba por ellas.</p><p>Empezó entonces una búsqueda frenética. Daniela encontró una estrella; Marc, una especie de llave; Aitor, una letra M al revés.</p><p>—Esta catedral tardó más de doscientos años en construirse —siguió el guía—. Muchos de los que pusieron las primeras piedras nunca la vieron terminada. Ni sus hijos. Ni sus nietos.</p><p>—¿Y por qué seguían? —preguntó Daniela.</p><p>—Porque sabían que estaban haciendo algo que duraría siglos. Ochocientos años después, aquí estáis vosotros, tocando su trabajo.</p><p>Al salir, Daniela pasó la mano por una de las marcas. Pensó en aquel cantero sin nombre y, en voz baja, le dio las gracias.</p>` },
+  tras: {
+    "Los primeros símbolos": [
+      ["Catacumbas y basílicas", `<p>Las <mark>catacumbas</mark> de Roma son kilómetros de galerías excavadas bajo tierra, con varios pisos, que los primeros cristianos usaban como <b>cementerios</b>. En sus paredes se abrían nichos para los difuntos y, en algunos espacios, pintaban escenas y símbolos de esperanza: el Buen Pastor con una oveja sobre los hombros, Jonás saliendo del pez, la paloma o el pez. Aunque a veces se dice que los cristianos vivían escondidos allí, en realidad eran lugares para enterrar y recordar a sus muertos.</p><p>Cuando el emperador Constantino dio libertad a los cristianos en el año 313, empezaron a construirse grandes edificios para el culto. Tomaron como modelo la <mark>basílica</mark> romana, un edificio público para tribunales y comercio:</p><ul><li>Planta <b>rectangular</b>, dividida en varias <b>naves</b> por filas de columnas.</li><li>Al fondo, un <b>ábside</b> semicircular donde se colocaba el altar.</li><li>Techos de madera y muros decorados con <b>mosaicos</b> brillantes de piedras y cristales dorados.</li></ul><p>Los mosaicos más espectaculares de esta época están en <b>Rávena</b> (Italia), del siglo VI, con figuras de emperadores, santos y paisajes sobre fondos de oro. La forma de la basílica, con naves y ábside, se repetiría durante siglos en las iglesias de toda Europa.</p>`,
+        H6.dos("Del subsuelo a la luz", ["CATACUMBAS", ["cementerios", "pinturas", "símbolos"], cMO], ["BASÍLICAS", ["tras el 313", "naves y ábside", "mosaicos"], cNA])],
+    ],
+    "El gótico": [
+      ["Construir una catedral", `<p>Una catedral gótica era una obra gigantesca que podía durar <b>siglos</b>. La catedral de Colonia, en Alemania, se empezó en 1248 y no se terminó hasta 1880.</p><p>En ella trabajaban cientos de personas organizadas en <b>gremios</b>:</p><ul><li>El <b>maestro de obras</b> dirigía todo: hacía los planos y resolvía los problemas técnicos. Era a la vez arquitecto e ingeniero.</li><li>Los <b>canteros</b> tallaban los bloques de piedra (sillares) y marcaban cada uno con su <b>marca de cantero</b>.</li><li>Los <b>carpinteros</b> hacían los andamios y las cimbras, unos moldes de madera para construir los arcos.</li><li>Los <b>escultores</b> decoraban las portadas, los capiteles y las <b>gárgolas</b>, figuras fantásticas que servían de desagüe para el agua de lluvia.</li><li>Los <b>vidrieros</b> fabricaban las vidrieras con trozos de cristal de colores unidos por tiras de plomo.</li></ul><p>No había grúas modernas: se usaban poleas y grandes ruedas de madera movidas por personas que caminaban dentro, como un hámster. Las catedrales eran el orgullo de la ciudad y también un libro abierto en piedra y luz.</p><p>Hoy hay iglesias que siguen en obras, como la <b>Sagrada Familia</b> de Gaudí en Barcelona, que se empezó en 1882 y aún se trabaja en ella.</p>`,
+        L6.filas("Oficios de la catedral", [["maestro de obras", "planos", cAZ], ["canteros", "sillares", cNA], ["escultores", "gárgolas", cMO], ["vidrieros", "vidrieras", cRO]])],
+    ],
+    "El barroco y la imaginería": [
+      ["La Semana Santa: arte en la calle", `<p>La <b>Semana Santa</b> española es una de las expresiones más impresionantes de arte religioso del mundo. Durante una semana, las <b>cofradías</b> sacan en procesión por las calles los <b>pasos</b>: grandes plataformas con esculturas que representan escenas de la pasión de Jesús o a la Virgen.</p><p>Muchas de esas esculturas son obras maestras de la <b>imaginería barroca</b> de los siglos XVII y XVIII, talladas en madera y policromadas para que parecieran reales: lágrimas de cristal, ojos de vidrio, sangre pintada, ropas que parecen tela.</p><ul><li>En <b>Valladolid</b> destaca <b>Gregorio Fernández</b>, con figuras de gran dramatismo. Sus pasos se guardan en el Museo Nacional de Escultura y salen cada año en procesión.</li><li>En <b>Sevilla</b>, <b>Juan Martínez Montañés</b> y <b>Juan de Mesa</b>, con imágenes serenas y elegantes.</li><li>En <b>Murcia</b>, <b>Francisco Salzillo</b>, con escenas llenas de personajes y vida.</li></ul><p>En la Semana Santa participan muchos oficios: tallistas, bordadores, orfebres, floristas, músicos de bandas, costaleros y nazarenos. Cada ciudad tiene su estilo: silenciosa y austera en Castilla, alegre y luminosa en Andalucía, con tambores en el Bajo Aragón. Muchas están declaradas de <b>Interés Turístico Internacional</b>.</p>`,
+        H6.rueda("Imagineros", "SEMANA SANTA", [["G. Fernández", cMO], ["Montañés", cAZ], ["Juan de Mesa", cVE], ["Salzillo", cRO]]), ["3z5xIzwOyms", "Gregorio Fernández, escultor", "Castilla y León Televisión", 9108]],
+    ],
+  },
+  final: [
+    ["La música sagrada", `<p>La música ha acompañado siempre la oración y la liturgia cristiana:</p><ul><li><b>Canto gregoriano</b> (Edad Media): canto a una sola voz, en latín, sin instrumentos y con un ritmo libre. Los monjes del monasterio de <b>Santo Domingo de Silos</b> (Burgos) se hicieron famosos en todo el mundo en los años 90 con un disco de canto gregoriano que vendió millones de copias.</li><li><b>Polifonía</b> (Renacimiento): varias voces entrelazadas. El abulense <b>Tomás Luis de Victoria</b> es uno de los grandes maestros de la música religiosa de su época.</li><li><b>Barroco</b>: Johann Sebastian Bach compuso cantatas y la <i>Pasión según san Mateo</i>; Händel, el oratorio <i>El Mesías</i>, con su famoso «Aleluya».</li><li><b>Órgano</b>: el instrumento por excelencia de las iglesias, con miles de tubos.</li><li><b>Gospel</b>: nacido en las iglesias afroamericanas de Estados Unidos, con coros llenos de ritmo, palmas y alegría.</li><li><b>Taizé</b>: cantos breves y repetitivos en muchos idiomas, de una comunidad ecuménica francesa, que se cantan en encuentros de jóvenes de todo el mundo.</li></ul><p>También muchos villancicos y saetas forman parte de la música religiosa popular española.</p>`,
+      L6.filas("Música sagrada", [["gregoriano", "una voz, latín", cAZ], ["polifonía", "Victoria", cVE], ["barroco", "Bach, Händel", cNA], ["gospel", "coros con ritmo", cRO]])],
+    ["Arte cristiano en otras culturas", `<p>El cristianismo se extendió por todos los continentes, y cada cultura lo expresó con su propio arte:</p><ul><li><b>Etiopía</b>: en <b>Lalibela</b>, entre los siglos XII y XIII, se excavaron once iglesias enteras en la roca volcánica, de arriba abajo, como si fueran esculturas gigantes. Son Patrimonio de la Humanidad y siguen usándose para el culto.</li><li><b>Rusia y Grecia</b>: los iconos, como la <i>Trinidad</i> de Andréi Rubliov, y las iglesias con cúpulas en forma de cebolla, pintadas de colores.</li><li><b>México</b>: la imagen de la <b>Virgen de Guadalupe</b>, de piel morena, es un símbolo religioso y nacional. En el arte colonial se mezclaron tradiciones indígenas y europeas, como en las iglesias decoradas por artesanos locales con frutas, plantas y animales americanos.</li><li><b>Chile</b>: las <b>iglesias de madera de Chiloé</b>, construidas con técnicas de los carpinteros navales de la isla, también Patrimonio de la Humanidad.</li><li><b>África y Asia</b>: artistas actuales representan a Jesús y a María con rasgos y vestidos de sus propios pueblos.</li></ul><p>Estas obras muestran que el arte religioso no es de un solo lugar: cada pueblo ha imaginado lo sagrado con sus formas y colores.</p>`,
+      H6.rueda("Por el mundo", "ARTE", [["Lalibela", cNA], ["iconos", cMO], ["Guadalupe", cRO], ["Chiloé", cVE]]), ["lhj-KKumrBs", "Lalibela 4K: Viaje a las Iglesias Subterráneas en español DOCUMENTAL", "Desafío Viajero", 159645]],
+  ],
+  ejemplos: [
+    ["En una pintura antigua de una galería subterránea aparece un pastor con una oveja sobre los hombros. ¿Dónde y de qué época puede ser?", ["Galería subterránea: catacumba.", "Símbolo del Buen Pastor."], "De una catacumba romana, arte paleocristiano."],
+    ["En la piedra de una catedral aparece grabada una pequeña estrella. ¿Qué es?", ["Los canteros firmaban sus sillares.", "Servía para cobrar."], "Una marca de cantero."],
+  ],
+  errores: ["Pensar que los primeros cristianos vivían en las catacumbas.", "Creer que una catedral gótica se construía en pocos años."],
+  ejercicios: [
+    ["b", "¿Qué eran las catacumbas?", "Cementerios subterráneos."],
+    ["b", "¿Qué es el ábside?", "La parte semicircular del fondo de la iglesia."],
+    ["b", "¿Para qué servían las gárgolas?", "Para desaguar el agua de lluvia."],
+    ["b", "¿Quién fue Salzillo?", "Un imaginero de Murcia."],
+    ["b", "¿Qué es el canto gregoriano?", "Canto a una voz, en latín, sin instrumentos."],
+    ["m", "Describe la planta de una basílica.", "Rectangular, con naves separadas por columnas y un ábside al fondo."],
+    ["m", "Nombra tres oficios de la construcción de una catedral.", "Maestro de obras, canteros, vidrieros."],
+    ["m", "¿Qué técnica hacía que las imágenes barrocas parecieran reales?", "La talla policromada con ojos y lágrimas de cristal."],
+    ["m", "¿Qué tienen de especial las iglesias de Lalibela?", "Están excavadas en la roca."],
+    ["m", "Compara el canto gregoriano y el gospel.", "Gregoriano: una voz, sin instrumentos; gospel: coros, ritmo y palmas."],
+    ["a", "Diseña tu propia marca de cantero y explica su significado.", "Respuesta abierta."],
+    ["a", "Investiga un paso de Semana Santa de tu comunidad.", "Respuesta abierta."],
+    ["a", "Escucha un fragmento de gregoriano y otro de gospel y descríbelos.", "Respuesta abierta."],
+    ["a", "Crea una presentación sobre arte cristiano en un continente.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Los grandes mosaicos del siglo VI están en…", ["Rávena", "Burgos", "Lalibela"], "Basílicas."],
+    ["La catedral de Colonia se terminó en…", ["1880", "1300", "2000"], "Catedrales."],
+    ["Gregorio Fernández trabajó en…", ["Valladolid", "Sevilla", "Murcia"], "Semana Santa."],
+    ["Tomás Luis de Victoria era de…", ["Ávila", "Silos", "Roma"], "Música."],
+    ["Las iglesias de madera de Chiloé están en…", ["Chile", "México", "Etiopía"], "Culturas."],
+  ],
+  examen: [
+    ["En la lectura, ¿para qué servían las marcas de cantero?", ["para cobrar por las piedras talladas", "como adorno", "para rezar"], "Lectura."],
+    ["La Virgen de Guadalupe es un símbolo de…", ["México", "Rusia", "Etiopía"], "Culturas."],
+  ],
+  tarjetas: [
+    ["Primeros tiempos", "Catacumbas (cementerios) y basílicas (naves, ábside, mosaicos)."],
+    ["Catedrales", "Siglos de obra; maestro de obras, canteros, gárgolas, vidrieras."],
+    ["Semana Santa", "Pasos e imaginería: Gregorio Fernández, Montañés, Salzillo."],
+    ["Música y mundo", "Gregoriano, Victoria, Bach, gospel; Lalibela, Guadalupe, Chiloé."],
+  ],
+  glosario: [
+    ["Catacumba", "Galería subterránea usada como cementerio."],
+    ["Basílica", "Edificio de planta rectangular con naves y ábside."],
+    ["Nave", "Espacio alargado de una iglesia."],
+    ["Mosaico", "Imagen hecha con pequeñas piezas de piedra o cristal."],
+    ["Gremio", "Asociación de personas de un mismo oficio."],
+    ["Marca de cantero", "Señal grabada en la piedra por quien la talló."],
+    ["Gárgola", "Figura que sirve de desagüe en los tejados."],
+    ["Cofradía", "Asociación que organiza procesiones."],
+    ["Paso", "Plataforma con esculturas que sale en procesión."],
+    ["Policromía", "Pintura de varios colores sobre una escultura."],
+    ["Oratorio", "Obra musical religiosa para voces y orquesta."],
+    ["Gospel", "Música religiosa afroamericana."],
+  ],
+  situacion: {
+    titulo: "Guía de arte sacro de mi localidad",
+    reto: "La clase elabora una guía de arte religioso de la localidad o la comarca.",
+    pasos: ["Haced un inventario de iglesias, ermitas, pasos o retablos cercanos.", "Clasificad cada obra por estilo y época.", "Fotografiad y describid sus elementos con vocabulario artístico.", "Publicad la guía y explicad una obra a otra clase."],
+    producto: "Una guía ilustrada del arte religioso local.",
+    evaluacion: ["Reconoce estilos del arte cristiano.", "Usa vocabulario artístico adecuado.", "Valora el patrimonio como herencia común.", "Muestra respeto por el significado religioso."],
+  },
+});

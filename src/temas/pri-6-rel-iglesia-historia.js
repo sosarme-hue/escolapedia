@@ -87,3 +87,91 @@ module.exports = P.tema({
   ideas: ["Línea del tiempo gigante de la Iglesia en el pasillo.", "Taller de copista: escribir una frase con letra caligráfica.", "Debate sobre las luces y sombras de las misiones."],
   fuentes: [["Concilio Vaticano II, documentos", "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la vida y los viajes de Pablo de Tarso", "Comprender el origen y el valor del Camino de Santiago", "Descubrir grandes figuras cristianas españolas", "Entender qué son los concilios y cómo se organiza la Iglesia hoy"],
+  lectura: { titulo: "La concha en la mochila", html: `<p>El verano pasado, Irene hizo con sus padres los últimos cien kilómetros del Camino de Santiago, desde Sarria. Llevaba una concha de vieira colgada de la mochila, como todos los peregrinos.</p><p>El primer día le salieron dos ampollas y quiso abandonar. El segundo, llovió sin parar. Pero el tercero conoció a Kenji, un chico japonés que caminaba con su abuelo, y a una señora alemana de setenta años que hacía el Camino por quinta vez.</p><p>—¿Por qué lo haces? —le preguntó Irene a la señora.</p><p>—Cada vez por una razón distinta —contestó ella—. La primera fue por fe. Luego, por pensar. Ahora, por la gente que encuentro.</p><p>Por las noches, en los albergues, se mezclaban idiomas, risas y consejos para los pies. Irene sellaba cada día su credencial en iglesias, bares y albergues.</p><p>Cuando por fin llegaron a la plaza del Obradoiro y vieron la fachada de la catedral, Irene se sentó en el suelo, agotada y feliz, como cientos de peregrinos a su alrededor.</p><p>—Mil años de personas caminando hasta aquí —le dijo su padre—. Y ahora tú eres una de ellas.</p>` },
+  tras: {
+    "Las primeras comunidades": [
+      ["Pablo de Tarso, el gran viajero", `<p><b>Pablo</b> (o Saulo, su nombre judío) nació en Tarso, una ciudad de la actual Turquía. Era un judío muy culto y, al principio, <b>perseguía</b> a los cristianos. Según los Hechos de los Apóstoles, en el camino hacia Damasco una luz lo derribó y escuchó la voz de Jesús. Se quedó ciego unos días y, después, se convirtió en el mayor difusor del cristianismo. Por eso hoy decimos «caerse del caballo» cuando alguien cambia radicalmente de opinión, aunque el relato no menciona ningún caballo.</p><p>Pablo realizó <b>tres grandes viajes misioneros</b> por el Mediterráneo, a pie y en barco, fundando comunidades en ciudades de Asia Menor y Grecia, como Éfeso, Filipos, Tesalónica o Corinto. Sufrió naufragios, cárceles y peligros de todo tipo.</p><p>Desde lejos, escribía <b>cartas</b> a esas comunidades para animarlas y resolver sus problemas. Muchas forman parte del Nuevo Testamento: la Carta a los Romanos, las dos a los Corintios, a los Gálatas… En la primera a los Corintios hay un famoso himno al amor: «el amor es paciente, es servicial; no tiene envidia…».</p><p>Pablo insistió en que el mensaje de Jesús era para <b>todos los pueblos</b>, no solo para los judíos. Según la tradición, murió mártir en Roma hacia el año 67.</p>`,
+        H6.flujo("Vida de Pablo", ["Tarso|nacimiento", "Damasco|conversión", "viajes|y cartas", "Roma|martirio"], cAZ), ["u36BMQaZgsY", "Historia Bíblica NIÑOS ⭐ Apóstol Pablo | Todo lo que necesitas saber", "Héroes de Fe Kids - Historias biblicas para Niños", 20546]],
+    ],
+    "Monjes y monasterios": [
+      ["El Camino de Santiago", `<p>Según la tradición, en el siglo IX se descubrió en Galicia el sepulcro del apóstol <b>Santiago el Mayor</b>, uno de los doce. Sobre él se construyó una iglesia que, siglos después, se convirtió en la catedral de <b>Santiago de Compostela</b>. Desde entonces, personas de toda Europa empezaron a peregrinar hasta allí: nacía el <mark>Camino de Santiago</mark>.</p><p>En la Edad Media fue una de las tres grandes peregrinaciones de la cristiandad, junto con Roma y Jerusalén. A lo largo del camino surgieron pueblos, puentes, hospitales para peregrinos, monasterios e iglesias románicas y góticas. Por él viajaron no solo personas, sino también ideas, estilos artísticos y lenguas.</p><p>Hay muchas rutas, pero la más conocida es el <b>Camino Francés</b>, que entra desde Francia por los Pirineos. Sus símbolos son la <b>concha de vieira</b>, la <b>flecha amarilla</b> que señala el camino y la <b>credencial</b>, un cuaderno que se sella en cada etapa. Quien recorre al menos los últimos 100 km a pie o 200 en bicicleta puede recibir la <b>Compostela</b>, el certificado del peregrino.</p><p>Hoy lo recorren cada año cientos de miles de personas de todo el mundo, creyentes y no creyentes. El Camino Francés fue declarado <b>Patrimonio de la Humanidad</b> y el primer Itinerario Cultural Europeo.</p>`,
+        L6.filas("Símbolos del Camino", [["vieira", "concha del peregrino", cNA], ["flecha amarilla", "señala la ruta", cAZ], ["credencial", "sellos", cVE], ["Compostela", "certificado", cRO]]), ["H4fqso1BYV0", "Camino de Santiago: Qué es y porqué se hace? Historia, Significado y Consejos para Peregrinos", "Viajando con Piti & Emi", 70233]],
+    ],
+    "Misioneros por el mundo": [
+      ["Grandes figuras cristianas españolas", `<p>En el siglo XVI, España dio algunas de las figuras más influyentes de la historia de la Iglesia:</p><ul><li><b>Teresa de Jesús</b> (1515-1582), de Ávila. Fue una monja carmelita valiente y llena de humor que reformó su orden y fundó diecisiete conventos viajando en carro por caminos difíciles. Escribió libros de espiritualidad que son también obras maestras de la literatura en castellano. En 1970 fue la primera mujer nombrada <b>Doctora de la Iglesia</b>.</li><li><b>Juan de la Cruz</b> (1542-1591): amigo y colaborador de Teresa, fraile y uno de los mayores poetas de nuestra lengua.</li><li><b>Ignacio de Loyola</b> (1491-1556): un soldado guipuzcoano que, herido en una batalla, cambió de vida durante su recuperación. Fundó la <b>Compañía de Jesús</b> (los jesuitas), que creó colegios y universidades por todo el mundo.</li><li><b>Francisco Javier</b> (1506-1552): navarro, compañero de Ignacio, viajó como misionero a la India, Indonesia y Japón.</li><li><b>Bartolomé de las Casas</b> (1484-1566): fraile dominico que, tras ver los abusos contra los pueblos indígenas en América, dedicó su vida a defender sus derechos ante los reyes.</li></ul><p>Sus obras y escritos se siguen leyendo hoy en todo el mundo.</p>`,
+        H6.rueda("Siglo XVI", "ESPAÑA", [["Teresa", cMO], ["Juan de la Cruz", cAZ], ["Ignacio", cNA], ["F. Javier", cVE]]), ["dpiIbfjBdms", "Santa Teresa de Jesús 🤔biografía resumida", "unProfesor", 89434]],
+    ],
+  },
+  final: [
+    ["Los concilios: la Iglesia se reúne", `<p>Un <mark>concilio</mark> es una gran reunión de los obispos de la Iglesia para tomar decisiones importantes sobre la fe y la vida cristiana. A lo largo de la historia ha habido varios muy importantes:</p><ul><li><b>Concilio de Nicea</b> (año 325): convocado por el emperador Constantino, redactó la base del <b>Credo</b>, la oración que resume la fe cristiana.</li><li><b>Concilio de Trento</b> (1545-1563): respondió a la Reforma protestante, organizó la formación de los sacerdotes en los seminarios y fijó muchas normas que duraron cuatro siglos.</li><li><b>Concilio Vaticano II</b> (1962-1965): convocado por el papa Juan XXIII para «abrir las ventanas» de la Iglesia al mundo moderno. Fue el más numeroso de la historia, con más de dos mil obispos de todos los continentes.</li></ul><p>El Vaticano II cambió muchas cosas: la misa, que se celebraba en latín, pasó a celebrarse en la <b>lengua de cada pueblo</b>, con el sacerdote mirando a la comunidad; se animó a los fieles a leer la Biblia; se impulsó el <b>diálogo</b> con otras iglesias cristianas, con otras religiones y con los no creyentes; y se defendió la <b>libertad religiosa</b> de todas las personas.</p><p>Muchas de las cosas que hoy ves en una iglesia vienen de aquel concilio.</p>`,
+      L6.filas("Concilios", [["Nicea", "325, el Credo", cAZ], ["Trento", "1545-1563", cMO], ["Vaticano II", "1962-1965", cVE], ["cambio", "misa en cada lengua", cNA]])],
+    ["La Iglesia hoy: el papa y el Vaticano", `<p>La Iglesia católica tiene unos 1400 millones de fieles en todo el mundo, y hoy la mayoría vive en América, África y Asia, no en Europa.</p><p>Está organizada en <b>diócesis</b>, cada una dirigida por un <b>obispo</b>, y las diócesis se dividen en <b>parroquias</b>, a cargo de un párroco. Al frente de toda la Iglesia está el <mark>papa</mark>, que es el obispo de Roma. Los católicos creen que es el sucesor de san Pedro, al que Jesús encargó guiar a los apóstoles.</p><p>Cuando un papa muere o renuncia, los <b>cardenales</b> se reúnen encerrados en la Capilla Sixtina para elegir al siguiente: es el <b>cónclave</b>. Votan varias veces al día y queman las papeletas: si sale <b>humo negro</b> por la chimenea, no hay acuerdo; si sale <b>humo blanco</b>, ya hay nuevo papa. En 2025 fue elegido <b>León XIV</b>, el primer papa nacido en Estados Unidos.</p><p>El papa vive en la <b>Ciudad del Vaticano</b>, en Roma, el <b>estado más pequeño del mundo</b>: menos de medio kilómetro cuadrado. Tiene su propio sello, su bandera amarilla y blanca y la famosa <b>Guardia Suiza</b>, con uniformes de rayas de colores. Allí están la basílica de San Pedro y los Museos Vaticanos, con la Capilla Sixtina.</p>`,
+      H6.flujo("Organización", ["papa|Roma", "obispos|diócesis", "párrocos|parroquias", "fieles|comunidad"], cRO)],
+  ],
+  ejemplos: [
+    ["Alguien dice que un amigo «se ha caído del caballo» porque ha cambiado totalmente de opinión. ¿De qué relato viene la expresión?", ["Pablo cambió de vida camino de Damasco.", "Se convirtió de perseguidor en apóstol."], "De la conversión de Pablo."],
+    ["Una peregrina llega a Santiago tras andar 120 km. ¿Puede recibir la Compostela?", ["Hace falta un mínimo de 100 km a pie.", "Ha hecho más."], "Sí, si ha sellado su credencial."],
+  ],
+  errores: ["Pensar que el Camino de Santiago solo lo hacen personas religiosas.", "Creer que la misa siempre se ha celebrado en castellano."],
+  ejercicios: [
+    ["b", "¿Dónde nació Pablo?", "En Tarso."],
+    ["b", "¿Qué símbolo llevan los peregrinos a Santiago?", "La concha de vieira."],
+    ["b", "¿Quién fundó la Compañía de Jesús?", "Ignacio de Loyola."],
+    ["b", "¿Qué es un concilio?", "Una gran reunión de obispos."],
+    ["b", "¿Cuál es el estado más pequeño del mundo?", "La Ciudad del Vaticano."],
+    ["m", "¿Qué hacía Pablo con las cartas?", "Animaba a las comunidades y resolvía sus problemas."],
+    ["m", "¿Por qué el Camino de Santiago fue importante en la Edad Media?", "Unió Europa: viajaron personas, ideas, arte y lenguas."],
+    ["m", "¿Qué tiene de especial Teresa de Jesús?", "Reformadora, escritora y primera mujer Doctora de la Iglesia."],
+    ["m", "Escribe dos cambios del Vaticano II.", "Misa en la lengua de cada pueblo y diálogo con otras religiones."],
+    ["m", "Explica cómo se elige al papa.", "Los cardenales votan en cónclave; humo blanco cuando hay elección."],
+    ["a", "Traza en un mapa los viajes de Pablo.", "Respuesta abierta."],
+    ["a", "Planifica las etapas de los últimos 100 km del Camino Francés.", "Respuesta abierta."],
+    ["a", "Lee un poema breve de Teresa de Jesús o Juan de la Cruz y coméntalo.", "Respuesta abierta."],
+    ["a", "Investiga la historia de la parroquia o monasterio más cercano.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Pablo se convirtió camino de…", ["Damasco", "Roma", "Belén"], "Pablo."],
+    ["La flecha amarilla indica…", ["el Camino de Santiago", "una salida de emergencia", "una iglesia"], "Camino."],
+    ["Francisco Javier fue misionero en…", ["Asia", "América", "África"], "Figuras."],
+    ["El Credo se fijó en el concilio de…", ["Nicea", "Trento", "Vaticano II"], "Concilios."],
+    ["Si sale humo blanco del cónclave…", ["hay nuevo papa", "no hay acuerdo", "hay fuego"], "Vaticano."],
+  ],
+  examen: [
+    ["En la lectura, ¿desde dónde empieza Irene el Camino?", ["Sarria", "Roncesvalles", "Santiago"], "Lectura."],
+    ["Bartolomé de las Casas defendió a…", ["los pueblos indígenas", "los reyes", "los soldados"], "Figuras."],
+  ],
+  tarjetas: [
+    ["Pablo", "Tarso, Damasco, tres viajes, cartas, Roma."],
+    ["Camino de Santiago", "Vieira, flecha amarilla, credencial, Compostela."],
+    ["España, s. XVI", "Teresa de Jesús, Juan de la Cruz, Ignacio, F. Javier, Las Casas."],
+    ["Concilios y Vaticano", "Nicea, Trento, Vaticano II; papa, cónclave, León XIV."],
+  ],
+  glosario: [
+    ["Conversión", "Cambio profundo de vida."],
+    ["Misionero", "Persona que difunde su fe en otros lugares."],
+    ["Carta apostólica", "Escrito de un apóstol a una comunidad."],
+    ["Peregrino", "Persona que viaja a un lugar sagrado."],
+    ["Credencial", "Cuaderno del peregrino que se sella en cada etapa."],
+    ["Compostela", "Certificado de haber hecho el Camino."],
+    ["Doctora de la Iglesia", "Título para santos de enseñanza destacada."],
+    ["Jesuita", "Miembro de la Compañía de Jesús."],
+    ["Concilio", "Reunión de obispos para decidir sobre la fe."],
+    ["Diócesis", "Territorio dirigido por un obispo."],
+    ["Cónclave", "Reunión de cardenales para elegir al papa."],
+    ["Guardia Suiza", "Cuerpo que protege al papa."],
+  ],
+  situacion: {
+    titulo: "Un camino con historia",
+    reto: "La clase diseña una ruta de peregrinación o una ruta histórica por el patrimonio religioso de su entorno.",
+    pasos: ["Investigad iglesias, monasterios o caminos históricos cercanos.", "Elaborad un mapa con etapas, distancias y puntos de interés.", "Preparad una credencial propia con un sello para cada lugar.", "Realizad una parte de la ruta y presentad lo aprendido."],
+    producto: "Una ruta con mapa, credencial y fichas de cada lugar.",
+    evaluacion: ["Conoce momentos clave de la historia de la Iglesia.", "Valora el patrimonio religioso y cultural.", "Planifica una ruta con datos reales.", "Trabaja en equipo con respeto."],
+  },
+});
