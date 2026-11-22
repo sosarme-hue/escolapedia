@@ -139,3 +139,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Preparar pasta de sal casera para modelar", "Conocer esculturas famosas", "Saber cómo se ha usado el barro en la historia", "Descubrir la animación con plastilina"],
+  lectura: { titulo: "El ejército de barro", html: `<p>Hace muchos años, en China, unos campesinos cavaban un pozo para buscar agua. De pronto, una pala chocó contra algo duro.</p><p>—¡Aquí hay algo! —gritó uno de ellos.</p><p>Con cuidado, apartaron la tierra y apareció una <b>cabeza de barro</b>. Tenía ojos, nariz y hasta bigote. Parecía una persona de verdad.</p><p>Llamaron a unos expertos, que siguieron excavando. ¡No podían creer lo que veían! Bajo la tierra había <b>miles de soldados</b> de barro, colocados en filas, con sus caballos y sus carros.</p><p>Los habían hecho hace más de dos mil años, para acompañar a un emperador. Lo más sorprendente era que <b>cada soldado tenía una cara diferente</b>: unos sonreían, otros estaban serios, unos eran jóvenes y otros mayores.</p><p>Hoy se les llama los <b>guerreros de terracota</b>, y personas de todo el mundo viajan a China para verlos.</p><p>Todo empezó buscando agua… ¡y encontraron un ejército!</p>` },
+  tras: {
+    "Plastilina y arcilla": [
+      ["Pasta de sal casera", `<p>Podemos fabricar nuestro propio material de modelar en casa: la <mark>pasta de sal</mark>.</p><p>Ingredientes:</p><ul><li>Dos vasos de <b>harina</b>.</li><li>Un vaso de <b>sal</b> fina.</li><li>Un vaso de <b>agua</b> templada.</li></ul><p>Pasos:</p><ul><li>Mezcla la harina y la sal en un bol.</li><li>Añade el agua <b>poco a poco</b> mientras remueves.</li><li>Amasa con las manos hasta que la masa sea suave y no se pegue.</li><li>Modela tus figuras.</li><li>Déjalas secar varios días al aire, o pide a un adulto que las meta en el horno.</li><li>Cuando estén duras, píntalas con témperas.</li></ul><p>¡Ojo!: aunque lleva harina, la pasta de sal <b>no se come</b>: tiene muchísima sal.</p><p><b>Actividad</b>: prepara pasta de sal con un adulto y modela un colgante con forma de estrella.</p>`,
+        L6.filas("Pasta de sal", [["harina", "2 vasos", cNA], ["sal", "1 vaso", cAZ], ["agua", "1 vaso", cVE], ["secar", "días u horno", cRO]])],
+    ],
+    "Plano y con volumen": [
+      ["Esculturas famosas", `<p>Una <mark>escultura</mark> es una obra de arte con volumen, que se puede rodear y mirar por todos los lados. Algunas son muy famosas:</p><ul><li><b>El pensador</b>, de Rodin: un hombre sentado con la mano en la barbilla, pensando.</li><li><b>El David</b>, de Miguel Ángel: un joven de mármol de más de cinco metros.</li><li>La <b>Estatua de la Libertad</b>, en Nueva York: una mujer con una antorcha.</li><li>Las cabezas de la <b>Isla de Pascua</b>: enormes caras de piedra mirando al mar.</li></ul><p>Las esculturas se hacen con muchos materiales: <b>piedra, madera, metal, barro</b>… Algunas se tallan quitando material y otras se modelan añadiéndolo.</p><p><b>Actividad</b>: imita con tu cuerpo la postura de El pensador y después modélalo en plastilina.</p>`,
+        H6.dos("Esculturas", ["FAMOSAS", ["El pensador", "El David", "Libertad"], cAZ], ["MATERIALES", ["piedra", "madera", "metal"], cMO])],
+    ],
+    "Unir las piezas": [
+      ["El barro en la historia", `<p>Las personas modelan el <mark>barro</mark> desde hace miles de años. ¡Es uno de los materiales más antiguos!</p><ul><li>En la <b>Prehistoria</b> hacían vasijas para guardar agua y alimentos.</li><li>En <b>China</b> hicieron los guerreros de terracota: miles de soldados de barro a tamaño real.</li><li>En <b>Grecia</b> pintaban sus vasijas con dibujos de héroes y animales.</li><li>En <b>España</b> se hacían botijos para mantener el agua fresca y tejas para los tejados.</li><li>En muchas casas se ponen figuritas de barro en Navidad.</li></ul><p>Cuando el barro se cuece en un horno muy caliente, se vuelve duro y de color rojizo: se llama <b>terracota</b>, que significa «tierra cocida».</p><p><b>Actividad</b>: modela en plastilina una pequeña vasija con la técnica de churros y decórala con rayas.</p>`,
+        L6.filas("Barro", [["Prehistoria", "vasijas", cNA], ["China", "guerreros", cRO], ["Grecia", "vasos pintados", cAZ], ["España", "botijos", cVE]])],
+    ],
+    "Herramientas y detalles": [
+      ["Un caracol paso a paso", `<p>Vamos a modelar un <mark>caracol</mark> usando las técnicas que ya conocemos:</p><ul><li>Haz un <b>churro</b> largo de un color para la concha.</li><li>Enróllalo sobre sí mismo formando una <b>espiral</b>.</li><li>Haz otro churro más grueso de otro color para el cuerpo. Dobla un extremo hacia arriba para la cabeza.</li><li>Pega la concha encima del cuerpo, apretando con suavidad.</li><li>Haz dos churritos finos para los <b>cuernos</b> y dos bolitas para los ojos.</li><li>Con un palillo, dibuja una <b>sonrisa</b>.</li></ul><p>Si usas plastilina de dos colores en la concha, enrollándolos juntos, quedará a rayas.</p><p><b>Actividad</b>: modela una familia de caracoles de distintos tamaños y colores.</p>`,
+        H6.flujo("Caracol", ["churro|largo", "enrollar|espiral", "cuerpo|y concha", "cuernos|y ojos"], cVE),
+        ["WzzW9PgsFoY", "Cómo modelar un caracol de colores", "Gelly Clay Creations", 2897256]],
+    ],
+  },
+  final: [
+    ["Plastilina que se mueve", `<p>¿Sabías que muchas películas de dibujos se hacen con <mark>plastilina</mark>? La técnica se llama <b>animación fotograma a fotograma</b> o, en inglés, <i>stop motion</i>.</p><ul><li>Se modela un <b>personaje</b> y se coloca en un decorado.</li><li>Se le hace una <b>foto</b>.</li><li>Se mueve un poquito: un brazo, la boca…</li><li>Se hace otra foto. Y así, cientos de veces.</li><li>Al pasar todas las fotos muy deprisa, ¡parece que el personaje <b>se mueve</b>!</li></ul><p>Para un solo segundo de película hacen falta unas <b>doce fotos</b>. ¡Hacer una película entera puede tardar años!</p><p>Con una tableta y una aplicación sencilla, nosotros también podemos hacer una animación corta.</p><p><b>Actividad</b>: modela una bola que se convierte poco a poco en un caracol, y haz una foto en cada paso.</p>`,
+      H6.flujo("Animar", ["modelar|personaje", "foto|1", "mover|poquito", "foto|otra vez"], cMO)],
+    ["Repaso: el ejército de barro", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Unos campesinos de <b>China</b> cavaban un pozo para buscar agua.</li><li>Encontraron una <b>cabeza de barro</b>.</li><li>Los expertos descubrieron <b>miles de soldados</b>, con caballos y carros.</li><li>Tenían más de <b>dos mil años</b>.</li><li>Cada soldado tenía una <b>cara diferente</b>.</li><li>Se llaman <b>guerreros de terracota</b>: tierra cocida.</li></ul><p>Los artistas que los modelaron trabajaron con el mismo material que nosotros usamos en clase: el barro.</p><p><b>Actividad</b>: entre toda la clase, modelad un pequeño ejército de figuras, cada una con una cara distinta.</p>`,
+      L6.filas("Guerreros", [["dónde", "China", cRO], ["cuántos", "miles", cAZ], ["edad", "dos mil años", cNA], ["caras", "todas distintas", cVE]])],
+  ],
+  ejemplos: [
+    ["¿Qué significa terracota?", ["Barro cocido en horno."], "Tierra cocida."],
+    ["¿Cuántas fotos hacen falta para un segundo de animación?", ["Unas cuantas por segundo."], "Unas doce."],
+  ],
+  errores: ["Echar toda el agua de golpe en la pasta de sal.", "Pensar que la pasta de sal se puede comer."],
+  ejercicios: [
+    ["b", "¿Qué ingredientes lleva la pasta de sal?", "Harina, sal y agua."],
+    ["b", "¿Quién hizo El pensador?", "Rodin."],
+    ["b", "¿Dónde están los guerreros de terracota?", "En China."],
+    ["b", "¿Con qué técnica se hace la concha del caracol?", "Con un churro enrollado."],
+    ["b", "¿Qué es una escultura?", "Una obra de arte con volumen."],
+    ["m", "¿De qué material es El David?", "De mármol."],
+    ["m", "¿Para qué servían los botijos?", "Para mantener el agua fresca."],
+    ["m", "¿Qué es el stop motion?", "Animación con fotos de figuras que se mueven poco a poco."],
+    ["m", "¿Cómo se seca la pasta de sal?", "Al aire varios días o en el horno."],
+    ["m", "Di dos materiales para esculturas.", "Piedra, madera, metal, barro…"],
+    ["a", "En la lectura, ¿qué buscaban los campesinos?", "Agua."],
+    ["a", "¿Qué tenía de especial cada soldado?", "Una cara diferente."],
+    ["a", "¿Por qué hacer una película de plastilina tarda tanto?", "Porque hay que hacer muchísimas fotos."],
+    ["a", "Explica la diferencia entre tallar y modelar.", "Tallar es quitar material; modelar es añadirlo y darle forma."],
+  ],
+  quiz: [
+    ["La pasta de sal…", ["no se come", "es un postre", "es pintura"], "Pasta de sal."],
+    ["El pensador tiene la mano en…", ["la barbilla", "el pie", "la cabeza"], "Esculturas."],
+    ["Terracota es tierra…", ["cocida", "mojada", "de colores"], "Barro."],
+    ["La concha del caracol es una…", ["espiral", "placa", "bola"], "Caracol."],
+    ["En el stop motion, entre foto y foto se…", ["mueve un poco", "rompe", "pinta"], "Animar."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué apareció primero?", ["una cabeza de barro", "un caballo", "un carro"], "Lectura."],
+    ["¿Cuántos años tienen los guerreros?", ["más de dos mil", "diez", "cien"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Pasta de sal", "Dos de harina, uno de sal y uno de agua."],
+    ["Terracota", "Barro cocido. Los guerreros de China son de terracota."],
+  ],
+  glosario: [
+    ["Pasta de sal", "Masa de harina, sal y agua para modelar."],
+    ["Escultura", "Obra de arte con volumen."],
+    ["Tallar", "Dar forma quitando material."],
+    ["Mármol", "Piedra blanca y dura."],
+    ["Terracota", "Barro cocido."],
+    ["Vasija", "Recipiente para guardar líquidos."],
+    ["Botijo", "Vasija de barro que enfría el agua."],
+    ["Emperador", "Gobernante de un imperio."],
+    ["Stop motion", "Animación con fotos de figuras."],
+    ["Fotograma", "Cada una de las fotos de una película."],
+  ],
+  situacion: {
+    titulo: "Nuestra película de plastilina",
+    reto: "La clase crea personajes de plastilina y pasta de sal y graba una pequeña animación con una tableta.",
+    pasos: ["Preparar pasta de sal y modelar el decorado.", "Modelar los personajes con plastilina.", "Hacer fotos moviendo un poco los personajes cada vez.", "Ver la película en clase y presentarla a las familias."],
+    producto: "Una animación corta de plastilina.",
+    evaluacion: ["Prepara pasta de sal.", "Conoce esculturas famosas.", "Sabe usos del barro en la historia.", "Entiende la animación fotograma a fotograma."],
+  },
+});

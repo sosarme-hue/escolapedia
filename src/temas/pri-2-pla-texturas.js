@@ -141,3 +141,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer las texturas de los animales", "Hacer texturas con puntos y con esgrafiado", "Conocer a Max Ernst y el frotado", "Descubrir texturas en la ciudad"],
+  lectura: { titulo: "Las manos de Tomás", html: `<p>Tomás no podía ver bien desde que era pequeño. Pero tenía un superpoder: sus <b>manos</b> lo descubrían todo.</p><p>Un día, la clase fue a la granja escuela. Sus compañeros miraban los animales, pero Tomás prefería <b>tocarlos</b>.</p><p>—La oveja es <b>esponjosa</b> y rizada, como una nube —dijo.</p><p>Luego acarició una tortuga.</p><p>—Su caparazón es <b>duro</b> y tiene dibujos, como baldosas.</p><p>Tocó el tronco de un árbol: <b>rugoso</b>, lleno de surcos. Tocó una piedra del río: <b>lisa</b> y fría. Tocó la cresta de la gallina: <b>blandita</b> y arrugada.</p><p>Sus compañeros cerraron los ojos e intentaron hacer lo mismo. ¡Era mucho más difícil de lo que pensaban!</p><p>—¿Cómo lo haces? —preguntó Daniela.</p><p>—Despacio —respondió Tomás—. Las manos también miran, pero hay que darles tiempo.</p><p>Aquella tarde, toda la clase aprendió a «mirar» con los dedos.</p>` },
+  tras: {
+    "Texturas que se tocan": [
+      ["Texturas de los animales", `<p>Cada animal tiene una <mark>piel</mark> con una textura diferente, que le ayuda a vivir:</p><ul><li><b>Pelo</b>: suave y cálido, como el del gato o el oso. Les protege del frío.</li><li><b>Plumas</b>: ligeras y suaves, como las de los pájaros. Les ayudan a volar.</li><li><b>Escamas</b>: lisas o duras, como las de los peces y los lagartos. Les protegen.</li><li><b>Caparazón</b>: duro y rígido, como el de la tortuga o el cangrejo.</li><li><b>Púas</b>: pinchudas, como las del erizo. ¡Nadie se acerca!</li><li><b>Piel lisa y húmeda</b>: como la de la rana.</li></ul><p>Para dibujar estas texturas usamos trazos distintos: rayitas cortas para el pelo, semicírculos para las escamas, líneas en punta para las púas.</p><p><b>Actividad</b>: dibuja un erizo, un pez y un pájaro, cada uno con su textura.</p>`,
+        L6.filas("Animales", [["gato", "pelo", cNA], ["pájaro", "plumas", cAZ], ["pez", "escamas", cVE], ["erizo", "púas", cMO]])],
+    ],
+    "Texturas que se ven": [
+      ["Texturas con puntos", `<p>Con solo <mark>puntos</mark> podemos crear texturas y hasta cuadros enteros.</p><ul><li>Muchos puntos <b>juntos</b> hacen una zona oscura.</li><li>Pocos puntos <b>separados</b> hacen una zona clara.</li><li>Puntos de distintos <b>tamaños</b> dan sensación de arena, piedra o cielo estrellado.</li></ul><p>Hace más de cien años, unos pintores franceses inventaron el <b>puntillismo</b>: pintaban todo el cuadro con puntitos de colores puros, uno al lado del otro. De lejos, nuestros ojos los mezclan.</p><p>Para hacerlo en clase podemos usar <b>bastoncillos</b> mojados en témpera, la punta del rotulador o el dedo.</p><p>Hace falta paciencia, pero el resultado es mágico.</p><p><b>Actividad</b>: pinta un sol solo con puntos de bastoncillo: amarillos en el centro y naranjas alrededor.</p>`,
+        H6.dos("Puntos", ["JUNTOS", ["oscuro", "denso", "sombra"], cMO], ["SEPARADOS", ["claro", "ligero", "luz"], cNA])],
+    ],
+    "El frotado": [
+      ["Max Ernst y el frotado", `<p><mark>Max Ernst</mark> fue un pintor alemán al que le encantaban las texturas.</p><ul><li>Un día, mirando el suelo de madera de su casa, vio dibujos en las <b>vetas</b>.</li><li>Puso un papel encima y lo frotó con un lápiz: ¡aparecieron formas sorprendentes!</li><li>A esta técnica la llamó <b>frottage</b>, que en francés significa «frotado».</li><li>Después miraba las manchas y descubría en ellas <b>bosques, animales</b> y personajes fantásticos.</li><li>Frotaba hojas, telas, cuerdas, monedas… y combinaba las texturas en sus cuadros.</li></ul><p>Sus obras parecen de otro mundo: bosques extraños, pájaros raros y ciudades misteriosas.</p><p><b>Actividad</b>: frota varias texturas en un papel y, después, mira qué ves en ellas y conviértelas en un animal fantástico.</p>`,
+        H6.flujo("Frottage", ["papel|encima", "frotar|lápiz", "mirar|formas", "imaginar|animal"], cVE)],
+    ],
+    "Inventar texturas": [
+      ["El esgrafiado", `<p>El <mark>esgrafiado</mark> es una técnica mágica: se dibuja <b>rascando</b>.</p><p>Pasos:</p><ul><li>Pinta toda una cartulina con <b>ceras de colores</b> muy apretadas, por manchas.</li><li>Cubre todo con una capa de <b>cera negra</b> o témpera negra con un poco de jabón.</li><li>Con un <b>palillo</b>, una moneda o la punta de un clip abierto, rasca la capa negra.</li><li>Donde rascas, aparecen los colores de debajo como líneas de luz.</li></ul><p>Con el esgrafiado podemos hacer texturas muy finas: plumas, pelo, hierba, fuegos artificiales…</p><p>Queda precioso para dibujar escenas de <b>noche</b>, porque el fondo es oscuro.</p><p><b>Actividad</b>: haz un esgrafiado de fuegos artificiales sobre una ciudad de noche.</p>`,
+        L6.filas("Esgrafiado", [["1", "ceras de colores", cRO], ["2", "capa negra", cMO], ["3", "rascar", cAZ], ["4", "¡aparece el color!", cNA]]),
+        ["WrVpPGCIvDk", "Cómo hacer un dibujo esgrafiado, simple y rápido", "CLARA BRISA", 689734]],
+    ],
+  },
+  final: [
+    ["Texturas en la ciudad", `<p>Si salimos a la calle con atención, descubriremos muchas <mark>texturas</mark>:</p><ul><li>Las <b>paredes de ladrillo</b>: rectángulos con líneas entre ellos.</li><li>Las <b>aceras</b> y baldosas: cuadrados, círculos o dibujos.</li><li>Las <b>alcantarillas</b>: rejillas y dibujos en el metal.</li><li>La <b>corteza</b> de los árboles de los parques: rugosa.</li><li>Las <b>vallas</b> y rejas: líneas que se cruzan.</li><li>Los <b>adoquines</b> de las plazas antiguas: piedras redondeadas.</li></ul><p>Algunas baldosas tienen <b>bultos o rayas</b> en el suelo. Sirven para que las personas ciegas sepan que llegan a un paso de peatones: ¡se leen con los pies y el bastón!</p><p><b>Actividad</b>: en un paseo por el barrio, haz frotados de tres texturas de la calle.</p>`,
+      H6.rueda("Calle", "CALLE", [["ladrillo", cRO], ["baldosa", cAZ], ["corteza", cVE], ["reja", cNA]])],
+    ["Repaso: las manos de Tomás", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Tomás no ve bien, pero descubre todo con sus <b>manos</b>.</li><li>La oveja: <b>esponjosa</b> y rizada.</li><li>La tortuga: caparazón <b>duro</b>, como baldosas.</li><li>El tronco: <b>rugoso</b>.</li><li>La piedra del río: <b>lisa</b> y fría.</li><li>La cresta de la gallina: <b>blandita</b> y arrugada.</li></ul><p>Tomás enseña a la clase que las manos también «miran», si les damos <b>tiempo</b>.</p><p><b>Actividad</b>: con los ojos cerrados, toca tres objetos y descríbelos con palabras de textura.</p>`,
+      L6.filas("Tomás", [["oveja", "esponjosa", cNA], ["tortuga", "dura", cVE], ["tronco", "rugoso", cMO], ["piedra", "lisa", cAZ]])],
+  ],
+  ejemplos: [
+    ["¿Qué textura tiene el erizo?", ["Tiene púas."], "Pinchuda."],
+    ["En el esgrafiado, ¿qué aparece al rascar?", ["Debajo hay ceras."], "Los colores de debajo."],
+  ],
+  errores: ["Pintar las ceras flojas en el esgrafiado: luego no sale el color.", "Poner los puntos todos iguales y a la misma distancia."],
+  ejercicios: [
+    ["b", "¿Qué textura tienen los peces?", "Escamas."],
+    ["b", "¿Qué es el puntillismo?", "Pintar con puntos de colores."],
+    ["b", "¿Qué significa frottage?", "Frotado."],
+    ["b", "¿Con qué se rasca en el esgrafiado?", "Con un palillo o una moneda."],
+    ["b", "¿Cómo es la oveja para Tomás?", "Esponjosa y rizada."],
+    ["m", "¿Para qué sirven las plumas a los pájaros?", "Para volar."],
+    ["m", "¿Cómo haces una zona oscura con puntos?", "Poniendo muchos puntos juntos."],
+    ["m", "¿Qué vio Max Ernst en el suelo de madera?", "Dibujos en las vetas."],
+    ["m", "¿Por qué el esgrafiado queda bien para la noche?", "Porque el fondo es oscuro."],
+    ["m", "¿Para qué sirven las baldosas con bultos?", "Para que las personas ciegas sepan dónde hay un paso."],
+    ["a", "En la lectura, ¿qué superpoder tiene Tomás?", "Descubre todo con sus manos."],
+    ["a", "¿Qué consejo da Tomás para tocar?", "Hacerlo despacio, con tiempo."],
+    ["a", "¿Qué hacía Max Ernst con sus frotados?", "Descubría formas e inventaba seres fantásticos."],
+    ["a", "Explica los pasos del esgrafiado.", "Ceras de colores, capa negra y rascar."],
+  ],
+  quiz: [
+    ["El caparazón es…", ["duro", "esponjoso", "líquido"], "Animales."],
+    ["Pocos puntos separados hacen una zona…", ["clara", "oscura", "negra"], "Puntos."],
+    ["Max Ernst inventó el…", ["frottage", "collage", "mosaico"], "Frottage."],
+    ["En el esgrafiado se dibuja…", ["rascando", "pegando", "soplando"], "Esgrafiado."],
+    ["La corteza del árbol es…", ["rugosa", "lisa", "blanda"], "Calle."],
+  ],
+  examen: [
+    ["En la lectura, ¿adónde fue la clase?", ["a una granja escuela", "a la playa", "al cine"], "Lectura."],
+    ["¿Cómo era la piedra del río?", ["lisa y fría", "rugosa", "pinchuda"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Texturas de animales", "Pelo, plumas, escamas, caparazón y púas."],
+    ["Técnicas", "Puntillismo (puntos), frottage (frotar) y esgrafiado (rascar)."],
+  ],
+  glosario: [
+    ["Escamas", "Placas pequeñas de la piel de peces y reptiles."],
+    ["Caparazón", "Cubierta dura de algunos animales."],
+    ["Púas", "Pinchos del erizo."],
+    ["Puntillismo", "Pintura con puntos de colores."],
+    ["Frottage", "Técnica de frotar con lápiz sobre una superficie."],
+    ["Veta", "Línea o dibujo de la madera."],
+    ["Esgrafiado", "Dibujo hecho rascando una capa de color."],
+    ["Adoquín", "Piedra que cubre algunas calles."],
+    ["Esponjoso", "Blando y lleno de aire."],
+    ["Rugoso", "Con arrugas o bultos."],
+  ],
+  situacion: {
+    titulo: "El libro de las texturas",
+    reto: "La clase hace un libro que se puede tocar y mirar, con texturas de animales, frotados de la calle y técnicas como el esgrafiado.",
+    pasos: ["Recoger frotados de texturas del colegio y del barrio.", "Dibujar animales con su textura.", "Hacer una página de esgrafiado y otra de puntillismo.", "Encuadernar todas las páginas en un libro de la clase."],
+    producto: "Un libro de texturas para mirar y tocar.",
+    evaluacion: ["Reconoce texturas de animales.", "Usa puntos y esgrafiado.", "Conoce a Max Ernst.", "Descubre texturas en la ciudad."],
+  },
+});

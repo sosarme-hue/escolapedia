@@ -138,3 +138,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los retratos de frutas de Arcimboldo", "Distinguir paisajes de montaña, mar y ciudad", "Ver cómo cambia un paisaje con las estaciones", "Saber qué es un bodegón"],
+  lectura: { titulo: "El árbol de Clara", html: `<p>Delante de la ventana de Clara había un árbol muy grande. Un día de <b>otoño</b>, decidió dibujarlo. Lo pintó con hojas naranjas, rojas y amarillas, y muchas hojas por el suelo.</p><p>En <b>invierno</b>, volvió a mirar por la ventana. ¡El árbol estaba desnudo! Solo tenía ramas, y encima había nieve. Lo dibujó otra vez, con colores blancos y grises.</p><p>Cuando llegó la <b>primavera</b>, el árbol se llenó de hojitas verdes claras y flores rosas. Clara sacó sus ceras y lo dibujó de nuevo.</p><p>En <b>verano</b>, el árbol era una enorme copa verde oscura, y debajo jugaban niños a la sombra. Clara hizo el cuarto dibujo.</p><p>Después, colgó los cuatro dibujos en fila en la pared de su habitación.</p><p>—Es el mismo árbol —le dijo a su padre—, pero parecen cuatro distintos.</p><p>—Así es —respondió él—. Los paisajes cambian, igual que nosotros.</p>` },
+  tras: {
+    "¿Qué es un retrato?": [
+      ["Arcimboldo, caras de fruta", `<p><mark>Giuseppe Arcimboldo</mark> fue un pintor italiano que hacía unos retratos muy sorprendentes.</p><ul><li>Sus caras estaban hechas de <b>frutas, verduras, flores</b>, peces o libros.</li><li>Una pera era la nariz, unas cerezas los ojos, una calabaza la cabeza…</li><li>De lejos, parece una <b>persona</b>; de cerca, ¡es un frutero!</li><li>Pintó las <b>cuatro estaciones</b> como cuatro personajes: la primavera hecha de flores, el verano de frutas, el otoño de uvas y setas, y el invierno de un tronco viejo.</li></ul><p>A estas imágenes, que se pueden ver de dos maneras, las llamamos <b>imágenes dobles</b>.</p><p>Arcimboldo trabajaba para un emperador, al que le encantaban sus cuadros divertidos.</p><p><b>Actividad</b>: con recortes de frutas de revistas de supermercado, forma una cara al estilo Arcimboldo.</p>`,
+        L6.filas("Arcimboldo", [["nariz", "pera", cVE], ["ojos", "cerezas", cRO], ["pelo", "uvas", cMO], ["mejillas", "manzanas", cNA]]),
+        ["YPij7syu21w", "5 minutos de arte: las verduras de Arcimboldo", "RZ100arte Arte en familia", 43576]],
+    ],
+    "¿Qué es un paisaje?": [
+      ["Montaña, mar y ciudad", `<p>Hay muchos tipos de <mark>paisajes</mark>. Los podemos agrupar según lo que aparece en ellos:</p><ul><li><b>Paisaje de montaña</b>: picos, a veces con nieve, bosques, ríos y prados. Los colores suelen ser verdes, marrones y blancos.</li><li><b>Paisaje marino</b>: el mar, la playa, las olas, barcos, faros y rocas. Predominan los azules.</li><li><b>Paisaje urbano</b>: la ciudad, con edificios, calles, coches, semáforos y farolas. Hay muchas líneas rectas.</li><li><b>Paisaje rural</b>: el campo, con granjas, campos de cultivo, animales y caminos.</li></ul><p>Muchos pintores se especializaron en un tipo: Sorolla pintaba el mar; otros pintaban ciudades o montañas.</p><p><b>Actividad</b>: divide un folio en cuatro y dibuja un paisaje de cada tipo.</p>`,
+        H6.rueda("Paisajes", "PAISAJE", [["montaña", cVE], ["mar", cAZ], ["ciudad", cMO], ["campo", cNA]])],
+    ],
+    "Cerca y lejos": [
+      ["El paisaje en las estaciones", `<p>Un mismo paisaje <mark>cambia</mark> mucho a lo largo del año:</p><ul><li><b>Primavera</b>: hojas verdes claras, flores de colores, cielo con nubes blancas.</li><li><b>Verano</b>: verde oscuro, sol fuerte, cielo azul intenso, campos dorados.</li><li><b>Otoño</b>: hojas naranjas, rojas, amarillas y marrones; muchas en el suelo.</li><li><b>Invierno</b>: árboles sin hojas, nieve, cielo gris y colores fríos.</li></ul><p>También cambia con la <b>hora</b> del día: al amanecer, el cielo es rosado; a mediodía, azul; al atardecer, naranja; y de noche, azul oscuro con estrellas.</p><p>Los pintores eligen sus colores según la estación y la hora que quieren mostrar.</p><p><b>Actividad</b>: dibuja el mismo árbol cuatro veces, uno en cada estación, como Clara.</p>`,
+        L6.filas("Estaciones", [["primavera", "flores", cVE], ["verano", "sol fuerte", cNA], ["otoño", "hojas naranjas", cRO], ["invierno", "nieve", cAZ]])],
+    ],
+    "Colores del paisaje": [
+      ["El bodegón", `<p>Además de retratos y paisajes, hay otro tipo de cuadro muy conocido: el <mark>bodegón</mark>.</p><ul><li>Un bodegón representa <b>objetos quietos</b> sobre una mesa.</li><li>Suelen aparecer <b>frutas</b>, flores, jarras, platos, panes o botellas.</li><li>El pintor coloca los objetos con cuidado antes de empezar.</li><li>Se fija en la <b>luz</b>: qué parte de cada objeto está iluminada y dónde está la sombra.</li><li>Como los objetos no se mueven, se puede pintar con calma y mucho detalle.</li></ul><p>Pintores españoles como <b>Zurbarán</b> o <b>Sánchez Cotán</b> hicieron bodegones famosos, con frutas que parecen de verdad.</p><p><b>Actividad</b>: coloca sobre la mesa una manzana, un vaso y un libro, y dibújalos tal como los ves.</p>`,
+        H6.flujo("Bodegón", ["elegir|objetos", "colocar|en la mesa", "mirar|luz y sombra", "pintar|con calma"], cMO)],
+    ],
+  },
+  final: [
+    ["La fotografía: retratos y paisajes", `<p>Con una <mark>cámara</mark> también podemos hacer retratos y paisajes:</p><ul><li>En un <b>retrato</b>, acércate a la persona y que su cara ocupe buena parte de la foto.</li><li>En un <b>paisaje</b>, aléjate y que se vea mucho espacio.</li><li>No pongas el horizonte justo en el centro: mejor un poco <b>más arriba o más abajo</b>.</li><li>Pon el sol <b>detrás de ti</b>, no delante, para que la foto no salga oscura.</li><li>Pide <b>permiso</b> antes de fotografiar a alguien.</li></ul><p>Un retrato de uno mismo con el móvil se llama <b>selfi</b>: es un autorretrato moderno.</p><p>Antes de la fotografía, la única forma de tener un retrato era que alguien lo pintara.</p><p><b>Actividad</b>: con una tableta de clase, haz un retrato de un compañero y una foto de paisaje desde la ventana.</p>`,
+      H6.dos("Foto", ["RETRATO", ["cerca", "cara grande", "permiso"], cRO], ["PAISAJE", ["lejos", "mucho espacio", "horizonte"], cAZ])],
+    ["Repaso: el árbol de Clara", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Clara dibujó el árbol de su ventana en <b>cuatro estaciones</b>.</li><li><b>Otoño</b>: hojas naranjas, rojas y amarillas.</li><li><b>Invierno</b>: ramas desnudas y nieve.</li><li><b>Primavera</b>: hojitas verdes y flores rosas.</li><li><b>Verano</b>: una gran copa verde oscura con sombra.</li><li>Colgó los cuatro dibujos en <b>fila</b>.</li></ul><p>Su padre le enseñó que los paisajes <b>cambian</b>, igual que las personas.</p><p><b>Actividad</b>: observa durante el curso un árbol del patio y dibújalo cada estación.</p>`,
+      H6.flujo("Árbol", ["otoño|naranja", "invierno|nieve", "primavera|flores", "verano|sombra"], cVE)],
+  ],
+  ejemplos: [
+    ["En un cuadro de Arcimboldo, ¿qué puede ser la nariz?", ["Está hecho de frutas."], "Una pera."],
+    ["¿Qué tipo de paisaje tiene semáforos y farolas?", ["Hay edificios y calles."], "Urbano."],
+  ],
+  errores: ["Pintar un árbol de invierno lleno de hojas verdes.", "Poner el sol delante al hacer una foto."],
+  ejercicios: [
+    ["b", "¿De qué hacía las caras Arcimboldo?", "De frutas, verduras y flores."],
+    ["b", "¿Qué tipo de paisaje tiene el mar?", "Marino."],
+    ["b", "¿Qué es un bodegón?", "Un cuadro de objetos quietos."],
+    ["b", "¿Cómo son los árboles en otoño?", "Con hojas naranjas, rojas y amarillas."],
+    ["b", "¿Qué es un selfi?", "Una foto de uno mismo."],
+    ["m", "¿Qué es una imagen doble?", "Una que se puede ver de dos maneras."],
+    ["m", "¿Qué hay en un paisaje rural?", "Granjas, campos y animales."],
+    ["m", "¿De qué color es el cielo al atardecer?", "Naranja."],
+    ["m", "Nombra un pintor español de bodegones.", "Zurbarán o Sánchez Cotán."],
+    ["m", "¿Dónde pones el horizonte en una foto?", "Un poco más arriba o más abajo del centro."],
+    ["a", "En la lectura, ¿qué le dijo Clara a su padre?", "Que era el mismo árbol pero parecían cuatro distintos."],
+    ["a", "¿Por qué el bodegón se puede pintar con calma?", "Porque los objetos no se mueven."],
+    ["a", "¿Cómo pintó Arcimboldo el invierno?", "Como un tronco viejo."],
+    ["a", "Describe un paisaje urbano de noche.", "Respuesta libre: edificios con luces, farolas, cielo oscuro."],
+  ],
+  quiz: [
+    ["Arcimboldo hacía caras con…", ["frutas", "piedras", "números"], "Arcimboldo."],
+    ["El paisaje urbano es de…", ["ciudad", "mar", "montaña"], "Paisajes."],
+    ["En invierno los árboles…", ["no tienen hojas", "tienen flores", "dan sombra"], "Estaciones."],
+    ["En un bodegón aparecen…", ["frutas y jarras", "personas", "montañas"], "Bodegón."],
+    ["Para fotografiar a alguien hay que pedir…", ["permiso", "dinero", "silencio"], "Foto."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué dibujó Clara?", ["un árbol", "un perro", "su casa"], "Lectura."],
+    ["¿Cuántos dibujos colgó?", ["cuatro", "dos", "diez"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Arcimboldo", "Retratos hechos de frutas, verduras y flores: imágenes dobles."],
+    ["Tipos de cuadro", "Retrato (personas), paisaje (lugares) y bodegón (objetos quietos)."],
+  ],
+  glosario: [
+    ["Arcimboldo", "Pintor de caras de frutas."],
+    ["Imagen doble", "La que se ve de dos maneras."],
+    ["Urbano", "De la ciudad."],
+    ["Rural", "Del campo."],
+    ["Marino", "Del mar."],
+    ["Bodegón", "Cuadro de objetos quietos."],
+    ["Estación", "Cada una de las cuatro partes del año."],
+    ["Atardecer", "Momento en que se pone el sol."],
+    ["Selfi", "Foto que uno se hace a sí mismo."],
+    ["Copa", "Parte de arriba del árbol con las hojas."],
+  ],
+  situacion: {
+    titulo: "Galería de retratos, paisajes y bodegones",
+    reto: "Cada alumno crea tres obras: un retrato al estilo Arcimboldo, un paisaje de una estación y un bodegón de clase.",
+    pasos: ["Hacer un retrato con recortes de frutas y verduras.", "Elegir un tipo de paisaje y una estación y pintarlo.", "Montar un bodegón en la mesa y dibujarlo.", "Exponer las tres obras agrupadas por tipos."],
+    producto: "Una galería con los tres tipos de cuadro.",
+    evaluacion: ["Conoce a Arcimboldo.", "Distingue tipos de paisaje.", "Cambia los colores según la estación.", "Sabe qué es un bodegón."],
+  },
+});

@@ -140,3 +140,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las playas de Sorolla y los nenúfares de Monet", "Descubrir La gran ola de Hokusai", "Saber que el arte también está en la calle, como Gaudí", "Conocer museos importantes de España"],
+  lectura: { titulo: "Una noche en el museo", html: `<p>Era el día de la excursión al museo. Marta caminaba por las salas con su clase, mirando cuadros enormes.</p><p>De repente, se paró delante de un cuadro con un <b>mar azul</b> y unos niños jugando en la playa. La luz era tan brillante que parecía de verdad.</p><p>—¡Casi puedo oír las olas! —dijo Marta.</p><p>La guía del museo sonrió.</p><p>—Lo pintó <b>Sorolla</b>, un pintor de Valencia. Le encantaba pintar al aire libre, en la misma playa, para atrapar la luz del sol.</p><p>Después vieron un cuadro de <b>flores flotando en un estanque</b>, pintado con manchas de colores. De cerca, solo eran pinceladas. Pero al alejarse… ¡aparecían los nenúfares!</p><p>—Es de <b>Monet</b> —explicó la guía—. Pintó su jardín cientos de veces.</p><p>Al salir, Marta le dijo a su maestra:</p><p>—Cuando sea mayor, quiero pintar la luz.</p><p>Aquella noche soñó que se metía dentro del cuadro de Sorolla y se bañaba en el mar.</p>` },
+  tras: {
+    "Las Meninas": [
+      ["Sorolla, el pintor de la luz", `<p><mark>Joaquín Sorolla</mark> fue un pintor español, nacido en Valencia. Es conocido como el «pintor de la luz».</p><ul><li>Pintaba sobre todo <b>playas</b>, el mar y niños bañándose.</li><li>Le gustaba pintar <b>al aire libre</b>, con el caballete en la arena.</li><li>Sabía pintar muy bien el <b>agua</b>, los reflejos y la ropa blanca movida por el viento.</li><li>Sus cuadros transmiten <b>calor</b> y alegría de verano.</li><li>Uno de los más conocidos es <b>Paseo a orillas del mar</b>: dos mujeres vestidas de blanco caminando junto al agua.</li></ul><p>En Madrid se puede visitar la casa donde vivía, que hoy es el <b>Museo Sorolla</b>, con su jardín.</p><p><b>Actividad</b>: pinta una playa con mucha luz: usa mucho blanco y amarillo, y sombras azules.</p>`,
+        L6.filas("Sorolla", [["de", "Valencia", cNA], ["pintaba", "playas", cAZ], ["dónde", "al aire libre", cVE], ["museo", "Madrid", cRO]]),
+        ["EmXtXShc9ek", "Joaquín Sorolla: Niños en la playa", "musicyarte", 25166]],
+    ],
+    "La noche estrellada": [
+      ["Monet y los nenúfares", `<p><mark>Claude Monet</mark> fue un pintor francés. Pertenecía a un grupo de pintores llamados <b>impresionistas</b>.</p><ul><li>Pintaba con <b>pinceladas rápidas</b> y manchas de color.</li><li>De cerca, sus cuadros parecen manchas; de lejos, aparece la imagen.</li><li>Quería pintar la <b>impresión</b> de un momento: la luz de la mañana, la niebla, el atardecer.</li><li>Pintó muchas veces lo mismo a distintas horas para ver cómo cambiaba la luz.</li><li>En su casa tenía un <b>jardín</b> con un estanque lleno de <b>nenúfares</b> y un puente japonés. ¡Lo pintó cientos de veces!</li></ul><p>Algunos cuadros de nenúfares son tan grandes que ocupan una sala entera.</p><p><b>Actividad</b>: pinta un estanque con nenúfares usando solo manchas de témpera, sin dibujar líneas.</p>`,
+        H6.dos("Monet", ["PINTABA", ["manchas", "luz", "rápido"], cAZ], ["TEMAS", ["nenúfares", "jardín", "puente"], cVE])],
+    ],
+    "Miró, colores y estrellas": [
+      ["La gran ola de Hokusai", `<p><mark>Hokusai</mark> fue un artista de <b>Japón</b> que vivió hace unos doscientos años. Su obra más famosa es <b>La gran ola de Kanagawa</b>.</p><ul><li>Muestra una <b>ola gigante</b>, azul y blanca, a punto de caer.</li><li>La espuma de la ola parece <b>garras</b> o dedos.</li><li>Debajo hay unas <b>barcas</b> con pescadores agarrados con fuerza.</li><li>Al fondo, muy pequeño, se ve el <b>monte Fuji</b>, la montaña más alta de Japón, con nieve.</li></ul><p>No es una pintura: es un <b>grabado</b>. Se tallaba el dibujo en una plancha de madera, se le ponía tinta y se imprimía en papel. Así se podían hacer muchas copias.</p><p><b>Actividad</b>: busca el monte Fuji en el cuadro. Después, dibuja tu propia ola gigante con garras de espuma.</p>`,
+        L6.filas("La gran ola", [["ola", "gigante", cAZ], ["espuma", "garras", cVE], ["barcas", "pescadores", cNA], ["fondo", "monte Fuji", cMO]])],
+    ],
+    "¿Qué es un museo?": [
+      ["Arte en la calle: Gaudí", `<p>El arte no solo está en los museos: también lo encontramos en la <mark>calle</mark>. Un gran ejemplo es <b>Antoni Gaudí</b>, un arquitecto de Cataluña.</p><ul><li>Hacía edificios con formas <b>curvas</b>, inspiradas en la naturaleza: árboles, conchas, huesos.</li><li>Decoraba con <b>trencadís</b>: trocitos de cerámica rota de colores, como un mosaico.</li><li>En el <b>Park Güell</b> de Barcelona hay un dragón (o lagarto) cubierto de trencadís.</li><li>Su obra más famosa es la <b>Sagrada Familia</b>, una iglesia enorme que todavía se sigue construyendo.</li><li>La <b>Casa Batlló</b> parece tener escamas de dragón en el tejado.</li></ul><p>Los murales, las estatuas de las plazas y las fuentes también son arte que podemos ver gratis.</p><p><b>Actividad</b>: decora la silueta de un lagarto con trencadís de papel de colores.</p>`,
+        H6.rueda("Gaudí", "GAUDÍ", [["curvas", cRO], ["trencadís", cNA], ["dragón", cVE], ["Barcelona", cAZ]])],
+    ],
+  },
+  final: [
+    ["Museos de España", `<p>En España hay <mark>museos</mark> muy importantes que reciben visitantes de todo el mundo:</p><ul><li><b>Museo del Prado</b> (Madrid): tiene Las Meninas de Velázquez y muchas obras de Goya.</li><li><b>Museo Reina Sofía</b> (Madrid): allí está el Guernica de Picasso.</li><li><b>Museo Guggenheim</b> (Bilbao): un edificio brillante con forma de barco. En la entrada hay un perro gigante hecho de flores.</li><li><b>Fundación Miró</b> (Barcelona): con muchas obras de Joan Miró.</li><li><b>Museo Picasso</b> (Málaga), en la ciudad donde nació el pintor.</li></ul><p>Muchos museos tienen <b>talleres para niños</b> y días con entrada gratis.</p><p>Algunos también se pueden visitar por internet, con <b>visitas virtuales</b>.</p><p><b>Actividad</b>: haz una visita virtual a un museo con tu familia y elige tu cuadro favorito.</p>`,
+      L6.filas("Museos", [["Prado", "Madrid", cAZ], ["Reina Sofía", "Madrid", cRO], ["Guggenheim", "Bilbao", cVE], ["Picasso", "Málaga", cNA]])],
+    ["Repaso: una noche en el museo", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Marta fue de <b>excursión</b> al museo con su clase.</li><li>Vio un cuadro de <b>playa</b> con mucha luz, de <b>Sorolla</b>.</li><li>Sorolla pintaba <b>al aire libre</b> para atrapar la luz.</li><li>Vio unos <b>nenúfares</b> de <b>Monet</b>, hechos con manchas.</li><li>De cerca eran pinceladas; de <b>lejos</b>, aparecían las flores.</li><li>Marta quiere, de mayor, <b>pintar la luz</b>.</li></ul><p>Visitar un museo nos ayuda a descubrir lo que nos gusta y a soñar con nuestras propias obras.</p><p><b>Actividad</b>: dibuja el sueño de Marta: ella bañándose dentro del cuadro de Sorolla.</p>`,
+      H6.flujo("Marta", ["museo|excursión", "Sorolla|luz", "Monet|manchas", "sueño|bañarse"], cAZ)],
+  ],
+  ejemplos: [
+    ["¿Por qué los cuadros de Monet se ven mejor de lejos?", ["Están hechos de manchas."], "Porque las manchas se juntan y aparece la imagen."],
+    ["¿Qué montaña aparece en La gran ola?", ["Al fondo, con nieve."], "El monte Fuji."],
+  ],
+  errores: ["Pensar que el arte solo está dentro de los museos.", "Mirar un cuadro impresionista solo de muy cerca."],
+  ejercicios: [
+    ["b", "¿De dónde era Sorolla?", "De Valencia."],
+    ["b", "¿Qué flores pintaba Monet?", "Nenúfares."],
+    ["b", "¿De qué país era Hokusai?", "De Japón."],
+    ["b", "¿Qué es el trencadís?", "Trocitos de cerámica de colores."],
+    ["b", "¿Dónde está el Museo del Prado?", "En Madrid."],
+    ["m", "¿Qué significa pintar al aire libre?", "Pintar fuera, en el mismo lugar que se pinta."],
+    ["m", "¿Cómo se llamaba el grupo de Monet?", "Impresionistas."],
+    ["m", "¿Qué es un grabado?", "Un dibujo tallado en una plancha que se imprime."],
+    ["m", "¿Cuál es la obra más famosa de Gaudí?", "La Sagrada Familia."],
+    ["m", "¿Qué hay en la entrada del Guggenheim?", "Un perro gigante de flores."],
+    ["a", "En la lectura, ¿qué quiere hacer Marta de mayor?", "Pintar la luz."],
+    ["a", "¿Por qué Monet pintaba lo mismo a distintas horas?", "Para ver cómo cambiaba la luz."],
+    ["a", "¿Por qué con un grabado se pueden hacer muchas copias?", "Porque la plancha se entinta e imprime muchas veces."],
+    ["a", "¿Dónde se puede ver el Guernica?", "En el Museo Reina Sofía de Madrid."],
+  ],
+  quiz: [
+    ["Sorolla es el pintor de la…", ["luz", "noche", "nieve"], "Sorolla."],
+    ["Monet pintaba con…", ["manchas", "reglas", "tijeras"], "Monet."],
+    ["La gran ola es de…", ["Hokusai", "Goya", "Miró"], "La gran ola."],
+    ["El dragón de trencadís está en el…", ["Park Güell", "Prado", "Louvre"], "Gaudí."],
+    ["El Guggenheim está en…", ["Bilbao", "Sevilla", "Madrid"], "Museos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué cuadro casi le hacía oír las olas?", ["el de Sorolla", "el de Monet", "La Gioconda"], "Lectura."],
+    ["¿Qué soñó Marta?", ["que se bañaba en el cuadro", "que volaba", "que era pintora"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Sorolla y Monet", "Sorolla: playas llenas de luz. Monet: nenúfares con manchas."],
+    ["Hokusai y Gaudí", "Hokusai: La gran ola. Gaudí: trencadís y Sagrada Familia."],
+  ],
+  glosario: [
+    ["Sorolla", "Pintor valenciano de la luz."],
+    ["Monet", "Pintor impresionista francés."],
+    ["Impresionismo", "Pintura de manchas y luz."],
+    ["Nenúfar", "Planta con flores que flota en el agua."],
+    ["Hokusai", "Artista japonés de La gran ola."],
+    ["Grabado", "Imagen impresa desde una plancha."],
+    ["Gaudí", "Arquitecto de formas curvas."],
+    ["Trencadís", "Mosaico de cerámica rota."],
+    ["Arquitecto", "Persona que diseña edificios."],
+    ["Visita virtual", "Recorrido por internet."],
+  ],
+  situacion: {
+    titulo: "Nuestro pequeño museo",
+    reto: "Cada grupo elige un artista (Sorolla, Monet, Hokusai o Gaudí), hace una obra a su estilo y la presenta en un museo de clase.",
+    pasos: ["Elegir el artista y mirar sus obras.", "Hacer una obra con su técnica: luz, manchas, ola o trencadís.", "Escribir la cartela con el nombre del artista.", "Hacer de guías del museo para otra clase."],
+    producto: "Un museo de clase con obras al estilo de cuatro artistas.",
+    evaluacion: ["Conoce a Sorolla y Monet.", "Describe La gran ola.", "Conoce a Gaudí y el arte en la calle.", "Nombra museos de España."],
+  },
+});
