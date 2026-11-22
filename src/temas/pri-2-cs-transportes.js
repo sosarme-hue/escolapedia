@@ -134,3 +134,92 @@ module.exports = tema({
   saberes: "Sociedades y territorios: los medios de transporte (terrestres, acuáticos y aéreos), transporte público y privado, movilidad sostenible y seguridad en los desplazamientos",
   ideas: ["Clasificación de juguetes o recortes en tres cajas: tierra, agua y aire.", "Encuesta de cómo venimos al cole y gráfico de barras sencillo.", "Línea del tiempo de los transportes: carro, tren de vapor, coche, avión."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las infraestructuras: carreteras, vías, puertos y aeropuertos", "Conocer los transportes de mercancías", "Saber comportarse en el transporte público", "Descubrir medios de transporte del futuro"],
+  lectura: { titulo: "Un viaje en tren", html: `<p>Daniel y su madre van a visitar a la tía Rosa, que vive en otra ciudad. Esta vez viajan en tren.</p><p>En la estación, miran el panel de salidas.</p><p>—Nuestro tren sale a las 10:15 del andén 4 —lee mamá.</p><p>Pasan el control, buscan el vagón 6 y se sientan en los asientos 12 y 13. Daniel se pone junto a la ventana.</p><p>El tren arranca sin hacer ruido y enseguida va muy rápido. Por la ventana, Daniel ve pasar campos de girasoles, un río, un pueblo con su iglesia y una montaña con molinos de viento.</p><p>—¿Ves esa autopista? —dice mamá—. Por ahí iríamos en coche, pero tardaríamos más y contaminaríamos más.</p><p>Un camión enorme circula por la autopista. Lleva frutas a otra ciudad.</p><p>Daniel lee un cuento, se come un bocadillo y mira por la ventana. Hablan en voz baja para no molestar a los demás viajeros.</p><p>A las doce, el tren llega a la estación. La tía Rosa los espera en el andén con los brazos abiertos.</p>` },
+  tras: {
+    "Transportes terrestres": [
+      ["Caminos para los transportes", `<p>Los medios de transporte necesitan <mark>infraestructuras</mark>: caminos y lugares preparados para circular, salir y llegar.</p><ul><li><b>Carreteras y autopistas</b>: para coches, autobuses, camiones y motos. Las autopistas tienen varios carriles y no tienen cruces.</li><li><b>Vías del tren</b>: dos raíles de hierro. Los trenes salen y llegan a las <b>estaciones</b>.</li><li><b>Puertos</b>: lugares de la costa donde atracan los barcos y se cargan y descargan mercancías.</li><li><b>Aeropuertos</b>: con pistas largas para que los aviones despeguen y aterricen.</li><li>Los <b>túneles</b> atraviesan montañas y los <b>puentes</b> cruzan ríos.</li></ul><p>Construir estas infraestructuras cuesta mucho dinero y trabajo, pero nos permiten viajar y recibir productos de todas partes.</p><p><b>Actividad</b>: busca en un mapa de tu comunidad una autopista, una estación y un aeropuerto.</p>`,
+        L6.filas("Caminos", [["carretera", "coche", cNA], ["vía", "tren", cMO], ["puerto", "barco", cAZ], ["aeropuerto", "avión", cRO]])],
+    ],
+    "Transportes acuáticos": [
+      ["Transporte de mercancías", `<p>Los transportes no solo llevan personas. También llevan <mark>mercancías</mark>: alimentos, ropa, muebles, juguetes, coches…</p><ul><li><b>Camiones</b>: llevan mercancías por carretera hasta las tiendas y los supermercados.</li><li><b>Trenes de mercancías</b>: muy largos, con muchos vagones cargados.</li><li><b>Barcos portacontenedores</b>: enormes barcos que cruzan los océanos cargados con miles de cajas de metal llamadas <b>contenedores</b>.</li><li><b>Aviones de carga</b>: para mercancías que deben llegar muy rápido, como medicinas o flores.</li><li><b>Furgonetas de reparto</b>: llevan los paquetes hasta casa.</li></ul><p>Mira las etiquetas de tus cosas: muchas vienen de países lejanos. ¡Han hecho un gran viaje en barco, tren y camión!</p><p><b>Actividad</b>: busca en casa tres objetos fabricados en otros países.</p>`,
+        H6.rueda("Carga", "MERCANCÍA", [["camión", cNA], ["tren", cMO], ["barco", cAZ], ["avión", cRO]])],
+    ],
+    "Público o privado": [
+      ["Normas en el transporte público", `<p>En el <mark>transporte público</mark> viajamos con muchas personas. Por eso hay que seguir unas normas:</p><ul><li><b>Esperar</b> en la parada o el andén, detrás de la línea de seguridad.</li><li>Dejar <b>salir</b> antes de entrar.</li><li>Pagar el <b>billete</b> o validar la tarjeta.</li><li><b>Ceder el asiento</b> a personas mayores, embarazadas o con discapacidad.</li><li>Hablar en <b>voz baja</b> y usar auriculares para la música.</li><li>No comer ni ensuciar.</li><li><b>Agarrarse</b> bien a las barras si vamos de pie.</li><li>Quitarse la mochila de la espalda para no golpear a nadie.</li></ul><p>El conductor y los demás viajeros merecen respeto. Un «buenos días» y un «gracias» al bajar hacen el viaje más agradable.</p><p><b>Actividad</b>: haced en clase un cartel con las normas del autobús.</p>`,
+        H6.flujo("Autobús", ["esperar|parada", "salir|y entrar", "billete|pagar", "asiento|ceder"], cVE)],
+    ],
+    "Los transportes antes y ahora": [
+      ["Transportes del futuro", `<p>Los científicos e ingenieros están inventando <mark>nuevos transportes</mark> que sean más rápidos, más seguros y que contaminen menos:</p><ul><li><b>Coches eléctricos</b>: funcionan con baterías que se cargan con electricidad. No echan humo.</li><li><b>Coches autónomos</b>: se conducen solos con sensores y cámaras.</li><li><b>Drones de reparto</b>: pequeños aparatos voladores que llevan paquetes.</li><li><b>Trenes muy rápidos</b> que flotan sobre los raíles gracias a imanes.</li><li><b>Taxis voladores</b>: pequeñas aeronaves eléctricas para moverse por las ciudades.</li><li><b>Cohetes</b> que algún día llevarán personas a Marte.</li></ul><p>Pero el transporte más limpio sigue siendo el más sencillo: <b>caminar</b> y la <b>bicicleta</b>.</p><p><b>Actividad</b>: diseña un medio de transporte del futuro y explica cómo funciona.</p>`,
+        H6.dos("Futuro", ["LIMPIO", ["eléctrico", "bici", "a pie"], cVE], ["NUEVO", ["dron", "autónomo", "cohete"], cAZ])],
+    ],
+  },
+  final: [
+    ["Las señales y los profesionales", `<p>Muchas <mark>personas trabajan</mark> en los transportes:</p><ul><li><b>Conductores</b> de autobús, taxi y camión.</li><li><b>Maquinistas</b> de tren.</li><li><b>Pilotos</b> y azafatas o auxiliares de vuelo.</li><li><b>Capitanes</b> y marineros de barco.</li><li><b>Controladores aéreos</b>: desde una torre dicen a los aviones cuándo pueden despegar y aterrizar.</li><li><b>Mecánicos</b>: revisan y arreglan los vehículos.</li></ul><p>Para que todo funcione sin choques, cada transporte tiene sus <b>señales</b>: los semáforos y señales de tráfico en la carretera; las señales y luces de las vías en el tren; los faros y boyas en el mar; las luces de la pista en los aeropuertos.</p><p><b>Actividad</b>: elige un profesional del transporte y dibuja su uniforme.</p>`,
+      L6.filas("Trabajan", [["maquinista", "tren", cMO], ["piloto", "avión", cRO], ["capitán", "barco", cAZ], ["controlador", "torre", cVE]])],
+    ["Repaso: un viaje en tren", `<p>Repasamos con la <mark>lectura</mark> de Daniel:</p><ul><li>El tren sale de la <b>estación</b> a las 10:15 del <b>andén</b> 4.</li><li>Buscan el <b>vagón</b> 6 y sus asientos numerados.</li><li>El tren es un transporte <b>público</b> y <b>terrestre</b>.</li><li>Por la ventana ven una <b>autopista</b>: otra infraestructura.</li><li>El camión lleva <b>mercancías</b>: frutas.</li><li>Viajar en tren <b>contamina menos</b> que ir en coche.</li><li>Hablan en <b>voz baja</b> para no molestar: respetan las normas.</li><li>El viaje dura menos de dos horas.</li></ul><p><b>Actividad</b>: cuenta un viaje que hayas hecho y qué transporte usaste.</p>`,
+      H6.flujo("Viaje", ["estación|10:15", "vagón|6", "paisaje|ventana", "llegada|12:00"], cNA)],
+  ],
+  ejemplos: [
+    ["¿Dónde salen y llegan los aviones?", ["Necesitan pistas largas."], "En los aeropuertos."],
+    ["Sube al autobús una persona mayor y no hay sitio. ¿Qué haces?", ["Norma del transporte público."], "Le cedo mi asiento."],
+  ],
+  errores: ["Entrar en el autobús antes de dejar salir.", "Pensar que los transportes solo llevan personas."],
+  ejercicios: [
+    ["b", "¿Por dónde circula el tren?", "Por las vías."],
+    ["b", "¿Dónde atracan los barcos?", "En los puertos."],
+    ["b", "¿Qué lleva un camión?", "Mercancías."],
+    ["b", "Di una norma del autobús.", "Ceder el asiento, hablar bajo…"],
+    ["b", "¿Qué es un coche eléctrico?", "Un coche que funciona con baterías."],
+    ["m", "¿Qué son los contenedores?", "Cajas de metal para llevar mercancías en barco."],
+    ["m", "¿A quién cedemos el asiento?", "A mayores, embarazadas y personas con discapacidad."],
+    ["m", "¿Para qué sirven los túneles y los puentes?", "Para atravesar montañas y cruzar ríos."],
+    ["m", "¿Qué hace un controlador aéreo?", "Dice a los aviones cuándo despegar y aterrizar."],
+    ["m", "¿Cuál es el transporte más limpio?", "Caminar o la bicicleta."],
+    ["a", "En la lectura, ¿de qué andén sale el tren?", "Del andén 4."],
+    ["a", "¿Por qué la madre prefiere el tren al coche?", "Tarda menos y contamina menos."],
+    ["a", "Explica el viaje de un juguete fabricado en otro país.", "Barco, tren o camión y furgoneta hasta la tienda."],
+    ["a", "Inventa un transporte del futuro.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Los aviones aterrizan en…", ["aeropuertos", "puertos", "estaciones"], "Infraestructuras."],
+    ["Los barcos con cajas de metal son…", ["portacontenedores", "veleros", "canoas"], "Mercancías."],
+    ["Antes de entrar en el autobús hay que…", ["dejar salir", "empujar", "gritar"], "Normas."],
+    ["Un coche que se conduce solo es…", ["autónomo", "antiguo", "de pedales"], "Futuro."],
+    ["Conduce el tren el…", ["maquinista", "piloto", "capitán"], "Profesionales."],
+  ],
+  examen: [
+    ["En la lectura, ¿a quién visitan Daniel y su madre?", ["a la tía Rosa", "al abuelo", "a un amigo"], "Lectura."],
+    ["¿Qué lleva el camión?", ["frutas", "coches", "personas"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Infraestructuras", "Carreteras, vías, puertos y aeropuertos."],
+    ["Transporte público", "Esperar, dejar salir, ceder el asiento."],
+  ],
+  glosario: [
+    ["Infraestructura", "Construcción que permite el transporte."],
+    ["Autopista", "Carretera ancha sin cruces."],
+    ["Andén", "Lugar de la estación donde se sube al tren."],
+    ["Vagón", "Cada parte de un tren."],
+    ["Puerto", "Lugar de la costa donde atracan los barcos."],
+    ["Mercancía", "Cosa que se transporta para vender."],
+    ["Contenedor", "Caja grande de metal para mercancías."],
+    ["Maquinista", "Persona que conduce el tren."],
+    ["Coche eléctrico", "Coche que funciona con baterías."],
+    ["Dron", "Pequeño aparato volador sin piloto."],
+  ],
+  situacion: {
+    titulo: "Agencia de viajes",
+    reto: "La clase se convierte en una agencia de viajes y planifica un viaje eligiendo el transporte más adecuado y menos contaminante.",
+    pasos: ["Elegir un destino en el mapa.", "Comparar cómo llegar en coche, tren, avión o barco.", "Elegir el transporte más adecuado y explicar por qué.", "Hacer un folleto con el viaje y las normas del transporte."],
+    producto: "Un folleto de viaje con el transporte elegido.",
+    evaluacion: ["Conoce las infraestructuras.", "Sabe qué transportes llevan mercancías.", "Respeta las normas del transporte público.", "Valora los transportes que contaminan menos."],
+  },
+});

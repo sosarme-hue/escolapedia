@@ -136,3 +136,93 @@ module.exports = tema({
   saberes: "Sociedades y territorios: los trabajos y oficios de la localidad, su clasificación según obtengan, transformen o den servicios, y la igualdad entre hombres y mujeres en el trabajo",
   ideas: ["Entrevista a familiares sobre su trabajo y exposición en clase.", "Mural de la cadena del pan o de la leche con dibujos de cada trabajo.", "Rincón de disfraces y herramientas de juguete para jugar a los oficios."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Seguir el camino de un producto desde el campo hasta casa", "Valorar el trabajo en casa y repartir las tareas", "Saber que hombres y mujeres pueden hacer cualquier trabajo", "Conocer oficios antiguos y oficios nuevos"],
+  lectura: { titulo: "El viaje de la barra de pan", html: `<p>Una mañana, Martina se preguntó cuántas personas habían trabajado para que ella pudiera desayunar una tostada.</p><p>Su abuelo, que había sido agricultor, se lo explicó.</p><p>—Primero, un <b>agricultor</b> siembra el trigo en otoño. Lo cuida todo el invierno y en verano lo cosecha con una cosechadora.</p><p>—¿Y luego?</p><p>—Un <b>camionero</b> lleva el trigo a una fábrica de harina. Allí, unas máquinas muelen los granos hasta convertirlos en polvo blanco.</p><p>—¡La harina!</p><p>—Exacto. Después, el <b>panadero</b> se levanta a las cuatro de la madrugada. Mezcla la harina con agua, levadura y sal, amasa y hornea el pan.</p><p>—Y la <b>dependienta</b> de la panadería nos lo vende —completó Martina.</p><p>—Y no olvides al mecánico que arregla la cosechadora, a la ingeniera que diseñó el horno y a quien limpia la panadería.</p><p>Martina miró su tostada con otros ojos. ¡Detrás de un trozo de pan había muchísimo trabajo!</p>` },
+  tras: {
+    "Trabajos que sacan cosas de la naturaleza": [
+      ["Del campo a la mesa", `<p>Muchos productos que usamos hacen un largo <mark>camino</mark> antes de llegar a casa. En ese camino trabajan muchas personas:</p><ul><li><b>1. Sector primario</b>: se obtiene la materia prima de la naturaleza. El agricultor cultiva el trigo; el ganadero ordeña la vaca; el pescador pesca.</li><li><b>2. Sector secundario</b>: se transforma la materia prima en una fábrica o un taller. El trigo se convierte en harina; la leche, en yogur o queso.</li><li><b>3. Sector terciario</b>: se lleva y se vende el producto. El camionero lo transporta y el dependiente lo vende en la tienda.</li></ul><p>Por ejemplo, la leche: vaca → granja → fábrica (se envasa) → camión → supermercado → tu desayuno.</p><p>Todos los trabajos de la cadena son necesarios. Si uno falla, el producto no llega.</p><p><b>Actividad</b>: elige un alimento y dibuja su camino hasta tu casa.</p>`,
+        H6.flujo("Leche", ["vaca|granja", "fábrica|envasa", "camión|lleva", "tienda|vende"], cAZ)],
+    ],
+    "Trabajos que dan servicios": [
+      ["El trabajo en casa", `<p>En casa también hay mucho <mark>trabajo</mark>, aunque nadie cobre por hacerlo:</p><ul><li>Cocinar y fregar los platos.</li><li>Lavar, tender y doblar la ropa.</li><li>Barrer, limpiar y ordenar.</li><li>Hacer la compra.</li><li>Cuidar a los bebés, a los mayores y a las mascotas.</li><li>Sacar la basura y reciclar.</li></ul><p>Las tareas de casa son cosa de <b>todos</b>: de los padres, las madres, los abuelos… ¡y de los niños también! Cuando nos repartimos las tareas, nadie se cansa demasiado y tenemos más tiempo para estar juntos.</p><p>Los niños de tu edad pueden:</p><ul><li>Hacer la cama y ordenar su habitación.</li><li>Poner y quitar la mesa.</li><li>Llevar la ropa sucia al cesto.</li><li>Dar de comer a la mascota.</li></ul><p><b>Actividad</b>: haz un cuadro de tareas para tu familia, con una tarea para cada persona.</p>`,
+        L6.filas("Yo ayudo", [["cama", "hacerla", cAZ], ["mesa", "poner", cVE], ["ropa", "al cesto", cNA], ["mascota", "comida", cRO]])],
+    ],
+    "Todos los trabajos son importantes": [
+      ["Trabajos para todos", `<p>Hace años se pensaba que algunos trabajos eran «de hombres» y otros «de mujeres». Hoy sabemos que eso <mark>no es verdad</mark>: cualquier persona puede hacer cualquier trabajo si se prepara para ello.</p><ul><li>Hay <b>mujeres</b> bomberas, pilotos, mecánicas, científicas, futbolistas y astronautas.</li><li>Hay <b>hombres</b> enfermeros, maestros de infantil, cocineros, peluqueros y bailarines.</li></ul><p>Lo importante para elegir un trabajo es:</p><ul><li>Lo que nos <b>gusta</b>.</li><li>Lo que se nos da <b>bien</b>.</li><li>Lo que queremos <b>aprender</b>.</li></ul><p>Algunas mujeres que abrieron camino: Clara Campoamor luchó para que las mujeres pudieran votar; Marie Curie ganó dos premios Nobel de ciencia.</p><p><b>Actividad</b>: dibuja a un compañero o compañera haciendo el trabajo que le gustaría tener de mayor.</p>`,
+        H6.dos("Puedo ser", ["ELLAS", ["bombera", "piloto", "científica"], cMO], ["ELLOS", ["enfermero", "maestro", "cocinero"], cAZ])],
+    ],
+    "¿Para qué sirve? ¿Qué quiero ser?": [
+      ["Oficios de antes y de ahora", `<p>Con el paso del tiempo, algunos <mark>oficios</mark> casi han desaparecido y han aparecido otros nuevos.</p><p><b>Oficios antiguos</b> (hoy hay muy pocos):</p><ul><li>El <b>sereno</b>: vigilaba las calles de noche y tenía las llaves de los portales.</li><li>El <b>afilador</b>: iba por las calles con su silbato afilando cuchillos y tijeras.</li><li>El <b>herrero</b>: hacía herraduras y herramientas de hierro con fuego.</li><li>El <b>lechero</b>: llevaba la leche a las casas.</li></ul><p><b>Oficios nuevos</b>:</p><ul><li><b>Programador</b> de ordenadores y videojuegos.</li><li><b>Piloto de drones</b>.</li><li>Técnico de <b>energía solar</b> y eólica.</li><li>Diseñador de páginas web.</li></ul><p>¡Puede que tú trabajes de mayor en un oficio que todavía no existe!</p><p><b>Actividad</b>: inventa un oficio del futuro y explica qué haría.</p>`,
+        L6.filas("Oficios", [["sereno", "antes", cMO], ["afilador", "antes", cNA], ["programador", "ahora", cAZ], ["drones", "ahora", cVE]]),
+        ["PiCvbWUdnrU", "Cuando crezca | Canciones Infantiles", "Super Simple Español", 11543487]],
+    ],
+  },
+  final: [
+    ["Visita a un taller", `<p>Una buena forma de conocer un trabajo es <mark>visitar</mark> el lugar donde se hace y entrevistar a quien lo hace.</p><p>Antes de la visita, preparamos <b>preguntas</b>:</p><ul><li>¿Cómo se llama tu trabajo?</li><li>¿Qué haces cada día?</li><li>¿Qué herramientas usas?</li><li>¿Llevas uniforme? ¿Por qué?</li><li>¿Qué estudiaste para hacerlo?</li><li>¿Qué es lo que más te gusta? ¿Y lo más difícil?</li></ul><p>Durante la visita hay que:</p><ul><li>Escuchar con atención.</li><li>No tocar las herramientas sin permiso.</li><li>Apuntar o dibujar lo que vemos.</li><li>Dar las gracias al final.</li></ul><p>Podemos visitar una panadería, un taller mecánico, una granja, una fábrica o el parque de bomberos.</p><p><b>Actividad</b>: prepara tres preguntas para entrevistar a un familiar sobre su trabajo.</p>`,
+      H6.rueda("Entrevista", "VISITA", [["preguntar", cAZ], ["escuchar", cVE], ["apuntar", cNA], ["gracias", cRO]])],
+    ["Repaso: el viaje de la barra de pan", `<p>Repasamos con la <mark>lectura</mark> de Martina:</p><ul><li>El <b>agricultor</b> siembra y cosecha el trigo: sector primario.</li><li>El <b>camionero</b> lleva el trigo a la fábrica: transporte.</li><li>En la fábrica de <b>harina</b> se muelen los granos: sector secundario.</li><li>El <b>panadero</b> amasa y hornea el pan de madrugada.</li><li>La <b>dependienta</b> vende el pan: sector terciario.</li><li>También ayudan el mecánico, la ingeniera y quien limpia.</li></ul><p>Detrás de cada cosa que usamos hay el trabajo de muchas personas. Por eso todos los trabajos merecen respeto.</p><p><b>Actividad</b>: haz una cadena de dibujos con el viaje del pan.</p>`,
+      H6.flujo("Pan", ["campo|trigo", "fábrica|harina", "horno|pan", "tienda|vende"], cNA)],
+  ],
+  ejemplos: [
+    ["¿Qué trabajadores hacen falta para que llegue un yogur?", ["Ganadero, fábrica, transporte, tienda."], "Ganadero, trabajador de la fábrica, camionero y dependiente."],
+    ["¿Puede una mujer ser bombera?", ["Cualquier persona puede hacer cualquier trabajo."], "Sí."],
+  ],
+  errores: ["Pensar que hay trabajos solo de hombres o solo de mujeres.", "Creer que el trabajo de casa no es trabajo."],
+  ejercicios: [
+    ["b", "¿Quién cultiva el trigo?", "El agricultor."],
+    ["b", "¿Dónde se convierte el trigo en harina?", "En una fábrica de harina."],
+    ["b", "Di una tarea de casa que puedes hacer.", "Hacer la cama, poner la mesa…"],
+    ["b", "¿Qué hacía el afilador?", "Afilaba cuchillos y tijeras."],
+    ["b", "Di un oficio nuevo.", "Programador, piloto de drones…"],
+    ["m", "Ordena: tienda, vaca, fábrica, camión.", "Vaca, fábrica, camión, tienda."],
+    ["m", "¿Por qué hay que repartir las tareas de casa?", "Para que nadie se canse y tengamos más tiempo juntos."],
+    ["m", "¿Qué es importante para elegir un trabajo?", "Lo que nos gusta y se nos da bien."],
+    ["m", "Di dos preguntas para entrevistar a un trabajador.", "¿Qué haces? ¿Qué herramientas usas?"],
+    ["m", "¿A qué sector pertenece el pescador?", "Al primario."],
+    ["a", "En la lectura, ¿a qué hora se levanta el panadero?", "A las cuatro de la madrugada."],
+    ["a", "Nombra los trabajadores del viaje del pan.", "Agricultor, camionero, molinero, panadero, dependienta."],
+    ["a", "¿Por qué ya casi no hay serenos?", "Porque hay porteros automáticos y alumbrado."],
+    ["a", "Inventa un oficio del futuro.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["El agricultor trabaja en el sector…", ["primario", "secundario", "terciario"], "Del campo a la mesa."],
+    ["Las tareas de casa son de…", ["todos", "solo mamá", "nadie"], "Casa."],
+    ["Una mujer puede ser…", ["cualquier cosa", "solo maestra", "solo enfermera"], "Para todos."],
+    ["Un oficio antiguo es el…", ["sereno", "programador", "piloto de drones"], "Oficios."],
+    ["En una visita, al final hay que…", ["dar las gracias", "tocar todo", "irse corriendo"], "Visita."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué se muele en la fábrica?", ["el trigo", "la leche", "la sal"], "Lectura."],
+    ["¿Quién vende el pan?", ["la dependienta", "el agricultor", "el camionero"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Cadena del trabajo", "Obtener, transformar, transportar y vender."],
+    ["Igualdad", "Cualquier persona puede hacer cualquier trabajo."],
+  ],
+  glosario: [
+    ["Materia prima", "Lo que se saca de la naturaleza para fabricar."],
+    ["Sector primario", "Trabajos que obtienen cosas de la naturaleza."],
+    ["Sector secundario", "Trabajos que transforman en fábricas."],
+    ["Sector terciario", "Trabajos que dan servicios."],
+    ["Cosechadora", "Máquina que recoge el cereal."],
+    ["Harina", "Polvo que sale de moler el trigo."],
+    ["Tarea", "Trabajo que hay que hacer."],
+    ["Sereno", "Antiguo vigilante nocturno de las calles."],
+    ["Afilador", "Persona que afilaba cuchillos."],
+    ["Entrevista", "Conversación con preguntas para conocer algo."],
+  ],
+  situacion: {
+    titulo: "Feria de oficios",
+    reto: "La clase organiza una feria de oficios con entrevistas a familiares y la cadena de trabajo de un producto.",
+    pasos: ["Entrevistar a un familiar sobre su trabajo.", "Preparar un póster con sus herramientas y uniforme.", "Dibujar la cadena de un producto, del campo a casa.", "Presentar los oficios en una feria para otras clases."],
+    producto: "Pósters de oficios y la cadena de un producto.",
+    evaluacion: ["Explica la cadena de un producto.", "Valora el trabajo en casa.", "Defiende la igualdad en los trabajos.", "Compara oficios de antes y de ahora."],
+  },
+});
