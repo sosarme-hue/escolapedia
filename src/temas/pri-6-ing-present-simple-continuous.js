@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Mímica por parejas con preguntas Are you…?", "Encuesta de rutinas de la clase con How often do you…? y gráfico de resultados.", "Describir una foto del patio en presente continuo."],
   fuentes: [["British Council LearnEnglish Kids: present simple and continuous", "https://learnenglishkids.britishcouncil.org/grammar-practice"], ["Cambridge Dictionary: present continuous", "https://dictionary.cambridge.org/grammar/british-grammar/present-continuous"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Pronounce the -s of the third person correctly", "Spell the -ing form without mistakes", "Know which verbs are not used in the continuous", "Use the present continuous for future plans"],
+  lectura: { titulo: "Good morning from space!", html: `<p>Hi! My name is Ana and I'm an astronaut. Right now I <b>am floating</b> inside the International Space Station, about 400 kilometres above the Earth. I <b>am writing</b> this message on a tablet, and my pen <b>is flying</b> next to my head!</p><p>Life here is very different. We <b>don't sleep</b> in beds: we <b>sleep</b> in sleeping bags tied to the wall, so we <b>don't float</b> around at night. Every day we <b>exercise</b> for about two hours, because without gravity our muscles and bones <b>get</b> weak. We <b>eat</b> food from special packets, and we <b>drink</b> water that the station <b>recycles</b> again and again.</p><p>The station <b>goes</b> around the Earth very fast, so we <b>see</b> about sixteen sunrises and sixteen sunsets every day. It's amazing!</p><p>At the moment, my colleague Tom <b>is doing</b> an experiment with plants, and Yuki <b>is talking</b> to the control centre. And me? I <b>am looking</b> out of the window. I can see Spain, and the sun <b>is shining</b> on the sea. Bye for now!</p>` },
+  tras: {
+    "Present simple: affirmative": [
+      ["How do you say the -s?", `<p>In the present simple, the third person (<i>he, she, it</i>) ends in <b>-s</b> or <b>-es</b>. But this ending has <mark>three different sounds</mark>, like the <i>-ed</i> of the past:</p><ul><li><b>/s/</b> after the sounds <i>p, t, k, f</i>: <i>stops, gets, works, laughs</i>. It sounds like the Spanish <i>s</i>.</li><li><b>/z/</b> after vowel sounds and most other consonants: <i>plays, goes, reads, swims, lives</i>. It sounds like a buzzing bee: «zzz».</li><li><b>/ɪz/</b> after the sounds <i>s, z, sh, ch, x</i>, and after <i>ge, ce</i>: <i>watches, washes, kisses, fixes, dances, changes</i>. Here the ending is a <b>new syllable</b>: «WAT-chiz», «DAN-siz».</li></ul><p>Two verbs are special: <b>does</b> is pronounced «daz», not «dus», and <b>says</b> is pronounced «sez», not «seis».</p><p>Practise with this tongue twister: «She <b>watches</b>, <b>washes</b> and <b>fixes</b> the dishes, then she <b>plays</b> and <b>sings</b> and <b>stops</b>.» Clap once for each extra syllable /ɪz/!</p>`,
+        L6.filas("Three sounds of -s", [["/s/", "works · stops · gets", cAZ], ["/z/", "plays · goes · reads", cVE], ["/ɪz/", "watches · dances", cRO], ["special", "does «daz» · says «sez»", cMO]]), ["KSjOA4kOsVM", "Third Person Singular ✏️ GRAMMAR & SPELLING for Kids 🔡 Superlexia ⭐ Episode 19", "Smile and Learn - English", 81282]],
+    ],
+    "Present continuous: form": [
+      ["Spelling the -ing form", `<p>Most verbs just add <b>-ing</b>: <i>read → reading, play → playing, go → going</i>. But there are some spelling rules:</p><ul><li>Verbs ending in <b>-e</b> lose the <i>e</i>: <i>make → making, write → writing, dance → dancing, ride → riding</i>. But <i>see → seeing</i> (ee stays).</li><li>Verbs ending in <b>-ie</b> change to <b>-y</b>: <i>lie → lying, die → dying, tie → tying</i>.</li><li>Short verbs ending in <b>one vowel + one consonant</b> double the consonant: <i>run → running, swim → swimming, sit → sitting, get → getting, stop → stopping, shop → shopping</i>.</li><li>But we <b>don't</b> double <i>w, x, y</i>: <i>snow → snowing, fix → fixing, play → playing</i>.</li><li>Longer verbs double only if the last syllable is stressed: <i>begin → beginning</i>, but <i>visit → visiting, listen → listening</i>.</li></ul><p>Tip: say the word aloud. In <i>running</i> or <i>swimming</i>, the vowel sound is short; the double consonant protects it. In <i>riding</i> or <i>making</i>, the vowel sound is long.</p>`,
+        L6.filas("-ing spelling", [["+ ing", "read → reading", cAZ], ["-e → -ing", "make → making", cVE], ["-ie → -ying", "lie → lying", cNA], ["double", "run → running", cRO]])],
+    ],
+    "Simple or continuous?": [
+      ["Verbs we don't use in the continuous", `<p>Some verbs describe <b>states</b> (estados), not actions: feelings, thoughts, possession or senses. These <mark>state verbs</mark> are normally <b>not used</b> in the continuous, even when we talk about <i>now</i>:</p><ul><li><b>Feelings</b>: like, love, hate, want, need, prefer. «I <b>want</b> an ice cream now.» (not «I'm wanting»)</li><li><b>Thoughts</b>: know, understand, believe, remember, think (= opinion). «I <b>know</b> the answer.» «I <b>think</b> it's a good idea.»</li><li><b>Possession</b>: have (= own), belong, own. «This bag <b>belongs</b> to me.»</li><li><b>Senses</b>: see, hear, smell, taste. «I <b>hear</b> music.»</li></ul><p>Some of these verbs can be continuous when they mean an <b>action</b>:</p><ul><li>«I <b>have</b> a dog» (possession) but «I'<b>m having</b> lunch» (action: comer).</li><li>«I <b>think</b> you're right» (opinion) but «I'<b>m thinking</b> about my holidays» (action: pensar en).</li></ul><p>Remember the famous advert: «I'm lovin' it» is a play on words. In correct grammar, we say «I love it».</p><p>A good test: ask yourself if you can <b>see</b> the action happening, like a film. You can see someone eating, running or writing, so these verbs work in the continuous. But you can't see someone «knowing» or «belonging»: these are states inside the person or facts about the world, so we use the present simple. With this trick you will avoid one of the most common mistakes of students of English all over the world, such as «I am wanting» or «I am knowing».</p>`,
+        H6.dos("Action or state?", ["Action: -ing OK", ["I'm eating", "I'm having lunch", "I'm thinking about…"], cVE], ["State: no -ing", ["I want", "I know", "I have a dog"], cRO]), ["3aQOLTfnAOc", "State verbs - 6 Minute Grammar", "BBC Learning English", 196112]],
+    ],
+  },
+  final: [
+    ["Present continuous for the future", `<p>The present continuous is not only for <i>now</i>. We also use it to talk about <mark>future plans</mark> that are already <b>arranged</b> (organizados): we know the time and the place, we have tickets or we have spoken to other people.</p><ul><li>«I'<b>m visiting</b> my grandma <b>on Saturday</b>.»</li><li>«We'<b>re flying</b> to London <b>next week</b>. We have the tickets!»</li><li>«What <b>are</b> you <b>doing</b> <b>this weekend</b>?» – «I'<b>m playing</b> in a basketball match.»</li><li>«She <b>isn't coming</b> to the party <b>tomorrow</b>.»</li></ul><p>The important thing is the <b>time expression</b>: <i>tomorrow, tonight, on Saturday, next week, this weekend, at five o'clock</i>. Without it, the sentence talks about now. Compare: «I'm playing football» (ahora mismo) and «I'm playing football tomorrow» (un plan).</p><p><b>En castellano</b> hacemos algo parecido con el presente: «Mañana voy al cine», «El sábado juego un partido».</p><p>A good place to see this tense is a <b>diary</b> or <b>planner</b>: «Monday: I'm having a piano lesson. Wednesday: we're going to the museum.»</p>`,
+      L6.filas("My plans", [["Saturday", "I'm visiting Grandma", cAZ], ["Sunday", "we're having a picnic", cVE], ["next week", "I'm starting judo", cNA], ["tonight", "Dad's cooking pizza", cMO]])],
+    ["School days around the world", `<p>Children all over the world go to school, but their days are not the same. Read and compare with your school:</p><ul><li>In <b>Japan</b>, students <b>clean</b> their classrooms, corridors and toilets themselves at the end of the day. They <b>say</b> it teaches them to respect their school.</li><li>In <b>Finland</b>, children <b>start</b> compulsory school when they are seven years old, and they usually <b>have</b> a short break after each lesson.</li><li>In <b>China</b>, many schools <b>do</b> eye exercises every day: students <b>massage</b> the area around their eyes while music <b>plays</b>.</li><li>In some parts of the world, children <b>walk</b> for more than an hour to get to school, or <b>travel</b> by boat or even by cable car.</li><li>In <b>Spain</b>, most primary pupils <b>have</b> lunch at school and <b>finish</b> in the afternoon.</li></ul><p>Now imagine you are a reporter. Write a short text about your school day with the present simple («We <b>start</b> at nine») and describe a photo of your class with the present continuous («Lucas <b>is reading</b>, the teacher <b>is smiling</b>»).</p>`,
+      H6.rueda("School around the world", "SCHOOL", [["Japan", cRO], ["Finland", cAZ], ["China", cVE], ["Spain", cNA]]), ["MxBfqd639BE", "A look at « Journeys to school », around the world", "UNESCO", 244508]],
+  ],
+  ejemplos: [
+    ["How do you pronounce the -s in «dances»?", ["The verb ends in the sound /s/ (ce).", "After s, z, sh, ch, x and ce, the ending is a new syllable."], "/ɪz/: «DAN-siz»."],
+    ["Correct: «I'm knowing the answer.»", ["Know is a state verb (thought).", "State verbs are not normally continuous."], "I know the answer."],
+  ],
+  errores: ["Decir «I'm wanting» o «I'm knowing»: los verbos de estado no van en continuo.", "Escribir «runing» o «makeing»: hay que doblar la consonante o quitar la e."],
+  ejercicios: [
+    ["b", "Write the -ing form: swim, make, play, lie.", "swimming, making, playing, lying."],
+    ["b", "Which sound? works, plays, watches.", "/s/, /z/, /ɪz/."],
+    ["b", "Choose: «I (want / am wanting) a drink.»", "want."],
+    ["b", "Complete: «We ___ (visit) Grandma tomorrow.»", "are visiting."],
+    ["b", "Where do students clean their classrooms?", "In Japan."],
+    ["m", "Write the -ing form: sit, write, begin, visit.", "sitting, writing, beginning, visiting."],
+    ["m", "Correct: «This book is belonging to me.»", "This book belongs to me."],
+    ["m", "Explain the difference: «I have a cat» / «I'm having breakfast».", "Have = possession (state); having = action (eating)."],
+    ["m", "Write three arranged plans for next weekend.", "Open answer. Example: I'm playing tennis on Saturday."],
+    ["m", "How many sunrises do astronauts see every day on the ISS?", "About sixteen."],
+    ["a", "Write a tongue twister with verbs in /ɪz/.", "Open answer."],
+    ["a", "Why do we write «running» with double n but «raining» with one n?", "Run has one vowel + one consonant; rain has two vowels."],
+    ["a", "Write a dialogue: «What are you doing this weekend?» with three plans.", "Open answer."],
+    ["a", "Write a short report about your school day (present simple) and a photo description (present continuous).", "Open answer."],
+  ],
+  quiz: [
+    ["«Says» is pronounced…", ["sez", "seis", "sais"], "Special verb."],
+    ["The -ing form of «stop» is…", ["stopping", "stoping", "stopeing"], "Double consonant."],
+    ["Which is correct?", ["I understand you.", "I'm understanding you.", "I understanding you."], "State verb."],
+    ["«I'm playing football tomorrow» is about…", ["a future plan", "now", "a habit"], "Future arrangement."],
+    ["In Finland, children start compulsory school at…", ["seven", "three", "ten"], "School days."],
+  ],
+  examen: [
+    ["On the ISS, astronauts sleep…", ["in sleeping bags tied to the wall", "in normal beds", "on the floor"], "Reading."],
+    ["The -ing form of «die» is…", ["dying", "dieing", "diing"], "Spelling."],
+  ],
+  tarjetas: [
+    ["-s sounds", "/s/ works, /z/ plays, /ɪz/ watches; does «daz», says «sez»."],
+    ["-ing spelling", "making, lying, running; but snowing, visiting."],
+    ["State verbs", "like, want, know, understand, belong: no -ing."],
+    ["Future plans", "I'm visiting Grandma on Saturday."],
+  ],
+  glosario: [
+    ["Third person", "Tercera persona: he, she, it."],
+    ["Syllable", "Sílaba."],
+    ["Spelling", "Ortografía, forma de escribir una palabra."],
+    ["Double", "Doblar, duplicar."],
+    ["State verb", "Verbo de estado, que no expresa una acción."],
+    ["Belong", "Pertenecer."],
+    ["Arranged", "Organizado, acordado."],
+    ["Planner", "Agenda."],
+    ["Float", "Flotar."],
+    ["Recycle", "Reciclar."],
+    ["Compulsory", "Obligatorio."],
+    ["Corridor", "Pasillo."],
+  ],
+  situacion: {
+    titulo: "A day in our school",
+    reto: "La clase prepara un vídeo en inglés para enseñar su colegio a una escuela de otro país.",
+    pasos: ["Escribid el guion de un día típico con el present simple.", "Grabad escenas y describid lo que está pasando con el present continuous.", "Añadid los planes de la clase para la semana siguiente con el present continuous de futuro.", "Revisad la pronunciación de -s y -ing y compartid el vídeo con una escuela amiga, por ejemplo por eTwinning."],
+    producto: "Un vídeo en inglés sobre la vida en el colegio.",
+    evaluacion: ["Uses present simple for routines.", "Uses present continuous for now and for plans.", "Pronounces the -s endings correctly.", "Speaks clearly and with confidence."],
+  },
+});

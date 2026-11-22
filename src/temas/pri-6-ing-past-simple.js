@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Juego «dos verdades y una mentira» sobre el fin de semana.", "Diario de clase en inglés escrito por turnos.", "Bingo de verbos irregulares."],
   fuentes: [["British Council LearnEnglish Kids: past simple", "https://learnenglishkids.britishcouncil.org/grammar-practice/past-simple"], ["Cambridge Dictionary: past simple", "https://dictionary.cambridge.org/grammar/british-grammar/past-simple-i-worked"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Talk about past habits with used to", "Learn a bigger list of irregular verbs", "Make subject questions without did", "Use the past continuous with the past simple to tell stories"],
+  lectura: { titulo: "Grandpa's night in 1969", html: `<p>Last Sunday I <b>asked</b> my grandpa about his childhood. He <b>told</b> me a story I will never forget.</p><p>«On the night of 20th July 1969, I <b>was</b> eleven years old. We <b>didn't have</b> a television at home, so we all <b>went</b> to the bar in our village. It <b>was</b> full of people. Everybody <b>was looking</b> at a small black-and-white TV on the wall.</p><p>It <b>was</b> very late, but nobody <b>wanted</b> to go home. Suddenly, the picture <b>changed</b> and we <b>saw</b> a man in a white suit. He <b>was climbing</b> down a ladder very slowly. It <b>was</b> Neil Armstrong. When he <b>stepped</b> on the Moon, everybody in the bar <b>stood up</b> and <b>clapped</b>. My father <b>cried</b>. I <b>didn't understand</b> his words in English, but I <b>knew</b> it <b>was</b> something historic.»</p><p>Grandpa <b>smiled</b>. «We <b>used to</b> look at the Moon every night after that,» he <b>said</b>. «It <b>wasn't</b> just the Moon anymore. People <b>were</b> there.»</p>` },
+  tras: {
+    "What is the past simple?": [
+      ["Used to: past habits", `<p>We use <mark>used to + verb</mark> to talk about <b>habits</b> or <b>situations</b> that were true in the past but are <b>not true now</b>:</p><ul><li>«I <b>used to</b> sleep with a teddy bear.» (Antes dormía con un osito; ahora no.)</li><li>«My grandma <b>used to</b> live in a village.» (Ahora vive en la ciudad.)</li><li>«There <b>used to</b> be a cinema in my street.»</li></ul><p><b>Negatives and questions</b> use <i>did</i>, and then <b>use to</b> without -d:</p><ul><li>«I <b>didn't use to</b> like vegetables.» (Antes no me gustaban.)</li><li>«<b>Did</b> you <b>use to</b> watch cartoons?» – «Yes, I did.»</li></ul><p><b>En castellano:</b> <i>used to</i> equivale muchas veces a nuestro pretérito imperfecto (<i>jugaba, vivía</i>) o a «solía»: «I used to play in the park» = «Jugaba / Solía jugar en el parque».</p><p>Careful: the past simple tells us about <b>one</b> finished action («Yesterday I played in the park»), but <i>used to</i> tells us about something we did <b>many times</b> in the past.</p><p>Try it! Think about when you were five years old. What did you use to eat for breakfast? What toys did you use to play with? Where did you use to go on holiday? Ask a partner and compare your answers: «I used to love dinosaurs. Did you use to love them too?»</p>`,
+        H6.dos("Then and now", ["Then (used to)", ["I used to cry", "I used to crawl", "I used to drink milk"], cNA], ["Now", ["I laugh", "I run", "I drink juice"], cVE])],
+    ],
+    "Irregular verbs": [
+      ["More irregular verbs", `<p>Here is a list of more irregular verbs that you will use a lot. Read them aloud in groups of five and test yourself every day:</p><ul><li><b>be</b> → was / were · <b>become</b> → became · <b>begin</b> → began · <b>break</b> → broke · <b>bring</b> → brought</li><li><b>catch</b> → caught · <b>choose</b> → chose · <b>drink</b> → drank · <b>drive</b> → drove · <b>fall</b> → fell</li><li><b>feel</b> → felt · <b>find</b> → found · <b>fly</b> → flew · <b>forget</b> → forgot · <b>give</b> → gave</li><li><b>know</b> → knew · <b>leave</b> → left · <b>lose</b> → lost · <b>meet</b> → met · <b>ride</b> → rode</li><li><b>run</b> → ran · <b>sleep</b> → slept · <b>speak</b> → spoke · <b>take</b> → took · <b>tell</b> → told</li><li><b>wear</b> → wore · <b>win</b> → won · <b>throw</b> → threw · <b>understand</b> → understood · <b>stand</b> → stood</li></ul><p><b>Tips:</b> make flashcards with the verb on one side and the past on the other; write a funny sentence with each one («I <b>forgot</b> my shoes and <b>lost</b> my hat!»); or sing them with a rhythm. Many verbs follow patterns: <i>know → knew, throw → threw, fly → flew</i>; <i>sleep → slept, feel → felt, leave → left, meet → met</i>.</p>`,
+        L6.filas("Patterns", [["-ew", "know → knew, fly → flew", cAZ], ["-t", "sleep → slept, feel → felt", cVE], ["-o-e", "drive → drove, ride → rode", cNA], ["-ood", "stand → stood", cMO]])],
+    ],
+    "Questions with did": [
+      ["Who broke the window?", `<p>Usually, past questions need <b>did</b>: «What <b>did</b> you <b>eat</b>?», «Where <b>did</b> she <b>go</b>?». But there is an important exception!</p><p>When the question word (<i>who</i> or <i>what</i>) is the <mark>subject</mark> of the sentence, that is, when we ask <b>who did the action</b>, we <b>don't use did</b>, and the verb stays in the <b>past</b>:</p><ul><li>«<b>Who broke</b> the window?» – «Tom did.» (not «Who did break…?»)</li><li>«<b>Who ate</b> my sandwich?» – «The dog did!»</li><li>«<b>What happened</b>?» – «There was an accident.»</li><li>«<b>Who won</b> the match?» – «Spain won.»</li></ul><p>Compare these two questions:</p><ul><li>«<b>Who did you see</b> at the party?» – «I saw Ana.» (<i>you</i> is the subject; we ask about the object.)</li><li>«<b>Who saw</b> you at the party?» – «Ana saw me.» (<i>who</i> is the subject.)</li></ul><p><b>En castellano</b> no tenemos este problema, porque no usamos un auxiliar como <i>did</i>: «¿Quién rompió la ventana?» y «¿A quién viste?».</p>`,
+        H6.dos("With or without did?", ["With did", ["Who did you see?", "What did you eat?", "about the object"], cAZ], ["No did", ["Who saw you?", "What happened?", "about the subject"], cRO])],
+    ],
+  },
+  final: [
+    ["Past continuous: what were you doing?", `<p>To tell stories we often need another past tense: the <mark>past continuous</mark>. We form it with <b>was / were + verb-ing</b>:</p><ul><li>«I <b>was reading</b> a comic.» · «They <b>were playing</b> football.»</li><li>Negative: «She <b>wasn't sleeping</b>.» · Question: «What <b>were</b> you <b>doing</b>?»</li></ul><p>We use it for an action that was <b>in progress</b> at a moment in the past: «At eight o'clock last night I <b>was having</b> dinner.»</p><p>It is very useful together with the past simple. The <b>past continuous</b> is the long background action, and the <b>past simple</b> is the short action that <b>interrupts</b> it. We join them with <b>when</b> or <b>while</b>:</p><ul><li>«I <b>was having</b> a shower <b>when</b> the phone <b>rang</b>.»</li><li>«<b>While</b> we <b>were walking</b> in the forest, we <b>saw</b> a deer.»</li><li>«It <b>was raining</b> when we <b>arrived</b>.»</li></ul><p><b>En castellano</b> se parece a «estaba + gerundio»: «Estaba duchándome cuando sonó el teléfono».</p>`,
+      L6.filas("Long and short actions", [["was having a shower", "long (continuous)", cAZ], ["when the phone rang", "short (simple)", cRO], ["while we were walking", "long", cAZ], ["we saw a deer", "short", cRO]]), ["Da4urI725-E", "Past Simple | Past Continuous | when", "DK Kids", 381040]],
+    ["Famous firsts", `<p>History is full of «firsts». Read these sentences and look at the past simple verbs:</p><ul><li>In <b>1903</b>, the Wright brothers <b>flew</b> the first powered plane in the USA. The first flight <b>lasted</b> only 12 seconds!</li><li>In <b>1928</b>, Alexander Fleming <b>discovered</b> penicillin, the first antibiotic, by accident: some mould <b>grew</b> in one of his dishes.</li><li>In <b>1953</b>, Edmund Hillary and Tenzing Norgay <b>reached</b> the top of Mount Everest for the first time.</li><li>In <b>1963</b>, Valentina Tereshkova <b>became</b> the first woman in space.</li><li>On <b>20th July 1969</b>, Neil Armstrong <b>walked</b> on the Moon. He <b>said</b>: «That's one small step for man, one giant leap for mankind.»</li><li>In <b>1903</b>, Marie Curie <b>won</b> the Nobel Prize. She <b>was</b> the first woman to win it, and later she <b>won</b> a second one.</li></ul><p>Spain has some famous firsts too. In <b>1888</b>, Isaac Peral <b>launched</b> one of the first electric submarines in the world. In <b>1906</b>, Santiago Ramón y Cajal <b>became</b> the first Spanish scientist to win a Nobel Prize, for his discoveries about the nerve cells of the brain. And in <b>1923</b>, Juan de la Cierva <b>flew</b> his autogiro, an aircraft with a rotor on top, the grandfather of the modern helicopter. All of them <b>worked</b> for years, <b>made</b> many mistakes and <b>tried</b> again and again before they <b>succeeded</b>.</p><p>Now it's your turn: find out about a «first» in your town or your family and write three sentences about it in the past simple. When <b>did</b> it happen? Who <b>did</b> it? What <b>happened</b> next?</p>`,
+      H6.flujo("Famous firsts", ["1903|first plane", "1953|Everest", "1963|in space", "1969|the Moon"], cAZ), ["CbTaDOuSePk", "Apollo 11 - The First Moon Walk | Things You Wanna Know | Nat Geo Kids", "Nat Geo Kids", 888494]],
+  ],
+  ejemplos: [
+    ["Write with used to: «When I was little, I watched cartoons every morning. Now I don't.»", ["It is a past habit.", "It isn't true now."], "I used to watch cartoons every morning."],
+    ["Complete: «I ___ (play) the piano when my sister ___ (come) in.»", ["The long action: past continuous.", "The short action: past simple."], "I was playing the piano when my sister came in."],
+  ],
+  errores: ["Preguntar «Who did break the window?»: cuando who es el sujeto, no se usa did.", "Escribir «didn't used to» en lugar de «didn't use to»."],
+  ejercicios: [
+    ["b", "Write the past: catch, drink, fly, win.", "caught, drank, flew, won."],
+    ["b", "Complete: «I ___ to have long hair.» (used)", "used."],
+    ["b", "What year did Neil Armstrong walk on the Moon?", "In 1969."],
+    ["b", "Choose: «Who (ate / did eat) my cake?»", "ate."],
+    ["b", "Complete: «They ___ (play) football at five o'clock.»", "were playing."],
+    ["m", "Write two things you used to do when you were little.", "Open answer. Example: I used to sleep with a teddy bear."],
+    ["m", "Make a question with did: «You met Ana at the park.»", "Who did you meet at the park?"],
+    ["m", "Make a subject question: «Mario won the race.»", "Who won the race?"],
+    ["m", "Join with when: «I was walking home. It started to rain.»", "I was walking home when it started to rain."],
+    ["m", "Who was Valentina Tereshkova?", "The first woman in space (1963)."],
+    ["a", "Write a negative and a question with used to.", "Open answer. Example: I didn't use to like fish. Did you use to play with dolls?"],
+    ["a", "Explain the difference between «I played tennis yesterday» and «I used to play tennis».", "The first is one finished action; the second is a past habit that is not true now."],
+    ["a", "Write a short story (5 sentences) with two past continuous and three past simple verbs.", "Open answer."],
+    ["a", "Interview an older person about their childhood and write five sentences with used to.", "Open answer."],
+  ],
+  quiz: [
+    ["«I ___ use to like broccoli.»", ["didn't", "don't", "wasn't"], "Negative of used to."],
+    ["The past of «leave» is…", ["left", "leaved", "leaft"], "Irregular."],
+    ["«What ___?» – «There was an accident.»", ["happened", "did happen", "happens"], "Subject question."],
+    ["«While we ___ dinner, the lights went out.»", ["were having", "had", "are having"], "Past continuous."],
+    ["The first woman to win a Nobel Prize was…", ["Marie Curie", "Valentina Tereshkova", "Anne Frank"], "1903."],
+  ],
+  examen: [
+    ["Grandpa watched the Moon landing…", ["in a bar in his village", "at home", "at school"], "Reading."],
+    ["The past of «understand» is…", ["understood", "understanded", "understand"], "Irregular."],
+  ],
+  tarjetas: [
+    ["Used to", "Past habits: I used to play… / I didn't use to… / Did you use to…?"],
+    ["More irregulars", "caught, chose, felt, knew, left, slept, took, wore, won."],
+    ["Subject questions", "Who broke…? What happened? – no did."],
+    ["Past continuous", "was/were + -ing; long action interrupted by past simple (when/while)."],
+  ],
+  glosario: [
+    ["Used to", "Expresión para hábitos pasados (solía)."],
+    ["Habit", "Hábito, algo que se hace a menudo."],
+    ["Irregular verb", "Verbo que no forma el pasado con -ed."],
+    ["Subject", "Sujeto: quien hace la acción."],
+    ["Subject question", "Pregunta sobre quién hace la acción, sin did."],
+    ["Past continuous", "Pasado continuo: was/were + -ing."],
+    ["Interrupt", "Interrumpir."],
+    ["While", "Mientras."],
+    ["Powered plane", "Avión con motor."],
+    ["Mould", "Moho."],
+    ["Reach", "Llegar a, alcanzar."],
+    ["Mankind", "La humanidad."],
+  ],
+  situacion: {
+    titulo: "When I was little",
+    reto: "La clase prepara un libro de recuerdos en inglés con historias de la infancia de sus familias.",
+    pasos: ["Entrevistad a un familiar mayor sobre cómo era su vida de niño.", "Escribid cinco frases con used to y tres con past simple sobre su infancia.", "Contad una anécdota usando el past continuous y el past simple con when o while.", "Reunid todas las historias con fotos en un libro y presentadlas en clase."],
+    producto: "Un libro de recuerdos en inglés: «When they were little».",
+    evaluacion: ["Uses used to for past habits.", "Uses irregular verbs correctly.", "Combines past continuous and past simple.", "Speaks clearly when presenting."],
+  },
+});
